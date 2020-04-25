@@ -1,5 +1,5 @@
 ---
-title: Azure 마켓플레이스에서 기존 VM 오퍼 업데이트
+title: Azure Marketplace에서 기존 VM 제품 업데이트
 description: Azure Marketplace에서 기존 VM 제안을 업데이트하는 방법을 설명합니다.
 author: dsindona
 ms.service: marketplace
@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: dsindona
-ms.openlocfilehash: a15ccb1de2a9ce0072d032e624ead3b4d730763b
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 934be24d07c01c76c8caf5e16af4b765df79c964
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273055"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142908"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Azure Marketplace에서 기존 VM 제안 업데이트
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 가상 [컴퓨터 만들기 의](https://aka.ms/CreateAzureVMoffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 Azure Virtual Machine 제품의 관리를 파트너 센터로 전환 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [Azure Virtual Machine 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
-이 문서에서는 [Cloud 파트너 포털](https://cloudpartner.azure.com/)에서 VM(가상 머신) 제안을 업데이트한 다음, 해당 제안을 다시 게시하는 다양한 측면을 안내합니다. 
+이 문서에서는 [Cloud 파트너 포털](https://cloudpartner.azure.com/)에서 VM(가상 머신) 제안을 업데이트한 다음, 해당 제안을 다시 게시하는 다양한 측면을 안내합니다.
 
 제안을 업데이트하게 되는 일반적인 이유는 다음과 같습니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "81273055"
 이러한 수정 작업을 지원하기 위해 포털에서 **비교** 및 **기록** 기능을 제공합니다.  
 
 >[!Note]
->이제 CSP(클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다.  Microsoft CSP 파트너 채널을 통한 오퍼 마케팅에 대한 자세한 내용은 [클라우드 솔루션 공급자를](../../cloud-solution-providers.md) 참조하십시오.
+>이제 CSP (클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다.  Microsoft CSP 파트너 채널을 통한 제품 마케팅에 대 한 자세한 내용은 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) 를 참조 하세요.
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>VM 제안 또는 SKU에 허용되지 않는 변경
 
@@ -78,7 +78,7 @@ VM 제안에서 변경할 수 있는 특성은 다양하지만 일반적인 작�
 
 1.  [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인합니다.
 
-2.  **모든 제안에서** 업데이트하려는 제안을 찾을 수 있습니다.
+2.  **모든 제품** 에서 업데이트할 제품을 찾습니다.
 
 3.  **SKU** 탭에서 가용성을 수정하려는 SKU를 클릭합니다.
 
@@ -97,7 +97,7 @@ VM 제안에서 변경할 수 있는 특성은 다양하지만 일반적인 작�
 
 1.  [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인합니다.
 
-2.  **모든 제안에서** 업데이트하려는 제안을 찾을 수 있습니다.
+2.  **모든 제품** 에서 업데이트할 제품을 찾습니다.
 
 3.  **SKU** 탭 아래에서 **새 SKU 추가**를 클릭하고, 팝업에서 **SKU ID**를 제공합니다.
 
@@ -112,7 +112,7 @@ VM 제안에서 변경할 수 있는 특성은 다양하지만 일반적인 작�
 
 1.  [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인합니다.
 
-2.  **모든 제안에서** 업데이트하려는 제안을 찾을 수 있습니다.
+2.  **모든 제품** 에서 업데이트할 제품을 찾습니다.
 
 3.  **Marketplace** 탭으로 이동한 다음, 문서 [Azure Marketplace에 가상 머신 게시](./cpp-publish-offer.md)의 지침에 따라 메타데이터를 변경합니다.
 
@@ -121,7 +121,7 @@ VM 제안에서 변경할 수 있는 특성은 다양하지만 일반적인 작�
 
 ### <a name="update-pricing-on-published-offers"></a>게시된 제안 가격 업데이트
 
-종량제 제안이 게시되면 SKU 가격을 직접 높일 수 없습니다.  그러나 동일한 오퍼에서 새 SKU를 만들고 이전 SKU를 삭제한 다음 새 고객을 위해 제품을 다시 게시할 수 있습니다.  반대로 다음 단계를 사용하여 게시된 제품의 가격을 낮출 수 있습니다.
+종량제 제안이 게시되면 SKU 가격을 직접 높일 수 없습니다.  (그러나 동일한 제품에서 새 SKU를 만들고 이전 SKU를 삭제 한 다음 새 고객을 위해 제품을 다시 게시할 수 있습니다.)  반면, 다음 단계에 따라 게시 된 제품의 가격을 낮출 수 있습니다.
 
 1.  [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인합니다.
 

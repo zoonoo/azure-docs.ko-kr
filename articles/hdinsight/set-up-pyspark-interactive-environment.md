@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight 도구를 사용하여 파이스파크 인터랙티브 환경
+title: Azure HDInsight Tools를 사용 하 여 대화형 환경 PySpark
 description: Azure HDInsight Tools for Visual Studio Code를 사용하여 쿼리와 스크립트를 만들고 제출하는 방법에 대해 알아봅니다.
 keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,대화형 Hive,대화형 쿼리
 author: hrasheed-msft
@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: 2a725f3c5c9e1428079807b5b76dbe72d416a9c7
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.date: 04/23/2020
+ms.openlocfilehash: d9a3356ea18ccf4660d05b3fade9d9e6d6cbb5ee
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393668"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131337"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio Code용 PySpark 대화형 환경 설정
 
@@ -21,16 +21,16 @@ ms.locfileid: "81393668"
 
 **python/pip** 명령을 사용하여 홈 경로에서 가상 환경을 빌드합니다. 다른 버전을 사용하려면 **python/pip** 명령의 기본 버전을 수동으로 변경해야 합니다. 자세한 내용은 [update-alternatives](https://linux.die.net/man/8/update-alternatives)를 참조하세요.
 
-1. [파이썬을](https://www.python.org/downloads/) 설치하고 [핍](https://pip.pypa.io/en/stable/installing/).
+1. [Python](https://www.python.org/downloads/) 및 [pip](https://pip.pypa.io/en/stable/installing/)를 설치 합니다.
 
-   + 에서 파이썬을 설치합니다. [https://www.python.org/downloads/](https://www.python.org/downloads/)
-   + 에서 [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) 핍을 설치하십시오 (파이썬 설치에서 설치되지 않은 경우).
-   + 다음 명령을 사용하여 파이썬 및 핍이 성공적으로 설치되어 있는지 확인합니다. (선택 사항)
+   * 에서 Python을 [https://www.python.org/downloads/](https://www.python.org/downloads/)설치 합니다.
+   * (Python 설치 [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) 에서 설치 되지 않은 경우)에서 pip를 설치 합니다.
+   * 다음 명령을 사용 하 여 Python 및 pip가 성공적으로 설치 되었는지 확인 합니다. (선택 사항)
 
-        ![파이썬 핍 버전 명령 확인](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+        ![Python pip 버전 명령 확인](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
      > [!NOTE]
-     > macOS 기본 버전을 사용하는 대신 수동으로 파이썬을 설치하는 것이 좋습니다.
+     > MacOS 기본 버전을 사용 하는 대신 Python을 수동으로 설치 하는 것이 좋습니다.
 
 2. 아래 명령을 실행하여 **virtualenv**를 설치합니다.
 
@@ -40,9 +40,9 @@ ms.locfileid: "81393668"
 
 ## <a name="other-packages"></a>기타 패키지
 
-오류 메시지가 발생하면 다음 명령을 실행하여 필요한 패키지를 설치합니다.
+오류 메시지가 표시 되 면 다음 명령을 실행 하 여 필요한 패키지를 설치 합니다.
 
-   ![파이썬을위한 libkrb5 패키지를 설치](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+   ![Python 용 libkrb5-dev 패키지 설치](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
 
 ```bash
 sudo apt-get install libkrb5-dev
@@ -64,12 +64,4 @@ VS Code를 다시 시작하고 **HDInsight: PySpark 대화형**을 실행하는 
 
 * [Azure HDInsight Tool for Visual Studio Code 사용](hdinsight-for-vscode.md)
 * [IntelliJ용 Azure 도구 키트를 사용하여 Apache Spark Scala 애플리케이션 만들기 및 제출](spark/apache-spark-intellij-tool-plugin.md)
-* [Azure Toolkit for IntelliJ를 사용하여 SSH를 통해 원격으로 Apache Spark 애플리케이션 디버그](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Azure Toolkit for IntelliJ를 사용하여 VPN을 통해 원격으로 Apache Spark 애플리케이션 디버그](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Azure Toolkit for Eclipse의 HDInsight 도구를 사용하여 Apache Spark 애플리케이션 만들기](spark/apache-spark-eclipse-tool-plugin.md)
-* [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](spark/apache-spark-zeppelin-notebook.md)
-* [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](spark/apache-spark-jupyter-notebook-kernels.md)
-* [Jupyter 노트북에서 외부 패키지 사용](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [Azure HDInsight에서 Microsoft Power BI를 사용하여 Apache Hive 데이터 시각화](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Azure HDInsight에서 Apache Zeppelin을 사용하여 Apache Hive 쿼리 실행](./interactive-query/hdinsight-connect-hive-zeppelin.md)

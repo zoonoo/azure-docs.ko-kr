@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/27/2020
+ms.date: 03/27/2020
 ms.author: radeltch
-ms.openlocfilehash: ac8ffba279fac338f3d28cec2f0d671be740150e
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
-ms.translationtype: MT
+ms.openlocfilehash: 436e9c6b8bdff42680d7aa5b941822090f668855
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164749"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82127655"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램용 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
 
@@ -71,19 +71,19 @@ ms.locfileid: "78164749"
   * 지원되는 SAP 소프트웨어 및 운영 체제(OS)와 데이터베이스 조합
   * Microsoft Azure에서 Windows 및 Linux에 필요한 SAP 커널 버전
 * SAP Note [2015553][2015553]는 Azure에서 SAP을 지원하는 SAP 소프트웨어 배포에 대한 필수 구성 요소를 나열합니다.
-* SAP Note [2205917][2205917]에는 SAP 애플리케이션용 SUSE Linux Enterprise Server에 권장되는 OS 설정이 나와 있습니다.
+* Sap Note [2205917][2205917] 에는 Sap 응용 프로그램의 SUSE Linux Enterprise Server에 대 한 OS 설정이 권장 됩니다.
 * SAP Note [1944799][1944799]에는 SAP 애플리케이션용 SUSE Linux Enterprise Server에 대한 SAP HANA 지침이 나와 있습니다.
 * SAP Note [2178632][2178632]는 Azure에서 SAP에 대해 보고된 모든 모니터링 메트릭에 대한 자세한 정보를 포함하고 있습니다.
 * SAP Note [2191498][2191498]는 Azure에서 Linux에 필요한 SAP Host Agent 버전을 포함하고 있습니다.
 * SAP Note [2243692][2243692]는 Azure에서 Linux의 SAP 라이선스에 대한 정보를 포함하고 있습니다.
 * SAP Note [1984787][1984787]은 SUSE LINUX Enterprise Server 12에 대한 일반 정보를 포함하고 있습니다.
 * SAP Note [1999351][1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
-* SAP Community WIKI] (https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)에는 Linux에 필요한 모든 SAP 노트가 있습니다.
-* [Linux에서 SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [Linux에서 SAP 용 Azure Virtual Machines 배포][deployment-guide]
-* [Linux에서 SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* [SUSE SAP HA 모범 사례 가이드][suse-ha-guide] 이 가이드에는 온-프레미스에서 Netweaver HA 및 SAP HANA 시스템 복제를 설정 하는 데 필요한 모든 정보가 포함 되어 있습니다. 이 가이드를 일반 기준으로 사용하세요. 여기서 훨씬 더 자세한 정보를 제공합니다.
-* [SUSE 고가용성 확장 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
+* SAP Community WIKI] (https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) Linux에 필요한 모든 sap note를 포함 합니다.
+* [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [Linux에서 SAP용 Azure Virtual Machines 배포][deployment-guide]
+* [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* [SUSE SAP HA 모범 사례 가이드][suse-ha-guide] 이 가이드에는 Netweaver HA 및 SAP HANA 시스템 복제 온-프레미스를 설정하는 데 필요한 모든 정보가 포함됩니다. 이 가이드를 일반 기준으로 사용하세요. 여기서 훨씬 더 자세한 정보를 제공합니다.
+* [SUSE High Availability Extension 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
 * [Azure NetApp Files를 사용 하 여 Microsoft Azure에서 NetApp SAP 응용 프로그램][anf-sap-applications-azure]
 
 ## <a name="overview"></a>개요
@@ -94,7 +94,7 @@ SAP Netweaver central services에 대 한 HA (고가용성)에는 공유 저장�
 이제 Azure NetApp Files에 배포 된 공유 저장소를 사용 하 여 SAP Netweaver HA를 달성할 수 있습니다. 공유 저장소에 Azure NetApp Files를 사용 하면 추가 [NFS 클러스터가](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)필요 하지 않습니다. Pacemaker는 SAP Netweaver central 서비스 (ASCS/SCS)의 HA에 계속 필요 합니다.
 
 
-![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.PNG)
+![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.png)
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서 [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 는 가상 IP 주소를 사용 하는 데 필요 합니다. [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)를 사용 하는 것이 좋습니다. 아래 목록에서는(A)SCS 및 ERS 부하 분산 장치에 대한 구성이 나와 있습니다.
 
@@ -102,17 +102,15 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 
 * 프런트 엔드 구성
   * IP 주소 10.1.1.20
-* 백 엔드 구성
-  * (A)SCS/ERS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
 * 프로브 포트
   * 포트 620<strong>&lt;nr&gt;</strong>
 * 부하 분산 규칙
   * 표준 Load Balancer 사용 하는 경우 **HA 포트** 를 선택 합니다.
   * 기본 Load Balancer 사용 하는 경우 다음 포트에 대 한 부하 분산 규칙을 만듭니다.
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 36<strong>&lt;nr&gt;</strong> TCP
-    * 39<strong>&lt;nr&gt;</strong> TCP
-    * 81<strong>&lt;nr&gt;</strong> TCP
+    * 32<strong>&lt;nr&gt; </strong> TCP
+    * 36<strong>&lt;nr&gt; </strong> TCP
+    * 39<strong>&lt;nr&gt; </strong> TCP
+    * 81<strong>&lt;nr&gt; </strong> TCP
     * 5<strong>&lt;nr&gt;</strong>13 TCP
     * 5<strong>&lt;nr&gt;</strong>14 TCP
     * 5<strong>&lt;nr&gt;</strong>16 TCP
@@ -121,18 +119,20 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 
 * 프런트 엔드 구성
   * IP 주소 10.1.1.21
-* 백 엔드 구성
-  * (A)SCS/ERS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
 * 프로브 포트
   * 포트 621<strong>&lt;nr&gt;</strong>
 * 부하 분산 규칙
   * 표준 Load Balancer 사용 하는 경우 **HA 포트** 를 선택 합니다.
   * 기본 Load Balancer 사용 하는 경우 다음 포트에 대 한 부하 분산 규칙을 만듭니다.
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 33<strong>&lt;nr&gt;</strong> TCP
+    * 32<strong>&lt;nr&gt; </strong> TCP
+    * 33<strong>&lt;nr&gt; </strong> TCP
     * 5<strong>&lt;nr&gt;</strong>13 TCP
     * 5<strong>&lt;nr&gt;</strong>14 TCP
     * 5<strong>&lt;nr&gt;</strong>16 TCP
+
+* 백 엔드 구성
+  * (A)SCS/ERS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
+
 
 ## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Azure NetApp Files 인프라 설정 
 
@@ -152,19 +152,20 @@ Azure NetApp 파일은 여러 [azure 지역](https://azure.microsoft.com/global-
 
 4. [Azure NetApp Files에 서브넷 위임 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet)에 설명 된 대로 Azure netapp 파일에 서브넷을 위임 합니다.  
 
-5. [Azure NetApp Files 볼륨을 만들기 위한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)에 따라 Azure NetApp Files 볼륨을 배포 합니다. 지정 된 Azure NetApp Files [서브넷](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)에 볼륨을 배포 합니다. Azure NetApp Files 리소스와 Azure Vm은 동일한 Azure Virtual Network 또는 피어 링 Azure Virtual Network에 있어야 합니다. 예를 들어 sapmnt<b>QAS</b>, usrsap<b>QAS</b>등은 볼륨 이름 및 sapmnt<b>QAS</b>, usrsap<b>QAS</b>등은 Azure NetApp Files 볼륨의 filepaths입니다.  
+5. [Azure NetApp Files 볼륨을 만들기 위한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)에 따라 Azure NetApp Files 볼륨을 배포 합니다. 지정 된 Azure NetApp Files [서브넷](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)에 볼륨을 배포 합니다. Azure NetApp Files 리소스와 Azure Vm은 동일한 Azure Virtual Network 또는 피어 링 Azure Virtual Network에 있어야 합니다. 이 예제에서는 두 개의 Azure NetApp Files 볼륨 (sap<b>Qas</b> 및 트랜잭션)을 사용 합니다. 해당 탑재 점에 탑재 되는 파일 경로는/usrsap<b>qas</b>/Sapmnt<b>qas</b>,/Usrsap<b>qas</b>/usrsap<b>qas</b>sys 등입니다.  
 
-   1. volume sapmnt<b>QAS</b> (nfs://10.1.0.4/sapmnt<b>QAS</b>)
-   2. volume usrsap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>QAS</b>)
-   3. 볼륨 usrsap<b>QAS</b>sys (nfs://10.1.0.5/usrsap<b>QAS</b>sys)
-   4. volume usrsap<b>QAS</b>ers (nfs://10.1.0.4/usrsap<b>QAS</b>ers)
+   1. volume sap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>QAS</b>/sapmnt<b>QAS</b>)
+   2. volume sap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>QAS</b>/usrsap<b>QAS</b>ascs)
+   3. volume sap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>QAS</b>/usrsap<b>QAS</b>sys)
+   4. volume sap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>QAS</b>/usrsap<b>QAS</b>ers)
    5. 볼륨 트랜잭션 (nfs://10.1.0.4/trans)
-   6. usrsap<b>QAS</b>pas (nfs://10.1.0.5/usrsap<b>QAS</b>pas)
-   7. usrsap<b>QAS</b>.aas (nfs://10.1.0.4/usrsap<b>QAS</b>.aas)
-   
-이 예제에서는 Azure NetApp Files를 사용 하는 방법을 보여 주기 위해 모든 SAP Netweaver 파일 시스템에 대 한 Azure NetApp Files를 사용 했습니다. NFS를 통해 탑재 하지 않아도 되는 SAP 파일 시스템을 [Azure disk storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) 로 배포할 수도 있습니다. 이 예제에서 <b>a-e는</b> Azure NetApp Files에 있어야 하 고 <b>f-g</b> (즉,/usr/sap/<b></b><b>qas</b>/d<b>03</b><b>)를 Azure</b>disk storage로 배포할 수 있습니다. 
+   6. volume sap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>QAS</b>/usrsap<b>QAS</b>pas)
+   7. volume sap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>QAS</b>/usrsap<b>QAS</b>.aas)
 
-### <a name="important-considerations"></a>중요한 고려 사항
+   
+이 예제에서는 Azure NetApp Files를 사용 하는 방법을 보여 주기 위해 모든 SAP Netweaver 파일 시스템에 대 한 Azure NetApp Files를 사용 했습니다. NFS를 통해 탑재 하지 않아도 되는 SAP 파일 시스템을 [Azure disk storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) 로 배포할 수도 있습니다. 이 예제에서 <b>a-e는</b> Azure NetApp Files에 있어야 하 고 <b>f-g</b> (즉,/usr/sap/<b>QAS</b><b>qas</b>/d<b>03</b><b>)를 Azure</b>disk storage로 배포할 수 있습니다. 
+
+### <a name="important-considerations"></a>중요 고려 사항
 
 SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files 고려 하는 경우 다음과 같은 중요 한 사항을 고려해 야 합니다.
 
@@ -172,7 +173,7 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
 - 최소 볼륨은 100 GiB
 - Azure NetApp Files 및 Azure NetApp Files 볼륨이 탑재 되는 모든 가상 머신은 동일한 Azure Virtual Network 또는 동일한 지역의 [피어 링 가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 에 있어야 합니다. 동일한 지역에서 VNET 피어 링을 통한 Azure NetApp Files 액세스는 이제 지원 됩니다. 전역 피어 링을 통한 Azure NetApp 액세스는 아직 지원 되지 않습니다.
 - 선택한 가상 네트워크에는 Azure NetApp Files으로 위임 된 서브넷이 있어야 합니다.
-- Azure NetApp Files에서 [내보내기 정책을](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)제공 합니다. 허용 되는 클라이언트, 액세스 유형 (읽기 & 쓰기, 읽기 전용 등)을 제어할 수 있습니다. 
+- Azure NetApp Files에서 [내보내기 정책을](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)제공 합니다. 허용 되는 클라이언트, 액세스 유형 (읽기&쓰기, 읽기 전용 등)을 제어할 수 있습니다. 
 - Azure NetApp Files 기능이 아직 영역을 인식 하지 않습니다. 현재 Azure NetApp Files 기능은 Azure 지역의 모든 가용성 영역에 배포 되지 않습니다. 일부 Azure 지역에서 잠재적 대기 시간 영향을 염두에 두어야 합니다. 
 - Azure NetApp Files 볼륨을 NFSv3 또는 NFSv 4.1 볼륨으로 배포할 수 있습니다. SAP 응용 프로그램 계층 (ASCS/ERS, SAP 응용 프로그램 서버)에 대해 두 프로토콜을 모두 사용할 수 있습니다. 
 
@@ -203,10 +204,10 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
 
 NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 경우에만이 섹션의 지침을 적용할 수 있습니다. Azure NetApp Files NFSv 4.1 볼륨이 탑재 될 모든 Vm에서 구성을 수행 합니다.  
 
-1. NFS 도메인 설정을 확인 합니다. 도메인이 기본 Azure NetApp Files 도메인으로 구성 되어 있는지 확인 합니다. 즉, **`defaultv4iddomain.com`** 이며 매핑이 없음으로 설정 되어 있는지 확인 **합니다.**  
+1. NFS 도메인 설정을 확인 합니다. 도메인이 기본 Azure NetApp Files 도메인으로 구성 되어 있는지 확인 합니다. **`defaultv4iddomain.com`** 즉, 매핑이 없음으로 설정 되어 있는지 확인 합니다 **.**  
 
     > [!IMPORTANT]
-    > VM에서 `/etc/idmapd.conf`의 NFS 도메인을 Azure NetApp Files: **`defaultv4iddomain.com`** 의 기본 도메인 구성과 일치 하도록 설정 해야 합니다. NFS 클라이언트의 도메인 구성 (예: VM)과 NFS 서버 (예: Azure NetApp 구성)가 일치 하지 않는 경우 Vm에 탑재 된 Azure NetApp 볼륨의 파일에 대 한 권한이 `nobody`표시 됩니다.  
+    > VM의에서 `/etc/idmapd.conf` NFS 도메인을 Azure NetApp Files의 기본 도메인 구성과 일치 하도록 설정 해야 **`defaultv4iddomain.com`** 합니다. NFS 클라이언트의 도메인 구성 (예: VM)과 NFS 서버 (예: Azure NetApp 구성)가 일치 하지 않는 경우 Vm에 탑재 된 Azure NetApp 볼륨의 파일에 대 한 사용 권한이로 `nobody`표시 됩니다.  
 
     <pre><code>
     sudo cat /etc/idmapd.conf
@@ -220,7 +221,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** `nfs4_disable_idmapping`확인 합니다. **Y**로 설정 되어야 합니다. `nfs4_disable_idmapping` 있는 디렉터리 구조를 만들려면 mount 명령을 실행 합니다. 액세스는 커널/드라이버용으로 예약 되어 있기 때문에/dv/sd 아래에 있는 디렉터리는 수동으로 만들 수 없습니다.  
+4. **[A]** 확인 `nfs4_disable_idmapping`. **Y**로 설정 되어야 합니다. `nfs4_disable_idmapping` 가 있는 디렉터리 구조를 만들려면 mount 명령을 실행 합니다. 액세스는 커널/드라이버용으로 예약 되어 있기 때문에/dv/sd 아래에 있는 디렉터리는 수동으로 만들 수 없습니다.  
 
     <pre><code>
     # Check nfs4_disable_idmapping 
@@ -241,7 +242,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
 
 ### <a name="deploy-azure-load-balancer-manually-via-azure-portal"></a>Azure Portal를 통해 Azure Load Balancer 수동으로 배포
 
-먼저 Azure NetApp Files 볼륨을 만들어야 합니다. Vm을 배포 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다.
+먼저 Azure NetApp Files 볼륨을 만들어야 합니다. Vm을 배포 합니다. 그런 다음 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용 합니다.
 
 1. 부하 분산 장치 만들기 (내부, 표준):  
    1. 프런트 엔드 IP 주소 만들기
@@ -249,23 +250,22 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
          1. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **프런트 엔드). QAS. ASCS**)
          1. 할당을 정적으로 설정 하 고 IP 주소를 입력 합니다 (예: **10.1.1.20**).
-         1. 확인을 클릭합니다.
+         1. 확인 클릭
       1. ASCS ERS에 대 한 IP 주소 10.1.1.21
          * "A"에서 위의 단계를 반복 하 여 **10.1.1.21** 및 프런트 엔드와 같은 사람에 대 한 IP 주소를 만듭니다 **. QAS. ERS**)
    1. 백 엔드 풀 만들기
-      1. ASCS에 대한 백 엔드 풀 만들기
-         1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
-         1. 새 백 엔드 풀의 이름을 입력 합니다 (예: **백 엔드). QAS**)
-         1. 가상 머신 추가 클릭
-         1. 가상 컴퓨터 선택
-         1. (A) SCS 클러스터의 가상 머신 및 해당 IP 주소를 선택 합니다.
-         1. 추가를 클릭합니다.
+      1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
+      1. 새 백 엔드 풀의 이름을 입력 합니다 (예: **백 엔드). QAS**)
+      1. 가상 머신 추가 클릭
+      1. 가상 컴퓨터 선택
+      1. (A) SCS 클러스터의 가상 머신 및 해당 IP 주소를 선택 합니다.
+      1. 추가를 클릭합니다.
    1. 상태 프로브 만들기
       1. 포트: 620**00**(ASCS용)
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
          1. 새 상태 프로브 (예: 상태)의 이름을 입력 합니다 **. QAS. ASCS**)
          1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
-         1. 확인을 클릭합니다.
+         1. 확인 클릭
       1. ASCS ERS에 대 한 포트 621**01**
             * "C"에서 위의 단계를 반복 하 여 해당 ERS에 대 한 상태 프로브를 만듭니다 (예: 621**01** 및 **health). QAS. ERS**)
    1. 부하 분산 규칙
@@ -276,7 +276,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
          1. **HA 포트** 선택
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
-         1. 확인을 클릭합니다.
+         1. 확인 클릭
          * 위의 단계를 반복 하 여 ERS에 대 한 부하 분산 규칙을 만듭니다 (예: **lb. QAS. ERS**)
 1. 또는 시나리오에 기본 부하 분산 장치 (내부)가 필요한 경우 다음 단계를 수행 합니다.  
    1. 프런트 엔드 IP 주소 만들기
@@ -284,23 +284,22 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
          1. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **프런트 엔드). QAS. ASCS**)
          1. 할당을 정적으로 설정 하 고 IP 주소를 입력 합니다 (예: **10.1.1.20**).
-         1. 확인을 클릭합니다.
+         1. 확인 클릭
       1. ASCS ERS에 대 한 IP 주소 10.1.1.21
          * "A"에서 위의 단계를 반복 하 여 **10.1.1.21** 및 프런트 엔드와 같은 사람에 대 한 IP 주소를 만듭니다 **. QAS. ERS**)
    1. 백 엔드 풀 만들기
-      1. ASCS에 대한 백 엔드 풀 만들기
-         1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
-         1. 새 백 엔드 풀의 이름을 입력 합니다 (예: **백 엔드). QAS**)
-         1. 가상 머신 추가 클릭
-         1. ASCS에 대해 이전에 만든 가용성 집합을 선택 합니다. 
-         1. (A)SCS 클러스터의 가상 머신 선택
-         1. 확인을 클릭합니다.
+      1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
+      1. 새 백 엔드 풀의 이름을 입력 합니다 (예: **백 엔드). QAS**)
+      1. 가상 머신 추가 클릭
+      1. ASCS에 대해 이전에 만든 가용성 집합을 선택 합니다. 
+      1. (A)SCS 클러스터의 가상 머신 선택
+      1. 확인 클릭
    1. 상태 프로브 만들기
       1. 포트: 620**00**(ASCS용)
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
          1. 새 상태 프로브 (예: 상태)의 이름을 입력 합니다 **. QAS. ASCS**)
          1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
-         1. 확인을 클릭합니다.
+         1. 확인 클릭
       1. ASCS ERS에 대 한 포트 621**01**
             * "C"에서 위의 단계를 반복 하 여 해당 ERS에 대 한 상태 프로브를 만듭니다 (예: 621**01** 및 **health). QAS. ERS**)
    1. 부하 분산 규칙
@@ -311,11 +310,11 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
          1. 프로토콜로 **TCP**를 유지하고. 포트로 **3200** 입력
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
-         1. 확인을 클릭합니다.
+         1. 확인 클릭
       1. ASCS에 대한 추가 포트
          * "D"에서 위의 단계를 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 및 TCP (ascs)에 대해 반복 합니다.
       1. ASCS ERS에 대한 추가 포트
-         * "D"에서 위의 단계를 33**01**, 5**01**13, 5**01**14, 5**01**16 및 TCP (ascs ERS)에 대 한 TCP로 반복 합니다.
+         * "D"에서 위의 단계를 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 및 TCP (ascs ERS)에 대해 반복 합니다.
 
       > [!Note]
       > 공용 IP 주소가 없는 Vm이 내부 (공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치 되는 경우 공용 끝점으로의 라우팅을 허용 하기 위해 추가 구성을 수행 하지 않는 한 아웃 바운드 인터넷 연결이 없습니다. 아웃 바운드 연결을 설정 하는 방법에 대 한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용 하 여 Virtual Machines에 대 한 공용 끝점 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)을 참조 하세요.  
@@ -329,7 +328,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
 
 ### <a name="installation"></a>설치
 
-다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
+다음 항목에는 접두사 **[A]** -모든 노드에 적용, **[1]** -노드 1에만 적용 됩니다. [ **2]** -노드 2에만 적용 됩니다.
 
 1. **[A]** SUSE 커넥터 설치
 
@@ -399,6 +398,30 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
    <b>10.1.1.21    anftstsapers</b>
    </code></pre>
 
+4. **[1]** Azure NetApp Files 볼륨에 SAP 디렉터리를 만듭니다.  
+   Vm 중 하나에 Azure NetApp Files 볼륨을 임시로 탑재 하 고 SAP 디렉터리 (파일 경로)를 만듭니다.  
+
+   ```
+    # mount temporarily the volume
+    sudo mkdir -p /saptmp
+    # If using NFSv3
+    sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 10.1.0.4:/sapQAS /saptmp
+    # If using NFSv4.1
+    sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys,tcp 10.1.0.4:/sapQAS /saptmp
+    # create the SAP directories
+    sudo cd /saptmp
+    sudo mkdir -p sapmntQAS
+    sudo mkdir -p usrsapQASascs
+    sudo mkdir -p usrsapQASers
+    sudo mkdir -p usrsapQASsys
+    sudo mkdir -p usrsapQASpas
+    sudo mkdir -p usrsapQASaas
+    # unmount the volume and delete the temporary directory
+    sudo cd ..
+    sudo umount /saptmp
+    sudo rmdir /saptmp
+    ``` 
+
 ## <a name="prepare-for-sap-netweaver-installation"></a>SAP NetWeaver 설치 준비
 
 1. **[A]** 공유 디렉터리 만들기
@@ -416,7 +439,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
    sudo chattr +i /usr/sap/<b>QAS</b>/ERS<b>01</b>
    </code></pre>
 
-2. **[A]** `autofs` 구성
+2. **[A]** 구성`autofs`
 
    <pre><code>
    sudo vi /etc/auto.master
@@ -429,9 +452,9 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=3,nobind,sync 10.1.0.4:/sapmnt<b>qas</b>
-   /usr/sap/trans -nfsvers=3,nobind,sync 10.1.0.4:/trans
-   /usr/sap/<b>QAS</b>/SYS -nfsvers=3,nobind,sync 10.1.0.5:/usrsap<b>qas</b>sys
+   /sapmnt/<b>QAS</b> -nfsvers=3,nobind 10.1.0.4/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /usr/sap/trans -nfsvers=3,nobind 10.1.0.4:/trans
+   /usr/sap/<b>QAS</b>/SYS -nfsvers=3,nobind 10.1.0.4/usrsap<b>qas</b>/usrsap<b>QAS</b>sys
    </code></pre>
    
    NFSv 4.1을 사용 하는 경우 다음을 사용 하 여 파일을 만듭니다.
@@ -439,15 +462,15 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sync,sec=sys 10.1.0.4:/sapmnt<b>qas</b>
-   /usr/sap/trans -nfsvers=4.1,nobind,sync,sec=sys 10.1.0.4:/trans
-   /usr/sap/<b>QAS</b>/SYS -nfsvers=4.1,nobind,sync,sec=sys 10.1.0.5:/usrsap<b>qas</b>sys
+   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sec=sys 10.1.0.4/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /usr/sap/trans -nfsvers=4.1,nobind,sec=sys 10.1.0.4:/trans
+   /usr/sap/<b>QAS</b>/SYS -nfsvers=4.1,nobind,sec=sys 10.1.0.4/usrsap<b>qas</b>/usrsap<b>QAS</b>sys
    </code></pre>
    
    > [!NOTE]
    > 볼륨을 탑재할 때 Azure NetApp Files 볼륨의 NFS 프로토콜 버전과 일치 하는지 확인 합니다. Azure NetApp Files 볼륨이 NFSv3 볼륨으로 만들어지면 해당 NFSv3 구성을 사용 합니다. Azure NetApp Files 볼륨이 NFSv 4.1 볼륨으로 생성 되는 경우 지침에 따라 ID 매핑을 사용 하지 않도록 설정 하 고 해당 NFSv 4.1 구성을 사용 해야 합니다. 이 예제에서는 Azure NetApp Files 볼륨이 NFSv3 볼륨으로 생성 되었습니다.  
    
-   `autofs` 다시 시작 하 여 새 공유를 탑재 합니다.
+   새 `autofs` 공유를 탑재 하려면 다시 시작
     <pre><code>
       sudo systemctl enable autofs
       sudo service autofs restart
@@ -478,17 +501,22 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
 
    > [!IMPORTANT]
    > 최신 테스트로 인해 netcat이 백로그로 인 한 요청 응답을 중지 하 고 하나의 연결만 처리할 수 있는 경우를 확인할 수 있습니다. Netcat 리소스는 Azure 부하 분산 장치 요청에 대 한 수신 대기를 중지 하 고 부동 IP는 사용할 수 없게 됩니다.  
-   > 기존 Pacemaker 클러스터의 경우 [Azure 부하 분산 장치 검색 강화](https://www.suse.com/support/kb/doc/?id=7024128)의 지침에 따라 netcat을 socat로 바꾸는 것이 좋습니다. 변경 작업을 수행 하려면 짧은 가동 중지 시간이 필요 합니다.  
+   > 기존 Pacemaker 클러스터의 경우 netcat을 socat로 교체 하는 것이 좋습니다. 현재 패키지 리소스 에이전트의 일부인 azure-lb 리소스 에이전트를 사용 하는 것이 좋습니다. 패키지 버전 요구 사항은 다음과 같습니다.
+   > - SLES 12 SP4/SP5의 경우 버전은 4.3.018. a7fb5035-3.30.1 이상 이어야 합니다.  
+   > - SLES 15/15 s p 1의 경우 버전은 4.3.0184.6 ee15eb2-4.13.1 이상 이어야 합니다.  
+   >
+   > 변경 작업을 수행 하려면 짧은 가동 중지 시간이 필요 합니다.  
+   > 기존 Pacemaker 클러스터의 경우 [Azure 부하 분산 장치 검색 강화](https://www.suse.com/support/kb/doc/?id=7024128)에 설명 된 대로 구성이 이미 socat을 사용 하도록 변경 된 경우 azure-lb 리소스 에이전트로 즉시 전환 하지 않아도 됩니다.
 
    <pre><code>sudo crm node standby <b>anftstsapcl2</b>
    # If using NFSv3
-   sudo crm configure primitive fs_<b>QAS</b>_ASCS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>' directory='/usr/sap/<b>QAS</b>/ASCS<b>00</b>' fstype='nfs' \
+   sudo crm configure primitive fs_<b>QAS</b>_ASCS Filesystem device='<b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>ascs' directory='/usr/sap/<b>QAS</b>/ASCS<b>00</b>' fstype='nfs' \
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
      op monitor interval=20s timeout=40s
    
    # If using NFSv4.1
-   sudo crm configure primitive fs_<b>QAS</b>_ASCS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>' directory='/usr/sap/<b>QAS</b>/ASCS<b>00</b>' fstype='nfs' options='sec=sys,vers=4.1' \
+   sudo crm configure primitive fs_<b>QAS</b>_ASCS Filesystem device='<b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>ascs' directory='/usr/sap/<b>QAS</b>/ASCS<b>00</b>' fstype='nfs' options='sec=sys,vers=4.1' \
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
      op monitor interval=20s timeout=40s
@@ -497,9 +525,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
      params ip=<b>10.1.1.20</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>QAS</b>_ASCS anything \
-     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:620<b>00</b>,backlog=10,fork,reuseaddr /dev/null" \
-     op monitor timeout=20s interval=10 depth=0
+   sudo crm configure primitive nc_<b>QAS</b>_ASCS azure-lb port=620<b>00</b>
    
    sudo crm configure group g-<b>QAS</b>_ASCS fs_<b>QAS</b>_ASCS nc_<b>QAS</b>_ASCS vip_<b>QAS</b>_ASCS \
       meta resource-stickiness=3000
@@ -516,7 +542,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
    #
    # Resource Group: g-QAS_ASCS
    #     fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl1</b>
-   #     nc_QAS_ASCS        (ocf::heartbeat:anything):      <b>Started anftstsapcl1</b>
+   #     nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      <b>Started anftstsapcl1</b>
    #     vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started anftstsapcl1</b>
    # stonith-sbd     (stonith:external/sbd): <b>Started anftstsapcl2</b>
    </code></pre>
@@ -543,13 +569,13 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
    sudo crm node online <b>anftstsapcl2</b>
    sudo crm node standby <b>anftstsapcl1</b>
    # If using NFSv3
-   sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' \
+   sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' \
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
      op monitor interval=20s timeout=40s
    
    # If using NFSv4.1
-   sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' options='sec=sys,vers=4.1'\
+   sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' options='sec=sys,vers=4.1'\
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
      op monitor interval=20s timeout=40s
@@ -558,12 +584,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
      params ip=<b>10.1.1.21</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>QAS</b>_ERS anything \
-    params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:621<b>01</b>,backlog=10,fork,reuseaddr /dev/null" \
-    op monitor timeout=20s interval=10 depth=0
-   
-   # WARNING: Resources nc_QAS_ASCS,nc_QAS_ERS violate uniqueness for parameter "binfile": "/usr/bin/socat"
-   # Do you still want to commit (y/n)? y
+   sudo crm configure primitive nc_<b>QAS</b>_ERS azure-lb port=621<b>01</b>
    
    sudo crm configure group g-<b>QAS</b>_ERS fs_<b>QAS</b>_ERS nc_<b>QAS</b>_ERS vip_<b>QAS</b>_ERS
    </code></pre>
@@ -580,11 +601,11 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
    # stonith-sbd     (stonith:external/sbd): <b>Started anftstsapcl2</b>
    #  Resource Group: g-QAS_ASCS
    #      fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl2</b>
-   #      nc_QAS_ASCS        (ocf::heartbeat:anything):      <b>Started anftstsapcl2</b>
+   #      nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      <b>Started anftstsapcl2</b>
    #      vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started anftstsapcl2</b>
    #  Resource Group: g-QAS_ERS
    #      fs_QAS_ERS (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl2</b>
-   #      nc_QAS_ERS (ocf::heartbeat:anything):      <b>Started anftstsapcl2</b>
+   #      nc_QAS_ERS (ocf::heartbeat:azure-lb):      <b>Started anftstsapcl2</b>
    #      vip_QAS_ERS  (ocf::heartbeat:IPaddr2):     <b>Started anftstsapcl2</b>
    </code></pre>
 
@@ -646,7 +667,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
 
 6. **[A]** 연결 유지 구성
 
-   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이 연결 끊김을 방지하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정하고 Linux 시스템 설정을 변경해야 합니다. 자세한 내용은 [SAP Note 1410736][1410736] 을 참조 하세요.
+   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이 연결 끊김을 방지하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정하고 Linux 시스템 설정을 변경해야 합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
 
    ASCS/SCS profile 매개 변수 enque/encni/set_so_keepalive는 마지막 단계에서 이미 추가된 상태입니다.
 
@@ -662,7 +683,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
    sudo usermod -aG haclient <b>qas</b>adm
    </code></pre>
 
-8. **[1]** `sapservice` 파일에 ascs 및 ERS SAP services 추가
+8. **[1]** ascs 및 ERS SAP 서비스를 `sapservice` 파일에 추가 합니다.
 
    ASCS 서비스 항목을 두 번째 노드에 추가하고 ERS 서비스 항목을 첫 번째 노드에 복사합니다.
 
@@ -738,17 +759,17 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    # stonith-sbd     (stonith:external/sbd): <b>Started anftstsapcl2</b>
    #  Resource Group: g-QAS_ASCS
    #      fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl1</b>
-   #      nc_QAS_ASCS        (ocf::heartbeat:anything):      <b>Started anftstsapcl1</b>
+   #      nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      <b>Started anftstsapcl1</b>
    #      vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started anftstsapcl1</b>
    #      rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started anftstsapcl1</b>
    #  Resource Group: g-QAS_ERS
    #      fs_QAS_ERS (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl2</b>
-   #      nc_QAS_ERS (ocf::heartbeat:anything):      <b>Started anftstsapcl2</b>
+   #      nc_QAS_ERS (ocf::heartbeat:azure-lb):      <b>Started anftstsapcl2</b>
    #      vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       <b>Started anftstsapcl2</b>
    #      rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   <b>Started anftstsapcl2</b>
    </code></pre>
 
-## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a> SAP NetWeaver 애플리케이션 서버 준비 
+## <a name="sap-netweaver-application-server-preparation"></a><a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a> SAP NetWeaver 애플리케이션 서버 준비 
 
 일부 데이터베이스에서는 데이터베이스 인스턴스 설치가 애플리케이션 서버에서 실행되어야 합니다. 이러한 경우 애플리케이션 서버 가상 머신을 사용할 수 있도록 준비합니다.
 
@@ -813,7 +834,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    sudo chattr +i /usr/sap/<b>QAS</b>/D<b>03</b>
    </code></pre>
 
-1. **[P]** PAS에서 `autofs` 구성
+1. **[P]** PAS `autofs` 에서 구성
 
    <pre><code>sudo vi /etc/auto.master
    
@@ -826,9 +847,9 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/sapmnt<b>qas</b>
-   /usr/sap/trans -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/trans
-   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind,sync <b>10.1.0.5</b>:/usrsap<b>qas</b>pas
+   /sapmnt/<b>QAS</b> -nfsvers=3,nobind <b>10.1.0.4</b>/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /usr/sap/trans -nfsvers=3,nobind <b>10.1.0.4</b>:/trans
+   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind <b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>pas
    </code></pre>
 
    NFSv 4.1을 사용 하는 경우 다음을 사용 하 여 새 파일을 만듭니다.
@@ -836,19 +857,19 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/sapmnt<b>qas</b>
-   /usr/sap/trans -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/trans
-   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.5</b>:/usrsap<b>qas</b>pas
+   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /usr/sap/trans -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>:/trans
+   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>pas
    </code></pre>
 
-   `autofs` 다시 시작 하 여 새 공유를 탑재 합니다.
+   새 `autofs` 공유를 탑재 하려면 다시 시작
 
    <pre><code>
    sudo systemctl enable autofs
    sudo service autofs restart
    </code></pre>
 
-1. **[P]** .aas에서 `autofs` 구성
+1. **[P]** .Aas `autofs` 에서 구성
 
    <pre><code>sudo vi /etc/auto.master
    
@@ -861,9 +882,9 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/sapmnt<b>qas</b>
-   /usr/sap/trans -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/trans
-   /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/usrsap<b>qas</b>aas
+   /sapmnt/<b>QAS</b> -nfsvers=3,nobind <b>10.1.0.4</b>/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /usr/sap/trans -nfsvers=3,nobind <b>10.1.0.4</b>:/trans
+   /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind <b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>aas
    </code></pre>
 
    NFSv 4.1을 사용 하는 경우 다음을 사용 하 여 새 파일을 만듭니다.
@@ -871,12 +892,12 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/sapmnt<b>qas</b>
-   /usr/sap/trans -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/trans
-   /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/usrsap<b>qas</b>aas
+   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /usr/sap/trans -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>:/trans
+   /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>aas
    </code></pre>
 
-   `autofs` 다시 시작 하 여 새 공유를 탑재 합니다.
+   새 `autofs` 공유를 탑재 하려면 다시 시작
 
    <pre><code>
    sudo systemctl enable autofs
@@ -905,7 +926,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 ## <a name="install-database"></a>데이터베이스 설치
 
-이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에 SAP HANA를 설치 하는 방법에 대 한 자세한 내용은 [azure Virtual Machines (vm)의 SAP HANA 고가용성][sap-hana-ha]을 참조 하세요. 지원 되는 데이터베이스 목록은 [SAP Note 1928533][1928533]을 참조 하세요.
+이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에서 SAP HANA를 설치하는 방법에 대한 자세한 내용은 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요. 지원 되는 데이터베이스 목록은 [SAP Note 1928533][1928533]을 참조 하세요.
 
 * SAP 데이터베이스 인스턴스 설치 실행
 
@@ -1018,13 +1039,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rscsap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Starting anftstsapcl1
    </code></pre>
@@ -1047,13 +1068,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    </code></pre>
@@ -1065,13 +1086,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    </code></pre>
@@ -1094,13 +1115,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1112,13 +1133,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1138,13 +1159,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
 
@@ -1175,13 +1196,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    </code></pre>
@@ -1193,18 +1214,18 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
 
-   예를 들어 트랜잭션 su01에서 사용자를 편집하여 큐에 넣기 잠금을 만듭니다. ASCS 인스턴스가 실행 되는 노드에서 < sapsid\>adm으로 다음 명령을 실행 합니다. 이러한 명령은 ASCS 인스턴스를 중지했다가 다시 시작합니다. 큐에 넣기 서버 1 아키텍처를 사용 하는 경우이 테스트에서 큐에 넣기 잠금이 손실 될 것으로 예상 됩니다. 큐에 넣기 서버 2 아키텍처를 사용 하는 경우 큐에 대기 됩니다. 
+   예를 들어 트랜잭션 su01에서 사용자를 편집하여 큐에 넣기 잠금을 만듭니다. ASCS 인스턴스가 실행 되는 노드에서\><sapsid adm으로 다음 명령을 실행 합니다. 이러한 명령은 ASCS 인스턴스를 중지했다가 다시 시작합니다. 큐에 넣기 서버 1 아키텍처를 사용 하는 경우이 테스트에서 큐에 넣기 잠금이 손실 될 것으로 예상 됩니다. 큐에 넣기 서버 2 아키텍처를 사용 하는 경우 큐에 대기 됩니다. 
 
    <pre><code>anftstsapcl2:qasadm 51> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -1224,13 +1245,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1242,13 +1263,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1258,7 +1279,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>anftstsapcl2:~ # pgrep ms.sapQAS | xargs kill -9
    </code></pre>
 
-   메시지 서버를 한 번만 종료 하면 `sapstart`의해 다시 시작 됩니다. 충분히 자주 종료하면 Pacemaker는 ASCS 인스턴스를 다른 노드로 이동합니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ASCS 및 ERS 인스턴스의 리소스 상태를 정리합니다.
+   메시지 서버를 한 번만 종료 하면에서 `sapstart`다시 시작 됩니다. 충분히 자주 종료하면 Pacemaker는 ASCS 인스턴스를 다른 노드로 이동합니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ASCS 및 ERS 인스턴스의 리소스 상태를 정리합니다.
 
    <pre><code>
    anftstsapcl2:~ # crm resource cleanup rsc_sap_QAS_ASCS00
@@ -1270,13 +1291,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    </code></pre>
@@ -1288,13 +1309,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    </code></pre>
@@ -1316,13 +1337,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1334,13 +1355,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1350,7 +1371,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>anftstsapcl1:~ # pgrep er.sapQAS | xargs kill -9
    </code></pre>
 
-   명령을 한 번만 실행 하는 경우 `sapstart` 프로세스를 다시 시작 합니다. 자주 실행 하는 경우에는 `sapstart` 프로세스를 다시 시작 하지 않고 리소스가 중지 된 상태가 됩니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ERS 인스턴스의 리소스 상태를 정리합니다.
+   명령을 한 번만 실행 하는 경우 `sapstart` 에서 프로세스를 다시 시작 합니다. 자주 실행 하는 경우에서 `sapstart` 프로세스를 다시 시작 하지 않고 리소스가 중지 된 상태가 됩니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ERS 인스턴스의 리소스 상태를 정리합니다.
 
    <pre><code>anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
    </code></pre>
@@ -1360,13 +1381,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1378,13 +1399,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1403,13 +1424,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1417,9 +1438,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 ## <a name="next-steps"></a>다음 단계
 
 * [SLES for SAP applications의 Azure Vm에 대 한 HA-다중 SID 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-* [SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [SAP 용 Azure Virtual Machines 배포][deployment-guide]
-* [SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* 고가용성을 설정 하 고 SAP의 재해 복구를 계획 하는 방법을 알아보려면 
-* HANA on Azure (큰 인스턴스)에 대 한 자세한 내용은 [azure의 SAP HANA (큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)를 참조 하세요.
-* Azure Vm에서 SAP HANA의 고가용성을 설정 하 고 재해 복구를 계획 하는 방법에 대 한 자세한 내용은 [azure Virtual Machines (vm)의 SAP HANA 고가용성][sap-hana-ha] 을 참조 하세요.
+* [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [SAP용 Azure Virtual Machines 배포][deployment-guide]
+* [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* Azure VM에서 SAP HANA의 재해 복구를 계획하고 고가용성을 설정하는 방법을 알아보려면 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요.

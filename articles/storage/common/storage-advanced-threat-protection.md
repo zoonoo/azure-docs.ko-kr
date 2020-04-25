@@ -1,7 +1,7 @@
 ---
-title: 고급 위협 보호 구성
+title: Advanced threat protection 구성
 titleSuffix: Azure Storage
-description: Azure Storage에 대한 고급 위협 보호를 구성하여 계정 활동의 이상을 감지하고 계정에 액세스하려는 잠재적으로 유해한 시도를 알림을 받게 됩니다.
+description: Azure Storage에 대 한 고급 위협 방지를 구성 하 여 계정 활동의 변칙을 감지 하 고 잠재적으로 위험한 계정 액세스 시도에 대 한 통지를 받습니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,106 +10,106 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: f390aececdbf9a20f191279892c1856332f2aa8e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 724c250b56107cb68da387bdd531602e8d239e1c
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81482087"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127542"
 ---
-# <a name="configure-advanced-threat-protection-for-azure-storage"></a>Azure 저장소에 대한 고급 위협 보호 구성
+# <a name="configure-advanced-threat-protection-for-azure-storage"></a>Azure Storage에 대 한 advanced threat protection 구성
 
-Azure Storage에 대한 고급 위협 보호는 저장소 계정에 액세스하거나 악용하려는 이상하고 잠재적으로 유해한 시도를 감지하는 추가 보안 인텔리전스 계층을 제공합니다. 이 보호 계층을 사용하면 보안 전문가가 되거나 보안 모니터링 시스템을 관리하지 않고도 위협을 해결할 수 있습니다.
+Azure Storage에 대 한 Advanced threat protection은 저장소 계정에 액세스 하거나 악용 하려는 비정상적이 고 잠재적으로 유해한 시도를 감지 하는 추가 보안 인텔리전스 계층을 제공 합니다. 이 보호 계층을 사용 하면 보안 전문가가 되거나 보안 모니터링 시스템을 관리 하지 않고도 위협을 해결할 수 있습니다.
 
-보안 경고는 활동의 이상 징후가 발생할 때 트리거됩니다. 이러한 보안 경고는 [Azure Security Center와](https://azure.microsoft.com/services/security-center/)통합되며 의심스러운 활동에 대한 세부 정보와 위협을 조사하고 해결하는 방법에 대한 권장 사항과 함께 구독 관리자에게 전자 메일을 통해 전송됩니다.
+보안 경고는 활동의 비정상 현상이 발생할 때 트리거됩니다. 이러한 보안 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합 되며, 의심 스러운 활동 및 위협 조사 및 해결 방법에 대 한 권장 사항을 포함 하 여 구독 관리자에 게 전자 메일을 통해 전송 됩니다.
 
-서비스는 위협 탐지를 위해 Blob Storage에 대한 읽기, 쓰기 및 삭제 요청의 진단 로그를 인제합니다. 고급 위협 보호에서 경고를 조사하려면 저장소 분석 로깅을 사용하여 관련 저장소 활동을 볼 수 있습니다. 자세한 내용은 [Azure 포털의 저장소 계정 모니터링에서](storage-monitor-storage-account.md#configure-logging) **로깅 구성을** 참조하십시오.
+서비스 수집에 대 한 읽기, 쓰기 및 삭제 요청에 대 한 리소스 로그는 위협 검색에 대 한 Blob Storage 합니다. Advanced threat protection에서 경고를 조사 하려면 스토리지 분석 로깅을 사용 하 여 관련 저장소 작업을 볼 수 있습니다. 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md#configure-logging)의 **로깅 구성** 을 참조 하세요.
 
 ## <a name="availability"></a>가용성
 
-Azure 저장소에 대한 고급 위협 보호는 현재 [Blob 저장소에서만](https://azure.microsoft.com/services/storage/blobs/)사용할 수 있습니다. 고급 위협 보호를 지원하는 계정 유형에는 범용 v2, 블록 Blob 및 Blob 저장소 계정이 포함됩니다. 고급 위협 보호는 모든 퍼블릭 클라우드 및 미국 정부 클라우드에서 사용할 수 있지만 다른 주권 또는 Azure 정부 클라우드 지역에서는 사용할 수 없습니다.
+Azure Storage에 대 한 Advanced threat protection은 현재 [Blob Storage](https://azure.microsoft.com/services/storage/blobs/)에서만 사용할 수 있습니다. 고급 위협 방지를 지 원하는 계정 유형에는 범용 v2, 블록 blob 및 Blob 저장소 계정이 있습니다. Advanced threat protection은 모든 공용 클라우드 및 미국 정부 클라우드에서 사용할 수 있지만 다른 소 버린 또는 Azure 정부 클라우드 지역에서는 사용할 수 없습니다.
 
-무료 30일 평가판을 포함한 가격 세부 정보는 [Azure 보안 센터 가격 페이지를](https://azure.microsoft.com/pricing/details/security-center/)참조하십시오.
+무료 30 일 평가판을 비롯 한 가격 정보는 [Azure Security Center 가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조 하세요.
 
 
-## <a name="set-up-advanced-threat-protection"></a>고급 위협 보호 설정
+## <a name="set-up-advanced-threat-protection"></a>Advanced threat protection 설정
 
-다음 섹션에 설명된 여러 가지 방법으로 고급 위협 보호를 구성할 수 있습니다.
+다음 섹션에서 설명 하는 여러 가지 방법으로 advanced threat protection을 구성할 수 있습니다.
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. Azure [포털을](https://portal.azure.com/)시작합니다.
-1. Azure 저장소 계정으로 이동합니다. **설정에서** **고급 보안을**선택합니다.
-1. 고급 보안 구성 페이지에서 **설정** 링크를 선택합니다.
-1. **고급 보안을** **ON으로**설정합니다.
-1. 새 또는 업데이트된 정책을 저장하려면 **저장을 클릭합니다.**
+1. [Azure Portal](https://portal.azure.com/)를 시작 합니다.
+1. Azure Storage 계정으로 이동 합니다. **설정**아래에서 **고급 보안**을 선택 합니다.
+1. 고급 보안 구성 페이지에서 **설정** 링크를 선택 합니다.
+1. **고급 보안** 을 **켜기**로 설정 합니다.
+1. **저장** 을 클릭 하 여 새로운 또는 업데이트 된 정책을 저장 합니다.
 
     ![Azure Storage Advanced Threat Protection 켜기](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### <a name="azure-security-center"></a>[Azure Security Center](#tab/azure-security-center)
 
-Azure 보안 센터의 표준 계층을 구독하면 모든 저장소 계정에 고급 위협 보호가 자동으로 설정됩니다. 다음과 같이 특정 구독에서 저장소 계정에 대한 고급 위협 보호를 사용하거나 사용하지 않도록 설정할 수 있습니다.
+Azure Security Center 표준 계층을 구독할 때 advanced threat protection은 모든 저장소 계정에 자동으로 설정 됩니다. 다음과 같이 특정 구독에서 저장소 계정에 대 한 고급 위협 방지를 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
-1. [Azure 포털에서](https://portal.azure.com) **Azure 보안 센터를** 시작합니다.
-1. 기본 메뉴에서 **가격 & 설정을**클릭합니다.
-1. 저장소 계정에 대한 위협 보호를 사용하거나 사용하지 않으려는 구독을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Security Center** 를 시작 합니다.
+1. 주 메뉴에서 **가격 책정 & 설정**을 클릭 합니다.
+1. 저장소 계정에 대해 위협 방지를 사용 하거나 사용 하지 않도록 설정할 구독을 클릭 합니다.
 
     ![구독 선택](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
 
-1. **가격 책정 계층을 클릭합니다.**
-1. 리소스 **유형별 가격 선택 계층에서** **저장소 계정** 행에서 **사용 또는** 사용 **안 함**을 클릭합니다.
+1. **가격 책정 계층**을 클릭 합니다.
+1. **리소스 유형별 가격 책정 계층 선택** 섹션의 **저장소 계정** 행에서 **사용** 또는 **사용 안 함**을 클릭 합니다.
 
-    ![보안 센터에서 ATP 사용](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
-1. **저장**을 클릭합니다.
+    ![Security Center에서 ATP 사용](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
+1. **Save**을 클릭합니다.
 
 ### <a name="template"></a>[템플릿](#tab/template)
 
-Azure 리소스 관리자 템플릿을 사용하여 고급 위협 보호가 활성화된 Azure Storage 계정을 배포합니다. 자세한 내용은 [고급 위협 보호 기능이 있는 저장소 계정을](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/)참조하십시오.
+Azure Resource Manager 템플릿을 사용 하 여 advanced threat protection이 설정 된 Azure Storage 계정을 배포 합니다. 자세한 내용은 [advanced threat protection을 사용 하는 저장소 계정](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/)을 참조 하세요.
 
 ### <a name="azure-policy"></a>[Azure Policy](#tab/azure-policy)
 
-Azure 정책을 사용하여 특정 구독 또는 리소스 그룹의 저장소 계정 간에 고급 위협 보호를 사용하도록 설정합니다.
+Azure Policy를 사용 하 여 특정 구독 또는 리소스 그룹의 저장소 계정에서 advanced threat protection을 사용 하도록 설정 합니다.
 
-1. Azure **정책 - 정의** 페이지를 시작합니다.
+1. Azure **정책 정의** 페이지를 시작 합니다.
 
-1. **저장소 계정에서 고급 위협 보호 배포** 정책을 검색합니다.
+1. **저장소 계정에 Advanced Threat Protection 배포** 정책을 검색 합니다.
 
-     ![정책 검색](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
+     ![검색 정책](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
 
-1. Azure 구독 또는 리소스 그룹을 선택합니다.
+1. Azure 구독 또는 리소스 그룹을 선택 합니다.
 
     ![구독 또는 그룹 선택](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
 
-1. 정책을 할당합니다.
+1. 정책을 할당 합니다.
 
     ![정책 정의 페이지](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
 ### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
-Rest API 명령을 사용하여 특정 저장소 계정에 대한 고급 위협 보호 설정을 만들거나 업데이트하거나 가져옵니다.
+Rest API 명령을 사용 하 여 특정 저장소 계정에 대 한 advanced threat protection 설정을 만들거나 업데이트 하거나 가져옵니다.
 
-* [고급 위협 보호 - 만들기](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
-* [고급 위협 보호 - 받기](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+* [Advanced threat protection-만들기](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
+* [Advanced threat protection-Get](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-다음 PowerShell cmdlet을 사용합니다.
+다음 PowerShell cmdlet을 사용 합니다.
 
-* [고급 위협 보호 지원](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-* [고급 위협 보호](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-* [고급 위협 보호 비활성화](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+* [Advanced threat protection 사용](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+* [Advanced threat protection 가져오기](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+* [Advanced threat protection 사용 안 함](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ---
 
-## <a name="explore-security-anomalies"></a>보안 이상 살펴보기
+## <a name="explore-security-anomalies"></a>보안 비정상 탐색
 
 스토리지 작업에서 잘못된 부분이 발생하면 의심스러운 보안 이벤트에 대한 정보가 포함된 이메일 알림을 받게 됩니다. 이벤트 세부 정보에는 다음과 같은 내용이 포함됩니다.
 
-* 변칙의 본질
+* 변칙의 특성
 * 스토리지 계정 이름입니다.
 * 이벤트 시간
-* 수납 타입
-* 잠재적인 원인
+* 저장소 유형
+* 가능한 원인
 * 조사 단계
 * 수정 단계
 
@@ -117,15 +117,15 @@ Rest API 명령을 사용하여 특정 저장소 계정에 대한 고급 위협 
 
 ![Azure Storage Advanced Threat Protection 경고 이메일](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert-email.png)
 
-Azure 보안 센터의 보안 경고 타일에서 현재 보안 경고를 검토하고 관리할 수 [있습니다.](../../security-center/security-center-managing-and-responding-alerts.md) 특정 경고를 클릭하면 현재 위협을 조사하고 향후 위협을 해결하기 위한 추가 세부 정보 및 조치가 제공됩니다.
+Azure Security Center의 [보안 경고 타일](../../security-center/security-center-managing-and-responding-alerts.md)에서 현재 보안 경고를 검토 하 고 관리할 수 있습니다. 특정 경고를 클릭하면 현재 위협을 조사하고 향후 위협을 해결하기 위한 추가 세부 정보 및 조치가 제공됩니다.
 
 ![Azure Storage Advanced Threat Protection 경고 이메일](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert.png)
 
 ## <a name="security-alerts"></a>보안 경고
 
-경고는 평소와 다르고 잠재적 위험이 있는 액세스 시도 또는 스토리지 계정 악용에 의해 생성됩니다. Azure 저장소에 대한 경고 목록은 Azure 보안 [센터의 데이터 서비스에 대한 위협 보호의](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurestorage) **저장소** 섹션을 참조하십시오.
+경고는 평소와 다르고 잠재적 위험이 있는 액세스 시도 또는 스토리지 계정 악용에 의해 생성됩니다. Azure Storage에 대 한 경고 목록은 [Azure Security Center에서 data services에 대 한 위협 방지](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurestorage)의 **저장소** 섹션을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 저장소 계정의 로그에](/rest/api/storageservices/About-Storage-Analytics-Logging) 대해 자세히 알아보기
-* [Azure 보안 센터에](../../security-center/security-center-intro.md) 대해 자세히 알아보기
+* [Azure Storage 계정의 로그](/rest/api/storageservices/About-Storage-Analytics-Logging) 에 대해 자세히 알아보기
+* [Azure Security Center](../../security-center/security-center-intro.md) 에 대 한 자세한 정보

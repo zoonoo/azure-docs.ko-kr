@@ -1,31 +1,31 @@
 ---
-title: Azure용 HTTPS를 통해 Windows 원격 관리 | Azure 마켓플레이스
-description: PowerShell을 사용하여 원격으로 관리할 수 있도록 Azure 에서 호스팅하는 Windows 기반 VM을 구성하는 방법에 대해 설명합니다.
+title: Azure에 대 한 HTTPS를 통한 Windows 원격 관리 | Azure Marketplace
+description: PowerShell을 사용 하 여 원격으로 관리할 수 있도록 Azure에서 호스트 되는 Windows 기반 VM을 구성 하는 방법을 설명 합니다.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: dsindona
-ms.openlocfilehash: b2a4bb107309894a7180e0a4585cdba6f04d1bee
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 88941b334a9c218365bd2d97046dbb6c32d50f35
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273038"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142761"
 ---
 # <a name="windows-remote-management-over-https"></a>HTTPS를 통한 Windows 원격 관리
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 가상 [컴퓨터 만들기 의](https://aka.ms/CreateAzureVMoffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 Azure Virtual Machine 제품의 관리를 파트너 센터로 전환 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [Azure Virtual Machine 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 이 섹션에서는 PowerShell을 사용하여 원격으로 관리 및 배포할 수 있도록 Azure에서 호스팅하는 Windows 기반 VM을 구성하는 방법을 설명합니다.  PowerShell 원격을 사용하도록 설정하려면 대상 VM에서 WinRM(Windows 원격 관리) HTTPS 엔드포인트를 공개해야 합니다.  PowerShell 원격에 대한 자세한 내용은 [원격 명령 실행](https://docs.microsoft.com/powershell/scripting/learn/remoting/running-remote-commands)을 참조하세요.  WinRM에 대한 자세한 내용은 [Windows 원격 관리](https://docs.microsoft.com/windows/desktop/WinRM/portal)를 참조하세요.
 
-Azure 서비스 관리자 포털 또는 더 이상 사용되지 않습니다.) Azure [서비스 관리 API](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100))중 하나를 사용하여 VM을 만든 경우 WinRM 끝점으로 자동으로 구성됩니다.  그러나 다음과 같은 "최신" Azure 방식 중 하나를 사용하여 만드는 VM은 HTTPS를 통한 WinRM용으로 구성되지 *않습니다*.
+Azure Service Manager 포털 또는 사용 되지 않는 [azure Service Management API](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100))의 "클래식" azure 방법 중 하나를 사용 하 여 VM을 만든 경우 WinRM 끝점을 사용 하 여 자동으로 구성 됩니다.  그러나 다음과 같은 "최신" Azure 방식 중 하나를 사용하여 만드는 VM은 HTTPS를 통한 WinRM용으로 구성되지 *않습니다*.
 
 - [Azure 호환 VHD 만들기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd) 섹션에서 설명한 대로 일반적으로 승인된 [Azure Portal](https://portal.azure.com/) 사용
 - [Azure Resource Manager 템플릿 사용](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
-- Azure PowerShell 또는 Azure CLI 명령 셸 사용  예: 빠른 [시작: PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell) 및 빠른 시작을 사용 하 고 Azure에서 Windows 가상 컴퓨터 [만들기: Azure CLI를 사용 하 고 Linux 가상 컴퓨터를 만듭니다.](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli)
+- Azure PowerShell 또는 Azure CLI 명령 셸 사용  예제는 빠른 시작 [: PowerShell을 사용 하 여 Azure에서 Windows 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell) 및 [빠른 시작: Azure CLI을 사용 하 여 Linux 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli)를 참조 하세요.
 
 이 WinRM 엔드포인트는 [VM 이미지 인증](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm)에서 설명한 대로 VM을 온보딩하기 위한 인증 도구 키트를 실행하는 데에도 필요합니다.
 

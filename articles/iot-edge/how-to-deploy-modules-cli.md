@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 명령줄에서 모듈 배포 - Azure IoT Edge
-description: Azure IoT 확장과 함께 Azure CLI를 사용하여 배포 매니페스트에 의해 구성된 IoT Hub에서 IoT Edge 장치로 IoT Edge 모듈을 푸시합니다.
+title: Azure CLI 명령줄에서 모듈 배포-Azure IoT Edge
+description: Azure IoT 확장과 함께 Azure CLI를 사용 하 여 배포 매니페스트에 구성 된 대로 IoT Hub의 IoT Edge 모듈을 IoT Edge 장치로 푸시합니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 619ba7cb2d99e0137fd1834096dd5b66ffcd6ec9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbd0d65624852737c424128e9125b8370b870d4d
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240375"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133938"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Azure CLI를 사용하여 Azure IoT Edge 모듈 배포
 
@@ -22,14 +22,14 @@ ms.locfileid: "80240375"
 
 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)는 IoT Edge 같은 Azure 리소스를 관리하기 위한 오픈 소스 교차 플랫폼 명령줄 도구입니다. 이 기능을 사용하면 Azure IoT Hub 리소스, 디바이스 프로비전 서비스 인스턴스 및 연결된 허브를 즉시 관리할 수 있습니다. 새로운 IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure CLI를 강화합니다.
 
-이 아티클에서는 JSON 배포 매니페스트를 만든 다음, 해당 파일을 사용하여 IoT Edge 디바이스에 배포를 푸시하는 방법을 보여줍니다. 해당 공유 태그에 따라 다중 디바이스를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor-cli.md)을 참조하세요.
+이 아티클에서는 JSON 배포 매니페스트를 만든 다음, 해당 파일을 사용하여 IoT Edge 디바이스에 배포를 푸시하는 방법을 보여줍니다. 해당 공유 태그에 따라 다중 디바이스를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-cli-at-scale.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독의 [IoT 허브입니다.](../iot-hub/iot-hub-create-using-cli.md)
+* Azure 구독의 [IoT hub](../iot-hub/iot-hub-create-using-cli.md)
 * IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device.md#register-with-the-azure-cli)
-* 사용자 환경의 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 최소한 Azure CLI 버전은 2.0.70 이상이어야 합니다. `az --version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다.
-* [Azure CLI에 대한 IoT 확장.](https://github.com/Azure/azure-iot-cli-extension)
+* 사용자 환경의 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 최소한 Azure CLI 버전은 2.0.70 이상 이어야 합니다. `az --version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다.
+* [Azure CLI에 대 한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)입니다.
 
 ## <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
 
@@ -120,7 +120,7 @@ Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 �
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
-장치 ID 매개 변수는 대/소문자를 구분합니다. 콘텐츠 매개 변수는 저장한 배포 매니페스트 파일을 가리킵니다.
+장치 ID 매개 변수는 대/소문자를 구분 합니다. 콘텐츠 매개 변수는 저장한 배포 매니페스트 파일을 가리킵니다.
 
    ![az iot edge set-modules output](./media/how-to-deploy-cli/set-modules.png)
 
@@ -134,10 +134,10 @@ IoT Edge 디바이스의 모듈 보기:
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-장치 ID 매개 변수는 대/소문자를 구분합니다.
+장치 ID 매개 변수는 대/소문자를 구분 합니다.
 
    ![az iot hub module-identity list output](./media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-[대규모 IoT Edge 모듈을 배포 및 모니터링](how-to-deploy-monitor.md)하는 방법 알아보기
+[대규모 IoT Edge 모듈을 배포 및 모니터링](how-to-deploy-at-scale.md)하는 방법 알아보기

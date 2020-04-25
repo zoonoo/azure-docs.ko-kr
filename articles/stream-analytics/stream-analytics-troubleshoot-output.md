@@ -8,31 +8,31 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 305632a0faa1eb7e217e86d36c5159e557df7aaf
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
-ms.translationtype: MT
+ms.openlocfilehash: 5652df0cf142af2ff96590368892530abcb3d667
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409261"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133226"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics 출력 문제 해결
 
-이 문서에서는 Azure Stream Analytics 출력 연결의 일반적인 문제, 출력 문제 해결 방법 및 문제를 해결하는 방법에 대해 설명합니다. 많은 문제 해결 단계를 수행하려면 Stream Analytics 작업에 진단 로그를 사용하도록 설정해야 합니다. 진단 로그를 사용하도록 설정하지 않은 경우 [진단 로그를 사용하여 Azure Stream 분석 문제를 해결합니다.](stream-analytics-job-diagnostic-logs.md)
+이 문서에서는 Azure Stream Analytics 출력 연결과 관련 된 일반적인 문제, 출력 문제를 해결 하는 방법 및 문제를 해결 하는 방법을 설명 합니다. 대부분의 문제 해결 단계를 수행 하려면 Stream Analytics 작업에 대 한 리소스 및 기타 진단 로그를 사용 하도록 설정 해야 합니다. 리소스 로그를 사용 하도록 설정 하지 않은 경우 [리소스 로그를 사용 하 여 Azure Stream Analytics 문제 해결](stream-analytics-job-diagnostic-logs.md)을 참조 하세요.
 
 ## <a name="output-not-produced-by-job"></a>작업에 의해 생성되지 않은 출력
 
 1.  각 출력에 대해 **테스트 연결** 단추를 사용하여 출력에 대한 연결을 확인합니다.
 
-2.  **모니터** 탭에서 [**모니터링 메트릭을**](stream-analytics-monitoring.md) 살펴봅니다. 값이 집계되므로 메트릭이 몇 분 지연됩니다.
-   * 입력 이벤트가 0보다 크면 작업이 입력 데이터를 읽을 수 있습니다. 입력 이벤트가 0보다 크지 않으면 작업 입력에 문제가 있는 것입니다. [입력 연결 문제를](stream-analytics-troubleshoot-input.md) 해결하는 방법을 알아보려면 입력 연결 문제를 해결합니다.
-   * 데이터 변환 오류가 0보다 크고 상승 해도 데이터 변환 오류에 대한 자세한 내용은 [Azure Stream Analytics 데이터 오류를](data-errors.md) 참조하세요.
-   * 런타임 오류가 0보다 큰 경우 작업은 데이터를 수신할 수 있지만 쿼리를 처리하는 동안 오류가 생성됩니다. 오류를 찾으려면 [감사 로그](../azure-resource-manager/management/view-activity-logs.md)로 이동하여 *실패* 상태를 필터링합니다.
-   * InputEvents가 0보다 크고 출력 이벤트가 0이면 다음 중 하나가 true입니다.
+2.  **모니터** 탭에서 [**모니터링 메트릭**](stream-analytics-monitoring.md) 을 확인 합니다. 값이 집계 되므로 메트릭은 몇 분 정도 지연 됩니다.
+   * 입력 이벤트가 0 보다 크면 작업에서 입력 데이터를 읽을 수 있습니다. 입력 이벤트가 0 보다 크지 않은 경우 작업의 입력에 문제가 있습니다. 입력 연결 문제를 해결 하는 방법에 대 한 자세한 내용은 [입력 연결 문제 해결](stream-analytics-troubleshoot-input.md) 을 참조 하세요.
+   * 데이터 변환 오류가 0 보다 크고 증가 하는 경우 데이터 변환 오류에 대 한 자세한 내용은 [데이터 오류 Azure Stream Analytics](data-errors.md) 를 참조 하세요.
+   * 런타임 오류가 0 보다 큰 경우 작업은 데이터를 받을 수 있지만 쿼리를 처리 하는 동안 오류를 생성 합니다. 오류를 찾으려면 [감사 로그](../azure-resource-manager/management/view-activity-logs.md)로 이동하여 *실패* 상태를 필터링합니다.
+   * InputEvents가 0 보다 크고 OutputEvents가 0과 같으면 다음 중 하나가 true입니다.
       * 쿼리 처리로 제로 출력 이벤트가 발생했습니다.
-      * 이벤트 또는 필드가 잘못 되어 쿼리 처리 후 출력이 0이 될 수 있습니다.
+      * 이벤트 또는 필드의 형식이 잘못 되어 쿼리 처리 후 출력은 0이 될 수 있습니다.
       * 작업이 연결 또는 인증 이유로 데이터를 출력 싱크에 푸시할 수 없습니다.
 
-   이전에 언급한 모든 오류 사례에서 작업 로그 메시지는 쿼리 논리가 모든 이벤트를 필터링하는 경우 외에 추가 정보(발생하는 상황 포함)를 설명합니다. 여러 이벤트를 처리하면 오류가 생성되면 10분마다 오류가 집계됩니다.
+   이전에 언급한 모든 오류 사례에서 작업 로그 메시지는 쿼리 논리가 모든 이벤트를 필터링하는 경우 외에 추가 정보(발생하는 상황 포함)를 설명합니다. 여러 이벤트 처리에서 오류가 발생 하는 경우 10 분 마다 오류가 집계 됩니다.
 
 ## <a name="job-output-is-delayed"></a>작업 출력이 지연됨
 
@@ -84,17 +84,17 @@ SQL 테이블에 UNIQUE KEY 제약 조건이 설정되고 SQL 테이블에 중�
 
 * 이러한 인덱스에 고유성을 적용할 수 없기 때문에 IGNORE_DUP_KEY는 열 저장소 인덱스에 적용되지 않습니다.  
 
-## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>열 이름은 Azure 스트림 분석에 의해 소문자로 지정됩니다.
-원래 호환성 수준(1.0)을 사용하는 경우 Azure Stream Analytics는 열 이름을 소문자로 변경하는 데 사용했습니다. 이 동작은 이후 호환성 수준에서 해결되었습니다. 케이스를 보존하기 위해 고객에게 호환성 수준 1.1 이상으로 이동하는 것이 좋습니다. Azure Stream Analytics [작업에 대한 호환성 수준에 대한](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)자세한 정보를 찾을 수 있습니다.
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>열 이름은 Azure Stream Analytics의 소문자를 구분 합니다.
+원래 호환성 수준 (1.0)을 사용 하는 경우 열 이름을 소문자로 변경 하는 데 사용 Azure Stream Analytics. 이 동작은 이후 호환성 수준에서 수정 되었습니다. 사례를 유지 하기 위해 고객은 호환성 수준 1.1 이상으로 이동 하는 것을 권장 합니다. [Azure Stream Analytics 작업에 대 한 호환성 수준](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)에 대 한 자세한 정보를 찾을 수 있습니다.
 
 ## <a name="get-help"></a>도움말 보기
 
-추가 지원은 [Azure 스트림 분석 포럼을](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)참조하십시오.
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 사용해 보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure 스트림 분석 사용 시작](stream-analytics-real-time-fraud-detection.md)
+* [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure 스트림 분석 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

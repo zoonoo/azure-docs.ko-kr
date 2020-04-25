@@ -7,14 +7,8 @@
       href: Overview.md
 - name: 빠른 시작
   items:
-    - name: 클라이언트 SDK 사용
-      items:
-        - name: .NET SDK
-          href: Quickstarts/csharp-sdk.md
-        - name: Python SDK
-          href: QuickStarts/python-sdk.md
-        - name: Go SDK
-          href: QuickStarts/go-sdk.md
+    - name: 클라이언트 라이브러리 사용
+      href: Quickstarts/client-libraries.md
     - name: REST API 사용
       items:
         - name: 이미지에서 얼굴 감지
@@ -107,7 +101,7 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/430315-face-api'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'

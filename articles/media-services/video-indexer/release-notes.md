@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 07046d181e8e83e0271cb78cfb182df4e76980b5
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 8a9c1ba8e6316ea79941fbec1fbd339893afdb35
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115519"
+ms.locfileid: "82131202"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -65,7 +65,7 @@ ms.locfileid: "82115519"
     * URL을 Video Indexer 위젯 Api (예: [insights 위젯](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))를 가리키는 url로 바꿉니다.
     * Video Indexer 웹 사이트를 사용 하 여 새 포함 된 URL 생성:
          
-         **Play** 를 눌러 비디오 페이지로 이동 합니다. > ** &lt;을&gt; 클릭 하** > URL을 응용 프로그램에 복사 합니다.
+         **Play** 를 눌러 비디오 페이지로 이동 합니다. > ** &lt; / &gt; 포함** 단추를 클릭 하 > URL을 응용 프로그램에 복사 합니다.
    
     지역 Url은 지원 되지 않으며, 몇 주 후에 차단 됩니다.
 

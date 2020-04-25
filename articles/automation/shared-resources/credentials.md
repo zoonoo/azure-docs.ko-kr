@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 42abeba310e7a30364f93e998f12129a2d3c1f15
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 4226a625918be378b14e14c55fe4dd4ca5c398d5
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114295"
+ms.locfileid: "82136688"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Azure Automation에서 자격 증명 관리
 
@@ -41,7 +41,7 @@ Azure PowerShell Az module의 일부로 다음 표의 cmdlet은 Windows PowerShe
 
 ## <a name="activities-used-to-access-credentials"></a>자격 증명에 액세스 하는 데 사용 되는 활동
 
-다음 표의 활동은 runbook 및 DSC 구성에서 자격 증명에 액세스 하는 데 사용 됩니다.
+다음 표의 활동은 그래픽 runbook 및 DSC 구성에서 자격 증명에 액세스 하는 데 사용 됩니다. 활동 사용에 대 한 예제는 [Azure Automation에서 그래픽 작성](../automation-graphical-authoring-intro.md#activities)을 참조 하세요.
 
 | 작업 | Description |
 |:--- |:--- |

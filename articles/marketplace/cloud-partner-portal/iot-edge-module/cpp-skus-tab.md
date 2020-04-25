@@ -1,5 +1,5 @@
 ---
-title: Azure IoT 에지 모듈 SUS | Azure 마켓플레이스
+title: Azure IoT Edge 모듈 Sku | Azure Marketplace
 description: IoT Edge 모듈에 대한 SKU를 만듭니다.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: c1d1daea71ea8b69ef24031c643caf8dcd0d1fb7
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 0a394c14842fe0c4eb4baa18cbb13acb8ca3170a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983333"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142453"
 ---
 # <a name="iot-edge-module-skus-tab"></a>IoT Edge 모듈 SKU 탭
 
 >[!Important]
->2020년 4월 13일부터 파트너 센터로 IoT Edge 모듈의 관리를 이전할 예정입니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. IoT [Edge 생성 모듈 오퍼의](https://aka.ms/AzureCreateIoT) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+>2020 년 4 월 13 일부 터 파트너 센터에 IoT Edge 모듈 제품 관리를 이동 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [IoT Edge 모듈 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 **새 제품** 페이지의 **SKU** 탭을 사용하면 하나 이상의 SKU를 만들어 새 제품에 연결할 수 있습니다.  다양한 SKU를 사용하여 기능 집합, 청구 모델 또는 일부 다른 특성에 따라 솔루션을 구별할 수 있습니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "80983333"
 
 ## <a name="sku-details"></a>SKU 세부 정보
 
-SKU가 Azure Marketplace 및 Azure Portal 웹 사이트에 표시될 방법을 정의하도록 **SKU 세부 정보**를 구성합니다.
+Sku **세부 정보** 를 구성 하 여 Azure Marketplace 및 Azure Portal WEBSITES에 sku를 표시 하는 방법을 정의 합니다.
 
 ![IoT Edge 모듈 SKU 메타데이터](media/iot-edge-module-skus-tab-metadata.png)
 
@@ -52,9 +52,9 @@ SKU가 Azure Marketplace 및 Azure Portal 웹 사이트에 표시될 방법을 �
 
 |  **필드**       |     **설명**                                                          |
 |  ---------       |     ---------------                                                          |
-| **제목\***        | 이 SKU의 제목입니다. 최대 길이는 50자입니다. <br/> Azure Portal에 표시되고 배포될 때 기본 모듈 이름으로 사용됩니다(공백 및 특수 문자 없이). 이 필드가 표시되는 위치를 정확하게 확인하려면 아래 그림을 참조하세요.|
+| **제목\***        | 이 SKU의 제목입니다. 최대 길이는 50자입니다. <br/> Azure Portal에 표시 되 고 배포 될 때 기본 모듈 이름 (공백 및 특수 문자 포함 안 함)으로 사용 됩니다. 이 필드가 표시되는 위치를 정확하게 확인하려면 아래 그림을 참조하세요.|
 | **요약\***      | 이 SKU의 간단한 요약입니다. 최대 길이는 100자입니다. 제품을 요약하지 **마십시오**. SKU만 요약합니다.  이 요약은 Azure Marketplace에 표시됩니다. 이 필드가 표시되는 위치를 정확하게 확인하려면 아래 그림을 참조하세요.|
-| **Description\***  | 이 SKU의 짧은 설명입니다. 최대 길이는 3,000자입니다. 제품을 설명하지 마십시오. 이 SKU만 설명합니다. Azure Marketplace 및 Azure Portal에 표시됩니다. Azure 포털에서 마켓플레이스 탭에 정의된 제안을 설명하는 마켓플레이스 설명에 추가됩니다.  SKU 요약과 같을 수 있습니다. 이 필드가 표시되는 위치를 정확하게 확인하려면 아래 그림을 참조하세요.|
+| **설명\***  | 이 SKU의 짧은 설명입니다. 최대 길이는 3,000자입니다. 제품을 설명하지 마십시오. 이 SKU만 설명합니다. Azure Marketplace 및 Azure Portal에 표시 됩니다. Azure Portal Marketplace 탭에 정의 된 제품을 설명 하는 Marketplace 설명에 추가 됩니다.  SKU 요약과 동일할 수 있습니다. 이 필드가 표시되는 위치를 정확하게 확인하려면 아래 그림을 참조하세요.|
 | **이 SKU 숨기기\*** | 기본 설정을 유지합니다. **아니요**입니다. |
 |  |  |
 
@@ -94,7 +94,7 @@ SKU가 Azure Marketplace 및 Azure Portal 웹 사이트에 표시될 방법을 �
 
 ## <a name="sku-content"></a>SKU 콘텐츠
 
-**에지 모듈 이미지**아래에서 IoT Edge 모듈을 업로드하는 데 필요한 정보를 제공합니다.
+**Edge 모듈 이미지**에서 IoT Edge 모듈을 업로드 하는 데 필요한 정보를 제공 합니다.
 
 업로드하고 인증할 수 있도록 IoT Edge 모듈 이미지를 포함하는 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)(ACR)에 대한 액세스를 제공합니다. 게시된 후 Azure Marketplace에서 호스트된 공용 컨테이너 레지스트리를 사용하여 IoT Edge 모듈이 복사되고 배포됩니다.
 
@@ -102,7 +102,7 @@ SKU가 Azure Marketplace 및 Azure Portal 웹 사이트에 표시될 방법을 �
 
 ![IoT Edge 모듈 이미지](./media/iot-edge-module-skus-tab-acr.png)
 
-다음 표에서는 **이미지 리포지토리 세부 정보** 및 이미지 버전 섹션에 대한 필드의 목적, 내용 및 서식을 **설명합니다.**  필수 필드는 별표(*)로 표시됩니다.
+다음 표에서는 **이미지 리포지토리 세부 정보** 및 **이미지 버전**섹션의 용도, 내용 및 형식에 대해 설명 합니다.  필수 필드는 별표(*)로 표시됩니다.
 
 
 |  **필드**       |     **설명**                                                          |
@@ -112,14 +112,14 @@ SKU가 Azure Marketplace 및 Azure Portal 웹 사이트에 표시될 방법을 �
 | **리소스 그룹 이름\***      | ACR의 리소스 그룹 이름입니다.|
 | **레지스트리 이름\***  | ACR 레지스트리 이름입니다. 로그인 서버 이름이 아닌 레지스트리 이름만을 복사합니다(예: `azurecr.io` 없이). |
 | **리포지토리 이름\***  | IoT Edge 모듈을 포함하는 ACR의 리포지토리 이름입니다. **참고:** 이름이 설정되면 나중에 변경할 수 없습니다. 계정에 같은 이름의 다른 제품이 없도록 고유한 이름을 사용합니다. |
-| **사용자\*** | ACR(관리자 사용자 이름)과 연결된 사용자 이름입니다. |
+| **이름\*** | ACR(관리자 사용자 이름)과 연결된 사용자 이름입니다. |
 | **암호\*** | ACR과 연결된 암호입니다. |
 |    |  ***이미지 버전***   |
 | **이미지 태그 또는 다이제스트\*** | 하나 이상의 `latest` 태그 및 버전 태그를 포함해야 합니다(예: `xx.xx.xx-`로 시작, 여기서 xx는 숫자). 여러 플랫폼을 대상으로 하는 [매니페스트 태그](https://github.com/estesp/manifest-tool)여야 합니다. 매니페스트 태그에서 참조하는 모든 태그는 업로드할 수 있도록 추가되어야 합니다. 태그를 사용하여 IoT Edge 모듈의 여러 버전을 추가할 수 있습니다. 모든 매니페스트 태그(`latest` 제외)는 `X.Y-` 또는 `X.Y.Z-`로 시작해야 합니다. 여기서 X, Y, Z는 정수입니다. ["IoT Edge 모듈 기술 자산 준비"의 태그 및 버전 관리](./cpp-create-technical-assets.md)에 대해 자세히 알아봅니다. <br/> 예를 들어 `latest` 태그가 `1.0.1-linux-x64`, `1.0.1-linux-arm32` 및 `1.0.1-windows-arm32`를 가리키는 경우 이러한 6개의 태그는 여기에 추가되어야 합니다. |
 |  |  |
 
 
-### <a name="help-your-customers-launch-by-using-default-settings"></a>기본 설정을 사용하여 고객 의 시작 지원
+### <a name="help-your-customers-launch-by-using-default-settings"></a>기본 설정을 사용 하 여 고객이 시작 하도록 지원
 
 IoT Edge 모듈을 배포하는 가장 일반적인 설정을 정의합니다. 이러한 기본값으로 IoT Edge 모듈 기본 제공을 시작하도록 하여 고객 배포를 최적화합니다.
 
@@ -130,9 +130,9 @@ IoT Edge 모듈을 배포하는 가장 일반적인 설정을 정의합니다. �
 |  **필드**       |     **설명**                                                          |
 |  ---------       |     ---------------                                                          |
 | **기본 경로**        | 각 기본 경로 이름 및 값은 512자 미만이어야 합니다. 최대 5개의 기본 경로를 정의할 수 있습니다. 경로 값에 올바른 [경로 구문](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)을 사용해야 합니다. 모듈을 참조하려면 공백 및 특수 문자 없이 **SKU 제목**이 될 해당 기본 모듈 이름을 사용합니다. 아직 알려지지 않은 다른 모듈을 참조하려면 `<FROM_MODULE_NAME>` 규칙을 사용하여 고객이 이 정보를 업데이트해야 한다는 것을 알도록 합니다. [IoT Edge 경로](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)에 대해 자세히 알아봅니다. <br/> 예를 들어 모듈 `ContosoModule`이 `ContosoInput`의 입력 및 `ContosoOutput`에서 출력 데이터를 수신 대기하는 경우 다음 2개의 기본 경로를 정의하는 것이 좋습니다.<br/>- 이름 #1: `ToContosoModule`<br/>- 값 #1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>- 이름 #2: `FromContosoModuleToCloud`<br/>- 값 #2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream`<br/>  |
-| **기본 트윈 원하는 속성**      | 각 기본 쌍 desired 속성 이름 및 값은 512자 미만이어야 합니다. 최대 5개의 이름/값 쌍 desired 속성을 정의할 수 있습니다. 쌍 desired 속성의 값은 최대 4개의 중첩된 계층 구조의 배열이 없는 이스케이프되지 않은 유효한 JSON이어야 합니다. [쌍 desired 속성](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties)에 대해 자세히 알아봅니다. <br/> 예를 들어 모듈이 쌍 desired 속성을 통해 동적으로 구성할 수 있는 새로 고침 빈도를 지원하는 경우 다음 기본 쌍 desired 속성을 정의하는 것이 좋습니다.<br/> - 이름 #1: `RefreshRate`<br/>- 값 #1: `60`|
+| **기본 쌍 desired 속성**      | 각 기본 쌍 desired 속성 이름 및 값은 512자 미만이어야 합니다. 최대 5개의 이름/값 쌍 desired 속성을 정의할 수 있습니다. 쌍 desired 속성의 값은 최대 4개의 중첩된 계층 구조의 배열이 없는 이스케이프되지 않은 유효한 JSON이어야 합니다. [쌍 desired 속성](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties)에 대해 자세히 알아봅니다. <br/> 예를 들어 모듈이 쌍 desired 속성을 통해 동적으로 구성할 수 있는 새로 고침 빈도를 지원하는 경우 다음 기본 쌍 desired 속성을 정의하는 것이 좋습니다.<br/> - 이름 #1: `RefreshRate`<br/>- 값 #1: `60`|
 | **기본 환경 변수**  | 각 기본 환경 변수 이름 및 값은 512자 미만이어야 합니다. 최대 5개의 이름/값 환경 변수를 정의할 수 있습니다. <br/>예를 들어 모듈을 시작하기 전에 사용 약관에 동의해야 하는 경우 다음 환경 변수를 정의할 수 있습니다.<br/> - 이름 #1: `ACCEPT_EULA`<br/>- 값 #1: `Y`|
-| **기본 만들기옵션**  | createOptions는 512자 미만이어야 합니다. 이스케이프되지 않은 유효한 JSON이어야 합니다. [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules)에 대해 자세히 알아봅니다. <br/> 예를 들어 모듈에서 포트를 바인딩해야 하는 경우 다음 createOptions를 정의할 수 있습니다.<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|
+| **기본 createOptions**  | createOptions는 512자 미만이어야 합니다. 이스케이프되지 않은 유효한 JSON이어야 합니다. [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules)에 대해 자세히 알아봅니다. <br/> 예를 들어 모듈에서 포트를 바인딩해야 하는 경우 다음 createOptions를 정의할 수 있습니다.<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|
 |   |   |
 
 **저장**을 선택하여 SKU 설정을 저장합니다. 

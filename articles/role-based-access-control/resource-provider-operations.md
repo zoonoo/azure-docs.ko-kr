@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 61fb8b53d7d109fefc002b387702a240353f0dca
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: bfe0c6fcc0d1d22807bfb59b146050fb307892a0
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82117610"
+ms.locfileid: "82133153"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
@@ -4284,7 +4284,7 @@ Azure 서비스: [Event Grid](../event-grid/index.yml)
 > |  | **도메인/privateLinkResources** |  |
 > | 작업 | Microsoft EventGrid/domains/privateLinkResources/read | 도메인에 대 한 PrivateLinkResources 가져오기 또는 나열 |
 > |  | **도메인/공급자/s a t e r/logDefinitions** |  |
-> | 작업 | Microsoft EventGrid/domains/providers/Microsoft. Insights/logDefinitions/읽기 | 진단 로그에 대 한 액세스 허용 |
+> | 작업 | Microsoft EventGrid/domains/providers/Microsoft. Insights/logDefinitions/읽기 | 리소스 로그에 대 한 액세스를 허용 합니다. |
 > |  | **도메인/공급자/Microsoft metricDefinitions/** |  |
 > | 작업 | Microsoft.EventGrid/domains/providers/Microsoft.Insights/metricDefinitions/read | 도메인에 사용 가능한 메트릭을 가져옵니다. |
 > |  | **domains/topics** |  |
@@ -4352,7 +4352,7 @@ Azure 서비스: [Event Grid](../event-grid/index.yml)
 > | 작업 | Microsoft EventGrid/systemTopics/공급자/Microsoft Insights/diagnosticSettings/read | 시스템 항목에 대 한 진단 설정을 가져옵니다. |
 > | 작업 | Microsoft EventGrid/systemTopics/공급자/Microsoft Insights/diagnosticSettings/write | 시스템 항목에 대 한 진단 설정을 만들거나 업데이트 합니다. |
 > |  | **systemTopics/공급자/Microsoft Insights/logDefinitions** |  |
-> | 작업 | Microsoft EventGrid/systemTopics/공급자/Microsoft Insights/logDefinitions/읽기 | 진단 로그에 대 한 액세스 허용 |
+> | 작업 | Microsoft EventGrid/systemTopics/공급자/Microsoft Insights/logDefinitions/읽기 | 리소스 로그에 대 한 액세스를 허용 합니다. |
 > |  | **systemTopics/공급자/Microsoft Insights/metricDefinitions** |  |
 > | 작업 | Microsoft EventGrid/systemTopics/공급자/Microsoft Insights/metricDefinitions/read | 시스템 토픽에 사용 가능한 메트릭을 가져옵니다. |
 > |  | **에서는** |  |
@@ -4376,7 +4376,7 @@ Azure 서비스: [Event Grid](../event-grid/index.yml)
 > | 작업 | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/read | 토픽에 대한 진단 설정을 가져옵니다. |
 > | 작업 | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/write | 토픽에 대한 진단 설정을 만들거나 업데이트합니다. |
 > |  | **토픽/공급자/Microsoft Insights/logDefinitions** |  |
-> | 작업 | Microsoft EventGrid/토픽/공급자/Microsoft Insights/logDefinitions/읽기 | 진단 로그에 대 한 액세스 허용 |
+> | 작업 | Microsoft EventGrid/토픽/공급자/Microsoft Insights/logDefinitions/읽기 | 리소스 로그에 대 한 액세스를 허용 합니다. |
 > |  | **토픽/공급자/Microsoft metricDefinitions/** |  |
 > | 작업 | Microsoft.EventGrid/topics/providers/Microsoft.Insights/metricDefinitions/read | 토픽에 사용 가능한 메트릭을 가져옵니다. |
 > |  | **topictypes** |  |

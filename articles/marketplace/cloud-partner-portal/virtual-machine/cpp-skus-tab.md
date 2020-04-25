@@ -1,5 +1,5 @@
 ---
-title: Azure 마켓플레이스용 클라우드 파트너 포털의 가상 시스템 SUS 탭
+title: Azure Marketplace에 대 한 Cloud 파트너 포털의 가상 컴퓨터 Sku 탭
 description: Azure Marketplace에서 가상 머신 제안을 만드는 데 사용되는 SKU 탭에 대해 설명합니다.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: a8dbadf959107e733a94216c8a01495e6ebf5039
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 6ca2ebf9d02c43c3fe6bb3abec6bc0d5815fac74
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273123"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143023"
 ---
 # <a name="virtual-machine-skus-tab"></a>가상 머신 SKU 탭
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 가상 [컴퓨터 만들기 의](https://aka.ms/CreateAzureVMoffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 Azure Virtual Machine 제품의 관리를 파트너 센터로 전환 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [Azure Virtual Machine 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 **새 제품** 페이지의 **SKU** 탭을 사용하면 하나 이상의 SKU를 만들어 새 제품에 연결할 수 있습니다.  다양한 SKU에서 기능 집합, VM 이미지 유형, 처리량 또는 확장성, 청구 모델 또는 일부 다른 특성에 따라 솔루션을 구별할 수 있습니다.
 
@@ -30,11 +30,11 @@ ms.locfileid: "81273123"
 
 <br/>
 
-**새 SKU** 대화 상자가 표시됩니다.  새 SKU에 대한 식별자를 입력한 다음, **확인**을 클릭합니다. 식별자 이름 지정 규칙은 아래를 참조하십시오.  이제 **SCO** 탭에 편집할 수 있는 필드가 표시됩니다.    필드 이름에 별표(*)가 추가되면 필수 항목임을 나타냅니다.
+**새 SKU** 대화 상자가 표시됩니다.  새 SKU에 대한 식별자를 입력한 다음, **확인**을 클릭합니다. 식별자 명명 규칙은 아래를 참조 하세요.  이제 **sku** 탭에 편집할 수 있는 필드가 표시 됩니다.    필드 이름에 별표(*)가 추가되면 필수 항목임을 나타냅니다.
 
 <!-- TD: This tab has been updated, now has "Old Pricing" and "Simplified Currency Pricing" sections"! -->
 
-![가상 시스템에 대한 새 오퍼 양식의 SKU 탭](./media/publishvm_006.png)
+![Virtual machines의 새 제품 양식에서 SKU 탭](./media/publishvm_006.png)
 
 다음 표에서는 이러한 필드의 용도, 내용 및 형식을 설명합니다.  필수 필드는 별표(*)로 표시됩니다.
 
@@ -47,18 +47,18 @@ ms.locfileid: "81273123"
 |  *SKU 세부 정보*   |  |
 | **제목\***        | 마켓플레이스에 표시할 제안에 대한 이름입니다. 최대 길이는 50자입니다. |
 | **요약\***      | 마켓플레이스에 표시할 제안에 대한 간결한 설명입니다. 최대 길이는 100자입니다. |
-| **Description\***  | 제안에 대한 자세한 설명을 제공하는 설명 텍스트입니다.  <!-- TD: max len/guidance? 3k characters -->  |
+| **설명\***  | 제안에 대한 자세한 설명을 제공하는 설명 텍스트입니다.  <!-- TD: max len/guidance? 3k characters -->  |
 | **이 SKU 숨기기\*** | SKU가 마켓플레이스에서 고객에게 표시되어야 하는지 여부를 나타냅니다.  개별적으로 구입하지 않고 솔루션 템플릿을 통해서만 사용할 수 있도록 하려면 SKU를 숨기는 것이 좋습니다.  또한 초기 테스트 또는 임시/계절별 제안에도 유용할 수 있습니다. |
 | **클라우드 가용성\*** | SKU를 사용할 수 있는 클라우드를 결정합니다.  기본값은 Azure의 공개 버전입니다.  Microsoft Azure Government는 미국 연방, 주, 지방 또는 부족 정부 및 해당 인증 파트너에 대한 액세스를 제어하는 정부-커뮤니티 클라우드입니다.  정부 클라우드에 대한 자세한 내용은 [Azure Government 시작](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요. |
-| **이것은 개인 SKU인가요?\*** | SKU가 프라이빗 또는 공개인지 여부를 나타냅니다. 기본값은 **아니요**(공개)입니다.  자세한 내용은 [공개 및 프라이빗 SKU](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)를 참조하세요. |
+| **사설 SKU 입니까?\*** | SKU가 프라이빗 또는 공개인지 여부를 나타냅니다. 기본값은 **아니요**(공개)입니다.  자세한 내용은 [공개 및 프라이빗 SKU](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)를 참조하세요. |
 | **국가/지역 가용성\*** | SKU를 구입할 수 있는 국가 또는 세계 지역을 결정합니다. 하나 이상의 지역/국가를 선택합니다. <!-- TD: Is this parameter an AMP visibility control or a contractual one, or both? --> |  
 |  *가격 책정*   |  |
-| **라이센스 모델\***| 사용할 표준화된 청구 모델입니다.  **사용량 기반 월별 청구 SKU**를 선택하면 코어당 가격 책정의 세부 정보와 체험 평가판 기간을 제공할지 여부를 지정할 수 있는 접이식 섹션이 열립니다.  이 섹션에서는 이 가격 책정 일정을 Excel로 내보내고 가져올 수도 있습니다. 자세한 내용은 [Azure Marketplace의 청구 옵션](../../billing-options-azure-marketplace.md)을 참조하세요. | 
+| **라이선스 모델\***| 사용할 표준화된 청구 모델입니다.  **사용량 기반 월별 청구 SKU**를 선택하면 코어당 가격 책정의 세부 정보와 체험 평가판 기간을 제공할지 여부를 지정할 수 있는 접이식 섹션이 열립니다.  이 섹션에서는 이 가격 책정 일정을 Excel로 내보내고 가져올 수도 있습니다. 자세한 내용은 [Azure Marketplace의 청구 옵션](../../billing-options-azure-marketplace.md)을 참조하세요. | 
 |  *VM 이미지*   |  |
 | **운영 체제 제품군\*** | 솔루션 VM이 Windows 또는 Linux 기반인지 여부를 나타냅니다. |
 | **운영 체제 유형 선택** | 지정된 OS의 특정 공급업체 또는 릴리스입니다. |
-| **OS 친화적 인 이름\*** | 고객에게 표시할 운영 체제 이름입니다.  |
-| **권장 VM 크기\*** | 표준화된 목록에서 최대 6개의 권장되는 VM 크기를 선택할 수 있습니다.  이 목록은 Azure 포털 및 Microsoft 마켓플레이스에 전달됩니다.  유효한 이 목록의 첫 번째 VM 크기(해당 고객 구독, 지역, 영역 등)는 해당 잠재 고객에 대한 기본값으로 설정됩니다.  사용자는 이 크기를 솔루션 이미지와 호환되는 모든 크기로 변경할 수 있습니다. | 
+| **OS 식별 이름\*** | 고객에게 표시할 운영 체제 이름입니다.  |
+| **권장 VM 크기\*** | 표준화된 목록에서 최대 6개의 권장되는 VM 크기를 선택할 수 있습니다.  이 목록은 Azure Portal 및 Microsoft 마켓플레이스와 함께 전달 됩니다.  이 목록에서 유효한 첫 번째 VM 크기 (해당 고객 구독, 지역, 영역 등)는 해당 잠재 고객에 대 한 기본값으로 설정 됩니다.  사용자는이 크기를 솔루션 이미지와 호환 되는 것으로 변경할 수 있습니다. | 
 | **개방 포트**| 개방할 포트와 SKU를 지원할 프로토콜입니다.  이러한 구성은 솔루션 VM의 네트워크에 대해 구성된 가상 네트워크와 일치해야 합니다. 이러한 설정은 VM을 배포하는 중에 적용됩니다. 그러나 SKU가 게시되면 포트 설정을 수정할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 가상 머신에 대한 포털을 여는 방법](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal)을 참조하세요. <br/>모든 VM에 추가되는 기본 네트워크 매핑은 다음과 같습니다. &emsp;Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP, &emsp;Linux: 22 -> 22, TCP (SSH) |
 | **디스크 버전**  | 디스크 버전 번호와 디스크 URL로 지정되는 연결된 솔루션 VM입니다. 디스크 버전은 [의미 체계 버전](https://semver.org/) 형식(`<major>.<minor>.<patch>`)이어야 합니다.  URL은 운영 체제 VHD에 대해 만든 공유 액세스 서명 URI입니다.  SKU당 최대 8개의 디스크 버전을 추가할 수 있지만, SKU에 대한 가장 높은 디스크 버전 번호만 Azure Marketplace에 표시됩니다. 다른 버전은 API를 통해서만 볼 수 있습니다.  <!--TD: Add more specific link to API --> <br/> **새 데이터 디스크** 접이식 섹션을 사용하면 최대 15개의 데이터 디스크를 VM에 연결할 수 있습니다.  지정된 VM 버전 및 연결된 데이터 디스크가 있는 SKU가 게시되면 이 구성을 수정할 수 없습니다.  추가 VM 버전이 SKU에 추가되면 동일한 수의 데이터 디스크도 지원해야 합니다. <br/> Azure 기반 VM 이미지를 만들지 않은 경우 나중에 이 필드 업데이트를 추가할 수 있습니다.  연결된 VM 리소스를 만드는 방법에 대한 자세한 내용은 [VM 기술 자산 만들기](./cpp-create-technical-assets.md) 섹션을 참조하세요.  
 |  |  |
@@ -72,9 +72,9 @@ ms.locfileid: "81273123"
 
 위에 설명된 가격 책정 모델은 기본적인 설명입니다.  현재 변경을 진행하고 있으며 지방 또는 지역 세금 규정 및 Microsoft 가격 정책의 영향을 받을 수 있습니다. 
 
-### <a name="new-core-sizes-added-on-722019"></a>2019년 7월 2일에 추가된 새로운 코어 크기
+### <a name="new-core-sizes-added-on-722019"></a>7/2/2019에 추가 된 새 코어 크기
 
-VM 게시자는 2019년 7월 2일에 새로운 Azure 가상 시스템 크기에 대한 새 가격 추가(코어 수에 따라)를 통보받았습니다.  새로운 가격은 코어 크기 10, 44, 48, 60, 120, 208 및 416입니다.  기존 VM의 경우 이러한 코어 크기에 대한 새로운 가격이 현재 가격을 기준으로 자동으로 계산되었습니다.  게시자는 2019년 8월 1일까지 추가 가격을 검토하고 원하는 변경 사항을 확인해야 합니다.  이 날짜 이후에 게시자가 이미 다시 게시하지 않은 경우 이러한 새 코어 크기에 대해 자동으로 계산된 가격이 적용됩니다.
+VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 수 기반)을 추가 하는 2019 년 7 월 2 일에 통보 받았습니다.  새 가격은 10, 44, 48, 60, 120, 208 및 416의 핵심 크기에 해당 합니다.  기존 VM의 경우 이러한 코어 크기에 대 한 새로운 가격은 현재 가격에 따라 자동으로 계산 됩니다.  게시자는 2019 년 8 월 1 일까 지 추가 가격을 검토 하 고 원하는 대로 변경할 수 있습니다.  이 날짜 이후에는 아직 게시자가 다시 게시 하지 않은 경우 이러한 새 코어 크기에 대해 자동으로 계산 된 가격이 적용 됩니다.
 
 
 ### <a name="simplified-currency-pricing"></a>간소화된 통화 가격 책정
@@ -84,13 +84,13 @@ VM 게시자는 2019년 7월 2일에 새로운 Azure 가상 시스템 크기에 
 
 ### <a name="additional-information-on-taxes-and-prices"></a>세금 및 가격에 대한 추가 정보
 
-* Microsoft는 일부 국가/지역을 *세금 환급 국가로 분류합니다.*  이러한 국가/지역에서 Microsoft는 고객으로부터 세금을 징수한 다음 정부에 세금을 납부합니다.  다른 국가/지역에서 파트너는 일반적으로 고객으로부터 세금을 징수하고 정부에 세금을 납부할 책임이 있습니다. 후자의 국가/지역에서 판매하기로 선택한 경우 현지 세금을 계산하고 납부할 수 있는 능력이 있어야 합니다.  <!-- TD: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps -->
+* Microsoft는 일부 국가/지역을 *세금 송금 국가*로 분류 합니다.  이러한 국가/지역에서 Microsoft는 고객 으로부터 세금을 수집한 다음 정부에 대 한 송금을 지불 합니다.  다른 국가/지역에서 파트너는 일반적으로 고객 으로부터 세금을 수집 하 고 정부에 세금을 지불 해야 합니다. 후자 국가/지역에서 판매 하기로 선택한 경우 지역 세금을 계산 하 고 지불 하는 기능이 있어야 합니다.  <!-- TD: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps -->
 * 제품이 라이브 상태가 된 후에는 가격을 변경할 수 없습니다. 그러나 지원되는 지역은 여전히 추가하거나 제거할 수 있습니다. 
 * Microsoft는 예약된 SKU 요금 외에도 표준 Azure VM 사용 요금을 고객에게 부과합니다.
 * 가격은 모든 하위 지역에 대해 가격을 설정할 당시에 사용 가능한 환율의 현지 통화로 설정됩니다.  <!-- TD: Meaning? - Offer created, published, other? -->
-* 각 지역의 가격을 개별적으로 설정하려면 가격 스프레드시트를 내보낸 다음 사용자 지정 가격을 적용한 다음 가져오십시오. 
+* 각 지역의 가격을 개별적으로 설정 하려면 가격 책정 스프레드시트를 내보내고, 사용자 지정 가격 책정을 적용 한 후 가져오기를 클릭 하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-선택적으로 이 기능을 지원하는 경우 [테스트 드라이브](./cpp-test-drive-tab.md) 정보를 지정합니다. 그렇지 않으면 [오퍼에](./cpp-marketplace-tab.md) 대한 마켓플레이스 데이터를 제공합니다.
+필요에 따라이 기능을 지 원하는 경우 [테스트 드라이브](./cpp-test-drive-tab.md) 정보를 지정 합니다. 그렇지 않은 경우 제품에 대 한 [marketplace](./cpp-marketplace-tab.md) 데이터를 제공 합니다.

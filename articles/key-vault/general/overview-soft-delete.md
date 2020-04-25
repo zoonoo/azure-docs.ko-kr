@@ -1,6 +1,6 @@
 ---
-title: Azure 키 볼트 소프트 삭제 | 마이크로 소프트 문서
-description: 'Azure Key Vault에서 소프트 삭제를 사용하면 삭제된 키 자격 증명 모음 및 키 자격 증명 모음 개체(예: 키, 암호 및 인증서)를 복구할 수 있습니다.'
+title: Azure Key Vault 일시 삭제 | Microsoft Docs
+description: Azure Key Vault에서 일시 삭제는 키, 암호 및 인증서와 같은 키 자격 증명 모음 및 키 자격 증명 모음 개체를 복구할 수 있도록 합니다.
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -8,23 +8,23 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: be4f124863da39cc9f6a61ebe054d451b438e8c3
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 045c1d255ae380c722506615aae9cf5d22105747
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617745"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133104"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 일시 삭제 개요
 
-키 볼트의 소프트 삭제 기능을 사용하면 삭제된 볼트 및 볼트 객체(소프트 삭제)를 복구할 수 있습니다. 특히 다음과 같은 시나리오를 다룹니다.
+Key Vault의 일시 삭제 기능을 사용 하면 삭제 된 자격 증명 모음 및 자격 증명 모음 개체 (일시 삭제)를 복구할 수 있습니다. 특히 다음과 같은 시나리오를 다룹니다.
 
 - Key Vault의 복구 가능한 삭제 지원
 - 주요 자격 증명 모음 개체(예: 키, 암호, 인증서)의 복구 가능한 삭제 지원
 
 ## <a name="supporting-interfaces"></a>인터페이스 지원
 
-소프트 삭제 기능은 [처음에 REST,](/rest/api/keyvault/) [CLI,](soft-delete-cli.md) [PowerShell](soft-delete-powershell.md) 및 [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) 인터페이스를 통해 사용할 수 있습니다.
+일시 삭제 기능은 처음에 [REST](/rest/api/keyvault/), [CLI](soft-delete-cli.md), [PowerShell](soft-delete-powershell.md) 및 [.net/c #](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) 인터페이스를 통해 사용할 수 있습니다.
 
 ## <a name="scenarios"></a>시나리오
 
@@ -36,29 +36,29 @@ Azure Key Vault는 Azure Resource Manager에서 관리하는 추적된 리소스
 
 ### <a name="soft-delete-behavior"></a>일시 삭제 동작
 
-소프트 삭제가 활성화되면 삭제된 리소스로 표시된 리소스는 지정된 기간(기본적으로 90일)동안 유지됩니다. 또한 서비스는 삭제된 개체를 복구하고 기본적으로 삭제를 취소하는 메커니즘을 제공합니다.
+일시 삭제를 사용 하도록 설정 하면 삭제 된 리소스로 표시 된 리소스는 지정 된 기간 (기본적으로 90 일) 동안 보존 됩니다. 또한 서비스는 삭제된 개체를 복구하고 기본적으로 삭제를 취소하는 메커니즘을 제공합니다.
 
-새 키 자격 증명 모음을 만들 때 기본적으로 소프트 삭제가 설정됩니다. [Azure CLI](soft-delete-cli.md) 또는 Azure PowerShell 을 통해 소프트 삭제 없이 키 자격 증명 모음을 만들 수 [있습니다.](soft-delete-powershell.md) 키 자격 증명 모음에서 소프트 삭제를 사용하도록 설정하면 비활성화할 수 없습니다.
+새 키 자격 증명 모음을 만들 때 일시 삭제는 기본적으로 설정 되어 있습니다. [Azure CLI](soft-delete-cli.md) 또는 [Azure PowerShell](soft-delete-powershell.md)를 통해 소프트 삭제 없이 키 자격 증명 모음을 만들 수 있습니다. 키 자격 증명 모음에 대해 일시 삭제를 사용 하도록 설정한 후에는 사용 하지 않도록 설정할 수 없습니다.
 
-기본 보존 기간은 90일이지만 키 자격 증명 모음을 만드는 동안 Azure 포털을 통해 보존 정책 간격을 7일에서 90일로 설정할 수 있습니다. 제거 보호 보존 정책은 동일한 간격을 사용합니다. 설정되면 보존 정책 간격을 변경할 수 없습니다.
+기본 보존 기간은 90 일 이지만 key vault를 만드는 동안 보존 정책 간격을 7 일에서 90 일 Azure Portal 사이의 값으로 설정할 수 있습니다. 제거 보호 보존 정책은 동일한 간격을 사용 합니다. 설정 되 면 보존 정책 간격을 변경할 수 없습니다.
 
-보존 기간이 경과할 때까지 일시 삭제된 키 자격 증명 모음의 이름은 다시 사용할 수 없습니다.
+보존 기간이 경과 될 때까지 일시 삭제 된 key vault의 이름을 다시 사용할 수 없습니다.
 
-### <a name="purge-protection"></a>퍼지 보호 
+### <a name="purge-protection"></a>보호 제거 
 
-지우기 보호는 키 높이 뛰기(Key Vault)라는 선택적 동작이며 **기본적으로 활성화되지 않습니다.** [CLI](soft-delete-cli.md#enabling-purge-protection) 또는 [PowerShell을](soft-delete-powershell.md#enabling-purge-protection)통해 켜질 수 있습니다.
+보호 제거는 선택적 Key Vault 동작으로, **기본적으로 사용 하도록 설정 되어 있지 않습니다**. 일시 삭제를 사용 하도록 설정한 후에만 제거 보호를 사용 하도록 설정할 수 있습니다.  [CLI](soft-delete-cli.md#enabling-purge-protection) 또는 [PowerShell](soft-delete-powershell.md#enabling-purge-protection)을 통해 설정할 수 있습니다.
 
-제거 보호가 켜지면 보존 기간이 경과할 때까지 삭제된 상태의 볼트 또는 개체를 제거할 수 없습니다. 일시 삭제된 볼트 및 개체는 계속 복구할 수 있으므로 보존 정책을 따를 수 있습니다. 
+보호 제거를 설정 하는 경우 보존 기간이 지날 때까지 삭제 된 상태의 자격 증명 모음 또는 개체를 제거할 수 없습니다. 일시 삭제 된 자격 증명 모음 및 개체는 계속 복구할 수 있으므로 보존 정책이 적용 됩니다. 
 
-기본 보존 기간은 90일이지만 보존 정책 간격을 Azure 포털을 통해 7일에서 90일로 설정할 수 있습니다. 보존 정책 간격을 설정하고 저장하면 해당 자격 증명 모음에 대해 변경할 수 없습니다. 
+기본 보존 기간은 90 일 이지만 보존 정책 간격은 Azure Portal 7 일에서 90 일 사이의 값으로 설정할 수 있습니다. 보존 정책 간격이 설정 되 고 저장 된 후에는 해당 자격 증명 모음에 대해 변경할 수 없습니다. 
 
 ### <a name="permitted-purge"></a>허용된 제거
 
 프록시 리소스에 대한 POST 작업을 통해 주요 자격 증명 모음을 영구 삭제, 즉 제거할 수 있으며, 특별한 권한이 필요합니다. 일반적으로 구독 소유자만 주요 자격 증명 모음을 제거할 수 있습니다. POST 작업은 해당 자격 증명 모음에 대해 즉각적이고 복구할 수 없는 삭제를 트리거합니다. 
 
 예외는 다음과 같습니다.
-- Azure 구독이 *삭제할 수 없는*것으로 표시된 경우. 이 경우 서비스는 실제 삭제만 수행할 수 있으며, 예약된 프로세스로 삭제합니다. 
-- `--enable-purge-protection flag` 볼트 자체에서 활성화된 경우 이 경우 Key Vault는 원래 비밀 개체가 삭제 대상으로 표시된 시점으로부터 90일 동안 기다렸다가 개체를 영구적으로 삭제합니다.
+- Azure 구독이 *불가능*로 표시 된 경우 이 경우 서비스는 실제 삭제만 수행할 수 있으며, 예약된 프로세스로 삭제합니다. 
+- 자격 증명 `--enable-purge-protection flag` 모음 자체에서를 사용 하는 경우 이 경우 Key Vault는 원래 비밀 개체가 삭제 대상으로 표시된 시점으로부터 90일 동안 기다렸다가 개체를 영구적으로 삭제합니다.
 
 ### <a name="key-vault-recovery"></a>주요 자격 증명 모음 복구
 
@@ -66,13 +66,13 @@ Key Vault를 삭제하면 서비스가 구독 아래에 프록시 리소스를 �
 
 ### <a name="key-vault-object-recovery"></a>주요 자격 증명 모음 개체 복구
 
-키와 같은 키 자격 증명 모음 개체를 삭제하면 서비스는 개체를 삭제된 상태로 배치하여 검색 작업에 액세스할 수 없게 됩니다. 이 상태의 Key Vault 개체는 나열, 복구 또는 강제로/영구 삭제할 수만 있습니다. 
+키와 같은 key vault 개체를 삭제 하면 서비스는 개체를 삭제 된 상태로 설정 하 여 검색 작업에 액세스할 수 없게 됩니다. 이 상태의 Key Vault 개체는 나열, 복구 또는 강제로/영구 삭제할 수만 있습니다. 
 
 이와 동시에 주요 Key Vault는 미리 정해진 보존 간격 후에 실행하기 위해 삭제된 주요 자격 증명 모음 또는 주요 자격 증명 모음 개체에 해당하는 기본 데이터의 삭제를 예약합니다. 자격 증명 모음에 해당하는 DNS 레코드도 보존 간격 기간 동안 유지됩니다.
 
 ### <a name="soft-delete-retention-period"></a>일시 삭제 보존 기간
 
-일시 삭제된 리소스는 90일 동안 설정된 기간 동안 유지됩니다. 일시 삭제 보존 간격 중에는 다음이 적용됩니다.
+일시 삭제 된 리소스는 설정 된 시간 (90 일) 동안 보존 됩니다. 일시 삭제 보존 간격 중에는 다음이 적용됩니다.
 
 - 구독에 대한 일시 삭제 상태의 주요 자격 증명 모음 및 주요 자격 증명 모음 개체를 모두 나열하고 해당 항목에 대한 삭제 및 복구 정보에 액세스할 수 있습니다.
     - 특수 사용 권한이 있는 사용자만 삭제된 자격 증명 모음을 나열할 수 있습니다. 사용자가 삭제된 자격 증명 모음 처리를 위해 이러한 특수 사용 권한을 가진 사용자 지정 역할을 만드는 것이 좋습니다.
@@ -94,6 +94,6 @@ Key Vault 또는 Key Vault 개체를 복구하지 않으면 보존 간격이 끝
 
 다음 두 가이드는 일시 삭제 사용에 대한 기본 사용 시나리오를 제공합니다.
 
-- [PowerShell을 사용한 키 자격 증명 모음 일시 삭제를 사용하는 방법](soft-delete-powershell.md) 
+- [PowerShell로 Key Vault 일시 삭제를 사용하는 방법](soft-delete-powershell.md) 
 - [CLI로 Key Vault 일시 삭제를 사용하는 방법](soft-delete-cli.md)
 

@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 용어집 | Microsoft Docs
-description: 개발자 가이드 - Azure IoT Hub 문서에서 사용되는 몇 가지 일반적인 용어를 설명하는 용어집입니다.
+description: 개발자 가이드-Azure IoT Hub 문서에 사용 된 몇 가지 일반적인 용어에 대해 설명 하는 용어입니다.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 5c59ddf046e7ffe936b097878d5d049b43ea8aec
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 73981cb0f124e1577690f893ead60e6375f16298
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81729021"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133139"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 
@@ -28,7 +28,7 @@ ms.locfileid: "81729021"
 
 ## <a name="automatic-device-management"></a>자동 디바이스 관리
 
-Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해 대규모 디바이스를 관리하는 반복적이고 복잡한 작업을 자동화합니다. 자동 디바이스 관리를 사용하여 해당 속성을 기반으로 디바이스 집합을 대상으로 지정하고, 원하는 구성을 정의하고, 범위에 나올 때마다 IoT Hub에서 디바이스를 업데이트하도록 할 수 있습니다.  [자동 디바이스 구성](iot-hub-auto-device-config.md) 및 [IoT Edge 자동 배포](../iot-edge/how-to-deploy-monitor.md)로 구성됩니다.
+Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해 대규모 디바이스를 관리하는 반복적이고 복잡한 작업을 자동화합니다. 자동 디바이스 관리를 사용하여 해당 속성을 기반으로 디바이스 집합을 대상으로 지정하고, 원하는 구성을 정의하고, 범위에 나올 때마다 IoT Hub에서 디바이스를 업데이트하도록 할 수 있습니다.  [자동 디바이스 구성](iot-hub-auto-device-config.md) 및 [IoT Edge 자동 배포](../iot-edge/how-to-deploy-at-scale.md)로 구성됩니다.
 
 ## <a name="automatic-device-configuration"></a>자동 디바이스 구성
 
@@ -48,7 +48,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 ## <a name="azure-iot-explorer"></a>Azure IoT 탐색기
 
-[Azure IoT 탐색기는](https://github.com/Azure/azure-iot-explorer) 장치가 보내는 원격 분석을 보고, 장치 속성으로 작업하고, 명령을 호출하는 데 사용됩니다. 탐색기를 사용하여 장치와 상호 작용 및 테스트하고 플러그 앤 플레이 장치를 관리할 수도 있습니다.
+[Azure IoT 탐색기](https://github.com/Azure/azure-iot-explorer) 는 장치에서 보내는 원격 분석을 보고, 장치 속성을 사용 하 고, 명령을 호출 하는 데 사용 됩니다. 탐색기를 사용 하 여 장치를 조작 및 테스트 하 고 플러그 앤 플레이 장치를 관리할 수도 있습니다.
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT 서비스 SDK
 
@@ -60,7 +60,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 ## <a name="azure-portal"></a>Azure portal
 
-[Microsoft Azure 포털은](https://portal.azure.com) Azure 리소스를 프로비전하고 관리할 수 있는 중앙 위치입니다. _블레이드_를 사용하여 해당 콘텐츠를 구성합니다.
+[Microsoft Azure portal](https://portal.azure.com) 은 Azure 리소스를 프로 비전 하 고 관리할 수 있는 중앙 위치입니다. _블레이드_를 사용하여 해당 콘텐츠를 구성합니다.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -68,7 +68,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 ## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
-[Azure 리소스 관리자를](../azure-resource-manager/management/overview.md) 사용하면 솔루션의 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) 를 사용 하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
 
 ## <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -140,7 +140,7 @@ IoT의 컨텍스트에서 일반적으로 디바이스는 데이터를 수집하
 
 ## <a name="device-condition"></a>디바이스 조건
 
-[장치 앱에서](#device-app)보고한 대로 현재 사용 중인 연결 방법과 같은 장치 상태 정보를 말합니다. [디바이스 앱](#device-app)은 해당 기능도 보고할 수 있습니다. 디바이스 쌍을 사용하여 조건 및 기능 정보를 쿼리할 수 있습니다.
+[장치 앱](#device-app)에서 보고 하는 현재 사용 중인 연결 방법과 같은 장치 상태 정보를 나타냅니다. [디바이스 앱](#device-app)은 해당 기능도 보고할 수 있습니다. 디바이스 쌍을 사용하여 조건 및 기능 정보를 쿼리할 수 있습니다.
 
 ## <a name="device-data"></a>디바이스 데이터
 
@@ -148,7 +148,7 @@ IoT의 컨텍스트에서 일반적으로 디바이스는 데이터를 수집하
 
 ## <a name="device-explorer"></a>디바이스 탐색기
 
-장치 탐색기가 [Azure IoT 탐색기로](https://github.com/Azure/azure-iot-explorer)대체되었으며, 이 탐색기는 장치가 보내는 원격 분석을 보고 장치 속성으로 작업하고 명령을 호출하는 데 사용됩니다. 탐색기를 사용하여 장치와 상호 작용 및 테스트하고 플러그 앤 플레이 장치를 관리할 수도 있습니다.
+장치 탐색기는 장치에서 보내는 원격 분석을 보는 데 사용 되는 [Azure IoT 탐색기](https://github.com/Azure/azure-iot-explorer)로 대체 되었으며 장치 속성을 사용 하 고 명령을 호출 하는 데 사용 됩니다. 탐색기를 사용 하 여 장치를 조작 및 테스트 하 고 플러그 앤 플레이 장치를 관리할 수도 있습니다.
 
 ## <a name="device-identity"></a>디바이스 ID
 
@@ -168,7 +168,7 @@ IoT의 컨텍스트에서 일반적으로 디바이스는 데이터를 수집하
 
 ## <a name="device-provisioning"></a>디바이스 프로비전
 
-장치 프로비저닝은 솔루션의 저장소에 초기 [장치 데이터를](#device-data) 추가하는 프로세스입니다. 새 장치가 허브에 연결하도록 설정하려면 장치 ID와 키를 IoT Hub [ID 레지스트리에](#identity-registry)추가해야 합니다. 프로비전 프로세스의 일부로, 다른 솔루션 저장소에서 디바이스 특정 데이터를 초기화해야 할 수 있습니다.
+장치 프로 비전은 솔루션의 저장소에 초기 [장치 데이터](#device-data) 를 추가 하는 프로세스입니다. 새 장치를 허브에 연결할 수 있게 하려면 장치 ID 및 키를 IoT Hub [id 레지스트리에](#identity-registry)추가 해야 합니다. 프로비전 프로세스의 일부로, 다른 솔루션 저장소에서 디바이스 특정 데이터를 초기화해야 할 수 있습니다.
 
 ## <a name="device-twin"></a>디바이스 쌍
 
@@ -188,11 +188,11 @@ IoT Hub는 앱을 IoT Hub에 연결할 수 있도록 해주는 여러 [엔드포
 
 ## <a name="event-hub-compatible-endpoint"></a>Event Hub 호환 엔드포인트
 
-IoT 허브로 전송된 [장치-클라우드](#device-to-cloud) 메시지를 읽으려면 허브의 끝점에 연결하고 Event Hub 호환 방법을 사용하여 해당 메시지를 읽을 수 있습니다. 이벤트 허브 호환 메서드에는 이벤트 허브 SDK 및 [Azure 스트림 분석](../stream-analytics/stream-analytics-introduction.md)사용이 [포함됩니다.](../event-hubs/event-hubs-programming-guide.md)
+IoT hub로 전송 되는 [장치-클라우드](#device-to-cloud) 메시지를 읽으려면 허브에 있는 끝점에 연결 하 고 Event hub 호환 메서드를 사용 하 여 해당 메시지를 읽을 수 있습니다. 이벤트 허브 호환 방법에는 [Event Hubs sdk](../event-hubs/event-hubs-programming-guide.md) 및 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)사용이 포함 됩니다.
 
 ## <a name="field-gateway"></a>필드 게이트웨이
 
-필드 게이트웨이를 사용하면 [IoT Hub에](#iot-hub) 직접 연결할 수 없고 일반적으로 장치와 로컬로 배포되는 장치에 대한 연결을 사용할 수 있습니다. 자세한 내용은 [Azure IoT Hub란 무엇입니까?](about-iot-hub.md)
+필드 게이트웨이는 [IoT Hub](#iot-hub) 에 직접 연결할 수 없는 장치에 대 한 연결을 가능 하 게 하며 일반적으로 장치와 함께 로컬로 배포 됩니다. 자세한 내용은 [Azure IoT Hub 란?](about-iot-hub.md) 을 참조 하세요.
 
 ## <a name="free-account"></a>무료 계정
 
@@ -214,7 +214,7 @@ IoT 허브로 전송된 [장치-클라우드](#device-to-cloud) 메시지를 읽
 
 ## <a name="iot-hub"></a>IoT Hub
 
-IoT Hub는 수백만의 디바이스와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 Azure 서비스입니다. 자세한 내용은 [Azure IoT Hub란 무엇입니까?](about-iot-hub.md) [Azure 구독](#subscription)을 사용하여 IoT 메시징 워크로드를 처리하는 IoT Hub를 만들 수 있습니다.
+IoT Hub는 수백만의 디바이스와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 Azure 서비스입니다. 자세한 내용은 [Azure IoT Hub 란?](about-iot-hub.md) 을 참조 하세요. [Azure 구독](#subscription)을 사용하여 IoT 메시징 워크로드를 처리하는 IoT Hub를 만들 수 있습니다.
 
 ## <a name="iot-hub-metrics"></a>IoT Hub 메트릭
 
@@ -256,7 +256,7 @@ Azure IoT 솔루션 가속기는 여러 Azure 서비스를 솔루션으로 함�
 
 ## <a name="mqtt"></a>MQTT
 
-[MQTT는](https://mqtt.org/) [IoT Hub가](#iot-hub) 장치와의 통신을 지원하는 메시징 프로토콜 중 하나입니다. IoT Hub에서 지원하는 메시징 프로토콜에 대한 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.
+[Mqtt](https://mqtt.org/) 는 장치와의 통신을 위해 [IoT Hub](#iot-hub) 지 원하는 메시징 프로토콜 중 하나입니다. IoT Hub에서 지원하는 메시징 프로토콜에 대한 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.
 
 ## <a name="operations-monitoring"></a>작업 모니터링
 
@@ -272,7 +272,7 @@ IoT Hub에서 디바이스 지향 또는 서비스 지향 엔드포인트에 연
 
 ## <a name="protocol-gateway"></a>프로토콜 게이트웨이
 
-프로토콜 게이트웨이는 일반적으로 클라우드에 배포되며 [IoT Hub에](#iot-hub)연결하는 장치에 대한 프로토콜 번역 서비스를 제공합니다. 자세한 내용은 [Azure IoT Hub란 무엇입니까?](about-iot-hub.md)
+프로토콜 게이트웨이는 일반적으로 클라우드에 배포 되며 [IoT Hub](#iot-hub)에 연결 하는 장치에 대 한 프로토콜 변환 서비스를 제공 합니다. 자세한 내용은 [Azure IoT Hub 란?](about-iot-hub.md) 을 참조 하세요.
 
 ## <a name="quotas-and-throttling"></a>할당량 및 제한
 
@@ -329,7 +329,7 @@ Azure 구독에서는 청구가 이루어집니다. 생성한 각 Azure 서비�
 
 [디바이스 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 시스템 속성은 읽기 전용이며 마지막 작업 시간 및 연결 상태와 같은 디바이스 사용에 대한 정보를 포함합니다.
 
-## <a name="tags"></a>태그들
+## <a name="tags"></a>태그
 
 [디바이스 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 태그는 JSON 문서 형식으로 솔루션 백 엔드에 의해 저장 및 검색되는 디바이스 메타데이터입니다. 태그는 디바이스 앱에 표시되지 않습니다.
 

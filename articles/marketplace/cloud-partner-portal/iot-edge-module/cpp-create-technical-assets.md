@@ -1,5 +1,5 @@
 ---
-title: Azure IoT 에지 모듈 기술 자산 만들기 | Azure 마켓플레이스
+title: Azure IoT Edge 모듈 기술 자산 만들기 | Azure Marketplace
 description: IoT Edge 모듈에 대한 기술 자산을 만듭니다.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b36d03695c107054549fba716f4cc27ecb7bba26
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 1a523872bb15981958eeb1678caa1d911a9cbbba
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983486"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142403"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>IoT Edge 모듈 기술 자산 준비
 
 >[!Important]
->2020년 4월 13일부터 파트너 센터로 IoT Edge 모듈의 관리를 이전할 예정입니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. IoT [Edge 생성 모듈 오퍼의](https://aka.ms/AzureIoTTechAsset) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+>2020 년 4 월 13 일부 터 파트너 센터에 IoT Edge 모듈 제품 관리를 이동 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [IoT Edge 모듈 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-iot-edge-module-asset) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 이 문서에서는 IoT Edge 모듈 기술 자산을 Azure Marketplace에 게시하기 전에 충족해야 하는 요구 사항을 설명합니다.
 
@@ -41,7 +41,7 @@ IoT Edge 모듈은 다음 플랫폼 옵션 중 하나를 지원해야 합니다.
 IoT Edge에서 지원되는 모든 계층 1 플랫폼을 지원합니다([Azure IoT Edge 지원](https://docs.microsoft.com/azure/iot-edge/support)에 기록된 대로). 더 나은 고객 경험을 제공하기 때문에 이 옵션을 권장합니다. 이 조건을 충족하는 모듈이 소개됩니다. 이 플랫폼 옵션을 사용하는 모듈은 다음을 수행해야 합니다.
 
 - GitHub [매니페스트 도구](https://github.com/estesp/manifest-tool)를 사용하여 빌드된 매니페스트 태그인 `latest` 태그 및 버전 태그(예: `1.0.1`)를 제공합니다.
-- [Marketplace 탭](./cpp-marketplace-tab.md)을 사용하여 [호환 IoT Edge 인증 디바이스](https://aka.ms/iot-edge-certified)에 링크를 추가합니다. 이 링크는 고객이 인증된 디바이스를 찾거나 검색할 수 있는 웹 사이트인 `https://aka.ms/iot-edge-certified`로 이동합니다. 이 웹 사이트는 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 디바이스 카탈로그라고도 합니다.
+- [Marketplace 탭](./cpp-marketplace-tab.md) 을 사용 하 여 고객이 인증 된 장치를 찾아보거나 검색할 수 있는 웹 사이트인 [IoT Edge 인증](https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]})된 링크를 추가할 수 있습니다. 이 웹 사이트는 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 디바이스 카탈로그라고도 합니다.
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>IoT Edge에서 지원되는 계층 1 플랫폼의 하위 집합
   
@@ -82,11 +82,11 @@ IoT Edge 모듈은 [Cloud 파트너 포털의 SKU 탭](./cpp-skus-tab.md)에 제
 
 #### <a name="configuration-documentation"></a>구성 문서
 
-IoT Edge 모듈의 모든 구성 설정을 명확하게 문서화해야 합니다(경로 사용 방법, 원하는 속성, 환경 변수, createOptions 등). 문서에 대한 링크를 제공하거나 설명서가 오퍼/스쿠 설명의 일부여야 합니다.
+IoT Edge 모듈의 모든 구성 설정은 명확 하 게 문서화 되어야 합니다 (경로를 사용 하는 방법, desired 속성, 환경 변수, createOptions 등). 설명서에 대 한 링크를 제공 하거나 설명서는 제품/sku 설명에 포함 되어야 합니다.
 
 ### <a name="tags-and-versioning"></a>태그 및 버전 관리
 
-고객은 모듈을 쉽게 배포하고 마켓플레이스에서 자동으로 업데이트를 받을 수 있어야 합니다(개발자 시나리오). 또한 프로덕션 시나리오에서 테스트한 정확한 버전을 사용하고 동결할 수 있어야 합니다.
+고객은 쉽게 모듈을 배포 하 고 개발자 시나리오에서 marketplace에서 업데이트를 자동으로 가져올 수 있어야 합니다. 또한 프로덕션 시나리오에서 테스트 한 정확한 버전을 사용 하 고 고정할 수 있어야 합니다.
 
 이러한 고객의 기대를 충족하고 마켓플레이스에 게시하기 위해 IoT Edge 모듈은 다음 요구 사항을 충족해야 합니다.
 

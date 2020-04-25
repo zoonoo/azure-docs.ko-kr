@@ -4,15 +4,15 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: dobett
-ms.openlocfilehash: c95bca125ea70cf32acad0d5ea67c3ad195ed704
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30b8facfef6d90a444bd61d0ce041ed7dfef324e
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67182322"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131507"
 ---
 ## <a name="automatic-device-management"></a>자동 디바이스 관리
-Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해 대규모 디바이스를 관리하는 반복적이고 복잡한 작업을 자동화합니다. 자동 디바이스 관리를 사용하여 해당 속성을 기반으로 디바이스 집합을 대상으로 지정하고, 원하는 구성을 정의하고, 범위에 나올 때마다 IoT Hub에서 디바이스를 업데이트하도록 할 수 있습니다.  [자동 디바이스 구성](../articles/iot-hub/iot-hub-auto-device-config.md) 및 [IoT Edge 자동 배포](../articles/iot-edge/how-to-deploy-monitor.md)로 구성됩니다.
+Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해 대규모 디바이스를 관리하는 반복적이고 복잡한 작업을 자동화합니다. 자동 디바이스 관리를 사용하여 해당 속성을 기반으로 디바이스 집합을 대상으로 지정하고, 원하는 구성을 정의하고, 범위에 나올 때마다 IoT Hub에서 디바이스를 업데이트하도록 할 수 있습니다.  [자동 디바이스 구성](../articles/iot-hub/iot-hub-auto-device-config.md) 및 [IoT Edge 자동 배포](../articles/iot-edge/how-to-deploy-at-scale.md)로 구성됩니다.
 
 ## <a name="iot-edge"></a>IoT Edge
 Azure IoT Edge에서는 클라우드 방식을 통해 Azure 서비스 및 솔루션별 코드를 온-프레미스 디바이스에 배포할 수 있습니다. IoT Edge 디바이스는 다른 디바이스의 데이터를 집계한 후 데이터를 클라우드로 전송하기 전에 계산 및 분석을 수행할 수 있습니다. 자세한 내용은 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/)를 참조하세요.
@@ -21,7 +21,7 @@ Azure IoT Edge에서는 클라우드 방식을 통해 Azure 서비스 및 솔루
 모듈 배포 및 모니터링을 담당하는 IoT Edge 런타임의 부분입니다.
 
 ## <a name="iot-edge-device"></a>IoT Edge 디바이스
-IoT Edge 장치에는 IoT Edge 런타임이 설치되어 있으며 장치 세부 정보에서 **IoT Edge 장치로** 플래그가 지정됩니다. [Linux에서 시뮬레이션트된 디바이스에 Azure IoT Edge 배포 - 미리 보기](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux) 방법을 알아봅니다.
+IoT Edge 장치는 IoT Edge 런타임을 설치 하 고 장치 세부 정보에서 **IoT Edge 장치로** 플래그를 지정 합니다. [Linux에서 시뮬레이션트된 디바이스에 Azure IoT Edge 배포 - 미리 보기](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux) 방법을 알아봅니다.
 
 ## <a name="iot-edge-automatic-deployment"></a>IoT Edge 자동 배포
 IoT Edge 자동 배포는 IoT Edge 디바이스의 대상 집합이 IoT Edge 모듈 집합을 실행하도록 구성합니다. 각 배포는 새 디바이스가 만들어지거나 대상 조건과 일치하도록 수정되더라도 대상 조건과 일치하는 모든 디바이스가 지정된 모듈 집합을 실행 중인지 계속 확인합니다. 각 IoT Edge 디바이스는 해당 대상 조건을 충족하는 가장 높은 우선 순위 배포만 수신합니다. [IoT Edge 자동 배포](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring)에 대해 자세히 알아보세요.
@@ -60,4 +60,4 @@ IoT Edge 런타임은 Microsoft가 IoT Edge 디바이스에 설치되도록 배�
 IoT Edge 매니페스트의 내용을 한 디바이스의 모듈 쌍으로 복사하는 작업입니다. 기본 API는 제네릭 '구성 적용'으로, 단순히 IoT Edge 매니페스트를 입력으로 사용합니다.
 
 ## <a name="iot-edge-target-condition"></a>IoT Edge 대상 조건
-IoT Edge 배포에서 대상 조건은 장치 쌍의 태그에 있는 모든 부울 조건으로 배포의 대상 장치(예: **tag.environment = prod)를**선택합니다. 대상 조건은 요구 사항을 충족하거나 더 이상 수행되지 않는 장치를 제거하는 새 장치를 포함하도록 지속적으로 평가됩니다. [대상 조건](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#target-condition)에 대해 자세히 알아보세요.
+IoT Edge 배포에서 대상 조건은 배포의 대상 장치를 선택 하기 위한 장치 쌍 태그의 부울 조건입니다 (예: **environment = prod**). 대상 조건은 요구 사항을 충족 하는 새 장치를 포함 하거나 더 이상 수행 하지 않는 장치를 제거 하기 위해 지속적으로 평가 됩니다. [대상 조건](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#target-condition)에 대해 자세히 알아보세요.

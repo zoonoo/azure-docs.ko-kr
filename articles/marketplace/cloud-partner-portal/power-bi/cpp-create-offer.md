@@ -1,5 +1,5 @@
 ---
-title: Power BI 앱 오퍼 만들기 | Azure 마켓플레이스
+title: Power BI 앱 제안 만들기 | Azure Marketplace
 description: Microsoft AppSource Marketplace용 Power BI 앱 제품을 만드는 방법입니다.
 author: dsindona
 ms.service: marketplace
@@ -7,26 +7,26 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: c396468bff0edef5cfceccd3d3c3394662111c10
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: c8273025b92a74286d3f918289ef9f21bd992182
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984847"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143113"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Power BI 앱 제품 만들기
 
 >[!Important]
->2020년 4월 13일부터 Power BI 앱 제공의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Power BI [앱 만들기 개요의](https://aka.ms/AzureCreatePBIServiceApp) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
+>2020 년 4 월 13 일부 터 파트너 센터에 Power BI 앱 제품 관리를 이동 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [앱 만들기 개요 Power BI](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 이 문서에는 [AppSource](https://appsource.microsoft.com)용 새 Power BI 앱 제품을 만드는 데 필요한 단계가 나와 있습니다. 모든 제품은 AppSource에 고유 엔터티로 나타납니다. [Cloud 파트너 포털](https://cloudpartner.azure.com/)에서 새 제품을 만드는 경우 제품에 대한 네 가지 자산 그룹을 제공해야 합니다.
 
 자산 그룹은 다음 표에 설명되어 있습니다.
 
-|   자산 그룹      | Description                                                                         |
+|   자산 그룹      | 설명                                                                         |
 | ----------------   | ----------------                                                                    |
 | 제품 설정     | 제품의 기본 ID와 이름입니다.                                      |
-| 기술 정보     | 클라이언트의 Power BI 작업 영역에 앱을 설치하는 데 사용하는 설치 관리자 URL입니다. 이 URL을 생성하는 방법에 대한 자세한 내용은 [Power BI 앱 문서](https://go.microsoft.com/fwlink/?linkid=2028636)를 참조하세요. |
+| 기술 정보     | 클라이언트의 Power BI 작업 영역에 앱을 설치 하는 데 사용 하는 설치 관리자 URL입니다. 이 URL을 생성하는 방법에 대한 자세한 내용은 [Power BI 앱 문서](https://go.microsoft.com/fwlink/?linkid=2028636)를 참조하세요. |
 | 상점 세부 정보 | 마케팅, 법적 정보 및 잠재 고객 관리 자산을 포함합니다. 마케팅 자산에는 제품 설명 및 로고가 포함됩니다. 법적 정보 자산에는 개인정보처리방침, 사용 약관 및 기타 법률 문서가 포함됩니다. 잠재 고객 관리 정책을 사용하면 AppSource 사용자 포털에서 잠재 고객을 관리하는 방법을 지정할 수 있습니다. |
 | 연락처           | 지원 연락처 및 정책 정보가 포함됩니다.                                     |
 

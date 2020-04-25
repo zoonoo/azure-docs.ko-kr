@@ -1,44 +1,44 @@
 ---
-title: SQL 데이터베이스 에지 미리 보기에서 ONNX로 배포 및 예측
-description: 모델을 학습하고, ONNX로 변환하고, Azure SQL Database Edge 미리 보기에 배포한 다음 업로드된 ONNX 모델을 사용하여 데이터에 대한 네이티브 예측을 실행하는 방법을 알아봅니다.
-keywords: SQL 데이터베이스 에지 배포
+title: SQL Database Edge 미리 보기에서 ONNX를 사용 하 여 배포 및 예측을 수행 합니다.
+description: 모델을 학습 하 고, ONNX로 변환 하 고, Azure SQL Database Edge 미리 보기에 배포한 후 업로드 된 ONNX 모델을 사용 하 여 데이터에 대 한 기본 예측을 실행 하는 방법에 대해 알아봅니다.
+keywords: sql database edge 배포
 services: sql-database-edge
 ms.service: sql-database-edge
 ms.subservice: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
-ms.date: 03/26/2020
-ms.openlocfilehash: aff9346595d3b8985d3558658af32d05f88c0554
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.date: 04/23/2020
+ms.openlocfilehash: aa2bf5473bf5bd76cfdad39310ce793ab3921652
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365454"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129286"
 ---
-# <a name="deploy-and-make-predictions-with-an-onnx-model-in-sql-database-edge-preview"></a>SQL 데이터베이스 에지 미리 보기에서 ONNX 모델로 배포 및 예측
+# <a name="deploy-and-make-predictions-with-an-onnx-model-in-sql-database-edge-preview"></a>SQL Database Edge 미리 보기에서 ONNX 모델을 사용 하 여 배포 및 예측을 수행 합니다.
 
-이 빠른 시작에서는 모델을 학습하고, ONNX로 변환하고, Azure SQL Database Edge 미리 보기에 배포한 다음 업로드된 ONNX 모델을 사용하여 데이터에 대한 네이티브 예측을 실행하는 방법을 알아봅니다. 자세한 내용은 [SQL 데이터베이스 에지 미리 보기에서 ONNX를 사용하여 기계 학습 및 AI를](onnx-overview.md)참조하십시오.
+이 빠른 시작에서는 모델을 학습 하 고, ONNX로 변환 하 고, Azure SQL Database Edge 미리 보기에 배포한 후 업로드 된 ONNX 모델을 사용 하 여 데이터에 대 한 기본 예측을 실행 하는 방법을 알아봅니다. 자세한 내용은 [SQL Database Edge 미리 보기에서 ONNX를 사용 하는 기계 학습 및 AI](onnx-overview.md)를 참조 하세요.
 
-이 빠른 시작은 **scikit 학습을** 기반으로 하며 [보스턴 하우징 데이터 집합을](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)사용합니다.
+이 빠른 시작은 **scikit** 를 기반으로 [합니다.](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-* Azure SQL Database Edge 모듈을 배포하지 않은 경우 [Azure 포털을 사용하여 SQL Database Edge 미리 보기 배포](deploy-portal.md)단계를 따릅니다.
+* Azure SQL Database Edge 모듈을 배포 하지 않은 경우 [Azure Portal를 사용 하 여 SQL Database Edge 미리 보기 배포](deploy-portal.md)의 단계를 따르세요.
 
-* [Azure 데이터 스튜디오 설치.](https://docs.microsoft.com/sql/azure-data-studio/download)
+* [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download)를 설치 합니다.
 
-* Azure Data Studio를 열고 다음 단계를 수행하여 이 빠른 시작에 필요한 패키지를 설치합니다.
+* Azure Data Studio를 열고 다음 단계를 수행 하 여이 빠른 시작에 필요한 패키지를 설치 합니다.
 
-    1. 파이썬 3 커널에 연결된 [새 노트북을](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) 엽니다. 
-    1. **패키지 관리** 및 **새 추가**에서 를 클릭하고 **scikit-learn을**검색하고 scikit-learn 패키지를 설치합니다. 
-    1. 또한, **설치 도구,** **numpy,** **onnxmltools,** **onnxruntime,** **skl2onnx,** **pyodbc**, 및 **sqlalchemy** 패키지를 설치합니다.
+    1. Python 3 커널에 연결 된 [새 노트북](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) 을 엽니다. 
+    1. **패키지 관리** 를 클릭 하 고 **새로 추가**에서 **scikit-배우기**를 검색 하 고 scikit 패키지를 설치 합니다. 
+    1. 또한 **setuptools**, **numpy**, **onnxmltools**, **onnxmltools**, **skl2onnx**, **pyodbc**및 **sqlalchemy** 패키지를 설치 합니다.
     
-* 아래의 각 스크립트 부분에 대해 Azure Data Studio 전자 필기장의 셀에 입력하고 셀을 실행합니다.
+* 아래 각 스크립트 부분에 대해 Azure Data Studio 노트북의 셀에 입력 하 고 셀을 실행 합니다.
 
-## <a name="train-a-pipeline"></a>파이프라인 교육
+## <a name="train-a-pipeline"></a>파이프라인 학습
 
-피처를 사용하여 집중앙값을 예측하도록 데이터 집합을 분할합니다.
+기능을 사용 하 여 집의 중앙값을 예측 하는 데이터 집합을 분할 합니다.
 
 ```python
 import numpy as np
@@ -54,16 +54,12 @@ boston = load_boston()
 boston
 
 df = pd.DataFrame(data=np.c_[boston['data'], boston['target']], columns=boston['feature_names'].tolist() + ['MEDV'])
-
-# x contains all predictors (features)
-x = df.drop(['MEDV'], axis = 1)
-
-# y is what we are trying to predict - the median value
-y = df.iloc[:,-1]
-
+ 
+target_column = 'MEDV'
+ 
 # Split the data frame into features and target
-x_train = df.drop(['MEDV'], axis = 1)
-y_train = df.iloc[:,-1]
+x_train = pd.DataFrame(df.drop([target_column], axis = 1))
+y_train = pd.DataFrame(df.iloc[:,df.columns.tolist().index(target_column)])
 
 print("\n*** Training dataset x\n")
 print(x_train.head())
@@ -101,7 +97,7 @@ print(y_train.head())
 Name: MEDV, dtype: float64
 ```
 
-선형 회귀 모델을 학습하는 파이프라인을 만듭니다. 다른 회귀 모델을 사용할 수도 있습니다.
+LinearRegression 모델을 학습 하는 파이프라인을 만듭니다. 다른 회귀 모델을 사용할 수도 있습니다.
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -125,7 +121,7 @@ model = Pipeline(
 model.fit(x_train, y_train)
 ```
 
-모델의 정확도를 확인한 다음 R2 점수와 평균 제곱 오차를 계산합니다.
+모델의 정확도를 확인 한 다음 R2 점수와 평균 제곱 오차를 계산 합니다.
 
 ```python
 # Score the model
@@ -146,7 +142,7 @@ print('*** Scikit-learn MSE: {}'.format(sklearn_mse))
 
 ## <a name="convert-the-model-to-onnx"></a>모델을 ONNX로 변환
 
-데이터 형식을 지원되는 SQL 데이터 유형으로 변환합니다. 이 변환은 다른 데이터 프레임에도 필요합니다.
+데이터 형식을 지원 되는 SQL 데이터 형식으로 변환 합니다. 이 변환은 다른 데이터 프레임 필요 합니다.
 
 ```python
 from skl2onnx.common.data_types import FloatTensorType, Int64TensorType, DoubleTensorType
@@ -169,7 +165,7 @@ def convert_dataframe_schema(df, drop=None, batch_axis=False):
     return inputs
 ```
 
-을 `skl2onnx`사용하여 Linear Regression 모델을 ONNX 형식으로 변환하고 로컬로 저장합니다.
+을 `skl2onnx`사용 하 여 LinearRegression 모델을 onnx 형식으로 변환 하 고 로컬로 저장 합니다.
 
 ```python
 # Convert the scikit model to onnx format
@@ -181,10 +177,10 @@ onnxmltools.utils.save_model(onnx_model, onnx_model_path)
 
 ## <a name="test-the-onnx-model"></a>ONNX 모델 테스트
 
-모델을 ONNX 형식으로 변환한 후 모델의 점수를 매기면 성능이 거의 저하되지 않습니다.
+모델을 ONNX 형식으로 변환한 후 모델의 점수를 지정 하 여 성능 저하를 최소화 합니다.
 
 > [!NOTE]
-> ONNX 런타임은 두 배 대신 부동 소수를 사용하므로 작은 불일치가 발생할 수 있습니다.
+> ONNX 런타임에서는 double이 아닌 float를 사용 하므로 작은 불일치를 사용할 수 있습니다.
 
 ```python
 import onnxruntime as rt
@@ -223,7 +219,7 @@ MSE are equal
 
 ## <a name="insert-the-onnx-model"></a>ONNX 모델 삽입
 
-모델을 Azure SQL Database Edge에 `models` 데이터베이스의 `onnx`테이블에 저장합니다. 연결 문자열에서 서버 **주소,** **사용자 이름**및 **암호를**지정합니다.
+모델을 데이터베이스 `models` `onnx`의 테이블에 Azure SQL Database Edge에 저장 합니다. 연결 문자열에서 **서버 주소**, **사용자 이름**및 **암호**를 지정 합니다.
 
 ```python
 import pyodbc
@@ -281,12 +277,12 @@ conn.commit()
 
 ## <a name="load-the-data"></a>데이터 로드
 
-Azure SQL 데이터베이스 가장자리에 데이터를 로드합니다.
+데이터를 Azure SQL Database에 지로 로드 합니다.
 
-먼저 두 개의 테이블, **피처** 및 **대상을**만들어 보스턴 하우징 데이터 집합의 하위 집합을 저장합니다.
+먼저 두 개의 테이블 ( **기능** 및 **대상**)을 만들어 보스턴 데이터 집합의 하위 집합을 저장 합니다.
 
-* **피처에는** 대상, 중앙값을 예측하는 데 사용되는 모든 데이터가 포함됩니다. 
-* **대상에는** 데이터 집합의 각 레코드에 대한 중앙값이 포함됩니다. 
+* **기능** 에는 중앙값 중앙값을 예측 하는 데 사용 되는 모든 데이터가 포함 됩니다. 
+* **대상** 데이터 집합의 각 레코드에 대 한 중앙값을 포함 합니다. 
 
 ```python
 import sqlalchemy
@@ -341,7 +337,7 @@ print(x_train.head())
 print(y_train.head())
 ```
 
-`sqlalchemy` 마지막으로 `x_train` 테이블과 `y_train` 팬더 데이터 프레임을 각각 `features` 삽입하고, `target` 
+마지막으로, `sqlalchemy` 를 사용 하 `x_train` 여 `y_train` 및 pandas 데이터 프레임을 각각 `features` 테이블과 `target`에 삽입 합니다. 
 
 ```python
 db_connection_string = 'mssql+pyodbc://' + username + ':' + password + '@' + server + '/' + database + '?driver=ODBC+Driver+17+for+SQL+Server'
@@ -352,12 +348,12 @@ y_train.to_sql(target_table_name, sql_engine, if_exists='append', index=False)
 
 이제 데이터베이스에서 데이터를 볼 수 있습니다.
 
-## <a name="run-predict-using-the-onnx-model"></a>ONNX 모델을 사용하여 예측 실행
+## <a name="run-predict-using-the-onnx-model"></a>ONNX 모델을 사용 하 여 예측 실행
 
-Azure SQL Database Edge의 모델을 사용하여 업로드된 ONNX 모델을 사용하여 데이터에 대한 네이티브 PREDICT를 실행합니다.
+Azure SQL Database Edge의 모델을 사용 하 여 업로드 된 ONNX 모델을 사용 하 여 데이터에서 기본 PREDICT를 실행 합니다.
 
 > [!NOTE]
-> 나머지 셀을 실행하려면 노트북 커널을 SQL로 변경합니다.
+> 나머지 셀을 실행 하려면 노트북 커널을 SQL로 변경 합니다.
 
 ```sql
 USE onnx
@@ -393,4 +389,4 @@ FROM PREDICT(MODEL = @model, DATA = predict_input) WITH (variable1 FLOAT) AS p
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SQL 데이터베이스 에지에서 ONNX를 사용하여 기계 학습 및 AI](onnx-overview.md)
+* [SQL Database Edge에서 ONNX를 사용 하는 Machine Learning 및 AI](onnx-overview.md)

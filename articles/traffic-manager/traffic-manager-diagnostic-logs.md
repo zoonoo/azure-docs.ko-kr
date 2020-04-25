@@ -1,6 +1,6 @@
 ---
-title: Azure Traffic Manager에서 진단 로깅 사용
-description: Traffic Manager 프로필에 대해 진단 로깅을 사용하도록 설정하고, 결과로 만들어진 로그 파일에 액세스하는 방법을 알아봅니다.
+title: Azure Traffic Manager에서 리소스 로깅 사용
+description: Traffic Manager 프로필에 대 한 리소스 로깅을 사용 하도록 설정 하 고 결과로 생성 된 로그 파일에 액세스 하는 방법을 알아봅니다.
 services: traffic-manager
 author: rohinkoul
 manager: twooley
@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
-ms.openlocfilehash: 0ed2ecef86795f62aa3fe5798dcd0d07adbaf9cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d0ffcffd7d4a4f2072b640ace03ec819aa416d47
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938682"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133912"
 ---
-# <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Azure Traffic Manager에서 진단 로깅 사용
+# <a name="enable-resource-logging-in-azure-traffic-manager"></a>Azure Traffic Manager에서 리소스 로깅 사용
 
-이 문서에서는 Traffic Manager 프로필에 대한 진단 로깅 및 액세스 로그 데이터를 사용하도록 설정하는 방법에 대해 설명합니다.
+이 문서에서는 Traffic Manager 프로필에 대 한 진단 리소스 로그 및 액세스 로그 데이터의 수집을 사용 하도록 설정 하는 방법을 설명 합니다.
 
-Azure Traffic Manager 진단 로그는 Traffic Manager 프로필 리소스의 동작에 대한 인사이트를 제공합니다. 예를 들어 프로필의 로그 데이터를 사용하여 개별 프로브에서 엔드포인트에 대해 시간이 초과된 이유를 확인할 수 있습니다.
+Azure Traffic Manager 리소스 로그는 Traffic Manager 프로필 리소스의 동작에 대 한 통찰력을 제공할 수 있습니다. 예를 들어 프로필의 로그 데이터를 사용하여 개별 프로브에서 엔드포인트에 대해 시간이 초과된 이유를 확인할 수 있습니다.
 
-## <a name="enable-diagnostic-logging"></a>진단 로깅 사용
+## <a name="enable-resource-logging"></a>리소스 로깅 사용
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -32,15 +32,15 @@ Azure Traffic Manager 진단 로그는 Traffic Manager 프로필 리소스의 �
 
 1. **Traffic Manager 프로필 검색:**
 
-    진단 로깅을 사용하도록 설정하려면 Traffic Manager 프로필의 ID가 필요합니다. [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)을 사용하여 진단 로깅을 사용하도록 설정하려는 Traffic Manager 프로필을 검색합니다. 출력에 Traffic Manager 프로필의 ID 정보가 포함되어 있습니다.
+    리소스 로깅을 사용 하도록 설정 하려면 Traffic Manager 프로필의 ID가 필요 합니다. [AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)를 사용 하 여 리소스 로깅을 사용 하도록 설정할 Traffic Manager 프로필을 검색 합니다. 출력에 Traffic Manager 프로필의 ID 정보가 포함되어 있습니다.
 
     ```azurepowershell-interactive
     Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
-2. **Traffic Manager 프로필에 대한 진단 로깅 사용:**
+2. **Traffic Manager 프로필에 대 한 리소스 로깅을 사용 하도록 설정 합니다.**
 
-    이전 단계에서 [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest)을 통해 가져온 ID를 사용하여 Traffic Manager 프로필에 대한 진단 로깅을 사용하도록 설정합니다. 다음 명령은 Traffic Manager 프로필에 대한 자세한 정보 로그를 지정된 Azure Storage 계정에 저장합니다. 
+    [AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest)를 사용 하 여 이전 단계에서 가져온 ID를 사용 하 여 Traffic Manager 프로필에 대 한 리소스 로깅을 사용 하도록 설정 합니다. 다음 명령은 Traffic Manager 프로필에 대한 자세한 정보 로그를 지정된 Azure Storage 계정에 저장합니다. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
@@ -55,7 +55,7 @@ Azure Traffic Manager 진단 로그는 Traffic Manager 프로필 리소스의 �
       Traffic Manager 프로필 리소스와 연결된 모든 로그 범주가 '사용'으로 표시되는지 확인합니다. 또한 스토리지 계정이 올바르게 설정되어 있는지도 확인합니다.
 
 ## <a name="access-log-files"></a>로그 파일 액세스
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 1. 포털에서 Azure Storage 계정으로 이동합니다.
 2. Azure 스토리지 계정의 **개요** 페이지에 있는 **서비스** 아래에서 **Blob**을 선택합니다.
 3. **컨테이너**에 대해 **insights-logs-probehealthstatusevents**를 선택하고, PT1H.json 파일까지 아래로 이동한 다음, **다운로드**를 클릭하여 이 로그 파일의 복사본을 다운로드하고 저장합니다.
@@ -65,13 +65,13 @@ Azure Traffic Manager 진단 로그는 Traffic Manager 프로필 리소스의 �
 
 ## <a name="traffic-manager-log-schema"></a>Traffic Manager 로그 스키마
 
-Azure Monitor를 통해 사용할 수 있는 모든 진단 로그는 일반적인 최상위 수준 스키마를 공유하며, 각 서비스가 자체 이벤트에 대한 고유한 속성을 유연성 있게 내보낼 수 있습니다. 최상위 수준 진단 로그 스키마는 [Azure 진단 로그에 지원되는 서비스, 스키마 및 범주](../azure-monitor/platform/tutorial-dashboards.md)를 참조하세요.
+Azure Monitor를 통해 제공 되는 모든 리소스 로그는 일반적인 최상위 스키마를 공유 하며 각 서비스는 고유한 이벤트의 고유한 속성을 내보낼 수 있는 유연성을 제공 합니다. 최상위 리소스 로그 스키마의 경우 [Azure 리소스 로그에 대해 지원 되는 서비스, 스키마 및 범주](../azure-monitor/platform/tutorial-dashboards.md)를 참조 하세요.
 
 다음 표에는 Azure Traffic Manager 프로필 리소스와 관련된 로그 스키마가 나와 있습니다.
 
 |||||
 |----|----|---|---|
-|**필드 이름**|**필드 유형**|**정의**|**예제**|
+|**필드 이름**|**필드 형식**|**정의**|**예제**|
 |EndpointName|String|상태가 기록되고 있는 Traffic Manager 엔드포인트의 이름입니다.|*myPrimaryEndpoint*|
 |상태|String|검색된 Traffic Manager 엔드포인트의 상태입니다. 상태는 **위로** 또는 **아래로**일 수 있습니다.|**위로**|
 |||||

@@ -1,14 +1,14 @@
 ---
 title: 지원 되는 리소스 관리자 리소스 유형
 description: Azure 리소스 그래프에서 지원 되는 리소스 관리자 리소스 유형 목록 및 변경 기록을 제공 합니다.
-ms.date: 04/23/2020
+ms.date: 04/24/2020
 ms.topic: reference
-ms.openlocfilehash: 021a0d595a34bc132aa0e67f2b5485ae9c321ef3
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 7092a6dccc2870c7fd7b6dc6feb3af16f0fd3b7a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116641"
+ms.locfileid: "82141889"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure 리소스 그래프 테이블 및 리소스 종류 참조
 
@@ -65,6 +65,7 @@ Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-ma
 - microsoft. automation/automationaccounts
 - microsoft. automation/automationaccounts/구성
 - microsoft. automation/automationaccounts/runbook
+- autonomoussystems/작업 영역
 - azconfig/configurationstores
 - azureactivedirectory/b2cdirectories
 - microsoft azuredata/datacontrollers
@@ -104,6 +105,7 @@ Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-ma
 - cognition/syntheticsaccounts
 - cognitiveservices account/계정
 - availabilitysets/
+- microsoft. compute/diskaccesses
 - microsoft. compute/disk를 설정 합니다.
 - microsoft. compute/disks
 - microsoft. compute/갤러리

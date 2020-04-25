@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: a0125c556789b1a1a5b11dcd16b852d7f57b6c50
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: f4e318281da5cd704d9fbf13c96cbec0a2d1b1b6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82099872"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143788"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Run 명령을 사용 하 여 Windows VM에서 PowerShell 스크립트 실행
 
@@ -58,7 +58,7 @@ The entity was not found in this Azure location
 |**EnableAdminAccount**|로컬 관리자 계정이 사용 되지 않도록 설정 되어 있는지 확인 하 고, 사용 하도록 설정 합니다.|
 |**IPConfig**| TCP/IP에 바인딩된 각 어댑터의 IP 주소, 서브넷 마스크 및 기본 게이트웨이에 대 한 자세한 정보를 표시 합니다.|
 |**RDPSettings**|레지스트리 설정 및 도메인 정책 설정을 확인합니다. 컴퓨터가 도메인의 일부 이거나 설정을 기본값으로 수정 하는 경우 정책 작업을 제안 합니다.|
-|**ResetRDPCert**|RDP 수신기에 연결 된 SSL 인증서를 제거 하 고 RDP 수신기 보안을 기본값으로 복원 합니다. 인증서에 문제가 있는 경우 이 스크립트를 사용합니다.|
+|**ResetRDPCert**|RDP 수신기에 연결 된 TLS/SSL 인증서를 제거 하 고 RDP 수신기 보안을 기본값으로 복원 합니다. 인증서에 문제가 있는 경우 이 스크립트를 사용합니다.|
 |**SetRDPPort**|원격 데스크톱 연결에 대 한 기본 또는 사용자 지정 포트 번호를 설정 합니다. 포트에 대 한 인바운드 액세스를 위한 방화벽 규칙을 사용 하도록 설정 합니다.|
 
 ## <a name="azure-cli"></a>Azure CLI

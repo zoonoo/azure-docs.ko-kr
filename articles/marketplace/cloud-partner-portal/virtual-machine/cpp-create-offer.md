@@ -1,5 +1,5 @@
 ---
-title: Azure 마켓플레이스에서 가상 컴퓨터 오퍼 만들기
+title: Azure Marketplace에서 가상 컴퓨터 제품 만들기
 description: Azure Marketplace용 새 VM(가상 머신) 제안을 만드는 데 필요한 단계를 나열합니다.
 author: dsindona
 ms.service: marketplace
@@ -7,23 +7,23 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 9d06809df2774224b61fd3fb643ab628dd2890f6
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: a25f6877f1fb4940fb1de127b81d83975c8e835c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273990"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142719"
 ---
 # <a name="create-virtual-machine-offer"></a>Virtual Machine 제안 만들기
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 가상 [컴퓨터 만들기 의](https://aka.ms/CreateAzureVMoffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 Azure Virtual Machine 제품의 관리를 파트너 센터로 전환 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [Azure Virtual Machine 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 이 섹션에서는 Azure Marketplace용 새 VM(가상 머신) 제안 요청을 만드는 데 필요한 단계를 나열합니다.  모든 제안은 Azure Marketplace에서 자체의 고유한 엔터티로 나타나며 하나 이상의 SKU와 연결됩니다.  VM 제안을 구성하는 자산 및 지원 서비스의 그룹은 다음과 같습니다. 
 
 ![VM 제안에 대한 자산](./media/publishvm_002.png)
 
-각 항목이 나타내는 의미는 다음과 같습니다.
+여기서
 
 |  **자산 그룹**   |  **설명**  |
 |  ---------------   |  ---------------  |

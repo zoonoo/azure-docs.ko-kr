@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 97dc7cb90f5ffc577a007c23074a0e8a75788fab
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 17d46ddb738abc812ebfc458e25c745b84a29c2a
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114023"
+ms.locfileid: "82136603"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Azure Automation에서 일정 관리
 
@@ -193,7 +193,8 @@ Set-AzAutomationSchedule –AutomationAccountName $automationAccountName `
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"
 $scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
-Remove-AzureRmAutomationSchedule -AutomationAccountName $automationAccountName ` -Name $scheduleName -ResourceGroupName "ResourceGroup01"
+Remove-AzAutomationSchedule -AutomationAccountName $automationAccountName `
+-Name $scheduleName -ResourceGroupName "ResourceGroup01"
 ```
 
 ## <a name="next-steps"></a>다음 단계

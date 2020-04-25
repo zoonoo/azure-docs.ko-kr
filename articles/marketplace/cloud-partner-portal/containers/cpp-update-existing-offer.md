@@ -1,5 +1,5 @@
 ---
-title: 기존 Azure 컨테이너 제공 업데이트 | Azure 마켓플레이스
+title: 기존 Azure 컨테이너 제품 업데이트 | Azure Marketplace
 description: Azure Marketplace에서 기존 컨테이너 제품을 업데이트하는 방법입니다.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: 650ef45e56184b67efba67810580d9d6e763a4d0
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: cc378dcc1d5f777f4e81825e2f99dedd37a87f96
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271270"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143813"
 ---
 # <a name="update-an-existing-container-offer"></a>기존 컨테이너 제품 업데이트
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 컨테이너 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 컨테이너 [만들기 오퍼의](https://aka.ms/CreateContainerOffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 파트너 센터에 Azure Container 제품 관리를 이동 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [Azure Container 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 이 문서에서는 [Cloud 파트너 포털](https://cloudpartner.azure.com/)에서 컨테이너 제품을 업데이트하는 다양한 측면을 단계별로 안내합니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "81271270"
 
 1. [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인합니다.
 2. **모든 제품** 아래에서 업데이트할 제품을 찾습니다.
-3. **마켓플레이스** 탭으로 이동. 게시 [컨테이너 오퍼](./cpp-publish-offer.md) 제안 문서의 지침을 사용하여 메타데이터를 변경합니다.
+3. **Marketplace** 탭으로 이동 합니다. 메타 데이터를 변경 하려면 [게시 컨테이너 제안](./cpp-publish-offer.md) 제안 문서의 지침을 사용 하세요.
 4. **게시**를 선택하여 변경 내용을 게시하는 워크플로를 시작합니다.
 
 ## <a name="compare-feature"></a>기능 비교

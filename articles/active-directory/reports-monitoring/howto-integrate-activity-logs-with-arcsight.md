@@ -1,6 +1,6 @@
 ---
-title: Azure 모니터를 사용하여 ArcSight와 로그를 통합 | 마이크로 소프트 문서
-description: Azure 모니터를 사용하여 Azure Active Directory 로그를 ArcSight와 통합하는 방법에 대해 알아봅니다.
+title: Azure Monitor를 사용 하 여 ArcSight와 로그 통합 Microsoft Docs
+description: 를 사용 하 여 ArcSight와 Azure Active Directory 로그를 통합 하는 방법을 알아봅니다 Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05002c1b11ef31b61fb4036f09dc8edcdafca767
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f03b146331069371106c1857f2acc68b566d3c5d
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75608383"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129241"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Azure Monitor를 사용하여 ArcSight와 Azure Active Directory 로그 통합
 
@@ -30,7 +30,7 @@ ms.locfileid: "75608383"
 
 이 문서에서는 Azure Monitor를 사용하여 ArcSight로 Azure AD 로그를 라우팅하는 방법을 배웁니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 기능을 사용하려면 다음이 필요합니다.
 * Azure AD 활동 로그를 포함하는 Azure 이벤트 허브입니다. [활동 로그를 이벤트 허브로 스트림](quickstart-azure-monitor-stream-logs-to-event-hub.md)하는 방법을 알아봅니다. 
@@ -53,7 +53,7 @@ ms.locfileid: "75608383"
     * 배포의 애플리케이션 설정은 Azure 함수 앱의 애플리케이션 설정에서 그대로 유지됩니다. 
     * ArcSight 커넥터에 대한 Azure AD 애플리케이션과 CEF 형식으로 매핑된 파일을 포함한 스토리지 계정과 함께, ArcSight에 대한 새 리소스 그룹이 Azure에 생성됩니다.
 
-4. 마지막으로, 구성 가이드의 **배포 후 구성**에 있는 배포 후 단계를 완료합니다. 이 섹션에서는 App Service 계획을 사용하고 있는 경우 함수 앱이 일정한 시간 제한 기간 후 유휴 상태가 되지 않도록 추가 구성을 실행하고 이벤트 허브에서 진단 로그 스트리밍을 구성하며 새로 만들어진 스토리지 계정과 연결하도록 SysLog NG Daemon SmartConnector 키 스토리지 인증서를 업데이트하는 방법에 대해 설명합니다.
+4. 마지막으로, 구성 가이드의 **배포 후 구성**에 있는 배포 후 단계를 완료합니다. 이 섹션에서는 시간 제한 기간 후 함수 앱이 유휴 상태로 전환 되지 않도록 App Service 계획을 세울 때 추가 구성을 수행 하는 방법에 대해 설명 하 고, 이벤트 허브에서 리소스 로그 스트리밍을 구성 하 고, SysLog 추가 디먼 SmartConnector 키 저장소 certificate를 업데이트 하 여 새로 만든 저장소 계정에 연결 합니다.
 
 5. 또한 구성 가이드에서는 Azure에서 커넥터 속성을 사용자 지정하고 커넥터를 업그레이드 및 제거하는 방법에 대해서도 설명하고 있습니다. 아울러 이벤트 부하가 단일 Syslog NG Daemon SmartConnector로 처리할 수 있는 것보다 큰 경우 [Azure Consumption 계획](https://azure.microsoft.com/pricing/details/functions)으로 업그레이드 및 ArcSight Load Balancer 구성을 포함해 성능 개선 사항에 대한 섹션도 있습니다.
 
