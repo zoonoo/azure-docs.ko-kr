@@ -1,27 +1,24 @@
 ---
 title: Azure 가상 머신의 여러 IP 주소 - PowerShell | Microsoft Docs
-description: PowerShell을 사용하여 가상 컴퓨터에 여러 IP 주소를 할당하는 방법을 알아봅니다. | 리소스 관리자
+description: PowerShell을 사용 하 여 가상 머신에 여러 IP 주소를 할당 하는 방법을 알아봅니다. | 리소스 관리자
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: c44ea62f-7e54-4e3b-81ef-0b132111f1f8
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
-ms.author: kumud
-ms.reviewer: annahar
-ms.openlocfilehash: a8bd4e4779d94cfc22ac7726c9746fe755764033
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: e4197923fa71c719611bea7603113cab331d4ba8
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279573"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147788"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>PowerShell을 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -95,9 +92,9 @@ ms.locfileid: "79279573"
     -SecurityRules $NSGRule
     ```
 
-6. NIC에 대한 기본 IP 구성을 정의합니다. 이전에 정의된 값을 사용하지 않는 경우 10.0.0.4를 만든 서브넷의 올바른 주소로 변경합니다. 고정 IP 주소를 할당하기 전에 먼저 해당 주소를 이미 사용하고 있지 않은지 확인하는 것이 좋습니다. `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet` 명령을 입력합니다. 주소를 사용할 수 있는 경우 출력은 *True*를 반환합니다. 사용할 수 없는 경우 출력은 *False및* 사용 가능한 주소 목록을 반환합니다. 
+6. NIC에 대한 기본 IP 구성을 정의합니다. 이전에 정의된 값을 사용하지 않는 경우 10.0.0.4를 만든 서브넷의 올바른 주소로 변경합니다. 고정 IP 주소를 할당하기 전에 먼저 해당 주소를 이미 사용하고 있지 않은지 확인하는 것이 좋습니다. `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet` 명령을 입력합니다. 주소를 사용할 수 있는 경우 출력은 *True*를 반환합니다. 사용할 수 없는 경우 출력은 *False* 와 사용할 수 있는 주소 목록을 반환 합니다. 
 
-    다음 명령에서는 고유한 이름으로> 대체할 때 **사용할 고유한 DNS 이름으로 바꿉니다. \<** 이름은 Azure 지역 내의 모든 공용 IP 주소에서 고유해야 합니다. 선택적 매개 변수입니다. 공용 IP 주소를 사용하여 VM에 연결하려는 경우에만 제거할 수 있습니다.
+    다음 명령에서 replace- **name \<>을 사용할 고유한 DNS 이름으로 바꿉니다.** 이름은 Azure 지역 내의 모든 공용 IP 주소에서 고유해야 합니다. 선택적 매개 변수입니다. 공용 IP 주소를 사용하여 VM에 연결하려는 경우에만 제거할 수 있습니다.
 
     ```powershell
     
@@ -162,7 +159,7 @@ ms.locfileid: "79279573"
    ```
 
    >[!NOTE]
-   >이 문서에서는 모든 구성이 한 NIC에 할당되어 있지만 VM에 연결된 모든 NIC에 여러 IP 구성을 할당할 수 있습니다. 여러 NIC를 사용하여 VM을 만드는 방법을 알아보려면 [여러 NIC가 있는 VM 만들기](../virtual-machines/windows/multiple-nics.md) 문서를 읽어보십시오.
+   >이 문서에서는 모든 구성이 한 NIC에 할당되어 있지만 VM에 연결된 모든 NIC에 여러 IP 구성을 할당할 수 있습니다. 여러 Nic를 사용 하 여 VM을 만드는 방법을 알아보려면 [여러 nic를 사용 하 여 Vm 만들기](../virtual-machines/windows/multiple-nics.md) 문서를 참조 하세요.
 
 9. 다음 명령을 입력하여 VM을 만듭니다.
 
@@ -276,7 +273,7 @@ ms.locfileid: "79279573"
    -AllocationMethod Static
    ```
 
-   정적 개인 IP 주소와 연결된 *myPublicIp3* 공용 IP 주소 리소스를 사용하여 새 IP 구성을 만들려면 다음 명령을 입력합니다.
+   고정 개인 IP 주소 및 연결 된 *myPublicIp3* 공용 ip 주소 리소스를 사용 하 여 새 ip 구성을 만들려면 다음 명령을 입력 합니다.
 
    ```powershell
    Add-AzNetworkInterfaceIpConfig `

@@ -1,5 +1,5 @@
 ---
-title: Azure 마켓플레이스용 가상 시스템 오퍼에 대한 기술 자산 생성
+title: Azure Marketplace에 대 한 가상 컴퓨터 제품에 대 한 기술 자산 만들기
 description: Azure Marketplace에서 가상 머신 제안에 대한 기술 자산을 만드는 방법을 설명합니다.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: dsindona
-ms.openlocfilehash: a62af1d8d751d36150c236280077cde8f6547385
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: c6ca017e18a83f0745140cba15d9c894e5a21c32
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273973"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148130"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>가상 머신 제안에 대한 기술 자산 만들기
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 파트너 센터에 대한 Azure 가상 머신 제공의 이동 관리가 시작됩니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 가상 [시스템 기술 자산 만들기의](https://aka.ms/AzureVMTechAsset) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 파트너 센터에 대 한 Azure Virtual Machine 제품의 이동 관리를 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [Azure Virtual Machine 기술 자산 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 이 섹션에서는 Azure Marketplace의 VM(가상 머신) 제안에 대한 기술 자산을 만들고 구성하는 방법을 안내합니다.  VM에는 솔루션 VHD(가상 하드 디스크)와 선택적인 연결된 데이터 디스크의 두 가지 구성 요소가 있습니다.  
 
@@ -37,7 +37,7 @@ VM OS, VM 크기, 개방할 포트 및 최대 15개의 연결된 데이터 디�
 
 ## <a name="fundamental-technical-knowledge"></a>기본 기술 지식
 
-이러한 자산을 디자인, 빌드 및 테스트하려면 시간이 걸리며 Azure 플랫폼과 오퍼를 빌드하는 데 사용되는 기술에 대한 기술 지식이 필요합니다. 솔루션 도메인 외에도 엔지니어링 팀은 다음과 같은 Microsoft 기술에 대한 지식을 가지고 있어야 합니다. 
+이러한 자산의 디자인, 빌드 및 테스트는 시간이 걸리고 제품을 빌드하는 데 사용 되는 Azure 플랫폼 및 기술에 대 한 기술 지식이 필요 합니다. 엔지니어링 팀은 솔루션 도메인 외에 다음과 같은 Microsoft 기술에 대해 알고 있어야 합니다. 
 -    [Azure 서비스](https://azure.microsoft.com/services/)에 대한 기본적 이해 
 -    [Azure 애플리케이션을 디자인 및 설계](https://azure.microsoft.com/solutions/architecture/)하는 방법
 -    [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage) 및 [Azure 네트워킹](https://azure.microsoft.com/services/?filter=networking)에 대한 실무 지식

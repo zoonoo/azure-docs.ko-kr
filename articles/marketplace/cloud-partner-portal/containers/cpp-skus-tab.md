@@ -1,5 +1,5 @@
 ---
-title: Azure 컨테이너 이미지에 대한 SCO | Azure 마켓플레이스
+title: Azure 컨테이너 이미지에 대 한 Sku | Azure Marketplace
 description: Azure 컨테이너에 대한 SKU를 구성합니다.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: 9c5cf218632c720fd042cc5f5d4ed95d5096b5b5
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 5f37d157e11b8cd7cf093fa558e81d9a1ce345a9
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270199"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146195"
 ---
 # <a name="container-skus-tab"></a>컨테이너 SKU 탭
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 컨테이너 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 컨테이너 [만들기 오퍼의](https://aka.ms/CreateContainerOffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 파트너 센터에 Azure Container 제품 관리를 이동 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [Azure Container 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 **새 제품** 페이지의 **SKU** 탭을 사용하면 하나 이상의 SKU를 만들어 새 제품에 연결할 수 있습니다.  다양한 SKU를 사용하여 기능 집합, 청구 모델 또는 다른 특성에 따라 솔루션을 구별할 수 있습니다.
 
@@ -48,14 +48,14 @@ SKU 메타데이터는 컨테이너 목록에 대한 상점 디스플레이 정�
 
 ![컨테이너 메타데이터](./media/containers-image-repository.png)
     
-이전 화면 캡처의 **이미지 리포지토리 세부 정보에는** 다음 필드가 포함되어 있습니다.  필수 필드는 별표(*)로 표시됩니다.
+이전 화면 캡처의 **이미지 리포지토리 세부 정보** 에는 다음 필드가 포함 되어 있습니다.  필수 필드는 별표(*)로 표시됩니다.
 
--   **구독\* ID** - ACR이 있는 Azure 구독 ID입니다.
--   **리소스 그룹\* 이름** - ACR의 리소스 그룹 이름입니다.
--   **레지스트리 이름\* ** - ACR 이름입니다.
--   **리포지토리\* 이름** - 리포지토리 이름입니다. 이 이름이 설정된 후 이 값을 변경할 수 없습니다. 계정의 다른 제품과의 충돌을 피하기 위해 고유한 이름을 사용합니다.
--   **사용자\* 이름** - ACR 이미지와 연결된 사용자 이름(관리자 사용자 이름)입니다.
--   **암호\* ** - ACR 이미지와 연결된 암호입니다.
+-   **구독 id\* ** -ACR이 있는 Azure 구독 id입니다.
+-   **리소스 그룹 이름\* ** -ACR의 리소스 그룹 이름입니다.
+-   **레지스트리 이름\* ** -ACR 이름입니다.
+-   **리포지토리 이름\* ** -리포지토리 이름입니다. 이 이름이 설정된 후 이 값을 변경할 수 없습니다. 계정의 다른 제품과의 충돌을 피하기 위해 고유한 이름을 사용합니다.
+-   **사용자\* 이름** -ACR 이미지와 연결 된 사용자 이름 (관리자 사용자 이름)입니다.
+-   **암호\* ** -ACR 이미지와 연결 된 암호입니다.
 
     >[!NOTE]
     >사용자 이름과 암호가 있어야 파트너가 게시 프로세스에 설명된 ACR에 액세스할 수 있습니다.
@@ -65,7 +65,7 @@ SKU 메타데이터는 컨테이너 목록에 대한 상점 디스플레이 정�
 
 컨테이너 이미지를 게시할 때는 하나 이상의 이미지 태그 및 SHA 다이제스트를 입력할 수 있습니다.
 
-**이미지\* 태그 또는 다이제스트**
+**이미지 태그\* 또는 다이제스트**
  
 - 이 태그 또는 다이제스트는 `latest` 태그 및 버전 태그를 포함해야 합니다(예: `xx.xx.xx-`로 시작, 여기서 xx는 숫자). 여러 플랫폼을 대상으로 하는 [매니페스트 태그](https://github.com/estesp/manifest-tool)여야 합니다. 매니페스트 태그에서 참조하는 모든 태그는 업로드할 수 있도록 추가되어야 합니다. 
 - 태그를 사용하여 컨테이너의 여러 버전을 추가할 수 있습니다. 모든 매니페스트 태그(`latest` 제외)는 `X.Y-` 또는 `X.Y.Z-`로 시작해야 합니다. 여기서 X, Y, Z는 정수입니다. <br/> 예를 들어 `latest` 태그가 `1.0.1-linux-x64`, `1.0.1-linux-arm32` 및 `1.0.1-windows-arm32`를 가리키는 경우 이러한 태그는 여기에 추가되어야 합니다.

@@ -3,12 +3,12 @@ title: Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자
 description: Azure Active Directory 테넌트, 사용자 및 역할의 개념과 Azure Lighthouse 시나리오에서 이러한 항목을 사용하는 방법을 알아봅니다.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 32d9214e4d0d204db39b6e6decab4665e9b55069
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 7ed5af18efbb0f5b97dcab20093cc45e8bed1d03
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754089"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144929"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자
 
@@ -31,7 +31,7 @@ ms.locfileid: "80754089"
 - [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 기본 제공 역할은 지원되지만, [고객 테넌트에서 관리 ID에 역할을 할당](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)하는 제한된 목적으로만 사용할 수 있습니다. 이 역할에서 일반적으로 부여하는 다른 사용 권한은 적용되지 않습니다. 이 역할이 있는 사용자를 정의하는 경우 이 사용자가 관리 ID에 할당할 수 있는 기본 제공 역할도 지정해야 합니다.
 
 > [!NOTE]
-> 적용 가능한 새 기본 제공 역할이 Azure에 추가되면 [Azure 리소스 관리자 템플릿을 사용하여 고객을 온보딩할](../how-to/onboard-customer.md)때 할당할 수 있습니다. [관리되는 서비스 오퍼를 게시할](../how-to/publish-managed-services-offers.md)때 Cloud 파트너 Portal에서 새로 추가된 역할을 사용할 수 있게 되기까지 지연이 있을 수 있습니다.
+> 적용 가능한 새 기본 제공 역할이 Azure에 추가 되 면 [Azure Resource Manager 템플릿을 사용 하 여 고객을 온 보 딩](../how-to/onboard-customer.md)할 때 할당 될 수 있습니다. [관리 서비스 제공을 게시할](../how-to/publish-managed-services-offers.md)때 Cloud 파트너 포털에서 새로 추가 된 역할을 사용할 수 있게 될 때까지 지연이 있을 수 있습니다.
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>사용자 및 역할을 정의하기 위한 모범 사례
 
@@ -39,11 +39,11 @@ ms.locfileid: "80754089"
 
 - 대부분의 경우 일련의 개별 사용자 계정이 아닌 Azure AD 사용자 그룹 또는 서비스 주체에 권한을 할당하는 것이 좋습니다. 이렇게 하면 액세스 요구 사항이 변경될 때 플랜을 업데이트한 후 다시 게시하지 않고도 개별 사용자에 대한 액세스 권한을 추가하거나 제거할 수 있습니다.
 - 사용자가 작업을 완료하는 데 필요한 권한만 갖도록 하여 실수로 인한 오류 발생 가능성을 줄일 수 있게 최소 권한 원칙을 따라야 합니다. 자세한 내용은 [권장 보안 방법](../concepts/recommended-security-practices.md)을 참조하세요.
-- 필요한 경우 나중에 [위임에 대한 액세스 권한을 제거](../how-to/onboard-customer.md#remove-access-to-a-delegation)할 수 있도록 [관리 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)에 사용자를 포함합니다. 이 역할을 할당하지 않으면 고객 테넌트의 사용자만 위임된 리소스를 제거할 수 있습니다.
+- 필요한 경우 나중에 [위임에 대한 액세스 권한을 제거](../how-to/remove-delegation.md)할 수 있도록 [관리 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)에 사용자를 포함합니다. 이 역할을 할당하지 않으면 고객 테넌트의 사용자만 위임된 리소스를 제거할 수 있습니다.
 - [Azure Portal에서 내 고객 페이지를 볼 수 있어야](../how-to/view-manage-customers.md) 하는 모든 사용자에게 [읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할(또는 읽기 권한자 액세스 권한을 포함하는 다른 기본 제공 역할)이 있어야 합니다.
 
 > [!IMPORTANT]
-> Azure AD 그룹에 대한 권한을 추가하려면 **그룹 유형이** Office **365가**아닌 **보안이어야** 합니다. 이 옵션은 그룹을 만들 때 선택됩니다. 자세한 내용은 [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)(Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가)를 참조하세요.
+> Azure AD 그룹에 대 한 사용 권한을 추가 하려면 **그룹 종류가** **Office 365**이 아닌 **보안** 이어야 합니다. 이 옵션은 그룹을 만들 때 선택 됩니다. 자세한 내용은 [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)(Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,23 +1,23 @@
 ---
-title: Azure 마켓플레이스에서 VM 배포
-description: Azure Marketplace에서 미리 구성된 가상 머신에서 가상 컴퓨터를 배포하는 방법을 설명합니다.
+title: Azure Marketplace에서 VM 배포
+description: Azure Marketplace 미리 구성 된 가상 컴퓨터에서 가상 컴퓨터를 배포 하는 방법을 설명 합니다.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 6e39f1c70cd94c14b12e54817941ea9106aacfdd
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 2fb04e2e953e2bcbe479f7685b8042fdc7ea1767
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273871"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147002"
 ---
 # <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Azure Marketplace에서 가상 머신 배포
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. [Azure VM 이미지 인증의](https://aks.ms/CertifyVMimage) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 Azure Virtual Machine 제품의 관리를 파트너 센터로 전환 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [AZURE VM 이미지 인증](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 이 문서에서는 제공된 Azure PowerShell 스크립트를 사용하여 Azure Marketplace에서 미리 구성된 VM(가상 머신)을 배포하는 방법을 설명합니다.  이 스크립트는 또한 VM에 WinRM HTTP 및 HTTPS 엔드포인트를 노출합니다.  이 스크립트를 사용하려면 [Azure Key Vault용 인증서 만들기](./cpp-create-key-vault-cert.md)에 설명된 대로 Azure Key Vault에 업로드된 인증서가 이미 있어야 합니다. 
 

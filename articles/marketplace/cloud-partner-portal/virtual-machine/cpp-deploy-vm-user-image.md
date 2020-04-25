@@ -1,5 +1,5 @@
 ---
-title: 사용자 VHD에서 Azure VM 배포 | Azure 마켓플레이스
+title: 사용자 VHD에서 Azure VM 배포 | Azure Marketplace
 description: 사용자 VHD 이미지를 배포하여 Azure VM 인스턴스를 만드는 방법을 설명합니다.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 79754b4ce7c3dfe2a5c549f4a39ef3160be423d8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: e3bad2dc63f6a75f52c537aabfa6e85d1846ef15
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273888"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147928"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>사용자 VHD에서 Azure VM 배포
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. [Azure VM 이미지 인증의](https://aks.ms/CertifyVMimage) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 Azure Virtual Machine 제품의 관리를 파트너 센터로 전환 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [AZURE VM 이미지 인증](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 이 문서에서는 제공된 Azure Resource Manager 템플릿과 Azure PowerShell 스크립트를 통해 일반화된 VHD 이미지를 배포하여 새 Azure VM 리소스를 만드는 방법을 설명합니다.
 

@@ -1,16 +1,16 @@
 ---
-title: 네트워크 리소스에 대한 모범 사례
+title: 네트워크 리소스에 대 한 모범 사례
 titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Services)의 가상 네트워크 리소스 및 연결에 대한 클러스터 운영자 모범 사례 알아보기
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 1eed6f1f82a8a91b2335760e99ea6b895d15547e
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: d887f084ae329be30579b3400b4dc6cfb22c64ca
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392708"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145453"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 네트워크 연결 및 보안에 대한 모범 사례
 
@@ -21,7 +21,7 @@ AKS(Azure Kubernetes Services)에서 클러스터를 만들고 관리할 때 노
 > [!div class="checklist"]
 > * AKS에서 Azure CNI 네트워크 모드와 Kubenet 비교
 > * 필수 IP 주소 및 연결 계획
-> * 로드 밸로드퍼, 침입 컨트롤러 또는 웹 응용 프로그램 방화벽(WAF)을 사용하여 트래픽 분산
+> * 부하 분산 장치, 수신 컨트롤러 또는 WAF (웹 응용 프로그램 방화벽)를 사용 하 여 트래픽 분산
 > * 클러스터 노드에 안전하게 연결
 
 ## <a name="choose-the-appropriate-network-model"></a>적절한 네트워크 모델 선택
@@ -43,9 +43,9 @@ Azure CNI 네트워킹을 사용하면 가상 네트워크 리소스가 AKS 클�
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-AKS 서비스 주체 위임에 대한 자세한 내용은 [다른 Azure 리소스에 대한 액세스 권한 위임][sp-delegation]을 참조하세요. 서비스 주체 대신 관리되는 ID를 사용할 수 있는 시스템에 사용 권한을 사용할 수도 있습니다. 자세한 내용은 [관리되는 ID 사용을](use-managed-identity.md)참조하십시오.
+AKS 서비스 주체 위임에 대한 자세한 내용은 [다른 Azure 리소스에 대한 액세스 권한 위임][sp-delegation]을 참조하세요. 서비스 주체 대신 사용 권한에 대해 시스템 할당 관리 id를 사용할 수도 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
 
-각 노드 및 pod가 자체 IP 주소를 수신하는 경우 AKS 서브넷의 주소 범위를 계획하세요. 서브넷은 배포하는 모든 노드, pod 및 네트워크 리소스에 대해 IP 주소를 제공할 만큼 충분히 커야 합니다. 각 AKS 클러스터는 자체 서브넷에 배치해야 합니다. Azure에서 온-프레미스 또는 피어링된 네트워크에 대한 연결을 허용하려면 기존 네트워크 리소스와 겹치는 IP 주소 범위를 사용하지 마세요. Kubenet 및 Azure CNI 네트워킹을 사용하여 각 노드에서 실행되는 pod 수는 기본적으로 제한되어 있습니다. 확장 이벤트 또는 클러스터 업그레이드를 처리하려면 할당된 서브넷에서 사용할 수 있는 추가 IP 주소도 필요합니다. 이 추가 주소 공간은 해당 노드 풀에서 최신 보안 패치를 적용하기 위해 업그레이드가 필요하므로 Windows Server 컨테이너(현재 AKS에서 미리 보기)를 사용하는 경우에 특히 중요합니다. Windows 서버 노드에 대한 자세한 내용은 [AKS의 노드 풀 업그레이드를][nodepool-upgrade]참조하십시오.
+각 노드 및 pod가 자체 IP 주소를 수신하는 경우 AKS 서브넷의 주소 범위를 계획하세요. 서브넷은 배포하는 모든 노드, pod 및 네트워크 리소스에 대해 IP 주소를 제공할 만큼 충분히 커야 합니다. 각 AKS 클러스터는 자체 서브넷에 배치해야 합니다. Azure에서 온-프레미스 또는 피어링된 네트워크에 대한 연결을 허용하려면 기존 네트워크 리소스와 겹치는 IP 주소 범위를 사용하지 마세요. Kubenet 및 Azure CNI 네트워킹을 사용하여 각 노드에서 실행되는 pod 수는 기본적으로 제한되어 있습니다. 규모 확장 이벤트 또는 클러스터 업그레이드를 처리 하려면 할당 된 서브넷에 사용할 수 있는 추가 IP 주소도 필요 합니다. 이러한 추가 주소 공간은 Windows Server 컨테이너를 사용 하는 경우 특히 중요 합니다 (현재 AKS에서 미리 보기 상태). 이러한 노드 풀에는 최신 보안 패치를 적용 하기 위해 업그레이드가 필요 하기 때문입니다. Windows Server 노드에 대 한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
 
 필요한 IP 주소를 계산하려면 [AKS에서 Azure CNI 네트워킹 구성][advanced-networking]을 참조하세요.
 
@@ -99,7 +99,7 @@ spec:
 
 수신 컨트롤러는 AKS 노드에 실행되며 수신 요청을 감시하는 디먼입니다. 그런 후에 트래픽은 수신 리소스에 정의된 규칙을 기준으로 분산됩니다. 가장 일반적인 수신 컨트롤러는 [NGINX]를 기준으로 합니다. AKS는 사용자를 특정 컨트롤러로 제한하지 않으므로 [Contour][contour], [HAProxy][haproxy] 또는 [Traefik][traefik] 등의 다른 컨트롤러를 사용할 수 있습니다.
 
-인그레스 컨트롤러는 Linux 노드에서 예약해야 합니다. 현재 AKS에서 미리 보기 중인 Windows Server 노드는 inress 컨트롤러를 실행해서는 안 됩니다. YAML 매니페스트 또는 Helm 차트 배포에서 노드 선택기를 사용하여 리소스가 Linux 기반 노드에서 실행되어야 함을 나타냅니다. 자세한 내용은 [노드 선택기 사용을 참조하여 AKS에서 포드가 예약되는 위치를 제어합니다.][concepts-node-selectors]
+수신 컨트롤러는 Linux 노드에서 예약 되어야 합니다. Windows Server 노드 (현재 AKS에서 미리 보기 상태)는 수신 컨트롤러를 실행 해서는 안 됩니다. YAML 매니페스트 또는 투구 차트 배포에서 노드 선택기를 사용 하 여 리소스를 Linux 기반 노드에서 실행 해야 함을 나타낼 수 있습니다. 자세한 내용은 [노드 선택기를 사용 하 여 AKS에서 pod이 예약 된 위치 제어를][concepts-node-selectors]참조 하세요.
 
 다음 방법 가이드를 포함하여 수신에 대한 다양한 시나리오가 있습니다.
 
@@ -110,13 +110,13 @@ spec:
 
 ## <a name="secure-traffic-with-a-web-application-firewall-waf"></a>WAF(웹 애플리케이션 방화벽)으로 트래픽 보호
 
-**모범 사례 지침** - 수신 트래픽에 잠재적인 공격이 있는지 검색하려면 [Azure용 Barracuda WAF][barracuda-waf] 또는 Azure Application Gateway와 같은 WAF(웹 애플리케이션 방화벽)를 사용합니다. 이러한 추가적인 고급 네트워크 리소스로 HTTP 및 HTTPS 연결 또는 기본 SSL 종료를 능가해서 트래픽을 라우팅할 수 있습니다.
+**모범 사례 지침** - 수신 트래픽에 잠재적인 공격이 있는지 검색하려면 [Azure용 Barracuda WAF][barracuda-waf] 또는 Azure Application Gateway와 같은 WAF(웹 애플리케이션 방화벽)를 사용합니다. 이러한 고급 네트워크 리소스는 HTTP 및 HTTPS 연결 뿐만 아니라 기본 TLS 종료로 트래픽을 라우팅할 수도 있습니다.
 
 서비스 및 애플리케이션에 트래픽을 분산하는 수신 컨트롤러는 일반적으로 AKS 클러스터의 Kubernetes 리소스입니다. 이 컨트롤러는 AKS 노드에 대해 디먼으로 실행되고, CPU, 메모리 및 네트워크 대역폭과 같은 일부 노드 리소스를 사용합니다. 좀 더 규모가 큰 환경에서는 이러한 트래픽 라우팅 또는 TLS 종료 일부를 AKS 클러스터 외부의 네트워크 리소스에 오프로드할 수 있습니다. 수신 트래픽에서 잠재적인 공격을 검색할 수도 있습니다.
 
 ![Azure App Gateway와 같은 WAF(웹 애플리케이션 방화벽)로 AKS 클러스터에 대한 트래픽을 보호하고 분산할 수 있음](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-WAF(웹 애플리케이션 방화벽)는 수신 트래픽을 필터링하여 추가적인 보안 계층을 제공합니다. OWASP(Open Web Application Security Project)는 교차 사이트 스트립팅 또는 쿠키 악성 침입과 같은 공격을 감시하기 위한 규칙 세트를 제공합니다. [Azure 응용 프로그램 게이트웨이(현재][app-gateway] AKS에서 미리 보기)는 트래픽이 AKS 클러스터 및 응용 프로그램에 도달하기 전에 AKS 클러스터와 통합하여 이러한 보안 기능을 제공할 수 있는 WAF입니다. 기타 타사 솔루션도 이러한 기능을 수행하므로 지정된 제품의 기존 투자 또는 전문 지식을 계속 사용할 수 있습니다.
+WAF(웹 애플리케이션 방화벽)는 수신 트래픽을 필터링하여 추가적인 보안 계층을 제공합니다. OWASP(Open Web Application Security Project)는 교차 사이트 스트립팅 또는 쿠키 악성 침입과 같은 공격을 감시하기 위한 규칙 세트를 제공합니다. [Azure 애플리케이션 게이트웨이][app-gateway] (현재 AKS의 미리 보기 상태)는 트래픽이 AKS 클러스터 및 응용 프로그램에 도달 하기 전에 AKS 클러스터와 통합 하 여 이러한 보안 기능을 제공할 수 있는 waf입니다. 기타 타사 솔루션도 이러한 기능을 수행하므로 지정된 제품의 기존 투자 또는 전문 지식을 계속 사용할 수 있습니다.
 
 부하 분산 장치 또는 수신 리소스는 트래픽 분산을 미세 조정하기 위해 AKS 클러스터에서 계속 실행됩니다. App Gateway는 리소스 정의를 사용하여 중앙에서 수신 컨트롤러로 관리될 수 있습니다. 시작하려면 [Application Gateway 수신 컨트롤러를 만드세요][app-gateway-ingress].
 
@@ -126,7 +126,7 @@ WAF(웹 애플리케이션 방화벽)는 수신 트래픽을 필터링하여 추
 
 네트워크 정책은 사용자가 pod 간 트래픽 흐름을 제어할 수 있는 Kubernetes 기능입니다. 할당된 레이블, 네임스페이스 또는 트래픽 포트와 같은 설정에 따라 트래픽을 허용하거나 거부하도록 선택할 수 있습니다. 네트워크 정책을 통해 트래픽 흐름을 제어하는 클라우드 네이티브 방법을 사용할 수 있습니다. Pod는 AKS 클러스터에서 동적으로 생성되므로 필요한 네트워크 정책을 자동으로 적용할 수 있습니다. Pod 간 트래픽을 제어하는 데 Azure 네트워크 보안 그룹을 사용하지 말고, 네트워크 정책을 사용합니다.
 
-네트워크 정책을 사용하려면 AKS 클러스터를 만들 때 기능을 사용하도록 설정해야 합니다. 기존 AKS 클러스터에서는 네트워크 정책을 사용하도록 설정할 수 없습니다. 클러스터에서 네트워크 정책을 사용하도록 설정하고 필요에 따라 사용할 수 있도록 미리 계획합니다. 네트워크 정책은 AKS의 Linux 기반 노드 및 포드에만 사용해야 합니다.
+네트워크 정책을 사용하려면 AKS 클러스터를 만들 때 기능을 사용하도록 설정해야 합니다. 기존 AKS 클러스터에서는 네트워크 정책을 사용하도록 설정할 수 없습니다. 클러스터에서 네트워크 정책을 사용하도록 설정하고 필요에 따라 사용할 수 있도록 미리 계획합니다. 네트워크 정책은 Linux 기반 노드 및 AKS의 pod에만 사용 해야 합니다.
 
 네트워크 정책은 YAML 매니페스트를 사용하여 Kubernetes 리소스로 생성됩니다. 정책이 정의된 pod에 적용된 다음, 수신 또는 송신 규칙이 트래픽 흐름 방식을 정의합니다. 다음 예제에서는 적용된 *app: backend* 레이블을 통해 네트워크 정책을 pod에 적용합니다. 그런 다음, 수신 규칙은 *app: frontend* 레이블을 통한 포드의 트래픽만 허용합니다.
 

@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 73f79145f63e0d8afee7596f1f8231a054ef1c2e
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: a407461e20eefe29dd410ac6ed547b33287a5be8
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82097696"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145421"
 ---
 # <a name="troubleshoot-runbook-errors"></a>Runbook 오류 문제 해결
 
@@ -180,11 +180,11 @@ At line:16 char:1
 
 ### <a name="cause"></a>원인
 
-이 오류는 runbook에서 AzureRM 및 Az module cmdlet을 모두 사용 하 여 발생 합니다. AzureRM 모듈을 가져오기 전에 Az module을 가져올 때 발생 합니다.
+이 오류는 runbook에서 AzureRM에서 Az modules로 불완전 한 마이그레이션을 사용 하 여 발생할 수 있습니다. 이로 인해 Azure Automation는 AzureRM 모듈만 사용 하 여 runbook 작업을 시작한 다음, Az 모듈만을 사용 하 여 다른 작업을 시작 하 여 샌드박스 충돌을 발생 시킬 수 있습니다. 
 
 ### <a name="resolution"></a>해결 방법
 
-Az 및 AzureRM cmdlet은 동일한 runbook에서 가져와서 사용할 수 없습니다. Azure Automation의 Az cmdlet에 대 한 자세한 내용은 [Azure Automation 모듈 관리](../shared-resources/modules.md)를 참조 하세요.
+동일한 runbook에서 Az 및 AzureRM cmdlet을 사용 하지 않는 것이 좋습니다. 이러한 모듈의 올바른 사용에 대해 자세히 알아보려면 [Az modules로 마이그레이션](../shared-resources/modules.md#migrating-to-az-modules)을 참조 하세요.
 
 ## <a name="scenario-the-runbook-fails-with-the-error-a-task-was-canceled"></a><a name="task-was-cancelled"></a>시나리오: 다음 오류로 인해 Runbook이 실패합니다. 작업이 취소됨
 
@@ -581,7 +581,7 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 * 시작- [작업](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/start-job?view=powershell-7)을 사용 하는 대신 [AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) 를 사용 하 여 runbook을 시작 합니다.
 * Hybrid Runbook Worker에서 runbook을 실행 해 보세요.
 
-이 동작 및 runbook Azure Automation의 다른 동작에 대해 자세히 알아보려면 [runbook 동작](../automation-runbook-execution.md#runbook-behavior)을 참조 하세요.
+이 동작 및 runbook Azure Automation의 다른 동작에 대 한 자세한 내용은 [Azure Automation에서 Runbook 실행](../automation-runbook-execution.md)을 참조 하세요.
 
 ## <a name="scenario-linux-hybrid-runbook-worker-receives-a-prompt-for-a-password-when-signing-a-runbook"></a>시나리오: Runbook에 서명할 때 Linux Hybrid Runbook Worker 암호에 대 한 프롬프트를 수신 합니다.
 
@@ -645,11 +645,11 @@ Operation returned an invalid status code 'Forbidden'
 
 #### <a name="not-using-run-as-account"></a>실행 계정을 사용 하지 않음
 
-[5 단계-인증 추가](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) 를 사용 하 여 Azure 리소스를 관리 하는 단계에 따라 실행 계정을 사용 하 여 Key Vault에 액세스 하도록 합니다. 
+[5 단계-인증 추가](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) 를 수행 하 여 Azure 리소스를 관리 합니다. 그러면 실행 계정을 사용 하 여 Key Vault에 액세스할 수 있습니다. 
 
 #### <a name="insufficient-permissions"></a>권한 부족
 
-[Key Vault에 대 한 권한 추가](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) 의 단계에 따라 실행 계정에 Key Vault에 대 한 액세스 권한이 있는지 확인 합니다. 
+[Key Vault에 권한을 추가](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) 하 여 실행 계정에 Key Vault에 대 한 액세스 권한이 있는지 확인 합니다. 
 
 ## <a name="my-problem-isnt-listed-above"></a><a name="other"></a>위 목록에 없는 문제가 발생함
 
@@ -669,7 +669,7 @@ Azure Automation 대신 Hybrid Runbook Worker에서 작업을 실행 하는 경�
 
 ### <a name="issues-using-az-modules"></a>Az modules 사용 문제
 
-동일한 Automation 계정에서 Az modules 및 AzureRM 모듈을 사용 하는 것은 지원 되지 않습니다. 자세한 내용은 [runbook의 Az 모듈](https://docs.microsoft.com/azure/automation/az-modules) 을 참조 하세요.
+Runbook 모듈의 불완전 한 마이그레이션을 AzureRM에서 Az로 사용 하면 샌드박스 충돌 및 runbook 실패가 발생할 수 있습니다. [Runbook에서 모듈 사용](../automation-runbook-execution.md#using-modules-in-your-runbooks)을 참조 하세요.
 
 ### <a name="inconsistent-behavior-in-runbooks"></a>Runbook의 동작이 일관적이지 않음
 
@@ -688,10 +688,6 @@ Azure Automation 대신 Hybrid Runbook Worker에서 작업을 실행 하는 경�
 
 웹 후크에 매개 변수를 전달 하는 데 도움이 필요한 경우 [webhook에서 Runbook 시작](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters-used-when-the-webhook-starts-a-runbook)을 참조 하세요.
 
-### <a name="using-az-modules"></a>Az 모듈 사용
-
-동일한 Automation 계정에서 Az modules 및 AzureRM 모듈을 사용 하는 것은 지원 되지 않습니다. [Runbook의 Az modules을](https://docs.microsoft.com/azure/automation/az-modules)참조 하십시오.
-
 ### <a name="using-self-signed-certificates"></a>자체 서명 된 인증서 사용
 
 자체 서명 된 인증서를 사용 하려면 [새 인증서 만들기](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate)를 참조 하세요.
@@ -702,6 +698,7 @@ Azure 샌드박스는 모든 out-of-process COM 서버에 대 한 액세스를 �
 
 ## <a name="recommended-documents"></a>권장되는 문서
 
+* [Azure Automation에서 Runbook 실행](../automation-runbook-execution.md)
 * [Azure Automation에서 Runbook 시작](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
 * [Azure Automation에서 Runbook 실행](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
 

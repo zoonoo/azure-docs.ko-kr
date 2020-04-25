@@ -3,24 +3,22 @@ title: 고정 공용 IP 주소를 사용하는 VM 만들기 - Azure Portal | Mic
 description: Azure Portal을 사용하여 고정 공용 IP 주소를 사용하는 VM을 만드는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: e9546bcc-f300-428f-b94a-056c5bd29035
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
-ms.author: kumud
-ms.openlocfilehash: 66050c16f40e0a06117327ef53e3aae87d03c5db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 0de28fc75d5eb1b0867e4ba6d8eda9f0f42c8498
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76043547"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148014"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Azure Portal을 사용하여 고정 공용 IP 주소로 가상 머신 만들기
 
@@ -28,7 +26,7 @@ ms.locfileid: "76043547"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
@@ -38,12 +36,12 @@ ms.locfileid: "76043547"
 
     |설정|값|
     |---|---|
-    |이름|myVM|
+    |속성|myVM|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |Subscription| 구독을 선택합니다.|
     |Resource group| **기존 항목 사용**을 선택하고, **myResourceGroup**을 선택합니다.|
-    |위치| **미국 동부** 선택|
+    |위치| **미국 동부** 를 선택 합니다.|
 
 4. VM에 대한 크기를 선택한 다음, **선택**을 선택합니다.
 5. **설정** 아래에서 **공용 IP 주소**를 선택합니다.
@@ -79,7 +77,7 @@ ms.locfileid: "76043547"
 
 1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력합니다. 검색 결과에 **myResourceGroup**이 보이면 선택합니다.
 2. **리소스 그룹 삭제**를 선택합니다.
-3. **리소스 그룹 이름 입력에** *myResourceGroup을* 입력하고 **삭제를**선택합니다.
+3. **리소스 그룹 이름** 에 *myresourcegroup* 을 입력 하 고 **삭제**를 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

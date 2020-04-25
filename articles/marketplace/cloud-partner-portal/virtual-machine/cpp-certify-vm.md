@@ -1,5 +1,5 @@
 ---
-title: Azure 마켓플레이스에 대한 VM 이미지 인증
+title: Azure Marketplace에 대 한 VM 이미지 인증
 description: Azure Marketplace 인증을 위해 VM 이미지를 테스트하고 제출하는 방법을 설명합니다.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: dsindona
-ms.openlocfilehash: ce1e001b9cafff83a3f9bf546d6903cc4a4f450f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 81dec159a8a84adce97750666baba455ae3fdd93
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273497"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147088"
 ---
 # <a name="certify-your-vm-image"></a>VM 이미지 인증
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. [Azure VM 이미지 인증의](https://aks.ms/CertifyVMimage) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 Azure Virtual Machine 제품의 관리를 파트너 센터로 전환 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [AZURE VM 이미지 인증](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 VM(가상 머신)을 만들고 배포한 후에 Azure Marketplace 인증을 위해 VM 이미지를 테스트하고 제출해야 합니다. 이 문서에서는 *Azure Certified용 인증 테스트 도구*를 얻을 수 있는 위치, 이 도구를 사용하여 VM 이미지를 인증하는 방법 및 VHD가 있는 Azure 컨테이너에 확인 결과를 업로드하는 방법에 대해 설명합니다. 
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services 데이터베이스 백업 및 복원 | Microsoft Docs
-description: 이 문서에서는 Azure Analysis Services 데이터베이스에서 모델 메타데이터 및 데이터를 백업하고 복원하는 방법을 설명합니다.
+description: 이 문서에서는 Azure Analysis Services 데이터베이스에서 모델 메타 데이터 및 데이터를 백업 하 고 복원 하는 방법을 설명 합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/24/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 83da2024ab74b705b45a5891f6b40251020dad31
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 2866ec860cbc9037aa6b57389b35f17ec71a7c9d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408662"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145445"
 ---
 # <a name="backup-and-restore"></a>백업 및 복원
 
@@ -23,7 +23,10 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 > 
 > 
 
-백업은 .abf 확장으로 저장됩니다. 메모리 내 테이블 형식 모델의 경우 모델 데이터와 메타데이터가 모두 저장됩니다. DirectQuery 테이블 형식 모델의 경우 모델 메타데이터만 저장됩니다. Backup은 선택한 옵션에 따라 압축하고 암호화할 수 있습니다.
+> [!NOTE]
+> 저장소 계정이 다른 지역에 있는 경우 **모든 네트워크**에서 액세스할 수 있도록 방화벽 설정을 구성 해야 합니다. 허용 목록 IP 주소와 신뢰할 수 있는 Microsoft 서비스 허용 예외를 사용 하 여 선택한 네트워크에 대해 구성 된 방화벽 설정은 지원 되지 않습니다.
+
+백업은. .abf 확장을 사용 하 여 저장 됩니다. 메모리 내 테이블 형식 모델의 경우 모델 데이터와 메타데이터가 모두 저장됩니다. DirectQuery 테이블 형식 모델의 경우 모델 메타데이터만 저장됩니다. Backup은 선택한 옵션에 따라 압축하고 암호화할 수 있습니다.
 
 
 ## <a name="configure-storage-settings"></a>스토리지 설정 구성
@@ -49,13 +52,13 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
     ![백업 설정 저장](./media/analysis-services-backup/aas-backup-save.png)
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>백업
 
 ### <a name="to-backup-by-using-ssms"></a>SSMS를 사용하여 백업하려면
 
 1. SSMS에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **백업**을 클릭합니다.
 
-2. **백업 데이터베이스** > **백업 파일에서** **찾아보기를**클릭합니다.
+2. **데이터베이스** > 백업 백업**파일**에서 **찾아보기**를 클릭 합니다.
 
 3. **다른 이름으로 파일 저장** 대화 상자에서 폴더 경로 확인한 다음 백업 파일의 이름을 입력합니다. 
 

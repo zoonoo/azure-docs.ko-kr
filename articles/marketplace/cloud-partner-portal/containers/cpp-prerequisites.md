@@ -1,5 +1,5 @@
 ---
-title: Azure 컨테이너는 필수 구성 조건을 제공합니다 | Azure 마켓플레이스
+title: Azure 컨테이너는 필수 구성 요소를 제공 합니다. Azure Marketplace
 description: Azure 컨테이너를 게시하기 위한 필수 구성 요소입니다.
 author: dsindona
 ms.service: marketplace
@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: dsindona
-ms.openlocfilehash: 0453117ee2984e0b8ebee60145353584a02a359a
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 2a5d82af609ab5eafbbc29dc95b8b6e4c8aa32df
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270131"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146250"
 ---
 # <a name="container-publishing-prerequisites"></a>컨테이너 게시 필수 구성 요소
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 컨테이너 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 컨테이너 [만들기 오퍼의](https://aka.ms/CreateContainerOffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 파트너 센터에 Azure Container 제품 관리를 이동 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [Azure Container 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
-이 문서에서는 Azure Marketplace에 컨테이너 제품을 게시하기 위한 필수 구성 요소를 설명합니다.  아직 수행하지 않은 경우 컨테이너 제공 [게시 가이드를](../../marketplace-containers.md)검토해야 합니다.
+이 문서에서는 Azure Marketplace에 컨테이너 제품을 게시하기 위한 필수 구성 요소를 설명합니다.  아직 수행 하지 않은 경우 [컨테이너 제공 게시 가이드](../../marketplace-containers.md)를 검토 해야 합니다.
 
 ## <a name="publishing-prerequisites"></a>게시 필수 구성 요소
 
@@ -32,10 +32,10 @@ ms.locfileid: "81270131"
   - 제목
   - 설명(HTML 형식)
   - 로고 이미지(PNG 형식) 및 이러한 고정 이미지 크기에서: 40x40 px, 90x90 px, 115x 115 px 및 255x115 px
-- 이용 *약관* 및 *개인 정보 보호 정책* 진술
+- *사용 약관* 및 *개인 정보 취급 방침*
 - 컨테이너 솔루션 설명서
 - 지원 연락처
 
 ## <a name="next-steps"></a>다음 단계
 
-아직 수행하지 않은 경우 [컨테이너 오퍼를 만들기](./cpp-create-offer.md)전에 [컨테이너 기술 자산을 준비해야](./cpp-create-technical-assets.md) 합니다.  
+아직 수행 하지 않은 경우 컨테이너 [제품을 만들기](./cpp-create-offer.md)전에 [컨테이너 기술 자산을 준비](./cpp-create-technical-assets.md) 해야 합니다.  

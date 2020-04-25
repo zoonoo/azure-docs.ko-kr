@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/26/2020
+ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: b58c24fdd7912b3e424a493932fe09b1a1f058c5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: HT
+ms.openlocfilehash: 601194d3a8cc789c51b8e127001ab2367dceeee7
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661280"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148213"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램에 대해 Azure NetApp Files을 사용 하는 Red Hat Enterprise Linux에서 SAP NetWeaver에 대 한 Azure Virtual Machines 고가용성
 
@@ -32,14 +32,14 @@ ms.locfileid: "77661280"
 [anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
-[2002167]: https://launchpad.support.sap.com/#/notes/2002167
-[2009879]: https://launchpad.support.sap.com/#/notes/2009879
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -71,9 +71,9 @@ ms.locfileid: "77661280"
 * SAP Note [2243692]는 Azure에서 Linux의 SAP 라이선스에 대한 정보를 포함하고 있습니다.
 * SAP Note [1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
-* [Linux에서 SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [Linux에서 SAP 용 Azure Virtual Machines 배포][deployment-guide]
-* [Linux에서 SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [Linux에서 SAP용 Azure Virtual Machines 배포][deployment-guide]
+* [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
 * [pacemaker 클러스터의 SAP Netweaver](https://access.redhat.com/articles/3150081)
 * 일반 RHEL 설명서
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)(고가용성 추가 기능 개요)
@@ -101,16 +101,14 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 
 * 프런트 엔드 구성
   * IP 주소 192.168.14.9
-* 백 엔드 구성
-  * (A)SCS/ERS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
 * 프로브 포트
   * 포트 620<strong>&lt;nr&gt;</strong>
 * 부하 분산 규칙
   * 표준 Load Balancer 사용 하는 경우 **HA 포트** 를 선택 합니다.
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 36<strong>&lt;nr&gt;</strong> TCP
-  * 39<strong>&lt;nr&gt;</strong> TCP
-  * 81<strong>&lt;nr&gt;</strong> TCP
+  * 32<strong>&lt;nr&gt; </strong> TCP
+  * 36<strong>&lt;nr&gt; </strong> TCP
+  * 39<strong>&lt;nr&gt; </strong> TCP
+  * 81<strong>&lt;nr&gt; </strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
   * 5<strong>&lt;nr&gt;</strong>16 TCP
@@ -119,17 +117,18 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 
 * 프런트 엔드 구성
   * IP 주소 192.168.14.10
-* 백 엔드 구성
-  * (A)SCS/ERS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
 * 프로브 포트
   * 포트 621<strong>&lt;nr&gt;</strong>
 * 부하 분산 규칙
   * 표준 Load Balancer 사용 하는 경우 **HA 포트** 를 선택 합니다.
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 33<strong>&lt;nr&gt;</strong> TCP
+  * 32<strong>&lt;nr&gt; </strong> TCP
+  * 33<strong>&lt;nr&gt; </strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
   * 5<strong>&lt;nr&gt;</strong>16 TCP
+
+* 백 엔드 구성
+  * (A)SCS/ERS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
 
 ## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Azure NetApp Files 인프라 설정 
 
@@ -147,7 +146,7 @@ Azure NetApp 파일은 여러 [azure 지역](https://azure.microsoft.com/global-
 이 문서에 제공 된 SAP Netweaver 아키텍처는 단일 Azure NetApp Files 용량 풀, 프리미엄 SKU를 사용 합니다. Azure에서 SAP Netweaver 응용 프로그램 워크 로드에 대 한 Premium SKU를 Azure NetApp Files 하는 것이 좋습니다.  
 4. [Azure NetApp Files에 서브넷 위임 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet)에 설명 된 대로 Azure netapp 파일에 서브넷을 위임 합니다.  
 
-5. [Azure NetApp Files 볼륨을 만들기 위한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)에 따라 Azure NetApp Files 볼륨을 배포 합니다. 지정 된 Azure NetApp Files [서브넷](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)에 볼륨을 배포 합니다. Azure NetApp Files 리소스와 Azure Vm은 동일한 Azure Virtual Network 또는 피어 링 Azure Virtual Network에 있어야 합니다. 이 예제에서는 두 개의 Azure NetApp Files 볼륨 sap<b>Qas</b> 및 transSAP를 사용 합니다. 해당 탑재 점에 탑재 되는 파일 경로는/usrsap<b>qas</b>/Sapmnt<b>qas</b>,/Usrsap<b>qas</b>/usrsap<b>qas</b>sys 등입니다.  
+5. [Azure NetApp Files 볼륨을 만들기 위한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)에 따라 Azure NetApp Files 볼륨을 배포 합니다. 지정 된 Azure NetApp Files [서브넷](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)에 볼륨을 배포 합니다. Azure NetApp 볼륨의 IP 주소는 자동으로 할당 됩니다. Azure NetApp Files 리소스와 Azure Vm은 동일한 Azure Virtual Network 또는 피어 링 Azure Virtual Network에 있어야 합니다. 이 예제에서는 두 개의 Azure NetApp Files 볼륨 sap<b>Qas</b> 및 transSAP를 사용 합니다. 해당 탑재 점에 탑재 되는 파일 경로는/usrsap<b>qas</b>/Sapmnt<b>qas</b>,/Usrsap<b>qas</b>/usrsap<b>qas</b>sys 등입니다.  
 
    1. volume sap<b>QAS</b> (nfs://192.168.24.5/usrsap<b>QAS</b>/sapmnt<b>QAS</b>)
    2. volume sap<b>QAS</b> (nfs://192.168.24.5/usrsap<b>QAS</b>/usrsap<b>QAS</b>ascs)
@@ -157,7 +156,7 @@ Azure NetApp 파일은 여러 [azure 지역](https://azure.microsoft.com/global-
    6. volume sap<b>QAS</b> (nfs://192.168.24.5/usrsap<b>QAS</b>/usrsap<b>QAS</b>pas)
    7. volume sap<b>QAS</b> (nfs://192.168.24.5/usrsap<b>QAS</b>/usrsap<b>QAS</b>.aas)
   
-이 예제에서는 Azure NetApp Files를 사용 하는 방법을 보여 주기 위해 모든 SAP Netweaver 파일 시스템에 대 한 Azure NetApp Files를 사용 했습니다. NFS를 통해 탑재 하지 않아도 되는 SAP 파일 시스템을 [Azure disk storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) 로 배포할 수도 있습니다. 이 예제에서 <b>a-e는</b> Azure NetApp Files에 있어야 하 고 <b>f-g</b> (즉,/usr/sap/<b></b><b>qas</b>/d<b>03</b><b>)를 Azure</b>disk storage로 배포할 수 있습니다. 
+이 예제에서는 Azure NetApp Files를 사용 하는 방법을 보여 주기 위해 모든 SAP Netweaver 파일 시스템에 대 한 Azure NetApp Files를 사용 했습니다. NFS를 통해 탑재 하지 않아도 되는 SAP 파일 시스템을 [Azure disk storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) 로 배포할 수도 있습니다. 이 예제에서 <b>a-e는</b> Azure NetApp Files에 있어야 하 고 <b>f-g</b> (즉,/usr/sap/<b>QAS</b><b>qas</b>/d<b>03</b><b>)를 Azure</b>disk storage로 배포할 수 있습니다. 
 
 ### <a name="important-considerations"></a>중요 고려 사항
 
@@ -167,7 +166,7 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
 - 최소 볼륨은 100 GiB
 - Azure NetApp Files 및 Azure NetApp Files 볼륨이 탑재 되는 모든 가상 머신은 동일한 Azure Virtual Network 또는 동일한 지역의 [피어 링 가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 에 있어야 합니다. 동일한 지역에서 VNET 피어 링을 통한 Azure NetApp Files 액세스는 이제 지원 됩니다. 전역 피어 링을 통한 Azure NetApp 액세스는 아직 지원 되지 않습니다.
 - 선택한 가상 네트워크에는 Azure NetApp Files으로 위임 된 서브넷이 있어야 합니다.
-- Azure NetApp Files에서 [내보내기 정책을](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)제공 합니다. 허용 되는 클라이언트, 액세스 유형 (읽기 & 쓰기, 읽기 전용 등)을 제어할 수 있습니다. 
+- Azure NetApp Files에서 [내보내기 정책을](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)제공 합니다. 허용 되는 클라이언트, 액세스 유형 (읽기&쓰기, 읽기 전용 등)을 제어할 수 있습니다. 
 - Azure NetApp Files 기능이 아직 영역을 인식 하지 않습니다. 현재 Azure NetApp Files 기능은 Azure 지역의 모든 가용성 영역에 배포 되지 않습니다. 일부 Azure 지역에서 잠재적 대기 시간 영향을 염두에 두어야 합니다. 
 - Azure NetApp Files 볼륨을 NFSv3 또는 NFSv 4.1 볼륨으로 배포할 수 있습니다. SAP 응용 프로그램 계층 (ASCS/ERS, SAP 응용 프로그램 서버)에 대해 두 프로토콜을 모두 사용할 수 있습니다. 
 
@@ -177,7 +176,7 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Azure Portal을 통해 Linux를 수동으로 배포
 
-먼저 Azure NetApp Files 볼륨을 만들어야 합니다. Vm을 배포 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다.
+먼저 Azure NetApp Files 볼륨을 만들어야 합니다. Vm을 배포 합니다. 그런 다음 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용 합니다.
 
 1. 부하 분산 장치 만들기 (내부, 표준):  
    1. 프런트 엔드 IP 주소 만들기
@@ -189,13 +188,12 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
       1. ASCS ERS에 대 한 IP 주소 192.168.14.10
          * "A"에서 위의 단계를 반복 하 여 **192.168.14.10** 및 프런트 엔드와 같은 사람에 대 한 IP 주소를 만듭니다 **. QAS. ERS**)
    1. 백 엔드 풀 만들기
-      1. ASCS에 대한 백 엔드 풀 만들기
-         1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
-         1. 새 백 엔드 풀의 이름을 입력 합니다 (예: **백 엔드). QAS**)
-         1. 가상 머신 추가 클릭
-         1. 가상 컴퓨터를 선택 합니다. 
-         1. (A) SCS 클러스터의 가상 머신 및 해당 IP 주소를 선택 합니다.
-         1. 추가를 클릭합니다.
+      1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
+      1. 새 백 엔드 풀의 이름을 입력 합니다 (예: **백 엔드). QAS**)
+      1. 가상 머신 추가 클릭
+      1. 가상 머신을 선택합니다. 
+      1. (A) SCS 클러스터의 가상 머신 및 해당 IP 주소를 선택 합니다.
+      1. 추가를 클릭합니다.
    1. 상태 프로브 만들기
       1. 포트: 620**00**(ASCS용)
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
@@ -224,13 +222,12 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
       1. ASCS ERS에 대 한 IP 주소 192.168.14.10
          * "A"에서 위의 단계를 반복 하 여 **192.168.14.10** 및 프런트 엔드와 같은 사람에 대 한 IP 주소를 만듭니다 **. QAS. ERS**)
    1. 백 엔드 풀 만들기
-      1. ASCS에 대한 백 엔드 풀 만들기
-         1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
-         1. 새 백 엔드 풀의 이름을 입력 합니다 (예: **백 엔드). QAS**)
-         1. 가상 머신 추가 클릭
-         1. ASCS에 대해 이전에 만든 가용성 집합을 선택 합니다. 
-         1. (A)SCS 클러스터의 가상 머신 선택
-         1. 확인 클릭
+      1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
+      1. 새 백 엔드 풀의 이름을 입력 합니다 (예: **백 엔드). QAS**)
+      1. 가상 머신 추가 클릭
+      1. ASCS에 대해 이전에 만든 가용성 집합을 선택 합니다. 
+      1. (A)SCS 클러스터의 가상 머신 선택
+      1. 확인 클릭
    1. 상태 프로브 만들기
       1. 포트: 620**00**(ASCS용)
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
@@ -263,10 +260,10 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
 
 NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 경우에만이 섹션의 지침을 적용할 수 있습니다. Azure NetApp Files NFSv 4.1 볼륨이 탑재 될 모든 Vm에서 구성을 수행 합니다.  
 
-1. NFS 도메인 설정을 확인 합니다. 도메인이 기본 Azure NetApp Files 도메인으로 구성 되어 있는지 확인 합니다. 즉, **`defaultv4iddomain.com`** 이며 매핑이 없음으로 설정 되어 있는지 확인 **합니다.**  
+1. NFS 도메인 설정을 확인 합니다. 도메인이 기본 Azure NetApp Files 도메인으로 구성 되어 있는지 확인 합니다. **`defaultv4iddomain.com`** 즉, 매핑이 없음으로 설정 되어 있는지 확인 합니다 **.**  
 
     > [!IMPORTANT]
-    > VM에서 `/etc/idmapd.conf`의 NFS 도메인을 Azure NetApp Files: **`defaultv4iddomain.com`** 의 기본 도메인 구성과 일치 하도록 설정 해야 합니다. NFS 클라이언트의 도메인 구성 (예: VM)과 NFS 서버 (예: Azure NetApp 구성)가 일치 하지 않는 경우 Vm에 탑재 된 Azure NetApp 볼륨의 파일에 대 한 권한이 `nobody`표시 됩니다.  
+    > VM의에서 `/etc/idmapd.conf` NFS 도메인을 Azure NetApp Files의 기본 도메인 구성과 일치 하도록 설정 해야 **`defaultv4iddomain.com`** 합니다. NFS 클라이언트의 도메인 구성 (예: VM)과 NFS 서버 (예: Azure NetApp 구성)가 일치 하지 않는 경우 Vm에 탑재 된 Azure NetApp 볼륨의 파일에 대 한 사용 권한이로 `nobody`표시 됩니다.  
 
     <pre><code>
     sudo cat /etc/idmapd.conf
@@ -278,7 +275,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** `nfs4_disable_idmapping`확인 합니다. **Y**로 설정 되어야 합니다. `nfs4_disable_idmapping` 있는 디렉터리 구조를 만들려면 mount 명령을 실행 합니다. 액세스는 커널/드라이버용으로 예약 되어 있기 때문에/dv/sd 아래에 있는 디렉터리는 수동으로 만들 수 없습니다.  
+4. **[A]** 확인 `nfs4_disable_idmapping`. **Y**로 설정 되어야 합니다. `nfs4_disable_idmapping` 가 있는 디렉터리 구조를 만들려면 mount 명령을 실행 합니다. 액세스는 커널/드라이버용으로 예약 되어 있기 때문에/dv/sd 아래에 있는 디렉터리는 수동으로 만들 수 없습니다.  
 
     <pre><code>
     # Check nfs4_disable_idmapping 
@@ -292,7 +289,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
     echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     </code></pre>
 
-   `nfs4_disable_idmapping` 매개 변수를 변경 하는 방법에 대 한 자세한 내용은 https://access.redhat.com/solutions/1749883을 참조 하세요.
+   매개 변수를 변경 `nfs4_disable_idmapping` 하는 방법에 대 https://access.redhat.com/solutions/1749883한 자세한 내용은을 참조 하십시오.
 
 ### <a name="create-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
 
@@ -300,7 +297,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
 
 ### <a name="prepare-for-sap-netweaver-installation"></a>SAP NetWeaver 설치 준비
 
-다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
+다음 항목에는 접두사 **[A]** -모든 노드에 적용, **[1]** -노드 1에만 적용 됩니다. [ **2]** -노드 2에만 적용 됩니다.
 
 1. **[A]** 호스트 이름 확인 설정
 
@@ -612,7 +609,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
 
 1. **[A]** 연결 유지 구성
 
-   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이를 방지 하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정 하 고 Linux 시스템 설정을 변경 해야 합니다. 자세한 내용은 [SAP Note 1410736][1410736] 을 참조 하세요.
+   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이를 방지 하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정 하 고 Linux 시스템 설정을 변경 해야 합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
 
    ASCS/SCS profile 매개 변수 enque/encni/set_so_keepalive는 마지막 단계에서 이미 추가된 상태입니다.
 
@@ -894,7 +891,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
 
 ## <a name="install-database"></a>데이터베이스 설치
 
-이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에 SAP HANA를 설치 하는 방법에 대 한 자세한 내용은 [Red Hat Enterprise Linux. For a list of supported databases, see [SAP Note 1928533][1928533]에서 Azure vm의 SAP HANA 고가용성][sap-hana-ha] 을 참조 하세요.
+이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에서 SAP HANA을 설치 하는 방법에 대 한 자세한 내용은. For a list of supported databases, see [SAP Note 1928533][1928533] [Red Hat Enterprise Linux에서 azure Vm의 SAP HANA 고가용성][sap-hana-ha]을 참조 하세요.
 
 1. SAP 데이터베이스 인스턴스 설치 실행
 
@@ -1092,7 +1089,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
    [root@anftstsapcl1 ~]# pgrep ms.sapQAS | xargs kill -9
    ```
 
-   메시지 서버를 한 번만 종료 하면 `sapstart`의해 다시 시작 됩니다. 충분히 자주 종료하면 Pacemaker는 ASCS 인스턴스를 다른 노드로 이동합니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ASCS 및 ERS 인스턴스의 리소스 상태를 정리합니다.
+   메시지 서버를 한 번만 종료 하면에서 `sapstart`다시 시작 됩니다. 충분히 자주 종료하면 Pacemaker는 ASCS 인스턴스를 다른 노드로 이동합니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ASCS 및 ERS 인스턴스의 리소스 상태를 정리합니다.
 
    ```
    [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
@@ -1186,7 +1183,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
    [root@anftstsapcl2 ~]# pgrep er.sapQAS | xargs kill -9
    ```
 
-   명령을 한 번만 실행 하는 경우 `sapstart` 프로세스를 다시 시작 합니다. 자주 실행 하는 경우에는 `sapstart` 프로세스를 다시 시작 하지 않고 리소스가 중지 된 상태가 됩니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ERS 인스턴스의 리소스 상태를 정리합니다.
+   명령을 한 번만 실행 하는 경우 `sapstart` 에서 프로세스를 다시 시작 합니다. 자주 실행 하는 경우에서 `sapstart` 프로세스를 다시 시작 하지 않고 리소스가 중지 된 상태가 됩니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ERS 인스턴스의 리소스 상태를 정리합니다.
 
    ```
    [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
@@ -1254,8 +1251,8 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
 ## <a name="next-steps"></a>다음 단계
 
 * [RHEL for SAP applications의 Azure Vm에 대 한 HA-다중 SID 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
-* [SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [SAP 용 Azure Virtual Machines 배포][deployment-guide]
-* [SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md) - Azure의 SAP HANA(큰 인스턴스)에 대한 고가용성 및 재해 복구 계획을 설정하는 방법을 알아봅니다.
-* Azure Vm에서 SAP HANA의 고가용성을 설정 하 고 재해 복구를 계획 하는 방법에 대 한 자세한 내용은 [azure Virtual Machines (vm)의 SAP HANA 고가용성][sap-hana-ha] 을 참조 하세요.
+* [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [SAP용 Azure Virtual Machines 배포][deployment-guide]
+* [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* Azure (큰 인스턴스)의 SAP HANA에 대 한 고가용성 및 재해 복구 계획을 수립 하는 방법을 알아보려면 [azure에서 SAP HANA (큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)를 참조 하세요.
+* Azure VM에서 SAP HANA의 재해 복구를 계획하고 고가용성을 설정하는 방법을 알아보려면 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요.

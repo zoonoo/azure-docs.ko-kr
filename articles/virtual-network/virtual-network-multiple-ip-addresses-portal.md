@@ -3,24 +3,22 @@ title: Azure Virtual Machines의 여러 IP 주소 - 포털 | Microsoft Docs
 description: Azure Portal | Resource Manager를 사용하여 가상 머신에 여러 IP 주소를 할당하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: anavinahar
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 3a8cae97-3bed-430d-91b3-274696d91e34
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
-ms.author: anavin
-ms.openlocfilehash: a5bb9bb9c584aef8ac79b3c275d01d3c498da843
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 97d78b5bc77fef30bf7e3ad082a70f16a2ec74d1
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060621"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146606"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -42,13 +40,13 @@ ms.locfileid: "80060621"
 
 1. https://portal.azure.com의 Azure Portal로 이동한 후 필요한 경우 로그인합니다.
 2. 포털에서 **더 많은 서비스**를 클릭하고 필터 상자에 *가상 머신*를 입력하고 **가상 머신**를 클릭합니다.
-3. **가상 머신** 창에서 IP 주소를 추가할 VM을 클릭합니다. **네트워킹** 탭으로 이동합니다. 페이지에서 **네트워크 인터페이스를** 클릭합니다. 아래 그림과 같이: 
+3. **가상 머신** 창에서 IP 주소를 추가할 VM을 클릭합니다. **네트워킹** 탭으로 이동 합니다. 페이지에서 **네트워크 인터페이스** 를 클릭 합니다. 아래 그림에 표시 된 것과 같습니다. 
 
 
     ![VM에 공용 IP 주소 추가](./media/virtual-network-multiple-ip-addresses-portal/figure200319.png)
-4. 네트워크 **인터페이스** 창에서 IP **구성을 클릭합니다.**
+4. **네트워크 인터페이스** 창에서 **IP 구성을**클릭 합니다.
 
-5. 선택한 NIC에 대해 표시되는 창에서 **IP 구성**을 클릭합니다. 추가 / **단추를** **클릭합니다.** 
+5. 선택한 NIC에 대해 표시되는 창에서 **IP 구성**을 클릭합니다. 추가 **를 클릭 하**고, 추가 하려는 IP 주소 유형에 따라 뒤에 나오는 섹션 중 하나의 단계를 완료 한 후 **확인**을 클릭 합니다. 
 
 ### <a name="add-a-private-ip-address"></a>**개인 IP 주소 추가**
 
@@ -77,7 +75,7 @@ ms.locfileid: "80060621"
 공용 IP 주소는 공용 IP 주소 리소스에 대한 한 가지 설정입니다. IP 구성에 연결하려는 IP 구성에 현재 연결되어 있지 않은 공용 IP 주소 리소스가 있는 경우 다음 단계를 건너뛰고 필요에 따라 이어지는 섹션 중 하나에 나와 있는 단계를 완료합니다. 사용 가능한 공용 IP 주소 리소스가 없는 경우 다음 단계를 완료하여 리소스를 하나 만듭니다.
 
 1. https://portal.azure.com의 Azure Portal로 이동한 후 필요한 경우 로그인합니다.
-3. 포털에서 > 리소스**네트워킹** > **공용 IP 주소** **만들기를**클릭합니다.
+3. 포털에서 **리소스** > 만들기**네트워킹** > **공용 IP 주소**를 클릭 합니다.
 4. 다음 그림과 같이 표시되는 **공용 IP 주소 만들기** 창에서 **이름**을 입력하고 **IP 주소 할당** 형식, **구독**, **리소스 그룹** 및 **위치**를 선택한 다음, **만들기**를 클릭합니다.
 
     ![공용 IP 주소 리소스 만들기](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)

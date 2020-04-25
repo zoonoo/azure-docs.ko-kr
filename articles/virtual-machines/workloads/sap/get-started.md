@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 04/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fe7b375ebafb1e8194b29061430d956e48f2c441
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: bf8c797edec143d09739272917b5781a239280ba
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82100757"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147739"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -111,6 +111,7 @@ SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 자세�
 
 ## <a name="change-log"></a>변경 로그
 
+- 04/24/2020 SAP HANA: SAP HANA [SLES의 ANF](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)를 사용 하 여 azure vm에서 azure vm의 대기 노드를 사용 하는 azure VM의 [RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel), NetWeaver의 azure vm에서 azure vm에 대 한 고가용성, anf를 사용 하는 [SLES의 azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) vm에서 sap NetWeaver에 대 한 고가용성, anf 볼륨의 IP 주소가 자동으로 할당 되는 설명을 추가 하는 [RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
 - 04/22/2020: 클러스터를 유지 관리 모드에서 제거 하는 것과 충돌 하므로 SLES의 `is-managed` [Azure vm에서 SAP HANA의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) 을 변경 하 여 해당 지침에서 meta 특성을 제거 합니다.
 - 04/21/2020: SQL Azure DB를 SAP (Hybris) Commerce Platform 1811에 대해 지원 되는 DBMS로 추가 했습니다 .이 문서에서는 [Azure 배포에 대해 지원 되는 sap 소프트웨어](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) 및 [sap 인증 및 구성에서 실행 되는 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications) 에 대해 다룹니다 Microsoft Azure
 - 04/16/2020: [Azure 배포에 대해 지원 되는](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) Sap (Hybris) 상거래 플랫폼에 대해 지원 되는 DBMS 및 sap [인증 및 구성에서 실행 되는 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications) 에 대 한 지원 되는 DBMS로 SAP HANA 추가 되었습니다 Microsoft Azure

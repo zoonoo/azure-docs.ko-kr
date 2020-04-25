@@ -1,5 +1,5 @@
 ---
-title: Azure 컨테이너 이미지 제공 게시 | Azure 마켓플레이스
+title: Azure 컨테이너 이미지 제품 게시 | Azure Marketplace
 description: Azure 컨테이너 제품을 게시하는 방법입니다.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: 8003bf1cb7905d5decf8a6267ea397f1b2c01222
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 58e096a3b25b16e54cf2f18935dcf4a2d44cd767
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270165"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146205"
 ---
 # <a name="publish-container-offer"></a>컨테이너 제품 게시
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 컨테이너 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 컨테이너 [만들기 오퍼의](https://aka.ms/CreateContainerOffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 파트너 센터에 Azure Container 제품 관리를 이동 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [Azure Container 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
  **새 제품** 페이지를 사용하여 새 제품을 만든 후 제품을 게시할 수 있습니다. **게시**를 선택하여 게시 프로세스를 시작합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "81270165"
 |  -------------------           | --------    | ---------------                                                            |
 | 필수 구성 요소 유효성 검사         | 15분   | 제안 정보 및 제안 설정의 유효성이 검사됩니다.                        |
 | 인증                  | 1주 | Azure 인증 팀에서 제안을 분석합니다. 이 제품은 바이러스, 맬웨어, 안전 규정 준수 및 보안 문제에 대해 검사됩니다. 모든 자격 조건을 충족하는지 제품을 확인합니다. 자세한 내용은 [필수 구성 요소](./cpp-prerequisites.md) 및 [기술 자산 준비](./cpp-create-technical-assets.md)를 참조하세요. 문제가 발견되면 피드백이 제공됩니다. |
-| 패키징 | 1시간  | 오퍼의 기술 자산은 고객용으로 패키징되며 잠재 고객 시스템이 구성 및 설정됩니다. |
+| 패키징 | 1시간  | 제품의 기술 자산은 고객이 사용 하도록 패키지 되며 리드 시스템이 구성 및 설정 됩니다. |
 |  게시자 승인             |  -        | 제안이 라이브 상태가 되기 전에 최종 게시자가 검토 및 확인합니다. 선택한 구독에 제안을 배포하여(제안 정보 단계에서) 모든 요구 사항을 충족하는지 확인할 수 있습니다.  제안을 다음 단계로 넘길 수 있도록 **라이브로 전환**을 선택합니다. |
 | 패키징                 | 1시간 | 완성된 제품은 마켓플레이스 프로덕션 시스템 및 지역에 복제됩니다. | 
 | 라이브                           | 4일 |제안이 릴리스되고, 필요한 지역에 복제되고, 공개적으로 사용할 수 있게 됩니다. |

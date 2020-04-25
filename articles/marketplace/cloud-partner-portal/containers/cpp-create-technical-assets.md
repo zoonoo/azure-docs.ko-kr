@@ -1,5 +1,5 @@
 ---
-title: Azure 컨테이너 이미지 기술 자산 만들기 | Azure 마켓플레이스
+title: Azure 컨테이너 이미지 기술 자산 만들기 | Azure Marketplace
 description: Azure 컨테이너에 대한 기술 자산을 만듭니다.
 author: dsindona
 ms.service: marketplace
@@ -7,21 +7,21 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: 1116bd03cf0ef734b74b387ff8f3cff74b29b215
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 68db606c9a01c4b1122f9b0cce620762485ca40a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270318"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148271"
 ---
 # <a name="prepare-your-container-technical-assets"></a>컨테이너 기술 자산 준비
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 컨테이너 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure Container [기술 자산 준비의](https://aka.ms/CreateContainerTechAssets) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 파트너 센터에 Azure Container 제품 관리를 이동 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [Azure 컨테이너 기술 자산 준비](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 이 문서에서는 Azure Marketplace에서 컨테이너 제품을 구성하기 위한 단계 및 요구 사항을 설명합니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 빠른 시작, 자습서 및 샘플을 제공하는 [Azure Container Instances](https://docs.microsoft.com/azure/container-instances) 설명서를 검토하세요.
 
@@ -58,8 +58,8 @@ ms.locfileid: "81270318"
 
 자세한 내용은 다음을 참조하세요.
 
-* [자습서: Azure 컨테이너 인스턴스에 배포할 컨테이너 이미지 만들기](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
-* [자습서: Azure 컨테이너 레지스트리 작업을 통해 클라우드에서 컨테이너 이미지를 빌드하고 배포합니다.](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
+* [자습서: Azure Container Instances에 배포할 컨테이너 이미지 만들기](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [자습서: Azure Container Registry 작업을 사용 하 여 클라우드에서 컨테이너 이미지 빌드 및 배포](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>다음 단계
 

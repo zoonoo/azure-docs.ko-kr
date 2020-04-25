@@ -1,5 +1,5 @@
 ---
-title: Azure 마켓플레이스용 VHD에서 VM 배포
+title: Azure Marketplace에 대 한 Vhd에서 VM 배포
 description: Azure에서 배포한 VHD에서 VM을 등록하는 방법을 설명합니다.
 author: qianw211
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: dsindona
-ms.openlocfilehash: f13e4066137e0d76612040d9f6e5ff3d0aa399c8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: b02fda545ac135735186885d7db597885bf6cc21
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273905"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147959"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>VHD에서 VM 배포
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 파트너 센터에 대한 Azure 가상 머신 제공의 이동 관리가 시작됩니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 가상 [시스템 기술 자산 만들기의](https://aka.ms/AzureVMTechAsset) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 파트너 센터에 대 한 Azure Virtual Machine 제품의 이동 관리를 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [Azure Virtual Machine 기술 자산 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 이 섹션에서는 Azure에서 배포한 VHD(가상 하드 디스크)를 통해 VM(가상 머신)을 배포하는 방법을 설명합니다.  필요한 도구 및 이 도구를 사용하여 사용자 VM 이미지를 만든 다음, PowerShell 스크립트를 사용하여 Azure에 배포하는 방법을 나열합니다.
 
@@ -26,7 +26,7 @@ VHD(가상 하드 디스크), 즉 일반화된 운영 체제 VHD 및 0개 이상
 VM 이미지에 대해 자세히 알아보려면 다음 블로그 게시물을 참조하세요.
 
 - [VM 이미지](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [VM 이미지 파워쉘 '방법'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [VM 이미지 PowerShell ' 방법 '](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -62,10 +62,10 @@ VM이 배포되면 [VM 이미지를 인증](./cpp-certify-vm.md)할 준비가 �
    |  -------------              |   ---------------                                                            |
    | 사용자 스토리지 계정 이름   | 일반화된 VHD가 있는 스토리지 계정 이름                    |
    | 사용자 스토리지 컨테이너 이름 | 일반화된 VHD가 있는 컨테이너 이름                          |
-   | 공용 IP에 대한 DNS 이름      | 공용 IP DNS 이름입니다. DNS 이름은 VM의 이름으로, 제안이 배포되면 Azure Portal에서 이를 정의합니다.  |
+   | 공용 IP에 대한 DNS 이름      | 공용 IP DNS 이름입니다. VM의 DNS 이름은 제품을 배포한 후 Azure Portal에서 정의 합니다.  |
    | 관리자 사용자 이름             | 새 VM에 대한 관리자 계정의 사용자 이름                                  |
    | 관리자 암호              | 새 VM에 대한 관리자 계정의 암호                                  |
-   | OS 유형                     | VM 운영 `Windows` \| 체제:`Linux`                                    |
+   | OS 유형                     | VM 운영 체제: `Windows` \|`Linux`                                    |
    | 구독 ID             | 선택한 구독의 식별자                                      |
    | 위치                    | 배포의 지리적 위치                                        |
    | VM 크기                     | [Azure VM 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)(예: `Standard_A2`) |

@@ -1,5 +1,5 @@
 ---
-title: Azure 마켓플레이스용 클라우드 파트너 포털의 가상 시스템 마켓플레이스 탭
+title: Azure Marketplace에 대 한 Cloud 파트너 포털의 Virtual machine Marketplace 탭
 description: Azure Marketplace VM 제안을 만드는 데 사용되는 Marketplace 탭에 대해 설명합니다.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: 156a405d93aeac27f27fe617e1a5485044309846
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 2c3d316d0d2810cb2a25ffd3bc4e34cf3454c10d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273820"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146853"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>가상 머신 Marketplace 탭
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 가상 [컴퓨터 만들기 의](https://aka.ms/CreateAzureVMoffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 Azure Virtual Machine 제품의 관리를 파트너 센터로 전환 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [Azure Virtual Machine 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 **새 제품** 페이지의 **Marketplace** 탭을 사용하면 잠재 고객에게 마케팅, 판매 및 법적 정보와 계약을 제공하고 마켓플레이스에서 창출된 잠재 고객을 관리할 수 있습니다. 이 긴 양식은 **개요**, **마케팅 아티팩트**, **잠재 고객 관리** 및 **법적 정보**의 4개 섹션으로 나뉩니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "81273820"
 ## <a name="overview-section"></a>개요 섹션
 이 섹션에서는 Azure Marketplace 제품에 대한 일반적인 정보를 입력합니다.  필드 이름에 별표(*)가 추가되면 필수 항목임을 나타냅니다.
 
-![가상 시스템에 대한 마켓플레이스 탭의 개요 섹션](./media/publishvm_008.png)
+![가상 컴퓨터용 Marketplace 탭의 개요 섹션](./media/publishvm_008.png)
 
 다음 표에서는 이러한 필드의 용도와 내용을 설명합니다. 필수 필드는 별표(*)로 표시됩니다.
 
@@ -34,12 +34,12 @@ ms.locfileid: "81273820"
 | **제목\***                 | 제안의 제목이며. 종종 긴 정식 이름입니다. 이 제목은 마켓플레이스에서 눈에 띄게 표시됩니다.  최대 길이는 50자입니다. |
 | **요약\***               | 솔루션에 대한 간략한 목적 또는 기능입니다.  최대 길이는 100자입니다. |
 | **긴 요약\***          | 솔루션에 대한 목적 또는 기능입니다.  최대 길이는 256자입니다. |
-| **Description\***           | 솔루션에 대한 설명입니다.  최대 길이는 3,000자이며, 단순 HTML 형식을 지원합니다. |
-| **마이크로소프트 CSP 리셀러 채널\*** | 이제 CSP(클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다.  Microsoft CSP 파트너 채널을 통한 오퍼 마케팅에 대한 자세한 내용은 [클라우드 솔루션 공급자를](../../cloud-solution-providers.md) 참조하십시오. |
-| **마케팅 식별자\***  | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다.  다음은 그 예입니다. <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
-| **구독 아이디 미리 보기\*** | 1-100개의 미리 보기 구독 식별자를 추가합니다. 제안이 게시된 후 라이브 상태가 되기 전에 이러한 허용 목록에 추가된 구독에서 해당 제안에 액세스할 수 있습니다. |
+| **설명\***           | 솔루션에 대한 설명입니다.  최대 길이는 3,000자이며, 단순 HTML 형식을 지원합니다. |
+| **Microsoft CSP 재판매인 채널\*** | 이제 CSP (클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다.  Microsoft CSP 파트너 채널을 통한 제품 마케팅에 대 한 자세한 내용은 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) 를 참조 하세요. |
+| **마케팅 식별자\***  | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다.  예를 들어: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **구독 Id 미리 보기\*** | 1-100개의 미리 보기 구독 식별자를 추가합니다. 제안이 게시된 후 라이브 상태가 되기 전에 이러한 허용 목록에 추가된 구독에서 해당 제안에 액세스할 수 있습니다. |
 | **유용한 링크**          | 설명서, 릴리스 정보, FAQ 등에 URL을 추가합니다. |
-| **추천 카테고리\*** | 기본 및 보조 범주(선택 사항)를 포함하여 최대 2개의 범주를 선택합니다. 각 주 및/또는 보조 범주에 대해 최대 2개의 하위 범주를 선택합니다. 하위 범주를 선택하지 않은 경우 선택한 범주에서만 해당 옵션을 검색할 수 있습니다. |
+| **제안 된 범주\*** | 기본 및 보조 범주 (선택 사항)를 포함 하 여 최대 2 개의 범주를 선택 합니다. 각 주 및/또는 보조 범주에 대해 최대 2 개의 하위 범주를 선택 합니다. 하위 범주를 선택 하지 않은 경우에는 선택한 범주 에서만 계속 검색할 수 있습니다. |
 |  |  |
 
 
@@ -54,10 +54,10 @@ ms.locfileid: "81273820"
 |  **필드**                |     **설명**                                                          |
 |  ---------                |     ---------------                                                          |
 | *로고*  |  |
-| **작은\***                 | 40x40 픽셀.ico 비트맵                                                      |
-| **중형\***                | 90x90 픽셀.ico 비트맵                                                      |
+| **작음\***                 | 40x40 픽셀.ico 비트맵                                                      |
+| **보통\***                | 90x90 픽셀.ico 비트맵                                                      |
 | **큰\***                 | 115x115 픽셀.ico 비트맵                                                   |
-| **넓은\***                  | 255x115 픽셀.ico 비트맵                                                    |
+| **전반적인\***                  | 255x115 픽셀.ico 비트맵                                                    |
 | **대표**                  | 815x290 픽셀 비트맵  선택 사항이지만, 일단 업로드되면 대표 로고를 삭제할 수 없습니다. |
 | *스크린샷*  | 선택 사항이지만, SKU당 최대 5개의 스크린샷을 제공합니다. |
 | **이름**                  | 이름 또는 제목 <!-- TODO - max char length? none specified in UI -->                               |
@@ -119,13 +119,13 @@ Cloud 파트너 포털에 업로드되는 모든 로고는 다음 지침을 따�
 
 ## <a name="legal-section"></a>법적 정보 섹션
 
-이 마지막 섹션에서는 각 오퍼에 필요한 법적 문서를 제공할 수 있습니다.  
+마지막 섹션에서는 각 제품에 필요한 필수 법률 문서를 제공할 수 있습니다.  
 
 |  **필드**                    |     **설명**                                        |
 |  ---------                    |     ---------------                                        |
 | **개인정보처리방침 URL\***      | 게시된 개인정보처리방침에 대한 URL                          |
-| **표준 계약을 사용합니까?\***  |   |
-| **이용 약관\***            | 일반 텍스트 또는 단순 HTML 형식으로 작성된 정책입니다.                       |
+| **표준 계약을 사용 하나요?\***  |   |
+| **사용 약관\***            | 일반 텍스트 또는 단순 HTML 형식으로 작성된 정책입니다.                       |
 |  |  |
 
 

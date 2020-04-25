@@ -3,12 +3,12 @@ title: Service Health 개요 | Microsoft Docs
 description: Azure 앱이 현재 및 향후 Azure 서비스 문제 및 유지 관리에 의해 어떤 영향을 받는지에 대한 개인 설정된 정보입니다.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 280be9f0df1f94dad59c1af147d499860571f86e
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 2d98a909a45c9dd00b3174f495a15cd18ced11f9
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82097254"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146909"
 ---
 # <a name="service-health-overview"></a>Service Health 개요
 
@@ -41,6 +41,12 @@ Service Health 대시보드를 시작하려면 포털 대시보드에서 Service
 **잠재적 영향** 탭을 선택하여 소유한 리소스 중에서 문제의 영향을 받을 수 있는 특정 리소스 목록을 확인할 수 있습니다. 이러한 리소스의 CSV 목록을 다운로드하여 팀과 공유할 수 있습니다.
 
 ![서비스 문제 관리 - 영향](./media/service-health-overview/azure-service-health-overview-4.png)
+
+## <a name="see-emerging-issues-which-may-impact-your-services"></a>서비스에 영향을 줄 수 있는 새로운 문제를 참조 하세요.
+
+대상 통신이 영향을 받는 고객에 게 전송 되기 전에 광범위 한 서비스 문제가 [Azure 상태 페이지](https://status.azure.com) 에 게시 될 수 있는 경우가 있습니다. Azure Service Health에서 사용자에 게 영향을 줄 수 있는 문제에 대 한 포괄적인 보기를 제공 하도록 하기 위해 활성 Azure 상태 페이지 문제는 *새로운 문제로*Service Health에 표시 됩니다. Azure 상태 페이지에서 이벤트가 활성화 되 면 새로운 문제 배너가 Service Health에 표시 됩니다. 문제에 대 한 전체 정보를 보려면 배너를 클릭 합니다.
+
+![새로운 서비스 문제](./media/service-health-overview/azure-service-health-emerging-issue.png)
 
 ## <a name="get-links-and-downloadable-explanations"></a>링크 및 다운로드할 수 있는 설명 가져오기 
 

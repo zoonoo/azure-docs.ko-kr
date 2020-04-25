@@ -1,5 +1,5 @@
 ---
-title: Azure 마켓플레이스에 대해 Microsoft Azure 호스팅 VM 구성
+title: Azure Marketplace에 대 한 Microsoft Azure 호스팅 VM 구성
 description: Azure에서 호스팅되는 VM을 크기 조정, 업데이트 및 일반화하는 방법을 설명합니다.
 author: dsindona
 ms.service: marketplace
@@ -7,24 +7,24 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: f20beced7d977668d12c06375ceb8a2554c6d335
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 4cb247a3e64f8d44cc64010dde40963f4e9a1993
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273429"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146090"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Azure 호스팅 VM 구성
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 파트너 센터에 대한 Azure 가상 머신 제공의 이동 관리가 시작됩니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 가상 [시스템 기술 자산 만들기의](https://aka.ms/AzureVMTechAsset) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 파트너 센터에 대 한 Azure Virtual Machine 제품의 이동 관리를 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [Azure Virtual Machine 기술 자산 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 이 문서에서는 Azure에서 호스팅되는 VM(가상 머신)을 크기 조정, 업데이트 및 일반화하는 방법에 대해 설명합니다.  이러한 단계는 Azure Marketplace에서 배포할 VM을 준비하는 데 필요합니다.
 
 ## <a name="sizing-the-vhds"></a>VHD 크기 조정
 
 <!--TD: Check if the following assertion is true. I didn't understand the original content. -->
-운영 체제(및 선택적으로 추가 서비스)로 미리 구성된 VM 중 하나를 선택한 경우 [가상 컴퓨터 SCOO 탭에](./cpp-skus-tab.md)설명된 대로 표준 Azure VM 크기를 이미 선택했습니다.  미리 구성된 OS로 솔루션을 시작하는 것이 권장되는 방법입니다.  그러나 OS를 설치하는 경우 VM 이미지의 기본 VHD 크기를 조정해야 합니다.
+운영 체제를 사용 하 여 미리 구성 된 Vm 중 하나를 선택 하 고 (필요에 따라 추가 서비스를 선택 하는 경우), [가상 머신 sku 탭](./cpp-skus-tab.md)에 설명 된 대로 표준 Azure VM 크기를 이미 선택 했습니다.  미리 구성 된 OS를 사용 하 여 솔루션을 시작 하는 것은 권장 되는 방법입니다.  그러나 OS를 설치하는 경우 VM 이미지의 기본 VHD 크기를 조정해야 합니다.
 
 - Windows의 경우 운영 체제 VHD는 127-128GB의 고정 형식 VHD로 만들어야 합니다. 
 - Linux의 경우 이 VHD는 30-50GB의 고정 형식 VHD로 만들어야 합니다.
@@ -68,11 +68,11 @@ Windows OS 디스크는 [sysprep 도구](https://docs.microsoft.com/windows-hard
 > [!WARNING]
 >  업데이트가 자동으로 실행될 수 있으므로 sysprep을 실행한 후에는 배포될 때까지 VM을 해제해야 합니다.  이렇게 종료하면 이후 업데이트에서 VHD OS 또는 설치된 서비스에 대한 인스턴스 관련 변경이 수행되지 않습니다.
 
-sysprep 실행에 대한 자세한 내용은 [VHD를 일반화하는 단계를](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep) 참조하십시오.
+Sysprep을 실행 하는 방법에 대 한 자세한 내용은 [VHD를 일반화 하는 단계](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep) 를 참조 하세요.
 
 ### <a name="linux"></a>Linux
 
-다음 2단계 프로세스는 Linux VM을 일반화하고 별도의 VM으로 다시 배포합니다. 이 두 단계는 프로세스의 필수 요소일 뿐입니다. 이 두 단계에 대한 자세한 정보와 수행해야 하는 이유에 대한 자세한 내용은 [가상 컴퓨터 또는 VHD의 이미지를 만드는 방법을](../../../virtual-machines/linux/capture-image.md)참조하세요. Azure Marketplace 오퍼에 대한 VHD를 만들기 위해 "캡처된 이미지에서 VM 만들기" 섹션에 도달하면 중지할 수 있습니다.
+다음 2 단계 프로세스는 Linux VM을 일반화 하 고 별도의 VM으로 다시 배포 합니다. 이 두 단계는 단순히 프로세스의 필수 사항입니다. 이러한 두 단계와 이러한 단계를 수행 해야 하는 이유에 대 한 자세한 내용은 [가상 머신 또는 VHD의 이미지를 만드는 방법](../../../virtual-machines/linux/capture-image.md)을 참조 하세요. Azure Marketplace 제품에 대 한 VHD를 만들기 위해 "캡처된 이미지에서 VM 만들기" 섹션에 도달 하면 중지 될 수 있습니다.
 
 #### <a name="remove-the-azure-linux-agent"></a>Azure Linux 에이전트 제거
 1.  SSH 클라이언트를 사용하여 Linux VM에 연결합니다.
@@ -97,4 +97,4 @@ VM 복사본을 만들면 백업, 테스트, 사용자 지정 장애 조치 또�
 
 ## <a name="next-steps"></a>다음 단계
 
-VM이 일반화되고 할당 처리된 후 VM 이미지를 만든 후에는 [가상 하드 디스크에서 가상 컴퓨터를 배포할](./cpp-deploy-vm-vhd.md)준비가 된 것입니다.
+VM이 일반화 되 고 할당이 취소 되었으며 VM 이미지를 만든 후 [가상 하드 디스크에서 가상 머신을 배포할](./cpp-deploy-vm-vhd.md)준비가 된 것입니다.

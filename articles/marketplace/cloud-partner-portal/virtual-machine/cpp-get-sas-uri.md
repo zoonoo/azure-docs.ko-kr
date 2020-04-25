@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure 기반 VM 이미지에 대한 공유 액세스 서명 URI 받기 | Azure 마켓플레이스
+title: Microsoft Azure 기반 VM 이미지에 대 한 공유 액세스 서명 URI 가져오기 | Azure Marketplace
 description: VM 이미지에 대한 SAS(공유 액세스 서명) URI를 가져오는 방법을 설명합니다.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 2fdbc2a11bd963057b465a629757f2be51ae4061
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 46b3764fe2a1e09875f2b92a461591b6ff08540f
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273854"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147900"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>VM 이미지에 대한 공유 액세스 서명 URI 가져오기
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. VM [이미지에 대한 공유 액세스 서명 URI의 지침에](https://aka.ms/GetSASURI) 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 Azure Virtual Machine 제품의 관리를 파트너 센터로 전환 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [VM 이미지에 대 한 공유 액세스 서명 URI 가져오기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-sas-uri-issues) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 게시 프로세스 중에 SKU와 연결된 각 VHD(가상 하드 디스크)에 대한 URI(Uniform Resource Identifier)를 제공해야 합니다. Microsoft는 인증 프로세스 중에 이러한 VHD에 액세스해야 합니다. 이 문서에서는 각 VHD에 대한 SAS(공유 액세스 서명) URI를 생성하는 방법에 대해 설명합니다. 이 URI는 Cloud 파트너 포털의 **SKU** 탭에 입력합니다.
 
@@ -123,7 +123,7 @@ SAS URL은 다음 도구를 사용하여 일반적인 두 가지 방법으로 �
 
 다음 검사 목록을 사용하여 생성된 각 SAS URI를 검토하고 확인합니다.  다음 사항을 확인합니다.
 
-- URI는 다음과 같은 `<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` + 형식입니다.`<sas-connection-string>`
+- URI는 다음과 같은 형식입니다. `<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` +`<sas-connection-string>`
 - URI에는 ".vhd" 파일 이름 확장명이 있는 VHD 이미지 파일 이름이 포함됩니다.
 - URI 중간에 `sp=rl`이 나타납니다. 이 문자열은 `Read` 및 `List` 액세스 권한이 지정되었음을 나타냅니다.
 - 이후에는 `sr=c`도 나타납니다. 이 문자열은 컨테이너 수준 액세스 권한이 지정되었음을 나타냅니다.

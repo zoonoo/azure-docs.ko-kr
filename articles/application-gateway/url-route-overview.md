@@ -1,18 +1,18 @@
 ---
 title: Azure Application Gateway URL 기반 콘텐츠 라우팅 개요
-description: 이 문서에서는 Azure 응용 프로그램 게이트웨이 URL 기반 콘텐츠 라우팅, UrlPathMap 구성 및 PathBased 라우팅 규칙에 대한 개요를 제공합니다.
+description: 이 문서에서는 Azure 애플리케이션 게이트웨이 URL 기반 콘텐츠 라우팅, UrlPathMap 구성 및 PathBasedRouting 규칙에 대 한 개요를 제공 합니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e20acb131b1a091fef858dab34705f4a8d3b4c4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d393055b0ac62198bd5a7239b2b92b7aeff62e5
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77251841"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145364"
 ---
 # <a name="url-path-based-routing-overview"></a>URL 경로 기반 라우팅 개요
 
@@ -27,7 +27,7 @@ URL 경로 기반 라우팅을 사용하여 요청의 URL 경로에 따라 트�
 http\://contoso.com/video/*에 대한 요청은 VideoServerPool로 라우팅되고 http\://contoso.com/images/*에 대한 요청은 ImageServerPool로 라우팅됩니다. 경로 패턴과 일치하는 항목이 없는 경우 DefaultServerPool이 선택됩니다.
 
 > [!IMPORTANT]
-> v1 SKU의 경우 규칙은 포털에 나열된 순서대로 처리됩니다. 기본 수신기가 먼저 나열되고 들어오는 요청과 일치하면 해당 수신기에서 처리합니다. v2 SKU의 경우 정확한 일치 항목의 우선 순위가 더 높습니다. 그러나 기본 수신기를 구성하기 전에 먼저 다중 사이트 리스너를 구성하는 것이 좋습니다. 그러면 트래픽이 올바른 백 엔드로 라우팅됩니다.
+> V1 SKU의 경우 규칙은 포털에 나열 된 순서 대로 처리 됩니다. 기본 수신기가 먼저 나열되고 들어오는 요청과 일치하면 해당 수신기에서 처리합니다. V2 SKU의 경우 정확한 일치는 우선 순위가 높습니다. 그러나 기본 수신기를 구성 하기 전에 먼저 다중 사이트 수신기를 구성 하는 것이 좋습니다. 그러면 트래픽이 올바른 백 엔드로 라우팅됩니다.
 
 ## <a name="urlpathmap-configuration-element"></a>UrlPathMap 구성 요소
 
@@ -113,8 +113,8 @@ PathBasedRouting 규칙 조각:
         "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/httpListeners/<listenerName>"
     },
     "urlPathMap": {
-        "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/ urlPathMaps/{urlpathMapName}"
-    },
+        "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/urlPathMaps/{urlpathMapName}"
+    }
 
 }
     }

@@ -1,30 +1,30 @@
 ---
-title: 컨설팅 서비스 오퍼의 오퍼 설정 정의 | Azure 마켓플레이스
-description: Azure 마켓플레이스용 클라우드 파트너 포털에서 Azure 또는 Dynamics 365 컨설팅 서비스 오퍼에서 제안 설정을 정의합니다.
+title: 컨설팅 서비스 제품에 대 한 제품 설정 정의 | Azure Marketplace
+description: Azure Marketplace에 대 한 Cloud 파트너 포털의 Azure 또는 Dynamics 365 컨설팅 서비스 제품에서 제품 설정을 정의 합니다.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 6a3c168d0bd13e7c335841ac4016f18464cd50d5
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 406a37a1ef946b1c3ceb0d7b02ba318f423dcf53
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985119"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146689"
 ---
 # <a name="offer-settings-tab"></a>제품 설정 탭
 
 >[!Important]
->2020년 4월 13일부터 컨설팅 서비스 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. 컨설팅 서비스 [생성 개요의](https://aka.ms/AzureCreateConsultingService) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
+>2020 년 4 월 13 일부 터는 컨설팅 서비스 제품 관리를 파트너 센터로 이동 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [컨설팅 서비스 만들기 개요](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 **새 제품** 화면에서 처음으로 수행하는 단계는 제품 ID 만들기입니다. **제품 ID**, **게시자 ID** 및 **이름**의 세 부분으로 구성된 제품 ID입니다. 다음 섹션에서 이러한 각 부분에 대해 설명합니다.
 
 ![새 컨설팅 서비스 제품 만들기 - 제품 설정 탭](media/consultingoffer-settings-tab.png)
 
 
-### <a name="offer-id"></a>제공 ID*
+### <a name="offer-id"></a>제품 ID *
 
 이 식별자는 제품을 처음 제출할 때 만드는 고유한 이름입니다. 제품 ID에는 소문자 영숫자 문자, 대시 또는 밑줄만 사용해야 합니다. **제품 ID**는 URL에 표시되며 검색 엔진 결과에 영향을 줍니다. *yourcompanyname_exampleservice* 등을 예로 들 수 있습니다.
 
@@ -34,12 +34,12 @@ ms.locfileid: "80985119"
 >제품이 라이브로 표시된 후에는 식별자를 업데이트할 수 없습니다.
 
 
-### <a name="publisher-id"></a>게시자 ID*
+### <a name="publisher-id"></a>게시자 ID *
 
 이 식별자는 계정과 관련이 있습니다. 조직 계정으로 로그인하고 나면 **게시자 ID**가 드롭다운 메뉴에 표시됩니다.
 
 
-### <a name="name"></a>이름*
+### <a name="name"></a>이름의
 
 이 문자열은 AppSource 또는 Azure Marketplace에서 제품 이름으로 표시됩니다. **이름** 상자에는 50자까지만 입력할 수 있습니다. 검토자는 제목을 편집하여 제품 이름에 기간 및 제품 유형을 추가해야 할 수 있습니다.
 
@@ -49,10 +49,10 @@ ms.locfileid: "80985119"
 
 제품 이름은 다음의 네 부분으로 구성됩니다.
 
--   **지속 시간:** 편집기의 **스토어프론트 세부 정보** 탭에 정의됩니다. 기간은 시간, 일 또는 주 단위로 표시할 수 있습니다.
--   **서비스 유형:** 편집기의 **스토어프론트 세부 정보** 탭에 정의됩니다. 서비스의 유형은 `Assessment`, `Briefing`, `Implementation`, `Proof of concept` 및 `Workshop`입니다.
--   **전치사:** 검토자가 삽입합니다.
--   **이름:** **오퍼 설정** 페이지에 정의됩니다.
+-   **기간:** 편집기의 **Storefront Details** 탭에 정의 되어 있습니다. 기간은 시간, 일 또는 주 단위로 표시할 수 있습니다.
+-   **서비스 유형:** 편집기의 **Storefront Details** 탭에 정의 되어 있습니다. 서비스의 유형은 `Assessment`, `Briefing`, `Implementation`, `Proof of concept` 및 `Workshop`입니다.
+-   **전치사:** 검토자가 삽입 합니다.
+-   **이름:** **제품 설정** 페이지에서 정의 됩니다.
 
 >[!Note]
 >**이름** 상자에는 50자까지만 입력할 수 있습니다. 검토자는 제목을 편집하여 제품 이름에 기간 및 제품 유형을 추가해야 할 수 있습니다.
@@ -62,13 +62,13 @@ ms.locfileid: "80985119"
 -   전문 서비스 필수 사항: 1시간 브리핑
 -   클라우드 마이그레이션 플랫폼: 1시간 브리핑
 -   PowerApps 및 Microsoft Flow: 1시간 워크샵
--   Azure 기계 학습: 3-Wk PoC
+-   Azure Machine Learning: 3-Wk PoC
 -   Brick and Click Retail 솔루션: 1시간 브리핑
--   나만의 데이터 가져오기: 1-Wk 워크샵
+-   사용자 고유의 데이터 가져오기: 1-Wk 워크숍
 -   Cloud Analytics: 3일 워크샵
 -   Power BI 교육: 3일 워크샵
 -   영업 관리 솔루션: 1주 구현
--   CRM 퀵스타트: 1일 워크샵
+-   CRM 빠른 시작: 1 일간 워크숍
 -   Dynamics 365 for Sales: 2일 평가
 
 **제품 설정** 탭에 필요한 정보를 입력한 후에 제출 내용을 저장합니다. 이제 제품 이름이 편집기 위에 표시되며 **모든 제품**에서 이름을 확인할 수 있습니다.

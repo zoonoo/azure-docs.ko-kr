@@ -1,5 +1,5 @@
 ---
-title: Azure IoT 에지 모듈 오퍼 생성 | Azure 마켓플레이스
+title: Azure IoT Edge 모듈 제품 만들기 | Azure Marketplace
 description: Marketplace에 새 IoT Edge 모듈을 게시하는 방법입니다.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ab40a0e90bee8f034d811aac2781192359cbc109
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: d8f4300f45fc626c104055f987d123301ba8f39d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981752"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148059"
 ---
 # <a name="create-a-new-iot-edge-module-offer-with-the-cloud-partner-portal"></a>Cloud 파트너 포털을 사용하여 새 IoT Edge 모듈 제품 만들기
 
 >[!Important]
->2020년 4월 13일부터 파트너 센터로 IoT Edge 모듈의 관리를 이전할 예정입니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. IoT [Edge 생성 모듈 오퍼의](https://aka.ms/AzureCreateIoT) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+>2020 년 4 월 13 일부 터 파트너 센터에 IoT Edge 모듈 제품 관리를 이동 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [IoT Edge 모듈 제품 만들기](https://docs.microsoft.com//azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 이 문서에서는 Azure Marketplace에 IoT Edge 모듈 제품 항목을 만들고 게시하는 방법을 설명합니다. 모든 제안은 Azure Marketplace에서 자체의 고유한 엔터티로 나타나며 하나 이상의 SKU와 연결됩니다.  IoT Edge 모듈 제품은 다음 자산 그룹 및 지원 서비스로 구성됩니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "80981752"
 
 ## <a name="new-offer-form"></a>새 제안 양식 
 
-클라우드 파트너 [포털에](https://cloudpartner.azure.com/)로그인한 다음 왼쪽 메뉴 모음에서 **+ 새 제안을** 선택합니다. 새 제품 메뉴에서 **IoT Edge 모듈**을 선택하여 **새 제품** 양식을 표시하고 새 ioT Edge 모듈 제품에 대한 자산을 정의하는 과정을 시작합니다. 
+[Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인 한 후 왼쪽 메뉴 모음에서 **+ 새 제품** 을 선택 합니다. 새 제품 메뉴에서 **IoT Edge 모듈**을 선택하여 **새 제품** 양식을 표시하고 새 ioT Edge 모듈 제품에 대한 자산을 정의하는 과정을 시작합니다. 
 
 ![새 IoT Edge 모듈 제품 사용자 인터페이스 선택](./media/new-iot-edge-module-offer.png)
 

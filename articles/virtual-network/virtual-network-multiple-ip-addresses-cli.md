@@ -4,21 +4,22 @@ titlesuffix: Azure Virtual Network
 description: Azure CLI(명령줄 인터페이스)를 사용하여 가상 머신에 여러 IP 주소를 할당하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: kumud
-ms.openlocfilehash: 144f30463adb3dfbce1717e06548baccc8286f8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: cb101095aa95f9d41f7891bc3c18f7e5bfeb59db
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240233"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148106"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -215,7 +216,7 @@ VM을 만든 후에 `az network nic show --name MyNic1 --resource-group myResour
         --public-ip-address myPublicIP3
         ```
 
-    - **리소스를 기존 IP 구성에 연결** 공용 IP 주소 리소스는 아직 연결된 IP 구성에만 연결할 수 있습니다. 다음 명령을 입력하면 IP 구성에 연결된 공용 IP 주소가 있는지 여부를 확인할 수 있습니다.
+    - **기존 IP 구성에 리소스 연결** 공용 IP 주소 리소스는 아직 연결 된 리소스가 없는 IP 구성에만 연결할 수 있습니다. 다음 명령을 입력하면 IP 구성에 연결된 공용 IP 주소가 있는지 여부를 확인할 수 있습니다.
 
         ```azurecli
         az network nic ip-config list \
@@ -243,7 +244,7 @@ VM을 만든 후에 `az network nic show --name MyNic1 --resource-group myResour
         --allocation-method Static
         ```
     
-        *IPConfig-3라는*기존 IP 구성에 공용 IP 주소 리소스를 연결하려면 다음 명령을 입력합니다.
+        다음 명령을 입력 하 여 공용 IP 주소 리소스를 *IPConfig-3*이라는 기존 ip 구성에 연결 합니다.
     
         ```azurecli
         az network nic ip-config update \

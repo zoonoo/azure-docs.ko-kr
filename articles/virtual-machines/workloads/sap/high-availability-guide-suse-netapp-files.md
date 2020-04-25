@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/27/2020
+ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 436e9c6b8bdff42680d7aa5b941822090f668855
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
-ms.translationtype: HT
+ms.openlocfilehash: 9cde457d36154a71970a159b1c247af7b37bae82
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82127655"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148189"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램용 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
 
@@ -152,7 +152,7 @@ Azure NetApp 파일은 여러 [azure 지역](https://azure.microsoft.com/global-
 
 4. [Azure NetApp Files에 서브넷 위임 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet)에 설명 된 대로 Azure netapp 파일에 서브넷을 위임 합니다.  
 
-5. [Azure NetApp Files 볼륨을 만들기 위한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)에 따라 Azure NetApp Files 볼륨을 배포 합니다. 지정 된 Azure NetApp Files [서브넷](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)에 볼륨을 배포 합니다. Azure NetApp Files 리소스와 Azure Vm은 동일한 Azure Virtual Network 또는 피어 링 Azure Virtual Network에 있어야 합니다. 이 예제에서는 두 개의 Azure NetApp Files 볼륨 (sap<b>Qas</b> 및 트랜잭션)을 사용 합니다. 해당 탑재 점에 탑재 되는 파일 경로는/usrsap<b>qas</b>/Sapmnt<b>qas</b>,/Usrsap<b>qas</b>/usrsap<b>qas</b>sys 등입니다.  
+5. [Azure NetApp Files 볼륨을 만들기 위한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)에 따라 Azure NetApp Files 볼륨을 배포 합니다. 지정 된 Azure NetApp Files [서브넷](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)에 볼륨을 배포 합니다. Azure NetApp 볼륨의 IP 주소는 자동으로 할당 됩니다. Azure NetApp Files 리소스와 Azure Vm은 동일한 Azure Virtual Network 또는 피어 링 Azure Virtual Network에 있어야 합니다. 이 예제에서는 두 개의 Azure NetApp Files 볼륨 (sap<b>Qas</b> 및 트랜잭션)을 사용 합니다. 해당 탑재 점에 탑재 되는 파일 경로는/usrsap<b>qas</b>/Sapmnt<b>qas</b>,/Usrsap<b>qas</b>/usrsap<b>qas</b>sys 등입니다.  
 
    1. volume sap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>QAS</b>/sapmnt<b>QAS</b>)
    2. volume sap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>QAS</b>/usrsap<b>QAS</b>ascs)

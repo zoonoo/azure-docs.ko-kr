@@ -1,23 +1,23 @@
 ---
-title: Azure 및 Dynamics 365 컨설팅 서비스 제공 | Azure 마켓플레이스
-description: Azure 마켓플레이스 또는 AppSource용 클라우드 파트너 포털에 Azure 또는 Dynamics 365 컨설팅 서비스 제안을 게시합니다.
+title: Azure 및 Dynamics 365 컨설팅 서비스 제공 게시 | Azure Marketplace
+description: Azure Marketplace 또는 AppSource에 대 한 Cloud 파트너 포털에 Azure 또는 Dynamics 365 컨설팅 서비스 제품을 게시 합니다.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 3a06bae941c75e43a0e4ea2b66cc420e7a2467c3
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: c602bbee128c3338d841cb4564add26ba1c9e841
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985085"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146640"
 ---
 # <a name="publish-a-consulting-service-offer"></a>컨설팅 서비스 제품 게시
 
 >[!Important]
->2020년 4월 13일부터 컨설팅 서비스 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. 컨설팅 서비스 [생성 개요의](https://aka.ms/AzureCreateConsultingService) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
+>2020 년 4 월 13 일부 터는 컨설팅 서비스 제품 관리를 파트너 센터로 이동 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [컨설팅 서비스 만들기 개요](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 **제품 설정**, **상점 정보** 및 **연락처**를 모두 입력한 후에 **게시**를 선택하고 이메일 주소를 입력합니다. Microsoft에서 제품을 게시할 준비가 되면 제품이 라이브로 전환되기 전에 미리 볼 수 있도록 이메일이 수신됩니다. 언제든지 포털로 돌아와서 제품 상태를 확인할 수 있습니다.
 

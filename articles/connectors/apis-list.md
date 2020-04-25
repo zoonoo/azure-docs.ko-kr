@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 04/24/2020
-ms.openlocfilehash: 9723fc3ab68785c6e444647f427fcf9788792cea
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 27f86a3fa34f8029e59d11066de9ea5a25a8c5ad
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115689"
+ms.locfileid: "82147989"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps용 커넥터
 
@@ -48,9 +48,6 @@ Logic Apps는 [수백 개의 커넥터](https://docs.microsoft.com/connectors)�
 
   커넥터는 Standard 또는 Enterprise 중 하나로 분류 됩니다. [엔터프라이즈 커넥터](#enterprise-connectors) 는 SAP, ibm MQ 및 IBM 3270 같은 엔터프라이즈 시스템에 대 한 액세스를 제공 하 여 추가 비용을 제공 합니다. 커넥터가 Standard 또는 Enterprise 인지 확인 하려면 커넥터 [개요](https://docs.microsoft.com/connectors)에서 각 커넥터의 참조 페이지의 기술 세부 정보를 참조 하세요.
 
-  > [!IMPORTANT]
-  > 2020 년 5 **월 1**일부 터 [데이터 보안 및 개인 정보 취급 방침](https://www.blog.google/technology/safety-security/project-strobe/) 에 대 한 Google의 변경 내용이 [Gmail 커넥터](https://docs.microsoft.com/connectors/gmail/)를 사용 하는 논리 앱에 영향을 줄 수 있습니다. 논리 앱에서 Gmail 소비자 계정 (또는 @gmail.com @googlemail.com로 끝나는 전자 메일 주소)과 함께 gmail 커넥터를 사용 하는 경우, 논리 앱은 Google 승인 트리거, 작업 및 커넥터만 사용할 수 있습니다. **2020 년 6 월 15**일부 터 비준수 워크플로는 사용 하지 않도록 설정 됩니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대 한 데이터 보안 및 개인 정보 취급 방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조 하세요.
-
   이러한 범주를 사용 하 여 커넥터를 식별할 수도 있지만 일부 커넥터는 여러 범주를 교차할 수 있습니다. 예를 들어 SAP는 엔터프라이즈 커넥터 및 온-프레미스 커넥터입니다.
 
   |   |   |
@@ -59,6 +56,9 @@ Logic Apps는 [수백 개의 커넥터](https://docs.microsoft.com/connectors)�
   | [**온-프레미스 커넥터**](#on-premises-connectors) | [온-프레미스 데이터 게이트웨이][gateway-doc]가 설치 및 설정되면, 이러한 커넥터를 통해 논리 앱에서 온-프레미스 시스템(예: SQL Server, SharePoint Server, Oracle DB, 파일 공유 등)에 액세스할 수 있습니다. |
   | [**통합 계정 커넥터**](#integration-account-connectors) | 통합 계정을 만들고 지불할 때 사용할 수 있는 이러한 커넥터는 AS2, EDIFACT 및 X12 프로토콜을 사용하여 XML 변환 및 유효성 검사, 플랫 파일 인코딩 및 디코딩, B2B(Business-to-Business) 메시지 처리를 수행합니다. |
   |||
+
+  > [!IMPORTANT]
+  > Gmail 커넥터를 사용 하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우이 커넥터를 특정 Google 승인 서비스만 사용할 수 있습니다. 또는 [gmail 커넥터를 사용 하 여 인증 하는 데 사용할 google 클라이언트 앱을 만들](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application)수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대 한 데이터 보안 및 개인 정보 취급 방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조 하세요.
 
 <a name="integration-service-environment"></a>
 

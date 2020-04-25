@@ -1,5 +1,5 @@
 ---
-title: Azure 및 Dynamics 365 컨설팅 서비스 제공 | Azure 마켓플레이스
+title: Azure 및 Dynamics 365 컨설팅 서비스 제품 | Azure Marketplace
 description: Cloud 파트너 포털에서 Azure 또는 Dynamics 365 컨설팅 서비스 제품의 정의 및 게시에 대한 가이드.
 author: qianw211
 ms.service: marketplace
@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: dace05715828395aed3953b42bf7926df292bbdb
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: bdc2537d21fd88c677d07ebdb5170cdf14c7489d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981344"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146707"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Azure 및 Dynamics 365 컨설팅 서비스 제품
 
 >[!Important]
->2020년 4월 13일부터 컨설팅 서비스 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. 컨설팅 서비스 [생성 개요의](https://aka.ms/AzureCreateConsultingService) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
+>2020 년 4 월 13 일부 터는 컨설팅 서비스 제품 관리를 파트너 센터로 이동 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [컨설팅 서비스 만들기 개요](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
-이 문서에서는 Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> 또는 <a href="https://appsource.microsoft.com">AppSource</a>에 컨설팅 서비스 제품을 게시하는 방법을 설명합니다. Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365,</a> <a href="https://powerbi.microsoft.com">Power BI</a>및 <a href="https://powerapps.microsoft.com">Power 앱을</a> 기반으로 하는 솔루션은 AppSource에 나열할 수 있습니다. 다른 Microsoft <a href="https://azure.microsoft.com/services">Azure 서비스</a> 기반의 다른 제품은 Azure Marketplace에 나열할 수 있습니다.
+이 문서에서는 Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> 또는 <a href="https://appsource.microsoft.com">AppSource</a>에 컨설팅 서비스 제품을 게시하는 방법을 설명합니다. Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>및 <a href="https://powerapps.microsoft.com">Power Apps</a> 기반 솔루션은 appsource에 나열 될 수 있습니다. 다른 Microsoft <a href="https://azure.microsoft.com/services">Azure 서비스</a> 기반의 다른 제품은 Azure Marketplace에 나열할 수 있습니다.
 
 ## <a name="publishing-benefits"></a>게시 이점
 
@@ -37,16 +37,16 @@ Microsoft 마켓플레이스 중 하나에 게시하면 다음과 같은 이점�
 - [컨설팅 서비스 필수 구성 요소](./cpp-consulting-service-prerequisites.md)에는 컨설팅 서비스 제품을 게시하기 위한 요구 사항이 표시됩니다.
  
     - Microsoft Azure
-    - 역학 365 고객 참여 
-    - 역학 365 재무 & 운영 
+    - Dynamics 365 고객 참여 
+    - Dynamics 365 재무 & 작업 
     - Dynamics 365 Customer Insights
     - Dynamics 365 Business Central 
     - Power BI 
     - Power Apps
     - Power Automate
 - [새 제품 만들기](./cpp-consulting-service-create-offer.md)는 Cloud 파트너 포털을 사용하여 컨설팅 서비스 제품 항목을 만드는 데 필요한 단계를 나열합니다.
-    - [오퍼 설정을 정의합니다.](./cpp-consulting-service-define-offer-settings.md)
-    - [스토어프론트 세부 정보와 Azure 마켓플레이스 또는 AppSource에 게시할지 여부를 입력합니다.](./cpp-consulting-service-storefront-details.md)
+    - [제안 설정을 정의](./cpp-consulting-service-define-offer-settings.md)합니다.
+    - [Storefront 세부 정보를 입력 하 고 Azure Marketplace 또는 AppSource에 게시할지 여부를 입력 합니다.](./cpp-consulting-service-storefront-details.md)
 - [제품 게시](./cpp-consulting-service-publish-offer.md)는 게시를 위해 제품을 제출하는 방법을 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계

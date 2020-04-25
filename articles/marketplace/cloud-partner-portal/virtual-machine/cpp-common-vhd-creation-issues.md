@@ -1,5 +1,5 @@
 ---
-title: Azure 마켓플레이스에 대한 VHD 생성(FAQ) 중 일반적인 문제
+title: Azure Marketplace에 대 한 VHD를 만드는 동안 발생 하는 일반적인 문제 (FAQ)
 description: VHD 만들기 및 관련 문제에 대한 질문과 대답입니다.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: dsindona
-ms.openlocfilehash: 988121effb35949cce442ba9458789105e88feec
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: df219ad7428eed5283c7a30a232308dca84fd25f
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273446"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146982"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>일반적인 VHD 만들기 문제(FAQ)
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. [VHD FAQ 만들기의](https://aka.ms/VHDcreationIssues) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 Azure Virtual Machine 제품의 관리를 파트너 센터로 전환 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [VHD 만들기 faq](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 다음 FAQ(질문과 대답)에서는 VM 제안용 VHD(가상 하드 디스크) 및 VM(가상 머신)을 만드는 동안 발생하는 일반적인 문제를 다룹니다. 
 
@@ -76,7 +76,7 @@ Azure Resource Manager 배포 모델을 사용하는 경우 VPN을 설정하는 
 
 일반적으로 그렇지 않습니다.  Azure VM에 지원되는 운영 체제 및 표준 서비스는 모두 64비트입니다.  그러나 기술적인 관점에서 대부분의 64비트 운영 체제는 이전 버전과의 호환성을 위해 32비트 버전의 애플리케이션을 실행할 수 있습니다.  그러나 32비트 애플리케이션은 VM 솔루션의 일부로 사용하도록 지원되지 않으므로 *매우 권장되지 않습니다*.  대신 애플리케이션을 64비트 프로젝트로 다시 컴파일하세요.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 - [32비트 애플리케이션 실행](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
 - [Azure 가상 머신에 32비트 운영 체제 지원](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
 - [Microsoft Azure 가상 머신에 대한 Microsoft 서버 소프트웨어 지원](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)

@@ -1,22 +1,22 @@
 ---
-title: 덤프 및 복원 - PostgreSQL용 Azure 데이터베이스 - 단일 서버
-description: PostgreSQL 데이터베이스를 덤프 파일로 추출하고 PostgreSQL - 단일 서버용 Azure 데이터베이스의 pg_dump 만든 파일에서 복원하는 방법을 설명합니다.
+title: 덤프 및 복원-Azure Database for PostgreSQL-단일 서버
+description: PostgreSQL 데이터베이스를 덤프 파일로 추출 하 고 Azure Database for PostgreSQL 단일 서버에서 pg_dump으로 만든 파일에서 복원 하는 방법에 대해 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 4365338efa56593e80edcc19cba5944b213d2b72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 90a014e44c728c1881c1fd3d9e189554ed8f44da
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74770240"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146337"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>덤프 및 복원을 사용하여 PostgreSQL 데이터베이스 마이그레이션
 [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html)를 사용하여 PostgreSQL 데이터베이스를 덤프 파일로 추출하고 [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html)를 사용하여 pg_dump에 의해 생성된 보관 파일에서 PostgreSQL 데이터베이스를 복원할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - 액세스를 허용하기 위한 방화벽 규칙을 사용하는 [PostgreSQL용 Azure Database 서버](quickstart-create-server-database-portal.md) 및 이에 속한 데이터베이스
 - [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 및 [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) 명령줄 유틸리티 설치
@@ -34,7 +34,7 @@ pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb -f testdb
 ```
 
 
-## <a name="restore-the-data-into-the-target-azure-database-for-postgresql-using-pg_restore"></a>pg_restore 사용하여 PostgreSQL의 대상 Azure 데이터베이스로 데이터를 복원합니다.
+## <a name="restore-the-data-into-the-target-azure-database-for-postgresql-using-pg_restore"></a>Pg_restore를 사용 하 여 데이터를 대상 Azure Database for PostgreSQL으로 복원
 대상 데이터베이스를 만든 후에는 pg_restore 명령과 -d, --dbname 매개 변수를 사용하여 데이터를 덤프 파일에서 대상 데이터베이스로 복원할 수 있습니다.
 ```bash
 pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
@@ -42,7 +42,7 @@ pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@ser
 --no-owner 매개 변수를 포함하면 복원 중에 만들어진 모든 개체가 --username으로 지정된 사용자의 소유가 됩니다. 자세한 내용은 [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html)에서 공식 PostgreSQL 설명서를 참조하세요.
 
 > [!NOTE]
-> PostgreSQL 서버에 SSL 연결이 필요한 경우(기본적으로 PostgreSQL 서버용 Azure Database에서), pg_restore 도구가 SSL과 연결되도록 환경 변수 `PGSSLMODE=require`를 설정합니다. SSL을 사용하지 않으면 `FATAL:  SSL connection is required. Please specify SSL options and retry.`라는 오류가 발생할 수 있음
+> PostgreSQL 서버에 TLS/SSL 연결이 필요한 경우 (기본적으로 Azure Database for PostgreSQL 서버의 경우) pg_restore 도구가 TLS와 연결 되도록 `PGSSLMODE=require` 환경 변수를 설정 합니다. TLS를 사용 하지 않으면 오류를 읽을 수 있습니다.`FATAL:  SSL connection is required. Please specify SSL options and retry.`
 >
 > Windows 명령줄에서 pg_restore 명령을 실행하기 전에 명령 `SET PGSSLMODE=require`를 실행합니다. Linux 또는 Bash에서 pg_restore 명령을 실행하기 전에 명령 `export PGSSLMODE=require`를 실행합니다.
 >
@@ -72,7 +72,7 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 
 - create index 문이 이미 기본적으로 포함되어 있겠지만, 덤프 파일을 열어 create index 문이 데이터 삽입 부분 뒤에 있는지 확인합니다. 해당 위치에 문이 없으면 create index 문을 데이터 삽입 부분 뒤로 이동합니다.
 
-- 스위치 -Fc 및 -j로 *#* 복원하여 복원을 병렬화합니다. *#* 은 대상 서버의 코어 수입니다. 대상 서버의 *#* 코어 수를 두 배로 설정하여 영향을 확인할 수도 있습니다. 예를 들어:
+- 스위치-Fc 및-j *#* 로 복원 하 여 복원을 병렬화 합니다. *#* 대상 서버의 코어 수입니다. 또한 대상 서버의 코어 수 *#* 를 두 배로 설정 하 여 영향을 확인할 수 있습니다. 예를 들어:
 
     ```
     pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump
@@ -90,5 +90,5 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 이러한 명령은 프로덕션 환경에서 사용하기 전에 테스트 환경에서 테스트하여 유효성을 검사해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- 내보내기 및 가져오기를 사용하여 PostgreSQL 데이터베이스를 마이그레이션하려면 [내보내기 및 가져오기를 사용하여 PostgreSQL 데이터베이스 마이그레이션을](howto-migrate-using-export-and-import.md)참조하십시오.
+- 내보내기 및 가져오기를 사용 하 여 PostgreSQL 데이터베이스를 마이그레이션하려면 [내보내기 및 가져오기를 사용 하 여 PostgreSQL 데이터베이스 마이그레이션](howto-migrate-using-export-and-import.md)을 참조 하세요.
 - Azure Database for PostgreSQL로 데이터베이스 마이그레이션에 대한 자세한 내용은 [데이터베이스 마이그레이션 가이드](https://aka.ms/datamigration)를 참조하세요.

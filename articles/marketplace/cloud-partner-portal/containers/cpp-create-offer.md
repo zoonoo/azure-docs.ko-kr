@@ -1,5 +1,5 @@
 ---
-title: Azure 컨테이너 오퍼 만들기 | Azure 마켓플레이스
+title: Azure 컨테이너 제안 만들기 | Azure Marketplace
 description: Marketplace에 새 컨테이너 제품을 게시하는 방법입니다.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: 25d678ad7b8c2b786239b294de873bc1d98fa5cb
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: a7266d0f32a8ac18a4a76dee7eb3c39be253f7bd
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270335"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148283"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Cloud 파트너 포털을 사용하여 새 컨테이너 제품 만들기
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 컨테이너 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 컨테이너 [만들기 오퍼의](https://aka.ms/CreateContainerOffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 파트너 센터에 Azure Container 제품 관리를 이동 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [Azure Container 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 이 문서에서는 Azure Marketplace에 컨테이너 제품 항목을 만들고 게시하는 방법을 설명합니다. 모든 제안은 Azure Marketplace에서 자체의 고유한 엔터티로 나타나며 하나 이상의 SKU와 연결됩니다.  컨테이너 제품을 구성하는 자산 및 지원 서비스의 그룹은 다음과 같습니다.
 

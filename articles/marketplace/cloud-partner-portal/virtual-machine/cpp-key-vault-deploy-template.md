@@ -1,5 +1,5 @@
 ---
-title: Azure 키 볼트 배포 템플릿 | Azure 마켓플레이스
+title: Azure Key Vault 배포 템플릿 | Azure Marketplace
 description: 새 Azure Key Vault 인스턴스를 배포하는 데 필요한 Azure Resource Manager 템플릿을 나열합니다.
 author: dsindona
 ms.service: marketplace
@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 0d08caf5444216666e7296b830f0af6af606dd4f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: a6e7260bb761db5cfa6884baf29317a004ab1452
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273837"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147037"
 ---
 # <a name="key-vault-deployment-template"></a>Key Vault 배포 템플릿
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. [Azure VM 이미지 인증의](https://aks.ms/CertifyVMimage) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 Azure Virtual Machine 제품의 관리를 파트너 센터로 전환 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [AZURE VM 이미지 인증](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
-다음 Azure Resource Manager 템플릿은 새 Azure Key Vault 인스턴스를 정의합니다.  [Key Vault 인증서 만들기](cpp-create-key-vault-cert.md) 문서에서 사용됩니다. 
+다음 Azure Resource Manager 템플릿은 새 Azure Key Vault 인스턴스를 정의합니다.  [Key Vault 인증서 만들기](cpp-create-key-vault-cert.md) 문서에서 사용됩니다.
 
 ```json
 {

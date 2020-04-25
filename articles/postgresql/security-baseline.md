@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a38bb12577fd646b2e7abf773dbb2a3f138f58fe
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
-ms.translationtype: HT
+ms.openlocfilehash: eb6fc65d15ba7262b38a48e220f01d74bfcee54a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82127558"
+ms.locfileid: "82146546"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 Azure 보안 기준
 
@@ -130,7 +130,7 @@ Azure Database for PostgreSQL에 대 한 서비스 태그 사용 이해:https://
 
 - DDoS Protection 표준을 사용하도록 설정해야 합니다.
 
-- PostgreSQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.
+- PostgreSQL database 서버에 대해 TLS 연결 적용을 사용 하도록 설정 해야 합니다.
 
 Azure Policy를 구성 하 고 관리 하는 방법:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -525,7 +525,7 @@ Azure의 고객 데이터 보호 이해:https://docs.microsoft.com/azure/securit
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: 전송 중인 모든 중요 한 정보를 암호화 합니다.
 
-**지침**: Azure Database for PostgreSQL은 SSL(SECURE SOCKETS LAYER) (SSL)를 사용 하 여 클라이언트 응용 프로그램에 PostgreSQL 서버를 연결 하는 것을 지원 합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다. Azure Portal에서 기본적으로 모든 Azure Database for PostgreSQL 인스턴스에 대해 "SSL 연결 적용"이 설정 되어 있는지 확인 합니다.
+**지침**: AZURE DATABASE FOR POSTGRESQL는 TLS (Transport Layer Security)를 사용 하 여 클라이언트 응용 프로그램에 PostgreSQL 서버를 연결 하는 것을 지원 합니다 (이전에는 SSL (SSL(Secure Sockets Layer))). 데이터베이스 서버와 클라이언트 응용 프로그램 간에 TLS 연결을 적용 하면 서버와 응용 프로그램 간에 데이터 스트림을 암호화 하 여 "중간자 (man-in-the-middle)" 공격 으로부터 보호 하는 데 도움이 됩니다. Azure Portal에서 기본적으로 모든 Azure Database for PostgreSQL 인스턴스에 대해 "SSL 연결 적용"이 설정 되어 있는지 확인 합니다.
 
 현재 Azure Database for PostgreSQL에 대해 지원 되는 TLS 버전은 TLS 1.0, TLS 1.1, TLS 1.2입니다.
 
@@ -794,7 +794,7 @@ Azure Resource Manager에 대 한 액세스를 차단 하도록 조건부 액세
 
 **지침**: Azure Policy를 사용 하 여 Azure Database for PostgreSQL 인스턴스에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "DBforPostgreSQL" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 Azure Database for PostgreSQL 인스턴스의 네트워크 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다. 다음과 같이 Azure Database for PostgreSQL 인스턴스와 관련 된 기본 제공 정책 정의를 사용할 수도 있습니다.
 
-- PostgreSQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.
+- PostgreSQL database 서버에 대해 TLS 연결 적용을 사용 하도록 설정 해야 합니다.
 
 - PostgreSQL 데이터베이스 서버에 대해 로그 연결을 사용하도록 설정해야 합니다.
 

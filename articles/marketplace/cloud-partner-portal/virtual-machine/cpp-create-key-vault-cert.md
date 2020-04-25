@@ -1,5 +1,5 @@
 ---
-title: Azure 키 볼트 인증서 만들기 | Azure 마켓플레이스
+title: Azure Key Vault 인증서 만들기 | Azure Marketplace
 description: Azure에서 배포한 VHD에서 VM을 등록하는 방법을 설명합니다.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 09e82b9905104df9b1902b0f64f6cfdf812aabb8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9981f8eda174bbe04b54933528d20d270d360824
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81274024"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148248"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Azure Key Vault용 인증서 만들기
 
 > [!IMPORTANT]
-> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. [Azure VM 이미지 인증의](https://aks.ms/CertifyVMimage) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020 년 4 월 13 일부 터 Azure Virtual Machine 제품의 관리를 파트너 센터로 전환 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [AZURE VM 이미지 인증](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 이 문서에서는 Azure 호스티드 VM(가상 머신)에 대한 Windows 원격 관리(WinRM) 연결을 설정하는 데 필요한 자체 서명된 인증서를 프로비전하는 방법을 설명합니다. 이 프로세스는 다음 세 단계로 구성됩니다.
 
@@ -79,7 +79,7 @@ Azure Powershell 스크립트를 편집한 후 실행하여 로컬 폴더에 인
 
 ## <a name="create-the-key-vault"></a>Key Vault 만들기
 
-[Key Vault 배포 템플릿](./cpp-key-vault-deploy-template.md)의 내용을 로컬 컴퓨터의 파일에 복사합니다. (아래 예제 스크립트에서 이 `C:\certLocation\keyvault.json`리소스는 .)  다음 Azure Powershell 스크립트를 편집하고 실행하여 Azure Key Vault 인스턴스 및 관련 리소스 그룹을 만듭니다.  다음 매개 변수 값을 바꾸어야 합니다.
+[Key Vault 배포 템플릿](./cpp-key-vault-deploy-template.md)의 내용을 로컬 컴퓨터의 파일에 복사합니다. 아래 예제 스크립트에서이 리소스는 `C:\certLocation\keyvault.json`입니다.  다음 Azure Powershell 스크립트를 편집 하 고 실행 하 여 Azure Key Vault 인스턴스와 연결 된 리소스 그룹을 만듭니다.  다음 매개 변수 값을 바꾸어야 합니다.
 
 |  **매개 변수**        |   **설명**                                                               |
 |  -------------        |   ---------------                                                               |

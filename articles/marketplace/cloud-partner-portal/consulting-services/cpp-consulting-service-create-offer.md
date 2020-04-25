@@ -1,23 +1,23 @@
 ---
-title: 컨설팅 오퍼 만들기 | Azure 마켓플레이스
-description: Azure 마켓플레이스용 클라우드 파트너 포털에서 Azure 또는 Dynamics 365 컨설팅 서비스 오퍼를 만듭니다.
+title: 컨설팅 제안 만들기 | Azure Marketplace
+description: Azure Marketplace에 대 한 Cloud 파트너 포털에서 Azure 또는 Dynamics 365 컨설팅 서비스 제품을 만듭니다.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ed744cfbb49393980c2622b00233fca373b32019
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: a9fbf402bb8de11ae0353ef05d2a526d686c5884
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985136"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148165"
 ---
-# <a name="create-a-consulting-offer"></a>컨설팅 오퍼 만들기
+# <a name="create-a-consulting-offer"></a>컨설팅 제안 만들기
 
 >[!Important]
->2020년 4월 13일부터 컨설팅 서비스 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. 컨설팅 서비스 [생성 개요의](https://aka.ms/AzureCreateConsultingService) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
+>2020 년 4 월 13 일부 터는 컨설팅 서비스 제품 관리를 파트너 센터로 이동 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [컨설팅 서비스 만들기 개요](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
 
 이 문서에서는 컨설팅 서비스 제품을 만들고 게시하는 방법을 설명합니다.
 
@@ -37,5 +37,5 @@ ms.locfileid: "80985136"
 
 컨설팅 서비스 제품 유형에 대한 **새 제품** 페이지에서는 새 제품을 만드는 데 사용할 탭 세트 및 양식 필드가 제공됩니다. 다음 문서에서는 탭을 사용하여 새 제품의 제품 설정 및 상점 세부 정보를 정의하는 방법을 설명합니다.
 
--    [오퍼 설정 정의](./cpp-consulting-service-define-offer-settings.md)
+-    [제안 설정 정의](./cpp-consulting-service-define-offer-settings.md)
 -    [상점 세부 정보 및 게시할 위치(Azure Marketplace 또는 AppSource) 입력](./cpp-consulting-service-storefront-details.md)
