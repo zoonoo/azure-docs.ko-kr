@@ -7,6 +7,9 @@
 - name: 빠른 시작
   expanded: true
   items:
+    - name: ARM 템플릿
+      displayName: Resource Manager
+      href: quickstart-cluster-template.md
     - name: .NET 애플리케이션 만들기
       href: service-fabric-quickstart-dotnet.md
     - name: Linux 컨테이너 애플리케이션 배포

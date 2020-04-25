@@ -107,7 +107,7 @@
           href: ./ag/bot-protection.md
         - name: 기존 Application Gateway에 정책 연결
           href: ./ag/associate-waf-policy-existing-gateway.md
-        - name: 진단 로그
+        - name: 리소스 로그
           href: ./ag/web-application-firewall-logs.md
         - name: WAF 문제 해결
           href: ./ag/web-application-firewall-troubleshoot.md

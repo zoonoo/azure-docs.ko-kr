@@ -1,44 +1,44 @@
 ---
-title: 음성-텍스트 API 참조(REST) - 음성 서비스
+title: 음성 텍스트 API 참조 (REST)-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 음성-텍스트 REST API를 사용하는 방법에 대해 알아봅니다. 이 문서에서는 권한 부여 옵션, 쿼리 옵션, 요청을 구성하고 응답을 받는 방법을 알아봅니다.
+description: 음성 텍스트 REST API를 사용 하는 방법에 대해 알아봅니다. 이 문서에서는 권한 부여 옵션, 쿼리 옵션, 요청을 구성하고 응답을 받는 방법을 알아봅니다.
 services: cognitive-services
-author: trevorbye
+author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.author: trbye
-ms.openlocfilehash: fbb4d114d1fee21d7950e53b06fc16c96b5c930b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/23/2020
+ms.author: yinhew
+ms.openlocfilehash: 005824b0953be741f47c027d121dbe073adca3ba
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81400176"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131294"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-Text REST API
 
-[음성 SDK의](speech-sdk.md)대안으로 음성 서비스를 사용하면 REST API를 사용하여 음성-텍스트로 변환할 수 있습니다. 액세스 가능한 각 엔드포인트는 지역과 연결됩니다. 사용하려는 엔드포인트에 대한 구독 키가 애플리케이션에 필요합니다. REST API는 매우 제한되어 있으며 [음성 SDK가](speech-sdk.md) 사용할 수 없는 경우에만 사용해야 합니다.
+음성 [SDK](speech-sdk.md)대신 음성 서비스를 사용 하면 REST API를 사용 하 여 음성을 텍스트로 변환할 수 있습니다. 액세스 가능한 각 엔드포인트는 지역과 연결됩니다. 사용하려는 엔드포인트에 대한 구독 키가 애플리케이션에 필요합니다. REST API은 매우 제한적 이며, [음성 SDK](speech-sdk.md) 가 없는 경우에만 사용 해야 합니다.
 
-음성-텍스트 REST API를 사용하기 전에 다음을 이해하십시오.
+음성 텍스트 REST API를 사용 하기 전에 다음을 이해 합니다.
 
-* REST API를 사용하고 오디오를 직접 전송하는 요청에는 최대 60초의 오디오만 포함될 수 있습니다.
+* REST API를 사용 하 고 오디오를 직접 전송 하는 요청은 최대 60 초의 오디오만 포함할 수 있습니다.
 * Speech-to-Text REST API는 최종 결과만 반환합니다. 부분 결과는 제공되지 않습니다.
 
-더 긴 오디오를 보내는 것이 응용 프로그램에 대한 요구 사항인 경우 [일괄 처리 전사와](batch-transcription.md)같은 [음성 SDK](speech-sdk.md) 또는 파일 기반 REST API를 사용하는 것이 좋습니다.
+응용 프로그램의 요구 사항이 긴 오디오를 보내는 경우에는 [음성 SDK](speech-sdk.md) 또는 [배치](batch-transcription.md)전송과 같은 파일 기반 REST API를 사용 하는 것이 좋습니다.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
 ## <a name="regions-and-endpoints"></a>지역 및 엔드포인트
 
-REST API의 끝점에는 다음 형식이 있습니다.
+REST API 끝점에는 다음과 같은 형식이 있습니다.
 
 ```
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
 ```
 
-이 `<REGION_IDENTIFIER>` 표에서 구독 지역과 일치하는 식별자로 바꿉습니다.
+이 `<REGION_IDENTIFIER>` 테이블에서 구독의 지역과 일치 하는 식별자로 대체 합니다.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
@@ -51,12 +51,13 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 | 매개 변수 | Description | 필수/선택 |
 |-----------|-------------|---------------------|
-| `language` | 인식되는 음성 언어를 식별합니다. [지원되는 언어를](language-support.md#speech-to-text)참조하십시오. | 필수 |
-| `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. detailed 응답에는 신뢰도 값 및 4가지 다른 표현과 함께 여러 결과가 포함됩니다. 기본 설정은 `simple`입니다. | 옵션 |
-| `profanity` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용된 `masked`값은 욕설을 별표로 대체하며, `removed`결과에서 모든 욕설을 제거하거나 `raw`결과에 욕설을 포함합니다. 기본 설정은 `masked`입니다. | 옵션 |
-| `cid` | [사용자 지정 음성 포털을](how-to-custom-speech.md) 사용하여 사용자 지정 모델을 만들 때 **배포** 페이지에 있는 **끝점 ID를** 통해 사용자 지정 모델을 사용할 수 있습니다. **끝점 ID를** `cid` 쿼리 문자열 매개 변수에 대한 인수로 사용합니다. | 옵션 |
+| `language` | 인식되는 음성 언어를 식별합니다. [지원 되는 언어](language-support.md#speech-to-text)를 참조 하세요. | 필수 |
+| `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. detailed 응답에는 신뢰도 값 및 4가지 다른 표현과 함께 여러 결과가 포함됩니다. 기본 설정은 `simple`입니다. | 선택 |
+| `profanity` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용 되는 `masked`값은 사용 금지를 별표 `removed`()로 대체 하는로, 결과의 모든 `raw`비속어를 제거 하는 또는 결과의 비속어를 포함 하는입니다. 기본 설정은 `masked`입니다. | 선택 |
+| `pronunciationScoreParams` | 인식 결과에서 발음 점수를 표시 하는 매개 변수를 지정 합니다 .이 매개 변수는 정확도, 능숙, 완전성 등의 표시기를 사용 하 여 음성 입력의 발음 품질을 평가 합니다. 이 매개 변수는 여러 개의 자세한 매개 변수를 포함 하는 base64 인코딩 json입니다. 이 매개 변수를 빌드하는 방법은 [발음 평가 매개 변수](#pronunciation-assessment-parameters) 를 참조 하세요. | 선택 |
+| `cid` | [Custom Speech 포털](how-to-custom-speech.md) 을 사용 하 여 사용자 지정 모델을 만드는 경우 **배포** 페이지에서 찾을 수 있는 **끝점 ID** 를 통해 사용자 지정 모델을 사용할 수 있습니다. 쿼리 문자열 매개 변수에 대 한 인수로 **끝점 ID** 를 사용 합니다. `cid` | 선택 |
 
-## <a name="request-headers"></a>헤더 요청
+## <a name="request-headers"></a>요청 헤더
 
 이 표에는 음성 텍스트 변환 요청에 대한 필수 헤더 및 선택적 헤더가 나와 있습니다.
 
@@ -65,9 +66,9 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 | `Ocp-Apim-Subscription-Key` | Speech Service 구독 키입니다. | 이 헤더 또는 `Authorization`가 필요합니다. |
 | `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 이 헤더 또는 `Ocp-Apim-Subscription-Key`가 필요합니다. |
 | `Content-type` | 제공된 오디오 데이터의 형식과 코덱을 설명합니다. 허용되는 값은 `audio/wav; codecs=audio/pcm; samplerate=16000` 및 `audio/ogg; codecs=opus`입니다. | 필수 |
-| `Transfer-Encoding` | 단일 파일이 아닌 청크 분할된 오디오 데이터가 전송되고 있음을 지정합니다. 오디오 데이터를 청크 분할하는 경우에만 이 헤더를 사용합니다. | 옵션 |
+| `Transfer-Encoding` | 단일 파일이 아닌 청크 분할된 오디오 데이터가 전송되고 있음을 지정합니다. 오디오 데이터를 청크 분할하는 경우에만 이 헤더를 사용합니다. | 선택 |
 | `Expect` | 청크 분할된 전송을 사용하는 경우 `Expect: 100-continue`를 전송합니다. Speech Service는 초기 요청을 인식하고 추가 데이터를 대기합니다.| 청크 분할된 오디오 데이터를 전송하는 경우에 필요합니다. |
-| `Accept` | 제공하는 경우 `application/json`이어야 합니다. 음성 서비스는 JSON의 결과를 제공합니다. 일부 요청 프레임워크는 호환되지 않는 기본값을 제공합니다. 항상 을 포함하는 `Accept`것이 좋습니다. | 선택 사항이지만 권장됩니다. |
+| `Accept` | 제공하는 경우 `application/json`이어야 합니다. 음성 서비스는 JSON에서 결과를 제공 합니다. 일부 요청 프레임 워크는 호환 되지 않는 기본값을 제공 합니다. 항상를 포함 `Accept`하는 것이 좋습니다. | 선택 사항이지만 권장됩니다. |
 
 ## <a name="audio-formats"></a>오디오 형식
 
@@ -79,7 +80,39 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 | OGG    | OPUS  | 16비트  | 16kHz, mono |
 
 >[!NOTE]
->위의 형식은 음성 서비스에서 REST API 및 WebSocket을 통해 지원됩니다. [음성 SDK는](speech-sdk.md) 현재 PCM 코덱및 기타 [형식을](how-to-use-codec-compressed-audio-input-streams.md)통해 WAV 형식을 지원합니다.
+>위의 형식은 음성 서비스의 REST API 및 WebSocket을 통해 지원 됩니다. [음성 SDK](speech-sdk.md) 는 현재 [다른 형식](how-to-use-codec-compressed-audio-input-streams.md)뿐만 아니라 PCM 코덱으로 WAV 형식을 지원 합니다.
+
+## <a name="pronunciation-assessment-parameters"></a>발음 평가 매개 변수
+
+다음 표에서는 발음 평가를 위한 필수 및 선택적 매개 변수를 보여 줍니다.
+
+| 매개 변수 | Description | 필수/선택 |
+|-----------|-------------|---------------------|
+| ReferenceText | 발음이 계산 될 텍스트입니다. | 필수 |
+| GradingSystem | 점수 보정의 시점 시스템입니다. 허용되는 값은 `FivePoint` 및 `HundredMark`입니다. 기본 설정은 `FivePoint`입니다. | 선택 |
+| 세분성 | 평가 세분성입니다. 허용 되는 `Phoneme`값은 전체 텍스트의 점수를 표시 하는 전체 텍스트, word 및 `Word`음소 수준 `FullText`에 대 한 점수를 표시 하는입니다 .이 값은 전체 텍스트 수준 에서만 점수를 표시 합니다. 기본 설정은 `Phoneme`입니다. | 선택 |
+| 차원 | 출력 조건을 정의 합니다. 허용 되는 `Basic`값은 정확도 점수를 표시 하는 `Comprehensive` 이며, 더 많은 차원에 대 한 점수를 표시 합니다 (예: 전체 텍스트 수준에서 점수와 완전성 점수, 단어 수준의 오류 유형 능숙). [응답 매개 변수](#response-parameters) 를 확인 하 여 다른 점수 차원 및 단어 오류 유형의 정의를 확인 합니다. 기본 설정은 `Basic`입니다. | 선택 |
+| EnableMiscue | Miscue 계산을 사용 합니다. 이 기능을 사용 하도록 설정 하면 단어를 참조 텍스트와 비교 하 여 비교에 따라 생략/삽입으로 표시 됩니다. 허용되는 값은 `False` 및 `True`입니다. 기본 설정은 `False`입니다. | 선택 |
+| ScenarioId | 사용자 지정 된 지점 시스템을 나타내는 GUID입니다. | 선택 |
+
+다음은 발음 평가 매개 변수를 포함 하는 JSON 예제입니다.
+
+```json
+{
+  "ReferenceText": "Good morning.",
+  "GradingSystem": "HundredMark",
+  "Granularity": "FullText",
+  "Dimension": "Comprehensive"
+}
+```
+
+다음 샘플 코드는 URL 쿼리 매개 변수에 발음 평가 매개 변수를 작성 하는 방법을 보여 줍니다.
+
+```csharp
+var pronunciationScoreParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
+var pronunciationScoreParamsBytes = Encoding.UTF8.GetBytes(pronunciationScoreParamsJson);
+var pronunciationScoreParams = Convert.ToBase64String(pronunciationScoreParamsBytes);
+```
 
 ## <a name="sample-request"></a>샘플 요청
 
@@ -101,17 +134,17 @@ Expect: 100-continue
 
 | HTTP 상태 코드 | Description | 가능한 원인 |
 |------------------|-------------|-----------------|
-| `100` | 계속 | 초기 요청이 수락되었습니다. 나머지 데이터의 전송을 계속합니다. (청크 전송과 함께 사용) |
+| `100` | 계속 | 초기 요청이 수락되었습니다. 나머지 데이터의 전송을 계속합니다. (청크 분할 전송에 사용 됨) |
 | `200` | 확인 | 요청이 성공했습니다. 응답 본문이 JSON 개체입니다. |
-| `400` | 잘못된 요청 | 지원되는 언어, 잘못된 오디오 파일 등이 아닌 언어 코드가 제공되지 않습니다. |
+| `400` | 잘못된 요청 | 지원 되지 않는 언어 코드, 잘못 된 오디오 파일 등은 제공 되지 않습니다. |
 | `401` | 권한 없음 | 구독 키 또는 권한 부여 토큰이 지정된 지역에서 올바르지 않거나 엔드포인트가 올바르지 않습니다. |
 | `403` | 사용할 수 없음 | 구독 키 또는 권한 부여 토큰이 없습니다. |
 
 ## <a name="chunked-transfer"></a>청크 분할 전송
 
-청크 전송`Transfer-Encoding: chunked`() 인식 대기 시간을 줄이는 데 도움이 될 수 있습니다. 음성 서비스가 전송되는 동안 오디오 파일 처리를 시작할 수 있습니다. REST API는 부분 또는 중간 결과를 제공하지 않습니다.
+청크 분할 전송`Transfer-Encoding: chunked`()을 통해 인식 대기 시간을 줄일 수 있습니다. 음성 서비스는 전송 되는 동안 오디오 파일의 처리를 시작할 수 있습니다. REST API는 부분 또는 중간 결과를 제공하지 않습니다.
 
-이 코드 샘플은 오디오를 청크로 보내는 방법을 보여 줍니다. 오직 첫 번째 청크만 오디오 파일의 헤더를 포함해야 합니다. `request`은 `HttpWebRequest` 적절한 REST 끝점에 연결된 개체입니다. `audioFile`은 디스크에서 오디오 파일의 경로입니다.
+이 코드 샘플은 오디오를 청크로 보내는 방법을 보여 줍니다. 오직 첫 번째 청크만 오디오 파일의 헤더를 포함해야 합니다. `request`는 적절 `HttpWebRequest` 한 REST 끝점에 연결 된 개체입니다. `audioFile`은 디스크에서 오디오 파일의 경로입니다.
 
 ```csharp
 var request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
@@ -150,13 +183,13 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 | 매개 변수 | Description  |
 |-----------|--------------|
 |`RecognitionStatus`|상태(예: 인식 성공에 `Success`)입니다. 다음 표를 참조하세요.|
-|`DisplayText`|대문자, 구두점, 역텍스트 정규화("이백" 또는 "닥터 스미스"의 경우 "스미스 박사"의 경우 200과 같은 짧은 양식으로 음성 텍스트를 변환) 및 욕설 마스킹 후 인식된 텍스트입니다. 성공 시만 표시합니다.|
+|`DisplayText`|대/소문자, 문장 부호, 역 텍스트 정규화 (음성 텍스트를 "200"의 경우 200, "의사 smith"의 경우 "Dr. Smith"의 경우) 및 불경 마스킹을 통해 인식 되는 텍스트입니다. 성공 시만 표시합니다.|
 |`Offset`|인식된 음성이 오디오 스트림에서 시작하는 시간(100나노초 단위)입니다.|
 |`Duration`|오디오 스트림에서 인식된 음성의 기간(100나노초 단위)입니다.|
 
 `RecognitionStatus` 필드에는 다음 값이 포함될 수 있습니다.
 
-| 상태 | Description |
+| 상태 | 설명 |
 |--------|-------------|
 | `Success` | 성공적으로 인식했고 `DisplayText` 필드가 있습니다. |
 | `NoMatch` | 오디오 스트림에서 음성이 감지되었지만 대상 언어의 단어가 일치하지 않습니다. 일반적으로 인식 언어는 사용자가 말하는 것과 다른 언어를 의미합니다. |
@@ -167,7 +200,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 > [!NOTE]
 > 오디오가 욕설로만 구성되어 있고 `profanity` 쿼리 매개 변수가 `remove`로 설정되어 있는 경우 서비스는 음성 결과를 변환하지 않습니다.
 
-형식에는 `detailed` `simple` 형식과 동일한 데이터가 포함되며 `NBest`동일한 인식 결과의 대체 해석 목록이 포함됩니다. 이러한 결과는 가장 가능성이 가장 낮은 것에서 순위가 매겨지며 순위가 매겨지며 순위가 매겨질 가능성이 가장 높습니다. 첫 번째 항목은 기본 인식 결과와 같습니다.  `detailed` 형식을 사용하는 경우 `DisplayText`는 `NBest` 목록의 각 결과에 대한 `Display`로 제공됩니다.
+`detailed` 형식에는 동일한 인식 결과의 대체 `simple` 해석 목록과 함께 형식과 `NBest`동일한 데이터가 포함 됩니다. 이러한 결과는 가장 가능성이 낮은 것부터 순위가 높습니다. 첫 번째 항목은 기본 인식 결과와 같습니다.  `detailed` 형식을 사용하는 경우 `DisplayText`는 `NBest` 목록의 각 결과에 대한 `Display`로 제공됩니다.
 
 `NBest` 목록의 각 개체에는 다음이 포함됩니다.
 
@@ -178,10 +211,15 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 | `ITN` | 전화 번호, 숫자, 축약어("doctor smith"가 "dr smith")가 포함된 인식된 텍스트의 역 텍스트 정규화된("기본형") 형태와 적용된 기타 변형입니다. |
 | `MaskedITN` | 요청된 경우 욕설 마스킹이 적용된 ITN 형태입니다. |
 | `Display` | 문장 부호 및 대문자로 표시가 추가된 인식된 텍스트의 표시 형태입니다. 이 매개 변수는 형식이 `simple`로 설정된 경우에 제공되는 `DisplayText`와 동일합니다. |
+| `AccuracyScore` | 지정 된 음성의 발음 정확도를 나타내는 점수입니다. |
+| `FluencyScore` | 지정 된 음성의 능숙을 나타내는 점수입니다. |
+| `CompletenessScore` | 전체 입력을 기준으로 하는 단어의 비율을 계산 하 여 지정 된 음성의 완전성을 나타내는 점수입니다. |
+| `PronScore` | 지정 된 음성의 발음 품질을 나타내는 전체 점수입니다. 이는 가중치를 `AccuracyScore` `CompletenessScore` 사용 `FluencyScore` 하 여에서 계산 됩니다. |
+| `ErrorType` | 이 값은와 비교 하 여 단어를 생략 하거나, 삽입 하거나, 잘못 `ReferenceText`표시 하는지 여부를 나타냅니다. 가능한 값은 `None` (이 단어에 오류가 없음을 의미 함) `Omission`, `Insertion` 및 `Mispronunciation`입니다. |
 
 ## <a name="sample-responses"></a>샘플 응답
 
-인식에 대한 `simple` 일반적인 응답 :
+인식에 대 한 `simple` 일반적인 응답:
 
 ```json
 {
@@ -192,7 +230,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 }
 ```
 
-인식에 대한 `detailed` 일반적인 응답 :
+인식에 대 한 `detailed` 일반적인 응답:
 
 ```json
 {
@@ -213,6 +251,45 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
         "ITN" : "rewind me to buy 5 pencils",
         "MaskedITN" : "rewind me to buy 5 pencils",
         "Display" : "Rewind me to buy 5 pencils.",
+      }
+  ]
+}
+```
+
+음성 인식에 대 한 일반적인 답변은 다음과 같습니다.
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "Offset": "400000",
+  "Duration": "11000000",
+  "NBest": [
+      {
+        "Confidence" : "0.87",
+        "Lexical" : "good morning",
+        "ITN" : "good morning",
+        "MaskedITN" : "good morning",
+        "Display" : "Good morning.",
+        "PronScore" : 84.4,
+        "AccuracyScore" : 100.0,
+        "FluencyScore" : 74.0,
+        "CompletenessScore" : 100.0,
+        "Words": [
+            {
+              "Word" : "Good",
+              "AccuracyScore" : 100.0,
+              "ErrorType" : "None",
+              "Offset" : 500000,
+              "Duration" : 2700000
+            },
+            {
+              "Word" : "morning",
+              "AccuracyScore" : 100.0,
+              "ErrorType" : "None",
+              "Offset" : 5300000,
+              "Duration" : 900000
+            }
+        ]
       }
   ]
 }
