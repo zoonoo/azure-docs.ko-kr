@@ -10,12 +10,12 @@ metadata:
   author: mamccrea
   ms.author: mamccrea
   ms.date: 09/16/2019
-  ms.openlocfilehash: dff33c61d67a25bfc5c1119e5408602df01e5e30
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 757c60487e4c4c7fedca4824cd40e86cbd9ca465
+  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "75359735"
+  ms.lasthandoff: 04/24/2020
+  ms.locfileid: "82130945"
 landingContent:
 - title: Azure Stream Analytics 정보
   linkLists:
@@ -95,7 +95,7 @@ landingContent:
       url: stream-analytics-monitor-jobs.md
     - text: Visual Studio에서 작업 모니터링 및 관리
       url: stream-analytics-monitor-jobs-use-vs.md
-    - text: 진단 로그를 사용하여 문제 해결
+    - text: 리소스 로그를 사용하여 문제 해결
       url: stream-analytics-job-diagnostic-logs.md
     - text: 작업 다이어그램을 사용하여 디버그
       url: stream-analytics-job-diagram-with-metrics.md

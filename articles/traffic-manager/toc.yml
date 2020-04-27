@@ -83,7 +83,7 @@
       href: traffic-manager-load-balancing-azure.md
     - name: Traffic Manager 성능 측정
       href: traffic-manager-performance-considerations.md
-    - name: 진단 로그 활성화
+    - name: 리소스 로그 사용
       href: traffic-manager-diagnostic-logs.md
     - name: Azure PowerShell을 사용하여 Traffic Manager 관리
       href: traffic-manager-powershell-arm.md
@@ -127,7 +127,7 @@
       href: 'https://azure.microsoft.com/blog/topics/networking/'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/traffic-manager/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

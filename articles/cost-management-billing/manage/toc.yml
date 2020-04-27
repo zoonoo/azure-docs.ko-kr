@@ -107,7 +107,7 @@
       href: billing-troubleshoot-azure-payment-issues.md
     - name: 거부된 카드
       href: troubleshoot-declined-card.md
-    - name: 등록 문제
+    - name: Azure 계정 등록 문제
       href: troubleshoot-azure-sign-up.md
     - name: 구독 로그인 문제
       href: troubleshoot-sign-in-issue.md

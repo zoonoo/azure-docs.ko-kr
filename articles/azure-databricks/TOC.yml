@@ -39,6 +39,9 @@
         - name: Python
           href: /azure/databricks/languages/python
           maintainContext: true
+        - name: Koalas
+          href: /azure/databricks/languages/koalas
+          maintainContext: true
         - name: R
           items:
             - name: R 가이드
@@ -1058,6 +1061,8 @@
             - name: 비밀 워크플로 예제
               href: /azure/databricks/security/secrets/example-secret-workflow
               maintainContext: true
+        - name: GDPR 모범 사례
+          href: /azure/databricks/security/privacy/gdpr-delta
         - name: 클러스터 작업자 노드 간의 트래픽 암호화
           href: /azure/databricks/security/encryption/encrypt-otw
         - name: Notebooks에 고객 관리 키 사용
@@ -1611,8 +1616,24 @@
               href: /azure/databricks/dev-tools/api/latest/examples
               maintainContext: true
             - name: 인증
-              href: /azure/databricks/dev-tools/api/latest/authentication
-              maintainContext: true
+              items:
+                - name: 개인용 액세스 토큰
+                  href: /azure/databricks/dev-tools/api/latest/authentication
+                  maintainContext: true
+                - name: AAD(Azure Active Directory) 토큰
+                  items:
+                    - name: AAD 토큰 인증 개요
+                      href: /azure/databricks/dev-tools/api/latest/aad/index
+                      maintainContext: true
+                    - name: AAD 인증 라이브러리를 사용하여 AAD 토큰 가져오기
+                      href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
+                      maintainContext: true
+                    - name: 서비스 주체를 사용하여 AAD 토큰 가져오기
+                      href: /azure/databricks/dev-tools/api/latest/aad/service-prin-aad-token
+                      maintainContext: true
+                    - name: AAD 액세스 토큰 문제 해결
+                      href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
+                      maintainContext: true
             - name: 클러스터
               href: /azure/databricks/dev-tools/api/latest/clusters
               maintainContext: true

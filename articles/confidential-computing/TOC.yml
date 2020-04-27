@@ -1,0 +1,33 @@
+- name: Azure 기밀 컴퓨팅
+  href: overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: Azure Portal에서 만들기
+      href: quick-create-portal.md
+    - name: Marketplace로 만들기
+      href: quick-create-marketplace.md
+- name: 개념
+  expanded: true
+  items:
+    - name: Virtual Machines 솔루션
+      href: virtual-machine-solutions.md
+- name: 리소스
+  expanded: true
+  items:
+    - name: FAQ
+      href: faq.md
+    - name: 기밀 컴퓨팅 피드백
+      href: 'https://feedback.azure.com/forums/919792-azure-confidential-compute'
+    - name: StackOverflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-confidential-computing'
+    - name: Enclave SDK 열기
+      href: 'https://aka.ms/oesdkGitHubRepo'
+    - name: 기밀 컴퓨팅 컨소시엄
+      href: 'https://confidentialcomputing.io/'
+    - name: Azure의 Virtual Machines
+      href: 'https://docs.microsoft.com/azure/virtual-machines/'
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2'
+    - name: 영역
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machines'

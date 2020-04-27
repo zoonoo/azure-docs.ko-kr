@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 2e914cc8cf1951d5e725ac8ad34140103e599fcb
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 556af0c505197170a633cf1f949d87f5d2584690
+  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "78204959"
+  ms.lasthandoff: 04/24/2020
+  ms.locfileid: "82131321"
 landingContent:
 - title: Custom Vision 정보
   linkLists:
@@ -38,16 +38,8 @@ landingContent:
     links:
     - text: 웹 포털 사용
       url: getting-started-build-a-classifier.md
-    - text: .NET SDK 사용
-      url: csharp-tutorial.md
-    - text: Python SDK 사용
-      url: python-tutorial.md
-    - text: Java SDK 사용
-      url: java-tutorial.md
-    - text: Node.js SDK 사용
-      url: node-tutorial.md
-    - text: Go SDK 사용
-      url: go-tutorial.md
+    - text: Custom Vision SDK 사용
+      url: quickstarts/image-classification.md
   - linkListType: how-to-guide
     links:
     - text: 예측 API 사용
@@ -58,16 +50,8 @@ landingContent:
     links:
     - text: 웹 포털 사용
       url: get-started-build-detector.md
-    - text: .NET SDK 사용
-      url: csharp-tutorial-od.md
-    - text: Python SDK 사용
-      url: python-tutorial-od.md
-    - text: Java SDK 사용
-      url: java-tutorial-od.md
-    - text: Node.js SDK 사용
-      url: node-tutorial-object-detection.md
-    - text: Go SDK 사용
-      url: go-tutorial-object-detection.md
+    - text: Custom Vision SDK 사용
+      url: quickstarts/object-detection.md
   - linkListType: tutorial
     links:
     - text: 모바일용 로고 탐지기
@@ -136,5 +120,5 @@ landingContent:
     links:
     - text: UserVoice
       url: https://cognitive.uservoice.com/forums/598141-custom-vision-service
-    - text: 스택 오버플로
+    - text: Stack Overflow
       url: https://stackoverflow.com/questions/tagged/microsoft-cognitive

@@ -168,13 +168,15 @@
         - name: 대규모 배포
           items:
             - name: Azure portal
-              href: how-to-deploy-monitor.md
+              href: how-to-deploy-at-scale.md
             - name: Azure CLI
-              href: how-to-deploy-monitor-cli.md
+              href: how-to-deploy-cli-at-scale.md
             - name: Visual Studio Code
-              href: how-to-deploy-monitor-vscode.md
+              href: how-to-deploy-vscode-at-scale.md
     - name: 배포 모니터링 및 진단
       items:
+        - name: IoT Edge 배포 모니터링
+          href: how-to-monitor-iot-edge-deployments.md
         - name: EdgeAgent 직접 메서드
           href: how-to-edgeagent-direct-method.md
     - name: IoT Edge 디바이스를 게이트웨이로 사용
@@ -265,7 +267,7 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=iot-edge'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-iot-edge'
     - name: 기술 사례 연구
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
