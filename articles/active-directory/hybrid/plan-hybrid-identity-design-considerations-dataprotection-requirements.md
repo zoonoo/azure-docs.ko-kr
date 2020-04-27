@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64918787"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획
@@ -80,13 +80,13 @@ ms.locfileid: "64918787"
 * 회사가 규정 요구 사항을 준수할 수 있게 해주는 기본 제공 기능이 있습니까? 
 
 > [!NOTE]
-> 각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의는](plan-hybrid-identity-design-considerations-data-protection-strategy.md) 사용 가능한 옵션과 각 옵션의 장점/단점을 다 수있습니다.  질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
+> 각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md) 는 사용 가능한 옵션과 각 옵션의 장점/단점을 고려 합니다.  질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
 > 
 > 
 
 ## <a name="next-steps"></a>다음 단계
- [콘텐츠 관리 요구 사항 결정](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
+ [콘텐츠 관리 요구 사항 확인](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [설계 고려 사항 개요](plan-hybrid-identity-design-considerations-overview.md)
 

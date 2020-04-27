@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 385d9126d578250064659153f6f0f54eec696790
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60870675"
 ---
 # <a name="storsimple-virtual-array-update-05-release-notes"></a>StorSimple 가상 배열 업데이트 0.5 릴리스 정보
@@ -69,13 +69,13 @@ ms.locfileid: "60870675"
 | **7.** |계층화된 공유 |큰 파일로 작업하면 계층화가 매우 느려질 수 있습니다. |큰 파일을 사용하는 경우 가장 큰 파일이 공유 크기의 3% 보다 작은 것이 좋습니다. |
 | **8.** |공유에 사용된 용량 |공유에 데이터가 없어도 공유 사용량이 표시될 수 있습니다. 이 사용량은 공유에 사용된 용량에 메타데이터가 포함되기 때문입니다. | |
 | **9.** |재해 복구 |파일 서버에 대한 재해 복구는 원본 디바이스의 도메인과 같은 도메인에만 수행할 수 있습니다. 다른 도메인의 대상 디바이스로 재해 복구는 이번 릴리스에서 지원되지 않습니다. |이후 릴리스에서 구현됩니다. 자세한 내용은 [StorSimple 가상 배열에 대한 장애 조치(Failover) 및 재해 복구](storsimple-virtual-array-failover-dr.md)를 참조하세요. |
-| **10.** |Azure PowerShell |이번 릴리스에서는 Azure PowerShell을 통해 StorSimple 가상 디바이스를 관리할 수 없습니다. |가상 디바이스에 대한 모든 관리는 Azure Portal 및 로컬 웹 UI를 통해 수행됩니다. |
-| **11.** |암호 변경 |가상 배열 디바이스 콘솔은 en-us 키보드 형식의 입력만 허용합니다. | |
-| **12.** |CHAP |CHAP 자격 증명은 일단 한 번 만들면 제거할 수 없습니다. 또한 CHAP 자격 증명을 수정하면 볼륨을 오프라인 상태로 만든 다음 온라인 상태로 변경해야 변경사항이 적용됩니다. |이 문제는 이후 릴리스에서 해결됩니다. |
-| **13.** |iSCSI 서버 |iSCSI 볼륨에 대해 표시되는 '사용된 스토리지'가 StorSimple 디바이스 관리자 서비스와 iSCSI 호스트에서 다를 수 있습니다. |iSCSI 호스트에는 파일 시스템 보기가 있습니다.<br></br>볼륨이 최대 크기일 때 디바이스에서는 블록이 할당된 것을 봅니다. |
+| **5-10.** |Azure PowerShell |이번 릴리스에서는 Azure PowerShell을 통해 StorSimple 가상 디바이스를 관리할 수 없습니다. |가상 디바이스에 대한 모든 관리는 Azure Portal 및 로컬 웹 UI를 통해 수행됩니다. |
+| **pt.** |암호 변경 |가상 배열 디바이스 콘솔은 en-us 키보드 형식의 입력만 허용합니다. | |
+| **10.** |CHAP |CHAP 자격 증명은 일단 한 번 만들면 제거할 수 없습니다. 또한 CHAP 자격 증명을 수정하면 볼륨을 오프라인 상태로 만든 다음 온라인 상태로 변경해야 변경사항이 적용됩니다. |이 문제는 이후 릴리스에서 해결됩니다. |
+| **/10.** |iSCSI 서버 |iSCSI 볼륨에 대해 표시되는 '사용된 스토리지'가 StorSimple 디바이스 관리자 서비스와 iSCSI 호스트에서 다를 수 있습니다. |iSCSI 호스트에는 파일 시스템 보기가 있습니다.<br></br>볼륨이 최대 크기일 때 디바이스에서는 블록이 할당된 것을 봅니다. |
 | **14.** |파일 서버 |폴더의 파일에 연결된 ADS(대체 데이터 스트림)가 있는 경우 ADS는 재해 복구, 복제 및 항목 수준 복구를 통해 백업 또는 복원되지 않습니다. | |
 | **15.** |파일 서버 |기호 링크는 지원되지 않습니다. | |
-| **16.** |파일 서버 |Windows EFS(파일 시스템 암호화)에 의해 보호되는 파일을 StorSimple Virtual Array 파일 서버에 복사하거나 저장하지 마세요. 그러면 지원되지 않는 구성이 발생합니다.  | |
+| **x.** |파일 서버 |Windows EFS(파일 시스템 암호화)에 의해 보호되는 파일을 StorSimple Virtual Array 파일 서버에 복사하거나 저장하지 마세요. 그러면 지원되지 않는 구성이 발생합니다.  | |
 
 ## <a name="next-step"></a>다음 단계
 StorSimple 가상 배열에 [업데이트 0.5를 설치](storsimple-virtual-array-install-update-05.md)합니다.
@@ -83,8 +83,8 @@ StorSimple 가상 배열에 [업데이트 0.5를 설치](storsimple-virtual-arra
 ## <a name="references"></a>참조
 이전 릴리스 정보를 찾으시나요? 다음으로 이동합니다.
 
-* [StorSimple 가상 배열 업데이트 0.4 릴리스 노트](storsimple-virtual-array-update-04-release-notes.md)
-* [StorSimple 가상 배열 업데이트 0.3 릴리스 노트](storsimple-ova-update-03-release-notes.md)
+* [StorSimple 가상 배열 업데이트 0.4 릴리스 정보](storsimple-virtual-array-update-04-release-notes.md)
+* [StorSimple 가상 배열 업데이트 0.3 릴리스 정보](storsimple-ova-update-03-release-notes.md)
 * [StorSimple 가상 배열 업데이트 0.1 및 0.2 릴리스 정보](storsimple-ova-update-01-release-notes.md)
 * [StorSimple 가상 배열 일반 공급 릴리스 정보](storsimple-ova-pp-release-notes.md)
 

@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 2a7f15eb7e90ba4dec9bc614a45d2de46c07bdfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64868098"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Azure Queue Storage를 사용하여 .NET으로 Media Services 작업 알림 모니터링 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전, [미디어 서비스 v3을](https://docs.microsoft.com/azure/media-services/latest/)확인하십시오. 또한 [v2에서 v3로의 마이그레이션 지침을](../latest/migrate-from-v2-to-v3.md) 참조하십시오.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 인코딩 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. [Azure Queue Storage](../../storage/storage-dotnet-how-to-use-queues.md)에 알림을 배달하도록 Media Services를 구성할 수 있습니다. Queue Storage에서 알림을 가져와 작업 진행 상태를 모니터링할 수 있습니다. 
 
@@ -61,13 +61,13 @@ Queue Storage를 사용하는 Media Services 애플리케이션을 개발할 때
 > [!NOTE]
 > 작업 상태 모니터링 방법으로 다음 예제와 같이 알림 메시지 수신을 권장합니다.
 >
-> 또는 **IJob.State** 속성을 사용하여 작업 상태를 확인할 수 있습니다.  작업의 완료에 대한 알림 메시지가 **IJob의** 상태가 **완료로**설정되기 전에 도착할 수 있습니다. **IJob.State** 속성은 약간의 지연 시간을 포함하여 정확한 상태를 반영합니다.
+> 또는 **IJob.State** 속성을 사용하여 작업 상태를 확인할 수 있습니다.  **Ijob** 의 상태가 **완료**로 설정 되기 전에 작업 완료에 대 한 알림 메시지가 도착할 수 있습니다. **IJob.State** 속성은 약간의 지연 시간을 포함하여 정확한 상태를 반영합니다.
 >
 >
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-1. .NET 을 사용하면 Media Services 개발에 설명된 대로 개발 환경을 설정하고 app.config 파일을 연결 [정보로](media-services-dotnet-how-to-use.md)채웁니다. 
+1. 개발 환경을 설정 하 고 [.net으로 개발 Media Services](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 2. 로컬 드라이브 내 임의의 위치에 새 폴더를 만들고, 인코딩하여 스트리밍하거나 점진적으로 다운로드하려는 .mp4 파일을 복사합니다. 이 예제에서는 "C:\Media" 경로가 사용됩니다.
 3. **System.Runtime.Serialization** 라이브러리에 참조를 추가합니다.
 

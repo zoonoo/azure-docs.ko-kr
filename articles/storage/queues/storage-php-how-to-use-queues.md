@@ -1,5 +1,5 @@
 ---
-title: PHP - Azure 저장소에서 큐 저장소를 사용하는 방법
+title: PHP에서 큐 저장소를 사용 하는 방법-Azure Storage
 description: Azure Queue Storage를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 PHP로 작성되었습니다.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.openlocfilehash: 692c943e48c08771b5f1c60b66412270081cf0e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72302959"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>PHP에서 Queue Storage를 사용하는 방법
@@ -31,13 +31,13 @@ ms.locfileid: "72302959"
 
 Azure Queue Storage에 액세스하는 PHP 애플리케이션을 만들기 위한 유일한 요구 사항은 코드 내에서 [PHP용 Azure Storage Client Library][download]의 클래스를 참조하는 것입니다. 애플리케이션을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
 
-이 가이드에서는 PHP 응용 프로그램 내에서 로컬로 호출하거나 Azure의 웹 응용 프로그램 내에서 실행되는 코드에서 호출할 수 있는 Queue 저장소 서비스 기능을 사용합니다.
+이 가이드에서는 PHP 응용 프로그램 내에서 로컬로 또는 Azure의 웹 응용 프로그램 내에서 실행 되는 코드에서 호출할 수 있는 큐 저장소 서비스 기능을 사용 합니다.
 
 ## <a name="get-the-azure-client-libraries"></a>Azure 클라이언트 라이브러리 가져오기
 
 ### <a name="install-via-composer"></a>작성기를 통해 설치
 
-1. 프로젝트의 루트에 **composer.json이라는** 파일을 만들고 다음 코드를 추가합니다.
+1. 프로젝트의 루트에 **작성기. json** 이라는 파일을 만들고 다음 코드를 추가 합니다.
    
     ```json
     {
@@ -223,7 +223,7 @@ else{
 
 ## <a name="de-queue-the-next-message"></a>큐에서 다음 메시지 제거
 
-다음 코드는 2단계를 거쳐 큐에서 메시지를 제거합니다. 먼저 **QueueRestProxy->listMessages**를 호출하여 큐에서 읽어들이는 메시지가 다른 코드에 표시되지 않도록 합니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다. (이 기간 동안 메시지가 삭제되지 않으면 큐에 다시 표시됩니다.) 큐에서 메시지 제거를 완료하려면 **QueueRestProxy->삭제 메시지를**호출해야 합니다. 메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 코드가 메시지를 처리한 직후 **deleteMessage를** 호출합니다.
+다음 코드는 2단계를 거쳐 큐에서 메시지를 제거합니다. 먼저 **QueueRestProxy->listMessages**를 호출하여 큐에서 읽어들이는 메시지가 다른 코드에 표시되지 않도록 합니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다. (이 기간 내에 삭제 되지 않은 메시지는 큐에 다시 표시 됩니다.) 큐에서 메시지 제거를 완료 하려면 **QueueRestProxy->deleteMessage**를 호출 해야 합니다. 메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 코드는 메시지가 처리 된 직후에 **deleteMessage** 를 호출 합니다.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -265,7 +265,7 @@ catch(ServiceException $e){
 
 ## <a name="change-the-contents-of-a-queued-message"></a>대기 중인 메시지의 콘텐츠 변경
 
-**QueueRestProxy->updateMessage**를 호출하여 큐에 있는 메시지의 콘텐츠를 변경할 수 있습니다. 메시지가 작업을 나타내는 경우 이 기능을 사용하여 작업의 상태를 업데이트할 수 있습니다. 다음 코드는 큐 메시지를 새로운 콘텐츠로 업데이트하고 표시 제한 시간이 60초 더 늘어나도록 설정합니다. 그러면 메시지와 연결된 작업의 상태가 저장되고 클라이언트에서 메시지에 대한 작업을 계속할 수 있는 시간이 1분 더 허용됩니다. 이 기술을 사용하여 처리 단계가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 처음부터 시작하지 않고도 큐 메시지에 대한 여러 단계의 워크플로를 추적할 수 있습니다. 일반적으로 재시도 횟수도 유지하며 메시지가 *n번* 이상 다시 시도되면 삭제합니다. 이 기능은 처리될 때마다 애플리케이션 오류를 트리거하는 메시지를 차단하여 보호해 줍니다.
+**QueueRestProxy->updateMessage**를 호출하여 큐에 있는 메시지의 콘텐츠를 변경할 수 있습니다. 메시지가 작업을 나타내는 경우 이 기능을 사용하여 작업의 상태를 업데이트할 수 있습니다. 다음 코드는 큐 메시지를 새로운 콘텐츠로 업데이트하고 표시 제한 시간이 60초 더 늘어나도록 설정합니다. 그러면 메시지와 연결된 작업의 상태가 저장되고 클라이언트에서 메시지에 대한 작업을 계속할 수 있는 시간이 1분 더 허용됩니다. 이 기술을 사용하여 처리 단계가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 처음부터 시작하지 않고도 큐 메시지에 대한 여러 단계의 워크플로를 추적할 수 있습니다. 일반적으로 다시 시도 횟수를 유지 하 고, 메시지가 *n* 번 넘게 다시 시도 되는 경우 삭제 합니다. 이 기능은 처리될 때마다 애플리케이션 오류를 트리거하는 메시지를 차단하여 보호해 줍니다.
 
 ```php
 require_once 'vendor/autoload.php';

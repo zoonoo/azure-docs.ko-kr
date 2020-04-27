@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 03b9995eab503ac1fcd4615882419dde31d4f8bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64869483"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>.NET을 사용하여 Media Services 계정에 파일 업로드 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전, [미디어 서비스 v3을](https://docs.microsoft.com/azure/media-services/latest/)확인하십시오. 또한 [v2에서 v3로의 마이그레이션 지침을](../latest/migrate-from-v2-to-v3.md) 참조하십시오.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
-Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. **자산** 엔터티에는 비디오, 오디오, 이미지, 썸네일 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다.  파일이 업로드되면 콘텐츠가 클라우드에 안전하게 저장되어 추가 처리 및 스트리밍이 됩니다.
+Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. **자산** 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일 (및 이러한 파일에 대 한 메타 데이터)이 포함 될 수 있습니다.  파일이 업로드 되 면 추가 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전 하 게 저장 됩니다.
 
 자산에 포함된 파일을 **자산 파일**이라고 합니다. **AssetFile** 인스턴스 및 실제 미디어 파일은 별개의 두 개체입니다. AssetFile 인스턴스는 미디어 파일에 대한 메타데이터를 포함하는 반면 미디어 파일은 실제 미디어 콘텐츠를 포함합니다.
 
@@ -34,10 +34,10 @@ Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. *
 
 고려 사항은 다음과 같습니다.
  
- * 미디어 서비스는 스트리밍 콘텐츠에 대한 URL을 작성할 때 IAssetFile.Name 속성의 값을 사용합니다(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/스트리밍매개변수). 이러한 이유로 백분율 인코딩은 허용되지 않습니다. **Name** 속성의 값은 다음과 같은 [퍼센트 인코딩 예약 문자](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)중 어느 값도 가질 수 없습니다: !*();;)&=+$,??#[". 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
+ * Media Services는 스트리밍 콘텐츠의 Url을 빌드할 때 IAssetFile.Name 속성의 값을 사용 합니다 (예: http://{AMSAccount}. windowsazure.mediaservices/{GUID}/{IAssetFile}/streamingParameters). 이러한 이유로 퍼센트 인코딩은 허용 되지 않습니다. **Name** 속성 값에는! * ' ();: @ &= + $,/?% # [] "와 같은 [퍼센트 인코딩 예약 문자](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
 * 이름 길이는 260자보다 클 수 없습니다.
 * Media Services에서 처리를 위해 지원되는 최대 파일 크기에 제한이 있습니다. 파일 크기 제한에 대한 세부 정보는 [이](media-services-quotas-and-limitations.md) 문서를 참조하세요.
-* 다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이](media-services-dotnet-manage-entities.md#limit-access-policies) 문서를 참조하세요.
+* 다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이](media-services-dotnet-manage-entities.md#limit-access-policies) 문서를 참조 하세요.
 
 자산을 만들 때 다음 암호화 옵션을 지정할 수 있습니다.
 
@@ -49,7 +49,7 @@ Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. *
   
     Media Services는 DRM(Digital Rights Manager)처럼 네트워크상이 아니라 자산에 대해 디스크상의 스토리지 암호화 기능을 제공합니다.
   
-    자산이 암호화된 스토리지인 경우 자산 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 제공 정책 구성을](media-services-dotnet-configure-asset-delivery-policy.md)참조하십시오.
+    자산이 암호화된 스토리지인 경우 자산 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)을 참조 하세요.
 
 **CommonEncrypted** 옵션 또는 **EnvelopeEncrypted** 옵션으로 암호화할 자산을 지정하는 경우 **ContentKey**로 해당 자산을 연결해야 합니다. 자세한 내용은 [ContentKey를 만드는 방법](media-services-dotnet-create-contentkey.md)을 참조하세요 
 
@@ -92,7 +92,7 @@ Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. *
 
 * 이전 단계에서 정의된 CreateEmptyAsset 메서드를 사용하여 빈 자산을 만듭니다.
 * 자산에 액세스할 수 있는 권한 및 기간을 정의하는 **AccessPolicy** 인스턴스를 만듭니다.
-* 자산에 대한 액세스를 제공하는 **로케이터** 인스턴스를 만듭니다.
+* 자산에 대 한 액세스를 제공 하는 **로케이터** 인스턴스를 만듭니다.
 * **BlobTransferClient** 인스턴스를 만듭니다. 이 유형은 Azure blob에서 작동하는 클라이언트를 나타냅니다. 이 예제에서 클라이언트는 업로드 진행 상태를 모니터링합니다. 
 * 지정된 디렉터리에서 파일을 열거하고 각각의 파일에 **AssetFile** 인스턴스를 만듭니다.
 * **UploadAsync** 메서드를 사용하여 파일을 Media Services에 업로드합니다. 

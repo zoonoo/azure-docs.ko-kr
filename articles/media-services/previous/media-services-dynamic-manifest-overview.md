@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1234263fa800a17d0a5c235df54ca2751e3094bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "69015862"
 ---
 # <a name="filters-and-dynamic-manifests"></a>필터 및 동적 매니페스트
 
-> [!div class="op_single_selector" title1="사용 중인 미디어 서비스의 버전을 선택합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Media Services의 버전을 선택 합니다."]
 > * [버전 2](media-services-dynamic-manifest-overview.md)
 > * [버전 3](../latest/filters-dynamic-manifest-overview.md)
 
@@ -125,7 +125,7 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 ![변환 필터링][renditions1]
 
 ## <a name="removing-language-tracks"></a>언어 트랙 제거
-자산에는 영어, 스페인어, 프랑스어 등과 같은 여러 오디오 언어가 포함될 수 있습니다. 일반적으로 Player SDK 관리자는 사용자 선택당 기본 오디오 트랙 선택 및 사용 가능한 오디오 트랙을 선택합니다. 이러한 플레이어 SDK를 개발하는 것은 까다로운 일로, 디바이스별 플레이어 프레임워크 간에 서로 다른 구현이 필요합니다. 또한 일부 플랫폼에서는 Player API가 제한되어 있으며 사용자가 기본 오디오 트랙을 선택하거나 변경할 수 없는 오디오 선택 기능은 포함되지 않습니다. 자산 필터를 사용하면 원하는 오디오 언어만 포함하는 필터를 만들어 동작을 제어할 수 있습니다.
+자산에는 영어, 스페인어, 프랑스어 등의 여러 오디오 언어가 포함 될 수 있습니다. 일반적으로 플레이어 SDK 관리자는 기본 오디오 트랙 선택 및 사용자 당 사용 가능한 오디오 트랙을 선택 합니다. 이러한 플레이어 SDK를 개발하는 것은 까다로운 일로, 디바이스별 플레이어 프레임워크 간에 서로 다른 구현이 필요합니다. 또한 일부 플랫폼에서 플레이어 Api는 제한 되며, 사용자가 기본 오디오 트랙을 선택 하거나 변경할 수 없는 오디오 선택 기능을 포함 하지 않습니다. 자산 필터를 사용 하 여 원하는 오디오 언어만 포함 하는 필터를 만들어 동작을 제어할 수 있습니다.
 
 ![언어 트랙 필터링][language_filter]
 
@@ -165,7 +165,7 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 ## <a name="create-filters-programmatically"></a>프로그래밍 방식으로 필터 만들기
 다음 문서에서는 필터와 연결된 Media Services 엔터티에 대해 설명합니다. 또한 이 문서에서는 프로그래밍 방식으로 필터를 만드는 방법을 보여줍니다.  
 
-[REST API를 사용하여 필터를 만듭니다.](media-services-rest-dynamic-manifest.md)
+[REST api를 사용 하 여 필터를 만듭니다](media-services-rest-dynamic-manifest.md).
 
 ## <a name="combining-multiple-filters-filter-composition"></a>여러 개의 필터 결합(필터 컴퍼지션)
 단일 URL로 여러 개의 필터를 결합할 수도 있습니다. 
@@ -182,7 +182,7 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 
 최대 3개의 필터를 결합할 수 있습니다. 
 
-자세한 내용은 [이](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) 블로그를 참조하세요.
+자세한 내용은 [이](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) 블로그를 참조 하세요.
 
 ## <a name="know-issues-and-limitations"></a>알려진 문제 및 제한 사항
 * 동적 매니페스트는 GOP 경계(키 프레임)에서 작동하므로 트리밍에는 GOP 정확도가 있습니다. 
@@ -195,7 +195,7 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [고객에 콘텐츠 배달 개요](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png

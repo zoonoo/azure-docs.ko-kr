@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 4b166af219c8983e5765ef4c884ced7eb0689f54
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 1cd536f4a7c3751e2b85f40e582c1eb1c5bf2c74
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106681"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160514"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Microsoft 상업용 마켓플레이스 FAQ
 
@@ -57,8 +57,9 @@ Azure Marketplace 고객은 Azure용으로/Azure를 기반으로 빌드된 기�
 Azure Marketplace 제품은 다음 방법을 통해 구매할 수 있습니다.
 
 * [웹 기반 storefront](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [Azure Portal](https://portal.azure.com) <br>
-[!Note] Azure 계정이 필요 합니다. 없는 경우 **Azure에 대 한 시작** 페이지로 리디렉션되고, 새로 만듭니다.  
+* [Azure Portal](https://portal.azure.com) <br> 
+>[!Note]
+>Azure 계정이 필요 합니다. 없는 경우 **Azure에 대 한 시작** 페이지로 리디렉션되고, 새로 만듭니다.  
 * [Azure CLI (명령줄 인터페이스)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -336,7 +337,7 @@ Microsoft는 AAD를 통해 모든 Marketplace 사용자를 인증합니다.  추
 
 **리드 대상을 설정하는 데 필요한 도움은 어디에서 받을 수 있나요?**
 
-파트너 센터에서 자세히 알아보기 [-고객 리더](./partner-center-portal/commercial-marketplace-get-customer-leads.md) 설명서를 다운로드 하거나 제품 유형 및 리드 관리 [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) 를 선택 하 여 지원 티켓을 제출 합니다.
+파트너 센터에서 자세히 알아보기 [-고객 리더](./partner-center-portal/commercial-marketplace-get-customer-leads.md) 설명서를 다운로드 하거나 제품 유형 및 리드 관리를 선택 하 여 [도움말 및 지원을](https://partner.microsoft.com/support/v2/?stage=1) 통해 지원 티켓을 제출 합니다.
 
 **Marketplace에서 제품을 판매하려면 리드 대상을 구성해야 하나요?**
 

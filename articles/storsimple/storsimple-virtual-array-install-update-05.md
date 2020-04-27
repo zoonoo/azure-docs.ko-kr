@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
 ms.openlocfilehash: e09ff4bcbc141b1a1f80bc278918a291639c1885
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61445423"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에 업데이트 0.5 설치
@@ -57,7 +57,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>업데이트 또는 핫픽스를 다운로드하려면
 
-1. 인터넷 익스플로러를 시작하고 로 이동합니다. [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)
+1. Internet Explorer를 시작 하 고 [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)로 이동 합니다.
 
 2. 이 컴퓨터에서 Microsoft 업데이트 카탈로그를 처음 사용하는 경우 Microsoft 업데이트 카탈로그 추가 기능을 설치하라는 메시지가 나타나면 **설치** 를 클릭합니다.
 
@@ -67,7 +67,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
    
     ![카탈로그 검색](./media/storsimple-virtual-array-install-update-05/download1.png)
 
-4. **다운로드**를 
+4. **다운로드**를 클릭합니다. 
 
 5. 다운로드할 수 있는 2개의 파일 *.msu* 및 *.cab*가 표시됩니다. 이러한 각 파일을 폴더에 다운로드합니다. 디바이스에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
 
@@ -90,7 +90,7 @@ GA 또는 업데이트 0.1 소프트웨어 버전을 실행하는 디바이스�
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>업데이트 또는 핫픽스를 설치하려면
 
-1. 로컬 웹 UI에서 **유지 관리** > **소프트웨어 업데이트로**이동합니다.
+1. 로컬 웹 UI에서 **유지 관리** > **소프트웨어 업데이트**로 이동 합니다.
    
     ![디바이스 업데이트](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
@@ -106,7 +106,7 @@ GA 또는 업데이트 0.1 소프트웨어 버전을 실행하는 디바이스�
    
     ![디바이스 업데이트](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
-5. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 장치 소프트웨어가 업데이트되었는지 확인하려면 로컬 웹 UI에서 **유지 관리** > **소프트웨어 업데이트로**이동하십시오. 표시된 소프트웨어 버전은 업데이트 0.5의 경우 **10.0.0.0.0.10290.0** 입니다.
+5. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 장치 소프트웨어가 업데이트 되었는지 확인 하려면 로컬 웹 UI에서 **유지 관리** > **소프트웨어 업데이트**로 이동 합니다. 표시된 소프트웨어 버전은 업데이트 0.5의 경우 **10.0.0.0.0.10290.0** 입니다.
    
    > [!NOTE]
    > 로컬 웹 UI 및 Azure Portal에서 약간 다른 방법으로 소프트웨어 버전을 보고합니다. 예를 들어 같은 버전에 대해 로컬 웹 UI는 **10.0.0.0.0.10290**, Azure Portal은 **10.0.10290.0**을 보고합니다.

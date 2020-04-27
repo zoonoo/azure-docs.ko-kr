@@ -9,13 +9,13 @@ ms.date: 06/11/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 020e59f029b09f3c7656f67039731e4141e68d31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67182807"
 ---
-파이썬이 응용 프로그램을 시작하는 동안 오류가 발생하면 간단한 오류 페이지만 반환됩니다(예: "내부 서버 오류가 발생했기 때문에 페이지를 표시할 수 없습니다.").
+응용 프로그램을 시작 하는 동안 Python에 오류가 발생 하는 경우에는 간단한 오류 페이지만 반환 됩니다. 예를 들어 내부 서버 오류가 발생 했기 때문에 페이지를 표시할 수 없습니다. "
 
 Python 애플리케이션 오류를 캡처하려면:
 

@@ -1,6 +1,6 @@
 ---
-title: HC 시리즈 VM 크기 성능 - Azure 가상 머신 | 마이크로 소프트 문서
-description: Azure의 HC 시리즈 VM 크기에 대한 성능 테스트 결과에 대해 알아봅니다.
+title: HC 시리즈 VM 크기 성능-Azure Virtual Machines | Microsoft Docs
+description: Azure에서 HC 시리즈 VM 크기에 대 한 성능 테스트 결과에 대해 알아봅니다.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -13,33 +13,33 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: cea772f03d5e2838b44d50f3cf5e926d740be5f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67707691"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>HC 시리즈 가상 머신 크기
 
-HC 시리즈 크기에서 여러 성능 테스트가 실행되었습니다. 다음은 이 성능 테스트의 결과 중 일부입니다.
+여러 성능 테스트가 HC 시리즈 크기에서 실행 되었습니다. 다음은 이러한 성능 테스트의 결과 중 일부입니다.
 
 | 워크로드                                        | HB                    |
 |-------------------------------------------------|-----------------------|
-| 스트림 트라이어드                                    | ~ 190 GB / s (인텔 MLC AVX-512)  |
-| 고성능 린팩(HPL)                  | ~ 3520 기가플롭스 (Rpeak), ~ 2970 기가 플롭스 (Rmax) |
-| RDMA 대기 시간 & 대역폭                        | 1.80 마이크로초, 96.3Gb/s   |
-| 현지 NVMe SSD에 FIO                           | ~ 1.3 GB / s 읽기, ~ 900 MB / s쓰기 |  
-| 4 Azure 프리미엄 SSD에 IOR (P30 관리 디스크, RAID0)**  | ~ 780 MB / s 읽기, ~ 780 MB / 쓰기 |
+| 스트림 조로 묶어                                    | ~ 190 g b/초 (Intel MLC AVX-512)  |
+| HPL (고성능 Linpack)                  | ~ 3520 GigaFLOPS (Rpeak), ~ 2970 GigaFLOPS (Rpeak) |
+| RDMA 대기 시간 & 대역폭                        | 1.80 마이크로초, 96.3 g b/초   |
+| 로컬 NVMe SSD의 FIO                           | ~ 1.3 m b/초 읽기, ~ 900 m b/초 쓰기 |  
+| IOR on 4 Azure 프리미엄 SSD (P30 Managed Disks, RAID0) * *  | ~ 780 m b/초 읽기, ~ 780 m b/쓰기 |
 
-## <a name="infiniband-send-latency"></a>인피니밴드 전송 대기 시간
+## <a name="infiniband-send-latency"></a>InfiniBand 전송 대기 시간
 
-멜라녹스 퍼프테스트.
+Mellanox Perftest.
 
 ```azure-cli
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 
-|  #bytes         | #iterations     | t_min[마이크로초]     | t_max[마이크로초]     | t_typical[마이크로초] | t_avg[마이크로초]     | t_stdev[마이크로초]   |
+|  #bytes         | #iterations     | t_min [마이크로초]     | t_max [마이크로초]     | t_typical [마이크로초] | t_avg [마이크로초]     | t_stdev [마이크로초]   |
 |-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
 | 2               | 1000            | 1.80            | 7.50            | 1.85            | 1.86            | 0.20            |
 | 4               | 1000            | 1.79            | 6.06            | 1.83            | 1.84            | 0.20            |
@@ -56,13 +56,13 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 
 ## <a name="osu-mpi-latency-test"></a>OSU MPI 대기 시간 테스트
 
-OSU MPI 대기 시간 테스트 v5.4.3.
+OSU MPI 대기 시간 테스트 v 5.4.3.
 
 ```azure-cli
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
 ```
 
-| #bytes  | 대기 시간 [마이크로초] (MPICH 3.3 + CH4) | 대기 시간 [마이크로초] (OpenMPI 4.0.0) | 대기 시간[마이크로초] (MVAPICH2 2.3) |
+| #bytes  | 대기 시간 [마이크로초] (MPICH 3.3 + CH4) | 대기 시간 [마이크로초] (OpenMPI 4.0.0) | 대기 시간 [마이크로초] (MVAPICH2 2.3) |
 |------|----------|----------|----------|
 | 2    | 1.84     | 1.78     | 2.08     |
 | 4    | 1.84     | 1.79     | 2.08     |
@@ -79,13 +79,13 @@ OSU MPI 대기 시간 테스트 v5.4.3.
 
 ## <a name="mpi-bandwidth"></a>MPI 대역폭
 
-OSU MPI 대역폭 테스트 v5.4.3.
+OSU MPI 대역폭 테스트 v 5.4.3.
 
 ```azure-cli
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-| #Size   | 대역폭(MB/s) | 대역폭(Gb/s) |
+| #Size   | 대역폭 (MB/s) | 대역폭 (Gb/s) |
 |---------|------------------|------------------|
 | 2       | 6.18             | 0.04944          |
 | 4       | 13.27            | 0.10616          |

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
 ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67876111"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 데이터 관리자 솔루션 개요
@@ -68,9 +68,9 @@ StorSimple 데이터 관리자는 다음 7개 지역에서 사용할 수 있습�
  - 원본 스토리지 계정(StorSimple 디바이스와 연결된 계정) 및 대상 스토리지 계정(데이터를 네이티브 형식으로 유지하려는 계정)은 같은 Azure 지역에 있는 것이 좋습니다.
  - StorSimple 스토리지 계정을 포함하는 지역에서 데이터 관리자 및 작업 정의를 불러옵니다. 이것이 가능하지 않은 경우, 가장 가까운 Azure 지역에서 데이터 관리자를 불러온 다음, StorSimple 스토리지 계정과 동일한 지역에 작업 정의를 만듭니다. 
 
-    StorSimple 저장소 계정이 작업 정의 생성을 지원하는 26개 지역에 없는 경우 긴 대기 시간 및 잠재적 인 송신 요금이 표시되면 StorSimple 데이터 관리자를 실행하지 않는 것이 좋습니다.
+    StorSimple 저장소 계정이 작업 정의 생성을 지 원하는 26 개 지역에 있지 않은 경우 긴 대기 시간 및 잠재적인 송신 요금이 표시 되므로 StorSimple Data Manager를 실행 하지 않는 것이 좋습니다.
     
-Microsoft는 모든 리전에서 Azure 서비스를 항상 사용할 수 있도록 노력하고 있습니다. 그러나 특정 지역에서 짧은 기간 동안 계획되지 않은 서비스 중단이 발생할 수 있습니다. 이러한 경우 중단의 영향을 받지 않는 지역에서 데이터 관리자 및 작업 정의를 가져오고 변환 작업을 실행할 수 있습니다. 이러한 시나리오에서 몇 가지 추가 대기 시간이 발생할 수 있지만 드물게 지역 가동 중단의 경우 복구 전략이 될 수 있습니다.
+Microsoft는 모든 지역에서 Azure 서비스를 항상 사용할 수 있도록 하기 위해 노력 하 고 있습니다. 그러나 계획 되지 않은 서비스 중단이 특정 지역의 짧은 기간 동안 발생할 수 있습니다. 이러한 경우 중단의 영향을 받지 않는 지역에서 Data Manager 및 작업 정의를 가져와 변환 작업을 실행할 수 있습니다. 이러한 시나리오에서는 몇 가지 추가 대기 시간이 발생할 수 있지만이는 지역 가동 중단 시 드물게 복구 전략이 될 수 있습니다.
 
 ## <a name="security-considerations"></a>보안 고려 사항
 
@@ -86,7 +86,7 @@ StorSimple 데이터 관리자는 StorSimple 형식에서 네이티브 형식으
 
 ## <a name="managing-personal-information"></a>개인 정보 관리
 
-StorSimple Data Manager는 개인 정보를 수집하거나 표시하지 않습니다. 자세한 내용은 [트러스트 센터의](https://www.microsoft.com/trustcenter)Microsoft 개인 정보 보호 정책을 참조하십시오.
+StorSimple Data Manager는 개인 정보를 수집하거나 표시하지 않습니다. 자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토 하세요.
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 

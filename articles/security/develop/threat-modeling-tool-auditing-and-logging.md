@@ -16,24 +16,24 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: c9d20b3259cf4ea7af263d5e31145ad372db0c77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68728406"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>보안 프레임: 감사 및 로깅 | 완화 
 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
-| **Dynamics CRM**    | <ul><li>[솔루션에서 중요한 엔터티를 식별하고 변경 감사 구현](#sensitive-entities)</li></ul> |
-| **웹 응용 프로그램** | <ul><li>[응용 프로그램에 감사 및 로깅이 적용되었는지 확인합니다.](#auditing)</li><li>[로그 회전 및 분리가 제자리에 있는지 확인](#log-rotation)</li><li>[애플리케이션이 민감한 사용자 데이터를 기록하지 않도록 확인](#log-sensitive-data)</li><li>[감사 및 로그 파일의 액세스 제한](#log-restricted-access)</li><li>[사용자 관리 이벤트 기록](#user-management)</li><li>[시스템에 악용 방지 수단을 기본적으로 제공](#inbuilt-defenses)</li><li>[Azure App Service에서 웹앱에 대한 진단 로깅 설정](#diagnostics-logging)</li></ul> |
-| **데이터베이스** | <ul><li>[SQL Server에서 로그인 감사를 사용하도록 설정](#identify-sensitive-entities)</li><li>[Azure SQL에서 위협 감지 사용](#threat-detection)</li></ul> |
-| **Azure 저장소** | <ul><li>[Azure 스토리지 분석을 사용하여 Azure Storage에 대한 액세스 감사](#analytics)</li></ul> |
+| **Dynamics CRM**    | <ul><li>[솔루션의 중요 한 엔터티를 식별 하 고 변경 감사 구현](#sensitive-entities)</li></ul> |
+| **웹 응용 프로그램** | <ul><li>[응용 프로그램에 감사 및 로깅이 적용 되는지 확인](#auditing)</li><li>[로그 회전 및 분리가 준비 되어 있는지 확인](#log-rotation)</li><li>[애플리케이션이 민감한 사용자 데이터를 기록하지 않도록 확인](#log-sensitive-data)</li><li>[감사 및 로그 파일의 액세스 제한](#log-restricted-access)</li><li>[사용자 관리 이벤트 기록](#user-management)</li><li>[시스템에 악용 방지 수단을 기본적으로 제공](#inbuilt-defenses)</li><li>[Azure App Service에서 웹앱에 대한 진단 로깅 설정](#diagnostics-logging)</li></ul> |
+| **Database** | <ul><li>[SQL Server에서 로그인 감사를 사용하도록 설정](#identify-sensitive-entities)</li><li>[Azure SQL에서 위협 감지 사용](#threat-detection)</li></ul> |
+| **Azure Storage** | <ul><li>[Azure 스토리지 분석을 사용하여 Azure Storage에 대한 액세스 감사](#analytics)</li></ul> |
 | **WCF** | <ul><li>[충분한 로깅 구현](#sufficient-logging)</li><li>[충분한 감사 실패 처리 구현](#audit-failure-handling)</li></ul> |
-| **Web API** | <ul><li>[웹 API에서 감사 및 로깅이 적용되었는지 확인](#logging-web-api)</li></ul> |
+| **Web API** | <ul><li>[웹 API에 감사 및 로깅이 적용 되는지 확인](#logging-web-api)</li></ul> |
 | **IoT 필드 게이트웨이** | <ul><li>[필드 게이트웨이에 적절한 감사 및 로깅 적용](#logging-field-gateway)</li></ul> |
-| **IoT 클라우드 게이트웨이** | <ul><li>[클라우드 게이트웨이에서 적절한 감사 및 로깅이 적용되었는지 확인](#logging-cloud-gateway)</li></ul> |
+| **IoT 클라우드 게이트웨이** | <ul><li>[클라우드 게이트웨이에 적절 한 감사 및 로깅이 적용 되는지 확인](#logging-cloud-gateway)</li></ul> |
 
 ## <a name="identify-sensitive-entities-in-your-solution-and-implement-change-auditing"></a><a id="sensitive-entities"></a>솔루션의 민감한 엔터티를 식별하고 변경 감사 구현
 
@@ -142,7 +142,7 @@ ms.locfileid: "68728406"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | SQL Azure |
 | **특성**              | SQL 버전 - V12 |
-| **참조**              | [SQL 데이터베이스 위협 탐지 시작](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
+| **참조**              | [SQL Database 위협 검색 시작](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
 | **단계** |<p>위협 감지는 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 감지합니다. 위협 감지는 비정상적인 활동에 대한 보안 경고를 제공하여 잠재적인 위협이 발생하면 고객이 이를 감지하고 대응할 수 있도록 하는 새로운 차원의 보안을 제공합니다.</p><p>사용자는 데이터베이스의 데이터를 액세스, 침범 또는 악용하려는 시도로 인해 의심스러운 이벤트가 발생했는지를 판단하기 위해서 Azure SQL Database 감사를 사용하여 의심스러운 이벤트를 살펴 볼 수 있습니다.</p><p>위협 감지는 보안 전문가가 되거나 고급 보안 모니터링 시스템을 관리할 필요 없이 데이터베이스에 대한 잠재적인 위협에 간단하게 대처할 수 있도록 합니다.</p>|
 
 ## <a name="use-azure-storage-analytics-to-audit-access-of-azure-storage"></a><a id="analytics"></a>Azure 스토리지 분석을 사용하여 Azure Storage에 대한 액세스 감사

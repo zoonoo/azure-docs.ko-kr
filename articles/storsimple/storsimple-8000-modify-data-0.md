@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 3cf136c5ddec8f4998d15c597914e1f806453945
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60631586"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에서 DATA 0 네트워크 인터페이스 설정 수정
@@ -38,7 +38,7 @@ StorSimple 디바이스의 초기 배포 중 설치 마법사를 통해 DATA 0 �
 StorSimple 디바이스의 Windows PowerShell 인터페이스에 연결하고 설치 마법사 세션을 실행하여 DATA 0 네트워크 설정을 다시 구성할 수 있습니다. DATA 0 설정을 수정하려면 다음 단계를 수행합니다.
 
 #### <a name="to-modify-data-0-network-settings-through-setup-wizard"></a>설정 마법사를 통해 DATA 0 네트워크 설정을 수정하려면
-1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 메시지가 표시되면 **장치 관리자 암호를**제공합니다. 기본 암호는 `Password1`입니다.
+1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 메시지가 표시 되 면 **장치 관리자 암호**를 제공 합니다. 기본 암호는 `Password1`입니다.
 2. 명령 프롬프트에 다음을 입력합니다.
    
     `Invoke-HcsSetupWizard`

@@ -1,23 +1,23 @@
 ---
-title: '참조: 우분투 데이터 과학 가상 머신'
+title: '참조: Ubuntu Data Science Virtual Machine'
 titleSuffix: Azure Data Science Virtual Machine
-description: 우분투 데이터 과학 가상 머신에 포함 된 도구에 대한 자세한 내용
+description: Ubuntu에 포함 된 도구에 대 한 세부 정보 Data Science Virtual Machine
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 830668a78929a5e6a7e131ade5c62b81e6d725c3
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 7cfb2001067b70c64274ee1dd3475c142b788c98
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631360"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161284"
 ---
-# <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>참조: 우분투 (리눅스) 데이터 과학 가상 머신
+# <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>참조: Ubuntu (Linux) Data Science Virtual Machine
 
-당신의 우분투 데이터 과학 가상 머신에서 사용할 수 있는 도구의 목록에 대 한 아래를 참조 하십시오. 
+Ubuntu Data Science Virtual Machine에서 사용 가능한 도구 목록은 아래를 참조 하세요. 
 
 ## <a name="deep-learning-libraries"></a>딥 러닝 라이브러리
 
@@ -32,7 +32,7 @@ cd /home/[USERNAME]/notebooks/CNTK/HelloWorld-LogisticRegression
 cntk configFile=lr_bs.cntk makeMode=false command=Train
 ```
 
-자세한 내용은 [GitHub및](https://github.com/Microsoft/CNTK) [CNTK 위키의 CNTK](https://github.com/Microsoft/CNTK/wiki)섹션을 참조하십시오.
+자세한 내용은 [GitHub](https://github.com/Microsoft/CNTK) 의 CNTK 섹션과 [CNTK wiki](https://github.com/Microsoft/CNTK/wiki)를 참조 하세요.
 
 ### <a name="caffe"></a>Caffe
 
@@ -52,7 +52,7 @@ JupyterHub에서 몇 가지 예제 Notebook이 제공됩니다.
 
 H2O는 빠른 메모리 내 분산형 기계 학습 및 예측 분석 플랫폼입니다. Python 패키지는 루트 및 py35 Anaconda 환경 둘 다에 설치됩니다. R 패키지도 설치됩니다. 
 
-명령줄에서 H2O를 열려면 `java -jar /dsvm/tools/h2o/current/h2o.jar`을 실행합니다. 구성해야 할 수도 있는 다양한 [명령줄 옵션](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line)이 있습니다. 시작하려면 http://localhost:54321로 이동하여 Flow 웹 UI에 액세스할 수 있습니다. 샘플 노트북은 JupyterHub에서도 사용할 수 있습니다.
+명령줄에서 H2O를 열려면 `java -jar /dsvm/tools/h2o/current/h2o.jar`을 실행합니다. 구성해야 할 수도 있는 다양한 [명령줄 옵션](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line)이 있습니다. 시작하려면 `http://localhost:54321`로 이동하여 Flow 웹 UI에 액세스할 수 있습니다. 샘플 노트북은 JupyterHub에서도 사용할 수 있습니다.
 
 ### <a name="keras"></a>Keras
 
@@ -66,7 +66,7 @@ MXNet은 효율성과 유연성을 위해 디자인된 심층 학습 프레임�
 
 DIGITS라고 하는 NVIDIA Deep Learning GPU 학습 시스템은 일반적인 딥 러닝 작업을 간소화하는 시스템입니다. 이러한 작업에는 데이터 관리, GPU 시스템의 신경망 설계 및 학습, 고급 시각화를 통한 실시간 성능 모니터링이 포함됩니다.
 
-DIGITS는 *digits*라는 서비스로 사용할 수 있습니다. 이 서비스를 시작하고 http://localhost:5000 으로 이동하여 시작합니다.
+DIGITS는 *digits*라는 서비스로 사용할 수 있습니다. 이 서비스를 시작하고 `http://localhost:5000` 으로 이동하여 시작합니다.
 
 DIGITS는 Conda 루트 환경에서 Python 모듈로도 설치됩니다.
 
@@ -137,7 +137,7 @@ conda install <package> -n py35
 
 Anaconda 배포는 코드 및 분석을 공유하는 환경인 Jupyter Notebook도 제공됩니다. JupyterHub을 통해 Jupyter Notebook에 액세스합니다. 로컬 Linux 사용자 이름과 암호를 사용하여 로그인합니다.
 
-Jupyter Notebook 서버는 Python 2, Python 3 및 R 커널을 사용하여 미리 구성되어 있습니다. **Jupyter Notebook** 데스크톱 아이콘을 사용하여 브라우저를 열고 Notebook 서버에 액세스합니다. SSH 또는 X2Go 클라이언트를 통해 VM에 있는 경우 에서 [https://localhost:8000/](https://localhost:8000/)Jupyter 노트북 서버에 액세스할 수도 있습니다.
+Jupyter Notebook 서버는 Python 2, Python 3 및 R 커널을 사용하여 미리 구성되어 있습니다. **Jupyter Notebook** 데스크톱 아이콘을 사용하여 브라우저를 열고 Notebook 서버에 액세스합니다. SSH 또는 X2Go 클라이언트를 통해 VM을 사용하는 경우 `https://localhost:8000/`에서 Jupyter Notebook 서버에 액세스할 수도 있습니다.
 
 > [!NOTE]
 > 인증서 경고가 나타나는 경우 계속 진행하세요.
@@ -199,17 +199,17 @@ LaTex는 texlive 패키지를 통해 [AUCTeX](https://www.gnu.org/software/aucte
 
 SQuirrel SQL을 처음 사용하기 전에 드라이버 및 데이터베이스 별칭을 설정합니다. JDBC 드라이버는 /usr/share/java/jdbcdrivers에 있습니다.
 
-자세한 내용은 [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots)을 참조하십시오.
+자세한 내용은 [SQUIRREL SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots)을 참조 하세요.
 
 ### <a name="command-line-tools-for-accessing-microsoft-sql-server"></a>Microsoft SQL Server에 액세스하기 위한 명령줄 도구
 
 SQL Server용 ODBC 드라이버 패키지에서는 다음의 두 가지 명령줄 도구도 제공됩니다.
 
-- **bcp**: bcp 도구 대량 은 Microsoft SQL Server 인스턴스와 사용자가 지정한 형식으로 데이터 파일 간에 데이터를 복사합니다. bcp 도구를 사용하여 많은 수의 새 행을 SQL Server 테이블로 가져오거나 데이터를 테이블에서 데이터 파일로 내보낼 수 있습니다. 데이터를 테이블로 가져오려면 해당 테이블에 대해 만든 서식 파일을 사용해야 합니다. 또는 테이블의 구조와 해당 열에 유효한 데이터 형식을 이해해야 합니다.
+- **bcp**: bcp 도구는 Microsoft SQL Server 인스턴스와 사용자가 지정한 형식의 데이터 파일 간에 데이터를 대량 복사 합니다. bcp 도구를 사용하여 많은 수의 새 행을 SQL Server 테이블로 가져오거나 데이터를 테이블에서 데이터 파일로 내보낼 수 있습니다. 데이터를 테이블로 가져오려면 해당 테이블에 대해 만든 서식 파일을 사용해야 합니다. 또는 테이블의 구조와 해당 열에 유효한 데이터 형식을 이해해야 합니다.
 
   자세한 내용은 [Connecting with bcp](https://msdn.microsoft.com/library/hh568446.aspx)을 참조하세요.
 
-- **sqlcmd**: sqlcmd 도구를 사용하여 Transact-SQL 문을 입력할 수 있습니다. 또한 명령 프롬프트에서 시스템 프로시저 및 스크립트 파일을 입력할 수 있습니다. 이 도구는 ODBC를 사용하여 Transact-SQL 일괄 처리를 실행합니다.
+- **sqlcmd**: sqlcmd 도구를 사용 하 여 transact-sql 문을 입력할 수 있습니다. 또한 명령 프롬프트에서 시스템 프로시저 및 스크립트 파일을 입력할 수 있습니다. 이 도구는 ODBC를 사용하여 Transact-SQL 일괄 처리를 실행합니다.
 
   자세한 내용은 [sqlcmd를 사용하여 연결](https://msdn.microsoft.com/library/hh568447.aspx)을 참조하세요.
 
@@ -227,21 +227,21 @@ SQL Server용 ODBC 드라이버 패키지에서는 다음의 두 가지 명령�
 
 다음 Azure 도구가 VM에 설치됩니다.
 
-* **Azure CLI**: Azure의 명령줄 인터페이스를 사용하여 셸 명령을 통해 Azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 열려면 **azure help**를 입력합니다. 자세한 내용은 [Azure CLI 설명서 페이지](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요.
-* **Azure 저장소 탐색기**: Azure 저장소 탐색기는 Azure 저장소 계정에 저장된 개체를 탐색하고 Azure Blob에서 데이터를 업로드 및 다운로드하는 데 사용할 수 있는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. 셸 프롬프트에서 **StorageExplorer**를 입력하여 열 수도 있습니다. X2Go 클라이언트에서 로그인하거나 X11 전달이 설정되어 있어야 합니다.
-* **Azure 라이브러리**: 다음은 사전 설치된 라이브러리 중 일부입니다.
+* **Azure CLI**: azure에서 명령줄 인터페이스를 사용 하 여 셸 명령을 통해 azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 열려면 **azure help**를 입력합니다. 자세한 내용은 [Azure CLI 설명서 페이지](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요.
+* **Azure Storage 탐색기**: Azure Storage 탐색기는 azure Storage 계정에 저장 된 개체를 검색 하 고 azure blob 간에 데이터를 업로드 및 다운로드 하는 데 사용할 수 있는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. 셸 프롬프트에서 **StorageExplorer**를 입력하여 열 수도 있습니다. X2Go 클라이언트에서 로그인하거나 X11 전달이 설정되어 있어야 합니다.
+* **Azure 라이브러리**: 다음은 미리 설치 된 라이브러리 중 일부입니다.
   
-  * **파이썬**: 파이썬의 Azure 관련 라이브러리는 *azure,* *azureml,* *pydocumentdb*및 *pyodbc입니다.* 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure Cosmos DB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc를 SQL Serve용 Microsoft ODBC 드라이버와 함께 사용하면 ODBC 인터페이스를 사용하여 Python에서 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.
-  * **R**: R의 Azure 관련 라이브러리는 AzureML 및 RODBC입니다.
+  * **Python**: Python의 azure 관련 라이브러리는 *azure*, *azureml*, *pydocumentdb*및 *pyodbc*입니다. 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure Cosmos DB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc를 SQL Serve용 Microsoft ODBC 드라이버와 함께 사용하면 ODBC 인터페이스를 사용하여 Python에서 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.
+  * **R**: r의 Azure 관련 라이브러리는 AZUREML 및 RODBC입니다.
   * **Java**: VM의 /dsvm/sdk/AzureSDKJava 디렉터리에서 Azure Java 라이브러리 목록을 찾을 수 있습니다. 핵심 라이브러리는 Azure Storage 및 관리 API, Azure Cosmos DB, SQL Server용 JDBC 드라이버입니다.  
 
-사전 설치된 Firefox 브라우저에서 [Azure 포털에](https://portal.azure.com) 액세스할 수 있습니다. Azure 포털에서 Azure 리소스를 작성, 관리 및 모니터링할 수 있습니다.
+사전 설치 된 Firefox 브라우저에서 [Azure Portal](https://portal.azure.com) 에 액세스할 수 있습니다. Azure 포털에서 Azure 리소스를 작성, 관리 및 모니터링할 수 있습니다.
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-Azure Machine Learning은 예측 분석 솔루션을 빌드, 배포 및 공유할 수 있는 완전 관리형 클라우드 서비스입니다. Azure 기계 학습 스튜디오(미리 보기)에서 실험 및 모델을 빌드할 수 있습니다. [Microsoft Azure Machine Learning](https://ml.azure.com)을 방문하여 Data Science Virtual Machine의 웹 브라우저에서 액세스할 수도 있습니다.
+Azure Machine Learning은 예측 분석 솔루션을 빌드, 배포 및 공유할 수 있는 완전 관리형 클라우드 서비스입니다. Azure Machine Learning studio (미리 보기)에서 실험 및 모델을 빌드할 수 있습니다. [Microsoft Azure Machine Learning](https://ml.azure.com)을 방문하여 Data Science Virtual Machine의 웹 브라우저에서 액세스할 수도 있습니다.
 
-Azure 기계 학습 스튜디오에 로그인한 후 실험 캔버스를 사용하여 기계 학습 알고리즘에 대한 논리적 흐름을 작성할 수 있습니다. 또한 Azure 기계 학습에서 호스팅되는 Jupyter 노트북에 액세스할 수 있으며 Azure 기계 학습 스튜디오에서 실험과 원활하게 작업할 수 있습니다. 
+Azure Machine Learning studio에 로그인 한 후 실험 캔버스를 사용 하 여 기계 학습 알고리즘에 대 한 논리적 흐름을 만들 수 있습니다. Azure Machine Learning에서 호스트 되는 Jupyter 노트북에도 액세스할 수 있으며 Azure Machine Learning studio에서 실험을 통해 원활 하 게 작동할 수 있습니다. 
 
 빌드한 기계 학습 모델은 웹 서비스 인터페이스에 래핑하여 운용 가능하도록 설정합니다. 기계 학습 모델을 운용하면 모든 언어로 작성된 클라이언트가 해당 모델에서 예측을 호출할 수 있습니다. 자세한 내용은 [Machine Learning 설명서](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
 
@@ -261,7 +261,7 @@ VM에는 로컬로 미리 컴파일되고 미리 설치된 기계 학습 도구 
 * **Rattle**: 쉬운 데이터 탐색 및 모델링을 위한 R 기반 그래픽 도구입니다.
 * **Python**: Anaconda Python에서는 Scikit-learn 등의 라이브러리가 포함된 기계 학습 알고리즘이 번들로 제공됩니다. `pip install` 하여 다른 라이브러리를 설치할 수 있습니다.
 * **LightGBM**: 의사 결정 트리 알고리즘을 기준으로 하는 빠른 분산형 고성능 그라데이션 향상 프레임워크입니다.
-* **R**: R. 사전 설치된 라이브러리에는 lm, glm, randomForest 및 rpart가 포함된 다양한 기계 학습 기능 라이브러리를 사용할 수 있습니다. 다른 라이브러리는 다음 명령을 실행하여 설치할 수 있습니다.
+* **R**: r에 대해 다양 한 기계 학습 기능 라이브러리를 사용할 수 있습니다. 미리 설치 된 라이브러리에는 lm, 고, randomForest 및 rpart가 포함 됩니다. 다른 라이브러리는 다음 명령을 실행하여 설치할 수 있습니다.
   
         install.packages(<lib name>)
 
@@ -329,7 +329,7 @@ rattle()
 > [!NOTE]
 > 패키지를 시스템 디렉터리(기본값)에 설치할 수 있는 액세스 권한이 없는 경우 R 콘솔 창에 패키지를 개인 라이브러리에 설치하라는 메시지가 표시될 수 있습니다. 이러한 메시지가 표시되면 **y** 로 응답합니다.
 
-1. **실행을 선택합니다.**
+1. **실행**을 선택 합니다.
 1. 날씨 데이터 세트 예제를 사용할지 여부를 묻는 대화 상자가 표시됩니다. **예**를 선택하여 예제를 로드합니다.
 1. **모델** 탭을 선택합니다.
 1. **실행**을 선택하여 의사 결정 트리를 작성합니다.
@@ -338,11 +338,11 @@ rattle()
 1. **평가** 탭을 선택합니다.
 1. **위험** 옵션을 선택하고, **실행**을 선택하여 두 개의 **위험(누적)** 성능 도표를 표시합니다.
 1. **로그** 탭을 선택하여 이전 작업에서 생성된 R 코드를 표시합니다.
-   Rattle의 현재 릴리스에서 버그로 인해 로그 텍스트에 **#** 이 **로그를 내보내기** 앞에 문자를 삽입해야 합니다.
+   Rattle의 현재 릴리스에 대 한 버그로 인해 로그 텍스트에서 **이 로그를 내보냅니다** 앞에 **#** 문자를 삽입 해야 합니다.
 1. **내보내기** 단추를 선택하여 *weather_script.R*이라는 R 스크립트 파일을 홈 폴더에 저장합니다.
 
 Rattle 및 R을 종료할 수 있습니다. 이제 생성된 R 스크립트를 수정할 수 있습니다. 또는 스크립트를 있는 그대로 사용하고, 언제든지 이를 실행하여 Rattle UI 내에서 수행된 모든 작업을 반복합니다. 특히 이는 R 초보자를 위해 간단한 그래픽 인터페이스에서 분석 및 기계 학습을 빠르게 수행하는 동시에 R에서 코드를 자동으로 생성하여 수정하거나 학습할 수 있는 방법입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-추가 질문이 있나요? [지원 티켓을](https://azure.microsoft.com/support/create-ticket/)만드는 것이 좋습니다.
+추가 질문이 있나요? [지원 티켓](https://azure.microsoft.com/support/create-ticket/)을 만드는 것이 좋습니다.

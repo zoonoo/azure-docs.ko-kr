@@ -10,14 +10,14 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "65519974"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Azure Cosmos DB SQL API 계정에서 Java 비동기 SDK를 사용하는 경우 발생하는 문제 해결
-이 문서에서는 Azure Cosmos DB SQL API 계정과 함께 [Java 비동기 SDK를](sql-api-sdk-async-java.md) 사용할 때의 일반적인 문제, 해결 방법, 진단 단계 및 도구를 다룹니다.
+이 문서에서는 SQL API 계정과 Azure Cosmos DB [Java ASYNC SDK](sql-api-sdk-async-java.md) 를 사용 하는 경우 일반적인 문제, 해결 방법, 진단 단계 및 도구에 대해 설명 합니다.
 Java 비동기 SDK는 Azure Cosmos DB SQL API에 액세스하기 위한 클라이언트 쪽 논리적 표현을 제공합니다. 이 문서에서는 문제가 발생하는 경우 사용자에게 도움이 되는 도구 및 방법을 설명합니다.
 
 이 목록을 사용하여 시작합니다.
@@ -58,15 +58,15 @@ ulimit -a
     서비스 엔드포인트를 사용하도록 설정한 경우 요청이 더 이상 공용 IP에서 Azure Cosmos DB로 전송되지 않습니다. 대신 가상 네트워크 및 서브넷 ID가 전송됩니다. 공용 IP만 허용되는 경우 이 변경 내용으로 인해 방화벽이 삭제될 수 있습니다. 방화벽을 사용하는 경우 서비스 엔드포인트를 사용하도록 설정하면 [Virtual Network ACL](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl)을 사용하여 방화벽에 서브넷을 추가합니다.
 * Azure VM에 공용 IP를 할당합니다.
 
-##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>서비스에 연결할 수 없습니다 - 방화벽
-``ConnectTimeoutException``은 SDK가 서비스에 연결할 수 없음을 나타냅니다.
-직접 모드를 사용할 때 다음과 유사한 오류가 발생할 수 있습니다.
+##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>서비스에 연결할 수 없음-방화벽
+``ConnectTimeoutException``SDK에서 서비스에 연결할 수 없음을 나타냅니다.
+직접 모드를 사용 하는 경우 다음과 유사한 오류가 발생할 수 있습니다.
 ```
 GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
 ```
 
-앱 컴퓨터에서 방화벽이 실행 중인 경우 직접 모드에서 사용되는 열린 포트 범위는 10,000에서 20,000사이입니다.
-또한 [호스트 컴퓨터의 연결 제한을 따릅니다.](#connection-limit-on-host)
+앱 컴퓨터에서 방화벽이 실행 되 고 있는 경우 직접 모드에서 사용 되는 포트 범위 1만 ~ 2만를 엽니다.
+또한 [호스트 컴퓨터에 대 한 연결 제한을](#connection-limit-on-host)따릅니다.
 
 #### <a name="http-proxy"></a>HTTP 프록시
 
@@ -167,17 +167,17 @@ Azure Cosmos DB 에뮬레이터 HTTPS 인증서는 자체 서명입니다. SDK�
 Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
 ```
 
-위의 예외는 이전 버전의 RxJava lib(예: 1.2.2)에 종속성이 있음을 시사합니다. 우리의 SDK는 RxJava의 이전 버전에서 사용할 수없는 API가 있는 RxJava 1.3.8에 의존합니다. 
+위의 예외는 RxJava lib의 이전 버전에 대 한 종속성을 제시 합니다 (예: 1.2.2). SDK는 rxjava의 이전 버전에서 사용할 수 없는 Api를 포함 하는 RxJava 1.3.8를 사용 합니다. 
 
-이러한 issuses에 대 한 해결 방법은 RxJava-1.2.2에 제공 하는 다른 종속성을 식별 하 고 RxJava-1.2.2에 전이 종속성을 제외 하 고 CosmosDB SDK 최신 버전을 가져올 수 있도록 하는 것입니다.
+이러한 issuses에 대 한 해결 방법은 RxJava-1.2.2에 제공 되는 다른 종속성을 식별 하 고 RxJava-1.2.2에서 전이적 종속성을 제외 하 고 CosmosDB SDK에서 최신 버전을 가져오도록 허용 하는 것입니다.
 
-RxJava-1.2.2에 어떤 라이브러리가 가져오는지 확인하려면 프로젝트 pom.xml 파일 옆에 다음 명령을 실행합니다.
+RxJava-1.2.2에서 가져올 라이브러리를 식별 하려면 다음 명령을 실행 합니다.
 ```bash
 mvn dependency:tree
 ```
-자세한 내용은 [maven 종속성 트리 가이드를](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html)참조하십시오.
+자세한 내용은 [maven 종속성 트리 가이드](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html)를 참조 하세요.
 
-RxJava-1.2.2가 프로젝트의 다른 종속성에 대한 전이적 종속성임을 확인한 후 pom 파일에서 해당 lib에 대한 종속성을 수정하고 RxJava 전이적 종속성을 제외할 수 있습니다.
+RxJava-1.2.2가 프로젝트의 다른 종속성에 대 한 전이적 종속성을 식별 하면 pom 파일에서 해당 lib에 대 한 종속성을 수정 하 고 RxJava 전이적 종속성을 제외할 수 있습니다.
 
 ```xml
 <dependency>
@@ -193,7 +193,7 @@ RxJava-1.2.2가 프로젝트의 다른 종속성에 대한 전이적 종속성�
 </dependency>
 ```
 
-자세한 내용은 [전이적 종속성 제외 가이드를](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html)참조하십시오.
+자세한 내용은 [전이적 종속성 제외 가이드](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html)를 참조 하세요.
 
 
 ## <a name="enable-client-sdk-logging"></a><a name="enable-client-sice-logging"></a>클라이언트 SDK 로깅 사용
@@ -252,6 +252,6 @@ Azure Cosmos DB 엔드포인트에 대한 많은 연결이 `CLOSE_WAIT` 상태�
 [일반적인 이슈 및 해결 방법]: #common-issues-workarounds
 [Enable client SDK logging]: #enable-client-sice-logging
 [호스트 컴퓨터의 연결 제한]: #connection-limit-on-host
-[Azure SNAT(PAT) 포트 소모]: #snat
+[Azure SNAT (PAT) 포트 고갈]: #snat
 
 

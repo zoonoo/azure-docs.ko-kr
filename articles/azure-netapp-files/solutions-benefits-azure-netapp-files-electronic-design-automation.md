@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 8a287ec5cd33c9f2a96af7ad8162f7c8f54df118
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: fcede16619e8488796adc6f4c60af30643c1aadf
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134170"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160156"
 ---
 # <a name="benefits-of-using-azure-netapp-files-for-electronic-design-automation"></a>전자 디자인 자동화에 Azure NetApp Files 사용의 이점
 
@@ -77,9 +77,9 @@ TTM (출시 시점)은 반도체 및 칩 설계 업계에 대 한 중요 한 고
 
 기능 단계는 초기 사양과 논리적 디자인으로 구성 됩니다. 물리적 단계는 논리적 디자인이 물리적 칩으로 변환 될 때 발생 합니다. 로그 오프 및 테이프 아웃 단계 중에 최종 검사가 완료 되 고 디자인이 제조를 위한 foundry로 전달 됩니다.  
 
-기능 단계에는 순차 및 임의 읽기/쓰기 i/o의 혼합이 포함 됩니다. 기능 단계는 파일 상태 및 액세스 호출과 같이 메타 데이터를 많이 사용 합니다. 메타 데이터 작업은 크기 없이 효과적 이지만 읽기 및 쓰기 작업의 범위는 1 K에서 16k 사이입니다. 대부분의 읽기는 4 K에서 16kb 사이입니다.  대부분의 쓰기는 4 K이 하 여야 합니다.  물리적 단계는 32 K 및 64 K OP 크기를 혼합 하 여 순차적 읽기 및 쓰기 작업으로 구성 됩니다.  
+기능 단계에는 순차 및 임의 읽기/쓰기 i/o의 혼합이 포함 됩니다. 기능 단계는 파일 상태 및 액세스 호출과 같이 메타 데이터 집약적입니다. 메타 데이터 작업은 크기 없이 효과적 이지만 읽기 및 쓰기 작업의 범위는 1 K에서 16k 사이입니다. 대부분의 읽기는 4 K에서 16kb 사이입니다.  대부분의 쓰기는 4 K이 하 여야 합니다. 물리적 단계는 32 K 및 64 K OP 크기를 혼합 하 여 순차적 읽기 및 쓰기 작업으로 구성 됩니다.  
 
-위의 그래프에서 대부분의 처리량은 작업의 순차적 물리적 단계에서 제공 됩니다. I/o는 작은 임의 및 메타 데이터 집약적인 기능 단계에서 제공 됩니다. 두 단계가 병렬로 수행 됩니다. 
+위의 그래프에서 대부분의 처리량은 작업의 순차적 물리적 단계에서 제공 됩니다. I/o는 작은 무작위 및 메타 데이터 집약적 기능 단계에서 제공 됩니다. 두 단계가 병렬로 수행 됩니다. 
 
 결론에는 Azure compute를 Azure NetApp Files 하 여 .EDA 디자인을 통해 확장 가능한 대역폭을 얻을 수 있습니다. 
 

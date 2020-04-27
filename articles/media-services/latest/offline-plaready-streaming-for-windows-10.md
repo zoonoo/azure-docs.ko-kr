@@ -1,5 +1,5 @@
 ---
-title: Azure 미디어 서비스 v3를 사용 하 고 오프라인 PlayReady 스트리밍 구성
+title: Azure Media Services v3로 오프 라인 PlayReady 스트리밍 구성
 description: 이 문서에서는 Windows 10에서 PlayReady 오프라인 스트리밍에 대한 Azure Media Services 계정을 구성하는 방법을 보여 줍니다.
 services: media-services
 keywords: DASH, DRM, Widevine 오프라인 모드, ExoPlayer, Android
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 151aadadb5674f7f144d42b1f9d5115501ed381d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 63b835d5d6c442f19f6d1fbe1710547ab96e1b40
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887234"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160242"
 ---
-# <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>윈도우에 대 한 오프 라인 플레이 준비 스트리밍 10 미디어 서비스 v3
+# <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Media Services v3를 사용 하는 Windows 10 용 오프 라인 PlayReady 스트리밍
 
 Azure Media Services는 DRM 보호 기능을 사용하여 오프라인 다운로드/재생을 지원합니다. 이 문서에서는 Windows 10/PlayReady 클라이언트에 대한 Azure Media Services의 오프라인 지원을 설명합니다. 다음 문서에서는 iOS/FairPlay 및 Android/Widevine 디바이스에 대한 오프라인 모드 지원에 대해 알아볼 수 있습니다.
 
@@ -29,15 +29,15 @@ Azure Media Services는 DRM 보호 기능을 사용하여 오프라인 다운로
 - [Android용 오프라인 Widevine 스트리밍](offline-widevine-for-android.md)
 
 > [!NOTE]
-> 오프라인 DRM은 콘텐츠를 다운로드할 때 라이선스에 대한 단일 요청에 대해서만 청구됩니다. 모든 오류는 청구되지 않습니다.
+> 오프 라인 DRM은 콘텐츠를 다운로드할 때 라이선스에 대 한 단일 요청을 만드는 경우에만 청구 됩니다. 모든 오류는 청구 되지 않습니다.
 
 ## <a name="overview"></a>개요
 
 이 섹션에서는 오프라인 모드 재생에 관한 약간의 배경 지식을 제공합니다.
 
-* 일부 국가/지역에서는 인터넷 가용성 및/또는 대역폭이 여전히 제한되어 있습니다.사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 보고자 먼저 다운로드를 선택할 수도 있습니다. 이 경우 대개 문제는 네트워크 가용성이 아니라 제한된 네트워크 대역폭입니다. OTT/OVP 공급자가 오프라인 모드 지원을 요청하고 있습니다.
+* 일부 국가/지역에서는 인터넷 가용성 및/또는 대역폭이 여전히 제한 됩니다.사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 보고자 먼저 다운로드를 선택할 수도 있습니다. 이 경우 대개 문제는 네트워크 가용성이 아니라 제한된 네트워크 대역폭입니다. OTT/OVP 공급자가 오프라인 모드 지원을 요청하고 있습니다.
 * Netflix 2016 Q3 주주 컨퍼런스에서 공개된 바와 같이 Netflix CEO인 Reed Hastings는 콘텐츠 다운로드는 “자주 요청되는 기능”이고 “이 기능에 대해 열려 있습니다”라고 밝혔습니다.
-* 일부 콘텐츠 제공업체는 국가/지역의 경계를 넘어 DRM 라이선스 전송을 허용하지 않을 수 있습니다. 사용자가 해외 여행을 하면서도 콘텐츠를 보려는 경우 오프라인 다운로드가 필요합니다.
+* 일부 콘텐츠 공급자는 국가/지역 테두리를 넘어 DRM 라이선스 배달을 허용 하지 않을 수 있습니다. 사용자가 해외 여행을 하면서도 콘텐츠를 보려는 경우 오프라인 다운로드가 필요합니다.
  
 오프라인 모드 구현 시 직면하는 문제는 다음과 같습니다.
 
@@ -60,13 +60,13 @@ H264/AAC를 사용하는 부드러운 스트리밍([PIFF](https://docs.microsoft
 
 자산 #1:
 
-* 프로그레시브 다운로드 URL:[https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
-* 플레이 레디 LA_URL (AMS):[https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
+* 프로그레시브 다운로드 URL:[https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* PlayReady LA_URL(AMS): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/`
 
 자산 #2:
 
 * 프로그레시브 다운로드 URL:[https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* 플레이레디 LA_URL(온프레미스):[https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
+* PlayReady LA_URL (온-프레미스):`https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
 
 재생 테스트 시 Windows 10에서 Universal Windows Application을 사용했습니다. [Windows 10 유니버설 샘플](https://github.com/Microsoft/Windows-universal-samples)에는 [적응 스트리밍 샘플](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming)을 호출하는 기본 플레이어 샘플이 있습니다. 우리가 해야 할 일은 코드를 추가하여 다운로드한 비디오를 선택하여 적응 스트리밍 원본 대신에 해당 비디오를 원본으로 사용하는 것입니다. 변경 사항은 단추 클릭 이벤트 처리기에 있습니다.
 

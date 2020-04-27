@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: a29381bded4bb2562227bd5f23ccb59bb5add028
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67059213"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Azure Webhooks를 사용하여 .NET으로 Media Services 작업 알림 모니터링 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전, [미디어 서비스 v3을](https://docs.microsoft.com/azure/media-services/latest/)확인하십시오. 또한 [v2에서 v3로의 마이그레이션 지침을](../latest/migrate-from-v2-to-v3.md) 참조하십시오.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. Azure Webhooks 또는 [Azure Queue Storage](media-services-dotnet-check-job-progress-with-queues.md)를 사용하여 Media Services 작업 알림을 모니터링할 수 있습니다 이 문서에서는 웹후크를 사용하는 방법을 보여 줍니다.
 
@@ -46,9 +46,9 @@ ms.locfileid: "67059213"
 
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
-* Azure 계정. 자세한 내용은 [Azure 무료 평가판을](https://azure.microsoft.com/pricing/free-trial/)참조하십시오.
-* Media Services 계정. 미디어 서비스 계정을 만들려면 [미디어 서비스 계정을 만드는 방법을](media-services-portal-create-account.md)참조하세요.
-* Azure [함수를 사용하는 방법에](../../azure-functions/functions-overview.md)대한 이해. 또한 [Azure Functions HTTP 및 웹후크 바인딩](../../azure-functions/functions-bindings-http-webhook.md)을 검토합니다.
+* Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요.
+* Media Services 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조 하세요.
+* [Azure Functions 사용 방법](../../azure-functions/functions-overview.md)이해 또한 [Azure Functions HTTP 및 웹후크 바인딩](../../azure-functions/functions-bindings-http-webhook.md)을 검토합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
@@ -64,7 +64,7 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 |이름|정의|예제| 
 |---|---|---|
 |SigningKey |서명 키입니다.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | 웹후크 엔드포인트 주소입니다. 웹후크 함수를 만든 후에 **함수 URL 가져오기** 링크에서 URL을 복사할 수 있습니다. | https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g===|
+|WebHookEndpoint | 웹후크 엔드포인트 주소입니다. 웹후크 함수를 만든 후에 **함수 URL 가져오기** 링크에서 URL을 복사할 수 있습니다. | https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g = =.|
 
 ## <a name="create-a-function"></a>함수 만들기
 
@@ -379,7 +379,7 @@ internal sealed class NotificationMessage
 이 섹션에서는 태스크에 Webhook 알림을 추가하는 코드가 표시됩니다. 작업 수준 알림을 추가할 수도 있습니다. 그러면 연결된 태스크를 사용하여 작업에 더 유용합니다.  
 
 1. Visual Studio를 사용하여 새 C# 콘솔 애플리케이션을 만듭니다. 이름, 위치 및 솔루션 이름을 입력하고 확인을 클릭합니다.
-2. [NuGet을](https://www.nuget.org/packages/windowsazure.mediaservices) 사용하여 Azure 미디어 서비스를 설치합니다.
+2. [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) 을 사용 하 여 Azure Media Services를 설치 합니다.
 3. App.config 파일을 적절한 값으로 업데이트합니다. 
     
    * Azure Media Services 연결 정보 

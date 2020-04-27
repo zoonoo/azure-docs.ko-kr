@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: dc6edaebebe89b6d4a35ada58d40795f86a935d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72264479"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Azure Event Hubs 처리량 단위 자동 확장
@@ -40,19 +40,19 @@ Event Hubs 트래픽은 [처리량 단위](event-hubs-scalability.md#throughput-
 
 ## <a name="enable-auto-inflate-on-a-namespace"></a>네임스페이스에서 자동 확장 사용
 
-다음 방법 중 하나를 사용하여 표준 계층 이벤트 허브 네임스페이스에서 자동 팽창을 활성화하거나 사용하지 않도록 설정할 수 있습니다.
+다음 방법 중 하나를 사용 하 여 표준 계층 Event Hubs 네임 스페이스에서 자동 확장을 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
-- [Azure 포털](https://portal.azure.com).
-- [Azure 리소스 관리자 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate).
+- [Azure Portal](https://portal.azure.com)입니다.
+- [Azure Resource Manager 템플릿입니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate).
 
 > [!NOTE]
-> 기본 계층 이벤트 허브 네임스페이스는 자동 팽창을 지원하지 않습니다.
+> 기본 계층 Event Hubs 네임 스페이스는 자동 확장을 지원 하지 않습니다.
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>포털을 통해 자동 확장 사용
 
 
 #### <a name="enable-at-the-time-of-creation"></a>생성 시 사용 
-**이벤트 허브 네임스페이스를 만들 때**자동 팽창 기능을 활성화할 수 있습니다.
+**Event Hubs 네임 스페이스를 만들 때**자동 확장 기능을 사용 하도록 설정할 수 있습니다.
  
 ![이벤트 허브 생성 시 자동 확장 사용](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 

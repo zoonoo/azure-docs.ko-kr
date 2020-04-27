@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "66399211"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>DevTest Labs 가상 머신에 대한 사용자 지정 아티팩트 만들기
@@ -55,13 +55,13 @@ ms.locfileid: "66399211"
 
 | 요소 이름 | 필수 여부 | 설명 |
 | --- | --- | --- |
-| $schema |예 |JSON 스키마 파일의 위치입니다. JSON 스키마 파일은 정의 파일의 유효성을 검사하는 데 도움이 될 수 있습니다. |
-| title |yes |랩에 표시되는 아티팩트의 이름입니다. |
-| description |yes |랩에 표시되는 아티팩트에 대한 설명입니다. |
-| iconUri |예 |랩에 표시되는 아이콘의 URI입니다. |
-| targetOsType |yes |아티팩트가 설치되는 VM의 운영 체제입니다. 지원되는 옵션은 Windows 및 Linux입니다. |
-| 매개 변수 |예 |아티팩트 설치 명령이 컴퓨터에서 실행될 때 제공되는 값으로 아티팩트를 사용자 지정할 수 있습니다. |
-| runCommand |yes |VM에서 실행되는 아티팩트 설치 명령입니다. |
+| $schema |아니요 |JSON 스키마 파일의 위치입니다. JSON 스키마 파일은 정의 파일의 유효성을 검사하는 데 도움이 될 수 있습니다. |
+| title |예 |랩에 표시되는 아티팩트의 이름입니다. |
+| description |예 |랩에 표시되는 아티팩트에 대한 설명입니다. |
+| iconUri |아니요 |랩에 표시되는 아이콘의 URI입니다. |
+| targetOsType |예 |아티팩트가 설치되는 VM의 운영 체제입니다. 지원되는 옵션은 Windows 및 Linux입니다. |
+| 매개 변수 |아니요 |아티팩트 설치 명령이 컴퓨터에서 실행될 때 제공되는 값으로 아티팩트를 사용자 지정할 수 있습니다. |
+| runCommand |예 |VM에서 실행되는 아티팩트 설치 명령입니다. |
 
 ### <a name="artifact-parameters"></a>아티팩트 매개 변수
 정의 파일의 매개 변수 섹션에서 아티팩트를 설치할 때 사용자가 입력할 수 있는 값을 지정합니다. 아티팩트 설치 명령에서 다음 값을 참조할 수 있습니다.
@@ -76,11 +76,11 @@ ms.locfileid: "66399211"
       }
     }
 
-| 요소 이름 | 필수 여부 | 설명 |
+| 요소 이름 | 필수 여부 | Description |
 | --- | --- | --- |
-| type |yes |매개 변수 값의 형식입니다. 허용되는 형식에 대해 다음 목록을 참조하세요. |
-| displayName |yes |랩에서 사용자에게 표시되는 매개 변수의 이름입니다. |
-| description |yes |랩에 표시되는 매개 변수의 설명입니다. |
+| type |예 |매개 변수 값의 형식입니다. 허용되는 형식에 대해 다음 목록을 참조하세요. |
+| displayName |예 |랩에서 사용자에게 표시되는 매개 변수의 이름입니다. |
+| description |예 |랩에 표시되는 매개 변수의 설명입니다. |
 
 허용 유형은 다음과 같습니다.
 
@@ -89,8 +89,8 @@ ms.locfileid: "66399211"
 * bool(유효한 모든 JSON 부울)
 * array(유효한 모든 JSON 배열)
 
-## <a name="secrets-as-secure-strings"></a>보안 문자열로서의 비밀
-보안을 보안 문자열로 선언합니다. 다음은 **artifactfile.json** 파일의 섹션 내에서 `parameters` 보안 문자열 매개 변수를 선언하기 위한 구문입니다.
+## <a name="secrets-as-secure-strings"></a>보안 문자열로 된 비밀
+비밀을 보안 문자열로 선언 합니다. 다음은 `parameters` **artifactfile. json** 파일의 섹션 내에서 보안 문자열 매개 변수를 선언 하는 구문입니다.
 
 ```json
 
@@ -102,7 +102,7 @@ ms.locfileid: "66399211"
     },
 ```
 
-아티팩트 설치 명령의 경우 ConvertTo-SecureString 명령을 사용하여 만든 보안 문자열을 사용하는 PowerShell 스크립트를 실행합니다. 
+아티팩트 설치 명령의 경우 Convertto-html 명령을 사용 하 여 만든 보안 문자열을 사용 하는 PowerShell 스크립트를 실행 합니다. 
 
 ```json
   "runCommand": {
@@ -110,9 +110,9 @@ ms.locfileid: "66399211"
   }
 ```
 
-전체 예제 artifactfile.json 및 artifact.ps1 (PowerShell 스크립트)에 대 한 [이 샘플을 GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes)에서 참조 하십시오.
+전체 예제 artifactfile. json 및 아티팩트와 (PowerShell 스크립트) [GitHub에서이 샘플](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes)을 참조 하세요.
 
-또 다른 중요한 점은 사용자 디버깅을 위해 출력이 캡처되므로 콘솔에 비밀을 기록하지 않는 것입니다. 
+또한 사용자 디버깅을 위해 출력이 캡처될 때 콘솔에 비밀을 기록 하지 않는 것이 중요 합니다. 
 
 ## <a name="artifact-expressions-and-functions"></a>아티팩트 식 및 함수
 식과 함수를 사용하여 아티팩트 설치 명령을 구성할 수 있습니다.
@@ -135,7 +135,7 @@ ms.locfileid: "66399211"
 
 ## <a name="create-a-custom-artifact"></a>사용자 지정 아티팩트 만들기
 
-1. JSON 편집기를 설치합니다. 아티팩트 정의 파일 작업을 수행하려면 JSON 편집기가 필요합니다. Windows, Linux 및 OS X에서 사용할 수 있는 [Visual Studio 코드를](https://code.visualstudio.com/)사용하는 것이 좋습니다.
+1. JSON 편집기를 설치합니다. 아티팩트 정의 파일 작업을 수행하려면 JSON 편집기가 필요합니다. Windows, Linux 및 OS X에 사용할 수 있는 [Visual Studio Code](https://code.visualstudio.com/)를 사용 하는 것이 좋습니다.
 2. 샘플 artifactfile.json 정의 파일을 가져옵니다. [GitHub 리포지토리](https://github.com/Azure/azure-devtestlab)에서 DevTest Labs 팀에서 만든 아티팩트를 확인하세요. 사용자 고유의 아티팩트를 만들 수 있는 풍부한 라이브러리의 아티팩트를 만들었습니다. 아티팩트 정의 파일을 다운로드하고 변경하여 사용자 고유 아티팩트를 만들 수 있습니다.
 3. IntelliSense를 사용합니다. 아티팩트 정의 파일을 구성하는 데 사용할 수 있는 유효한 요소를 보려면 IntelliSense를 사용합니다. 또한 요소 값에 대한 다양한 옵션을 볼 수 있습니다. 예를 들어 IntelliSense에 **targetOsType** 요소를 편집할 때 두 가지 선택 항목인 Windows 또는 Linux가 표시됩니다.
 4. 아티팩트를 [DevTest Labs용 공용 Git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) 또는 [사용자 고유의 Git 리포지토리](devtest-lab-add-artifact-repo.md)에 저장합니다. 공용 리포지토리에서 직접 사용하거나 필요에 맞게 사용자 지정할 수 있으며 다른 사용자가 공유한 아티팩트를 볼 수 있습니다.
@@ -149,7 +149,7 @@ ms.locfileid: "66399211"
       ![아티팩트 폴더 예제](./media/devtest-lab-artifact-author/git-repo.png)
 5. 사용자 고유의 리포지토리를 사용하여 아티팩트를 저장하는 경우 [아티팩트 및 템플릿용 Git 리포지토리 추가](devtest-lab-add-artifact-repo.md) 문서의 지침에 따라 리포지토리를 랩에 추가합니다.
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 * [DevTest Labs에서 아티팩트 실패를 진단하는 방법](devtest-lab-troubleshoot-artifact-failure.md)
 * [DevTest Labs에서 Resource Manager 템플릿을 사용하여 기존 Active Directory 도메인에 VM 가입](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 

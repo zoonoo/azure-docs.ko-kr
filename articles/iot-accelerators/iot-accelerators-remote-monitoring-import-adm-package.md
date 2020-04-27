@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링 솔루션 가져오기 패키지 - Azure | 마이크로 소프트 문서
+title: 원격 모니터링 솔루션 가져오기 패키지-Azure | Microsoft Docs
 description: 이 문서에서는 원격 모니터링 솔루션 가속기로 자동 디바이스 관리 패키지를 가져오는 방법을 설명합니다.
 author: dominicbetts
 manager: philmea
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "61443448"
 ---
 # <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기로 자동 디바이스 관리 패키지 가져오기

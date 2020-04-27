@@ -9,13 +9,13 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68847164"
 ---
-# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>빠른 시작: PowerShell을 사용하여 스토리지 이벤트를 웹 엔드포인트로 라우팅
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>빠른 시작: PowerShell을 사용 하 여 웹 끝점에 저장소 이벤트 라우팅
 
 Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure PowerShell을 사용하여 Blob Storage 이벤트를 구독하고 이벤트를 트리거하여 결과를 확인합니다. 
 
@@ -25,11 +25,11 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 
 ![결과 보기](./media/storage-blob-event-quickstart-powershell/view-results.png)
 
-## <a name="setup"></a>설치 프로그램
+## <a name="setup"></a>설정
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-이 문서에서는 Azure PowerShell의 최신 버전을 실행해야 합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 을 설치 및 구성을](/powershell/azure/install-Az-ps)참조하세요.
+이 문서에서는 Azure PowerShell의 최신 버전을 실행해야 합니다. 설치 또는 업그레이드 해야 하는 경우 [Azure PowerShell 설치 및 구성](/powershell/azure/install-Az-ps)을 참조 하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -60,7 +60,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-Blob Storage 이벤트는 범용 v2 스토리지 계정과 Blob Storage 계정에서 사용할 수 있습니다. **범용 v2** 스토리지 계정은 Blob, 파일, 큐 및 테이블을 포함하여 모든 스토리지 서비스의 모든 기능을 지원하는 스토리지 계정입니다. **Blob 저장소 계정은** Azure Storage에 구조화되지 않은 데이터를 Blob(개체)으로 저장하기 위한 특수 저장소 계정입니다. Blob Storage 계정은 범용 스토리지 계정과 유사합니다. 블록 Blob과 연결 Blob에 대한 100% API 일관성을 포함하여 현재 제공되는 뛰어난 내구성, 가용성, 확장성은 모두 같습니다. 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+Blob Storage 이벤트는 범용 v2 스토리지 계정과 Blob Storage 계정에서 사용할 수 있습니다. **범용 v2** 스토리지 계정은 Blob, 파일, 큐 및 테이블을 포함하여 모든 스토리지 서비스의 모든 기능을 지원하는 스토리지 계정입니다. **Blob 저장소 계정은** 구조화 되지 않은 데이터를 Azure Storage blob (objects)로 저장 하는 특수 한 저장소 계정입니다. Blob Storage 계정은 범용 스토리지 계정과 유사합니다. 블록 Blob과 연결 Blob에 대한 100% API 일관성을 포함하여 현재 제공되는 뛰어난 내구성, 가용성, 확장성은 모두 같습니다. 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount)를 사용하여 LRS 복제를 통한 Blob Storage 계정을 만든 후 사용할 스토리지 계정을 정의하는 스토리지 계정 컨텍스트를 검색합니다. 스토리지 계정에서 작업할 때 반복적으로 자격 증명을 제공하는 대신 컨텍스트를 참조합니다. 이 예제에서는 LRS(로컬 중복 스토리지)를 사용하여 **gridstorage**라는 스토리지 계정을 만듭니다. 
 
@@ -103,7 +103,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="subscribe-to-your-storage-account"></a>스토리지 계정 구독
 
-추적할 이벤트를 이벤트 그리드에 알리는 토픽을 구독합니다. 다음 예제에서는 만든 저장소 계정을 구독 하 고 이벤트 알림에 대 한 끝점으로 웹 앱에서 URL을 전달 합니다. 웹앱에 대한 엔드포인트는 접미사 `/api/updates/`를 포함해야 합니다.
+항목을 구독 하 여 추적할 이벤트 Event Grid를 알려 줍니다. 다음 예제에서는 사용자가 만든 저장소 계정을 구독 하 고 웹 앱의 URL을 이벤트 알림에 대 한 끝점으로 전달 합니다. 웹앱에 대한 엔드포인트는 접미사 `/api/updates/`를 포함해야 합니다.
 
 ```powershell
 $storageId = (Get-AzStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68965281"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>StorSimple 디바이스에 대한 기술 사양 및 규정 준수
@@ -35,7 +35,7 @@ StorSimple 디바이스에는 두 개의 100-240V 듀얼 팬, SBB 규격 PCM(전
 
 EBOD 엔클로저는 580 W PCM을 사용하며 기본 엔클로저는 764 W PCM을 사용합니다. 다음 표에서 PCM과 관련된 기술 사양을 보여줍니다.
 
-| 사양 | 580 W PCM(EBOD) | 764 W PCM(기본) |
+| 규격 | 580 W PCM(EBOD) | 764 W PCM(기본) |
 | --- | --- | --- |
 | 최대 출력 전원 |580W |764 |
 | 빈도 |50/60Hz |50/60Hz |
@@ -46,7 +46,7 @@ EBOD 엔클로저는 580 W PCM을 사용하며 기본 엔클로저는 764 W PCM�
 | 출력 |5V 대기 전압 \@ 2.0 A |5V 대기 전압 \@ 2.7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
-| 핫 플러그형 |yes |yes |
+| 핫 플러그형 |예 |예 |
 | 스위치 및 LED |AC ON/OFF 스위치와 4개의 상태 표시기 LED |AC ON/OFF 스위치와 6개의 상태 표시기 LED |
 | 냉각 엔클로저 |가변 팬 속도 제어를 사용한 냉각팬 축 |가변 팬 속도 제어를 사용한 냉각팬 축 |
 
@@ -83,7 +83,7 @@ StorSimple 디바이스에는 8100 및 8600에 대한 하드 디스크 드라이
 | 총 사용 가능한 용량 * |최대 15TB |최대 38TB |
 | 최대 솔루션 용량(클라우드 포함) |200TB |500TB |
 
-<sup>* </sup>- *총 사용 가능한 용량에는 데이터, 메타데이터 및 버퍼에 사용할 수 있는 용량이 포함됩니다. 8100 장치에서 로컬로 고정된 볼륨을 최대 8.5TB 또는 더 큰 8600 장치에서 최대 22.5TB까지 프로비전할 수 있습니다. 자세한 내용은 [StorSimple 로컬 고정 볼륨으로](storsimple-8000-local-volume-faq.md)이동하십시오.*
+<sup>* </sup>- *사용 가능한 총 용량에는 데이터, 메타 데이터 및 버퍼에 사용할 수 있는 용량이 포함 됩니다. 8100 장치에서 로컬로 고정 된 볼륨은 최대 8.5, 더 큰 8600 장치에서는 최대 22.5 TB를 프로 비전 할 수 있습니다. 자세한 내용은 [StorSimple 로컬로 고정 된 볼륨](storsimple-8000-local-volume-faq.md)으로 이동 합니다.*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>엔클로저 차원과 가중치 사양
 
@@ -175,11 +175,11 @@ Microsoft Azure StorSimple 디바이스는 다음 EMC 등급을 만족합니다.
 
 ## <a name="ac-power-cord-compliance"></a>AC 전원 코드 규정 준수
 
-플러그와 전체 전원 코드 어셈블리는 장치가 사용되는 국가/지역에 적합한 표준을 충족해야 하며 해당 국가/지역에서 허용되는 안전 승인을 받아야 합니다. 다음 표에서 미국과 유럽에 대한 표준을 보여줍니다.
+플러그 앤 전체 전원 코드 어셈블리는 장치를 사용 하는 국가/지역에 적합 한 표준을 충족 해야 하며, 해당 국가/지역에서 허용 되는 안전 승인을 보유 해야 합니다. 다음 표에서 미국과 유럽에 대한 표준을 보여줍니다.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>AC 전원 코드-미국(나열된 NRTL이어야 함)
 
-| 구성 요소 | 사양 |
+| 구성 요소 | 규격 |
 | --- | --- |
 | 코드 형식 |SV 또는 SVT, 최소 18 AWG, 3선, 최대 2.0m 길이 |
 | 플러그 |NEMA 5-15P 첨부 파일 형식 접지 플러그  등급 120V, 10A 또는 IEC 320 C14, 250V, 10A |
@@ -187,7 +187,7 @@ Microsoft Azure StorSimple 디바이스는 다음 EMC 등급을 만족합니다.
 
 ### <a name="ac-power-cords---europe"></a>AC 전원 코드-유럽
 
-| 구성 요소 | 사양 |
+| 구성 요소 | 규격 |
 | --- | --- |
 | 코드 형식 |고주파, H05-VVF-3G1.0 |
 | 소켓 |IEC 320 C-13, 250V, 10A |

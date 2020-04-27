@@ -1,6 +1,6 @@
 ---
-title: 오픈 소스 기술 자주 묻는 질문
-description: Azure App Service의 오픈 소스 기술에 대한 자주 묻는 질문에 대한 답변을 얻을 수 있습니다.
+title: 오픈 소스 기술 Faq
+description: Azure App Service에서 오픈 소스 기술에 대 한 자주 묻는 질문에 대 한 답변을 확인 하세요.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 33590f9fc7e6c4d46123cbc7088086a3197d52ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a7a00e59db677e156037c007537ab1b54c1cfaf
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74672435"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159969"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure Web Apps에 대한 오픈 소스 기술 FAQ
 
@@ -26,11 +26,11 @@ ms.locfileid: "74672435"
 
 PHP 로깅을 켜려면:
 
-1. [Kudu 웹 사이트](https://*yourwebsitename*.scm.azurewebsites.net)에 로그인합니다.
-2. 상단 메뉴에서 **디버그 콘솔** > **CMD를**선택합니다.
+1. **Kudu 웹 사이트** (`https://*yourwebsitename*.scm.azurewebsites.net`)에 로그인 합니다.
+2. 상단 메뉴에서 **디버그 콘솔** > **CMD**를 선택 합니다.
 3. **Site** 폴더를 선택합니다.
 4. **wwwroot** 폴더를 선택합니다.
-5. 아이콘을 **+** 선택한 다음 **새 파일**을 선택합니다.
+5. **+** 아이콘을 선택 하 고 **새 파일**을 선택 합니다.
 6. 파일 이름을 **.user.ini**로 설정합니다.
 7. **.user.ini** 옆에 있는 연필 아이콘을 선택합니다.
 8. 파일에 다음 코드를 추가합니다. `log_errors=on`
@@ -56,7 +56,7 @@ Node.js 애플리케이션의 버전을 변경하려면 다음 옵션 중 하나
   1. Azure Portal에서 웹앱으로 이동합니다.
   2. **설정** 블레이드에서 **애플리케이션 설정**을 선택합니다.
   3. **앱 설정**에서 WEBSITE_NODE_DEFAULT_VERSION을 키로 포함하고 원하는 Node.js 버전을 값으로 포함할 수 있습니다.
-  4. [Kudu 콘솔](https://*yourwebsitename*.scm.azurewebsites.net)로 이동합니다.
+  4. **Kudu console** (`https://*yourwebsitename*.scm.azurewebsites.net`)로 이동 합니다.
   5. Node.js 버전을 확인하려면 다음 명령을 입력합니다.  
      ```
      node -v
@@ -91,7 +91,7 @@ debug.log 또는 php_errors.log 파일에 이 오류가 표시되면 앱이 연�
 
 ## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>App Service에 호스트된 Node.js 앱을 디버그하려면 어떻게 하나요?
 
-1.  [Kudu 콘솔](https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole)로 이동합니다.
+1.  **Kudu console** (`https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole`)로 이동 합니다.
 2.  애플리케이션 로그 폴더(D:\home\LogFiles\Application)로 이동합니다.
 3.  logging_errors.txt 파일에서 콘텐츠를 확인합니다.
 
@@ -138,7 +138,7 @@ The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but
 
 1. app/lib 폴더에서 sqljdbc*.jar 파일을 제거합니다.
 2. 사용자 지정 Tomcat 또는 Azure Marketplace Tomcat 웹 서버를 사용하는 경우 이 .jar 파일을 Tomcat lib 폴더로 복사합니다.
-3. Azure 포털에서 Java를 사용하도록 설정하는 **경우(Java 1.8** > **Tomcat 서버**선택) 앱과 평행한 폴더에 sqljdbc.* jar 파일을 복사합니다. 그다음에 다음 클래스 경로 설정을 web.config 파일에 추가합니다.
+3. Azure Portal에서 java를 사용 하도록 설정 하는 경우 ( **java 1.8** > **Tomcat 서버**선택) 앱에 병렬 되는 폴더에 sqljdbc. * jar 파일을 복사 합니다. 그다음에 다음 클래스 경로 설정을 web.config 파일에 추가합니다.
 
     ```xml
     <httpPlatform>
@@ -171,7 +171,7 @@ The process cannot access the file because it is being used by another process.
 
 Marketplace 및 사용자 지정 배포의 경우 로그 파일은 D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs 폴더에 있습니다. 폴더 위치는 사용 중인 Jetty 버전에 따라 달라집니다. 예를 들어 여기에 제공된 경로는 Jetty 9.1.2에 해당합니다. jetty_*YYYY_MM_DD*.stderrout.log를 찾습니다.
 
-포털 앱 설정 배포의 경우 로그 파일은 D:\home\LogFiles에 있습니다. jetty_*YYYY_MM_DD*.stderrout.log를 찾습니다.
+포털 앱 설정 배포의 경우 로그 파일은 D:\home\LogFiles에 있습니다. *YYYY_MM_DD*jetty_를 찾습니다.
 
 ## <a name="can-i-send-email-from-my-azure-web-app"></a>내 Azure 웹앱에서 메일을 보낼 수 있나요?
 

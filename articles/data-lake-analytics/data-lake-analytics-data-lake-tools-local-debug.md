@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 0827311218202de447e5cf27356e00c4da020e94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "61472994"
 ---
 # <a name="debug-azure-data-lake-analytics-code-locally"></a>Azure Data Lake Analytics 코드를 로컬로 디버그
 
 Azure Data Lake Analytics 서비스와 마찬가지로, Azure Data Lake Tools for Visual Studio를 사용하여 로컬 워크스테이션의 Azure Data Lake Analytics 코드를 실행하고 디버그할 수 있습니다.
 
-[로컬 컴퓨터에서 U-SQL 스크립트를 실행하는](data-lake-analytics-data-lake-tools-local-run.md)방법에 대해 알아봅니다.
+[로컬 컴퓨터에서 U-SQL 스크립트를 실행](data-lake-analytics-data-lake-tools-local-run.md)하는 방법에 대해 알아봅니다.
 
 ## <a name="debug-scripts-and-c-assemblies-locally"></a>로컬에서 스크립트 및 C# 어셈블리 디버그
 
@@ -51,5 +51,5 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
 ## <a name="next-steps"></a>다음 단계
 
 - 좀 더 복잡한 쿼리를 보려면 [Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요.
-- 작업 세부 정보를 보려면 [Azure Data Lake 분석 작업에 대한 작업 브라우저 및 작업 보기 사용을](data-lake-analytics-data-lake-tools-view-jobs.md)참조하십시오.
-- 정점 실행 뷰를 사용하려면 [Visual Studio용 데이터 레이크 도구에서 정점 실행 뷰 사용을](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)참조하십시오.
+- 작업 세부 정보를 보려면 [Azure Data Lake Analytics 작업에 대 한 작업 브라우저 및 작업 보기 사용](data-lake-analytics-data-lake-tools-view-jobs.md)을 참조 하세요.
+- 꼭 짓 점 실행 보기를 사용 하려면 [Data Lake Tools For Visual Studio에서 Vertex Execution View 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)을 참조 하세요.

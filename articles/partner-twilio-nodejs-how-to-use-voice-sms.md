@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: 164bedffcf9a1aca9f1fa46dea254fb928abcf04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "69637266"
 ---
 # <a name="using-twilio-for-voice-voip-and-sms-messaging-in-azure"></a>Azure에서 음성, VoIP 및 SMS 메시징을 위해 Twilio 사용
@@ -34,7 +34,7 @@ Twilio를 통해 개발자는 전화 및 문자 메시지를 보내고 받는 �
 개발자는 Twilio 웹 서비스 API에 대한 HTTP 요청을 만들어 문자 메시지를 보내거나 아웃바운드 전화 통화를 시작할 수 있습니다. 아웃바운드 전화의 경우 개발자는 아웃바운드 전화가 연결된 후 해당 전화를 처리하는 방법에 대한 TwiML 지침을 반환하는 URL도 지정해야 합니다.
 
 ### <a name="embedding-voip-capabilities-in-ui-code-javascript-ios-or-android"></a>UI 코드(JavaScript, iOS 또는 Android)에 VoIP 기능 포함
-Twilio는 모든 데스크톱 웹 브라우저, iOS 앱 또는 Android 앱을 VoIP 전화로 변환할 수 있는 클라이언트 쪽 SDK를 제공합니다. 이 문서에서는 브라우저에서 VoIP 호출을 사용하는 방법을 집중적으로 설명합니다. 브라우저에서 실행되는 *Twilio JavaScript SDK* 외에도 서버 쪽 응용 프로그램(node.js 응용 프로그램)을 사용하여 JavaScript 클라이언트에 "기능 토큰"을 발급해야 합니다. node.js에 VoIP를 사용하는 방법에 대한 자세한 내용은 [Twilio 개발자 블로그][voipnode]에서 참조할 수 있습니다.
+Twilio는 모든 데스크톱 웹 브라우저, iOS 앱 또는 Android 앱을 VoIP 전화로 변환할 수 있는 클라이언트 쪽 SDK를 제공합니다. 이 문서에서는 브라우저에서 VoIP 호출을 사용하는 방법을 집중적으로 설명합니다. 브라우저에서 실행 되는 *Twilio JAVASCRIPT SDK* 외에도 서버 쪽 응용 프로그램 (node.js 응용 프로그램)을 사용 하 여 javascript 클라이언트에 "기능 토큰"을 발급 해야 합니다. node.js에 VoIP를 사용하는 방법에 대한 자세한 내용은 [Twilio 개발자 블로그][voipnode]에서 참조할 수 있습니다.
 
 <a id="signup"/>
 
@@ -247,7 +247,7 @@ Azure에서 node.js와 Twilio 해킹을 즐기시기를 바랍니다.
 [signup]: https://ahoy.twilio.com/azure
 [azure_new_site]: app-service/app-service-web-get-started-nodejs.md
 [twilio_console]: https://www.twilio.com/console
-[Npm]: https://npmjs.org
+[npm]: https://npmjs.org
 [express]: https://expressjs.com
 [voipnode]: https://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
 [docs]: https://www.twilio.com/docs/libraries/reference/twilio-node/

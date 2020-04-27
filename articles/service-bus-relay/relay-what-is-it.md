@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: 964a472a5c0a6350090f83755747a12e89a1650e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68422925"
 ---
 # <a name="what-is-azure-relay"></a>Azure 릴레이란?
@@ -58,7 +58,7 @@ Azure Relay의 하이브리드 연결 기능은 이전에 있던 Relay 기능의
 ## <a name="wcf-relay"></a>WCF 릴레이
 WCF Relay는 전체 .NET Framework 및 WCF에서 작동합니다. WCF "릴레이" 바인딩 모음을 사용하여 온-프레미스 서비스와 릴레이 서비스 사이의 연결을 만듭니다. 릴레이 바인딩은 클라우드에서 Service Bus와 통합하는 WCF 채널 구성 요소를 생성하도록 설계된 새로운 전송 바인딩 요소에 매핑합니다. 자세한 내용은 [WCF 릴레이 시작](service-bus-relay-tutorial.md)을 참조하세요.
 
-## <a name="hybrid-connections-vs-wcf-relay"></a>하이브리드 연결 vs. WCF 릴레이
+## <a name="hybrid-connections-vs-wcf-relay"></a>하이브리드 연결와 WCF Relay 비교
 하이브리드 연결과 WCF Relay는 모두 회사 네트워크 내에 있는 자산에 안전하게 연결할 수 있게 합니다. 다음 표에서 설명한 대로 이들 중 무엇을 사용할지는 특정 요구 사항에 따라 달라집니다.
 
 |  | WCF 릴레이 | 하이브리드 연결 |
@@ -82,13 +82,13 @@ WCF Relay는 전체 .NET Framework 및 WCF에서 작동합니다. WCF "릴레이
 5. 게이트웨이에서 연결 요청을 게이트웨이 저장소에 언급된 올바른 게이트웨이로 전달합니다. 
 6. 게이트웨이에서 송신 클라이언트에 가장 가까운 게이트웨이 노드에 대한 임시 채널을 만들도록 요구하는 요청을 수신 클라이언트에 보냅니다. 
 7. 수신 클라이언트는 송신 클라이언트에서 가장 가까운 게이트웨이에 대한 임시 채널을 만듭니다. 이제 게이트웨이를 통해 클라이언트 간의 연결이 수립되었으므로 클라이언트가 서로 메시지를 교환할 수 있습니다. 
-8. 게이트웨이는 수신 대기 클라이언트의 모든 메시지를 송신 클라이언트로 전달합니다. 
+8. 게이트웨이는 수신 대기 클라이언트에서 보내는 클라이언트로 메시지를 전달 합니다. 
 9. 게이트웨이는 메시지를 송신 클라이언트에서 수신 대기 클라이언트로 전달합니다.  
 
 ## <a name="next-steps"></a>다음 단계
-* [.NET 웹 소켓 시작](relay-hybrid-connections-dotnet-get-started.md)
+* [.NET Websocket 시작](relay-hybrid-connections-dotnet-get-started.md)
 * [.NET HTTP 요청 시작](relay-hybrid-connections-http-requests-dotnet-get-started.md)
-* [노드 웹소켓 시작](relay-hybrid-connections-node-get-started.md)
+* [노드 Websocket 시작](relay-hybrid-connections-node-get-started.md)
 * [Node HTTP 요청 시작](relay-hybrid-connections-http-requests-node-get-started.md)
 * [릴레이 FAQ](relay-faq.md)
 

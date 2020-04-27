@@ -1,6 +1,6 @@
 ---
 title: Azure의 하이브리드 ID 디자인 - 채택 전략 | Microsoft Docs
-description: 조건부 액세스 제어를 사용하여 Azure Active Directory는 사용자를 인증할 때 선택한 특정 조건을 검사한 후 응용 프로그램에 대한 액세스를 허용합니다. 이러한 조건이 충족되면 사용자가 인증되고 애플리케이션에 대한 액세스가 허용됩니다.
+description: 조건부 액세스 제어를 사용 하 Azure Active Directory에서는 사용자를 인증할 때 및 응용 프로그램에 대 한 액세스를 허용 하기 전에 선택한 특정 조건을 확인 합니다. 이러한 조건이 충족되면 사용자가 인증되고 애플리케이션에 대한 액세스가 허용됩니다.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e662d2c6d7939756dee6eb25ca62fef171b7d6d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67109327"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>하이브리드 ID 채택 전략 정의
@@ -55,8 +55,8 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 | 전략 | 장점 | 단점 |
 | --- | --- | --- |
 | **클라우드 ID** |소규모 조직을 관리하기가 쉬워집니다. <br> 온-프레미스에 아무 것도 설치하지 않습니다. 추가 하드웨어가 필요 없습니다.<br>사용자가 퇴사하는 경우 쉽게 사용 불가능해 집니다. |사용자는 클라우드의 워크로드에 액세스할 때 로그인해야 합니다 <br>  암호는 클라우드 및 온-프레미스 ID에 대해 동일할 수도 있고 않을 수도 있습니다 |
-| **동기화** |온-프레미스 암호는 온-프레미스 및 클라우드 디렉터리를 인증합니다 <br>소규모, 중규모 또는 대규모 조직을 관리하기가 쉬워집니다. <br>사용자는 일부 리소스에 대한 SSO(Single Sign-On)를 가질 수 있습니다 <br> 동기화에 대한 Microsoft의 기본 메서드 <br>  관리가 쉬워집니다 |일부 고객은 특정 회사의 경찰 때문에 클라우드를 사용하여 해당 디렉터리를 동기화하는 것을 꺼릴 수 있습니다. |
-| **페더레이션** |사용자는 Single Sign-On(SSO)을 가질 수 있습니다 <br>사용자를 종료하거나 사용자가 나가는 경우, 계정을 즉시 사용할 수 없게 하고 액세스를 해지할 수 있습니다.<br> 동기화되어 수행할 수 없는 고급 시나리오를 지원합니다 |설정 및 구성의 추가 단계 <br> 더 높은 유지 관리 <br> STS 인프라에 대한 추가 하드웨어가 필요할 수 있습니다. <br> 페더레이션 서버를 설치하는 데 추가적인 하드웨어가 필요할 수 있습니다. AD FS를 사용할 경우 추가적인 소프트웨어가 필요합니다. <br> SSO에 대한 광범위한 설정이 필요 <br> 중요 장애점, 페더레이션 서버가 다운된 경우 사용자는 인증할 수 없습니다. |
+| **됨** |온-프레미스 암호는 온-프레미스 및 클라우드 디렉터리를 인증합니다 <br>소규모, 중규모 또는 대규모 조직을 관리하기가 쉬워집니다. <br>사용자는 일부 리소스에 대한 SSO(Single Sign-On)를 가질 수 있습니다 <br> 동기화에 대한 Microsoft의 기본 메서드 <br>  관리가 쉬워집니다 |일부 고객은 특정 회사의 경찰 때문에 클라우드를 사용하여 해당 디렉터리를 동기화하는 것을 꺼릴 수 있습니다. |
+| **제휴** |사용자는 Single Sign-On(SSO)을 가질 수 있습니다 <br>사용자를 종료하거나 사용자가 나가는 경우, 계정을 즉시 사용할 수 없게 하고 액세스를 해지할 수 있습니다.<br> 동기화되어 수행할 수 없는 고급 시나리오를 지원합니다 |설정 및 구성의 추가 단계 <br> 더 높은 유지 관리 <br> STS 인프라에 대한 추가 하드웨어가 필요할 수 있습니다. <br> 페더레이션 서버를 설치하는 데 추가적인 하드웨어가 필요할 수 있습니다. AD FS를 사용할 경우 추가적인 소프트웨어가 필요합니다. <br> SSO에 대한 광범위한 설정이 필요 <br> 중요 장애점, 페더레이션 서버가 다운된 경우 사용자는 인증할 수 없습니다. |
 
 ### <a name="client-experience"></a>클라이언트 환경
 사용자 로그인 환경을 결정하는 데 사용하는 전략입니다.  다음 테이블에서는 어떤 사용자가 해당 로그인 환경을 예상해야 하는지에 대한 정보를 제공합니다.  페더레이션된 모든 ID 공급자가 모든 시나리오에서 SSO를 지원하는 것은 아닙니다.
@@ -111,7 +111,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 ### <a name="supported-topologies"></a>지원되는 토폴로지
 동기화 전략을 정의할 때 사용되는 토폴로지를 결정해야 합니다. 2단계에서 확인된 정보에 따라 어떤 토폴로지를 사용하는 것이 적절한지를 결정할 수 있습니다. 단일 포리스트, 단일 Azure AD 토폴로지는 가장 일반적이고 단일 Active Directory 포리스트 및 Azure AD의 단일 인스턴스를 구성합니다.  이 시나리오 대부분에서 사용되며 아래 그림에 표시된 대로 Azure AD Connect Express 설치를 사용하는 경우 예상되는 토폴로지입니다.
 
-![지원되는](./media/plan-hybrid-identity-design-considerations/single-forest.png) 단일 포리스트 시나리오 그림 5와 같이 크고 작은 조직에서도 여러 포리스트를 가지는 것이 일반적입니다.
+![지원 되](./media/plan-hybrid-identity-design-considerations/single-forest.png) 는 토폴로지 단일 포리스트 시나리오 그림 5에 표시 된 것 처럼 규모가 크고 작은 조직에서 여러 포리스트를 포함 하는 것이 일반적입니다.
 
 > [!NOTE]
 > Azure AD connect 동기화를 사용하여 다른 온-프레미스 및 Azure AD 토폴로지에 대한 자세한 정보는 [Azure AD Connect에 대한 토폴로지](plan-connect-topologies.md)문서를 읽습니다.
@@ -140,7 +140,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 
 위의 조건이 충족되지 않고 둘 이상의 활성 계정 또는 둘 이상의 사서함이 있으면 Azure AD Connect는 하나를 선택하고 다른 하나는 무시합니다.  다른 계정이 없고 연결된 사서함만 있는 경우 이러한 계정은 Azure AD로 내보내지 않고 해당 사용자는 그룹의 멤버가 되지 않습니다.  DirSync를 사용과 관련하여 과거와 이러한 점이 다르며 이러한 다중 포리스트 시나리오를 더 지원하려고 합니다. 다중 포리스트 시나리오는 아래 그림에 표시됩니다.
 
-![여러 Azure AD 테넌션](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
+![여러 Azure AD 테 넌 트](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
 
 **다중 포리스트 여러 Azure AD 시나리오**
 
@@ -158,7 +158,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 * DNS 도메인은 단일 Azure AD Directory에만 등록될 수 있으므로, 온-프레미스 AD 내의 사용자 UPN도 별도의 네임스페이스를 사용해야 합니다.
 * Azure AD의 한 인스턴스에서 사용자가 해당 인스턴스에서 사용자를 확인할 수 있습니다.  다른 인스턴스에 있는 사용자를 확인할 수 없습니다.
 * 하나의 Azure AD Directory만 온-프레미스 AD를 사용하여 Exchange 하이브리드를 활성화할 수 있습니다.
-* 상호 배타성은 쓰기 저장에도 적용됩니다.  이렇게 하면 단일 온-프레미스 구성으로 가정되므로 일부 쓰기 저장 기능이 이 토폴로지로 지원되지 않습니다.  다음 내용이 포함됩니다.
+* 상호 배타성은 쓰기 저장에도 적용됩니다.  이렇게 하면 단일 온-프레미스 구성으로 가정되므로 일부 쓰기 저장 기능이 이 토폴로지로 지원되지 않습니다.  여기에는 다음이 포함됩니다.
   * 기본 구성으로 쓰기 저장 그룹화
   * 디바이스 쓰기 저장
 

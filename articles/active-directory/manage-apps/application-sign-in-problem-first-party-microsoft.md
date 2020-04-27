@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ee8802aeb2a760e255ab4f5e99010dfedc45e0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67108308"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Microsoft 애플리케이션에 로그인하는 문제
@@ -31,9 +31,9 @@ ms.locfileid: "67108308"
 
 -   Office 365 또는 기타 유료 도구 모음에 있는 애플리케이션의 경우 사용자는 **라이선스 할당**을 통해 해당 사용자 계정으로 직접 액세스가 부여되거나 그룹 기반 라이선스 할당 기능을 사용하여 그룹을 통해 액세스가 부여됩니다.
 
--   Microsoft 또는 타사에서 누구나 자유롭게 사용하도록 게시한 애플리케이션의 경우 사용자는 **사용자 동의**를 통해 액세스 권한을 부여받을 수 있습니다. 즉, Azure AD 작업 또는 학교 계정으로 응용 프로그램에 로그인하고 계정의 일부 제한된 데이터 집합에 액세스할 수 있습니다.
+-   Microsoft 또는 타사에서 누구나 자유롭게 사용하도록 게시한 애플리케이션의 경우 사용자는 **사용자 동의**를 통해 액세스 권한을 부여받을 수 있습니다. 즉, Azure AD 회사 또는 학교 계정을 사용 하 여 응용 프로그램에 로그인 하 고 계정에서 제한 된 데이터 집합에 액세스할 수 있습니다.
 
--   Microsoft 또는 제3자가 누구나 자유롭게 게시하는 응용 프로그램의 경우 **사용자는 관리자 동의를**통해 액세스 권한을 부여받을 수도 있습니다. 즉, 관리자는 전역 관리자 계정 사용하여 애플리케이션에 로그인하고 조직의 모든 사용자에게 액세스 권한을 부여하도록 조직의 모든 사용자가 애플리케이션을 사용할 수 있게 결정했습니다.
+-   Microsoft 또는 타사에서 누구나 사용할 수 있도록 무료로 게시 하는 응용 프로그램의 경우 **관리자 동의**를 통해 액세스 권한이 부여 될 수도 있습니다. 즉, 관리자는 전역 관리자 계정 사용하여 애플리케이션에 로그인하고 조직의 모든 사용자에게 액세스 권한을 부여하도록 조직의 모든 사용자가 애플리케이션을 사용할 수 있게 결정했습니다.
 
 문제를 해결하려면 [고려할 애플리케이션 액세스의 일반적인 문제 영역](#general-problem-areas-with-application-access-to-consider)으로 시작하고 연습: Microsoft 애플리케이션 액세스를 해결하는 단계를 읽고 세부 정보를 얻습니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "67108308"
 
 -   [그룹과 관련된 문제](#problems-with-groups)
 
--   [조건부 액세스 정책 문제](#problems-with-conditional-access-policies)
+-   [조건부 액세스 정책과 관련 된 문제](#problems-with-conditional-access-policies)
 
 -   [애플리케이션 동의와 관련된 문제](#problems-with-application-consent)
 
@@ -61,13 +61,13 @@ ms.locfileid: "67108308"
 
   * Azure Active Directory에 **사용자의 계정이 존재해야** 합니다. [Azure Active Directory에 사용자의 계정이 존재하는지 확인](#problems-with-the-users-account)
 
-  * 로그인할 때 사용자의 계정이 **활성화되어** 있는지 [확인합니다.](#problems-with-the-users-account)
+  * 사용자의 계정에 로그인 할 **수** 있는지 확인 합니다. [사용자의 계정 상태를 확인](#problems-with-the-users-account) 하세요.
 
   * 사용자의 **암호가 만료되거나 기억하지 못하는지** 확인합니다. [사용자의 암호 재설정](#reset-a-users-password) 또는 [셀프 서비스 암호 재설정 사용](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
   * **Multi-Factor Authentication**에서 사용자 액세스를 차단하지 않는지 확인합니다. [사용자의 Multi-Factor Authentication 상태 확인](#check-a-users-multi-factor-authentication-status) 또는 [사용자의 인증 연락처 정보 확인](#check-a-users-authentication-contact-info)
 
-  * **조건부 액세스 정책** 또는 **ID 보호** 정책이 사용자 액세스를 차단하지 않는지 확인합니다. [특정 조건부 액세스 정책을 확인하거나](#problems-with-conditional-access-policies) [특정 응용 프로그램의 조건부 액세스 정책을 확인하거나](#check-a-specific-applications-conditional-access-policy) [특정 조건부 액세스 정책을 사용하지 않도록 설정합니다.](#disable-a-specific-conditional-access-policy)
+  * **조건부 액세스 정책** 또는 **ID 보호** 정책이 사용자 액세스를 차단하지 않는지 확인합니다. [특정 조건부 액세스 정책 확인](#problems-with-conditional-access-policies) 또는 [특정 응용 프로그램의 조건부 액세스 정책 확인](#check-a-specific-applications-conditional-access-policy) 또는 [특정 조건부 액세스 정책 사용 안 함](#disable-a-specific-conditional-access-policy)
 
   * 사용자의 **인증 연락처 정보**를 최신으로 유지하여 Multi-Factor Authentication 또는 조건부 액세스 정책을 적용할 수 있도록 해야 합니다. [사용자의 Multi-Factor Authentication 상태 확인](#check-a-users-multi-factor-authentication-status) 또는 [사용자의 인증 연락처 정보 확인](#check-a-users-authentication-contact-info)
 
@@ -75,11 +75,11 @@ ms.locfileid: "67108308"
 
   * 사용자를 확인하거나 **라이선스를 할당합니다.** [사용자의 할당된 라이선스 확인](#check-a-users-assigned-licenses) 또는 [그룹의 할당된 라이선스 확인](#check-a-groups-assigned-licenses)
 
-  * 라이선스가 **정적 그룹에** **할당된** 경우 사용자가 해당 그룹의 **구성원인지** 확인합니다. [사용자의 그룹 구성원 자격 확인](#check-a-users-group-memberships)
+  * 라이선스가 **정적 그룹** **에 할당** 된 경우 사용자가 해당 그룹의 **구성원** 인지 확인 합니다. [사용자의 그룹 구성원 자격 확인](#check-a-users-group-memberships)
 
-  * 라이센스가 **동적 그룹에** **할당된** 경우 **동적 그룹 규칙이 올바르게 설정되어**있는지 확인합니다. [동적 그룹의 구성원 자격 조건 확인](#check-a-dynamic-groups-membership-criteria)
+  * **동적 그룹**에 라이선스가 **할당** 된 경우 **동적 그룹 규칙이 올바르게 설정 되어**있는지 확인 합니다. [동적 그룹의 구성원 자격 조건 확인](#check-a-dynamic-groups-membership-criteria)
 
-  * 라이센스가 **동적 그룹에** **할당된** 경우 동적 그룹이 해당 구성원 **처리를 완료하고** **사용자가 구성원인지** 확인합니다(시간이 걸릴 수 있음). [사용자의 그룹 구성원 자격 확인](#check-a-users-group-memberships)
+  * 라이선스가 **동적 그룹** **에 할당** 된 경우 동적 그룹의 멤버 자격 **처리가 완료** 되 고 **사용자가 구성원** 인지 확인 합니다 (시간이 걸릴 수 있음). [사용자의 그룹 구성원 자격 확인](#check-a-users-group-memberships)
 
   *  라이선스가 할당되었는지 확인하면 라이선스가 **만료되지 않았는지** 확인합니다.
 
@@ -87,7 +87,7 @@ ms.locfileid: "67108308"
 
 - 라이선스를 필요로 하지 않는 **Microsoft** **애플리케이션**의 경우 확인할 몇 가지 다른 항목은 다음과 같습니다.
 
-  * 응용 프로그램이 사용자 **수준** 권한(예: "이 사용자의 사서함에 액세스")을 요청하는 경우 사용자가 응용 프로그램에 로그인하고 응용 프로그램이 데이터에 액세스할 수 있도록 **사용자 수준 동의 작업을** 수행했는지 확인합니다.
+  * 응용 프로그램이 **사용자 수준 사용 권한** (예: "이 사용자의 사서함에 액세스")을 요청 하는 경우 사용자가 응용 프로그램에 로그인 하 고 응용 프로그램에서 해당 데이터에 액세스할 수 있도록 **사용자 수준 동의 작업** 을 수행 했는지 확인 합니다.
 
   * 애플리케이션이 **관리자 수준 사용 권한**을 요청하는 경우(예: "모든 사용자의 사서함 액세스 권한") 전역 관리자가 조직의 **모든 사용자를 대신하여 관리자 수준 동의 작업**을 수행했는지 확인합니다.
 
@@ -99,7 +99,7 @@ ms.locfileid: "67108308"
 
 -   [사용자의 계정 상태 확인](#check-a-users-account-status)
 
--   [사용자 암호 재설정](#reset-a-users-password)
+-   [사용자 암호 다시 설정](#reset-a-users-password)
 
 -   [셀프 서비스 암호 재설정 사용](#enable-self-service-password-reset)
 
@@ -111,21 +111,21 @@ ms.locfileid: "67108308"
 
 -   [사용자의 할당된 라이선스 확인](#check-a-users-assigned-licenses)
 
--   [사용자에게 라이선스 할당](#assign-a-user-a-license)
+-   [사용자에 게 라이선스 할당](#assign-a-user-a-license)
 
 ### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Azure Active Directory에 사용자의 계정이 존재하는지 확인
 
 사용자의 계정이 있는지를 확인하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자를**클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
@@ -135,19 +135,19 @@ ms.locfileid: "67108308"
 
 사용자의 계정 상태를 확인하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자를**클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
-7.  **프로필**을 클릭합니다.
+7.  **프로필**을 클릭 합니다.
 
 8.  **설정** 아래에서 **로그인 차단**이 **아니오**로 설정되어야 합니다.
 
@@ -155,15 +155,15 @@ ms.locfileid: "67108308"
 
 사용자의 암호를 다시 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자를**클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
@@ -187,15 +187,15 @@ ms.locfileid: "67108308"
 
 사용자의 Multi-Factor Authentication 상태를 확인하려면 아래 단계를 수행합니다.
 
-1. Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1. [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4. 탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4. 탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5. **모든 사용자를**클릭합니다.
+5. **모든 사용자**를 클릭 합니다.
 
 6. 창 맨 위에 있는 **Multi-Factor Authentication** 단추를 클릭합니다.
 
@@ -211,19 +211,19 @@ ms.locfileid: "67108308"
 
 Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정에 사용되는 사용자의 인증 연락처 정보를 확인하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자를**클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
-7.  **프로필**을 클릭합니다.
+7.  **프로필**을 클릭 합니다.
 
 8.  **인증 연락처 정보**까지 스크롤합니다.
 
@@ -233,15 +233,15 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 사용자의 그룹 구성원 자격을 확인하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자를**클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
@@ -251,15 +251,15 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 사용자의 할당된 라이선스를 확인하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자를**클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
@@ -269,21 +269,21 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 사용자에게 라이선스를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자를**클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
 7.  **라이선스**를 클릭하여 사용자가 현재 할당된 라이선스를 봅니다.
 
-8.  할당 단추를 **클릭합니다.**
+8.  **할당** 단추를 클릭 합니다.
 
 9.  사용 가능한 제품 목록에서 **하나 이상의 제품**을 선택합니다.
 
@@ -309,13 +309,13 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 그룹의 멤버 자격을 확인하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
 5.  **모든 그룹**을 클릭합니다.
 
@@ -327,13 +327,13 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 동적 그룹의 구성원 자격 조건을 확인하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
 5.  **모든 그룹**을 클릭합니다.
 
@@ -347,13 +347,13 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 그룹의 할당된 라이선스를 확인하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
 5.  **모든 그룹**을 클릭합니다.
 
@@ -365,13 +365,13 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 그룹의 할당된 라이선스를 다시 처리하려면 다음 단계를 수행합니다.
 
-1. Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1. [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4. 탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4. 탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
 5. **모든 그룹**을 클릭합니다.
 
@@ -390,13 +390,13 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 그룹에 라이선스를 할당하려면 다음 단계를 수행합니다.
 
-1. Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1. [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4. 탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4. 탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
 5. **모든 그룹**을 클릭합니다.
 
@@ -404,7 +404,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 7. **라이선스**를 클릭하여 그룹이 현재 할당된 라이선스를 봅니다.
 
-8. 할당 단추를 **클릭합니다.**
+8. **할당** 단추를 클릭 합니다.
 
 9. 사용 가능한 제품 목록에서 **하나 이상의 제품**을 선택합니다.
 
@@ -417,76 +417,76 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
     > 
     >
 
-## <a name="problems-with-conditional-access-policies"></a>조건부 액세스 정책 문제
+## <a name="problems-with-conditional-access-policies"></a>조건부 액세스 정책과 관련 된 문제
 
 ### <a name="check-a-specific-conditional-access-policy"></a>특정 조건부 액세스 정책 확인
 
-단일 조건부 액세스 정책을 확인하거나 유효성을 검사하려면 다음을 수행하십시오.
+단일 조건부 액세스 정책을 확인 하거나 유효성을 검사 하려면:
 
-1. Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1. [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4. 탐색 메뉴에서 **엔터프라이즈 응용 프로그램을 클릭합니다.**
+4. 탐색 메뉴에서 **엔터프라이즈 응용 프로그램** 을 클릭 합니다.
 
-5. **조건부 액세스** 탐색 항목을 클릭합니다.
+5. **조건부 액세스** 탐색 항목을 클릭 합니다.
 
 6. 검사하려는 정책을 클릭합니다.
 
-7. 사용자 액세스를 차단할 수 있는 특정 조건, 할당 또는 기타 설정이 없는지 검토합니다.
+7. 특정 조건, 할당 또는 사용자 액세스를 차단할 수 있는 기타 설정이 없는지 검토 합니다.
 
    >[!NOTE]
-   >로그인에 영향을 주지 않도록 이 정책을 일시적으로 비활성화할 수 있습니다. 이렇게 하려면 정책 **활성화를** **아니요로** 설정하고 **저장** 단추를 클릭합니다.
+   >이 정책을 일시적으로 사용 하지 않도록 설정 하 여 로그인에 영향을 주지 않도록 할 수 있습니다. 이렇게 하려면 **정책 사용** 토글을 **아니요** 로 설정 하 고 **저장** 단추를 클릭 합니다.
    >
    >
 
 ### <a name="check-a-specific-applications-conditional-access-policy"></a>특정 응용 프로그램의 조건부 액세스 정책 확인
 
-단일 응용 프로그램의 현재 구성된 조건부 액세스 정책을 확인하거나 유효성을 검사하려면 다음을 수행하십시오.
+단일 응용 프로그램의 현재 구성 된 조건부 액세스 정책을 확인 하거나 유효성을 검사 하려면:
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **엔터프라이즈 응용 프로그램을 클릭합니다.**
+4.  탐색 메뉴에서 **엔터프라이즈 응용 프로그램** 을 클릭 합니다.
 
 5.  **모든 애플리케이션**을 클릭합니다.
 
-6.  관심 있는 응용 프로그램을 검색하거나 사용자가 응용 프로그램 표시 이름 또는 응용 프로그램 ID로 로그인하려고 합니다.
+6.  관심이 있는 응용 프로그램을 검색 하거나 사용자가 응용 프로그램 표시 이름 또는 응용 프로그램 ID를 사용 하 여에 로그인을 시도 합니다.
 
      >[!NOTE]
      >찾고 있는 애플리케이션이 보이지 않으면 **필터** 단추를 클릭하고 목록 범위를 **모든 애플리케이션**으로 확장합니다. 더 많은 열을 표시하려면 **열** 단추를 클릭하여 애플리케이션의 추가 세부 정보를 추가합니다.
      >
      >
 
-7.  **조건부 액세스** 탐색 항목을 클릭합니다.
+7.  **조건부 액세스** 탐색 항목을 클릭 합니다.
 
 8.  검사하려는 정책을 클릭합니다.
 
 9.  특정 조건, 할당 또는 사용자 액세스를 차단할 수 있는 기타 설정이 없는지 검토합니다.
 
      >[!NOTE]
-     >로그인에 영향을 주지 않도록 이 정책을 일시적으로 비활성화할 수 있습니다. 이렇게 하려면 정책 **활성화를** **아니요로** 설정하고 **저장** 단추를 클릭합니다.
+     >이 정책을 일시적으로 사용 하지 않도록 설정 하 여 로그인에 영향을 주지 않도록 할 수 있습니다. 이렇게 하려면 **정책 사용** 토글을 **아니요** 로 설정 하 고 **저장** 단추를 클릭 합니다.
      >
      >
 
 ### <a name="disable-a-specific-conditional-access-policy"></a>특정 조건부 액세스 정책 사용 안 함
 
-단일 조건부 액세스 정책을 확인하거나 유효성을 검사하려면 다음을 수행하십시오.
+단일 조건부 액세스 정책을 확인 하거나 유효성을 검사 하려면:
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **엔터프라이즈 응용 프로그램을 클릭합니다.**
+4.  탐색 메뉴에서 **엔터프라이즈 응용 프로그램** 을 클릭 합니다.
 
-5.  **조건부 액세스** 탐색 항목을 클릭합니다.
+5.  **조건부 액세스** 탐색 항목을 클릭 합니다.
 
 6.  검사하려는 정책을 클릭합니다.
 

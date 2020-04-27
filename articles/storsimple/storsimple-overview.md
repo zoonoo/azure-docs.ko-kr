@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
 ms.openlocfilehash: 2a6650cac975c575415a329361da00d4fbfcaa9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68965111"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 시리즈: 하이브리드 클라우드 스토리지 솔루션
@@ -39,7 +39,7 @@ StorSimple은 [스토리지 계층화](#automatic-storage-tiering) 를 사용하
 ## <a name="why-use-storsimple"></a>StorSimple을 사용하는 이유
 다음 테이블은 Microsoft Azure StorSimple이 제공하는 주요 이점 중 일부를 설명합니다.
 
-| 기능 | 혜택 |
+| 기능 | 이점 |
 | --- | --- |
 | 투명한 통합 |iSCSI 프로토콜을 사용하여 데이터 스토리지 시설을 보이지 않게 연결합니다. 이 클라우드, 데이터 센터 또는 원격 서버에 저장된 데이터가 단일 위치에 저장된 것처럼 보이게 합니다. |
 | 스토리지 비용 감소 |현재 요구에 맞게 충분한 로컬 또는 클라우드 스토리지를 할당하고 필요한 경우 클라우드 스토리지를 확장합니다. 동일한 데이터의 중복 버전을 제거하고(중복 제거) 압축을 사용하여 추가로 스토리지 요구 사항 및 비용을 줄입니다. |
@@ -95,7 +95,7 @@ StorSimple을 사용하여 물리적 하이브리드 스토리지 디바이스�
 * 클라우드에서 개수에 제한 없이 클라우드 어플라이언스를 만들고 필요에 따라 설정 및 해제할 수 있습니다.
 * 재해 복구, 개발 및 테스트 시나리오에서 온-프레미스 환경을 시뮬레이션할 수 있고 백업에서 항목 수준의 검색에 도움이 될 수 있습니다.
 
-StorSimple Cloud Appliance는 8010 디바이스(이전의 1100 모델)와 8020 디바이스라는 두 가지 모델에서 사용할 수 있습니다. 8010 디바이스의 최대 용량은 30TB입니다. Azure Premium Storage를 활용하는 8020 디바이스의 최대 용량은 64TB입니다. 로컬 계층에서 Azure premium 저장소는 SSD에 데이터를 저장하는 반면 표준 저장소는 HDD에 데이터를 저장합니다. 프리미엄 저장소를 사용하려면 Azure 프리미엄 저장소 계정이 있어야 합니다.
+StorSimple Cloud Appliance는 8010 디바이스(이전의 1100 모델)와 8020 디바이스라는 두 가지 모델에서 사용할 수 있습니다. 8010 디바이스의 최대 용량은 30TB입니다. Azure Premium Storage를 활용하는 8020 디바이스의 최대 용량은 64TB입니다. 로컬 계층에서 Azure premium storage는 데이터를 Ssd에 저장 하는 반면 표준 저장소는 Hdd에 데이터를 저장 합니다. Premium storage를 사용 하려면 Azure premium storage 계정이 있어야 합니다.
 
 StorSimple Cloud Appliance에 대한 자세한 내용은 [Azure에서 StorSimple Cloud Appliance 배포 및 관리](storsimple-8000-cloud-appliance-u2.md)로 이동합니다.
 
@@ -208,12 +208,12 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 ## <a name="storsimple-workload-summary"></a>StorSimple 워크로드 요약
 지원되는 StorSimple 워크로드가 아래 표에 요약되어 있습니다.
 
-| 시나리오 | 워크로드 | 지원됨 | 제한 | 버전 |
+| 시나리오 | 워크로드 | 지원 여부 | 제한 | 버전 |
 | --- | --- | --- | --- | --- |
-| 협업 |파일 공유 |yes | |모든 버전 |
-| 협업 |분산 파일 공유 |yes | |모든 버전 |
+| 협업 |파일 공유 |예 | |모든 버전 |
+| 협업 |분산 파일 공유 |예 | |모든 버전 |
 | 협업 |SharePoint |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
-| 보관 |단순 파일 보관 |yes | |모든 버전 |
+| 보관 |단순 파일 보관 |예 | |모든 버전 |
 | 가상화 |가상 머신 |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
 | 데이터베이스 |SQL |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
 | 비디오 감시 |비디오 감시 |예* |StorSimple 디바이스가 이 작업에만 전용으로 사용될 때 지원됩니다. |업데이트 2 이상 |
@@ -235,9 +235,9 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 
 다음은 StorSimple 지원 인프라 구성 요소의 목록입니다.
 
-| 시나리오 | 워크로드 | 지원됨 | 제한 | 버전 |
+| 시나리오 | 워크로드 | 지원 여부 | 제한 | 버전 |
 | --- | --- | --- | --- | --- |
-| 일반 |Express 경로 |yes | |모든 버전 |
+| 일반 |Express 경로 |예 | |모든 버전 |
 | 일반 |DataCore FC |예* |DataCore SANsymphony 지원 |모든 버전 |
 | 일반 |DFSR |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |모든 버전 |
 | 일반 |인덱싱 |예* |계층화된 볼륨의 경우 메타데이터만 인덱싱만 지원됩니다(데이터 없음).<br>로컬 고정 볼륨의 경우 전체 인덱싱이 지원됩니다. |모든 버전 |

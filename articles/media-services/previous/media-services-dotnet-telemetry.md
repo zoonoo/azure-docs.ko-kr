@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1ffaefc51121aeb7421d6e49a3c0e58c76d4391e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "61464949"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>.NET을 사용하여 Azure Media Services 원격 분석 구성 
@@ -32,7 +32,7 @@ ms.locfileid: "61464949"
 
 - Azure Table Storage에서 직접 데이터를 읽습니다(예: Storage SDK 사용). 원격 분석 스토리지 테이블에 대한 설명을 보려면 [이](https://msdn.microsoft.com/library/mt742089.aspx) 항목의 **원격 분석 정보 사용**을 참조하세요.
 
-또는
+Or
 
 - 스토리지 데이터를 읽기 위한 Media Services .NET SDK의 지원을 사용합니다. 이 문서에서는 지정된 AMS 계정에 대해 원격 분석을 사용하도록 설정하고 Azure Media Services .NET SDK를 사용하여 메트릭을 쿼리하는 방법을 보여 줍니다.  
 
@@ -67,7 +67,7 @@ ms.locfileid: "61464949"
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-1. .NET 을 사용하면 Media Services 개발에 설명된 대로 개발 환경을 설정하고 app.config 파일을 연결 [정보로](media-services-dotnet-how-to-use.md)채웁니다. 
+1. 개발 환경을 설정 하 고 [.net으로 개발 Media Services](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 
 2. 다음 요소를 app.config 파일에 정의된 **appSettings**에 추가합니다.
 

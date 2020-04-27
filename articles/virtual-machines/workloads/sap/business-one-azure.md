@@ -16,10 +16,10 @@ ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 18409f93ab50f7d031ec78a55b9eaf8ad1b85a49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70101405"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP Business One
@@ -37,7 +37,7 @@ SQL Server의 경우, [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배�
 - [Windows의 Azure 가상 머신](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - [Linux의 Azure 가상 머신](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [PowerShell을 사용하는 Azure 네트워킹 및 가상 네트워크 관리](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
-- [CLI를 갖춘 Azure 네트워킹 및 가상 네트워크](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+- [CLI를 사용 하는 Azure 네트워킹 및 virtual network](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Azure CLI를 사용하여 Azure 디스크 관리](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Business One에만 관심이 있는 경우에도 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) 문서를 통해 유용한 정보를 얻을 수 있습니다.
@@ -149,7 +149,7 @@ SAP HANA 백업 및 복원 전략은 [Azure Virtual Machines의 SAP HANA 백업 
 ### <a name="business-one-client-server"></a>Business One 클라이언트 서버
 이러한 구성 요소에서 스토리지 고려 사항은 중요하지 않습니다. 그래도 신뢰할 수 있는 플랫폼을 구현하는 것이 좋습니다. 따라서 기본 VHD의 경우에도 이 VM에 Azure Premium Storage를 사용해야 합니다. [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf)(SAP Business One 하드웨어 요구 사항 가이드)에 제공된 데이터를 사용하여 VM 크기를 조정합니다. Azure의 경우, 문서의 2.4 장에 명시된 요구 사항을 사용하여 계산하고 집중해야 합니다. 요구 사항을 계산할 때 다음 문서와 비교하여 이상적인 VM을 찾아야 합니다.
 
-- [Azure의 Windows 가상 컴퓨터용 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
+- [Azure의 Windows 가상 머신에 대 한 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
 - [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533)(SAP 노트 #1928533)
 
 필요한 CPU 수와 메모리를 Microsoft에서 문서화된 내용과 비교합니다. VM을 선택할 때 네트워크 처리량도 고려하세요.

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
 ms.openlocfilehash: b5490c4e79ee1458b498f539c0db2cc189fce7f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60723309"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스 관리
@@ -37,7 +37,7 @@ ms.locfileid: "60723309"
 StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 디바이스에 연결됩니다. 이러한 디바이스를 관리하는 브라우저에서 실행되는 중앙 Microsoft Azure Portal을 사용합니다. StorSimple 디바이스 관리자 서비스에 연결하려면 다음을 수행합니다.
 
 #### <a name="to-connect-to-the-service"></a>해당 서비스에 연결하려면
-1. 로 [https://portal.azure.com/](https://portal.azure.com/)이동합니다.
+1. [https://portal.azure.com/](https://portal.azure.com/)으로 이동합니다.
 2. Microsoft 계정 자격 증명을 사용하여 Microsoft Azure Portal(해당 창의 상단 오른쪽에 있는)로 로그온합니다.
 3. StorSimple 디바이스 관리자 서비스에 액세스하려면 왼쪽 탐색 창으로 아래로 스크롤합니다.
 

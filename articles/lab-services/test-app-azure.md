@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
 ms.openlocfilehash: f8c57b9e1fabbd04a7d9c92484b0f52f074c2577
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "65872479"
 ---
 # <a name="test-your-app-in-azure"></a>Azure에서 앱 테스트 
-이 문서에서는 DevTest Lab을 사용하여 Azure에서 애플리케이션을 테스트하는 방법에 대한 단계를 제공합니다. 먼저 랩 내에서 파일 공유를 설정하고 로컬 개발 컴퓨터의 드라이브 및 랩 내의 VM으로 탑재합니다. 그런 다음 Visual Studio 2019를 사용하여 랩의 VM에서 앱을 실행할 수 있도록 파일 공유에 앱을 배포합니다.  
+이 문서에서는 DevTest Lab을 사용하여 Azure에서 애플리케이션을 테스트하는 방법에 대한 단계를 제공합니다. 먼저 랩 내에서 파일 공유를 설정하고 로컬 개발 컴퓨터의 드라이브 및 랩 내의 VM으로 탑재합니다. 그런 다음 Visual Studio 2019을 사용 하 여 랩의 VM에서 앱을 실행할 수 있도록 앱을 파일 공유에 배포 합니다.  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -58,13 +58,13 @@ ms.locfileid: "65872479"
 
     ![랩 VM 선택](media/test-app-in-azure/select-lab-vm.png)
 2. 도구 모음에서 **연결**을 선택하여 VM에 연결합니다. 
-3. [Azure PowerShell 설치](/powershell/azure/install-az-ps).
+3. [Azure PowerShell를 설치](/powershell/azure/install-az-ps)합니다.
 4. 파일 공유 탑재 섹션의 지침을 따릅니다. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Visual Studio에서 앱 게시
 이 섹션에서는 Visual Studio에서 클라우드의 테스트 VM으로 앱을 게시합니다.
 
-1. Visual Studio 2019를 사용하여 데스크톱/웹 응용 프로그램을 만듭니다.
+1. Visual Studio 2019을 사용 하 여 데스크톱/웹 응용 프로그램을 만듭니다.
 2. 앱을 빌드합니다.
 3. 앱을 게시하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 
 4. **게시 마법사**에서 파일 공유에 매핑된 **드라이브**를 입력합니다.

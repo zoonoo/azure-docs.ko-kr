@@ -1,6 +1,6 @@
 ---
 title: Media Services 및 Apple FairPlay 라이선스 지원 - Azure | Microsoft Docs
-description: 이 항목에서는 Apple FairPlay 라이선스 요구 사항 및 구성에 대한 개요를 제공합니다.
+description: 이 항목에서는 Apple FairPlay 라이선스 요구 사항 및 구성에 대 한 개요를 제공 합니다.
 author: juliako
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 6d4b7ba842d08723b90a4f2491d9e79e68dd932e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60733575"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Apple FairPlay 라이선스 요구 사항 및 구성 

@@ -14,21 +14,21 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.openlocfilehash: 81f1ac3280381ef08a1daf1fa4e041227a07aeaf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "66003018"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Azure SQL Server Stretch Database 서비스에 대한 모든 토픽
 이 토픽에서는 Azure의 **SQL Server Stretch Database** 서비스에 직접 적용되는 모든 항목을 나열합니다. 이 웹 페이지에서 **Ctrl+F**를 사용해 키워드를 검색하여 현재 관심 있는 항목을 찾을 수 있습니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 | &nbsp; | 제목 | 설명 |
 | ---:|:--- |:--- |
 | 1 |[스트레치 데이터베이스 관리자를 실행하여 스트레치 데이터베이스용 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md) |Stretch Database의 후보인 데이터베이스 및 테이블을 식별하는 방법에 대해 알아봅니다. |
 | 2 |[스트레치 데이터베이스에 대한 제한 사항](sql-server-stretch-database-limitations.md) |Stretch Database에 대한 제한 사항에 대해 알아봅니다. |
-| 3 |[스트레치 데이터베이스 개요](sql-server-stretch-database-overview.md) |Stretch Database가 콜드 데이터를 투명하고 안전하게 Microsoft Azure 클라우드로 마이그레이션하는 방법에 대해 알아봅니다. |
+| 3 |[Stretch Database 개요](sql-server-stretch-database-overview.md) |Stretch Database가 콜드 데이터를 투명하고 안전하게 Microsoft Azure 클라우드로 마이그레이션하는 방법에 대해 알아봅니다. |
 | 4 |[Stretch에 데이터베이스 사용 마법사를 실행하여 시작](sql-server-stretch-database-wizard.md) |스트레치에 데이터베이스 사용 마법사를 실행하여 Stretch Database에 대해 데이터베이스를 구성하는 방법을 알아봅니다. |
 
 ## <a name="enable"></a>사용

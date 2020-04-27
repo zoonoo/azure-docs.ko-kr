@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 68535f70507e7a81d217f4148314a3d76ec832ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68727207"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Azure 정보 시스템 구성 요소 및 경계
@@ -125,7 +125,7 @@ Azure 인프라를 보호하기 위해 Microsoft에서 수행하는 작업에 �
 - [Azure 인프라 가용성](infrastructure-availability.md)
 - [Azure 네트워크 아키텍처](infrastructure-network.md)
 - [Azure 프로덕션 네트워크](production-network.md)
-- [Azure SQL 데이터베이스 보안 기능](infrastructure-sql.md)
+- [Azure SQL Database 보안 기능](infrastructure-sql.md)
 - [Azure 프로덕션 운영 및 관리](infrastructure-operations.md)
 - [심층 인프라 모니터링](infrastructure-monitoring.md)
 - [Azure 인프라 무결성](infrastructure-integrity.md)

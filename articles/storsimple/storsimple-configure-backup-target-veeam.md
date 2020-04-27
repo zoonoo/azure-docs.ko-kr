@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: 3ebf464fed1480e7452f246f04f3906faf0dd219
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67875310"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>Veeam에서 백업 대상으로 StorSimple 구성
@@ -56,8 +56,8 @@ StorSimple이 백업 대상으로 적합한 이유는 다음과 같습니다.
 
 StorSimple은 잘 정의된 데이터(핫 데이터)의 작업 집합에서 작동하는 애플리케이션에 대한 스토리지를 제공하도록 설계되었습니다. 이 모델에서 데이터의 작업 집합은 로컬 계층에 저장되고 데이터의 나머지 비작업/콜드/보관 집합은 클라우드에서 계층화됩니다. 다음 그림에서 이 모델을 나타냅니다. 평평한 녹색선은 StorSimple 디바이스의 로컬 계층에 저장된 데이터를 나타냅니다. 빨간색 선은 모든 계층에서 StorSimple 솔루션에 저장된 총 데이터 양을 나타냅니다. 평편한 녹색선과 빨강색 지수 곡선 사이의 간격은 클라우드에 저장된 데이터의 총량을 나타냅니다.
 
-**StorSimple 계층화**
-![Stor간단한 계층화 다이어그램](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
+**Storsimple 계층화**
+![storsimple 계층화 다이어그램](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
 
 이 아키텍처를 염두에 두면 StorSimple이 백업 대상으로 작동하는 데 적합하다는 점을 알 수 있습니다. StorSimple을 사용하면 다음 작업을 수행할 수 있습니다.
 
@@ -276,11 +276,11 @@ Veeam 설치 모범 사례는 [Veeam Backup 및 복제 모범 사례](https://bp
 
     ![Veeam 관리 콘솔 - 백업 리포지토리 페이지](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-2.  **새 Backup 리포지토리** 대화 상자에서 리포지토리의 이름과 설명을 입력합니다. **다음**을 선택합니다.
+2.  **새 Backup 리포지토리** 대화 상자에서 리포지토리의 이름과 설명을 입력합니다. **새로 만들기**를 선택합니다.
 
     ![Veeam 관리 콘솔 - 이름 및 설명 페이지](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-3.  유형에 대해 **Microsoft Windows 서버**를 선택합니다. Veeam 서버를 선택합니다. **다음**을 선택합니다.
+3.  유형에 대해 **Microsoft Windows 서버**를 선택합니다. Veeam 서버를 선택합니다. **새로 만들기**를 선택합니다.
 
     ![Veeam 관리 콘솔 - 백업 리포지토리의 유형 선택](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
@@ -293,7 +293,7 @@ Veeam 설치 모범 사례는 [Veeam Backup 및 복제 모범 사례](https://bp
 
     ![Veeam 관리 콘솔 - 스토리지 호환성 설정](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-6.  **새 Backup 리포지토리** 대화 상자에서 **탑재 서버에서 vPower NFS 서비스 사용(권장)** 확인란을 선택합니다. **다음**을 선택합니다.
+6.  **새 Backup 리포지토리** 대화 상자에서 **탑재 서버에서 vPower NFS 서비스 사용(권장)** 확인란을 선택합니다. **새로 만들기**를 선택합니다.
 
     ![Veeam 관리 콘솔 - 백업 리포지토리 페이지](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
@@ -468,7 +468,7 @@ StorSimple 클라우드 스냅샷은 StorSimple 디바이스에 있는 데이터
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>클라우드 스냅샷을 시작하거나 삭제하려면
 
-1. [Azure PowerShell 설치](/powershell/azure/overview).
+1. [Azure PowerShell를 설치](/powershell/azure/overview)합니다.
 2. [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell 스크립트를 다운로드 및 설치합니다.
 3. 스크립트를 실행하는 서버에서 관리자 권한으로 PowerShell을 실행합니다. `-WhatIf $true`를 포함하는 스크립트를 실행하여 스크립트가 어떻게 변경되는지 확인합니다. 유효성 검사가 완료되면 `-WhatIf $false`를 전달합니다. 아래 명령을 실행합니다.
    ```powershell
@@ -489,7 +489,7 @@ Veeam을 사용하면 Veeam 콘솔에 있는 기본 제공 탐색기 보기에�
 - [Exchange Server](https://www.veeam.com/microsoft-exchange-recovery.html)용
 - [Active Directory](https://www.veeam.com/microsoft-active-directory-explorer.html)용
 - [SQL Server](https://www.veeam.com/microsoft-sql-server-explorer.html)용
-- [공유점용](https://www.veeam.com/microsoft-sharepoint-recovery-explorer.html)
+- [SharePoint](https://www.veeam.com/microsoft-sharepoint-recovery-explorer.html) 용
 - [Oracle](https://www.veeam.com/oracle-backup-recovery-explorer.html)용
 
 

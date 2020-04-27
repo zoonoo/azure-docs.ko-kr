@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 11b6553fe8aceef0d3d15977998dd870c275128a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61294338"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩의 라이선스 이미지 사용
@@ -28,9 +28,9 @@ Azure DevTest Labs에서 라이선스 이미지는 일반적으로 타사의 사
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>라이선스 이미지를 사용자가 사용할 수 있는지 여부 결정
 사용자가 라이선스 이미지에서 VM을 만들 수 있도록 하려면 먼저 라이선스 이미지의 사용 약관에 동의했는지 확인해야 합니다. 다음 단계에서는 라이선스 이미지의 제공 상태를 확인하고 필요한 경우 해당 사용 약관에 동의하는 방법을 보여 줍니다.
 
-1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **모든 서비스를**선택한 다음 목록에서 **DevTest 랩을 선택합니다.**
+1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs** 를 선택 합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.  
 

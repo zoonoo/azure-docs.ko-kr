@@ -1,5 +1,5 @@
 ---
-title: 상업 시장 지원 | Azure 마켓플레이스
+title: 상업적 marketplace에 대 한 지원 | Azure Marketplace
 description: Azure Marketplace 및 AppSource에 대한 지원 정보 및 링크
 author: dsindona
 ms.service: marketplace
@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 2b73fee33692b65770caeea651c12e9780dba2c4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 3871ef232d9a2315ece632f6f764f8377a8435c5
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81681378"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159918"
 ---
 # <a name="support-for-the-marketplace"></a>Marketplace에 대한 지원
 
@@ -22,13 +22,13 @@ ms.locfileid: "81681378"
 
 ## <a name="onboarding"></a>온보딩
 
-온보딩 및 시작 과 관련된 문제에 대해 Microsoft [마켓플레이스 게시자 지원을](https://aka.ms/marketplacepublishersupport) 통해 티켓을 엽니다.
+온 보 딩 및 시작에 대 한 문제에 대 한 Microsoft [marketplace 게시자 지원](https://partner.microsoft.com/support/v2/?stage=1) 으로 티켓을 엽니다.
 
 ## <a name="partner-center"></a>파트너 센터   
 
 | 지원 채널 | 설명 | 가용성 |  
 |:--- |:--- |:--- |  
-| 도움이 필요하면 [Marketplace 지원](https://aka.ms/marketplacepublishersupport)의 인시던트 만들기 페이지를 방문하세요.</li> </ul> | 파트너 센터 지원. | 지원은 24x5 제공됩니다. |  
+| 도움이 필요하면 [Marketplace 지원](https://partner.microsoft.com/support/v2/?stage=1)의 인시던트 만들기 페이지를 방문하세요.</li> </ul> | 파트너 센터 지원. | 지원 24x5 제공 됩니다. |  
 
 ## <a name="technical"></a>기술  
 
@@ -48,7 +48,7 @@ ms.locfileid: "81681378"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 상업용 [마켓플레이스 퍼블리셔 가이드 페이지를](https://docs.microsoft.com/azure/marketplace/)방문하십시오.
-* [파트너 센터의 상용 마켓플레이스 프로그램에 대한 지원에](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)대해 자세히 알아보십시오.
+* [상업적 마켓플레이스 게시자 가이드 페이지](https://docs.microsoft.com/azure/marketplace/)를 방문 하세요.
+* [파트너 센터에서 상업적 marketplace 프로그램 지원](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)에 대해 자세히 알아보세요.
 
 ---

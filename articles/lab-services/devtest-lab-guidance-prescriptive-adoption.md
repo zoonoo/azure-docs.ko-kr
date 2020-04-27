@@ -1,6 +1,6 @@
 ---
 title: 기업용 Azure DevTest Labs 도입
-description: 이 문서에서는 기업에서 Azure DevTest 랩을 사용하기 위한 규범적인 지침을 제공합니다.
+description: 이 문서에서는 기업에서 Azure DevTest Labs 사용에 대 한 규범적인 지침을 제공 합니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,31 +14,31 @@ ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 32e828f420d41d7a67e4f41ac8a4a0698711ce2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64916402"
 ---
 # <a name="devtest-labs-in-the-enterprise"></a>기업의 DevTest Labs
-기업은 민첩성, 유연성 및 경제성을 포함하는 [이점](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) 때문에 클라우드를 빠르게 채택하고 있습니다. 첫 번째 단계는 종종 개발 및 테스트 워크로드입니다. Azure DevTest Labs는 엔터프라이즈에 이점을 제공하고 [주요 개발/테스트 시나리오를](devtest-lab-guidance-get-started.md)지원하는 [기능을](devtest-lab-concepts.md) 제공합니다.
+기업은 민첩성, 유연성 및 경제를 포함 하는 [이점](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) 때문에 클라우드를 신속 하 게 채택 하 고 있습니다. 첫 번째 단계는 개발 및 테스트 워크 로드입니다. Azure DevTest Labs는 엔터프라이즈를 활용 하 고 [주요 개발/테스트 시나리오](devtest-lab-guidance-get-started.md)를 지 원하는 [기능](devtest-lab-concepts.md) 을 제공 합니다.
 
-워크로드를 클라우드로 마이그레이션하는 기업의 일반적인 관심사는 다음과 같습니다.
+클라우드로 워크 로드를 마이그레이션하는 기업에 대 한 일반적인 문제는 다음과 같습니다.
 
-- [개발/테스트 리소스 확보](devtest-lab-guidance-governance-policy-compliance.md)
+- [개발/테스트 리소스 보안](devtest-lab-guidance-governance-policy-compliance.md)
 - [비용 관리 및 이해](devtest-lab-guidance-governance-cost-ownership.md)
-- 엔터프라이즈 보안 및 규정 준수를 손상시키지 않으면서 개발자를 위한 셀프 서비스 지원
-- 추가 시나리오를 다루기 위해 DevTest 랩자동화 및 확장
+- 엔터프라이즈 보안 및 규정 준수를 손상 시 키 지 않고 개발자에 게 셀프 서비스를 사용 하도록 설정
+- 추가 시나리오를 다루는 DevTest Labs 자동화 및 확장
 - [DevTest Labs 기반 솔루션을 수천 개의 리소스로 확장](devtest-lab-guidance-scale.md)
-- [데브테스트 연구소의 대규모 배포](devtest-lab-guidance-orchestrate-implementation.md)
-- [개념 증명을 시작하기](devtest-lab-guidance-orchestrate-implementation.md)
+- [DevTest Labs의 대규모 배포](devtest-lab-guidance-orchestrate-implementation.md)
+- [개념 증명 시작](devtest-lab-guidance-orchestrate-implementation.md)
 
 ## <a name="intended-audience"></a>대상 그룹
-이 설명서는 배포를 수립하고 검토하고 운영을 감독하는 엔터프라이즈 IT 기획자, 설계자 및 관리자를 위한 설명입니다. 이 문서에서는 전체 프로세스및 권장 설계 원칙을 강조합니다. 목표는 안전하고 안정적인 개발/테스트 환경을 촉진하는 것이며, 궁극적으로 조직 내에서 Azure DevTest Labs의 채택을 촉진합니다.
+이 설명서는 배포 및 감독 작업을 설정 하 고 검토 하는 엔터프라이즈 IT 계획자, 설계자 및 관리자를 위한 것입니다. 이러한 문서에서는 전체 프로세스 및 권장 되는 디자인 원칙을 강조 합니다. 목표는 궁극적으로 조직 내에서 Azure DevTest Labs 도입을 유도 하는 안전 하 고 안정적인 개발/테스트 환경을 조성 하는 것입니다.
 
-## <a name="enterprise-customers"></a>엔터프라이즈 고객
+## <a name="enterprise-customers"></a>기업 고객
 
-현재 많은 DevTest Labs 엔터프라이즈 고객이 DevTest Labs를 사용하여 개발 및 조직의 워크로드 테스트에 성공했습니다. [자세히 알아봅니다](https://azure.microsoft.com/case-studies/?term=DevTest+labs).
+많은 최신 DevTest Labs 기업 고객은 개발을 위해 DevTest Labs를 사용 하 고 조직에서 워크 로드를 테스트 합니다. [자세히 알아보기](https://azure.microsoft.com/case-studies/?term=DevTest+labs).
 
 ## <a name="next-steps"></a>다음 단계
-- [엔터프라이즈용 참조 아키텍처](devtest-lab-reference-architecture.md)
+- [엔터프라이즈에 대 한 참조 아키텍처](devtest-lab-reference-architecture.md)

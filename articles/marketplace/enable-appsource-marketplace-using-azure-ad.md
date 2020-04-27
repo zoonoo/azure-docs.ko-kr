@@ -7,16 +7,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: d2f33fc8b1bdd15b53ad9130b5cc598dd6d5ee1a
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 324f8def5ddafb15156a31fe5addabadcee6f115
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684619"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160616"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Azure Active Directory를 사용하여 AppSource와 Marketplace 목록을 사용하도록 설정
 
- Azure AD(Azure Active Directory)는 Microsoft 계정으로 인증할 수 있도록 하는 클라우드 ID 서비스입니다. Azure AD는 산업 표준 프레임워크를 사용합니다. [Azure 활성 디렉터리 에 대해 자세히 알아봅니다.](https://azure.microsoft.com/services/active-directory)
+ Azure AD(Azure Active Directory)는 Microsoft 계정으로 인증할 수 있도록 하는 클라우드 ID 서비스입니다. Azure AD는 산업 표준 프레임워크를 사용합니다. [Azure Active Directory에 대해 자세히 알아보세요](https://azure.microsoft.com/services/active-directory).
 
 ## <a name="azure-ad-benefits"></a>Azure AD 혜택
 
@@ -31,21 +31,21 @@ Microsoft AppSource 및 Azure Marketplace 고객은 제품 내 환경을 사용�
 
 AppSource 및 Azure Marketplace에 대한 다양한 [목록 옵션 및 제품 유형](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)에는 Azure AD 구현을 위한 다양한 요구 사항이 있습니다. 자세한 내용은 다음 표를 참조하세요.
 
-| **오퍼 유형**    | **Azure AD SSO 필수 여부**  |  |   |  |
+| **제안 유형**    | **Azure AD SSO 필수 여부**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 |  | 연락처 | 평가판 | 시험 사용 | 거래 |
-| Virtual Machine | 해당 없음 | 예 | 예 | 예 |
+| Virtual Machine | 해당 없음 | 아니요 | 아니요 | 아니요 |
 | Azure 앱(솔루션 템플릿)  | 해당 없음 | 해당 없음 | 해당 없음 | 해당 없음 |
-| 관리되는 앱  | 해당 없음 | 해당 없음 | 해당 없음 | 예 |
+| 관리되는 앱  | 해당 없음 | 해당 없음 | 해당 없음 | 아니요 |
 | SaaS  | 예 | 예 | 예 | 예 |
-| 컨테이너  | 해당 없음 | 해당 없음 | 해당 없음 | 예 |
-| 컨설팅 서비스  | 예 | 해당 없음 | 해당 없음 | 해당 없음 |
+| 컨테이너  | 해당 없음 | 해당 없음 | 해당 없음 | 아니요 |
+| 컨설팅 서비스  | 아니요 | 해당 없음 | 해당 없음 | 해당 없음 |
 
 SaaS 기술 요구 사항에 대한 자세한 내용은 [SaaS 애플리케이션 제품 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)를 참조하세요.
 
 ## <a name="azure-ad-integration"></a>Azure AD 통합
 
-- Azure AD를 목록에 통합하여 Single Sign-On을 사용하도록 설정하는 방법에 대한 자세한 내용은 [개발자용 Azure Active Directory]( https://aka.ms/aaddev)를 참조하세요.
+- Azure AD를 목록에 통합하여 Single Sign-On을 사용하도록 설정하는 방법에 대한 자세한 내용은 [개발자용 Azure Active Directory]( https://docs.microsoft.com/azure/active-directory/develop/)를 참조하세요.
 - Azure AD Single Sign-On에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)를 참조하세요.
 
 ## <a name="enable-a-trial-listing"></a>평가판 목록 사용
@@ -73,7 +73,7 @@ Azure AD를 사용하여 다음 작업을 지원합니다.
 Azure AD 페더레이션 Single Sign-On을 처음 사용하는 경우 다음 단계를 완료하세요.
 
 1. Marketplace에서 앱을 등록합니다.
-1. [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) 또는 [OpenID 연결](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code)을 사용하여 Azure AD를 사용하여 SSO를 개발합니다.
+1. [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) 또는 [openid connect Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code)를 사용 하 여 Azure AD에서 SSO를 개발 합니다.
 1. Azure AD의 다중 테넌트 지원 기능으로 원클릭 체험 환경을 제공할 수 있습니다.
 
 ### <a name="single-tenant-solutions"></a>단일 테넌트 솔루션
@@ -89,8 +89,8 @@ Azure AD를 사용하여 다음 작업 중 하나를 지원합니다.
 
 아직 수행하지 않았다면 
 
-- 마켓플레이스에 대해 [알아보세요.](https://azuremarketplace.microsoft.com/sell)
+- Marketplace에 [대해 알아봅니다](https://azuremarketplace.microsoft.com/sell) .
 
-파트너 센터에 등록하려면 새 오퍼를 만들거나 기존 오퍼를 작성하기 시작합니다.
+파트너 센터에 등록 하려면 새 제품 만들기 또는 기존 제품에 대 한 작업을 시작 합니다.
 
-- [파트너 센터에 로그인하여](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 쿠폰을 만들거나 완료하세요.
+- [파트너 센터에 로그인](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 하 여 제품을 만들거나 완성 합니다.

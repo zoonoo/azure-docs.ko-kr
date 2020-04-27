@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 42e58125fcbc3ab411c0d7503c42c14c28178428
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "62113938"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>로컬 머신에서 U-SQL 스크립트 실행
@@ -57,7 +57,7 @@ Azure Data Lake Tools for Visual Studio에는 기본 제공 로컬 실행이 있
  
 ## <a name="local-runs-with-a-local-machine-account"></a>Local-machine 계정을 사용한 로컬 실행
 
-**Local-machine** 계정은 로컬 저장소 계정으로서 단일 로컬 데이터 루트 폴더를 갖는 공유 로컬 컴퓨팅 계정입니다. 기본적으로 데이터 루트 폴더의 위치는 **C:\Users\<username>\AppData\Local\USQLDataRoot**입니다. 또한 **도구** > **데이터 호수** > **옵션 및 설정을**통해 구성 할 수 있습니다.
+**Local-machine** 계정은 로컬 저장소 계정으로서 단일 로컬 데이터 루트 폴더를 갖는 공유 로컬 컴퓨팅 계정입니다. 기본적으로 데이터 루트 폴더의 위치는 **C:\Users\<username>\AppData\Local\USQLDataRoot**입니다. **도구** > **Data Lake**Data Lake > **옵션 및 설정을**통해서도 구성할 수 있습니다.
 
 ![로컬 데이터 루트 폴더 구성](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-local-data-root.png)
   
@@ -75,7 +75,7 @@ U-SQL 프로젝트는 프로젝트 참조 및 속성을 통해 격리된 로컬 
 
 U-SQL 프로젝트는 **Local-project** 계정에 대해 로컬 데이터 루트 폴더를 만들고 데이터를 설정합니다. 다시 빌드 및 로컬 실행이 발생할 때마다 U-SQL 프로젝트 작업 디렉터리에 임시 데이터 루트 폴더가 정리된 후 다시 생성됩니다. U-SQL 프로젝트에서 구성되는 모든 데이터 원본은 로컬 작업 실행 전에 이 임시 로컬 데이터 루트 폴더에 복사됩니다. 
 
-데이터 원본의 루트 폴더를 구성할 수 있습니다. **U-SQL 프로젝트** > **속성** > **테스트 데이터 원본을**마우스 오른쪽 단추로 클릭합니다. **Local-project** 계정에서 U-SQL 스크립트를 실행할 경우 **테스트 데이터 원본** 폴더의 모든 파일과 하위 폴더가 임시 로컬 데이터 루트 폴더에 복사됩니다. 하위 폴더에 있는 파일이 포함됩니다. 로컬 작업이 실행된 후, 프로젝트 작업 디렉터리의 임시 로컬 데이터 루트 폴더에서 출력 결과를 찾을 수도 있습니다. 프로젝트가 다시 빌드되고 정리되면 이 모든 출력이 삭제되고 정리됩니다. 
+데이터 원본의 루트 폴더를 구성할 수 있습니다. **U-SQL 프로젝트** > **속성** > **테스트 데이터 원본**을 마우스 오른쪽 단추로 클릭 합니다. **Local-project** 계정에서 U-SQL 스크립트를 실행할 경우 **테스트 데이터 원본** 폴더의 모든 파일과 하위 폴더가 임시 로컬 데이터 루트 폴더에 복사됩니다. 하위 폴더에 있는 파일이 포함됩니다. 로컬 작업이 실행된 후, 프로젝트 작업 디렉터리의 임시 로컬 데이터 루트 폴더에서 출력 결과를 찾을 수도 있습니다. 프로젝트가 다시 빌드되고 정리되면 이 모든 출력이 삭제되고 정리됩니다. 
 
 ![프로젝트의 테스트 데이터 원본 구성](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-project-test-data-source.png)
 
@@ -95,8 +95,8 @@ U-SQL 쿼리가 U-SQL 데이터베이스 개체를 사용하거나 이 개체로
 |차이 관점|Local-machine|Local-project|
 |----------------|---------------|---------------|
 |로컬 액세스|모든 프로젝트에서 액세스할 수 있습니다.|해당 프로젝트만 이 계정에 액세스할 수 있습니다.|
-|로컬 데이터 루트 폴더|영구 로컬 폴더입니다. **도구** > **데이터 호수** > **옵션 및 설정을**통해 구성 .|U-SQL 프로젝트 작업 디렉터리에서 각 로컬 실행에 대해 만들어지는 임시 폴더입니다. 폴더는 다시 빌드 또는 다시 실행이 발생하면 정리됩니다.|
-|U-SQL 스크립트에 대한 입력 데이터|영구 로컬 데이터 루트 폴더에 있는 상대 경로입니다.|**U-SQL 프로젝트 속성** > **테스트 데이터 원본을**통해 설정합니다. 모든 파일 및 하위 폴더가 로컬 실행 전에 임시 데이터 루트 폴더로 복사됩니다.|
+|로컬 데이터 루트 폴더|영구 로컬 폴더입니다. **도구** > **Data Lake**Data Lake > **옵션 및 설정을**통해 구성 됩니다.|U-SQL 프로젝트 작업 디렉터리에서 각 로컬 실행에 대해 만들어지는 임시 폴더입니다. 폴더는 다시 빌드 또는 다시 실행이 발생하면 정리됩니다.|
+|U-SQL 스크립트에 대한 입력 데이터|영구 로컬 데이터 루트 폴더에 있는 상대 경로입니다.|**U-SQL 프로젝트 속성** > **테스트 데이터 원본을**통해 설정 합니다. 모든 파일 및 하위 폴더가 로컬 실행 전에 임시 데이터 루트 폴더로 복사됩니다.|
 |U-SQL 스크립트에 대한 출력 데이터|영구 로컬 데이터 루트 폴더의 상대 경로입니다.|임시 데이터 루트 폴더로 출력합니다. 결과는 다시 빌드 또는 다시 실행이 발생하면 정리됩니다.|
 |참조된 데이터베이스 배포|참조된 데이터베이스는 **Local-machine** 계정에 대해 실행될 경우 자동으로 배포되지 않습니다. Azure Data Lake Analytics 계정으로 제출하는 것과 동일합니다.|참조된 데이터베이스는 로컬 실행 전에 자동으로 **Local-project** 계정에 배포됩니다. 다시 빌드 또는 다시 실행이 발생하면 모든 데이터베이스 환경이 정리되고 다시 배포됩니다.|
 
@@ -108,5 +108,5 @@ Visual Studio에서 U-SQL 스크립트를 로컬로 실행하고, Azure Data Lak
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 데이터 레이크 분석을 위한 CI/CD 파이프라인을 설정하는 방법.](data-lake-analytics-cicd-overview.md)
-- [Azure 데이터 호수 분석 코드를 테스트하는 방법](data-lake-analytics-cicd-test.md).
+- [Azure Data Lake Analytics에 대 한 CI/CD 파이프라인을 설정 하는 방법](data-lake-analytics-cicd-overview.md)입니다.
+- [Azure Data Lake Analytics 코드를 테스트 하는 방법](data-lake-analytics-cicd-test.md)

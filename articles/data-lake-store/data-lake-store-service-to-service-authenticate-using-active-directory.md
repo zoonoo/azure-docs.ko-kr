@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 3fbf2f2540e8f1ca84aad2759b9a1fc790e4065d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "66241367"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
@@ -55,10 +55,10 @@ Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스
 ## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>3단계: Azure Data Lake Storage Gen1 계정 파일 또는 폴더에 Microsoft Azure AD 애플리케이션 할당
 
 
-1. [Azure 포털에](https://portal.azure.com)로그온합니다. 앞에서 만든 Azure Active Directory 애플리케이션에 연결할 Data Lake Storage Gen1 계정을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그온 합니다. 앞에서 만든 Azure Active Directory 애플리케이션에 연결할 Data Lake Storage Gen1 계정을 엽니다.
 2. Data Lake Storage Gen1 계정 블레이드에서 **데이터 탐색기**를 클릭합니다.
    
-    ![데이터 레이크 스토리지 Gen1 계정에서 디렉터리 만들기](./media/data-lake-store-authenticate-using-active-directory/adl.start.data.explorer.png "데이터 레이크 계정에서 디렉터리 만들기")
+    ![Data Lake Storage Gen1 계정에서 디렉터리 만들기](./media/data-lake-store-authenticate-using-active-directory/adl.start.data.explorer.png "데이터 레이크 계정에서 디렉터리 만들기")
 3. **데이터 탐색기** 블레이드에서 Azure AD 애플리케이션에 대한 액세스를 제공할 파일 또는 폴더를 클릭하고 **액세스**를 클릭합니다. 파일에 대한 액세스를 구성하려면 **파일 미리 보기** 블레이드에서 **액세스**를 클릭해야 합니다.
    
     ![데이터 레이크 파일 시스템에 ACL 설정](./media/data-lake-store-authenticate-using-active-directory/adl.acl.1.png "데이터 레이크 파일 시스템에 ACL 설정")
@@ -100,7 +100,7 @@ Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스
     ![OAuth 토큰 끝점](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "OAuth 토큰 끝점")   
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure AD 웹 응용 프로그램을 만들고 .NET SDK, Java, 파이썬, REST API 등을 사용하여 작성한 클라이언트 응용 프로그램에서 필요한 정보를 수집했습니다. 이제 Azure AD 네이티브 응용 프로그램을 사용하여 Data Lake Storage Gen1을 먼저 인증한 다음 저장소에서 다른 작업을 수행하는 방법에 대해 설명한 다음 문서로 진행할 수 있습니다.
+이 문서에서는 Azure AD 웹 응용 프로그램을 만들고 .NET SDK, Java, Python, REST API 등을 사용 하 여 만든 클라이언트 응용 프로그램에 필요한 정보를 수집 했습니다. 이제 Azure AD 네이티브 응용 프로그램을 사용 하 여 Data Lake Storage Gen1를 먼저 인증 한 다음 저장소에서 다른 작업을 수행 하는 방법에 대해 설명 하는 다음 문서를 진행할 수 있습니다.
 
 * [Java를 사용하여 Data Lake Storage Gen1로 서비스 간 인증](data-lake-store-service-to-service-authenticate-java.md)
 * [.NET SDK를 사용하여 Data Lake Storage Gen1로 서비스 간 인증](data-lake-store-service-to-service-authenticate-net-sdk.md)

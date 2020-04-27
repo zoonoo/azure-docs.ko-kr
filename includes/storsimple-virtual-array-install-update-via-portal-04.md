@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 6f2ad6426c2c93fa595648af374df5566c45e57f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67182231"
 ---
 #### <a name="to-install-updates-via-the-azure-portal"></a>Azure Portal을 통해 업데이트를 설치하려면
@@ -61,4 +61,4 @@ ms.locfileid: "67182231"
 
     ![디바이스 업데이트](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate16m1.png)
 
-9. 업데이트가 성공적으로 설치되면 **장치 업데이트** 블레이드에 이 효과에 대한 메시지가 표시됩니다. 
+9. 업데이트가 성공적으로 설치 되 면 **장치 업데이트** 블레이드에서이 효과에 대 한 메시지가 표시 됩니다. 
