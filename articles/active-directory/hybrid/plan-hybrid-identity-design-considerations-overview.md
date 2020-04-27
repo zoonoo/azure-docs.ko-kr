@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7f8dd49f3668b8f68753681123a04d21edac46c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60381469"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory 하이브리드 ID 설계 고려 사항
@@ -60,7 +60,7 @@ Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능을 
 | 하이브리드 ID 단계 | 항목 목록 |
 | --- | --- |
 | ID 요구 사항 확인 |[비즈니스 요구 사항 결정](plan-hybrid-identity-design-considerations-business-needs.md)<br> [디렉터리 동기화 요구 사항 결정](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)<br> [Multi-Factor Authentication 요구 사항 결정](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)<br> [하이브리드 ID 채택 전략 정의](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md) |
-| 강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획 |[데이터 보호 요구 사항 결정](plan-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [콘텐츠 관리 요구 사항 결정](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [액세스 제어 요구 사항 확인](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [사고 대응 요구 사항 결정](plan-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md) |
+| 강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획 |[데이터 보호 요구 사항 결정](plan-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [콘텐츠 관리 요구 사항 확인](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [액세스 제어 요구 사항 확인](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [사고 대응 요구 사항 확인](plan-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md) |
 | 하이브리드 ID 수명 주기에 대한 계획 |[하이브리드 ID 관리 작업 결정](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [동기화 관리](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [하이브리드 ID 관리 채택 전략 결정](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
 
 ## <a name="next-steps"></a>다음 단계

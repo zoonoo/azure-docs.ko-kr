@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60381198"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig PowerShell 참조
@@ -97,7 +97,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-objectclass"></a>-ObjectClass
-검색할 개체의 클래스는 '*'(모든 개체 클래스에 대해), '사용자', '그룹', '컨테이너' 등입니다. 기본적으로 이 함수는 'organizationalUnit' 개체 클래스를 검색합니다.
+검색할 개체의 클래스 (개체 클래스의 경우), ' user ', ' group ', ' container ' 등이 될 수 있습니다. 기본적으로이 함수는 ' organizationalUnit ' 개체 클래스를 검색 합니다.
 
 ```yaml
 Type: String

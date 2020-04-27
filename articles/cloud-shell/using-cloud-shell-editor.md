@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: 7f597bb5cba1a12bdb93325fe2b877ffc644e3e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60199230"
 ---
 # <a name="using-the-azure-cloud-shell-editor"></a>Azure Cloud Shell 편집기 사용
@@ -52,5 +52,5 @@ UI 단추를 통해 편집기를 열려면 도구 모음에서 `{}` 편집기 �
 Cloud Shell 편집기에서 언어 강조 표시 지원은 Monarch 구문 정의의 [Monaco 편집기](https://github.com/Microsoft/monaco-editor)를 사용하는 업스트림 기능을 통해 지원됩니다. 참여하는 방법을 알아보려면 [Monaco 참여자 가이드](https://github.com/Microsoft/monaco-editor/blob/master/CONTRIBUTING.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[클라우드 쉘에서](quickstart.md)
-Bash에 대한 빠른 시작을[사용해 보십시오 통합 클라우드 쉘 도구의 전체 목록을 볼 수 있습니다.](features.md)
+[Cloud Shell의 Bash에 대 한 빠른 시작을 시도 하](quickstart.md)
+여[통합 Cloud Shell 도구의 전체 목록을 확인](features.md) 하세요.

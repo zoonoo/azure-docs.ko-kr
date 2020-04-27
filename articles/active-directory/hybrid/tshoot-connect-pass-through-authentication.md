@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60456180"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
@@ -28,7 +28,7 @@ ms.locfileid: "60456180"
 이 문서에서는 Azure AD 통과 인증과 관련된 일반적인 문제에 대한 문제 해결 정보를 찾을 수 있습니다.
 
 >[!IMPORTANT]
->통과 인증에서 사용자 로그인 문제가 발생하는 경우 클라우드 전용 전역 관리자 계정을 다시 사용하지 않고 해당 기능을 사용하지 않도록 설정하거나 통과 인증 에이전트를 제거하지 마세요. 클라우드 [전용 글로벌 관리자 계정을 추가하는](../active-directory-users-create-azure-portal.md)방법에 대해 알아봅니다. 이 단계를 수행하는 것이 중요하며 테넌트가 잠기지 않도록 합니다.
+>통과 인증에서 사용자 로그인 문제가 발생하는 경우 클라우드 전용 전역 관리자 계정을 다시 사용하지 않고 해당 기능을 사용하지 않도록 설정하거나 통과 인증 에이전트를 제거하지 마세요. [클라우드 전용 전역 관리자 계정을 추가 하는](../active-directory-users-create-azure-portal.md)방법에 대해 알아봅니다. 이 단계를 수행하는 것이 중요하며 테넌트가 잠기지 않도록 합니다.
 
 ## <a name="general-issues"></a>일반적인 문제
 
@@ -44,7 +44,7 @@ ms.locfileid: "60456180"
 
 사용자가 통과 인증을 통해 로그인할 수 없는 경우 Azure AD 로그인 화면에서 다음과 같은 사용자 관련 오류 메시지 중 하나가 표시될 수 있습니다. 
 
-|Error|설명|해결 방법
+|Error|Description|해결 방법
 | --- | --- | ---
 |AADSTS80001|Active Directory에 연결할 수 없음|에이전트 서버가 자신의 암호에 대한 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트의 멤버이고 Active Directory에 연결할 수 있는지 확인합니다.  
 |AADSTS8002|Active Directory에 연결하는 동안 시간 초과 발생|Active Directory를 사용할 수 있고 에이전트의 요청에 응답하는지 확인합니다.
@@ -58,7 +58,7 @@ ms.locfileid: "60456180"
 
 ![Azure Active Directory 관리 센터 - 로그인 보고서](./media/tshoot-connect-pass-through-authentication/pta4.png)
 
-[Azure Active Directory 관리 센터에서](https://aad.portal.azure.com/) Azure Active **Directory** -> **로그인으로** 이동하여 특정 사용자의 로그인 활동을 클릭합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
+[Azure Active Directory 관리 센터](https://aad.portal.azure.com/) 에서 **Azure Active Directory** -> **로그인** 으로 이동 하 고 특정 사용자의 로그인 활동을 클릭 합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
 
 |로그인 오류 코드|로그인 실패 이유|해결 방법
 | --- | --- | ---
@@ -73,7 +73,7 @@ ms.locfileid: "60456180"
 | 80011 | 인증 에이전트에서 암호 해독 키를 검색할 수 없습니다. | 일관되게 재현될 수 있는 문제이면 새 인증 에이전트를 설치하고 등록합니다. 그리고 현재의 인증 에이전트는 제거합니다.
 
 >[!IMPORTANT]
->통과 인증 에이전트는 [Win32 LogonUser API를](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)호출하여 Active Directory에 대해 사용자 이름과 암호를 검증하여 Azure AD 사용자를 인증합니다. 따라서 워크스테이션 로그온 액세스를 제한하기 위해 Active Directory에서 "로그온 투" 설정을 설정한 경우 통과 인증 에이전트를 호스팅하는 서버를 "로그온 투" 서버 목록에 추가해야 합니다. 이렇게 하지 않으면 사용자가 Azure AD에 로그인하지 못하게 됩니다.
+>통과 인증 에이전트는 [Win32 LOGONUSER API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)를 호출 하 여 Active Directory에 대 한 사용자 이름 및 암호의 유효성을 검사 하 여 Azure AD 사용자를 인증 합니다. 따라서 워크스테이션 로그온 액세스를 제한 하기 위해 Active Directory에 "로그온" 설정을 구성한 경우 통과 인증 에이전트를 호스트 하는 서버를 "로그온" 서버 목록에도 추가 해야 합니다. 이 작업을 수행 하지 못하면 사용자가 Azure AD에 로그인 하지 못하도록 차단 됩니다.
 
 ## <a name="authentication-agent-installation-issues"></a>인증 에이전트 설치 문제
 

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 803fcc0161f2a092006e60db5a98f5bf18dce1c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60381181"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Windows Azure Active Directory Sync 및 Azure Active Directory Sync 업그레이드
@@ -32,10 +32,10 @@ Azure AD Connect는 온-프레미스 디렉터리를 Azure AD와 Office 365에 �
 DirSync의 마지막 버전은 2014년 7월에 릴리스되었으며 Azure AD Sync의 마지막 버전은 2015년 5월에 릴리스되었습니다.
 
 ## <a name="what-is-azure-ad-connect"></a>Azure AD Connect의 정의
-Azure AD 연결은 DirSync 및 Azure AD 동기화의 후속 입니다. 이 두 가지 지원되는 모든 시나리오를 결합합니다. 자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에서 확인할 수 있습니다.
+Azure AD Connect은 DirSync 및 Azure AD Sync에 대 한 후속 작업입니다. 이러한 두 가지 시나리오를 모두 지원 합니다. 자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에서 확인할 수 있습니다.
 
 ## <a name="deprecation-schedule"></a>사용 중단 일정
-| Date | 주석 |
+| 날짜 | 설명 |
 | --- | --- |
 | 2016년 4월 13일 |Microsoft Azure Active Directory 동기화("DirSync") 및 Azure Active Directory 동기화("Azure AD Sync")가 사용 중단될 예정입니다. |
 | 2017년 4월 13일 |지원이 종료됩니다. 이제 고객은 Azure AD Connect로 업그레이드해야만 지원 사례를 개설할 수 없습니다. |
@@ -44,7 +44,7 @@ Azure AD 연결은 DirSync 및 Azure AD 동기화의 후속 입니다. 이 두 �
 ## <a name="how-to-transition-to-azure-ad-connect"></a>Azure AD Connect로 전환하는 방법
 DirSync를 실행 중인 경우 전체 업그레이드와 병렬 배포의 두 가지 방법으로 업그레이드할 수 있습니다. 전체 업그레이드는 대부분의 고객에게 권장되며, 최신 운영 체제가 설치되어 있고 개체 수가 50,000개 미만인 경우에 사용하는 것이 좋습니다. 그렇지 않은 경우에는 DirSync 구성이 Azure AD Connect를 실행하는 새 서버로 전환되는 병렬 배포를 수행하는 것이 좋습니다.
 
-| 해결 방법 | 시나리오 |
+| 솔루션 | 시나리오 |
 | --- | --- |
 | [DirSync에서 업그레이드](how-to-dirsync-upgrade-get-started.md) |<li>기존 DirSync 서버를 이미 실행 중인 경우</li> |
 | [Azure AD Sync에서 업그레이드](how-to-upgrade-previous-version.md) |<li>Azure AD Sync에서 전환하는 경우</li> |

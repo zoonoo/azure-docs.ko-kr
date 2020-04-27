@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d420c64c5834f7d3cb11d2f5f59e3ed85a54891
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60386927"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: LocalDB 10GB 제한에서 복구하는 방법
@@ -87,7 +87,7 @@ Azure AD Connect에 대해 만든 데이터베이스의 이름은 **ADSync**입�
 
 3. **Actions** 아래에서 **Clear Runs**를 선택합니다.
 
-4. 모든 실행 **지우기** 또는 **실행 취소를 선택하여 선택할 수 있습니다... 날짜 \<>** 옵션입니다. 2일보다 오래된 실행 기록 데이터를 삭제하여 시작하는 것이 좋습니다. DB 크기 문제가 계속되면 **Clear all runs** 옵션을 선택합니다.
+4. **모든 실행 지우기** 또는 **이전 실행 지우기를 선택할 수 있습니다. date \<>** 옵션입니다. 2일보다 오래된 실행 기록 데이터를 삭제하여 시작하는 것이 좋습니다. DB 크기 문제가 계속되면 **Clear all runs** 옵션을 선택합니다.
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>실행 기록 데이터에 대한 보존 기간 단축
 이 단계는 여러 동기화 주기 후 10GB 제한 문제의 발생 가능성을 줄이는 것입니다.

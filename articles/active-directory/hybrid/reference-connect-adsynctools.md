@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a1b8abf15233c06e8ff9e507b315cc8a3703970
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60454662"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell 참조
@@ -528,7 +528,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 ```
 
 ### <a name="description"></a>설명
-함수는 AAD Connect 실행 기록을 쿼리하고 오류를 보고하는 모든 사용자를 내보올합니다.
+함수는 AAD Connect 실행 기록을 쿼리 하 고 오류를 보고 하는 모든 사용자를 내보냅니다. "SourceAnchor 특성이 변경 되었습니다."
 
 ### <a name="examples"></a>예제
 
@@ -859,7 +859,7 @@ Accept wildcard characters: False
 ## <a name="restore-adsynctoolsexpiredcertificates"></a>Restore-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>개요
-(할 일) 인증서 파일에서 AD 사용자 인증서 특성 복원
+(할 일) 인증서 파일에서 AD UserCertificate 특성을 복원 합니다.
 
 ### <a name="syntax"></a>SYNTAX
 
