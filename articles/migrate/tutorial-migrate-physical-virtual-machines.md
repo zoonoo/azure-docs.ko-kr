@@ -2,14 +2,14 @@
 title: Azure Migrate를 사용하여 물리적 서버로 머신을 Azure로 마이그레이션합니다.
 description: 이 문서에서는 Azure Migrate를 사용하여 물리적 머신을 Azure로 마이그레이션하는 방법을 설명합니다.
 ms.topic: tutorial
-ms.date: 02/03/2020
+ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 51ce45b091fe2d8845963953c2c50cd7be618f58
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 1824fc6c7cbc0fd0390770027f4a15d9130139de
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80297993"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535386"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>물리적 서버로 머신을 Azure에 마이그레이션
 
@@ -17,17 +17,15 @@ ms.locfileid: "80297993"
 
 - 온-프레미스 물리적 서버를 마이그레이션합니다.
 - 플랫폼(예: Xen, KVM)에서 가상화된 VM을 마이그레이션합니다.
-- 어떤 이유로 [Hyper-V](tutorial-migrate-hyper-v.md) 또는 [VMware ](server-migrate-overview.md) 마이그레이션에 표준 마이그레이션 프로세스를 사용할 수 없는 경우 Hyper-V 또는 VMware VM을 마이그레이션합니다.
+- 어떤 이유로 [Hyper-V](tutorial-migrate-hyper-v.md) 또는 [VMware](server-migrate-overview.md) 마이그레이션에 표준 마이그레이션 프로세스를 사용할 수 없는 경우 Hyper-V 또는 VMware VM을 마이그레이션합니다.
 - 프라이빗 클라우드에서 실행되는 VM을 마이그레이션합니다.
 - AWS(Amazon Web Services) 또는 GCP(Google Cloud Platform)와 같은 퍼블릭 클라우드에서 실행되는 VM을 마이그레이션합니다.
 
 
-[Azure Migrate](migrate-services-overview.md)는 온-프레미스 앱과 워크로드 및 클라우드 VM 인스턴스의 검색, 평가 및 Azure로의 마이그레이션을 추적할 수 있는 중앙 허브를 제공합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure Migrate 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다.
+이 자습서는 물리적 서버를 평가하고 Azure로 마이그레이션하는 방법을 보여주는 시리즈의 세 번째 자습서입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
-
-이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
-> * Azure Migrate 서버 마이그레이션 도구를 사용하여 마이그레이션을 위해 Azure를 준비합니다.
+> * Azure Migrate:Server Migration에서 Azure 사용을 준비합니다.
 > * 마이그레이션하려는 머신에 대한 요구 사항을 확인하고, 머신을 검색하여 Azure로 마이그레이션하는 데 사용되는 Azure Migrate 복제 어플라이언스용 머신을 준비합니다.
 > * Azure Migrate 서버 마이그레이션 도구를 Azure Migrate 허브에 추가합니다.
 > * 복제 어플라이언스를 설정합니다.
@@ -46,21 +44,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
-1. 마이그레이션 아키텍처를 [검토](migrate-architecture.md)합니다.
-2. Azure 계정에 다음과 같은 권한이 있는 Virtual Machine 기여자 역할이 할당되어 있는지 확인합니다.
+마이그레이션 아키텍처를 [검토](migrate-architecture.md)합니다.
 
-    - 선택한 리소스 그룹에 VM 만들기
-    - 선택한 가상 네트워크에 VM 만들기
-    - Azure 관리 디스크에 씁니다. 
 
-3. [Azure 네트워크를 설정합니다](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Azure에 복제하면 Azure VM이 만들어지고 마이그레이션을 설정할 때 지정한 Azure 네트워크에 조인됩니다.
 
 
 ## <a name="prepare-azure"></a>Azure 준비
 
-Azure Migrate 서버 마이그레이션을 사용하여 마이그레이션하려면 먼저 Azure 권한을 설정합니다.
+Server Migration을 사용하여 마이그레이션할 Azure를 준비합니다.
 
-- **프로젝트 만들기**: Azure 계정에는 Azure Migrate 프로젝트를 만들 수 있는 권한이 있어야 합니다. 
+**Task** | **세부 정보**
+--- | ---
+**Azure Migrate 프로젝트 만들기** | Azure 계정에는 프로젝트를 만들 수 있는 기여자 또는 소유자 권한이 있어야 합니다.
+**Azure 계정에 대한 사용 권한 확인** | Azure 계정에는 VM을 만들고 Azure 관리 디스크에 쓸 수 있는 권한이 필요합니다.
+
 
 ### <a name="assign-permissions-to-create-project"></a>프로젝트를 만들 수 있는 권한 할당
 
@@ -70,32 +67,51 @@ Azure Migrate 서버 마이그레이션을 사용하여 마이그레이션하려
     - Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자입니다.
     - 구독 소유자가 아닌 경우 해당 역할을 할당해 주도록 소유자에게 문의합니다.
 
+
+### <a name="assign-azure-account-permissions"></a>Azure 계정 권한 할당
+
+Azure 계정에 Virtual Machine 기여자 역할을 할당합니다. 다음 항목에 대한 사용 권한을 제공합니다.
+
+    - 선택한 리소스 그룹에 VM 만들기
+    - 선택한 가상 네트워크에 VM 만들기
+    - Azure 관리 디스크에 씁니다. 
+
+### <a name="create-an-azure-network"></a>Azure 네트워크 만들기
+
+Azure VNet(Virtual Network)을 [설정](../virtual-network/manage-virtual-network.md#create-a-virtual-network)합니다. Azure에 복제하면 Azure VM이 만들어지고 마이그레이션을 설정할 때 지정한 Azure VNet에 조인됩니다.
+
 ## <a name="prepare-for-migration"></a>마이그레이션 준비
+
+물리적 서버 마이그레이션을 준비하려면 물리적 서버 설정을 확인하고 복제 어플라이언스 배포를 준비해야 합니다.
 
 ### <a name="check-machine-requirements-for-migration"></a>마이그레이션에 대한 머신 요구 사항 확인
 
 머신에서 Azure로 마이그레이션하기 위한 요구 사항을 준수하는지 확인합니다. 
 
 > [!NOTE]
-> Azure Migrate 서버 마이그레이션을 사용하는 에이전트 기반 마이그레이션은 Azure Site Recovery 서비스의 에이전트 기반 재해 복구 기능과 동일한 복제 아키텍처가 있으며, 사용되는 구성 요소 중 일부는 동일한 코드 베이스를 공유합니다. 일부 요구 사항은 Site Recovery 설명서에 연결될 수 있습니다.
+> 물리적 서버를 마이그레이션할 때 Azure Migrate:Server Migration은 Azure Site Recovery 서비스의 에이전트 기반 재해 복구와 동일한 복제 아키텍처를 사용하며, 일부 구성 요소는 동일한 코드 베이스를 공유합니다. 일부 콘텐츠는 Site Recovery 설명서에 연결될 수 있습니다.
 
 1. 물리적 서버 요구 사항을 [확인](migrate-support-matrix-physical-migration.md#physical-server-requirements)합니다.
-2. VM 설정을 확인합니다. Azure에 복제하는 온-프레미스 머신은 [Azure VM 요구 사항](migrate-support-matrix-physical-migration.md#azure-vm-requirements)을 준수해야 합니다.
+2. Azure에 복제하는 온-프레미스 머신이 [Azure VM 요구 사항](migrate-support-matrix-physical-migration.md#azure-vm-requirements)을 준수하는지 확인합니다.
 
 
 ### <a name="prepare-a-machine-for-the-replication-appliance"></a>복제 어플라이언스용 머신 준비
 
-Azure Migrate 서버 마이그레이션은 복제 어플라이언스를 사용하여 머신을 Azure에 복제합니다. 복제 어플라이언스에서 실행하는 구성 요소는 다음과 같습니다.
+Azure Migrate:Server Migration은 복제 어플라이언스를 사용하여 머신을 Azure에 복제합니다. 복제 어플라이언스에서 실행하는 구성 요소는 다음과 같습니다.
 
 - **구성 서버**: 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
 - **프로세스 서버**: 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하여 캐싱, 압축 및 암호화를 사용하여 최적화한 후 Azure의 캐시 스토리지 계정으로 보냅니다. 
 
-시작하기 전에 복제 어플라이언스를 호스팅할 Windows Server 2016 머신을 준비해야 합니다. 머신은 [이러한 요구 사항](migrate-replication-appliance.md)을 준수해야 합니다. 보호하려는 원본 머신에 어플라이언스를 설치해서는 안 됩니다.
+다음과 같이 어플라이언스 배포를 준비합니다.
 
+- 복제 어플라이언스를 호스팅할 머신을 준비합니다. 머신 요구 사항을 [검토](migrate-replication-appliance.md#appliance-requirements)합니다. 복제하려는 원본 머신에 어플라이언스를 설치해서는 안 됩니다.
+- 복제 어플라이언스는 MySQL을 사용합니다. MySQL을 어플라이언스에 설치하는 [옵션](migrate-replication-appliance.md#mysql-installation)을 검토합니다.
+- 복제 어플라이언스가 [퍼블릭](migrate-replication-appliance.md#url-access) 및 [정부](migrate-replication-appliance.md#azure-government-url-access) 클라우드에 액세스하는 데 필요한 Azure URL을 검토합니다.
+- 복제 어플라이언스에 대한 [포트](migrate-replication-appliance.md#port-access) 액세스 요구 사항을 검토합니다.
 
-## <a name="add-the-azure-migrate-server-migration-tool"></a>Azure Migrate 서버 마이그레이션 도구 추가
+## <a name="add-the-server-migration-tool"></a>Server Migration 도구 추가
 
-Azure Migrate 프로젝트를 설정한 다음, Azure Migrate 서버 마이그레이션 도구를 해당 프로젝트에 추가합니다.
+Azure Migrate 프로젝트를 설정한 다음, Server Migration 도구를 해당 프로젝트에 추가합니다.
 
 1. Azure Portal > **모든 서비스**에서 **Azure Migrate**를 검색합니다.
 2. **서비스** 아래에서 **Azure Migrate**를 선택합니다.
@@ -106,19 +122,10 @@ Azure Migrate 프로젝트를 설정한 다음, Azure Migrate 서버 마이그�
 
 5. **서버 검색, 평가 및 마이그레이션**에서 **도구 추가**를 클릭합니다.
 6. **프로젝트 마이그레이션**에서 Azure 구독을 선택하고, 아직 없는 경우 리소스 그룹을 만듭니다.
-7. **프로젝트 세부 정보**에서 프로젝트 이름과 프로젝트를 만들려는 지역을 지정하고, **다음**을 클릭합니다.
+7. **프로젝트 세부 정보**에서 프로젝트 이름과 프로젝트를 만들려는 지역을 지정하고, **다음**을 클릭합니다. [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
 
     ![Azure Migrate 프로젝트 만들기](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
 
-    Azure Migrate 프로젝트는 다음 지역 중 하나에서 만들 수 있습니다.
-
-    **지리** | **지역**
-    --- | ---
-    아시아 | 동남아시아
-    유럽 | 북유럽 또는 서유럽
-    미국 | 미국 동부 또는 미국 중서부
-
-    프로젝트에 대해 지정된 지리는 온-프레미스 VM에서 수집된 메타데이터를 저장하는 데 사용됩니다. 실제 마이그레이션에 대한 대상 지역을 선택할 수 있습니다.
 8. **평가 도구 선택**에서 **평가 도구 추가 건너뛰기** > **다음**을 차례로 선택합니다.
 9. **마이그레이션 도구 선택**에서 **Azure Migrate: 서버 마이그레이션** > **다음**을 차례로 선택합니다.
 10. **검토 + 도구 추가**에서 설정을 검토하고, **도구 추가**를 클릭합니다.
@@ -126,7 +133,7 @@ Azure Migrate 프로젝트를 설정한 다음, Azure Migrate 서버 마이그�
 
 ## <a name="set-up-the-replication-appliance"></a>복제 어플라이언스 설정
 
-마이그레이션의 첫 번째 단계는 복제 어플라이언스를 설정하는 것입니다. 어플라이언스에 대한 설치 관리자 파일을 다운로드하여 [준비한 머신](#prepare-a-machine-for-the-replication-appliance)에서 실행합니다. 어플라이언스가 설치되면 해당 어플라이언스를 Azure Migrate 서버 마이그레이션에 등록합니다.
+마이그레이션의 첫 번째 단계는 복제 어플라이언스를 설정하는 것입니다. 물리적 서버 마이그레이션을 위해 어플라이언스를 설정하려면 어플라이언스의 설치 관리자 파일을 다운로드한 다음, [준비한 머신](#prepare-a-machine-for-the-replication-appliance)에서 실행합니다. 어플라이언스가 설치되면 해당 어플라이언스를 Azure Migrate 서버 마이그레이션에 등록합니다.
 
 
 ### <a name="download-the-replication-appliance-installer"></a>복제 어플라이언스 설치 관리자 다운로드
