@@ -19,6 +19,8 @@
   items:
     - name: 인증서 가져오기
       href: tutorial-import-certificate.md
+    - name: 인증서 회전 구성
+      href: tutorial-rotate-certificates.md
 - name: 개념
   items:
     - name: Key Vault 인증서 시작

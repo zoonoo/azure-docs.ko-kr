@@ -2,16 +2,16 @@
 title: Azure Migrate 서버 마이그레이션을 사용하여 Hyper-V VM을 Azure로 마이그레이션
 description: Azure Migrate 서버 마이그레이션을 사용하여 온-프레미스 Hyper-V VM을 Azure로 마이그레이션하는 방법 알아보기
 ms.topic: tutorial
-ms.date: 11/18/2019
+ms.date: 04/15/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: b5d37da7ea0c53a7e8cbb5b579d529dd4a799fed
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 6b9732aab9e3fe0d26b4c572efe87c3a9d3e29f6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422690"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535352"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 마이그레이션 
 
@@ -19,12 +19,12 @@ ms.locfileid: "80422690"
 
 [Azure Migrate](migrate-services-overview.md)는 온-프레미스 앱과 워크로드 및 프라이빗/퍼블릭 클라우드 VM의 검색, 평가 및 Azure로의 마이그레이션을 추적할 수 있는 중앙 허브를 제공합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure Migrate 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다.
 
-이 자습서는 Azure Migrate 서버 평가 및 마이그레이션을 사용하여 Hyper-V VM을 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 세 번째 자습서입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서는 Azure Migrate Server Assessment 및 Server Migration을 사용하여 Hyper-V를 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 세 번째 자습서입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 
 > [!div class="checklist"]
 > * Azure 및 온-프레미스 Hyper-V 환경을 준비합니다.
-> * 원본 환경을 설정하고 복제 어플라이언스를 배포합니다.
+> * 원본 환경을 설정합니다.
 > * 대상 환경을 설정합니다.
 > * 복제를 활성화합니다.
 > * 테스트 마이그레이션을 실행하여 모든 것이 예상대로 작동하는지 확인합니다.
@@ -38,23 +38,28 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
 1. Hyper-V 마이그레이션 아키텍처를 [검토](hyper-v-migration-architecture.md)합니다.
-2. 이 시리즈의 [첫 번째 자습서를 완료](tutorial-prepare-hyper-v.md)하여 마이그레이션을 위해 Azure 및 Hyper-V를 설정합니다. 첫 번째 자습서에서는 다음을 수행합니다.
-    - 마이그레이션을 위해 [Azure를 준비](tutorial-prepare-hyper-v.md#prepare-azure)합니다.
-    - 마이그레이션을 위해 [온-프레미스 환경을 준비](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-migration)합니다.
-3. Azure로 마이그레이션하기 전에 Azure Migrate: 서버 평가를 사용하여 Hyper-V VM 평가를 시도하는 것이 좋습니다. 이렇게 하려면 이 시리즈의 [두 번째 자습서를 완료](tutorial-assess-hyper-v.md)합니다. 평가를 시도하는 것이 좋지만 VM을 마이그레이션하기 전에는 평가를 실행할 필요가 없습니다.
-4. Azure 계정에 다음과 같은 권한이 있는 Virtual Machine 기여자 역할이 할당되어 있는지 확인합니다.
+2. Hyper-V 호스트 요구 사항 및 Hyper-V 호스트에서 액세스해야 하는 Azure URL을 [검토](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts)합니다.
+3. 마이그레이션하려는 Hyper-V VM에 대한 요구 사항을 [검토](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms)합니다. Hyper-V VM은 [Azure VM 요구 사항](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements)을 준수해야 합니다.
+2. 이 시리즈의 이전 자습서를 완료하는 것이 좋습니다. [첫 번째 자습서](tutorial-prepare-hyper-v.md)에서는 마이그레이션을 위해 Azure 및 Hyper-V를 설정하는 방법을 보여줍니다. 두 번째 자습서에서는 Azure Migrate:Server Assessment를 사용하여 마이그레이션 전에 [assess Hyper-V VMs](tutorial-assess-hyper-v.md)를 수행하는 방법을 보여줍니다. 
+    > [!NOTE]
+    > 평가를 시도하는 것이 좋지만 VM을 마이그레이션하기 전에는 평가를 실행할 필요가 없습니다.
+    > Hyper-V VM을 마이그레이션하는 경우 Azure Migrate:Server Migration은 Hyper-V 호스트 또는 클러스터 노드에서 소프트웨어 에이전트(Microsoft Azure Site Recovery 공급자 및 Microsoft Azure Recovery Service 에이전트)를 실행하여 데이터를 오케스트레이션하고 Azure Migrate에 복제합니다. [Azure Migrate 어플라이언스](migrate-appliance.md)는 Hyper-V 마이그레이션에 사용되지 않습니다.
+
+3. Azure 계정에 다음과 같은 권한이 있는 Virtual Machine 기여자 역할이 할당되어 있는지 확인합니다.
 
     - 선택한 리소스 그룹에 VM 만들기
     - 선택한 가상 네트워크에 VM 만들기
     - Azure 관리 디스크에 씁니다.
-5. [Azure 네트워크를 설정합니다](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Azure로 마이그레이션할 때 생성된 Azure VM은 마이그레이션을 설정할 때 지정하는 Azure 네트워크에 연결됩니다.
+4. [Azure 네트워크를 설정합니다](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Azure로 마이그레이션할 때 생성된 Azure VM은 마이그레이션을 설정할 때 지정하는 Azure 네트워크에 연결됩니다.
 
+## <a name="add-the-azure-migrateserver-migration-tool"></a>Azure Migrate:Server Migration 도구 추가
 
-## <a name="add-the-azure-migrate-server-migration-tool"></a>Azure Migrate 서버 마이그레이션 도구 추가
+Azure Migrate:Server Migration 도구를 추가합니다.
 
-두 번째 자습서에 따라 Hyper-V VM을 평가하지 않은 경우, [다음 지침에 따라](how-to-add-tool-first-time.md) Azure Migrate 프로젝트를 설정하고 Azure Migrate 서버 평가 도구를 프로젝트에 추가해야 합니다.
+- 두 번째 자습서에 따라 [VMware VM을 평가](/tutorial-assess-hyper-v.md)한 경우 이미 Azure Migrate 프로젝트를 설정했으므로 계속해서 도구를 추가할 수 있습니다.
+- 두 번째 자습서를 따르지 않은 경우 [이러한 지침에 따라](how-to-add-tool-first-time.md) Azure Migrate 프로젝트를 설정합니다. 프로젝트를 만들 때 Azure Migrate:Server Migration 도구를 추가합니다.
 
-이미 두 번째 자습서에 따라 Azure Migrate 프로젝트를 설정한 경우, 다음과 같이 Azure Migrate: 서버 마이그레이션 도구를 추가합니다.
+프로젝트를 설정한 경우 다음과 같이 도구를 추가합니다.
 
 1. Azure Migrate 프로젝트에서 **개요**를 클릭합니다. 
 2. **서버 검색, 평가 및 마이그레이션**에서 **서버 평가 및 마이그레이션**을 클릭합니다.
@@ -66,25 +71,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ![서버 마이그레이션 도구](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
 
-
-## <a name="set-up-the-azure-migrate-appliance"></a>Azure Migrate 어플라이언스 설정
-
-Azure Migrate 서버 마이그레이션은 Hyper-V 호스트 또는 클러스터 노드에서 소프트웨어 에이전트를 실행하여 Azure Migrate에 데이터를 오케스트레이션 및 복제하며 마이그레이션을 위한 전용 어플라이언스가 필요하지 않습니다.
-
-- Azure Migrate : 서버 평가 어플라이언스는 VM 검색을 수행하고 VM 메타데이터 및 성능 데이터를 Azure Migrate 서버 마이그레이션에 보냅니다.
-- 마이그레이션 오케스트레이션 및 데이터 복제는 Microsoft Azure Site Recovery 공급자 및 Microsoft Azure Recovery Service 에이전트에 의해 처리됩니다.
-
-어플라이언스를 설정하려면 다음을 수행합니다.
-- 두 번째 자습서에 따라 Hyper-V VM을 평가한 경우 해당 자습서에서 이미 어플라이언스를 설정했습니다.
-- 해당 자습서를 따르지 않은 경우 지금 어플라이언스를 설정해야 합니다. 이렇게 하려면 다음을 수행합니다. 
-
-    - Azure Portal에서 압축된 Hyper-V VHD를 다운로드합니다.
-    - 어플라이언스를 만들고, Azure Migrate 서버 평가에 연결할 수 있는지 확인합니다. 
-    - 어플라이언스를 처음으로 구성하고, Azure Migrate 프로젝트에 등록합니다.
-
-    [이 문서](how-to-set-up-appliance-hyper-v.md)의 자세한 지침에 따라 어플라이언스를 설정합니다.
-
 ## <a name="prepare-hyper-v-hosts"></a>Hyper-V 호스트 준비
+
 
 1. Azure Migrate 프로젝트 > **서버**, **Azure Migrate: 서버 마이그레이션**에서 **검색**을 클릭합니다.
 2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **예, Hyper-V 사용**을 선택합니다.
@@ -111,21 +99,6 @@ Azure Migrate 서버 마이그레이션은 Hyper-V 호스트 또는 클러스터
 
 ![검색된 서버](./media/tutorial-migrate-hyper-v/discovered-servers.png)
 
-### <a name="register-hyper-v-hosts"></a>Hyper-V 호스트 등록
-
-다운로드한 설치 파일(AzureSiteRecoveryProvider.exe)을 각 해당 Hyper-V 호스트에 설치합니다.
-
-1. 각 호스트 또는 클러스터 노드에서 공급자 설치 파일을 실행합니다.
-2. Provider 설치 마법사 > **Microsoft 업데이트**에서 Provider 업데이트를 확인하려면 Microsoft 업데이트를 사용하는 옵션을 선택합니다.
-3. **설치**에서 Provider와 에이전트에 대한 기본 설치 위치를 적용하고, **설치**를 선택합니다.
-4. 설치 후에 등록 마법사 > **자격 증명 모음 설정**에서 **찾아보기**를 선택하고, **키 파일**에서 다운로드한 자격 증명 모음 키 파일을 선택합니다.
-5. 호스트에서 실행 중인 공급자를 인터넷에 연결하는 방법을 **프록시 설정**에서 지정합니다.
-    - 어플라이언스가 프록시 서버 뒤에 있는 경우 프록시 설정을 지정해야 합니다.
-    - 프록시 이름을 **http://ip-address** 또는 **http://FQDN** 으로 지정합니다. HTTPS 프록시 서버는 지원되지 않습니다.
-   
-
-6. 공급자가 [필요한 URL](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts)에 연결할 수 있는지 확인합니다.
-7. **등록**에서 호스트를 등록한 후에 **마침**을 클릭합니다.
 
 ## <a name="replicate-hyper-v-vms"></a>Hyper-V VM 복제
 

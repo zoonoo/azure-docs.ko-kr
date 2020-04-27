@@ -39,6 +39,8 @@
       items:
         - name: HDInsight의 Apache Hadoop 구성 요소
           href: ./hdinsight-component-versioning.md
+        - name: Hortonworks 릴리스 정보
+          href: ./hortonworks-release-notes.md
         - name: 고가용성 구성 요소
           href: ./hdinsight-high-availability-components.md
         - name: Azure HDInsight의 Apache Ambari
@@ -59,10 +61,17 @@
           href: ./cluster-management-best-practices.md
         - name: 가용성 및 안정성
           href: ./hdinsight-high-availability-linux.md
-        - name: 스토리지 옵션 비교
-          href: ./hdinsight-hadoop-compare-storage-options.md
         - name: 관리형 ID 이해
           href: ./hdinsight-managed-identities.md
+        - name: 스토리지 옵션 비교
+          href: hdinsight-hadoop-compare-storage-options.md
+          items:
+            - name: Azure Storage 개요
+              href: overview-azure-storage.md
+            - name: Azure Data Lake Storage Gen1 개요
+              href: overview-data-lake-storage-gen1.md
+            - name: Azure Data Lake Storage Gen2 개요
+              href: overview-data-lake-storage-gen2.md
     - name: 방법
       items:
         - name: 클러스터 만들기
@@ -122,6 +131,8 @@
               href: hdinsight-hadoop-linux-use-ssh-unix.md
             - name: SSH 터널링 사용
               href: hdinsight-linux-ambari-ssh-tunnel.md
+            - name: HDInsight와 함께 SCP 사용
+              href: ./use-scp.md
             - name: 데이터에 액세스 제한
               href: hdinsight-storage-sharedaccesssignature-permissions.md
             - name: 사용자에게 Apache Ambari Views에 대한 권한 부여
@@ -216,6 +227,8 @@
           items:
             - name: 스크립트 동작 문제 해결
               href: ./troubleshoot-script-action.md
+            - name: 리소스 만들기 실패
+              href: ./troubleshoot-resource-creation-fails.md
     - name: 참조
       items:
         - name: Azure PowerShell

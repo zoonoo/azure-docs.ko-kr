@@ -10,6 +10,9 @@
       items:
         - name: 비용 분석 시작
           href: quick-acm-cost-analysis.md
+        - name: 템플릿을 사용하여 예산 만들기
+          href: quick-create-budget-template.md
+          displayName: 'ARM template, resource manager template'
     - name: 자습서
       items:
         - name: 예산 작성 및 관리

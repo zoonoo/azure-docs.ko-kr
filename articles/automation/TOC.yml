@@ -26,6 +26,8 @@
       href: learn/automation-tutorial-runbook-textual-python2.md
 - name: 개념
   items:
+    - name: Automation 계정 인증 개요
+      href: automation-security-overview.md
     - name: Runbook 실행 개요
       href: automation-runbook-execution.md
     - name: Hybrid Runbook Worker 개요
@@ -48,6 +50,8 @@
           href: automation-create-standalone-account.md
         - name: Resource Manager 템플릿을 사용하여 Automation 계정 만들기
           href: automation-create-account-template.md
+        - name: Amazon Web Services로 인증 구성
+          href: automation-config-aws-account.md
         - name: Automation 실행 계정 관리
           href: manage-runas-account.md
         - name: 역할 권한 및 보안 관리
@@ -156,6 +160,8 @@
               href: automation-dsc-diagnostics.md
             - name: DSC 관련 문제 해결
               href: troubleshoot/desired-state-configuration.md
+            - name: Azure DSC 확장 버전 기록
+              href: automation-dsc-extension-history.md
         - name: 변경 내용 추적 및 인벤토리
           items:
             - name: 개요
@@ -248,8 +254,6 @@
           href: automation-create-alert-triggered-runbook.md
         - name: Office 365 서비스 관리
           href: manage-office-365.md
-        - name: Amazon Web Services를 사용하여 Runbook 인증
-          href: automation-config-aws-account.md
         - name: Automation Runbook을 사용하여 AWS VM 배포
           href: automation-scenario-aws-deployment.md
         - name: Runbook을 사용하여 Resource Manager 템플릿 배포

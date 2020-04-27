@@ -20,8 +20,8 @@
       href: quickstart-synapse-studio.md
     - name: 풀 만들기
       items:
-        - name: 웹 도구를 사용하여 Apache Spark 풀 만들기
-          href: ./spark/apache-spark-notebook-create-spark-use-sql.md
+        - name: 웹 도구를 사용하여 Apache Spark 노트북 만들기
+          href: quickstart-apache-spark-notebook.md
         - name: Azure Portal을 사용하여 Apache Spark 풀 만들기
           href: quickstart-create-apache-spark-pool.md
         - name: SQL 풀 만들기
@@ -320,8 +320,6 @@
           href: troubleshoot/troubleshoot-synapse-studio.md
         - name: PowerShell을 사용하여 Synapse Analytics Studio 문제 해결
           href: troubleshoot/troubleshoot-synapse-studio-powershell.md
-        - name: Power BI와 통합
-          items: null
 - name: 방법
   items:
     - name: 보안

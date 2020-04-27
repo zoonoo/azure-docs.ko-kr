@@ -68,6 +68,8 @@
           href: cognitive-search-tutorial-blob.md
         - name: Python
           href: cognitive-search-tutorial-blob-python.md
+    - name: Power Apps에서 쿼리
+      href: search-howto-powerapps.md
 - name: 샘플
   items:
     - name: 'C# 샘플'
@@ -232,10 +234,8 @@
           items:
             - name: 제안기 만들기
               href: index-add-suggesters.md
-            - name: 제안 또는 자동 완성 추가
+            - name: 자동 완성 및 제안 추가
               href: search-autocomplete-tutorial.md
-        - name: Power Apps에서 쿼리
-          href: search-howto-powerapps.md
         - name: 구문 참조
           items:
             - name: 단순 쿼리 구문
@@ -256,8 +256,8 @@
           href: search-query-troubleshoot-collection-filters.md
         - name: 컬렉션 필터 이해
           href: search-query-understand-collection-filters.md
-        - name: 다중 수준 패싯의 예제
-          href: search-example-adventureworks-multilevel-faceting.md
+        - name: 언어별 필터링
+          href: search-filters-language.md
     - name: 결과
       items:
         - name: 결과 작업
@@ -455,10 +455,6 @@
           href: 'https://wolterskluwereap.azurewebsites.net/'
         - name: JFK 파일 데모
           href: 'https://aka.ms/jfkfiles'
-        - name: NYC 작업 데모
-          href: 'https://aka.ms/azjobsdemo'
-        - name: 사용 사례 검색
-          href: 'https://searchsamples.azurewebsites.net/'
     - name: 학습
       items:
         - name: 소개(Microsoft Learn)

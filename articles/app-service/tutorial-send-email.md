@@ -4,12 +4,12 @@ description: App Service 앱에서 비즈니스 프로세스를 호출하는 방
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 44f2dfb83e96e1d8fa31ee1acf350193b954dbd8
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 4073b49a134356943bd7da8d54bf574f2e0d5eea
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892572"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604843"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>자습서: App Service에서 이메일 보내기 및 다른 비즈니스 프로세스 호출
 
@@ -199,7 +199,7 @@ var statusCode = result.StatusCode.ToString();
 ```
 
 > [!NOTE]
-> 이 코드는 데모의 편의를 위해 작성되었습니다. 실제로는 각 요청에 대해 `HttpClient` 개체를 인스턴스화하지 않습니다. [IHttpClientFactory를 사용하여 복원력 있는 HTTP 요청 구현](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient -http-requests)의 지침을 따르세요.
+> 이 코드는 데모의 편의를 위해 작성되었습니다. 실제로는 각 요청에 대해 `HttpClient` 개체를 인스턴스화하지 않습니다. [IHttpClientFactory를 사용하여 복원력 있는 HTTP 요청 구현의](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) 지침을 따르세요.
 
 [자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드](app-service-web-tutorial-dotnetcore-sqldb.md)의 샘플 앱에서 테스트하는 경우 `Todo` 항목이 추가된 후 [Create 작업](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65)에서 이메일 확인을 보내는 데 이 코드를 사용할 수 있습니다.
 

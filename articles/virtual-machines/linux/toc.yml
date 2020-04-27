@@ -45,9 +45,13 @@
       href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md
     - name: 14b - Azure DevOps와 Jenkins 통합
       href: ../../jenkins/tutorial-build-deploy-jenkins.md
-    - name: 15a - Azure의 IaaS 및 PaaS용 DevOps
+    - name: 15a - 롤링 배포 전략 구성
       href: tutorial-devops-azure-pipelines-classic.md
-    - name: 15b - Azure Pipelines를 사용한 CI/CD(YAML)
+    - name: 15b - 카나리아 배포 전략 구성
+      href: tutorial-azure-devops-canary-strategy.md
+    - name: 15c - 청록색 배포 전략 구성
+      href: tutorial-azure-devops-blue-green-strategy.md
+    - name: 15d - Azure Pipelines를 사용한 CI/CD(YAML)
       href: tutorial-build-deploy-azure-pipelines.md
     - name: 16a - LAMP 스택 만들기
       href: tutorial-lamp-stack.md
@@ -434,10 +438,14 @@
               href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 유지 관리 제어
           items:
+            - name: 개요
+              href: ../maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: CLI
               href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: PowerShell
               href: ../maintenance-control-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: 포털
+              href: ../maintenance-control-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 예약된 이벤트
           href: scheduled-events.md
     - name: VM 모니터링
@@ -783,7 +791,7 @@
       href: 'https://azure.microsoft.com/pricing/details/#Linux'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
