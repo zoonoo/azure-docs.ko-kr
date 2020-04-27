@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: c2a0dde496d6af66387210ca9b2ebf9cb4bdae7f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3cf4fd958202c28586b7c15932dc88a21d7c60f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79087945"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686873"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>자습서: Azure Data Box Gateway 연결, 설정 및 활성화
 
@@ -41,7 +41,7 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
 
 1. 브라우저 창을 열고 다음 주소에서 디바이스의 로컬 웹 UI에 액세스합니다.
    
-   [https://ip-address-of-network-interface](https://ip-address-of-network-interface)
+   https:\//ip-address-of-network-interface
    
    이전 자습서에서 언급한 연결 URL을 사용합니다. 웹 사이트의 보안 인증서에 문제가 있음을 나타내는 오류 또는 경고가 표시됩니다.
 

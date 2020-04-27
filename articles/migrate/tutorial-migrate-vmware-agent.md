@@ -4,18 +4,16 @@ description: Azure Migrate를 사용하여 VMware VM의 에이전트 기반 마�
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 64873c5185660c58cd4d07d60df3d086364d6288
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6855c3e81aece0358146608b6cf179fb923c54c8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222030"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535335"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>VMware VM을 Azure로 마이그레이션(에이전트 기반)
 
 이 문서에서는 Azure Migrate 서버 마이그레이션 도구를 통한 에이전트 기반 마이그레이션을 사용하여 온-프레미스 VMware VM을 Azure로 마이그레이션하는 방법에 대해 설명합니다.
-
-[Azure Migrate](migrate-services-overview.md)는 온-프레미스 앱과 워크로드 및 AWS/GCP VM 인스턴스의 검색, 평가 및 Azure로의 마이그레이션을 추적할 수 있는 중앙 허브를 제공합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure Migrate 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다.
 
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
@@ -78,7 +76,7 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 평가를 아직 실행하지 않은 경우 Azure Migrate 서버 마이그레이션을 사용하여 마이그레이션하려면 먼저 Azure 권한을 설정해야 합니다.
 
 - **프로젝트 만들기**: Azure 계정에는 Azure Migrate 프로젝트를 만들 수 있는 권한이 있어야 합니다. 
-- **Azure Migrate 복제 어플라이언스 등록**: 복제 어플라이언스는 Azure 계정에 Azure Active Directory 앱을 만들고 등록합니다. 이에 대한 권한을 위임해야 합니다.
+- **Azure Migrate 복제 어플라이언스 등록**: 복제 어플라이언스는 Azure 계정에 Azure Active Directory 앱을 만들고 등록합니다. 이에 대한 권한을 위임합니다.
 - **Key Vault 만들기**: Azure Migrate 서버 마이그레이션을 사용하여 VMware VM을 마이그레이션하기 위해 Azure Migrate는 리소스 그룹에서 Key Vault를 만들어 구독의 복제 스토리지 계정에 대한 액세스 키를 관리합니다. 자격 증명 모음을 만들려면 Azure Migrate 프로젝트가 있는 리소스 그룹에 대한 역할 할당 권한이 필요합니다. 
 
 
@@ -147,8 +145,8 @@ Azure Migrate 서버 마이그레이션은 다음 작업을 위해 VMware 서버
 
 **Task** | **역할/권한** | **세부 정보**
 --- | --- | ---
-**VM 검색** | 읽기 전용 사용자(최소)<br/><br/> 데이터 센터 개체 –> 자식 개체에 전파, role=Read 전용 | 사용자는 데이터 센터 수준에서 할당되며 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다.<br/><br/> 액세스를 제한하려는 경우 **자식에 전파** 개체를 사용하여 **액세스 권한 없음** 역할을 자식 개체(vSphere 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다.
-**전체 복제, 장애 조치, 장애 복구** |  필요한 권한이 있는 역할(Azure_Site_Recovery)을 만든 다음 VMware 사용자 또는 그룹에 이 역할을 할당합니다.<br/><br/> 데이터 센터 개체 –> 자식 개체에 전파, role=Azure_Site_Recovery<br/><br/> 데이터 저장소 -&gt; 공간 할당, 데이터 저장소 찾아보기, 낮은 수준 파일 작업, 파일 제거, 가상 머신 파일 업데이트<br/><br/> 네트워크 -> 네트워크 할당<br/><br/> 리소스 -> 리소스 풀에 VM 할당, 전원이 꺼진 VM 마이그레이션, 전원이 켜진 VM 마이그레이션<br/><br/> 태스크 -> 만들기 태스크, 업데이트 태스크<br/><br/> 가상 머신 -&gt; 구성<br/><br/> 가상 머신 -&gt; 상호 작용 -&gt; 질문 응답, 디바이스 연결, CD 미디어 구성, 플로피 미디어 구성, 전원 끄기, 전원 켜기, VMware 도구 설치<br/><br/> 가상 머신 -&gt; 인벤토리 -&gt; 만들기, 등록, 등록 취소<br/><br/> 가상 머신 -&gt; 프로비전 -&gt; 가상 머신 다운로드 허용, 가상 머신 파일 업로드 허용<br/><br/> 가상 머신 -&gt; 스냅샷 -&gt; 스냅샷 제거 | 사용자는 데이터 센터 수준에서 할당되며 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다.<br/><br/> 액세스를 제한하려는 경우 **자식에 전파** 개체를 사용하여 **액세스 권한 없음** 역할을 자식 개체(vSphere 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다.
+**VM 검색** | 읽기 전용 사용자(최소)<br/><br/> 데이터 센터 개체 –> 자식 개체에 전파, role=Read 전용 | 사용자는 데이터 센터 수준에서 할당되며 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다.<br/><br/> 액세스를 제한하려면 **자식에 전파** 개체를 사용하여 **액세스 권한 없음** 역할을 자식 개체(vSphere 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다.
+**전체 복제, 장애 조치, 장애 복구** |  필요한 권한이 있는 역할(Azure_Site_Recovery)을 만든 다음 VMware 사용자 또는 그룹에 이 역할을 할당합니다.<br/><br/> 데이터 센터 개체 –> 자식 개체에 전파, role=Azure_Site_Recovery<br/><br/> 데이터 저장소 -&gt; 공간 할당, 데이터 저장소 찾아보기, 낮은 수준 파일 작업, 파일 제거, 가상 머신 파일 업데이트<br/><br/> 네트워크 -> 네트워크 할당<br/><br/> 리소스 -> 리소스 풀에 VM 할당, 전원이 꺼진 VM 마이그레이션, 전원이 켜진 VM 마이그레이션<br/><br/> 태스크 -> 만들기 태스크, 업데이트 태스크<br/><br/> 가상 머신 -&gt; 구성<br/><br/> 가상 머신 -&gt; 상호 작용 -&gt; 질문 응답, 디바이스 연결, CD 미디어 구성, 플로피 미디어 구성, 전원 끄기, 전원 켜기, VMware 도구 설치<br/><br/> 가상 머신 -&gt; 인벤토리 -&gt; 만들기, 등록, 등록 취소<br/><br/> 가상 머신 -&gt; 프로비전 -&gt; 가상 머신 다운로드 허용, 가상 머신 파일 업로드 허용<br/><br/> 가상 머신 -&gt; 스냅샷 -&gt; 스냅샷 제거 | 사용자는 데이터 센터 수준에서 할당되며 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다.<br/><br/> 액세스를 제한하려면 **자식에 전파** 개체를 사용하여 **액세스 권한 없음** 역할을 자식 개체(vSphere 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다.
 
 ### <a name="prepare-an-account-for-mobility-service-installation"></a>모바일 서비스 설치를 위한 계정 준비
 
@@ -191,23 +189,15 @@ VMware 서버와 VM에서 Azure로 마이그레이션하기 위한 요구 사항
 3. **개요**에서 **서버 평가 및 마이그레이션**을 클릭합니다.
 4. **서버 검색, 평가 및 마이그레이션** 아래에서 **서버 평가 및 마이그레이션**을 클릭합니다.
 
-    ![서버 검색 및 평가](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
+    ![서버 검색 및 평가](./media/tutorial-migrate-vmware-agent/assess-migrate.png
 
 1. **서버 검색, 평가 및 마이그레이션**에서 **도구 추가**를 클릭합니다.
 2. **프로젝트 마이그레이션**에서 Azure 구독을 선택하고, 아직 없는 경우 리소스 그룹을 만듭니다.
-3. **프로젝트 세부 정보**에서 프로젝트 이름과 프로젝트를 만들려는 지역을 지정하고, **다음**을 클릭합니다.
+3. **프로젝트 세부 정보**에서 프로젝트 이름과 프로젝트를 만들려는 지역을 지정하고, **다음**을 클릭합니다. [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
 
     ![Azure Migrate 프로젝트 만들기](./media/tutorial-migrate-vmware-agent/migrate-project.png)
 
-    Azure Migrate 프로젝트는 다음 지역 중 하나에서 만들 수 있습니다.
 
-    **지리** | **지역**
-    --- | ---
-    아시아 | 동남아시아
-    유럽 | 북유럽 또는 서유럽
-    미국 | 미국 동부 또는 미국 중서부
-
-    프로젝트에 대해 지정된 지리는 온-프레미스 VM에서 수집된 메타데이터를 저장하는 데 사용됩니다. 실제 마이그레이션에 대한 대상 지역을 선택할 수 있습니다.
 4. **평가 도구 선택**에서 **평가 도구 추가 건너뛰기** > **다음**을 차례로 선택합니다.
 5. **마이그레이션 도구 선택**에서 **Azure Migrate: 서버 마이그레이션** > **다음**을 차례로 선택합니다.
 6. **검토 + 도구 추가**에서 설정을 검토하고, **도구 추가**를 클릭합니다.
@@ -221,7 +211,10 @@ VMware 서버와 VM에서 Azure로 마이그레이션하기 위한 요구 사항
 - **프로세스 서버**: 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하여 캐싱, 압축 및 암호화를 사용하여 최적화한 후 Azure의 캐시 스토리지 계정으로 보냅니다. 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스 에이전트를 설치하고, 온-프레미스 VMware VM을 자동으로 검색합니다.
 
 
-복제 어플라이언스를 설정하려면 준비된 OVA(Open Virtualization Application) 템플릿을 다운로드합니다. 템플릿을 VMware로 가져오고 복제 어플라이언스 VM을 만듭니다. 
+몇 가지 방법으로 복제 어플라이언스를 설정할 수 있습니다.
+
+- 다운로드한 OVA(오픈 가상화 애플리케이션) 템플릿을 사용하여 설정합니다. 템플릿을 VMware로 가져오고 복제 어플라이언스 VM을 만듭니다. 이는 이 자습서에서 사용하는 방법입니다.
+- 스크립트로 설정합니다.
 
 ### <a name="download-the-replication-appliance-template"></a>복제 어플라이언스 템플릿 다운로드
 

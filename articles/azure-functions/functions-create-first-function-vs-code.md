@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 3e1cf95d3c6ac8918e9e7e5593d687ee2d398810
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 08575164334db965a9e5592b761a06205208de9e
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886622"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732781"
 ---
 # <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Functions 프로젝트 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "80886622"
 
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> VS Code가 선호하는 개발 도구가 아닌 경우 [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [Gradle](/azure/azure-functions/functions-create-first-java-gradle) 및 [IntelliJ IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions)를 사용하여 Java 개발자에 대한 유사한 자습서를 확인하세요.
+> VS Code가 선호하는 개발 도구가 아닌 경우 [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [Gradle](/azure/azure-functions/functions-create-first-java-gradle) 및 [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions)를 사용하여 Java 개발자를 위한 유사한 자습서를 확인하세요.
 ::: zone-end  
 
 ## <a name="configure-your-environment"></a>환경 구성

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 1bd5248e0a6a6c7c569c85e8c1af3e30f8b7f9e4
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 7652bacdebec19f8a5d55874cfb903e8748cef4d
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474196"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639715"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>자습서: Azure Active Directory Domain Services 인스턴스 만들기 및 구성
 
@@ -157,7 +157,7 @@ Azure AD DS가 성공적으로 배포되면 이제 연결된 다른 VM과 애플
 > [!TIP]
 > 클라우드 전용 사용자와 온-프레미스 AD의 사용자가 Azure AD 테넌트에 있는 경우 두 단계를 모두 수행해야 합니다.
 
-클라우드 전용 사용자 계정의 경우 Azure AD DS를 사용하려면 먼저 사용자가 암호를 변경해야 합니다. 이 암호 변경 프로세스로 인해 Kerberos 및 NTLM 인증용 암호 해시가 생성되어 Azure AD에 저장됩니다. Azure AD DS를 사용해야 하는 테넌트의 모든 사용자에 대한 암호를 만료시켜 다음 로그인에서 암호를 강제로 변경하도록 하거나 암호를 수동으로 변경하도록 지시할 수 있습니다. 이 자습서에서는 사용자 암호를 수동으로 변경해 보겠습니다.
+클라우드 전용 사용자 계정의 경우 Azure AD DS를 사용하려면 먼저 사용자가 암호를 변경해야 합니다. 이 암호 변경 프로세스로 인해 Kerberos 및 NTLM 인증용 암호 해시가 생성되어 Azure AD에 저장됩니다. 암호가 변경될 때까지 계정은 Azure AD에서 Azure AD DS로 동기화되지 않습니다. Azure AD DS를 사용해야 하는 테넌트의 모든 클라우드 사용자에 대한 암호를 만료하여 다음 로그인 시 암호를 강제로 변경하도록 하거나 클라우드 사용자에게 암호를 수동으로 변경하도록 지시할 수 있습니다. 이 자습서에서는 사용자 암호를 수동으로 변경해 보겠습니다.
 
 사용자가 암호를 다시 설정하려면 먼저 [셀프 서비스 암호 재설정][configure-sspr]을 수행하도록 Azure AD 테넌트를 구성해야 합니다.
 

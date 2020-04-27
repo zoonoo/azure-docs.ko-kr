@@ -5,38 +5,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 2/11/2020
+ms.date: 04/13/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c429648adeb0c81799bff2dca1650de965395a60
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0ef9172ca5d0961bb6de1949a61199ce1d6c1bff
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77166448"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603400"
 ---
-# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>자습서: Azure AD B2B 협업 사용자 일괄 초대(미리 보기)
-
-|     |
-| --- |
-| 이 문서에서는 Azure Active Directory의 공개 미리 보기 기능을 설명합니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
-|     |
-
-> [!NOTE]
-> 2019년 12월 22일부터 사용자 대량 초대(미리 보기) 기능이 일시적으로 비활성화되었습니다.
-> 현재 이 기능을 Azure Porta에서 다시 사용할 날짜가 아직 정해지지 않았습니다. PowerShell을 사용하여 게스트 사용자를 일괄 초대하려면 [B2B 일괄 초대 자습서](bulk-invite-powershell.md) 또는 [B2B 코드 및 PowerShell 샘플](code-samples.md)을 참조하세요.
+# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>자습서: Azure AD B2B 협업 사용자 일괄 초대
 
 Azure AD(Azure Active Directory) B2B 협업을 사용하여 외부 파트너와 함께 작업하는 경우 동시에 여러 게스트 사용자를 조직에 초대할 수 있습니다. 이 자습서에서는 Azure Portal을 사용하여 외부 사용자에게 일괄 초대를 보내는 방법을 알아봅니다. 특히 다음을 수행합니다.
 
 > [!div class="checklist"]
-> * **사용자 일괄 초대(미리 보기)** 를 사용하여 사용자 정보 및 초대 기본 설정이 포함된 쉼표로 구분된 값(.csv) 파일을 준비합니다.
+> * **사용자 일괄 초대**를 사용하여 사용자 정보 및 초대 기본 설정이 포함된 쉼표로 구분된 값(.csv) 파일을 준비합니다.
 > * .csv 파일을 Azure AD에 업로드
 > * 사용자가 디렉터리에 추가되었는지 확인
 
-Azure Active Directory가 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+Azure Active Directory가 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -47,7 +38,7 @@ Azure Active Directory가 없는 경우 시작하기 전에 [체험 계정](http
 1. 조직에서 사용자 관리자인 계정으로 Azure Portal에 로그인합니다.
 2. 탐색 창에서 **Azure Active Directory**를 선택합니다.
 3. **관리**에서 **사용자** > **일괄 초대**를 선택합니다.
-4. **사용자 일괄 초대(미리 보기)** 페이지에서 **다운로드**를 선택하여 초대 속성이 포함된 올바른 .csv 파일을 가져옵니다.
+4. **사용자 일괄 초대** 페이지에서 **다운로드**를 선택하여 초대 속성이 포함된 올바른 .csv 파일을 가져옵니다.
 
     ![일괄 초대 다운로드 단추](media/tutorial-bulk-invite/bulk-invite-button.png)
 
@@ -63,10 +54,10 @@ Azure Active Directory가 없는 경우 시작하기 전에 [체험 계정](http
    > **사용자 지정된 초대 메시지**에 쉼표를 사용하지 마세요. 메시지가 성공적으로 구문 분석되지 않습니다.
 
 6. 파일을 저장합니다.
-7. **사용자 일괄 초대(미리 보기)**  페이지의 **csv 파일 업로드**에서 해당 파일을 찾습니다. 파일을 선택하면 .csv 파일의 유효성 검사가 시작됩니다. 
+7. **사용자 일괄 초대** 페이지의 **csv 파일 업로드**에서 해당 파일을 찾습니다. 파일을 선택하면 .csv 파일의 유효성 검사가 시작됩니다. 
 8. 파일 콘텐츠의 유효성 검사가 완료되면 **파일 업로드 성공**이 표시됩니다. 오류가 있는 경우 해당 오류를 해결해야 작업을 제출할 수 있습니다.
 9. 파일이 유효성 검사를 통과하면 **제출**을 선택하여 초대를 추가하는 Azure 대량 작업을 시작합니다. 
-10. 작업 상태를 보려면 **각 작업의 상태를 보려면 여기를 클릭**을 선택합니다. 또는 **작업** 섹션에서 **대량 작업 결과(미리 보기)** 를 선택할 수 있습니다. 대량 작업 내의 각 줄 항목에 대한 자세한 내용은 **# Success**, **# Failure** 또는 **Total Requests** 열의 값을 선택합니다. 오류가 발생하면 실패 이유가 나열됩니다.
+10. 작업 상태를 보려면 **각 작업의 상태를 보려면 여기를 클릭**을 선택합니다. 또는 **작업** 섹션에서 **대량 작업 결과**를 선택할 수 있습니다. 대량 작업 내의 각 줄 항목에 대한 자세한 내용은 **# Success**, **# Failure** 또는 **Total Requests** 열의 값을 선택합니다. 오류가 발생하면 실패 이유가 나열됩니다.
 
     ![대량 작업 결과의 예제](media/tutorial-bulk-invite/bulk-operation-results.png)
 

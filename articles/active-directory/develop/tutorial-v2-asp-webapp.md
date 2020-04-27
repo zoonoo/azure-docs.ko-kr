@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 94d3993c6a0c62a68ea77a888d3351c8fea1d935
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 29f5a48feaaafee64a20745b3cdf09726a6372ac
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80990993"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533840"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Microsoft에 로그인을 ASP.NET 웹앱에 추가
 
@@ -117,7 +117,7 @@ ms.locfileid: "80990993"
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
-        /// Configure OWIN to use OpenIdConnect 
+        /// Configure OWIN to use OpenIdConnect
         /// </summary>
         /// <param name="app"></param>
         public void Configuration(IAppBuilder app)
@@ -208,7 +208,7 @@ ms.locfileid: "80990993"
                 OpenIdConnectAuthenticationDefaults.AuthenticationType);
         }
     }
-    
+
     /// <summary>
     /// Send an OpenID Connect sign-out request.
     /// </summary>
@@ -291,19 +291,19 @@ Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보
         public ActionResult Index()
         {
             var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
-    
+
             //You get the user’s first and last name below:
             ViewBag.Name = userClaims?.FindFirst("name")?.Value;
-    
+
             // The 'preferred_username' claim can be used for showing the username
             ViewBag.Username = userClaims?.FindFirst("preferred_username")?.Value;
-    
+
             // The subject/ NameIdentifier claim can be used to uniquely identify the user across the web
             ViewBag.Subject = userClaims?.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-    
+
             // TenantId is the unique Tenant Id - which represents an organization in Azure AD
             ViewBag.TenantId = userClaims?.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid")?.Value;
-    
+
             return View();
         }
     }
@@ -311,7 +311,7 @@ Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>자세한 정보
-> `[Authorize]` 특성을 사용하므로 이 컨트롤러의 모든 메서드는 사용자가 인증된 경우에만 실행할 수 있습니다. 인증되지 않은 사용자가 컨트롤러에 액세스하려고 하면 OWIN에서 인증 질문을 시작하고 사용자에게 인증하도록 강제합니다. 위의 코드는 사용자의 ID 토큰에 포함된 특정 사용자 특성에 대한 클레임 목록을 살펴봅니다. 이러한 특성에는 사용자의 전체 이름과 사용자 이름 및 전역 사용자 식별자 주체가 포함됩니다. 사용자의 조직에 대한 ID를 나타내는 *테넌트 ID*도 포함됩니다. 
+> `[Authorize]` 특성을 사용하므로 이 컨트롤러의 모든 메서드는 사용자가 인증된 경우에만 실행할 수 있습니다. 인증되지 않은 사용자가 컨트롤러에 액세스하려고 하면 OWIN에서 인증 질문을 시작하고 사용자에게 인증하도록 강제합니다. 위의 코드는 사용자의 ID 토큰에 포함된 특정 사용자 특성에 대한 클레임 목록을 살펴봅니다. 이러한 특성에는 사용자의 전체 이름과 사용자 이름 및 전역 사용자 식별자 주체가 포함됩니다. 사용자의 조직에 대한 ID를 나타내는 *테넌트 ID*도 포함됩니다.
 <!--end-collapse-->
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>사용자의 클레임을 표시하는 보기 만들기
@@ -487,7 +487,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 Microsoft ID 플랫폼을 사용하여 웹앱에서 웹 API를 호출하는 방법을 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Web API를 호출하는 웹앱](scenario-web-app-sign-user-overview.md)
+> [앱 API를 호출하는 웹앱](scenario-web-app-sign-user-overview.md)
 
 Microsoft Graph를 호출하는 웹앱을 빌드하는 방법을 알아봅니다.
 

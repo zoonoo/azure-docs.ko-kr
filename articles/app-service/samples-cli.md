@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
-ms.openlocfilehash: 0b3acb1b421962cde7d90398f42bdfeefda578e3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 499bf25f06030ae9fc5c1f8381ef4cd6ff6873dc
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74971505"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535624"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Azure App Service에 대한 CLI 샘플
 
@@ -28,7 +28,7 @@ ms.locfileid: "74971505"
 | [Docker 컨테이너에서 ASP.NET Core 앱 만들기](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json)| Linux에서 App Service 앱을 만들고 Docker Hub의 Docker 이미지를 로드합니다. |
 |**앱 구성**||
 | [사용자 지정 도메인을 앱에 매핑](./scripts/cli-configure-custom-domain.md?toc=%2fcli%2fazure%2ftoc.json)| App Service 앱을 만들고 여기에 사용자 지정 도메인 이름을 매핑합니다. |
-| [앱에 사용자 지정 SSL 인증서 바인딩](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| App Service 앱을 만들고 여기에 사용자 지정 도메인 이름의 SSL 인증서를 바인딩합니다. |
+| [앱에 사용자 지정 TLS/SSL 인증서 바인딩](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| App Service 앱을 만들고 여기에 사용자 지정 도메인 이름의 TLS/SSL 인증서를 바인딩합니다. |
 |**앱 크기 조정**||
 | [수동으로 앱 크기 조정](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | App Service 앱을 만들고 2개의 인스턴스로 확장합니다. |
 | [전 세계에 고가용성 아키텍처를 가진 앱 확장](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | 두 개의 지역에 두 개의 App Service 앱을 만들고 Azure Traffic Manager를 사용하여 단일 엔드포인트를 통해 사용할 수 있습니다. |

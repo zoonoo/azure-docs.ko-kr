@@ -1,15 +1,15 @@
 ---
 title: Azure Pipelines를 사용한 연속 통합
 description: Azure Resource Manager 템플릿을 지속적으로 빌드, 테스트 및 배포하는 방법을 알아봅니다.
-ms.date: 03/13/2020
+ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6ce6f176a52a742a3216a5b761b34254027a1c5b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: d1c56ce913a1b63bab90f5dd5aaada382abbf493
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255076"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084331"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>자습서: Azure Pipelines를 사용한 Azure Resource Manager 템플릿의 지속적인 통합
 
@@ -57,11 +57,7 @@ GitHub 계정이 없는 경우 [사전 요구 사항](#prerequisites)을 참조�
 
 1. 녹색 **새로 만들기** 단추를 선택합니다.
 1. **리포지토리 이름**에서 리포지토리 이름을 입력합니다.  예: **AzureRmPipeline-repo**. **AzureRmPipeline**을 프로젝트 이름으로 바꿉니다. 이 자습서를 **공개**로 진행할 것인지 아니면 **프라이빗**으로 진행할 것인지 선택할 수 있습니다. 그런 다음, **리포지토리 만들기**를 선택합니다.
-1. URL을 적어 둡니다. 리포지토리 URL은 다음과 같은 형식입니다.
-
-    ```url
-    https://github.com/[YourAccountName]/[YourRepositoryName]
-    ```
+1. URL을 적어 둡니다. 리포지토리 URL은 **https://github.com/ [YourAccountName]/[YourRepositoryName]** 형식입니다.
 
 이 리포지토리를 *원격 리포지토리*라고 합니다. 같은 프로젝트를 작업하는 각 개발자는 자신의 *로컬 리포지토리*를 복제하고, 변경 내용을 원격 리포지토리에 병합할 수 있습니다.
 

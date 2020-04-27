@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: b6b6d10165eed331c397e17a18e382b095e1f74f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6a5bc947c3ea414f197df9cfcdd5f233e4654cbc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79216738"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085028"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>자습서: Java Spring 앱에서 Key Vault 참조 사용
 
@@ -140,6 +140,14 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Key Vault 참조를 사용하도록 코드 업데이트
 
+1. **APP_CONFIGURATION_ENDPOINT**라는 환경 변수를 만듭니다. 해당 값을 App Configuration 저장소의 엔드포인트로 설정합니다. Azure Portal의 **액세스 키** 블레이드에서 엔드포인트를 찾을 수 있습니다.
+
+1. *리소스* 폴더에서 *bootstrap.properties*를 엽니다. 연결 문자열 대신 App Configuration 엔드포인트를 사용하도록 이 파일을 업데이트합니다.
+
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+    ```
+
 1. *MessageProperties.java*를 엽니다. 다음과 같이 *keyVaultMessage*라는 새 변수를 추가합니다.
 
     ```java
@@ -166,7 +174,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 1. *AzureCredentials.java*라는 새 파일을 만들고 아래 코드를 추가합니다.
 
     ```java
-    package com.example;
+    package com.example.demo;
 
     import com.azure.core.credential.TokenCredential;
     import com.azure.identity.EnvironmentCredentialBuilder;
@@ -195,7 +203,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 1. *AppConfiguration.java*라는 새 파일을 만듭니다. 아래 코드를 추가합니다.
 
     ```java
-    package com.example;
+    package com.example.demo;
 
     import org.springframework.context.annotation.Bean;
     import org.springframework.context.annotation.Configuration;
@@ -214,7 +222,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-    com.example.AppConfiguration
+    com.example.demo.AppConfiguration
     ```
 
 1. Maven을 사용하여 Spring Boot 애플리케이션을 빌드하고 실행합니다. 예를 들어 다음과 같습니다.

@@ -2,17 +2,17 @@
 title: 개요
 description: Azure에서 리소스 배포, 관리 및 Access Control용 Azure 리소스 관리자 사용 방법을 설명합니다.
 ms.topic: overview
-ms.date: 03/25/2020
-ms.openlocfilehash: 1e2a6959117749b4e7d08a9768b4189b97ef08bd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/21/2020
+ms.openlocfilehash: 253fc2f296fa764a6c22fa1331221df60ca21bb5
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80258144"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870484"
 ---
 # <a name="what-is-azure-resource-manager"></a>Azure Resource Manager란?
 
-Azure Resource Manager는 Azure용 배포 및 관리 서비스입니다. Azure 구독에서 리소스를 만들고, 업데이트하고, 삭제할 수 있는 관리 계층을 제공합니다. 배포 이후 액세스 제어, 잠금 및 태그와 같은 관리 기능을 사용하여 리소스를 보호하고 구성합니다.
+Azure Resource Manager는 Azure용 배포 및 관리 서비스입니다. Azure 계정에서 리소스를 만들고, 업데이트하고, 삭제할 수 있는 관리 계층을 제공합니다. 배포 이후 액세스 제어, 잠금 및 태그와 같은 관리 기능을 사용하여 리소스를 보호하고 구성합니다.
 
 Azure Resource Manager 템플릿에 대한 자세한 내용은 [템플릿 배포 개요](../templates/overview.md)를 참조하세요.
 
@@ -30,10 +30,10 @@ Azure Resource Manager 템플릿에 대한 자세한 내용은 [템플릿 배포
 
 Azure Resource Manager가 처음이라면 익숙하지 않은 용어가 있을 수 있습니다.
 
-* **리소스** - Azure를 통해 사용할 수 있는 관리 가능한 항목입니다. 리소스의 예로는 가상 머신, 스토리지 계정, 웹앱, 데이터베이스 및 가상 네트워크가 있습니다.
+* **리소스** - Azure를 통해 사용할 수 있는 관리 가능한 항목입니다. 리소스의 예로는 가상 머신, 스토리지 계정, 웹앱, 데이터베이스 및 가상 네트워크가 있습니다. 리소스 그룹, 구독, 관리 그룹 및 태그도 리소스의 예입니다.
 * **리소스 그룹** - Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 리소스 그룹은 그룹으로 관리하려는 리소스만 포함합니다. 조직에 가장 적합한 요소에 따라 리소스 그룹에 속하는 리소스를 결정합니다. [리소스 그룹](#resource-groups)을 참조하세요.
 * **리소스 공급자** - Azure 리소스를 제공하는 서비스입니다. 예를 들어 일반적인 리소스 공급자는 가상 머신 리소스를 제공하는 Microsoft.Compute입니다. Microsoft.Storage는 또 다른 일반적인 리소스 공급자입니다. [리소스 공급자 및 형식](resource-providers-and-types.md)을 참조하세요.
-* **Resource Manager 템플릿** - 리소스 그룹 또는 구독에 배포한 하나 이상의 리소스를 정의하는 JSON(JavaScript Object Notation) 파일입니다. 템플릿은 리소스를 일관되고 반복적으로 배포하는 데 사용할 수 있습니다. [템플릿 배포 개요](../templates/overview.md)를 참조하세요.
+* **Resource Manager 템플릿** - 리소스 그룹, 관리 그룹 또는 테넌트에 배포할 하나 이상의 리소스를 정의하는 JSON(JavaScript Object Notation) 파일입니다. 템플릿은 리소스를 일관되고 반복적으로 배포하는 데 사용할 수 있습니다. [템플릿 배포 개요](../templates/overview.md)를 참조하세요.
 * **선언적 구문** - 항목을 만드는 프로그래밍 명령의 시퀀스를 작성하지 않고도 "만들려는 대상은 다음과 같습니다"라고 선언하는 구문입니다. Resource Manager 템플릿은 선언적 구문의 예입니다. 파일에서 Azure에 배포하는 인프라에 대한 속성을 정의합니다.  [템플릿 배포 개요](../templates/overview.md)를 참조하세요.
 
 ## <a name="the-benefits-of-using-resource-manager"></a>리소스 관리자를 사용할 경우의 이점
@@ -48,7 +48,7 @@ Resource Manager를 사용하면 다음을 수행할 수 있습니다.
 
 * 리소스가 올바른 순서로 배포되도록 리소스 간의 종속성을 정의합니다.
 
-* RBAC(역할 기반 액세스 제어)가 관리 플랫폼에 통합되어 있으므로 액세스 제어가 리소스 그룹의 모든 서비스에 적용됩니다.
+* RBAC(역할 기반 액세스 제어)가 기본적으로 관리 플랫폼에 통합되어 있으므로 액세스 제어가 모든 서비스에 적용됩니다.
 
 * 리소스에 태그를 적용하여 구독의 모든 리소스를 논리적으로 구성합니다.
 
@@ -58,11 +58,11 @@ Resource Manager를 사용하면 다음을 수행할 수 있습니다.
 
 Azure는 [관리 그룹](../../governance/management-groups/overview.md), 구독, [리소스 그룹](#resource-groups) 및 리소스라는 네 가지 수준의 범위를 제공합니다. 다음 그림은 세 가지 계층의 예를 보여 줍니다.
 
-![범위](./media/overview/scope-levels.png)
+![관리 수준](./media/overview/scope-levels.png)
 
 이러한 범위 수준에서 관리 설정을 적용합니다. 선택한 수준은 설정이 적용되는 범위를 결정합니다. 하위 수준은 상위 수준의 설정을 상속합니다. 예를 들어 구독에 [정책](../../governance/policy/overview.md)을 적용하면 해당 정책이 구독의 모든 리소스 그룹 및 리소스에 적용됩니다. 리소스 그룹에 정책을 적용하면 해당 정책이 리소스 그룹 및 모든 리소스에 적용됩니다. 그러나 다른 리소스 그룹에는 해당 정책 할당이 적용되지 않습니다.
 
-템플릿은 관리 그룹, 구독 또는 리소스 그룹에 배포할 수 있습니다.
+테넌트, 관리 그룹, 구독 또는 리소스 그룹에 템플릿을 배포할 수 있습니다.
 
 ## <a name="resource-groups"></a>리소스 그룹
 
@@ -71,6 +71,8 @@ Azure는 [관리 그룹](../../governance/management-groups/overview.md), 구독
 * 그룹에서 모든 리소스는 동일한 수명 주기를 공유해야 합니다. 리소스를 함께 배포, 업데이트, 삭제합니다. 데이터베이스 서버와 같은 하나의 리소스에 다양한 배포 주기가 존재하는 경우 다른 리소스 그룹에 있어야 합니다.
 
 * 각 리소스는 하나의 리소스 그룹에만 있을 수 있습니다.
+
+* 일부 리소스는 리소스 그룹 외부에 존재할 수 있습니다. 이러한 리소스는 [구독](../templates/deploy-to-subscription.md), [관리 그룹](../templates/deploy-to-management-group.md) 또는 [테넌트](../templates/deploy-to-tenant.md)에 배포됩니다. 이러한 범위에서는 특정 리소스 유형만 지원됩니다.
 
 * 언제든지 리소스 그룹에 리소스를 추가하거나 제거할 수 있습니다.
 

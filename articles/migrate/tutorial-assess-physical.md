@@ -2,17 +2,17 @@
 title: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션할 물리적 서버 평가
 description: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션할 온-프레미스 물리적 서버를 평가하는 방법에 대해 설명합니다.
 ms.topic: tutorial
-ms.date: 11/18/2019
-ms.openlocfilehash: c89c731712a625e5f3b7a1a7e9306f6a7480b96b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/15/2020
+ms.openlocfilehash: b36cba18bd154cd5d14e16a9f8bf85cda6bf87a8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76990303"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535437"
 ---
-# <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Azure Migrate를 사용하여 물리적 서버 평가: Server Assessment
+# <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Azure Migrate:Server Assessment를 사용하여 물리적 서버 평가
 
-이 문서에서는 Azure Migrate:  서버 평가 도구를 사용하여 온-프레미스 VMware VM을 평가하는 방법을 보여 줍니다.
+이 문서에서는 Azure Migrate:Server Assessment 도구를 사용하여 온-프레미스 물리적 서버를 평가하는 방법을 보여줍니다.
 
 [Azure Migrate](migrate-services-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다.
 
@@ -34,8 +34,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - 이 시리즈의 첫 번째 자습서를 [완료](tutorial-prepare-physical.md)합니다. 그렇지 않으면 이 자습서의 지침이 작동하지 않습니다.
 - 첫 번째 자습서에서 수행해야 하는 작업은 다음과 같습니다.
-    - Azure Migrate에 대한 [Azure 권한을 설정](tutorial-prepare-physical.md#prepare-azure)합니다.
+    - Azure Migrate에 대한 [Azure 권한을 설정](tutorial-prepare-physical.md)합니다.
     - 평가할 [물리적 서버를 준비](tutorial-prepare-physical.md#prepare-for-physical-server-assessment)합니다. 어플라이언스 요구 사항을 확인해야 합니다. 또한 물리적 서버 검색에 사용할 계정을 설정해야 합니다. 필요한 포트를 사용할 수 있어야 하고, Azure에 액세스하는 데 필요한 URL을 알고 있어야 합니다.
+
+
 
 
 ## <a name="set-up-an-azure-migrate-project"></a>Azure Migrate 프로젝트 설정
@@ -49,8 +51,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     ![서버 검색 및 평가](./media/tutorial-assess-physical/assess-migrate.png)
 
 4. **시작**에서**도구 추가**를 클릭합니다.
-5. **프로젝트 마이그레이션**에서 Azure 구독을 선택하고, 아직 없는 경우 리소스 그룹을 만듭니다.     
-6. **프로젝트 세부 정보**에서 프로젝트 이름과 프로젝트를 만들려는 지역을 지정합니다. 아시아, 유럽, 영국 및 미국 지역이 지원됩니다.
+5. **프로젝트 마이그레이션**에서 Azure 구독을 선택하고, 아직 없는 경우 리소스 그룹을 만듭니다.  
+6. **프로젝트 세부 정보**에서 프로젝트 이름과 프로젝트를 만들려는 지역을 지정합니다. [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
 
     - 프로젝트 지역은 온-프레미스 서버에서 수집된 메타데이터를 저장하는 데만 사용됩니다.
     - 대상 지역은 마이그레이션을 실행할 때 선택할 수 있습니다.
@@ -98,14 +100,22 @@ Azure Migrate: 서버 평가는 경량 어플라이언스를 실행합니다.
 1. 파일을 다운로드한 컴퓨터에서 관리자 명령 창을 엽니다.
 2. 다음 명령을 실행하여 압축된 파일의 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 사용 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+    - 퍼블릭 클라우드의 사용 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+    - 정부 클라우드의 사용 예: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+3.  해시 값 확인:
+ 
+    - 퍼블릭 클라우드의 경우(최신 어플라이언스 버전의 경우):
 
-3.  최신 어플라이언스 버전의 경우 생성된 해시는 다음 설정과 일치해야 합니다.
+        **알고리즘** | **해시 값**
+          --- | ---
+          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
-  **알고리즘** | **해시 값**
-  --- | ---
-  MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-  SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+    - Azure 정부의 경우(최신 어플라이언스 버전의 경우):
+
+        **알고리즘** | **해시 값**
+          --- | ---
+          MD5 | f81c155fc4a1409901caea948713913f
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Azure Migrate 설치 프로그램 스크립트 실행
 
@@ -116,28 +126,26 @@ Azure Migrate: 서버 평가는 경량 어플라이언스를 실행합니다.
 - IIS 재작성 모듈을 다운로드하여 설치합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
 - Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
 - 지정된 경로에 다음 파일을 만듭니다.
-    - **구성 파일**: %ProgramData%\Microsoft Azure\Config
-    - **로그 파일**: %ProgramData%\Microsoft Azure\Logs
+    - **구성 파일**: %Programdata%\Microsoft Azure\Config
+    - **로그 파일**: %Programdata%\Microsoft Azure\Logs
 
 스크립트를 다음과 같이 실행합니다.
 
-1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.
+1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.  기존 Azure Migrate 어플라이언스의 머신에서 스크립트를 실행하지 않아야 합니다.
 2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
 3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
 4. 다음 명령을 실행하여 **AzureMigrateInstaller.ps1**이라는 스크립트를 실행합니다.
-    ```
-    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
-    ```
-스크립트가 성공적으로 완료되면 어플라이언스 웹 애플리케이션이 시작됩니다.
 
-문제가 발생하는 경우 문제 해결을 위해 C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log 스크립트 로그에 액세스할 수 있습니다.
+    - 퍼블릭 클라우드의 경우: ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
+    - Azure Government의 경우: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 
-> [!NOTE]
-> 기존 Azure Migrate 어플라이언스에서 Azure Migrate 설치 프로그램 스크립트를 실행하지 마세요.
+    스크립트가 성공적으로 완료되면 어플라이언스 웹 애플리케이션이 시작됩니다.
+
+문제가 발생하는 경우 문제 해결을 위해 C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그에 액세스할 수 있습니다.
 
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
-어플라이언스에서 [Azure URL](migrate-appliance.md#url-access)에 연결할 수 있는지 확인합니다.
+어플라이언스에서 [퍼블릭](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드의 Azure URL에 연결할 수 있는지 확인합니다.
 
 
 ### <a name="configure-the-appliance"></a>어플라이언스 구성
@@ -173,7 +181,7 @@ Azure Migrate: 서버 평가는 경량 어플라이언스를 실행합니다.
 이제 어플라이언스에서 검색할 물리적 서버에 연결하여 검색을 시작합니다.
 
 1. **자격 증명 추가**를 클릭하여 어플라이언스가 서버를 검색하는 데 사용할 계정 자격 증명을 지정합니다.  
-2. **운영 체제**, 자격 증명의 식별 이름, **사용자 이름** 및 **암호**를 지정하고 **추가**를 클릭합니다.
+2. **운영 체제**, 자격 증명의 친숙한 이름, 사용자 이름 및 암호를 지정합니다. 그런 다음, **추가**를 클릭합니다.
 Windows 및 Linux 서버에 대해 각각 자격 증명 집합 하나를 추가할 수 있습니다.
 4. **서버 추가**를 클릭하고 서버에 연결하기 위한 서버 세부 정보(FQDN/IP 주소 및 자격 증명의 식별 이름)를 지정합니다(한 행에 한 항목).
 3. **유효성 검사**를 클릭합니다. 유효성 검사 후 검색 가능한 서버 목록이 표시됩니다.
@@ -235,7 +243,7 @@ Azure Migrate: 서버 평가를 사용하여 만들 수 있는 평가에는 두 
 
 ### <a name="view-an-assessment"></a>평가 보기
 
-1. **마이그레이션 목표** >  **서버**의 **Azure Migrate: 서버 평가**에서 평가를 클릭합니다.
+1. **마이그레이션 목표** >  **서버**의 **Azure Migrate: 서버 평가**에서 **평가**를 클릭합니다.
 2. **평가**에서 해당 평가를 클릭하여 엽니다.
 
     ![평가 요약](./media/tutorial-assess-physical/assessment-summary.png)

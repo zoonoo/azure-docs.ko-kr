@@ -3,14 +3,14 @@ title: '빠른 시작: C# ASP.NET Core 앱 만들기'
 description: Visual Studio에서 기본 C# ASP.NET Core 웹앱 템플릿을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 03/17/2020
+ms.date: 04/22/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: be7c4a2fb65f913bc97617af1a0f21ee8fcca714
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 6c7ab1290033792cf356c4882811670011df5efe
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313292"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086048"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>빠른 시작: Azure에서 ASP.NET Core 웹앱 만들기
 
@@ -99,7 +99,7 @@ App Service를 설정하는 과정에서 다음 항목을 만듭니다.
 
    ![Azure에서 실행 중인 게시된 ASP.NET 웹앱](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
-**축하합니다.** ASP.NET Core 웹앱이 Azure App Service에서 실시간으로 실행되고 있습니다.
+**축하합니다.** 이제 ASP.NET Core 웹앱이 Azure App Service에서 실시간으로 실행됩니다.
 
 ## <a name="update-the-app-and-redeploy"></a>앱 업데이트 및 재배포
 
@@ -107,7 +107,7 @@ App Service를 설정하는 과정에서 다음 항목을 만듭니다.
 
 1. **솔루션 탐색기**의 프로젝트 아래에서 **페이지** > **Index.cshtml**을 차례로 엽니다.
 
-1. 두 개의 `<div>` 태그를 다음 코드로 바꿉니다.
+1. 전체 `<div>` 태그를 다음 코드로 바꿉니다.
 
    ```HTML
    <div class="jumbotron">

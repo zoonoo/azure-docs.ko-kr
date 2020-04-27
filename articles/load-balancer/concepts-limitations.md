@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: a94b51e49951948974b8f42f6c89cd3c84f95d65
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7a7210915920ed9ab2a5ddc47a27c2587895a57a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064290"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768261"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Load Balancer 구성 요소 및 제한 사항
 Azure Load Balancer에는 해당 작업을 위한 몇 가지 주요 구성 요소가 포함되어 있습니다.  이러한 구성 요소는 Azure Portal, Azure CLI 또는 Azure PowerShell을 통해 구독에서 구성할 수 있습니다.  
@@ -171,6 +171,8 @@ Load Balancer는 TCP 및 UDP 애플리케이션에 대해 다음과 같은 기�
 
 전체 시나리오 구성은 SKU에 따라 약간 다를 수 있습니다. 부하 분산 장치 설명서는 특정 SKU에만 문서가 적용될 때 제공됩니다. 차이점을 비교하고 파악하려면 아래 표를 참조하요. 자세한 내용은 [Azure 표준 Load Balancer 개요](load-balancer-standard-overview.md)를 참조하세요.
 
+기본 Load Balancer를 표준으로 업그레이드하려면 [기본 Load Balancer 업그레이드](upgrade-basic-standard.md)를 참조하세요.
+
 >[!NOTE]
 > Microsoft는 표준 Load Balancer를 권장합니다.
 독립 실행형 VM, 가용성 집합 및 가상 머신 확장 집합은 하나의 SKU에만 연결될 수 있습니다. 퍼블릭 IP 주소와 함께 사용할 때는 Load Balancer 및 퍼블릭 IP 주소 SKU가 일치해야 합니다. Load Balancer 및 공용 IP SKU는 변경할 수 없습니다.
@@ -207,6 +209,7 @@ Load Balancer는 TCP 및 UDP 애플리케이션에 대해 다음과 같은 기�
 
 ## <a name="next-steps"></a>다음 단계
 
+- 기본 Load Balancer를 표준 Load Balancer로 업그레이드하려면 [기본 Load Balancer 업그레이드](upgrade-basic-standard.md)를 참조하세요.
 - Load Balancer를 사용하여 시작하려면 [공용 표준 Load Balancer 만들기](quickstart-load-balancer-standard-public-portal.md)를 참조하세요. 하나의 부하 분산 장치를 만들고, 사용자 지정 IIS 확장이 설치된 VM을 만들고, VM 간에 웹앱의 부하를 분산시킵니다.
 - [Azure Load Balancer에 대해 자세히 알아보세요](load-balancer-overview.md).
 - [표준 Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md) 사용에 대해 자세히 알아보세요.

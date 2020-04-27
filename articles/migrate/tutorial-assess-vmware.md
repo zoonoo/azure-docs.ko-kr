@@ -1,16 +1,17 @@
 ---
-title: Azure로 마이그레이션할 VMware VM 평가
+title: Azure Migrate 서버 평가를 사용하여 VMware VM 평가
 description: Azure Migrate Server Assessment를 사용하여 Azure로 마이그레이션할 온-프레미스 VMware VM을 평가하는 방법을 설명합니다.
 ms.topic: tutorial
-ms.date: 03/23/2019
-ms.openlocfilehash: 944b7c12a353a29a172576974261eece63ebf668
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/15/2020
+ms.custom: mvc
+ms.openlocfilehash: bd9e6b5923207297b1aa70a67052a7796b901781
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548739"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535369"
 ---
-# <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Azure Migrate 서버 평가를 사용하여 VMware VM 평가
+# <a name="assess-vmware-vms-with-server-assessment"></a>서버 평가를 사용하여 VMware VM 평가
 
 이 문서에서는 [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용하여 온-프레미스 VMware VM(가상 머신)을 평가하는 방법을 보여 줍니다.
 
@@ -48,9 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **시작**에서**도구 추가**를 선택합니다.
 1. **프로젝트 마이그레이션**에서 Azure 구독을 선택하고, 아직 없는 경우 리소스 그룹을 만듭니다.     
-1. **프로젝트 세부 정보**에서 프로젝트 이름과 이 프로젝트를 만들려는 지역을 지정합니다. 아시아, 유럽, 영국 및 미국 지역이 지원됩니다.
-
-   프로젝트 지역은 온-프레미스 VM에서 수집된 메타데이터를 저장하는 데만 사용됩니다. 대상 지역은 마이그레이션을 실행할 때 선택할 수 있습니다.
+1. **프로젝트 세부 정보**에서 프로젝트 이름과 이 프로젝트를 만들려는 지역을 지정합니다. [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
 
    ![프로젝트 이름 및 지역 상자](./media/tutorial-assess-vmware/migrate-project.png)
 
@@ -65,12 +64,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Azure Migrate 어플라이언스 설정
 
-Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를 사용합니다. 이 어플라이언스는 VM 검색을 수행하고, VM 메타데이터와 성능 데이터를 Azure Migrate에 보냅니다.
-- 다운로드한 OVA 템플릿을 사용하여 VMware VM에서 어플라이언스를 설정할 수 있습니다. 또는 PowerShell 설치 관리자 스크립트를 사용하여 VM 또는 물리적 머신에서 어플라이언스를 설정할 수 있습니다.
-- 이 자습서에서는 OVA 템플릿을 사용합니다. 스크립트를 사용하여 어플라이언스를 설정하려면 [이 문서](deploy-appliance-script.md)를 검토하세요.
+Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를 사용합니다. 이 어플라이언스는 VM 검색을 수행하고, VM 메타데이터와 성능 데이터를 Azure Migrate에 보냅니다. 어플라이언스는 여러 가지 방법으로 설정할 수 있습니다.
 
-어플라이언스가 만들어지면 Azure Migrate:Server Assessment에 연결하여 처음으로 구성하고, Azure Migrate 프로젝트에 등록할 수 있는지 확인합니다.
+- 다운로드한 OVA 템플릿을 사용하여 VMware VM에 설정합니다. 이는 이 자습서에서 사용하는 방법입니다.
+- PowerShell 설치 관리자 스크립트를 사용하여 VMware VM 또는 물리적 머신에 설정합니다. OVA 템플릿을 사용하여 VM을 설정할 수 없거나 Azure Government에 있는 경우 [이 방법](deploy-appliance-script.md)을 사용해야 합니다.
 
+어플라이언스를 만든 후 Azure Migrate:Server Assessment에 연결하여, 처음으로 구성하고, Azure Migrate 프로젝트에 등록할 수 있는지 확인합니다.
 
 
 ### <a name="download-the-ova-template"></a>OVA 템플릿 다운로드
@@ -115,9 +114,9 @@ SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 1. **네트워크 매핑**에서 VM이 연결할 네트워크를 지정합니다. 메타데이터를 Azure Migrate 서버 평가에 보내려면 네트워크에 인터넷 연결이 필요합니다.
 1. 설정을 검토하고 확인한 다음 **마침**을 선택합니다.
 
-### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
+## <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
-어플라이언스 VM에서 [Azure URL](migrate-appliance.md#url-access)에 연결할 수 있는지 확인합니다.
+어플라이언스 VM에서 [퍼블릭](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드의 Azure URL에 연결할 수 있는지 확인합니다.
 
 ### <a name="configure-the-appliance"></a>어플라이언스 구성
 
@@ -255,7 +254,7 @@ Azure Migrate 서버 평가를 사용하여 두 가지 유형의 평가를 만�
 
 ### <a name="review-confidence-rating"></a>신뢰 등급 검토
 
-Azure Migrate 서버 평가는 1개(가장 낮음)에서 5개(가장 높음)까지의 별을 사용하는 신뢰 등급을 성능 기반 평가에 할당합니다.
+Azure Migrate Server Assessment는 1개(가장 낮음)에서 5개(가장 높음)까지의 별을 사용하는 신뢰 등급을 성능 기반 평가에 할당합니다.
 
 ![신뢰 등급](./media/tutorial-assess-vmware/confidence-rating.png)
 

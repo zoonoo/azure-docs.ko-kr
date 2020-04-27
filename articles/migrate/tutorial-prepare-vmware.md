@@ -2,14 +2,14 @@
 title: Azure Migrate를 사용하여 평가/마이그레이션을 위해 VMware VM 준비
 description: Azure Migrate를 사용하여 VMware VM의 평가/마이그레이션을 준비하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 2e8aa72300c840832168138015e0a01ab054f954
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: a3f9716d6302c41f139d9a2a8b1f994b79afd199
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619420"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677294"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>평가 후 Azure로 마이그레이션할 VMware VM 준비
 
@@ -123,7 +123,7 @@ VMware VM 평가를 준비하려면 다음을 수행해야 합니다.
 Azure Migrate 어플라이언스를 설정하고 다음 자습서에서 평가를 시작하기 전에 어플라이언스 배포를 준비합니다.
 
 1. Azure Migrate 어플라이언스 요구 사항을 [확인](migrate-appliance.md#appliance---vmware)합니다.
-2. 어플라이언스에서 액세스해야 하는 Azure URL을 [검토](migrate-appliance.md#url-access)합니다. URL 기반 방화벽 또는 프록시를 사용하는 경우 필요한 URL에 대한 액세스를 허용하는지 확인합니다.
+2. 어플라이언스가 [퍼블릭](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드에서 액세스해야 하는 Azure URL을 검토합니다.
 3. 검색 및 평가 중에 어플라이언스에서 수집하는 [데이터를 검토](migrate-appliance.md#collected-data---vmware)합니다.
 4. 어플라이언스에 대한 포트 액세스 요구 사항에 [유의](migrate-support-matrix-vmware.md#port-access)하세요.
 
@@ -138,7 +138,8 @@ VMware VM의 [에이전트 없는 마이그레이션](server-migrate-overview.md
 2. Azure Migrate에서 vCenter Server에 액세스하는 데 필요한 [권한을 검토](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers)합니다.
 3. VMware VM 요구 사항을 [검토](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms)합니다.
 4. Azure Migrate 어플라이언스 요구 사항을 [검토](migrate-support-matrix-vmware-migration.md#agentless-azure-migrate-appliance)합니다.
-5. [URL 액세스](migrate-appliance.md#url-access) 및 [포트 액세스](migrate-support-matrix-vmware-migration.md#agentless-ports) 요구 사항을 확인합니다.
+5. [퍼블릭](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드에 필요한 URL 액세스를 확인합니다.
+6. [포트 액세스 ](migrate-support-matrix-vmware-migration.md#agentless-ports) 요구 사항을 검토합니다.
 
 ## <a name="prepare-for-agent-based-vmware-migration"></a>에이전트 기반 VMware 마이그레이션 준비
 
@@ -150,7 +151,8 @@ VMware VM의 [에이전트 기반 마이그레이션](server-migrate-overview.md
 3. 에이전트 기반 마이그레이션은 복제 어플라이언스를 사용합니다.
     - 복제 어플라이언스 배포 요구 사항을 [검토](migrate-replication-appliance.md#appliance-requirements)합니다.
     - MySQL을 어플라이언스에 설치하는 [옵션을 검토](migrate-replication-appliance.md#mysql-installation)합니다.
-    - 복제 어플라이언스에 대한 [URL](migrate-replication-appliance.md#url-access) 및 [포트](migrate-replication-appliance.md#port-access) 액세스 요구 사항을 검토합니다.
+    - [퍼블릭](migrate-replication-appliance.md#url-access) 및 [정부](migrate-replication-appliance.md#azure-government-url-access) 클라우드에 필요한 URL 액세스를 확인합니다.
+    - 복제 어플라이언스에 대한 [포트 액세스](migrate-replication-appliance.md#port-access) 요구 사항을 검토합니다.
     
 ## <a name="next-steps"></a>다음 단계
 

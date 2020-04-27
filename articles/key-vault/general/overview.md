@@ -11,14 +11,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 55a7c6e505d6d0c43319280bf7199805b108cd77
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9334cd0fa54212eac937742215f9c2e704a8bd9c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421557"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81688030"
 ---
-# <a name="what-is-azure-key-vault"></a>Azure Key Vault란?
+# <a name="about-azure-key-vault"></a>Azure Key Vault 정보
 
 Azure Key Vault는 다음 문제를 해결하는 데 도움이 됩니다.
 
@@ -80,4 +80,7 @@ Key Vault 자체는 스토리지 계정, 이벤트 허브 및 로그 분석과 �
 
 ## <a name="next-steps"></a>다음 단계
 
+- [키, 비밀 및 인증서](about-keys-secrets-certificates.md)에 대한 자세한 정보
 - [빠른 시작: CLI를 사용하여 Azure Key Vault 만들기](../secrets/quick-create-cli.md)
+- [인증, 요청 및 응답](../general/authentication-requests-and-responses.md)
+- [Key Vault 개발자 가이드](../general/developers-guide.md)

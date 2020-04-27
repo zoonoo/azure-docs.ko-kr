@@ -5,14 +5,14 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 03/18/2020
+ms.date: 04/16/2020
 ms.author: alzam
-ms.openlocfilehash: fd415e1da00f52a9a3b55c946a07a30cf841cf4a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 11007bc39cb1112799c89afaf0ca670aa6760de6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80060304"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482124"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사용자 VPN 연결 만들기
 
@@ -110,6 +110,32 @@ P2S 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합
 4. **지점 및 사이트 간 게이트웨이 포함** 확인란을 선택하고 원하는 **게이트웨이 배율 단위**를 선택합니다.
 
    ![새 사이트](media/virtual-wan-point-to-site-portal/p2s2.jpg)
+
+아래 표에서는 사용 가능한 **배율 단위**에 대한 세부 정보를 보여줍니다.
+
+| **배율 단위** | **처리량** | **P2S 연결** |
+| --- | --- | --- |
+| 1| 500Mbps | 500 |
+| 2| 1Gbps | 500 |
+| 3| 1.5Gbps | 500 |
+| 4| 2Gbps | 1000 |
+| 5| 2.5Gbps | 1000 |
+| 6| 3Gbps | 1000 |
+| 7| 3.5Gbps | 5,000 |
+| 8| 4Gbps | 5,000 |
+| 9| 4.5Gbps | 5,000 |
+| 10| 5Gbps | 5,000 |
+| 11| 5.5Gbps | 5,000 |
+| 12| 6Gbps | 5,000 |
+| 13| 6.5Gbps | 10000 |
+| 14| 7Gbps | 10000 |
+| 15| 7.5Gbps | 10000 |
+| 16| 8Gbps | 10000 |
+| 17| 8.5Gbps | 10000 |
+| 18| 9Gbps | 10000 |
+| 19| 9.5Gbps | 10000 |
+| 20| 10Gbps | 10000 |
+
 5. VPN 클라이언트에 IP 주소를 할당할 **주소 풀**를 입력합니다.
 6. **확인**을 클릭합니다.
 7. 작업이 완료될 때까지 최대 30분이 걸릴 수 있습니다.

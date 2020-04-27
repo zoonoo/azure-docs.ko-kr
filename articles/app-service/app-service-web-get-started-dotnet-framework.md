@@ -3,14 +3,14 @@ title: '빠른 시작: C# ASP.NET 앱 만들기'
 description: Visual Studio에서 기본 C# ASP.NET 웹앱 템플릿을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
-ms.date: 10/21/2019
+ms.date: 04/21/2020
 ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: 4688cc358ec6ff792be58254b0607f5416422a21
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 47a5cf2586b8146a68772962c60dc0dbdbb7e2fe
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80047669"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768832"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Azure에서 ASP.NET Framework 웹앱 만들기
 
@@ -55,7 +55,7 @@ Visual Studio 2019를 이미 설치한 경우:
 
 1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **myFirstAzureWebApp** 프로젝트를 클릭하고, **게시**를 선택합니다.
 
-1. **App Service**를 선택한 다음, **프로필 만들기**를 **게시**로 변경합니다.
+1. **App Service**를 선택하고 **프로필 만들기**를 선택합니다.
 
    ![프로젝트 개요 페이지에서 게시](./media/app-service-web-get-started-dotnet-framework/publish-app-framework-vs2019.png)
 
@@ -82,23 +82,25 @@ Visual Studio 2019를 이미 설치한 경우:
 
    | 설정 | 제안 값 | Description |
    |-|-|-|
-   |App Service 계획| myAppServicePlan | App Service 플랜의 이름입니다. |
+   | 호스팅 계획| myAppServicePlan | App Service 플랜의 이름입니다. |
    | 위치 | 서유럽 | 웹앱이 호스팅된 데이터 센터입니다. |
    | 크기 | 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)은 호스팅 기능을 결정합니다. |
 
    ![App Service 플랜 만들기](./media/app-service-web-get-started-dotnet-framework/app-service-plan-framework-vs2019.png)
 
-1. **이름**에서 유효한 문자(`a-z`, `A-Z`, `0-9` 및 `-`)만 포함된 고유한 앱 이름을 입력합니다. 자동으로 생성된 고유한 이름을 적용할 수 있습니다. 웹앱의 URL은 `http://<app_name>.azurewebsites.net`이며, 여기서 `<app_name>`은 앱 이름입니다.
+1. **이름**에서 유효한 문자(`a-z`, `A-Z`, `0-9` 및 `-`)만 포함된 고유한 앱 이름을 입력합니다. 자동으로 생성된 고유한 이름을 적용할 수 있습니다. 웹앱의 URL은 `http://<app-name>.azurewebsites.net`이며, 여기서 `<app-name>`은 앱 이름입니다.
 
 2. **만들기**를 선택하여 Azure 리소스를 만듭니다.
 
    ![앱 이름 구성](./media/app-service-web-get-started-dotnet-framework/web-app-name-framework-vs2019.png)
 
-마법사가 완료되면 Azure에 ASP.NET 웹앱을 게시한 다음 기본 브라우저에서 앱을 시작합니다.
+    마법사가 완료되면 Azure 리소스가 생성되고 게시할 준비가 완료됩니다.
 
-![Azure에서 게시된 ASP.NET 웹앱](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
+3. **게시** 페이지에서 **게시**를 클릭합니다. Visual Studio는 앱을 Azure에 빌드, 패키지 및 게시한 다음, 기본 브라우저에서 앱을 시작합니다.
 
-**App Service 새로 만들기** 페이지에서 지정한 앱 이름은 `http://<app_name>.azurewebsites.net` 형식의 URL 접두사로 사용됩니다.
+    ![Azure에서 게시된 ASP.NET 웹앱](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
+
+**App Service 새로 만들기** 페이지에서 지정한 앱 이름이 `http://<app-name>.azurewebsites.net` 형식의 URL 접두사로 사용됩니다.
 
 **축하합니다.** ASP.NET 웹앱이 Azure App Service에서 실시간으로 실행 중입니다.
 
@@ -117,9 +119,9 @@ Visual Studio 2019를 이미 설치한 경우:
 
 1. Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 버튼으로 클릭하고 **게시**를 선택합니다. 그런 다음, **게시**를 선택합니다.
 
-게시가 완료되면 Visual Studio가 웹앱의 URL로 브라우저를 시작합니다.
+    게시가 완료되면 Visual Studio가 웹앱의 URL로 브라우저를 시작합니다.
 
-![Azure에서 업데이트된 ASP.NET 웹앱](./media/app-service-web-get-started-dotnet-framework/updated-azure-web-app.png)
+    ![Azure에서 업데이트된 ASP.NET 웹앱](./media/app-service-web-get-started-dotnet-framework/updated-azure-web-app.png)
 
 ## <a name="manage-the-azure-app"></a>Azure 앱 관리
 
@@ -131,11 +133,11 @@ Visual Studio 2019를 이미 설치한 경우:
 
    ![Azure 앱에 대한 포털 탐색](./media/app-service-web-get-started-dotnet-framework/access-portal-framework-vs2019.png)
 
-   웹앱의 개요 페이지가 표시됩니다. 여기서 찾아보기, 중지, 시작, 다시 시작 및 삭제와 같은 기본 관리를 수행할 수 있습니다.
+   웹앱의 개요 페이지가 표시됩니다. 여기서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 작업을 관리할 수 있습니다.
 
    ![Azure Portal의 App Service 개요](./media/app-service-web-get-started-dotnet-framework/web-app-general-framework-vs2019.png)
 
-   왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다.
+   왼쪽 메뉴에는 앱을 구성할 수 있는 여러 페이지가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

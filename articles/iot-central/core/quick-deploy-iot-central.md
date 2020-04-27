@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 0ed32a4c1272c23c9500b35e05c383eac6dea185
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: b670776804c9758774bf216052254148f063e7da
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998959"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758154"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Azure IoT Central 애플리케이션 만들기
 
@@ -59,7 +59,11 @@ ms.locfileid: "80998959"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 IoT Central 애플리케이션을 만들었습니다. 권장되는 단계는 다음과 같습니다.
+이 빠른 시작에서는 IoT Central 애플리케이션을 만들었습니다. IoT Central에 대해 계속 학습하기 위해 제안된 다음 단계는 다음과 같습니다.
 
 > [!div class="nextstepaction"]
 > [IoT Central 애플리케이션에 시뮬레이트된 디바이스 추가](./quick-create-simulated-device.md)
+
+디바이스 개발자이고 몇 가지 코드에 대해 자세히 알아보려면 다음 단계를 수행하는 것이 좋습니다.
+> [!div class="nextstepaction"]
+> [클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결](./tutorial-connect-device-nodejs.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c895a13eb9b2bed9e3a8a5a250c4e925dfa834c5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ba0630474224c34eb96429cd7592028362e03381
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80331805"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024441"
 ---
 # <a name="what-is-a-device-identity"></a>디바이스 ID란?
 
@@ -53,6 +53,9 @@ Azure AD에서 디바이스를 가져올 수 있는 여러 가지 옵션이 있�
 
 ![Azure AD 디바이스 블레이드에 표시된 디바이스](./media/overview/azure-active-directory-devices-all-devices.png)
 
+> [!NOTE]
+> 하이브리드 상태는 디바이스 상태를 초과하는 것을 나타냅니다. 하이브리드 상태가 유효하려면 유효한 Azure AD 사용자도 필요합니다.
+
 ## <a name="device-management"></a>디바이스 관리
 
 Azure AD의 디바이스는 Microsoft Intune, Microsoft Endpoint Configuration Manager, 그룹 정책(하이브리드 Azure AD 조인), MAM(모바일 애플리케이션 관리) 도구 또는 기타 타사 도구와 같은 MDM(모바일 디바이스 관리) 도구를 사용하여 관리할 수 있습니다.
@@ -63,6 +66,8 @@ Azure AD의 디바이스는 Microsoft Intune, Microsoft Endpoint Configuration M
 
 > [!NOTE]
 > 디바이스 기반 조건부 액세스 정책에는 하이브리드 Azure AD 조인 디바이스 또는 호환되는 Azure AD 조인 디바이스 또는 Azure AD 등록 디바이스가 필요합니다.
+
+PRT(기본 새로 고침 토큰)는 디바이스에 대한 정보를 포함하며 SSO에 필요합니다. PRT 없이 애플리케이션에 디바이스 기반 조건부 액세스 정책이 설정된 경우 액세스가 거부됩니다. 하이브리드 조건부 액세스 정책에는 하이브리드 상태 디바이스 및 로그인한 유효한 사용자가 필요합니다.
 
 Azure AD 조인 디바이스 또는 하이브리드 Azure AD 조인 디바이스는 클라우드 리소스뿐 아니라 조직의 온-프레미스 리소스에 SSO를 이용할 수 있습니다. 자세한 내용은 [온-프레미스 리소스에 대한 SSO가 Azure AD 조인 디바이스에서 작동하는 방식](azuread-join-sso.md) 문서를 참조하세요.
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 159b38962fe91cedfc8d313bef943dbc74e9974e
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 04cd28db52630e9de26e30ef4bf35db983f48b50
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520244"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086065"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure에서 정적 HTML 웹앱 만들기
 
@@ -42,16 +42,12 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
-샘플 코드가 들어있는 디렉토리로 이동한 후 `az webapp up` 명령을 실행합니다.
-
-다음 명령에서 <app_name>을 고유한 앱 이름으로 바꿉니다.
+샘플 코드가 들어있는 디렉토리로 이동한 후 `az webapp up` 명령을 실행합니다. 다음 명령에서 <app_name>을 고유한 앱 이름으로 바꿉니다. 정적 콘텐츠는 `--html` 플래그로 표시됩니다.
 
 ```bash
 cd html-docs-hello-world
-```
 
-```azurecli
-az webapp up --location westeurope --name <app_name> 
+az webapp up --location westeurope --name <app_name> --html
 ```
 
 `az webapp up` 명령에는 다음 작업이 포함됩니다.
@@ -66,19 +62,19 @@ az webapp up --location westeurope --name <app_name>
 
 이 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다. 실행 시 다음 예와 유사한 정보를 출력합니다.
 
-```json
+<pre>
 {
-  "app_url": "https://<app_name>.azurewebsites.net",
+  "app_url": "https://&lt;app_name&gt;.azurewebsites.net",
   "location": "westeurope",
-  "name": "<app_name>",
+  "name": "&lt;app_name&gt;",
   "os": "Windows",
   "resourcegroup": "appsvc_rg_Windows_westeurope",
   "serverfarm": "appsvc_asp_Windows_westeurope",
   "sku": "FREE",
-  "src_path": "/home/<username>/quickstart/html-docs-hello-world ",
-  < JSON data removed for brevity. >
+  "src_path": "/home/&lt;username&gt;/quickstart/html-docs-hello-world ",
+  &lt; JSON data removed for brevity. &gt;
 }
-```
+</pre>
 
 `resourceGroup` 값을 기록해 둡니다. [리소스 정리](#clean-up-resources) 섹션에서 필요합니다.
 
@@ -102,7 +98,7 @@ Cloud Shell에서 `nano index.html`을 입력하여 Nano 텍스트 편집기를 
 
 이제 동일한 `az webapp up` 명령을 사용하여 앱을 다시 배포합니다.
 
-```azurecli
+```bash
 az webapp up --location westeurope --name <app_name> --html
 ```
 
@@ -124,13 +120,13 @@ az webapp up --location westeurope --name <app_name> --html
 
 ![Azure Portal의 App Service 블레이드](./media/app-service-web-get-started-html/portal2.png)
 
-왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다.
+왼쪽 메뉴에는 앱을 구성할 수 있는 여러 페이지가 표시됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이전 단계에서 Azure 리소스를 리소스 그룹에 만들었습니다. 나중에 이러한 리소스가 필요하지 않을 것으로 생가 생각되는 경우 Cloud Shell에서 다음 명령을 실행하여 리소스 그룹을 삭제합니다. 리소스 그룹 이름은 [웹앱 만들기](#create-a-web-app) 단계에서 자동으로 생성된 것입니다.
 
-```azurecli
+```bash
 az group delete --name appsvc_rg_Windows_westeurope
 ```
 

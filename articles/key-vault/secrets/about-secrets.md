@@ -10,53 +10,16 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2578f48ce218a0feaa5fb515ebc5d0e7154802ac
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: eabfa03aa70f54a967fe256f694ef59ad0fe7ebe
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420387"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685447"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Azure Key Vault 비밀 정보
 
-Azure Key Vault를 사용하면 Microsoft Azure 애플리케이션 및 사용자가 여러 가지 종류의 비밀 데이터를 저장하고 사용할 수 있습니다.
-
-- 비밀: 암호, 데이터베이스 연결 문자열 등의 비밀을 안전하게 스토리지합니다.
-
-- Azure Storage: 관리자를 대신하여 Azure Storage 계정의 키를 관리할 수 있습니다. 내부적으로 Key Vault는 Azure Storage 계정을 사용하여 키를 나열(동기화)하고, 주기적으로 키를 다시 생성(회전)할 수 있습니다. 
-
-Key Vault에 대한 일반적 내용은 [Azure Key Vault란?](/azure/key-vault/key-vault-overview)을 참조하세요.
-
-## <a name="azure-key-vault"></a>Azure Key Vault
-
-다음 섹션에서는 Key Vault 서비스의 구현에 적용할 수 있는 일반 정보를 제공합니다. 
-
-### <a name="objects-identifiers-and-versioning"></a>개체, 식별자 및 버전 관리
-
-Key Vault에 저장된 개체는 개체의 새 인스턴스가 만들어질 때마다 버전 관리됩니다. 각 버전에는 고유 식별자 및 URL이 할당됩니다. 개체가 처음으로 만들어지면 고유한 버전 식별자가 지정되고 개체의 현재 버전으로 표시됩니다. 개체 이름이 동일한 새 인스턴스를 만들면 새 개체에 고유한 버전 식별자가 제공되어 현재 버전이 됩니다.  
-
-Key Vault의 개체는 현재 식별자 또는 버전별 식별자를 사용하여 처리할 수 있습니다. 예를 들어 `MasterKey`라는 이름의 키가 지정되는 경우 현재 식별자를 사용하여 작업을 수행하면 시스템에서 사용 가능한 최신 버전을 사용하게 됩니다. 버전별 식별자를 사용하여 작업을 수행하면 시스템에서 해당 특정 버전의 개체를 사용하게 됩니다.  
-
-개체는 URL을 사용하여 Key Vault 내에서 고유하게 식별됩니다. 지리적 위치에 관계 없이, 시스템의 두 개체가 동일한 URL을 가질 수 없습니다. 개체의 전체 URL을 개체 식별자라고 합니다. URL은 Key Vault를 식별하는 접두사, 개체 형식, 사용자가 입력한 개체 이름 및 개체 버전으로 구성됩니다. 개체 이름은 대/소문자를 구분하지 않으며 변경할 수 없습니다. 개체 버전이 포함되지 않은 식별자를 기본 식별자라고 합니다.  
-
-자세한 내용은 [인증, 요청 및 응답](../general/authentication-requests-and-responses.md)을 참조하세요.
-
-개체 식별자의 일반적인 형식은 다음과 같습니다.  
-
-`https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
-
-위치:  
-
-|||  
-|-|-|  
-|`keyvault-name`|Microsoft Azure Key Vault 서비스의 키 자격 증명 모음에 대한 이름입니다.<br /><br /> Key Vault 이름은 사용자가 선택하며 전역적으로 고유합니다.<br /><br /> Key Vault 이름은 0~9, a~z, A~Z 및 -만 포함된 3-24자 길이의 문자열이어야 합니다.|  
-|`object-type`|개체의 형식은 "키" 또는 "비밀"입니다.|  
-|`object-name`|`object-name`은 사용자가 제공한 이름이며 Key Vault 내에서 고유해야 합니다. 이름은 0~9, a~z, A~Z 및 -만 포함된 1-127자 길이의 문자열이어야 합니다.|  
-|`object-version`|`object-version`은 시스템에서 생성된 32자의 문자열 식별자이며, 필요에 따라 고유한 버전의 개체를 처리하는 데 사용됩니다.|  
-
-## <a name="key-vault-secrets"></a>Key Vault 비밀 
-
-### <a name="working-with-secrets"></a>비밀 사용
+Key Vault는 암호 및 데이터베이스 연결 문자열과 같은 안전한 비밀 스토리지를 제공합니다.
 
 개발자의 관점에서 Key Vault API는 비밀 값을 수락하고 문자열로 반환합니다. 내부적으로 Key Vault는 비밀을 8진수(8비트 바이트) 시퀀스로 저장 및 관리하며, 각각의 최대 크기는 25k 바이트입니다. Key Vault 서비스는 비밀에 대한 의미 체계를 제공하지 않습니다. 단순히 데이터를 수락하고, 암호화하고, 저장하고, 비밀 식별자("id")를 반환할 뿐입니다. 식별자는 나중에 비밀을 검색하는 데 사용할 수 있습니다.  
 
@@ -64,7 +27,7 @@ Key Vault의 개체는 현재 식별자 또는 버전별 식별자를 사용하�
 
 Key Vault는 비밀에 대한 contentType 필드도 지원합니다. 클라이언트는 비밀 데이터에 대해 검색 시 해당 데이터를 해석하는 데 도움이 되는 콘텐츠 형식을 지정할 수 있습니다. 이 필드의 최대 길이는 255자이며, 미리 정의된 값이 없습니다. 비밀 데이터를 해석하기 위한 힌트로 사용하는 것이 좋습니다. 예를 들어 구현에서는 암호와 인증서를 모두 비밀로 저장한 다음, 이 필드를 사용하여 구분할 수 있습니다. 미리 정의된 값이 없습니다.  
 
-### <a name="secret-attributes"></a>비밀 특성
+## <a name="secret-attributes"></a>비밀 특성
 
 비밀 데이터 외에도 지정할 수 있는 특성은 다음과 같습니다.  
 
@@ -77,11 +40,11 @@ Key Vault는 비밀에 대한 contentType 필드도 지원합니다. 클라이�
 - *created*: IntDate, 선택 사항입니다. created 특성은 이 버전의 비밀을 만든 시점을 나타냅니다. 이 특성을 추가하기 전에 만든 비밀에 대한 값은 null입니다. 이 값은 IntDate 값이 포함된 숫자여야 합니다.  
 - *updated*: IntDate, 선택 사항입니다. updated 특성은 이 버전의 비밀을 업데이트한 시점을 나타냅니다. 이 특성을 추가하기 전에 마지막으로 업데이트한 비밀에 대한 값은 null입니다. 이 값은 IntDate 값이 포함된 숫자여야 합니다.
 
-#### <a name="date-time-controlled-operations"></a>날짜 및 시간 제어 작업
+### <a name="date-time-controlled-operations"></a>날짜 및 시간 제어 작업
 
 *nbf* / *exp* 시간 범위에 속하지 않은 비밀의 **get** 작업은 아직 유효하지 않은 비밀과 만료된 비밀에 대해 작동합니다. 테스트를 위해 비밀의 **get** 작업 호출을 아직 유효하지 않은 비밀에 사용할 수 있습니다. 복구 작업을 위해 만료된 비밀을 검색(**get**)할 수 있습니다.
 
-### <a name="secret-access-control"></a>비밀 액세스 제어
+## <a name="secret-access-control"></a>비밀 액세스 제어
 
 Key Vault에서 관리되는 비밀에 대한 액세스 제어는 해당 비밀을 포함하는 Key Vault 수준에서 제공됩니다. 비밀에 대한 액세스 제어 정책은 동일한 Key Vault의 키에 대한 액세스 제어 정책과 다릅니다. 사용자는 비밀을 보관할 하나 이상의 자격 증명 모음을 만들 수 있으며, 시나리오에 따라 비밀을 적절하게 세분화하고 관리해야 합니다.   
 
@@ -101,7 +64,7 @@ Key Vault에서 관리되는 비밀에 대한 액세스 제어는 해당 비밀�
 
 비밀을 사용하는 방법에 대한 자세한 내용은 [Key Vault REST API 참조에서 비밀 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 만들기 또는 업데이트](/rest/api/keyvault/vaults/createorupdate) 및 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요. 
 
-### <a name="secret-tags"></a>비밀 태그  
+## <a name="secret-tags"></a>비밀 태그  
 애플리케이션 관련 메타데이터를 태그 형식으로 추가로 지정할 수 있습니다. Key Vault는 최대 15개의 태그를 지원하며, 각 태그는 256자 이름과 256자의 값을 가질 수 있습니다.  
 
 >[!Note]
@@ -118,7 +81,7 @@ Key Vault는 Azure Storage 계정 키를 관리할 수 있습니다.
 
 자세한 내용은 [Azure Key Vault Storage 계정 키](../secrets/overview-storage-keys.md)를 참조하세요.)
 
-### <a name="storage-account-access-control"></a>스토리지 계정 액세스 제어
+## <a name="storage-account-access-control"></a>스토리지 계정 액세스 제어
 
 다음 권한은 관리되는 스토리지 계정에서 작업을 수행할 사용자 또는 애플리케이션 보안 주체에 권한을 부여할 때 사용할 수 있습니다.  
 
@@ -142,7 +105,11 @@ Key Vault는 Azure Storage 계정 키를 관리할 수 있습니다.
 
 자세한 내용은 [Key Vault REST API 참조의 스토리지 계정 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 만들기 또는 업데이트](/rest/api/keyvault/vaults/createorupdate) 및 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
+- [Key Vault 정보](../general/overview.md)
+- [키, 비밀 및 인증서에 대한 정보](../general/about-keys-secrets-certificates.md)
+- [키 정보](../keys/about-keys.md)
+- [인증서 정보](../certificates/about-certificates.md)
 - [인증, 요청 및 응답](../general/authentication-requests-and-responses.md)
 - [Key Vault 개발자 가이드](../general/developers-guide.md)

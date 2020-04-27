@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1f0708f0674633ddfee8b84388a2d96f2a04636
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bfb0cc61b61328df86c27498a1007f2372fb9548
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74899974"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867441"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management란?
 
@@ -50,9 +50,7 @@ Privileged Identity Management를 설정하면 **작업**, **관리** 및 **활�
 
 ## <a name="who-can-do-what"></a>누가 무엇을 할 수 있나요?
 
-Privileged Identity Management를 사용하는 첫 번째 사용자인 경우 디렉터리에 [보안 관리자](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) 및 [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할이 자동으로 할당됩니다.
-
-Privileged Identity Management의 Azure AD 역할의 경우 권한 있는 역할 관리자 역할에 있는 사용자만이 다른 관리자에 대한 할당을 관리할 수 있습니다. [Privileged Identity Management 관리를 위해 다른 관리자에게 액세스 권한을 부여](pim-how-to-give-access-to-pim.md)할 수 있습니다. 또한 글로벌 관리자, 보안 관리자, 글로벌 읽기 권한자 및 보안 읽기 권한자는 Privileged Identity Management에서 Azure AD 역할에 대한 할당을 볼 수 있습니다.
+Privileged Identity Management의 Azure AD 역할의 경우 권한 있는 역할 관리자 또는 글로벌 관리자 역할에 있는 사용자만이 다른 관리자에 대한 할당을 관리할 수 있습니다. [Privileged Identity Management 관리를 위해 다른 관리자에게 액세스 권한을 부여](pim-how-to-give-access-to-pim.md)할 수 있습니다. 또한 글로벌 관리자, 보안 관리자, 글로벌 읽기 권한자 및 보안 읽기 권한자는 Privileged Identity Management에서 Azure AD 역할에 대한 할당을 볼 수 있습니다.
 
 Privileged Identity Management의 Azure 리소스 역할의 경우 구독 관리자, 리소스 소유자 또는 리소스 사용자 액세스 관리자만이 다른 관리자에 대한 할당을 관리할 수 있습니다. 권한 있는 역할 관리자, 보안 관리자 또는 보안 읽기 권한자인 사용자는 기본적으로 Privileged Identity Management에서 Azure 리소스 역할에 대한 할당을 볼 수 있는 액세스 권한을 가지고 있지 않습니다.
 

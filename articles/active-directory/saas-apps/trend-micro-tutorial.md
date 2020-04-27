@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/03/2020
+ms.date: 04/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a4c2cddbc9086c80922fcf9c5d96cd197ab4778
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5f4dc7223d64fd299da70375329260f7b4f8b322
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425282"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083396"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-securitytmws"></a>자습서: TMWS(Trend Micro Web Security)와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -87,7 +87,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     b. **회신 URL** 텍스트 상자에서 `https://auth.iws-hybrid.trendmicro.com/simplesaml/module.php/saml/sp/saml2-acs.php/ics-sp` URL을 입력합니다.
 
     > [!NOTE]
-    > 식별자 값은 실제 값이 아닙니다. 실제 식별자로 이 값을 업데이트하세요. 식별자 값을 얻으려면 [TMWS(Trend Micro Web Security) 클라이언트 지원 팀](https://success.trendmicro.com/contact-support-north-america)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 식별자 값은 실제 값이 아닙니다. 실제 식별자로 이 값을 업데이트하세요. **관리 > Directory Services**에서 Azure AD에 대한 **인증 방법** 화면의 **Azure Admin Portal에 대한 서비스 공급자 설정** 영역 아래에서 이러한 값을 가져올 수 있습니다.
 
 1. TMWS(Trend Micro Web Security) 애플리케이션에는 사용자 지정 특성 매핑을 SAML 토큰 특성 구성에 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
@@ -173,7 +173,41 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-trend-micro-web-security-sso"></a>Trend Micro Web Security SSO 구성
 
-**TMWS(Trend Micro Web Security)** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [TMWS(Trend Micro Web Security) 지원 팀](https://success.trendmicro.com/contact-support-north-america)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+1. TMWS 관리 콘솔에 로그인하고 **관리** > **사용자 및 인증** > **Directory Services**로 이동합니다.
+
+1. 화면의 위쪽 영역에서 여기를 클릭합니다.
+
+1. 표시되는 인증 방법 화면에서 **Azure AD**를 클릭합니다.
+
+1. **켜기** 또는 **끄기**를 클릭하여 해당 데이터가 TMWS와 동기화되지 않은 경우 조직의 AD 사용자가 TMWS를 통해 웹 사이트를 방문할 수 있도록 허용할지 여부를 결정할 수 있습니다.
+
+    > [!NOTE]
+    > Azure AD에서 동기화되지 않은 사용자는 알려진 TMWS 게이트웨이 또는 조직의 전용 포트를 통해서만 인증할 수 있습니다.
+
+1. **ID 공급자 설정** 섹션에서 다음 단계를 수행합니다.
+
+    a. **Service URL** 필드에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
+
+    b. **로그온 이름 특성** 필드에 Azure Portal의 **user.onpremisessamaccountname** 원본 특성과 함께 사용자 클레임 이름을 붙여넣습니다.
+
+    다. **공용 SSL 인증서** 필드의 Azure Portal에서 다운로드한 **인증서(Base64)** 를 사용합니다.
+
+1. **동기화 설정** 섹션에서 다음 단계를 수행합니다.
+
+    a. **테넌트** 필드의 Azure Portal에서 **디렉터리(테넌트) ID** 또는 **사용자 지정 도메인 이름** 값을 사용합니다.
+
+    b. **애플리케이션 ID** 필드의 Azure Portal에서 **애플리케이션(클라이언트) ID** 값을 사용합니다.
+
+    다. **클라이언트 암호** 필드의 Azure Portal에서 **클라이언트 암호**를 사용합니다.
+
+    d. **동기화 일정** 필드에서 수동으로 또는 일정에 따라 Azure AD와 동기화하도록 선택합니다. Active Directory 사용자 정보가 변경될 때마다 수동으로 선택하는 경우에는 디렉터리 서비스 화면으로 돌아가서 TMWS의 정보가 최신 상태로 유지되도록 수동으로 동기화를 수행해야 합니다.
+
+    e. **연결 테스트**를 클릭하여 Azure AD 서비스를 성공적으로 연결할 수 있는지 여부를 확인합니다. 
+    
+    f. **저장**을 클릭합니다.
+ 
+ > [!NOTE]
+ > Azure AD를 사용하여 Trend Micro Web Security를 구성하는 방법에 대한 자세한 내용은 [이](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration_001/directory-services/azure-active-directo/configuring-azure-ad.aspx) 문서를 참조하세요.
 
 ## <a name="test-sso"></a>SSO 테스트 
 

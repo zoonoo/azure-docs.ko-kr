@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/31/2020
+ms.date: 04/20/2020
 ms.author: diberry
-ms.openlocfilehash: 02cb7738e20df6aba8690c9fe2ee718144bad114
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: d9af9f788e2309cdf687e0a13b77220c150a0e1e
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76987794"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733251"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * [Go](https://golang.org/) 프로그래밍 언어
 * [Visual Studio Code](https://code.visualstudio.com/)
-* 공용 앱 ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* LUIS 앱 ID - `df67dcdb-c37d-46af-88e1-8b97951ca1c2`의 공용 IoT 앱 ID를 사용합니다. 빠른 시작 코드에 사용되는 사용자 쿼리는 해당 앱에만 적용됩니다.
 
 ## <a name="create-luis-runtime-key-for-predictions"></a>예측을 위한 LUIS 런타임 키 만들기
 

@@ -2,18 +2,18 @@
 title: Azure Migrate를 사용하여 평가/마이그레이션을 위해 Hyper-V VM 준비
 description: Azure Migrate를 사용하여 Hyper-V VM의 평가/마이그레이션을 준비하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: d14ae4282afb610d025d08419a69c6d10c2f1d08
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: ea6290eae187ed4ead39f7307a84a54a23c19c29
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436220"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641627"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>평가하고 Azure로 마이그레이션할 Hyper-V VM 준비
 
-이 문서에서는 Azure Migrate:Server Assessment(migrate-services-overview.md#azure-migrate-server-assessment-tool)를 사용하여 온-프레미스 Hyper-V VM의 평가를 준비하고 [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool)을 사용하여 Hyper-V VM을 마이그레이션하는 방법을 설명합니다.
+이 문서에서는 [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool)를 사용하여 온-프레미스 Hyper-V VM의 평가를 준비하고 [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool)을 사용하여 Hyper-V VM을 마이그레이션하는 방법을 설명합니다.
 
 
 이 자습서는 Hyper-V VM을 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 첫 번째 자습서입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
@@ -214,9 +214,11 @@ Azure Migrate에서 VM의 운영 체제 정보를 캡처할 수 있도록 각 VM
 Azure Migrate 어플라이언스를 설정하고 다음 자습서에서 평가를 시작하기 전에 어플라이언스 배포를 준비합니다.
 
 1. 어플라이언스 요구 사항을 [확인](migrate-appliance.md#appliance---hyper-v)합니다.
-2. 어플라이언스에서 액세스해야 하는 Azure URL을 [검토](migrate-appliance.md#url-access)합니다.
+2. 어플라이언스가 [퍼블릭](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드에서 액세스해야 하는 Azure URL을 검토합니다. URL 기반 방화벽 또는 프록시를 사용하는 경우 필요한 URL에 대한 액세스를 허용하는지 확인합니다.
 3. 검색 및 평가 중에 어플라이언스가 수집할 데이터를 검토합니다.
-4. 어플라이언스에 대한 포트 액세스 요구 사항에 [유의](migrate-appliance.md#collected-data---hyper-v)하세요.
+4. 어플라이언스에 대한 포트 액세스 요구 사항을 [검토](migrate-appliance.md#collected-data---hyper-v)합니다.
+
+
 
 
 ## <a name="prepare-for-hyper-v-migration"></a>Hyper-V 마이그레이션 준비

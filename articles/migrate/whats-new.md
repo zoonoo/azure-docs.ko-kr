@@ -2,18 +2,30 @@
 title: Azure Migrate의 새로운 기능
 description: Azure Migrate 서비스의 새로운 기능 및 최신 업데이트에 대해 알아봅니다.
 ms.topic: overview
-ms.date: 03/22/2020
+ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 9767f3ea31b57d23c8a6772ff5eb6500f7550802
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ba85b0a4ed30320099388ccb48dd91ad6445efd5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80127583"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677236"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
 [Azure Migrate](migrate-services-overview.md)를 사용하면 온-프레미스 서버, 앱 및 데이터를 검색 및 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 Azure Migrate의 새로운 릴리스와 기능이 요약되어 있습니다.
+
+
+## <a name="update-april-2020"></a>업데이트(2020년 4월)
+
+Azure Migrate는 Azure Government에서의 배포를 지원합니다. 
+
+- VMware VM, Hyper-V VM 및 물리적 서버를 검색 및 평가할 수 있습니다.
+- VMware VM, Hyper-V VM 및 물리적 서버를 Azure로 마이그레이션할 수 있습니다.
+- VMware 마이그레이션의 경우 에이전트 없는 또는 에이전트 기반 마이그레이션을 사용할 수 있습니다. [자세히 알아보기](server-migrate-overview.md).
+- Azure Government에 대해 지원되는 지역 및 영역을 [검토](migrate-support-matrix.md#supported-geographies-azure-government)합니다.
+- [에이전트 기반 종속성 분석](concepts-dependency-visualization.md#agent-based-analysis)은 Azure Government에서 지원되지 않습니다.
+- 미리 보기의 기능은 Azure Government, 특히 [에이전트 없는 종속성 분석](concepts-dependency-visualization.md#agentless-analysis), [애플리케이션 검색](how-to-discover-applications.md)에서 지원됩니다.
 
 ## <a name="update-march-2020"></a>업데이트(2020년 3월)
 

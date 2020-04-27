@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
-ms.date: 03/02/2020
-ms.openlocfilehash: d7330225ecbdc6715847821a47c140a3c2b8d1b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/21/2020
+ms.openlocfilehash: dd0b4d1b0998bd4b13a17fb8345b87924bc27e1d
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78251946"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869982"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>자습서: HDInsight에서 Power BI를 사용하여 Apache Spark 데이터 분석
 
-이 자습서에서는 [Microsoft Power BI](https://powerbi.microsoft.com/)를 사용하여 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)의 Apache Spark 클러스터에서 데이터를 시각화하는 방법을 알아봅니다.
+이 자습서에서는 Microsoft Power BI를 사용하여 Azure HDInsight의 Apache Spark 클러스터에서 데이터를 시각화하는 방법을 알아봅니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -70,9 +70,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ### <a name="create-a-report-in-power-bi-desktop"></a>Power BI Desktop에서 보고서 만들기
 
 Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터에 연결하고, 클러스터에서 데이터를 로드하고, 해당 데이터를 기반으로 기본 시각화를 만드는 것입니다.
-
-> [!NOTE]  
-> 이 문서에서 설명하는 커넥터는 현재 미리 보기 상태입니다. [Power BI 커뮤니티](https://community.powerbi.com/) 사이트 또는 [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas)를 통해 피드백을 제공하세요.
 
 1. Power BI Desktop을 엽니다. 시작 스플래시 화면이 열리면 닫습니다.
 
@@ -180,7 +177,7 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 [Microsoft Power BI](https://powerbi.microsoft.com/)를 사용하여 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)의 Apache Spark 클러스터에서 데이터를 시각화하는 방법을 알아보았습니다. 기계 학습 애플리케이션을 만들 수 있는지 보려면 다음 문서를 진행합니다.
+이 자습서에서는 Microsoft Power BI를 사용하여 Azure HDInsight의 Apache Spark 클러스터에서 데이터를 시각화하는 방법을 알아보았습니다. 기계 학습 애플리케이션을 만들 수 있는지 보려면 다음 문서를 진행합니다.
 
 > [!div class="nextstepaction"]
 > [기계 학습 애플리케이션 만들기](./apache-spark-ipython-notebook-machine-learning.md)

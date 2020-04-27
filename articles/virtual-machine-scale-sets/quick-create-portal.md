@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: jushiman
-ms.openlocfilehash: 410ae93ea109e5757ccb5b65d353a600574dd595
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 5855c53a73ac94985f34f229fbe5ab77067ef17d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010480"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680430"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신 확장 집합 만들기
 
@@ -59,7 +59,7 @@ RHEL, CentOS, Ubuntu 또는 SLES와 같은 Windows Server 이미지 또는 Linux
 1. 검색 상자에 **확장 집합**을 입력합니다. 결과의 **Marketplace** 아래에서 **가상 머신 확장 집합**을 선택합니다. **가상 머신 확장 집합 만들기** 페이지가 열립니다. 
 1. **기본** 탭의 **프로젝트 세부 정보** 아래에서 올바른 구독이 선택되어 있는지 확인한 다음, 리소스 그룹 **새로 만들기**를 선택합니다. 이름에 *myVMSSResourceGroup*을 입력하고 **확인**을 선택합니다. 
 1. 확장 집합의 이름으로 *myScaleSet*을 입력합니다.
-1. **지역**에서 사용자와 가까운 지역을 선택합니다.
+1. **지역**에서 사용자 영역과 가까운 지역을 선택합니다.
 1. **Orchestrator**의 기본값 **ScaleSet VM**을 그대로 둡니다.
 1. **이미지**에 대해 Marketplace 이미지를 선택합니다. 이 예제에서는 *Ubuntu Server 18.04 LTS*를 선택했습니다.
 1. 원하는 사용자 이름을 입력한 후 원하는 인증 유형을 선택합니다.

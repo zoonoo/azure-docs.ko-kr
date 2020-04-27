@@ -8,12 +8,13 @@ ms.date: 2/5/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d2bad581c925bb62cbe65a45000f6d3ae35db011
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: 353ed321ce3b6161b28bf67d852a81f809880603
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372683"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733021"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>자습서: IoT Edge 디바이스 구성
 
@@ -282,13 +283,13 @@ IoT Edge VM을 만들 때 사용한 *Azure IoT Edge on Ubuntu* 이미지는 conf
     sudo systemctl restart iotedge
     ```
 
-7. IoT Edge 디먼의 상태를 확인합니다(명령이 완료되면 “:q”를 입력하여 종료).
+7. IoT Edge 디먼의 상태를 확인합니다(명령이 완료되면 ":q"를 입력하여 종료).
 
     ```bash
     systemctl status iotedge
     ```
 
-8. 상태에서 오류가 보이면(“\[ERROR\]”라는 접두사가 붙은 색이 지정된 텍스트) 디먼 로그를 검사하여 자세한 오류 정보를 확인합니다.
+8. 상태에서 오류가 보이면("\[ERROR\]"라는 접두사가 붙은 색이 지정된 텍스트) 디먼 로그를 검사하여 자세한 오류 정보를 확인합니다.
 
     ```bash
     journalctl -u iotedge --no-pager --no-full
@@ -296,7 +297,7 @@ IoT Edge VM을 만들 때 사용한 *Azure IoT Edge on Ubuntu* 이미지는 conf
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure VM을 Azure IoT Edge 투명 게이트웨이로 구성했습니다. 가장 먼저 테스트 인증서를 생성하여 Azure Key Vault에 업로드했습니다. 다음으로, 스크립트와 Resource Manager 템플릿을 사용하여 Azure Marketplace의 “Ubuntu Server 16.04 LTS + Azure IoT Edge 런타임” 이미지로 VM을 배포했습니다. SSH를 통해 연결된 VM을 실행하여 Azure에 로그인하고 Key Vault에서 인증서를 다운로드했습니다. config.yaml 파일을 업데이트하여 IoT Edge 런타임의 구성에 대해 몇 가지 업데이트를 수행했습니다.
+Azure VM을 Azure IoT Edge 투명 게이트웨이로 구성했습니다. 가장 먼저 테스트 인증서를 생성하여 Azure Key Vault에 업로드했습니다. 다음으로, 스크립트와 Resource Manager 템플릿을 사용하여 Azure Marketplace의 "Ubuntu Server 16.04 LTS + Azure IoT Edge 런타임" 이미지로 VM을 배포했습니다. SSH를 통해 연결된 VM을 실행하여 Azure에 로그인하고 Key Vault에서 인증서를 다운로드했습니다. config.yaml 파일을 업데이트하여 IoT Edge 런타임의 구성에 대해 몇 가지 업데이트를 수행했습니다.
 
 자세한 내용은 [IoT Edge 디바이스를 게이트웨이로 구성하는 방법](iot-edge-as-gateway.md) 및 [IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성](how-to-create-transparent-gateway.md)을 참조하세요.
 

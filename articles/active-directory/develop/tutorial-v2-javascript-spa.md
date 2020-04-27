@@ -11,17 +11,17 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ec47850ce4cccb6a891c7e5aef2644550bc3e39a
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 52b7c582848dd24f6d9963a9d37c8f12c5db6149
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80990959"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678020"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>JavaScript SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출
 
 이 가이드에서는 JavaScript SPA(단일 페이지 애플리케이션)에서 다음을 수행하는 방법을 보여 줍니다.
-- 회사 및 학교 계정과 개인 계정으로 로그인 
+- 회사 및 학교 계정과 개인 계정으로 로그인
 - 액세스 토큰 획득
 - *Microsoft ID 플랫폼 엔드포인트*에서 액세스 토큰을 요구하는 Microsoft Graph API 또는 다른 API 호출
 
@@ -48,10 +48,6 @@ ms.locfileid: "80990959"
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|JavaScript용 Microsoft 인증 라이브러리|
 
-> [!NOTE]
-> *msal.js*는 Microsoft ID 플랫폼 엔드포인트를 대상으로 하며, 이를 통해 개인, 학교 및 회사 계정으로 로그인하여 토큰을 획득할 수 있습니다. Microsoft ID 플랫폼 엔드포인트에는 [몇 가지 제한 사항](../azuread-dev/azure-ad-endpoint-comparison.md#limitations)이 있습니다.
-> v1.0 및 v2.0 엔드포인트 간의 차이점을 이해하려면 [엔드포인트 비교 가이드](../azuread-dev/azure-ad-endpoint-comparison.md)를 참조하세요.
-
 <!--end-collapse-->
 
 ## <a name="set-up-your-web-server-or-project"></a>웹 서버 또는 프로젝트 설정
@@ -68,7 +64,7 @@ ms.locfileid: "80990959"
 
 ## <a name="create-your-project"></a>프로젝트 만들기
 
-[Node.js](https://nodejs.org/en/download/)가 설치되어 있는지 확인한 다음, 애플리케이션을 호스팅할 폴더를 만듭니다. 여기서는 `index.html` 파일을 제공하는 간단한 [Express](https://expressjs.com/) 웹 서버를 구현합니다. 
+[Node.js](https://nodejs.org/en/download/)가 설치되어 있는지 확인한 다음, 애플리케이션을 호스팅할 폴더를 만듭니다. 여기서는 `index.html` 파일을 제공하는 간단한 [Express](https://expressjs.com/) 웹 서버를 구현합니다.
 
 1. 먼저 Visual Studio Code 통합 터미널을 사용하여 프로젝트 폴더를 찾은 다음, NPM을 사용하여 Express를 설치합니다.
 
@@ -170,7 +166,7 @@ ms.locfileid: "80990959"
 
        <!-- importing bootstrap.js and supporting js libraries -->
        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>  
+       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
        <!-- importing app scripts (load order is important) -->
@@ -188,7 +184,7 @@ ms.locfileid: "80990959"
 
    > [!TIP]
    > 위 스크립트의 MSAL.js 버전을 최근에 출시된 [MSAL.js 릴리스](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases) 버전으로 바꿀 수 있습니다.
-   
+
 2. 이제 DOM 요소에 액세스하여 업데이트하는 `ui.js`라는 .js 파일을 만들고, 다음 코드를 추가합니다.
 
    ```JavaScript
@@ -304,7 +300,7 @@ ms.locfileid: "80990959"
       cacheLocation: "sessionStorage", // This configures where your cache will be stored
       storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
     }
-  };  
+  };
 
   // Add here scopes for id token to be used at MS Identity Platform endpoints.
   const loginRequest = {
@@ -350,7 +346,7 @@ ms.locfileid: "80990959"
    function signOut() {
      myMSALObj.logout();
    }
-   
+
    function callMSGraph(theUrl, accessToken, callback) {
        var xmlHttp = new XMLHttpRequest();
        xmlHttp.onreadystatechange = function () {
@@ -409,7 +405,7 @@ ms.locfileid: "80990959"
 
 사용자가 **로그인** 단추를 처음 선택하면 `signIn` 메서드에서 `loginPopup`을 호출하여 사용자를 로그인합니다. 이 메서드는 *Microsoft ID 플랫폼 엔드포인트*가 있는 팝업 창을 열어 사용자의 자격 증명을 묻고 유효성을 검사합니다. 성공적으로 로그인하면 사용자가 원래 *index.html* 페이지로 다시 리디렉션됩니다. `msal.js`에서 토큰을 받고 처리하며, 토큰에 포함된 정보가 캐시됩니다. 이 토큰은 *ID 토큰*이라고 하며 사용자 표시 이름과 같은 사용자에 대한 기본 정보를 포함합니다. 이 토큰에서 제공하는 데이터를 어떤 용도로든 사용할 계획이면 백 엔드 서버에서 이 토큰의 유효성을 검사하여 토큰이 애플리케이션의 유효한 사용자에게 발급되었음을 보장하는지 확인해야 합니다.
 
-이 가이드에서 생성하는 SPA는 `acquireTokenSilent` 및/또는 `acquireTokenPopup`를 호출하여 사용자 프로필 정보에 대해 Microsoft Graph API를 쿼리하는 데 사용하는 *액세스 토큰*을 가져옵니다. ID 토큰의 유효성을 검사하는 샘플이 필요한 경우 GitHub에서 [이](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 샘플") 샘플 애플리케이션을 살펴보세요. 이 샘플에서는 ASP.NET Web API를 토큰 유효성 검사에 사용합니다.
+이 가이드에서 생성하는 SPA는 `acquireTokenSilent` 및/또는 `acquireTokenPopup`를 호출하여 사용자 프로필 정보에 대해 Microsoft Graph API를 쿼리하는 데 사용하는 *액세스 토큰*을 가져옵니다. ID 토큰의 유효성을 검사하는 샘플이 필요한 경우 GitHub에서 [이](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 샘플") 샘플 애플리케이션을 살펴보세요. 이 샘플에서는 ASP.NET 웹 API를 토큰 유효성 검사에 사용합니다.
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
@@ -430,7 +426,7 @@ ms.locfileid: "80990959"
 1. 또한 애플리케이션에서는 대화형 로그인이 필요하다는 시각적 표시를 사용자에게 보여줍니다. 따라서 사용자가 로그인할 적절한 시간을 선택하거나 이후에 애플리케이션이 `acquireTokenSilent`를 다시 시작할 수 있습니다. 이는 일반적으로 사용자가 중단 없이 애플리케이션의 다른 기능을 사용할 수 있는 경우에 사용됩니다. 예를 들어 애플리케이션에서 사용할 수 있는 인증되지 않은 콘텐츠가 있을 수 있습니다. 이 경우 사용자는 보호된 리소스에 액세스하거나 오래된 정보를 새로 고치기 위해 로그인하려는 시기를 결정할 수 있습니다.
 
 > [!NOTE]
-> 이 빠른 시작에서는 기본적으로 `loginPopup` 및 `acquireTokenPopup` 메서드를 사용합니다. Internet Explorer를 브라우저로 사용하는 경우 Internet Explorer에서 팝업 창을 처리하는 방법과 관련된 [알려진 문제](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues)로 인해 `loginRedirect` 및 `acquireTokenRedirect` 메서드를 사용하는 것이 좋습니다. `Redirect methods`를 사용하여 동일한 결과를 얻는 방법을 알아보려면 [여기를 참조하세요](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js). 
+> 이 빠른 시작에서는 기본적으로 `loginPopup` 및 `acquireTokenPopup` 메서드를 사용합니다. Internet Explorer를 브라우저로 사용하는 경우 Internet Explorer에서 팝업 창을 처리하는 방법과 관련된 [알려진 문제](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues)로 인해 `loginRedirect` 및 `acquireTokenRedirect` 메서드를 사용하는 것이 좋습니다. `Redirect methods`를 사용하여 동일한 결과를 얻는 방법을 알아보려면 [여기를 참조하세요](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js).
 <!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-acquired"></a>방금 획득한 토큰을 사용하여 Microsoft Graph API 호출
@@ -462,7 +458,7 @@ ms.locfileid: "80990959"
      };
 
      console.log('request made to Graph API at: ' + new Date().toString());
-  
+
      fetch(endpoint, options)
        .then(response => response.json())
        .then(response => callback(response, endpoint))

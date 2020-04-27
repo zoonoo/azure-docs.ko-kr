@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 2853b1567618127866a4e9c61d81e599d3100823
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8596b435ffa02da7daf4ef98bfe0fe7995b9270a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064261"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768185"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -82,6 +82,7 @@ Azure Load Balancer는 OSI(Open Systems Interconnect) 모델의 계층 4에서 �
 [Load Balancer용 SLA](https://aka.ms/lbsla)를 참조하세요. 기본 Load Balancer에는 SLA가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
+기본 Load Balancer를 표준 Load Balancer로 업그레이드하려면 [기본 Load Balancer 업그레이드](upgrade-basic-standard.md)를 참조하세요.
 
 Load Balancer를 사용하여 시작하려면 [공용 표준 Load Balancer 만들기](quickstart-load-balancer-standard-public-portal.md)를 참조하세요.
 

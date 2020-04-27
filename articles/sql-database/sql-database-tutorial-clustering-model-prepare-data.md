@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
-ms.openlocfilehash: 2241b69e36e3b17475dba115b8d2ae94fe2189a7
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: abe7d5ed1d4ba1308abde04aee32a3ea222456b8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345841"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452879"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 클러스터링을 수행하기 위한 데이터 준비
 
@@ -43,13 +44,11 @@ K-평균 클러스터링은 유사성을 기준으로 데이터의 패턴을 찾
 
 [3부](sql-database-tutorial-clustering-model-deploy.md)에서는 새 데이터를 기반으로 R에서 클러스터링을 수행할 수 있는 Azure SQL 데이터베이스에 저장 프로시저를 만드는 방법을 알아봅니다.
 
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
-
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - Azure 구독이 아직 없는 경우 시작하기 전에 [계정을 만듭니다](https://azure.microsoft.com/free/).
 
-* Machine Learning Services가 사용하도록 설정된 Azure SQL Database 서버 - Microsoft는 위에서 설명한 것처럼 공개 미리 보기 기간에는 사용자를 온보딩하고 기존 또는 새 데이터베이스에 머신 러닝을 사용하도록 설정합니다. [미리 보기에 가입](sql-database-machine-learning-services-overview.md#signup) 단계를 수행하세요.
+* [Machine Learning Services를 사용하는 Azure SQL Database(R 포함)](sql-database-machine-learning-services-overview.md)가 활성화되었습니다.
 
 * RevoScaleR 패키지 - 이 패키지를 로컬로 설치하기 위한 옵션에 대해서는 [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms)을 참조하세요.
 

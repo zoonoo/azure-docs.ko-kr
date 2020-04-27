@@ -1,19 +1,19 @@
 ---
 title: '자습서: 태그 거버넌스 관리'
 description: 이 자습서에서는 Azure Policy의 Modify 효과를 사용하여 신규 및 기존 리소스에 대한 태그 거버넌스 모델을 만들고 적용합니다.
-ms.date: 11/25/2019
+ms.date: 04/21/2020
 ms.topic: tutorial
-ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6319bbde2fdc8f78e2743dd5f1565c8680433fea
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75965993"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759073"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>자습서: Azure Policy를 사용하여 태그 거버넌스 관리
 
 [태그](../../../azure-resource-manager/management/tag-resources.md)는 Azure 리소스를 분류 체계로 구성하는 데 중요한 부분입니다. [태그 관리 모범 사례](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources)를 수행하는 동안 태그는 Azure Policy를 통해 비즈니스 정책을 적용하거나 [Cost Management를 통해 비용을 추적](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources)하기 위한 기초가 될 수 있습니다.
-태그를 사용하는 방식이나 이유에 관계없이 Azure 리소스에서 태그를 빠르게 추가, 변경 및 제거할 수 있어야 합니다.
+태그를 사용하는 방식이나 이유에 관계없이 Azure 리소스에서 태그를 빠르게 추가, 변경 및 제거할 수 있어야 합니다. Azure 리소스가 태그 지정을 지원하는지 확인하려면 [태그 지원](../../../azure-resource-manager/management/tag-support.md)을 참조하세요.
 
 Azure Policy의 [Modify](../concepts/effects.md#modify) 효과는 리소스 거버넌스 단계에 상관없이 태그 거버넌스에 도움이 되도록 설계되었습니다. **수정**이 도움이 되는 경우:
 

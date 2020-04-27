@@ -10,12 +10,12 @@ ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 05e668ff5b0ec19c5e380cf6bfee4b6e46900b2f
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 9c15e4217c5331346c5a95329bae7e2a4f0e0841
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77371858"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732060"
 ---
 Node.js용 LUIS(Language Understanding) 런타임 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
@@ -28,6 +28,7 @@ Node.js용 LUIS(Language Understanding) 런타임 클라이언트 라이브러�
 
 * Language Understanding 런타임 리소스: [Azure Portal에서 하나 만들기](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 * [Node.JS](https://nodejs.org)
+* LUIS 앱 ID - `df67dcdb-c37d-46af-88e1-8b97951ca1c2`의 공용 IoT 앱 ID를 사용합니다. 빠른 시작 코드에 사용되는 사용자 쿼리는 해당 앱에만 적용됩니다.
 
 ## <a name="setting-up"></a>설치
 
@@ -37,9 +38,9 @@ LUIS 런타임 리소스를 만들어 [런타임 키](../luis-how-to-azure-subsc
 
 [!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
 
-### <a name="create-a-new-javascript-nodejs-file"></a>새 javascript(Node.js) 파일 만들기
+### <a name="create-a-new-javascript-nodejs-file"></a>새 JavaScript(Node.js) 파일 만들기
 
-이름이 `luis_prediction.js`인 기본 설정된 편집기 또는 IDE에서 새 javascript 파일을 만듭니다.
+이름이 `luis_prediction.js`인 기본 설정된 편집기 또는 IDE에서 새 JavaScript 파일을 만듭니다.
 
 ### <a name="install-the-npm-library-for-the-luis-runtime"></a>LUIS 런타임용 NPM 라이브러리 설치
 

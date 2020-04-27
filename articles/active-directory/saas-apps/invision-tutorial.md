@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/09/2020
+ms.date: 04/09/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63ec58711c5dd142064e2d5cb29ccaa9eb9c0ed9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c2427fff37158745e416f4b2f0641697ad62ea9
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79300357"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682685"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>자습서: InVision과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -157,13 +157,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     e. **SAML Certificate(SAML 인증서)** 텍스트 상자의 경우 다운로드한 **인증서(Base64)** 를 메모장에 열고, 내용을 복사하여 SAML 인증서 텍스트 상자에 붙여넣습니다.
 
-    f. **HASH Algorithm(해시 알고리즘)** 드롭다운에서 **SHA-256**을 선택합니다.
+    f. **이름 ID 형식** 텍스트 상자에서 **이름 ID 형식**에 `Unspecified`를 사용합니다.
 
-    g. **SSO Button Label(SSO 단추 레이블)** 에 적절한 이름을 입력합니다.
+    g. **HASH Algorithm(해시 알고리즘)** 드롭다운에서 **SHA-256**을 선택합니다.
 
-    h. **Allow Just-in-Time provisioning(Just-In-Time 프로비저닝 허용)** 을 '켜기'로 설정합니다.
+    h. **SSO Button Label(SSO 단추 레이블)** 에 적절한 이름을 입력합니다.
 
-    i. **업데이트**를 클릭합니다.
+    i. **Allow Just-in-Time provisioning(Just-In-Time 프로비저닝 허용)** 을 '켜기'로 설정합니다.
+
+    j. **업데이트**를 클릭합니다.
 
 ### <a name="create-invision-test-user"></a>InVision 테스트 사용자 만들기
 

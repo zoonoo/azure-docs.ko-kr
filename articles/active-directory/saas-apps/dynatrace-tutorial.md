@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ba96dd2fcfb995afa6e3b1302a2c8b075abfd90
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 275215a69f97d93a1b1741a8fa8f3ca752c8c9ef
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72968681"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758972"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dynatrace"></a>자습서: Dynatrace와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -140,7 +140,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-dynatrace-sso"></a>Dynatrace SSO 구성
 
-**Dynatrace** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 파일과 적절히 복사한 URL을 [Dynatrace 지원 팀](https://www.dynatrace.com/services-support/)으로 보내야 합니다. 해당 팀에서 SAML SSO 연결이 양쪽에 제대로 설정되도록 구성합니다.
+**Dynatrace** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **페더레이션 메타데이터 XML** 파일과 적절히 복사한 URL을 Azure Portal에서 [Dynatrace](https://www.dynatrace.com/support/help/shortlink/users-sso-hub)로 보내야 합니다. Dynatrace 웹 사이트의 지침에 따라 양쪽에서 SAML SSO 연결을 구성할 수 있습니다.
 
 ### <a name="create-dynatrace-test-user"></a>Dynatrace 테스트 사용자 만들기
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,seodec18
-ms.date: 03/11/2020
-ms.openlocfilehash: 66bfa0d3ee4cb03f1b48e2db24be7a90d97f60d6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/22/2020
+ms.openlocfilehash: 5fa25f54faecbc7caf130ffeb0d24c3d8fef7e09
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79117227"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084807"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Kafka의 Apache Spark 정형 스트림 사용
 
@@ -35,7 +35,7 @@ Spark Structured Streaming은 Spark SQL을 기반으로 하는 스트리밍 처�
 
 * HDInsight의 Spark에서 [Jupyter Notebook](https://jupyter.org/)을 사용하는 방법 이해. 자세한 내용은 [HDInsight의 Apache Spark로 데이터 로드 및 쿼리 실행](spark/apache-spark-load-data-run-query.md) 문서를 참조하세요.
 
-* [Scala](https://www.scala-lang.org/) 프로그래밍 언어 숙지. 이 자습서에 사용되는 코드는 Scala로 작성됩니다.
+* Scala 프로그래밍 언어 숙지. 이 자습서에 사용되는 코드는 Scala로 작성됩니다.
 
 * Kafka 토픽 생성 방법 이해. 자세한 내용은 [HDInsight의 Apache Kafka 빠른 시작](kafka/apache-kafka-get-started.md) 문서를 참조하세요.
 
@@ -48,7 +48,7 @@ Spark Structured Streaming은 Spark SQL을 기반으로 하는 스트리밍 처�
 
 ## <a name="structured-streaming-with-apache-kafka"></a>Apache Kafka를 사용하는 구조적 스트림
 
-Spark Structured Streaming은 Spark SQL 엔진에서 작성된 스트림 처리 엔진입니다. 구조적 스트리밍을 사용하여 일괄 처리 쿼리를 작성하는 경우와 동일한 방식으로 스트리밍 쿼리를 쓸 수 있습니다.
+Spark Structured Streaming은 Spark SQL 엔진에서 작성된 스트림 처리 엔진입니다. 구조적 스트리밍을 사용할 때 일괄 처리 쿼리를 작성하는 경우와 동일한 방식으로 스트리밍 쿼리를 작성할 수 있습니다.
 
 다음 코드 조각은 Kafka에서 읽고 파일에 저장하는 방법을 보여 줍니다. 첫 번째는 일괄 처리 작업이고, 두 번째는 스트리밍 작업입니다.
 
@@ -277,7 +277,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
     println("Schema declared")
     ```
 
-1. 데이터를 선택하고 스트리밍을 시작합니다. 다음 명령에서는 일괄 처리 쿼리를 사용하여 Kafka에서 데이터를 검색한 다음, Spark 클러스터의 HDFS에 결과를 쓰는 방법을 보여 줍니다. 이 예제에서는 `select`가 Kafka에서 메시지(value 필드)를 검색하고 스키마를 적용합니다. 그런 다음, 데이터를 Parquet 형식으로 HDFS(WASB 또는 ADL)에 씁니다. 이 명령을 다음 Jupyter 셀에 입력합니다.
+1. 데이터를 선택하고 스트리밍을 시작합니다. 다음 명령에서는 일괄 처리 쿼리를 사용하여 Kafka에서 데이터를 검색하는 방법을 보여줍니다. 그런 다음, 결과를 Spark 클러스터의 HDFS에 기록합니다. 이 예제에서는 `select`가 Kafka에서 메시지(value 필드)를 검색하고 스키마를 적용합니다. 그런 다음, 데이터를 Parquet 형식으로 HDFS(WASB 또는 ADL)에 씁니다. 이 명령을 다음 Jupyter 셀에 입력합니다.
 
     ```scala
     // Read a batch from Kafka
@@ -316,7 +316,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에서 만든 리소스를 정리하려면 리소스 그룹을 삭제합니다. 리소스 그룹을 삭제하면 연결된 HDInsight 클러스터 및 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다.
+이 자습서에서 만든 리소스를 정리하려면 리소스 그룹을 삭제합니다. 리소스 그룹을 삭제하면 연결된 HDInsight 클러스터도 삭제됩니다. 그리고 리소스 그룹과 연결된 다른 모든 리소스도 삭제됩니다.
 
 Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 
@@ -331,7 +331,7 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)을 사용하여 HDInsight의 [Apache Kafka](./kafka/apache-kafka-introduction.md)에서 데이터를 읽고 쓰는 방법을 배웠습니다. Kafka에서 [Apache Storm](./storm/apache-storm-overview.md)을 사용하는 방법을 알아보려면 다음 링크를 사용하세요.
+이 자습서에서는 Apache Spark 구조적 스트리밍을 사용하는 방법을 알아보았습니다. HDInsight의 Apache Kafka에서 데이터를 쓰고 읽습니다. 다음 링크를 사용하여 Kafka에서 Apache Storm을 사용하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Apache Kafka에서 Apache Storm 사용](hdinsight-apache-storm-with-kafka.md)

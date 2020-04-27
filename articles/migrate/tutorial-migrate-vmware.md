@@ -2,14 +2,14 @@
 title: 에이전트 없는 Azure Migrate Server Migration으로 VMware VM 마이그레이션
 description: Azure Migrate를 사용하여 VMware VM의 에이전트 없는 마이그레이션을 실행하는 방법에 대해 알아봅니다.
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 825d6ff16a1f51fa476541ee10fea5f8a1c2972e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4612c9b0ea2ef8d53b0c04f47628f3789705d833
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78304211"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535318"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음)
 
@@ -55,9 +55,12 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Azure Migrate 서버 마이그레이션 도구 추가
 
-두 번째 자습서에 따라 VMware VM을 평가하지 않은 경우, [다음 지침에 따라](how-to-add-tool-first-time.md) Azure Migrate 프로젝트를 설정하고 Azure Migrate 서버 마이그레이션 도구를 선택해야 합니다. 
+Azure Migrate:Server Migration 도구를 추가합니다.
 
-이미 두 번째 자습서에 따라 Azure Migrate 프로젝트를 설정한 경우, 다음과 같이 Azure Migrate 서버 마이그레이션 도구를 추가합니다.
+- 두 번째 자습서에 따라 [VMware VM 평가](/tutorial-assess-vmware.md)를 수행하는 경우 계속 진행하여 도구를 추가할 수 있습니다.
+- 두 번째 자습서를 따르지 않은 경우 [이러한 지침에 따라](how-to-add-tool-first-time.md) Azure Migrate 프로젝트를 설정합니다.  프로젝트를 만들 때 Azure Migrate:Server Migration 도구를 추가합니다.
+
+프로젝트를 설정한 경우 다음과 같이 도구를 추가합니다.
 
 1. Azure Migrate 프로젝트에서 **개요**를 클릭합니다. 
 2. **서버 검색, 평가 및 마이그레이션**에서 **서버 평가 및 마이그레이션**을 클릭합니다.
@@ -74,15 +77,14 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Azure Migrate 어플라이언스 설정
 
-Azure Migrate 서버 마이그레이션은 경량 VMware VM 어플라이언스를 실행합니다. 이 어플라이언스는 VM 검색을 수행하고, VM 메타데이터 및 성능 데이터를 Azure Migrate 서버 마이그레이션에 보냅니다. 동일한 어플라이언스가 Azure Migrate 서버 평가 도구에서도 사용됩니다.
+Azure Migrate 서버 마이그레이션은 경량 VMware VM 어플라이언스를 실행합니다. 이 어플라이언스는 VM 검색을 수행하고, VM 메타데이터 및 성능 데이터를 Azure Migrate:Server Migration에 보냅니다. Azure Migrate:Server Assessment 도구에서도 동일한 어플라이언스를 사용하여 VMware VM의 에이전트 없는 마이그레이션을 수행합니다.
 
-두 번째 자습서에 따라 VMware VM을 평가한 경우 해당 자습서에서 이미 어플라이언스를 설정했습니다. 해당 자습서를 따르지 않은 경우 지금 어플라이언스를 설정해야 합니다. 이렇게 하려면 다음을 수행합니다. 
+- [VMware VM 평가를 위한 자습서](tutorial-assess-vmware.md)를 따르는 경우 해당 자습서에서 이미 어플라이언스를 설정했습니다.
+- 해당 자습서를 따르지 않은 경우 다음 방법 중 하나를 사용하여 지금 어플라이언스를 설정할 수 있습니다.
+    - 다운로드한 OVA 템플릿을 사용하여 VMware VM에 [설정](how-to-set-up-appliance-vmware.md)합니다.
+    - PowerShell 설치 관리자 스크립트를 사용하여 VMware VM 또는 물리적 머신에 설정합니다. OVA 템플릿을 사용하여 VM을 설정할 수 없거나 Azure 정부에 있는 경우 [이 방법](deploy-appliance-script.md)을 사용해야 합니다.
 
-- OVA 템플릿 파일을 다운로드하여 vCenter Server로 가져옵니다.
-- 어플라이언스를 만들고, Azure Migrate 서버 평가에 연결할 수 있는지 확인합니다. 
-- 어플라이언스를 처음으로 구성하고, Azure Migrate 프로젝트에 등록합니다.
-
-[이 문서](how-to-set-up-appliance-vmware.md)의 지침에 따라 어플라이언스를 설정합니다.
+어플라이언스를 만든 후 Azure Migrate:Server Assessment에 연결하여, 처음으로 구성하고, Azure Migrate 프로젝트에 등록할 수 있는지 확인합니다.
 
 
 ## <a name="prepare-vms-for-migration"></a>마이그레이션할 VM 준비

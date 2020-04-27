@@ -1,25 +1,25 @@
 ---
-title: 'CLI: 앱에 SSL 인증서 업로드 및 바인딩'
-description: Azure CLI를 사용하여 App Service 앱의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 사용자 지정 SSL 인증서를 앱에 바인딩하는 방법을 보여줍니다.
+title: 'CLI: 앱에 TLS/SSL 인증서 업로드 및 바인딩'
+description: Azure CLI를 사용하여 App Service 앱의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 사용자 지정 TLS/SSL 인증서를 앱에 바인딩하는 방법을 보여줍니다.
 tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.custom: mvc, seodec18
-ms.openlocfilehash: d519ae31359890430c3e0f690e51d95acfacf1ef
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d1775f3af390bb71b6895dc6d43c5ae574371aef
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80058764"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537664"
 ---
-# <a name="bind-a-custom-ssl-certificate-to-an-app-service-app-using-cli"></a>CLI를 사용하여 App Service 앱에 사용자 지정 SSL 인증서 바인딩
+# <a name="bind-a-custom-tlsssl-certificate-to-an-app-service-app-using-cli"></a>CLI를 사용하여 App Service 앱에 사용자 지정 TLS/SSL 인증서 바인딩
 
-이 샘플 스크립트는 해당 관련된 리소스를 사용하여 App Service에서 앱을 만든 다음, 사용자 지정 도메인 이름의 SSL 인증서를 바인딩합니다. 이 샘플에는 다음이 필요합니다.
+이 샘플 스크립트는 해당 관련된 리소스를 사용하여 App Service에서 앱을 만든 다음, 사용자 지정 도메인 이름의 TLS/SSL 인증서를 바인딩합니다. 이 샘플에는 다음이 필요합니다.
 
 * 도메인 등록 기관의 DNS 구성 페이지 액세스
-* 업로드하고 바인딩하려는 SSL 인증서에 사용할 유효한 .PFX 파일 및 암호
+* 업로드하고 바인딩하려는 TLS/SSL 인증서에 사용할 유효한 .PFX 파일 및 암호.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +29,7 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to an app")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to an app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -43,8 +43,8 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service 계획을 만듭니다. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | App Service 앱을 만듭니다. |
 | [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az-webapp-config-hostname-add) | App Service 앱에 사용자 지정 도메인을 매핑합니다. |
-| [`az webapp config ssl upload`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-upload) | App Service 앱에 SSL 인증서를 업로드합니다. |
-| [`az webapp config ssl bind`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-bind) | App Service 앱에 업로드된 SSL 인증서를 바인딩합니다. |
+| [`az webapp config ssl upload`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-upload) | App Service 앱에 TLS/SSL 인증서를 업로드합니다. |
+| [`az webapp config ssl bind`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-bind) | App Service 앱에 업로드된 TLS/SSL 인증서를 바인딩합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

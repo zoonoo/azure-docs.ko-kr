@@ -2,20 +2,20 @@
 title: 템플릿에서 Azure Key Vault 사용
 description: Azure Key Vault를 사용하여 Resource Manager 템플릿 배포 중에 보안 매개 변수 값을 전달하는 방법을 알아봅니다.
 author: mumian
-ms.date: 05/23/2019
+ms.date: 04/16/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 440835f50d2ef9c03dabc7a66e8f162e3fa15b2f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c33ad17927dae701e4201e76b7a75690c59dc374
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260703"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536705"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>자습서: ARM 템플릿 배포에 Azure Key Vault 통합
 
-Azure Key Vault에서 비밀을 검색하여 ARM(Azure Resource Manager) 템플릿을 배포할 때 비밀을 매개 변수로 전달하는 방법을 알아봅니다. 이 매개 변수 값은 해당 Key Vault ID만 참조하기 때문에 절대 노출되지 않습니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](./key-vault-parameter.md)을 참조하세요.
+Azure Key Vault에서 비밀을 검색하여 ARM(Azure Resource Manager) 템플릿을 배포할 때 비밀을 매개 변수로 전달하는 방법을 알아봅니다. 이 매개 변수 값은 해당 Key Vault ID만 참조하기 때문에 절대 노출되지 않습니다. 정적 ID 또는 동적 ID를 사용하여 키 자격 증명 모음 비밀을 참조할 수 있습니다. 이 자습서에서는 정적 ID를 사용합니다. 정적 ID 방식을 사용할 때는 템플릿 파일이 아닌 매개 변수 파일에서 키 자격 증명 모음을 참조합니다. 두 방법에 대한 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](./key-vault-parameter.md)을 참조하세요.
 
 [리소스 배포 순서 설정](./template-tutorial-create-templates-with-dependent-resources.md) 자습서에서는 VM(가상 머신)을 만듭니다. VM 관리자 사용자 이름과 암호를 제공해야 합니다. 암호를 제공하는 대신, Azure Key Vault에 암호를 미리 저장한 다음, 배포 중에 키 자격 증명 모음에서 암호를 검색하도록 템플릿을 사용자 지정할 수 있습니다.
 
@@ -33,8 +33,6 @@ Azure Key Vault에서 비밀을 검색하여 ARM(Azure Resource Manager) 템플�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 완료하려면 다음이 필요합니다.
@@ -49,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prepare-a-key-vault"></a>키 자격 증명 모음 준비
 
-이 섹션에서는 템플릿을 배포할 때 비밀을 검색할 수 있도록 키 자격 증명 모음을 만들고 비밀을 키 자격 증명 모음에 추가합니다. 키 자격 증명 모음을 만드는 여러 가지 방법이 있습니다. 이 자습서에서는 Azure PowerShell을 사용하여 [ARM 템플릿](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json)을 배포합니다. 이 템플릿은 다음을 수행합니다.
+이 섹션에서는 템플릿을 배포할 때 비밀을 검색할 수 있도록 키 자격 증명 모음을 만들고 비밀을 키 자격 증명 모음에 추가합니다. 키 자격 증명 모음을 만드는 여러 가지 방법이 있습니다. 이 자습서에서는 Azure PowerShell을 사용하여 [ARM 템플릿](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json)을 배포합니다. 이 템플릿은 다음 두 가지 작업을 수행합니다.
 
 * `enabledForTemplateDeployment` 속성이 활성화된 키 자격 증명 모음을 만듭니다. 이 속성이 *true*여야 템플릿 배포 프로세스가 이 키 자격 증명 모음에 정의된 비밀에 액세스할 수 있습니다.
 * 키 자격 증명 모음에 비밀을 추가합니다. 비밀에는 VM 관리자 암호가 저장됩니다.
@@ -72,14 +70,16 @@ $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -keyVaultName $keyVaultName -adUserId $adUserId -secretValue $secretValue
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 > [!IMPORTANT]
 > * 리소스 그룹 이름은 **rg**가 추가된 프로젝트 이름입니다. [이 자습서에서 만든 리소스를 더 쉽게 정리](#clean-up-resources)하려면 [다음 템플릿을 배포](#deploy-the-template)할 때 동일한 프로젝트 이름과 리소스 그룹 이름을 사용하세요.
 > * 비밀의 기본 이름은 **vmAdminPassword**입니다. 이 이름은 템플릿에 하드 코드되어 있습니다.
-> * 템플릿에서 비밀을 검색할 수 있도록 하려면 키 자격 증명 모음에 템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용이라는 액세스 정책을 사용하도록 설정해야 합니다. 이 정책은 템플릿에서 사용하도록 설정됩니다. 이 액세스 정책에 대한 자세한 내용은 [키 자격 증명 모음 및 비밀 배포](./key-vault-parameter.md#deploy-key-vaults-and-secrets)를 참조하세요.
+> * 템플릿에서 비밀을 검색할 수 있도록 하려면 키 자격 증명 모음에 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**이라는 액세스 정책을 사용하도록 설정해야 합니다. 이 정책은 템플릿에서 사용하도록 설정됩니다. 이 액세스 정책에 대한 자세한 내용은 [키 자격 증명 모음 및 비밀 배포](./key-vault-parameter.md#deploy-key-vaults-and-secrets)를 참조하세요.
 
-템플릿에는 *keyVaultId*라는 하나의 출력 값이 있습니다. 가상 머신을 배포할 때 나중에 사용할 ID 값을 적어 둡니다. 리소스 ID 형식은 다음과 같습니다.
+템플릿에는 *keyVaultId*라는 하나의 출력 값이 있습니다. 이 ID를 비밀 이름과 함께 사용하여 자습서의 뒷부분에서 비밀 값을 검색합니다. 리소스 ID 형식은 다음과 같습니다.
 
 ```json
 /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -107,14 +107,15 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 
-1. **열기**를 선택하여 파일을 엽니다. [자습서: 종속 리소스를 사용하여 ARM 템플릿 만들기](./template-tutorial-create-templates-with-dependent-resources.md)에서 사용되는 시나리오와 동일합니다.
-   템플릿은 5개의 리소스를 정의합니다.
+1. **열기**를 선택하여 파일을 엽니다. [자습서: 종속 리소스를 사용하여 ARM 템플릿 만들기](./template-tutorial-create-templates-with-dependent-resources.md).
+   템플릿은 6개의 리소스를 정의합니다.
 
-   * `Microsoft.Storage/storageAccounts`입니다. [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)를 참조하세요.
-   * `Microsoft.Network/publicIPAddresses`입니다. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)를 참조하세요.
-   * `Microsoft.Network/virtualNetworks`입니다. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)를 참조하세요.
-   * `Microsoft.Network/networkInterfaces`입니다. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)를 참조하세요.
-   * `Microsoft.Compute/virtualMachines`입니다. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)를 참조하세요.
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
    템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
 
@@ -128,7 +129,7 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 
 ## <a name="edit-the-parameters-file"></a>매개 변수 파일 편집
 
-템플릿 파일은 변경하지 않아도 됩니다.
+정적 ID 메서드를 사용하면 템플릿 파일을 변경할 필요가 없습니다. 비밀 값 검색은 템플릿 매개 변수 파일을 구성하여 수행됩니다.
 
 1. 열려 있지 않은 경우 Visual Studio Code에서 *azuredeploy.parameters.json*을 엽니다.
 1. `adminPassword` 매개 변수를 다음과 같이 업데이트합니다.
@@ -145,7 +146,7 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
     ```
 
     > [!IMPORTANT]
-    > **id**의 값을 이전 절차에서 만든 키 자격 증명 모음의 리소스 ID로 바꿉니다.
+    > **id**의 값을 이전 절차에서 만든 키 자격 증명 모음의 리소스 ID로 바꿉니다. secretName은 **vmAdminPassword**로 하드 코딩됩니다.  [키 자격 증명 모음 준비](#prepare-a-key-vault)를 참조하세요.
 
     ![키 자격 증명 모음과 Resource Manager 템플릿 가상 머신 배포 매개 변수 파일 통합](./media/template-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 

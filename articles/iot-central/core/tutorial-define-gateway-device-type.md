@@ -9,16 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 7bb386d39f53331e77bee4d863c431c2e3655f5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79298838"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758138"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 새 IoT 게이트웨이 디바이스 유형 정의
 
-이 자습서에서는 개발자가 IoT Central 애플리케이션에서 게이트웨이 디바이스 템플릿을 사용하여 게이트웨이 디바이스를 정의하는 방법을 보여줍니다. 그런 다음, 게이트웨이 디바이스를 통해 IoT Central 애플리케이션에 연결하는 여러 다운스트림 디바이스를 구성합니다. 
+*이 문서는 솔루션 빌더 및 디바이스 개발자에게 적용됩니다.*
+
+이 자습서에서는 솔루션 빌더가 IoT Central 애플리케이션에서 게이트웨이 디바이스 템플릿을 사용하여 게이트웨이 디바이스를 정의하는 방법을 보여줍니다. 그런 다음, 게이트웨이 디바이스를 통해 IoT Central 애플리케이션에 연결하는 여러 다운스트림 디바이스를 구성합니다. 
 
 이 자습서에서는 **스마트 빌딩** 게이트웨이 디바이스 템플릿을 만듭니다. **스마트 빌딩** 게이트웨이 디바이스는 다른 다운스트림 디바이스와 관계가 있습니다.
 
@@ -207,7 +209,7 @@ ms.locfileid: "79298838"
 > [!NOTE]
 > VS Code 기반 코드 생성은 현재 IoT Central에서 모델링된 게이트웨이 디바이스에 대해 지원되지 않습니다.
 
-다음으로, 다음을 수행할 수 있습니다.
+다음으로, 디바이스 개발자로서 다음 작업 방법을 알아볼 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [디바이스 연결](tutorial-connect-device.md)
+> [Azure IoT Central 애플리케이션에 Azure IoT Edge 디바이스 추가](tutorial-add-edge-as-leaf-device.md)

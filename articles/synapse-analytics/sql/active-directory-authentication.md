@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5808f892f189bd6cb2cc39bd157be1d61c966763
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: db80c11c3b6eab3b7e682878e479729f4787a40b
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421087"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086099"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Synapse SQL에서 인증에 Azure Active Directory 인증 사용
 
 Azure Active Directory 인증은 Azure AD(Azure Active Directory)에서 ID를 사용하여 [Azure Synapse Analytics](../overview-faq.md)에 연결하는 메커니즘입니다.
 
-Azure AD 인증을 사용하면 Azure Synapse에 액세스할 수 있는 사용자의 ID를 중앙에서 관리할 수 있으므로 권한 관리가 간소화됩니다. 이점은 다음과 같습니다.
+Azure AD 인증을 사용하면 Azure Synapse에 액세스할 수 있는 사용자의 ID를 중앙에서 관리하여 권한 관리를 간소화할 수 있습니다. 이점은 다음과 같습니다.
 
 - 일반 사용자 이름 및 암호 인증을 대신할 수 있는 대안을 제공합니다.
 - 데이터베이스 서버 전체에서 사용자 ID의 확산을 중지합니다.
@@ -48,26 +48,34 @@ Azure Synapse Analytics를 사용하면 Azure Active Directory ID를 사용하�
 
 다음은 Synapse SQL에서 Azure AD 인증을 사용하는 솔루션 아키텍처를 요약하여 보여주는 간략한 다이어그램입니다. Azure AD 기본 사용자 암호를 지원하기 위해 클라우드 부분 및 Azure AD/Synapse SQL만 고려합니다. 페더레이션 인증(또는 Windows 자격 증명에 대한 사용자/암호)을 지원하려면 ADFS 블록과의 통신이 필요합니다. 화살표는 통신 경로 나타냅니다.
 
-![aad auth 다이어그램][1]
+![aad auth 다이어그램](./media/aad-authentication/1-active-directory-authentication-diagram.png)
 
-다음 다이어그램은 토큰을 제출하여 클라이언트가 데이터베이스에 연결할 수 있는 페더레이션, 신뢰 및 호스팅 관계를 나타냅니다. 이 토큰은 Azure AD를 통해 인증되고 데이터베이스에서 신뢰됩니다. 고객 1은 기본 사용자가 있는 Azure Active Directory 또는 페더레이션된 사용자가 있는 Azure AD를 나타낼 수 있습니다. 고객 2는 가져온 사용자를 포함하는 가능한 해결 방법을 나타냅니다. 이 예에서는 Azure Active Directory와 동기화되는 ADFS로 페더레이션된 Azure Active Directory에서 가져옵니다. Azure AD 인증을 사용하는 데이터베이스에 액세스하려면 호스팅 구독이 Azure AD에 연결되어 있어야 합니다. Azure SQL Database 또는 SQL 풀을 호스트하는 SQL Server를 만들려면 동일한 구독을 사용해야 합니다.
+다음 다이어그램은 토큰을 제출하여 클라이언트가 데이터베이스에 연결할 수 있는 페더레이션, 신뢰 및 호스팅 관계를 나타냅니다. 이 토큰은 Azure AD를 통해 인증되고 데이터베이스에서 신뢰됩니다. 
 
-![구독 관계][2]
+고객 1은 기본 사용자가 있는 Azure Active Directory 또는 페더레이션된 사용자가 있는 Azure AD를 나타낼 수 있습니다. 고객 2는 가져온 사용자를 포함하는 가능한 해결 방법을 나타냅니다. 이 예에서는 Azure Active Directory와 동기화되는 ADFS로 페더레이션된 Azure Active Directory에서 가져옵니다. 
+
+Azure AD 인증을 사용하는 데이터베이스에 액세스하려면 호스팅 구독이 Azure AD에 연결되어 있어야 합니다. Azure SQL Database 또는 SQL 풀을 호스트하는 SQL Server를 만들려면 동일한 구독을 사용해야 합니다.
+
+![구독 관계](./media/aad-authentication/2-subscription-relationship.png)
 
 ## <a name="administrator-structure"></a>관리자 구조
 
-Azure AD 인증을 사용하는 경우 Synapse SQL의 관리자 계정으로는 원래 SQL Server 관리자와 Azure AD 관리자의 두 가지 관리자 계정이 있습니다. Azure AD 계정을 기반으로 하는 관리자만 사용자 데이터베이스에서 최초 Azure AD 포함 데이터베이스 사용자를 만들 수 있습니다. Azure AD 관리자 로그인은 Azure AD 사용자나 Azure AD 그룹이 될 수 있습니다. 
+Azure AD 인증을 사용하는 경우 Synapse SQL의 관리자 계정으로는 원래 SQL Server 관리자와 Azure AD 관리자의 두 가지 관리자 계정이 있습니다. Azure AD 계정을 기반으로 하는 관리자만 사용자 데이터베이스에서 최초 Azure AD 포함 데이터베이스 사용자를 만들 수 있습니다. 
 
-관리자가 그룹 계정인 경우 모든 그룹 구성원이 사용할 수 있으므로 해당 Synapse SQL 인스턴스에 대해 여러 Azure AD 관리자를 지정할 수 있습니다. 그룹 계정을 관리자로 사용하면 Synapse Analytics 작업 영역에서 사용자나 권한을 변경하지 않고도 Azure AD의 그룹 구성원을 중앙에서 추가 및 제거할 수 있으므로 관리 효율성이 향상됩니다. 한 번에 하나의 Azure AD 관리자(그룹 또는 사용자)를 구성할 수 있습니다.
+Azure AD 관리자 로그인은 Azure AD 사용자나 Azure AD 그룹이 될 수 있습니다. 관리자가 그룹 계정인 경우 모든 그룹 구성원이 사용할 수 있으므로 해당 Synapse SQL 인스턴스에 대해 여러 Azure AD 관리자를 지정할 수 있습니다. 
 
-![관리자 구조][3]
+그룹 계정을 관리자로 사용하면 Synapse Analytics 작업 영역에서 사용자나 권한을 변경하지 않고도 Azure AD의 그룹 구성원을 중앙에서 추가 및 제거할 수 있으므로 관리 효율성이 향상됩니다. 한 번에 하나의 Azure AD 관리자(그룹 또는 사용자)를 구성할 수 있습니다.
+
+![관리자 구조](./media/aad-authentication/3-admin-structure.png)
 
 ## <a name="permissions"></a>사용 권한
 
 새 사용자를 만들려면 데이터베이스에서 `ALTER ANY USER` 권한이 있어야 합니다. `ALTER ANY USER` 권한은 아무 데이터베이스 사용자에게나 부여할 수 있습니다. 서버 관리자 계정과, 해당 데이터베이스에 대한 `CONTROL ON DATABASE` 또는 `ALTER ON DATABASE` 권한이 있는 데이터베이스 사용자와, `db_owner` 데이터베이스 역할 그룹의 구성원도 `ALTER ANY USER` 권한을 보유할 수 있습니다.
 
-Synapse SQL에 포함된 데이터베이스 사용자를 만들려면 Azure AD ID를 사용하여 데이터베이스 또는 인스턴스에 연결해야 합니다. 최초 포함 데이터베이스 사용자를 만들려면 Azure AD 관리자(데이터베이스 소유자)를 사용하여 데이터베이스에 연결해야 합니다. 모든 Azure AD 인증은 Synapse SQL의 Azure AD 관리자가 생성된 경우에만 가능합니다. Azure Active Directory 관리자가 서버에서 제거된 경우 이전에 Synapse SQL 내에서 만든 기존 Azure Active Directory 사용자는 더 이상 Azure Active Directory 자격 증명을 사용하여 데이터베이스에 연결할 수 없습니다.
+Synapse SQL에 포함된 데이터베이스 사용자를 만들려면 Azure AD ID를 사용하여 데이터베이스 또는 인스턴스에 연결해야 합니다. 최초 포함 데이터베이스 사용자를 만들려면 Azure AD 관리자(데이터베이스 소유자)를 사용하여 데이터베이스에 연결해야 합니다. 
 
+모든 Azure AD 인증은 Synapse SQL의 Azure AD 관리자가 생성된 경우에만 가능합니다. Azure Active Directory 관리자가 서버에서 제거된 경우 이전에 Synapse SQL 내에서 만든 기존 Azure Active Directory 사용자는 더 이상 Azure Active Directory 자격 증명을 사용하여 데이터베이스에 연결할 수 없습니다.
+ 
 ## <a name="azure-ad-features-and-limitations"></a>Azure AD 기능 및 제한 사항
 
 - 다음은 Synapse SQL에서 프로비저닝할 수 있는 Azure AD 구성원입니다.
@@ -120,21 +128,8 @@ Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)에 대해 지
 
 ## <a name="next-steps"></a>다음 단계
 
-Synapse SQL의 액세스 및 제어에 대한 개요는 [Synapse SQL 액세스 제어](../sql/access-control.md)를 참조하세요. 데이터베이스 보안 주체에 대한 자세한 내용은 [보안 주체](https://msdn.microsoft.com/library/ms181127.aspx)를 참조하세요. 데이터베이스 역할에 대한 추가 정보는 [데이터베이스 역할](https://msdn.microsoft.com/library/ms189121.aspx) 문서에서 찾을 수 있습니다.
+- Synapse SQL의 액세스 및 제어에 대한 개요는 [Synapse SQL 액세스 제어](../sql/access-control.md)를 참조하세요.
+- 데이터베이스 보안 주체에 대한 자세한 내용은 [보안 주체](/sql/relational-databases/security/authentication-access/principals-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+- 데이터베이스 역할에 대한 자세한 내용은 [데이터베이스 역할](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요.
+
  
-
-<!--Image references-->
-
-[1]: ./media/aad-authentication/1-active-directory-authentication-diagram.png
-[2]: ./media/aad-authentication/2-subscription-relationship.png
-[3]: ./media/aad-authentication/3-admin-structure.png
-[4]: ./media/aad-authentication/4-select-subscription.png
-[5]: ./media/aad-authentication/5-active-directory-settings-portal.png
-[6]: ./media/aad-authentication/6-edit-directory-select.png
-[7]: ./media/aad-authentication/7-edit-directory-confirm.png
-[8]: ./media/aad-authentication/8-choose-active-directory.png
-[9]: ./media/aad-authentication/9-active-directory-settings.png
-[10]: ./media/aad-authentication/10-choose-admin.png
-[11]: ./media/aad-authentication/11-connect-using-integrated-authentication.png
-[12]: ./media/aad-authentication/12-connect-using-password-authentication.png
-[13]: ./media/aad-authentication/13-connect-to-db.png

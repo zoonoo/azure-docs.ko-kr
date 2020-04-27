@@ -9,14 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: bf74784998de6bbad6310c48c24d6353512bff13
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c60cf4b90b089d271c0ccd91031420efe9017b1e
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77026396"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758164"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에 Azure IoT Edge 디바이스 추가
+
+*이 문서는 솔루션 빌더 및 디바이스 개발자에게 적용됩니다.*
 
 이 자습서에서는 Azure IoT Edge 디바이스를 구성하고 Azure IoT Central 애플리케이션에 추가하는 방법을 보여 줍니다. 자습서에서 Azure Marketplace의 IoT Edge 사용 Linux VM(가상 머신)을 사용하여 IoT Edge 디바이스를 시뮬레이션합니다. IoT Edge 디바이스는 시뮬레이션된 환경 원격 분석을 생성하는 모듈을 사용합니다. 원격 분석은 IoT Central 애플리케이션의 대시보드에서 볼 수 있습니다.
 
@@ -262,9 +264,9 @@ VM을 IoT Edge 디바이스로 프로비저닝하려면 다음을 수행합니�
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 IoT Central에서 IoT Edge 디바이스를 사용하고 관리하는 방법을 알아보았으므로 제안되는 다음 단계는 다음과 같습니다.
+디바이스 개발자로서, 이제 IoT Central에서 IoT Edge 디바이스를 사용하고 관리하는 방법을 알아보았으므로 제안되는 다음 단계를 읽어보세요.
 
 <!-- Next how-tos in the sequence -->
 
 > [!div class="nextstepaction"]
-> [투명한 게이트웨이 구성](../../iot-edge/how-to-create-transparent-gateway.md)
+> [Azure IoT Central에 연결](./concepts-get-connected.md)

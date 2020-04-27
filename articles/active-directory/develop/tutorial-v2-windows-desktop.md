@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: aa09d06af4706af3ae120f62a897c0bc632fb657
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: ba4afa31a1ed7b6e2ddf43787ca32a06e97455ce
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80990942"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533771"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Windows 데스크톱 앱에서 Microsoft Graph API 호출
 
 이 가이드에서는 네이티브 Windows Desktop.NET(XAML) 애플리케이션에서 액세스 토큰을 사용하여 Microsoft Graph API를 호출하는 방법을 보여줍니다. 이 앱은 개발자 v2.0 엔드포인트에 대한 Microsoft ID 플랫폼의 액세스 토큰을 필요로 하는 기타 API에 액세스할 수 있습니다. 이 플랫폼은 이전에 Azure AD라고 명명되었습니다.
 
-이 가이드를 완료하면 애플리케이션은 개인 계정(outlook.com, live.com 등 포함)을 사용하는 보호된 API를 호출할 수 있습니다. 또한 애플리케이션은 Azure Active Directory를 사용하는 모든 회사 또는 조직의 회사 및 학교 계정을 사용합니다.  
+이 가이드를 완료하면 애플리케이션은 개인 계정(outlook.com, live.com 등 포함)을 사용하는 보호된 API를 호출할 수 있습니다. 또한 애플리케이션은 Azure Active Directory를 사용하는 모든 회사 또는 조직의 회사 및 학교 계정을 사용합니다.
 
 > [!NOTE]
 > 이 가이드에는 Visual Studio 2015 업데이트 3, Visual Studio 2017 또는 Visual Studio 2019가 필요합니다. 이러한 버전이 설치되어 있지 않나요? [체험용 Visual Studio 2019를 다운로드](https://www.visualstudio.com/downloads/)합니다.
@@ -34,11 +34,11 @@ ms.locfileid: "80990942"
 
 ![이 자습서에서 생성된 샘플 앱의 작동 방식 표시](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.svg)
 
-이 가이드를 사용하여 만든 샘플 애플리케이션을 사용하면 Windows 데스크톱 애플리케이션이 Microsoft Graph API를 쿼리하거나 Web API가 Microsoft ID 플랫폼 엔드포인트에서 토큰을 수락할 수 있습니다. 이 시나리오에서는 인증 헤더를 통해 HTTP 요청에 토큰을 추가합니다. MSAL(Microsoft 인증 라이브러리)에서는 토큰 획득 및 갱신을 처리합니다.
+이 가이드를 사용하여 만든 샘플 애플리케이션을 사용하면 Windows 데스크톱 애플리케이션이 Microsoft Graph API를 쿼리하거나 웹 API가 Microsoft ID 플랫폼 엔드포인트에서 토큰을 수락할 수 있습니다. 이 시나리오에서는 인증 헤더를 통해 HTTP 요청에 토큰을 추가합니다. MSAL(Microsoft 인증 라이브러리)에서는 토큰 획득 및 갱신을 처리합니다.
 
-## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>보호되는 Web API에 액세스하기 위한 토큰 획득 처리
+## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>보호되는 웹 API에 액세스하기 위한 토큰 획득 처리
 
-사용자가 인증된 후에 샘플 애플리케이션은 개발자를 위한 Microsoft ID 플랫폼으로 보호되는 Microsoft Graph API 또는 Web API를 쿼리하는 데 사용할 수 있는 토큰을 수신합니다.
+사용자가 인증된 후에 샘플 애플리케이션은 개발자를 위한 Microsoft ID 플랫폼으로 보호되는 Microsoft Graph API 또는 웹 API를 쿼리하는 데 사용할 수 있는 토큰을 수신합니다.
 
 Microsoft Graph와 같은 API에는 특정 리소스에 대한 액세스를 허용하는 토큰이 필요합니다. 예를 들어 사용자 프로필을 읽고, 사용자 일정에 액세스하고, 메일을 보내는 데 토큰이 필요합니다. 애플리케이션에서는 MSAL을 사용하여 액세스 토큰을 요청하고 API 범위를 지정하여 이러한 리소스에 액세스할 수 있습니다. 그런 다음 이 액세스 토큰은 보호되는 리소스에 대한 모든 호출에 사용될 수 있도록 HTTP 인증 헤더에 추가됩니다.
 
@@ -54,7 +54,7 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
 
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
-이 섹션에서는 토큰이 필요한 Web API를 쿼리할 수 있도록 Windows Desktop .NET 애플리케이션(XAML)을 *Microsoft에 로그인*과 통합하는 방법을 설명하기 위해 새 프로젝트를 만듭니다.
+이 섹션에서는 토큰이 필요한 웹 API를 쿼리할 수 있도록 Windows Desktop .NET 애플리케이션(XAML)을 *Microsoft에 로그인*과 통합하는 방법을 설명하기 위해 새 프로젝트를 만듭니다.
 
 이 가이드를 사용하여 만든 애플리케이션은 그래프를 호출하는 데 사용된 단추, 화면에 결과를 보여주는 영역 및 로그아웃 단추를 표시합니다.
 
@@ -77,7 +77,7 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
     Install-Package Microsoft.Identity.Client -Pre
     ```
 
-    > [!NOTE] 
+    > [!NOTE]
     > 이 명령은 Microsoft 인증 라이브러리를 설치합니다. MSAL은 Azure Active Directory v2.0으로 보호된 API에 액세스하는 데 사용되는 사용자 토큰의 획득, 캐싱 및 새로 고침을 처리합니다.
     >
 
@@ -136,7 +136,7 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
                 .Build();
         }
 
-        // Below are the clientId (Application Id) of your app registration and the tenant information. 
+        // Below are the clientId (Application Id) of your app registration and the tenant information.
         // You have to replace:
         // - the content of ClientID with the Application Id for your app registration
         // - the content of Tenant by the information about the accounts allowed to sign-in in your application:
@@ -156,7 +156,7 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
 
 ## <a name="create-the-application-ui"></a>애플리케이션 UI 만들기
 
-이 섹션에서는 애플리케이션에서 Microsoft Graph와 같이 보호되는 백 엔드 서버를 쿼리하는 방법을 보여줍니다. 
+이 섹션에서는 애플리케이션에서 Microsoft Graph와 같이 보호되는 백 엔드 서버를 쿼리하는 방법을 보여줍니다.
 
 *MainWindow.xaml* 파일은 프로젝트 템플릿의 일부로 자동으로 생성되어야 합니다. 이 파일을 열고, 애플리케이션의 *\<그리드&gt;* 노드를 다음 코드로 바꿉니다.
 
@@ -266,9 +266,9 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
 
 결국 `AcquireTokenSilent` 메서드가 실패합니다. 사용자가 로그아웃했거나 다른 디바이스에서 해당 암호를 변경하면 실패할 수 있습니다. MSAL이 대화형 작업을 요구해 이 문제를 해결할 수 있다고 감지하면 `MsalUiRequiredException` 예외를 발생합니다. 애플리케이션에서는 이러한 예외를 다음 두 가지 방법으로 처리할 수 있습니다.
 
-* 즉시 `AcquireTokenInteractive`에 대해 호출할 수 있습니다. 이 호출로 인해 사용자에게 로그인하라는 메시지가 표시됩니다. 이 패턴은 사용자가 사용할 수 있는 오프라인 콘텐츠가 없는 온라인 애플리케이션에서 일반적으로 사용됩니다. 이 단계별 설치에 따라 생성된 샘플은 이 패턴을 사용합니다. 이 패턴은 샘플을 처음 실행할 때 작동되는 항목을 확인할 수 있습니다. 
+* 즉시 `AcquireTokenInteractive`에 대해 호출할 수 있습니다. 이 호출로 인해 사용자에게 로그인하라는 메시지가 표시됩니다. 이 패턴은 사용자가 사용할 수 있는 오프라인 콘텐츠가 없는 온라인 애플리케이션에서 일반적으로 사용됩니다. 이 단계별 설치에 따라 생성된 샘플은 이 패턴을 사용합니다. 이 패턴은 샘플을 처음 실행할 때 작동되는 항목을 확인할 수 있습니다.
 
-* 이 애플리케이션을 사용한 사용자가 없기 때문에 `PublicClientApp.Users.FirstOrDefault()`에는 null 값이 포함되며 `MsalUiRequiredException` 예외가 throw됩니다. 
+* 이 애플리케이션을 사용한 사용자가 없기 때문에 `PublicClientApp.Users.FirstOrDefault()`에는 null 값이 포함되며 `MsalUiRequiredException` 예외가 throw됩니다.
 
 * 샘플의 코드는 `AcquireTokenInteractive`를 호출하여 예외를 처리합니다. 그러면 사용자에게 로그인하라는 메시지가 표시됩니다.
 
@@ -322,7 +322,7 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 /// </summary>
 private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 {
-    var accounts = await App.PublicClientApp.GetAccountsAsync(); 
+    var accounts = await App.PublicClientApp.GetAccountsAsync();
 
     if (accounts.Any())
     {

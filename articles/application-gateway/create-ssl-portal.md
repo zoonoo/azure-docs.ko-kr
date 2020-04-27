@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/13/2019
+ms.date: 04/22/2019
 ms.author: victorh
-ms.openlocfilehash: b40eb107fc975d2ef0170944892b936680de3c9f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 62f5375a0d468f5b137c4628c89c802d83dee102
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312385"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024496"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 TLS 종료로 애플리케이션 게이트웨이 구성
 
@@ -56,13 +56,11 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-[Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate)을 인증서에서 pfx 파일을 내보내도록 반환된 지문과 함께 사용합니다.
+인증서에서 pfx 파일을 내보내도록 반환된 지문과 함께 [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate)를 사용합니다. 암호 길이가 4~12자인지 확인합니다.
 
-> [!NOTE]
-> .pfx 파일 암호에 특수 문자를 사용하지 마세요. 영숫자 문자만 지원됩니다.
 
 ```powershell
-$pwd = ConvertTo-SecureString -String "Azure123456" -Force -AsPlainText
+$pwd = ConvertTo-SecureString -String <your password> -Force -AsPlainText
 Export-PfxCertificate `
   -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
   -FilePath c:\appgwcert.pfx `
@@ -150,7 +148,7 @@ Export-PfxCertificate `
 
    - **PFX 인증서 파일** - 앞에서 만든 c:\appgwcert.pfx 파일을 찾아 선택합니다.
    - **인증서 이름** - 인증서 이름으로 *mycert1*을 입력합니다.
-   - **암호** - 암호로*Azure123456*을 입력합니다.
+   - **암호** - 암호를 입력합니다.
   
         **수신기** 탭에서 다른 설정에 대해 기본값을 그대로 적용한 다음, **백 엔드 대상** 탭을 선택하여 나머지 라우팅 규칙을 구성합니다.
 
@@ -194,10 +192,10 @@ Export-PfxCertificate `
     - **리소스 그룹**: 리소스 그룹 이름으로 **myResourceGroupAG**를 선택합니다.
     - **가상 머신 이름**: 가상 머신의 이름으로 *myVM*을 입력합니다.
     - **사용자 이름**: 관리자 사용자 이름으로 *azureuser*를 입력합니다.
-    - **암호**: 관리자 암호로 *Azure123456*을 입력합니다.
-4. 나머지는 기본값으로 두고 **다음: 디스크**를 선택합니다.  
-5. **디스크** 탭을 기본값으로 두고 **다음: 네트워킹**을 선택합니다.
-6. **네트워킹** 탭에서 **가상 네트워크**로 **myVNet**이 선택되었고 **서브넷**이 **myBackendSubnet**으로 설정되었는지 확인합니다. 나머지는 기본값으로 두고 **다음: 관리**를 선택합니다.
+    - **암호**: 관리자 계정의 암호를 입력합니다.
+1. 나머지는 기본값으로 두고 **다음: 디스크**를 선택합니다.  
+2. **디스크** 탭을 기본값으로 두고 **다음: 네트워킹**을 선택합니다.
+3. **네트워킹** 탭에서 **가상 네트워크**로 **myVNet**이 선택되었고 **서브넷**이 **myBackendSubnet**으로 설정되었는지 확인합니다. 나머지는 기본값으로 두고 **다음: 관리**를 선택합니다.
 
    Application Gateway는 가상 네트워크 외부의 인스턴스와 통신할 수 있지만, IP가 연결되어야 합니다.
 1. **관리** 탭에서 **부트 진단**을 **해제**합니다. 나머지는 기본값으로 두고 **검토 + 만들기**를 선택합니다.

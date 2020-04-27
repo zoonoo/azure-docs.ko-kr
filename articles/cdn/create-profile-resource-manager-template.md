@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 7c7186b6ac5d5dcf4db75ccba9e08f8e0484932f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: dfd7b933502b96c0952a24dbee563e9b537dcdd8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81253427"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683466"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure CDN 프로필 및 엔드포인트 만들기
 
@@ -211,7 +211,7 @@ az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o t
 
 ![CDN 엔드포인트 보기](./media/create-profile-resource-manager-template/cdn-view-endpoint.png)
 
-콘텐츠를 보려면 HostName을 사용합니다. 예를 들어, 브라우저를 사용하여 https://cdndemo-azurewebsites-net.azureedge.net 에 액세스합니다.
+콘텐츠를 보려면 HostName을 사용합니다. 예를 들어 브라우저를 사용하여 https:\//cdndemo-azurewebsites-net.azureedge.net에 액세스합니다.
 
 ## <a name="clean-up"></a>정리
 

@@ -7,16 +7,18 @@ ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 493dcd71905970434dd2ab2997cfebd17b8e47ff
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: d6c44c81db78fa76eeaf4b7181cca34fb8e81523
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80891597"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758175"
 ---
-# <a name="tutorial-create-and-connect-a-python-client-application-to-your-azure-iot-central-application-python"></a>자습서: Python 클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결(Python)
+# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>자습서: 클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결(Python)
 
 [!INCLUDE [iot-central-selector-tutorial-connect](../../../includes/iot-central-selector-tutorial-connect.md)]
+
+*이 문서는 솔루션 빌더 및 디바이스 개발자에게 적용됩니다.*
 
 이 자습서에서는 디바이스 개발자가 Python 클라이언트 애플리케이션을 Azure IoT Central 애플리케이션에 연결하는 방법을 보여줍니다. Python 애플리케이션은 환경 센서 디바이스의 동작을 시뮬레이션합니다. _디바이스 기능 모델_ 샘플을 사용하여 IoT Central에서 _디바이스 템플릿_을 만듭니다. 운영자가 디바이스와 상호 작용할 수 있도록 디바이스 템플릿에 보기를 추가합니다.
 
@@ -303,7 +305,12 @@ python3 environmental_sensor.py
 
 ## <a name="next-steps"></a>다음 단계
 
-디바이스 기능 모델 및 사용자 고유의 디바이스 템플릿을 만드는 방법에 대해 자세히 알아보려면 방법 가이드로 계속 진행하세요.
+디바이스 개발자로서, Node.js를 사용하여 디바이스를 만드는 방법의 기본 사항을 배웠으므로 이제 다음 단계를 수행하는 것이 좋습니다.
+
+- [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](./howto-connect-devkit.md) 방법 문서에서 실제 디바이스를 IoT Central에 연결하는 방법에 대해 알아봅니다.
+- IoT Central에 디바이스를 등록하는 방법과 IoT Central에서 디바이스 연결을 보호하는 방법에 대한 자세한 내용은 [Azure IoT Central에 연결](./concepts-get-connected.md)을 참조하세요.
+
+IoT Central 자습서 세트를 계속 진행하고 IoT Central 솔루션 빌드에 대해 자세히 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [새 IoT 디바이스 유형 정의](./howto-set-up-template.md)
+> [게이트웨이 디바이스 템플릿 만들기](./tutorial-define-gateway-device-type.md)

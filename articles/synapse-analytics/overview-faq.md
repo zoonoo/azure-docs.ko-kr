@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: ec2791911d1461ae47d9353629d23a5d7dc30791
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 00a98fdeb4b8febbcb9d1183fabffc7298cc9e4c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420937"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770720"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Azure Synapse Analytics(작업 영역 미리 보기) 질문과 대답
 
@@ -92,7 +92,7 @@ A: 데이터 흐름을 통해 데이터 엔지니어가 코드를 작성하지 �
 
 ## <a name="security-and-access"></a>보안 및 액세스
 
-A: Synapse Analytics에서 엔드투엔드 Single Sign-On 환경은 중요한 인증 프로세스입니다. 반드시 완전한 AAD 통합을 통해 ID를 관리하고 전달해야 합니다.
+A: Synapse Analytics에서 엔드투엔드 Single Sign-On 환경은 중요한 인증 프로세스입니다. 완전한 AAD 통합을 통해 ID를 관리하고 전달해야 합니다.
 
 ### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adlsg2"></a>Q: ADLSg2에서 파일 및 폴더에 액세스하려면 어떻게 하나요?
 

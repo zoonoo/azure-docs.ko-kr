@@ -2,15 +2,15 @@
 title: 템플릿을 사용하여 VM 확장 배포
 description: Azure Resource Manager 템플릿을 사용하여 가상 머신 확장을 배포하는 방법 알아보기
 author: mumian
-ms.date: 03/31/2020
+ms.date: 04/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7397e9387fe3354a926ed607a9132ab6ddc7e785
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 280b4a9775346c719e82d1fef4162fa6ea666798
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477584"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616875"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 가상 머신 확장 배포
 
@@ -23,7 +23,6 @@ ms.locfileid: "80477584"
 > * 빠른 시작 템플릿 열기
 > * 템플릿 편집
 > * 템플릿 배포
-> * 배포 확인
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -42,29 +41,34 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prepare-a-powershell-script"></a>PowerShell 스크립트 준비
 
-다음 콘텐츠가 포함된 PowerShell 스크립트는 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1)에서 공유됩니다.
+인라인 PowerShell 스크립트 또는 스크립트 파일을 사용할 수 있습니다.  이 자습서에서는 스크립트 파일을 사용하는 방법을 보여줍니다. 다음 콘텐츠가 포함된 PowerShell 스크립트는 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1)에서 공유됩니다.
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-사용자 고유의 위치에 파일을 게시하기로 선택하는 경우 자습서의 뒷부분에서 템플릿의 `fileUri` 요소를 업데이트해야 합니다.
+사용자 고유의 위치에 파일을 게시하기로 선택하는 경우 자습서의 뒷부분에서 템플릿의 `fileUri` 요소를 업데이트합니다.
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
 Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템플릿을 처음부터 새로 만드는 대신 샘플 템플릿을 찾아서 사용자 지정할 수 있습니다. 이 자습서에 사용되는 템플릿의 이름은 [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/)입니다.
 
 1. Visual Studio Code에서 **파일** > **파일 열기**를 차례로 선택합니다.
-1. **파일 이름** 상자에서 다음 URL을 붙여넣습니다. https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+1. **파일 이름** 상자에 다음 URL을 붙여넣습니다.
+
+    ```url
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+    ```
 
 1. 파일을 열려면 **열기**를 선택합니다.
     템플릿은 5개의 리소스를 정의합니다.
 
-   * **Microsoft.Storage/storageAccounts**. [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)를 참조하세요.
-   * **Microsoft.Network/publicIPAddresses**. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)를 참조하세요.
-   * **Microsoft.Network/virtualNetworks**. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)를 참조하세요.
-   * **Microsoft.Network/networkInterfaces**. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)를 참조하세요.
-   * **Microsoft.Compute/virtualMachines**. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)를 참조하세요.
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
      템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
 
@@ -77,7 +81,7 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "apiVersion": "2018-06-01",
+  "apiVersion": "2019-12-01",
   "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
   "location": "[parameters('location')]",
   "dependsOn": [
@@ -105,6 +109,14 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 * **fileUris**: 스크립트 파일이 저장되는 위치입니다. 제공된 위치를 사용하지 않으려면 값을 업데이트해야 합니다.
 * **commandToExecute**: 이 명령은 스크립트를 호출합니다.
 
+인라인 스크립트를 사용하려면 **fileUris**를 제거하고 **commandToExecute**를 다음과 같이 업데이트합니다.
+
+```powershell
+powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)
+```
+
+이 인라인 스크립트는 iisstart.html 콘텐츠도 업데이트합니다.
+
 또한 웹 서버에 액세스할 수 있도록 HTTP 포트를 열어야 합니다.
 
 1. 템플릿에서 **securityRules**를 찾습니다.
@@ -130,10 +142,13 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 
 배포 절차는 다음의 “템플릿 배포” 섹션을 참조하세요. [자습서: 종속 리소스를 사용하여 ARM 템플릿 만들기](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). 가상 머신 관리자 계정에 대해 생성된 암호를 사용하는 것이 좋습니다. 이 문서의 [필수 구성 요소](#prerequisites) 섹션을 참조하세요.
 
-## <a name="verify-the-deployment"></a>배포 확인
+Cloud Shell에서 다음 명령을 실행하여 VM의 공용 IP 주소를 검색합니다.
 
-1. Azure Portal에서 VM을 선택합니다.
-1. VM 개요에서 **복사하려면 클릭**을 선택하여 IP 주소를 복사한 다음, 브라우저 탭에 붙여넣습니다. 기본 IIS(인터넷 정보 서비스) 시작 페이지가 열립니다.
+```azurepowershell
+(Get-AzPublicIpAddress -ResourceGroupName $resourceGroupName).IpAddress
+```
+
+IP 주소를 웹 브라우저에 붙여넣습니다. 기본 IIS(인터넷 정보 서비스) 시작 페이지가 열립니다.
 
 ![인터넷 정보 서비스 시작 페이지](./media/template-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 

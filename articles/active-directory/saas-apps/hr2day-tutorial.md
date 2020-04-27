@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e76ca7198bfded725d89f04fd162d470a85da904
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b9de6c2b8d9f7b11b686e820aab54fdd8e8a02f
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67442849"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866791"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>자습서: HR2day by Merces와 Azure Active Directory 통합
 
@@ -163,7 +163,7 @@ HR2day by Merces에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 **HR2day by Merces** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 및 적절히 복사한 URL을 [HR2day by Merces 지원 팀](mailto:servicedesk@merces.nl)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 > [!NOTE]
-> 이 통합에는 **https://hr2day.force.com/INSTANCENAME** 패턴을 사용하여 설정되는 엔터티 ID가 필요하다고 Merces 팀에 알립니다.
+> 이 통합에는 **https:\//hr2day.force.com/INSTANCENAME** 패턴을 사용하여 설정되는 엔터티 ID가 필요하다고 Merces 팀에 알립니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 5469c2512e133d17e4d18cebb64ab9e2a21b1f83
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 36ded3bd85cd7acdffbfe46b9e931a811994fa30
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77482308"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531103"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>REST API 및 Python을 사용하여 레이블로 Form Recognizer 모델 학습
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 레이블 지정 데이터를 사용하여 모델을 학습시키려면 하위 폴더의 입력으로 다음 파일이 필요합니다. 이러한 파일을 만드는 방법은 아래에서 배웁니다.
 
-* **원본 양식** – 데이터를 추출할 양식입니다. 지원되는 형식은 JPEG, PNG, BMP, PDF 또는 TIFF입니다.
+* **원본 양식** – 데이터를 추출할 양식입니다. 지원되는 형식은 JPEG, PNG, PDF 또는 TIFF입니다.
 * **OCR 레이아웃 파일** - 각 원본 양식에서 읽을 수 있는 모든 텍스트의 크기와 위치를 설명하는 JSON 파일입니다. Form Recognizer 레이아웃 API를 사용하여 이 데이터를 생성할 것입니다. 
 * **레이블 파일** - 사용자가 수동으로 입력한 데이터 레이블을 설명하는 JSON 파일입니다.
 
@@ -219,7 +219,7 @@ headers = {
     'Ocp-Apim-Subscription-Key': '<subsription key>',
 }
 
-body =  {
+body =     {
     "source": source,
     "sourceFilter": {
         "prefix": prefix,
@@ -455,7 +455,7 @@ print("Train operation did not complete within the allocated time.")
                     "#/readResults/0/lines/8/words/1"
                   ]
                 },
-                ...     
+                ...        
               ]
             }
           ]

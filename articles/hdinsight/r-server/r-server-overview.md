@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
-ms.date: 04/03/2020
-ms.openlocfilehash: 5bf405840de54c4e2399ee73e723201acca9e6bc
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.date: 04/20/2020
+ms.openlocfilehash: 76fcdb52df88be2c4033140f4bc71b28424d7f38
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657027"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687784"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Azure HDInsight에서 ML Services란
 
@@ -23,7 +23,7 @@ HDInsight의 ML Services는 거의 모든 규모의 데이터 세트에 R 기반
 
 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하기에 편리한 위치를 제공합니다. 에지 노드를 사용하면 서버 코어 전체에서 ScaleR 병렬화된 분산형 함수를 실행할 수 있습니다. 또한 ScaleR의 Hadoop Map Reduce를 사용하여 클러스터의 노드에서 실행할 수도 있습니다. Apache Spark 컴퓨팅 컨텍스트를 사용할 수도 있습니다.
 
-분석 결과에서 얻은 모델 또는 예측을 온-프레미스 용도로 다운로드할 수 있습니다. Azure의 다른 곳에서 운용할 수도 있습니다. 특히 [Azure Machine Learning Studio(클래식)](https://studio.azureml.net)와 [웹 서비스](../../machine-learning/studio/deploy-a-machine-learning-web-service.md)를 통해 가능합니다.
+분석 결과에서 얻은 모델 또는 예측을 온-프레미스 용도로 다운로드할 수 있습니다. 또한 Azure의 다른 곳에서 `operationalized`일 수 있습니다. 특히 [Azure Machine Learning Studio(클래식)](https://studio.azureml.net)와 [웹 서비스](../../machine-learning/studio/deploy-a-machine-learning-web-service.md)를 통해 가능합니다.
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>HDInsight에서 ML Services 시작
 
@@ -63,16 +63,16 @@ HDInsight의 ML Services에는 다음 기능이 포함됩니다.
 | R 지원 | R로 작성된 솔루션용 [R 패키지](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference)(R의 오픈 소스 배포와 스크립트 실행을 위한 런타임 인프라 포함) |
 | Python 지원 | Python으로 작성된 솔루션용 [Python 모듈](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference)(Python의 오픈 소스 배포와 스크립트 실행을 위한 런타임 인프라 포함)
 | [미리 학습된 모델](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | 시각적 분석 및 텍스트 감정 분석(사용자가 제공한 데이터를 채점할 수 있음) |
-| [배포 및 사용](r-server-operationalize.md) | 서버를 운용하고 솔루션을 웹 서비스로 배포합니다. |
+| [배포 및 사용](r-server-operationalize.md) | `Operationalize` 서버 및 솔루션을 웹 서비스로 배포합니다. |
 | [원격 실행](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | 클라이언트 워크스테이션에서 네트워크의 ML Services에 대한 원격 세션을 시작합니다. |
 
 ## <a name="data-storage-options-for-ml-services-on-hdinsight"></a>HDInsight의 ML Services에 대한 데이터 스토리지 옵션
 
-HDFS 파일 시스템의 기본 스토리지는 Azure Storage 계정 또는 Azure Data Lake Storage일 수 있습니다. 분석 중에 클러스터 스토리지에 업로드된 데이터는 영구적입니다. 이러한 데이터는 클러스터가 삭제된 후에도 사용할 수 있습니다. 스토리지로 데이터 전송을 처리할 수 있는 도구는 다양합니다. 이러한 도구에는 스토리지 계정의 포털 기반 업로드 기능과 [AzCopy](../../storage/common/storage-use-azcopy.md) 유틸리티가 포함됩니다.
+HDFS 파일 시스템의 기본 스토리지는 Azure Storage 계정 또는 Azure Data Lake Storage일 수 있습니다. 분석 중에 클러스터 스토리지에 업로드된 데이터는 영구적입니다. 이러한 데이터는 클러스터가 삭제된 후에도 사용할 수 있습니다. 스토리지로 데이터 전송을 처리할 수 있는 도구는 다양합니다. 이 도구에는 스토리지 계정의 포털 기반 업로드 기능과 AzCopy 유틸리티가 포함됩니다.
 
 클러스터를 만드는 동안 추가 Blob 및 Data Lake Store에 액세스가 가능하도록 설정할 수 있습니다. 사용 중인 기본 스토리지 옵션으로 제한되지 않습니다.  여러 스토리지 계정 사용에 대해 자세히 알아보려면 [HDInsight의 ML Services에 대한 Azure Storage 옵션](./r-server-storage.md) 문서를 참조하세요.
 
-[Azure 파일](../../storage/files/storage-how-to-use-files-linux.md) 을 에지 노드용 스토리지 옵션으로 사용할 수도 있습니다. Azure Files를 사용하면 Azure Storage에 만든 파일 공유를 Linux 파일 시스템으로 사용하도록 설정할 수 있습니다. 자세한 내용은 [HDInsight의 ML Services에 대한 Azure Storage 옵션](r-server-storage.md)을 참조하세요.
+에지 노드에서 사용하기 위해 Azure Files를 스토리지 옵션으로 사용할 수도 있습니다. Azure Files를 사용하면 Azure Storage에 만든 파일 공유를 Linux 파일 시스템으로 사용하도록 설정할 수 있습니다. 자세한 내용은 [HDInsight의 ML Services에 대한 Azure Storage 옵션](r-server-storage.md)을 참조하세요.
 
 ## <a name="access-ml-services-edge-node"></a>ML Services 에지 노드 액세스
 
@@ -82,9 +82,9 @@ HDFS 파일 시스템의 기본 스토리지는 Azure Storage 계정 또는 Azur
 
 R 스크립트는 8000개 이상의 오픈 소스 R 패키지를 사용할 수 있습니다. ScaleR 라이브러리에서 병렬화된 분산형 루틴을 사용할 수도 있습니다. 에지 노드에서 실행되는 스크립트는 해당 노드의 R 인터프리터 내에서 실행됩니다. 단, Map Reduce(RxHadoopMR) 또는 Spark(RxSpark) 컴퓨팅 컨텍스트를 사용하여 ScaleR 함수를 호출하는 단계는 제외됩니다. 이러한 함수는 데이터와 연결된 데이터 노드에서 분산 방식으로 실행됩니다. 컨텍스트 옵션에 대한 자세한 내용은 [HDInsight의 ML Services에 대한 컴퓨팅 컨텍스트 옵션](r-server-compute-contexts.md)을 참조하세요.
 
-## <a name="operationalize-a-model"></a>모델 운영
+## <a name="operationalize-a-model"></a>`Operationalize` 모델
 
-데이터 모델링이 완료되면 Azure 또는 온-프레미스에서 새 데이터를 예측하는 모델을 운영할 수 있습니다. 이 프로세스를 점수 매기기라고 합니다. 점수 매기기는 HDInsight, Azure Machine Learning 또는 온-프레미스에서 수행할 수 있습니다.
+데이터 모델링이 완료되면 Azure 또는 온-프레미스에서 새 데이터를 예측하는 `operationalize` 모델을 운영할 수 있습니다. 이 프로세스를 점수 매기기라고 합니다. 점수 매기기는 HDInsight, Azure Machine Learning 또는 온-프레미스에서 수행할 수 있습니다.
 
 ### <a name="score-in-hdinsight"></a>HDInsight에서 점수 매기기
 
@@ -96,7 +96,7 @@ Azure Machine Learning을 사용하여 점수를 매기려면 [AzureML](https://
 
 ### <a name="score-on-premises"></a>온-프레미스 점수 매기기
 
-모델을 만든 후 온-프레미스 점수를 매기려면 R에서 모델을 직렬화하여 다운로드하고 역직렬화한 다음, 새 데이터의 점수를 매기는 데 사용합니다. [HDInsight에서 점수 매기기](#score-in-hdinsight)에서 설명한 접근 방식을 사용하여 또는 [웹 서비스](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services)를 사용하여 새 데이터의 점수를 매길 수 있습니다.
+모델을 만든 후 온-프레미스 점수를 매기려면 R에서 모델을 직렬화하여 다운로드하고 역직렬화한 다음, 새 데이터의 점수를 매기는 데 사용합니다. [HDInsight에서 점수 매기기]에서 설명한 접근 방식을 사용하여 또는 [웹 서비스](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services)를 사용하여 새 데이터의 점수를 매길 수 있습니다.
 
 ## <a name="maintain-the-cluster"></a>클러스터 유지 관리
 
@@ -130,7 +130,7 @@ OS 유지 관리는 업무 외 시간 동안 HDInsight 클러스터의 기본 Li
 
 HDInsight 클러스터의 Linux 에지 노드는 R 기반 분석의 연결 영역입니다. 최신 버전의 HDInsight는 에지 노드에 RStudio Server의 브라우저 기반 IDE를 제공합니다. RStudio Server는 개발 및 실행 시 R 콘솔보다 생산성이 높습니다.
 
-데스크톱 IDE는 원격 MapReduce 또는 Spark 컴퓨팅 컨텍스트를 통해 클러스터에 액세스할 수 있습니다. 옵션은 다음과 같습니다. Microsoft의 RTVS([Visual Studio용 R 도구](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019)), RStudio 및 Walware의 Eclipse 기반 [StatET](http://www.walware.de/goto/statet).
+데스크톱 IDE는 원격 MapReduce 또는 Spark 컴퓨팅 컨텍스트를 통해 클러스터에 액세스할 수 있습니다. 옵션은 다음과 같습니다. Microsoft의 [RTVS](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019)(Visual Studio용 R 도구), RStudio 및 Walware의 Eclipse 기반 StatET.
 
 명령 프롬프트에 **R**을 입력하여 에지 노드의 R 콘솔에 액세스합니다. 콘솔 인터페이스를 사용하는 경우 텍스트 편집기에서 R 스크립트를 개발하는 것이 편리합니다. 그런 다음, 필요에 맞게 스크립트의 섹션을 잘라내어 R 콘솔에 붙여넣습니다.
 

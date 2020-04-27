@@ -7,23 +7,23 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 03/02/2020
-ms.openlocfilehash: 24981c10985cd353fcd476f416e89c94ad6b6cc6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/20/2020
+ms.openlocfilehash: 44c0ca3a2fc16b805744678cc3358b4f5690766a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78271893"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687646"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight의 Apache Storm이란?
 
-[Apache Storm](https://storm.apache.org/)은 내결함성이 있는 분산형 오픈 소스 계산 시스템입니다. Storm을 사용하여 [Apache Hadoop](https://hadoop.apache.org/)에서 실시간으로 데이터 스트림을 처리할 수 있습니다. 또한 Storm 솔루션은 처음에 정상적으로 처리되지 않은 데이터를 재생하는 기능을 통해 데이터 처리를 보장할 수 있습니다.
+[Apache Storm](https://storm.apache.org/)은 내결함성이 있는 분산형 오픈 소스 계산 시스템입니다. Storm을 사용하여 [Apache Hadoop](../hadoop/apache-hadoop-introduction.md)에서 실시간으로 데이터 스트림을 처리할 수 있습니다. 또한 Storm 솔루션은 처음에 정상적으로 처리되지 않은 데이터를 재생하는 기능을 통해 데이터 처리를 보장할 수 있습니다.
 
 ## <a name="why-use-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm을 사용해야 하는 이유
 
 HDInsight의 Storm은 다음과 같은 기능을 제공합니다.
 
-* __Storm 작동 시간의 99% SLA(서비스 수준 약정)__ : 자세한 내용은 [HDInsight에 대한 SLA 정보](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) 문서를 참조하세요.
+* __Storm 작동 시간의 99% SLA(서비스 수준 약정)__ : HDInsight의 Storm에는 완전한 연속 지원이 제공됩니다. HDInsight의 Storm에는 99.9%의 SLA도 있습니다. 즉 Microsoft는 Storm 클러스터에서 적어도 99.9%의 외부 연결을 보장합니다. 자세한 내용은 [Azure 지원](https://azure.microsoft.com/support/options/)을 참조하세요. [HDInsight에 대한 SLA 정보](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) 문서도 참조하세요.
 
 * 생성 중 또는 생성 후에 Storm 클러스터에 대해 스크립트를 실행하여 손쉬운 사용자 지정을 지원합니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
@@ -33,9 +33,9 @@ HDInsight의 Storm은 다음과 같은 기능을 제공합니다.
 
     * Trident Java 인터페이스를 지원합니다. 정확히 한 번의 메시지 처리, 트랜잭션 데이터 저장소 지속성 및 일반 Stream Analytics 작업 집합을 지원하는 Storm 토폴로지를 만들 수 있습니다.
 
-* **동적 크기 조정**: 실행 중인 Storm 토폴로지에 영향을 주지 않고 작업자 노드를 추가하거나 제거할 수 있습니다. 크기 조정 작업을 통해 추가된 새 노드를 활용하기 위해 실행 중인 토폴로지를 비활성화하고 다시 활성화해야 합니다.
+* **동적 크기 조정**: 실행 중인 Storm 토폴로지에 영향을 주지 않고 작업자 노드를 추가하거나 제거할 수 있습니다. 크기 조정 작업을 통해 추가된 새 노드를 활용하기 위해 실행 중인 토폴로지를 비활성화하고 다시 활성화합니다.
 
-* **여러 Azure 서비스를 사용하여 스트리밍 파이프라인 만들기**: HDInsight의 Storm은 Event Hubs, SQL Database, Azure Storage 및 Azure Data Lake Storage 등 다른 Azure 서비스와 통합합니다. Azure 서비스와 통합되는 예제 솔루션은 [HDInsight의 Apache Storm으로 Event Hubs의 이벤트 처리](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)를 참조하세요.
+* **여러 Azure 서비스를 사용하여 스트리밍 파이프라인 만들기**: HDInsight의 Storm은 다른 Azure 서비스와 통합됩니다. Event Hubs, SQL Database, Azure Storage 및 Azure Data Lake Storage 등이 있습니다. Azure 서비스와 통합되는 예제 솔루션은 [HDInsight의 Apache Storm으로 Event Hubs의 이벤트 처리](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)를 참조하세요.
 
 실시간 분석 솔루션에 Apache Storm을 사용하는 회사 목록은 [Apache Storm을 사용하는 회사](https://storm.apache.org/Powered-By.html)(영문)를 참조하세요.
 
@@ -55,15 +55,11 @@ Storm에서는 친숙한 [Apache Hadoop MapReduce](https://hadoop.apache.org/doc
 
 Apache Storm은 데이터 분석이 수백 개의 노드에 분산되어 있는 경우에도 들어오는 각 메시지를 항상 완전히 처리하도록 합니다.
 
-Nimbus 노드는 Apache Hadoop JobTracker와 유사한 기능을 제공하며 [Apache ZooKeeper](https://zookeeper.apache.org/)를 통해 클러스터의 다른 노드에 작업을 할당합니다. Zookeeper 노드는 클러스터에 대한 조정을 제공하며, Nimbus와 작업자 노드의 감독자 프로세스 간의 통신을 용이하게 합니다. 하나의 처리 노드가 작동이 중지되면 Nimbus 노드에 알림이 제공되고 이 노드에서 작업 및 관련 데이터를 다른 노드에 할당합니다.
+Nimbus 노드는 Apache Hadoop JobTracker와 유사한 기능을 제공합니다. Nimbus는 Apache ZooKeeper를 통해 클러스터의 다른 노드에 작업을 할당합니다. Zookeeper 노드는 클러스터에 대한 조정을 제공하고 Nimbus와 작업자 노드의 감독자 프로세스 간의 통신을 지원합니다. 하나의 처리 노드가 작동이 중지되면 Nimbus 노드에 알림이 제공되고 이 노드에서 작업 및 관련 데이터를 다른 노드에 할당합니다.
 
 Apache Storm 클러스터의 기본 구성에는 Nimbus 노드 하나만 있습니다. HDInsight의 Storm은 두 개의 Nimbus 노드를 제공합니다. 주 노드에 장애가 발생하면 주 노드가 복구되는 동안 Storm 클러스터에서 보조 노드로 전환합니다. 다음 다이어그램은 HDInsight에서 Storm에 대한 작업 흐름 구성을 보여 줍니다.
 
 ![nimbus, zookeeper 및 감독자 다이어그램](./media/apache-storm-overview/storm-diagram-nimbus.png)
-
-## <a name="ease-of-creation"></a>만들기 편의성
-
-HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다. Storm 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
 ## <a name="ease-of-use"></a>사용 편의성
 
@@ -76,7 +72,7 @@ HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다
 
 ## <a name="integration-with-other-azure-services"></a>다른 Azure 서비스와 통합
 
-* __Azure Data Lake Storage__: Storm 클러스터에서 Data Lake Storage를 사용하는 예제는 [HDInsight의 Apache Storm에서 Azure Data Lake Storage 사용](apache-storm-write-data-lake-store.md)을 참조하세요.
+* __Azure Data Lake Storage__: [HDInsight에서 Apache Storm과 함께 Azure Data Lake Storage 사용](apache-storm-write-data-lake-store.md)을 참조하세요.
 
 * __Event Hubs__: Storm 클러스터에서 Event Hubs를 사용하는 예제는 다음 예제를 참조하세요.
 
@@ -85,10 +81,6 @@ HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다
     * [HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)](apache-storm-develop-csharp-event-hub-topology.md)
 
 * __SQL Database__, __Cosmos DB__, __Event Hubs__ 및 __HBase__: 템플릿 예제는 Data Lake Tools for Visual Studio에 포함되어 있습니다. 자세한 내용은 [HDInsight의 Apache Storm에 대한 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
-
-## <a name="support"></a>지원
-
-HDInsight의 Storm에는 완전한 엔터프라이즈 수준의 연속 지원이 제공됩니다. HDInsight의 Storm에는 99.9%의 SLA도 있습니다. 즉 Microsoft는 Storm 클러스터에서 적어도 99.9%의 외부 연결을 보장합니다. 자세한 내용은 [Azure 지원](https://azure.microsoft.com/support/options/)을 참조하세요.
 
 ## <a name="apache-storm-use-cases"></a>Apache Storm 사용 사례
 
@@ -116,15 +108,15 @@ Python은 Storm 구성 요소를 개발하는 데에도 사용합니다. 자세�
 
 ### <a name="guaranteed-message-processing"></a>메시지 처리 보장
 
-Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 있습니다. 예를 들어 기본적인 Storm 애플리케이션은 최소한 한 번 처리를 보장할 수 있고, [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html)는 정확히 한 번 처리를 보장할 수 있습니다. 자세한 내용은 apache.org에서 [데이터 처리 보장](https://storm.apache.org/about/guarantees-data-processing.html) 을 참조하세요.
+Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 있습니다. 예를 들어 기본적인 Storm 애플리케이션은 최소 한 번 처리를 보장하고 Trident는 정확히 한 번 처리를 보장할 수 있습니다. apache.org에서 [데이터 처리 보장](https://storm.apache.org/about/guarantees-data-processing.html)을 참조하세요.
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-입력 튜플을 읽고 튜플을 내보내지 않거나 하나 이상 내보낸 다음 실행 메서드 끝에서 입력 튜플을 즉시 승인하는 패턴은 매우 흔히 사용됩니다. Storm은 이 패턴을 자동화하는 [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 인터페이스를 제공합니다.
+입력 튜플을 읽고 튜플을 내보내지 않거나 하나 이상 내보낸 다음, 실행 메서드 끝에서 입력 튜플을 즉시 확인하는 패턴은 매우 흔히 사용됩니다. Storm은 이 패턴을 자동화하는 [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 인터페이스를 제공합니다.
 
 ### <a name="joins"></a>조인
 
-데이터 스트림이 조인되는 방식은 애플리케이션마다 다릅니다. 예를 들어 여러 스트림의 각 튜플을 새 스트림 하나에 조인할 수도 있고 특정 창에 대한 튜플 배치만 조인할 수도 있습니다. 어떤 방법을 사용하든 [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-)을 통해 조인을 수행할 수 있습니다. 필드 그룹화는 튜플을 Bolt로 라우팅하는 방식을 정의합니다.
+데이터 스트림이 조인되는 방식은 애플리케이션마다 다릅니다. 예를 들어 여러 스트림의 각 튜플을 새 스트림 하나에 조인하거나 특정 창에 대한 튜플 배치만 조인할 수 있습니다. 어떤 방법을 사용하든 [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-)을 통해 조인을 수행할 수 있습니다. 필드 그룹화는 튜플을 Bolt로 라우팅하는 방식을 정의합니다.
 
 다음 Java 예제에서는 fieldsGrouping을 사용하여 구성 요소 "1", "2", "3"에서 생성된 튜플을 MyJoiner Bolt로 라우팅합니다.
 
@@ -150,7 +142,7 @@ C# 구성 요소에서 틱 튜플을 사용하는 예제는 [PartialBoltCount.cs
 
 ## <a name="logging"></a>로깅
 
-Storm은 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/)를 사용하여 정보를 기록합니다. 기본적으로 많은 양의 데이터를 기록하면 정보를 정렬하기가 어려울 수 있습니다. Storm 토폴로지의 일부로 로깅 구성 파일을 포함하여 로깅 동작을 제어할 수 있습니다.
+Storm은 Apache Log4j 2를 사용하여 정보를 기록합니다. 기본적으로 많은 양의 데이터를 기록하면 정보를 정렬하기가 어려울 수 있습니다. Storm 토폴로지의 일부로 로깅 구성 파일을 포함하여 로깅 동작을 제어할 수 있습니다.
 
 로깅을 구성하는 방법을 보여 주는 예제 토폴로지는 HDInsight에서 Storm에 대한 [Java 기반 WordCount](apache-storm-develop-java-topology.md) 예제를 참조하세요.
 

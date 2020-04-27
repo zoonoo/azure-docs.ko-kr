@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6919849d28573ad7388a7f2e317d2b8433f35559
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5b7a060aa2313902e4644fdd15068e06816e3f58
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399443"
+ms.locfileid: "81529895"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
 
@@ -92,7 +92,7 @@ Form Recognizer는 [레이아웃 API](#layout-api)를 사용하여 인쇄 및 �
 
 영수증 모델에 대한 입력 요구 사항은 약간 다릅니다.
 
-* 형식은 JPEG, PNG, BMP, PDF(텍스트 또는 스캔) 또는 TIFF여야 합니다.
+* 형식은 JPEG, PNG, PDF(텍스트 또는 스캔) 또는 TIFF여야 합니다.
 * 파일 크기는 20MB 미만이어야 합니다.
 * 이미지 크기는 50x50 픽셀에서 10,000x10,000 픽셀 사이여야 합니다.
 * PDF 크기는 최대 17x17인치(Legal 또는 A3 용지 크기 이하에 해당)여야 합니다.

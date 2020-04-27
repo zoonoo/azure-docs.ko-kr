@@ -4,15 +4,15 @@ description: Azure Portal 또는 SQL Server Management Studio를 사용하여 Az
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: c7d53ae71ac68559877561bf9fd15fe0f341e03a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0bedc88b78f2ac758d3201965425b42b69580719
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78273688"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454257"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>자습서: 서버 관리자 및 사용자 역할 구성
 
@@ -67,7 +67,7 @@ SSMS에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. �
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>서버 관리자 역할에 사용자 계정 추가
 
-이 작업에서는 Azure AD의 사용자 또는 그룹 계정을 서버 관리자 역할에 추가합니다. 보안 그룹을 추가하는 경우 `MailEnabled` 속성을 `True`로 설정해야 합니다.
+이 작업에서는 Azure AD의 사용자 또는 그룹 계정을 서버 관리자 역할에 추가합니다. 보안 그룹을 지정하는 경우 `obj:groupid@tenantid`를 사용합니다.
 
 1. **개체 탐색기**에서 서버 이름을 마우스 오른쪽 단추로 클릭한 다음, **속성**을 클릭합니다. 
 2. **Analysis Server 속성** 창에서 **보안** > **추가**를 차례로 클릭합니다.
@@ -143,5 +143,5 @@ SSMS에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. �
 이 자습서에서는 Azure AS 서버에 연결하고 SSMS에서 adventureworks 샘플 모델 데이터베이스 및 속성을 탐색하는 방법을 알아보았습니다. 또한 SSMS 및 TMSL 스크립트를 사용하여 기존 또는 새 역할에 사용자 또는 그룹을 추가하는 방법도 알아보았습니다. 이제 서버 및 샘플 모델 데이터베이스에 대해 구성된 사용자 권한이 있으므로 Power BI와 같은 클라이언트 애플리케이션을 사용하여 사용자와 다른 사용자가 연결할 수 있습니다. 자세한 내용은 다음 자습서로 계속 진행하세요. 
 
 > [!div class="nextstepaction"]
-> [자습서: Power BI Desktop으로 연결](analysis-services-tutorial-pbid.md)
+> [자습서: Power BI Desktop을 사용하여 연결](analysis-services-tutorial-pbid.md)
 

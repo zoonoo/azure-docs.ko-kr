@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 12/05/2019
-ms.openlocfilehash: 11fecd875385d8ba044cbe44e2270eed11d61ce1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bcb6cd7393419fb8fc75decb00a8f4165d15668c
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77581552"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025274"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>빠른 시작: Azure Sentinel 온보딩
 
@@ -64,7 +64,7 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
 
 Azure Sentinel은 서비스에 연결하고 이벤트 및 로그를 Azure Sentinel에 전달하여 서비스 및 앱에 대한 연결을 만듭니다. 컴퓨터 및 가상 머신의 경우 로그를 수집하고 Azure Sentinel에 전달하는 Azure Sentinel 에이전트를 설치할 수 있습니다. 방화벽과 프록시의 경우 Azure Sentinel은 Linux Syslog 서버를 활용합니다. 에이전트가 설치되고 에이전트가 로그 파일을 수집하여 Azure Sentinel에 전달합니다. 
  
-1. **데이터 수집**을 클릭합니다.
+1. **데이터 커넥터**를 클릭합니다.
 2. 연결할 수 있는 각 데이터 원본에 대한 타일이 있습니다.<br>
 예를 들어 **Azure Active Directory**를 클릭합니다. 이 데이터 원본을 연결하는 경우 Azure AD의 모든 로그를 Azure Sentinel로 스트리밍합니다. 가져오려는 로그 유형(로그인 로그 및/또는 감사 로그)을 선택할 수 있습니다. <br>
 아래에서 Azure Sentinel은 각 커넥터에 대해 설치해야 하는 통합 문서에 대한 권장 사항을 제공하므로 데이터에 대해 흥미로운 인사이트를 즉시 얻을 수 있습니다. <br> 자세한 내용은 설치 지침을 따르거나 [관련 연결 가이드](connect-data-sources.md)를 참조하세요. 데이터 커넥터에 대한 내용은 [Microsoft 서비스 연결](connect-data-sources.md)을 참조하세요.

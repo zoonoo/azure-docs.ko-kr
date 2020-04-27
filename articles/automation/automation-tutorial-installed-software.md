@@ -7,12 +7,12 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: 136521799dbc928a03c339ecc1cef6fdd3d029b2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b93035fc7e315f8117516771236186f9d942a0aa
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223780"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604660"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Azure 및 비Azure 컴퓨터에 설치된 소프트웨어 검색
 
@@ -32,7 +32,7 @@ ms.locfileid: "79223780"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Azure 구독 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
-* 감시자, 작업 Runbook 및 Watcher 태스크를 보관할 [Automation 계정](automation-offering-get-started.md)
+* 감시자, 작업 Runbook 및 감시자 태스크를 보관할 [Automation 계정](automation-offering-get-started.md)
 * 등록할 [가상 머신](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
@@ -43,7 +43,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 먼저 이 자습서에 대한 변경 내용 추적 및 인벤토리를 사용하도록 설정해야 합니다. 이전에 **변경 내용 추적** 솔루션을 사용하도록 설정한 경우에는 이 단계가 필요하지 않습니다.
 
-Automation 계정으로 이동하고, **구성 관리** 아래에서 **인벤토리**를 선택합니다.
+Automation 계정으로 이동하여 **Configuration Management**에서 **인벤토리**를 선택합니다.
 
 Log Analytics 작업 영역 및 Automation 계정을 선택하고 **사용**을 클릭하여 솔루션을 사용하도록 설정합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
 
@@ -62,13 +62,13 @@ Log Analytics 작업 영역 및 Automation 계정을 선택하고 **사용**을 
 
 ## <a name="onboard-a-vm"></a>VM 등록
 
-Automation 계정에서 **구성 관리** 아래의 **인벤토리**로 이동합니다.
+Automation 계정에서 **Configuration Management** 아래의 **인벤토리**로 이동합니다.
 
-**+ Azure VM 추가**를 선택하면 **가상 컴퓨터** 페이지가 열리고 목록에서 기존 VM을 선택할 수 있습니다. 등록할 VM을 선택합니다. 열리는 페이지에서 **사용**을 클릭하여 VM에서 솔루션을 사용하도록 설정합니다. Microsoft 관리 에이전트가 VM에 배포되고 솔루션을 활성화할 때 구성한 Log Analytics 작업 영역에 설명하도록 에이전트를 구성합니다. 등록을 완료하는 데 몇 분이 걸릴 수 있습니다. 이 시점에서 목록에서 새 VM을 선택하고 다른 VM을 등록할 수 있습니다.
+**+ Azure VM 추가**를 선택하면 가상 머신 페이지가 열리고 목록에서 기존 VM을 선택할 수 있습니다. 등록할 VM을 선택합니다. 열리는 페이지에서 **사용**을 클릭하여 VM에서 솔루션을 사용하도록 설정합니다. Microsoft 관리 에이전트가 VM에 배포되고 솔루션을 활성화할 때 구성한 Log Analytics 작업 영역에 설명하도록 에이전트를 구성합니다. 등록을 완료하는 데 몇 분이 걸릴 수 있습니다. 이 시점에서 목록에서 새 VM을 선택하고 다른 VM을 등록할 수 있습니다.
 
 ## <a name="onboard-a-non-azure-machine"></a>비Azure 컴퓨터 등록
 
-비 Azure 컴퓨터를 추가하려면 운영 체제에 따라 [Windows](../azure-monitor/platform/agent-windows.md) 또는 [Linux](automation-linux-hrw-install.md)에 대한 에이전트를 설치합니다. 에이전트가 설치되면 Automation 계정으로 이동하고 **구성 관리** 아래에서 **인벤토리**로 이동합니다. **관리 머신**을 클릭하면 솔루션이 활성화되지 않은 Log Analytics 작업 영역에 보고하는 머신의 목록이 표시됩니다. 사용자 환경에 적합한 옵션을 선택합니다.
+비 Azure 머신을 추가하려면 운영 체제에 따라 [Windows용 Log Analytics 에이전트](../azure-monitor/platform/agent-windows.md) 또는 [Linux용 Log Analytics 에이전트](automation-linux-hrw-install.md)를 설치합니다. 에이전트가 설치되면 Automation 계정으로 이동하여 **Configuration Management** 아래의 **인벤토리**로 이동합니다. **관리 머신**을 클릭하면 솔루션이 활성화되지 않은 Log Analytics 작업 영역에 보고하는 머신의 목록이 표시됩니다. 사용자 환경에 적합한 옵션을 선택합니다.
 
 * **사용 가능한 모든 머신에서 사용하도록 설정** - 이 옵션은 이 시점에 Log Analytics 작업 영역에 보고하는 모든 머신에서 솔루션을 활성화합니다.
 * **사용 가능한 모든 머신 및 이후 머신에서 사용하도록 설정** - 이 옵션은 Log Analytics 작업 영역에 보고하는 모든 머신과 이후에 작업 영역에 추가되는 향후 모든 머신에서 솔루션을 활성화합니다.
@@ -78,11 +78,11 @@ Automation 계정에서 **구성 관리** 아래의 **인벤토리**로 이동�
 
 ## <a name="view-installed-software"></a>설치된 소프트웨어 보기
 
-변경 내용 추적 및 인벤토리 솔루션을 사용하도록 설정되면 **인벤토리** 페이지에서 결과를 볼 수 있습니다.
+변경 내용 추적 및 인벤토리 솔루션을 사용하도록 설정되면 인벤토리 페이지에서 결과를 볼 수 있습니다.
 
-Automation 계정 내에서 **구성 관리** 아래의 **인벤토리**를 선택합니다.
+Automation 계정에서 **Configuration Management** 아래의 **인벤토리**를 선택합니다.
 
-**인벤토리** 페이지에서 **소프트웨어** 탭을 클릭합니다.
+인벤토리 페이지에서 **소프트웨어** 탭을 클릭합니다.
 
 **소프트웨어** 탭에는 검색된 소프트웨어를 나열하는 테이블이 있습니다. 소프트웨어는 소프트웨어 이름 및 버전별로 그룹화됩니다.
 
@@ -95,14 +95,14 @@ Automation 계정 내에서 **구성 관리** 아래의 **인벤토리**를 선�
 특정 소프트웨어 또는 소프트웨어 그룹을 찾으려면 소프트웨어 목록 바로 위에 있는 텍스트 상자에서 검색할 수 있습니다.
 필터를 사용하면 소프트웨어 이름, 버전 또는 게시자를 기반으로 하여 검색할 수 있습니다.
 
-예를 들어 "Contoso"를 검색하면 "Contoso"가 포함된 이름, 게시자 또는 버전이 있는 모든 소프트웨어가 반환됩니다.
+예를 들어 **Contoso**를 검색하면 **Contoso**가 포함된 이름, 게시자 또는 버전이 있는 모든 소프트웨어가 반환됩니다.
 
 ## <a name="search-inventory-logs-for-installed-software"></a>설치된 소프트웨어에 대한 인벤토리 로그 검색
 
-인벤토리에서 Azure Monitor 로그로 보내는 로그 데이터를 생성합니다. 쿼리를 실행하여 로그를 검색하려면 **인벤토리** 창 위쪽에서 **Log Analytics**를 선택합니다.
+인벤토리에서 Azure Monitor 로그로 보내는 로그 데이터를 생성합니다. 쿼리를 실행하여 로그를 검색하려면 인벤토리 페이지 상단에 있는 **Log Analytics**를 선택합니다.
 
-인벤토리 데이터는 **ConfigurationData** 형식 아래에 저장됩니다.
-다음 샘플 Log Analytics 쿼리는 게시자가 "Microsoft Corporation"인 인벤토리 결과를 반환합니다.
+인벤토리 데이터는 `ConfigurationData` 형식 아래에 저장됩니다.
+다음 샘플 Log Analytics 쿼리는 게시자가 **Microsoft Corporation**과 같은 인벤토리 결과를 반환합니다.
 
 ```loganalytics
 ConfigurationData
@@ -116,7 +116,7 @@ Azure Monitor 로그에서 로그 파일을 실행하고 검색하는 방법에 
 ### <a name="single-machine-inventory"></a>단일 컴퓨터 인벤토리
 
 단일 머신에 대한 소프트웨어 인벤토리를 보려면 Azure VM 리소스 페이지에서 인벤토리에 액세스하거나 Azure Monitor 로그를 사용하여 해당 머신으로 필터링할 수 있습니다.
-다음 Log Analytics 쿼리 예제에서는 ContosoVM이라는 컴퓨터의 소프트웨어 목록을 반환합니다.
+다음 Log Analytics 쿼리 예제에서는 **ContosoVM**이라는 머신의 소프트웨어 목록을 반환합니다.
 
 ```loganalytics
 ConfigurationData

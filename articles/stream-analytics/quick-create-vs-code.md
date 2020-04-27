@@ -7,16 +7,19 @@ ms.author: mamccrea
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: e3e878b4f548da64ab04eb079d51b0846cf35c57
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: fe666359b9ed2773f615ff496f4032bda5e74dc2
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76313878"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767759"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기(미리 보기)
 
 이 빠른 시작에서는 Visual Studio Code용 Azure Stream Analytics Tools 확장을 사용하여 Azure Stream Analytics 작업을 만들고 실행하는 방법을 보여 줍니다. 예제 작업은 Azure IoT Hub 디바이스에서 스트리밍 데이터를 읽습니다. 27°를 초과할 때 평균 온도를 계산하고 Blob 스토리지의 새 파일에 결과 출력 이벤트를 작성하는 작업을 정의합니다.
+
+> [!NOTE]
+> Visual Studio 및 Visual Studio Code 도구는 중국 동부, 중국 북부, 독일 중부 및 독일 북동부 지역의 작업을 지원하지 않습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -140,14 +143,6 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
    FROM Input
    HAVING Temperature > 27
    ```
-
-## <a name="test-the-query-locally-with-sample-data"></a>샘플 데이터를 사용하여 로컬로 쿼리 테스트
-
-클라우드에서 쿼리를 실행하기 전에 로컬 샘플 데이터 파일 또는 라이브 입력에서 캡처한 데이터를 사용하여 쿼리를 로컬로 테스트하여 쿼리 논리를 확인할 수 있습니다.
-
-자세한 내용은 [샘플 데이터를 사용하여 로컬로 쿼리 테스트](visual-studio-code-local-run.md)의 지침을 따르세요.
-
- ![Visual Studio Code에서 샘플 데이터를 사용하여 테스트](./media/vscode-local-run/localrun-localinput.gif)
 
 ## <a name="define-a-live-input"></a>라이브 입력 정의
 
@@ -279,6 +274,8 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 이 빠른 시작에서는 Visual Studio Code를 사용하여 간단한 Stream Analytics 작업을 배포했습니다. [Azure Portal](stream-analytics-quick-create-portal.md), [PowerShell](stream-analytics-quick-create-powershell.md) 및 [Visual Studio](stream-analytics-quick-create-vs.md)를 사용하여 Stream Analytics 작업을 배포할 수도 있습니다.
 
 Visual Studio Code용 Azure Stream Analytics Tools에 대해 알아보려면 다음 문서로 계속 진행하세요.
+
+* [Visual Studio Code를 통해 샘플 데이터를 사용하여 로컬로 Stream Analytics 쿼리 테스트](visual-studio-code-local-run.md)
 
 * [Visual Studio Code를 사용하여 라이브 입력에 대해 로컬로 Azure Stream Analytics 작업 테스트](visual-studio-code-local-run-live-input.md)
 
