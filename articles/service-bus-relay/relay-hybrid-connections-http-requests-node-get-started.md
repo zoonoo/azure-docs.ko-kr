@@ -1,5 +1,5 @@
 ---
-title: Azure 릴레이 하이브리드 연결 - 노드의 HTTP 요청
+title: Azure Relay 하이브리드 연결-노드의 HTTP 요청
 description: Node에서 Azure Relay 하이브리드 연결 HTTP 요청에 대한 Node.js 콘솔 애플리케이션을 작성합니다.
 services: service-bus-relay
 documentationcenter: node
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: clemensv
 ms.openlocfilehash: d71386b86bf7133bb73ddce2e65c3b88743009ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75462032"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Node에서 Relay 하이브리드 연결 HTTP 요청 시작
@@ -36,8 +36,8 @@ ms.locfileid: "75462032"
 5. 애플리케이션을 실행합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
-- [노드.js](https://nodejs.org/en/).
-- Azure 구독 계정이 없는 경우 시작하기 전에 [무료 계정을 만드세요.](https://azure.microsoft.com/free/)
+- [Node.js](https://nodejs.org/en/).
+- Azure 구독 계정이 없는 경우 시작 하기 전에 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 
 ## <a name="create-a-namespace-using-the-azure-portal"></a>Azure Portal을 사용하여 네임스페이스 만들기
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]

@@ -1,13 +1,13 @@
 ---
-title: 클러스터의 Azure 서비스 패브릭 버전 업그레이드
+title: 클러스터의 Azure Service Fabric 버전 업그레이드
 description: 클러스터 업데이트 모드 설정, 인증서 업그레이드, 애플리케이션 포트 추가, OS 패치 수행 등을 포함하는 Service Fabric 클러스터를 실행하는 Service Fabric 코드 및/또는 구성을 업그레이드합니다. 업그레이드를 수행할 때 예상할 수 있는 것은 무엇입니까?
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: c3ffcbd4296385623ff5e2c1ee001c27598ff3fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451815"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>클러스터의 Service Fabric 버전 업그레이드
@@ -54,7 +54,7 @@ Microsoft에서 자동 패브릭 업그레이드를 릴리스하면 클러스터
 롤백을 일으킨 문제를 수정했으면 이전과 동일한 단계에 따라 업그레이드를 다시 시작해야 합니다.
 
 ## <a name="set-custom-health-polices-for-upgrades"></a>업그레이드에 대한 사용자 지정 상태 정책 설정
-패브릭 업그레이드에 대한 사용자 지정 상태 정책을 지정할 수 있습니다. 클러스터를 자동 패브릭 업그레이드로 설정한 경우 이러한 정책은 [자동 패브릭 업그레이드의 1단계 에](service-fabric-cluster-upgrade.md#fabric-upgrade-behavior-during-automatic-upgrades)적용됩니다.
+패브릭 업그레이드에 대한 사용자 지정 상태 정책을 지정할 수 있습니다. 클러스터를 자동 패브릭 업그레이드로 설정한 경우 이러한 정책은 [자동 패브릭 업그레이드의 1 단계](service-fabric-cluster-upgrade.md#fabric-upgrade-behavior-during-automatic-upgrades)에 적용 됩니다.
 클러스터를 수동 패브릭 업그레이드로 설정한 경우 이러한 정책은 새 버전을 선택할 때마다 적용되며 그러면 시스템이 클러스터에서 패브릭 업그레이드를 시작하도록 트리거링합니다. 정책을 재정의하지 않으면 기본값이 사용됩니다.
 
 사용자 지정 상태 정책을 지정하거나 "패브릭 업그레이드" 블레이드 아래에서 고급 업그레이드 설정을 선택하여 현재 설정을 검토할 수 있습니다. 다음 그림은 이 방법을 보여줍니다. 
@@ -109,9 +109,9 @@ Output:
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* 일부 서비스 패브릭 클러스터 [패브릭 설정을](service-fabric-cluster-fabric-settings.md) 사용자 지정하는 방법 알아보기
+* [Service fabric 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md) 중 일부를 사용자 지정 하는 방법 알아보기
 * [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
-* 애플리케이션 [업그레이드에](service-fabric-application-upgrade.md) 대해 알아보기
+* [응용 프로그램 업그레이드](service-fabric-application-upgrade.md) 에 대 한 자세한 정보
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png

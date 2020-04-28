@@ -1,15 +1,15 @@
 ---
-title: 로컬 Azure 서비스 패브릭 클러스터 설정 문제 해결
+title: 로컬 Azure Service Fabric 클러스터 설정 문제 해결
 description: 이 문서에서는 로컬 개발 클러스터 문제 해결을 위한 여러 제안 사항을 다룹니다.
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: ea313adb43f8d91ec9e57dd1d0b8d3447a8075f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75465511"
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>로컬 개발 클러스터 설정 문제 해결
@@ -17,7 +17,7 @@ ms.locfileid: "75465511"
 
 ## <a name="cluster-setup-failures"></a>클러스터 설정 오류
 ### <a name="cannot-clean-up-service-fabric-logs"></a>Service Fabric 로그를 정리할 수 없습니다.
-#### <a name="problem"></a>문제
+#### <a name="problem"></a>문제점
 DevClusterSetup 스크립트를 실행하는 동안 다음과 같은 오류가 나타날 수 있습니다.
 
     Cannot clean up C:\SfDevCluster\Log fully as references are likely being held to items in it. Please remove those and run this script again.
@@ -27,20 +27,20 @@ DevClusterSetup 스크립트를 실행하는 동안 다음과 같은 오류가 �
     + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,DevClusterSetup.ps1
 
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 현재 Powershell 창을 닫고 관리자 권한으로 새 Powershell 창을 엽니다. 이제는 스크립트를 성공적으로 실행할 수 있습니다.
 
 ## <a name="cluster-connection-failures"></a>클러스터 연결 오류
 
 ### <a name="type-initialization-exception"></a>형식 초기화 예외
-#### <a name="problem"></a>문제
+#### <a name="problem"></a>문제점
 PowerShell에서 클러스터에 연결할 때 System.Fabric.Common.AppTrace에 대해 TypeInitializationException 오류가 표시됩니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 설치하는 동안 경로 변수가 올바르게 설정되지 않았습니다. Windows에서 로그아웃하고 다시 로그인합니다. 경로를 새로 고칩니다.
 
 ### <a name="cluster-connection-fails-with-object-is-closed"></a>“개체 닫힘"으로 인해 클러스터 연결 실패
-#### <a name="problem"></a>문제
+#### <a name="problem"></a>문제점
 다음과 같은 오류와 함께 Connect-ServiceFabricCluster 호출에 실패합니다.
 
     Connect-ServiceFabricCluster : The object is closed.
@@ -50,14 +50,14 @@ PowerShell에서 클러스터에 연결할 때 System.Fabric.Common.AppTrace에 
     + CategoryInfo : InvalidOperation: (:) [Connect-ServiceFabricCluster], FabricObjectClosedException
     + FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 현재 Powershell 창을 닫고 관리자 권한으로 새 Powershell 창을 엽니다.
 
 ### <a name="fabric-connection-denied-exception"></a>패브릭 연결 거부 예외
-#### <a name="problem"></a>문제
+#### <a name="problem"></a>문제점
 Visual Studio에서 디버그 시 FabricConnectionDeniedException 오류가 나타납니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 이 오류는 일반적으로 서비스 호스트 프로세스를 수동으로 시작하려고 할 때 발생합니다.
 
 솔루션에서 시작 프로젝트로 설정된 서비스 프로젝트가 없어야 합니다. Service Fabric 애플리케이션 프로젝트만 시작 프로젝트로 설정되어야 합니다.

@@ -1,15 +1,15 @@
 ---
-title: 메트릭을 사용하여 Azure 서비스 패브릭 앱 로드 관리
+title: 메트릭을 사용 하 여 Azure Service Fabric 앱 로드 관리
 description: 서비스 리소스 소비를 관리하기 위해 Service Fabric에서 메트릭을 구성하고 사용하는 방법에 대해 알아봅니다.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: ea21502cdab35b261e20af7f23b7b522f77c6667
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451993"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>메트릭을 사용하여 Service Fabric에서 리소스 부하 및 소비 관리
@@ -18,7 +18,7 @@ ms.locfileid: "75451993"
 메모리, 디스크, CPU 사용량 등이 모두 메트릭의 예입니다. 이러한 메트릭은 노드에서 관리해야 하는 물리적 리소스에 해당하는 물리적 메트릭입니다. 메트릭은 논리 메트릭이 될 수도 있으며 이것이 일반적인 경우이기도 합니다. “MyWorkQueueDepth”, "MessagesToProcess" 또는 "TotalRecords" 등이 논리 메트릭입니다. 논리 메트릭은 애플리케이션에서 정의하며 간접적으로 일부 물리적 리소스 사용량에 해당합니다. 서비스별로 물리적 리소스 사용량을 측정하고 보고하는 것이 어려울 수 있기 때문에 논리 메트릭이 일반적입니다. 사용자 고유의 메트릭을 측정하고 보고하는 복잡성은 Service Fabric에서 몇 가지 기본 메트릭을 제공하는 이유이기도 합니다.
 
 ## <a name="default-metrics"></a>기본 메트릭
-서비스를 작성하고 배포하기 시작한다고 가정해 보겠습니다. 이 시점에서는 어떤 물리적 또는 논리적 리소스를 사용하는지 알 수 없습니다. 이것으로 끝입니다. 다른 메트릭이 지정되지 않은 경우 Service Fabric 클러스터 리소스 관리자에서는 일부 기본 메트릭을 사용합니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+서비스를 작성하고 배포하기 시작한다고 가정해 보겠습니다. 이 시점에서는 어떤 물리적 또는 논리적 리소스를 사용하는지 알 수 없습니다. 이것으로 끝입니다. 다른 메트릭이 지정되지 않은 경우 Service Fabric 클러스터 리소스 관리자에서는 일부 기본 메트릭을 사용합니다. 다음 창이 여기에 포함됩니다.
 
   - PrimaryCount - 노드의 주 복제본 수 
   - ReplicaCount - 노드의 총 상태 저장 복제본 수
@@ -27,7 +27,7 @@ ms.locfileid: "75451993"
 | 메트릭 | 상태 비저장 인스턴스 부하 | 상태 저장 보조 부하 | 상태 저장 기본 부하 | 무게 |
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |높음 |
-| ReplicaCount |0 |1 |1 |중간 |
+| ReplicaCount |0 |1 |1 |보통 |
 | 개수 |1 |1 |1 |낮음 |
 
 
@@ -135,7 +135,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 이제 각각의 설정을 자세히 살펴보고 영향을 받는 동작에 대해 설명하겠습니다.
 
 ## <a name="load"></a>로드
-메트릭 정의의 핵심은 일부 부하에 관한 것입니다. *로드는* 지정된 노드의 일부 서비스 인스턴스 또는 복제본에서 지정된 메트릭이 소비되는 정도를 나타냅니다. 로드는 거의 모든 지점에서 구성될 수 있습니다. 예를 들어:
+메트릭 정의의 핵심은 일부 부하에 관한 것입니다. *로드* 는 지정 된 노드의 일부 서비스 인스턴스 또는 복제본에서 사용 되는 지정 된 메트릭의 양입니다. 로드는 거의 모든 지점에서 구성될 수 있습니다. 다음은 그 예입니다.
 
   - 서비스를 만들 때 로드를 정의할 수 있습니다. 이를 _기본 로드_라고 합니다.
   - 기본 로드를 포함하여 서비스에 대한 메트릭 정보는 서비스를 만든 후에 업데이트될 수 있습니다. 이를 _서비스 업데이트_라고 합니다. 
@@ -233,7 +233,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 <center>
 
-![메트릭 가중치 예제 및 밸런싱 솔루션에 미치는 영향][Image3]
+![메트릭 가중치 예제 및 부하 분산 솔루션에 미치는 영향][Image3]
 </center>
 
 이 예에서는 별도의 두 메트릭인 메트릭 A 및 메트릭 B에 대해 모두 서로 다른 값을 보고하는 별도의 4가지 서비스가 있습니다. 한 경우에는 서비스에서 메트릭 A가 가장 중요한 것(가중치 = 높음)이고, 메트릭 B는 중요하지 않은 것(가중치 = 낮음)으로 정의합니다. 결과적으로 클러스터 리소스 관리자에서 메트릭 A가 메트릭 B보다 더 잘 분산되도록 서비스를 배치합니다. "더 잘 분산됨"은 메트릭 B보다 낮은 표준 편차가 메트릭 A에 있음을 의미합니다. 두 번째 경우는 메트릭 가중치를 반대로 합니다. 결과적으로 클러스터 리소스 관리자에서 서비스 A와 서비스 B를 교환하여 메트릭 B가 메트릭 A보다 더 잘 분산되는 할당을 만들게 됩니다.
@@ -260,7 +260,7 @@ Cluster Resource Manager가 전역 및 로컬 분산에 대해 고려하지 않�
 
 ## <a name="next-steps"></a>다음 단계
 - 서비스 구성에 대한 자세한 내용은 [서비스 구성](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)에서 알아봅니다.
-- 조각 모음 메트릭을 정의하는 것은 노드를 분산시키는 대신 노드의 부하를 통합하는 한 가지 방법입니다. 조각 모음을 구성하는 방법을 알아보려면 [이 문서를](service-fabric-cluster-resource-manager-defragmentation-metrics.md) 참조하십시오.
+- 조각 모음 메트릭을 정의 하는 것은 노드를 분산 하는 대신 노드에 로드를 통합 하는 한 가지 방법입니다. 조각 모음을 구성 하는 방법에 대 한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-defragmentation-metrics.md) 를 참조 하세요.
 - 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)
 - 처음부터 시작 및 [서비스 패브릭 클러스터 Resource Manager 소개](service-fabric-cluster-resource-manager-introduction.md)
 - 이동 비용은 특정 서비스가 다른 서비스에 비해 이동하는 데 비용이 더 많이 드는 것을 클러스터 리소스 관리자에게 알리는 한 가지 방법입니다. 이동 비용에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-movement-cost.md)

@@ -1,15 +1,15 @@
 ---
-title: 서비스 패브릭 클러스터 리소스 관리자 소개
-description: 응용 프로그램 서비스의 오케스트레이션을 관리하는 방법인 서비스 패브릭 클러스터 리소스 관리자에 대해 알아봅니다.
+title: Service Fabric 클러스터 소개 리소스 관리자
+description: 응용 프로그램 서비스의 오케스트레이션을 관리 하는 방법인 Service Fabric 클러스터 리소스 관리자에 대해 알아봅니다.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: da9205f5d95eaf1b4dc655ee727ab8a4fe90893d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75563329"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>서비스 패브릭 클러스터 리소스 관리자 소개
@@ -45,7 +45,7 @@ Cluster Resource Manager는 Service Fabric에서 오케스트레이션을 처리
 Cluster Resource Manager가 서비스를 이동시키는 일을 담당하므로 네트워크 Load Balancer에서 찾을 수 있는 기능과 비교할 때 다른 기능 집합을 포함합니다. 네트워크 Load Balancer는 서비스 자체를 실행하는 데 이상적이지 않더라도 서비스가 이미 있는 위치로 네트워크 트래픽을 전달하기 때문입니다. Service Fabric Cluster Resource Manager는 클러스터의 리소스가 효율적으로 활용되도록 하기 위해 기본적으로 다른 전략을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- 클러스터 리소스 관리자 내의 아키텍처 및 정보 흐름에 대한 자세한 내용은 [이 문서를](service-fabric-cluster-resource-manager-architecture.md) 참조하세요.
+- 클러스터 리소스 관리자 내의 아키텍처 및 정보 흐름에 대 한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-architecture.md) 를 확인 하세요.
 - Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 메트릭에 대해 자세히 알아보려면 [Service Fabric 클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)에 대한 문서를 확인하세요.
 - 서비스 구성에 대한 자세한 내용은 [서비스 구성에 대한 자세한 정보](service-fabric-cluster-resource-manager-configure-services.md)에서 알아봅니다.
 - 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요.

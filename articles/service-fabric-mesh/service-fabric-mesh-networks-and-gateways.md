@@ -1,5 +1,5 @@
 ---
-title: Azure 서비스 패브릭 네트워킹 소개
+title: Azure Service Fabric 네트워킹 소개
 description: Service Fabric Mesh에서 네트워크, 게이트웨이 및 인텔리전트 트래픽 라우팅에 대해 알아봅니다.
 author: dkkapur
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.date: 11/26/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: dc793e2991783cc9b7b46d92fcc8e0267feb529b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75459144"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Service Fabric Mesh 애플리케이션의 네트워킹 소개

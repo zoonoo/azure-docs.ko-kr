@@ -4,10 +4,10 @@ description: Advisor를 사용하여 Azure 배포 성능을 최적화합니다.
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: 405ec395feeb33b8511b9b915151b2ed9503c371
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75443051"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Azure Advisor로 Azure 애플리케이션의 성능 향상
@@ -27,7 +27,7 @@ Advisor는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합
 > [!NOTE]
 > 권장 사항을 가져오려면 데이터베이스에 일주일의 사용 기간이 필요하고, 그 기간 내에 일관된 활동이 필요합니다. SQL Database Advisor는 일관성 있는 쿼리 패턴을 임의 활동 버스트보다 더욱 쉽게 최적화할 수 있습니다.
 
-SQL 데이터베이스 관리자에 대한 자세한 내용은 [SQL 데이터베이스 관리자](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)를 참조하십시오.
+SQL Database Advisor에 대 한 자세한 내용은 [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)을 참조 하세요.
 
 ## <a name="improve-app-service-performance-and-reliability"></a>App Service 성능 및 안정성 향상
 
@@ -68,42 +68,42 @@ Advisor는 복제된 테이블이 아니지만 변환을 통해 이득을 얻을
 스토리지 계정 배포 모델을 Azure Resource Manager(Resource Manager)로 마이그레이션하여 템플릿 배포, 추가 보안 옵션, Azure Storage의 최신 기능 활용을 위해 GPv2 계정으로 업그레이드하는 기능을 활용하세요. Advisor는 Classic 배포 모델을 사용 중인 독립형 스토리지 계정을 식별하고 Resource Manager 배포 모델로 마이그레이션할 것을 권장합니다.
 
 > [!NOTE]
-> Azure 모니터의 클래식 경고는 2019년 8월에 사용 중지되었습니다. 새 플랫폼에서 경고 기능을 유지하려면 Resource Manager를 사용하도록 클래식 스토리지 계정을 업그레이드하는 것이 좋습니다. 자세한 내용은 [클래식 경고 사용 중지](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform)를 참조하세요.
+> Azure Monitor의 클래식 경고는 2019 년 8 월에 사용이 중지 되었습니다. 새 플랫폼에서 경고 기능을 유지하려면 Resource Manager를 사용하도록 클래식 스토리지 계정을 업그레이드하는 것이 좋습니다. 자세한 내용은 [클래식 경고 사용 중지](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform)를 참조하세요.
 
-## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>최대 구독 한도에 부딪히지 않도록 저장소 계정 디자인
+## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>최대 구독 제한에 도달 하지 않도록 저장소 계정 디자인
 
-Azure 리전은 구독당 최대 250개의 저장소 계정을 지원할 수 있습니다. 한도에 도달하면 해당 지역/구독 조합에서 더 이상 저장소 계정을 만들 수 없습니다. 어드바이저는 최대 한도에 근접한 스토리지 계정 수를 더 적게 설계할 수 있도록 구독 및 표면 권장 사항을 확인합니다.
+Azure 지역은 구독 당 최대 250 개의 저장소 계정을 지원할 수 있습니다. 제한에 도달 하면 해당 지역/구독 조합에서 저장소 계정을 더 이상 만들 수 없습니다. Advisor는 최대 한도에 도달 하는 데 가까운 모든 저장소 계정에 대 한 설계를 위해 구독과 surface 권장 사항을 확인 합니다.
 
-## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Azure MySQL, Azure PostgreSQL 및 Azure MariaDB 서버의 성능을 최적화합니다. 
+## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Azure MySQL, Azure PostgreSQL 및 Azure MariaDB 서버의 성능 최적화 
 
-### <a name="fix-the-cpu-pressure-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-with-cpu-bottlenecks"></a>CPU 병목 현상이 있는 Azure MySQL, Azure PostgreSQL 및 Azure MariaDB 서버의 CPU 압력 수정
-오랜 기간 동안 CPU를 매우 많이 사용하면 워크로드에 대한 쿼리 성능이 저하될 수 있습니다. CPU 크기를 늘리면 데이터베이스 쿼리의 런타임을 최적화하고 전반적인 성능을 향상시키는 데 도움이 됩니다. Azure Advisor는 CPU 가제한된 워크로드를 실행가능성이 높은 높은 CPU 사용률을 가진 서버를 식별하고 계산 을 확장하는 것이 좋습니다.
+### <a name="fix-the-cpu-pressure-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-with-cpu-bottlenecks"></a>CPU 병목 상태를 사용 하 여 Azure MySQL, Azure PostgreSQL 및 Azure MariaDB 서버의 CPU 압력을 수정 합니다.
+장기간 CPU 사용률이 높으면 작업에 쿼리 성능이 저하 될 수 있습니다. CPU 크기를 높이면 데이터베이스 쿼리의 런타임 최적화 및 전반적인 성능 향상에 도움이 됩니다. Azure Advisor는 CPU 사용률이 높은 cpu 사용률이 높은 서버를 식별 하 고 계산 크기를 조정 하는 것이 좋습니다.
 
-### <a name="reduce-memory-constraints-on-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Azure MySQL, Azure PostgreSQL 및 Azure MariaDB 서버에서 메모리 제약 조건을 줄이거나 메모리 에 최적화된 SKU로 이동
-캐시 적중률이 낮으면 쿼리 성능이 느려지고 IOPS가 증가할 수 있습니다. 이는 잘못된 쿼리 계획 또는 메모리 집약적 워크로드 실행 때문일 수 있습니다. 쿼리 계획을 수정하거나 PostgreSQL 데이터베이스 서버, Azure MySQL 데이터베이스 서버 또는 Azure MariaDB 서버에 대한 Azure 데이터베이스의 [메모리를 늘리면](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) 데이터베이스 워크로드의 실행을 최적화하는 데 도움이 됩니다. Azure Advisor는 이 높은 버퍼 풀 이탈로 인해 영향을 받는 서버를 식별하고 쿼리 계획을 수정하거나, 더 많은 메모리를 가진 상위 SKU로 이동하거나, 더 많은 IOPS를 얻기 위해 저장소 크기를 늘리는 것이 좋습니다.
+### <a name="reduce-memory-constraints-on-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Azure MySQL, Azure PostgreSQL 및 Azure MariaDB 서버에서 메모리 제약 조건을 줄이고 메모리 액세스에 최적화 된 SKU로 이동 합니다.
+낮은 캐시 적중률으로 인해 쿼리 성능이 느려지고 IOPS가 증가할 수 있습니다. 이는 잘못 된 쿼리 계획 이거나 메모리 집약적 작업 실행으로 인해 발생할 수 있습니다. 쿼리 계획을 수정 하거나 Azure Database for PostgreSQL 데이터베이스 서버, Azure MySQL 데이터베이스 서버 또는 Azure MariaDB 서버의 [메모리를 늘려서](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) 데이터베이스 작업의 실행을 최적화 하는 데 도움이 됩니다. Azure Advisor는이 높은 버퍼 풀 변동으로 인해 영향을 받는 서버를 식별 하 고 쿼리 계획을 수정 하거나 더 많은 메모리를 사용 하 여 상위 SKU로 이동 하거나 저장소 크기를 늘려서 더 많은 IOPS를 가져옵니다.
 
-### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Azure MySQL 또는 Azure PostgreSQL 읽기 복제본을 사용하여 읽기 집약적인 워크로드에 대한 읽기 를 확장합니다.
-Azure Advisor는 지난 7일 동안 서버에서 읽기와 쓰기 비율과 같은 워크로드 기반 추론을 활용하여 읽기 집약적인 워크로드를 식별합니다. 읽기/쓰기 비율이 매우 높은 PostgreSQL 리소스 또는 MySQL 리소스용 Azure 데이터베이스에 대한 Azure 데이터베이스는 CPU 및/또는 메모리 경합으로 인해 쿼리 성능이 저하될 수 있습니다.  [복제본을](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) 추가하면 복제본 서버로 읽기를 확장하여 주 서버의 CPU 및/또는 메모리 제약 조건을 방지하는 데 도움이 됩니다. Advisor는 읽기 집약적인 워크로드가 많은 서버를 식별하고 읽기 읽기 작업 부하 중 일부를 오프로드하기 위해 [읽기 복제본을](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) 추가하는 것이 좋습니다.
+### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Azure MySQL 또는 Azure PostgreSQL 읽기 복제본을 사용 하 여 읽기 집약적 워크 로드에 대 한 읽기 확장
+Azure Advisor는 지난 7 일간 서버에서 쓰기에 대 한 읽기의 비율과 같은 작업 기반 추론을 활용 하 여 읽기 집약적인 작업을 식별 합니다. 읽기/쓰기 비율이 매우 높은 azure database for PostgreSQL 리소스 또는 Azure database for MySQL 리소스는 CPU 및/또는 메모리 경합이 증가 하 여 쿼리 성능이 저하 될 수 있습니다.  [복제본](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) 을 추가 하면 복제본 서버에 대 한 읽기를 확장 하 여 주 서버에서 CPU 및/또는 메모리 제약 조건을 방지할 수 있습니다. Advisor는 이러한 높은 읽기 집약적 워크 로드를 사용 하 여 서버를 식별 하 고 읽기 [복제본](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) 을 추가 하 여 일부 읽기 작업을 오프 로드 하는 것이 좋습니다.
 
 
-### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Azure MySQL, Azure PostgreSQL 또는 Azure MariaDB 서버를 더 높은 SKU로 확장하여 연결 제약 조건을 방지합니다.
-데이터베이스 서버에 대한 각 새 연결은 일부 메모리를 차지합니다. 메모리의 [상한으로](https://docs.microsoft.com/azure/postgresql/concepts-limits) 인해 서버에 대한 연결이 실패하면 데이터베이스 서버의 성능이 저하됩니다. Azure Advisor는 많은 연결 실패로 실행되는 서버를 식별하고 서버의 연결 제한을 업그레이드하여 계산을 확장하거나 코어당 더 많은 계산이 있는 메모리 최적화 된 SCO를 사용하여 서버에 더 많은 메모리를 제공하는 것이 좋습니다.
+### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>연결 제약 조건을 방지 하기 위해 Azure MySQL, Azure PostgreSQL 또는 Azure MariaDB 서버를 상위 SKU로 크기 조정
+데이터베이스 서버에 대 한 새 연결은 일부 메모리를 차지 합니다. 서버에 대 한 연결이 메모리의 [상한](https://docs.microsoft.com/azure/postgresql/concepts-limits) 으로 인해 실패 하는 경우 데이터베이스 서버의 성능이 저하 됩니다. Azure Advisor는 많은 연결 오류가 발생 하 여 실행 되는 서버를 식별 하 고, 계산을 확장 하 여 서버에 더 많은 메모리를 제공 하 고, 코어 당 계산을 많이 사용 하는 메모리 최적화 Sku를 사용 하 여 서버에 더 많은 메모리를 제공
 
-## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>캐시를 다른 크기 또는 SKU로 확장하여 캐시 및 응용 프로그램 성능 향상
+## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>캐시와 응용 프로그램 성능을 개선 하기 위해 다른 크기나 SKU로 캐시 크기 조정
 
-캐시 인스턴스는 높은 메모리 압력, 높은 서버 로드 또는 높은 네트워크 대역폭으로 실행되지 않아 응답하지 않거나 데이터 손실을 경험하거나 사용할 수 없게 될 때 가장 잘 수행됩니다. Advisor는 이러한 조건에서 캐시 인스턴스를 식별하고 메모리 압력, 서버 로드 또는 네트워크 대역폭을 줄이기 위한 모범 사례를 적용하거나 더 많은 용량의 다른 크기 또는 SKU로 확장하는 것이 좋습니다.
+캐시 인스턴스는 높은 메모리 부족, 높은 서버 부하 또는 높은 네트워크 대역폭으로 실행 되지 않을 때 최상의 성능을 제공 합니다 .이로 인해 응답 하지 않거나, 데이터 손실이 발생 하거나, 사용할 수 없게 될 수 있습니다. Advisor는 이러한 상황에서 캐시 인스턴스를 식별 하 고, 메모리 부족, 서버 부하 또는 네트워크 대역폭을 줄이기 위해 모범 사례를 적용 하거나 용량이 더 많은 다른 크기나 SKU로 크기를 조정 하는 것이 좋습니다.
 
-## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에 트래픽이 있는 지역 추가
+## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>트래픽이 있는 지역을 Azure Cosmos DB 계정에 추가
 
-어드바이저는 현재 구성되지 않은 리전의 트래픽이 있는 Azure Cosmos DB 계정을 검색하고 해당 지역을 추가하는 것이 좋습니다. 이렇게 하면 해당 리전에서 들어오는 요청에 대한 대기 시간이 향상되고 지역 중단 시 가용성이 보장됩니다. [Azure Cosmos DB를 사용하여 글로벌 데이터 배포에 대해 자세히 알아보기](https://aka.ms/cosmos/globaldistribution)
+Advisor는 현재 구성 되지 않은 지역에서 트래픽을 포함 하는 Azure Cosmos DB 계정을 검색 하 고 해당 지역을 추가 하는 것이 좋습니다. 이렇게 하면 해당 지역에서 들어오는 요청에 대 한 대기 시간이 향상 되 고, 지역 가동 중단이 발생 하는 경우 가용성을 보장 합니다. [Azure Cosmos DB와의 글로벌 데이터 배포에 대 한 자세한 정보](https://aka.ms/cosmos/globaldistribution)
 
-## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>Azure Cosmos DB 인덱싱 정책을 고객 포함 또는 제외 경로로 구성
+## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>고객 포함 또는 제외 경로를 사용 하 여 Azure Cosmos DB 인덱싱 정책 구성
 
-Azure Advisor는 기본 인덱싱 정책을 사용하지만 워크로드 패턴에 따라 사용자 지정 인덱싱 정책의 이점을 얻을 수 있는 Cosmos DB 컨테이너를 식별합니다. 기본 인덱싱 정책은 모든 속성을 인덱싱하지만 쿼리 필터에 사용되는 명시적 포함 또는 제외된 경로가 있는 사용자 지정 인덱싱 정책을 사용하면 인덱싱에 사용되는 R 및 저장소를 줄일 수 있습니다. [인덱스 정책 수정에 대해 자세히 알아보기](https://aka.ms/cosmosdb/modify-index-policy)
+Azure Advisor는 기본 인덱싱 정책을 사용 하는 Cosmos DB 컨테이너를 식별 하지만 워크 로드 패턴을 기반으로 사용자 지정 인덱싱 정책의 이점을 누릴 수 있습니다. 기본 인덱싱 정책은 모든 속성을 인덱싱합니다. 하지만 쿼리 필터에 사용 되는 명시적으로 포함 되거나 제외 된 경로를 사용 하 여 사용자 지정 인덱싱 정책을 사용 하는 경우에는 인덱싱에 사용 된 RUs와 저장소를 줄일 수 [인덱스 정책 수정에 대 한 자세한 정보](https://aka.ms/cosmosdb/modify-index-policy)
 
 ## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Azure Cosmos DB 쿼리 페이지 크기(MaxItemCount)를 -1로 구성 
 
-Azure Advisor는 쿼리 페이지 크기를 100으로 사용하는 Azure Cosmos DB 컨테이너를 식별하고 빠른 검사를 위해 -1의 페이지 크기를 사용하는 것이 좋습니다. [최대 항목 수에 대해 자세히 알아보기](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+Azure Advisor은 쿼리 페이지 크기 100를 사용 하는 Azure Cosmos DB 컨테이너를 식별 하 고, 빠른 검색을 위해 페이지 크기-1을 사용 하는 것이 좋습니다. [최대 항목 수에 대 한 자세한 정보](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Advisor에서 성능 권장 사항에 액세스하는 방법
 
@@ -120,4 +120,4 @@ Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Advisor 비용 권장 사항](advisor-cost-recommendations.md)
 * [Advisor 고가용성 권장 사항](advisor-high-availability-recommendations.md)
 * [Advisor 보안 권장 사항](advisor-security-recommendations.md)
-* [고문 운영 우수성 권장 사항](advisor-operational-excellence-recommendations.md)
+* [Advisor 작동의 뛰어난 권장 사항](advisor-operational-excellence-recommendations.md)

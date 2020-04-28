@@ -1,13 +1,13 @@
 ---
-title: Azure 사이트 복구를 사용 하 고 하이퍼-V 재해 복구에 대 한 일반적인 질문
+title: Azure Site Recovery의 Hyper-v 재해 복구에 대 한 일반적인 질문
 description: 이 문서에는 Azure Site Recovery 사이트를 사용하여 온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 설정하는 방법과 관련된 일반적인 질문이 요약되어 있습니다.
 ms.date: 11/12/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7c5f55fbea67567ddf7a2afa6a61f6c76568d829
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75498198"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>일반적인 질문 - Hyper-V와 Azure 간 재해 복구
@@ -22,9 +22,9 @@ ms.locfileid: "75498198"
 ### <a name="how-do-i-pay-for-azure-vms"></a>Azure VM에 대한 요금을 지불하려면 어떻게 할까요?
 복제 중에 데이터는 Azure Storage로 복제되며 어떠한 VM 변경에도 지불하지 않습니다. Azure에 장애 조치를 실행하면 Site Recovery에서 Azure IaaS 가상 머신을 자동으로 만듭니다. 그러면 Azure에서 사용하는 컴퓨팅 리소스에 대한 요금이 청구됩니다.
 
-### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>범용 v2 저장소 계정으로 복제할 때 비용에 차이가 있습니까?
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>범용 v2 저장소 계정으로 복제할 때 비용 차이가 있나요?
 
-일반적으로 Azure 사이트 복구가 트랜잭션이 많기 때문에 GPv2 저장소 계정에서 발생하는 트랜잭션 비용이 증가합니다. 변경 내용을 예측하려면 [자세히 읽어보십시오.](../storage/common/storage-account-upgrade.md#pricing-and-billing)
+GPv2 저장소 Azure Site Recovery 계정에 발생 하는 트랜잭션 비용이 증가 하는 것을 볼 수 있습니다. 변경을 예측 하려면 [자세히](../storage/common/storage-account-upgrade.md#pricing-and-billing) 알아보세요.
 
 ## <a name="azure"></a>Azure
 
@@ -46,7 +46,7 @@ Hyper-V 호스트 서버에서 필요한 사항은 배포 시나리오에 따라
 
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Hyper-V 2세대 가상 머신을 Azure로 복제할 수 있습니까?
-예. 장애 조치(failover) 동안 Site Recovery가 컴퓨터를 2세대에서 1세대로 변환합니다. 장애 복구 시 컴퓨터가 다시 2세대로 변환됩니다. [자세한 내용을 읽어보십시오.](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)
+예. 장애 조치(failover) 동안 Site Recovery가 컴퓨터를 2세대에서 1세대로 변환합니다. 장애 복구 시 컴퓨터가 다시 2세대로 변환됩니다. [자세히](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)알아보세요.
 
 
 ### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>VMM 서버가 하나밖에 없는 경우 VMM을 사용하여 Site Recovery를 배포할 수 있습니까?
@@ -60,14 +60,14 @@ Azure 구독, Recovery Services 스토리지, 스토리지 계정 및 가상 네
 LRS 또는 GRS 스토리지 계정이 필요합니다. 지역 정전이 발생하거나 주 지역을 복구할 수 없는 경우에 데이터를 복원할 수 있도록 GRS를 사용하는 것이 좋습니다. Premium Storage가 지원됩니다.
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>내 Azure 계정에 VM을 만들 수 있는 권한이 필요한가요?
-구독 관리자인 경우 필요한 복제 권한을 갖고 있습니다. 구독 관리자가 아닌 경우 Site Recovery를 구성할 때 지정한 리소스 그룹 및 가상 네트워크에 Azure VM을 만들 수 있는 권한과 선택한 스토리지 계정에 쓸 수 있는 권한이 필요합니다. [자세히 알아봅니다](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+구독 관리자인 경우 필요한 복제 권한을 갖고 있습니다. 구독 관리자가 아닌 경우 Site Recovery를 구성할 때 지정한 리소스 그룹 및 가상 네트워크에 Azure VM을 만들 수 있는 권한과 선택한 스토리지 계정에 쓸 수 있는 권한이 필요합니다. [자세히 알아보기](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 ### <a name="is-replication-data-sent-to-site-recovery"></a>복제 데이터를 Site Recovery로 보내는가요?
 아니요, Site Recovery는 복제된 데이터를 가로채지 않으며, VM에서 실행되는 항목에 대한 정보를 갖지 않습니다. 복제 데이터는 Hyper-V 호스트와 Azure Storage 간에 교환됩니다. Site Recovery는 데이터를 가로챌 수 있는 기능이 없습니다. 복제 오케스트레이션 및 장애 조치(failover)에 필요한 메타데이터만 Site Recovery 서비스로 전송됩니다.  
 
 Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 및 FedRAMP JAB 평가를 수행하는 중입니다.
 
-### <a name="can-we-keep-on-premises-metadata-within-a-geographic-region"></a>온-프레미스 메타데이터를 지리적 지역 내에 유지할 수 있습니까?
+### <a name="can-we-keep-on-premises-metadata-within-a-geographic-region"></a>지리적 지역 내에서 온-프레미스 메타 데이터를 유지할 수 있나요?
 예. 한 지역에 자격 증명 모음을 만들 때 Site Recovery에서 사용되는 모든 메타데이터가 해당 지역의 지리적 경계 내에 유지되도록 합니다.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery는 복제를 암호화합니까?
@@ -99,7 +99,7 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 - 클러스터의 모든 노드는 동일한 자격 증명 모음에 등록되어야 합니다.
 - VMM을 사용하지 않는 경우 클러스터의 모든 Hyper-V 호스트를 동일한Hyper-V 사이트에 추가해야 합니다.
 - Azure Site Recovery 공급자와 Recovery Services 에이전트를 클러스터의 각 Hyper-V 호스트에 설치하고 각 호스트를 Hyper-V 사이트에 추가합니다.
-- 클러스터에서 특정 단계를 수행할 필요가 없습니다.
+- 클러스터에서 특정 단계를 수행 해야 하는 것은 아닙니다.
 - Hyper-V의 Deployment Planner 도구를 실행하는 경우 이 도구는 해당 도구가 실행되고 있으며 VM이 실행되고 있는 노드에서 프로필 데이터를 수집합니다. 이 도구는 꺼져 있는 노드에서는 데이터를 수집할 수 없고 해당 노드를 추적합니다. 노드가 실행되게 되면 이 도구는 VM 프로필 데이터를 수집하기 시작합니다(VM이 프로필 VM 목록에 속하고 해당 노드에서 실행되는 경우).
 - Site Recovery 자격 증명 모음에 있는 Hyper-V 호스트의 VM을 동일한 클러스터의 다른 Hyper-V 호스트 또는 독립 실행형 호스트로 마이그레이션하면 해당 VM에 대한 복제는 영향을 받지 않습니다. Hyper-V 호스트는 [필수 구성 요소](hyper-v-azure-support-matrix.md#on-premises-servers)를 충족하고 Site Recovery 자격 증명 모음에서 구성되어야 합니다. 
 
@@ -142,16 +142,16 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 
 ### <a name="can-i-replicate-to-azure-with-a-site-to-site-vpn"></a>사이트 간 VPN을 사용하여 Azure에 복제할 수 있나요?
 
-사이트 복구는 공용 끝점을 통해 온-프레미스에서 Azure 저장소로 데이터를 복제하거나 ExpressRoute Microsoft 피어링을 사용하여 데이터를 복제합니다. 사이트 간 VPN 네트워크를 통한 복제는 지원되지 않습니다.
+Site Recovery는 공용 끝점을 사용 하거나 Express 경로 Microsoft 피어 링을 사용 하 여 온-프레미스에서 Azure storage로 데이터를 복제 합니다. 사이트 간 VPN 네트워크를 통한 복제는 지원되지 않습니다.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>ExpressRoute를 사용하여 Azure에 복제할 수 있나요?
 
-예, ExpressRoute를 사용하여 VM을 Azure로 복제할 수 있습니다. 사이트 복구는 공용 끝점을 통해 Azure 저장소 계정에 데이터를 복제하며 사이트 복구 복제에 대한 [Microsoft 피어링을](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) 설정해야 합니다. VM에서 Azure 가상 네트워크로 장애 조치한 후에는 [프라이빗 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 해당 VM에 액세스할 수 있습니다.
+예, ExpressRoute를 사용하여 VM을 Azure로 복제할 수 있습니다. Site Recovery는 공용 끝점을 통해 Azure Storage 계정에 데이터를 복제 하 고 Site Recovery 복제를 위해 [Microsoft 피어 링](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) 을 설정 해야 합니다. VM에서 Azure 가상 네트워크로 장애 조치한 후에는 [프라이빗 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 해당 VM에 액세스할 수 있습니다.
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN을 통해 복제할 수 없는 이유는 무엇인가요?
 
-Azure에 복제하면 복제 트래픽이 Azure Storage 계정의 공용 끝점에 도달합니다. 따라서 ExpressRoute (Microsoft 피어링)를 통해 공용 인터넷을 통해서만 복제할 수 있으며 VPN이 작동하지 않습니다. 
+Azure에 복제 하는 경우 복제 트래픽은 Azure Storage 계정의 공용 끝점에 도달 합니다. 따라서 Express 경로 (Microsoft 피어 링)를 사용 하 여 공용 인터넷을 통해서만 복제할 수 있으며 VPN은 작동 하지 않습니다. 
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>복제된 VM에 대한 요구 사항은 무엇인가요?
 
@@ -202,19 +202,19 @@ Site Recovery는 복제용으로 설정된 Hyper-V VM에서는 어떤 항목도 
 - 계획된 장애 조치를 실행할 경우 데이터 손실을 방지하기 위해 원본 VM이 종료됩니다.
 - 주 사이트에 액세스할 수 없는 경우 계획되지 않은 장애 조치를 실행할 수 있습니다.
 - 단일 컴퓨터에 장애 조치를 수행하거나 복구 계획을 만들어서 여러 컴퓨터의 장애 조치를 오케스트레이션할 수 있습니다.
-- 장애 조치(Failover)는 두 부분으로 나타미수 있습니다.
+- 장애 조치 (Failover)는 두 부분으로 구성 됩니다.
     - 첫 번째 장애 조치를 실행한 후에 Azure에서 만들어진 복제본 VM이 표시되어야 합니다. 필요한 경우 VM에 공용 IP 주소를 할당할 수 있습니다.
     - 그런 다음 복제본 Azure VM에서 워크로드에 액세스하려면 장애 조치를 커밋합니다.
    
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>장애 조치 후 Azure VM에 액세스하려면 어떻게 할까요?
-장애 조치 후에 보안 인터넷 연결, 사이트 간 VPN 또는 Azure ExpressRoute를 통해 Azure VM에 액세스할 수 있습니다. 연결하려면 여러 가지 사항을 준비해야 합니다. [자세히 알아봅니다](failover-failback-overview.md#connect-to-azure-after-failover).
+장애 조치 후에 보안 인터넷 연결, 사이트 간 VPN 또는 Azure ExpressRoute를 통해 Azure VM에 액세스할 수 있습니다. 연결하려면 여러 가지 사항을 준비해야 합니다. [자세히 알아보기](failover-failback-overview.md#connect-to-azure-after-failover).
 
 ### <a name="is-failed-over-data-resilient"></a>장애 조치된 데이터는 복원되나요?
 Azure는 복원을 위해 디자인되었습니다. Site Recovery는 Azure SLA에 따라 보조 Azure 데이터 센터에 장애 조치하도록 설계되었습니다. 장애 조치가 발생하면 메타데이터와 자격 증명 모음이 자격 증명 모음에 대해 선택한 지리적 지역과 동일한 지역에 유지되고 있는지 확인합니다.
 
 ### <a name="is-failover-automatic"></a>장애 조치(failover)는 자동입니까?
-[장애 조치(Failover)는](site-recovery-failover.md) 자동이 아닙니다. 포털에서 한 번의 클릭으로 장애 조치(failover)를 시작하거나 [PowerShell을](/powershell/module/az.recoveryservices) 사용하여 장애 조치(failover)를 트리거할 수 있습니다.
+[장애 조치 (Failover)](site-recovery-failover.md) 는 자동이 아닙니다. 포털에서 한 번의 클릭으로 장애 조치 (failover)를 시작 하거나 [PowerShell](/powershell/module/az.recoveryservices) 을 사용 하 여 장애 조치 (failover)를 트리거할 수 있습니다.
 
 ### <a name="how-do-i-fail-back"></a>장애 복구(Failback)하려면 어떻게 하나요?
 
@@ -226,9 +226,9 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 Azure SLA�
     - 전체 다운로드:이 옵션에서는 장애 조치(Failover) 중에 데이터가 동기화됩니다. 이 옵션은 전체 디스크를 다운로드합니다. 체크섬을 계산하지 않아 더 빠르지만 가동 중지 시간은 더 늘어납니다. 상당 시간 동안 복제본 Azure VM을 실행하였거나 온-프레미스 VM이 삭제된 경우에 이 옵션을 사용합니다.
 
 2. 동일한 VM으로 또는 대체 VM으로 장애 복구(Failback)하도록 선택할 수 있습니다. VM이 없는 경우 Site Recovery가 이를 만들도록 지정할 수 있습니다.
-3. 초기 동기화가 완료되면 장애 조치를 완료하도록 선택합니다. 완료된 후 온-프레미스 VM에 로그인하여 모든 것이 예상대로 작동하는지 확인할 수 있습니다. Azure Portal에서 Azure VM이 중지된 것을 확인할 수 있습니다.
+3. 초기 동기화가 완료되면 장애 조치를 완료하도록 선택합니다. 완료 되 면 온-프레미스 VM에 로그인 하 여 모든 것이 예상 대로 작동 하는지 확인할 수 있습니다. Azure Portal에서 Azure VM이 중지된 것을 확인할 수 있습니다.
 4. 장애 조치(Failover)를 커밋하여 완료하고 다시 온-프레미스 VM에서 워크로드에 액세스합니다.
 5. 워크로드가 장애 복구되면 역방향 복제를 활성화하여 온-프레미스 VM이 다시 Azure에 복제되게 합니다.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>다른 위치로 장애 조치할 수 있나요?
-예, Azure에 장애 조치한 경우 원본을 사용할 수 없을 때 다른 위치로 장애 복구할 수 있습니다. [자세히 알아봅니다](hyper-v-azure-failback.md#fail-back-to-an-alternate-location).
+예, Azure에 장애 조치한 경우 원본을 사용할 수 없을 때 다른 위치로 장애 복구할 수 있습니다. [자세히 알아보기](hyper-v-azure-failback.md#fail-back-to-an-alternate-location).

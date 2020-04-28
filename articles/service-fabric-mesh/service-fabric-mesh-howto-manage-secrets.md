@@ -1,13 +1,13 @@
 ---
-title: Azure 서비스 패브릭 메시 응용 프로그램 보안 정보 관리
+title: Azure Service Fabric 메시 응용 프로그램 비밀 관리
 description: 애플리케이션 비밀을 안전하게 생성하고 배포할 수 있도록 Service Fabric Mesh 애플리케이션을 관리합니다.
 ms.date: 4/2/2019
 ms.topic: conceptual
 ms.openlocfilehash: d7946092a0bebe374404870fcd711ad33cc98b11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75461922"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Service Fabric Mesh 애플리케이션 비밀 관리
@@ -18,14 +18,14 @@ Mesh 애플리케이션 비밀은 다음으로 이루어져 있습니다.
 * 하나 이상의 **비밀/값** 리소스는 **비밀** 리소스 컨테이너에 저장됩니다. 각 **비밀/값** 리소스는 버전 번호로 구분됩니다. **비밀/값** 리소스의 버전을 수정할 수 없고 새 버전을 추가할 수는 있습니다.
 
 비밀을 관리하는 작업은 다음 단계로 구성됩니다.
-1. 인라인된 Value 종류 및 SecretsStoreRef 콘텐츠 형식 정의를 사용하여 Azure 리소스 모델 YAML 또는 JSON 파일에서 메시 **비밀** 리소스를 선언합니다.
-2. **비밀** 리소스 리소스에 저장되는 Azure 리소스 모델 YAML 또는 JSON 파일에서 메시 **암호/값** 리소스를 선언합니다(1단계에서).
+1. InlinedValue kind 및 SecretsStoreRef contentType 정의를 사용 하 여 Azure 리소스 모델 YAML 또는 JSON 파일에 메시 **비밀** 리소스를 선언 합니다.
+2. **암호** 리소스에 저장 될 Azure 리소스 모델 yaml 또는 JSON 파일에 메시 **암호/값** 리소스를 선언 합니다 (1 단계).
 3. Mesh 비밀 값을 참조하도록 Mesh 애플리케이션을 수정합니다.
 4. 비밀 값을 사용하도록 Mesh 애플리케이션을 배포하거나 롤링 업그레이드합니다.
 5. 보안 스토리지 서비스 수명 주기 관리에 대해 Azure "az" CLI 명령을 사용합니다.
 
 ## <a name="declare-a-mesh-secrets-resource"></a>Mesh 비밀 리소스를 선언합니다.
-메시 암호 리소스는 인라인된Value 종류 정의를 사용하여 Azure 리소스 모델 JSON 또는 YAML 파일에 선언됩니다. Mesh 비밀 리소스는 보안 스토리지 서비스 제공 비밀을 지원합니다. 
+메시 비밀 리소스는 inlinedValue kind 정의를 사용 하 여 Azure 리소스 모델 JSON 또는 YAML 파일에서 선언 됩니다. Mesh 비밀 리소스는 보안 스토리지 서비스 제공 비밀을 지원합니다. 
 >
 JSON 파일에서 Mesh 비밀 리소스를 선언하는 방법의 예제는 다음과 같습니다.
 
@@ -200,9 +200,9 @@ az mesh deployment create –-<template-file> or --<template-uri>
 ```
 **template-file** 또는 **template-uri** 중 하나를 전달합니다(둘 다는 안 됨).
 
-예를 들어:
+다음은 그 예입니다.
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
-- az 메시 배포 생성\/--https: /www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
+- az 메시 deployment create--https:\//www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 
 ### <a name="show-a-secret"></a>비밀 표시
 비밀(값은 안 됨)의 설명을 반환합니다.

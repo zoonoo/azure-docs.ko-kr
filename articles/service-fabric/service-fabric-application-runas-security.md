@@ -1,13 +1,13 @@
 ---
-title: 시스템 및 로컬 보안 계정에서 서비스 실행
+title: 시스템 및 로컬 보안 계정으로 서비스를 실행 합니다.
 description: 시스템 및 보안 로컬 계정에서 Service Fabric 애플리케이션을 실행하는 방법에 대해 알아봅니다.  보안 주체를 만들고, 실행 정책을 적용하여 서비스를 안전하게 실행합니다.
 ms.topic: conceptual
 ms.date: 03/29/2018
 ms.openlocfilehash: 53212f8636602705899834b6db1d3f0d80b5fe4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75610127"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>로컬 사용자 계정 또는 시스템 계정으로 서비스 실행

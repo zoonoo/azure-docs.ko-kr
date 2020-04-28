@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight의 Phoenix 성능
-description: Azure HDInsight 클러스터에 대한 아파치 피닉스 성능을 최적화하는 모범 사례
+description: Azure HDInsight 클러스터에 대 한 Apache Phoenix 성능 최적화를 위한 모범 사례
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
 ms.openlocfilehash: 7f8f20be81e815414c283f7ec48aa6503e3b60ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75552647"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Apache Phoenix 성능 모범 사례
@@ -27,7 +27,7 @@ Phoenix 테이블의 스키마 디자인에는 기본 키 디자인, 열 패밀�
 
 ### <a name="primary-key-design"></a>기본 키 디자인
 
-Phoenix의 테이블에 정의된 기본 키는 기본 HBase 테이블의 rowkey 내에 데이터가 저장되는 방법을 결정합니다. HBase에서 특정 행에 액세스하는 유일한 방법은 rowkey를 사용하는 것입니다. 또한 HBase 테이블에 저장된 데이터는 rowkey별로 정렬됩니다. Phoenix는 행의 각 열 의 값을 기본 키에 정의된 순서대로 연결하여 rowkey 값을 작성합니다.
+Phoenix의 테이블에 정의된 기본 키는 기본 HBase 테이블의 rowkey 내에 데이터가 저장되는 방법을 결정합니다. HBase에서 특정 행에 액세스하는 유일한 방법은 rowkey를 사용하는 것입니다. 또한 HBase 테이블에 저장된 데이터는 rowkey별로 정렬됩니다. Phoenix는 행의 각 열 값을 기본 키에 정의 된 순서 대로 연결 하 여 rowkey 값을 작성 합니다.
 
 예를 들어 연락처에 대한 테이블의 이름, 성, 전화 번호 및 주소는 모두 같은 열 패밀리에 있습니다. 증가하는 시퀀스 번호를 기준으로 기본 키를 정의할 수 있습니다.
 
@@ -72,8 +72,8 @@ Phoenix의 테이블에 정의된 기본 키는 기본 HBase 테이블의 rowkey
 
 ### <a name="column-design"></a>열 디자인
 
-* 큰 열의 I/O 비용 때문에 VARCHAR 열을 약 1MB 미만으로 유지합니다. 쿼리를 처리할 때 HBase는 전체 셀을 구체화한 후에 클라이언트에 보내고, 클라이언트는 전체 셀을 받은 후에 애플리케이션 코드에 전달합니다.
-* protobuf, Avro, msgpack 또는 BSON과 같은 압축 형식을 사용하여 열 값을 저장합니다. JSON은 더 크므로 권장하지 않습니다.
+* 매우 많은 열의 i/o 비용으로 인해 VARCHAR 열을 약 1mb 미만으로 유지 합니다. 쿼리를 처리할 때 HBase는 전체 셀을 구체화한 후에 클라이언트에 보내고, 클라이언트는 전체 셀을 받은 후에 애플리케이션 코드에 전달합니다.
+* protobuf, Avro, msgpack 또는 BSON과 같은 압축 형식을 사용하여 열 값을 저장합니다. JSON은 더 크므로 권장 되지 않습니다.
 * 데이터를 먼저 압축한 후에 스토리지하여 대기 시간과 I/O 비용을 줄입니다.
 
 ### <a name="partition-data"></a>데이터 분할
@@ -153,7 +153,7 @@ covered 인덱스는 인덱싱된 값 외에도 행의 데이터를 포함하는
 
 예를 들어 비행 지연 정보를 저장하는 FLIGHTS라는 테이블이 있다고 가정해 보겠습니다.
 
-의 항공사와 `19805`모든 항공편을 선택하려면 어디 airlineid기본 키 또는 인덱스에 없는 필드입니다:
+항공편 lineid가 인 항공편을 모두 선택 하려면이 `19805`고, 여기서는 기본 키 또는 인덱스에 없는 필드입니다.
 
     select * from "FLIGHTS" where airlineid = '19805';
 
@@ -208,15 +208,15 @@ explain 계획 결과에 나타날 수 있는 항목의 전체 목록은 [Apache
 
 ### <a name="read-heavy-workloads"></a>읽기 작업이 많은 워크로드
 
-읽기가 많은 사용 사례의 경우 인덱스를 사용하고 있는지 확인합니다. 또한 읽기 시간 오버헤드를 줄이려면 covered 인덱스를 만드는 것이 좋습니다.
+읽기 작업이 많은 사용 사례의 경우 인덱스를 사용 하 고 있는지 확인 합니다. 또한 읽기 시간 오버헤드를 줄이려면 covered 인덱스를 만드는 것이 좋습니다.
 
 ### <a name="write-heavy-workloads"></a>쓰기 작업이 많은 워크로드
 
-기본 키가 단조롭게 증가하는 쓰기 무거운 워크로드의 경우 필요한 추가 검사로 인해 전체 읽기 처리량을 희생하여 쓰기 핫스팟을 피할 수 있도록 솔트 버킷을 만듭니다. 또한 UPSERT를 사용하여 많은 수의 레코드를 쓰는 경우 autoCommit을 해제하고 레코드를 일괄 처리합니다.
+기본 키가 단순하게 늘어나는 쓰기 작업이 많은 워크 로드의 경우, 추가 검색을 수행 하기 때문에 전체 읽기 처리량이 발생 하기 때문에 쓰기 핫스팟을 방지 하는 데 도움이 되는 솔트 버킷을 만듭니다. 또한 UPSERT를 사용하여 많은 수의 레코드를 쓰는 경우 autoCommit을 해제하고 레코드를 일괄 처리합니다.
 
 ### <a name="bulk-deletes"></a>대량 삭제
 
-큰 데이터 집합을 삭제할 때 DELETE 쿼리를 실행하기 전에 autoCommit을 켜서 클라이언트가 삭제된 모든 행에 대한 행 키를 기억할 필요가 없도록 합니다. autoCommit은 클라이언트에서 DELETE의 영향을 받는 행을 버퍼링하지 못하도록 하여 Phoenix에서 클라이언트로 반환하지 않고도 지역 서버로부터 직접 삭제할 수 있습니다.
+대량 데이터 집합을 삭제 하는 경우 삭제 쿼리를 실행 하기 전에 자동 커밋을 설정 하 여 클라이언트에서 삭제 된 모든 행에 대 한 행 키를 기억할 필요가 없도록 합니다. autoCommit은 클라이언트에서 DELETE의 영향을 받는 행을 버퍼링하지 못하도록 하여 Phoenix에서 클라이언트로 반환하지 않고도 지역 서버로부터 직접 삭제할 수 있습니다.
 
 ### <a name="immutable-and-append-only"></a>변경 불가능 및 추가 전용
 

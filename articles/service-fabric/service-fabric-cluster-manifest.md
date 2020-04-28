@@ -1,15 +1,15 @@
 ---
-title: Azure 서비스 패브릭 독립 실행형 클러스터 구성
+title: Azure Service Fabric 독립 실행형 클러스터 구성
 description: 독립 실행형 또는 온-프레미스 Azure Service Fabric 클러스터를 구성하는 방법을 알아봅니다.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: dekapur
 ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75458364"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>독립 실행형 Windows 클러스터에 대한 구성 설정
@@ -19,9 +19,9 @@ ms.locfileid: "75458364"
 
 * ClusterConfig.Unsecure.DevCluster.json 및 ClusterConfig.Unsecure.MultiMachine.json은 보안이 유지되지 않는 테스트 또는 프로덕션 클러스터 각각을 만드는 방법을 보여 줍니다.
 
-* ClusterConfig.Windows.DevCluster.json 및 ClusterConfig.Windows.Windows.Json Windows [보안을](service-fabric-windows-cluster-windows-security.md)사용 하 여 보안 된 테스트 또는 프로덕션 클러스터를 만드는 방법을 보여 준다.
+* ClusterConfig. windows [보안](service-fabric-windows-cluster-windows-security.md)을 사용 하 여 보안이 유지 되는 테스트 또는 프로덕션 클러스터를 만드는 방법을 보여 줍니다.
 
-* ClusterConfig.X509.DevCluster.json 및 ClusterConfig.X509.MultiMachine.json [X509 인증서 기반 보안을](service-fabric-windows-cluster-x509-security.md)사용하여 보호되는 테스트 또는 프로덕션 클러스터를 만드는 방법을 보여 준다.
+* Clustervvvvvvvvvvvvvvvvvvvvvdes [.](service-fabric-windows-cluster-x509-security.md)
 
 이제 아래와 같이 ClusterConfig.json 파일의 여러 섹션을 살펴보겠습니다.
 
@@ -113,7 +113,7 @@ security 섹션은 보안 독립 실행형 Service Fabric 클러스터에 필요
 }
 ```
 
-metadata는 보안 클러스터에 대한 설명이며, 설정에 따라 지정될 수 있습니다. ClusterCredentialType 및 ServerCredentialType은 클러스터 및 노드에서 구현하는 보안 종류를 결정합니다. 인증서 기반 보안의 경우 *X509로* 설정하거나 Active Directory 기반 보안을 위한 *Windows로* 설정할 수 있습니다. security 섹션의 나머지 부분은 보안 종류에 따라 설정됩니다. security 섹션의 나머지 부분을 채우는 방법에 대한 자세한 내용은 [독립 실행형 클러스터의 인증서 기반 보안](service-fabric-windows-cluster-x509-security.md) 또는 [독립 실행형 클러스터의 Windows 보안](service-fabric-windows-cluster-windows-security.md)을 참조하세요.
+metadata는 보안 클러스터에 대한 설명이며, 설정에 따라 지정될 수 있습니다. ClusterCredentialType 및 ServerCredentialType은 클러스터 및 노드에서 구현하는 보안 종류를 결정합니다. 인증서 기반 보안의 경우 *X509* 또는 Active Directory 기반 보안의 경우 *Windows* 로 설정할 수 있습니다. security 섹션의 나머지 부분은 보안 종류에 따라 설정됩니다. security 섹션의 나머지 부분을 채우는 방법에 대한 자세한 내용은 [독립 실행형 클러스터의 인증서 기반 보안](service-fabric-windows-cluster-x509-security.md) 또는 [독립 실행형 클러스터의 Windows 보안](service-fabric-windows-cluster-windows-security.md)을 참조하세요.
 
 ### <a name="node-types"></a>노드 유형
 nodeTypes 섹션에서는 클러스터에서 사용하는 노드 유형에 대해 설명합니다. 아래 코드 조각과 같이 클러스터에 하나 이상의 노드 유형을 지정해야 합니다. 
@@ -193,13 +193,13 @@ KtlLogger 섹션에서 Reliable Services에 대한 전역 구성 설정을 지�
     ]
 }
 ```
-사용 가능한 모든 추가 기능은 [서비스 패브릭 REST API 참조에서](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures)볼 수 있습니다.
+사용 가능한 모든 추가 기능 기능은 [Service Fabric REST API 참조](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures)에서 볼 수 있습니다.
 
 ### <a name="container-support"></a>컨테이너 지원
 Windows Server 컨테이너 지원 및 Hyper-V 컨테이너 지원 모두를 독립 실행형 클러스터에 사용하려면 DnsService 추가 기능을 사용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-독립 실행형 클러스터 설정에 따라 구성된 전체 *ClusterConfig.json* 파일이 있으면 클러스터를 배포할 수 있습니다. [독립 실행형 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)의 단계를 수행합니다. 
+독립 실행형 클러스터 설정에 따라 구성 된 전체 *Clusterconfig* 파일을 만든 후에는 클러스터를 배포할 수 있습니다. [독립 실행형 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)의 단계를 수행합니다. 
 
 독립 실행형 클러스터를 배포한 경우 [독립 실행형 클러스터의 구성을 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)할 수도 있습니다. 
 

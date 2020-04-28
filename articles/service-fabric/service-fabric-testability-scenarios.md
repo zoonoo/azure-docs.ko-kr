@@ -1,15 +1,15 @@
 ---
-title: Azure 서비스 패브릭에 대한 혼돈 및 장애 조치 테스트 만들기
+title: Azure Service Fabric에 대 한 비정상 및 장애 조치 (failover) 테스트 만들기
 description: 서비스 패브릭 Chaos 테스트 및 장애 조치 테스트 시나리오를 통해 결함을 유도하고 서비스의 신뢰성을 확인합니다.
 author: motanv
 ms.topic: conceptual
 ms.date: 10/1/2019
 ms.author: motanv
 ms.openlocfilehash: 206b02024ad052a12e87cfdf1773815027e8aec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75465540"
 ---
 # <a name="testability-scenarios"></a>테스트 용이성 시나리오
@@ -124,7 +124,7 @@ class Test
 
 PowerShell
 
-서비스 패브릭 Powershell 모듈에는 혼돈 시나리오를 시작하는 두 가지 방법이 포함되어 있습니다. `Invoke-ServiceFabricChaosTestScenario`클라이언트 기반이며 테스트 중간에 클라이언트 컴퓨터가 종료되면 더 이상 오류가 발생하지 않습니다. 또는 컴퓨터 가동 중단 시 테스트를 계속 실행하기 위한 명령 집합이 있습니다. `Start-ServiceFabricChaos`FaultAnalysisService라는 상태 관리적이고 신뢰할 수 있는 시스템 서비스를 사용하여 TimeToRun이 가동될 때까지 오류가 계속 발생하도록 합니다. `Stop-ServiceFabricChaos`시나리오를 수동으로 중지하는 데 사용할 `Get-ServiceFabricChaosReport` 수 있으며 보고서를 얻을 수 있습니다. 자세한 내용은 [Azure 서비스 패브릭 Powershell 참조](https://docs.microsoft.com/powershell/module/servicefabric/?view=azureservicefabricps) 및 서비스 패브릭 [클러스터에서 제어된 혼돈 유도를](service-fabric-controlled-chaos.md)참조하십시오.
+Service Fabric Powershell 모듈에는 비정상 상황 시나리오를 시작 하는 두 가지 방법이 포함 되어 있습니다. `Invoke-ServiceFabricChaosTestScenario`는 클라이언트 기반 이며, 클라이언트 컴퓨터가 테스트를 통해 중간에 종료 되는 경우 더 이상 오류가 발생 하지 않습니다. 또는 컴퓨터 종료 시 테스트 실행을 유지 하는 일련의 명령이 있습니다. `Start-ServiceFabricChaos`Faultanalysisservice의입니다 라는 상태 저장 및 안정적인 시스템 서비스를 사용 하 여 TimeToRun가 가동 될 때까지 오류가 계속 해 서 발생 하는지 확인 합니다. `Stop-ServiceFabricChaos`를 사용 하 여 시나리오를 수동으로 중지 하 고 `Get-ServiceFabricChaosReport` 보고서를 가져올 수 있습니다. 자세한 내용은 [Azure Service Fabric Powershell 참조](https://docs.microsoft.com/powershell/module/servicefabric/?view=azureservicefabricps) 및 [Service Fabric 클러스터에서 비정상 상황 제어 유도](service-fabric-controlled-chaos.md)를 참조 하세요.
 
 ```powershell
 $connection = "localhost:19000"
@@ -159,7 +159,7 @@ Invoke-ServiceFabricChaosTestScenario -TimeToRunMinute $timeToRun -MaxClusterSta
 * **WaitTimeBetweenFaults**: 모든 오류 및 유효성 검사 주기 사이에 대기하는 시간입니다.
 
 ### <a name="how-to-run-the-failover-test"></a>장애 조치(failover) 테스트를 실행하는 방법
-**C #**
+**C#**
 
 ```csharp
 using System;
@@ -234,7 +234,7 @@ class Test
 ```
 
 
-**Powershell**
+**PowerShell**
 
 ```powershell
 $connection = "localhost:19000"

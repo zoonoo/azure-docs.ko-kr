@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.openlocfilehash: 2e4a6ab8825982969ffa4654c2418f7a9d168d2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75460723"
 ---
-# <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Azure 인지 검색에서 텍스트 처리를 위한 분석기
+# <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Azure Cognitive Search에서 텍스트 처리를 위한 분석기
 
 *분석기*는 쿼리 문자열과 인덱싱된 문서의 텍스트를 처리하는 [전체 텍스트 검색 엔진](search-lucene-query-architecture.md)의 구성 요소입니다. 시나리오에 따라 여러 분석기가 다양한 방법으로 텍스트를 조작합니다. 언어 분석기는 검색 품질을 개선하기 위해 언어 규칙을 사용하여 텍스트를 처리하는 반면, 다른 분석기는 문자를 소문자로 변환하는 작업처럼 기본적인 작업을 수행합니다. 
 
-언어 분석기는 가장 자주 사용되며 Azure 인지 검색 인덱스의 모든 검색 가능한 필드에 할당된 기본 언어 분석기입니다. 다음은 텍스트 분석 중에 일반적으로 수행되는 언어 변환입니다.
+언어 분석기는 가장 자주 사용 되며, Azure Cognitive Search 인덱스에서 검색 가능한 모든 필드에 기본 언어 분석기가 할당 됩니다. 다음은 텍스트 분석 중에 일반적으로 수행되는 언어 변환입니다.
 
 + 필수적이지 않은 단어(중지 단어) 및 문장 부호가 제거됩니다.
 + 구 및 하이픈을 넣은 단어는 구성 요소 부분으로 분류됩니다.
@@ -30,19 +30,19 @@ ms.locfileid: "75460723"
 
 ## <a name="default-analyzer"></a>기본 분석기  
 
-Azure Cognitive Search는 [아파치 루센 표준 분석기(표준 루센)를](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) 기본값으로 사용하여 ["유니코드 텍스트 세분화"](https://unicode.org/reports/tr29/) 규칙에 따라 텍스트를 요소로 나눕니다. 또한 표준 분석기에서는 모든 문자를 소문자 형식으로 변환합니다. 인덱싱 및 쿼리 처리 중에는 인덱싱된 문서와 검색 용어 둘 다에 대해 분석을 수행합니다.  
+Azure Cognitive Search는 [Apache Lucene 표준 분석기 (표준 Lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) 를 기본값으로 사용 합니다. 그러면 ["유니코드 텍스트 구분"](https://unicode.org/reports/tr29/) 규칙에 따라 텍스트를 요소로 분리 합니다. 또한 표준 분석기에서는 모든 문자를 소문자 형식으로 변환합니다. 인덱싱 및 쿼리 처리 중에는 인덱싱된 문서와 검색 용어 둘 다에 대해 분석을 수행합니다.  
 
 모든 검색 가능 필드에 자동으로 사용됩니다. 필드별로 기본 분석기를 재정의할 수 있습니다. [언어 분석기](index-add-language-analyzers.md), [사용자 지정 분석기](index-add-custom-analyzers.md) 또는 [사용 가능한 분석기 목록](index-add-custom-analyzers.md#AnalyzerTable)의 미리 정의된 분석기를 대신 사용할 수 있습니다.
 
 
 ## <a name="types-of-analyzers"></a>분석기 유형
 
-다음 목록은 Azure 인지 검색에서 사용할 수 있는 분석기를 설명합니다.
+다음 목록에는 Azure Cognitive Search에서 사용할 수 있는 분석기에 대 한 설명이 나와 있습니다.
 
-| Category | 설명 |
+| 범주 | Description |
 |----------|-------------|
 | [표준 Lucene 분석기](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | 기본값 사양 또는 구성이 필요하지 않습니다. 이 범용 분석기는 대부분의 언어와 시나리오에서 잘 작동합니다.|
-| 미리 정의된 분석기 | 있는 그대로 사용되는 완제품으로 제공됩니다. <br/>특수 및 언어와 같은 두 가지 형식이 있습니다. "미리 정의된"이라는 수식어가 붙은 이유는 구성 또는 사용자 지정 없이 이름으로 참조하기 때문입니다. <br/><br/>[특수(언어 중립적) 분석기](index-add-custom-analyzers.md#AnalyzerTable)는 텍스트 입력에 특수 처리 또는 최소한의 처리가 필요할 때 사용됩니다. 미리 정의된 비언어 분석기는 **Asciifolding**, **키워드**, **패턴**, **단순**, **중지**, **공백**을 포함합니다.<br/><br/>[언어 분석기](index-add-language-analyzers.md)는 개별 언어에 대해 풍부한 언어 지원이 필요할 때 사용됩니다. Azure Cognitive Search는 35개의 루센 언어 분석기와 50개의 Microsoft 자연어 처리 분석기를 지원합니다. |
+| 미리 정의된 분석기 | 있는 그대로 사용되는 완제품으로 제공됩니다. <br/>특수 및 언어와 같은 두 가지 형식이 있습니다. "미리 정의된"이라는 수식어가 붙은 이유는 구성 또는 사용자 지정 없이 이름으로 참조하기 때문입니다. <br/><br/>[특수(언어 중립적) 분석기](index-add-custom-analyzers.md#AnalyzerTable)는 텍스트 입력에 특수 처리 또는 최소한의 처리가 필요할 때 사용됩니다. 미리 정의된 비언어 분석기는 **Asciifolding**, **키워드**, **패턴**, **단순**, **중지**, **공백**을 포함합니다.<br/><br/>[언어 분석기](index-add-language-analyzers.md)는 개별 언어에 대해 풍부한 언어 지원이 필요할 때 사용됩니다. Azure Cognitive Search는 35 Lucene 언어 분석기 및 50 Microsoft 자연어 처리 분석기를 지원 합니다. |
 |[사용자 지정 분석기](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | 기존 요소를 결합한 사용자 정의 구성을 말하며, 토크나이저(필수) 하나와 여러 선택적 필터(char 또는 토큰)로 구성됩니다.|
 
 **패턴** 또는 **중지** 같은 일부 미리 정의된 분석기는 제한된 구성 옵션 세트를 지원합니다. 이러한 옵션을 설정하려면 미리 정의된 분석기와 [미리 정의된 분석기 참조](index-add-custom-analyzers.md#AnalyzerTable)에 설명된 대체 옵션 중 하나로 구성되는 사용자 지정 분석기를 실질적으로 만들어야 합니다. 다른 사용자 지정 구성과 마찬가지로, Lucene 패턴 분석기와 구분할 수 있도록 구성의 이름(예: *myPatternAnalyzer*)을 입력합니다.
@@ -53,17 +53,17 @@ Azure Cognitive Search는 [아파치 루센 표준 분석기(표준 루센)를](
 
 2. 인덱스의 [필드 정의](https://docs.microsoft.com/rest/api/searchservice/create-index)에서, 필드의 **analyzer** 속성을 대상 분석기의 이름으로 설정합니다(예: `"analyzer" = "keyword"`). 유효한 값에는 미리 정의된 분석기, 언어 분석기 또는 인덱스 스키마에 정의된 사용자 지정 분석기의 이름이 포함됩니다. 서비스에 인덱스를 만들기 전에, 인덱스 정의 단계에서 분석기 할당 계획을 수립합니다.
 
-3. 선택적으로 하나의 **분석기** 속성 대신 **indexAnalyzer** 및 **searchAnalyzer** 필드 매개 변수를 사용하여 인덱싱 및 쿼리를 위해 다른 분석기를 설정할 수 있습니다. 이러한 작업 중 하나에서 다른 작업에는 필요 없는 특정 변환이 필요한 경우 데이터 준비 및 검색에 다른 분석기를 사용할 것입니다.
+3. 필요에 따라 하나의 **분석기** 속성 대신, **Indexanalyzer** 및 **searchanalyzer** 필드 매개 변수를 사용 하 여 인덱싱 및 쿼리에 대해 서로 다른 분석기를 설정할 수 있습니다. 이러한 작업 중 하나에서 다른 작업에는 필요 없는 특정 변환이 필요한 경우 데이터 준비 및 검색에 다른 분석기를 사용할 것입니다.
 
 > [!NOTE]
-> 인덱싱 시 필드의 쿼리 시간과 다른 [언어 분석기를](index-add-language-analyzers.md) 사용할 수 없습니다. 이 기능은 [사용자 지정 분석기용으로](index-add-custom-analyzers.md)예약되어 있습니다. 이러한 이유로 **searchAnalyzer** 또는 **indexAnalyzer** 속성을 언어 분석기의 이름으로 설정하려고 하면 REST API가 오류 응답을 반환합니다. 대신 **분석기** 속성을 사용해야 합니다.
+> 필드에 대 한 쿼리 시간에는 인덱싱 시 다른 [언어 분석기](index-add-language-analyzers.md) 를 사용할 수 없습니다. 이 기능은 [사용자 지정 분석기](index-add-custom-analyzers.md)에 대해 예약 되어 있습니다. 이러한 이유로 **searchanalyzer** 또는 **indexanalyzer** 속성을 언어 분석기의 이름으로 설정 하려고 하면 REST API 오류 응답이 반환 됩니다. 대신 **analyzer** 속성을 사용 해야 합니다.
 
 이미 물리적으로 생성된 필드에 **analyzer** 또는 **indexAnalyzer**를 할당하는 것은 허용되지 않습니다. 이해 되지 않는 부분이 있으면 다시 작성이 필요한 작업과 그 이유를 분류해 놓은 다음 표를 검토하세요.
  
  | 시나리오 | 영향 | 단계 |
  |----------|--------|-------|
  | 새 필드 추가 | 최소 | 스키마에 아직 필드가 존재하지 않으면 인덱스에 실제로 존재하는 필드가 없는 것이므로 변경할 필드가 없습니다. [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index)를 사용하여 기존 인덱스에 새 필드를 추가하고, [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 사용하여 새 필드를 채웁니다.|
- | 기존의 인덱싱된 필드에 **analyzer** 또는 **indexAnalyzer**를 추가합니다. | [다시](search-howto-reindex.md) | 해당 필드에 대해 반전된 인덱스를 처음부터 다시 만들고 이 필드에 대한 콘텐츠를 다시 인덱싱해야 합니다. <br/> <br/>개발 중인 인덱스의 경우 인덱스를 [삭제하고](https://docs.microsoft.com/rest/api/searchservice/delete-index)[만들어](https://docs.microsoft.com/rest/api/searchservice/create-index) 새 필드 정의를 선택합니다. <br/> <br/>프로덕션 환경의 인덱스인 경우 수정된 정의를 제공하는 새 필드를 만들어서 기존 필드 대신 사용하면 다시 작성을 미룰 수 있습니다. [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index)를 사용하여 새 필드를 통합하고 [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 사용하여 새 필드를 채웁니다. 나중에 계획된 인덱스 서비스의 일환으로 인덱스를 정리하여 오래된 필드를 제거할 수 있습니다. |
+ | 기존의 인덱싱된 필드에 **analyzer** 또는 **indexAnalyzer**를 추가합니다. | [빌드하십시오](search-howto-reindex.md) | 해당 필드에 대해 반전된 인덱스를 처음부터 다시 만들고 이 필드에 대한 콘텐츠를 다시 인덱싱해야 합니다. <br/> <br/>개발 중인 인덱스의 경우 인덱스를 [삭제하고](https://docs.microsoft.com/rest/api/searchservice/delete-index)[만들어](https://docs.microsoft.com/rest/api/searchservice/create-index) 새 필드 정의를 선택합니다. <br/> <br/>프로덕션 환경의 인덱스인 경우 수정된 정의를 제공하는 새 필드를 만들어서 기존 필드 대신 사용하면 다시 작성을 미룰 수 있습니다. [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index)를 사용하여 새 필드를 통합하고 [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 사용하여 새 필드를 채웁니다. 나중에 계획된 인덱스 서비스의 일환으로 인덱스를 정리하여 오래된 필드를 제거할 수 있습니다. |
 
 ## <a name="when-to-add-analyzers"></a>분석기를 추가하는 시기
 
@@ -71,7 +71,7 @@ Azure Cognitive Search는 [아파치 루센 표준 분석기(표준 루센)를](
 
 인덱스 정의가 완성될수록 인덱스에 새 분석 구조를 추가할 수 있지만, **allowIndexDowntime** 플래그를 [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index)에 전달해야만 다음 오류를 방지할 수 있습니다.
 
-*"인덱스 업데이트는 가동 중지 시간을 유발할 수 있으므로 허용되지 않습니다. 새 분석기, 토큰화기, 토큰 필터 또는 문자 필터를 기존 인덱스에 추가하려면 인덱스 업데이트 요청에서 'allowIndexDowntime' 쿼리 매개 변수를 'true'로 설정합니다. 이 작업을 수행하면 인덱스가 몇 초 이상 오프라인 상태가 되어 인덱싱 및 쿼리 요청이 실패합니다. 인덱스가 업데이트된 후 몇 분 동안 성능 및 쓰기 가용성이 손상되거나 매우 큰 인덱스의 경우 더 오래 사용할 수 있습니다."*
+*"인덱스 업데이트는 가동 중지 시간이 발생할 수 있으므로 허용 되지 않습니다. 새 분석기, 토크 나이저, 토큰 필터 또는 문자 필터를 기존 인덱스에 추가 하려면 인덱스 업데이트 요청에서 ' allowIndexDowntime 중지 시간 ' 쿼리 매개 변수를 ' t r u e '로 설정 합니다. 이 작업을 수행 하면 최소한 몇 초 동안 인덱스를 오프 라인 상태로 전환 하므로 인덱싱 및 쿼리 요청이 실패 합니다. 인덱스를 업데이트 한 후 몇 분 동안 또는 매우 큰 인덱스의 경우에는 인덱스의 성능 및 쓰기 가용성이 손상 될 수 있습니다. "*
 
 분석기를 필드에 할당할 때에도 마찬가지입니다. 분석기는 필드 정의의 필수적인 부분이므로 필드를 만들 때에만 추가할 수 있습니다. 기존 필드에 분석기를 추가하려면 인덱스를 [삭제하고 다시 작성](search-howto-reindex.md)하거나 원하는 분석기를 사용하여 새 필드를 추가해야 합니다.
 
@@ -83,7 +83,7 @@ Azure Cognitive Search는 [아파치 루센 표준 분석기(표준 루센)를](
 
 ### <a name="one-analyzer-for-read-write-unless-you-have-specific-requirements"></a>특정 요구 사항이 없는 경우 읽기 쓰기에 대해 하나의 분석기
 
-Azure 인지 검색을 사용하면 추가 **indexAnalyzer** 및 **searchAnalyzer** 필드 매개 변수를 통해 인덱싱 및 검색에 대해 다른 분석기를 지정할 수 있습니다. 분석기를 지정하지 않으면 **analyzer** 속성을 통해 설정된 분석기가 인덱싱과 검색에 모두 사용됩니다. `analyzer`를 지정하지 않으면 기본 표준 Lucene 분석기가 사용됩니다.
+Azure Cognitive Search를 사용 하 여 추가 **indexanalyzer** 및 **searchanalyzer** 필드 매개 변수를 통해 인덱싱 및 검색에 대해 다른 분석기를 지정할 수 있습니다. 분석기를 지정하지 않으면 **analyzer** 속성을 통해 설정된 분석기가 인덱싱과 검색에 모두 사용됩니다. `analyzer`를 지정하지 않으면 기본 표준 Lucene 분석기가 사용됩니다.
 
 특정 요구 사항이 따로 지정되지 않으면 인덱싱 및 쿼리 모두에 대해 동일한 분석기를 사용하는 것이 일반적인 규칙입니다. 철저하게 테스트해야 합니다. 검색 및 인덱싱 시간에서 텍스트 처리가 다른 경우 검색 및 인덱싱 분석기 구성이 일치하지 않으면 쿼리 용어와 인덱싱된 용어 사이에 불일치가 발생할 위험을 떠안게 됩니다.
 
@@ -274,22 +274,22 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
   }
 ~~~~
 
-## <a name="c-examples"></a>C# 예제
+## <a name="c-examples"></a>C # 예제
 
-.NET SDK 코드 샘플을 사용하는 경우 이러한 예제를 부가하여 분석기를 사용하거나 구성할 수 있습니다.
+.NET SDK 코드 샘플을 사용 하는 경우 다음 예제를 추가 하 여 분석기를 사용 하거나 구성할 수 있습니다.
 
-+ [내장 분석기 할당](#Assign-a-language-analyzer)
++ [기본 제공 분석기 할당](#Assign-a-language-analyzer)
 + [분석기 구성](#Define-a-custom-analyzer)
 
 <a name="Assign-a-language-analyzer"></a>
 
 ### <a name="assign-a-language-analyzer"></a>언어 분석기 할당
 
-구성없이 있는 것으로 사용되는 모든 분석기는 필드 정의에 지정됩니다. 분석기 구문 생성에 대한 요구 사항은 없습니다. 
+구성 없이 있는 그대로 사용 되는 모든 분석기는 필드 정의에 지정 됩니다. 분석기 구문을 만들 필요는 없습니다. 
 
-이 예제는 설명 필드에 Microsoft 영어 및 프랑스어 분석기를 할당합니다. 이 코드는 [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 샘플의 hotels.cs 파일에서 호텔 클래스를 사용하여 호텔 인덱스의 큰 정의에서 가져온 스니펫입니다.
+이 예에서는 설명 필드에 Microsoft 영어 및 프랑스어 분석기를 할당 합니다. [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 샘플의 hotels.cs 파일에서 호텔 클래스를 사용 하 여 생성 하는 호텔 인덱스의 더 큰 정의에서 가져온 코드 조각입니다.
 
-호출 [분석기](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet)- Azure 인지 검색에서 지원 되는 텍스트 분석기를 제공 하는 [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) 형식을 지정 합니다.
+[분석기](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet)를 호출 하 여 Azure Cognitive Search에서 지원 되는 텍스트 분석기를 제공 하는 [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) 유형을 지정 합니다.
 
 ```csharp
     public partial class Hotel
@@ -313,9 +313,9 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 
 ### <a name="define-a-custom-analyzer"></a>사용자 지정 분석기 정의
 
-사용자 지정 또는 구성이 필요한 경우 인덱스에 분석기 구문 구조를 추가해야 합니다. 정의한 후에는 이전 예제에서 설명한 대로 필드 정의를 추가할 수 있습니다.
+사용자 지정 또는 구성이 필요한 경우에는 분석기 구문을 인덱스에 추가 해야 합니다. 정의한 후에는 앞의 예제에서 설명한 대로 필드 정의에 추가할 수 있습니다.
 
-사용자 [지정 분석기](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) 개체를 만듭니다. 자세한 예제는 [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs)를 참조하십시오.
+[CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) 개체를 만듭니다. 더 많은 예제를 보려면 [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs)를 참조 하세요.
 
 ```csharp
 {
@@ -339,7 +339,7 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [Azure 인지 검색에서 전체 텍스트 검색이 작동하는 방식에 대한](search-lucene-query-architecture.md)포괄적인 설명을 검토합니다. 이 문서에서는 화면에서 직관적이지 않은 것처럼 보일 수 있는 동작을 설명하는 예제를 사용합니다.
++ [Azure Cognitive Search에서 전체 텍스트 검색이 작동 하는 방식](search-lucene-query-architecture.md)에 대 한 포괄적인 설명을 검토 합니다. 이 문서에서는 화면에서 직관적이지 않은 것처럼 보일 수 있는 동작을 설명하는 예제를 사용합니다.
 
 + 포털의 Search 탐색기에서 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) 예제 섹션 또는 [단순 쿼리 구문](query-simple-syntax.md)의 추가 쿼리 구문을 사용해 보세요.
 
@@ -347,9 +347,9 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 
 + 개별 필드에 대해 최소한의 처리 또는 특수한 처리를 수행하려면 [사용자 지정 분석기를 구성](index-add-custom-analyzers.md)하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
- [문서 나머지 API 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+ [문서 검색 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 
  [단순 쿼리 구문](query-simple-syntax.md) 
 

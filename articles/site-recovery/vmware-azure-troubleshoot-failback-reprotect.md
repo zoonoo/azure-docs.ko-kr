@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구를 사용 하 고 VM웨어 VM 재해 복구에서 장애 해결
+title: Azure Site Recovery를 사용 하 여 VMware VM 재해 복구에서 장애 복구 문제 해결
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 VMware VM 재해 복구하는 동안 발생하는 장애 복구(failback) 및 다시 보호 문제를 해결하는 방법을 설명합니다.
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: b577b82585ffad0547818b4f19554a2f39cb830c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75498096"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Azure에서 온-프레미스로 장애 복구(failback) 문제 해결
@@ -29,7 +29,7 @@ ms.locfileid: "75498096"
 - 프로세스 서버에서 구성 서버에 연결할 수 없는 경우 텔넷을 사용하여 443 포트에서 구성 서버에 대한 연결을 확인합니다. 프로세스 서버에서 구성 서버를 ping할 수도 있습니다. 또한 프로세스 서버에는 구성 서버에 연결될 때 하트비트도 있어야 합니다.
 - 물리적 온-프레미스 서버로 보호되는 Windows Server 2008 R2 SP1 서버는 Azure에서 온-프레미스 사이트로 장애 복구할 수 없습니다.
 - 다음과 같은 경우에 장애 복구(failback)를 수행할 수 없습니다.
-    - Azure에 컴퓨터를 마이그레이션했습니다. [자세히 알아봅니다](migrate-overview.md#what-do-we-mean-by-migration).
+    - Azure에 컴퓨터를 마이그레이션했습니다. [자세히 알아보기](migrate-overview.md#what-do-we-mean-by-migration).
     - 다른 리소스 그룹으로 VM을 이동했습니다.
     - Azure VM을 삭제했습니다.
     - VM의 보호를 해제했습니다.
@@ -73,7 +73,7 @@ ms.locfileid: "75498096"
 
 이 문제를 해결하려면:
 
-장애 조치된 VM을 다시 보호하려면 모바일 서비스를 온-프레미스 구성 서버에 등록하고 프로세스 서버와 통신하여 복제를 시작할 수 있도록 Azure VM을 실행해야 합니다. 컴퓨터가 잘못된 네트워크에 있거나 실행 중이 아닌 경우(응답하지 않거나 종료되지 않음) 구성 서버가 VM의 모빌리티 서비스에 연락하여 다시 보호를 시작할 수 없습니다.
+장애 조치된 VM을 다시 보호하려면 모바일 서비스를 온-프레미스 구성 서버에 등록하고 프로세스 서버와 통신하여 복제를 시작할 수 있도록 Azure VM을 실행해야 합니다. 컴퓨터가 잘못 된 네트워크에 있거나 실행 중이 아닌 경우 (응답 없음 또는 종료) 구성 서버에서 VM의 모바일 서비스에 연결 하 여 다시 보호를 시작할 수 없습니다.
 
 * 온-프레미스와의 통신을 다시 시작할 수 있도록 VM을 다시 시작합니다.
 * Azure 가상 머신을 시작한 후에 다시 보호 작업을 다시 시작합니다.

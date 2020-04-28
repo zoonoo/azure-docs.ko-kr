@@ -1,15 +1,15 @@
 ---
-title: Azure 서비스 패브릭 엔터티의 집계 된 상태를 보는 방법
+title: Azure Service Fabric 엔터티의 집계 된 상태를 보는 방법
 description: 상태 쿼리 및 일반 쿼리를 통해 Azure 서비스 패브릭 엔터티에서 집계한 상태를 쿼리, 확인 및 평가하는 방법을 설명합니다.
 author: oanapl
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d02d8f717801bf51e43c9dafa5eb9379d0737674
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75464119"
 ---
 # <a name="view-service-fabric-health-reports"></a>서비스 패브릭 상태 보고서 보기
@@ -1044,7 +1044,7 @@ ApplicationHealthStateChunks :
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> 일부 쿼리는 페이징된 결과를 반환합니다. 이러한 쿼리의 반환은 [PagedList\<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1)파생된 목록입니다. 결과가 메시지와 맞지 않으면 한 페이지만 반환되고 열거형이 중지된 위치를 추적하는 ContinuationToken이 반환됩니다. 다음 결과를 얻으려면 계속해서 동일한 쿼리를 호출하고 이전 쿼리의 연속 토큰을 전달합니다.
+> 일부 쿼리는 페이징된 결과를 반환합니다. 이러한 쿼리는 [\<PagedList T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1)에서 파생 된 목록으로 반환 됩니다. 결과가 메시지와 맞지 않으면 한 페이지만 반환되고 열거형이 중지된 위치를 추적하는 ContinuationToken이 반환됩니다. 다음 결과를 얻으려면 계속해서 동일한 쿼리를 호출하고 이전 쿼리의 연속 토큰을 전달합니다.
 
 ### <a name="examples"></a>예
 다음 코드는 클러스터에서 비정상 애플리케이션을 가져옵니다.

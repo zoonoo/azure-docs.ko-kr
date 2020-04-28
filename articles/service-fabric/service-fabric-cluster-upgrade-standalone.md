@@ -1,13 +1,13 @@
 ---
-title: Azure 서비스 패브릭 독립 실행형 클러스터 업그레이드
+title: Azure Service Fabric 독립 실행형 클러스터 업그레이드
 description: Azure Service Fabric 독립 실행형 클러스터의 버전 또는 구성 업그레이드에 대해 알아봅니다.  T
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: 6da9b4c6890895141ecc419382f05f667614fb31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451836"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Service Fabric 독립 실행형 클러스터 업그레이드 및 업데이트
@@ -15,7 +15,7 @@ ms.locfileid: "75451836"
 최신 시스템의 경우 업그레이드 기능 디자인이 제품의 장기적 성공 달성의 비결입니다. Azure Service Fabric 독립 실행형 클러스터는 사용자가 소유하는 리소스입니다. 이 문서에서는 업그레이드 또는 업데이트할 수 있는 것을 설명합니다.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>클러스터에서 실행되는 패브릭 버전 제어
-클러스터가 항상 [지원되는 서비스 패브릭 버전을](service-fabric-versions.md)실행해야 합니다. Microsoft에서 새로운 버전의 Service Fabric 릴리스를 발표하면 이전 버전은 해당 발표일로부터 최소 60일 후 지원 종료되는 것으로 표시됩니다. 새로운 릴리스는 [Service Fabric 팀 블로그](https://blogs.msdn.microsoft.com/azureservicefabric/)에서 발표됩니다. 그러면 해당 시점에 새로운 릴리스를 선택할 수 있습니다.
+클러스터가 항상 [지원 되는 Service Fabric 버전](service-fabric-versions.md)을 실행 하는지 확인 합니다. Microsoft에서 새로운 버전의 Service Fabric 릴리스를 발표하면 이전 버전은 해당 발표일로부터 최소 60일 후 지원 종료되는 것으로 표시됩니다. 새로운 릴리스는 [Service Fabric 팀 블로그](https://blogs.msdn.microsoft.com/azureservicefabric/)에서 발표됩니다. 그러면 해당 시점에 새로운 릴리스를 선택할 수 있습니다.
 
 Microsoft에서 자동 패브릭 업그레이드를 릴리스하면 클러스터가 수신하도록 설정할 수 있습니다. 또는 클러스터를 배치하려는 지원되는 패브릭 버전을 수동으로 선택할 수 있습니다. 자세한 내용은 [클러스터에서 실행되는 Service Fabric 버전 업그레이드](service-fabric-cluster-upgrade-windows-server.md)를 참조하세요.
 
@@ -37,9 +37,9 @@ POA(패치 오케스트레이션 애플리케이션)는 Service Fabric 클러스
 
 
 ## <a name="next-steps"></a>다음 단계
-* 일부 서비스 패브릭 클러스터 [패브릭 설정을](service-fabric-cluster-fabric-settings.md) 사용자 지정하는 방법 알아보기
+* [Service fabric 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md) 중 일부를 사용자 지정 하는 방법 알아보기
 * [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
-* 애플리케이션 [업그레이드에](service-fabric-application-upgrade.md) 대해 알아보기
+* [응용 프로그램 업그레이드](service-fabric-application-upgrade.md) 에 대 한 자세한 정보
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png

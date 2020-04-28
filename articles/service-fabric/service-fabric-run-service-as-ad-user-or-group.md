@@ -1,15 +1,15 @@
 ---
-title: AD 사용자 또는 그룹으로 Azure 서비스 패브릭 서비스 실행
+title: AD 사용자 또는 그룹으로 Azure Service Fabric 서비스를 실행 합니다.
 description: Service Fabric Windows 독립 실행형 클러스터에서 Active Directory 사용자 또는 그룹으로 서비스를 실행하는 방법을 알아봅니다.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: dekapur
 ms.openlocfilehash: d440aadb66562e32331c9725a9367c12440a315d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75464240"
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Active Directory 사용자 또는 그룹으로 서비스 실행
@@ -44,6 +44,6 @@ Windows Server 독립 실행형 클러스터의 경우, RunAs 정책을 사용�
 다음 단계는 아래 문서를 참조하세요.
 * [애플리케이션 모델의 이해](service-fabric-application-model.md)
 * [서비스 매니페스트에서 리소스 지정](service-fabric-service-manifest-resources.md)
-* [애플리케이션 배포](service-fabric-deploy-remove-applications.md)
+* [응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

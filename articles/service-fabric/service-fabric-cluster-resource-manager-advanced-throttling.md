@@ -1,15 +1,15 @@
 ---
-title: 서비스 패브릭 클러스터 리소스 관리자의 제한
+title: Service Fabric 클러스터 리소스 관리자의 제한
 description: 서비스 패브릭 클러스터 리소스 관리자에서 제공하는 제한을 구성하는 방법을 설명합니다.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: b4d78b339bab02b5c44a31939e0da769dc21c3ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75452170"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Service Fabric Cluster Resource Manager 제한
@@ -84,4 +84,4 @@ Service Fabric에는 복제본 이동 수를 제한하는 두 가지 메커니�
 
 ## <a name="next-steps"></a>다음 단계
 - 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)
-- Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 자세한 내용은 [서비스 패브릭 클러스터 설명에](service-fabric-cluster-resource-manager-cluster-description.md) 대한 이 문서를 확인하십시오.
+- Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대 한 자세한 내용은 [Service Fabric 클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md) 문서를 참조 하세요.

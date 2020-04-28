@@ -1,15 +1,15 @@
 ---
-title: 신뢰할 수 있는 서비스 통신 개요
+title: Reliable Services 통신 개요
 description: 서비스에서 수신기 열기, 엔드포인트 확인 및 서비스 간 통신을 비롯한 Reliable Services 통신 모델의 개요입니다.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 3c1a6cfa5227369bf1cde4af087019727c22c0c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75462959"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Reliable Services 통신 API를 사용하는 방법
@@ -207,7 +207,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-다른 클러스터의 서비스에 연결하면 일련의 클러스터 게이트웨이 엔드포인트로 ServicePartitionResolver를 만들 수 있습니다. 게이트웨이 엔드포인트는 동일한 클러스터에 연결하기 위한 다른 엔드포인트입니다. 예를 들어:
+다른 클러스터의 서비스에 연결하면 일련의 클러스터 게이트웨이 엔드포인트로 ServicePartitionResolver를 만들 수 있습니다. 게이트웨이 엔드포인트는 동일한 클러스터에 연결하기 위한 다른 엔드포인트입니다. 다음은 그 예입니다.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");

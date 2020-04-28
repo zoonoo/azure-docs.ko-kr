@@ -1,13 +1,13 @@
 ---
-title: Azure 서비스 패브릭에 기존 실행 가능 항목 패키지
+title: 기존 실행 파일을 Azure에 패키지 Service Fabric
 description: Service Fabric 클러스터에 배포할 수 있도록 기존 애플리케이션을 게스트 실행 파일로 패키징하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 3d7aab28a32effa2caf7b04b830d72e5e3dfda56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75457825"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric에 배포
@@ -54,7 +54,7 @@ Service Fabric 클러스터에서 게스트 실행 파일을 실행하면 다음
 ApplicationPackageRoot는 애플리케이션을 정의하는 ApplicationManifest.xml 파일을 포함합니다. 애플리케이션에 포함된 각 서비스에 대한 하위 디렉터리 서비스는 서비스가 필요한 모든 아티팩트를 포함하는 데 사용됩니다. 이러한 하위 디렉터리는 ServiceManifest.xml이며 일반적으로 다음과 같습니다.
 
 * *코드*. 이 디렉터리는 서비스 코드를 포함합니다.
-* *구성*. 이 디렉터리에는 서비스가 런타임에 액세스하여 특정 구성 설정을 검색할 수 있는 Settings.xml 파일(및 필요한 경우 다른 파일)이 포함되어 있습니다.
+* *구성*. 이 디렉터리에는 런타임에 서비스에서 액세스 하 여 특정 구성 설정을 검색할 수 있는 설정 .xml 파일 (및 필요한 경우 기타 파일)이 포함 되어 있습니다.
 * *데이터*. 서비스에 필요할 수도 있는 추가 로컬 데이터를 저장하는 추가 디렉터리입니다. Data는 사용 후 삭제되는 데이터를 저장하는 용도로만 사용해야 합니다. 예를 들어 장애 조치 중에 서비스를 다시 배치해야 하는 경우 Service Fabric은 변경 내용을 데이터 디렉터리에 복사 또는 복제하지 않습니다.
 
 > [!NOTE]

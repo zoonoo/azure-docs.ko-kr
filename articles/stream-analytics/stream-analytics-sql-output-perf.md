@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: f68f973882af28d80b3a27bc4591c5ee932404a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75443611"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure SQL Database에 Azure Stream Analytics 출력
@@ -27,11 +27,11 @@ Azure Stream Analytics의 SQL 출력에서는 병렬 쓰기를 옵션으로 지�
 - **분할 상속** – 이 SQL 출력 구성 옵션은 이전 쿼리 단계 또는 입력의 파티션 구성표를 상속할 수 있습니다. 이 옵션을 사용하면 디스크 기반 테이블에 데이터를 쓰고 작업에 [완전한 병렬](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) 토폴로지를 사용할 때 처리량이 향상될 것으로 예상할 수 있습니다. 이 분할은 이미 여러 다른 [출력](stream-analytics-parallelization.md#partitions-in-sources-and-sinks)에서 자동으로 발생합니다. 이 옵션을 사용한 대량 삽입에도 테이블 잠금(TABLOCK)이 비활성화됩니다.
 
 > [!NOTE] 
-> 입력 파티션이 8개보다 많은 경우 입력 파티션 구성표를 상속하는 것이 적합하지 않을 수 있습니다. 이 상한값은 ID 열이 하나이고 클러스터형 인덱스가 있는 테이블에서 관찰되었습니다. 이 경우 쿼리에서 [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8을 사용하여 출력 작성자 수를 명시적으로 지정하는 것이 좋습니다. 스키마 및 선택하는 인덱스에 따라 관찰 결과가 달라질 수 있습니다.
+> 입력 파티션이 8개보다 많은 경우 입력 파티션 구성표를 상속하는 것이 적합하지 않을 수 있습니다. 이 상한값은 ID 열이 하나이고 클러스터형 인덱스가 있는 테이블에서 관찰되었습니다. 이 경우 쿼리에서을 8 [로](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 사용 하 여 출력 작성기 수를 명시적으로 지정 하는 것이 좋습니다. 스키마 및 선택하는 인덱스에 따라 관찰 결과가 달라질 수 있습니다.
 
 - **일괄 처리 크기** - SQL 출력 구성을 사용하면 대상 테이블/워크로드의 특성에 따라 Azure Stream Analytics SQL 출력의 최대 일괄 처리 크기를 지정할 수 있습니다. 일괄 처리 크기는 모든 대량 삽입 트랜잭션에서 전송된 최대 레코드 수입니다. 클러스터형 columnstore 인덱스에서 약 [100K](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)의 일괄 처리 크기를 사용하면 더 많은 병렬 처리, 최소 로깅 및 잠금 최적화가 가능합니다. 디스크 기반 테이블에서는 일괄 처리 크기가 크면 대량 삽입하는 동안 잠금 에스컬레이션이 트리거될 수 있으므로 솔루션에 적합한 크기는 10K(기본값) 이하입니다.
 
-- **입력 메시지 튜닝** - 분할 상속 및 일괄 처리 크기를 사용하여 최적화한 경우 메시지/파티션당 입력 이벤트 수를 늘리면 쓰기 처리량을 추가로 높일 수 있습니다. 입력 메시지 튜닝을 사용하면 Azure Stream Analytics의 일괄 처리 크기를 지정된 일괄 처리 크기까지 늘릴 수 있으며, 따라서 처리량을 높일 수 있습니다. 이는 EventHub 또는 Blob에서 [압축을](stream-analytics-define-inputs.md) 사용하거나 입력 메시지 크기를 늘려서 달성할 수 있습니다.
+- **입력 메시지 튜닝** - 분할 상속 및 일괄 처리 크기를 사용하여 최적화한 경우 메시지/파티션당 입력 이벤트 수를 늘리면 쓰기 처리량을 추가로 높일 수 있습니다. 입력 메시지 튜닝을 사용하면 Azure Stream Analytics의 일괄 처리 크기를 지정된 일괄 처리 크기까지 늘릴 수 있으며, 따라서 처리량을 높일 수 있습니다. [압축](stream-analytics-define-inputs.md) 을 사용 하거나 EventHub 또는 Blob에서 입력 메시지 크기를 늘릴 수 있습니다.
 
 ## <a name="sql-azure"></a>SQL Azure
 
@@ -41,16 +41,16 @@ Azure Stream Analytics의 SQL 출력에서는 병렬 쓰기를 옵션으로 지�
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory 및 메모리 내 테이블
 
-- **메모리 내 테이블과 임시 테이블** – [메모리 내 테이블은](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) 매우 빠른 데이터 로드를 허용하지만 데이터는 메모리에 맞아야 합니다. 벤치마크 결과, 메모리 내 테이블에서 디스크 기반 테이블로 대량 로드하는 방법이 단일 작성기를 사용하여 ID 열과 클러스터형 인덱스가 있는 디스크 기반 테이블에 직접 대량 삽입하는 방법보다 약 10배 빠른 것으로 나타났습니다. 이 대량 삽입 성능을 활용하려면 [Azure Data Factory를 사용하여 메모리 내 테이블에서 디스크 기반 테이블로 데이터를 복사하는 복사 작업](../data-factory/connector-azure-sql-database.md)을 설정하세요.
+- 메모리 내 **테이블을 임시 테이블로** – [메모리 내 테이블](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) 은 매우 빠른 데이터 로드를 허용 하지만 데이터는 메모리에 맞아야 합니다. 벤치마크 결과, 메모리 내 테이블에서 디스크 기반 테이블로 대량 로드하는 방법이 단일 작성기를 사용하여 ID 열과 클러스터형 인덱스가 있는 디스크 기반 테이블에 직접 대량 삽입하는 방법보다 약 10배 빠른 것으로 나타났습니다. 이 대량 삽입 성능을 활용하려면 [Azure Data Factory를 사용하여 메모리 내 테이블에서 디스크 기반 테이블로 데이터를 복사하는 복사 작업](../data-factory/connector-azure-sql-database.md)을 설정하세요.
 
-## <a name="avoiding-performance-pitfalls"></a>성능 저하 방지
-대량 삽입 데이터는 데이터를 전송하고, 삽입 문을 구문분석하고, 문을 실행하고, 트랜잭션 레코드를 발급하는 반복된 오버헤드가 방지되므로 단일 삽입으로 데이터를 로드하는 것보다 훨씬 빠릅니다. 대신 보다 효율적인 경로를 저장소 엔진에 사용하여 데이터를 스트리밍합니다. 그러나 이 경로의 설치 비용은 디스크 기반 테이블의 단일 삽입 문보다 훨씬 높습니다. 손익분기점은 일반적으로 약 100개의 행이며, 벌크 로드가 거의 항상 더 효율적입니다. 
+## <a name="avoiding-performance-pitfalls"></a>성능 문제 방지
+데이터를 대량 삽입 하는 것은 데이터를 전송 하 고, insert 문을 구문 분석 하 고, 문을 실행 하 고, 트랜잭션 레코드를 발급 하는 작업이 반복 되는 오버 헤드로 인해 단일 삽입으로 데이터를 로드 하는 것 보다 훨씬 빠릅니다. 대신 더 효율적인 경로를 저장소 엔진에 사용 하 여 데이터를 스트리밍합니다. 그러나이 경로의 설치 비용은 디스크 기반 테이블의 단일 insert 문에 비해 훨씬 높습니다. 일반적으로 중단 지점은 일반적으로 약 100 행 이므로 대량 로드는 거의 항상 더 효율적입니다. 
 
-들어오는 이벤트 속도가 낮으면 100행 보다 낮은 일괄 처리 크기를 쉽게 만들 수 있으므로 대량 삽입이 비효율적이며 디스크 공간이 너무 많이 사용됩니다. 이 제한 사항을 해결하려면 다음 작업 중 하나를 수행할 수 있습니다.
-* 모든 행에 대해 간단한 삽입을 사용하는 대신 [OF 트리거를](/sql/t-sql/statements/create-trigger-transact-sql) 만듭니다.
-* 이전 섹션에 설명된 대로 메모리 내 임시 테이블을 사용합니다.
+들어오는 이벤트 속도가 낮으면 100 행 보다 낮은 일괄 처리 크기를 쉽게 만들 수 있습니다. 이렇게 하면 대량 삽입이 비효율적으로 수행 되 고 디스크 공간이 너무 많이 사용 됩니다. 이 제한 사항을 해결 하기 위해 다음 작업 중 하나를 수행할 수 있습니다.
+* 모든 행에 단순 삽입을 사용 하려면 INSTEAD OF [트리거](/sql/t-sql/statements/create-trigger-transact-sql) 를 만듭니다.
+* 이전 섹션에 설명 된 대로 메모리 내 임시 테이블을 사용 합니다.
 
-또 다른 시나리오는 클러스터되지 않은 열 저장소 인덱스(NCCI)에 쓸 때 발생하며, 이 경우 대량 삽입이 너무 많은 세그먼트를 만들 수 있어 인덱스가 충돌할 수 있습니다. 이 경우 클러스터된 열 저장소 인덱스를 대신 사용하는 것이 좋습니다.
+이와 같은 다른 시나리오는 비클러스터형 columnstore 인덱스 (NCCI)로 작성할 때 더 작은 대량 삽입으로 인해 너무 많은 세그먼트가 생성 되어 인덱스의 작동이 중단 될 수 있는 경우에 발생 합니다. 이 경우에는 클러스터형 Columnstore 인덱스를 대신 사용 하는 것이 좋습니다.
 
 ## <a name="summary"></a>요약
 

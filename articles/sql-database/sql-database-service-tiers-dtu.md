@@ -1,5 +1,5 @@
 ---
-title: 서비스 계층 - DTU 기반 구매 모델
+title: 서비스 계층-DTU 기반 구매 모델
 description: 컴퓨팅 및 스토리지 크기를 제공하기 위한 단일 및 풀링된 데이터베이스에 대한 DTU 기반 구매 모델의 서비스 계층에 대해 알아보세요.
 services: sql-database
 ms.service: sql-database
@@ -12,15 +12,15 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
 ms.openlocfilehash: 2f316e57e407a0588e77f56d6e1fbe8c19ba5fee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75562122"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 
-DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고정된 양, 고정된 백업 보존 기간 및 고정 가격을 갖춘 다양한 컴퓨팅 크기로 구분됩니다. DTU 기반 구매 모델의 모든 서비스 계층은 [최소한의 가동 중지 시간으로](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)컴퓨팅 크기를 유연으로 변경할 수 있는 유연성을 제공합니다. 그러나 짧은 시간 동안 데이터베이스에 연결이 손실되는 기간 동안 전환이 있으며, 재시도 논리를 사용하여 완화할 수 있습니다. 단일 데이터베이스 및 탄력적 풀은 서비스 계층 및 컴퓨팅 크기에 따라 시간 단위로 청구됩니다.
+DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고정된 양, 고정된 백업 보존 기간 및 고정 가격을 갖춘 다양한 컴퓨팅 크기로 구분됩니다. DTU 기반 구매 모델의 모든 서비스 계층은 [가동 중지 시간](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)을 최소화 하면서 계산 크기를 유연 하 게 변경할 수 있습니다. 그러나 짧은 시간 동안 데이터베이스에 대 한 연결이 끊어진 스위치를 사용 하 여 다시 시도 논리를 사용 하 여 완화할 수 있습니다. 단일 데이터베이스 및 탄력적 풀은 서비스 계층 및 컴퓨팅 크기에 따라 시간 단위로 청구됩니다.
 
 > [!IMPORTANT]
 > SQL Database 관리되는 인스턴스는 DTU 기반 구매 모델을 지원하지 않습니다. 자세한 내용은 [Azure SQL Database Managed Instance](sql-database-managed-instance.md)를 참조하세요.
@@ -37,24 +37,24 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 |작동 시간 SLA|99.99%|99.99%|99.99%|
 |최대 백업 보존|7 일|35일|35일|
 |CPU|낮음|낮음, 보통, 높음|보통, 높음|
-|IO 처리량(근사치) |DTU당 1-5 IOPS| DTU당 1-5 IOPS | DTU당 25 IOPS|
+|IO 처리량(근사치) |DTU 당 1-5 IOPS| DTU 당 1-5 IOPS | DTU 당 25iops|
 |IO 대기 시간(근사치)|5ms(읽기), 10ms(쓰기)|5ms(읽기), 10ms(쓰기)|2ms(읽기/쓰기)|
 |Columnstore 인덱싱 |해당 없음|S3 이상|지원됨|
-|메모리 내 OLTP|해당 없음|해당 없음|지원됨|
+|메모리 내 OLTP|N/A|해당 없음|지원 여부|
 |||||
 
 > [!IMPORTANT]
-> 기본, 표준 S0, S1 및 S2 서비스 계층은 CPU(1개 미만)를 제공합니다.  CPU집약적인 워크로드의 경우 S3 이상 서비스 계층을 사용하는 것이 좋습니다. 
+> 기본, 표준 S0, S1 및 S2 서비스 계층은 두 개 미만의 vCore (CPU)를 제공 합니다.  CPU를 많이 사용 하는 워크 로드의 경우에는 S3 이상의 서비스 계층을 사용 하는 것이 좋습니다. 
 >
->데이터 저장소와 관련하여 기본, 표준 S0 및 S1 서비스 계층은 표준 페이지 Blob에 배치됩니다. 표준 페이지 Blobs는 하드 디스크 드라이브(HDD) 기반 스토리지 미디어를 사용하며 성능 변동성에 덜 민감한 개발, 테스트 및 기타 자주 액세스하지 않는 워크로드에 가장 적합합니다.
+>데이터 저장소와 관련 하 여 기본, 표준 S0 및 S1 서비스 계층은 표준 페이지 Blob에 배치 됩니다. 표준 페이지 Blob은 HDD (하드 디스크 드라이브) 기반 저장소 미디어를 사용 하며 성능 변동에 덜 민감한 개발, 테스트 및 자주 액세스 하지 않는 작업에 가장 적합 합니다.
 >
 
 > [!NOTE]
-> Azure 무료 계정과 함께 기본 서비스 계층에서 무료 Azure SQL 데이터베이스를 사용하여 Azure를 탐색할 수 있습니다. 자세한 내용은 [Azure 체험 계정으로 관리되는 클라우드 데이터베이스 만들기](https://azure.microsoft.com/free/services/sql-database/)를 참조하세요.
+> Azure 무료 계정과 함께 기본 서비스 계층에서 azure SQL database를 사용 하 여 Azure를 탐색할 수 있습니다. 자세한 내용은 [Azure 체험 계정으로 관리되는 클라우드 데이터베이스 만들기](https://azure.microsoft.com/free/services/sql-database/)를 참조하세요.
 
 ## <a name="single-database-dtu-and-storage-limits"></a>단일 데이터베이스 DTU 및 스토리지 제한
 
-컴퓨팅 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 기반 구매 모델을](sql-database-purchase-models.md#dtu-based-purchasing-model)참조하십시오.
+컴퓨팅 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. Dtu 및 Edtu에 대 한 자세한 내용은 [dtu 기반 구매 모델](sql-database-purchase-models.md#dtu-based-purchasing-model)을 참조 하세요.
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
@@ -63,7 +63,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 |||||
 
 > [!IMPORTANT]
-> 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL 데이터베이스의 파일 공간 관리를](sql-database-file-space-management.md)참조하십시오.
+> 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database에서 파일 공간 관리](sql-database-file-space-management.md)를 참조 하세요.
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>탄력적 풀 eDTU, 스토리지 및 풀링된 데이터베이스 제한
 
@@ -77,9 +77,9 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 |||||
 
 > [!IMPORTANT]
-> 프리미엄 계층의 1TB 이상의 스토리지는 현재 중국 동부, 중국 북부, 독일 중부, 독일 북동부, 미국 중서부, 미국 DoD 지역 및 미국 정부 중부를 제외한 모든 지역에서 사용할 수 있습니다. 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  
+> 프리미엄 계층에 1TB 이상 저장소는 중국 동부, 중국 북부, 독일 중부, 독일 북동쪽, 미국 서 부, US DoD 지역 및 미국 정부 중부를 제외한 모든 지역에서 사용할 수 있습니다. 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  
 > [!IMPORTANT]
-> 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database 의 파일 공간 관리를](sql-database-file-space-management.md)참조하십시오.
+> 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database에서 파일 공간 관리](sql-database-file-space-management.md)를 참조 하세요.
 
 ## <a name="dtu-benchmark"></a>DTU 벤치마크
 
@@ -105,7 +105,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 데이터베이스는 "배율"을 기준으로 크기를 조정합니다. 배율(약어: SF)은 확장 및 증가 테이블의 카디널리티를 결정합니다. 아래의 사용자 및 속도 섹션에 설명된 대로 데이터베이스 크기, 사용자 수, 최대 성능은 모두 서로에 비례하여 확장됩니다.
 
-### <a name="transactions"></a>의
+### <a name="transactions"></a>트랜잭션
 
 워크로드는 아래 표와 같이 9가지 트랜잭션 유형으로 구성되어 있습니다. 각 트랜잭션은 다른 트랜잭션과 크게 대비되도록 데이터베이스 엔진 및 시스템 하드웨어에서 특정 시스템 집합의 특성을 강조하도록 설계되었습니다. 이 방식에서는 다양한 구성 요소가 전반적 성능에 미치는 영향을 쉽게 평가할 수 있습니다. 예를 들어 "읽기 작업이 많은" 트랜잭션은 디스크에서 많은 읽기 작업을 만듭니다.
 
@@ -118,7 +118,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 | 많은 업데이트 작업 |UPDATE, 대부분 메모리 외, 읽기-쓰기 |
 | 적은 삽입 작업 |INSERT, 메모리 내, 읽기-쓰기 |
 | 많은 삽입 작업 |INSERT, 대부분 메모리 외, 읽기-쓰기 |
-| DELETE |DELETE, 메모리 내 및 메모리 외 혼합, 읽기-쓰기 |
+| 삭제 |DELETE, 메모리 내 및 메모리 외 혼합, 읽기-쓰기 |
 | 많은 CPU 사용 |SELECT, 메모리 내, 상대적으로 많은 CPU 부하, 읽기 전용 |
 
 ### <a name="workload-mix"></a>워크로드 혼합
@@ -134,7 +134,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 | 많은 업데이트 작업 |3 |
 | 적은 삽입 작업 |3 |
 | 많은 삽입 작업 |2 |
-| DELETE |2 |
+| 삭제 |2 |
 | 많은 CPU 사용 |10 |
 
 ### <a name="users-and-pacing"></a>사용자 및 속도

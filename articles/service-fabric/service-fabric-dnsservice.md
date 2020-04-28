@@ -1,13 +1,13 @@
 ---
-title: Azure 서비스 패브릭 DNS 서비스
+title: Azure Service Fabric DNS 서비스
 description: Service Fabric의 DNS 서비스를 사용하여 클러스터 내부에서 마이크로 서비스를 검색할 수 있습니다.
 ms.topic: conceptual
 ms.date: 7/20/2018
 ms.openlocfilehash: 317aa81238ec7a0dc24b69b1d00568901b9bc34f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75458036"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric의 DNS 서비스
@@ -103,10 +103,10 @@ Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정
 3. 변경 사항으로 클러스터 템플릿을 업데이트한 후에는 이를 적용하여 업그레이드를 완료합니다. 업그레이드가 완료되면 DNS 시스템 서비스가 클러스터에서 실행을 시작합니다. 서비스 이름은 `fabric:/System/DnsService`이며, Service Fabric 탐색기의 **시스템** 서비스 섹션 아래에서 찾을 수 있습니다. 
 
 > [!NOTE]
-> DNS를 비활성화에서 사용하도록 업그레이드할 때 서비스 패브릭 탐색기는 새 상태를 반영하지 않을 수 있습니다. 해결하려면 Azure 리소스 관리자 템플릿에서 UpgradePolicy를 수정하여 노드를 다시 시작합니다. 자세한 내용은 [서비스 패브릭 템플릿 참조를](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) 참조하십시오.
+> DNS를 사용 안 함에서 사용으로 업그레이드 하는 경우 Service Fabric Explorer 새 상태를 반영 하지 않을 수 있습니다. 해결 하려면 Azure Resource Manager 템플릿에서 UpgradePolicy를 수정 하 여 노드를 다시 시작 합니다. 자세한 내용은 [Service Fabric 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) 를 참조 하세요.
 
 > [!NOTE]
-> 로컬 컴퓨터에서 개발할 때 DNS 서비스를 사용하도록 설정하면 일부 DNS 설정이 우선됩니다. 인터넷에 연결하는 데 문제가 있는 경우 DNS 설정을 확인합니다.
+> 로컬 컴퓨터에서 개발할 때 DNS 서비스를 사용 하도록 설정 하면 일부 DNS 설정이 재정의 됩니다. 인터넷에 연결 하는 데 문제가 발생 하는 경우 DNS 설정을 확인 합니다.
 
 ## <a name="setting-the-dns-name-for-your-service"></a>서비스에 대한 DNS 이름 설정
 ApplicationManifest.xml 파일에서 기본 서비스에 대해 선언적으로 또는 PowerShell 명령을 통해 서비스에 대한 DNS 이름을 설정할 수 있습니다.

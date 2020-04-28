@@ -1,15 +1,15 @@
 ---
-title: Azure 서비스 패브릭에서 서비스와 연결 및 통신
+title: Azure Service Fabric에서 서비스와 연결 및 통신
 description: 서비스 패브릭에서 서비스에 대해 확인, 연결 및 통신하는 방법에 대해 알아봅니다.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: e57d169decf482f8b8be1e3b31a07690bc222c5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75458232"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>서비스 패브릭에서 서비스와 연결 및 통신
@@ -23,7 +23,7 @@ Service Fabric 애플리케이션은 일반적으로 여러 가지 서비스로 
 ![서비스 엔드포인트][1]
 
 ## <a name="service-discovery-and-resolution"></a>서비스 검색 및 확인
-분산 시스템에서는 시간이 지나면 한 컴퓨터에서 다른 컴퓨터로 서비스가 이동할 수 있습니다. 리소스 균형 조정, 업그레이드, 장애 조치 또는 확장 을 비롯한 여러 가지 이유로 발생할 수 있습니다. 즉, 서비스가 서로 다른 IP 주소가 있는 노드로 이동할 때 서비스 끝점 주소가 변경되고 서비스가 동적으로 선택된 포트를 사용하는 경우 다른 포트에서 열릴 수 있습니다.
+분산 시스템에서는 시간이 지나면 한 컴퓨터에서 다른 컴퓨터로 서비스가 이동할 수 있습니다. 이는 리소스 분산, 업그레이드, 장애 조치 (failover) 또는 스케일 아웃을 포함 한 다양 한 이유로 발생할 수 있습니다. 즉, 서비스가 서로 다른 IP 주소를 가진 노드로 이동할 때 서비스 끝점 주소가 변경 되 고, 서비스가 동적으로 선택 된 포트를 사용 하는 경우 다른 포트에서 열릴 수 있습니다.
 
 ![서비스 배포][7]
 
@@ -162,7 +162,7 @@ Azure Load Balancer 및 프로브는 *노드*만 알고 있으며 노드에서 �
 ## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services: 기본 제공 통신 API 옵션
 Reliable Services 프레임워크에서는 미리 작성된 여러 통신 옵션을 제공합니다. 그 중에서 가장 적합한 옵션은 프로그래밍 모델, 통신 프레임워크 및 서비스가 작성되는 프로그래밍 언어로 무엇을 선택하는지에 따라 달라집니다.
 
-* **특정 프로토콜이 없습니다.**  특정 한 선택 의 통신 프레임 워크가 없는 경우, 하지만 뭔가 신속 하 게 실행 하려는 경우, 다음 당신을 위한 이상적인 옵션은 [서비스 원격,](service-fabric-reliable-services-communication-remoting.md)강력한 형식의 원격 프로시저 신뢰할 수 있는 서비스 및 신뢰할 수 있는 행위자에 대 한 호출을 허용 하는. 이는 서비스 통신을 시작하기에 가장 쉽고 빠른 방법입니다. 서비스 원격은 서비스 주소, 연결, 다시 시도 및 오류 처리의 확인을 처리합니다. 이 기능은 C# 및 Java 애플리케이션에 둘 다 사용할 수 있습니다.
+* **특정 프로토콜 없음:**  특정 한 통신 프레임 워크를 선택 하지는 않지만 신속 하 게 작업을 실행 하려는 경우에는 Reliable Services 및 Reliable Actors에 대 한 강력한 형식의 원격 프로시저 호출을 허용 하는 [서비스 원격](service-fabric-reliable-services-communication-remoting.md)기능을 사용 하는 것이 좋습니다. 이는 서비스 통신을 시작하기에 가장 쉽고 빠른 방법입니다. 서비스 원격은 서비스 주소, 연결, 다시 시도 및 오류 처리의 확인을 처리합니다. 이 기능은 C# 및 Java 애플리케이션에 둘 다 사용할 수 있습니다.
 * **HTTP**: 언어 중립적 통신의 경우, HTTP는 Service Fabric에서 전적으로 지원하는 다양한 언어로 사용할 수 있는 도구 및 HTTP 서버와 함께 업계 표준 선택을 제공합니다. 서비스는 C# 애플리케이션용 [ASP.NET Web API](service-fabric-reliable-services-communication-webapi.md)를 포함하여 사용 가능한 모든 HTTP 스택을 사용할 수 있습니다. [서비스 확인, HTTP 연결 및 다시 시도 루프](service-fabric-reliable-services-communication.md)를 위해 C#으로 작성된 클라이언트는 `ICommunicationClient` 및 `ServicePartitionClient` 클래스를 활용할 수 있지만 Java의 경우 `CommunicationClient` 및 `FabricServicePartitionClient` 클래스를 사용합니다.
 * **WCF**: 통신 프레임워크로 WCF를 사용하는 기존 코드가 있는 경우, 서버 쪽에 `WcfCommunicationListener`를 사용하고 클라이언트에 `WcfCommunicationClient` 및 `ServicePartitionClient` 클래스를 사용할 수 있습니다. 그러나 이 기능은 Windows 기반 클러스터의 C# 애플리케이션에만 사용할 수 있습니다. 자세한 내용은 이 문서에서 [WCF 기반 통신 스택 구현](service-fabric-reliable-services-communication-wcf.md)에 대한 부분을 참조하세요.
 

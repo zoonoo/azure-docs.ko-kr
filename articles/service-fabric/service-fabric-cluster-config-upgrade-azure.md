@@ -1,15 +1,15 @@
 ---
-title: Azure 서비스 패브릭 클러스터의 구성 업그레이드
+title: Azure Service Fabric 클러스터의 구성 업그레이드
 description: Resource Manager 템플릿을 사용하여 Azure에서 Service Fabric 클러스터를 실행하는 구성을 업그레이드하는 방법을 알아봅니다.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 476a2d910b916ea29132b108478d06f756454813
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75463294"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Azure에서 클러스터의 구성 업그레이드 
@@ -26,10 +26,10 @@ ms.locfileid: "75463294"
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 클러스터 설정 사용자 지정
 JSON Resource Manager 템플릿을 통해 Azure 클러스터를 구성할 수 있습니다. 다른 설정에 대해 자세히 알아보려면 [클러스터에 대한 구성 설정](service-fabric-cluster-fabric-settings.md)을 참조하세요. 예제로 아래 단계에서는 Azure Resource Explorer를 사용하여 새로운 *MaxDiskQuotaInMB* 설정을 *Diagnostics* 섹션에 추가하는 방법을 보여줍니다.
 
-1. [https://editor.swagger.io](https://resources.azure.com) 으로 이동합니다.
-2. **\<구독>**  -> 리소스 **그룹** -> 리소스**\<를 **확장하여 **구독으로** -> 이동 리소스 그룹> ->  **공급자** -> **Microsoft.ServiceFabric** -> **clusters** -> **\<클러스터클러스터>**
-3. 오른쪽 상단 모서리에서 **읽기/쓰기를 선택합니다.**
-4. JSON 요소 편집 및 업데이트 및 새 요소를 추가합니다. **Edit** `fabricSettings`
+1. [https://editor.swagger.io](https://resources.azure.com ) 으로 이동합니다.
+2. 구독에 대 한 구독을 **확장** -> **\< **하 여 구독으로 이동**합니다.** -> **clusters** ->  **resourcegroups** -> **\<는 리소스 그룹>**  ->  **공급자** -> 를 ServiceFabric**\<클러스터 이름을 클러스터 이름으로>>**  -> 
+3. 오른쪽 위 모서리에서 **읽기/쓰기를 선택 합니다.**
+4. **편집** 을 선택 하 고 `fabricSettings` JSON 요소를 업데이트 하 고 새 요소를 추가 합니다.
 
 ```json
       {
@@ -48,9 +48,9 @@ JSON Resource Manager 템플릿을 통해 Azure 클러스터를 구성할 수 �
 - [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template)을 사용하여 Resource Manger 템플릿을 내보내고 업데이트합니다.
 - [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell)을 사용하여 Resource Manger 템플릿을 내보내고 업데이트합니다.
 - [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli)를 사용하여 Resource Manger 템플릿을 내보내고 업데이트합니다.
-- Azure PowerShell [설정-AzServiceFabric설정](https://docs.microsoft.com/powershell/module/az.servicefabric/Set-azServiceFabricSetting) 및 [제거-AzServiceFabricSet](https://docs.microsoft.com/powershell/module/az.servicefabric/Remove-azServiceFabricSetting) 명령을 사용하여 설정을 직접 수정합니다.
+- Azure PowerShell [AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Set-azServiceFabricSetting) 및 [AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Remove-azServiceFabricSetting) 명령을 사용 하 여 설정을 직접 수정할 수 있습니다.
 - Azure CLI [az sf 클러스터 설정](https://docs.microsoft.com/cli/azure/sf/cluster/setting) 명령을 사용하여 설정을 직접 수정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric 클러스터 설정](service-fabric-cluster-fabric-settings.md)에 대해 알아봅니다.
-* [클러스터를 확장하고 확장하는](service-fabric-cluster-scale-up-down.md)방법에 대해 알아봅니다.
+* [클러스터를 확장 및 축소](service-fabric-cluster-scale-up-down.md)하는 방법을 알아봅니다.

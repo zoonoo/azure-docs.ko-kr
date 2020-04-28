@@ -1,15 +1,15 @@
 ---
-title: Azure 클라우드 서비스 앱을 서비스 패브릭으로 변환
+title: Azure Cloud Services apps를 Service Fabric으로 변환
 description: 이 가이드에서는 Cloud Services에서 서비스 패브릭으로 마이그레이션할 수 있도록 Cloud Services 웹과 작업자 역할 및 서비스 패브릭 상태 비저장 서비스를 비교합니다.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: caf067f793ca2086bc068907e86a82266627d128
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75463332"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 변환하기 위한 가이드
@@ -23,7 +23,7 @@ ms.locfileid: "75463332"
 ![서비스 패브릭 및 Cloud Services 프로젝트 비교][3]
 
 ## <a name="worker-role-to-stateless-service"></a>작업자 역할에서 상태 비저장 서비스
-개념적으로 작업자 역할은 모든 작업 인스턴스는 동일하고 언제든지 인스턴스에 요청을 라우팅할 수 있음을 의미하는 상태 비저장 작업을 나타냅니다. 각 인스턴스는 이전 요청을 기억하지 않습니다. 워크로드가 작동상태는 Azure 테이블 저장소 또는 Azure Cosmos DB와 같은 외부 상태 저장소에서 관리됩니다. 서비스 패브릭에서 이러한 유형의 작업은 상태 비저장 서비스에 의해 표시됩니다. 작업자 역할을 서비스 패브릭으로 마이그레이션하는 가장 간단한 방법은 작업자 역할 코드를 상태 비저장 서비스로 변환하여 수행할 수 있습니다.
+개념적으로 작업자 역할은 모든 작업 인스턴스는 동일하고 언제든지 인스턴스에 요청을 라우팅할 수 있음을 의미하는 상태 비저장 작업을 나타냅니다. 각 인스턴스는 이전 요청을 기억하지 않습니다. 작업이 수행 되는 상태는 Azure Table Storage 또는 Azure Cosmos DB와 같은 외부 상태 저장소를 통해 관리 됩니다. 서비스 패브릭에서 이러한 유형의 작업은 상태 비저장 서비스에 의해 표시됩니다. 작업자 역할을 서비스 패브릭으로 마이그레이션하는 가장 간단한 방법은 작업자 역할 코드를 상태 비저장 서비스로 변환하여 수행할 수 있습니다.
 
 ![작업자 역할에서 상태 비저장 서비스][4]
 
@@ -32,15 +32,15 @@ ms.locfileid: "75463332"
 
 | **애플리케이션** | **지원됨** | **마이그레이션 경로** |
 | --- | --- | --- |
-| ASP.NET 웹 양식 |예 |ASP.NET Core 1 MVC로 변환 |
+| ASP.NET 웹 양식 |아니요 |ASP.NET Core 1 MVC로 변환 |
 | ASP.NET MVC |마이그레이션 사용 |ASP.NET Core 1 MVC로 업그레이드 |
 | ASP.NET Web API |마이그레이션 사용 |자체 호스팅된 서버 또는 ASP.NET Core 1 사용 |
-| ASP.NET Core 1 |yes |해당 없음 |
+| ASP.NET Core 1 |예 |해당 없음 |
 
 ## <a name="entry-point-api-and-lifecycle"></a>진입점 API 및 수명 주기
 작업자 역할 및 Service Fabric 서비스 API는 비슷한 진입점을 제공합니다. 
 
-| **진입점** | **작업자 역할** | **서비스 패브릭 서비스** |
+| **진입점** | **작업자 역할** | **Service Fabric 서비스** |
 | --- | --- | --- |
 | 처리 중 |`Run()` |`RunAsync()` |
 | VM 시작 |`OnStart()` |해당 없음 |

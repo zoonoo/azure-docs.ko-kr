@@ -1,5 +1,5 @@
 ---
-title: 마이크로소프트 위협 모델링 도구 기능 개요 - Azure
+title: Microsoft Threat Modeling Tool 기능 개요-Azure
 description: 위협 모델링 도구에서 사용할 수 있는 모든 기능에 대해 알아보기
 author: jegeib
 ms.author: jegeib
@@ -8,10 +8,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
 ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75552120"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>위협 모델링 도구 기능 개요
@@ -41,10 +41,10 @@ ms.locfileid: "75552120"
 
 | 레이블                               | 세부 정보      |
 | --------------------------------------- | ------------ |
-| **파일** | <ul><li>파일 열기, 저장 및 닫기</li><li>OneDrive 계정에 로그인 및 로그아웃합니다.</li><li>링크를 공유합니다(보기 및 편집).</li><li>파일 정보를 봅니다.</li><li>기존 모델에 새 템플릿을 적용합니다.</li></ul> |
+| **최근에 사용한 파일** | <ul><li>파일 열기, 저장 및 닫기</li><li>OneDrive 계정에 로그인 및 로그아웃합니다.</li><li>링크를 공유합니다(보기 및 편집).</li><li>파일 정보를 봅니다.</li><li>기존 모델에 새 템플릿을 적용합니다.</li></ul> |
 | **편집** | 작업을 실행 취소 및 다시 실행하고, 복사하고, 붙여넣고, 삭제합니다. |
 | **보기** | <ul><li>**분석** 및 **디자인** 보기 사이를 전환합니다.</li><li>닫힌 창을(예: 스텐실, 요소 속성 및 메시지) 엽니다.</li><li>레이아웃을 기본 설정으로 다시 설정합니다.</li></ul> |
-| **다이어그램** | 다이어그램을 추가하고 삭제하며, 다이어그램의 탭을 통해 이동합니다. |
+| **다이어그램과** | 다이어그램을 추가하고 삭제하며, 다이어그램의 탭을 통해 이동합니다. |
 | **보고서** | HTML 보고서를 만들어 다른 사용자와 공유합니다. |
 | **도움말** | 도구를 사용할 수 있도록 지침을 찾습니다. |
 
@@ -92,7 +92,7 @@ ms.locfileid: "75552120"
 | 구성 요소                               | 세부 정보      |
 | --------------------------------------- | ------------ |
 | **메시지** | 요소 간 데이터 흐름 없음과 같은 오류가 발생할 때마다 사용자에게 알리는 내부 도구 논리입니다. |
-| **참고** | 수동 참고 사항은 디자인 및 검토 프로세스에 걸쳐 엔지니어링 팀에 의해 파일에 추가됩니다. |
+| **참고 사항** | 수동 참고 사항은 디자인 및 검토 프로세스에 걸쳐 엔지니어링 팀에 의해 파일에 추가됩니다. |
 
 ### <a name="element-properties"></a>요소 속성
 
@@ -160,7 +160,7 @@ ms.locfileid: "75552120"
 
 ![메시지](./media/threat-modeling-tool-feature-overview/messages.png)
 
-### <a name="notes"></a>메모
+### <a name="notes"></a>참고
 
 다이어그램에 메모를 추가하려면 **메시지** 탭에서 **메모** 탭으로 전환합니다.
 
@@ -174,7 +174,7 @@ ms.locfileid: "75552120"
 
 위협을 선택하면 세 가지 고유 함수를 사용할 수 있습니다.
 
-| 기능                               | 정보      |
+| 기능                               | 정보 산업      |
 | --------------------------------------- | ------------ |
 | **읽음 표시기** | <p>위협이 읽음으로 표시되며, 검토한 항목을 계속 추적할 수 있습니다.</p><p>![읽음/읽지 않음 표시기](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **상호 작용 포커스** | <p>위협에 속한 다이어그램의 상호 작용이 강조 표시됩니다.</p><p>![상호 작용 포커스](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
@@ -194,7 +194,7 @@ ms.locfileid: "75552120"
 
 ## <a name="reports"></a>보고서
 
-생성된 각 위협 상태의 우선 순위 변경 및 업데이트가 완료되면 파일을 저장하거나 보고서를 출력할 수 있습니다. **보고서** > **작성 전체로 이동합니다.** 보고서에 이름을 지정하면 다음 이미지와 비슷하게 표시됩니다.
+생성된 각 위협 상태의 우선 순위 변경 및 업데이트가 완료되면 파일을 저장하거나 보고서를 출력할 수 있습니다. **보고서** > **전체 보고서 만들기**로 이동 합니다. 보고서에 이름을 지정하면 다음 이미지와 비슷하게 표시됩니다.
 
 ![보고서](./media/threat-modeling-tool-feature-overview/report.png)
 

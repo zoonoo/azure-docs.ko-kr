@@ -1,15 +1,15 @@
 ---
-title: Linux Azure 진단을 사용하는 이벤트 집계
+title: Linux Azure 진단를 사용한 이벤트 집계
 description: Azure Service Fabric 클러스터 모니터링 및 진단을 위해 LAD를 사용하여 이벤트를 집계 및 수집하는 방법에 대해 알아봅니다.
 author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: fdb78498d33416ef21b2e2b0f498e7afa6a58d99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75609964"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Linux Azure Diagnostics를 사용하여 이벤트 집계 및 수집
@@ -21,7 +21,7 @@ ms.locfileid: "75609964"
 
 Azure Service Fabric 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 클러스터나 해당 클러스터에서 실행 중인 애플리케이션 및 서비스의 문제를 분석하고 해결하는 데 도움이 됩니다.
 
-로그를 업로드 및 수집하는 방법 중 하나는 LAD(Linux Azure Diagnostics) 확장을 사용하여 Azure Storage에 로그를 업로드하고 Azure Application Insights 또는 Event Hubs에 로그를 보낼 수 있는 옵션을 제공하는 것입니다. 외부 프로세스를 사용하여 저장소에서 이벤트를 읽고 [Azure Monitor 로그](../log-analytics/log-analytics-service-fabric.md) 또는 다른 로그 구문 분석 솔루션과 같은 분석 플랫폼 제품에 배치할 수도 있습니다.
+로그를 업로드 및 수집하는 방법 중 하나는 LAD(Linux Azure Diagnostics) 확장을 사용하여 Azure Storage에 로그를 업로드하고 Azure Application Insights 또는 Event Hubs에 로그를 보낼 수 있는 옵션을 제공하는 것입니다. 외부 프로세스를 사용 하 여 저장소에서 이벤트를 읽고 [Azure Monitor 로그](../log-analytics/log-analytics-service-fabric.md) 또는 다른 로그 구문 분석 솔루션과 같은 분석 플랫폼 제품에 배치할 수도 있습니다.
 
 ## <a name="log-and-event-sources"></a>로그 및 이벤트 원본
 
@@ -31,7 +31,7 @@ Service Fabric은 운영 이벤트 또는 런타임 이벤트를 포함하여 [L
 ### <a name="application-events"></a>애플리케이션 이벤트
  소프트웨어를 계측할 때 지정한 대로 애플리케이션 및 서비스 코드에서 발생되는 이벤트입니다. 텍스트 기반 로그 파일을 작성하는 모든 로깅 솔루션을 사용할 수 있습니다(예: LTTng). 자세한 내용은 애플리케이션 추적에 대한 LTTng 설명서를 참조하세요.
 
-[로컬 컴퓨터 개발 설정에서 서비스를 모니터링하고 진단합니다.](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
+[로컬 컴퓨터 개발 설정에서 서비스를 모니터링 하 고 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)합니다.
 
 ## <a name="deploy-the-diagnostics-extension"></a>진단 확장 배포
 로그를 수집하는 첫 단계는 Service Fabric 클러스터의 각 VM에 진단 확장을 배포하는 것입니다. 진단 확장은 각 VM에서 로그를 수집하여 사용자가 지정하는 스토리지 계정에 업로드합니다. 

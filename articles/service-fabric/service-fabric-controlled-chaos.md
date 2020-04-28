@@ -1,15 +1,15 @@
 ---
-title: 서비스 패브릭 클러스터에서 혼돈 유발
+title: Service Fabric 클러스터에서 비정상 상황 유도
 description: 오류 삽입 및 클러스터 분석 서비스 API를 사용하여 클러스터의 비정상 상황을 관리합니다.
 author: motanv
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: motanv
 ms.openlocfilehash: 37b451abd0a519dff17aba9b2d6c42b4762f30cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75463177"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Service Fabric 클러스터에서 제어되는 비정상 상황 유도

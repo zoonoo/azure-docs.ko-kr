@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 37917e0ed663675677f1d0452b5796120ca2694e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75468089"
 ---
 ### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
@@ -21,7 +21,7 @@ ms.locfileid: "75468089"
 
 스토리지 계정 액세스 키를 검색하는 방법에 대한 자세한 내용은 [스토리지 계정 액세스 키 관리](../articles/storage/common/storage-account-keys-manage.md)를 참조하세요.
 
-**예 들어**  
+**예제:**  
 
 ```json
 {
@@ -52,7 +52,7 @@ Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사�
 | type |형식 속성은 **AzureStorageSas** |예 |
 | sasUri |BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다.  |예 |
 
-**예 들어**
+**예제:**
 
 ```json
 {

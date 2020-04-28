@@ -1,6 +1,6 @@
 ---
-title: 마이크로소프트 위협 모델링 도구 개요 - Azure
-description: 위협 모델링 프로세스를 포함하여 도구를 시작하는 방법에 대한 정보가 포함된 Microsoft 위협 모델링 도구의 개요입니다.
+title: Microsoft Threat Modeling Tool 개요-Azure
+description: 위협 모델링 프로세스를 포함 하 여 도구를 시작 하는 방법에 대 한 정보를 포함 하는 Microsoft Threat Modeling Tool의 개요입니다.
 author: jegeib
 ms.author: jegeib
 ms.service: security
@@ -8,10 +8,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 02/16/2017
 ms.openlocfilehash: 0d800102b6f6ff77944a2b625d3bcecef69c1ee9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75548757"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft 위협 모델링 도구
@@ -37,7 +37,7 @@ ms.locfileid: "75548757"
 
 아래 표는 위협 모델링 도구를 시작하는 데 중요한 링크를 포함합니다.
 
-| 단계  | 설명                                                                                   |
+| 단계  | Description                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
 | **1** | [위협 모델링 도구 다운로드](https://aka.ms/threatmodelingtool)                                |
 | **2** | [시작 가이드 읽기](threat-modeling-tool-getting-started.md)    |

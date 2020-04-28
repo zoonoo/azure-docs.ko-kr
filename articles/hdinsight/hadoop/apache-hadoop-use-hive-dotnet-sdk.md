@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ms.openlocfilehash: a9d71c8aebb9cc4a0adbd461aead6e2612bd13bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75552494"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Apache Hive 쿼리 실행
@@ -24,7 +24,7 @@ HDInsight.NET SDK를 사용하여 Apache Hive 쿼리를 제출하는 방법에 �
 > [!NOTE]  
 > 이 문서의 단계는 Windows 클라이언트에서 수행되어야 합니다. Hive와 함께 작동하도록 Linux, OS X 또는 Unix 클라이언트를 사용하는 방법에 대한 정보를 보려면 문서 맨 위에 표시된 탭 선택기를 사용합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
@@ -33,7 +33,7 @@ HDInsight.NET SDK를 사용하여 Apache Hive 쿼리를 제출하는 방법에 �
     > [!IMPORTANT]  
     > 2017년 9월 15일부터 HDInsight .NET SDK는 Azure Storage 계정의 Hive 쿼리 결과만 반환할 수 있습니다. Azure Data Lake Storage를 주 스토리지로 사용하는 HDInsight 클러스터에서 이 예제를 사용하면 .NET SDK를 사용하여 검색 결과를 검색할 수 없습니다.
 
-* [비주얼 스튜디오](https://visualstudio.microsoft.com/vs/community/) 2013 이후. 적어도 워크로드 **.NET 데스크톱 개발을** 설치해야 합니다.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/community/) 2013 이상. 최소한의 워크 로드 **.net 데스크톱 개발** 을 설치 해야 합니다.
 
 ## <a name="run-a-hive-query"></a>Hive 쿼리 실행
 
@@ -45,7 +45,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
-1. 아래 코드를 편집하여 변수의 값을 초기화합니다. `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName` 그런 다음 수정된 코드를 Visual Studio에서 **Program.cs** 전체 내용으로 사용합니다.
+1. 변수에 대 한 값을 초기화 하려면 아래 코드를 편집 `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName`합니다. 그런 다음 수정 된 코드를 Visual Studio에서 **Program.cs** 의 전체 콘텐츠로 사용 합니다.
 
     ```csharp
     using System.Collections.Generic;
@@ -134,13 +134,13 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
 1. **F5** 키를 눌러 애플리케이션을 실행합니다.
 
-응용 프로그램의 출력은 다음과 유사해야 합니다.
+응용 프로그램의 출력은 다음과 유사 해야 합니다.
 
 ![HDInsight Hadoop Hive 작업 출력](./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 HDInsight .NET SDK를 사용하여 아파치 하이브 쿼리를 제출하는 방법을 배웠습니다. 자세히 알아보려면 다음 아티클을 참조하세요.
+이 문서에서는 HDInsight .NET SDK를 사용 하 여 Apache Hive 쿼리를 전송 하는 방법을 알아보았습니다. 자세히 알아보려면 다음 아티클을 참조하세요.
 
 * [Azure HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight에 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)

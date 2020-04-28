@@ -1,15 +1,15 @@
 ---
 title: 서비스 패브릭 서비스의 가용성
-description: Azure 서비스 패브릭 응용 프로그램에서 서비스의 오류 검색, 장애 조치 및 복구에 대해 설명합니다.
+description: Azure Service Fabric 응용 프로그램에서 서비스의 오류 검색, 장애 조치 (failover) 및 복구에 대해 설명 합니다.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 5306439184561e8dec8303a7b149f51d6c2f6e08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75551865"
 ---
 # <a name="availability-of-service-fabric-services"></a>서비스 패브릭 서비스의 가용성
@@ -37,5 +37,5 @@ Service Fabric 개념에 대한 자세한 내용은 다음 문서를 참조하�
 - [Service Fabric 서비스 크기 조정](service-fabric-concepts-scalability.md)
 - [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
 - [상태 정의 및 관리](service-fabric-concepts-state.md)
-- [신뢰할 수 있는 서비스](service-fabric-reliable-services-introduction.md)
+- [Reliable Services](service-fabric-reliable-services-introduction.md)
 

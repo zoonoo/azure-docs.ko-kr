@@ -1,15 +1,15 @@
 ---
-title: Azure 서비스 패브릭으로 상태 보고 및 확인
+title: Azure Service Fabric를 사용 하 여 상태 보고 및 확인
 description: Azure 서비스 패브릭에서 제공하는 상태 모니터링 도구를 사용하여 서비스 코드에서 상태 보고서를 보내고 서비스의 상태를 확인하는 방법에 대해 알아보세요.
 author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 2b7a9c44a84e3ce15eaec22c8f57bb48f79dae05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75464632"
 ---
 # <a name="report-and-check-service-health"></a>서비스 상태 보고 및 확인
@@ -28,7 +28,7 @@ ms.locfileid: "75464632"
 ## <a name="prerequisites"></a>사전 요구 사항
 다음이 설치되어 있어야 합니다.
 
-* 비주얼 스튜디오 2015 또는 비주얼 스튜디오 2019
+* Visual Studio 2015 또는 Visual Studio 2019
 * Service Fabric SDK
 
 ## <a name="to-create-a-local-secure-dev-cluster"></a>로컬 보안 개발자 클러스터를 만들려면
@@ -41,7 +41,7 @@ ms.locfileid: "75464632"
 1. **상태 저장 서비스** 템플릿을 사용하여 프로젝트를 만듭니다.
    
     ![상태 저장 서비스를 사용하여 서비스 패브릭 애플리케이션 만들기](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-stateful-service-application-dialog.png)
-1. **F5를** 눌러 디버그 모드에서 응용 프로그램을 실행합니다. 애플리케이션이 로컬 클러스터에 배포됩니다.
+1. 디버그 모드에서 응용 프로그램을 실행 하려면 **f5** 키를 누릅니다. 애플리케이션이 로컬 클러스터에 배포됩니다.
 1. 애플리케이션을 실행한 후 알림 영역에서 로컬 클러스터 관리자 아이콘을 마우스 오른쪽 단추로 클릭하고 바로 가기 메뉴에서 **로컬 클러스터 관리**를 선택하여 Service Fabric 탐색기를 엽니다.
    
     ![알림 영역에서 서비스 패브릭 탐색기 열기](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/LaunchSFX.png)
@@ -56,7 +56,7 @@ ms.locfileid: "75464632"
 Visual Studio의 서비스 패브릭 프로젝트 템플릿에는 샘플 코드가 포함되어 있습니다. 다음 단계는 서비스 코드에서 사용자 지정 상태 이벤트를 보고할 수 있는 방법을 보여 줍니다. 이런 보고서는 Service Fabric 탐색기, Azure Portal 상태 보기 및 PowerShell과 같이 상태 모니터링을 위해 서비스 패브릭이 제공하는 표준 도구에 자동으로 표시됩니다.
 
 1. Visual Studio에서 이전에 만든 애플리케이션을 다시 열거나 **상태 저장 서비스** Visual Studio 템플릿을 사용하여 새 애플리케이션을 만듭니다.
-1. Stateful1.cs 파일을 열고 `RunAsync` 메서드의 `myDictionary.TryGetValueAsync` 호출을 찾습니다. 이 애플리케이션의 핵심 논리는 카운트 실행을 계속 유지하는 것이므로 이 메서드가 카운터의 현재 값을 보유하는 `result` 를 반환하는 것을 볼 수 있습니다. 이 응용 프로그램이 실제 응용 프로그램이고 결과가 없는 경우 해당 이벤트에 플래그를 지정해야 합니다.
+1. Stateful1.cs 파일을 열고 `RunAsync` 메서드의 `myDictionary.TryGetValueAsync` 호출을 찾습니다. 이 애플리케이션의 핵심 논리는 카운트 실행을 계속 유지하는 것이므로 이 메서드가 카운터의 현재 값을 보유하는 `result` 를 반환하는 것을 볼 수 있습니다. 이 응용 프로그램이 실제 응용 프로그램이 고 결과가 부족 하 여 오류가 표시 되는 경우 해당 이벤트에 플래그를 지정 하는 것이 좋습니다.
 1. 결과 부족이 오류를 나타내는 경우 상태 이벤트를 보고하려면 다음 단계를 추가합니다.
    
     a. `System.Fabric.Health` 네임스페이스를 Stateful1.cs 파일에 추가합니다.
@@ -115,7 +115,7 @@ Visual Studio의 서비스 패브릭 프로젝트 템플릿에는 샘플 코드�
     }
     ```
    이제 이 코드는 `RunAsync`가 실행될 때마다 이 상태 보고서를 발생시킵니다. 변경한 후 **F5** 키를 눌러 애플리케이션을 실행합니다.
-1. 애플리케이션을 실행한 후에 서비스 패브릭 탐색기를 열어 애플리케이션의 상태를 확인합니다. 이번에는 Service Fabric 탐색기가 애플리케이션이 비정상이라고 표시합니다. 이전에 추가한 코드에서 보고된 오류때문에 응용 프로그램이 비정상으로 표시됩니다.
+1. 애플리케이션을 실행한 후에 서비스 패브릭 탐색기를 열어 애플리케이션의 상태를 확인합니다. 이번에는 Service Fabric 탐색기가 애플리케이션이 비정상이라고 표시합니다. 이전에 추가한 코드에서 보고 된 오류 때문에 응용 프로그램이 비정상 상태로 표시 됩니다.
    
     ![서비스 패브릭 탐색기에서 비정상적인 애플리케이션](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
 1. 서비스 패브릭 탐색기의 트리 뷰에서 주 복제본을 선택하면 **성능 상태** 도 오류를 표시합니다. 서비스 패브릭 탐색기는 코드에서 `HealthInformation` 매개 변수에 추가된 상태 보고서 세부 정보도 표시합니다. PowerShell 및 Azure Portal에서도 동일한 상태 보고서를 볼 수 있습니다.

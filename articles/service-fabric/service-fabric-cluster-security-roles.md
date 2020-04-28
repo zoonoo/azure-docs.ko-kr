@@ -1,13 +1,13 @@
 ---
-title: '서비스 패브릭 클러스터 보안: 클라이언트 역할'
+title: 'Service Fabric 클러스터 보안: 클라이언트 역할'
 description: 이 문서에서는 두 개의 클라이언트 역할 및 역할에 제공된 사용 권한을 설명합니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: abca19e686d39338fcaa2e0b0c8126913135170b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451890"
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>서비스 패브릭 클라이언트용 역할 기반 액세스 제어
@@ -92,7 +92,7 @@ Azure 서비스 패브릭은 서비스 패브릭 클러스터에 연결된 클�
 클러스터 매니페스트 파일에서는 필요한 경우 클라이언트에 대한 관리 기능을 제공합니다. [클러스터 생성](service-fabric-cluster-creation-via-portal.md) 중 **패브릭 설정** 옵션으로 이동하고 **이름**, **관리**, **사용자** 및 **값** 필드에 앞의 설정을 제공하여 기본값을 변경할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[서비스 패브릭 클러스터 보안](service-fabric-cluster-security.md)
+[클러스터 보안 Service Fabric](service-fabric-cluster-security.md)
 
 [서비스 패브릭 클러스터 만들기](service-fabric-cluster-creation-via-portal.md)
 

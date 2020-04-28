@@ -1,5 +1,5 @@
 ---
-title: 아파치 스파크 성능 - Azure HDInsight IO 캐시 (미리 보기)
+title: Apache Spark 성능-Azure HDInsight IO 캐시 (미리 보기)
 description: Azure HDInsight IO 캐시 및 이를 사용하여 Apache Spark 성능을 향상하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,13 +8,13 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/23/2019
 ms.openlocfilehash: 43875b87d26f144b85454077fd3c044c820132bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75494995"
 ---
-# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Azure HDInsight IO 캐시를 사용하여 아파치 스파크 워크로드의 성능 향상
+# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Azure HDInsight IO 캐시를 사용 하 여 Apache Spark 작업의 성능 향상
 
 IO 캐시는 Apache Spark 작업의 성능을 개선하는 Azure HDInsight에 대한 데이터 캐싱 서비스입니다. IO 캐시는 [Apache Spark](https://spark.apache.org/) 클러스터에서 실행할 수 있는 [Apache TEZ](https://tez.apache.org/) 및 [Apache Hive](https://hive.apache.org/) 워크로드에서도 작동합니다. IO 캐시는 RubiX라는 오픈 소스 캐싱 구성 요소를 사용합니다. RubiX는 클라우드 스토리지 시스템의 데이터에 액세스하는 빅 데이터 분석 엔진에 사용하기 위한 로컬 디스크 캐시입니다. RubiX는 캐싱 목적으로 작동 메모리를 예약하지 않고 SSD(반도체 드라이브)를 사용하므로 캐싱 시스템에 고유한 기능입니다. IO 캐시 서비스는 클러스터의 각 작업자 노드에서 RubiX 메타데이터 서버를 시작하고 관리합니다. 또한 클러스터의 모든 서비스를 RubiX 캐시의 투명한 사용에 적합하도록 구성합니다.
 
@@ -22,7 +22,7 @@ IO 캐시는 Apache Spark 작업의 성능을 개선하는 Azure HDInsight에 �
 
 > [!Note]  
 > IO 캐시는 현재 캐싱 구성 요소로 RubiX를 사용하지만 이는 서비스의 미래 버전에서 변경될 수 있습니다. IO 캐시 인터페이스를 사용하고 RubiX 구현에 직접 의존하지 마세요.
->IO 캐시는 현재 Azure BLOB 저장소에서만 지원됩니다.
+>IO 캐시는 현재 Azure BLOB Storage 에서만 지원 됩니다.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Azure HDInsight IO 캐시의 이점
 
@@ -30,17 +30,17 @@ IO 캐시 사용은 Azure Blob Storage에서 데이터를 읽는 작업에 대�
 
 IO 캐시를 사용하면 성능 향상을 달성하기 위해 Spark 작업을 변경할 필요가 없습니다. IO 캐시가 비활성화된 경우 이 Spark 코드는 Azure Blob Storage에서 원격으로 데이터를 읽을 것입니다. `spark.read.load('wasbs:///myfolder/data.parquet').count()`. IO 캐시가 활성화된 경우 같은 코드 줄은 IO 캐시를 통해 캐시된 읽기를 실행하게 합니다. 읽은 후에는 데이터를 SSD에서 로컬로 읽습니다. HDInsight 클러스터의 작업자 노드에는 로컬로 연결된 전용 SSD 드라이브가 장착되어 있습니다. HDInsight IO 캐시는 이 로컬 SSD를 캐싱에 사용하여 가장 낮은 수준의 대기 시간을 제공하고 대역폭을 최대로 늘립니다.
 
-## <a name="getting-started"></a>시작
+## <a name="getting-started"></a>시작하기
 
-Azure HDInsight IO 캐시는 기본적으로 미리 보기에서 비활성화됩니다. IO 캐시는 Apache Spark 2.3을 실행 하는 Azure HDInsight 3.6 이상 Spark 클러스터에서 사용할 수 있습니다.  HDInsight 4.0에서 IO 캐시를 활성화하려면 다음 단계를 수행하십시오.
+Azure HDInsight IO 캐시는 기본적으로 미리 보기에서 비활성화됩니다. IO 캐시는 Apache Spark 2.3을 실행 하는 Azure HDInsight 3.6 이상 Spark 클러스터에서 사용할 수 있습니다.  HDInsight 4.0에서 IO 캐시를 활성화 하려면 다음 단계를 수행 합니다.
 
-1. 웹 브라우저에서 클러스터 `https://CLUSTERNAME.azurehdinsight.net`의 `CLUSTERNAME` 이름으로 이동합니다.
+1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net`로 이동합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
 1. 왼쪽에서 **IO 캐시** 서비스를 선택합니다.
 
-1. **[HDI** 3.6의**서비스 작업]을** 선택하고 **활성화합니다.**
+1. **작업** (hdi 3.6에서**서비스 작업** )을 선택 하 고 **활성화**합니다.
 
-    ![암바리에서 IO 캐시 서비스 활성화](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "암바리에서 IO 캐시 서비스 활성화")
+    ![Ambari에서 IO 캐시 서비스 사용](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Ambari에서 IO 캐시 서비스 사용")
 
 1. 클러스터에 영향을 주는 모든 서비스를 다시 시작하는지 확인합니다.
 
@@ -63,17 +63,17 @@ IO 캐시를 사용하도록 설정한 후 Spark 작업을 실행하는 디스�
 
 1. 상자의 값을 변경합니다.
 
-    ![IO 캐시 충만도 백분율 편집](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "IO 캐시 충만도 백분율 편집")
+    ![IO 캐시의 평균 사용률 편집](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "IO 캐시의 평균 사용률 편집")
 
 1. 오른쪽의 **저장**을 선택합니다.
 
-1. **영향을 받는 모든 다시** **시작을** > 선택합니다.
+1.  > **모든 영향을** **다시 시작을 선택 합니다**.
 
-    ![아파치 암바리는 영향을받는 모든 다시 시작](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "영향을 받는 모든 다시 시작")
+    ![모든 영향을 받는 Apache Ambari 다시 시작](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "영향을 받는 모든 컴퓨터 다시 시작")
 
-1. **모두를 다시 시작 확인을 선택합니다.**
+1. **모두 다시 시작 확인**을 선택 합니다.
 
-그래도 작동하지 않으면 IO 캐시를 사용하지 않도록 설정합니다.
+그래도 작동 하지 않으면 IO 캐시를 사용 하지 않도록 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

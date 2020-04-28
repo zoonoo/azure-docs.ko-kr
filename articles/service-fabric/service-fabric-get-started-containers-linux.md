@@ -1,13 +1,13 @@
 ---
-title: Linux에서 Azure 서비스 패브릭 컨테이너 응용 프로그램 만들기
+title: Linux에서 Azure Service Fabric 컨테이너 응용 프로그램 만들기
 description: Azure Service Fabric에서 첫 번째 Linux 컨테이너 애플리케이션을 만듭니다. 애플리케이션을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 컨테이너 애플리케이션을 빌드하고 배포합니다.
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.openlocfilehash: f2f8c7884323667f843382b02c73a570e58617f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75457964"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
@@ -22,7 +22,7 @@ Service Fabric 클러스터의 Linux 컨테이너에서 기존 애플리케이�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 * 다음을 실행하는 개발 컴퓨터
-  * [서비스 패브릭 SDK 및 도구](service-fabric-get-started-linux.md).
+  * [SDK 및 도구를 Service Fabric](service-fabric-get-started-linux.md)합니다.
   * [Linux용 Docker CE](https://docs.docker.com/engine/installation/#prior-releases) 
   * [Service Fabric CLI](service-fabric-cli.md)
 
@@ -85,7 +85,7 @@ if __name__ == "__main__":
 ```
 
 ## <a name="build-the-image"></a>이미지 빌드
-`docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 *c:\temp\helloworldapp*으로 이동합니다. 다음 명령 실행:
+`docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 *c:\temp\helloworldapp*으로 이동합니다. 다음 명령을 실행합니다.
 
 ```bash
 docker build -t helloworldapp .
@@ -113,7 +113,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name*은 (컨테이너 ID가 아닌) 실행 중인 컨테이너에 이름을 지정합니다.
 
-실행 중인 컨테이너에 연결합니다. 포트 4000에서 반환된 IP 주소를 가리키는 웹 브라우저를\/엽니다(예: "http: /localhost:4000"). 제목인 "Hello World!"가 브라우저에 표시됩니다.
+실행 중인 컨테이너에 연결합니다. 4000 포트에서 반환 된 IP 주소를 가리키는 웹 브라우저를 엽니다 (예: "http:\//hosts: 4000"). 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ![Hello World!][hello-world]
 
@@ -132,9 +132,9 @@ docker rm my-web-site
 ## <a name="push-the-image-to-the-container-registry"></a>컨테이너 레지스트리에 이미지를 푸시합니다.
 Docker에서 애플리케이션이 실행되는지 확인한 후에 Azure Container Registry에서 이미지를 레지스트리에 푸시합니다.
 
-레지스트리 `docker login` 자격 증명을 사용하여 컨테이너 레지스트리에 로그인하려면 [실행합니다.](../container-registry/container-registry-authentication.md)
+을 `docker login` 실행 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용 하 여 컨테이너 레지스트리에 로그인 합니다.
 
-다음 예제는 Azure Active Directory [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 서비스 주체를 할당할 수 있습니다. 또는 레지스트리 사용자 이름과 암호를 사용하여 로그인할 수 있습니다.
+다음 예제는 Azure Active Directory [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 서비스 주체를 할당할 수 있습니다. 또는 레지스트리 사용자 이름과 암호를 사용 하 여 로그인 할 수 있습니다.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -171,10 +171,10 @@ Service Fabric 컨테이너 애플리케이션을 만들려면 터미널 창을 
 
 ## <a name="configure-container-repository-authentication"></a>컨테이너 리포지토리 인증 구성
 
-컨테이너 이미지 다운로드에 대해 다양한 유형의 인증을 구성하는 방법을 알아보려면 컨테이너 [리포지토리 인증을](configure-container-repository-credentials.md)참조하십시오.
+컨테이너 이미지 다운로드에 대해 다양 한 유형의 인증을 구성 하는 방법을 알아보려면 [컨테이너 리포지토리 인증](configure-container-repository-credentials.md)을 참조 하세요.
 
 ## <a name="configure-isolation-mode"></a>격리 모드 구성
-6.3 런타임 릴리스를 통해 Linux 컨테이너에 VM 격리가 지원되어 컨테이너에 대한 프로세스 및 Hyper-V의 두 가지 격리 모드를 지원합니다. Hyper-V 격리 모드를 사용하면 커널이 각 컨테이너와 컨테이너 호스트 간에 격리됩니다. 하이퍼-V 격리는 [Clear 컨테이너를](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker)사용하여 구현됩니다. 격리 모드는 애플리케이션 매니페스트 파일의 `ServicePackageContainerPolicy` 요소에서 Linux 클러스터에 대해 지정됩니다. 지정될 수 있는 격리 모드는 `process`, `hyperv` 및 `default`입니다. 기본값은 process 격리 모드입니다. 다음 코드 조각은 격리 모드가 애플리케이션 매니페스트 파일에서 지정되는 방법을 보여 줍니다.
+6.3 런타임 릴리스에서는 VM 격리가 Linux 컨테이너에 대해 지원 되므로 컨테이너에 대 한 두 가지 격리 모드 (프로세스 및 Hyper-v)를 지원 합니다. Hyper-v 격리 모드에서는 커널이 각 컨테이너와 컨테이너 호스트 간에 격리 됩니다. Hyper-v 격리는 [Clear 컨테이너](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker)를 사용 하 여 구현 됩니다. 격리 모드는 애플리케이션 매니페스트 파일의 `ServicePackageContainerPolicy` 요소에서 Linux 클러스터에 대해 지정됩니다. 지정될 수 있는 격리 모드는 `process`, `hyperv` 및 `default`입니다. 기본값은 process 격리 모드입니다. 다음 코드 조각은 격리 모드가 애플리케이션 매니페스트 파일에서 지정되는 방법을 보여 줍니다.
 
 ```xml
 <ServiceManifestImport>
@@ -208,7 +208,7 @@ Service Fabric 컨테이너 애플리케이션을 만들려면 터미널 창을 
 
 v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK**를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. *health_status*가 *healthy*이면 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 **OK** 상태 보고서가 표시되고, *health_status*가 *unhealthy*이면 **경고**가 표시됩니다. 
 
-v6.4의 최신 새로 고침 릴리스부터 시작하여 docker HEALTHCHECK 평가를 오류로 보고하도록 지정할 수 있습니다. 이 옵션을 사용하도록 설정하면 *health_status* *정상인* 경우 **확인** 상태 보고서가 표시되고 *health_status* *비정상일*때 **오류가** 나타납니다.
+V 6.4의 최신 새로 고침 릴리스부터 docker HEALTHCHECK 평가를 오류로 보고 하도록 지정할 수 있습니다. 이 옵션을 사용 하도록 설정 하면 *health_status* *정상* **상태 이면 정상 상태** 보고서가 표시 되 고 *health_status* *비정상*상태 이면 **오류가** 표시 됩니다.
 
 컨테이너 상태를 모니터링하기 위해 수행되는 실제 검사를 가리키는 **HEALTHCHECK** 명령은 컨테이너 이미지를 생성하는 동안 사용되는 Dockerfile에 있어야 합니다.
 
@@ -232,11 +232,11 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
     </Policies>
 </ServiceManifestImport>
 ```
-기본적으로 *포함도커헬스상태인시스템건강보고서는* **true로**설정되고, *다시 시작컨테이너온건강도커상태는* **false로**설정되고, *처리컨테이너언정상상태오류는* **false로**설정됩니다. 
+기본적으로 *IncludeDockerHealthStatusInSystemHealthReport* 는 **true**로 설정 되 고, *RestartContainerOnUnhealthyDockerHealthStatus* 는 **false**로 설정 되며, *TreatContainerUnhealthyStatusAsError* 는 **false**로 설정 됩니다. 
 
 *RestartContainerOnUnhealthyDockerHealthStatus*가 **true**로 설정된 경우, 반복적으로 비정상으로 보고하는 컨테이너가 다시 시작됩니다(다른 노드에서도 가능).
 
-*처리컨테이너 정상 상태오류가* **true로**설정된 경우 컨테이너의 *health_status* *비정상일*때 **ERROR** 상태 보고서가 나타납니다.
+*TreatContainerUnhealthyStatusAsError* 가 **true**로 설정 된 경우 컨테이너의 *health_status* *비정상*이면 **오류** 상태 보고서가 표시 됩니다.
 
 전체 Service Fabric 클러스터에 대해 **HEALTHCHECK** 통합을 사용하지 않도록 설정하려면 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md)을 **false**로 설정해야 합니다.
 
@@ -256,9 +256,9 @@ https://github.com/Azure-Samples/service-fabric-containers/의 템플릿에 제�
 ./install.sh
 ```
 
-브라우저를 열고 http:\//localhost:19080/Explorer에서 서비스 패브릭 탐색기로 이동합니다(Mac OS X에서 방랑자를 사용하는 경우 로컬 호스트를 VM의 개인 IP로 대체). 애플리케이션 노드를 확장하면 애플리케이션 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
+브라우저를 열고 http:\//prohosts: 19080/Explorer (Mac OS X에서 Vagrant를 사용 하는 경우 LOCALHOST를 VM의 개인 IP로 바꿉니다.) Service Fabric Explorer로 이동 합니다. 애플리케이션 노드를 확장하면 애플리케이션 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
 
-실행 중인 컨테이너에 연결합니다. 포트 4000에서 반환된 IP 주소를 가리키는 웹 브라우저를\/엽니다(예: "http: /localhost:4000"). 제목인 "Hello World!"가 브라우저에 표시됩니다.
+실행 중인 컨테이너에 연결합니다. 4000 포트에서 반환 된 IP 주소를 가리키는 웹 브라우저를 엽니다 (예: "http:\//hosts: 4000"). 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ![Hello World!][hello-world]
 
@@ -445,7 +445,7 @@ Service Fabric 런타임은 대부분의 컨테이너 이미지에 대해 작동
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
 ```
 
-**ContainersRetentionCount** 설정은 실패할 때 유지할 컨테이너의 수를 지정합니다. 음수 값을 지정하면 실패한 모든 컨테이너가 유지됩니다. **컨테이너RetentionCount** 특성을 지정하지 않은 경우 컨테이너가 유지되지 않습니다. 또한 **ContainersRetentionCount** 특성은 애플리케이션 매개 변수도 지원하므로 사용자는 테스트 및 프로덕션 클러스터에 대해 다른 값을 지정할 수 있습니다. 이 기능을 사용하여 컨테이너 서비스가 다른 노드로 이동하지 않도록 방지하려면 배치 제약 조건을 사용하여 특정 노드에 대한 컨테이너 서비스를 대상으로 지정합니다. 이 기능을 사용하여 유지된 컨테이너는 수동으로 제거해야 합니다.
+**ContainersRetentionCount** 설정은 실패할 때 유지할 컨테이너의 수를 지정합니다. 음수 값을 지정하면 실패한 모든 컨테이너가 유지됩니다. **ContainersRetentionCount** 특성을 지정 하지 않으면 컨테이너가 유지 되지 않습니다. 또한 **ContainersRetentionCount** 특성은 애플리케이션 매개 변수도 지원하므로 사용자는 테스트 및 프로덕션 클러스터에 대해 다른 값을 지정할 수 있습니다. 이 기능을 사용하여 컨테이너 서비스가 다른 노드로 이동하지 않도록 방지하려면 배치 제약 조건을 사용하여 특정 노드에 대한 컨테이너 서비스를 대상으로 지정합니다. 이 기능을 사용하여 유지된 컨테이너는 수동으로 제거해야 합니다.
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>사용자 지정 인수로 Docker 디먼 시작
 

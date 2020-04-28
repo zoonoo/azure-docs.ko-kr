@@ -1,15 +1,15 @@
 ---
-title: 측정항목 및 게재위치 설정 지정
+title: 메트릭 및 배치 설정 지정
 description: 메트릭, 배치 제약 조건 및 기타 배치 정책을 지정하여 Service Fabric 서비스를 설명하는 방법을 알아봅니다.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: d4dcd319000edb204ba188ed14b4c797dba5cd38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75610100"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Service Fabric 서비스에 대한 클러스터 리소스 관리자 설정 구성
@@ -33,9 +33,9 @@ Service Fabric 클러스터 리소스 관리자를 사용하면 개별적으로 
 다른 배치 규칙은 상관 관계 또는 정책을 통해 구성됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-- 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 측정항목 및 메트릭 구성 방법에 대해 자세히 알아보려면 [이 도움말을](service-fabric-cluster-resource-manager-metrics.md) 확인하세요.
+- 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭에 대 한 자세한 내용 및 구성 방법에 대 한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md) 를 확인 하세요.
 - 선호도는 서비스에 대해 구성할 수 있는 하나의 모드입니다. 일반적이지 않지만 필요한 경우 [여기](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
 - 추가 시나리오를 처리하기 위해 서비스에 구성할 수 있는 다양한 배치 규칙이 있습니다. 이러한 기타 배치 정책은 [여기](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
 - 처음부터 시작 및 [서비스 패브릭 클러스터 Resource Manager 소개](service-fabric-cluster-resource-manager-introduction.md)
 - 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)
-- Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 자세한 내용은 [서비스 패브릭 클러스터 설명에](service-fabric-cluster-resource-manager-cluster-description.md) 대한 이 문서를 확인하십시오.
+- Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대 한 자세한 내용은 [Service Fabric 클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md) 문서를 참조 하세요.

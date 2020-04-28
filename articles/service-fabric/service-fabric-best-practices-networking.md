@@ -1,22 +1,22 @@
 ---
-title: Azure 서비스 패브릭 네트워킹 모범 사례
-description: Azure 서비스 패브릭을 사용하여 네트워크 연결을 관리하기 위한 모범 사례 및 디자인 고려 사항
+title: Azure Service Fabric 네트워킹 모범 사례
+description: Azure Service Fabric을 사용 하 여 네트워크 연결을 관리 하기 위한 모범 사례 및 디자인 고려 사항입니다.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: de2a74ad2d61de18d2150b72be3251e5b5583f2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75551797"
 ---
 # <a name="networking"></a>네트워킹
 
 Azure Service Fabric 클러스터를 만들고 관리할 때는 노드와 애플리케이션용 네트워크 연결을 제공합니다. 네트워킹 리소스에는 IP 주소 범위, 가상 네트워크, 부하 분산 장치 및 네트워크 보안 그룹이 포함됩니다. 이 문서에서는 이러한 리소스와 관련된 모범 사례에 대해 알아봅니다.
 
-Azure [Service 패브릭 네트워킹 패턴을](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) 검토하여 기존 가상 네트워크 또는 서브넷, 정적 공용 IP 주소, 내부 전용 로드 밸런서 또는 내부 및 외부 로드 밸런서와 같은 기능을 사용하는 클러스터를 만드는 방법을 알아봅니다.
+Azure [Service Fabric 네트워킹 패턴](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) 을 검토 하 여 기존 가상 네트워크 또는 서브넷, 고정 공용 IP 주소, 내부 전용 부하 분산 장치 또는 내부 및 외부 부하 분산 장치와 같은 기능을 사용 하는 클러스터를 만드는 방법을 알아보세요.
 
 ## <a name="infrastructure-networking"></a>인프라 네트워킹
 Resource Manager 템플릿에서 enableAcceleratedNetworking을 선언하면 가속화된 네트워킹을 통해 가상 머신 성능을 최대화할 수 있습니다. 아래에는 가속화된 네트워킹을 사용하도록 설정하는 Virtual Machine Scale Set NetworkInterfaceConfigurations의 코드 조각이 나와 있습니다.
@@ -39,7 +39,7 @@ Resource Manager 템플릿에서 enableAcceleratedNetworking을 선언하면 가
 ```
 [가속화된 네트워킹을 사용하는 Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) 및 [가속화된 네트워킹을 사용하는 Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell)에서 Service Fabric 클러스터를 프로비전할 수 있습니다.
 
-Azure 가상 머신 시리즈 SUS: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 및 Ms/Mms에 대해 가속 네트워킹이 지원됩니다. Service Fabric Windows 클러스터의 경우 2019년 1월 23일에 Standard_DS8_v3 SKU를 사용하여, Service Fabric Linux 클러스터의 경우 2019년 1월 29일에 Standard_DS12_v2를 사용하여 가속화된 네트워킹을 테스트한 결과 정상 작동이 확인되었습니다.
+가속화 된 네트워킹은 D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 및 Ms/Mms에 대해 지원 됩니다. Service Fabric Windows 클러스터의 경우 2019년 1월 23일에 Standard_DS8_v3 SKU를 사용하여, Service Fabric Linux 클러스터의 경우 2019년 1월 29일에 Standard_DS12_v2를 사용하여 가속화된 네트워킹을 테스트한 결과 정상 작동이 확인되었습니다.
 
 기존 Service Fabric 클러스터에서 가속화된 네트워킹을 사용하도록 설정하려면 먼저 [Virtual Machine Scale Set를 추가하여 Service Fabric 클러스터를 확장](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)해 다음 작업을 수행해야 합니다.
 1. 가속화된 네트워킹이 사용하도록 설정된 NodeType 프로비전
@@ -51,7 +51,7 @@ Azure 가상 머신 시리즈 SUS: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 및 Ms/Mms
 
 * [Service Fabric 네트워킹 패턴](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking)에 요약되어 있는 단계를 수행하면 기존 가상 네트워크에 Service Fabric 클러스터를 배포할 수 있습니다.
 
-* 클러스터로의 인바운드 및 아웃바운드 트래픽을 제한하는 노드 형식의 경우에는 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG에서 필요한 포트가 열려 있는지 확인합니다. 예: ![서비스 패브릭 NSG 규칙][NSGSetup]
+* 클러스터로의 인바운드 및 아웃바운드 트래픽을 제한하는 노드 형식의 경우에는 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG에서 필요한 포트가 열려 있는지 확인합니다. 예: ![Service Fabric Nsg 규칙][NSGSetup]
 
 * Service Fabric 시스템 서비스를 포함하는 주 노드 형식은 외부 부하 분산 장치를 통해 표시하지 않아도 되며 [내부 부하 분산 장치](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)를 통해 표시할 수 있습니다.
 
@@ -63,12 +63,12 @@ Azure 가상 머신 시리즈 SUS: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 및 Ms/Mms
 
 * [Traefik](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/) 또는 [Service Fabric 역방향 프록시](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) 등의 역방향 프록시를 사용하여 80, 443 등의 일반적인 애플리케이션 포트를 표시합니다.
 
-* Azure 클라우드 저장소에서 기본 계층을 가져올 수 없는 공기 가핑된 컴퓨터에서 호스팅되는 Windows 컨테이너의 경우 Docker 데몬에서 [--허용 무단 배포 아티팩트](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) 플래그를 사용하여 외부 계층 동작을 재정의합니다.
+* Azure 클라우드 저장소에서 기본 계층을 끌어올 수 없는 gapped 컴퓨터에서 호스트 되는 Windows 컨테이너의 경우 Docker 디먼의 [--비 배포 가능 아티팩트](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) 플래그를 사용 하 여 외부 계층 동작을 재정의 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * Windows Server를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Windows Server용 서비스 패브릭 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
 * Linux를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Linux 클러스터 만들기](service-fabric-cluster-creation-via-portal.md)
-* 서비스 [패브릭 지원 옵션에](service-fabric-support.md) 대해 자세히 알아보기
+* [Service Fabric 지원 옵션](service-fabric-support.md) 에 대 한 자세한 정보
 
 [NSGSetup]: ./media/service-fabric-best-practices/service-fabric-nsg-rules.png

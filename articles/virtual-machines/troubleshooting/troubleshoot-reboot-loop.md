@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
 ms.openlocfilehash: 3fd0a8bf6bacfec5e2be6dfa52ca51e46c7025f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75443591"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Azure VM의 Windows 다시 부팅 루프
@@ -48,7 +48,7 @@ ms.locfileid: "75443591"
 
 파일 시스템이 손상되면 이 문제가 발생할 수 있습니다. 그러나 운영 체제가 손상되는 변경을 진단하고 식별하는 것이 어렵습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 [OS 디스크를 백업](../windows/snapshot-copy-managed-disk.md)하고, [OS 디스크를 복구 VM에 연결](../windows/troubleshoot-recovery-disks-portal.md)한 다음, 이에 따라 솔루션 옵션을 따르거나 솔루션을 하나씩 시도합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "75443591"
 
 4. 복구 VM에서 Windows 레지스트리 편집기(regedit)를 엽니다.
 
-5. **HKEY_LOCAL_MACHINE** 키를 선택한 다음 메뉴에서 **파일** > **로드 하이브를** 선택합니다.
+5. **HKEY_LOCAL_MACHINE** 키를 선택 하 고 메뉴에서 **파일** > **로드 하이브** 를 선택 합니다.
 
 6. **\Windows\System32\config** 폴더에서 SYSTEM 파일을 찾습니다.
 
@@ -86,7 +86,7 @@ ms.locfileid: "75443591"
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
-13. **BROKENSYSTEM** 키를 선택한 다음 메뉴에서 **하이브 파일** > **언로드를** 선택합니다.
+13. **BROKENSYSTEM** 키를 선택 하 고 메뉴에서 **파일** > **언로드 Hive** 를 선택 합니다.
 
 14. 문제 해결을 위한 VM에서 OS 디스크를 분리합니다.
 
