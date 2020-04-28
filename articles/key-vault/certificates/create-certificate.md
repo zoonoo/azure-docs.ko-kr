@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 21bcaf8636638153ad5e5659ef3e1bff0631d9b8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7450dd79247078afe02d1bb63727cfd260d674fc
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430956"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866248"
 ---
 # <a name="certificate-creation-methods"></a>인증서 생성 방법
 
@@ -80,10 +80,10 @@ KV 인증서 만들기 요청이 완료되면 보류 중인 개체의 상태가 
 ## <a name="partnered-ca-providers"></a>파트너 CA 공급자
 인증서 만들기는 수동으로 또는 “Self” 발급자를 사용하여 완료할 수 있습니다. 또한 Key Vault는 인증서 생성을 단순화하기 위해 특정 발급자 공급자와도 파트너 관계를 맺습니다. 다음 유형의 인증서는 이러한 파트너 발급자 공급자를 통해 키 자격 증명 모음에 대해 순서를 지정할 수 있습니다.  
 
-|공급자|인증서 종류|  
-|--------------|----------------------|  
-|DigiCert|Key Vault가 DigiCert를 통해 OV 또는 EV SSL 인증서 제공|
-|GlobalSign|Key Vault가 GlobalSign을 통해 OV 또는 EV SSL 인증서 제공|
+|공급자|인증서 종류|구성 설정  
+|--------------|----------------------|------------------|  
+|DigiCert|Key Vault가 DigiCert를 통해 OV 또는 EV SSL 인증서 제공| [통합 가이드](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
+|GlobalSign|Key Vault가 GlobalSign을 통해 OV 또는 EV SSL 인증서 제공| [통합 가이드](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  인증서 발급자는 Azure KV(Key Vault)에 CertificateIssuer 리소스로 표시되는 엔터티입니다. KV 인증서의 원본에 대한 정보(발급자 이름, 공급자, 자격 증명 및 기타 관리 세부 정보)를 제공하는 데 사용됩니다.
 

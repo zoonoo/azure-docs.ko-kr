@@ -1,20 +1,20 @@
 ---
 title: IoT 플러그 앤 플레이 미리 보기 소개 | Microsoft Docs
 description: IoT 플러그 앤 플레이 미리 보기에 대해 알아봅니다. IoT 플러그 앤 플레이는 IoT 디바이스가 기능을 선언할 수 있는 개방형 모델링 언어를 기반으로 합니다. IoT 디바이스는 Azure IoT Central 또는 파트너 애플리케이션 같은 클라우드 솔루션에 연결할 때 디바이스 기능 모델이라고 하는 선언을 제공합니다. 그러면 클라우드 솔루션이 코드를 작성하지 않고도 자동으로 디바이스를 이해하고 디바이스와 상호 작용을 시작할 수 있습니다.
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/23/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 0399e1659fb7cc6a650c6b3c1d0189c8802d4904
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 12f3febac2c5c8ed01b9b156a64dc77f6ed0704f
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064324"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770429"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>IoT 플러그 앤 플레이 미리 보기란?
 

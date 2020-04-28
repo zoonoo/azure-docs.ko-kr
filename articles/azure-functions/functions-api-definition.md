@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: a80079574dc29c54de89f5275c65637b205742d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbfd0e36307210851070c22e74acb0a858446ce1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74227409"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866711"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Azure Functions에서 OpenAPI 2.0 메타데이터 지원(미리 보기)
 Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함수 앱 내에 OpenAPI 2.0 정의를 작성하는 데 사용할 수 있는 미리 보기 기능입니다. 그런 다음 함수 앱을 사용하여 해당 파일을 호스팅할 수 있습니다.
@@ -40,7 +40,7 @@ Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함�
 
 ### <a name="available-templates"></a><a name="templates"></a>사용 가능한 템플릿
 
-|이름| 설명 |
+|속성| Description |
 |:-----|:-----|
 |생성된 정의|최대 정보량을 포함하여 함수의 기존 메타데이터에서 유추할 수 있는 OpenAPI 정의|
 
@@ -60,7 +60,7 @@ Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함�
 > [!NOTE]
 > x-ms-summary 확장은 Logic Apps, PowerApps 및 Flow에서 표시 이름을 제공합니다.
 >
-> 자세한 내용은 [PowerApps에 대한 Swagger 정의 사용자 지정](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/)을 확인하세요.
+> 자세한 내용은 [PowerApps에 대한 Swagger 정의 사용자 지정](https://docs.microsoft.com/connectors/custom-connectors/openapi-extensions)을 확인하세요.
 
 ## <a name="use-cicd-to-set-an-api-definition"></a><a name="CICD"></a>CI/CD를 사용하여 API 정의 설정
 

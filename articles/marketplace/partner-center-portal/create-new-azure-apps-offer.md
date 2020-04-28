@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: a62551b31c51836dfa50534ee6db907c8a4e111a
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 516ebce176f53a0495ea493f5327658162e7ea9e
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730611"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867275"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -221,6 +221,9 @@ Azure 응용 프로그램 오퍼를 만들려면 먼저 [파트너 센터 계정
 
 이 섹션에서는 고객에게 제안을 표시할 때 사용할 로고와 이미지를 제공할 수 있습니다. 모든 이미지는 .png 형식이어야 합니다.
 
+>[!Note]
+>파일을 업로드하는 데 문제가 있는 경우 로컬 네트워크가 파트너 https://upload.xboxlive.com 센터에서 사용하는 서비스를 차단하지 않는지 확인합니다.
+
 #### <a name="store-logos"></a>스토어 로고
 
 **작은 (48 x 48)**, **중간 (90 X 90)** 및 대형 **(216 x 216)의**세 가지 크기로 쿠폰의 로고를 제공합니다.
@@ -233,7 +236,7 @@ Azure 응용 프로그램 오퍼를 만들려면 먼저 [파트너 센터 계정
 
 쿠폰의 작동 방식을 보여 주는 스크린샷을 추가합니다. 최대 5개의 스크린샷을 추가할 수 있습니다. 모든 스크린샷은 1280 x 720 픽셀이어야 합니다.
 
-#### <a name="videos"></a>비디오
+#### <a name="videos"></a>동영상
 
 선택적으로 쿠폰을 보여주는 동영상을 최대 5개까지 추가할 수 있습니다. 이 동영상은 YouTube 및/또는 Vimeo에서 호스팅되어야 합니다. 각 동영상에 대해 동영상 이름, URL 및 동영상의 축소판 이미지(1280 x 720픽셀)를 입력합니다.
 
@@ -355,7 +358,7 @@ Azure 정부 서비스는 FedRAMP, NIST 800.171(DIB), ITAR, IRS 1075, DoD L4 및
 
 이 플랜의 월별 가격을 제공합니다.  이 가격은 이 솔루션에서 배포한 리소스로 인해 발생하는 모든 Azure 인프라 또는 종량제 소프트웨어 비용에 추가됩니다.
 
-현지 통화(USD = 미국 달러)로 설정된 가격은 설정 중에 사용할 수 있는 현재 환율을 사용하여 선택한 모든 시장의 현지 통화로 변환됩니다. 가격 스프레드시트를 내보내고 각 시장의 가격을 검토하여 게시하기 전에 이러한 가격의 유효성을 검사합니다. 개별 시장에서 사용자 지정 가격을 설정하려면 가격 스프레드시트를 수정하고 가져옵니다. 
+USD(USD = 미국 달러)로 설정된 가격은 저장시 현재 환율을 사용하여 선택한 모든 시장의 현지 통화로 변환됩니다. 가격 스프레드시트를 내보내고 각 시장의 가격을 검토하여 게시하기 전에 이러한 가격의 유효성을 검사합니다. 개별 시장에서 사용자 지정 가격을 설정하려면 가격 스프레드시트를 수정하고 가져옵니다. 
 
 >[!Note]
 >가격 데이터를 내보내려면 먼저 가격 변경 사항을 저장해야 합니다.
@@ -397,7 +400,16 @@ Azure 정부 서비스는 FedRAMP, NIST 800.171(DIB), ITAR, IRS 1075, DoD L4 및
 
 * [createUiDefinition.json이라는](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)Azure 응용 프로그램 만들기 경험에 대한 사용자 인터페이스 정의 .
 
+지원되는 최대 파일 크기는 다음과 같습니다.
+
+* 최대 1Gb의 총 `.zip` 압축 아카이브 크기
+
+* `.zip` 아카이브 내의 압축되지 않은 개별 파일에 대해 최대 1Gb  
+
 모든 새 Azure 응용 프로그램 제공에는 [Azure 파트너 고객 사용 기여](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution) GUID도 포함되어야 합니다.
+
+>[!Note]
+>파일을 업로드하는 데 문제가 있는 경우 로컬 네트워크가 파트너 https://upload.xboxlive.com 센터에서 사용하는 서비스를 차단하지 않는지 확인합니다.
 
 ### <a name="previously-published-packages"></a>이전에 게시된 패키지 
 

@@ -1,25 +1,19 @@
 ---
 title: PowerShell을 사용하여 리소스 관리자로 마이그레이션
 description: 이 문서에서는 Azure PowerShell 명령을 사용하여 가상 머신(VM), 가상 네트워크 및 저장소 계정에서 Azure PowerShell 명령을 사용하여 클래식에서 Azure 리소스 관리자로 의 한 IaaS 리소스의 플랫폼에서 지원되는 마이그레이션을 안내합니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: tanmaygore
 manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 2b3dff9b-2e99-4556-acc5-d75ef234af9c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 12a77c4c21a26f1ec52bb3ffdc312df56d3c4537
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 314d7a4725709f00ba5cdbf54595857502bc5805
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249972"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865954"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>PowerShell을 사용하여 IaaS 리소스를 클래식에서 Azure 리소스 관리자로 마이그레이션
 
@@ -60,7 +54,7 @@ Azure PowerShell을 설치하는 두 가지 주요 옵션으로 [PowerShell 갤�
 ## <a name="step-3-ensure-that-youre-an-administrator-for-the-subscription"></a>3단계: 구독관리자인지 확인
 이 마이그레이션을 수행하려면 [Azure 포털에서](https://portal.azure.com)구독의 공동 관리자로 추가해야 합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **허브** 메뉴에서 **구독**을 선택합니다. 표시되지 않으면 **모든 서비스**를 선택합니다.
 3. 적절한 구독 항목을 찾은 다음 **내 ROLE** 필드를 살펴봅니다. 공동 관리자의 경우 값은 _계정 관리자여야_합니다.
 

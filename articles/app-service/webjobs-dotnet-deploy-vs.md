@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 75e1f5fbfa41ac310d2a737dcfe28199715a094b
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: d73c858bdbfee7c5b7c7e31b62b1f601b7b6838a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312870"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866448"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure App Service
 
@@ -175,7 +175,7 @@ WebJob 배포를 위해 콘솔 애플리케이션을 구성하는 경우, Visual
           "runMode": "Continuous"
         }
 
-이 파일을 직접 편집할 수도 있고 Visual Studio에 제공되는 IntelliSense를 사용할 수도 있습니다. 파일 스키마가 저장되고 [https://schemastore.org](https://schemastore.org/schemas/json/webjob-publish-settings.json) 거기에서 볼 수 있습니다.  
+이 파일을 직접 편집할 수도 있고 Visual Studio에 제공되는 IntelliSense를 사용할 수도 있습니다. 파일 스키마가 저장되고 [https://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) 거기에서 볼 수 있습니다.  
 
 ### <a name="webjobs-listjson"></a><a id="webjobslist"></a>webjobs-list.json
 WebJob 지원 프로젝트를 웹 프로젝트에 연결하면 Visual Studio는 WebJob 프로젝트의 이름을 웹 프로젝트의 *Properties* 폴더에 있는 *webjobs-list.json* 파일에 저장합니다. 이 목록에는 다음 예와 같은 여러 WebJob 프로젝트가 포함될 수 있습니다.
@@ -192,7 +192,7 @@ WebJob 지원 프로젝트를 웹 프로젝트에 연결하면 Visual Studio는 
           ]
         }
 
-이 파일을 직접 편집할 수도 있고 Visual Studio에 제공되는 IntelliSense를 사용할 수도 있습니다. 파일 스키마가 저장되고 [https://schemastore.org](https://schemastore.org/schemas/json/webjobs-list.json) 거기에서 볼 수 있습니다.
+이 파일을 직접 편집할 수도 있고 Visual Studio에 제공되는 IntelliSense를 사용할 수도 있습니다. 파일 스키마가 저장되고 [https://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) 거기에서 볼 수 있습니다.
 
 ### <a name="deploy-a-webjobs-project"></a><a id="deploy"></a>WebJob 프로젝트 배포
 웹 프로젝트에 연결한 WebJob 프로젝트는 웹 프로젝트와 함께 자동으로 배포됩니다. 웹 프로젝트 배포에 대한 자세한 내용은 왼쪽 탐색에서 > **앱 배포** 방법 **안내서를 참조하세요.**
@@ -229,7 +229,7 @@ WebJobsAzure Functions에서 타이머 트리거로 예약에 동일한 CRON 식
 
 다음 설정은 WebJobs에서 지원됩니다.
 
-| **설정** | **Type**  | **설명** |
+| **설정** | **형식**  | **설명** |
 | ----------- | --------- | --------------- |
 | `is_in_place` | 모두 | 임시 폴더에 먼저 복사하지 않고 작업을 실행합니다. 자세한 내용은 [WebJobs 작업 디렉터리를](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)참조하십시오. |
 | `is_singleton` | 연속 | 확장이 완료되면 단일 인스턴스에서만 WebJobs를 실행합니다. 자세한 내용은 [연속 작업 설정을 단일 톤으로 참조하세요.](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton) |

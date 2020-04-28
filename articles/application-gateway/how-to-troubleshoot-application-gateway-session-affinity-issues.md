@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 9f14521c15c3497bed4ffbeba44cb5d78ee4df7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.openlocfilehash: aa3617b30fe1ef9b4d4a6c5fe5aac51bff95bb92
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74047980"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866684"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Azure 응용 프로그램 게이트웨이 세션 선호도 문제 해결
 
@@ -97,7 +97,7 @@ Azure 응용 프로그램 게이트웨이를 사용하여 세션 선호도 문�
 
 #### <a name="resolution"></a>해결 방법
 
-이 이슈를 해결하려면 FQDN을 사용하여 Application Gateway에 액세스해야 합니다. 예를 들어, [http://website.com](https://website.com/) [http://appgw.website.com](http://appgw.website.com/) 또는 를 사용하거나 .
+이 이슈를 해결하려면 FQDN을 사용하여 Application Gateway에 액세스해야 합니다. 예를 들어, [http://website.com](https://website.com/) [http://appgw.website.com](http://website.com/) 또는 를 사용하거나 .
 
 ## <a name="additional-logs-to-troubleshoot"></a>문제 해결을 위한 추가 로그
 

@@ -1,6 +1,6 @@
 ---
-title: 마이크로소프트 아이덴티티 플랫폼 개발자 용어집 | Azure
-description: 일반적으로 사용되는 Microsoft ID 플랫폼 개발자 개념 및 기능에 대한 용어 목록입니다.
+title: Microsoft id 플랫폼 개발자 용어집 | Microsoft
+description: 일반적으로 사용 되는 Microsoft id 플랫폼 개발자 개념 및 기능에 대 한 용어 목록입니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,35 +8,37 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/13/2019
+ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: ce98d2db86c87ac6aa8fa4872bc076714467d32f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9709cd3b6036b384fd9212a522c191d0695b9bb4
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263050"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161727"
 ---
-# <a name="microsoft-identity-platform-developer-glossary"></a>마이크로소프트 아이덴티티 플랫폼 개발자 용어집
+# <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft id 플랫폼 개발자 용어집
 
-이 문서에는 Microsoft ID 플랫폼을 사용하여 응용 프로그램 개발에 대해 배울 때 유용한 몇 가지 핵심 개발자 개념 및 용어에 대한 정의가 포함되어 있습니다.
+이 문서에는 Microsoft id 플랫폼을 사용 하 여 응용 프로그램을 개발 하는 데 도움이 되는 몇 가지 핵심 개발자 개념 및 용어에 대 한 정의가 포함 되어 있습니다.
 
 ## <a name="access-token"></a>액세스 토큰
 
 [보호된 리소스 서버](#resource-server)에 액세스하기 위해 [권한 부여 서버](#authorization-server)에서 발급하고, [클라이언트 애플리케이션](#client-application)에서 사용하는 [보안 토큰](#security-token)의 한 종류. 대개 [리소스 소유자](#resource-owner)가 요청된 액세스 수준에 대해 클라이언트에 부여한 권한을 구현하는 [JWT(JSON Web Token)][JWT] 형식의 토큰입니다. 토큰은 주체에 관한 모든 적용 가능한 [클레임](#claim)을 포함하여 클라이언트 애플리케이션이 지정된 리소스에 액세스할 때 자격 증명의 형식으로 사용할 수 있습니다. 또는 이는 리소스 소유자의 필요를 제거하여 클라이언트에 자격 증명을 노출합니다.
+
+액세스 토큰은 짧은 기간 동안만 유효 하며 해지할 수 없습니다. 권한 부여 서버는 액세스 토큰이 발급 될 때 [새로 고침 토큰](#refresh-token) 을 발급할 수도 있습니다. 새로 고침 토큰은 일반적으로 기밀 클라이언트 응용 프로그램에만 제공 됩니다.
 
 액세스 토큰은 자격 증명이 표시되는 방식에 따라 때로 "사용자 + 앱" 또는 "앱 전용"이라고 합니다. 예를 들어 클라이언트 애플리케이션이 다음을 사용할 경우.
 
 * ["인증 코드" 권한 부여](#authorization-grant) - 최종 사용자는 리소스 소유자로서 우선 권한 부여를 하여 클라이언트가 리소스에 액세스할 수 있도록 권한 부여를 위임합니다. 클라이언트는 액세스 토큰을 가져올 때 나중에 인증합니다. 토큰은 클라이언트 애플리케이션에 권한 부여하는 사용자와 애플리케이션을 나타냄으로 때로 더 구체적으로 "사용자 + 앱"이라고 합니다.
 * ["클라이언트 자격 증명" 권한 부여](#authorization-grant) - 클라이언트에서 리소스 소유자의 인증/권한 부여 없이 작동하는 유일한 인증을 제공하므로 때로는 토큰을 “앱 전용” 토큰이라고도 할 수 있습니다.
 
-자세한 내용은 [Microsoft ID 플랫폼 토큰 참조를][AAD-Tokens-Claims] 참조하십시오.
+자세한 내용은 [Microsoft id 플랫폼 토큰 참조][AAD-Tokens-Claims] 를 참조 하세요.
 
-## <a name="application-id-client-id"></a>응용 프로그램 ID(클라이언트 ID)
+## <a name="application-id-client-id"></a>응용 프로그램 ID (클라이언트 ID)
 
-Azure AD가 애플리케이션 등록 시 부여하는 고유 식별자로, 해당 애플리케이션과 그 구성을 식별하는 데 사용됩니다. 이 응용 프로그램[ID(클라이언트 ID)는](https://tools.ietf.org/html/rfc6749#page-15)인증 요청을 수행할 때 사용되며 개발 시간에 인증 라이브러리에 제공됩니다. 응용 프로그램 ID(클라이언트 ID)는 비밀이 아닙니다.
+Azure AD가 애플리케이션 등록 시 부여하는 고유 식별자로, 해당 애플리케이션과 그 구성을 식별하는 데 사용됩니다. 이 응용 프로그램 ID ([클라이언트 id](https://tools.ietf.org/html/rfc6749#page-15))는 인증 요청을 수행할 때 사용 되며, 개발 시 인증 라이브러리에 제공 됩니다. 응용 프로그램 ID (클라이언트 ID)가 비밀이 아닙니다.
 
 ## <a name="application-manifest"></a>애플리케이션 매니페스트
 
@@ -53,7 +55,7 @@ Azure AD가 애플리케이션 등록 시 부여하는 고유 식별자로, 해�
 애플리케이션을 Azure AD와 통합하고 ID 및 액세스 관리 기능을 Azure AD에 위임할 수 있도록 허용하기 위해 Azure AD [테넌트](#tenant)를 사용하여 등록해야 합니다. Azure Ad를 사용하여 애플리케이션을 등록할 때 애플리케이션에 대한 ID 구성을 제공하여 Azure AD와 통합하고 다음과 같은 기능을 사용할 수 있도록 허용합니다.
 
 * Azure AD ID 관리 및 [OpenID Connect][OpenIDConnect] 프로토콜 구현을 사용한 Single Sign-On의 강력한 관리
-* OAuth 2.0 [권한 부여 서버를](#authorization-server) 통해 [클라이언트 응용 프로그램에서](#client-application) [보호된 리소스에](#resource-server) 대한 중개액세스
+* OAuth 2.0 [권한 부여 서버](#authorization-server) 를 통해 [클라이언트 응용 프로그램](#client-application)에서 [보호 된 리소스](#resource-server) 에 대 한 조정 된 액세스
 * [동의 프레임워크](#consent) - 리소스 소유자 권한 부여에 따라 클라이언트의 보호된 리소스에 대한 액세스 관리
 
 자세한 내용은 [Azure Active Directory와 애플리케이션 통합][AAD-Integrating-Apps]을 참조하세요.
@@ -87,13 +89,13 @@ ID 및 액세스 제어에 사용할 보안 주체를 만들기 위한 기반을
 
 [OAuth2 권한 부여 프레임워크][OAuth2-Role-Def]에서 정의된 대로 [리소스 소유자](#resource-owner)를 성공적으로 인증하고 권한 부여를 얻은 후에 [클라이언트](#client-application)에 액세스 토큰 발급을 담당하는 서버입니다. [클라이언트 애플리케이션](#client-application)에서는 런타임 시 [권한 부여](#authorization-grant)에서 정의한 OAuth2에 따라 [권한 부여](#authorization-endpoint) 및 [토큰](#token-endpoint) 엔드포인트를 통해 권한 부여 서버와 상호 작용합니다.
 
-Microsoft ID 플랫폼 응용 프로그램 통합의 경우 Microsoft ID 플랫폼은 Azure AD 응용 프로그램 및 Microsoft 서비스 API(예: [Microsoft 그래프 API)에][Microsoft-Graph]대한 권한 부여 서버 역할을 구현합니다.
+Microsoft id 플랫폼 응용 프로그램 통합의 경우 Microsoft id 플랫폼은 Azure AD 응용 프로그램 및 Microsoft 서비스 Api에 대 한 권한 부여 서버 역할을 구현 합니다 (예: [Microsoft Graph api][Microsoft-Graph]).
 
 ## <a name="claim"></a>클레임
 
 [보안 토큰](#security-token)에는 하나의 엔터티(예: [클라이언트 애플리케이션](#client-application) 또는 [리소스 소유자](#resource-owner))에 대한 어설션을 다른 엔터티(예: [리소스 서버](#resource-server))에 제공하는 클레임이 포함됩니다. 클레임은 토큰 주체(예를 들어 [권한 부여 서버](#authorization-server)에 의해 인증된 보안 주체)에 관한 팩트를 릴레이하는 이름/값 쌍입니다. 지정된 토큰에 있는 클레임은 토큰 형식, 주체 인증에 사용되는 자격 증명 유형, 애플리케이션 구성 등을 포함한 여러 변수에 따라 다릅니다.
 
-자세한 내용은 [Microsoft ID 플랫폼 토큰 참조를][AAD-Tokens-Claims] 참조하십시오.
+자세한 내용은 [Microsoft id 플랫폼 토큰 참조][AAD-Tokens-Claims] 를 참조 하세요.
 
 ## <a name="client-application"></a>클라이언트 애플리케이션(client application)
 
@@ -111,7 +113,7 @@ Microsoft ID 플랫폼 응용 프로그램 통합의 경우 Microsoft ID 플랫�
 
 [권한 부여 서버의 ](#authorization-server) [권한 부여 엔드포인트](#authorization-endpoint)에 의해 제공된 [OpenID Connect][OpenIDConnect-ID-Token] [보안 토큰](#security-token)으로 최종 사용자 [리소스 소유자](#resource-owner)의 인증에 관련된 [클레임](#claim)을 포함합니다. 액세스 토큰과 마찬가지로 ID 토큰도 또한 디지털로 서명된 [JWT(JSON Web Token)][JWT]로 표시됩니다. 그렇지만 액세스 토큰과는 달리 ID 토큰의 클레임은 리소스 액세스 및 특히 액세스 제어와 관련된 용도로 사용되지 않습니다.
 
-자세한 내용은 [Microsoft ID 플랫폼 토큰 참조를][AAD-Tokens-Claims] 참조하십시오.
+자세한 내용은 [Microsoft id 플랫폼 토큰 참조][AAD-Tokens-Claims] 를 참조 하세요.
 
 ## <a name="microsoft-identity-platform"></a>Microsoft ID 플랫폼
 
@@ -136,7 +138,13 @@ Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) ID 서비스와 개�
 
 또한 [동의](#consent) 프로세스 동안 표면화되어 관리자 또는 리소스 소유자에게 자신의 테넌트에 있는 리소스에 대한 클라이언트 액세스를 허용/거부할 기회를 제공합니다.
 
-권한 요청은 원하는 "위임된 권한" 및 "응용 프로그램 권한"(후자의 경우 전역 관리자 역할의 구성원 자격 필요)을 선택하여 [Azure Portal의][AZURE-portal]응용 프로그램에 대한 **API 사용** 권한 페이지에서 구성됩니다. [공용 클라이언트](#client-application)는 자격 증명을 안전하게 유지할 수 없으므로 위임된 권한만 요청할 수 있는 반면에 [기밀 클라이언트](#client-application)는 위임된 권한 및 애플리케이션 권한을 모두 요청할 수 있습니다. 클라이언트의 [애플리케이션 개체](#application-object)는 선언된 사용 권한을 [requiredResourceAccess 속성][Graph-App-Resource]에 저장할 수 있습니다.
+권한 요청은 원하는 "위임 된 권한" 및 "응용 프로그램 사용 권한" (후자는 전역 관리자 역할의 멤버 자격이 필요 함)을 선택 하 여 [Azure Portal][AZURE-portal]의 응용 프로그램에 대 한 **API 사용 권한** 페이지에서 구성 됩니다. [공용 클라이언트](#client-application)는 자격 증명을 안전하게 유지할 수 없으므로 위임된 권한만 요청할 수 있는 반면에 [기밀 클라이언트](#client-application)는 위임된 권한 및 애플리케이션 권한을 모두 요청할 수 있습니다. 클라이언트의 [애플리케이션 개체](#application-object)는 선언된 사용 권한을 [requiredResourceAccess 속성][Graph-App-Resource]에 저장할 수 있습니다.
+
+## <a name="refresh-token"></a>토큰 새로 고침
+
+액세스 토큰이 만료 되기 전에 새 [액세스 토큰](#access-token) 을 요청 하기 위해 [권한 부여 서버](#authorization-server)에서 발급 하 고 [클라이언트 응용 프로그램](#client-application) 에서 사용 하는 [보안 토큰](#security-token) 형식입니다. 일반적으로 [JWT (JSON Web Token 형식)][JWT]입니다.
+
+액세스 토큰과 달리 새로 고침 토큰을 해지할 수 있습니다. 클라이언트 응용 프로그램에서 해지 된 새로 고침 토큰을 사용 하 여 새 액세스 토큰을 요청 하려고 하면 권한 부여 서버에서 요청을 거부 하 고 클라이언트 응용 프로그램에 [리소스 소유자](#resource-owner)를 대신 하 여 [리소스 서버](#resource-server) 에 대 한 액세스 권한이 더 이상 없는 것입니다.
 
 ## <a name="resource-owner"></a>리소스 소유자
 
@@ -146,9 +154,9 @@ Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) ID 서비스와 개�
 
 [OAuth2 권한 부여 프레임워크][OAuth2-Role-Def]에 정의된 대로, [액세스 토큰](#access-token)에 있는 [클라이언트 애플리케이션](#client-application)에 의한 보호된 리소스 요청을 수락하고 응답할 수 있는, 보호된 리소스를 호스트하는 서버입니다. 보호된 리소스 서버 또는 리소스 애플리케이션이라고도 합니다.
 
-리소스 서버는 API를 공개하고 OAuth 2.0 권한 부여 프레임워크를 사용하여 [범위](#scopes) 및 [역할](#roles)을 통해 보호된 리소스에 대한 액세스를 수행합니다. Azure AD 테넌트 데이터에 대한 액세스를 제공하는 [Microsoft 그래프 API와][Microsoft-Graph] 메일 및 일정과 같은 데이터에 대한 액세스를 제공하는 Office 365 API가 있습니다. 
+리소스 서버는 API를 공개하고 OAuth 2.0 권한 부여 프레임워크를 사용하여 [범위](#scopes) 및 [역할](#roles)을 통해 보호된 리소스에 대한 액세스를 수행합니다. 예제에는 Azure AD 테 넌 트 데이터에 대 한 액세스를 제공 하는 [MICROSOFT GRAPH api][Microsoft-Graph] 와 메일 및 달력과 같은 데이터에 대 한 액세스를 제공 하는 Office 365 api가 포함 됩니다.
 
-클라이언트 애플리케이션과 마찬가지로 리소스 애플리케이션 ID 구성은 Azure AD 테넌트에서 [등록](#application-registration)을 통해 설정되며 애플리케이션과 서비스 주체 개체를 모두 제공 합니다. Microsoft 그래프 API와 같은 일부 Microsoft 제공 API에는 프로비저닝 중에 모든 테넌에서 사용할 수 있는 서비스 주체가 미리 등록되어 있습니다.
+클라이언트 애플리케이션과 마찬가지로 리소스 애플리케이션 ID 구성은 Azure AD 테넌트에서 [등록](#application-registration)을 통해 설정되며 애플리케이션과 서비스 주체 개체를 모두 제공 합니다. Microsoft Graph API와 같은 일부 Microsoft 제공 Api에는 프로 비전 중에 모든 테 넌 트에서 사용할 수 있도록 미리 등록 된 서비스 주체가 있습니다.
 
 ## <a name="roles"></a>roles
 
@@ -156,7 +164,7 @@ Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) ID 서비스와 개�
 
 역할은 리소스 정의 문자열(예: "비용 승인자", "읽기 전용", "Directory.ReadWrite.All")로, 리소스의 [애플리케이션 매니페스트](#application-manifest)를 통해 [Azure Portal][AZURE-portal]에서 관리되며, 리소스의 [appRoles 속성][Graph-Sp-Resource]에 저장됩니다. Azure Portal은 "user" 역할에 사용자를 할당하고 클라이언트 [애플리케이션 사용 권한](#permissions)을 구성하는 데 사용되어 "application" 역할에 액세스합니다.
 
-Microsoft 그래프 API에서 노출되는 응용 프로그램 역할에 대한 자세한 설명은 [그래프 API 권한 범위를][Graph-Perm-Scopes]참조하십시오. 단계별 구현 예제는 [RBAC 및 Azure Portal을 사용하여 액세스 관리][AAD-RBAC]를 참조하세요.
+Microsoft Graph API에 의해 노출 되는 응용 프로그램 역할에 대 한 자세한 내용은 [Graph API 사용 권한 범위][Graph-Perm-Scopes]를 참조 하세요. 단계별 구현 예제는 [RBAC 및 Azure Portal을 사용하여 액세스 관리][AAD-RBAC]를 참조하세요.
 
 ## <a name="scopes"></a>범위
 
@@ -164,15 +172,15 @@ Microsoft 그래프 API에서 노출되는 응용 프로그램 역할에 대한 
 
 범위는 리소스 정의 문자열(예: "Mail.Read", "Directory.ReadWrite.All")로, 리소스의 [애플리케이션 매니페스트](#application-manifest)를 통해 [Azure Portal][AZURE-portal]에서 관리되며, 리소스의 [oauth2Permissions 속성][Graph-Sp-Resource]에 저장됩니다. 또한 Azure Portal은 클라이언트 애플리케이션 [위임된 사용 권한](#permissions)에서 범위에 액세스하도록 구성하는 데도 사용됩니다.
 
-모범 사례 명명 규칙은 "resource.operation.constraint" 형식을 사용 하는 것입니다. Microsoft 그래프 API에서 노출되는 범위에 대한 자세한 설명은 [그래프 API 권한 범위를][Graph-Perm-Scopes]참조하십시오. Office 365 서비스에 의해 노출되는 범위는 [Office 365 API 사용 권한 참조][O365-Perm-Ref]를 참조하세요.
+모범 사례 명명 규칙은 "resource.operation.constraint" 형식을 사용 하는 것입니다. Microsoft Graph API에서 노출 하는 범위에 대 한 자세한 내용은 [Graph API 사용 권한 범위][Graph-Perm-Scopes]를 참조 하세요. Office 365 서비스에 의해 노출되는 범위는 [Office 365 API 사용 권한 참조][O365-Perm-Ref]를 참조하세요.
 
 ## <a name="security-token"></a>보안 토큰
 
-OAuth2 토큰 또는 SAML 2.0 어설션과 같은 클레임을 포함한 서명된 문서입니다. OAuth2 [권한 부여](#authorization-grant)의 경우 [액세스 토큰](#access-token)(OAuth2)과 [ID 토큰](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)은 보안 토큰의 유형으로서 둘 다 [JWT(JSON Web Token)][JWT] 형식으로 구현됩니다.
+OAuth2 토큰 또는 SAML 2.0 어설션과 같은 클레임을 포함한 서명된 문서입니다. OAuth2 [권한](#authorization-grant)부여의 경우 [액세스 토큰](#access-token) (OAuth2), [새로 고침 토큰](#refresh-token)및 [ID 토큰](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) 은 보안 토큰의 형식으로, 모두 [JWT (JSON Web Token)][JWT]로 구현 됩니다.
 
 ## <a name="service-principal-object"></a>서비스 주체 개체
 
-[Azure 포털에서][AZURE-portal]응용 프로그램을 등록/업데이트할 때 포털은 해당 테넌트에 대한 [응용 프로그램 개체와](#application-object) 해당 서비스 주체 개체를 모두 생성/업데이트합니다. 애플리케이션 개체는 애플리케이션의 ID 구성을 전역적으로(액세스 권한이 관련된 애플리케이션에 부여된 모든 테넌트에 걸쳐) *정의*하며, 해당 서비스 주체 개체가 런타임 시 로컬로(특정 테넌트에서) 사용되도록 *파생*되는 템플릿입니다.
+[Azure Portal][AZURE-portal]에서 응용 프로그램을 등록/업데이트할 때 포털은 [응용 프로그램 개체](#application-object) 와 해당 테 넌 트에 해당 하는 서비스 주체 개체를 만들거나 업데이트 합니다. 애플리케이션 개체는 애플리케이션의 ID 구성을 전역적으로(액세스 권한이 관련된 애플리케이션에 부여된 모든 테넌트에 걸쳐) *정의*하며, 해당 서비스 주체 개체가 런타임 시 로컬로(특정 테넌트에서) 사용되도록 *파생*되는 템플릿입니다.
 
 자세한 내용은 [애플리케이션 및 서비스 사용자 개체][AAD-App-SP-Objects]를 참조하세요.
 
@@ -184,7 +192,7 @@ OAuth2 토큰 또는 SAML 2.0 어설션과 같은 클레임을 포함한 서명�
 
 ## <a name="sign-out"></a>로그 아웃
 
-최종 사용자를 인증 해제하고 [로그인](#sign-in) 하는 동안 [클라이언트 응용 프로그램](#client-application) 세션과 연결 된 사용자 상태를 분리 하는 프로세스
+[로그인](#sign-in) 하는 동안 [클라이언트 응용 프로그램](#client-application) 세션과 연결 된 사용자 상태를 분리 하 여 최종 사용자를 인증 하지 않는 프로세스입니다.
 
 ## <a name="tenant"></a>tenant
 
@@ -206,7 +214,7 @@ OAuth2 [권한 부여](#authorization-grant)를 지원하기 위해 [권한 부�
 
 ## <a name="user-principal"></a>사용자 주체
 
-서비스 주체 개체가 애플리케이션 인스턴스를 나타내는 데 사용되는 방식과 유사하게 사용자 계정 개체는 사용자를 나타내는 다른 유형의 보안 주체입니다. Microsoft 그래프 [사용자 리소스 유형은][Graph-User-Resource] 이름 및 성, 사용자 주체 이름, 디렉터리 역할 멤버 자격 등과 같은 사용자 관련 속성을 포함하여 사용자 개체에 대한 스키마를 정의합니다. 이렇게 하면 Azure AD에 대한 사용자 ID 구성이 런타임에 사용자 보안 주체를 설정합니다. 사용자 주체는 Single Sign-On, [동의](#consent) 위임 기록, 액세스 제어 결정 등을 위해 인증된 사용자를 나타내는 데 사용됩니다.
+서비스 주체 개체가 애플리케이션 인스턴스를 나타내는 데 사용되는 방식과 유사하게 사용자 계정 개체는 사용자를 나타내는 다른 유형의 보안 주체입니다. 사용자 [리소스 종류][Graph-User-Resource] Microsoft Graph는 사용자 개체에 대 한 스키마를 정의 합니다. 여기에는 이름과 성, 사용자 계정 이름, 디렉터리 역할 멤버 자격 등의 사용자 관련 속성이 포함 됩니다. 이는 런타임에 사용자 계정을 설정 하기 위해 Azure AD에 대 한 사용자 id 구성을 제공 합니다. 사용자 주체는 Single Sign-On, [동의](#consent) 위임 기록, 액세스 제어 결정 등을 위해 인증된 사용자를 나타내는 데 사용됩니다.
 
 ## <a name="web-client"></a>웹 클라이언트
 
@@ -214,7 +222,7 @@ OAuth2 [권한 부여](#authorization-grant)를 지원하기 위해 [권한 부�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Microsoft ID 플랫폼 개발자 가이드는][AAD-Dev-Guide] 응용 프로그램 [통합][AAD-How-To-Integrate] 개요 및 Microsoft ID 플랫폼 인증 [및 지원되는 인증 시나리오의][AAD-Auth-Scenarios]기본 을 포함하여 모든 Microsoft ID 플랫폼 개발 관련 항목에 사용할 방문 페이지입니다. 또한 [GitHub에서](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=)빠르게 시작하고 실행하는 방법에 대한 자습서를 & 코드 샘플을 찾을 수 있습니다.
+[Microsoft id 플랫폼 개발자 가이드][AAD-Dev-Guide] 는 [응용 프로그램 통합][AAD-How-To-Integrate] 개요 및 [microsoft id 플랫폼 인증 및 지원 되는 인증 시나리오][AAD-Auth-Scenarios]의 기본 사항을 비롯 하 여 모든 microsoft id 플랫폼 개발 관련 항목에 사용할 방문 페이지입니다. [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=)에서 빠르게 시작 하 고 실행 하는 방법에 대 한 코드 샘플 & 자습서도 찾을 수 있습니다.
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 새 정의 및 기존 정의 업데이트 요청을 포함하여 이 콘텐츠를 구체화하고 형성하는 데 도움을 줍니다.
 

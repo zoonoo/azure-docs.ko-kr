@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: f66347727ad3c1b8eaf1f0e023abe1f2eeefcacb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ac7609d49631fb2ed16fa129f8dc4099cc166247
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81403731"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769879"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>자습서: IoT 디바이스에서 Custom Vision을 사용하여 시각적 상태 보고
 
 이 샘플 앱은 Custom Vision을 사용하여 시각적 상태를 검색하는 카메라를 사용하여 디바이스를 학습하는 방법을 보여 줍니다. 내보낸 ONNX 모델을 사용하여 IoT 디바이스에서 이 검색 시나리오를 실행할 수 있습니다.
 
-시각적 상태는 빈 방 또는 사람이 있는 방, 트럭이 있는 빈 차도 등과 같이 이미지의 콘텐츠를 설명합니다. 아래 이미지에서 바나나 또는 사과가 카메라 앞에 배치된 경우 앱 검색을 확인할 수 있습니다.
+시각적 상태는 빈 방 또는 사람이 있는 방, 빈 차도 또는 트럭이 있는 차도 등과 같이 이미지의 콘텐츠를 설명합니다. 아래 이미지에서 바나나 또는 사과가 카메라 앞에 배치된 경우 앱 검색을 확인할 수 있습니다.
 
 ![카메라 앞에 있는 과일의 UI 레이블 지정 애니메이션](./media/iot-visual-alerts-tutorial/scoring.gif)
 

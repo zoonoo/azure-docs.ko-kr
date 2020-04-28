@@ -7,77 +7,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dsindona
-ms.openlocfilehash: 59f9fecb3d949d9cdf48719e6329b066d9eb3fc5
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 7bfc74b2d27a879352f54df0772784a98e15e46d
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393528"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865549"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Azure 애플리케이션 기술 자산 준비
 
-이 문서에서는 Azure 애플리케이션 제품의 기술 자산을 준비하는 데 필요한 리소스에 대해 설명합니다.
+[클라우드 파트너 포털은](https://cloudpartner.azure.com/) 더 이상 Azure 응용 프로그램 오퍼의 생성 및 관리를 지원하지 않습니다. 대신 이 기능이 Microsoft 파트너 [센터 포털로](https://partner.microsoft.com/)이동되었습니다. 자세한 내용은 [Azure 응용 프로그램 오퍼 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer)를 참조하십시오.
 
-## <a name="before-you-begin"></a>시작하기 전에
-
-Azure Resource Manager 템플릿을 작성하여 Azure 애플리케이션 솔루션을 정의하는 방법 및 이후에 앱 제품을 Azure Marketplace에 게시하는 방법을 간략하게 보여주는 [솔루션 템플릿 및 Azure Marketplace에 대한 관리되는 애플리케이션 빌드](https://channel9.msdn.com/Events/Build/2018/BRK3603) 비디오를 검토하세요.
-
->[!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3603/player]
-
-
-빠른 시작, 자습서 및 샘플을 제공하는 다음 Azure 애플리케이션 설명서를 검토합니다.
-
-- [Azure 리소스 관리자 템플릿 이해](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
-- 빠른 시작:
-
-  - [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)
-  - [GitHub Azure 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates)
-  - [애플리케이션 정의 게시](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
-  - [서비스 카탈로그 앱 배포](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
-
-  
-- 자습서:
-
-  - [정의 파일 만들기](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
-  - [마켓플레이스 애플리케이션 게시](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
-
-  - 샘플:
-
-    - [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
-    - [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
-    - [관리되는 애플리케이션 솔루션](https://docs.microsoft.com/azure/managed-applications/sample-projects)
-
-## <a name="fundamental-technical-knowledge"></a>기본 기술 지식
-
-이러한 자산을 설계, 구축 및 테스트하려면 시간이 걸리고 Azure 플랫폼과 제안을 작성하는 데 사용되는 기술에 대한 기술적 지식이 모두 필요합니다.
-
-엔지니어링 팀에는 다음 Microsoft 기술에 대한 지식이 있어야 합니다.
-
-- [Azure 서비스](https://azure.microsoft.com/services/)에 대한 기본적 이해
-- [Azure 애플리케이션을 디자인 및 설계](https://azure.microsoft.com/solutions/architecture/)하는 방법
-- [Azure 가상 컴퓨터,](https://azure.microsoft.com/services/virtual-machines/) [Azure 저장소](https://azure.microsoft.com/services/?filter=storage)및 Azure [네트워킹에](https://azure.microsoft.com/services/?filter=networking) 대한 작업 지식
-- [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)에 대한 실무 지식
-- [JSON의](https://www.json.org/) 실무 지식
-
-## <a name="suggested-tools"></a>권장되는 도구
-
-Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립팅 환경 중 하나 또는 둘 다를 선택합니다.
-
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
-
-개발 환경에 다음 도구를 추가하는 것이 좋습니다.
-
-- [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
-- [Visual Studio Code](https://code.visualstudio.com/)(다음 확장 포함):
-
-  - 확장: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-  - 확장: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-  - 확장: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
-
-또한 [ Azure 개발자 도구 ](https://azure.microsoft.com/tools/) 페이지에서 사용 가능한 도구를 검토하고, Visual Studio를 사용하는 경우 [ Visual Studio Marketplace ](https://marketplace.visualstudio.com/)를 검토하는 것이 좋습니다.
-
-## <a name="next-steps"></a>다음 단계
-
-[Azure 애플리케이션 제품 만들기](./cpp-create-offer.md)
-
+새 Azure 응용 프로그램 오퍼를 만들기 전에 [파트너 센터 계정 만들기를](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 읽은 다음 **개요** 페이지를 선택한 [상용 마켓플레이스 대시보드를](https://partner.microsoft.com/dashboard/directory) 열어야 합니다. Azure 응용 [프로그램 만들기 의](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer) 지침에 따라 오퍼를 만듭니다.

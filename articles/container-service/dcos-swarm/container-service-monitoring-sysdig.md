@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: a22d48554573e2517b318f6172b759864bf46612
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 611d3e6d5ecaf986cc09c550c4aee760ed0a0d98
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277725"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166152"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-sysdig"></a>(사용되지 않음) Sysdig을 사용하여 Azure Container Service 클러스터 모니터링
 
@@ -21,7 +21,7 @@ ms.locfileid: "76277725"
 이 문서에서는 Azure 컨테이너 서비스 클러스터의 모든 노드에 Sysdig 에이전트를 배포하는 방법을 설명합니다. 이러한 구성을 위해서는 Sysdig 계정이 필요합니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
-Azure Container Service를 통해 구성된 클러스터를 [배포](container-service-deployment.md) 및 [연결](../container-service-connect.md)합니다. [Marathon UI](container-service-mesos-marathon-ui.md)를 탐색합니다. Sysdig 클라우드 계정을 설정하려면 이동하십시오. [https://app.sysdigcloud.com](https://app.sysdigcloud.com) 
+Azure Container Service를 통해 구성된 클러스터를 [배포](container-service-deployment.md) 및 [연결](../container-service-connect.md)합니다. [Marathon UI](container-service-mesos-marathon-ui.md)를 탐색합니다. 로 [https://app.sysdigcloud.com](https://app.sysdigcloud.com) 이동 하 여 sysdig 클라우드 계정을 설정 합니다. 
 
 ## <a name="sysdig"></a>Sysdig
 Sysdig은 클러스터 내에서 컨테이너를 모니터링할 수 있는 모니터링 서비스입니다. Sysdig은 문제 해결에 도움을 준다고 알려져 있을 뿐만 아니라 CPU, 네트워킹, 메모리 및 I/O에 대한 기본 모니터링 메트릭도 가지고 있습니다. Sysdig를 사용하면 어떤 컨테이너가 가장 많이 사용되고 기본적으로 가장 많은 메모리와 CPU를 사용하는지를 확인할 수 있습니다. 이 보기는 "개요" 섹션에 있으며 현재 베타 단계입니다. 
@@ -31,7 +31,7 @@ Sysdig은 클러스터 내에서 컨테이너를 모니터링할 수 있는 모�
 ## <a name="configure-a-sysdig-deployment-with-marathon"></a>Marathon으로 Sysdig 배포 구성
 이러한 단계는 Marathon으로 클러스터에 Sysdig 애플리케이션을 배포 및 구성하는 방법을 보여줍니다. 
 
-DC/OS UI에서 [http://localhost:80/](http://localhost:80/) 한 번을 통해 DC/OS UI에 액세스하여 왼쪽 하단에 있는 "유니버스"로 이동한 다음 "Sysdig"를 검색합니다.
+`http://localhost:80/`을 통해 DC/OS UI에 액세스 DC/OS UI에 들어가면 왼쪽 아래에 있는 "Universe"로 이동한 다음, "Sysdig"를 검색합니다.
 
 ![DC/OS Universe에서 Sysdig](./media/container-service-monitoring-sysdig/sysdig1.png)
 

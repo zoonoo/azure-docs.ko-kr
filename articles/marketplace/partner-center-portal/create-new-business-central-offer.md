@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 9bb1059087bdf8fc4eb852be7a995febc3336713
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 10fa16767061506eccf212c182e738246dc9fe7b
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115273"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867218"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>새로운 다이내믹스 365 비즈니스 센트럴 오퍼 만들기
 
@@ -51,7 +51,7 @@ Dynamics 365 비즈니스 센트럴 오퍼를 만들기 시작하려면 먼저 [
 
 #### <a name="free-trial-listing"></a>무료 평가판(목록)
 
-평가판을 받을 수 있는 유효한 *URL(http* 또는 *https로*시작)을 제공하여 무료 평가판에 대한 링크를 고객에게 나열합니다.  예: `https://contoso.com/trial/my-app` 제안 목록 무료 평가판은 서비스에서 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독이 없습니다.
+평가판을 받을 수 있는 유효한 *URL(http* 또는 *https로*시작)을 제공하여 무료 평가판에 대한 링크를 고객에게 나열합니다.  예를 들어 `https://contoso.com/trial/my-app`을 참조하십시오. 제안 목록 무료 평가판은 서비스에서 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독이 없습니다.
 
 > [!NOTE]
 > 응용 프로그램이 평가판 링크를 통해 받게 되는 토큰은 Azure Active Directory(Azure AD)를 통해 사용자 정보를 획득하여 앱에서 계정 생성을 자동화하는 데만 사용할 수 있습니다. Microsoft 계정은 이 토큰을 사용하는 인증에 대해 지원되지 않습니다.
@@ -126,7 +126,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 마켓플레이스 검색 결과에 사용될 수 있는 제품(최대 100자)에 대한 간략한 설명을 제공합니다.
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 오퍼에 대한 더 긴 설명을 제공합니다(최대 3,000자). 이 설명은 마켓플레이스 목록 개요의 고객에게 표시됩니다. 오퍼의 가치 제안, 주요 혜택, 카테고리 및/또는 산업 협회, 인앱 구매 기회 및 필요한 공개를 포함합니다. 
 
@@ -192,6 +192,9 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 ### <a name="marketplace-images"></a>마켓플레이스 이미지
 
 이 섹션에서는 고객에게 제안을 표시할 때 사용할 로고와 이미지를 제공할 수 있습니다. 모든 이미지는 .png 형식이어야 합니다. 오퍼 로고를 **스몰(48 x 48)** 및 **라지(216 x 216)의**두 가지 크기로 업로드합니다.
+
+>[!Note]
+>파일을 업로드하는 데 문제가 있는 경우 로컬 네트워크가 파트너 https://upload.xboxlive.com 센터에서 사용하는 서비스를 차단하지 않는지 확인합니다.
 
 #### <a name="screenshots"></a>스크린샷
 

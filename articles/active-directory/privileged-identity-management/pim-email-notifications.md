@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 01/05/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee5f2edbae28276f8485ae774a5b1c52e1af2fd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 201abd24bc4056337f1ffecd2dabd002ae352c74
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72756393"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866431"
 ---
 # <a name="email-notifications-in-pim"></a>PIM에서 이메일 알림
 
@@ -50,9 +50,9 @@ Azure AD 역할에 대한 이러한 이메일을 받는 사람은 역할, 이벤
 
 | 사용자 | 역할 활성화가 승인 보류 중임 | 역할 활성화 요청이 완료됨 | PIM이 사용하도록 설정됨 |
 | --- | --- | --- | --- |
-| 권한 있는 역할 관리자</br>(활성화/적격) | yes</br>(명시적인 승인자가 지정되지 않은 경우만) | 예* | yes |
-| 보안 관리자</br>(활성화/적격) | 예 | 예* | yes |
-| 전역 관리자</br>(활성화/적격) | 예 | 예* | yes |
+| 권한 있는 역할 관리자</br>(활성화/적격) | 예</br>(명시적인 승인자가 지정되지 않은 경우만) | 예* | 예 |
+| 보안 관리자</br>(활성화/적격) | 예 | 예* | 예 |
+| 전역 관리자</br>(활성화/적격) | 예 | 예* | 예 |
 
 \*[**알림** 설정](pim-how-to-change-default-settings.md#notifications)이 **사용**으로 설정된 경우
 
@@ -76,6 +76,18 @@ Azure AD 역할에 대한 주간 권한 ID 관리 요약 전자 메일은 권한
 | **Role assignments outside of PIM(PIM 외부 역할 할당)** | 사용자에게 권한 있는 ID 관리(Azure AD 내부) 외부에서 영구적인 역할이 할당된 횟수입니다. |
 
 **상위 역할 개요** 섹션에는 각 역할에 대한 총 영구 및 적격 관리자 수를 기준으로 테넌트에 있는 상위 5개의 역할이 나열됩니다. **작업 수행** 링크를 클릭하면 [PIM 마법사](pim-security-wizard.md)가 열리며 여기서 영구 관리자를 적격 관리자로 일괄 변환할 수 있습니다.
+
+## <a name="email-timing-for-activation-approvals"></a>활성화 승인을 위한 이메일 시간
+
+사용자가 자신의 역할을 활성화하고 역할 설정에 승인이 필요하면 승인자는 각 승인에 대해 세 개의 이메일을 받게 됩니다.
+
+- 사용자의 활성화 요청을 승인 하거나 거부 하는 요청 (요청 승인 엔진에 의해 전송)
+- 사용자의 요청이 승인됨(요청 승인 엔진에서 전송).
+- 사용자의 역할이 활성화됩니다(권한 있는 ID 관리에서 전송).
+
+요청 승인 엔진에서 보낸 처음 두 전자 메일은 지연될 수 있습니다. 현재 이메일의 90%는 3~10분이 걸리지만 1%의 경우 최대 15분까지 훨씬 더 길어질 수 있습니다.
+
+첫 번째 전자 메일을 보내기 전에 Azure 포털에서 승인 요청이 승인되면 첫 번째 전자 메일이 더 이상 트리거되지 않으며 다른 승인자는 승인 요청에 대한 전자 메일로 알림을 받지 않습니다. 전자 메일을 받지 못한 것처럼 보일 수 있지만 예상되는 동작입니다.
 
 ## <a name="pim-emails-for-azure-resource-roles"></a>Azure 리소스 역할에 대한 PIM 이메일
 

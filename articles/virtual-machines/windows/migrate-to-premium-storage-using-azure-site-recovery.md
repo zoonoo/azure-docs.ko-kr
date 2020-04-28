@@ -1,21 +1,18 @@
 ---
 title: Azure 사이트 복구를 사용하여 Windows VM을 Azure 프리미엄 저장소로 마이그레이션합니다.
 description: Site Recovery를 사용하여 Azure Premium Storage에 기존 가상 머신을 마이그레이션합니다. Premium Storage는 Azure Virtual Machines에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다.
-services: virtual-machines-windows,storage
-cloud: Azure
 author: luywang
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: bd5f9fc787a6299e8d7c14f4b99f6f4d59cf78af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 071596557de00c9dfb2afaa5751d9331c21ada99
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74819072"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866264"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
 
@@ -76,7 +73,7 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
 
 ### <a name="step-1-create-a-recovery-services-vault"></a>1단계: Recovery Services 자격 증명 모음 만들기
 
-1. Azure [포털을](https://portal.azure.com)엽니다.
+1. [Azure Portal](https://portal.azure.com)을 엽니다.
 2. 리소스 > **관리** > **백업 및 사이트 복구(OMS)** **만들기를**선택합니다. 또는**복구 서비스 볼트** > **추가** **찾아보기를** > 선택할 수 있습니다.
    >[!NOTE]
    >Backup 및 Site Recovery는 이전에 [OMS 제품군](/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand)에 포함되었습니다.
@@ -220,8 +217,8 @@ Site Recovery는 Premium Storage 사용 가능 VM에 형식이 동일하거나 �
 
 Azure Storage 및 Azure Virtual Machines에 대한 자세한 내용을 보려면 다음 리소스도 확인하세요.
 
-* [Azure 저장소](https://azure.microsoft.com/documentation/services/storage/)
-* [Azure 가상 시스템](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png
