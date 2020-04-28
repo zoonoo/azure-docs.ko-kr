@@ -1,5 +1,5 @@
 ---
-title: Azure MFA 서버로 PhoneFactor 업그레이드 - Azure Active Directory
+title: PhoneFactor를 Azure MFA 서버로 업그레이드-Azure Active Directory
 description: 이전 phonefactor agent에서 업그레이드하는 경우 Azure MFA 서버로 시작합니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f2a52f31babf1f0323f28033f9138c3630bdba6
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80653132"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>PhoneFactor Agent를 Azure Multi-Factor Authentication 서버로 업그레이드
@@ -23,7 +23,7 @@ ms.locfileid: "80653132"
 PhoneFactor Agent v5.x 또는 이전 버전을 Azure Multi-Factor Authentication 서버로 업그레이드하려면 PhoneFactor Agent 및 연결된 구성 요소를 먼저 삭제합니다. 그런 다음 Multi-Factor Authentication 서버 및 연결된 구성 요소를 설치할 수 있습니다.
 
 > [!IMPORTANT]
-> 2019년 7월 1일부터 Microsoft는 더 이상 새 배포를 위해 MFA 서버를 제공하지 않습니다. 사용자로부터 다단계 인증을 요구하려는 신규 고객은 클라우드 기반 Azure 다단계 인증을 사용해야 합니다. 7월 1일 이전에 MFA Server를 활성화한 기존 고객은 최신 버전, 향후 업데이트를 다운로드하고 평소와 같이 정품 인증 자격 증명을 생성할 수 있습니다.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
 
 ## <a name="uninstall-the-phonefactor-agent"></a>PhoneFactor Agent 제거
 
@@ -54,11 +54,11 @@ PhoneFactor Agent v5.x 또는 이전 버전을 Azure Multi-Factor Authentication
 
 2. 웹 서비스 SDK를 이전에 설치한 경우 Multi-Factor Authentication 서버 사용자 인터페이스를 통해 새 웹 서비스 SDK를 설치합니다.
 
-   기본 가상 디렉토리 이름은 이제 **PhoneFactorWebServiceSdk 대신 MultiFactorAuthWebServiceSdk입니다.** **PhoneFactorWebServiceSdk** 이전 이름을 사용하려는 경우 설치하는 동안 가상 디렉터리의 이름을 변경해야 합니다. 그렇지 않은 경우 새 기본 이름을 사용하여 설치할 수 있으면 사용자 포털 및 모바일 앱 웹 서비스 등의 웹 서비스 SDK를 참조하는 모든 애플리케이션의 URL이 올바른 위치를 가리키도록 변경해야 합니다.
+   기본 가상 디렉터리 이름은 이제 **가 됩니다**대신 **phonefactorwebservicesdk** 입니다. 이전 이름을 사용하려는 경우 설치하는 동안 가상 디렉터리의 이름을 변경해야 합니다. 그렇지 않은 경우 새 기본 이름을 사용하여 설치할 수 있으면 사용자 포털 및 모바일 앱 웹 서비스 등의 웹 서비스 SDK를 참조하는 모든 애플리케이션의 URL이 올바른 위치를 가리키도록 변경해야 합니다.
 
 3. 사용자 포털이 이전에 PhoneFactor Agent 서버에 설치된 경우 Multi-Factor Authentication 서버 사용자 인터페이스를 통해 새 Multi-Factor Authentication 사용자 포털을 설치합니다.
 
-   기본 가상 디렉토리 이름은 이제 **PhoneFactor**대신 **MultiFactorAuth입니다.** 이전 이름을 사용하려는 경우 설치하는 동안 가상 디렉터리의 이름을 변경해야 합니다. 그렇지 않은 경우 설치 중에 새 기본 이름이 사용되도록 허용하면 Multi-Factor Authentication 서버에서 사용자 포털 아이콘을 클릭하고 설정 탭에서 사용자 포털 URL을 업데이트해야 합니다.
+   기본 가상 디렉터리 이름은 이제 **PhoneFactor**대신 **MultiFactorAuth** 입니다. 이전 이름을 사용하려는 경우 설치하는 동안 가상 디렉터리의 이름을 변경해야 합니다. 그렇지 않은 경우 설치 중에 새 기본 이름이 사용되도록 허용하면 Multi-Factor Authentication 서버에서 사용자 포털 아이콘을 클릭하고 설정 탭에서 사용자 포털 URL을 업데이트해야 합니다.
 
 4. 사용자 포털 및/또는 모바일 앱 웹 서비스가 이전에 PhoneFactor Agent와 다른 서버에 설치된 경우:
 
@@ -66,7 +66,7 @@ PhoneFactor Agent v5.x 또는 이전 버전을 Azure Multi-Factor Authentication
 
    2. 웹 서버에 사용자 포털을 설치하려면 관리자 권한으로 명령 프롬프트를 열고 MultiFactorAuthenticationUserPortalSetupXX.msi를 실행합니다.
 
-      기본 가상 디렉토리 이름은 이제 **PhoneFactor**대신 **MultiFactorAuth입니다.** 이전 이름을 사용하려는 경우 설치하는 동안 가상 디렉터리의 이름을 변경해야 합니다. 그렇지 않으면 설치가 새 기본 이름을 사용하도록 허용하는 경우 다단계 인증 서버의 사용자 포털 아이콘을 클릭하고 설정 탭에서 사용자 포털 URL을 업데이트해야 합니다.
+      기본 가상 디렉터리 이름은 이제 **PhoneFactor**대신 **MultiFactorAuth** 입니다. 이전 이름을 사용하려는 경우 설치하는 동안 가상 디렉터리의 이름을 변경해야 합니다. 그렇지 않고 새 기본 이름을 사용 하 여 설치를 허용 하는 경우 Multi-Factor Authentication 서버의 사용자 포털 아이콘을 클릭 하 고 설정 탭에서 사용자 포털 URL을 업데이트 해야 합니다. 기존 사용자에 게 새 URL을 알려야 합니다.
 
    3. 사용자 포털 설치 위치(예: C:\inetpub\wwwroot\MultiFactorAuth)로 이동한 후 web.config 파일을 편집합니다. 새 web.config 파일로 업그레이드하기 전에 백업했던 원본 web.config 파일에서 appSettings 및 applicationSettings 섹션의 값을 복사합니다. 웹 서비스 SDK를 설치할 때 새 기본 가상 디렉터리 이름을 유지한 경우 applicationSettings 섹션의 URL이 올바른 위치를 가리키도록 변경합니다. 이전 web.config 파일에서 기타 기본값을 변경한 경우 새 web.config 파일에 같은 변경 내용을 적용합니다.
 

@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 02/13/2019
 ms.author: danlep
 ms.openlocfilehash: 33a82a55b03cde79d2d80826041ee6d43565476a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334810"
 ---
 | 리소스 | 제한 |
 | --- | :--- |
-| [구독당](../articles/billing-buy-sign-up-azure-subscription.md) 지역별 표준 sku 컨테이너 그룹 | 100<sup>1</sup> |
-| [구독당](../articles/billing-buy-sign-up-azure-subscription.md) 지역별 전용 sku 컨테이너 그룹 | 0<sup>1</sup> |
+| [구독](../articles/billing-buy-sign-up-azure-subscription.md) 당 지역별 표준 sku 컨테이너 그룹 | 100<sup>1</sup> |
+| [구독](../articles/billing-buy-sign-up-azure-subscription.md) 당 지역별 전용 sku 컨테이너 그룹 | 0<sup>1</sup> |
 | 컨테이너 그룹당 컨테이너 개수 | 60 |
 | 컨테이너 그룹당 볼륨 개수 | 20 |
 | IP당 포트 수 | 5 |

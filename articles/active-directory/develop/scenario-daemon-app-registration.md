@@ -1,6 +1,6 @@
 ---
-title: 웹 API를 호출하는 데몬 앱 등록 - Microsoft ID 플랫폼 | Azure
-description: 웹 API - 앱 등록을 호출하는 데몬 앱을 빌드하는 방법 알아보기
+title: 웹 Api를 호출 하는 디먼 앱 등록-Microsoft identity platform | Microsoft
+description: 웹 Api를 호출 하는 디먼 앱을 빌드하는 방법 알아보기-앱 등록
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,43 +12,43 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 508101ad615dd96559b1c68a61be7c08772545db
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885483"
 ---
-# <a name="daemon-app-that-calls-web-apis---app-registration"></a>웹 API를 호출하는 데몬 앱 - 앱 등록
+# <a name="daemon-app-that-calls-web-apis---app-registration"></a>웹 Api를 호출 하는 디먼 앱-앱 등록
 
-데몬 응용 프로그램의 경우 앱을 등록할 때 알아야 할 내용은 다음과 같습니다.
+디먼 응용 프로그램의 경우 앱을 등록할 때 알아야 할 사항은 다음과 같습니다.
 
 ## <a name="supported-account-types"></a>지원되는 계정 유형
 
-Daemon 응용 프로그램은 Azure AD 테넌경우에만 의미가 있습니다. 따라서 응용 프로그램을 만들 때 다음 옵션 중 하나를 선택해야 합니다.
+디먼 응용 프로그램은 Azure AD 테 넌 트에서만 의미가 있습니다. 따라서 응용 프로그램을 만들 때 다음 옵션 중 하나를 선택 해야 합니다.
 
-- **이 조직 디렉터리에 있는 계정만**. 이 선택은 데몬 응용 프로그램이 일반적으로 LOB(업무 용) 개발자가 작성하기 때문에 가장 일반적인 선택입니다.
-- **모든 조직 디렉터리내 의 계정**. 고객에게 유틸리티 도구를 제공하는 ISV인 경우 이 선택을 할 수 있습니다. 이를 승인하려면 고객의 테넌트 관리자가 필요합니다.
+- **이 조직 디렉터리의 계정에만 해당**됩니다. 디먼 응용 프로그램은 일반적으로 LOB (기간 업무) 개발자가 작성 하기 때문에이 선택은 가장 일반적입니다.
+- **모든 조직 디렉터리의 계정** 유틸리티 도구를 고객에 게 제공 하는 ISV 인 경우이 옵션을 선택 합니다. 승인 하려면 고객의 테 넌 트 관리자가 필요 합니다.
 
-## <a name="authentication---no-reply-uri-needed"></a>인증 - 회신 URI가 필요하지 않습니다.
+## <a name="authentication---no-reply-uri-needed"></a>인증-회신 URI가 필요 하지 않음
 
-기밀 클라이언트 응용 프로그램이 클라이언트 자격 증명 *흐름만* 사용하는 경우 회신 URI를 등록할 필요가 없습니다. 응용 프로그램 구성 이나 구성에 대 한 필요 하지 않습니다. 클라이언트 자격 증명 흐름은 사용하지 않습니다.
+기밀 클라이언트 응용 프로그램이 클라이언트 자격 증명 흐름을 *사용 하는 경우* 에는 회신 URI를 등록할 필요가 없습니다. 응용 프로그램 구성 또는 생성에 필요 하지 않습니다. 클라이언트 자격 증명 흐름은이를 사용 하지 않습니다.
 
-## <a name="api-permissions---app-permissions-and-admin-consent"></a>API 권한 - 앱 권한 및 관리자 동의
+## <a name="api-permissions---app-permissions-and-admin-consent"></a>API 권한-앱 사용 권한 및 관리자 동의
 
-데몬 응용 프로그램은 API에 대한 응용 프로그램 권한만 요청할 수 있습니다(위임된 권한이 아님). 응용 프로그램 등록에 대한 **API 권한** 페이지에서 **권한 추가를** 선택하고 API 패밀리를 선택한 후 **응용 프로그램 사용 권한을**선택한 다음 권한을 선택합니다.
+디먼 응용 프로그램은 Api (위임 된 권한 아님)에 대 한 응용 프로그램 권한만 요청할 수 있습니다. 응용 프로그램 등록에 대 한 **api 권한** 페이지에서 **사용 권한 추가** 를 선택 하 고 api 패밀리를 선택한 후 **응용 프로그램 권한**을 선택 하 고 사용 권한을 선택 합니다.
 
-![앱 권한 및 관리자 동의](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
+![앱 사용 권한 및 관리자 동의](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
 > [!NOTE]
-> 호출하려는 웹 API는 위임된 권한이 아닌 *응용 프로그램 권한(앱 역할)을*정의해야 합니다. 이러한 API를 노출하는 방법에 대한 자세한 내용은 [보호된 웹 API: 앱 등록 - 웹 API가 데몬 앱에서 호출되는 경우를](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app)참조하십시오.
+> 호출 하려는 웹 API는 위임 된 권한이 아닌 *응용 프로그램 사용 권한 (앱 역할)* 을 정의 해야 합니다. 이러한 API를 노출 하는 방법에 대 한 자세한 내용은 [보호 된 웹 api: 앱 등록-디먼 앱에서 웹 api를 호출](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app)하는 경우를 참조 하세요.
 
-Daemon 응용 프로그램은 테넌트 관리자가 웹 API를 호출하는 응용 프로그램에 대한 사전 동의를 요구합니다. 테넌트 관리자는 조직에 대한 권한 부여 **관리자 동의를 *our organization* ** 선택하여 동일한 **API 권한** 페이지에서 이 동의를 제공합니다.
+디먼 응용 프로그램은 웹 API를 호출 하는 응용 프로그램에 대해 테 넌 트 관리자가 사전 동의 해야 합니다. 테 넌 트 관리자는 ** *조직* 에 관리자 동의 부여** 를 선택 하 여 동일한 **API 사용 권한** 페이지에서이 동의를 제공 합니다.
 
-ISV가 다중 테넌트 응용 프로그램을 빌드하는 경우 [다중 테넌트 데몬 앱의 경우 배포](scenario-daemon-production.md#deployment---multitenant-daemon-apps)섹션을 읽어야 합니다.
+다중 테 넌 트 응용 프로그램을 빌드하는 ISV 인 경우, [다중 테 넌 트 디먼 앱의 배포-사례](scenario-daemon-production.md#deployment---multitenant-daemon-apps)섹션을 참조 하세요.
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [데몬 앱 - 앱 코드 구성](./scenario-daemon-app-configuration.md)
+> [디먼 앱-앱 코드 구성](./scenario-daemon-app-configuration.md)

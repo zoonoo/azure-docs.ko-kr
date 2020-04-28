@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 7a6540b5784a76acfc248fb15feb1aaf39420845
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80546938"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
@@ -41,7 +41,7 @@ Batch 서비스를 통해 애플리케이션을 병렬로 규모에 따라 실�
 * [Batch의 기본 사항](../../batch/batch-technical-overview.md)
 * [Batch 기능 개요](../../batch/batch-api-basics.md)
 
-일괄 처리에 대해 자세히 알아보려면 [일괄 처리 설명서를](https://docs.microsoft.com/azure/batch/)참조하십시오.
+필요에 따라 Batch에 대해 자세히 알아보려면 [batch 설명서](https://docs.microsoft.com/azure/batch/)를 참조 하세요.
 
 ## <a name="why-azure-data-factory"></a>Azure Data Factory를 사용해야 하는 이유
 데이터 팩터리는 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. Data Factory를 사용하여 온-프레미스 및 클라우드 데이터 저장소에서 중앙 집중식 데이터 저장소로 데이터를 이동하는 관리되는 데이터 파이프라인을 만들 수 있습니다. 예제는 Azure Blob Storage입니다. Azure HDInsight 및 Azure Machine Learning과 같은 서비스를 사용하여 데이터를 처리/변환하는 데 Data Factory를 사용할 수 있습니다. 데이터 파이프라인을 예약된 방식(예: 매시간, 매일 및 매주)으로 실행되도록 예약할 수도 있습니다. 한 번에 파이프라인을 모니터링하고 관리하여 문제를 식별하고 조치를 취할 수 있습니다.
@@ -71,15 +71,15 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 
 * 데이터를 이동하고 변환하는 작업을 사용하여 Blob Storage, Batch 컴퓨팅 서비스, 입력/출력 데이터 및 워크플로/파이프라인을 나타내는 엔터티로 구성된 **Data Factory 인스턴스를 만듭니다**.
 
-* **데이터 팩터리 파이프라인에서 사용자 지정 .NET 활동을 만듭니다.** 작업은 Batch 풀에서 실행되는 사용자 코드입니다.
+* **Data Factory 파이프라인에서 사용자 지정 .NET 작업을 만듭니다.** 작업은 Batch 풀에서 실행되는 사용자 코드입니다.
 
-* **많은 양의 입력 데이터를 Azure 저장소에 Blob으로 저장합니다.** 데이터는 논리 조각(일반적으로 시간으로)으로 나뉩니다.
+* **Azure Storage에 blob으로 대량의 입력 데이터를 저장 합니다.** 데이터는 논리 조각(일반적으로 시간으로)으로 나뉩니다.
 
 * **Data Factory는 보조 위치에 병렬로 처리되는 데이터를 복사합니다** .
 
 * **Data Factory는 Batch에서 할당한 풀을 사용하여 사용자 지정 작업을 실행합니다.** 데이터 팩터리는 작업을 동시에 실행할 수 있습니다. 각 작업은 데이터 조각을 처리합니다. 결과는 스토리지에 저장됩니다.
 
-* **데이터 팩터리는 최종 결과를** 앱을 통한 배포 또는 다른 도구에 의한 추가 처리를 위해 세 번째 위치로 이동합니다.
+* Data Factory는 응용 프로그램을 통해 배포 하거나 다른 도구에의 한 추가 처리를 위해 **최종 결과를 세 번째 위치로 이동** 합니다.
 
 ## <a name="implementation-of-the-sample-solution"></a>샘플 솔루션의 구현
 샘플 솔루션은 의도적으로 간단합니다. Data Factory와 Batch를 사용하여 데이터 세트를 처리하는 방법을 알려주도록 디자인되었습니다. 솔루션은 시계열에 구성된 입력 파일에서 검색 단어 "Microsoft"의 발생 수를 계산합니다. 그러면 출력 파일에 개수를 출력합니다.
@@ -94,7 +94,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 스토리지 계정을 사용하여 이 자습서에 있는 데이터를 저장합니다. 스토리지 계정이 없는 경우 [스토리지 계정 만들기](../../storage/common/storage-account-create.md)를 참조하세요. 샘플 솔루션은 Blob Storage를 사용합니다.
 
 #### <a name="azure-batch-account"></a>Azure Batch 계정
-[Azure Portal](https://portal.azure.com/)을 사용하여 Batch 계정을 만듭니다. 자세한 내용은 [Batch 계정 만들기 및 관리](../../batch/batch-account-create-portal.md)를 참조하세요. Batch 계정 이름 및 계정 키를 적어둡니다. [또한 New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) cmdlet을 사용하여 일괄 처리 계정을 만들 수도 있습니다. 이 cmdlet 사용 방법에 대한 자세한 지침은 [Batch PowerShell cmdlet 시작](../../batch/batch-powershell-cmdlets-get-started.md)을 참조하세요.
+[Azure Portal](https://portal.azure.com/)을 사용하여 Batch 계정을 만듭니다. 자세한 내용은 [Batch 계정 만들기 및 관리](../../batch/batch-account-create-portal.md)를 참조하세요. Batch 계정 이름 및 계정 키를 적어둡니다. [AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) cmdlet을 사용 하 여 Batch 계정을 만들 수도 있습니다. 이 cmdlet 사용 방법에 대한 자세한 지침은 [Batch PowerShell cmdlet 시작](../../batch/batch-powershell-cmdlets-get-started.md)을 참조하세요.
 
 샘플 솔루션은 Batch를 사용하여(간접적으로 Data Factory 파이프라인을 통해) VM의 관리되는 컬렉션인 컴퓨팅 노드의 풀에서 병렬 방식으로 데이터를 처리합니다.
 
@@ -111,9 +111,9 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 
    a. 풀에 대한 ID(**풀 ID**)를 입력합니다. 풀의 ID를 적어둡니다. Data Factory 솔루션을 만들 때 필요합니다.
 
-   b. **운영 체제 패밀리** 설정에 대 한 Windows 서버 **2012 R2를** 지정 합니다.
+   b. **운영 체제 제품군** 설정에 **Windows Server 2012 R2** 를 지정 합니다.
 
-   다. **노드 가격 책정 계층**을 선택합니다.
+   c. **노드 가격 책정 계층**을 선택합니다.
 
    d. **대상 전용** 설정 값으로 **2**를 입력합니다.
 
@@ -124,7 +124,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 #### <a name="azure-storage-explorer"></a>Azure Storage Explorer
 [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) 또는 [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)(ClumsyLeaf Software)를 사용하여 Storage 프로젝트의 데이터를 검사하고 변경합니다. 클라우드 호스팅 애플리케이션의 로그에 있는 데이터를 검사하고 변경할 수도 있습니다.
 
-1. 개인 액세스 권한이 있는 **mycontainer라는** 컨테이너를 만듭니다(익명 액세스 없음).
+1. 개인 액세스 (익명 액세스 없음)를 사용 하 여 **mycontainer** 라는 컨테이너를 만듭니다.
 
 1. CloudXplorer를 사용하는 경우 다음과 같은 구조의 폴더와 하위 폴더를 만듭니다.
 
@@ -172,7 +172,7 @@ public IDictionary<string, string> Execute(
   * **linkedServices**. 이 매개 변수는 입/출력 데이터 원본(예: Blob Storage)을 데이터 팩터리에 연결하는 연결된 서비스의 열거형 목록입니다. 이 샘플에서는 입력 및 출력 모두에 사용되는 Azure Storage 형식의 연결된 서비스가 하나만 있습니다.
   * **데이터 집합**. 이 매개 변수는 데이터 세트의 열거형 목록입니다. 이 매개 변수를 사용하여 입력 및 출력 데이터 세트에 정의된 위치 및 스키마를 가져올 수 있습니다.
   * **활동**. 이 매개 변수는 현재 컴퓨팅 엔터티를 나타냅니다. 이 경우 Batch 서비스입니다.
-  * **로거**. 로거를 사용하여 파이프라인에서 "사용자" 로그로 노출할 디버그 주석을 기록할 수 있습니다.
+  * **로 거**. 로거를 사용하여 파이프라인에서 "사용자" 로그로 노출할 디버그 주석을 기록할 수 있습니다.
 * 이 메서드는 나중에 사용자 지정 작업을 함께 연결하는 데 사용할 수 있는 사전을 반환합니다. 이 기능은 아직 구현되지 않았기 때문에, 메서드로부터 빈 사전이 반환됩니다.
 
 #### <a name="procedure-create-the-custom-activity"></a>절차: 사용자 지정 작업 만들기
@@ -180,9 +180,9 @@ public IDictionary<string, string> Execute(
 
    a. Start Visual Studio 2012/2013/2015.
 
-   b. **File** > **New**새 > **프로젝트**파일 선택 .
+   b. **파일** > **새로 만들기** > **프로젝트**를 선택 합니다.
 
-   다. **템플릿**을 확장하고 **Visual C\#** 를 선택합니다. 이 연습에서는 C\#를 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.
+   c. **템플릿**을 확장하고 **Visual C\#** 를 선택합니다. 이 연습에서는 C\#를 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.
 
    d. 오른쪽의 프로젝트 형식 목록에서 **클래스 라이브러리**를 선택합니다.
 
@@ -192,7 +192,7 @@ public IDictionary<string, string> Execute(
 
    g. **확인**을 선택하여 프로젝트를 만듭니다.
 
-1. **선택 도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔.**
+1. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 선택 합니다.
 
 1. 패키지 관리자 콘솔에서 다음 명령을 실행하여 Microsoft.Azure.Management.DataFactories를 가져옵니다.
 
@@ -434,7 +434,7 @@ public IDictionary<string, string> Execute(
 
 1. Blob 집합을 진행하는 코드는 논리적으로 do-while 루프 안으로 들어갑니다. **Execute** 메서드에서 do-while 루프는 **Calculate**라는 메서드로 Blob 목록을 전달합니다. 이 메서드는 **output** 이라는 문자열 변수를 반환하는데, 이는 세그먼트에서 모든 Blob을 반복한 결과입니다.
 
-   **계산** 메서드에 전달 된 Blob에서 검색 용어 "Microsoft"의 발생 수를 반환 합니다.
+   **Calculate** 메서드에 전달 된 blob에서 검색 용어 "Microsoft"의 발생 횟수를 반환 합니다.
 
     ```csharp
     output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
@@ -524,13 +524,13 @@ test custom activity Microsoft test custom activity Microsoft
 다음 연습에서는 추가 정보를 제공합니다.
 
 #### <a name="step-1-create-the-data-factory"></a>1단계: 데이터 팩터리 만들기
-1. [Azure 포털에](https://portal.azure.com/)로그인한 후 다음 단계를 수행합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인 한 후에는 다음 단계를 수행 합니다.
 
    a. 왼쪽 메뉴에서 **새로 만들기**를 선택합니다.
 
    b. **새** 블레이드에서 **데이터 + 분석**을 선택합니다.
 
-   다. **데이터 분석** 블레이드에서 **Data Factory**를 선택합니다.
+   c. **데이터 분석** 블레이드에서 **Data Factory**를 선택합니다.
 
 1. **새 Data Factory** 블레이드에서 이름으로 **CustomActivityFactory**를 입력합니다. 데이터 팩터리 이름은 전역적으로 고유해야 합니다. "Data Factory 이름 CustomActivityFactory를 사용할 수 없습니다."라는 오류를 수신하는 경우 Data Factory의 이름을 변경합니다. 예를 들어 yournameCustomActivityFactory를 사용하여 Data Factory를 다시 만듭니다.
 
@@ -573,12 +573,12 @@ test custom activity Microsoft test custom activity Microsoft
 
    b. **액세스 키**를 Batch 계정의 액세스 키로 대체합니다.
 
-   다. **poolName** 속성에 대한 풀의 ID를 입력합니다. 이 속성의 경우 풀 이름 또는 풀 ID 중 하나를 지정할 수 있습니다.
+   c. **PoolName** 속성의 풀 ID를 입력 합니다. 이 속성의 경우 풀 이름 또는 풀 ID 중 하나를 지정할 수 있습니다.
 
    d. **batchUri** JSON 속성에 대한 배치 URI를 입력합니다.
 
       > [!IMPORTANT]
-      > 일괄 처리 **계정** 블레이드의 URL은 \<계정 이름\>입니다. \<지역\>.batch.azure.com. JSON 스크립트의 **batchUri** 속성의 경우 URL에서 a88"accountname."**을 제거해야 합니다. 예제는 `"batchUri": "https://eastus.batch.azure.com"`입니다.
+      > **Batch 계정** 블레이드의 URL은 \<accountname\>형식입니다. \<batch.azure.com\>. JSON 스크립트의 **batchUri** 속성의 경우 URL에서 a88"accountname."**을 제거해야 합니다. 예제는 `"batchUri": "https://eastus.batch.azure.com"`입니다.
       >
       >
 
@@ -792,7 +792,7 @@ test custom activity Microsoft test custom activity Microsoft
    다음 사항에 유의하세요.
 
    * 파이프라인에는 **DotNetActivity** 형식인 하나의 작업만이 있습니다.
-   * **어셈블리 이름은** DLL **MyDotNetActivity.dll**의 이름으로 설정됩니다.
+   * **AssemblyName** 은 dll **MyDotNetActivity**의 이름으로 설정 됩니다.
    * **EntryPoint**는 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다. 기본적으로 코드에 있는 \<namespace\>.\<classname\>입니다.
    * **PackageLinkedService**가 사용자 지정 작업 zip 파일을 포함하는 Blob Storage를 가리키는 **StorageLinkedService**로 설정됩니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 스토리지 계정을 사용하는 경우 다른 Storage 연결된 서비스를 만들어야 합니다. 이 문서에서는 동일한 스토리지 계정을 사용한다고 가정합니다.
    * **PackageFile**은 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. \<containerforthezip\>/\<nameofthezip.zip\> 형식입니다.
@@ -843,11 +843,11 @@ test custom activity Microsoft test custom activity Microsoft
 
 1. 이제 폴더의 여러 파일을 시도하세요. **2015-11-06-01** 폴더의 file.txt와 동일한 콘텐츠를 가진 **file2.txt**, **file3.txt**, **file4.txt** 및 **file5.txt** 파일을 만듭니다.
 
-1. 출력 폴더에서 출력 파일 **2015-11-16-01.txt를**삭제합니다.
+1. 출력 폴더에서 출력 파일 **2015-11-16-01.txt**을 삭제 합니다.
 
 1. **OutputDataset** 블레이드에서 **조각 시작 시간**이 **11/16/2015 01:00:00 AM**으로 설정된 조각을 마우스 오른쪽 단추를 클릭합니다. **실행**을 선택하여 조각을 다시 실행/다시 처리합니다. 이제 조각에 하나의 파일 대신 5개의 파일이 있습니다.
 
-    ![다음을 실행합니다.](./media/data-factory-data-processing-using-batch/image17.png)
+    ![Run](./media/data-factory-data-processing-using-batch/image17.png)
 
 1. 조각이 실행되고 해당 상태가 **준비** 상태가 된 후 이 조각에 대한 출력 파일(**2015-11-16-01.txt**)의 콘텐츠를 확인합니다. 출력 파일이 Blob Storage의 `outputfolder`에 있는 `mycontainer` 아래에 표시됩니다. 조각의 각 파일에 대한 줄이 있어야 합니다.
 
@@ -954,7 +954,7 @@ Data Factory 및 Batch 기능에 대한 자세한 내용을 보려면 이 샘플
 
    풀이 기본 [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)을 사용하는 경우 Batch 서비스가 사용자 지정 작업을 실행하기 전에 VM을 준비하는 데 15~30분이 소요될 수 있습니다. 풀이 다른 autoScaleEvaluationInterval을 사용하는 경우 Batch 서비스는 autoScaleEvaluationInterval +10분이 소요될 수 있습니다.
 
-1. 샘플 솔루션에서 **Execute** 메서드는 출력 데이터 조각을 생성하도록 입력 데이터 조각을 처리하는 **Calculate** 메서드를 호출합니다. 입력 데이터를 처리하고 **Execute** 메서드에서 메서드 **계산** 호출을 메서드 호출로 대체하는 고유한 메서드를 작성할 수 있습니다.
+1. 샘플 솔루션에서 **Execute** 메서드는 출력 데이터 조각을 생성하도록 입력 데이터 조각을 처리하는 **Calculate** 메서드를 호출합니다. 사용자 고유의 메서드를 작성 하 여 입력 데이터를 처리 하 고 **Execute** 메서드의 **Calculate** 메서드 호출을 메서드 호출로 바꿀 수 있습니다.
 
 ### <a name="next-steps-consume-the-data"></a>다음 단계: 데이터 사용
 데이터를 처리한 후 Power BI와 같은 온라인 도구에서 사용할 수 있습니다. 다음은 Power BI 및 Azure에서 사용하는 방법을 이해하는 데 도움을 주는 링크입니다.

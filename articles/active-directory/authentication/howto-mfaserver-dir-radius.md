@@ -1,5 +1,5 @@
 ---
-title: RADIUS 및 Azure MFA 서버 - Azure 활성 디렉터리
+title: RADIUS 및 Azure MFA 서버-Azure Active Directory
 description: RADIUS 인증 및 Azure Multi-Factor Authentication 서버 배포
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 552226c35d4d129f73b96b689871708950b7ffb1
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80652960"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버와 RADIUS 인증 통합
@@ -23,16 +23,16 @@ ms.locfileid: "80652960"
 RADIUS는 인증 요청을 수락하고 이 요청을 처리하는 표준 프로토콜입니다. Azure Multi-Factor Authentication 서버는 RADIUS 서버 역할을 할 수 있습니다. RADIUS 클라이언트(VPN 어플라이언스)와 인증 대상 간에 삽입하여 2단계 인증을 추가합니다. 인증 대상은 Active Directory, LDAP 디렉터리 또는 다른 RADIUS 서버일 수 있습니다. Azure MFA(Multi-Factor Authentication)가 동작하려면 클라이언트 서버와 인증 대상 모두와 통신할 수 있도록 Azure MFA 서버를 구성해야 합니다. Azure MFA 서버는 RADIUS 클라이언트의 요청을 수락하고, 인증 대상에 대해 자격 증명의 유효성을 검사하고, Azure Multi-Factor Authentication을 추가하고 다시 RADIUS 클라이언트로 응답을 보냅니다. 기본 인증 및 Azure Multi-Factor Authentication 모두가 성공한 경우에만 인증 요청이 성공합니다.
 
 > [!IMPORTANT]
-> 이 문서는 Azure MFA 서버 사용자만 사용할 수 있습니다. 클라우드 기반 Azure MFA를 사용하는 경우 대신 [Azure MFA에 대한 RADIUS 인증과 통합하는](howto-mfa-nps-extension.md)방법을 참조하세요.
+> 이 문서는 Azure MFA 서버의 사용자 에게만 해당 됩니다. 클라우드 기반 Azure MFA를 사용 하는 경우 대신 [AZURE mfa에 대 한 RADIUS 인증과 통합](howto-mfa-nps-extension.md)하는 방법을 참조 하세요.
 >
-> 2019년 7월 1일부터 Microsoft는 더 이상 새 배포를 위해 MFA 서버를 제공하지 않습니다. 사용자로부터 다단계 인증을 요구하려는 신규 고객은 클라우드 기반 Azure 다단계 인증을 사용해야 합니다. 7월 1일 이전에 MFA Server를 활성화한 기존 고객은 최신 버전, 향후 업데이트를 다운로드하고 평소와 같이 정품 인증 자격 증명을 생성할 수 있습니다.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
 
 > [!NOTE]
 > MFA 서버는 RADIUS 서버로 작동하는 경우 PAP(암호 인증 프로토콜)와 MSCHAPv2(Microsoft의 Challenge-Handshake 인증 프로토콜) RADIUS 프로토콜만 지원합니다.  EAP(확장할 수 있는 인증 프로토콜) 같은 기타 프로토콜은 MFA 서버가 프로토콜을 지원하는 또 다른 RADIUS 서버에 대한 RADIUS 프록시로 작동하는 경우에 사용할 수 있습니다.
 >
 > 이 구성에서 MFA 서버가 대체 프로토콜을 사용하여 성공적인 RADIUS Challenge 응답을 시작할 수 없기 때문에 단방향 SMS 및 OATH 토큰이 작동하지 않습니다.
 
-![MFA 서버의 반경 인증](./media/howto-mfaserver-dir-radius/radius.png)
+![MFA 서버의 Radius 인증](./media/howto-mfaserver-dir-radius/radius.png)
 
 ## <a name="add-a-radius-client"></a>RADIUS 클라이언트 추가
 
@@ -56,11 +56,11 @@ RADIUS 인증을 구성하려면 Windows 서버에 Azure Multi-Factor Authentica
 
 ## <a name="configure-your-radius-client"></a>RADIUS 클라이언트 구성
 
-1. **대상** 탭을 클릭합니다.
-   * Azure MFA 서버가 Active Directory 환경에서 도메인 에 가입된 서버에 설치된 경우 **Windows 도메인을**선택합니다.
-   * LDAP 디렉터리에 대해 사용자를 인증해야 하는 경우 **LDAP 바인딩을**선택합니다.
-      디렉터리 통합 아이콘을 선택하고 서버가 디렉터리에 바인딩할 수 있도록 설정 탭에서 LDAP 구성을 편집합니다. LDAP 구성 에 대한 지침은 [LDAP 프록시 구성 가이드에서](howto-mfaserver-dir-ldap.md)찾을 수 있습니다.
-   * 다른 RADIUS 서버에 대해 사용자를 인증해야 하는 경우 **RADIUS 서버를**선택합니다.
+1. **대상** 탭을 클릭 합니다.
+   * Azure MFA 서버가 Active Directory 환경에서 도메인에 가입 된 서버에 설치 되어 있는 경우 **Windows 도메인**을 선택 합니다.
+   * LDAP 디렉터리에 대해 사용자를 인증 해야 하는 경우 **ldap 바인드**를 선택 합니다.
+      디렉터리 통합 아이콘을 선택하고 서버가 디렉터리에 바인딩할 수 있도록 설정 탭에서 LDAP 구성을 편집합니다. LDAP 구성 지침은 [Ldap 프록시 구성 가이드](howto-mfaserver-dir-ldap.md)에서 찾을 수 있습니다.
+   * 다른 RADIUS 서버에 대해 사용자를 인증 해야 하는 경우 **radius 서버**를 선택 합니다.
 1. **추가**를 클릭하여 Azure MFA 서버가 RADIUS 요청을 프록시할 서버를 구성합니다.
 1. RADIUS 서버 추가 대화 상자에서 RADIUS 서버의 IP 주소와 공유 암호를 입력합니다.
 
@@ -77,9 +77,9 @@ Azure Multi-Factor Authentication 서버를 성공적으로 구성했습니다. 
 
 RADIUS 클라이언트를 구성하려면 지침을 따르십시오.
 
-* RADIUS를 통해 RADIUS 서버역할을 하는 Azure 다단계 인증 서버의 IP 주소로 인증하도록 어플라이언스/서버를 구성합니다.
+* Radius 서버 역할을 하는 Azure Multi-Factor Authentication 서버의 IP 주소에 대 한 RADIUS를 통해 인증 하도록 어플라이언스/서버를 구성 합니다.
 * 이전에 구성된 동일한 공유 암호를 사용합니다.
-* 사용자의 자격 증명을 확인하고, 2단계 인증을 수행하고, 응답을 받은 다음 RADIUS 액세스 요청에 응답할 시간이 있도록 RADIUS 시간 시간을 30-60초로 구성합니다.
+* 사용자 자격 증명의 유효성을 검사 하 고, 2 단계 인증을 수행 하 고, 응답을 수신 하 고, RADIUS 액세스 요청에 응답할 수 있도록 RADIUS 제한 시간을 30-60 초로 구성 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

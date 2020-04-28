@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: cb9a02532c3651aca544ed946f40bdcff9e9be83
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411766"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
@@ -29,11 +29,11 @@ P2S VPN 연결은 Windows 및 Mac 디바이스에서 시작됩니다. 다음 인
 
 ![연결 다이어그램 - RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
-P2S 연결을 작동하는 데는 VPN 디바이스 또는 공용 IP 주소가 필요하지 않습니다. P2S는 SSTP(보안 소켓 터널링 프로토콜), OpenVPN 또는 IKEv2를 통해 VPN 연결을 생성합니다.
+P2S 연결을 작동하는 데는 VPN 디바이스 또는 공용 IP 주소가 필요하지 않습니다. P2S는 SSTP (Secure Socket Tunneling Protocol), OpenVPN 또는 IKEv2를 통해 VPN 연결을 만듭니다.
 
-* SSTP는 Windows 클라이언트 플랫폼에서만 지원되는 TLS 기반 VPN 터널입니다. 이를 통해 방화벽을 통과할 수 있으므로 어디서나 Azure에 연결할 수 있는 이상적인 옵션입니다. 서버 쪽에서 SSTP 버전 1.0, 1.1 및 1.2를 지원하며, 클라이언트에서 사용할 버전을 결정합니다. Windows 8.1 이상에서는 기본적으로 SSTP 버전 1.2를 사용합니다.
+* SSTP는 Windows 클라이언트 플랫폼 에서만 지원 되는 TLS 기반 VPN 터널입니다. 이를 통해 방화벽을 통과할 수 있으므로 어디서나 Azure에 연결할 수 있는 이상적인 옵션입니다. 서버 쪽에서 SSTP 버전 1.0, 1.1 및 1.2를 지원하며, 클라이언트에서 사용할 버전을 결정합니다. Windows 8.1 이상에서는 기본적으로 SSTP 버전 1.2를 사용합니다.
 
-* OpenVPN® 프로토콜, SSL/TLS 기반 VPN 프로토콜. 대부분의 방화벽은 TLS가 사용하는 TCP 포트 443 아웃바운드를 열기 때문에 TLS VPN 솔루션은 방화벽에 침투할 수 있습니다. OpenVPN은 안드로이드, iOS (버전 11.0 이상), 윈도우, 리눅스 및 Mac 장치 (OSX 버전 10.13 이상)에서 연결하는 데 사용할 수 있습니다.
+* OpenVPN® 프로토콜, SSL/TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽은 TLS에서 사용 하는 TCP 포트 443 아웃 바운드를 열기 때문에 TLS VPN 솔루션은 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS (버전 11.0 이상), Windows, Linux 및 Mac 장치 (OSX 버전 10.13 이상)에서 연결 하는 데 사용할 수 있습니다.
 
 * IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 디바이스(OSX 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
 
@@ -87,7 +87,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 * **공용 IP 이름: VNet1GWPIP**
 * **VpnType: RouteBased**
 
-## <a name="1-set-the-variables"></a><a name="signin"></a>1. 변수 설정
+## <a name="1-set-the-variables"></a><a name="signin"></a>1. 변수를 설정 합니다.
 
 사용할 변수를 선언합니다. 다음 샘플을 사용하여 필요할 때 고유한 값으로 대체합니다. 이 연습을 수행하는 동안 PowerShell/Cloud Shell 세션을 닫게 되는 경우 값을 복사하고 붙여넣어 변수를 다시 선언하세요.
 
@@ -153,12 +153,12 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 [NPS(네트워크 정책 서버)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) 문서에서는 AD 도메인 인증을 위해 Windows RADIUS 서버(NPS)를 구성하는 방법에 대한 지침을 제공하고 있습니다.
 
-## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"> </a>VPN 게이트웨이 만들기
+## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"> </a>VPN gateway 만들기
 
 VNet에 대한 VPN 게이트웨이를 구성하고 만듭니다.
 
 * -GatewayType은  'Vpn'이어야 하고 -VpnType은  'RouteBased'여야 합니다.
-* VPN 게이트웨이는 선택한 [게이트웨이 SKU에](vpn-gateway-about-vpn-gateway-settings.md#gwsku) 따라 완료하는 데 최대 45분이 걸릴 수 있습니다.
+* VPN gateway는 선택한 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) 에 따라 완료 하는 데 최대 45 분까지 걸릴 수 있습니다.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
@@ -223,7 +223,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"> </a>VPN 클라이언트 구성 패키지를 다운로드하고 VPN 클라이언트를 설정합니다.
+## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"> </a>vpn 클라이언트 구성 패키지를 다운로드 하 고 vpn 클라이언트를 설정 합니다.
 
 VPN 클라이언트 구성을 사용하면 P2S 연결을 통해 VNet에 디바이스를 연결할 수 있습니다.VPN 클라이언트 구성 패키지를 생성하고 VPN 클라이언트를 설정하려면 [RADIUS 인증에 대한 VPN 클라이언트 구성 만들기](point-to-site-vpn-client-configuration-radius.md)를 참조하세요.
 

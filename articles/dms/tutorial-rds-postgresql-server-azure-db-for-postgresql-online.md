@@ -1,5 +1,5 @@
 ---
-title: '자습서: RDS PostgreSQL을 온라인 으로 마이그레이션하여 PostgreSQL에 대한 Azure 데이터베이스로 마이그레이션합니다.'
+title: '자습서: Azure Database for PostgreSQL로 RDS PostgreSQL online 마이그레이션'
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용하여 RDS PostgreSQL에서 Azure Database for PostgreSQL로 온라인 마이그레이션하는 방법을 알아봅니다.
 services: dms
@@ -13,13 +13,13 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
 ms.openlocfilehash: be6f0cd734d31f43557b49f8e9314e925b383899
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81113958"
 ---
-# <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>자습서: DMS를 사용 하 여 온라인 PostgreSQL에 대 한 Azure DBRDS PostgreSQL 마이그레이션
+# <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>자습서: DMS를 사용 하 여 PostgreSQL online 용 Azure DB로 RDS PostgreSQL 마이그레이션
 
 Azure Database Migration Service를 사용하면 마이그레이션 중에 원본 데이터베이스를 온라인 상태로 유지하면서 RDS PostgreSQL 인스턴스에서 [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/)로 데이터베이스를 마이그레이션할 수 있습니다. 즉, 애플리케이션의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service에서 온라인 마이그레이션 작업을 사용하여 **DVD Rental** 샘플 데이터베이스를 RDS PostgreSQL 9.6 인스턴스에서 Azure Database for PostgreSQL로 마이그레이션합니다.
 
@@ -31,10 +31,10 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 > * Azure Database Migration Service를 사용하여 마이그레이션 프로젝트를 만듭니다.
 > * 마이그레이션을 실행합니다.
 > * 마이그레이션을 모니터링합니다.
-> * 마이그레이션 컷오버를 수행합니다.
+> * 마이그레이션을 수행 합니다.
 
 > [!NOTE]
-> Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄 가격 책정 계층에 따라 인스턴스를 만들어야 합니다. 자세한 내용은 Azure 데이터베이스 마이그레이션 서비스 [가격 책정](https://azure.microsoft.com/pricing/details/database-migration/) 페이지를 참조하세요. 마이그레이션 과정에서 데이터 도난을 방지하기 위해 디스크를 암호화합니다.
+> Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄 가격 책정 계층에 따라 인스턴스를 만들어야 합니다. 자세한 내용은 Azure Database Migration Service [가격 책정](https://azure.microsoft.com/pricing/details/database-migration/) 페이지를 참조 하세요. 마이그레이션을 진행 하는 동안 데이터 도난을 방지 하기 위해 디스크를 암호화 합니다.
 
 > [!IMPORTANT]
 > 최적의 마이그레이션 환경을 위해 대상 데이터베이스와 동일한 Azure 지역에서 Azure Database Migration Service의 인스턴스를 만드는 것이 좋습니다. 영역 또는 지역 간에 데이터를 이동하면 마이그레이션 프로세스 속도가 저하되고 오류가 발생할 수 있습니다.
@@ -49,15 +49,15 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 
 * [PostgreSQL 커뮤니티 버전](https://www.postgresql.org/download/) 9.5, 9.6 또는 10을 다운로드하여 설치합니다. 원본 PostgreSQL 서버 버전은 9.5.11, 9.6.7, 10 이상이어야 합니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) 문서를 참조하세요.
 
-   또한 PostgreSQL 버전에 대한 대상 Azure 데이터베이스는 RDS PostgreSQL 버전과 같거나 작아야 합니다. 예를 들어 RDS PostgreSQL 9.6은 PostgreSQL 9.6, 10 또는 11에 대해서만 Azure 데이터베이스로 마이그레이션할 수 있지만 PostgreSQL 9.5의 경우 Azure 데이터베이스로만 마이그레이션할 수 없습니다.
+   또한 대상 Azure Database for PostgreSQL 버전은 RDS PostgreSQL 버전과 같거나 그 이상 이어야 합니다. 예를 들어, RDS PostgreSQL 9.6는 Azure Database for PostgreSQL 9.6, 10 또는 11로만 마이그레이션할 수 있지만 Azure Database for PostgreSQL 9.5으로는 마이그레이션할 수 없습니다.
 
-* [PostgreSQL에 대 한 Azure 데이터베이스](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) 또는 [PostgreSQL에 대 한 Azure 데이터베이스의 인스턴스를 만듭니다- 하이퍼 스케일 (Citus)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal). pgAdmin을 사용하여 PostgreSQL 서버에 연결하는 방법에 대한 자세한 내용은 문서의 이 [섹션](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin)을 참조하세요.
-* [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN을](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)사용하여 온-프레미스 소스 서버에 대한 사이트 간 연결을 제공하는 Azure 리소스 관리자 배포 모델을 사용하여 Azure 데이터베이스 마이그레이션 서비스에 대한 Microsoft Azure 가상 네트워크를 만듭니다. 가상 네트워크 만들기에 대한 자세한 내용은 [가상 네트워크 설명서](https://docs.microsoft.com/azure/virtual-network/)및 특히 단계별 세부 정보가 있는 빠른 시작 문서를 참조하십시오.
-* 가상 네트워크 네트워크 보안 그룹 규칙이 Azure 데이터베이스 마이그레이션 서비스(443, 53, 9354, 445 및 12000)에 대한 다음 인바운드 통신 포트를 차단하지 않도록 합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹과 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)문서를 참조하십시오.
+* [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) 또는 [Azure Database for PostgreSQL-Hyperscale (Citus)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)의 인스턴스를 만듭니다. pgAdmin을 사용하여 PostgreSQL 서버에 연결하는 방법에 대한 자세한 내용은 문서의 이 [섹션](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin)을 참조하세요.
+* [Express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 경로 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용 하 여 온-프레미스 원본 서버에 대 한 사이트 간 연결을 제공 하는 Azure Resource Manager 배포 모델을 사용 하 여 Azure Database Migration Service에 대 한 Microsoft Azure Virtual Network를 만듭니다. 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/)와 특히 단계별 정보를 포함 하는 빠른 시작 문서를 참조 하세요.
+* 가상 네트워크 네트워크 보안 그룹 규칙에서 Azure Database Migration Service에 대 한 인바운드 통신 포트 (443, 53, 9354, 445 및 12000)를 차단 하지 않는지 확인 합니다. Virtual network NSG 트래픽 필터링에 대 한 자세한 내용은 [네트워크 보안 그룹을 사용 하 여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)문서를 참조 하세요.
 * [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 * Windows 방화벽을 열고 Azure Database Migration Service가 기본적으로 5432 TCP 포트인 원본 PostgreSQL 서버에 액세스할 수 있도록 허용합니다.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service가 마이그레이션을 위해 원본 데이터베이스에 액세스할 수 있게 허용하는 방화벽 규칙을 추가해야 합니다.
-* Azure Database Migration Service가 대상 데이터베이스에 액세스할 수 있도록 Azure Database for PostgreSQL 서버에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure 데이터베이스 마이그레이션 서비스에 사용되는 가상 네트워크의 서브넷 범위를 제공합니다.
+* Azure Database Migration Service가 대상 데이터베이스에 액세스할 수 있도록 Azure Database for PostgreSQL 서버에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용 되는 가상 네트워크의 서브넷 범위를 제공 합니다.
 
 ### <a name="set-up-aws-rds-postgresql-for-replication"></a>AWS RDS PostgreSQL에 복제 설정
 
@@ -69,7 +69,7 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 
     b. max_wal_senders = [동시 작업 수]: max_wal_senders 매개 변수는 실행할 수 있는 동시 작업 수를 설정합니다. 10으로 설정하는 것이 좋습니다.
 
-    다. max_replication_slots – = [number of slots], 5개 슬롯으로 설정하는 것이 좋습니다.
+    c. max_replication_slots – = [number of slots], 5개 슬롯으로 설정하는 것이 좋습니다.
 
 4. 만든 매개 변수 그룹을 RDS PostgreSQL 인스턴스에 연결합니다.
 
@@ -92,7 +92,7 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 2. 대상 서비스, 즉, Azure Database for PostgreSQL에 빈 데이터베이스를 만듭니다. 데이터베이스를 만들어서 연결하려면 다음 문서 중 하나를 참조하세요.
 
     * [Azure Portal을 사용하여 Azure Database for PostgreSQL 서버 만들기](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal)
-    * [Azure 포털을 사용하여 PostgreSQL - 하이퍼스케일(Citus) 서버에 대한 Azure 데이터베이스 만들기](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)
+    * [Azure Portal를 사용 하 여 Citus (Azure Database for PostgreSQL-Hyperscale) 서버를 만듭니다.](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)
 
 3. 대상 서비스, 즉, Azure Database for PostgreSQL로 스키마를 가져옵니다. 스키마 덤프 파일을 복원하려면 다음 명령을 실행합니다.
 
@@ -100,7 +100,7 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
     psql -h hostname -U db_username -d db_name < your_schema.sql
     ```
 
-    다음은 그 예입니다.
+    예를 들면 다음과 같습니다.
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
@@ -154,7 +154,7 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 
     ![리소스 공급자 보기](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-select-resource-provider.png)
 
-3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration**의 오른쪽에서 **레지스터를**선택합니다.
+3. 마이그레이션을 검색 한 다음 **microsoft.datamigration**의 오른쪽에서 **등록**을 선택 합니다.
 
     ![리소스 공급자 등록](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-register-resource-provider.png)
 
@@ -172,13 +172,13 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 
 4. Azure Database Migration Service 인스턴스를 만들 위치를 선택합니다.
 
-5. 기존 가상 네트워크를 선택하거나 새 가상 네트워크를 만듭니다.
+5. 기존 가상 네트워크를 선택 하거나 새 가상 네트워크를 만드세요.
 
-    가상 네트워크는 Azure 데이터베이스 마이그레이션 서비스에 소스 PostgreSQL 인스턴스 및 PostgreSQL 인스턴스에 대한 대상 Azure 데이터베이스에 대한 액세스 권한을 제공합니다.
+    가상 네트워크는 원본 PostgreSQL 인스턴스 및 대상 Azure Database for PostgreSQL 인스턴스에 대 한 액세스 권한을 Azure Database Migration Service 제공 합니다.
 
-    Azure 포털에서 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Azure 포털을 사용하여 가상 네트워크 만들기](https://aka.ms/DMSVnet)문서를 참조하십시오.
+    Azure Portal에서 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 가상 네트워크 만들기](https://aka.ms/DMSVnet)문서를 참조 하세요.
 
-6. 가격 책정 계층을 선택합니다. 이 온라인 마이그레이션의 경우 프리미엄: 4vCores 가격 책정 계층을 선택해야 합니다.
+6. 가격 책정 계층을 선택 합니다. 이 온라인 마이그레이션의 경우 프리미엄: 4vCores 가격 책정 계층을 선택 해야 합니다.
 
     ![Azure Database Migration Service 인스턴스 설정 구성](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-settings5.png)
 
@@ -192,9 +192,9 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 
       ![Azure Database Migration Service의 모든 인스턴스 찾기](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-search.png)
 
-2. Azure **데이터베이스 마이그레이션 서비스** 화면에서 만든 Azure Database 마이그레이션 서비스 인스턴스의 이름을 검색한 다음 인스턴스를 선택한 다음 + **새 마이그레이션 프로젝트를**선택합니다.
+2. **Azure Database Migration Services** 화면에서 사용자가 만든 Azure Database Migration Service 인스턴스의 이름을 검색 하 고, 인스턴스를 선택한 다음, + **새 마이그레이션 프로젝트**를 선택 합니다.
 3. **새 마이그레이션 프로젝트** 화면에서 프로젝트 이름을 지정하고, **원본 서버 유형** 텍스트 상자에서 **AWS RDS for PostgreSQL**을 선택한 다음, **대상 서버 유형** 텍스트 상자에서 **Azure Database for PostgreSQL**을 선택합니다.
-4. 활동 **유형 선택** 섹션에서 **온라인 데이터 마이그레이션을**선택합니다.
+4. **작업 유형 선택** 섹션에서 **온라인 데이터 마이그레이션**을 선택 합니다.
 
     > [!IMPORTANT]
     > **온라인 데이터 마이그레이션**을 선택합니다. 이 시나리오에서는 오프라인 마이그레이션이 지원되지 않습니다.
@@ -213,7 +213,7 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 
 ## <a name="specify-source-details"></a>원본 세부 정보 지정
 
-* 소스 **세부 정보 추가** 화면에서 소스 PostgreSQL 인스턴스에 대한 연결 세부 정보를 지정합니다.
+* **원본 세부 정보 추가** 화면에서 원본 PostgreSQL 인스턴스에 대 한 연결 세부 정보를 지정 합니다.
 
    ![원본 세부 정보](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-source-details5.png)
 
@@ -237,7 +237,7 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 
 * **마이그레이션 실행**을 선택합니다.
 
-    마이그레이션 활동 창이 나타나고 활동의 **상태가** **초기화되고**있습니다.
+    마이그레이션 작업 창이 나타나고 작업 **상태** 를 **초기화**하는 중입니다.
 
 ## <a name="monitor-the-migration"></a>마이그레이션 모니터링
 
@@ -255,17 +255,17 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 
 ## <a name="perform-migration-cutover"></a>마이그레이션 중단 수행
 
-초기 전체 로드가 완료되면 데이터베이스가 **절단 준비**로 표시됩니다.
+초기 전체 로드를 완료 한 후에는 데이터베이스를 **사용할 준비가**된 것으로 표시 합니다.
 
 1. 데이터베이스 마이그레이션을 완료할 준비가 되면 **중단 시작**을 선택합니다.
 
-2. **보류 중인 변경 내용** 카운터가 **0으로** 표시될 때까지 기다렸다가 원본 데이터베이스에 들어오는 모든 트랜잭션이 중지되었는지 확인한 다음 **적용을** 선택합니다. **Apply**
+2. **보류 중인 변경 내용** 카운터가 **0** 으로 표시 될 때까지 기다린 후 원본 데이터베이스에 들어오는 모든 트랜잭션이 중지 되었는지 확인 하 고 **확인** 확인란을 선택한 다음 **적용**을 선택 합니다.
 
-    ![전체 컷오버 화면](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-complete-cutover.png)
+    ![화면에서 전체를 건너뜁니다.](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-complete-cutover.png)
 
 3. 데이터베이스 마이그레이션 상태가 **완료됨**으로 표시되면 애플리케이션을 새로운 대상 Azure Database for PostgreSQL 데이터베이스에 연결합니다.
 
-이제 POSTGRESQL에 대한 RDS PostgreSQL의 온-프레미스 인스턴스를 Azure 데이터베이스로 의 온라인 마이그레이션이 완료되었습니다.
+이제 Azure Database for PostgreSQL에 대 한 RDS PostgreSQL의 온-프레미스 인스턴스 온라인 마이그레이션이 완료 되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

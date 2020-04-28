@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.openlocfilehash: 28d85736019a6fea6d977d813fdc1c9be6429748
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80883273"
 ---
 # <a name="how-to-configure-endpoints"></a>엔드포인트 구성 방법
 
 [Azure Portal](https://portal.azure.com)에서 애플리케이션의 인증 엔드포인트를 찾을 수 있습니다.
 
--   [Azure 포털로](https://portal.azure.com)이동합니다.
+-   [Azure Portal](https://portal.azure.com)로 이동 합니다.
 
 -   왼쪽 탐색 창에서 **Azure Active Directory**를 클릭합니다.
 

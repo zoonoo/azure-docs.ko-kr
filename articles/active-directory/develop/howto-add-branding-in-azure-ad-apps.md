@@ -14,17 +14,17 @@ ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.openlocfilehash: c5b63fb0b66c78b33fb073eca919ed55bd05107c
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80884429"
 ---
 # <a name="branding-guidelines-for-applications"></a>애플리케이션에 대한 브랜딩 지침
 
 Azure AD(Azure Active Directory)를 사용하여 애플리케이션을 개발하는 경우 Azure AD에서 관리되는 회사 또는 학교 계정, 또는 개인 계정을 애플리케이션 등록 및 로그인에 사용하려는 고객을 안내해야 합니다.
 
-이 문서에서는 다음에 대해 알아봅니다.
+이 문서에서는 다음을 수행합니다.
 
 - Microsoft에서 관리하는 두 종류의 사용자 계정과 애플리케이션에서 Azure AD 계정을 가리키는 방법에 대해 알아봅니다.
 - 앱에서 사용할 Microsoft 로고를 추가하는 데 필요한 작업을 확인합니다.
@@ -63,13 +63,13 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 "앱 가져오기" 링크는 Azure AD 액세스 권한 부여(권한 부여) 페이지로 사용자를 리디렉션해야 합니다. 그러면 조직 관리자가 앱이 Microsoft에서 호스트되는 조직 데이터에 액세스할 수 있게 승인할 수 있습니다. 액세스 권한을 요청하는 방법에 대한 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](quickstart-v1-integrate-apps-with-azure-ad.md) 문서에서 설명합니다.
 
-관리자가 앱에 동의한 후 사용자의 Office 365 앱 런처 환경(와플 및 에서 [https://portal.office.com/myapps](https://portal.office.com/myapps)액세스할 수 있음)에 추가하도록 선택할 수 있습니다. 이 기능을 보급하려는 경우 "조직에 이 앱 추가"와 같은 용어를 사용하고 다음 예제와 같은 단추를 표시할 수 있습니다.
+관리자는 앱에 동의한 후 사용자의 Office 365 앱 시작 관리자 환경에 추가 하도록 선택할 수 있습니다 (와플 및에서 [https://portal.office.com/myapps](https://portal.office.com/myapps)액세스할 수 있음). 이 기능을 보급하려는 경우 "조직에 이 앱 추가"와 같은 용어를 사용하고 다음 예제와 같은 단추를 표시할 수 있습니다.
 
 ![Microsoft 로고 및 텍스트 "내 조직에 추가"를 표시하는 단추](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예를 들어:
+그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예를 들면 다음과 같습니다.
 
-> *Microsoft에서 Office 365 또는 기타 비즈니스 서비스를 이미 사용하는 경우 조직의 데이터에> 액세스 권한을 부여할 수 your_app_name <. 이렇게 하면 사용자가 기존 직장 계정으로 <your_app_name> 액세스할 수 있습니다.*
+> *이미 Office 365 또는 Microsoft의 다른 비즈니스 서비스를 사용 하는 경우 조직의 데이터에 대 한 액세스> your_app_name <부여할 수 있습니다. 이렇게 하면 사용자가 기존 회사 계정으로 <your_app_name>에 액세스할 수 있습니다.*
 
 공식 Microsoft 로고를 앱에서 사용하기 위해 다운로드하려면 사용할 이미지를 마우스 오른쪽 단추로 클릭한 다음, 컴퓨터에 저장합니다.
 
@@ -102,7 +102,7 @@ Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD�
 
 **권장** 최종 사용자가 단추를 사용할 수 있는지 여부를 인식할 수 있도록, 추가 설명을 제공하기 위해 "회사 또는 학교 계정"을 "Microsoft에 로그인" 단추와 함께 사용합니다. **권장 안 함** "엔터프라이즈 계정", "비즈니스 계정" 또는 "회사 계정"과 같은 다른 용어는 사용하지 않습니다.
 
-"Office 365 ID" 또는 "Azure ID"를 사용하지 **마십시오.** Office 365는 인증을 위해 Azure AD를 사용하지 않는 Microsoft 소비자 서비스의 이름이기도 합니다.
+"Office 365 ID" 또는 "Azure ID"를 사용 **하지 마세요** . Office 365는 인증을 위해 Azure AD를 사용하지 않는 Microsoft 소비자 서비스의 이름이기도 합니다.
 
 **권장 안 함** Microsoft 로고를 변경하지 않습니다.
 

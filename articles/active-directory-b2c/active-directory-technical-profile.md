@@ -12,23 +12,23 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 7db47eda47850c1c080b6a49256c8a0b37bb0d3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80330376"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 Azure Active Directory 기술 프로필 정의
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C(Azure AD B2C)는 Azure Active Directory 사용자 관리를 지원합니다. 이 문서에서는 이 표준 프로토콜을 지원하는 클레임 공급자와 상호 작용하기 위한 기술 프로필에 대해 구체적으로 설명합니다.
+Azure Active Directory B2C (Azure AD B2C) Azure Active Directory 사용자 관리를 지원 합니다. 이 문서에서는 이 표준 프로토콜을 지원하는 클레임 공급자와 상호 작용하기 위한 기술 프로필에 대해 구체적으로 설명합니다.
 
 ## <a name="protocol"></a>프로토콜
 
 **Protocol** 요소의 **Name** 특성은 `Proprietary`로 설정해야 합니다. **handler** 특성은 프로토콜 처리기 어셈블리의 정규화된 이름 `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`을 포함해야 합니다.
 
-[다음 사용자 지정 정책 시작 팩](custom-policy-get-started.md#custom-policy-starter-pack) Azure AD 기술 프로필에는 **AAD-Common** 기술 프로필이 포함됩니다. Azure AD 기술 프로필은 **프로토콜이 AAD-Common** 기술 프로필에 구성되어 있으므로 프로토콜을 지정하지 않습니다.
+[사용자 지정 정책 시작 팩](custom-policy-get-started.md#custom-policy-starter-pack) Azure AD 기술 프로필에는 **AAD 일반** 기술 프로필이 포함 됩니다. 프로토콜이 **AAD 일반** 기술 프로필에 구성 되어 있으므로 Azure AD 기술 프로필은 프로토콜을 지정 하지 않습니다.
  
 - **AAD-UserReadUsingAlternativeSecurityId** 및 **AAD-UserReadUsingAlternativeSecurityId-NoError** - 디렉터리에서 소셜 계정을 조회합니다.
 - **AAD-UserWriteUsingAlternativeSecurityId** - 새 소셜 계정을 만듭니다.
@@ -58,13 +58,13 @@ Azure Active Directory B2C(Azure AD B2C)는 Azure Active Directory 사용자 관
 
 ## <a name="inputclaims"></a>InputClaims
 
-InputClaims 요소에는 디렉터리에서 계정을 조회하거나 새 계정을 만드는 데 사용되는 클레임이 포함되어 있습니다. 모든 Azure AD 기술 프로필에 대한 입력 클레임 컬렉션에는 정확히 하나의 InputClaim 요소가 있어야 합니다. 정책에 정의된 클레임 이름을 Azure Active Directory에서 정의된 이름에 매핑해야 할 수도 있습니다.
+InputClaims 요소는 디렉터리에서 계정을 조회 하거나 새로 만드는 데 사용 되는 클레임을 포함 합니다. 모든 Azure AD 기술 프로필에 대 한 입력 클레임 컬렉션에는 정확히 하나의 InputClaim 요소가 있어야 합니다. 정책에 정의된 클레임 이름을 Azure Active Directory에서 정의된 이름에 매핑해야 할 수도 있습니다.
 
-기존 사용자 계정을 읽거나 업데이트하거나 삭제하려면 입력 클레임은 Azure AD 디렉터리에서 계정을 고유하게 식별하는 키입니다. 예를 들어 **objectId**, **userPrincipalName,** **signInNames.emailAddress,** **signInNames.userName,** 또는 **대안보안Id**. 
+기존 사용자 계정을 읽거나, 업데이트 하거나, 삭제 하기 위해 입력 클레임은 Azure AD 디렉터리에서 계정을 고유 하 게 식별 하는 키입니다. 예를 들어 **objectId**, **userPrincipalName**, **signInNames, emailAddress**, **signInNames**또는 **alternativeSecurityId**입니다. 
 
-새 사용자 계정을 만들려면 입력 클레임은 로컬 또는 페더레이션된 계정을 고유하게 식별하는 키입니다. 예를 들어 로컬 계정: **signInNames.emailAddress,** 또는 **signInNames.userName**. 페더레이션 된 계정의 경우 : **대안보안 Id**.
+새 사용자 계정을 만들기 위해 입력 클레임은 로컬 또는 페더레이션된 계정을 고유 하 게 식별 하는 키입니다. 예를 들면 로컬 계정: **signInNames. emailAddress**또는 **signInNames**입니다. 페더레이션된 계정의 경우: **alternativeSecurityId**입니다.
 
-[InputClaims변환](technicalprofiles.md#inputclaimstransformations) 요소에는 입력 클레임을 수정하거나 새 클레임을 생성하는 데 사용되는 입력 클레임 변환 요소의 컬렉션이 포함될 수 있습니다.
+[InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) 요소에는 입력 클레임을 수정 하거나 새 항목을 생성 하는 데 사용 되는 입력 클레임 변환 요소의 컬렉션이 포함 될 수 있습니다.
 
 ## <a name="outputclaims"></a>OutputClaims
 
@@ -92,7 +92,7 @@ InputClaims 요소에는 디렉터리에서 계정을 조회하거나 새 계정
 
 ## <a name="persistedclaims"></a>PersistedClaims
 
-**PersistedClaims** 요소에는 정책의 [ClaimsSchema](claimsschema.md) 섹션에 이미 정의된 클레임 유형과 Azure AD 특성 이름 간에 가능한 매핑 정보가 있는 Azure AD에서 유지해야 하는 모든 값이 포함됩니다.
+**Persistedclaims** 요소는 정책 및 azure ad 특성 이름에서 [ClaimsSchema](claimsschema.md) 섹션에 이미 정의 된 클레임 형식 간에 가능한 매핑 정보를 사용 하 여 Azure ad에서 유지 되어야 하는 모든 값을 포함 합니다.
 
 새 로컬 계정을 만드는 **AAD-UserWriteUsingLogonEmail** 기술 프로필은 다음 클레임을 저장합니다.
 
@@ -115,7 +115,7 @@ Azure AD 특성 이름을 포함하는 **PartnerClaimType** 특성이 지정되�
 ## <a name="requirements-of-an-operation"></a>작업 요구사항
 
 - 모든 Azure AD 기술 프로필의 클레임 모음에 정확히 하나의 **InputClaim** 요소가 있어야 합니다.
-- [사용자 프로필 특성 아티클은](user-profile-attributes.md) 입력 클레임, 출력 클레임 및 지속클레임에 사용할 수 있는 지원되는 Azure AD B2C 사용자 프로필 특성에 대해 설명합니다. 
+- [사용자 프로필 특성 문서](user-profile-attributes.md) 에서는 입력 클레임, 출력 클레임 및 지속형 클레임에서 사용할 수 있는 지원 되는 Azure AD B2C 사용자 프로필 특성을 설명 합니다. 
 - 작업이 `Write` 또는 `DeleteClaims`이면 **PersistedClaims** 요소에도 표시되어야 합니다.
 - **userPrincipalName** 클레임의 값은 `user@tenant.onmicrosoft.com` 형식이어야 합니다.
 - **displayName** 클레임은 필수이며 빈 문자열일 수 없습니다.
@@ -248,26 +248,26 @@ Azure AD 특성 이름을 포함하는 **PartnerClaimType** 특성이 지정되�
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 작업(Operation) | yes | 수행할 작업입니다. 가능한 값은 `Read`, `Write`, `DeleteClaims` 또는 `DeleteClaimsPrincipal`입니다. |
-| RaiseErrorIfClaimsPrincipalDoesNotExist | 예 | 사용자 개체가 디렉터리에 없는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다. |
-| RaiseErrorIfClaimsPrincipalAlreadyExists | 예 | 사용자 개체가 이미 있는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다.|
-| ApplicationObjectId | 예 | 확장 특성에 대한 애플리케이션 개체 ID입니다. 값은 애플리케이션의 ObjectId입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용을](custom-policy-custom-attributes.md)참조하십시오. |
-| clientid | 예 | 테넌트에 제3자로 액세스하기 위한 클라이언트 식별자입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](custom-policy-custom-attributes.md)을 참조하세요. |
-| 클레임 해결내 처리 포함  | 예 | 입력 및 출력 클레임의 경우 [클레임 해결이](claim-resolver-overview.md) 기술 프로필에 포함되는지 여부를 지정합니다. 가능한 값: `true` `false`  " 또는 (기본값) . 기술 프로필에서 클레임 확인자를 사용하려면 이 것을 `true`로 설정합니다. |
+| 작업(Operation) | 예 | 수행할 작업입니다. 가능한 값은 `Read`, `Write`, `DeleteClaims` 또는 `DeleteClaimsPrincipal`입니다. |
+| RaiseErrorIfClaimsPrincipalDoesNotExist | 아니요 | 사용자 개체가 디렉터리에 없는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다. |
+| RaiseErrorIfClaimsPrincipalAlreadyExists | 아니요 | 사용자 개체가 이미 있는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다.|
+| ApplicationObjectId | 아니요 | 확장 특성에 대한 애플리케이션 개체 ID입니다. 값은 애플리케이션의 ObjectId입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](custom-policy-custom-attributes.md)을 참조 하세요. |
+| clientid | 아니요 | 테넌트에 제3자로 액세스하기 위한 클라이언트 식별자입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](custom-policy-custom-attributes.md)을 참조하세요. |
+| IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true`, 또는 `false`  (기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 `true`설정 합니다. |
 
 ### <a name="ui-elements"></a>UI 요소
  
-다음 설정을 사용하여 오류가 발생할 때 표시되는 오류 메시지를 구성할 수 있습니다. 메타데이터는 [자체 어설션된](self-asserted-technical-profile.md) 기술 프로필에서 구성되어야 합니다. 오류 메시지를 [지역화할](localization.md)수 있습니다.
+다음 설정을 사용 하 여 오류 발생 시 표시 되는 오류 메시지를 구성할 수 있습니다. 메타 데이터는 [자체 어설션된](self-asserted-technical-profile.md) 기술 프로필에서 구성 해야 합니다. 오류 메시지를 [지역화할](localization.md)수 있습니다.
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| UserMessageIfClaimsPrincipalAlreadyExists | 예 | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalAlreadyExists 특성 설명 참조), 사용자 개체가 이미 있는 경우 사용자에게 표시할 메시지를 지정합니다. |
-| UserMessageIfClaimsPrincipalDoesNotExist | 예 | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalDoesNotExist 특성 설명 참조), 사용자 개체가 없는 경우 사용자에게 표시할 메시지를 지정합니다. |
+| UserMessageIfClaimsPrincipalAlreadyExists | 아니요 | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalAlreadyExists 특성 설명 참조), 사용자 개체가 이미 있는 경우 사용자에게 표시할 메시지를 지정합니다. |
+| UserMessageIfClaimsPrincipalDoesNotExist | 아니요 | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalDoesNotExist 특성 설명 참조), 사용자 개체가 없는 경우 사용자에게 표시할 메시지를 지정합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD 기술 프로필 사용에 대한 예: 다음 문서를 참조하십시오.
+Azure AD 기술 프로필을 사용 하는 예는 다음 문서를 참조 하세요.
 
 - [Azure Active Directory B2C에서 클레임 추가 및 사용자 지정 정책을 사용하여 사용자 입력 사용자 지정](custom-policy-configure-user-input.md)
 

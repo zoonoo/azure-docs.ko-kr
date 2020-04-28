@@ -8,45 +8,45 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.openlocfilehash: b65bc6097d4841c79a68d4313ac7a3f89f6d1dbb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80065925"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그
 
-Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시간에 대한 메트릭을 제공합니다. Azure Portal은 이러한 메트릭의 집계 보기를 제공합니다. Azure Monitor API에서 Azure Cosmos DB 메트릭을 볼 수도 있습니다. Azure 모니터에서 메트릭을 보는 방법에 대해 알아보려면 [Azure Monitor에서 메트릭 받기](cosmos-db-azure-monitor-metrics.md) 문서를 참조하세요. 
+Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시간에 대한 메트릭을 제공합니다. Azure Portal은 이러한 메트릭의 집계 보기를 제공합니다. Azure Monitor API에서 Azure Cosmos DB 메트릭을 볼 수도 있습니다. Azure monitor에서 메트릭을 보는 방법에 대 한 자세한 내용은 [Azure Monitor에서 메트릭 가져오기](cosmos-db-azure-monitor-metrics.md) 문서를 참조 하세요. 
 
 이 문서에서는 일반적인 사용 사례와 Azure Cosmos DB 메트릭을 사용하여 이러한 문제를 분석 및 디버그할 수 있는 방법을 안내합니다. 메트릭은 5분마다 수집되고 7일 동안 유지됩니다.
 
-## <a name="view-metrics-from-azure-portal"></a>Azure 포털에서 메트릭 보기
+## <a name="view-metrics-from-azure-portal"></a>Azure Portal에서 메트릭 보기
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. 메트릭 창을 **엽니다.** 기본적으로 메트릭 창에는 Azure Cosmos 계정의 모든 데이터베이스에 대한 저장소, 인덱스, 요청 단위 메트릭이 표시됩니다. 데이터베이스, 컨테이너 또는 리전별로 이러한 메트릭을 필터링할 수 있습니다. 특정 시간 세분성으로 메트릭을 필터링할 수도 있습니다. 처리량, 저장소, 가용성, 대기 시간 및 일관성 메트릭에 대한 자세한 내용은 별도의 탭에 제공됩니다. 
+1. **메트릭** 창을 엽니다. 기본적으로 메트릭 창에는 Azure Cosmos 계정의 모든 데이터베이스에 대 한 저장소, 인덱스, 요청 단위 메트릭이 표시 됩니다. 이러한 메트릭은 데이터베이스, 컨테이너 또는 지역 별로 필터링 할 수 있습니다. 특정 시간 세분성에서 메트릭을 필터링 할 수도 있습니다. 처리량, 저장소, 가용성, 대기 시간 및 일관성 메트릭에 대 한 자세한 내용은 별도 탭에 제공 됩니다. 
 
-   ![Azure 포털의 코스모스 DB 성능 메트릭](./media/use-metrics/performance-metrics.png)
+   ![Azure Portal에서 Cosmos DB 성능 메트릭](./media/use-metrics/performance-metrics.png)
 
-다음 메트릭은 메트릭 창에서 사용할 수 **있습니다.** 
+**메트릭** 창에서 다음 메트릭을 사용할 수 있습니다. 
 
-* **처리량 메트릭** - 이 메트릭은 컨테이너에 대해 프로비전된 처리량 또는 저장소 용량이 초과되어 사용 되거나 실패한 요청 수(429응답 코드)를 표시합니다.
+* **처리량 메트릭** -컨테이너에 대해 프로 비전 된 처리량 또는 저장소 용량을 초과 했기 때문에이 메트릭은 사용 되거나 실패 한 요청 수 (429 응답 코드)를 표시 합니다.
 
-* **저장소 메트릭** - 이 메트릭은 데이터 및 인덱스 사용의 크기를 보여줍니다.
+* **저장소 메트릭** -이 메트릭은 데이터 및 인덱스 사용의 크기를 표시 합니다.
 
-* **가용성 메트릭** - 이 메트릭은 시간당 총 요청에 대한 성공적인 요청의 비율을 보여줍니다. 성공률은 Azure 코스모스 DB SLA에 의해 정의됩니다.
+* **가용성 메트릭** -이 메트릭은 시간당 전체 요청에 대해 성공한 요청의 백분율을 보여 줍니다. 성공률은 Azure Cosmos DB Sla에 의해 정의 됩니다.
 
-* **대기 시간 메트릭** - 이 메트릭은 계정이 작동하는 리전에서 Azure Cosmos DB에서 관찰한 읽기 및 쓰기 대기 시간을 보여 줍니다. 지역 간 대기 시간을 지역 간 시각화하여 지역 복제 계정으로 만들 수 있습니다. 이 메트릭은 종단 간 요청 대기 시간을 나타내지 않습니다.
+* **대기 시간 메트릭** -이 메트릭은 계정이 작동 하는 지역에서 Azure Cosmos DB에 의해 관찰 되는 읽기 및 쓰기 대기 시간을 보여 줍니다. 지역에서 복제 된 계정에 대 한 지역 간 대기 시간을 시각화할 수 있습니다. 이 메트릭은 종단 간 요청 대기 시간을 나타내지 않습니다.
 
-* **일관성 메트릭** - 이 메트릭은 선택한 일관성 모델의 일관성을 보여 줍니다. 다중 지역 계정의 경우 이 메트릭은 선택한 지역 간의 복제 대기 시간도 표시합니다.
+* **일관성 메트릭** -이 메트릭은 선택한 일관성 모델에 대 한 최종 일관성을 보여 줍니다. 다중 지역 계정의 경우이 메트릭은 선택한 지역 간의 복제 대기 시간도 표시 합니다.
 
-* **시스템 메트릭** - 이 메트릭은 마스터 파티션에서 제공되는 메타데이터 요청 수를 보여 주며, 이 메트릭은 이를 보여 주며, 이 메트릭은 마스터 파티션에서 제공되는 메타데이터 요청 수를 보여줍니다. 또한 제한된 요청을 식별하는 데도 도움이 됩니다.
+* **시스템 메트릭** -이 메트릭은 마스터 파티션에서 제공 되는 메타 데이터 요청 수를 표시 합니다. 또한 제한 된 요청을 식별 하는 데 도움이 됩니다.
 
-다음 섹션에서는 Azure Cosmos DB 메트릭을 사용할 수 있는 일반적인 시나리오를 설명합니다. 
+다음 섹션에서는 Azure Cosmos DB 메트릭을 사용할 수 있는 일반적인 시나리오에 대해 설명 합니다. 
 
 ## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>성공한 요청 수 또는 오류가 발생하는 요청 수 이해
 
-시작하려면 [Azure Portal](https://portal.azure.com)에서 **메트릭** 블레이드로 이동합니다. 블레이드에서 **1분 차트당 용량을 초과한 요청 수를 찾습니다. 이 차트에서는 상태 코드로 분할된 총 요청 수를 분 단위로 보여 줍니다. HTTP 상태 코드에 대한 자세한 내용은 [Azure Cosmos DB에 대한 HTTP 상태 코드를](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb)참조하십시오.
+시작하려면 [Azure Portal](https://portal.azure.com)에서 **메트릭** 블레이드로 이동합니다. 블레이드에서 1 분당 용량을 초과한 * * 요청 수를 찾습니다. 이 차트에서는 상태 코드로 분할된 총 요청 수를 분 단위로 보여 줍니다. HTTP 상태 코드에 대 한 자세한 내용은 [Azure Cosmos DB에 대 한 http 상태 코드](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb)를 참조 하세요.
 
 가장 일반적인 오류 상태 코드는 429입니다(속도 제한/제한). 이 오류는 Azure Cosmos DB에 대한 요청이 프로비전된 처리량보다 더 많은 것을 의미합니다. 이 문제에 대한 가장 일반적인 솔루션은 지정된 컬렉션에 대한 [RU를 확장](./set-throughput.md)하는 것입니다.
 
@@ -111,6 +111,6 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 Azure Portal에서 제공된 메트릭을 사용하여 문제를 모니터링 및 디버그하는 방법을 알아보았습니다. 다음 문서를 참조하여 데이터베이스 성능 개선에 대해 자세히 알아볼 수 있습니다.
 
-* Azure 모니터에서 메트릭을 보는 방법에 대해 알아보려면 [Azure Monitor에서 메트릭 받기](cosmos-db-azure-monitor-metrics.md) 문서를 참조하세요. 
+* Azure monitor에서 메트릭을 보는 방법에 대 한 자세한 내용은 [Azure Monitor에서 메트릭 가져오기](cosmos-db-azure-monitor-metrics.md) 문서를 참조 하세요. 
 * [Azure Cosmos DB를 사용한 성능 및 규모 테스트](performance-testing.md)
 * [Azure Cosmos DB에 대한 성능 팁](performance-tips.md)

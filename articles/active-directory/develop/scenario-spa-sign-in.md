@@ -1,6 +1,6 @@
 ---
-title: 단일 페이지 앱 로그인 & 사인아웃 - Microsoft ID 플랫폼 | Azure
-description: 단일 페이지 응용 프로그램을 빌드하는 방법 알아보기(로그인)
+title: 단일 페이지 앱 로그인 & 로그 아웃-Microsoft identity platform | Microsoft
+description: 단일 페이지 응용 프로그램을 빌드하는 방법 알아보기 (로그인)
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -12,33 +12,33 @@ ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 7e809def048c95b6688a13ac99783615eb045d11
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885192"
 ---
-# <a name="single-page-application-sign-in-and-sign-out"></a>단일 페이지 응용 프로그램: 로그인 및 로그아웃
+# <a name="single-page-application-sign-in-and-sign-out"></a>단일 페이지 응용 프로그램: 로그인 및 로그 아웃
 
-단일 페이지 응용 프로그램의 코드에 로그인을 추가하는 방법을 알아봅니다.
+단일 페이지 응용 프로그램에 대 한 코드에 로그인을 추가 하는 방법에 대해 알아봅니다.
 
-응용 프로그램에서 API에 액세스하기 위해 토큰을 얻으려면 인증된 사용자 컨텍스트가 필요합니다. 다음 두 가지 방법으로 MSAL.js에서 응용 프로그램에 사용자를 로그인할 수 있습니다.
+응용 프로그램의 Api에 액세스 하기 위해 토큰을 가져오려면 인증 된 사용자 컨텍스트가 필요 합니다. 다음 두 가지 방법으로 MSAL의 응용 프로그램에 사용자를 로그인 할 수 있습니다.
 
-* [팝업 창](#sign-in-with-a-pop-up-window), 메서드를 `loginPopup` 사용하여
-* [로 리디렉션](#sign-in-with-redirect): `loginRedirect` 메서드를 사용하여
+* `loginPopup` 메서드를 사용 하 여 [팝업 창](#sign-in-with-a-pop-up-window)
+* `loginRedirect` 메서드를 사용 하 여 [리디렉션](#sign-in-with-redirect)
 
-로그인 시 사용자가 동의해야 하는 API의 범위를 선택적으로 전달할 수도 있습니다.
+사용자가 로그인 시 동의 해야 하는 Api의 범위를 선택적으로 전달할 수도 있습니다.
 
 > [!NOTE]
-> 응용 프로그램에서 이미 인증된 사용자 컨텍스트 또는 ID 토큰에 액세스할 수 있는 경우 로그인 단계를 건너뛰고 토큰을 직접 획득할 수 있습니다. 자세한 내용은 [MSAL.js 로그인이 없는 SSO를](msal-js-sso.md#sso-without-msaljs-login)참조하십시오.
+> 응용 프로그램에 인증 된 사용자 컨텍스트 또는 ID 토큰에 대 한 액세스 권한이 이미 있는 경우 로그인 단계를 건너뛰고 토큰을 직접 가져올 수 있습니다. 자세한 내용은 [MSAL .js 로그인을 사용 하지 않는 SSO](msal-js-sso.md#sso-without-msaljs-login)를 참조 하세요.
 
-## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>팝업 또는 리디렉션 환경 중 선택
+## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>팝업 또는 리디렉션 환경 중에서 선택
 
-응용 프로그램에서 팝업 및 리디렉션 메서드를 모두 사용할 수 없습니다. 팝업 또는 리디렉션 환경 중에서 선택할 수 있는 방법은 응용 프로그램 흐름에 따라 다릅니다.
+응용 프로그램에서 팝업 및 리디렉션 메서드를 모두 사용할 수는 없습니다. 팝업 또는 리디렉션 환경 간의 선택은 응용 프로그램 흐름에 따라 달라 집니다.
 
-* 인증 하는 동안 사용자가 기본 응용 프로그램 페이지에서 멀리 이동 하지 않으려면 팝업 방법을 권장 합니다. 인증 리디렉션은 팝업 창에서 발생하므로 주 응용 프로그램의 상태가 유지됩니다.
+* 인증 하는 동안 사용자가 주 응용 프로그램 페이지에서 멀리 이동 하지 않도록 하려면 팝업 방법을 권장 합니다. 인증 리디렉션은 팝업 창에서 발생 하므로 주 응용 프로그램의 상태는 유지 됩니다.
 
-* 사용자에게 브라우저 제약 조건또는 팝업 창이 비활성화된 정책이 있는 경우 리디렉션 메서드를 사용할 수 있습니다. Internet Explorer에 [팝업 창에 알려진 문제가](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser)있기 때문에 Internet Explorer 브라우저에서 리디렉션 메서드를 사용합니다.
+* 사용자에 게 팝업 창이 사용 하지 않도록 설정 된 브라우저 제약 조건 또는 정책이 있으면 redirect 메서드를 사용할 수 있습니다. Internet [explorer의 팝업 창에 알려진 문제가](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser)있으므로 internet explorer 브라우저에서 리디렉션 방법을 사용 합니다.
 
 ## <a name="sign-in-with-a-pop-up-window"></a>팝업 창으로 로그인
 
@@ -60,7 +60,7 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 
 # <a name="angular"></a>[Angular](#tab/angular)
 
-MSAL 각도 래퍼를 사용하면 경로 정의에 추가하여 `MsalGuard` 응용 프로그램의 특정 경로를 보호할 수 있습니다. 이 가드는 해당 경로에 액세스할 때 로그인하는 메서드를 호출합니다.
+MSAL 각도 래퍼를 사용 하면 경로 정의에를 추가 `MsalGuard` 하 여 응용 프로그램의 특정 경로를 보호할 수 있습니다. 이 가드는 해당 경로에 액세스 하는 경우 메서드를 호출 하 여 로그인 합니다.
 
 ```javascript
 // In app-routing.module.ts
@@ -91,7 +91,7 @@ const routes: Routes = [
 export class AppRoutingModule { }
 ```
 
-팝업 창 환경의 경우 구성 `popUp` 옵션을 사용하도록 설정합니다. 동의가 필요한 범위를 다음과 같이 전달할 수도 있습니다.
+팝업 창 환경을 사용 하려면 `popUp` 구성 옵션을 사용 하도록 설정 합니다. 다음과 같이 동의가 필요한 범위를 전달할 수도 있습니다.
 
 ```javascript
 // In app.module.ts
@@ -114,7 +114,7 @@ export class AppRoutingModule { }
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-리디렉션 메서드는 기본 앱에서 멀어지기 때문에 약속을 반환하지 않습니다. 반환된 토큰을 처리하고 액세스하려면 리디렉션 메서드를 호출하기 전에 성공 및 오류 콜백을 등록해야 합니다.
+리디렉션 메서드는 주 앱에서 벗어나 이동 하기 때문에 약속을 반환 하지 않습니다. 반환 된 토큰을 처리 하 고 액세스 하려면 리디렉션 메서드를 호출 하기 전에 성공 및 오류 콜백을 등록 해야 합니다.
 
 ```javascript
 function authCallback(error, response) {
@@ -132,18 +132,18 @@ userAgentApplication.loginRedirect(loginRequest);
 
 # <a name="angular"></a>[Angular](#tab/angular)
 
-여기에 있는 코드는 팝업 창으로 로그인에 대한 섹션의 앞에서 설명한 것과 동일합니다. 기본 흐름은 리디렉션됩니다.
+여기에서 코드는 팝업 창을 사용한 로그인에 대 한 섹션의 앞부분에서 설명한 것과 같습니다. 기본 흐름은 리디렉션입니다.
 
 > [!NOTE]
-> ID 토큰은 동의된 범위를 포함하지 않으며 인증된 사용자만 나타냅니다. 동의된 범위는 다음 단계에서 획득할 액세스 토큰에 반환됩니다.
+> ID 토큰은 동의한 범위를 포함 하지 않으며 인증 된 사용자만 나타냅니다. 동의한 범위는 다음 단계에서 얻을 수 있는 액세스 토큰으로 반환 됩니다.
 
 ---
 
 ## <a name="sign-out"></a>로그아웃
 
-MSAL 라이브러리는 `logout` 브라우저 저장소의 캐시를 지우고 Azure Active Directory(Azure AD)로 로그아웃 요청을 보내는 메서드를 제공합니다. 로그아웃 후 라이브러리는 기본적으로 응용 프로그램 시작 페이지로 리디렉션됩니다.
+MSAL 라이브러리는 브라우저 저장소 `logout` 에서 캐시를 지우고 Azure Active Directory (Azure AD)에 대 한 로그 아웃 요청을 보내는 메서드를 제공 합니다. 로그 아웃 한 후 라이브러리는 기본적으로 응용 프로그램 시작 페이지로 다시 리디렉션됩니다.
 
-로그아웃 후 리디렉션할 URI를 설정하여 `postLogoutRedirectUri`구성할 수 있습니다. 이 URI는 응용 프로그램 등록에서 로그아웃 URI로 등록해야 합니다.
+을 설정 `postLogoutRedirectUri`하 여 로그 아웃 한 후 리디렉션해야 하는 URI를 구성할 수 있습니다. 또한이 URI는 응용 프로그램 등록에서 로그 아웃 URI로 등록 되어야 합니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

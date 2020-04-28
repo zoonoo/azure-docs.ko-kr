@@ -1,5 +1,5 @@
 ---
-title: 이벤트 그리드 소스로 Azure 미디어 서비스
+title: Event Grid 원본으로 Azure Media Services
 description: Azure Event Grid에서 Media Services 이벤트에 대해 제공되는 속성을 설명합니다.
 services: media-services
 documentationcenter: ''
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: spelluru
 ms.openlocfilehash: d5d50bbde927efd4aee0cedd69486a52ab8c328b
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81394333"
 ---
-# <a name="azure-media-services-as-an-event-grid-source"></a>이벤트 그리드 소스로서의 Azure 미디어 서비스
+# <a name="azure-media-services-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Media Services
 
 이 문서에서는 Media Services 이벤트에 대한 스키마와 속성을 제공합니다.
 
@@ -29,7 +29,7 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 
 ### <a name="monitoring-job-state-changes"></a>작업 상태 변경 모니터링
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Media.JobStateChange| 모든 작업 상태 변경에 대한 이벤트를 가져옵니다. |
 | Microsoft.Media.JobScheduled| 작업이 예약됨 상태로 전환되는 이벤트를 가져옵니다. |
@@ -43,13 +43,13 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 
 ### <a name="monitoring-job-output-state-changes"></a>작업 출력 상태 변경 모니터링
 
-작업에 여러 작업 출력이 포함될 수 있습니다(여러 작업 출력을 갖도록 변환을 구성한 경우). 개별 작업 출력의 세부 정보를 추적하려면 작업 출력 변경 이벤트를 수신합니다.
+작업에 여러 작업 출력이 포함 될 수 있습니다 (여러 작업 출력이 포함 되도록 변환을 구성한 경우). 개별 작업 출력의 세부 정보를 추적 하려는 경우 작업 출력 변경 이벤트를 수신 대기 합니다.
 
-각 **작업은** **JobOutput보다**높은 수준에 있을 것이고, 따라서 작업 출력 이벤트는 해당 작업 내에서 발생합니다. 
+각 **작업** 은 **joboutput**보다 더 높은 수준에 있으므로 작업 출력 이벤트는 해당 작업 내에서 발생 합니다. 
 
-의 `JobFinished` `JobCanceled`오류 메시지는 `JobError` 각 작업 출력에 대해 집계된 결과를 출력합니다. 반면, 작업 출력 이벤트는 각 작업이 끝날 때 발생합니다. 예를 들어 인코딩 출력이 있고 비디오 분석 출력이 있는 경우 최종 JobFinished 이벤트가 집계된 데이터로 실행되기 전에 작업 출력 이벤트로 두 개의 이벤트가 발생합니다.
+의 오류 메시지 `JobFinished` `JobCanceled`는 각 작업 `JobError` 출력에 대 한 집계 된 결과를 출력 합니다. 반면 작업 출력 이벤트는 각 태스크가 완료 될 때 발생 합니다. 예를 들어, 인코딩 출력이 있고 그 뒤에 비디오 분석 출력이 있으면 최종 JobFinished 이벤트가 집계 된 데이터로 시작 하기 전에 작업 출력 이벤트로 발생 하는 두 개의 이벤트가 발생 합니다.
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputStateChange| 모든 작업 출력 상태 변경에 대한 이벤트를 가져옵니다. |
 | Microsoft.Media.JobOutputScheduled| 작업 출력이 예약됨 상태로 전환되는 이벤트를 가져옵니다. |
@@ -61,9 +61,9 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 
 다음에 나오는 [스키마 예제](#event-schema-examples)를 참조하세요.
 
-### <a name="monitoring-job-output-progress"></a>작업 출력 진행 률 모니터링
+### <a name="monitoring-job-output-progress"></a>작업 출력 모니터링 진행률
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputProgress| 이 이벤트는 작업 처리 진행 상태를 0%에서 100%까지 반영합니다. 진행 상태 값이 5% 이상 증가했거나 마지막 이벤트(하트비트) 이후 30초가 넘은 경우 서비스에서 이벤트 전송을 시도합니다. 진행 상태 값이 0%에서 시작하거나 100%에 도달한다고 보장되지 않는 경우 시간에 따라 일정한 비율로 증가한다고 보장되지도 않습니다. 처리가 완료되었음을 확인하는 데 이 이벤트를 사용하면 안 됩니다. 대신, 상태 변경 이벤트를 사용해야 합니다.|
 
@@ -77,7 +77,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 스트림 수준 이벤트는 스트림 또는 연결마다 발생합니다. 각 이벤트에는 연결 또는 스트림을 식별하는 `StreamId` 매개 변수가 있습니다. 각 스트림 또는 연결에는 서로 다른 유형의 트랙이 하나 이상 있습니다. 예를 들어, 인코더의 연결 하나에는 하나의 오디오 트랙과 4개의 비디오 트랙이 있을 수 있습니다. 스트림 이벤트 유형은 다음과 같습니다.
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventConnectionRejected | 인코더의 연결 시도가 거부됩니다. |
 | Microsoft.Media.LiveEventEncoderConnected | 인코더에서 라이브 이벤트와의 연결을 설정합니다. |
@@ -90,17 +90,17 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 트랙 수준 이벤트는 트랙마다 발생합니다. 
 
 > [!NOTE]
-> 모든 트랙 수준 이벤트는 라이브 인코더가 연결된 후에 발생합니다.
+> 모든 추적 수준 이벤트는 라이브 인코더가 연결 된 후에 발생 합니다.
 
-트랙 수준 이벤트 유형은 다음과 같습니다.
+추적 수준 이벤트 유형은 다음과 같습니다.
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | 미디어 서버가 너무 늦거나 타임스탬프가 겹치기 때문에 데이터 청크가 삭제됩니다(새 데이터 청크의 타임스탬프가 이전 데이터 청크의 종료 시간보다 이전임). |
 | Microsoft.Media.LiveEventIncomingStreamReceived | 미디어 서버에서 스트림 또는 연결의 각 트랙에 대한 첫 번째 데이터 청크를 받습니다. |
-| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | 미디어 서버가 오디오 및 비디오 스트림이 동기화되지 않음을 감지합니다. 사용자 환경이 영향을 받지 않을 수 있으므로 경고로 사용합니다. |
-| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | 미디어 서버는 외부 인코더에서 오는 두 비디오 스트림 중 어느 것이동기화되지 않은 것을 감지합니다. 사용자 환경이 영향을 받지 않을 수 있으므로 경고로 사용합니다. |
-| Microsoft.Media.LiveEventIngestHeartbeat | 라이브 이벤트가 실행될 때 각 트랙에 대해 20초마다 게시됩니다. 수집 상태 요약을 제공합니다.<br/><br/>인코더가 처음 연결된 후에도 하트비트 이벤트는 인코더가 여전히 연결되어 있는지 여부에 관계없이 20초마다 계속 내보전됩니다. |
+| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | 미디어 서버에서 오디오 및 비디오 스트림이 동기화 되지 않은 것을 감지 합니다. 사용자 환경이 영향을 받지 않을 수 있으므로 경고로를 사용 합니다. |
+| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Media server는 외부 인코더에서 들어오는 두 비디오 스트림이 동기화 되지 않은 것을 감지 합니다. 사용자 환경이 영향을 받지 않을 수 있으므로 경고로를 사용 합니다. |
+| Microsoft.Media.LiveEventIngestHeartbeat | 라이브 이벤트가 실행될 때 각 트랙에 대해 20초마다 게시됩니다. 수집 상태 요약을 제공합니다.<br/><br/>인코더가 처음 연결 된 후에는 인코더가 계속 연결 되어 있는지 여부에 상관 없이 하트 비트 이벤트는 20 초 마다 계속 내보냅니다. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | 미디어 서버에서 들어오는 트랙의 불연속성을 감지합니다. |
 
 다음에 나오는 [스키마 예제](#event-schema-examples)를 참조하세요.
@@ -131,10 +131,10 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| previousState | 문자열 | 이벤트 전의 작업 상태입니다. |
-| state | 문자열 | 이 이벤트에서 알리는 직업의 새로운 상태입니다. 예를 들어 "예약됨: 작업을 시작할 준비가 되었습니다" 또는 "완료: 작업이 완료되었습니다."|
+| previousState | string | 이벤트 전의 작업 상태입니다. |
+| state | string | 이 이벤트에서 알리는 직업의 새로운 상태입니다. 예를 들어 "예약 됨: 작업을 시작할 준비가 되었습니다." 또는 "완료 됨: 작업이 완료 되었습니다."와 같은 작업을 수행할 수 있습니다.|
 
 작업 상태는 다음 중 하나일 수 있습니다. *큐에 대기됨*, *예약됨*, *처리 중*, *완료됨*, *오류*, *취소됨*, *취소 중*
 
@@ -201,9 +201,9 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| outputs | Array | 작업 출력을 가져옵니다.|
+| outputs | 배열 | 작업 출력을 가져옵니다.|
 
 ### <a name="joboutputstatechange"></a>JobOutputStateChange
 
@@ -317,15 +317,15 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| streamId | 문자열 | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 추가해야 합니다. |  
-| ingestUrl | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |  
-| encoderIp | 문자열 | 인코더의 IP입니다. |
-| encoderPort | 문자열 | 이 스트림이 발생한 인코더의 포트입니다. |
-| resultCode | 문자열 | 연결이 거부된 이유입니다. 결과 코드는 다음 표에 나와 있습니다. |
+| streamId | string | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 추가해야 합니다. |  
+| ingestUrl | string | 라이브 이벤트에서 제공하는 수집 URL입니다. |  
+| encoderIp | string | 인코더의 IP입니다. |
+| encoderPort | string | 이 스트림이 발생한 인코더의 포트입니다. |
+| resultCode | string | 연결이 거부된 이유입니다. 결과 코드는 다음 표에 나와 있습니다. |
 
-[라이브 이벤트 오류](../media-services/latest/live-event-error-codes.md)코드에서 오류 결과 코드를 찾을 수 있습니다.
+[라이브 이벤트 오류 코드](../media-services/latest/live-event-error-codes.md)에서 오류 결과 코드를 찾을 수 있습니다.
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
@@ -353,12 +353,12 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| streamId | 문자열 | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 제공해야 합니다. |
-| ingestUrl | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |
-| encoderIp | 문자열 | 인코더의 IP입니다. |
-| encoderPort | 문자열 | 이 스트림이 발생한 인코더의 포트입니다. |
+| streamId | string | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 제공해야 합니다. |
+| ingestUrl | string | 라이브 이벤트에서 제공하는 수집 URL입니다. |
+| encoderIp | string | 인코더의 IP입니다. |
+| encoderPort | string | 이 스트림이 발생한 인코더의 포트입니다. |
 
 ### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
@@ -387,15 +387,15 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| streamId | 문자열 | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 추가해야 합니다. |  
-| ingestUrl | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |  
-| encoderIp | 문자열 | 인코더의 IP입니다. |
-| encoderPort | 문자열 | 이 스트림이 발생한 인코더의 포트입니다. |
-| resultCode | 문자열 | 인코더 연결이 끊어진 이유입니다. 정상적인 연결 끊기이거나 오류일 수 있습니다. 결과 코드는 다음 표에 나와 있습니다. |
+| streamId | string | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 추가해야 합니다. |  
+| ingestUrl | string | 라이브 이벤트에서 제공하는 수집 URL입니다. |  
+| encoderIp | string | 인코더의 IP입니다. |
+| encoderPort | string | 이 스트림이 발생한 인코더의 포트입니다. |
+| resultCode | string | 인코더 연결이 끊어진 이유입니다. 정상적인 연결 끊기이거나 오류일 수 있습니다. 결과 코드는 다음 표에 나와 있습니다. |
 
-[라이브 이벤트 오류](../media-services/latest/live-event-error-codes.md)코드에서 오류 결과 코드를 찾을 수 있습니다.
+[라이브 이벤트 오류 코드](../media-services/latest/live-event-error-codes.md)에서 오류 결과 코드를 찾을 수 있습니다.
 
 정상적인 연결 끊기 결과 코드는 다음과 같습니다.
 
@@ -437,14 +437,14 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
-| trackName | 문자열 | 트랙의 이름입니다. |
+| trackType | string | 트랙 유형입니다(예: Audio/Video). |
+| trackName | string | 트랙의 이름입니다. |
 | bitrate | integer | 트랙의 비트 전송률입니다. |
-| timestamp | 문자열 | 데이터 청크의 타임스탬프가 삭제되었습니다. |
-| timescale | 문자열 | 타임스탬프의 시간 간격입니다. |
-| resultCode | 문자열 | 데이터 청크가 삭제된 이유입니다. **FragmentDrop_OverlapTimestamp** 또는 **FragmentDrop_NonIncreasingTimestamp**입니다. |
+| timestamp | string | 데이터 청크의 타임스탬프가 삭제되었습니다. |
+| timescale | string | 타임스탬프의 시간 간격입니다. |
+| resultCode | string | 데이터 청크가 삭제된 이유입니다. **FragmentDrop_OverlapTimestamp** 또는 **FragmentDrop_NonIncreasingTimestamp**입니다. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
@@ -477,16 +477,16 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
-| trackName | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
+| trackType | string | 트랙 유형입니다(예: Audio/Video). |
+| trackName | string | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
 | bitrate | integer | 트랙의 비트 전송률입니다. |
-| ingestUrl | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |
-| encoderIp | 문자열  | 인코더의 IP입니다. |
-| encoderPort | 문자열 | 이 스트림이 발생한 인코더의 포트입니다. |
-| timestamp | 문자열 | 받은 데이터 청크의 첫 번째 타임스탬프입니다. |
-| timescale | 문자열 | 타임스탬프가 표시되는 시간 간격입니다. |
+| ingestUrl | string | 라이브 이벤트에서 제공하는 수집 URL입니다. |
+| encoderIp | string  | 인코더의 IP입니다. |
+| encoderPort | string | 이 스트림이 발생한 인코더의 포트입니다. |
+| timestamp | string | 받은 데이터 청크의 첫 번째 타임스탬프입니다. |
+| timescale | string | 타임스탬프가 표시되는 시간 간격입니다. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -516,14 +516,14 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| minLastTimestamp | 문자열 | 모든 트랙(오디오 또는 비디오) 중에서 마지막 타임스탬프의 최솟값입니다. |
-| typeOfTrackWithMinLastTimestamp | 문자열 | 마지막 타임스탬프가 최소인 트랙 유형(오디오 또는 비디오)입니다. |
-| maxLastTimestamp | 문자열 | 모든 트랙(오디오 또는 비디오) 중에서 모든 타임스탬프의 최댓값입니다. |
-| typeOfTrackWithMaxLastTimestamp | 문자열 | 마지막 타임스탬프가 최대인 트랙 유형(오디오 또는 비디오)입니다. |
-| timescaleOfMinLastTimestamp| 문자열 | “MinLastTimestamp”가 표시되는 시간 간격을 가져옵니다.|
-| timescaleOfMaxLastTimestamp| 문자열 | “MaxLastTimestamp”가 표시되는 시간 간격을 가져옵니다.|
+| minLastTimestamp | string | 모든 트랙(오디오 또는 비디오) 중에서 마지막 타임스탬프의 최솟값입니다. |
+| typeOfTrackWithMinLastTimestamp | string | 마지막 타임스탬프가 최소인 트랙 유형(오디오 또는 비디오)입니다. |
+| maxLastTimestamp | string | 모든 트랙(오디오 또는 비디오) 중에서 모든 타임스탬프의 최댓값입니다. |
+| typeOfTrackWithMaxLastTimestamp | string | 마지막 타임스탬프가 최대인 트랙 유형(오디오 또는 비디오)입니다. |
+| timescaleOfMinLastTimestamp| string | “MinLastTimestamp”가 표시되는 시간 간격을 가져옵니다.|
+| timescaleOfMaxLastTimestamp| string | “MaxLastTimestamp”가 표시되는 시간 간격을 가져옵니다.|
 
 ### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
@@ -552,13 +552,13 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| firstTimestamp | 문자열 | 비디오 유형의 트랙/품질 수준 중 하나에 대해 받은 타임스탬프입니다. |
-| firstDuration | 문자열 | 첫 번째 타임스탬프가 있는 데이터 청크의 기간입니다. |
-| secondTimestamp | 문자열  | 비디오 유형의 다른 트랙/품질 수준 일부에 대해 받은 타임스탬프입니다. |
-| secondDuration | 문자열 | 두 번째 타임스탬프가 있는 데이터 청크의 기간입니다. |
-| timescale | 문자열 | 타임스탬프 및 지속 기간의 시간 간격입니다.|
+| firstTimestamp | string | 비디오 유형의 트랙/품질 수준 중 하나에 대해 받은 타임스탬프입니다. |
+| firstDuration | string | 첫 번째 타임스탬프가 있는 데이터 청크의 기간입니다. |
+| secondTimestamp | string  | 비디오 유형의 다른 트랙/품질 수준 일부에 대해 받은 타임스탬프입니다. |
+| secondDuration | string | 두 번째 타임스탬프가 있는 데이터 청크의 기간입니다. |
+| timescale | string | 타임스탬프 및 지속 기간의 시간 간격입니다.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -594,19 +594,19 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
-| trackName | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
+| trackType | string | 트랙 유형입니다(예: Audio/Video). |
+| trackName | string | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
 | bitrate | integer | 트랙의 비트 전송률입니다. |
 | incomingBitrate | integer | 인코더에서 들어오는 데이터 청크에 기반하여 계산된 비트 전송률입니다. |
-| lastTimestamp | 문자열 | 마지막 20초 동안 한 트랙에 대해 받은 최신 타임스탬프입니다. |
-| timescale | 문자열 | 타임스탬프가 표시되는 시간 간격입니다. |
+| lastTimestamp | string | 마지막 20초 동안 한 트랙에 대해 받은 최신 타임스탬프입니다. |
+| timescale | string | 타임스탬프가 표시되는 시간 간격입니다. |
 | overlapCount | integer | 마지막 20초 동안 타임스탬프가 겹쳐진 데이터 청크의 수입니다. |
 | discontinuityCount | integer | 마지막 20초 동안 관찰된 불연속성의 수입니다. |
 | nonIncreasingCount | integer | 마지막 20초 동안 받은 과거의 타임스탬프가 있는 데이터 청크의 수입니다. |
 | unexpectedBitrate | bool | 마지막 20초 동안 허용 한도를 초과하여 예상 및 실제 비트 전송률이 다릅니다. incomingBitrate >= 2* bitrate OR incomingBitrate <= bitrate/2 OR IncomingBitrate = 0인 경우에만 true입니다. |
-| state | 문자열 | 라이브 이벤트의 상태입니다. |
+| state | string | 라이브 이벤트의 상태입니다. |
 | healthy | bool | 횟수 및 플래그에 기반하여 수집이 정상인지 여부를 나타냅니다. overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false이면 healthy가 true입니다. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
@@ -638,30 +638,30 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
-| trackName | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
+| trackType | string | 트랙 유형입니다(예: Audio/Video). |
+| trackName | string | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
 | bitrate | integer | 트랙의 비트 전송률입니다. |
-| previousTimestamp | 문자열 | 이전 조각의 타임스탬프입니다. |
-| newTimestamp | 문자열 | 현재 조각의 타임스탬프입니다. |
-| discontinuityGap | 문자열 | 위의 두 타임스탬프 사이의 간격입니다. |
-| timescale | 문자열 | 타임스탬프와 불연속성 간격이 모두 표시되는 시간 간격입니다. |
+| previousTimestamp | string | 이전 조각의 타임스탬프입니다. |
+| newTimestamp | string | 현재 조각의 타임스탬프입니다. |
+| discontinuityGap | string | 위의 두 타임스탬프 사이의 간격입니다. |
+| timescale | string | 타임스탬프와 불연속성 간격이 모두 표시되는 시간 간격입니다. |
 
 ### <a name="common-event-properties"></a>일반 이벤트 속성
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| 토픽 | 문자열 | EventGrid 항목입니다. 이 속성에는 Media Services 계정에 대한 리소스 ID가 있습니다. |
-| subject | 문자열 | Media Services 계정에 속한 Media Services 채널에 대한 리소스 경로입니다. topic과 subject를 연결하면 작업에 대한 리소스 ID가 제공됩니다. |
-| eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. 예: "Microsoft.Media.JobStateChange". |
-| eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
-| id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | object | Media Services 이벤트 데이터입니다. |
-| dataVersion | 문자열 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
-| metadataVersion | 문자열 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
+| 토픽 | string | EventGrid 항목입니다. 이 속성에는 Media Services 계정에 대한 리소스 ID가 있습니다. |
+| subject | string | Media Services 계정에 속한 Media Services 채널에 대한 리소스 경로입니다. topic과 subject를 연결하면 작업에 대한 리소스 ID가 제공됩니다. |
+| eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. 예: "Microsoft.Media.JobStateChange". |
+| eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
+| id | string | 이벤트에 대한 고유 식별자입니다. |
+| 데이터 | 개체 | Media Services 이벤트 데이터입니다. |
+| dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
+| metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

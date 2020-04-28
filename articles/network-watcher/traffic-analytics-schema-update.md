@@ -1,6 +1,6 @@
 ---
-title: Azure 트래픽 분석 스키마 업데이트 - 2020년 3월 | 마이크로 소프트 문서
-description: 트래픽 분석 스키마에서 새 필드가 있는 쿼리를 샘플링합니다.
+title: Azure 트래픽 분석 스키마 업데이트-3 월 2020 일 | Microsoft Docs
+description: 트래픽 분석 스키마에 새 필드가 있는 샘플 쿼리입니다.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -14,23 +14,23 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2020
 ms.author: vinigam
 ms.openlocfilehash: 4fe981576e3f6e58b0886d9c0d2eb2915d8b7720
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80396620"
 ---
-# <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>트래픽 분석 스키마에 새 필드가 있는 검색 쿼리(2019년 8월 스키마 업데이트)
+# <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>트래픽 분석 스키마에 새 필드가 있는 샘플 쿼리 (8 월 2019 스키마 업데이트)
 
-[트래픽 분석 로그 스키마에는](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) **SrcPublicIPs_s,** **DestPublicIPs_s**, **NSGRule_s**. 새 필드는 원본 및 대상 IP에 대한 정보를 제공하며 쿼리를 단순화합니다.
+[트래픽 분석 로그 스키마](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) 는 **SrcPublicIPs_s**, **DestPublicIPs_s**, **NSGRule_s**의 새 필드를 포함 합니다. 새 필드는 원본 및 대상 Ip에 대 한 정보를 제공 하 고 쿼리를 단순화 합니다.
 
-앞으로 몇 개월 동안 **VMIP_s,** **Subscription_g,** **Region_s,** **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s FlowCount_d** **등**이전 분야는 더 이상 사용되지 않습니다.
+다음 몇 개월 후에는 **VMIP_s**, **Subscription_g**, **Region_s**, **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s**, **FlowCount_d**와 같은 오래 된 필드가 사용 되지 않습니다.
 
-다음 세 가지 예제는 이전 필드를 새 필드로 대체하는 방법을 보여 주었습니다.
+다음 세 가지 예제에서는 이전 필드를 새 필드로 바꾸는 방법을 보여 줍니다.
 
-## <a name="example-1-vmip_s-subscription_g-region_s-subnet_s-vm_s-nic_s-and-publicips_s-fields"></a>예제 1: VMIP_s, Subscription_g, Region_s, Subnet_s, VM_s, NIC_s 및 PublicIPs_s 필드
+## <a name="example-1-vmip_s-subscription_g-region_s-subnet_s-vm_s-nic_s-and-publicips_s-fields"></a>예 1: VMIP_s, Subscription_g, Region_s, Subnet_s, VM_s, NIC_s 및 PublicIPs_s 필드
 
-AzurePublic 및 ExternalPublic 흐름에 대한 **FlowDirection_s** 필드에서 소스 및 대상 사례를 유추할 필요가 없습니다. 또한 네트워크 가상 어플라이언스에 **FlowDirection_s** 필드를 사용하는 것은 부적절할 수 있습니다.
+AzurePublic 및 ExternalPublic 흐름의 **FlowDirection_s** 필드에서 원본 및 대상 사례를 유추할 필요가 없습니다. 네트워크 가상 어플라이언스에 대 한 **FlowDirection_s** 필드를 사용 하는 것은 적합 하지 않을 수도 있습니다.
 
 ```Old Kusto query
 AzureNetworkAnalytics_CL
@@ -72,13 +72,13 @@ SourcePublicIPsAggregated = iif(isnotempty(SrcPublicIPs_s), SrcPublicIPs_s, "N/A
 DestPublicIPsAggregated = iif(isnotempty(DestPublicIPs_s), DestPublicIPs_s, "N/A")
 ```
 
-## <a name="example-2-nsgrules_s-field"></a>예 2: NSGRules_s 필드
+## <a name="example-2-nsgrules_s-field"></a>예제 2: NSGRules_s 필드
 
-이전 필드는 형식을 사용했습니다.
+이전 필드는 다음 형식을 사용 합니다.
 
-<지수 값 0)>|<NSG_ 규칙 이름>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
+<인덱스 값 0) >|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
 
-더 이상 NSG(네트워크 보안 그룹)에서 데이터를 집계하지 않습니다. 업데이트된 스키마에서 **NSGList_s** NSG가 하나만 포함되어 있습니다. 또한 **NSGRules는** 하나의 규칙을 포함합니다. 예제와 같이 복잡한 서식을 여기와 다른 필드에서 제거했습니다.
+더 이상 NSG (네트워크 보안 그룹)를 통해 데이터를 집계 하지 않습니다. 업데이트 된 스키마에는 하나의 NSG만 포함 **NSGList_s** . 또한 **NSGRules** 에는 하나의 규칙만 포함 되어 있습니다. 예제에 표시 된 대로 다른 필드에서 복잡 한 서식 지정을 제거 했습니다.
 
 ```Old Kusto query
 AzureNetworkAnalytics_CL
@@ -103,24 +103,24 @@ FlowStatus = FlowStatus_s,
 FlowCountProcessedByRule = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d
 ```
 
-## <a name="example-3-flowcount_d-field"></a>예 3: FlowCount_d 필드
+## <a name="example-3-flowcount_d-field"></a>예제 3: FlowCount_d 필드
 
-우리는 NSG전반에 걸쳐 클럽 데이터를하지 않기 때문에, **FlowCount_d** 단순히 :
+NSG를 통해 데이터를 클럽 하지 않으므로 **FlowCount_d** 는 간단 합니다.
 
-**AllowedInFlows_d** + **DeniedInFlows_d** + **AllowedOutFlows_d** + **DeniedOutFlows_d**
+**AllowedInFlows_d** + **DeniedInFlows_d**DeniedInFlows_d + **AllowedOutFlows_d**AllowedOutFlows_d + **DeniedOutFlows_d**
 
-4개의 필드 중 하나만 0이 아닙니다. 나머지 세 필드는 0이 됩니다. 필드가 채워져 흐름이 캡처된 NIC의 상태 및 개수를 나타냅니다.
+4 개 필드 중 하나만 0이 아닙니다. 다른 세 필드는 0이 됩니다. 필드는 흐름이 캡처된 NIC의 상태와 카운트를 표시 하도록 채워집니다.
 
-이러한 조건을 설명하려면 다음을 수행하십시오.
+다음 조건을 설명 합니다.
 
-- 흐름이 허용된 경우 "허용된" 접두사 필드 중 하나가 채워집니다.
-- 흐름이 거부된 경우 "거부됨" 접두사 필드 중 하나가 채워집니다.
-- 흐름이 인바운드된 경우 "InFlows_d" 접미사 필드 중 하나가 채워집니다.
-- 흐름이 아웃바운드인 경우 "OutFlows_d" 접미사 필드 중 하나가 채워집니다.
+- 흐름이 허용 된 경우 "허용 되는" 접두사 필드 중 하나가 채워집니다.
+- 흐름이 거부 된 경우 "거부 됨" 이라는 접두사가 있는 필드 중 하나가 채워집니다.
+- 흐름이 인바운드 인 경우에는 "InFlows_d" 필드 중 하나가 채워집니다.
+- 흐름이 아웃 바운드 인 경우 "OutFlows_d" 접미사로 된 필드 중 하나가 채워집니다.
 
-조건에 따라 4개 필드 중 어느 필드가 채워질지 알 수 있습니다.
+조건에 따라 채울 4 개 필드 중 어떤 것을 알 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - 자주 묻는 질문에 대한 답변은 [트래픽 분석 FAQ](traffic-analytics-faq.md)를 참조하세요.
-- 기능에 대한 자세한 내용은 [트래픽 분석 설명서를](traffic-analytics.md)참조하십시오.
+- 기능에 대 한 자세한 내용은 [트래픽 분석 설명서](traffic-analytics.md)를 참조 하세요.

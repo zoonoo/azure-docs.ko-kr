@@ -1,5 +1,5 @@
 ---
-title: 이벤트 그리드 소스로 Azure 서비스 버스
+title: Event Grid 원본으로 Azure Service Bus
 description: Azure Event Grid를 사용하여 Service Bus 이벤트에 제공되는 속성을 설명합니다.
 services: event-grid
 author: banisadr
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: babanisa
 ms.openlocfilehash: 141a0e96071014dc3705d30f72b1a9257737298a
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393235"
 ---
-# <a name="azure-service-bus-as-an-event-grid-source"></a>이벤트 그리드 소스로 Azure 서비스 버스
+# <a name="azure-service-bus-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Service Bus
 
 이 문서에서는 Service Bus 이벤트에 대한 속성 및 스키마를 제공합니다.이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
@@ -24,7 +24,7 @@ ms.locfileid: "81393235"
 
 Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | 큐 또는 구독에 활성 메시지가 있고 수신 대기 중인 수신기가 없는 경우 발생합니다. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | 배달 못한 편지 큐에 활성 메시지가 있고 수신 대기 중인 수신기가 없는 경우 발생합니다. |
@@ -79,33 +79,33 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| subject | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
-| eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
-| eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
-| id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | object | Blob Storage 이벤트 데이터입니다. |
-| dataVersion | 문자열 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
-| metadataVersion | 문자열 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
+| 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
+| subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
+| eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
+| id | string | 이벤트에 대한 고유 식별자입니다. |
+| 데이터 | 개체 | Blob Storage 이벤트 데이터입니다. |
+| dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
+| metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| namespaceName | 문자열 | 리소스가 있는 Service Bus 네임스페이스입니다. |
-| requestUri | 문자열 | 이벤트를 내보내는 특정 큐 또는 구독의 URI입니다. |
-| entityType | 문자열 | 이벤트를 내보내는 Service Bus 엔터티의 유형(큐 또는 구독)입니다. |
-| queueName | 문자열 | 큐를 구독하는 경우 활성 메시지가 있는 큐입니다. 토픽/구독을 사용하는 경우 값이 null입니다. |
-| topicName | 문자열 | 활성 메시지가 있는 Service Bus 구독이 속하는 토픽입니다. 큐를 사용하는 경우 null 값입니다. |
-| subscriptionName | 문자열 | 활성 메시지가 있는 Service Bus 구독입니다. 큐를 사용하는 경우 null 값입니다. |
+| namespaceName | string | 리소스가 있는 Service Bus 네임스페이스입니다. |
+| requestUri | string | 이벤트를 내보내는 특정 큐 또는 구독의 URI입니다. |
+| entityType | string | 이벤트를 내보내는 Service Bus 엔터티의 유형(큐 또는 구독)입니다. |
+| queueName | string | 큐를 구독하는 경우 활성 메시지가 있는 큐입니다. 토픽/구독을 사용하는 경우 값이 null입니다. |
+| topicName | string | 활성 메시지가 있는 Service Bus 구독이 속하는 토픽입니다. 큐를 사용하는 경우 null 값입니다. |
+| subscriptionName | string | 활성 메시지가 있는 Service Bus 구독입니다. 큐를 사용하는 경우 null 값입니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
 |제목  |Description  |
 |---------|---------|
 | [자습서: Azure Service Bus-Azure Event Grid 통합 예제](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid는 Service Bus 토픽의 메시지를 함수 앱 및 논리 앱에 전송합니다. |
-| [Azure 서비스 버스에서 이벤트 그리드 통합](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Event Grid와 Service Bus 통합의 개요입니다. |
+| [Event Grid 통합에 Azure Service Bus](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Event Grid와 Service Bus 통합의 개요입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

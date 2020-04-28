@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e10d00ed90248319801974c7c1e7fadf835024b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81407011"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 개체 동기화 문제 해결
@@ -43,7 +43,7 @@ ms.locfileid: "81407011"
 다음 입력 매개 변수가 문제 해결 작업에 필요합니다.
 1.  **개체 고유 이름** - 문제 해결이 필요한 개체의 고유 이름입니다.
 2.  **AD 커넥터 이름** - 위의 개체가 있는 AD 포리스트의 이름입니다.
-3.  Azure AD 테넌트 ![글로벌 관리자 자격 증명 글로벌 관리자 자격 증명](media/tshoot-connect-objectsync/objsynch1.png)
+3.  Azure AD 테 넌 트 전역 ![관리자 자격 증명 전역 관리자 자격 증명](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>문제 해결 작업의 결과 이해
 문제 해결 작업에서는 다음 검사를 수행합니다.
@@ -60,7 +60,7 @@ ms.locfileid: "81407011"
 ### <a name="upn-suffix-is-not-verified-with-azure-ad-tenant"></a>Azure AD 테넌트로 UPN 접미사가 확인되지 않음
 Azure AD 테넌트로 UserPrincipalName(UPN)/대체 로그인 ID 접미사가 확인되지 않으면 Azure Active Directory는 기본 도메인 이름 “onmicrosoft.com”으로 UPN 접미사를 바꿉니다.
 
-![Azure AD가 UPN을 대체합니다.](media/tshoot-connect-objectsync/objsynch2.png)
+![Azure AD가 UPN을 대체 합니다.](media/tshoot-connect-objectsync/objsynch2.png)
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>Azure AD 테넌트 디렉터리 동기화 기능 ‘SynchronizeUpnForManagedUsers’가 사용하지 않도록 설정됨
 Azure AD 테넌트 디렉터리 동기화 기능 ‘SynchronizeUpnForManagedUsers’가 사용하지 않도록 설정된 경우 Azure Active Directory는 관리되는 인증이 있는 라이선스가 부여된 사용자 계정의 UserPrincipalName/대체 로그인 ID로 동기화 업데이트를 허용하지 않습니다.
@@ -75,7 +75,7 @@ Azure AD 테넌트 디렉터리 동기화 기능 ‘SynchronizeUpnForManagedUser
 
 ### <a name="domain-is-configured-to-sync-but-is-missing-run-profilesrun-steps"></a>도메인이 동기화되도록 구성되었지만 실행 프로필/실행 단계가 없습니다.
 도메인에 실행 프로필/실행 단계가 없기 때문에 개체가 범위를 벗어났습니다. 개체가 속하는 도메인에 전체 가져오기 실행 프로필에 대한 실행 단계가 없기 때문에 아래 예제에서 개체는 동기화 범위를 벗어납니다.
-![누락된 실행 프로필](media/tshoot-connect-objectsync/objsynch6.png)
+![누락 된 실행 프로필](media/tshoot-connect-objectsync/objsynch6.png)
 
 ## <a name="object-is-filtered-due-to-ou-filtering"></a>개체가 OU 필터링으로 인해 필터링됨
 OU 필터링 구성으로 인해 개체가 동기화 범위를 벗어납니다. 아래 예제에서 개체는 OU=NoSync,DC=bvtadwbackdc,DC=com에 속합니다.  이 OU는 동기화 범위에 포함되지 않습니다.</br>

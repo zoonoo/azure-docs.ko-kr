@@ -1,5 +1,5 @@
 ---
-title: Hadoop 스트리밍 활동을 사용하여 데이터 변환
+title: Hadoop 스트리밍 작업을 사용 하 여 데이터 변환
 description: Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행함으로써 데이터를 변환하는 방법을 설명합니다.
 author: nabhishek
 ms.author: abnarain
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/16/2018
 ms.openlocfilehash: c1bba6903fe1cb8cc5bae9a12153553594180b43
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418884"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데이터 변환
@@ -72,28 +72,28 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 | 속성          | Description                              | 필수 |
 | ----------------- | ---------------------------------------- | -------- |
 | name              | 작업의 이름                     | 예      |
-| description       | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 예       |
+| description       | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아니요       |
 | type              | Hadoop 스트리밍 작업의 경우 작업 유형은 HDInsightStreaming입니다. | 예      |
 | linkedServiceName | Data Factory에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | 예      |
 | mapper            | mapper 실행 파일의 이름을 지정합니다. | 예      |
 | reducer           | reducer 실행 파일의 이름을 지정합니다. | 예      |
-| combiner          | combiner 실행 파일의 이름을 지정합니다. | 예       |
-| fileLinkedService | 실행할 Mapper, Combiner 및 Reducer 프로그램을 저장하는 데 사용되는 Azure Storage 연결된 서비스에 대한 참조입니다. 이 연결된 서비스를 지정하지 않으면 HDInsight 연결된 서비스에 정의된 Azure Storage 연결된 서비스가 사용됩니다. | 예       |
+| combiner          | combiner 실행 파일의 이름을 지정합니다. | 아니요       |
+| fileLinkedService | 실행할 Mapper, Combiner 및 Reducer 프로그램을 저장하는 데 사용되는 Azure Storage 연결된 서비스에 대한 참조입니다. 이 연결된 서비스를 지정하지 않으면 HDInsight 연결된 서비스에 정의된 Azure Storage 연결된 서비스가 사용됩니다. | 아니요       |
 | filePath          | fileLinkedService에서 참조하는 Azure Storage에 저장된 Mapper, Combiner 및 Reducer 프로그램의 경로 배열을 제공합니다. 경로는 대/소문자를 구분합니다. | 예      |
 | input             | Mapper에 대한 입력 파일의 WASB 경로를 지정합니다. | 예      |
 | output            | Reducer에 대한 출력 파일의 WASB 경로를 지정합니다. | 예      |
-| getDebugInfo      | scriptLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 로그 파일을 언제 복사할지 지정합니다. 허용되는 값: None, Always 또는 Failure. 기본값: None. | 예       |
-| 인수         | Hadoop 작업에 대한 인수 배열을 지정합니다. 인수는 각 작업에 대한 명령줄 인수로 전달됩니다. | 예       |
-| defines           | Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정합니다. | 예       | 
+| getDebugInfo      | scriptLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 로그 파일을 언제 복사할지 지정합니다. 허용되는 값: None, Always 또는 Failure. 기본값: None. | 아니요       |
+| 인수         | Hadoop 작업에 대한 인수 배열을 지정합니다. 인수는 각 작업에 대한 명령줄 인수로 전달됩니다. | 아니요       |
+| defines           | Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정합니다. | 아니요       | 
 
 ## <a name="next-steps"></a>다음 단계
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요. 
 
 * [U-SQL 작업](transform-data-using-data-lake-analytics.md)
 * [Hive 작업](transform-data-using-hadoop-hive.md)
-* [돼지 활동](transform-data-using-hadoop-pig.md)
+* [Pig 활동](transform-data-using-hadoop-pig.md)
 * [MapReduce 작업](transform-data-using-hadoop-map-reduce.md)
-* [스파크 액티비티](transform-data-using-spark.md)
-* [.NET 사용자 지정 활동](transform-data-using-dotnet-custom-activity.md)
-* [기계 학습 일괄 실행 활동](transform-data-using-machine-learning.md)
-* [저장 프로시저 활동](transform-data-using-stored-procedure.md)
+* [Spark 작업](transform-data-using-spark.md)
+* [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
+* [일괄 처리 실행 작업 Machine Learning](transform-data-using-machine-learning.md)
+* [저장 프로시저 작업](transform-data-using-stored-procedure.md)

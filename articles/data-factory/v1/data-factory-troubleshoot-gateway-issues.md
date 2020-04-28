@@ -1,5 +1,5 @@
 ---
-title: 데이터 관리 게이트웨이 문제 해결
+title: 데이터 관리 Gateway 문제 해결
 description: 데이터 관리 게이트웨이와 관련된 문제를 해결하기 위한 팁을 제공합니다.
 services: data-factory
 author: nabhishek
@@ -12,10 +12,10 @@ ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 09d51de3ae0bd4baca585d2abdd936b1a29567d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80065037"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>데이터 관리 게이트웨이 사용 관련 문제 해결
@@ -49,7 +49,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 게이트웨이가 컴퓨터에 이미 설치되어 있습니다.
 
 #### <a name="resolution"></a>해결 방법
-기기의 기존 게이트웨이를 제거하고 **이 컴퓨터 링크에 직접 설치를** 다시 클릭합니다.
+컴퓨터에서 기존 게이트웨이를 제거 하 고 **이 컴퓨터에 직접 설치** 링크를 다시 클릭 합니다.
 
 ### <a name="3-problem"></a>3. 문제
 새 게이트웨이를 등록할 때 이 오류가 표시될 수 있습니다.
@@ -186,7 +186,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 1. 오류가 지속되면 게이트웨이 서비스를 다시 시작합니다.
 
 ## <a name="failed-to-author-linked-service"></a>연결된 서비스를 작성하지 못함
-### <a name="problem"></a>문제
+### <a name="problem"></a>문제점
 포털에서 자격 증명 관리자를 사용하여 연결된 새 서비스에 대한 자격 증명을 입력하거나 연결된 기존 서비스에 대한 자격 증명을 업데이트하려고 할 때 이 오류가 표시될 수 있습니다.
 
 `Error: The data store '<Server>/<Database>' cannot be reached. Check connection settings for the data source.`
@@ -196,7 +196,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 ![데이터베이스에 연결할 수 없음](media/data-factory-troubleshoot-gateway-issues/database-cannot-be-reached.png)
 
 #### <a name="cause"></a>원인
-게이트웨이 컴퓨터에서 TLS/SSL 인증서가 손실되었을 수 있습니다. 게이트웨이 컴퓨터는 현재 TLS 암호화에 사용되는 인증서를 로드할 수 없습니다. 다음 메시지와 비슷한 오류 메시지가 이벤트 로그에 표시될 수도 있습니다.
+게이트웨이 컴퓨터에서 TLS/SSL 인증서가 손실 되었을 수 있습니다. 게이트웨이 컴퓨터에서 현재 TLS 암호화에 사용 되는 인증서를 로드할 수 없습니다. 다음 메시지와 비슷한 오류 메시지가 이벤트 로그에 표시될 수도 있습니다.
 
  `Unable to get the gateway settings from cloud service. Check the gateway key and the network connection. (Certificate with thumbprint cannot be loaded.)`
 
@@ -204,16 +204,16 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 문제를 해결하려면 다음 단계를 수행합니다.
 
 1. 데이터 관리 게이트웨이 구성 관리자를 시작합니다.
-2. **설정** 탭으로 전환합니다.  
-3. TLS/SSL 인증서를 변경하려면 **변경** 버튼을 클릭합니다.
+2. **설정** 탭으로 전환 합니다.  
+3. **변경** 단추를 클릭 하 여 TLS/SSL 인증서를 변경 합니다.
 
    ![인증서 변경 단추](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)
-4. 새 인증서를 TLS/SSL 인증서로 선택합니다. 귀하 또는 모든 조직에서 생성되는 모든 TLS/SSL 인증서를 사용할 수 있습니다.
+4. TLS/SSL 인증서로 새 인증서를 선택 합니다. 사용자 또는 조직에서 생성 한 모든 TLS/SSL 인증서를 사용할 수 있습니다.
 
    ![인증서 지정](media/data-factory-troubleshoot-gateway-issues/specify-http-end-point.png)
 
 ## <a name="copy-activity-fails"></a>복사 작업 실패
-### <a name="problem"></a>문제
+### <a name="problem"></a>문제점
 포털에서 파이프라인을 설정한 후 다음 "UserErrorFailedToConnectToSqlserver" 오류가 발생할 수 있습니다.
 
 `Error: Copy activity encountered a user error: ErrorCode=UserErrorFailedToConnectToSqlServer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server`
@@ -232,7 +232,7 @@ SQL 데이터베이스에 연결하기 전에 데이터 관리 게이트웨이 �
 데이터 저장소 연결 또는 드라이버 관련 오류가 표시되면 다음 단계를 수행합니다.
 
 1. 게이트웨이 컴퓨터에서 데이터 관리 게이트웨이 구성 관리자를 시작합니다.
-2. 진단 탭으로 **전환합니다.**
+2. **진단** 탭으로 전환 합니다.
 3. **연결 테스트**에서 게이트웨이 그룹 값을 추가합니다.
 4. **연결 테스트**를 클릭하여 연결 정보와 자격 증명을 사용하여 게이트웨이 컴퓨터에서 온-프레미스 데이터 원본에 연결할 수 있는지 확인합니다. 드라이버를 설치한 후에 계속 연결 테스트가 실패하는 경우 최신 변경 내용을 반영하도록 게이트웨이를 다시 시작합니다.
 
@@ -279,7 +279,7 @@ SQL 데이터베이스에 연결하기 전에 데이터 관리 게이트웨이 �
 Windows 이벤트 로그에서 자세한 게이트웨이 로그 정보를 확인할 수 있습니다.
 
 1. Windows **이벤트 뷰어**를 시작합니다.
-2. 응용 프로그램 및 서비스 로그**데이터 관리 게이트웨이** 폴더에서 **로그를 찾습니다.** > 
+2. **응용 프로그램 및 서비스 로그** > **데이터 관리 게이트웨이** 폴더에서 로그를 찾습니다.
 
    게이트웨이 관련 문제를 해결할 때는 이벤트 뷰어에서 오류 수준 이벤트를 찾아봅니다.
 

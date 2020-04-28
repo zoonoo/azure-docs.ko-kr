@@ -1,5 +1,5 @@
 ---
-title: Azure MFA 사용자 데이터 컬렉션 - Azure Active 디렉터리
+title: Azure MFA 사용자 데이터 수집-Azure Active Directory
 description: Azure Multi-Factor Authentication에서 사용자를 인증하는 데 사용되는 정보
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f3b5af972ad6dd15b7c992d5e264ede97bd1dde
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80653625"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure Multi-Factor Authentication 사용자 데이터 컬렉션
@@ -89,7 +89,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 - 국가 코드
 - 전화 번호
 - 서식이 지정된 전화 번호
-- 내선 번호
+- 확장명
 - 새 내선 번호
 - Blocked
 - 차단 이유
@@ -109,14 +109,14 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 - 국가 코드
 - 전화 번호
 - 서식이 지정된 전화 번호
-- 내선 번호
+- 확장명
 - 새 내선 번호
 - 바이패스 이유
 - 완료 타임스탬프
 - 완료 이유
 - 사용된 바이패스
 
-변경 사항(사용자 변경 내용을 MFA 서버 또는 Azure AD에 동기화하는 데 사용됨):
+변경 내용 (사용자 변경 내용을 MFA 서버 또는 Azure AD와 동기화 하는 데 사용 됨):
 
 - 변경 타임스탬프
 - 사용자 이름
@@ -138,9 +138,9 @@ MFA 서버 8.0 이상 버전의 경우 다음 프로세스를 통해 관리자�
 - MFA 서버에 로그인하고, **사용자** 탭으로 이동하여, 해당 사용자를 선택하고, **편집** 단추를 클릭합니다. 각 탭의 스크린샷을 만들고(Alt-PrtScn) 현재 해당 MFA 설정 사용자를 제공합니다.
 - MFA 서버 명령줄에서 해당 설치에 따라 경로를 변경하여 `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` 명령을 실행하여 JSON 형식 파일을 생성합니다.
 - 또한 관리자는 웹 서비스 SDK GetUserGdpr 작업을 옵션으로 사용하여 지정된 사용자에 대해 수집된 모든 MFA 클라우드 서비스 정보를 내보내거나 더 큰 보고 솔루션에 통합할 수 있습니다.
-- "사용자 이름>"(검색에 따옴표를 포함)에 대한 모든 백업을 검색하여 `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` 추가되거나 변경되는 사용자 레코드의 모든 인스턴스를 찾습니다.\<
-   - 이러한 레코드는 MFA 서버 UX, 로깅 섹션, 로그 파일 탭에서 **"사용자 변경 내용 기록"을** 선택 취소하여 제한될 수 있습니다(제거되지 않음).
-   - syslog가 구성되고 MFA 서버 UX, 로깅 섹션, Syslog 탭에서 **"사용자 변경 내용 기록"을** 선택하면 대신 syslog에서 로그 항목을 수집할 수 있습니다.
+- 추가 `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` 또는 변경 되는 사용자\<레코드의 모든 인스턴스를 찾기 위해 "사용자 이름>" (검색에 따옴표 포함)을 검색 하 고 백업 합니다.
+   - MFA 서버 UX, 로깅 섹션, 로그 파일 탭에서 **"사용자 변경 내용 로그"** 를 제거 하 여 이러한 레코드를 제한 (제거 하지 않음) 할 수 있습니다.
+   - Syslog를 구성 하 고 MFA 서버 UX, 로깅 섹션, Syslog 탭에서 **"로그 사용자 변경"** 을 선택한 경우 대신 syslog에서 로그 항목을 수집할 수 있습니다.
 - MultiFactorAuthSvc.log 및 인증 시도와 관련된 다른 MFA 서버 로그 파일에서 사용자 이름의 다른 항목은 MultiFactorAuthGdpr.exe 내보내기 또는 웹 서비스 SDK GetUserGdpr을 사용하여 제공된 정보에 대한 작동 및 중복 항목으로 간주됩니다.
 
 ## <a name="delete-data-from-mfa-server"></a>MFA 서버에서 데이터 삭제

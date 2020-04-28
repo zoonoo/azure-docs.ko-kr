@@ -1,6 +1,6 @@
 ---
-title: 사용자 지정 정책으로 앱의 사용자 인터페이스 지역화
-description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 사용자 인터페이스를 지역화하는 방법에 대해 알아봅니다.
+title: 사용자 지정 정책을 사용 하 여 앱의 사용자 인터페이스 지역화
+description: Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 사용자 인터페이스를 지역화 하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,26 +11,26 @@ ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: be12bce8fa29076621bec35228838a4ebdd97433
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80545862"
 ---
-# <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 응용 프로그램의 사용자 인터페이스를 지역화합니다.
+# <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 응용 프로그램의 사용자 인터페이스 지역화
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C(Azure AD B2C)의 언어 사용자 지정을 사용하면 고객의 요구에 맞게 다양한 언어를 수용할 수 있습니다. Microsoft는 [36개 언어에](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages)대한 번역을 제공하지만 모든 언어에 대해 고유한 번역을 제공할 수도 있습니다. 단일 언어로만 환경이 제공되더라도 페이지에 있는 텍스트를 사용자 지정할 수 있습니다. 
+Azure Active Directory B2C (Azure AD B2C)의 언어 사용자 지정을 사용 하면 고객의 요구에 맞게 다양 한 언어를 수용할 수 있습니다. Microsoft는 [36 언어](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages)에 대 한 번역을 제공 하지만 모든 언어에 대 한 고유한 번역을 제공할 수도 있습니다. 단일 언어로만 환경이 제공되더라도 페이지에 있는 텍스트를 사용자 지정할 수 있습니다. 
 
-이 문서에서는 사용자 경험에 대한 정책에서 여러 로캘 또는 언어를 지원하는 방법을 보여 줍니다. 지역화에는 지원되는 언어의 명시적 목록을 설정하고, 언어별 문자열 및 컬렉션을 제공하고, 페이지의 [콘텐츠 정의를](contentdefinitions.md) 편집하는 세 단계가 필요합니다. 
+이 문서에서는 사용자 경험에 대한 정책에서 여러 로캘 또는 언어를 지원하는 방법을 보여 줍니다. 지역화에는 지원 되는 언어의 명시적 목록을 설정 하 고 언어별 문자열과 컬렉션을 제공 하 고 페이지에 대 한 [콘텐츠 정의](contentdefinitions.md) 를 편집 하는 세 단계가 필요 합니다. 
 
-## <a name="set-up-the-list-of-supported-languages"></a>지원되는 언어 목록 설정
+## <a name="set-up-the-list-of-supported-languages"></a>지원 되는 언어 목록 설정
 
-정책의 확장 파일을 엽니다. 예를 들어, <em> `SocialAndLocalAccounts/` </em>.
+정책의 확장 파일을 엽니다. 예를 <em> `SocialAndLocalAccounts/` </em>들면입니다.
 
 1. [BuildingBlocks](buildingblocks.md) 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
-1. 지원되는 `Localization` 언어(기본값)와 스페인어로 요소를 추가합니다.  
+1. 지원 되 `Localization` 는 언어 (기본값)와 스페인어로 요소를 추가 합니다.  
 
 
 ```XML
@@ -44,12 +44,12 @@ Azure Active Directory B2C(Azure AD B2C)의 언어 사용자 지정을 사용하
 
 ## <a name="provide-language-specific-labels"></a>언어별 레이블 제공
 
-[지역화된](localization.md#localizedresources) `Localization` 요소의 리소스에는 지역화된 문자열 목록이 포함되어 있습니다. 지역화된 리소스 요소에는 지역화된 리소스를 고유하게 식별하는 데 사용되는 식별자가 있습니다. 이 식별자는 [콘텐츠 정의](contentdefinitions.md) 요소의 나중에 사용됩니다.
+`Localization` 요소의 [LocalizedResources](localization.md#localizedresources) 에는 지역화 된 문자열 목록이 포함 되어 있습니다. 지역화 된 리소스 요소에는 지역화 된 리소스를 고유 하 게 식별 하는 데 사용 되는 식별자가 있습니다. 이 식별자는 나중에 [콘텐츠 정의](contentdefinitions.md) 요소에서 사용 됩니다.
 
-콘텐츠 정의 및 지원하려는 언어에 대해 지역화된 리소스 요소를 구성합니다. 영어와 스페인어에 대한 통합 등록 또는 로그인 페이지를 사용자 지정하려면 `LocalizedResources` `</SupportedLanguages>` 요소가 닫힌 후 다음 요소를 추가합니다.
+콘텐츠 정의와 지원 하려는 모든 언어에 대 한 지역화 된 리소스 요소를 구성 합니다. 영어 및 스페인어의 통합 등록 또는 로그인 페이지를 사용자 지정 하려면 `LocalizedResources` `</SupportedLanguages>` 요소 가까이에 다음 요소를 추가 합니다.
 
 > [!NOTE]
-> 다음 샘플에서는 각 줄의 구걸에 파운드 `#` 기호를 추가하여 화면에서 지역화된 레이블을 쉽게 찾을 수 있습니다.
+> 다음 샘플에서는 각 줄의 begging에 `#` 파운드 기호를 추가 했으므로 화면에서 지역화 된 레이블을 편리 하 게 찾을 수 있습니다.
 
 ```XML
 <!--Local account sign-up or sign-in page English-->
@@ -212,11 +212,11 @@ Azure Active Directory B2C(Azure AD B2C)의 언어 사용자 지정을 사용하
 </LocalizedResources>
 ```
 
-## <a name="edit-the-content-definition-with-the-localization"></a>지역화를 통해 콘텐츠 정의 편집
+## <a name="edit-the-content-definition-with-the-localization"></a>지역화를 사용 하 여 콘텐츠 정의 편집
 
 복사한 ContentDefinitions의 전체 내용을 BuildingBlocks 요소의 자식으로 붙여 넣습니다.
 
-다음 예제에서는 영어(en) 및 스페인어(들) 사용자 지정 문자열이 등록 또는 로그인 페이지와 로컬 계정 등록 페이지에 추가됩니다. 각 **LocalizedResourcesReference**의 **LocalizedResourcesReferenceId**는 해당 로캘과 동일하지만 임의 문자열을 식별자로 사용할 수 있습니다. 각 언어 및 페이지 조합에 대해 이전에 만든 해당 **지역화된 리소스를** 가리킵니다.
+다음 예에서는 영어 (en) 및 스페인어 (es) 사용자 지정 문자열이 등록 또는 로그인 페이지와 로컬 계정 등록 페이지에 추가 됩니다. 각 **LocalizedResourcesReference**의 **LocalizedResourcesReferenceId**는 해당 로캘과 동일하지만 임의 문자열을 식별자로 사용할 수 있습니다. 각 언어 및 페이지 조합에 대해 이전에 만든 해당 **LocalizedResources** 을 가리킵니다.
 
 ```XML
 <ContentDefinitions>
@@ -236,23 +236,23 @@ Azure Active Directory B2C(Azure AD B2C)의 언어 사용자 지정을 사용하
 </ContentDefinitions>
 ```
 
-##  <a name="upload-and-test-your-updated-custom-policy"></a>업데이트된 사용자 지정 정책 업로드 및 테스트
+##  <a name="upload-and-test-your-updated-custom-policy"></a>업데이트 된 사용자 지정 정책 업로드 및 테스트
 
 ### <a name="upload-the-custom-policy"></a>사용자 지정 정책 업로드
 
 1. 확장 파일을 저장합니다.
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
-1. **Azure AD B2C를**검색하고 선택합니다.
-1. **정책에서** **ID 환경 프레임워크를**선택합니다.
-1. **사용자 지정 정책 업로드를 선택합니다.**
+1. **Azure AD B2C**를 검색 하 고 선택 합니다.
+1. **정책**에서 **Id 경험 프레임 워크**를 선택 합니다.
+1. **사용자 지정 정책 업로드**를 선택 합니다.
 1. 이전에 변경한 확장 파일을 업로드합니다.
 
-### <a name="test-the-custom-policy-by-using-run-now"></a>**지금 실행을** 사용하여 사용자 지정 정책 테스트
+### <a name="test-the-custom-policy-by-using-run-now"></a>**지금 실행** 을 사용 하 여 사용자 지정 정책 테스트
 
-1. 업로드한 정책을 선택한 다음 지금 **실행을**선택합니다.
-1. 지역화된 등록 또는 로그인 페이지를 볼 수 있어야 합니다.
-1. 등록 링크를 클릭하면 지역화된 등록 페이지를 볼 수 있습니다.
-1. 브라우저 기본 언어를 스페인어로 전환합니다. 또는 권한 부여 요청에 쿼리 `ui_locales` 문자열 매개 변수를 추가할 수 있습니다. 다음은 그 예입니다. 
+1. 업로드 한 정책을 선택 하 고 **지금 실행**을 선택 합니다.
+1. 지역화 된 등록 또는 로그인 페이지를 볼 수 있어야 합니다.
+1. 등록 링크를 클릭 하면 지역화 된 등록 페이지를 볼 수 있습니다.
+1. 브라우저의 기본 언어를 스페인어로 전환 합니다. 또는 쿼리 문자열 매개 변수를 `ui_locales` 권한 부여 요청에 추가할 수 있습니다. 다음은 그 예입니다. 
 
 ```http
 https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
@@ -260,6 +260,6 @@ https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize
 
 ## <a name="next-steps"></a>다음 단계
 
-- IEF 참조에서 [지역화](localization.md) 요소에 대해 자세히 알아봅니다.
-- Azure AD B2C에서 사용할 수 있는 [지역화 문자열 아이디](localization-string-ids.md) 목록을 참조하십시오.
+- IEF 참조에서 [지역화](localization.md) 요소에 대해 자세히 알아보세요.
+- Azure AD B2C에서 사용할 수 있는 [지역화 문자열 id](localization-string-ids.md) 의 목록을 참조 하세요.
 

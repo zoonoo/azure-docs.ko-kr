@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331263"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 사용자 로그인 옵션
@@ -85,7 +85,7 @@ Office 365, SaaS 애플리케이션 및 기타 Azure AD 기반 리소스에 사�
 
 * 페더레이션 서버용 Windows Server 2012 R2 서버
 * 웹 애플리케이션 프록시용 Windows Server 2012 R2 서버
-* 의도한 페더레이션 서비스 이름에 대해 하나의 TLS/SSL 인증서가 있는 .pfx 파일입니다. 예: fs.contoso.com
+* 원하는 페더레이션 서비스 이름에 대 한 TLS/SSL 인증서가 있는 .pfx 파일입니다. 예: fs.contoso.com
 
 새 팜을 배포 하거나 기존 팜을 사용하는 경우 필수 요건은 다음과 같습니다.
 
@@ -191,5 +191,5 @@ Azure AD의 기본 .onmicrosoft.com 도메인 또는 Azure AD의 확인되지 �
 >
 
 ## <a name="next-steps"></a>다음 단계
-- [온-프레미스 ID를 Azure Active Directory.](whatis-hybrid-identity.md)
-- [Azure AD Connect 디자인 개념에](plan-connect-design-concepts.md)대해 자세히 알아봅니다.
+- [Azure Active Directory와 온-프레미스 id 통합](whatis-hybrid-identity.md)에 대해 자세히 알아보세요.
+- [Azure AD Connect 디자인 개념](plan-connect-design-concepts.md)에 대해 자세히 알아보세요.

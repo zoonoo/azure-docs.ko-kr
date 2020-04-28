@@ -1,5 +1,5 @@
 ---
-title: Azure MFA 서버 업그레이드 - Azure Active 디렉터리
+title: Azure MFA 서버 업그레이드-Azure Active Directory
 description: Azure Multi-factor Authentication 서버를 최신 버전으로 업그레이드하는 단계 및 지침입니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9f242b4a7e984ceeb183547cb3a949927f3c91da
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80653107"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>최신 Azure Multi-Factor Authentication 서버로 업그레이드
@@ -25,7 +25,7 @@ ms.locfileid: "80653107"
 v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 모든 구성 요소가 .NET 2.0에서 .NET 4.5로 변경됩니다. 모든 구성 요소에는 Microsoft Visual C++ 2015 재배포 가능 패키지 업데이트 1 이상이 필요합니다. 이러한 구성 요소의 x86 및 x64 버전이 아직 설치되지 않았으면 MFA 서버 설치 관리자가 설치합니다. 사용자 포털 및 모바일 앱 웹 서비스가 별도 서버에서 실행되는 경우 해당 구성 요소를 업그레이드하기 전에 해당 패키지를 설치해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/)에서 최신 Microsoft Visual C++ 2015 재배포 가능 패키지 업데이트를 검색할 수 있습니다. 
 
 > [!IMPORTANT]
-> 2019년 7월 1일부터 Microsoft는 더 이상 새 배포를 위해 MFA 서버를 제공하지 않습니다. 사용자로부터 다단계 인증을 요구하려는 신규 고객은 클라우드 기반 Azure 다단계 인증을 사용해야 합니다. 7월 1일 이전에 MFA Server를 활성화한 기존 고객은 최신 버전, 향후 업데이트를 다운로드하고 평소와 같이 정품 인증 자격 증명을 생성할 수 있습니다.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
 
 업그레이드 단계 한 눈에 보기:
 
@@ -66,7 +66,7 @@ v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 �
 ## <a name="upgrade-the-mobile-app-web-service"></a>모바일 앱 웹 서비스 업그레이드
 
 > [!NOTE]
-> 8.0 이상 이전 Azure MFA 서버 버전에서 8.0 이상으로 업그레이드할 때 업그레이드 후 모바일 앱 웹 서비스를 제거할 수 있습니다.
+> 8.0 보다 오래 된 버전의 Azure MFA 서버에서 8.0 이상으로 업그레이드 하는 경우 업그레이드 후 모바일 앱 웹 서비스를 제거할 수 있습니다.
 
 ## <a name="upgrade-the-ad-fs-adapters"></a>AD FS 어댑터 업그레이드
 
@@ -98,15 +98,15 @@ v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 �
 
    “Microsoft Visual C++ 2015 재배포 가능 패키지 업데이트 1 이상이 필요하다”는 오류가 발생하는 경우 [Microsoft 다운로드 센터](https://www.microsoft.com/download/)에서 최신 업데이트 패키지를 다운로드하여 설치합니다. x86 및 x64 버전을 둘 다 설치합니다.
 
-3. **AD FS** > **인증 정책으로** > 이동**글로벌 다단계 인증 정책 편집.** **WindowsAzureMultiFactorAuthentication** 또는 **AzureMFAServerAuthentication**(현재 설치된 버전에 따라 다름)을 선택 취소합니다.
+3. **AD FS** > **인증 정책** > **전역 다단계 인증 정책 편집**으로 이동 합니다. **WindowsAzureMultiFactorAuthentication** 또는 **AzureMFAServerAuthentication**(현재 설치된 버전에 따라 다름)을 선택 취소합니다.
 
    이 단계가 완료되면 8단계를 완료할 때까지 이 AD FS 클러스터에서 MFA 서버를 통한 2단계 인증을 사용할 수 없습니다.
 
-4. Unregister-multifactorauthenticationadfsadapter.ps1 PowerShell 스크립트를 실행하여 이전 버전의 AD FS 어댑터를 등록 취소합니다. *-Name* 매개 변수("WindowsAzureMultiFactorAuthentication" 또는 "AzureMFAServerAuthentication")가 3단계에서 표시된 이름과 일치하는지 확인합니다. 하나의 중앙 구성이 있으므로 동일한 AD FS 클러스터의 모든 서버도 마찬가지입니다.
+4. Unregister-multifactorauthenticationadfsadapter.ps1 PowerShell 스크립트를 실행하여 이전 버전의 AD FS 어댑터를 등록 취소합니다. *-Name* 매개 변수 ("WindowsAzureMultiFactorAuthentication" 또는 "AzureMFAServerAuthentication")가 3 단계에 표시 된 이름과 일치 하는지 확인 합니다. 하나의 중앙 구성이 있으므로 동일한 AD FS 클러스터의 모든 서버도 마찬가지입니다.
 5. Register-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell 스크립트를 실행하여 새 AD FS 어댑터를 등록합니다. 하나의 중앙 구성이 있으므로 동일한 AD FS 클러스터의 모든 서버도 마찬가지입니다.
 6. AD FS 팜에서 제거된 각 서버에서 AD FS 서비스를 다시 시작합니다.
 7. 업데이트된 서버를 AD FS 팜에 다시 추가하고 팜에서 다른 서버를 제거합니다.
-8. **AD FS** > **인증 정책으로** > 이동**글로벌 다단계 인증 정책 편집.** **AzureMfaServerAuthentication**을 선택합니다.
+8. **AD FS** > **인증 정책** > **전역 다단계 인증 정책 편집**으로 이동 합니다. **AzureMfaServerAuthentication**을 선택합니다.
 9. 2단계를 반복하여 AD FS 팜에서 제거된 서버를 업데이트하고 해당 서버에서 AD FS 서비스를 다시 시작합니다.
 10. 해당 서버를 AD FS 팜에 다시 추가합니다.
 
@@ -116,4 +116,4 @@ v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 �
 
 * [MFA 서버를 Windows Server Active Directory와 동기화](howto-mfaserver-dir-ad.md)
 
-* 응용 프로그램에 대한 [Windows 인증 구성](howto-mfaserver-windows.md)
+* 응용 프로그램에 대 한 [Windows 인증 구성](howto-mfaserver-windows.md)

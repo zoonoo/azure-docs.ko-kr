@@ -1,7 +1,7 @@
 ---
-title: 안드로이드 MSAL 구성 파일 | Azure
+title: Android MSAL 구성 파일 | Microsoft
 titleSuffix: Microsoft identity platform
-description: Azure Active Directory에서 응용 프로그램의 구성을 나타내는 MSAL(Android Microsoft 인증 라이브러리) 구성 파일의 개요입니다.
+description: Azure Active Directory의 응용 프로그램 구성을 나타내는 MSAL (Android Microsoft Authentication Library) 구성 파일에 대 한 개요입니다.
 services: active-directory
 author: shoatman
 manager: CelesteDG
@@ -14,42 +14,42 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: 9e35ba5a3f3705a52e80262da9bbfbfda489bf83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80050368"
 ---
-# <a name="android-microsoft-authentication-library-configuration-file"></a>안드로이드 마이크로 소프트 인증 라이브러리 구성 파일
+# <a name="android-microsoft-authentication-library-configuration-file"></a>Android Microsoft 인증 라이브러리 구성 파일
 
-MSAL(Android Microsoft 인증 라이브러리)은 기본 기관, 사용할 권한 등과 같은 공용 클라이언트 앱의 동작을 정의하도록 사용자 지정하는 [기본 구성 JSON 파일과](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) 함께 제공됩니다.
+Android MSAL (Microsoft 인증 라이브러리)은 기본 [구성 JSON 파일](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) 을 제공 하며,이 파일을 사용 하 여 기본 기관과 같은 항목에 대 한 공용 클라이언트 앱의 동작을 정의 합니다.
 
-이 문서에서는 구성 파일의 다양한 설정과 MSAL 기반 앱에서 사용할 구성 파일을 지정하는 방법을 이해하는 데 도움이 됩니다.
+이 문서는 구성 파일의 다양 한 설정과 MSAL 기반 앱에서 사용할 구성 파일을 지정 하는 방법을 이해 하는 데 도움이 됩니다.
 
 ## <a name="configuration-settings"></a>구성 설정
 
 ### <a name="general-settings"></a>일반 설정
 
-| 속성 | 데이터 형식 | 필수 | 메모 |
+| 속성 | 데이터 형식 | 필수 | 참고 |
 |-----------|------------|-------------|-------|
-| `client_id` | String | yes | 응용 프로그램 [등록 페이지에서](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 앱의 클라이언트 ID |
-| `redirect_uri`   | String | yes | [응용 프로그램 등록 페이지에서](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 앱의 리디렉션 URI |
-| `authorities` | 목록\<기관> | 예 | 앱에 필요한 권한 목록 |
-| `authorization_user_agent` | 권한 부여 에이전트(열거형) | 예 | 가능한 `DEFAULT`값: `BROWSER`,`WEBVIEW` |
-| `http` | http구성 | 예 | 구성 `HttpUrlConnection` `connect_timeout` 및`read_timeout` |
-| `logging` | 로깅 구성 | 예 | 로깅 세부 정보 수준을 지정합니다. 선택적 구성에는 `pii_enabled`부울 값을 받는 및 `log_level`에 대해 `ERROR` `WARNING` `INFO`수행합니다. `VERBOSE` |
+| `client_id` | String | 예 | [응용 프로그램 등록 페이지](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 에서 앱의 클라이언트 ID |
+| `redirect_uri`   | String | 예 | [응용 프로그램 등록 페이지](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 에서 앱의 리디렉션 URI |
+| `authorities` | 권한\<> 나열 | 아니요 | 앱에 필요한 권한 목록 |
+| `authorization_user_agent` | AuthorizationAgent (enum) | 아니요 | 가능한 값: `DEFAULT`, `BROWSER`,`WEBVIEW` |
+| `http` | HttpConfiguration | 아니요 | 구성 `HttpUrlConnection` `connect_timeout` 및`read_timeout` |
+| `logging` | LoggingConfiguration | 아니요 | 로깅 세부 정보 수준을 지정 합니다. 선택적 구성에는 `pii_enabled`부울 값을 사용 `log_level`하는 및,, 또는 `ERROR` `WARNING` `INFO` `VERBOSE`를 사용 하는가 포함 됩니다. |
 
 ### <a name="client_id"></a>client_id
 
-응용 프로그램을 등록할 때 생성된 클라이언트 ID 또는 앱 ID입니다.
+응용 프로그램을 등록할 때 만든 클라이언트 ID 또는 응용 프로그램 ID입니다.
 
 ### <a name="redirect_uri"></a>redirect_uri
 
-응용 프로그램을 등록할 때 등록한 리디렉션 URI입니다. 리디렉션 URI가 브로커 앱인 경우 [공용 클라이언트 앱에 대한 리디렉션 URI를](msal-client-application-configuration.md#redirect-uri-for-public-client-apps) 참조하여 브로커 앱에 올바른 리디렉션 URI 형식을 사용하고 있는지 확인합니다.
+응용 프로그램을 등록할 때 등록 한 리디렉션 URI입니다. Broker 응용 프로그램에 대 한 리디렉션 uri 인 경우 broker 앱에 대 한 올바른 리디렉션 URI 형식을 사용 하 고 있는지 확인 하려면 [공용 클라이언트 앱에 대 한 리디렉션 uri](msal-client-application-configuration.md#redirect-uri-for-public-client-apps) 를 참조 하세요.
 
-### <a name="authorities"></a>당국
+### <a name="authorities"></a>권한
 
-귀하가 알고 신뢰하는 기관 목록입니다. 여기에 나열된 권한 외에도 MSAL은 Microsoft에 알려진 클라우드 및 권한 목록을 얻기 위해 Microsoft에 쿼리합니다. 이 권한 목록에서 권한의 유형과 앱 등록에 따라 앱의 잠재 고객과 일치해야 하는 '와 같은 `"audience"`추가 선택적 매개 변수를 지정합니다. 다음은 당국의 예목록입니다.
+사용자가 인식 하 고 신뢰 하는 기관 목록입니다. 여기에 나열 된 인증 기관 외에도, MSAL은 microsoft에 알려진 클라우드 및 기관의 목록을 가져오도록 Microsoft를 쿼리 합니다. 이 권한 목록에서 인증 유형 및와 `"audience"`같은 추가 선택적 매개 변수를 지정 합니다 .이 매개 변수는 앱의 등록을 기반으로 하 여 앱의 대상 그룹과 일치 해야 합니다. 다음은 기관의 예제 목록입니다.
 
 ```javascript
 // Example AzureAD and Personal Microsoft Account
@@ -84,95 +84,95 @@ MSAL(Android Microsoft 인증 라이브러리)은 기본 기관, 사용할 권�
 }
 ```
 
-#### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>AAD 권한 & Microsoft ID 플랫폼 엔드포인트에 매핑
+#### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>AAD authority & 대상을 Microsoft identity platform 끝점에 매핑
 
-| Type | 사용자 | 테넌트 ID | Authority_Url | 결과 끝점 | 메모 |
+| 유형 | 사용자 | 테넌트 ID | Authority_Url | 결과 끝점 | 참고 |
 |------|------------|------------|----------------|----------------------|---------|
-| AAD | AzureADand개인마이크로소프트계정 | | | `https://login.microsoftonline.com/common` | `common`는 계정이 있는 위치에 대한 테넌트 별칭입니다. 특정 Azure Active Directory 테넌트 또는 Microsoft 계정 시스템과 같은 시스템입니다. |
-| AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | contoso.com 존재하는 계정만 토큰을 획득할 수 있습니다. 확인된 도메인 또는 테넌트 GUID를 테넌트 ID로 사용할 수 있습니다. |
-| AAD | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | 이 끝점에서는 Azure Active Directory 계정만 사용할 수 있습니다. Microsoft 계정은 조직의 구성원일 수 있습니다. 조직의 리소스에 대한 Microsoft 계정을 사용하여 토큰을 획득하려면 토큰을 원하는 조직 테넌트를 지정합니다. |
-| AAD | 개인마이크로소프트계정 | | | `https://login.microsoftonline.com/consumers` | Microsoft 계정만 이 끝점을 사용할 수 있습니다. |
-| B2C | | | 결과 끝점 참조 | `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/` | contoso.onmicrosoft.com 테넌트에 있는 계정만 토큰을 획득할 수 있습니다. 이 예제에서 B2C 정책은 기관 URL 경로의 일부입니다. |
+| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common`는 계정이 인에 대 한 테 넌 트 별칭입니다. 예: 특정 Azure Active Directory 테 넌 트 또는 Microsoft 계정 시스템 |
+| AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Contoso.com에 있는 계정만 토큰을 획득할 수 있습니다. 확인 된 도메인 또는 테 넌 트 GUID는 테 넌 트 ID로 사용 될 수 있습니다. |
+| AAD | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | 이 끝점에는 Azure Active Directory 계정만 사용할 수 있습니다. Microsoft 계정은 조직의 멤버일 수 있습니다. 조직에서 리소스에 대 한 Microsoft 계정를 사용 하 여 토큰을 얻으려면 토큰을 원하는 조직 테 넌 트를 지정 합니다. |
+| AAD | PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Microsoft 계정만이 끝점을 사용할 수 있습니다. |
+| B2C | | | 결과 끝점 보기 | `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/` | Contoso.onmicrosoft.com 테 넌 트에 있는 계정만 토큰을 획득할 수 있습니다. 이 예제에서 B2C 정책은 인증 기관 URL 경로의 일부입니다. |
 
 > [!NOTE]
-> MSAL에서는 기관 유효성 검사를 사용하도록 설정하고 비활성화할 수 없습니다.
-> 권한 은 구성을 통해 지정된 개발자로 알려져 있거나 메타데이터를 통해 Microsoft에 알려져 있습니다.
-> MSAL이 알 수 없는 기관에 토큰 에 `MsalClientException` 대한 `UnknownAuthority` 요청을 받으면 형식이 발생합니다.
+> MSAL에서는 인증 기관 유효성 검사를 사용 하거나 사용 하지 않도록 설정할 수 없습니다.
+> 구성 또는 메타 데이터를 통해 Microsoft에 알려진 권한을 개발자에 게 사용자에 게 알려 두는 것입니다.
+> MSAL에서 토큰에 대 한 요청을 알 수 없는 기관에 수신 `MsalClientException` 하는 `UnknownAuthority` 경우 형식의이 반환 됩니다.
 
-#### <a name="authority-properties"></a>기관 속성
+#### <a name="authority-properties"></a>인증 기관 속성
 
-| 속성 | 데이터 형식  | 필수 | 메모 |
+| 속성 | 데이터 형식  | 필수 | 참고 |
 |-----------|-------------|-----------|--------|
-| `type` | String | yes | 앱 대상을 입력한 대상 또는 계정을 미러합니다. 가능한 값: `AAD``B2C` |
-| `audience` | Object | 예 | type=`AAD`. 앱이 대상으로 하는 ID를 지정합니다. 앱 등록의 값 사용 |
-| `authority_url` | String | yes | 형식=`B2C`. 앱에서 사용해야 하는 권한 URL 또는 정책을 지정합니다.  |
-| `default` | boolean | yes | 하나 `"default":true` 이상의 권한을 지정하면 단일 이 필요합니다. |
+| `type` | String | 예 | 앱이 대상으로 하는 대상 또는 계정 유형을 미러링합니다. 가능한 값: `AAD`,`B2C` |
+| `audience` | Object | 아니요 | Type =`AAD`인 경우에만 적용 됩니다. 앱이 대상으로 하는 id를 지정 합니다. 앱 등록의 값 사용 |
+| `authority_url` | String | 예 | Type =`B2C`인 경우에만 필요 합니다. 앱에서 사용 해야 하는 기관 URL 또는 정책을 지정 합니다.  |
+| `default` | boolean | 예 | 하나 이상의 `"default":true` 기관이 지정 된 경우 단일가 필요 합니다. |
 
-#### <a name="audience-properties"></a>잠재고객 속성
+#### <a name="audience-properties"></a>대상 속성
 
-| 속성 | 데이터 형식  | 필수 | 메모 |
+| 속성 | 데이터 형식  | 필수 | 참고 |
 |-----------|-------------|------------|-------|
-| `type` | String | yes | 앱에서 타겟팅할 대상을 지정합니다. 가능한 `AzureADandPersonalMicrosoftAccount`값: `PersonalMicrosoftAccount` `AzureADMultipleOrgs`,`AzureADMyOrg` |
-| `tenant_id` | String | yes | . `"type":"AzureADMyOrg"` 다른 `type` 값에 대한 선택 사항입니다. 이 도메인은 와 같은 `contoso.com`테넌트 도메인또는 `72f988bf-86f1-41af-91ab-2d7cd011db46`테넌트 ID와 같은 것일 수 있습니다. |
+| `type` | String | 예 | 앱이 대상으로 지정 하려는 대상 그룹을 지정 합니다. 가능한 값: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`,`AzureADMyOrg` |
+| `tenant_id` | String | 예 | 인 경우 `"type":"AzureADMyOrg"`에만 필요 합니다. 다른 `type` 값의 경우 선택 사항입니다. 이 도메인은와 같은 테 넌 트 `contoso.com`도메인 이거나와 `72f988bf-86f1-41af-91ab-2d7cd011db46`같은 테 넌 트 ID 일 수 있습니다. |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
-계정에 로그인하거나 리소스에 대한 액세스 권한을 부여할 때 포함된 웹뷰또는 장치의 기본 브라우저를 사용할지 여부를 나타냅니다.
+계정에 로그인 하거나 리소스에 대 한 액세스 권한을 부여할 때 장치에서 포함 된 웹 보기 또는 기본 브라우저를 사용할지 여부를 나타냅니다.
 
 가능한 값은 다음과 같습니다.
-- `DEFAULT`: 시스템 브라우저를 선호합니다. 기기에서 브라우저를 사용할 수 없는 경우 포함된 웹 보기를 사용합니다.
-- `WEBVIEW`: 임베디드 웹 뷰를 사용합니다.
-- `BROWSER`: 기기의 기본 브라우저를 사용합니다.
+- `DEFAULT`: 시스템 브라우저를 선호 합니다. 장치에서 브라우저를 사용할 수 없는 경우 포함 된 웹 보기를 사용 합니다.
+- `WEBVIEW`: 포함 된 웹 뷰를 사용 합니다.
+- `BROWSER`: 장치의 기본 브라우저를 사용 합니다.
 
 ### <a name="multiple_clouds_supported"></a>multiple_clouds_supported
 
-여러 국가 클라우드를 지원하는 `true`클라이언트의 경우 을 지정합니다. 그러면 Microsoft ID 플랫폼은 권한 부여 및 토큰 사용 중에 올바른 국가 클라우드로 자동으로 리디렉션됩니다. `AuthenticationResult`과 관련된 권한을 검사하여 로그인된 계정의 국가 클라우드를 확인할 수 있습니다. 이 `AuthenticationResult` 토큰은 토큰을 요청하는 리소스의 국가 클라우드 별 끝점 주소를 제공하지 않습니다.
+여러 국가 클라우드를 지 원하는 클라이언트의 경우 `true`를 지정 합니다. Microsoft id 플랫폼은 권한 부여 및 토큰 상환 중에 올바른 국가 클라우드로 자동으로 리디렉션됩니다. 와 연결 된 기관을 검사 하 여 로그인 한 계정의 국가별 클라우드를 확인할 수 있습니다 `AuthenticationResult`. 는 `AuthenticationResult` 토큰을 요청 하는 리소스의 국가별 클라우드 관련 끝점 주소를 제공 하지 않습니다.
 
 ### <a name="broker_redirect_uri_registered"></a>broker_redirect_uri_registered
 
-Microsoft ID 브로커 호환 브로커에서 URI를 리디렉션할지 여부를 나타내는 부울입니다. 앱 `false` 내에서 브로커를 사용하지 않으려는 경우로 설정합니다.
+Microsoft Identity broker와 호환 되는 브로커 리디렉션 URI를 사용 하 고 있는지 여부를 나타내는 부울입니다. 앱 내 `false` 에서 broker를 사용 하지 않으려면로 설정 합니다.
 
-잠재 고객을 설정한 `"MicrosoftPersonalAccount"`AAD 기관을 사용하는 경우 브로커는 사용되지 않습니다.
+대상 그룹이로 `"MicrosoftPersonalAccount"`설정 된 AAD 기관을 사용 하는 경우 broker가 사용 되지 않습니다.
 
 ### <a name="http"></a>http
 
-다음과 같은 HTTP 시간 시간에 대한 전역 설정을 구성합니다.
+HTTP 시간 제한에 대해 다음과 같은 전역 설정을 구성 합니다.
 
-| 속성 | 데이터 형식 | 필수 | 메모 |
+| 속성 | 데이터 형식 | 필수 | 참고 |
 | ---------|-----------|------------|--------|
-| `connect_timeout` | int | 예 | 시간(밀리초) |
-| `read_timeout` | int | 예 | 시간(밀리초) |
+| `connect_timeout` | int | 아니요 | 시간 (밀리초) |
+| `read_timeout` | int | 아니요 | 시간 (밀리초) |
 
 ### <a name="logging"></a>logging
 
-로깅을 위한 다음 전역 설정은 다음과 같습니다.
+로깅에 대 한 전역 설정은 다음과 같습니다.
 
-| 속성 | 데이터 형식  | 필수 | 메모 |
+| 속성 | 데이터 형식  | 필수 | 참고 |
 | ----------|-------------|-----------|---------|
-| `pii_enabled`  | boolean | 예 | 개인 데이터 내사 여부 |
-| `log_level`   | boolean | 예 | 출력할 로그 메시지 |
-| `logcat_enabled` | boolean | 예 | 로깅 인터페이스 이외에 로그 cat에 출력할지 여부 |
+| `pii_enabled`  | boolean | 아니요 | 개인 데이터를 내보낼지 여부 |
+| `log_level`   | boolean | 아니요 | 출력할 로그 메시지 |
+| `logcat_enabled` | boolean | 아니요 | 로깅 인터페이스 외에도 cat을 기록 하도록 출력할지 여부 |
 
 ### <a name="account_mode"></a>account_mode
 
-한 번에 앱 내에서 사용할 수 있는 계정 수를 지정합니다. 사용 가능한 값은
+앱 내에서 한 번에 사용할 수 있는 계정 수를 지정 합니다. 가능한 값은 다음과 같습니다.
 
 - `MULTIPLE`(기본값)
 - `SINGLE`
 
-이 설정과 `PublicClientApplication` 일치하지 않는 계정 모드를 사용하여 생성하면 예외가 발생합니다.
+이 설정과 `PublicClientApplication` 일치 하지 않는 계정 모드를 사용 하 여를 생성 하면 예외가 발생 합니다.
 
-단일 계정과 여러 계정 간의 차이점에 대한 자세한 내용은 [단일 및 여러 계정 앱을](single-multi-account.md)참조하십시오.
+단일 계정과 여러 계정 간의 차이점에 대 한 자세한 내용은 [단일 및 여러 계정 앱](single-multi-account.md)을 참조 하세요.
 
 ### <a name="browser_safelist"></a>browser_safelist
 
-MSAL과 호환되는 브라우저의 허용 목록입니다. 이러한 브라우저는 사용자 지정 의도로 리디렉션을 올바르게 처리합니다. 이 목록에 추가할 수 있습니다. 기본값은 아래 표시된 기본 구성으로 제공됩니다.
+MSAL과 호환 되는 브라우저의 허용 목록입니다. 이러한 브라우저는 사용자 지정 의도에 대 한 리디렉션을 올바르게 처리 합니다. 이 목록에를 추가할 수 있습니다. 기본값은 아래에 표시 된 기본 구성에서 제공 됩니다.
 ``
 ## <a name="the-default-msal-configuration-file"></a>기본 MSAL 구성 파일
 
-MSAL과 함께 제공되는 기본 MSAL 구성은 다음과 같습니다. 최신 버전은 [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json)에서 볼 수 있습니다.
+MSAL과 함께 제공 되는 기본 MSAL 구성은 아래와 같습니다. [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json)에서 최신 버전을 확인할 수 있습니다.
 
-이 구성은 제공한 값으로 보완됩니다. 제공한 값이 기본값을 재정의합니다.
+이 구성은 사용자가 제공 하는 값으로 보완 됩니다. 사용자가 제공 하는 값은 기본값을 재정의 합니다.
 
 ```javascript
 {
@@ -319,7 +319,7 @@ MSAL과 함께 제공되는 기본 MSAL 구성은 다음과 같습니다. 최신
 ```
 ## <a name="example-basic-configuration"></a>기본 구성 예
 
-다음 예제에서는 클라이언트 ID를 지정하는 기본 구성, URI 리디렉션, 브로커 리디렉션등록 여부 및 권한 목록을 보여 줍니다.
+다음 예제에서는 클라이언트 ID, 리디렉션 URI, broker 리디렉션이 등록 되었는지 여부 및 기관 목록을 지정 하는 기본 구성을 보여 줍니다.
 
 ```javascript
 {
@@ -338,10 +338,10 @@ MSAL과 함께 제공되는 기본 MSAL 구성은 다음과 같습니다. 최신
 }
 ```
 
-## <a name="how-to-use-a-configuration-file"></a>구성 파일 사용 방법
+## <a name="how-to-use-a-configuration-file"></a>구성 파일을 사용 하는 방법
 
-1. 구성 파일을 만듭니다. 에서 `res/raw/auth_config.json`사용자 지정 구성 파일을 만드는 것이 좋습니다. 그러나 원하는 곳에 넣을 수 있습니다.
-2. 을 구성할 때 구성을 찾을 위치를 `PublicClientApplication`MSAL에 알릴 수 있습니다. 예를 들어:
+1. 구성 파일을 만듭니다. 에서 `res/raw/auth_config.json`사용자 지정 구성 파일을 만드는 것이 좋습니다. 하지만 원하는 위치에 배치할 수 있습니다.
+2. 을 `PublicClientApplication`생성할 때 구성을 찾을 위치를 msal에 알려 주십시오. 예를 들면 다음과 같습니다.
 
    ```java
    //On Worker Thread

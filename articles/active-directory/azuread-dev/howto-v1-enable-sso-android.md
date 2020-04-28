@@ -16,10 +16,10 @@ ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0b87a9cd0ae29281faad4209f4449d547921835d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154817"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>방법: ADAL을 사용하여 Android에서 앱 간 SSO를 사용하도록 설정
@@ -32,11 +32,11 @@ Microsoft의 ID 플랫폼을 SDK와 함께 사용하여 사용자 고유의 앱 
 
 이 방법에서는 고객에게 SSO를 제공하도록 애플리케이션 내에서 SDK를 구성하는 방법을 알아보겠습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 방법에서는 다음 작업을 수행하는 방법을 알고 있다고 가정합니다.
 
-- Azure AD(Azure Active Directory)에 대한 레거시 포털을 사용하여 앱 프로비전. 자세한 내용은 [앱 등록을](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 참조하세요.
+- Azure AD(Azure Active Directory)에 대한 레거시 포털을 사용하여 앱 프로비전. 자세한 내용은 [앱 등록](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 을 참조 하세요.
 - [Azure AD Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android)와 애플리케이션 통합
 
 ## <a name="single-sign-on-concepts"></a>Single Sign-On 개념
@@ -60,7 +60,7 @@ Android에서 계정 선택기는 사용자에게 덜 방해가 되는 애플리
 
 #### <a name="how-microsoft-ensures-the-application-is-valid"></a>Microsoft가 애플리케이션이 유효한지 확인하는 방식
 
-브로커를 호출하는 응용 프로그램의 ID를 확인해야 하는 것은 브로커 지원 로그인에서 제공되는 보안에 매우 중요합니다. iOS와 Android는 제공된 애플리케이션에만 유효한 고유한 식별자를 적용하지 않으므로 악의적 애플리케이션은 합법적인 애플리케이션의 ID를 “스푸핑”하고 합법적인 애플리케이션을 의미하는 토큰을 받을 수 있습니다. 런타임 시 Microsoft가 적절한 애플리케이션과 항상 통신하고 있음을 확인하려면 Microsoft에 해당 애플리케이션을 등록할 때 개발자에게 사용자 지정 redirectURI를 요청합니다. **개발자가 이 리디렉션 URI를 만드는 방법은 아래에 자세히 설명되어 있습니다.** 이 사용자 지정 redirectURI는 애플리케이션의 인증서 지문을 포함하고 Google Play 스토어에서 애플리케이션에 고유하도록 보장됩니다. 애플리케이션이 브로커를 호출하면 브로커는 Android 운영 체제에 브로커를 호출한 인증서 지문을 제공하도록 요청합니다. 브로커는 ID 시스템에 대한 호출에서 Microsoft에 이 인증서 지문을 제공합니다. 애플리케이션의 인증서 지문이 등록하는 동안 개발자가 제공한 인증서 지문과 일치하지 않는 경우 애플리케이션이 요청하는 리소스를 위한 토큰에 대한 액세스가 거부됩니다. 이러한 확인을 통해 개발자가 등록한 애플리케이션만 토큰을 받습니다.
+Broker를 호출 하는 응용 프로그램의 id를 확인 해야 하는 이유는 broker 보조 로그인에 제공 되는 보안에 중요 합니다. iOS와 Android는 제공된 애플리케이션에만 유효한 고유한 식별자를 적용하지 않으므로 악의적 애플리케이션은 합법적인 애플리케이션의 ID를 “스푸핑”하고 합법적인 애플리케이션을 의미하는 토큰을 받을 수 있습니다. 런타임 시 Microsoft가 적절한 애플리케이션과 항상 통신하고 있음을 확인하려면 Microsoft에 해당 애플리케이션을 등록할 때 개발자에게 사용자 지정 redirectURI를 요청합니다. **개발자가 이 리디렉션 URI를 만드는 방법은 아래에 자세히 설명되어 있습니다.** 이 사용자 지정 redirectURI는 애플리케이션의 인증서 지문을 포함하고 Google Play 스토어에서 애플리케이션에 고유하도록 보장됩니다. 애플리케이션이 브로커를 호출하면 브로커는 Android 운영 체제에 브로커를 호출한 인증서 지문을 제공하도록 요청합니다. 브로커는 ID 시스템에 대한 호출에서 Microsoft에 이 인증서 지문을 제공합니다. 애플리케이션의 인증서 지문이 등록하는 동안 개발자가 제공한 인증서 지문과 일치하지 않는 경우 애플리케이션이 요청하는 리소스를 위한 토큰에 대한 액세스가 거부됩니다. 이러한 확인을 통해 개발자가 등록한 애플리케이션만 토큰을 받습니다.
 
 조정된 SSO 로그인은 다음과 같은 이점이 있습니다.
 
@@ -116,7 +116,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>2단계: URL 구성표와 함께 새 리디렉션 URI 설정
 
-올바른 응용 프로그램이 반환된 자격 증명 토큰을 수신하도록 하려면 Android 운영 체제에서 확인할 수 있는 방식으로 응용 프로그램에 다시 호출해야 합니다. Android 운영 체제는 Google Play 스토어에서 인증서의 해시를 사용합니다. 불량 애플리케이션에서 인증서의 이 해시를 스푸핑할 수 없습니다. 브로커 애플리케이션의 URI와 함께 Microsoft는 토큰이 올바른 애플리케이션에 반환되는지 확인합니다. 고유한 리디렉션 URI는 애플리케이션에 등록돼야 합니다.
+올바른 응용 프로그램이 자격 증명 토큰을 반환 하는지 확인 하기 위해 Android 운영 체제에서 확인할 수 있는 방식으로 응용 프로그램을 다시 호출 하는지 확인 해야 합니다. Android 운영 체제는 Google Play 스토어에서 인증서의 해시를 사용합니다. 불량 애플리케이션에서 인증서의 이 해시를 스푸핑할 수 없습니다. 브로커 애플리케이션의 URI와 함께 Microsoft는 토큰이 올바른 애플리케이션에 반환되는지 확인합니다. 고유한 리디렉션 URI는 애플리케이션에 등록돼야 합니다.
 
 리디렉션 URI는 다음의 적절한 형식이어야 합니다.
 

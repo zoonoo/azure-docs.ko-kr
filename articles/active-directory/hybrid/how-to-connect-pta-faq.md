@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661d4f622dce45aeca1d41ead60f05ccdcfbc9c9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81406874"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
@@ -41,18 +41,18 @@ ms.locfileid: "81406874"
 
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>[조건부 액세스](../active-directory-conditional-access-azure-portal.md)는 통과 인증에서 작동하나요?
 
-예. Azure 다단계 인증을 포함한 모든 조건부 액세스 기능은 통과 인증과 함께 작동합니다.
+예. Azure Multi-Factor Authentication을 비롯 한 모든 조건부 액세스 기능이 통과 인증을 사용 합니다.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>통과 인증은 "userPrincipalName" 대신 "Alternate ID"를 사용자 이름으로 지원하나요?
-대체 전자 메일과 같은 UPN이 아닌 값을 사용하여 로그인하는 것은 현재 PTA(통과 인증) 및 암호 해시 동기화(PHS)에 대한 비공개 미리 보기에서 테스트되고 있습니다.
+대체 메일과 같이 UPN이 아닌 값을 사용 하 여 로그인 하는 것은 현재 PTA (통과 인증) 및 PHS (암호 해시 동기화) 모두에 대해 비공개 미리 보기로 테스트 되 고 있습니다.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>암호 해시 동기화가 통과 인증을 대체하는 역할을 하나요?
 
 아니요. 통과 인증은 자동으로 암호 해시 동기화로 장애 조치하지 _않습니다_. 사용자 로그인 오류를 방지하려면 [고가용성](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
 
-## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>암호 해시 동기화에서 통과 인증으로 전환하면 어떻게 되나요?
+## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>암호 해시 동기화에서 통과 인증으로 전환 하면 어떻게 되나요?
 
-Azure AD Connect를 사용하여 로그인 메서드를 암호 해시 동기화에서 통과 인증으로 전환하는 경우 통과 인증은 관리되는 도메인의 사용자에 대한 기본 로그인 메서드가 됩니다. 이전에 암호 해시 동기화에 의해 동기화된 모든 사용자의 암호 해시는 Azure AD에 저장되어 있습니다.
+Azure AD Connect를 사용 하 여 암호 해시 동기화에서 통과 인증으로 로그인 방법을 전환 하는 경우 통과 인증은 관리 되는 도메인의 사용자에 대 한 기본 로그인 방법이 됩니다. 이전에 암호 해시 동기화를 통해 동기화 된 모든 사용자의 암호 해시는 Azure AD에 저장 된 상태로 유지 됩니다.
 
 ## <a name="can-i-install-an-azure-ad-application-proxy-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>통과 인증 에이전트와 동일한 서버에 [Azure AD 애플리케이션 프록시](../manage-apps/application-proxy.md)를 설치할 수 있나요?
 
@@ -75,7 +75,7 @@ Azure AD Connect를 사용하여 로그인 메서드를 암호 해시 동기화�
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>통과 인증 에이전트가 포트 80 및 443을 통해 통신하는 것은 무엇인가요?
 
 - 인증 에이전트는 모든 기능 작업에 대해 포트 443을 통해 HTTPS 요청을 만듭니다.
-- 인증 에이전트는 포트 80을 통해 TLS/SSL 인증서 해지 목록(CRL)을 다운로드하도록 HTTP 요청을 합니다.
+- 인증 에이전트는 포트 80을 통해 HTTP 요청을 수행 하 여 TLS/SSL Crl (인증서 해지 목록)을 다운로드 합니다.
 
      >[!NOTE]
      >최근 업데이트는 기능에 필요한 포트 수를 줄였습니다. 이전 버전의 Azure AD Connect 또는 인증 에이전트를 사용하는 경우 5671, 8080, 9090, 9091, 9350, 9352 및 10100-10120 포트도 열어 두세요.
@@ -113,7 +113,7 @@ Azure AD Connect를 사용하여 로그인 메서드를 암호 해시 동기화�
 
 통과 인증 에이전트는 실행되는 동안 활성 상태를 유지하며, 지속적으로 사용자 로그인 요청을 처리합니다. 인증 에이전트를 제거하려는 경우 **제어판 -> 프로그램 -> 프로그램 및 기능**으이로 동한 후 **Microsoft Azure AD Connect Authentication Agent** 및 **Microsoft Azure AD Connect Agent Updater** 프로그램을 둘 다 제거합니다.
 
-위의 단계를 완료한 후 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에서 통과 인증 블레이드를 확인하는 경우 인증 에이전트가 **비활성** 상태로 표시됩니다. _예상된_ 동작입니다. 인증 에이전트는 며칠 후에 목록에서 자동으로 삭제됩니다.
+위의 단계를 완료한 후 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에서 통과 인증 블레이드를 확인하는 경우 인증 에이전트가 **비활성** 상태로 표시됩니다. 이는 _예상_된 것입니다. 인증 에이전트는 며칠 후에 목록에서 자동으로 삭제됩니다.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>이미 AD FS를 사용하여 Azure AD에 로그인하고 있습니다. 통과 인증으로 전환하려면 어떻게 하나요?
 
@@ -121,7 +121,7 @@ AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그�
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>다중 포리스트 Active Directory 환경에서 통과 인증을 사용할 수 있나요?
 
-예. Active Directory 포리스트 사이에 포리스트 트러스트(양방향)가 있고 이름 접미사 라우팅이 올바르게 구성된 경우 다중 포리스트 환경이 지원됩니다.
+예. Active Directory 포리스트 간에 포리스트 트러스트 (양방향)가 있고 이름 접미사 라우팅이 제대로 구성 된 경우 다중 포리스트 환경이 지원 됩니다.
 
 ## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>통과 인증이 여러 인증 에이전트에 대한 부하 분산을 제공하나요?
 
@@ -148,7 +148,7 @@ AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그�
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>통과 인증을 사용하도록 설정하기 위해 클라우드 전용 글로벌 관리자 계정이 필요한 이유는 무엇인가요?
 
-클라우드 전용 글로벌 관리자 계정을 사용하여 통과 인증을 사용하도록 설정하거나 사용하지 않도록 설정하는 것이 좋습니다. 클라우드 [전용 글로벌 관리자 계정을 추가하는](../active-directory-users-create-azure-portal.md)방법에 대해 알아봅니다. 이 단계는 테넌트가 잠기지 않도록 합니다.
+클라우드 전용 글로벌 관리자 계정을 사용하여 통과 인증을 사용하도록 설정하거나 사용하지 않도록 설정하는 것이 좋습니다. [클라우드 전용 전역 관리자 계정을 추가 하는](../active-directory-users-create-azure-portal.md)방법에 대해 알아봅니다. 이 단계는 테넌트가 잠기지 않도록 합니다.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>통과 인증을 사용하지 않도록 설정하려면 어떻게 하나요?
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD는 보고 데이터를 얼마나 오래 저장합니까? | Microsoft Docs
-description: Azure에서 다양한 유형의 보고 데이터를 저장하는 기간에 대해 알아봅니다.
+title: Azure AD 저장소에서 데이터를 보고 하는 기간은 얼마 인가요? | Microsoft 문서
+description: Azure에서 다양 한 유형의 보고 데이터를 저장 하는 기간을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54636600c208f8f5df9fa2e25460c63dd9f46e85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80239556"
 ---
-# <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD는 보고 데이터를 얼마나 오래 저장합니까?
+# <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD 저장소에서 데이터를 보고 하는 기간은 얼마 인가요?
 
 
 이 문서에서는 Azure Active Directory의 다른 작업 보고서에 대한 데이터 보존 정책에 대해 알아봅니다. 
@@ -40,7 +40,7 @@ ms.locfileid: "80239556"
 
 ### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>Azure Portal에서 활동 데이터를 사용할 수 있는 시기는 언제입니까?
 
-- **즉시 -** Azure 포털에서 보고서를 이미 작업중인 경우
+- **즉시** -Azure Portal에서 보고서를 이미 작업 한 경우
 - **2시간 이내** - Azure Portal에서 보고 기능을 설정하지 않은 경우
 
 ---
@@ -71,7 +71,7 @@ ms.locfileid: "80239556"
 | :--                    | :--           | :--                 | :--                 |
 | 감사 로그             | 7 일        | 30일             | 30일             |
 | 로그인               | 7 일        | 30일             | 30일             |
-| Azure MFA 사용량        | 30일       | 30일             | 30일             |
+| Azure MFA 사용        | 30일       | 30일             | 30일             |
 
 Azure Monitor를 사용하여 스토리지 계정으로 라우팅하여 위에서 설명한 기본 보존 기간보다 오랫동안 감사 및 로그인 활동 데이터를 유지할 수 있습니다. 자세한 내용은 [Azure 스토리지 계정에 Azure AD 로그 보관](quickstart-azure-monitor-route-logs-to-storage-account.md)을 참조하세요.
 

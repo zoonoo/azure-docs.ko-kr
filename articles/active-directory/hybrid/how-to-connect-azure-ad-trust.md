@@ -19,10 +19,10 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f3e521fb7668305ce511aaddd63ed2cce8dfed0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331731"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Azure AD로 AD FS 신뢰 관리
@@ -39,7 +39,7 @@ Azure AD Connect는 온-프레미스 Active Directory Federation Service(AD FS)�
 
 Azure AD Connect는 Azure AD 신뢰와 관련된 설정**만** 관리합니다. Azure AD Connect는 AD FS의 다른 신뢰 당사자 신뢰에 대한 설정을 수정하지 않습니다. 다음 표에는 Azure AD Connect에서 제어하는 설정이 나와 있습니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 | :--- | :--- |
 | 토큰 서명 인증서 | Azure AD Connect를 사용하여 Azure AD와의 신뢰를 다시 설정하고 다시 만들 수 있습니다. Azure AD Connect는 AD FS의 토큰 서명 인증서에 대한 일회성 즉시 롤오버를 수행하고 Azure AD 도메인 페더레이션 설정을 업데이트합니다.|
 | 토큰 서명 알고리즘 | 토큰 서명 알고리즘으로 SHA-256을 사용하는 것이 좋습니다. Azure AD Connect는 토큰 서명 알고리즘이 SHA-256보다 덜 안전한 값으로 설정되었는지 감지할 수 있습니다. 다음에 가능한 구성 작업에서 설정이 SHA-256으로 업데이트됩니다. 다른 신뢰 당사자 트러스트는 새로운 토큰 서명 인증서를 사용하도록 업데이트해야 합니다. |
@@ -56,15 +56,15 @@ Azure AD Connect는 구성 흐름 중에 Azure AD 신뢰에 대한 모든 설정
 
 | 실행 흐름 | 영향을 받는 설정 |
 | :--- | :--- |
-| 우선 설치(고속) | None |
+| 우선 설치(고속) | 없음 |
 | 우선 설치(새로운 AD FS 팜) | 새 AD FS 팜이 생성되고 Azure AD와의 신뢰가 처음부터 새로 구축됩니다. |
 | 우선 설치(기존 AD FS 팜, 기존 Azure AD 신뢰) | Azure AD 신뢰 식별자, 발급 변환 규칙, Azure AD 엔드포인트, 대체 ID(필요한 경우), 자동 메타데이터 업데이트 |
 | Azure AD 신뢰 재설정 | 토큰 서명 인증서, 토큰 서명 알고리즘, Azure AD 신뢰 식별자, 발급 변환 규칙, Azure AD 엔드포인트, 대체 ID(필요한 경우), 자동 메타데이터 업데이트 |
-| 페더레이션 서버 추가 | None |
-| WAP 서버 추가 | None |
+| 페더레이션 서버 추가 | 없음 |
+| WAP 서버 추가 | 없음 |
 | 디바이스 옵션 | 발급 변환 규칙, 디바이스 등록을 위한 IWA |
 | 페더레이션된 도메인 추가 | 도메인이 처음으로 추가되는 경우, 즉 단일 도메인 페더레이션에서 다중 도메인 페더레이션으로 설치가 변경되는 경우, Azure AD Connect는 신뢰를 처음부터 다시 만듭니다. Azure AD와의 신뢰가 이미 여러 도메인에 구성된 경우, 발급 변환 규칙만 수정됩니다. |
-| TLS 업데이트 | None |
+| TLS 업데이트 | 없음 |
 
 Azure AD Connect는 설정이 수정되는 모든 작업 도중에 **%ProgramData%\AADConnect\ADFS**에 현재 신뢰 설정의 백업을 만듭니다.
 
@@ -105,7 +105,7 @@ Azure AD Connect는 Azure AD 트러스트가 항상 올바른 권장 클레임 �
 
 Azure AD Connect 버전 1.1.873.0 이상은 Azure AD 신뢰 설정에 대한 업데이트가 이루어질 때마다 Azure AD 신뢰 설정의 백업을 만듭니다. Azure AD 신뢰 설정은 **%ProgramData%\AADConnect\ADFS**에 백업됩니다. 파일 이름은 AadTrust-&lt;date&gt;-&lt;time&gt;.txt와 같은 형식입니다(예 - AadTrust-20180710-150216.txt).
 
-![Azure AD 트러스트백업 예제 스크린샷](./media/how-to-connect-azure-ad-trust/backup.png)
+![Azure AD 트러스트의 백업 예제 스크린샷](./media/how-to-connect-azure-ad-trust/backup.png)
 
 아래에 제시된 단계를 따라 발급 변환 규칙을 복원할 수 있습니다.
 

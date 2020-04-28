@@ -1,5 +1,5 @@
 ---
-title: Azure AD 응용 프로그램 갤러리에 다중 테넌트 앱 추가
+title: Azure AD 응용 프로그램 갤러리에 다중 테 넌 트 앱 추가
 description: 사용자 지정 개발된 다중 테넌트 애플리케이션을 Azure AD 애플리케이션 갤러리에서 나열하는 방법을 설명합니다.
 services: active-directory
 documentationCenter: na
@@ -14,10 +14,10 @@ ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.openlocfilehash: 90f4d22ba782fd71460595f69a52e70be87a3047
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80883256"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Azure AD 애플리케이션 갤러리에 다중 테넌트 애플리케이션 추가

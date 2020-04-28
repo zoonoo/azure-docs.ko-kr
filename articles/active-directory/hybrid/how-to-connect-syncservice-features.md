@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d3f6b698922440c6e3e9b488cca93ca8d98d9c59
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80983078"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 동기화 서비스 기능
@@ -89,16 +89,16 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 ## <a name="synchronize-userprincipalname-updates"></a>UserPrincipalName 업데이트 동기화
 
-지금까지 온-프레미스에서 동기화 서비스를 사용 하 여 UserPrincipalName 특성에 대 한 업데이트차단 되었습니다., 다음 조건 모두 true 가 아닌 한:
+지금까지 이러한 두 조건이 모두 true가 아니면 온-프레미스에서 동기화 서비스를 사용 하는 UserPrincipalName 특성에 대 한 업데이트가 차단 되었습니다.
 
 * 사용자가 관리됨(페더레이션되지 않음)
 * 사용자에게 라이선스가 할당되지 않음
 
 > [!NOTE]
-> 2019년 3월부터 페더레이션된 사용자 계정에 대한 UPN 변경 내용을 동기화할 수 있습니다.
+> 3 월 2019부터 페더레이션된 사용자 계정에 대 한 UPN 변경 내용을 동기화 할 수 있습니다.
 > 
 
-이 기능을 사용하면 동기화 엔진이 온-프레미스에서 변경될 때 사용자PrincipalName을 업데이트하고 암호 해시 동기화 또는 통과 인증을 사용할 수 있습니다.
+이 기능을 사용 하도록 설정 하면 동기화 엔진이 온-프레미스로 변경 되 고 암호 해시 동기화 또는 통과 인증을 사용 하는 경우 userPrincipalName를 업데이트할 수 있습니다.
 
 이 기능은 새로 만든 Azure AD 디렉터리에 기본적으로 설정되어 있습니다. 다음을 실행하여 이 기능을 사용하도록 설정했는지 확인할 수 있습니다.  
 
@@ -116,5 +116,5 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure AD 연결 동기화](how-to-connect-sync-whatis.md)
-* [온-프레미스 ID를 Azure Active Directory와 통합합니다.](whatis-hybrid-identity.md)
+* [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)
+* [Azure Active Directory와 온-프레미스 Id 통합](whatis-hybrid-identity.md)

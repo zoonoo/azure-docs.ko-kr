@@ -1,5 +1,5 @@
 ---
-title: Node.js - Azure 저장소에서 Azure 큐 저장소 사용
+title: Node.js에서 Azure Queue storage 사용-Azure Storage
 description: Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Node.js로 작성되었습니다.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-september2019
 ms.openlocfilehash: 7abcad03678131668700f5d2c64b9c971081cb89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060928"
 ---
-# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Azure 큐 서비스를 사용하여 Node.js에서 큐를 만들고 삭제합니다.
+# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Azure 큐 서비스를 사용 하 여 node.js에서 큐 만들기 및 삭제
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
@@ -83,7 +83,7 @@ queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
 큐가 만들어지면 `result.created` 는 true가 됩니다. 큐가 있을 경우 `result.created` 는 false가 됩니다.
 
 ### <a name="filters"></a>필터
-**QueueService**를 사용하여 수행되는 작업에 선택적 필터링 작업을 적용할 수 있습니다. 필터링 작업에는 로깅, 자동 재시도 등이 포함될 수 있습니다. 필터는 시그니처를 사용하여 메서드를 구현하는 개체입니다.
+**QueueService**를 사용하여 수행되는 작업에 선택적 필터링 작업을 적용할 수 있습니다. 필터링 작업은 로깅, 자동 재시도 등을 포함할 수 있습니다. 필터는 시그니처를 사용 하 여 메서드를 구현 하는 개체입니다.
 
 ```javascript
 function handle (requestOptions, next)
@@ -105,7 +105,7 @@ var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>큐에 메시지를 삽입하는 방법
-큐에 메시지를 삽입하려면 **createMessage** 메서드를 사용하여 새 메시지를 만들고 큐에 추가합니다.
+큐에 메시지를 삽입 하려면 **createMessage** 메서드를 사용 하 여 새 메시지를 만들고 큐에 추가 합니다.
 
 ```javascript
 queueSvc.createMessage('myqueue', "Hello world!", function(error, results, response){
@@ -116,7 +116,7 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, results, respo
 ```
 
 ## <a name="how-to-peek-at-the-next-message"></a>다음 메시지를 보는 방법
-**peekMessages** 메서드를 호출하여 큐에서 메시지를 제거하지 않고 큐 앞에 있는 메시지를 엿볼 수 있습니다. 기본적으로 **peekMessages** 는 단일 메시지를 볼 수 있게 해 줍니다.
+큐에서 메시지를 제거 하지 않고도 **peekMessages** 메서드를 호출 하 여 큐의 맨 앞에 있는 메시지를 볼 수 있습니다. 기본적으로 **peekMessages** 는 단일 메시지를 볼 수 있게 해 줍니다.
 
 ```javascript
 queueSvc.peekMessages('myqueue', function(error, results, response){
@@ -230,7 +230,7 @@ queueSvc.listQueuesSegmented(null, function(error, results, response){
 큐를 모두 반환할 수 없는 경우에는 `result.continuationToken`을 **listQueuesSegmented**의 첫 번째 매개 변수나 **listQueuesSegmentedWithPrefix**의 두 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다.
 
 ## <a name="how-to-delete-a-queue"></a>방법: 큐 삭제
-큐와 큐에 포함된 모든 메시지를 삭제하려면 큐 개체에서 **deleteQueue** 메서드를 호출합니다.
+큐 및 해당 큐에 포함 된 모든 메시지를 삭제 하려면 큐 개체의 **deleteQueue** 메서드를 호출 합니다.
 
 ```javascript
 queueSvc.deleteQueue(queueName, function(error, response){
@@ -327,7 +327,7 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ## <a name="next-steps"></a>다음 단계
 이제 Queue Storage의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 스토리지 작업에 대해 알아보세요.
 
-* Azure [저장소 팀 블로그를][Azure Storage Team Blog]방문합니다.
+* [Azure Storage 팀 블로그][Azure Storage Team Blog]를 방문 하세요.
 * GitHub에서 [Azure Storage SDK for Node][Azure Storage SDK for Node] 리포지토리를 방문하세요.
 
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da318840426d1c0b94eab06b89ff3152df9d26fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331102"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>포트 및 프로토콜이 필요한 하이브리드 ID
@@ -37,29 +37,29 @@ ms.locfileid: "80331102"
 | Kerberos |88(TCP/UDP) |AD 포리스트에 대한 Kerberos 인증. |
 | MS-RPC |135 (TCP) |AD 포리스트를 바인딩할 때 Azure AD Connect 마법사의 초기 구성 중 및 암호 동기화 중에도 사용합니다. |
 | LDAP |389(TCP/UDP) |AD에서 데이터를 가져오기 위해 사용합니다. 데이터가 Kerberos 서명 및 봉인으로 암호화됩니다. |
-| SMB | 445(TCP) |AD 포리스트에서 컴퓨터 계정을 만들기 위해 Seamless SSO에서 사용합니다. |
-| LDAP/SSL |636(TCP/UDP) |AD에서 데이터를 가져오기 위해 사용합니다. 데이터 전송이 서명 및 암호화합니다. TLS를 사용하는 경우에만 사용됩니다. |
-| RPC |49152- 65535 (임의 높은 RPC 포트)(TCP) |AD 포리스트를 바인딩할 때 Azure AD Connect의 초기 구성 중 및 암호 동기화 중에 사용합니다. 자세한 내용은 [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) 및 [KB224196](https://support.microsoft.com/kb/224196)을 참조하세요. |
-|WinRM  | 5985(TCP) |Azure AD 연결 마법사에서 gMSA를 사용하여 AD FS를 설치하는 경우에만 사용됩니다.|
-|AD DS 웹 서비스 | 9389 (TCP) |Azure AD 연결 마법사에서 gMSA를 사용하여 AD FS를 설치하는 경우에만 사용됩니다. |
+| SMB | 445 (TCP) |AD 포리스트에서 컴퓨터 계정을 만들기 위해 Seamless SSO에서 사용합니다. |
+| LDAP/SSL |636(TCP/UDP) |AD에서 데이터를 가져오기 위해 사용합니다. 데이터 전송이 서명 및 암호화합니다. TLS를 사용 하는 경우에만 사용 됩니다. |
+| RPC |49152-65535 (임의의 상위 RPC 포트) (TCP) |AD 포리스트를 바인딩할 때 Azure AD Connect의 초기 구성 중 및 암호 동기화 중에 사용합니다. 자세한 내용은 [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) 및 [KB224196](https://support.microsoft.com/kb/224196)을 참조하세요. |
+|WinRM  | 5985 (TCP) |GMSA를 사용 하 여 AD FS Azure AD Connect 마법사를 설치 하는 경우에만 사용 됩니다.|
+|AD DS 웹 서비스 | 9389 (TCP) |GMSA를 사용 하 여 AD FS Azure AD Connect 마법사를 설치 하는 경우에만 사용 됩니다. |
 
 ## <a name="table-2---azure-ad-connect-and-azure-ad"></a>테이블 2 - Azure AD Connect 및 Azure AD
 이 테이블은 Azure AD Connect 서버 및 Azure AD 간의 통신에 필요한 포트와 프로토콜에 대해 설명합니다.
 
 | 프로토콜 | 포트 | 설명 |
 | --- | --- | --- |
-| HTTP |80 (TCP) |TLS/SSL 인증서를 확인하기 위해 CRL(인증서 해지 목록)을 다운로드하는 데 사용됩니다. |
-| HTTPS |443(TCP) |Azure AD와 동기화하는 데 사용합니다. |
+| HTTP |80 (TCP) |TLS/SSL 인증서를 확인 하기 위해 Crl (인증서 해지 목록)을 다운로드 하는 데 사용 됩니다. |
+| HTTPS |443 (TCP) |Azure AD와 동기화하는 데 사용합니다. |
 
-방화벽에서 열어야 하는 URL 및 IP 주소 목록은 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 및 Azure [AD Connect 연결 문제 해결을](tshoot-connect-connectivity.md#troubleshoot-connectivity-issues-in-the-installation-wizard)참조하십시오.
+방화벽에서 열어야 하는 Url 및 IP 주소 목록은 [Office 365 url 및 ip 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 및 [Azure AD Connect 연결 문제 해결](tshoot-connect-connectivity.md#troubleshoot-connectivity-issues-in-the-installation-wizard)을 참조 하세요.
 
 ## <a name="table-3---azure-ad-connect-and-ad-fs-federation-serverswap"></a>테이블 3 - Azure AD Connect 및 AD FS 페더레이션 서버/WAP
 이 테이블은 Azure AD Connect 서버 및 AD FS 페더레이션 서버/WAP 서버 간의 통신에 필요한 포트와 프로토콜에 대해 설명합니다.  
 
 | 프로토콜 | 포트 | 설명 |
 | --- | --- | --- |
-| HTTP |80 (TCP) |TLS/SSL 인증서를 확인하기 위해 CRL(인증서 해지 목록)을 다운로드하는 데 사용됩니다. |
-| HTTPS |443(TCP) |Azure AD와 동기화하는 데 사용합니다. |
+| HTTP |80 (TCP) |TLS/SSL 인증서를 확인 하기 위해 Crl (인증서 해지 목록)을 다운로드 하는 데 사용 됩니다. |
+| HTTPS |443 (TCP) |Azure AD와 동기화하는 데 사용합니다. |
 | WinRM |5985 |WinRM 수신기 |
 
 ## <a name="table-4---wap-and-federation-servers"></a>테이블 4 - WAP 및 페더레이션 서버
@@ -67,14 +67,14 @@ ms.locfileid: "80331102"
 
 | 프로토콜 | 포트 | 설명 |
 | --- | --- | --- |
-| HTTPS |443(TCP) |인증에 사용합니다. |
+| HTTPS |443 (TCP) |인증에 사용합니다. |
 
 ## <a name="table-5---wap-and-users"></a>테이블 5 - WAP 및 사용자
 이 테이블은 사용자 및 WAP 서버 간의 통신에 필요한 포트와 프로토콜에 대해 설명합니다.
 
 | 프로토콜 | 포트 | 설명 |
 | --- | --- | --- |
-| HTTPS |443(TCP) |디바이스 인증에 사용합니다. |
+| HTTPS |443 (TCP) |디바이스 인증에 사용합니다. |
 | TCP |49443(TCP) |인증서 인증에 사용합니다. |
 
 ## <a name="table-6a--6b---pass-through-authentication-with-single-sign-on-sso-and-password-hash-sync-with-single-sign-on-sso"></a>테이블 6a / 6b - Single Sign-on(SSO)으로 통과 인증 및 Single Sign-on(SSO)와 암호 해시 동기화
@@ -104,10 +104,10 @@ ms.locfileid: "80331102"
 
 | 프로토콜 | 포트 | 설명 |
 | --- | --- | --- |
-| HTTPS |443(TCP) |아웃바운드 |
-| Azure Service Bus |5671(TCP) |아웃바운드 |
+| HTTPS |443 (TCP) |아웃바운드 |
+| Azure Service Bus |5671 (TCP) |아웃바운드 |
 
-Azure Service Bus 포트 5671은 최신 버전의 에이전트에 더 이상 필요하지 않습니다. 최신 Azure AD Connect 상태 에이전트 버전은 포트 443만 필요합니다.
+최신 버전의 에이전트에는 Azure Service Bus 포트 5671가 더 이상 필요 하지 않습니다. 최신 Azure AD Connect Health 에이전트 버전에는 포트 443만 필요 합니다.
 
 ### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>7b - Azure AD Connect Health 에이전트(AD FS/동기화)와 Azure AD에 대한 엔드포인트
 엔드포인트의 목록에 대한 자세한 내용은 [Azure AD Connect Health 에이전트에 대한 요구 사항 섹션](how-to-connect-health-agent-install.md#requirements)을 참조하세요.

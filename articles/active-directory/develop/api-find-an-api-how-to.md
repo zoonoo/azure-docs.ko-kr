@@ -1,5 +1,5 @@
 ---
-title: 맞춤형 앱용 API 찾기 | Azure
+title: 사용자 지정 개발 앱에 대 한 API 찾기 | Microsoft
 description: 사용자 지정 개발 Azure AD 애플리케이션에서 특정 API에 액세스하는 데 필요한 권한을 구성하는 방법
 services: active-directory
 author: rwike77
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.openlocfilehash: cd3b21050c6a442284647212fdf7c5707943ffc1
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885619"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>사용자 지정 개발 애플리케이션에 대해 필요한 특정 API를 찾는 방법
@@ -23,11 +23,11 @@ API에 액세스하려면 액세스 범위 및 역할을 구성해야 합니다.
 
 ## <a name="configuring-a-resource-application-to-expose-web-apis"></a>웹 API를 공개하는 리소스 애플리케이션 구성
 
-웹 API를 표시할 때, 권한을 앱 등록에 추가하면 API가 **API 선택** 목록에 표시됩니다. 액세스 범위를 추가하려면 응용 프로그램 구성에서 설명하는 단계를 [수행하여 웹 API를 노출합니다.](quickstart-configure-app-expose-web-apis.md)
+웹 API를 표시할 때, 권한을 앱 등록에 추가하면 API가 **API 선택** 목록에 표시됩니다. 액세스 범위를 추가 하려면 [웹 api를 노출 하도록 응용 프로그램 구성](quickstart-configure-app-expose-web-apis.md)에 설명 된 단계를 따르세요.
 
 ## <a name="configuring-a-client-application-to-access-web-apis"></a>웹 API에 액세스하는 클라이언트 애플리케이션 구성
 
-앱 등록에 권한을 추가할 때 표시된 웹 API에 **API 액세스 권한을 추가**할 수 있습니다. 웹 API에 액세스하려면 [웹 API에 액세스하기 위해 클라이언트 응용 프로그램 구성에](quickstart-configure-app-access-web-apis.md)설명된 단계를 따릅니다.
+앱 등록에 권한을 추가할 때 표시된 웹 API에 **API 액세스 권한을 추가**할 수 있습니다. 웹 Api에 액세스 하려면 [웹 api에 액세스 하도록 클라이언트 응용 프로그램 구성](quickstart-configure-app-access-web-apis.md)에 설명 된 단계를 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
-title: 웹 API를 호출하는 데스크톱 앱 등록 - Microsoft ID 플랫폼 | Azure
-description: 웹 API(앱 등록)를 호출하는 데스크톱 앱을 빌드하는 방법 알아보기
+title: 웹 Api를 호출 하는 데스크톱 앱 등록-Microsoft identity platform | Microsoft
+description: 웹 Api (앱 등록)를 호출 하는 데스크톱 앱을 빌드하는 방법 알아보기
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,48 +12,48 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 599603ba867e21694392e38e9692280f010e08eb
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885160"
 ---
-# <a name="desktop-app-that-calls-web-apis-app-registration"></a>웹 API를 호출하는 데스크톱 앱: 앱 등록
+# <a name="desktop-app-that-calls-web-apis-app-registration"></a>웹 Api를 호출 하는 데스크톱 앱: 앱 등록
 
-이 문서에서는 데스크톱 응용 프로그램에 대한 앱 등록 세부 사항을 다룹니다.
+이 문서에서는 데스크톱 응용 프로그램에 대 한 앱 등록 세부 사항을 설명 합니다.
 
 ## <a name="supported-account-types"></a>지원되는 계정 유형
 
-데스크톱 응용 프로그램에서 지원되는 계정 유형은 점등하려는 경험에 따라 다릅니다. 이 관계 때문에 지원되는 계정 형식은 사용하려는 흐름에 따라 달라집니다.
+데스크톱 응용 프로그램에서 지원 되는 계정 유형은 강화 하려는 환경에 따라 달라 집니다. 이 관계로 인해 지원 되는 계정 유형은 사용 하려는 흐름에 따라 달라 집니다.
 
-### <a name="audience-for-interactive-token-acquisition"></a>대화형 토큰 수집을 위한 청중
+### <a name="audience-for-interactive-token-acquisition"></a>대화형 토큰 획득을 위한 대상 그룹
 
-데스크톱 응용 프로그램에서 대화형 인증을 사용하는 경우 모든 [계정 유형의](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)사용자를 로그인할 수 있습니다.
+데스크톱 응용 프로그램에서 대화형 인증을 사용 하는 경우 모든 [계정 유형에](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)서 사용자에 게 로그인 할 수 있습니다.
 
-### <a name="audience-for-desktop-app-silent-flows"></a>데스크톱 앱 무음 흐름에 대한 잠재고객
+### <a name="audience-for-desktop-app-silent-flows"></a>데스크톱 앱 자동 흐름의 대상
 
-- 통합 Windows 인증 또는 사용자 이름 및 암호를 사용하려면 LOB(기간 업무) 개발자인 경우 응용 프로그램이 사용자 고유의 테넌트의 사용자를 로그인해야 합니다. 또는 Azure Active Directory 조직에서는 ISV 시나리오인 경우 응용 프로그램이 사용자 고유의 테넌트에 로그인해야 합니다. 이러한 인증 흐름은 Microsoft 개인 계정에서 지원되지 않습니다.
-- 장치 코드 흐름을 사용하려는 경우 Microsoft 개인 계정으로 사용자를 로그인할 수 없습니다.
-- B2C(비즈니스-상거래) 권한 및 정책을 통과하는 소셜 ID를 사용하여 사용자를 로그인하는 경우 대화형 및 사용자 이름 암호 인증만 사용할 수 있습니다.
+- Windows 통합 인증 또는 사용자 이름 및 암호를 사용 하려면 응용 프로그램이 사용자의 테 넌 트에 로그인 해야 합니다 (예: LOB (기간 업무) 개발자 인 경우). 또는 Azure Active Directory 조직에서는 ISV 시나리오용 경우 응용 프로그램에서 사용자 고유의 테 넌 트에서 사용자를 로그인 해야 합니다. 이러한 인증 흐름은 Microsoft 개인 계정에 대해 지원 되지 않습니다.
+- 장치 코드 흐름을 사용 하려는 경우에는 Microsoft 개인 계정으로 사용자를 로그인 할 수 없습니다.
+- B2C (비즈니스 간) 기관 및 정책을 전달 하는 소셜 id를 사용 하 여 사용자를 로그인 하는 경우에는 대화형 및 사용자 이름-암호 인증만 사용할 수 있습니다.
 
 ## <a name="redirect-uris"></a>리디렉션 URI
 
-데스크톱 응용 프로그램에서 사용할 리디렉션 URI는 사용하려는 흐름에 따라 다릅니다.
+데스크톱 응용 프로그램에서 사용 하는 리디렉션 Uri는 사용 하려는 흐름에 따라 다릅니다.
 
-- 대화형 인증 또는 장치 코드 흐름을 `https://login.microsoftonline.com/common/oauth2/nativeclient`사용하는 경우 을 사용합니다. 이 구성을 달성하려면 응용 프로그램의 **인증** 섹션에서 해당 URL을 선택합니다.
+- 대화형 인증 또는 장치 코드 흐름을 사용 하는 경우 `https://login.microsoftonline.com/common/oauth2/nativeclient`를 사용 합니다. 이 구성을 얻으려면 응용 프로그램에 대 한 **인증** 섹션에서 해당 URL을 선택 합니다.
   
   > [!IMPORTANT]
-  > 오늘날 MSAL.NET Windows()에서`urn:ietf:wg:oauth:2.0:oob`실행되는 데스크톱 응용 프로그램에서 기본적으로 다른 리디렉션 URI를 사용합니다. 나중에 이 기본값을 변경하려는 것이 좋습니다. `https://login.microsoftonline.com/common/oauth2/nativeclient`
+  > 현재 MSAL.NET는 Windows (`urn:ietf:wg:oauth:2.0:oob`)에서 실행 되는 데스크톱 응용 프로그램에서 기본적으로 다른 리디렉션 URI를 사용 합니다. 나중에이 기본값을 변경 하려고 하므로를 사용 `https://login.microsoftonline.com/common/oauth2/nativeclient`하는 것이 좋습니다.
 
-- macOS용 기본 Objective-C 또는 Swift 앱을 빌드하는 경우 응용 프로그램의 번들 식별자를 기반으로 리디렉션 URI를 다음 형식으로 등록합니다: msauth.<your.app.bundle.id>://auth. <your.app.bundle.id> 응용 프로그램의 번들 식별자로 대체합니다.
-- 앱에서 통합 Windows 인증 또는 사용자 이름과 암호만 사용하는 경우 응용 프로그램에 대한 리디렉션 URI를 등록할 필요가 없습니다. 이러한 흐름은 Microsoft ID 플랫폼 v2.0 끝점으로 왕복합니다. 응용 프로그램은 특정 URI에서 다시 호출되지 않습니다.
-- 장치 코드 흐름, 통합 Windows 인증 및 사용자 이름과 암호를 리디렉션URI가 없는 기밀 클라이언트 응용 프로그램 흐름(데몬 응용 프로그램에 사용되는 클라이언트 자격 증명 흐름)에서 구분하려면 응용 프로그램이 공용 클라이언트 응용 프로그램임을 표현해야 합니다. 이 구성을 달성하려면 응용 프로그램의 **인증** 섹션으로 이동하십시오. 고급 **설정** 하위 섹션에서 **기본 클라이언트 유형** 단락에서 응용 프로그램 처리에 대해 **예가** **공용 클라이언트로**선택합니다.
+- MacOS 용 네이티브 목표-C 또는 Swift 앱을 빌드하는 경우 응용 프로그램의 번들 식별자를 사용 하 여 리디렉션 URI를 msauth 형식으로 등록 합니다. <your.app.bundle.id>:/. <your.app.bundle.id>을 응용 프로그램의 번들 식별자로 바꿉니다.
+- 응용 프로그램에서 Windows 통합 인증 또는 사용자 이름 및 암호만 사용 하는 경우 응용 프로그램에 대 한 리디렉션 URI를 등록할 필요가 없습니다. 이러한 흐름은 Microsoft identity platform v2.0 끝점으로의 왕복을 수행 합니다. 응용 프로그램은 특정 URI에서 다시 호출 되지 않습니다.
+- 리디렉션 Uri가 없는 기밀 클라이언트 응용 프로그램 흐름 (디먼 응용 프로그램에서 사용 되는 클라이언트 자격 증명 흐름)의 장치 코드 흐름, 통합 Windows 인증 및 사용자 이름 및 암호를 구분 하려면 응용 프로그램이 공용 클라이언트 응용 프로그램 임을 표시 해야 합니다. 이 구성을 얻으려면 응용 프로그램에 대 한 **인증** 섹션으로 이동 합니다. **고급 설정** 하위 섹션의 **기본 클라이언트 형식** 단락에서 **예** 를 선택 하 여 **응용 프로그램을 공용 클라이언트로 처리**합니다.
 
   ![공용 클라이언트 허용](media/scenarios/default-client-type.png)
 
 ## <a name="api-permissions"></a>API 사용 권한
 
-데스크톱 응용 프로그램은 로그인한 사용자에 대해 API를 호출합니다. 위임된 권한을 요청해야 합니다. [데몬 응용](scenario-daemon-overview.md)프로그램에서만 처리되는 응용 프로그램 권한을 요청할 수 없습니다.
+데스크톱 응용 프로그램은 로그인 한 사용자에 대 한 Api를 호출 합니다. 위임 된 권한을 요청 해야 합니다. [디먼 응용 프로그램](scenario-daemon-overview.md)에서만 처리 되는 응용 프로그램 사용 권한을 요청할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

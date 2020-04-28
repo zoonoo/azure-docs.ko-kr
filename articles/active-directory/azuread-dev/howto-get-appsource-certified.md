@@ -14,10 +14,10 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 3ad4efa3b8126a9b9c6557822f61e3bfff3fe120
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154885"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory에 대해 인증된 AppSource 가져오는 방법
@@ -30,7 +30,7 @@ AppSource에서 독립 실행형 SaaS 애플리케이션을 나열하려면 애�
 
 ## <a name="guides-and-code-samples"></a>지침 및 코드 샘플
 
-Open ID 연결을 사용하여 응용 프로그램을 Azure AD와 통합하는 방법에 대해 알아보려면 Azure [Active Directory 개발자 가이드의](v1-overview.md#get-started "개발자를 위한 Azure AD 시작")가이드 및 코드 샘플을 따르십시오.
+Open ID connect를 사용 하 여 응용 프로그램을 Azure AD와 통합 하는 방법을 알아보려면 [Azure Active Directory 개발자 가이드](v1-overview.md#get-started "개발자 용 Azure AD 시작")의 가이드 및 코드 샘플을 따르세요.
 
 ## <a name="multi-tenant-applications"></a>다중 테넌트 애플리케이션
 
@@ -55,11 +55,11 @@ Open ID 연결을 사용하여 응용 프로그램을 Azure AD와 통합하는 �
 
 ### <a name="free-trial-customer-led-trial-experience"></a>평가판(고객 주도 평가판 체험)
 
-고객 주도 평가판은 애플리케이션에 대한 단일 클릭 액세스를 제공하므로 AppSource에서 권장하는 체험입니다. 다음 예제에서는 이 환경의 모양을 보여 주며 다음과 같습니다.
+고객 주도 평가판은 애플리케이션에 대한 단일 클릭 액세스를 제공하므로 AppSource에서 권장하는 체험입니다. 다음 예제에서는이 환경을 보여 줍니다.
 
 <table >
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt-text="Shows Free trial for customer-led trial experience"/><ul><li>사용자는 AppSource 웹 사이트에서 애플리케이션을 찾습니다.</li><li>'무료 평가판' 옵션 선택</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt-text="Shows Free trial for customer-led trial experience"/><ul><li>사용자는 AppSource 웹 사이트에서 애플리케이션을 찾습니다.</li><li>' 무료 평가판 ' 옵션을 선택 합니다.</li></ul></td>
     <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" alt-text="Shows how user is redirected to a URL in your web site"/><ul><li>AppSource는 웹 사이트의 URL로 사용자를 리디렉션합니다.</li><li>웹 사이트는 <i>Single Sign-On</i> 프로세스를 자동으로 시작합니다(페이지 로드에서).</li></ul></td>
     <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%" alt-text="Shows the Microsoft sign-in page"/><ul><li>사용자는 Microsoft 로그인 페이지로 리디렉션됩니다.</li><li>사용자는 로그인하기 위해 자격 증명을 제공합니다.</li></ul></td>
 </tr>
@@ -76,7 +76,7 @@ Open ID 연결을 사용하여 응용 프로그램을 Azure AD와 통합하는 �
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt-text="Shows Contact me for partner-led trial experience"/><ul><li>사용자는 AppSource 웹 사이트에서 애플리케이션을 찾습니다.</li><li>'연락하기' 옵션 선택</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt-text="Shows Contact me for partner-led trial experience"/><ul><li>사용자는 AppSource 웹 사이트에서 애플리케이션을 찾습니다.</li><li>' 연락처 ' 옵션을 선택 합니다.</li></ul></td>
     <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%" alt-text="Shows an example form with contact info"/><ul><li>연락처 정보로 양식을 작성합니다.</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
@@ -104,7 +104,7 @@ Open ID 연결을 사용하여 응용 프로그램을 Azure AD와 통합하는 �
 </tr>
 </table>
 
-### <a name="more-information"></a>자세한 정보
+### <a name="more-information"></a>추가 정보
 
 AppSource 평가판 체험에 대한 자세한 내용은 [이 비디오](https://aka.ms/trialexperienceforwebapps)를 참조하세요. 
 
@@ -117,7 +117,7 @@ AppSource 평가판 체험에 대한 자세한 내용은 [이 비디오](https:/
 
 Azure AD 통합의 경우 지원을 제공하기 위해 커뮤니티와 함께 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource)를 사용합니다.
 
-먼저 Stack Overflow에 질문하고 이전에 다른 사용자가 질문했는지 확인하기 위해 기존 문제를 찾아보는 것이 좋습니다. 질문 또는 댓글에 태그가 지정되어 [ `[azure-active-directory]` `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource)있는지 확인합니다.
+먼저 Stack Overflow에 질문하고 이전에 다른 사용자가 질문했는지 확인하기 위해 기존 문제를 찾아보는 것이 좋습니다. 질문이 나 주석에 [ `[azure-active-directory]` 및 `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource)로 태그를 지정 해야 합니다.
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 

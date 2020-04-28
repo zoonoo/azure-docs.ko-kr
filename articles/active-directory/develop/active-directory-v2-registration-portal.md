@@ -1,7 +1,7 @@
 ---
-title: 앱 등록 포털 참조 | Azure
+title: 앱 등록 포털 참조 | Microsoft
 titleSuffix: Microsoft identity platform
-description: Microsoft 앱 등록 포털의 기능에 대한 설명입니다.
+description: Microsoft 앱 등록 포털의 기능에 대 한 설명입니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,27 +14,27 @@ ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.openlocfilehash: 910aaf84d3563d4410826d3c0bdfde3d2dfc75e3
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885636"
 ---
 # <a name="app-registration-reference"></a>앱 등록 참조
 
-이 문서에서는 Azure 포털의 [앱 등록](https://aka.ms/appregistrations) 환경에서 발견되는 다양한 기능에 대한 컨텍스트 및 설명을 제공합니다.
+이 문서에서는 Azure Portal에서 [앱 등록](https://aka.ms/appregistrations) 환경에 있는 다양 한 기능에 대 한 컨텍스트 및 설명을 제공 합니다.
 
 ## <a name="my-applications-or-converged-applications"></a>내 애플리케이션 또는 수렴된 애플리케이션
 
-이 목록에는 Microsoft ID 플랫폼(v2.0) 끝점에 사용하도록 등록된 모든 응용 프로그램이 포함됩니다. 이러한 애플리케이션은 Azure Active Directory에서 개인 Microsoft 계정 및 회사/학교 계정 모두를 사용하는 사용자를 로그인할 수 있습니다. ID 플랫폼 끝점에 대한 자세한 내용은 [v2.0 개요를](active-directory-appmodel-v2-overview.md)참조하십시오. 이러한 애플리케이션을 사용하여 Microsoft 계정 인증 엔드포인트인 `https://login.live.com`과 통합할 수도 있습니다.
+이 목록에는 v2.0 (Microsoft identity platform) 끝점과 함께 사용 하도록 등록 된 모든 응용 프로그램이 포함 되어 있습니다. 이러한 애플리케이션은 Azure Active Directory에서 개인 Microsoft 계정 및 회사/학교 계정 모두를 사용하는 사용자를 로그인할 수 있습니다. Id 플랫폼 끝점에 대 한 자세한 내용은 v2.0 [개요](active-directory-appmodel-v2-overview.md)를 참조 하세요. 이러한 애플리케이션을 사용하여 Microsoft 계정 인증 엔드포인트인 `https://login.live.com`과 통합할 수도 있습니다.
 
 ## <a name="azure-ad-only-applications"></a>Azure AD 전용 애플리케이션
 
-이 목록에는 Azure AD v1.0 엔드포인트에서 사용하도록 등록된 모든 애플리케이션이 포함되어 있습니다. 이러한 애플리케이션에는 Azure Active Directory에서 회사/학교 계정을 사용하여 사용자를 로그인하는 기능만 있습니다. 이 목록에는 [Azure Portal의](https://portal.azure.com)앱 등록 환경을 사용하여 등록된 응용 프로그램이 **포함됩니다.**
+이 목록에는 Azure AD v1.0 엔드포인트에서 사용하도록 등록된 모든 애플리케이션이 포함되어 있습니다. 이러한 애플리케이션에는 Azure Active Directory에서 회사/학교 계정을 사용하여 사용자를 로그인하는 기능만 있습니다. 이 목록에는 [Azure Portal](https://portal.azure.com)에서 **앱 등록** 환경을 사용 하 여 등록 된 응용 프로그램이 포함 됩니다.
 
 ## <a name="live-sdk-applications"></a>Live SDK 애플리케이션
 
-이 목록에는 Microsoft 계정으로만 사용하도록 등록된 모든 애플리케이션이 포함되어 있습니다. Azure Active Directory에는 사용할 수 없습니다. 여기서는 이전에 `https://account.live.com/developers/applications`의 MSA 개발자 포털에 등록된 모든 애플리케이션을 찾을 수 있습니다. 이전에 수행한 모든 기능을 `https://account.live.com/developers/applications` 이제 [앱 등록에서](https://aka.ms/appregistrations)수행할 수 있습니다.
+이 목록에는 Microsoft 계정으로만 사용하도록 등록된 모든 애플리케이션이 포함되어 있습니다. Azure Active Directory에는 사용할 수 없습니다. 여기서는 이전에 `https://account.live.com/developers/applications`의 MSA 개발자 포털에 등록된 모든 애플리케이션을 찾을 수 있습니다. 에서 이전에 수행한 모든 함수를 `https://account.live.com/developers/applications` 이제 [앱 등록](https://aka.ms/appregistrations)에서 수행할 수 있습니다.
 
 ## <a name="application-secrets"></a>애플리케이션 비밀
 
@@ -51,8 +51,8 @@ ms.locfileid: "80885636"
 
 ## <a name="live-sdk-support"></a>Live SDK 지원
 
-"Live SDK 지원"을 사용하도록 설정하면 만든 애플리케이션 암호 모두가 Azure AD 및 Microsoft 계정 데이터 저장소 모두에 프로비전됩니다. 이렇게 하면 애플리케이션을 Microsoft 계정 서비스(login.live.com)와 직접 통합할 수 있습니다. v2.0 끝점을 사용하는 것이 아니라 Microsoft 계정을 사용하여 앱을 직접 빌드하려면 라이브 SDK 지원이 활성화되어 있는지 확인해야 합니다.
+"Live SDK 지원"을 사용하도록 설정하면 만든 애플리케이션 암호 모두가 Azure AD 및 Microsoft 계정 데이터 저장소 모두에 프로비전됩니다. 이렇게 하면 애플리케이션을 Microsoft 계정 서비스(login.live.com)와 직접 통합할 수 있습니다. V2.0 끝점을 사용 하는 대신 Microsoft 계정을 사용 하 여 앱을 직접 빌드하려면 Live SDK 지원이 사용 하도록 설정 되어 있는지 확인 해야 합니다.
 
 Live SDK 지원을 사용하지 않도록 설정하면 애플리케이션 비밀만 Azure AD 데이터 저장소에 기록됩니다. Azure AD 데이터 저장소는 FISMA 규정 준수 등의 특정 표준을 충족하는 엔터프라이즈급 규정을 포함합니다. Live SDK 지원을 사용하도록 설정하면 애플리케이션이 이러한 일부 표준을 준수하지 못할 수 있습니다.
 
-v2.0 엔드포인트만 사용하려는 경우 라이브 SDK 지원을 안전하게 비활성화할 수 있습니다.
+V2.0 끝점을 사용 하려는 경우에만 라이브 SDK 지원을 안전 하 게 비활성화할 수 있습니다.

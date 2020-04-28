@@ -1,5 +1,5 @@
 ---
-title: Azure aD의 서비스 주체를 & 앱 | Azure
+title: Azure AD에서 서비스 사용자 & 앱 Microsoft
 titleSuffix: Microsoft identity platform
 description: Azure Active Directory의 애플리케이션 및 서비스 주체 개체 간의 관계에 대해 알아봅니다.
 author: rwike77
@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
 ms.openlocfilehash: a636ff15da09bcf1891618d65270376f26fd3239
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885602"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션 및 서비스 주체 개체
@@ -47,7 +47,7 @@ Azure AD와 통합된 애플리케이션은 소프트웨어 측면을 넘어서�
 
 ### <a name="application-object"></a>애플리케이션 개체
 
-Azure AD 애플리케이션은 애플리케이션의 "홈" 테넌트라고도 알려진, 애플리케이션이 등록된 Azure AD 테넌트에 상주하는 하나의 애플리케이션 개체에 의해서만 정의됩니다. Microsoft 그래프 [응용 프로그램 엔터티는][MS-Graph-App-Entity] 응용 프로그램 개체의 속성에 대한 스키마를 정의합니다.
+Azure AD 애플리케이션은 애플리케이션의 "홈" 테넌트라고도 알려진, 애플리케이션이 등록된 Azure AD 테넌트에 상주하는 하나의 애플리케이션 개체에 의해서만 정의됩니다. Microsoft Graph [응용 프로그램 엔터티][MS-Graph-App-Entity] 는 응용 프로그램 개체의 속성에 대 한 스키마를 정의 합니다.
 
 ### <a name="service-principal-object"></a>서비스 주체 개체
 
@@ -55,7 +55,7 @@ Azure AD 테넌트에 의해 보안이 유지되는 리소스에 액세스하려
 
 보안 주체는 Azure AD 테넌트의 사용자/애플리케이션에 대한 액세스 정책 및 권한을 정의합니다. 이를 통해 로그인 동안의 사용자/애플리케이션의 인증 및 리소스 액세스 동안의 권한 부여 같은 핵심 기능이 허용됩니다.
 
-애플리케이션이 테넌트의 리소스에 액세스하기 위한 권한을 받으면(등록 또는 [동의](developer-glossary.md#consent) 시) 서비스 주체 개체가 만들어집니다. Microsoft 그래프 [ServicePrincipal 엔터티는][MS-Graph-Sp-Entity] 서비스 주체 개체의 속성에 대한 스키마를 정의합니다.
+애플리케이션이 테넌트의 리소스에 액세스하기 위한 권한을 받으면(등록 또는 [동의](developer-glossary.md#consent) 시) 서비스 주체 개체가 만들어집니다. Microsoft Graph [serviceprincipal 엔터티][MS-Graph-Sp-Entity] 는 서비스 주체 개체의 속성에 대 한 스키마를 정의 합니다.
 
 ### <a name="application-and-service-principal-relationship"></a>애플리케이션 및 서비스 주체 관계
 
@@ -74,11 +74,11 @@ Azure AD 테넌트에 의해 보안이 유지되는 리소스에 액세스하려
 
 다음 다이어그램은 **HR 앱**이라는 샘플 다중 테넌트 애플리케이션의 컨텍스트에서 애플리케이션의 애플리케이션 개체와 해당 서비스 주체 개체를 보여 줍니다. 이 예제 시나리오에는 다음 세 가지 Azure AD 테넌트가 있습니다.
 
-- **Adatum** - **HR 앱을** 개발한 회사에서 사용하는 테넌트
-- **Contoso** - **HR 앱의** 소비자인 Contoso 조직에서 사용하는 테넌트
+- **Adatum** - **HR 앱** 을 개발한 회사에서 사용 하는 테 넌 트
+- **Contoso** - **HR 앱** 의 소비자 인 contoso 조직에서 사용 하는 테 넌 트
 - **Fabrikam** - **HR 앱**의 또 다른 소비자인 Fabrikam 조직에서 사용하는 테넌트
 
-![앱 개체와 서비스 주 개체 간의 관계](./media/app-objects-and-service-principals/application-objects-relationship.svg)
+![앱 개체와 서비스 주체 개체 간의 관계](./media/app-objects-and-service-principals/application-objects-relationship.svg)
 
 이 예제 시나리오는 다음과 같이 이루어져 있습니다.
 
@@ -90,9 +90,9 @@ Azure AD 테넌트에 의해 보안이 유지되는 리소스에 액세스하려
 
 ## <a name="next-steps"></a>다음 단계
 
-- Microsoft 그래프 [탐색기를](https://developer.microsoft.com/graph/graph-explorer) 사용하여 응용 프로그램 및 서비스 주 체 개체를 모두 쿼리할 수 있습니다.
-- OData 응용 프로그램 [엔터티로][MS-Graph-App-Entity]표시되는 대로 Microsoft 그래프 API, [Azure 포털의][AZURE-Portal] 응용 프로그램 매니페스트 편집기 또는 [Azure AD PowerShell cmdlets를](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)사용하여 응용 프로그램의 응용 프로그램 개체에 액세스할 수 있습니다.
-- OData [ServicePrincipal 엔터티로][MS-Graph-Sp-Entity]표시되는 대로 Microsoft 그래프 API 또는 [Azure AD PowerShell cmdlet을](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)통해 응용 프로그램의 서비스 주체 개체에 액세스할 수 있습니다.
+- [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer) 를 사용 하 여 응용 프로그램 및 서비스 주체 개체를 모두 쿼리할 수 있습니다.
+- OData [응용 프로그램 엔터티로][MS-Graph-App-Entity]표시 되는 Microsoft Graph API, [Azure Portal의][AZURE-Portal] 응용 프로그램 매니페스트 편집기 또는 [Azure AD PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)을 사용 하 여 응용 프로그램의 응용 프로그램 개체에 액세스할 수 있습니다.
+- OData [serviceprincipal 엔터티][MS-Graph-Sp-Entity]를 통해 표시 된 대로 Microsoft Graph API 또는 [Azure AD PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)을 통해 응용 프로그램의 서비스 주체 개체에 액세스할 수 있습니다.
 
 <!--Image references-->
 
