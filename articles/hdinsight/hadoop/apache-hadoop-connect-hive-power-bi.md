@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: ad696f37c89bab87ce9854bc3ba2a995cd0ea569
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 1eb3da3759f5fca1bc5d675a9b2d61fcf9358bd4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82142175"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195471"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Azure HDInsight의 ODBC를 사용하여 Microsoft Power BI와 Apache Hive 데이터 시각화
 
@@ -28,7 +28,7 @@ ODBC를 사용 하 여 Microsoft Power BI Desktop를 Azure HDInsight에 연결 �
 
 정보는 새 [대화형 쿼리](../interactive-query/apache-interactive-query-get-started.md) 클러스터 유형에도 적용됩니다. 직접 쿼리를 사용하여 HDInsight 대화형 쿼리에 연결하는 방법은 [Visualize Interactive Query Hive data with Microsoft Power BI using direct query in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)(Azure HDInsight의 직접 쿼리를 사용하여 Microsoft Power BI로 대화형 쿼리 Hive 데이터 시각화)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
@@ -52,7 +52,7 @@ ODBC를 사용 하 여 Microsoft Power BI Desktop를 Azure HDInsight에 연결 �
 
 1. **데이터 가져오기** 대화 상자의 왼쪽에서 **기타** 를 선택 하 고 오른쪽에서 **ODBC** 를 선택한 다음 아래쪽에서 **연결** 을 선택 합니다.
 
-1. **ODBC에서** 대화 상자의 드롭다운 목록에서 마지막 섹션에 만든 데이터 원본 이름을 선택 합니다. 그런 다음, **확인**을 선택합니다.
+1. **ODBC에서** 대화 상자의 드롭다운 목록에서 마지막 섹션에 만든 데이터 원본 이름을 선택 합니다. 그런 다음 **확인**을 선택합니다.
 
 1. 처음 사용 하는 경우 **ODBC 드라이버** 대화 상자가 열립니다. 왼쪽 메뉴에서 **기본값 또는 사용자 지정** 을 선택 합니다. 그런 다음 **연결** 을 선택 하 여 **탐색기**를 엽니다.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: terrylan
-ms.openlocfilehash: 58deae64bdde27580b85b00a1c87ba115e24478a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 5b04bbbbe5425e65f3ed4ff82d9700dec6dd2c39
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159901"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188330"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Azure AD 앱에 대 한 보안 앱 개발
 ## <a name="overview"></a>개요
@@ -35,7 +35,7 @@ ms.locfileid: "82159901"
 - 프런트 엔드 방화벽 액세스와 전용으로 격리 된 Azure 웹 앱을 배포 합니다. 
 - OWASP Top 10 규칙 집합을 사용 하는 방화벽을 사용 하 여 Azure 애플리케이션 게이트웨이 인스턴스를 만들고 구성 합니다. 
 - Azure 서비스를 사용 하 여 전송 중인 데이터와 미사용 데이터의 암호화를 사용 하도록 설정 합니다. 
-- Azure policy 및 security center를 설정 하 여 compliancies를 평가 합니다. 
+- Azure Policy 및 security center를 설정 하 여 규정 준수를 평가 합니다. 
 
 이 앱을 개발 하 고 배포한 후 설명 된 구성 및 보안 측정값과 함께 다음 샘플 웹 앱을 설정 합니다.
 
@@ -484,7 +484,7 @@ Azure는 관리자가 포털에 로그인 하는 데 2 단계 인증이 필요 �
    3. MFA를 사용 하도록 설정할 사용자 또는 그룹을 선택 합니다.
    4. **액세스 제어**에서 **허용** 탭을 선택한 후 **다단계 인증 필요** 및 기타 설정을 선택 합니다.
 
-   ![MFA 요구](./media/secure-aad-app/ad-mfa-conditional-add.png)
+   ![MFA 필요](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
    화면 위쪽의 확인란을 선택 하 여 정책을 사용 하도록 설정 하거나 **조건부 액세스** 탭에서이 작업을 수행할 수 있습니다. 이 정책을 사용 하도록 설정 하면 사용자가 포털에 로그인 하려면 MFA가 필요 합니다.
 

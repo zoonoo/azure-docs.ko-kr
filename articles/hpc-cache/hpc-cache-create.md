@@ -4,14 +4,14 @@ description: Azure HPC Cache 인스턴스를 만드는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: efa9037b345cdfc5f165e9c5e0c1831ea97b52ed
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 4ff31ca6a171beece1672802367f08768676efbc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106494"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195012"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Azure HPC Cache 만들기
 
@@ -29,7 +29,7 @@ Azure Portal을 사용하여 캐시를 만듭니다.
 
 * 위치 - [지원되는 지역](hpc-cache-overview.md#region-availability) 중 하나를 선택합니다.
 * 가상 네트워크 - 기존 가상 네트워크를 선택하거나 새 가상 네트워크를 만들 수 있습니다.
-* 서브넷 - 이 Azure HPC Cache 인스턴스에만 사용되고 IP 주소가 64개 이상(/24)인 서브넷을 선택하거나 만듭니다.
+* 서브넷-64 개 이상의 IP 주소 (/24)를 사용 하 여 서브넷을 선택 하거나 만듭니다. 이 서브넷은이 Azure HPC 캐시 인스턴스에만 사용 해야 합니다.
 
 ## <a name="set-cache-capacity"></a>캐시 용량 설정
 <!-- referenced from GUI - update aka.ms link if you change this header text -->
@@ -45,15 +45,15 @@ Azure Portal을 사용하여 캐시를 만듭니다.
 
 사용 가능한 처리량 값과 캐시 스토리지 크기 중 하나를 선택합니다.
 
-실제 데이터 전송률은 워크로드, 네트워크 속도 및 스토리지 대상 유형에 따라 달라집니다. 선택한 값은 전체 캐시 시스템의 최대 처리량을 설정하지만 일부는 오버헤드 작업에 사용됩니다. 예를 들어 클라이언트가 캐시에 아직 저장되지 않은 파일을 요청하거나 파일이 오래된 것으로 표시된 경우 캐시는 일부 처리량을 사용하여 백 엔드 스토리지에서 가져옵니다.
+실제 데이터 전송률은 워크로드, 네트워크 속도 및 스토리지 대상 유형에 따라 달라집니다. 선택한 값은 전체 캐시 시스템의 최대 처리량을 설정하지만 일부는 오버헤드 작업에 사용됩니다. 예를 들어 클라이언트가 캐시에 아직 저장 되지 않은 파일을 요청 하거나 파일이 오래 된 것으로 표시 된 경우 캐시는 해당 처리량 중 일부를 사용 하 여 백 엔드 저장소에서 가져옵니다.
 
-Azure HPC Cache는 캐시 적중률을 최대화하기 위해 캐시되고 미리 로드되는 파일을 관리합니다. 캐시 콘텐츠는 지속적으로 평가되며, 자주 액세스하지 않는 파일은 장기 스토리지로 이동됩니다. 메타데이터와 기타 오버헤드를 위한 추가 공간과 함께 활성 작업 파일 세트를 여유 있게 저장할 수 있는 캐시 스토리지 크기를 선택합니다.
+Azure HPC Cache는 캐시 적중률을 최대화하기 위해 캐시되고 미리 로드되는 파일을 관리합니다. 캐시 콘텐츠는 지속적으로 평가 되며, 자주 액세스 하지 않을 때 파일은 장기 저장소로 이동 됩니다. 활성 작업 파일 집합을 편안 하 게 유지할 수 있는 캐시 저장소 크기와 메타 데이터 및 기타 오버 헤드를 위한 추가 공간을 선택 합니다.
 
 ![캐시 크기 페이지 스크린샷](media/hpc-cache-create-capacity.png)
 
 ## <a name="enable-azure-key-vault-encryption-optional"></a>Azure Key Vault 암호화 사용 (선택 사항)
 
-캐시가 고객이 관리 하는 암호화 키를 지 원하는 영역에 있는 경우 **디스크 암호화 키** 페이지가 **캐시** 및 **태그** 탭 사이에 표시 됩니다. 게시 시간에이 옵션은 미국 동부, 미국 서 부 및 미국 서 부 2에서 지원 됩니다.
+캐시가 고객이 관리 하는 암호화 키를 지 원하는 영역에 있는 경우 **디스크 암호화 키** 페이지가 **캐시** 및 **태그** 탭 사이에 표시 됩니다. 이 옵션은 게시 시 미국 동부, 미국 서 부 및 미국 서 부 2에서 지원 됩니다.
 
 캐시 저장소에 사용 되는 암호화 키를 관리 하려면 **디스크 암호화 키** 페이지에서 Azure Key Vault 정보를 제공 합니다. 키 자격 증명 모음은 캐시와 동일한 구독 및 동일한 지역에 있어야 합니다.
 

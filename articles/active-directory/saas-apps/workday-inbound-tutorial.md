@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 298c99d44328dc79db1722b450ad74c3929d0c12
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
-ms.translationtype: MT
+ms.openlocfilehash: 6a816f2235fa5356f2300255ec9d2fb2b315acf7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114436"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190319"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Workday 구성
 
@@ -87,13 +87,13 @@ Workday 통합을 시작하기 전에 다음과 같은 필수 조건을 확인�
 
 이 섹션에서는 계획의 다음 측면을 다룹니다.
 
-* [필수 구성 요소](#prerequisites)
+* [전제 조건](#prerequisites)
 * [배포할 프로비전 커넥터 앱 선택](#selecting-provisioning-connector-apps-to-deploy)
 * [Azure AD Connect 프로비전 에이전트 배포 계획](#planning-deployment-of-azure-ad-connect-provisioning-agent)
 * [여러 Active Directory 도메인과 통합](#integrating-with-multiple-active-directory-domains)
 * [Workday-Active Directory 사용자 특성 매핑 및 변환 계획](#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -369,7 +369,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 **Workday에서 Active Directory로의 프로비전을 구성하려면:**
 
-1. [https://editor.swagger.io](<https://portal.azure.com> ) 로 이동합니다.
+1. <https://portal.azure.com> 으로 이동합니다.
 
 2. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
 
@@ -482,7 +482,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
    * **연결 테스트** 단추를 클릭합니다. 연결 테스트가 성공하면 맨 위에서 **저장** 단추를 클릭합니다. 실패한 경우 에이전트 설치 시 구성된 Workday 자격 증명과 AD 자격 증명이 유효한지 재차 확인하세요.
 
-     ![Azure Portal](./media/workday-inbound-tutorial/wd_1.png)
+     ![Azure portal](./media/workday-inbound-tutorial/wd_1.png)
 
    * 자격 증명이 저장되면 **매핑** 섹션에 기본 매핑인 **Synchronize Workday Workers to On Premises Active Directory**(온-프레미스 Active Directory에 Workday 작업자 동기화)가 표시됩니다.
 
@@ -547,7 +547,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 1. 매핑을 저장 하려면 특성 매핑 섹션 맨 위에서 **저장** 을 클릭 합니다.
 
-   ![Azure Portal](./media/workday-inbound-tutorial/wd_2.png)
+   ![Azure portal](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>아래는 몇 가지 일반적인 식을 사용한 Workday와 Active Directory 간의 특성 매핑을 보여주는 예입니다.
 
@@ -562,7 +562,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 | **WorkerID**  |  EmployeeID | **예** | 만들기 작업 시에만 기록 |
 | **PreferredNameData**    |  cn    |   |   만들기 작업 시에만 기록 |
 | **SelectUniqueValue (조인 ("\@", join (".", \[FirstName\], \[LastName\]), "contoso.com"), join ("\@", join (".", mid (\[firstname\], 1, 1), \[lastname\]), "contoso.com"), join ("\@", join (".", mid (\[firstname\], 1, 2), \[lastname\]), "contoso.com"))**   | userPrincipalName     |     | 만들기 작업 시에만 기록 
-| **Replace (Mid (Replace (\[UserID\],, "(\[\\\\/\\\\\\\\\\\\\[\\\\:\\;)\]\\\\\\\\ \\\|\\\\=\\\\,\\\\+\\\\\*\\\\? \\\\\\) ",," ",,), 1, 20),," ([.) \\ &lt; \\ \\ &gt; \] \*file:///\\ \$ *$)", , "", , )**      |    sAMAccountName            |     |         만들기 작업 시에만 기록 |
+| `Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )`      |    sAMAccountName            |     |         만들기 작업 시에만 기록 |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | 만들기 + 업데이트 |
 | **FirstName**   | givenName       |     |    만들기 + 업데이트 |
 | **성이**   |   sn   |     |  만들기 + 업데이트 |
@@ -601,7 +601,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 **클라우드 전용 사용자에 대한 Workday-Azure Active Directory 프로비전을 구성하려면:**
 
-1. [https://editor.swagger.io](<https://portal.azure.com> ) 로 이동합니다.
+1. <https://portal.azure.com> 으로 이동합니다.
 
 2. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
 
@@ -703,7 +703,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 **Workday 쓰기 저장 커넥터를 구성하려면**
 
-1. [https://editor.swagger.io](<https://portal.azure.com> ) 로 이동합니다.
+1. <https://portal.azure.com> 으로 이동합니다.
 
 2. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
 
@@ -752,7 +752,7 @@ Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 
 
 1. **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
 
-2. **Save**을 클릭합니다.
+2. **저장**을 클릭합니다.
 
 3. 이 작업을 수행하면 초기 동기화가 시작되고, Workday 테넌트에 있는 사용자 수에 따라 동기화에 걸리는 시간이 달라질 수 있습니다. 
 
@@ -760,7 +760,7 @@ Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 
 
 5. 초기 동기화가 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
-   ![Azure Portal](./media/workday-inbound-tutorial/wd_3.png)
+   ![Azure portal](./media/workday-inbound-tutorial/wd_3.png)
 
 ## <a name="frequently-asked-questions-faq"></a>FAQ(질문과 대답)
 
@@ -867,7 +867,7 @@ Azure AD를 하이브리드 모드(클라우드 + 온-프레미스 사용자가 
 * **제어판** -> 으로 이동**프로그램 제거 또는 프로그램 메뉴 변경**
 * **Microsoft Azure AD Connect 프로비전 에이전트** 항목에 해당하는 버전 찾기
 
-  ![Azure Portal](./media/workday-inbound-tutorial/pa_version.png)
+  ![Azure portal](./media/workday-inbound-tutorial/pa_version.png)
 
 #### <a name="does-microsoft-automatically-push-provisioning-agent-updates"></a>Microsoft에서 프로비전 에이전트 업데이트를 자동으로 푸시하나요?
 

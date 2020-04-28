@@ -1,26 +1,27 @@
 ---
-title: 호튼웍스, Azure HDInsight 버전과 관련된 노트 출시
-description: Azure HDInsight에서 아파치 하두롭 구성 요소 및 버전에 대해 알아봅니다.
+title: Azure HDInsight 버전과 관련 된 Hortonworks 릴리스 정보
+description: Azure HDInsight의 Apache Hadoop 구성 요소 및 버전에 대해 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: cd14390419d5833e5d071f2cd410260421247387
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: aa20e048db2b68d8f953b06745570759de5f2e9c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82087661"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190574"
 ---
 # <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>HDInsight 버전과 관련된 Hortonworks 릴리스 정보
 
 섹션에서는 HDInsight에서 사용되는 Hortonworks Data Platform 배포 및 Apache 구성 요소의 릴리스 정보에 대한 링크를 제공합니다.
 
-## <a name="current-versions"></a>최신 버전
+## <a name="current-versions"></a>현재 버전
 
-* HDInsight 클러스터 버전 4.0은 [Hortonworks 데이터 플랫폼 3.0을](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html)기반으로 하는 Hadoop 배포판을 사용합니다.
+* HDInsight 클러스터 버전 4.0은 [Hortonworks Data Platform 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html)을 기반으로 하는 Hadoop 배포를 사용 합니다.
 
 * HDInsight 클러스터 버전 3.6에서는 [Hortonworks Data Platform 2.6](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html)을 기반으로 하는 Hadoop 배포를 사용합니다.
 

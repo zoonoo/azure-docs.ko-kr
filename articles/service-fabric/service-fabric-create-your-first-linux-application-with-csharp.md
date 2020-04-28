@@ -1,14 +1,14 @@
 ---
-title: 'C를 사용하여 Linux에서 첫 번째 Azure 서비스 패브릭 앱 만들기 #'
+title: 'C를 사용 하 여 Linux에서 첫 번째 Azure Service Fabric 앱 만들기 #'
 description: C# 및 .NET Core 2.0을 사용하여 Service Fabric 애플리케이션을 만들고 배포하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/11/2018
-ms.openlocfilehash: 202dde933b41a98c1c119f422d47cbdbb0be84ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 556d8dee4efd492fa98755f1ffd1cdc1c9887856
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458129"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193652"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>첫 번째 Azure Service Fabric 애플리케이션 만들기
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
    nvm install node 
    ```
-2. NPM에서 컴퓨터에 [Yeoman](https://yeoman.io/) 템플릿 생성기 설치
+2. NPM에서 컴퓨터에 [\오만](https://yeoman.io/) 템플릿 생성기 설치
 
    ```bash
    npm install -g yo
@@ -86,7 +86,7 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 
 애플리케이션 패키지 내에 생성된 매니페스트에서 이러한 명령의 매개 변수를 찾을 수 있습니다.
 
-애플리케이션이 배포되면 브라우저를 열고 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)에 있는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)로 이동합니다. 그런 다음 **애플리케이션** 노드를 확장하면 애플리케이션 형식에 대한 항목 및 해당 형식의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
+애플리케이션이 배포되면 브라우저를 열고 `http://localhost:19080/Explorer`에 있는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)로 이동합니다. 그런 다음 **애플리케이션** 노드를 확장하면 애플리케이션 형식에 대한 항목 및 해당 형식의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
 
 > [!IMPORTANT]
 > 애플리케이션을 Azure의 보안 Linux 클러스터에 배포하려면 Service Fabric 런타임으로 애플리케이션의 유효성을 검사하는 인증서를 구성해야 합니다. 이렇게 하면 Reliable Services 서비스에서 기본 Service Fabric 런타임 API와 통신할 수 있습니다. 자세히 알아보려면 [Linux 클러스터에서 실행하도록 Reliable Services 앱 구성](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)을 참조하세요.  
@@ -97,7 +97,7 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 
 1. 행위자 서비스의 출력을 확인하려면 조사식 유틸리티를 사용하여 스크립트를 실행합니다.
 
-   MAC OS X의 경우 다음 추가 명령을 실행하여 myactorsvcTestClient 폴더를 컨테이너 내부의 동일한 위치에 복사해야 합니다.
+   MAC OS X의 경우 다음과 같은 추가 명령을 실행 하 여 myactorsvcTestClient 폴더를 컨테이너 내의 동일한 위치에 복사 해야 합니다.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home
@@ -123,7 +123,7 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 ## <a name="next-steps"></a>다음 단계
 
 * [Service Fabric CLI를 사용하여 Service Fabric 클러스터와 상호 작용](service-fabric-cli.md)
-* 서비스 [패브릭 지원 옵션에](service-fabric-support.md) 대해 자세히 알아보기
+* [Service Fabric 지원 옵션](service-fabric-support.md) 에 대 한 자세한 정보
 * [Service Fabric CLI 시작](service-fabric-cli.md)
 
 <!-- Images -->

@@ -1,18 +1,18 @@
 ---
-title: PowerShell을 사용하여 서비스 패브릭 앱 업그레이드
+title: PowerShell을 사용 하 여 앱 업그레이드 Service Fabric
 description: 이 문서는 PowerShell을 사용하여 서비스 패브릭 애플리케이션의 배포, 코드 변경, 업그레이드 롤아웃 환경을 안내합니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: b113b5a1042518e3b0d86e53796c5fe49afed418
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d277df6959ea3e7985514f81faed520f163c6012
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75426794"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195887"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell을 사용하여 서비스 패브릭 애플리케이션 업그레이드
 > [!div class="op_single_selector"]
-> * [Powershell](service-fabric-application-upgrade-tutorial-powershell.md)
+> * [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
 > * [Visual Studio](service-fabric-application-upgrade-tutorial.md)
 > 
 > 
@@ -23,7 +23,7 @@ ms.locfileid: "75426794"
 
 모니터링되는 애플리케이션 업그레이드는 관리 또는 네이티브 API, PowerShell, Azure CLI, Java 또는 REST를 사용하여 수행할 수 있습니다. Visual Studio를 사용하여 업그레이드를 수행하는 지침은 [Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)를 참조하세요.
 
-서비스 패브릭 모니터링되는 롤링 업그레이드는 애플리케이션 관리자가 서비스 패브릭이 사용하여 애플리케이션이 정상인지 결정하는 상태 평가 정책을 구성할 수 있게 합니다. 또한 관리자는 상태 평가가 실패할 때 수행할 작업을 구성할 수 있습니다(예: 자동 롤백 수행). 이 섹션에서는 PowerShell을 사용하는 SDK 샘플 중 하나에 대해 모니터링되는 업그레이드를 안내합니다. 
+서비스 패브릭 모니터링되는 롤링 업그레이드는 애플리케이션 관리자가 서비스 패브릭이 사용하여 애플리케이션이 정상인지 결정하는 상태 평가 정책을 구성할 수 있게 합니다. 또한 관리자는 상태 평가가 실패할 경우 수행할 작업을 구성할 수 있습니다 (예: 자동 롤백 수행). 이 섹션에서는 PowerShell을 사용 하는 SDK 샘플 중 하나에 대해 모니터링 되는 업그레이드를 안내 합니다. 
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>1단계: 시각적 개체 샘플 빌드 및 배포
 애플리케이션 프로젝트, **VisualObjectsApplication**을 마우스 오른쪽 단추로 클릭하고 **게시** 명령을 선택하여 애플리케이션을 빌드 및 게시합니다.  자세한 내용은 [서비스 패브릭 애플리케이션 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md)를 참조하세요.  또는 PowerShell을 사용하여 애플리케이션을 배포할 수 있습니다.
@@ -35,7 +35,7 @@ ms.locfileid: "75426794"
 
 Visual Studio에서 프로젝트를 빌드한 후, PowerShell 명령 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) 를 사용하여 애플리케이션 패키지를 ImageStore에 복사합니다. 앱 패키지를 로컬로 확인하려는 경우 [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) cmdlet을 사용합니다. 다음 단계는 [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype) cmdlet을 사용하여 서비스 패브릭 런타임에 애플리케이션을 등록하는 것입니다. 다음 단계로, [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet을 사용하여 애플리케이션의 인스턴스를 시작합니다.  이 세 단계는 Visual Studio의 **배포** 메뉴를 사용하는 것과 유사합니다.  프로비전이 완료되면 리소스 소비를 줄이기 위해 이미지 저장소에서 복사된 애플리케이션 패키지를 정리해야 합니다.  같은 이유로, 애플리케이션 형식이 더 이상 필요하지 않은 경우 등록 해제해야 합니다. 자세한 내용은 [PowerShell을 사용하여 애플리케이션 배포 및 제거](service-fabric-application-upgrade-tutorial-powershell.md)를 참조하세요.
 
-이제 [클러스터 및 애플리케이션을 보는 서비스 패브릭 탐색기](service-fabric-visualizing-your-cluster.md)를 사용할 수 있습니다. 응용 프로그램에는 주소 표시줄에 입력하여 Internet Explorer에서 [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) 탐색할 수 있는 웹 서비스가 있습니다.  화면에서 일부 부동 시각적 개체가 움직이는 것을 볼 수 있을 것입니다.  또한 [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps)을 사용하여 애플리케이션 상태를 확인할 수 있습니다.
+이제 [클러스터 및 애플리케이션을 보는 서비스 패브릭 탐색기](service-fabric-visualizing-your-cluster.md)를 사용할 수 있습니다. 애플리케이션에는 웹 서비스가 있으며, Internet Explorer 주소 표시줄에 `http://localhost:8081/visualobjects`를 입력하여 웹 서비스로 이동할 수 있습니다.  화면에서 일부 부동 시각적 개체가 움직이는 것을 볼 수 있을 것입니다.  또한 [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps)을 사용하여 애플리케이션 상태를 확인할 수 있습니다.
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>2단계: 시각적 개체 샘플 업데이트
 1단계에서에서 배포된 버전에서 알 수 있듯이 시각적 개체는 회전하지 않습니다. 이 애플리케이션을 시각적 개체도 회전하도록 업그레이드하겠습니다.
@@ -126,7 +126,7 @@ Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects
 ## <a name="next-steps"></a>다음 단계
 [Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
 
-업그레이드 매개 변수를 사용하여 응용 프로그램이 업그레이드되는 방식을 [제어합니다.](service-fabric-application-upgrade-parameters.md)
+[업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용 하 여 응용 프로그램을 업그레이드 하는 방법을 제어 합니다.
 
 [데이터 직렬화](service-fabric-application-upgrade-data-serialization.md) 사용 방법을 익혀 애플리케이션 업그레이드와 호환되도록 만듭니다.
 

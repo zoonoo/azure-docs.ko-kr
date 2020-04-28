@@ -1,36 +1,37 @@
 ---
-title: HDInsight의 Azure 데이터 레이크 스토리지 Gen2 개요
-description: HDInsight의 데이터 레이크 스토리지 Gen2 개요.
+title: HDInsight의 Azure Data Lake Storage Gen2 개요
+description: HDInsight의 Data Lake Storage Gen2에 대 한 개요입니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 677d8348cc230e4f64915ac5fc1e86b9b50ab5c3
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: a7ae1a0f77d0d19fc48695ddc5cc3d3a14d65ab9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81873343"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195131"
 ---
-# <a name="azure-data-lake-storage-gen2-overview-in-hdinsight"></a>HDInsight의 Azure 데이터 레이크 스토리지 Gen2 개요
+# <a name="azure-data-lake-storage-gen2-overview-in-hdinsight"></a>HDInsight의 Azure Data Lake Storage Gen2 개요
 
-Azure Data Lake Storage Gen2는 Azure Data Lake Storage Gen1의 핵심 기능을 가져와 Azure Blob 스토리지에 통합합니다. 이러한 기능에는 Hadoop, Azure AD(Azure Active Directory) 및 POSIX 기반 ACL(액세스 제어 목록)과 호환되는 파일 시스템이 포함됩니다. 이 조합을 사용하면 Azure Data Lake 저장소 Gen1의 성능을 활용할 수 있습니다. 또한 Blob 스토리지의 계층화 및 데이터 수명 주기 관리를 사용하면서.
+Azure Data Lake Storage Gen2는 Azure Data Lake Storage Gen1의 핵심 기능을 가져와 Azure Blob 스토리지에 통합합니다. 이러한 기능에는 Hadoop, Azure AD(Azure Active Directory) 및 POSIX 기반 ACL(액세스 제어 목록)과 호환되는 파일 시스템이 포함됩니다. 이러한 조합을 통해 Azure Data Lake Storage Gen1의 성능을 활용할 수 있습니다. 또한 Blob storage의 계층화 및 데이터 수명 주기 관리를 사용 합니다.
 
 Azure Data Lake Storage Gen2에 대한 자세한 내용은 [Azure Data Lake Storage Gen2 소개](../storage/blobs/data-lake-storage-introduction.md)를 참조하세요.
 
 ## <a name="core-functionality-of-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 핵심 기능
 
-* **하눕과 호환되는 액세스:** Azure Data Lake Storage Gen2에서는 HADoop 분산 파일 시스템(HDFS)과 마찬가지로 데이터를 관리하고 액세스할 수 있습니다. ABFS(Azure Blob Filesystem) 드라이버는 Azure HDInsight 및 Azure Databricks를 포함한 모든 Apache Hadoop 환경 내에서 사용할 수 있습니다. ABFS를 사용하여 Data Lake Storage Gen2에 저장된 데이터에 액세스합니다.
+* **Hadoop과 호환 되는 액세스:** Azure Data Lake Storage Gen2에서는 Hadoop 분산 파일 시스템 (HDFS)를 사용 하는 것 처럼 데이터를 관리 하 고 액세스할 수 있습니다. ABFS(Azure Blob Filesystem) 드라이버는 Azure HDInsight 및 Azure Databricks를 포함한 모든 Apache Hadoop 환경 내에서 사용할 수 있습니다. ABFS를 사용하여 Data Lake Storage Gen2에 저장된 데이터에 액세스합니다.
 
-* **POSIX 권한의 수퍼세트:** Data Lake Gen2의 보안 모델은 데이터 레이크 스토리지 Gen2와 관련된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 지원합니다. 설정은 관리 도구 또는 Apache Hive 및 Apache Spark와 같은 프레임워크를 통해 구성할 수 있습니다.
+* **POSIX 권한 상위 집합:** Data Lake Gen2의 보안 모델은 Data Lake Storage Gen2와 관련 된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 지원 합니다. 설정은 관리 도구 또는 Apache Hive 및 Apache Spark와 같은 프레임워크를 통해 구성할 수 있습니다.
 
-* **비용 효율성:** 데이터 레이크 스토리지 Gen2는 저렴한 스토리지 용량과 트랜잭션을 제공합니다. Azure Blob 저장소 수명 주기는 데이터가 수명 주기를 거치면서 청구 요금을 조정하여 비용을 절감하는 데 도움이 됩니다.
+* **비용 효율성:** Data Lake Storage Gen2는 저렴 한 저장소 용량 및 트랜잭션을 제공 합니다. Azure Blob storage 수명 주기를 통해 데이터를 수명 주기 동안 이동할 때 청구 비율을 조정 하 여 비용을 절감할 수 있습니다.
 
-* **Blob 저장소 도구, 프레임워크 및 앱과의 호환성:** Data Lake Storage Gen2는 Blob 스토리지를 위한 다양한 도구, 프레임워크 및 응용 프로그램과 함께 계속 작업하고 있습니다.
+* **Blob storage 도구, 프레임 워크 및 앱과의 호환성:** Data Lake Storage Gen2는 Blob 저장소에 대 한 다양 한 도구, 프레임 워크 및 응용 프로그램을 계속 해 서 사용할 수 있습니다.
 
-* **최적화된 드라이버:** ABFS 드라이버는 빅 데이터 분석을 위해 특별히 최적화되어 있습니다. 해당 REST API는 DFS(분산 파일 시스템) 엔드포인트(dfs.core.windows.net)를 통해 표시됩니다.
+* **최적화 된 드라이버:** ABFS 드라이버는 빅 데이터 분석을 위해 특별히 최적화 되어 있습니다. 해당 REST API는 DFS(분산 파일 시스템) 엔드포인트(dfs.core.windows.net)를 통해 표시됩니다.
 
 ## <a name="whats-new-for-azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen2의 새로운 기능
 
@@ -42,11 +43,11 @@ Azure HDInsight는 관리 ID를 사용하여 Azure Data Lake Storage Gen2의 파
 
 ### <a name="azure-blob-file-system-driver"></a>Azure Blob 파일 시스템 드라이버
 
-Apache Hadoop 애플리케이션은 기본적으로 로컬 디스크 스토리지에서 데이터를 읽고 쓰려고 합니다. ABFS와 같은 Hadoop 파일 시스템 드라이버를 사용하면 Hadoop 응용 프로그램이 클라우드 스토리지에서 작업할 수 있습니다. 일반 Hadoop 파일 시스템 작업을 에뮬레이트하여 작동합니다. 드라이버는 애플리케이션에서 받은 명령을 실제 클라우드 스토리지 플랫폼이 이해할 수 있는 작업으로 변환합니다.
+Apache Hadoop 애플리케이션은 기본적으로 로컬 디스크 스토리지에서 데이터를 읽고 쓰려고 합니다. Hadoop 응용 프로그램은 ABFS와 같은 Hadoop 파일 시스템 드라이버를 사용 하 여 클라우드 저장소를 사용할 수 있습니다. 정기적으로 Hadoop 파일 시스템 작업을 에뮬레이트하는 방식으로 작동 합니다. 드라이버는 애플리케이션에서 받은 명령을 실제 클라우드 스토리지 플랫폼이 이해할 수 있는 작업으로 변환합니다.
 
-이전에Hadoop 파일 시스템 드라이버는 모든 파일 시스템 작업을 클라이언트 측의 Azure Storage REST API 호출로 변환했습니다. 그런 다음 REST API를 호출했습니다. 그러나 이러한 클라이언트 쪽 변환으로 인해 파일 이름 바꾸기와 같은 단일 파일 시스템 작업에 대해 여러 번의 REST API가 호출되었습니다. ABFS는 하두롭 파일 시스템 논리를 클라이언트 측에서 서버 쪽으로 이동했습니다. Azure Data Lake Storage Gen2 API는 이제 Blob API와 동시에 실행됩니다. 일반적인 Hadoop 파일 시스템 작업이 한 번의 REST API 호출로 실행될 수 있으므로 이 마이그레이션은 성능을 향상시킵니다.
+이전에 Hadoop 파일 시스템 드라이버는 모든 파일 시스템 작업을 클라이언트 쪽에서 호출 REST API Azure Storage으로 변환 했습니다. 그런 다음 REST API를 호출 합니다. 그러나 이러한 클라이언트 쪽 변환으로 인해 파일 이름 바꾸기와 같은 단일 파일 시스템 작업에 대해 여러 번의 REST API가 호출되었습니다. ABFS가 클라이언트 쪽에서 서버 쪽으로 Hadoop 파일 시스템 논리를 이동 했습니다. Azure Data Lake Storage Gen2 API는 이제 Blob API와 동시에 실행됩니다. 일반적인 Hadoop 파일 시스템 작업이 한 번의 REST API 호출로 실행될 수 있으므로 이 마이그레이션은 성능을 향상시킵니다.
 
-자세한 내용은 [ABFS(Azure Blob 파일 시스템 드라이버): Hadoop](../storage/blobs/data-lake-storage-abfs-driver.md)에 대한 전용 Azure 저장소 드라이버를 참조하십시오.
+자세한 내용은 [Azure Blob 파일 시스템 드라이버 (ABFS): Hadoop 용 전용 Azure Storage 드라이버](../storage/blobs/data-lake-storage-abfs-driver.md)를 참조 하세요.
 
 ### <a name="uri-scheme-for-azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2의 URI 체계
 
@@ -54,7 +55,7 @@ Azure Data Lake Storage Gen2는 새 URI 체계를 사용하여 HDInsight에서 A
 
 `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
 
-URI 스키마는 SSL 암호화 된 액세스를 제공합니다.
+URI 체계는 SSL로 암호화 된 액세스를 제공 합니다.
 
 `<FILE_SYSTEM_NAME>`은 Data Lake Storage Gen2 파일 시스템의 경로를 식별합니다.
 
@@ -78,4 +79,4 @@ abfs:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduc
 
 * [Azure Data Lake Storage Gen2 소개](../storage/blobs/data-lake-storage-introduction.md)
 * [Azure Storage 소개](../storage/common/storage-introduction.md)
-* [Azure 데이터 레이크 스토리지 Gen1 개요](./overview-data-lake-storage-gen1.md)
+* [Azure Data Lake Storage Gen1 개요](./overview-data-lake-storage-gen1.md)

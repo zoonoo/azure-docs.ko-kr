@@ -1,21 +1,21 @@
 ---
-title: 파일 및 폴더의 느린 백업 문제 해결
+title: 파일 및 폴더의 느림 백업 문제 해결
 description: Azure Backup 성능 문제의 원인을 진단하는 데 도움이 되는 문제 해결 지침을 제공합니다.
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 6c650ee735ffcdd50f4361a867fa592f4965ab68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e669a68794a8622bb4a2fa55b206153717fd772
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408694"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187905"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Azure Backup에서 파일 및 폴더의 느린 백업 문제 해결
 
 이 문서에서는 Azure Backup을 사용할 때 파일 및 폴더의 느린 백업 성능 문제에 대한 원인을 진단하는 데 도움이 되는 문제 해결 지침을 제공합니다. Azure Backup 에이전트를 사용하여 파일을 백업하는 경우 백업 프로세스가 예상보다 오래 걸릴 수 있습니다. 이러한 지연은 다음 중 하나 이상에 의해 발생할 수 있습니다.
 
-* [백업중인 컴퓨터에 성능 병목 현상이 있습니다.](#cause1)
+* [백업 중인 컴퓨터에 성능 병목 현상이 있습니다.](#cause1)
 * [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup 프로세스를 방해하는 경우](#cause2)
 * [Backup 에이전트가 Azure VM(가상 머신)에서 실행 중인 경우](#cause3)  
 * [많은 수(수백만 개)의 파일을 백업하는 경우](#cause4)
@@ -26,17 +26,17 @@ ms.locfileid: "79408694"
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="cause-backup-job-running-in-unoptimized-mode"></a>원인: 최적화되지 않은 모드에서 실행 중인 백업 작업
+## <a name="cause-backup-job-running-in-unoptimized-mode"></a>원인: 최적화 되지 않은 모드에서 실행 되는 백업 작업
 
-* MARS 에이전트는 전체 볼륨을 스캔하여 디렉터리 또는 파일의 변경 사항을 확인하여 USN(시퀀스 번호 업데이트) 변경 저널 또는 **최적화되지 않은 모드를** 사용하여 **최적화된** 모드에서 백업 작업을 실행할 수 있습니다.
-* 에이전트가 볼륨의 모든 파일을 검색하고 메타데이터와 비교하여 변경된 파일을 확인해야 하기 때문에 최적화되지 않은 모드가 느립니다.
-* 이를 확인하려면 MARS 에이전트 콘솔에서 **작업 세부 정보를** 열고 아래와 같이 데이터 **전송(최적화되지 않은 경우 더 많은 시간이 걸릴 수 있음)이** 표시되는지 상태를 확인합니다.
+* MARS 에이전트는 전체 볼륨을 검사 하 여 디렉터리 또는 파일의 변경 내용을 확인 하 여 USN (업데이트 시퀀스 번호) 변경 저널 또는 최적화 되지 않은 **모드** 를 사용 하 여 **최적화 된 모드로** 백업 작업을 실행할 수 있습니다.
+* 에이전트가 볼륨의 각 파일 및 모든 파일을 검색 하 고 메타 데이터와 비교 하 여 변경 된 파일을 확인 해야 하므로 최적화 되지 않은 모드는 느립니다.
+* 이를 확인 하려면 MARS 에이전트 콘솔에서 **작업 세부 정보** 를 열고 아래와 같이 상태를 확인 하 여 **데이터 전송 (최적화 되지 않음, 시간이 더 걸릴 수 있음)** 이 표시 되는지 확인 합니다.
 
-    ![최적화되지 않은 모드에서 실행](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
+    ![최적화 되지 않은 모드에서 실행](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
 
-* 다음 조건으로 인해 백업 작업이 최적화되지 않은 모드에서 실행될 수 있습니다.
-  * 첫 번째 백업(초기 복제라고도 함)은 항상 최적화되지 않은 모드에서 실행됩니다.
-  * 이전 백업 작업이 실패하면 다음 예약된 백업 작업이 최적화되지 않은 것으로 실행됩니다.
+* 다음 조건에 따라 백업 작업이 최적화 되지 않은 모드에서 실행 될 수 있습니다.
+  * 첫 번째 백업 (초기 복제 라고도 함)은 항상 최적화 되지 않은 모드에서 실행 됩니다.
+  * 이전 백업 작업이 실패 하면 예약 된 다음 백업 작업이 최적화 되지 않은 상태로 실행 됩니다.
 
 <a id="cause1"></a>
 
@@ -44,19 +44,19 @@ ms.locfileid: "79408694"
 
 백업 중인 컴퓨터의 병목 현상으로 인해 지연이 발생할 수 있습니다. 예를 들어 컴퓨터가 디스크에 읽거나 쓰는 기능 또는 네트워크를 통해 데이터를 전송하는 데 사용할 수 있는 대역폭으로 인해 병목 현상이 발생할 수 있습니다.
 
-Windows는 이러한 병목 현상을 감지하기 위해 [Perfmon(퍼포먼스 모니터)이라는](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) 기본 제공 도구를 제공합니다.
+Windows에서는 이러한 병목 상태를 검색 하는 [성능 모니터](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (Perfmon) 라는 기본 제공 도구를 제공 합니다.
 
 다음은 최적의 백업을 위해 병목 현상을 진단하는 데 도움이 될 수 있는 몇 가지 성능 카운터 및 범위입니다.
 
 | 카운터 | 상태 |
 | --- | --- |
-| Logical Disk(Physical Disk)--%idle |* 100 % 유휴 50 % 유휴 = 건강</br>* 49% 유휴 20% 유휴 = 경고 또는 모니터</br>* 19% 유휴 상태 ~ 유휴 상태 = 중요 또는 사양 제외 |
-| 논리 디스크(물리적 디스크)--%평균. 디스크 초 읽기 또는 쓰기 |* 0.001 ms ~ 0.015 ms = 건강</br>* 0.015 ms ~ 0.025 ms = 경고 또는 모니터</br>* 0.026 ms 이상 = 중요하거나 사양 을 벗어났습니다. |
+| Logical Disk(Physical Disk)--%idle |* 100% 유휴 ~ 50% 유휴 = 정상</br>* 49% 유휴 ~ 20% 유휴 상태 = 경고 또는 모니터</br>* 19% 유휴 상태에서 0% 유휴 = 위험 또는 사양을 벗어남 |
+| 논리 디스크 (실제 디스크)--% Avg. Disk Sec 읽기 또는 쓰기 |* 0.001 밀리초 ~ 0.015 밀리초 = 정상</br>* 0.015 밀리초 ~ 0.025 밀리초 = 경고 또는 모니터</br>* 0.026 밀리초 이상 = 위험 또는 사양 부족 |
 | 논리 디스크(실제 디스크)--현재 디스크 큐 길이(모든 인스턴스) |6분이 넘는 시간 동안 80개 요청 |
-| Memory--Pool Non Paged Bytes |* 풀 소비액의 60% 미만 = 건강<br>* 61% 받는 사람의 80% 소비 = 경고 또는 모니터</br>* 80% 초과 풀 소모 = 중요 또는 사양 초과 |
-| Memory--Pool Paged Bytes |* 풀 소비액의 60% 미만 = 건강</br>* 61% 받는 사람의 80% 소비 = 경고 또는 모니터</br>* 80% 초과 풀 소모 = 중요 또는 사양 초과 |
-| Memory--Available Megabytes |* 사용 가능한 사용 가능한 메모리의 50% 이상 = 건강</br>* 사용 가능한 사용 가능한 메모리의 25 % = 모니터</br>* 사용 가능한 메모리의 10 % 사용 가능 = 경고</br>* 100MB 미만 또는 사용 가능한 사용 가능한 메모리의 5% 미만 = 중요 또는 사양 초과 |
-| Processor--\%%Processor Time(모든 인스턴스) |* 60% 미만 소비 = 건강</br>* 61% ~ 90% 소비 = 모니터 또는 주의</br>* 91% ~ 100% 소비 = 중요 |
+| Memory--Pool Non Paged Bytes |* 사용 된 풀의 60% 미만 = 정상<br>* 61% ~ 80%의 사용 된 풀 = 경고 또는 모니터</br>* 사용 된 풀의 80% 초과 = 위험 또는 사양을 벗어남 |
+| Memory--Pool Paged Bytes |* 사용 된 풀의 60% 미만 = 정상</br>* 61% ~ 80%의 사용 된 풀 = 경고 또는 모니터</br>* 사용 된 풀의 80% 초과 = 위험 또는 사양을 벗어남 |
+| Memory--Available Megabytes |* 사용 가능한 메모리의 50% 이상 = 정상</br>* 사용 가능한 메모리의 25% = 모니터</br>* 사용 가능한 메모리의 10% = 경고</br>* 100 MB 미만 또는 사용 가능한 사용 가능한 메모리의 5% = 위험 또는 사양 부족 |
+| Processor--\%%Processor Time(모든 인스턴스) |* 60% 미만 = 정상</br>* 61% ~ 90% 사용 됨 = 모니터 또는 주의</br>* 91% ~ 100% 사용 됨 = 위험 |
 
 > [!NOTE]
 > 인프라가 가능한 원인으로 격리되면 더 나은 성능을 위해 주기적으로 디스크의 조각 모음을 수행하는 것이 좋습니다.
@@ -94,8 +94,8 @@ VM에서 백업 에이전트를 실행하는 경우 실제 컴퓨터에서 실�
 다음 표시기는 병목 상태를 이해하고 그에 따라 다음 단계에서 작업을 진행하는 데 유용할 수 있습니다.
 
 * **UI에 데이터 전송 진행률이 표시됨**. 데이터가 여전히 전송 중입니다. 네트워크 대역폭 또는 데이터 크기로 인해 지연이 발생할 수 있습니다.
-* **UI에 데이터 전송 진행률이 표시되지 않음**. C:\Program Files\Microsoft Azure Recovery Services Agent\Temp에 있는 로그를 연 다음, 로그에서 FileProvider::EndData 항목을 확인합니다. 이 항목은 데이터 전송이 완료되었으며 카탈로그 작업이 진행 중임을 나타냅니다. 백업 작업을 취소하지 말고, 대신 카탈로그 작업가 끝날 때까지 좀 더 기다리세요. 문제가 지속되면 Azure [지원](https://portal.azure.com/#create/Microsoft.Support)팀에 문의하십시오.
+* **UI에 데이터 전송 진행률이 표시되지 않음**. C:\Program Files\Microsoft Azure Recovery Services Agent\Temp에 있는 로그를 연 다음, 로그에서 FileProvider::EndData 항목을 확인합니다. 이 항목은 데이터 전송이 완료되었으며 카탈로그 작업이 진행 중임을 나타냅니다. 백업 작업을 취소하지 말고, 대신 카탈로그 작업가 끝날 때까지 좀 더 기다리세요. 문제가 지속 되 면 [Azure 지원](https://portal.azure.com/#create/Microsoft.Support)에 문의 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [파일 및 폴더 백업에 대한 일반적인 질문](backup-azure-file-folder-backup-faq.md)
+* [파일 및 폴더 백업에 대 한 일반적인 질문](backup-azure-file-folder-backup-faq.md)

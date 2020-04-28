@@ -1,30 +1,31 @@
 ---
-title: Azure HDInsight에서 스크립트 작업 문제 해결
-description: Azure HDInsight에서 스크립트 작업에 대한 일반적인 문제 해결 단계입니다.
+title: Azure HDInsight의 스크립트 작업 문제 해결
+description: Azure HDInsight의 스크립트 작업에 대 한 일반적인 문제 해결 단계입니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
+ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: b1e6b674edc155e0aa6c88ad360eb59864eebee4
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: e2a2f6abfd6b7c644e95649f3c9832e4cc986037
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81771977"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188449"
 ---
-# <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Azure HDInsight에서 스크립트 작업 문제 해결
+# <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Azure HDInsight의 스크립트 작업 문제 해결
 
-이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대한 문제 해결 단계 및 가능한 해결 에 대해 설명합니다.
+이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 
 ## <a name="viewing-logs"></a>로그 보기
 
-아파치 Ambari 웹 UI를 사용 하 여 스크립트 작업에 의해 기록 된 정보를 볼 수 있습니다. 클러스터 를 만드는 동안 스크립트에 오류가 발생하면 로그가 기본 클러스터 저장소 계정에 있습니다. 이 섹션에서는 이 두 옵션을 모두 사용하여 로그를 검색하는 방법에 대한 정보를 제공합니다.
+Apache Ambari 웹 UI를 사용 하 여 스크립트 동작에 의해 기록 된 정보를 볼 수 있습니다. 클러스터를 만드는 동안 스크립트가 실패 하는 경우 로그는 기본 클러스터 저장소 계정에 있습니다. 이 섹션에서는 이 두 옵션을 모두 사용하여 로그를 검색하는 방법에 대한 정보를 제공합니다.
 
-### <a name="apache-ambari-web-ui"></a>아파치 암바리 웹 UI
+### <a name="apache-ambari-web-ui"></a>Apache Ambari 웹 UI
 
-1. 웹 브라우저에서 클러스터 `https://CLUSTERNAME.azurehdinsight.net`의 `CLUSTERNAME` 이름으로 이동합니다.
+1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net`로 이동합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
 1. 페이지 위쪽의 모음에서 **작업** 항목을 선택합니다. Ambari를 통해 클러스터에서 수행된 현재 및 이전 작업이 목록에 표시됩니다.
 
@@ -32,7 +33,7 @@ ms.locfileid: "81771977"
 
 1. **작업** 열에 **run\_customscriptaction**이 있는 항목을 찾습니다. 이러한 항목을 스크립트 동작을 실행할 때 생성됩니다.
 
-    ![아파치 암바리 스크립트 작업](./media/troubleshoot-script-action/ambari-script-action.png)
+    ![Apache Ambari 스크립트 동작 작업](./media/troubleshoot-script-action/ambari-script-action.png)
 
     **STDOUT** 및 **STDERR** 출력을 보려면 **run\customscriptaction** 항목을 선택하고 링크를 통해 드릴다운합니다. 이 출력은 스크립트가 실행될 때 생성되며, 여기에는 유용한 정보가 있을 수 있습니다.
 
@@ -42,7 +43,7 @@ ms.locfileid: "81771977"
 
 * 스토리지 로그는 `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`에서 지원됩니다.
 
-    ![스크립트 작업 로그](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
+    ![스크립트 동작 로그](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
 
     이 디렉터리에서 로그는 **헤드 노드**, **작업자 노드** 및 **Zookeeper 노드**에 대해 별도로 구성됩니다. 다음 예제를 참조하세요.
 
@@ -50,7 +51,7 @@ ms.locfileid: "81771977"
 
     * **작업자 노드**:`<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **사육사 노드**:`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
+    * **사육 아웃 노드**:`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * 해당 호스트의 모든 **stdout** 및 **stderr**이 스토리지 계정에 업로드됩니다. 각 스크립트 동작에 대해 **output-\*.txt** 및 **errors-\*.txt**가 하나씩 있습니다. **output-*.txt** 파일에는 호스트에서 실행된 스크립트의 URI 정보를 포함되어 있습니다. 다음 텍스트는 이 정보의 예제입니다.
 
@@ -68,7 +69,7 @@ ms.locfileid: "81771977"
 
 ## <a name="ambari-watchdog"></a>Ambari 감시
 
-Linux 기반 HDInsight 클러스터에서 Ambari Watchdog(hdinsightwatchdog)에 대한 암호는 변경하지 마세요. 암호 변경은 HDInsight 클러스터에서 새 스크립트 작업을 실행하는 기능을 중단합니다.
+Linux 기반 HDInsight 클러스터에서 Ambari Watchdog(hdinsightwatchdog)에 대한 암호는 변경하지 마세요. 암호 변경으로 HDInsight 클러스터에서 새 스크립트 작업을 실행 하는 기능이 중단 됩니다.
 
 ## <a name="cant-import-name-blobservice"></a>이름 BlobService를 가져올 수 없음
 
@@ -83,7 +84,7 @@ ImportError: cannot import name BlobService
 
 __원인__. 이 오류는 HDInsight 클러스터에 포함된 Python Azure Storage 클라이언트를 업그레이드하는 경우에 발생합니다. HDInsight는 Azure Storage 클라이언트 0.20.0을 예상합니다.
 
-__해상도__. 이 오류를 해결하려면 `ssh`를 사용하여 각 클러스터 노드에 수동으로 연결합니다. 다음 명령을 실행하여 올바른 스토리지 클라이언트 버전을 다시 설치합니다.
+__해결__. 이 오류를 해결하려면 `ssh`를 사용하여 각 클러스터 노드에 수동으로 연결합니다. 다음 명령을 실행하여 올바른 스토리지 클라이언트 버전을 다시 설치합니다.
 
 ```bash
 sudo pip install azure-storage==0.20.0
@@ -109,8 +110,8 @@ SSH를 사용하여 클러스터에 연결하는 방법에 대한 자세한 내�
 
 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
-* Azure 커뮤니티 지원을 통해 Azure 전문가의 답변을 얻을 [수 있습니다.](https://azure.microsoft.com/support/community/)
+* Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
 
-* 연결 [@AzureSupport](https://twitter.com/azuresupport) - 고객 경험을 개선하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 올바른 리소스( 답변, 지원 및 전문가)에 연결합니다.
+* 을 사용 [@AzureSupport](https://twitter.com/azuresupport) 하 여 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
 
-* 추가 도움이 필요한 경우 [Azure 포털](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원을** 선택하거나 도움말 + 지원 허브를 **엽니다.** 자세한 내용은 Azure [지원 요청을 만드는 방법을](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)검토합니다. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 기술 지원은 [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 제공됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.

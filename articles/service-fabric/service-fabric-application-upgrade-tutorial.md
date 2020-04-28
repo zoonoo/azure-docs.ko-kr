@@ -1,18 +1,18 @@
 ---
-title: 서비스 패브릭 앱 업그레이드 자습서
+title: Service Fabric 앱 업그레이드 자습서
 description: 이 문서는 Visual Studio를 사용하여 서비스 패브릭 애플리케이션의 배포, 코드 변경, 업그레이드 롤아웃 환경을 안내합니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: db814b972db1aee56be0858c9ff5d1c382640642
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: acde2f4e51bee29d2eefb0d5fbb54fbe421a41f1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75464830"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195870"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Visual Studio를 사용하여 서비스 패브릭 애플리케이션 업그레이드 자습서
 > [!div class="op_single_selector"]
-> * [Powershell](service-fabric-application-upgrade-tutorial-powershell.md)
+> * [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
 > * [Visual Studio](service-fabric-application-upgrade-tutorial.md)
 > 
 > 
@@ -30,7 +30,7 @@ Azure 서비스 패브릭을 사용하면 변경된 서비스만 업그레이드
 
 ![서비스 패브릭 애플리케이션 게시][image2]
 
-이제 대화 상자에서 **게시** 를 클릭할 수 있습니다. [클러스터 및 애플리케이션을 보는 Service Fabric 탐색기](service-fabric-visualizing-your-cluster.md)를 사용할 수 있습니다. Visual Objects 응용 프로그램에는 브라우저의 주소 [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) 표시줄에 입력하여 이동할 수 있는 웹 서비스가 있습니다.  화면에서 10개의 부동 시각적 개체가 움직이는 것을 볼 수 있을 것입니다.
+이제 대화 상자에서 **게시** 를 클릭할 수 있습니다. [클러스터 및 애플리케이션을 보는 Service Fabric 탐색기](service-fabric-visualizing-your-cluster.md)를 사용할 수 있습니다. Visual Objects 애플리케이션에는 브라우저의 주소 표시줄에 `http://localhost:8081/visualobjects/`를 입력해서 이동할 수 있는 웹 서비스가 있습니다.  화면에서 10개의 부동 시각적 개체가 움직이는 것을 볼 수 있을 것입니다.
 
 **참고:**`Cloud.xml` 프로필(Azure 서비스 패브릭)에 배포하는 경우 **http://{ServiceFabricName}.{Region}.cloudapp.azure.com:8081/visualobjects/** 에서 애플리케이션을 사용할 수 있어야 합니다. 부하 분산 장치에 `8081/TCP`가 구성되었는지 확인합니다(Serivce Fabric 인스턴스와 동일한 리소스 그룹에 부하 분산 장치 찾기).
 
@@ -63,7 +63,7 @@ VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택�
 버전을 변경하고 연습처럼 버전 2.0.0에서 버전 3.0.0으로 바꾸거나 버전 2.0.0에서 버전 1.0.0으로 바꾸려고 할 수 있습니다. 제한 시간과 상태 정책을 변경해 보면서 익숙해지십시오. 로컬 클러스터가 아닌 Azure 클러스터에 배포하는 경우 다른 매개 변수를 사용해야 할 수 있습니다. 제한 시간을 신중하게 설정하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[PowerShell을 사용하여 응용 프로그램을 업그레이드하면](service-fabric-application-upgrade-tutorial-powershell.md) PowerShell을 사용하여 응용 프로그램 업그레이드를 진행합니다.
+[Powershell을 사용 하 여 응용 프로그램을 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md) 하려면 powershell을 사용 하 여 응용 프로그램을 업그레이드 합니다.
 
 [업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 애플리케이션 업그레이드 방법을 제어합니다.
 

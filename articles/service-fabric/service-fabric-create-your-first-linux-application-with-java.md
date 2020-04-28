@@ -1,19 +1,19 @@
 ---
-title: 리눅스에서 Azure 서비스 패브릭 신뢰할 수있는 배우 자바 응용 프로그램을 만들기
+title: Linux에서 Azure Service Fabric 신뢰할 수 있는 행위자 Java 응용 프로그램 만들기
 description: 5분 안에 Java Service Fabric Reliable Actors 애플리케이션을 만들고 배포하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/18/2018
-ms.openlocfilehash: 82d4446d76254657adfe64ed41386c06a0a873eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d09666bad7b4e03b8598191d99a9db717c277d4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458170"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193567"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux에서 첫 번째 Java Service Fabric Reliable Actors 애플리케이션 만들기
 > [!div class="op_single_selector"]
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C # - 리눅스](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [C #-Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
@@ -34,7 +34,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
 ## <a name="basic-concepts"></a>기본 개념
 Reliable Actors를 시작하려면 몇 가지 기본 개념만 이해하면 됩니다.
 
-* **액터 서비스**. Reliable Actors는 서비스 패브릭 인프라에 배포될 수 있는 Reliable Services에 패키징됩니다. 행위자 인스턴스는 명명된 서비스 인스턴스에서 활성화됩니다.
+* **행위자 서비스**. Reliable Actors는 서비스 패브릭 인프라에 배포될 수 있는 Reliable Services에 패키징됩니다. 행위자 인스턴스는 명명된 서비스 인스턴스에서 활성화됩니다.
 * **행위자 등록**. Reliable Services와 마찬가지로 Reliable Actor 서비스를 Service Fabric 런타임에 등록해야 합니다. 또한 행위자 형식을 행위자 런타임에 등록해야 합니다.
 * **행위자 인터페이스**. 행위자 인터페이스는 행위자에 대한 강력한 형식의 공용 인터페이스를 정의하는 데 사용됩니다. Reliable Actor 모델 용어에서 행위자 인터페이스는 행위자가 이해하고 처리할 수 있는 메시지의 유형을 정의합니다. 행위자 인터페이스는 다른 행위자 또는 클라이언트 애플리케이션에서 메시지를 행위자에게 "보내는"(비동기) 데 사용됩니다. Reliable Actors는 여러 인터페이스를 구현할 수 있습니다.
 * **ActorProxy 클래스**. ActorProxy 클래스는 클라이언트 애플리케이션에서 행위자 인터페이스를 통해 노출되는 메서드를 호출하는 데 사용됩니다. ActorProxy 클래스는 다음 두 가지 중요한 기능을 제공합니다.
@@ -204,7 +204,7 @@ Maven에서 Service Fabric Java 종속성을 가져옵니다. Service Fabric Jav
 
 애플리케이션 패키지 내에 생성된 매니페스트에서 이러한 명령의 매개 변수를 찾을 수 있습니다.
 
-애플리케이션이 배포되면 브라우저를 열고 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)에 있는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)로 이동합니다.
+애플리케이션이 배포되면 브라우저를 열고 `http://localhost:19080/Explorer`에 있는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)로 이동합니다.
 그런 다음 **애플리케이션** 노드를 확장하면 애플리케이션 형식에 대한 항목 및 해당 형식의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
 
 > [!IMPORTANT]
@@ -232,7 +232,7 @@ Maven에서 Service Fabric Java 종속성을 가져옵니다. Service Fabric Jav
     watch -n 1 ./testclient.sh
     ```
 
-2. Service Fabric Explorer에서 행위자 서비스에 대한 주 복제본을 호스팅하는 노드를 찾습니다. 아래 스크린샷에 있는 노드 3입니다. 기본 서비스 복제본은 읽기 및 쓰기 작업을 처리합니다.  그런 다음 서비스 상태의 변경 내용이 보조 복제본으로 복제되어 아래 스크린샷에서 노드 0과 1에서 실행됩니다.
+2. Service Fabric Explorer에서 행위자 서비스에 대한 주 복제본을 호스팅하는 노드를 찾습니다. 아래 스크린샷에 있는 노드 3입니다. 기본 서비스 복제본은 읽기 및 쓰기 작업을 처리합니다.  그러면 서비스 상태의 변경 내용이 보조 복제본에 복제 되 고 아래 스크린샷에는 노드 0 및 1에서 실행 됩니다.
 
     ![Service Fabric Explorer에서 기본 복제본 찾기][sfx-primary]
 
@@ -271,7 +271,7 @@ Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프
   }
   ```
 
-### <a name="services"></a>Services
+### <a name="services"></a>서비스
 
 애플리케이션에 대한 Service Fabric Reliable Services 지원입니다.
 
@@ -338,9 +338,9 @@ Service Fabric에 대한 시스템 수준 지원이며 네이티브 Service Fabr
 ## <a name="next-steps"></a>다음 단계
 
 * [Eclipse를 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기](service-fabric-get-started-eclipse.md)
-* [신뢰할 수 있는 액터에 대해 자세히 알아보기](service-fabric-reliable-actors-introduction.md)
+* [Reliable Actors에 대 한 자세한 정보](service-fabric-reliable-actors-introduction.md)
 * [Service Fabric CLI를 사용하여 Service Fabric 클러스터와 상호 작용](service-fabric-cli.md)
-* 서비스 [패브릭 지원 옵션에](service-fabric-support.md) 대해 자세히 알아보기
+* [Service Fabric 지원 옵션](service-fabric-support.md) 에 대 한 자세한 정보
 * [Service Fabric CLI 시작](service-fabric-cli.md)
 
 <!-- Images -->

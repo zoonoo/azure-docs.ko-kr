@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 3765c70b27fb98518f71a55f00acfe5b831044ec
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: d5edfab0963ec3fca24969d7a54038066ba08765
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146666"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188398"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안
 
@@ -42,7 +42,7 @@ Multi-factor authentication은 Azure AD (Azure Active Directory)를 사용 하�
 
 Azure Machine Learning는 웹 서비스에 대 한 두 가지 형태의 인증 인 키와 토큰을 지원 합니다. 각 웹 서비스는 한 번에 한 가지 형태의 인증을 사용 하도록 설정할 수 있습니다.
 
-|인증 방법|설명|Azure Container Instances|AKS|
+|인증 방법|Description|Azure Container Instances|AKS|
 |---|---|---|---|
 |키|키는 정적 이므로 새로 고칠 필요가 없습니다. 키를 수동으로 다시 생성할 수 있습니다.|기본적으로 사용할 수 없게 설정되어 있습니다.| 기본적으로 사용하도록 설정됨|
 |토큰|지정 된 기간이 지나면 토큰이 만료 되 고 새로 고쳐야 합니다.| 사용할 수 없음| 기본적으로 사용할 수 없게 설정되어 있습니다. |
@@ -78,7 +78,7 @@ Azure Machine Learning는 웹 서비스에 대 한 두 가지 형태의 인증 �
 기본 제공 역할이 요구 사항에 맞지 않는 경우 사용자 지정 역할을 만들 수 있습니다. 사용자 지정 역할은 작업 영역 및 Machine Learning 컴퓨팅에 대 한 작업에 대해서만 지원 됩니다. 사용자 지정 역할은 작업 영역 및 해당 작업 영역의 계산 리소스에 대 한 읽기, 쓰기 또는 삭제 권한을 가질 수 있습니다. 특정 작업 영역 수준, 특정 리소스 그룹 수준 또는 특정 구독 수준에서 역할을 사용 하도록 설정할 수 있습니다. 자세한 내용은 [Azure Machine Learning 작업 영역에서 사용자 및 역할 관리](how-to-assign-roles.md)를 참조 하세요.
 
 > [!WARNING]
-> Azure Machine Learning은 현재 Azure Active Directory b2b 공동 작업에서 지원 되지 않습니다.
+> Azure Machine Learning은 b2b 공동 작업 Azure Active Directory 지원 되지만 현재는 Azure Active Directory b2b 공동 작업에서 지원 되지 않습니다.
 
 ### <a name="securing-compute-targets-and-data"></a>계산 대상 및 데이터 보안
 
@@ -385,10 +385,7 @@ Machine Learning 컴퓨팅는 관리 되는 계산 대상 이므로 microsoft에
 
 * [TLS를 사용 하 여 Azure Machine Learning 웹 서비스 보안](how-to-secure-web-service.md)
 * [웹 서비스로 배포 된 Machine Learning 모델 사용](how-to-consume-web-service.md)
-* [일괄 처리 예측 실행 방법](how-to-use-parallel-run-step.md)
-* [Application Insights를 사용하여 Azure Machine Learning 모델 모니터링](how-to-enable-app-insights.md)
-* [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)
-* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Azure 방화벽과 함께 Azure Machine Learning 사용](how-to-access-azureml-behind-firewall.md)
 * [Azure Virtual Network에서 Azure Machine Learning 사용](how-to-enable-virtual-network.md)
 * [추천 시스템 빌드 모범 사례](https://github.com/Microsoft/Recommenders)
 * [Azure에서 실시간 추천 API 빌드](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

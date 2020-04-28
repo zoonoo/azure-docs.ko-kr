@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: b8c09d4ac5d0856eb0d448a1cabd9adc567850c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f3b928e657b5c061e624281e1d5a8805283a657
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670613"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186427"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Azure Monitor에서 Linux 에이전트의 CollectD에서 데이터 수집
 [CollectD](https://collectd.org/)는 주기적으로 애플리케이션의 성능 메트릭 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다. 예제 애플리케이션은 JVM(Java Virtual Machine), MySQL 서버 및 Nginx를 포함합니다. 이 문서에서는 Azure Monitor에서 CollectD의 성능 데이터를 수집하는 방법에 대한 정보를 제공합니다.
@@ -63,14 +63,14 @@ CollectD 구성은 기본값`write_http` 플러그 인을 사용하여 26000 포
     </filter>
 
 > [!NOTE]
-> 기본적으로 수집은 10초 [간격으로](https://collectd.org/wiki/index.php/Interval)값을 읽도록 설정됩니다. 이는 Azure Monitor Logs로 전송되는 데이터의 양에 직접적인 영향을 미치므로 모니터링 요구 사항과 Azure Monitor Log의 관련 비용 및 사용량 간에 균형을 맞추기 위해 CollectD 구성 내에서 이 간격을 조정해야 할 수 있습니다.
+> 기본적으로 CollectD는 10 초 [간격](https://collectd.org/wiki/index.php/Interval)으로 값 읽기로 설정 됩니다. Azure Monitor 로그에 전송 되는 데이터 볼륨에 직접 영향을 주므로 CollectD 구성 내에서이 간격을 조정 하 여 Azure Monitor 로그에 대 한 모니터링 요구 사항과 관련 비용 및 사용량 사이의 균형을 유지 해야 할 수 있습니다.
 
 ## <a name="versions-supported"></a>지원되는 버전
 - Azure Monitor는 현재 CollectD 버전 4.8 이상을 지원합니다.
 - CollectD 메트릭 수집에 Linux용 Log Analytics 에이전트 v1.1.0-217 이상이 필요합니다.
 
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 Azure Monitor에서 CollectD 데이터의 컬렉션을 구성하는 기본 단계는 다음과 같습니다.
 
 1. write_http 플러그 인을 사용하여 Linux용 Log Analytics 에이전트에 데이터를 보내도록 CollectD를 구성합니다.  
@@ -100,7 +100,8 @@ Azure Monitor에서 CollectD 데이터의 컬렉션을 구성하는 기본 단�
 
 3. 다음 명령을 사용하여 CollectD 및 Linux용 Log Analytics 에이전트를 다시 시작합니다.
 
-    sudo service collectd restart  sudo /opt/microsoft/omsagent/bin/service_control restart
+        sudo service collectd restart
+        sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>CollectD 메트릭을 Azure Monitor 스키마로 변환
 Linux용 Log Analytics 에이전트에서 이미 수집된 인프라 메트릭과 CollectD에서 수집된 새 메트릭 간에 친숙한 모델을 유지하기 위해 다음 스키마 매핑이 사용됩니다.
@@ -108,12 +109,12 @@ Linux용 Log Analytics 에이전트에서 이미 수집된 인프라 메트릭�
 | CollectD 메트릭 필드 | Azure Monitor 필드 |
 |:--|:--|
 | `host` | Computer |
-| `plugin` | None |
+| `plugin` | 없음 |
 | `plugin_instance` | 인스턴스 이름<br>**plugin_instance**가 *null*인 경우 InstanceName="*_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>**type_instance**가 *null*인 경우 CounterName=**비어 있음** |
 | `dsnames[]` | CounterName |
-| `dstypes` | None |
+| `dstypes` | 없음 |
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>다음 단계

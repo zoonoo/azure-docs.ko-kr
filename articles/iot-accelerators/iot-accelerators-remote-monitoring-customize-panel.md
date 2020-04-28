@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 694cc83ffce20a8744d7452a8f6d67c9ce23641c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61447066"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187231"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>원격 모니터링 솔루션 가속기 웹 UI의 대시보드에 사용자 지정 패널 추가
 
@@ -29,7 +29,7 @@ ms.locfileid: "61447066"
 이 방법 가이드의 단계를 완료하려면 로컬 개발 머신에 다음과 같은 소프트웨어가 설치되어 있어야 합니다.
 
 - [Git](https://git-scm.com/downloads)
-- [Node.js](https://nodejs.org/download/)
+- [Node.JS](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -90,7 +90,7 @@ import {
 npm start
 ```
 
-이전 명령은 에서 [http://localhost:3000/dashboard](http://localhost:3000/dashboard)UI를 로컬로 실행합니다. **대시보드** 페이지로 이동하여 새 패널을 확인합니다.
+이전 명령은 `http://localhost:3000/dashboard`에서 UI를 로컬로 실행합니다. **대시보드** 페이지로 이동하여 새 패널을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,19 +1,19 @@
 ---
-title: Azure의 데이터를 Windows 서버로 복원
-description: 이 문서에서는 Microsoft Azure 복구 서비스(MARS) 에이전트를 사용하여 Azure에 저장된 데이터를 Windows 서버 또는 Windows 컴퓨터로 복원하는 방법을 알아봅니다.
+title: Azure의 데이터를 Windows server로 복원
+description: 이 문서에서는 Microsoft Azure Recovery Services (MARS) 에이전트를 사용 하 여 Azure에 저장 된 데이터를 Windows server 또는 Windows 컴퓨터에 복원 하는 방법에 대해 알아봅니다.
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 25ca8eecaeb615f071340188a23fae7978ddb75c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0494ce8016ff8b09265dd7ced8dc0926fd0c1a43
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409816"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186807"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager 배포 모델을 사용하여 Windows에 파일 복원
 
-이 문서에서는 백업 자격 증명 모음에서 데이터를 복원하는 방법을 설명합니다. 데이터를 복원하려면 MARS(Microsoft Azure Recovery Services) 에이전트에서 데이터 복구 마법사를 사용합니다. 다음을 수행할 수 있습니다.
+이 문서에서는 백업 자격 증명 모음에서 데이터를 복원하는 방법을 설명합니다. 데이터를 복원하려면 MARS(Microsoft Azure Recovery Services) 에이전트에서 데이터 복구 마법사를 사용합니다. 다음과 같은 작업을 수행할 수 있습니다.
 
 * 백업을 수행한 동일한 컴퓨터에 데이터를 복원합니다.
 * 다른 컴퓨터에 데이터를 복원합니다.
@@ -40,7 +40,7 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
     ![데이터 복구를 강조 표시한 Azure Backup 스크린샷](./media/backup-azure-restore-windows-server/recover.png)
 
-3. **시작하기** 페이지에서 데이터를 동일한 서버 또는 컴퓨터로 복원하려면 **이 서버`<server name>`()** > **다음을**선택합니다.
+3. **시작** 페이지에서 동일한 서버 또는 컴퓨터에 데이터를 복원 하려면 **이 서버`<server name>`()****Next** > 다음을 선택 합니다.
 
     ![데이터 복구 마법사 시작 페이지 스크린샷](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
@@ -49,9 +49,9 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
     ![데이터 복구 마법사 복구 모드 선택 페이지 스크린샷](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
    > 개별 파일 및 폴더를 복원하는 옵션에는 .NET Framework 4.5.2 이상이 필요합니다. **개별 파일 및 폴더** 옵션이 표시되지 않는 경우 .NET Framework를 4.5.2 이상 버전으로 업그레이드하고 다시 시도해야 합니다.
- 
+
    > [!TIP]
-   > **개별 파일 및 폴더** 옵션을 사용하면 복구 지점 데이터에 빠르게 액세스할 수 있습니다. 크기가 80GB 이하인 개별 파일을 복구하는 데 적합하며 복구 중에 최대 6MBps의 전송 또는 복사 속도를 제공합니다. **볼륨** 옵션은 지정된 볼륨의 모든 백업 데이터를 복구합니다. 이 옵션은 빠른 전송 속도(최대 60MBps)를 제공하므로 대용량 데이터 또는 전체 볼륨을 복구하는 데 적합합니다.
+   > **개별 파일 및 폴더** 옵션을 사용 하면 복구 지점 데이터에 빠르게 액세스할 수 있습니다. 크기가 80GB 이하인 개별 파일을 복구하는 데 적합하며 복구 중에 최대 6MBps의 전송 또는 복사 속도를 제공합니다. **볼륨** 옵션은 지정된 볼륨의 모든 백업 데이터를 복구합니다. 이 옵션은 빠른 전송 속도(최대 60MBps)를 제공하므로 대용량 데이터 또는 전체 볼륨을 복구하는 데 적합합니다.
 
 5. **볼륨 및 날짜 선택** 페이지에서 복원할 파일 및 폴더가 들어있는 볼륨을 선택합니다.
 
@@ -63,7 +63,7 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
     Azure Backup은 로컬 복구 지점을 마운트하고 이를 복구 볼륨으로 사용합니다.
 
-7. 파일 **찾아보기 및 복구** 페이지에서 **찾아보기를** 선택하여 Windows 탐색기를 열고 원하는 파일 및 폴더를 찾습니다.
+7. **파일 찾아보기 및 복구** 페이지에서 **찾아보기** 를 선택 하 여 Windows 탐색기를 열고 원하는 파일 및 폴더를 찾습니다.
 
     ![데이터 복구 마법사 파일 찾아보기 및 복구 페이지 스크린샷](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
@@ -85,16 +85,16 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
 이러한 단계에는 다음과 같은 용어가 포함됩니다.
 
-* *원본 컴퓨터* - 백업이 수행되었으며 현재 사용할 수 없는 원래 컴퓨터입니다.
+* *원본 컴퓨터* – 백업을 수행한 원래 컴퓨터 이며 현재 사용할 수 없습니다.
 * *대상 컴퓨터* – 데이터가 복구되는 컴퓨터입니다.
-* *샘플 자격 증명 모음* - 원본 컴퓨터 및 대상 컴퓨터가 등록된 복구 서비스 자격 증명 모음입니다.
+* *샘플 자격 증명 모음* – 원본 컴퓨터 및 대상 컴퓨터가 등록 된 Recovery Services 자격 증명 모음입니다.
 
 > [!NOTE]
-> 이전 버전의 운영 체제를 실행하는 대상 머신으로 백업을 복원할 수 없습니다. 예를 들어 Windows 7 컴퓨터에서 가져온 백업은 Windows 7(또는 이후) 컴퓨터에서 복원할 수 있습니다. Windows 8 컴퓨터에서 가져온 백업은 Windows 7 컴퓨터로 복원될 수 없습니다.
+> 이전 버전의 운영 체제를 실행하는 대상 머신으로 백업을 복원할 수 없습니다. 예를 들어 windows 7 컴퓨터에서 가져온 백업은 Windows 7 이상 컴퓨터에서 복원할 수 있습니다. Windows 8 컴퓨터에서 가져온 백업은 Windows 7 컴퓨터로 복원될 수 없습니다.
 >
 >
 
-1. 대상 컴퓨터에서 **Microsoft Azure 백업** 스냅인을 엽니다.
+1. 대상 컴퓨터에서 **Microsoft Azure Backup** 스냅인을 엽니다.
 
 2. 대상 머신 및 원본 머신이 동일한 Recovery Services 자격 증명 모음에 등록되었는지 확인합니다.
 
@@ -110,7 +110,7 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
     자격 증명 모음 파일이 유효하지 않거나 만료된 경우 Azure Portal의 샘플 자격 증명 모음에서 새 자격 증명 모음 파일을 다운로드합니다. 유효한 자격 증명 모음을 입력하면 해당하는 백업 자격 증명 모음의 이름이 나타납니다.
 
-6. **백업 서버 선택** 페이지의 표시된 머신 목록에서 원본 머신을 선택하고 암호를 입력합니다. 그런 다음 을 **선택합니다.**
+6. **백업 서버 선택** 페이지의 표시된 머신 목록에서 원본 머신을 선택하고 암호를 입력합니다. **다음**을 선택합니다.
 
     ![데이터 복구 마법사 백업 서버 선택 페이지 스크린샷](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
@@ -126,7 +126,7 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
 9. 복구 지점을 대상 머신의 복구 볼륨으로 로컬로 탑재하려면 **탑재**를 선택합니다.
 
-10. 파일 **찾아보기 및 복구** 페이지에서 **찾아보기를** 선택하여 Windows 탐색기를 열고 원하는 파일 및 폴더를 찾습니다.
+10. **파일 찾아보기 및 복구** 페이지에서 **찾아보기** 를 선택 하 여 Windows 탐색기를 열고 원하는 파일 및 폴더를 찾습니다.
 
     ![데이터 복구 마법사 파일 찾아보기 및 복구 페이지 스크린샷](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
 
@@ -146,4 +146,4 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
 * 파일과 폴더를 복구했으므로 [백업을 관리](backup-azure-manage-windows-server.md)할 수 있습니다.
 
-* [파일 및 폴더 백업에 대한 일반적인 질문](backup-azure-file-folder-backup-faq.md)찾기.
+* [파일 및 폴더 백업에 대 한 일반적인 질문](backup-azure-file-folder-backup-faq.md)을 찾습니다.

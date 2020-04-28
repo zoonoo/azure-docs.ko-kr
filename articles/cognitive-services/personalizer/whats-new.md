@@ -1,48 +1,48 @@
 ---
-title: 새로운 것 - 개인화
+title: 새로운 기능-Personalizer
 titleSuffix: Azure Cognitive Services
-description: 이 문서에는 맞춤 설정에 대한 뉴스가 포함되어 있습니다.
+description: 이 문서는 Personalizer에 대 한 뉴스를 포함 합니다.
 author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 03/01/2019
 ms.author: diberry
-ms.openlocfilehash: 450328fecde3be0ee0cead174c9d172bf3ac1000
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 21e1be094716ac1d43e1f4458b41e855315d1779
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155973"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192989"
 ---
-# <a name="whats-new-in-personalizer"></a>개인화의 새로운 내용
+# <a name="whats-new-in-personalizer"></a>Personalizer의 새로운 기능
 
-서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목에는 릴리스 정보, 비디오, 블로그 게시물 및 기타 유형의 정보가 포함될 수 있습니다. 서비스를 최신 상태로 유지하려면 이 페이지에 책갈피를 설정합니다.  
+서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목에는 릴리스 정보, 비디오, 블로그 게시물 및 기타 정보 유형이 포함 될 수 있습니다. 서비스를 최신 상태로 유지하려면 이 페이지에 책갈피를 설정합니다.
 
-## <a name="release-notes"></a>릴리스 정보 
+## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="march-2020"></a>2020년 3월
 
-* 이제 이 서비스에 대한 모든 HTTP 요청에 대해 TLS 1.2가 적용됩니다. 자세한 내용은 [Azure 코그너티브 서비스 보안](../cognitive-services-security.md)을 참조하십시오.
+* 이제 TLS 1.2는 이 서비스에 대한 모든 HTTP 요청에 적용됩니다. 자세한 내용은 [Azure Cognitive Services 보안](../cognitive-services-security.md)을 참조하세요.
 
-### <a name="november-2019---ignite-conference"></a>2019년 11월 - 이그나이트 컨퍼런스
+### <a name="november-2019---ignite-conference"></a>11 월 2019-Ignite 회의
 
-* 개인 설정은 일반적으로 사용할 수 있습니다(GA)
-* 전체 수명 주기가 있는 Azure 전자 필기장 [자습서](tutorial-use-azure-notebook-generate-loop-data.md)
+* Personalizer는 일반적으로 사용 가능 (GA)
+* 전체 수명 주기를 포함 하는 Azure Notebooks [자습서](tutorial-use-azure-notebook-generate-loop-data.md)
 
-### <a name="may-2019---build-conference"></a>2019년 5월 - //빌드 컨퍼런스
+### <a name="may-2019---build-conference"></a>2019 년 5 월-또는 회의 빌드
 
-빌드 2019 컨퍼런스에서 다음과 같은 미리 보기 기능이 릴리스되었습니다.
+다음 미리 보기 기능은 빌드 2019 회의에서 릴리스 되었습니다.
 
 * [순위 및 보상 학습 루프](what-is-personalizer.md)
 
-## <a name="videos"></a>비디오
+## <a name="videos"></a>동영상
 
 ### <a name="2019-build-videos"></a>2019 비디오 빌드
 
-* [코그너티브 서비스 개인화를 통해 Xbox와 같은 콘텐츠에 & 올바른 환경 제공](https://mybuild.techcommunity.microsoft.com/sessions/76970?source=sessions#top-anchor)
+* [Cognitive Services Personalizer으로 Xbox와 같은 콘텐츠 & 적절 한 환경을 제공 합니다.](https://mybuild.techcommunity.microsoft.com/sessions/76970?source=sessions#top-anchor)
 
 ## <a name="service-updates"></a>서비스 업데이트
 

@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: cd16d898408bff46cee13b4df63cd3386d0581b1
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82137844"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188160"
 ---
 # <a name="configure-apache-spark-settings"></a>Apache Spark 설정 구성
 
@@ -98,7 +98,7 @@ Spark 실행 기에서 사용 되는 리소스에 대 한 다른 정보 원본�
 
 Spark 워크로드에 따라 기본이 아닌 Spark 구성을 사용하여 보다 최적화된 Spark 작업 실행이 제공되는지 확인할 수 있습니다.  기본이 아닌 클러스터 구성의 유효성을 검사 하는 샘플 워크 로드로 벤치 마크 테스트를 수행 합니다.  조정을 고려할 수 있는 몇 가지 일반적인 매개 변수는 다음과 같습니다.
 
-|매개 변수 |설명|
+|매개 변수 |Description|
 |---|---|
 |--num-실행자|실행자 수를 설정 합니다.|
 |--executor-코어|각 실행자에 대 한 코어 수를 설정 합니다. 다른 프로세스도 사용 가능한 메모리 중 일부를 소비하기 때문에 중간 규모의 실행기를 사용하는 것이 좋습니다.|
@@ -110,7 +110,7 @@ Spark 워크로드에 따라 기본이 아닌 Spark 구성을 사용하여 보�
 
 다음 목록에서는 핵심 Spark 실행기 메모리 매개 변수를 보여 줍니다.
 
-|매개 변수 |설명|
+|매개 변수 |Description|
 |---|---|
 |spark.executor.memory|실행자에 사용할 수 있는 총 메모리 양을 정의 합니다.|
 |spark. 저장소. memoryFraction|(기본 ~60%)은 지속된 RDD를 저장하는 데 사용할 수 있는 메모리 양을 정의합니다.|

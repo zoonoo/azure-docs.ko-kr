@@ -6,13 +6,14 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 3c4f6afe56f592c99a8d8fc4949bdfb9aab3d336
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
-ms.translationtype: MT
+ms.openlocfilehash: 93eddcd8ed0dae6ac6f010dce2e138fc018a06fa
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106664"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190659"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Hadoop과 함께 Apache Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
 

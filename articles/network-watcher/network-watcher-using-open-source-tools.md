@@ -1,5 +1,5 @@
 ---
-title: 오픈 소스 도구를 사용하여 네트워크 트래픽 패턴 시각화
+title: 오픈 소스 도구를 사용 하 여 네트워크 트래픽 패턴 시각화
 titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 Capanalysis와 함께 Network Watcher 패킷 캡처를 사용하여 VM과 주고 받는 트래픽을 시각화하는 방법을 설명합니다.
 services: network-watcher
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: f36db28b58cd57b6407019b378a82632aa6c6228
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32d978ee766f6dbe95bd7158b8060a0302ef8206
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840658"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189065"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>오픈 소스 도구를 사용하여 VM과 주고 받는 네트워크 트래픽 패턴 시각화
 
@@ -47,7 +47,7 @@ Network Watcher를 사용하면 가상 컴퓨터가 주고 받는 트래픽을 �
 
 CapAnalysis에 대한 링크를 제공할 때 스토리지 BLOB URL에 SAS 토큰을 추가해야 합니다.  이렇게 하려면 스토리지 계정에서 공유 액세스 서명으로 이동하여 허용되는 권한을 지정하고 SAS 생성 단추를 눌러 토큰을 만들어야 합니다. 그런 다음, SAS 토큰을 패킷 캡처 스토리지 BLOB URL에 추가할 수 있습니다.
 
-결과 URL은 다음 URL과 같습니다. http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
+결과 URL은 다음 URL과 같습니다. `http:\//storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
 
 
 ### <a name="analyzing-packet-captures"></a>패킷 캡처 분석
@@ -74,7 +74,7 @@ CapAnalysis는 패킷 캡처를 시각화하는 다양한 옵션을 제공하며
 
 1. 지역 지도
 
-    이 창은 각 국가/지역의 트래픽 양으로 색상이 조정되는 네트워크 트래픽의 맵 보기를 제공합니다. 강조 표시된 국가/지역을 선택하여 해당 국가/지역의 IP에서 보내고 받은 데이터의 비율과 같은 추가 흐름 통계를 볼 수 있습니다.
+    이 창에서는 각 국가/지역의 트래픽 양에 대 한 색을 조정 하 여 네트워크 트래픽의 지도 보기를 제공 합니다. 강조 표시 된 국가/지역을 선택 하 여 해당 국가/지역의 Ip에서 보내고 받은 데이터의 비율과 같은 추가 흐름 통계를 볼 수 있습니다.
 
     ![지역 지도][8]
 
@@ -84,7 +84,7 @@ CapAnalysis는 패킷 캡처를 시각화하는 다양한 옵션을 제공하며
 
     ![filters][11]
 
-    모든 [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) CapAnalysis의 기능에 대해 자세히 알아보려면 방문하십시오.
+    모든 [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) capanalysis 기능에 대 한 자세한 내용은을 참조 하세요.
 
 ## <a name="conclusion"></a>결론
 

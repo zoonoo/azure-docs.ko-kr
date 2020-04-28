@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 10c66ba175484d8b95f26ef9330753151a92969b
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 631c9b37cf1fec0d39c3c362c6bc303a576d6b7c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106035"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187333"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure Automation에서 작업 시간 외 Vm 시작/중지 솔루션
 
@@ -117,7 +117,7 @@ ms.locfileid: "82106035"
 |ScheduledStartStop_Parent | 작업: 시작 또는 중지 <br>VMList <br> WhatIf: True 또는 False | 구독의 모든 Vm을 시작 하거나 중지 합니다. 변수 `External_Start_ResourceGroupNames` 를 편집 `External_Stop_ResourceGroupNames` 하 여 이러한 대상 리소스 그룹에 대해서만 실행 합니다. 변수를 `External_ExcludeVMNames` 업데이트 하 여 특정 vm을 제외할 수도 있습니다.|
 |SequencedStartStop_Parent | 작업: 시작 또는 중지 <br> WhatIf: True 또는 False<br>VMList| Start/stop 작업을 시퀀싱 하려는 각 VM에 **sequencestart** 및 **sequencestop** 라는 태그를 만듭니다. 이 태그 이름은 대/소문자를 구분합니다. 태그 값은 시작하거나 중지하려는 순서에 해당하는 양의 정수(1, 2, 3)여야 합니다. <br>**참고**: vm은 `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames`및 `External_ExcludeVMNames` 변수에 정의 된 리소스 그룹 내에 있어야 합니다. 작업이 적용되려면 적절한 태그가 있어야 합니다.|
 
-### <a name="variables"></a>variables
+### <a name="variables"></a>변수
 
 다음 표에는 Automation 계정에서 만든 변수가 나열되어 있습니다. 접두사가 접두사로 붙은 변수만 수정 `External`합니다. 접두사가 접두사로 붙은 변수 `Internal` 를 수정 하면 원치 않는 효과가 발생 합니다.
 
@@ -148,7 +148,7 @@ ms.locfileid: "82106035"
 >[!NOTE]
 >변수의 `External_WaitTimeForVMRetryInSeconds`경우 기본값은 600에서 2100로 업데이트 되었습니다. 
 
-모든 시나리오에서, `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames`및 `External_ExcludeVMNames` 변수는 **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**및 **ScheduledStartStop_Parent** runbook에 대 한 쉼표로 구분 된 vm 목록을 제외 하 고 vm을 대상으로 지정 하는 데 필요 합니다. 즉, 시작 및 중지 작업을 수행 하려면 Vm이 대상 리소스 그룹에 속해야 합니다. 이 논리는 구독 또는 리소스 그룹을 대상으로 지정하며 새로 만든 VM에서 작업이 상속된다는 측면에서 Azure 정책과 유사하게 작동합니다. 이 방법을 사용하면 모든 VM에 대해 별도 일정을 유지하고 시작 및 중지를 전체적으로 관리할 필요가 없습니다.
+모든 시나리오에서, `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames`및 `External_ExcludeVMNames` 변수는 **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**및 **ScheduledStartStop_Parent** runbook에 대 한 쉼표로 구분 된 vm 목록을 제외 하 고 vm을 대상으로 지정 하는 데 필요 합니다. 즉, 시작 및 중지 작업을 수행 하려면 Vm이 대상 리소스 그룹에 속해야 합니다. 이 논리는 구독 또는 리소스 그룹을 대상으로 지정할 수 있고 새로 만든 Vm에서 작업이 상속 된다는 점에서 Azure Policy와 유사 하 게 작동 합니다. 이 방법을 사용하면 모든 VM에 대해 별도 일정을 유지하고 시작 및 중지를 전체적으로 관리할 필요가 없습니다.
 
 ### <a name="schedules"></a>일정
 

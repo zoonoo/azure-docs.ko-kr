@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 2bd9430fc6f48d72faa2c1850af0bb8432a7c5f5
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: e9cb691ef60f612672078a9ef84db904c79cbc87
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82149503"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189448"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Azure 기밀 컴퓨팅에 대 한 질문과 대답
 
@@ -47,7 +47,7 @@ Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 Stack 
 
 1. **DCsv2 시리즈와 DC 시리즈 Vm 간의 차이점은 무엇 인가요?**
 
-   DC 시리즈 Vm은 SGX를 사용 하는 이전 6 코어 Intel 프로세서에서 실행 됩니다. 여기에는 총 메모리, EPC (Enclave Page) 메모리 및 더 작은 영역에서 사용할 수 있는 메모리가 있습니다. 이러한 Vm은 미국 동부 에서만 사용할 수 있으며 유럽 서 부는 Standard_DC2s 및 Standard_DC4s의 두 가지 크기로 제공 됩니다. GA로 전환 되지 않으며 [기밀 계산 DC 시리즈 VM [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) Marketplace 인스턴스에만 배포할 수 있습니다.
+   DC 시리즈 Vm은 Intel SGX를 사용 하는 이전 6 코어 Intel 프로세서에서 실행 됩니다. 여기에는 총 메모리, EPC (Enclave Page) 메모리 및 더 작은 영역에서 사용할 수 있는 메모리가 있습니다. 이러한 Vm은 미국 동부 에서만 사용할 수 있으며 유럽 서 부는 Standard_DC2s 및 Standard_DC4s의 두 가지 크기로 제공 됩니다. GA로 전환 되지 않으며 [기밀 계산 DC 시리즈 VM [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) Marketplace 인스턴스에만 배포할 수 있습니다.
 
 1. **DCsv2 가상 컴퓨터를 전역적으로 사용할 수 있나요?**
 
