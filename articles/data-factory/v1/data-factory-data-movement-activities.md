@@ -13,10 +13,10 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281887"
 ---
 # <a name="move-data-by-using-copy-activity"></a>복사 활동을 사용하여 데이터 이동
@@ -137,7 +137,7 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 Data Factory 복사 마법사를 사용하면 복사 활동을 포함하는 파이프라인을 만들 수 있습니다. 이 파이프라인에서는 연결된 서비스, 데이터 세트 및 파이프라인에 대한 *JSON 정의를 작성하지 않고도* 지원되는 소스에서 대상으로 데이터를 복사할 수 있습니다. 마법사에 대한 자세한 내용은 [Data Factory 복사 마법사](data-factory-copy-wizard.md) 를 참조하세요.  
 
 ### <a name="by-using-json-scripts"></a>JSON 스크립트 사용
-Visual Studio에서 데이터 팩터리 편집기를 사용하거나 Azure PowerShell을 사용하여 작업 복사를 사용하여 파이프라인에 대한 JSON 정의를 만들 수 있습니다. 그런 다음 해당 정의를 배포하여 Data Factory에서 파이프라인을 만들 수 있습니다. 단계별 지침이 포함된 자습서는 [자습서: Azure Data Factory 파이프라인에서 복사 활동 사용](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 을 참조하세요.    
+Visual Studio에서 Data Factory 편집기를 사용 하거나 Azure PowerShell 하 여 복사 작업을 사용 하 여 파이프라인에 대 한 JSON 정의를 만들 수 있습니다. 그런 다음 해당 정의를 배포하여 Data Factory에서 파이프라인을 만들 수 있습니다. 단계별 지침이 포함된 자습서는 [자습서: Azure Data Factory 파이프라인에서 복사 활동 사용](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 을 참조하세요.    
 
 이름, 설명, 입력/출력 테이블, 정책 등의 JSON 속성은 모든 형식의 활동에 사용할 수 있습니다. 활동의 `typeProperties` 섹션에서 사용 가능한 속성은 각 활동 형식에 따라 다릅니다.
 

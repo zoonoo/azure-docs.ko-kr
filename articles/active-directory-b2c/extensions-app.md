@@ -11,10 +11,10 @@ ms.date: 09/06/2017
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 547b625996a65999c32c1b73699e3b408be01de3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78188599"
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: 확장 앱
@@ -36,7 +36,7 @@ b2c-extensions-app이 있는지 확인하려면
 
 b2c-extensions-app을 실수로 삭제한 경우 30일 이내에는 복구할 수 있습니다. Graph API를 사용하여 앱을 복원할 수 있습니다.
 
-1. 을 [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/)찾아보십시오.
+1. [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/) 으로 이동합니다.
 1. 삭제된 앱을 복원하려는 Azure AD B2C 디렉터리에 대한 전역 관리자로 사이트에 로그인합니다. 이 전역 관리자는 다음과 비슷한 이메일 주소가 있어야 합니다. `username@{yourTenant}.onmicrosoft.com`
 1. api-version=1.6인 URL `https://graph.windows.net/myorganization/deletedApplications`에 대해 HTTP GET을 실행합니다. 이 작업은 지난 30일 이내에 삭제된 모든 애플리케이션을 나열합니다.
 1. 목록에서 이름이 ‘b2c-extension-app’으로 시작하는 애플리케이션을 찾고 해당 `objectid` 속성 값을 복사합니다.

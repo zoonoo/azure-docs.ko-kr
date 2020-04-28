@@ -1,5 +1,5 @@
 ---
-title: 'Azure VPN 게이트웨이: 구성 설정'
+title: 'Azure VPN Gateway: 구성 설정'
 description: Azure Virtual Network 게이트웨이의 VPN Gateway 설정에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244863"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
@@ -77,11 +77,11 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 ###  <a name="resizing-or-changing-a-sku"></a><a name="resizechange"></a>SKU 크기 조정 또는 변경
 
-VPN 게이트웨이가 있는데 다른 게이트웨이 SKU를 사용하려는 경우 게이트웨이 SKU 크기를 조정하거나 다른 SKU로 변경할 수 있습니다. 다른 게이트웨이 SKU로 변경할 때는 기존 게이트웨이를 완전히 삭제하고 새로 작성하게 됩니다. 게이트웨이를 빌드하는 데 최대 45분이 걸릴 수 있습니다. 이에 비해 게이트웨이 SKU의 크기를 조정하면 게이트웨이를 삭제하고 다시 빌드할 필요가 없으므로 가동 중지 시간이 많지 않습니다. 게이트웨이 SKU를 변경하지 않고 크기를 조정할 수 있다면 그렇게 하는 것이 좋습니다. 그러나 크기 조정에 대한 규칙이 있습니다.
+VPN 게이트웨이가 있는데 다른 게이트웨이 SKU를 사용하려는 경우 게이트웨이 SKU 크기를 조정하거나 다른 SKU로 변경할 수 있습니다. 다른 게이트웨이 SKU로 변경할 때는 기존 게이트웨이를 완전히 삭제하고 새로 작성하게 됩니다. 게이트웨이를 빌드하는 데 최대 45 분이 걸릴 수 있습니다. 반면 게이트웨이 SKU의 크기를 조정할 때 게이트웨이를 삭제 하 고 다시 빌드할 필요가 없기 때문에 가동 중지 시간이 많지 않습니다. 게이트웨이 SKU를 변경하지 않고 크기를 조정할 수 있다면 그렇게 하는 것이 좋습니다. 그러나 크기 조정에 대한 규칙이 있습니다.
 
-1. 기본 SKU를 제외하고 동일한 세대(Generation1 또는 Generation2) 내에 VPN 게이트웨이 SKU의 크기를 다른 VPN 게이트웨이 SKU로 조정할 수 있습니다. 예를 들어, 세대1의 VpnGw1은 1세대의 VpnGw2로 크기를 조정할 수 있지만 2세대의 VpnGw2로는 축소할 수 없습니다.
+1. 기본 SKU를 제외 하 고, 동일한 세대 (Generation1.xml 또는 Generation2) 내에서 다른 VPN gateway sku에 대 한 VPN 게이트웨이 SKU의 크기를 조정할 수 있습니다. 예를 들어 Generation1.xml의 VpnGw1는 Generation1.xml의 VpnGw2로 크기를 조정할 수 있지만 VpnGw2의 Generation2로 크기를 조정할 수 없습니다.
 2. 이전 게이트웨이 SKU로 작동하는 경우 Basic, Standard 및 HighPerformance SKU 간에 크기를 조정할 수 있습니다.
-3. 기본/표준/고성능 SCO에서 VpnGw SCO로 크기를 조정할 **수 없습니다.** 대신 새 SKU로 [변경](#change)해야 합니다.
+3. Basic/Standard/HighPerformance Sku에서 VpnGw Sku로 크기를 조정할 **수 없습니다** . 대신 새 SKU로 [변경](#change)해야 합니다.
 
 #### <a name="to-resize-a-gateway"></a><a name="resizegwsku"></a>게이트웨이의 크기를 조정하려면
 
@@ -132,7 +132,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ## <a name="gateway-subnet"></a><a name="gwsub"></a>게이트웨이 서브넷
 
-VPN Gateway를 만들기 전에 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷은 가상 네트워크 게이트웨이 VM 및 서비스에서 사용하는 IP 주소를 포함합니다. 가상 네트워크 게이트웨이 만들 때 게이트웨이 VM은 게이트웨이 서브넷에 배포되고 필수 VPN Gateway 설정으로 구성됩니다. 게이트웨이 서브넷에 다른 어떤 것도 배포하지 마십시오(예: 추가 VM). 게이트웨이 서브넷이 제대로 작동하려면 이름을 'GatewaySubnet'으로 지정해야 합니다. 게이트웨이 서브넷 이름을 'GatewaySubnet'으로 지정하면 Azure에서 해당 서브넷이 가상 네트워크 게이트웨이 VM 및 서비스를 배포할 서브넷임을 알 수 있습니다.
+VPN Gateway를 만들기 전에 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷은 가상 네트워크 게이트웨이 VM 및 서비스에서 사용하는 IP 주소를 포함합니다. 가상 네트워크 게이트웨이 만들 때 게이트웨이 VM은 게이트웨이 서브넷에 배포되고 필수 VPN Gateway 설정으로 구성됩니다. 다른 Vm (예: 추가 Vm)을 게이트웨이 서브넷에 배포 하지 마십시오. 게이트웨이 서브넷이 제대로 작동하려면 이름을 'GatewaySubnet'으로 지정해야 합니다. 게이트웨이 서브넷 이름을 'GatewaySubnet'으로 지정하면 Azure에서 해당 서브넷이 가상 네트워크 게이트웨이 VM 및 서비스를 배포할 서브넷임을 알 수 있습니다.
 
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
@@ -140,7 +140,7 @@ VPN Gateway를 만들기 전에 게이트웨이 서브넷을 만들어야 합니
 
 게이트웨이 서브넷을 만드는 경우 서브넷이 포함하는 IP 주소의 수를 지정합니다. 게이트웨이 서브넷의 IP 주소는 게이트웨이 VM 및 게이트웨이 서비스에 할당됩니다. 일부 구성에는 다른 구성보다 더 많은 IP 주소가 필요합니다. 
 
-게이트웨이 서브넷 크기를 계획할 때는 만들 려는 구성에 대 한 설명서를 참조 하십시오. 예를 들어 ExpressRoute/VPN 게이트웨이 공존 구성에는 대부분의 다른 구성보다 더 큰 게이트웨이 서브넷이 필요합니다. 또한 이후 추가 구성이 추가될 가능성에 대비하여 게이트웨이 서브넷에 IP 주소가 충분히 포함되어 있는지 확인하려고 할 수 있습니다. 게이트웨이 서브넷은 /29만큼 작지만 사용 가능한 주소 공간이 있는 경우 /27 이상(/27, /26 등)의 게이트웨이 서브넷을 만드는 것이 좋습니다. 이것은 대부분의 구성을 수용할 것입니다.
+게이트웨이 서브넷 크기를 계획할 때 만들려는 구성에 대 한 설명서를 참조 하세요. 예를 들어 Express 경로/VPN Gateway 공존 구성에는 대부분의 다른 구성 보다 더 큰 게이트웨이 서브넷이 필요 합니다. 또한 이후 추가 구성이 추가될 가능성에 대비하여 게이트웨이 서브넷에 IP 주소가 충분히 포함되어 있는지 확인하려고 할 수 있습니다. 게이트웨이 서브넷을/29만 큼 작게 만들 수 있지만, 사용 가능한 주소 공간이 있는 경우/27 이상의 게이트웨이 서브넷을 만드는 것이 좋습니다 (/27,/26 등). 이렇게 하면 대부분의 구성이 적용 됩니다.
 
 다음 Resource Manager PowerShell 예제에서는 이름이 GatewaySubnet인 게이트웨이 서브넷을 보여 줍니다. CIDR 표기법이 /27을 지정하는 것을 확인할 수 있으며 이는 이번에 존재하는 대부분의 구성에 대한 충분한 IP 주소를 허용합니다.
 
@@ -169,10 +169,10 @@ New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 VPN Gateway를 구성하기 위해 REST API, PowerShell cmdlet 또는 Azure CLI를 사용할 경우 추가 기술 리소스 및 특정 구문 요구 사항에 대해서는 다음 페이지를 참조하세요.
 
-| **고전적인** | **리소스 관리자** |
+| **기존** | **리소스 관리자** |
 | --- | --- |
-| [Powershell](/powershell/module/az.network/#networking) |[Powershell](/powershell/module/az.network#vpn) |
-| [나머지 API](https://msdn.microsoft.com/library/jj154113) |[나머지 API](/rest/api/network/virtualnetworkgateways) |
+| [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
+| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
 | 지원되지 않음 | [Azure CLI](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,5 +1,5 @@
 ---
-title: 레거시 Azure 가상 네트워크 VPN 게이트웨이 SUS
+title: 레거시 Azure virtual network VPN gateway Sku
 description: 이전 버전의 가상 네트워크 게이트웨이 SKU인 Basic, Standard 및 HighPerformance를 사용하는 방법입니다.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79279391"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>가상 네트워크 게이트웨이 SKU(레거시 SKU) 사용
@@ -22,7 +22,7 @@ ms.locfileid: "79279391"
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
-[ExpressRoute 가격 책정 페이지에](https://azure.microsoft.com/pricing/details/expressroute)있는 가상 네트워크 게이트웨이 섹션에서 레거시 **게이트웨이** 가격을 볼 수 있습니다.
+[Express 경로 가격 페이지](https://azure.microsoft.com/pricing/details/expressroute)의에 있는 **Virtual Network 게이트웨이** 섹션에서 레거시 게이트웨이 가격 책정을 볼 수 있습니다.
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a><a name="agg"></a>SKU 기준으로 예상된 총 처리량
 
@@ -47,9 +47,9 @@ Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerfor
 
 또한 Azure Portal에서 게이트웨이 크기를 조정할 수도 있습니다.
 
-### <a name="classic"></a><a name="classicresize"></a>고전적인
+### <a name="classic"></a><a name="classicresize"></a>기존
 
-클래식 배포 모델의 게이트웨이 크기를 조정하려면 서비스 관리 PowerShell cmdlet을 사용해야 합니다. 다음 명령을 사용합니다.
+클래식 배포 모델에 대 한 게이트웨이 크기를 조정 하려면 서비스 관리 PowerShell cmdlet을 사용 해야 합니다. 다음 명령을 사용합니다.
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance

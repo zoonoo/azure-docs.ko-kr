@@ -1,5 +1,5 @@
 ---
-title: Azure AD 동의 프레임워크
+title: Azure AD 동의 프레임 워크
 titleSuffix: Microsoft identity platform
 description: Azure Active Directory의 동의 프레임워크와 이 프레임워크를 통해 다중 테넌트 웹 및 네이티브 클라이언트 애플리케이션을 쉽게 개발하는 방법에 대해 알아봅니다.
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.openlocfilehash: cb9441e6ce19094ff72e902cdeea151041ceb963
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77161143"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory 동의 프레임워크
@@ -46,16 +46,16 @@ OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
 
 1. 사용자가 로그인한 후 Azure AD는 사용자를 동의 페이지에 표시해야 하는지 여부를 결정합니다. 이 결정은 사용자(또는 해당 조직의 관리자)가 애플리케이션 동의를 부여했는지 여부에 따라 다릅니다. 아직 동의가 부여되지 않았다면 Azure AD는 사용자에게 동의 여부를 묻는 메시지를 표시하며 작동에 필요한 사용 권한을 표시합니다. 동의 대화 상자에 표시되는 사용 권한 집합은 Azure Portal의 **위임된 권한**에서 선택한 집합과 일치합니다.
 
-    ![동의 대화 상자에 표시되는 사용 권한의 예가 표시됩니다.](./media/consent-framework/consent.png)
+    ![승인 대화 상자에 표시 되는 사용 권한의 예를 보여 줍니다.](./media/consent-framework/consent.png)
 
-1. 사용자가 동의를 부여하면 권한 부여 코드가 애플리케이션에 반환되며, 이것을 교환하여 액세스 토큰 및 새로 고침 토큰을 획득할 수 있습니다. 이 흐름에 대한 자세한 내용은 [OAuth 2.0 권한 부여 코드 흐름을](v2-oauth2-auth-code-flow.md)참조하십시오.
+1. 사용자가 동의를 부여하면 권한 부여 코드가 애플리케이션에 반환되며, 이것을 교환하여 액세스 토큰 및 새로 고침 토큰을 획득할 수 있습니다. 이 흐름에 대 한 자세한 내용은 [OAuth 2.0 인증 코드 흐름](v2-oauth2-auth-code-flow.md)을 참조 하세요.
 
-1. 관리자로 테넌트의 모든 사용자를 대신하여 애플리케이션의 위임된 권한에 동의할 수도 있습니다. 관리 동의는 테넌트의 모든 사용자에 대해 동의 대화 상자가 나타나지 않도록 하며 관리자 역할을 가진 사용자가 [Azure Portal에서](https://portal.azure.com) 수행할 수 있습니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+1. 관리자로 테넌트의 모든 사용자를 대신하여 애플리케이션의 위임된 권한에 동의할 수도 있습니다. 관리자 동의를 사용 하면 테 넌 트의 모든 사용자에 게 동의 대화 상자가 표시 되지 않으며, 사용자가 관리자 역할을 사용 하 여 [Azure Portal](https://portal.azure.com) 에서 수행할 수 있습니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
 
     **앱의 위임된 권한에 동의하려면**
 
-   1. 응용 프로그램의 **API 권한** 페이지로 이동
-   1. 권한 부여 관리자 동의 버튼을 **클릭합니다.**
+   1. 응용 프로그램에 대 한 **API 권한** 페이지로 이동 합니다.
+   1. **관리자 동의 허용** 단추를 클릭 합니다.
 
       ![명시적 관리자 동의를 위한 권한 부여](./media/consent-framework/grant-consent.png)
 

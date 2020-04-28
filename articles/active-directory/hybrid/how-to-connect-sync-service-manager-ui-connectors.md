@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261048"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Auzre AD Connect Sync Service Manager에서 커넥터 사용
@@ -33,11 +33,11 @@ ms.locfileid: "79261048"
 ## <a name="connector-actions"></a>커넥터 작업
 | 작업 | 주석 |
 | --- | --- |
-| 생성 |사용하지 마십시오. 추가 AD 포리스트에 연결하려면 설치 마법사를 사용합니다. |
+| 만들기 |사용하지 마십시오. 추가 AD 포리스트에 연결하려면 설치 마법사를 사용합니다. |
 | 속성 |모든 도메인 및 OU 필터링에 사용 |
-| [삭제](#delete) |커넥터 공간에서 데이터를 삭제하거나 포리스트에 대한 연결을 삭제하는 데 사용 |
+| [Delete](#delete) |커넥터 공간에서 데이터를 삭제하거나 포리스트에 대한 연결을 삭제하는 데 사용 |
 | [실행 프로필 구성](#configure-run-profiles) |여기서는 도메인 필터링만 구성 이 작업을 사용하여 이미 구성된 실행 프로필을 볼 수 있습니다. |
-| 다음을 실행합니다. |프로필의 일회성 실행을 시작하는 데 사용 |
+| Run |프로필의 일회성 실행을 시작하는 데 사용 |
 | 중지 |현재 프로필을 실행하는 커넥터 중지 |
 | 커넥터 내보내기 |사용하지 마십시오. |
 | 커넥터 가져오기 |사용하지 마십시오. |
@@ -45,7 +45,7 @@ ms.locfileid: "79261048"
 | 스키마 새로 고침 |캐시된 스키마를 새로 고칩니다. 동기화 규칙도 업데이트되므로 대신 설치 마법사를 사용하는 것이 좋습니다. |
 | [커넥터 공간 검색](#search-connector-space) |개체를 찾고 시스템 전체에서 개체 및 해당 데이터의 흐름을 따르는데 사용됩니다. |
 
-### <a name="delete"></a>DELETE
+### <a name="delete"></a>삭제
 삭제 작업은 두 가지 작업에 사용됩니다.  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 
@@ -86,7 +86,7 @@ ms.locfileid: "79261048"
 3. AD DS 계정을 사용하도록 구성된 AD 커넥터를 선택합니다.
 4. 작업 아래에서 **속성**을 선택합니다.
 5. 팝업 대화 상자에서 Active Directory 포리스트에 연결을 선택합니다.
-6. 포리스트 이름은 해당 온프레미스 AD를 나타냅니다.
+6. 포리스트 이름은 해당 온-프레미스 AD를 나타냅니다.
 7. 사용자 이름은 동기화에 사용되는 AD DS 계정을 나타냅니다.
 8. 암호 텍스트 상자에 AD DS 계정의 새 암호를 입력합니다. ![Azure AD Connect 동기화 암호화 키 유틸리티](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
 9. 확인을 클릭하여 새 암호를 저장하고 동기화 서비스를 다시 시작하여 메모리 캐시에서 이전 암호를 제거합니다.

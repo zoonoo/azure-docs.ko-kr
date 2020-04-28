@@ -12,10 +12,10 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cf9c333af48e1c148dcd20ccf5ce91b284bd728b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78189874"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
@@ -72,10 +72,10 @@ ms.locfileid: "78189874"
   - 난수 생성기를 사용하여 임의 문자열을 만듭니다.
   - 입력한 형식 문자열에 따라 클레임 서식을 지정합니다. 이 변환에서는 C# `String.Format` 메서드를 사용합니다.
 
-- 입력 유효성 검사 - 이 요소를 사용하면 와 유사한 부울 *집계를* 수행할 수 *있습니다.*
+- InputValidation-이 요소를 사용 하면 *and* 및 *or*와 유사한 부울 집계를 수행할 수 있습니다.
 
 - [ContentDefinitions](contentdefinitions.md) - 사용자 경험에서 사용할 HTML5 템플릿의 URL을 포함합니다. 사용자 지정 정책에서 콘텐츠 정의는 사용자 경험의 지정된 단계에 사용되는 HTML5 페이지 URI를 정의합니다. 로그인/등록, 암호 재설정, 오류 페이지 등을 예로 들 수 있습니다. HTML5 파일의 LoadUri를 재정의하여 모양과 느낌을 수정할 수 있습니다. 필요에 따라 새 콘텐츠 정의를 만들 수도 있습니다. 이 요소는 지역화 ID를 사용하는 지역화된 리소스 참조를 포함할 수 있습니다.
 
 - [Localization](localization.md) - 여러 언어를 지원할 수 있습니다. 정책에서 지역화를 지원하면 정책에서 지원되는 언어 목록을 설정하고 기본 언어를 선택할 수 있습니다. 언어별 문자열 및 컬렉션도 지원됩니다.
 
-- [디스플레이컨트롤](display-controls.md) - 페이지에 표시할 컨트롤을 정의합니다. 디스플레이 컨트롤에는 특별한 기능이 있으며 백 엔드 유효성 검사 기술 프로파일과 상호 작용합니다. 디스플레이 컨트롤은 현재 **미리 보기상태입니다.**
+- [Displaycontrols](display-controls.md) -페이지에 표시 되는 컨트롤을 정의 합니다. 표시 컨트롤에는 특별 한 기능이 있으며 백 엔드 유효성 검사 기술 프로필과 상호 작용 합니다. 표시 컨트롤은 현재 **미리 보기로**제공 됩니다.

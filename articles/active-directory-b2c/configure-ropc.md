@@ -1,7 +1,7 @@
 ---
 title: 리소스 소유자 암호 자격 증명 흐름 구성
 titleSuffix: Azure AD B2C
-description: Azure AD B2C에서 ROPC 흐름을 구성하는 방법에 대해 알아봅니다.
+description: Azure AD B2C에서 ROPC 흐름을 구성 하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,10 +12,10 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 70cd4f2ca3a4ac37bdf1d1e465d1f1a7d06ef9e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78189704"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름 구성
@@ -31,11 +31,11 @@ ROPC(리소스 소유자 암호 자격 증명) 흐름은 신뢰 당사자라고�
 1. Azure AD B2C 테넌트의 전역 관리자로 Azure Portal에 로그인합니다.
 2. Azure AD B2C 테넌트로 전환하려면 포털의 오른쪽 위 모서리에서 B2C 디렉터리를 선택합니다.
 3. **사용자 흐름**을 클릭하고 **새 사용자 흐름**을 선택합니다.
-4. **모두** 탭을 클릭하고 **ROPC를 사용하여 로그인을**선택합니다.
+4. **모두** 탭을 클릭 하 고 **ropc를 사용 하 여 로그인**을 선택 합니다.
 5. *ROPC_Auth*와 같은 사용자 흐름에 사용할 이름을 입력합니다.
 6. **애플리케이션 클레임**에서 **자세히 표시**를 클릭합니다.
 7. 표시 이름, 이메일 주소 및 ID 공급 기업과 같은 애플리케이션에 필요한 애플리케이션 클레임을 선택합니다.
-8. **확인**을 선택하고 **만들기**를 선택합니다.
+8. **확인**을 선택 하 고 **만들기**를 선택 합니다.
 9. **사용자 흐름 실행**을 클릭합니다.
 
    다음 예제와 같은 엔드포인트가 표시됩니다.
@@ -50,15 +50,15 @@ ROPC(리소스 소유자 암호 자격 증명) 흐름은 신뢰 당사자라고�
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
 선호하는 API 개발 애플리케이션을 사용하여 API 호출을 생성하고, 응답을 검토하여 사용자 흐름을 디버그합니다. 다음 표의 정보를 POST 요청의 본문으로 사용하여 이와 같은 호출을 작성합니다.
-- * \<yourtenant.onmicrosoft.com>* B2C 테넌트의 이름으로 바꿉니다.
-- * \<B2C_1A_ROPC_Auth>* 리소스 소유자 암호 자격 증명 정책의 전체 이름으로 바꿉니다.
-- * \<bef222d56-552f-4a5b-b90a-1988a7d634c3>을* 등록의 응용 프로그램 ID로 교체하십시오.
+- * \<Yourtenant.onmicrosoft.com>* 를 B2C 테 넌 트의 이름으로 바꿉니다.
+- * \<B2C_1A_ROPC_Auth>* 를 리소스 소유자 암호 자격 증명 정책의 전체 이름으로 바꿉니다.
+- * \<Bef2222d56-b90a-1988a7d634c3>* 를 등록의 응용 프로그램 ID로 바꿉니다.
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Key | 값 |
+| 키 | 값 |
 | --- | ----- |
-| 사용자 이름 | leadiocl@outlook.com |
+| username | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type | password |
 | scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
@@ -96,12 +96,12 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Key | 값 |
+| 키 | 값 |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
-| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| 리소스 | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* 및 *리소스*는 앞에서 애플리케이션 ID로 기록해 둔 값입니다. *Refresh_token*은 앞에서 언급한 인증 통화에서 받은 토큰입니다.
@@ -124,7 +124,7 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
 }
 ```
 > [!NOTE]
-> 그래프 API를 통해 사용자를 만들 때 응용 프로그램에는 Microsoft Graph의 "openid", "offline_access" 및 "프로필" 권한이 있어야 합니다.
+> Graph API를 통해 사용자를 만들 때 응용 프로그램에는 Microsoft Graph의 "openid connect", "offline_access" 및 "profile" 권한이 있어야 합니다.
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>선호하는 네이티브 SDK 또는 앱 인증을 사용하여 구현
 

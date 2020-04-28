@@ -1,6 +1,6 @@
 ---
 title: Azure AD에서 엔터프라이즈 응용 프로그램의 이름 또는 로고 변경
-description: Azure Active Directory에서 사용자 지정 엔터프라이즈 응용 프로그램의 이름 또는 로고를 변경하는 방법
+description: Azure Active Directory에서 사용자 지정 엔터프라이즈 응용 프로그램의 이름 또는 로고를 변경 하는 방법
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,33 +17,33 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d23849df75d1ab239eb269b462abb21df196e7e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79138504"
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-application-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 응용 프로그램의 이름 또는 로고 변경
 
-Azure AD(Azure Active Directory)에서 사용자 정의 엔터프라이즈 애플리케이션에 대한 이름 또는 로고를 변경하는 것은 쉽습니다. 이러한 변경을 수행할 수 있는 적절한 권한이 있어야 하며 사용자 지정 응용 프로그램의 작성자여야 합니다.
+Azure AD(Azure Active Directory)에서 사용자 정의 엔터프라이즈 애플리케이션에 대한 이름 또는 로고를 변경하는 것은 쉽습니다. 이러한 변경을 수행 하려면 적절 한 권한이 있어야 하 고 사용자 지정 응용 프로그램의 작성자 여야 합니다.
 
-## <a name="how-do-i-change-an-enterprise-applications-name-or-logo"></a>엔터프라이즈 응용 프로그램의 이름이나 로고를 변경하려면 어떻게 해야 합니까?
+## <a name="how-do-i-change-an-enterprise-applications-name-or-logo"></a>엔터프라이즈 응용 프로그램의 이름 또는 로고를 변경 어떻게 할까요??
 
-1. 디렉터리의 전역 관리자인 계정으로 [Azure Active Directory 포털에](https://aad.portal.azure.com/) 로그인합니다. **Azure Active Directory 관리 센터** 페이지가 나타납니다.
-2. 왼쪽 창에서 **엔터프라이즈 애플리케이션**을 선택합니다. 엔터프라이즈 응용 프로그램 목록이 나타납니다.
+1. 디렉터리에 대 한 전역 관리자 인 계정으로 [Azure Active Directory 포털](https://aad.portal.azure.com/) 에 로그인 합니다. **Azure Active Directory 관리 센터** 페이지가 나타납니다.
+2. 왼쪽 창에서 **엔터프라이즈 애플리케이션**을 선택합니다. 엔터프라이즈 응용 프로그램 목록이 표시 됩니다.
 3. 애플리케이션을 선택합니다. 응용 프로그램 개요 페이지가 나타납니다.
-4. 응용 프로그램 개요 창에서 **관리** 제목 아래에서 **속성을**선택합니다. **속성** 페이지가 나타납니다.
-5. 이름을 변경하려면 **이름** 상자를 선택하고 새 이름을 입력한 다음 **Enter**를 누릅니다.
-6. 로고를 변경하려면 **로고** 필드를 찾아 응용 프로그램의 현재 로고 이미지 아래에 있는 파일 상자 **선택** 옆에 있는 폴더 아이콘을 선택합니다.
+4. 응용 프로그램 개요 창의 **관리** 제목 아래에서 **속성**을 선택 합니다. **속성** 페이지가 나타납니다.
+5. 이름을 변경 하려면 **이름** 상자를 선택 하 고 새 이름을 입력 한 다음 **enter**키를 누릅니다.
+6. 로고를 변경 하려면 **로고** 필드를 찾고 응용 프로그램의 현재 로고 이미지 아래에 있는 **파일 선택** 상자 옆에 있는 폴더 아이콘을 선택 합니다.
 
    ![속성 명령 선택](./media/change-name-or-logo-portal/change-logo.png)
 
-   그렇지 않으면 로고를 변경하지 않는 경우 8단계로 이동합니다.
-7. 파일 선택기에서 새 로고로 원하는 파일을 선택합니다. 파일 이름이 현재 로고 이미지 아래의 상자에 나타납니다.
+   그렇지 않고 로고를 변경 하지 않는 경우 8 단계로 이동 합니다.
+7. 파일 선택기에서 새 로고로 원하는 파일을 선택 합니다. 파일 이름이 현재 로고 이미지 아래 상자에 나타납니다.
 
    > [!NOTE]
-   > Azure는 로고 이미지가 PNG 파일이어야 하며 너비, 높이 및 파일 크기에 제한을 적용합니다. 사용자 지정 로고의 크기는 정확히 215 &times; 215픽셀이어야 하며 PNG 형식이어야 합니다. 응용 프로그램 로고의 투명도가 없는 단색 배경을 사용하여 사용자에게 가장 잘 표시하는 것이 좋습니다.
-8. **저장**을 선택합니다. 새 로고를 선택한 경우 **로고** 필드의 이미지가 새 로고 파일을 반영하도록 변경됩니다.
+   > Azure에서는 로고 이미지를 PNG 파일로 사용 하 고 너비, 높이 및 파일 크기에 제한을 적용 합니다. 사용자 지정 로고는 정확히 215 &times; 215 픽셀 크기 이며 PNG 형식 이어야 합니다. 응용 프로그램 로고에서 투명도가 없는 단색 배경을 사용 하 여 사용자에 게 가장 잘 나타나도록 하는 것이 좋습니다.
+8. **저장**을 선택합니다. 새 로고를 선택한 경우 **로고** 필드의 이미지가 새 로고 파일을 반영 하도록 변경 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

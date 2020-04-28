@@ -1,5 +1,5 @@
 ---
-title: Azure 데이터 팩터리를 사용하여 파일 시스템으로 데이터를/에서 복사합니다.
+title: Azure Data Factory를 사용 하 여 파일 시스템 간에 데이터 복사
 description: Azure Data Factory를 사용하여 온-프레미스 파일 시스템에서 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d298c83c0c1a0f33f28644e2e467ad5035300221
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265936"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Azure Data Factory를 통한 온-프레미스 파일 시스템에서의 데이터 복사
@@ -28,7 +28,7 @@ ms.locfileid: "79265936"
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 파일 시스템 커넥터](../connector-file-system.md)를 참조하세요.
 
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 파일 시스템의 데이터를 다른 곳으로 복사하는 방법 또는 그 반대로 이동하는 방법을 설명합니다. [복사 활동과 함께 데이터](data-factory-data-movement-activities.md) 이동에 대한 일반적인 개요를 제공하는 데이터 이동 활동 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 파일 시스템의 데이터를 다른 곳으로 복사하는 방법 또는 그 반대로 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 제공 하는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -45,39 +45,39 @@ ms.locfileid: "79265936"
 > 복사 작업 시 원본 파일이 대상에 성공적으로 복사된 후 원본 파일이 삭제되지 않습니다. 성공적 복사 후 원본 파일을 삭제해야 할 경우 파일을 삭제하는 사용자 지정 작업을 만들고 파이프라인에서 해당 작업을 사용합니다.
 
 ## <a name="enabling-connectivity"></a>연결 사용
-데이터 팩터리는 **데이터 관리 게이트웨이를**통해 온-프레미스 파일 시스템에 연결하고 지원합니다. Data Factory 서비스에서 파일 시스템을 비롯한 지원되는 온-프레미스 데이터 저장소에 연결하도록 허용하려면 온-프레미스 환경에 데이터 관리 게이트웨이를 설치해야 합니다. 데이터 관리 게이트웨이 및 단계별 게이트웨이 설정 지침을 알아보려면 [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요. 데이터 관리 게이트웨이와 달리 온-프레미스 파일 시스템과 통신하기 위해 다른 이진 파일을 설치할 필요가 없습니다. 파일 시스템이 Azure IaaS VM인 경우에도 데이터 관리 게이트웨이를 설치하여 사용해야 합니다. 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 참조하세요.
+Data Factory **데이터 관리 게이트웨이**를 통해 온-프레미스 파일 시스템에 대 한 연결을 지원 합니다. Data Factory 서비스에서 파일 시스템을 비롯한 지원되는 온-프레미스 데이터 저장소에 연결하도록 허용하려면 온-프레미스 환경에 데이터 관리 게이트웨이를 설치해야 합니다. 데이터 관리 게이트웨이 및 단계별 게이트웨이 설정 지침을 알아보려면 [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요. 데이터 관리 게이트웨이와 달리 온-프레미스 파일 시스템과 통신하기 위해 다른 이진 파일을 설치할 필요가 없습니다. 파일 시스템이 Azure IaaS VM인 경우에도 데이터 관리 게이트웨이를 설치하여 사용해야 합니다. 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 참조하세요.
 
 Linux 파일 공유를 사용하려면 Linux 서버에 [Samba](https://www.samba.org/)를 설치하고 Windows 서버에 데이터 관리 게이트웨이를 설치합니다. Linux 서버에 대한 데이터 관리 게이트웨이 설치는 지원되지 않습니다.
 
 ## <a name="getting-started"></a>시작
 다른 도구/API를 사용하여 파일 시스템 간에 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사를**사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다: **Visual Studio,** **Azure PowerShell,** **Azure 리소스 관리자 템플릿,** **.NET API**및 REST **API**. 복사 활동이 있는 파이프라인을 만들려면 단계별 지침에 대한 활동 [복사 자습서를](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 참조하십시오.
+또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API**및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
-1. 데이터 **팩터리**만들기. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다.
-2. **연결된 서비스를** 만들어 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결합니다. 예를 들어 Azure Blob Storage에서 온-프레미스 파일 시스템으로 데이터를 복사하는 경우 온-프레미스 파일 시스템 및 Azure Storage 계정을 데이터 팩터리에 연결하는 두 개의 연결된 서비스를 만듭니다. 온-프레미스 파일 시스템과 관련된 연결된 서비스 속성은 [연결된 서비스 속성](#linked-service-properties) 섹션을 참조하세요.
-3. 복사 작업에 대한 입력 및 출력 데이터를 나타내는 **데이터 집합을** 만듭니다. 마지막 단계에서 설명한 예제에서는 입력 데이터가 포함된 BLOB 컨테이너 및 폴더를 지정하는 데이터 세트를 만듭니다. 또한 파일 시스템의 폴더 및 파일 이름(선택 사항)을 지정하는 다른 데이터 세트를 만듭니다. 온-프레미스 파일 시스템과 관련된 데이터 세트 속성은 [데이터 세트 속성](#dataset-properties) 섹션을 참조하세요.
-4. 데이터 **집합을** 입력으로, 데이터 집합을 출력으로 하는 복사 활동이 있는 파이프라인을 만듭니다. 앞에서 언급한 예에서는 BlobSource를 원본으로, FileSystemSink를 복사 작업의 싱크로 사용합니다. 마찬가지로, 온-프레미스 파일 시스템에서 Azure Blob Storage로 복사하는 경우 복사 작업에 FileSystemSource 및 BlobSink를 사용합니다. 온-프레미스 파일 시스템과 관련된 복사 작업 속성은 [복사 작업 속성](#copy-activity-properties) 섹션을 참조하세요. 원본 또는 싱크로 데이터 저장소를 사용하는 방법에 대 한 자세한 내용을 보려면 데이터 저장소에 대한 이전 섹션의 링크를 클릭하세요.
+1. **데이터 팩터리**를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다.
+2. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결 하는 **연결 된 서비스** 를 만듭니다. 예를 들어 Azure Blob Storage에서 온-프레미스 파일 시스템으로 데이터를 복사하는 경우 온-프레미스 파일 시스템 및 Azure Storage 계정을 데이터 팩터리에 연결하는 두 개의 연결된 서비스를 만듭니다. 온-프레미스 파일 시스템과 관련된 연결된 서비스 속성은 [연결된 서비스 속성](#linked-service-properties) 섹션을 참조하세요.
+3. 복사 작업에 대 한 입력 및 출력 데이터를 나타내는 데이터 **집합** 을 만듭니다. 마지막 단계에서 설명한 예제에서는 입력 데이터가 포함된 BLOB 컨테이너 및 폴더를 지정하는 데이터 세트를 만듭니다. 또한 파일 시스템의 폴더 및 파일 이름(선택 사항)을 지정하는 다른 데이터 세트를 만듭니다. 온-프레미스 파일 시스템과 관련된 데이터 세트 속성은 [데이터 세트 속성](#dataset-properties) 섹션을 참조하세요.
+4. 데이터 집합을 입력으로 사용 하 고 데이터 집합을 출력으로 사용 하는 복사 작업을 사용 하 여 **파이프라인** 을 만듭니다. 앞에서 언급한 예에서는 BlobSource를 원본으로, FileSystemSink를 복사 작업의 싱크로 사용합니다. 마찬가지로, 온-프레미스 파일 시스템에서 Azure Blob Storage로 복사하는 경우 복사 작업에 FileSystemSource 및 BlobSink를 사용합니다. 온-프레미스 파일 시스템과 관련된 복사 작업 속성은 [복사 작업 속성](#copy-activity-properties) 섹션을 참조하세요. 원본 또는 싱크로 데이터 저장소를 사용하는 방법에 대 한 자세한 내용을 보려면 데이터 저장소에 대한 이전 섹션의 링크를 클릭하세요.
 
 마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  다른 곳에서 파일 시스템으로 또는 그 반대로 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예](#json-examples-for-copying-data-to-and-from-file-system) 섹션을 참조하세요.
 
 다음 섹션에서는 파일 시스템에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
-온-프레미스 파일 시스템을 **온-프레미스 파일 서버** 연결 서비스로 Azure 데이터 팩터리에 연결할 수 있습니다. 다음 표에서는 온-프레미스 파일 서버 연결 서비스에 지정된 JSON 요소에 대해 설명합니다.
+온 **-프레미스 파일 서버** 연결 된 서비스를 사용 하 여 온-프레미스 파일 시스템을 Azure data factory에 연결할 수 있습니다. 다음 표에서는 온-프레미스 파일 서버 연결 서비스에 지정된 JSON 요소에 대해 설명합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
-| type |type 속성은 **OnPremisesFileServer**로 설정되어야 합니다. |yes |
-| host |복사할 폴더의 루트 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 [연결된 서비스 및 데이터 세트 정의 샘플](#sample-linked-service-and-dataset-definitions) 을 참조하세요. |yes |
+| type |type 속성은 **OnPremisesFileServer**로 설정되어야 합니다. |예 |
+| host |복사할 폴더의 루트 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 [연결된 서비스 및 데이터 세트 정의 샘플](#sample-linked-service-and-dataset-definitions) 을 참조하세요. |예 |
 | userId |서버에 대한 액세스 권한이 있는 사용자의 ID를 지정합니다. |아니요(encryptedCredential을 선택하는 경우) |
 | password |사용자(userid)의 암호를 지정합니다. |아니요(encryptedcredential을 선택하는 경우) |
-| encryptedCredential |New-AzDataFactoryCryptValue cmdlet을 실행하여 얻을 수 있는 암호화된 자격 증명을 지정합니다. |아니요(일반 텍스트에 userid 및 암호를 지정하는 경우) |
-| gatewayName |Data Factory에서 온-프레미스 파일 서버에 연결하는 데 사용해야 하는 게이트웨이의 이름을 지정하고 있습니다. |yes |
+| encryptedCredential |AzDataFactoryEncryptValue cmdlet을 실행 하 여 가져올 수 있는 암호화 된 자격 증명을 지정 합니다. |아니요(일반 텍스트에 userid 및 암호를 지정하는 경우) |
+| gatewayName |Data Factory에서 온-프레미스 파일 서버에 연결하는 데 사용해야 하는 게이트웨이의 이름을 지정하고 있습니다. |예 |
 
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>연결된 서비스 및 데이터 세트 정의 샘플
@@ -127,14 +127,14 @@ Linux 파일 공유를 사용하려면 Linux 서버에 [Samba](https://www.samba
 
 typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데이터 저장소에 있는 데이터의 위치 및 형식과 같은 정보를 제공합니다. **FileShare** 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음과 같은 속성이 포함됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
-| folderPath |폴더의 하위 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 와일드카드 필터는 지원되지 않습니다. 예제를 살펴보려면 [연결된 서비스 및 데이터 세트 정의 샘플](#sample-linked-service-and-dataset-definitions) 을 참조하세요.<br/><br/>이 속성을 **partitionBy**와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |yes |
-| fileName |테이블이 폴더의 특정 파일을 참조하도록 하려는 경우 **folderPath**에 파일 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>**fileName**이 출력 데이터 세트에 대해 지정되지 않았고 **preserveHierarchy**가 활동 싱크에 지정되지 않은 경우 생성된 파일의 이름은 다음 형식을 따릅니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |예 |
-| fileFilter |모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. <br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: "fileFilter": "*.log"<br/>예 2: "fileFilter": 2014-1-?. txt "<br/><br/>fileFilter는 FileShare 입력 데이터 세트에 적용할 수 있습니다. |예 |
-| partitionedBy |partitionedBy를 사용하면 시계열 데이터의 동적 folderPath/fileName을 지정할 수 있습니다. 예를 들어 매시간 데이터에 대한 매개 변수를 포함하는 folderPath가 있습니다. |예 |
-| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. format의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사본) 간에 있는 **파일로 파일을 복사하려면** 입력 및 출력 데이터 집합 정의모두에서 형식 섹션을 건너뜁니다. |예 |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 유형은 **GZip,** **deflate,** **BZip2**및 **ZipDeflate입니다.** 지원되는 수준은 **다음과** 같습니다. **Fastest** [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |예 |
+| folderPath |폴더의 하위 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 와일드카드 필터는 지원되지 않습니다. 예제를 살펴보려면 [연결된 서비스 및 데이터 세트 정의 샘플](#sample-linked-service-and-dataset-definitions) 을 참조하세요.<br/><br/>이 속성을 **partitionBy**와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
+| fileName |테이블이 폴더의 특정 파일을 참조하도록 하려는 경우 **folderPath**에 파일 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>**fileName**이 출력 데이터 세트에 대해 지정되지 않았고 **preserveHierarchy**가 활동 싱크에 지정되지 않은 경우 생성된 파일의 이름은 다음 형식을 따릅니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
+| fileFilter |모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. <br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: "fileFilter": "*.log"<br/>예 2: "fileFilter": 2014-1-?. txt "<br/><br/>fileFilter는 FileShare 입력 데이터 세트에 적용할 수 있습니다. |아니요 |
+| partitionedBy |partitionedBy를 사용하면 시계열 데이터의 동적 folderPath/fileName을 지정할 수 있습니다. 예를 들어 매시간 데이터에 대한 매개 변수를 포함하는 folderPath가 있습니다. |아니요 |
+| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. format의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소 (이진 복사) 간에 파일을 있는 **그대로 복사** 하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원 되는 형식은 **GZip**, **Deflate**, **BZip2**및 **ZipDeflate**입니다. 지원 되는 수준은 **최적** 및 **가장 빠름**입니다. [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
 
 > [!NOTE]
 > fileName 및 fileFilter는 동시에 사용할 수 없습니다.
@@ -173,21 +173,21 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
 이 예제에서 SliceStart의 년, 월, 일 및 시는 folderPath 및 fileName 속성에서 사용하는 별도의 변수로 추출됩니다.
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
-활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 데이터 세트, 정책 등의 속성은 모든 유형의 활동에 사용할 수 있습니다. 반면 형식속성에서 **typeProperties** 사용할 수 있는 속성은 활동의 속성 섹션마다 다릅니다.
+활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 데이터 세트, 정책 등의 속성은 모든 유형의 활동에 사용할 수 있습니다. 반면 활동의 **typeProperties** 섹션에서 사용할 수 있는 속성은 각 활동 유형에 따라 달라 집니다.
 
 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다. 온-프레미스 파일 시스템에서 데이터를 이동하는 경우 복사 작업의 원본 유형을 **FileSystemSource**로 설정합니다. 온-프레미스 파일 시스템으로 데이터를 이동하는 경우 복사 작업의 싱크 유형을 **FileSystemSink**로 설정합니다. 이 섹션에서는 FileSystemSource 및 FileSystemSink에서 지원되는 속성의 목록을 제공합니다.
 
 **FileSystemSource**는 다음 속성을 지원합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| recursive |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True, False(기본값) |예 |
+| recursive |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True, False(기본값) |아니요 |
 
 **FileSystemSink**에서 지원하는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| copyBehavior |원본이 BlobSource 또는 FileSystem인 경우 복사 동작을 정의합니다. |**보존계층:** 대상 폴더의 파일 계층 구조를 유지합니다. 즉, 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/>**병합 파일:** 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 이름/Blob 이름이 적용됩니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. |예 |
+| copyBehavior |원본이 BlobSource 또는 FileSystem인 경우 복사 동작을 정의합니다. |**PreserveHierarchy:** 대상 폴더의 파일 계층 구조를 유지 합니다. 즉, 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/>**Mergefiles:** 원본 폴더의 모든 파일을 하나의 파일로 병합 합니다. 병합되는 파일 이름은 지정된 파일 이름/Blob 이름이 적용됩니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. |아니요 |
 
 ### <a name="recursive-and-copybehavior-examples"></a>recursive 및 copyBehavior 예제
 이 섹션에서는 recursive 및 copyBehavior 값의 다양한 조합에 대한 복사 작업의 결과 동작을 설명합니다.
@@ -205,22 +205,22 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md) 문서를 참조하세요.
 
 ## <a name="json-examples-for-copying-data-to-and-from-file-system"></a>파일 시스템으로/에서 데이터를 복사하는 JSON 예제
-다음 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell을](data-factory-copy-activity-tutorial-using-powershell.md)사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 온-프레미스 파일 시스템과 Azure Blob Storage 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하면 데이터를 원본에서 [지원되는 원본 및 싱크](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 나열된 싱크 중 하나로 *직접* 복사할 수 있습니다.
+다음 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. 온-프레미스 파일 시스템과 Azure Blob Storage 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하면 데이터를 원본에서 [지원되는 원본 및 싱크](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 나열된 싱크 중 하나로 *직접* 복사할 수 있습니다.
 
 ### <a name="example-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>예제: 온-프레미스 파일 시스템에서 Azure Blob Storage로 데이터 복사
 이 샘플에서는 온-프레미스 파일 시스템에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 샘플에 포함된 Data Factory 엔터티는 다음과 같습니다.
 
-* [OnPremisesFileServer](#linked-service-properties)형식의 연결된 서비스입니다.
+* [OnPremisesFileServer](#linked-service-properties)형식의 연결 된 서비스입니다.
 * [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
 * [FileShare](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)
 * [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-* [FileSystemSource](#copy-activity-properties) 및 [BlobSink를](data-factory-azure-blob-connector.md#copy-activity-properties)사용하는 복사 활동이 있는 [파이프라인입니다.](data-factory-create-pipelines.md)
+* [FileSystemSource](#copy-activity-properties) 및 [blobsink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용 하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md) 입니다.
 
 여기서는 매시간 시계열 데이터를 온-프레미스 파일 시스템에서 Azure Blob Storage로 복사합니다. 샘플에 사용된 JSON 속성은 샘플 뒤에 나오는 섹션에서 설명합니다.
 
 첫 단계로 [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)의 지침에 따라 데이터 관리 게이트웨이를 설정해야 합니다.
 
-**온-프레미스 파일 서버 연결 서비스:**
+**온-프레미스 파일 서버 연결 된 서비스:**
 
 ```JSON
 {
@@ -239,7 +239,7 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
 
 **userid** 및 **password** 속성을 사용하는 대신 **encryptedCredential** 속성을 사용하는 것이 좋습니다. 이 연결 서비스에 대한 자세한 내용은 [파일 서버 연결 서비스](#linked-service-properties)를 참조하세요.
 
-**Azure 저장소 연결 서비스:**
+**Azure Storage 연결 된 서비스:**
 
 ```JSON
 {
@@ -381,7 +381,7 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
 
 **파일 시스템 원본 및 Blob 싱크를 사용하는 파이프라인의 복사 작업:**
 
-파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **소스** 형식은 **FileSystemSource로**설정되고 **싱크** 유형은 **BlobSink**로 설정됩니다.
+파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **FileSystemSource**로 설정 되 고 **싱크** 형식은 **blobsink**로 설정 됩니다.
 
 ```JSON
 {
@@ -432,15 +432,15 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
 ### <a name="example-copy-data-from-azure-sql-database-to-an-on-premises-file-system"></a>예제: Azure SQL Database에서 온-프레미스 파일 시스템으로 데이터 복사
 다음 샘플은 다음과 같은 내용을 보여 줍니다.
 
-* AzureSqlDatabase 형식의 연결된 [서비스입니다.](data-factory-azure-sql-connector.md#linked-service-properties)
-* [OnPremisesFileServer](#linked-service-properties)형식의 연결된 서비스입니다.
+* AzureSqlDatabase 형식의 연결 된 서비스 [입니다.](data-factory-azure-sql-connector.md#linked-service-properties)
+* [OnPremisesFileServer](#linked-service-properties)형식의 연결 된 서비스입니다.
 * [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties)형식의 입력 데이터 집합입니다.
-* [FileShare](#dataset-properties)형식의 출력 데이터 집합입니다.
-* [SqlSource](data-factory-azure-sql-connector.md#copy-activity-properties) 및 [FileSystemSink를](#copy-activity-properties)사용하는 복사 활동이 있는 파이프라인입니다.
+* 파일 [공유](#dataset-properties)형식의 출력 데이터 집합입니다.
+* [Sqlsource](data-factory-azure-sql-connector.md#copy-activity-properties) 및 [FileSystemSink](#copy-activity-properties)를 사용 하는 복사 작업의 파이프라인입니다.
 
 이 샘플에서는 매시간 시계열 데이터를 Azure SQL 테이블에서 온-프레미스 파일 시스템으로 복사합니다. 샘플에 사용된 JSON 속성은 샘플 뒤에 나오는 섹션에서 설명합니다.
 
-**Azure SQL 데이터베이스 연결 서비스:**
+**Azure SQL Database 연결 된 서비스:**
 
 ```JSON
 {
@@ -454,7 +454,7 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
 }
 ```
 
-**온-프레미스 파일 서버 연결 서비스:**
+**온-프레미스 파일 서버 연결 된 서비스:**
 
 ```JSON
 {
@@ -471,7 +471,7 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
 }
 ```
 
-**userid** 및 **password** 속성을 사용하는 대신 **encryptedCredential** 속성을 사용하는 것이 좋습니다. 이 연결된 서비스에 대한 자세한 내용은 [파일 시스템 연결 서비스를](#linked-service-properties) 참조하십시오.
+**userid** 및 **password** 속성을 사용하는 대신 **encryptedCredential** 속성을 사용하는 것이 좋습니다. 이 연결 된 서비스에 대 한 자세한 내용은 [파일 시스템 연결 된 서비스](#linked-service-properties) 를 참조 하세요.
 
 **Azure SQL 입력 데이터 세트:**
 

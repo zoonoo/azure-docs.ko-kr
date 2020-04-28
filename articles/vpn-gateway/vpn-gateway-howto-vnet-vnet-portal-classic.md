@@ -1,5 +1,5 @@
 ---
-title: 'VNet: 클래식: Azure 포털 간의 연결 만들기'
+title: 'Vnet: 클래식: Azure Portal 간의 연결을 만듭니다.'
 description: PowerShell 및 Azure Portal을 사용하여 Azure 가상 네트워크를 함께 연결합니다.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/12/2020
 ms.author: cherylmc
 ms.openlocfilehash: 63c6329ad62289cd127902c1438073b28fc8683e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77201852"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet 연결(클래식) 구성
@@ -22,10 +22,10 @@ ms.locfileid: "77201852"
 이 문서는 가상 네트워크 간에 VPN 게이트웨이 연결을 만드는 데 도움이 됩니다. 가상 네트워크는 같은 또는 다른 구독의 같은 지역에 있을 수도 있고 다른 지역에 있을 수도 있습니다. 이 문서의 단계는 클래식 배포 모델 및 Azure Portal에 적용됩니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Powershell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Azure 포털(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Azure Portal (클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [다양한 배포 모델 간 연결 - Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [다양한 배포 모델 간 연결 - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
@@ -143,7 +143,7 @@ Azure는 각 로컬 네트워크 사이트에 지정된 설정을 사용하여 V
 1. Azure Portal에서 TestVNet1을 찾습니다. 페이지의 **VPN 연결** 섹션에서 **게이트웨이**를 클릭합니다.
 
     ![게이트웨이 없음](./media/vpn-gateway-howto-vnet-vnet-portal-classic/nogateway.png)
-2. 새 **VPN 연결** 페이지에서 사이트 간 을 **선택합니다.**
+2. **새 VPN 연결** 페이지에서 **사이트 간**을 선택 합니다.
 3. **로컬 사이트**를 클릭하여 로컬 사이트 페이지를 열고 설정을 구성합니다.
 4. **로컬 사이트** 페이지에서 로컬 사이트 이름을 지정합니다. 예제의 경우 로컬 사이트 이름을 'VNet4Local'이라고 지정합니다.
 5. **VPN 게이트웨이 IP 주소**의 경우 IP 주소가 올바른 형식이기만 하면 무엇이든 사용할 수 있습니다. 일반적으로는 VPN 디바이스의 실제 외부 IP 주소를 사용합니다. 하지만 클래식 VNet-VNet 구성의 경우 VNet의 게이트웨이에 할당된 공용 IP 주소를 사용합니다. 가상 네트워크 게이트웨이를 아직 만들지 않은 경우 유효한 공용 IP 주소라면 무엇이든 자리 표시자로 지정할 수 있습니다.<br>이 구성에서는 선택 사항이 아니므로 이 항목은 비워두면 안 됩니다. 이후 단계에서 Azure가 해당하는 가상 네트워크 게이트웨이 IP 주소를 생성하고 나면 이 설정으로 돌아와서 IP 주소를 구성합니다.
@@ -209,9 +209,9 @@ Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 P
 
 다음 단계에서는 연결에 필요한 값을 확보하기 위해 Azure 계정에 연결하고 네트워크 구성 파일을 다운로드하여 살펴봅니다.
 
-1. 최신 버전의 Azure SM(서비스 관리) PowerShell cmdlet을 다운로드하여 설치합니다. 자세한 내용은 [Azure PowerShell 작업을](#powershell)참조하십시오.
+1. 최신 버전의 Azure SM(서비스 관리) PowerShell cmdlet을 다운로드하여 설치합니다. 자세한 내용은 [Azure PowerShell 작업](#powershell)을 참조 하세요.
 
-2. 권한 상승 권한으로 PowerShell 콘솔을 엽니다. 다음 예제를 사용하여 연결하는 데 도움이 됩니다. PowerShell 서비스 관리 모듈을 사용하여 이러한 명령을 로컬로 실행해야 합니다. 서비스 관리로 전환하려면 다음 명령을 사용합니다.
+2. 관리자 권한으로 PowerShell 콘솔을 엽니다. 다음 예제를 사용 하 여 연결을 지원 합니다. PowerShell 서비스 관리 모듈을 사용 하 여 이러한 명령을 로컬로 실행 해야 합니다. 서비스 관리로 전환 하려면 다음 명령을 사용 합니다.
 
    ```powershell
    azure config mode asm
@@ -236,7 +236,7 @@ Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 P
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-7. 텍스트 편집기에서 파일을 열고 VNet과 사이트의 이름을 확인합니다. 이러한 이름은 연결을 만들 때 사용하는 이름입니다.<br>VNet 이름은 **VirtualNetworkSite name =** 으로 나열됩니다.<br>사이트 이름은 **LocalNetworkSiteRef name =** 으로 나열됩니다.
+7. 텍스트 편집기에서 파일을 열고 VNet과 사이트의 이름을 확인합니다. 이러한 이름은 연결을 만들 때 사용 하는 이름이 됩니다.<br>VNet 이름은 **VirtualNetworkSite name =** 으로 나열됩니다.<br>사이트 이름은 **LocalNetworkSiteRef name =** 으로 나열됩니다.
 
 ## <a name="step-8---create-the-vpn-gateway-connections"></a><a name="createconnections"></a>8단계 - VPN 게이트웨이 연결 만들기
 
@@ -270,7 +270,7 @@ Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 P
 ## <a name="vnet-to-vnet-considerations-for-classic-vnets"></a><a name="faq"></a>클래식 VNet에 대한 VNet-VNet 고려 사항
 * 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독에 있을 수도 있습니다.
 * 가상 네트워크는 같은 Azure 지역(위치)에 있을 수도 있고 다른 Azure 지역(위치)에 있을 수도 있습니다.
-* 클라우드 서비스 또는 로드 밸런싱 엔드포인트는 함께 연결되어 있더라도 가상 네트워크에 걸쳐 있을 수 없습니다.
+* 클라우드 서비스 또는 부하 분산 끝점은 서로 연결 되어 있더라도 가상 네트워크에 걸쳐 있을 수 없습니다.
 * 여러 가상 네트워크를 연결할 때 VPN 디바이스는 필요하지 않습니다.
 * VNet 간 연결은 Azure Virtual Network 연결을 지원합니다. 그러나 가상 네트워크에 배포되지 않은 가상 머신 또는 클라우드 서비스 연결은 지원하지 않습니다.
 * VNet-VNet을 위해서는 동적 라우팅 게이트웨이가 필요합니다. Azure 정적 라우팅 게이트웨이는 지원되지 않습니다.

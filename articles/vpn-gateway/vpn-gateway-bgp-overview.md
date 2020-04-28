@@ -1,5 +1,5 @@
 ---
-title: 'BGP 및 Azure VPN 게이트웨이: 개요'
+title: 'BGP 및 Azure VPN Gateway: 개요'
 description: 이 문서는 Azure VPN Gateway와 BGP에 대한 개요를 제공합니다.
 services: vpn-gateway
 author: yushwang
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/25/2019
 ms.author: yushwang
 ms.openlocfilehash: 0b4bb7ed90225fcb52ea170c07be2b57f8afbafe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79279326"
 ---
 # <a name="about-bgp-with-azure-vpn-gateway"></a>Azure VPN Gateway의 BGP 정보

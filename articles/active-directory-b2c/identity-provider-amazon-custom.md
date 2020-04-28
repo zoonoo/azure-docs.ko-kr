@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 정책을 사용하여 Amazon 계정으로 로그인 설정
+title: 사용자 지정 정책을 사용 하 여 Amazon 계정으로 로그인 설정
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Amazon 계정으로 로그인하도록 설정합니다.
 services: active-directory-b2c
@@ -12,22 +12,22 @@ ms.date: 10/05/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2de891ee109677f92ff603759701f7732f5951ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78188514"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Amazon 계정으로 로그인하도록 설정
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 Azure Active Directory B2C(Azure AD B2C)에서 [사용자 지정 정책을](custom-policy-overview.md) 사용하여 Amazon 계정의 사용자에 대한 로그인을 활성화하는 방법을 보여 주며 이 문서에서는
+이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 지정 정책을](custom-policy-overview.md) 사용 하 여 Amazon 계정의 사용자에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - [사용자 지정 정책 시작](custom-policy-get-started.md)의 단계를 완료합니다.
-- 아직 Amazon 계정이 없는 경우 에서 [https://www.amazon.com/](https://www.amazon.com/)하나를 만듭니다.
+- Amazon 계정이 아직 없는 경우에서 [https://www.amazon.com/](https://www.amazon.com/)하나 만듭니다.
 
 ## <a name="register-the-application"></a>애플리케이션 등록
 
@@ -45,7 +45,7 @@ ms.locfileid: "78188514"
 
 이전에 Azure AD B2C 테넌트에서 기록했던 클라이언트 비밀을 저장해야 합니다.
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
@@ -149,13 +149,13 @@ ms.locfileid: "78188514"
     <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
     ```
 
-    앞에서 만든 기술 프로필의 ID로 **TechnicalProfileReferenceId** 의 값을 업데이트합니다. `Amazon-OAuth`)을 입력합니다.
+    **TechnicalProfileReferenceId** 의 값을 이전에 만든 기술 프로필의 ID로 업데이트 합니다. `Amazon-OAuth`)을 입력합니다.
 
 3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
-Azure AD B2C와의 통신은 B2C 테넌트에 등록하는 응용 프로그램을 통해 발생합니다. 이 섹션에는 아직 만들지 않은 경우 테스트 애플리케이션을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
+Azure AD B2C와의 통신은 B2C 테 넌 트에 등록 하는 응용 프로그램을 통해 발생 합니다. 이 섹션에는 아직 만들지 않은 경우 테스트 애플리케이션을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

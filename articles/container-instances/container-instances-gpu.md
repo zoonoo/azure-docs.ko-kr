@@ -1,23 +1,23 @@
 ---
-title: GPU 지원 컨테이너 인스턴스 배포
-description: GPU 리소스를 사용하여 계산 집약적인 컨테이너 앱을 실행하기 위해 Azure 컨테이너 인스턴스를 배포하는 방법을 알아봅니다.
+title: GPU 사용 컨테이너 인스턴스 배포
+description: GPU 리소스를 사용 하 여 계산 집약적인 컨테이너 앱을 실행 하기 위해 Azure container instances를 배포 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 02/19/2020
 ms.openlocfilehash: 0f1d21c62be5d7ae099faa2c6fcc440829bb451f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77525290"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU 리소스를 사용하는 컨테이너 인스턴스 배포
 
-Azure 컨테이너 인스턴스에서 특정 계산 집약적인 워크로드를 실행하려면 *GPU 리소스를*사용하여 [컨테이너 그룹을](container-instances-container-groups.md) 배포합니다. 그룹의 컨테이너 인스턴스는 CUDA 및 딥 러닝 애플리케이션과 같은 컨테이너 워크로드를 실행하는 동안 하나 이상의 NVIDIA Tesla GPU에 액세스할 수 있습니다.
+Azure Container Instances에서 특정 계산 집약적인 작업을 실행 하려면 *GPU 리소스*를 사용 하 여 [컨테이너 그룹](container-instances-container-groups.md) 을 배포 합니다. 그룹의 컨테이너 인스턴스는 CUDA 및 딥 러닝 애플리케이션과 같은 컨테이너 워크로드를 실행하는 동안 하나 이상의 NVIDIA Tesla GPU에 액세스할 수 있습니다.
 
-이 문서에서는 [YAML 파일](container-instances-multi-container-yaml.md) 또는 [리소스 관리자 템플릿을](container-instances-multi-container-group.md)사용하여 컨테이너 그룹을 배포할 때 GPU 리소스를 추가하는 방법을 보여 주며 있습니다. Azure 포털을 사용하여 컨테이너 인스턴스를 배포할 때 GPU 리소스를 지정할 수도 있습니다.
+이 문서에서는 [Yaml 파일](container-instances-multi-container-yaml.md) 또는 [리소스 관리자 템플릿을](container-instances-multi-container-group.md)사용 하 여 컨테이너 그룹을 배포할 때 GPU 리소스를 추가 하는 방법을 보여 줍니다. Azure Portal를 사용 하 여 컨테이너 인스턴스를 배포할 때 GPU 리소스를 지정할 수도 있습니다.
 
 > [!IMPORTANT]
-> 이 기능은 현재 미리 보기로 제공되며 일부 [제한 사항이 적용](#preview-limitations)됩니다. [추가 사용 조건][terms-of-use]에 동의하는 조건으로 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
+> 이 기능은 현재 미리 보기로 제공되며 일부 [제한 사항이 적용](#preview-limitations)됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
@@ -27,21 +27,21 @@ Azure 컨테이너 인스턴스에서 특정 계산 집약적인 워크로드를
 
 앞으로 더 많은 Azure 지역에 대한 지원이 추가될 것입니다.
 
-**지원되는 OS 유형**: Linux 전용
+**지원 되는 OS 유형**: Linux만
 
-**추가 제한 사항**: [가상 네트워크에](container-instances-vnet.md)컨테이너 그룹을 배포할 때 GPU 리소스를 사용할 수 없습니다.
+**추가 제한 사항**: 컨테이너 그룹을 [가상 네트워크](container-instances-vnet.md)에 배포 하는 경우 GPU 리소스를 사용할 수 없습니다.
 
 ## <a name="about-gpu-resources"></a>GPU 리소스 정보
 
 > [!IMPORTANT]
-> GPU 리소스는 요청 시에만 사용할 수 있습니다. GPU 리소스에 대한 액세스를 요청하려면 [Azure 지원 요청을][azure-support]제출하십시오.
+> GPU 리소스는 요청 시에만 사용할 수 있습니다. GPU 리소스에 대 한 액세스를 요청 하려면 [Azure 지원 요청][azure-support]을 제출 하세요.
 
 ### <a name="count-and-sku"></a>수 및 SKU
 
 컨테이너 인스턴스에서 GPU를 사용하려면 다음 정보를 사용하여 *GPU 리소스*를 지정해야 합니다.
 
-* **개수** - GPU 수: **1,** **2,** 또는 **4**.
-* **SKU** - GPU SKU: **K80,** **P100**또는 **V100**. 각 SKU는 다음 Azure GPU 지원 VM 제품군 중 하나의 NVIDIA Tesla GPU에 매핑됩니다.
+* **Count** -gpu 수: **1**, **2**또는 **4**.
+* **Sku** -GPU Sku: **K80**, **P100**또는 **V100**. 각 SKU는 다음 Azure GPU 지원 VM 제품군 중 하나의 NVIDIA Tesla GPU에 매핑됩니다.
 
   | SKU | VM 제품군 |
   | --- | --- |
@@ -51,7 +51,7 @@ Azure 컨테이너 인스턴스에서 특정 계산 집약적인 워크로드를
 
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-GPU 리소스를 배포할 때는 이전 표에 표시된 최대 값까지 워크로드에 적합한 CPU 및 메모리 리소스를 설정합니다. 이러한 값은 현재 GPU 리소스가 없는 컨테이너 그룹에서 사용할 수 있는 CPU 및 메모리 리소스보다 큽니다.  
+GPU 리소스를 배포할 때 앞의 표에 표시 된 최대 값까지 워크 로드에 적합 한 CPU 및 메모리 리소스를 설정 합니다. 이러한 값은 현재 GPU 리소스가 없는 컨테이너 그룹에서 사용할 수 있는 CPU 및 메모리 리소스 보다 큽니다.  
 
 ### <a name="things-to-know"></a>알아야 할 사항
 
@@ -59,13 +59,13 @@ GPU 리소스를 배포할 때는 이전 표에 표시된 최대 값까지 워�
 
 * **가격 책정** - GPU 리소스가 없는 컨테이너 그룹과 마찬가지로, Azure는 GPU 리소스가 있는 컨테이너 그룹의 *기간* 동안 사용된 리소스 비용을 청구합니다. 이 기간은 컨테이너의 첫 번째 이미지를 끌어온 시점부터 컨테이너 그룹이 종료되는 시점 사이의 시간으로 계산됩니다. 컨테이너 그룹을 배포하는 시간은 포함되지 않습니다.
 
-  [가격 세부 정보를](https://azure.microsoft.com/pricing/details/container-instances/)참조하십시오.
+  [가격 정보](https://azure.microsoft.com/pricing/details/container-instances/)를 참조 하세요.
 
 * **CUDA 드라이버** - GPU 리소스가 있는 컨테이너 인스턴스는 NVIDIA CUDA 드라이버 및 컨테이너 런타임이 미리 프로비전되므로, CUDA 워크로드용으로 개발된 컨테이너 이미지를 사용할 수 있습니다.
 
-  이 단계에서는 CUDA 9.0을 지원합니다. 예를 들어 Docker 파일에 다음 기본 이미지를 사용할 수 있습니다.
-  * [엔비디아/cuda:9.0-베이스-우분투16.04](https://hub.docker.com/r/nvidia/cuda/)
-  * [텐서플로우/텐서플로우: 1.12.0 gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+  이 단계에서는 KERDA 9.0를 지원 합니다. 예를 들어 Docker 파일에 대해 다음과 같은 기본 이미지를 사용할 수 있습니다.
+  * [nvidia/hoda: 9.0-기본 ubuntu 16.04](https://hub.docker.com/r/nvidia/cuda/)
+  * [tensorflow/tensorflow: 1.12.0](https://hub.docker.com/r/tensorflow/tensorflow)
     
 ## <a name="yaml-example"></a>YAML 예제
 
@@ -91,7 +91,7 @@ properties:
   restartPolicy: OnFailure
 ```
 
-[az 컨테이너 create][az-container-create] 명령을 사용하여 컨테이너 그룹을 배포하여 매개 변수에 `--file` 대한 YAML 파일 이름을 지정합니다. GPU 리소스를 지원하는 *eastus*처럼 리소스 그룹의 이름과 컨테이너 그룹의 위치를 제공해야 합니다.  
+[Az container create][az-container-create] 명령을 사용 하 여 컨테이너 그룹을 배포 하 고 `--file` 매개 변수에 대 한 yaml 파일 이름을 지정 합니다. GPU 리소스를 지원하는 *eastus*처럼 리소스 그룹의 이름과 컨테이너 그룹의 위치를 제공해야 합니다.  
 
 ```azurecli
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml --location eastus
@@ -116,7 +116,7 @@ Done
 
 ## <a name="resource-manager-template-example"></a>Resource Manager 템플릿 예제
 
-GPU 리소스가 있는 컨테이너 그룹을 배포하는 또 다른 방법은 [Resource Manager 템플릿](container-instances-multi-container-group.md)을 사용하는 것입니다. 먼저 `gpudeploy.json` 파일을 만든 후, 다음 JSON을 이 파일에 복사합니다. 이 예제는 MNIST 데이터 집합에 대해 [TensorFlow](https://www.tensorflow.org/) 학습 작업을 실행하는 V100 GPU가 있는 컨테이너 인스턴스를 배포합니다. 리소스 요청은 워크로드를 실행하기에 충분합니다.
+GPU 리소스가 있는 컨테이너 그룹을 배포하는 또 다른 방법은 [Resource Manager 템플릿](container-instances-multi-container-group.md)을 사용하는 것입니다. 먼저 `gpudeploy.json` 파일을 만든 후, 다음 JSON을 이 파일에 복사합니다. 이 예에서는 MNIST 데이터 집합에 대해 [TensorFlow](https://www.tensorflow.org/) 교육 작업을 실행 하는 V100 GPU를 사용 하 여 컨테이너 인스턴스를 배포 합니다. 리소스 요청은 워크로드를 실행하기에 충분합니다.
 
 ```JSON
 {
@@ -209,7 +209,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-GPU 리소스를 사용하면 많은 비용이 발생할 수 있으므로 컨테이너가 예기치 않게 오래 실행되지 않도록 주의해야 합니다. Azure Portal에서 컨테이너를 모니터링하거나 [az container show][az-container-show] 명령으로 컨테이너 그룹의 상태를 확인할 수 있습니다. 예를 들어:
+GPU 리소스를 사용하면 많은 비용이 발생할 수 있으므로 컨테이너가 예기치 않게 오래 실행되지 않도록 주의해야 합니다. Azure Portal에서 컨테이너를 모니터링하거나 [az container show][az-container-show] 명령으로 컨테이너 그룹의 상태를 확인할 수 있습니다. 다음은 그 예입니다.
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table

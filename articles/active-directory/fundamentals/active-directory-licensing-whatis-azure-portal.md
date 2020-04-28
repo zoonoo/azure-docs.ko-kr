@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9eec896e6cccaf58c83820161c54c4f10cfadadd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77561564"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Azure Active Directory의 그룹 기반 라이선스란?
@@ -32,9 +32,9 @@ Office 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한 �
 ## <a name="licensing-requirements"></a>라이선싱 요구 사항
 그룹 기반 라이선싱을 사용하려면 다음 라이선스 중 하나가 있어야 합니다.
 
-- Azure AD 프리미엄 P1 이상에 대한 유료 또는 평가판 구독
+- Azure AD Premium P1 이상에 대 한 유료 또는 평가판 구독
 
-- DOD 이상에 대한 사무실 365 엔터프라이즈 E3 또는 사무실 365 A3 또는 사무실 365 GCC G3 또는 사무실 365 E3의 유료 또는 평가판 버전
+- Office 365 Enterprise E3 또는 Office 365 A3 또는 Office 365 GCC G3 또는 office 365 E3 for GCCH 또는 office 365 E3 (DOD 이상)의 유료 또는 평가판
 
 ### <a name="required-number-of-licenses"></a>필요한 라이선스 수
 라이선스가 할당된 그룹의 경우 각 고유 구성원에 대한 라이선스도 있어야 합니다. 그룹의 각 구성원에게 라이선스를 할당할 필요는 없지만 모든 구성원을 포함하기에 충분한 라이선스가 있어야 합니다. 예를 들어 테넌트에서 라이선스가 부여된 그룹에 1,000명의 고유 구성원이 있는 경우 라이선싱 계약에 부합하려면 라이선스가 1,000개 이상 있어야 합니다.
@@ -49,7 +49,7 @@ Office 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한 �
 
 - 사용자 수준 라이선스를 필요로 하는 모든 Microsoft Clouds Services는 지원됩니다. 이 지원에는 모든 Office 365 제품, Enterprise Mobility + Security 및 Dynamics 365가 포함됩니다.
 
-- 그룹 기반 라이선스는 현재 [Azure 포털](https://portal.azure.com)을 통해서만 사용할 수 있습니다. [주로 Microsoft 365 관리 센터와](https://admin.microsoft.com)같은 사용자 및 그룹 관리를 위해 다른 관리 포털을 사용하는 경우 계속 사용할 수 있습니다. 그러나 그룹 수준에서 라이선스를 관리하려면 Azure Portal을 사용해야 합니다.
+- 그룹 기반 라이선스는 현재 [Azure Portal](https://portal.azure.com)통해서만 사용할 수 있습니다. [Microsoft 365 관리 센터](https://admin.microsoft.com)와 같이 주로 사용자 및 그룹 관리를 위해 다른 관리 포털을 사용 하는 경우이 작업을 계속할 수 있습니다. 그러나 그룹 수준에서 라이선스를 관리하려면 Azure Portal을 사용해야 합니다.
 
 - Azure AD는 그룹 멤버 자격 변경으로 인해 발생하는 라이선스 수정을 자동으로 관리합니다. 일반적으로 라이선스 수정은 멤버 자격 변경 후 수분 내에 효과가 발생합니다.
 
@@ -57,7 +57,7 @@ Office 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한 �
 
 - 어떤 경우에는 사용자에게 라이선스를 할당할 수 없습니다. 예를 들어 테넌트에서 사용할 수 있는 라이선스가 충분하지 않거나 충돌하는 서비스를 동시에 할당했을 수 있습니다. 관리자는 Azure AD가 그룹 라이선스를 완전하게 처리할 수 없는 사용자에 대한 정보에 액세스할 수 있습니다. 그런 다음 해당 정보에 따라 수정 작업을 수행할 수 있습니다.
 
-## <a name="your-feedback-is-welcome"></a>피드백이 있으시면 언제든지 보내주세요.
+## <a name="your-feedback-is-welcome"></a>Microsoft는 사용자의 의견을 소중하게 생각합니다.
 
 피드백 또는 기능 요청이 있는 경우 [Azure AD 관리자 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=162510)을 사용하여 공유해 주세요.
 

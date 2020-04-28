@@ -1,5 +1,5 @@
 ---
-title: 'Azure VPN 게이트웨이: 지점 간 연결 문제 해결: Mac OS X 클라이언트'
+title: 'Azure VPN Gateway: 지점 및 사이트 간 연결 문제 해결: Mac OS X 클라이언트'
 description: P2S Mac OS X VPN 클라이언트 연결 문제 해결 단계
 services: vpn-gateway
 author: anzaman
@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
 ms.openlocfilehash: f88053c93884e10e46a0f7d70106bda67b057562
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77425727"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Mac OS X VPN 클라이언트에서 지점 및 사이트 간 VPN 연결 문제 해결
@@ -60,7 +60,7 @@ ms.locfileid: "77425727"
 
    ![패킷](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
-3. 네트워크 추적에 서버 응답이 없는 경우 Azure 포털 웹 사이트의 Azure 게이트웨이 구성 페이지에서 IKEv2 프로토콜을 사용하도록 설정했는지 확인합니다.
+3. 네트워크 추적에 서버 응답이 없으면 Azure Portal 웹 사이트의 Azure 게이트웨이 구성 페이지에서 IKEv2 프로토콜을 사용 하도록 설정 했는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Microsoft 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 참조하세요.

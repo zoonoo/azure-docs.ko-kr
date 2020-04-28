@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 조인 구현을 계획하는 방법
+title: Azure Active Directory join 구현을 계획 하는 방법
 description: 환경에서 Azure AD 조인 디바이스를 구현하는 데 필요한 단계를 설명합니다.
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672688"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
@@ -30,7 +30,7 @@ Azure AD 조인을 사용하면 사용자의 생산성과 보안을 유지하면
 
 ## <a name="plan-your-implementation"></a>구현 계획
 
-Azure AD 조인 구현을 계획하려면 다음을 숙지해야 합니다.
+Azure AD 조인 구현을 계획 하려면 다음을 숙지 해야 합니다.
 
 |   |   |
 |---|---|
@@ -78,7 +78,7 @@ AD FS를 사용하는 경우 다음 WS-Trust 엔드포인트를 사용하도록 
 ID 공급자가 이러한 프로토콜을 지원하지 않는 경우 Azure AD 조인이 기본적으로 작동하지 않습니다. 
 
 >[!NOTE]
-> 현재 Azure AD 조인은 [외부 인증 공급자로 구성된 AD FS 2019에서 기본 인증 방법으로](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary)작동하지 않습니다. Azure AD는 기본 암호 인증을 기본 메서드로 조인하여 이 시나리오에서 인증 실패를 초래합니다.
+> 현재 Azure AD 조인은 [기본 인증 방법으로 외부 인증 공급자를 사용 하 여 구성 된 AD FS 2019](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary)에서 작동 하지 않습니다. Azure AD 조인은 기본 방법으로 암호 인증을 기본값으로 설정 하므로이 시나리오에서 인증 오류가 발생 합니다.
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>스마트 카드 및 인증서 기반 인증
@@ -110,10 +110,10 @@ Azure AD 조인:
 
 ### <a name="management-platform"></a>관리 플랫폼
 
-Azure AD 조인 된 장치에 대 한 장치 관리는 Intune 및 MDM CSP와 같은 MDM 플랫폼을 기반으로 합니다. Windows 10에는 모든 호환 MDM 솔루션과 함께 작동하는 MDM 에이전트가 기본적으로 제공됩니다.
+Azure AD 가입 장치에 대 한 장치 관리는 Intune 및 MDM Csp와 같은 MDM 플랫폼을 기반으로 합니다. Windows 10에는 모든 호환 MDM 솔루션과 함께 작동하는 MDM 에이전트가 기본적으로 제공됩니다.
 
 > [!NOTE]
-> 그룹 정책은 온-프레미스 Active Directory에 연결되지 않기 때문에 Azure AD 조인 된 장치에서 지원되지 않습니다. Azure AD 조인 장치의 관리는 MDM을 통해서만 가능합니다.
+> 그룹 정책은 온-프레미스 Active Directory에 연결 되어 있지 않으므로 Azure AD 조인 장치에서 지원 되지 않습니다. MDM을 통해서만 Azure AD 조인 장치를 관리할 수 있습니다.
 
 Azure AD 조인 디바이스를 관리하는 두 가지 방법이 있습니다.
 
@@ -129,7 +129,7 @@ Azure AD 조인 디바이스를 관리하는 두 가지 방법이 있습니다.
 
 Azure AD 앱 갤러리를 통해 MDM 솔루션을 사용할 수 없는 경우 [MDM과 Azure Active Directory 통합](/windows/client-management/mdm/azure-active-directory-integration-with-mdm)에 설명된 프로세스에 따라 추가할 수 있습니다. 
 
-공동 관리를 통해 SCCM을 사용하여 디바이스의 특정 측면을 관리할 수 있으며, 정책은 MDM 플랫폼을 통해 제공됩니다. Microsoft Intune은 SCCM을 사용한 공동 관리를 지원합니다. Windows 10 장치의 공동 관리에 대한 자세한 내용은 [공동 관리란 무엇입니까?](/configmgr/core/clients/manage/co-management-overview) Intune이 아닌 MDM 제품을 사용하는 경우 해당하는 공동 관리 시나리오에서 MDM 공급자를 확인하세요.
+공동 관리를 통해 SCCM을 사용하여 디바이스의 특정 측면을 관리할 수 있으며, 정책은 MDM 플랫폼을 통해 제공됩니다. Microsoft Intune은 SCCM을 사용한 공동 관리를 지원합니다. Windows 10 장치에 대 한 공동 관리에 대 한 자세한 내용은 [공동 관리 란?](/configmgr/core/clients/manage/co-management-overview)을 참조 하세요. Intune이 아닌 MDM 제품을 사용하는 경우 해당하는 공동 관리 시나리오에서 MDM 공급자를 확인하세요.
 
 **권장 사항:** Azure AD 조인 디바이스에는 MDM 전용 관리를 고려해 보세요.
 
@@ -197,11 +197,11 @@ Azure AD 조인 디바이스에 원격 데스크톱 연결을 설정하려면 �
  
 |   | 셀프 서비스 설정 | Windows Autopilot | 대량 등록 |
 | --- | --- | --- | --- |
-| 설정에서 사용자 상호 작용이 필요 | yes | yes | 예 |
-| IT 활동이 필요 | 예 | yes | yes |
+| 설정에서 사용자 상호 작용이 필요 | 예 | 예 | 아니요 |
+| IT 활동이 필요 | 아니요 | 예 | 예 |
 | 적용 흐름 | OOBE 및 설정 | OOBE만 | OOBE만 |
-| 기본 사용자에 대한 로컬 관리자 권한 | 기본적으로 예 | 구성 가능 여부 | 예 |
-| 디바이스 OEM 지원 필요 | 예 | yes | 예 |
+| 기본 사용자에 대한 로컬 관리자 권한 | 기본적으로 예 | 구성 가능 여부 | 아니요 |
+| 디바이스 OEM 지원 필요 | 아니요 | 예 | 아니요 |
 | 지원되는 버전 | 1511+ | 1709+ | 1703+ |
  
 위의 표를 검토하고 방법 채택에 대한 다음 고려 사항을 검토하여 배포 접근 방식을 선택합니다.  
@@ -290,13 +290,13 @@ Azure AD 조인 디바이스에 대한 MDM 공급자가 구성된 경우 공급�
 
 ![규정 준수 디바이스](./media/azureadjoin-plan/46.png)
 
-이 구현을 사용하여 조건부 액세스 기능을 [사용하여 클라우드 앱 액세스에 대해 관리되는 장치를 요구할](../conditional-access/require-managed-devices.md)수 있습니다.
+이 구현을 사용 하 여 [조건부 액세스를 통해 클라우드 앱 액세스를 위한 관리 되는 장치를 요구할](../conditional-access/require-managed-devices.md)수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [첫 실행](azuread-joined-devices-frx.md)
-> 하는 동안 Azure AD와 새 Windows 10 장치에 가입[조직의 네트워크에 작업 장치 가입](/azure/active-directory/user-help/user-help-join-device-on-network)
+> [Join a new Windows 10 device with Azure AD during a first run](azuread-joined-devices-frx.md)
+> 회사[장치를 조직의 네트워크에 처음으로 연결 하](/azure/active-directory/user-help/user-help-join-device-on-network) 는 동안 Azure AD에 새 Windows 10 장치 조인
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

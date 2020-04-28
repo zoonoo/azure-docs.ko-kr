@@ -1,6 +1,6 @@
 ---
-title: Microsoft 그래프 API를 사용하여 프로비저닝 구성 - Azure Active Directory | 마이크로 소프트 문서
-description: 응용 프로그램의 여러 인스턴스에 대한 프로비저닝을 설정해야 합니까? Microsoft 그래프 API를 사용하여 자동 프로비저닝 구성을 자동화하여 시간을 절약하는 방법을 알아봅니다.
+title: Microsoft Graph Api를 사용 하 여 프로 비전 구성-Azure Active Directory | Microsoft Docs
+description: 응용 프로그램의 여러 인스턴스에 대해 프로 비전을 설정 해야 하나요? 자동 프로 비전 구성을 자동화 하기 위해 Microsoft Graph Api를 사용 하 여 시간을 절약 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,43 +17,43 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c72217a565071f9531281af1862ba3681e353a4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481469"
 ---
-# <a name="configure-provisioning-using-microsoft-graph-apis"></a>Microsoft 그래프 API를 사용하여 프로비저닝 구성
+# <a name="configure-provisioning-using-microsoft-graph-apis"></a>Microsoft Graph Api를 사용 하 여 프로 비전 구성
 
-Azure 포털은 개별 앱에 대해 한 번에 하나씩 프로비저닝을 구성하는 편리한 방법입니다. 그러나 응용 프로그램의 인스턴스를 여러 개 또는 수백 개만 만드는 경우 Microsoft Graph API를 사용하여 앱 생성 및 구성을 자동화하는 것이 더 쉬울 수 있습니다. 이 문서에서는 API를 통해 프로비저닝 구성을 자동화하는 방법을 설명합니다. 이 메서드는 일반적으로 Amazon [웹 서비스와](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso)같은 응용 프로그램에 사용 됩니다.
+Azure Portal은 한 번에 하나씩 개별 앱에 대 한 프로 비전을 구성 하는 편리한 방법입니다. 하지만 응용 프로그램의 인스턴스를 여러 개 또는 수백 개 만들 경우 Microsoft Graph Api를 사용 하 여 앱 만들기 및 구성을 쉽게 자동화할 수 있습니다. 이 문서에서는 Api를 통해 프로 비전 구성을 자동화 하는 방법을 설명 합니다. 이 메서드는 [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso)같은 응용 프로그램에 일반적으로 사용 됩니다.
 
-**프로비저닝 구성을 자동화하기 위해 Microsoft 그래프 API를 사용하는 단계 개요**
+**Microsoft Graph Api를 사용 하 여 프로 비전 구성을 자동화 하는 단계 개요**
 
 
 |단계  |세부 정보  |
 |---------|---------|
-|[1단계. 갤러리 응용 프로그램 만들기](#step-1-create-the-gallery-application)     |API 클라이언트에 로그인 <br> 갤러리 응용 프로그램 템플릿 검색 <br> 갤러리 응용 프로그램 만들기         |
-|[2단계. 템플릿을 기반으로 프로비저닝 작업 만들기](#step-2-create-the-provisioning-job-based-on-the-template)     |프로비저닝 커넥터에 대한 템플릿 검색 <br> 프로비저닝 작업 만들기         |
-|[3단계. 액세스 권한 부여](#step-3-authorize-access)     |응용 프로그램에 대한 연결 테스트 <br> 자격 증명 저장         |
-|[4단계. 작업 프로비저닝 시작](#step-4-start-the-provisioning-job)     |작업 시작         |
-|[5단계. 모니터 프로비저닝](#step-5-monitor-provisioning)     |프로비저닝 작업의 상태 확인 <br> 프로비저닝 로그 검색         |
+|[1 단계. 갤러리 응용 프로그램 만들기](#step-1-create-the-gallery-application)     |API 클라이언트에 로그인 <br> 갤러리 응용 프로그램 템플릿을 검색 합니다. <br> 갤러리 응용 프로그램 만들기         |
+|[2 단계. 템플릿을 기반으로 프로 비전 작업 만들기](#step-2-create-the-provisioning-job-based-on-the-template)     |프로 비전 커넥터용 템플릿 검색 <br> 프로 비전 작업 만들기         |
+|[3 단계. 액세스 권한 부여](#step-3-authorize-access)     |응용 프로그램에 대 한 연결 테스트 <br> 자격 증명 저장         |
+|[4 단계. 프로 비전 작업 시작](#step-4-start-the-provisioning-job)     |작업 시작         |
+|[5 단계. 프로 비전 모니터링](#step-5-monitor-provisioning)     |프로 비전 작업의 상태를 확인 합니다. <br> 프로 비전 로그를 검색 합니다.         |
 
 > [!NOTE]
-> 이 문서에 표시된 응답 개체는 가독성을 위해 단축될 수 있습니다. 모든 속성은 실제 호출에서 반환됩니다.
+> 이 문서에 표시 된 응답 개체는 가독성을 높이기 위해 줄어들 수 있습니다. 모든 속성은 실제 호출에서 반환 됩니다.
 
-## <a name="step-1-create-the-gallery-application"></a>1단계: 갤러리 응용 프로그램 만들기
+## <a name="step-1-create-the-gallery-application"></a>1 단계: 갤러리 응용 프로그램 만들기
 
-### <a name="sign-in-to-microsoft-graph-explorer-recommended-postman-or-any-other-api-client-you-use"></a>Microsoft 그래프 탐색기(권장), 우체부 또는 사용하는 다른 API 클라이언트에 로그인
+### <a name="sign-in-to-microsoft-graph-explorer-recommended-postman-or-any-other-api-client-you-use"></a>Microsoft Graph 탐색기 (권장), Postman 또는 사용 하는 기타 API 클라이언트에 로그인
 
-1. [마이크로소프트 그래프 탐색기](https://developer.microsoft.com/graph/graph-explorer) 시작
-1. "Microsoft로 로그인" 단추를 선택하고 Azure AD 전역 관리자 또는 앱 관리자 자격 증명을 사용하여 로그인합니다.
+1. [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer) 시작
+1. "Microsoft 로그인" 단추를 선택 하 고 Azure AD 전역 관리자 또는 앱 관리자 자격 증명을 사용 하 여 로그인 합니다.
 
     ![Graph 로그인](./media/application-provisioning-configure-api/wd_export_02.png)
 
-1. 로그인이 성공하면 왼쪽 창에 사용자 계정 세부 정보가 표시됩니다.
+1. 로그인이 완료 되 면 왼쪽 창에 사용자 계정 세부 정보가 표시 됩니다.
 
-### <a name="retrieve-the-gallery-application-template-identifier"></a>갤러리 응용 프로그램 템플릿 식별자 검색
-Azure AD 응용 프로그램 갤러리의 응용 프로그램에는 각각 해당 응용 프로그램에 대한 메타데이터를 설명하는 [응용 프로그램 템플릿이](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) 있습니다. 이 템플릿을 사용하여 관리를 위해 테넌트에 응용 프로그램 및 서비스 주체의 인스턴스를 만들 수 있습니다.
+### <a name="retrieve-the-gallery-application-template-identifier"></a>갤러리 응용 프로그램 템플릿 식별자를 검색 합니다.
+Azure AD 응용 프로그램 갤러리의 응용 프로그램에는 각 응용 프로그램에 대 한 메타 데이터를 설명 하는 [응용 프로그램 템플릿이](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) 있습니다. 이 템플릿을 사용 하 여 테 넌 트에서 관리를 위해 응용 프로그램 및 서비스 사용자의 인스턴스를 만들 수 있습니다.
 
 #### <a name="request"></a>*요청*
 
@@ -66,7 +66,7 @@ Azure AD 응용 프로그램 갤러리의 응용 프로그램에는 각각 해�
 GET https://graph.microsoft.com/beta/applicationTemplates
 ```
 
-#### <a name="response"></a>*Response*
+#### <a name="response"></a>*응답이*
 
 <!-- {
   "blockType": "response",
@@ -105,7 +105,7 @@ Content-type: application/json
 
 ### <a name="create-the-gallery-application"></a>갤러리 응용 프로그램 만들기
 
-마지막 단계에서 응용 프로그램에 대해 검색된 템플릿 ID를 사용하여 테넌트에서 응용 프로그램 및 서비스 주체의 [인스턴스를 만듭니다.](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http)
+마지막 단계에서 응용 프로그램에 대해 검색 된 템플릿 ID를 사용 하 여 테 넌 트에 응용 프로그램 및 서비스 사용자의 [인스턴스를 만듭니다](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) .
 
 #### <a name="request"></a>*요청*
 
@@ -123,7 +123,7 @@ Content-type: application/json
 }
 ```
 
-#### <a name="response"></a>*Response*
+#### <a name="response"></a>*응답이*
 
 
 <!-- {
@@ -170,11 +170,11 @@ Content-type: application/json
 }
 ```
 
-## <a name="step-2-create-the-provisioning-job-based-on-the-template"></a>2단계: 템플릿을 기반으로 프로비저닝 작업 만들기
+## <a name="step-2-create-the-provisioning-job-based-on-the-template"></a>2 단계: 템플릿을 기반으로 프로 비전 작업 만들기
 
-### <a name="retrieve-the-template-for-the-provisioning-connector"></a>프로비저닝 커넥터에 대한 템플릿 검색
+### <a name="retrieve-the-template-for-the-provisioning-connector"></a>프로 비전 커넥터용 템플릿 검색
 
-프로비저닝에 사용하도록 설정된 갤러리의 응용 프로그램에는 구성을 간소화하는 템플릿이 있습니다. 아래 요청을 사용하여 [프로비저닝 구성에 대한 템플릿을 검색합니다.](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http) 신분증을 제시해야 합니다. ID는 앞의 리소스를 참조하며, 이 경우 ServicePrincipal입니다. 
+프로 비전을 사용 하도록 설정 된 갤러리의 응용 프로그램에는 구성을 간소화 하는 템플릿이 있습니다. 아래 요청을 사용 하 여 [프로 비전 구성에 대 한 템플릿을 검색](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http)합니다. ID를 제공 해야 합니다. ID는 위의 리소스를 참조 합니다 .이 경우에는 ServicePrincipal입니다. 
 
 #### <a name="request"></a>*요청*
 
@@ -187,7 +187,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/temp
 ```
 
 
-#### <a name="response"></a>*Response*
+#### <a name="response"></a>*응답이*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -211,8 +211,8 @@ HTTP/1.1 200 OK
 }
 ```
 
-### <a name="create-the-provisioning-job"></a>프로비저닝 작업 만들기
-프로비저닝을 사용하려면 먼저 [작업을 만들어야](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http)합니다. 아래 요청을 사용하여 프로비저닝 작업을 만듭니다. 작업에 사용할 템플릿을 지정할 때 이전 단계의 templateId를 사용합니다.
+### <a name="create-the-provisioning-job"></a>프로 비전 작업 만들기
+프로 비전을 사용 하도록 설정 하려면 먼저 [작업을 만들어야](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http)합니다. 아래 요청을 사용 하 여 프로 비전 작업을 만듭니다. 작업에 사용할 템플릿을 지정할 때 이전 단계의 templateId을 사용 합니다.
 
 #### <a name="request"></a>*요청*
 <!-- {
@@ -228,7 +228,7 @@ Content-type: application/json
 }
 ```
 
-#### <a name="response"></a>*Response*
+#### <a name="response"></a>*응답이*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -262,11 +262,11 @@ Content-type: application/json
 }
 ```
 
-## <a name="step-3-authorize-access"></a>3단계: 액세스 권한 부여
+## <a name="step-3-authorize-access"></a>3 단계: 액세스 권한 부여
 
-### <a name="test-the-connection-to-the-application"></a>응용 프로그램에 대한 연결 테스트
+### <a name="test-the-connection-to-the-application"></a>응용 프로그램에 대 한 연결 테스트
 
-타사 응용 프로그램과의 연결을 테스트합니다. 아래 예제는 clientSecret 및 secretToken이 필요한 응용 프로그램에 대한 것입니다. 각 응용 프로그램에는 요구 사항이 있습니다. 응용 프로그램은 종종 ClientSecret 대신 BaseAddress를 사용합니다. 앱에 필요한 자격 증명을 확인하려면 응용 프로그램의 프로비저닝 구성 페이지와 개발자 모드 클릭 테스트 연결로 이동합니다. 네트워크 트래픽에는 자격 증명에 사용되는 매개 변수가 표시됩니다. 자격 증명의 전체 목록은 [여기에서](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http)찾을 수 있습니다. 
+타사 응용 프로그램에 대 한 연결을 테스트 합니다. 아래 예제는 clientSecret 및 secretToken가 필요한 응용 프로그램에 대 한 것입니다. 각 응용 프로그램에는 요구 사항이 있습니다. 응용 프로그램에서는 ClientSecret 대신 BaseAddress를 사용 하는 경우가 많습니다. 앱에 필요한 자격 증명을 확인 하려면 응용 프로그램의 프로 비전 구성 페이지로 이동 하 고 개발자 모드에서 연결 테스트를 클릭 합니다. 네트워크 트래픽은 자격 증명에 사용 되는 매개 변수를 표시 합니다. 자격 증명의 전체 목록은 [여기](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http)에서 찾을 수 있습니다. 
 
 #### <a name="request"></a>*요청*
 ```msgraph-interactive
@@ -278,7 +278,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/job
     ]
 }
 ```
-#### <a name="response"></a>*Response*
+#### <a name="response"></a>*응답이*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -290,7 +290,7 @@ HTTP/1.1 204 No Content
 
 ### <a name="save-your-credentials"></a>자격 증명 저장
 
-프로비저닝을 구성하려면 Azure AD와 응용 프로그램 간에 트러스트를 설정해야 합니다. 타사 응용 프로그램에 대한 액세스 권한을 부여합니다. 아래 예제는 clientSecret 및 secretToken이 필요한 응용 프로그램에 대한 것입니다. 각 응용 프로그램에는 요구 사항이 있습니다. API [설명서를](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) 검토하여 사용 가능한 옵션을 확인합니다. 
+프로 비전을 구성 하려면 Azure AD와 응용 프로그램 간에 트러스트를 설정 해야 합니다. 타사 응용 프로그램에 대 한 액세스 권한을 부여 합니다. 아래 예제는 clientSecret 및 secretToken가 필요한 응용 프로그램에 대 한 것입니다. 각 응용 프로그램에는 요구 사항이 있습니다. [API 설명서](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) 를 검토 하 여 사용 가능한 옵션을 확인 합니다. 
 
 #### <a name="request"></a>*요청*
 ```msgraph-interactive
@@ -304,7 +304,7 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
 }
 ```
 
-#### <a name="response"></a>*Response*
+#### <a name="response"></a>*응답이*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -314,8 +314,8 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
 HTTP/1.1 204 No Content
 ```
 
-## <a name="step-4-start-the-provisioning-job"></a>4단계: 프로비저닝 작업 시작
-프로비저닝 작업이 구성되었으므로 다음 명령을 사용하여 [작업을 시작합니다.](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&tabs=http) 
+## <a name="step-4-start-the-provisioning-job"></a>4 단계: 프로 비전 작업 시작
+프로 비전 작업이 구성 되었으므로 다음 명령을 사용 하 여 [작업을 시작](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&tabs=http)합니다. 
 
 
 #### <a name="request"></a>*요청*
@@ -327,7 +327,7 @@ HTTP/1.1 204 No Content
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/start
 ```
 
-#### <a name="response"></a>*Response*
+#### <a name="response"></a>*응답이*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -338,11 +338,11 @@ HTTP/1.1 204 No Content
 ```
 
 
-## <a name="step-5-monitor-provisioning"></a>5단계: 모니터 프로비저닝
+## <a name="step-5-monitor-provisioning"></a>5 단계: 프로 비전 모니터링
 
-### <a name="monitor-the-provisioning-job-status"></a>프로비저닝 작업 상태 모니터링
+### <a name="monitor-the-provisioning-job-status"></a>프로 비전 작업 상태 모니터링
 
-이제 프로비저닝 작업이 실행중이되었으므로 다음 명령을 사용하여 현재 프로비저닝 주기의 진행률과 대상 시스템에서 생성된 사용자 및 그룹 수와 같은 현재까지의 통계를 추적합니다. 
+프로 비전 작업이 실행 되 고 있으므로 다음 명령을 사용 하 여 대상 시스템에 생성 된 사용자 및 그룹의 수와 같은 통계 뿐만 아니라 현재 프로 비전 주기의 진행 상황을 추적할 수 있습니다. 
 
 #### <a name="request"></a>*요청*
 <!-- {
@@ -353,7 +353,7 @@ HTTP/1.1 204 No Content
 GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
 ```
 
-#### <a name="response"></a>*Response*
+#### <a name="response"></a>*응답이*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -396,14 +396,14 @@ Content-length: 2577
 ```
 
 
-### <a name="monitor-provisioning-events-using-the-provisioning-logs"></a>프로비저닝 로그를 사용하여 프로비저닝 이벤트를 모니터링합니다.
-프로비저닝 작업의 상태를 모니터링하는 것 외에도 [프로비저닝 로그를](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http) 사용하여 발생하는 모든 이벤트(예: 특정 사용자에 대한 쿼리 및 프로비저닝가 성공적으로 프로비저닝되었는지 확인)를 쿼리할 수 있습니다.
+### <a name="monitor-provisioning-events-using-the-provisioning-logs"></a>프로 비전 로그를 사용 하 여 프로 비전 이벤트 모니터링
+프로 비전 작업의 상태를 모니터링 하는 것 외에도 [프로 비전 로그](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http) 를 사용 하 여 발생 하는 모든 이벤트를 쿼리할 수 있습니다. 예를 들어 특정 사용자에 대 한 쿼리를 수행 하 여 해당 사용자가 성공적으로 프로 비전 되었는지 여부를 확인할 수 있습니다.
 
 #### <a name="request"></a>*요청*
 ```msgraph-interactive
 GET https://graph.microsoft.com/beta/auditLogs/provisioning
 ```
-#### <a name="response"></a>*Response*
+#### <a name="response"></a>*응답이*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -529,7 +529,7 @@ Content-type: application/json
 }
 
 ```
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 
-- [동기화 Microsoft 그래프 설명서 검토](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
-- [Azure AD와 사용자 지정 SCIM 앱 통합](use-scim-to-provision-users-and-groups.md)
+- [동기화 Microsoft Graph 설명서 검토](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [사용자 지정 SCIM 앱을 Azure AD와 통합](use-scim-to-provision-users-and-groups.md)

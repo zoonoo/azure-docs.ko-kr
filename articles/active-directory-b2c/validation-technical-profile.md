@@ -1,7 +1,7 @@
 ---
 title: 사용자 지정 정책에서 유효성 검사 기술 프로필 정의
 titleSuffix: Azure AD B2C
-description: Azure Active Directory B2C의 사용자 지정 정책에서 유효성 검사 기술 프로필을 사용하여 클레임의 유효성을 검사합니다.
+description: Azure Active Directory B2C의 사용자 지정 정책에서 유효성 검사 기술 프로필을 사용 하 여 클레임의 유효성을 검사 합니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,17 +12,17 @@ ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 1eaf159149bb353b1cf0474aad5bc233decddc5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481571"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C의 사용자 지정 정책에 유효성 검사 기술 프로필 정의
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-유효성 검사 기술 프로필은 [Azure Active Directory](active-directory-technical-profile.md) 또는 [REST API](restful-technical-profile.md)와 같은 모든 프로토콜의 일반적인 기술 프로필입니다. 유효성 검사 기술 프로필은 출력 클레임을 반환하거나 다음 데이터와 함께 4xx HTTP 상태 코드를 반환합니다. 자세한 내용은 [오류 메시지 반환을](restful-technical-profile.md#returning-error-message) 참조하십시오.
+유효성 검사 기술 프로필은 [Azure Active Directory](active-directory-technical-profile.md) 또는 [REST API](restful-technical-profile.md)와 같은 모든 프로토콜의 일반적인 기술 프로필입니다. 유효성 검사 기술 프로필은 출력 클레임을 반환 하거나, 다음 데이터를 사용 하 여 4xx HTTP 상태 코드를 반환 합니다. 자세한 내용은 [오류 메시지 반환](restful-technical-profile.md#returning-error-message) 을 참조 하십시오.
 
 ```JSON
 {
@@ -32,49 +32,49 @@ ms.locfileid: "79481571"
 }
 ```
 
-유효성 검사 기술 프로필의 출력 클레임 범위는 유효성 검사 기술 프로필을 호출하는 [자체 주장기술 프로필](self-asserted-technical-profile.md) 및 유효성 검사 기술 프로필로 제한됩니다. 다음 오케스트레이션 단계에서 출력 클레임을 사용하려면 유효성 검사 기술 프로필을 호출하는 자체 어설션기술 프로필에 출력 클레임을 추가합니다.
+유효성 검사 기술 프로필의 출력 클레임 범위는 유효성 검사 기술 프로필 및 해당 유효성 검사 기술 프로필을 호출 하는 [자체 어설션된 기술 프로필로](self-asserted-technical-profile.md) 제한 됩니다. 다음 오케스트레이션 단계에서 출력 클레임을 사용 하려면 유효성 검사 기술 프로필을 호출 하는 자체 어설션된 기술 프로필에 출력 클레임을 추가 합니다.
 
 유효성 검사 기술 프로필은 **ValidationTechnicalProfiles** 요소에 표시되는 순서대로 실행됩니다. 유효성 검사 기술 프로필에서 오류가 발생하거나 성공하는 경우 후속 유효성 검사 기술 프로필을 계속 실행할지 여부를 유효성 검사 기술 프로필에 구성할 수 있습니다.
 
-유효성 검사 기술 프로필은 **ValidationTechnicalProfile** 요소에 정의된 사전 조건에 따라 조건부로 실행할 수 있습니다. 예를 들어 특정 클레임이 있는지 또는 클레임이 지정된 값과 같는지 여부를 확인할 수 있습니다.
+유효성 검사 기술 프로필은 **ValidationTechnicalProfile** 요소에 정의된 사전 조건에 따라 조건부로 실행할 수 있습니다. 예를 들어 특정 클레임이 있는지 여부 또는 클레임이 지정 된 값과 같은지 확인할 수 있습니다.
 
 자체 어설션된 기술 프로필은 출력 클레임의 일부 또는 전부를 검증하는 데 사용되는 유효성 검사 기술 프로필을 정의할 수 있습니다. 참조된 기술 프로필의 모든 입력 클레임은 참조하는 유효성 검사 기술 프로필의 출력 클레임에 나타나야 합니다.
 
 > [!NOTE]
-> 자체 어설션된 기술 프로필만 유효성 검사 기술 프로필을 사용할 수 있습니다. 자체 어설션이 없는 기술 프로필에서 출력 클레임의 유효성을 검사해야 하는 경우 사용자 여정에서 추가 오케스트레이션 단계를 사용하여 유효성 검사를 담당하는 기술 프로필을 수용하는 것이 좋습니다.
+> 자체 어설션된 기술 프로필은 유효성 검사 기술 프로필을 사용할 수 있습니다. 자체 어설션된 기술 프로필에서 출력 클레임의 유효성을 검사 해야 하는 경우 유효성 검사를 담당 하는 기술 프로필을 수용할 수 있도록 사용자 경험에서 추가 오케스트레이션 단계를 사용 하는 것이 좋습니다.
 
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
 **ValidationTechnicalProfiles** 요소에 포함되는 요소는 다음과 같습니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | 참조하는 기술 프로필의 출력 클레임 일부 또는 전부의 유효성을 검사하는 데 사용되는 기술 프로필입니다. |
 
 **ValidationTechnicalProfile** 요소에 포함되는 특성은 다음과 같습니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | yes | 정책 또는 부모 정책에 이미 정의된 기술 프로필의 식별자입니다. |
-|ContinueOnError|예| 이 유효성 검사 기술 프로필에 오류가 발생하는 경우 후속 유효성 검사 기술 프로필의 유효성 검사를 계속할지 여부를 나타냅니다. 가능한 값: `true` 또는 `false`(기본값, 추가 유효성 프로필의 처리가 중지되고 오류가 반환됨) |
-|ContinueOnSuccess | 예 | 이 유효성 검사 기술 프로필이 성공하는 경우 후속 유효성 검사 프로필의 유효성을 계속 검사할지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 즉 추가 유효성 검사 프로필의 처리가 계속됩니다. |
+| 참조 | 예 | 정책 또는 부모 정책에 이미 정의된 기술 프로필의 식별자입니다. |
+|ContinueOnError|아니요| 이 유효성 검사 기술 프로필에서 오류가 발생 하는 경우 후속 유효성 검사 기술 프로필의 유효성 검사를 계속할지 여부를 나타내는입니다. 가능한 값: `true` 또는 `false`(기본값, 추가 유효성 프로필의 처리가 중지되고 오류가 반환됨) |
+|ContinueOnSuccess | 아니요 | 이 유효성 검사 기술 프로필이 성공하는 경우 후속 유효성 검사 프로필의 유효성을 계속 검사할지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 즉 추가 유효성 검사 프로필의 처리가 계속됩니다. |
 
 **ValidationTechnicalProfile** 요소에 에 포함되는 요소는 다음과 같습니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | Preconditions | 0:1 | 유효성 검사 기술 프로필을 실행하기 위해 충족해야 하는 사전 조건의 목록입니다. |
 
 **Precondition** 요소에 포함되는 특성은 다음과 같습니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
-| `Type` | yes | 사전 조건에 대해 수행할 검사 또는 쿼리의 유형입니다. 지정된 클레임이 사용자의 현재 클레임 집합에 있는 경우 작업을 수행하도록 보장하기 위해 `ClaimsExist`가 지정되거나, 지정된 클레임이 있고 해당 값이 지정된 값과 같은 경우 작업을 수행하도록 보장하기 위해 `ClaimEquals`가 지정됩니다. |
-| `ExecuteActionsIf` | yes | 테스트가 true 또는 false인 경우 사전 조건의 작업을 수행해야 하는지 여부를 나타냅니다. |
+| `Type` | 예 | 사전 조건에 대해 수행할 검사 또는 쿼리의 유형입니다. 지정된 클레임이 사용자의 현재 클레임 집합에 있는 경우 작업을 수행하도록 보장하기 위해 `ClaimsExist`가 지정되거나, 지정된 클레임이 있고 해당 값이 지정된 값과 같은 경우 작업을 수행하도록 보장하기 위해 `ClaimEquals`가 지정됩니다. |
+| `ExecuteActionsIf` | 예 | 테스트가 true 또는 false인 경우 사전 조건의 작업을 수행해야 하는지 여부를 나타냅니다. |
 
 **Precondition** 요소에 포함되는 요소는 다음과 같습니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | 값 | 1:n | 검사에 사용되는 데이터입니다. 이 검사 유형이 `ClaimsExist`인 경우 이 필드는 쿼리할 ClaimTypeReferenceId를 지정합니다. 검사 유형이 `ClaimEquals`인 경우 이 필드는 쿼리할 ClaimTypeReferenceId를 지정합니다. 한편 다른 값 요소에는 검사할 값이 포함됩니다.|
 | 작업 | 1:1 | 오케스트레이션 단계 내의 사전 조건 검사가 true인 경우 수행해야 하는 작업입니다. **Action**의 값은 `SkipThisValidationTechnicalProfile`로 설정됩니다. 연결된 유효성 검사 기술 프로필을 실행하지 않도록 지정합니다. |

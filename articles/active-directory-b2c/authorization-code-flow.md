@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 8248ca0abb1d633786b09b894bcd6b1089ab2d8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260892"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 OAuth 2.0 인증 코드 흐름
@@ -29,15 +29,15 @@ OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools
 > [!NOTE]
 > Azure AD B2C를 사용하여 ID 관리를 웹앱에 추가하려면 OAuth 2.0 대신 [OpenID Connect](openid-connect.md)를 사용합니다.
 
-Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으로 표준 OAuth 2.0의 흐름을 확장합니다. [사용자 흐름을](user-flow-overview.md)소개합니다. 사용자 흐름을 사용하면 OAuth 2.0을 통해 가입, 로그인 및 프로필 관리와 같은 사용자 환경을 애플리케이션에 추가할 수 있습니다. OAuth 2.0 프로토콜을 사용하는 ID 공급자에는 [Amazon](identity-provider-amazon.md), [Azure Active Directory](identity-provider-azure-ad-single-tenant.md), [Facebook](identity-provider-facebook.md), [GitHub](identity-provider-github.md), [Google](identity-provider-google.md) 및 [LinkedIn](identity-provider-linkedin.md)이 포함됩니다.
+Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으로 표준 OAuth 2.0의 흐름을 확장합니다. [사용자 흐름이](user-flow-overview.md)도입 됩니다. 사용자 흐름을 사용하면 OAuth 2.0을 통해 가입, 로그인 및 프로필 관리와 같은 사용자 환경을 애플리케이션에 추가할 수 있습니다. OAuth 2.0 프로토콜을 사용하는 ID 공급자에는 [Amazon](identity-provider-amazon.md), [Azure Active Directory](identity-provider-azure-ad-single-tenant.md), [Facebook](identity-provider-facebook.md), [GitHub](identity-provider-github.md), [Google](identity-provider-google.md) 및 [LinkedIn](identity-provider-linkedin.md)이 포함됩니다.
 
-이 문서에서 HTTP 요청을 시도하려면 다음을 수행하십시오.
+이 문서에서 HTTP 요청을 시도 하려면:
 
 1. `{tenant}`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
-1. Azure `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` AD B2C 테넌트에 이전에 등록한 응용 프로그램의 앱 ID로 바꿉습니다.
-1. 예를 `{policy}` 들어 `b2c_1_sign_in`테넌트에서 만든 정책의 이름으로 바꿉니다.
+1. 을 `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` Azure AD B2C 테 넌 트에 이전에 등록 한 응용 프로그램의 앱 ID로 바꿉니다.
+1. 은 `{policy}` 테 넌 트에서 만든 정책 이름으로 대체 합니다 (예: `b2c_1_sign_in`).
 
-## <a name="1-get-an-authorization-code"></a>1. 권한 부여 코드 받기
+## <a name="1-get-an-authorization-code"></a>1. 인증 코드 가져오기
 인증 코드 흐름은 클라이언트가 사용자를 `/authorize` 엔드포인트로 보내는 것으로 시작됩니다. 사용자가 조치를 취하는 흐름의 대화형 부분입니다. 이 요청에서 클라이언트는 사용자로부터 얻어야 하는 사용 권한을 `scope` 매개 변수에 나타냅니다. 다음 세 가지 예제(쉽게 읽을 수 있도록 줄 바꿈 적용)에서는 각각 다른 사용자 흐름을 사용합니다.
 
 
@@ -52,10 +52,10 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 ```
 
 
-| 매개 변수 | 필수 여부 | 설명 |
+| 매개 변수 | 필수 여부 | Description |
 | --- | --- | --- |
-|{테넌트}| 필수 | Azure AD B2C 테넌트의 이름|
-| {정책} | 필수 | 실행할 사용자 흐름입니다. Azure AD B2C 테넌트에서 만든 사용자 흐름의 이름을 지정합니다. 예를 `b2c_1_sign_in`들어: `b2c_1_sign_up`" `b2c_1_edit_profile`또는 . |
+|넌| 필수 | Azure AD B2C 테 넌 트의 이름|
+| policy | 필수 | 실행할 사용자 흐름입니다. Azure AD B2C 테 넌 트에서 만든 사용자 흐름의 이름을 지정 합니다. 예를 들면 `b2c_1_sign_in`, `b2c_1_sign_up`또는 `b2c_1_edit_profile`입니다. |
 | client_id |필수 |[Azure Portal](https://portal.azure.com)에서 앱에 할당된 애플리케이션 ID입니다. |
 | response_type |필수 |응답 유형입니다. 인증 코드 흐름의 경우 `code`를 포함해야 합니다. |
 | redirect_uri |필수 |앱이 인증 응답을 보내고 받는 앱의 리디렉션 URI입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
@@ -78,8 +78,8 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 
 | 매개 변수 | 설명 |
 | --- | --- |
-| 코드 |앱이 요청한 권한 부여 코드입니다. 앱에서는 권한 부여 코드를 사용하여 대상 리소스에 대한 액세스 토큰을 요청할 수 있습니다. 인증 코드는 수명이 매우 짧습니다. 일반적으로 약 10분 후에 만료됩니다. |
-| state |전체 설명은 이전 섹션의 첫 번째 표를 참조하세요. 요청에 `state` 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 앱에서 요청 및 응답의 `state` 값이 동일한지 확인해야 합니다. |
+| code |앱이 요청한 권한 부여 코드입니다. 앱에서는 권한 부여 코드를 사용하여 대상 리소스에 대한 액세스 토큰을 요청할 수 있습니다. 인증 코드는 수명이 매우 짧습니다. 일반적으로 약 10분 후에 만료됩니다. |
+| state |전체 설명은 이전 섹션의 첫 번째 표를 참조하세요. `state` 매개 변수가 요청에 포함된 경우 동일한 값이 응답에 표시됩니다. 앱에서 요청 및 응답의 `state` 값이 동일한지 확인해야 합니다. |
 
 오류 응답은 앱에서 적절히 처리할 수 있도록 리디렉션 URI에 보낼 수도 있습니다.
 
@@ -90,16 +90,16 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | error |발생한 오류 유형을 분류하는 데 사용할 수 있는 오류 코드 문자열입니다. 문자열을 사용하여 오류에 대응할 수도 있습니다. |
 | error_description |인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
-| state |잎의 표에 나와 있는 전체 설명을 참조하세요. 요청에 `state` 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 앱에서 요청 및 응답의 `state` 값이 동일한지 확인해야 합니다. |
+| state |잎의 표에 나와 있는 전체 설명을 참조하세요. `state` 매개 변수가 요청에 포함된 경우 동일한 값이 응답에 표시됩니다. 앱에서 요청 및 응답의 `state` 값이 동일한지 확인해야 합니다. |
 
-## <a name="2-get-a-token"></a>2. 토큰 받기
-인증 코드를 받았으므로 이제 POST 요청을 `/token` 엔드포인트로 전송하여 `code`를 의도한 리소스에 대한 토큰으로 교환할 수 있습니다. Azure AD B2C에서 요청에서 해당 범위를 지정하여 평소와 같이 [다른 API에 대한 액세스 토큰을 요청할](access-tokens.md#request-a-token) 수 있습니다.
+## <a name="2-get-a-token"></a>2. 토큰 가져오기
+인증 코드를 받았으므로 이제 POST 요청을 `/token` 엔드포인트로 전송하여 `code`를 의도한 리소스에 대한 토큰으로 교환할 수 있습니다. Azure AD B2C에서는 요청에서 해당 범위를 지정 하 여 일반적인 방식으로 [다른 API에 대 한 액세스 토큰을 요청할](access-tokens.md#request-a-token) 수 있습니다.
 
-또한 앱의 클라이언트 ID를 요청된 범위로 사용하는 규칙에 따라 앱 의 백 엔드 웹 API에 대한 액세스 토큰을 요청할 수 있습니다(이 경우 해당 클라이언트 ID가 있는 액세스 토큰이 "대상"으로 표시됨).
+앱의 클라이언트 ID를 요청 된 범위로 사용 하는 규칙에 따라 앱 자체 백 엔드 웹 API에 대 한 액세스 토큰을 요청할 수도 있습니다 (해당 클라이언트 ID가 "대상"으로 지정 된 액세스 토큰을 생성 함).
 
 ```HTTP
 POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
@@ -110,15 +110,15 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 ```
 
-| 매개 변수 | 필수 여부 | 설명 |
+| 매개 변수 | 필수 여부 | Description |
 | --- | --- | --- |
-|{테넌트}| 필수 | Azure AD B2C 테넌트의 이름|
-|{정책}| 필수| 권한 부여 코드를 획득하는 데 사용된 사용자 흐름입니다. 이 요청에 다른 사용자 흐름을 사용할 수 없습니다. |
+|넌| 필수 | Azure AD B2C 테 넌 트의 이름|
+|policy| 필수| 권한 부여 코드를 획득하는 데 사용된 사용자 흐름입니다. 이 요청에 다른 사용자 흐름을 사용할 수 없습니다. |
 | client_id |필수 |[Azure Portal](https://portal.azure.com)에서 앱에 할당된 애플리케이션 ID입니다.|
-| client_secret | 예, 웹 앱에서 | [Azure 포털에서](https://portal.azure.com/)생성된 응용 프로그램 보안 입니다. 클라이언트 암호는 클라이언트가 클라이언트 보안을 안전하게 저장할 수 있는 웹 앱 시나리오에 이 흐름에서 사용됩니다. 네이티브 앱(공용 클라이언트) 시나리오의 경우 클라이언트 보안을 안전하게 저장할 수 없으므로 이 호출에서 사용되지 않습니다. 클라이언트 비밀을 사용하는 경우 주기적으로 변경하십시오. |
+| client_secret | 예, Web Apps | [Azure Portal](https://portal.azure.com/)에서 생성 된 응용 프로그램 암호입니다. 클라이언트 암호는 클라이언트 암호를 안전 하 게 저장할 수 있는 웹 앱 시나리오에 대해이 흐름에 사용 됩니다. 네이티브 앱 (공용 클라이언트) 시나리오의 경우 클라이언트 암호를 안전 하 게 저장할 수 없으므로이 호출에서 사용 되지 않습니다. 클라이언트 암호를 사용 하는 경우 주기적으로 변경 하십시오. |
 | grant_type |필수 |권한 부여 유형입니다. 인증 코드 흐름에서 권한 부여 유형은 `authorization_code`여야 합니다. |
 | scope |권장 |공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. 클라이언트 ID를 범위로 사용할 경우 동일한 클라이언트 ID가 나타내는 사용자 고유의 서비스 또는 Web API에 대해 사용할 수 있는 액세스 토큰이 앱에 필요합니다.  `offline_access` 범위는 리소스에 대한 장기 액세스를 위해 앱에 새로 고침 토큰이 필요함을 나타냅니다.  `openid` 범위를 사용하여 Azure AD B2C에서 ID 토큰을 요청할 수도 있습니다. |
-| 코드 |필수 |흐름의 첫 번째 단계에서 얻은 권한 부여 코드입니다. |
+| code |필수 |흐름의 첫 번째 단계에서 얻은 권한 부여 코드입니다. |
 | redirect_uri |필수 |인증 코드를 받은 애플리케이션의 리디렉션 URI입니다. |
 
 성공적인 토큰 응답은 다음과 같습니다.
@@ -133,7 +133,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | not_before |epoch 시간에서 토큰은 유효한 것으로 간주되는 시간입니다. |
 | token_type |토큰 형식 값입니다. Azure AD는 전달자 유형만 지원합니다. |
@@ -151,7 +151,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 }
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | error |발생한 오류 유형을 분류하는 데 사용할 수 있는 오류 코드 문자열입니다. 문자열을 사용하여 오류에 대응할 수도 있습니다. |
 | error_description |인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -165,7 +165,7 @@ Host: mytaskwebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-## <a name="4-refresh-the-token"></a>4. 토큰 새로 고침
+## <a name="4-refresh-the-token"></a>4. 토큰을 새로 고칩니다.
 액세스 토큰 및 ID 토큰은 수명이 짧습니다. 만료되면 새로 고쳐야 리소스에 계속 액세스할 수 있습니다. 이렇게 하려면 다른 POST 요청을 `/token` 엔드포인트에 제출합니다. 여기에서는 `code` 대신 `refresh_token`을 제공합니다.
 
 ```HTTP
@@ -176,12 +176,12 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| 매개 변수 | 필수 여부 | 설명 |
+| 매개 변수 | 필수 여부 | Description |
 | --- | --- | --- |
-|{테넌트}| 필수 | Azure AD B2C 테넌트의 이름|
-|{정책} |필수 |원래의 새로 고침 토큰을 얻는 데 사용된 사용자 흐름입니다. 이 요청에 다른 사용자 흐름을 사용할 수 없습니다. |
+|넌| 필수 | Azure AD B2C 테 넌 트의 이름|
+|policy |필수 |원래의 새로 고침 토큰을 얻는 데 사용된 사용자 흐름입니다. 이 요청에 다른 사용자 흐름을 사용할 수 없습니다. |
 | client_id |필수 |[Azure Portal](https://portal.azure.com)에서 앱에 할당된 애플리케이션 ID입니다. |
-| client_secret | 예, 웹 앱에서 | [Azure 포털에서](https://portal.azure.com/)생성된 응용 프로그램 보안 입니다. 클라이언트 암호는 클라이언트가 클라이언트 보안을 안전하게 저장할 수 있는 웹 앱 시나리오에 이 흐름에서 사용됩니다. 네이티브 앱(공용 클라이언트) 시나리오의 경우 클라이언트 보안을 안전하게 저장할 수 없으므로 이 호출에서 사용되지 않습니다. 클라이언트 비밀을 사용하는 경우 주기적으로 변경하십시오. |
+| client_secret | 예, Web Apps | [Azure Portal](https://portal.azure.com/)에서 생성 된 응용 프로그램 암호입니다. 클라이언트 암호는 클라이언트 암호를 안전 하 게 저장할 수 있는 웹 앱 시나리오에 대해이 흐름에 사용 됩니다. 네이티브 앱 (공용 클라이언트) 시나리오의 경우 클라이언트 암호를 안전 하 게 저장할 수 없으므로이 호출에서 사용 되지 않습니다. 클라이언트 암호를 사용 하는 경우 주기적으로 변경 하십시오. |
 | grant_type |필수 |권한 부여 유형입니다. 이 인증 코드 흐름 레그에서 권한 부여 유형은 `refresh_token`여야 합니다. |
 | scope |권장 |공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. 클라이언트 ID를 범위로 사용할 경우 동일한 클라이언트 ID가 나타내는 사용자 고유의 서비스 또는 Web API에 대해 사용할 수 있는 액세스 토큰이 앱에 필요합니다.  `offline_access` 범위는 리소스에 장기간 액세스하기 위한 새로 고침 토큰이 앱에 필요함을 나타냅니다.  `openid` 범위를 사용하여 Azure AD B2C에서 ID 토큰을 요청할 수도 있습니다. |
 | redirect_uri |Optional |인증 코드를 받은 애플리케이션의 리디렉션 URI입니다. |
@@ -199,7 +199,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | not_before |epoch 시간에서 토큰은 유효한 것으로 간주되는 시간입니다. |
 | token_type |토큰 형식 값입니다. Azure AD는 전달자 유형만 지원합니다. |
@@ -217,7 +217,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 }
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | error |발생한 오류 유형을 분류하는 데 사용할 수 있는 오류 코드 문자열입니다. 문자열을 사용하여 오류에 대응할 수도 있습니다. |
 | error_description |인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -225,6 +225,6 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 ## <a name="use-your-own-azure-ad-b2c-directory"></a>사용자 고유의 Azure AD B2C 디렉터리 사용
 이러한 요청을 직접 시도하려면 다음 단계를 완료합니다. 이 문서에서 사용한 예제 값을 사용자 고유의 값으로 바꿉니다.
 
-1. [Azure AD B2C 디렉터리 만들기.](tutorial-create-tenant.md) 요청에 디렉터리의 이름을 사용합니다.
+1. [Azure AD B2C 디렉터리를 만듭니다](tutorial-create-tenant.md). 요청에 디렉터리의 이름을 사용합니다.
 2. [애플리케이션을 만들어](tutorial-register-applications.md) 애플리케이션 ID 및 리디렉션 URI를 얻습니다. 앱에 네이티브 클라이언트를 포함합니다.
 3. [사용자 흐름을 만들어](user-flow-overview.md) 사용자 흐름 이름을 가져옵니다.

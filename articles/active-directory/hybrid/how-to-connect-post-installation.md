@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261295"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>다음 단계 및 Azure AD Connect 관리 방법
@@ -47,23 +47,23 @@ Azure Portal을 사용하여 동기화 상태를 확인합니다.
 ### <a name="to-verify-the-scheduled-synchronization-task"></a>예약된 동기화 작업을 확인하려면
 1. 관리자 권한으로 Azure Portal에 로그인합니다.
 2. 왼쪽에서 **Active Directory**를 선택합니다.
-3. 왼쪽에서 Azure **AD 연결을** 선택합니다.
-4. 페이지 상단에서 마지막 동기화를 기록합니다.
+3. 왼쪽에서 **Azure AD Connect** 를 선택 합니다.
+4. 페이지 맨 위에서 마지막 동기화를 확인 합니다.
 
 ![디렉터리 동기화 시간](./media/how-to-connect-post-installation/verify2.png)
 
 ## <a name="start-a-scheduled-synchronization-task"></a>예약된 동기화 작업 시작
-동기화 작업을 실행해야 하는 경우 다음을 수행하여 이 작업을 수행할 수 있습니다.
+동기화 작업을 실행 해야 하는 경우 다음을 수행할 수 있습니다.
 
-1. Azure AD Connect 바탕 화면 바로 가기를 두 번 클릭하여 마법사를 시작합니다.
+1. Azure AD Connect 바탕 화면 바로 가기를 두 번 클릭 하 여 마법사를 시작 합니다.
 2. **구성**을 클릭합니다.
-3. 작업 화면에서 **동기화 사용자 지정 옵션을** 선택하고 **다음을** 클릭합니다.
+3. 작업 화면에서 **동기화 옵션 사용자 지정** 을 선택 하 고 **다음** 을 클릭 합니다.
 4. Azure AD 자격 증명 입력
 5. **다음**을 클릭합니다. **다음**을 클릭합니다.  **다음**을 클릭합니다.
-5.  구성 **준비** 화면에서 **구성이 완료될 때 동기화 시작 상자가** 선택되어 있는지 확인합니다.
+5.  **구성 준비** 완료 화면에서 **구성이 완료 되 면 동기화 프로세스를 시작** 합니다. 확인란을 선택 했는지 확인 합니다.
 6.  **구성**을 클릭합니다.
 
-Azure AD 연결 동기화 스케줄러에 대한 자세한 내용은 [Azure AD 연결 스케줄러](how-to-connect-sync-feature-scheduler.md)를 참조하십시오.
+Azure AD Connect sync Scheduler에 대 한 자세한 내용은 [scheduler Azure AD Connect](how-to-connect-sync-feature-scheduler.md)를 참조 하세요.
 
 ## <a name="additional-tasks-available-in-azure-ad-connect"></a>Azure AD Connect에서 사용할 수 있는 추가 작업
 Azure AD Connect의 초기 설치 후, Azure AD Connect 시작 페이지 또는 바탕 화면 바로 가기에서 항상 마법사를 다시 시작할 수 있습니다.  마법사를 다시 실행하면 몇가지 새로운 옵션이 추가 작업의 형태로 제공됩니다.  
@@ -72,17 +72,17 @@ Azure AD Connect의 초기 설치 후, Azure AD Connect 시작 페이지 또는 
 
 ![추가 작업 목록](./media/how-to-connect-post-installation/addtasks2.png)
 
-| 추가 작업 | 설명 |
+| 추가 작업 | Description |
 | --- | --- |
-|**개인 정보 설정**|Microsoft와 공유되는 원격 분석 데이터를 확인합니다.|
+|**개인 정보 설정**|Microsoft와 공유 되는 원격 분석 데이터를 확인 합니다.|
 |**현재 구성 보기**|현재 Azure AD Connect 솔루션을 봅니다.  일반 설정, 동기화된 디렉토리 및 동기화 설정을 포함합니다. |
 | **동기화 옵션 사용자 지정** |추가 Active Directory 포리스트를 구성에 추가 또는 사용자, 그룹, 디바이스나 암호 쓰기 저장과 같은 동기화 옵션 사용 등 현재 구성을 변경합니다. |
 |**디바이스 옵션 구성**|동기화에 사용할 수 있는 장치 옵션|
 |**디렉터리 스키마 새로 고침**|동기화를 위해 새 온-프레미스 디렉터리 개체를 추가할 수 있습니다.|
-|**스테이징 모드 구성** |즉시 동기화되지 않거나 Azure AD 또는 온-프레미스 Active Directory로 내보내지 않은 스테이지 정보입니다.  이 기능을 통해 동기화가 되기 전에 동기화를 미리볼 수 있습니다. |
-|**사용자 로그인 변경**|로그인하는 데 사용하는 인증 방법 변경|
-|**페더레이션 관리**|AD FS 인프라 관리, 인증서 갱신 및 AD FS 서버 추가|
-|**문제 해결**|Azure AD Connect 문제 해결 에 대한 도움말|
+|**준비 모드 구성** |즉시 동기화되지 않거나 Azure AD 또는 온-프레미스 Active Directory로 내보내지 않은 스테이지 정보입니다.  이 기능을 통해 동기화가 되기 전에 동기화를 미리볼 수 있습니다. |
+|**사용자 로그인 변경**|사용자가 로그인 하는 데 사용 하는 인증 방법 변경|
+|**페더레이션 관리**|AD FS 인프라를 관리 하 고, 인증서를 갱신 하 고, AD FS 서버를 추가 합니다.|
+|**문제 해결**|Azure AD Connect 문제 해결에 대 한 도움말|
 
 ## <a name="next-steps"></a>다음 단계
-[온-프레미스 ID를 Azure Active Directory.](whatis-hybrid-identity.md)
+[Azure Active Directory와 온-프레미스 id 통합](whatis-hybrid-identity.md)에 대해 자세히 알아보세요.

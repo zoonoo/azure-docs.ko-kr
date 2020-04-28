@@ -1,5 +1,5 @@
 ---
-title: 'VPN 게이트웨이를 사용하여 VNet을 여러 사이트에 연결: 클래식'
+title: 'VPN Gateway를 사용 하 여 여러 사이트에 VNet 연결: 클래식'
 description: VPN Gateway를 사용하여 여러 로컬 온-프레미스 사이트를 클래식 가상 네트워크에 연결합니다.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/11/2020
 ms.author: yushwang
 ms.openlocfilehash: a95cd6ea85a16b0e0bf5f67f5dfc20d57f11463b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77198101"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>기존 VPN Gateway 연결이 있는 VNet에 사이트 간 연결 추가(클래식)
@@ -20,8 +20,8 @@ ms.locfileid: "77198101"
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-> * [파워 쉘 (클래식)](vpn-gateway-multi-site.md)
+> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [PowerShell (클래식)](vpn-gateway-multi-site.md)
 >
 >
 
@@ -76,7 +76,7 @@ ms.locfileid: "77198101"
 
 ## <a name="2-export-the-network-configuration-file"></a><a name="export"></a>2. 네트워크 구성 파일 내보내기
 
-권한 상승 권한으로 PowerShell 콘솔을 엽니다. 서비스 관리로 전환하려면 다음 명령을 사용합니다.
+관리자 권한으로 PowerShell 콘솔을 엽니다. 서비스 관리로 전환 하려면 다음 명령을 사용 합니다.
 
 ```powershell
 azure config mode asm
@@ -94,7 +94,7 @@ Add-AzureAccount
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-## <a name="3-open-the-network-configuration-file"></a>3. 네트워크 구성 파일 열기
+## <a name="3-open-the-network-configuration-file"></a>3. 네트워크 구성 파일을 엽니다.
 마지막 단계에서 다운로드한 네트워크 구성 파일을 엽니다. 원하는 xml 편집기를 사용합니다. 파일은 다음과 유사하게 나타납니다.
 
         <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
@@ -166,13 +166,13 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   </Gateway>
 ```
 
-## <a name="5-import-the-network-configuration-file"></a>5. 네트워크 구성 파일 가져오기
+## <a name="5-import-the-network-configuration-file"></a>5. 네트워크 구성 파일을 가져옵니다.
 네트워크 구성 파일을 가져옵니다. 변경 내용과 함께 이 파일을 가져오면 새 터널이 추가됩니다. 터널은 이전에 만든 동적 게이트웨이를 사용합니다. PowerShell을 사용하여 파일을 가져올 수 있습니다.
 
-## <a name="6-download-keys"></a>6. 다운로드 키
+## <a name="6-download-keys"></a>6. 키 다운로드
 새 터널을 추가한 후 PowerShell cmdlet 'Get-AzureVNetGatewayKey'를 사용하여 각 터널의 IPsec/IKE 사전 공유 키를 가져옵니다.
 
-예를 들어:
+다음은 그 예입니다.
 
 ```powershell
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"

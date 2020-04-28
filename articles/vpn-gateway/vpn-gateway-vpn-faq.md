@@ -1,5 +1,5 @@
 ---
-title: Azure VPN 게이트웨이 자주 묻는 질문
+title: Azure VPN Gateway FAQ
 description: VPN Gateway FAQ. Microsoft Azure Virtual Network 프레미스 간 연결, 하이브리드 구성 연결 및 VPN Gateway에 대한 FAQ입니다.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: yushwang
 ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79279885"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
@@ -48,7 +48,7 @@ VPN Gateway 연결에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gatewa
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>사이트 간 연결과 지점 및 사이트 간 연결의 차이점은 무엇입니까?
 
-**사이트 간**(IPsec/IKE VPN 터널) 구성은 온-프레미스 위치와 Azure 사이에 있습니다. 즉, 라우팅 및 사용 권리를 어떻게 구성하는지에 따라 프레미스에 있는 원하는 컴퓨터에서 가상 네트워크 내에 있는 원하는 가상 머신 또는 역할 인스턴스에 연결할 수 있습니다. 이 연결은 항상 사용할 수 있는 프레미스 간 연결에 유용한 옵션이며 하이브리드 구성에 적합합니다. 이 연결 유형에서는 네트워크의 가장자리에 배포되어야 하는 IPsec VPN 어플라이언스(하드웨어 디바이스 또는 소프트 어플라이언스)를 사용합니다. 이러한 유형의 연결을 만들려면 외부에서 마주보고 있는 IPv4 주소가 있어야 합니다.
+**사이트 간**(IPsec/IKE VPN 터널) 구성은 온-프레미스 위치와 Azure 사이에 있습니다. 즉, 라우팅 및 사용 권리를 어떻게 구성하는지에 따라 프레미스에 있는 원하는 컴퓨터에서 가상 네트워크 내에 있는 원하는 가상 머신 또는 역할 인스턴스에 연결할 수 있습니다. 이 연결은 항상 사용할 수 있는 프레미스 간 연결에 유용한 옵션이며 하이브리드 구성에 적합합니다. 이 연결 유형에서는 네트워크의 가장자리에 배포되어야 하는 IPsec VPN 어플라이언스(하드웨어 디바이스 또는 소프트 어플라이언스)를 사용합니다. 이러한 유형의 연결을 만들려면 외부 연결 IPv4 주소가 있어야 합니다.
 
 **지점 및 사이트 간**(SSTP를 통한 VPN) 구성을 사용하면 모든 위치의 단일 컴퓨터에서 가상 네트워크에 있는 모든 컴퓨터에 연결할 수 있습니다. Windows 인박스 VPN 클라이언트를 사용합니다. 지점 및 사이트 간 구성 중에 가상 네트워크 내의 가상 머신 또는 역할 인스턴스에 컴퓨터를 연결할 수 있도록 해주는 설정이 포함된 인증서 및 VPN 클라이언트 구성 패키지를 설치합니다. 가상 네트워크에 연결하려고 하지만 온-프레미스에 없는 경우에 유용합니다. 사이트 간 연결에 필요한 VPN 하드웨어 또는 외부 연결 IPv4 주소에 액세스할 수 없을 때 유용한 옵션입니다.
 
@@ -68,15 +68,15 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 
 경로 기반 게이트웨이는 경로 기반 VPN을 구현합니다. 경로 기반 VPN은 IP 전달 또는 라우팅 테이블에서 “경로"를 사용하여 패킷을 해당 터널 인터페이스에 전달합니다. 그런 다음 터널 인터페이스는 터널로 들어오는 터널에서 나가는 패킷을 암호화하거나 암호 해독합니다. 경로 기반 VPN에 대한 정책 또는 트래픽 선택기는 임의 또는 와일드카드로 구성됩니다.
 
-### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>정책 기반 VPN 게이트웨이를 경로 기반으로 업데이트할 수 있습니까?
+### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>내 정책 기반 VPN 게이트웨이를 경로 기반으로 업데이트할 수 있나요?
 
 아니요.Azure VNet 게이트웨이 형식을 정책 기반에서 경로 기반으로, 혹은 그 반대로 변경할 수 없습니다. 게이트웨이를 삭제하고 다시 만들어야 합니다. 이 프로세스는 60분 정도가 걸립니다. 게이트웨이의 IP 주소가 유지되거나 PSK(미리 공유한 키)가 유지되지 않습니다.
 1. 삭제할 게이트웨이와 연결된 모든 연결을 삭제합니다.
 1. 게이트웨이를 삭제합니다.
-   - [Azure 포털](vpn-gateway-delete-vnet-gateway-portal.md)
-   - [Azure 파워쉘](vpn-gateway-delete-vnet-gateway-powershell.md)
-   - [Azure 파워쉘 - 클래식](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [원하는 유형의 새 게이트웨이를 만들고 VPN 설정을 완료합니다.](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+   - [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+   - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+   - [Azure PowerShell-클래식](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [원하는 유형의 새 게이트웨이를 만들고 VPN 설치를 완료](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)합니다.
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>'GatewaySubnet'이 필요한가요?
 
@@ -90,15 +90,15 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>VPN 게이트웨이 IP 주소를 만들기 전에 내 VPN 게이트웨이 IP 주소를 가져올 수 있나요?
 
-영역 중복 및 영역 게이트웨이(이름에 _AZ가_ 있는 게이트웨이 SKU)는 모두 _표준 SKU Azure_ 공용 IP 리소스에 의존합니다. Azure 표준 SKU 공용 IP 리소스는 정적 할당 방법을 사용해야 합니다. 따라서 VPN 게이트웨이에 사용할 표준 SKU 공용 IP 리소스를 만드는 즉시 공용 IP 주소를 갖게 됩니다.
+영역 중복 및 영역 게이트웨이 (이름에 _AZ_ 가 있는 게이트웨이 sku)는 모두 _표준 SKU_ Azure 공용 IP 리소스를 사용 합니다. Azure 표준 SKU 공용 IP 리소스는 정적 할당 방법을 사용 해야 합니다. 따라서 사용 하려는 표준 SKU 공용 IP 리소스를 만드는 즉시 VPN 게이트웨이의 공용 IP 주소를 갖게 됩니다.
 
-영역이 아닌 중복 및 비구역 게이트웨이(이름에 _AZ가_ _없는_ 게이트웨이 SCO)의 경우 VPN 게이트웨이 IP 주소를 생성하기 전에 가져올 수 없습니다. VPN 게이트웨이를 삭제하고 다시 만드는 경우에만 IP 주소가 변경됩니다.
+비 영역 중복 및 비 영역 게이트웨이 (이름에 _AZ_ _가 없는_ 게이트웨이 sku)의 경우 만들기 전에 VPN gateway IP 주소를 가져올 수 없습니다. IP 주소는 VPN gateway를 삭제 하 고 다시 만드는 경우에만 변경 됩니다.
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>VPN Gateway에 고정 공용 IP 주소를 요청할 수 있나요?
 
-위에서 설명한 것처럼 영역 중복 및 영역 게이트웨이(이름에 _AZ가_ 있는 게이트웨이 SKU)는 모두 _표준 SKU Azure_ 공용 IP 리소스에 의존합니다. Azure 표준 SKU 공용 IP 리소스는 정적 할당 방법을 사용해야 합니다.
+위에서 설명한 것 처럼 영역 중복 및 영역 게이트웨이 (이름에 _AZ_ 가 있는 게이트웨이 sku)는 모두 _표준 SKU_ Azure 공용 IP 리소스를 사용 합니다. Azure 표준 SKU 공용 IP 리소스는 정적 할당 방법을 사용 해야 합니다.
 
-비영역 중복 및 비구역 게이트웨이(이름에 _AZ가_ _없는_ 게이트웨이 SCO)의 경우 동적 IP 주소 할당만 지원됩니다. 그러나 이는 IP 주소가 VPN 게이트웨이에 할당된 후 변경된다는 의미는 아닙니다. VPN 게이트웨이 IP 주소가 변경되는 유일한 시간은 게이트웨이가 삭제된 다음 다시 생성되는 경우입니다. VPN 게이트웨이의 다른 내부 유지 관리 및 업그레이드를 크기를 조정, 재설정 또는 완료해도 VPN 게이트웨이 공용 IP 주소는 변경되지 않습니다.
+비 영역 중복 및 비 영역 게이트웨이 (이름에 _AZ_ _가 없는_ 게이트웨이 sku)의 경우 동적 IP 주소 할당만 지원 됩니다. 그러나 VPN gateway에 할당 된 후에는 IP 주소가 변경 되는 것을 의미 하지 않습니다. 게이트웨이가 삭제 되 고 다시 생성 되는 경우에만 VPN 게이트웨이 IP 주소가 변경 됩니다. Vpn gateway 공용 IP 주소는 VPN 게이트웨이의 크기를 조정 하거나, 다시 설정 하거나, 다른 내부 유지 관리 및 업그레이드를 완료 하는 경우 변경 되지 않습니다.
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>내 VPN 터널을 어떻게 인증합니까?
 
@@ -169,9 +169,9 @@ IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipse
 
 다른 소프트웨어 VPN 솔루션은 업계 표준 IPsec 구현을 따르는 경우에만 Microsoft 게이트웨이에 사용할 수 있습니다. 구성 및 지원 지침은 소프트웨어 공급 업체에 문의하세요.
 
-## <a name="how-do-i-change-the-authentication-type-for-my-point-to-site-connections"></a>지점 간 연결에 대한 인증 유형을 변경하려면 어떻게 해야 합니까?
+## <a name="how-do-i-change-the-authentication-type-for-my-point-to-site-connections"></a>내 지점 및 사이트 간 연결에 대 한 인증 유형을 변경 어떻게 할까요??
 
-VPN 게이트웨이 아래의 **지점 간 구성** 섹션으로 이동하여 원하는 라디오 버튼을 확인하여 지점 간 연결에 대한 인증 방법을 변경할 수 있습니다. 현재 옵션은 **Azure 인증서, RADIUS 인증 및 Azure Active Directory**입니다. 현재 클라이언트는 새 프로필을 다운로드하고 클라이언트에서 구성할 때까지 변경 후 **연결하지 못할 수 있습니다.**
+VPN Gateway 아래에서 지점 및 사이트 간 **구성** 섹션으로 이동 하 여 원하는 라디오 단추를 선택 하 여 지점 및 사이트 간 연결에 대 한 인증 방법을 변경할 수 있습니다. 현재 옵션은 **Azure 인증서, RADIUS 인증 및 Azure Active Directory**입니다. 새 프로필이 다운로드 되어 클라이언트에 구성 될 때까지 현재 클라이언트는 변경 후에 **연결 하지 못할 수 있습니다** .
 
 ## <a name="point-to-site-using-native-azure-certificate-authentication"></a><a name="P2S"></a>네이티브 Azure 인증서 인증을 사용하는 지점 및 사이트 간 연결
 
@@ -199,7 +199,7 @@ VPN 게이트웨이 아래의 **지점 간 구성** 섹션으로 이동하여 �
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Azure는 동일한 가상 네트워크의 모든 VPN 연결에 대해 동일한 IPsec/IKE 미리 공유한 키를 생성합니까?
 
-아니요, 기본적으로 Azure는 VPN 연결마다 다른 미리 공유한 키를 생성합니다. 하지만 VPN Gateway 키 생성 REST API 또는 PowerShell cmdlet을 사용하여 원하는 키 값을 설정할 수 있습니다. 키는 인쇄 가능한 ASCII 문자여야 합니다.
+아니요, 기본적으로 Azure는 VPN 연결마다 다른 미리 공유한 키를 생성합니다. 하지만 VPN Gateway 키 생성 REST API 또는 PowerShell cmdlet을 사용하여 원하는 키 값을 설정할 수 있습니다. 키는 인쇄 가능한 ASCII 문자 여야 합니다.
 
 ### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network"></a>단일 가상 네트워크보다 더 많은 사이트 간 VPN을 사용하면 대역폭이 증가합니까?
 
@@ -243,7 +243,7 @@ VPN 게이트웨이 아래의 **지점 간 구성** 섹션으로 이동하여 �
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## <a name="virtual-network-faq"></a><a name="faq"></a>가상 네트워크 자주 묻는 질문
+## <a name="virtual-network-faq"></a><a name="faq"></a>Virtual Network FAQ
 
 [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)에서 추가적인 가상 네트워크 정보를 제공합니다.
 
@@ -252,4 +252,4 @@ VPN 게이트웨이 아래의 **지점 간 구성** 섹션으로 이동하여 �
 * VPN Gateway에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 * VPN Gateway 구성 설정에 대한 자세한 내용은 [VPN Gateway 구성 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요.
 
-**"오픈VPN"은 오픈VPN 의 상표입니다.**
+**"OpenVPN"은 OpenVPN i n c .의 상표입니다.**

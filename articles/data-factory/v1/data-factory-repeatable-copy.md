@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7188cb5774699fc6e31fc3b8c78068bb33c6f552
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281146"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Azure Data Factory에서 반복 가능한 복사
@@ -110,7 +110,7 @@ ID    Product        Quantity    ModifiedDate
 
 이 열은 반복성을 위해 Azure Data Factory에서 사용되며 Azure Data Factory가 테이블의 어떠한 스키마도 변경하지 않는 프로세스에도 사용됩니다. 이 방식을 사용하는 방법:
 
-1. 대상 SQL Table에서 **형식 이진(32)의** 열을 정의합니다. 이 열에는 제약 조건이 없어야 합니다. 이 예에서는 이 열의 이름을 AdfSliceIdentifier라고 하겠습니다.
+1. 대상 SQL 테이블에서 **이진 형식 (32)** 의 열을 정의 합니다. 이 열에는 제약 조건이 없어야 합니다. 이 예에서는 이 열의 이름을 AdfSliceIdentifier라고 하겠습니다.
 
 
     원본 테이블:

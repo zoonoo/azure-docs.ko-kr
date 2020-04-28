@@ -1,6 +1,6 @@
 ---
-title: 안드로이드에 & 테넌트 프로필을 마이크로 소프트 아이덴티티 플랫폼 계정 | Azure
-description: 안드로이드에 대한 마이크로 소프트 ID 플랫폼 계정의 개요
+title: Android의 Microsoft id 플랫폼 계정 & 테 넌 트 프로필 | Microsoft
+description: Android 용 Microsoft id 플랫폼 계정 개요
 services: active-directory
 author: shoatman
 manager: CelesteDG
@@ -14,41 +14,41 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: d0497ad68e7b29e6d8c83dd860ba8f509e229579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77611872"
 ---
 # <a name="accounts--tenant-profiles-android"></a>계정 및 테넌트 프로필(Android)
 
-이 문서에서는 Microsoft ID `account` 플랫폼에 있는 내용에 대한 개요를 제공합니다.
+이 문서에서는 Microsoft id 플랫폼에 있는 `account` 항목에 대 한 개요를 제공 합니다.
 
-MSAL(Microsoft 인증 라이브러리) API는 *용어 사용자를* *용어 계정으로*대체합니다. 한 가지 이유는 사용자(사용자 또는 소프트웨어 에이전트)가 여러 계정을 사용하거나 사용할 수 있기 때문입니다. 이러한 계정은 사용자의 자체 조직 및/또는 사용자가 구성원인 다른 조직에 있을 수 있습니다.
+MSAL (Microsoft 인증 라이브러리) API는 *사용자* 라는 용어를 *계정*으로 대체 합니다. 한 가지 이유는 사용자 (사람이 나 소프트웨어 에이전트)가 여러 계정을 사용 하거나 사용할 수 있기 때문입니다. 이러한 계정은 사용자의 조직에 있거나 사용자가 구성원 인 다른 조직에 있을 수 있습니다.
 
-Microsoft ID 플랫폼의 계정은 다음으로 구성됩니다.
+Microsoft id 플랫폼의 계정은 다음으로 구성 됩니다.
 
 - 고유 식별자입니다.  
-- 계정의 소유권/제어를 입증하는 데 사용되는 하나 이상의 자격 증명입니다.
-- 다음과 같은 속성으로 구성된 하나 이상의 프로필:
-  - 사진, 주어진 이름, 가족 이름, 제목, 사무실 위치
-- 계정에는 기록 기관의 출처가 있습니다. 계정이 생성되고 해당 계정과 연결된 자격 증명이 저장되는 시스템입니다. Microsoft ID 플랫폼과 같은 다중 테넌트 시스템에서는 레코드 시스템이 계정이 만들어진 `tenant` 위치입니다. 이 테넌트를 은 `home tenant`라고도 합니다.
-- Microsoft ID 플랫폼의 계정에는 다음과 같은 레코드 시스템이 있습니다.
-  - Azure Active 디렉터리 B2C를 포함한 Azure Active Directory.
-  - 마이크로 소프트 계정 (라이브).
-- Microsoft ID 플랫폼 외부의 레코드 시스템의 계정은 다음을 포함하여 Microsoft ID 플랫폼 내에 표시됩니다.
-  - 연결된 온-프레미스 디렉터리(Windows 서버 Active Directory)의 ID
-  - 링크드 인, GitHub 등의 외부 ID를 사용합니다.
-  이러한 경우 계정에는 Microsoft ID 플랫폼 내의 원본 레코드 시스템과 레코드 시스템이 모두 있습니다.
-- Microsoft ID 플랫폼을 사용하면 하나의 계정을 사용하여 여러 조직(Azure Active Directory 테넌자)에 속한 리소스에 액세스할 수 있습니다.
-  - 한 레코드 시스템(AAD 테넌트 A)의 계정이 다른 레코드 시스템(AAD 테넌트 B)의 리소스에 액세스할 수 있음을 기록하려면 리소스가 정의된 테넌트에 계정을 표시해야 합니다. 이 작업은 시스템 B의 시스템 A에서 계정의 로컬 레코드를 만들어 수행됩니다.
-  - 계정의 표현인 이 로컬 레코드는 원래 계정에 바인딩됩니다.
-  - MSAL은 이 로컬 레코드를 로 `Tenant Profile`노출합니다.
-  - 테넌트 프로필에는 직책, 사무실 위치, 연락처 정보 등과 같이 로컬 컨텍스트에 적합한 다양한 특성이 있을 수 있습니다.
-- 계정이 하나 이상의 테넌트에 있을 수 있으므로 계정에 프로필이 두 개 이상 있을 수 있습니다.
+- 계정 소유권/제어를 시연 하는 데 사용 되는 하나 이상의 자격 증명입니다.
+- 다음과 같은 특성으로 구성 된 하나 이상의 프로필입니다.
+  - 사진, 지정 된 이름, 제품군 이름, 제목, 사무실 위치
+- 계정에는 기관 또는 레코드 시스템의 원본이 있습니다. 계정이 만들어지고 해당 계정과 연결 된 자격 증명이 저장 된 시스템입니다. Microsoft id 플랫폼과 같은 다중 테 넌 트 시스템에서 레코드 `tenant` 시스템은 계정을 만든입니다. 이 테 넌 트를 라고도 `home tenant`합니다.
+- Microsoft id 플랫폼의 계정에는 다음과 같은 레코드 시스템이 있습니다.
+  - Azure Active Directory B2C를 포함 하 Azure Active Directory입니다.
+  - Microsoft 계정 (Live)입니다.
+- Microsoft id 플랫폼 외부의 레코드 시스템의 계정은 다음을 비롯 한 Microsoft id 플랫폼 내에 표시 됩니다.
+  - 연결 된 온-프레미스 디렉터리의 id (Windows Server Active Directory)
+  - LinkedIn, GitHub 등의 외부 id입니다.
+  이러한 경우, 계정에는 원본 시스템 레코드와 Microsoft id 플랫폼 내의 레코드 시스템이 모두 있습니다.
+- Microsoft id 플랫폼을 사용 하면 한 계정을 사용 하 여 여러 조직 (Azure Active Directory 테 넌 트)에 속하는 리소스에 액세스할 수 있습니다.
+  - 한 시스템 레코드 (AAD 테 넌 트 A)의 계정이 다른 레코드 시스템 (AAD 테 넌 트 B)의 리소스에 액세스할 수 있도록 기록 하려면 리소스가 정의 된 테 넌 트에서 계정이 표시 되어야 합니다. 시스템 B에서 시스템 A의 계정에 대 한 로컬 레코드를 만들어이 작업을 수행 합니다.
+  - 계정에 대 한 표현인이 로컬 레코드는 원래 계정에 바인딩됩니다.
+  - MSAL은이 로컬 레코드를 `Tenant Profile`로 노출 합니다.
+  - 테 넌 트 프로필은 직함, 사무실 위치, 연락처 정보 등 로컬 컨텍스트에 적합 한 다양 한 특성을 가질 수 있습니다.
+- 하나 이상의 테 넌 트에 계정이 있을 수 있으므로 계정에는 프로필이 둘 이상 있을 수 있습니다.
 
 > [!NOTE]
-> MSAL은 Microsoft 계정 시스템(Live, MSA)을 Microsoft ID 플랫폼 내의 다른 테넌트로 처리합니다. Microsoft 계정 테넌트의 테넌트 ID는 다음과 같다.`9188040d-6c67-4c5b-b112-36a304b66dad`
+> MSAL은 Microsoft 계정 시스템 (Live, MSA)을 Microsoft id 플랫폼 내의 다른 테 넌 트로 처리 합니다. Microsoft 계정 테 넌 트의 테 넌 트 id는 다음과 같습니다.`9188040d-6c67-4c5b-b112-36a304b66dad`
 
 ## <a name="account-overview-diagram"></a>계정 개요 다이어그램
 
@@ -56,33 +56,33 @@ Microsoft ID 플랫폼의 계정은 다음으로 구성됩니다.
 
 위의 다이어그램:
 
-- 계정은 `bob@contoso.com` 온-프레미스 Windows 서버 활성 디렉터리(원본 온-프레미스 레코드 시스템)에서 만들어집니다.
-- 계정은 `tom@live.com` Microsoft 계정 테넌트에서 만들어집니다.
-- `bob@contoso.com`다음 Azure Active Directory 테넌트에서 하나 이상의 리소스에 액세스할 수 있습니다.
-  - contoso.com(기록의 클라우드 시스템 - 온-프레미스 레코드 시스템에 연결)
+- 이 계정은 `bob@contoso.com` 온-프레미스 Windows Server Active Directory (원본 온-프레미스 시스템 레코드)에 만들어집니다.
+- 계정이 `tom@live.com` Microsoft 계정 테 넌 트에 만들어집니다.
+- `bob@contoso.com`다음 Azure Active Directory 테 넌 트의 리소스 하나 이상에 대 한 액세스 권한이 있습니다.
+  - contoso.com (레코드의 클라우드 시스템-온-프레미스 시스템에 연결 된 레코드의 클라우드 시스템)
   - fabrikam.com
   - woodgrovebank.com
-  - 이러한 각 `bob@contoso.com` 테넌트에 대한 테넌트 프로필이 있습니다.
-- `tom@live.com`다음 Microsoft 테넌트는 리소스에 액세스할 수 있습니다.
+  - 에 대 한 `bob@contoso.com` 테 넌 트 프로필은 이러한 각 테 넌 트에 존재 합니다.
+- `tom@live.com`에는 다음 Microsoft 테 넌 트의 리소스에 대 한 액세스 권한이 있습니다.
   - contoso.com
   - fabrikam.com
-  - 이러한 각 `tom@live.com` 테넌트에 대한 테넌트 프로필이 있습니다.
-- 다른 테넌자의 Tom 및 Bob에 대한 정보는 레코드 시스템의 정보와 다를 수 있습니다. 직칭, 사무실 위치 등과 같은 속성에 따라 다를 수 있습니다. 각 조직 내의 그룹 및/또는 역할(Azure Active Directory 테넌트)의 구성원일 수 있습니다. 이 정보를 테넌트 프로필이라고 bob@contoso.com 합니다.
+  - 에 대 한 `tom@live.com` 테 넌 트 프로필은 이러한 각 테 넌 트에 존재 합니다.
+- 다른 테 넌 트의 Tom 및 Bob에 대 한 정보는 레코드 시스템의 정보에 따라 다를 수 있습니다. 작업 제목, 사무실 위치 등의 특성에 따라 달라질 수 있습니다. 각 조직 (Azure Active Directory 테 넌 트) 내에 있는 그룹 및/또는 역할의 멤버일 수 있습니다. 이 정보는 테 넌 트 bob@contoso.com 프로필로 참조 됩니다.
 
-다이어그램에서 bob@contoso.com tom@live.com 다른 Azure Active Directory 테넌자의 리소스에 액세스할 수 있습니다. 자세한 내용은 [Azure 포털의 Azure Active Directory B2B 공동 작업 사용자 추가를](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator)참조하십시오.
+다이어그램에서 bob@contoso.com 및 tom@live.com 는 다른 Azure Active Directory 테 넌 트의 리소스에 액세스할 수 있습니다. 자세한 내용은 [Azure Portal에서 B2B 공동 작업 사용자 추가 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator)를 참조 하세요.
 
-## <a name="accounts-and-single-sign-on-sso"></a>계정 및 단일 사인온(SSO)
+## <a name="accounts-and-single-sign-on-sso"></a>계정 및 Single Sign-On (SSO)
 
-MSAL 토큰 캐시는 계정당 *단일 새로 고침 토큰을* 저장합니다. 새로 고침 토큰은 여러 Microsoft ID 플랫폼 테넌에서 액세스 토큰을 자동으로 요청하는 데 사용할 수 있습니다. 브로커가 장치에 설치되면 브로커가 계정을 관리하고 장치 전체의 단일 사인온이 가능합니다.
+MSAL 토큰 캐시는 계정 당 *단일 새로 고침 토큰* 을 저장 합니다. 이 새로 고침 토큰을 사용 하 여 여러 Microsoft id 플랫폼 테 넌 트의 액세스 토큰을 자동으로 요청할 수 있습니다. Broker가 장치에 설치 되 면 해당 계정은 broker에서 관리 되며 장치 차원의 Single Sign-On 가능 합니다.
 
 > [!IMPORTANT]
-> B2C(비즈니스 대 소비자) 계정 및 새로 고침 토큰 동작은 나머지 Microsoft ID 플랫폼과 다릅니다. 자세한 내용은 [계정에 & B2C 정책을](#b2c-policies--accounts)참조하십시오.
+> B2C (Business to Consumer) 계정 및 새로 고침 토큰 동작은 Microsoft id 플랫폼의 나머지 부분과 다릅니다. 자세한 내용은 [B2C 정책 & 계정](#b2c-policies--accounts)을 참조 하세요.
 
 ## <a name="account-identifiers"></a>계정 식별자
 
-MSAL 계정 ID는 계정 개체 ID가 아닙니다. Microsoft ID 플랫폼 내에서 고유성 이외의 다른 것을 전달하기 위해 구문 분석 및/또는 의존하는 것은 아닙니다.
+MSAL 계정 ID는 계정 개체 ID가 아닙니다. Microsoft id 플랫폼 내에서 고유성이 아닌 다른 항목을 전달 하기 위해 구문 분석 및/또는 의존 하지 않습니다.
 
-Azure AD 인증 라이브러리(ADAL)와의 호환성을 위해 ADAL에서 MSAL로의 마이그레이션을 용이하게 하기 위해 MSAL 캐시에서 사용할 수 있는 계정에 대한 유효한 식별자를 사용하여 계정을 조회할 수 있습니다.  예를 들어, 다음은 각 식별자가 유효하기 tom@live.com 때문에 항상 동일한 계정 개체를 검색합니다.
+ADAL (Azure AD 인증 라이브러리)과의 호환성을 위해, ADAL에서 MSAL으로 쉽게 마이그레이션할 수 있도록 MSAL은 MSAL 캐시에서 사용할 수 있는 계정에 대 한 유효한 식별자를 사용 하 여 계정을 조회할 수 있습니다.  예를 들어 다음은 각 식별자가 유효 하기 때문에에 tom@live.com 대해 항상 동일한 계정 개체를 검색 합니다.
 
 ```java
 // The following would always retrieve the same account object for tom@live.com because each identifier is valid
@@ -92,20 +92,20 @@ IAccount account = app.getAccount("<tom@live.com contoso user object id>");
 IAccount account = app.getAccount("<tom@live.com woodgrovebank user object id>");
 ```
 
-## <a name="accessing-claims-about-an-account"></a>계정에 대한 소유권 주장 액세스
+## <a name="accessing-claims-about-an-account"></a>계정에 대 한 클레임 액세스
 
-액세스 토큰을 요청하는 것 외에도 MSAL은 항상 각 테넌트에서 ID 토큰을 요청합니다. 항상 다음 범위를 요청하여 이 작업을 수행합니다.
+MSAL은 액세스 토큰을 요청 하는 것 외에도 항상 각 테 넌 트의 ID 토큰을 요청 합니다. 이를 위해 항상 다음 범위를 요청 합니다.
 
 - openid
-- 프로필
+- profile
 
-ID 토큰에는 클레임 목록이 포함되어 있습니다. `Claims`은 계정에 대한 이름/값 쌍이며 요청을 하는 데 사용됩니다.
+ID 토큰에는 클레임 목록이 포함 되어 있습니다. `Claims`계정에 대 한 이름/값 쌍 이며, 요청을 만드는 데 사용 됩니다.
 
-앞에서 설명한 것처럼 계정이 있는 각 테넌트는 직책, 사무실 위치 등과 같은 특성을 포함하되 이에 국한되지 않는 계정에 대한 다른 정보를 저장할 수 있습니다.
+앞에서 설명한 것 처럼 계정이 존재 하는 각 테 넌 트는 작업 제목, 사무실 위치 등의 특성을 포함 하 되이에 제한 되지 않고 계정에 대 한 다른 정보를 저장할 수 있습니다.
 
-계정이 여러 조직의 구성원 또는 게스트일 수 있지만 MSAL은 계정이 구성원인 테넌트 목록을 가져오는 서비스를 쿼리하지 않습니다. 대신 MSAL은 토큰 요청의 결과로 계정이 있는 테넌자 목록을 작성합니다.
+계정이 여러 조직에서 구성원 또는 게스트가 될 수 있지만, MSAL은 서비스를 쿼리하여 해당 계정이 구성원 인 테 넌 트 목록을 가져옵니다. 대신, MSAL은 생성 된 토큰 요청의 결과로 계정이 있는 테 넌 트 목록을 작성 합니다.
 
-계정 개체에 노출된 클레임은 항상 계정에 대한 '홈 테넌트'/{기관}의 클레임입니다. 해당 계정이 홈 테넌트에 대한 토큰을 요청하는 데 사용되지 않은 경우 MSAL은 계정 개체를 통해 클레임을 제공할 수 없습니다.  예를 들어:
+계정 개체에 노출 되는 클레임은 항상 계정에 대 한 ' home 테 넌 트 '/{authority}의 클레임입니다. 해당 계정이 홈 테 넌 트에 대 한 토큰을 요청 하는 데 사용 되지 않은 경우 MSAL은 계정 개체를 통해 클레임을 제공할 수 없습니다.  다음은 그 예입니다.
 
 ```java
 // Psuedo Code
@@ -118,14 +118,14 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> 계정 개체에서 사용할 수 있는 클레임 목록을 보려면 [id_token 클레임을](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token) 참조하십시오.
+> 계정 개체에서 사용할 수 있는 클레임 목록을 보려면 [id_token의 클레임](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token) 을 참조 하세요.
 
 > [!TIP]
-> id_token 추가 클레임을 포함하려면 [Azure AD 앱에 선택적 클레임 을 제공하는 방법:](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) 옵션 클레임 설명서를 참조하십시오.
+> Id_token에 추가 클레임을 포함 하려면 [방법: AZURE AD 앱에 선택적 클레임 제공](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) 의 선택적 클레임 설명서를 참조 하세요.
 
-### <a name="access-tenant-profile-claims"></a>테넌트 프로필 클레임 액세스
+### <a name="access-tenant-profile-claims"></a>테 넌 트 프로필 클레임 액세스
 
-다른 테넌에 표시되는 계정에 대한 소유권 주장에 액세스하려면 먼저 계정 `IMultiTenantAccount`개체를 에 캐스팅해야 합니다. 모든 계정은 다중 테넌트일 수 있지만 MSAL을 통해 사용할 수 있는 테넌트 프로필 수는 현재 계정 사용에서 토큰을 요청한 테넌트를 기반으로 합니다.  예를 들어:
+다른 테 넌 트에 표시 되는 계정에 대 한 클레임에 액세스 하려면 먼저 계정 개체를로 `IMultiTenantAccount`캐스팅 해야 합니다. 모든 계정은 다중 테 넌 트 일 수 있지만 MSAL을 통해 사용할 수 있는 테 넌 트 프로필 수는 현재 계정을 사용 하 여 토큰을 요청한 테 넌 트를 기반으로 합니다.  다음은 그 예입니다.
 
 ```java
 // Psuedo Code
@@ -136,11 +136,11 @@ multiTenantAccount.getTenantProfiles().get("tenantid for fabrikam").getClaims().
 multiTenantAccount.getTenantProfiles().get("tenantid for contoso").getClaims().get("family_name");
 ```
 
-## <a name="b2c-policies--accounts"></a>계정 & B2C 정책
+## <a name="b2c-policies--accounts"></a>B2C 정책 & 계정
 
-계정에 대한 새로 고침 토큰은 B2C 정책에서 공유되지 않습니다. 따라서 토큰을 사용한 단일 사인온이 불가능합니다. 그렇다고 해서 단일 사인온이 불가능한 것은 아닙니다. 즉, 단일 사인온은 단일 사인온을 활성화하기 위해 쿠키를 사용할 수 있는 대화형 환경을 사용해야 합니다.
+계정에 대 한 새로 고침 토큰은 B2C 정책 간에 공유 되지 않습니다. 따라서 토큰을 사용 하는 Single Sign-On를 사용할 수 없습니다. 이는 Single Sign-On 가능 하지 않음을 의미 하지 않습니다. Single Sign-On을 사용 하도록 설정 하는 데 쿠키를 사용할 수 있는 대화형 환경을 사용 해야 Single Sign-On 의미 합니다.
 
-즉, MSAL의 경우 다른 B2C 정책을 사용하여 토큰을 획득하면 각각 고유한 식별자가 있는 별도의 계정으로 처리됩니다. 을 사용하여 `acquireTokenSilent`토큰을 요청하려면 토큰 요청과 함께 사용하는 정책과 일치하는 계정 목록에서 계정을 선택해야 합니다. 예를 들어:
+즉, MSAL의 경우 다른 B2C 정책을 사용 하 여 토큰을 획득 하는 경우 이러한 토큰은 각각 고유한 식별자를 가진 별도의 계정으로 취급 됩니다. 를 사용 하 여 `acquireTokenSilent`토큰을 요청 하는 계정을 사용 하려는 경우 토큰 요청에 사용 하는 정책과 일치 하는 계정 목록에서 계정을 선택 해야 합니다. 다음은 그 예입니다.
 
 ```java
 // Get Account For Policy

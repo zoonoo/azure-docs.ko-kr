@@ -16,10 +16,10 @@ ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c667409f2abb9f1cf89ae3b34f08e0f9eec067e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79138538"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전
@@ -69,7 +69,7 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
 2. 자동 프로비전을 구성한 애플리케이션을 선택합니다(예: "ServiceNow").
 
-3. **프로비저닝** 탭을 선택합니다.
+3. **프로 비전** 탭을 선택 합니다.
 
 4. **매핑** 섹션에서 범위 지정 필터를 구성하려는 매핑을 선택합니다.(예: "Azure Active Directory 사용자를 ServiceNow에 동기화합니다.")
 
@@ -79,15 +79,15 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
 7. 비교 대상이 될 **특성 이름**, **연산자**, **특성 값**을 선택하여 절을 정의합니다. 다음과 같은 연산자가 지원됩니다.
 
-   a. **같음**. 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
+   a. **EQUALS** 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
 
    b. **NOT EQUALS** 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
 
-   다. **IS TRUE** 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
+   c. **IS TRUE** 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
 
    d. **IS FALSE** 평가된 특성이 부울 값 false를 포함하면 "true"를 반환합니다.
 
-   e. **NULL입니다.** 평가된 특성이 비어 있으면 "true"를 반환합니다.
+   e. **가 NULL 인 경우** 평가된 특성이 비어 있으면 "true"를 반환합니다.
 
    f. **IS NOT NULL** 평가된 특성이 비어 있지 않으면 "true"를 반환합니다.
 
@@ -95,16 +95,16 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
    h. **NOT REGEX MATCH** 평가된 특성이 정규식 패턴과 일치하지 않으면 "true"를 반환합니다.
    
-   i. **Greater_Than.** Clause는 평가된 특성이 값보다 큰 경우 "true"를 반환합니다. 범위 지정 필터에 지정된 값은 정수여야 하며 사용자의 특성은 정수[0,1,2,...]여야 합니다. 
+   i. **Greater_Than.** 평가 된 특성이 값 보다 크면 절은 "true"를 반환 합니다. 범위 지정 필터에 지정 된 값은 정수 여야 하며 사용자의 특성은 [0, 1, 2,...]의 정수 여야 합니다. 
    
-   j. **Greater_Than_OR_EQUALS.** 절은 평가된 특성이 값보다 크거나 같으면 "true"를 반환합니다. 범위 지정 필터에 지정된 값은 정수여야 하며 사용자의 특성은 정수[0,1,2,...]여야 합니다. 
+   j. **Greater_Than_OR_EQUALS.** 평가 된 특성이 값 보다 크거나 같으면 "true"를 반환 합니다. 범위 지정 필터에 지정 된 값은 정수 여야 하며 사용자의 특성은 [0, 1, 2,...]의 정수 여야 합니다. 
    
-   k. **포함.** Clause는 평가된 특성에 여기에 설명된 문자열 값(대/소문자 구분)이 포함되어 있는 경우 "true"를 [반환합니다.](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8) 
+   k. **내용이.** 평가 된 특성이 [여기](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8)에 설명 된 대로 문자열 값 (대/소문자 구분)을 포함 하면 "true"를 반환 합니다. 
 
 
 >[!IMPORTANT] 
-> - IsMemberOf 필터는 현재 지원되지 않습니다.
-> - 다중 값 특성에 대해 등가 및 같지 않음이 지원되지 않습니다.
+> - IsMemberOf 필터는 현재 지원 되지 않습니다.
+> - 같음 및 같지 않음은 다중 값 특성에 지원 되지 않습니다.
 
 9. 필요에 따라 7~8단계를 반복하여 다른 범위 지정 절을 추가합니다.
 
@@ -117,22 +117,22 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 13. **특성 매핑** 화면에서 **저장**을 선택합니다. 
 
 >[!IMPORTANT] 
-> 새 범위 지정 필터를 저장하면 애플리케이션의 새로운 전체 동기화가 트리거되며 여기서 원본 시스템의 모든 사용자를 새 범위 지정 필터에 대해 다시 평가합니다. 애플리케이션의 사용자가 프로비전 범위에서 이전에 평가되었으나 범위를 벗어난 경우 해당 계정은 사용되지 않거나 애플리케이션에서 프로비전 해제됩니다. 이 기본 동작을 재정의하려면 [범위를 벗어난 사용자 계정에 대한 삭제 건너뛰기를](../app-provisioning/skip-out-of-scope-deletions.md)참조하십시오.
+> 새 범위 지정 필터를 저장하면 애플리케이션의 새로운 전체 동기화가 트리거되며 여기서 원본 시스템의 모든 사용자를 새 범위 지정 필터에 대해 다시 평가합니다. 애플리케이션의 사용자가 프로비전 범위에서 이전에 평가되었으나 범위를 벗어난 경우 해당 계정은 사용되지 않거나 애플리케이션에서 프로비전 해제됩니다. 이 기본 동작을 재정의 하려면 범위를 [벗어나는 사용자 계정에 대 한 삭제 건너뛰기](../app-provisioning/skip-out-of-scope-deletions.md)를 참조 하세요.
 
 
-## <a name="common-scoping-filters"></a>일반적인 범위 지정 필터
-| 대상 특성| 연산자 | 값 | 설명|
+## <a name="common-scoping-filters"></a>공통 범위 지정 필터
+| 대상 특성| 연산자 | 값 | Description|
 |----|----|----|----|
-|userPrincipalName|정규전 경기|.\*@domain.com |도메인이 @domain.com 있는 userPrincipal을 가진 모든 사용자는 프로비저닝범위에 속합니다.|
-|userPrincipalName|정규전 경기가 아님|.\*@domain.com|도메인이 @domain.com 있는 userPrincipal을 가진 모든 사용자는 프로비저닝범위를 벗어납니다.|
-|department|EQUALS|sales|영업 부서의 모든 사용자는 프로비저닝 범위에 있습니다.|
-|근로자 ID|정규전 경기|(1[0-9][0-9][0-9][0-9][0-9][0-9])| 1000000에서 2000000 사이의 근로자 와 모든 직원은 프로비저닝의 범위에 있습니다.|
+|userPrincipalName|REGEX 일치|.\*@domain.com |도메인 @domain.com 을 가진 userprincipal의 모든 사용자는 프로 비전 범위에 포함 됩니다.|
+|userPrincipalName|REGEX 일치 하지 않음|.\*@domain.com|도메인 @domain.com 을 가진 userprincipal의 모든 사용자는 프로 비전 범위를 벗어났습니다.|
+|department|EQUALS|sales|판매 부서의 모든 사용자가 프로 비전 범위에 있습니다.|
+|workerID|REGEX 일치|(1[0-9][0-9][0-9][0-9][0-9][0-9])| 100만과 200만 사이에 근무 연수가 Ds가 있는 모든 직원은 프로 비전 범위에 있습니다.|
 
-## <a name="related-articles"></a>관련 문서
-* [SaaS 응용 프로그램에 대한 사용자 프로비저닝 및 프로비저닝 해제 자동화](../app-provisioning/user-provisioning.md)
+## <a name="related-articles"></a>관련된 문서
+* [SaaS 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전 해제 자동화](../app-provisioning/user-provisioning.md)
 * [사용자 프로비전을 위한 사용자 지정 특성 매핑](../app-provisioning/customize-application-attributes.md)
-* [특성 매핑을 위한 식 작성](functions-for-customizing-application-data.md)
+* [특성 매핑 식 작성](functions-for-customizing-application-data.md)
 * [계정 프로비전 알림](../app-provisioning/user-provisioning.md)
 * [SCIM를 사용하여 Azure Active Directory으로부터 애플리케이션에 사용자 및 그룹의 자동 프로비전 사용](../app-provisioning/use-scim-to-provision-users-and-groups.md)
-* [SaaS 앱을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
+* [SaaS 앱을 통합 하는 방법에 대 한 자습서 목록](../saas-apps/tutorial-list.md)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure VPN 게이트웨이: 강제 터널링 구성 - 사이트 간 연결: 클래식'
+title: 'Azure VPN Gateway: 강제 터널링-사이트 간 연결 구성: 클래식'
 description: 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 '강제 적용'하는 방법입니다.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: cherylmc
 ms.openlocfilehash: fe06257127ff352f68fb27d3507cee0229e31498
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77201580"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 강제 터널링 구성
@@ -20,7 +20,7 @@ ms.locfileid: "77201580"
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-이 문서에서는 클래식 배포 모델을 사용하여 만든 가상 네트워크에 대한 강제 터널링을 구성하는 과정을 안내합니다. 강제 터널링은 포털을 통해서가 아닌 PowerShell을 사용하여 구성할 수 있습니다. 리소스 관리자 배포 모델에 대한 강제 터널링을 구성하려면 다음 드롭다운 목록에서 리소스 관리자 문서를 선택합니다.
+이 문서에서는 클래식 배포 모델을 사용하여 만든 가상 네트워크에 대한 강제 터널링을 구성하는 과정을 안내합니다. 강제 터널링은 포털을 통해서가 아닌 PowerShell을 사용하여 구성할 수 있습니다. 리소스 관리자 배포 모델에 대 한 강제 터널링을 구성 하려면 다음 드롭다운 목록에서 리소스 관리자 문서를 선택 합니다.
 
 > [!div class="op_single_selector"]
 > * [PowerShell - 클래식](vpn-gateway-about-forced-tunneling.md)
@@ -39,7 +39,7 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 * 사용자 정의 경로가 릴리스되면서 라우팅 테이블을 만들어 기본 경로에 추가한 다음 라우팅 테이블을 VNet 서브넷에 연결하여 해당 서브넷에 강제 터널링을 사용할 수 있습니다.
 * 가상 네트워크에 연결된 크로스-프레미스 로컬 사이트 사이에서 "기본 사이트"를 설정해야 합니다.
 * 강제 터널링은 동적 라우팅 VPN Gateway(정적 게이트웨이 아님)가 있는 VNet에 연결되어야 합니다.
-* ExpressRoute 강제 터널링은 이 메커니즘을 통해 구성되지 않지만 대신 ExpressRoute BGP 피어링 세션을 통해 기본 경로를 보급하여 활성화됩니다. 자세한 내용은 [익스프레스루트 설명서를](https://azure.microsoft.com/documentation/services/expressroute/) 참조하십시오.
+* ExpressRoute 강제 터널링은 이 메커니즘을 통해 구성되지 않지만 대신 ExpressRoute BGP 피어링 세션을 통해 기본 경로를 보급하여 활성화됩니다. 자세한 내용은 [express 경로 설명서](https://azure.microsoft.com/documentation/services/expressroute/) 를 참조 하세요.
 
 ## <a name="configuration-overview"></a>구성 개요
 다음 예에서 프런트 엔드 서브넷은 강제 터널링되지 않았습니다. 프런트 엔드 서브넷에서 작업은 계속해서 인터넷에서 직접 고객의 요청을 수락하고 응답할 수 있습니다. 중간 계층 및 백 엔드 서브넷은 강제 터널링됩니다. 이러한 두 서브넷에서 인터넷으로의 모든 아웃바운드 연결은 S2S VPN 터널 중 하나를 통해 온-프레미스 사이트로 다시 force되거나 리디렉션됩니다.
@@ -55,9 +55,9 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 * 구성된 가상 네트워크입니다. 
 * [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
-### <a name="to-sign-in"></a>로그인하려면
+### <a name="to-sign-in"></a>로그인 하려면
 
-1. 권한 상승 권한으로 PowerShell 콘솔을 엽니다. 서비스 관리로 전환하려면 다음 명령을 사용합니다.
+1. 관리자 권한으로 PowerShell 콘솔을 엽니다. 서비스 관리로 전환 하려면 다음 명령을 사용 합니다.
 
    ```powershell
    azure config mode asm

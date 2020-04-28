@@ -1,5 +1,5 @@
 ---
-title: SCIM 2.0 프로토콜 준수와 관련된 알려진 문제 - Azure AD
+title: SCIM 2.0 프로토콜 준수의 알려진 문제-Azure AD
 description: SCIM 2.0을 지원하는 비갤러리 애플리케이션을 Azure AD에 추가할 때 발생하는 일반적인 프로토콜 호환성 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6dff0d4f8f0062c00351b60174c63d9c19bdfa15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77522937"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법
@@ -36,12 +36,12 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 
 ## <a name="scim-20-compliance-issues-and-status"></a>SCIM 2.0 준수 문제 및 상태
 
-| **SCIM 2.0 준수 문제** |  **수정?** | **수정 날짜**  |  
+| **SCIM 2.0 준수 문제** |  **고정?** | **수정 날짜**  |  
 |---|---|---|
-| Azure AD가 애플리케이션의 SCIM 엔드포인트 URL의 루트에 위치하려면 “/scim”이 필요함  | yes  |  2018년 12월 18일 | 
-| 확장 특성은 특정 이름 앞에 콜론 “:” 대신 점 “.” 표기법을 사용함 |  yes  | 2018년 12월 18일  | 
-|  다중 값 특성의 패치 요청에 있는 경로 필터 구문이 잘못됨 | yes  |  2018년 12월 18일  | 
-|  그룹 생성 요청에 있는 스키마 URI가 잘못됨 | yes  |  2018년 12월 18일  |  
+| Azure AD가 애플리케이션의 SCIM 엔드포인트 URL의 루트에 위치하려면 “/scim”이 필요함  | 예  |  2018년 12월 18일 | 
+| 확장 특성은 특정 이름 앞에 콜론 “:” 대신 점 “.” 표기법을 사용함 |  예  | 2018년 12월 18일  | 
+|  다중 값 특성의 패치 요청에 있는 경로 필터 구문이 잘못됨 | 예  |  2018년 12월 18일  | 
+|  그룹 생성 요청에 있는 스키마 URI가 잘못됨 | 예  |  2018년 12월 18일  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>설명한 서비스 수정이 내 기존 SCIM 앱에 자동으로 적용되었나요?
 
@@ -66,7 +66,7 @@ Azure Portal에서 구성된 모든 신규 [비갤러리 SCIM 앱](../manage-app
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
-   ![채용 정보 얻기](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "채용 정보 얻기") 
+   ![작업 가져오기](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "작업 가져오기") 
 
 
 6. 결과에서 “customappsso” 또는 “scim”으로 시작하는 전체 “ID” 문자열을 복사합니다.
@@ -74,7 +74,7 @@ Azure Portal에서 구성된 모든 신규 [비갤러리 SCIM 앱](../manage-app
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
-   ![스키마 받기](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "스키마 받기") 
+   ![스키마 가져오기](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "스키마 가져오기") 
 
 8. 마지막 단계의 JSON 출력을 복사하여 텍스트 파일에 저장합니다. 여기에는 이전 앱에 추가한 사용자 지정 특성 매핑이 포함되어 있으며 수천 개 정도의 JSON 줄이 있습니다.
 9. 아래 명령을 실행하여 프로비저닝 작업을 삭제합니다.

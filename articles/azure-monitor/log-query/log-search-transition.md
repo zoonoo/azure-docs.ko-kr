@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
 ms.openlocfilehash: 6cc7fc94162ed101d06fbbbc4722867be46987b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670137"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Log Analytics 로그 검색에서 Azure Monitor 로그로 전환
@@ -53,7 +53,7 @@ Azure Monitor 로그에서 현재 쿼리를 저장하려면 **저장**을 선택
 
 ![로그 검색 드릴다운](media/log-search-transition/drilldown-search.png)
 
-Azure Monitor 로그에서 이러한 기록을 반환하도록 쿼리를 수정해야 합니다. 결과의 행 중 하나를 확장하고 값 **+** 옆을 클릭하여 쿼리에 추가합니다. 그런 다음, **요약** 명령을 주석으로 처리하고 쿼리를 다시 실행합니다.
+Azure Monitor 로그에서 이러한 기록을 반환하도록 쿼리를 수정해야 합니다. 결과에서 행 중 하나를 확장 하 고 값 옆 **+** 에 있는를 클릭 하 여 쿼리에 추가 합니다. 그런 다음, **요약** 명령을 주석으로 처리하고 쿼리를 다시 실행합니다.
 
 ![Azure Monitor 로그 드릴다운](media/log-search-transition/drilldown-logs.png)
 

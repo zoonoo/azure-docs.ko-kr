@@ -1,5 +1,5 @@
 ---
-title: Azure AD 갤러리 앱에 대한 암호 SSO 를 구성하는 문제
+title: Azure AD 갤러리 앱에 대 한 암호 SSO 구성 문제
 description: Azure AD 애플리케이션 갤러리에 이미 나열된 애플리케이션에 대해 암호 Single Sign-On을 구성할 때 발생하는 일반적인 문제 이해
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e933c82229415a71182096a6aca9a2e535934d89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77159049"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성할 때 발생하는 문제
@@ -99,7 +99,7 @@ Microsoft에는 애플리케이션 통합이 중단되었을 때 자동으로 �
 
 6.  설치되면 브라우저 세션을 **다시 시작**합니다.
 
-7.  액세스 패널에 로그인하여 암호-SSO 응용 프로그램을 **시작할** 수 있는지 확인합니다.
+7.  액세스 패널에 로그인 하 고 암호 SSO 응용 프로그램을 **시작할** 수 있는지 확인 합니다.
 
 아래와 같은 직접 링크에서 Chrome 및 Firefox에 대한 확장을 다운로드할 수 있습니다.
 

@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6071e6553fb1275fea63a37b4897aef2685bd509
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79253768"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
@@ -38,7 +38,7 @@ Azure AD Connect는 온-프레미스 또는 Windows Server Active Directory의 �
 
 - **Azure AD Connect 계정**: Azure AD에 정보를 쓰는 데 사용됩니다.
 
-Azure AD Connect를 실행하는 데 사용되는 이러한 세 가지 계정 외에, Azure AD Connect를 설치하기 위해 다음 추가 계정도 필요합니다.  다음과 같습니다.
+Azure AD Connect를 실행하는 데 사용되는 이러한 세 가지 계정 외에, Azure AD Connect를 설치하기 위해 다음 추가 계정도 필요합니다.  이러한 항목은 다음과 같습니다.
 
 - **로컬 관리자 계정**: Azure AD Connect를 설치하고 머신의 로컬 관리자 권한을 가진 관리자.
 
@@ -50,15 +50,15 @@ Azure AD Connect를 실행하는 데 사용되는 이러한 세 가지 계정 �
 
 
 >[!IMPORTANT]
-> 빌드 1.4.###.#는 더 이상 엔터프라이즈 관리자 또는 도메인 관리자 계정을 AD DS 커넥터 계정으로 사용할 수 없습니다.  기존 계정 사용을 지정할 때 엔터프라이즈 관리자 또는 도메인 관리자인 **계정을**입력하려고 하면 오류가 발생합니다.
+> 빌드 1.4. # # #. #은 더 이상 엔터프라이즈 관리자 또는 도메인 관리자 계정을 AD DS 커넥터 계정으로 사용할 수 없습니다.  **기존 계정 사용**을 지정 하는 경우 엔터프라이즈 관리자 또는 도메인 관리자 계정을 입력 하려고 하면 오류가 표시 됩니다.
 
 > [!NOTE]
-> ESAE 관리 포리스트("레드 포리스트"라고도 들 림)에서 Azure AD Connect에 사용되는 관리 계정을 관리하는 데 지원됩니다.
+> ESAE 관리 포리스트에서 Azure AD Connect에 사용 되는 관리 계정을 관리할 수 있습니다 ("빨간색 포리스트" 라고도 하는).
 > 전용 관리 포리스트를 사용하면 프로덕션 환경보다 더 강력한 보안 제어 기능을 포함하는 환경에서 관리 계정, 워크스테이션 및 그룹을 호스트할 수 있습니다.
-> 전용 관리 포리스트에 대한 자세한 내용은 [ESAE 관리 림 설계 접근 방식을](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)참조하십시오.
+> 전용 관리 포리스트에 대 한 자세한 내용은 [Esae 관리 포리스트 디자인 방법](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)을 참조 하세요.
 
 > [!NOTE]
-> 전역 관리자 역할은 초기 설정 후 필요하지 않으며 필요한 유일한 계정은 **디렉터리 동기화 계정** 역할 계정입니다. 그렇다고 해서 전역 관리자 역할만 사용하여 계정을 삭제하려는 것은 아닙니다. 마법사를 다시 실행해야 하는 경우 계정을 완전히 제거하면 문제가 발생할 수 있으므로 역할을 덜 강력한 역할로 변경하는 것이 좋습니다. 역할의 권한을 줄이면 Azure AD Connect 마법사를 다시 활용해야 하는 경우 항상 권한을 다시 상승시킬 수 있습니다. 
+> 초기 설치 후에는 전역 관리자 역할이 필요 하지 않으며 유일 하 게 필요한 계정은 **디렉터리 동기화 계정** 역할 계정입니다. 이는 반드시 전역 관리자 역할이 있는 계정을 제거 하는 것을 의미 하는 것은 아닙니다. 마법사를 다시 실행 해야 하는 경우 계정을 완전히 제거 하면 문제가 발생할 수 있으므로 역할을 더 강력한 역할로 변경 하는 것이 좋습니다. Azure AD Connect 마법사를 다시 사용 해야 하는 경우 역할의 권한을 줄여 항상 권한을 다시 높일 수 있습니다. 
 
 ## <a name="installing-azure-ad-connect"></a>Azure AD Connect 설치
 Azure AD Connect 설치 마법사는 두 가지 다른 경로를 제공합니다.
@@ -85,7 +85,7 @@ DirSync에서 업그레이드하는 경우 AD DS Enterprise 관리자 자격 증
 ### <a name="ad-ds-connector-account-required-permissions-for-express-settings"></a>기본 설정에 대한 AD DS Connect 계정 필수 권한
 AD DS Connector 계정은 Windows Server AD에서 읽고 쓰기 위해 만들어지며, 기본 설정에 의해 생성될 경우 다음과 같은 사용 권한을 갖습니다.
 
-| 사용 권한 | 사용 대상 |
+| 사용 권한 | 사용 목적 |
 | --- | --- |
 | <li>디렉터리 변경 내용 복제</li><li>모든 디렉터리 변경 내용 복제 |암호 해시 동기화 |
 | 모든 속성 사용자 읽기/쓰기 |가져오기 및 Exchange 하이브리드 |
@@ -123,10 +123,10 @@ AD DS Connector 계정은 Windows Server AD에서 읽고 쓰기 위해 만들어
 | 동기화 서비스, 서비스 계정 옵션을 설치합니다. |AD 또는 로컬 사용자 계정 자격 증명 |사용자, 권한은 설치 마법사에서 부여됩니다. |관리자가 계정을 지정하는 경우, 이 계정은 동기화 서비스에 대한 서비스 계정으로 사용됩니다. |
 | Azure에 연결 |Azure AD 디렉터리 자격 증명 |Azure AD에서 글로벌 관리자 역할 |<li>Azure AD 디렉터리에서 동기화를 사용하도록 설정합니다.</li>  <li>Azure AD에서 진행 중인 동기화 작업에 사용되는 Azure AD Connect 계정을 만듭니다.</li> |
 | 디렉터리에 연결 |Azure AD에 연결되는 각 포리스트의 온-프레미스 Active Directory 자격 증명 |사용 권한은 어떤 기능을 사용하는지에 따라 달라지며 AD DS Connector 계정 만들기에서 찾을 수 있음 |계정은 동기화 중에 디렉터리 정보를 읽고 쓰는 데 사용됩니다. |
-| AD FS 서버 |목록의 각 서버에 대해 마법사를 실행하는 사용자의 로그인 자격 증명이 연결하기에 충분하지 않은 경우 마법사는 자격 증명을 수집합니다. |도메인 관리자 |AD FS 서버 역할 설치 및 구성 |
-| 웹 애플리케이션 프록시 서버 |목록의 각 서버에 대해 마법사를 실행하는 사용자의 로그인 자격 증명이 연결하기에 충분하지 않은 경우 마법사는 자격 증명을 수집합니다. |대상 컴퓨터의 로컬 관리자 |WAP 서버 역할 설치 및 구성 |
+| AD FS 서버 |마법사는 마법사를 실행 하는 사용자의 로그인 자격 증명으로 연결 하는 데 충분 하지 않은 경우 목록의 각 서버에 대해 자격 증명을 수집 합니다. |도메인 관리자 |AD FS 서버 역할 설치 및 구성 |
+| 웹 애플리케이션 프록시 서버 |마법사는 마법사를 실행 하는 사용자의 로그인 자격 증명으로 연결 하는 데 충분 하지 않은 경우 목록의 각 서버에 대해 자격 증명을 수집 합니다. |대상 컴퓨터의 로컬 관리자 |WAP 서버 역할 설치 및 구성 |
 | 프록시 트러스트 자격 증명 |페더레이션 서비스 자격 증명(FS에서 프록시가 신뢰 인증서를 등록하는 데 사용하는 자격 증명) |AD FS 서버의 로컬 관리자인 도메인 계정 |FS-WAP 신뢰 인증서의 초기 등록. |
-| AD FS 서비스 계정 페이지에서 "도메인 사용자 계정 옵션 사용" |AD 사용자 계정 자격 증명 |도메인 사용자 |자격 증명이 제공되는 Azure AD 사용자 계정은 AD FS 서비스의 로그인 계정으로 사용됩니다. |
+| AD FS 서비스 계정 페이지에서 "도메인 사용자 계정 옵션 사용" |AD 사용자 계정 자격 증명 |도메인 사용자 |자격 증명이 제공 되는 Azure AD 사용자 계정은 AD FS 서비스의 로그인 계정으로 사용 됩니다. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>AD DS Connect 계정 만들기
 
@@ -158,7 +158,7 @@ Azure AD Connect의 한 버전에서 새 릴리스로 업그레이드하는 경�
 >Azure AD Connect에서는 빌드 1.1.484부터 SQL Database를 업그레이드하기 위해 sysadmin 권한이 필요한 회귀 버그를 도입했습니다.  이 버그는 1.1.647 빌드에서 수정되었습니다.  이 빌드로 업그레이드하는 경우 sysadmin 권한이 필요합니다.  Dbo 권한은 충분하지 않습니다.  sysadmin 권한 없이 Azure AD Connect를 업그레이드하려고 하면 업그레이드에 실패하고 이후로 Azure AD Connect가 더 이상 올바르게 작동하지 않습니다.  Microsoft는 이를 알고 해결하기 위해 노력하고 있습니다.
 
 
-| 주 서버 | 필요한 사용 권한 | 사용 대상 |
+| 주 서버 | 필요한 사용 권한 | 사용 목적 |
 | --- | --- | --- |
 | 설치 마법사를 실행하는 사용자 |로컬 서버의 관리자 |이진을 업데이트합니다. |
 | 설치 마법사를 실행하는 사용자 |ADSyncAdmins의 구성원 |동기화 규칙 및 기타 구성을 변경합니다. |
@@ -175,7 +175,7 @@ Express 설정을 사용하는 경우 계정은 동기화에 사용되는 Active
 ### <a name="adsync-service-account"></a>ADSync 서비스 계정
 동기화 서비스는 다양한 계정으로 실행할 수 있습니다. **가상 서비스 계정**(VSA), **그룹 관리 서비스 계정**(gMSA/sMSA) 또는 일반 사용자 계정으로 실행할 수 있습니다. 지원되는 옵션은 새로 설치 시 Connect의 2017년 4월 릴리스에서 변경되었습니다. Azure AD Connect의 이전 버전을 업그레이드하는 경우 이러한 추가 옵션을 사용할 수 없습니다.
 
-| 계정 유형 | 설치 옵션 | 설명 |
+| 계정 유형 | 설치 옵션 | Description |
 | --- | --- | --- |
 | [가상 서비스 계정](#virtual-service-account) | 빠른 및 사용자 지정, 2017년 4월 이후 | 도메인 컨트롤러에서 설치를 제외한 모든 빠른 설치에 사용되는 옵션입니다. 다른 옵션이 사용되지 않는 한 사용자 지정 설치에 대해 기본 옵션입니다. |
 | [그룹 관리 서비스 계정](#group-managed-service-account) | 사용자 지정, 2017년 4월 이후 | 원격 SQL Server를 사용하는 경우에는 그룹 관리 서비스 계정을 사용하는 것이 좋습니다. |
@@ -253,20 +253,20 @@ Azure AD에서 동기화 서비스 계정은 20개로 제한됩니다. Azure AD�
 사용하지 않는 Azure AD 서비스 계정을 제거하려면 다음 Azure AD PowerShell cmdlet을 실행합니다. `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->위의 PowerShell 명령을 사용하려면 [그래프 모듈에 Azure Active Directory PowerShell을](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) 설치하고 [Connect-AzureAD를](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0) 사용하여 Azure AD 인스턴스에 연결해야 합니다.
+>위의 PowerShell 명령을 사용 하려면 먼저 [Azure Active Directory powershell For Graph 모듈](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) 을 설치 하 고 [AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0) 를 사용 하 여 Azure AD의 인스턴스에 연결 해야 합니다.
 
-Azure AD 커넥터 계정의 암호를 관리하거나 재설정하는 방법에 대한 자세한 내용은 [Azure AD Connect 계정 관리를](how-to-connect-azureadaccount.md) 참조하십시오.
+Azure AD Connector 계정에 대 한 암호를 관리 하거나 다시 설정 하는 방법에 대 한 자세한 내용은 [Azure AD Connect 계정 관리](how-to-connect-azureadaccount.md) 를 참조 하세요.
 
 ## <a name="related-documentation"></a>관련 설명서
 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대한 설명서를 읽지 않은 경우 다음 테이블에서 관련 항목에 대한 링크를 제공합니다.
 
 |항목 |링크|  
 | --- | --- |
-|Azure AD Connect 다운로드 | [Azure AD 연결 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)|
+|Azure AD Connect 다운로드 | [다운로드 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](how-to-connect-install-express.md)|
 |사용자 지정 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](./how-to-connect-install-custom.md)|
 |DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레이드](how-to-dirsync-upgrade-get-started.md)|
-|설치 후 | [설치 확인 및 라이센스 할당](how-to-connect-post-installation.md)|
+|설치 후 | [설치 확인 및 라이선스 할당](how-to-connect-post-installation.md)|
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.

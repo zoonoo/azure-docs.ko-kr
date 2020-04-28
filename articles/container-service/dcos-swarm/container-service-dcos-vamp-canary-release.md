@@ -8,10 +8,10 @@ ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77189097"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(사용되지 않음) Azure Container Service DC/OS 클러스터에서 Vamp를 사용하여 마이크로서비스 카나리아 릴리스
@@ -42,13 +42,13 @@ ms.locfileid: "77189097"
 
 ## <a name="set-up-vamp"></a>Vamp 설치
 
-이제 실행 중인 DC/OS 클러스터를 통해 DC/OS UI(http:\//localhost:80)에서 Vamp를 설치할 수 있습니다. 
+이제 DC/OS 클러스터를 실행 하는 중 이므로 DC/OS UI에서 Vamp를 설치할 수 있습니다 (http:\//sgt: 80). 
 
 ![DC/OS UI](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
 설치는 두 단계로 수행됩니다.
 
-1. **[신축성 있는 검색]**
+1. **Elasticsearch를 배포**합니다.
 
 2. 그런 다음 Vamp DC/OS Universe 패키지를 설치하여 **Vamp를 배포**합니다.
 

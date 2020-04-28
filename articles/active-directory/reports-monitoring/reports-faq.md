@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 보고서 FAQ | Microsoft Docs
-description: Azure Active Directory 보고서와 관련된 자주 묻는 질문입니다.
+description: Azure Active Directory 보고서에 대 한 질문과 대답입니다.
 services: active-directory
 documentationcenter: ''
 author: cawrites
@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 273fdb80475defb0576bcd29d1944c5f6c595cfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266508"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Azure Active Directory 보고서 관련 자주 묻는 질문
@@ -29,15 +29,15 @@ ms.locfileid: "79266508"
 
 ## <a name="getting-started"></a>시작 
 
-**Q: 현재 엔드포인트 API를 `https://graph.windows.net/<tenant-name>/reports/` 사용하여 Azure AD 감사 및 통합 응용 프로그램 사용 보고서를 프로그래밍 방식으로 보고 시스템에 가져옵니다. 무엇을 전환해야 합니까?**
+**Q: 현재 `https://graph.windows.net/<tenant-name>/reports/` 끝점 api를 사용 하 여 Azure AD 감사 및 통합 응용 프로그램 사용 보고서를 프로그래밍 방식으로 보고 시스템으로 끌어옵니다. 어떻게 전환 해야 하나요?**
 
-**A:**[API 참조](https://developer.microsoft.com/graph/)에서 [API를 사용하여 작업 보고서에 액세스하는 방법](concept-reporting-api.md)을 알아보세요. 이 끝점에는 이전 API 끝점에 있는 모든 데이터를 제공하는 두 개의**보고서(감사** 및 **로그인)가**있습니다. 이 새 엔드포인트에는 앱 사용, 디바이스 사용 및 사용자 로그인 정보를 가져오는 데 사용할 수 있는 Azure AD Premium 라이선스가 있는 로그인 보고서도 있습니다.
+**A:**[API 참조](https://developer.microsoft.com/graph/)에서 [API를 사용하여 작업 보고서에 액세스하는 방법](concept-reporting-api.md)을 알아보세요. 이 끝점에는 이전 API 끝점에서 가져온 모든 데이터를 제공 하는 두 개의 보고서 (**감사** 및 **로그인**)가 있습니다. 이 새 엔드포인트에는 앱 사용, 디바이스 사용 및 사용자 로그인 정보를 가져오는 데 사용할 수 있는 Azure AD Premium 라이선스가 있는 로그인 보고서도 있습니다.
 
 ---
 
-**Q: 현재 엔드포인트 API를 `https://graph.windows.net/<tenant-name>/reports/` 사용하여 Azure AD 보안 보고서(예: 유출된 자격 증명 또는 익명 IP 주소의 로그인과 같은 특정 유형의 검색)를 프로그래밍 방식으로 보고 시스템으로 가져옵니다. 무엇을 전환해야 합니까?**
+**Q: 현재는 `https://graph.windows.net/<tenant-name>/reports/` 끝점 api를 사용 하 여 Azure AD 보안 보고서 (특정 유형의 검색 (예: 누출 된 자격 증명 또는 익명 IP 주소에서의 로그인)를 프로그래밍 방식으로 보고 시스템으로 끌어옵니다. 어떻게 전환 해야 하나요?**
 
-**A:** ID 보호 [위험 검색 API를](../identity-protection/graph-get-started.md) 사용하여 Microsoft Graph를 통해 보안 검색에 액세스할 수 있습니다. 이 새로운 형식은 고급 필터링, 필드 선택 등을 통해 데이터를 쿼리하는 방법에 대한 유연성을 높이고 위험 검색을 한 유형으로 표준화하여 SIEM 및 기타 데이터 수집 도구에 쉽게 통합할 수 있도록 합니다. 데이터가 다른 형식으로 되어 있으므로 이전 쿼리를 새 쿼리로 대체할 수 없습니다. 그러나 [새로운 API는 Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent)를 사용합니다. 이것은 O365 또는 Azure AD와 같은 API에 대한 Microsoft 표준입니다. 따라서 필요한 작업은 현재 Microsoft Graph 투자를 확장하거나 이 새로운 표준 플랫폼으로의 전환을 시작하는 데 도움이 될 수 있습니다.
+**A:**  [Id 보호 위험 검색 API](../identity-protection/graph-get-started.md) 를 사용 하 여 Microsoft Graph 통해 보안 검색에 액세스할 수 있습니다. 이 새로운 형식을 사용 하면 고급 필터링, 필드 선택 등을 통해 데이터를 쿼리 하는 방법에 더 많은 유연성을 제공 하 고, SIEMs 및 기타 데이터 수집 도구와 쉽게 통합 하기 위해 위험 검색을 한 가지 유형으로 표준화할 수 있습니다. 데이터가 다른 형식으로 되어 있으므로 이전 쿼리를 새 쿼리로 대체할 수 없습니다. 그러나 [새로운 API는 Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent)를 사용합니다. 이것은 O365 또는 Azure AD와 같은 API에 대한 Microsoft 표준입니다. 따라서 필요한 작업을 통해 현재 Microsoft Graph 투자를 연장 하거나이 새로운 표준 플랫폼으로의 전환을 시작할 수 있습니다.
 
 ---
 
@@ -55,7 +55,7 @@ ms.locfileid: "79266508"
 
 **Q: Azure AD Premium 라이선스를 받은 후에 지난달 데이터를 볼 수 있나요?**
 
-**A:** 최근에 프리미엄 버전(평가판 포함)으로 전환한 경우 처음에는 최대 7일까지 데이터를 볼 수 있습니다. 데이터가 누적되면 지난 30일간의 데이터를 볼 수 있습니다.
+**A:** 최근에 Premium 버전 (평가판 버전 포함)으로 전환한 경우 최대 7 일간 데이터를 볼 수 있습니다. 데이터가 누적되면 지난 30일간의 데이터를 볼 수 있습니다.
 
 ---
 
@@ -81,7 +81,7 @@ ms.locfileid: "79266508"
 
 ---
 
-**Q: 작업을 완료한 후 활동 데이터를 볼 수 있을 때까지 얼마나 걸습니까?**
+**Q: 내 작업을 완료 한 후 작업 데이터를 볼 수 있을 때까지 소요 되는 시간**
 
 **A:** 감사 로그에는 15분에서 1시간까지의 대기 시간이 있습니다. 로그인 활동 로그는 레코드에 따라 15분에서 2시간까지 걸릴 수 있습니다.
 
@@ -89,13 +89,13 @@ ms.locfileid: "79266508"
 
 **Q: Azure Portal을 통해 Office 365 활동 로그 정보를 얻을 수 있습니까?**
 
-**A:** Office 365 활동 및 Azure AD 활동 로그는 많은 디렉터리 리소스를 공유하지만 Office 365 활동 로그의 전체 보기를 원하는 경우 [Microsoft 365 관리 센터로](https://admin.microsoft.com) 이동하여 Office 365 활동 로그 정보를 얻어야 합니다.
+**A:** Office 365 활동 및 Azure AD 활동 로그가 많은 디렉터리 리소스를 공유 하는 경우에도 Office 365 활동 로그를 전체적으로 확인 하려면 [Microsoft 365 관리 센터](https://admin.microsoft.com) 로 이동 하 여 Office 365 활동 로그 정보를 얻어야 합니다.
 
 ---
 
 **Q: Office 365 활동 로그에 대한 정보를 얻기 위해 어떤 API를 사용해야 합니까?**
 
-**A:** Office [365 관리 API를](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) 사용하여 API를 통해 Office 365 활동 로그에 액세스합니다.
+**A:** [Office 365 관리 api](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) 를 사용 하 여 api를 통해 Office 365 활동 로그에 액세스 합니다.
 
 ---
 
@@ -107,7 +107,7 @@ ms.locfileid: "79266508"
 
 ## <a name="risky-sign-ins"></a>위험한 로그인
 
-**Q: ID 보호에 위험 검색이 있지만 로그인 보고서에 해당 로그인이 표시되지 않습니다. 예상되는가요?**
+**Q: Id 보호에 위험 검색이 있지만 로그인 보고서에 해당 로그인이 표시 되지 않습니다. 이것이 예상 되나요?**
 
 **A:** 예. ID 보호는 대화형인지 여부에 관계없이 모든 인증 흐름의 위험을 평가합니다. 그러나 모든 로그인은 대화형 로그인만 표시합니다.
 
@@ -115,7 +115,7 @@ ms.locfileid: "79266508"
 
 **Q: Azure Portal에서 로그인 또는 사용자에게 위험 플래그가 지정된 이유를 어떻게 알 수 있나요?**
 
-**A:** **Azure AD Premium** 구독이 있는 경우 **위험에 플래그가 지정된 사용자에서** 사용자를 선택하거나 위험 로그인 보고서에서 레코드를 선택하여 기본 위험 검색에 대해 자세히 알아볼 수 **있습니다.** **무료** 또는 **기본** 구독이 있는 경우 위험 및 위험한 로그인 보고서를 볼 수 있지만 기본 위험 검색 정보를 볼 수는 없습니다.
+**A:** **Azure AD Premium** 구독이 있는 경우 **위험 플래그가 지정 된 사용자** 를 선택 하거나 **위험한 로그인** 보고서에서 레코드를 선택 하 여 기본 위험 검색에 대해 자세히 알아볼 수 있습니다. **무료** 또는 **기본** 구독이 있는 경우 위험 및 위험한 로그인 보고서에서 사용자를 볼 수 있지만 기본 위험 검색 정보는 볼 수 없습니다.
 
 ---
 
@@ -125,7 +125,7 @@ ms.locfileid: "79266508"
 
 ---
 
-**Q: 위험 감지 "추가 위험이 감지된 로그인"은 무엇을 의미합니까?**
+**Q: "추가 위험이 있는 로그인"이 감지 되는 위험 검색은 무엇 인가요?**
 
 **A:** 사용자 환경의 위험한 로그인을 모두 파악할 수 있도록, “추가 위험이 있는 로그인이 감지됨”은 Azure AD Identity Protection 구독자에게만 제공되는 감지에 대한 로그인의 자리 표시자로 기능합니다.
 
@@ -135,7 +135,7 @@ ms.locfileid: "79266508"
 
 **Q: 이 기능의 새로운 점**
 
-**A:** 이제 고객은 모든 로그인 보고서를 통해 조건부 액세스 정책 문제를 해결할 수 있습니다. 고객은 조건부 액세스 상태를 검토하고 로그인에 적용된 정책의 세부 정보와 각 정책에 대한 결과를 자세히 살펴볼 수 있습니다.
+**A:** 이제 고객은 모든 로그인 보고서를 통해 조건부 액세스 정책의 문제를 해결할 수 있습니다. 고객은 조건부 액세스 상태를 검토 하 고 로그인에 적용 된 정책과 각 정책에 대 한 결과에 대 한 세부 정보를 확인할 수 있습니다.
 
 **Q: 어떻게 시작하나요?**
 
@@ -143,29 +143,29 @@ ms.locfileid: "79266508"
 
 * [Azure Portal](https://portal.azure.com)에서 로그인으로 이동합니다.
 * 문제를 해결할 로그인을 클릭합니다.
-* **조건부 액세스** 탭으로 이동합니다. 여기에서 로그인에 영향을 준 모든 정책과 각 정책의 결과를 볼 수 있습니다. 
+* **조건부 액세스** 탭으로 이동 합니다. 여기에서 로그인에 영향을 주는 모든 정책과 각 정책에 대 한 결과를 볼 수 있습니다. 
     
-**Q: 조건부 액세스 상태에 대해 가능한 모든 값은 무엇입니까?**
+**Q: 조건부 액세스 상태에 대 한 가능한 모든 값은 무엇 인가요?**
 
-**A:** 조건부 액세스 상태에는 다음 값이 있을 수 있습니다.
+**A:** 조건부 액세스 상태는 다음과 같은 값을 가질 수 있습니다.
 
 * **적용되지 않음**: 범위 내 사용자 및 앱에 CA 정책이 없음을 의미합니다. 
 * **성공**: 범위의 사용자 및 앱에 CA 정책이 있으며 CA 정책이 충족되었음을 의미합니다. 
 * **실패**: 범위의 사용자 및 앱에 CA 정책이 있으며 CA 정책이 충족되지 않았음을 의미합니다. 
     
-**Q: 조건부 액세스 정책 결과에 대해 가능한 모든 값은 무엇입니까?**
+**Q: 조건부 액세스 정책 결과에 사용할 수 있는 모든 값은 무엇 인가요?**
 
-**A:** 조건부 액세스 정책에는 다음과 같은 결과가 있을 수 있습니다.
+**A:** 조건부 액세스 정책의 결과는 다음과 같습니다.
 
 * **성공**: 정책이 충족되었습니다.
 * **오류**: 정책이 충족되지 않았습니다.
 * **적용되지 않음**: 정책 조건이 충족되지 않았기 때문일 수 있습니다.
 * **사용 안 함**: 정책이 사용 안 함 상태이기 때문입니다. 
     
-**Q: 모든 로그인 보고서의 정책 이름이 CA의 정책 이름과 일치하지 않습니다. 왜?**
+**Q: 모든 로그인 보고서의 정책 이름이 CA의 정책 이름과 일치 하지 않습니다. 굳이?**
 
 **A:** 모든 로그인 보고서의 정책 이름은 로그인 시점의 CA 정책 이름을 기준으로 합니다. 나중, 즉 로그인 후에 정책 이름을 업데이트했다면 이 값이 CA의 정책 이름과 일관되지 않을 수 있습니다.
 
-**Q: 조건부 액세스 정책으로 인해 로그인이 차단되었지만 로그인 활동 보고서에 로그인이 성공했으나 이에 대해 보여 집니다. 왜?**
+**Q: 조건부 액세스 정책으로 인해 로그인이 차단 되었지만 로그인 활동 보고서에 로그인이 성공 했음을 표시 합니다. 굳이?**
 
-**A:** 현재 로그인 보고서에조건액세스가 적용될 때 Exchange ActiveSync 시나리오에 대한 정확한 결과가 표시되지 않을 수 있습니다. 보고서의 로그인 결과에서 성공적인 로그인이 표시되었지만 조건부 액세스 정책으로 인해 실제로 로그인에 실패한 경우가 있을 수 있습니다. 
+**A:** 현재 로그인 보고서는 조건부 액세스가 적용 될 때 Exchange ActiveSync 시나리오에 대 한 정확한 결과를 표시 하지 않을 수 있습니다. 보고서의 로그인 결과에 성공한 로그인이 표시 되는 경우에는 조건부 액세스 정책으로 인해 실제로 로그인에 실패 하는 경우가 있을 수 있습니다. 

@@ -11,28 +11,28 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 7b1ecfba0435f827c7c7a4d05da619998140bc6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78186052"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 특성 정의
 
- 모든 고객 대상 애플리케이션은 수집해야 하는 정보에 대한 특정 요구 사항이 있습니다. Azure Active Directory B2C(Azure AD B2C) 테넌트에는 지정된 이름, 성, 도시 및 우편 번호와 같은 특성에 저장된 기본 제공 정보 집합이 함께 제공됩니다. Azure AD B2C를 사용하면 각 고객 계정에 저장된 특성 집합을 확장할 수 있습니다.
+ 모든 고객 대상 애플리케이션은 수집해야 하는 정보에 대한 특정 요구 사항이 있습니다. Azure Active Directory B2C (Azure AD B2C) 테 넌 트에는 지정 된 이름, 성, 구/군/시 및 우편 번호와 같은 특성에 저장 되는 기본 제공 정보 집합이 제공 됩니다. Azure AD B2C를 사용하면 각 고객 계정에 저장된 특성 집합을 확장할 수 있습니다.
 
- [Azure Portal](https://portal.azure.com/)에서 사용자 지정 특성을 만든 후 등록 사용자 흐름, 등록 또는 로그인 사용자 흐름 또는 프로필 편집 사용자 흐름에서 사용할 수 있습니다. [Microsoft 그래프 API를](manage-user-accounts-graph-api.md)사용하여 이러한 특성을 읽고 쓸 수도 있습니다.
+ [Azure Portal](https://portal.azure.com/)에서 사용자 지정 특성을 만든 후 등록 사용자 흐름, 등록 또는 로그인 사용자 흐름 또는 프로필 편집 사용자 흐름에서 사용할 수 있습니다. [MICROSOFT GRAPH API](manage-user-accounts-graph-api.md)를 사용 하 여 이러한 특성을 읽고 쓸 수도 있습니다.
 
 ## <a name="create-a-custom-attribute"></a>사용자 지정 특성 만들기
 
-1. Azure AD B2C 테넌트의 전역 관리자로 Azure [포털에](https://portal.azure.com/) 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/) 에 Azure AD B2C 테 넌 트의 전역 관리자로 로그인 합니다.
 2. Azure Portal의 오른쪽 상단 모서리에서 전환하여 Azure AD B2C 테넌트가 있는 디렉터리를 사용하고 있는지 확인합니다. 구독 정보를 선택한 다음, **디렉터리 전환**을 선택합니다.
 
     ![Azure AD B2C 테넌트로 전환](./media/user-flow-custom-attributes/switch-directories.png)
 
     테넌트를 포함하는 디렉터리를 선택합니다.
 
-    ![디렉터리 및 구독 필터에서 강조 표시된 B2C 테넌트](./media/user-flow-custom-attributes/select-directory.PNG)
+    ![디렉터리 및 구독 필터에 강조 표시 된 B2C 테 넌 트](./media/user-flow-custom-attributes/select-directory.PNG)
 
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **사용자 특성**을 선택한 후 **추가**를 선택합니다.
@@ -51,4 +51,4 @@ ms.locfileid: "78186052"
 1. **애플리케이션 클레임**을 선택하고 사용자 지정 특성을 선택합니다.
 1. **저장**을 클릭합니다.
 
-새로 만든 사용자 지정 특성을 사용하는 사용자 흐름을 사용하여 새 사용자를 만든 후에는 [Microsoft 그래프 탐색기에서](https://developer.microsoft.com/graph/graph-explorer)개체를 쿼리할 수 있습니다. 또는 사용자 [흐름에서 사용자 흐름 실행](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) 기능을 사용하여 고객 환경을 확인할 수 있습니다. 이제 등록 과정 동안 수집되는 특성 목록에 **ShoeSize**가 표시되며 애플리케이션으로 다시 전송되는 토큰에도 표시됩니다.
+새로 만든 사용자 지정 특성을 사용 하는 사용자 흐름을 사용 하 여 새 사용자를 만든 후 [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer)에서 개체를 쿼리할 수 있습니다. 또는 사용자 흐름에서 [사용자 흐름 실행](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) 기능을 사용 하 여 고객 환경을 확인할 수 있습니다. 이제 등록 과정 동안 수집되는 특성 목록에 **ShoeSize**가 표시되며 애플리케이션으로 다시 전송되는 토큰에도 표시됩니다.

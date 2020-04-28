@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 42f3c7f3351bddab429489dccf28587549d76e18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78897842"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Gremlin SDK를 통해 Azure Cosmos DB 리소스 토큰 사용
@@ -95,7 +95,7 @@ builder.authProperties(authenticationProperties);
 
 ## <a name="limit"></a>제한
 
-Gremlin 계정 하나로 토큰을 개수 제한 없이 발급할 수 있습니다. 그러나 1시간 내에 최대 100개 토큰을 동시에 사용할 수 있습니다. 응용 프로그램이 시간당 토큰 제한을 초과하면 인증 요청이 거부되고 "동시에 사용할 수 있는 허용된 리소스 토큰 제한을 초과한 100개 초과"라는 오류 메시지가 나타납니다. 특정 토큰을 사용하는 활성 연결을 닫아 새 토큰에 사용할 슬롯을 확보할 수 없습니다. Azure Cosmos DB Gremlin 데이터베이스 엔진은 인증 요청 직전의 시간 동안 고유한 토큰을 추적합니다.
+Gremlin 계정 하나로 토큰을 개수 제한 없이 발급할 수 있습니다. 그러나 1시간 내에 최대 100개 토큰을 동시에 사용할 수 있습니다. 응용 프로그램이 시간당 토큰 한도를 초과 하면 인증 요청이 거부 되 고 다음과 같은 오류 메시지가 표시 됩니다. "동시에 사용할 수 있는 100의 허용 된 리소스 토큰 제한을 초과 했습니다." 특정 토큰을 사용하는 활성 연결을 닫아 새 토큰에 사용할 슬롯을 확보할 수 없습니다. Azure Cosmos DB Gremlin 데이터베이스 엔진은 인증 요청 직전의 시간 동안 고유한 토큰을 추적합니다.
 
 ## <a name="permission"></a>사용 권한
 

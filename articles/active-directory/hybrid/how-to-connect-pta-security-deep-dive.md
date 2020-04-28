@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1ddce8d4d7ca1f03c0a57d0f0c8c41ac122973e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77185552"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 통과 인증 보안 심층 분석
@@ -42,15 +42,15 @@ ms.locfileid: "77185552"
 - 인증 에이전트에서 Azure AD로의 아웃바운드 통신에는 표준 포트(80 및 443)만 사용됩니다. 방화벽에서 인바운드 포트를 열지 않아도 됩니다. 
   - 인증된 모든 아웃바운드 통신에는 포트 443이 사용됩니다.
   - 포트 80은 통과 인증에서 해지된 인증서가 사용되지 않도록 CRL(인증서 해지 목록)을 다운로드하는 데만 사용됩니다.
-  - 네트워크 요구 사항의 전체 목록은 [Azure Active Directory 통과 인증: 빠른 시작을](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)참조하십시오.
+  - 네트워크 요구 사항의 전체 목록은 [Azure Active Directory 통과 인증: 빠른](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)시작을 참조 하세요.
 - 사용자가 로그인 시 입력하는 암호는 먼저 클라우드에서 암호화된 뒤에 Active Directory에 대한 유효성 검사를 위해 온-프레미스 인증 에이전트에서 수신됩니다.
 - Azure AD 및 온-프레미스 인증 에이전트 간의 HTTPS 채널은 상호 인증으로 보호됩니다.
 - MFA(Multi-Factor Authentication)를 포함하는 [Azure AD 조건부 액세스 정책](../active-directory-conditional-access-azure-portal.md)을 사용하여 원활하게 작동하고, [레거시 인증을 차단](../conditional-access/concept-conditional-access-conditions.md)하고, [무차별 암호 대입 공격을 필터링](../authentication/howto-password-smart-lockout.md)하여 사용자 계정을 보호합니다.
 
 ## <a name="components-involved"></a>관련 구성 요소
 
-Azure AD 운영, 서비스 및 데이터 보안에 대한 일반적인 자세한 내용은 [신뢰 센터를](https://azure.microsoft.com/support/trust-center/)참조하십시오. 사용자 로그인에 통과 인증이 사용된 경우 다음과 같은 구성 요소가 사용됩니다.
-- **Azure AD STS**: 로그인 요청을 처리하고 필요에 따라 사용자의 브라우저, 클라이언트 또는 서비스에 보안 토큰을 발급하는 상태 비수기 보안 토큰 서비스(STS)입니다.
+Azure AD 운영, 서비스 및 데이터 보안에 대 한 일반적인 정보는 보안 [센터](https://azure.microsoft.com/support/trust-center/)를 참조 하세요. 사용자 로그인에 통과 인증이 사용된 경우 다음과 같은 구성 요소가 사용됩니다.
+- **AZURE AD sts**: 로그인 요청을 처리 하 고 필요에 따라 사용자의 브라우저, 클라이언트 또는 서비스에 보안 토큰을 발급 하는 상태 비저장 STS (보안 토큰 서비스)입니다.
 - **Azure Service Bus**: 온-프레미스 솔루션을 클라우드에 연결할 수 있는 릴레이된 통신과 엔터프라이즈 메시지를 사용하여 클라우드 사용 통신을 제공합니다.
 - **Azure AD Connect 인증 에이전트**: 암호 유효성 검사 요청을 수신 대기하고 응답하는 온-프레미스 구성 요소입니다.
 - **Azure SQL Database**: 테넌트의 인증 에이전트에 대한 정보(메타데이터 및 암호화 키 포함)가 저장됩니다.
@@ -59,7 +59,7 @@ Azure AD 운영, 서비스 및 데이터 보안에 대한 일반적인 자세한
 ## <a name="installation-and-registration-of-the-authentication-agents"></a>인증 에이전트의 설치 및 등록
 
 인증 에이전트는 다음과 같은 경우에 Azure AD에 설치 및 등록됩니다.
-   - [Azure AD 연결을 통한 통과 인증 사용](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start#step-2-enable-the-feature)
+   - [Azure AD Connect를 통해 통과 인증 사용](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start#step-2-enable-the-feature)
    - [로그인 요청의 고가용성을 보장하기 위해 더 많은 인증 에이전트를 추가하는 경우](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start#step-4-ensure-high-availability) 
    
 인증 에이전트 작업은 세 가지 주요 단계로 구성되어 있습니다.
@@ -72,7 +72,7 @@ Azure AD 운영, 서비스 및 데이터 보안에 대한 일반적인 자세한
 
 ### <a name="authentication-agent-installation"></a>인증 에이전트 설치
 
-오직 전역 관리자만 Azure AD Connect 또는 독립 실행형을 사용하여 온-프레미스 서버에 인증 에이전트를 설치할 수 있습니다. 설치는 **제어판** > **프로그램** > **프로그램 및 기능** 목록에 두 개의 새 항목을 추가합니다.
+오직 전역 관리자만 Azure AD Connect 또는 독립 실행형을 사용하여 온-프레미스 서버에 인증 에이전트를 설치할 수 있습니다. 설치 하면 **제어판** > **프로그램** > **프로그램 및 기능** 목록에 두 개의 새 항목이 추가 됩니다.
 - 인증 에이전트 애플리케이션 자체. 인증 에이전트 애플리케이션은 [NetworkService](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx) 권한으로 실행됩니다.
 - 인증 에이전트를 자동으로 업데이트하는 업데이트 애플리케이션. 업데이트 애플리케이션은 [LocalSystem](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) 권한으로 실행됩니다.
 
@@ -132,7 +132,7 @@ Azure AD 운영, 서비스 및 데이터 보안에 대한 일반적인 자세한
 
 1. 사용자가 애플리케이션(예: [Outlook 웹앱](https://outlook.office365.com/owa))에 대한 액세스를 시도합니다.
 2. 사용자가 아직 로그인하지 않은 경우 해당 애플리케이션은 브라우저를 Azure AD 로그인 페이지로 리디렉션합니다.
-3. Azure AD STS 서비스는 사용자 **로그인** 페이지로 다시 응답합니다.
+3. Azure AD STS 서비스는 **사용자 로그인** 페이지를 사용 하 여 다시 응답 합니다.
 4. 사용자가 **사용자 로그인** 페이지에 사용자 이름을 입력하고 **다음** 단추를 선택합니다.
 5. 사용자가 **사용자 로그인** 페이지에 암호를 입력하고 **로그인** 단추를 선택합니다.
 6. 사용자 이름 및 암호가 HTTPS POST 요청을 통해 Azure AD STS로 전송됩니다.
@@ -147,7 +147,7 @@ Azure AD 운영, 서비스 및 데이터 보안에 대한 일반적인 자세한
 12. 인증 에이전트가 Active Directory로부터 성공, 사용자 이름 또는 암호 불일치, 암호 만료와 같은 결과를 수신합니다.
 
    > [!NOTE]
-   > 로그인 프로세스 중에 인증 에이전트가 실패하면 전체 로그인 요청이 삭제됩니다. 한 인증 에이전트에서 온-프레미스에 대한 로그인 요청은 전달되지 않습니다. 이러한 에이전트는 서로 통신하지 않고 클라우드와만 통신합니다.
+   > 로그인 프로세스 중에 인증 에이전트가 실패 하면 전체 로그인 요청이 삭제 됩니다. 한 인증 에이전트에서 온-프레미스로의 다른 인증 에이전트로 로그인 요청이 발생 하는 것은 아닙니다. 이러한 에이전트는 클라우드와만 통신 하 고 서로는 통신 하지 않습니다.
    
 13. 인증 에이전트는 포트 443을 통한 아웃바운드 상호 인증 HTTPS 채널을 통해 결과를 다시 Azure AD STS로 전달합니다. 상호 인증은 이전 단계에서 등록 시 인증 에이전트로 발급된 인증서를 사용합니다.
 14. Azure AD STS는 이 결과가 테넌트의 특정 로그인 요청과 관련이 있는지 확인합니다.
@@ -185,9 +185,9 @@ Azure AD에서 인증 에이전트의 신뢰를 갱신하기 위해:
 
 ## <a name="auto-update-of-the-authentication-agents"></a>인증 에이전트의 자동 업데이트
 
-업데이트 응용 프로그램은 새 버전(버그 수정 또는 성능 향상)이 릴리스되면 인증 에이전트를 자동으로 업데이트합니다. Updater 응용 프로그램은 테넌트에 대한 암호 유효성 검사 요청을 처리하지 않습니다.
+업데이트 프로그램 응용 프로그램은 새 버전 (버그 수정 또는 성능 향상이 포함 됨)이 릴리스되면 인증 에이전트를 자동으로 업데이트 합니다. 업데이트 프로그램 응용 프로그램은 테 넌 트에 대 한 암호 유효성 검사 요청을 처리 하지 않습니다.
 
-Azure AD는 서명된 Windows 설치 **관리자 패키지(MSI)로**소프트웨어의 새 버전을 호스팅합니다. MSI는 [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx)를 사용하여 서명됩니다. 이때 SHA256이 다이제스트 알고리즘으로 사용됩니다. 
+Azure AD는 새 버전의 소프트웨어를 서명 된 **MSI (Windows Installer 패키지)** 로 호스팅합니다. MSI는 [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx)를 사용하여 서명됩니다. 이때 SHA256이 다이제스트 알고리즘으로 사용됩니다. 
 
 ![자동 업데이트](./media/how-to-connect-pta-security-deep-dive/pta5.png)
 
@@ -207,13 +207,13 @@ Azure AD는 서명된 Windows 설치 **관리자 패키지(MSI)로**소프트웨
     - 인증 에이전트 서비스를 다시 시작합니다.
 
 >[!NOTE]
->테넌트에 여러 인증 에이전트가 등록된 경우 Azure AD는 인증서를 갱신하거나 동시에 업데이트하지 않습니다. 대신 Azure AD는 로그인 요청의 고가용성을 보장하기 위해 한 번에 하나씩 수행합니다.
+>테넌트에 여러 인증 에이전트가 등록된 경우 Azure AD는 인증서를 갱신하거나 동시에 업데이트하지 않습니다. 대신 Azure AD는 로그인 요청의 고가용성을 보장 하기 위해 한 번에 한 번씩 수행 합니다.
 >
 
 
 ## <a name="next-steps"></a>다음 단계
 - [현재 제한 사항](how-to-connect-pta-current-limitations.md): 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
-- [빠른 시작](how-to-connect-pta-quick-start.md): Azure AD 통과 인증에서 시작하고 실행합니다.
+- [빠른](how-to-connect-pta-quick-start.md)시작: Azure AD 통과 인증을 시작 하 고 실행 합니다.
 - [AD FS에서 통과 인증으로 마이그레이션](https://aka.ms/adfstoptadpdownload) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.
 - [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호합니다.
 - [작동 방법](how-to-connect-pta-how-it-works.md):- Azure AD 통과 인증이 작동하는 기본적인 방식을 알아봅니다.
