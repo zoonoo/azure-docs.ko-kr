@@ -9,10 +9,10 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: bb68919fba731caa32dcca3f4c991b8881afc6f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74869649"
 ---
 # <a name="troubleshooting-network-performance"></a>네트워크 성능 문제 해결
@@ -160,7 +160,7 @@ Azure에서 문제를 최대한 구체적으로 격리한 후에는 [Azure 네�
  - 프라이빗 피어링을 사용하도록 설정된 식별된 위치의 10Gbps Premium ExpressRoute 회로.
  - 지정된 지역의 UltraPerformance 게이트웨이를 사용하는 Azure VNet.
  - VNet에서 Windows Server 2016을 실행하는 DS5v2 VM. VM은 도메인에 가입되지 않았으며, AzureCT가 설치된 기본 Azure 이미지(최적화 또는 사용자 지정 없는)를 사용하여 빌드되었습니다.
- - 6회의 테스트가 실행되었으며, 테스트마다 AzureCT Get-LinkPerformance 명령을 사용하여 5분 부하 테스트를 수행했습니다. 예를 들어:
+ - 6회의 테스트가 실행되었으며, 테스트마다 AzureCT Get-LinkPerformance 명령을 사용하여 5분 부하 테스트를 수행했습니다. 예를 들면 다음과 같습니다.
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -198,14 +198,14 @@ Azure에서 문제를 최대한 구체적으로 격리한 후에는 [Azure 네�
 \* 브라질까지의 대기 시간은 직선 거리가 파이버 실행 거리와 크게 다르다는 것을 보여 주는 좋은 예입니다. 저는 대기 시간이 160ms 근처일 것으로 예상했지만 실제로는 189ms입니다. 어딘가에 네트워크 문제가 있어서 제 예상과 다른 결과가 나올 수도 있지만, 대부분은 파이버 실행이 브라질까지 직선으로 가는 것이 아니라 시애틀에서 브라질까지 이동할 때 약 1,000km를 더 이동하기 때문입니다.
 
 ## <a name="next-steps"></a>다음 단계
-1. 에서 GitHub에서 Azure 연결 도구 키트를 다운로드합니다.[https://aka.ms/AzCT][ACT]
+1. GitHub에서 Azure 연결 도구 키트 다운로드[https://aka.ms/AzCT][ACT]
 2. [링크 성능 테스트][Performance Doc]에 대한 지침 수행
 
 <!--Image References-->
 [1]: ./media/expressroute-troubleshooting-network-performance/network-components.png "Azure 네트워크 구성 요소"
-[2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "익스프레스루트 문제 해결"
-[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "퍼프 테스트 환경"
-[4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "파워쉘 출력"
+[2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "Express 경로 문제 해결"
+[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "Perf 테스트 환경"
+[4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "PowerShell 출력"
 
 <!--Link References-->
 [Performance Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/PerformanceTesting.md

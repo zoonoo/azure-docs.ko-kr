@@ -1,5 +1,5 @@
 ---
-title: 'Azure 익스프레스루트: VNet에 게이트웨이 추가: 클래식'
+title: 'Azure Express 경로: VNet에 게이트웨이 추가: 클래식'
 description: ExpressRoute 구성을 위해 PowerShell을 사용하여 클래식 배포 모델 VNet에 대한 VNet 게이트웨이 구성
 services: expressroute
 author: charwen
@@ -9,17 +9,17 @@ ms.date: 12/06/2019
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: d7927af5b831dbe3294e1abc3a878e323bf1867e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74928057"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>PowerShell을 사용하여 ExpressRoute용 가상 네트워크 게이트웨이 구성(클래식)
 > [!div class="op_single_selector"]
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [클래식 - PowerShell](expressroute-howto-add-gateway-classic.md)
-> * [비디오 - Azure 포털](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
+> * [비디오-Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
 > 
 
@@ -32,7 +32,7 @@ ms.locfileid: "74928057"
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-beginning"></a>시작하기 전에
-이 구성에 필요한 Azure PowerShell cmdlet을 설치했는지 확인합니다.
+이 구성에 필요한 Azure PowerShell cmdlet을 설치 했는지 확인 합니다.
 
 [!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 

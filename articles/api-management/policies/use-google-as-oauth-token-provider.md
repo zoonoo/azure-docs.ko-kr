@@ -1,5 +1,5 @@
 ---
-title: 샘플 API 관리 정책 - Google OAuth 토큰을 사용하여 액세스 권한 부여
+title: 샘플 API 관리 정책-Google OAuth 토큰을 사용 하 여 액세스 권한 부여
 titleSuffix: Azure API Management
 description: Azure API Managment 정책 샘플 - OAuth 토큰 공급자로 Google을 사용하여 엔드포인트에 대한 액세스 권한을 부여하는 방법을 보여줍니다.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: d606d29d84cd5917c74efe188ae02627ad55d4ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75442381"
 ---
 # <a name="authorize-access-using-google-oauth-token"></a>Google OAuth 토큰을 사용하여 액세스 권한 부여

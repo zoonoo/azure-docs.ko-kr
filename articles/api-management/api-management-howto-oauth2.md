@@ -1,5 +1,5 @@
 ---
-title: API 관리에서 OAuth 2.0을 사용하여 개발자 계정 권한 부여
+title: API Management에서 OAuth 2.0을 사용 하 여 개발자 계정에 권한 부여
 titleSuffix: Azure API Management
 description: API Management에서 OAuth 2.0을 사용하여 사용자에게 권한을 부여하는 방법에 대해 알아봅니다.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 90c890925378c30ce5688d2713990b4b2cdd20c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75430686"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Azure API Management에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법
@@ -58,7 +58,7 @@ ms.locfileid: "75430686"
 
     원하는 유형을 선택하여 **권한 부여 유형** 을 지정합니다. **인증 코드** 가 지정됩니다.
 
-    **권한 부여 엔드포인트 URL**을 입력합니다. Azure Active Directory의 경우 이 URL은 Azure `<tenant_id>` AD 테넌트의 ID로 대체되는 다음 URL과 유사합니다.
+    **권한 부여 엔드포인트 URL**을 입력합니다. Azure Active Directory의 경우이 URL은 다음 URL과 유사 합니다. 여기서 `<tenant_id>` 는 Azure AD 테 넌 트의 ID로 바뀝니다.
 
     `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
@@ -96,11 +96,11 @@ ms.locfileid: "75430686"
 
     ![OAuth 2.0 설정](./media/api-management-howto-oauth2/oauth-07.png)
 
-## <a name="legacy-developer-portal---test-the-oauth-20-user-authorization"></a><a name="step3"> </a>레거시 개발자 포털 - OAuth 2.0 사용자 권한 부여 테스트
+## <a name="legacy-developer-portal---test-the-oauth-20-user-authorization"></a><a name="step3"> </a>레거시 개발자 포털-OAuth 2.0 사용자 권한 부여 테스트
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-OAuth 2.0 권한 부여 서버를 구성하고 해당 서버를 사용하도록 API를 구성한 후에는 개발자 포털로 이동하여 API를 호출하는 방법으로 권한 부여를 테스트할 수 있습니다. Azure API 관리 인스턴스 **개요** 페이지에서 상위 메뉴에서 **개발자 포털(레거시)을** 클릭합니다.
+OAuth 2.0 권한 부여 서버를 구성하고 해당 서버를 사용하도록 API를 구성한 후에는 개발자 포털로 이동하여 API를 호출하는 방법으로 권한 부여를 테스트할 수 있습니다. Azure API Management 인스턴스 **개요** 페이지의 상단 메뉴에서 **개발자 포털 (레거시)** 을 클릭 합니다.
 
 상단 메뉴에서 **API**를 클릭하고 **Echo API**를 선택합니다.
 

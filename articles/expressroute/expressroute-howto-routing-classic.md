@@ -1,5 +1,5 @@
 ---
-title: 'Azure 익스프레스라우팅: 피어링 구성: 클래식'
+title: 'Azure Express 경로: 피어 링 구성: 클래식'
 description: 이 문서에서는 ExpressRoute 회로의 프라이빗, 공용 및 Microsoft 피어링을 만들고 프로비전하는 단계를 안내합니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다.
 services: expressroute
 author: cherylmc
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: cherylmc
 ms.openlocfilehash: 05602538f206032d924b39a7dd8f4325c48a5224
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74931386"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>ExpressRoute 회로의 피어링 만들기 및 수정(클래식)
 > [!div class="op_single_selector"]
-> * [Azure 포털](expressroute-howto-routing-portal-resource-manager.md)
-> * [Powershell](expressroute-howto-routing-arm.md)
+> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
 > * [비디오 - 프라이빗 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [비디오 - 공용 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [비디오 - Microsoft 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
-> * [파워 쉘 (클래식)](expressroute-howto-routing-classic.md)
+> * [PowerShell (클래식)](expressroute-howto-routing-classic.md)
 > 
 
 이 문서에서는 PowerShell 및 클래식 배포 모델을 사용하여 ExpressRoute 회로에 대한 피어링/라우팅 구성을 만들고 관리하는 단계를 안내합니다. 아래 단계에서는 ExpressRoute 회로에 대한 피어링의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다. ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구성할 수 있습니다(Azure 프라이빗, Azure 공용 및 Microsoft). 선택한 순서로 피어링을 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 
@@ -38,7 +38,7 @@ ms.locfileid: "74931386"
 ## <a name="configuration-prerequisites"></a>필수 구성 요소
 
 * 구성을 시작하기 전에 [필수 구성 요소](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
-* 활성화된 ExpressRoute 회로가 있어야 합니다. 지침에 따라 [ExpressRoute 회로를 만들고](expressroute-howto-circuit-classic.md) 진행하기 전에 연결 공급자가 회로를 사용하도록 설정하십시오. ExpressRoute 회로는 아래에 설명한 cmdlet을 실행할 수 있도록 프로비전되고 활성화된 상태여야 합니다.
+* 활성화된 ExpressRoute 회로가 있어야 합니다. 지침에 따라 [express 경로 회로를 만들고](expressroute-howto-circuit-classic.md) 진행 하기 전에 연결 공급자가 회로를 사용 하도록 설정 합니다. ExpressRoute 회로는 아래에 설명한 cmdlet을 실행할 수 있도록 프로비전되고 활성화된 상태여야 합니다.
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>최신 PowerShell cmdlet 다운로드
 
@@ -50,7 +50,7 @@ ms.locfileid: "74931386"
 
 ### <a name="to-create-azure-private-peering"></a>Azure 프라이빗 피어링을 만들려면
 
-1. **ExpressRoute 회로를 만듭니다.**
+1. **Express 경로 회로를 만듭니다.**
 
    지침에 따라 [ExpressRoute 회로](expressroute-howto-circuit-classic.md) 를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 프라이빗 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 2. **ExpressRoute 회로를 확인하여 프로비전되도록 합니다.**
@@ -152,12 +152,12 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 이 섹션에서는 ExpressRoute 회로에 Azure 공용 피어링 구성을 만들고, 가져오며, 업데이트 및 삭제하는 방법에 대한 지침을 제공합니다.
 
 > [!NOTE]
-> 새 회로에 대해 Azure 공용 피어링이 더 이상 사용되지 않습니다.
+> Azure 공용 피어 링은 새로운 회로에서 사용 되지 않습니다.
 >
 
 ### <a name="to-create-azure-public-peering"></a>Azure 공용 피어링을 만들려면
 
-1. **익스프레스루트 회로 만들기**
+1. **ExpressRoute 회로 만들기**
 
    지침에 따라 [ExpressRoute 회로](expressroute-howto-circuit-classic.md) 를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 공용 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 2. **ExpressRoute 회로를 확인하여 프로비전되는지 확인합니다.**
@@ -187,7 +187,7 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-4. **회로에 대한 Azure 공용 피어링 구성**
+4. **회로에 Azure 공용 피어 링 구성**
    
    진행하기 전에 다음 정보가 있는지 확인합니다.
    
@@ -261,7 +261,7 @@ Remove-AzureBGPPeering -AccessType Public -ServiceKey "*************************
 
 ### <a name="to-create-microsoft-peering"></a>Microsoft 피어링을 만들려면
 
-1. **익스프레스루트 회로 만들기**
+1. **ExpressRoute 회로 만들기**
   
    지침에 따라 [ExpressRoute 회로](expressroute-howto-circuit-classic.md) 를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 프라이빗 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 2. **ExpressRoute 회로를 확인하여 프로비전되는지 확인합니다.**
@@ -291,7 +291,7 @@ Remove-AzureBGPPeering -AccessType Public -ServiceKey "*************************
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-3. **회로에 대한 Microsoft 피어링 구성**
+3. **회로에 대 한 Microsoft 피어 링 구성**
    
     진행하기 전에 다음 정보가 있는지 확인합니다.
    
@@ -302,7 +302,7 @@ Remove-AzureBGPPeering -AccessType Public -ServiceKey "*************************
    * 보급된 접두사: BGP 세션을 통해 보급하려는 모든 접두사 목록을 제공해야 합니다. 공용 IP 주소 접두사만 수락됩니다. 접두사 집합을 보내려는 경우 쉼표로 구분된 목록을 보낼 수 있습니다. 이 접두사는 RIR/IRR에 등록되어야 합니다.
    * 고객 ASN: 피어링 AS 숫자에 등록되지 않은 광고 접두사인 경우 등록된 AS 번호를 지정할 수 있습니다. **선택 사항입니다**.
    * 라우팅 레지스트리 이름: AS 번호 및 접두사가 등록된 RIR/ IRR를 지정할 수 있습니다.
-   * 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **선택적.**
+   * 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **선택 사항입니다.**
      
    다음 cmdlet을 실행하여 회로에 Microsoft 피어링을 구성합니다.
  

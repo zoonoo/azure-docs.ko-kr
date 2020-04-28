@@ -1,16 +1,16 @@
 ---
-title: Azure 리소스 관리자를 사용 하 고 재배포에 대 한 Azure 캐시 배포
-description: Azure 리소스 관리자 템플릿을 사용하여 Redis 리소스에 대한 Azure 캐시를 배포하는 방법을 알아봅니다. 일반적인 시나리오에 대 한 템플릿이 제공 됩니다.
+title: Azure Resource Manager를 사용 하 여 Redis 용 Azure Cache 배포
+description: Azure Resource Manager 템플릿을 사용 하 여 Azure Cache for Redis 리소스를 배포 하는 방법을 알아봅니다. 일반적인 시나리오에 대 한 템플릿이 제공 됩니다.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.openlocfilehash: 787edf662aa3a34e167db61b0a89dfc5c2944219
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75412399"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>템플릿을 사용하여 Azure Cache for Redis 만들기
@@ -21,7 +21,7 @@ ms.locfileid: "75412399"
 
 현재 진단 설정은 구독에 대한 동일한 지역의 모든 캐시에서 공유됩니다. 지역의 캐시 하나를 업데이트하면 해당 지역의 다른 모든 캐시에 영향을 줍니다.
 
-템플릿 만들기에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성을](../azure-resource-manager/templates/template-syntax.md)참조하십시오. 캐시 리소스 종류의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.Cache 리소스 종류](/azure/templates/microsoft.cache/allversions)를 참조하세요.
+템플릿을 만드는 방법에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)을 참조 하세요. 캐시 리소스 종류의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.Cache 리소스 종류](/azure/templates/microsoft.cache/allversions)를 참조하세요.
 
 전체 템플릿은 [Azure Cache for Redis 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json)을 참조하세요.
 
@@ -30,7 +30,7 @@ ms.locfileid: "75412399"
 > 
 > * [클러스터링이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [데이터 지속성이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
-> * [가상 네트워크에 배포된 프리미엄 Redis 캐시 만들기](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
+> * [Virtual Network에 배포 된 프리미엄 Redis Cache 만들기](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 > 
 > 최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 `Azure Cache for Redis`에 대한 검색을 참조하세요.
 > 

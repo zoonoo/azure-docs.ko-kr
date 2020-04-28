@@ -1,5 +1,5 @@
 ---
-title: Azure 릴레이 하이브리드 연결 - .NET에서 HTTP 요청
+title: Azure Relay 하이브리드 연결-.NET의 HTTP 요청
 description: .NET에서 Azure Relay 하이브리드 연결 HTTP 요청에 대한 C# 콘솔 애플리케이션을 작성합니다.
 services: service-bus-relay
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 7c984876c4338b4f6802ba55752c8f612c390e94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75355158"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>.NET에서 Relay 하이브리드 연결 HTTP 요청 시작
@@ -38,8 +38,8 @@ ms.locfileid: "75355158"
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
-* [비주얼 스튜디오 2015 이상](https://www.visualstudio.com). 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
-* Azure 구독 계정이 없는 경우 시작하기 전에 [무료 계정을 만드세요.](https://azure.microsoft.com/free/)
+* [Visual Studio 2015 이상](https://www.visualstudio.com). 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
+* Azure 구독 계정이 없는 경우 시작 하기 전에 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 
 ## <a name="create-a-namespace"></a>네임스페이스 만들기
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
@@ -67,7 +67,7 @@ Visual Studio에서 메시지를 릴레이로 보낼 C# 콘솔 애플리케이�
 1. 클라이언트 애플리케이션을 실행합니다. 클라이언트 창에서 `hello!`가 표시됩니다. 클라이언트는 HTTP 요청을 서버에 보냈고, 서버는 `hello!`로 응답했습니다. 
 3. 이제 콘솔 창을 닫으려면 콘솔 창에서 **ENTER** 키를 누릅니다. 
 
-축하합니다, 당신은 완전한 하이브리드 연결 응용 프로그램을 만들었습니다!
+축 하 합니다. 전체 하이브리드 연결 응용 프로그램을 만들었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

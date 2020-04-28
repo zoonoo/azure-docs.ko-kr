@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: fa48953e5e86ffa758fe556b7fb1072be9d74647
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75360313"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>클라우드 서비스에 대한 시작 작업 구성 및 실행 방법
@@ -31,7 +31,7 @@ ms.locfileid: "75360313"
 
 시작 작업은 재부팅 사이에 여러 번 실행할 수도 있습니다. 예를 들어 시작 작업은 역할 재활용 때마다 실행되고 역할 재활용은 재부팅을 항상 포함하지 않을 수도 있습니다. 시작 작업은 문제 없이 여러 번 실행할 수 있도록 하는 방식으로 작성되어야 합니다.
 
-시작 작업은 완료할 시작 프로세스에 대해 0의 **errorlevel** (또는 종료 코드)로 끝나야 합니다. 시작 작업이 0이 아닌 **오류 수준으로**끝나면 역할이 시작되지 않습니다.
+시작 작업은 완료할 시작 프로세스에 대해 0의 **errorlevel** (또는 종료 코드)로 끝나야 합니다. 시작 작업이 0이 아닌 **errorlevel**로 끝나는 경우 역할이 시작 되지 않습니다.
 
 ## <a name="role-startup-order"></a>역할 시작 순서
 다음은 Azure에서 역할 시작 절차를 나열합니다.
@@ -104,7 +104,7 @@ EXIT /B 0
 
 **taskType** -시작 작업이 실행되는 방식을 지정합니다.
 
-* **간단한**  
+* **쉽게**  
   작업이 동기적으로 한 번에 하나씩 [작업] 파일에 지정된 순서로 실행됩니다. 하나의 **간단** 시작 작업이 0의 **errorlevel**로 끝나는 경우 다음 **간단** 시작 작업이 실행됩니다. 더 이상 실행할 **간단** 시작 작업이 없는 경우 역할 자체가 시작됩니다.   
   
   > [!NOTE]
@@ -113,7 +113,7 @@ EXIT /B 0
   > 
   
     배치 파일이 0의 **errorlevel**로 끝나는지 확인하려면 배치 파일 프로세스의 끝에 명령 `EXIT /B 0`을 실행합니다.
-* **배경**  
+* **백그라운드**  
    작업이 비동기적으로 역할의 시작과 병렬로 실행됩니다.
 * **포그라운드**  
    작업이 비동기적으로 역할의 시작과 병렬로 실행됩니다. **포그라운드** 및 **백그라운드** 작업 사이의 주요 차이점은 **포그라운드** 작업은 작업이 종료될 때까지 작업이 재활용 또는 종료되는 것을 방지합니다. **백그라운드** 작업은 이러한 제한이 없습니다.
@@ -153,13 +153,13 @@ RoleEnvironment 클래스의 멤버를 기반으로 한 환경 변수는 **변�
 
 [포장합니다](cloud-services-model-and-package.md) .  
 
-[서비스정의.csdef]: cloud-services-model-and-package.md#csdef
-[작업]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[ServiceDefinition. .csdef]: cloud-services-model-and-package.md#csdef
+[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup 클래스]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [런타임]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [환경]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [변수]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
-[롤인스턴스값]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
 

@@ -1,6 +1,6 @@
 ---
-title: 대칭 키를 사용하여 레거시 장치 프로비전 - Azure IoT 허브 장치 프로비저닝 서비스
-description: 대칭 키를 사용하여 DPS(장치 프로비저닝 서비스) 인스턴스를 사용하여 레거시 장치를 프로비전하는 방법
+title: 대칭 키를 사용 하 여 레거시 장치 프로 비전-Azure IoT Hub 장치 프로 비전 서비스
+description: 장치 프로 비전 서비스 (DPS) 인스턴스로 대칭 키를 사용 하 여 레거시 장치를 프로 비전 하는 방법
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 4d1a92f3ebf32d2270eb77ec9c79fe860ba090e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75434704"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>대칭 키를 사용하여 레거시 디바이스를 프로비전하는 방법
@@ -28,7 +28,7 @@ ms.locfileid: "75434704"
 이 문서는 Windows 기반 워크스테이션에 적용됩니다. 그러나 Linux에서 절차를 수행할 수 있습니다. Linux 예제는 [다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법](how-to-provision-multitenant.md)을 참조하세요.
 
 > [!NOTE]
-> 이 문서에 사용된 샘플은 C로 작성됩니다. [대칭 키 샘플을 제공하는 C# 장치도](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) 있습니다. 이 샘플을 사용하려면 [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) 리포지토리를 다운로드하거나 복제하고 샘플 코드의 인라인 지침을 따릅니다. 이 문서의 지침에 따라 포털을 사용하여 대칭 키 등록 그룹을 만들고 샘플을 실행하는 데 필요한 ID 범위 및 등록 그룹 기본 및 보조 키를 찾을 수 있습니다. 샘플을 사용하여 개별 등록을 만들 수도 있습니다.
+> 이 문서에 사용 된 샘플은 C로 작성 되었습니다. [C # 장치 프로 비전 대칭 키 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) 도 있습니다. 이 샘플을 사용 하려면 [azure-iot-csharp-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) 리포지토리를 다운로드 하거나 복제 하 고 샘플 코드의 인라인 지침을 따르세요. 이 문서의 지침에 따라 포털을 사용 하 여 대칭 키 등록 그룹을 만들고이 샘플을 실행 하는 데 필요한 ID 범위 및 등록 그룹 기본 및 보조 키를 찾을 수 있습니다. 샘플을 사용 하 여 개별 등록를 만들 수도 있습니다.
 
 ## <a name="overview"></a>개요
 
@@ -59,7 +59,7 @@ SDK에는 시뮬레이트된 디바이스의 샘플 코드가 포함되어 있�
 
 1. [CMake 빌드 시스템](https://cmake.org/download/)을 다운로드합니다.
 
-    설치를 시작하기 전에 Visual Studio 필수 구성 조건(Visual Studio 및 'C++' 워크로드가 있는 데스크톱 개발)을 컴퓨터에 설치하는 것이 중요합니다. **before** `CMake` 필수 구성 요소가 설치되고 다운로드를 확인하면 CMake 빌드 시스템을 설치합니다.
+    `CMake` 설치를 시작하기 **전에** Visual Studio 필수 구성 요소(Visual Studio 및 'C++를 사용한 데스크톱 개발' 워크로드)를 머신에 설치해야 합니다. 필수 구성 요소가 설치되고 다운로드를 확인하면 CMake 빌드 시스템을 설치합니다.
 
 2. SDK의 [최신 릴리스](https://github.com/Azure/azure-iot-sdk-c/releases/latest)에 대한 태그 이름을 찾습니다.
 
@@ -250,7 +250,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 7. **prov\_dev\_client\_sample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다. 
 
-8. Visual Studio 메뉴에서**디버깅하지 않고** **디버그** > 시작을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예**를 클릭하여 실행하기 전에 프로젝트를 다시 빌드합니다.
+8. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예**를 클릭하여 실행하기 전에 프로젝트를 다시 빌드합니다.
 
     다음 출력은 시뮬레이션된 디바이스를 성공적으로 부팅하고, IoT 허브에 할당할 프로비저닝 서비스 인스턴스에 연결하는 예제입니다.
 
@@ -269,7 +269,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
     Press enter key to exit:
     ```
 
-9. 포털에서 시뮬레이션된 장치가 할당된 IoT 허브로 이동하여 **IoT 장치** 탭을 클릭합니다. 시뮬레이션된 장치를 허브에 성공적으로 프로비저닝하면 해당 장치 ID가 **IoT 장치** 블레이드에 나타나고 *STATUS가* **활성화됨으로**표시됩니다. 위쪽에서 **새로 고침** 단추를 클릭해야 할 수 있습니다. 
+9. 포털에서 시뮬레이션 된 장치가 할당 된 IoT hub로 이동 하 고 **Iot 장치** 탭을 클릭 합니다. 허브에 시뮬레이션 된를 성공적으로 프로 비전 하면 장치 ID가 **IoT 장치** 블레이드에 표시 되 고 *상태가* **사용**으로 표시 됩니다. 위쪽에서 **새로 고침** 단추를 클릭해야 할 수 있습니다. 
 
     ![디바이스가 IoT Hub에 등록됨](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 
@@ -285,9 +285,9 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 ## <a name="next-steps"></a>다음 단계
 
-* 리프로비전 자세히 알아보려면 [IoT Hub 장치 리프로비전 개념을 참조하세요.](concepts-device-reprovision.md) 
+* 다시 프로 비전에 대 한 자세한 내용은 [IoT Hub Device 다시 프로 비전 개념](concepts-device-reprovision.md) 을 참조 하세요. 
 * [빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전](quick-create-simulated-device-symm-key.md)
-* 프로비저닝 해제에 대해 자세히 알아보려면 [이전에 자동 프로비전된 장치를 프로비저닝 해제하는 방법을](how-to-unprovision-devices.md) 참조하세요. 
+* 프로 비전 해제에 대 한 자세한 내용은 [이전에 자동 프로 비전 된 장치의 프로 비전](how-to-unprovision-devices.md) 을 해제 하는 방법 
 
 
 

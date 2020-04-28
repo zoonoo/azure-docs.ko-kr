@@ -9,10 +9,10 @@ ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: 833b8c79fba57b7129092e084381c0671c396496
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74978869"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Azure Import/Export 서비스 REST API 사용
@@ -45,7 +45,7 @@ Import/Export 서비스에 대한 요청은 `api-version` 매개 변수를 지�
 
 [작업 취소 및 삭제](storage-import-export-cancelling-and-deleting-jobs.md)
 
-[백업 드라이브 매니페스트](../storage-import-export-backing-up-drive-manifests.md)
+[드라이브 매니페스트 백업](../storage-import-export-backing-up-drive-manifests.md)
 
 [Import/Export 작업에 대한 진단 및 오류 복구](../storage-import-export-diagnostics-and-error-recovery.md)
 

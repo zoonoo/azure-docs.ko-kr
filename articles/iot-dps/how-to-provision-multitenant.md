@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치 프로비전 서비스에서 다중 테넌트용 장치를 프로비전하는 방법
-description: 장치 프로비저닝 서비스(DPS) 인스턴스를 사용하여 다중 테넌시용 장치를 프로비전하는 방법
+title: Azure IoT Hub 장치 프로 비전 서비스에서 배포할지에에 대 한 장치를 프로 비전 하는 방법
+description: DPS (장치 프로 비전 서비스) 인스턴스를 사용 하 여 배포할지에 용 장치를 프로 비전 하는 방법
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75434748"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법 
@@ -191,7 +191,7 @@ ms.locfileid: "75434748"
 
 이 섹션에서는 각 VM에서 Azure IoT C SDK를 복제합니다. SDK에는 각 지역의 테넌트 디바이스 프로비저닝을 시뮬레이트하는 샘플이 포함되어 있습니다.
 
-1. 각 VM에 대해 다음 명령을 사용하여 **CMake**, **g++** 및 **git을**설치합니다. [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+1. 각 VM에 대해 다음 명령을 사용 하 여 **cmake**, **g + +**, **gcc**및 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 를 설치 합니다.
 
     ```bash
     sudo apt-get update
@@ -420,8 +420,8 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
 ## <a name="next-steps"></a>다음 단계
 
-- 리프로비전 자세히 알아보려면 [IoT Hub 장치 리프로비전 개념을 참조하세요.](concepts-device-reprovision.md) 
-- 프로비저닝 해제에 대해 자세히 알아보려면 [이전에 자동 프로비전된 장치를 프로비저닝 해제하는 방법을](how-to-unprovision-devices.md) 참조하세요. 
+- 다시 프로 비전에 대 한 자세한 내용은 [IoT Hub Device 다시 프로 비전 개념](concepts-device-reprovision.md) 을 참조 하세요. 
+- 프로 비전 해제에 대 한 자세한 내용은 [이전에 자동 프로 비전 된 장치의 프로 비전](how-to-unprovision-devices.md) 을 해제 하는 방법 
 
 
 

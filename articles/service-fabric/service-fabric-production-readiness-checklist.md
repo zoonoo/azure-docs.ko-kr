@@ -4,10 +4,10 @@ description: 모범 사례에 따라 Service Fabric 애플리케이션 및 클�
 ms.topic: conceptual
 ms.date: 6/05/2019
 ms.openlocfilehash: 90d600b01aa870f7b3a58e70ef32e774e7107524
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75376803"
 ---
 # <a name="production-readiness-checklist"></a>프로덕션 준비 검사 목록
@@ -15,8 +15,8 @@ ms.locfileid: "75376803"
 애플리케이션 및 클러스터가 프로덕션 트래픽을 허용할 준비가 되었나요? 애플리케이션 및 클러스터를 실행하고 테스트한다고 해서 프로덕션으로 이동할 준비가 된 것은 아닙니다. 다음 검사 목록을 진행하여 애플리케이션 및 클러스터가 원활하게 실행되도록 유지합니다. 이러한 항목을 모두 검사하는 것이 좋습니다. 특정 라인 항목(예: 고유한 진단 프레임워크)의 경우, 대체 솔루션을 사용하도록 선택할 수 있습니다.
 
 
-## <a name="prerequisites-for-production"></a>생산을 위한 전제 조건
-1. Azure Service Fabric 모범 사례: [응용 프로그램 디자인,](./service-fabric-best-practices-applications.md) [보안,](./service-fabric-best-practices-security.md) [네트워킹,](./service-fabric-best-practices-networking.md) [용량 계획 및 크기 조정,](./service-fabric-best-practices-capacity-scaling.md) [코드로 인프라,](./service-fabric-best-practices-infrastructure-as-code.md) [모니터링 및 진단](./service-fabric-best-practices-monitoring.md). 
+## <a name="prerequisites-for-production"></a>프로덕션을 위한 필수 구성 요소
+1. Azure Service Fabric 모범 사례: [응용 프로그램 디자인](./service-fabric-best-practices-applications.md), [보안](./service-fabric-best-practices-security.md), [네트워킹](./service-fabric-best-practices-networking.md), [용량 계획 및 크기 조정](./service-fabric-best-practices-capacity-scaling.md), [코드로 서의 인프라](./service-fabric-best-practices-infrastructure-as-code.md), [모니터링 및 진단](./service-fabric-best-practices-monitoring.md)입니다. 
 1. Actors 프로그래밍 모델을 사용하는 경우 Reliable Actors 보안 구성 구현
 1. 코어 20개 또는 노드 10개를 초과하는 클러스터의 경우, 시스템 서비스를 위한 전용 기본 노드 유형을 만듭니다. [배치 제약 조건](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)을 추가하여 기본 노드 유형을 시스템 서비스에 예약합니다.
 1. 기본 노드 유형에 대해 D2v2 이상 SKU를 사용합니다. 하드 디스크 용량이 50GB 이상인 SKU를 선택하는 것이 좋습니다.
@@ -25,9 +25,9 @@ ms.locfileid: "75376803"
 1. [내구성 수준](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)을 이해하고 설정합니다. 상태 저장 워크로드를 실행하는 노드 유형에는 실버 이상의 내구성 수준을 사용하는 것이 좋습니다. 기본 노드 유형은 내구성 수준이 실버 이상으로 설정되어야 합니다.
 1. 노드 유형의 [안정성 수준](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)을 이해하고 선택합니다. 실버 이상의 안정성을 사용하는 것이 좋습니다.
 1. 워크로드를 로드하고 규모 테스트를 수행하여 클러스터의 [용량 요구 사항](service-fabric-cluster-capacity.md)을 파악합니다. 
-1. 서비스 및 애플리케이션이 모니터링되고, 애플리케이션 로그가 생성되어 경고와 함께 저장됩니다. 예를 들어 [서비스 패브릭 응용 프로그램에 로깅 추가](service-fabric-how-to-diagnostics-log.md) 및 Azure Monitor 로그를 사용하여 컨테이너 모니터링 을 [참조하세요.](service-fabric-diagnostics-oms-containers.md)
-1. 클러스터는 경고로 모니터링됩니다(예: [Azure Monitor 로그).](service-fabric-diagnostics-event-analysis-oms.md) 
-1. 기본 가상 시스템 규모 집합 인프라는 경고(예: [Azure Monitor 로그)로 모니터링됩니다.](service-fabric-diagnostics-oms-agent.md)
+1. 서비스 및 애플리케이션이 모니터링되고, 애플리케이션 로그가 생성되어 경고와 함께 저장됩니다. 예를 들어 [Service Fabric 응용 프로그램에 로깅 추가](service-fabric-how-to-diagnostics-log.md) 및 [Azure Monitor 로그를 사용 하 여 컨테이너 모니터링](service-fabric-diagnostics-oms-containers.md)을 참조 하세요.
+1. 클러스터가 경고 (예: [Azure Monitor 로그](service-fabric-diagnostics-event-analysis-oms.md))로 모니터링 됩니다. 
+1. 기본 가상 머신 확장 집합 인프라는 경고 (예: [Azure Monitor 로그](service-fabric-diagnostics-oms-agent.md))를 사용 하 여 모니터링 됩니다.
 1. 클러스터에는 항상 [기본 및 보조 인증서](service-fabric-cluster-security-update-certs-azure.md)가 있습니다(잠기지 않도록 방지).
 1. 개발, 스테이징 및 프로덕션을 위해 별도의 클러스터를 유지 관리합니다. 
 1. [애플리케이션 업그레이드](service-fabric-application-upgrade.md) 및 [클러스터 업그레이드](service-fabric-tutorial-upgrade-cluster.md)는 먼저 개발 및 스테이징 클러스터에서 테스트됩니다. 

@@ -1,5 +1,5 @@
 ---
-title: API 관리에서 개발자 포털의 페이지 내용 수정
+title: API Management의 개발자 포털에서 페이지 내용 수정
 titleSuffix: Azure API Management
 description: Azure API Management에서 개발자 포털의 페이지 콘텐츠를 편집하는 방법을 알아봅니다.
 services: api-management
@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
 ms.openlocfilehash: ebf2cbd430339378a09d10d91ad61327d24842e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75430626"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Azure API Management에서 개발자 포털의 페이지 콘텐츠 및 레이아웃 수정

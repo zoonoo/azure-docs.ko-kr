@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 통해 스트리밍 엔드포인트 관리 | Microsoft 문서
-description: 이 문서에서는 Azure 포털에서 스트리밍 끝점을 관리하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Portal를 사용 하 여 스트리밍 끝점을 관리 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 57ec22cb02512577f8737718cae9175403fb5603
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74900874"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Azure 포털을 통해 스트리밍 엔드포인트 관리 
@@ -55,7 +55,7 @@ Azure 포털을 사용하여 스트리밍 엔드포인트를 추가/삭제하려
     다른 CDN 및 직접 액세스를 사용하려는 경우 여러 스트리밍 엔드포인트를 배치하는 것이 좋습니다.
 
 2. 스트리밍 엔드포인트를 삭제하려면 **삭제** 단추를 누릅니다.      
-3. **시작** 버튼을 클릭하여 스트리밍 끝점을 시작합니다.
+3. **시작** 단추를 클릭 하 여 스트리밍 끝점을 시작 합니다.
    
     ![스트리밍 엔드포인트](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
@@ -87,7 +87,7 @@ Azure 포털을 사용하여 스트리밍 엔드포인트를 추가/삭제하려
 
 ## <a name="scale-your-premium-streaming-endpoint"></a>프리미엄 스트리밍 엔드포인트 규모 조정
 
-자세한 내용은 [이](media-services-portal-scale-streaming-endpoints.md) 문서를 참조하세요.
+자세한 내용은 [이](media-services-portal-scale-streaming-endpoints.md) 문서를 참조 하세요.
 
 ## <a name="enable-azure-cdn-integration"></a><a id="enable_cdn"></a>Azure CDN 통합 사용
 

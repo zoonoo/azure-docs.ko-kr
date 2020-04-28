@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 23fbb0b4c506b2f72000add9704618337b8b24cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75386190"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Node.js 애플리케이션 빌드 및 배포
@@ -35,7 +35,7 @@ Cloud Services에 대한 자세한 내용 및 Azure Websites와 Virtual Machines
 > [!NOTE]
 > 이 자습서는 Azure PowerShell을 사용하며,
 
-* [Azure Power셸을 설치하고 구성합니다.]
+* [Azure Powershell]을 설치 하 고 구성 합니다.
 * [Azure SDK for .NET 2.7]을 다운로드 및 설치합니다. 설치 설정에서 다음을 선택합니다.
   * MicrosoftAzureAuthoringTools
   * MicrosoftAzureComputeEmulator
@@ -82,7 +82,7 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 ## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
 
 > [!NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)하거나 [무료 계정을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)할 수 있습니다.
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 하거나 [무료 계정에 등록할](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)수 있습니다.
 
 ### <a name="download-the-azure-publishing-settings"></a>Azure 게시 설정 다운로드
 애플리케이션을 Azure에 배포하려면 먼저 Azure 구독에 대한 게시 설정을 다운로드해야 합니다.
@@ -161,7 +161,7 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 
 [Azure Websites, Cloud Services 및 Virtual Machines 비교]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [간단한 웹앱 사용]: ../app-service/app-service-web-get-started-nodejs.md
-[Azure 전원 셸]: /powershell/azureps-cmdlets-docs
+[Azure Powershell]: /powershell/azureps-cmdlets-docs
 [Azure SDK for .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
 [PowerShell을 연결]: /powershell/azureps-cmdlets-docs
 [nodejs.org]: https://nodejs.org/

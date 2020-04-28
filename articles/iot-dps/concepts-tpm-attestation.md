@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub Device Provisioning Service - TPM 증명
-description: 이 문서에서는 DPS(IoT 장치 프로비저닝 서비스)를 사용하여 TPM 증명 흐름에 대한 개념적 개요를 제공합니다.
+description: 이 문서에서는 DPS (IoT 장치 프로 비전 서비스)를 사용 하는 TPM 증명 흐름에 대 한 개념적 개요를 제공 합니다.
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 624171ffc10a06ac3089b6dceb1683c63c88dbda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74975281"
 ---
 # <a name="tpm-attestation"></a>TPM 증명
@@ -21,7 +21,7 @@ IoT Hub Device Provisioning Service는 지정된 IoT 허브에 대한 제로 터
 
 이 문서에서는 [TPM](./concepts-device.md)을 사용하는 경우 ID 증명 프로세스를 설명합니다. TPM은 신뢰할 수 있는 플랫폼 모듈을 의미하고 HSM(하드웨어 보안 모듈)의 형식입니다. 이 문서에서는 불연속, 펌웨어 또는 통합 TPM을 사용한다고 가정합니다. 소프트웨어 에뮬레이트된 TPM은 프로토타이핑 또는 테스트에 적합하지만 불연속, 펌웨어 또는 통합 TPM이 제공하는 것과 동일한 수준의 보안을 제공하지 않습니다. 프로덕션 환경에서 TPM 소프트웨어를 사용하는 것은 좋지 않습니다. TPM 유형에 대한 자세한 내용은 [TPM에 대한 간략한 소개](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf)를 참조하세요.
 
-이 문서는 HMAC 키 지원 및 해당 인증 키가 있는 TPM 2.0을 사용하는 디바이스에 해당합니다. 인증을 위해 X.509 인증서를 사용하는 디바이스에 대한 것이 아닙니다. TPM은 신뢰할 수 있는 컴퓨팅 그룹의 업계 전반에 있는 ISO 표준이며 전체 [TPM 2.0 사양](https://trustedcomputinggroup.org/tpm-library-specification/) 또는 [ISO/IEC 11889 사양에서](https://www.iso.org/standard/66510.html)TPM에 대한 자세한 내용을 확인할 수 있습니다. 또한 이 문서에서는 공개 및 개인 키 쌍과 암호화에 사용되는 방법에 대해 잘 알고 있다고 가정합니다.
+이 문서는 HMAC 키 지원 및 해당 인증 키가 있는 TPM 2.0을 사용하는 디바이스에 해당합니다. 인증을 위해 X.509 인증서를 사용하는 디바이스에 대한 것이 아닙니다. TPM은 TCG(신뢰할 수 있는 컴퓨팅 그룹)의 산업 전반에 걸친 ISO 표준 이며 [전체 tpm 2.0 사양](https://trustedcomputinggroup.org/tpm-library-specification/) 또는 [ISO/IEC 11889 사양](https://www.iso.org/standard/66510.html)에서 tpm에 대 한 자세한 내용을 확인할 수 있습니다. 또한이 문서에서는 공용 및 개인 키 쌍 및 암호화에 사용 되는 방법에 대해 잘 알고 있다고 가정 합니다.
 
 디바이스 프로비저닝 서비스 디바이스 SDK는 이 문서에 설명되어 있는 모든 작업을 처리합니다. 디바이스에서 SDK를 사용하는 경우 추가로 아무 것도 구현할 필요가 없습니다. 이 문서는 디바이스에서 프로비전할 때 TPM 보안 칩에서 일어나는 일과 보안이 유지되는 이유를 개념적으로 이해하도록 도와 줍니다.
 

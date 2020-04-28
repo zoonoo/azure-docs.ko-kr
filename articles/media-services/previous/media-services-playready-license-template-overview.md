@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: fb0630f3f7a4acebcfe5dcad343030c9d1184263
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74976403"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady 라이선스 템플릿 개요
@@ -32,7 +32,7 @@ Azure Media Services는 현재 PlayReady 라이선스를 배달하는 서비스�
 * 클라이언트의 영구 스토리지에 라이선스를 저장할지 여부. 일반적으로 영구 라이선스는 콘텐츠의 오프라인 재생을 허용하는 데 사용됩니다.
 * 플레이어에서 콘텐츠를 재생해야 하는 최소 보안 수준. 
 * 오디오/비디오 콘텐츠에 대한 출력 컨트롤의 출력 보호 수준. 
-* 자세한 내용은 [PlayReady 규정 준수 규칙](https://www.microsoft.com/playready/licensing/compliance/) 문서의 "출력 제어" 섹션(3.5)을 참조하십시오.
+* 자세한 내용은 [PlayReady 준수 규칙](https://www.microsoft.com/playready/licensing/compliance/) 문서에서 "출력 컨트롤" 섹션 (3.5)을 참조 하세요.
 
 > [!NOTE]
 > 현재 PlayReady 라이선스의 PlayRight만 구성할 수 있습니다. 이 권한은 필수입니다. PlayRight는 콘텐츠를 재생할 능력을 클라이언트에 제공합니다. PlayRight를 사용하여 재생과 관련된 제한 사항을 구성할 수도 있습니다. 자세한 내용은 [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight)를 참조하세요.
@@ -306,7 +306,7 @@ Silverlight에서 지원하는 보호 수준의 예는 [출력 보호를 위한 
     </xs:schema>
 
 
-## <a name="additional-notes"></a>추가적인 참고 사항
+## <a name="additional-notes"></a>추가 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

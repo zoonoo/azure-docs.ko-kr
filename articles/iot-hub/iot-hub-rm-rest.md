@@ -1,6 +1,6 @@
 ---
 title: 리소스 공급자 REST API를 사용하여 Azure IoT Hub 만들기 | Microsoft Docs
-description: 리소스 공급자 C# REST API를 사용하여 프로그래밍 방식으로 IoT Hub를 만들고 관리하는 방법을 알아봅니다.
+description: '리소스 공급자 c # REST API를 사용 하 여 IoT Hub를 프로그래밍 방식으로 만들고 관리 하는 방법을 알아봅니다.'
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.openlocfilehash: c4cb230c9f0b56e3ff9d81e0d85134a7f192e6e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75429169"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>리소스 공급자 REST API(.NET)를 사용하여 IoT Hub 만들기
@@ -27,7 +27,7 @@ ms.locfileid: "75429169"
 
 * Visual Studio.
 
-* 활성 Azure 계정. 계정이 없는 경우 단 몇 분 만에 [무료 계정을](https://azure.microsoft.com/pricing/free-trial/) 만들 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
 
 * [Azure PowerShell 1.0](https://docs.microsoft.com/powershell/azure/install-Az-ps) 이상.
 
@@ -95,7 +95,7 @@ ms.locfileid: "75429169"
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
 
-3. **CreateIoTHub** 메서드에 다음 코드를 추가합니다. 이 코드는 JSON 표현을 만들고 생성하는 IoT Hub를 설명합니다. IoT Hub를 지원하는 위치의 현재 목록은 [Azure 상태를](https://azure.microsoft.com/status/)참조하십시오.
+3. **CreateIoTHub** 메서드에 다음 코드를 추가합니다. 이 코드는 JSON 표현을 만들고 생성하는 IoT Hub를 설명합니다. 을 지 원하는 현재 위치 목록에 대해서는 [Azure 상태](https://azure.microsoft.com/status/)를 참조 IoT Hub.
 
     ```csharp
     var description = new
@@ -165,10 +165,10 @@ ms.locfileid: "75429169"
 
 3. **디버그**, **디버깅 시작**을 차례로 클릭하여 애플리케이션을 실행합니다. 배포를 실행하는 데 몇 분 정도 걸릴 수 있습니다.
 
-4. 애플리케이션이 새 IoT Hub에 추가되었는지 확인하려면 [Azure Portal](https://portal.azure.com/)을 방문하여 리소스 목록을 확인합니다. 또는 **Get-AzResource** PowerShell cmdlet을 사용합니다.
+4. 애플리케이션이 새 IoT Hub에 추가되었는지 확인하려면 [Azure Portal](https://portal.azure.com/)을 방문하여 리소스 목록을 확인합니다. 또는 **AzResource** PowerShell cmdlet을 사용 합니다.
 
 > [!NOTE]
-> 이 예제 애플리케이션은 대금이 청구되는 S1 표준 IoT Hub를 추가합니다. 완료되면 [Azure 포털을](https://portal.azure.com/) 통해 또는 완료되면 **제거-AzResource** PowerShell cmdlet을 사용하여 IoT 허브를 삭제할 수 있습니다.
+> 이 예제 애플리케이션은 대금이 청구되는 S1 표준 IoT Hub를 추가합니다. 작업이 완료 되 면 [Azure Portal](https://portal.azure.com/) 를 통해 또는 완료 되 면 **AzResource** PowerShell cmdlet을 사용 하 여 IoT hub를 삭제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,23 +14,23 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 873bc4ab5e435b91ff4400a39c92db0d0bb9baa8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74968768"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Microsoft PlayReady 또는 Apple FairPlay로 HLS 콘텐츠 보호
 
 > [!NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 평가판을](https://azure.microsoft.com/pricing/free-trial/)참조하십시오.   > 미디어 서비스 v2에 새로운 기능이나 기능이 추가되지 않습니다. <br/>최신 버전, [미디어 서비스 v3을](https://docs.microsoft.com/azure/media-services/latest/)확인하십시오. 또한 [v2에서 v3로의 마이그레이션 지침을](../latest/migrate-from-v2-to-v3.md) 참조하십시오.
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요.   > 새 기능이 나 기능이 Media Services v2에 추가 되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 >
 
 Azure Media Services를 사용하면 다음 형식을 사용하여 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화할 수 있습니다.  
 
 * **AES-128 비트 봉투 암호화되지 않은 키**
 
-    전체 청크는 **AES-128 CBC** 모드를 사용하여 암호화됩니다. 스트림의 암호 해독은 iOS 및 OS X 플레이어에서 고유하게 지원됩니다. 자세한 내용은 [AES-128 동적 암호화 및 키 배달 서비스 사용을](media-services-protect-with-aes128.md)참조하십시오.
+    전체 청크는 **AES-128 CBC** 모드를 사용하여 암호화됩니다. 스트림의 암호 해독은 iOS 및 OS X 플레이어에서 고유하게 지원됩니다. 자세한 내용은 [AES-128 동적 암호화 및 키 배달 서비스 사용](media-services-protect-with-aes128.md)을 참조 하세요.
 * **Apple FairPlay**
 
     개별 비디오 및 오디오 샘플은 **AES-128 CBC** 모드를 사용하여 암호화됩니다. **FairPlay 스트리밍** (FPS)은 디바이스 운영 체제에 통합되며, iOS 및 Apple TV에서 고유하게 지원됩니다. OS X의 Safari는 EME(Encrypted Media Extensions) 인터페이스 지원을 사용하여 FPS를 지원합니다.
@@ -51,7 +51,7 @@ Azure Media Services를 사용하면 다음 형식을 사용하여 HLS(HTTP 라�
 
 Media Services를 사용하여 FairPlay로 암호화된 HLS를 배달하고 FairPlay 라이선스를 배달할 때 다음이 필요합니다.
 
-  * Azure 계정. 자세한 내용은 [Azure 무료 평가판을](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)참조하십시오.
+  * Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)을 참조 하세요.
   * Media Services 계정. 계정을 만들려면 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
   * [Apple Development Program](https://developer.apple.com/)에 등록합니다.
   * Apple에서는 [배포 패키지](https://developer.apple.com/contact/fps/)를 얻으려면 콘텐츠 소유자를 요구합니다. 이미 Media Services로 KSM(키 보안 모듈)을 구현했고 최종 FPS 패키지를 요청하고 있음을 명시합니다. 최종 FPS 패키지에는 인증을 생성하고 ASK(애플리케이션 비밀 키)를 얻기 위한 지침이 있습니다. ASK를 사용하여 FairPlay를 구성합니다.
@@ -143,13 +143,13 @@ iOS SDK를 사용하여 플레이어 앱을 개발할 수 있습니다. FairPlay
 * 하나의 암호화만 자산에 적용되었으면 URL에 암호화 형식을 지정할 필요가 없습니다.
 * 암호화 형식은 대/소문자를 구분하지 않습니다.
 * 다음과 같은 암호화 형식을 지정할 수 있습니다.  
-  * **cenc**: 공통 암호화 (플레이 레디 또는 와이드 바인)
-  * **cbcs-aapl**: 페어플레이
+  * **cenc**: 일반 암호화 (PlayReady 또는 widevto)
+  * **cbcs-aapl**: FairPlay
   * **cbc**: AES 봉투 암호화
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-1. .NET 을 사용하면 Media Services 개발에 설명된 대로 개발 환경을 설정하고 app.config 파일을 연결 [정보로](media-services-dotnet-how-to-use.md)채웁니다. 
+1. 개발 환경을 설정 하 고 [.net으로 개발 Media Services](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 2. 다음 요소를 app.config 파일에 정의된 **appSettings**에 추가합니다.
 
     ```xml
@@ -164,7 +164,7 @@ iOS SDK를 사용하여 플레이어 앱을 개발할 수 있습니다. FairPlay
 Program.cs 파일에 있는 코드를 이 섹션에 나와 있는 코드로 덮어씁니다.
 
 >[!NOTE]
->다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이](media-services-dotnet-manage-entities.md#limit-access-policies) 문서를 참조하세요.
+>다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이](media-services-dotnet-manage-entities.md#limit-access-policies) 문서를 참조 하세요.
 
 입력 파일이 있는 폴더를 가리키도록 변수를 업데이트해야 합니다.
 
@@ -555,7 +555,7 @@ namespace DynamicEncryptionWithFairPlay
 }
 ```
 
-## <a name="additional-notes"></a>추가적인 참고 사항
+## <a name="additional-notes"></a>추가 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

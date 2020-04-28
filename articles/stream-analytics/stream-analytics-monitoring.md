@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.custom: seodec18
 ms.openlocfilehash: 4e9f90035816269d2d41781be34d0d8080628b12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75431644"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Stream Analytics 작업 모니터링 및 쿼리를 모니터링하는 방법 이해
 
 ## <a name="introduction-the-monitor-page"></a>소개: 모니터 페이지
-Azure 포털은 쿼리 및 작업 성능을 모니터링하고 해결하는 데 사용할 수 있는 주요 성능 메트릭을 표시합니다. 이러한 메트릭을 보려면 메트릭을 보려고 하는 Stream Analytics 작업으로 이동하고 개요 페이지에서 **모니터링** 섹션을 봅니다.  
+Azure Portal는 쿼리 및 작업 성능을 모니터링 하 고 문제를 해결 하는 데 사용할 수 있는 주요 성능 메트릭을 표시 합니다. 이러한 메트릭을 보려면 메트릭을 보려고 하는 Stream Analytics 작업으로 이동하고 개요 페이지에서 **모니터링** 섹션을 봅니다.  
 
 ![Stream Analytics 작업 모니터링 링크](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
@@ -37,12 +37,12 @@ Azure 포털은 쿼리 및 작업 성능을 모니터링하고 해결하는 데 
 | 기능 요청      | Azure Machine Learning 함수(있는 경우)에 대한 호출 수입니다. |
 | 입력 역직렬화 오류       | 역직렬화할 수 없는 입력 이벤트 수입니다.  |
 | 입력 이벤트 바이트      | Stream Analytics 작업이 받은 데이터의 양(바이트)입니다. 입력 소스로 전송되는 이벤트의 유효성을 검사하는 데 사용할 수 있습니다. |
-| 입력 이벤트           | 입력 이벤트에서 역직렬화된 레코드 수입니다. 이 수에는 직렬화 오류가 발생하는 들어오는 이벤트가 포함되지 않습니다. |
-| 수신된 입력 원본       | 작업에서 받은 메시지 수입니다. 이벤트 허브의 경우 메시지는 단일 EventData입니다. Blob의 경우 메시지는 단일 Blob입니다. 입력 소스는 직렬화 전에 계산됩니다. 직렬화 오류가 있는 경우 입력 소스가 입력 이벤트보다 클 수 있습니다. 그렇지 않으면 각 메시지에 여러 이벤트가 포함될 수 있으므로 입력 이벤트보다 적거나 같을 수 있습니다. |
+| 입력 이벤트           | 입력 이벤트에서 역직렬화된 레코드 수입니다. Deserialization 오류가 발생 하는 들어오는 이벤트는이 수에 포함 되지 않습니다. |
+| 수신된 입력 원본       | 작업에서 받은 메시지 수입니다. 이벤트 허브의 경우 메시지는 단일 EventData 합니다. Blob의 경우 메시지는 단일 blob입니다. Deserialization 전에는 입력 원본이 계산 됩니다. Deserialization 오류가 발생 하면 입력 된 소스가 입력 이벤트 보다 클 수 있습니다. 그렇지 않으면 각 메시지가 여러 이벤트를 포함할 수 있으므로 입력 이벤트 보다 작거나 같을 수 있습니다. |
 | 늦은 입력 이벤트      | 구성된 지연 도착 허용 시간보다 늦게 도착한 이벤트입니다. [Azure Stream Analytics 이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)에 대해 자세히 알아봅니다. |
 | 순서 비지정 이벤트    | 이벤트 순서 지정 정책에 기반하여 조정된 타임스탬프를 받거나 삭제된 순서가 정해지지 않은 수신 이벤트의 수입니다. 잘못된 순서 허용 시간 설정의 구성에 의해 영향을 받을 수 있습니다. |
 | 출력 이벤트          | Stream Analytics 작업이 출력 대상에 보낸 데이터의 양입니다(이벤트 수). |
-| 런타임 오류         | 쿼리 처리와 관련된 총 오류 수(이벤트를 생성하거나 결과를 입력하는 동안 발견된 오류 제외) |
+| 런타임 오류         | 쿼리 처리와 관련 된 총 오류 수입니다 (이벤트를 수집 하거나 결과를 출력 하는 동안 발견 된 오류 제외). |
 | SU % 사용률       | 작업의 크기 조정 탭에서 작업에 할당한 스트리밍 단위의 사용률입니다. 이 표시가 80% 이상에 도달하면 이벤트 처리가 지연되거나 진행을 중단할 가능성이 큽니다. |
 | 워터마크 지연       | 작업에 있는 모든 출력의 모든 파티션에서 발생하는 최대 워터마크 지연입니다. |
 
@@ -63,7 +63,7 @@ Azure 포털은 쿼리 및 작업 성능을 모니터링하고 해결하는 데 
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure 스트림 분석 사용 시작](stream-analytics-real-time-fraud-detection.md)
+* [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure 스트림 분석 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

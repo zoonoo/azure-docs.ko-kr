@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 22fd78ccd58be1790fcd167da396600e8b876564
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75428909"
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Lab 개념
@@ -38,7 +38,7 @@ Azure Claimable VM은 권한이 있는 랩 사용자면 누구나 사용할 수 
 
 클레임할 수 있는 VM은 초기에 특정 사용자에게 할당되지 않지만 모든 사용자의 목록에 있는 "클레임할 수 있는 가상 머신"에 표시됩니다. VM이 사용자에 의해 클레임되면 해당 사용자의 “내 가상 머신” 영역으로 이동되며 더 이상 다른 사용자가 클레임할 수 없습니다.
 
-## <a name="environment"></a>Environment
+## <a name="environment"></a>환경
 DevTest 랩에서 환경은 랩에 있는 Azure 리소스 컬렉션을 나타냅니다. [이 블로그 게시물](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/)에서는 Azure Resource Manager 템플릿에서 다중 VM 환경을 만드는 방법을 설명합니다.
 
 ## <a name="base-images"></a>기본 이미지

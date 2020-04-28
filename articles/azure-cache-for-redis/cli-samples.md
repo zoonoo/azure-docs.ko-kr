@@ -1,6 +1,6 @@
 ---
-title: Redis 샘플에 대한 Azure CLI Azure 캐시
-description: 'Redis용 Azure 캐시에 대한 Azure CLI 샘플: 캐시 만들기, 캐시 삭제, 캐시 세부 정보 가져오기, 호스트 이름, 포트 및 키, 웹 앱 연결.'
+title: Redis 샘플에 대 한 Azure Cache Azure CLI
+description: 'Redis 용 Azure 캐시에 대 한 Azure CLI 샘플: 캐시를 만들고, 캐시를 삭제 하 고, 캐시 세부 정보, 호스트 이름, 포트 및 키를 가져오고, 웹 앱에 연결 합니다.'
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
@@ -8,10 +8,10 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/14/2017
 ms.openlocfilehash: c43e23b4bf46258cc91b06a0912d03e85a5c7a14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75411354"
 ---
 # <a name="azure-cli-samples-for-azure-cache-for-redis"></a>Azure Cache for Redis용 Azure CLI 샘플

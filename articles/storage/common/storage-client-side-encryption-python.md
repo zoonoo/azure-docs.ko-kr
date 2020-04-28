@@ -1,5 +1,5 @@
 ---
-title: 파이썬을 사용한 클라이언트 측 암호화
+title: Python을 사용 하는 클라이언트 쪽 암호화
 titleSuffix: Azure Storage
 description: Python용 Azure Storage 클라이언트 라이브러리는 Azure Storage 애플리케이션의 보안을 최대화하기 위해 클라이언트 쪽 암호화를 지원합니다.
 services: storage
@@ -12,13 +12,13 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 16e66cd762b86b27dc6703542ca7261b2300a33b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74895379"
 ---
-# <a name="client-side-encryption-with-python"></a>파이썬을 사용한 클라이언트 측 암호화
+# <a name="client-side-encryption-with-python"></a>Python을 사용 하는 클라이언트 쪽 암호화
 
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
@@ -97,7 +97,7 @@ ms.locfileid: "74895379"
 
    문자열 속성만 암호화 할 수 있다는 것을 참고하세요. 다른 유형의 속성이 암호화 된 경우, 문자열로 변환합니다. 암호화된 문자열은 서비스에 이진 속성으로 저장되고 암호 해독 후에는 다시 문자열(원시 문자열, EdmType.STRING 형식을 갖는 EntityProperties 아님)로 변환됩니다.
 
-   테이블의 경우, 암호화 정책 외에도 사용자가 암호화할 속성을 지정해야 합니다. 형식을 EdmType.STRING으로 설정하고 암호화를 true로 설정하여 TableEntity 개체에 이러한 속성을 저장하거나 tableservice 개체에 대해 encryption_resolver_function을 설정하여 이 작업을 수행할 수 있습니다. 암호화 해결 프로그램은 파티션 키, 행 키, 그리고 속성 이름 및 암호화 여부 속성을 나타내는 부울을 반환하는 함수입니다. 암호화 하는 동안 클라이언트 라이브러리는 네트워크에 쓰는 동안 속성을 암호화 해야 하는지 여부를 결정하는데 이 정보를 사용합니다. 대리자 속성은 암호화 하는 방법 논리의 가능성도 제공 합니다. 예를 들어 X인 경우 속성 A를 암호화하고 속성 A와 B를 암호화합니다. 엔터티를 읽거나 쿼리하는 동안 이 정보를 제공할 필요는 없습니다.
+   테이블의 경우, 암호화 정책 외에도 사용자가 암호화할 속성을 지정해야 합니다. 형식을 EdmType.STRING으로 설정하고 암호화를 true로 설정하여 TableEntity 개체에 이러한 속성을 저장하거나 tableservice 개체에 대해 encryption_resolver_function을 설정하여 이 작업을 수행할 수 있습니다. 암호화 해결 프로그램은 파티션 키, 행 키, 그리고 속성 이름 및 암호화 여부 속성을 나타내는 부울을 반환하는 함수입니다. 암호화 하는 동안 클라이언트 라이브러리는 네트워크에 쓰는 동안 속성을 암호화 해야 하는지 여부를 결정하는데 이 정보를 사용합니다. 대리자 속성은 암호화 하는 방법 논리의 가능성도 제공 합니다. 예를 들어 X 인 경우에는 속성 A를 암호화 하 고, 그렇지 않으면 A와 B 속성을 암호화 합니다. 엔터티를 읽거나 쿼리 하는 동안에는이 정보를 제공 하지 않아도 됩니다.
 
 ### <a name="batch-operations"></a>Batch 작업
 배치의 모든 행에는 단일 암호화 정책이 적용됩니다. 클라이언트 라이브러리는 내부적으로 배치의 새로운 임의 IV와 행 기준 임의 CEK를 만듭니다. 사용자가 암호화 해결 프로그램에 이동작을 정의하여 배치의 모든 작업에 대해 암호화 할 다른 속성들을 선택할 수 있습니다.
@@ -234,7 +234,7 @@ my_table_service.get_entity(
     table_name, entity['PartitionKey'], entity['RowKey'])
 ```
 
-### <a name="using-attributes"></a>특성을 사용하여
+### <a name="using-attributes"></a>특성 사용
 위에서 설명한 것처럼 EntityProperty 개체에 저장하고 암호화 필드를 설정하여 속성을 암호화용으로 표시할 수 있습니다.
 
 ```python

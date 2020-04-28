@@ -1,6 +1,6 @@
 ---
-title: .NET SDK를 사용하여 스트리밍 엔드포인트를 관리합니다. | Microsoft Docs
-description: 이 문서에서는 Azure 포털에서 스트리밍 끝점을 관리하는 방법을 보여 줍니다.
+title: .NET SDK를 사용하여 스트리밍 엔드포인트를 관리합니다. | Microsoft 문서
+description: 이 문서에서는 Azure Portal를 사용 하 여 스트리밍 끝점을 관리 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74901269"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>.NET SDK를 사용하여 스트리밍 엔드포인트 관리  
@@ -50,7 +50,7 @@ ms.locfileid: "74901269"
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-.NET 을 사용하면 Media Services 개발에 설명된 대로 개발 환경을 설정하고 app.config 파일을 연결 [정보로](media-services-dotnet-how-to-use.md)채웁니다. 
+개발 환경을 설정 하 고 [.net으로 개발 Media Services](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 
 ## <a name="add-code-that-manages-streaming-endpoints"></a>스트리밍 엔드포인트를 관리하는 코드 추가
     

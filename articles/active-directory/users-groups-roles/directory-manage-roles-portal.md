@@ -1,5 +1,5 @@
 ---
-title: 관리자 역할 권한 보기 및 할당 - Azure AD | 마이크로 소프트 문서
+title: 관리자 역할 권한 보기 및 할당-Azure AD | Microsoft Docs
 description: 이제 포털에서 Azure AD 관리자 역할의 멤버를 보고 관리할 수 있습니다. 역할 할당을 자주 관리하는 사용자를 위한 것입니다.
 services: active-directory
 author: curtand
@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b2815b496545ca5f920c00df7b2b5b7efe15c12a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74900896"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 보기 및 할당
@@ -26,7 +26,7 @@ ms.locfileid: "74900896"
 
 ## <a name="view-all-roles"></a>모든 역할 보기
 
-**Azure Active Directory**를 검색하고 선택합니다. **역할 및 관리자를** 선택하여 사용 가능한 모든 역할 목록을 확인합니다.
+**Azure Active Directory**를 검색하고 선택합니다. **역할 및 관리자** 를 선택 하 여 사용 가능한 모든 역할 목록을 표시 합니다.
 
 각 행의 오른쪽에 있는 줄임표를 클릭하여 역할에 대한 자세한 설명을 엽니다.
 

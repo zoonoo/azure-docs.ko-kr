@@ -1,5 +1,5 @@
 ---
-title: Azure 스트림 분석에서 구성 가능한 임계값 기반 규칙
+title: Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙
 description: 이 문서에서는 Azure Stream Analytics를 사용하여 Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙이 있는 경고 솔루션을 얻는 방법을 설명합니다.
 author: mamccrea
 ms.author: mamccrea
@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 94fdddf11acb6763ed98a4b7e17304fbde0e25dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75369714"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙 처리

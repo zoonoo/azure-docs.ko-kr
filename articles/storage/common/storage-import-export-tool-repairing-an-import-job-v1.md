@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: f5db321d8c4a6e42591a82b0ed8eb6bc6e93bad4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74973886"
 ---
 # <a name="repairing-an-import-job"></a>가져오기 작업 복구
@@ -32,15 +32,15 @@ Microsoft Azure Import/Export 서비스는 Microsoft Azure Blob service에 파�
   
 |||  
 |-|-|  
-|**/r:**<복구 파일\>|**필수.** 복구의 진행 상황을 추적하고 중단된 복구를 다시 시작할 수 있도록 하는 복구 파일의 경로입니다. 각 드라이브에는 하나의 복구 파일만 있어야 합니다. 지정된 드라이브의 복구를 시작할 때 아직 존재하지 않는 복구 파일의 경로를 지정합니다. 중단된 복구를 다시 시작하려면 기존 복구 파일의 이름을 제공해야 합니다. 대상 드라이브에 해당하는 복구 파일을 항상 지정해야 합니다.|  
-|**/logdir:**<로그 디렉토리\>|**선택적.** 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 로그 디렉터리를 지정하지 않는 경우 현재 디렉터리가 로그 디렉터리로 사용됩니다.|  
+|**/r:**<RepairFile\>|**필수.** 복구의 진행 상황을 추적하고 중단된 복구를 다시 시작할 수 있도록 하는 복구 파일의 경로입니다. 각 드라이브에는 하나의 복구 파일만 있어야 합니다. 지정된 드라이브의 복구를 시작할 때 아직 존재하지 않는 복구 파일의 경로를 지정합니다. 중단된 복구를 다시 시작하려면 기존 복구 파일의 이름을 제공해야 합니다. 대상 드라이브에 해당하는 복구 파일을 항상 지정해야 합니다.|  
+|**/logdir:**<logdirectory\>|**필드.** 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 로그 디렉터리를 지정하지 않는 경우 현재 디렉터리가 로그 디렉터리로 사용됩니다.|  
 |**/d:**<TargetDirectories\>|**필수.** 가져온 원본 파일을 포함하는 하나 이상의 세미콜론으로 구분된 디렉터리. 가져오기 드라이브도 사용할 수 있으나 원본 파일의 대체 위치를 사용할 수 있는 경우 필요하지 않습니다.|  
-|**/bk:**<비트로커키\>|**선택적.** 이 도구를 사용하여 원본 파일을 사용할 수 있는 암호화된 드라이브의 잠금을 해제하려면 BitLocker 키를 지정해야 합니다.|  
+|**/bk:**<BitLockerKey\>|**필드.** 이 도구를 사용하여 원본 파일을 사용할 수 있는 암호화된 드라이브의 잠금을 해제하려면 BitLocker 키를 지정해야 합니다.|  
 |**/sn:**<StorageAccountName\>|**필수.** 가져오기 작업에 대한 스토리지 계정의 이름입니다.|  
-|**/sk:**<스토리지계정키\>|컨테이너 SAS를 지정하지 않는 경우에만 **필수**입니다. 가져오기 작업에 대한 스토리지 계정의 계정 키입니다.|  
+|**/StorageAccountKey:**<\>|컨테이너 SAS를 지정하지 않는 경우에만 **필수**입니다. 가져오기 작업에 대한 스토리지 계정의 계정 키입니다.|  
 |**/csas:**<ContainerSas\>|저장소 계정 키를 지정하지 않는 경우에만 **필수**입니다. 가져오기 작업과 연결된 blob에 액세스하기 위한 컨테이너 SAS입니다.|  
-|**/copyLogFile:**<드라이브복사로그파일\>|**필수.** 드라이브 복사 로그 파일(자세한 로그 또는 오류 로그)의 경로입니다. 이 파일은 Microsoft Azure Import/Export 서비스에 의해 생성되고 작업과 연결된 Blob Storage에서 다운로드할 수 있습니다. 복사 로그 파일에는 복구해야 하는 실패한 blob 또는 파일에 대한 정보가 포함되어 있습니다.|  
-|**/PathMapFile:**<DrivePathMapFile\>|**선택적.** 같은 작업에서 가져오는 여러 파일이 같은 이름을 갖는 경우 모호성을 해결하기 위해 사용할 수 있는 텍스트 파일의 경로입니다. 이 도구는 처음 실행될 때 모호한 모든 이름으로 이 파일을 채울 수 있습니다. 이 도구를 이후에 실행하면 이 파일이 모호성을 해결하는 데 사용됩니다.|  
+|**/Dvlogfile:**<드라이브 \ Opylogfile\>|**필수.** 드라이브 복사 로그 파일(자세한 로그 또는 오류 로그)의 경로입니다. 이 파일은 Microsoft Azure Import/Export 서비스에 의해 생성되고 작업과 연결된 Blob Storage에서 다운로드할 수 있습니다. 복사 로그 파일에는 복구해야 하는 실패한 blob 또는 파일에 대한 정보가 포함되어 있습니다.|  
+|**/PathMapFile:**<DrivePathMapFile\>|**필드.** 같은 작업에서 가져오는 여러 파일이 같은 이름을 갖는 경우 모호성을 해결하기 위해 사용할 수 있는 텍스트 파일의 경로입니다. 이 도구는 처음 실행될 때 모호한 모든 이름으로 이 파일을 채울 수 있습니다. 이 도구를 이후에 실행하면 이 파일이 모호성을 해결하는 데 사용됩니다.|  
   
 ## <a name="using-the-repairimport-command"></a>RepairImport 명령 사용  
 네트워크를 통해 데이터를 스트리밍하여 가져오기 데이터를 복구하려면 `/d` 매개 변수를 사용하여 가져오는 원본 파일을 포함하는 디렉터리를 지정해야 합니다. 또한 스토리지 계정에서 다운로드한 복사 로그 파일도 지정해야 합니다. 부분적으로 실패한 가져오기 작업을 복구하는 일반적인 명령줄은 다음과 같습니다.  
@@ -99,8 +99,8 @@ WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bo
   
 ## <a name="next-steps"></a>다음 단계
  
-* [Azure 가져오기/내보내기 도구 설정](storage-import-export-tool-setup-v1.md)   
-* [가져오기 작업에 대한 하드 드라이브 준비](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Azure Import/Export 도구 설정](storage-import-export-tool-setup-v1.md)   
+* [가져오기 작업을 위한 하드 드라이브 준비](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [내보내기 작업 복구](../storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [Azure 가져오기/내보내기 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
+* [Azure Import/Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)

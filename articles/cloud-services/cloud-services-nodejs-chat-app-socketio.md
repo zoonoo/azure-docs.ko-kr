@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 0b515c630d8a3539cdab1df64b1925e9fcaf206e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75360772"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 애플리케이션 빌드
@@ -27,7 +27,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
 ## <a name="prerequisites"></a>사전 요구 사항
 이 문서의 예제를 완료하려면 다음 제품 및 버전이 설치되어 있는지 확인합니다.
 
-* [비주얼 스튜디오](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) 설치
+* [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) 설치
 * [Node.js](https://nodejs.org/download/)
 * [Python 버전 2.7.10](https://www.python.org/)
 
@@ -106,9 +106,9 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
    > [!NOTE]
    > 에뮬레이터 시작 문제가 발생하는 경우(예: Start-AzureEmulator: 예기치 않은 오류가 발생했습니다.  세부 정보: 예기치 않은 오류가 발생했습니다. 통신 개체 System.ServiceModel.Channels.ServiceChannel은(는) Faulted 상태이기 때문에 통신에 사용할 수 없습니다.)
    > 
-   > 다시 설치 AzureAuthoringTools v 2.7.1 및 AzureComputeEmulator v 2.7 - 해당 버전이 일치하는지 확인합니다.
+   > AzureAuthoringTools v 2.7.1 및 azure Eemulator v 2.7을 다시 설치-버전이 일치 하는지 확인 합니다.
 
-2. 브라우저를 열고 로 **http://127.0.0.1**이동합니다.
+2. 브라우저를 열고로 **http://127.0.0.1**이동 합니다.
 3. 브라우저 창이 열리면 애칭을 입력하고 Enter 키를 누릅니다.
    이렇게 하면 특정 애칭으로 메시지를 게시할 수 있습니다. 다중 사용자 기능을 테스트하려면 같은 URL을 사용하여 브라우저 창을 추가로 열고 다른 애칭을 입력합니다.
    
@@ -116,7 +116,7 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
 4. 애플리케이션을 테스트한 후 다음 명령을 실행하여 에뮬레이터를 중지합니다.
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. Azure에 애플리케이션을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예를 들어:
+5. Azure에 애플리케이션을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 다음은 그 예입니다.
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    

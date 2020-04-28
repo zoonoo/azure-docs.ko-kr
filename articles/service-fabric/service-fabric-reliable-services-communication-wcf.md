@@ -1,15 +1,15 @@
 ---
-title: 신뢰할 수 있는 서비스 WCF 통신 스택
+title: Reliable Services WCF 통신 스택
 description: 서비스 패브릭의 기본 제공 WCF 통신 스택은 Reliable Services를 위한 클라이언트-서비스 WCF 통신을 제공합니다.
 author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: bharatn
 ms.openlocfilehash: 7f3b3974893316a488270f755b8f8822080658d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75433856"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Reliable Services에 대한 WCF 기반 통신 스택

@@ -1,5 +1,5 @@
 ---
-title: Azure 스트림 분석에서 검사점 및 복구 개념 재생
+title: Azure Stream Analytics의 검사점 및 재생 복구 개념
 description: 이 문서에서는 Azure Stream Analytics의 검사점 및 재생 작업 복구 개념에 대해 설명합니다.
 author: mamccrea
 ms.author: mamccrea
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: f5bb2b97d7da770828c2f4f03167483ad2044c79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75426400"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 검사점 및 재생 개념

@@ -1,6 +1,6 @@
 ---
-title: Azure IoT 허브 장치 프로비전 서비스로 프로비전된 프로비저닝 해제
-description: Azure IoT 허브 장치 프로비전 서비스(DPS)로 프로비전된 장치를 프로비저닝 해제하는 방법
+title: Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 프로 비전 된 장치 프로 비전 해제
+description: Azure IoT Hub 장치 프로 비전 서비스 (DPS)를 사용 하 여 프로 비전 된 장치의 프로 비전을 해제 하는 방법
 author: wesmc7777
 ms.author: wesmc
 ms.date: 05/11/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 8a3677ba285f5b02407ca3d176979bf6c016ef9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74974839"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>이전에 자동으로 프로비전된 디바이스의 프로비전을 해제하는 방법 

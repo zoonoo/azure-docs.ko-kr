@@ -1,6 +1,6 @@
 ---
-title: 가상 시스템 규모 집합- Azure CLI - Azure AD에서 관리되는 ID 구성
-description: Azure CLI를 사용하여 Azure 가상 시스템 규모 집합에서 시스템 및 사용자 할당관리 ID를 구성하기 위한 단계별 지침입니다.
+title: 가상 컴퓨터 확장 집합에서 관리 되는 id 구성-Azure CLI-Azure AD
+description: Azure CLI를 사용 하 여 Azure 가상 머신 확장 집합에서 시스템 및 사용자 할당 관리 id를 구성 하는 단계별 지침을 설명 합니다.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -16,10 +16,10 @@ ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2832a8c584c0fbe707f22501809d772c6ffb970b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75430083"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성
@@ -28,12 +28,12 @@ ms.locfileid: "75430083"
 
 Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로 관리 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다. 
 
-이 문서에서는 Azure CLI를 사용하여 Azure 가상 시스템 규모 집합에서 Azure 리소스 작업에 대해 다음과 같은 관리되는 ID를 수행하는 방법을 알아봅니다.
+이 문서에서는 Azure CLI를 사용 하 여 Azure 가상 머신 확장 집합에서 Azure 리소스 작업에 대해 다음과 같은 관리 되는 id를 수행 하는 방법에 대해 알아봅니다.
 - Azure 가상 머신 확장 집합에서 시스템 할당 관리 ID를 사용하거나 사용하지 않도록 설정
 - Azure 가상 머신 확장 집합에서 사용자 할당 관리 ID 추가 및 제거
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#how-does-the-managed-identities-for-azure-resources-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
@@ -57,7 +57,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 ## <a name="system-assigned-managed-identity"></a>시스템 할당 관리 ID
 
-이 섹션에서는 Azure CLI를 사용하여 Azure 가상 시스템 규모 집합에 대해 시스템 할당된 관리되는 ID를 활성화하고 사용하지 않도록 설정하는 방법을 알아봅니다.
+이 섹션에서는 Azure CLI를 사용 하 여 Azure 가상 머신 확장 집합에 대 한 시스템 할당 관리 id를 사용 하거나 사용 하지 않도록 설정 하는 방법에 대해 알아봅니다.
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Azure 가상 머신 확장 집합을 만드는 동안 시스템 할당 관리 ID를 사용하도록 설정
 
@@ -122,7 +122,7 @@ az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>가상 머신 확장 집합을 만드는 동안 사용자 할당 관리 ID를 할당합니다.
 
-이 섹션에서는 가상 시스템 규모 집합을 만들고 사용자가 할당한 관리되는 ID를 가상 시스템 규모 집합에 할당하는 방법을 안내합니다. 사용하려는 가상 시스템 크기 집합이 이미 있는 경우 이 섹션을 건너뛰고 다음 단계로 진행합니다.
+이 섹션에서는 가상 머신 확장 집합을 만들고 가상 머신 확장 집합에 사용자 할당 관리 id를 할당 하는 과정을 안내 합니다. 사용 하려는 가상 머신 확장 집합이 이미 있는 경우이 섹션을 건너뛰고 다음 단계로 진행 합니다.
 
 1. 사용하려는 리소스 그룹이 이미 있다면 이 단계를 건너뛰어도 됩니다. [az group create](/cli/azure/group/#az-group-create)를 사용하여 사용자 할당 관리 ID를 포함하고 배포하는 데 사용할 [리소스 그룹](~/articles/azure-resource-manager/management/overview.md#terminology)을 만듭니다. `<RESOURCE GROUP>` 및 `<LOCATION>` 매개 변수 값을 원하는 값으로 바꾸세요. :
 
@@ -154,7 +154,7 @@ az vmss update -n myVM -g myResourceGroup --set identity.type="none"
    }
    ```
 
-3. [az vms를](/cli/azure/vmss/#az-vmss-create)사용하여 가상 시스템 크기 집합을 만듭니다. 다음 예제에서는 매개 변수에 의해 지정된 대로 새 사용자 할당된 `--assign-identity` 관리 되는 ID와 연결 된 가상 시스템 규모 집합을 만듭니다. `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` 및 `<USER ASSIGNED IDENTITY>` 매개 변수 값을 원하는 값으로 바꾸세요. 
+3. [Az vmss create](/cli/azure/vmss/#az-vmss-create)를 사용 하 여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 `--assign-identity` 매개 변수에 지정 된 대로 새 사용자 할당 관리 id와 연결 된 가상 머신 확장 집합을 만듭니다. `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` 및 `<USER ASSIGNED IDENTITY>` 매개 변수 값을 원하는 값으로 바꾸세요. 
 
    ```azurecli-interactive 
    az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY>
@@ -184,7 +184,7 @@ az vmss update -n myVM -g myResourceGroup --set identity.type="none"
    }
    ```
 
-2. [az vmss ID 할당을](/cli/azure/vmss/identity)사용하여 가상 시스템 규모 집합에 사용자 할당된 관리ID를 할당합니다. `<RESOURCE GROUP>` 및 `<VIRTUAL MACHINE SCALE SET NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<USER ASSIGNED IDENTITY>`는 이전 단계에서 만든 대로 사용자 할당 ID의 리소스 `name` 속성입니다.
+2. [Az vmss identity assign](/cli/azure/vmss/identity)를 사용 하 여 사용자 할당 관리 id를 가상 머신 확장 집합에 할당 합니다. `<RESOURCE GROUP>` 및 `<VIRTUAL MACHINE SCALE SET NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<USER ASSIGNED IDENTITY>`는 이전 단계에서 만든 대로 사용자 할당 ID의 리소스 `name` 속성입니다.
 
     ```azurecli-interactive
     az vmss identity assign -g <RESOURCE GROUP> -n <VIRTUAL MACHINE SCALE SET NAME> --identities <USER ASSIGNED IDENTITY>

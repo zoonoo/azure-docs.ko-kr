@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 507afad294e8233ea4de4130795f29925870fcdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74888056"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services 조각화된 MP4 라이브 수집 사양 
 
 이 사양에서는 Azure Media Services용 조각화된 MP4 기반 라이브 스트리밍 수집에 대한 프로토콜 및 형식을 설명합니다. Media Services는 Azure를 클라우드 플랫폼으로 사용하여 고객이 실시간으로 라이브 이벤트를 스트림하고 콘텐츠를 브로드캐스트할 수 있는 라이브 스트리밍 서비스를 제공합니다. 이 문서에서는 매우 중복되고 강력한 라이브 수집 메커니즘을 구축하는 모범 사례도 다룹니다.
 
-## <a name="1-conformance-notation"></a>1. 적합성 표기
+## <a name="1-conformance-notation"></a>1. 규칙 표기법
 이 문서의 키워드인 “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY” 및 “OPTIONAL”은 RFC 2119에 기재된 바와 같이 번역됩니다.
 
 ## <a name="2-service-diagram"></a>2. 서비스 다이어그램
@@ -38,14 +38,14 @@ ms.locfileid: "74888056"
 
 ![수집 흐름][image1]
 
-## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. 비트 스트림 형식 - ISO 14496-12 조각MP4
+## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. bitstream 형식 – ISO 14496-12 조각화 된 MP4
 이 문서에서 설명하는 라이브 스트리밍 수집용 유선 형식은 [ISO-14496-12]를 기반으로 합니다. 주문형 비디오 파일 및 라이브 스트리밍 수집 모두에 대한 조각화된 MP4 형식 및 확장에 대한 자세한 내용은 [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx)을 참조하세요.
 
 ### <a name="live-ingest-format-definitions"></a>라이브 수집 형식 정의
 다음 목록에는 Azure Media Services에 라이브 수집을 적용하는 특별한 형식 정의가 설명되어 있습니다.
 
 1. **ftyp**, **Live Server Manifest Box** 및 **moov** 상자는 반드시 각 요청(HTTP POST)과 함께 전송되어야 합니다. 이러한 상자는 반드시 스트림의 시작 부분에 전송되어야 하며, 스트림 수집을 계속하려면 인코더를 반드시 다시 연결해야 합니다. 자세한 내용은 [1]의 섹션 6을 참조하세요.
-1. [1]의 섹션 3.3.2는 라이브 인제스트를 위해 **StreamManifestBox라는** 선택적 상자를 정의합니다. Azure Load Balancer의 라우팅 논리로 인해 이 상자는 사용되지 않습니다. Media Services로 수집하는 경우 상자가 표시되어서는 안 됩니다. 이 상자가 표시되는 경우 Media Services는 자동으로 이를 무시합니다.
+1. [1]의 3.3.2 섹션은 live 수집에 대해 **라이브 수집용 streammanifestbox** 라는 선택적 상자를 정의 합니다. Azure Load Balancer의 라우팅 논리로 인해 이 상자는 사용되지 않습니다. Media Services로 수집하는 경우 상자가 표시되어서는 안 됩니다. 이 상자가 표시되는 경우 Media Services는 자동으로 이를 무시합니다.
 1. [1]의 3.2.3.2에서 설명된 **TrackFragmentExtendedHeaderBox** 상자는 반드시 조각마다 있어야 합니다.
 1. **TrackFragmentExtendedHeaderBox** 상자의 버전 2를 여러 데이터 센터에서 동일한 URL로 미디어 세그먼트를 생성하는 데 사용해야 합니다. 조각 인덱스 필드는 Apple HLS 및 인덱스 기반 MPEG-DASH와 같은 인덱스 기반 스트리밍 형식의 데이터 센터 간 장애 조치(failover)에 필요합니다. 데이터 센터 간 장애 조치(failover)를 사용하려면 조각 인덱스가 반드시 여러 인코더에 걸쳐 동기화되고, 인코더 재시작 또는 오류 중에도 연속되는 각 미디어 조각에 대해 1씩 증가되어야 합니다.
 1. [1]의 섹션 3.3.6은 라이브 수집의 끝에 전송되어 채널에 EOS(스트림 끝)를 나타낼 수 있는 **MovieFragmentRandomAccessBox**(**mfra**)를 정의합니다. Media Services의 수집 논리에 따라 EOS는 사용되지 않으며, 라이브 수집용 **mfra** 상자를 전송하지 않아야 합니다. 전송한 경우 Media Services는 자동으로 이를 무시합니다. 수집 지점의 상태를 다시 설정하려면 [채널 재설정](https://docs.microsoft.com/rest/api/media/operations/channel#reset_channels)을 사용하는 것이 좋습니다. 프레젠테이션 및 스트림을 종료하려면 [프로그램 중지](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs)를 사용하는 것이 좋습니다.
@@ -53,7 +53,7 @@ ms.locfileid: "74888056"
 1. MP4 조각 기간은 약 2~6초 사이여야 합니다.
 1. MP4 조각 타임스탬프 및 인덱스(**TrackFragmentExtendedHeaderBox** `fragment_ absolute_ time` 및 `fragment_index`)는 오름차순으로 도착해야 합니다. Media Services는 중복 조각에 대한 복원력이 뛰어나지만 미디어 타임라인에 따라 조각의 순서를 다시 지정하는 기능은 한정적입니다.
 
-## <a name="4-protocol-format--http"></a>4. 프로토콜 형식 - HTTP
+## <a name="4-protocol-format--http"></a>4. 프로토콜 형식 – HTTP
 Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 실행 HTTP POST 요청을 사용하여 조각화된 MP4 형식으로 패키징된 인코딩된 미디어 데이터를 서비스에 전송합니다. 각 HTTP POST는 헤더 상자(**ftyp**, **Live Server Manifest Box** 및 **moov** 상자)로 시작되고 조각의 시퀀스(**moof** 및 **mdat** 상자)로 계속되는 전체 조각화된 MP4 비트스트림(“스트림”)을 전송합니다. HTTP POST 요청에 대한 URL 구문은 [1]의 섹션 9.2를 참조하세요. POST URL의 예는 다음과 같습니다. 
 
     http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
@@ -69,7 +69,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 1. 인코더는 결코 Media Services로의 라이브 수집을 위해 [1]의 9.2에 설명한 `Events()` 명사를 사용하면 안 됩니다.
 1. HTTP POST 요청이 스트림의 끝 이전에 TCP 오류로 종료되거나 시간 초과된 경우, 인코더는 반드시 새 연결을 사용하여 새 POST 요청을 발행하고 이전 요구 사항을 따라야 합니다. 또한 인코더는 반드시 스트림에 각 추적에 대한 이전 두 MP4 조각을 다시 전송하고, 미디어 타임라인에서 불연속성을 발생시키지 않고 다시 시작해야 합니다. 각 트랙에 대해 마지막 2개의 MP4 조각을 다시 전송하여 데이터 손실이 없음을 보증합니다. 즉, 하나의 스트림이 오디오 및 비디오 트랙을 모두 포함하고 현재의 POST 요청이 실패한 경우, 데이터 손실이 없도록 인코더는 반드시 다시 연결하고 이전에 성공적으로 전송된 오디오 트랙에 대해 마지막 2개의 조각 및 이전에 성공적으로 전송된 비디오 트랙에 대해 마지막 2개의 조각을 다시 전송해야 합니다. 인코더는 반드시 다시 연결될 때 다시 전송되는 미디어 조각의 “정방향” 버퍼를 유지해야 합니다.
 
-## <a name="5-timescale"></a>5. 시간대
+## <a name="5-timescale"></a>5. 날짜 표시줄
 [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx)은 **SmoothStreamingMedia**(섹션 2.2.2.1), **StreamElement**(섹션 2.2.2.3), **StreamFragmentElement**(섹션 2.2.2.6) 및 **LiveSMIL**(섹션 2.2.7.3.1)에 대한 시간 간격의 사용법에 대해 설명합니다. 시간 간격 값이 없는 경우 사용되는 기본값은 10,000,000(10MHz)입니다. 부드러운 스트리밍 형식 사양이 다른 시간 간격 값을 차단하지 않더라도 대부분의 인코더 구현은 이 기본값(10MHz)을 사용하여 부드러운 스트리밍 수집 데이터를 생성합니다. [Azure 미디어 동적 패키징](media-services-dynamic-packaging-overview.md) 기능에 따라 비디오 스트림에는 90KHz 시간 간격을, 오디오 스트림에는 44.1KHz 또는 48.1KHz를 사용하는 것이 좋습니다. 다른 스트림에 다른 시간 간격 값이 사용되는 경우 스트림 수준 시간 간격은 반드시 전송되어야 합니다. 자세한 내용은 [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx)을 참조하세요.     
 
 ## <a name="6-definition-of-stream"></a>6. "스트림"의 정의
@@ -99,9 +99,9 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 ![스트림 - 오디오 및 비디오 트랙][image4]
 
 ### <a name="summary"></a>요약
-이는 이 예제에서 가능한 모든 수집 옵션의 완벽한 목록은 아닙니다. 사실상 어떤 트랙을 스트림에 그룹화하는 것은 라이브 수집에서 지원됩니다. 고객 및 인코더 공급 업체는 엔지니어링 복잡성, 인코더 용량 및 중복성과 장애 조치 고려 사항에 따라 고유한 구현을 선택할 수 있습니다. 그러나 대부분의 경우 전체 라이브 프레젠테이션에 대해 하나의 오디오 트랙만 존재합니다. 따라서 오디오 트랙이 포함된 섭취 스트림의 상태를 확인하는 것이 중요합니다. 이 고려 사항은 종종 (옵션 2에서와 같이) 자신의 스트림에 오디오 트랙을 넣어 또는 (옵션 3에서와 같이) 가장 낮은 비트 레이트 비디오 트랙으로 번들. 또한 중복성과 내결함성을 향상시키기 위해 동일한 오디오 트랙을 2개의 다른 스트림으로 전송하는 경우(중복 오디오 트랙을 사용한 옵션 2)나 오디오 트랙을 2개 이상의 가장 낮은 비트 전송률의 비디오 트랙에 번들화하는 경우(2개 이상의 비디오 스트림에 오디오를 번들화하는 옵션 3)는 Media Services의 라이브 수집에 적극 권장됩니다.
+이는 이 예제에서 가능한 모든 수집 옵션의 완벽한 목록은 아닙니다. 사실상 어떤 트랙을 스트림에 그룹화하는 것은 라이브 수집에서 지원됩니다. 고객 및 인코더 공급 업체는 엔지니어링 복잡성, 인코더 용량 및 중복성과 장애 조치 고려 사항에 따라 고유한 구현을 선택할 수 있습니다. 그러나 대부분의 경우 전체 라이브 프레젠테이션에 대해 하나의 오디오 트랙만 존재합니다. 따라서 오디오 트랙을 포함 하는 수집 스트림의 온전성을 확인 하는 것이 중요 합니다. 이러한 고려 사항은 오디오 트랙을 자체 스트림에 배치 하는 경우 (옵션 2) 나 가장 낮은 비트 전송률 비디오 트랙 (옵션 3의 경우와 같이)으로 묶는 것을 종종 발생 합니다. 또한 중복성과 내결함성을 향상시키기 위해 동일한 오디오 트랙을 2개의 다른 스트림으로 전송하는 경우(중복 오디오 트랙을 사용한 옵션 2)나 오디오 트랙을 2개 이상의 가장 낮은 비트 전송률의 비디오 트랙에 번들화하는 경우(2개 이상의 비디오 스트림에 오디오를 번들화하는 옵션 3)는 Media Services의 라이브 수집에 적극 권장됩니다.
 
-## <a name="7-service-failover"></a>7. 서비스 장애 조치
+## <a name="7-service-failover"></a>7. 서비스 장애 조치 (failover)
 라이브 스트리밍의 특성상 양호한 장애 조치 지원은 서비스의 가용성을 보장하는 데 매우 중요합니다. Media Services는 네트워크 오류, 서버 오류 및 스토리지 문제를 포함하는 다양한 오류 형식을 처리하도록 설계되었습니다. 라이브 인코더 측의 적절한 장애 조치(failover) 논리와 함께 사용하면 고객은 클라우드에서 매우 안정적인 라이브 스트리밍 서비스를 달성할 수 있습니다.
 
 이 섹션에서는 서비스 장애 조치(failover) 시나리오를 설명합니다. 이 경우 서비스 내 어딘가에서 오류가 발생하고 자체적으로 네트워크 오류로 매니페스트합니다. 다음은 서비스 장애 조치를 처리하기 위한 인코더 구현에 대한 몇 가지 권장 사항입니다.
@@ -116,12 +116,12 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 
     b. 새 HTTP POST URL은 초기 POST URL과 반드시 동일해야 합니다.
   
-    다. 새 HTTP POST는 반드시 초기 POST의 스트림 헤더와 동일한 스트림 헤더(**ftyp**, **Live Server Manifest Box** 및 **moov** 상자)를 포함해야 합니다.
+    c. 새 HTTP POST는 반드시 초기 POST의 스트림 헤더와 동일한 스트림 헤더(**ftyp**, **Live Server Manifest Box** 및 **moov** 상자)를 포함해야 합니다.
   
     d. 반드시 각 트랙에 전송된 마지막 두 조각이 다시 전송되고, 미디어 타임라인에서 불연속성을 발생시키지 않고 스트리밍이 계속되어야 합니다. MP4 조각 타임 스탬프는 HTTP POST 요청 간에도 반드시 지속적으로 증가해야 합니다.
 1. MP4 조각 기간에 상응하는 속도로 데이터가 전송되고 있지 않은 경우 인코더는 HTTP POST 요청을 종료해야 합니다.  데이터를 전송하지 않는 HTTP POST 요청은 Media Services가 서비스 업데이트 발생 시 인코더에서 연결이 빨리 끊어지는 것을 방지할 수 있습니다. 따라서 스파스 조각이 전송되면 즉시 종료되는 스파스(광고 신호) 트랙용 HTTP POST는 수명이 짧아야 합니다.
 
-## <a name="8-encoder-failover"></a>8. 인코더 장애 조치
+## <a name="8-encoder-failover"></a>8. 인코더 장애 조치 (failover)
 인코더 장애 조치(failover)는 엔드투엔드 라이브 스트리밍 배달에 대해 해결해야 하는 장애 조치(failover) 시나리오의 두 번째 형식입니다. 이 시나리오에서는 오류 조건이 인코더 쪽에서 발생합니다. 
 
 ![인코더 장애 조치(failover)][image5]
@@ -149,7 +149,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 
 ![서비스 중복성][image7]
 
-## <a name="11-special-types-of-ingestion-formats"></a>11. 섭취 형식의 특별한 유형
+## <a name="11-special-types-of-ingestion-formats"></a>11. 특정 형식의 수집 형식
 이 섹션에서는 특정 시나리오를 처리하기 위해 설계된 라이브 수집 형식의 특수한 유형을 설명합니다.
 
 ### <a name="sparse-track"></a>스파스 트랙
@@ -158,7 +158,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 다음 단계는 스파스 트랙 수집의 바람직한 구현입니다.
 
 1. 오디오/비디오 트랙 없이 스파스 트랙만 포함하는 별도의 조각화된 MP4 비트스트림을 생성합니다.
-1. [1]의 섹션 6에 정의된 **라이브 서버 매니페스트 상자에서** *parentTrackName* 매개 변수를 사용하여 상위 트랙의 이름을 지정합니다. 자세한 내용은 [1]의 섹션 4.2.1.2.1.2를 참조하십시오.
+1. [1]의 섹션 6에서 정의한 대로 **라이브 서버 매니페스트 상자** 에서 *parenttrack name* 매개 변수를 사용 하 여 부모 트랙의 이름을 지정 합니다. 자세한 내용은 [1]의 4.2.1.2.1.2 섹션을 참조 하세요.
 1. **Live Server Manifest Box**에서 **manifestOutput**을 반드시 **true**로 설정해야 합니다.
 1. 신호 보내기 이벤트의 스파스 특성에 따라 다음이 권장됩니다.
    
@@ -166,7 +166,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
    
     b. 인코더는 데이터가 전송되지 않을 때 HTTP POST 요청을 종료해야 합니다. 데이터를 전송하지 않는 HTTP POST는 Media Services가 서비스 업데이트 또는 서버 다시 시작 시 인코더에서 연결이 빨리 끊어지는 것을 방지할 수 있습니다. 이러한 경우에 미디어 서버는 소켓의 수신 작업에서 일시적으로 차단됩니다.
    
-    다. 신호 보내기 데이터를 사용할 수 없는 시간 동안 인코더는 HTTP POST 요청을 닫아야 합니다. POST 요청이 활성화되어 있는 동안 인코더는 데이터를 전송해야 합니다.
+    c. 신호 보내기 데이터를 사용할 수 없는 시간 동안 인코더는 HTTP POST 요청을 닫아야 합니다. POST 요청이 활성화되어 있는 동안 인코더는 데이터를 전송해야 합니다.
 
     d. 스파스 조각을 전송하는 경우 인코더는 명시적 콘텐츠-길이 헤더를 사용할 수 있는 경우 이를 설정할 수 있습니다.
 
@@ -187,7 +187,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 다음은 중복 오디오 트랙의 바람직한 구현입니다.
 
 1. 하나의 스트림에서 자체적으로 고유한 각 오디오 트랙을 전송합니다. 또한 HTTP POST URL: {protocol}://{server address}/{publishing point path}/Streams({identifier})에서 첫 번째 스트림과 두 번째 스트림이 식별자만 다른 경우 이 오디오 트랙 스트림 각각에 대해 중복 스트림을 전송합니다.
-1. 별도 스트림을 사용하여 2개의 가장 낮은 비디오 비트 전송률을 전송합니다. 이러한 각 스트림에는 각 고유 오디오 트랙의 복사본도 포함되어야 합니다. 예를 들어 여러 언어가 지원되는 경우 이러한 스트림에는 각 언어에 대한 오디오 트랙이 포함되어야 합니다.
+1. 별도 스트림을 사용하여 2개의 가장 낮은 비디오 비트 전송률을 전송합니다. 이러한 각 스트림에는 각각의 고유한 오디오 트랙의 복사본도 포함 되어야 합니다. 예를 들어 여러 언어가 지원 되는 경우 이러한 스트림은 각 언어에 대 한 오디오 트랙을 포함 해야 합니다.
 1. 별도 서버(인코더) 인스턴스를 사용하여 인코딩하고 (1) 및 (2)에 언급된 중복 스트림을 전송합니다. 
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로

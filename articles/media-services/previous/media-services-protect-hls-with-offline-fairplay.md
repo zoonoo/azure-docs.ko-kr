@@ -16,20 +16,20 @@ ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.openlocfilehash: 1644c00aea8eefa78550c8d0238dbedab0378492
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74968701"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>iOS용 오프라인 FairPlay 스트리밍 
 
-> [!div class="op_single_selector" title1="사용 중인 미디어 서비스의 버전을 선택합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Media Services의 버전을 선택 합니다."]
 > * [버전 3](../latest/offline-fairplay-for-ios.md)
 > * [버전 2](media-services-protect-hls-with-offline-fairplay.md)
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전, [미디어 서비스 v3을](https://docs.microsoft.com/azure/media-services/latest/)확인하십시오. 또한 [v2에서 v3로의 마이그레이션 지침을](../latest/migrate-from-v2-to-v3.md) 참조하십시오.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 Azure Media Services는 다음을 대상으로 하는 적절히 디자인된 [콘텐츠 보호 서비스](https://azure.microsoft.com/services/media-services/content-protection/) 집합을 제공합니다.
 
@@ -43,8 +43,8 @@ Azure Media Services는 다음을 대상으로 하는 적절히 디자인된 [�
 다양한 스트리밍 프로토콜을 통한 온라인 스트리밍에 대한 콘텐츠를 보호하는 것 외에도, 보호된 콘텐츠에 대한 오프 라인 모드 또한 자주 요청되는 기능입니다. 다음 시나리오에 대해 오프라인 모드 지원이 필요합니다.
 
 * 인터넷 연결을 사용할 수 없을 경우(예: 여행 중) 재생합니다.
-* 일부 콘텐츠 공급자는 국가/지역의 경계를 넘어 DRM 라이선스 배달을 허용하지 않을 수 있습니다. 사용자가 국가/지역 외부로 여행하는 동안 콘텐츠를 시청하려면 오프라인 다운로드가 필요합니다.
-* 일부 국가/지역에서는 인터넷 가용성 및/또는 대역폭이 여전히 제한되어 있습니다. 사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 보고자 먼저 다운로드를 선택할 수도 있습니다. 이 경우, 일반적으로 문제는 네트워크 가용성이 아니라 제한된 네트워크 대역폭입니다. OTT(Over-the-top)/OVP(온라인 비디오 플랫폼) 공급자는 오프라인 모드 지원을 요청합니다.
+* 일부 콘텐츠 공급자는 국가/지역 테두리를 넘어 DRM 라이선스 배달을 허용 하지 않을 수 있습니다. 사용자가 국가/지역 외부로 여행 하는 동안 콘텐츠를 시청 하려는 경우 오프 라인 다운로드가 필요 합니다.
+* 일부 국가/지역에서는 인터넷 가용성 및/또는 대역폭이 여전히 제한 됩니다. 사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 보고자 먼저 다운로드를 선택할 수도 있습니다. 이 경우, 일반적으로 문제는 네트워크 가용성이 아니라 제한된 네트워크 대역폭입니다. OTT(Over-the-top)/OVP(온라인 비디오 플랫폼) 공급자는 오프라인 모드 지원을 요청합니다.
 
 이 문서에서는 iOS 10 이상을 실행하는 디바이스를 대상으로 하는 FairPlay 스트리밍(FPS) 오프라인 모드 지원에 대해 설명합니다. 이 기능은 watchOS, tvOS, 또는 macOS의 Safari와 같은 다른 Apple 플랫폼을 지원하지 않습니다.
 
@@ -204,11 +204,11 @@ FPS Server SDK의 버전 3 또는 버전 4 샘플을 사용하여 마스터 재�
 ## <a name="faq"></a>FAQ
 다음 질문과 대답은 문제 해결에 도움이 됩니다.
 
-- **왜 오프라인 모드에서는 오디오만 재생되고 비디오는 재생되지 않나요?** 이 동작은 의도적으로 샘플 앱의 것입니다. 오프라인 모드에서 대체 오디오 트랙(HLS의 경우)이 있는 경우 iOS 10과 iOS 11이 대체 오디오 트랙으로 기본설정됩니다. FPS 오프라인 모드에 대한 이 동작을 보정하려면 스트림에서 대체 오디오 트랙을 제거합니다. Media Services에서 이를 실행하기 위해 동적 매니페스트 필터 "audio-only=false"를 추가합니다. 즉, HLS URL은 .ism/manifest(format=m3u8-aapl,audio-only=false)로 끝납니다. 
+- **왜 오프라인 모드에서는 오디오만 재생되고 비디오는 재생되지 않나요?** 이 동작은 의도적으로 샘플 앱의 것입니다. 오프 라인 모드에서 대체 오디오 트랙이 있는 경우 (HLS의 경우) iOS 10과 iOS 11은 모두 대체 오디오 트랙을 기본값으로 설정 합니다. FPS 오프 라인 모드에 대 한이 동작을 보완 하려면 스트림에서 대체 오디오 트랙을 제거 합니다. Media Services에서 이를 실행하기 위해 동적 매니페스트 필터 "audio-only=false"를 추가합니다. 즉, HLS URL은 .ism/manifest(format=m3u8-aapl,audio-only=false)로 끝납니다. 
 - **audio-only=false를 추가한 후에도 왜 여전히 오프라인 모드에서 동영상 없이 오디오만 재생되나요?** CDN(콘텐츠 배달 네트워크) 캐시 키 디자인에 따라, 콘텐츠가 캐시될 수 있습니다. 캐시를 제거합니다.
 - **FPS 오프라인 모드 또한 iOS 10 외에도 iOS 11에서 지원됩니까?** 예. FPS 오프라인 모드는 iOS 10과 iOS 11 모두에서 지원됩니다.
 - **FPS Server SDK에서 “FairPlay 스트리밍 및 HTTP 라이브 스트리밍을 사용하여 오프라인 재생” 문서를 찾을 수 없는 이유는 무엇인가요?** FPS Server SDK 버전 4부터 이 문서는 “FairPlay Streaming Programming Guide”에 병합되었습니다.
-- **FPS 오프라인 모드의 다음 API에서 마지막 매개 변수는 무엇을 서 있습니까?**
+- **FPS 오프 라인 모드에 대 한 다음 API의 마지막 매개 변수는 무엇 인가요?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
     이 API에 대한 설명서를 보려면 [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration 메서드](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet)를 참조하세요. 이 매개 변수는 오프라인 임대 기간(시간 단위)을 나타냅니다.
@@ -245,7 +245,7 @@ FPS Server SDK의 버전 3 또는 버전 4 샘플을 사용하여 마스터 재�
 </HLSMoviePackage>
 ```
 
-## <a name="additional-notes"></a>추가적인 참고 사항
+## <a name="additional-notes"></a>추가 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

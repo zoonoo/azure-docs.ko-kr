@@ -1,33 +1,33 @@
 ---
-title: Azure 코스모스 DB의 SQL 상수
-description: Azure Cosmos DB의 SQL 쿼리 상수가 특정 데이터 값을 나타내는 데 사용되는 방법에 대해 알아봅니다.
+title: Azure Cosmos DB의 SQL 상수
+description: Azure Cosmos DB의 SQL 쿼리 상수가 특정 데이터 값을 나타내는 데 사용 되는 방법에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74873423"
 ---
-# <a name="azure-cosmos-db-sql-query-constants"></a>Azure 코스모스 DB SQL 쿼리 상수  
+# <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL 쿼리 상수  
 
  상수는 리터럴 값 또는 스칼라 값이라고도 하며 특정 데이터 값을 나타내는 기호입니다. 상수의 형식은 나타내는 값의 데이터 형식에 따라 다릅니다.  
   
  **지원되는 스칼라 데이터 형식:**  
   
-|**유형**|**값 순서**|  
+|**Type**|**값 순서**|  
 |-|-|  
-|**Undefined**|단일 값: **undefined**|  
+|**정의되지 않음**|단일 값: **undefined**|  
 |**Null**|단일 값: **null**|  
-|**부울**|값: **false**, **true**.|  
-|**수**|IEEE 754 표준의 두 자리 부동 소수점 숫자입니다.|  
-|**문자열**|0개 이상의 유니코드 문자 시퀀스입니다. 문자열은 작은따옴표 또는 큰 따옴표로 묶어야 합니다.|  
-|**Array**|0개 이상의 요소 시퀀스입니다. 정의되지 않은 을 제외한 각 요소는 스칼라 데이터 형식의 값일 수 **있습니다.**|  
-|**개체**|순서가 지정되지 않은 0개 이상의 이름/값 쌍의 집합입니다. 이름은 유니코드 문자열이며, 값은 **Undefined**를 제외한 모든 스칼라 데이터 형식이 될 수 있습니다.|  
+|**Boolean**|값: **false**, **true**.|  
+|**숫자**|IEEE 754 표준의 두 자리 부동 소수점 숫자입니다.|  
+|**String**|0개 이상의 유니코드 문자 시퀀스입니다. 문자열은 작은따옴표 또는 큰 따옴표로 묶어야 합니다.|  
+|**배열**|0개 이상의 요소 시퀀스입니다. 각 요소는 **Undefined**를 제외한 모든 스칼라 데이터 형식의 값일 수 있습니다.|  
+|**Object**|순서가 지정되지 않은 0개 이상의 이름/값 쌍의 집합입니다. 이름은 유니코드 문자열이며, 값은 **Undefined**를 제외한 모든 스칼라 데이터 형식이 될 수 있습니다.|  
   
 ## <a name="syntax"></a><a name="bk_syntax"></a>구문
   
@@ -59,7 +59,7 @@ ms.locfileid: "74873423"
   
 ```  
   
-##  <a name="arguments"></a><a name="bk_arguments"></a>인수
+##  <a name="arguments"></a><a name="bk_arguments"></a>인수의
   
 * `<undefined_constant>; Undefined`  
   

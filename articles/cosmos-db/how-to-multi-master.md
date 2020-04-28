@@ -1,16 +1,16 @@
 ---
 title: Azure Cosmos DB에서 다중 마스터를 구성하는 방법
-description: Azure Cosmos DB에서 서로 다른 SDK를 사용하여 응용 프로그램에 대한 다중 마스터를 구성하는 방법을 알아봅니다.
+description: Azure Cosmos DB에서 다른 Sdk를 사용 하 여 응용 프로그램에 대 한 다중 마스터를 구성 하는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 654baed649093add2aa62f4ba81bf6ce7c3e0df5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74873644"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Azure Cosmos DB를 사용하는 애플리케이션에서 다중 마스터 구성
@@ -108,10 +108,10 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
 
 * [Azure Cosmos DB에서 세션 토큰을 사용하여 일관성 관리](how-to-manage-consistency.md#utilize-session-tokens)
 * [Azure Cosmos DB의 충돌 유형 및 해결 정책](conflict-resolution-policies.md)
-* [Azure 코스모스 DB의 고가용성](high-availability.md)
-* [Azure 코스모스 DB의 일관성 수준](consistency-levels.md)
+* [Azure Cosmos DB의 고가용성](high-availability.md)
+* [Azure Cosmos DB의 일관성 수준](consistency-levels.md)
 * [Azure Cosmos DB에서 올바른 일관성 수준 선택](consistency-levels-choosing.md)
 * [Azure Cosmos DB의 일관성, 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
 * [다양한 일관성 수준의 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
 * [전역적으로 프로비전된 처리량 크기 조정](scaling-throughput.md)
-* [글로벌 배포: 후드 아래](global-dist-under-the-hood.md)
+* [전역 배포: 내부적으로](global-dist-under-the-hood.md)

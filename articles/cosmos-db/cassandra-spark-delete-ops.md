@@ -1,5 +1,5 @@
 ---
-title: 스파크에서 Azure 코스모스 DB 카산드라 API에 대한 작업 삭제
+title: Spark에서 Azure Cosmos DB Cassandra API에 대 한 삭제 작업
 description: 이 문서에서는 Spark에서 Azure Cosmos DB Cassandra API의 테이블 데이터를 삭제하는 방법을 자세히 설명합니다.
 author: kanshiG
 ms.author: govindk
@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 0317fab158b2ea73b365bedc272721816da22c4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75442081"
 ---
 # <a name="delete-data-in-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Spark에서 Azure Cosmos DB Cassandra API 테이블의 데이터 삭제
@@ -116,7 +116,7 @@ spark
   .show
 ```
 
-**출력:**
+**출력**
 
 ```
 == Physical Plan ==
@@ -199,7 +199,7 @@ spark
   .show
 ```
 
-**출력:**
+**출력**
 
 ```
 == Physical Plan ==
@@ -278,7 +278,7 @@ println("==================")
 println("3) After")
 sc.cassandraTable("books_ks", "books").collect.foreach(println)
 ```
-**출력:**
+**출력**
 
 ```
 ==================
@@ -331,7 +331,7 @@ println("3) After")
 sc.cassandraTable("books_ks", "books").take(4).foreach(println)
 ```
 
-**출력:**
+**출력**
 
 ```
 ==================

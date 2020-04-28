@@ -1,7 +1,7 @@
 ---
 title: Video Indexer 개념
 titleSuffix: Azure Media Services
-description: 이 문서에서는 Azure 미디어 서비스 비디오 인덱서 서비스의 몇 가지 개념을 설명합니다.
+description: 이 문서에서는 Azure Media Services Video Indexer 서비스의 몇 가지 개념을 설명 합니다.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 73dad1db4f44134f871c9f3d6e7edcdd3bd1e2ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74900684"
 ---
 # <a name="video-indexer-concepts"></a>Video Indexer 개념
@@ -37,6 +37,6 @@ TimeRange는 원본 비디오의 시간 범위입니다. AdjustedTimeRange는 �
 
 시작하는 방법에 대한 자세한 내용은 [가입하고 첫 번째 비디오를 업로드하는 방법](video-indexer-get-started.md)을 참조하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [Video Indexer 개요](video-indexer-overview.md)

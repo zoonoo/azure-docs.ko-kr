@@ -1,6 +1,6 @@
 ---
 title: H264 다중 비트 전송률 4K Media Encoder Standard 사전 설정-Azure | Microsoft Docs
-description: 이 문서에서는 미디어 인코더 표준 **H264 다중 비트 레이트 4K** 작업 사전 설정에 대한 개요를 제공합니다.
+description: 이 문서에서는 Media Encoder Standard **H264 다중 비트 전송률 4k** 태스크 미리 설정에 대 한 개요를 제공 합니다.
 author: Juliako
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: cec0fa3bd059cd31d9bd94773b0cce42d0f12a75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74887020"
 ---
 # <a name="h264-multiple-bitrate-4k"></a>H264 다중 비트 전송률 4K

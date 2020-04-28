@@ -8,15 +8,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.openlocfilehash: 3c0c29e1793e56efae8d13cb01d57faf257d8805
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75426070"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>작업 다이어그램을 사용하여 데이터 기반 디버그
 
-Azure 포털의 **모니터링** 블레이드에 있는 작업 다이어그램을 사용하면 작업 파이프라인을 시각화하는 데 도움이 됩니다. 입력, 출력 및 쿼리 단계를 보여 줍니다. 작업 다이어그램을 사용하여 각 단계의 메트릭을 검사하면 문제를 해결할 때 문제의 원인을 더 빠르게 격리할 수 있습니다.
+Azure Portal의 **모니터링** 블레이드에 대 한 작업 다이어그램은 작업 파이프라인을 시각화 하는 데 도움이 될 수 있습니다. 입력, 출력 및 쿼리 단계를 보여 줍니다. 작업 다이어그램을 사용하여 각 단계의 메트릭을 검사하면 문제를 해결할 때 문제의 원인을 더 빠르게 격리할 수 있습니다.
 
 ## <a name="using-the-job-diagram"></a>작업 다이어그램 사용
 
@@ -55,7 +55,7 @@ Azure Event Hubs 입력의 파티션을 보려면 **. . .** 을 선택합니다.
 *   **InputEventsSourcesTotal**은 읽는 데이터 단위 수입니다. 예를 들어 Blob의 수입니다.
 *   **InputEventsTotal**은 읽는 이벤트의 수입니다. 이 메트릭은 각 파티션에 사용할 수 있습니다.
 *   **InputEventsInBytesTotal**은 읽는 바이트 수입니다.
-*   **입력이벤트LastArrivalTime은** 수신된 모든 이벤트의 대기 시간으로 업데이트됩니다.
+*   **InputEventsLastArrivalTime** 은 수신 된 모든 이벤트의 큐에 넣은 시간으로 업데이트 됩니다.
  
 ### <a name="is-time-moving-forward-if-actual-events-are-read-punctuation-might-not-be-issued"></a>시간은 앞으로 진행됩니까? 실제 이벤트를 읽는 경우 문장 부호가 발생하지 않을 수 있습니다.
 
@@ -85,5 +85,5 @@ Azure Event Hubs 입력의 파티션을 보려면 **. . .** 을 선택합니다.
 * [Stream Analytics 소개](stream-analytics-introduction.md)
 * [Stream Analytics 시작](stream-analytics-real-time-fraud-detection.md)
 * [Stream Analytics 작업 크기 조정](stream-analytics-scale-jobs.md)
-* [스트림 분석 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

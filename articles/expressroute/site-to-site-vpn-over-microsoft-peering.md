@@ -1,5 +1,5 @@
 ---
-title: 'Azure 익스프레스 루트: 마이크로소프트 피어링을 통해 S2S VPN 구성'
+title: 'Azure Express 경로: Microsoft 피어 링을 통해 S2S VPN 구성'
 description: 사이트 간 VPN Gateway를 사용하여 ExpressRoute Microsoft 피어링 회로를 통해 Azure에 대한 IPsec/IKE 연결을 구성합니다.
 services: expressroute
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: f3044a2701b0f1cd0e5f9ab3ab60c1d60cfb8f45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75436804"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft 피어링을 통해 사이트 간 VPN 구성
@@ -20,7 +20,7 @@ ms.locfileid: "75436804"
 이 문서를 사용하면 ExpressRoute 프라이빗 연결을 통해 온-프레미스 네트워크와 Azure VNet(가상 네트워크) 간에 암호화된 보안 연결을 구성할 수 있습니다. Microsoft 피어링을 사용하여 선택한 온-프레미스 네트워크와 Azure VNet 간에 사이트 간 IPsec/IKE VPN 터널을 설정할 수 있습니다. ExpressRoute를 통해 보안 터널을 구성하면 기밀성, 재생 방지, 신뢰성 및 무결성이 보장된 데이터 교환이 가능합니다.
 
 >[!NOTE]
->Microsoft 피어링을 통해 사이트 간 VPN을 설정하면 VPN Gateway 및 VPN 송신에 대한 요금이 청구됩니다. 자세한 내용은 [VPN 게이트웨이 가격 책정을](https://azure.microsoft.com/pricing/details/vpn-gateway)참조하십시오.
+>Microsoft 피어링을 통해 사이트 간 VPN을 설정하면 VPN Gateway 및 VPN 송신에 대한 요금이 청구됩니다. 자세한 내용은 [VPN Gateway 가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)을 참조 하세요.
 >
 >
 
@@ -43,7 +43,7 @@ VPN Gateway를 사용하거나 Azure Marketplace를 통해 사용할 수 있는 
 >
 >
 
-## <a name="workflow"></a><a name="workflow"></a>Workflow
+## <a name="workflow"></a><a name="workflow"></a>워크플로
 
 1. ExpressRoute 회로에 Microsoft 피어링을 구성합니다.
 2. Microsoft 피어링을 통해 온-프레미스 네트워크에 선택한 Azure 지역 공용 접두사를 보급합니다.
@@ -53,7 +53,7 @@ VPN Gateway를 사용하거나 Azure Marketplace를 통해 사용할 수 있는 
 6. (선택 사항) 온-프레미스 VPN 디바이스에서 방화벽/필터링을 구성합니다.
 7. ExpressRoute 회로를 통해 IPsec 통신을 테스트하고 유효성을 검사합니다.
 
-## <a name="1-configure-microsoft-peering"></a><a name="peering"></a>1. 마이크로 소프트 피어링 구성
+## <a name="1-configure-microsoft-peering"></a><a name="peering"></a>1. Microsoft 피어 링 구성
 
 ExpressRoute를 통해 사이트 간 VPN 연결을 구성하려면 ExpressRoute Microsoft 피어링을 활용해야 합니다.
 
@@ -67,7 +67,7 @@ ExpressRoute를 통해 사이트 간 VPN 연결을 구성하려면 ExpressRoute 
 
 ## <a name="2-configure-route-filters"></a><a name="routefilter"></a>2. 경로 필터 구성
 
-경로 필터를 사용하면 ExpressRoute 회로의 Microsoft 피어링을 통해 사용하려는 서비스를 식별할 수 있습니다. 그것은 본질적으로 모든 BGP 커뮤니티 값의 허용 목록입니다. 
+경로 필터를 사용하면 ExpressRoute 회로의 Microsoft 피어링을 통해 사용하려는 서비스를 식별할 수 있습니다. 기본적으로 모든 BGP 커뮤니티 값의 허용 목록입니다. 
 
 ![경로 필터](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
@@ -91,7 +91,7 @@ ExpressRoute 회로를 통해 Microsoft 피어링을 성공적으로 만들고 �
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-다음 부분 출력은 ASN 12076(MSEE)을 사용하던 이웃 \*.243.229.34에서 68개의 접두사를 받은 것을 보여 주며 다음과 같이 표시합니다.
+다음 부분 출력은 12076 243.229.34에서 68 접두사를 받았습니다 (MSEE) \*.
 
 ```
 ...
@@ -112,7 +112,7 @@ sh ip bgp vpnv4 vrf 10 neighbors X.243.229.34 received-routes
 Get-AzBgpServiceCommunity
 ```
 
-## <a name="3-configure-the-vpn-gateway-and-ipsec-tunnels"></a><a name="vpngateway"></a>3. VPN 게이트웨이 및 IPsec 터널 구성
+## <a name="3-configure-the-vpn-gateway-and-ipsec-tunnels"></a><a name="vpngateway"></a>3. VPN gateway 및 IPsec 터널 구성
 
 이 섹션에서는 Azure VPN Gateway와 온-프레미스 VPN 디바이스 간에 IPsec VPN 터널을 만듭니다. 예제에서는 Cisco 클라우드 서비스 라우터(CSR1000) VPN 디바이스를 사용합니다.
 
@@ -365,7 +365,7 @@ VPN 디바이스를 구성할 때 다음 항목이 필요합니다.
 
 일반적으로 eBGP 피어는 직접 연결됩니다(종종 WAN 연결을 통해). 그러나 ExpressRoute Microsoft 피어링을 통해 IPsec VPN 터널에 eBGP를 구성하는 경우 eBGP 피어 간에 여러 라우팅 도메인이 있습니다. 직접 연결되지 않은 두 개의 피어 간에 eBGP 인접 관계를 설정하려면 **ebgp-multihop** 명령을 사용합니다. ebgp-multihop 명령 뒤에 오는 정수는 BGP 패킷에서 TTL 값을 지정합니다. **maximum-paths eibgp 2** 명령은 두 개의 BGP 경로 간에 트래픽 부하를 분산할 수 있습니다.
 
-### <a name="cisco-csr1000-example"></a><a name="cisco1"></a>시스코 CSR1000 예제
+### <a name="cisco-csr1000-example"></a><a name="cisco1"></a>Cisco CSR1000 예제
 
 다음 예제에서는 온-프레미스 VPN 디바이스인 Hyper-V 가상 머신에서 Cisco CSR1000에 대한 구성을 보여줍니다.
 
@@ -475,11 +475,11 @@ ip route 10.2.0.229 255.255.255.255 Tunnel1
 !
 ```
 
-## <a name="5-configure-vpn-device-filtering-and-firewalls-optional"></a><a name="firewalls"></a>5. VPN 장치 필터링 및 방화벽 구성(선택 사항)
+## <a name="5-configure-vpn-device-filtering-and-firewalls-optional"></a><a name="firewalls"></a>5. VPN 장치 필터링 및 방화벽 구성 (선택 사항)
 
 요구 사항에 따라 방화벽 및 필터링을 구성합니다.
 
-## <a name="6-test-and-validate-the-ipsec-tunnel"></a><a name="testipsec"></a>6. IPsec 터널 테스트 및 검증
+## <a name="6-test-and-validate-the-ipsec-tunnel"></a><a name="testipsec"></a>6. IPsec 터널 테스트 및 유효성 검사
 
 IPsec 터널의 상태는 Powershell 명령을 사용하여 Azure VPN Gateway에서 확인할 수 있습니다.
 
@@ -711,4 +711,4 @@ Total number of prefixes 2
 
 * [ExpressRoute에 대한 네트워크 성능 모니터 구성](how-to-npm.md)
 
-* [기존 VPN 게이트웨이 연결이 있는 VNet에 사이트 간 연결 추가](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+* [기존 VPN gateway 연결을 사용 하 여 VNet에 사이트 간 연결 추가](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)

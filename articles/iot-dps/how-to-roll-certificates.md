@@ -1,6 +1,6 @@
 ---
-title: Azure IoT 허브 장치 프로비저닝 서비스에서 X.509 인증서 롤
-description: 장치 프로비저닝 서비스(DPS) 인스턴스를 사용하여 X.509 인증서를 롤하는 방법
+title: Azure IoT Hub 장치 프로 비전 서비스에서 x.509 인증서 롤
+description: DPS (장치 프로 비전 서비스) 인스턴스로 X. x.509 인증서를 롤백하는 방법
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74974890"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>X.509 디바이스 인증서 배포 방법
@@ -108,7 +108,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 1. 디바이스 프로비저닝 서비스 인스턴스에 대해 **인증서** 탭을 클릭합니다.
 
-2. 목록에서 손상된 인증서를 클릭한 다음, **삭제** 단추를 클릭합니다. 인증서 이름을 입력하여 삭제를 확인하고 **확인을**클릭합니다. 손상된 모든 인증서에 대해 이 프로세스를 반복합니다.
+2. 목록에서 손상된 인증서를 클릭한 다음, **삭제** 단추를 클릭합니다. 인증서 이름을 입력 하 여 삭제를 확인 하 고 **확인**을 클릭 합니다. 손상된 모든 인증서에 대해 이 프로세스를 반복합니다.
 
     ![루트 CA 인증서 삭제](./media/how-to-roll-certificates/delete-root-cert.png)
 
@@ -116,7 +116,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 4. 디바이스 프로비저닝 서비스 인스턴스에 대한 **등록 관리** 탭을 클릭하고 **등록 그룹** 목록을 클릭합니다. 목록에서 등록 그룹 이름을 클릭합니다.
 
-5. **CA 인증서**를 클릭하고 새 루트 CA 인증서를 선택합니다. 그런 다음 **저장을**클릭합니다. 
+5. **CA 인증서**를 클릭하고 새 루트 CA 인증서를 선택합니다. 그런 다음 **저장**을 클릭 합니다. 
 
     ![새 루트 CA 인증서 선택](./media/how-to-roll-certificates/select-new-root-cert.png)
 
@@ -162,7 +162,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 2. 디바이스 프로비저닝 서비스 인스턴스에 대한 **등록 관리** 탭을 클릭하고 **등록 그룹** 목록을 클릭합니다. 목록에서 등록 그룹 이름을 클릭합니다.
 
-3. **CA 인증서**를 클릭하고 **보조 인증서** 구성에서 새 루트 CA 인증서를 선택합니다. 그런 다음 **저장을**클릭합니다. 
+3. **CA 인증서**를 클릭하고 **보조 인증서** 구성에서 새 루트 CA 인증서를 선택합니다. 그런 다음 **저장**을 클릭 합니다. 
 
     ![새 루트 CA 인증서 선택](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 

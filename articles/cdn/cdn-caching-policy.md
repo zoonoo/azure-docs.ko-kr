@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services에서 Azure CDN 캐싱 정책 관리 | Microsoft Docs
-description: 이 문서에서는 Azure 미디어 서비스에서 Azure CDN 캐싱 정책을 관리하는 방법을 설명합니다.
+description: 이 문서에서는 Azure Media Services에서 Azure CDN 캐싱 정책을 관리 하는 방법을 설명 합니다.
 services: media-services,cdn
 documentationcenter: .NET
 author: juliako
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
 ms.openlocfilehash: dc0482fbcbb1c9d1618ec18e1f48b03f686a6573
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74892585"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Azure Media Services에서 Azure CDN 캐싱 정책 관리

@@ -1,5 +1,5 @@
 ---
-title: Cosmos DB에 대한 Azure Functions 트리거로 로그 구성 및 읽기
+title: Cosmos DB에 대 한 Azure Functions 트리거를 사용 하 여 로그 구성 및 읽기
 description: Cosmos DB용 Azure Functions 트리거를 사용할 때 Azure Functions 로깅 파이프라인에 로그를 노출하는 방법 알아보기
 author: ealsur
 ms.service: cosmos-db
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.openlocfilehash: 5ff747b225f8984bcaafd80015e85a9f014bdb50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75441840"
 ---
 # <a name="how-to-configure-and-read-the-logs-when-using-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB용 Azure Functions 트리거를 사용할 때 로그를 구성하고 읽는 방법

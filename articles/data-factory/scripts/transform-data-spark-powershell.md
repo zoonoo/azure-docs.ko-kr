@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용하여 클라우드에서 데이터 변환
+title: PowerShell을 사용 하 여 클라우드의 데이터 변환
 description: 이 PowerShell 스크립트는 Azure HDInsight Spark 클러스터에서 Spark 프로그램을 실행하여 클라우드의 데이터를 변환합니다.
 author: djpmsft
 ms.author: daperlov
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74932059"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell 스크립트 - Azure Data Factory를 사용하여 클라우드의 데이터 변환
@@ -25,8 +25,8 @@ ms.locfileid: "74932059"
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
-* **Azure 저장소 계정**. Python 스크립트와 입력 파일을 만들고 Azure Storage에 업로드합니다. Spark 프로그램의 출력은 이 스토리지 계정에 저장됩니다. 주문형 Spark 클러스터는 기본 스토리지와 동일한 스토리지 계정을 사용합니다.  
+## <a name="prerequisites"></a>전제 조건
+* **Azure Storage 계정**. Python 스크립트와 입력 파일을 만들고 Azure Storage에 업로드합니다. Spark 프로그램의 출력은 이 스토리지 계정에 저장됩니다. 주문형 Spark 클러스터는 기본 스토리지와 동일한 스토리지 계정을 사용합니다.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Blob Storage 계정에 Python 스크립트 업로드
 1. 다음 내용이 포함된 **WordCount_Spark.py**라는 Python 파일을 만듭니다. 
@@ -54,7 +54,7 @@ ms.locfileid: "74932059"
     if __name__ == "__main__":
         main()
     ```
-2. ** &lt;저장소계정이름을&gt; ** Azure Storage 계정의 이름으로 바꿉니다. 그런 다음 파일을 저장합니다. 
+2. ** &lt;Storageaccountname&gt; ** 을 Azure Storage 계정의 이름으로 바꿉니다. 그런 다음 파일을 저장합니다. 
 3. Azure Blob Storage에 아직 없는 경우 **adftutorial**이라는 컨테이너를 만듭니다. 
 4. **spark**라는 폴더를 만듭니다.
 5. **spark** 폴더 아래에 **script**라는 하위 폴더를 만듭니다. 
@@ -92,11 +92,11 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 | 명령 | 메모 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [세트 아즈데이팩토리V2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | 데이터 팩터리를 만듭니다. |
-| [세트 아즈데이터팩토리V2링크드서비스](/powershell/module/az.datafactory/set-Azdatafactoryv2linkedservice) | 데이터 팩터리에서 연결된 서비스를 만듭니다. 연결된 서비스는 데이터 저장소 또는 컴퓨팅을 데이터 팩터리에 연결합니다. |
-| [세트 아즈데이데이팩토리V2파이프라인](/powershell/module/az.datafactory/set-Azdatafactoryv2pipeline) | 데이터 팩터리에서 파이프라인을 만듭니다. 파이프라인에는 특정 작업을 수행하는 하나 이상의 작업이 있습니다. 이 파이프라인에서 Spark 작업은 Azure HDInsight Spark 클러스터에서 프로그램을 실행하여 데이터를 변환합니다. |
-| [인보크-아즈데이데이팩토리V2파이프라인](/powershell/module/az.datafactory/invoke-Azdatafactoryv2pipeline) | 파이프라인에 대한 실행을 만듭니다. 즉, 파이프라인을 실행합니다. |
-| [겟-아즈데이데이팩토리V2액티브런](/powershell/module/az.datafactory/get-Azdatafactoryv2activityrun) | 파이프라인의 작업 실행 방법에 대한 세부 정보를 가져옵니다. 
+| [AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | 데이터 팩터리를 만듭니다. |
+| [AzDataFactoryV2LinkedService](/powershell/module/az.datafactory/set-Azdatafactoryv2linkedservice) | 데이터 팩터리에서 연결된 서비스를 만듭니다. 연결된 서비스는 데이터 저장소 또는 컴퓨팅을 데이터 팩터리에 연결합니다. |
+| [AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/set-Azdatafactoryv2pipeline) | 데이터 팩터리에서 파이프라인을 만듭니다. 파이프라인에는 특정 작업을 수행하는 하나 이상의 작업이 있습니다. 이 파이프라인에서 Spark 작업은 Azure HDInsight Spark 클러스터에서 프로그램을 실행하여 데이터를 변환합니다. |
+| [AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/invoke-Azdatafactoryv2pipeline) | 파이프라인에 대한 실행을 만듭니다. 즉, 파이프라인을 실행합니다. |
+| [AzDataFactoryV2ActivityRun](/powershell/module/az.datafactory/get-Azdatafactoryv2activityrun) | 파이프라인의 작업 실행 방법에 대한 세부 정보를 가져옵니다. 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 

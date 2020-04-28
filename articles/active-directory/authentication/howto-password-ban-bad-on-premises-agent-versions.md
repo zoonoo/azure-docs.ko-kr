@@ -1,5 +1,5 @@
 ---
-title: 암호 보호 에이전트 릴리스 기록 - Azure Active Directory
+title: 암호 보호 에이전트 릴리스 기록-Azure Active Directory
 description: 문서 버전 릴리스 및 동작 변경 기록
 services: active-directory
 ms.service: active-directory
@@ -12,49 +12,49 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71fd33388cb1bdf7c87c44fb3273c6850122a0cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74847852"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Azure AD 암호 보호 에이전트에 대한 버전 기록
 
 ## <a name="121250"></a>1.2.125.0
 
-릴리스 날짜: 2019년 3월 22일
+릴리스 날짜: 3/22/2019
 
-* 이벤트 로그 메시지에서 사소한 오타 오류 수정
-* 최종 일반 공급 버전으로 EULA 계약 업데이트
+* 이벤트 로그 메시지의 사소한 오타가 오류 수정
+* EULA 계약을 최종 일반 공급 버전으로 업데이트
 
 > [!NOTE]
-> 빌드 1.2.125.0은 일반 가용성 빌드입니다. 제품에 대한 피드백을 제공 한 모든 사람에게 다시 한번 감사드립니다!
+> Build 1.2.125.0는 일반 가용성 빌드입니다. 모든 사람이 제품에 대 한 피드백을 제공 해 주셔서 감사 합니다.
 
 ## <a name="121160"></a>1.2.116.0
 
-릴리스 날짜: 2019년 3월 13일
+릴리스 날짜: 3/13/2019
 
-* Get-AzureADPasswordProtectionProxy 및 Get-AzureADPasswordProtectionDCAgent cmdlet은 이제 소프트웨어 버전 및 현재 Azure 테넌트에 다음과 같은 제한 사항이 있습니다.
-  * 소프트웨어 버전 및 Azure 테넌트 데이터는 버전 1.2.116.0 이상을 실행하는 DC 에이전트 및 프록시에서만 사용할 수 있습니다.
-  * Azure 테넌트 데이터는 프록시 또는 포리스트의 재등록(또는 갱신)이 발생할 때까지 보고되지 않을 수 있습니다.
-* 프록시 서비스에는 이제 .NET 4.7이 설치되어 있어야 합니다.
-  * .NET 4.7은 이미 완전히 업데이트된 Windows 서버에 설치되어 있어야 합니다. 그렇지 않은 경우 [.NET Framework 4.7 Windows용 오프라인 설치 관리자에](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)있는 설치 관리자를 다운로드하여 실행합니다.
-  * 서버 코어 시스템에서는 성공을 위해 .NET 4.7 설치 관리자에 /q 플래그를 전달해야 할 수 있습니다.
-* 프록시 서비스는 이제 자동 업그레이드를 지원합니다. 자동 업그레이드는 프록시 서비스와 나란히 설치된 Microsoft Azure AD 연결 에이전트 업데이트 서비스를 사용합니다. 자동 업그레이드는 기본적으로 켜지며,
-* 자동 업그레이드는 Set-AzureADPasswordProtectionProxyConfiguration cmdlet을 사용하여 활성화하거나 비활성화할 수 있습니다. 현재 설정은 Get-AzureADPasswordProtectionProxyConfiguration cmdlet을 사용하여 쿼리할 수 있습니다.
-* DC 에이전트 서비스에 대한 서비스 바이너리가 AzureADPasswordProtectionDCAgent.exe로 이름이 바뀌었습니다.
-* 프록시 서비스에 대한 서비스 바이너리가 AzureADPasswordProtectionProxyProxy.exe로 이름이 바뀌었습니다. 타사 방화벽을 사용 중인 경우 방화벽 규칙을 수정해야 할 수 있습니다.
-  * 참고: 이전 프록시 설치에서 http 프록시 구성 파일이 사용 중인 경우 이 업그레이드 후 이름을 바뀌어야 *합니다(proxyservice.exe.config에서* *AzureADPasswordProtectionProxyProxyProxy.exe.config).*
-* DC 에이전트에서 시간 제한 된 모든 기능 검사가 제거 되었습니다.
-* 사소한 버그 수정 및 로깅 개선.
+* 이제 AzureADPasswordProtectionProxy 및 AzureADPasswordProtectionDCAgent cmdlet은 소프트웨어 버전 및 현재 Azure 테 넌 트를 보고 하며 다음과 같은 제한 사항이 있습니다.
+  * 소프트웨어 버전 및 Azure 테 넌 트 데이터는 버전 1.2.116.0 이상을 실행 하는 DC 에이전트 및 프록시에만 사용할 수 있습니다.
+  * Azure 테 넌 트 데이터는 프록시 또는 포리스트를 다시 등록 하거나 갱신할 때까지 보고 되지 않을 수 있습니다.
+* 이제 프록시 서비스에 .NET 4.7이 설치 되어 있어야 합니다.
+  * .NET 4.7은 완전히 업데이트 된 Windows Server에 이미 설치 되어 있어야 합니다. 그렇지 않은 경우 [Windows 용 .NET Framework 4.7 오프 라인 설치 관리자](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)에서 찾은 설치 관리자를 다운로드 하 여 실행 합니다.
+  * Server Core 시스템에서는/q 플래그를 .NET 4.7 설치 관리자에 전달 하 여 성공 하도록 해야 할 수 있습니다.
+* 이제 프록시 서비스에서 자동 업그레이드를 지원 합니다. 자동 업그레이드는 프록시 서비스와 함께 설치 되는 Microsoft Azure AD 연결 에이전트 업데이트 서비스를 사용 합니다. 자동 업그레이드는 기본적으로 설정 되어 있습니다.
+* AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 자동 업그레이드를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 현재 설정을 쿼리할 수 있습니다.
+* DC 에이전트 서비스의 서비스 이진 파일 이름이 AzureADPasswordProtectionDCAgent로 바뀌었습니다.
+* 프록시 서비스에 대 한 서비스 이진 파일의 이름이 AzureADPasswordProtectionProxy로 바뀌었습니다. 타사 방화벽을 사용 하는 경우 방화벽 규칙을 적절 하 게 수정 해야 할 수 있습니다.
+  * 참고: 이전 프록시 설치에서 http 프록시 구성 파일을 사용 하는 경우이 업그레이드 후에는이 업그레이드 후에 *Proxyservice* 에서 *.config*로 이름을 변경 해야 합니다.
+* 모든 시간 제한 기능 검사가 DC 에이전트에서 제거 되었습니다.
+* 사소한 버그 수정 및 로깅 향상
 
 ## <a name="12650"></a>1.2.65.0
 
-릴리스 날짜: 2019년 2월 1일
+릴리스 날짜: 2/1/2019
 
 변경 내용:
 
-* DC 에이전트 및 프록시 서비스는 이제 Server Core에서 지원됩니다. 미니멈 OS 요구 사항은 이전과 변경되지 않습니다: DC 에이전트용 Windows Server 2012 및 프록시용 Windows Server 2012 R2.
+* DC 에이전트 및 프록시 서비스는 이제 Server Core에서 지원됩니다. Mininimum OS 요구 사항은 이전에서 변경 되지 않았습니다. DC 에이전트의 경우 Windows Server 2012이 고, 프록시에는 Windows Server 2012 R2입니다.
 * Register-AzureADPasswordProtectionProxy 및 Register-AzureADPasswordProtectionForest cmdlet은 이제 디바이스 코드 기반 Azure 인증 모드를 지원합니다.
 * Get-AzureADPasswordProtectionDCAgent cmdlet은 심하게 훼손되었거나 또는 잘못된 서비스 연결 지점을 무시합니다. 이를 통해 도메인 컨트롤러에서 출력에 여러 번 표시되는 버그가 수정되었습니다.
 * Get-AzureADPasswordProtectionSummaryReport cmdlet은 심하게 훼손되었거나 또는 잘못된 서비스 연결 지점을 무시합니다. 이를 통해 도메인 컨트롤러에서 출력에 여러 번 표시되는 버그가 수정되었습니다.

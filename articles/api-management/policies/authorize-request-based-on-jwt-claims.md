@@ -1,5 +1,5 @@
 ---
-title: 샘플 API 관리 정책 - JWT 클레임에 따라 액세스 권한 부여
+title: 샘플 API 관리 정책-JWT 클레임을 기반으로 액세스 권한 부여
 titleSuffix: Azure API Management
 description: Azure API Managment 정책 샘플 - JWT 클레임 기반의 API에서 특정 HTTP 메서드에 대한 액세스 권한을 부여하는 방법을 보여 줍니다.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 1b84854688fbdcc017b16698dfebfe54a7210110
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75422176"
 ---
 # <a name="authorize-access-based-on-jwt-claims"></a>JWT 클레임을 기반으로 액세스 권한 부여

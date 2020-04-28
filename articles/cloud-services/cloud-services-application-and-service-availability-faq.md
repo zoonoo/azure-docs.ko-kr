@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: c294d4583ba2690e1f4952441ffb43bff1459059
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75386921"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 애플리케이션 및 서비스 사용 가능성 문제: FAQ(질문과 대답)
@@ -46,4 +46,4 @@ Microsoft에서는 대략 한 달에 한 번 Windows Azure PaaS VM에 대한 새
 
 IIS의 기본 동작을 변경하려는 경우 웹 역할 인스턴스에 변경 내용을 수동으로 적용하면 변경 내용이 손실되기 때문에 시작 작업을 사용해야 합니다.
 
-자세한 내용은 [클라우드 서비스에 대한 시작 작업을 구성하고 실행하는 방법을](cloud-services-startup-tasks.md)참조하십시오.
+자세한 내용은 [클라우드 서비스에 대 한 시작 작업을 구성 및 실행 하는 방법](cloud-services-startup-tasks.md)을 참조 하세요.

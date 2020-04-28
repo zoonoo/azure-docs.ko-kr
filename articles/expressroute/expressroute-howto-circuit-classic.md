@@ -1,5 +1,5 @@
 ---
-title: 'Azure 익스프레스 루트: 회로 수정: PowerShell:클래식'
+title: 'Azure Express 경로: 회로 수정: PowerShell: 클래식'
 description: 이 문서에서는 ExpressRoute 클래식 배포 모델 회로 상태를 확인하고, 업데이트 또는 삭제하고, 프로비전을 해제하는 단계를 설명합니다.
 services: expressroute
 author: cherylmc
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cherylmc
 ms.openlocfilehash: e421a534b04f74d2a2eb0bc06aeffa52684ae17a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74931973"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>PowerShell을 사용하여 ExpressRoute 회로 수정(클래식)
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](expressroute-howto-circuit-portal-resource-manager.md)
-> * [Powershell](expressroute-howto-circuit-arm.md)
+> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [Azure 리소스 관리자 템플릿](expressroute-howto-circuit-resource-manager-template.md)
+> * [Azure Resource Manager 템플릿](expressroute-howto-circuit-resource-manager-template.md)
 > * [비디오 - Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> * [파워 쉘 (클래식)](expressroute-howto-circuit-classic.md)
+> * [PowerShell (클래식)](expressroute-howto-circuit-classic.md)
 >
 
 이 문서에서는 ExpressRoute 클래식 배포 모델 회로 상태를 확인하고, 업데이트 또는 삭제하고, 프로비전을 해제하는 단계를 설명합니다. 이 문서는 클래식 배포 모델에 적용됩니다.
@@ -194,7 +194,7 @@ At line:1 char:1
 ### <a name="considerations"></a>고려 사항
 
 * 이 작업이 성공하려면 모든 가상 네트워크를 ExpressRoute 회로에서 연결 해제해야 합니다. 이 작업이 실패할 경우 회로에 연결된 가상 네트워크가 있는지 확인하십시오.
-* ExpressRoute 회로 서비스 공급자 프로비전 상태가 **프로비저닝** 또는 **프로비저닝인** 경우 서비스 공급자와 협력하여 해당 측의 회로프로비저닝을 해제해야 합니다. 서비스 공급자가 회로의 프로비전을 해제한 다음 통지를 보낼 때까지 리소스가 계속 예약되며 요금이 청구됩니다.
+* Express 경로 회로 서비스 공급자 프로 비전 상태가 **프로 비전** 또는 **프로 비전** 된 경우 서비스 공급자와 협력 하 여 회로를 프로 비전 해제 해야 합니다. 서비스 공급자가 회로의 프로비전을 해제한 다음 통지를 보낼 때까지 리소스가 계속 예약되며 요금이 청구됩니다.
 * 서비스 공급자가 회로 프로비전을 해제하여 서비스 공급자 프로비전 상태가 **프로비전되지 않음**이 되면 회로를 삭제할 수 있습니다. 그러면 회로에 대한 요금 청구가 중지됩니다.
 
 #### <a name="delete-a-circuit"></a>회로 삭제

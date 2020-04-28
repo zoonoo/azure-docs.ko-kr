@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75377908"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Azure Service Fabric에서 백업 복원
@@ -18,23 +18,23 @@ Azure Service Fabric에서 Reliable Stateful 서비스 및 Reliable Actors는 �
 
 예를 들어, 다음 시나리오를 방지하기 위해 해당 데이터를 백업하는 서비스를 구성할 수 있습니다.
 
-- **재해 복구 의 경우**: 전체 서비스 패브릭 클러스터의 영구적 손실.
-- **데이터 손실 사례**: 서비스 파티션의 복제본 대부분이 영구적으로 손실됩니다.
-- **데이터 손실의 경우**: 서비스의 우발적 인 삭제 또는 손상. 예를 들어 관리자가 실수로 서비스를 삭제합니다.
-- **데이터 손상 사례**: 서비스의 버그로 인해 데이터가 손상됩니다. 예를 들어 신뢰할 수 있는 컬렉션에 잘못된 데이터를 작성하는 서비스 코드가 업그레이드되는 경우 데이터 손상이 발생할 수 있습니다. 그러한 경우 코드와 데이터 모두 이전 상태로 복구해야 할 수도 있습니다.
+- **재해 복구의 경우**: 전체 Service Fabric 클러스터가 영구적으로 손실 됩니다.
+- **데이터 손실의 경우**: 대부분의 서비스 파티션 복제본이 영구적으로 손실 됩니다.
+- **데이터 손실의 경우**: 서비스를 실수로 삭제 하거나 손상 합니다. 예를 들어 관리자가 실수로 서비스를 삭제합니다.
+- **데이터 손상의 경우**: 서비스의 버그로 인해 데이터가 손상 됩니다. 예를 들어 신뢰할 수 있는 컬렉션에 잘못된 데이터를 작성하는 서비스 코드가 업그레이드되는 경우 데이터 손상이 발생할 수 있습니다. 그러한 경우 코드와 데이터 모두 이전 상태로 복구해야 할 수도 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 복구를 트리거하려면 클러스터에 _FAS(Fault Analysis Service)_ 를 사용하도록 설정해야 합니다.
 - _BRS(Backup Restore Service)_ 가 백업을 생성합니다.
 - 복원은 파티션에서만 트리거할 수 있습니다.
-- 설치 Microsoft.ServiceFabric.Powershell.Http 모듈 [미리 보기] 구성 호출을 만들기 위한.
+- 구성 호출을 위해 ServiceFabric 모듈 [미리 보기]를 설치 합니다.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-- Microsoft.ServiceFabric.Powershell.Http 모듈을 사용하여 구성 요청을 하기 전에 `Connect-SFCluster` 명령을 사용하여 클러스터가 연결되어 있는지 확인합니다.
+- ServiceFabric 모듈을 사용 하 여 구성 요청 `Connect-SFCluster` 을 수행 하기 전에 명령을 사용 하 여 클러스터를 연결 했는지 확인 합니다.
 
 ```powershell
 
@@ -56,14 +56,14 @@ Azure Service Fabric에서 Reliable Stateful 서비스 및 Reliable Actors는 �
 
 다음 예제의 경우 손실된 클러스터가 [Reliable Stateful 서비스 및 Reliable Actors에 대해 정기적 백업 사용](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors)에서 참조되는 클러스터와 동일하다고 가정합니다. 이 경우 `SampleApp`이 사용하도록 설정된 백업 정책과 함께 배포되고 복구가 Azure Storage에 구성됩니다.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>마이크로소프트.서비스패브릭.파워쉘.Http 모듈을 사용하는 파워쉘
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell을 사용 하 여 ServiceFabric 모듈을 사용 합니다.
 
 ```powershell
 Get-SFBackupsFromBackupLocation -Application -ApplicationName 'fabric:/SampleApp' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>전원 셸을 사용하는 나머지 호출
+#### <a name="rest-call-using-powershell"></a>Powershell을 사용 하 여 Rest 호출
 
 REST API를 사용하는 PowerShell 스크립트를 실행하여 `SampleApp` 애플리케이션 내의 모든 파티션에 대해 생성된 백업 목록을 반환합니다. API에서 사용할 수 있는 백업을 나열하려면 백업 스토리지 정보가 필요합니다.
 
@@ -156,7 +156,7 @@ FailureError            :
 
 _이름 지정된 분할_의 경우 이름 값을 비교하여 대체 클러스터의 대상 파티션을 식별합니다.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>마이크로소프트.서비스패브릭.파워쉘.Http 모듈을 사용하는 파워쉘
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell을 사용 하 여 ServiceFabric 모듈을 사용 합니다.
 
 ```powershell
 
@@ -164,7 +164,7 @@ Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -Backup
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>전원 셸을 사용하는 나머지 호출
+#### <a name="rest-call-using-powershell"></a>Powershell을 사용 하 여 Rest 호출
 
 다음 [복원 API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)를 사용하여 백업 클러스터 파티션에 대해 복원을 요청합니다.
 
@@ -190,18 +190,18 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 TrackRestoreProgress를 통해 복원의 진행률을 추적할 수 있습니다.
 
-### <a name="using-service-fabric-explorer"></a>서비스 패브릭 탐색기 사용
-서비스 패브릭 탐색기에서 복원을 트리거할 수 있습니다. 서비스 패브릭 탐색기 설정에서 고급 모드가 활성화되어 있는지 확인합니다.
-1. 원하는 파티션을 선택하고 작업을 클릭합니다. 
-2. 트리거 파티션 복원을 선택하고 Azure에 대한 정보를 입력합니다.
+### <a name="using-service-fabric-explorer"></a>Service Fabric Explorer 사용
+Service Fabric Explorer에서 복원을 트리거할 수 있습니다. Service Fabric Explorer 설정에서 고급 모드를 사용 하도록 설정 했는지 확인 합니다.
+1. 원하는 파티션을 선택 하 고 작업을 클릭 합니다. 
+2. Azure에 대 한 파티션 복원 및 정보 입력 트리거를 선택 합니다.
 
-    ![트리거 파티션 복원][2]
+    ![파티션 복원 트리거][2]
 
     또는 파일 공유:
 
-    ![트리거 파티션 복원 파일 공유][3]
+    ![파티션 복원 파일 공유 트리거][3]
 
-### <a name="data-restore-for-_data-corruption__data-loss_"></a>데이터 _손상_/데이터_손실에_ 대한 데이터 복원
+### <a name="data-restore-for-_data-corruption__data-loss_"></a>데이터 _손상_/_데이터 손실_ 에 대 한 데이터 복원
 
 _데이터 손실_ 또는 _데이터 손상_의 경우 Reliable Stateful 서비스 및 Reliable Actors의 파티션에 대한 백업을 선택한 백업으로 복원할 수 있습니다.
 
@@ -209,7 +209,7 @@ _데이터 손실_ 또는 _데이터 손상_의 경우 Reliable Stateful 서비�
 
 [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups)의 출력에서 백업을 선택합니다. 이 시나리오에서는 이전과 동일한 클러스터에서 백업이 생성됩니다.
 
-복원을 트리거하려면 목록에서 백업을 선택합니다. 현재 _데이터 손실_/_데이터 손상의_경우 다음 백업을 선택합니다.
+복원을 트리거하려면 목록에서 백업을 선택합니다. 현재 _데이터 손실_/_데이터 손상_의 경우 다음 백업을 선택 합니다.
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -228,14 +228,14 @@ FailureError            :
 복원 API의 경우 _BackupId_ 및 _BackupLocation_ 세부 정보를 제공합니다. 클러스터에서 백업이 설정되었기 때문에 Service Fabric _BRS(Backup Restore Service)_ 는 연결된 백업 정책에서 올바른 스토리지 위치를 식별합니다.
 
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>마이크로소프트.서비스패브릭.파워쉘.Http 모듈을 사용하는 파워쉘
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell을 사용 하 여 ServiceFabric 모듈을 사용 합니다.
 
 ```powershell
 Restore-SFPartition  -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>전원 셸을 사용하는 나머지 호출
+#### <a name="rest-call-using-powershell"></a>Powershell을 사용 하 여 Rest 호출
 
 ```powershell
 $RestorePartitionReference = @{
@@ -255,13 +255,13 @@ TrackRestoreProgress를 사용하여 복원의 진행률을 추적할 수 있습
 
 Reliable Stateful 서비스 또는 Reliable Actor의 파티션은 한 번에 하나의 복원 요청만 수락합니다. 파티션은 현재 복원 요청이 완료된 후에만 다른 요청을 수락합니다. 여러 복원 요청은 다른 파티션에서 동시에 트리거될 수 있습니다.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>마이크로소프트.서비스패브릭.파워쉘.Http 모듈을 사용하는 파워쉘
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell을 사용 하 여 ServiceFabric 모듈을 사용 합니다.
 
 ```powershell
     Get-SFPartitionRestoreProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 ```
 
-#### <a name="rest-call-using-powershell"></a>전원 셸을 사용하는 나머지 호출
+#### <a name="rest-call-using-powershell"></a>Powershell을 사용 하 여 Rest 호출
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4"
@@ -274,14 +274,14 @@ $restoreResponse | Format-List
 
 복원 요청은 다음 순서대로 진행됩니다.
 
-1. **수락됨**: _수락된_ 복원 상태는 요청된 파티션이 올바른 요청 매개 변수로 트리거되었음을 나타냅니다.
+1. **수락**됨: _허용_ 된 복원 상태는 요청 된 파티션이 올바른 요청 매개 변수로 트리거 되었음을 나타냅니다.
     ```
     RestoreState  : Accepted
     TimeStampUtc  : 0001-01-01T00:00:00Z
     RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
     RestoredLsn   : 3552
     ```
-2. **진행 중**: _진행 중_ 복원 상태는 요청에 언급 된 백업과 함께 파티션에서 복원이 발생했음을 나타냅니다. 파티션은 _데이터 손실_ 상태를 보고합니다.
+2. **Inprogress**: _inprogress_ 복원 상태는 요청에 설명 된 백업이 있는 파티션에서 복원이 진행 중임을 나타냅니다. 파티션은 _데이터 손실_ 상태를 보고합니다.
     ```
     RestoreState  : RestoreInProgress
     TimeStampUtc  : 0001-01-01T00:00:00Z
@@ -289,8 +289,8 @@ $restoreResponse | Format-List
     RestoredLsn   : 3552
     ```
     
-3. **성공,** **실패**또는 **시간 시간:** 요청된 복원은 다음 상태 중 어느 상태에서도 완료할 수 있습니다. 각 상태에는 다음과 같은 중요도 및 응답 세부 정보가 있습니다.
-    - **성공**: _성공_ 복원 상태는 회복 된 파티션 상태를 나타냅니다. 파티션은 시간(UTC)과 함께 _RestoredEpoch_ 및 _RestoredLSN_을 보고합니다.
+3. **성공**, **실패**또는 **시간 제한**: 다음 상태 중 하나를 수행 하 여 요청 된 복원을 완료할 수 있습니다. 각 상태에는 다음과 같은 중요도 및 응답 세부 정보가 있습니다.
+    - **성공**: _성공_ 복원 상태는 다시 회복 된 파티션 상태를 나타냅니다. 파티션은 시간(UTC)과 함께 _RestoredEpoch_ 및 _RestoredLSN_을 보고합니다.
 
         ```
         RestoreState  : Success
@@ -298,7 +298,7 @@ $restoreResponse | Format-List
         RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
         RestoredLsn   : 3552
         ```        
-    - **실패**: _오류_ 복원 상태는 복원 요청의 실패를 나타냅니다. 오류의 원인이 보고됩니다.
+    - **실패**: _실패_ 복원 상태는 복원 요청 실패를 나타냅니다. 오류의 원인이 보고됩니다.
 
         ```
         RestoreState  : Failure
@@ -306,7 +306,7 @@ $restoreResponse | Format-List
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    - **시간 시간:** _시간 시간 삭제_ 복원 상태는 요청에 시간 시간이 있음을 나타냅니다. [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout)이 더 큰 새 복원 요청을 만듭니다. 시간 제한은 기본적으로 10분입니다. 복원을 다시 요청하기 전에 파티션이 데이터 손실 상태에서 벗어났는지 확인해야 합니다.
+    - **Timeout**: 시간 _제한_ 복원 상태는 요청 시간이 초과 되었음을 나타냅니다. [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout)이 더 큰 새 복원 요청을 만듭니다. 시간 제한은 기본적으로 10분입니다. 복원을 다시 요청하기 전에 파티션이 데이터 손실 상태에서 벗어났는지 확인해야 합니다.
      
         ```
         RestoreState  : Timeout

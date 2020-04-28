@@ -1,25 +1,25 @@
 ---
-title: Azure 코스모스 DB의 매개 변수화된 쿼리
-description: SQL 매개 변수화된 쿼리가 사용자 입력을 강력하게 처리하고 이스케이프처리하는 방법을 알아보고 SQL 주입을 통해 실수로 데이터가 노출되는 것을 방지하는 방법을 알아봅니다.
+title: Azure Cosmos DB의 매개 변수가 있는 쿼리
+description: SQL 매개 변수가 있는 쿼리를 통해 사용자 입력의 강력한 처리 및 이스케이프를 제공 하 고 SQL 주입을 통해 실수로 데이터가 노출 되는 것을 방지 하는 방법을 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
 ms.openlocfilehash: e15a8236723c1efd80f27f2d253e9bbc44af4b0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74870822"
 ---
-# <a name="parameterized-queries-in-azure-cosmos-db"></a>Azure 코스모스 DB의 매개 변수화된 쿼리
+# <a name="parameterized-queries-in-azure-cosmos-db"></a>Azure Cosmos DB의 매개 변수가 있는 쿼리
 
-Cosmos DB는 익숙한 @ 표기어로 표현된 매개 변수로 쿼리를 지원합니다. 매개 변수화된 SQL은 사용자 입력을 강력하게 처리하고 이스케이프처리하여 SQL 주입을 통해 실수로 데이터가 노출되는 것을 방지합니다.
+Cosmos DB는 익숙한 @ 표기법으로 표현 된 매개 변수가 있는 쿼리를 지원 합니다. 매개 변수가 있는 SQL은 사용자 입력의 강력한 처리 및 이스케이프를 제공 하 고 SQL 주입을 통해 실수로 데이터가 노출 되는 것을 방지 합니다.
 
 ## <a name="examples"></a>예
 
-예를 들어 매개 변수를 `lastName` 가져와서 `address.state` 매개 변수로 작성하는 쿼리를 `lastName` 작성하고 `address.state` 사용자 입력에 따라 다양한 값에 대해 쿼리를 실행할 수 있습니다.
+예 `lastName` 를 들어 및 `address.state` 를 매개 변수로 사용 하는 쿼리를 작성 하 고 사용자 입력을 `lastName` `address.state` 기준으로 다양 한 값에 대해 실행할 수 있습니다.
 
 ```sql
     SELECT *
@@ -27,7 +27,7 @@ Cosmos DB는 익숙한 @ 표기어로 표현된 매개 변수로 쿼리를 지�
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 ```
 
-그런 다음 다음과 같이 매개 변수화된 JSON 쿼리로 Cosmos DB에 이 요청을 보낼 수 있습니다.
+그러면 다음과 같이이 요청을 매개 변수가 있는 JSON 쿼리로 Cosmos DB 보낼 수 있습니다.
 
 ```sql
     {
@@ -39,7 +39,7 @@ Cosmos DB는 익숙한 @ 표기어로 표현된 매개 변수로 쿼리를 지�
     }
 ```
 
-다음 예제는 매개 변수화된 쿼리를 사용 하 고 TOP 인수를 설정 합니다. 
+다음 예에서는 매개 변수가 있는 쿼리를 사용 하 여 TOP 인수를 설정 합니다. 
 
 ```sql
     {
@@ -50,7 +50,7 @@ Cosmos DB는 익숙한 @ 표기어로 표현된 매개 변수로 쿼리를 지�
     }
 ```
 
-매개 변수 값은 문자열, 숫자, 부울, null, 배열 또는 중첩 된 JSON과 같은 유효한 JSON일 수 있습니다. Cosmos DB는 스키마가 없으므로 매개 변수는 모든 형식에 대해 유효성이 검사되지 않습니다.
+매개 변수 값은 문자열, 숫자, 부울, null, 배열 또는 중첩 된 JSON의 모든 유효한 JSON이 될 수 있습니다. Cosmos DB은 스키마 형식 이므로 모든 형식에 대해 매개 변수의 유효성이 검사 되지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

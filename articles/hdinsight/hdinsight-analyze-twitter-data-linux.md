@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: f3705170be28f33e5994bd00e363dc7ec7f94642
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75435609"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hive 및 Apache Hadoop을 사용하여 Twitter 데이터 분석
 
-[아파치 하이브를](https://hive.apache.org/) 사용하여 트위터 데이터를 처리하는 방법을 알아보세요. 결과는 특정 단어가 포함된 많은 트윗을 보낸 Twitter 사용자의 목록이 됩니다.
+[Apache Hive](https://hive.apache.org/) 를 사용 하 여 Twitter 데이터를 처리 하는 방법을 알아봅니다. 결과는 특정 단어가 포함된 많은 트윗을 보낸 Twitter 사용자의 목록이 됩니다.
 
 > [!IMPORTANT]  
 > 이 문서의 단계는 HDInsight 3.6에서 테스트했습니다.
@@ -28,27 +28,27 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
 
 ### <a name="create-a-twitter-application"></a>Twitter 애플리케이션 만들기
 
-1. 웹 브라우저에서 에 로그인합니다. [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/) 트위터 계정이 없는 경우 **지금 등록** 링크를 선택합니다.
+1. 웹 브라우저에서에 [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/)로그인 합니다. Twitter 계정이 없는 경우 **지금 등록** 링크를 선택 합니다.
 
-2. **새 앱 만들기를 선택합니다.**
+2. **새 앱 만들기**를 선택 합니다.
 
 3. **Name**, **Description**, **Website**를 입력합니다. **Website** 필드의 URL을 구성할 수 있습니다. 다음 표는 사용할 샘플 값을 보여 줍니다.
 
    | 필드 | 값 |
    |--- |--- |
-   | 이름 |MyHDInsightApp |
+   | 속성 |MyHDInsightApp |
    | 설명 |MyHDInsightApp |
    | Website |`https://www.myhdinsightapp.com` |
 
-4. **예, 동의를 선택한**다음 **트위터 응용 프로그램 만들기를 선택합니다.**
+4. **예, 동의 함**을 선택한 다음 **Twitter 응용 프로그램 만들기**를 선택 합니다.
 
-5. 사용 **권한 탭을 선택합니다.** 기본 권한은 **읽기 전용입니다.**
+5. **사용 권한** 탭을 선택 합니다. 기본 권한은 **읽기 전용**입니다.
 
 6. **Keys and Access Tokens** 탭을 선택합니다.
 
-7. **내 액세스 토큰 만들기를 선택합니다.**
+7. **내 액세스 토큰 만들기**를 선택 합니다.
 
-8. 페이지의 오른쪽 상단 모서리에서 **테스트 OAuth를** 선택합니다.
+8. 페이지의 오른쪽 위 모서리에서 **테스트 OAuth** 를 선택 합니다.
 
 9. **consumer key**, **Consumer secret**, **Access token** 및 **Access token secret**을 기록해 둡니다.
 
@@ -59,13 +59,13 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
 > [!NOTE]  
 > 다음 단계는 Python이 이미 설치되어 있으므로 HDInsight 클러스터에서 수행됩니다.
 
-1. [ssh 명령을](./hdinsight-hadoop-linux-use-ssh-unix.md) 사용하여 클러스터에 연결합니다. CLUSTERNAME을 클러스터 이름으로 바꿉니다 아래 명령을 편집한 다음 명령을 입력합니다.
+1. [Ssh 명령을](./hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 클러스터에 연결 합니다. CLUSTERNAME을 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. 다음 명령을 사용하여 [Tweepy,](https://www.tweepy.org/) [진행률 표시줄](https://pypi.python.org/pypi/progressbar/2.2)및 기타 필수 패키지를 설치합니다.
+1. 다음 명령을 사용 하 여 [Tweepy](https://www.tweepy.org/), [진행률 표시줄](https://pypi.python.org/pypi/progressbar/2.2)및 기타 필수 패키지를 설치 합니다.
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
@@ -84,7 +84,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
    nano gettweets.py
    ```
 
-1. `Your consumer key`을 `Your access token`대체하고 `Your access token secret` `Your consumer secret`트위터 응용 프로그램의 관련 정보로 아래 코드를 편집합니다. 그런 다음 편집된 코드를 **gettweets.py** 파일의 내용으로 붙여넣습니다.
+1. , `Your consumer secret` `Your consumer key`, 및 `Your access token secret` 를 twitter 응용 프로그램의 관련 정보로 바꿔서 아래 코드를 편집 합니다. `Your access token` 그런 다음 편집 된 코드를 **gettweets.py** 파일의 내용으로 붙여넣습니다.
 
    ```python
    #!/usr/bin/python
@@ -154,7 +154,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
     진행률 표시기가 나타납니다. 진행률 표시기는 트윗이 다운로드되면서 100%까지 올라갑니다.
 
    > [!NOTE]  
-   > 진행률 표시줄이 앞으로 이동하는 데 시간이 오래 걸리는 경우 추세 항목을 추적하는 필터를 변경해야 합니다. 필터에 주제에 대한 트윗이 많으면 필요한 100개의 트윗을 빠르게 얻을 수 있습니다.
+   > 진행률 표시줄이 앞으로 이동하는 데 시간이 오래 걸리는 경우 추세 항목을 추적하는 필터를 변경해야 합니다. 필터에 항목에 대 한 많은 트 윗 있는 경우 필요한 100 트 윗를 신속 하 게 얻을 수 있습니다.
 
 ### <a name="upload-the-data"></a>데이터 업로드
 
@@ -169,7 +169,7 @@ hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 
 ## <a name="run-the-hiveql-job"></a>HiveQL 작업 실행
 
-1. 다음 명령을 사용하여 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 문이 포함된 파일을 만듭니다.
+1. 다음 명령을 사용 하 여 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 문을 포함 하는 파일을 만듭니다.
 
    ```bash
    nano twitter.hql
@@ -310,7 +310,7 @@ hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 
 ## <a name="next-steps"></a>다음 단계
 
-구조화되지 않은 JSON 데이터 집합을 구조화된 [아파치 하이브](https://hive.apache.org/) 테이블로 변환하는 방법을 배웠습니다. HDInsight에서 Hive에 대한 자세한 내용은 다음 문서를 참조하세요.
+비구조적 JSON 데이터 집합을 구조적 [Apache Hive](https://hive.apache.org/) 테이블로 변환 하는 방법을 배웠습니다. HDInsight에서 Hive에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight를 사용하여 비행 지연 데이터 분석](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)

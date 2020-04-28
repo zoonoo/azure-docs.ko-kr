@@ -1,6 +1,6 @@
 ---
 title: 인코딩 단위를 추가하여 미디어 처리 크기 조정 - Azure | Microsoft Docs
-description: 이 문서에서는 Azure Media Services .NET을 사용하여 인코딩 단위를 추가하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Media Services .NET을 사용 하 여 인코딩 단위를 추가 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -16,19 +16,19 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milangada
 ms.openlocfilehash: 86fd923c121b9d46109529f75bc3d0d040f1a7a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74887291"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>.NET SDK를 사용하여 인코딩 크기를 조정하는 방법
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-scale-media-processing.md)
 > * [.NET](media-services-dotnet-encoding-units.md)
-> * [나머지](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
-> * [Php](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
+> * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 > 
 

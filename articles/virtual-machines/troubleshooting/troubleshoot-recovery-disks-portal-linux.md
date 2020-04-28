@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 08/19/2019
 ms.author: genli
 ms.openlocfilehash: e45de5c12f0d93645a0b1253acf8300527cafdbc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75374644"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Azure Portal을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux VM 문제 해결
@@ -26,15 +26,15 @@ Linux 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우
 문제 해결 프로세스는 다음과 같습니다.
 
 1. 영향을 받는 VM을 중지합니다.
-1. VM의 OS 디스크에 대한 스냅숏을 생성합니다.
-1. 스냅샷에서 가상 하드 디스크를 만듭니다.
+1. VM의 OS 디스크에 대 한 스냅숏을 만듭니다.
+1. 스냅숏에서 가상 하드 디스크를 만듭니다.
 1. 문제 해결을 위해 가상 하드 디스크를 다른 Windows VM에 연결하고 탑재합니다.
 1. 문제 해결 VM에 연결합니다. 파일을 편집하거나 도구를 실행하여 원래의 가상 하드 디스크에서 문제를 수정합니다.
 1. 문제 해결 VM에서 가상 하드 디스크를 탑재 해제하고 분리합니다.
-1. OS 디스크를 VM으로 교체합니다.
+1. VM에 대 한 OS 디스크를 교환 합니다.
 
 > [!NOTE]
-> 이 문서는 관리되지 않는 디스크가 있는 VM에는 적용되지 않습니다.
+> 이 문서는 관리 되지 않는 디스크가 있는 VM에는 적용 되지 않습니다.
 
 ## <a name="determine-boot-issues"></a>부팅 문제 확인
 VM이 올바르게 부팅할 수 없는 원인을 확인하려면 부팅 진단 및 VM 스크린샷을 검사합니다. 일반적인 예로는 `/etc/fstab`의 잘못된 항목 또는 삭제하거나 이동 중인 기본 가상 하드 디스크입니다.
@@ -45,22 +45,22 @@ VM이 올바르게 부팅할 수 없는 원인을 확인하려면 부팅 진단 
 
 VM 스크린샷의 캡처를 다운로드하려면 부팅 진단 로그의 위쪽에 있는 **스크린 샷**을 클릭할 수도 있습니다.
 
-## <a name="take-a-snapshot-of-the-os-disk"></a>OS 디스크의 스냅샷 생성
-스냅샷은 VHD(가상 하드 드라이브)의 전체 읽기 전용 복사본입니다. 스냅숏을 찍기 전에 VM을 깨끗하게 종료하여 진행 중인 프로세스를 지우는 것이 좋습니다. OS 디스크의 스냅숏을 찍려면 다음 단계를 따르십시오.
+## <a name="take-a-snapshot-of-the-os-disk"></a>OS 디스크의 스냅숏 만들기
+스냅샷은 VHD(가상 하드 드라이브)의 전체 읽기 전용 복사본입니다. 스냅숏을 만들기 전에 VM을 완전히 종료 하 여 진행 중인 모든 프로세스를 지워야 하는 것이 좋습니다. OS 디스크의 스냅숏을 만들려면 다음 단계를 수행 합니다.
 
-1. [Azure 포털](https://portal.azure.com)로 이동합니다. 사이드바에서 **가상 컴퓨터를** 선택한 다음 문제가 있는 VM을 선택합니다.
-1. 왼쪽 창에서 디스크를 선택한 다음 OS 디스크의 이름을 **선택합니다.**
-    ![OS 디스크 의 이름에 대한 이미지](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
-1. OS 디스크의 **개요** 페이지에서 **스냅숏 만들기를**선택합니다.
-1. OS 디스크와 동일한 위치에서 스냅샷을 만듭니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다. 사이드바에서 **Virtual machines** 를 선택한 다음 문제가 있는 VM을 선택 합니다.
+1. 왼쪽 창에서 **디스크**를 선택 하 고 OS 디스크의 이름을 선택 합니다.
+    ![OS 디스크의 이름에 대 한 이미지](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
+1. OS 디스크의 **개요** 페이지에서 **스냅숏 만들기**를 선택 합니다.
+1. OS 디스크와 동일한 위치에 스냅숏을 만듭니다.
 
 ## <a name="create-a-disk-from-the-snapshot"></a>스냅샷에서 디스크 만들기
-스냅샷에서 디스크를 만들려면 다음 단계를 따르십시오.
+스냅숏에서 디스크를 만들려면 다음 단계를 수행 합니다.
 
-1. Azure 포털에서 **클라우드 셸을** 선택합니다.
+1. Azure Portal에서 **Cloud Shell** 를 선택 합니다.
 
-    ![오픈 클라우드 쉘에 대한 이미지](./media/troubleshoot-recovery-disks-portal-windows/cloud-shell.png)
-1. 다음 PowerShell 명령을 실행하여 스냅샷에서 관리되는 디스크를 만듭니다. 이러한 샘플 이름을 적절한 이름으로 바꿔야 합니다.
+    ![Open Cloud Shell에 대 한 이미지](./media/troubleshoot-recovery-disks-portal-windows/cloud-shell.png)
+1. 다음 PowerShell 명령을 실행 하 여 스냅숏에서 관리 디스크를 만듭니다. 이러한 샘플 이름을 적절 한 이름으로 바꾸어야 합니다.
 
     ```powershell
     #Provide the name of your resource group
@@ -90,17 +90,17 @@ VM 스크린샷의 캡처를 다운로드하려면 부팅 진단 로그의 위�
      
     New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
     ```
-3. 명령이 성공적으로 실행되면 제공한 리소스 그룹에 새 디스크가 표시됩니다.
+3. 명령이 성공적으로 실행 되 면 사용자가 제공한 리소스 그룹에 새 디스크가 표시 됩니다.
 
-## <a name="attach-disk-to-another-vm"></a>디스크를 다른 VM에 연결
-다음 몇 단계에서는 문제 해결을 위해 다른 VM을 사용합니다. 문제 해결 VM에 디스크를 연결한 후 디스크의 콘텐츠를 찾아보고 편집할 수 있습니다. 이 프로세스를 사용하면 구성 오류를 수정하거나 추가 응용 프로그램 또는 시스템 로그 파일을 검토할 수 있습니다. 디스크를 다른 VM에 연결하려면 다음 단계를 따르십시오.
+## <a name="attach-disk-to-another-vm"></a>다른 VM에 디스크 연결
+다음 몇 단계에서는 문제 해결을 위해 다른 VM을 사용합니다. 문제 해결 VM에 디스크를 연결 하면 디스크의 콘텐츠를 찾아보고 편집할 수 있습니다. 이 프로세스를 통해 모든 구성 오류를 수정 하거나 추가 응용 프로그램 또는 시스템 로그 파일을 검토할 수 있습니다. 다른 VM에 디스크를 연결 하려면 다음 단계를 수행 합니다.
 
-1. 포털에서 리소스 그룹을 선택하고 문제를 해결하는 VM을 선택합니다. **디스크를**선택하고 **편집을**선택한 다음 **데이터 디스크 추가를**클릭합니다.
+1. 포털에서 리소스 그룹을 선택하고 문제를 해결하는 VM을 선택합니다. **디스크**를 선택 하 고 **편집**을 선택한 다음 **데이터 디스크 추가**를 클릭 합니다.
 
     ![포털에서 기존 디스크 연결](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
-2. 데이터 **디스크** 목록에서 식별한 VM의 OS 디스크를 선택합니다. OS 디스크가 표시되지 않으면 문제 해결 VM과 OS 디스크가 동일한 영역(위치)에 있는지 확인합니다. 
-3. 변경 내용을 적용하려면 **저장을** 선택합니다.
+2. **데이터 디스크** 목록에서 식별 한 VM의 OS 디스크를 선택 합니다. OS 디스크가 표시 되지 않으면 VM 및 OS 디스크의 문제 해결이 동일한 지역 (위치)에 있는지 확인 합니다. 
+3. **저장** 을 선택 하 여 변경 내용을 적용 합니다.
 
 ## <a name="mount-the-attached-data-disk"></a>연결된 데이터 디스크 탑재
 
@@ -164,15 +164,15 @@ VM 스크린샷의 캡처를 다운로드하려면 부팅 진단 로그의 위�
 
     계속하기 전에 VM이 데이터 디스크를 성공적으로 분리할 때까지 기다립니다.
 
-## <a name="swap-the-os-disk-for-the-vm"></a>Os 디스크를 VM용으로 교체
+## <a name="swap-the-os-disk-for-the-vm"></a>VM에 대 한 OS 디스크 교체
 
-이제 Azure 포털은 VM의 OS 디스크 변경을 지원합니다. 이렇게 하려면 다음 단계를 수행하세요.
+Azure Portal은 이제 VM의 OS 디스크 변경을 지원 합니다. 이를 수행하려면 다음 단계를 따르십시오.
 
-1. [Azure 포털](https://portal.azure.com)로 이동합니다. 사이드바에서 **가상 컴퓨터를** 선택한 다음 문제가 있는 VM을 선택합니다.
-1. 왼쪽 창에서 디스크 를 선택한 다음 **OS 디스크 교환을** **선택합니다.**
-        ![Azure 포털의 OS 디스크 교환에 대한 이미지](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
+1. [Azure 포털](https://portal.azure.com)로 이동합니다. 사이드바에서 **Virtual machines** 를 선택한 다음 문제가 있는 VM을 선택 합니다.
+1. 왼쪽 창에서 **디스크**를 선택 하 고 **OS 디스크 교체**를 선택 합니다.
+        ![Azure Portal에서 OS 디스크 교체에 대 한 이미지](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
-1. 복구한 새 디스크를 선택한 다음 VM 이름을 입력하여 변경 을 확인합니다. 목록에 디스크가 표시되지 않으면 문제 해결 VM에서 디스크를 분리한 후 10~15분 후에 기다립니다. 또한 디스크가 VM과 동일한 위치에 있는지 확인합니다.
+1. 복구한 새 디스크를 선택한 다음 VM의 이름을 입력 하 여 변경 내용을 확인 합니다. 목록에 디스크가 표시 되지 않으면 문제 해결 VM에서 디스크를 분리 한 후 10 ~ 15 분 동안 기다립니다. 또한 디스크가 VM과 동일한 위치에 있어야 합니다.
 1. 확인을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계

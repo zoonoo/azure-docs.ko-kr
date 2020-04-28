@@ -1,5 +1,5 @@
 ---
-title: Visual Studio를 통해 Azure 스트림 분석 모니터링 및 관리
+title: Visual Studio를 사용 하 여 Azure Stream Analytics 모니터링 및 관리
 description: 이 문서에서는 Visual Studio를 사용하여 Azure Stream Analytics 작업을 모니터링하고 관리하는 방법을 설명합니다.
 author: su-jie
 ms.author: sujie
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: e43a8d157baaf7e02ab7f8db4c777009d2a0abe9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75431683"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>Visual Studio를 사용하여 Stream Analytics 작업 모니터링 및 관리
@@ -41,7 +41,7 @@ ms.locfileid: "75431683"
 
 
 ## <a name="get-support"></a>지원 받기
-추가 지원은 [Azure 스트림 분석 포럼을](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)참조하십시오. 
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 사용해 보세요. 
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)

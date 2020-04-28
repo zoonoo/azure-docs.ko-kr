@@ -1,6 +1,6 @@
 ---
-title: Azure 스트림 분석 CI/CD NuGet 패키지 사용
-description: 이 문서에서는 Azure Stream Analytics CI/CD NuGet 패키지를 사용하여 지속적인 통합 및 배포 프로세스를 설정하는 방법에 대해 설명합니다.
+title: Azure Stream Analytics CI/CD NuGet 패키지 사용
+description: 이 문서에서는 Azure Stream Analytics CI/CD NuGet 패키지를 사용 하 여 지속적인 통합 및 배포 프로세스를 설정 하는 방법을 설명 합니다.
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.openlocfilehash: 11e68aaa7c70d4f888c0009bc28d9bb90f431f3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75354451"
 ---
-# <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>통합 및 개발을 위해 Azure 스트림 분석 CI/CD NuGet 패키지를 사용합니다. 
-이 문서에서는 Azure Stream Analytics CI/CD NuGet 패키지를 사용하여 지속적인 통합 및 배포 프로세스를 설정하는 방법에 대해 설명합니다.
+# <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Azure Stream Analytics CI/CD NuGet 패키지를 사용 하 여 통합 및 개발 
+이 문서에서는 Azure Stream Analytics CI/CD NuGet 패키지를 사용 하 여 지속적인 통합 및 배포 프로세스를 설정 하는 방법을 설명 합니다.
 
 MSBuild에 대한 지원을 제공하기 위해 2.3.0000.0 이상 버전의 [Visual Studio용 Stream Analytics 도구](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio)를 사용합니다.
 
-[Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/)에서 NuGet 패키지를 사용할 수 있습니다. [스트림 애널리틱스 Visual Studio 프로젝트의](stream-analytics-vs-tools.md)지속적인 통합 및 배포 프로세스를 지원하는 MSBuild, 로컬 실행 및 배포 도구를 제공합니다. 
+[Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/)에서 NuGet 패키지를 사용할 수 있습니다. [Visual Studio 프로젝트 Stream Analytics](stream-analytics-vs-tools.md)의 지속적인 통합 및 배포 프로세스를 지 원하는 MSBuild, 로컬 실행 및 배포 도구를 제공 합니다. 
 > [!NOTE]
 > NuGet 패키지는 Visual Studio용 Stream Analytics 도구 버전 2.3.0000.0 이상에서만 사용할 수 있습니다. 이전 버전의 Visual Studio 도구에서 만든 프로젝트가 있는 경우 2.3.0000.0 이상 버전에서 열어 저장하기만 하면 됩니다. 그런 다음 새 기능이 활성화됩니다. 
 
@@ -92,6 +92,6 @@ arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-O
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: Visual Studio에서 Azure 스트림 분석 클라우드 작업 만들기](stream-analytics-quick-create-vs.md)
+* [빠른 시작: Visual Studio에서 Azure Stream Analytics 클라우드 작업 만들기](stream-analytics-quick-create-vs.md)
 * [Visual Studio를 사용하여 로컬로 Stream Analytics 쿼리 테스트](stream-analytics-vs-tools-local-run.md)
-* [비주얼 스튜디오를 통해 Azure 스트림 분석 작업 살펴보기](stream-analytics-vs-tools.md)
+* [Visual Studio를 사용 하 여 Azure Stream Analytics 작업 살펴보기](stream-analytics-vs-tools.md)

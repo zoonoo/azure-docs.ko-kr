@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB 개념을 설명하는 백서
-description: Azure Cosmos DB에 대한 백서 목록을 얻으면 이 백서에서 개념을 심층적으로 설명합니다.
+description: Azure Cosmos DB에 대 한 백서 목록을 가져옵니다. 이러한 백서에서는 개념에 대해 자세히 설명 합니다.
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.custom: seodec18
 ms.openlocfilehash: adbbdf39875e67552de2f797b94eae89e0aba409
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74869785"
 ---
 # <a name="azure-cosmos-db-whitepapers"></a>Azure Cosmos DB 백서
