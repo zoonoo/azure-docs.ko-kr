@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: e8117eb1b521dc2e3fa9eaca1316e0b9c14f0e98
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bbe5d9ac21ae9e03d629a1667567a915c8653a8a
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80129463"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81602641"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -30,7 +30,7 @@ CLI를 로컬에 설치하여 사용하도록 선택한 경우 이 빠른 시작
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Resource Manager 템플릿을 사용하여 AKS 클러스터를 만들려면 SSH 공개 키와 Azure Active Directory 서비스 주체를 제공합니다. 이러한 리소스가 필요한 경우 다음 섹션을 참조하세요. 그렇지 않으면 [AKS 클러스터 만들기](#create-an-aks-cluster) 섹션으로 건너뜁니다.
+Resource Manager 템플릿을 사용하여 AKS 클러스터를 만들려면 SSH 공개 키와 Azure Active Directory 서비스 주체를 제공합니다.  또는 사용 권한에 대해 서비스 주체 대신 [관리 ID](use-managed-identity.md)를 사용할 수 있습니다. 이러한 리소스가 필요한 경우 다음 섹션을 참조하세요. 그렇지 않으면 [AKS 클러스터 만들기](#create-an-aks-cluster) 섹션으로 건너뜁니다.
 
 ### <a name="create-an-ssh-key-pair"></a>SSH 키 쌍 만들기
 
@@ -48,7 +48,7 @@ SSH 생성에 대한 자세한 내용은 [Azure에서 인증용 SSH 키 생성 �
 
 ### <a name="create-a-service-principal"></a>서비스 주체 만들기
 
-AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 사용자를 사용합니다. [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용하여 서비스 사용자를 만듭니다. `--skip-assignment` 매개 변수는 다른 추가 사용 권한이 할당되지 않도록 제한합니다. 기본적으로 이 서비스 주체는 1년 동안 유효합니다.
+AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 사용자를 사용합니다. [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용하여 서비스 사용자를 만듭니다. `--skip-assignment` 매개 변수는 다른 추가 사용 권한이 할당되지 않도록 제한합니다. 기본적으로 이 서비스 주체는 1년 동안 유효합니다. 서비스 주체 대신 관리 ID를 사용할 수 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -82,7 +82,7 @@ AKS 샘플을 더 보려면 [AKS 빠른 시작 템플릿][aks-quickstart-templat
 
 1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다.
 
-    [![Azure에 배포](./media/kubernetes-walkthrough-rm-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
+    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
 2. 다음 값을 선택하거나 입력합니다.
 
@@ -281,7 +281,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> 클러스터를 삭제할 때, AKS 클러스터에 사용되는 Azure Active Directory 서비스 주체는 제거되지 않습니다. 서비스 주체를 제거하는 방법에 대한 단계는 [AKS 서비스 주체 고려 사항 및 삭제][sp-delete]를 참조하세요.
+> 클러스터를 삭제할 때, AKS 클러스터에 사용되는 Azure Active Directory 서비스 주체는 제거되지 않습니다. 서비스 주체를 제거하는 방법에 대한 단계는 [AKS 서비스 주체 고려 사항 및 삭제][sp-delete]를 참조하세요. 관리 ID를 사용하는 경우 ID는 플랫폼에 의해 관리되며 제거할 필요가 없습니다.
 
 ## <a name="get-the-code"></a>코드 가져오기
 

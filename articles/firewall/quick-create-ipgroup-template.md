@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 767e91af7fb5ff3de517a79ac4df55af5057c76f
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 53e5bf4f770ce986af2f3572bd6c1ef4cd9e3c2b
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677758"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605239"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---resource-manager-template"></a>빠른 시작: Azure Firewall 및 IP 그룹 만들기 - Resource Manager 템플릿
 
@@ -55,7 +55,7 @@ Azure에 Resource Manager 템플릿 배포:
 
 1. **Azure에 배포**를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 Azure Firewall, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json"><img src="./media/quick-create-ipgroup-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
 
 2. 포털의 **IpGroups를 사용하여 Azure Firewall 만들기** 페이지에서 다음 값을 입력하거나 선택합니다.
    - 구독: 기존 구독에서 선택 

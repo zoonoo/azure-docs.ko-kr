@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: a54d418f668d8c7292c8332c1b14c4df45e59308
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3c88bdf141e7784837a89c8104574d97c93296dc
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76768456"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460157"
 ---
 # <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>빠른 시작: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델 만들기 및 학습
 
@@ -30,11 +31,8 @@ ms.locfileid: "76768456"
 
 - 활성 구독이 있는 Azure 계정. [평가판 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [서버 수준 방화벽 규칙](sql-database-single-database-get-started.md)이 있는 [Azure SQL 데이터베이스](sql-database-server-level-firewall-rule.md)
-- R이 활성화된 [Machine Learning Services](sql-database-machine-learning-services-overview.md). [미리 보기에 가입](sql-database-machine-learning-services-overview.md#signup)하세요.
+- R이 활성화된 [Machine Learning Services](sql-database-machine-learning-services-overview.md).
 - [SSMS(SQL Server Management Studio)](/sql/ssms/sql-server-management-studio-ssms)
-
-> [!NOTE]
-> Microsoft는 공개 미리 보기 기간에는 사용자를 온보딩하고 기존 또는 새 데이터베이스에 기계 학습을 사용하도록 설정합니다.
 
 이 예제에서는 간단한 회귀 모델을 통해 R에 포함된 **자동차** 데이터 세트를 사용하여 속도를 기준으로 자동차의 정지 거리를 예측합니다.
 

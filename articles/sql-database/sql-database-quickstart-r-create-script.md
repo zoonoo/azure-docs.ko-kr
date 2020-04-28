@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 5b2f8231952d25f5858f8e06a957f1056ecc3651
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ROBOTS: NOINDEX
+ms.openlocfilehash: bb6cb6d86933166d2427788d697d9cd38cf04bf0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76768502"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460174"
 ---
 # <a name="quickstart-create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>빠른 시작: Azure SQL Database Machine Learning Services(미리 보기)에서 간단한 R 스크립트 만들기 및 실행
 
@@ -30,11 +31,8 @@ ms.locfileid: "76768502"
 
 - 활성 구독이 있는 Azure 계정. [평가판 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [서버 수준 방화벽 규칙](sql-database-single-database-get-started.md)이 있는 [Azure SQL 데이터베이스](sql-database-server-level-firewall-rule.md)
-- R이 활성화된 [Machine Learning Services](sql-database-machine-learning-services-overview.md). [미리 보기에 가입](sql-database-machine-learning-services-overview.md#signup)하세요.
+- R이 활성화된 [Machine Learning Services](sql-database-machine-learning-services-overview.md).
 - [SSMS(SQL Server Management Studio)](/sql/ssms/sql-server-management-studio-ssms)
-
-> [!NOTE]
-> Microsoft는 공개 미리 보기 기간에는 사용자를 온보딩하고 기존 또는 새 데이터베이스에 기계 학습을 사용하도록 설정합니다.
 
 이 예제에서는 저장 프로시저 [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql)를 사용하여 올바른 형식의 R 스크립트를 래핑합니다.
 

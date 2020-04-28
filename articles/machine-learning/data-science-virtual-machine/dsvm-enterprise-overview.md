@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
-ms.openlocfilehash: 06d05d6d410af13bfbe85f3cb66523c1d48cb77c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1f3a24afb2238c2448cb19b3889467a1b1819724
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "70195656"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460548"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Data Science Virtual Machine 기반 팀 분석 및 AI 환경 
 [DSVM](overview.md)(Data Science Virtual Machine)은 미리 빌드된 AI(인공 지능) 및 데이터 분석용 소프트웨어가 포함된 다양한 환경을 Azure 플랫폼에 제공합니다.
@@ -43,7 +43,7 @@ DSVM은 Azure 인프라 수준에서 작동하므로, IT 관리자가 엔터프�
 * [역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [정책 설정 및 적용](../../governance/policy/overview.md)
 * [맬웨어 방지](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
-* [암호화](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
+* [암호화](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview.md)
 * [데이터 검색 및 거버넌스](https://docs.microsoft.com/azure/data-catalog/)
 
 마지막으로 [Azure 아키텍처 센터](https://docs.microsoft.com/azure/architecture/)는 클라우드 기반 분석 인프라를 구축하고 관리하기 위한 자세한 엔드투엔드 아키텍처와 모델을 제공합니다.

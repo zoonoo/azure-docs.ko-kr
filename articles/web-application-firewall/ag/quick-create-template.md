@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 04/02/2020
 ms.author: victorh
-ms.openlocfilehash: 2a13d4ef440a75045c72f97db02d4be6f2e2b134
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 6759071e73adfd3af4ac780da6db3a0e6e967ea1
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656389"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617984"
 ---
 # <a name="quickstart-create-an-azure-waf-v2-on-application-gateway---resource-manager-template"></a>빠른 시작: Application Gateway에서 Azure WAF v2 만들기 - Azure Resource Manager 템플릿
 
@@ -54,7 +54,7 @@ Azure에 Resource Manager 템플릿 배포:
 
 1. **Azure에 배포**를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 IIS를 실행하는 백 엔드 풀에 애플리케이션 게이트웨이, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-wafv2%2Fazuredeploy.json"><img src="../media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-wafv2%2Fazuredeploy.json)
 
 2. 리소스 그룹을 선택하거나 만듭니다.
 3. **위에 명시된 사용 약관에 동의함**을 선택한 다음, **구매**를 선택합니다. 배포를 완료하는 데 10분 이상 걸릴 수 있습니다.
