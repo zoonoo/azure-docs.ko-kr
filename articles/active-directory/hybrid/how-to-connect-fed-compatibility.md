@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54f5090101c486562e33de56402db348c6038c8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60244754"
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Azure AD 페더레이션 호환성 목록
@@ -30,7 +30,7 @@ Azure Active Directory에서는 임의 타사 솔루션을 요구하지 않고 O
 조직에서 타사 페더레이션 솔루션을 사용하는 경우 Office 365와 같은 Microsoft Online 서비스로 온-프레미스 Active Directory 사용자에 대한 Single Sign-On을 구성할 수 있습니다. 제공되는 타사 페더레이션 솔루션은 Azure Active Directory와 호환됩니다.  호환성에 대한 질문은 ID 공급자에게 문의하세요.  Microsoft에서 Azure AD와의 호환성에 대해 이전에 테스트한 ID 공급자의 목록을 보려는 경우 [여기](https://www.microsoft.com/download/details.aspx?id=56843)를 클릭합니다. 
 
 >[!NOTE]
->Microsoft는 Azure Active Directory와의 호환성에 대해 독립적인 ID 공급자를 테스트하는 유효성 검사를 더 이상 제공하지 않습니다. 상호 운용성을 위해 제품을 테스트하려는 경우 다음 [지침](https://www.microsoft.com/download/details.aspx?id=56843)을 참조하세요. 
+>Microsoft는 Azure Active Directory와의 호환성을 위해 독립 ID 공급자에 대한 유효성 검사 테스트를 더 이상 제공하지 않습니다. 상호 운용성을 위해 제품을 테스트하려는 경우 다음 [지침](https://www.microsoft.com/download/details.aspx?id=56843)을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97dc67d46b08bf5765c59806b45edd82f38720cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60347749"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 통과 인증: 현재 제한 사항
@@ -34,14 +34,14 @@ ms.locfileid: "60347749"
 
 - 사용자가 웹 브라우저 기반 애플리케이션에 로그인합니다.
 - 사용자가 로그인 Exchange ActiveSync, EAS, SMTP, POP 및 IMAP 등의 레거시 프로토콜을 사용하여 Outlook 클라이언트에 로그인합니다.
-- [최신 인증을](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview)지원하는 레거시 Office 클라이언트 응용 프로그램 및 Office 응용 프로그램에 대한 사용자 로그인: Office 2013 및 2016 버전입니다.
+- 사용자가 [최신 인증](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview)을 지 원하는 레거시 office 클라이언트 응용 프로그램 및 office 응용 프로그램 (office 2013 및 2016 버전)에 로그인 합니다.
 - 사용자가 PowerShell 버전 1.0 등과 같은 레거시 프로토콜 애플리케이션에 로그인합니다.
 - Azure AD가 Windows 10 디바이스에 조인합니다.
 - Multi-Factor Authentication에 사용할 앱 암호.
 
 ## <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
 
-다음 시나리오는 _지원되지 않습니다._
+지원 _되지 않는_ 시나리오는 다음과 같습니다.
 
 - [자격 증명이 손실된](../reports-monitoring/concept-risk-events.md#leaked-credentials) 사용자 검색
 - Azure AD Domain Services를 사용하려면 테넌트에서 암호 해시 동기화를 사용하도록 설정해야 합니다. 따라서 통과 인증_만_ 사용하는 테넌트는 Azure AD Domain Services가 필요한 시나리오에서 사용할 수 없습니다.

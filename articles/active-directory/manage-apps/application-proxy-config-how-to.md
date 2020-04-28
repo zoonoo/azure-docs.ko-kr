@@ -1,6 +1,6 @@
 ---
 title: 애플리케이션 프록시 애플리케이션을 구성하는 방법 | Microsoft Docs
-description: 몇 가지 간단한 단계에서 APplication 프록시 응용 프로그램을 만들고 구성하는 방법에 대해 알아봅니다.
+description: 몇 가지 간단한 단계를 통해 응용 프로그램 프록시 응용 프로그램을 만들고 구성 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,15 +17,15 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7aaf2eb282bc3fd0b9f3853ce493c479a3d3c3a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67807850"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션을 구성하는 방법
 
-이 문서에서는 온-프레미스 응용 프로그램을 클라우드에 노출하도록 Azure AD 내에서 응용 프로그램 프록시 응용 프로그램을 구성하는 방법을 이해하는 데 도움이 됩니다.
+이 문서에서는 온-프레미스 응용 프로그램을 클라우드에 노출 하도록 Azure AD 내에서 응용 프로그램 프록시 응용 프로그램을 구성 하는 방법을 이해 하는 데 도움을 줍니다.
 
 ## <a name="recommended-documents"></a>권장되는 문서
 
@@ -45,9 +45,9 @@ ms.locfileid: "67807850"
 - URL이 http 또는 https로 시작하고 "/"로 끝나야 합니다.
 - URL은 IP 주소가 아닌 도메인 이름이어야 합니다.
 
-응용 프로그램을 만들 때 오류 메시지가 오른쪽 상단 모서리에 표시되어야 합니다. 알림 아이콘을 선택하여 오류 메시지를 볼 수도 있습니다.
+응용 프로그램을 만들 때 오른쪽 위 모퉁이에 오류 메시지가 표시 됩니다. 알림 아이콘을 선택하여 오류 메시지를 볼 수도 있습니다.
 
-![Azure 포털에서 알림 프롬프트를 찾을 위치를 표시합니다.](./media/application-proxy-config-how-to/error-message.png)
+![Azure Portal에서 알림 프롬프트를 찾을 수 있는 위치를 표시 합니다.](./media/application-proxy-config-how-to/error-message.png)
 
 ## <a name="configure-connectorsconnector-groups"></a>커넥터/커넥터 그룹 구성
 
@@ -65,7 +65,7 @@ ms.locfileid: "67807850"
 - 자체 서명된 인증서
 - 프라이빗 키가 없는 인증서
 
-인증서를 업로드하려고 할 때 오류 메시지가 오른쪽 상단 모서리에 표시됩니다. 알림 아이콘을 선택하여 오류 메시지를 볼 수도 있습니다.
+인증서를 업로드 하려고 하면 오른쪽 위 모퉁이에 오류 메시지가 표시 됩니다. 알림 아이콘을 선택하여 오류 메시지를 볼 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

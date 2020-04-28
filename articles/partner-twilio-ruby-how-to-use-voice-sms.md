@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: 4822e6feb29f5a17c653a60937b895ec584e0ee4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69637193"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Ruby에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
-이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. Twilio 및 응용 프로그램에서 음성 및 SMS 사용에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하십시오.
+이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS를 Twilio 하 고 사용 하는 방법에 대 한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조 하세요.
 
 ## <a name="what-is-twilio"></a><a id="WhatIs"></a>Twilio 정의
 Twilio는 기존 웹 언어와 기술을 사용하여 음성 및 SMS 애플리케이션을 빌드할 수 있게 해주는 전화 통신 웹 서비스 API입니다. Twilio는 타사 서비스입니다(Azure 기능 또는 Microsoft 제품 아님).
@@ -28,7 +28,7 @@ Twilio는 기존 웹 언어와 기술을 사용하여 음성 및 SMS 애플리�
 **Twilio 음성**을 통해 애플리케이션에서 전화를 걸고 받을 수 있습니다. **Twilio SMS**를 사용하면 애플리케이션에서 SMS 메시지를 작성하고 받을 수 있습니다. **Twilio 클라이언트**를 사용하면 애플리케이션에서 모바일 연결을 비롯한 기존 인터넷 연결을 통해 음성 통신을 사용할 수 있습니다.
 
 ## <a name="twilio-pricing-and-special-offers"></a><a id="Pricing"></a>Twilio 가격 책정 및 특별 제공
-Twilio 가격 책정 정보는 [Twilio 가격 책정][twilio_pricing]에서 확인할 수 있습니다. Azure 고객은 [특별 제공][special_offer](문자 1000통 또는 인바운드 통화 1000분의 무료 크레딧)을 받습니다. 이 제안에 가입하거나 자세한 정보를 얻으려면 [https://ahoy.twilio.com/azure][special_offer]다음사이트를 방문하십시오.  
+Twilio 가격 책정 정보는 [Twilio 가격 책정][twilio_pricing]에서 확인할 수 있습니다. Azure 고객은 [특별 제공][special_offer](문자 1000통 또는 인바운드 통화 1000분의 무료 크레딧)을 받습니다. 이 제품에 등록 하거나 자세한 내용을 보려면을 (를) 방문 [https://ahoy.twilio.com/azure][special_offer]하세요.  
 
 ## <a name="concepts"></a><a id="Concepts"></a>개념
 Twilio API는 애플리케이션에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 목록에 대해서는 [Twilio API 라이브러리][twilio_libraries](영문)를 참조하십시오.
@@ -46,20 +46,20 @@ TwiML은 Twilio에 통화 또는 SMS 처리 방법을 알려 주는 XML 기반 �
 모든 TwiML 문서는 `<Response>` 를 루트 요소로 포함하고 있습니다. 거기서 Twilio 동사를 사용하여 애플리케이션의 동작을 정의합니다.
 
 ### <a name="twiml-verbs"></a><a id="Verbs"></a>TwiML 동사
-Twilio 동사는 Twilio에 **수행할 작업**을 알려 주는 XML 태그입니다. 예를 들어 ** &lt;Say&gt; ** 동사는 Twilio에게 통화 시 메시지를 전달하도록 지시합니다. 
+Twilio 동사는 Twilio에 **수행할 작업**을 알려 주는 XML 태그입니다. 예를 들어, ** &lt;&gt; ** Twilio는 호출 시 통화에 게 메시지를 배달 하도록 지시 합니다. 
 
 다음은 Twilio 동사의 목록입니다.
 
-* **전화 걸기&gt;: 발신자를 다른 휴대폰에 연결합니다. &lt;**
-* 수집 : 전화 키패드에 입력한 숫자 숫자를 수집합니다. ** &lt;&gt;**
-* **끊기&gt;: 통화가 종료됩니다. &lt;**
-* 재생 : 오디오 파일을 재생합니다. ** &lt;&gt;**
-* **일시 중지&gt;: 지정된 시간 동안 자동으로 기다립니다. &lt;**
-* 레코드 : 발신자의 음성을 기록하고 녹음/녹화가 포함된 파일의 URL을 반환합니다. ** &lt;&gt;**
-* 리디렉션 : 다른 URL에서 통화 또는 SMS의 제어를 TwiML로 전송합니다. ** &lt;&gt;**
-* 거부 : 청구하지 않고 Twilio 번호로 걸려오는 전화를 거부합니다. ** &lt;&gt;**
-* 말하기 : 통화 시 텍스트를 음성으로 변환합니다. ** &lt;&gt;**
-* **SMS&gt;: SMS 메시지를 보냅니다. &lt;**
+* **전화 걸기&gt;: 호출자를 다른 휴대폰에 연결 &lt;** 합니다.
+* 수집: 전화 키패드에서 입력 한 숫자를 수집 합니다. ** &lt;&gt;**
+* 끊기: 호출을 종료 합니다. ** &lt;&gt;**
+* 재생: 오디오 파일을 재생 합니다. ** &lt;&gt;**
+* **일시 중지&gt;: 지정 된 시간 (초) 동안 자동으로 대기 &lt;** 합니다.
+* Record: 호출자의 음성을 기록 하 고 기록을 포함 하는 파일의 URL을 반환 합니다. ** &lt;&gt;**
+* 리디렉션: 호출 또는 SMS의 제어를 다른 URL의 TwiML으로 전송 합니다. ** &lt;&gt;**
+* 거부: 청구 하지 않고 Twilio 번호에 대 한 들어오는 호출을 거부 합니다. ** &lt;&gt;**
+* 예:를 호출 하는 경우 텍스트를 음성으로 변환 합니다. ** &lt;&gt;**
+* Sms: sms 메시지를 보냅니다. ** &lt;&gt;**
 
 Twilio 동사, 특성 및 TwiML에 대한 자세한 내용은 [TwiML][twiml](영문)을 참조하십시오. Twilio API에 대한 자세한 내용은 [Twilio API][twilio_api](영문)를 참조하십시오.
 
@@ -73,7 +73,7 @@ Twilio에서 제공한 번호 외에 애플리케이션에서 사용하기 위�
 
 전화 번호를 확인하는 방법에 대한 내용은 [번호 관리][verify_phone](영문)를 참조하세요.
 
-## <a name="create-a-ruby-application"></a><a id="create_app"></a>Ruby 애플리케이션 만들기
+## <a name="create-a-ruby-application"></a><a id="create_app"></a>Ruby 응용 프로그램 만들기
 Twilio 서비스를 사용하고 Azure에서 실행되고 있는 Ruby 애플리케이션은 Twilio 서비스를 사용하는 다른 Ruby 애플리케이션과 차이가 없습니다. Twilio 서비스는 RESTful이며 여러 가지 방법으로 Ruby에서 호출할 수 있지만, 이 문서에서는 [Ruby용 Twilio 도우미 라이브러리][twilio_ruby](영문)를 통해 Twilio 서비스를 사용하는 방법을 집중적으로 설명합니다.
 
 먼저 새 Ruby 웹 애플리케이션의 호스트 역할을 할 [새 Azure Linux VM을 설정][azure_vm_setup]합니다. Rails 앱을 만드는 것과 관련된 단계는 무시하고 VM 설정만 수행하십시오. 외부 포트 80과 내부 포트 5000으로 엔드포인트를 만들어야 합니다.

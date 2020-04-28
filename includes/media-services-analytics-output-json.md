@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67182617"
 ---
 작업은 검색 및 추적된 얼굴에 대한 메타데이터를 포함하는 JSON 출력 파일을 생성합니다. 메타데이터는 개별적인 추적을 나타내는 얼굴 ID 번호뿐만 아니라 얼굴의 위치를 나타내는 좌표를 포함합니다. 얼굴 ID 번호는 프레임 안에 정면 얼굴이 없거나 겹쳐진 상황에서 재설정될 가능성이 크므로 결과적으로 일부 사용자에게 여러 ID가 할당될 수 있습니다.
@@ -17,18 +17,18 @@ ms.locfileid: "67182617"
 
 ### <a name="root-json-elements"></a>루트 JSON 요소
 
-| 요소 | 설명 |
+| 요소 | Description |
 | --- | --- |
 | 버전 |동영상 API의 버전을 나타냅니다. |
 | timescale |동영상의 초당 "틱"입니다. |
 | offset |타임스탬프의 시간 오프셋입니다. 동영상 API 버전 1.0에서는 항상 0입니다. 향후 지원하는 시나리오에서는 이 값이 변경될 수 있습니다. |
 | width, hight |출력 비디오 프레임의 너비 및 높이(픽셀)입니다.|
 | framerate |동영상의 초당 프레임 수입니다. |
-| [조각](#fragments-json-elements) |메타데이터는 조각이라고 하는 다른 세그먼트로 청크 분할됩니다. 각 조각에는 시작, 기간, 간격 번호 및 이벤트가 포함됩니다. |
+| [부분](#fragments-json-elements) |메타데이터는 조각이라고 하는 다른 세그먼트로 청크 분할됩니다. 각 조각에는 시작, 기간, 간격 번호 및 이벤트가 포함됩니다. |
 
 ### <a name="fragments-json-elements"></a>조각 JSON 요소
 
-|요소|설명|
+|요소|Description|
 |---|---|
 | start |“틱” 단위의 첫 이벤트 시작 시간입니다. |
 | duration |"틱" 단위의 조각 길이입니다. |

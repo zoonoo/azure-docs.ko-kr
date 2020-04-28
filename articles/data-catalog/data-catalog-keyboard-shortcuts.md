@@ -1,16 +1,16 @@
 ---
 title: Azure 데이터 카탈로그에 대한 키보드 바로 가기
-description: 이 문서에서는 Azure 데이터 카탈로그에서 사용할 수 있는 바로 가기 키 목록을 보여 주며 있습니다.
+description: 이 문서에서는 Azure Data Catalog에서 사용할 수 있는 바로 가기 키의 목록을 보여 줍니다.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 72d1ce0ded61b1143f99769319892981f3cd1c10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69014444"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Azure 데이터 카탈로그에 대한 키보드 바로 가기

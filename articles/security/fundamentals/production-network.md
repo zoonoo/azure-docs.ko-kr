@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 7c0748e4ff1531649274834cb1e602c228f102e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68726703"
 ---
 # <a name="the-azure-production-network"></a>Azure 프로덕션 네트워크
@@ -85,7 +85,7 @@ Azure 인프라를 보호하기 위해 Microsoft에서 수행하는 작업에 �
 - [Azure 인프라 가용성](infrastructure-availability.md)
 - [Azure 정보 시스템 구성 요소 및 경계](infrastructure-components.md)
 - [Azure 네트워크 아키텍처](infrastructure-network.md)
-- [Azure SQL 데이터베이스 보안 기능](infrastructure-sql.md)
+- [Azure SQL Database 보안 기능](infrastructure-sql.md)
 - [Azure 프로덕션 운영 및 관리](infrastructure-operations.md)
 - [심층 인프라 모니터링](infrastructure-monitoring.md)
 - [Azure 인프라 무결성](infrastructure-integrity.md)

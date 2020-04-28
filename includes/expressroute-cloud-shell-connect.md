@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -9,13 +9,13 @@ ms.date: 02/01/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1aca39a7ff162aa3c42fdb3ca5999c71091ec02e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67181936"
 ---
- Azure 클라우드 셸을 사용하는 경우 '사용해 보십시오'를 클릭한 후 자동으로 Azure 계정에 로그인합니다. 로컬로 로그인하려면 PowerShell 콘솔을 높은 권한으로 열고 cmdlet을 실행하여 연결합니다.
+ Azure Cloud Shell 사용 하는 경우 ' 사용해 보기 '를 클릭 한 후 자동으로 Azure 계정에 로그인 합니다. 로컬로 로그인 하려면 상승 된 권한으로 PowerShell 콘솔을 열고 cmdlet을 실행 하 여 연결 합니다.
 
 ```azurepowershell
 Connect-AzAccount

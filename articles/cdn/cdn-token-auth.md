@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
 ms.openlocfilehash: fa71f472294b91baebc2a6075ddb2b50123e545d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67593384"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>보안 토큰 인증을 사용하여 Azure CDN 자산 보안 유지
@@ -29,11 +29,11 @@ ms.locfileid: "67593384"
 
 토큰 인증은 Azure CDN(Content Delivery Network)이 권한 없는 클라이언트에 자산을 제공하지 못하도록 할 수 있는 메커니즘입니다. 토큰 인증은 일반적으로 다른 웹 사이트(예: 메시지 보드)에서 권한 없이 사용자의 자산을 사용하는 콘텐츠 *핫링크*를 방지하기 위해 수행됩니다. 핫링크는 콘텐츠 배달 비용에 영향을 줄 수 있습니다. CDN에서 토큰 인증을 사용하도록 설정하면 CDN에서 콘텐츠를 전송하기 전에 요청이 CDN 에지 서버에서 인증됩니다. 
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 토큰 인증은 요청에 요청자에 대한 인코딩된 정보가 포함된 토큰 값을 포함하도록 요구하여 요청이 신뢰할 수 있는 사이트에서 생성되었는지 확인합니다. 인코딩된 정보가 요구 사항을 충족하는 경우에만 요청자에게 콘텐츠가 제공되며, 그렇지 않으면 요청이 거부됩니다. 다음 매개 변수 중 하나 이상을 사용하여 요구 사항을 설정할 수 있습니다.
 
-- 국가: [해당 국가 코드에](/previous-versions/azure/mt761717(v=azure.100))지정된 국가/지역에서 시작된 요청을 허용하거나 거부합니다.
+- Country: [국가 코드](/previous-versions/azure/mt761717(v=azure.100))에 지정 된 국가/지역에서 발생 하는 요청을 허용 하거나 거부 합니다.
 - URL: 지정된 자산 또는 경로와 일치하는 요청만 허용합니다.
 - 호스트: 요청 헤더의 지정된 호스트를 사용하는 요청을 허용하거나 거부합니다.
 - 참조 페이지: 지정된 참조 페이지의 요청을 허용하거나 거부합니다.
@@ -66,13 +66,13 @@ ms.locfileid: "67593384"
 
 2. **HTTP Large**를 가리킨 다음, 플라이아웃에서 **토큰 인증**을 선택합니다. 그런 다음 암호화 키와 암호화 매개 변수를 다음과 같이 설정할 수 있습니다.
 
-   1. 하나 이상의 암호화 키를 만듭니다. 암호화 키는 대/소문자를 구분하고 모든 영숫자 조합을 포함할 수 있습니다. 공백을 비롯한 다른 형식의 문자는 허용되지 않습니다. 최대 길이는 250자입니다. 암호화 키가 임의인지 확인하려면 [OpenSSL 도구를](https://www.openssl.org/)사용하여 암호화 키를 만드는 것이 좋습니다. 
+   1. 하나 이상의 암호화 키를 만듭니다. 암호화 키는 대/소문자를 구분하고 모든 영숫자 조합을 포함할 수 있습니다. 공백을 비롯한 다른 형식의 문자는 허용되지 않습니다. 최대 길이는 250자입니다. 암호화 키가 무작위로 사용 되도록 하려면 [OpenSSL 도구](https://www.openssl.org/)를 사용 하 여 해당 키를 만드는 것이 좋습니다. 
 
       OpenSSL 도구에는 다음 구문이 있습니다.
 
       ```rand -hex <key length>```
 
-      예를 들어:
+      예를 들면 다음과 같습니다.
 
       ```OpenSSL> rand -hex 32``` 
 
@@ -86,7 +86,7 @@ ms.locfileid: "67593384"
 
       ![CDN 토큰 인증 설정 키](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-   4. 암호화 도구를 사용하여 암호화 매개 변수를 설정하고 토큰을 생성합니다. 암호화 도구를 사용하면 만료 시간, 국가/지역, 리퍼러, 프로토콜 및 클라이언트 IP(모든 조합)를 기준으로 요청을 허용하거나 거부할 수 있습니다. 토큰을 구성하기 위해 결합될 수 있는 매개 변수의 수 및 조합은 제한되지 않지만 토큰의 총 길이는 512자로 제한됩니다. 
+   4. 암호화 도구를 사용하여 암호화 매개 변수를 설정하고 토큰을 생성합니다. 암호화 도구를 사용 하 여 만료 시간, 국가/지역, 참조 페이지, 프로토콜 및 클라이언트 IP (임의 조합)에 따라 요청을 허용 하거나 거부할 수 있습니다. 토큰을 구성하기 위해 결합될 수 있는 매개 변수의 수 및 조합은 제한되지 않지만 토큰의 총 길이는 512자로 제한됩니다. 
 
       ![CDN 암호화 도구](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
@@ -96,7 +96,7 @@ ms.locfileid: "67593384"
       > <table>
       > <tr>
       >   <th>매개 변수 이름</th> 
-      >   <th>설명</th>
+      >   <th>Description</th>
       > </tr>
       > <tr>
       >    <td><b>ec_expire</b></td>
@@ -120,11 +120,11 @@ ms.locfileid: "67593384"
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>하나 이상의 지정된 국가/지역에서 시작된 요청만 허용됩니다. 다른 모든 국가/지역에서 발생한 요청은 거부됩니다. 각 국가에 대해 두 문자 [ISO 3166 국가 코드](/previous-versions/azure/mt761717(v=azure.100))를 사용하고 각각을 쉼표로 구분하며 공백은 추가하지 않도록 합니다. 예를 들어 미국 및 프랑스에서만 액세스를 허용하려면 `US,FR`을 입력합니다.</td>
+      >    <td>하나 이상의 지정 된 국가/지역에서 시작 되는 요청만 허용 합니다. 다른 모든 국가/지역에서 시작 된 요청은 거부 됩니다. 각 국가에 대해 두 문자 [ISO 3166 국가 코드](/previous-versions/azure/mt761717(v=azure.100))를 사용하고 각각을 쉼표로 구분하며 공백은 추가하지 않도록 합니다. 예를 들어 미국 및 프랑스에서만 액세스를 허용하려면 `US,FR`을 입력합니다.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>하나 이상의 지정된 국가/지역에서 시작된 요청을 거부합니다. 다른 모든 국가/지역에서 시작된 요청은 허용됩니다. 구현은 <b>ec_country_allow</b> 매개 변수와 동일합니다. 국가 코드가 <b>ec_country_allow</b> 및 <b>ec_country_deny</b> 매개 변수 둘 다로 표시되면 <b>ec_country_allow</b> 매개 변수가 우선합니다.</td>
+      >    <td>하나 이상의 지정 된 국가/지역에서 시작 된 요청을 거부 합니다. 다른 모든 국가/지역에서 시작 된 요청은 허용 됩니다. 구현은 <b>ec_country_allow</b> 매개 변수와 동일합니다. 국가 코드가 <b>ec_country_allow</b> 및 <b>ec_country_deny</b> 매개 변수 둘 다로 표시되면 <b>ec_country_allow</b> 매개 변수가 우선합니다.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>

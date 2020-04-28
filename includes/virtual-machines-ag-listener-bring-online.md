@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 760bb5b62e9bba9b7a83f99760f7fe5d8c399dfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67182154"
 ---
 1. [장애 조치(Failover) 클러스터 관리자]에서 **역할**을 펼친 다음 가용성 그룹을 강조 표시합니다.  
 
 2. **리소스** 탭에서 수신기 이름을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다.
 
-3. 종속성 탭을 **클릭합니다.** 여러 리소스가 나열된 경우 IP 주소에 AND가 아닌 OR가 있는지 확인합니다.  
+3. **종속성** 탭을 클릭 합니다. 여러 리소스가 나열 되는 경우 IP 주소에 AND가 아니라 종속성이 있는지 확인 합니다.  
 
 4. **확인**을 클릭합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "67182154"
 
 8. SQL Server Management Studio를 시작한 다음 주 복제본에 연결합니다.
 
-9. **AlwaysOn 고가용성** > **그룹** > **\<\>가용성그룹으로****Availability Group Listeners** > 이동합니다.  
+9. **AlwaysOn** > 고가용성**가용성 그룹** > **\>AvailabilityGroupName\<** > **가용성 그룹 수신기**로 이동 합니다.  
     [장애 조치(Failover) 클러스터 관리자]에서 만든 수신기 이름이 표시됩니다.
 
 10. 수신기 이름을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다.

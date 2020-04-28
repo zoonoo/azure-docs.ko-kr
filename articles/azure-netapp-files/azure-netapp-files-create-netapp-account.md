@@ -15,19 +15,19 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: 25cae58663f6fa7ef27995c10509eb33e49dd4c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70012581"
 ---
 # <a name="create-a-netapp-account"></a>NetApp 계정 만들기
 NetApp 계정 만들기를 사용하면 용량 풀을 설정하고 이후에 볼륨을 만들 수 있습니다. Azure NetApp Files 블레이드를 사용하여 새 NetApp 계정을 만듭니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-Azure NetApp 파일 팀에서 서비스에 대한 액세스 권한이 부여되었음을 확인하는 이메일을 받았어야 합니다. [서비스에 액세스하기 위한 대기자 명단 요청 제출을](azure-netapp-files-register.md#waitlist)참조하십시오.
+Azure NetApp Files 팀에서 서비스에 대 한 액세스 권한이 부여 되었는지 확인 하는 전자 메일을 수신 해야 합니다. [서비스 액세스에 대 한 waitlist 요청 제출](azure-netapp-files-register.md#waitlist)을 참조 하세요.
 
-또한 NetApp 리소스 공급자를 사용하기 위해 구독을 등록해야 합니다. [NetApp 리소스 공급자 등록을](azure-netapp-files-register.md#resource-provider)참조하십시오.
+또한 NetApp 리소스 공급자를 사용 하기 위해 구독을 등록 해야 합니다. [NetApp 리소스 공급자 등록을](azure-netapp-files-register.md#resource-provider)참조 하세요.
 
 ## <a name="steps"></a>단계 
 
@@ -58,7 +58,7 @@ Azure NetApp 파일 팀에서 서비스에 대한 액세스 권한이 부여되�
    이제 사용자가 만든 NetApp 계정이 Azure NetApp Files 블레이드에 나타납니다. 
 
 > [!NOTE] 
-> Azure NetApp 파일 서비스에 대한 액세스 권한이 부여되지 않은 경우 첫 번째 NetApp 계정을 만들려고 할 때 다음과 같은 오류가 발생합니다.  
+> Azure NetApp Files 서비스에 대 한 액세스 권한이 부여 되지 않은 경우 첫 번째 NetApp 계정을 만들려고 하면 다음과 같은 오류가 표시 됩니다.  
 >
 > `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
 

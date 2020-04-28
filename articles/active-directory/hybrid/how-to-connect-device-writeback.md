@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 632f6f80184c6ba3409bd30ae070cbaefc77f036
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67109495"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: 디바이스 쓰기 저장 사용
@@ -31,10 +31,10 @@ ms.locfileid: "67109495"
 
 다음 설명서에서는 Azure AD Connect에서 디바이스 쓰기 저장 기능을 사용하는 방법에 대한 정보를 제공합니다. 쓰기 저장 디바이스를 다음과 같은 시나리오에서 사용합니다.
 
-* [하이브리드 인증서 신뢰 배포를 사용하여 비즈니스용 Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration) 사용
-* ADFS(2012 R2 이상) 보호된 응용 프로그램(파티 트러스트 의존)에 대한 장치를 기반으로 조건부 액세스를 사용하도록 설정합니다.
+* [하이브리드 인증서 신뢰 배포를 사용 하 여 비즈니스용 Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration) 사용
+* ADFS (2012 R2 이상) 보호 된 응용 프로그램 (신뢰 당사자 트러스트)에 대 한 장치 기반 조건부 액세스를 사용 하도록 설정 합니다.
 
-애플리케이션에 대한 액세스 권한이 신뢰할 수 있는 디바이스에 부여된 추가 보안 및 보증을 제공합니다. 조건부 액세스에 대한 자세한 내용은 [조건부 액세스를 사용한 위험 관리](../active-directory-conditional-access-azure-portal.md) 및 Azure Active [Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정](../../active-directory/active-directory-device-registration-on-premises-setup.md)을 참조하십시오.
+애플리케이션에 대한 액세스 권한이 신뢰할 수 있는 디바이스에 부여된 추가 보안 및 보증을 제공합니다. 조건부 액세스에 대 한 자세한 내용은 [조건부 액세스로 위험 관리](../active-directory-conditional-access-azure-portal.md) 및 [Azure Active Directory Device Registration를 사용 하 여 온-프레미스 조건부 액세스 설정](../../active-directory/active-directory-device-registration-on-premises-setup.md)을 참조 하세요.
 
 > [!IMPORTANT]
 > <li>디바이스는 사용자와 동일한 포리스트에 있어야 합니다. 디바이스가 단일 포리스트에 쓰기 저장해야 하기 때문에 이 기능은 현재 여러 사용자 포리스트에서 배포를 지원하지 않습니다.</li>
@@ -97,7 +97,7 @@ ms.locfileid: "67109495"
   * 시작 메뉴에서 **동기화 서비스**를 엽니다.
   * **커넥터** 탭을 엽니다.
   * 형식이 Active Directory Domain Services인 커넥터를 찾아 선택합니다.
-  * **작업**에서 **속성을**선택합니다.
+  * **작업**아래에서 **속성**을 선택 합니다.
   * **Active Directory 포리스트에 연결**로 이동합니다. 이 화면에 지정된 도메인 및 사용자 이름이 스크립트에 제공된 계정과 일치하는지 확인합니다.
     ![동기화 서비스 관리자의 커넥터 계정](./media/how-to-connect-device-writeback/connectoraccount.png)
 
@@ -127,7 +127,7 @@ Active Directory의 구성 확인:
 
 ## <a name="additional-information"></a>추가 정보
 * [조건부 액세스를 사용한 위험 관리](../active-directory-conditional-access-azure-portal.md)
-* [Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정](../../active-directory/active-directory-device-registration-on-premises-setup.md)
+* [Azure Active Directory Device Registration를 사용 하 여 온-프레미스 조건부 액세스 설정](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67182144"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Windows 방화벽에서 데이터베이스 엔진의 기본 인스턴스용 TCP 포트 열기
@@ -29,7 +29,7 @@ ms.locfileid: "67182144"
     **보안 정보:****안전한 경우 연결 허용**을 선택하면 추가 보안을 제공할 수 있습니다. 사용자 환경에서 추가 보안을 구성하려는 경우 이 옵션을 선택하세요.
    
     ![연결 허용](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
-8. **프로필** 대화 상자에서 **공용**, **프라이빗** 및 **도메인**을 선택합니다. 그리고 **다음**을 클릭합니다.
+8. **프로필** 대화 상자에서 **공용**, **프라이빗** 및 **도메인**을 선택합니다. 그런 후 **Next** 를 클릭합니다.
    
     **보안 정보:****공개**를 선택하면 인터넷을 통한 액세스가 허용됩니다. 가능하면 더 제한적인 프로필을 선택하세요.
    
@@ -55,7 +55,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 1. 가상 머신에 연결되어 있는 동안 시작 페이지에서 **SQL Server Management Studio** 를 입력하고 선택한 아이콘을 클릭합니다.
    
     처음으로 Management Studio를 열 때 사용자 Management Studio 환경이 만들어져야 합니다. 어느 정도 시간이 걸릴 수 있습니다.
-2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 머신의 이름을 입력합니다(가상 머신 이름 대신 **(로컬)** 또는 점(.)을 **서버 이름**으로 사용할 수 있음). **Windows 인증을**선택하고 **사용자 이름** 상자에 ***your_VM_name\your_local_administrator*** 둡니다. **연결**을 클릭합니다.
+2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 머신의 이름을 입력합니다(가상 머신 이름 대신 **(로컬)** 또는 점(.)을 **서버 이름**으로 사용할 수 있음). **Windows 인증**을 선택 하 고 **사용자 이름** 상자에 ***your_VM_name \ your_local_administrator*** 를 그대로 둡니다. **연결**을 클릭합니다.
    
     ![서버에 연결](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. SQL Server Management Studio 개체 탐색기에서 SQL Server 인스턴스의 이름(가상 컴퓨터 이름)을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
@@ -74,7 +74,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 SQL Server 인증 로그인을 하나 이상 만들어야 합니다.
 
 1. SQL Server Management Studio 개체 탐색기에서 새 로그인을 만들 서버 인스턴스의 폴더를 확장합니다.
-2. **보안** 폴더를 마우스 오른쪽 단추로 클릭하고 **새**를 가리키고 로그인을 **선택합니다.**. .
+2. **보안** 폴더를 마우스 오른쪽 단추로 클릭 하 고 **새로 만들기**를 가리킨 다음 **로그인 ...** 을 선택 합니다.
    
     ![새 로그인](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
 3. **로그인 - 신규** 대화 상자의 **일반** 페이지에 있는 **로그인 이름** 상자에 새 사용자의 이름을 입력합니다.

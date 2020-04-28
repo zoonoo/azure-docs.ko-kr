@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d56007e5a196a0857f3b69ac51f5e3b5a88c4f6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67593501"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Microsoft Azure CDN의 실시간 통계
@@ -29,13 +29,13 @@ ms.locfileid: "67593501"
 
 사용할 수 있는 그래프는 다음과 같습니다.
 
-* [대역폭](#bandwidth)
+* [대역](#bandwidth)
 * [상태 코드](#status-codes)
 * [캐시 상태](#cache-statuses)
 * [연결](#connections)
 
 ## <a name="accessing-real-time-stats"></a>실시간 통계에 액세스
-1. Azure [포털에서](https://portal.azure.com)CDN 프로필로 검색합니다.
+1. [Azure Portal](https://portal.azure.com)에서 CDN 프로필로 이동 합니다.
    
     ![CDN 프로필 블레이드](./media/cdn-real-time-stats/cdn-profile-blade.png)
 2. CDN 프로필 블레이드에서 **관리** 단추를 클릭합니다.

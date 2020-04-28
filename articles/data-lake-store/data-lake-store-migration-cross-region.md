@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
 ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60518449"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>지역 간 Azure Data Lake Storage Gen1 마이그레이션
@@ -27,7 +27,7 @@ Azure Data Lake Storage Gen1을 새 지역에서 사용할 수 있게 되므로 
 
 * **Azure 구독**. 자세한 내용은 [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/pricing/free-trial/)를 참조하세요.
 * **서로 다른 두 지역의 Data Lake Storage Gen1 계정** 자세한 내용은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
-* **Azure 데이터 팩터리**. 자세한 내용은 [Azure Data Factory 소개](../data-factory/introduction.md)를 참조하세요.
+* **Azure Data Factory**. 자세한 내용은 [Azure Data Factory 소개](../data-factory/introduction.md)를 참조하세요.
 
 
 ## <a name="migration-considerations"></a>마이그레이션 고려 사항

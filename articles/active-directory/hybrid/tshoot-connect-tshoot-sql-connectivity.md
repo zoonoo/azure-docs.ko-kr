@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cde94dce13eeb7536f72fb0dcd937265960c7314
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70842700"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect와 관련된 SQL 연결 문제 해결
@@ -40,7 +40,7 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\A
 또는 [PowerShell 3.0/4.0용 PackageManagement PowerShell 모듈 미리 보기 - 2016년 3월](/powershell/module/PackageManagement)을 설치합니다. 
 
 - **모든 명령 표시**:`Get-Command -Module AdSyncTools` 
-- **powershell 함수**실행 `Connect-ADSyncDatabase` : 다음 매개 변수
+- 다음 매개 변수를 사용 `Connect-ADSyncDatabase` 하 여 **powershell 함수를 실행 합니다**.
     - 서버. SQL Server 이름입니다.
     - Instance. (선택 사항) 사용할 SQL Server 인스턴스 이름 및 선택적 포트 번호입니다. 기본 인스턴스를 사용하려면 이 매개 변수를 지정하지 마세요.
     - UserName. (선택 사항) 연결할 사용자 계정입니다. 비워 두는 경우 현재 로그인한 사용자가 사용됩니다. 원격 SQL Server에 연결하는 경우 Azure AD Connect SQL 연결에 대해 만든 사용자 지정 서비스 계정이어야 합니다. Azure AD Connect는 Azure AD Connect 동기화 서비스 계정을 사용하여 원격 SQL 서버를 인증합니다.

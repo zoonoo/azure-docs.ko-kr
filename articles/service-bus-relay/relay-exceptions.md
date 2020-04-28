@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/20/2017
 ms.author: spelluru
 ms.openlocfilehash: fe8f057443b978e70e7cdd2591affd455fefdca8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60749039"
 ---
 # <a name="azure-relay-exceptions"></a>Azure Relay 예외
@@ -35,7 +35,7 @@ Relay API는 다음과 같은 범주로 분류될 수 있는 예외를 생성합
 *   **설치/구성 오류**: [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 
 
     **일반 조치**: 구성을 검토합니다. 필요에 따라 구성을 변경합니다.
-*   **일시적인 예외**: [Microsoft.ServiceBus.Messaging.Messaging예외,](/dotnet/api/microsoft.servicebus.messaging.messagingexception) [Microsoft.ServiceBus.Messaging.Server바쁜 예외,](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) [Microsoft.ServiceBus.Messaging.Messaging.Messaging.MessagingCommunication예외](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
+*   **일시적인 예외**: [ServiceBus](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [ServiceBus, ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), ServiceBus. MessagingCommunicationException... [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)입니다. 
 
     **일반 조치**: 작업을 다시 시도하거나 사용자에게 알립니다.
 *   **다른 예외**: [System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx). 
@@ -48,13 +48,13 @@ Relay API는 다음과 같은 범주로 분류될 수 있는 예외를 생성합
 
 | **예외 유형** | **설명** | **권장 조치** | **자동 또는 즉시 다시 시도 참고** |
 | --- | --- | --- | --- |
-| [타임 아웃](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |서버가 [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout)에서 제어하는 지정된 시간 안에 요청된 작업에 응답하지 않았습니다. 서버가 요청된 작업을 완료했을 수도 있습니다. 이 예외는 네트워크 또는 기타 인프라 지연으로 발생합니다. |필요한 경우 시스템 상태에서 일관성을 확인하고 다시 시도합니다. [TimeoutException](#timeoutexception)을 참조하세요. |일부 경우 다시 시도하면 문제가 해결될 수 있습니다. 코드에 재시도 논리를 추가합니다. |
+| [Timeout](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |서버가 [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout)에서 제어하는 지정된 시간 안에 요청된 작업에 응답하지 않았습니다. 서버가 요청된 작업을 완료했을 수도 있습니다. 이 예외는 네트워크 또는 기타 인프라 지연으로 발생합니다. |필요한 경우 시스템 상태에서 일관성을 확인하고 다시 시도합니다. [TimeoutException](#timeoutexception)을 참조하세요. |일부 경우 다시 시도하면 문제가 해결될 수 있습니다. 코드에 재시도 논리를 추가합니다. |
 | [유효하지 않은 작업](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |요청한 사용자 작업이 서버 또는 서비스 내에서 허용되지 않습니다. 자세한 내용은 예외 메시지를 참조하세요. |코드 및 설명서를 확인합니다. 요청된 작업이 유효한지 확인합니다. |재시도로 해결되지 않습니다. |
 | [작업 취소됨](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) |이미 종료, 중단 또는 삭제된 개체에서 작업을 호출하려 시도합니다. 드문 경우지만 앰비언트 트랜잭션이 이미 삭제되었을 수 있습니다. |코드를 확인하고 삭제된 개체에 대해 작업을 호출하지 않는지 확인합니다. |재시도로 해결되지 않습니다. |
 | [무단 액세스](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |[TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) 개체가 토큰을 확보할 수 없거나, 토큰이 유효하지 않거나, 토큰에 작업 수행을 위해 필요한 클레임이 없습니다. |올바른 값을 사용하여 토큰 공급자를 만드는지 확인합니다. ACS(Access Control Service) 구성을 확인합니다. |일부 경우 다시 시도하면 문제가 해결될 수 있습니다. 코드에 재시도 논리를 추가합니다. |
 | [인수 예외](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [인수 Null](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[인수가 범위를 벗어남](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) |다음 중 하나 이상의 상황이 발생했습니다.<br />메서드에 제공된 하나 이상의 인수가 잘못되었습니다.<br /> [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 또는 [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create)에 제공된 URI에 하나 이상의 경로 세그먼트가 포함됩니다.<br />[NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 또는 [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create)에 제공된 URI 스키마가 올바르지 않습니다. <br />속성 값이 32KB보다 큽니다. |호출 코드를 확인하고 인수가 정확한지 확인합니다. |재시도로 해결되지 않습니다. |
 | [서버 작업 중](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) |서비스가 지금은 요청을 처리할 수 없습니다. |클라이언트가 잠시 대기한 후 작업을 다시 시도할 수 있습니다. |클라이언트는 특정 간격 후에 다시 시도될 수 있습니다. 재시도에서 다른 예외가 발생한 경우 해당 예외의 재시도 작동을 확인합니다. |
-| [할당량 초과](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |메시징 엔터티의 최대 허용 크기에 도달했습니다. |엔터티나 하위 큐에서 메시지를 수신하여 엔터티에 공간을 만듭니다. [할당량초과예외](#quotaexceededexception). |그 사이 메시지가 제거되었으면 재시도가 도움이 될 수 있습니다. |
+| [할당량 초과](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |메시징 엔터티의 최대 허용 크기에 도달했습니다. |엔터티나 하위 큐에서 메시지를 수신하여 엔터티에 공간을 만듭니다. [QuotaExceededException](#quotaexceededexception)를 참조 하세요. |그 사이 메시지가 제거되었으면 재시도가 도움이 될 수 있습니다. |
 | [메시지 크기 초과됨](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |메시지 페이로드가 256KB 제한을 초과합니다. 256KB 제한은 총 메시지 크기입니다. 총 메시지 크기는 시스템 속성과 모든 Microsoft .NET 오버헤드가 포함됩니다. |메시지 페이로드의 크기를 줄인 다음 작업을 다시 시도합니다. |재시도로 해결되지 않습니다. |
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException
@@ -92,7 +92,7 @@ The time allotted to this operation may have been a portion of a longer timeout.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Relay FAQ](relay-faq.md)
-* [릴레이 네임스페이스 만들기](relay-create-namespace-portal.md)
+* [릴레이 네임 스페이스 만들기](relay-create-namespace-portal.md)
 * [Azure Relay 및 .NET 시작](relay-hybrid-connections-dotnet-get-started.md)
 * [Azure Relay 및 Node 시작](relay-hybrid-connections-node-get-started.md)
 

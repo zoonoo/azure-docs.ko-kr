@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7e3ad3a5928b36c221bb83b1c4012c3c9e14f35d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67594170"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN 개발 시작
 > [!div class="op_single_selector"]
-> * [Node.js](cdn-app-dev-node.md)
+> * [Node.JS](cdn-app-dev-node.md)
 > * [.NET](cdn-app-dev-net.md)
 > 
 > 
@@ -73,7 +73,7 @@ Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. 메서드가 사용할 몇 가지 상수를 정의해야 합니다.  `Main` 메서드 전에 `Program` 클래스에 다음 내용을 추가합니다.  **각도 대괄호를&gt;포함한 자리 표시자를 필요에 따라 사용자 고유의 값으로 바꿔야 합니다. &lt;**
+2. 메서드가 사용할 몇 가지 상수를 정의해야 합니다.  `Main` 메서드 전에 `Program` 클래스에 다음 내용을 추가합니다.  필요에 따라 ** &lt;꺾쇠 괄호&gt;** 를 포함 하 여 자리 표시자를 사용자 고유의 값으로 바꾸어야 합니다.
    
     ```csharp
     //Tenant app constants

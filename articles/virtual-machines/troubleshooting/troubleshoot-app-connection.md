@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: caf73ffbc18a603ace22acfbd0da490048da698a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71058130"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Azure의 가상 머신에서 애플리케이션 연결 문제해결
@@ -28,10 +28,10 @@ Azure VM(가상 머신)에서 실행되는 애플리케이션을 시작 또는 �
 
 RDP 또는 SSH를 사용하여 VM에 연결하는 데 문제가 있는 경우 먼저 다음 문서 중 하나를 참조하세요.
 
-* [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md)
-* [Linux 기반 Azure 가상 시스템에 대한 보안 셸(SSH) 연결 문제 해결.](troubleshoot-ssh-connection.md)
+* [Windows 기반 Azure 가상 머신에 대 한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md)
+* [Linux 기반 Azure 가상 머신에 대 한 SSH (Secure Shell) 연결 문제를 해결](troubleshoot-ssh-connection.md)합니다.
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 **지원 받기를**선택합니다.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 **지원 받기**를 선택 합니다.
 
 ## <a name="quick-start-troubleshooting-steps"></a>빠른 시작 문제 해결 단계
 애플리케이션에 연결하는 데 문제가 있는 경우 다음과 같은 일반적인 문제 해결 단계를 시도하세요. 각 단계 후 애플리케이션을 다시 연결해 보세요.
@@ -122,7 +122,7 @@ VM에서 애플리케이션이 실행되고 있는 경우 가상 네트워크 �
   
   * VM의 인바운드 NAT 규칙 구성에서 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 프라이빗 포트 번호를 허용하는지 확인합니다.
   * 네트워크 보안 그룹이 인바운드 요청 및 아웃바운드 요청 트래픽을 허용하는지 확인합니다.
-  * 자세한 내용은 [네트워크 보안 그룹이란 무엇입니까?](../../virtual-network/security-overview.md)
+  * 자세한 내용은 [네트워크 보안 그룹 이란?](../../virtual-network/security-overview.md) 을 참조 하세요.
 
 가상 머신 또는 엔드포인트가 부하 분산 집합의 구성원인 경우:
 
@@ -141,7 +141,7 @@ VM에서 애플리케이션이 실행되고 있는 경우 가상 네트워크 �
 자세한 내용은 [Azure 네트워크 모니터링 개요](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
-[Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md)
+[Windows 기반 Azure 가상 머신에 대 한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md)
 
 [Linux 기반 Azure 가상 머신에 SSH(보안 셸) 연결 문제 해결](troubleshoot-ssh-connection.md)
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 2f27c50b1d016265c20102521a137bcbb0646115
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67182421"
 ---
 스토리지 계정에서 리소스에 대한 액세스를 허용하는 공유 액세스 서명(SAS) URL을 보유하는 경우 연결 문자열에 SAS를 사용할 수 있습니다. SAS가 요청을 인증하는 데 필요한 정보를 포함하므로 SAS로 시작되는 연결 문자열은 프로토콜, 서비스 엔드포인트 및 필요한 자격 증명을 제공하여 리소스에 액세스합니다.

@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 8c577db3e9f2bff9e86c3a7c37274630f90dd680
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67182407"
 ---
-스토리지 에뮬레이터는 단일 고정 계정과 공유 키 인증에 대해 알려진 인증 키를 지원합니다. 스토리지 에뮬레이터에서 사용할 수 있는 공유 키 자격 증명은 이 계정과 키뿐입니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+스토리지 에뮬레이터는 단일 고정 계정과 공유 키 인증에 대해 알려진 인증 키를 지원합니다. 스토리지 에뮬레이터에서 사용할 수 있는 공유 키 자격 증명은 이 계정과 키뿐입니다. 다음 창이 여기에 포함됩니다.
 
 ```
 Account name: devstoreaccount1
@@ -25,7 +25,7 @@ Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZ
 > 
 
 #### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>바로 가기를 사용하여 에뮬레이터 계정에 연결
-애플리케이션에서 스토리지 에뮬레이터에 연결하는 가장 쉬운 방법은 바로 가기를 참조하는 애플리케이션의 구성 파일에서 연결 문자열을 구성하는 것입니다.`UseDevelopmentStorage=true` 다음은 *app.config* 파일의 저장소 에뮬레이터에 대한 연결 문자열의 예입니다. 
+애플리케이션에서 스토리지 에뮬레이터에 연결하는 가장 쉬운 방법은 바로 가기를 참조하는 애플리케이션의 구성 파일에서 연결 문자열을 구성하는 것입니다.`UseDevelopmentStorage=true` *App.config* 파일의 저장소 에뮬레이터에 대 한 연결 문자열의 예는 다음과 같습니다. 
 
 ```xml
 <appSettings>

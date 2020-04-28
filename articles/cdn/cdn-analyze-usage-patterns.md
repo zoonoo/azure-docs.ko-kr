@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d48ddafdc1ec30ae1533b3a3101582f33e7f4b5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67594151"
 ---
 # <a name="core-reports-from-verizon"></a>Verizon의 코어 보고서
@@ -119,7 +119,7 @@ Verizon 프로필에 대한 관리 포털을 통해 Verizon 코어 보고서를 
 
 보고서에 포함되지 않는 정보는 다음과 같습니다.
 
-* 국가/지역 필터링 옵션으로 인해 거부된 요청입니다.
+* 국가/지역 필터링 옵션으로 인해 거부 된 요청입니다.
 * 헤더에 캐시하지 않도록 표시된 자산에 대한 요청 예를 들어 `Cache-Control: private`, `Cache-Control: no-cache` 또는 `Pragma: no-cache` 헤더는 자산이 캐시되지 않도록 합니다.
 * 부분적으로 캐시된 콘텐츠에 대한 바이트 범위 요청.
 

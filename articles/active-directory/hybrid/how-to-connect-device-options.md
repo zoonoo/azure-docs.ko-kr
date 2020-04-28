@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 96ddcdb67ef079cfa23902a1dcb03b0ec61077fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67109535"
 ---
 # <a name="azure-ad-connect-device-options"></a>Azure AD Connect: 디바이스 옵션
 
 다음 설명서에서는 Azure AD Connect에서 사용할 수 있는 다양한 디바이스 옵션에 대한 정보를 제공합니다. Azure AD Connect를 사용하여 다음 두 작업을 구성할 수 있습니다. 
 * **하이브리드 Azure AD 조인**: 사용자의 환경에 온-프레미스 AD 공간이 있고 Azure AD의 이점을 원하는 경우 하이브리드 Azure AD 가입 디바이스를 구현할 수 있습니다. 이 디바이스는 온-프레미스 Active Directory와 Azure Active Directory에 모두 가입됩니다.
-* **장치 쓰기 :** 장치 쓰기 는 AD FS (2012 R2 이상) 보호 된 장치에 장치를 기반으로 조건부 액세스를 활성화하는 데 사용됩니다
+* **장치 쓰기 저장 (writeback**): 장치 쓰기 저장을 사용 하 여 AD FS (2012 R2 이상) 보호 된 장치에 대 한 장치 기반 조건부 액세스를 활성화 합니다.
 
 ## <a name="configure-device-options-in-azure-ad-connect"></a>Azure AD Connect에서 디바이스 옵션 구성
 

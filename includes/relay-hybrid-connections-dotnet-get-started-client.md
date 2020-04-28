@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: 2d6836b2bf667e4170e67a95dc1daad72a769eb9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67182437"
 ---
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
@@ -18,7 +18,7 @@ Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니
 ### <a name="add-the-relay-nuget-package"></a>릴레이 NuGet 패키지 추가
 
 1. 마우스 오른쪽 단추로 새로 만든 프로젝트를 클릭한 다음 **NuGet 패키지 관리**를 선택합니다.
-2. **찾아보기**를 선택한 다음 **Microsoft.Azure.Relay**를 검색합니다. 검색 결과에서 **Microsoft Azure 릴레이를**선택합니다. 
+2. **찾아보기**를 선택한 다음 **Microsoft.Azure.Relay**를 검색합니다. 검색 결과에서 **Microsoft Azure Relay**를 선택 합니다. 
 3. **설치**을 선택하여 설치를 완료합니다. 대화 상자를 닫습니다.
 
 ### <a name="write-code-to-send-messages"></a>메시지를 보내는 코드 작성

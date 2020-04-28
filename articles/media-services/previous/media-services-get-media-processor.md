@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: af6badda426f1bb81d8528cfda9b8c02d55712b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61463847"
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>방법: 미디어 프로세서 인스턴스 받기
+# <a name="how-to-get-a-media-processor-instance"></a>방법: 미디어 프로세서 인스턴스 가져오기
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
-> * [나머지](media-services-rest-get-media-processor.md)
+> * [REST (영문)](media-services-rest-get-media-processor.md)
 > 
 > 
 

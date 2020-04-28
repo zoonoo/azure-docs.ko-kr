@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9311c1060b953e87f163cb482db14cdd43f50d3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60242096"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>사용자 개인 정보 및 Azure AD 원활한 Single Sign-On
@@ -69,5 +69,5 @@ Foreach ($file in $Files) {
 ## <a name="next-steps"></a>다음 단계
 
 * [보안 센터에서 Microsoft 개인 정보 취급 방침을 검토합니다.](https://www.microsoft.com/trustcenter)
-  - [**문제 해결**](tshoot-connect-sso.md) - 이 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
-  - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새 기능 요청을 제출하기 위한 것입니다.
+  - [**문제 해결**](tshoot-connect-sso.md) -기능과 관련 된 일반적인 문제를 해결 하는 방법에 대해 알아봅니다.
+  - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) -새로운 기능 요청을 신고 합니다.

@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: iot-accelerators
 author: dominicbetts
@@ -9,13 +9,13 @@ ms.date: 11/20/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: f562d04cb4e67334711072740b695dc6d6bd6f94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67182635"
 ---
 > [!div class="op_single_selector"]
 > * [Visual Studio](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local.md)
 > * [Docker](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-docker.md)
-> * [비주얼 스튜디오 코드](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-vscode.md)
+> * [Visual Studio Code](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-vscode.md)

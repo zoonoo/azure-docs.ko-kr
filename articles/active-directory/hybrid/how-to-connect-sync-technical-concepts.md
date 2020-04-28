@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8ec4a6100cfbb4419d7e30f4b97589113b88939
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60347580"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Sync: 기술 개념
@@ -43,7 +43,7 @@ MIIS, ILM 및 FIM을 바탕으로 구성된 Azure Active Directory 동기화 서
 ## <a name="connector"></a>커넥터
 연결된 디렉터리와 통신하는 데 사용되는 코드 모듈을 커넥터(이전의 MA(관리 에이전트))라고 합니다.
 
-Azure AD Connect 동기화를 실행하는 컴퓨터에 설치됩니다. 이 커넥터는 특수 에이전트의 배포에 의존하는 대신 원격 시스템 프로토콜을 사용하여 대화할 수 있는 에이전트 없는 기능을 제공합니다. 따라서 특히 중요한 애플리케이션 및 시스템을 다룰 때 위험성과 배포 시간이 감소합니다.
+이러한 컴퓨터는 Azure AD Connect 동기화를 실행 하는 컴퓨터에 설치 됩니다. 커넥터는 특수화 된 에이전트의 배포에 의존 하는 대신 원격 시스템 프로토콜을 사용 하 여 사용 하는 에이전트 없는 기능을 제공 합니다. 따라서 특히 중요한 애플리케이션 및 시스템을 다룰 때 위험성과 배포 시간이 감소합니다.
 
 위 그림에서 커넥터는 커넥터 공간와 동의어 이지만 외부 시스템과의 모든 통신을 포함합니다.
 
@@ -87,7 +87,7 @@ ID가 서로 연결되어 있고 가져오기 흐름 매핑을 통해 기관이 
 규칙이 새 커넥터 공간 개체를 만들어야 한다고 결정할 때마다 프로버전이라고 부릅니다. 그러나 이 작업은 커넥터 공간 내에서만 발생하기 때문에 내보내기가 실행될 때까지 연결된 데이터 원본으로 전달되지 않습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
-* [Azure AD 연결 동기화: 동기화 옵션 사용자 지정](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 동기화: 동기화 옵션 사용자 지정](how-to-connect-sync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)
 
 <!--Image references-->

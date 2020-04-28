@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
 ms.openlocfilehash: 22084f9c59070c2efaa112ebfbb0c5ecc647145e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68965877"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Government 포털에서 온-프레미스 StorSimple 디바이스 배포
@@ -36,33 +36,33 @@ Microsoft Azure StorSimple 디바이스 배포를 시작합니다. 이러한 배
 설치 및 구성 프로세스를 완료하려면 관리자 권한이 필요합니다. 시작하기 전에 구성 검사 목록을 검토하는 것이 좋습니다. 배포 및 구성 프로세스는 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
 > [!NOTE]
-> Microsoft Azure 웹 사이트에 게시된 StorSimple 배포 정보는 StorSimple 8000 시리즈 디바이스에만 적용됩니다. 7000 시리즈 장치에 대한 전체 정보는 [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)다음 으로 이동하십시오. 7000 시리즈 배포 정보는 [StorSimple 시스템 퀵 스타트 가이드](http://onlinehelp.storsimple.com/111_Appliance/)를 참조하세요.
+> Microsoft Azure 웹 사이트에 게시된 StorSimple 배포 정보는 StorSimple 8000 시리즈 디바이스에만 적용됩니다. 7000 시리즈 장치에 대 한 자세한 내용은 항목을 참조 [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)하세요. 7000 시리즈 배포 정보는 [StorSimple 시스템 퀵 스타트 가이드](http://onlinehelp.storsimple.com/111_Appliance/)를 참조하세요.
 
 
 ## <a name="deployment-steps"></a>배포 단계
 StorSimple 디바이스를 구성하여 StorSimple 디바이스 관리자 서비스에 연결하려면 다음과 같은 필수 단계를 수행합니다. 필수 단계 외에 선택적 단계 및 배포하는 동안 완료해야 할 수도 있는 절차가 있습니다. 단계별 배포 지침은 각 선택적 단계를 수행해야 하는 시기를 나타냅니다.
 
-| 단계 | 설명 |
+| 단계 | Description |
 | --- | --- |
-| **필수 구성 요소** |향후 배포 준비 과정에서 완료해야 합니다. |
+| **사전** |향후 배포 준비 과정에서 완료해야 합니다. |
 | [배포 구성 검사 목록](#deployment-configuration-checklist) |이 검사 목록을 사용하여 배포 이전 및 배포하는 동안 정보를 수집하고 기록합니다. |
 | [배포 필수 조건](#deployment-prerequisites) |배포할 준비가 되어 있는 환경인지 유효성을 검사합니다. |
 |  | |
 | **단계별 배포** |프로덕션 환경에서 StorSimple 디바이스를 배포하려면 다음 단계가 필요합니다. |
-| [1단계: 새 서비스 만들기](#step-1-create-a-new-service) |StorSimple 디바이스에 대한 클라우드 관리 및 스토리지를 설정합니다. *다른 StorSimple 디바이스에 대해 기존 서비스가 있는 경우 이 단계를 건너뜁니다*. |
-| [2단계: 서비스 등록 키 받기](#step-2-get-the-service-registration-key) |이 키를 사용하여 StorSimple 디바이스를 관리 서비스에 등록 및 연결합니다. |
+| [1 단계: 새 서비스 만들기](#step-1-create-a-new-service) |StorSimple 디바이스에 대한 클라우드 관리 및 스토리지를 설정합니다. *다른 StorSimple 디바이스에 대해 기존 서비스가 있는 경우 이 단계를 건너뜁니다*. |
+| [2 단계: 서비스 등록 키 가져오기](#step-2-get-the-service-registration-key) |이 키를 사용하여 StorSimple 디바이스를 관리 서비스에 등록 및 연결합니다. |
 | [3단계: StorSimple용 Windows PowerShell을 통해 디바이스 구성 및 등록](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |디바이스를 네트워크에 연결하고 관리 서비스를 사용하여 Azure로 등록하여 설정을 완료합니다. |
 | [4단계: 최소 디바이스 설정 완료](#step-4-complete-minimum-device-setup) </br>선택 사항: StorSimple 디바이스를 업데이트합니다. |관리 서비스를 사용하여 디바이스 설정을 완료하고 스토리지를 제공할 수 있도록 설정합니다. |
 | [5단계: 볼륨 컨테이너 만들기](#step-5-create-a-volume-container) |볼륨을 프로비전할 컨테이너를 만듭니다. 볼륨 컨테이너에는 스토리지 계정, 대역폭 및 그 안에 포함된 모든 볼륨에 대한 암호화 설정이 있습니다. |
-| [6단계: 볼륨 만들기](#step-6-create-a-volume) |서버에 대한 StorSimple 디바이스의 스토리지 볼륨을 프로비전합니다. |
+| [6 단계: 볼륨 만들기](#step-6-create-a-volume) |서버에 대한 StorSimple 디바이스의 스토리지 볼륨을 프로비전합니다. |
 | [7단계: 볼륨 탑재, 초기화 및 포맷](#step-7-mount-initialize-and-format-a-volume) </br>선택 사항: MPIO를 구성합니다. |서버를 디바이스에서 제공하는 iSCSI 스토리지에 연결합니다. 필요에 따라 MPIO를 구성하여 서버가 링크, 네트워크 및 인터페이스 실패를 허용할 수 있도록 합니다. |
 | [8단계: 백업 수행](#step-8-take-a-backup) |백업 정책을 설정하여 데이터 보호 |
 |  | |
 | **기타 절차** |솔루션을 배포하는 경우 이러한 절차를 참조해야 합니다. |
-| [서비스에 대한 새 저장소 계정 구성](#configure-a-new-storage-account-for-the-service) | |
-| [PuTTY를 사용하여 장치 직렬 콘솔에 연결](#use-putty-to-connect-to-the-device-serial-console) | |
+| [서비스에 대 한 새 저장소 계정 구성](#configure-a-new-storage-account-for-the-service) | |
+| [PuTTY를 사용 하 여 장치 직렬 콘솔에 연결](#use-putty-to-connect-to-the-device-serial-console) | |
 | [업데이트 검색 및 적용](#scan-for-and-apply-updates) | |
-| [Windows 서버 호스트의 IQN 받기](#get-the-iqn-of-a-windows-server-host) | |
+| [Windows Server 호스트의 IQN 가져오기](#get-the-iqn-of-a-windows-server-host) | |
 | [수동 백업 만들기](#create-a-manual-backup) | |
 
 
@@ -198,5 +198,5 @@ StorSimple 디바이스에서 단일 볼륨에 대한 주문형 수동 백업을
 
 ## <a name="next-steps"></a>다음 단계
 * [가상 디바이스](storsimple-8000-cloud-appliance-u2.md)를 구성합니다.
-* [StorSimple 장치 관리자 서비스를](storsimple-8000-manager-service-administration.md) 사용하여 StorSimple 장치를 관리합니다.
+* Storsimple [Device Manager 서비스](storsimple-8000-manager-service-administration.md) 를 사용 하 여 storsimple 장치를 관리 합니다.
 
