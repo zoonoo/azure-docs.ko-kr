@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60245487"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect 동기화: 사용자, 그룹 및 연락처 이해
@@ -51,9 +51,9 @@ Active Directory에서 Azure AD로 그룹을 동기화할 때 다음에 유의�
     
       * proxyAddress 속성의 값이 *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* 인 Active Directory 그룹은 Azure AD에서 메일을 사용할 수 없습니다. SMTP 주소가 없습니다.
       
-      * proxyAddress 특성에 *{"X500:/0=contoso.com/ou=사용자/cn=테스트\@그룹","SMTP:johndoe contoso.com"}의* 값이 있는 Active Directory 그룹은 Azure AD에서 메일을 사용할 수 있습니다.
+      * ProxyAddress 특성의 값이 *{"X500:/0 = contoso.com/ou = users/cn = testgroup", "SMTP: johndoe\@contoso.com"}* 인 ACTIVE DIRECTORY 그룹은 Azure AD에서 메일을 사용할 수 있습니다.
       
-      * proxyAddress 특성에 *{"X500:/0=contoso.com/ou=사용자/cn=테스트 그룹", "smtp:johndoe\@contoso.com"}의* 값이 있는 Active Directory 그룹도 Azure AD에서 메일로 사용할 수 있습니다.
+      * ProxyAddress 특성의 값이 *{"X500:/0 = contoso.com/ou = users/cn = testgroup", "smtp: johndoe\@contoso.com"}* 인 ACTIVE DIRECTORY 그룹은 Azure AD에서 메일을 사용할 수 있습니다.
 
 ## <a name="contacts"></a>연락처
 연락처가 다른 포리스트의 사용자를 나타내게 하는 것은 GALSync 솔루션이 둘 이상의 Exchange 포리스트 사이를 연결하는 M&A 후에 일반적입니다. 연락처 개체는 항상 메일 특성을 사용하여 커넥터 공간에서 메타 버스로 조인됩니다. 이미 연락처 개체나 동일한 메일 주소를 가진 사용자 개체가 있다면 이들 개체가 함께 조인됩니다. 이는 **In from AD –  Contact Join**(AD에서 가져오기 - 연락처 조인) 규칙에서 구성됩니다. 또한 **Contact**(연락처) 상수를 사용하는 메타버스 특성 **sourceObjectType**으로의 특성 흐름을 포함하는 **In from AD – Contact Common**(AD에서 가져오기 - 연락처 공통)이라는 규칙도 있습니다. 이 규칙은 우선 순위가 매우 낮으므로 사용자 개체가 동일한 메타버스 개체에 조인된 경우 **In from AD – User Common**(AD에서 가져오기 - 사용자 공통) 규칙이 이 특성에 User 값을 제공합니다. 이 규칙을 사용할 경우 조인된 사용자가 없으면 이 특성이 연락처 값을 갖게 되며, 최소 1명의 사용자가 발견되면 사용자 값을 갖습니다.
@@ -74,6 +74,6 @@ Azure AD에 개체를 프로비전하는 경우에는 메타버스 특성 **sour
 개체를 Azure AD로 내보내면 더 이상 sourceAnchor를 변경할 수 없습니다. 개체가 내보내지면 메타버스 특성 **cloudSourceAnchor**가 Azure AD에서 허용한 **sourceAnchor** 값으로 설정됩니다. **sourceAnchor**가 변경되고 **cloudSourceAnchor**와 일치하지 않으면 **Out to AAD – User Join**(AAD로 보내기 – 사용자 조인) 규칙에서 **sourceAnchor 특성이 변경되었습니다** 오류가 발생합니다. 이 경우 개체를 다시 동기화하기 전에 동일한 sourceAnchor가 메타 버스에 다시 나타나도록 구성 또는 데이터를 수정해야 합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
-* [Azure AD 연결 동기화: 동기화 옵션 사용자 지정](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 동기화: 동기화 옵션 사용자 지정](how-to-connect-sync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)
 

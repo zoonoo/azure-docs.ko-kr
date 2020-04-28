@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a65d4c477d0e3aa9d5feea53e3e667ece651c83f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60351071"
 ---
 # <a name="how-to-customize-a-synchronization-rule"></a>동기화 규칙을 사용자 지정하는 방법
@@ -43,14 +43,14 @@ ms.locfileid: "60351071"
 * **아웃바운드** 규칙을 수정하려면 동기화 규칙 편집기에서 필터를 변경합니다.
 
 ## <a name="recommended-documents"></a>**권장되는 문서**
-* [Azure AD Connect Sync: 기술 개념](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
+* [Azure AD Connect 동기화: 기술 개념](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
 * [Azure AD Connect 동기화: 아키텍처 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)
 * [Azure AD Connect 동기화: 선언적 프로비전 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning)
-* [Azure AD 연결 동기화: 선언적 프로비저닝 식 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
+* [Azure AD Connect 동기화: 선언적 프로 비전 식 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
 * [Azure AD Connect 동기화: 기본 구성 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration)
 * [Azure AD Connect 동기화: 사용자, 그룹 및 연락처 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts)
-* [Azure AD 연결 동기화: 그림자 속성](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
+* [Azure AD Connect 동기화: 섀도 특성](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)
-- [하이브리드 ID란?](whatis-hybrid-identity.md)
+- [동기화를 Azure AD Connect](how-to-connect-sync-whatis.md)합니다.
+- [하이브리드 id 란?](whatis-hybrid-identity.md)

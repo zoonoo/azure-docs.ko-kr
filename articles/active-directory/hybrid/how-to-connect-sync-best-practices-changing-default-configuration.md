@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 940a35d89996b1eb9600fe4214863d2b5304750e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60242150"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경에 대한 모범 사례
@@ -29,7 +29,7 @@ ms.locfileid: "60242150"
 Azure AD Connect에 의해 만들어진 구성은 온-프레미스 Active Directory와 Azure AD를 동기화하는 대부분의 환경에 대해 “있는 그대로” 작동합니다. 그러나 일부 경우에는, 특정 필요 또는 요구 사항을 충족시키기 위해 구성에 일부 변경 내용을 적용할 필요가 있습니다.
 
 ## <a name="changes-to-the-service-account"></a>서비스 계정의 변경 내용
-Azure AD Connect 동기화는 설치 마법사에서 만든 서비스 계정에서 실행 중입니다. 이 서비스 계정에는 동기화에 사용되는 데이터베이스에 대한 암호화 키가 있습니다. 127자 길이의 암호로 만들어지며 암호가 만료되지 않도록 설정되어 있습니다.
+Azure AD Connect 동기화는 설치 마법사에서 만든 서비스 계정에서 실행 중입니다. 이 서비스 계정은 동기화에 사용 되는 데이터베이스에 암호화 키를 저장 합니다. 127 문자 길이의 암호를 사용 하 여 생성 되 고 암호가 만료 되지 않도록 설정 됩니다.
 
 * 서비스 계정의 암호는 변경 또는 초기화가 **지원되지 않습니다** . 이렇게 하면 암호화 키는 파기되고 서비스는 데이터베이스에 액세스할 수 없으며, 서비스를 시작할 수 없습니다.
 

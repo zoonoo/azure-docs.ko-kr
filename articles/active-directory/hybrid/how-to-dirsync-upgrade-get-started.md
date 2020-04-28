@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f2d9a7c8cfbfc4fb56ff8fba3c65ae9a7925830
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60348731"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: DirSync에서 업그레이드
@@ -28,12 +28,12 @@ Azure AD Connect는 DirSync의 후속 도구입니다. 이 항목의 DirSync에�
 
 Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)하고 [Azure AD Connect: 하드웨어 및 필수 구성 요소](how-to-connect-install-prerequisites.md)의 필수 구성 요소 단계를 완료하도록 합니다. 특히, 이러한 영역이 DirSync와 다르기 때문에 다음에 대해 참고해야 합니다.
 
-* .NET 및 PowerShell의 필수 버전입니다. 서버에는 DirSync에서보다 최신 버전이 필요합니다.
+* .NET 및 PowerShell의 필수 버전 서버에는 DirSync에서보다 최신 버전이 필요합니다.
 * 프록시 서버 구성입니다. 프록시 서버를 사용하여 인터넷에 연결하는 경우 업그레이드하기 전에 이 설정을 구성해야 합니다. DirSync을 설치하는 사용자를 위해 구성된 프록시 서버를 항상 사용하지만 Azure AD Connect는 대신 컴퓨터 설정을 사용합니다.
 * URL은 프록시 서버에서 열려야 합니다. 또한 기본 시나리오의 경우 해당 시나리오는 DirSync에서 지원되며 요구 사항은 동일합니다. Azure AD Connect에 포함된 새로운 기능 중 일부를 사용하려는 경우 몇 가지 새 URL이 열려 있어야 합니다.
 
 > [!NOTE]
-> 새 Azure AD Connect 서버가 Azure AD에 대한 변경 내용 동기화를 시작하도록 설정한 후에는 DirSync 또는 Azure AD Sync를 사용하여 롤백해서는 안 됩니다. Azure AD Connect에서 DirSync 및 Azure AD Sync를 포함한 레거시 클라이언트로의 다운그레이드를 지원하지 않으며 Azure AD의 데이터 손실과 같은 문제가 발생할 수 있습니다.
+> 새 Azure AD Connect 서버를 사용 하도록 설정 하 여 Azure AD에 대 한 변경 내용을 동기화 하기 시작 하면 DirSync 또는 Azure AD Sync를 사용 하 여 롤백하지 않아야 합니다. DirSync 및 Azure AD Sync를 포함 하 여 Azure AD Connect 레거시 클라이언트로 다운 그레이드 하는 것은 지원 되지 않으며 Azure AD에서 데이터 손실 등의 문제가 발생할 수 있습니다.
 
 DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 관련 설명서를 참조하세요.
 
@@ -171,7 +171,7 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
 ### <a name="verify-that-azure-ad-connect-is-ready-to-begin-synchronization"></a>Azure AD Connect가 동기화를 시작할 준비가 되었는지 확인
 Azure AD Connect가 DirSync로부터 인수할 준비가 되었는지 확인하려면 시작 메뉴에서 **Azure AD Connect** 그룹의 **동기화 서비스 관리자**를 열어야 합니다.
 
-응용 프로그램에서 **작업** 탭으로 이동합니다. 이 탭에서 다음 작업이 완료되어 확인합니다.
+응용 프로그램에서 **작업** 탭으로 이동 합니다. 이 탭에서 다음 작업이 완료 되었는지 확인 합니다.
 
 * AD 커넥터에 가져오기
 * Azure AD 커넥터에 가져오기
@@ -206,7 +206,7 @@ DirSync를 제거하거나 사용하지 않으면 Azure AD로 내보내는 활�
 
 ![Azure AD 자격 증명 입력](./media/how-to-dirsync-upgrade-get-started/configurestaging.png)
 
-* 다음 버튼을 **클릭합니다.**
+* **다음** 단추를 클릭 합니다.
 * 확인 페이지에서 **설치** 단추를 클릭합니다.
 
 이제 Azure AD Connect는 활성 서버이며 기존 DirSync 서버를 사용하도록 전환하지 않아야 합니다.

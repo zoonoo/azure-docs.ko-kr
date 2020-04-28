@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60321832"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에서 하드웨어 구성 요소 교체
@@ -34,12 +34,12 @@ ms.locfileid: "60321832"
 ### <a name="safety-icon-conventions"></a>안전성 아이콘 표시 규칙
 다음 표에서는 이러한 자습서에서 사용된 안전성 아이콘에 대해 설명합니다. 디바이스 구성 요소를 꺼내고 교체하는 단계를 진행할 때 이러한 안전성 아이콘에 각별히 주의하세요.
 
-| 아이콘 | 텍스트 | 추가 정보 |
+| 아이콘 | Text | 추가 정보 |
 |:--- |:--- |:--- |
 | ![경고 아이콘](./media/storsimple-hardware-component-replacement/Warning.png) |**위험!** |피하지 않을 경우 사망 또는 심각한 부상을 당하는 위험한 상황을 나타냅니다. 이 위험도 표시는 가장 극단적인 상황으로 제한됩니다. |
-| ![경고 아이콘](./media/storsimple-hardware-component-replacement/Warning.png) |**경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
-| ![주의 아이콘](./media/storsimple-hardware-component-replacement/Caution.png) |**주의!** |피하지 않을 경우 최소 또는 보통 수준의 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
-| ![고지 아이콘](./media/storsimple-hardware-component-replacement/NoticeIcon.png) |**고지:** |중요하지만 위험과 관련되지 않은 것으로 간주되는 정보를 나타냅니다. |
+| ![경고 아이콘](./media/storsimple-hardware-component-replacement/Warning.png) |**내용의!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
+| ![주의 아이콘](./media/storsimple-hardware-component-replacement/Caution.png) |**매우!** |피하지 않을 경우 최소 또는 보통 수준의 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
+| ![고지 아이콘](./media/storsimple-hardware-component-replacement/NoticeIcon.png) |**알지** |중요하지만 위험과 관련되지 않은 것으로 간주되는 정보를 나타냅니다. |
 | ![감전 아이콘](./media/storsimple-hardware-component-replacement/Electric.png) |**감전 위험** |높은 전압을 나타냅니다. |
 | ![무거운 무게 아이콘](./media/storsimple-hardware-component-replacement/Weight.png) |**무거운 무게** | |
 | ![사용자 서비스 가능 부품 없음 아이콘](./media/storsimple-hardware-component-replacement/NoUserServiceableParts.png) |**사용자 서비스 가능 부품 없음** |제대로 교육을 받지 않은 경우 액세스하지 마세요. |
@@ -67,11 +67,11 @@ StorSimple 8000 시리즈 디바이스는 기본 및/또는 EBOD 엔클로저의
 
 | 구성 요소 | 현재 개수 | 플러그 인 모듈 여부 | 교체 절차 |
 |:--- |:--- |:--- |:--- |
-| 섀시 |1 |예 |[StorSimple 디바이스의 섀시 교체](storsimple-8000-chassis-replacement.md) |
-| 기본 컨트롤러 |2 |yes |[StorSimple 디바이스의 컨트롤러 모듈 교체](storsimple-8000-controller-replacement.md) |
-| 764W PCM(전원 및 냉각 모듈) |2 |yes |[StorSimple 디바이스의 전원 및 냉각 모듈 교체](storsimple-8000-power-cooling-module-replacement.md) |
-| Backup 배터리 |2 |yes |[StorSimple 디바이스의 백업 배터리 모듈 교체](storsimple-8000-battery-replacement.md) |
-| 디스크 드라이브 |12 |yes |[StorSimple 디바이스의 디스크 드라이브 교체](storsimple-8000-disk-drive-replacement.md) |
+| 섀시 |1 |아니요 |[StorSimple 디바이스의 섀시 교체](storsimple-8000-chassis-replacement.md) |
+| 기본 컨트롤러 |2 |예 |[StorSimple 디바이스의 컨트롤러 모듈 교체](storsimple-8000-controller-replacement.md) |
+| 764W PCM(전원 및 냉각 모듈) |2 |예 |[StorSimple 디바이스의 전원 및 냉각 모듈 교체](storsimple-8000-power-cooling-module-replacement.md) |
+| Backup 배터리 |2 |예 |[StorSimple 디바이스의 백업 배터리 모듈 교체](storsimple-8000-battery-replacement.md) |
+| 디스크 드라이브 |12 |예 |[StorSimple 디바이스의 디스크 드라이브 교체](storsimple-8000-disk-drive-replacement.md) |
 
 **표 1** 기본 엔클로저의 하드웨어 구성 요소
 
@@ -79,10 +79,10 @@ StorSimple 8000 시리즈 디바이스는 기본 및/또는 EBOD 엔클로저의
 
 | 구성 요소 | 현재 개수 | 플러그 인 모듈 여부 | 교체 절차 |
 |:--- |:--- |:--- |:--- |
-| 섀시 |1 |예 |[StorSimple 디바이스의 섀시 교체](storsimple-8000-chassis-replacement.md) |
-| EBOD 컨트롤러 |2 |yes |[StorSimple 디바이스의 EBOD 컨트롤러 교체](storsimple-8000-ebod-controller-replacement.md) |
-| 580W PCM(전원 및 냉각 모듈) |2 |yes |[StorSimple 디바이스의 전원 및 냉각 모듈 교체](storsimple-8000-power-cooling-module-replacement.md) |
-| 디스크 드라이브 |12 |yes |[StorSimple 디바이스의 디스크 드라이브 교체](storsimple-8000-disk-drive-replacement.md) |
+| 섀시 |1 |아니요 |[StorSimple 디바이스의 섀시 교체](storsimple-8000-chassis-replacement.md) |
+| EBOD 컨트롤러 |2 |예 |[StorSimple 디바이스의 EBOD 컨트롤러 교체](storsimple-8000-ebod-controller-replacement.md) |
+| 580W PCM(전원 및 냉각 모듈) |2 |예 |[StorSimple 디바이스의 전원 및 냉각 모듈 교체](storsimple-8000-power-cooling-module-replacement.md) |
+| 디스크 드라이브 |12 |예 |[StorSimple 디바이스의 디스크 드라이브 교체](storsimple-8000-disk-drive-replacement.md) |
 
 **표 2** EBOD 엔클로저의 하드웨어 구성 요소
 
@@ -92,7 +92,7 @@ StorSimple 8000 시리즈 디바이스는 기본 및/또는 EBOD 엔클로저의
 
 **그림 1** 디바이스 앞면
 
-| 레이블 | 설명 |
+| 레이블 | Description |
 |:--- |:--- |
 | 0 - 11 |디스크 드라이브(총 12개) |
 
@@ -102,7 +102,7 @@ StorSimple 8000 시리즈 디바이스는 기본 및/또는 EBOD 엔클로저의
 
 **그림 2** 기본 엔클로저 뒷면
 
-| 레이블 | 설명 |
+| 레이블 | Description |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -113,7 +113,7 @@ StorSimple 8000 시리즈 디바이스는 기본 및/또는 EBOD 엔클로저의
 
 **그림 3** EBOD 엔클로저 뒷면
 
-| 레이블 | 설명 |
+| 레이블 | Description |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |

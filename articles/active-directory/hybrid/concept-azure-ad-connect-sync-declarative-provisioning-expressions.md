@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60245513"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect 동기화: 선언적 프로비전 식 이해
@@ -41,7 +41,7 @@ Azure AD Connect 동기화는 Forefront Identity Manager 2010에 처음 도입�
 * 부울 값은 다음과 같은 상수로 표시됩니다. True, False
 * 기본 제공 상수 및 리터럴은 자신의 이름으로만 표현됩니다. NULL, CRLF, IgnoreThisFlow
 
-### <a name="functions"></a>함수
+### <a name="functions"></a>Functions
 선언적 프로비전은 여러 함수를 사용하여 특성 값을 변환할 수 있도록 합니다. 함수의 결과가 다른 함수로 전달되도록 이러한 함수는 중첩될 수 있습니다.
 
 `Function1(Function2(Function3()))`
@@ -82,7 +82,7 @@ Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매
 ## <a name="multi-valued-attributes"></a>다중값 특성
 함수는 단일 값 및 다중값 특성에서 작동할 수 있습니다. 다중값 특성의 경우 함수는 모든 값에 대해 작동하고 각 값에 동일한 함수를 적용합니다.
 
-예를 들어:  
+예를 들면 다음과 같습니다.  
 `Trim([proxyAddresses])` proxyAddress 특성의 모든 값에 Trim을 수행합니다.  
 `Word([proxyAddresses],1,"@") & "@contoso.com"`@-sign이 있는 모든 값의 경우 도메인을 @contoso.com으로 바꿉니다.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` SIP 주소를 찾아서 값을 제거합니다.

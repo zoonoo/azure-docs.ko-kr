@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
 ms.openlocfilehash: aa69d8b07d31b5cf0386e34c113475cbf4191891
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60319550"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple 로컬로 고정된 볼륨: 질문과 대답(FAQ)
@@ -178,7 +178,7 @@ StorSimple 디바이스 관리자 서비스의 **작업** 블레이드에서 이
 
 **Q.**  로컬로 고정된 볼륨을 복제할 수 있나요?
 
-**A.**  예, 할 수 있습니다. 그러나 로컬로 고정된 볼륨은 기본적으로 계층화된 볼륨으로 복제됩니다. [로컬로 고정된 볼륨을 복제하는](storsimple-8000-clone-volume-u2.md) 방법에 대한 자세한 정보
+**A.**  예, 할 수 있습니다. 그러나 로컬로 고정된 볼륨은 기본적으로 계층화된 볼륨으로 복제됩니다. [로컬로 고정 된 볼륨을 복제](storsimple-8000-clone-volume-u2.md) 하는 방법에 대 한 자세한 정보
 
 ## <a name="questions-about-failing-over-a-locally-pinned-volume"></a>로컬로 고정된 볼륨 장애 조치에 대한 질문
 **Q.**  내 디바이스를 다른 실제 디바이스로 장애 조치해야 합니다. 내 로컬로 고정된 볼륨이 로컬로 고정되거나 계층화되어 실패하나요?
