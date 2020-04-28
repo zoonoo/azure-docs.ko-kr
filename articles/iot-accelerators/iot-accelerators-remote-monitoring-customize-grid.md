@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e27c1c4303129467c0bd05152570e26f129585a1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61447100"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186291"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 그리드 추가
 
@@ -29,7 +29,7 @@ ms.locfileid: "61447100"
 이 방법 가이드의 단계를 완료하려면 로컬 개발 머신에 다음과 같은 소프트웨어가 설치되어 있어야 합니다.
 
 - [Git](https://git-scm.com/downloads)
-- [Node.js](https://nodejs.org/download/)
+- [Node.JS](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -182,7 +182,7 @@ describe('BasicPage Component', () => {
 npm start
 ```
 
-이전 명령은 에서 [http://localhost:3000/dashboard](http://localhost:3000/dashboard)UI를 로컬로 실행합니다. **예제** 페이지로 이동하여 서비스에서 그리드 표시 데이터를 확인합니다.
+이전 명령은 `http://localhost:3000/dashboard`에서 UI를 로컬로 실행합니다. **예제** 페이지로 이동하여 서비스에서 그리드 표시 데이터를 확인합니다.
 
 ## <a name="select-rows"></a>행 선택
 

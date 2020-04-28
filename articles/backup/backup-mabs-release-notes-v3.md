@@ -1,15 +1,15 @@
 ---
 title: Microsoft Azure Backup Server v3 릴리스 정보
-description: 이 문서에서는 Microsoft Azure 백업 서버(MABS) v3에 대한 알려진 문제 및 해결 방법에 대한 정보를 제공합니다.
+description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) v3의 알려진 문제 및 해결 방법에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 11/22/2018
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 03863f7598da06bb36cbb7497d7c773f811a004e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: a5c99bcb95fde39bddc9e9db9ab000881c89081a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685621"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185628"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server 릴리스 정보
 
@@ -63,14 +63,14 @@ ms.locfileid: "81685621"
 7. SSMS를 사용하여 SQL을 [복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017)하고, [여기](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync)서 설명한 대로 DPM 동기화 도구를 실행합니다.
 8. 다음 명령을 사용하여 dbo.tbl_DLS_GlobalSetting 테이블의 'DataBaseVersion' 속성을 업데이트합니다.
 
-```sql
-        UPDATE dbo.tbl_DLS_GlobalSetting
-        set PropertyValue = '13.0.415.0'
-        where PropertyName = 'DatabaseVersion'
-```
+    ```sql
+            UPDATE dbo.tbl_DLS_GlobalSetting
+            set PropertyValue = '13.0.415.0'
+            where PropertyName = 'DatabaseVersion'
+    ```
 
 9. MSDPM 서비스를 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[MABS V3의 새로운 점](backup-mabs-whats-new-mabs.md)
+[MABS V3의 새로운 기능](backup-mabs-whats-new-mabs.md)

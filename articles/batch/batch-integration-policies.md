@@ -4,12 +4,12 @@ description: Azure Policy은 리소스에 대해 규칙을 적용 하는 정책�
 ms.topic: article
 ms.date: 02/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 74c087031a024b0c50d6c40057a4e2eda554be6f
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: a160de1277afea026a16f470c8f76cdc2ec1733f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116080"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184268"
 ---
 # <a name="integration-with-azure-policy"></a>Azure Policy와 통합
 
@@ -17,7 +17,7 @@ Azure Policy은 리소스에 대 한 규칙을 적용 하 여 회사 표준 및 
 
 Azure Batch에는 정책 준수를 관리 하는 데 도움이 되는 두 가지 기본 제공 확장이 있습니다. 
 
-|**이름**...|   **설명**|**효과**|  **버전**|    **원본**
+|**이름**...|   **설명**|**효과**|  **버전**|    **소스**
 |----------------|----------|----------|----------------|---------------|
 |배치 계정의 진단 로그를 사용하도록 설정해야 합니다.|   진단 로그 사용을 감사합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 사용할 활동 내역을 다시 만들 수 있습니다.|AuditIfNotExists, 사용 안 함|  2.0.0|  GitHub|
 |Batch 계정에서 메트릭 경고 규칙을 구성해야 함| 필요한 메트릭을 사용할 수 있도록 설정하는 Batch 계정에서 메트릭 경고 규칙 구성 감사|   AuditIfNotExists, 사용 안 함| 1.0.0|  GitHub|
@@ -26,7 +26,7 @@ Azure Batch에는 정책 준수를 관리 하는 데 도움이 되는 두 가지
 
 Batch에 필요한 리소스에는 계정, 계산 노드, 풀, 작업 및 태스크가 포함 됩니다. 따라서 속성 별칭을 사용 하 여 이러한 리소스의 특정 속성에 액세스할 수 있습니다. [별칭](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases) 에 대 한 자세한 정보
 
-현재 별칭을 알고 있는지 확인 하 고 리소스 및 정책을 검토 하려면 Visual Studio Code에 대 한 Azure 정책 확장을 사용 합니다. Visual Studio Code에서 지 원하는 모든 플랫폼에 설치할 수 있습니다. 이 지원에는 Windows, Linux 및 macOS가 포함 됩니다. [설치 지침](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode)을 참조 하세요.
+현재 별칭을 알고 있는지 확인 하 고 리소스 및 정책을 검토 하려면 Visual Studio Code에 Azure Policy 확장을 사용 합니다. Visual Studio Code에서 지 원하는 모든 플랫폼에 설치할 수 있습니다. 이 지원에는 Windows, Linux 및 macOS가 포함 됩니다. [설치 지침](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode)을 참조 하세요.
 
 
 

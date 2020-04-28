@@ -1,19 +1,21 @@
 ---
+title: 포함 파일
+description: 포함 파일
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 09/30/2019
 ms.author: cynthn
-ms.openlocfilehash: fbc6889507e58c4721597a1108337fcb1f8756a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: feea9696316723a2750be6fc1e13001224320324
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75752099"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865620"
 ---
 Azure에서 호스팅되는 VM이 크게 증가함에 따라 지원하는 응용 프로그램 및 인프라 서비스에 영향을 주는 성능 및 상태 문제를 식별하는 것이 중요합니다. 기본 모니터링은 기본적으로 Azure에서 메트릭 유형 CPU 사용량, 디스크 사용률, 메모리 사용률 및 호스트 하이퍼바이저에서 수집한 네트워크 트래픽에 의해 제공됩니다. [확장 프로그램을](../articles/virtual-machines/windows/extensions-features.md) 사용하여 추가 메트릭 및 로그 데이터를 수집하여 게스트 운영 체제에서 VM의 진단을 구성할 수 있습니다.
 
-게스트 운영 체제, .NET 기반 또는 Java 웹 응용 프로그램 구성 요소에서 실행되는 성능 및 상태 문제를 검색하고 진단하기 위해 Azure Monitor는 VM용 Azure Monitor와 같은 포괄적인 기능을 사용하여 중앙 집중식 모니터링을 제공합니다. 및 애플리케이션 인사이트.
+게스트 운영 체제, .NET 기반 또는 Java 웹 응용 프로그램 구성 요소에서 실행되는 게스트 운영 체제의 성능 및 상태 문제를 검색하고 진단하기 위해 Azure Monitor는 VM용 Azure 모니터 및 응용 프로그램 인사이트와 같은 포괄적인 기능을 통해 중앙 집중식 모니터링을 제공합니다.
 
 ## <a name="diagnostics-and-metrics"></a>진단 및 메트릭 
 
@@ -68,7 +70,7 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(애플리케�
 
 Azure VM 및 가상 시스템 규모 집합에서 지원하는 응용 프로그램 또는 서비스의 가시성을 위해 VM에서 실행 중인 게스트 OS 또는 워크로드에 대한 문제를 식별하여 응용 프로그램의 가용성 또는 성능에 영향을 미치는지 또는 응용 프로그램에 문제가 있는지 파악하려면 VM 및 [응용 프로그램 인사이트용](../articles/azure-monitor/app/app-insights-overview.md) [Azure 모니터를](../articles/azure-monitor/insights/vminsights-overview.md) 모두 사용하도록 설정합니다.
 
-VM용 Azure Monitor는 다른 리소스 및 외부 프로세스에 대한 다양한 프로세스 및 상호 연결된 종속성을 포함하여 Windows 및 Linux VM의 성능과 상태를 분석하여 대규모로 Azure 가상 머신(VM)을 모니터링합니다. 발견. 여기에는 문제를 조사하는 데 도움이 되고 VM의 용량을 평가하는 데 도움이 되는 몇 가지 추세 성능 차트가 포함되어 있습니다. 종속성 맵에는 모니터링되는 컴퓨터와 모니터링되지 않는 컴퓨터, 프로세스와 이러한 컴퓨터 간의 실패한 네트워크 연결 및 활성 네트워크 연결이 표시되고 표준 네트워크 연결 메트릭이 있는 추세 차트가 표시됩니다. 응용 프로그램 인사이트와 결합하면 응용 프로그램을 모니터링하고 HTTP 요청, 예외 등과 같은 원격 분석을 캡처하므로 VM과 응용 프로그램 간의 문제를 상호 연관시킬 수 있습니다. Azure 모니터 경고를 구성하여 VM용 Azure [Monitor에서](../articles/azure-monitor/platform/alerts-overview.md) 수집한 모니터링 데이터에서 검색된 중요한 조건에 대해 경고합니다.
+VM용 Azure Monitor는 발견된 다른 리소스 및 외부 프로세스에 대한 다양한 프로세스 및 상호 연결된 종속성을 포함하여 Windows 및 Linux VM의 성능과 상태를 분석하여 대규모로 Azure 가상 시스템(VM)을 모니터링합니다. 여기에는 문제를 조사하는 데 도움이 되고 VM의 용량을 평가하는 데 도움이 되는 몇 가지 추세 성능 차트가 포함되어 있습니다. 종속성 맵에는 모니터링되는 컴퓨터와 모니터링되지 않는 컴퓨터, 프로세스와 이러한 컴퓨터 간의 실패한 네트워크 연결 및 활성 네트워크 연결이 표시되고 표준 네트워크 연결 메트릭이 있는 추세 차트가 표시됩니다. 응용 프로그램 인사이트와 결합하면 응용 프로그램을 모니터링하고 HTTP 요청, 예외 등과 같은 원격 분석을 캡처하므로 VM과 응용 프로그램 간의 문제를 상호 연관시킬 수 있습니다. Azure 모니터 경고를 구성하여 VM용 Azure [Monitor에서](../articles/azure-monitor/platform/alerts-overview.md) 수집한 모니터링 데이터에서 검색된 중요한 조건에 대해 경고합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

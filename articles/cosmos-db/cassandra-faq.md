@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: thvankra
-ms.openlocfilehash: 2d6cae3a7a41eae05783d3bcc12ec2bfe8220c4c
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 9b771a82d88f9902aeb6022f07811ded8a6e0e62
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82148318"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192836"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-for-azure-cosmos-db"></a>Azure Cosmos DB Cassandra API에 대 한 질문과 대답
 
 ## <a name="what-are-some-key-differences-between-apache-cassandra-and-the-cassandra-api"></a>Apache Cassandra와 Cassandra API 간의 몇 가지 주요 차이점은 무엇 인가요?
 
-- Apache Cassandra는 파티션 키 크기에 대해 100의 제한을 권장 합니다. Azure Cosmos DB에 대 한 Cassandra API에는 파티션당 최대 10gb가 허용 됩니다.
+- Apache Cassandra는 파티션 키 크기에 대해 100의 제한을 권장 합니다. Azure Cosmos DB에 대 한 Cassandra API에는 파티션당 최대 20gb가 허용 됩니다.
 - Apache Cassandra를 사용 하면 지 속성 커밋을 비활성화할 수 있습니다. 커밋 로그에 대 한 쓰기를 건너뛰고 memtables로 바로 이동할 수 있습니다. 이로 인해 memtables가 디스크의 SSTables에 플러시되기 전에 노드가 중단 되 면 데이터가 손실 될 수 있습니다. Azure Cosmos DB는 데이터 손실을 방지 하기 위해 항상 내구성이 있는 커밋을 수행 합니다.
 - 작업에 많은 교체 또는 삭제가 포함 된 경우 Apache Cassandra는 성능이 저하 된 것을 볼 수 있습니다. 이유는 읽기 작업에서 최신 데이터를 가져오기 위해 건너뛰어야 하는 삭제 표식입니다. 워크 로드에 많은 교체 또는 삭제가 있는 경우 Cassandra API에는 감소 된 읽기 성능이 표시 되지 않습니다.
 - 높은 대체 작업의 시나리오에서 압축을 실행 하 여 디스크에 SSTables를 병합 해야 합니다. (Apache Cassandra의 쓰기는 추가 전용 이므로 병합이 필요 합니다. 여러 업데이트는 주기적으로 병합 해야 하는 개별 SSTable 된 항목으로 저장 됩니다. 이러한 상황에서는 압축 하는 동안 읽기 성능이 저하 될 수도 있습니다. API에서 압축을 구현 하지 않기 때문에 이러한 성능 영향은 Cassandra API에서 발생 하지 않습니다.
@@ -131,7 +131,7 @@ Azure Cosmos DB는 읽기, 쓰기 및 처리량에 대 한 성능 보장을 제�
 
 ### <a name="how-can-i-monitor-infrastructure-along-with-throughput"></a>처리량과 함께 인프라를 모니터링 하려면 어떻게 해야 하나요?
 
-Azure Cosmos DB는 인프라를 관리하고 모니터링할 걱정 없이 생산성을 높이는 데 도움이 되는 플랫폼 서비스입니다. 예를 들어 다양 한 도구를 사용 하 여 이전에 노드 상태, 복제본 상태, gc 및 OS 매개 변수를 모니터링할 필요가 없습니다. 제한 되는지 확인 하기 위해 포털 메트릭에 제공 되는 처리량을 처리 하 고 처리량을 늘리거나 줄일 수 있습니다. 다음과 같습니다.
+Azure Cosmos DB는 인프라를 관리하고 모니터링할 걱정 없이 생산성을 높이는 데 도움이 되는 플랫폼 서비스입니다. 예를 들어 다양 한 도구를 사용 하 여 이전에 노드 상태, 복제본 상태, gc 및 OS 매개 변수를 모니터링할 필요가 없습니다. 제한 되는지 확인 하기 위해 포털 메트릭에 제공 되는 처리량을 처리 하 고 처리량을 늘리거나 줄일 수 있습니다. 다음과 같은 작업을 수행할 수 있습니다.
 
 - [Sla](monitor-accounts.md) 모니터링
 - [메트릭](use-metrics.md) 사용

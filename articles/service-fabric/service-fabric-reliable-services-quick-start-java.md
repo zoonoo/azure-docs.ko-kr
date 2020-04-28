@@ -5,16 +5,16 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: c3b301a7a9039f1fe8095950f0a5a4e23eb52a9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7855b92c90a9ccd208a25080c260437e6808d1b7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614216"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184149"
 ---
-# <a name="get-started-with-reliable-services-in-java"></a>Java에서 신뢰할 수 있는 서비스 시작하기
+# <a name="get-started-with-reliable-services-in-java"></a>Java에서 Reliable Services 시작
 > [!div class="op_single_selector"]
-> * [윈도우에서 C #](service-fabric-reliable-services-quick-start.md)
+> * [Windows의 c #](service-fabric-reliable-services-quick-start.md)
 > * [Linux에서 Java](service-fabric-reliable-services-quick-start-java.md)
 >
 >
@@ -197,7 +197,7 @@ ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddRelia
 * Service Fabric은 노드의 상태를 *복제*하고, 신뢰할 수 있는 해시 맵은 데이터를 각 복제본의 로컬 디스크에 저장합니다. 즉, 신뢰할 수 있는 해시 맵에 저장된 모든 항목이 *직렬화 가능* 상태가 됩니다. 
 * 신뢰할 수 있는 해시 맵의 트랜잭션을 커밋하면 고가용성을 위해 개체가 복제됩니다. 신뢰할 수 있는 해시 맵에 저장된 개체는 서비스의 로컬 메모리에 유지됩니다. 즉, 개체에 대한 로컬 참조가 있습니다.
   
-   트랜잭션의 신뢰할 수 있는 컬렉션에서 업데이트 작업을 수행하지 않고 해당 개체의 로컬 인스턴스를 변환하지 않는 것이 중요합니다. 개체의 로컬 인스턴스에 대한 변경 내용은 자동으로 복제되지 않기 때문입니다. 객체를 사전에 다시 삽입하거나 사전의 *업데이트* 방법 중 하나를 사용해야 합니다.
+   트랜잭션의 신뢰할 수 있는 컬렉션에서 업데이트 작업을 수행하지 않고 해당 개체의 로컬 인스턴스를 변환하지 않는 것이 중요합니다. 개체의 로컬 인스턴스에 대한 변경 내용은 자동으로 복제되지 않기 때문입니다. 개체를 사전에 다시 삽입 하거나 사전에서 *업데이트* 메서드 중 하나를 사용 해야 합니다.
 
 신뢰할 수 있는 상태 관리자는 사용자에 대한 신뢰할 수 있는 해시 맵을 관리합니다. 언제든지 서비스의 어느 위치에서든 신뢰할 수 있는 컬렉션에 대한 신뢰할 수 있는 상태 관리자를 요청할 수 있습니다. 신뢰할 수 있는 상태 관리자는 참조를 다시 가져오도록 합니다. 클래스 멤버 변수 또는 속성에서 신뢰할 수 있는 컬렉션 인스턴스에 대한 참조를 저장하지 않는 것이 좋습니다. 서비스 수명 주기에서 항상 참조가 인스턴스로 설정되어 있도록 특별히 주의해야 합니다. 신뢰할 수 있는 상태 관리자는 사용자를 위해 이 작업을 처리하고 반복 방문에 최적화됩니다.
 
@@ -255,7 +255,7 @@ $ gradle
 
 애플리케이션 패키지 내에 생성된 매니페스트에서 이러한 명령의 매개 변수를 찾을 수 있습니다.
 
-애플리케이션이 배포되면 브라우저를 열고 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)에 있는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)로 이동합니다. 그런 다음 **애플리케이션** 노드를 확장하면 애플리케이션 형식에 대한 항목 및 해당 형식의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
+애플리케이션이 배포되면 브라우저를 열고 `http://localhost:19080/Explorer`에 있는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)로 이동합니다. 그런 다음 **애플리케이션** 노드를 확장하면 애플리케이션 형식에 대한 항목 및 해당 형식의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
 
 > [!IMPORTANT]
 > 애플리케이션을 Azure의 보안 Linux 클러스터에 배포하려면 Service Fabric 런타임으로 애플리케이션의 유효성을 검사하는 인증서를 구성해야 합니다. 이렇게 하면 Reliable Services 서비스에서 기본 Service Fabric 런타임 API와 통신할 수 있습니다. 자세히 알아보려면 [Linux 클러스터에서 실행하도록 Reliable Services 앱 구성](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)을 참조하세요.  

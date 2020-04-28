@@ -9,18 +9,18 @@ ms.author: magoedte
 ms.date: 04/23/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1bc47fe6e1f0730bcff49e138df92f85ba3ef1a8
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 607cebca3e6e8ddd95900ecdbd7041e5f7bb50cc
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114482"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165776"
 ---
 # <a name="workspace-mappings"></a>작업 영역 매핑:
 
 업데이트 관리, 변경 내용 추적 및 인벤토리 또는 작업 시간 외 VM 시작/중지를 사용 하도록 설정 하는 경우 구독에서 Log Analytics 작업 영역 및 Automation 계정을 연결 하는 데 특정 영역만 지원 됩니다. 이 매핑은 Automation 계정 및 Log Analytics 작업 영역에만 적용 됩니다. Log Analytics 작업 영역 및 Automation 계정은 동일한 구독에 있어야 하지만 동일한 지역에 배포 된 다른 리소스 그룹에 있을 수 있습니다.
 
-자세한 내용은 [Log Analytics 작업 영역 및 Automation 계정](../azure-monitor/insights/solutions.md#log-analytics- workspace-and-automation-account)을 참조 하세요.
+자세한 내용은 [Log Analytics 작업 영역 및 Automation 계정](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account)을 참조 하세요.
 
 ## <a name="supported-mappings"></a>지원 되는 매핑
 
@@ -73,7 +73,7 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 
     * VM runbook 시작 및 중지 일정
     * VM runbook 시작 및 중지
-    * variables
+    * 변수
 
 또는 작업 영역 내 Automation 계정에서 작업 영역의 연결을 끊을 수 있습니다.
 

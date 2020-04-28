@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: eb6fc65d15ba7262b38a48e220f01d74bfcee54a
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 4a94b0b84290bbf796e951dfee8b3f35b80036ce
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146546"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183163"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 Azure 보안 기준
 
@@ -146,7 +146,7 @@ Azure Blueprint를 만드는 방법:https://docs.microsoft.com/azure/governance/
 
 **지침**: Azure Database for PostgreSQL 인스턴스에 대 한 네트워크 보안 및 트래픽 흐름과 관련 된 리소스에 대 한 태그를 사용 하 여 메타 데이터 및 논리 조직을 제공 합니다.
 
-태그를 사용 하 여 모든 리소스를 만들고 태그가 지정 되지 않은 기존 리소스를 알리도록 하려면 태그 지정과 관련 된 기본 제공 Azure 정책 정의 (예: 태그 및 해당 값 필요)를 사용 합니다.
+태그를 사용 하 여 모든 리소스를 만들고 태그가 지정 되지 않은 기존 리소스를 알리도록 하려면 태그 지정과 관련 된 기본 제공 Azure Policy 정의 (예: "태그 및 해당 값 필요")를 사용 합니다.
 
 Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리소스에 대 한 작업을 조회 하거나 수행할 수 있습니다.
 
@@ -696,7 +696,7 @@ Azure RBAC 이해:https://docs.microsoft.com/azure/role-based-access-control/ove
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: 승인 되지 않은 Azure 리소스에 대 한 모니터링
 
-**지침**: Azure policy를 사용 하 여 다음 기본 제공 정책 정의를 사용 하 여 고객 구독에서 만들 수 있는 리소스 유형에 대 한 제한을 설정 합니다.
+**지침**: Azure Policy을 사용 하 여 다음 기본 제공 정책 정의를 사용 하 여 고객 구독에서 만들 수 있는 리소스 유형에 대 한 제한을 설정할 수 있습니다.
 
 - 허용되지 않는 리소스 종류
 
@@ -738,7 +738,7 @@ Azure Graph를 사용 하 여 쿼리를 만드는 방법:https://docs.microsoft.
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: 승인 된 Azure 서비스만 사용 합니다.
 
-**지침**: Azure policy를 사용 하 여 다음 기본 제공 정책 정의를 사용 하 여 고객 구독에서 만들 수 있는 리소스 유형에 대 한 제한을 설정 합니다.
+**지침**: Azure Policy을 사용 하 여 다음 기본 제공 정책 정의를 사용 하 여 고객 구독에서 만들 수 있는 리소스 유형에 대 한 제한을 설정할 수 있습니다.
 
 - 허용되지 않는 리소스 종류
 
@@ -816,7 +816,7 @@ Azure Policy를 구성 하 고 관리 하는 방법:https://docs.microsoft.com/a
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: 보안 Azure 리소스 구성 유지
 
-**지침**: azure 정책 [거부] 및 [배포 되지 않은 경우 배포]를 사용 하 여 azure 리소스에서 보안 설정을 적용 합니다.
+**지침**: Azure Policy [거부] 및 [배포 되지 않은 경우 배포]를 사용 하 여 Azure 리소스에서 보안 설정을 적용 합니다.
 
 Azure Policy를 구성 하 고 관리 하는 방법:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -836,7 +836,7 @@ Azure Policy 효과 이해:https://docs.microsoft.com/azure/governance/policy/co
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Azure 리소스의 구성을 안전 하 게 저장
 
-**지침**: Azure Database for PostgreSQL 인스턴스 및 관련 리소스에 대 한 사용자 지정 Azure 정책 정의를 사용 하는 경우 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
+**지침**: Azure Database for PostgreSQL 인스턴스 및 관련 리소스에 대 한 사용자 지정 Azure Policy 정의를 사용 하는 경우 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
 Azure DevOps에서 코드를 저장 하는 방법:https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -874,7 +874,7 @@ Azure Policy를 구성 하 고 관리 하는 방법:https://docs.microsoft.com/a
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Azure 서비스에 대 한 자동화 된 구성 모니터링 구현
 
-**지침**: "DBforPostgreSQL" 네임 스페이스에 Azure Policy 별칭을 사용 하 여 시스템 구성을 경고, 감사 및 적용 하기 위한 사용자 지정 정책을 만듭니다. Azure Database for PostgreSQL 인스턴스 및 관련 리소스에 대 한 구성을 자동으로 적용 하려면 Azure 정책 [감사], [거부] 및 [배포 안 함]을 사용 합니다.
+**지침**: "DBforPostgreSQL" 네임 스페이스에 Azure Policy 별칭을 사용 하 여 시스템 구성을 경고, 감사 및 적용 하기 위한 사용자 지정 정책을 만듭니다. Azure Database for PostgreSQL 인스턴스 및 관련 리소스에 대 한 구성을 자동으로 적용 하려면 Azure Policy [감사], [거부] 및 [배포 되지 않은 경우 배포]를 사용 합니다.
 
 Azure Policy를 구성 하 고 관리 하는 방법:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

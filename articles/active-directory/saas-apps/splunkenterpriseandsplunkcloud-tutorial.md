@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb0941a6cdde5b60b71da6f58ea6b0fd2ccbb262
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d64307c4f91839c466b5f3f495cad8d7410ed364
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160970"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867304"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>자습서: Splunk Enterprise and Splunk Cloud와 Azure Active Directory 통합
 
@@ -113,7 +113,7 @@ Splunk Enterprise and Splunk Cloud에서 Azure AD Single Sign-On을 구성하려
     다. **회신 URL** 텍스트 상자에서 `https://<splunkserver>/saml/acs` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Splunk Enterprise and Splunk Cloud 클라이언트 지원 팀](https://www.splunk.com/about-us/contact.html#tabs/customer-support)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Splunk Enterprise and Splunk Cloud 클라이언트 지원 팀](https://www.splunk.com/en_us/about-splunk/contact-us.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -121,7 +121,7 @@ Splunk Enterprise and Splunk Cloud에서 Azure AD Single Sign-On을 구성하려
 
 ### <a name="configure-splunk-enterprise-and-splunk-cloud-single-sign-on"></a>Splunk Enterprise and Splunk Cloud Single Sign-On 구성
 
-**Splunk Enterprise and Splunk Cloud** 쪽에 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 로그인 URL을 [Splunk Enterprise and Splunk Cloud 지원 팀](https://www.splunk.com/about-us/contact.html#tabs/customer-support)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Splunk Enterprise and Splunk Cloud** 쪽에 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 로그인 URL을 [Splunk Enterprise and Splunk Cloud 지원 팀](https://www.splunk.com/en_us/about-splunk/contact-us.html)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -176,7 +176,7 @@ Splunk Enterprise and Splunk Cloud에서 Azure AD Single Sign-On을 구성하려
 
 ### <a name="create-splunk-enterprise-and-splunk-cloud-test-user"></a>Splunk Enterprise and Splunk Cloud 테스트 사용자 만들기
 
-이 섹션에서는 Splunk Enterprise and Splunk Cloud에서 Britta Simon이라는 사용자를 만듭니다.  [Splunk Enterprise and Splunk Cloud 지원 팀](https://www.splunk.com/about-us/contact.html#tabs/customer-support)과 협의하여 Splunk Enterprise and Splunk Cloud 플랫폼에 사용자를 추가하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Splunk Enterprise and Splunk Cloud에서 Britta Simon이라는 사용자를 만듭니다.  [Splunk Enterprise and Splunk Cloud 지원 팀](https://www.splunk.com/en_us/about-splunk/contact-us.html)과 협의하여 Splunk Enterprise and Splunk Cloud 플랫폼에 사용자를 추가하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

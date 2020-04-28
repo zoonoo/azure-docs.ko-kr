@@ -11,23 +11,23 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: c8997f5cd1bed06fab8ca90e7b1cdfcb3e5ec6b3
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 7b268f3efa64c2f1ae78794056fdfda2b27434e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313769"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186932"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 가이드에서는 [Azure 기계 학습 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용하여 자동화된 기계 학습 실험의 다양한 구성 설정을 정의하는 방법을 알아봅니다. 자동화된 Machine Learning은 사용자를 위한 알고리즘과 하이퍼 매개 변수를 선택하고 배포할 준비가 된 모델을 생성합니다. 자동화된 Machine Learning 실험을 구성하는 데 사용할 수 있는 옵션에 대해 알아봅니다.
+이 가이드에서는 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용 하 여 자동화 된 machine learning 실험의 다양 한 구성 설정을 정의 하는 방법에 대해 알아봅니다. 자동화된 Machine Learning은 사용자를 위한 알고리즘과 하이퍼 매개 변수를 선택하고 배포할 준비가 된 모델을 생성합니다. 자동화된 Machine Learning 실험을 구성하는 데 사용할 수 있는 옵션에 대해 알아봅니다.
 
-자동화된 기계 학습 실험의 예를 보려면 [자습서: 자동화된 기계 학습으로 분류 모델 학습](tutorial-auto-train-models.md) 또는 [클라우드에서 자동화된 기계 학습을 사용하여 모델을 교육합니다.](how-to-auto-train-remote.md)
+자동화 된 기계 학습 실험의 예를 보려면 [자습서: 자동화 된 machine learning을 사용 하 여 분류 모델 학습](tutorial-auto-train-models.md) 또는 [클라우드에서 자동화 된 machine learning을 사용 하 여 모델 학습](how-to-auto-train-remote.md)을 참조 하세요.
 
 자동화된 기계 학습에서 사용할 수 있는 구성 옵션은 다음과 같습니다.
 
-* 실험 유형 선택: 분류, 회귀 또는 열렬 예측
+* 실험 유형 선택: 분류, 회귀 또는 시계열 예측
 * 데이터 원본, 형식 및 데이터 가져오기
 * 컴퓨팅 대상 선택: 로컬 또는 원격
 * 자동화된 Machine Learning 실험 설정
@@ -35,37 +35,37 @@ ms.locfileid: "81313769"
 * 모델 메트릭 탐색
 * 모델 등록 및 배포
 
-코드 환경이 없는 경우 Azure [Machine Learning 스튜디오에서 자동화된 기계 학습 실험을 만들](how-to-use-automated-ml-for-ml-models.md)수도 있습니다.
+코드를 사용 하지 않으려는 경우 [Azure Machine Learning studio에서 자동화 된 기계 학습 실험을 만들](how-to-use-automated-ml-for-ml-models.md)수도 있습니다.
 
 ## <a name="select-your-experiment-type"></a>실험 유형 선택
 
-실험을 시작하기 전에 해결하려는 기계 학습 문제의 종류를 결정해야 합니다. 자동화된 기계 학습은 분류, 회귀 및 예측의 작업 유형을 지원합니다. [작업 유형에](how-to-define-task-type.md)대해 자세히 알아봅니다.
+실험을 시작하기 전에 해결하려는 기계 학습 문제의 종류를 결정해야 합니다. 자동화 된 machine learning은 분류, 회귀 및 예측의 작업 유형을 지원 합니다. [작업 유형에](how-to-define-task-type.md)대 한 자세한 정보.
 
 자동화된 Machine Learning은 자동화 및 튜닝 프로세스 중에 다음 알고리즘을 지원합니다. 사용자는 알고리즘을 지정할 필요가 없습니다.
 
 > [!NOTE]
-> 자동 ML 생성 모델을 [ONNX 모델로](concept-onnx.md)내보내려는 경우 *로 표시된 알고리즘만 ONNX 형식으로 변환할 수 있습니다. [모델을 ONNX로 변환하는](concept-automated-ml.md#use-with-onnx)방법에 대해 자세히 알아보십시오. <br> <br> 또한 ONNX는 현재 분류 및 회귀 작업만 지원합니다. 
+> 자동 ML 생성 된 모델을 [onnx 모델로](concept-onnx.md)내보낼 계획인 경우 *로 표시 된 알고리즘만 onnx 형식으로 변환할 수 있습니다. [모델을 ONNX로 변환 하](concept-automated-ml.md#use-with-onnx)는 방법에 대해 자세히 알아보세요. <br> <br> 또한 ONNX는 지금은 분류 및 회귀 작업만 지원 합니다. 
 
-분류 | 회귀 | 시계열 예측
+분류 | 재발 | 시계열 예측
 |-- |-- |--
-[물류 회귀](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)* | [탄성 그물](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)* | [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
-[라이트 GBM](https://lightgbm.readthedocs.io/en/latest/index.html)* |[라이트 GBM](https://lightgbm.readthedocs.io/en/latest/index.html)*|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-[그라데이션 부스팅](https://scikit-learn.org/stable/modules/ensemble.html#classification)* |[그라데이션 부스팅](https://scikit-learn.org/stable/modules/ensemble.html#regression)* |[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)
+[로지스틱 회귀](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)* | [탄력적 네트워크](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)* | [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
+[밝은 GBM](https://lightgbm.readthedocs.io/en/latest/index.html)* |[밝은 GBM](https://lightgbm.readthedocs.io/en/latest/index.html)*|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
+[그라데이션 향상](https://scikit-learn.org/stable/modules/ensemble.html#classification)* |[그라데이션 향상](https://scikit-learn.org/stable/modules/ensemble.html#regression)* |[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)
 [의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#decision-trees)* |[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#regression)* |[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#regression)
-[K 가장 가까운 이웃](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K 가장 가까운 이웃](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[선형 SVC](https://scikit-learn.org/stable/modules/svm.html#classification)* |[라스 올가미](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)* |[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[지원 벡터 분류(SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)* |[스토크 그라데이션 하강(SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)* |[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)
-[랜덤 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[랜덤 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[랜덤 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
-[매우 무작위 나무](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[매우 무작위 나무](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
-[엑스부스트](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[엑스부스트](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [엑스부스트](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[DNN 분류기](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier) |[DNN 회귀](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN 회귀](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
-[DNN 선형 분류기](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[선형 회귀](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor) |[선형 회귀](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[나이브 베이즈](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[빠른 선형 회귀](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[자동 아리마](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[스토크 그라데이션 하강(SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* |[온라인 그라데이션 하강 회귀](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[예언자](https://facebook.github.io/prophet/docs/quick_start.html)
-|[평균 지각 분류기](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||예보TCN
-|[선형 SVM 분류기](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)* ||
+[가장 인접 한 K 개](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[가장 인접 한 K 개](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
+[선형 SVC](https://scikit-learn.org/stable/modules/svm.html#classification)* |[LARS 올가미](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)* |[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[지원 벡터 분류 (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)* |[추계 기울기 하강 (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)* |[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)
+[임의 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[임의 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[임의 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
+[매우 임의 트리](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[매우 임의 트리](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
+[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
+[DNN 분류자](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier) |[DNN 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
+[DNN 선형 분류자](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[선형 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor) |[선형 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[고속 선형 회귀 변수](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[자동 ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[추계 기울기 하강 (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* |[온라인 그라데이션 하강 회귀 변수](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+|[평균 퍼셉트론 분류자](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||ForecastTCN
+|[선형 SVM 분류자](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)* ||
 
-생성자의 `task` 매개 `AutoMLConfig` 변수를 사용하여 실험 유형을 지정합니다.
+`AutoMLConfig` 생성자의 `task` 매개 변수를 사용 하 여 실험 유형을 지정 합니다.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -76,15 +76,15 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## <a name="data-source-and-format"></a>데이터 원본 및 형식
 
-자동화된 Machine Learning은 로컬 데스크톱 또는 Azure Blob Storage와 같은 클라우드의 데이터를 지원합니다. 데이터는 팬더 데이터 프레임 또는 **Azure 기계 학습 탭데이터 집합으로**읽을 수 **있습니다.**  [데이터 집합에 대해 자세히 알아봅니다.](how-to-create-register-datasets.md)
+자동화된 Machine Learning은 로컬 데스크톱 또는 Azure Blob Storage와 같은 클라우드의 데이터를 지원합니다. **Pandas 데이터 프레임** 또는 **Azure Machine Learning TabularDataset**데이터를 읽을 수 있습니다.  [데이터 집합에 대해 자세히 알아보세요](how-to-create-register-datasets.md).
 
-교육 데이터에 대한 요구 사항:
-- 데이터는 테이블 형식이어야 합니다.
-- 대상 열을 예측하는 값은 데이터에 있어야 합니다.
+데이터 학습을 위한 요구 사항:
+- 데이터는 테이블 형식 이어야 합니다.
+- 예측할 값, 대상 열은 데이터에 있어야 합니다.
 
-다음 코드 예제에서는 이러한 형식으로 데이터를 저장하는 방법을 보여 줍니다.
+다음 코드 예제에서는 이러한 형식으로 데이터를 저장 하는 방법을 보여 줍니다.
 
-* 테이블 형식데이터 집합
+* TabularDataset
 
   ```python
   from azureml.core.dataset import Dataset
@@ -108,28 +108,28 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>원격 컴퓨팅에서 실험을 실행하기 위한 데이터 가져오기
 
-원격 실행의 경우 원격 계산에서 학습 데이터에 액세스할 수 있어야 합니다. SDK의 클래스는 [`Datasets`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) 다음과 같은 기능을 노출합니다.
+원격 실행의 경우 원격 계산에서 학습 데이터에 액세스할 수 있어야 합니다. SDK의 [`Datasets`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) 클래스는 다음과 같은 기능을 제공 합니다.
 
-* 정적 파일 또는 URL 소스의 데이터를 작업 공간으로 쉽게 전송
-* 클라우드 컴퓨팅 리소스에서 실행할 때 교육 스크립트에 데이터를 사용할 수 있도록 합니다.
+* 정적 파일 또는 URL 원본에서 작업 영역으로 데이터를 쉽게 전송
+* 클라우드 계산 리소스에서 실행 되는 경우 학습 스크립트에서 데이터를 사용할 수 있도록 설정
 
-클래스를 사용하여 계산 대상에 데이터를 탑재하는 방법에 대한 방법을 참조하세요. [how-to](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) `Dataset`
+클래스를 `Dataset` 사용 하 여 계산 대상에 데이터를 탑재 하는 방법에 대 한 예제는 [방법을](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) 참조 하세요.
 
 ## <a name="train-and-validation-data"></a>데이터 학습 및 유효성 검사
 
-생성자에서 직접 별도의 train 및 `AutoMLConfig` 유효성 검사 집합을 지정할 수 있습니다.
+`AutoMLConfig` 생성자에서 직접 학습 및 유효성 검사 집합을 별도로 지정할 수 있습니다.
 
 ### <a name="k-folds-cross-validation"></a>K 접기 교차 유효성 검사
 
 `n_cross_validations` 설정을 사용하여 교차 유효성 검사의 수를 지정합니다. 학습 데이터 집합은 무작위로 동일한 크기의 `n_cross_validations` 접기로 분할됩니다. 각 교차 유효성 검사 라운드 중에 접기 중 하나는 나머지 접기에 대해 학습된 모델의 유효성 검사에 사용됩니다. 이 프로세스는 각 접기가 유효성 검사 집합으로 한 번 사용될 때까지 `n_cross_validations` 라운드 동안 반복됩니다. 모든 `n_cross_validations` 라운드에 걸친 평균 점수가 보고되고 해당 모델이 전체 학습 데이터 세트에 대해 다시 학습됩니다.
 
-### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>몬테 카를로 교차 유효성 검사(반복된 무작위 하위 샘플링)
+### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>Monte 몬테카를로 교차 유효성 검사 (반복 무작위 하위 샘플링)
 
-`validation_size`를 사용하여 유효성 검사에 사용해야 하는 학습 데이터 세트의 비율을 지정하고, `n_cross_validations`를 사용하여 교차 유효성 검사의 수를 지정합니다. 각 교차 유효성 검사 라운드 중에 나머지 데이터에 대해 학습된 모델의 유효성 검사를 위해 `validation_size` 크기의 하위 집합이 무작위로 선택됩니다. 마지막으로, 모든 `n_cross_validations` 라운드에 걸친 평균 점수가 보고되고 해당 모델이 전체 학습 데이터 집합에 대해 다시 학습됩니다. 몬테 카를로는 열렬 예측에 대 한 지원 되지 않습니다.
+`validation_size`를 사용하여 유효성 검사에 사용해야 하는 학습 데이터 세트의 비율을 지정하고, `n_cross_validations`를 사용하여 교차 유효성 검사의 수를 지정합니다. 각 교차 유효성 검사 라운드 중에 나머지 데이터에 대해 학습된 모델의 유효성 검사를 위해 `validation_size` 크기의 하위 집합이 무작위로 선택됩니다. 마지막으로, 모든 `n_cross_validations` 라운드에 걸친 평균 점수가 보고되고 해당 모델이 전체 학습 데이터 집합에 대해 다시 학습됩니다. Monte 몬테카를로는 시계열 예측에 대해 지원 되지 않습니다.
 
 ### <a name="custom-validation-dataset"></a>사용자 지정 유효성 검사 데이터 세트
 
-임의 분할이 허용되지 않는 경우 사용자 지정 유효성 검사 데이터 집합(일반적으로 시간계 데이터 또는 불균형 데이터)을 사용합니다. 사용자 고유의 유효성 검사 데이터 세트를 지정할 수 있습니다. 모델은 무작위 데이터 세트 대신 지정된 유효성 검사 데이터 세트에 대해 평가됩니다.
+임의 분할이 허용 되지 않는 경우 사용자 지정 유효성 검사 데이터 집합 사용 (일반적으로 시계열 데이터 또는 불균형 데이터) 사용자 고유의 유효성 검사 데이터 세트를 지정할 수 있습니다. 모델은 무작위 데이터 세트 대신 지정된 유효성 검사 데이터 세트에 대해 평가됩니다.
 
 ## <a name="compute-to-run-experiment"></a>실험 실행 컴퓨팅
 
@@ -137,11 +137,11 @@ automl_config = AutoMLConfig(task = "classification")
 * 로컬 데스크톱 또는 랩톱과 같은 로컬 머신 - 일반적으로 데이터 세트가 작고 아직 탐색 단계에 있는 경우입니다.
 * 클라우드의 원격 머신 - [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute)는 Azure Virtual Machines 클러스터에서 Machine Learning 모델을 학습할 수 있도록 하는 관리형 서비스입니다.
 
-  로컬 및 원격 컴퓨팅 대상이 있는 노트북의 예는 이 [GitHub 사이트를](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) 참조하십시오.
+  로컬 및 원격 계산 대상이 있는 노트북의 예제는이 [GitHub 사이트](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) 를 참조 하세요.
 
-* Azure 구독의 Azure Databricks 클러스터입니다. 자세한 내용은 여기에서 확인할 수 있습니다 - [자동화된 ML을 위한 Azure Databricks 클러스터 설정](how-to-configure-environment.md#azure-databricks)
+* Azure 구독의 Azure Databricks 클러스터 여기에서 자세한 내용을 확인할 수 있습니다. [자동화 된 ML에 대 한 Azure Databricks 클러스터 설정](how-to-configure-environment.md#azure-databricks)
 
-  Azure Databricks가 있는 노트북의 예는 이 [GitHub 사이트를](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) 참조하십시오.
+  Azure Databricks 있는 노트북의 예제는이 [GitHub 사이트](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) 를 참조 하세요.
 
 <a name='configure-experiment'></a>
 
@@ -151,7 +151,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 일부 사례:
 
-1. 실험 시간 초과 분을 30분으로 설정하고 2개의 교차 유효성 검사 접기로 설정된 AUC를 기본 메트릭으로 가중치를 사용하는 분류 실험.
+1. 실험 시간 제한 시간 (분)이 30 분으로 설정 되 고 교차 유효성 검사를 2로 설정 하는 기본 메트릭으로 # 가중치를 사용 하는 분류 실험
 
    ```python
        automl_classifier=AutoMLConfig(
@@ -163,7 +163,7 @@ automl_config = AutoMLConfig(task = "classification")
        label_column_name=label,
        n_cross_validations=2)
    ```
-2. 다음은 5개의 유효성 검사 교차 접기로 60분 후에 종료하도록 설정된 회귀 실험의 예입니다.
+2. 다음은 5 번의 유효성 검사를 통해 60 분 후에 종료 되는 회귀 실험 집합의 예입니다.
 
    ```python
       automl_regressor = AutoMLConfig(
@@ -176,14 +176,14 @@ automl_config = AutoMLConfig(task = "classification")
       n_cross_validations=5)
    ```
 
-세 가지 `task` 다른 매개 변수 값(세 번째 작업 `forecasting`유형은 `regression` 및 유사한 알고리즘 풀을 작업으로 사용함)이 적용할 모델 목록을 결정합니다. `whitelist` 또는 `blacklist` 매개변수를 사용하여 포함하거나 제외할 사용 가능한 모델의 반복을 추가로 수정합니다. 지원되는 모델 목록은 [지원되는 모델](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) 클래스(분류, [예측](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)및 [회귀)에서](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression)찾을 수 있습니다.[Classification](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification)
+세 가지 다른 `task` 매개 변수 값 (세 번째 작업 유형은 이며 `forecasting`작업으로 `regression` 유사한 알고리즘 풀 사용)은 적용할 모델 목록을 결정 합니다. 포함 하거나 `whitelist` 제외할 `blacklist` 사용 가능한 모델로 반복을 수정 하려면 또는 매개 변수를 사용 합니다. 지원 되는 모델 목록은 ([분류](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification), [예측](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)및 [회귀](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression))의 [supportedmodels 클래스](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) 에서 찾을 수 있습니다.
 
-실험 시간 초과 실패를 방지하기 위해 자동화된 ML의 `experiment_timeout_minutes` 유효성 검사 서비스는 열 크기별 행이 1,000만 분을 초과하는 경우 최소 15분 또는 60분으로 설정해야 합니다.
+실험 시간 제한 오류를 방지 하기 위해 자동화 된 `experiment_timeout_minutes` ML의 유효성 검사 서비스는 열 크기가 1000만을 초과 하는 경우 최소 15 분 또는 60 분으로 설정 해야 합니다.
 
 ### <a name="primary-metric"></a>기본 메트릭
-기본 메트릭은 최적화를 위해 모델 학습 중에 사용할 메트릭을 결정합니다. 선택할 수 있는 사용 가능한 메트릭은 선택한 작업 유형에 따라 결정되며 다음 표에는 각 작업 유형에 대한 유효한 기본 메트릭이 표시됩니다.
+기본 메트릭은 최적화를 위해 모델 학습 중에 사용할 메트릭을 결정 합니다. 선택할 수 있는 메트릭은 선택한 작업 유형에 따라 결정 되며, 다음 표에서는 각 작업 유형에 대 한 유효한 기본 메트릭을 보여 줍니다.
 
-|분류 | 회귀 | 시계열 예측
+|분류 | 재발 | 시계열 예측
 |-- |-- |--
 |accuracy| spearman_correlation | spearman_correlation
 |AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
@@ -191,31 +191,31 @@ automl_config = AutoMLConfig(task = "classification")
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
-[자동화된 기계 학습 결과 이해에서](how-to-understand-automated-ml.md)이러한 메트릭의 특정 정의에 대해 알아봅니다.
+[자동화 된 기계 학습 결과 이해](how-to-understand-automated-ml.md)에서 이러한 메트릭의 특정 정의에 대해 알아봅니다.
 
-### <a name="data-featurization"></a>데이터 위화
+### <a name="data-featurization"></a>데이터 기능화
 
-자동화된 모든 기계 학습 실험에서 데이터의 [크기조정 및 정규화는](concept-automated-ml.md#preprocess) 서로 다른 규모의 기능에 민감한 *특정* 알고리즘을 돕기 위해 자동으로 조정됩니다.  그러나 누락된 값 대치, 인코딩 및 변환과 같은 추가 기능화를 활성화할 수도 있습니다. [어떤 위업이 포함되어 있는지 자세히 알아보십시오.](how-to-use-automated-ml-for-ml-models.md#featurization)
+자동화 된 모든 기계 학습 실험에서 데이터의 [크기를 자동으로 조정 하 고 표준화](concept-automated-ml.md#preprocess) 하 여 다양 한 규모의 기능에 영향을 주는 *특정* 알고리즘을 지원 합니다.  그러나 누락 값 대체, 인코딩 및 변환과 같은 추가 기능화를 사용 하도록 설정할 수도 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-use-automated-ml-for-ml-models.md#featurization).
 
-실험을 구성할 때 고급 설정을 `featurization`사용하도록 설정할 수 있습니다. 다음 표에서는 [AutoMLConfig 클래스에서](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)위화에 대해 허용되는 설정을 보여 주며 있습니다.
+실험을 구성할 때 고급 설정을 `featurization`사용 하도록 설정할 수 있습니다. 다음 표에서는 [AutoMLConfig 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)에서 기능화에 대해 허용 되는 설정을 보여 줍니다.
 
-|위화화 구성 | 설명 |
+|기능화 구성 | Description |
 | ------------- | ------------- |
-|`"featurization":`&nbsp;`'FeaturizationConfig'`| 사용자 정의 위화 단계를 사용해야 함을 나타냅니다. [위업을 사용자 지정하는 방법에 대해 알아봅니다.](how-to-configure-auto-train.md#customize-feature-engineering)|
-|`"featurization": 'off'`| featurization 단계가 자동으로 수행되어서는 안 함을 나타냅니다.|
-|`"featurization": 'auto'`| 전처리의 일부로 데이터 [가드레일 및 위화 단계가](how-to-use-automated-ml-for-ml-models.md#advanced-featurization-options) 자동으로 수행된다는 것을 나타냅니다.|
+|`"featurization":`&nbsp;`'FeaturizationConfig'`| 사용자 지정 된 기능화 단계를 사용 해야 함을 나타냅니다. [기능화를 사용자 지정 하는 방법을 알아봅니다](how-to-configure-auto-train.md#customize-feature-engineering).|
+|`"featurization": 'off'`| 기능화 단계를 자동으로 수행 하지 않음을 나타냅니다.|
+|`"featurization": 'auto'`| 전처리의 일부로 [데이터 guardrails 및 기능화 단계가](how-to-use-automated-ml-for-ml-models.md#advanced-featurization-options) 자동으로 수행 됨을 나타냅니다.|
 
 > [!NOTE]
-> 자동화된 기계 학습 위화 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측을 위해 모델을 사용하는 경우 학습 중에 적용된 동일한 위화 단계가 입력 데이터에 자동으로 적용됩니다.
+> 자동화 된 machine learning 기능화 단계 (기능 정규화, 누락 된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용 하는 경우 학습 중에 적용 되는 것과 동일한 기능화 단계가 입력 데이터에 자동으로 적용 됩니다.
 
 ### <a name="time-series-forecasting"></a>시계열 예측
-열렬 `forecasting` 작업에는 구성 개체에 추가 매개 변수가 필요합니다.
+시계열 `forecasting` 작업에는 구성 개체의 추가 매개 변수가 필요 합니다.
 
-1. `time_column_name`: 유효한 시간계를 포함하는 학습 데이터의 열 이름을 정의하는 필수 매개 변수입니다.
-1. `max_horizon`: 학습 데이터의 주기도에 따라 예측할 시간을 정의합니다. 예를 들어 일일 시간 그레인이 있는 학습 데이터가 있는 경우 모델이 학습할 기간을 정의하는 것입니다.
-1. `grain_column_names`: 학습 데이터에 개별 열열 데이터가 포함된 열의 이름을 정의합니다. 예를 들어 매장별로 특정 브랜드의 매출을 예측하는 경우 매장 및 브랜드 열을 그레인 열로 정의합니다. 각 그레인/그룹화에 대해 별도의 타임시리즈및 예측이 생성됩니다. 
+1. `time_column_name`: 유효한 시계열을 포함 하는 학습 데이터의 열 이름을 정의 하는 필수 매개 변수입니다.
+1. `max_horizon`: 학습 데이터의 주기를 기준으로 예측 하려는 시간을 정의 합니다. 예를 들어 일일 시간 조직 학습 데이터가 있는 경우 모델을 학습 하는 데 사용할 일 수를 정의 합니다.
+1. `grain_column_names`: 학습 데이터의 개별 시계열 데이터를 포함 하는 열의 이름을 정의 합니다. 예를 들어 매장에서 특정 브랜드의 판매를 예측 하는 경우 매장 및 브랜드 열을 그레인 열로 정의 합니다. 각 수준/그룹화에 대해 별도의 시간 계열 및 예측이 생성 됩니다. 
 
-아래 에서 사용되는 설정의 예는 [샘플 전자 필기장을](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)참조하십시오.
+아래 사용 되는 설정의 예제는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)을 참조 하세요.
 
 ```python
 # Setting Store and Brand as grains for training.
@@ -248,15 +248,15 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 ### <a name="ensemble-configuration"></a><a name="ensemble"></a>앙상블 구성
 
-앙상블 모델은 기본적으로 활성화되어 있으며 자동화된 기계 학습 실행에서 최종 실행 반복으로 나타납니다. 현재 지원되는 앙상블 방법은 투표 및 스태킹입니다. 투표는 가중 평균을 사용하여 소프트 투표로 구현되고, 스태킹 구현은 첫 번째 레이어가 투표 앙상블과 동일한 모델을 가지며, 두 번째 레이어 모델은 첫 번째 레이어에서 모델의 최적의 조합을 찾는 데 사용되는 두 계층 구현을 사용한다. ONNX 모델을 사용 **중이거나** 모델 설명기능을 사용하도록 설정한 경우 스태킹이 비활성화되고 투표만 사용됩니다.
+앙상블 모델은 기본적으로 사용 하도록 설정 되어 있으며 자동화 된 machine learning 실행에서 최종 실행 반복으로 나타납니다. 현재 지원 되는 앙상블 메서드는 투표 및 누적입니다. 응답은가 중 평균을 사용 하 여 소프트 응답으로 구현 되 고, 스택 구현은 두 계층 구현을 사용 합니다. 여기서 첫 번째 계층은 투표 앙상블와 동일한 모델을 사용 하 고 두 번째 계층 모델은 첫 번째 계층에서 최적의 모델 조합을 찾는 데 사용 됩니다. ONNX 모델을 사용 **하거나** explainability를 사용 하는 경우에는 누적이 사용 하지 않도록 설정 되며 투표만 사용 됩니다.
 
-기본 스택 앙상블 동작을 변경 `kwargs` 하기 `AutoMLConfig` 위해 개체에서와 같이 제공할 수 있는 여러 기본 인수가 있습니다.
+기본 stack 앙상블 동작을 변경 하기 위해 `kwargs` `AutoMLConfig` 개체에서로 제공할 수 있는 여러 기본 인수가 있습니다.
 
-* `stack_meta_learner_type`: 메타 학습자는 개별 이기종 모델의 출력에 대해 학습된 모델입니다. 기본 메타 `LogisticRegression` 학습자는 분류 작업(또는 `LogisticRegressionCV` 교차 유효성 검사가 활성화된 경우)과 `ElasticNet` 회귀/예측 `ElasticNetCV` 작업(또는 교차 유효성 검사가 활성화된 경우)에 대한 것입니다. 이 매개 변수는 다음 문자열 `LogisticRegression`중 `LogisticRegressionCV` `LightGBMClassifier`하나일 `LightGBMRegressor`수 `LinearRegression`있습니다. `ElasticNet` `ElasticNetCV`
-* `stack_meta_learner_train_percentage`: 메타 학습자 교육을 위해 예약할 교육 집합(학습 및 유효성 검사 유형 선택 시)의 비율을 지정합니다. 기본값은 `0.2`여야 합니다.
-* `stack_meta_learner_kwargs`: 메타 학습자의 초기화에 전달하는 선택적 매개 변수입니다. 이러한 매개변수 및 매개변수 형식은 해당 모델 생성자의 매개변수 및 매개변수 유형을 미러리하고 모델 생성자로 전달됩니다.
+* `stack_meta_learner_type`: 메타 학습자은 개별 다른 모델의 출력에 대해 학습 된 모델입니다. 기본 메타 학습자는 분류 `LogisticRegression` 작업 (교차 유효성 검사 `LogisticRegressionCV` 를 사용 하도록 설정 된 경우) 및 `ElasticNet` 회귀/예측 작업 ( `ElasticNetCV` 교차 유효성 검사를 사용 하도록 설정한 경우)에 대 한 것입니다. 이 매개 `LogisticRegression`변수는, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet` `ElasticNetCV` `LightGBMRegressor`,, 또는 `LinearRegression`문자열 중 하나일 수 있습니다.
+* `stack_meta_learner_train_percentage`: 학습자를 학습 하기 위해 예약할 학습 및 유효성 검사 유형을 선택할 때 학습 집합의 비율을 지정 합니다. 기본값은 `0.2`여야 합니다.
+* `stack_meta_learner_kwargs`: meta 학습자의 이니셜라이저에 전달할 선택적 매개 변수입니다. 이러한 매개 변수 및 매개 변수 형식은 해당 모델 생성자에서 매개 변수 및 매개 변수 형식을 미러링 하 고 모델 생성자에 전달 됩니다.
 
-다음 코드는 개체에서 사용자 지정 앙상블 `AutoMLConfig` 동작을 지정하는 예제를 보여 주었습니다.
+다음 코드에서는 `AutoMLConfig` 개체에서 사용자 지정 앙상블 동작을 지정 하는 예를 보여 줍니다.
 
 ```python
 ensemble_settings = {
@@ -282,7 +282,7 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
-앙상블 교육은 기본적으로 활성화되어 있지만 `enable_voting_ensemble` 및 `enable_stack_ensemble` 부울 매개 변수를 사용하여 비활성화할 수 있습니다.
+앙상블 교육은 기본적으로 사용 하도록 설정 되어 있지만 및 `enable_voting_ensemble` `enable_stack_ensemble` 부울 매개 변수를 사용 하 여 사용 하지 않도록 설정할 수 있습니다.
 
 ```python
 automl_classifier = AutoMLConfig(
@@ -299,7 +299,7 @@ automl_classifier = AutoMLConfig(
 
 ## <a name="run-experiment"></a>실험 실행
 
-자동화된 ML의 경우 `Experiment` 실험을 실행하는 데 사용되는 `Workspace` 명명된 개체인 개체를 만듭니다.
+자동화 된 ML의 경우 실험을 `Experiment` 실행 하는 `Workspace` 데 사용 되는의 명명 된 개체인 개체를 만듭니다.
 
 ```python
 from azureml.core.experiment import Experiment
@@ -323,23 +323,24 @@ run = experiment.submit(automl_config, show_output=True)
 >새 머신에 먼저 종속성이 설치됩니다.  출력이 표시되는 데 최대 10분이 걸릴 수 있습니다.
 >`show_output`을 `True`로 설정하면 출력이 콘솔에 표시됩니다.
 
-### <a name="exit-criteria"></a>종료 기준
-실험을 종료하도록 정의할 수 있는 몇 가지 옵션이 있습니다.
-1. 조건 없음: 종료 매개 변수를 정의하지 않으면 기본 메트릭에서 더 이상 진행되지 않을 때까지 실험이 계속됩니다.
-1. 시간이 지난 후 종료: `experiment_timeout_minutes` 설정을 사용하면 실험을 계속 진행해야 하는 시간을 몇 분 만에 정의할 수 있습니다.
-1. 점수에 도달한 후 종료: 기본 메트릭 점수에 도달한 후 실험을 사용하여 `experiment_exit_score` 실험을 완료합니다.
+### <a name="exit-criteria"></a><a name="exit"></a>종료 조건
+
+실험을 종료 하기 위해 정의할 수 있는 몇 가지 옵션이 있습니다.
+1. 조건 없음: 종료 매개 변수를 정의 하지 않으면 기본 메트릭에 대 한 추가 진행률이 표시 되지 않을 때까지 실험을 계속 진행 합니다.
+1. 시간 후 종료: 설정에서를 사용 `experiment_timeout_minutes` 하면 실험을 계속 실행할 시간 (분)을 정의할 수 있습니다.
+1. 점수에 도달한 후 종료:를 사용 `experiment_exit_score` 하면 기본 메트릭 점수에 도달한 후 실험을 완료 합니다.
 
 ### <a name="explore-model-metrics"></a>모델 메트릭 탐색
 
-전자 필기장에 있는 경우 위젯 또는 인라인으로 교육 결과를 볼 수 있습니다. 자세한 내용은 [모델 추적 및 평가](how-to-track-experiments.md#view-run-details)를 참조하세요.
+노트에서 학습 결과를 보거나 인라인으로 볼 수 있습니다. 자세한 내용은 [모델 추적 및 평가](how-to-track-experiments.md#view-run-details)를 참조하세요.
 
-## <a name="understand-automated-ml-models"></a>자동화된 ML 모델 이해
+## <a name="understand-automated-ml-models"></a>자동화 된 ML 모델 이해
 
-자동화된 ML을 사용하여 생성된 모든 모델에는 다음 단계가 포함됩니다.
-+ 자동화된 기능 `"featurization": 'auto'`엔지니어링(경우)
-+ 하이퍼매개 변수 값을 가진 크기 조정/정규화 및 알고리즘
+자동화 된 ML을 사용 하 여 생성 된 모든 모델에는 다음 단계가 포함 됩니다.
++ 자동화 된 기능 엔지니어링 ( `"featurization": 'auto'`if)
++ 하이퍼 매개 변수 값을 사용 하 여 크기 조정/정규화 및 알고리즘
 
-자동화된 ML의 fitted_model 출력에서 이 정보를 얻으려면 투명하게 만듭니다.
+자동 ML의 fitted_model 출력에서이 정보를 가져오도록 투명 하 게 만듭니다.
 
 ```python
 automl_config = AutoMLConfig(…)
@@ -347,19 +348,19 @@ automl_run = experiment.submit(automl_config …)
 best_run, fitted_model = automl_run.get_output()
 ```
 
-### <a name="automated-feature-engineering"></a>자동화된 기능 엔지니어링
+### <a name="automated-feature-engineering"></a>자동화 된 기능 엔지니어링
 
-에서 발생하는 전처리 및 [자동화된](concept-automated-ml.md#preprocess) 기능 `"featurization": 'auto'`엔지니어링 목록을 참조하십시오.
+에서 발생 하는 전처리 및 [자동화 된 기능 엔지니어링](concept-automated-ml.md#preprocess) 목록을 참조 `"featurization": 'auto'`하세요.
 
 다음 예를 살펴보세요.
-+ 입력 기능은 A(숫자), B(숫자), C(숫자), D(DateTime)의 네 가지 입력 기능이 있습니다.
-+ 숫자 피쳐 C는 모든 고유 값을 가진 ID 열이므로 삭제됩니다.
-+ 숫자 피처 A와 B에는 값이 누락되어 평균에 의해 대부됩니다.
-+ DateTime 기능 D는 11 가지 엔지니어링 기능으로 위화됩니다.
++ 입력 기능에는 (숫자), B (숫자), C (숫자), D (DateTime)의 네 가지가 있습니다.
++ 숫자 기능 C는 모든 고유 값을 포함 하는 ID 열 이므로 삭제 됩니다.
++ 숫자 기능 A와 B에는 누락 된 값이 있으므로 평균의 귀속 됩니다.
++ DateTime 기능 D는 11 가지 다른 엔지니어링 된 기능에 기능화 됩니다.
 
-피팅 모델의 첫 번째 단계에서 이러한 2API를 사용하여 자세한 내용은 이해하십시오.  [이 샘플 전자 필기장을](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)참조하십시오.
+적합 한 모델의 첫 번째 단계에서이 2 개의 Api를 사용 하 여 더 자세히 이해 합니다.  [이 샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)을 참조 하세요.
 
-+ API 1: `get_engineered_feature_names()` 엔지니어링된 피쳐 이름 목록을 반환합니다.
++ API 1: `get_engineered_feature_names()` 엔지니어링 된 기능 이름의 목록을 반환 합니다.
 
   Usage:
   ```python
@@ -370,12 +371,12 @@ best_run, fitted_model = automl_run.get_output()
   Output: ['A', 'B', 'A_WASNULL', 'B_WASNULL', 'year', 'half', 'quarter', 'month', 'day', 'hour', 'am_pm', 'hour12', 'wday', 'qday', 'week']
   ```
 
-  이 목록에는 엔지니어링된 모든 피쳐 이름이 포함됩니다.
+  이 목록에는 모든 엔지니어링 된 기능 이름이 포함 됩니다.
 
   >[!Note]
-  >'타임시리즈 변압기'를 작업='예측'에 사용하고, '데이터 변압기'를 '회귀' 또는 '분류' 작업에 사용합니다.
+  >작업 = ' 예측 '에 ' timeseriestransformer '를 사용 하 고, ' 회귀 ' 또는 ' 분류 ' 작업에 ' datatransformer '를 사용 합니다.
 
-+ API 2: `get_featurization_summary()` 모든 입력 기능에 대한 위화 요약을 반환합니다.
++ API 2: `get_featurization_summary()` 모든 입력 기능에 대 한 기능화 요약을 반환 합니다.
 
   Usage:
   ```python
@@ -383,7 +384,7 @@ best_run, fitted_model = automl_run.get_output()
   ```
 
   >[!Note]
-  >'타임시리즈 변압기'를 작업='예측'에 사용하고, '데이터 변압기'를 '회귀' 또는 '분류' 작업에 사용합니다.
+  >작업 = ' 예측 '에 ' timeseriestransformer '를 사용 하 고, ' 회귀 ' 또는 ' 분류 ' 작업에 ' datatransformer '를 사용 합니다.
 
   출력:
   ```
@@ -413,25 +414,25 @@ best_run, fitted_model = automl_run.get_output()
 
    |출력|정의|
    |----|--------|
-   |원시 기능 이름|제공된 데이터 집합에서 피쳐/열 이름을 입력합니다.|
-   |입력|입력 기능의 데이터 형식을 검색했습니다.|
-   |Dropped|입력 기능이 삭제되었는지 또는 사용되었는지 를 나타냅니다.|
-   |엔지니어링 특징 카운트|자동화된 피쳐 엔지니어링 변환을 통해 생성된 피쳐 수입니다.|
-   |변환|엔지니어링피쳐를 생성하기 위해 입력 피쳐에 적용된 변환 목록입니다.|
+   |RawFeatureName|제공 된 데이터 집합의 입력 기능/열 이름입니다.|
+   |TypeDetected 됨|입력 기능의 데이터 형식이 검색 되었습니다.|
+   |Dropped|입력 기능을 삭제 하거나 사용 했는지 여부를 나타냅니다.|
+   |EngineeringFeatureCount|자동화 된 기능 엔지니어링 변환을 통해 생성 된 기능의 수입니다.|
+   |변환|엔지니어링 된 기능을 생성 하기 위해 입력 기능에 적용 되는 변환 목록입니다.|
    
-### <a name="customize-feature-engineering"></a>피처 엔지니어링 사용자 지정
-피쳐 엔지니어링을 사용자 `"featurization": FeaturizationConfig`지정하려면 을 지정합니다.
+### <a name="customize-feature-engineering"></a>기능 엔지니어링 사용자 지정
+기능 엔지니어링을 사용자 지정 하려면 `"featurization": FeaturizationConfig`를 지정 합니다.
 
-지원되는 사용자 지정에는 다음이 포함됩니다.
+지원 되는 사용자 지정은 다음과 같습니다.
 
 |사용자 지정|정의|
 |--|--|
-|열 용도 업데이트|지정된 열에 대한 피쳐 유형을 재정의합니다.|
-|변압기 매개 변수 업데이트 |지정된 변압기에 대한 매개 변수를 업데이트합니다. 현재 Imputer (평균, 가장 빈번한 & 중앙값)와 HashOneHotEncoder를 지원합니다.|
-|열 삭제 |기둥은 위업되는 에서 드롭합니다.|
-|블록 변압기| 블록 변압기는 위화 공정에 사용할 수 있습니다.|
+|열 용도 업데이트|지정 된 열에 대 한 기능 유형을 재정의 합니다.|
+|변환기 매개 변수 업데이트 |지정 된 변환기에 대 한 매개 변수를 업데이트 합니다. 현재는 (평균, 가장 자주 & 중앙값) 및 HashOneHotEncoder을 지원 합니다.|
+|열 삭제 |기능화에서 삭제할 열입니다.|
+|블록 변환기| 기능화 프로세스에 사용할 변환기를 차단 합니다.|
 
-API 호출을 사용하여 FeaturizationConfig 개체만들기:
+API 호출을 사용 하 여 FeaturizationConfig 개체를 만듭니다.
 ```python
 featurization_config = FeaturizationConfig()
 featurization_config.blocked_transformers = ['LabelEncoder']
@@ -445,15 +446,15 @@ featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "m
 featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
 ```
 
-### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>하이퍼 매개 변수 값을 가진 크기 조정 / 정규화 및 알고리즘 :
+### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>하이퍼 매개 변수 값을 사용 하는 크기 조정/정규화 및 알고리즘:
 
-파이프라인의 크기 조정/정규화 및 알고리즘/하이퍼매개 변수 값을 이해하려면 fitted_model.단계를 사용합니다. [크기 조정/정규화에 대해 자세히 알아봅니다.](concept-automated-ml.md#preprocess) 샘플 출력은 다음과 같습니다.
+파이프라인에 대 한 크기 조정/정규화 및 알고리즘/하이퍼 매개 변수 값을 이해 하려면 fitted_model을 사용 합니다. [크기 조정/정규화에 대해 자세히 알아보세요](concept-automated-ml.md#preprocess). 샘플 출력은 다음과 같습니다.
 
 ```
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))
 ```
 
-자세한 내용을 얻으려면 이 도우미 함수를 사용하십시오. 
+자세한 내용을 보려면이 도우미 함수를 사용 합니다. 
 
 ```python
 from pprint import pprint
@@ -476,7 +477,7 @@ def print_model(model, prefix=""):
 print_model(model)
 ```
 
-다음 샘플 출력은 특정 알고리즘을 사용하는 파이프라인에 대한 것입니다(이 경우 RobustScalar를 사용한 로지스틱리그레션).
+다음 샘플 출력은 특정 알고리즘을 사용 하는 파이프라인에 대 한 것입니다 (이 경우 RobustScalar과 함께 LogisticRegression).
 
 ```
 RobustScaler
@@ -502,31 +503,31 @@ LogisticRegression
 'warm_start': False}
 ```
 
-### <a name="predict-class-probability"></a>클래스 확률 예측
+### <a name="predict-class-probability"></a>예측 클래스 확률
 
-자동화된 ML을 사용하여 생성된 모델에는 모두 오픈 소스 원본 클래스의 기능을 미러하는 래퍼 개체가 있습니다. 자동화된 ML에서 반환되는 대부분의 분류 `predict_proba()` 모델 래퍼 개체는 기능의 배열 유사 또는 희소 행렬 데이터 샘플을 받아들이고 각 샘플및 해당 클래스 확률의 n차원 배열을 반환하는 함수를 구현합니다.
+자동화 된 ML을 사용 하 여 생성 된 모델에는 해당 오픈 소스 클래스에서 기능을 미러링 하는 래퍼 개체가 있습니다. 자동화 된 ML에서 반환 하는 대부분의 분류 모델 `predict_proba()` 래퍼 개체는 기능을 구현 합니다. 함수는 함수 (X 값)의 배열 형식 또는 스파스 행렬 데이터 샘플을 허용 하 고 각 샘플의 n 차원 배열 및 해당 클래스 확률을 반환 합니다.
 
-위에서 동일한 호출을 사용하여 최상의 실행 및 피팅 모델을 검색했다고 `predict_proba()` 가정하면 피팅된 모델에서 `X_test` 직접 호출하여 모델 유형에 따라 적절한 형식으로 샘플을 제공할 수 있습니다.
+위의 동일한 호출을 사용 하 여 최상의 실행 및 적합 한 모델을 검색 한 경우 모델 유형에 따라 `predict_proba()` 적절 한 형식의 `X_test` 샘플을 제공 하 여 피팅 모델에서 직접 호출할 수 있습니다.
 
 ```python
 best_run, fitted_model = automl_run.get_output()
 class_prob = fitted_model.predict_proba(X_test)
 ```
 
-기본 모델이 함수를 `predict_proba()` 지원하지 않거나 형식이 올바르지 않으면 모델 클래스별 예외가 throw됩니다. 이 함수가 다양한 모델 유형에 대해 구현되는 방법에 대한 예제는 [RandomForest분류자](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) 및 [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) 참조 문서를 참조하십시오.
+기본 모델이 함수를 `predict_proba()` 지원 하지 않거나 형식이 잘못 된 경우 모델 클래스 관련 예외가 throw 됩니다. 다른 모델 형식에 대해이 함수를 구현 하는 방법에 대 한 예제는 [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) 및 [xgboost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) 참조 문서를 참조 하세요.
 
 <a name="explain"></a>
 
 ## <a name="model-interpretability"></a>모델 해석력
 
-모델 해석성을 사용하면 모델이 예측을 한 이유와 기본 피쳐 중요도 값을 이해할 수 있습니다. SDK에는 로컬 및 배포된 모델에 대한 교육 및 추론 시간 모두에서 모델 해석 기능을 활성화하기 위한 다양한 패키지가 포함되어 있습니다.
+모델 interpretability를 사용 하면 모델이 예측을 수행한 이유와 기본 기능 중요도 값을 이해할 수 있습니다. SDK에는 로컬 및 배포 된 모델에 대 한 학습 및 유추 시간에 모델 interpretability 기능을 사용 하기 위한 다양 한 패키지가 포함 되어 있습니다.
 
-자동화된 기계 학습 실험 에서 해석 기능을 활성화하는 방법에 대한 코드 샘플의 [방법을](how-to-machine-learning-interpretability-automl.md) 참조하십시오.
+자동화 된 기계 학습 실험 내에서 특히 interpretability 기능을 사용 하도록 설정 하는 방법에 대 한 코드 샘플은 [방법을](how-to-machine-learning-interpretability-automl.md) 참조 하세요.
 
-자동화된 기계 학습 이외의 SDK의 다른 영역에서 모델 설명 및 기능 중요성을 활성화하는 방법에 대한 일반적인 내용은 해석가능성에 대한 [개념](how-to-machine-learning-interpretability.md) 문서를 참조하십시오.
+자동화 된 machine learning 외부에서 SDK의 다른 영역에 모델 설명과 기능 중요도를 사용 하도록 설정 하는 방법에 대 한 일반적인 내용은 interpretability의 [개념](how-to-machine-learning-interpretability.md) 문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 [모델 배포 방법 및 위치](how-to-deploy-and-where.md)에 대해 자세히 알아봅니다.
 
-[자동화된 기계 학습을 사용하여 회귀 모델을 학습하는 방법](tutorial-auto-train-models.md) 또는 [원격 리소스에서 자동화된 기계 학습을 사용하여 학습하는 방법에](how-to-auto-train-remote.md)대해 자세히 알아봅니다.
+[자동화 된 machine learning을 사용 하 여 회귀 모델을 학습](tutorial-auto-train-models.md) 하는 방법 또는 [원격 리소스에서 자동화 된 machine learning을 사용 하 여 학습](how-to-auto-train-remote.md)하는 방법에 대해 자세히 알아보세요.

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc41a18063202bfefb9ddf7238de17fc691984af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 28e591234e28770a90bed827e4d36c6342661dd1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77612148"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866597"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory의 특성 매핑에 대한 식 작성
 SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 경우, 사용자의 데이터를 SaaS 애플리케이션에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
@@ -38,7 +38,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 * 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예: "회사 이름: \\"Contoso""\\
 
 ## <a name="list-of-functions"></a>함수 목록
-[부속](#append) &nbsp; &nbsp; &nbsp; [Count](#count) [BitAnd](#bitand) &nbsp; &nbsp; &nbsp; [Coalesce](#coalesce) &nbsp; &nbsp; [CStr](#cstr) [CBool](#cbool) &nbsp; &nbsp; [ConvertToBase64](#converttobase64) &nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp; 비트 &nbsp; 앤 &nbsp; &nbsp; &nbsp; CBool &nbsp; &nbsp; 결합 &nbsp; 변환ToBase64 &nbsp; 변환TOUTF8Hex 카운트 CStr &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [Guid](#guid) &nbsp; &nbsp; [InStr](#instr) &nbsp; [IIF](#iif) &nbsp; [DateFromNum](#datefromnum) &nbsp; &nbsp; &nbsp; [IsNull](#isnull) [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; 날짜에서넘 &nbsp; [IsNullOrEmpty](#isnullorempty) 형식Datetime &nbsp;Guid &nbsp; &nbsp; IIF &nbsp; &nbsp; InStr &nbsp; isNull isNullOrEmpty &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [IsPresent](#ispresent) &nbsp; &nbsp; &nbsp; [IsString](#isstring) &nbsp; &nbsp; [Item](#item) &nbsp; [Left](#left) [Join](#join) &nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) [Mid](#mid) isString &nbsp; 항목 &nbsp; 조인 &nbsp; 왼쪽 &nbsp; 중간 정규화하지 &nbsp; &nbsp; 않음 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [Split](#split) [Replace](#replace) &nbsp; &nbsp; [RemoveDuplicates](#removeduplicates) &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) 제거중복 선택 &nbsp; &nbsp; 유한&nbsp; 값&nbsp; 단일 AppRole할당&nbsp; 분할 을 대체&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [ 스트립](#stripspaces) &nbsp; &nbsp; &nbsp; 스페이스 &nbsp; [스위치](#switch) &nbsp; &nbsp; &nbsp; &nbsp; 를 더 낮은&nbsp; &nbsp; [Word](#word) [ToLower](#tolower) &nbsp; &nbsp; [ToUpper](#toupper) 어퍼&nbsp; 워드로 전환&nbsp; &nbsp; &nbsp;
+[부속](#append) &nbsp; &nbsp; &nbsp; [IsString](#isstring) &nbsp; [BitAnd](#bitand) &nbsp; &nbsp; [Count](#count) &nbsp; [Item](#item) &nbsp; [Coalesce](#coalesce) &nbsp; [Mid](#mid) [Left](#left) &nbsp; [RemoveDuplicates](#removeduplicates) [Not](#not) [Guid](#guid) &nbsp; &nbsp; &nbsp; [CStr](#cstr) &nbsp; &nbsp; &nbsp; [InStr](#instr) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; [Replace](#replace) [CBool](#cbool) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; [IIF](#iif) &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [DateFromNum](#datefromnum) &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) [ConvertToBase64](#converttobase64) &nbsp; &nbsp; [IsNull](#isnull) &nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp; &nbsp; &nbsp; [IsPresent](#ispresent) &nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp; 비트 와 &nbsp; &nbsp; &nbsp; &nbsp; CBool &nbsp; &nbsp; &nbsp; &nbsp; 결합 &nbsp; &nbsp; &nbsp; convertToBase64 &nbsp; &nbsp; &nbsp; convertToUTF8Hex &nbsp; &nbsp; &nbsp; &nbsp; 카운트 &nbsp; &nbsp; &nbsp; CStr &nbsp; &nbsp; &nbsp; 날짜에서부터Num formatDatetime &nbsp; &nbsp; &nbsp; Guid &nbsp; IIF InStr IsNull &nbsp; IsNullOrEmpty &nbsp; IsNullIsNullIsPresent &nbsp; isNullIsString 항목 &nbsp; 조인 왼쪽 중간 정규화 해독제 제거 중복 selectUniqueValue를 대체 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [Split](#split) &nbsp; &nbsp; [ToUpper](#toupper) [StripSpaces](#stripspaces) &nbsp; [Switch](#switch) &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp;&nbsp; [Word](#word) [ToLower](#tolower) SingleAppRoleAssignment&nbsp; &nbsp; 분할&nbsp;&nbsp; 스트립 &nbsp; 스페이스 &nbsp; &nbsp; 스위치를 더 낮은 토퍼 워드로 전환&nbsp; &nbsp;&nbsp; &nbsp;
 
 ---
 ### <a name="append"></a>추가
@@ -68,8 +68,8 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 | 이름 | 필수/ 반복 | Type | 메모 |
 | --- | --- | --- | --- |
-| **값1** |필수 |num |값으로 AND'ed여야 하는 숫자 값2|
-| **Value2** |필수 |num |값이 있는 AND'ed여야 하는 숫자 값1|
+| **value1** |필수 |num |값으로 AND'ed여야 하는 숫자 값2|
+| **value2** |필수 |num |값이 있는 AND'ed여야 하는 숫자 값1|
 
 **예제:**<br>
 BitAnd(&HF, &HF7)                                                                                
@@ -102,7 +102,7 @@ CBool([attribute1] = [속성2])
 | 이름 | 필수/ 반복 | Type | 메모 |
 | --- | --- | --- | --- |
 | **source1  … sourceN** | 필수 | String |필요한 가변 횟수입니다. 대개는 원본 개체의 특성 이름입니다. |
-| **defaultValue** | Optional | String | 모든 소스 값이 NULL일 때 사용할 기본값입니다. 빈 문자열("")일 수 있습니다.
+| **defaultValue** | 옵션 | String | 모든 소스 값이 NULL일 때 사용할 기본값입니다. 빈 문자열("")일 수 있습니다.
 
 ---
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -228,10 +228,10 @@ IIF([국가]="미국",[국가],[부서])
 
 | 이름 | 필수/ 반복 | Type | 메모 |
 | --- | --- | --- | --- |
-| **값1** |필수 |String |검색할 문자열 |
-| **Value2** |필수 |String |찾을 문자열 |
-| **start** |Optional |정수 |하위 문자열을 찾기 위한 시작 위치|
-| **비교 유형** |Optional |열거형 |vbText비교 또는 vb바이너비비교될 수 있습니다. |
+| **value1** |필수 |String |검색할 문자열 |
+| **value2** |필수 |String |찾을 문자열 |
+| **start** |옵션 |정수 |하위 문자열을 찾기 위한 시작 위치|
+| **비교 유형** |옵션 |열거형 |vbText비교 또는 vb바이너비비교될 수 있습니다. |
 
 **예제:**<br>
 InStr("The quick brown fox","quick")                                                                             
@@ -328,7 +328,7 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager])
 
 | 이름 | 필수/ 반복 | Type | 메모 |
 | --- | --- | --- | --- |
-| **구분 기호** |필수 |String |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
+| **separator** |필수 |String |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
 | **source1  … sourceN** |필수, 시간 변수 |String |값이 함께 조인될 문자열입니다. |
 
 ---
@@ -344,7 +344,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 | 이름 | 필수/ 반복 | Type | 메모 |
 | --- | --- | --- | --- |
-| **문자열** |필수 |특성 | 에서 문자를 반환하는 문자열 |
+| **String** |필수 |특성 | 에서 문자를 반환하는 문자열 |
 | **NumChars** |필수 |정수 | 문자열의 시작 부분(왼쪽)에서 반환할 문자 수를 식별하는 숫자|
 
 **예제:**<br>
@@ -456,12 +456,12 @@ RemoveDuplicates([proxyAddresses])
 | 이름 | 필수/ 반복 | Type | 메모 |
 | --- | --- | --- | --- |
 | **소스** |필수 |String |일반적으로 **소스** 개체에서 특성의 이름입니다. |
-| **oldValue** |Optional |String |**원본** 또는 **템플릿**에서 대체될 값입니다. |
-| **regexPattern** |Optional |String |**source**에서 바뀔, 값의 Regex 패턴입니다. 또는 **replacementPropertyName**을 사용하는 경우 **replacementPropertyName**에서 값을 추출하는 패턴입니다. |
-| **regexGroupName** |Optional |String |**regexPattern**내 그룹의 이름입니다. **replacementPropertyName**을 사용하는 경우에만 **replacementPropertyName**에서 이 그룹의 값을 **replacementValue**로 추출합니다. |
-| **replacementValue** |Optional |String |이전 값과 대체할 새로운 값입니다. |
-| **replacementAttributeName** |Optional |String |대체 값에 사용할 특성의 이름입니다. |
-| **템플릿** |Optional |String |**템플릿** 값이 제공되면 템플릿 내부의 **oldValue를** 찾고 **소스** 값으로 바꿉니다. |
+| **oldValue** |옵션 |String |**원본** 또는 **템플릿**에서 대체될 값입니다. |
+| **regexPattern** |옵션 |String |**source**에서 바뀔, 값의 Regex 패턴입니다. 또는 **replacementPropertyName**을 사용하는 경우 **replacementPropertyName**에서 값을 추출하는 패턴입니다. |
+| **regexGroupName** |옵션 |String |**regexPattern**내 그룹의 이름입니다. **replacementPropertyName**을 사용하는 경우에만 **replacementPropertyName**에서 이 그룹의 값을 **replacementValue**로 추출합니다. |
+| **replacementValue** |옵션 |String |이전 값과 대체할 새로운 값입니다. |
+| **replacementAttributeName** |옵션 |String |대체 값에 사용할 특성의 이름입니다. |
+| **템플릿** |옵션 |String |**템플릿** 값이 제공되면 템플릿 내부의 **oldValue를** 찾고 **소스** 값으로 바꿉니다. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -469,11 +469,11 @@ RemoveDuplicates([proxyAddresses])
 
 **설명:**<br> 최소 두 개의 인수가 필요하며, 이는 표현식을 사용하여 정의된 고유한 값 생성 규칙입니다. 함수는 각 규칙을 평가한 후 대상 앱/디렉터리에서 생성된 값이 고유한지 확인합니다. 발견된 첫 번째 고유한 값이 반환됩니다. 모든 값이 이미 대상에 있는 경우 항목은 위탁되고 감사 로그에 이유가 기록됩니다. 제공할 수 있는 인수 수에 상한은 없습니다.
 
-> [!NOTE]
-> - 최상위 레벨 함수이므로 중첩할 수 없습니다.
-> - 우선 순위가 일치하는 특성에는 이 함수를 적용할 수 없습니다.  
-> - 이 함수는 항목 만들기에만 사용할 수 있습니다. 특성과 함께 사용할 경우 **매핑 적용** 속성을 **개체를 만드는 동안만**으로 설정합니다.
-> - 이 함수는 현재 "Workday에서 Active Directory로의 사용자 프로비저닝"에만 지원되며, 다른 프로비저닝 애플리케이션에서는 사용할 수 없습니다. 
+
+ - 최상위 레벨 함수이므로 중첩할 수 없습니다.
+ - 우선 순위가 일치하는 특성에는 이 함수를 적용할 수 없습니다.   
+ - 이 함수는 항목 만들기에만 사용할 수 있습니다. 특성과 함께 사용할 경우 **매핑 적용** 속성을 **개체를 만드는 동안만**으로 설정합니다.
+ - 이 함수는 현재 "Workday에서 Active Directory로의 사용자 프로비저닝"에만 지원되며, 다른 프로비저닝 애플리케이션에서는 사용할 수 없습니다. 
 
 
 **매개 변수:**<br> 
@@ -531,8 +531,8 @@ RemoveDuplicates([proxyAddresses])
 | 이름 | 필수/ 반복 | Type | 메모 |
 | --- | --- | --- | --- |
 | **소스** |필수 |String |**Source** 값입니다. |
-| **defaultValue** |Optional |String |원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
-| **키** |필수 |String |**원본** 값과 비교할 **Key**입니다. |
+| **defaultValue** |옵션 |String |원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
+| **key** |필수 |String |**원본** 값과 비교할 **Key**입니다. |
 | **value** |필수 |String |키와 일치하는 **원본** 의 대체 값입니다. |
 
 ---
@@ -546,7 +546,7 @@ RemoveDuplicates([proxyAddresses])
 | 이름 | 필수/ 반복 | Type | 메모 |
 | --- | --- | --- | --- |
 | **소스** |필수 |String |대개는 원본 개체의 특성 이름 |
-| **문화** |Optional |String |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
+| **문화권** |옵션 |String |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -559,7 +559,7 @@ RemoveDuplicates([proxyAddresses])
 | 이름 | 필수/ 반복 | Type | 메모 |
 | --- | --- | --- | --- |
 | **소스** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
-| **문화** |Optional |String |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
+| **문화권** |옵션 |String |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
 
 ---
 ### <a name="word"></a>Word
@@ -575,7 +575,7 @@ RemoveDuplicates([proxyAddresses])
 
 | 이름 | 필수/ 반복 | Type | 메모 |
 | --- | --- | --- | --- |
-| **문자열** |필수 |다중 값 속성 |에서 단어를 반환 하는 문자열입니다.|
+| **String** |필수 |다중 값 속성 |에서 단어를 반환 하는 문자열입니다.|
 | **워드 넘버** |필수 | 정수 | 반환할 단어 번호를 식별하는 번호|
 | **구분 기호** |필수 |String| 단어를 식별하는 데 사용해야 하는 구분 기호를 나타내는 문자열|
 
