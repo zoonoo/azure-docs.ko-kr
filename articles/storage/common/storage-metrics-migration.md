@@ -8,16 +8,16 @@ ms.date: 03/30/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 537369c9466b1083723642ec9e93fcdf25056c5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5d8add293a2ba8f14dc2d2fb8ba3b4228f455b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68855334"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176229"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure Storage 메트릭 마이그레이션
 
-Azure에서 모니터 환경을 통합하는 전략에 맞춰 Azure Storage는 메트릭을 Azure Monitor 플랫폼에 통합합니다. 나중에 Azure 정책에 따라 조기 통지를 통해 이전 메트릭의 서비스가 종료될 예정입니다. 이전 스토리지 메트릭을 사용하는 경우 메트릭 정보를 유지하기 위해 서비스 종료 날짜 이전에 마이그레이션해야 합니다.
+Azure에서 모니터 환경을 통합하는 전략에 맞춰 Azure Storage는 메트릭을 Azure Monitor 플랫폼에 통합합니다. 앞으로 이전 메트릭의 서비스는 Azure Policy을 기반으로 하는 초기 알림으로 종료 됩니다. 이전 스토리지 메트릭을 사용하는 경우 메트릭 정보를 유지하기 위해 서비스 종료 날짜 이전에 마이그레이션해야 합니다.
 
 이 문서에서는 이전 메트릭에서 새 메트릭으로 마이그레이션하는 방법을 보여 줍니다.
 
@@ -73,13 +73,13 @@ Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 �
 | **AnonymousServerTimeoutError** | **ResponseType** 차원이 **ServerTimeoutError**와 동일하고 **Authentication** 차원이 **Anonymous**와 동일한 트랜잭션 |
 | **AnonymousSuccess** | **ResponseType** 차원이 **Success**와 동일하고 **Authentication** 차원이 **Anonymous**와 동일한 트랜잭션 |
 | **AnonymousThrottlingError** | **ResponseType** 차원이 **ClientThrottlingError** 또는 **ServerBusyError**와 동일하고 **Authentication** 차원이 **Anonymous**와 동일한 트랜잭션 |
-| **권한 부여오류** | **ResponseType** 차원이 **AuthorizationError**와 동일한 트랜잭션 |
+| **AuthorizationError** | **ResponseType** 차원이 **AuthorizationError**와 동일한 트랜잭션 |
 | **가용성** | **가용성** |
 | **AverageE2ELatency** | **SuccessE2ELatency** |
 | **AverageServerLatency** | **SuccessServerLatency** |
-| **클라이언트다른 오류** | **ResponseType** 차원이 **ClientOtherError**와 동일한 트랜잭션 |
+| **ClientOtherError** | **ResponseType** 차원이 **ClientOtherError**와 동일한 트랜잭션 |
 | **ClientTimeoutError** | **ResponseType** 차원이 **ClientTimeoutError**와 동일한 트랜잭션 |
-| **네트워크 오류** | **ResponseType** 차원이 **NetworkError**와 동일한 트랜잭션 |
+| **NetworkError** | **ResponseType** 차원이 **NetworkError**와 동일한 트랜잭션 |
 | **PercentAuthorizationError** | **ResponseType** 차원이 **AuthorizationError**와 동일한 트랜잭션 |
 | **PercentClientOtherError** | **ResponseType** 차원이 **ClientOtherError**와 동일한 트랜잭션 |
 | **PercentNetworkError** | **ResponseType** 차원이 **NetworkError**와 동일한 트랜잭션 |
@@ -95,13 +95,13 @@ Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 �
 | **SASServerTimeoutError** | **ResponseType** 차원이 **ServerTimeoutError**와 동일하고 **Authentication** 차원이 **SAS**와 동일한 트랜잭션 |
 | **SASSuccess** | **ResponseType** 차원이 **Success**와 동일하고 **Authentication** 차원이 **SAS**와 동일한 트랜잭션 |
 | **SASThrottlingError** | **ResponseType** 차원이 **ClientThrottlingError** 또는 **ServerBusyError**와 동일하고 **Authentication** 차원이 **SAS**와 동일한 트랜잭션 |
-| **서버다른 오류** | **ResponseType** 차원이 **ServerOtherError**와 동일한 트랜잭션 |
-| **서버 시간 삭제 오류** | **ResponseType** 차원이 **ServerTimeoutError**와 동일한 트랜잭션 |
+| **ServerOtherError** | **ResponseType** 차원이 **ServerOtherError**와 동일한 트랜잭션 |
+| **ServerTimeoutError** | **ResponseType** 차원이 **ServerTimeoutError**와 동일한 트랜잭션 |
 | **Success** | **ResponseType** 차원이 **Success**와 동일한 트랜잭션 |
 | **ThrottlingError** | **ResponseType** 차원이 **ClientThrottlingError** 또는 **ServerBusyError**와 동일한 **트랜잭션**|
 | **TotalBillableRequests** | **트랜잭션** |
-| **TotalEgress** | **탈출구** |
-| **TotalIngress** | **진입** |
+| **TotalEgress** | **Egress** |
+| **TotalIngress** | **수신** |
 | **TotalRequests** | **트랜잭션** |
 
 ## <a name="faq"></a>FAQ
@@ -117,4 +117,4 @@ Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-* [Azure 모니터의 저장소 메트릭](./storage-metrics-in-azure-monitor.md)
+* [Azure Monitor의 저장소 메트릭](./storage-metrics-in-azure-monitor.md)

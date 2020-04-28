@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: a0e6b5b7d5cedc821ee34bdd219ae07bb9d43199
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 31afb7bc00250887841adccc8c3cc4dc69462d55
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79481911"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81642888"
 ---
 <a name="HOLTop"></a>
 
-[참조 설명서](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [패키지](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.3) | [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[참조 설명서](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [패키지](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4) | [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -32,14 +32,14 @@ ms.locfileid: "79481911"
 
 ### <a name="add-the-client-library"></a>클라이언트 라이브러리 추가
 
-선호하는 IDE 또는 개발 환경에서 Maven 프로젝트를 만듭니다. 그런 다음, 프로젝트의 *pom.xml* 파일에 다음 종속성을 추가합니다. 온라인에서 [다른 빌드 도구용](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.3) 구현 구문을 찾을 수 있습니다.
+선호하는 IDE 또는 개발 환경에서 Maven 프로젝트를 만듭니다. 그런 다음, 프로젝트의 *pom.xml* 파일에 다음 종속성을 추가합니다. 온라인에서 [다른 빌드 도구용](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4) 구현 구문을 찾을 수 있습니다.
 
 ```xml
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>1.0.0-beta.3</version>
+        <version>1.0.0-beta.4</version>
     </dependency>
 </dependencies>
 ```
@@ -50,6 +50,7 @@ ms.locfileid: "79481911"
 `TextAnalyticsSamples.java`라는 Java 파일을 만듭니다. 파일을 열고, 다음 `import` 문을 추가합니다.
 
 ```java
+import com.azure.core.credential.AzureKeyCredential;
 import com.azure.ai.textanalytics.models.*;
 import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
 import com.azure.ai.textanalytics.TextAnalyticsClient;
@@ -76,7 +77,6 @@ public static void main(String[] args) {
     sentimentAnalysisExample(client);
     detectLanguageExample(client);
     recognizeEntitiesExample(client);
-    recognizePIIEntitiesExample(client);
     recognizeLinkedEntitiesExample(client);
     extractKeyPhrasesExample(client);
 }
@@ -102,7 +102,7 @@ Text Analytics 리소스의 키 및 엔드포인트를 사용하여 `TextAnalyti
 ```java
 static TextAnalyticsClient authenticateClient(String key, String endpoint) {
     return new TextAnalyticsClientBuilder()
-        .apiKey(new TextAnalyticsApiKeyCredential(key))
+        .apiKey(new AzureKeyCredential(key))
         .endpoint(endpoint)
         .buildClient();
 }
@@ -204,34 +204,6 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 ```console
 Recognized entity: Seattle, entity category: Location, entity sub-category: GPE, score: 0.92.
 Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, score: 0.8.
-```
-
-## <a name="using-ner-to-recognize-personal-information"></a>NER을 사용하여 개인 정보 인식
-
-앞에서 만든 클라이언트를 사용하고 해당 `recognizePiiEntities()` 함수를 호출하는 `recognizePIIEntitiesExample()`이라는 새 함수를 만듭니다. 반환된 `RecognizePiiEntitiesResult` 개체에는 성공하는 경우 `NamedEntity` 목록이 포함되고, 그렇지 않은 경우 `errorMessage`가 포함됩니다. 
-
-```java
-static void recognizePIIEntitiesExample(TextAnalyticsClient client)
-{
-    // The text that need be analyzed.
-    String text = "Insurance policy for SSN on file 123-12-1234 is here by approved.";
-
-    for (PiiEntity entity : client.recognizePiiEntities(text)) {
-        System.out.printf(
-            "Recognized personal identifiable information entity: %s, entity category: %s, %nentity sub-category: %s, score: %s.%n",
-            entity.getText(),
-            entity.getCategory(),
-            entity.getSubCategory(),
-            entity.getConfidenceScore());
-    }
-}
-```
-
-### <a name="output"></a>출력
-
-```console
-Recognized personal identifiable information entity: 123-12-1234, entity category: U.S. Social Security Number (SSN), 
-entity sub-category: null, score: 0.85.
 ```
 
 ## <a name="entity-linking"></a>엔터티 연결

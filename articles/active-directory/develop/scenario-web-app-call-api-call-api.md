@@ -1,6 +1,6 @@
 ---
-title: 웹 앱에서 웹 API 호출 - Microsoft ID 플랫폼 | Azure
-description: 웹 API를 호출하는 웹 앱을 빌드하는 방법 알아보기(보호된 웹 API 호출)
+title: 웹 앱에서 web api 호출-Microsoft identity platform | Microsoft
+description: 웹 Api를 호출 하는 웹 앱을 빌드하는 방법 알아보기 (보호 된 웹 API 호출)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,20 +11,24 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c07241345a724e4489fb137cfe862cde6518b318
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 84df33137566445015848655cfecb87ba67ef123
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81868727"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181684"
 ---
-# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>웹 API를 호출하는 웹 앱: 웹 API 호출
+# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>웹 api를 호출 하는 웹 앱: web API 호출
 
-이제 토큰이 있으므로 보호된 웹 API를 호출할 수 있습니다.
+이제 토큰이 있으므로 보호 된 web API를 호출할 수 있습니다.
+
+## <a name="call-a-protected-web-api"></a>보호 된 웹 API 호출
+
+보호 된 웹 API를 호출 하는 것은 선택한 언어 및 프레임 워크에 따라 다릅니다.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-다음은 의 작업에 대한 단순화된 `HomeController`코드입니다. 이 코드는 Microsoft Graph를 호출하는 토큰을 가져옵니다. Microsoft Graph를 REST API로 호출하는 방법을 보여 줄 코드가 추가되었습니다. Microsoft 그래프 API의 URL은 appsettings.json 파일에 제공되며 다음 이라는 `webOptions`변수에서 읽습니다.
+의 동작에 대 한 단순화 된 `HomeController`코드는 다음과 같습니다. 이 코드는 Microsoft Graph를 호출 하는 토큰을 가져옵니다. REST API Microsoft Graph를 호출 하는 방법을 보여 주는 코드가 추가 되었습니다. Microsoft Graph API에 대 한 URL은 appsettings 파일에 제공 되며 라는 `webOptions`변수에서 읽습니다.
 
 ```json
 {
@@ -40,48 +44,33 @@ ms.locfileid: "81868727"
 ```csharp
 public async Task<IActionResult> Profile()
 {
- var application = BuildConfidentialClientApplication(HttpContext, HttpContext.User);
- string accountIdentifier = claimsPrincipal.GetMsalAccountId();
- string loginHint = claimsPrincipal.GetLoginHint();
+ // Acquire the access token.
+ string[] scopes = new string[]{"user.read"};
+ string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
- // Get the account.
- IAccount account = await application.GetAccountAsync(accountIdentifier);
+ // Use the access token to call a protected web API.
+ HttpClient client = new HttpClient();
+ client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+ 
+  var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
 
- // Special case for guest users, because the guest ID / tenant ID are not surfaced.
- if (account == null)
- {
-  var accounts = await application.GetAccountsAsync();
-  account = accounts.FirstOrDefault(a => a.Username == loginHint);
- }
+  if (response.StatusCode == HttpStatusCode.OK)
+  {
+   var content = await response.Content.ReadAsStringAsync();
 
- AuthenticationResult result;
- result = await application.AcquireTokenSilent(new []{"user.read"}, account)
-                            .ExecuteAsync();
- var accessToken = result.AccessToken;
+   dynamic me = JsonConvert.DeserializeObject(content);
+   return me;
+  }
 
- // Calls the web API (Microsoft Graph in this case).
- HttpClient httpClient = new HttpClient();
- httpClient.DefaultRequestHeaders.Authorization =
-     new AuthenticationHeaderValue(Constants.BearerAuthorizationScheme,accessToken);
- var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
-
- if (response.StatusCode == HttpStatusCode.OK)
- {
-  var content = await response.Content.ReadAsStringAsync();
-
-  dynamic me = JsonConvert.DeserializeObject(content);
-  return me;
- }
-
- ViewData["Me"] = me;
- return View();
+  ViewData["Me"] = me;
+  return View();
 }
 ```
 
 > [!NOTE]
-> 동일한 원칙을 사용하여 모든 웹 API를 호출할 수 있습니다.
+> 동일한 원칙을 사용 하 여 web API를 호출할 수 있습니다.
 >
-> 대부분의 Azure 웹 API는 API 호출을 간소화하는 SDK를 제공합니다. 이것은 또한 마이크로소프트 그래프의 사실이다. 다음 문서에서는 API 사용을 설명하는 자습서를 찾을 수 있는 위치를 배웁니다.
+> 대부분의 Azure web Api는 API 호출을 간소화 하는 SDK를 제공 합니다. Microsoft Graph도 마찬가지입니다. 다음 문서에서는 API 사용을 보여 주는 자습서를 찾을 수 있는 위치에 대해 알아봅니다.
 
 # <a name="java"></a>[Java](#tab/java)
 

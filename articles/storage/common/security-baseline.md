@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d083ba757004fa477038750ad6210e4bb30659ee
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 184b60f6147089cbdfd855b473b3346d021f7fbc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82120757"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176603"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azure Storage에 대 한 Azure 보안 기준
 
@@ -140,7 +140,7 @@ Azure Storage에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: 문서 트래픽 구성 규칙
 
-**지침**: nsg (네트워크 보안 그룹) 및 네트워크 보안 및 트래픽 흐름과 관련 된 기타 리소스에 대 한 태그를 사용 합니다. 개별 NSG 규칙의 경우 "설명" 필드를 사용 하 여 네트워크에서 들어오고 나가는 트래픽을 허용 하는 모든 규칙에 대 한 비즈니스 필요 및/또는 기간 (등)을 지정 합니다. 태그를 사용 하 여 모든 리소스를 만들고 태그가 지정 되지 않은 기존 리소스를 알리도록 하려면 태그 지정과 관련 된 기본 제공 Azure 정책 정의 (예: "태그 및 해당 값 필요")를 사용 합니다. Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리소스에 대 한 작업을 조회 하거나 수행할 수 있습니다. 
+**지침**: nsg (네트워크 보안 그룹) 및 네트워크 보안 및 트래픽 흐름과 관련 된 기타 리소스에 대 한 태그를 사용 합니다. 개별 NSG 규칙의 경우 "설명" 필드를 사용 하 여 네트워크에서 들어오고 나가는 트래픽을 허용 하는 모든 규칙에 대 한 비즈니스 필요 및/또는 기간 (등)을 지정 합니다. 태그를 사용 하 여 모든 리소스를 만들고 태그가 지정 되지 않은 기존 리소스를 알리도록 하려면 태그 지정과 관련 된 기본 제공 Azure Policy 정의 (예: "태그 및 해당 값 필요")를 사용 합니다. Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리소스에 대 한 작업을 조회 하거나 수행할 수 있습니다. 
 
 - [태그를 만들고 사용 하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -687,7 +687,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들어 �
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: 승인 되지 않은 Azure 리소스에 대 한 모니터링
 
-**지침**: Azure policy를 사용 하 여 다음 기본 제공 정책 정의를 사용 하 여 고객 구독에서 만들 수 있는 리소스 유형에 대 한 제한을 설정 합니다. 
+**지침**: Azure Policy을 사용 하 여 다음 기본 제공 정책 정의를 사용 하 여 고객 구독에서 만들 수 있는 리소스 유형에 대 한 제한을 설정할 수 있습니다. 
 
  - 허용되지 않는 리소스 종류 
  - 허용되는 리소스 유형 
@@ -730,7 +730,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들어 �
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: 승인 된 Azure 서비스만 사용 합니다.
 
-**지침**: Azure policy를 사용 하 여 다음 기본 제공 정책 정의를 사용 하 여 고객 구독에서 만들 수 있는 리소스 유형에 대 한 제한을 설정 합니다. 
+**지침**: Azure Policy을 사용 하 여 다음 기본 제공 정책 정의를 사용 하 여 고객 구독에서 만들 수 있는 리소스 유형에 대 한 제한을 설정할 수 있습니다. 
 
 - 허용되지 않는 리소스 종류 
 - 허용되는 리소스 유형 
@@ -783,7 +783,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들어 �
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대 한 보안 구성을 설정 합니다.
 
-**지침**: "Microsoft storage" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 사용자 지정 정책을 만들어 저장소 계정 인스턴스의 구성을 감사 하거나 적용 합니다. 다음과 같은 Azure Storage 계정에 기본 제공 Azure 정책 정의를 사용할 수도 있습니다. 
+**지침**: "Microsoft storage" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 사용자 지정 정책을 만들어 저장소 계정 인스턴스의 구성을 감사 하거나 적용 합니다. 다음과 같은 Azure Storage 계정에 기본 제공 Azure Policy 정의를 사용할 수도 있습니다. 
 
 저장소 계정에 대 한 무제한 네트워크 액세스 감사 저장소 계정에 고급 위협 방지 배포 저장소 계정은 새 Azure Resource Manager 리소스에 마이그레이션해야 합니다. 저장소 계정에 대 한 보안 전송을 사용 하도록 설정 해야 합니다. 
 
@@ -807,7 +807,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들어 �
 
 ### <a name="73-maintain-secure-configurations-for-all-azure-resources"></a>7.3: 모든 Azure 리소스에 대 한 보안 구성을 유지 합니다.
 
-**지침**: Azure 정책 [거부] 및 [없는 경우 배포]를 사용 하 여 저장소 계정 리소스에 대해 보안 설정을 적용 합니다. 
+**지침**: Azure Policy [거부] 및 [배포 되지 않은 경우 배포]를 사용 하 여 저장소 계정 리소스에서 보안 설정을 적용 합니다. 
 
 - [Azure Policy를 구성 하 고 관리 하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 

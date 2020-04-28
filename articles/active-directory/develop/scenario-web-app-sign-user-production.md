@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a8e275a41637950139598ac7c4f2513841bb4d0d
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 47a45b52ac10a44b6efd54c41b3fec1e61a47a35
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82112510"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181633"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>사용자가 로그인 하는 웹 앱: 프로덕션으로 이동
 
@@ -41,6 +41,8 @@ ms.locfileid: "82112510"
 
 > [!div class="nextstepaction"]
 > [Chrome 브라우저에서 SameSite 쿠키 변경을 처리 하는 방법](howto-handle-samesite-cookie-changes-chrome-browser.md)
+
+SameSite NuGet 패키지는 가장 일반적인 문제를 처리 합니다.
 
 ### <a name="scenario-for-calling-web-apis"></a>웹 Api 호출에 대 한 시나리오
 

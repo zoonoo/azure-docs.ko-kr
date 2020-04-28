@@ -1,31 +1,31 @@
 ---
-title: Azure 리소스 관리자 템플릿을 사용하여 자동화 계정 만들기 | 마이크로 소프트 문서
-description: Azure 리소스 관리자 템플릿을 사용하여 Azure 자동화 계정을 만들 수 있습니다.
+title: Azure Resource Manager 템플릿을 사용 하 여 Automation 계정 만들기 | Microsoft Docs
+description: Azure Resource Manager 템플릿을 사용 하 여 Azure Automation 계정을 만들 수 있습니다.
 ms.service: automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/15/2020
-ms.openlocfilehash: efe51fbada8ac70b24c16a5c7c1e0e91879e5e9f
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.date: 04/24/2020
+ms.openlocfilehash: 431b89df0ce06736a2e76e58797ded65751bb404
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81618686"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165827"
 ---
-# <a name="create-automation-account-using-azure-resource-manager-template"></a>Azure 리소스 관리자 템플릿을 사용하여 자동화 계정 만들기
+# <a name="create-automation-account-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Automation 계정 만들기
 
-[Azure 리소스 관리자 템플릿을](../azure-resource-manager/templates/template-syntax.md) 사용하여 리소스 그룹에서 Azure 자동화 계정을 만들 수 있습니다. 이 문서에서는 다음을 자동화하는 샘플 템플릿을 제공합니다.
+[Azure Resource Manager 템플릿을](../azure-resource-manager/templates/template-syntax.md) 사용 하 여 리소스 그룹에 Azure Automation 계정을 만들 수 있습니다. 이 문서에서는 다음을 자동화 하는 샘플 템플릿을 제공 합니다.
 
-* Azure 모니터 로그 분석 작업 영역 만들기.
-* Azure 자동화 계정 만들기.
-* 자동화 계정을 로그 분석 작업 영역에 연결합니다.
+* Azure Monitor Log Analytics 작업 영역을 만듭니다.
+* Azure Automation 계정 만들기
+* Automation 계정을 Log Analytics 작업 영역에 연결 합니다.
 
-템플릿은 하나 이상의 Azure 또는 비 Azure VM 또는 솔루션의 온보딩을 자동화하지 않습니다. 
+템플릿은 하나 이상의 Azure 또는 비 Azure Vm 또는 솔루션의 온 보 딩을 자동화 하지 않습니다. 
 
 >[!NOTE]
->Azure 리소스 관리자 템플릿을 사용할 때 자동화 실행 계정 만들기가 지원되지 않습니다. 포털 또는 PowerShell을 사용하여 수동으로 실행 계정을 만들려면 [계정으로 실행 관리를](manage-runas-account.md)참조하십시오.
+>Azure Resource Manager 템플릿을 사용 하는 경우 Automation 실행 계정 만들기가 지원 되지 않습니다. 포털에서 또는 PowerShell을 사용 하 여 실행 계정을 수동으로 만들려면 [실행 계정 관리](manage-runas-account.md)를 참조 하세요.
 
 ## <a name="api-versions"></a>API 버전
 
@@ -36,33 +36,38 @@ ms.locfileid: "81618686"
 | 작업 영역 | workspaces | 2017-03-15-preview |
 | Automation 계정 | Automation | 2015-10-31 | 
 
-## <a name="before-using-the-template"></a>템플릿을 사용하기 전에
+## <a name="before-using-the-template"></a>템플릿을 사용 하기 전에
 
-로컬에서 PowerShell을 설치하고 사용하도록 선택한 경우 이 문서에는 Azure PowerShell Az 모듈이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다. Azure PowerShell을 사용하면 배포에서 [New-AzResourceGroup 배포를](/powershell/module/az.resources/new-azresourcegroupdeployment)사용합니다.
+PowerShell을 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에는 Azure PowerShell Az 모듈이 필요 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다. Azure PowerShell 배포에서는 [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)를 사용 합니다.
 
-CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 문서에서는 Azure CLI 버전 2.1.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요. Azure CLI를 사용하는 이 배포는 [az 그룹 배포 create를](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)사용합니다. 
+CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에서는 Azure CLI 버전 2.1.0 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요. Azure CLI에서이 배포는 [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)를 사용 합니다. 
 
-JSON 템플릿은 다음과 같은 메시지를 표시하도록 구성됩니다.
+JSON 템플릿이 사용자에 게 묻는 메시지를 표시 하도록 구성 되어 있습니다.
 
-* 작업 영역의 이름
-* 작업 영역을 만들 영역
-* 자동화 계정의 이름
-* 계정을 만들 영역은
+* 작업 영역의 이름입니다.
+* 작업 영역을 만들 지역입니다.
+* Automation 계정의 이름
+* 계정을 만들 지역입니다.
 
-JSON 템플릿은 사용자 환경에서 표준 구성으로 사용될 수 있는 다른 매개 변수에 대한 기본값을 지정합니다. 조직의 공유 액세스를 위해 Azure 저장소 계정에 템플릿을 저장할 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [리소스 관리자 템플릿 및 Azure CLI를 사용 하 여 리소스 배포](../azure-resource-manager/templates/deploy-cli.md)를 참조 합니다.
-
-템플릿의 다음 매개 변수는 Log Analytics 작업 영역에 대한 기본값으로 설정됩니다.
+템플릿의 다음 매개 변수는 Log Analytics 작업 영역에 대 한 기본값으로 설정 됩니다.
 
 * sku - 2018년 4월 가격 책정 모델에서 배포된 새로운 GB당 가격 책정 계층이 기본값
-* 데이터 보존 - 기본값30일로
-* 용량 예약 - 기본값100GB
+* 데이터 보존-기본값은 30 일입니다.
+* 용량 예약-기본값은 100입니다.
 
 >[!WARNING]
 >새 2018년 4월 가격 책정 모델을 선택한 구독에서 Log Analytics 작업 영역을 만들거나 구성할 때 유효한 유일한 Log Analytics 가격 책정 계층은 **PerGB2018**입니다.
 >
 
->[!NOTE]
->이 템플릿을 사용하기 전에 액세스 제어 모드, 가격 책정 계층, 보존 및 용량 예약 수준과 같은 작업 영역 구성 옵션을 완전히 이해하려면 [추가 세부 정보를](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) 검토합니다. Azure Monitor 로그를 새로 접하고 작업 영역을 이미 배포하지 않은 경우 [작업 영역 디자인](../azure-monitor/platform/design-logs-deployment.md) 지침을 검토하여 액세스 제어 및 조직에 권장하는 디자인 구현 전략에 대해 알아봐야 합니다.
+JSON 템플릿은 사용자 환경에서 표준 구성으로 사용 될 수 있는 다른 매개 변수에 대 한 기본값을 지정 합니다. 조직에서 공유 액세스를 위해 Azure storage 계정에 템플릿을 저장할 수 있습니다. 템플릿 작업에 대 한 자세한 내용은 [리소스 관리자 템플릿 및 Azure CLI를 사용 하 여 리소스 배포](../azure-resource-manager/templates/deploy-cli.md)를 참조 하세요.
+
+새 자동화 계정에 연결 된 Log Analytics 작업 영역을 만들고, 구성 하 고, 사용 하려고 할 때 오류가 발생 하지 않도록 하려면 다음 구성 세부 Azure Monitor Azure Automation 정보를 이해 하는 것이 중요 합니다.
+
+* 액세스 제어 모드, 가격 책정 계층, 보존 및 용량 예약 수준과 같은 작업 영역 구성 옵션을 완전히 이해 하려면 [추가 정보](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) 를 검토 합니다.
+
+* 구독에서 Log Analytics 작업 영역 및 Automation 계정을 연결 하는 데는 특정 영역만 지원 되므로 [작업 영역 매핑](how-to/region-mappings.md) 을 검토 하 여 지원 되는 영역 인라인 또는 매개 변수 파일을 지정 합니다.
+
+* Azure Monitor 로그를 처음 사용 하 고 작업 영역을 배포 하지 않은 경우 [작업 영역 디자인](../azure-monitor/platform/design-logs-deployment.md) 지침을 검토 하 여 액세스 제어에 대해 알아보고 조직에 권장 되는 디자인 구현 전략을 이해 해야 합니다.
 
 ## <a name="deploy-template"></a>템플릿 배포
 
@@ -112,32 +117,6 @@ JSON 템플릿은 사용자 환경에서 표준 구성으로 사용될 수 있�
         },
         "location": {
             "type": "string",
-            "allowedValues": [
-                "australiacentral",
-                "australiaeast",
-                "australiasoutheast",
-                "brazilsouth",
-                "canadacentral",
-                "centralindia",
-                "centralus",
-                "eastasia",
-                "eastus",
-                "eastus2",
-                "francecentral",
-                "japaneast",
-                "koreacentral",
-                "northcentralus",
-                "northeurope",
-                "southafricanorth",
-                "southcentralus",
-                "southeastasia",
-                "uksouth",
-                "ukwest",
-                "westcentralus",
-                "westeurope",
-                "westus",
-                "westus2"
-            ],
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
@@ -307,11 +286,11 @@ JSON 템플릿은 사용자 환경에서 표준 구성으로 사용될 수 있�
     }
     ```
 
-2. 요구 사항을 충족하도록 템플릿을 편집합니다. 매개 [변수를](../azure-resource-manager/templates/parameter-files.md) 인라인 값으로 전달하는 대신 Resource Manager 매개 변수 파일을 만드는 것이 좋습니다.
+2. 요구 사항을 충족하도록 템플릿을 편집합니다. 매개 변수를 인라인 값으로 전달 하는 대신 [리소스 관리자 매개 변수 파일](../azure-resource-manager/templates/parameter-files.md) 을 만드는 것이 좋습니다.
 
-3. 이 파일을 배포로 저장아자동화Accttemplate.json 로컬 폴더에 저장합니다.
+3. 이 파일을 로컬 폴더에 deployAzAutomationAccttemplate로 저장 합니다.
 
-4. 이제 이 템플릿을 배포할 수 있습니다. PowerShell 또는 Azure CLI를 사용할 수 있습니다. 작업 영역 및 자동화 계정 이름을 묻는 메시지가 표시되면 모든 Azure 구독에서 전역적으로 고유한 이름을 제공합니다.
+4. 이제 이 템플릿을 배포할 수 있습니다. PowerShell 또는 Azure CLI 중 하나를 사용할 수 있습니다. 작업 영역 및 Automation 계정 이름을 입력 하 라는 메시지가 표시 되 면 모든 Azure 구독에서 전역적으로 고유한 이름을 제공 합니다.
 
     **PowerShell**
 
@@ -331,4 +310,4 @@ JSON 템플릿은 사용자 환경에서 표준 구성으로 사용될 수 있�
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 자동화 계정이 있으므로 Runbook을 만들고 수동 프로세스를 자동화할 수 있습니다.
+이제 Automation 계정이 있으므로 runbook을 만들고 수동 프로세스를 자동화할 수 있습니다.

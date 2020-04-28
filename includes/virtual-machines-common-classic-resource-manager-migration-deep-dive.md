@@ -1,15 +1,15 @@
 ---
-author: cynthn
+author: tanmaygore
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: tanmaygore
-ms.openlocfilehash: 215057640dd08d9ea524d8f6b3bed8b03a8b5b8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: tagore
+ms.openlocfilehash: b86e0d784d26e9e483dd12e20d45189ae8bfb9bd
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77068444"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866209"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>IaaS 리소스를 클래식 배포 모델에서 Azure 리소스 관리자로 마이그레이션
 먼저 서비스(IaaS) 리소스로서 인프라의 데이터 평면과 관리 평면 간의 차이점을 이해해야 합니다.
@@ -136,7 +136,7 @@ ms.locfileid: "77068444"
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>클래식 배포 모델을 리소스 관리자 리소스로 변환
 다음 표에서 클래식 배포 모델 및 리소스 관리자에서 리소스를 표현하는 방식을 확인할 수 있습니다. 다른 기능 및 리소스는 현재 지원되지 않습니다.
 
-| 클래식 표현 | Resource Manager 표현 | 메모 |
+| 클래식 표현 | Resource Manager 표현 | 참고 |
 | --- | --- | --- |
 | 클라우드 서비스 이름 |DNS 이름 |마이그레이션하는 동안 명명 패턴 `<cloudservicename>-migrated`를 사용하여 모든 클라우드 서비스에 대한 새 리소스 그룹을 만듭니다. 이 리소스 그룹에는 모든 리소스가 포함됩니다. 클라우드 서비스 이름은 공용 IP 주소와 연결된 DNS 이름이 됩니다. |
 | 가상 머신 |가상 머신 |VM 관련 속성은 변경되지 않고 마이그레이션됩니다. 컴퓨터 이름과 같은 특정 osProfile 정보는 클래식 배포 모델에 저장되지 않으며, 마이그레이션 후에도 비어 있습니다. |

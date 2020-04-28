@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 04/21/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 70a087e106e632d697052461928f3e1123a06b1b
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.openlocfilehash: 42eec4a0796a7f07c7e7d1c35571d9d4ddcf69d7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82137538"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176705"
 ---
 # <a name="azure-data-lake-storage-query-acceleration-preview"></a>Azure Data Lake Storage 쿼리 가속 (미리 보기)
 
@@ -71,7 +71,7 @@ Apache Spark 및 Apache Hive와 같은 분산 분석 프레임 워크는 프레�
 
 ## <a name="pricing"></a>가격 책정
 
-Azure Data Lake Storage 서비스 내에서 계산 부하가 증가 함에 따라 쿼리 가속 사용에 대 한 가격 책정 모델은 일반 Azure Data Lake Storage 트랜잭션 모델과 다릅니다. 쿼리 가속은 검색 되는 데이터의 양과 호출자에 게 반환 되는 데이터의 양에 대 한 비용을 청구 합니다.
+Azure Data Lake Storage 서비스 내에서 계산 부하가 증가 함에 따라 쿼리 가속 사용에 대 한 가격 책정 모델은 일반 Azure Data Lake Storage 트랜잭션 모델과 다릅니다. 쿼리 가속은 검색 되는 데이터의 양과 호출자에 게 반환 되는 데이터의 양에 대 한 비용을 청구 합니다. 자세한 내용은 [Azure Data Lake Storage Gen2 가격 책정](https://azure.microsoft.com/pricing/details/storage/data-lake/)을 참조 하세요.
 
 청구 모델의 변경에도 불구 하 고, 쿼리 가속의 가격 책정 모델은 작업에 대 한 총 소유 비용을 낮출 수 있도록 설계 되었으며, 비용이 많이 드는 VM 비용이 감소 합니다.
 

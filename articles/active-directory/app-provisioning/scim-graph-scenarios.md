@@ -1,6 +1,6 @@
 ---
-title: SCIM, Microsoft 그래프 및 Azure AD 프로비저닝 서비스를 사용하여 사용자에게 프로비전하고 필요한 데이터로 응용 프로그램을 보강합니다 | 마이크로 소프트 문서
-description: SCIM과 Microsoft 그래프를 함께 사용하여 사용자에게 프로비전하고 필요한 데이터로 응용 프로그램을 보강합니다.
+title: SCIM, Microsoft Graph 및 Azure AD 프로 비전 서비스를 사용 하 여 사용자를 프로 비전 하 고 필요한 데이터를 사용 하 여 응용 프로그램 보강 | Microsoft Docs
+description: SCIM과 Microsoft Graph를 함께 사용 하 여 사용자를 프로 비전 하 고 필요한 데이터를 사용 하 여 응용 프로그램을 보강 합니다.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -12,36 +12,41 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 134237b66a803abaf07621112e3a4a518a3ae8a7
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
-ms.translationtype: MT
+ms.openlocfilehash: 79ffe0474fcfeb28b49f5c2504ede86cd38459d9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82087622"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181837"
 ---
-# <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>SCIM과 Microsoft 그래프를 함께 사용하여 사용자에게 프로비전하고 필요한 데이터로 응용 프로그램을 보강합니다.
+# <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>SCIM 및 Microsoft Graph를 함께 사용 하 여 사용자를 프로 비전 하 고 필요한 데이터를 사용 하 여 응용 프로그램 보강
 
-**타겟 대상:** 이 문서는 Azure AD와 통합된 응용 프로그램을 빌드하는 개발자를 대상으로 합니다. 줌, ServiceNow 및 DropBox와 같은 기존 응용 프로그램을 통합하려는 다른 사람들을 위해 이 것을 건너 뛰고 응용 프로그램 특정 자습서를 검토 할 수 [있습니다.](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+**대상 사용자:** 이 문서는 Azure AD와 통합 될 응용 프로그램을 빌드하는 개발자를 대상으로 합니다. Zoom, ServiceNow, DropBox 등의 Azure AD와 이미 통합 된 응용 프로그램을 사용 하려는 다른 사용자의 경우이를 건너뛰고 응용 프로그램별 [자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 를 검토 하거나 [프로 비전 서비스의 작동 방식을](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works)검토할 수 있습니다.
 
 **일반적인 시나리오**
 
+Azure AD는 프로 비전에 사용할 수 있는 기본 제공 서비스와 응용 프로그램을 빌드하는 확장 가능한 플랫폼을 제공 합니다. 의사 결정 트리는 개발자가 [Scim](https://aka.ms/scimoverview) 및 [Microsoft Graph](https://docs.microsoft.com/graph/overview) 를 사용 하 여 프로 비전을 자동화 하는 방법을 간략하게 설명 합니다. 
+
 > [!div class="checklist"]
 > * 내 응용 프로그램에서 자동으로 사용자 만들기
-> * 더 이상 액세스 권한이 없어야 할 때 응용 프로그램에서 사용자를 자동으로 제거합니다.
-> * 프로비저닝을 위해 응용 프로그램을 여러 ID 공급자와 통합
-> * 공유점, Outlook 및 Office와 같은 Microsoft 서비스의 데이터로 응용 프로그램을 보강합니다.
-> * Azure AD 및 Active Directory에서 사용자 및 그룹을 자동으로 생성, 업데이트 및 삭제
+> * 더 이상 액세스할 수 없을 때 응용 프로그램에서 사용자를 자동으로 제거
+> * 프로 비전을 위해 여러 id 공급자와 응용 프로그램 통합
+> * 팀, Outlook 및 Office와 같은 Microsoft 서비스의 데이터를 사용 하 여 응용 프로그램을 보강 합니다.
+> * Azure AD에서 사용자 및 그룹을 자동으로 만들고, 업데이트 하 고, 삭제 Active Directory
 
 ![SCIM 그래프 의사 결정 트리](./media/user-provisioning/scim-graph.png)
 
 ## <a name="scenario-1-automatically-create-users-in-my-app"></a>시나리오 1: 내 앱에서 자동으로 사용자 만들기
-오늘날 IT 관리자는 누군가가 액세스해야 하거나 CSV 파일을 주기적으로 업로드해야 할 때마다 내 응용 프로그램에서 사용자 계정을 수동으로 만듭니다. 이 프로세스는 고객에게 시간이 많이 걸리고 응용 프로그램의 채택 속도가 느려집니다. 사용자를 만들기 위해 이름, 전자 메일 및 userPrincipalName과 같은 기본 [사용자](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) 정보만 있으면 됩니다. 또한 고객은 다양한 IdP를 사용하며 동기화 엔진과 각 IdP에 대한 사용자 지정 통합을 유지할 리소스가 없습니다. 
+현재 IT 관리자는 수동으로 사용자 계정을 만들거나 CSV 파일을 내 응용 프로그램에 주기적으로 업로드 하 여 사용자를 프로 비전 합니다. 이 프로세스는 고객에 게 시간이 많이 걸리고 내 응용 프로그램의 채택을 저하 시킵니다. 사용자를 만들기 위한 이름, 메일, userPrincipalName 등의 기본 사용자 정보만 있으면 됩니다. 
 
-**권장 사항**: SCIM 준수 [/사용자](https://aka.ms/scimreferencecode) 엔드포인트를 지원합니다. 고객은 이 끝점을 쉽게 사용하여 Azure AD 프로비저닝 서비스와 통합하고 액세스가 필요할 때 사용자 계정을 자동으로 만들 수 있습니다. 엔드포인트를 한 번 빌드할 수 있으며 동기화 엔진을 유지 관리하지 않고도 모든 IdP와 호환됩니다. 사용자를 만들 수 있는 방법에 대한 아래 예제 요청을 확인하십시오.
+**권장 사항**: 
+* 고객이 다양 한 IdPs를 사용 하 고 서로 통합 될 동기화 엔진을 유지 관리 하지 않으려는 경우 SCIM 규격 [/사용자](https://aka.ms/scimreferencecode) 끝점을 지원 합니다. 고객은이 끝점을 사용 하 여 Azure AD 프로 비전 서비스와 통합 하 고 액세스 해야 할 때 자동으로 사용자 계정을 만들 수 있습니다. 끝점은 한 번에 빌드할 수 있으며 모든 IdPs와 호환 됩니다. SCIM을 사용 하 여 사용자를 만드는 방법에 대 한 아래의 예제 요청을 확인 하세요.
+* Azure AD의 사용자 개체와 Microsoft의 다른 데이터에서 사용자 데이터를 찾은 경우 사용자 프로 비전을 위한 SCIM 끝점을 빌드하고 Microsoft Graph를 호출 하 여 나머지 데이터를 가져오는 것이 좋습니다. 
+
 
 ```json
 POST /Users
@@ -64,10 +69,10 @@ POST /Users
 }
 ```
     
-## <a name="scenario-2-automatically-remove-users-from-my-app"></a>시나리오 2: 내 앱에서 사용자 자동 제거
-내 응용 프로그램을 사용하는 고객은 보안에 중점을 두며 직원이 더 이상 필요하지 않을 때 계정을 제거하는 거버넌스 요구 사항이 있습니다. 응용 프로그램에서 프로비저닝 해제를 자동화하는 방법은 무엇입니까?
+## <a name="scenario-2-automatically-remove-users-from-my-app"></a>시나리오 2: 내 앱에서 자동으로 사용자 제거
+응용 프로그램을 사용 하는 고객은 보안에 중점을 두 며 직원 들이 더 이상 필요 하지 않은 경우 계정을 제거 하기 위한 거 버 넌 스 요구 응용 프로그램에서 프로 비전 해제를 자동화 하려면 어떻게 해야 하나요?
 
-**권장 사항:** SCIM 준수/사용자 엔드포인트를 지원합니다. Azure AD 프로비저닝 서비스는 사용자가 더 이상 액세스 권한이 없어야 할 때 비활성화및 삭제요청을 전송합니다. 사용자를 사용하지 않도록 설정및 삭제하는 것을 모두 지원하는 것이 좋습니다. 비활성화 및 삭제 요청의 모양은 아래 예제를 참조하세요. 
+**권장 사항:** SCIM 규격/사용자 끝점을 지원 합니다. Azure AD 프로 비전 서비스는 사용자에 게 더 이상 액세스 권한이 없는 경우 사용 하지 않도록 설정 하 고 삭제 하는 요청을 보냅니다. 사용자 비활성화 및 삭제를 모두 지 원하는 것이 좋습니다. 비활성화 및 삭제 요청은 다음과 같이 표시 됩니다. 
 
 사용자 사용 안 함 설정
 ```json
@@ -90,33 +95,33 @@ PATCH /Users/5171a35d82074e068ce2 HTTP/1.1
 DELETE /Users/5171a35d82074e068ce2 HTTP/1.1
 ```
 
-## <a name="scenario-3-automate-managing-group-memberships-in-my-app"></a>시나리오 3: 내 앱에서 그룹 구성원 자격 관리 자동화
-내 응용 프로그램은 다양한 리소스에 액세스하기 위해 그룹에 의존하며 고객은 Azure AD에 있는 그룹을 다시 사용하려고 합니다. Azure AD에서 그룹을 가져오고 멤버 자격이 변경될 때 그룹을 업데이트유지하려면 어떻게 해야 합니까?  
+## <a name="scenario-3-automate-managing-group-memberships-in-my-app"></a>시나리오 3: 내 앱에서 그룹 멤버 자격 관리 자동화
+응용 프로그램은 다양 한 리소스에 액세스 하기 위해 그룹을 사용 하 고, 고객은 Azure AD에 있는 그룹을 다시 사용 하려고 합니다. Azure AD에서 그룹을 가져오는 방법 및 멤버 자격 변경으로 계속 업데이트 하려면 어떻게 해야 하나요?  
 
-**권장 사항:** SCIM 준수 /그룹 [끝점](https://aka.ms/scimreferencecode)지원 . Azure AD 프로비저닝 서비스는 응용 프로그램에서 그룹을 만들고 멤버 자격 업데이트를 관리하는 데 주의를 기울입니다. 
+**권장 사항:** SCIM 규격/그룹 [끝점](https://aka.ms/scimreferencecode)을 지원 합니다. Azure AD 프로 비전 서비스는 응용 프로그램에서 그룹을 만들고 멤버 자격 업데이트를 관리 하는 것을 담당 합니다. 
 
-## <a name="scenario-4-enrich-my-app-with-data-from-microsoft-services-such-as-teams-outlook-and-onedrive"></a>시나리오 4: 팀, Outlook 및 OneDrive와 같은 Microsoft 서비스의 데이터로 앱을 보강합니다.
-내 응용 프로그램은 Microsoft Teams에 기본 제공되며 메시지 데이터에 의존합니다. 또한, 우리는 OneDrive에 사용자를위한 파일을 저장합니다. 이러한 서비스와 Microsoft 전체의 데이터로 응용 프로그램을 보강하는 방법은 무엇입니까?
+## <a name="scenario-4-enrich-my-app-with-data-from-microsoft-services-such-as-teams-outlook-and-onedrive"></a>시나리오 4: 팀, Outlook 및 OneDrive와 같은 Microsoft 서비스의 데이터로 내 앱 보강
+내 응용 프로그램은 Microsoft 팀에 기본 제공 되며 메시지 데이터에 의존 합니다. 또한 OneDrive의 사용자에 대 한 파일을 저장 합니다. 이러한 서비스 및 Microsoft의 데이터를 사용 하 여 응용 프로그램을 보강 하려면 어떻게 해야 하나요?
 
-**권장 사항:** [마이크로소프트 그래프는](https://docs.microsoft.com/graph/) 마이크로소프트 데이터에 액세스 하는 진입점이다. 각 워크로드는 필요한 데이터와 API를 노출합니다. Microsoft 그래프는 위의 시나리오에 대한 [SCIM 프로비저닝과](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 함께 사용할 수 있습니다. SCIM을 사용하여 그래프로 호출하는 동안 기본 사용자 특성을 응용 프로그램에 프로비전하여 필요한 다른 데이터를 얻을 수 있습니다. 
+**권장 사항:** Microsoft 데이터에 액세스할 수 있는 진입점은 [Microsoft Graph](https://docs.microsoft.com/graph/) 입니다. 각 워크 로드는 필요한 데이터를 사용 하 여 Api를 노출 합니다. 위의 시나리오에 대해 [Scim 프로 비전](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 과 함께 Microsoft graph를 사용할 수 있습니다. SCIM을 사용 하 여 graph를 호출 하는 동안 기본 사용자 특성을 응용 프로그램에 프로 비전 하 여 필요한 다른 데이터를 가져올 수 있습니다. 
 
-## <a name="scenario-5-track-changes-in-microsoft-services-such-as-teams-outlook-and-azure-ad"></a>시나리오 5: 팀, Outlook 및 Azure AD와 같은 Microsoft 서비스의 변경 내용을 추적합니다.
-팀 및 Outlook 메시지의 변경 내용을 추적하고 실시간으로 대응할 수 있어야 합니다. 이러한 변경 내용을 응용 프로그램에 푸시하려면 어떻게 해야 합니까?
+## <a name="scenario-5-track-changes-in-microsoft-services-such-as-teams-outlook-and-azure-ad"></a>시나리오 5: 팀, Outlook 및 Azure AD와 같은 Microsoft 서비스의 변경 내용 추적
+팀과 Outlook 메시지에 대 한 변경 내용을 추적 하 고 실시간으로 응답할 수 있어야 합니다. 이러한 변경 내용을 내 응용 프로그램에 푸시 하려면 어떻게 해야 하나요?
 
-**권장 사항:** Microsoft 그래프는 다양한 리소스에 대한 [변경 알림](https://docs.microsoft.com/graph/webhooks) 및 변경 사항 추적을 제공합니다. 변경 알림의 다음 제한 사항에 유의하십시오.
-- 이벤트 수신자가 이벤트를 승인했지만 어떤 이유로든 이벤트를 수행하지 못하면 이벤트가 손실될 수 있습니다.
-- 이벤트 수신자가 이벤트를 승인했지만 어떤 이유로든 이벤트를 수행하지 못하면 이벤트가 손실될 수 있습니다.
-- 변경 알림은 항상 [리소스 데이터를](https://docs.microsoft.com/graph/webhooks-with-resource-data) 포함하지 않습니다 위의 이유, 개발자는 종종 동기화 시나리오에 대한 변경 내용 추적과 함께 변경 알림을 사용합니다. 
+**권장 사항:** Microsoft Graph는 다양 한 리소스에 대 한 [변경 알림](https://docs.microsoft.com/graph/webhooks) 및 [변경 내용 추적](https://docs.microsoft.com/graph/delta-query-overview) 기능을 제공 합니다. 변경 알림에 대 한 다음 제한 사항에 유의 하세요.
+- 이벤트 수신기가 이벤트를 승인 하지만 어떤 이유로 든 동작 하지 않으면 이벤트가 손실 될 수 있습니다.
+- 이벤트 수신기가 이벤트를 승인 하지만 어떤 이유로 든 동작 하지 않으면 이벤트가 손실 될 수 있습니다.
+- 변경 알림은 항상 위의 이유로 [리소스 데이터](https://docs.microsoft.com/graph/webhooks-with-resource-data) 를 포함 하지 않습니다. 개발자는 동기화 시나리오에 대 한 변경 추적과 함께 변경 알림을 사용 하는 경우가 많습니다. 
 
-## <a name="scenario-6-provision-users-and-groups-in-azure-ad"></a>시나리오 6: Azure AD에서 사용자 및 그룹을 프로비전합니다.
-내 응용 프로그램은 Azure AD에서 고객이 필요로 하는 사용자에 대한 정보를 만듭니다. 이는 채용을 관리하는 것보다 HR 응용 프로그램, 사용자를 위해 전화 번호를 생성하는 통신 앱 또는 Azure AD에서 중요한 데이터를 생성하는 다른 앱일 수 있습니다. Azure AD의 사용자 레코드를 해당 데이터로 채우면 어떻게 해야 합니까? 
+## <a name="scenario-6-provision-users-and-groups-in-azure-ad"></a>시나리오 6: Azure AD에서 사용자 및 그룹 프로 비전
+내 응용 프로그램은 Azure AD에서 고객이 필요로 하는 사용자에 대 한 정보를 만듭니다. 채용 직원, 사용자를 위한 전화 번호를 만드는 커뮤니케이션 앱 또는 Azure AD에서 중요 한 데이터를 생성 하는 다른 앱을 관리 하는 것 보다 HR 응용 프로그램 일 수 있습니다. Azure AD의 사용자 레코드를 해당 데이터로 채울 어떻게 할까요? 있나요? 
 
-**추천** Microsoft 그래프는 현재와 통합하여 사용자를 Azure AD로 프로비전할 수 있는 /사용자 및 /그룹 끝점을 노출합니다. Azure Active Directory는 해당 사용자를 Active Directory로 다시 작성하는 것을 지원하지 않습니다. 
+**권장 사항** Microsoft graph는 사용자를 Azure AD에 프로 비전 하기 위해 현재와 통합할 수 있는/사용자 및/Tgroups 끝점을 노출 합니다. Azure Active Directory는 해당 사용자를 Active Directory에 다시 작성 하는 것을 지원 하지 않습니다. 
 
 > [!NOTE]
-> Microsoft에는 Workday 및 SuccessFactors와 같은 HR 응용 프로그램에서 데이터를 가져오는 프로비저닝 서비스가 있습니다. 이러한 통합은 Microsoft에서 빌드하고 관리합니다. 서비스에 새 HR 응용 프로그램을 온보딩하려면 [UserVoice](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests)에서 요청할 수 있습니다. 
+> Microsoft에는 Workday 및 SuccessFactors와 같은 HR 응용 프로그램에서 데이터를 가져오는 프로 비전 서비스가 있습니다. 이러한 통합은 Microsoft에서 빌드하고 관리 합니다. 새 HR 응용 프로그램을 서비스에 온 보 딩 하기 위해 [UserVoice](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests)에서 요청할 수 있습니다. 
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 
-- [동기화 Microsoft 그래프 설명서 검토](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
-- [Azure AD와 사용자 지정 SCIM 앱 통합](use-scim-to-provision-users-and-groups.md)
+- [동기화 Microsoft Graph 설명서 검토](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [사용자 지정 SCIM 앱을 Azure AD와 통합](use-scim-to-provision-users-and-groups.md)
