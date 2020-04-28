@@ -1,6 +1,6 @@
 ---
-title: Azure 알림 허브 등록을 일괄으로 내보내고 가져오기 | 마이크로 소프트 문서
-description: 알림 허브 대량 지원을 사용하여 알림 허브에서 많은 수의 작업을 수행하거나 모든 등록을 내보내는 방법을 알아봅니다.
+title: 대량으로 Azure Notification Hubs 등록 내보내기 및 가져오기 | Microsoft Docs
+description: Notification Hubs 대량 지원을 사용 하 여 알림 허브에서 많은 작업을 수행 하거나 모든 등록을 내보내는 방법을 알아봅니다.
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -15,28 +15,28 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/18/2019
 ms.openlocfilehash: 8eb03a42f38c0cc7fe82eda6a81d1c8c1213ec74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71212390"
 ---
-# <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Azure 알림 허브 등록을 일괄으로 내보내고 가져오기
+# <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>대량으로 Azure Notification Hubs 등록 내보내기 및 가져오기
 알림 허브에서 많은 수의 등록을 만들거나 수정해야 하는 시나리오가 있습니다. 이러한 시나리오 중 일부는 일괄 처리 계산 후의 태그 업데이트이거나 기존 푸시 구현을 알림 허브를 사용하도록 마이그레이션하는 것입니다.
 
-이 문서에서는 알림 허브에서 많은 수의 작업을 수행하거나 모든 등록을 일괄 내보내는 방법을 설명합니다.
+이 문서에서는 알림 허브에서 많은 수의 작업을 수행 하거나 모든 등록을 대량으로 내보내는 방법을 설명 합니다.
 
-## <a name="high-level-flow"></a>높은 수준의 흐름
-일괄 처리 지원은 수백만 개의 등록을 포함하여 장기간 실행되는 작업을 지원하도록 설계되었습니다. 이러한 규모를 달성하기 위해 일괄 처리 지원은 Azure Storage를 사용하여 작업 세부 정보 및 출력을 저장합니다. 대량 업데이트 작업의 경우 사용자가 blob 컨테이너에서 파일을 만들어야 합니다. 이 파일의 내용은 등록 업데이트 작업 목록입니다. 작업을 시작할 때 사용자는 입력 blob의 URL과 출력 디렉터리(및 blob 컨테이너)의 URL을 함께 제공합니다. 작업이 시작된 후 사용자는 작업을 시작할 때 제공된 URL 위치를 쿼리하여 상태를 확인할 수 있습니다. 특정 작업은 특정 종류의 작업만 수행할 수 있습니다(생성, 업데이트 또는 삭제). 내보내기 작업은 유사하게 수행됩니다.
+## <a name="high-level-flow"></a>상위 수준 흐름
+일괄 처리 지원은 수백만 개의 등록을 포함하여 장기간 실행되는 작업을 지원하도록 설계되었습니다. 이러한 규모를 달성할 수 있도록 batch 지원에서는 Azure Storage를 사용 하 여 작업 세부 정보 및 출력을 저장 합니다. 대량 업데이트 작업의 경우 사용자가 blob 컨테이너에서 파일을 만들어야 합니다. 이 파일의 내용은 등록 업데이트 작업 목록입니다. 작업을 시작할 때 사용자는 입력 blob의 URL과 출력 디렉터리(및 blob 컨테이너)의 URL을 함께 제공합니다. 작업이 시작 된 후 사용자는 작업을 시작할 때 제공 된 URL 위치를 쿼리하여 상태를 확인할 수 있습니다. 특정 작업은 특정 종류의 작업 (만들기, 업데이트 또는 삭제)만 수행할 수 있습니다. 내보내기 작업은 유사하게 수행됩니다.
 
 ## <a name="import"></a>가져오기
 
 ### <a name="set-up"></a>설정
-이 섹션에서는 다음과 같은 엔터티가 있다고 가정합니다.
+이 섹션에서는 다음과 같은 엔터티가 있다고 가정 합니다.
 
 - 프로비전된 알림 허브
 - Azure 저장소 blob 컨테이너
-- [Azure 저장소 NuGet 패키지](https://www.nuget.org/packages/windowsazure.storage/) 및 알림 허브 [NuGet 패키지에](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)대 한 참조.
+- [Azure Storage nuget 패키지](https://www.nuget.org/packages/windowsazure.storage/) 및 [Notification Hubs nuget 패키지](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)에 대 한 참조입니다.
 
 ### <a name="create-input-file-and-store-it-in-a-blob"></a>입력 파일을 만들어 blob에 저장
 입력 파일에는 XML로 직렬화된 등록 목록이 행당 하나씩 포함됩니다. 다음 코드 예제에서는 Azure SDK를 사용하여 등록을 직렬화하고 blob 컨테이너에 업로드하는 방법을 보여 줍니다.
@@ -59,10 +59,10 @@ private static void SerializeToBlob(CloudBlobContainer container, RegistrationDe
 ```
 
 > [!IMPORTANT]
-> 위의 코드는 메모리에서 등록을 직렬화한 다음 전체 스트림을 blob에 업로드합니다. 몇 MB바이트 이상의 파일을 업로드한 경우 이러한 단계를 수행하는 방법에 대한 Azure Blob 지침을 참조하세요. 예를 들어 [블록 Blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
+> 위의 코드는 메모리에서 등록을 직렬화한 다음 전체 스트림을 blob에 업로드합니다. 몇 메가바이트 이상의 파일을 업로드 한 경우 이러한 단계를 수행 하는 방법에 대 한 Azure blob 지침을 참조 하세요. 예: [블록 blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
 ### <a name="create-url-tokens"></a>URL 토큰 만들기
-입력 파일이 업로드되면 입력 파일과 출력 디렉터리 모두에 대해 알림 허브에 제공할 URL을 생성합니다. 입력 및 출력에 두 개의 서로 다른 Blob 컨테이너를 사용할 수 있습니다.
+입력 파일을 업로드 한 후에는 입력 파일과 출력 디렉터리 모두에 대해 알림 허브에 제공할 Url을 생성 합니다. 입력 및 출력에 대해 두 개의 다른 blob 컨테이너를 사용할 수 있습니다.
 
 ```csharp
 static Uri GetOutputDirectoryUrl(CloudBlobContainer container)
@@ -90,7 +90,7 @@ static Uri GetInputFileUrl(CloudBlobContainer container, string filePath)
 ```
 
 ### <a name="submit-the-job"></a>작업 제출
-두 개의 입력 및 출력 URL을 사용하면 이제 일괄 처리 작업을 시작할 수 있습니다.
+이제 두 개의 입력 및 출력 Url을 사용 하 여 batch 작업을 시작할 수 있습니다.
 
 ```csharp
 NotificationHubClient client = NotificationHubClient.CreateClientFromConnectionString(CONNECTION_STRING, HUB_NAME);
@@ -115,20 +115,20 @@ while (i > 0 && job.Status != NotificationHubJobStatus.Completed)
 }
 ```
 
-이 예제에서는 입력 및 출력 URL 외에도 `NotificationHubJob` 다음 형식 `JobType` 중 하나일 수 있는 개체를 포함하는 개체를 만듭니다.
+이 예제에서는 입력 및 출력 Url 외에 다음 형식 중 하나일 `NotificationHubJob` 수 있는 `JobType` 개체를 포함 하는 개체를 만듭니다.
 
 - `ImportCreateRegistrations`
 - `ImportUpdateRegistrations`
 - `ImportDeleteRegistrations`
 
-호출이 완료되면 알림 허브에서 작업이 계속되며 [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync?view=azure-dotnet)에 대한 호출로 상태를 확인할 수 있습니다.
+호출이 완료 되 면 알림 허브에서 작업을 계속 하 고 [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync?view=azure-dotnet)에 대 한 호출을 사용 하 여 해당 상태를 확인할 수 있습니다.
 
 작업이 완료되면 출력 디렉터리에서 다음 파일을 확인하여 결과를 조사할 수 있습니다.
 
 - `/<hub>/<jobid>/Failed.txt`
 - `/<hub>/<jobid>/Output.txt`
 
-이러한 파일에는 일괄 처리에서 성공한 작업과 실패한 작업 목록이 포함됩니다. 파일 형식은 `.cvs`각 행에 원래 입력 파일의 줄 번호와 작업의 출력(일반적으로 생성또는 업데이트된 등록 설명)이 있는 입니다.
+이러한 파일에는 일괄 처리에서 성공한 작업과 실패한 작업 목록이 포함됩니다. 파일 형식은 이며 각 `.cvs`행에는 원래 입력 파일의 줄 번호와 작업의 출력 (일반적으로 만들어지거나 업데이트 된 등록 설명)이 있습니다.
 
 ### <a name="full-sample-code"></a>전체 샘플 코드
 다음 샘플 코드는 등록을 알림 허브로 가져옵니다.
@@ -265,10 +265,10 @@ namespace ConsoleApplication1
 등록 내보내기는 가져오기와 유사하지만 다음과 같은 차이점이 있습니다.
 
 - 출력 URL만 필요합니다.
-- 유형 내보내기등록의 NotificationHubJob을 만듭니다.
+- ExportRegistrations 형식의 NotificationHubJob을 만듭니다.
 
-### <a name="sample-code-snippet"></a>샘플 코드 스니펫
-다음은 Java에서 등록을 내보내기 위한 샘플 코드 코드 조각입니다.
+### <a name="sample-code-snippet"></a>샘플 코드 조각
+Java에서 등록을 내보내는 샘플 코드 조각은 다음과 같습니다.
 
 ```java
 // submit an export job
@@ -288,7 +288,7 @@ while(true){
 ```
 
 ## <a name="next-steps"></a>다음 단계
-등록에 대한 자세한 내용은 다음 문서를 참조하십시오.
+등록에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 - [등록 관리](notification-hubs-push-notification-registration-management.md)
 - [등록에 대한 태그](notification-hubs-tags-segment-push-message.md)

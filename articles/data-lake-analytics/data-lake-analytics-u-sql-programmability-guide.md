@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: dc55615d7a5c6ae9a393ed4fd5f49cd92aedc0f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73162571"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 프로그래밍 기능 가이드
@@ -133,7 +133,7 @@ REFERENCE ASSEMBLY MyDB.[MyAssembly];
 
 업로드된 각 어셈블리 DLL, 리소스 파일(예: 다양한 런타임), 네이티브 어셈블리 또는 구성 파일의 크기는 최대 400MB입니다. DEPLOY RESOURCE를 통해 또는 참조 어셈블리를 통해 배포된 리소스 및 추가 파일의 총 크기는 3GB를 초과할 수 없습니다.
 
-마지막으로 U-SQL 데이터베이스마다 지정된 어셈블리 버전을 하나만 포함할 수 있습니다. 예를 들어 NewtonSoft Json.NET 라이브러리의 버전 7과 버전 8이 모두 필요한 경우 두 개의 서로 다른 데이터베이스에 등록해야 합니다. 또한 각 스크립트는 지정된 어셈블리 DLL의 한 가지 버전만 참조할 수 있습니다. 이러한 점에서 U-SQL은 C# 어셈블리 관리 및 버전 관리 의미 체계를 따릅니다.
+마지막으로 U-SQL 데이터베이스마다 지정된 어셈블리 버전을 하나만 포함할 수 있습니다. 예를 들어 Newtonsoft.json Json.NET 라이브러리의 버전 7과 버전 8이 모두 필요한 경우 두 개의 다른 데이터베이스에 등록 해야 합니다. 또한 각 스크립트는 지정된 어셈블리 DLL의 한 가지 버전만 참조할 수 있습니다. 이러한 점에서 U-SQL은 C# 어셈블리 관리 및 버전 관리 의미 체계를 따릅니다.
 
 ## <a name="use-user-defined-functions-udf"></a>UDF(사용자 정의 함수) 사용
 U-SQL UDF(사용자 정의 함수)는 매개 변수를 받아들이고, 작업(예: 복잡한 계산)을 수행하며, 해당 작업의 결과를 값으로 반환하는 프로그래밍 루틴입니다. UDF의 반환 값은 단지 단일 스칼라일 수 있습니다. U-SQL UDF는 다른 C# 스칼라 함수와 같이 U-SQL 기본 스크립트에서 호출할 수 있습니다.
@@ -914,7 +914,7 @@ UDAGG(사용자 정의 집계) 기본 클래스 정의는 다음과 같습니다
 
 **SqlUserDefinedAggregate**는 UDAGG로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속할 수 없습니다.
 
-SQLUser정의 형식 특성은 UDAGG 정의에 대한 **선택 사항입니다.**
+SqlUserDefinedType 특성은 UDAGG 정의의 **선택 사항** 입니다.
 
 
 기본 클래스를 사용하면 세 개의 추상 매개 변수(두 개는 입력 매개 변수로, 하나는 결과로)를 전달할 수 있습니다. 데이터 형식은 변수이며, 클래스를 상속하는 동안 정의해야 합니다.
@@ -946,10 +946,10 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
 * T1: Accumulate의 첫 번째 매개 변수
-* T2: 누적할 두 번째 매개변수
+* T2: 누적 시킬 두 번째 매개 변수
 * TResult: Terminate의 반환 형식
 
-예를 들어:
+다음은 그 예입니다.
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>

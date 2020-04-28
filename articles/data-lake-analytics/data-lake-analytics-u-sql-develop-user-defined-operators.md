@@ -1,5 +1,5 @@
 ---
-title: U-SQL 사용자 정의 연산자 개발 - Azure 데이터 레이크 분석
+title: U-SQL 사용자 정의 연산자 개발-Azure Data Lake Analytics
 description: Azure Data Lake Analytics 작업에 사용 및 재사용되는 사용자 정의 연산자를 개발하는 방법에 대해 알아봅니다.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -10,10 +10,10 @@ ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: b2d1293b06b4d8791138ed666bc3cb4abe3adf40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71316532"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>U-SQL UDO(사용자 정의 연산자) 개발
@@ -123,6 +123,6 @@ ms.locfileid: "71316532"
 1. **서버 탐색기**, **Azure** 확장, **데이터 레이크 분석** 확장, 사용자 데이터 레이크 분석 계정 확장, **Storage 계정** 확장에서 기본 스토리지를 오른 클릭하고 **탐색기**를 클릭합니다.
 2. 샘플 및 출력을 확장하고 **Drivers.csv**를 두 번 클릭합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [사용자 코드를 사용하여 U-SQL 식 확장](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
 * [U-SQL 애플리케이션 개발에 Visual Studio용 데이터 레이크 도구 사용하기](data-lake-analytics-data-lake-tools-get-started.md)

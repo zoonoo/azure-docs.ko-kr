@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
 ms.openlocfilehash: 482fcf7d100a90d9527f510382c5dafb4f67adfa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72439079"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Azure Automation을 사용하여 Azure Cloud Services 관리
@@ -38,5 +38,5 @@ Azure Cloud Services를 관리하는 Azure Automation을 사용하는 몇 가지
 ## <a name="next-steps"></a>다음 단계
 Azure Automation의 기본 사항과 Azure Automation을 사용하여 클라우드 서비스를 관리하는 방법을 알아보았으므로 이제 다음 링크에 따라 Azure Automation에 대해 자세히 알아보세요.
 
-* [Azure 자동화 개요](../automation/automation-intro.md)
+* [Azure Automation 개요](../automation/automation-intro.md)
 * [내 첫 번째 runbook](../automation/automation-first-runbook-graphical.md)

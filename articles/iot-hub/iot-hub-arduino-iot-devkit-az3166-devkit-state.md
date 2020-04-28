@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: deb1ea8c7b41ad48bddebfbed1b15c667ee0071a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73483950"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
@@ -77,7 +77,7 @@ ms.locfileid: "73483950"
 
 MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 
-1. Visual Studio 코드에서 **작업** 드롭다운 메뉴를 클릭하고 **빌드 빌드 실행을 선택합니다...** 아두 이노 스케치는 컴파일및 DevKit에 업로드됩니다.
+1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭 하 고 **빌드 작업 실행** ...을 선택 합니다. Arduino 스케치가 컴파일되고 DevKit로 업로드 됩니다.
 
 2. 스케치가 성공적으로 업로드되면 *Build & Upload Sketch: success*(스케치 빌드 및 업로드: 성공) 메시지가 표시됩니다.
 
@@ -89,7 +89,7 @@ MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 
 3. 앞서 적어둔 함수 앱 이름을 입력합니다.
 
-4. **연결** 단추를 클릭합니다.
+4. **연결** 단추를 클릭 합니다.
 
 5. 몇 초 안에 페이지가 새로 고쳐지고 DevKit의 WiFi 연결 상태와 각 온보드 센서의 상태가 표시됩니다.
 
@@ -106,7 +106,7 @@ MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 ![예제 테스트 절차](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Azure 포털에서 장치 쌍의 원시 데이터를 볼\> 수 있습니다:\> IoT Hub - IoT 장치 - \> - * \<장치\> * 장치 트윈.
+> Azure Portal에서 장치 쌍의 원시 데이터를 볼 수 있습니다. IoT Hub\> -IoT 장치\> - * \<장치\> *  - \> 장치 쌍입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

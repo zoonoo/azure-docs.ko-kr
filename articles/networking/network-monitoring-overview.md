@@ -1,5 +1,5 @@
 ---
-title: Azure 모니터 로그의 네트워크 모니터링 정보 | 마이크로 소프트 문서
+title: Azure Monitor 로그의 네트워크 모니터링 정보 | Microsoft Docs
 description: 클라우드, 온-프레미스 및 하이브리드 환경에 걸친 네트워크를 관리하는, NPM을 비롯한 네트워크 모니터링 솔루션의 개요입니다.
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
 ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67672172"
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
@@ -51,7 +51,7 @@ NPM(네트워크 성능 모니터)은 애플리케이션에 대한 네트워크 
 
 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure 모니터 로그에서 네트워크 성능 모니터 솔루션 구성](../azure-monitor/insights/network-performance-monitor.md) 
+* [Azure Monitor 로그에서 네트워크 성능 모니터 솔루션 구성](../azure-monitor/insights/network-performance-monitor.md) 
 * [사용 사례](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 * 제품 업데이트:
   * [2017년 2월](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
@@ -70,7 +70,7 @@ ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어�
 
 ![전체 지역의 트래픽을 보여주는 지역 지도](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 * [ExpressRoute에 대한 네트워크 성능 모니터 구성](../expressroute/how-to-npm.md)
 * [블로그 게시물](https://aka.ms/NPMExRmonitorGA)
@@ -86,7 +86,7 @@ ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어�
 * 잘못된 애플리케이션 성능을 일으킬 수 있는 네트워크상 핫 스폿 확인
 * Microsoft Office 365, Dynamics 365, Skype for Business 및 기타 Microsoft 서비스를 위한 기본 테스트를 사용하여 Office 365 애플리케이션에 대한 연결 가능성 모니터링
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 * [서비스 엔드포인트를 모니터링하기 위한 네트워크 성능 모니터 구성](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [블로그 게시물](https://aka.ms/svcendptmonitor)

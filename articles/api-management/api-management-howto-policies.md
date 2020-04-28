@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
 ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70072315"
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API Management의 정책
@@ -25,7 +25,7 @@ APIM(Azure API Management)에서 정책은 게시자가 구성을 통해 API 동
 
 정책은 API 소비자와 관리되는 API 간에 있는 게이트웨이 내에서 적용됩니다. 게이트웨이는 모든 요청을 수신하고 보통 변경하지 않은 상태로 기본 API에 전달합니다. 그러나 정책은 인바운드 요청과 아웃바운드 응답 모두에 변경 내용을 적용할 수 있습니다.
 
-정책이 다르게 지정하지 않는 한 정책 식은 어떤 API Management 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름][Control flow] 및 [변수 설정][Set variable] 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책][Advanced policies] 및 [정책 식을][Policy expressions]참조하십시오.
+정책이 다르게 지정하지 않는 한 정책 식은 어떤 API Management 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름][Control flow] 및 [변수 설정][Set variable] 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책][Advanced policies] 및 [정책 식][Policy expressions]을 참조 하세요.
 
 ## <a name="understanding-policy-configuration"></a><a name="sections"> </a>정책 구성 이해
 

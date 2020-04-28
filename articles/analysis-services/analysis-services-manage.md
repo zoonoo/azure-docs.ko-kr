@@ -1,6 +1,6 @@
 ---
 title: Azure Analysis Services 관리 | Microsoft Docs
-description: 이 문서에서는 Azure 분석 서비스 서버의 관리 및 관리 작업을 관리하는 데 사용되는 도구에 대해 설명합니다.
+description: 이 문서에서는 Azure Analysis Services 서버에 대 한 관리 및 관리 작업을 관리 하는 데 사용 되는 도구에 대해 설명 합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 28d7b2955c84833841760e441cd2919181e22bc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73572805"
 ---
 # <a name="manage-analysis-services"></a>Analysis Services 관리
@@ -30,7 +30,7 @@ Azure에서 서버를 연결하는 것은 조직에서 서버 인스턴스를 �
 ### <a name="download-and-install-ssms"></a>SSMS 다운로드 및 설치
 모든 최신 기능과 Azure Analysis Services 서버에 연결할 때 가장 원활한 환경을 얻으려면 최신 버전의 SSMS를 사용하고 있어야 합니다. 
 
-[SQL 서버 관리 스튜디오를 다운로드합니다.](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+[SQL Server Management Studio를 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)합니다.
 
 
 ### <a name="to-connect-with-ssms"></a>SSMS로 연결
@@ -56,11 +56,11 @@ Azure에서 서버를 연결하는 것은 조직에서 서버 인스턴스를 �
     ![SSMS에서 연결](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
 ## <a name="server-administrators-and-database-users"></a>서버 관리자 및 데이터베이스 사용자
-Azure Analysis Services에서는 두 가지 유형의 사용자, 서버 관리자 및 데이터베이스 사용자가 있습니다. 두 가지 유형의 사용자 모두 Azure Active Directory에 포함되어야 하며 조직 전자 메일 주소 또는 UPN으로 지정해야 합니다. 자세한 내용은 [인증 및 사용자 권한을](analysis-services-manage-users.md)참조하십시오.
+Azure Analysis Services에서는 두 가지 유형의 사용자, 서버 관리자 및 데이터베이스 사용자가 있습니다. 두 가지 유형의 사용자 모두 Azure Active Directory에 포함되어야 하며 조직 전자 메일 주소 또는 UPN으로 지정해야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요.
 
 
 ## <a name="troubleshooting-connection-problems"></a>연결 문제 해결
-SSMS를 사용하여 연결할 때 문제가 발생하는 경우 로그인 캐시를 지워야 할 수 있습니다. 디스크에 캐시된 것은 없습니다. 캐시를 지우려면 연결 프로세스를 닫고 다시 시작합니다. 
+SSMS를 사용하여 연결할 때 문제가 발생하는 경우 로그인 캐시를 지워야 할 수 있습니다. 디스크에 캐시 된 내용이 없습니다. 캐시를 지우려면 연결 프로세스를 닫고 다시 시작 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 새 서버에 테이블 형식 모델을 아직 배포하지 않았으면 지금이야말로 좋은 기회입니다. 자세한 내용은 [Azure Analysis Services에 배포](analysis-services-deploy.md)를 참조하세요.

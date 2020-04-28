@@ -1,7 +1,7 @@
 ---
 title: OData 식 구문 참조
 titleSuffix: Azure Cognitive Search
-description: Azure 인지 검색 쿼리의 OData 식에 대한 공식 문법 및 구문 사양입니다.
+description: Azure Cognitive Search 쿼리의 OData 식에 대 한 공식적인 문법 및 구문 사양입니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,28 +20,28 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f3422fd10e062ae87bc165491e0d01ac2b4943d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72793227"
 ---
-# <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Azure 인지 검색에 대 한 OData 식 구문 참조
+# <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 OData 식 구문 참조
 
-Azure 인지 [검색API 전체에서 매개](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) 변수로 OData 식을 사용합니다. 가장 일반적으로 OData 식은 `$orderby` 및 `$filter` 매개 변수에 사용됩니다. 이러한 식은 여러 절, 함수 및 연산자가 포함된 복잡할 수 있습니다. 그러나 속성 경로와 같은 간단한 OData 표현식도 Azure 인지 검색 REST API의 많은 부분에서 사용됩니다. 예를 들어 경로 식은 [제안자,](index-add-suggesters.md) [점수 매기기 함수,](index-add-scoring-profiles.md) `$select` 매개 변수 또는 [Lucene 쿼리에서](query-lucene-syntax.md)필드 검색을 나열할 때와 같이 API의 모든 곳에서 복잡한 필드의 하위 필드를 참조하는 데 사용됩니다.
+Azure Cognitive Search는 API 전체에서 [OData 식을](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) 매개 변수로 사용 합니다. 가장 일반적으로는 OData 식이 `$orderby` 및 `$filter` 매개 변수에 사용 됩니다. 이러한 식은 여러 절, 함수 및 연산자를 포함 하는 복잡할 수 있습니다. 그러나 속성 경로와 같은 간단한 OData 식은 Azure Cognitive Search REST API의 여러 부분에서 사용 됩니다. 예를 들어 경로 식은 [확인 기](index-add-suggesters.md)의 하위 필드, [점수 매기기 함수](index-add-scoring-profiles.md), `$select` 매개 변수 또는 [Lucene 쿼리에서 필드 지정 검색](query-lucene-syntax.md)을 나열 하는 경우와 같이 API의 모든 위치에서 복합 필드의 하위 필드를 참조 하는 데 사용 됩니다.
 
-이 문서에서는 형식적인 문법을 사용하여 이러한 모든 형태의 OData 식에 대해 설명합니다. 문법을 시각적으로 탐색하는 데 도움이되는 [대화 형 다이어그램도](#syntax-diagram) 있습니다.
+이 문서에서는 공식적인 문법을 사용 하는 이러한 모든 형식의 OData 식에 대해 설명 합니다. 문법을 시각적으로 탐색 하는 데 도움이 되는 [대화형 다이어그램](#syntax-diagram) 도 있습니다.
 
-## <a name="formal-grammar"></a>정식 문법
+## <a name="formal-grammar"></a>공식 문법
 
-EBNF[(확장 Backus-Naur 양식)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)문법을 사용하여 Azure 인지 검색에서 지원하는 OData 언어의 하위 집합을 설명할 수 있습니다. 규칙은 가장 복잡한 표현식으로 시작하여 보다 원시적인 표현식으로 세분화하여 "하향식"으로 나열됩니다. 맨 위에는 Azure 인지 검색 REST API의 특정 매개 변수에 해당하는 문법 규칙이 있습니다.
+EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) 문법을 사용 하 여 Azure Cognitive Search에서 지 원하는 OData 언어의 하위 집합을 설명할 수 있습니다. 규칙은 "하향식"으로 나열 되며 가장 복잡 한 식부터 시작 하 여 더 많은 기본 식으로 구분 됩니다. 위쪽에는 Azure Cognitive Search REST API의 특정 매개 변수에 해당 하는 문법 규칙이 있습니다.
 
-- [`$filter`](search-query-odata-filter.md)을 통해 `filter_expression` 규칙에 정의됩니다.
-- [`$orderby`](search-query-odata-orderby.md)을 통해 `order_by_expression` 규칙에 정의됩니다.
-- [`$select`](search-query-odata-select.md)을 통해 `select_expression` 규칙에 정의됩니다.
-- 규칙에 의해 정의된 필드 `field_path` 경로입니다. 필드 경로는 API 전체에서 사용됩니다. 인덱스의 최상위 필드 또는 하나 이상의 [복잡한 필드](search-howto-complex-data-types.md) 상위 항목이 있는 하위 필드를 참조할 수 있습니다.
+- [`$filter`](search-query-odata-filter.md)`filter_expression` 규칙으로 정의 된입니다.
+- [`$orderby`](search-query-odata-orderby.md)`order_by_expression` 규칙으로 정의 된입니다.
+- [`$select`](search-query-odata-select.md)`select_expression` 규칙으로 정의 된입니다.
+- 규칙에 의해 정의 되는 `field_path` 필드 경로입니다. 필드 경로는 API 전체에서 사용 됩니다. 인덱스의 최상위 필드 또는 하나 이상의 [복합 field](search-howto-complex-data-types.md) 상위 항목이 있는 하위 필드를 참조할 수 있습니다.
 
-EBNF 후 대화형 문법과 규칙 간의 관계를 탐색 할 수있는 눈썹 [구문 다이어그램입니다.](https://en.wikipedia.org/wiki/Syntax_diagram)
+EBNF는 검색 가능한 [구문 다이어그램](https://en.wikipedia.org/wiki/Syntax_diagram) 으로, 문법을 대화형으로 탐색 하 고 해당 규칙 간의 관계를 탐색할 수 있습니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -209,14 +209,14 @@ search_mode ::= "'any'" | "'all'"
 
 ## <a name="syntax-diagram"></a>구문 다이어그램
 
-Azure Cognitive Search에서 지원하는 OData 언어 문법을 시각적으로 탐색하려면 대화형 구문 다이어그램을 사용해 보십시오.
+Azure Cognitive Search에서 지 원하는 OData 언어 문법을 시각적으로 살펴보려면 대화형 구문 다이어그램을 사용해 보세요.
 
 > [!div class="nextstepaction"]
-> [Azure 인지 검색에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/)
+> [Azure Cognitive Search에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/)
 
-## <a name="see-also"></a>참조  
+## <a name="see-also"></a>참고 항목  
 
-- [Azure 인지 검색의 필터](search-filters.md)
-- [Azure 인지 검색 REST API&#41;&#40;문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Azure Cognitive Search의 필터](search-filters.md)
+- [Azure Cognitive Search REST API &#40;문서 검색&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 - [Lucene 쿼리 구문](query-lucene-syntax.md)
-- [Azure 인지 검색의 간단한 쿼리 구문](query-simple-syntax.md)
+- [Azure Cognitive Search의 단순 쿼리 구문](query-simple-syntax.md)

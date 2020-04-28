@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: alkohli
 ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65953131"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Azure Data Box Edge에서 컴퓨팅 관리
@@ -30,8 +30,8 @@ ms.locfileid: "65953131"
 
 이벤트는 작업을 수행하려는 클라우드 환경 또는 디바이스에서 발생하는 상황입니다. 예를 들어, 공유에서 파일이 만들어지는 것도 이벤트에 해당합니다. 트리거는 이벤트를 발생시킵니다. Data Box Edge의 경우 트리거는 파일 이벤트 또는 일정에 대한 응답일 수 있습니다.
 
-- **파일**: 이러한 트리거는 파일 생성, 파일 수정과 같은 파일 이벤트에 대한 응답입니다.
-- **예약된**: 이러한 트리거는 시작 날짜, 시작 시간 및 반복 간격으로 정의할 수 있는 일정에 대한 응답입니다.
+- **파일**: 이러한 트리거는 파일 생성, 파일 수정과 같은 파일 이벤트에 대 한 응답으로 수행 됩니다.
+- **예약**됨: 이러한 트리거는 시작 날짜, 시작 시간 및 반복 간격으로 정의할 수 있는 일정에 대 한 응답으로 진행 됩니다.
 
 
 ### <a name="add-a-trigger"></a>트리거 추가
@@ -131,4 +131,4 @@ IoT 디바이스 및 IoT Edge 디바이스 키가 순환되면 Data Box Edge에�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 포털을 통해 에지 계산 네트워크를 관리하는](data-box-edge-extend-compute-access-modules.md)방법에 대해 알아봅니다.
+- [Azure Portal를 통해에 지 계산 네트워크를 관리](data-box-edge-extend-compute-access-modules.md)하는 방법을 알아봅니다.

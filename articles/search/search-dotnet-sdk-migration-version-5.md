@@ -1,5 +1,5 @@
 ---
-title: Azure 검색 .NET SDK 버전 5로 업그레이드
+title: Azure Search .NET SDK 버전 5로 업그레이드
 titleSuffix: Azure Cognitive Search
 description: 이전 버전에서 Azure Search .NET SDK 버전 5로 코드를 마이그레이션합니다. 새로운 기능과 필요한 코드 변경 내용을 알아봅니다.
 manager: nitinme
@@ -10,13 +10,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: bb0cd191ba7e5939c55d11b484ed7a2c422f8c6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72793031"
 ---
-# <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Azure 검색 .NET SDK 버전 5로 업그레이드
+# <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Azure Search .NET SDK 버전 5로 업그레이드
 
 버전 4.0-preview 또는 이전 버전의 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 사용하는 경우 이 문서를 참조하여 버전 5로 애플리케이션을 업그레이드할 수 있습니다.
 
@@ -98,6 +98,6 @@ Azure Search .NET SDK의 패키징이 변경되었으므로 버전 5를 사용�
 ## <a name="conclusion"></a>결론
 Azure Search .NET SDK 사용에 대한 자세한 내용은 [.NET 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
-SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생하면 [스택 오버플로에](https://stackoverflow.com/questions/tagged/azure-search)대한 도움을 요청하십시오. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.
+SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생 하는 경우 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search)에 대 한 도움을 요청 하세요. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.
 
 Azure Search를 이용해 주셔서 감사합니다!

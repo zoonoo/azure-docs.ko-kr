@@ -1,5 +1,5 @@
 ---
-title: Visual Studio(WebJob 프로젝트)를 사용하여 큐 저장소 시작
+title: Visual Studio를 사용 하 여 queue storage 시작 (WebJob 프로젝트)
 description: Visual Studio 연결된 서비스를 사용하여 스토리지 계정에 연결한 후 WebJob 프로젝트에서 Azure Queue Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ffba203bafaf3837cd2d7fc1a6fd962a6926b186
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72298755"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Queue Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
@@ -89,10 +89,10 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 ## <a name="types-the-queuetrigger-attribute-works-with"></a>QueueTrigger 특성이 작동하는 유형
 다음 유형에서 **QueueTrigger** 를 사용할 수 있습니다.
 
-* **문자열**
+* **string**
 * JSON으로 serialize된 POCO 유형
-* **바이트[]**
-* **클라우드큐메시지**
+* **byte[]**
+* **CloudQueueMessage**
 
 ## <a name="polling-algorithm"></a>폴링 알고리즘
 SDK는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링이 스토리지 트랜잭션 비용에 미치는 영향을 줄입니다.  메시지가 발견되면 SDK는 2초 대기하고 다른 메시지가 있는지 확인하며, 메시지가 발견되지 않으면 4초 정도 대기하고 나서 다시 시도합니다. 후속 시도로 큐 메시지를 가져오지 못하면 최대 대기 시간(기본값 1분)에 도달할 때까지 대기 시간이 계속 증가합니다. [최대 대기 시간은 구성 가능합니다](#how-to-set-configuration-options).
@@ -112,7 +112,7 @@ SDK는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링
 * **DateTimeOffset** insertionTime
 * **DateTimeOffset** nextVisibleTime
 * **string** queueTrigger(메시지 텍스트 포함)
-* **문자열** ID
+* **문자열** id
 * **string** popReceipt
 * **int** dequeueCount
 
@@ -191,7 +191,7 @@ public static void GracefulShutdownDemo(
 새 큐 메시지를 만드는 함수를 작성하려면 **Queue** 특성을 사용합니다. **QueueTrigger**와 마찬가지로 큐 이름을 문자열로 전달하거나, [동적으로 큐 이름을 설정](#how-to-set-configuration-options)할 수 있습니다.
 
 ### <a name="string-queue-messages"></a>문자열 큐 메시지
-다음 비동기가 아닌 코드 샘플에서는 "inputqueue"라는 큐에 수신된 큐 메시지와 동일한 콘텐츠를 가진 새로운 큐 메시지를 "outputqueue"라는 큐에 만듭니다. 비동기 함수의 경우 이 섹션의 후반부와 같이 **IAsyncCollector\<T>** 사용하십시오.
+다음 비동기가 아닌 코드 샘플에서는 "inputqueue"라는 큐에 수신된 큐 메시지와 동일한 콘텐츠를 가진 새로운 큐 메시지를 "outputqueue"라는 큐에 만듭니다. 비동기 함수의 경우이 단원의 뒷부분에 나와 있는 것 처럼 **>Iasynccollector\<T** 를 사용 합니다.
 
 ```csharp
 public static void CreateQueueMessage(
@@ -217,7 +217,7 @@ public static void CreateQueueMessage(
 SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null인 경우에도 항상 큐 메시지가 생성됩니다.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>여러 메시지 만들기 또는 비동기 함수로 큐 메시지 만들기
-여러 메시지를 만들려면 다음 예제와 같이 출력 큐 **ICollector\<T>** 또는 **IAsyncCollector\<T>** 대한 매개 변수 유형을 만듭니다.
+여러 메시지를 만들려면 다음 예제와 같이 출력 큐 **\<ICollector T>** 또는 **\<iasynccollector t>** 에 대 한 매개 변수 형식을 설정 합니다.
 
 ```csharp
 public static void CreateQueueMessages(
@@ -282,7 +282,7 @@ public static void ProcessQueueMessage(
 }
 ```
 
-**Blob** 특성 생성자는 컨테이너 및 Blob 이름을 지정하는 **blobPath** 매개 변수를 사용합니다. 이 자리 표시자에 대한 자세한 내용은 [WebJobs SDK에서 Azure Blob 저장소를 사용하는 방법을](https://github.com/Azure/azure-webjobs-sdk/wiki)참조하세요.
+**Blob** 특성 생성자는 컨테이너 및 Blob 이름을 지정하는 **blobPath** 매개 변수를 사용합니다. 이 자리 표시자에 대 한 자세한 내용은 WebJobs SDK를 사용 하 여 [Azure blob storage를 사용 하는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)을 참조 하세요.
 
 특성이 **Stream** 개체를 데코레이팅하는 경우 또 다른 생성자 매개 변수가 **FileAccess** 모드를 읽기, 쓰기 또는 읽기/쓰기로 지정합니다.
 

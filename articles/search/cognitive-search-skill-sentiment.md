@@ -1,7 +1,7 @@
 ---
 title: 감성 인식 기술
 titleSuffix: Azure Cognitive Search
-description: Azure 인지 검색의 AI 보강 파이프라인의 텍스트에서 양수 음수 감정 점수를 추출합니다.
+description: Azure Cognitive Search의 AI 보강 파이프라인 텍스트에서 긍정 네거티브 감정 점수를 추출 합니다.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: cc3aab703b9c5ffcb5f3280060417ce32fcec2fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72791907"
 ---
 # <a name="sentiment-cognitive-skill"></a>감성 인식 기술
@@ -20,7 +20,7 @@ ms.locfileid: "72791907"
 **감성** 기술은 긍정과 부정 지속성에 따라 구조화되지 않은 텍스트를 평가하고 각 레코드에 대해 0과 1 사이의 점수를 반환합니다. 점수가 1에 가까울수록 긍정적 감정을 나타내고 점수가 0에 가까울수록 부정적 감정을 나타냅니다. 이 기술은 Cognitive Services의 [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)에서 제공하는 기계 학습 모델을 사용합니다.
 
 > [!NOTE]
-> 처리 빈도를 늘리거나, 문서를 더 추가하거나, AI 알고리즘을 추가하여 범위를 확장하려면 [청구 가능한 인지 서비스 리소스를 연결해야](cognitive-search-attach-cognitive-services.md)합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
+> 처리 빈도를 늘리거나 추가 문서를 추가 하거나 AI 알고리즘을 추가 하 여 범위를 확장 하는 경우 [청구 가능 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
 > 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "72791907"
 Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="data-limits"></a>데이터 제한
-레코드의 최대 크기는 에 의해 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)측정된 대로 5000자여야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용합니다.
+레코드의 최대 크기는에 따라 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)측정 되는 5000 자 여야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용합니다.
 
 
 ## <a name="skill-parameters"></a>기술 매개 변수
@@ -38,18 +38,18 @@ Microsoft.Skills.Text.SentimentSkill
 
 | 매개 변수 이름 |                      |
 |----------------|----------------------|
-| defaultLanguageCode | (선택 사항) 명시적으로 언어를 지정하지 않은 문서에 적용할 언어 코드입니다. <br/> [지원되는 언어 의 전체 목록](../cognitive-services/text-analytics/text-analytics-supported-languages.md) 보기 |
+| defaultLanguageCode | (선택 사항) 명시적으로 언어를 지정하지 않은 문서에 적용할 언어 코드입니다. <br/> [지원되는 언어 전체 목록](../cognitive-services/text-analytics/text-analytics-supported-languages.md) 참조 |
 
 ## <a name="skill-inputs"></a>기술 입력 
 
-| 입력 이름 | 설명 |
+| 입력 이름 | Description |
 |--------------------|-------------|
 | text | 분석할 텍스트입니다.|
-| languageCode  |  (선택 사항) 레코드의 언어를 나타내는 문자열입니다. 이 매개 변수를 지정하지 않을 경우 기본값은 “en”입니다. <br/>[지원되는 언어의 전체 목록을](../cognitive-services/text-analytics/text-analytics-supported-languages.md)참조하십시오.|
+| languageCode  |  (선택 사항) 레코드의 언어를 나타내는 문자열입니다. 이 매개 변수를 지정하지 않을 경우 기본값은 “en”입니다. <br/>[지원되는 언어 전체 목록](../cognitive-services/text-analytics/text-analytics-supported-languages.md)을 참조합니다.|
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름 | 설명 |
+| 출력 이름 | Description |
 |--------------------|-------------|
 | score | 분석된 텍스트의 감성를 나타내는 0과 1 사이의 값입니다. 값 0에 가까우면 부정적 감정이고, 0.5에 가까우면 중립적 감성이고, 1에 가까우면 긍정적인 감성입니다.|
 
@@ -116,7 +116,7 @@ Microsoft.Skills.Text.SentimentSkill
 ## <a name="error-cases"></a>오류 사례
 언어가 지원되지 않는 경우 오류가 발생하고 감성 점수는 반환되지 않습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [기본 제공 기술](cognitive-search-predefined-skills.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)

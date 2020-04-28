@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: sngun
 ms.openlocfilehash: 9dbbc914580d8d80a3f9b7d730574e24b44827c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70093723"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Azure Cosmos DB(미리 보기)에서 Azure Kubernetes를 사용하는 방법
@@ -27,9 +27,9 @@ Azure Cosmos DB의 etcd API에 대한 자세한 내용은 [개요](etcd-api-intr
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-1. [Azure CLI의](/cli/azure/install-azure-cli?view=azure-cli-latest)최신 버전을 설치합니다. 운영 체제에 해당하는 Azure CLI를 다운로드하고 설치할 수 있습니다.
+1. 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치 합니다. 운영 체제에 해당하는 Azure CLI를 다운로드하고 설치할 수 있습니다.
 
-1. Azure Kubernetes 엔진의 [최신 버전](https://github.com/Azure/aks-engine/releases)을 설치합니다. 다른 운영 체제에 대한 설치 지침은 [Azure Kubernetes 엔진](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) 페이지에서 사용할 수 있습니다. 연결된 문서의 **AKS 엔진 설치** 섹션의 단계만 있으면 됩니다. 다운로드 한 후 zip 파일을 추출합니다.
+1. Azure Kubernetes 엔진의 [최신 버전](https://github.com/Azure/aks-engine/releases)을 설치합니다. 다른 운영 체제에 대한 설치 지침은 [Azure Kubernetes 엔진](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) 페이지에서 사용할 수 있습니다. 연결 된 문서의 **AKS 엔진 설치** 섹션에서 단계가 필요 합니다. 다운로드 한 후 zip 파일의 압축을 풉니다.
 
    Azure Kubernetes 엔진(**aks-engine**)은 Azure에서 Kubernetes 클러스터용 Azure Resource Manager 템플릿을 생성합니다. aks-engine에 입력하는 항목은 오케스트레이터, 기능 및 에이전트를 포함하여 원하는 클러스터를 설명하는 클러스터 정의 파일입니다. 입력 파일의 구조는 Azure Kubernetes Service의 공용 API와 비슷합니다.
 
@@ -139,17 +139,17 @@ Azure Cosmos DB의 etcd API에 대한 자세한 내용은 [개요](etcd-api-intr
 
    Azure Kubernetes 엔진은 Azure Kubernetes의 원하는 모양, 크기 및 구성을 대략적으로 나타내는 클러스터 정의를 사용합니다. 클러스터 정의를 통해 사용할 수 있는 몇 가지 기능이 있습니다. 이 예제에서는 다음 매개 변수를 사용합니다.
 
-   * **구독 ID:** Azure Cosmos DB etcd API가 활성화된 Azure 구독 ID입니다.
-   * **클라이언트 ID:** 서비스 주체의 appId입니다. `appId`는 4단계에서 출력으로 반환되었습니다.
-   * **클라이언트 비밀:** 서비스 주체의 암호 또는 임의로 생성된 암호입니다. 이 값은 4단계의 'password' 매개 변수에서 출력으로 반환되었습니다. 
-   * **dns사전수정:** 지역 고유 DNS 이름입니다. 이 값은 호스트 이름의 일부를 구성합니다(예제 값은 -myprod1, staging임).
-   * **위치:**  클러스터를 배포해야 하는 위치는 현재 "centralus"만 지원됩니다.
+   * **구독 id:** Azure Cosmos DB etcd API를 사용 하는 Azure 구독 ID입니다.
+   * **클라이언트 id:** 서비스 주체의 appId입니다. `appId`는 4단계에서 출력으로 반환되었습니다.
+   * **클라이언트 암호:** 서비스 주체의 암호나 임의로 생성 된 암호입니다. 이 값은 4단계의 'password' 매개 변수에서 출력으로 반환되었습니다. 
+   * **dnsPrefix:** 지역 고유의 DNS 이름입니다. 이 값은 호스트 이름의 일부를 구성합니다(예제 값은 -myprod1, staging임).
+   * **위치:**  클러스터를 배포 해야 하는 위치로, 현재 "centralus"만 지원 됩니다.
 
    > [!Note]
    > Azure Cosmos etcd API는 현재 "centralus" 지역에서만 배포할 수 있습니다. 
  
-   * **api-모델:** 템플릿 파일에 대한 완전히 정규화된 경로입니다.
-   * **강제 덮어쓰기:** 이 옵션은 출력 디렉터리에서 기존 파일을 자동으로 덮어쓰는 데 사용됩니다.
+   * **api-모델:** 템플릿 파일에 대 한 정규화 된 경로입니다.
+   * **강제 덮어쓰기:** 이 옵션은 출력 디렉터리의 기존 파일을 자동으로 덮어쓰는 데 사용 됩니다.
  
    다음 명령은 예제 배포를 보여 줍니다.
 

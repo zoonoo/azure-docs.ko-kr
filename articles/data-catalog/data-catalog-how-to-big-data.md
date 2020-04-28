@@ -1,5 +1,5 @@
 ---
-title: Azure 데이터 카탈로그에서 빅 데이터를 카탈로그하는 방법
+title: Azure Data Catalog에서 빅 데이터를 카탈로그로 만드는 방법
 description: 방법 문서는 Azure Blob Storage, Azure Data Lake 및 Hadoop HDFS 등 '빅 데이터' 데이터 원본과 함께 Azure Data Catalog를 사용하기 위한 패턴을 강조 표시합니다.
 author: JasonWHowell
 ms.author: jasonh
@@ -7,13 +7,13 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 88dc85003fa2a3e41d8a31055ff8ba9b0fcc7492
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71300579"
 ---
-# <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Azure 데이터 카탈로그에서 빅 데이터를 카탈로그하는 방법
+# <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Azure Data Catalog에서 빅 데이터를 카탈로그로 만드는 방법
 
 ## <a name="introduction"></a>소개
 

@@ -1,5 +1,5 @@
 ---
-title: CI/CD 파이프라인에서 U-SQL 어셈블리 관리 - Azure 데이터 레이크
+title: CI/CD 파이프라인의 U-SQL 어셈블리 관리-Azure Data Lake
 description: Azure DevOps를 사용하여 CI/CD 파이프라인에서 U-SQL C# 어셈블리를 관리하는 모범 사례를 알아봅니다.
 author: yanancai
 ms.author: yanacai
@@ -7,10 +7,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.openlocfilehash: e6de10ed712688e4ee9dccc22176e81ad5e574ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71315841"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>CI/CD 파이프라인에서 U-SQL 어셈블리를 관리하는 모범 사례
@@ -30,12 +30,12 @@ C# 어셈블리 소스 코드 및 어셈블리 등록 DDL U-SQL 스크립트를 
 U-SQL 데이터베이스 프로젝트는 클래스 라이브러리(U-SQL 애플리케이션용) 프로젝트를 참조할 수 있습니다. 이 클래스 라이브러리(U-SQL 애플리케이션용) 프로젝트에서 참조된 C# 소스 코드를 사용하여 U-SQL 데이터베이스에 등록된 어셈블리를 만들 수 있습니다.
 
 프로젝트를 만들고 참조를 추가하려면 다음 단계를 따릅니다.
-1. **파일** > **새** > 프로젝트를 선택하여 클래스 라이브러리(U-SQL 응용 프로그램용) 프로젝트를**만듭니다.** 프로젝트는 **Azure Data Lake > U-SQL** 노드 아래에 있습니다.
+1. **파일** > **New**새로 > 만들기**프로젝트**를 선택 하 여 클래스 라이브러리 (t-sql 응용 프로그램) 프로젝트를 만듭니다. 프로젝트는 **Azure Data Lake > U-SQL** 노드 아래에 있습니다.
 
    ![Data Lake Tools for Visual Studio - C# 클래스 라이브러리 프로젝트 만들기](./media/data-lake-analytics-cicd-manage-assemblies/create-c-sharp-class-library-project.png)
 1. 클래스 라이브러리(U-SQL 애플리케이션용) 프로젝트에 사용자 정의 C# 코드를 추가합니다.
 
-1. **파일** > **새** > 프로젝트를 선택하여 U-SQL**프로젝트를**만듭니다. 이 프로젝트는 **Azure 데이터 레이크** > **U-SQL** 노드 아래에 있습니다.
+1. **파일** > **New**새로 > 만들기**프로젝트**를 선택 하 여 U SQL 프로젝트를 만듭니다. 프로젝트는 **Azure Data Lake** > **U-SQL** 노드 아래에 있습니다.
 
    ![Data Lake Tools for Visual Studio--U-SQL 데이터베이스 프로젝트 만들기](media/data-lake-analytics-cicd-manage-assemblies/create-u-sql-database-project.png)
 1. U-SQL 데이터베이스 프로젝트용 C# 클래스 라이브러리 프로젝트에 참조를 추가합니다.
@@ -54,7 +54,7 @@ U-SQL 데이터베이스 프로젝트는 클래스 라이브러리(U-SQL 애플�
 
 7. **관리되는 종속성** 및 **추가 파일**(있는 경우)을 추가합니다. 추가 파일을 추가하는 경우 이 도구는 나중에 상대 경로를 사용하여 로컬 컴퓨터 및 빌드 컴퓨터에서 어셈블리를 찾을 수 있습니다.
 
-아래쪽의 편집기 창에 있는 _DeployTempDirectory 도구를 빌드 출력 폴더로 가리키는 미리 정의된 변수입니다. ** \@** 모든 어셈블리는 빌드 출력 폴더 아래에 어셈블리 이름의 하위 폴더가 있습니다. 모든 DLL 및 추가 파일이 해당 하위 폴더에 있습니다.
+아래쪽의 편집기 창에 있는 _DeployTempDirectory는 도구를 빌드 출력 폴더에 가리키는 미리 정의 된 변수입니다. ** \@** 모든 어셈블리는 빌드 출력 폴더 아래에 어셈블리 이름의 하위 폴더가 있습니다. 모든 DLL 및 추가 파일이 해당 하위 폴더에 있습니다.
 
 ## <a name="build-a-u-sql-database-project"></a>U-SQL 데이터베이스 프로젝트 빌드
 

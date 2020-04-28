@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: iot-fundamentals
 author: robinsh
@@ -9,10 +9,10 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 128a2e8b200f1323b88aad635f27c1b686ecbed2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72789705"
 ---
 사물 인터넷(IoT)은 전 세계 기업에 고유한 보안, 개인 정보 및 규정 준수 문제를 제기합니다. 문제가 소프트웨어와 구현 방식을 중심으로 발생하는 기존의 사이버 기술과는 달리 IoT는 사이버 세계와 실제 세계가 만날 때 일어나는 일과 관련하여 문제가 발생합니다. IoT 솔루션을 보호하기 위해서는 디바이스의 안전한 프로비전, 이러한 디바이스 및 클라우드 간의 보안 연결, 처리 및 스토리지 중에 클라우드에서 데이터 보호 설정이 요구됩니다. 그러나 이러한 기능에 대한 작업에는 리소스가 제한된 디바이스, 배포의 지리적 분산 및 솔루션 내 많은 수의 디바이스에 대한 작업이 포함됩니다.
@@ -31,7 +31,7 @@ ms.locfileid: "72789705"
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>처음부터 보안 인프라
 
-[Microsoft 클라우드](https://azure.microsoft.com) 인프라는 127개 국가/지역에서 10억 명 이상의 고객을 지원합니다. 엔터프라이즈 소프트웨어를 구축하고 전 세계에서 가장 큰 온라인 서비스 중 일부를 실행하는 Microsoft의 수십 년에 걸친 경험을 토대로, Microsoft 클라우드는 대부분의 고객이 자체적으로 달성할 수 있는 것보다 향상된 수준의 보안, 개인 정보, 규정 준수 및 위협 완화 방법을 제공합니다.
+[Microsoft 클라우드](https://azure.microsoft.com) 인프라는 127 국가/지역에서 10억 명 이상의 고객을 지원 합니다. 엔터프라이즈 소프트웨어를 구축하고 전 세계에서 가장 큰 온라인 서비스 중 일부를 실행하는 Microsoft의 수십 년에 걸친 경험을 토대로, Microsoft 클라우드는 대부분의 고객이 자체적으로 달성할 수 있는 것보다 향상된 수준의 보안, 개인 정보, 규정 준수 및 위협 완화 방법을 제공합니다.
 
 [SDL(보안 개발 수명 주기)](https://www.microsoft.com/sdl/)은 보안 요구 사항을 전체 소프트웨어 수명 주기에 포함하는 전사적인 필수 개발 프로세스를 제공합니다. 동일한 보안 실무 수준에 따라 운영 활동이 진행되도록 하기 위해, SDL은 Microsoft의 OSA(운영 보안 보증) 프로세스에 따른 엄격한 보안 지침을 사용합니다. 또한 Microsoft는 규정 준수 의무를 충족하는지 지속적으로 확인하기 위해 타사 감사 업체와도 협력하며 Microsoft Digital Crimes Unit, Microsoft 보안 대응 센터 및 Microsoft 맬웨어 보호 센터를 비롯한 우수한 센터를 만들어 광범위한 보안 작업에 참여하고 있습니다.
 
@@ -107,8 +107,8 @@ IoT 인프라에서 사용되는 모든 키는 보안 스토리지의 클라우�
 
 * [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): 디바이스, 센서, 인프라 및 애플리케이션에서 실시간 정보를 파악하는 저비용 분석 솔루션을 빠르게 개발 및 배포하는 클라우드의 실시간 스트림 처리입니다. 이 완전히 관리되는 서비스의 데이터를 높은 처리량, 낮은 대기 시간 및 복원력을 확보하면서 어떤 볼륨으로도 확장할 수 있습니다.
 
-* [**Azure 앱 서비스**](https://azure.microsoft.com/services/app-service/): 어디서나 데이터에 연결하는 강력한 웹 및 모바일 앱을 빌드하는 클라우드 플랫폼입니다. 클라우드 또는 온-프레미스에서 볼 수 있습니다. iOS, Android 및 Windows를 위한 유용한 모바일 앱을 빌드하세요. 수십 개의 클라우드 기반 서비스와 엔터프라이즈 애플리케이션에 즉시 연결 가능하므로 귀사의 SaaS(Software as a Service) 및 엔터프라이즈 애플리케이션과 통합이 용이합니다. 가장 자주 사용하는 언어와 IDE(.NET, Node.js, PHP, Python 또는 Java)로 코딩하여 더욱 빨리 웹앱과 API를 빌드하세요.
+* [**Azure 앱 Services**](https://azure.microsoft.com/services/app-service/): 어디서 나 데이터에 연결 하는 강력한 웹 및 모바일 앱을 빌드하는 클라우드 플랫폼입니다. 클라우드 또는 온-프레미스에서 iOS, Android 및 Windows를 위한 유용한 모바일 앱을 빌드하세요. 수십 개의 클라우드 기반 서비스와 엔터프라이즈 애플리케이션에 즉시 연결 가능하므로 귀사의 SaaS(Software as a Service) 및 엔터프라이즈 애플리케이션과 통합이 용이합니다. 가장 자주 사용하는 언어와 IDE(.NET, Node.js, PHP, Python 또는 Java)로 코딩하여 더욱 빨리 웹앱과 API를 빌드하세요.
 
-* [**논리 앱**](https://azure.microsoft.com/services/app-service/logic/): Azure App Service의 논리 앱 기능을 사용하면 IoT 솔루션을 기존 업무 용 시스템 시스템에 통합하고 워크플로 프로세스를 자동화할 수 있습니다. Logic Apps를 사용하면 개발자는 트리거부터 시작하여 비즈니스 프로세스와 통합할 강력한 커넥터를 사용하는 규칙 및 작업으로 이루어진 일련의 단계를 수행하는 워크플로를 설계할 수 있습니다. Logic Apps는 SaaS, 클라우드 기반 및 온-프레미스 애플리케이션의 방대한 생태계에 즉시 연결을 제공합니다.
+* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): Azure App Service의 Logic Apps 기능을 통해 IoT 솔루션을 기존의 lob (기간 업무) 시스템에 통합 하 고 워크플로 프로세스를 자동화할 수 있습니다. Logic Apps를 사용하면 개발자는 트리거부터 시작하여 비즈니스 프로세스와 통합할 강력한 커넥터를 사용하는 규칙 및 작업으로 이루어진 일련의 단계를 수행하는 워크플로를 설계할 수 있습니다. Logic Apps는 SaaS, 클라우드 기반 및 온-프레미스 애플리케이션의 방대한 생태계에 즉시 연결을 제공합니다.
 
-* [**Azure Blob 저장소**](https://azure.microsoft.com/services/storage/): 장치가 클라우드로 보내는 데이터에 대한 안정적이고 경제적인 클라우드 스토리지입니다.
+* [**Azure Blob storage**](https://azure.microsoft.com/services/storage/): 장치가 클라우드로 전송 하는 데이터에 대 한 안정적이 고 경제적인 클라우드 저장소입니다.

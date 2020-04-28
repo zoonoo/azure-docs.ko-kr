@@ -1,5 +1,5 @@
 ---
-title: Azure 알림 허브를 사용하여 특정 사용자에게 푸시 알림 보내기 | 마이크로 소프트 문서
+title: Azure Notification Hubs을 사용 하 여 특정 사용자에 게 푸시 알림 보내기 Microsoft Docs
 description: Azure Notification Hubs를 사용하여 특정 사용자에게 푸시 알림을 보내는 방법을 알아봅니다.
 documentationcenter: ios
 author: sethm
@@ -17,13 +17,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 48135ea614bbab4ca6649a83895ae5f632918c61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72387469"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>자습서: Azure 알림 허브를 사용 하 여 특정 사용자에 게 푸시 알림을 보내기
+# <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용 하 여 특정 사용자에 게 푸시 알림 보내기
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -56,7 +56,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
 
 2. `Main.storyboard` 파일에서 개체 라이브러리에서 스크린샷에 표시된 구성 요소를 추가합니다.
 
-    ![Xcode 인터페이스 빌더에서 스토리보드 편집][1]
+    ![Xcode interface builder에서 storyboard 편집][1]
 
    * **Username**: 자리 표시자 텍스트가 있는 UITextField, *사용자 이름 입력*, 바로 아래 결과 레이블 보내기를 지정하고 왼쪽 및 오른쪽 여백 및 보내기 결과 레이블 아래로 제한됩니다.
    * **암호**: 자리 표시자 텍스트가 있는 UITextField, *사용자 이름 입력*, 바로 아래 사용자 이름 텍스트 필드 및 왼쪽 및 오른쪽 여백 및 사용자 이름 텍스트 필드 아래로 제한됩니다. **반환 키** 아래 특성 검사기에서 *텍스트 항목 보안*옵션을 선택합니다.
@@ -499,7 +499,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
 이 자습서에서는 등록에 태그가 연결된 특정 사용자에게 알림을 푸시하는 방법을 배웠습니다. 위치 기반 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
 
 > [!div class="nextstepaction"]
->[위치 기반 알림 푸시](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
+>[위치 기반 푸시 알림](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png
 [2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png

@@ -15,10 +15,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b4fdbbd4d71a9c97259678413cd9e59ee8aeae6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69032659"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자의 암호 다시 설정
@@ -33,7 +33,7 @@ ms.locfileid: "69032659"
 
 ## <a name="to-reset-a-password"></a>암호를 다시 설정하려면
 
-1. Azure [포털에](https://portal.azure.com/) 사용자 관리자 또는 암호 관리자로 로그인합니다. 사용 가능한 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md#available-roles)을 참조하세요.
+1. 사용자 관리자 또는 암호 관리자 권한으로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다. 사용 가능한 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md#available-roles)을 참조하세요.
 
 2. **Azure Active Directory**를 선택하고, **사용자**를 선택하고, 다시 설정할 사용자를 검색하여 선택한 다음, **암호 다시 설정**을 선택합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "69032659"
 3. **암호 다시 설정** 페이지에서 **암호 다시 설정**을 선택합니다.
 
     > [!Note]
-    > Azure Active Directory를 사용하는 경우 사용자에 대해 임시 암호가 자동으로 생성됩니다. Active Directory 온-프레미스를 사용하는 경우 사용자에 대한 암호를 만듭니다.
+    > Azure Active Directory 사용 하는 경우 사용자에 대 한 임시 암호가 자동으로 생성 됩니다. 온-프레미스 Active Directory를 사용 하는 경우 사용자에 대 한 암호를 만듭니다.
 
 4. 암호를 복사하고 사용자에게 제공합니다. 사용자는 다음 로그인 프로세스 중에 암호를 변경해야 합니다.
 

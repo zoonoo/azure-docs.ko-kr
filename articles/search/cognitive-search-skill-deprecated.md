@@ -1,7 +1,7 @@
 ---
-title: 더 이상 사용되지 않습니다.
+title: 더 이상 사용 되지 않는 인식 기술
 titleSuffix: Azure Cognitive Search
-description: 이 페이지에는 사용되지 않는 것으로 간주되며 Azure 인지 검색 기술 집합에서 가까운 장래에 지원되지 않는 인지 기술 목록이 포함되어 있습니다.
+description: 이 페이지에는 더 이상 사용 되지 않는 것으로 간주 되며 Azure Cognitive Search 기술력과의 가까운 장래에 지원 되지 않는 인식 기술 목록이 포함 됩니다.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 5f3587e4398be28cbaa2372be720258196bb48ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72792029"
 ---
-# <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Azure 인지 검색에서 더 이상 사용되지 이상인식된 인지 기술
+# <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Azure Cognitive Search에서 사용 되지 않는 인식 기술
 
 이 문서에서는 사용되지 않는 것으로 간주되는 기술을 설명합니다. 내용에 대해서는 다음 가이드를 사용합니다.
 
 * 기술 이름: 사용되지 않는 기술 이름이 @odata.type 특성에 매핑됩니다.
-* 마지막으로 사용 가능한 API 버전: 해당 사용되지 않는 기술을 포함하는 기술 집합을 만들/업데이트할 수 있는 Azure Cognitive Search 공용 API의 마지막 버전입니다.
+* 마지막으로 사용 가능한 api 버전: 해당 하는 사용 되지 않는 스킬을 포함 하는 기술력과를 사용 하는 Azure Cognitive Search 공용 API의 마지막 버전을 만들거나 업데이트할 수 있습니다.
 * 지원 종료: 종료 마지막 날 이후로 해당 기술은 지원되지 않는 것으로 간주됩니다. 이전에 만든 기술 세트는 계속 작동해야 하지만 사용자는 사용되지 않는 기술에서 마이그레이션하는 것이 좋습니다.
 * 권장 사항: 지원되는 기술을 사용하기 위한 마이그레이션 경로 전달. 사용자는 지원을 계속 받을 수 있도록 권장 사항을 따르는 것이 좋습니다.
 
@@ -145,7 +145,7 @@ ms.locfileid: "72792029"
         }
         ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [기본 제공 기술](cognitive-search-predefined-skills.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)

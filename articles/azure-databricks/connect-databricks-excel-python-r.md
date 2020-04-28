@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
 ms.openlocfilehash: f7494d36cf9b16ac6c7a1287a6ff96dd2285c6e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73601940"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Excel, Python 또는 R에서 Azure Databricks에 연결
@@ -34,19 +34,19 @@ DSN(데이터 원본 이름)은 특정 데이터 원본에 대한 정보를 포�
 
 1. Azure Databricks 작업 영역에서 Databricks 클러스터로 이동합니다.
 
-    ![데이터 브릭 클러스터 열기](./media/connect-databricks-excel-python-r/open-databricks-cluster.png "데이터 브릭 클러스터 열기")
+    ![Databricks 클러스터 열기](./media/connect-databricks-excel-python-r/open-databricks-cluster.png "Databricks 클러스터 열기")
 
 2. **구성** 탭 아래에서 **JDBC/ODBC** 탭을 클릭하고, **서버 호스트 이름** 및 **HTTP 경로**에 대한 값을 복사합니다. 이 문서의 단계를 완료하는 데 이러한 값이 필요합니다.
 
-    ![데이터 브릭 구성 받기](./media/connect-databricks-excel-python-r/get-databricks-jdbc-configuration.png "데이터 브릭 구성 받기")
+    ![Databricks 구성 가져오기](./media/connect-databricks-excel-python-r/get-databricks-jdbc-configuration.png "Databricks 구성 가져오기")
 
 3. 컴퓨터에서 애플리케이션에 따라 **ODBC 데이터 원본** 애플리케이션(32비트 또는 64비트)을 시작합니다. Excel에서 연결하려면 32비트 버전을 사용합니다. R 및 Python에서 연결하려면 64비트 버전을 사용합니다.
 
-    ![ODBC 출시](./media/connect-databricks-excel-python-r/launch-odbc-app.png "ODBC 앱 실행")
+    ![ODBC 시작](./media/connect-databricks-excel-python-r/launch-odbc-app.png "ODBC 앱 시작")
 
 4. **사용자 DSN** 탭 아래에서 **추가**를 클릭합니다. **새 데이터 원본 만들기 ** 대화 상자에서 **Simba Spark ODBC 드라이버**를 선택한 다음, **마침**을 클릭합니다.
 
-    ![ODBC 출시](./media/connect-databricks-excel-python-r/add-new-user-dsn.png "ODBC 앱 실행")
+    ![ODBC 시작](./media/connect-databricks-excel-python-r/add-new-user-dsn.png "ODBC 앱 시작")
 
 5. **Simba Spark ODBC 드라이버** 대화 상자에서 다음 값을 제공합니다.
 
@@ -57,8 +57,8 @@ DSN(데이터 원본 이름)은 특정 데이터 원본에 대한 정보를 포�
     |필드  | 값  |
     |---------|---------|
     |**데이터 원본 이름**     | 데이터 원본의 이름을 제공합니다.        |
-    |**호스트(들)**     | *서버 호스트 이름*으로 Databricks 작업 영역에서 복사한 값을 제공합니다.        |
-    |**Port**     | *443*을 입력합니다.        |
+    |**개 호스트**     | *서버 호스트 이름*으로 Databricks 작업 영역에서 복사한 값을 제공합니다.        |
+    |**포트**     | *443*을 입력합니다.        |
     |**인증** > **메커니즘**     | *사용자 이름 및 암호*를 선택합니다.        |
     |**사용자 이름**     | *토큰*을 입력합니다.        |
     |**암호**     | Databricks 작업 영역에서 복사한 토큰 값을 입력합니다. |
@@ -78,7 +78,7 @@ DSN(데이터 원본 이름)은 특정 데이터 원본에 대한 정보를 포�
 
 1. Microsoft Excel에서 빈 통합 문서를 엽니다. **데이터** 리본에서 **데이터 가져오기**를 클릭합니다. **기타 원본**을 클릭한 다음, **ODBC**를 클릭합니다.
 
-    ![엑셀에서 ODBC 출시](./media/connect-databricks-excel-python-r/launch-odbc-from-excel.png "엑셀에서 ODBC 출시")
+    ![Excel에서 ODBC 시작](./media/connect-databricks-excel-python-r/launch-odbc-from-excel.png "Excel에서 ODBC 시작")
 
 2. **ODBC** 대화 상자에서 앞에서 만든 DSN을 선택한 다음, **확인**을 클릭합니다.
 
@@ -86,11 +86,11 @@ DSN(데이터 원본 이름)은 특정 데이터 원본에 대한 정보를 포�
 
 3. 자격 증명을 묻는 메시지가 표시되면 사용자 이름에 대한 **토큰**을 입력합니다. 암호의 경우 Databricks 작업 영역에서 검색한 토큰 값을 제공합니다.
 
-    ![데이터브릭에 대한 자격 증명 제공](./media/connect-databricks-excel-python-r/excel-databricks-token.png "DSN 선택")
+    ![Databricks에 대 한 자격 증명 제공](./media/connect-databricks-excel-python-r/excel-databricks-token.png "DSN 선택")
 
 4. 탐색기 창에서 Excel에 로드하려는 테이블을 Databricks로 선택한 다음, **로드**를 클릭합니다. 
 
-    ![Excel에 dta로드](./media/connect-databricks-excel-python-r/excel-load-data.png "Excel에 dta로드")
+    ![Excel로 dta 로드](./media/connect-databricks-excel-python-r/excel-load-data.png "Excel로 dta 로드")
 
 Excel 통합 문서에 데이터가 있으면 분석 작업을 수행할 수 있습니다.
 
@@ -102,7 +102,7 @@ Excel 통합 문서에 데이터가 있으면 분석 작업을 수행할 수 있
 이 섹션에서는 R 언어 IDE를 사용하여 Azure Databricks에서 사용할 수 있는 데이터를 참조합니다. 시작하기 전에 컴퓨터에 다음을 설치해야 합니다.
 
 * R 언어에 대한 IDE입니다. 이 문서에서는 데스크톱용 RStudio를 사용합니다. [R Studio 다운로드](https://www.rstudio.com/products/rstudio/download/)에서 설치할 수 있습니다.
-* 데스크톱용 RStudio를 IDE로 사용하는 경우 에서 [https://aka.ms/rclient/](https://aka.ms/rclient/)Microsoft R 클라이언트도 설치합니다. 
+* 데스크톱에 대해 RStudio를 IDE로 사용 하는 경우에도 Microsoft R Client [https://aka.ms/rclient/](https://aka.ms/rclient/)을 설치 합니다. 
 
 RStudio를 열고 다음 단계를 수행합니다.
 
@@ -134,7 +134,7 @@ RStudio를 열고 다음 단계를 수행합니다.
 
 * [여기](https://www.python.org/downloads/)에서 Python을 설치합니다. 이 링크에서 Python을 설치하면 IDLE도 설치됩니다.
 
-* 컴퓨터의 명령 프롬프트에서 `pyodbc` 패키지를 설치합니다. 다음 명령 실행:
+* 컴퓨터의 명령 프롬프트에서 `pyodbc` 패키지를 설치합니다. 다음 명령을 실행합니다.
 
       pip install pyodbc
 

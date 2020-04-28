@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
 ms.openlocfilehash: dc4ff35ff04680e8635d54c25212c8ae639ae472
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60779838"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>흔들기, 흔들어서 트윗 찾기 -- Azure Functions를 사용하여 Twitter 메시지 검색
@@ -29,8 +29,8 @@ ms.locfileid: "60779838"
 
 활성화된 Azure 구독. 아직 구독이 없으면 다음 방법 중 하나를 통해 등록할 수 있습니다.
 
-* 무료 [30일 평가판 활성화 Microsoft Azure 계정](https://azure.microsoft.com/free/)
-* MSDN 또는 Visual Studio 구독자인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) 을 청구합니다.
+* [30 일 무료 평가판 Microsoft Azure 계정](https://azure.microsoft.com/free/) 활성화
+* MSDN 또는 Visual Studio 구독자 인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) 청구
 
 ## <a name="open-the-project-folder"></a>프로젝트 폴더 열기
 
@@ -92,7 +92,7 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 
 1. `Ctrl+P`를 사용하여 `task device-upload`를 실행합니다.
 
-2. 터미널에서 구성 모드를 입력하라는 메시지를 표시합니다. 이렇게 하려면 다음을 수행합니다.
+2. 터미널에서 구성 모드를 입력하라는 메시지를 표시합니다. 확인 방법은 다음과 같습니다.
 
    * A 단추를 길게 누르기
 
@@ -151,7 +151,7 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 - 다시 A 단추를 누른 후 흔들어서 새 트윗을 검색합니다.
 - B 단추를 눌러 나머지 트윗을 스크롤합니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 ![다이어그램](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 

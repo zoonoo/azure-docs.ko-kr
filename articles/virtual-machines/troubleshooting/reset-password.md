@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: delhan
 ms.openlocfilehash: 83751538efe4f3d3af5928caa04b265b6c867442
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71153566"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Azure VM에서 로컬 Linux 암호를 다시 설정하는 방법
@@ -31,13 +31,13 @@ VM에 로그인할 수 없다면 사용한 암호가 잘못되었음을 나타�
 ## <a name="manual-password-reset-procedure"></a>수동 암호 다시 설정 프로시저
 
 > [!NOTE]
-> 다음 단계는 관리되지 않는 디스크가 있는 VM에는 적용되지 않습니다.
+> 다음 단계는 관리 되지 않는 디스크가 있는 VM에는 적용 되지 않습니다.
 
-1. 영향을 받는 VM의 OS 디스크에 대한 스냅숏을 만들고 스냅숏에서 디스크를 만든 다음 디스크를 문제 해결 VM에 연결합니다. 자세한 내용은 [Azure 포털을 사용하여 OS 디스크를 복구 VM에 연결하여 Windows VM 문제 해결을](troubleshoot-recovery-disks-portal-linux.md)참조하세요.
+1. 영향을 받는 VM의 OS 디스크에 대 한 스냅숏을 만들고 스냅숏에서 디스크를 만든 다음 문제 해결 VM에 디스크를 연결 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 OS 디스크를 복구 VM에 연결 함으로써 WINDOWS VM 문제 해결](troubleshoot-recovery-disks-portal-linux.md)을 참조 하세요.
 
-2. 원격 데스크톱을 사용하여 문제 해결 VM에 연결합니다.
+2. 원격 데스크톱을 사용 하 여 문제 해결 VM에 연결 합니다.
 
-3.  문제 해결 VM에서 다음 SSH 명령을 실행하여 수퍼 유저가 됩니다.
+3.  문제 해결 VM에서 다음 SSH 명령을 실행 하 여 슈퍼 사용자가 될 수 있습니다.
 
     ```bash
     sudo su
@@ -62,7 +62,7 @@ VM에 로그인할 수 없다면 사용한 암호가 잘못되었음을 나타�
     mkdir /tempmount
     ```
 
-6.  탑재 지점에 OS 디스크를 탑재합니다. 일반적으로 *sdc1* 또는 *sdc2를*마운트해야 합니다. 이것은 깨진 컴퓨터 디스크의 */etc* 디렉토리의 호스팅 파티션에 따라 달라집니다.
+6.  탑재 지점에 OS 디스크를 탑재합니다. 일반적으로 *sdc1* 또는 *sdc2*를 탑재 해야 합니다. 이는 손상 된 컴퓨터 디스크에서 */sing* 디렉터리의 호스팅 파티션에 따라 달라 집니다.
 
     ```bash
     mount /dev/sdc1 /tempmount
@@ -101,9 +101,9 @@ VM에 로그인할 수 없다면 사용한 암호가 잘못되었음을 나타�
     umount /tempmount
     ```
 
-11. Azure 포털에서 문제 해결 VM에서 디스크를 분리합니다.
+11. Azure Portal 문제 해결 VM에서 디스크를 분리 합니다.
 
-12. [영향을 받는 VM의 OS 디스크를 변경합니다.](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm)
+12. [영향을 받는 VM에 대 한 OS 디스크를 변경](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

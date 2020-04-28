@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 09/24/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 92a6fef3305891b47c4dc2e0f0432e1079df5a69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71266532"
 ---
 가상 네트워크 게이트웨이는 '게이트웨이 서브넷'이라는 특정 서브넷을 사용합니다. 게이트웨이 서브넷은 가상 네트워크를 구성할 때 지정하는 가상 네트워크 IP 주소 범위에 속합니다. 여기에는 가상 네트워크 게이트웨이 리소스 및 서비스에서 사용하는 IP 주소가 포함됩니다. 

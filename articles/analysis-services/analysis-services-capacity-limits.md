@@ -1,6 +1,6 @@
 ---
 title: Azure Analysis Services 리소스 및 개체 제한 | Microsoft Docs
-description: 이 문서에서는 Azure 분석 서비스 서버에 대한 리소스 및 개체 제한에 대해 설명합니다.
+description: 이 문서에서는 Azure Analysis Services 서버에 대 한 리소스 및 개체 제한을 설명 합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f309c9863eb2f3065251537380a2977839f990d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73573207"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Analysis Services 리소스 및 개체 제한
@@ -20,7 +20,7 @@ ms.locfileid: "73573207"
 
 ## <a name="tier-limits"></a>계층 제한
 
-개발자, 기본 및 표준 계층에 대한 QPU 및 메모리 제한은 [Azure 분석 서비스 가격 책정 페이지를](https://azure.microsoft.com/pricing/details/analysis-services/)참조하십시오.
+개발자, 기본 및 표준 계층에 대 한 QPU 및 메모리 제한은 [Azure Analysis Services 가격 책정 페이지](https://azure.microsoft.com/pricing/details/analysis-services/)를 참조 하세요.
 
 ## <a name="object-limits"></a>개체 제한
 

@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
 ms.openlocfilehash: 92fc5bb88ff5efd8fe1a8cd61be833b3984b673a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73605612"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics를 사용하여 Avro 데이터 쿼리
 
-이 아티클에서는 Azure IoT Hub에서 Azure 서비스로 메시지를 효율적으로 라우팅하기 위해 Avro 데이터를 쿼리하는 방법을 설명합니다. [메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 통해 메시지 속성, 메시지 본문, 디바이스 쌍 태그 및 디바이스 쌍 속성 기반의 풍부한 쿼리를 사용하여 데이터를 필터링할 수 있습니다. Message 라우팅의 쿼리 기능에 대해 자세히 알아보려면 [메시지 라우팅 쿼리 구문에](iot-hub-devguide-routing-query-syntax.md)대한 문서를 참조하십시오.
+이 아티클에서는 Azure IoT Hub에서 Azure 서비스로 메시지를 효율적으로 라우팅하기 위해 Avro 데이터를 쿼리하는 방법을 설명합니다. [메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 통해 메시지 속성, 메시지 본문, 디바이스 쌍 태그 및 디바이스 쌍 속성 기반의 풍부한 쿼리를 사용하여 데이터를 필터링할 수 있습니다. 메시지 라우팅의 쿼리 기능에 대해 자세히 알아보려면 [메시지 라우팅 쿼리 구문](iot-hub-devguide-routing-query-syntax.md)에 대 한 문서를 참조 하세요.
 
-문제는 Azure IoT Hub가 Azure Blob 저장소로 메시지를 라우팅할 때 기본적으로 IoT Hub가 메시지 본문 속성과 메시지 속성을 모두 포함하는 Avro 형식으로 콘텐츠를 작성한다는 것입니다. Avro 형식은 다른 끝점에 사용되지 않습니다. Avro 형식은 데이터와 메시지 보존에 적합하지만 이를 사용하여 데이터를 쿼리하기에 어렵습니다. 반면 JSON 또는 CSV 형식은 데이터를 쿼리하기에 훨씬 용이합니다. 이제 IoT Hub는 AVRO뿐만 아니라 JSON의 Blob 스토리지에 데이터를 기록하는 것을 지원합니다.
+이러한 문제는 Azure IoT Hub에서 Azure Blob storage로 메시지를 라우팅하는 경우 기본적으로 IoT Hub는 메시지 본문 속성과 메시지 속성을 모두 포함 하는 Avro 형식으로 콘텐츠를 기록 하는 것입니다. Avro 형식은 다른 끝점에는 사용 되지 않습니다. Avro 형식은 데이터와 메시지 보존에 적합하지만 이를 사용하여 데이터를 쿼리하기에 어렵습니다. 반면 JSON 또는 CSV 형식은 데이터를 쿼리하기에 훨씬 용이합니다. 이제 IoT Hub는 AVRO 뿐만 아니라 JSON의 Blob storage에 데이터를 쓸 수 있습니다.
 
-자세한 내용은 [Azure Storage를 라우팅 끝점으로 사용하는](iot-hub-devguide-messages-d2c.md#azure-storage)것을 참조하십시오.
+자세한 내용은 [Azure Storage를 라우팅 끝점으로 사용](iot-hub-devguide-messages-d2c.md#azure-storage)을 참조 하세요.
 
 비관계형 빅 데이터 요구 사항 및 형식을 해결하고 이 어려움을 이겨내려면 데이터 변환 및 크기 조정 모두에 대해 여러 빅 데이터 패턴을 사용할 수 있습니다. 이런 패턴 중 하나인 "쿼리당 지불"은 Azure Data Lake Analytics이며, 이 문서의 핵심 내용입니다. Hadoop 또는 기타 솔루션에서 쿼리를 쉽게 실행할 수 있지만 Data Lake Analytics는 이 "쿼리당 지불" 방법에 더 적합합니다.
 
@@ -173,6 +173,6 @@ U-SQL에는 Avro용 "추출기"가 있습니다. 자세한 내용은 [U-SQL Avro
 
 IoT Hub를 사용하는 완벽한 엔드투엔드 솔루션의 예는 [Azure IoT 솔루션 가속기 설명서](/azure/iot-accelerators)를 참조하세요.
 
-IoT Hub를 사용하여 솔루션 개발에 대해 자세히 알아보려면 [IoT Hub 개발자 가이드를](iot-hub-devguide.md)참조하십시오.
+IoT Hub를 사용 하 여 솔루션을 개발 하는 방법에 대 한 자세한 내용은 [개발자 가이드 IoT Hub](iot-hub-devguide.md)를 참조 하세요.
 
 IoT Hub의 메시지 라우팅에 대한 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.
