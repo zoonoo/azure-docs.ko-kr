@@ -1,6 +1,6 @@
 ---
 title: Power BI를 사용하여 원격 모니터링 데이터 시각화 - Azure | Microsoft Docs
-description: 이 자습서에서는 Power BI 데스크톱 및 Cosmos DB를 사용하여 원격 모니터링 솔루션의 데이터를 사용자 지정 시각화에 통합합니다. 이렇게 하면 자신만의 사용자 지정 대시보드를 만들어서 솔루션이 아닌 곳에서 사용자에게 공유할 수 있습니다.
+description: 이 자습서에서는 Power BI Desktop 및 Cosmos DB를 사용 하 여 원격 모니터링 솔루션의 데이터를 사용자 지정 된 시각화로 통합 합니다. 이렇게 하면 자신만의 사용자 지정 대시보드를 만들어서 솔루션이 아닌 곳에서 사용자에게 공유할 수 있습니다.
 author: dominicbetts
 manager: hegate
 ms.author: dobett
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74184234"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Power BI를 사용하여 원격 모니터링 데이터 시각화
@@ -22,13 +22,13 @@ ms.locfileid: "74184234"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 현재 실행 중인 원격 모니터링 솔루션이 있어야 합니다.
-- [Azure 포털](https://portal.azure.com) 및 IoT Hub 및 솔루션이 실행 중인 구독에 액세스할 수 있어야 합니다.
+- [Azure Portal](https://portal.azure.com) 및 IoT Hub 및 솔루션이 실행 되는 구독에 대 한 액세스 권한이 있어야 합니다.
 - [Power BI 데스크톱](https://powerbi.microsoft.com)이 설치되어 있어야 하며 버전은 상관 없습니다.
 
 
-## <a name="information-needed-from-azure-portal"></a>Azure 포털에서 필요한 정보
+## <a name="information-needed-from-azure-portal"></a>Azure Portal에서 필요한 정보
 
-1. Azure [포털로](https://portal.azure.com) 이동 및 필요한 경우 로그인
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 고 필요한 경우 로그인 합니다.
 
 2. 왼쪽 패널에서 리소스 그룹을 클릭합니다.
 

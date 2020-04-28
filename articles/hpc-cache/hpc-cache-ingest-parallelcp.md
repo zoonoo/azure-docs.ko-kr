@@ -1,25 +1,25 @@
 ---
-title: Azure HPC 캐시 데이터 수집 - 병렬 복사 스크립트
-description: 병렬 복사 스크립트를 사용하여 Azure HPC 캐시의 Blob 저장소 대상으로 데이터를 이동하는 방법
+title: Azure HPC 캐시 데이터 수집-병렬 복사 스크립트
+description: 병렬 복사 스크립트를 사용 하 여 Azure HPC 캐시에서 Blob 저장소 대상으로 데이터를 이동 하는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: 90e05ad3d42b1009b631630fe476669a9f418d33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74166886"
 ---
-# <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Azure HPC 캐시 데이터 수집 - 병렬 복사 스크립트 메서드
+# <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Azure HPC 캐시 데이터 수집-병렬 복사 스크립트 메서드
 
-이 문서에서는 스크립트를 ``parallelcp`` 만들고 이를 사용하여 Azure HPC 캐시와 함께 사용할 Blob 저장소 컨테이너로 데이터를 이동하는 방법에 대한 지침을 제공합니다.
+이 문서에서는 스크립트를 ``parallelcp`` 만들고이를 사용 하 여 Azure HPC 캐시에서 사용할 Blob 저장소 컨테이너로 데이터를 이동 하는 방법에 대 한 지침을 제공 합니다.
 
-Azure HPC 캐시의 Blob 저장소로 데이터를 이동하는 방법에 대해 자세히 알아보려면 [Azure Blob 저장소로 데이터 이동을](hpc-cache-ingest.md)읽어보십시오.
+Azure HPC 캐시의 Blob 저장소로 데이터를 이동 하는 방법에 대 한 자세한 내용은 [Azure blob storage로 데이터 이동](hpc-cache-ingest.md)을 참조 하세요.
 
-## <a name="create-the-parallelcp-script"></a>병렬 cp 스크립트 만들기
+## <a name="create-the-parallelcp-script"></a>Parallelcp 스크립트 만들기
 
 아래 스크립트는 `parallelcp` 실행 파일을 추가합니다. (이 스크립트는 Ubuntu에서 사용하도록 설계되었으므로, 다른 배포판을 사용하는 경우 ``parallel``을 별도로 설치해야 합니다.)
 
@@ -75,11 +75,11 @@ EOM
 
 ## <a name="parallel-copy-example"></a>병렬 복사 예제
 
-이 예제에서는 병렬 복사 ``glibc`` 스크립트를 사용하여 Azure HPC 캐시의 원본 파일을 사용하여 컴파일합니다.
+이 예제에서는 병렬 복사 스크립트를 사용 하 ``glibc`` 여 Azure HPC 캐시에서 원본 파일을 사용 하 여 컴파일합니다.
 
-원본 파일은 Azure HPC 캐시 마운트 지점에 캐시되고 개체 파일은 로컬 하드 드라이브에 저장됩니다.
+원본 파일은 Azure HPC 캐시 탑재 지점에 캐시 되 고 개체 파일은 로컬 하드 드라이브에 저장 됩니다.
 
-이 예제에서는 옵션과 ``-j`` 함께 병렬 ``make`` 복사 스크립트를 사용하고 병렬화를 얻습니다.
+이 예에서는 및 ``-j`` ``make`` 옵션과 함께 병렬 복사 스크립트를 사용 하 여 병렬화를 얻습니다.
 
 ```bash
 sudo apt-get update

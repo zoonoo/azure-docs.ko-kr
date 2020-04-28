@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/12/2019
 ms.author: akjosh
 ms.openlocfilehash: bf17f499c1e8339a1e9abb13cffd5e35c390f564
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74072970"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 가상 머신 확장 및 기능
@@ -52,31 +52,31 @@ VM에 직접 연결하여 확장을 설치하거나 삭제할 필요가 없습�
 
 ## <a name="troubleshoot-extensions"></a>확장 문제 해결
 
-각 확장에 대한 문제 해결 정보는 확장에 대한 개요의 **문제 해결 및 지원** 섹션에서 찾을 수 있습니다. 사용 가능한 문제 해결 정보 목록은 다음과 같습니다.
+각 확장에 대 한 문제 해결 정보는 확장에 대 한 개요의 **문제 해결 및 지원** 섹션에서 찾을 수 있습니다. 다음은 사용할 수 있는 문제 해결 정보 목록입니다.
 
 | 네임스페이스 | 문제 해결 |
 |-----------|-----------------|
-| 마이크로소프트.azure.monitoring.dependencyagent.dependencyagentlinux | [Linux용 Azure 모니터 종속성](agent-dependency-linux.md#troubleshoot-and-support) |
-| microsoft.azure.monitoring.dependencyagent.dependencyagentwindows | [Windows용 Azure 모니터 종속성](agent-dependency-windows.md#troubleshoot-and-support) |
-| 마이크로소프트.azure.security.azuredisk암호화포리눅스 | [리눅스에 대 한 Azure 디스크 암호화](azure-disk-enc-linux.md#troubleshoot-and-support) |
-| 마이크로소프트.azure.security.azuredisk암호화 | [Windows용 Azure Disk Encryption](azure-disk-enc-windows.md#troubleshoot-and-support) |
-| 마이크로소프트.compute.custom스크립트익스텐션 | [윈도우용 사용자 지정 스크립트](custom-script-windows.md#troubleshoot-and-support) |
-| 마이크로소프트.ostcextensions.customscriptfor리눅스 | [리눅스에 대 한 원하는 상태 구성](dsc-linux.md#troubleshoot-and-support) |
-| 마이크로소프트.파워쉘.dsc | [Windows용 원하는 상태 구성](dsc-windows.md#troubleshoot-and-support) |
-| 마이크로 소프트.hpccompute.nvidiagpu드라이버리눅스 | [리눅스에 대 한 엔비디아 GPU 드라이버 확장](hpccompute-gpu-linux.md#troubleshoot-and-support) |
-| 마이크로 소프트.hpccompute.nvidiagpu드라이버윈도우 | [윈도 즈에 대 한 엔비디아 GPU 드라이버 확장](hpccompute-gpu-windows.md#troubleshoot-and-support) |
-| 마이크로소프트.azure.security.iaasantimalware | [윈도우에 대 한 맬웨어 방지 확장](iaas-antimalware-windows.md#troubleshoot-and-support) |
-| 마이크로소프트.엔터프라이즈클라우드.모니터링.옴시젠포리눅스 | [리눅스에 대 한 Azure 모니터](oms-linux.md#troubleshoot-and-support)
-| 마이크로소프트.엔터프라이즈클라우드.모니터링.마이크로소프트 모니터링 에이전트 | [윈도우용 Azure 모니터](oms-windows.md#troubleshoot-and-support) |
-| 스태킹.linuxagent.extension.stackifylinux에이전트익스텐션 | [리눅스에 대 한 되돌림을 스택](stackify-retrace-linux.md#troubleshoot-and-support) |
-| vmaccessforlinux.microsoft.ostcextensions | [리눅스에 대한 암호 재설정 (VMAccess)](vmaccess.md#troubleshoot-and-support) |
-| 마이크로소프트.복구 서비스.vmsnapshot | [리눅스에 대 한 스냅샷](vmsnapshot-linux.md#troubleshoot-and-support) |
-| 마이크로소프트.복구 서비스.vmsnapshot | [윈도우용 스냅샷](vmsnapshot-windows.md#troubleshoot-and-support) |
+| dependencyagent. dependencyagentlinux | [Linux에 대 한 Azure Monitor 종속성](agent-dependency-linux.md#troubleshoot-and-support) |
+| dependencyagent. dependencyagentwindows | [Windows에 대 한 Azure Monitor 종속성](agent-dependency-windows.md#troubleshoot-and-support) |
+| microsoft. azure. azurediskencryptionforlinux | [Linux에 대 한 Azure Disk Encryption](azure-disk-enc-linux.md#troubleshoot-and-support) |
+| microsoft. azure. azurediskencryption | [Windows용 Azure Disk Encryption](azure-disk-enc-windows.md#troubleshoot-and-support) |
+| microsoft. customscriptextension | [Windows 용 사용자 지정 스크립트](custom-script-windows.md#troubleshoot-and-support) |
+| microsoft ostcextensions. customscriptforlinux | [Linux 용 필요한 상태 구성](dsc-linux.md#troubleshoot-and-support) |
+| microsoft. powershell dsc | [Windows에 필요한 상태 구성](dsc-windows.md#troubleshoot-and-support) |
+| microsoft. hpccompute | [Linux 용 NVIDIA GPU 드라이버 확장](hpccompute-gpu-linux.md#troubleshoot-and-support) |
+| microsoft. hpccompute | [Windows 용 NVIDIA GPU 드라이버 확장](hpccompute-gpu-windows.md#troubleshoot-and-support) |
+| iaasantimalware. | [Windows 용 맬웨어 방지 확장](iaas-antimalware-windows.md#troubleshoot-and-support) |
+| enterprisecloud를 모니터링 합니다. | [Linux에 대 한 Azure Monitor](oms-linux.md#troubleshoot-and-support)
+| enterprisecloud. microsoftmonitoringagent | [Windows에 대 한 Azure Monitor](oms-windows.md#troubleshoot-and-support) |
+| stackify. linuxagent. stackifylinuxagentextension | [Linux 용 Stackify 조사](stackify-retrace-linux.md#troubleshoot-and-support) |
+| vmaccessforlinux. ostcextensions | [Linux에 대 한 암호 다시 설정 (VMAccess)](vmaccess.md#troubleshoot-and-support) |
+| vmsnapshot | [Linux에 대 한 스냅숏](vmsnapshot-linux.md#troubleshoot-and-support) |
+| vmsnapshot | [Windows 용 스냅숏](vmsnapshot-windows.md#troubleshoot-and-support) |
 
 
 ## <a name="next-steps"></a>다음 단계
 * Linux 에이전트 및 확장의 작동 방식에 대한 자세한 내용은 [Linux용 Azure VM 확장 및 기능](features-linux.md)을 참조하세요.
 * Windows 게스트 에이전트 및 확장의 작동 방식에 대한 자세한 내용은 [Windows용 Azure VM 확장 및 기능](features-windows.md)을 참조하세요.  
-* Windows 게스트 에이전트를 설치하려면 [Azure Windows 가상 시스템 에이전트 개요를](agent-windows.md)참조하십시오.  
-* Linux 에이전트를 설치하려면 [Azure Linux 가상 시스템 에이전트 개요를](agent-linux.md)참조하십시오.  
+* Windows 게스트 에이전트를 설치 하려면 [Azure Windows 가상 머신 에이전트 개요](agent-windows.md)를 참조 하세요.  
+* Linux 에이전트를 설치 하려면 [Azure Linux Virtual Machine 에이전트 개요](agent-linux.md)를 참조 하세요.  
 

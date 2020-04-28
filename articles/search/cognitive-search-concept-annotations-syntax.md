@@ -1,7 +1,7 @@
 ---
-title: 기술 집합의 참조 입력 및 출력
+title: 기술력과의 참조 입력 및 출력
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search의 AI 보강 파이프라인에서 기술 집합의 입력 및 출력에 있는 설명을 참조하는 방법과 별표 구문을 설명합니다.
+description: Azure Cognitive Search의 AI 보강 파이프라인에서 기술의 입력 및 출력에 있는 주석을 참조 하는 방법 및 주석 구문에 대해 설명 합니다.
 manager: nitinme
 author: LuisCabrer
 ms.author: luisca
@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74113859"
 ---
-# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Azure 인지 검색 기술 집합에서 주석을 참조하는 방법
+# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Azure Cognitive Search 기술에서 주석을 참조 하는 방법
 
 이 문서에서는 다양한 시나리오를 설명하는 예제를 사용하여 기술 정의에서 주석을 참조하는 방법을 알아 봅니다. 문서의 콘텐츠는 기술 집합을 통해 흐르기 때문에 주석으로 보강됩니다. 주석은 다운스트림 추가 보강을 위한 입력으로 사용되거나 인덱스에서 출력 필드에 매핑될 수 있습니다. 
  
@@ -25,7 +25,7 @@ ms.locfileid: "74113859"
 
 구문을 검토를 하기 전에 이 문서의 뒷부분에 제공되는 예제를 보다 잘 이해하려면 몇 가지 중요한 개념을 다시 확인하겠습니다.
 
-| 용어 | 설명 |
+| 용어 | Description |
 |------|-------------|
 | 보강된 문서 | 보강된 문서는 문서와 관련된 모든 주석을 유지하기 위해 파이프라인에서 만들고 사용하는 내부 구조입니다. 보강된 문서를 주석의 트리라고 생각합니다. 일반적으로 이전 주석에서 만든 주석은 자식 주석이 됩니다.<p/>보강된 문서는 기술 집항 실행 동안에만 존재합니다. 콘텐츠가 검색 인덱스에 매핑되면 보강된 문서는 더 이상 필요 없습니다. 보강된 문서와 직접 상호 작용하지 않더라도 기술 집합을 만들 경우 문서의 심적 모델을 보유하는 것이 유용합니다. |
 | 보강 컨텍스트 | 요소가 보강된 점에서 보강이 일어난 컨텍스트입니다. 기본적으로 보강 컨텍스트는 `"/document"` 수준에서 개별 문서에 범위가 지정됩니다. 기술을 실행할 때 해당 기술의 출력은 [정의된 컨텍스트의 속성](#example-2)이 됩니다.|
@@ -33,7 +33,7 @@ ms.locfileid: "74113859"
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>예제 1: 단순 주석 참조
 
-Azure Blob 저장소에서 엔터티 인식을 사용하여 추출하려는 사용자 이름에 대한 참조가 포함된 다양한 파일이 있다고 가정합니다. 아래의 기술 정의에서 `"/document/content"`은 전체 문서의 텍스트 표현이며 "사람"은 사용자로 식별되는 엔터티에 대한 전체 이름의 추출입니다.
+Azure Blob storage에서 엔터티 인식을 사용 하 여 추출할 사용자의 이름에 대 한 참조를 포함 하는 다양 한 파일이 있다고 가정 합니다. 아래의 기술 정의에서 `"/document/content"`은 전체 문서의 텍스트 표현이며 "사람"은 사용자로 식별되는 엔터티에 대한 전체 이름의 추출입니다.
 
 기본 컨텍스트가 `"/document"`이므로 사람의 목록은 이제 `"/document/people"`로서 참조될 수 있습니다. 특정한 경우에 `"/document/people"`은 인덱스의 필드에 매핑되거나 동일 기술 집합의 다른 기술에 사용될 수 있는 주석입니다.
 
@@ -95,7 +95,7 @@ Azure Blob 저장소에서 엔터티 인식을 사용하여 추출하려는 사�
 
 경우에 따라 특정 기술에 전달하는 특정 형식의 모든 주석을 그룹화해야 합니다. 예제 2에서 추출된 모든 성 가운데 가장 일반적인 성을 식별하는 가상의 사용자 지정 기술을 고려합니다. 사용자 지정 기술에 성만 제공하려면 컨텍스트를 `"/document"`로, 입력을 `"/document/people/*/lastname"`로 지정합니다.
 
-카디널리티가 `"/document/people/*/lastname"` 문서의 카디널리티보다 큽합니다. 이 문서에 대한 문서 노드가 하나만 있는 반면 성 노드는 10개가 있을 수 있습니다. 이 경우 시스템은 문서의 모든 요소를 포함하는 `"/document/people/*/lastname"`의 배열을 자동으로 만듭니다.
+의 `"/document/people/*/lastname"` 카디널리티는 문서 보다 큽니다. 이 문서에 대한 문서 노드가 하나만 있는 반면 성 노드는 10개가 있을 수 있습니다. 이 경우 시스템은 문서의 모든 요소를 포함하는 `"/document/people/*/lastname"`의 배열을 자동으로 만듭니다.
 
 ```json
   {
@@ -120,7 +120,7 @@ Azure Blob 저장소에서 엔터티 인식을 사용하여 추출하려는 사�
 
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 + [사용자 지정 기술을 보강 파이프라인으로 통합하는 방법](cognitive-search-custom-skill-interface.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [기술 집합 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

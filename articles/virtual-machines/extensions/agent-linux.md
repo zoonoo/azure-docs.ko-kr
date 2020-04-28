@@ -16,10 +16,10 @@ ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74073861"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Azure Linux 에이전트 이해 및 사용
@@ -60,7 +60,7 @@ Microsoft Azure Linux 에이전트(waagent)는 Linux 및 FreeBSD 프로비저닝
 * **VM 확장**
   
   * 소프트웨어 및 구성 자동화를 사용하도록 Microsoft 및 Partner에서 작성된 구성 요소를 Linux VM(IaaS)에 삽입
-  * VM 확장 참조 구현에서[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * VM 확장 참조 구현[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>통신
 플랫폼에서 에이전트로의 정보 흐름은 다음 두 채널을 통해 진행됩니다.
@@ -72,7 +72,7 @@ Microsoft Azure Linux 에이전트(waagent)는 Linux 및 FreeBSD 프로비저닝
 다음 시스템은 테스트를 거쳐 Azure Linux 에이전트와 동작하는 것으로 알려져 있습니다.
 
 > [!NOTE]
-> 이 목록은 여기에 설명된 대로 Microsoft Azure 플랫폼에서 지원되는 시스템의 공식 목록과 다를 수 있습니다.[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> 이 목록은 여기에 설명 된 대로 Microsoft Azure 플랫폼에서 지원 되는 시스템의 공식 목록과 다를 수 있습니다.[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -131,7 +131,7 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 * daemon: waagent를 디먼으로 실행하여 플랫폼 조작을 관리합니다. 이 인수는 waagent init 스크립트에서 waagent에 지정됩니다.
 * start: waagent를 백그라운드 프로세스로 실행
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 구성 파일(/etc/waagent.conf)은 waagent의 동작을 제어합니다. 다음은 구성 파일 샘플을 보여 줍니다.
 
     ```
@@ -278,7 +278,7 @@ Default: n
 ```
 설정한 경우 스왑 파일(/swapfile)이 리소스 디스크에 만들어져서 시스템 스왑 공간에 추가됩니다.
 
-**리소스 디스크.스왑크기MB:**  
+**ResourceDisk:**  
 ```
 Type: Integer  
 Default: 0
@@ -335,10 +335,10 @@ Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+sour
 * **Provisioning.Enabled** 프로비전 작업을 수행하기 위해 cloud-init을 사용하는 Ubuntu 클라우드 이미지에서 기본값은 "n"입니다.
 * 다음 구성 매개 변수는 cloud-init을 사용하여 리소스 디스크와 swap 공간을 관리하는 Ubuntu 클라우드 이미지에 적용되지 않습니다.
   
-  * **리소스 디스크.형식**
-  * **리소스 디스크.파일 시스템**
-  * **리소스 디스크.마운트포인트**
-  * **리소스 디스크.인에이블스왑**
+  * **ResourceDisk. 형식**
+  * **ResourceDisk. 파일 시스템**
+  * **ResourceDisk. 탑재 지점**
+  * **ResourceDisk**
   * **ResourceDisk.SwapSizeMB**
 
 * 프로비전 중에 Ubuntu 클라우드 이미지에서 리소스 디스크 탑재 지점 및 스왑 공간을 구성하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.

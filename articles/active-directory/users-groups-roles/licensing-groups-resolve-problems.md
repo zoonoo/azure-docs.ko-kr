@@ -1,5 +1,5 @@
 ---
-title: 그룹 라이센스 할당 문제 해결 - Azure Active Directory | 마이크로 소프트 문서
+title: 그룹 라이선스 할당 문제 해결-Azure Active Directory | Microsoft Docs
 description: Azure Active Directory 그룹 기반 라이선스를 사용할 때 라이선스 할당 문제를 식별하고 해결하는 방법
 services: active-directory
 keywords: Azure AD 라이선스
@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ddfc4bf7ed3bdf214a44a5dfe03259d32b2f3f94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74025689"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결
@@ -30,25 +30,25 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
 그룹 기반 라이선스를 사용하는 경우 같은 오류가 발생할 수 있지만 Azure AD 서비스에서 라이선스를 할당하면 문제가 백그라운드에서 발생합니다. 이러한 이유로 사용자에게 즉시 오류를 전달 수 없습니다. 대신 오류가 사용자 개체에 기록된 후 관리 포털을 통해 보고됩니다. 사용자에게 라이선스를 부여하는 원래의 의도는 절대 없어지지 않지만 향후 조사 및 문제 해결을 위해 라이선스를 오류 상태로 기록됩니다.
 
-## <a name="find-license-assignment-errors"></a>라이센스 할당 오류 찾기
+## <a name="find-license-assignment-errors"></a>라이선스 할당 오류 찾기
 
 ### <a name="to-find-users-in-an-error-state-in-a-group"></a>그룹에서 오류 상태의 사용자를 찾으려면
 
-1. 그룹을 개요 페이지로 열고 **라이센스를 선택합니다.** 오류 상태에 있는 사용자가 있는 경우 알림이 나타납니다.
+1. 개요 페이지에서 그룹을 열고 **라이선스**를 선택 합니다. 오류 상태에 사용자가 있는 경우 알림이 표시 됩니다.
 
    ![그룹 및 오류 알림 메시지](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
 1. 알림을 선택하면 영향을 받는 모든 사용자 목록이 열립니다. 자세한 내용을 보려면 개별적으로 각 사용자를 선택하면 됩니다.
 
-   ![그룹 라이선싱 오류 상태의 사용자 목록](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![그룹 라이선스 오류 상태의 사용자 목록](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
 1. 하나 이상의 오류를 포함하는 모든 그룹을 찾으려면 **Azure Active Directory** 블레이드에서 **라이선스** 및 **개요**를 차례로 선택합니다. 그룹에서 주의가 필요한 경우 정보 상자가 표시됩니다.
 
-   ![오류 상태의 그룹에 대한 개요 및 정보](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![오류 상태의 그룹에 대 한 개요 및 정보](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
 1. 오류가 발생한 모든 그룹의 목록을 보려면 상자를 선택합니다. 자세한 내용은 각 그룹을 선택하면 됩니다.
 
-   ![개요 및 오류가 있는 그룹 목록](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![오류가 있는 그룹 개요 및 목록](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 다음 섹션에서는 잠재적인 문제 및 문제 해결 방법을 설명합니다.
 
@@ -56,7 +56,7 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
 **문제:** 그룹에 지정된 제품 중 하나에 사용 가능한 라이선스가 충분하지 않습니다. 제품에 대한 추가 라이선스를 구매하거나 다른 사용자 또는 그룹에서 사용하지 않는 라이선스를 해제해야 합니다.
 
-사용 가능한 라이선스 수를 확인하려면 **Azure Active Directory** > **모든 제품으로****이동하십시오.** > 
+사용할 수 있는 라이선스 수를 확인 하려면 **Azure Active Directory** > **라이선스** > **모든 제품**으로 이동 합니다.
 
 라이선스를 사용 중인 사용자와 그룹을 확인하려면 제품을 선택합니다. **사용이 허가된 사용자**에는 라이선스가 직접 할당되었거나 하나 이상의 그룹을 통해 할당된 모든 사용자의 목록이 표시됩니다. **사용이 허가된 그룹**에는 제품이 할당된 모든 그룹이 표시됩니다.
 
@@ -87,11 +87,11 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
 ## <a name="usage-location-isnt-allowed"></a>사용 위치가 허용되지 않음
 
-**문제:** 현지법 및 규정으로 인해 지역에 따라 일부 Microsoft 서비스가 제공되지 않을 수 있습니다. 사용자에게 라이선스를 할당하려면 먼저 사용자에 대한 **사용 위치** 속성을 지정해야 합니다. Azure 포털의 **사용자** > **프로필** > **설정** 섹션에서 위치를 지정할 수 있습니다.
+**문제:** 현지법 및 규정으로 인해 지역에 따라 일부 Microsoft 서비스가 제공되지 않을 수 있습니다. 사용자에게 라이선스를 할당하려면 먼저 사용자에 대한 **사용 위치** 속성을 지정해야 합니다. Azure Portal의 **사용자** > **프로필** > **설정** 섹션에서 위치를 지정할 수 있습니다.
 
 Azure AD가 사용 위치가 지원되지 않는 사용자에게 그룹 라이선스를 할당하려고 하면 작업이 실패하고 사용자에 대한 오류를 기록합니다.
 
-이 문제를 해결하려면 지원되지 않는 위치에서 사용자를 라이선스가 부여된 그룹에서 제거합니다. 또는 현재 사용 위치 값이 실제 사용자의 위치를 나타내지 않는 경우에는 다음에 라이선스가 정확히 할당되도록 사용 위치 값을 수정하면 됩니다(새 위치가 지원되는 경우).
+이 문제를 해결 하려면 사용이 허가 된 그룹에서 지원 되지 않는 위치의 사용자를 제거 합니다. 또는 현재 사용 위치 값이 실제 사용자의 위치를 나타내지 않는 경우에는 다음에 라이선스가 정확히 할당되도록 사용 위치 값을 수정하면 됩니다(새 위치가 지원되는 경우).
 
 **PowerShell:** PowerShell cmdlet은 이 오류를 _ProhibitedInUsageLocationViolation_으로 보고합니다.
 
@@ -111,18 +111,18 @@ Exchange Online을 사용하는 경우 테넌트의 일부 사용자가 동일�
 
 영향을 받는 사용자에 대한 프록시 주소 문제를 해결한 후에 그룹에 대해 강제로 라이선스 처리를 수행하여 라이선스가 적용될 수 있게 합니다.
 
-## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Azure AD 메일 및 프록시 주소 특성 변경
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Azure AD 메일 및 ProxyAddresses 특성 변경
 
-**문제:** 사용자 또는 그룹에서 라이선스 할당을 업데이트하는 동안 일부 사용자의 Azure AD Mail 및 Proxy주소 특성이 변경된 것을 볼 수 있습니다.
+**문제:** 사용자 또는 그룹에 대 한 라이선스 할당을 업데이트 하는 동안 일부 사용자의 Azure AD Mail 및 ProxyAddresses 특성이 변경 되는 것을 볼 수 있습니다.
 
-사용자에 대한 라이센스 할당을 업데이트하면 프록시 주소 계산이 트리거되어 사용자 특성이 변경될 수 있습니다. 변경의 정확한 원인을 이해하고 문제를 해결하려면 이 문서를 참조하여 [proxy주소 특성이 Azure AD에 채워지는 방식에](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad)대해 알아보십시오.
+사용자에 대 한 라이선스 할당을 업데이트 하면 프록시 주소 계산이 트리거되어 사용자 특성을 변경할 수 있습니다. 변경의 정확한 원인을 이해 하 고 문제를 해결 하려면 [AZURE AD에서 proxyAddresses 특성을 채우는 방법](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad)에 대 한이 문서를 참조 하세요.
 
-## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>라이센스할당특성Concurrency감사로그에서예외
+## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>감사 로그의 LicenseAssignmentAttributeConcurrencyException
 
-**문제:** 사용자는 라이센스할당특성Concurrency감사로그에서 라이선스 할당에 예외를 부여합니다.
-그룹 기반 라이선스가 사용자에게 동일한 라이선스의 동시 라이선스 할당을 처리하려고 하면 이 예외가 사용자에게 기록됩니다. 일반적으로 사용자가 할당된 라이선스가 동일한 두 개 이상의 그룹의 구성원일 때 발생합니다. AZure AD는 사용자 라이선스 처리를 다시 시도하고 문제를 해결합니다. 이 문제를 해결하기 위해 고객이 필요한 조치가 없습니다.
+**문제:** 사용자는 감사 로그에 라이선스 할당을 LicenseAssignmentAttributeConcurrencyException 합니다.
+그룹 기반 라이선스가 사용자에 게 동일한 라이선스의 동시 라이선스 할당을 처리 하려고 하면이 예외가 사용자에 게 기록 됩니다. 이는 일반적으로 사용자가 할당 된 라이선스가 같은 두 개 이상의 그룹에 속한 경우에 발생 합니다. AZure AD에서 사용자 라이선스 처리를 다시 시도 하 고 문제를 해결 합니다. 이 문제를 해결 하기 위해 고객에 게 필요한 작업은 없습니다.
 
-## <a name="more-than-one-product-license-assigned-to-a-group"></a>그룹에 할당된 두 개 이상의 제품 라이센스
+## <a name="more-than-one-product-license-assigned-to-a-group"></a>그룹에 할당 된 제품 라이선스가 두 개 이상입니다.
 
 한 그룹에 두 개 이상의 제품 라이선스를 할당할 수 있습니다. 예를 들어 그룹에 Office 365 Enterprise E3 및 Enterprise Mobility + Security를 할당하면 해당 사용자에 대해 포함된 모든 서비스를 쉽게 사용하도록 설정할 수 있습니다.
 
@@ -130,13 +130,13 @@ Azure AD는 그룹에 지정된 모든 라이선스를 각 사용자에게 할�
 
 할당에 실패한 사용자를 확인하고 이 문제의 영향을 받는 제품을 확인할 수 있습니다.
 
-## <a name="when-a-licensed-group-is-deleted"></a>라이선스가 부여된 그룹이 삭제된 경우
+## <a name="when-a-licensed-group-is-deleted"></a>라이선스 그룹을 삭제 하는 경우
 
 그룹을 삭제하기 전에 그룹에 할당된 모든 라이선스를 제거해야 합니다. 그러나 그룹에 있는 모든 사용자의 라이선스를 제거하는 데는 시간이 걸릴 수 있습니다. 그룹에서 라이선스 할당을 제거하는 동안 사용자에게 종속 라이선스가 할당되어 있거나 라이선스 제거를 금지하는 프록시 주소 충돌 문제가 있는 경우 오류가 발생할 수 있습니다. 사용자에게 그룹 삭제로 인해 제거되는 라이선스에 종속되는 라이선스가 있으면 해당 사용자에 대한 라이선스 할당이 상속에서 직접으로 변환됩니다.
 
 예를 들어, 비즈니스용 Skype 요금제가 사용하도록 설정된 Office 365 E3/E5가 그룹에 할당되어 있다고 가정합니다. 또한 그룹의 멤버 일부에게 Audio Conferencing 라이선스가 직접 할당되어 있다고 가정합니다. 해당 그룹을 삭제하면 그룹 기반 라이선스는 모든 사용자의 Office 365 E3/E5를 제거하려고 합니다. Audio Conferencing은 비즈니스용 Skype에 종속되므로, Audio Conferencing이 할당된 모든 사용자의 경우 그룹 기반 라이선스는 Office 365 E3/E5 라이선스를 직접 라이선스 할당으로 변환합니다.
 
-## <a name="manage-licenses-for-products-with-prerequisites"></a>전제 조건이 있는 제품에 대한 라이선스 관리
+## <a name="manage-licenses-for-products-with-prerequisites"></a>필수 구성 요소를 사용 하 여 제품의 라이선스 관리
 
 사용자가 보유한 일부 Microsoft Online 제품은 *추가 기능*일 수 있습니다. 추가 기능은 라이선스를 할당하기 전에 사용자나 그룹에 대해 필수 구성 요소 서비스 계획을 활성화해야 합니다. 그룹 기반 라이선스를 사용하는 경우 시스템에서는 필수 구성 요소와 추가 기능 서비스 계획이 동일한 그룹에 있어야 합니다. 이것은 그룹에 추가된 모든 사용자가 완전히 작동하는 제품을 받을 수 있게 하기 위한 것입니다. 다음 예제를 살펴보겠습니다.
 
@@ -145,13 +145,13 @@ Microsoft Workplace Analytics는 추가 기능 제품입니다. 여기에는 이
 - Exchange Online(계획 1)
 - Exchange Online(계획 2)
 
-이 제품을 그룹에 단독으로 할당하려고 하면 포털에서 알림 메시지를 반환합니다. 항목 세부 정보를 선택하면 다음과 같은 오류 메시지가 표시됩니다.
+이 제품을 그룹에 할당 하려고 하면 포털에서 알림 메시지를 반환 합니다. 항목 세부 정보를 선택 하면 다음과 같은 오류 메시지가 표시 됩니다.
 
-  "라이센스 작업이 실패했습니다. 종속 서비스를 추가하거나 제거하기 전에 그룹에 필요한 서비스가 있는지 확인하십시오. **Microsoft 작업환경 분석 서비스에서도 Exchange Online(계획 2)을 사용하도록 설정해야 합니다.**"
+  "라이선스 작업이 실패 했습니다. 종속 서비스를 추가하거나 제거하기 전에 그룹에 필요한 서비스가 있는지 확인하십시오. **Microsoft 작업 공간 분석 서비스에는 Exchange Online (계획 2)도 사용 하도록 설정 해야 합니다.**"
 
 이 추가 기능 라이선스를 그룹에 할당하려면 그룹에 필수 구성 요소 서비스 계획도 포함되어야 합니다. 예를 들어 전체 Office 365 E3 제품이 포함된 기존 그룹을 업데이트하고 추가 기능 제품을 여기에 추가할 수 있습니다.
 
-추가 기능이 작동할 수 있게 최소 필요 제품만을 포함하도록 독립 실행형 그룹을 만들 수도 있습니다. 추가 기능 제품에 대해 선택한 사용자만 라이선스를 부여하는 데 사용할 수 있습니다. 이전 예제에 따라 다음 제품을 동일한 그룹에 할당합니다.
+추가 기능이 작동할 수 있게 최소 필요 제품만을 포함하도록 독립 실행형 그룹을 만들 수도 있습니다. 이는 추가 기능 제품에 대해 선택한 사용자 에게만 라이선스를 사용 하는 데 사용할 수 있습니다. 이전 예제를 기반으로 동일한 그룹에 다음 제품을 할당 합니다.
 
 - Exchange Online(계획 2) 서비스 계획만을 활성화한 Office 365 Enterprise E3
 - Microsoft Workplace Analytics
@@ -161,13 +161,13 @@ Microsoft Workplace Analytics는 추가 기능 제품입니다. 여기에는 이
 > [!TIP]
 > 각 필수 구성 요소 서비스 계획에 대해 여러 그룹을 만들 수 있습니다. 예를 들어 사용자에게 Office 365 Enterprise E1 및 Office 365 Enterprise E3를 모두 사용할 경우 Microsoft Workplace Analytics에 라이선스를 부여하기 위해 두 그룹을 만들 수 있습니다. 한 그룹은 필수 구성 요소인 E1을 사용하고 다른 그룹은 E3를 사용합니다. 이렇게 하면 추가 라이선스를 사용하지 않고 E1과 E3 사용자에게 추가 기능을 배포할 수 있습니다.
 
-## <a name="force-group-license-processing-to-resolve-errors"></a>그룹 라이센스 처리를 강제로 처리하여 오류를 해결합니다.
+## <a name="force-group-license-processing-to-resolve-errors"></a>그룹 라이선스 처리를 강제 하 여 오류 해결
 
 오류를 해결하기 위해 수행한 단계에 따라 그룹의 처리를 수동으로 트리거하여 사용자 상태를 업데이트해야 할 수 있습니다.
 
 예를 들어 사용자에게서 직접 라이선스 할당을 제거하여 라이선스를 확보한 경우 모든 사용자 구성원에게 완전한 사용 권한을 부여하기 위해 이전에 실패한 그룹 처리를 트리거해야 합니다. 그룹을 다시 처리하려면 그룹 창으로 이동하고 **라이선스**를 열고 도구 모음에서 **다시 처리** 단추를 선택합니다.
 
-## <a name="force-user-license-processing-to-resolve-errors"></a>사용자 라이선스 처리로 인해 오류 해결
+## <a name="force-user-license-processing-to-resolve-errors"></a>사용자 라이선스 처리를 강제 하 여 오류 해결
 
 오류를 해결하기 위해 수행한 단계에 따라 사용자의 처리를 수동으로 트리거하여 사용자 상태를 업데이트해야 할 수 있습니다.
 

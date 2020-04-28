@@ -1,5 +1,5 @@
 ---
-title: 확장 데이터베이스에 대한 투명 데이터 암호화 사용
+title: Stretch Database에 대 한 투명한 데이터 암호화 사용
 description: Azure에서 SQL Server Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 465338bb793ad7b4fc406e9d1c073b9dc0dc06c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74034007"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Azure에서 Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정
 > [!div class="op_single_selector"]
-> * [Azure 포털](sql-server-stretch-database-encryption-tde.md)
-> * [Tsql](sql-server-stretch-database-tde-tsql.md)
+> * [Azure Portal](sql-server-stretch-database-encryption-tde.md)
+> * [TSQL](sql-server-stretch-database-tde-tsql.md)
 >
 >
 
@@ -38,7 +38,7 @@ TDE는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 
 1. [Azure 포털](https://portal.azure.com)
 2. 데이터베이스 블레이드에서 **설정** 단추 클릭
 3. **투명한 데이터 암호화** 옵션 선택 ![][1]
-4. **켜기** 설정을 선택한 다음 **저장을** 선택합니다.
+4. 설정을 선택한 다음 **저장** **을 선택** 합니다.
    ![][2]
 
 ## <a name="disabling-encryption"></a>암호화 비활성화
@@ -50,7 +50,7 @@ TDE는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 
 4. **끄기** 설정을 선택한 다음 **저장** 선택
 
 <!--Anchors-->
-[투명 데이터 암호화(TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[TDE(투명한 데이터 암호화)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->

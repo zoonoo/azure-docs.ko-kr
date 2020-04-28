@@ -1,5 +1,5 @@
 ---
-title: '익스프레스 경로: 경로 필터 - 마이크로소프트 피어링:Azure CLI'
+title: 'Express 경로: 경로 필터-Microsoft 피어 링: Azure CLI'
 description: 이 문서에서는 Azure CLI를 사용하여 Microsoft 피어링에 대한 경로 필터를 구성하는 방법을 설명합니다.
 services: expressroute
 author: anzaman
@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman
 ms.openlocfilehash: c3c50a005e119890fb17fcf7b3114a747bbe34bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74033406"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Microsoft 피어링에 대한 경로 필터 구성: Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Azure 포털](how-to-routefilter-portal.md)
-> * [Azure 파워쉘](how-to-routefilter-powershell.md)
+> * [Azure PowerShell](how-to-routefilter-powershell.md)
 > * [Azure CLI](how-to-routefilter-cli.md)
 > 
 
 경로 필터는 Microsoft 피어링을 통해 지원되는 서비스의 하위 집합을 사용하는 방법입니다. 이 문서의 단계는 ExpressRoute 회로에 대한 경로 필터를 구성하고 관리하는 데 도움이 됩니다.
 
-Exchange 온라인, SharePoint 온라인 및 비즈니스용 Skype와 같은 Office 365 서비스는 Microsoft 피어링을 통해 액세스할 수 있습니다. Microsoft 피어링이 ExpressRoute 회로에 구성되면 설정된 BGP 세션을 통해 이러한 서비스와 관련된 모든 접두사가 보급됩니다. BGP 커뮤니티 값은 접두사를 통해 제공되는 서비스를 식별하는 모든 접두사에 연결됩니다. BGP 커뮤니티 값과 매핑되는 서비스의 목록은 [BGP 커뮤니티](expressroute-routing.md#bgp)를 참조하세요.
+Exchange Online, SharePoint Online 및 비즈니스용 Skype와 같은 Office 365 서비스는 Microsoft 피어 링을 통해 액세스할 수 있습니다. Microsoft 피어링이 ExpressRoute 회로에 구성되면 설정된 BGP 세션을 통해 이러한 서비스와 관련된 모든 접두사가 보급됩니다. BGP 커뮤니티 값은 접두사를 통해 제공되는 서비스를 식별하는 모든 접두사에 연결됩니다. BGP 커뮤니티 값과 매핑되는 서비스의 목록은 [BGP 커뮤니티](expressroute-routing.md#bgp)를 참조하세요.
 
-모든 서비스에 연결해야 하는 경우 많은 수의 접두사가 BGP를 통해 보급됩니다. 그러면 네트워크 내의 라우터에서 유지 관리되는 경로 테이블의 크기가 상당히 증가합니다. Microsoft 피어링을 통해 제공되는 서비스의 하위 집합만 사용하려는 경우 두 가지 방법으로 경로 테이블의 크기를 줄일 수 있습니다. 다음을 수행할 수 있습니다.
+모든 서비스에 연결해야 하는 경우 많은 수의 접두사가 BGP를 통해 보급됩니다. 그러면 네트워크 내의 라우터에서 유지 관리되는 경로 테이블의 크기가 상당히 증가합니다. Microsoft 피어링을 통해 제공되는 서비스의 하위 집합만 사용하려는 경우 두 가지 방법으로 경로 테이블의 크기를 줄일 수 있습니다. 다음과 같은 작업을 수행할 수 있습니다.
 
 * BGP 커뮤니티에 라우팅 필터를 적용하여 필요 없는 접두사를 필터링합니다. 표준 네트워킹 방법은 많은 네트워크 내에서 일반적으로 사용됩니다.
 
@@ -45,7 +45,7 @@ Microsoft 피어링이 ExpressRoute 회로에 구성되면 Microsoft 에지 라�
 > 
 > 
 
-### <a name="workflow"></a><a name="workflow"></a>Workflow
+### <a name="workflow"></a><a name="workflow"></a>워크플로
 
 Microsoft 피어링을 통해 서비스에 성공적으로 연결할 수 있으려면 다음 구성 단계를 완료해야 합니다.
 
@@ -92,14 +92,14 @@ az account set --subscription "<subscription ID>"
 
 ## <a name="step-1-get-a-list-of-prefixes-and-bgp-community-values"></a><a name="prefixes"></a>1단계: 접두사 및 BGP 커뮤니티 값의 목록 가져오기
 
-### <a name="1-get-a-list-of-bgp-community-values"></a>1. BGP 커뮤니티 가치 목록 얻기
+### <a name="1-get-a-list-of-bgp-community-values"></a>1. BGP 커뮤니티 값의 목록 가져오기
 
 다음 cmdlet을 사용하여 Microsoft 피어링을 통해 액세스할 수 있는 서비스와 관련된 BGP 커뮤니티 값의 목록 및 관련된 접두사 목록을 가져옵니다.
 
 ```azurecli-interactive
 az network route-filter rule list-service-communities
 ```
-### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. 사용하려는 값 목록을 만듭니다.
+### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. 사용 하려는 값의 목록을 만듭니다.
 
 경로 필터에 사용하려는 BGP 커뮤니티 값 목록을 만듭니다.
 
@@ -109,7 +109,7 @@ az network route-filter rule list-service-communities
 
 ### <a name="1-create-a-route-filter"></a>1. 경로 필터 만들기
 
-먼저, 경로 필터를 만듭니다. 명령은 `az network route-filter create` 경로 필터 리소스만 만듭니다. 리소스를 만든 후에 규칙을 만들고 경로 필터 개체에 연결해야 합니다. 다음 명령을 실행하여 경로 필터 리소스를 만듭니다.
+먼저, 경로 필터를 만듭니다. 이 명령은 `az network route-filter create` 경로 필터 리소스를 만듭니다. 리소스를 만든 후에 규칙을 만들고 경로 필터 개체에 연결해야 합니다. 다음 명령을 실행하여 경로 필터 리소스를 만듭니다.
 
 ```azurecli-interactive
 az network route-filter create -n MyRouteFilter -g MyResourceGroup
@@ -131,7 +131,7 @@ az network route-filter rule create --filter-name MyRouteFilter -n CRM --communi
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --route-filter MyRouteFilter
 ```
 
-## <a name="common-tasks"></a><a name="tasks"></a>일반적인 작업
+## <a name="common-tasks"></a><a name="tasks"></a>일반 작업
 
 ### <a name="to-get-the-properties-of-a-route-filter"></a><a name="getproperties"></a>경로 필터의 속성을 가져오려면
 
@@ -167,4 +167,4 @@ az network route-filter delete -n MyRouteFilter -g MyResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-익스프레스루트에 대한 자세한 내용은 [익스프레스루트 FAQ를](expressroute-faqs.md)참조하십시오.
+Express 경로에 대 한 자세한 내용은 [express 경로 FAQ](expressroute-faqs.md)를 참조 하십시오.

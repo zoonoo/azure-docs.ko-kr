@@ -1,5 +1,5 @@
 ---
-title: 'Azure 익스프레스라우팅: 회로에 대해 NPM 구성'
+title: 'Azure Express 경로: 회로에 대 한 NPM 구성'
 description: Azure ExpressRoute 회로에 대해 클라우드 기반 NPM(네트워크 모니터링)을 구성합니다. 여기서는 ExpressRoute 프라이빗 피어링 및 Microsoft 피어링에 대한 모니터링을 다룹니다.
 services: expressroute
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cherylmc
 ms.openlocfilehash: 54fa3dcbfbbcb3153f81407a9bc9b52511405390
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74076598"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성
@@ -20,7 +20,7 @@ ms.locfileid: "74076598"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-다음을 수행할 수 있습니다.
+다음과 같은 작업을 수행할 수 있습니다.
 
 * 다양한 VNet에서 손실 및 지연 모니터링, 경고 설정
 
@@ -34,7 +34,7 @@ ms.locfileid: "74076598"
 
 * 이전 특정 시점의 ExpressRoute 시스템 상태 확인
 
-## <a name="workflow"></a><a name="workflow"></a>Workflow
+## <a name="workflow"></a><a name="workflow"></a>워크플로
 
 모니터링 에이전트는 온-프레미스 및 Azure의 여러 서버에 설치됩니다. 에이전트는 서로 통신하지만 데이터를 전송하지 않으며 TCP 핸드셰이크 패킷을 전송합니다. 에이전트 간 통신을 위해 Azure는 트래픽에 적용될 수 있는 네트워크 토폴로지 및 경로를 매핑할 수 있습니다.
 
@@ -54,12 +54,12 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 1. [Azure Portal](https://portal.azure.com)에서 Vnet이 ExpressRoute 회로에 연결된 구독을 선택합니다. 그런 다음, **Marketplace**의 서비스 목록에서 '네트워크 성능 모니터'를 검색합니다. 반환된 결과에서 클릭하여 **네트워크 성능 모니터** 페이지를 엽니다.
 
    >[!NOTE]
-   >새 작업 영역을 만들거나 기존 작업 영역을 사용할 수 있습니다. 기존 작업 영역을 사용하려면 작업 영역이 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. [자세한 정보...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
+   >새 작업 영역을 만들거나 기존 작업 영역을 사용할 수 있습니다. 기존 작업 영역을 사용하려면 작업 영역이 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. [추가 정보 ...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
    ![portal](./media/how-to-npm/3.png)<br><br>
 2. 주 **네트워크 성능 모니터** 페이지 아래쪽에서 **만들기**를 클릭하여 **네트워크 성능 모니터 - 새 솔루션 만들기** 페이지를 엽니다. **Log Analytics 작업 영역 - 작업 영역 선택**을 클릭하여 작업 영역 페이지를 엽니다. **+ 새 작업 영역 만들기**를 클릭하여 작업 영역 페이지를 엽니다.
-3. **로그 분석 작업 영역** 페이지에서 **새 만들기를**선택한 다음 다음 설정을 구성합니다.
+3. **Log Analytics 작업 영역** 페이지에서 **새로 만들기**를 선택 하 고 다음 설정을 구성 합니다.
 
    * Log Analytics 작업 영역 - 작업 영역의 이름을 입력합니다.
    * 구독 - 여러 구독이 있는 경우 새 작업 영역에 연결할 구독을 선택합니다.
@@ -97,22 +97,22 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 
 1. **설치**를 실행하여 ExpressRoute 모니터링에 사용하려는 각 서버에 에이전트를 설치합니다. 모니터링에 사용하는 서버는 VM 또는 온-프레미스일 수 있으며 인터넷에 액세스할 수 있어야 합니다. 온-프레미스에 하나 이상의 에이전트를 설치하고, Azure에서 모니터링하려는 각 네트워크 세그먼트에 하나의 에이전트를 설치해야 합니다.
 2. **시작** 페이지에서 **다음**을 클릭합니다.
-3. 라이센스 **조건** 페이지에서 라이센스를 읽은 다음 **동의를**클릭합니다.
-4. 대상 **폴더** 페이지에서 기본 설치 폴더를 변경하거나 유지한 다음 다음 을 **클릭합니다.**
-5. 에이전트 **설치 옵션** 페이지에서 에이전트를 Azure Monitor 로그 또는 운영 관리자에 연결하도록 선택할 수 있습니다. 또는 에이전트를 나중에 구성하려는 경우 선택 항목을 비워 둘 수 있습니다. 선택한 후 **다음**을 클릭합니다.
+3. **사용 조건** 페이지에서 라이선스를 읽고 **동의 함**을 클릭 합니다.
+4. **대상 폴더** 페이지에서 기본 설치 폴더를 변경 또는 유지 하 **고 다음을 클릭 합니다.**
+5. **에이전트 설치 옵션** 페이지에서 에이전트를 Azure Monitor 로그 또는 Operations Manager에 연결 하도록 선택할 수 있습니다. 또는 에이전트를 나중에 구성하려는 경우 선택 항목을 비워 둘 수 있습니다. 선택한 후 **다음**을 클릭합니다.
 
-   * **Azure Log Analytics**에 연결하려는 경우 이전 절차에서 메모장에 복사해 둔 **작업 영역 ID**와 **작업 영역 키**(기본 키)를 붙여넣습니다. **다음**을 클릭합니다.
+   * **Azure Log Analytics**에 연결하려는 경우 이전 절차에서 메모장에 복사해 둔 **작업 영역 ID**와 **작업 영역 키**(기본 키)를 붙여넣습니다. 그런 후 **다음**을 클릭합니다.
 
      ![ID 및 키](./media/how-to-npm/8.png)
-   * **Operations Manager**에 연결할 경우 **관리 그룹 구성** 페이지에서 **관리 그룹 이름**, **관리 서버** 및 **관리 서버 포트**를 입력합니다. **다음**을 클릭합니다.
+   * **Operations Manager**에 연결할 경우 **관리 그룹 구성** 페이지에서 **관리 그룹 이름**, **관리 서버** 및 **관리 서버 포트**를 입력합니다. 그런 후 **다음**을 클릭합니다.
 
      ![Operations Manager](./media/how-to-npm/9.png)
-   * **에이전트 작업 계정** 페이지에서 **로컬 시스템** 계정 또는 **도메인 또는 로컬 컴퓨터 계정**을 선택합니다. **다음**을 클릭합니다.
+   * **에이전트 작업 계정** 페이지에서 **로컬 시스템** 계정 또는 **도메인 또는 로컬 컴퓨터 계정**을 선택합니다. 그런 후 **다음**을 클릭합니다.
 
      ![계정](./media/how-to-npm/10.png)
-6. 설치 **준비** 페이지에서 선택 사항을 검토한 다음 **설치를**클릭합니다.
+6. **설치 준비 완료** 페이지에서 선택 사항을 검토 한 다음 **설치**를 클릭 합니다.
 7. **구성 완료** 페이지에서 **마침**을 클릭합니다.
-8. 완료되면 제어판에 Microsoft Monitoring Agent가 나타납니다. 이 에서 구성을 검토하고 에이전트가 Azure Monitor 로그에 연결되어 있는지 확인할 수 있습니다. 연결되면 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.** 와 같은 메시지가 표시됩니다.
+8. 완료되면 제어판에 Microsoft Monitoring Agent가 나타납니다. 여기에서 구성을 검토 하 고 에이전트가 Azure Monitor 로그에 연결 되어 있는지 확인할 수 있습니다. 연결되면 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.** 와 같은 메시지가 표시됩니다.
 
 9. 모니터링해야 하는 각 VNET에 대해 이 프로시저를 반복합니다.
 
@@ -136,7 +136,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 1. 모니터링 에이전트가 있는 서버에서 **제어판**을 엽니다.
 2. **Microsoft Monitoring Agent**를 엽니다.
 3. **Azure Log Analytics** 탭을 클릭합니다.
-4. **상태** 열에서 에이전트가 Azure Monitor 로그에 성공적으로 연결된 것을 볼 수 있습니다.
+4. **상태** 열에 에이전트가 성공적으로 Azure Monitor 로그에 연결 된 것을 확인할 수 있습니다.
 
    ![상태](./media/how-to-npm/12.png)
 
@@ -236,9 +236,9 @@ NPM 페이지에는 ExpressRoute 회로 및 피어링의 상태 개요를 보여
 
 ![circuit_list](./media/how-to-npm/circuits.png)
 
-#### <a name="trend-of-loss-latency-and-throughput"></a><a name="trend"></a>손실, 대기 시간 및 처리량의 추세
+#### <a name="trend-of-loss-latency-and-throughput"></a><a name="trend"></a>손실, 대기 시간 및 처리량 추세
 
-대역폭, 대기 시간, 손실 차트는 대화형으로 작동합니다. 마우스 컨트롤을 사용하여 이러한 차트의 섹션을 확대할 수 있습니다. 왼쪽 상단의 작업 단추 아래에 있는 **날짜/시간을**클릭하여 다른 간격의 대역폭, 대기 시간 및 손실 데이터를 볼 수도 있습니다.
+대역폭, 대기 시간, 손실 차트는 대화형으로 작동합니다. 마우스 컨트롤을 사용하여 이러한 차트의 섹션을 확대할 수 있습니다. 왼쪽 위에 있는 작업 단추 아래에 있는 **날짜/시간**을 클릭 하 여 다른 간격의 대역폭, 대기 시간 및 손실 데이터를 볼 수도 있습니다.
 
 ![추세](./media/how-to-npm/16.png)
 

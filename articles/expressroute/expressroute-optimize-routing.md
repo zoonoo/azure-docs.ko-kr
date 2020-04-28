@@ -1,5 +1,5 @@
 ---
-title: 'Azure 익스프레스라우팅: 라우팅 최적화'
+title: 'Azure Express 경로: 라우팅 최적화'
 description: 이 페이지에서는 사용자에게 Microsoft 및 회사 네트워크에 연결되는 하나 이상의 ExpressRoute 회로가 있는 경우 라우팅을 최적화하는 방법에 대한 자세한 정보를 제공합니다.
 services: expressroute
 author: charwen
@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: charwen
 ms.openlocfilehash: dcbae103933167c583bf0f73dc2fa09178c38bd5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74080126"
 ---
 # <a name="optimize-expressroute-routing"></a>ExpressRoute 라우팅 최적화
 여러 개의 ExpressRoute 회로가 있는 경우 Microsoft에 연결되는 하나 이상의 경로가 있습니다. 결과적으로 최적이 아닌 라우팅이 발생할 수 있습니다. 즉, 트래픽이 Microsoft에, Microsoft에서 다시 네트워크로 도달하는 경로가 더 길어질 수 있습니다. 네트워크 경로가 길어질수록 대기 시간도 늘어납니다. 대기 시간은 애플리케이션 성능 및 사용자 환경에 직접적인 영향을 줍니다. 이 문서에서는 이 문제를 보여 주고 표준 라우팅 기술을 사용하여 라우팅을 최적화하는 방법을 설명합니다.
 
-## <a name="path-selection-on-microsoft-and-public-peerings"></a>Microsoft 및 공용 피어링에 대한 경로 선택
-하나 이상의 ExpressRoute 회로가 있는 경우 Microsoft 또는 Public 피어링을 사용할 때 인터넷 교환(IX) 또는 ISP(인터넷 서비스 공급자)를 통해 인터넷으로 가는 경로가 있는 경우 원하는 경로를 통해 트래픽이 흐르는지 확인하는 것이 중요합니다. BGP는 가장 긴 접두사 일치(LPM)를 포함한 여러 요인에 따라 최상의 경로 선택 알고리즘을 사용합니다. Microsoft 또는 공용 피어링을 통해 Azure로 향하는 트래픽이 ExpressRoute 경로를 통과하도록 하려면 고객은 *로컬 기본 설정* 특성을 구현하여 경로가 ExpressRoute에서 항상 선호되도록 해야 합니다. 
+## <a name="path-selection-on-microsoft-and-public-peerings"></a>Microsoft 및 공용 피어 링의 경로 선택
+Microsoft 또는 공용 피어 링을 활용 하는 경우 하나 이상의 Express 경로 회로와 인터넷 Exchange (IX) 또는 ISP (인터넷 서비스 공급자)를 통한 인터넷 경로를 포함 하는 경우 원하는 경로를 통해 트래픽이 흐르는 지를 확인 하는 것이 중요 합니다. BGP는 LPM (가장 긴 접두사 일치)을 비롯 한 다양 한 요인에 따라 가장 적합 한 경로 선택 알고리즘을 활용 합니다. Microsoft 또는 공용 피어 링을 통해 Azure로 향하는 트래픽이 Express 경로 경로를 통과 하도록 하기 위해 고객은 *로컬 기본 설정* 특성을 구현 하 여 express 경로에서 항상 경로를 우선적으로 사용할 수 있도록 해야 합니다. 
 
 > [!NOTE]
-> 기본 로컬 기본 설정은 일반적으로 100입니다. 로컬 환경 설정이 높을수록 더 선호됩니다. 
+> 기본 로컬 기본 설정은 일반적으로 100입니다. 로컬 기본 설정이 더 좋습니다. 
 >
 >
 
-다음 예제 시나리오를 고려하십시오.
+다음 예제 시나리오를 살펴보십시오.
 
 ![ExpressRoute 사례 1 문제 - 고객으로부터 Microsoft에 이르는 최적이 아닌 라우팅](./media/expressroute-optimize-routing/expressroute-localPreference.png)
 
-위의 예에서 ExpressRoute 경로를 선호하려면 다음과 같이 로컬 기본 설정을 구성합니다. 
+위의 예제에서 Express 경로 경로를 선호 하려면 로컬 기본 설정을 다음과 같이 구성 합니다. 
 
 **R1 관점에서 Cisco IOS-XE 구성:**
 
@@ -54,7 +54,7 @@ ms.locfileid: "74080126"
 ![ExpressRoute 사례 1 문제 - 고객으로부터 Microsoft에 이르는 최적이 아닌 라우팅](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
 
 ### <a name="solution-use-bgp-communities"></a>해결 방법: BGP 커뮤니티 사용
-두 사무실 사용자에 대한 라우팅을 최적화하려면 접두사가 Azure 미국 서부의 것인지 Azure 미국 동부의 것인지 알아야 합니다. 이 정보는 [BGP 커뮤니티 값](expressroute-routing.md)을 사용하여 인코딩합니다. 미국 동부의 경우 "12076:51004", US West의 경우 "12076:51006"과 같은 고유한 BGP 커뮤니티 값을 각 Azure 지역에 할당했습니다. 이제 어떤 접두사가 어떤 Azure 지역의 것인지 알았으므로 어떤 ExpressRoute를 기본 설정할지 구성할 수 있습니다. BGP를 사용하여 라우팅 정보를 교환하므로 라우팅에 영향을 주는 BGP의 로컬 기본 설정을 사용할 수 있습니다. 이 예제에서는 미국 동부보다 미국 서부의 13.100.0.0/16에 더 높은 로컬 기본 설정 값을 할당할 수 있으며 마찬가지로 미국 서부보다 미국 동부의 23.100.0.0/16에 더 높은 로컬 기본 설정 값을 할당할 수 있습니다. 이 구성은 Microsoft에 대한 두 경로를 사용할 수 있는 경우 로스앤젤레스의 사용자가 미국 서부에서 ExpressRoute 회로를 사용하여 Azure 미국 서부에 연결하는 반면 뉴욕의 사용자는 미국 동부의 ExpressRoute를 사용하여 Azure 미국 동부에 연결할 수 있도록 합니다. 라우팅이 양쪽 모두에서 최적화됩니다. 
+두 사무실 사용자에 대한 라우팅을 최적화하려면 접두사가 Azure 미국 서부의 것인지 Azure 미국 동부의 것인지 알아야 합니다. 이 정보는 [BGP 커뮤니티 값](expressroute-routing.md)을 사용하여 인코딩합니다. Microsoft는 각 Azure 지역에 고유한 BGP 커뮤니티 값을 할당 했습니다. 예를 들어 미국 동부의 경우 "12076:51004", "12076:51006"는 미국 서 부입니다. 이제 어떤 접두사가 어떤 Azure 지역의 것인지 알았으므로 어떤 ExpressRoute를 기본 설정할지 구성할 수 있습니다. BGP를 사용하여 라우팅 정보를 교환하므로 라우팅에 영향을 주는 BGP의 로컬 기본 설정을 사용할 수 있습니다. 이 예제에서는 미국 동부보다 미국 서부의 13.100.0.0/16에 더 높은 로컬 기본 설정 값을 할당할 수 있으며 마찬가지로 미국 서부보다 미국 동부의 23.100.0.0/16에 더 높은 로컬 기본 설정 값을 할당할 수 있습니다. 이 구성은 Microsoft에 대한 두 경로를 사용할 수 있는 경우 로스앤젤레스의 사용자가 미국 서부에서 ExpressRoute 회로를 사용하여 Azure 미국 서부에 연결하는 반면 뉴욕의 사용자는 미국 동부의 ExpressRoute를 사용하여 Azure 미국 동부에 연결할 수 있도록 합니다. 라우팅이 양쪽 모두에서 최적화됩니다. 
 
 ![ExpressRoute 사례 1 솔루션 - BGP 커뮤니티 사용](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
 
@@ -74,7 +74,7 @@ ms.locfileid: "74080126"
 두 번째 방법은 어떤 접두사가 어떤 사무실에 근접한지 힌트를 제공하는 것 외에도 두 ExpressRoute 회로에서 두 접두사를 계속해서 알리는 것입니다. BGP AS Path 앞에 추가를 지원하므로 라우팅에 영향을 주는 접두사에 대한 AS Path를 구성할 수 있습니다. 이 예제에서는 미국 동부 172.2.0.0/31에 대한 AS PATH를 연장할 수 있으므로 이 접두사에 대해 전송되는 트래픽에는 미국 서부의 ExpressRoute 회로를 선호하게 됩니다(네트워크에서 이 접두사에 대한 경로가 서부에서 더 짧다고 생각하므로). 마찬가지로 미국 동부에서 ExpressRoute 회로를 선호하도록 미국 서부에서 172.2.0.2/31에 대한 AS PATH를 연장할 수 있습니다. 두 사무소 모두에 대해 라우팅이 최적화됩니다. 이 디자인에서 한 ExpressRoute 회로가 중단되면 Exchange Online에서 다른 ExpressRoute 회로 및 WAN을 통해 계속 연결할 수 있습니다. 
 
 > [!IMPORTANT]
-> 개인 AS 번호를 사용하여 피어링할 때 Microsoft 피어링에서 받은 접두사에 대한 AS PATH에서 개인 AS 번호를 제거합니다. Microsoft 피어링에 대한 라우팅에 영향을 미치려면 공용 AS를 피어링하고 AS PATH에 공용 AS 번호를 부속해야 합니다.
+> 개인 AS 번호를 사용 하 여 피어 링 하는 경우 Microsoft 피어 링에서 수신 된 접두사에 대 한 AS PATH에서 개인 AS 번호를 제거 합니다. Microsoft 피어 링에 대 한 라우팅에 영향을 주기 위해 AS 경로에 공용 as 번호를 추가 하 여 공용으로 피어 링 해야 합니다.
 > 
 > 
 

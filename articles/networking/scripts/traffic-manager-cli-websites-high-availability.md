@@ -13,13 +13,13 @@ ms.workload: traffic-manager
 ms.date: 06/26/2018
 ms.author: allensu
 ms.openlocfilehash: 2a083520a0da324d7033d4597a6b734b43c025b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74049266"
 ---
-# <a name="route-traffic-for-high-availability-of-applications---azure-cli"></a>응용 프로그램의 고가용성에 대한 경로 트래픽 - Azure CLI
+# <a name="route-traffic-for-high-availability-of-applications---azure-cli"></a>응용 프로그램의 고가용성을 위해 트래픽 라우팅-Azure CLI
 
 이 스크립트는 리소스 그룹, 2개 App Service 계획, 2개 웹앱, Traffic Manager 프로필 및 2개 Traffic Manager 엔드포인트를 만듭니다. Traffic Manager는 주 지역인 한 지역의 애플리케이션 및 주 지역의 애플리케이션을 사용할 수 없을 때 보조 지역으로 트래픽을 전달합니다. 스크립트를 실행하기 전에 MyWebApp, MyWebAppL1 및 MyWebAppL2 값을 Azure에서 고유한 값으로 변경해야 합니다. 스크립트를 실행한 후에는 mywebapp.trafficmanager.net URL을 사용하여 주 지역의 응용 프로그램에 액세스할 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 다중 테넌트 SaaS 자습서
+title: 다중 테 넌 트 SaaS 자습서
 description: 독립 실행형 애플리케이션 패턴을 사용하여 새 테넌트 프로비전 및 카탈로그 작업
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/24/2018
 ms.openlocfilehash: 02682a18f14e7ecbf5b42783ab84a1b55a4bb77b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74133136"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>테넌트별 애플리케이션 SaaS 패턴을 사용하여 새 테넌트 프로비전/카탈로그 작업
@@ -67,7 +67,7 @@ Azure Resource Manager 템플릿은 애플리케이션을 배포 및 구성하�
 
 이 자습서의 끝 부분에는 각 데이터베이스가 카탈로그에 등록된 독립 실행형 테넌트 애플리케이션이 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
@@ -81,7 +81,7 @@ Azure Resource Manager 템플릿은 애플리케이션을 배포 및 구성하�
 * Azure 리소스 관리 템플릿을 사용하여 **카탈로그 데이터베이스를 프로비전**합니다. 데이터베이스는 bacpac 파일을 가져와서 초기화됩니다.
 * 이전에 배포한 **샘플 테넌트 앱을 등록**합니다.  각 테넌트는 테넌트 이름의 해시로 생성된 키를 사용하여 등록됩니다.  테넌트 이름은 카탈로그의 확장 테이블에도 저장됩니다.
 
-1. PowerShell ISE에서 *...\Learning Modules\UserConfig.psm*을 열고 **\<user\>** 값을 세 가지 애플리케이션 예제를 배포할 때 사용한 값으로 업데이트합니다.  **파일을 저장합니다.**
+1. PowerShell ISE에서 *...\Learning Modules\UserConfig.psm*을 열고 **\<user\>** 값을 세 가지 애플리케이션 예제를 배포할 때 사용한 값으로 업데이트합니다.  **파일을 저장**합니다.
 1. PowerShell ISE에서 *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1*을 열어서 **$Scenario = 1**을 설정합니다. 테넌트 카탈로그를 배포하고 미리 정의된 테넌트를 등록합니다.
 
 1. `& $PSScriptRoot\New-Catalog.ps1`이라고 표시된 줄에 커서를 두고 중단점을 추가한 다음, **F9**를 누릅니다.
@@ -98,7 +98,7 @@ Azure Resource Manager 템플릿은 애플리케이션을 배포 및 구성하�
 이제 만든 리소스를 살펴봅니다.
 
 1. [Azure 포털](https://portal.azure.com/)을 열어서 리소스 그룹으로 이동합니다.  **wingtip-sa-catalog-\<user\>** 리소스 그룹을 열고 카탈로그 서버 및 데이터베이스를 메모합니다.
-1. 포털에서 데이터베이스를 열고 왼쪽 메뉴에서 *데이터 탐색기*를 선택합니다.  로그인 명령을 클릭한 다음 암호 = **P\@sword1을**입력합니다.
+1. 포털에서 데이터베이스를 열고 왼쪽 메뉴에서 *데이터 탐색기*를 선택합니다.  Login 명령을 클릭 한 다음 Password = **P\@ssword1**을 입력 합니다.
 
 
 1. *tenantcatalog* 데이터베이스의 스키마로 이동합니다.

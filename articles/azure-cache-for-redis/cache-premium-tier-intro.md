@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
 ms.openlocfilehash: aadcc13d2397f10ea40f06d1259c86b9a179c38b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74121661"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Azure Cache for Redis 프리미엄 계층 소개
@@ -26,7 +26,7 @@ Azure Cache for Redis는 분산되고 관리되는 캐시입니다. 이 캐시�
 프리미엄 캐시의 크기, 처리량 및 대역폭에 대한 자세한 내용은 [Azure Cache for Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)를 참조하세요.
 
 ## <a name="redis-data-persistence"></a>Redis 데이터 지속성
-프리미엄 계층을 사용하면 Azure Storage 계정에서 캐시 데이터를 유지할 수 있습니다. 기본/표준 캐시에서 모든 데이터는 메모리에만 저장됩니다. 기본 인프라의 경우 문제는 잠재적인 데이터 손실이 있을 수 있다는 점입니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다. Redis용 Azure 캐시는 [Redis 지속성에서](https://redis.io/topics/persistence)RDB 및 AOF(곧 출시 예정) 옵션을 제공합니다. 
+프리미엄 계층을 사용하면 Azure Storage 계정에서 캐시 데이터를 유지할 수 있습니다. 기본/표준 캐시에서 모든 데이터는 메모리에만 저장됩니다. 기본 인프라의 경우 문제는 잠재적인 데이터 손실이 있을 수 있다는 점입니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다. Redis 용 Azure Cache는 [Redis 지 속성](https://redis.io/topics/persistence)에서 RDB 및 aof (출시 예정) 옵션을 제공 합니다. 
 
 지속성을 구성하는 방법에 대한 지침은 [프리미엄 Azure Redis Cache에 대한 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
 
@@ -56,8 +56,8 @@ Azure Cache for Redis는 분산되고 관리되는 캐시입니다. 이 캐시�
 
 * 캐시의 마스터 노드
 * 캐시의 보조 노드
-* 캐시의 기본 노드와 보조 노드 모두
-* 클러스터링이 있는 프리미엄 캐시를 사용하는 경우 캐시의 개별 샤드에 대한 기본 노드, 보조 노드 또는 두 노드를 모두 재부팅할 수 있습니다.
+* 캐시의 기본 및 보조 노드 모두
+* 클러스터링이 포함 된 프리미엄 캐시를 사용 하는 경우 캐시의 개별 분할에 대 한 기본, 보조 또는 두 노드를 모두 다시 부팅할 수 있습니다.
 
 자세한 내용은 [다시 부팅](cache-administration.md#reboot) 및 [다시 부팅 FAQ](cache-administration.md#reboot-faq)를 참조하세요.
 

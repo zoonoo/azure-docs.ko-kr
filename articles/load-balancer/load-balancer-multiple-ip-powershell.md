@@ -1,7 +1,7 @@
 ---
 title: 여러 IP 구성의 부하 분산 - Azure CLI
 titleSuffix: Azure Load Balancer
-description: 이 문서에서는 Azure CLI를 사용하여 기본 및 보조 IP 구성에서 부하 분산에 대해 알아봅니다.
+description: 이 문서에서는 Azure CLI를 사용 하 여 기본 및 보조 IP 구성에서 부하 분산에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 6ac9e362314cc45e6adbdcf1390f70cbe6b05de8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74075974"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>PowerShell을 사용하여 여러 IP 구성의 부하 분산
 
 > [!div class="op_single_selector"]
 > * [포털](load-balancer-multiple-ip.md)
-> * [Cli](load-balancer-multiple-ip-cli.md)
-> * [Powershell](load-balancer-multiple-ip-powershell.md)
+> * [CLI](load-balancer-multiple-ip-cli.md)
+> * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
 
 이 문서에서는 보조 NIC(네트워크 인터페이스)에 여러 IP 주소가 있는 Azure Load Balancer를 사용하는 방법을 설명합니다. 이 시나리오에는 Windows를 실행하는 VM이 둘 있고 각각 기본 및 보조 NIC가 있습니다. 각 보조 NIC에는 두 가지 IP 구성이 있습니다. 각 VM은 contoso.com 및 fabrikam.com 웹 사이트를 둘 다 호스트합니다. 각 웹 사이트는 보조 NIC의 IP 구성 중 하나에 바인딩됩니다. Azure Load Balancer를 사용하여 웹 사이트의 각 IP 구성에 트래픽을 분산하기 위해 각 웹 사이트에 하나씩 두 개의 프런트 엔드 IP 주소를 노출합니다. 이 시나리오는 양 쪽 프런트 엔드는 물론 양쪽 백 엔드 풀 IP 주소에 동일한 포트 번호를 사용합니다.
@@ -143,4 +143,4 @@ ms.locfileid: "74075974"
 
 ## <a name="next-steps"></a>다음 단계
 - Azure에서 부하 분산 서비스를 결합하는 방법에 대한 자세한 내용은 [Azure에서 부하 분산 서비스 사용](../traffic-manager/traffic-manager-load-balancing-azure.md)을 참조하세요.
-- Azure에서 다양한 유형의 로그를 사용하여 [Azure 로드 밸런서에 대한 Azure 모니터 로그에서](../load-balancer/load-balancer-monitor-log.md)로드 밸런서를 관리하고 문제를 해결하는 방법을 알아봅니다.
+- Azure에서 다양 한 유형의 로그를 사용 하 여 [Azure Load Balancer에 대 한 Azure Monitor 로그](../load-balancer/load-balancer-monitor-log.md)에서 부하 분산 장치를 관리 하 고 문제를 해결 하는 방법에 대해 알아봅니다.

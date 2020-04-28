@@ -1,5 +1,5 @@
 ---
-title: 다중 테넌트 앱에서 새 테넌트 프로비전
+title: 다중 테 넌 트 앱에서 새 테 넌 트 프로 비전
 description: Azure SQL Database 다중 테넌트 SaaS 앱에서 새 테넌트를 프로비전하고 분류하는 방법 알아보기
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: 6ec8f8835e925663fc6ac21a6eb1df09d6927109
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74132116"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>새 테넌트를 프로비전하고 카탈로그에 등록하는 방법 알아보기
@@ -45,7 +45,7 @@ ms.locfileid: "74132116"
 
 또한 카탈로그는 테넌트에 제공된 스키마 버전, 서비스 계획 또는 SLA와 같은 추가 테넌트 또는 데이터베이스 메타데이터를 저장할 수도 있습니다. 카탈로그는 애플리케이션 관리, 고객 지원 또는 DevOps를 사용할 수 있도록 하는 기타 정보를 저장할 수 있습니다.
 
-SaaS 애플리케이션 이외에도 카탈로그는 데이터베이스 도구를 활성화할 수 있습니다. Wingtip Tickets SaaS 테넌트당 데이터베이스 샘플에서 카탈로그는 [임시 보고 자습서에서](saas-tenancy-cross-tenant-reporting.md)탐색하는 테넌트 간 쿼리를 활성화하는 데 사용됩니다. 데이터베이스 간 작업 관리는 [스키마 관리](saas-tenancy-schema-management.md) 및 [테넌트 분석](saas-tenancy-tenant-analytics.md) 자습서에서 자세히 다 겠습니다.
+SaaS 애플리케이션 이외에도 카탈로그는 데이터베이스 도구를 활성화할 수 있습니다. 정문 ticket SaaS 테 넌 트 별 데이터베이스 샘플에서 카탈로그는 테 넌 트 간 쿼리를 활성화 하는 데 사용 됩니다 .이 쿼리는 [임시 보고 자습서](saas-tenancy-cross-tenant-reporting.md)에서 살펴봅니다. 데이터베이스 간 작업 관리는 [스키마 관리](saas-tenancy-schema-management.md) 및 [테 넌 트 분석](saas-tenancy-tenant-analytics.md) 자습서에서 살펴봅니다.
 
 Wingtip Tickets SaaS 샘플에서 카탈로그는 [EDCL(Elastic Database 클라이언트 라이브러리)](sql-database-elastic-database-client-library.md)의 분할 관리 기능을 사용하여 구현됩니다. EDCL은 Java 및 .NET Framework에서 사용할 수 있습니다. EDCL을 통해 애플리케이션은 데이터베이스 기반 분할 맵을 만들고, 관리하고 사용할 수 있습니다.
 
@@ -61,7 +61,7 @@ Wingtip Tickets SaaS 샘플에서 카탈로그는 [EDCL(Elastic Database 클라�
 
 다른 데이터베이스 프로비전 방법을 사용할 수 있습니다. SQL 스크립트를 실행하거나, bacpac를 배포하거나, 템플릿 데이터베이스를 복사할 수 있습니다.
 
-데이터베이스 프로비전은 스키마 관리 전략의 일부가 되어야 합니다. 새 데이터베이스는 최신 스키마로 프로비전해야 합니다. 이 요구 사항은 [스키마 관리 자습서에서](saas-tenancy-schema-management.md)자세히 살펴입니다.
+데이터베이스 프로비전은 스키마 관리 전략의 일부가 되어야 합니다. 새 데이터베이스는 최신 스키마로 프로비전해야 합니다. 이 요구 사항은 [스키마 관리 자습서](saas-tenancy-schema-management.md)에서 살펴봅니다.
 
 Wingtip Tickets Database-per-Tenant 앱은 카탈로그 서버에 배포된 _basetenantdb_라는 템플릿 데이터베이스를 복사하여 새 테넌트를 프로비전합니다. 프로비전은 등록 과정의 일부로서 애플리케이션에 통합될 수 있습니다. 또한 스크립트를 사용하여 오프라인에서 지원될 수도 있습니다. 이 자습서에서는 PowerShell을 사용하는 프로비전을 살펴봅니다.
 
@@ -77,11 +77,11 @@ Wingtip Tickets Database-per-Tenant 앱은 카탈로그 서버에 배포된 _bas
 
 Wingtip Tickets 애플리케이션에서 새 테넌트 프로비전을 구현하는 방법을 알아보기 위해 테넌트를 프로비전하는 동안 중단점을 추가하고 워크플로를 따라 진행합니다.
 
-1. 파워 쉘 ISE에서, 열기 ... \\학습 모듈\\프로비저닝및카탈로그데모프로비저프로비저닝및카탈로그.ps1\\_Demo-ProvisionAndCatalog.ps1_ 및 다음 파라미터를 설정합니다.
+1. PowerShell ISE에서 ... \\학습 모듈\\ProvisionAndCatalog\\을_demo-provisionandcatalog.ps1_ 하 고 다음 매개 변수를 설정 합니다.
 
    * **$TenantName** = 새 장소의 이름(예: *Bushwillow 블루스*).
-   * **$VenueType** = 미리 정의 된 장소 유형 중 하나 : _블루스, 클래식 음악, 댄스, 재즈, 유도, 모터 레이싱, 다목적, 오페라, 록 음악, 축구_.
-   * **$DemoScenario** = **1**, *단일 테넌트 프로비전*.
+   * **$VenueType** = _클래식 음악, 댄스, 재즈, 유도, 화물 레이스, 다목적, opera, 오페라, 축구_등 미리 정의 된 장소 유형 중 하나입니다.
+   * **$DemoScenario** = **1**$DemoScenario *단일 테 넌 트를 프로 비전*합니다.
 
 2. 중단점을 추가하려면 커서를 *New-Tenant `* 줄의 아무 위치에나 둡니다. 그런 후 F9 키를 누릅니다.
 
@@ -115,7 +115,7 @@ Wingtip Tickets 애플리케이션에서 새 테넌트 프로비전을 구현하
 
     어느 분할이 어느 테넌트에 속하는지 밝히기 위해 테넌트 이름에서 데이터베이스 이름이 구성됩니다. 다른 데이터베이스 명명 규칙을 사용할 수도 있습니다. Resource Manager 템플릿이 카탈로그 서버에서 템플릿 데이터베이스(_baseTenantDB_)를 복사하여 테넌트 데이터베이스를 생성합니다. 또는 bacpac를 가져와 데이터베이스를 만들고 초기화할 수 있습니다. 또는 잘 알려진 위치에서 초기화 스크립트를 실행할 수 있습니다.
 
-    리소스 관리자 템플릿은 ...\학습 모듈\Common\ 폴더에 있습니다: *테넌트데이터베이스복사템플릿.json*
+    리소스 관리자 템플릿은. ..\Learning Modules\Common\ 폴더: *tenantdatabasecopytemplate.json* 에 있습니다.
 
 * **테넌트 데이터베이스가 추가로 초기화됩니다.** 장소(테넌트) 이름 및 장소 유형이 추가됩니다. 여기에서 다른 초기화를 수행할 수도 있습니다.
 
@@ -137,7 +137,7 @@ Wingtip Tickets 애플리케이션에서 새 테넌트 프로비전을 구현하
 
 1. PowerShell ISE에서 ...\\학습 모듈\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1*을 엽니다. *$DemoScenario* 매개 변수를 3으로 변경합니다.
 
-   * **$DemoScenario** = **3**, *테넌자의 일괄 처리를 프로비전합니다.*
+   * **$DemoScenario** = **3**, *테 넌 트 일괄 처리를 프로 비전*합니다.
 2. 스크립트를 실행하려면 F5 키를 누릅니다.
 
 이 스크립트는 추가 테넌트의 배치를 배포합니다. [Azure Resource Manager 템플릿](../azure-resource-manager/resource-manager-template-walkthrough.md)을 사용하여 일괄 처리를 제어한 다음 각 데이터베이스의 프로비전을 연결된 템플릿에 위임합니다. 템플릿을 이 방법으로 사용하면 Azure Resource Manager가 스크립트에 대한 프로비전 프로세스를 중개할 수 있습니다. 템플릿이 데이터베이스를 병렬로 프로비전하고, 필요한 경우 재시도를 처리합니다. 이 스크립트는 idempotent이므로 어떤 이유로든 실패하거나 중지되는 경우 다시 실행하세요.

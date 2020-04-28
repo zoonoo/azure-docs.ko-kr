@@ -1,5 +1,5 @@
 ---
-title: Azure CDN 엔드포인트 문제 해결 - 404 상태 코드
+title: Azure CDN 끝점 문제 해결-404 상태 코드
 description: Azure CDN 엔드포인트에서 404 응답 코드 문제를 해결합니다.
 services: cdn
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: c332c6712cdf057491e3039854aa1a29bd54196f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74083123"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>404 상태 코드를 반환하는 Azure CDN 엔드포인트 문제 해결
 이 문서에서는 404 HTTP 응답 상태 코드를 반환하는 Azure CDN(Content Delivery Network) 엔드포인트의 문제를 해결할 수 있습니다.
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 **지원 받기를**선택합니다.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 **지원 받기**를 선택 합니다.
 
 ## <a name="symptom"></a>증상
 CDN 프로필 및 엔드포인트을 만들었지만 콘텐츠를 CDN에서 사용할 수 없습니다. CDN URL을 통해 콘텐츠에 액세스하려는 사용자에게는 HTTP 404 상태 코드가 수신됩니다. 
@@ -71,9 +71,9 @@ CDN 프로필 및 엔드포인트을 만들었지만 콘텐츠를 CDN에서 사�
 **원본 유형** 및 **원본 호스트 이름**의 값이 올바른지 확인합니다. 이 예제 https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt에서 URL의 호스트 이름 부분은 *cdndocdemo.blob.core.windows.net*으로 이 부분이 올바른지 확인합니다. Azure Storage, 웹앱 및 클라우드 서비스 원본은 **원본 호스트 이름** 필드에 드롭다운 목록 값을 사용하므로 잘못된 철자는 문제가 되지 않습니다. 그러나 사용자 지정 원본을 사용하는 경우 호스트 이름의 철자가 올바른지 확인합니다.
 
 #### <a name="http-and-https-ports"></a>HTTP 및 HTTPS 포트
-**HTTP** 및 **HTTPS 포트를**확인하십시오. 대부분의 경우 80 및 443이 올바르며, 포트를 변경할 필요가 없습니다.  그러나 원본 서버가 다른 포트에서 수신하는 경우 해당 사실을 여기에 나타내야 합니다. 확실하지 않은 경우 원본 파일의 URL을 확인합니다. HTTP 및 HTTPS 사양은 포트 80 및 443을 기본값으로 사용합니다. 예제 URL https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt에는 포트가 지정되지 않으므로 기본값인 443이 사용되며 이 설정은 올바른 것입니다.  
+**HTTP** 및 **HTTPS 포트**를 확인 합니다. 대부분의 경우 80 및 443이 올바르며, 포트를 변경할 필요가 없습니다.  그러나 원본 서버가 다른 포트에서 수신하는 경우 해당 사실을 여기에 나타내야 합니다. 확실하지 않은 경우 원본 파일의 URL을 확인합니다. HTTP 및 HTTPS 사양은 포트 80 및 443을 기본값으로 사용합니다. 예제 URL https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt에는 포트가 지정되지 않으므로 기본값인 443이 사용되며 이 설정은 올바른 것입니다.  
 
-그러나 이전에 테스트한 원본 파일의 URL이 http:\//www.contoso.com:8080/file.txt라고 가정합니다. 호스트 이름 세그먼트 끝에 있는 *:8080* 부분에 유의합니다. 이 숫자는 브라우저가 포트 8080을 사용하여 www contoso.com\.웹 서버에 연결하도록 지시하므로 **HTTP 포트** 필드에 *8080을* 입력해야 합니다. 이러한 포트 설정은 엔드포인트가 원본에서 정보를 검색할 때 사용하는 포트에만 영향을 줍니다.
+그러나 이전에 테스트한 원본 파일의 URL이 http:\//www.contoso.com:8080/file.txt라고 가정합니다. 호스트 이름 세그먼트 끝에 있는 *:8080* 부분에 유의합니다. 이 번호는 브라우저가 포트 8080을 사용 하 여 www\.contoso.com의 웹 서버에 연결 하도록 지시 하므로 **HTTP 포트** 필드에 *8080* 를 입력 해야 합니다. 이러한 포트 설정은 엔드포인트가 원본에서 정보를 검색할 때 사용하는 포트에만 영향을 줍니다.
 
 > [!NOTE]
 > **Akamai의 Azure CDN 표준** 엔드포인트에서는 원본에 대해 전체 TCP 포트 범위를 허용하지 않습니다.  허용되지 않는 원본 포트 목록을 보려면 [Akamai 허용된 원본 포트의 Azure CDN](/previous-versions/azure/mt757337(v=azure.100))를 참조하세요.  

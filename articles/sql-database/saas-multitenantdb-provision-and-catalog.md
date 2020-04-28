@@ -1,5 +1,5 @@
 ---
-title: SaaS 다중 테넌트 에 프로비저닝
+title: SaaS 다중 테 넌 트에서 프로 비전
 description: Azure SQL Database 다중 테넌트 SaaS 앱에서 새 테넌트를 프로비전하고 카탈로그로 만드는 방법 알아보기
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 ms.date: 09/24/2018
 ms.openlocfilehash: 4ea18ee23d845b2d16209b23de14dc3cd70aaa59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74133140"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>공유 다중 테넌트 Azure SQL 데이터베이스를 사용하여 SaaS 애플리케이션에 새 테넌트를 프로비전하고 카탈로그로 만들기
@@ -122,16 +122,16 @@ SaaS 애플리케이션에서 이러한 변경 내용은 테넌트 데이터베�
 > * 다중 테넌트 및 단일 테넌트 데이터베이스에 테넌트 일괄 처리 프로 비전
 > * 카탈로그에 데이터베이스 및 테넌트 매핑 등록
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>전제 조건
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
 - Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
-- Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 이내에 배포하려면 [Wingtip 티켓 SaaS 다중 테넌트 데이터베이스 응용 프로그램 배포 및 탐색을](saas-multitenantdb-get-started-deploy.md) 참조하세요.
+- Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5 분 이내에 배포 하려면 [정문 Ticket SaaS 다중 테 넌 트 데이터베이스 응용 프로그램 배포 및 탐색](saas-multitenantdb-get-started-deploy.md) 을 참조 하세요.
 
 - Wingtip 스크립트 및 소스 코드를 가져옵니다.
-    - 윙팁 티켓 SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 사용할 수 있습니다.
+    - [Wingtipticketssaas-dbpertenant-master-Wingtipticketssaas-multitenantdb-master](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 정문 Ticket SaaS 다중 테 넌 트 데이터베이스 스크립트 및 응용 프로그램 소스 코드를 사용할 수 있습니다.
     - Wingtip 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 참조하세요.
 
 ## <a name="provision-a-tenant-into-a-database-shared-with-other-tenants"></a>다른 테넌트와 *공유하는* 데이터베이스에 테넌트 프로비전
@@ -145,7 +145,7 @@ SaaS 애플리케이션에서 이러한 변경 내용은 테넌트 데이터베�
 - **새 테넌트 키 계산**: 테넌트 이름에서 테넌트 키를 만드는 데에는 해시 함수가 사용됩니다.
 - **테넌트 키의 존재 여부 확인**:카탈로그를 확인하여 키가 아직 등록되지 않았는지 확인합니다.
 - **기본 테넌트 데이터베이스에서 테넌트 초기화**: 새 테넌트 정보를 추가하도록 테넌트 데이터베이스가 업데이트됩니다.
-- **카탈로그에서 테넌트 등록**: 새 테넌트 키와 기존 테넌트1 데이터베이스 간의 매핑이 카탈로그에 추가됩니다.
+- **카탈로그에 테 넌 트 등록**: 새 테 넌 트 키와 기존 tenants1 데이터베이스 간의 매핑이 카탈로그에 추가 됩니다.
 - **테넌트의 이름을 카탈로그 확장 테이블에 추가**: 카탈로그의 테넌트 테이블에 장소 이름이 추가됩니다.  이 추가는 추가적인 애플리케이션 관련 데이터를 지원하도록 카탈로그 데이터베이스를 확장하는 방법입니다.
 - **새 테넌트에 대한 이벤트 페이지 열기**: 브라우저에 *Bushwillow Blues* 이벤트 페이지가 열립니다.
 
@@ -156,9 +156,9 @@ SaaS 애플리케이션에서 이러한 변경 내용은 테넌트 데이터베�
 Wingtip 앱이 공유 데이터베이스에 새 테넌트를 프로비전하는 방법을 이해하려면 중단점을 추가하여 워크플로를 단계별로 실행합니다.
 
 1. *PowerShell ISE*에서 ...\\학습 모듈\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*을 열고 다음 매개 변수를 설정합니다.
-   - **$TenantName** = **부시 윌로우 블루스,** 새로운 장소의 이름.
-   - **블루스,** = 클래식 음악, 댄스, 재즈, 유도, 모터 레이싱, 다목적, 오페라, 록 음악, 축구 (소문자, 공간 없음) : $VenueType**블루스**, 미리 정의 된 장소 유형 중 하나.
-   - **$DemoScenario** = **1**.
+   - **$TenantName** = **Bushwillow**는 새 장소 이름입니다.
+   - **$VenueType** = 클래식 음악 **, 유도**, 자동차 경주, 다용도, opera, 오페라, 축구 (소문자, 공백 없음)의 미리 정의 된 장소 유형 중 하나입니다. $VenueType
+   - **$DemoScenario** = **1**, 다른 테 넌 트와 공유 데이터베이스에서 테 넌 트를 프로 비전 합니다.
 
 2. 커서를 38행(*New-Tenant `*)의 아무 위치에 두고 중단점을 추가한 다음 **F9** 키를 누릅니다.
 
@@ -174,7 +174,7 @@ Wingtip 앱이 공유 데이터베이스에 새 테넌트를 프로비전하는 
 
 PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 [PowerShell 스크립트 사용 및 디버깅 관련 팁](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)을 참조하세요.
 
-## <a name="provision-a-tenant-in-its-own-database"></a>*자체* 데이터베이스에 테넌트 프로비전
+## <a name="provision-a-tenant-in-its-own-database"></a>*자체* 데이터베이스에 테 넌 트 프로 비전
 
 #### <a name="major-actions-of-provisioning"></a>프로비전의 주요 작업
 
@@ -185,7 +185,7 @@ PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 
 - **새 테넌트 데이터베이스 만들기**: Resource Manager 템플릿을 사용해 *basetenantdb*를 복사하여 데이터베이스를 만듭니다.  새 데이터베이스 이름은 테넌트 이름을 기반으로 합니다.
 - **데이터베이스를 카탈로그에 추가**: 새 테넌트 데이터베이스가 카탈로그에 하나의 분할된 데이터베이스로 등록됩니다.
 - **기본 테넌트 데이터베이스에서 테넌트 초기화**: 새 테넌트 정보를 추가하도록 테넌트 데이터베이스가 업데이트됩니다.
-- **카탈로그에 테넌트 등록**: 새 테넌트 키와 *세쿼이아축구* 데이터베이스 간의 매핑이 카탈로그에 추가됩니다.
+- **카탈로그에 테 넌 트 등록**: 새 테 넌 트 키와 *sequoiasoccer* 데이터베이스 간의 매핑이 카탈로그에 추가 됩니다.
 - **테넌트 이름이 카탈로그에 추가됨**: 장소 이름이 카탈로그의 테넌트 확장 테이블에 추가됩니다.
 - **새 테넌트에 대한 이벤트 페이지 열기**: 브라우저에 *Sequoia Soccer* 이벤트 페이지가 열립니다.
 
@@ -196,24 +196,24 @@ PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 
 이제 자체 데이터베이스에 테넌트를 만드는 스크립트 프로세스를 단계별로 알아보겠습니다.
 
 1. ...\\학습 모듈\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*을 열고 다음 매개 변수를 설정합니다.
-   - **$TenantName** = **세쿼이아 축구,** 새로운 장소의 이름.
-   - **$VenueType** = **축구,** 미리 정의 된 장소 유형 중 하나 : 블루스, 클래식 음악, 댄스, 재즈, 유도, 모터 레이싱, 다목적, 오페라, 록 음악, 축구 (소문자, 공간 없음).
-   - **$DemoScenario** = **2**.
+   - **$TenantName** = **Sequoia 축구**, 새 장소 이름입니다.
+   - **$VenueType** = **축구**, 클래식 음악, 댄스, 재즈, 유도, 자동차 경주, 다목적, opera, 오페라, 축구 (소문자, 공백 없음)의 미리 정의 된 장소 유형 중 하나입니다.
+   - **$DemoScenario** = **2**-테 넌 트를 자체 데이터베이스에 프로 비전 합니다.
 
-2. 57줄에 커서를 배치하여 새 중단점을 추가합니다 * & &nbsp;$PSScriptRoot.* **F9**
+2. 줄 57의 아무 곳에 커서를 놓고 * & &nbsp;$PSScriptRoot \new-tenantanddatabase '* 라는 줄에 커서를 놓고 **F9**키를 눌러 새 중단점을 추가 합니다.
 
    ![중단점](media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 
 3. **F5** 키를 눌러 스크립트를 실행합니다.
 
-4. 스크립트 실행이 중단점에서 중지된 후 **F11을** 눌러 코드를 단계별로 실행합니다.  **F10** 및 **F11** 키를 사용하여 함수를 건너뛰거나 시작하면서 실행을 추적합니다.
+4. 스크립트 실행이 중단점에서 중지 되 면 **F11** 키를 눌러 코드를 한 단계씩 코드 실행 합니다.  **F10** 및 **F11** 키를 사용하여 함수를 건너뛰거나 시작하면서 실행을 추적합니다.
 
 ## <a name="provision-a-batch-of-tenants"></a>테넌트의 배치 프로비전
 
 이 연습에서는 17개의 테넌트의 배치를 프로비전합니다. 데이터베이스가 여러 개 있도록 다른 Wingtip Tickets 자습서를 시작하기 전에 이 테넌트의 일괄 처리를 프로비전하는 것이 좋습니다.
 
 1. *PowerShell ISE*에서 ...\\학습 모듈\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*을 열고 *$DemoScenario* 매개 변수를 4로 변경합니다.
-   - **$DemoScenario** = **4**.
+   - **$DemoScenario** = **4**-공유 데이터베이스에 테 넌 트 일괄 처리를 프로 비전 합니다.
 
 2. **F5**를 누르고 스크립트를 실행합니다.
 
@@ -236,7 +236,7 @@ Azure Portal은 테넌트 데이터베이스를 표시하지만 공유 데이터
 - 테넌트 이름이 테넌트 테이블에 저장됩니다.
 - 데이터베이스 이름은 분할 관리 테이블에 저장됩니다.
 
-1. SQL Server 관리 스튜디오(SSMS)에서 카탈로그 **mt. user.database.windows.net\<\>** 테넌트 서버에 로그인 = **개발자**및 암호 = **\@P sword1을** 연결합니다.
+1. SSMS (SQL Server Management Studio)에서 database.windows.net의 테 넌 트 서버 **developer** **\<\>** 에 연결 하 고 Login = developer, Password = **\@P ssword1** 를 사용 합니다.
 
     ![SSMS 연결 대화 상자](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
@@ -264,7 +264,7 @@ Azure Portal은 테넌트 데이터베이스를 표시하지만 공유 데이터
 
 <!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)
-- [Windows PowerShell ISE에서 스크립트를 디버깅하는 방법](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
+- [Windows PowerShell ISE에서 스크립트를 디버깅 하는 방법](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
 ## <a name="next-steps"></a>다음 단계

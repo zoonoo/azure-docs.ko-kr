@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74168372"
 ---
 # <a name="add-an-email-action"></a>이메일 작업 추가
@@ -96,7 +96,7 @@ ms.locfileid: "74168372"
 
 다음 단계에서는 이메일 작업을 수동으로 설정하고 확인하는 방법을 보여 줍니다.
 
-1. [Azure 포털로](https://portal.azure.com)이동합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동 합니다.
 
 1. 솔루션 가속기에 대한 리소스 그룹으로 이동합니다.
 
@@ -164,7 +164,7 @@ ms.locfileid: "74168372"
 
 1. 이미지 또는 사용자 지정 텍스트를 추가하려면 EmailTemplate.HTML 파일을 직접 업데이트합니다.
 
-## <a name="throttling"></a>스로틀
+## <a name="throttling"></a>제한
 
 원격 모니터링 솔루션 가속기는 Outlook을 사용하여 이메일 알림을 보냅니다. Outlook에서 전송되는 이메일 수가 [분당 30개 이메일](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits)로 제한됩니다. 이메일을 수신하는 이메일 클라이언트에서 분당 수신되는 이메일의 수를 제한할 수도 있습니다. 제한 사항은 특정 이메일 클라이언트에 문의하세요. 규칙에 대해 이메일 알림을 설정할 때 규칙은 적어도 1분 동안의 평균 값을 계산하고 아주 짧은 기간의 값은 사용하지 않아야 합니다.
 

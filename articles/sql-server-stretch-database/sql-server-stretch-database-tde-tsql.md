@@ -1,5 +1,5 @@
 ---
-title: 확장 데이터베이스(T-SQL)에 대한 투명 데이터 암호화 사용
+title: Stretch Database에 대해 투명한 데이터 암호화 사용 (T-sql)
 description: Azure TSQL에서 SQL Server Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 6f1f5f55348069dbfe11b4d5857d93f8ba8c9b19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74033965"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Azure에서 Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정(Transact-SQL)
 > [!div class="op_single_selector"]
-> * [Azure 포털](sql-server-stretch-database-encryption-tde.md)
-> * [Tsql](sql-server-stretch-database-tde-tsql.md)
+> * [Azure Portal](sql-server-stretch-database-encryption-tde.md)
+> * [TSQL](sql-server-stretch-database-tde-tsql.md)
 >
 >
 
@@ -69,7 +69,7 @@ FROM
 ```1```의 결과는 암호화된 데이터베이스를 나타내고 ```0```은(는) 암호화되지 않은 데이터베이스를 나타냅니다.
 
 <!--Anchors-->
-[투명 데이터 암호화(TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[TDE(투명한 데이터 암호화)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->

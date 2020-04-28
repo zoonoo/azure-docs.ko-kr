@@ -1,7 +1,7 @@
 ---
-title: Bing 엔터티 검색 API를 사용하는 사용자 지정 기술 예제
+title: Bing Entity Search API 사용 하는 사용자 지정 기술 예제
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search에서 AI가 풍부한 인덱싱 파이프라인에 매핑된 사용자 지정 기술에서 Bing 엔터티 검색 서비스를 사용하는 방법을 보여 줍니다.
+description: Azure Cognitive Search의 AI 보강 인덱싱 파이프라인에 매핑된 사용자 지정 기술에서 Bing Entity Search 서비스를 사용 하는 방법을 보여 줍니다.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,35 +9,35 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74113808"
 ---
-# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>예: Bing 엔터티 검색 API를 사용하여 사용자 지정 기술 만들기
+# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>예: Bing Entity Search API을 사용 하 여 사용자 지정 기술 만들기
 
-이 예제에서는 웹 API 사용자 지정 기술을 만드는 방법을 알아봅니다. 이 기술은 위치, 공인 및 조직을 받아들이고 설명을 반환합니다. 이 예제에서는 [Azure Function을](https://azure.microsoft.com/services/functions/) 사용하여 [Bing 엔터티 검색 API를](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) 래핑하여 사용자 지정 기술 인터페이스를 구현합니다.
+이 예제에서는 web API 사용자 지정 기술을 만드는 방법에 대해 알아봅니다. 이 스킬은 위치, 공개, 조직 및 조직에 대 한 설명을 반환 합니다. 이 예제에서는 [Azure 함수](https://azure.microsoft.com/services/functions/) 를 사용 하 여 사용자 지정 기술 인터페이스를 구현 하도록 [Bing Entity Search API](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) 를 래핑합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-+ 사용자 [지정 기술이](cognitive-search-custom-skill-interface.md) 구현해야 하는 입력/출력 인터페이스에 익숙하지 않은 경우 사용자 지정 기술 인터페이스 문서에 대해 읽어보십시오.
++ 사용자 지정 기술에서 구현 해야 하는 입력/출력 인터페이스에 익숙하지 않은 경우 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md) 문서를 참조 하세요.
 
 + [!INCLUDE [cognitive-services-bing-entity-search-signup-requirements](../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-+ Azure 개발 워크로드를 포함하여 [Visual Studio 2019](https://www.visualstudio.com/vs/) 이상 설치합니다.
++ Azure 개발 워크 로드를 포함 하 여 [Visual Studio 2019](https://www.visualstudio.com/vs/) 이상 버전을 설치 합니다.
 
 ## <a name="create-an-azure-function"></a>Azure Function 만들기
 
-이 예제에서는 Azure Function을 사용하여 웹 API를 호스팅하지만 필수는 아닙니다.  [인식 기술에 대한 인터페이스 요구 사항](cognitive-search-custom-skill-interface.md)을 충족하기만 하면, 사용하는 방식은 중요하지 않습니다. 그러나 Azure Functions를 사용하면 사용자 지정 기술을 쉽게 만들 수 있습니다.
+이 예제에서는 Azure 함수를 사용 하 여 web API를 호스트 하지만 반드시 필요한 것은 아닙니다.  [인식 기술에 대한 인터페이스 요구 사항](cognitive-search-custom-skill-interface.md)을 충족하기만 하면, 사용하는 방식은 중요하지 않습니다. 그러나 Azure Functions를 사용하면 사용자 지정 기술을 쉽게 만들 수 있습니다.
 
 ### <a name="create-a-function-app"></a>함수 앱 만들기
 
-1. 비주얼 스튜디오에서 파일 메뉴에서 **새** > **프로젝트를** 선택합니다.
+1. Visual Studio의 파일 메뉴에서 **새** > **프로젝트** 를 선택 합니다.
 
-1. 새 프로젝트 대화 상자에서 **설치됨**을 선택하고, **Visual C#** > **클라우드**를 확장하고, **Azure Functions**를 선택하고, 프로젝트의 이름을 입력한 다음, **확인**을 선택합니다. 함수 앱 이름은 C# 네임스페이스로 유효해야 하므로 밑줄, 하이픈 또는 기타 영숫자가 아닌 문자를 사용하지 마십시오.
+1. 새 프로젝트 대화 상자에서 **설치됨**을 선택하고, **Visual C#** > **클라우드**를 확장하고, **Azure Functions**를 선택하고, 프로젝트의 이름을 입력한 다음, **확인**을 선택합니다. 함수 앱 이름은 c # 네임 스페이스로 유효 해야 하므로 밑줄, 하이픈 또는 영숫자가 아닌 문자를 사용 하지 마세요.
 
-1. **Azure 함수 v2(.NET 코어)를 선택합니다.** 버전 1에서도 수행할 수 있지만 아래에 작성된 코드는 v2 템플릿을 기반으로 합니다.
+1. **Azure Functions v2 (.Net Core)** 를 선택 합니다. 버전 1에서도 수행할 수 있지만 아래에 작성된 코드는 v2 템플릿을 기반으로 합니다.
 
 1. 형식을 **HTTP 트리거**로 선택합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "74113808"
 
 1. **확인**을 선택하여 함수 프로젝트 및 HTTP 트리거 함수를 만듭니다.
 
-### <a name="modify-the-code-to-call-the-bing-entity-search-service"></a>Bing 엔터티 검색 서비스를 호출하도록 코드를 수정합니다.
+### <a name="modify-the-code-to-call-the-bing-entity-search-service"></a>Bing Entity Search 서비스를 호출 하는 코드 수정
 
 Visual Studio는 프로젝트를 만들고 그 안에는 선택한 함수 형식에 대한 상용구 코드를 포함하는 클래스를 만듭니다. 메서드의 *FunctionName* 특성은 함수 이름을 설정합니다. *HttpTrigger* 특성은 함수가 HTTP 요청에 의해 트리거되도록 지정합니다.
 
@@ -311,15 +311,15 @@ namespace SampleSkills
 }
 ```
 
-Bing *엔터티* 검색 API에 등록할 때 얻은 키를 기반으로 `key` 상수에 고유한 키 값을 입력해야 합니다.
+Bing entity search API에 등록할 *key* 때 가져온 키를 `key` 기반으로 상수에 고유한 키 값을 입력 해야 합니다.
 
-이 샘플에는 편의를 위해 필요한 모든 코드가 단일 파일에 포함되어 있습니다. [전원 기술 저장소에서](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch)동일한 기술의 약간 더 구조화 된 버전을 찾을 수 있습니다.
+이 샘플에는 편의상 모든 필요한 코드가 단일 파일에 포함 되어 있습니다. [Power skills 리포지토리에서](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch)이와 동일한 기술에 대해 약간 더 구조적인 버전을 찾을 수 있습니다.
 
-물론 파일의 이름을 에서 `Function1.cs` 로 `BingEntitySearch.cs`바꿀 수 있습니다.
+물론 파일의 이름을에서 `Function1.cs` 로 `BingEntitySearch.cs`바꿀 수도 있습니다.
 
 ## <a name="test-the-function-from-visual-studio"></a>Visual Studio에서 함수 테스트
 
-**F5** 키를 눌러 프로그램을 실행하고 함수 동작을 테스트합니다. 이 경우 아래 함수를 사용하여 두 엔터티를 찾습니다. Postman 또는 Fiddler를 사용하여 아래와 같은 호출을 실행합니다.
+**F5** 키를 눌러 프로그램을 실행하고 함수 동작을 테스트합니다. 이 경우 아래 함수를 사용 하 여 두 엔터티를 조회 합니다. Postman 또는 Fiddler를 사용하여 아래와 같은 호출을 실행합니다.
 
 ```http
 POST https://localhost:7071/api/EntitySearch
@@ -373,17 +373,17 @@ POST https://localhost:7071/api/EntitySearch
 
 ## <a name="publish-the-function-to-azure"></a>Azure에 함수 게시
 
-함수 동작에 만족하면 게시할 수 있습니다.
+함수 동작에 만족 하는 경우에는 게시할 수 있습니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 새**게시** **만들기를 선택합니다.** > 
+1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. **새로** > 만들기**게시**를 선택 합니다.
 
 1. Visual Studio를 Azure 계정에 아직 연결하지 않았으면 **계정 추가...** 를 선택합니다.
 
-1. 화면에 표시되는 메시지를 따릅니다. 앱 서비스, Azure 구독, 리소스 그룹, 호스팅 계획 및 사용하려는 저장소 계정에 대한 고유한 이름을 지정하라는 메시지가 표시됩니다. 아직 없는 경우 새 리소스 그룹, 새 호스팅 플랜 및 스토리지 계정을 만들 수 있습니다. 완료되면 **만들기를** 선택합니다.
+1. 화면에 표시되는 메시지를 따릅니다. 앱 서비스, Azure 구독, 리소스 그룹, 호스팅 계획 및 사용 하려는 저장소 계정에 대 한 고유한 이름을 지정 하 라는 메시지가 표시 됩니다. 아직 없는 경우 새 리소스 그룹, 새 호스팅 플랜 및 스토리지 계정을 만들 수 있습니다. 완료 되 면 **만들기** 를 선택 합니다.
 
-1. 배포가 완료되면 사이트 URL을 확인합니다. 이 URL은 Azure에서 해당 함수 앱의 주소입니다. 
+1. 배포가 완료 되 면 사이트 URL을 확인 합니다. 이 URL은 Azure에서 해당 함수 앱의 주소입니다. 
 
-1. Azure [포털에서](https://portal.azure.com)리소스 그룹으로 이동하여 게시한 `EntitySearch` 함수를 찾습니다. **관리** 섹션 아래에 호스트 키가 표시됩니다. ‘기본’ 호스트 키의 **복사** 아이콘을 선택합니다.**  
+1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동 하 고 게시 한 `EntitySearch` 함수를 찾습니다. **관리** 섹션 아래에 호스트 키가 표시됩니다. ‘기본’ 호스트 키의 **복사** 아이콘을 선택합니다.**  
 
 ## <a name="test-the-function-in-azure"></a>Azure에서 함수 테스트
 
@@ -415,10 +415,10 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 }
 ```
 
-이 예제에서는 로컬 환경에서 함수를 실행할 때 이전에 보았던 것과 동일한 결과를 생성해야 합니다.
+이 예에서는 로컬 환경에서 함수를 실행할 때 이전에 살펴본 것과 동일한 결과를 생성 해야 합니다.
 
 ## <a name="connect-to-your-pipeline"></a>파이프라인에 연결
-이제 새 사용자 지정 기술이 있으므로 기능에 추가할 수 있습니다. 아래 예제에서는 문서의 조직에 설명을 추가하는 기술을 호출하는 방법을 보여 주며 위치 및 사람도 작업하도록 확장할 수 있습니다. 앱 `[your-entity-search-app-name]` 이름으로 바꿉니다.
+이제 새 사용자 지정 기술이 있으므로 기능에 추가할 수 있습니다. 아래 예제에서는 기술를 호출 하 여 문서에서 조직에 설명을 추가 하는 방법을 보여 줍니다 .이는 위치 및 사용자에 대해서도 작동 하도록 확장할 수 있습니다. 를 `[your-entity-search-app-name]` 앱의 이름으로 바꿉니다.
 
 ```json
 {
@@ -446,7 +446,7 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 }
 ```
 
-여기서는 기본 제공 엔터티 인식 [기술이](cognitive-search-skill-entity-recognition.md) 기술 집합에 존재하고 조직 목록과 함께 문서를 보강할 것으로 기대하고 있습니다. 참고로 필요한 데이터를 생성하는 데 충분한 엔터티 추출 기술 구성은 다음과 같습니다.
+여기서는 기술에 제공 되는 기본 제공 [엔터티 인식 기술](cognitive-search-skill-entity-recognition.md) 에 대해 계산 하 고 조직 목록에 문서 보강을 제공 합니다. 참고로, 필요한 데이터를 생성 하는 데 충분 한 엔터티 추출 기술 구성은 다음과 같습니다.
 
 ```json
 {
@@ -476,9 +476,9 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 ```
 
 ## <a name="next-steps"></a>다음 단계
-축하합니다! 첫 번째 사용자 지정 기술을 만들었습니다. 이제 동일한 패턴을 따라 고유한 사용자 지정 기능을 추가할 수 있습니다. 자세한 내용을 보려면 다음 링크를 클릭하십시오.
+축하합니다! 첫 번째 사용자 지정 기술을 만들었습니다. 이제 동일한 패턴을 따라 고유한 사용자 지정 기능을 추가할 수 있습니다. 자세한 내용을 보려면 다음 링크를 클릭 하십시오.
 
-+ [파워 스킬: 사용자 지정 기술의 리포지토리](https://github.com/Azure-Samples/azure-search-power-skills)
++ [전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://github.com/Azure-Samples/azure-search-power-skills)
 + [AI 보강 파이프라인에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [기술 집합 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

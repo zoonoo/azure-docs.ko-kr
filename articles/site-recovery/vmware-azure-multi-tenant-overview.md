@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구를 사용 하 고 VM웨어 VM 다중 테넌트 재해 복구
+title: Azure Site Recovery를 사용 하 여 VMware VM 다중 테 넌 트 재해 복구
 description: 다중 테넌트 환경(CSP) 프로그램에서 VMWare와 Azure 간 재해 복구를 위해 제공되는 Azure Site Recovery 지원에 대해 간략하게 설명합니다.
 author: mayurigupta13
 manager: rochakm
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74083983"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>CSP를 사용한 VMware와 Azure 간 재해 복구를 위한 다중 테넌트 지원 개요
 
-[Azure 사이트 복구는](site-recovery-overview.md) 테넌트 구독에 대한 다중 테넌트 환경을 지원합니다. 또한 Microsoft CSP(클라우드 솔루션 공급자) 프로그램을 통해 생성 및 관리되는 테넌트 구독에 대한 다중 테넌트도 지원합니다.
+[Azure Site Recovery](site-recovery-overview.md) 은 테 넌 트 구독에 대 한 다중 테 넌 트 환경을 지원 합니다. 또한 Microsoft CSP(클라우드 솔루션 공급자) 프로그램을 통해 생성 및 관리되는 테넌트 구독에 대한 다중 테넌트도 지원합니다.
 
 이 아티클에서는 Azure 복제에 대해 다중 테넌트 VMware를 구현하고 관리하는 개요를 제공합니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "74083983"
 
 ### <a name="create-a-vcenter-account"></a>vCenter 계정 만들기
 
-1. 미리 정의된 *읽기 전용* 역할을 복제하여 새 역할을 만든 다음 편리한 이름(예: 이 예제와 같이 Azure_Site_Recovery)을 지정합니다.
+1. 미리 정의 된 *읽기 전용* 역할을 복제 하 여 새 역할을 만든 다음이 예와 같이 편리한 이름을 지정 합니다 (예: Azure_Site_Recovery).
 2. 이 역할에 다음 권한을 할당합니다.
 
    * **데이터 저장소**: 공간 할당, 데이터 저장소 찾아보기, 낮은 수준 파일 작업, 파일 제거, 가상 머신 파일 업데이트
@@ -92,7 +92,7 @@ ms.locfileid: "74083983"
 >| Object | 역할 | 설명 |
 >| --- | --- | --- |
 >| vCenter | 읽기 전용 | 여러 개체를 관리하기 위해 vCenter 액세스를 허용하는 데만 필요합니다. 계정이 테넌트에 제공되지 않거나 vCenter의 모든 관리 작업에 사용되는 경우 이 권한을 제거할 수 있습니다. |
->| 데이터 센터 | Azure_Site_Recovery |  |
+>| Datacenter | Azure_Site_Recovery |  |
 >| 호스트 및 호스트 클러스터 | Azure_Site_Recovery | 따라서 장애 조치(failover) 전 및 장애 복구(failback) 후에 액세스할 수 있는 호스트만 테넌트 VM을 가지도록 개체 수준에서 액세스가 이루어지는지 다시 확인합니다. |
 >| 데이터 저장소 및 데이터 저장소 클러스터 | Azure_Site_Recovery | 앞과 동일합니다. |
 >| 네트워크 | Azure_Site_Recovery |  |
@@ -120,7 +120,7 @@ ms.locfileid: "74083983"
 
 1. Azure Portal에 있는 앞에서 만든 자격 증명 모음에서 만든 vCenter 계정을 사용하여 구성 서버에 vCenter Server를 등록합니다.
 2. 일반 프로세스에 대한 Site Recovery를 위해 “준비 인프라” 프로세스를 완료합니다.
-3. 이제 VM을 복제할 준비가 되었습니다. **테넌트의** > VM만 복제**선택 가상 시스템에**표시되는지 확인합니다.
+3. 이제 VM을 복제할 준비가 되었습니다. **복제** > **선택 가상 컴퓨터**에 테 넌 트의 vm만 표시 되는지 확인 합니다.
 
 ## <a name="dedicated-hosting-solution"></a>전용 호스팅 솔루션
 
