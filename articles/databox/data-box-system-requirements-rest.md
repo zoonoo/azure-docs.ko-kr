@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: 71e0ebf7d7851ae65a6fba67a1695d755fd98bb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61436497"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Azure Data Box Blob Storage 요구 사항
 
-이 문서에서는 Azure API, Azure 클라이언트 라이브러리 및 데이터 상자 Blob 저장소에서 지원되는 도구의 버전을 나열합니다. Data Box Blob Storage는 Blob 관리 기능에 Azure 일관성이 있는 의미 체계를 제공합니다. 이 문서에서는 Azure Storage 서비스와 Azure Data Box Blob Storage의 알려진 차이점도 요약합니다.
+이 문서에서는 Data Box Blob storage에서 지원 되는 Azure Api, Azure 클라이언트 라이브러리 및 도구의 버전을 나열 합니다. Data Box Blob Storage는 Blob 관리 기능에 Azure 일관성이 있는 의미 체계를 제공합니다. 이 문서에서는 Azure Storage 서비스와 Azure Data Box Blob Storage의 알려진 차이점도 요약합니다.
 
 Data Box Blob Storage에 연결하기 전에 정보를 주의 깊게 검토한 후 필요에 따라 다시 참조하는 것이 좋습니다.
 
@@ -83,7 +83,7 @@ Data Box Blob Storage에는 특정 클라이언트 라이브러리 및 특정 �
 
 ### <a name="endpoint-declaration"></a>엔드포인트 선언
 
-Azure Data Box Blob Storage 엔드포인트에는 지역 이름과 Data Box 도메인의 두 부분이 포함됩니다. 데이터 상자 Blob 저장소 SDK에서 기본 `\<serial no. of the device>.microsoftdatabox.com`끝점은 .  Blob 서비스 엔드포인트에 대한 자세한 내용은 [Data Box Blob Storage를 통해 연결](data-box-deploy-copy-data-via-rest.md)을 참조하세요.
+Azure Data Box Blob Storage 엔드포인트에는 지역 이름과 Data Box 도메인의 두 부분이 포함됩니다. Data Box Blob storage SDK에서 기본 끝점은 `\<serial no. of the device>.microsoftdatabox.com`입니다.  Blob 서비스 엔드포인트에 대한 자세한 내용은 [Data Box Blob Storage를 통해 연결](data-box-deploy-copy-data-via-rest.md)을 참조하세요.
  
 ## <a name="examples"></a>예
 

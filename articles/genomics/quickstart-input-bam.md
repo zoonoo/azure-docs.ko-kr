@@ -1,7 +1,7 @@
 ---
-title: BAM 파일 입력을 사용하여 워크플로 제출
+title: BAM 파일 입력을 사용 하 여 워크플로 제출
 titleSuffix: Microsoft Genomics
-description: 이 문서에서는 입력 파일이 단일 BAM 파일인 경우 Microsoft 유전체학 서비스에 워크플로를 제출하는 방법을 보여 줍니다.
+description: 이 문서에서는 입력 파일이 단일 BAM 파일인 경우 Microsoft Genomics 서비스에 워크플로를 제출 하는 방법을 보여 줍니다.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: 5145aa0ffdc4095f178a214f63433e5bcece83b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72249159"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>BAM 파일 입력을 사용하여 워크플로 제출
 
-이 문서에서는 입력 파일이 단일 BAM 파일인 경우 Microsoft 유전체학 서비스에 워크플로를 제출하는 방법을 보여 줍니다. 이 항목에서는 사용자가 이미 `msgen` 클라이언트를 설치하여 실행하고 있으며 Azure Storage 사용 방법에 익숙하다고 가정합니다. 제공된 샘플 데이터를 사용하여 워크플로를 성공적으로 제출한 경우 이 문서를 진행할 준비가 된 것입니다. 
+이 문서에서는 입력 파일이 단일 BAM 파일인 경우 Microsoft Genomics 서비스에 워크플로를 제출 하는 방법을 보여 줍니다. 이 항목에서는 사용자가 이미 `msgen` 클라이언트를 설치하여 실행하고 있으며 Azure Storage 사용 방법에 익숙하다고 가정합니다. 제공 된 샘플 데이터를 사용 하 여 워크플로를 성공적으로 제출 하면이 문서를 진행할 준비가 된 것입니다. 
 
 ## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>설정: BAM 파일을 Azure Storage에 업로드합니다.
 *reads.bam*이라는 단일 BAM 파일이 있고 Azure의 개인 스토리지 계정인 *myaccount*(**https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span></span>**)에 업로드했다고 가정합니다. API URL과 액세스 키를 보유하고 있습니다. **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** 에 출력하려 합니다.

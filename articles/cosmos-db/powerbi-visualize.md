@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sngun
 ms.openlocfilehash: 1dbdd428a54ebf38c7b880bb9530935c0f748226
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69616820"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Power BI 커넥터를 사용하여 Azure Cosmos DB 데이터 시각화
@@ -32,11 +32,11 @@ ms.locfileid: "69616820"
 
 * GitHub에서 [샘플 화산 데이터](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json)를 다운로드합니다.
 
-* [Azure Cosmos DB 데이터](https://azure.microsoft.com/documentation/articles/create-account/) 마이그레이션 도구를 사용하여 Azure [Cosmos](import-data.md)데이터베이스 계정을 만들고 화산 데이터를 가져옵니다. 데이터를 가져올 때 데이터 마이그레이션 도구의 원본 및 대상에 대한 다음 설정을 고려합니다.
+* [Azure Cosmos 데이터베이스 계정을 만들고](https://azure.microsoft.com/documentation/articles/create-account/) [Azure Cosmos DB 데이터 마이그레이션 도구](import-data.md)를 사용 하 여 화산 데이터를 가져옵니다. 데이터를 가져올 때 데이터 마이그레이션 도구의 원본 및 대상에 대한 다음 설정을 고려합니다.
 
    * **원본 매개 변수** 
 
-       * **다음에서 가져오기:** JSON 파일(들)
+       * **다음에서 가져오기:** JSON 파일
 
    * **대상 매개 변수** 
 
@@ -46,7 +46,7 @@ ms.locfileid: "69616820"
 
       * **수집 처리량:** 1000 
 
-PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어야 합니다.  Power BI 및 Power BI Pro에 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)대한 자세한 내용은 을 참조하십시오.
+PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어야 합니다.  Power BI 및 Power BI Pro에 대 한 자세한 내용은을 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)참조 하세요.
 
 ## <a name="lets-get-started"></a>이제 시작하겠습니다.
 이 자습서에서는 전세계 화산을 연구하는 지질학자라고 보겠습니다. 화산 데이터는 Azure Cosmos DB 계정에 저장되며, JSON 문서 형식은 다음과 같습니다.
@@ -122,7 +122,7 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
 8. LatLong 등, 새 열에 대한 이름을 입력합니다.
 9. 다음으로 새 열에 사용자 지정 수식을 지정합니다.  이 예에서는 `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`수식을 사용하여 쉼표로 구분하여 위도와 경도 값을 연결합니다. **확인**을 클릭합니다.
    
-    DAX 기능을 포함한 DAX(데이터 분석 표현식)에 대한 자세한 내용은 [Power BI 데스크톱의 DAX 기본](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics)사항을 참조하십시오.
+    Dax 함수를 비롯 한 dax (Data Analysis Expressions)에 대 한 자세한 내용은 [Power BI Desktop Dax 기본 사항](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics)을 참조 하세요.
    
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 사용자 지정 열 추가](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 

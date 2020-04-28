@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 36af0eeb43fb209ed65f950576f2dc9e97ec3633
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71058633"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>새 Azure 노드로 Windows 가상 머신 다시 배포
@@ -28,7 +28,7 @@ RDP(원격 데스크톱) 연결 문제 또는 Windows 기반 Azure VM(가상 머
 
 
 ## <a name="using-azure-powershell"></a>Azure PowerShell 사용
-최신 Azure PowerShell 1.x를 컴퓨터에 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell을 설치하고 구성하는 방법을](/powershell/azure/overview)참조하세요.
+최신 Azure PowerShell 1.x를 컴퓨터에 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/overview)을 참조 하세요.
 
 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 배포합니다.
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 154160f9a3fbd485ee6383bf3d5ff1c291520a75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71088515"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Azure VM에 연결할 때 원격 데스크톱 라이선스 서버를 사용할 수 없음
@@ -50,7 +50,7 @@ mstsc /v:<Server>[:<Port>] /admin
 - 원격 데스크톱 라이선스가 환경에 설치되었습니다. 사용 가능한 CAL이 있지만 제대로 구성되지 않았습니다.
 - 원격 데스크톱 라이선스에 CAL이 있고 활성화되었습니다. 그러나 원격 데스크톱 라이선스 서버의 다른 문제 때문에 환경 내에서 라이선스를 제공할 수 없습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 [OS 디스크를 백업](../windows/snapshot-copy-managed-disk.md)하고 다음 단계를 수행합니다.
 

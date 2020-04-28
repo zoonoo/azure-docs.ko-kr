@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
 ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70999160"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Azure Storage를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안을 유지하는 모범 사례
@@ -64,7 +64,7 @@ RBAC와 같은 기능을 사용하여 데이터 액세스 제어를 적용하지
 
 RBAC에 대한 자세한 내용은 다음을 참조하세요.
 
-- [RBAC 및 Azure 포털을 사용하여 액세스 관리](/azure/role-based-access-control/role-assignments-portal)
+- [RBAC 및 Azure Portal을 사용하여 액세스 관리](/azure/role-based-access-control/role-assignments-portal)
 - [Azure 리소스에 대한 기본 제공 역할](/azure/role-based-access-control/built-in-roles)
 - [Azure Storage 보안 가이드](/azure/storage/common/storage-security-guide) 
 
@@ -73,7 +73,7 @@ RBAC에 대한 자세한 내용은 다음을 참조하세요.
 
 또한 클라이언트 쪽 암호화를 사용하면 암호화 키를 단독으로 제어할 수 있습니다. 자체 암호화 키를 생성하고 관리할 수 있습니다. 클라이언트 쪽 암호화는 Azure Storage 클라이언트 라이브러리가 CEK(콘텐츠 암호화 키)를 생성하고 KEK(키 암호화 키)를 사용하여 래핑(암호화)하는 봉투(envelope) 기술을 사용합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리되거나 [Azure Key Vault](/azure/key-vault/key-vault-overview)에 저장됩니다.
 
-클라이언트 쪽 암호화는 Java 및 .NET 스토리지 클라이언트 라이브러리에 기본적으로 제공되어 있습니다. 클라이언트 응용 프로그램 내에서 데이터를 암호화하고 자체 암호화 키를 생성 및 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure 저장소용 클라이언트 측 암호화 및 Azure 키 자격 증명 모음을](/azure/storage/common/storage-client-side-encryption) 참조하십시오.
+클라이언트 쪽 암호화는 Java 및 .NET 스토리지 클라이언트 라이브러리에 기본적으로 제공되어 있습니다. 클라이언트 응용 프로그램 내에서 데이터를 암호화 하 고 자체 암호화 키를 생성 및 관리 하는 방법에 대 한 자세한 내용은 [클라이언트 쪽 암호화 및 Microsoft Azure Storage Azure Key Vault](/azure/storage/common/storage-client-side-encryption) 을 참조 하세요.
 
 ## <a name="enable-storage-service-encryption-for-data-at-rest"></a>미사용 데이터에 대해 스토리지 서비스 암호화 사용
 File Storage에 대해 [Storage 서비스 암호화](/azure/storage/common/storage-service-encryption)가 사용되도록 설정되면 데이터는 AES-256 암호화를 사용하여 자동으로 암호화됩니다. Microsoft는 모든 암호화, 해독 및 키 관리를 처리합니다. 이 기능은 LRS 및 GRS 중복 유형에 사용할 수 있습니다.

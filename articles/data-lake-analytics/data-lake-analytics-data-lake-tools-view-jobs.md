@@ -1,5 +1,5 @@
 ---
-title: 작업 브라우저 & 작업 보기 사용 - Azure 데이터 레이크 분석
+title: 작업 보기 & 작업 브라우저 사용-Azure Data Lake Analytics
 description: 이 문서에서는 Azure Data Lake Analytics 작업용 작업 브라우저 및 작업 보기를 사용하는 방법을 설명합니다.
 ms.service: data-lake-analytics
 author: jasonwhowell
@@ -8,10 +8,10 @@ ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
 ms.openlocfilehash: 2d33a6ec5ff6b687913914e9433b85765aaa7aec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71309944"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics용 작업 브라우저 및 작업 보기 사용
@@ -111,7 +111,7 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
   * 기간: 단계에 소요된 벽시계 시간으로, 이 값을 보려면 프로필을 로드해야 합니다.
   * 작업 재생
     
-      Data Lake Analytics는 작업을 실행하고 정점이 시작, 중지, 실패, 재시도 방법 등과 같이 작업의 정보를 실행하는 정점을 보관합니다. 모든 정보는 쿼리 저장소에 자동으로 기록되고 작업 프로필에 저장됩니다. 작업 보기의 "프로필 로드"를 통해 작업 프로필을 다운로드할 수 있으며 작업 프로필을 다운로드한 후 작업 재생을 볼 수 있습니다.
+      Data Lake Analytics는 작업을 실행 하 고 꼭 짓 점이 시작, 중지 됨, 실패 및 재시도 방법 등의 작업에 대 한 꼭 짓 점 실행 정보를 보관 합니다. 모든 정보는 자동으로 쿼리 저장소에 기록 되 고 해당 작업 프로필에 저장 됩니다. 작업 보기의 "프로필 로드"를 통해 작업 프로필을 다운로드할 수 있으며 작업 프로필을 다운로드한 후 작업 재생을 볼 수 있습니다.
     
       작업 재생은 클러스터에서 실행되는 작업을 시각화한 것입니다. 작업 실행 진행률을 보고 매우 짧은 시간(일반적으로 30초 미만) 동안의 성능 이상과 병목 현상을 시각적으로 감지할 수 있습니다.
   * 작업 열 지도 표시 
@@ -131,7 +131,7 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
     * 입력/출력 처리량: 각 단계의 입력/출력 처리량의 열 지도. 여기에서 작업이 I/O 바운드 작업인지 여부를 확인할 수 있습니다.
 * 메타데이터 작업
   
-    데이터베이스 만들기, 테이블 삭제 등과 같은 일부 메타데이터 작업을 U-SQL 스크립트에서 수행할 수 있습니다. 이러한 작업은 컴파일 후 메타데이터 작업에 표시됩니다. 여기에서 어설션을 찾고 엔터티를 만들거나 삭제할 수 있습니다.
+    데이터베이스 만들기, 테이블 삭제 등의 U-SQL 스크립트에서 일부 메타 데이터 작업을 수행할 수 있습니다. 이러한 작업은 컴파일 후 메타 데이터 작업에 표시 됩니다. 여기에서 어설션을 찾고 엔터티를 만들거나 삭제할 수 있습니다.
   
     ![Azure Data Lake Analytics 작업 보기 메타데이터 작업](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
 * 상태 기록
@@ -163,7 +163,7 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
     리소스를 통해 쿼리 저장소에 저장된 작업 컴파일 출력을 찾을 수 있습니다. 예를 들어 여기에서 작업 그래프, 등록한 어셈블리 등을 표시하는 데 사용하는 "algebra.xml"을 찾을 수 있습니다.
 * Vertex 실행 보기
   
-    꼭짓점 실행에 대한 세부 정보가 표시됩니다. 작업 프로필은 총 데이터 읽기/작성, 런타임, 상태 등과 같은 모든 정점 실행 로그를 보관합니다. 이 보기를 통해 작업이 실행된 방식에 대한 자세한 내용을 확인할 수 있습니다. 자세한 내용은 [Data Lake Tools for Visual Studio에서 Vertex Execution View 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)을 참조하세요.
+    꼭짓점 실행에 대한 세부 정보가 표시됩니다. 작업 프로필은 전체 데이터 읽기/쓰기, 런타임, 상태 등의 모든 꼭 짓 점 실행 로그를 보관 합니다. 이 보기를 통해 작업이 실행 되는 방법에 대 한 자세한 정보를 얻을 수 있습니다. 자세한 내용은 [Data Lake Tools for Visual Studio에서 Vertex Execution View 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * 진단 정보를 기록하려면 [Azure Data Lake Analytics에 대한 진단 로그에 액세스](data-lake-analytics-diagnostic-logs.md)

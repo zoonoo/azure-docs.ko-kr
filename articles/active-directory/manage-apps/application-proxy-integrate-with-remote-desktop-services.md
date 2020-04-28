@@ -17,10 +17,10 @@ ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67108456"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시
@@ -29,7 +29,7 @@ ms.locfileid: "67108456"
 
 이 문서의 대상은 다음과 같습니다.
 - 원격 데스크톱 서비스를 통해 온-프레미스 애플리케이션을 게시하여 최종 사용자에게 더 많은 애플리케이션을 제공하려고 하는 현재 애플리케이션 프록시 고객.
-- Azure AD 애플리케이션 프록시를 사용하여 배포의 공격에 대한 취약성을 줄이려고 하는 현재 원격 데스크톱 서비스 고객. 이 시나리오는 RDS에 대한 제한된 2단계 확인 및 조건부 액세스 제어 집합을 제공합니다.
+- Azure AD 애플리케이션 프록시를 사용하여 배포의 공격에 대한 취약성을 줄이려고 하는 현재 원격 데스크톱 서비스 고객. 이 시나리오에서는 RDS에 대 한 2 단계 인증 및 조건부 액세스 제어의 제한 된 집합을 제공 합니다.
 
 ## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>애플리케이션 프록시를 표준 RDS 배포에 맞추는 방법
 
@@ -58,7 +58,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 
 - Internet Explorer에서 RDS ActiveX 추가 기능을 사용하도록 설정합니다.
 
-- Azure AD 사전 인증 흐름의 경우 사용자는 **RemoteApp 및 데스크톱** 창에 게시된 리소스에만 연결할 수 있습니다. 사용자는 원격 PC 창에 연결창을 사용하여 **데스크톱에** 연결할 수 없습니다.
+- Azure AD 사전 인증 흐름의 경우 사용자는 **RemoteApp 및 데스크톱** 창에서 게시 된 리소스에만 연결할 수 있습니다. 사용자는 **원격 PC에 연결** 창을 사용 하 여 데스크톱에 연결할 수 없습니다.
 
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>공동 RDS 및 애플리케이션 프록시 시나리오 배포
 
@@ -73,16 +73,16 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
    - URL 헤더 변환: 아니요
 2. 게시된 RD 애플리케이션에 사용자를 할당합니다. 모든 사용자가 RDS에도 액세스할 수 있는지 확인합니다.
 3. 애플리케이션에 대한 Single Sign-On 방법을 **Azure AD Single Sign-On 사용 안 함**으로 유지합니다. 사용자에게는 Azure AD 및 RD 웹에 대해 한 번씩 인증하도록 요청되지만 RD 게이트웨이에 대한 Single Sign-On이 제공됩니다.
-4. **Azure Active Directory를**선택한 다음 **앱 등록을 선택합니다.** 목록에서 앱을 선택합니다.
-5. **관리**에서 **브랜딩을 선택합니다.**
-6. 홈 **페이지 URL** 필드를 업데이트하여 RD 웹 끝점(예:)을 `https://\<rdhost\>.com/RDWeb`가리킵니다.
+4. **Azure Active Directory**, **앱 등록**을 차례로 선택 합니다. 목록에서 앱을 선택 합니다.
+5. **관리**에서 **브랜딩**을 선택 합니다.
+6. RD 웹 끝점 (예 `https://\<rdhost\>.com/RDWeb`:)을 가리키도록 **홈 페이지 URL** 필드를 업데이트 합니다.
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>애플리케이션 프록시에 대한 직접 RDS 트래픽
 
 관리자로 RDS 배포에 연결하고 배포에 대한 RD 게이트웨이 서버 이름을 변경합니다. 이렇게 구성하면 연결이 Azure AD 애플리케이션 프록시 서비스를 통과합니다.
 
 1. RD 연결 브로커 역할을 실행하는 RDS 서버에 연결합니다.
-2. **서버 관리자를**시작합니다.
+2. **서버 관리자**를 시작 합니다.
 3. 왼쪽 창에서 **원격 데스크톱 서비스**를 선택합니다.
 4. **개요**를 선택합니다.
 5. 배포 개요 섹션에서 드롭다운 메뉴를 선택하고 **배포 속성 편집**을 선택합니다.
@@ -91,7 +91,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 
    ![RDS의 배포 속성 화면](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
-8. 각 컬렉션에 대해 이 명령을 실행합니다. * \<컬렉션 이름과\> * * \<프록시프론트엔URL을\> * 사용자 고유의 정보로 바꿉니다. 이 명령은 RD 웹과 RD 게이트웨이 간에 Single Sign-On을 사용하도록 설정하고 성능을 최적화합니다.
+8. 각 컬렉션에 대해 이 명령을 실행합니다. 해당 * \<collectionname\> * 및 *\> proxyfrontendurl을 사용자의 정보로 바꿉니다. \<* 이 명령은 RD 웹과 RD 게이트웨이 간에 Single Sign-On을 사용하도록 설정하고 성능을 최적화합니다.
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
@@ -129,7 +129,7 @@ Windows 7 또는 10 컴퓨터에서 Internet Explorer를 사용하여 시나리�
 | 사전 인증    | Internet Explorer + RDS ActiveX 추가 기능을 사용하는 Windows 7/10 |
 | 통과 | Microsoft 원격 데스크톱 애플리케이션을 지원하는 다른 운영 체제 |
 
-사전 인증 흐름은 통과 흐름보다 더 많은 보안 이점을 제공합니다. 사전 인증을 사용하면 온-프레미스 리소스에 대해 단일 사인온, 조건부 액세스 및 2단계 인증과 같은 Azure AD 인증 기능을 사용할 수 있습니다. 또한 인증된 트래픽만 네트워크에 도달하도록합니다.
+사전 인증 흐름은 통과 흐름보다 더 많은 보안 이점을 제공합니다. 사전 인증을 사용 하 여 온-프레미스 리소스에 대 한 Single Sign-On, 조건부 액세스 및 2 단계 인증과 같은 Azure AD 인증 기능을 사용할 수 있습니다. 또한 인증된 트래픽만 네트워크에 도달하도록합니다.
 
 통과 인증을 사용하려면 이 문서에 나열된 단계를 두 번만 수정하면 됩니다.
 1. [RD 호스트 엔드포인트 게시](#publish-the-rd-host-endpoint)의 1단계에서 사전 인증 방법을 **통과**로 설정합니다.

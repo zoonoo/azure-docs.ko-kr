@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 7fc0fbf3362d18284ad6a80afa6396b6be1270a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71058009"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Azure VM의 RDP 일반 오류 문제 해결
@@ -58,7 +58,7 @@ RDP 구성 요소가 다음과 같이 사용하지 않도록 설정되었습니�
 
 RDP 수신기가 잘못 구성되었습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 [운영 체제 디스크를 백업](../windows/snapshot-copy-managed-disk.md)하고 [운영 체제 디스크를 복구 VM에 연결](troubleshoot-recovery-disks-portal-windows.md)한 다음, 단계를 따르세요.
 
@@ -175,11 +175,11 @@ RDP 수신기가 잘못 구성되었습니다.
 
 #### <a name="step-1-turn-on-remote-desktop"></a>1단계: 원격 데스크톱 켜기
 
-1. [복구 VM에 OS 디스크를 연결합니다.](../windows/troubleshoot-recovery-disks-portal.md)
+1. [OS 디스크를 복구 VM에 연결](../windows/troubleshoot-recovery-disks-portal.md)합니다.
 2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
-3. 디스크 관리 콘솔에서 디스크가 **온라인으로** 플래그가 지정되어 있는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
+3. 디스크가 디스크 관리 콘솔에서 **온라인** 으로 플래그가 지정 되었는지 확인 합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
 4. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
-5. 상승된 명령 프롬프트**세션(관리자로 실행)을**엽니다. 다음 스크립트를 실행합니다. 이 스크립트에서 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정합니다. 이 드라이브 문자를 VM에서 적절한 값으로 바꿉니다.
+5. 관리자 권한 명령 프롬프트 세션 (**관리자 권한으로 실행**)을 엽니다. 다음 스크립트를 실행합니다. 이 스크립트에서 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정합니다. 이 드라이브 문자를 VM에서 적절한 값으로 바꿉니다.
 
       ```
       reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 

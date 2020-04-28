@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviwer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a7c6a9c3f26c8939176197a2ecf2fcd6026e9928
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "65784317"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>액세스 패널 웹 사이트에 로그인할 때 발생하는 문제
@@ -39,7 +39,7 @@ ms.locfileid: "65784317"
 
 ## <a name="general-issues-to-check-first"></a>먼저 확인해야 할 일반적인 문제 
 
--   사용자가 **올바른 URL에**로그인했는지 확인합니다.<https://myapps.microsoft.com>
+-   사용자가 **올바른 URL**에 로그인 하 고 있는지 확인 합니다.<https://myapps.microsoft.com>
 
 -   사용자의 브라우저에서 해당 **신뢰할 수 있는 사이트**에 URL을 추가했는지 확인합니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "65784317"
 
 -   [사용자의 계정 상태 확인](#check-a-users-account-status)
 
--   [사용자 암호 재설정](#reset-a-users-password)
+-   [사용자 암호 다시 설정](#reset-a-users-password)
 
 -   [셀프 서비스 암호 재설정 사용](#enable-self-service-password-reset)
 
@@ -92,21 +92,21 @@ ms.locfileid: "65784317"
 
 -   [사용자의 할당된 라이선스 확인](#check-a-users-assigned-licenses)
 
--   [사용자에게 라이선스 할당](#assign-a-user-a-license)
+-   [사용자에 게 라이선스 할당](#assign-a-user-a-license)
 
 ### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Azure Active Directory에 사용자의 계정이 존재하는지 확인
 
 사용자의 계정이 있는지를 확인하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자를**클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
@@ -116,19 +116,19 @@ ms.locfileid: "65784317"
 
 사용자의 계정 상태를 확인하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자를**클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
-7.  **프로필**을 클릭합니다.
+7.  **프로필**을 클릭 합니다.
 
 8.  **설정** 아래에서 **로그인 차단**이 **아니오**로 설정되어야 합니다.
 
@@ -136,15 +136,15 @@ ms.locfileid: "65784317"
 
 사용자의 암호를 다시 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자를**클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
@@ -168,19 +168,19 @@ ms.locfileid: "65784317"
 
 사용자의 Multi-Factor Authentication 상태를 확인하려면 아래 단계를 수행합니다.
 
-1. Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1. [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4. 탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4. 탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5. **모든 사용자를**클릭합니다.
+5. **모든 사용자**를 클릭 합니다.
 
 6. 창 맨 위에 있는 **Multi-Factor Authentication** 단추를 클릭합니다.
 
-7. **다단계 인증 관리 포털이** 로드되면 **사용자** 탭에 있는지 확인합니다.
+7. **Multi-Factor Authentication 관리 포털이** 로드 되 면 **사용자** 탭에 있는지 확인 합니다.
 
 8. 검색, 필터링 또는 정렬을 사용하여 사용자 목록에서 사용자를 찾습니다.
 
@@ -195,19 +195,19 @@ ms.locfileid: "65784317"
 
 Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정에 사용되는 사용자의 인증 연락처 정보를 확인하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자를**클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
-7.  **프로필**을 클릭합니다.
+7.  **프로필**을 클릭 합니다.
 
 8.  **인증 연락처 정보**까지 스크롤합니다.
 
@@ -217,15 +217,15 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 사용자의 그룹 구성원 자격을 확인하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자를**클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
@@ -235,15 +235,15 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 사용자의 할당된 라이선스를 확인하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자를**클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
@@ -253,21 +253,21 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 사용자에게 라이선스를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자를**클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
 7.  **라이선스**를 클릭하여 사용자가 현재 할당된 라이선스를 봅니다.
 
-8.  할당 단추를 **클릭합니다.**
+8.  **할당** 단추를 클릭 합니다.
 
 9.  사용 가능한 제품 목록에서 **하나 이상의 제품**을 선택합니다.
 

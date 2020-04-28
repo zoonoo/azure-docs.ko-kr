@@ -13,10 +13,10 @@ ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 1e729c608a2cad28c810f8d5236360c909a496b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70082024"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Linux Azure Virtual Machines의 SQL Server에 대한 FAQ(질문과 대답)
@@ -60,7 +60,7 @@ ms.locfileid: "70082024"
 
    RHEL 및 SLES 가상 머신에는 지출 한도가 없는 구독과, 구독에 연결된 검증된 결제 수단(보통은 신용카드)가 필요합니다. 지출 한도를 제거하지 않고 RHEL 또는 SLES VM을 프로비전하면 구독이 비활성화되고 모든 VM/서비스가 중지됩니다. 이 상태가 되어 구독을 다시 활성화하려면 [지출 한도를 제거](https://account.windowsazure.com/subscriptions)합니다. 현재 청구 주기에 대해 남은 크레딧이 복원되지만 다시 시작하여 실행을 계속하도록 선택하면 RHEL 또는 SLES VM 이미지 추가 요금이 해당 신용카드로 청구됩니다.
 
-## <a name="licensing"></a>라이선스
+## <a name="licensing"></a>라이선싱
 
 1. **Azure VM에 라이선스가 있는 내 SQL Server 사본을 설치하려면 어떻게 해야 합니까?**
 
@@ -88,7 +88,7 @@ ms.locfileid: "70082024"
 
 1. **Azure VM에서 SQL Server의 새 버전을 업그레이드하려면 어떻게 합니까?**
 
-   현재는 Azure VM에서 실행 중인 SQL Server를 전체 업그레이드할 수 없습니다. 원하는 SQL Server 버전/버전으로 새 Azure 가상 컴퓨터를 만든 다음 [표준 데이터 마이그레이션 기술을](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview)사용하여 데이터베이스를 새 서버로 마이그레이션합니다.
+   현재는 Azure VM에서 실행 중인 SQL Server를 전체 업그레이드할 수 없습니다. 원하는 SQL Server version/edition을 사용 하 여 새 Azure 가상 머신을 만든 다음 [표준 데이터 마이그레이션 기법](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview)을 사용 하 여 데이터베이스를 새 서버로 마이그레이션합니다.
 
 ## <a name="general"></a>일반
 
@@ -98,14 +98,14 @@ ms.locfileid: "70082024"
 
 ## <a name="resources"></a>리소스
 
-**리눅스 VM**:
+**Linux vm**:
 
 * [Linux VM의 SQL Server 개요](sql-server-linux-virtual-machines-overview.md)
 * [SQL Server Linux VM 프로비전](provision-sql-server-linux-virtual-machine.md)
-* [리눅스 문서에 SQL 서버](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SQL Server on Linux 설명서](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 
-**윈도우 VM**:
+**Windows vm**:
 
-* [Windows VM의 SQL 서버 개요](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+* [Windows VM의 SQL Server 개요](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [SQL Server Windows VM 프로비전](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
 * [FAQ(Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)

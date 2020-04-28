@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/10/2018
 ms.topic: conceptual
 ms.openlocfilehash: 34222f396ed3c43932371aa9f64a459bb2a5dd0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61443014"
 ---
 # <a name="import-an-iot-edge-package-into-your-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기로 IoT Edge 패키지 가져오기
@@ -33,7 +33,7 @@ Azure Portal을 사용하여 개발 환경에서 배포 매니페스트를 내�
 
 1. 사용하려는 배포 구성을 포함하는 배포를 클릭합니다. **배포 세부 정보** 페이지에 ![IoT Edge 배포 세부 정보](media/iot-accelerators-remote-monitoring-import-edge-package/deploymentdetails.png)가 표시됩니다.
 
-1. **IoT 에지 매니페스트 다운로드를**클릭 : ![배포 매니페스트 다운로드](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
+1. **다운로드 IoT Edge 매니페스트**: 배포 ![매니페스트 다운로드를 클릭 합니다.](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
 
 1. JSON 파일을 **deploymentmanifest.json**이라는 로컬 파일로 저장합니다.
 

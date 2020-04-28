@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60931720"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Node.js에서 SendGrid를 사용하여 메일을 보내는 방법
 
-이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 Node.js API를 사용하여 작성되었습니다. **전자 메일 생성**, **전자 메일 보내기**, **첨부 파일 추가**, **필터 사용**, **속성 업데이트** 등의 시나리오를 다룹니다. SendGrid 및 전송 이메일에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오.
+이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 Node.js API를 사용하여 작성되었습니다. **전자 메일 생성**, **전자 메일 보내기**, **첨부 파일 추가**, **필터 사용**, **속성 업데이트** 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대 한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조 하세요.
 
 ## <a name="what-is-the-sendgrid-email-service"></a>SendGrid 전자 메일 서비스 정의
 
@@ -36,7 +36,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 * 고객 문의 전달
 * 애플리케이션의 전자 메일 알림
 
-자세한 내용은 을 [https://sendgrid.com](https://sendgrid.com)참조하십시오.
+자세한 내용은을 참조 [https://sendgrid.com](https://sendgrid.com)하십시오.
 
 ## <a name="create-a-sendgrid-account"></a>SendGrid 계정 만들기
 
@@ -72,7 +72,7 @@ var email = new sendgrid.Email({
 });
 ```
 
-또한 html 속성을 설정하여 HTML 메시지를 지원하는 클라이언트를 위해 HTML 메시지를 지정할 수도 있습니다. 예를 들어:
+또한 html 속성을 설정하여 HTML 메시지를 지원하는 클라이언트를 위해 HTML 메시지를 지정할 수도 있습니다. 예를 들면 다음과 같습니다.
 
 ```javascript
 html: This is a sample <b>HTML<b> email message.
@@ -80,7 +80,7 @@ html: This is a sample <b>HTML<b> email message.
 
 텍스트 속성과 html 속성을 모두 설정하면 HTML 메시지를 지원할 수 없는 클라이언트에서 텍스트 콘텐츠로 안정적으로 대체됩니다.
 
-Email 함수에서 지원하는 모든 속성에 대한 자세한 내용은 [sendgrid-nodejs][sendgrid-nodejs]을 참조하십시오.
+이메일 함수에서 지원 되는 모든 속성에 대 한 자세한 내용은 [sendgrid][sendgrid-nodejs]를 참조 하세요.
 
 ## <a name="how-to-send-an-email"></a>방법: 전자 메일 보내기
 
@@ -96,7 +96,7 @@ sendgrid.send(email, function(err, json){
 ```
 
 > [!NOTE]
-> 위 예제에서는 email 개체 및 콜백 함수를 전달하고 있지만, email 속성을 직접 지정하여 send 함수를 바로 호출할 수도 있습니다. 예를 들어:  
+> 위 예제에서는 email 개체 및 콜백 함수를 전달하고 있지만, email 속성을 직접 지정하여 send 함수를 바로 호출할 수도 있습니다. 예를 들면 다음과 같습니다.  
 > 
 > ```javascript
 > sendgrid.send({
@@ -188,7 +188,7 @@ sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>방법: 전자 메일 속성 업데이트
 
-일부 전자 메일 속성은 **setProperty를** 사용하여 덮어쓰거나 **addProperty**을 사용하여 추가될 수 있습니다. 예를 들어 다음을 사용하여 받는 사람을 더 추가할 수 있습니다.
+일부 전자 메일 속성은 **setProperty** 를 사용 하 여 덮어쓰거나 **addProperty**를 사용 하 여 추가할 수 있습니다. 예를 들어 다음을 사용하여 받는 사람을 더 추가할 수 있습니다.
 
 ```javascript
 email.addTo('jeff@contoso.com');
@@ -213,7 +213,7 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
 
 * SendGrid Node.js 모듈 리포지토리: [sendgrid-nodejs][sendgrid-nodejs]
 * SendGrid API 설명서: <https://sendgrid.com/docs>
-* Azure 고객을 위한 SendGrid 특별 제공:[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
+* Azure 고객을 위한 SendGrid 특별 제안:[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
 [special offer]: https://sendgrid.com/windowsazure.html
 [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs

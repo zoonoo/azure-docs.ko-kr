@@ -1,5 +1,5 @@
 ---
-title: 데이터 왜곡 해결 - Visual Studio용 Azure 데이터 레이크 도구
+title: 데이터 기울기 확인-Azure Data Lake Tools for Visual Studio
 description: Azure Data Lake Tools for Visual Studio를 사용하여 데이터 기울이기 문제에 대한 잠재적인 해결 방법을 마련합니다.
 services: data-lake-analytics
 author: yanancai
@@ -9,10 +9,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
 ms.openlocfilehash: 9ff7ba5f04a8c1862f8ef136f8f3f6900f00a431
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71802545"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Azure Data Lake Tools for Visual Studio를 사용하여 데이터 기울이기 문제 해결
@@ -36,7 +36,7 @@ Azure Data Lake Tools for Visual Studio는 작업에 데이터 기울이기 문�
 
 ### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>옵션 2: 다른 파티션 또는 배포 키 선택
 
-앞의 예제에서 국가/지역의 세금 감사 워크로드만 확인하려는 경우 ID 번호를 키로 선택하여 데이터 분포를 개선할 수 있습니다. 다른 파티션/배포 키를 선택하면 때때로 데이터를 보다 고르게 배포할 수 있지만 이로 인해 비즈니스 논리에 영향을 주지 않도록 해야 합니다. 예를 들어, 각 주의 세금 합계를 계산하려면 _주_를 파티션 키로 지정하는 것이 좋습니다. 이러한 문제가 계속되면 옵션 3을 사용해 보세요.
+앞의 예제에서 해당 국가/지역에 대 한 세금 감사 작업만 확인 하려면 ID 번호를 키로 선택 하 여 데이터 배포를 향상 시킬 수 있습니다. 다른 파티션/배포 키를 선택하면 때때로 데이터를 보다 고르게 배포할 수 있지만 이로 인해 비즈니스 논리에 영향을 주지 않도록 해야 합니다. 예를 들어, 각 주의 세금 합계를 계산하려면 _주_를 파티션 키로 지정하는 것이 좋습니다. 이러한 문제가 계속되면 옵션 3을 사용해 보세요.
 
 ### <a name="option-3-add-more-partition-or-distribution-keys"></a>옵션 3: 더 많은 파티션 또는 배포 키 추가
 
@@ -165,7 +165,7 @@ SKEWFACTOR 외에도 특정한 기울어진 키 조인 사례에서 다른 조�
 
 결합자 모드의 특성:
 
-- SqlUser정의 결합기(Mode=CombinerMode.Full): 모든 출력 행은 동일한 키 값을 가진 왼쪽과 오른쪽의 모든 입력 행에 따라 달라질 수 있습니다.
+- SqlUserDefinedCombiner (Mode = Combinermode.inner): 모든 출력 행은 동일한 키 값을 가진 left 및 right의 모든 입력 행에 따라 달라질 수 있습니다.
 
 - SqlUserDefinedCombiner(Mode=CombinerMode.Left): 모든 출력 행은 왼쪽의 단일 입력 행에 따라 달라지며, 잠재적으로 동일한 키 값을 갖는 오른쪽의 모든 행에 따라 달라집니다.
 

@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
 ms.openlocfilehash: cb19dc7262721e672bd3f54b32db9188dad7fee0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70101886"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>SQL Server 백업 및 복원에 Azure Storage 사용
@@ -36,7 +36,7 @@ SQL Server를 백업할 때 발생하는 몇 가지 해결 과제는 다음과 �
 * **관리되는 하드웨어**: Azure 서비스를 사용하면 하드웨어 관리의 오버헤드가 없습니다. Azure 서비스에서 하드웨어를 관리하며 하드웨어 오류 방지와 중복을 위해 지역에서 복제 옵션을 제공합니다.
 * **무제한 스토리지**: Azure Blob에 직접 백업할 수 있도록 설정하면 무제한 스토리지에 가상으로 액세스할 수 있습니다. 또는 Azure 가상 머신 디스크로 백업하면 컴퓨터 크기에 따라 제한이 적용됩니다. 백업을 위해 Azure 가상 머신에 연결할 수 있는 디스크의 수에는 제한이 있습니다. 초대형 인스턴스의 경우 16개이며, 그보다 작은 인스턴스의 경우 더 적습니다.
 * **Backup 가용성**: Azure Blob에 저장된 Backup은 데이터베이스 연결/분리 또는 VHD 다운로드 및 연결 과정 없이도 언제 어디서나 사용 가능하며 온-프레미스 SQL Server 또는 Azure Virtual Machine에서 실행되는 다른 SQL Server에 대한 복원을 위해 쉽게 액세스할 수 있습니다.
-* **비용**: 사용하는 서비스에 대해서만 결제합니다. 오프사이트 및 백업 보관 옵션만큼 비용 효율적일 수 있습니다. 자세한 내용은 [Azure 가격 계산기](https://go.microsoft.com/fwlink/?LinkId=277060 "요금 계산기")및 [Azure 가격 책정 문서를](https://go.microsoft.com/fwlink/?LinkId=277059 "가격 책정 문서") 참조하십시오.
+* **비용**: 사용하는 서비스에 대해서만 결제합니다. 오프사이트 및 백업 보관 옵션만큼 비용 효율적일 수 있습니다. 자세한 내용은 [azure 가격 계산기](https://go.microsoft.com/fwlink/?LinkId=277060 "요금 계산기")및 [azure 가격 책정 문서](https://go.microsoft.com/fwlink/?LinkId=277059 "가격 책정 문서") 를 참조 하세요.
 * **스냅샷 스토리지**: 데이터베이스 파일이 Azure Blob에 저장되고 SQL Server 2016을 사용하는 경우 [파일-스냅샷 백업](https://msdn.microsoft.com/library/mt169363.aspx) 을 사용하여 거의 즉각적인 백업 및 매우 빠른 복원을 수행할 수 있습니다.
 
 자세한 내용은 [Azure Blob Storage 서비스로 SQL Server 백업 및 복원](https://go.microsoft.com/fwlink/?LinkId=271617)을 참조하십시오.
@@ -46,22 +46,22 @@ SQL Server를 백업할 때 발생하는 몇 가지 해결 과제는 다음과 �
 ## <a name="azure-blob-storage-service-components"></a>Azure Blob Storage 서비스 구성 요소
 다음 Azure 구성 요소는 Azure Blob Storage 서비스로 백업할 때 사용됩니다.
 
-| 구성 요소 | 설명 |
+| 구성 요소 | Description |
 | --- | --- |
-| **저장소 계정** |스토리지 계정은 모든 스토리지 서비스를 사용하기 위한 출발점입니다. Azure Blob Storage 서비스에 액세스하려면 먼저 Azure Storage 계정을 만드세요. Azure Blob Storage 서비스에 대한 자세한 내용은 [Azure Blob Storage 서비스를 사용하는 방법](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
+| **Storage 계정** |스토리지 계정은 모든 스토리지 서비스를 사용하기 위한 출발점입니다. Azure Blob Storage 서비스에 액세스하려면 먼저 Azure Storage 계정을 만드세요. Azure Blob Storage 서비스에 대한 자세한 내용은 [Azure Blob Storage 서비스를 사용하는 방법](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **컨테이너** |컨테이너는 Blob 집합의 그룹화를 제공하며 Blob을 개수에 제한 없이 저장할 수 있습니다. SQL Server 백업을 Azure Blob service에 쓰려면 최소한 루트 컨테이너를 만들어야 합니다. |
-| **Blob** |모든 형식과 크기의 파일입니다. Blob은 다음 URL 형식을 사용하여 **https://[storage account].blob.core.windows.net/[container]/[blob]** 주소를 지정할 수 있습니다. 페이지 Blob에 대한 자세한 내용은 [블록 및 페이지 Blob 이해](https://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요. |
+| **Blob** |모든 형식과 크기의 파일입니다. Blob은 다음 URL 형식을 사용 하 여 주소를 지정할 수 있습니다. **https://[저장소 계정]. blob. windows/[컨테이너]/[blob]**. 페이지 Blob에 대한 자세한 내용은 [블록 및 페이지 Blob 이해](https://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요. |
 
 ## <a name="sql-server-components"></a>SQL Server 구성 요소
 다음 SQL Server 구성 요소는 Azure Blob Storage 서비스로 백업할 때 사용됩니다.
 
-| 구성 요소 | 설명 |
+| 구성 요소 | Description |
 | --- | --- |
-| **Url** |URL은 고유한 백업 파일에 대한 URI(Uniform Resource Identifier)를 지정합니다. URL은 SQL Server 백업 파일의 위치 및 이름을 지정하는 데 사용합니다. URL은 컨테이너가 아닌 실제 Blob을 가리켜야 합니다. Blob이 없으면 만들어집니다. 기존 Blob이 지정된 경우 > WITH FORMAT 옵션을 지정하지 않으면 BACKUP이 실패합니다. 다음은 BACKUP 명령에 지정하는 URL 예제입니다. **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]** HTTPS는 필수가 아니지만 사용하는 것이 좋습니다. |
-| **자격 증명** |Azure Blob Storage 서비스에 연결하고 인증하는 데 필요한 정보는 자격 증명으로 저장됩니다.  SQL Server가 백업을 Azure Blob에 쓰거나 Azure Blob에서 복원하려면 SQL Server 자격 증명을 만들어야 합니다. 자세한 내용은 [SQL Server 자격 증명](https://msdn.microsoft.com/library/ms189522.aspx)을 참조하세요. |
+| **URL** |URL은 고유한 백업 파일에 대한 URI(Uniform Resource Identifier)를 지정합니다. URL은 SQL Server 백업 파일의 위치 및 이름을 지정하는 데 사용합니다. URL은 컨테이너가 아닌 실제 Blob을 가리켜야 합니다. Blob이 없으면 만들어집니다. 기존 Blob이 지정된 경우 > WITH FORMAT 옵션을 지정하지 않으면 BACKUP이 실패합니다. 다음은 BACKUP 명령에 지정하는 URL 예제입니다. **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]** HTTPS는 필수가 아니지만 사용하는 것이 좋습니다. |
+| **증명서** |Azure Blob Storage 서비스에 연결하고 인증하는 데 필요한 정보는 자격 증명으로 저장됩니다.  SQL Server가 백업을 Azure Blob에 쓰거나 Azure Blob에서 복원하려면 SQL Server 자격 증명을 만들어야 합니다. 자세한 내용은 [SQL Server 자격 증명](https://msdn.microsoft.com/library/ms189522.aspx)을 참조하세요. |
 
 > [!NOTE]
-> Sql Server 2016은 블록 Blob을 지원하도록 업데이트되었습니다. 자세한 내용은 [SQL Server 2016 데이터베이스와 함께 Microsoft Azure Blob 저장소 서비스를 사용](https://msdn.microsoft.com/library/dn466438.aspx) 하 여 자습서를 참조 하십시오.
+> Sql Server 2016은 블록 Blob을 지원하도록 업데이트되었습니다. 자세한 내용은 [자습서: SQL Server 2016 데이터베이스에서 Microsoft Azure Blob storage 서비스 사용](https://msdn.microsoft.com/library/dn466438.aspx) 을 참조 하세요.
 > 
 > 
 

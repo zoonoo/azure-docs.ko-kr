@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 037e005993a54e525560571a6d893197af99b6a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67807769"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Microsoft Teams를 통해 온-프레미스 애플리케이션에 액세스
@@ -33,23 +33,23 @@ Azure Active Directory 애플리케이션 프록시는 장소에 관계없이 �
 
 아직 수행하지 않은 경우 [테넌트에 대해 애플리케이션 프록시를 구성하고 커넥터를 설치](application-proxy-add-on-premises-application.md)합니다. 그런 다음, 원격 액세스를 위해 [온-프레미스 애플리케이션을 게시](application-proxy-add-on-premises-application.md)합니다. Teams에 앱을 추가하는 경우 사용되므로 앱을 게시하는 경우 외부 URL을 기록해 둡니다.
 
-이미 게시된 앱이 있으나 외부 URL을 기억하지 못하는 경우 [Azure Portal](https://portal.azure.com)에서 찾아보세요. 로그인한 다음 **Azure Active Directory** > **Enterprise 응용 프로그램으로** > 이동하면 모든 응용 프로그램이 앱 > 응용 프로그램**프록시를** 선택할 > 있습니다. **Application proxy**
+이미 게시된 앱이 있으나 외부 URL을 기억하지 못하는 경우 [Azure Portal](https://portal.azure.com)에서 찾아보세요. 로그인 한 다음 **Azure Active Directory** > **엔터프라이즈 응용** > 프로그램**모든 응용** 프로그램으로 이동 하 > 앱 > **응용 프로그램 프록시**를 선택 합니다.
 
 ## <a name="add-your-app-to-teams"></a>Teams에 앱 추가
 
 애플리케이션 프록시를 통해 앱을 게시하면 사용자가 해당 Teams 채널에서 직접 탭으로 추가할 수 있음을 알 수 있으며 앱이 사용할 팀의 모든 사람에게 제공됩니다. 사용자가 다음 세 가지 단계를 수행하도록 합니다.
 
-1. 이 앱을 추가할 팀 채널로 이동하여 **+** 탭을 추가하도록 선택합니다.
+1. 이 앱을 추가 하려는 팀 채널로 이동 하 고 탭을 추가 하도록 **+** 선택 합니다.
 
-   ![+를 선택하여 팀에서 탭을 추가합니다.](./media/application-proxy-integrate-with-teams/add-tab.png)
+   ![팀에서 탭을 추가 하려면 +를 선택 합니다.](./media/application-proxy-integrate-with-teams/add-tab.png)
 
 1. 탭 옵션에서 **웹 사이트**를 선택합니다.
 
-   ![탭 추가 화면에서 웹 사이트 선택](./media/application-proxy-integrate-with-teams/website.png)
+   ![탭 추가 화면에서 웹 사이트를 선택 합니다.](./media/application-proxy-integrate-with-teams/website.png)
 
 1. 탭 이름을 지정하고 URL을 애플리케이션 프록시 외부 URL로 설정합니다.
 
-   ![탭 의 이름을 지정하고 외부 URL을 추가합니다.](./media/application-proxy-integrate-with-teams/tab-name-url.png)
+   ![탭의 이름을로 하 고 외부 URL을 추가 합니다.](./media/application-proxy-integrate-with-teams/tab-name-url.png)
 
 팀의 한 멤버가 탭을 추가하면 채널의 모든 사용자에게 표시됩니다. 앱에 대한 액세스 권한이 있는 모든 사용자에게는 Microsoft Teams에 사용하는 자격 증명으로 Single Sign-On 액세스가 제공됩니다. 앱에 대한 액세스 권한이 없는 사용자는 Teams에서 탭을 볼 수 있지만 온-프레미스 앱 및 Azure Portal 게시 버전 앱에 대한 권한이 부여될 때까지 액세스가 차단됩니다.
 

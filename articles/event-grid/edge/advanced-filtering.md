@@ -1,6 +1,6 @@
 ---
-title: 고급 필터링 - Azure 이벤트 그리드 IoT 에지 | 마이크로 소프트 문서
-description: IoT 에지의 이벤트 그리드에서 고급 필터링.
+title: 고급 필터링-Azure Event Grid IoT Edge | Microsoft Docs
+description: IoT Edge에서 Event Grid 고급 필터링.
 author: HiteshMadan
 manager: rajarv
 ms.author: himad
@@ -10,22 +10,22 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: d7fdc5074f3c92eea4f236a9b1f7c823b930f391
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72992562"
 ---
 # <a name="advanced-filtering"></a>고급 필터링
-이벤트 그리드를 사용하면 json 페이로드의 모든 속성에 필터를 지정할 수 있습니다. 이러한 필터는 `AND` 조건 집합으로 모델링되며 각 외부 조건은 선택적 내부 `OR` 조건을 가집니다. 각 `AND` 조건에 대해 다음 값을 지정합니다.
+Event Grid json 페이로드의 모든 속성에 필터를 지정할 수 있습니다. 이러한 필터는 `AND` 조건 집합으로 모델링 되며 각 외부 조건은 선택적 내부 `OR` 조건이 있습니다. 각 `AND` 조건에 대해 다음 값을 지정 합니다.
 
-* `OperatorType`- 비교 유형.
-* `Key`- 필터를 적용할 속성에 대한 json 경로입니다.
-* `Value`- 필터가 실행되는 참조 값(또는) `Values` - 필터가 실행되는 참조 값 집합입니다.
+* `OperatorType`-비교 유형입니다.
+* `Key`-필터를 적용할 속성의 json 경로입니다.
+* `Value`-필터가 실행 되는 참조 값 (또는) `Values` -필터가 실행 되는 참조 값의 집합입니다.
 
 ## <a name="json-syntax"></a>JSON 구문
 
-고급 필터에 대한 JSON 구문은 다음과 같습니다.
+고급 필터에 대 한 JSON 구문은 다음과 같습니다.
 
 ```json
 {
@@ -44,52 +44,52 @@ ms.locfileid: "72992562"
 }
 ```
 
-## <a name="filtering-on-array-values"></a>배열 값 필터링
+## <a name="filtering-on-array-values"></a>배열 값에 대 한 필터링
 
-Event Grid는 현재 값 배열에 대한 필터링을 지원하지 않습니다. 들어오는 이벤트에 고급 필터 키에 대한 배열 값이 있는 경우 일치 작업이 실패합니다. 들어오는 이벤트는 이벤트 구독과 일치하지 않습니다.
+Event Grid은 현재 값 배열에 대 한 필터링을 지원 하지 않습니다. 들어오는 이벤트에 고급 필터의 키에 대 한 배열 값이 있으면 일치 작업이 실패 합니다. 들어오는 이벤트가 이벤트 구독과 일치 하지 않습니다.
 
-## <a name="and-or-not-semantics"></a>및-또는-하지 의미 체계
+## <a name="and-or-not-semantics"></a>및-또는-의미 체계가 아님
 
-앞에서 언급한 json 예제에서는 `AdvancedFilters` 배열입니다. 각 `AdvancedFilter` 배열 요소를 `AND` 조건으로 간주합니다.
+이전 `AdvancedFilters` 에 지정 된 json 예제에서는 배열입니다. 각 `AdvancedFilter` 배열 요소를 `AND` 조건으로 간주 합니다.
 
-`NumberIn`여러 값(예: `NumberNotIn`" 등)을 `StringIn`지원하는 연산자의 경우 각 `OR` 값은 조건으로 처리됩니다. 따라서 `StringBeginsWith("a", "b", "c")` a는 `a` 또는 `b` 또는 `c`로 시작하는 모든 문자열 값과 일치합니다.
+여러 값 (예 `NumberIn`:, `NumberNotIn` `StringIn`, 등)을 지 원하는 연산자의 경우 각 값은 `OR` 조건으로 처리 됩니다. `StringBeginsWith("a", "b", "c")` 따라서는 `a` 또는 `b` 또는 `c`로 시작 하는 임의의 문자열 값과 일치 합니다.
 
 > [!CAUTION]
-> NOT 연산자 `NumberNotIn` `StringNotIn` - `Values` 필드에 지정된 각 값에 대한 AND 조건으로 행동합니다.
+> NOT 연산자- `NumberNotIn` and `StringNotIn` 는 `Values` 필드에 지정 된 각 값에서 및 조건으로 동작 합니다.
 >
-> 이렇게 하지 않을 경우 필터는 모두 허용 필터가 되고 필터링의 목적이 무효화됩니다.
+> 이렇게 하지 않으면 모두 수락 필터로 설정 되 고 필터링의 목적이 무효화 됩니다.
 
-## <a name="floating-point-rounding-behavior"></a>부동 점 반올림 동작
+## <a name="floating-point-rounding-behavior"></a>부동 소수점 반올림 동작
 
-Event Grid는 `decimal` .NET 형식을 사용하여 모든 숫자 값을 처리합니다. 이벤트 구독 JSON에 지정된 숫자 값은 부동 소수점 반올림 동작의 적용을 받지 않습니다.
+Event Grid는 `decimal` .net 형식을 사용 하 여 모든 숫자 값을 처리 합니다. 이벤트 구독 JSON에 지정 된 숫자 값에는 부동 소수점 반올림 동작이 적용 되지 않습니다.
 
-## <a name="case-sensitivity-of-string-filters"></a>문자열 필터의 대/소문자 민감도
+## <a name="case-sensitivity-of-string-filters"></a>문자열 필터의 대/소문자 구분
 
-모든 문자열 비교는 대/소문자를 구분하지 않습니다. 오늘날이 동작을 변경할 수 있는 방법은 없습니다.
+모든 문자열 비교는 대/소문자를 구분 하지 않습니다. 현재이 동작을 변경할 수 있는 방법은 없습니다.
 
-## <a name="allowed-advanced-filter-keys"></a>고급 필터 키 허용
+## <a name="allowed-advanced-filter-keys"></a>허용 되는 고급 필터 키
 
-속성은 `Key` 잘 알려진 최상위 속성이거나 여러 점이 있는 json 경로일 수 있으며 각 점은 중첩된 json 개체로 단계별로 들어갑니다.
+속성 `Key` 은 잘 알려진 최상위 속성 이거나 여러 점이 있는 json 경로일 수 있습니다. 여기서 각 점은 중첩 된 json 개체의 단계별 실행을 의미 합니다.
 
-이벤트 그리드는 JSONPath 사양과 `$` 달리 키의 문자에 특별한 의미가 없습니다.
+JSONPath 사양과 달리 Event Grid는 키의 `$` 문자에 대 한 특별 한 의미가 없습니다.
 
-### <a name="event-grid-schema"></a>이벤트 그리드 스키마
+### <a name="event-grid-schema"></a>Event grid 스키마
 
-이벤트 그리드 스키마의 이벤트의 경우:
+Event Grid 스키마의 이벤트:
 
 * ID
 * 항목
 * 제목
 * EventType
 * DataVersion
-* 데이터.소품1
-* 데이터.소품*소품2.소품3.Prop4.Prop5
+* Prop1
+* Prop2 * Prop3. Prop4. Prop5
 
 ### <a name="custom-event-schema"></a>사용자 지정 이벤트 스키마
 
-Event Grid는 페이로드에 `Key` 봉투 스키마를 적용하지 않으므로 사용자 지정 이벤트 스키마에는 제한이 없습니다.
+Event Grid는 페이로드에 봉투 (envelope `Key` ) 스키마를 적용 하지 않으므로 사용자 지정 이벤트 스키마에는 제한이 없습니다.
 
-## <a name="numeric-single-value-filter-examples"></a>숫자 단일 값 필터 예제
+## <a name="numeric-single-value-filter-examples"></a>숫자 단일 값 필터 예
 
 * NumberGreaterThan
 * NumberGreaterThanOrEquals
@@ -125,7 +125,7 @@ Event Grid는 페이로드에 `Key` 봉투 스키마를 적용하지 않으므�
 }
 ```
 
-## <a name="numeric-range-value-filter-examples"></a>숫자 범위-값 필터 예제
+## <a name="numeric-range-value-filter-examples"></a>숫자 범위-값 필터 예
 
 * NumberIn
 * NumberNotIn
@@ -149,7 +149,7 @@ Event Grid는 페이로드에 `Key` 봉투 스키마를 적용하지 않으므�
 }
 ```
 
-## <a name="string-range-value-filter-examples"></a>문자열 범위 값 필터 예제
+## <a name="string-range-value-filter-examples"></a>문자열 범위-값 필터 예
 
 * StringContains
 * StringBeginsWith
@@ -191,7 +191,7 @@ Event Grid는 페이로드에 `Key` 봉투 스키마를 적용하지 않으므�
 }
 ```
 
-## <a name="boolean-single-value-filter-examples"></a>부울 단일 값 필터 예제
+## <a name="boolean-single-value-filter-examples"></a>부울 단일 값 필터 예
 
 * BoolEquals
 

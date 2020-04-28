@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: eb006482b851e9094b82ec3d0753b74c05296994
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68727841"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Microsoft 위협 모델링 도구 위협
@@ -38,7 +38,7 @@ ms.locfileid: "68727841"
 
 이와 같이 핵심을 찌르는 질문을 보다 잘 만들기 위해 Microsoft는 STRIDE 모델을 사용합니다. 이 모델은 다양한 유형의 위협을 분류하고 전반적인 보안 대화를 간소화합니다.
 
-| Category | 설명 |
+| 범주 | 설명 |
 | -------- | ----------- |
 | **스푸핑** | 사용자 이름 및 암호와 같은 다른 사용자의 인증 정보를 불법적으로 액세스하고 사용하는 경우를 나타냅니다. |
 | **변조** | 데이터의 악의적인 수정을 나타냅니다. 데이터베이스에 포함된 것과 같은 영구 데이터를 무단으로 변경하거나, 인터넷과 같은 개방된 네트워크를 통해 두 컴퓨터 간에 전달되는 데이터를 변경하는 경우 등이 여기에 해당합니다. |

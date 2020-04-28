@@ -1,6 +1,6 @@
 ---
-title: Azure 모니터에서 Azure Active Directory 감사 로그 스키마 해석 | 마이크로 소프트 문서
-description: Azure 모니터에서 사용할 Azure AD 감사 로그 스키마 설명
+title: Azure Monitor에서 Azure Active Directory 감사 로그 스키마 해석 Microsoft Docs
+description: Azure Monitor에서 사용할 Azure AD 감사 로그 스키마에 대해 설명 합니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68987950"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Azure Monitor(미리 보기)에서 Azure AD 감사 로그 스키마 해석
@@ -147,7 +147,7 @@ ms.locfileid: "68987950"
 
 ## <a name="field-and-property-descriptions"></a>필드 및 속성 설명
 
-| 필드 이름 | 설명 |
+| 필드 이름 | Description |
 |------------|-------------|
 | time       | 날짜 및 시간(UTC)입니다. |
 | operationName | 작업의 이름입니다. |
@@ -174,10 +174,10 @@ ms.locfileid: "68987950"
 | 작업 유형 | 형식은 *추가*, *업데이트*, *삭제* 또는 *기타*일 수 있습니다. |
 | 대상 리소스 종류 | 작업이 수행된 대상 리소스 종류를 지정합니다. 형식은 *애플리케이션*, *사용자*, *역할*, *정책*일 수 있습니다. | 
 | 대상 리소스 이름 | 대상 리소스의 이름입니다. 애플리케이션 이름, 역할 이름, 사용자 계정 이름 또는 서비스 사용자 이름일 수 있습니다. |
-| additionalTargets | 특정 작업에 대한 추가 속성을 나열합니다. 예를 들어 업데이트 작업의 경우 이전 값과 새 값이 *targetUpdateProperties*에 나열됩니다. | 
+| additionalTargets | 특정 작업에 대한 추가 속성을 나열합니다. 예를 들어 업데이트 작업의 경우 이전 값과 새 값이 *targetUpdatedProperties*아래에 나열 됩니다. | 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 모니터에서 로그인 로그 스키마 해석](reference-azure-monitor-sign-ins-log-schema.md)
+* [Azure Monitor에서 로그인 로그 스키마 해석](reference-azure-monitor-sign-ins-log-schema.md)
 * [Azure 진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [질문과 대답 및 알려진 문제](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

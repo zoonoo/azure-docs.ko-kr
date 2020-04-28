@@ -8,10 +8,10 @@ ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 139e3009722761172b7bbd57805a7f5b07e55fc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68699390"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Python을 사용하여 Azure Files 개발
@@ -47,7 +47,7 @@ pip install azure-storage-file
 대체 설치 방법을 확인하려면 [GitHub의 Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/)을 방문하세요.
 
 ## <a name="view-the-sample-application"></a>샘플 애플리케이션 보기
-f Azure 파일에서 파이썬을 사용하는 방법을 보여 주는 샘플 응용 프로그램을 보고 실행하려면 [Azure 저장소: 파이썬의 Azure 파일로 시작하기](https://github.com/Azure-Samples/storage-file-python-getting-started)를 참조하십시오. 
+f Azure Files에서 Python을 사용 하는 방법을 보여 주는 샘플 응용 프로그램을 보고 실행 하려면 [Azure Storage: python에서 Azure Files 시작](https://github.com/Azure-Samples/storage-file-python-getting-started)을 참조 하세요. 
 
 샘플 애플리케이션을 실행하려면 `azure-storage-file` 및 `azure-storage-common` 패키지를 둘 다 설치해야 합니다.
 
@@ -73,7 +73,7 @@ file_service.create_share('myshare')
 ```
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
-또한 루트 디렉터리에 이들 모두를 포함하는 대신 하위 디렉터리 내에서 파일을 배치하여 스토리지를 구성할 수 있습니다. Azure Files를 사용하면 계정이 허용하는 만큼 많은 디렉터리를 만들 수 있습니다. 아래 코드는 루트 디렉토리 아래에 **sampledir라는** 하위 디렉토리를 만듭니다.
+또한 루트 디렉터리에 이들 모두를 포함하는 대신 하위 디렉터리 내에서 파일을 배치하여 스토리지를 구성할 수 있습니다. Azure Files를 사용하면 계정이 허용하는 만큼 많은 디렉터리를 만들 수 있습니다. 아래 코드는 루트 디렉터리 아래에 **sampledir** 라는 하위 디렉터리를 만듭니다.
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
@@ -180,5 +180,5 @@ file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 이제 Python으로 Azure Files를 조작하는 방법을 배웠으므로 다음 링크를 통해 자세한 내용을 알아보세요.
 
 * [Python 개발자 센터](https://azure.microsoft.com/develop/python/)
-* [Azure 저장소 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355)
+* [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355)
 * [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)

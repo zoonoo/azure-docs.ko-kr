@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/13/2019
 ms.author: spelluru
 ms.openlocfilehash: 1d7175d000eebd3f68665e7f097bbe3f68025bc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72302790"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 태그 추가
@@ -36,24 +36,24 @@ ms.locfileid: "72302790"
 
 [랩 만들기](devtest-lab-create-lab.md)를 수행할 때 태그를 적용한 다음 나중에 태그 블레이드의 구성 및 설정을 통해 태그를 관리할 수 있습니다.
 
-모든 태그는 **이름**/**값** 쌍으로 구성됩니다. 예를 들어 이름이 *costcenter*이고 값이 *34543*인 태그를 만들 수 있습니다. 이러한 태그를 사용하면 나중에 조직의 해당 특정 영역에 대금을 청구할 수 있는 랩 리소스를 파악하는 데 도움이 될 수 있습니다. 구독을 구성하려는 방법에 적합한 이름과 값을 선택해야 합니다.
+모든 태그는 **이름**/**값** 쌍으로 구성 됩니다. 예를 들어 이름이 *costcenter*이고 값이 *34543*인 태그를 만들 수 있습니다. 이러한 태그를 사용하면 나중에 조직의 해당 특정 영역에 대금을 청구할 수 있는 랩 리소스를 파악하는 데 도움이 될 수 있습니다. 구독을 구성하려는 방법에 적합한 이름과 값을 선택해야 합니다.
 
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>기존 랩에서 태그를 관리하는 단계
 
-1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
-1. 필요한 경우 **모든 서비스**를 선택하고 목록에서 **DevTest Labs**를 선택합니다. 랩이 모든 리소스 아래의 대시보드에 이미 표시될 수 **있습니다.**
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. 필요한 경우 **모든 서비스**를 선택하고 목록에서 **DevTest Labs**를 선택합니다. 랩은 **모든 리소스**아래의 대시보드에 이미 표시 되어 있을 수 있습니다.
 1. 랩 목록에서 태그를 추가하거나 관리하려는 랩을 선택합니다.
 1. 랩의 **개요** 영역에서 **구성 및 정책**을 선택합니다.
 
     ![구성 및 정책 단추](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
 1. 왼쪽의 **관리** 아래에서 **태그**를 선택합니다.
-1. 이 랩에 대한 새 태그를 만들려면 **이름**/**값** 쌍을 입력하고 **저장을**선택합니다. 목록에서 기존 태그를 선택하여 해당 태그와 연결된 리소스를 확인하거나 관리할 수도 있습니다.
+1. 이 랩에 대 한 새 태그를 만들려면 **이름**/**값** 쌍을 입력 하 고 **저장**을 선택 합니다. 목록에서 기존 태그를 선택하여 해당 태그와 연결된 리소스를 확인하거나 관리할 수도 있습니다.
 
     ![태그 관리](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
 
 > [!NOTE]
-> 랩 수준에서 생성된 태그는 구독에서 랩이 회전하는 청구 가능한 모든 리소스를 통해 흐립니다. 예를 들어 랩 수준 태그는 랩 VM의 기본 계산 VM으로 흐르게 됩니다.비용 관리 컨텍스트에서 태그를 사용할 수 있습니다. 랩 수준 태그는 비용 관리를 위해 태그 필터에 표시됩니다.
+> 랩 수준에서 만든 태그는 랩이 구독에서 작동 하는 모든 청구 가능 리소스를 통해 흐릅니다. 예를 들어 랩 수준 태그는 랩 Vm의 기본 계산 Vm으로 전달 됩니다. cost management의 컨텍스트에서 태그를 사용할 수 있습니다. Lab level 태그는 cost management에 대 한 태그 필터에 표시 됩니다.
 
 ## <a name="understanding-limitations-to-tags"></a>태그의 제한 이해
 
@@ -69,4 +69,4 @@ PowerShell 또는 Azure CLI를 사용하여 태그를 관리하는 방법을 비
 
 ## <a name="next-steps"></a>다음 단계
 * 사용자 지정된 정책을 사용하여 구독 전체에 제한 사항 및 규칙을 적용할 수 있습니다. 정의한 정책을 사용하려면 모든 리소스에 특정 태그 값이 있어야 할 수도 있습니다. 자세한 내용은 [정책 및 일정 설정](devtest-lab-set-lab-policy.md)을 참조하세요.
-* [DevTest 랩 Azure 리소스 관리자 빠른 시작 템플릿 갤러리를](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)탐색합니다.
+* [DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)를 탐색 합니다.

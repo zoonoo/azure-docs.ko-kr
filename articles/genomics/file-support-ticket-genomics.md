@@ -1,7 +1,7 @@
 ---
-title: 지원 요청을 제출하는 방법
+title: 지원 요청을 파일 하는 방법
 titleSuffix: Microsoft Genomics
-description: 이 문서에서는 문제 해결 가이드 또는 FAQ로 문제를 해결할 수 없는 경우 Microsoft 유전체학에 문의하기 위한 지원 요청을 제출하는 방법을 설명합니다.
+description: 이 문서에서는 문제 해결 가이드 또는 FAQ를 사용 하 여 문제를 해결할 수 없는 경우 Microsoft Genomics에 연결 하는 데 지원 요청을 작성 하는 방법을 설명 합니다.
 keywords: 문제 해결, 오류, 디버깅, 지원
 services: genomics
 author: grhuynh
@@ -11,20 +11,20 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.openlocfilehash: ddfe8b6010ddc241364ccf7b2d4f5f648bd3ce0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72248602"
 ---
 # <a name="how-to-contact-microsoft-genomics-for-support"></a>지원을 위해 Microsoft Genomics에 문의하는 방법
-이 개요에서는 지원 요청을 파일링하여 Microsoft Genomics에 문의하는 방법을 설명합니다. 이 기능은 [문제 해결 가이드](troubleshooting-guide-genomics.md) 또는 [FAQ를](frequently-asked-questions-genomics.md)사용하여 문제를 해결할 수 없는 경우에 유용할 수 있습니다. 
+이 개요에서는 지원 요청을 파일링하여 Microsoft Genomics에 문의하는 방법을 설명합니다. 문제 [해결 가이드](troubleshooting-guide-genomics.md) 또는 [FAQ](frequently-asked-questions-genomics.md)를 사용 하 여 문제를 해결할 수 없는 경우에 유용할 수 있습니다. 
 
 
 ## <a name="file-a-support-ticket-through-the-azure-portal"></a>Azure Portal을 통해 지원 티켓 파일링
 먼저 Azure Portal에서 Azure 계정에 로그인합니다. 오른쪽 위 모서리에 있는 물음표를 클릭하고 `Help + support`를 선택합니다.
 
-![Azure 포털의 지원 문의](./media/file-support-ticket/genomics-contact-support.png "Azure 포털의 지원 문의") 
+![Azure Portal 지원 담당자에 게 문의](./media/file-support-ticket/genomics-contact-support.png "Azure Portal 지원 담당자에 게 문의") 
 
 
 
@@ -43,7 +43,7 @@ ms.locfileid: "72248602"
 
 마지막으로 지원 요청을 제출하기 위해 연락처 정보를 추가하고 화면 맨 아래에서 `Create`를 선택합니다.
 
-![지원 요청 연락처](./media/file-support-ticket/support-request-contact.png "지원 요청 연락처")
+![연락처 지원 요청](./media/file-support-ticket/support-request-contact.png "연락처 지원 요청")
 
 ## <a name="next-steps"></a>다음 단계
 이 아티클에서는 지원 요청을 제출하는 방법을 알아보았습니다. [FAQ](frequently-asked-questions-genomics.md) 및 [문제 해결 가이드](troubleshooting-guide-genomics.md)를 사용하여 일반적인 문제를 해결할 수도 있습니다. 

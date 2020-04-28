@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 97af40bd1f57acb5b26d3b6216984dfb8e3a5181
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68699792"
 ---
 # <a name="develop-for-azure-files-with-c"></a>C++를 사용하여 Azure Files 개발
@@ -69,7 +69,7 @@ storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_sto
 
 ## <a name="connecting-to-an-azure-storage-account"></a>Azure Storage 계정에 연결
 
-**cloud_storage_account** 클래스를 사용하여 저장소 계정 정보를 나타낼 수 있습니다. 스토리지 연결 문자열에서 스토리지 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.
+**Cloud_storage_account** 클래스를 사용 하 여 저장소 계정 정보를 나타낼 수 있습니다. 스토리지 연결 문자열에서 스토리지 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -107,7 +107,7 @@ if (share.create_if_not_exists()) {
 
 ## <a name="delete-an-azure-file-share"></a>Azure 파일 공유 삭제
 
-공유 삭제는 cloud_file_share 개체에서 **delete_if_exists** 메서드를 호출하여 수행됩니다. 다음이 샘플 코드입니다.
+공유 삭제는 cloud_file_share 개체에 대해 **delete_if_exists** 메서드를 호출 하 여 수행 됩니다. 다음이 샘플 코드입니다.
 
 ```cpp
 // Get a reference to the share.
@@ -220,9 +220,9 @@ file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 
 ## <a name="download-a-file"></a>파일 다운로드
 
-파일을 다운로드하려면 먼저 파일 참조를 검색한 다음 **download_to_stream** 메서드를 호출하여 파일 내용을 스트림 개체로 전송한 다음 로컬 파일로 유지합니다. 또는 **download_to_file** 메서드를 사용하여 로컬 파일에 파일 콘텐츠를 다운로드할 수 있습니다. **download_text** 메서드를 사용하여 파일 콘텐츠를 텍스트 문자열로 다운로드할 수 있습니다.
+파일을 다운로드 하려면 먼저 파일 참조를 검색 한 다음 **download_to_stream** 메서드를 호출 하 여 파일 콘텐츠를 스트림 개체로 전송 합니다. 그러면이 개체를 로컬 파일에 유지할 수 있습니다. 또는 **download_to_file** 메서드를 사용하여 로컬 파일에 파일 콘텐츠를 다운로드할 수 있습니다. **download_text** 메서드를 사용하여 파일 콘텐츠를 텍스트 문자열로 다운로드할 수 있습니다.
 
-다음 예제에서는 **download_to_stream** 및 **download_text** 메서드를 사용하여 이전 섹션에서 만든 파일을 다운로드하는 방법을 보여 줍니다.
+다음 예제에서는 **download_to_stream** 및 **download_text** 메서드를 사용 하 여 이전 섹션에서 만든 파일을 다운로드 하는 방법을 보여 줍니다.
 
 ```cpp
 // Download as text
@@ -369,5 +369,5 @@ Azure Storage에 대한 자세한 내용은 다음 리소스를 살펴보세요.
 
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
 * [C++ 형식의 Azure Storage 파일 서비스 샘플](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
-* [Azure 저장소 탐색기](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
-* [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)

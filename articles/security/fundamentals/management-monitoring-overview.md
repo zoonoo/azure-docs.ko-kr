@@ -1,5 +1,5 @@
 ---
-title: 보안 기능 관리 및 모니터링 - Microsoft Azure | 마이크로 소프트 문서
+title: 관리 및 모니터링 보안 기능-Microsoft Azure | Microsoft Docs
 description: 이 문서에서는 Azure Cloud Services 및 Virtual Machines의 관리 및 모니터링을 지원하기 위해 Azure에서 제공하는 보안 기능 및 서비스에 대한 개요를 제공합니다.
 services: security
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 7ad7a29a92d25556190b4cf44f4e48158a6f0952
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73162755"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 보안 관리 및 모니터링 개요
@@ -40,7 +40,7 @@ Azure를 통해 Microsoft, Symantec, Trend Micro, McAfee, Kaspersky 등 주요 �
 
 Azure Cloud Services 및 Virtual Machines용 Microsoft 맬웨어 방지는 PaaS 역할 및 가상 머신 모두에 대한 맬웨어 방지 에이전트를 설치할 수 있는 기능을 제공합니다. System Center Endpoint Protection에 기반한 이 기능은 클라우드에 입증된 온-프레미스 보안 기술을 구현합니다.
 
-또한 Azure 플랫폼에서 Trend의 [딥 시큐리티](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) 및 [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) 제품에 대한 심층 통합을 제공합니다. DeepSecurity는 바이러스 백신 솔루션이며 SecureCloud는 암호화 솔루션입니다. DeepSecurity는 확장 모델을 통해 VM 내부에 배포됩니다. Azure Portal UI 및 PowerShell을 사용하면 복제하려는 새 VM 내부의 DeepSecurity를 사용하거나 이미 배포된 기존 VM을 사용할지 선택할 수 있습니다.
+또한 Azure 플랫폼에서 추세의 [심층 보안과](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) [securecloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) 제품에 대 한 심층 통합을 제공 합니다. DeepSecurity는 바이러스 백신 솔루션이며 SecureCloud는 암호화 솔루션입니다. DeepSecurity는 확장 모델을 통해 VM 내부에 배포됩니다. Azure Portal UI 및 PowerShell을 사용하면 복제하려는 새 VM 내부의 DeepSecurity를 사용하거나 이미 배포된 기존 VM을 사용할지 선택할 수 있습니다.
 
 SEP(Symantec Endpoint Protection)도 Azure에서 지원됩니다. 포털 통합을 통해 VM에서 SEP를 사용할지 지정할 수 있습니다. SEP는 Azure Portal을 통해 새로운 VM에 설치하거나 PowerShell을 통해 기존 VM에 설치할 수 있습니다.
 
@@ -139,6 +139,6 @@ Intelligent Security Graph는 Microsoft 제품 및 서비스에서 실시간 위
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 
 ## <a name="next-steps"></a>다음 단계
-[공유 책임 모델과](shared-responsibility.md) Microsoft에서 처리하는 보안 작업 및 귀하가 처리하는 작업에 대해 알아봅니다.
+[공유 책임 모델](shared-responsibility.md) 및 Microsoft에서 처리 하는 보안 작업과 사용자가 처리 하는 작업에 대해 알아봅니다.
 
 보안 관리에 대한 자세한 내용은 [Azure의 보안 관리](management.md)를 참조하세요.

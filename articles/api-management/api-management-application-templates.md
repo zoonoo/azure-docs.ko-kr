@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: d635950c8b34986cd5824660166017317948cbd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73176918"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Azure API Management의 애플리케이션 템플릿
@@ -36,7 +36,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="application-list"></a><a name="ProductList"></a>신청 목록  
+##  <a name="application-list"></a><a name="ProductList"></a>응용 프로그램 목록  
  **애플리케이션 목록** 템플릿을 사용하여 개발자 포털에서 애플리케이션 목록 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![응용 프로그램 목록 페이지 개발자 포털 템플릿](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "APIM 응용 프로그램 목록 페이지 개발자 포털 템플릿")  
@@ -76,15 +76,15 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="controls"></a>컨트롤  
  `Product list` 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
--   [페이징 제어](api-management-page-controls.md#paging-control)  
+-   [페이징-컨트롤](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|Type|Description|  
+|속성|유형|Description|  
 |--------------|----------|-----------------|  
 |`Paging`|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티입니다.|애플리케이션 컬렉션에 대한 페이징 정보입니다.|  
 |`Applications`|[애플리케이션](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 애플리케이션입니다.|  
-|`CategoryName`|문자열|애플리케이션의 범주입니다.|  
+|`CategoryName`|string|애플리케이션의 범주입니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
   
@@ -137,7 +137,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="application"></a><a name="Application"></a>응용 프로그램  
+##  <a name="application"></a><a name="Application"></a>프로그램별  
  **애플리케이션** 템플릿을 사용하여 개발자 포털에서 애플리케이션 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![응용 프로그램 페이지 개발자 포털 템플릿](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "APIM 응용 프로그램 페이지 개발자 포털 템플릿")  

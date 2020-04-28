@@ -1,62 +1,62 @@
 ---
-title: Azure 마이그레이션 서버 평가를 사용하여 평가 만들기 | 마이크로 소프트 문서
-description: Azure 마이그레이션 서버 평가 도구를 사용하여 평가를 만드는 방법에 대해 설명합니다.
+title: Azure Migrate Server 평가를 사용 하 여 평가 만들기 | Microsoft Docs
+description: Azure Migrate Server 평가 도구를 사용 하 여 평가를 만드는 방법을 설명 합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
 ms.openlocfilehash: cffde2a677650387dffd19733e082ff7002ccb55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68229103"
 ---
 # <a name="create-an-assessment"></a>평가 만들기
 
-이 문서에서는 Azure 마이그레이션을 사용하여 온-프레미스 VM 또는 하이퍼 VM에 대한 평가를 만드는 방법에 대해 설명합니다.
+이 문서에서는 Azure Migrate: 서버 평가를 사용 하 여 온-프레미스 VMware Vm 또는 Hyper-v Vm에 대 한 평가를 만드는 방법을 설명 합니다.
 
-[Azure 마이그레이션을](migrate-services-overview.md) 사용하면 Azure로 마이그레이션할 수 있습니다. Azure Migrate는 온-프레미스 인프라, 애플리케이션 및 데이터의 검색, 평가 및 Azure로의 마이그레이션을 추적할 수 있는 중앙 허브를 제공합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다. 
+[Azure Migrate](migrate-services-overview.md) 는 Azure로 마이그레이션하는 데 도움이 됩니다. Azure Migrate는 온-프레미스 인프라, 애플리케이션 및 데이터의 검색, 평가 및 Azure로의 마이그레이션을 추적할 수 있는 중앙 허브를 제공합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다. 
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-- Azure 마이그레이션 프로젝트를 [만들었는지](how-to-add-tool-first-time.md) 확인합니다.
-- 프로젝트를 이미 만든 경우 Azure 마이그레이션: 서버 평가 도구를 [추가했는지](how-to-assess.md) 확인합니다.
-- 평가를 만들려면 [VMware](how-to-set-up-appliance-vmware.md) 또는 [Hyper-V](how-to-set-up-appliance-hyper-v.md)에 대한 Azure 마이그레이션 어플라이언스를 설정해야 합니다. 어플라이언스는 온-프레미스 컴퓨터를 검색하고 Azure 마이그레이션: 서버 평가로 메타데이터 및 성능 데이터를 보냅니다. [자세히 알아봅니다](migrate-appliance.md).
+- Azure Migrate 프로젝트를 [만들었는지](how-to-add-tool-first-time.md) 확인 합니다.
+- 프로젝트를 이미 만든 경우 Azure Migrate: 서버 평가 도구를 [추가](how-to-assess.md) 했는지 확인 합니다.
+- 평가를 만들려면 [VMware](how-to-set-up-appliance-vmware.md) 또는 [hyper-v](how-to-set-up-appliance-hyper-v.md)에 대 한 Azure Migrate 어플라이언스를 설정 해야 합니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 보냅니다. [자세히 알아보기](migrate-appliance.md).
 
 
 ## <a name="assessment-overview"></a>평가 개요
-Azure 마이그레이션을 사용하여 만들 수 있는 평가에는 서버 평가라는 두 가지 유형이 있습니다.
+Azure Migrate: 서버 평가를 사용하여 만들 수 있는 평가에는 두 가지 유형이 있습니다.
 
-**평가** | **세부 정보** | **데이터**
+**평가** | **세부 정보** | **Data**
 --- | --- | ---
-**성능 기반** | 수집된 성능 데이터를 기반으로 하는 평가 | **권장 VM 크기**: CPU 및 메모리 사용률 데이터를 기반으로 합니다.<br/><br/> **권장 디스크 유형(표준 또는 프리미엄 관리 디스크)**: 온-프레미스 디스크의 IOPS 및 처리량을 기반으로 합니다.
-**온-프레미스로** | 온-프레미스 크기 조정을 기반으로 하는 평가 | **권장 VM 크기**: 온-프레미스 VM 크기에 따라<br/><br> **권장 디스크 유형**: 평가에 대해 선택한 저장소 유형 설정에 따라 설정됩니다.
+**성능 기반** | 수집된 성능 데이터를 기반으로 하는 평가 | **추천 VM 크기**: CPU 및 메모리 사용률 데이터를 기반으로 합니다.<br/><br/> **추천 디스크 유형(표준 또는 프리미엄 관리 디스크)** : 온-프레미스 디스크의 IOPS 및 처리량을 기반으로 합니다.
+**온-프레미스로** | 온-프레미스 크기 조정을 기반으로 하는 평가 | **추천 VM 크기**: 온-프레미스 VM 크기를 기반으로 합니다.<br/><br> **추천 디스크 유형**: 평가를 위해 선택한 스토리지 유형 설정을 기반으로 합니다.
 
-평가에 대해 [자세히 알아보세요.](concepts-assessment-calculation.md)
+평가에 대해 자세히 [알아보세요](concepts-assessment-calculation.md) .
 
 ## <a name="run-an-assessment"></a>평가 실행
 
 다음과 같이 평가를 실행합니다.
 
 1. 평가를 만드는 방법에 대한 [모범 사례](best-practices-assessment.md)를 검토합니다.
-2. **서버** 탭에서 Azure **마이그레이션: 서버 평가** 타일에서 **평가를**클릭합니다.
+2. **서버** 탭의 **Azure Migrate: 서버 평가** 타일에서 **평가**를 클릭합니다.
 
     ![평가](./media/how-to-create-assessment/assess.png)
 
-2. 서버 평가에서 평가의 이름을 **지정합니다.**
+2. **서버 평가**에서 평가 이름을 지정합니다.
 3. 평가 속성을 검토하려면 **모두 보기**를 클릭합니다.
 
     ![평가 속성](./media/how-to-create-assessment//view-all.png)
 
-3. **그룹 선택 또는 작성에서**새로 **만들기를**선택하고 그룹 이름을 지정합니다. 그룹은 평가를 위해 하나 이상의 VM을 수집합니다.
+3. **그룹 선택 또는 만들기**에서 **새로 만들기**를 선택하고 그룹 이름을 지정합니다. 그룹은 평가를 위해 하나 이상의 VM을 수집합니다.
 4. **그룹에 머신 추가**에서 그룹에 추가할 VM을 선택합니다.
 5. **평가 만들기**를 클릭하여 그룹을 만들고, 평가를 실행합니다.
 
     ![평가 만들기](./media/how-to-create-assessment//assessment-create.png)
 
-6. 평가를 만든 후 **Azure** > **마이그레이션 서버: 서버 평가** > 평가에서 평가를**봅니다.**
+6. 평가가 만들어지면 **서버** > **Azure Migrate: 서버 평가** > **평가**에서 해당 평가를 확인합니다.
 7. **평가 내보내기**를 클릭하고, Excel 파일로 다운로드합니다.
 
 
@@ -65,13 +65,13 @@ Azure 마이그레이션을 사용하여 만들 수 있는 평가에는 서버 �
 
 평가에서 설명하는 항목은 다음과 같습니다.
 
-- **Azure 준비:** VM이 Azure로 마이그레이션하는 데 적합한지 여부입니다.
-- **월별 비용 추정**: Azure에서 VM을 실행하기 위한 예상 월별 계산 및 저장소 비용입니다.
-- **월별 스토리지 비용 추정**: 마이그레이션 후 디스크 저장소에 대한 예상 비용입니다.
+- **Azure 준비 상태**: VM이 Azure로 마이그레이션하는 데 적합한지 여부입니다.
+- **월간 예상 비용**: Azure에서 VM을 실행하는 데 들어가는 월간 예상 컴퓨팅 및 스토리지 비용입니다.
+- **월간 예상 스토리지 비용**: 마이그레이션 후 디스크 스토리지에 대한 예상 비용입니다.
 
 ### <a name="view-an-assessment"></a>평가 보기
 
-1. **마이그레이션 목표** >  **서버에서**Azure **마이그레이션의 평가를** **클릭합니다.**
+1. **마이그레이션 목표** >  **서버**의 **Azure Migrate: 서버 평가**에서 **평가**를 클릭합니다.
 2. **평가**에서 해당 평가를 클릭하여 엽니다.
 
     ![평가 요약](./media/how-to-create-assessment/assessment-summary.png)
@@ -80,10 +80,10 @@ Azure 마이그레이션을 사용하여 만들 수 있는 평가에는 서버 �
 
 1. **Azure 준비 상태**에서 VM이 Azure로 마이그레이션할 준비가 되었는지 확인합니다.
 2. VM 상태를 검토합니다.
-    - **Azure에 대한 준비**: Azure 마이그레이션은 평가에서 VM에 대한 VM 크기 및 비용 예측을 권장합니다.
-    - **조건 준비**: 문제 및 제안된 수정 을 표시합니다.
-    - **Azure에 대한 준비가 되지 않음**: 문제 및 제안된 수정 을 표시합니다.
-    - **준비 없음**: Azure 마이그레이션에서 데이터 가용성 문제로 인해 준비 상태를 평가할 수 없는 경우에 사용됩니다.
+    - **Azure 준비 완료**: Azure Migrate는 평가에서 VM의 크기 및 예상 비용을 추천합니다.
+    - **조건과 함께 준비 완료**: 문제 및 제안된 수정 사항을 보여 줍니다.
+    - **Azure를 사용할 준비 안 됨**: 문제 및 제안된 수정 사항을 보여 줍니다.
+    - **알 수 없는 준비**: 데이터 가용성 문제로 인해 Azure Migrate에서 준비 상태를 평가할 수 없는 경우에 사용됩니다.
 
 2. **Azure 준비 상태** 상태를 클릭합니다. VM 준비 상태 세부 정보를 살펴보고, 드릴다운하여 컴퓨팅, 스토리지 및 네트워크 설정을 포함한 VM 세부 정보를 확인할 수 있습니다.
 
@@ -128,5 +128,5 @@ Azure 마이그레이션을 사용하여 만들 수 있는 평가에는 서버 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 신뢰도가 높은 그룹을 만드는 데 [종속성 매핑을](how-to-create-group-machine-dependencies.md) 사용하는 방법을 알아봅니다.
+- [종속성 매핑을](how-to-create-group-machine-dependencies.md) 사용 하 여 높은 신뢰도 그룹을 만드는 방법에 대해 알아봅니다.
 - 평가를 계산하는 방법에 대해 [자세히 알아봅니다](concepts-assessment-calculation.md).

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
 ms.openlocfilehash: 64649c86dbd3c3469247308bfc4dd0ed12e06949
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70018229"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Azure API Management 인스턴스 업그레이드 및 크기 조정  
@@ -54,10 +54,10 @@ ms.locfileid: "70018229"
 어떤 계층에서든 업그레이드 및 다운그레이드가 가능합니다. 프리미엄 계층에서 표준 또는 기본으로 다운그레이드할 경우 업그레이드 또는 다운그레이드는 VNET 또는 다중 지역 배포와 같은 일부 기능을 제거할 수 있습니다.
 
 > [!NOTE]
-> 업그레이드 또는 크기 조정 프로세스를 적용하는 데는 15~45분 정도 소요될 수 있습니다. 완료되면 알림을 받습니다.
+> 업그레이드 또는 크기 조정 프로세스를 적용하는 데는 15~45분 정도 소요될 수 있습니다. 완료 되 면 알림이 표시 됩니다.
 
 > [!NOTE]
-> **소비** 계층의 API 관리 서비스는 트래픽에 따라 자동으로 확장됩니다.
+> **소비** 계층의 API Management 서비스는 트래픽에 따라 자동으로 확장 됩니다.
 
 ## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Azure Portal을 사용하여 업그레이드 및 크기 조정
 
@@ -71,7 +71,7 @@ ms.locfileid: "70018229"
 5. **저장**을 누릅니다.
 
 ## <a name="downtime-during-scaling-up-and-down"></a>확장 및 축소 중 가동 중지 시간
-개발자 계층에서 또는 개발자 계층으로 확장하는 경우 가동 중지 시간이 있습니다. 그렇지 않으면 가동 중지 시간이 없습니다. 
+개발자 계층에서로 크기를 조정 하는 경우 가동 중지 시간이 발생 합니다. 그렇지 않으면 가동 중지 시간이 발생 하지 않습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

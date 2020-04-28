@@ -16,23 +16,23 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: c9116472af5b400ded0fea24f98b07bad9d9039b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68728199"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>보안 프레임: 암호화 | 완화 
 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
-| **웹 응용 프로그램** | <ul><li>[승인된 대칭 블록 암호 및 키 길이만 사용](#cipher-length)</li><li>[대칭 암호화에 승인된 블록 암호화 모드 및 초기화 벡터 사용](#vector-ciphers)</li><li>[승인된 비대칭 알고리즘, 키 길이 및 패딩 사용](#padding)</li><li>[승인된 난수 생성기 사용](#numgen)</li><li>[대칭 스트림 암호를 사용하지 마십시오.](#stream-ciphers)</li><li>[승인된 MAC/HMAC/키 해시 알고리즘 사용](#mac-hash)</li><li>[승인된 암호화 해시 함수만 사용](#hash-functions)</li></ul> |
-| **데이터베이스** | <ul><li>[강력한 암호화 알고리즘을 사용하여 데이터베이스의 데이터를 암호화합니다.](#strong-db)</li><li>[SSIS 패키지는 암호화되고 디지털 서명되어야 합니다.](#ssis-signed)</li><li>[중요한 데이터베이스 증권에 디지털 서명 추가](#securables-db)</li><li>[SQL 서버 EKM을 사용하여 암호화 키 보호](#ekm-keys)</li><li>[데이터베이스 엔진에 암호화 키를 공개하지 않아야 하는 경우 항상 암호화된 기능 사용](#keys-engine)</li></ul> |
-| **IoT 디바이스** | <ul><li>[IoT 장치에 암호화 키를 안전하게 저장](#keys-iot)</li></ul> | 
-| **IoT 클라우드 게이트웨이** | <ul><li>[IoT Hub에 인증하기에 충분한 길이의 임의 대칭 키 생성](#random-hub)</li></ul> | 
-| **Dynamics CRM 모바일 클라이언트** | <ul><li>[PIN을 사용해야 하고 원격 지우기를 허용하는 장치 관리 정책이 마련되어 있는지 확인합니다.](#pin-remote)</li></ul> | 
-| **Dynamics CRM Outlook 클라이언트** | <ul><li>[PIN/암호/자동 잠금이 필요하고 모든 데이터(예: BitLocker)를 암호화하는 장치 관리 정책이 마련되어 있는지 확인합니다.](#bitlocker)</li></ul> | 
-| **ID 서버** | <ul><li>[ID 서버를 사용할 때 서명 키가 롤오버되었는지 확인합니다.](#rolled-server)</li><li>[암호화상 강력한 클라이언트 ID, 클라이언트 암호가 ID 서버에서 사용되는지 확인](#client-server)</li></ul> | 
+| **웹 응용 프로그램** | <ul><li>[승인 된 대칭 블록 암호화 및 키 길이만 사용](#cipher-length)</li><li>[대칭 암호화에 승인된 블록 암호화 모드 및 초기화 벡터 사용](#vector-ciphers)</li><li>[승인된 비대칭 알고리즘, 키 길이 및 패딩 사용](#padding)</li><li>[승인된 난수 생성기 사용](#numgen)</li><li>[대칭 스트림 암호화 사용 안 함](#stream-ciphers)</li><li>[승인 된 MAC/HMAC/키 지정 해시 알고리즘 사용](#mac-hash)</li><li>[승인 된 암호화 해시 함수만 사용](#hash-functions)</li></ul> |
+| **Database** | <ul><li>[강력한 암호화 알고리즘을 사용 하 여 데이터베이스의 데이터 암호화](#strong-db)</li><li>[SSIS 패키지는 암호화 되 고 디지털 서명 되어야 합니다.](#ssis-signed)</li><li>[중요 한 데이터베이스 보안 개체에 디지털 서명 추가](#securables-db)</li><li>[SQL server EKM을 사용 하 여 암호화 키 보호](#ekm-keys)</li><li>[암호화 키를 데이터베이스 엔진에 표시 하지 않아야 하는 경우 AlwaysEncrypted 기능을 사용 합니다.](#keys-engine)</li></ul> |
+| **IoT 디바이스** | <ul><li>[IoT 장치에 안전 하 게 암호화 키 저장](#keys-iot)</li></ul> | 
+| **IoT 클라우드 게이트웨이** | <ul><li>[IoT Hub에 대 한 인증에 충분 한 길이의 임의 대칭 키 생성](#random-hub)</li></ul> | 
+| **Dynamics CRM 모바일 클라이언트** | <ul><li>[PIN 사용이 필요 하 고 원격 지우기를 허용 하는 장치 관리 정책이 있는지 확인](#pin-remote)</li></ul> | 
+| **Dynamics CRM Outlook 클라이언트** | <ul><li>[PIN/암호/자동 잠금이 필요 하 고 모든 데이터를 암호화 (예: BitLocker) 하는 장치 관리 정책이 있는지 확인 합니다.](#bitlocker)</li></ul> | 
+| **ID 서버** | <ul><li>[Id 서버를 사용할 때 서명 키가 롤오버 되는지 확인](#rolled-server)</li><li>[Identity Server에서 암호화 된 강력한 클라이언트 ID와 클라이언트 비밀이 사용 되는지 확인](#client-server)</li></ul> | 
 
 ## <a name="use-only-approved-symmetric-block-ciphers-and-key-lengths"></a><a id="cipher-length"></a>승인된 대칭 블록 암호화 및 키 길이만 사용
 
@@ -109,7 +109,7 @@ ms.locfileid: "68728199"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
-| **단계** | <p>제품에서는 SHA-2 해시 알고리즘 제품군(SHA256, SHA384 및 SHA512)을 사용해야 합니다. 짧은 MD5 해시를 고려하여 설계된 데이터 구조에 맞추기 위해 128비트 출력 길이와 같이 더 짧은 해시가 필요한 경우 제품 팀이 SHA2 해시 중 하나(일반적으로 SHA256)를 자를 수 있습니다. SHA384는 SHA512의 잘린 버전입니다. 보안을 위해 암호화 해시를 128비트 미만으로 자르는 것은 허용되지 않습니다. 새 코드에서는 MD2, MD4, MD5, SHA-0, SHA-1 또는 RIPEMD 해시 알고리즘을 사용하면 안됩니다. 해시 충돌은 이러한 알고리즘에 대해 컴퓨터를 통해 실행 가능하며 효과적으로 해독할 수 있습니다.</p><p>관리되는 암호화 민첩성을 위해 허용되는 .NET 해시 알고리즘(기본 설정 순서대로)</p><ul><li>SHA512Cng(FIPS 규격)</li><li>SHA384Cng(FIPS 규격)</li><li>SHA256Cng(FIPS 규격)</li><li>SHA512Managed (비 FIPS 호환) (HashAlgorithm.Create 또는 CryptoConfig.CreateFromName)에 대한 호출에서 SHA512를 알고리즘 이름으로 사용하십시오.</li><li>SHA384Managed (비 FIPS 호환) (HashAlgorithm.Create 또는 CryptoConfig.CreateFromName)에 대한 호출에서 SHA384를 알고리즘 이름으로 사용하십시오.</li><li>SHA256Managed (비 FIPS 호환) (HashAlgorithm.Create 또는 CryptoConfig.CreateFromName)에 대한 호출에서 SHA256을 알고리즘 이름으로 사용하십시오.</li><li>SHA512CryptoServiceProvider(FIPS 규격)</li><li>SHA256CryptoServiceProvider(FIPS 규격)</li><li>SHA384CryptoServiceProvider(FIPS 규격)</li></ul>| 
+| **단계** | <p>제품에서는 SHA-2 해시 알고리즘 제품군(SHA256, SHA384 및 SHA512)을 사용해야 합니다. 짧은 MD5 해시를 고려하여 설계된 데이터 구조에 맞추기 위해 128비트 출력 길이와 같이 더 짧은 해시가 필요한 경우 제품 팀이 SHA2 해시 중 하나(일반적으로 SHA256)를 자를 수 있습니다. SHA384는 SHA512의 잘린 버전입니다. 보안을 위해 암호화 해시를 128비트 미만으로 자르는 것은 허용되지 않습니다. 새 코드에서는 MD2, MD4, MD5, SHA-0, SHA-1 또는 RIPEMD 해시 알고리즘을 사용하면 안됩니다. 해시 충돌은 이러한 알고리즘에 대해 컴퓨터를 통해 실행 가능하며 효과적으로 해독할 수 있습니다.</p><p>관리되는 암호화 민첩성을 위해 허용되는 .NET 해시 알고리즘(기본 설정 순서대로)</p><ul><li>SHA512Cng(FIPS 규격)</li><li>SHA384Cng(FIPS 규격)</li><li>SHA256Cng(FIPS 규격)</li><li>SHA512Managed (FIPS 규격) (HashAlgorithm 또는 CryptoConfig에 대 한 호출에서 알고리즘 이름으로 SHA512 사용)</li><li>SHA384Managed (FIPS 규격) (HashAlgorithm 또는 CryptoConfig에 대 한 호출에서 알고리즘 이름으로 SHA384 사용)</li><li>SHA256Managed (FIPS 규격) (HashAlgorithm 또는 CryptoConfig에 대 한 호출에서 SHA256을 알고리즘 이름으로 사용)</li><li>SHA512CryptoServiceProvider(FIPS 규격)</li><li>SHA256CryptoServiceProvider(FIPS 규격)</li><li>SHA384CryptoServiceProvider(FIPS 규격)</li></ul>| 
 
 ## <a name="use-strong-encryption-algorithms-to-encrypt-data-in-the-database"></a><a id="strong-db"></a>강력한 암호화 알고리즘을 사용하여 데이터베이스 데이터 암호화
 
@@ -163,7 +163,7 @@ ms.locfileid: "68728199"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | SQL Azure, 온-프레미스 |
 | **특성**              | SQL 버전 - V12, MsSQL2016 |
-| **참조**              | [항상 암호화(데이터베이스 엔진)](https://msdn.microsoft.com/library/mt163865) |
+| **참조**              | [Always Encrypted(데이터베이스 엔진)](https://msdn.microsoft.com/library/mt163865) |
 | **단계** | 상시 암호화는 Azure SQL Database 또는 SQL Server 데이터베이스에 저장된 신용 카드 번호 또는 주민 등록 번호(예: 미국 사회 보장 번호)와 같은 중요한 데이터를 보호하기 위해 고안된 기능입니다. 상시 암호화를 사용하면 클라이언트에서 클라이언트 애플리케이션 내의 중요한 데이터를 암호화하고 데이터베이스 엔진(SQL Database 또는 SQL Server)에 암호화 키를 공개하지 않을 수 있습니다. 따라서 상시 암호화는 데이터를 소유하고 볼 수 있는 사용자와 데이터를 관리하지만 액세스 권한이 없는 사용자를 구별합니다. |
 
 ## <a name="store-cryptographic-keys-securely-on-iot-device"></a><a id="keys-iot"></a>IoT 디바이스에 안전하게 암호화 키 저장
@@ -211,7 +211,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **참조**              | 해당 없음  |
 | **단계** | PIN 사용이 필요하고 원격 지우기를 허용하는 디바이스 관리 정책이 있는지 확인합니다. |
 
-## <a name="ensure-a-device-management-policy-is-in-place-that-requires-a-pinpasswordauto-lock-and-encrypts-all-data-eg-bitlocker"></a><a id="bitlocker"></a>PIN/암호/자동 잠금이 필요하고 모든 데이터(예: BitLocker)를 암호화하는 장치 관리 정책이 마련되어 있는지 확인합니다.
+## <a name="ensure-a-device-management-policy-is-in-place-that-requires-a-pinpasswordauto-lock-and-encrypts-all-data-eg-bitlocker"></a><a id="bitlocker"></a>PIN/암호/자동 잠금이 필요 하 고 모든 데이터를 암호화 (예: BitLocker) 하는 장치 관리 정책이 있는지 확인 합니다.
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -230,10 +230,10 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [ID 서버 - 키, 서명 및 암호화](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
+| **참조**              | [Id 서버-키, 서명 및 암호화](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
 | **단계** | Identity Server를 사용할 때 서명 키가 롤오버되는지 확인합니다. 참조 섹션의 링크에서는 Identity Server를 사용하는 애플리케이션을 중단하지 않고도 서명 키를 롤오버하도록 계획하는 방법을 설명합니다. |
 
-## <a name="ensure-that-cryptographically-strong-client-id-client-secret-are-used-in-identity-server"></a><a id="client-server"></a>암호화상 강력한 클라이언트 ID, 클라이언트 암호가 ID 서버에서 사용되는지 확인
+## <a name="ensure-that-cryptographically-strong-client-id-client-secret-are-used-in-identity-server"></a><a id="client-server"></a>Identity Server에서 암호화 된 강력한 클라이언트 ID와 클라이언트 비밀이 사용 되는지 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |

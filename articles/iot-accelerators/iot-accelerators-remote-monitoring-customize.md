@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: eb3d5fea68b5b1b6e648943cb3dbaab5857e9e07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68608012"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기 사용자 지정
@@ -31,7 +31,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 1. **pcs** CLI를 사용하여 솔루션 가속기의 **기본** 인스턴스를 배포합니다. 가상 머신에 대해 제공한 배포 및 자격 증명의 이름을 기록해 둡니다. 자세한 내용은 [CLI를 사용하여 배포](iot-accelerators-remote-monitoring-deploy-cli.md)를 참조하세요.
 
-1. 솔루션에서 마이크로 서비스를 호스팅하는 가상 머신에 대한 SSH 액세스를 사용하도록 설정하기 위해 Azure Portal 또는 Azure Cloud Shell을 사용합니다. 예를 들어:
+1. 솔루션에서 마이크로 서비스를 호스팅하는 가상 머신에 대한 SSH 액세스를 사용하도록 설정하기 위해 Azure Portal 또는 Azure Cloud Shell을 사용합니다. 예를 들면 다음과 같습니다.
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -39,7 +39,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
     테스트 및 개발하는 동안 SSH 액세스만 활성화합니다. SSH를 사용하도록 설정할 경우 [사용을 마친 즉시 사용을 중지해야 합니다](../security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
-1. Azure Portal 또는 Azure Cloud Shell을 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 예를 들어:
+1. Azure Portal 또는 Azure Cloud Shell을 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 예를 들면 다음과 같습니다.
 
     ```azurecli-interactive
     az resource list --resource-group {your solution name} -o table
@@ -73,11 +73,11 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
     npm start
     ```
 
-1. 이전 명령은 http:\//localhost:3000/대시보드에서 로컬로 UI를 실행합니다. 사이트가 실행되는 동안 코드를 편집하고 동적으로 업데이트하는 것을 확인할 수 있습니다.
+1. 이전 명령은 http:\//hosts: 3000/DASHBOARD에서 UI를 로컬로 실행 합니다. 사이트가 실행되는 동안 코드를 편집하고 동적으로 업데이트하는 것을 확인할 수 있습니다.
 
 ## <a name="customize-the-layout"></a>레이아웃 사용자 지정
 
-원격 모니터링 솔루션의 각 페이지는 소스 코드에서 *패널*이라고 하는 컨트롤의 세트로 구성됩니다. **대시보드** 페이지는 개요, 지도, 경고, 원격 분석 및 분석의 다섯 패널로 구성됩니다. [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub 리포지토리에서 각 페이지 및 해당 패널을 정의하는 소스 코드를 찾을 수 있습니다. 예를 들어 **대시보드** 페이지, 해당 레이아웃 및 페이지의 패널을 정의하는 코드는 [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) 폴더에 있습니다.
+원격 모니터링 솔루션의 각 페이지는 소스 코드에서 *패널*이라고 하는 컨트롤의 세트로 구성됩니다. **대시보드** 페이지는 개요, 지도, 경고, 원격 분석 및 분석의 5 개 패널로 구성 됩니다. [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub 리포지토리에서 각 페이지 및 해당 패널을 정의하는 소스 코드를 찾을 수 있습니다. 예를 들어 **대시보드** 페이지, 해당 레이아웃 및 페이지의 패널을 정의하는 코드는 [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) 폴더에 있습니다.
 
 패널은 고유의 레이아웃 및 크기 조정을 관리하기 때문에 페이지의 레이아웃을 쉽게 수정할 수 있습니다. `src/components/pages/dashboard/dashboard.js` 파일에서 **PageContent** 요소를 다음과 같이 변경합니다.
 
@@ -502,7 +502,7 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 * [원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 플라이아웃 추가](iot-accelerators-remote-monitoring-customize-flyout.md)
 * [원격 모니터링 솔루션 가속기 웹 UI의 대시보드에 사용자 지정 패널 추가](iot-accelerators-remote-monitoring-customize-panel.md)
 
-원격 모니터링 솔루션 가속기에 대한 자세한 개념 정보는 [원격 모니터링 아키텍처를](iot-accelerators-remote-monitoring-sample-walkthrough.md) 참조하십시오.
+원격 모니터링 솔루션 가속기에 대 한 자세한 개념 정보는 [원격 모니터링 아키텍처](iot-accelerators-remote-monitoring-sample-walkthrough.md) 를 참조 하세요.
 
 원격 모니터링 솔루션 마이크로 서비스 사용자 지정에 대한 자세한 내용은 [마이크로 서비스 사용자 지정 및 재배포](iot-accelerators-microservices-example.md)를 참조하세요.
 <!-- Next tutorials in the sequence -->

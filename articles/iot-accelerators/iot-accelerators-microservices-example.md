@@ -8,15 +8,15 @@ services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61447627"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>마이크로 서비스 사용자 지정 및 다시 배포
 
-이 자습서에서는 원격 모니터링 솔루션에서 [마이크로 서비스](https://azure.com/microservices) 중 하나를 편집하고, 마이크로 서비스의 이미지를 빌드하고, 이미지를 docker 허브에 배포한 다음 원격 모니터링 솔루션에서 사용하는 방법을 보여 줍니다. 이 개념을 소개하기 위해 자습서는 마이크로 서비스 API를 호출하고 상태 메시지를 "Alive and Well"에서 "New Edits Made Here!"로 변경하는 기본 시나리오를 사용합니다.
+이 자습서에서는 원격 모니터링 솔루션에서 [마이크로 서비스](https://azure.com/microservices) 중 하나를 편집 하 고, 마이크로 서비스 이미지를 빌드하고, 이미지를 docker 허브에 배포한 다음, 원격 모니터링 솔루션에서 사용 하는 방법을 보여 줍니다. 이 개념을 소개하기 위해 자습서는 마이크로 서비스 API를 호출하고 상태 메시지를 "Alive and Well"에서 "New Edits Made Here!"로 변경하는 기본 시나리오를 사용합니다.
 
 원격 모니터링 솔루션은 도커 허브에서 가져온 도커 이미지를 사용하여 빌드된 마이크로 서비스를 사용합니다. 
 

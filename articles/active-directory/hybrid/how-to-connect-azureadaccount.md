@@ -1,6 +1,6 @@
 ---
-title: Azure AD 커넥터 계정 암호 변경 | 마이크로 소프트 문서
-description: 이 항목에서는 Azure AD 커넥터 계정을 복원하는 방법을 설명합니다.
+title: Azure AD Connector 계정 암호 변경 | Microsoft Docs
+description: 이 항목에서는 Azure AD Connector 계정을 복원 하는 방법에 대해 설명 합니다.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ea151ee79fccd66f1d9422744d8f57829677ec0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67204525"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>Azure AD Connect 계정 암호 변경
-Azure AD 커넥터 계정은 서비스가 무료입니다. 자격 증명을 재설정해야 할 경우 이 항목을 참조하세요. 예를 들어 글로벌 관리자가 실수로 PowerShell을 사용하여 계정의 암호를 재설정한 경우를 예로 들 수 있습니다.
+Azure AD Connector 계정은 서비스를 무료로 제공 합니다. 자격 증명을 재설정해야 할 경우 이 항목을 참조하세요. 예를 들어 전역 관리자가 PowerShell을 사용 하 여 계정에 대 한 암호를 실수로 재설정 한 경우
 
 ## <a name="reset-the-credentials"></a>자격 증명 다시 설정
-인증 문제로 인해 Azure AD 커넥터 계정이 Azure AD에 연결할 수 없는 경우 암호를 재설정할 수 있습니다.
+인증 문제로 인해 Azure ad Connector 계정이 Azure AD에 연결할 수 없는 경우 암호를 다시 설정할 수 있습니다.
 
 1. Azure AD Connect 동기화 서버에 로그인하고 PowerShell을 시작합니다.
 2. `Add-ADSyncAADServiceAccount`을 실행합니다.  
@@ -37,7 +37,7 @@ Azure AD 커넥터 계정은 서비스가 무료입니다. 자격 증명을 재�
 이 cmdlet은 서비스 계정의 암호를 재설정하고 Azure AD와 동기화 엔진에서 암호를 업데이트합니다.
 
 ## <a name="known-issues-these-steps-can-solve"></a>이 단계에서 해결할 수 있다고 알려진 문제
-이 섹션은 Azure AD 커넥터 계정의 자격 증명 재설정으로 수정된 고객이 보고한 오류 목록입니다.
+이 섹션은 Azure AD Connector 계정에서 자격 증명을 다시 설정 하 여 수정 된 고객이 보고 한 오류 목록입니다.
 
 ---
 이벤트 6900  

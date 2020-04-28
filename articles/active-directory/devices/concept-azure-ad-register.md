@@ -1,5 +1,5 @@
 ---
-title: Azure AD 등록 장치는 무엇입니까?
+title: Azure AD 등록 장치는 무엇 인가요?
 description: 디바이스 ID 관리가 사용자 환경의 리소스에 액세스하는 디바이스를 관리하는 데 어떻게 도움이 되는지 알아봅니다.
 services: active-directory
 ms.service: active-directory
@@ -12,54 +12,54 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7e2a8cad7cd4410a95a6ebd60ada22de456737bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67462760"
 ---
 # <a name="azure-ad-registered-devices"></a>Azure AD 등록 디바이스
 
-Azure AD 등록 장치의 목표는 사용자에게 BYOD(사용자 소유 장치 가져오기) 또는 모바일 장치 시나리오에 대한 지원을 제공하는 것입니다. 이러한 시나리오에서 사용자는 개인 장치를 사용하여 조직의 Azure Active Directory 제어 리소스에 액세스할 수 있습니다.
+Azure AD 등록 장치의 목표는 사용자에 게 BYOD (사용자 장치) 또는 모바일 장치 시나리오에 대 한 지원을 제공 하는 것입니다. 이러한 시나리오에서 사용자는 개인 장치를 사용 하 여 조직의 Azure Active Directory 제어 되는 리소스에 액세스할 수 있습니다.
 
-|   | Azure AD 등록 |
+|   | 등록 된 Azure AD |
 | --- | --- |
-| **정의** | 장치에 로그인할 조직 계정 필요 없이 Azure AD에 등록됨 |
-| **1차 잠재고객** | 다음 기준을 가진 모든 사용자에게 적용 가능: |
+| **정의** | 조직 계정이 장치에 로그인 할 필요 없이 Azure AD에 등록 됨 |
+| **기본 대상** | 다음 조건에 해당 하는 모든 사용자에 게 적용 됩니다. |
 |   | BYOD(Bring Your Own Device) |
 |   | 모바일 디바이스 |
 | **디바이스 소유권** | 사용자 또는 조직 |
-| **운영 체제** | 윈도우 10, 아이폰 OS, 안드로이드, 맥 OS |
-| **프로비전** | 윈도우 10 – 설정 |
-|   | 아이폰 OS / 안드로이드 - 회사 포털 또는 마이크로 소프트 인증자 응용 프로그램 |
-|   | 맥OS – 회사 포털 |
+| **운영 체제** | Windows 10, iOS, Android 및 MacOS |
+| **프로비전** | Windows 10 – 설정 |
+|   | iOS/Android – 회사 포털 또는 Microsoft Authenticator 앱 |
+|   | MacOS – 회사 포털 |
 | **장치 로그인 옵션** | 최종 사용자 로컬 자격 증명 |
 |   | 암호 |
 |   | Windows Hello |
 |   | PIN |
-|   | 다른 장치에 대한 생체 인식 또는 패턴 |
-| **장치 관리** | 모바일 장치 관리(예: Microsoft Intune) |
+|   | 다른 장치의 생체 인식 또는 패턴 |
+| **디바이스 관리** | 모바일 장치 관리 (예: Microsoft Intune) |
 |   | 모바일 애플리케이션 관리 |
-| **주요 기능** | SSO에서 클라우드 리소스로 |
-|   | Intune에 등록할 때 조건부 액세스 |
+| **주요 기능** | 클라우드 리소스에 대 한 SSO |
+|   | Intune에 등록 된 조건부 액세스 |
 |   | 앱 보호 정책을 통한 조건부 액세스 |
-|   | Microsoft 인증앱으로 전화 로그인 가능 |
+|   | Microsoft Authenticator 앱으로 휴대폰 로그인을 사용 하도록 설정 합니다. |
 
 ![Azure AD 등록 디바이스](./media/concept-azure-ad-register/azure-ad-registered-device.png)
 
-Azure AD 등록 된 장치는 Windows 10 장치에서 Microsoft 계정과 같은 로컬 계정을 사용 하 여 로그인 하지만 또한 조직 리소스에 대 한 액세스를 위해 연결 된 Azure AD 계정. 조직의 리소스에 대한 액세스는 장치 ID에 적용되는 Azure AD 계정 및 조건부 액세스 정책에 따라 더 제한될 수 있습니다.
+Azure AD 등록 장치는 Windows 10 장치에서 Microsoft 계정와 같은 로컬 계정을 사용 하 여 로그인 하지만 조직 리소스에 액세스 하기 위해 연결 된 Azure AD 계정도 추가로 포함 합니다. 조직의 리소스에 대 한 액세스는 해당 Azure AD 계정 및 장치 id에 적용 되는 조건부 액세스 정책에 따라 추가로 제한할 수 있습니다.
 
-관리자는 Microsoft Intune과 같은 MDM(모바일 장치 관리) 도구를 사용하여 이러한 Azure AD 등록 장치를 보호하고 추가로 제어할 수 있습니다. MDM은 저장소를 암호화하고 암호 복잡성을 유지하며 보안 소프트웨어를 업데이트하도록 요구하는 것과 같은 조직에 필요한 구성을 적용하는 수단을 제공합니다. 
+관리자는 Microsoft Intune 같은 MDM (모바일 장치 관리) 도구를 사용 하 여 이러한 Azure AD 등록 장치를 안전 하 고 제어할 수 있습니다. MDM은 저장소를 암호화 하 고, 암호 복잡성을 유지 하 고, 보안 소프트웨어를 업데이트 해야 하는 등 조직에서 필요한 구성을 적용 하는 수단을 제공 합니다. 
 
-Azure AD 등록은 처음으로 작업 응용 프로그램에 액세스하거나 Windows 10 설정 메뉴를 수동으로 사용할 때 수행할 수 있습니다. 
+처음으로 회사 응용 프로그램에 액세스 하거나 Windows 10 설정 메뉴를 사용 하 여 수동으로 Azure AD 등록을 수행할 수 있습니다. 
 
 ## <a name="scenarios"></a>시나리오
 
-조직의 사용자는 홈 PC에서 전자 메일, 보고 시간 해제 및 혜택 등록을 위한 도구에 액세스하려고 합니다. 조직에는 Intune 호환 장치에서 액세스해야 하는 조건부 액세스 정책 뒤에 이러한 도구가 있습니다. 사용자는 조직 계정을 추가하고 Azure AD에 홈 PC를 등록하고 필요한 Intune 정책이 적용되어 사용자에게 리소스에 대한 액세스 권한을 부여합니다.
+조직의 사용자는 자신의 집 PC에서 전자 메일, 보고 시간 및 혜택 등록에 대 한 도구에 액세스 하려고 합니다. 조직에는 Intune 호환 장치에서 액세스 해야 하는 조건부 액세스 정책 뒤에 이러한 도구가 있습니다. 사용자가 자신의 조직 계정을 추가 하 고 해당 가정용 PC를 Azure AD에 등록 하면 사용자에 게 리소스에 대 한 액세스 권한을 부여 하는 데 필요한 Intune 정책이 적용 됩니다.
 
-다른 사용자는 루팅 된 개인 Android 휴대 전화에서 조직 전자 메일에 액세스하려고합니다. 회사에서 규정을 준수하는 장치가 필요하며 루팅된 장치를 차단하는 Intune 준수 정책을 만들었습니다. 직원이 이 장치의 조직 리소스에 액세스하지 못하도록 중지됩니다.
+다른 사용자가 루 팅 된 개인 Android 휴대폰에서 조직 메일에 액세스 하려고 합니다. 회사에 규정 준수 장치가 필요 하며, 모든 루 팅 된 장치를 차단 하는 Intune 준수 정책을 만들었습니다. 직원이이 장치에서 조직 리소스에 액세스 하는 것을 중지 했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 포털을 사용하여 장치 ID 관리](device-management-azure-portal.md)
+- [Azure Portal를 사용 하 여 장치 id 관리](device-management-azure-portal.md)
 - [Azure AD에서 부실 디바이스 관리](manage-stale-devices.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61296052"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>VHD 파일에서 사용자 지정 이미지 만들기
@@ -33,9 +33,9 @@ ms.locfileid: "61296052"
 
 다음 단계는 Azure Portal을 사용하여 VHD 파일에서 사용자 지정 이미지를 만드는 과정을 안내합니다.
 
-1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **모든 서비스를**선택한 다음 목록에서 **DevTest 랩을 선택합니다.**
+1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs** 를 선택 합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.  
 

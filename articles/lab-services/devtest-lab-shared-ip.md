@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/12/2019
 ms.author: spelluru
 ms.openlocfilehash: f7c9feedddab1aea031cb3a8879e868aae04df00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65236886"
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Azure DevTest Labs에서 공유 IP 주소 이해
@@ -26,19 +26,19 @@ Azure DevTest Labs에서는 랩 VM이 동일한 공용 IP 주소를 공유하여
 
 ## <a name="shared-ip-setting"></a>공유 IP 설정
 
-랩을 만들면 가상 네트워크의 서브넷에서 만들어집니다.  기본적으로 이 서브넷은 **Enable shared public IP**(공유 공용 IP 사용)을 *예*로 설정하면 생성됩니다.  이 구성은 전체 서브넷에 하나의 공용 IP 주소를 만듭니다.  가상 네트워크 및 서브넷 구성에 대한 자세한 내용은 [Azure DevTest Labs에서 가상 네트워크 구성](devtest-lab-configure-vnet.md)을 참조하세요.
+랩을 만들 때 가상 네트워크의 서브넷에 생성 됩니다.  기본적으로 이 서브넷은 **Enable shared public IP**(공유 공용 IP 사용)을 *예*로 설정하면 생성됩니다.  이 구성은 전체 서브넷에 하나의 공용 IP 주소를 만듭니다.  가상 네트워크 및 서브넷 구성에 대한 자세한 내용은 [Azure DevTest Labs에서 가상 네트워크 구성](devtest-lab-configure-vnet.md)을 참조하세요.
 
 ![새 랩 서브넷](media/devtest-lab-shared-ip/lab-subnet.png)
 
 기존 랩의 경우 **구성 및 정책 > Virtual Networks**를 선택하여 이 옵션을 사용하도록 설정할 수 있습니다. 그런 다음, 목록에서 가상 네트워크를 선택하고 선택한 서브넷에 대해 **공유 공용 IP 사용**을 선택합니다. 랩 VM 간에 공용 IP 주소를 공유하지 않으려는 경우 아무 랩에서나 이 옵션을 해제할 수 있습니다.
 
-이 랩에 생성된 모든 VM은 기본적으로 공유 IP를 사용합니다.  VM을 만들 때 이 설정은 IP 주소 **구성의** **고급 설정** 페이지에서 관찰할 수 있습니다.
+이 랩에 생성된 모든 VM은 기본적으로 공유 IP를 사용합니다.  VM을 만들 때 **IP 주소 구성**의 **고급 설정** 페이지에서이 설정을 확인할 수 있습니다.
 
 ![새 VM](media/devtest-lab-shared-ip/new-vm.png)
 
 - **공유:****공유**로 생성된 모든 VM은 하나의 리소스 그룹(RG)에 배치됩니다. 해당 RG에는 단일 IP 주소가 할당되며, RG에 있는 모든 VM은 이 IP 주소를 사용합니다.
 - **공개:** 만든 각 VM에 자체 IP 주소가 있으며 자체 리소스 그룹에 생성됩니다.
-- **프라이빗:** 만든 각 VM이 개인 IP 주소를 사용합니다. 원격 데스크톱을 사용하여 인터넷에서 이 VM에 직접 연결할 수 없습니다.
+- **프라이빗:** 만든 각 VM이 개인 IP 주소를 사용합니다. 원격 데스크톱을 사용 하 여 인터넷에서 직접이 VM에 연결할 수 없습니다.
 
 공유 IP가 사용된 VM이 서브넷에 추가될 때마다 DevTest Labs는 자동으로 부하 분산 장치에 VM을 추가하고 공용 IP 주소에 TCP 포트 번호를 할당하여 VM의 RDP 포트에 전달합니다.  
 

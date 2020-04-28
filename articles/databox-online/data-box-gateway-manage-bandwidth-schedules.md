@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 63f3572dcb5affb9fcf89d86a665bef9414cb011
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60755351"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Azure Portal을 사용하여 Azure Data Box Gateway에서 대역폭 일정 관리  
@@ -72,7 +72,7 @@ Azure Portal을 통해 Data Box Gateway에 대한 대역폭 일정을 추가, �
 
 Data Box Gateway 디바이스와 연결된 대역폭 일정을 삭제하려면 다음 단계를 수행합니다.
 
-1. Azure 포털에서 데이터 상자 게이트웨이 리소스로 이동한 다음 **대역폭**으로 이동합니다.  
+1. Azure Portal에서 Data Box Gateway 리소스로 이동한 후 **대역폭**으로 이동 합니다.  
 
 2. 대역폭 일정 목록에서 삭제할 일정을 선택합니다. 마우스 오른쪽 단추를 클릭하여 상황에 맞는 메뉴를 표시하고 **삭제**를 클릭합니다. 
 

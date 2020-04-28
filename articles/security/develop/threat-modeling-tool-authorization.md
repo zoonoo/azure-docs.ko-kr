@@ -16,29 +16,29 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 75bbce0f1e9787e55880ccac80dacb5457e1f2c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68728377"
 ---
 # <a name="security-frame-authorization--mitigations"></a>보안 프레임: 권한 부여 | 완화 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
-| **컴퓨터 신뢰 경계** | <ul><li>[장치의 데이터에 대한 무단 액세스를 제한하도록 적절한 ACL이 구성되었는지 확인합니다.](#acl-restricted-access)</li><li>[사용자 고유의 중요한 애플리케이션 콘텐츠가 사용자 프로필 디렉터리에 저장되는지 확인](#sensitive-directory)</li><li>[배포된 응용 프로그램이 최소한의 권한으로 실행되도록 합니다.](#deployed-privileges)</li></ul> |
-| **웹 응용 프로그램** | <ul><li>[비즈니스 논리 흐름을 처리할 때 순차적 단계 순서 적용](#sequential-logic)</li><li>[열거를 방지하는 비율 제한 메커니즘 구현](#rate-enumeration)</li><li>[적절한 권한 부여가 이루어지고 최소 권한 원칙을 준수하는지 확인](#principle-least-privilege)</li><li>[들어오는 요청 매개 변수를 기반으로 하지 않는 비즈니스 논리 및 리소스 액세스 권한 부여 결정](#logic-request-parameters)</li><li>[강제 검색을 통해 콘텐츠와 리소스를 열거하거나 액세스할 수 없는지 확인](#enumerable-browsing)</li></ul> |
-| **데이터베이스** | <ul><li>[최소 권한의 계정으로 데이터베이스 서버에 연결하는지 확인](#privileged-server)</li><li>[행 수준 보안 RLS를 구현하여 테넌트의 데이터에 액세스하지 못하도록 방지](#rls-tenants)</li><li>[유효한 필수 사용자에게만 부여되는 sysadmin 역할](#sysadmin-users)</li></ul> |
+| **컴퓨터 신뢰 경계** | <ul><li>[적절 한 Acl이 장치의 데이터에 대 한 무단 액세스를 제한 하도록 구성 되어 있는지 확인 합니다.](#acl-restricted-access)</li><li>[사용자 고유의 중요한 애플리케이션 콘텐츠가 사용자 프로필 디렉터리에 저장되는지 확인](#sensitive-directory)</li><li>[배포 된 응용 프로그램이 최소 권한으로 실행 되는지 확인](#deployed-privileges)</li></ul> |
+| **웹 응용 프로그램** | <ul><li>[비즈니스 논리 흐름을 처리할 때 순차적 단계 순서 적용](#sequential-logic)</li><li>[열거를 방지하는 비율 제한 메커니즘 구현](#rate-enumeration)</li><li>[적절 한 권한 부여가 준비 되어 있고 최소 권한 원칙을 준수 하는지 확인 합니다.](#principle-least-privilege)</li><li>[들어오는 요청 매개 변수를 기반으로 하지 않는 비즈니스 논리 및 리소스 액세스 권한 부여 결정](#logic-request-parameters)</li><li>[강제 검색을 통해 콘텐츠와 리소스를 열거하거나 액세스할 수 없는지 확인](#enumerable-browsing)</li></ul> |
+| **Database** | <ul><li>[최소 권한의 계정으로 데이터베이스 서버에 연결하는지 확인](#privileged-server)</li><li>[행 수준 보안 RLS를 구현 하 여 테 넌 트가 서로의 데이터에 액세스 하지 못하도록 합니다.](#rls-tenants)</li><li>[유효한 필수 사용자에게만 부여되는 sysadmin 역할](#sysadmin-users)</li></ul> |
 | **IoT 클라우드 게이트웨이** | <ul><li>[최소 권한의 토큰을 사용하여 클라우드 게이트웨이에 연결](#cloud-least-privileged)</li></ul> |
-| **Azure 이벤트 허브** | <ul><li>[송신 전용 권한 SAS 키를 사용하여 디바이스 토큰 생성](#sendonly-sas)</li><li>[이벤트 허브에 직접 액세스하는 액세스 토큰을 사용하지 마십시오.](#access-tokens-hub)</li><li>[최소 권한이 필요한 SAS 키를 사용하여 이벤트 허브에 연결](#sas-minimum-permissions)</li></ul> |
+| **Azure Event Hub** | <ul><li>[송신 전용 권한 SAS 키를 사용하여 디바이스 토큰 생성](#sendonly-sas)</li><li>[이벤트 허브에 대 한 직접 액세스를 제공 하는 액세스 토큰을 사용 하지 마십시오.](#access-tokens-hub)</li><li>[최소 권한이 필요한 SAS 키를 사용하여 이벤트 허브에 연결](#sas-minimum-permissions)</li></ul> |
 | **Azure Document DB** | <ul><li>[가능한 경우 리소스 토큰을 사용하여 Azure Cosmos DB에 연결](#resource-docdb)</li></ul> |
-| **Azure 신뢰 경계** | <ul><li>[RBAC를 사용하여 Azure 구독에 대한 세분화된 액세스 관리 를 활성화합니다.](#grained-rbac)</li></ul> |
-| **Service Fabric 신뢰 경계** | <ul><li>[RBAC를 사용하여 클러스터 작업에 대한 클라이언트의 액세스 제한](#cluster-rbac)</li></ul> |
+| **Azure 신뢰 경계** | <ul><li>[RBAC를 사용 하 여 Azure 구독에 대 한 세분화 액세스 관리 사용](#grained-rbac)</li></ul> |
+| **Service Fabric 신뢰 경계** | <ul><li>[RBAC를 사용 하 여 클러스터 작업에 대 한 클라이언트 액세스 제한](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[보안 모델링 수행 및 필요한 경우 필드 수준 보안 사용](#modeling-field)</li></ul> |
 | **Dynamics CRM 포털** | <ul><li>[포털의 보안 모델이 CRM의 나머지 부분과 다르다는 점을 감안하여 포털 계정의 보안 모델링을 수행합니다.](#portal-security)</li></ul> |
-| **Azure 저장소** | <ul><li>[Azure Table Storage의 엔터티 범위에 대해 세분화된 권한 부여](#permission-entities)</li><li>[Azure Resource Manager를 사용하여 Azure Storage 계정에 역할 기반 Access Control(RBAC)을 사용하도록 설정](#rbac-azure-manager)</li></ul> |
+| **Azure Storage** | <ul><li>[Azure Table Storage의 엔터티 범위에 대해 세분화된 권한 부여](#permission-entities)</li><li>[Azure Resource Manager를 사용하여 Azure Storage 계정에 역할 기반 Access Control(RBAC)을 사용하도록 설정](#rbac-azure-manager)</li></ul> |
 | **모바일 클라이언트** | <ul><li>[암시적 무단 해제 또는 루팅 검색 구현](#rooting-detection)</li></ul> |
-| **WCF** | <ul><li>[WCF의 약한 클래스 참조](#weak-class-wcf)</li><li>[WCF-구현 권한 부여 제어](#wcf-authz)</li></ul> |
-| **Web API** | <ul><li>[ASP.NET 웹 API에서 적절한 권한 부여 메커니즘 구현](#authz-aspnet)</li></ul> |
+| **WCF** | <ul><li>[WCF의 Weak 클래스 참조](#weak-class-wcf)</li><li>[WCF-권한 부여 제어 구현](#wcf-authz)</li></ul> |
+| **Web API** | <ul><li>[ASP.NET Web API에서 적절 한 권한 부여 메커니즘 구현](#authz-aspnet)</li></ul> |
 | **IoT 디바이스** | <ul><li>[다른 권한 수준이 필요한 다양한 작업을 지원하는 경우 디바이스에서 권한 부여 확인 수행](#device-permission)</li></ul> |
 | **IoT 필드 게이트웨이** | <ul><li>[다른 권한 수준이 필요한 다양한 작업을 지원하는 경우 필드 게이트웨이에서 권한 부여 확인 수행](#field-permission)</li></ul> |
 
@@ -181,7 +181,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 게이트웨이 선택 - Azure IoT Hub |
-| **참조**              | [이오트 허브 액세스 제어](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#Security) |
+| **참조**              | [Iot Hub Access Control](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#Security) |
 | **단계** | 클라우드 게이트웨이(IoT Hub)에 연결하는 다양한 구성 요소에 대한 최소 권한을 제공합니다. 일반적인 예로 디바이스 관리/프로비전 구성 요소는 레지스트리 읽기/쓰기를 사용하고, 이벤트 프로세서(ASA)는 서비스 연결을 사용합니다. 개별 디바이스는 디바이스 자격 증명을 사용하여 연결합니다.|
 
 ## <a name="use-a-send-only-permissions-sas-key-for-generating-device-tokens"></a><a id="sendonly-sas"></a>송신 전용 권한 SAS 키를 사용하여 디바이스 토큰 생성
@@ -281,7 +281,7 @@ WHERE userID=:id < - session var
 | **적용 가능한 기술** | 일반 |
 | **특성**              | StorageType - 테이블 |
 | **참조**              | [SAS를 사용하여 Azure Storage 계정의 개체에 대한 액세스 권한을 위임하는 방법](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
-| **단계** | 특정 비즈니스 시나리오에서 Azure Table Storage는 다른 당사자에게 제공하는 중요한 데이터(예: 다른 국가에 관한 중요한 데이터)를 예를 들어, 다른 국가/지역과 관련된 민감한 데이터. 이러한 경우 사용자가 특정 국가/지역에 특정 데이터에 액세스할 수 있도록 파티션 및 행 키 범위를 지정하여 SAS 서명을 생성할 수 있습니다.| 
+| **단계** | 특정 비즈니스 시나리오에서 Azure Table Storage는 다른 당사자에게 제공하는 중요한 데이터(예: 다른 국가에 관한 중요한 데이터)를 예를 들어, 다양 한 국가/지역과 관련 된 중요 한 데이터입니다. 이러한 경우, 사용자가 특정 국가/지역과 관련 된 데이터에 액세스할 수 있도록 파티션 및 행 키 범위를 지정 하 여 SAS 서명을 생성할 수 있습니다.| 
 
 ## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Azure Resource Manager를 사용하여 Azure Storage 계정에 역할 기반 Access Control(RBAC)을 사용하도록 설정
 

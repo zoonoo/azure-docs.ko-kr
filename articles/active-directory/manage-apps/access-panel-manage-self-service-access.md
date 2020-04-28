@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 55da8731855c8afda496edff33f3fbb7982cd44b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "65784550"
 ---
 # <a name="how-to-use-self-service-application-access"></a>셀프 서비스 애플리케이션 액세스를 사용하는 방법
@@ -49,7 +49,7 @@ ms.locfileid: "65784550"
 
 애플리케이션에 대한 셀프 서비스 애플리케이션 액세스를 사용하려면 다음 단계를 수행합니다.
 
-1. Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
+1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자 권한으로 로그인 합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "65784550"
 
 5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
-   * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록** 맨 위에 있는 **필터** 컨트롤을 사용하고 **표시** 옵션을 모든 응용 **프로그램으로 설정합니다.**
+   * 여기에 표시 하려는 응용 프로그램이 표시 되지 않으면 **모든 응용 프로그램 목록** 의 맨 위에 있는 **필터** 컨트롤을 사용 하 고 **표시** 옵션을 **모든 응용 프로그램** 으로 설정 합니다.
 
 6. 셀프 서비스 액세스를 활성화하려는 애플리케이션을 목록에서 선택합니다.
 

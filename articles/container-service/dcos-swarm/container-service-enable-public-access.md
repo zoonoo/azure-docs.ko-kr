@@ -10,10 +10,10 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61457384"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(사용되지 않음) Azure Container Service 애플리케이션에 공용 액세스를 사용하도록 설정
@@ -35,9 +35,9 @@ ACS [공용 에이전트 풀](container-service-mesos-marathon-ui.md#deploy-a-do
     ![Azure Container Service 부하 분산 장치 프로브](./media/container-service-enable-public-access/add-probe.png)
 5. 프로브 양식을 입력하고 **확인**을 클릭합니다.
    
-   | 필드 | 설명 |
+   | 필드 | Description |
    | --- | --- |
-   | 이름 |프로브에 대한 설명이 포함된 이름입니다. |
+   | 속성 |프로브에 대한 설명이 포함된 이름입니다. |
    | 포트 |테스트할 컨테이너의 포트입니다. |
    | 경로 |(HTTP 모드에 있는 경우) 프로브에 대한 상대 웹 사이트 경로입니다. HTTPS는 지원되지 않습니다. |
    | 간격 |프로브 시도 간격(초)입니다. |
@@ -47,9 +47,9 @@ ACS [공용 에이전트 풀](container-service-mesos-marathon-ui.md#deploy-a-do
     ![Azure Container Service 부하 분산 장치 규칙](./media/container-service-enable-public-access/add-balancer-rule.png)
 7. 부하 분산 장치 양식을 입력하고 **확인**을 클릭합니다.
    
-   | 필드 | 설명 |
+   | 필드 | Description |
    | --- | --- |
-   | 이름 |부하 분산 장치에 대한 설명이 포함된 이름입니다. |
+   | 속성 |부하 분산 장치에 대한 설명이 포함된 이름입니다. |
    | 포트 |공용 수신 포트입니다. |
    | 백 엔드 포트 |트래픽을 라우팅할 컨테이너의 내부 공용 포트입니다. |
    | 백 엔드 풀 |이 풀에 있는 컨테이너가 이 부하 분산 장치의 대상이 됩니다. |
@@ -70,9 +70,9 @@ ACS [공용 에이전트 풀](container-service-mesos-marathon-ui.md#deploy-a-do
     ![Azure Container Service 네트워크 보안 그룹 규칙](./media/container-service-enable-public-access/add-firewall-rule.png)
 5. 공용 포트를 허용하도록 방화벽 규칙을 채우고 **확인**을 클릭합니다.
    
-   | 필드 | 설명 |
+   | 필드 | Description |
    | --- | --- |
-   | 이름 |방화벽 규칙에 대한 설명이 포함된 이름입니다. |
+   | 속성 |방화벽 규칙에 대한 설명이 포함된 이름입니다. |
    | 우선 순위 |규칙에 대한 우선순위입니다. 번호가 낮을수록 우선순위가 높습니다. |
    | 원본 |이 규칙에 의해 허용 또는 거부될 IP 주소 범위를 제한합니다. 제한을 지정하지 않으려면 **모두** 를 사용합니다. |
    | 서비스 |이 보안 규칙을 위한 미리 정의된 서비스 집합을 선택합니다. 그렇지 않으면 **사용자 지정** 을 사용하여 직접 작성합니다. |

@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: b8fad566b54ab645660011ad3188394b6f8190b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68728067"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>보안 프레임: 예외 관리 | 해결 방법 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
-| **WCF** | <ul><li>[WCF- 구성 파일에 serviceDebug 노드를 포함하지 않음](#servicedebug)</li><li>[WCF - 구성 파일에 serviceMetadata 노드를 포함하지 않음](#servicemetadata)</li></ul> |
-| **Web API** | <ul><li>[ASP.NET 웹 API에서 적절한 예외 처리가 수행되었는지 확인합니다.](#exception)</li></ul> |
-| **웹 응용 프로그램** | <ul><li>[오류 메시지에 보안 세부 정보를 노출하지 마십시오.](#messages)</li><li>[기본 오류 처리 페이지 구현](#default)</li><li>[IIS에서 소매에 배포 방법 설정](#deployment)</li><li>[안전한 예외 실패](#fail)</li></ul> |
+| **WCF** | <ul><li>[WCF-구성 파일에 serviceDebug 노드를 포함 하지 않습니다.](#servicedebug)</li><li>[WCF - 구성 파일에 serviceMetadata 노드를 포함하지 않음](#servicemetadata)</li></ul> |
+| **Web API** | <ul><li>[ASP.NET Web API에서 적절 한 예외 처리가 수행 되었는지 확인](#exception)</li></ul> |
+| **웹 응용 프로그램** | <ul><li>[오류 메시지에 보안 정보를 노출 하지 않음](#messages)</li><li>[기본 오류 처리 페이지 구현](#default)</li><li>[IIS에서 배포 방법을 일반 정품으로 설정](#deployment)</li><li>[안전한 예외 실패](#fail)</li></ul> |
 
 ## <a name="wcf--do-not-include-servicedebug-node-in-configuration-file"></a><a id="servicedebug"></a>WCF - 구성 파일에 serviceDebug 노드를 포함하지 않음
 
@@ -180,7 +180,7 @@ public HttpResponseMessage PostProduct(Product item)
 }
 ```
 
-ASP.NET 웹 API의 뛰어난 처리 및 모델 유효성 검사에 대한 자세한 내용은 참조 섹션의 링크를 참조하십시오. 
+의 예외 처리 및 모델 유효성 검사에 대 한 자세한 내용은 참조 섹션의 링크를 확인 ASP.NET Web API 
 
 ## <a name="do-not-expose-security-details-in-error-messages"></a><a id="messages"></a>오류 메시지에 보안 정보를 노출하지 않음
 

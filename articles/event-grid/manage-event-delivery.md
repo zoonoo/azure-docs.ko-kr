@@ -1,5 +1,5 @@
 ---
-title: 데드 레터 및 다시 시도 정책 - Azure 이벤트 그리드
+title: 배달 못한 편지 및 재시도 정책-Azure Event Grid
 description: Event Grid에 대한 이벤트 전송 옵션을 사용자 지정하는 방법을 설명합니다. 배달 못한 편지 대상을 설정하고 배달을 다시 시도하기 위한 기간을 지정합니다.
 services: event-grid
 author: spelluru
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.openlocfilehash: caed3c077b4df5da5fd8541b2f7e85ef119604b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72794029"
 ---
 # <a name="dead-letter-and-retry-policies"></a>배달 못한 편지 및 다시 시도 정책
@@ -25,8 +25,8 @@ ms.locfileid: "72794029"
 배달 못한 편지 위치를 설정하려면 엔드포인트로 전달할 수 없는 이벤트를 보유할 스토리지 계정이 필요합니다. 이 예제는 기존 스토리지 계정의 리소스 ID를 가져옵니다. 배달 못한 편지 엔드포인트의 스토리지 계정에 있는 컨테이너를 사용하는 이벤트 구독을 만듭니다.
 
 > [!NOTE]
-> - 이 문서에서 명령을 실행하기 전에 저장소에 저장소 계정과 Blob 컨테이너를 만듭니다.
-> - 이벤트 그리드 서비스는 이 컨테이너에 Blob을 만듭니다. Blob의 이름에는 이벤트 그리드 구독의 이름이 있으며 대문자의 모든 문자가 있습니다. 예를 들어 구독 이름이 My-Blob-Subscription인 경우 죽은 편지 BloB-구독(myblobcontainer/MY-BLOB-Subscription/2019/8/8/8/11111111-11111-111111111111)이 있습니다. 이 동작은 Azure 서비스 간의 서비스 간 처리의 차이로부터 보호하기 위한 것입니다.
+> - 이 문서에서 명령을 실행 하기 전에 저장소에서 저장소 계정 및 blob 컨테이너를 만듭니다.
+> - Event Grid 서비스는이 컨테이너에 blob을 만듭니다. Blob 이름에는 모든 문자를 대문자로 포함 하는 Event Grid 구독의 이름이 포함 됩니다. 예를 들어 구독의 이름이 My Blob Subscription 인 경우 배달 못 한 편지 blob의 이름에는 MY BLOB-SUBSCRIPTION (myblobcontainer/111111111/2019/8/8/5/ -111111111111)이 포함 됩니다. 이 동작은 Azure 서비스 간 처리의 차이점을 방지 하는 것입니다.
 
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -133,5 +133,5 @@ New-AzEventGridSubscription `
 
 * 배달 못한 편지 이벤트를 처리하기 위해 Azure 함수 앱을 사용하는 샘플 애플리케이션은 [.NET용 Azure Event Grid 배달 못한 편지 샘플](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/)을 참조하세요.
 * 이벤트 배달 및 다시 시도에 대한 자세한 내용은 [Event Grid 메시지 배달 및 다시 시도](delivery-and-retry.md)를 참조하세요.
-* 이벤트 그리드에 대한 소개는 [이벤트 그리드 소개를](overview.md)참조하십시오.
+* Event Grid에 대 한 소개는 [Event Grid 정보](overview.md)를 참조 하세요.
 * Event Grid를 빠르게 시작하려면 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.

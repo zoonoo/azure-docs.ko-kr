@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/22/2017
 ms.author: robinsh
 ms.openlocfilehash: a6bd8a766f3205358a65ef2fd0816643e4261cab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68414355"
 ---
 # <a name="use-ip-filters"></a>IP 필터 사용
@@ -40,27 +40,27 @@ IoT Hub의 거부 IP 규칙에 일치하는 IP 주소에서 오는 모든 연결
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>IP 필터 규칙 추가 또는 편집
 
-IP 필터 규칙을 추가하려면 **+ IP 필터 규칙 추가를**선택합니다.
+IP 필터 규칙을 추가 하려면 **+ Ip 필터 규칙 추가**를 선택 합니다.
 
 ![IP 필터 규칙을 IoT Hub에 추가](./media/iot-hub-ip-filtering/ip-filter-add-rule.png)
 
-IP **필터 규칙 추가를**선택한 후 필드를 채웁니다.
+**IP 필터 규칙 추가**를 선택한 후 필드를 입력 합니다.
 
-![IP 필터 추가 규칙 을 선택한 후](./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png)
+![IP 필터 규칙 추가를 선택한 후](./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png)
 
-* IP 필터 규칙의 **이름을** 제공합니다. 이 문자열은 최대 128자까지의 고유한 대/소문자를 구분하지 않은 영숫자 문자열이어야 합니다. ASCII 7 비트 영숫자 및 `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`만 허용됩니다.
+* IP 필터 규칙의 **이름을** 제공 합니다. 이는 대/소문자를 구분 하지 않는 고유한 영숫자 문자열 (최대 128 자) 이어야 합니다. ASCII 7 비트 영숫자 및 `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`만 허용됩니다.
 
 * 단일 IPv4 주소 또는 CIDR 표기법으로 IP 주소 블록을 제공합니다. 예를 들어 CIDR 표기법 192.168.100.0/22는 192.168.100.0에서 192.168.103.255까지 IPv4 주소 1024개를 나타냅니다.
 
-* IP 필터 규칙에 대한 **작업으로** **허용** 또는 **차단을** 선택합니다.
+* IP 필터 규칙의 **작업** 으로 **허용** 또는 **차단** 을 선택 합니다.
 
-필드를 채운 후 **저장을** 선택하여 규칙을 저장합니다. 업데이트가 진행 중임을 알리는 경고가 표시됩니다.
+필드를 입력 한 후 **저장** 을 선택 하 여 규칙을 저장 합니다. 업데이트가 진행 되 고 있음을 알리는 경고가 표시 됩니다.
 
 ![IP 필터 규칙 저장에 대한 알림](./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png)
 
 최대 10개의 IP 필터 규칙에 도달하면 **추가** 옵션이 비활성화됩니다.
 
-기존 규칙을 편집하려면 변경하려는 데이터를 선택하고 변경한 다음 **저장을** 선택하여 편집을 저장합니다.
+기존 규칙을 편집 하려면 변경 하려는 데이터를 선택 하 고 변경한 다음 **저장** 을 선택 하 여 편집 내용을 저장 합니다.
 
 > [!NOTE]
 > IP 주소를 거부하면 다른 Azure 서비스(예: Azure Stream Analytics, Azure Virtual Machines 또는 포털의 디바이스 탐색기)가 IoT Hub와 상호 작용하는 것을 막을 수 있습니다.
@@ -70,7 +70,7 @@ IP **필터 규칙 추가를**선택한 후 필드를 채웁니다.
 
 ## <a name="delete-an-ip-filter-rule"></a>IP 필터 규칙 삭제
 
-IP 필터 규칙을 삭제하려면 해당 행의 휴지통 수 아이콘을 선택한 다음 **저장을**선택합니다. 규칙이 제거되고 변경 이 저장됩니다.
+IP 필터 규칙을 삭제 하려면 해당 행에서 휴지통 아이콘을 선택 하 고 **저장**을 선택 합니다. 규칙이 제거 되 고 변경 내용이 저장 됩니다.
 
 ![IoT Hub IP 필터 규칙 삭제](./media/iot-hub-ip-filtering/ip-filter-delete-rule.png)
 
@@ -126,7 +126,7 @@ az resource update -n <iothubName> -g <resourceGroupName> --resource-type Micros
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-IoT Hub의 IP 필터는 [Azure PowerShell](/powershell/azure/overview)을 통해 검색및 설정할 수 있습니다.
+[Azure PowerShell](/powershell/azure/overview)를 통해 IOT HUB의 IP 필터를 검색 하 고 설정할 수 있습니다.
 
 ```powershell
 # Get your IoT Hub resource using its name and its resource group name

@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65784435"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션을 추가하는 문제
@@ -40,7 +40,7 @@ ms.locfileid: "65784435"
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>추가한 후 내 애플리케이션을 설정하는 방법을 모름
 
-응용 프로그램에 대한 학습에 도움이 필요한 경우 [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록을](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) 시작하는 것이 좋습니다.
+응용 프로그램에 대해 학습 하는 데 도움이 필요한 경우 [Azure Active Directory 문서와 SaaS 앱을 통합 하는 방법에 대 한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) 에서 시작 하는 것이 좋습니다.
 
 또한 [Azure AD 애플리케이션 문서 라이브러리](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index)를 통해 Azure AD로 Single Sign-On 및 작동 방법에 대해 자세히 알아볼 수 있습니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "65784435"
 
 다음 단계를 수행하여 포털 알림의 세부 정보를 확인할 수 있습니다.
 
-1.  Azure 포털의 오른쪽 상단에 있는 **알림** 아이콘(종)을 선택합니다.
+1.  Azure Portal의 오른쪽 위에 있는 **알림** 아이콘 (벨)을 선택 합니다.
 
 2.  **오류** 상태(옆에 빨간색(!)이 있는)에서 알림을 선택합니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "65784435"
 
 - **제목** - 알림의 설명이 포함된 제목
 
-  * 예 – **응용 프로그램 프록시 설정**
+  * 예제- **응용 프로그램 프록시 설정**
 
 - **설명** – 작업의 결과로 발생한 문제에 대한 설명
 
@@ -93,13 +93,13 @@ ms.locfileid: "65784435"
 
   -   예제 – **2017-03-23T19:50:43.7583681Z**
 
-- **내부 거래 ID** - 시스템의 오류를 조회하는 데 사용할 수 있는 내부 ID
+- **내부 트랜잭션 id** – 시스템에서 오류를 조회 하는 데 사용할 수 있는 내부 id입니다.
 
   -   예제 – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
 - **UPN** – 작업을 수행한 사용자
 
-  -   예 – **f128.info\@**
+  -   예 – **tperkins\@f128.info**
 
 - **테넌트 ID** – 작업을 수행한 사용자가 구성원인 테넌트의 고유 ID
 
@@ -113,7 +113,7 @@ ms.locfileid: "65784435"
 
 -   **표시 이름** – **(비어 있을 수 있음)** 오류에 대한 보다 자세한 표시 이름
 
-    -   예 – **응용 프로그램 프록시 설정**
+    -   예제- **응용 프로그램 프록시 설정**
 
 -   **상태** - 알림의 특정 상태
 
@@ -125,7 +125,7 @@ ms.locfileid: "65784435"
 
 -   **세부 정보** – 작업의 결과로 발생한 문제에 대한 자세한 설명
 
-    -   예 - **내부 URL이 `https://bing.com/` 이미 사용 중이므로 유효하지 않습니다.**
+    -   예제 – **내부 url `https://bing.com/` 은 이미 사용 중 이므로 유효 하지 않습니다** .
 
 -   **오류 복사** - **오류 복사** 텍스트 상자 오른쪽의 **복사 아이콘**을 클릭하여 지원 또는 제품 그룹과 공유하도록 모든 알림 세부 정보 복사 
 -   엔지니어

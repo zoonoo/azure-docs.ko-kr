@@ -1,6 +1,6 @@
 ---
-title: .NET - Azure 저장소를 통해 저장된 액세스 정책 정의
-description: .NET 클라이언트 라이브러리를 사용하여 저장된 액세스 정책을 정의하는 방법을 알아봅니다.
+title: .NET-Azure Storage를 사용 하 여 저장 된 액세스 정책 정의
+description: .NET 클라이언트 라이브러리를 사용 하 여 저장 된 액세스 정책을 정의 하는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,15 +10,15 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 272d676d0a5a55262b1c68d0bae9a9ab229df72c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68990742"
 ---
-# <a name="define-a-stored-access-policy-with-net"></a>.NET을 통해 저장된 액세스 정책 정의
+# <a name="define-a-stored-access-policy-with-net"></a>.NET을 사용 하 여 저장 된 액세스 정책 정의
 
-저장된 액세스 정책은 서버 측의 서비스 수준 공유 액세스 서명(SAS)에 대한 추가 수준의 제어를 제공합니다. 저장된 액세스 정책을 정의하는 것은 공유 액세스 서명을 그룹화하고 정책에 바인딩된 공유 액세스 서명에 대한 추가 제한을 제공하는 역할을 합니다. 저장된 액세스 정책을 사용하여 시작 시간, 만료 시간 또는 SAS에 대한 사용 권한을 변경하거나 발급된 후 해지할 수 있습니다.
+저장 된 액세스 정책은 서버 쪽의 서비스 수준 SAS (공유 액세스 서명)에 대 한 추가 제어 수준을 제공 합니다. 저장 된 액세스 정책을 정의 하는 것은 공유 액세스 서명을 그룹화 하 고 정책에 의해 바인딩되는 공유 액세스 서명에 대 한 추가 제한 사항을 제공 하는 데 사용 됩니다. 저장 된 액세스 정책을 사용 하 여 SAS의 시작 시간, 만료 시간 또는 사용 권한을 변경 하거나 발급 된 후에 취소할 수 있습니다.
   
  다음 저장소 리소스에서는 저장된 액세스 정책을 지원합니다.  
   
@@ -28,9 +28,9 @@ ms.locfileid: "68990742"
 - 테이블  
   
 > [!NOTE]
-> 컨테이너에 저장된 액세스 정책은 컨테이너 자체 또는 컨테이너에 포함된 Blob에 대한 권한을 부여하는 공유 액세스 서명과 연결할 수 있습니다. 마찬가지로 파일 공유에 저장된 액세스 정책은 공유 자체 또는 포함된 파일에 대한 권한을 부여하는 공유 액세스 서명과 연결될 수 있습니다.  
+> 컨테이너에 대 한 저장 된 액세스 정책은 컨테이너 자체 나 컨테이너에 포함 된 blob에 대 한 권한을 부여 하는 공유 액세스 서명과 연결 될 수 있습니다. 마찬가지로, 파일 공유에 대 한 저장 된 액세스 정책은 공유 액세스에 권한을 부여 하는 공유 액세스 서명 또는 공유 액세스에 포함 된 파일에 연결 될 수 있습니다.  
 >
-> 저장된 액세스 정책은 서비스 SAS에대해서만 지원됩니다. 저장된 액세스 정책은 계정 SAS 또는 사용자 위임 SAS에 대해 지원되지 않습니다.  
+> 저장 된 액세스 정책은 서비스 SAS에만 지원 됩니다. 계정 SAS 또는 사용자 위임 SAS에 대해 저장 된 액세스 정책이 지원 되지 않습니다.  
 
 ## <a name="create-a-stored-access-policy"></a>저장된 액세스 정책 만들기
 
@@ -58,8 +58,8 @@ private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer conta
 }
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-- [공유 액세스 서명(SAS)을 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](storage-sas-overview.md)
+- [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](storage-sas-overview.md)
 - [저장된 액세스 정책 정의](/rest/api/storageservices/define-stored-access-policy)
 

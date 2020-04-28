@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38a9ef04389318d3588649117c930ff6efa3fe4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "65784486"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>비갤러리 애플리케이션을 추가할 때 발생하는 문제
@@ -28,7 +28,7 @@ ms.locfileid: "65784486"
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>"추가" 단추를 클릭했고 애플리케이션이 나타나는 데 시간이 오래 걸렸음
 
-경우에 따라 디렉터리에 추가한 후 애플리케이션이 나타나는 데 1-2분 정도(경우에 따라 더 길게) 걸릴 수 있습니다. 정상적인 예상 성능은 아니지만 [Azure 포털의](https://portal.azure.com/) 오른쪽 상단에 있는 **알림** 아이콘(종)을 클릭하고 **응용 프로그램**만들기라는 표시가 있는 **진행 중** 또는 **완료됨** 알림을 검색하여 응용 프로그램 추가가 진행 중인 것을 볼 수 있습니다.
+경우에 따라 디렉터리에 추가한 후 애플리케이션이 나타나는 데 1-2분 정도(경우에 따라 더 길게) 걸릴 수 있습니다. 정상적인 예상 성능은 아니지만 [Azure Portal](https://portal.azure.com/) 의 오른쪽 위에 있는 **알림** 아이콘 (벨)을 클릭 하 **여 응용 프로그램**추가 **가 진행 중** 이라는 것을 볼 수 있습니다. **Completed**
 
 애플리케이션이 추가되지 않거나 **추가** 단추를 클릭할 때 오류가 발생하는 경우 **오류** 상태에 **알림**이 표시됩니다. 더 자세히 알아보거나 지원 엔지니어와 공유하기 위해 오류에 대한 자세한 정보를 원하는 경우 [포털 알림의 세부 정보를 확인하는 방법](#how-to-see-the-details-of-a-portal-notification) 섹션의 단계를 따라 오류에 대한 자세한 정보를 볼 수 있습니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "65784486"
 ### <a name="essential-notification-items"></a>중요 알림 항목
 
 - **제목** - 알림의 설명이 포함된 제목
-  *  예 – **응용 프로그램 프록시 설정**
+  *  예제- **응용 프로그램 프록시 설정**
 
 - **설명** – 작업의 결과로 발생한 문제에 대한 설명
 
@@ -96,7 +96,7 @@ ms.locfileid: "65784486"
 
 - **UPN** – 작업을 수행한 사용자
 
-  *  예 – **f128.info\@**
+  *  예 – **tperkins\@f128.info**
 
 - **테넌트 ID** – 작업을 수행한 사용자가 구성원인 테넌트의 고유 ID
 
@@ -110,7 +110,7 @@ ms.locfileid: "65784486"
 
 - **표시 이름** – **(비어 있을 수 있음)** 오류에 대한 보다 자세한 표시 이름
 
-  *  예 – **응용 프로그램 프록시 설정**
+  *  예제- **응용 프로그램 프록시 설정**
 
 - **상태** - 알림의 특정 상태
 
@@ -122,7 +122,7 @@ ms.locfileid: "65784486"
 
 - **세부 정보** – 작업의 결과로 발생한 문제에 대한 자세한 설명
 
-  *  예 - **내부 URL이 `https://bing.com/` 이미 사용 중이므로 유효하지 않습니다.**
+  *  예제 – **내부 url `https://bing.com/` 은 이미 사용 중 이므로 유효 하지 않습니다** .
 
 - **오류 복사** - **오류 복사** 텍스트 상자 오른쪽의 **복사 아이콘**을 클릭하여 지원 또는 제품 그룹과 공유하도록 모든 알림 세부 정보 복사 
 - 엔지니어

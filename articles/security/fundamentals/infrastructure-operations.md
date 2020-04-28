@@ -1,6 +1,6 @@
 ---
-title: Azure 프로덕션 네트워크 관리 - Microsoft Azure
-description: 이 문서에서는 Microsoft가 Azure 데이터 센터를 보호하기 위해 Azure 프로덕션 네트워크를 관리하고 운영하는 방법을 설명합니다.
+title: Azure 프로덕션 네트워크 관리-Microsoft Azure
+description: 이 문서에서는 Microsoft가 azure 데이터 센터를 보호 하기 위해 Azure 프로덕션 네트워크를 관리 하 고 운영 하는 방법을 설명 합니다.
 services: security
 documentationcenter: n
 author: TerryLanfear
@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 05/30/2019
 ms.author: terrylan
 ms.openlocfilehash: d41fe409b4a44a4c2af3670d76dd3a83a300feae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68727122"
 ---
-# <a name="management-and-operation-of-the-azure-production-network"></a>Azure 프로덕션 네트워크 관리 및 운영    
-이 문서에서는 Microsoft가 Azure 데이터 센터를 보호하기 위해 Azure 프로덕션 네트워크를 관리하고 운영하는 방법을 설명합니다.
+# <a name="management-and-operation-of-the-azure-production-network"></a>Azure 프로덕션 네트워크의 관리 및 운영    
+이 문서에서는 Microsoft가 azure 데이터 센터를 보호 하기 위해 Azure 프로덕션 네트워크를 관리 하 고 운영 하는 방법을 설명 합니다.
 
-## <a name="monitor-log-and-report"></a>모니터링, 로그 및 보고서
+## <a name="monitor-log-and-report"></a>모니터, 로그 및 보고서
 
 Azure 프로덕션 네트워크의 관리 및 운영은 Azure 및 Azure SQL Database의 운영 팀 간에 조정된 노력입니다. 이러한 팀은 환경 내에서 여러 시스템 및 애플리케이션 성능 모니터링 도구를 사용합니다. 또한 적절한 도구를 사용하여 네트워크 디바이스, 서버, 서비스 및 애플리케이션 프로세스를 모니터링합니다.
 
@@ -58,7 +58,7 @@ Azure 인프라를 보호하기 위해 Microsoft에서 수행하는 작업에 �
 - [Azure 정보 시스템 구성 요소 및 경계](infrastructure-components.md)
 - [Azure 네트워크 아키텍처](infrastructure-network.md)
 - [Azure 프로덕션 네트워크](production-network.md)
-- [Azure SQL 데이터베이스 보안 기능](infrastructure-sql.md)
+- [Azure SQL Database 보안 기능](infrastructure-sql.md)
 - [심층 인프라 모니터링](infrastructure-monitoring.md)
 - [Azure 인프라 무결성](infrastructure-integrity.md)
 - [Azure 고객 데이터 보호](protection-customer-data.md)

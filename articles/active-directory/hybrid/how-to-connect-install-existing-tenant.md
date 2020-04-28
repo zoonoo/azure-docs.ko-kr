@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3636b88b14cf7e76e4fb023434316e7ee31ded04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71336816"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: 기존 테넌트가 있는 경우
@@ -60,12 +60,12 @@ Connect를 새로 설치하는 경우 소프트 일치와 하드 일치 사이�
 메일이 설정된 그룹 및 연락처의 경우 proxyAddresses에 따라 소프트 매치를 수행할 수 있습니다. 하드 매치는 사용자 전용의 sourceAnchor/immutableID(PowerShell 사용)만을 업데이트할 수 있으므로 적용되지 않습니다. 메일이 사용되지 않는 그룹의 경우 현재 소프트 매치 또는 하드 매치가 지원되지 않습니다.
 
 ### <a name="admin-role-considerations"></a>관리자 역할 고려 사항
-신뢰할 수 없는 온-프레미스 사용자가 관리자 역할이 있는 클라우드 사용자와 일치하지 않도록 하기 위해 Azure AD Connect는 온-프레미스 사용자 개체와 관리자 역할이 있는 개체와 일치하지 않습니다. 이 기능은 기본적으로 설정됩니다. 이 동작을 해결하려면 다음을 수행할 수 있습니다.
+신뢰할 수 없는 온-프레미스 사용자가 관리자 역할이 있는 클라우드 사용자와 일치 하지 않도록 하기 위해 Azure AD Connect는 관리 역할이 있는 개체와 온-프레미스 사용자 개체를 일치 시 키 지 않습니다. 이 기능은 기본적으로 설정됩니다. 이 동작을 해결 하려면 다음을 수행할 수 있습니다.
 
-1.  클라우드 전용 사용자 개체에서 디렉터리 역할을 제거합니다.
-2.  사용자 동기화 시도가 실패한 경우 클라우드에서 격리된 개체를 하드 삭제합니다.
+1.  클라우드 전용 사용자 개체에서 디렉터리 역할을 제거 합니다.
+2.  실패 한 사용자 동기화 시도가 있는 경우 클라우드에서 격리 된 개체를 하드 삭제 합니다.
 3.  동기화를 트리거합니다.
-4.  선택적으로 일치가 발생하면 클라우드의 사용자 개체에 디렉터리 역할을 다시 추가합니다.
+4.  필요에 따라 일치가 발생 한 후 디렉터리 역할을 클라우드의 사용자 개체에 다시 추가 합니다.
 
 
 

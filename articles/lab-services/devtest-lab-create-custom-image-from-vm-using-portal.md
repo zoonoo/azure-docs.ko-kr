@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 07f3b60b9218f74bb3a778daa27f31687c4538b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60868502"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>VM에서 사용자 지정 이미지 만들기
@@ -29,9 +29,9 @@ ms.locfileid: "60868502"
 
 프로비저닝된 VM에서 사용자 지정 이미지를 만든 다음, 사용자 지정 이미지를 사용하여 동일한 VM을 만들 수 있습니다. 다음 단계에서는 VM에서 사용자 지정 이미지를 만드는 방법을 보여 줍니다.
 
-1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **모든 서비스를**선택한 다음 목록에서 **DevTest 랩을 선택합니다.**
+1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs** 를 선택 합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.  
 

@@ -15,23 +15,23 @@ ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
 ms.openlocfilehash: 2fd2efa9de3deff1fcf983ac0fa45e412357d312
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71057280"
 ---
 # <a name="troubleshoot-rdp-issues"></a>RDP 문제 해결
 
 이 섹션에서는 VM 연결을 위한 RDP를 만들 때 발생하는 다음과 같은 문제를 다룹니다.
 
-- [RDP 재설정](reset-rdp.md)
+- [RDP 다시 설정](reset-rdp.md)
 - [RDP 문제 해결](troubleshoot-rdp-connection.md)
 - [자세한 RDP 문제 해결](detailed-troubleshoot-rdp.md)
 - [DHCP를 사용 안 함으로 인한 RDP 오류 문제 해결](troubleshoot-rdp-dhcp-disabled.md)
 - [NSG 설정으로 인한 RDP 오류 문제 해결](troubleshoot-rdp-nsg-problem.md)
-- [특정 오류 문제 해결](troubleshoot-specific-rdp-errors.md)
-- [라이선스 없는 서버 오류 해결](troubleshoot-rdp-no-license-server.md)
+- [특정 오류 해결](troubleshoot-specific-rdp-errors.md)
+- [라이선스 없이 서버의 오류 해결](troubleshoot-rdp-no-license-server.md)
 - [원격 데스크톱 서비스 문제 해결](troubleshoot-remote-desktop-services-issues.md)
 - [내부 오류 문제 해결](Troubleshoot-rdp-internal-error.md)
 - [연결이 자주 끊기는 문제 해결](troubleshoot-rdp-intermittent-connectivity.md)
@@ -43,7 +43,7 @@ ms.locfileid: "71057280"
 - [안전 모드에서 발생하는 RDP 오류 문제 해결](troubleshoot-rdp-safe-mode.md)
 - [Azure VM에서 게스트 OS 방화벽 사용 안 함](disable-guest-os-firewall-windows.md)
 - [게스트 OS의 방화벽 규칙 사용 또는 사용 안 함](enable-disable-firewall-rule-guest-os.md)
-- [게스트 OS 방화벽이 인바운드 트래픽 차단](guest-os-firewall-blocking-inbound-traffic.md)
-- [게스트 OS 방화벽이 잘못 구성됨](guest-os-firewall-misconfigured.md) 
+- [게스트 OS 방화벽이 인바운드 트래픽을 차단하고 있습니다.](guest-os-firewall-blocking-inbound-traffic.md)
+- [게스트 OS 방화벽이 잘못 구성되었습니다.](guest-os-firewall-misconfigured.md) 
 - [netvsc.sys에서 발생하는 RDP 오류 문제 해결](troubleshoot-rdp-driver-netvsc.md)
 

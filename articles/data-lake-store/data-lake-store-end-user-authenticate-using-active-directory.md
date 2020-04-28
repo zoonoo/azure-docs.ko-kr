@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 4c2b774c304e46f9fc68f3beaf64218e614ecad1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "66234066"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
@@ -48,9 +48,9 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 * Azure 테넌트 ID입니다. 테넌트 ID를 검색하는 방법에 대한 지침은 [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)를 참조하세요.
 
 ## <a name="end-user-authentication"></a>최종 사용자 인증
-이 인증 메커니즘은 최종 사용자가 Azure AD를 통해 응용 프로그램에 로그인하도록 하려는 경우에 권장되는 방법입니다. 애플리케이션은 로그인한 최종 사용자와 동일한 수준의 액세스로 Azure 리소스에 액세스할 수 있게 됩니다. 최종 사용자는 애플리케이션이 액세스를 유지할 수 있도록 주기적으로 자격 증명을 제공해야 합니다.
+이 인증 메커니즘은 최종 사용자가 Azure AD를 통해 응용 프로그램에 로그인 하려는 경우 권장 되는 방법입니다. 애플리케이션은 로그인한 최종 사용자와 동일한 수준의 액세스로 Azure 리소스에 액세스할 수 있게 됩니다. 최종 사용자는 애플리케이션이 액세스를 유지할 수 있도록 주기적으로 자격 증명을 제공해야 합니다.
 
-최종 사용자 로그인의 결과는 응용 프로그램에 액세스 토큰과 새로 고침 토큰이 부여됩니다. 액세스 토큰은 Data Lake Storage Gen1 또는 Data Lake Analytics에 대한 각 요청에 연결되며, 기본적으로 1시간 동안 유효합니다. 새로 고침 토큰은 새 액세스 토큰을 가져오는 데 사용할 수 있고 기본적으로 최대 2주 동안 유효합니다. 최종 사용자 로그인에 대해 두 가지 방법을 사용할 수 있습니다.
+최종 사용자 로그인을 사용 하는 경우 응용 프로그램에 액세스 토큰 및 새로 고침 토큰이 제공 됩니다. 액세스 토큰은 Data Lake Storage Gen1 또는 Data Lake Analytics에 대한 각 요청에 연결되며, 기본적으로 1시간 동안 유효합니다. 새로 고침 토큰은 새 액세스 토큰을 가져오는 데 사용할 수 있고 기본적으로 최대 2주 동안 유효합니다. 최종 사용자 로그인에 두 가지 방법을 사용할 수 있습니다.
 
 ### <a name="using-the-oauth-20-pop-up"></a>OAuth 2.0 팝업 사용
 애플리케이션은 최종 사용자가 자격 증명을 입력할 수 있는 OAuth 2.0 권한 부여 팝업을 트리거할 수 있습니다. 이 팝업은 필요한 경우 Azure AD 2단계 인증(2FA) 프로세스와도 작동합니다. 
@@ -116,7 +116,7 @@ Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용�
 5. 마지막 두 단계를 반복하여 **Microsoft Azure Service Management API**에 대한 권한도 부여합니다.
    
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure AD 네이티브 응용 프로그램을 만들고 .NET SDK, Java SDK, REST API 등을 사용하여 작성한 클라이언트 응용 프로그램에서 필요한 정보를 수집했습니다. 이제 Azure AD 웹 응용 프로그램을 사용하여 Data Lake Storage Gen1을 먼저 인증한 다음 저장소에서 다른 작업을 수행하는 방법에 대해 설명한 다음 문서로 진행할 수 있습니다.
+이 문서에서는 Azure AD 네이티브 응용 프로그램을 만들고 .NET SDK, Java SDK, REST API 등을 사용 하 여 만든 클라이언트 응용 프로그램에 필요한 정보를 수집 했습니다. 이제 Azure AD 웹 응용 프로그램을 사용 하 여 Data Lake Storage Gen1를 먼저 인증 한 다음 스토어에서 다른 작업을 수행 하는 방법에 대해 설명 하는 다음 문서를 진행할 수 있습니다.
 
 * [Java SDK를 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-java-sdk.md)
 * [.NET SDK를 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)

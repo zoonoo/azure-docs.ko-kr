@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: e55964beff48df6ce24d99c01975d39b662f1612
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60576094"
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>StorSimple 디바이스에서 디바이스 모드 변경
@@ -48,14 +48,14 @@ StorSimple 디바이스는 표준, 유지 관리 또는 복구 모드로 작동�
 StorSimple용 Windows PowerShell을 통해서만 시스템을 유지 관리 모드로 전환할 수 있습니다. 모든 I/O 요청은 이 모드에서 일시 중지됩니다. 비휘발성 임의 액세스 메모리 (NVRAM) 등의 서비스 또는 클러스터링 서비스도 중지됩니다. 이 모드로 들어가거나 종료하면 두 컨트롤러가 모두 다시 시작됩니다. 유지 관리 모드를 종료하면 모든 서비스가 다시 시작되고 정상 상태여야 합니다. 몇 분이 걸릴 수 있습니다.
 
 > [!NOTE]
-> **유지 관리 모드는 제대로 작동하는 장치에서만 지원됩니다. 하나 또는 둘 다 가 작동하지 않는 장치에서는 지원되지 않습니다.**
+> **유지 관리 모드는 제대로 작동 하는 장치 에서만 지원 됩니다. 하나 또는 둘 다 컨트롤러가 작동 하지 않는 장치에서는 지원 되지 않습니다.**
 
 
 ### <a name="recovery-mode"></a>복구 모드
 
 복구 모드는 "네트워크를 지원하는 Windows 안전 모드"로 설명될 수 있습니다. 복구 모드는 Microsoft 기술 지원 서비스 팀을 통해 시스템에서 진단을 수행할 수 있습니다. 복구 모드의 기본 목표는 시스템 로그를 검색하는 것입니다.
 
-시스템이 복구 모드로 전환되는 경우 Microsoft 지원에 다음 단계를 문의해야 합니다. 자세한 내용은 Microsoft [지원 팀에 문의하십시오.](storsimple-8000-contact-microsoft-support.md)
+시스템이 복구 모드로 전환되는 경우 Microsoft 지원에 다음 단계를 문의해야 합니다. 자세한 내용은 [Contact Microsoft 지원](storsimple-8000-contact-microsoft-support.md)로 이동 하세요.
 
 > [!NOTE]
 > **디바이스를 복구 모드로 유지할 수 없습니다. 디바이스가 잘못된 상태에 있으면 복구 모드는 Microsoft 고객 지원 담당자가 검사할 수 있는 상태로 디바이스를 전환하려고 합니다.**
@@ -72,7 +72,7 @@ StorSimple용 Windows PowerShell을 통해서만 시스템을 유지 관리 모�
 StorSimple 디바이스를 유지 관리 모드(표준 모드에서)에 배치하여 유지 관리를 수행하거나 유지 관리 모드 업데이트를 설치할 수 있습니다. 유지 관리 모드로 들어가거나 종료하려면 다음 절차를 수행하세요.
 
 > [!IMPORTANT]
-> 유지 관리 모드에 들어가기 전에 Azure Portal에서 디바이스에 대한 **디바이스 설정 &gt; 하드웨어 상태**에 액세스하여 두 디바이스 컨트롤러 모두가 정상 상태인지 확인합니다. 하나 또는 모든 컨트롤러가 정상 상태가 아니면 다음 단계는 Microsoft 지원에 문의하세요. 자세한 내용은 Microsoft [지원 팀에 문의하십시오.](storsimple-8000-contact-microsoft-support.md)
+> 유지 관리 모드에 들어가기 전에 Azure Portal에서 디바이스에 대한 **디바이스 설정 &gt; 하드웨어 상태**에 액세스하여 두 디바이스 컨트롤러 모두가 정상 상태인지 확인합니다. 하나 또는 모든 컨트롤러가 정상 상태가 아니면 다음 단계는 Microsoft 지원에 문의하세요. 자세한 내용은 [Contact Microsoft 지원](storsimple-8000-contact-microsoft-support.md)로 이동 하세요.
  
 
 #### <a name="to-enter-maintenance-mode"></a>유지 관리 모드로 전환하려면

@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 7d8a7e7e88837214042fb8f1c109c0b93bfe771b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71058215"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Linux VM 디바이스 이름 변경 문제 해결
@@ -38,7 +38,7 @@ Linux의 디바이스 경로는 다시 시작에 대해 일관되도록 보장�
 
 SCSI 하위 시스템에서 예약된 Linux에서 검색하는 디바이스가 비동기적으로 발생하므로 문제가 발생합니다. 결과적으로 다시 시작할 때마다 디바이스 경로 이름이 달라질 수 있습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 영구 이름 지정을 사용합니다. 영구적으로 이름을 지정하는 네 가지 방법에는 파일 시스템 레이블별, UUID별, ID별 및 경로별이 있습니다. Azure Linux VM에 대해 파일 시스템 레이블 또는 UUID를 사용하는 것이 좋습니다.
 
@@ -46,7 +46,7 @@ SCSI 하위 시스템에서 예약된 Linux에서 검색하는 디바이스가 �
 
 Azure Linux 에이전트는 VM에 설치될 때 Udev 규칙을 사용하여 /dev/disk/azure 경로 아래에 기호 링크의 집합을 만듭니다. 애플리케이션 및 스크립트는 Udev 규칙을 사용하여 VM에 연결된 디스크와 디스크 유형 및 디스크 LUN을 식별합니다.
 
-VM이 부팅되지 않고 VM에 SSH를 사용할 수 없는 방식으로 fstab을 이미 편집한 경우 [VM 직렬 콘솔을](./serial-console-linux.md) 사용하여 [단일 사용자 모드를](./serial-console-grub-single-user-mode.md) 입력하고 fstab을 수정할 수 있습니다.
+VM이 부팅 되지 않고 VM으로 SSH 할 수 없는 방식으로 fstab를 이미 편집한 경우 [Vm 직렬 콘솔](./serial-console-linux.md) 을 사용 하 여 [단일 사용자 모드로](./serial-console-grub-single-user-mode.md) 전환 하 고 fstab를 수정할 수 있습니다.
 
 ### <a name="identify-disk-luns"></a>디스크 LUN 식별
 
@@ -148,9 +148,9 @@ Azure Linux 에이전트 Udev 규칙은 /dev/disk/azure 경로 아래에 기호 
     # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
     # sudo udevadm trigger --subsystem-match=block
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 - [Ubuntu: UUID 사용](https://help.ubuntu.com/community/UsingUUID)
 - [Red Hat: 영구 이름 지정](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)

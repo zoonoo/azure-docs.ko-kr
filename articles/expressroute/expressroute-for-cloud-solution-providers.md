@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
 ms.openlocfilehash: a3bd48f32dfcee1a666ff842cfcab2384a5459ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67849255"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>클라우드 솔루션 공급자(CSP)용 ExpressRoute
@@ -31,7 +31,7 @@ Microsoft Azure에서는 고객에게 제공할 수 있는 서비스를 점점 �
 Microsoft는 CSP에게 사용자 고유의 서비스 관리 시스템과 프로그래밍 방식의 통합을 허용하여 Azure 고객 구독을 관리하는 API를 제공합니다. 지원되는 관리 기능은 [여기](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx)에서 확인할 수 있습니다.
 
 ## <a name="microsoft-azure-resource-management"></a>Microsoft Azure 리소스 관리
-고객과 맺은 계약에 따라 구독이 관리되는 방법이 결정됩니다. CSP는 리소스의 생성 및 유지 관리를 직접 관리할 수 있으며 고객은 Microsoft Azure 구독에 대한 제어를 유지 관리하고 필요한 Azure 리소스를 만들 수 있습니다. 고객이 Microsoft Azure 구독에서 리소스 만들기를 관리하는 경우 *"연결-연결"* 모델 또는 *"직접-투"* 모델 중 하나를 사용합니다. 이러한 모델은 다음 섹션에 자세히 설명되어 있습니다.  
+고객과 맺은 계약에 따라 구독이 관리되는 방법이 결정됩니다. CSP는 리소스의 생성 및 유지 관리를 직접 관리할 수 있으며 고객은 Microsoft Azure 구독에 대한 제어를 유지 관리하고 필요한 Azure 리소스를 만들 수 있습니다. 고객이 Microsoft Azure 구독에서 리소스 생성을 관리 하는 경우 "*연결*" 모델 또는 "*직접*" 모델 중 하나를 사용 합니다. 이러한 모델은 다음 섹션에 자세히 설명되어 있습니다.  
 
 ### <a name="connect-through-model"></a>Connect-through 모델
 ![대체 텍스트](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -91,7 +91,7 @@ ExpressRoute는 공용, 프라이빗 및 Microsoft 피어링의 세 가지 라�
 허용 또는 필요한 경로만 허용하도록 사용자 지정 경로 필터를 정의할 수 있습니다. 자세한 내용 또는 변경 방법을 보려면 라우팅 필터에 대해 자세히 나와 있는 [PowerShell을 사용하여 ExpressRoute 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-classic.md) 문서를 참조하세요.
 
 > [!NOTE]
-> Microsoft에서 공용 피어링 연결은 고객 또는 CSP가 소유한 공용 IP 주소를 통해야 하며 정의된 모든 규칙을 준수해야 합니다. 자세한 내용은 [ExpressRoute 필수 구성 조건](expressroute-prerequisites.md) 페이지를 참조하십시오.  
+> Microsoft에서 공용 피어링 연결은 고객 또는 CSP가 소유한 공용 IP 주소를 통해야 하며 정의된 모든 규칙을 준수해야 합니다. 자세한 내용은 [express 경로 필수 구성 요소](expressroute-prerequisites.md) 페이지를 참조 하세요.  
 > 
 > 
 

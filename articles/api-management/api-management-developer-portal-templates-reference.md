@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73176797"
 ---
 # <a name="developer-portal-templates"></a>개발자 포털 템플릿
@@ -32,21 +32,21 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 
 ##  <a name="developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a> 개발자 포털 템플릿  
   
--   [Api](api-management-api-templates.md)  
+-   [API](api-management-api-templates.md)  
     -   [API 목록](api-management-api-templates.md#APIList)  
-    -   [작업](api-management-api-templates.md#Product)  
+    -   [연산](api-management-api-templates.md#Product)  
     -   [코드 샘플](api-management-api-templates.md#CodeSamples)  
         -   [Curl](api-management-api-templates.md#Curl)  
-        -   [C #](api-management-api-templates.md#CSharp)  
+        -   [C#](api-management-api-templates.md#CSharp)  
         -   [Java](api-management-api-templates.md#Stub)  
-        -   [자바 스크립트](api-management-api-templates.md#JavaScript)  
+        -   [JavaScript](api-management-api-templates.md#JavaScript)  
         -   [목표 C](api-management-api-templates.md#ObjectiveC)  
-        -   [Php](api-management-api-templates.md#PHP)  
+        -   [PHP](api-management-api-templates.md#PHP)  
         -   [Python](api-management-api-templates.md#Python)  
-        -   [루비](api-management-api-templates.md#Ruby)  
--   [Products](api-management-product-templates.md)  
+        -   [Ruby](api-management-api-templates.md#Ruby)  
+-   [제품](api-management-product-templates.md)  
     -   [제품 목록](api-management-product-templates.md#ProductList)  
-    -   [Product](api-management-product-templates.md#Product)  
+    -   [제품은](api-management-product-templates.md#Product)  
 -   [애플리케이션](api-management-application-templates.md)  
     -   [애플리케이션 목록](api-management-application-templates.md#ProductList)  
     -   [애플리케이션](api-management-application-templates.md#Application)  
@@ -57,10 +57,10 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
     -   [구독](api-management-user-profile-templates.md#Subscriptions)  
     -   [애플리케이션](api-management-user-profile-templates.md#Applications)  
     -   [계정 정보 업데이트](api-management-user-profile-templates.md#UpdateAccountInfo)  
--   [페이지](api-management-page-templates.md)  
+-   [마주보](api-management-page-templates.md)  
     -   [로그인](api-management-page-templates.md#SignIn)  
-    -   [등록하세요](api-management-page-templates.md#SignUp)  
-    -   [페이지를 찾을 수 없습니다.](api-management-page-templates.md#PageNotFound)
+    -   [등록](api-management-page-templates.md#SignUp)  
+    -   [페이지를 찾을 수 없음](api-management-page-templates.md#PageNotFound)
 
 ## <a name="next-steps"></a>다음 단계  
 

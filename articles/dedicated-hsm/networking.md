@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 044930c9df7b54515b9b66426a6b05aa9517a3a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70881277"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure Dedicated HSM 네트워킹
@@ -60,7 +60,7 @@ Azure 서비스를 가상 네트워크에 통합하는 방법 및 제공되는 �
 
 ### <a name="site-to-site-vpn"></a>사이트 간 VPN
 
-사이트 간 가상 사설망을 사용하면 Azure 기반 전용 HSM 및 온-프레미스 IT 간 보안 통신이 가능합니다. 이 작업을 수행하는 이유는 HSM의 온-프레미스에 대한 백업 기능을 가지고 있고 백업을 실행하기 위해 둘 사이의 연결이 필요하기 때문입니다.
+사이트 간 가상 사설망을 사용하면 Azure 기반 전용 HSM 및 온-프레미스 IT 간 보안 통신이 가능합니다. 이 작업을 수행 하는 이유는 HSM의 온-프레미스에 대 한 백업 기능이 있고 백업을 실행 하기 위해 둘 사이에 연결이 필요한 이유입니다.
 
 ## <a name="connecting-virtual-networks"></a>가상 네트워크 연결
 
@@ -91,5 +91,5 @@ HSM 디바이스에는 소프트웨어 라이브러리를 통해 대체 HSM에 �
 - [지원 가능성](supportability.md)
 - [고가용성](high-availability.md)
 - [물리적 보안](physical-security.md)
-- <bpt i="1000001" x="1000001" type="formatting">{b&gt;</bpt>모니터링<ept i="1000001">&lt;b}</ept>
+- [Monitoring](monitoring.md)
 - [배포 아키텍처](deployment-architecture.md)
