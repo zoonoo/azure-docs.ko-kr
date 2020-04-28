@@ -9,10 +9,10 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75895228"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hive 문제 해결
@@ -39,7 +39,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
     hive -f alltables.sql
     ```
 
-해결 단계의 코드는 새 클러스터의 데이터 경로가 이전 클러스터의 데이터 경로와 동일하다고 가정합니다. 데이터 경로가 다른 경우 생성된 `alltables.sql` 파일을 수동으로 편집하여 변경 사항을 반영할 수 있습니다.
+해결 단계의 코드는 새 클러스터의 데이터 경로가 이전 클러스터의 데이터 경로와 동일하다고 가정합니다. 데이터 경로가 다르면 생성 `alltables.sql` 된 파일을 수동으로 편집 하 여 변경 내용을 반영할 수 있습니다.
 
 ### <a name="additional-reading"></a>추가 참조 자료
 
@@ -63,7 +63,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
    /var/log/hive/hivemetastore.log
    ```
 
-4. Hive 서버 로그를 보려면 다음 명령을 사용합니다.
+4. Hive 서버 로그를 보려면 다음 명령을 사용 합니다.
 
    ```apache
    /var/log/hive/hiveserver2.log
@@ -157,7 +157,7 @@ Tez DAG 데이터를 수집하는 방법에는 다음 두 가지가 있습니다
   3. 보려는 DAG를 선택합니다.
   4. **데이터 다운로드**를 선택합니다.
 
-### <a name="additional-reading"></a><a name="additional-reading-end"></a>추가 판독값
+### <a name="additional-reading"></a><a name="additional-reading-end"></a>추가 참고 자료
 
 [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -165,8 +165,8 @@ Tez DAG 데이터를 수집하는 방법에는 다음 두 가지가 있습니다
 
 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
-- Azure 커뮤니티 지원을 통해 Azure 전문가의 답변을 얻을 [수 있습니다.](https://azure.microsoft.com/support/community/)
+- Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
 
-- 연결 [@AzureSupport](https://twitter.com/azuresupport) - 고객 경험을 개선하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 올바른 리소스( 답변, 지원 및 전문가)에 연결합니다.
+- 을 사용 [@AzureSupport](https://twitter.com/azuresupport) 하 여 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
 
-- 추가 도움이 필요한 경우 [Azure 포털](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원을** 선택하거나 도움말 + 지원 허브를 **엽니다.** 자세한 내용은 Azure [지원 요청을 만드는 방법을](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)검토합니다. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 기술 지원은 [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 제공됩니다.
+- 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.

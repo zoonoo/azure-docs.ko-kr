@@ -9,30 +9,30 @@ ms.topic: conceptual
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 3c820a7be561aeef9b7e50fd0ac0cf4dee721af8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75775408"
 ---
 # <a name="prerequisites-to-set-up-peering-with-microsoft"></a>Microsoft와의 피어링을 설정하기 위한 필수 조건
 
-새 피어링을 요청하거나 레거시 피어링을 Azure 리소스로 변환하기 전에 아래 필수 구성 조건이 충족되었는지 확인합니다.
+새 피어 링을 요청 하거나 레거시 피어 링을 Azure 리소스로 변환 하기 전에 아래의 필수 구성 요소가 충족 되는지 확인 합니다.
 
-## <a name="azure-related-prerequisites"></a>Azure 관련 전제 조건
-* **마이크로소프트 Azure 계정:** Microsoft Azure 계정이 없는 경우 [Microsoft Azure 계정을](https://azure.microsoft.com/free)만듭니다. 피어링이 Azure 구독 내의 리소스로 모델링되기 때문에 피어링을 설정하려면 유효하고 활성Microsoft Azure 구독이 필요합니다. 다음 사항을 알아야 합니다.
-    * 피어링을 설정하는 데 사용되는 Azure 리소스 유형은 항상 무료 Azure 제품입니다( 즉, Azure 계정을 만들거나 구독을 만들거나 피어링을 설정하기 위해 Azure 리소스 **PeerAsn** 및 **피어링에** 액세스하는 것에 대한 요금이 부과되지 않음). 이는 귀하와 Microsoft 간의 직접 피어링에 대한 피어링 계약과 혼동되지 않으며, 이 약관은 피어링 팀과 명시적으로 논의됩니다. 이와 관련하여 질문이 있는 경우 [Microsoft 피어링에](mailto:peering@microsoft.com) 문의하십시오.
-    * 동일한 Azure 구독을 사용하여 무료 또는 유료일 수 있는 다른 Azure 제품 또는 클라우드 서비스에 액세스할 수 있습니다. 유료 제품에 액세스하면 요금이 부과됩니다.
-    * 새 Azure 계정 및/또는 구독을 만드는 경우 Azure Cloud 서비스를 시도하는 데 사용할 수 있는 평가판 기간 동안 무료 Azure 크레딧을 받을 수 있습니다. 관심이 있는 경우 자세한 내용은 [Microsoft Azure 계정을](https://azure.microsoft.com/free) 방문하십시오.
+## <a name="azure-related-prerequisites"></a>Azure 관련 필수 구성 요소
+* **Microsoft Azure 계정:** Microsoft Azure 계정이 없으면 [Microsoft Azure 계정을](https://azure.microsoft.com/free)만듭니다. 피어 링을 설정 하려면 피어 링이 Azure 구독 내의 리소스로 모델링 되므로 올바른 활성 Microsoft Azure 구독이 필요 합니다. 다음 사항을 알아야 합니다.
+    * 피어 링을 설정 하는 데 사용 되는 Azure 리소스 종류는 항상 무료 Azure 제품입니다. 즉, Azure 계정을 만들거나 구독을 만들거나 Azure 리소스에 액세스 **하 여 피어** **링을 설정** 하는 데에는 요금이 청구 되지 않습니다. 이는 사용자와 Microsoft 간의 직접 피어 링에 대 한 피어 링 계약과 혼동 하지 않는 것입니다 .이 용어는 피어 링 팀과 명시적으로 논의 됩니다. 이와 관련 하 여 궁금한 점이 있는 경우 [Microsoft 피어 링](mailto:peering@microsoft.com) 에 문의 하세요.
+    * 동일한 Azure 구독을 사용 하 여 무료 또는 유료 일 수 있는 다른 Azure 제품 또는 클라우드 서비스에 액세스할 수 있습니다. 유료 제품에 액세스할 때 요금이 부과 됩니다.
+    * 새 Azure 계정 및/또는 구독을 만드는 경우 Azure 클라우드 서비스를 사용 하는 데 활용할 수 있는 평가판 기간 동안 Azure 크레딧에 대 한 자격이 있을 수 있습니다. 관심이 있으면 [Microsoft Azure 계정](https://azure.microsoft.com/free) 에서 자세한 정보를 참조 하세요.
 
-* **동료 ASN 을 연결:** 피어링을 요청하기 전에 먼저 ASN 및 연락처 정보를 구독에 연결합니다. [피어 ASN 에서 Azure 구독에](howto-subscription-association-powershell.md)대한 설명의 지침을 따릅니다.
+* **피어 ASN 연결:** 피어 링을 요청 하기 전에 먼저 ASN 및 연락처 정보를 구독에 연결 합니다. [피어 ASN을 Azure 구독에 연결](howto-subscription-association-powershell.md)의 지침을 따릅니다.
 
-## <a name="other-prerequisites"></a>기타 전제 조건
-* **피어링DB 프로필:** [피어링DB.](https://www.peeringdb.com) 당사는 등록 시스템에서 이 정보를 사용하여 NOC 정보, 기술 연락처 정보 및 피어링 시설 등에서피어의 존재와 같은 피어의 세부 정보를 검증합니다.
+## <a name="other-prerequisites"></a>기타 필수 구성 요소
+* **Peeringdb 프로필:** 피어는 [Peeringdb](https://www.peeringdb.com)에 완전 하 고 최신 프로필이 있어야 합니다. 등록 시스템에서이 정보를 사용 하 여 NOC 정보, 기술 연락처 정보 및 피어 링 기능에서의 현재 상태와 같은 피어의 세부 정보에 대 한 유효성을 검사 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [포털을 사용하여 직접 피어링을 만들거나 수정합니다.](howto-direct-portal.md)
+* [포털을 사용 하 여 직접 피어 링을 만들거나 수정](howto-direct-portal.md)합니다.
 * [포털을 사용하여 레거시 직접 피어링을 Azure 리소스로 변환](howto-legacy-direct-portal.md)
-* [포털을 사용하여 Exchange 피어링 만들기 또는 수정](howto-exchange-portal.md)
+* [포털을 사용 하 여 Exchange 피어 링 만들기 또는 수정](howto-exchange-portal.md)
 * [포털을 사용하여 레거시 Exchange 피어링을 Azure 리소스로 변환](howto-legacy-exchange-portal.md)

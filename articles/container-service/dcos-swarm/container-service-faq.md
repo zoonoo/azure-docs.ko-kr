@@ -10,10 +10,10 @@ ms.date: 03/28/2017
 ms.author: mlearned
 ms.custom: H1Hack27Feb201
 ms.openlocfilehash: 317862b694b93de44422ac3c28575c732ffc5be5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75887923"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(사용되지 않음) Container Service 질문과 대답
@@ -24,7 +24,7 @@ ms.locfileid: "75887923"
 
 ### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Azure Container Service에 어떤 컨테이너 오케스트레이터가 지원되나요? 
 
-오픈 소스 DC/OS, Docker Swarm 및 Kubernetes가 지원됩니다. 자세한 내용은 [개요](../kubernetes/container-service-intro-kubernetes.md)를 참조하십시오.
+오픈 소스 DC/OS, Docker Swarm 및 Kubernetes가 지원됩니다. 자세한 내용은 [개요](../kubernetes/container-service-intro-kubernetes.md)를 참조 하세요.
  
 ### <a name="do-you-support-docker-swarm-mode"></a>Docker Swarm 모드가 지원되나요? 
 
@@ -104,7 +104,7 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 4. **요약** 페이지의 **출력** 아래에 여러 개의 클러스터 링크가 제공됩니다. **SSHMaster0**은 컨테이너 서비스 클러스터의 첫 번째 마스트에 SSH 연결 문자열을 제공합니다. 
 
-이전에 언급했듯이 Azure 도구를 사용하여 마스터의 FQDN을 찾을 수도 있습니다. 마스터의 FQDN 및 클러스터를 만들 때 지정한 사용자 이름을 사용하여 마스터에 SSH 연결을 만듭니다. 예를 들어:
+이전에 언급했듯이 Azure 도구를 사용하여 마스터의 FQDN을 찾을 수도 있습니다. 마스터의 FQDN 및 클러스터를 만들 때 지정한 사용자 이름을 사용하여 마스터에 SSH 연결을 만듭니다. 다음은 그 예입니다.
 
 ```bash
 ssh userName@masterFQDN –A –p 22 
@@ -112,9 +112,9 @@ ssh userName@masterFQDN –A –p 22 
 
 자세한 내용은 [Azure Container Service 클러스터에 연결](../../container-service/kubernetes/container-service-connect.md)을 참조하세요.
 
-### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>내 DNS 이름 확인이 Windows에서 작동하지 않습니다. 어떻게 해야 하나요?
+### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>내 DNS 이름 확인이 Windows에서 작동하지 않습니다.   어떻게 해야 합니까?
 
-Windows에서 알려진 DNS 문제가 있는데, 이 문제는 여전히 적극적으로 단계적으로 폐지되고 있습니다. 사용자 환경이 이점을 누릴 수 있도록 가장 업데이트된 ACS 엔진 및 Windows [버전(KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) 및 [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) 설치)을 사용하고 있는지 확인하십시오. 그렇지 않은 경우, 아래 표에서 완화 단계를 참조하세요.
+수정이 아직 진행 중인 Windows에 대 한 몇 가지 알려진 DNS 문제가 있습니다. 환경에서이 기능을 사용할 수 있도록 가장 많이 업데이트 한 acs 엔진 및 Windows 버전 ( [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) 및 [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) 설치 됨)을 사용 하 고 있는지 확인 하세요. 그렇지 않은 경우, 아래 표에서 완화 단계를 참조하세요.
 
 | DNS 증상 | 해결 방법  |
 |-------------|-------------|

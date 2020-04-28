@@ -1,5 +1,5 @@
 ---
-title: 'Azure VPN 게이트웨이: 개요 - 고가용성 게이트웨이 구성'
+title: 'Azure VPN Gateway: 개요-항상 사용 가능한 게이트웨이 구성'
 description: 이 문서에서는 Azure VPN Gateway를 사용하여 항상 사용 가능한 구성 옵션의 개요를 제공합니다.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/24/2016
 ms.author: yushwang
 ms.openlocfilehash: 91fb0896238881130bd02916f8fd579eee9bd16b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75779623"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>항상 사용 가능한 크로스-프레미스 및 VNet 간 연결

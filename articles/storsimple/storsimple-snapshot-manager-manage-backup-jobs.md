@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: 094b996cd3227903995c7a74ef14ed8c0561f59d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75933344"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>StorSimple 스냅샷 관리자를 사용하여 백업 작업 보기 및 관리
@@ -26,7 +26,7 @@ ms.locfileid: "75933344"
 ## <a name="overview"></a>개요
 **범위** 창의 **작업** 노드에는 대화형으로 또는 구성된 정책에 따라 시작한 **예약됨**, **최근 24시간** 및 **실행 중** 백업 태스크가 표시됩니다. 
 
-이 자습서에서는 **작업** 노드를 사용하여 예약된 백업 작업, 최근 백업 작업 및 현재 실행 중인 백업 작업에 대한 정보를 표시하는 방법을 설명합니다. 작업 및 해당 정보 목록이 **결과** 창에 나타납니다. 또한 나열된 작업을 마우스 오른쪽 단추로 클릭하고 사용 가능한 작업을 나열하는 컨텍스트 메뉴를 볼 수 있습니다.
+이 자습서에서는 **작업** 노드를 사용하여 예약된 백업 작업, 최근 백업 작업 및 현재 실행 중인 백업 작업에 대한 정보를 표시하는 방법을 설명합니다. 작업 목록과 해당 정보가 **결과** 창에 표시 됩니다. 또한 나열 된 작업을 마우스 오른쪽 단추로 클릭 하 고 사용 가능한 작업을 나열 하는 상황에 맞는 메뉴를 볼 수 있습니다.
 
 ## <a name="view-scheduled-jobs"></a>예약된 작업 보기
 다음 절차를 사용하여 예약된 백업 작업을 볼 수 있습니다.

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: azfuncdf
 ms.openlocfilehash: 0060088acb100036c094406e01d0d736a4af88eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75769645"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Azure Portal을 사용하는 Durable Functions 만들기
@@ -17,12 +17,12 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 
 > [!NOTE]
 > 
-> * C#에서 지속형 함수를 개발하는 경우 [Visual Studio 2019 개발을](durable-functions-create-first-csharp.md)고려해야 합니다.
+> * C #에서 지 속성 함수를 개발 하는 경우 [Visual Studio 2019 개발](durable-functions-create-first-csharp.md)을 대신 고려해 야 합니다.
 > * JavaScript에서 Durable Functions를 개발하려는 경우에는 대신 [Visual Studio Code 개발](./quickstart-js-vscode.md)을 고려해야 합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
-함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 사용하면 함수를 논리 단위로 그룹화하여 리소스를 보다 쉽게 관리, 배포, 확장 및 공유할 수 있습니다. .NET 또는 JavaScript 앱을 만들 수 있습니다.
+함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 통해 함수를 논리 단위로 그룹화 하 여 리소스를 보다 쉽게 관리, 배포, 크기 조정 및 공유할 수 있습니다. .NET 또는 JavaScript 앱을 만들 수 있습니다.
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
@@ -30,7 +30,7 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 
 ## <a name="install-the-durable-functions-npm-package-javascript-only"></a>durable-functions npm 패키지 설치(JavaScript만 해당)
 
-JavaScript 지속 형 함수를 만드는 경우 [ `durable-functions` npm 패키지를](https://www.npmjs.com/package/durable-functions)설치해야합니다.
+JavaScript Durable Functions를 만드는 경우 [ `durable-functions` npm 패키지](https://www.npmjs.com/package/durable-functions)를 설치 해야 합니다.
 
 1. 함수 앱의 이름과 **플랫폼 기능**을 차례로 선택한 후 **고급 도구(Kudu)** 를 선택합니다.
 
@@ -58,7 +58,7 @@ JavaScript 지속 형 함수를 만드는 경우 [ `durable-functions` npm 패�
 
 ## <a name="create-an-orchestrator-function"></a>오케스트레이터 함수 만들기
 
-1. 함수 앱을 확장하고 함수 **+** 옆에 있는 **단추를 클릭합니다.** 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3번 단계로 이동합니다.
+1. 함수 앱을 확장 하 고 **+** **함수**옆에 있는 단추를 클릭 합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3번 단계로 이동합니다.
 
    ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
 
@@ -68,7 +68,7 @@ JavaScript 지속 형 함수를 만드는 경우 [ `durable-functions` npm 패�
 
 1. 검색 필드에서 `durable`를 입력한 다음, **Durable Functions HTTP 시작** 템플릿을 선택합니다.
 
-1. 메시지가 표시되면 **설치를** 선택하여 Azure 내구형 작업 확장 및 함수 앱의 모든 종속성을 설치합니다. give 함수 앱에 대해 이 확장을 한 번만 설치해야 합니다. 설치가 완료되면 **계속**을 선택합니다.
+1. 메시지가 표시 되 면 **설치** 를 선택 하 여 Azure microsoft.azure.webjobs.extensions.durabletask 확장 및 함수 앱에 모든 종속성을 설치 합니다. give 함수 앱에 대해 이 확장을 한 번만 설치해야 합니다. 설치가 완료되면 **계속**을 선택합니다.
 
     ![바인딩 확장 설치](./media/durable-functions-create-portal/install-durabletask-extension.png)
 
@@ -133,4 +133,4 @@ JavaScript 지속 형 함수를 만드는 경우 [ `durable-functions` npm 패�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [일반적인 지속 가능한 기능 패턴에 대해 알아보기](durable-functions-overview.md#application-patterns)
+> [일반적인 지 속성 함수 패턴에 대해 알아보기](durable-functions-overview.md#application-patterns)

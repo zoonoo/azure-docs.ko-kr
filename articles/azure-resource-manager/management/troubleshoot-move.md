@@ -4,15 +4,15 @@ description: Azure Resource Manager를 사용하여 리소스를 새 리소스 �
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.openlocfilehash: 5a65f7daa0f5e3b1c8c6ddfdbecc0ff7d53e5afd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75891269"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Azure 리소스를 새 리소스 그룹 또는 구독으로 이동하는 문제 해결
 
-이 문서에서는 리소스를 이동할 때 문제를 해결하는 데 도움이 되는 제안 사항을 제공합니다.
+이 문서에서는 리소스를 이동할 때 문제를 해결 하는 데 도움이 되는 제안을 제공 합니다.
 
 ## <a name="upgrade-a-subscription"></a>구독 업그레이드
 
@@ -25,26 +25,26 @@ ms.locfileid: "75891269"
 
 ## <a name="service-limitations"></a>서비스 제한 사항
 
-일부 서비스는 리소스를 이동할 때 추가 고려 사항이 필요합니다. 다음 서비스를 이동하는 경우 지침 및 제한 사항확인을 해야 합니다.
+일부 서비스의 경우 리소스를 이동할 때 추가로 고려해 야 할 사항이 있습니다. 다음 서비스를 이동 하는 경우 지침 및 제한 사항을 확인 해야 합니다.
 
 * [App Services](./move-limitations/app-service-move-limitations.md)
-* [Azure 데브옵스 서비스](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
+* [Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
 * [클래식 배포 모델](./move-limitations/classic-model-move-limitations.md)
 * [네트워킹](./move-limitations/networking-move-limitations.md)
 * [Recovery Services](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
 * [Virtual Machines](./move-limitations/virtual-machines-move-limitations.md)
 
-## <a name="large-requests"></a>대규모 요청
+## <a name="large-requests"></a>대량 요청
 
 가능한 경우 대용량 이동을 개별 이동 작업으로 나눕니다. 단일 작업에 800개가 넘는 리소스가 포함되면 Resource Manager가 즉시 오류를 반환합니다. 그러나 800개 미만의 리소스 이동도 시간 초과로 인해 실패할 수 있습니다.
 
-## <a name="resource-not-in-succeeded-state"></a>성공한 상태가 아닌 리소스
+## <a name="resource-not-in-succeeded-state"></a>리소스가 성공 상태 아님
 
-리소스가 성공한 상태가 아니기 때문에 이동할 수 없다는 오류 메시지가 표시되면 실제로 이동을 차단하는 종속 리소스일 수 있습니다. 일반적으로 오류 코드는 **MoveCannot진행수자원NotInSucceededState**.
+리소스가 성공 상태에 있지 않아 이동할 수 없음을 나타내는 오류 메시지가 표시 되는 경우 실제로는 이동을 차단 하는 종속 리소스가 될 수 있습니다. 일반적으로 오류 코드는 **MoveCannotProceedWithResourcesNotInSucceededState**입니다.
 
-원본 또는 대상 리소스 그룹에 가상 네트워크가 포함된 경우 이동 중에 가상 네트워크에 대한 모든 종속 리소스의 상태가 확인됩니다. 검사에는 가상 네트워크에 직접 및 간접적으로 종속된 리소스가 포함됩니다. 이러한 리소스중 어느 라도 실패한 상태에 있으면 이동이 차단됩니다. 예를 들어 가상 네트워크를 사용하는 가상 시스템이 실패한 경우 이동이 차단됩니다. 가상 시스템이 이동 중인 리소스 중 하나가 아니며 이동을 위한 리소스 그룹 중 하나에 없는 경우에도 이동이 차단됩니다.
+원본 또는 대상 리소스 그룹에 가상 네트워크가 포함 된 경우 이동 하는 동안 가상 네트워크에 대 한 모든 종속 리소스의 상태를 확인 합니다. 이 검사에는 가상 네트워크에 직접적이 고 간접적으로 종속 된 리소스가 포함 되어 있습니다. 이러한 리소스 중 하나라도 실패 상태 이면 이동이 차단 됩니다. 예를 들어 가상 네트워크를 사용 하는 가상 머신이 실패 한 경우 이동이 차단 됩니다. 이동은 가상 머신이 이동 중인 리소스 중 하나가 아니며 이동에 대 한 리소스 그룹 중 하나가 아닌 경우에도 차단 됩니다.
 
-이 오류가 발생하면 두 가지 옵션이 있습니다. 리소스를 가상 네트워크가 없는 리소스 그룹으로 이동하거나 지원 팀에 [문의합니다.](../../azure-portal/supportability/how-to-create-azure-support-request.md)
+이 오류가 표시 되 면 두 가지 옵션이 있습니다. 가상 네트워크가 없는 리소스 그룹으로 리소스를 이동 하거나 [지원 담당자에 게 문의 하세요](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## <a name="next-steps"></a>다음 단계
 

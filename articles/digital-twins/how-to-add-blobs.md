@@ -1,6 +1,6 @@
 ---
-title: 개체에 Blob을 추가하는 방법 - Azure 디지털 트윈 | 마이크로 소프트 문서
-description: Azure 디지털 Twins의 사용자, 장치 및 공백에 Blob을 추가하는 방법에 대해 알아봅니다.
+title: 개체에 blob을 추가 하는 방법-Azure Digital Twins | Microsoft Docs
+description: Azure Digital Twins의 사용자, 장치 및 공간에 blob을 추가 하는 방법에 대해 알아봅니다.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.custom: seodec18
 ms.openlocfilehash: c85db05e6feeea43023c2391998f837348caed4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75929694"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Azure Digital Twins에서 개체에 Blob 추가
@@ -51,16 +51,16 @@ JSON Blob 메타데이터는 다음과 같은 모델을 준수합니다.
   }
 ```
 
-| 특성 | Type | Description |
+| attribute | Type | Description |
 | --- | --- | --- |
-| **parentId** | String | Blob을 연결할 부모 엔터티(공백, 디바이스 또는 사용자)입니다. |
-| **(이름)** |String | Blob의 이름입니다. |
-| **종류** | String | Blob의 형식으로, *type* 및 *typeId*를 사용할 수 없습니다.  |
+| **parentId** | 문자열 | Blob을 연결할 부모 엔터티(공백, 디바이스 또는 사용자)입니다. |
+| **name** |문자열 | Blob의 이름입니다. |
+| **type** | 문자열 | Blob의 형식으로, *type* 및 *typeId*를 사용할 수 없습니다.  |
 | **typeId** | 정수 | Blob 형식 ID로, *type* 및 *typeId*를 사용할 수 없습니다. |
-| **하위** | String | Blob 하위 형식으로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
+| **하위 형식** | 문자열 | Blob 하위 형식으로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
 | **subtypeId** | 정수 | Blob의 하위 형식 ID로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
-| **설명** | String | Blob의 사용자 지정 설명입니다. |
-| **sharing** | String | Blob을 공유할 수 있는지 여부로, 열거형 [`None`, `Tree`, `Global`]입니다. |
+| **한** | 문자열 | Blob의 사용자 지정 설명입니다. |
+| **sharing** | 문자열 | Blob을 공유할 수 있는지 여부로, 열거형 [`None`, `Tree`, `Global`]입니다. |
 
 Blob 메타데이터는 항상 **Content-type** `application/json`을 포함하는 첫 번째 청크 또는 `.json` 파일로 제공됩니다. 파일 데이터는 두 번째 청크에 제공되고, 지원되는 임의 MIME 형식일 수 있습니다.
 
@@ -106,20 +106,20 @@ Swagger 설명서는 이러한 모델 스키마에 대해 매우 자세하게 �
 }
 ```
 
-| 특성 | Type | Description |
+| attribute | Type | Description |
 | --- | --- | --- |
-| **id** | String | Blob의 고유한 식별자입니다. |
-| **(이름)** |String | Blob의 이름입니다. |
-| **parentId** | String | Blob을 연결할 부모 엔터티(공백, 디바이스 또는 사용자)입니다. |
-| **종류** | String | Blob의 형식으로, *type* 및 *typeId*를 사용할 수 없습니다.  |
+| **id** | 문자열 | Blob의 고유한 식별자입니다. |
+| **name** |문자열 | Blob의 이름입니다. |
+| **parentId** | 문자열 | Blob을 연결할 부모 엔터티(공백, 디바이스 또는 사용자)입니다. |
+| **type** | 문자열 | Blob의 형식으로, *type* 및 *typeId*를 사용할 수 없습니다.  |
 | **typeId** | 정수 | Blob 형식 ID로, *type* 및 *typeId*를 사용할 수 없습니다. |
-| **하위** | String | Blob 하위 형식으로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
+| **하위 형식** | 문자열 | Blob 하위 형식으로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
 | **subtypeId** | 정수 | Blob의 하위 형식 ID로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
-| **sharing** | String | Blob을 공유할 수 있는지 여부로, 열거형 [`None`, `Tree`, `Global`]입니다. |
-| **설명** | String | Blob의 사용자 지정 설명입니다. |
-| **contentInfos** | Array | 버전을 포함하는 구조화되지 않은 메타데이터 정보를 지정합니다. |
-| **Fullname** | String | Blob의 전체 이름입니다. |
-| **spacePaths** | String | 공간 경로 |
+| **sharing** | 문자열 | Blob을 공유할 수 있는지 여부로, 열거형 [`None`, `Tree`, `Global`]입니다. |
+| **한** | 문자열 | Blob의 사용자 지정 설명입니다. |
+| **contentInfos** | 배열 | 버전을 포함하는 구조화되지 않은 메타데이터 정보를 지정합니다. |
+| **아니어야** | 문자열 | Blob의 전체 이름입니다. |
+| **spacePaths** | 문자열 | 공간 경로 |
 
 Blob 메타데이터는 항상 **Content-type** `application/json`을 포함하는 첫 번째 청크 또는 `.json` 파일로 제공됩니다. 파일 데이터는 두 번째 청크에 제공되고, 지원되는 임의 MIME 형식일 수 있습니다.
 
@@ -196,9 +196,9 @@ curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
 | YOUR_SPACE_ID | Blob을 연결할 공간의 ID |
 | PATH_TO_FILE | 텍스트 파일의 경로 |
 
-[![cURL 예제](media/how-to-add-blobs/http-blob-post-through-curl-img.png)](media/how-to-add-blobs/http-blob-post-through-curl-img.png#lightbox)
+[![말아 예](media/how-to-add-blobs/http-blob-post-through-curl-img.png)](media/how-to-add-blobs/http-blob-post-through-curl-img.png#lightbox)
 
-성공적인 POST는 새 Blob의 ID를 반환합니다.
+POST가 성공 하면 blob의 새 ID가 반환 됩니다.
 
 ## <a name="api-endpoints"></a>API 엔드포인트
 
@@ -278,9 +278,9 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
      * `multipart/mixed`
      * `multipart/form-data`
 
-  또한 각 *다중 파트 청크에* 적절한 해당 **콘텐츠 유형이**있는지 확인합니다.
+  또한 각 *multipart 청크에* 적절 한 해당 **콘텐츠 형식이**있는지 확인 합니다.
 
-* 두 번째 일반적인 오류는 [공간 인텔리전스 그래프에서](concepts-objectmodel-spatialgraph.md)여러 Blob이 동일한 리소스에 할당될 때 발생합니다.
+* 두 번째 일반적인 오류는 [공간 인텔리전스 그래프](concepts-objectmodel-spatialgraph.md)의 동일한 리소스에 여러 blob이 할당 될 때 발생 합니다.
 
   ```JSON
   {
@@ -292,11 +292,11 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
   ```
 
   > [!NOTE]
-  > **메시지** 특성은 리소스에 따라 달라집니다. 
+  > **메시지** 특성은 리소스에 따라 달라 집니다. 
 
-  공간 그래프 내의 각 리소스에 하나의 Blob(각 종류)만 연결할 수 있습니다. 
+  각 종류의 blob 하나만 공간 그래프 내의 각 리소스에 연결할 수 있습니다. 
 
-  이 오류를 해결하려면 적절한 API HTTP PATCH 작업을 사용하여 기존 Blob을 업데이트합니다. 이렇게 하면 기존 Blob 데이터가 원하는 데이터로 바꿉습니다.
+  이 오류를 해결 하려면 적절 한 API HTTP 패치 작업을 사용 하 여 기존 blob을 업데이트 합니다. 이렇게 하면 기존 blob 데이터를 원하는 데이터로 바꿉니다.
 
 ## <a name="next-steps"></a>다음 단계
 

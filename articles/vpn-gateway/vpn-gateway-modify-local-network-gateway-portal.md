@@ -1,5 +1,5 @@
 ---
-title: 'VPN 게이트웨이: 게이트웨이 IP 주소 설정 수정: Azure 포털'
+title: 'VPN Gateway: 게이트웨이 IP 주소 설정 수정: Azure Portal'
 description: 이 문서는 Azure Portal을 사용하여 로컬 네트워크 게이트웨이에 대한 IP 주소 접두사를 변경하는 방법을 안내합니다.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: cherylmc
 ms.openlocfilehash: fdb98242cede36f818604a7a5d713f5f7c75daad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75864029"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Azure Portal을 사용하여 로컬 네트워크 게이트웨이 설정 수정
@@ -21,8 +21,8 @@ ms.locfileid: "75864029"
 연결을 삭제하기 전에 정의된 PSK를 가져오기 위해 연결 디바이스에 대한 구성을 다운로드할 수도 있습니다. 이런 방식으로 다른 쪽에서는 재정의할 필요가 없습니다.
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](vpn-gateway-modify-local-network-gateway-portal.md)
-> * [Powershell](vpn-gateway-modify-local-network-gateway.md)
+> * [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 > * [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 >
 >

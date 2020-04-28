@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: twooley
 ms.openlocfilehash: ca79e4240c1a82e46bea44a9d018a3c681920480
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75933285"
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>작동 StorSimple 디바이스 문제 해결
@@ -45,9 +45,9 @@ ms.locfileid: "75933285"
 ## <a name="errors-that-occur-during-subsequent-runs-of-the-setup-wizard"></a>설치 마법사를 후속 실행하는 동안 발생하는 오류
 다음 표에서 운영 디바이스에서 설치 마법사를 실행할 때 발생할 수 있는 오류, 해당 오류에 대한 가능한 원인 및 해결하기 위한 권장 작업을 설명합니다. 
 
-| 아니요. | 오류 메시지 또는 조건 | 가능한 원인 | 권장 작업 |
+| 아니요. | 오류 메시지 또는 조건 | 가능한 원인 | 권장 조치 |
 |:--- |:--- |:--- |:--- |
-| 1 |오류 350032: 이 디바이스는 이미 비활성화되었습니다. |비활성화된 디바이스에서 설치 마법사를 실행하는 경우 이 오류가 나타납니다. |다음 단계는 [Microsoft 지원에 문의하십시오.](storsimple-contact-microsoft-support.md) 비활성화된 디바이스를 제공할 수 없습니다. 디바이스를 다시 활성화하기 전에 공장 재설정이 필요할 수 있습니다. |
+| 1 |오류 350032: 이 디바이스는 이미 비활성화되었습니다. |비활성화된 디바이스에서 설치 마법사를 실행하는 경우 이 오류가 나타납니다. |다음 단계는 [Microsoft 지원에 문의 하세요](storsimple-contact-microsoft-support.md) . 비활성화된 디바이스를 제공할 수 없습니다. 디바이스를 다시 활성화하기 전에 공장 재설정이 필요할 수 있습니다. |
 | 2 |Invoke-HcsSetupWizard : ERROR_INVALID_FUNCTION(HRESULT: 0x80070001에서 예외 발생) |DNS 서버 업데이트에 실패했습니다. DNS 설정은 전역 설정이며 사용할 수 있는 모든 네트워크 인터페이스를 통해 적용됩니다. |인터페이스를 사용하고 DNS 설정을 다시 적용합니다. 전역 설정 때문에 사용되는 다른 인터페이스에 대한 네트워크에 방해가 될 수 있습니다. |
 | 3 |디바이스가 StorSimple Manager 서비스 포털에서 온라인 상태인 것으로 나타나지만 최소 설치를 완료하고 구성을 저장하려고 할 때 작업이 실패합니다. |초기 설치 중, 실제 프록시 서버가 제 자리에 있더라도 웹 프록시는 구성되지 않았습니다. |[Test-HcsmConnection][2] cmdlet을 사용하여 오류를 찾습니다. [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md) 하세요. |
 | 4 |Invoke-HcsSetupWizard: 예상 범위 내에 값이 없습니다. |잘못된 서브넷 마스크 때문에 이 오류가 발생합니다. 가능한 원인은 다음과 같습니다. <ul><li> 서브넷 마스크가 없거나 비어 있습니다.</li><li>Ipv6 접두사 형식이 잘못되었습니다.</li><li>인터페이스가 클라우드를 사용하도록 설정되었지만 게이트웨이가 없거나 잘못되었습니다.</li></ul>설치 마법사를 통해 구성된 경우 데이터 0은 자동으로 클라우드 설정됩니다. |문제를 확인하려면 0.0.0.0 또는 256.256.256.256, 서브넷을 사용한 다음 출력을 확인합니다. 필요에 따라 서브넷 마스크, 게이트웨이 및 Ipv6 접두사에 대한 올바른 값을 입력합니다. |

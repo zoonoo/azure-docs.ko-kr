@@ -1,5 +1,5 @@
 ---
-title: '제목을 연결할 수 없는 Azure 사이트 간 VPN 연결 문제 해결Suffix: Azure VPN 게이트웨이'
+title: 'TitleSuffix에 연결할 수 없는 Azure 사이트 간 VPN 연결 문제 해결: Azure VPN Gateway'
 description: 갑자기 작동 중단되어 다시 연결할 수 없는 사이트 간 VPN 연결 문제를 해결하는 방법을 알아봅니다.
 services: vpn-gateway
 author: chadmath
@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
 ms.openlocfilehash: 4e827c5f6eedc819bc3635cb09a28f65df51312c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75862580"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>문제 해결: Azure 사이트 간 VPN 연결에서 연결할 수 없고 작동이 중지됨
@@ -28,7 +28,7 @@ ms.locfileid: "75862580"
 
 Azure VPN 게이트웨이 유형을 확인합니다.
 
-1. [Azure 포털로](https://portal.azure.com)이동합니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 
 2. VPN 게이트웨이에 대한 **개요** 페이지에서 유형 정보를 확인합니다.
     
@@ -46,15 +46,15 @@ Azure VPN 게이트웨이 유형을 확인합니다.
 
 Azure VPN 연결에 대한 공유 키를 보려면 다음 방법 중 하나를 사용합니다.
 
-**Azure 포털**
+**Azure Portal**
 
 1. 만든 VPN 게이트웨이 사이트 간 연결로 이동합니다.
 
-2. **설정** 섹션에서 공유 키 를 **클릭합니다.**
+2. **설정** 섹션에서 **공유 키**를 클릭 합니다.
     
     ![공유 키](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 
-**Azure 파워쉘**
+**Azure PowerShell**
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -66,7 +66,7 @@ Azure Resource Manager 배포 모델:
 
     Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 
-### <a name="step-3-verify-the-vpn-peer-ips"></a>3단계. VPN 피어 IP 확인
+### <a name="step-3-verify-the-vpn-peer-ips"></a>3단계: VPN 피어 IP 확인
 
 -   Azure의 **로컬 네트워크 게이트웨이** 개체에 있는 IP 정의가 온-프레미스 디바이스 IP와 일치해야 합니다.
 -   온-프레미스 디바이스에 설정된 Azure 게이트웨이 IP 정의는 Azure 게이트웨이 IP와 일치해야 합니다.
@@ -106,5 +106,5 @@ PFS(Perfect Forward Secrecy) 기능은 연결 끊김 문제를 일으킬 수 있
 
 ## <a name="next-steps"></a>다음 단계
 
--   [가상 네트워크에 대한 사이트 간 연결 구성](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+-   [가상 네트워크에 대 한 사이트 간 연결 구성](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [사이트 간 VPN 연결에 대한 IPsec/IKE 정책 구성](vpn-gateway-ipsecikepolicy-rm-powershell.md)

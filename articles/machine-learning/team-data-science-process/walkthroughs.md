@@ -12,15 +12,15 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75864080"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Azure에서 Team Data Science Process 실행 연습
 
-이러한 **포괄적인 연습에서는** 특정 시나리오에 대한 팀 데이터 과학 프로세스의 단계를 보여 줍니다. 클라우드, 온-프레미스 도구 및 서비스를 **지능형 응용 프로그램의**워크플로에 결합하는 방법을 보여 줍니다. 연습은 사용하는 **플랫폼**별로 그룹화됩니다.
+이러한 **포괄적인 연습** 에서는 특정 시나리오에 대 한 팀 데이터 과학 프로세스의 단계를 보여 줍니다. 클라우드, 온-프레미스 도구 및 서비스를 **지능형 응용 프로그램**의 워크플로로 결합 하는 방법을 보여 줍니다. 연습은 사용하는 **플랫폼**별로 그룹화됩니다.
 
 
 ## <a name="walkthrough-descriptions"></a>연습 설명
@@ -40,7 +40,7 @@ ms.locfileid: "75864080"
 
 Team Data Science Process를 구성하는 주요 구성의 논의는 [Team Data Science Process 개요](overview.md)를 참조하세요.
 
-팀 데이터 과학 프로세스 수명 주기에 대한 자세한 내용은 [팀 데이터 과학 프로세스 수명 주기를](lifecycle.md)참조하십시오. 이 수명 주기는 프로젝트가 실행될 때 일반적으로 따르는 단계(처음부터 끝까지)를 간략하게 설명합니다. 
+팀 데이터 과학 프로세스 수명 주기에 대 한 설명은 [팀 데이터 과학 프로세스 수명 주기](lifecycle.md)를 참조 하세요. 이 수명 주기에서는 프로젝트가 실행 될 때 일반적으로 수행 하는 단계를 처음부터 끝까지 간략하게 설명 합니다. 
 
-개요는 [데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)를 참조하십시오. 
+개요는 [데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)를 참조 하세요. 
 

@@ -1,6 +1,6 @@
 ---
-title: 다중 프런트 엔드 - Azure 로드 밸러저
-description: 이 학습 경로를 통해 Azure Load Balancer의 여러 프런트 엔드 개요를 시작하십시오.
+title: 다중 프런트 엔드-Azure Load Balancer
+description: 이 학습 경로를 사용 하 여 여러 프런트 엔드에 대 한 개요를 사용 하 여 시작 Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
 ms.openlocfilehash: 0a54416a70a8561edfad5915944100e0ce686bbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75771260"
 ---
-# <a name="multiple-frontends-for-azure-load-balancer"></a>Azure 로드 밸러커용 다중 프런트 엔드
+# <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 여러 프런트 엔드
 
 Azure Load Balancer를 사용해 여러 포트, 여러 IP 주소 또는 둘 다에서 부하 분산 서비스를 할 수 있습니다. 공용 및 내부 부하 분산 장치 정의를 VM 집합 전반에 대한 부하 분산 흐름에 사용할 수 있습니다.
 
@@ -98,24 +98,24 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 프런트 
 * 프런트 엔드 1: 프런트 엔드 1의 IP 주소로 구성된 게스트 OS 내 루프백 인터페이스
 * 프런트 엔드 2: 프런트 엔드 2의 IP 주소로 구성된 게스트 OS 내 루프백 인터페이스
 
-백 엔드 풀의 각 VM에 대해 Windows 명령 프롬프트에서 다음 명령을 실행합니다.
+백 엔드 풀의 각 VM에 대해 Windows 명령 프롬프트에서 다음 명령을 실행 합니다.
 
-VM에 있는 인터페이스 이름 목록을 얻으려면 다음 명령을 입력합니다.
+VM에 있는 인터페이스 이름 목록을 가져오려면 다음 명령을 입력 합니다.
 
     netsh interface show interface 
 
-VM NIC(Azure 관리됨)의 경우 다음 명령을 입력합니다.
+VM NIC (Azure 관리)의 경우 다음 명령을 입력 합니다.
 
     netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
-   (인터페이스 이름을 이 인터페이스의 이름으로 바꿉니다.)
+   (interfacename을이 인터페이스의 이름으로 바꿉니다.)
 
-추가한 각 루프백 인터페이스에 대해 다음 명령을 반복합니다.
+추가한 각 루프백 인터페이스에 대해 다음 명령을 반복 합니다.
 
     netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
-   (인터페이스 이름을 이 루프백 인터페이스의 이름으로 바꿉니다.)
+   (interfacename을이 루프백 인터페이스의 이름으로 바꿉니다.)
      
     netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
-   (인터페이스 이름을 이 루프백 인터페이스의 이름으로 바꿉니다.)
+   (interfacename을이 루프백 인터페이스의 이름으로 바꿉니다.)
 
 > [!IMPORTANT]
 > 루프백 인터페이스에 대한 구성은 게스트 OS 내에서 수행됩니다. 이 구성은 Azure에서 수행하거나 관리하지 않습니다. 이 구성 없이는 규칙이 작동하지 않습니다. 상태 프로브 정의에는 DSR 프런트 엔드를 나타내는 루프백 인터페이스가 아닌 VM의 DIP가 사용됩니다. 따라서 서비스는 DSR 프런트 엔드를 나타내는 루프백 인터페이스에서 제공되는 서비스의 상태를 반영하는 DIP 포트에서 프로브 응답을 제공해야 합니다.
@@ -151,7 +151,7 @@ VM NIC(Azure 관리됨)의 경우 다음 명령을 입력합니다.
 ## <a name="limitations"></a>제한 사항
 
 * 다중 프런트 엔드 구성은 IaaS VM에서만 지원됩니다.
-* 부동 IP 규칙을 사용하면 응용 프로그램에서 아웃바운드 SNAT 흐름에 대한 기본 IP 구성을 사용해야 합니다. 응용 프로그램이 게스트 OS의 루프백 인터페이스에 구성된 프런트 엔드 IP 주소에 바인딩되는 경우 Azure의 아웃바운드 SNAT를 사용하여 아웃바운드 흐름을 다시 작성할 수 없으며 흐름이 실패합니다.  [아웃바운드 시나리오를](load-balancer-outbound-connections.md)검토합니다.
+* 부동 IP 규칙을 사용 하는 경우 응용 프로그램은 아웃 바운드 SNAT 흐름에 기본 IP 구성을 사용 해야 합니다. 응용 프로그램이 게스트 OS에서 루프백 인터페이스에 구성 된 프런트 엔드 IP 주소에 바인딩하는 경우 아웃 바운드 흐름을 다시 작성 하는 데 Azure의 아웃 바운드 SNAT를 사용할 수 없으며 흐름이 실패 합니다.  [아웃 바운드 시나리오](load-balancer-outbound-connections.md)를 검토 합니다.
 * 공용 IP 주소는 대금 청구에 영향을 미칩니다. 자세한 내용은 [IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * 구독 제한이 적용됩니다. 자세한 내용은 [서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) 을 참조하세요.
 

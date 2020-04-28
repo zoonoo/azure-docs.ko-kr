@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: twooley
 ms.openlocfilehash: a841ce8b664389ccd8fdf55de9965f09412fecf5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75930218"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터 설치 및 구성
@@ -162,7 +162,7 @@ SharePoint용 StorSimple 어댑터를 설치하려면 다음 단계를 따르세
 SharePoint용 StorSimple 어댑터를 설치한 후에 다음 절차에서 설명한 대로 RBS를 구성합니다.
 
 > [!TIP]
-> SharePoint 중앙 관리 페이지에 SharePoint용 StorSimple 어댑터를 연결하면 SharePoint 팜의 각 콘텐츠 데이터베이스에서 RBS를 사용하거나 사용하지 못하도록 합니다. 그러나 콘텐츠 데이터베이스에서 RBS를 활성화 또는 비활성화하면 IIS가 재설정되어 팜 구성에 따라 일시적으로 SharePoint WFE(웹 프런트 엔드)의 가용성을 중단될 수 있습니다. 프런트 엔드 로드 밸러블러 사용, 현재 서버 워크로드 등의 요인으로 인해 이러한 중단을 제한하거나 제거할 수 있습니다. 중단으로부터 사용자를 보호하려면 계획된 유지 관리 기간 동안에만 RBS를 사용하거나 사용하지 않도록 설정하는 것이 좋습니다.
+> SharePoint 중앙 관리 페이지에 SharePoint용 StorSimple 어댑터를 연결하면 SharePoint 팜의 각 콘텐츠 데이터베이스에서 RBS를 사용하거나 사용하지 못하도록 합니다. 그러나 콘텐츠 데이터베이스에서 RBS를 활성화 또는 비활성화하면 IIS가 재설정되어 팜 구성에 따라 일시적으로 SharePoint WFE(웹 프런트 엔드)의 가용성을 중단될 수 있습니다. (프런트 엔드 부하 분산 장치를 사용 하는 것과 같은 요소, 현재 서버 작업 등은이 중단을 제한 하거나 제거할 수 있습니다.) 사용자가 중단 되지 않도록 보호 하려면 계획 된 유지 관리 기간 동안에만 RBS를 사용 하거나 사용 하지 않도록 설정 하는 것이 좋습니다.
 
 
 [!INCLUDE [storsimple-sharepoint-adapter-configure-rbs](../../includes/storsimple-sharepoint-adapter-configure-rbs.md)]
@@ -196,7 +196,7 @@ RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Dat
 > * 다시 설치가 완료되고 RBS 기능을 다시 사용하도록 설정할 때까지 이전에 RBS를 통해 외부 스토리지에 이동된 모든 파일은 사용할 수 없습니다. 사용자 영향을 제한하려면 계획된 유지 관리 기간 동안 업그레이드 또는 다시 설치를 수행합니다.
 > * 업그레이드/다시 설치에 필요한 시간은 SharePoint 서버 팜에서 SharePoint 데이터베이스의 총 수에 따라 달라집니다.
 > * 업그레이드/다시 설치가 완료되면 콘텐츠 데이터베이스에 RBS를 사용하도록 설정해야 합니다. 자세한 내용은 [RBS 구성](#configure-rbs)을 참조하세요.
-> * 데이터베이스 수가 매우 많은 SharePoint 팜에 대해 RBS를 구성하는 경우(200개 보다 큰) **SharePoint 중앙 관리** 페이지가 시간 초과될 수 있습니다. 이 경우 페이지를 새로 고칩니다. 구성 프로세스에는 영향을 주지 않습니다.
+> * 매우 많은 수의 데이터베이스 (200 이상)를 포함 하는 SharePoint 팜에 대해 RBS를 구성 하는 경우 **Sharepoint 중앙 관리** 페이지가 시간 초과 될 수 있습니다. 이 경우 페이지를 새로 고칩니다. 구성 프로세스에는 영향을 주지 않습니다.
 
 
 [!INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
@@ -226,7 +226,7 @@ SharePoint용 StorSimple 어댑터 소프트웨어를 제거하기 전에 표면
 4. **StorSimple 어댑터 구성** 페이지에서, 외부 BLOB 저장소에서 제거할 각 콘텐츠 데이터베이스 아래에 있는 **사용 안 함** 단추를 클릭합니다. 
 5. SharePoint에서 개체를 삭제한 다음 다시 업로드합니다.
 
-또는 SharePoint에 포함된 `RBS Migrate()` Microsoft PowerShell cmdlet을 사용할 수 있습니다. 자세한 내용은 [RBS에서 콘텐츠 마이그레이션](https://technet.microsoft.com/library/ff628255.aspx)을 참조하세요.
+또는 SharePoint에 포함 된 Microsoft `RBS Migrate()` PowerShell cmdlet을 사용할 수 있습니다. 자세한 내용은 [RBS에서 콘텐츠 마이그레이션](https://technet.microsoft.com/library/ff628255.aspx)을 참조하세요.
 
 Blob을 콘텐츠 데이터베이스로 다시 이동한 후 다음 단계인 [어댑터 제거](#uninstall-the-adapter)로 이동합니다.
 

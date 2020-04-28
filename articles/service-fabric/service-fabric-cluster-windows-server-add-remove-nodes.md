@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dekapur
 ms.openlocfilehash: f9bee35ee8e82070b4cf601139b471562ba5e10b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75934216"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Windows Server가 실행되는 독립 실행형 서비스 패브릭 클러스터에 노드 추가 또는 제거 | Microsoft Azure
@@ -17,27 +17,27 @@ ms.locfileid: "75934216"
 
 ## <a name="add-nodes-to-your-cluster"></a>클러스터에 노드 추가
 
-1. 계획에 설명된 단계에 따라 클러스터에 추가할 VM/컴퓨터를 [준비하고 서비스 패브릭 클러스터 배포를 준비합니다.](service-fabric-cluster-standalone-deployment-preparation.md)
+1. [Service Fabric 클러스터 배포 계획 및 준비](service-fabric-cluster-standalone-deployment-preparation.md)에 설명 된 단계를 수행 하 여 클러스터에 추가 하려는 v m/컴퓨터를 준비 합니다.
 
-2. 이 VM/컴퓨터를 추가할 장애 도메인 및 업그레이드 도메인을 식별합니다.
+2. 이 v m/컴퓨터를 추가 하려는 장애 도메인 및 업그레이드 도메인을 식별 합니다.
 
-   인증서를 사용하여 클러스터를 보호하는 경우 노드가 클러스터에 가입할 준비를 위해 인증서가 로컬 인증서 저장소에 설치될 것으로 예상됩니다. 아날로그는 다른 형태의 보안을 사용할 때 적용할 수 있습니다.
+   인증서를 사용 하 여 클러스터를 보호 하는 경우 노드가 클러스터에 연결 하기 위해 로컬 인증서 저장소에 인증서를 설치 해야 합니다. 다른 형태의 보안을 사용할 때 아날로그를 사용할 수 있습니다.
 
 3. 클러스터에서 추가하려는 VM/컴퓨터로 RDP(원격 데스크톱)를 수행합니다.
 
-4. Windows [서버용 서비스 패브릭용 독립 실행형 패키지를](https://go.microsoft.com/fwlink/?LinkId=730690) VM/컴퓨터에 복사하거나 다운로드하고 패키지의 압축을 풀어보십시오.
+4. V m/컴퓨터에 [Windows Server 용 Service Fabric 독립 실행형 패키지](https://go.microsoft.com/fwlink/?LinkId=730690) 를 복사 또는 다운로드 하 고 패키지의 압축을 풉니다.
 
-5. 권한 상승 권한으로 PowerShell을 실행하고 압축 해제된 패키지의 위치로 이동합니다.
+5. 승격 된 권한으로 PowerShell을 실행 하 고 압축을 푼 패키지의 위치로 이동 합니다.
 
-6. 추가할 새 노드를 설명하는 매개 변수를 사용하여 *AddNode.ps1* 스크립트를 실행합니다. 다음 예제에서는 NodeType0 유형 및 IP 주소 182.17.34.52를 UD1 및 fd:/dc1/r0에 입력한 VM5라는 새 노드를 추가합니다. `ExistingClusterConnectionEndPoint`는 클러스터에 있는 *모든* 노드의 IP 주소일 수 있는 기존 클러스터에 이미 있는 노드의 연결 끝점입니다. 
+6. 추가할 새 노드를 설명하는 매개 변수를 사용하여 *AddNode.ps1* 스크립트를 실행합니다. 다음 예에서는 NodeType0 및 IP 주소 182.17.34.52 이라는 VM5 라는 새 노드를 UD1 및 fd:/dc1/r 0에 추가 합니다. `ExistingClusterConnectionEndPoint`는 기존 클러스터에 이미 있는 노드에 대 한 연결 끝점으로, 클러스터에 *있는 노드의 IP* 주소일 수 있습니다. 
 
-   안전하지 않은(프로토타이핑):
+   안전 하지 않은 (프로토타입):
 
    ```
    .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -AcceptEULA
    ```
 
-   보안(인증서 기반):
+   보안 (인증서 기반):
 
    ```  
    $CertThumbprint= "***********************"
@@ -46,9 +46,9 @@ ms.locfileid: "75934216"
 
    ```
 
-   스크립트 실행이 완료되면 [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet을 실행하여 새 노드가 추가되었는지 확인할 수 있습니다.
+   스크립트 실행이 완료 되 면 [get-servicefabricnode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet을 실행 하 여 새 노드가 추가 되었는지 여부를 확인할 수 있습니다.
 
-7. 클러스터의 서로 다른 노드 간에 일관성을 보장하려면 구성 업그레이드를 시작해야 합니다. [Get-ServiceFabricClusterConfiguration을](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) 실행하여 최신 구성 파일을 가져와서 새로 추가된 노드를 "노드" 섹션에 추가합니다. 또한 동일한 구성을 가진 클러스터를 다시 배포해야 하는 경우 항상 최신 클러스터 구성을 사용할 수 있어야 합니다.
+7. 클러스터의 서로 다른 노드 간에 일관성을 보장하려면 구성 업그레이드를 시작해야 합니다. [Get-servicefabricclusterconfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) 를 실행 하 여 최신 구성 파일을 가져오고 새로 추가 된 노드를 "Nodes" 섹션에 추가 합니다. 동일한 구성이 있는 클러스터를 다시 배포 해야 하는 경우 항상 최신 클러스터 구성을 사용 하는 것이 좋습니다.
 
    ```
     {
@@ -66,7 +66,7 @@ ms.locfileid: "75934216"
    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
    ```
 
-   Service Fabric Explorer에서 업그레이드의 진행률을 모니터링할 수 있습니다. 또는 [Get-ServiceFabricCluster업그레이드를](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)실행할 수 있습니다.
+   Service Fabric Explorer에서 업그레이드의 진행률을 모니터링할 수 있습니다. 또는 [start-servicefabricclusterupgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)을 실행할 수 있습니다.
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>gMSA를 사용하여 Windows 보안으로 구성된 클러스터에 노드 추가
 gMSA(그룹 관리 서비스 계정)로 구성된 클러스터의 경우(https://technet.microsoft.com/library/hh831782.aspx)) 구성 업그레이드를 사용하여 새 노드를 추가할 수 있습니다.
@@ -124,7 +124,7 @@ gMSA(그룹 관리 서비스 계정)로 구성된 클러스터의 경우(https:/
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
     ```
-    Service Fabric Explorer에서 업그레이드의 진행률을 모니터링할 수 있습니다. 또는 [Get-ServiceFabricCluster업그레이드를](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)실행할 수 있습니다.
+    Service Fabric Explorer에서 업그레이드의 진행률을 모니터링할 수 있습니다. 또는 [start-servicefabricclusterupgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)을 실행할 수 있습니다.
 
 > [!NOTE]
 > 노드를 제거하여 여러 업그레이드를 시작할 수 있습니다. 일부 노드는 `IsSeedNode=”true”` 태그로 표시되고 `Get-ServiceFabricClusterManifest`를 사용하여 클러스터 매니페스트를 쿼리하여 확인할 수 있습니다. 시드 노드는 이러한 시나리오에서 이동되어야 하므로 이러한 노드의 제거는 다른 항목보다 더 오래 걸릴 수 있습니다. 클러스터는 최소 3가지 주 노드 유형 노드를 유지해야 합니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure VPN 게이트웨이에서 BGP 구성:CLI
+title: 'Azure VPN Gateway에서 BGP 구성: CLI'
 description: 이 문서에서는 Azure Resource Manager 및 CLI를 사용하여 Azure VPN Gateway와의 BGP 구성하는 방법을 안내합니다.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: yushwang
 ms.openlocfilehash: 42a07ac00fd8a26918164f6547bf57c2b021d14c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75863617"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>CLI를 사용하여 Azure VPN Gateway에서 BGP를 구성하는 방법
@@ -30,7 +30,7 @@ BGP의 이점에 대한 자세한 내용 및 BGP 사용의 기술 요구 사항�
 
   그러고 나서 다음 섹션 중 하나 또는 둘 다를 완료할 수 있습니다.
 
-* [BGP와 크로스-프레미스 연결 설정](#crossprembgp)
+* [BGP를 사용 하 여 프레미스 간 연결 설정](#crossprembgp)
 * [BGP를 사용하여 VNet 간 연결 설정](#v2vbgp)
 
 세 섹션은 각각 네트워크 연결에서 BGP를 사용하기 위한 기본 구성 요소를 형성합니다. 세 섹션을 모두 완료하면 다음 다이어그램에 표시된 대로 토폴로지를 빌드합니다.
@@ -51,7 +51,7 @@ BGP의 이점에 대한 자세한 내용 및 BGP 사용의 기술 요구 사항�
 
 ### <a name="step-1-create-and-configure-testvnet1"></a>1단계: TestVNet1 만들기 및 구성
 
-#### <a name="1-connect-to-your-subscription"></a><a name="Login"></a>1. 구독에 연결
+#### <a name="1-connect-to-your-subscription"></a><a name="Login"></a>1. 구독에 연결 합니다.
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
@@ -63,7 +63,7 @@ BGP의 이점에 대한 자세한 내용 및 BGP 사용의 기술 요구 사항�
 az group create --name TestBGPRG1 --location eastus
 ```
 
-#### <a name="3-create-testvnet1"></a>3. 테스트VNet1 만들기
+#### <a name="3-create-testvnet1"></a>3. TestVNet1 만들기
 
 다음 예제에서는 TestVNet1이라는 가상 네트워크와 GatewaySubnet, FrontEnd 및 Backend라는 세 개의 서브넷을 만듭니다. 값을 대체할 때 언제나 게이트웨이 서브넷 이름을 'GatewaySubnet'이라고 구체적으로 지정해야 합니다. 다른 이름을 지정하는 경우 게이트웨이 만들기가 실패합니다.
 
@@ -89,7 +89,7 @@ az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestBGPR
 az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic 
 ```
 
-#### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. AS 번호로 VPN 게이트웨이 만들기
+#### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. AS 번호를 사용 하 여 VPN gateway를 만듭니다.
 
 TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. BGP에는 경로 기반 VPN Gateway가 필요합니다. 또한 TestVNet1에 대한 ASN(익명 시스템 번호)을 설정하기 위해 추가 매개 변수 `-Asn`도 필요합니다. 게이트웨이 만들기는 꽤 시간이 걸릴 수 있습니다(완료되려면 45분 이상). 
 
@@ -99,7 +99,7 @@ TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. BGP에는 경�
 az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address GWPubIP -g TestBGPRG1 --vnet TestVNet1 --gateway-type Vpn --sku HighPerformance --vpn-type RouteBased --asn 65010 --no-wait
 ```
 
-#### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3. Azure BGP 피어 IP 주소 얻기
+#### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3. Azure BGP 피어 IP 주소 가져오기
 
 게이트웨이를 만든 후 Azure VPN Gateway에서 BGP 피어 IP 주소를 가져와야 합니다. 온-프레미스 VPN 디바이스에 대해 VPN Gateway를 BGP 피어로 구성하려면 이 주소가 필요합니다.
 
@@ -130,7 +130,7 @@ az network vnet-gateway list -g TestBGPRG1 
 이 연습에서는 다이어그램에 표시된 구성을 계속 빌드합니다. 값을 구성에 사용할 값으로 바꾸어야 합니다. 로컬 네트워크 게이트웨이로 작업하는 경우 다음 사항을 염두에 두어야 합니다.
 
 * 로컬 네트워크 게이트웨이는 VPN 게이트웨이와 같은 위치 및 리소스 그룹에 있을 수도 있고 다른 위치 및 리소스 그룹에 있을 수도 있습니다. 이 예제에서는 다른 위치의 다른 리소스 그룹에 게이트웨이를 표시됩니다.
-* 로컬 네트워크 게이트웨이에 대해 선언해야 하는 최소 접두사는 VPN 디바이스의 BGP 피어 IP 주소의 호스트 주소입니다. 이 경우 10.51.255.254/32의 /32 접두사입니다.
+* 로컬 네트워크 게이트웨이에 대해 선언해야 하는 최소 접두사는 VPN 디바이스의 BGP 피어 IP 주소의 호스트 주소입니다. 이 경우/32 접두사는 10.51.255.254/32입니다.
 * 다시 확인하면 온-프레미스 네트워크와 Azure Virtual Network 간에는 서로 다른 BGP ASN을 사용해야 합니다. 동일한 경우 온-프레미스 VPN 디바이스가 이미 다른 BGP 인접과의 피어에 ASN을 사용하고 있으면 VNet ASN을 변경해야 합니다.
 
 계속하기 전에 이 연습의 [VPN Gateway에 대해 BGP를 사용하도록 설정](#enablebgp) 섹션을 완료했는지 그리고 구독 1에 여전히 연결되어 있는지 확인합니다. 참고로 이 예제에서는 새 리소스 그룹 만듭니다. 또한 로컬 네트워크 게이트웨이에 대한 두 개의 추가 매개 변수(`Asn` 및 `BgpPeerAddress`)를 확인합니다.
@@ -180,7 +180,7 @@ az network vnet-gateway show -n VNet1GW -g TestBGPRG1
 "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW"
 ```
 
-#### <a name="2-get-the-resource-id-of-site5"></a>2. Site5의 리소스 ID 를 가져옵니다.
+#### <a name="2-get-the-resource-id-of-site5"></a>2. Site5의 리소스 ID를 가져옵니다.
 
 다음 명령을 사용하여 출력에서 Site5의 리소스 ID를 가져옵니다.
 
@@ -252,7 +252,7 @@ az network vnet subnet create --vnet-name TestVNet2 -n GatewaySubnet -g TestBGPR
 az network public-ip create -n GWPubIP2 -g TestBGPRG2 --allocation-method Dynamic
 ```
 
-#### <a name="4-create-the-vpn-gateway-with-the-as-number"></a>4. AS 번호로 VPN 게이트웨이 만들기
+#### <a name="4-create-the-vpn-gateway-with-the-as-number"></a>4. AS 번호를 사용 하 여 VPN gateway를 만듭니다.
 
 TestVNet2용 가상 네트워크 게이트웨이를 만듭니다. Azure VPN 게이트웨이에서 기본 ASN을 재정의해야 합니다. BGP 및 전송 라우팅을 사용할 수 있도록 하려면 연결된 가상 네트워크용 ASN은 서로 달라야 합니다.
  
@@ -282,7 +282,7 @@ az network vnet-gateway show -n VNet1GW -g TestBGPRG1
 az network vnet-gateway show -n VNet2GW -g TestBGPRG2
 ```
 
-#### <a name="3-create-the-connections"></a>3. 연결 만들기
+#### <a name="3-create-the-connections"></a>3. 연결을 만듭니다.
 
 TestVNet1에서 TestVNet2까지 및 TestVNet2에서 TestVNet1까지의 연결을 만듭니다. 구독 ID를 사용자 고유의 ID로 바꾸어야 합니다.
 

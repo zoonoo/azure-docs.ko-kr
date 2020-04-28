@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: 38ef7774263e4b28b7c316fd0870ca8f7b89d6b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75931716"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>StorSimple 스냅샷 관리자를 사용하여 백업 카탈로그 관리
@@ -92,7 +92,7 @@ StorSimple 스냅샷 관리자는 예비 백업이 생성되는 동안 다음 �
    
    1. **이름** 텍스트 상자에 복제된 볼륨의 이름을 입력합니다. 이 이름은 **볼륨** 노드에 나타납니다. 
    2. (선택 사항) **드라이브**를 선택한 다음 드롭다운 목록에서 드라이브 문자를 선택합니다.
-   3. (선택 사항) **폴더(NTFS)를**선택하고 폴더 경로를 입력하거나 찾아보기를 클릭하고 폴더의 위치를 선택합니다. 
+   3. (선택 사항) **폴더 (NTFS)** 를 선택 하 고 폴더 경로를 입력 하거나 찾아보기를 클릭 하 고 폴더 위치를 선택 합니다. 
    4. **만들기**를 클릭합니다.
 5. 복제 프로세스가 완료되면 복제된 볼륨을 초기화해야 합니다. 서버 관리자를 시작한 다음 디스크 관리를 시작합니다. 자세한 지침은 [볼륨 탑재](storsimple-snapshot-manager-manage-volumes.md#mount-volumes)를 참조하세요. 초기화하면 볼륨이 **범위** 창의 **볼륨** 노드 아래에 나열됩니다. 나열된 볼륨이 보이지 않으면 볼륨 목록을 새로 고칩니다(**볼륨** 노드를 마우스 오른쪽 단추로 클릭한 다음 **새로 고침** 클릭).
 
@@ -124,7 +124,7 @@ StorSimple 스냅샷 관리자는 예비 백업이 생성되는 동안 다음 �
 4. 다음과 같이 **클라우드 스냅숏 복제** 대화 상자를 완료합니다. 
    
    1. **이름** 텍스트 상자에 복제된 볼륨의 이름을 입력합니다. 이 이름은 **볼륨** 노드에 나타납니다. 
-   2. (선택 사항) **드라이브를**선택한 다음 드롭다운 목록에서 드라이브 문자를 선택합니다. 
+   2. 필드 **드라이브**를 선택한 다음 드롭다운 목록에서 드라이브 문자를 선택 합니다. 
    3. (선택 사항) **폴더(NTFS)** 를 선택하고 폴더 경로를 입력하거나 **찾아보기**를 클릭하고 폴더 위치를 선택합니다. 
    4. **만들기**를 클릭합니다. 
 5. 복제 프로세스가 완료되면 복제된 볼륨을 초기화해야 합니다. 서버 관리자를 시작한 다음 디스크 관리를 시작합니다. 자세한 지침은 [볼륨 탑재](storsimple-snapshot-manager-manage-volumes.md#mount-volumes)를 참조하세요. 초기화하면 볼륨이 **범위** 창의 **볼륨** 노드 아래에 나열됩니다. 
@@ -140,7 +140,7 @@ StorSimple 스냅샷 관리자는 예비 백업이 생성되는 동안 다음 �
 1. Microsoft StorSimple 관리 서비스를 중지합니다.
    
    1. 서버 관리자를 시작합니다.
-   2. 서버 관리자 대시보드에서 **도구** 메뉴에서 **서비스를**선택합니다.
+   2. 서버 관리자 대시보드의 **도구** 메뉴에서 **서비스**를 선택 합니다.
    3. **서비스** 창에서 **Microsoft StorSimple 관리 서비스**를 선택합니다.
    4. 오른쪽 창의 **Microsoft StorSimple 관리 서비스** 아래에서 **서비스 중지**를 클릭합니다.
 2. 호스트 컴퓨터에서 C:\ProgramData\Microsoft\StorSimple\BACatalog로 이동합니다. 
@@ -154,7 +154,7 @@ StorSimple 스냅샷 관리자는 예비 백업이 생성되는 동안 다음 �
     ![Azure StorSimple 백업 카탈로그 파일](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_bacatalog.png)
 4. Microsoft StorSimple 관리 서비스를 다시 시작합니다. 
    
-   1. 서버 관리자 대시보드에서 **도구** 메뉴에서 **서비스를**선택합니다.
+   1. 서버 관리자 대시보드의 **도구** 메뉴에서 **서비스**를 선택 합니다.
    2. **서비스** 창에서 **Microsoft StorSimple 관리 서비스**를 선택합니다.
    3. 오른쪽 창의 **Microsoft StorSimple 관리 서비스** 아래에서 **서비스 다시 시작**을 클릭합니다.
 5. 호스트 컴퓨터에서 C:\ProgramData\Microsoft\StorSimple\BACatalog로 이동합니다. 

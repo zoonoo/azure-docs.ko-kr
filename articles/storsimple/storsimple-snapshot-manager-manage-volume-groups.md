@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: 5198729cf96fb48c5dcd05096c04ea4d77c26de5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75931486"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>StorSimple 스냅샷 관리자를 사용하여 볼륨 그룹 만들기 및 관리
@@ -48,9 +48,9 @@ ms.locfileid: "75931486"
 ## <a name="view-volume-groups"></a>볼륨 그룹 보기
 **볼륨 그룹** 노드를 클릭하면 선택한 열에 따라 **결과** 창에 각 볼륨 그룹에 대해 다음 정보가 표시됩니다. **결과** 창의 열은 구성할 수 있습니다. **볼륨** 노드를 마우스 오른쪽 단추로 클릭하고 **보기**를 선택한 다음 **열 추가/제거**를 선택합니다.
 
-| 결과 열 | 설명 |
+| 결과 열 | Description |
 |:--- |:--- |
-| 이름 |**이름** 열에는 볼륨 그룹의 이름이 포함됩니다. |
+| 속성 |**이름** 열에는 볼륨 그룹의 이름이 포함됩니다. |
 | 애플리케이션 |**응용 프로그램** 열에는 현재 Windows 호스트에 설치되어 실행되는 VSS 기록기 수가 표시됩니다. |
 | 선택 |**선택됨** 열에는 볼륨 그룹에 포함된 볼륨의 수가 표시됩니다. 0이면 볼륨 그룹의 볼륨에 연결된 애플리케이션이 없음을 나타냅니다. |
 | 가져옴 |**가져옴** 열에는 가져온 볼륨의 수가 표시됩니다. 이 열이 **True**로 설정되면 볼륨 그룹을 Azure Portal에서 가져왔으며 StorSimple 스냅샷 관리자에서 만들지 않았음을 나타냅니다. |
@@ -77,12 +77,12 @@ ms.locfileid: "75931486"
    1. **이름** 상자에 새 볼륨 그룹의 고유한 이름을 입력합니다.
    2. **애플리케이션** 상자에서 볼륨 그룹에 추가할 볼륨과 연결된 애플리케이션을 선택합니다.
       
-       **애플리케이션** 상자에는 StorSimple 볼륨을 사용하고 VSS 기록기를 사용하도록 설정된 애플리케이션만 나열됩니다. VSS 기록기는 기록기가 인식하는 모든 볼륨이 StorSimple 볼륨인 경우에만 활성화됩니다. 애플리케이션 상자가 비어 있으면 Azure StorSimple 볼륨을 사용하고 VSS 기록기를 지원하는 애플리케이션이 설치되어 있지 않습니다. (현재 Azure StorSimple은 Microsoft Exchange 및 SQL Server를 지원합니다. VSS 기록기에 대한 자세한 내용은 [Windows 볼륨 섀도 복사본 서비스와의 통합을](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service)참조하십시오.
+       **애플리케이션** 상자에는 StorSimple 볼륨을 사용하고 VSS 기록기를 사용하도록 설정된 애플리케이션만 나열됩니다. VSS 기록기는 기록기가 인식하는 모든 볼륨이 StorSimple 볼륨인 경우에만 활성화됩니다. 애플리케이션 상자가 비어 있으면 Azure StorSimple 볼륨을 사용하고 VSS 기록기를 지원하는 애플리케이션이 설치되어 있지 않습니다. 현재 Azure StorSimple은 Microsoft Exchange 및 SQL Server을 지원 합니다. VSS 기록기에 대 한 자세한 내용은 [Windows 볼륨 섀도 복사본 서비스 통합](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service)을 참조 하세요.
       
        애플리케이션을 선택하면 연결된 모든 볼륨이 자동으로 선택됩니다. 반대로, 특정 애플리케이션과 연결된 볼륨을 선택하면 **애플리케이션** 상자에서 해당 애플리케이션이 자동으로 선택됩니다. 
    3. **볼륨** 상자에서 볼륨 그룹에 추가할 StorSimple 볼륨을 선택합니다. 
       
-      * 단일 또는 다중 파티션이 있는 볼륨을 포함할 수 있습니다. (여러 파티션 볼륨은 동적 디스크 또는 여러 파티션이 있는 기본 디스크일 수 있습니다.) 여러 파티션을 포함하는 볼륨은 단일 단위로 처리됩니다. 따라서 파티션 중 하나만 볼륨 그룹에 추가해도 다른 모든 파티션이 해당 볼륨 그룹에 동시에 자동으로 추가됩니다. 볼륨 그룹에 다중 파티션 볼륨을 추가한 후에도 해당 다중 파티션 볼륨은 계속 단일 단위로 취급됩니다.
+      * 단일 또는 다중 파티션이 있는 볼륨을 포함할 수 있습니다. 다중 파티션 볼륨은 다중 파티션이 있는 기본 디스크 또는 동적 디스크 일 수 있습니다. 여러 파티션을 포함 하는 볼륨은 단일 단위로 처리 됩니다. 따라서 파티션 중 하나만 볼륨 그룹에 추가해도 다른 모든 파티션이 해당 볼륨 그룹에 동시에 자동으로 추가됩니다. 볼륨 그룹에 다중 파티션 볼륨을 추가한 후에도 해당 다중 파티션 볼륨은 계속 단일 단위로 취급됩니다.
       * 볼륨을 할당하지 않으면 빈 볼륨 그룹을 만들 수 있습니다. 
       * 클러스터 공유 볼륨(CSV)과 비 CSV를 동일한 볼륨 그룹에 혼합하지 않도록 합니다. StorSimple 스냅샷 관리자는 동일한 스냅샷에 혼합되어 있는 CSV 볼륨과 비 CSV 볼륨을 지원하지 않습니다.
 4. **확인**을 클릭하여 볼륨 그룹을 저장합니다.

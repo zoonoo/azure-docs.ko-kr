@@ -1,15 +1,15 @@
 ---
-title: 서비스 패브릭 클러스터 리소스 관리자 - 배치 정책
+title: 클러스터 리소스 관리자 Service Fabric 배치 정책
 description: 서비스 패브릭 서비스에 대한 추가 배치 정책 및 규칙 개요
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 9aea157d03f344e07a81f0588d3e0127f17ca75d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75834454"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>서비스 패브릭 서비스에 대한 배치 정책
@@ -79,7 +79,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 <center>
 
-![기본 도메인 및 장애 조치(failover)][Image3]
+![기본 설정 주 도메인 및 장애 조치 (Failover)][Image3]
 </center>
 
 ```csharp

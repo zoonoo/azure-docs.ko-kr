@@ -1,5 +1,5 @@
 ---
-title: Cisco ASA 장치를 Azure VPN 게이트웨이에 연결하기 위한 샘플 구성
+title: Azure VPN gateway에 Cisco GLOBAL.ASA 장치를 연결 하기 위한 샘플 구성
 description: 이 문서에서는 Azure VPN Gateway에 Cisco ASA 디바이스를 연결하는 샘플 구성을 제공합니다.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
 ms.openlocfilehash: 96e5c26ea7b5f1baa33fd8830491ee3aa1e60221
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75778085"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>샘플 구성: Cisco ASA 디바이스(IKEv2/BGP 아님)
@@ -27,7 +27,7 @@ ms.locfileid: "75778085"
 | 테스트 모델           | ASA 5505                          |
 | 테스트 버전         | 9.2                               |
 | IKE 버전            | IKEv2                             |
-| BGP                    | 예                                |
+| BGP                    | 아니요                                |
 | Azure VPN 게이트웨이 유형 | 경로 기반 VPN Gateway           |
 |                        |                                   |
 
@@ -117,7 +117,7 @@ Azure 구성을 빌드하는 단계별 지침은 [단일 VPN 터널 설정](vpn-
   - IKE: **Pre_Shared_Key**
   - 가상 네트워크 및 로컬 네트워크 게이트웨이 이름: **VNetName** 및 **LNGName**
   - 가상 네트워크 및 온-프레미스 네트워크 주소 **접두사**
-  - 적절한 **넷마스크**
+  - 적절 한 **네트워크 마스크**
 
 #### <a name="sample-script"></a>샘플 스크립트
 

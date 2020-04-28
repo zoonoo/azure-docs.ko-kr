@@ -1,6 +1,6 @@
 ---
 title: R, Python 및 T-SQL을 사용하여 SQL Server에서 분석 - Team Data Science Process
-description: SQL Server에서 R, Python 및 T-SQL을 사용하여 예측 분석을 수행하는 예제입니다.
+description: SQL Server에서 R, Python 및 T-sql을 사용 하 여 예측 분석을 수행 하는 예제입니다.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,13 +12,13 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 880ee0a4a1eb396312ea9692b7586d724d6fd410
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75864097"
 ---
-# <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>R, 파이썬 및 T-SQL을 사용한 SQL Server 데이터 과학 연습
+# <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>R, Python 및 T-sql을 사용 하 여 데이터 과학 연습 SQL Server
 
 이 연습에서는 SQL Server, SQL Server R Services 및 SQL Server Python Services를 사용하여 예측 분석을 수행합니다. R 및 Python 코드는 저장 프로시저에 배포됩니다. Team Data Science Process에 설명된 단계를 따릅니다. Team Data Science Process의 개요는 [데이터 과학 프로세스](overview.md)를 참조하세요. 
 
@@ -27,12 +27,12 @@ Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사�
 
 ## <a name="predict-taxi-tips-using-python-and-sql-queries-with-sql-server"></a>SQL Server과 함께 Python 및 SQL 쿼리를 사용하여 택시 팁 예측 
 
-[SQL Server 사용](sql-walkthrough.md) 연습에서는 기계 학습 분류 및 회귀 모델을 빌드하고 배포하는 방법을 보여 주며 이 방법을 보여 주어 있습니다.  데이터는 공개적으로 이용 가능한 NYC 택시 여행 및 요금 데이터 집합입니다.
+[SQL Server 사용](sql-walkthrough.md) 연습은 기계 학습 분류 및 회귀 모델을 빌드 및 배포 하는 방법을 보여 줍니다.  데이터는 공개적으로 사용할 수 있는 NYC taxi 여행 및 요금 데이터 집합입니다.
 
 
 ## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>SQL Server와 함께 Microsoft R을 사용하여 택시 팁 예측 
 
-[SQL Server R 서비스 사용](https://msdn.microsoft.com/library/mt612857.aspx) 연습에서는 R 모델을 빌드하고 SQL Server에 배포하는 방법을 보여 주며 이 방법을 보여 주며, 이 연습에서는 R 모델을 빌드하고 배포하는 방법을 보여 주며, 이 연습은 R 개발자에게 R Services(데이터베이스 내)를 소개하기 위해 설계되었습니다.
+[SQL Server R Services 사용](https://msdn.microsoft.com/library/mt612857.aspx) 연습에서는 SQL Server에 R 모델을 빌드하고 배포 하는 방법을 보여 줍니다. 이 연습은 R 개발자에게 R Services(데이터베이스 내)를 소개하기 위해 설계되었습니다.
 
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>SQL Server와 함께 T SQL 또는 저장 프로시저에서 R을 사용하여 택시 팁 예측

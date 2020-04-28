@@ -9,47 +9,47 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: bb761afa6d8953b441b6c9541c43b73031719494
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75775174"
 ---
 # <a name="exchange-peering-walkthrough"></a>Exchange 피어링 연습
 
-이 섹션에서는 Exchange 피어링을 설정하고 관리하기 위해 따라야 하는 단계를 설명합니다.
+이 섹션에서는 Exchange 피어 링을 설정 하 고 관리 하기 위해 수행 해야 하는 단계를 설명 합니다.
 
-## <a name="create-an-exchange-peering"></a>Exchange 피어링 만들기
+## <a name="create-an-exchange-peering"></a>Exchange 피어 링 만들기
 > [!div class="mx-imgBorder"]
-> ![피어링 워크플로 및 연결 상태 교환](./media/exchange-peering.png)
+> ![Exchange 피어 링 워크플로 및 연결 상태](./media/exchange-peering.png)
 
-Exchange 피어링을 프로비전하려면 다음 단계를 따라야 합니다.
-1. Microsoft 피어링 정책을 검토하여 Exchange [피어링에](https://peering.azurewebsites.net/peering) 대한 요구 사항을 이해합니다.
-1. [피어링DB에서](https://www.peeringdb.com/net/694) Microsoft 피어링 위치 및 피어링 기능 ID 찾기
-1. 자세한 내용은 PowerShell 문서를 사용하여 Exchange [피어링 만들기 및 수정의](howto-exchange-powershell.md) 지침을 사용하여 피어링 위치에 대한 Exchange 피어링을 요청합니다.
-1. 피어링 요청을 제출한 후 Microsoft는 요청을 검토하고 필요한 경우 귀하에게 연락합니다.
-1. 승인되면 연결 상태가 승인됨으로 변경됩니다.
-1. 끝에 BGP 세션을 구성하고 Microsoft에 알립니다.
-1. DENY ALL 정책을 사용하여 BGP 세션을 프로비전하고 종단 간 유효성을 검사합니다.
-1. 성공하면 피어링 연결 상태가 활성이라는 알림을 받게 됩니다.
-1. 그러면 새 피어링을 통해 트래픽이 허용됩니다.
+Exchange 피어 링을 프로 비전 하려면 다음 단계를 따라야 합니다.
+1. Microsoft [피어 링 정책](https://peering.azurewebsites.net/peering) 을 검토 하 여 Exchange 피어 링에 대 한 요구 사항을 파악 합니다.
+1. [Peeringdb](https://www.peeringdb.com/net/694) 에서 Microsoft 피어 링 위치 및 피어 링 기능 id 찾기
+1. 자세한 내용은 [PowerShell을 사용 하 여 exchange 피어 링 만들기 및 수정](howto-exchange-powershell.md) 문서에 설명 된 지침을 사용 하 여 피어 링 위치에 대 한 교환 피어 링을 요청 합니다.
+1. 피어 링 요청을 제출 하면 Microsoft에서 요청을 검토 하 고 필요한 경우 사용자에 게 연락 합니다.
+1. 승인 되 면 연결 상태가 승인 됨으로 변경 됩니다.
+1. 최종 사용자에 게 BGP 세션을 구성 하 고 Microsoft에 알림
+1. 모든 정책 거부 및 종단 간 유효성 검사를 사용 하 여 BGP 세션을 프로 비전 합니다.
+1. 성공 하면 피어 링 연결 상태가 활성 임을 알리는 알림을 받게 됩니다.
+1. 그러면 새 피어 링을 통해 트래픽이 허용 됩니다.
 
-연결 상태는 표준 [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) 세션 상태와 혼동해서는 안 됩니다.
+연결 상태는 표준 [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) 세션 상태와 혼동 되지 않습니다.
 
 ## <a name="convert-a-legacy-exchange-peering-to-azure-resource"></a>레거시 Exchange 피어링을 Azure 리소스로 변환
-레거시 Exchange 피어링을 Azure 리소스로 변환하려면 다음 단계를 따라야 합니다.
-1. 레거시 Exchange [피어링에서 Azure 리소스로 변환의 지침에](howto-legacy-exchange-powershell.md) 따라
-1. 변환 요청을 제출한 후 Microsoft는 요청을 검토하고 필요한 경우 귀하에게 연락합니다.
-1. 승인되면 연결 상태가 활성으로 Exchange 피어링이 표시됩니다.
+레거시 Exchange 피어 링을 Azure 리소스로 변환 하려면 다음 단계를 따라야 합니다.
+1. [레거시 Exchange 피어 링을 Azure 리소스로 변환](howto-legacy-exchange-powershell.md) 의 지침을 따릅니다.
+1. 변환 요청을 제출 하면 Microsoft에서 요청을 검토 하 고 필요한 경우 사용자에 게 연락 합니다.
+1. 승인 되 면 연결 상태가 활성으로 표시 된 Exchange 피어 링이 표시 됩니다.
 
-## <a name="deprovision-exchange-peering"></a>프로비저닝 해제 교환 피어링
-프로비저닝 해제Exchange 피어링을 위해 [Microsoft 피어링에](mailto:peering@microsoft.com) 문의하십시오.
+## <a name="deprovision-exchange-peering"></a>Exchange 피어 링 프로 비전 해제
+[Microsoft 피어](mailto:peering@microsoft.com) 링에 문의 하 여 Exchange 피어 링을 프로 비전 해제 합니다.
 
-프로비저닝 해제를 위해 Exchange 피어링이 설정된 경우 연결 상태가 **보류 해제됨으로** 표시됩니다.
+프로 비전 해제에 대해 Exchange 피어 링이 설정 된 경우에는 연결 상태가 **pendingremove** 로 표시 됩니다.
 
 > [!NOTE]
-> PowerShell cmdlet을 실행하여 연결 상태가 프로비저닝시작 또는 프로비저닝일 때 Exchange 피어링을 삭제하면 작업이 실패합니다.
+> 연결 상태가 ProvisioningStarted 이거나 ProvisioningCompleted 인 경우 PowerShell cmdlet을 실행 하 여 Exchange 피어 링을 삭제 하면 작업이 실패 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Microsoft를 사용하여 피어링을 설정하는 필수 구성 방법에](prerequisites.md)대해 알아봅니다.
+* [Microsoft와의 피어 링을 설정 하기 위한 필수 조건](prerequisites.md)에 대해 알아봅니다.

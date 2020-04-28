@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
 ms.openlocfilehash: a37fd886e1bc70226b2e54750540dfcb79ee5973
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75768880"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
 이 문서에서는 Azure Functions에 대한 자동화된 테스트를 만드는 방법에 대해 설명합니다. 
 
-모든 코드를 테스트하는 것이 좋지만, Functions의 논리를 래핑하고 함수 외부에 테스트를 만들면 최상의 결과를 얻을 수 있습니다. 논리를 무시하면 Functions의 코드 줄이 제한되고 함수가 단독으로 다른 클래스 또는 모듈을 호출할 수 있습니다. 그러나 이 문서에서는 HTTP 및 타이머 트리거 함수에 대해 자동화된 테스트를 만드는 방법을 보여 줍니다.
+모든 코드를 테스트하는 것이 좋지만, Functions의 논리를 래핑하고 함수 외부에 테스트를 만들면 최상의 결과를 얻을 수 있습니다. 논리를 무시하면 Functions의 코드 줄이 제한되고 함수가 단독으로 다른 클래스 또는 모듈을 호출할 수 있습니다. 그러나이 문서에서는 HTTP 및 타이머 트리거 함수에 대해 자동화 된 테스트를 만드는 방법을 보여 줍니다.
 
 다음에 나오는 내용은 서로 다른 언어 및 환경을 대상으로 하는 두 가지 섹션으로 분할됩니다. 테스트를 빌드하는 방법은 다음을 참조하세요.
 
@@ -38,7 +38,7 @@ ms.locfileid: "75768880"
 2. [템플릿에서 HTTP 함수를 만들고](./functions-create-first-azure-function.md) 이름을 *HttpTrigger*로 지정합니다.
 3. [템플릿에서 타이머 함수를 만들고](./functions-create-scheduled-function.md) 이름을 *TimerTrigger*로 지정합니다.
 4. Visual Studio에서 **파일 > 새로 만들기 > 프로젝트 > Visual C# > .NET Core > xUnit 테스트 프로젝트**를 클릭하여 [xUnit 테스트 앱을 만들고](https://xunit.github.io/docs/getting-started-dotnet-core) 이름을 *Functions.Test*로 지정합니다. 
-5. NuGet을 사용하여 테스트 앱에서 [참조를 Microsoft.AspNetCore.Mvc에](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/) 추가합니다.
+5. NuGet을 사용 하 여 [AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/) 에 테스트 앱의 참조를 추가 합니다.
 6. *Functions.Test* 앱에서 [*Functions* 앱을 참조](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017)합니다.
 
 ### <a name="create-test-classes"></a>테스트 클래스 만들기
@@ -47,9 +47,9 @@ ms.locfileid: "75768880"
 
 각 함수는 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 인스턴스를 사용하여 메시지 로깅을 처리합니다. 일부 테스트는 메시지를 기록하지 않거나 로깅 구현 방법에 관여하지 않습니다. 기타 테스트는 테스트 통과 여부를 결정하기 위해 기록된 메시지를 평가해야 합니다.
 
-클래스는 `ListLogger` 인터페이스를 `ILogger` 구현하고 테스트 중에 평가를 위한 내부 메시지 목록을 보유합니다.
+클래스 `ListLogger` 는 인터페이스를 `ILogger` 구현 하 고 테스트 중에 평가할 메시지의 내부 목록을 보유 합니다.
 
-*Functions.Test* 응용 프로그램을 **마우스 오른쪽 단추로 클릭하고** **클래스 > 추가를**선택하고 **이름을 NullScope.cs** 다음 코드를 입력합니다.
+NullScope.cs *응용 프로그램을* **마우스 오른쪽 단추로 클릭** 하 고 **추가 > 클래스**를 선택 하 고 이름을 **NullScope.cs** 로 입력 한 후 다음 코드를 입력 합니다.
 
 ```csharp
 using System;
@@ -67,7 +67,7 @@ namespace Functions.Tests
 }
 ```
 
-그런 다음 *Functions.Test* 응용 프로그램을 **마우스 오른쪽 단추로 클릭하고** **> 클래스 추가를**선택하고 **ListLogger.cs** 이름을 지정하고 다음 코드를 입력합니다.
+그런 다음, ListLogger.cs 응용 프로그램을 **마우스 오른쪽 단추로 클릭** 하 고 **추가 > 클래스**를 선택 하 고 이름을 **ListLogger.cs** 로 입력 한 후 다음 코드를 입력 *합니다.*
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -105,11 +105,11 @@ namespace Functions.Tests
 
 `ListLogger` 클래스는 `ILogger` 인터페이스에서 계약된 대로 다음 멤버를 구현합니다.
 
-- **시작 범위**: 범위는 로깅에 컨텍스트를 추가합니다. 이 경우 테스트는 `NullScope` 클래스의 정적 인스턴스를 가리키므로 테스트가 작동할 수 있습니다.
+- **Beginscope**: 범위는 로깅에 컨텍스트를 추가 합니다. 이 경우 테스트는 테스트를 작동할 수 있도록 `NullScope` 클래스의 정적 인스턴스를 가리킵니다.
 
-- **IsEnabled**: 기본값이 `false` 제공됩니다.
+- **IsEnabled**:의 `false` 기본값이 제공 됩니다.
 
-- **로그**: 이 `formatter` 메서드는 제공된 함수를 사용하여 메시지의 `Logs` 서식을 지정한 다음 결과 텍스트를 컬렉션에 추가합니다.
+- **로그**:이 메서드는 제공 `formatter` 된 함수를 사용 하 여 메시지의 서식을 지정한 다음 결과 텍스트를 `Logs` 컬렉션에 추가 합니다.
 
 `Logs` 컬렉션은 `List<string>`의 인스턴스이고 생성자에서 초기화됩니다.
 
@@ -190,13 +190,13 @@ namespace Functions.Tests
 ```
 `TestFactory` 클래스는 다음 멤버를 구현합니다.
 
-- **데이터**: 이 속성은 샘플 데이터의 [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) 컬렉션을 반환합니다. 키 값 쌍은 쿼리 문자열로 전달되는 값을 나타냅니다.
+- **데이터**:이 속성은 예제 데이터의 [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) 컬렉션을 반환 합니다. 키 값 쌍은 쿼리 문자열로 전달되는 값을 나타냅니다.
 
-- **CreateDictionary**: 이 메서드는 키/값 쌍을 인수로 `Dictionary` 받아들이고 쿼리 `QueryCollection` 문자열 값을 나타내는 데 사용되는 새 를 반환합니다.
+- **CreateDictionary**:이 메서드는 키/값 쌍을 인수로 수락 하 고 쿼리 문자열 `Dictionary` 값을 나타내기 `QueryCollection` 위해 만드는 데 사용 되는 새을 반환 합니다.
 
-- **CreateHttpRequest**: 이 메서드는 지정된 쿼리 문자열 매개 변수로 초기화된 HTTP 요청을 만듭니다.
+- **CreateHttpRequest**:이 메서드는 지정 된 쿼리 문자열 매개 변수를 사용 하 여 초기화 된 HTTP 요청을 만듭니다.
 
-- **CreateLogger**: 로거 유형에 따라 이 메서드는 테스트에 사용되는 로거 클래스를 반환합니다. `ListLogger`는 테스트에서 평가에 사용할 수 있는 기록된 메시지를 추적합니다.
+- **Createlogger**:로 거 형식을 기반으로 하는이 메서드는 테스트에 사용 되는로 거 클래스를 반환 합니다. `ListLogger`는 테스트에서 평가에 사용할 수 있는 기록된 메시지를 추적합니다.
 
 그런 다음, *Functions.Test* 애플리케이션을 **마우스 오른쪽 단추로 클릭**하고, **추가 > 클래스**를 선택하고, 이름을 **FunctionsTests.cs**로 지정하고, 다음 코드를 입력합니다.
 
@@ -241,13 +241,13 @@ namespace Functions.Tests
 ```
 이 클래스에 구현된 멤버는 다음과 같습니다.
 
-- **Http_trigger_should_return_known_string**: 이 테스트는 HTTP 함수에 `name=Bill` 대한 쿼리 문자열 값으로 요청을 만들고 예상된 응답이 반환되는지 확인합니다.
+- **Http_trigger_should_return_known_string**:이 테스트는 Http 함수에 대해 `name=Bill` 쿼리 문자열 값을 사용 하 여 요청을 만들고 필요한 응답이 반환 되는지 확인 합니다.
 
-- **Http_trigger_should_return_string_from_member_data**: 이 테스트는 xUnit 특성을 사용하여 HTTP 함수에 샘플 데이터를 제공합니다.
+- **Http_trigger_should_return_string_from_member_data**:이 테스트는 xunit 특성을 사용 하 여 Http 함수에 샘플 데이터를 제공 합니다.
 
-- **Timer_should_log_message**: 이 테스트는 `ListLogger` 인스턴스를 만들고 타이머 함수에 전달합니다. 함수가 실행되면 로그를 확인하여 예상 메시지가 있는지 확인합니다.
+- **Timer_should_log_message**:이 테스트는의 `ListLogger` 인스턴스를 만들어 타이머 함수에 전달 합니다. 함수가 실행되면 로그를 확인하여 예상 메시지가 있는지 확인합니다.
 
-테스트에서 응용 프로그램 설정에 액세스하려면 [System.Environment.GetEnvironment변수](./functions-dotnet-class-library.md#environment-variables)를 사용할 수 있습니다.
+테스트에서 응용 프로그램 설정에 액세스 하려는 경우 [GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)를 사용할 수 있습니다.
 
 ### <a name="run-tests"></a>테스트 실행
 
@@ -305,7 +305,7 @@ module.exports = {
 };
 ```
 
-이 모듈은 가짜 타이머 인스턴스인 is를 나타내는 `IsPastDue` 속성을 구현합니다. 테스트 하네스는 단순히 결과를 테스트하기 위해 함수를 직접 호출하기 때문에 NCRONTAB 식과 같은 타이머 구성은 여기에 필요하지 않습니다.
+이 모듈은 가짜 타이머 인스턴스인 is를 나타내는 `IsPastDue` 속성을 구현합니다. 테스트 도구는 단순히 함수를 직접 호출 하 여 결과를 테스트 하는 것 이므로 NCRONTAB 식과 같은 타이머 구성은 필요 하지 않습니다.
 
 그런 다음, VS Code Functions 확장을 사용하여 [새 JavaScript HTTP 함수를 만들고](/azure/javascript/tutorial-vscode-serverless-node-01) 이름을 *HttpTrigger*로 지정합니다. 함수가 만들어지면 **index.test.js**라는 동일한 폴더에 새 파일을 추가하고 다음 코드를 추가합니다.
 
