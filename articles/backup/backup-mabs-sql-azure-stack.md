@@ -1,13 +1,13 @@
 ---
 title: Azure Stack에 SQL Server 워크로드 백업
-description: 이 문서에서는 Azure 스택에서 SQL Server 데이터베이스를 보호 하도록 Microsoft Azure 백업 서버(MABS)를 구성 하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure Stack에서 SQL Server 데이터베이스를 보호 하도록 MABS (Microsoft Azure Backup Server)를 구성 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 03211e1147f96429a8406c4c95654161ed2bf308
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74172303"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Azure Stack에 SQL Server 백업
@@ -38,7 +38,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 
     ![선택하는 보호 그룹 종류 - '서버'](./media/backup-azure-backup-sql/pg-servers.png)
 
-4. **그룹 멤버 선택** 화면에서, 사용 가능한 멤버 목록에 다양한 데이터 원본이 표시됩니다. 폴더를 확장하고 하위 폴더를 표시하려면 클릭합니다. **+** 확인란을 클릭하여 항목을 선택합니다.
+4. **그룹 멤버 선택** 화면에서, 사용 가능한 멤버 목록에 다양한 데이터 원본이 표시됩니다. 폴더 **+** 를 확장 하 고 하위 폴더를 표시 하려면 클릭 합니다. 확인란을 클릭하여 항목을 선택합니다.
 
     ![SQL DB를 선택합니다.](./media/backup-azure-backup-sql/pg-databases.png)
 

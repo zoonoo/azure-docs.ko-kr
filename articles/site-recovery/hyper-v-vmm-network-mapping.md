@@ -1,5 +1,5 @@
 ---
-title: 사이트 복구를 사용한 하이퍼-V(VMM 사용) 네트워크 매핑 정보
+title: Site Recovery의 Hyper-v (VMM 사용) 네트워크 매핑 정보
 description: Azure Site Recovery를 사용하여 Azure로의 VMM 클라우드에서 관리되는 Hyper-V VM의 재해 복구를 위한 네트워크 매핑을 설정하는 방법을 설명합니다.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74082567"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Azure로 Hyper-V VM 재해 복구를 수행하기 위해 네트워크 매핑 준비
@@ -104,7 +104,7 @@ VMNetwork2-시카고 | SilverCloud1 | SilverCloud2 | 사용할 수 없음
 장애 복구(역방향 복제)의 경우 수행되는 작업을 보려면 다음 설정을 사용하여 VMNetwork1-뉴욕이 VMNetwork1-시카고에 매핑되어 있다고 가정해 보겠습니다.
 
 
-**Vm** | **VM 네트워크에 연결**
+**VM** | **VM 네트워크에 연결**
 ---|---
 VM1 | VMNetwork1-네트워크
 VM2(VM1의 복제) | VMNetwork1-시카고

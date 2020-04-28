@@ -1,5 +1,5 @@
 ---
-title: Visual Studio(ASP.NET 코어)를 사용하여 Blob 스토리지 시작
+title: Visual Studio를 사용 하 여 blob storage 시작 (ASP.NET Core)
 description: Visual Studio 연결된 서비스를 사용하여 스토리지 계정을 만든 후 Visual Studio ASP.NET Core 프로젝트에서 Azure Blob Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
@@ -14,17 +14,17 @@ ms.date: 11/14/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 81df41470c893f569fd17345e8bdf4b29641ec64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72298828"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET Core)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-이 문서에서는 Visual Studio의 **연결된 서비스** 기능을 사용하여 Azure Storage 계정을 ASP.NET Core 프로젝트에서 생성하거나 참조한 후 Azure Blob Storage를 Visual Studio에서 사용하는 방법을 설명합니다. **연결된 서비스** 작업은 프로젝트에 Azure 저장소에 액세스하기 위해 적절한 NuGet 패키지를 설치하고 저장소 계정에 대한 연결 문자열을 프로젝트 구성 파일에 추가합니다. Azure 저장소에 대한 일반 정보는 [저장소 설명서를](https://azure.microsoft.com/documentation/services/storage/) 참조하십시오.
+이 문서에서는 Visual Studio의 **연결된 서비스** 기능을 사용하여 Azure Storage 계정을 ASP.NET Core 프로젝트에서 생성하거나 참조한 후 Azure Blob Storage를 Visual Studio에서 사용하는 방법을 설명합니다. **연결된 서비스** 작업은 프로젝트의 Azure storage에 액세스 하는 데 적합 한 NuGet 패키지를 설치 하 고 프로젝트 구성 파일에 저장소 계정에 대 한 연결 문자열을 추가 합니다. Azure Storage에 대 한 일반 정보는 [저장소 설명서](https://azure.microsoft.com/documentation/services/storage/) 를 참조 하세요.
 
 Azure Blob Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액세스할 수 있는 다량의 구조화되지 않은 데이터를 저장하기 위한 서비스입니다. 단일 Blob은 임의의 크기일 수 있습니다. Blob은 이미지, 오디오 및 비디오 파일, 원시 데이터, 문서 파일 등일 수 있습니다. 이 문서에서는 ASP.NET Core 프로젝트에서 Visual Studio **연결된 서비스**를 사용하여 Azure Storage 계정을 만든 후 Blob Storage를 시작하는 방법을 설명합니다.
 

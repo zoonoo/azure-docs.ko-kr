@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구를 통해 Hyper-V 재해 복구를 위한 용량 계획
+title: Azure Site Recovery를 사용 하 여 Hyper-v 재해 복구를 위한 용량 계획
 description: Azure Site Recovery 서비스를 사용하여 재해 복구를 설정하는 경우 이 문서를 사용하여 용량을 추정합니다.
 author: rayne-wiselman
 manager: carmonm
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 843d5da26d6791cea880e5dfb654fe27b74f5d9f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73936036"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Hyper-V VM에 재해 복구에 대한 용량 계획 
 
-하이퍼-V에서 Azure 배포에 대한 [Azure 사이트 복구 배포 계획자](site-recovery-hyper-v-deployment-planner.md)는 다음을 제공합니다.
+Hyper-v에서 Azure로 배포 하기 위한 [Azure Site Recovery Deployment Planner] (site-recovery-hyper-v-deployment-planner.md)는 다음을 제공 합니다.
 
 * VM 적합성 평가(디스크 수, 디스크 크기, IOPS, 변동률 및 몇 가지 VM 특성 기준)
 * 네트워크 대역폭 요구 사항 및 RPO 평가
@@ -47,7 +47,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 2. **플래너 유형 선택** 목록 상자에서 **Quick Planner**를 선택합니다.
 
-   ![시작](./media/site-recovery-capacity-planner/getting-started.png)
+   ![시작하기](./media/site-recovery-capacity-planner/getting-started.png)
 
 3. **Capacity Planner** 워크시트에서 필요한 정보를 입력합니다. 다음 스크린샷에 빨간색 원이 표시된 모든 필드를 입력합니다.
 
@@ -55,7 +55,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    b. **평균 일일 데이터 변경률(%)** 에서 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 수집한 정보를 입력합니다.
 
-   다. **압축** 설정은 Hyper-V VM을 Azure에 복제하는 경우에 사용되지 않습니다. 압축의 경우 Riverbed와 같은 타사 어플라이언스를 사용합니다.
+   c. **압축** 설정은 Hyper-V VM을 Azure에 복제하는 경우에 사용되지 않습니다. 압축의 경우 Riverbed와 같은 타사 어플라이언스를 사용합니다.
 
    d. **보존 기간(일)** 에서 복제본을 보존할 기간을 일 단위로 지정합니다.
 
@@ -73,9 +73,9 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
    * **필요한 BLOB 디스크 수**: Azure Storage에 생성될 디스크 수입니다.
    * **필요한 Premium Storage 계정 수**: VM을 보호하는 데 필요한 총 Premium Storage 계정 수입니다. 높은 IOPS(20000 이상)를 포함한 원본 VM에는 Premium Storage 계정이 필요합니다. Premium Storage 계정은 최대 80000 IOPS를 보유할 수 있습니다.
    * **Premium Storage에 대한 총 IOPS**: 이 수치는 총 Premium Storage 계정에서 256K IOPS 단위 크기를 기준으로 계산됩니다. Quick Planner의 경우 이 수치는 모든 원본 VM 디스크 및 일일 데이터 변경률을 기반으로 계산됩니다. Detailed Planner의 경우 이 수치는 프리미엄 Azure VM(DS 및 GS 시리즈)에 매핑되는 총 VM 수 및 해당 VM의 데이터 변경률을 기반으로 계산됩니다.
-   * **필요한 구성 서버 수**: 배포에 필요한 구성 서버 수를 표시합니다.
-   * **필요한 추가 프로세스 서버 수**: 기본적으로 구성 서버에서 실행 중인 프로세스 서버 외에 추가 프로세스 서버가 필요한지 여부를 표시합니다.
-   * **소스에 100% 추가 저장소**: 원본 위치에 추가 저장소가 필요한지 여부를 표시합니다.
+   * **필요한 구성 서버 수**: 배포에 필요한 구성 서버 수를 표시 합니다.
+   * **필요한 추가 프로세스 서버 수**: 기본적으로 구성 서버에서 실행 되는 프로세스 서버 외에 추가 프로세스 서버가 필요한 지 여부를 표시 합니다.
+   * **원본에서 100% 추가 저장소**: 원본 위치에 추가 저장소가 필요한 지 여부를 표시 합니다.
 
       ![출력](./media/site-recovery-capacity-planner/output.png)
 
@@ -89,13 +89,13 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 3. **Workload Qualification** 워크시트에서 필요한 정보를 입력합니다. 표시된 필드를 모두 입력해야 합니다.
 
-   a. **프로세서 코어에서**소스 서버의 총 코어 수를 지정합니다.
+   a. **프로세서 코어**에서 원본 서버의 총 코어 수를 지정 합니다.
 
    b. **메모리 할당(MB)** 에는 원본 서버의 RAM 크기를 지정합니다.
 
-   다. **NIC 수**에는 원본 서버의 네트워크 어댑터의 수를 지정합니다.
+   c. **NIC 수**에는 원본 서버의 네트워크 어댑터의 수를 지정합니다.
 
-   d. **총 저장소(GB)에서**VM 저장소의 총 크기를 지정합니다. 예를 들어 원본 서버에 각각 크기가 500GB인 디스크가 3개 있으면 총 스토리지 크기는 1500GB입니다.
+   d. **총 저장소 (GB)** 에서 VM 저장소의 총 크기를 지정 합니다. 예를 들어 원본 서버에 각각 크기가 500GB인 디스크가 3개 있으면 총 스토리지 크기는 1500GB입니다.
 
    e. **연결된 디스크 수**에는 원본 서버의 총 디스크 수를 지정합니다.
 
@@ -134,13 +134,13 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
   * VM5 및 VM6에는 Premium Storage 계정이 필요하고 둘 다 단일 계정을 사용할 수 있습니다.
 
     > [!NOTE]
-    > 표준 및 Premium Storage의 IOPS는 디스크 수준이 아니라 VM 수준에서 계산됩니다. 표준 VM은 디스크당 최대 500 IOPS를 처리할 수 있습니다. 디스크의 IOPS가 500개보다 많은 경우 Premium Storage가 필요합니다. 디스크의 IOPS가 500보다 많지만 총 VM 디스크의 IOPS가 지원되는 표준 Azure VM 제한 내에 속하는 경우에는 플래너가 DS 또는 GS 시리즈 대신 표준 VM을 선택합니다. Azure VM 제한은 VM 크기, 디스크 수, 어댑터 수, CPU 및 메모리입니다. 매핑 Azure 크기 셀을 적절한 DS 또는 GS 시리즈 VM으로 수동으로 업데이트해야 합니다.
+    > 표준 및 Premium Storage의 IOPS는 디스크 수준이 아니라 VM 수준에서 계산됩니다. 표준 VM은 디스크당 최대 500 IOPS를 처리할 수 있습니다. 디스크의 IOPS가 500개보다 많은 경우 Premium Storage가 필요합니다. 디스크의 IOPS가 500보다 많지만 총 VM 디스크의 IOPS가 지원되는 표준 Azure VM 제한 내에 속하는 경우에는 플래너가 DS 또는 GS 시리즈 대신 표준 VM을 선택합니다. Azure VM 제한은 VM 크기, 디스크 수, 어댑터 수, CPU 및 메모리입니다. 적절 한 DS 또는 GS 시리즈 VM을 사용 하 여 매핑 Azure 크기 셀을 수동으로 업데이트 해야 합니다.
 
 
 모든 정보가 입력되었으면 **플래너 도구에 데이터 전송**을 선택하여 Capacity Planner를 엽니다. 보호에 적합한지 여부를 표시하기 위해 워크로드가 강조 표시됩니다.
 
 ### <a name="submit-data-in-capacity-planner"></a>Capacity Planner에서 데이터 제출
-1. **Capacity Planner** 워크시트를 열면 지정한 설정에 따라 워크시트가 채워집니다. "워크로드"라는 단어는 **인프라 입력 소스** 셀에 입력이 워크로드 **검증** 워크시트임을 표시합니다.
+1. **Capacity Planner** 워크시트를 열면 지정한 설정에 따라 워크시트가 채워집니다. "작업" 이라는 단어는 인프라 입력 **소스** 셀에 표시 되어 입력이 **작업 검증** 워크시트 임을 보여 줍니다.
 
 2. 변경하려면 **Workload Qualification** 워크시트를 수정해야 합니다. 그런 다음 **플래너 도구에 데이터 전송**을 다시 클릭합니다.
 

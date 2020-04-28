@@ -1,5 +1,5 @@
 ---
-title: 비주얼 스튜디오(ASP.NET)를 사용하여 Azure Blob 저장소시작
+title: Visual Studio (ASP.NET)를 사용 하 여 Azure Blob storage 시작
 description: Visual Studio 연결된 서비스를 사용하여 스토리지 계정에 연결한 후 Visual Studio의 ASP.NET 프로젝트에서 Azure Blob Storage를 사용하는 방법에 대해 설명합니다.
 services: storage
 author: ghogen
@@ -13,10 +13,10 @@ ms.date: 12/07/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6591cdb8f19484c87bb05f9007521adc34778f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72298876"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET)
@@ -31,7 +31,7 @@ Azure Blob Storage는 구조화되지 않은 데이터를 개체 또는 Blob으�
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
@@ -41,7 +41,7 @@ Azure Blob Storage는 구조화되지 않은 데이터를 개체 또는 Blob으�
 
 1. **솔루션 탐색기**에서 **컨트롤러**를 마우스 오른쪽 단추로 클릭합니다.
 
-2. 컨텍스트 메뉴에서**컨트롤러** **추가를** > 선택합니다.
+2. 상황에 맞는 메뉴에서 컨트롤러 **추가** > **Controller**를 선택 합니다.
 
     ![추가 및 컨트롤러가 강조 표시된 솔루션 탐색기 스크린샷](./media/vs-storage-aspnet-getting-started-blobs/add-controller-menu.png)
 
@@ -65,7 +65,7 @@ Azure Blob Storage는 구조화되지 않은 데이터를 개체 또는 Blob으�
 
 Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 문서의 나머지 단계에는 Blob 컨테이너에 대한 참조가 필요하므로 해당 코드를 재사용하기 위해 자체 메서드에 배치해야 합니다.
 
-다음 단계는 **Web.config에서**연결 문자열을 사용하여 저장소 계정에 연결하는 메서드를 만듭니다. 또한 이 단계는 컨테이너에 대한 참조를 만듭니다.  **Web.config**의 연결 문자열 설정은 `<storageaccountname>_AzureStorageConnectionString` 형식으로 명명됩니다. 
+다음 단계에서는 **web.config의 연결**문자열을 사용 하 여 저장소 계정에 연결 하는 메서드를 만듭니다. 또한이 단계는 컨테이너에 대 한 참조를 만듭니다.  **Web.config**의 연결 문자열 설정은 `<storageaccountname>_AzureStorageConnectionString` 형식으로 명명됩니다. 
 
 1. `BlobsController.cs` 파일을 엽니다.
 
@@ -133,11 +133,11 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
 
 1. **솔루션 탐색기**에서 **Views** 폴더를 마우스 오른쪽 단추로 클릭합니다.
 
-1. **Blob** 폴더가 없는 경우 만듭니다. 컨텍스트 메뉴에서**새 폴더** **추가를** > 선택합니다. 새 폴더 이름을 *Blobs*로 지정합니다. 
+1. **Blob** 폴더가 없는 경우 만듭니다. 상황에 맞는 메뉴에서**새 폴더** **추가** > 를 선택 합니다. 새 폴더 이름을 *Blobs*로 지정합니다. 
  
 1. **솔루션 탐색기**에서 **뷰** 폴더를 확장하고 **Blob**을 마우스 오른쪽 단추로 클릭합니다.
 
-1. 컨텍스트 메뉴에서**뷰** **추가를** > 선택합니다.
+1. 상황에 맞는 메뉴에서 뷰 **추가** > **View**를 선택 합니다.
 
 1. **뷰 추가** 대화 상자에서 뷰 이름으로 **CreateBlobContainer**를 입력하고 **추가**를 선택합니다.
 
@@ -155,7 +155,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
 
 1. **솔루션 탐색기**에서 **뷰** > **공유됨** 폴더를 확장하고 `_Layout.cshtml`을 엽니다.
 
-1. 마지막 **Html.ActionLink**후 다음 **Html.ActionLink를**추가합니다.
+1. 마지막 html.actionlink 뒤에 다음 **html.actionlink를 추가** **합니다.**
 
     ```html
     <li>@Html.ActionLink("Create blob container", "CreateBlobContainer", "Blobs")</li>
@@ -199,7 +199,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
     > [!NOTE]
     > Blob 이름은 Blob를 검색하는 데 사용되는 URL의 일부이고 파일의 이름을 포함한 문자열일 수 있습니다.
 
-1. Blob 참조가 있으면 Blob 참조 개체의 `UploadFromStream` 메서드를 호출하여 해당 참조에 데이터 스트림을 업로드할 수 있습니다. `UploadFromStream` 메서드는 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다. 업로드할 파일에 대한 정규화된 경로로 * &lt;파일>* 변경합니다.)
+1. Blob 참조가 있으면 Blob 참조 개체의 `UploadFromStream` 메서드를 호출하여 해당 참조에 데이터 스트림을 업로드할 수 있습니다. `UploadFromStream` 메서드는 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다. 파일- * &lt;업로드>* 파일을 업로드할 파일의 정규화 된 경로로 변경 합니다.
 
     ```csharp
     using (var fileStream = System.IO.File.OpenRead(@"<file-to-upload>"))
@@ -225,13 +225,13 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
 
 1. **솔루션 탐색기**에서 **뷰** > **공유됨** 폴더를 확장하고 `_Layout.cshtml`을 엽니다.
 
-1. 마지막 **Html.ActionLink**후 다음 **Html.ActionLink를**추가합니다.
+1. 마지막 html.actionlink 뒤에 다음 **html.actionlink를 추가** **합니다.**
 
     ```html
     <li>@Html.ActionLink("Upload blob", "UploadBlob", "Blobs")</li>
     ```
 
-1. 애플리케이션을 실행하고 **Blob 업로드**를 선택합니다.  *성공이라는 단어!* 표시됩니다.
+1. 애플리케이션을 실행하고 **Blob 업로드**를 선택합니다.  단어 *성공!* 표시됩니다.
     
     ![성공 확인 스크린샷](./media/vs-storage-aspnet-getting-started-blobs/upload-blob.png)
   
@@ -284,7 +284,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
     return View(blobs);
     ```
 
-    Blob 컨테이너는 Blob 외에도 디렉터리를 포함할 수 있습니다. 다음 계층 구조와 함께 *test-blob-container라는*Blob 컨테이너가 있다고 가정합니다.
+    Blob 컨테이너는 Blob 외에도 디렉터리를 포함할 수 있습니다. 다음 계층 구조를 사용 하 여 *테스트-blob-컨테이너*라는 blob 컨테이너가 있다고 가정 합니다.
 
         foo.png
         dir1/bar.png
@@ -296,7 +296,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
         <storage-account-url>/test-blob-container/dir1
         <storage-account-url>/test-blob-container/dir2
 
-    그림과 같이 목록에는 중첩된*엔터티(bar.png* 및 *baz.png)가*아닌 최상위 엔터티만 포함됩니다. Blob 컨테이너 내의 모든 엔터티를 나열하려면 **CloudBlobContainer.ListBlobs** 메서드가 **useFlatBlobListing** 매개 변수에 **true**로 전달되도록 코드를 변경합니다.    
+    표시 된 대로 목록에는 중첩 된 항목 ( *baz.png 및*)이 아닌 최상위 엔터티만 포함*됩니다.* Blob 컨테이너 내의 모든 엔터티를 나열하려면 **CloudBlobContainer.ListBlobs** 메서드가 **useFlatBlobListing** 매개 변수에 **true**로 전달되도록 코드를 변경합니다.    
 
     ```csharp
     //...
@@ -342,7 +342,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
 
 1. **솔루션 탐색기**에서 **뷰** 폴더를 확장하고 **Blob**을 마우스 오른쪽 단추로 클릭합니다.
 
-2. 컨텍스트 메뉴에서**뷰** **추가를** > 선택합니다.
+2. 상황에 맞는 메뉴에서 뷰 **추가** > **View**를 선택 합니다.
 
 1. **뷰 추가** 대화 상자에서 뷰 이름으로 `ListBlobs`을 입력하고 **추가**를 선택합니다.
 
@@ -366,7 +366,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
 
 1. **솔루션 탐색기**에서 **뷰** > **공유됨** 폴더를 확장하고 `_Layout.cshtml`을 엽니다.
 
-1. 마지막 **Html.ActionLink**후 다음 **Html.ActionLink를**추가합니다.
+1. 마지막 html.actionlink 뒤에 다음 **html.actionlink를 추가** **합니다.**
 
     ```html
     <li>@Html.ActionLink("List blobs", "ListBlobs", "Blobs")</li>
@@ -405,7 +405,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
     ```
 
-1. Blob을 다운로드하려면 `CloudBlockBlob.DownloadToStream` 메서드를 사용합니다. 다음 코드는 Blob의 콘텐츠를 스트림 개체로 전송합니다. 그런 다음 해당 개체가 로컬 파일에 저장됩니다. * &lt;(Blob을* 다운로드할 위치를 나타내는 정규화된 파일 이름으로 로컬 파일 이름>변경합니다.) 
+1. Blob을 다운로드하려면 `CloudBlockBlob.DownloadToStream` 메서드를 사용합니다. 다음 코드는 Blob의 콘텐츠를 스트림 개체로 전송합니다. 그런 다음 해당 개체가 로컬 파일에 저장됩니다. Blob을 다운로드할 위치를 나타내는 정규화 된 파일 이름으로 * &lt;로컬 파일 이름>* 를 변경 합니다. 
 
     ```csharp
     using (var fileStream = System.IO.File.OpenWrite(<local-file-name>))
@@ -431,7 +431,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
 
 1. **솔루션 탐색기**에서 **뷰** > **공유됨** 폴더를 확장하고 `_Layout.cshtml`을 엽니다.
 
-1. 마지막 **Html.ActionLink**후 다음 **Html.ActionLink를**추가합니다.
+1. 마지막 html.actionlink 뒤에 다음 **html.actionlink를 추가** **합니다.**
 
     ```html
     <li>@Html.ActionLink("Download blob", "DownloadBlob", "Blobs")</li>
@@ -488,7 +488,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
 
 1. **솔루션 탐색기**에서 **뷰** > **공유됨** 폴더를 확장하고 `_Layout.cshtml`을 엽니다.
 
-1. 마지막 **Html.ActionLink**후 다음 **Html.ActionLink를**추가합니다.
+1. 마지막 html.actionlink 뒤에 다음 **html.actionlink를 추가** **합니다.**
 
     ```html
     <li>@Html.ActionLink("Delete blob", "DeleteBlob", "Blobs")</li>
@@ -500,5 +500,5 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
 
 이 자습서에서는 ASP.NET을 사용하여 Azure Storage에서 Blob을 저장, 나열 및 검색하는 방법을 알아보았습니다. Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
 
-  * [Azure 테이블 저장소 및 Visual Studio 연결 서비스(ASP.NET) 시작](vs-storage-aspnet-getting-started-tables.md)
-  * [Azure 큐 저장소 및 Visual Studio 연결 서비스 시작(ASP.NET)](vs-storage-aspnet-getting-started-queues.md)
+  * [Azure Table storage 및 Visual Studio 연결 서비스 시작 (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
+  * [Azure Queue storage 및 Visual Studio 연결 서비스 시작 (ASP.NET)](vs-storage-aspnet-getting-started-queues.md)

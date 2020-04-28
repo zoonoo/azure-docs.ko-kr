@@ -1,14 +1,14 @@
 ---
 title: REST API를 사용하여 Recovery Services 자격 증명 모음 만들기
-description: 이 문서에서는 REST API를 사용하여 Azure VM 백업의 백업 및 복원 작업을 관리하는 방법을 알아봅니다.
+description: 이 문서에서는 REST API를 사용 하 여 Azure VM 백업의 백업 및 복원 작업을 관리 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: 1901c35d2b4d8bcd02cc064fcfc844e19969e3b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74173409"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 자격 증명 모음 만들기
@@ -27,10 +27,10 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 다음과 같은 헤더가 필요합니다.
 
-| 요청 헤더   | 설명 |
+| 요청 헤더   | Description |
 |------------------|-----------------|
-| *콘텐츠 유형:*  | 필수 사항입니다. `application/json`로 설정합니다. |
-| *권한 부여:* | 필수 사항입니다. 유효한 `Bearer` [액세스 토큰](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |
+| *Content-Type:*  | 필수 사항입니다. `application/json`로 설정합니다. |
+| *권한 부여* | 필수 사항입니다. 유효한 `Bearer` [액세스 토큰](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |
 
 요청을 만드는 방법에 대한 자세한 내용은 [REST API 요청/응답의 구성 요소](/rest/api/azure/#components-of-a-rest-api-requestresponse)를 참조하세요.
 
@@ -38,10 +38,10 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 다음과 같은 일반적인 정의가 요청 본문을 빌드하는 데 사용됩니다.
 
-|이름  |필수  |Type  |Description  |
+|Name  |필수  |유형  |설명  |
 |---------|---------|---------|---------|
-|eTag     |         |   String      |  선택적 eTag       |
-|위치     |  true       |String         |   리소스 위치      |
+|eTag     |         |   문자열      |  선택적 eTag       |
+|위치     |  true       |문자열         |   리소스 위치      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  자격 증명 모음의 속성       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    각 Azure 리소스에 대한 고유한 시스템 식별자를 식별합니다.     |
 |tags     |         | Object        |     리소스 태그    |
@@ -66,10 +66,10 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Recovery Services 자격 증명 모음을 만들거나 업데이트하는 작업에 대한 성공적인 응답에는 두 가지가 있습니다.
 
-|이름  |Type  |Description  |
+|속성  |유형  |설명  |
 |---------|---------|---------|
-|200 정상     |   [볼트](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | 확인        |
-|201 생성됨     | [볼트](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   생성일      |
+|200 정상     |   [자격 증명 모음](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | 확인        |
+|201 생성됨     | [자격 증명 모음](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   생성일      |
 
 REST API 응답에 대한 자세한 내용은 [응답 메시지 처리](/rest/api/azure/#process-the-response-message)를 참조하세요.
 

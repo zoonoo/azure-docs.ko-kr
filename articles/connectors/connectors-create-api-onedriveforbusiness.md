@@ -1,5 +1,5 @@
 ---
-title: 비즈니스를 위한 OneDrive에 연결
+title: 비즈니스용 OneDrive에 연결
 description: 비즈니스용 OneDrive REST API 및 Azure Logic Apps를 사용하여 파일 업로드 및 관리
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: 48c819566db43e2f997309d1bea55a9436ec7085
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789457"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>비즈니스용 OneDrive 커넥터 시작
@@ -24,7 +24,7 @@ ms.locfileid: "74789457"
 
 | 속성 | 필수 | 설명 |
 | --- | --- | --- |
-| 토큰 |yes |비즈니스용 OneDrive 자격 증명 제공 |
+| 토큰 |예 |비즈니스용 OneDrive 자격 증명 제공 |
 
 연결을 만든 후에 사용하여 작업을 실행하고 이 문서에 설명된 트리거에 대한 수신을 대기할 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 워크플로에 스위치 문 추가
+title: 워크플로에 switch 문 추가
 description: Azure Logic Apps에서 특정 값에 따라 워크플로 작업을 제어하는 switch 문을 만드는 방법입니다.
 services: logic-apps
 ms.suite: integration
@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 5c40feec2dca65e4bc9617a71a6d0a8e4c872a3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74793241"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Azure Logic Apps에서 특정 값에 따라 워크플로 작업을 실행하는 switch 문 만들기
@@ -42,7 +42,7 @@ ms.locfileid: "74793241"
 
 1. 이 예제에서는 샘플 워크플로 끝에 switch 문을 추가합니다. 마지막 단계를 수행한 후 **새 단계**를 선택합니다.
 
-   단계 사이에 switch 문을 추가하려면 switch 문을 추가하려는 화살표 위로 포인터를 이동합니다. 표시되는 **더하기** **+** 기호 ()를 선택한 다음 **작업 추가를**선택합니다.
+   단계 사이에 switch 문을 추가하려면 switch 문을 추가하려는 화살표 위로 포인터를 이동합니다. 표시 되는 **더하기 기호** (**+**)를 선택 하 고 **작업 추가**를 선택 합니다.
 
 1. 검색 상자에 필터로 "switch"를 입력합니다. **전환 - 제어** 작업을 선택합니다.
 
@@ -66,8 +66,8 @@ ms.locfileid: "74793241"
    | 케이스 # | **SelectedOption** | 작업 |
    |--------|--------------------|--------|
    | 케이스 1 | **승인** | 승인자가 **승인**을 선택한 경우에만 RSS 항목에 대한 세부 정보를 보내는 Outlook **이메일 보내기** 작업을 추가합니다. |
-   | 케이스 2 | **거부** | 다른 승인자에게 RSS 항목이 거부되었음을 알리는 Outlook **이메일 보내기** 작업을 추가합니다. |
-   | 기본값 | None | 필요한 작업이 없습니다. 이 예에서는 **SelectedOption**에 두 가지 옵션만 있으므로 **기본** 케이스는 비어 있습니다. |
+   | 케이스 2 | **내용을** | 다른 승인자에게 RSS 항목이 거부되었음을 알리는 Outlook **이메일 보내기** 작업을 추가합니다. |
+   | 기본값 | 없음 | 아무런 작업도 수행할 필요가 없습니다. 이 예에서는 **SelectedOption**에 두 가지 옵션만 있으므로 **기본** 케이스는 비어 있습니다. |
    |||
 
    ![완성된 switch 문](./media/logic-apps-control-flow-switch-statement/finished-switch.png)

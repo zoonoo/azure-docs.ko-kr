@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ms.openlocfilehash: 918516a5629f8570d54c641ffc29f2367937266f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74792363"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 X12 메시지 디코딩
@@ -24,13 +24,13 @@ X12 메시지 디코드 커넥터를 사용하여 거래 업체 규약과 비교
 필요한 항목은 다음과 같습니다.
 
 * Azure 계정의 경우 [무료 계정](https://azure.microsoft.com/free)
-* Azure 구독에 이미 정의되고 연결된 [통합 계정입니다.](logic-apps-enterprise-integration-create-integration-account.md) X12 메시지 디코딩 커넥터를 사용하는 통합 계정이 있어야 합니다.
+* 이미 정의 되 고 Azure 구독과 연결 된 [통합 계정](logic-apps-enterprise-integration-create-integration-account.md) 입니다. X12 메시지 디코딩 커넥터를 사용하는 통합 계정이 있어야 합니다.
 * 통합 계정에 이미 정의된 둘 이상의 [파트너](logic-apps-enterprise-integration-partners.md)
 * 통합 계정에 이미 정의된 [X12 규약](logic-apps-enterprise-integration-x12.md)
 
 ## <a name="decode-x12-messages"></a>X12 디코딩 메시지
 
-1. [논리 앱 만들기](quickstart-create-first-logic-app-workflow.md)
+1. [논리 앱을 만듭니다](quickstart-create-first-logic-app-workflow.md).
 
 2. X12 메시지 디코딩 커넥터에는 트리거가 없으므로 요청 트리거와 마찬가지로 논리 앱을 시작하는 트리거를 추가해야 합니다. Logic App Designer에서 트리거를 추가하고 작업을 논리 앱에 추가합니다.
 
@@ -57,7 +57,7 @@ X12 메시지 디코드 커넥터를 사용하여 거래 업체 규약과 비교
 
     ![통합 계정 연결 생성](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
     ![디코딩할 X12 플랫 파일 메시지를 선택합니다.](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
@@ -103,5 +103,5 @@ X12 디코딩 커넥터는 다음과 같은 태스크를 수행합니다.
 [swagger 정보](/connectors/x12/)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
-[엔터프라이즈 통합 팩에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 자세히 알아보기") 
+[엔터프라이즈 통합 팩에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기") 
 

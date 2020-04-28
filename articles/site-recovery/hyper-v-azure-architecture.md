@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구의 하이퍼 V 재해 복구 아키텍처
+title: Azure Site Recovery의 hyper-v 재해 복구 아키텍처
 description: 이 문서에서는 Azure Site Recovery 서비스를 사용한 온-프레미스 Hyper-V VM(VMM 없음)과 Azure 간 재해 복구를 배포할 때 사용되는 구성 요소 및 아키텍처를 간략하게 설명합니다.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 022d6edad1e907173dfde3481e60d2523be087a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74082659"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V와 Azure 간 재해 복구 아키텍처
@@ -69,12 +69,12 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 1. Azure Portal 또는 온-프레미스에서 Hyper-V VM에 대한 보호를 사용하도록 설정하면 **보호 활성화**가 시작됩니다.
 2. 이 작업은 사용자가 구성한 설정으로 Azure에 대한 복제를 설정하기 위해 [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) 메서드를 호출하기 전에 해당 컴퓨터가 전제 조건에 부합하는지 확인합니다.
 3. 작업은 [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) 메서드를 호출하여 초기 복제를 시작하여 전체 VM 복제를 초기화하고 Azure로 VM의 가상 디스크를 전송합니다.
-4. **작업** 탭에서 작업을 모니터링할 수 있습니다.      ![작업](media/hyper-v-azure-architecture/image1.png) ![목록 보호 드릴다운 사용](media/hyper-v-azure-architecture/image2.png)
+4. **작업 탭에서** 작업을 모니터링할 수 있습니다.      ![작업 목록](media/hyper-v-azure-architecture/image1.png) ![보호 드릴 다운 사용](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>초기 데이터 복제
 
-1. 초기 복제가 트리거되면 [Hyper-V VM 스냅숏스냅숏이](https://technet.microsoft.com/library/dd560637.aspx) 생성됩니다.
+1. 초기 복제가 트리거될 때 [HYPER-V VM 스냅숏](https://technet.microsoft.com/library/dd560637.aspx) 스냅숏이 생성 됩니다.
 2. VM의 가상 하드 디스크는 모두 Azure에 복사될 때까지 하나씩 복제됩니다. 이 작업은 VM 크기 및 네트워크 대역폭에 따라 시간이 오래 걸릴 수 있습니다. 네트워크 대역폭을 높이는 [한 방법을 알아봅니다](https://support.microsoft.com/kb/3056159).
 3. 초기 복제 진행 중에 디스크가 변경될 경우, Hyper-V 복제 로그(.hrl)로 Hyper-V 복제본 복제 추적자가 이러한 변경 내용을 추적합니다. 이러한 로그 파일은 디스크와 동일한 폴더에 있습니다. 각 디스크에는 보조 스토리지로 전송되는 .hrl 파일이 연결되어 있습니다. 초기 복제 진행 중에는 스냅샷과 로그 파일이 디스크 리소스를 사용합니다.
 4. 초기 복제가 완료되면 VM 스냅샷은 삭제됩니다.
@@ -131,7 +131,7 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 
 1. Azure에서 온-프레미스 사이트로 계획된 장애 조치를 시작합니다.
     - **가동 중지 시간 최소화**: 이 옵션을 사용하면 Site Recovery가 장애 조치 전에 데이터를 동기화합니다. 변경된 데이터 블록을 확인하고 온-프레미스 사이트에 다운로드하며 Azure VM은 그 동안에도 계속 실행되어 가동 중지 시간을 최소화합니다. 장애 조치 완료를 수동으로 지정해야 하는 경우 Azure VM이 종료되고 최종 델타 변경 내용이 복사되며 장애 조치가 시작됩니다.
-    - **전체 다운로드**: 이 옵션 데이터는 장애 조치 중에 동기화됩니다. 이 옵션은 전체 디스크를 다운로드합니다. 체크섬을 계산하지 않아 더 빠르지만 가동 중지 시간은 더 늘어납니다. 상당 시간 동안 복제본 Azure VM을 실행하였거나 온-프레미스 VM이 삭제된 경우에 이 옵션을 사용합니다.
+    - **전체 다운로드**:이 옵션을 사용 하면 장애 조치 (failover) 중 데이터가 동기화 됩니다. 이 옵션은 전체 디스크를 다운로드합니다. 체크섬을 계산하지 않아 더 빠르지만 가동 중지 시간은 더 늘어납니다. 상당 시간 동안 복제본 Azure VM을 실행하였거나 온-프레미스 VM이 삭제된 경우에 이 옵션을 사용합니다.
     - **VM 만들기**: 동일한 VM으로 또는 대체 VM으로 장애 복구하도록 선택할 수 있습니다. VM이 없는 경우 Site Recovery가 이를 만들도록 지정할 수 있습니다.
 
 2. 초기 동기화가 완료되면 장애 조치를 완료하도록 선택합니다. 완료되면 온-프레미스 VM에 로그온하여 모든 것이 기대한 대로 작동하는지 확인할 수 있습니다. Azure Portal에서 Azure VM이 중지된 것을 확인할 수 있습니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구를 통해 온-프레미스 재해 복구를 위한 네트워크 어댑터 관리
+title: Azure Site Recovery를 사용 하 여 온-프레미스 재해 복구를 위한 네트워크 어댑터 관리
 description: Azure Site Recovery를 사용한 온-프레미스와 Azure 간 재해 복구를 위해 네트워크 인터페이스를 관리하는 방법을 설명합니다.
 author: mayurigupta13
 manager: rochakm
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 2a4752b501e40f9e8a4f3bc82cb2533c11f9e526
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73954598"
 ---
-# <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Azure에 대한 온-프레미스 재해 복구를 위한 VM 네트워크 인터페이스 관리
+# <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Azure로의 온-프레미스 재해 복구를 위한 VM 네트워크 인터페이스 관리
 
 Azure의 VM(가상 머신)에는 하나 이상의 네트워크 인터페이스가 연결되어 있어야 합니다. 네트워크 인터페이스 수는 VM 크기에서 지원되는 수만큼 연결할 수 있습니다.
 

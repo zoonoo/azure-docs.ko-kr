@@ -1,5 +1,5 @@
 ---
-title: 내 ASP.NET 5 프로젝트에 무슨 일이 있었는지 (비주얼 스튜디오 연결 서비스)
+title: 내 ASP.NET 5 프로젝트 (Visual Studio 연결 된 서비스)의 변경 내용
 description: Visual Studio 연결 서비스를 사용하여 Visual Studio ASP.NET 5 프로젝트에서 Azure Storage 계정에 연결한 후 변경 내용에 대해 설명합니다.
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: be99465a48aaf680834f313e03384a9f0c211502
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72300005"
 ---
 # <a name="what-happened-to-my-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>내 ASP.NET 5 프로젝트(Visual Studio Azure Storage 연결 서비스)의 변경 내용
@@ -31,7 +31,7 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습�
 * **Microsoft.WindowsAzure.Configuration**
 * **Microsoft.WindowsAzure.Storage**
 * **Newtonsoft.Json**
-* **시스템.데이터**
+* **System.object**
 * **System.Spatial**
 
 또한 NuGet 패키지 **Microsoft.Framework.Configuration.Json** 이 추가되었습니다.

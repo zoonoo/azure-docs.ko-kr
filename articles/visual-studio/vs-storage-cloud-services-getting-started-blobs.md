@@ -1,5 +1,5 @@
 ---
-title: Visual Studio(클라우드 서비스)를 사용하여 Blob 스토리지 시작
+title: Visual Studio를 사용 하 여 blob storage 시작 (클라우드 서비스)
 description: Visual Studio 연결된 서비스를 사용하여 스토리지 계정에 연결한 후 Visual Studio 클라우드 서비스 프로젝트에서 Azure Blob Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
@@ -14,17 +14,17 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d151e55f627166d8ad7d8affa53740e86cd1e501
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72298797"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(클라우드 서비스 프로젝트)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>개요
-이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 Visual Studio 클라우드 서비스 프로젝트에서 Azure Storage 계정을 만들거나 참조한 후 Azure Blob Storage를 시작하는 방법을 설명합니다. Blob 컨테이너에 액세스하고 만드는 방법과 Blob 업로드, 나열 및 다운로드와 같은 일반적인 작업을 수행하는 방법을 살펴보겠습니다. 샘플은 C로\# 작성되며 .NET 에 [대한 Microsoft Azure 저장소 클라이언트 라이브러리를 사용합니다.](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 Visual Studio 클라우드 서비스 프로젝트에서 Azure Storage 계정을 만들거나 참조한 후 Azure Blob Storage를 시작하는 방법을 설명합니다. Blob 컨테이너에 액세스하고 만드는 방법과 Blob 업로드, 나열 및 다운로드와 같은 일반적인 작업을 수행하는 방법을 살펴보겠습니다. 샘플은 C\# 로 작성 되었으며 [.Net 용 Microsoft Azure Storage 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn261237.aspx)를 사용 합니다.
 
 Azure Blob Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액세스할 수 있는 다량의 구조화되지 않은 데이터를 저장하기 위한 서비스입니다. 단일 Blob은 임의의 크기일 수 있습니다. Blob은 이미지, 오디오 및 비디오 파일, 원시 데이터, 문서 파일 등일 수 있습니다.
 
@@ -88,7 +88,7 @@ Azure Blob Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액
 ## <a name="upload-a-blob-into-a-container"></a>컨테이너에 Blob 업로드
 Azure Storage는 블록 Blob 및 페이지 Blob을 지원합니다. 대부분의 경우 블록 Blob을 사용하는 것이 좋습니다.
 
-블록 Blob에 파일을 업로드하려면 컨테이너 참조를 가져온 다음 이 참조를 사용하여 블록 Blob 참조를 가져옵니다. Blob 참조가 있으면 **UploadFromStream** 메서드를 호출하여 모든 데이터 스트림을 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다. 다음 예제에서는 컨테이너에 Blob을 업로드하는 방법을 보여 주며, 컨테이너가 이미 만들어져 있다고 가정합니다.
+블록 Blob에 파일을 업로드하려면 컨테이너 참조를 가져온 다음 이 참조를 사용하여 블록 Blob 참조를 가져옵니다. Blob 참조가 있으면 **UploadFromStream** 메서드를 호출 하 여 데이터 스트림을 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다. 다음 예제에서는 컨테이너에 Blob을 업로드하는 방법을 보여 주며, 컨테이너가 이미 만들어져 있다고 가정합니다.
 
     // Retrieve a reference to a blob named "myblob".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
@@ -100,7 +100,7 @@ Azure Storage는 블록 Blob 및 페이지 Blob을 지원합니다. 대부분의
     }
 
 ## <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
-컨테이너의 Blob을 나열하려면 먼저 컨테이너 참조를 가져옵니다. 컨테이너의 **ListBlobs** 메서드를 사용하여 컨테이너 내의 Blob 및/또는 디렉터리를 검색할 수 있습니다. 반환된 **IListBlobItem에**대한 풍부한 속성 및 메서드 집합에 액세스하려면 **CloudBlockBlob,** **CloudPageBlob**또는 **CloudBlob 디렉터리** 개체로 캐스팅해야 합니다. 형식을 알 수 없는 경우 형식 검사를 사용하여 캐스트할 형식을 확인할 수 있습니다. 다음 코드에서는 **photos** 컨테이너에 있는 각 항목의 URI를 검색하고 출력하는 방법을 보여 줍니다.
+컨테이너의 Blob을 나열하려면 먼저 컨테이너 참조를 가져옵니다. 컨테이너의 **ListBlobs** 메서드를 사용하여 컨테이너 내의 Blob 및/또는 디렉터리를 검색할 수 있습니다. 반환 된 **IListBlobItem**에 대 한 다양 한 속성 및 메서드 집합에 액세스 하려면 **cloudblockblob**, **cloudblockblob**또는 **CloudBlobDirectory** 개체로 캐스팅 해야 합니다. 형식을 알 수 없는 경우 형식 검사를 사용하여 캐스트할 형식을 확인할 수 있습니다. 다음 코드에서는 **photos** 컨테이너에 있는 각 항목의 URI를 검색하고 출력하는 방법을 보여 줍니다.
 
     // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, false))

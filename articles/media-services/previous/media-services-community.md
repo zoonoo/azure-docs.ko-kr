@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: c4798fa9140f277d5383d2830eefb9bcc8d7c984
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72598321"
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services 커뮤니티  
@@ -40,7 +40,7 @@ ms.locfileid: "72598321"
 
 ### <a name="twitter"></a>Twitter
 
-트위터 [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) 핸들을 사용하여 저희에게 연락하거나 트위터에서 업데이트를 따르십시오. 트위터 핸들을 [@AzureSupport](https://twitter.com/azuresupport) 사용하여 트위터에서 지원을 요청할 수 있습니다.  
+[@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) Twitter 핸들을 사용 하 여 microsoft에 문의 하거나 twitter의 업데이트를 따르세요. Twitter 핸들을 사용 [@AzureSupport](https://twitter.com/azuresupport) 하 여 twitter에 대 한 지원을 요청할 수 있습니다.  
 
 ### <a name="online-forums"></a>온라인 포럼
 
@@ -48,15 +48,15 @@ ms.locfileid: "72598321"
 
 현재, MSDN은 Media Services 팀의 기본 커뮤니티 포럼입니다.
 
-[![Msdn](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
+[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
 또한 이 팀은 Stack Overflow에서 'azure-media-services' 태그가 지정된 질문을 모니터링합니다.
 
-[![스택 오버플로우](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
+[![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
-## <a name="need-help"></a>도움 필요 시
+## <a name="need-help"></a>도움이 필요하십니까?
 
-[새 지원 요청으로](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 이동하여 지원 티켓을 열 수 있습니다.
+[새 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 으로 이동 하 여 지원 티켓을 열 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

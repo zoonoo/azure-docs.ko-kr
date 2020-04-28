@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구를 사용하여 Citrix XenDesktop/XenApp 재해 복구 설정
+title: Azure Site Recovery를 사용 하 여 Citrix XenDesktop/XenApp 재해 복구 설정
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Citrix XenDesktop 및 XenApp 배포에 대한 재해 복구를 설정하는 방법을 설명합니다.
 author: ponatara
 manager: abhemraj
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74084547"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>다중 계층 Citrix XenApp 및 XenDesktop 배포에 대해 재해 복구 설정
@@ -26,7 +26,7 @@ Citrix XenDesktop은 어디서든 모든 사용자에게 데스크톱 및 애플
 이 문서에서는 Hyper-V 및 VMware vSphere 플랫폼에서 온-프레미스 Citrix XenApp 배포용 재해 복구 솔루션을 빌드하기 위한 단계별 지침을 제공합니다. 또한 복구 계획, 지원되는 구성 및 필수 구성 요소를 사용하여 Azure로의 테스트 장애 조치(재해 복구 드릴) 및 계획되지 않은 장애 조치를 수행하는 방법을 설명합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 시작하기 전에 다음 항목을 이해해야 합니다.
 
@@ -56,9 +56,9 @@ AD DNS 서버, SQL Database 서버, Citrix Delivery Controller, StoreFront 서�
 
 **시나리오** | **보조 사이트로** | **Azure로**
 --- | --- | ---
-**Hyper-V** | 이 문서에서 다루지 않는 내용 | yes
-**Vm 웨어** | 이 문서에서 다루지 않는 내용 | yes
-**물리적 서버** | 이 문서에서 다루지 않는 내용 | yes
+**Hyper-V** | 이 문서에서 다루지 않는 내용 | 예
+**VMware** | 이 문서에서 다루지 않는 내용 | 예
+**물리적 서버** | 이 문서에서 다루지 않는 내용 | 예
 
 ### <a name="versions"></a>버전
 고객은 Hyper-V 또는 VMware에서 실행되는 Virtual Machines 또는 물리적 서버로 XenApp 구성 요소를 배포할 수 있습니다. Azure Site Recovery는 Azure에 대한 실제 배포와 가상 배포를 모두 보호할 수 있습니다.
@@ -156,7 +156,7 @@ XenApp 구성 요소 VM에 대한 복제를 활성화한 후에는 복구 계획
    >[!NOTE]     
    >수동 또는 스크립트 작업을 포함하는 4, 6 및 7단계는 MCS/PVS 카탈로그가 있는 온-프레미스 XenApp 환경에만 적용됩니다.
 
-4. 그룹 3 수동 또는 스크립트 작업: 마스터 VDA VM을 종료합니다.
+4. 그룹 3 수동 또는 스크립트 동작: 마스터 VDA VM을 종료 합니다.
 Azure로 장애 조치된 경우 마스터 VDA VM은 실행 상태가 됩니다. Azure 호스팅을 사용하여 새 MCS 카탈로그를 만들려면 마스터 VDA VM이 중지됨(할당 취소됨) 상태에 있어야 합니다. Azure Portal에서 VM을 종료합니다.
 
 5. 장애 조치 그룹 4: Delivery Controller 및 StoreFront 서버 VM

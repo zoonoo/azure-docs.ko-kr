@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "69901780"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>여러 스토리지 계정에서 Media Services 자산 관리  
@@ -42,11 +42,11 @@ ms.locfileid: "69901780"
 
 기타 고려 사항:
 
-미디어 서비스는 스트리밍 콘텐츠에 대한 URL을 빌드할 때 **IAssetFile.Name** 속성의 값을 사용합니다(예: http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/스트리밍매개변수). 이러한 이유로 백분율 인코딩은 허용되지 않습니다. Name 속성 값에는 !*'();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 ‘.’ 하나만 사용할 수 있습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
+Media Services는 스트리밍 콘텐츠의 Url을 빌드할 때 **IAssetFile.Name** 속성의 값을 사용 합니다 (예: http://{WAMSAccount}. windowsazure.mediaservices/{GUID}/{IAssetFile}/streamingParameters). 이러한 이유로 퍼센트 인코딩은 허용 되지 않습니다. Name 속성 값에는 !*'();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 ‘.’ 하나만 사용할 수 있습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
 
 ## <a name="to-attach-storage-accounts"></a>스토리지 계정을 연결하려면  
 
-저장소 계정을 AMS 계정에 연결하려면 다음 예제와 같이 [Azure 리소스 관리자 API](/rest/api/media/operations/azure-media-services-rest-api-reference) 및 [Powershell을](/powershell/module/az.media)사용합니다.
+저장소 계정을 AMS 계정에 연결 하려면 다음 예제와 같이 [Azure Resource Manager api](/rest/api/media/operations/azure-media-services-rest-api-reference) 및 [Powershell](/powershell/module/az.media)을 사용 합니다.
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "

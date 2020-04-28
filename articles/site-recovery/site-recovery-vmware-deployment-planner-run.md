@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구를 사용 하 고 VM웨어 재해 복구에 대 한 배포 플래너를 실행 합니다.
+title: Azure Site Recovery를 사용 하 여 VMware 재해 복구를 위해 Deployment Planner를 실행 합니다.
 description: 이 문서에서는 Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner를 실행하는 방법을 설명합니다.
 author: mayurigupta13
 manager: rochakm
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
 ms.openlocfilehash: 044e5c5df8e0af67e4717b864de1e31fc2520408
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73953289"
 ---
-# <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>VMware 재해 복구를 위한 배포 플래너 실행
+# <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>VMware 재해 복구에 대 한 Deployment Planner 실행
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
 
 
@@ -81,7 +81,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Protocol| (선택 사항) vCenter에 연결하기 위해 프로토콜을 'http' 또는 'https'로 지정합니다. 기본 프로토콜은 https입니다.|
 | -StorageAccountName | (선택 사항) 온-프레미스 환경에서 Azure로의 데이터 복제에서 달성할 수 있는 처리량을 확인하기 위해 사용되는 스토리지 계정 이름입니다. 도구에서 이 스토리지 계정에 테스트 데이터를 업로드하여 처리량을 계산합니다. 스토리지 계정은 GPv1(범용 v1) 형식이어야 합니다. |
 | -StorageAccountKey | (선택 사항) 스토리지 계정에 액세스하는 데 사용되는 스토리지 계정 키입니다. Azure Portal &gt; 스토리지 계정 &gt; &lt;*스토리지 계정 이름*&gt; &gt; 설정&gt; 액세스 키 &gt; Key1로 이동합니다. |
-| -Environment | (선택 사항) 대상 Azure Storage 계정 환경입니다. AzureCloud, AzureUSGovernment, AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure China 21Vianet인 경우 매개 변수를 사용합니다. |
+| -Environment | (선택 사항) 대상 Azure Storage 계정 환경입니다. AzureCloud, AzureUSGovernment, AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure 중국 21Vianet 인 경우 매개 변수를 사용 합니다. |
 
 
 VM을 7일 이상 프로파일링하는 것이 좋습니다. 한 달 내에 변동 패턴이 다양한 경우, 변동폭이 최대인 주에 프로파일링하는 것이 좋습니다. 가장 좋은 방법은 31일 동안 프로파일링하여 보다 나은 권장 사항을 확보하는 것입니다. ASRDeploymentPlanner.exe는 프로파일링 기간 동안 계속 실행됩니다. 도구에서는 프로파일링 시간을 일 단위로 입력합니다. 개념 증명 또는 도구에 대한 빠른 테스트를 위해서 몇 시간 또는 몇 분 동안 프로파일링이 가능합니다. 허용되는 최소 프로파일링 시간은 30분입니다.
@@ -95,7 +95,7 @@ VM을 7일 이상 프로파일링하는 것이 좋습니다. 한 달 내에 변�
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-예를 들어 기본 설정을 사용하여 1,500개 VM을 프로파일링하려면 두 개의 VMList.txt 파일을 만듭니다. 하나는 1,000개 VM이 포함된 목록이고, 다른 하나는 500개 VM이 포함된 목록입니다. Azure 사이트 복구 배포 플래너의 두 인스턴스를 실행합니다(하나는 VMList1.txt) 및 VMList2.txt를 사용 하 여 다른 인스턴스입니다. 동일한 디렉터리 경로를 사용하여 두 VMList VM의 프로파일링된 데이터를 저장할 수 있습니다.
+예를 들어 기본 설정을 사용하여 1,500개 VM을 프로파일링하려면 두 개의 VMList.txt 파일을 만듭니다. 하나는 1,000개 VM이 포함된 목록이고, 다른 하나는 500개 VM이 포함된 목록입니다. Azure Site Recovery Deployment Planner의 두 인스턴스를 실행 합니다. 하나는 Vmlist1.txt이 고 다른 하나는 VMList2입니다. 동일한 디렉터리 경로를 사용하여 두 VMList VM의 프로파일링된 데이터를 저장할 수 있습니다.
 
 보고서를 생성하기 위해 도구를 실행하는 서버의 하드웨어 구성, 특히 RAM 크기를 기반으로 하면 메모리가 부족하여 작업이 실패할 수 있음을 확인했습니다. 하드웨어가 좋은 경우 MaxVMsSupported를 더 높은 값으로 변경할 수 있습니다.  
 
@@ -136,10 +136,10 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 
 ## <a name="generate-report"></a>보고서 생성
-이 도구는 배포의 모든 권장 사항을 요약하는 보고서 출력으로 매크로가 사용하도록 설정된 Microsoft Excel 파일(XLSM 파일)을 생성합니다. 보고서의 이름이 `DeploymentPlannerReport_<unique numeric identifier>.xlsm` 지정되고 지정된 디렉터리에 배치됩니다.
+이 도구는 배포의 모든 권장 사항을 요약하는 보고서 출력으로 매크로가 사용하도록 설정된 Microsoft Excel 파일(XLSM 파일)을 생성합니다. 보고서의 이름이 `DeploymentPlannerReport_<unique numeric identifier>.xlsm` 지정 되 고 지정 된 디렉터리에 배치 됩니다.
 
 >[!NOTE]
->보고서 생성에는 Excel 2013 이상이 있는 Windows PC 또는 Windows 서버가 필요합니다. 이 컴퓨터의 소수자 기호는 비용 예측을 생성하기 위해 "."로 구성되어야 합니다. 소수자 기호로 ""를 설정한 경우 제어판의 "날짜, 시간 또는 숫자 형식 변경"으로 이동하여 소수점 기호를 ""로 변경하려면 "추가 설정"으로 이동하십시오.
+>보고서를 생성 하려면 Excel 2013 이상 버전의 Windows PC 또는 Windows Server가 필요 합니다. 예상 비용을 산출 하려면이 컴퓨터의 소수점 기호를 "."로 구성 해야 합니다. ","가 10 진수 기호로 설정 된 경우 제어판의 "날짜, 시간 또는 숫자 형식 변경"으로 이동 하 여 "추가 설정"으로 이동 하 여 소수점 기호를 "."로 변경 하십시오.
 
 프로파일링이 완료되면 보고서 생성 모드에서 도구를 실행할 수 있습니다. 다음 표는 보고서 생성 모드에서 실행할 필수 및 선택적 도구 매개 변수의 목록을 포함하고 있습니다.
 
@@ -242,7 +242,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 
 * [온-프레미스 요약](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [권장 사항](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [VM< >스토리지 배치](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
+* [VM<->저장소 배치](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [호환되는 VM](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
 * [호환되지 않는 VM](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
 * [비용 예측](site-recovery-vmware-deployment-planner-cost-estimation.md)
@@ -265,7 +265,7 @@ Site Recovery에서 복제 중에 온-프레미스 환경에서 Azure로 달성�
 | -StorageAccountName | 온-프레미스 환경에서 Azure로의 데이터 복제에서 사용되는 대역폭을 확인하기 위해 사용하는 스토리지 계정 이름입니다. 도구에서 이 스토리지 계정에 테스트 데이터를 업로드하여 사용되는 대역폭을 찾습니다. 스토리지 계정은 GPv1(General-purpose v1) 형식 중 하나여야 합니다.|
 | -StorageAccountKey | 스토리지 계정에 액세스하는 데 사용되는 스토리지 계정 키입니다. Azure Portal > Storage 계정 > <*Storage 계정 이름*> > 설정 > 선택키 > Key1(또는 클래식 Storage 계정의 기본 선택키)로 차례로 이동합니다. |
 | -VMListFile | 사용되는 대역폭을 계산하기 위해 프로파일링할 VM의 목록을 포함하고 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. 이 파일에는 VM 이름/IP 주소가 한 줄에 하나씩 있어야 합니다. 파일에 지정된 VM 이름은 vCenter 서버/vSphere ESXi 호스트의 VM 이름과 동일해야 합니다.<br>예를 들어 VMList.txt 파일에는 다음과 같은 VM이 포함되어 있습니다.<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
-| -Environment | (선택 사항) 대상 Azure Storage 계정 환경입니다. AzureCloud, AzureUSGovernment, AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure China 21Vianet인 경우 매개 변수를 사용합니다. |
+| -Environment | (선택 사항) 대상 Azure Storage 계정 환경입니다. AzureCloud, AzureUSGovernment, AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure 중국 21Vianet 인 경우 매개 변수를 사용 합니다. |
 
 이 도구는 지정된 디렉터리에 여러 개의 asrvhdfile<#>.vhd(여기서 #은 파일 수) 64MB 파일을 만듭니다. 도구에서 처리량을 확인하기 위해 스토리지 계정에 파일을 업로드합니다. 처리량이 측정된 후 스토리지 계정과 로컬 서버에서 이러한 파일을 모두 삭제합니다. 도구가 처리량을 계산하는 동안 어떤 이유로든 종료되는 경우 스토리지 또는 로컬 서버에서 파일을 삭제하지 않습니다. 따라서 직접 삭제해야 합니다.
 
@@ -291,4 +291,4 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 >  4. 프로세스 서버의 Site Recovery 설정을 변경하여 [복제에 사용되는 네트워크 대역폭의 양을 증가](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth)시킵니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [생성된 보고서를 분석합니다.](site-recovery-vmware-deployment-planner-analyze-report.md)
+* [생성 된 보고서를 분석](site-recovery-vmware-deployment-planner-analyze-report.md)합니다.

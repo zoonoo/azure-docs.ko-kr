@@ -1,20 +1,20 @@
 ---
 title: Azure Functions 트리거 및 바인딩 예제
-description: Azure Function 바인딩을 구성하는 방법에 대해 알아보기
+description: Azure 함수 바인딩을 구성 하는 방법 알아보기
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 8685c0fe02ad6c68918736e857c2015e2bfb4595
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74227236"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions 트리거 및 바인딩 예제
 
-이 문서에서는 Azure Function에서 [트리거 및 바인딩을](./functions-triggers-bindings.md) 구성하는 방법을 보여 줍니다.
+이 문서에서는 Azure 함수에서 [트리거와 바인딩을](./functions-triggers-bindings.md) 구성 하는 방법을 보여 줍니다.
 
 Azure Queue 스토리지에 새 메시지가 나타날 때마다 Azure Table Storage에 새 행을 쓰려는 경우를 가정하겠습니다. 이 시나리오는 Azure Queue 스토리지 트리거 및 Azure Table Storage 출력 바인딩을 사용하여 구현할 수 있습니다. 
 
@@ -82,7 +82,7 @@ public class Person
 
 ## <a name="javascript-example"></a>JavaScript 예제
 
-동일한 *function.json* 파일을 JavaScript 함수와 함께 사용할 수 있습니다.
+동일한 *함수인 json* 파일은 JavaScript 함수와 함께 사용할 수 있습니다.
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -102,7 +102,7 @@ function generateRandomId() {
 
 ## <a name="class-library-example"></a>클래스 라이브러리 예제
 
-클래스 라이브러리에서 동일한 트리거 및 바인딩 정보(큐 및 테이블 이름, 스토리지 계정, 입력 및 출력에 대한 함수 매개 변수)는 function.json 파일 대신 특성에 의해 제공됩니다. 예를 들면 다음과 같습니다.
+클래스 라이브러리에서 동일한 트리거 및 바인딩 정보(큐 및 테이블 이름, 스토리지 계정, 입력 및 출력에 대한 함수 매개 변수)는 function.json 파일 대신 특성에 의해 제공됩니다. 아래 예를 살펴보세요.
 
 ```csharp
 public static class QueueTriggerTableOutput
@@ -130,7 +130,7 @@ public class Person
 }
 ```
 
-이제 Azure 큐에 의해 트리거되고 Azure Table 저장소에 데이터를 출력하는 작업 함수가 있습니다.
+이제 Azure 큐에서 트리거되고 Azure Table storage에 데이터를 출력 하는 작동 하는 함수가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

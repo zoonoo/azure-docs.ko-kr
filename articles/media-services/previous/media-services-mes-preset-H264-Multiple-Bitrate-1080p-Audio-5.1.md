@@ -1,6 +1,6 @@
 ---
 title: H264 다중 비트 전송률 1080p Audio 5.1 | Microsoft Docs
-description: 이 항목은 **H264 다중 비트 레이트 1080p 오디오 5.1** 작업 사전 설정의 개요를 제공합니다.
+description: 이 항목은 **H264 다중 비트 전송률 1080P Audio 5.1** 태스크 미리 설정에 대 한 개요를 제공 합니다.
 author: Juliako
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 53ea54406969d246845018191960b13b8ee9a08a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61129766"
 ---
 # <a name="h264-multiple-bitrate-1080p-audio-51"></a>H264 다중 비트 전송률 1080p Audio 5.1 

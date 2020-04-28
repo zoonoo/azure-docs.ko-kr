@@ -1,13 +1,13 @@
 ---
-title: Azure 스택 VM에서 파일 백업
+title: Azure Stack Vm의 파일 백업
 description: Azure Backup을 사용하여 Azure Stack 환경에 Azure Stack 파일과 애플리케이션을 백업하고 복구합니다.
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: 2bcdf7f720708db1487d7d5cdaee41dc93c05728
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74172327"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Azure Stack의 파일 및 애플리케이션 백업
@@ -123,7 +123,7 @@ MBS(Modern Backup Storage)를 사용하는 경우 파일 서버 EUR(최종 사�
 
 ## <a name="view-azure-backup-server-with-a-vault"></a>자격 증명 모음으로 Azure Backup Server 보기
 
-Azure 포털에서 Azure 백업 서버 엔터티를 보려면 다음 단계를 따를 수 있습니다.
+Azure Portal에서 Azure Backup Server 엔터티를 보려면 다음 단계를 수행 하면 됩니다.
 
 1. Recovery Services 자격 증명 모음 열기
 2. 백업 인프라 클릭

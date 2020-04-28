@@ -1,14 +1,14 @@
 ---
-title: 아웃바운드 IP 주소 변경 준비
+title: 아웃 바운드 IP 주소 변경 준비
 description: 아웃바운드 IP 주소를 변경하려는 경우 앱이 변경 후 작업을 계속할 수 있도록 수행할 작업에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: 2be4bc92dde278b054bd04f412f937440027ece7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74671674"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>아웃바운드 IP 주소 변경 준비하는 방법
@@ -27,7 +27,7 @@ Azure App Service 앱의 아웃바운드 IP 주소가 변경된다는 알림을 
 
 새 아웃바운드 IP 주소는 적용되기 전에 포털에 표시됩니다. Azure에서 새 주소를 사용하기 시작하면 이전 주소는 더 이상 사용되지 않습니다. 한 번에 하나의 집합만 사용되므로 스위치가 가동할 경우 중단을 방지하려면 포함 목록의 항목에 이전 및 새 IP 주소가 있어야 합니다. 
 
-1.  Azure [포털을](https://portal.azure.com)엽니다.
+1.  [Azure Portal](https://portal.azure.com)을 엽니다.
 
 2.  왼쪽 탐색 메뉴에서 **App Service**를 선택합니다.
 

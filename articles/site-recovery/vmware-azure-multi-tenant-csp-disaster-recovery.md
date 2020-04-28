@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60461032"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>CSP(클라우드 솔루션 공급자) 프로그램을 사용하여 다중 테넌트 환경에서 VMware 재해 복구 설정
@@ -22,7 +22,7 @@ ms.locfileid: "60461032"
 
 이 아티클에서는 파트너로써 다중 테넌트 VMware 복제 시나리오에서 CSP를 통해 테넌트 구독을 만들고 관리하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 VMware 복제를 설정하려면 다음을 수행해야 합니다.
 
@@ -65,7 +65,7 @@ Microsoft 파트너 센터 대시보드를 통해 테넌트 구독에 액세스�
 ## <a name="assign-tenant-access-to-the-subscription"></a>구독에 테넌트 액세스 할당
 
 1. 재해 복구 인프라가 설정되어 있는지 확인합니다. 파트너는 재해 복구가 관리형 또는 셀프 서비스 형태인지에 관계없이 CSP 포털을 통해 테넌트 구독에 액세스합니다. 자격 증명 모음을 설정하고 테넌트 구독에 인프라를 등록합니다.
-2. 테넌트에 [만든 계정을](#create-a-tenant-account)제공합니다.
+2. [만든 계정](#create-a-tenant-account)에 테 넌 트를 제공 합니다.
 3. 다음과 같이 CSP 포털을 통해 새 사용자를 테넌트 구독에 추가할 수도 있습니다.
 
     a) 테넌트의 CSP 구독 페이지로 이동하고 **사용자 및 라이선스** 옵션을 선택합니다.
@@ -99,6 +99,6 @@ Microsoft 파트너 센터 대시보드를 통해 테넌트 구독에 액세스�
 
 ## <a name="next-steps"></a>다음 단계
 - Azure Site Recovery 배포를 관리하는 [역할 기반 액세스 제어](site-recovery-role-based-linked-access-control.md)에 대해 자세히 알아봅니다.
-- VMware에서 Azure [복제 아키텍처에](vmware-azure-architecture.md)대해 자세히 알아봅니다.
+- VMware에서 Azure로 [복제 아키텍처](vmware-azure-architecture.md)에 대해 자세히 알아보세요.
 - VMware VM을 Azure에 복제하는 [자습서를 검토합니다](vmware-azure-tutorial.md).
 VMware VM을 Azure에 복제하는 방법은 [다중 테넌트 환경](vmware-azure-multi-tenant-overview.md)에 대해 알아봅니다.

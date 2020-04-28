@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.reviewer: sunayv
 ms.openlocfilehash: 632818bf82e41e6be0a96d30cc1c4fa631718a3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74233086"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Azure에서 호스트되는 API를 PowerApps 및 Microsoft Flow로 내보내기
@@ -18,7 +18,7 @@ ms.locfileid: "74233086"
 마찬가지로 조직 내에서 자신의 API를 보다 광범위하게 노출하려는 개발자는 앱 및 흐름 빌더에 자신의 API를 제공하려 합니다. 이 토픽에서는 [Azure Functions](../azure-functions/functions-overview.md) 또는 [Azure App Service](../app-service/overview.md)를 통해 작성한 API를 노출하는 방법을 보여 줍니다. 내보낸 API는 *사용자 지정 커넥터*가 되며, 이 커넥터는 마치 기본 커넥터처럼 PowerApps 및 Microsoft Flow에 사용됩니다.
 
 > [!IMPORTANT]
-> 이 문서에 표시된 API 정의 기능은 Azure Functions 런타임 및 앱 서비스 [앱의 버전 1.x에대해서만 지원됩니다.](functions-versions.md#creating-1x-apps) 함수의 버전 2.x는 OpenAPI 정의를 만들고 유지하기 위해 API 관리와 통합됩니다. 자세한 내용은 [Azure API 관리를 사용하여 함수에 대한 OpenAPI 정의 만들기를](functions-openapi-definition.md)참조하십시오. 
+> 이 문서에 표시 된 API 정의 기능은 Azure Functions 런타임 및 App Services 앱 [의 버전 1. x](functions-versions.md#creating-1x-apps) 에만 지원 됩니다. 버전 2.x의 함수는 OpenAPI 정의를 만들고 유지 관리 하기 위해 API Management와 통합 됩니다. 자세한 내용은 [Azure API Management를 사용 하 여 함수에 대 한 OpenAPI 정의 만들기](functions-openapi-definition.md)를 참조 하세요. 
 
 ## <a name="create-and-export-an-api-definition"></a>API 정의를 만들고 내보내기
 API를 내보내기 전에 먼저 OpenAPI 정의(이전에는 [Swagger](https://swagger.io/) 파일)를 사용하여 API를 설명해야 합니다. 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다. PowerApps 및 Microsoft Flow는 모든 OpenAPI 2.0 정의를 위한 사용자 지정 커넥터를 만들 수 있습니다. Azure Functions 및 Azure App Service는 OpenAPI 정의를 만들고 호스트하고 관리할 수 있는 기본 지원을 제공합니다. 자세한 내용은 [Azure App Service에서 CORS를 통해 RESTful API 호스팅](../app-service/app-service-web-tutorial-rest-api.md)을 참조하세요.
@@ -42,7 +42,7 @@ API 정의를 내보내려면 다음 단계를 수행합니다.
 
     ![PowerApps + Microsoft Flow로 내보내기 단추](media/app-service-export-api-to-powerapps-and-flow/export-apps-flow.png)
 
-3. **내보내기 모드**선택:
+3. **내보내기 모드**를 선택 합니다.
 
     **기본**을 사용하면 Azure Portal 내에서 사용자 지정 커넥터를 만들 수 있습니다. 이렇게 하려면 PowerApps 또는 Microsoft Flow에 로그인해야 하며 대상 환경에서 커넥터를 만들 수 있는 권한이 필요합니다. 이 모드는 이러한 두 가지 요구 사항을 충족할 수 있는 경우 권장되는 방법입니다. 이 모드를 사용하는 경우 아래의 [기본 내보내기 사용](#express) 지침을 따릅니다.
 
@@ -62,7 +62,7 @@ API 정의를 내보내려면 다음 단계를 수행합니다.
 
 2. 표에 지정된 대로 설정을 사용합니다.
 
-    |설정|설명|
+    |설정|Description|
     |--------|------------|
     |**환경**|사용자 지정 커넥터를 저장해야 하는 환경을 선택합니다. 자세한 내용은 [환경 개요](https://powerapps.microsoft.com/tutorials/environments-overview/)를 참조하세요.|
     |**사용자 지정 API 이름**|PowerApps 및 Microsoft Flow 빌더의 커넥터 목록에 표시될 이름을 입력합니다.|
@@ -107,7 +107,7 @@ PowerApps 및 Microsoft Flow로 API 정의를 가져오려면 다음 단계를 �
 
 4. **일반** 탭에서 OpenAPI 정의에서 제공되는 정보를 검토합니다.
 
-5. **보안** 탭에서 인증 세부 정보를 입력하라는 메시지가 나오면 인증 유형에 적합한 값을 입력합니다. **계속**을 클릭합니다.
+5. **보안** 탭에서 인증 세부 정보를 입력하라는 메시지가 나오면 인증 유형에 적합한 값을 입력합니다. **Continue(계속)** 를 클릭합니다.
 
     ![보안 탭](media/app-service-export-api-to-powerapps-and-flow/tab-security.png)
 

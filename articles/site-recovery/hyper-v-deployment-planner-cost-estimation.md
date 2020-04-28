@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60947231"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서 
@@ -56,7 +56,7 @@ Azure Site Recovery Deployment Planner 보고서는 [권장 사항](hyper-v-depl
 
 **네트워크**: DR 요구 사항에 따른 ExpressRoute 및 사이트 간 VPN 비용입니다. 
 
-**Azure 사이트 복구 라이센스**: 호환되는 모든 VM에 대한 사이트 복구 라이센스 비용입니다. 자세한 비용 분석 테이블에 VM을 수동으로 입력하면 해당 VM에 대한 Site Recovery 라이선스 비용도 포함됩니다.
+**Azure Site Recovery 라이선스**: 호환 되는 모든 vm에 대 한 Site Recovery 라이선스 비용입니다. 자세한 비용 분석 테이블에 VM을 수동으로 입력하면 해당 VM에 대한 Site Recovery 라이선스 비용도 포함됩니다.
 
 ### <a name="overall-dr-costs-by-states"></a>상태별 전체 DR 비용
 총 DR 비용은 복제 및 DR 드릴이라는 서로 다른 두 가지 상태에 따라 분류됩니다.
@@ -78,7 +78,7 @@ Azure Site Recovery Deployment Planner 보고서는 [권장 사항](hyper-v-depl
 
 **VPN Gateway 유형**: 사용자 환경에 VPN Gateway가 있는 경우 이를 선택합니다. 기본값은 NA입니다.
 
-**대상 영역**: DR에 대해 지정된 Azure 영역입니다. 컴퓨팅, 스토리지, 네트워크 및 라이선스에 대해 보고서에 사용된 가격은 해당 지역에 대한 Azure 가격을 기반으로 합니다. 
+**대상 지역**: DR에 대해 지정 된 Azure 지역입니다. 컴퓨팅, 스토리지, 네트워크 및 라이선스에 대해 보고서에 사용된 가격은 해당 지역에 대한 Azure 가격을 기반으로 합니다. 
 
 ### <a name="vm-running-on-azure"></a>Azure에서 실행 중인 VM
 DR을 위해 Azure에서 실행되는 Always On 가용성 그룹이 있는 도메인 컨트롤러, DNS VM 또는 SQL Server VM이 있을 수 있습니다. 총 DR 비용에서 컴퓨팅 비용을 고려한 VM 수와 크기를 제공할 수 있습니다. 
@@ -90,7 +90,7 @@ Azure 파트너 또는 고객으로서 Azure 가격 전체에 대한 할인 혜�
 이 테이블에는 Windows VM 및 비Windows VM의 수와 이러한 VM에 대한 DR 드릴 컴퓨팅 비용이 표시됩니다.
 
 ### <a name="settings"></a>설정 
-**관리 디스크 사용**: DR 드릴 시 관리 디스크를 사용할지 여부를 지정합니다. 기본값은 **예입니다.** **-UseManagedDisks**를 **아니요**로 설정하면 관리되지 않는 디스크 가격이 비용 계산에 사용됩니다.
+**관리 디스크 사용**: DR 드릴 시 관리 디스크를 사용할지 여부를 지정합니다. 기본값은 **예**입니다. **-UseManagedDisks**를 **아니요**로 설정하면 관리되지 않는 디스크 가격이 비용 계산에 사용됩니다.
 
 **통화**: 보고서가 생성되는 통화입니다.
 
@@ -107,21 +107,21 @@ VM을 수동으로 추가하려면:
 
 1. 이 구성과 일치하는 대략적인 VM 크기 및 VM 수에 따라 다음 열을 채웁니다. 
 
-    a. **VM 수**
+    a. **Vm 수**
 
     b. **IaaS 크기(선택)**
 
-    다. **스토리지 유형(표준/프리미엄)**
+    c. **스토리지 유형(표준/프리미엄)**
 
     d. **VM 총 스토리지 크기(GB)**
 
-    e. **1년 동안의 DR-드릴 수**
+    e. **한 해의 DR 드릴 수**
 
     f. **각 DR 드릴 기간(일)**
 
     g. **OS 종류**
 
-    h. **데이터 중복성**
+    h. **데이터 중복**
 
     i. **AHUB(Azure Hybrid Use Benefit)**
 
@@ -149,7 +149,7 @@ VM을 수동으로 추가하려면:
 
 **데이터 중복성**: 로컬 중복 스토리지, 지역 중복 스토리지 또는 읽기 액세스 지역 중복 스토리지일 수 있습니다. 기본값은 로컬 중복 스토리지입니다. 특정 VM에 대한 스토리지 계정에 따라 유형을 변경하거나 새 유형을 모든 VM에 적용할 수 있습니다. 맨 위 행의 유형을 변경하고 **모든 항목에 적용**을 선택합니다. 복제에 대한 스토리지 비용은 선택한 데이터 중복성의 가격에 따라 계산됩니다. 
 
-**Azure 하이브리드 사용 혜택**: 해당되는 경우 Azure 하이브리드 사용 혜택을 Windows VM에 적용할 수 있습니다. 기본값은 **예입니다.** 특정 VM에 대한 설정을 변경하거나 모든 VM을 업데이트할 수 있습니다. **모든 항목에 적용**을 선택합니다.
+**Azure 하이브리드 사용 혜택**: 해당되는 경우 Azure 하이브리드 사용 혜택을 Windows VM에 적용할 수 있습니다. 기본값은 **예**입니다. 특정 VM에 대한 설정을 변경하거나 모든 VM을 업데이트할 수 있습니다. **모든 항목에 적용**을 선택합니다.
 
 **총 Azure 사용량**: DR에 대한 컴퓨팅, 스토리지 및 Site Recovery 라이선스 비용입니다. 선택에 따라 월간 또는 연간 비용이 표시됩니다.
 
@@ -157,7 +157,7 @@ VM을 수동으로 추가하려면:
 
 **총 DR 드릴 비용(평균)**: DR 드릴에 대한 컴퓨팅 및 스토리지 비용입니다.
 
-**Azure 사이트 복구 라이센스 비용**: 사이트 복구 라이센스 비용입니다.
+**Azure Site Recovery 라이선스 비용**: Site Recovery 라이선스 비용입니다.
 
 ## <a name="supported-target-regions"></a>지원되는 대상 지역
 Site Recovery Deployment Planner에서 비용 예측을 제공하는 Azure 지역은 다음과 같습니다. 해당 지역이 여기에 나열되지 않으면 가격이 해당 지역에 가장 가까운 다음 지역 중 하나를 사용할 수 있습니다.
@@ -167,7 +167,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>지원되는 통화
 Site Recovery Deployment Planner는 다음 통화 중 하나로 비용 보고서를 생성할 수 있습니다.
 
-|통화|이름||통화|이름||통화|이름|
+|Currency|Name||Currency|Name||Currency|Name|
 |---|---|---|---|---|---|---|---|
 |ARS|아르헨티나 페소($)||AUD|호주 달러($)||BRL|브라질 헤알(R$)|
 |CAD|캐나다 달러($)||CHF|스위스 프랑(chf)||DKK|덴마크 크로네(kr)|

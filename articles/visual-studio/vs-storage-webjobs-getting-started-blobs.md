@@ -1,5 +1,5 @@
 ---
-title: Visual Studio(WebJob 프로젝트)를 사용하여 Blob 저장소 시작
+title: Visual Studio를 사용 하 여 blob storage 시작 (WebJob 프로젝트)
 description: Visual Studio 연결된 서비스를 사용하여 Azure 스토리지에 연결한 후 WebJob 프로젝트에서 Blob Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 90aa824b7df575eb2783ece5bd88322f0b55f0a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72299972"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
@@ -79,7 +79,7 @@ ms.locfileid: "72299972"
 ## <a name="types-that-you-can-bind-to-blobs"></a>Blob에 바인딩할 수 있는 유형
 다음 유형에서 **BlobTrigger** 특성을 사용할 수 있습니다.
 
-* **문자열**
+* **string**
 * **TextReader**
 * **스트림**
 * **ICloudBlob**

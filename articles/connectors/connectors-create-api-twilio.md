@@ -1,5 +1,5 @@
 ---
-title: Azure 논리 앱에서 Twilio에 연결
+title: Azure Logic Apps에서 Twilio에 연결
 description: Azure Logic Apps를 사용하여 Twilio 계정을 통해 글로벌 SMS, MMS 및 IP 메시지를 관리하는 작업 및 워크플로 자동화
 services: logic-apps
 ms.suite: integration
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: e5b218efd9c8cfaad99d76d8118d181390a977c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789106"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Twilio에서 메시지 관리
 
-Azure Logic Apps 및 Twilio 커넥터를 사용하면 글로벌 SMS, MMS 및 IP 메시지를 포함한 Twilio의 메시지를 가져오기, 전송 및 나열하는 자동화된 작업 및 워크플로를 만들 수 있습니다. 이러한 작업을 사용하여 Twilio 계정으로 작업을 수행할 수 있습니다. 또한 다른 작업에서 Twilio 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 새 메시지가 도착하면 Slack 커넥터를 사용하여 메시지 콘텐츠를 보낼 수 있습니다. 로직 앱을 새로 접하는 경우 [Azure 논리 앱이란 무엇입니까?](../logic-apps/logic-apps-overview.md)
+Azure Logic Apps 및 Twilio 커넥터를 사용하면 글로벌 SMS, MMS 및 IP 메시지를 포함한 Twilio의 메시지를 가져오기, 전송 및 나열하는 자동화된 작업 및 워크플로를 만들 수 있습니다. 이러한 작업을 사용하여 Twilio 계정으로 작업을 수행할 수 있습니다. 또한 다른 작업에서 Twilio 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 새 메시지가 도착하면 Slack 커넥터를 사용하여 메시지 콘텐츠를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps 된 항목](../logic-apps/logic-apps-overview.md) 을 검토 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -33,7 +33,7 @@ Azure Logic Apps 및 Twilio 커넥터를 사용하면 글로벌 SMS, MMS 및 IP 
 
   * SMS를 받을 수 있다고 확인된 Twilio 전화 번호
 
-* [논리 앱을 만드는 방법에](../logic-apps/quickstart-create-first-logic-app-workflow.md) 대한 기본 지식
+* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
 
 * Twilio 계정에 액세스하려는 논리 앱입니다. Twilio 동작을 사용하려면 예를 들어 **되풀이** 트리거 같은 다른 트리거를 통해 논리 앱을 시작합니다.
 
@@ -50,12 +50,12 @@ Azure Logic Apps 및 Twilio 커넥터를 사용하면 글로벌 SMS, MMS 및 IP 
        또는
 
      * 작업을 추가하려는 단계 사이에서, 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-     표시되는 더하기**+** 기호 () 를 선택한 다음 **작업 추가를**선택합니다.
+     표시 되는 더하기 기호**+**()를 선택 하 고 **작업 추가**를 선택 합니다.
      
        검색 상자에서 필터로 “twilio”를 입력합니다. 
        작업 목록에서 원하는 작업을 선택합니다.
 
-1. 연결에 필요한 세부 정보를 제공한 다음 **만들기를**선택합니다.
+1. 연결에 필요한 세부 정보를 입력 하 고 **만들기**를 선택 합니다.
 
    * 연결에 사용할 이름
    * Twilio 계정 ID 

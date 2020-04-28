@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
 ms.openlocfilehash: d0da98070fa8da5403677e1a67bda75456c74d80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789276"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
 > [!IMPORTANT]
-> [SFTP 커넥터가](../connectors/connectors-sftp-ssh.md) 더 이상 사용되지 않습니다. 로직 앱 디자이너에서 SFTP 트리거 및 작업을 더 이상 선택할 수 없습니다.
+> SFTP 커넥터는 사용 되지 않으므로 [sftp-SSH 커넥터](../connectors/connectors-sftp-ssh.md) 를 사용 하세요. 논리 앱 디자이너에서 더 이상 SFTP 트리거와 작업을 선택할 수 없습니다.
 
 [SFTP(보안 파일 전송 프로토콜)](https://www.ssh.com/ssh/sftp/) 서버에서 파일을 모니터링, 만들기, 전송 및 수신하는 작업을 자동화하려면 Azure Logic Apps 및 SFTP 커넥터를 사용하여 통합 워크플로를 빌드하고 자동화할 수 있습니다. SFTP는 신뢰할 수 있는 데이터 스트림을 통해 파일 액세스, 파일 전송 및 파일 관리를 제공하는 네트워크 프로토콜입니다. 다음은 자동화할 수 있는 몇 가지 예제 작업입니다.
 
@@ -27,11 +27,11 @@ ms.locfileid: "74789276"
 * 파일 콘텐츠 및 메타데이터를 가져옵니다.
 * 보관을 폴더로 추출합니다.
 
-SFTP 서버에서 이벤트를 모니터링하는 트리거를 사용하고 다른 작업에서 출력을 사용하도록 할 수 있습니다. SFTP 서버에서 다양한 작업을 수행하는 작업을 사용할 수 있습니다. 또한 논리 앱의 다른 작업에서 SFTP 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 정기적으로 SFTP 서버에서 파일을 검색하는 경우 Office 365 Outlook 커넥터 또는 Outlook.com 커넥터를 사용하여 해당 파일 및 해당 콘텐츠에 대한 이메일 경고를 보낼 수 있습니다. 로직 앱을 새로 접하는 경우 [Azure 논리 앱이란 무엇입니까?](../logic-apps/logic-apps-overview.md)
+SFTP 서버에서 이벤트를 모니터링하는 트리거를 사용하고 다른 작업에서 출력을 사용하도록 할 수 있습니다. SFTP 서버에서 다양한 작업을 수행하는 작업을 사용할 수 있습니다. 또한 논리 앱의 다른 작업에서 SFTP 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 정기적으로 SFTP 서버에서 파일을 검색하는 경우 Office 365 Outlook 커넥터 또는 Outlook.com 커넥터를 사용하여 해당 파일 및 해당 콘텐츠에 대한 이메일 경고를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps 된 항목](../logic-apps/logic-apps-overview.md) 을 검토 하세요.
 
 ## <a name="limits"></a>제한
 
-SFTP 커넥터는 *50MB 이하의* 파일만 처리하며 메시지 [청크를](../logic-apps/logic-apps-handle-large-messages.md)지원하지 않습니다. 큰 파일의 경우 [SFTP-SSH 커넥터를](../connectors/connectors-sftp-ssh.md)사용합니다. SFTP 커넥터와 SFTP-SSH 커넥터 간의 차이점을 보려면 [SFTP-SSH 문서에서 SFTP-SSH와 SFTP 비교를](../connectors/connectors-sftp-ssh.md#comparison) 검토하십시오.
+SFTP 커넥터는 *50 MB 미만의* 파일만 처리 하 고 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)를 지원 하지 않습니다. 큰 파일의 경우 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)를 사용 합니다. Sftp 커넥터와 SFTP-ssh 커넥터 간의 차이점을 보려면 SFTP-ssh 문서에서 [Sftp 비교-ssh와 sftp](../connectors/connectors-sftp-ssh.md#comparison) 를 검토 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -47,18 +47,18 @@ SFTP 커넥터는 *50MB 이하의* 파일만 처리하며 메시지 [청크를](
   > SSH 프라이빗 키를 사용하는 경우 SSH 프라이빗 키 파일에서 키를 ***복사***하고, 해당 키를 연결 세부 정보에 ***붙여넣었는지*** 확인합니다. ***키를 수동으로 입력하거나 편집하지 마십시오***. 연결 실패가 발생할 수 있습니다. 
   > 자세한 내용은 이 문서의 뒷부분에 나오는 단계를 참조하세요.
 
-* [논리 앱을 만드는 방법에](../logic-apps/quickstart-create-first-logic-app-workflow.md) 대한 기본 지식
+* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
 
 * SFTP 계정에 액세스하려는 논리 앱입니다. SFTP 트리거를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). SFTP 동작을 사용하려면 예를 들어 **되풀이** 트리거 같은 다른 트리거를 통해 논리 앱을 시작합니다.
 
-## <a name="how-sftp-triggers-work"></a>SFTP 트리거 작동 방식
+## <a name="how-sftp-triggers-work"></a>SFTP 트리거 작동 방법
 
-SFTP는 SFTP 파일 시스템을 폴링하고 마지막 폴링 이후 변경된 파일을 찾아서 작업을 트리거합니다. 일부 도구를 통해 파일을 변경하는 경우 타임스탬프를 유지할 수 있습니다. 이러한 경우 트리거가 작동할 수 있도록 이 기능을 사용하지 않도록 설정해야 합니다. 아래에는 몇 가지 일반적인 설정이 나와 있습니다.
+SFTP 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴링 이후 변경 된 파일을 찾는 방식으로 작동 합니다. 일부 도구를 통해 파일을 변경하는 경우 타임스탬프를 유지할 수 있습니다. 이러한 경우 트리거가 작동할 수 있도록 이 기능을 사용하지 않도록 설정해야 합니다. 아래에는 몇 가지 일반적인 설정이 나와 있습니다.
 
 | SFTP 클라이언트 | 작업 |
 |-------------|--------|
-| Winscp | **옵션** > **환경 설정으로** > 이동**전송** > **편집** > 보존**타임스탬프** > **비활성화** |
-| FileZilla | **전송된 파일의** > 타임스탬프 **유지** > 로 이동**사용 안 함** |
+| Winscp | **옵션** > **기본 설정** > **전송** > **Preserve timestamp****Edit** > 편집 타임 스탬프 유지**사용 안 함**  >  |
+| FileZilla | **전송** > 으로 이동 > 전송**된 파일의 타임 스탬프를 유지**합니다.**사용 안 함** |
 |||
 
 트리거는 새 파일을 찾으면 해당 파일이 완전한 상태이며 부분적으로 작성된 것이 아닌지 확인합니다. 예를 들어 트리거가 파일 서버를 확인할 때 파일을 변경하는 중일 수 있습니다. 부분적으로 작성된 파일이 반환되지 않도록 하기 위해 트리거는 최근 변경된 내용이 있는 파일의 타임스탬프를 기록하되 해당 파일을 즉시 반환하지는 않으며, 서버를 다시 폴링할 때만 해당 파일을 반환합니다. 이 동작으로 인해 트리거 폴링 간격의 최대 2배까지 지연이 발생하는 경우도 있습니다.
@@ -75,7 +75,7 @@ SFTP는 SFTP 파일 시스템을 폴링하고 마지막 폴링 이후 변경된 
 
    기존 논리 앱의 경우 작업을 추가하려는 마지막 단계에서 **새 단계**를 선택합니다. 검색 상자에서 필터로 “sftp”를 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
 
-   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시되는 더하기**+** 기호 () 를 선택한 다음 **작업 추가를**선택합니다.
+   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시 되는 더하기 기호**+**()를 선택 하 고 **작업 추가**를 선택 합니다.
 
 1. 연결에 필요한 정보를 입력합니다.
 
@@ -88,9 +88,9 @@ SFTP는 SFTP 파일 시스템을 폴링하고 마지막 폴링 이후 변경된 
 
    1. 텍스트 편집기에서 SSH 프라이빗 키 파일을 엽니다. 이러한 단계는 예제로 메모장을 사용합니다.
 
-   1. 메모장 **편집** 메뉴에서 **모두 선택을**선택합니다.
+   1. 메모장의 **편집** 메뉴에서 **모두 선택**을 선택 합니다.
 
-   1. **복사** **편집을** > 선택합니다.
+   1. 복사 **편집** > **Copy**을 선택 합니다.
 
    1. 추가한 SFTP 트리거 또는 작업에서 **SSH 프라이빗 키** 속성으로 복사한 *전체* 키를 붙여넣습니다. 이는 여러 줄을 지원합니다. 키를 ***붙여넣었는지 확인합니다***. ***키를 수동으로 입력하거나 편집하지 마십시오***.
 

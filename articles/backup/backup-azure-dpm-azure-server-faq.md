@@ -1,21 +1,21 @@
 ---
-title: Azure 백업 서버 및 DPM 자주 묻는 질문
-description: 이 문서에서는 MABS(Microsoft Azure 백업 서버) 및 DPM(데이터 보호 관리자)에 대한 일반적인 질문에 대한 답변을 알아보십시오.
+title: Azure Backup Server 및 DPM FAQ
+description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) 및 DPM (Data Protection Manager)에 대 한 일반적인 질문에 대 한 답변을 검색 합니다.
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.openlocfilehash: 35957a1e8a3d6c3d9be06d9d44dbcd47efa0e6ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74173152"
 ---
-# <a name="azure-backup-server-and-dpm---faq"></a>Azure 백업 서버 및 DPM - FAQ
+# <a name="azure-backup-server-and-dpm---faq"></a>Azure Backup Server 및 DPM-FAQ
 
 ## <a name="general-questions"></a>일반적인 질문
 
-이 문서에서는 Azure 백업 서버 및 DPM에 대해 자주 묻는 질문에 대한 답변을 드리고 있습니다.
+이 문서에서는 Azure Backup Server 및 DPM에 대해 자주 묻는 질문과 대답을 설명 합니다.
 
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server"></a>Azure Backup 서버를 사용하여 물리적 서버에 대한 BMR(완전 복구) 백업을 만들 수 있나요?
 
@@ -46,7 +46,7 @@ ms.locfileid: "74173152"
 - 지원되는 버전에 대해 [자세히 알아봅니다](backup-mabs-protection-matrix.md).
 - [다음 단계를 수행](backup-azure-backup-server-vmware.md)하여 VMware 서버를 백업합니다.
 
-### <a name="do-i-need-a-separate-license-to-recover-a-full-on-premises-vmwarehyper-v-cluster"></a>전체 온-프레미스 VMware/Hyper-V 클러스터를 복구하려면 별도의 라이선스가 필요합니까?
+### <a name="do-i-need-a-separate-license-to-recover-a-full-on-premises-vmwarehyper-v-cluster"></a>전체 온-프레미스 VMware/Hyper-v 클러스터를 복구 하려면 별도의 라이선스가 필요 한가요?
 
 VMware/Hyper-V 보호를 위해 별도 라이선스는 필요 없습니다.
 
@@ -67,5 +67,5 @@ SharePoint 데이터베이스가 SQL AlwaysOn에서 구성되었으므로 가용
 
 다른 FAQ를 읽어보세요.
 
-- Azure 백업 서버 및 DPM 지원 매트릭스에 대해 [자세히 알아보세요.](backup-support-matrix-mabs-dpm.md)
-- Azure 백업 서버 및 DPM 문제 해결 지침에 대해 [자세히 알아보세요.](backup-azure-mabs-troubleshoot.md)
+- Azure Backup Server 및 DPM 지원 매트릭스에 [대해 자세히 알아보세요](backup-support-matrix-mabs-dpm.md) .
+- Azure Backup Server 및 DPM 문제 해결 지침에 [대해 자세히 알아보세요](backup-azure-mabs-troubleshoot.md) .

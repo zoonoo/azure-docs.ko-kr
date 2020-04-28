@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구에서 복구 계획에 스크립트 추가
+title: Azure Site Recovery에서 복구 계획에 스크립트를 추가 합니다.
 description: VMM 클라우드에서 Hyper-V VM의 재해 복구를 위해 복구 계획에 VMM 스크립트를 추가하는 방법을 알아봅니다.
 author: rajani-janaki-ram
 manager: rochakm
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 6902876e066649ae4dff4134fb8cc462f30dd0b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74084868"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>복구 계획에 VMM 스크립트 추가
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)에서 System Center Virtual Machine Manager(VMM) 스크립트를 생성하여 복구 계획에 추가하는 방법을 설명합니다.
 
-이 문서의 맨 아래 또는 Azure 복구 [서비스 포럼에](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)주석이나 질문을 게시합니다.
+이 문서의 하단 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이 나 질문을 게시 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 복구 계획에서 PowerShell 스크립트를 사용할 수 있습니다. 복구 계획에서 스크립트를 액세스할 수 있도록 스크립트를 작성하여 VMM 라이브러리에 배치해야 합니다. 스크립트를 작성할 때는 다음 사항에 유의하세요.
 
@@ -29,7 +29,7 @@ ms.locfileid: "74084868"
     - 오류가 발생하면 스크립트의 나머지 부분이 실행되지 않습니다.
     - 계획되지 않은 장애 조치를 실행할 때 오류가 발생하면 복구 계획이 계속됩니다.
     - 계획된 장애 조치를 실행할 때 오류가 발생하면 복구 계획이 중단됩니다. 스크립트를 수정하고 예상대로 실행되는지 확인한 다음, 복구 계획을 다시 실행합니다.
-        - 복구 계획 스크립트에서는 `Write-Host` 명령이 작동하지 않습니다. 스크립트에서 `Write-Host` 명령을 사용하면 스크립트가 제대로 실행되지 않습니다. 출력을 만들려면 기본 스크립트를 실행하는 프록시 스크립트를 만듭니다. 모든 출력이 파이프아웃되도록 하려면 ** \> ** 명령을 사용합니다.
+        - 복구 계획 스크립트에서는 `Write-Host` 명령이 작동하지 않습니다. 스크립트에서 `Write-Host` 명령을 사용하면 스크립트가 제대로 실행되지 않습니다. 출력을 만들려면 기본 스크립트를 실행하는 프록시 스크립트를 만듭니다. 모든 출력이 파이프 되도록 하려면 ** \> ** 명령을 사용 합니다.
         - 600초 이내에 반환하지 않는 경우 스크립트 시간이 초과됩니다.
         - STDERR에 기록되는 항목이 하나라도 존재하면 스크립트가 실패로 분류됩니다. 이 정보는 스크립트 실행 세부 정보에 표시됩니다.
 

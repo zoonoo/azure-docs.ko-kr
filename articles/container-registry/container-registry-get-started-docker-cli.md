@@ -1,25 +1,25 @@
 ---
-title: '& 끌어당기기 이미지를 누를 수 있습니다.'
+title: '& 풀 Docker 이미지 푸시'
 description: Docker CLI를 사용하여 Azure의 프라이빗 컨테이너 레지스트리로 Docker 이미지 밀어넣기 및 끌어오기
 ms.topic: article
 ms.date: 01/23/2019
 ms.custom: seodec18, H1Hack27Feb2017
 ms.openlocfilehash: 6751a04c3c1bfe826334161704c20c1ba2e5a6d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74456365"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI를 사용하여 프라이빗 Docker 컨테이너 레지스트리로 이미지 밀어넣기 및 끌어오기
 
-Azure 컨테이너 레지스트리는 [Docker Hub가](https://hub.docker.com/) 공용 Docker 이미지를 저장하는 방법과 유사하게 개인 [Docker](https://hub.docker.com) 컨테이너 이미지를 저장하고 관리합니다. [Docker 명령줄 인터페이스](https://docs.docker.com/engine/reference/commandline/cli/)(Docker CLI)를 사용하여 컨테이너 레지스트리에서 [로그인](https://docs.docker.com/engine/reference/commandline/login/), [푸시](https://docs.docker.com/engine/reference/commandline/push/), [풀](https://docs.docker.com/engine/reference/commandline/pull/) 및 기타 작업을 수행합니다.
+Azure container registry는 [Docker 허브](https://hub.docker.com/) 에서 공개 docker 이미지를 저장 하는 방식과 유사한 방식으로 개인 [Docker](https://hub.docker.com) 컨테이너 이미지를 저장 하 고 관리 합니다. [Docker 명령줄 인터페이스](https://docs.docker.com/engine/reference/commandline/cli/)(Docker CLI)를 사용하여 컨테이너 레지스트리에서 [로그인](https://docs.docker.com/engine/reference/commandline/login/), [푸시](https://docs.docker.com/engine/reference/commandline/push/), [풀](https://docs.docker.com/engine/reference/commandline/pull/) 및 기타 작업을 수행합니다.
 
 다음 단계에서는 공개 Docker Hub 레지스트리에서 공식 [Nginx 이미지](https://store.docker.com/images/nginx)를 다운로드하고 프라이빗 Azure 컨테이너 레지스트리용으로 태그를 지정하고, 레지스트리에 푸시한 다음, 레지스트리에서 풀합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-* **Azure 컨테이너 레지스트리** - Azure 구독에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
+* **Azure container registry** -azure 구독에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
 * **Docker CLI** - 또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 모든 [macOS][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux] 시스템에서 Docker를 쉽게 구성할 수 있는 패키지를 제공합니다.
 
 ## <a name="log-in-to-a-registry"></a>레지스트리에 로그인
@@ -30,7 +30,7 @@ Azure 컨테이너 레지스트리는 [Docker Hub가](https://hub.docker.com/) �
 az acr login --name myregistry
 ```
 
-[docker login](https://docs.docker.com/engine/reference/commandline/login/)을 사용하여 로그인할 수도 있습니다. 예를 들어 자동화 [시나리오에 대한 서비스 주체를](container-registry-authentication.md#service-principal) 레지스트리에 할당했을 수 있습니다. 다음 명령을 실행할 때 메시지가 표시되면 서비스 주체 appID(사용자 이름) 및 암호를 대화식으로 입력하세요. 로그인 자격 증명 관리 모범 사례는 [docker 로그인](https://docs.docker.com/engine/reference/commandline/login/) 명령 참조를 참조하세요.
+[docker login](https://docs.docker.com/engine/reference/commandline/login/)을 사용하여 로그인할 수도 있습니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 [서비스 주체를 할당](container-registry-authentication.md#service-principal) 했을 수 있습니다. 다음 명령을 실행할 때 메시지가 표시되면 서비스 주체 appID(사용자 이름) 및 암호를 대화식으로 입력하세요. 로그인 자격 증명 관리 모범 사례는 [docker 로그인](https://docs.docker.com/engine/reference/commandline/login/) 명령 참조를 참조하세요.
 
 ```
 docker login myregistry.azurecr.io
@@ -121,7 +121,7 @@ az acr repository delete --name myregistry --image samples/nginx:latest
 
 이제 기본 사항을 배웠으니 레지스트리 사용을 시작할 준비가 되었습니다. 예를 들어 레지스트리에서 다음에 컨테이너 이미지를 배포합니다.
 
-* [Azure Kubernetes 서비스(AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [AKS(Azure Kubernetes Service)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
 
