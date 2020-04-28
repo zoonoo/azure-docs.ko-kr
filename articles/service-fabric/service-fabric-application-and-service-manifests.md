@@ -1,13 +1,13 @@
 ---
-title: Azure 서비스 패브릭 앱 및 서비스 설명
+title: Azure Service Fabric 앱 및 서비스 설명
 description: Service Fabric 애플리케이션 및 서비스를 설명하는 데 매니페스트를 사용하는 방법에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 8/12/2019
 ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75349970"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 애플리케이션 및 서비스 매니페스트
@@ -63,7 +63,7 @@ ms.locfileid: "75349970"
 
 **EntryPoint** 를 통해 지정되는 실행 파일은 일반적으로 장기 실행 서비스 호스트입니다. **SetupEntryPoint** 는 서비스 패브릭과 같은 자격 증명(일반적으로 *LocalSystem* 계정)을 사용하여 다른 진입점보다 먼저 실행되는 권한 있는 진입점입니다.  별도의 설정 진입점이 있으면 한동안은 높은 권한을 사용하여 서비스 호스트를 실행하지 않아도 됩니다. **EntryPoint**를 통해 지정된 실행 파일은 **SetupEntryPoint**가 성공적으로 종료된 후 실행됩니다. 프로세스가 종료되지 않거나 충돌하는 경우 결과 프로세스를 모니터링하여 다시 시작합니다( **SetupEntryPoint**를 사용하여 다시 시작).  
 
-**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행하는 경우 또는 높은 권한을 사용하여 작업을 수행하는 경우입니다. 예를 들어:
+**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행하는 경우 또는 높은 권한을 사용하여 작업을 수행하는 경우입니다. 예를 들면 다음과 같습니다.
 
 * 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 서비스 패브릭 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지는 않습니다. 예를 들어 npm.exe 파일에는 node.js 애플리케이션 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.
@@ -74,7 +74,7 @@ SetupEntryPoint를 구성하는 방법에 대한 자세한 내용은 [서비스 
 
 이전 예제에서 설정되지 않은 **DataPackage**는 **Name** 특성을 통해 이름이 지정되고 런타임에 프로세스에서 사용할 임의의 정적 데이터를 포함하는 폴더를 선언합니다.
 
-**ConfigPackage**는 **Name** 특성을 통해 이름이 지정되고 *Settings.xml* 파일을 포함하는 폴더를 선언합니다. 설정 파일은 런타임에 프로세스에서 다시 읽을 수 있는 사용자 정의 키-값 쌍 설정의 섹션을 포함합니다. 업그레이드하는 동안 **ConfigPackage** **버전**만 변경되면 실행 중인 프로세스가 다시 시작되지 않습니다. 대신, 콜백에서는 구성 설정이 변경되어 동적으로 다시 로드할 수 있음을 프로세스에 알립니다. 다음은 *Settings.xml* 파일 예제입니다.
+**ConfigPackage**는 **Name** 특성을 통해 이름이 지정되고 *Settings.xml* 파일을 포함하는 폴더를 선언합니다. 설정 파일은 런타임에 프로세스에서 다시 읽을 수 있는 사용자 정의 키-값 쌍 설정의 섹션을 포함합니다. 업그레이드하는 동안 **ConfigPackage** **버전**만 변경되면 실행 중인 프로세스가 다시 시작되지 않습니다. 대신, 콜백에서는 구성 설정이 변경되어 동적으로 다시 로드할 수 있음을 프로세스에 알립니다. 다음은 *설정 .xml* 파일의 예입니다.
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -85,11 +85,11 @@ SetupEntryPoint를 구성하는 방법에 대한 자세한 내용은 [서비스 
 </Settings>
 ```
 
-서비스 패브릭 서비스 **엔드포인트는** 서비스 패브릭 리소스의 예입니다. 서비스 패브릭 리소스는 컴파일된 코드를 변경하지 않고 선언/변경할 수 있습니다. 서비스 매니페스트에 지정된 Service Fabric 리소스에 대한 액세스는 애플리케이션 매니페스트의 **SecurityGroup**을 통해 제어할 수 있습니다. 서비스 매니페스트에 엔드포인트 리소스가 정의되면 Service Fabric에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다. [엔드포인트 리소스 지정 또는 재정의](service-fabric-service-manifest-resources.md)에 대해 자세히 알아보세요.
+Service Fabric 서비스 **끝점** 은 Service Fabric 리소스의 예입니다. 컴파일된 코드를 변경 하지 않고 Service Fabric 리소스를 선언/변경할 수 있습니다. 서비스 매니페스트에 지정된 Service Fabric 리소스에 대한 액세스는 애플리케이션 매니페스트의 **SecurityGroup**을 통해 제어할 수 있습니다. 서비스 매니페스트에 엔드포인트 리소스가 정의되면 Service Fabric에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다. [엔드포인트 리소스 지정 또는 재정의](service-fabric-service-manifest-resources.md)에 대해 자세히 알아보세요.
 
  
 > [!WARNING]
-> 정적 포트는 클러스터매니페스트에 지정된 응용 프로그램 포트 범위와 겹치지 않아야 합니다. 정적 포트를 지정하는 경우 응용 프로그램 포트 범위 외부에 할당하면 포트 충돌이 발생합니다. 릴리스 6.5CU2에서는 이러한 충돌을 감지할 때 **상태 경고를** 발행하지만 배포가 제공된 6.5 동작과 동기화될 수 있도록 합니다. 그러나 다음 주요 릴리스에서 응용 프로그램 배포를 방지할 수 있습니다.
+> 의도적으로 정적 포트는 ClusterManifest에 지정 된 응용 프로그램 포트 범위와 겹치면 안 됩니다. 정적 포트를 지정 하는 경우에는 응용 프로그램 포트 범위 외부에 할당 합니다. 그렇지 않으면 포트 충돌이 발생 합니다. Release 6.5를 사용 하면 이러한 충돌을 감지 하면 **상태 경고가** cu2 배포를 계속 해 서 배송 된 6.5 동작으로 동기화 할 수 있습니다. 그러나 다음 주요 릴리스에서는 응용 프로그램을 배포 하지 못할 수 있습니다.
 >
 
 <!--
@@ -157,12 +157,12 @@ For more information about other features supported by service manifests, refer 
 
 **인증서**(이전 예제에서 설정되지 않음)는 [HTTPS 엔드포인트 설정](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) 또는 [애플리케이션 매니페스트의 비밀 암호화](service-fabric-application-secret-management.md)에 사용되는 인증서를 선언합니다.
 
-**배치 제약 조건은** 서비스를 실행할 위치를 정의하는 명령문입니다. 이러한 문은 하나 이상의 노드 속성에 대해 선택한 개별 서비스에 연결됩니다. 자세한 내용은 [배치 제약 조건 및 노드 속성 구문을 참조하십시오.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
+**배치 제약 조건은** 서비스를 실행할 위치를 정의 하는 문입니다. 이러한 문은 하나 이상의 노드 속성에 대해 선택한 개별 서비스에 연결 됩니다. 자세한 내용은 [배치 제약 조건 및 노드 속성 구문](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax) 을 참조 하세요.
 
-**정책(앞의** 예제에 설정되지 않음)은 서비스 패브릭 런타임에 대한 액세스 권한이 있는지 여부를 포함하여 응용 프로그램 수준에서 설정할 로그 컬렉션, [기본 실행](service-fabric-application-runas-security.md)있음 [및](service-fabric-health-introduction.md#health-policies) [보안 액세스](service-fabric-application-runas-security.md) 정책을 설명합니다.
+**정책** (이전 예제에서 설정 되지 않음)은 서비스에 Service Fabric 런타임에 대 한 액세스 권한이 있는지 여부를 포함 하 여 응용 프로그램 수준에서 설정 되는 로그 컬렉션, [기본 실행](service-fabric-application-runas-security.md), [상태](service-fabric-health-introduction.md#health-policies)및 [보안 액세스](service-fabric-application-runas-security.md) 정책에 대해 설명 합니다.
 
 > [!NOTE] 
-> 기본적으로 Service Fabric 응용 프로그램은 응용 프로그램별 요청을 수락하는 엔드포인트 의 형태로 서비스 패브릭 런타임에 액세스할 수 있으며 패브릭 및 응용 프로그램 별 파일이 포함된 호스트의 파일 경로를 가리키는 환경 변수를 액세스할 수 있습니다. . 응용 프로그램이 신뢰할 수 없는 코드(예: 출처를 알 수 없거나 응용 프로그램 소유자가 실행하기에 안전하지 않다고 알고 있는 코드)를 호스팅할 때 이 액세스를 사용하지 않도록 설정하는 것이 좋습니다. 자세한 내용은 서비스 [패브릭의 보안 모범 사례를](service-fabric-best-practices-security.md#platform-isolation)참조하십시오. 
+> 기본적으로 Service Fabric 응용 프로그램은 응용 프로그램별 요청을 수락 하는 끝점의 형식 및 패브릭 및 응용 프로그램별 파일이 포함 된 호스트의 파일 경로를 가리키는 환경 변수를 사용 하 여 Service Fabric 런타임에 액세스할 수 있습니다. 응용 프로그램이 신뢰할 수 없는 코드를 호스트 하는 경우 (즉, provenance를 알 수 없거나 응용 프로그램 소유자가 안전 하 게 실행 되지 않도록 하는 코드)이 액세스를 사용 하지 않도록 설정 하는 것이 좋습니다. 자세한 내용은 [Service Fabric의 보안 모범 사례](service-fabric-best-practices-security.md#platform-isolation)를 참조 하세요. 
 >
 
 **보안 주체**(이전 예제에서 설정되지 않음)는 [서비스 및 보안 서비스 리소스 실행](service-fabric-application-runas-security.md)에 필요한 보안 주체(사용자 또는 그룹)를 설명합니다.  보안 주체는 **정책** 섹션에서 참조됩니다.
@@ -184,7 +184,7 @@ For more information about other features supported by application manifests, re
 - [애플리케이션을 패키지](service-fabric-package-apps.md)하고 배포를 준비합니다.
 - [애플리케이션을 배포하고 제거](service-fabric-deploy-remove-applications.md)합니다.
 - [여러 애플리케이션 인스턴스에 대해 매개 변수 및 환경 변수를 구성](service-fabric-manage-multiple-environment-app-configuration.md)합니다.
-- [응용 프로그램에 대한 보안 정책을 구성합니다.](service-fabric-application-runas-security.md)
+- [응용 프로그램에 대 한 보안 정책을 구성](service-fabric-application-runas-security.md)합니다.
 - [HTTPS 엔드포인트를 설정](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service)합니다.
 - [애플리케이션 매니페스트에서 비밀을 암호화](service-fabric-application-secret-management.md)합니다.
 

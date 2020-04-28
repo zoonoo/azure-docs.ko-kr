@@ -1,26 +1,26 @@
 ---
-title: 템플릿이 있는 키 볼트 비밀
+title: 템플릿이 있는 Key Vault 암호
 description: 배포하는 동안 키 자격 증명 모음의 비밀을 매개 변수로 전달하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.openlocfilehash: d21a7d727091b427fee59e22db6a77a495a4eab7
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458269"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달
 
-템플릿 또는 매개 변수 파일에 암호와 같은 보안 값을 직접 배치하는 대신 배포 하는 동안 [Azure Key Vault에서](../../key-vault/general/overview.md) 값을 검색할 수 있습니다. 매개 변수 파일에서 Key Vault 및 비밀을 참조하여 이 값을 검색합니다. 해당 Key Vault ID만 참조하므로 이 값은 절대 노출되지 않습니다. 키 자격 증명 모음은 배포하는 리소스 그룹과 다른 구독에 존재할 수 있습니다.
+템플릿 또는 매개 변수 파일에 보안 값 (예: 암호)을 직접 배치 하는 대신 배포 중에 [Azure Key Vault](../../key-vault/general/overview.md) 에서 값을 검색할 수 있습니다. 매개 변수 파일에서 Key Vault 및 비밀을 참조하여 이 값을 검색합니다. 해당 Key Vault ID만 참조하므로 이 값은 절대 노출되지 않습니다. 키 자격 증명 모음은 배포 중인 리소스 그룹과 다른 구독에 있을 수 있습니다.
 
-이 문서에서는 중요한 값을 템플릿 매개 변수로 전달하는 시나리오에 중점을 둡니다. 키 자격 증명 모음에서 인증서의 URL에 가상 시스템 속성을 설정하는 시나리오는 다루지 않습니다. 해당 시나리오의 빠른 시작 템플릿은 [가상 컴퓨터에 Azure 키 자격 증명 모음의 인증서 설치를](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)참조하십시오.
+이 문서에서는의 중요 한 값을 템플릿 매개 변수로 전달 하는 시나리오에 대해 집중적으로 설명 합니다. 가상 컴퓨터 속성을 Key Vault 인증서의 URL로 설정 하는 시나리오는 다루지 않습니다. 해당 시나리오의 빠른 [시작 템플릿은 가상 컴퓨터에 Azure Key Vault에서 인증서 설치](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)를 참조 하세요.
 
 ## <a name="deploy-key-vaults-and-secrets"></a>키 자격 증명 모음 및 비밀 배포
 
-템플릿 배포 중에 키 자격 `enabledForTemplateDeployment` 증명 모음에 `true`액세스하려면 키 자격 증명 모음을 으로 설정합니다.
+템플릿 배포 중에 키 자격 증명 모음에 액세스 `enabledForTemplateDeployment` 하려면 키 자격 증명 모음 `true`에서을로 설정 합니다.
 
-키 자격 증명 모음이 이미 있는 경우 템플릿 배포를 허용하는지 확인합니다.
+Key Vault 이미 있는 경우 템플릿 배포를 허용 하는지 확인 합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -36,7 +36,7 @@ Set-AzKeyVaultAccessPolicy -VaultName ExampleVault -EnabledForTemplateDeployment
 
 ---
 
-새 키 자격 증명 모음을 만들고 비밀을 추가하려면 다음을 사용합니다.
+새 Key Vault을 만들고 암호를 추가 하려면 다음을 사용 합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -65,7 +65,7 @@ $secret = Set-AzKeyVaultSecret -VaultName ExampleVault -Name 'ExamplePassword' -
 
 ---
 
-키 자격 증명 모음의 소유자는 자동으로 비밀 만들기에 액세스할 수 있습니다. 비밀로 작업하는 사용자가 키 자격 증명 모음의 소유자가 아닌 경우 다음을 사용 해 액세스 권한을 부여합니다.
+키 자격 증명 모음의 소유자는 자동으로 암호를 만들기 위한 액세스 권한이 있습니다. 비밀을 사용 하는 사용자가 키 자격 증명 모음의 소유자가 아닌 경우 다음을 사용 하 여 액세스 권한을 부여 합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -89,7 +89,7 @@ Set-AzKeyVaultAccessPolicy `
 
 ---
 
-키 자격 증명 모음을 만들고 비밀을 추가하는 자세한 내용은 다음을 참조하십시오.
+키 자격 증명 모음을 만들고 암호를 추가 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
 - [CLI를 사용하여 비밀 설정 및 검색](../../key-vault/secrets/quick-create-cli.md)
 - [PowerShell을 사용하여 비밀 설정 및 검색](../../key-vault/secrets/quick-create-powershell.md)
@@ -99,7 +99,7 @@ Set-AzKeyVaultAccessPolicy `
 
 ## <a name="grant-access-to-the-secrets"></a>비밀 액세스 권한 부여
 
-템플릿을 배포하는 사용자는 리소스 `Microsoft.KeyVault/vaults/deploy/action` 그룹 및 키 자격 증명 모음의 범위에 대한 권한이 있어야 합니다. [소유자](../../role-based-access-control/built-in-roles.md#owner) 및 [참여자](../../role-based-access-control/built-in-roles.md#contributor) 역할 모두 이 액세스 권한을 부여합니다. 키 자격 증명 모음을 만든 경우 사용 권한이 있도록 소유자가 됩니다.
+템플릿을 배포 하는 사용자에 게는 리소스 `Microsoft.KeyVault/vaults/deploy/action` 그룹 및 주요 자격 증명 모음의 범위에 대 한 권한이 있어야 합니다. [소유자](../../role-based-access-control/built-in-roles.md#owner) 및 [참여자](../../role-based-access-control/built-in-roles.md#contributor) 역할 모두 이 액세스 권한을 부여합니다. 키 자격 증명 모음을 만든 경우에는 사용자에 게 권한이 부여 됩니다.
 
 다음 절차는 최소의 권한을 가진 역할을 만드는 방법과 사용자에게 할당하는 방법을 나타냅니다.
 
@@ -121,7 +121,7 @@ Set-AzKeyVaultAccessPolicy `
       ]
     }
     ```
-    "00000000-0000-0000-0000-00000000000000000000000000"을 구독 ID로 바꿉습니다.
+    "00000000-0000-0000-0000-000000000000"을 구독 ID로 바꿉니다.
 
 2. JSON 파일을 사용하여 새 역할 만들기:
 
@@ -147,7 +147,7 @@ Set-AzKeyVaultAccessPolicy `
 
     ---
 
-    샘플은 리소스 그룹 수준에서 사용자에게 사용자 지정 역할을 할당합니다.
+    샘플은 리소스 그룹 수준의 사용자에 게 사용자 지정 역할을 할당 합니다.
 
 [관리되는 애플리케이션](../managed-applications/overview.md) 템플릿과 함께 Key Vault를 사용하는 경우, **어플라이언스 리소스 공급자** 서비스 주체에 액세스를 허용해야 합니다. 자세한 내용은 [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md)(Azure Managed Applications를 배포할 때 Key Vault 비밀 액세스)를 참조하세요.
 
@@ -157,9 +157,9 @@ Set-AzKeyVaultAccessPolicy `
 
 ![Resource Manager Key Vault 통합 정적 ID 다이어그램](./media/key-vault-parameter/statickeyvault.png)
 
-[자습서: 리소스 관리자 템플릿 배포에 Azure 키 자격 증명 모음을 통합하려면](./template-tutorial-use-key-vault.md) 이 메서드가 사용됩니다.
+[자습서: 리소스 관리자 템플릿 배포에서 Azure Key Vault를 통합](./template-tutorial-use-key-vault.md) 하는 방법을 사용 합니다.
 
-다음 템플릿은 관리자 암호를 포함하는 SQL 서버를 배포합니다. 암호 매개 변수는 보안 문자열로 설정됩니다. 그러나 템플릿은 해당 값의 출처를 지정하지 않습니다.
+다음 템플릿은 관리자 암호를 포함 하는 SQL server를 배포 합니다. 암호 매개 변수는 보안 문자열로 설정됩니다. 하지만 템플릿에서 해당 값이 제공 되는 위치는 지정 하지 않습니다.
 
 ```json
 {
@@ -259,7 +259,7 @@ New-AzResourceGroupDeployment `
 
 매개 변수 파일에 템플릿 식이 허용되지 않기 때문에 매개 변수 파일에 리소스 ID를 동적으로 생성할 수 없습니다.
 
-상위 템플릿에서 중첩된 템플릿을 추가하고 동적으로 생성된 리소스 ID를 포함하는 매개 변수를 전달합니다. 다음 이미지에서는 연결된 템플릿의 매개 변수가 암호를 참조하는 방법을 보여줍니다.
+부모 템플릿에서 중첩 된 템플릿을 추가 하 고 동적으로 생성 된 리소스 ID를 포함 하는 매개 변수를 전달 합니다. 다음 이미지에서는 연결된 템플릿의 매개 변수가 암호를 참조하는 방법을 보여줍니다.
 
 ![동적 ID](./media/key-vault-parameter/dynamickeyvault.png)
 

@@ -1,6 +1,6 @@
 ---
-title: 웹 API를 호출하는 웹 앱 빌드 - Microsoft ID 플랫폼 | Azure
-description: 웹 API를 호출하는 웹 앱을 빌드하는 방법 알아보기(개요)
+title: 웹 Api를 호출 하는 웹 앱 빌드-Microsoft identity platform | Microsoft
+description: 웹 Api를 호출 하는 웹 앱을 빌드하는 방법 알아보기 (개요)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,47 +12,47 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 5af9e34baf6115e801fbfe35e6e3895e48b360e7
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80881726"
 ---
-# <a name="scenario-a-web-app-that-calls-web-apis"></a>시나리오: 웹 API를 호출하는 웹 앱
+# <a name="scenario-a-web-app-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 웹 앱
 
-사용자를 Microsoft ID 플랫폼에 로그인한 다음 로그인한 사용자를 대신하여 웹 API를 호출하는 웹 앱을 빌드하는 방법을 알아봅니다.
+Microsoft id 플랫폼에 사용자를 로그인 하는 웹 앱을 빌드한 다음 로그인 한 사용자를 대신 하 여 web Api를 호출 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-이 시나리오에서는 다음 시나리오를 이미 거쳤다고 가정합니다.
+이 시나리오에서는 다음과 같은 시나리오를 이미 수행 했다고 가정 합니다.
 
 > [!div class="nextstepaction"]
 > [사용자가 로그인하는 웹앱](scenario-web-app-sign-user-overview.md)
 
 ## <a name="overview"></a>개요
 
-로그인한 사용자를 대신하여 로그인하고 웹 API를 호출할 수 있도록 웹 앱에 인증을 추가합니다.
+로그인 한 사용자를 대신 하 여 사용자를 로그인 하 고 web API를 호출할 수 있도록 웹 앱에 인증을 추가 합니다.
 
-![Web API를 호출하는 웹앱](./media/scenario-webapp/web-app.svg)
+![웹 API를 호출하는 웹앱](./media/scenario-webapp/web-app.svg)
 
-웹 API를 호출하는 웹 앱은 기밀 클라이언트 응용 프로그램입니다.
-그래서 Azure Active Directory(Azure AD)에 비밀(응용 프로그램 암호 또는 인증서)을 등록합니다. 이 비밀은 토큰을 얻기 위해 Azure AD를 호출하는 동안 전달됩니다.
+웹 Api를 호출 하는 웹 앱은 기밀 클라이언트 응용 프로그램입니다.
+따라서 Azure Active Directory (Azure AD)를 사용 하 여 비밀 (응용 프로그램 암호 또는 인증서)을 등록 합니다. 이 암호는 토큰을 가져오기 위해 Azure AD를 호출 하는 동안 전달 됩니다.
 
-## <a name="specifics"></a>구체적인
+## <a name="specifics"></a>자세히
 
 > [!NOTE]
-> 웹 앱에 로그인을 추가하는 것은 웹 앱 자체를 보호하는 것입니다. 이러한 보호는 MSAL(Microsoft 인증 라이브러리)이 아닌 *미들웨어* 라이브러리를 사용하여 이뤄질 수 있습니다. 앞의 시나리오에서는 [사용자에 서명하는 웹 앱이](scenario-web-app-sign-user-overview.md)해당 주제를 다루었습니다.
+> 웹 앱에 로그인을 추가 하는 것은 웹 앱 자체를 보호 하는 것입니다. 이러한 보호는 MSAL (Microsoft 인증 라이브러리)이 아닌 *미들웨어* 라이브러리를 사용 하 여 구현 됩니다. 앞의 시나리오에서는 [사용자를 로그인 하는 웹 앱](scenario-web-app-sign-user-overview.md)이 해당 주제에 대해 설명 했습니다.
 >
-> 이 시나리오에서는 웹 앱에서 웹 API를 호출하는 방법을 설명합니다. 이러한 웹 API에 대한 액세스 토큰을 받아야 합니다. MSAL 라이브러리를 사용하여 이러한 토큰을 획득합니다.
+> 이 시나리오에서는 웹 앱에서 web Api를 호출 하는 방법을 설명 합니다. 이러한 웹 Api에 대 한 액세스 토큰을 가져와야 합니다. MSAL 라이브러리를 사용 하 여 이러한 토큰을 가져옵니다.
 
-이 시나리오에 대한 개발에는 다음과 같은 특정 작업이 포함됩니다.
+이 시나리오에 대 한 개발에는 다음과 같은 특정 작업이 포함 됩니다.
 
-- [응용 프로그램 등록](scenario-web-app-call-api-app-registration.md)중에 Azure AD와 공유할 회신 URI, 비밀 또는 인증서를 제공해야 합니다. 앱을 여러 위치에 배포하는 경우 각 위치에 대해 이 정보를 제공합니다.
-- [응용 프로그램 구성은](scenario-web-app-call-api-app-configuration.md) 응용 프로그램 등록 중에 Azure AD와 공유된 클라이언트 자격 증명을 제공해야 합니다.
+- [응용 프로그램을 등록](scenario-web-app-call-api-app-registration.md)하는 동안 Azure AD와 공유할 회신 URI, 비밀 또는 인증서를 제공 해야 합니다. 앱을 여러 위치에 배포 하는 경우 각 위치에 대해이 정보를 제공 합니다.
+- 응용 프로그램 [구성](scenario-web-app-call-api-app-configuration.md) 에서는 응용 프로그램을 등록 하는 동안 Azure AD와 공유 된 클라이언트 자격 증명을 제공 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [웹 API를 호출하는 웹 앱: 앱 등록](scenario-web-app-call-api-app-registration.md)
+> [웹 Api를 호출 하는 웹 앱: 앱 등록](scenario-web-app-call-api-app-registration.md)

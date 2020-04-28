@@ -1,5 +1,5 @@
 ---
-title: SAML 프로토콜에 Azure 단일 사인
+title: Azure Single Sign On SAML 프로토콜
 description: 이 문서에서는 Azure Active Directory에서 Single Sign On SAML 프로토콜을 설명합니다.
 services: active-directory
 documentationcenter: .net
@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: f1437ec5d9c3fd0ff69be0c884c340cb857ee181
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80881285"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
@@ -47,11 +47,11 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | ID | 필수 | Azure AD는 이 특성을 사용하여 반환된 응답의 `InResponseTo` 특성을 채웁니다. ID는 숫자로 시작할 수 없으므로 GUID의 문자열 표현에 "id"와 같은 문자열을 앞에 추가합니다. 예를 들어 `id6c1c178c166d486687be4aaf5e482730` 은 유효한 ID입니다. |
 | 버전 | 필수 | 이 매개 변수는 **2.0**으로 설정해야 합니다. |
 | IssueInstant | 필수 | UTC 값과 [라운드 트립 형식("o")](https://msdn.microsoft.com/library/az4se3k1.aspx)을 포함하는 DateTime 문자열입니다. Azure AD에는 이 형식의 DateTime 값이 필요하지만, 값을 평가하거나 사용하지 않습니다. |
-| AssertionConsumerServiceUrl | 옵션 | 제공되는 경우 이 매개 변수는 Azure AD에서 클라우드 서비스의 `RedirectUri`와 일치해야 합니다. |
-| ForceAuthn | 옵션 | 부울 값입니다. true이면 Azure AD에 유효한 세션이 있어도 사용자를 다시 인증해야 합니다. |
-| IsPassive | 옵션 | 사용자 상호 작용 없이 세션 쿠키(있는 경우)를 사용하여 Azure AD가 사용자를 자동으로 인증할지를 지정하는 부울 값입니다. True이면 Azure AD는 세션 쿠키를 사용하여 사용자 인증을 시도합니다. |
+| AssertionConsumerServiceUrl | Optional | 제공되는 경우 이 매개 변수는 Azure AD에서 클라우드 서비스의 `RedirectUri`와 일치해야 합니다. |
+| ForceAuthn | Optional | 부울 값입니다. true이면 Azure AD에 유효한 세션이 있어도 사용자를 다시 인증해야 합니다. |
+| IsPassive | Optional | 사용자 상호 작용 없이 세션 쿠키(있는 경우)를 사용하여 Azure AD가 사용자를 자동으로 인증할지를 지정하는 부울 값입니다. True이면 Azure AD는 세션 쿠키를 사용하여 사용자 인증을 시도합니다. |
 
-동의, `AuthnRequest` 대상, 어설션소비자 서비스 인덱스, 특성소비자 서비스 인덱스 및 공급자 이름과 같은 다른 모든 특성은 **무시됩니다.**
+동의, `AuthnRequest` 대상, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex 및 ProviderName과 같은 다른 모든 특성은 **무시**됩니다.
 
 Azure AD도 `AuthnRequest`에서 `Conditions` 요소를 무시합니다.
 
@@ -85,7 +85,7 @@ Azure AD도 `AuthnRequest`에서 `Conditions` 요소를 무시합니다.
 Azure AD는 `AllowCreate` 특성을 무시합니다.
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-`RequestedAuthnContext` 요소는 원하는 인증 방법을 지정합니다. Azure AD로 전송되는 `AuthnRequest` 요소에서는 선택 사항입니다. Azure AD는 `AuthnContextClassRef` `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`와 같은 값을 지원합니다.
+`RequestedAuthnContext` 요소는 원하는 인증 방법을 지정합니다. Azure AD로 전송되는 `AuthnRequest` 요소에서는 선택 사항입니다. Azure AD는 `AuthnContextClassRef` 와 같은 값 `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`을 지원 합니다.
 
 ### <a name="scoping"></a>범위 지정
 ID 공급자 목록을 포함하는 `Scoping` 요소는 Azure AD로 전송되는 `AuthnRequest` 요소에서 선택 사항입니다.
@@ -153,7 +153,7 @@ Azure AD는 `AuthnRequest` 요소의 `Subject` 요소를 무시합니다.
 
 ### <a name="issuer"></a>발급자
 
-Azure AD는 `Issuer` `https://login.microsoftonline.com/<TenantIDGUID>/` \<테넌트IDGUID> Azure AD 테넌트의 테넌트 ID로 요소를 설정합니다.
+Azure AD는 `Issuer` 요소를로 `https://login.microsoftonline.com/<TenantIDGUID>/` 설정 \<합니다. 여기서 TenantIDGUID>는 Azure ad 테 넌 트의 테 넌 트 ID입니다.
 
 예를 들어 발급자 요소가 포함된 응답은 다음 샘플과 같습니다.
 
@@ -188,7 +188,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 #### <a name="issuer"></a>발급자
 
-이 설정은 `https://sts.windows.net/<TenantIDGUID>/` \<TenantIDGUID> Azure AD 테넌트의 테넌트 ID로 설정됩니다.
+이는로 `https://sts.windows.net/<TenantIDGUID>/`설정 됩니다 \<. 여기서 TENANTIDGUID>는 Azure AD 테 넌 트의 테 넌 트 ID입니다.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
@@ -266,7 +266,7 @@ Azure AD는 성공적인 로그온에 대한 응답에서 어설션을 서명합
 </AttributeStatement>
 ```        
 
-* **이름 클레임** - `Name` 속성 ()`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`값은 인증된 사용자의 사용자 이름(예: `testuser@managedtenant.com`)입니다.
+* **이름 클레임** - `Name` 특성의 값 ()은`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`인증 된 사용자의 사용자 계정 이름 (예:)입니다 `testuser@managedtenant.com`.
 * **ObjectIdentifier 클레임** - `ObjectIdentifier` 특성 값(`http://schemas.microsoft.com/identity/claims/objectidentifier`)은 Azure AD에서 인증된 사용자를 나타내는 디렉터리 개체의 `ObjectId`입니다. `ObjectId`는 인증된 사용자에 대해 변경할 수 없고, 전역적으로 고유하며, 안전하게 다시 사용할 수 있는 식별자입니다.
 
 #### <a name="authnstatement"></a>AuthnStatement

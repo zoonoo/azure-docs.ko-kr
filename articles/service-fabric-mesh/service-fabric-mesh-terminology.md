@@ -1,20 +1,20 @@
 ---
-title: Azure 서비스 패브릭 메시에 대한 용어
-description: 이 문서에서는 설명서에 사용된 용어를 더 잘 이해하는 데 도움이 되는 Azure 서비스 패브릭 메시에서 사용하는 용어를 자세히 설명합니다.
+title: Azure Service Fabric 메시의 용어
+description: 이 문서에서는 설명서에 사용 된 용어를 더 잘 이해할 수 있도록 Azure Service Fabric 메시에서 사용 되는 용어에 대해 자세히 설명 합니다.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.openlocfilehash: 6df7a6b708bca81f1390ac879f24ea4c22c38bee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75351981"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric Mesh 용어
 
-Azure Service Fabric Mesh는 개발자가 가상 머신, 스토리지 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다. 이 문서에서는 설명서에 사용된 용어를 더 잘 이해하는 데 도움이 되는 Azure 서비스 패브릭 메시에서 사용하는 용어를 자세히 설명합니다.
+Azure Service Fabric Mesh는 개발자가 가상 머신, 스토리지 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다. 이 문서에서는 설명서에 사용 된 용어를 더 잘 이해할 수 있도록 Azure Service Fabric 메시에서 사용 되는 용어에 대해 자세히 설명 합니다.
 
 ## <a name="service-fabric"></a>Service Fabric
 
@@ -69,14 +69,14 @@ Service Fabric은 여러 서비스 및 제품의 기초가 되는 오픈 소스 
 | 애플리케이션 유형 | 설명 방법 | Azure Service Fabric Mesh | Azure Service Fabric 클러스터(모든 OS)| 로컬 클러스터 | 독립 실행형 클러스터 |
 |---|---|---|---|---|---|
 | Service Fabric Mesh 애플리케이션 | 리소스 모델(YAML 및 JSON) | 지원됨 |지원되지 않음 | Windows - 지원됨, Linux 및 Mac - 지원되지 않음 | Windows - 지원되지 않음 |
-|Service Fabric 네이티브 애플리케이션 | 네이티브 애플리케이션 모델(XML) | 지원되지 않음| 지원됨|지원됨|Windows - 지원됨|
+|Service Fabric 네이티브 애플리케이션 | 네이티브 애플리케이션 모델(XML) | 지원되지 않음| 지원 여부|지원됨|Windows - 지원됨|
 
 다음 표에서는 다양한 애플리케이션 모델 및 Service Fabric에 대한 애플리케이션 모델의 도구에 대해 설명합니다.
 
 | 애플리케이션 유형 | 설명 방법 | Visual Studio | (예: Eclipse | SFCTL | AZ CLI | PowerShell|
 |---|---|---|---|---|---|---|
 | Service Fabric Mesh 애플리케이션 | 리소스 모델(YAML 및 JSON) | VS 2017 |지원되지 않음 |지원되지 않음 | 지원됨 - Mesh 환경만 | 지원되지 않음|
-|Service Fabric 네이티브 애플리케이션 | 네이티브 애플리케이션 모델(XML) | VS 2017 및 VS 2015| 지원됨|지원됨|지원됨|지원됨|
+|Service Fabric 네이티브 애플리케이션 | 네이티브 애플리케이션 모델(XML) | VS 2017 및 VS 2015| 지원 여부|지원됨|지원됨|지원됨|
 
 ## <a name="next-steps"></a>다음 단계
 

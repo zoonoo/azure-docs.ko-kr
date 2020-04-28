@@ -1,5 +1,5 @@
 ---
-title: .NET MVC 프로젝트에서 Azure AD시작 | Azure
+title: .NET MVC 프로젝트에서 Azure AD 시작 | Microsoft
 description: Visual Studio 연결 서비스를 사용하여 Azure AD를 만들거나 연결한 후에 NET MVC 프로젝트에서 Azure Active Directory를 사용하기 시작하는 방법입니다.
 author: ghogen
 manager: jillfra
@@ -11,10 +11,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: fe408e965c528db1d82b73ee7b20bbe3b3933657
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886129"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Azure Active Directory(ASP.NET MVC 프로젝트) 시작
@@ -82,5 +82,5 @@ ms.locfileid: "80886129"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory에 대한 인증 시나리오](authentication-scenarios.md)
+- [Azure Active Directory에 대 한 인증 시나리오](authentication-scenarios.md)
 - [ASP.NET 웹앱에 Microsoft에 로그인 추가](quickstart-v2-aspnet-webapp.md)

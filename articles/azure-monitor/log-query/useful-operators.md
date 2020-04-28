@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
 ms.openlocfilehash: ff63b9b7027e99c70971230936ed98186c2208e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75397717"
 ---
 # <a name="useful-operators-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 유용한 연산자
@@ -19,7 +19,7 @@ ms.locfileid: "75397717"
 
 ## <a name="useful-operators"></a>유용한 연산자
 
-Category                                |관련 분석 함수
+범주                                |관련 분석 함수
 ----------------------------------------|----------------------------------------
 선택 영역 및 열 별칭            |`project`, `project-away`, `extend`
 임시 테이블 및 상수          |`let scalar_alias_name = …;` <br> `let table_alias_name =  …  …  … ;`| 

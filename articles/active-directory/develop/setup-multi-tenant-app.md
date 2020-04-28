@@ -1,5 +1,5 @@
 ---
-title: 새 다중 테넌트 응용 프로그램 구성
+title: 새 다중 테 넌 트 응용 프로그램 구성
 description: 애플리케이션을 다중 테넌트로 구성하는 방법과 다중 테넌트 애플리케이션이 작동하는 방식 알아보기
 services: active-directory
 author: rwike77
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.openlocfilehash: a27524f860f17642dcd0640bcb740fc04c187407
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80881386"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>새 다중 테넌트 애플리케이션을 구성하는 방법

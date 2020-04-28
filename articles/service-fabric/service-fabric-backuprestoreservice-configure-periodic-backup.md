@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 2/01/2019
 ms.author: hrushib
 ms.openlocfilehash: 34c6495e094a1160f6ac75b9f098934d5cbce967
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75610151"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Azure Service Fabric의 정기 백업 구성 이해
@@ -89,7 +89,7 @@ Reliable Stateful 서비스 또는 Reliable Actors에 대한 주기적인 백업
         }
         ```
 
-    2. **파일 공유**: 데이터 백업을 온-프레미스에 저장해야 하는 경우 _독립 실행형_ 클러스터에 대해 이 저장소 유형을 선택해야 합니다. 이 스토리지 유형에 대한 설명에는 백업을 업로드해야 하는 파일 공유 경로가 필요합니다. 파일 공유에 대한 액세스는 다음 옵션 중 하나를 사용하여 구성할 수 있습니다.
+    2. **파일 공유**: 데이터 백업을 온-프레미스에 저장 해야 하는 경우 _독립 실행형_ 클러스터에 대해이 저장소 유형을 선택 해야 합니다. 이 스토리지 유형에 대한 설명에는 백업을 업로드해야 하는 파일 공유 경로가 필요합니다. 파일 공유에 대한 액세스는 다음 옵션 중 하나를 사용하여 구성할 수 있습니다.
         1. Windows 통합 인증의 경우, 파일 공유에 대한 액세스가 Service Fabric 클러스터에 속하는 모든 컴퓨터에 제공됩니다.__ 이 경우 다음 필드를 설정하여 파일 공유 기반 백업 스토리지를 구성합니다.__
 
             ```json
@@ -118,8 +118,8 @@ Reliable Stateful 서비스 또는 Reliable Actors에 대한 주기적인 백업
 > 스토리지 안정성이 백업 데이터의 안정성 요구 사항을 충족하거나 초과하는지 확인해야 합니다.
 >
 
-* **보존 정책**: 구성된 저장소에 백업을 유지하도록 정책을 지정합니다. 기본 보존 정책만 지원됩니다.
-    1. **기본 보존 정책**: 이 보존 정책을 사용하면 더 이상 필요하지 않은 백업 파일을 제거하여 최적의 저장소 활용도를 보장할 수 있습니다. `RetentionDuration`은 백업을 스토리지에 보존해야 하는 시간 범위를 설정하도록 지정할 수 있습니다. `MinimumNumberOfBackups`는 `RetentionDuration`와 관계 없이 항상 지정된 수의 백업이 보존되도록 지정할 수 있는 선택적 매개 변수입니다. 아래 예제에서는 _10_일 동안 백업을 보존하는 구성을 보여 주며 백업 수가 _20_ 미만으로 떨어지는 것을 허용하지 않습니다.
+* **보존 정책**: 구성 된 저장소에 백업을 유지 하는 정책을 지정 합니다. 기본 보존 정책만 지원됩니다.
+    1. **기본 보존 정책**:이 보존 정책을 사용 하면 더 이상 필요 하지 않은 백업 파일을 제거 하 여 저장소 사용률을 최적으로 유지할 수 있습니다. `RetentionDuration`은 백업을 스토리지에 보존해야 하는 시간 범위를 설정하도록 지정할 수 있습니다. `MinimumNumberOfBackups`는 `RetentionDuration`와 관계 없이 항상 지정된 수의 백업이 보존되도록 지정할 수 있는 선택적 매개 변수입니다. 아래 예제에서는 _10_일 동안 백업을 보존하는 구성을 보여 주며 백업 수가 _20_ 미만으로 떨어지는 것을 허용하지 않습니다.
 
         ```json
         {

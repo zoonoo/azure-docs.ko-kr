@@ -1,13 +1,13 @@
 ---
-title: 서비스 패브릭의 응용 프로그램 수명 주기
+title: Service Fabric의 응용 프로그램 수명 주기
 description: 서비스 패브릭 애플리케이션 개발, 배포, 테스트, 업그레이드, 유지 관리 및 제거를 설명합니다.
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: beeb1f1512cf94582dd561fa768f2e8e6649d686
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75378007"
 ---
 # <a name="service-fabric-application-lifecycle"></a>서비스 패브릭 애플리케이션 수명 주기
@@ -18,7 +18,7 @@ ms.locfileid: "75378007"
 ## <a name="service-model-roles"></a>서비스 모델 역할
 서비스 모델은 다음과 같습니다.
 
-* **서비스 개발자**: 동일한 유형 또는 다른 유형의 여러 응용 프로그램에서 용도를 변경하고 사용할 수 있는 모듈식 및 일반 서비스를 개발합니다. 예를 들어 큐 서비스를 사용하여 발권 애플리케이션(헬프데스크) 또는 전자 상거래 애플리케이션(장바구니)을 만들 수 있습니다.
+* **서비스 개발자**: 동일한 형식이 나 다른 형식의 여러 응용 프로그램에서 사용 하 고 사용할 수 있는 모듈식 및 일반 서비스를 개발 합니다. 예를 들어 큐 서비스를 사용하여 발권 애플리케이션(헬프데스크) 또는 전자 상거래 애플리케이션(장바구니)을 만들 수 있습니다.
 * **애플리케이션 개발자**: 특정 요구 사항 또는 시나리오를 충족하도록 서비스 컬렉션을 통합하여 애플리케이션을 만듭니다. 예를 들어 전자 상거래 웹 사이트에 "JSON 상태 비저장 프런트엔드 서비스", "경매 상태 저장 서비스" 및 "큐 상태 저장 서비스"를 통합하여 경매 솔루션을 빌드합니다.
 * **애플리케이션 관리자**: 애플리케이션 구성(구성 템플릿 매개 변수를 입력), 배포(사용 가능한 리소스에 매핑) 및 서비스의 품질에 대한 결정을 내립니다. 예를 들어 애플리케이션 관리자가 애플리케이션의 언어 로캘을 결정합니다(예: 미국은 영어, 일본은 일본어). 배포된 다른 애플리케이션을 다르게 설정할 수 있습니다.
 * **운영자**: 애플리케이션 관리자가 지정한 애플리케이션 구성 및 요구 사항에 따라 애플리케이션을 배포합니다. 예를 들어 운영자가 애플리케이션을 프로비전 및 배포하고 Azure에서 실행되고 있는지 확인합니다. 운영자는 애플리케이션 상태 및 성능 정보를 모니터링 하고 필요에 따라 실제 인프라를 유지 관리합니다.
@@ -80,8 +80,8 @@ ms.locfileid: "75378007"
 ## <a name="next-steps"></a>다음 단계
 서비스 패브릭 애플리케이션 및 서비스의 개발, 테스트 및 관리에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-* [신뢰할 수 있는 액터](service-fabric-reliable-actors-introduction.md)
-* [신뢰할 수 있는 서비스](service-fabric-reliable-services-introduction.md)
+* [Reliable Actors](service-fabric-reliable-actors-introduction.md)
+* [Reliable Services](service-fabric-reliable-services-introduction.md)
 * [애플리케이션 배포](service-fabric-deploy-remove-applications.md)
-* [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
-* [테스트 가능성 개요](service-fabric-testability-overview.md)
+* [애플리케이션 업그레이드](service-fabric-application-upgrade.md)
+* [테스트 용이성 개요](service-fabric-testability-overview.md)

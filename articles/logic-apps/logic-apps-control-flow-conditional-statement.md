@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: fe79cf5af86e1f303e4735214b993d8db4488a25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74793258"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업을 제어하는 조건문 만들기
@@ -26,7 +26,7 @@ ms.locfileid: "74793258"
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* [논리 앱을 만드는 방법에](../logic-apps/quickstart-create-first-logic-app-workflow.md) 대한 기본 지식
+* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
 
 * 이 문서의 예를 수행하려면 Outlook.com 또는 Office 365 Outlook 계정으로 [이 샘플 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -36,7 +36,7 @@ ms.locfileid: "74793258"
 
 1. 원하는 위치에 조건을 추가합니다. 
 
-   단계 사이에 조건을 추가하려면 조건을 추가하려는 화살표 위로 포인터를 이동합니다. 표시되는 **더하기** **+** 기호 ()를 선택한 다음 **작업 추가를**선택합니다. 예를 들어:
+   단계 사이에 조건을 추가하려면 조건을 추가하려는 화살표 위로 포인터를 이동합니다. 표시 되는 **더하기 기호** (**+**)를 선택 하 고 **작업 추가**를 선택 합니다. 예를 들면 다음과 같습니다.
 
    ![단계 사이에 작업 추가](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
@@ -65,11 +65,11 @@ ms.locfileid: "74793258"
 
    ![완성된 조건](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
 
-   조건에 다른 행을 추가하려면 > **행** **추가를**선택합니다. 
-   하위 조건이 있는 그룹을 추가하려면 > **그룹** **추가를**선택합니다. 
+   조건에 다른 행을 추가 하려면 **추가** > **행**추가를 선택 합니다. 
+   Subconditions를 사용 하 여 그룹을 추가 **하려면 추가** > **그룹**추가를 선택 합니다. 
    기존 행을 그룹화하려면 해당 행의 확인란을 선택하고, 임의 행의 줄임표(...) 단추를 선택한 다음, **그룹 만들기**를 선택합니다.
 
-1. **If true** 및 **If false** 아래에서 조건이 충족되는지 여부에 따라 수행할 단계를 추가합니다. 예를 들어:
+1. **If true** 및 **If false** 아래에서 조건이 충족되는지 여부에 따라 수행할 단계를 추가합니다. 예를 들면 다음과 같습니다.
 
    !["If true" 및 "If false" 경로를 포함한 조건](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 

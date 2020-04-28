@@ -6,15 +6,15 @@ ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ee2f1d70f4094ccc7d80edbfaf16509b5124f607
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75609624"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>C# 서비스에서 서비스 원격 통신 보호
 > [!div class="op_single_selector"]
-> * [윈도우에서 C #](service-fabric-reliable-services-secure-communication.md)
+> * [Windows의 c #](service-fabric-reliable-services-secure-communication.md)
 > * [Linux에서 Java](service-fabric-reliable-services-secure-communication-java.md)
 >
 >

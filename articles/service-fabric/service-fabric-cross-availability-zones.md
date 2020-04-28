@@ -1,45 +1,45 @@
 ---
-title: 가용성 영역 전반에 클러스터 배포
-description: 가용성 영역에서 Azure 서비스 패브릭 클러스터를 만드는 방법에 대해 알아봅니다.
+title: 가용성 영역에서 클러스터 배포
+description: 가용성 영역에서 Azure Service Fabric 클러스터를 만드는 방법에 대해 알아봅니다.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.openlocfilehash: 6da9517f822c9c157d26a1bda8dab2c694b08b12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75609981"
 ---
-# <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>가용성 영역에 Azure 서비스 패브릭 클러스터 배포
-Azure의 가용성 영역은 데이터 센터 오류로부터 응용 프로그램과 데이터를 보호하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내에서 독립적인 전원, 냉각 및 네트워킹을 갖춘 고유한 물리적 위치입니다.
+# <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>가용성 영역에서 Azure Service Fabric 클러스터 배포
+Azure의 가용성 영역는 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내에서 독립적인 전원, 냉각 및 네트워킹을 갖춘 고유한 물리적 위치입니다.
 
-Service Fabric은 특정 영역에 고정된 노드 유형을 배포하여 가용성 영역에 걸쳐 있는 클러스터를 지원합니다. 이렇게 하면 응용 프로그램의 가용성이 보장됩니다. Azure 가용성 영역은 일부 지역에서만 사용할 수 있습니다. 자세한 내용은 [Azure 가용성 영역 개요를](https://docs.microsoft.com/azure/availability-zones/az-overview)참조하십시오.
+Service Fabric는 특정 영역에 고정 된 노드 유형을 배포 하 여 가용성 영역에 걸쳐 있는 클러스터를 지원 합니다. 이렇게 하면 응용 프로그램의 고가용성을 보장 합니다. Azure 가용성 영역는 선택 지역 에서만 사용할 수 있습니다. 자세한 내용은 [Azure 가용성 영역 개요](https://docs.microsoft.com/azure/availability-zones/az-overview)를 참조 하세요.
 
-샘플 템플릿을 사용할 수 있습니다: [서비스 패브릭 교차 가용성 영역 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates)
+샘플 템플릿을 사용할 수 있습니다. [Service Fabric 상호 가용성 영역 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
-## <a name="recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones"></a>가용성 영역에 걸쳐 Azure 서비스 패브릭 클러스터의 기본 노드 유형에 권장되는 토폴로지
-가용성 영역에 분산된 서비스 패브릭 클러스터는 클러스터 상태의 고가용성을 보장합니다. 서비스 패브릭 클러스터를 영역 전체에 걸쳐 분산하려면 리전에서 지원하는 각 가용성 영역에서 기본 노드 유형을 만들어야 합니다. 이렇게 하면 각 기본 노드 유형에 시드 노드가 균등하게 분산됩니다.
+## <a name="recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones"></a>가용성 영역 전체에 걸쳐 있는 Azure Service Fabric 클러스터의 주 노드 형식에 대 한 권장 토폴로지
+가용성 영역 간에 분산 된 Service Fabric 클러스터는 클러스터 상태의 고가용성을 보장 합니다. 영역에서 Service Fabric 클러스터를 확장 하려면 해당 지역에서 지 원하는 각 가용성 영역에서 주 노드 유형을 만들어야 합니다. 이렇게 하면 각 주 노드 형식에 대해 초기값 노드가 균등 하 게 분산 됩니다.
 
-기본 노드 유형에 권장되는 토폴로지에는 아래에 설명된 리소스가 필요합니다.
+주 노드 형식에 권장 되는 토폴로지에서는 아래에 설명 된 리소스가 필요 합니다.
 
-* 플래티넘으로 설정된 클러스터 안정성 수준입니다.
-* 기본으로 표시된 세 노드 유형입니다.
-    * 각 노드 유형은 서로 다른 영역에 있는 자체 가상 시스템 규모 집합에 매핑되어야 합니다.
-    * 각 가상 시스템 규모 집합에는 최소 5개의 노드(실버 내구성)가 있어야 합니다.
-* 표준 SKU를 사용하는 단일 공용 IP 리소스입니다.
-* 표준 SKU를 사용하는 단일 로드 밸러서 리소스입니다.
-* 가상 시스템 크기 집합을 배포하는 서브넷에서 참조하는 NSG입니다.
+* 클러스터 안정성 수준이 Platinum으로 설정 되어 있습니다.
+* 기본으로 표시 된 세 가지 노드 형식입니다.
+    * 각 노드 형식은 다른 영역에 있는 자체 가상 머신 확장 집합에 매핑되어야 합니다.
+    * 각 가상 머신 확장 집합에는 5 개 이상의 노드 (실버 내구성)가 있어야 합니다.
+* 표준 SKU를 사용 하는 단일 공용 IP 리소스입니다.
+* 표준 SKU를 사용 하는 단일 Load Balancer 리소스입니다.
+* 가상 머신 확장 집합을 배포 하는 서브넷에서 참조 하는 NSG입니다.
 
 >[!NOTE]
-> Service Fabric은 영역에 걸쳐 있는 단일 가상 시스템 크기 집합을 지원하지 않으므로 가상 시스템 크기 집합이 단일 배치 그룹 속성으로 설정되어야 합니다.
+> Service Fabric는 영역에 걸쳐 있는 단일 가상 머신 확장 집합을 지원 하지 않으므로 가상 머신 확장 집합 단일 배치 그룹 속성을 true로 설정 해야 합니다.
 
- ![Azure 서비스 패브릭 가용성 영역 아키텍처][sf-architecture]
+ ![Azure Service Fabric 가용성 영역 아키텍처][sf-architecture]
 
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
-### <a name="public-ip-and-load-balancer-resource"></a>공용 IP 및 로드 밸런서 리소스
-가상 시스템 규모 집합 리소스에서 영역 속성을 사용하려면 해당 가상 시스템 크기 집합에서 참조하는 로드 밸런서 및 IP 리소스가 *모두 표준* SKU를 사용해야 합니다. SKU 속성 없이 로드 밸런서 또는 IP 리소스를 만들면 가용성 영역을 지원하지 않는 기본 SKU가 생성됩니다. 표준 SKU 로드 밸러블러는 기본적으로 외부에서 모든 트래픽을 차단합니다. 외부 트래픽을 허용하려면 NSG를 서브넷에 배포해야 합니다.
+### <a name="public-ip-and-load-balancer-resource"></a>공용 IP 및 Load Balancer 리소스
+가상 머신 확장 집합 리소스에서 영역 속성을 사용 하도록 설정 하려면 해당 가상 머신 확장 집합에서 참조 하는 부하 분산 장치 및 IP 리소스가 둘 다 *표준* SKU를 사용 해야 합니다. SKU 속성을 사용 하지 않고 부하 분산 장치 또는 IP 리소스를 만들면 가용성 영역를 지원 하지 않는 기본 SKU가 만들어집니다. 표준 SKU 부하 분산 장치는 기본적으로 외부의 모든 트래픽을 차단 합니다. 외부 트래픽을 허용 하려면 서브넷에 NSG를 배포 해야 합니다.
 
 ```json
 {
@@ -87,10 +87,10 @@ Service Fabric은 특정 영역에 고정된 노드 유형을 배포하여 가�
 ```
 
 >[!NOTE]
-> 공용 IP 및 로드 밸런서 리소스에서 SKU를 처음부터 변경할 수 없습니다. 기본 SKU가 있는 기존 리소스에서 마이그레이션하는 경우 이 문서의 마이그레이션 섹션을 참조하세요.
+> 공용 IP 및 부하 분산 장치 리소스에서 SKU의 내부 변경 작업을 수행할 수 없습니다. 기본 SKU가 있는 기존 리소스에서 마이그레이션하는 경우이 문서의 마이그레이션 섹션을 참조 하세요.
 
-### <a name="virtual-machine-scale-set-nat-rules"></a>가상 시스템 규모 설정 NAT 규칙
-로드 밸러워 인바운드 NAT 규칙은 가상 시스템 규모 집합의 NAT 풀과 일치해야 합니다. 각 가상 시스템 규모 집합에는 고유한 인바운드 NAT 풀이 있어야 합니다.
+### <a name="virtual-machine-scale-set-nat-rules"></a>가상 머신 확장 집합 NAT 규칙
+부하 분산 장치 인바운드 NAT 규칙은 가상 머신 확장 집합의 NAT 풀과 일치 해야 합니다. 각 가상 머신 확장 집합에는 고유한 인바운드 NAT 풀이 있어야 합니다.
 
 ```json
 {
@@ -135,18 +135,18 @@ Service Fabric은 특정 영역에 고정된 노드 유형을 배포하여 가�
 }
 ```
 
-### <a name="standard-sku-load-balancer-outbound-rules"></a>표준 SKU 로드 밸레인저 아웃바운드 규칙
-표준 로드 밸런서 및 표준 공용 IP는 기본 SCO를 사용하는 것과 비교할 때 아웃바운드 연결에 대한 새로운 능력과 다양한 동작을 소개합니다. 표준 SKU로 작업하는 경우 아웃바운드 연결을 하려는 경우 표준 공용 IP 주소 또는 표준 공용 Load Balancer를 사용하여 명시적으로 정의해야 합니다. 자세한 내용은 [아웃바운드 연결](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) 및 [Azure 표준 로드 밸러커](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)를 참조하십시오.
+### <a name="standard-sku-load-balancer-outbound-rules"></a>표준 SKU Load Balancer 아웃 바운드 규칙
+표준 Load Balancer 및 표준 공용 IP는 기본 Sku 사용에 비해 새로운 기능 및 아웃 바운드 연결에 대 한 다양 한 동작을 소개 합니다. 표준 SKU로 작업하는 경우 아웃바운드 연결을 하려는 경우 표준 공용 IP 주소 또는 표준 공용 Load Balancer를 사용하여 명시적으로 정의해야 합니다. 자세한 내용은 [아웃 바운드 연결](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) 및 [Azure 표준 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)를 참조 하세요.
 
 >[!NOTE]
-> 표준 템플릿은 기본적으로 모든 아웃바운드 트래픽을 허용하는 NSG를 참조합니다. 인바운드 트래픽은 서비스 패브릭 관리 작업에 필요한 포트로 제한됩니다. NSG 규칙은 요구 사항에 맞게 수정할 수 있습니다.
+> 표준 템플릿은 기본적으로 모든 아웃 바운드 트래픽을 허용 하는 NSG를 참조 합니다. 인바운드 트래픽은 Service Fabric 관리 작업에 필요한 포트로 제한 됩니다. NSG 규칙은 요구 사항에 맞게 수정할 수 있습니다.
 
-### <a name="enabling-zones-on-a-virtual-machine-scale-set"></a>가상 시스템 규모 집합의 영역 사용
-영역을 사용하려면 가상 시스템 규모 집합에 가상 시스템 규모 집합 리소스에 다음 세 값을 포함해야 합니다.
+### <a name="enabling-zones-on-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에서 영역 사용
+영역을 사용 하도록 설정 하려면 가상 머신 확장 집합에서 가상 머신 확장 집합 리소스에 다음 세 가지 값을 포함 해야 합니다.
 
-* 첫 번째 값은 가상 시스템 규모 집합에 배포할 가용성 영역을 지정하는 **영역** 속성입니다.
-* 두 번째 값은 true로 설정해야 하는 "singlePlacementGroup" 속성입니다.
-* 세 번째 값은 서비스 패브릭 가상 시스템 집합 확장의 "faultDomainOverride" 속성입니다. 이 속성의 값에는 이 가상 시스템 크기 집합이 배치되는 영역 및 영역이 포함되어야 합니다. 예: "faultDomainOverride": "eastus/az1" Azure Service Fabric 클러스터에는 교차 지역 지원이 없기 때문에 모든 가상 시스템 규모 집합 리소스를 동일한 지역에 배치해야 합니다.
+* 첫 번째 값은 가상 머신 확장 집합을 배포할 가용성 영역을 지정 하는 **zones** 속성입니다.
+* 두 번째 값은 true로 설정 해야 하는 "Singleto Ementgroup" 속성입니다.
+* 세 번째 값은 Service Fabric 가상 머신 확장 집합 확장의 "faultDomainOverride" 속성입니다. 이 속성의 값은이 가상 머신 확장 집합이 배치 될 영역 및 영역을 포함 해야 합니다. 예: "faultDomainOverride": "eastus/az1" Azure Service Fabric 클러스터에는 지역 간 지원이 없기 때문에 모든 가상 머신 확장 집합 리소스는 동일한 지역에 배치 되어야 합니다.
 
 ```json
 {
@@ -186,8 +186,8 @@ Service Fabric은 특정 영역에 고정된 노드 유형을 배포하여 가�
 }
 ```
 
-### <a name="enabling-multiple-primary-node-types-in-the-service-fabric-cluster-resource"></a>서비스 패브릭 클러스터 리소스에서 여러 기본 노드 유형 사용
-클러스터 리소스에서 하나 이상의 노드 유형을 기본으로 설정하려면 "isPrimary" 속성을 "true"로 설정합니다. 가용성 영역에 서비스 패브릭 클러스터를 배포할 때는 고유한 영역에 세 개의 노드 유형이 있어야 합니다.
+### <a name="enabling-multiple-primary-node-types-in-the-service-fabric-cluster-resource"></a>Service Fabric 클러스터 리소스에서 여러 주 노드 유형 사용
+클러스터 리소스에서 하나 이상의 노드 형식을 주로 설정 하려면 "isPrimary" 속성을 "true"로 설정 합니다. 가용성 영역에서 Service Fabric 클러스터를 배포 하는 경우 고유한 영역에 3 개의 노드 형식이 있어야 합니다.
 
 ```json
 {
@@ -245,20 +245,20 @@ Service Fabric은 특정 영역에 고정된 노드 유형을 배포하여 가�
 }
 ```
 
-## <a name="migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>기본 SKU 로드 밸런서 및 기본 SKU IP를 사용하여 클러스터에서 가용성 영역을 사용하여 마이그레이션
-로드 밸런서와 IP를 기본 SKU로 사용하는 클러스터를 마이그레이션하려면 먼저 표준 SKU를 사용하여 완전히 새로운 로드 밸런서 및 IP 리소스를 만들어야 합니다. 이러한 리소스는 현재 위치에 업데이트할 수 없습니다.
+## <a name="migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>기본 SKU Load Balancer 및 기본 SKU IP를 사용 하 여 클러스터에서 가용성 영역 사용으로 마이그레이션
+기본 SKU를 사용 하 여 Load Balancer 및 IP를 사용 하는 클러스터를 마이그레이션하려면 먼저 표준 SKU를 사용 하 여 완전히 새로운 Load Balancer 및 IP 리소스를 만들어야 합니다. 이러한 리소스는 내부에서 업데이트할 수 없습니다.
 
-새 LB 및 IP는 사용하려는 새 가용성 영역 노드 유형에서 참조되어야 합니다. 위의 예에서 영역 1,2 및 3에 세 개의 새로운 가상 시스템 크기 집합 리소스가 추가되었습니다. 이러한 가상 시스템 크기 집합은 새로 만든 LB 및 IP를 참조하며 서비스 패브릭 클러스터 리소스의 기본 노드 유형으로 표시됩니다.
+새 LB 및 IP는 사용 하려는 새로운 교차 가용성 영역 노드 유형에 서 참조 되어야 합니다. 위의 예제에서 3 개의 새 가상 머신 확장 집합 리소스가 영역 1, 2, 3에 추가 되었습니다. 이러한 가상 머신 확장 집합은 새로 만든 LB 및 IP를 참조 하 고 Service Fabric 클러스터 리소스에서 주 노드 유형으로 표시 됩니다.
 
-시작하려면 기존 리소스 관리자 템플릿에 새 리소스를 추가해야 합니다. 이러한 리소스에는 다음이 포함됩니다.
-* 표준 SKU를 사용하는 공용 IP 리소스입니다.
-* 표준 SKU를 사용하는 로드 밸러서 리소스입니다.
-* 가상 시스템 크기 집합을 배포하는 서브넷에서 참조하는 NSG입니다.
-* 기본으로 표시된 세 가지 노드 유형입니다.
-    * 각 노드 유형은 서로 다른 영역에 있는 자체 가상 시스템 규모 집합에 매핑되어야 합니다.
-    * 각 가상 시스템 규모 집합에는 최소 5개의 노드(실버 내구성)가 있어야 합니다.
+시작 하려면 기존 리소스 관리자 템플릿에 새 리소스를 추가 해야 합니다. 이러한 리소스는 다음과 같습니다.
+* 표준 SKU를 사용 하는 공용 IP 리소스입니다.
+* 표준 SKU를 사용 하는 Load Balancer 리소스입니다.
+* 가상 머신 확장 집합을 배포 하는 서브넷에서 참조 하는 NSG입니다.
+* 기본으로 표시 된 세 가지 노드 형식입니다.
+    * 각 노드 형식은 다른 영역에 있는 자체 가상 머신 확장 집합에 매핑되어야 합니다.
+    * 각 가상 머신 확장 집합에는 5 개 이상의 노드 (실버 내구성)가 있어야 합니다.
 
-이러한 리소스의 예는 샘플 [템플릿에서](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-Ubuntu-2-NodeType-Secure)찾을 수 있습니다.
+이러한 리소스의 예제는 [샘플 템플릿에서](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-Ubuntu-2-NodeType-Secure)찾을 수 있습니다.
 
 ```powershell
 New-AzureRmResourceGroupDeployment `
@@ -267,7 +267,7 @@ New-AzureRmResourceGroupDeployment `
     -TemplateParameterFile $Parameters
 ```
 
-리소스 배포가 완료되면 원래 클러스터에서 기본 노드 유형의 노드를 비활성화할 수 있습니다. 노드를 사용하지 않도록 설정하면 시스템 서비스는 위의 단계에서 배포된 새 기본 노드 유형으로 마이그레이션됩니다.
+리소스 배포가 완료 되 면 원래 클러스터에서 주 노드 형식의 노드를 사용 하지 않도록 설정할 수 있습니다. 노드가 사용 하지 않도록 설정 되 면 시스템 서비스는 위 단계에서 배포 된 새 주 노드 유형으로 마이그레이션됩니다.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
@@ -289,7 +289,7 @@ foreach($name in $nodeNames) {
 }
 ```
 
-노드가 모두 비활성화되면 시스템 서비스는 영역 간에 분산되는 기본 노드 유형에서 실행됩니다. 그런 다음 클러스터에서 비활성화된 노드를 제거할 수 있습니다. 노드가 제거되면 원래 IP, 로드 밸러커 및 가상 시스템 크기 집합 리소스를 제거할 수 있습니다.
+노드가 모두 사용 하지 않도록 설정 되 면 시스템 서비스가 영역에 분산 되는 주 노드 형식에서 실행 됩니다. 그런 다음 클러스터에서 사용할 수 없는 노드를 제거할 수 있습니다. 노드가 제거 되 면 원래 IP, Load Balancer 및 가상 머신 확장 집합 리소스를 제거할 수 있습니다.
 
 ```powershell
 foreach($name in $nodeNames){
@@ -309,9 +309,9 @@ Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
 Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
 ```
 
-그런 다음 배포한 리소스 관리자 템플릿에서 이러한 리소스에 대한 참조를 제거해야 합니다.
+그런 다음 배포한 리소스 관리자 템플릿에서 이러한 리소스에 대 한 참조를 제거 해야 합니다.
 
-마지막 단계에서는 DNS 이름 및 공용 IP를 업데이트하는 것이 포함됩니다.
+최종 단계에는 DNS 이름 및 공용 IP 업데이트가 포함 됩니다.
 
 ```powershell
 $oldprimaryPublicIP = Get-AzureRmPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $groupname

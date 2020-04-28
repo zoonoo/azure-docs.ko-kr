@@ -1,15 +1,15 @@
 ---
-title: Azure 함수의 프록시 작업
+title: Azure Functions에서 프록시 사용
 description: Azure Functions 프록시를 사용하는 방법의 개요
 author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 09e4616bc7cbb4361ad067ed64984ed95e9a20c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74849193"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
@@ -46,7 +46,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 ### <a name="modify-the-response"></a><a name="modify-response"></a>응답 수정
 
-기본적으로 클라이언트 요청은 원래 응답의 복사본으로 초기화됩니다. 응답의 상태 코드, 이유 구문, 헤더 및 본문을 변경할 수 있습니다. 수정된 값은 [응용 프로그램 설정,] [원래 클라이언트 요청의 매개 변수]및 백 엔드 [응답의 매개 변수를 참조할]수 있습니다.
+기본적으로 클라이언트 요청은 원래 응답의 복사본으로 초기화됩니다. 응답의 상태 코드, 이유 구문, 헤더 및 본문을 변경할 수 있습니다. 수정 된 값은 [응용 프로그램 설정], [원래 클라이언트 요청의 매개 변수]및 [백 엔드 응답의 매개 변수]를 참조할 수 있습니다.
 
 프록시 세부 정보 페이지의 *응답 재정의* 섹션을 확장하여 포털에서 백 엔드 응답을 수정할 수 있습니다. 
 
@@ -61,7 +61,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
  
 >[!Note]  
->함수에서 *function, admin 또는 sys* 권한 부여 수준을 사용하는 경우 원본 함수 URL에 따라 코드 및 clientId를 제공해야 합니다. 이 경우 참조는 다음과 `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` 같습니다: 이러한 키를 [응용 프로그램 설정에] 저장하고 프록시에 있는 키를 참조하는 것이 좋습니다. 이렇게 하면 소스 코드에 암호를 저장하지 않습니다. 
+>함수에서 *function, admin 또는 sys* 권한 부여 수준을 사용하는 경우 원본 함수 URL에 따라 코드 및 clientId를 제공해야 합니다. 이 경우 참조는 다음과 같습니다. `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` 이러한 키를 [응용 프로그램 설정] 에 저장 하 고 프록시에서 해당 키를 참조 하는 것이 좋습니다. 이렇게 하면 소스 코드에 비밀을 저장 하지 않습니다. 
 
 ### <a name="reference-request-parameters"></a><a name="request-parameters"></a>요청 매개 변수 참조
 
@@ -76,8 +76,8 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 경로 템플릿 매개 변수 외에도 구성 값에 다음 값을 사용할 수 있습니다.
 
 * **{request.method}** : 원래 요청에 사용된 HTTP 메서드입니다.
-* **{request.headers.\<HeaderName\>}**: 원래 요청에서 읽어올 수 있는 헤더입니다. * \<헤더이름을\> * 읽을 헤더의 이름으로 바꿉니다. 헤더가 요청에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
-* **{request.querystring.\<ParameterName\>}**: 원래 요청에서 읽어올 수 있는 쿼리 문자열 매개 변수입니다. * \<ParameterName을\> * 읽으려는 매개 변수의 이름으로 바꿉니다. 매개 변수가 요청에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
+* **{request.headers.\<HeaderName\>}**: 원래 요청에서 읽어올 수 있는 헤더입니다. * \<헤드 ername\> * 을 읽으려는 헤더 이름으로 바꿉니다. 헤더가 요청에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
+* **{request.querystring.\<ParameterName\>}**: 원래 요청에서 읽어올 수 있는 쿼리 문자열 매개 변수입니다. * \<ParameterName\> * 을 읽으려는 매개 변수 이름으로 바꿉니다. 매개 변수가 요청에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
 
 ### <a name="reference-back-end-response-parameters"></a><a name="response-parameters"></a>백 엔드 응답 매개 변수 참조
 
@@ -85,13 +85,13 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 * **{backend.response.statusCode}**: 백 엔드 응답에 반환할 HTTP 상태 코드입니다.
 * **{backend.response.statusReason}**: 백 엔드 응답에 반환할 HTTP 이유 구문입니다.
-* **{backend.response.headers.\<HeaderName\>}**: 백 엔드 응답에서 읽어올 수 있는 헤더입니다. * \<헤더이름을\> * 읽을 헤더의 이름으로 바꿉니다. 헤더가 응답에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
+* **{backend.response.headers.\<HeaderName\>}**: 백 엔드 응답에서 읽어올 수 있는 헤더입니다. * \<헤드 ername\> * 을 읽으려는 헤더 이름으로 바꿉니다. 헤더가 응답에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
 
 ### <a name="reference-application-settings"></a><a name="use-appsettings"></a>애플리케이션 설정 참조
 
-설정 이름을 백분율 기호(%)로 둘러싸서 [함수 앱에 대해 정의된 응용 프로그램 설정을](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) 참조할 수도 있습니다.
+또한 설정 이름을 백분율 기호 (%)로 묶어 [함수 앱에 대해 정의 된 응용 프로그램 설정을](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) 참조할 수 있습니다.
 
-예를 들어 백 엔드 URL의 *https://%ORDER_PROCESSING_HOST%/api/orders* "%ORDER_PROCESSING_HOST%"가 ORDER_PROCESSING_HOST 설정 값으로 대체됩니다.
+예를 들어의 *https://%ORDER_PROCESSING_HOST%/api/orders* 백 엔드 URL은 "% ORDER_PROCESSING_HOST%"을 (를) ORDER_PROCESSING_HOST 설정 값으로 바꿉니다.
 
 > [!TIP] 
 > 배포 또는 테스트 환경이 여러 개 있는 경우 백 엔드 호스트에 대해 애플리케이션 설정을 사용하세요. 이러한 방식으로 항상 해당 환경에 적합한 백 엔드에 정보를 전달할 수 있습니다.
@@ -184,8 +184,8 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 requestOverrides 개체는 백 엔드 리소스가 호출될 때 요청에 대한 변경 내용을 정의합니다. 개체는 다음 속성으로 정의됩니다.
 
 * **backend.request.method**: 백 엔드를 호출하는 데 사용될 HTTP 메서드입니다.
-* **backend.request.querystring.\<ParameterName\>**: 백 엔드에 대한 호출에 설정할 수 있는 쿼리 문자열 매개 변수입니다. * \<매개 변수이름을\> * 설정하려는 매개 변수의 이름으로 바꿉니다. 빈 문자열이 제공된 경우 백 엔드 요청에 매개 변수가 계속 포함됩니다.
-* **backend.request.headers.\<HeaderName\>**: 백 엔드 호출을 위해 설정할 수 있는 헤더입니다. * \<헤더이름을\> * 설정하려는 헤더의 이름으로 바꿉니다. 빈 문자열을 제공하면 헤더는 백 엔드 요청에 포함되지 않습니다.
+* **backend.request.querystring.\<ParameterName\>**: 백 엔드에 대한 호출에 설정할 수 있는 쿼리 문자열 매개 변수입니다. * \<ParameterName\> * 을 설정 하려는 매개 변수 이름으로 바꿉니다. 빈 문자열이 제공 되 면 매개 변수는 백 엔드 요청에 계속 포함 됩니다.
+* **backend.request.headers.\<HeaderName\>**: 백 엔드 호출을 위해 설정할 수 있는 헤더입니다. * \<헤드 ername\> * 을 설정 하려는 헤더 이름으로 바꿉니다. 빈 문자열을 제공하면 헤더는 백 엔드 요청에 포함되지 않습니다.
 
 값은 애플리케이션 설정 및 원래 클라이언트 요청의 매개 변수를 참조할 수 있습니다.
 
@@ -217,7 +217,7 @@ requestOverrides 개체는 클라이언트에 다시 전달된 응답에 대한 
 * **response.statusCode**: 클라이언트에 반환할 HTTP 상태 코드입니다.
 * **response.statusReason**: 클라이언트에 반환할 HTTP 이유 구문입니다.
 * **response.body**: 클라이언트에 반환할 본문의 문자열 표현입니다.
-* **response.headers.\<HeaderName\>**: 클라이언트에 대한 응답에 설정할 수 있는 헤더입니다. * \<헤더이름을\> * 설정하려는 헤더의 이름으로 바꿉니다. 빈 문자열을 제공하면 헤더는 응답에 포함되지 않습니다.
+* **response.headers.\<HeaderName\>**: 클라이언트에 대한 응답에 설정할 수 있는 헤더입니다. * \<헤드 ername\> * 을 설정 하려는 헤더 이름으로 바꿉니다. 빈 문자열을 제공하면 헤더는 응답에 포함되지 않습니다.
 
 값은 애플리케이션 설정, 원래 클라이언트 요청의 매개 변수 및 백 엔드 응답의 매개 변수를 참조할 수 있습니다.
 
@@ -243,11 +243,11 @@ requestOverrides 개체는 클라이언트에 다시 전달된 응답에 대한 
 > [!NOTE] 
 > 이 예제에서 응답 본문은 직접 설정되므로 `backendUri` 속성이 필요하지 않습니다. 다음 예제에서는 모의 API에 Azure Functions 프록시를 어떻게 사용할 수 있는지를 보여 줍니다.
 
-[Azure 포털]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [HTTP 트리거]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
-[요청오버라이드 개체 정의]: #requestOverrides
+[RequestOverrides 개체 정의]: #requestOverrides
 [responseOverrides 개체 정의]: #responseOverrides
 [응용 프로그램 설정]: #use-appsettings
 [변수 사용]: #using-variables

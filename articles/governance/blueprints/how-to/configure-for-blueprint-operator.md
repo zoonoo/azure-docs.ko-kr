@@ -1,42 +1,42 @@
 ---
-title: 블루프린트 오퍼레이터를 위한 환경 설정
-description: Blueprint 연산자 기본 제공 역할 기반 액세스 제어(RBAC) 역할과 함께 사용하도록 Azure 환경을 구성하는 방법을 알아봅니다.
+title: 청사진 운영자를 위한 환경 설정
+description: 청사진 Operator 기본 제공 RBAC (역할 기반 액세스 제어) 역할을 사용 하도록 Azure 환경을 구성 하는 방법에 대해 알아봅니다.
 ms.date: 08/26/2019
 ms.topic: how-to
 ms.openlocfilehash: fba0dd3f2eeb69f768800d1d04640510462d3c86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74873219"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>청사진 운영자를 위한 환경 구성
 
-청사진 정의 및 청사진 할당 관리는 다른 팀에 할당할 수 있습니다. 설계자 나 거버넌스 팀이 Blueprint 정의의 수명 주기 관리를 담당하는 반면 운영 팀은 중앙에서 제어되는 청사진 정의의 할당을 관리하는 것이 일반적입니다.
+청사진 정의 및 청사진 할당의 관리를 다른 팀에 할당할 수 있습니다. 운영 팀은 중앙에서 제어 되는 중앙 집중식 청사진 정의의 할당을 관리 하는 동안 청사진 정의의 수명 주기 관리를 담당 하는 것이 일반적입니다.
 
-**BLUEPRINT 연산자** 기본 제공 역할 기반 액세스 제어(RBAC)는 이러한 유형의 시나리오에서 사용하도록 특별히 설계되었습니다. 이 역할을 사용하면 운영 유형 팀이 조직 청사진 정의의 할당을 관리할 수 있지만 이를 수정할 수는 없습니다. 이렇게 하려면 Azure 환경에서 일부 구성이 필요하며 이 문서에서는 필요한 단계를 설명합니다.
+**청사진 연산자** 기본 제공 RBAC (역할 기반 액세스 제어)는 이러한 유형의 시나리오에서 사용 하도록 특별히 설계 되었습니다. 역할을 사용 하면 작업 유형 팀에서 조직 청사진 정의의 할당을 관리할 수 있지만 수정할 수는 없습니다. 이렇게 하려면 Azure 환경에서 몇 가지 구성이 필요 합니다 .이 문서에서는 필요한 단계를 설명 합니다.
 
-## <a name="grant-permission-to-the-blueprint-operator"></a>블루프린트 운영자에게 권한 부여
+## <a name="grant-permission-to-the-blueprint-operator"></a>청사진 연산자에 사용 권한 부여
 
-첫 번째 단계는 **Blueprint를** 할당할 계정 또는 보안 그룹(권장)에 Blueprint 운영자 역할을 부여하는 것입니다. 이 작업은 운영 팀이 Blueprint 할당 액세스 권한이 있어야 하는 모든 관리 그룹 및 구독을 포함하는 관리 그룹 계층 구조의 최상위 수준에서 수행해야 합니다. 이러한 권한을 부여할 때 최소 권한 원칙을 따르는 것이 좋습니다.
+첫 번째 단계는 청사진을 할당할 계정 또는 보안 그룹 (권장)에 **청사진 운영자** 역할을 부여 하는 것입니다. 이 작업은 운영 팀에서 청사진 할당 액세스 권한을 보유 해야 하는 관리 그룹 및 구독을 모두 포함 하는 관리 그룹 계층 구조의 최상위 수준에서 수행 해야 합니다. 이러한 사용 권한을 부여할 때 최소 권한의 원칙을 따르는 것이 좋습니다.
 
-1. (권장) [보안 그룹을 만들고 구성원을 추가합니다.](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
+1. 바람직하지 [보안 그룹 만들기 및 멤버 추가](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
-1. 계정 또는 보안 그룹에 **Blueprint 연산자의** [역할 할당](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) 추가
+1. 계정 또는 보안 그룹에 **청사진 연산자** 의 [역할 할당을 추가](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) 합니다.
 
-## <a name="user-assign-managed-identity"></a>관리되는 ID를 사용자 할부로 지정
+## <a name="user-assign-managed-identity"></a>사용자 할당 관리 id
 
-Blueprint 정의는 시스템 할당 또는 사용자 할당된 관리 ID를 사용할 수 있습니다. 그러나 **Blueprint 연산자** 역할을 사용하는 경우 사용자가 할당한 관리 ID를 사용하도록 Blueprint 정의를 구성해야 합니다. 또한 **Blueprint 운영자** 역할이 부여되는 계정 또는 보안 그룹에는 사용자가 할당한 관리 ID에 대해 **관리되는 ID 운영자** 역할을 부여해야 합니다. 이 권한이 없으면 사용 권한이 부족하여 Blueprint 할당이 실패합니다.
+청사진 정의는 시스템 할당 또는 사용자 할당 관리 id 중 하나를 사용할 수 있습니다. 그러나 **청사진 연산자** 역할을 사용 하는 경우에는 사용자 할당 관리 id를 사용 하도록 청사진 정의를 구성 해야 합니다. 또한 **청사진 운영자** 역할을 부여 하는 계정 또는 보안 그룹에는 사용자 할당 관리 id에 대해 **관리 id 운영자** 역할을 부여 해야 합니다. 이 권한이 없으면 사용 권한이 부족 하 여 청사진 할당이 실패 합니다.
 
-1. 할당된 Blueprint에서 사용할 [사용자 할당관리 ID 만들기](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
+1. 할당 된 청사진에서 사용할 [사용자 할당 관리 Id 만들기](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
 
-1. **관리되는 ID 연산자의** [역할 할당을](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) 계정 또는 보안 그룹에 추가합니다. 역할 할당을 새 사용자 할당관리 ID로 범위를 지정합니다.
+1. **관리 Id 운영자** 의 [역할 할당을](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) 계정 또는 보안 그룹에 추가 합니다. 역할 할당의 범위를 새 사용자 할당 관리 id로 지정 합니다.
 
-1. Blueprint **연산자는**새 사용자 할당된 관리 ID를 사용하는 [Blueprint를 할당합니다.](../create-blueprint-portal.md#assign-a-blueprint)
+1. **청사진 연산자**는 새로운 사용자 할당 관리 id를 사용 하는 [청사진을 할당](../create-blueprint-portal.md#assign-a-blueprint) 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [청사진 수명 주기에](../concepts/lifecycle.md)대해 자세히 알아봅니다.
+- [청사진 수명 주기](../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](../concepts/resource-locking.md)을 활용하는 방법 알아보기

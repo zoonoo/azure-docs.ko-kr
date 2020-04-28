@@ -1,18 +1,18 @@
 ---
-title: RBAC 역할 및 권한
+title: RBAC 역할 및 사용 권한
 description: Azure RBAC(역할 기반 액세스 제어)와 IAM(ID 및 액세스 관리)을 사용하여 Azure Container Registry에서 리소스에 대한 세분화된 사용 권한을 제공합니다.
 ms.topic: article
 ms.date: 12/02/2019
 ms.openlocfilehash: 3fb103ac4c4dac736b3c0fc99b2cf49f01e9e005
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74893487"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry 역할 및 권한
 
-Azure 컨테이너 레지스트리 서비스는 Azure 컨테이너 레지스트리에 서로 다른 수준의 사용 권한을 제공하는 [기본 제공 Azure 역할](../role-based-access-control/built-in-roles.md) 집합을 지원합니다. RBAC(Azure [역할 기반 액세스 제어)를](../role-based-access-control/index.yml) 사용하여 레지스트리와 상호 작용해야 하는 사용자, 서비스 주체 또는 기타 ID에 특정 권한을 할당합니다. 
+Azure Container Registry 서비스는 Azure Container Registry에 대해 서로 다른 수준의 사용 권한을 제공 하는 [기본 제공 azure 역할](../role-based-access-control/built-in-roles.md) 집합을 지원 합니다. Azure [역할 기반 액세스 제어](../role-based-access-control/index.yml) (RBAC)를 사용 하 여 사용자, 서비스 주체 또는 레지스트리와 상호 작용 해야 하는 다른 id에 특정 권한을 할당 합니다. 
 
 | 역할/권한       | [Resource Manager 액세스](#access-resource-manager) | [레지스트리 만들기/삭제](#create-and-delete-registry) | [이미지 푸시](#push-image) | [이미지 풀](#pull-image) | [이미지 데이터 삭제](#delete-image-data) | [정책 변경](#change-policies) |   [이미지 서명](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -21,7 +21,7 @@ Azure 컨테이너 레지스트리 서비스는 Azure 컨테이너 레지스트�
 | 판독기 | X |  |  | X |  |  |  |
 | AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
-| 아크삭제 |  |  |  |  | X |  |  |
+| AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
 ## <a name="differentiate-users-and-services"></a>사용자 및 서비스 구별
@@ -58,7 +58,7 @@ Azure Container Registry를 만들고 삭제하는 기능입니다.
 
 ## <a name="delete-image-data"></a>이미지 데이터 삭제
 
-[컨테이너 이미지를 삭제하거나](container-registry-delete.md)레지스트리에서 Helm 차트와 같은 지원되는 다른 [아티팩트를](container-registry-image-formats.md) 삭제하는 기능입니다.
+레지스트리에서 [컨테이너 이미지를 삭제](container-registry-delete.md)하거나 [지원 되](container-registry-image-formats.md) 는 다른 아티팩트 (예: 투구 차트)를 삭제할 수 있습니다.
 
 ## <a name="change-policies"></a>정책 변경
 
@@ -70,18 +70,18 @@ Azure Container Registry를 만들고 삭제하는 기능입니다.
 
 ## <a name="custom-roles"></a>사용자 지정 역할
 
-다른 Azure 리소스와 마찬가지로 Azure 컨테이너 레지스트리에 대한 세분화된 사용 권한을 사용하여 사용자 [지정 역할을](../role-based-access-control/custom-roles.md) 직접 만들 수 있습니다. 그런 다음 사용자 지정 역할을 레지스트리와 상호 작용해야 하는 사용자, 서비스 주체 또는 기타 ID에 할당합니다. 
+다른 Azure 리소스와 마찬가지로 Azure Container Registry 하는 세분화 된 권한으로 고유한 [사용자 지정 역할](../role-based-access-control/custom-roles.md) 을 만들 수 있습니다. 그런 다음 사용자, 서비스 주체 또는 레지스트리와 상호 작용 해야 하는 다른 id에 사용자 지정 역할을 할당 합니다. 
 
-사용자 지정 역할에 적용할 권한을 결정하려면 Microsoft.ContainerRegistry [작업](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry)목록을 참조하거나 기본 제공 [ACR 역할의](../role-based-access-control/built-in-roles.md)허용된 작업을 검토하거나 다음 명령을 실행합니다.
+사용자 지정 역할에 적용할 권한을 결정 하려면 Microsoft.containerregistry [작업](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry)목록을 참조 하거나, [기본 제공 ACR 역할](../role-based-access-control/built-in-roles.md)의 허용 된 작업을 검토 하거나, 다음 명령을 실행 합니다.
 
 ```azurecli
 az provider operation show --namespace Microsoft.ContainerRegistry
 ```
 
-사용자 지정 역할을 정의하려면 [사용자 지정 역할을 만드는 단계를](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)참조하십시오.
+사용자 지정 역할을 정의 하려면 [사용자 지정 역할을 만드는 단계](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)를 참조 하세요.
 
 > [!IMPORTANT]
-> 사용자 지정 역할에서 Azure 컨테이너 레지스트리는 현재 와일드카드와 `Microsoft.ContainerRegistry/*` `Microsoft.ContainerRegistry/registries/*` 같은 와일드카드를 지원하지 않거나 일치하는 모든 작업에 대한 액세스 권한을 부여합니다. 역할에 필요한 작업을 개별적으로 지정합니다.
+> 사용자 지정 역할에서 Azure Container Registry는 현재와 `Microsoft.ContainerRegistry/*` 같은 와일드 카드를 지원 `Microsoft.ContainerRegistry/registries/*` 하지 않으며, 일치 하는 모든 동작에 대 한 액세스 권한을 부여 합니다. 역할에서 필수 작업을 개별적으로 지정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -89,4 +89,4 @@ az provider operation show --namespace Microsoft.ContainerRegistry
 
 * Azure Container Registry의 [인증 옵션](container-registry-authentication.md)에 대해 알아봅니다.
 
-* 컨테이너 레지스트리에서 [리포지토리 범위 의 사용 권한(미리](container-registry-repository-scoped-permissions.md) 보기)을 사용하도록 설정하는 방법에 대해 알아봅니다.
+* 컨테이너 레지스트리에서 [리포지토리 범위 권한](container-registry-repository-scoped-permissions.md) (미리 보기)을 사용 하도록 설정 하는 방법에 대해 알아봅니다.

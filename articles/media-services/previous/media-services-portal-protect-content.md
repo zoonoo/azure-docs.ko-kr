@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 0c2a9612fab6c685cbc690aa9bbc12d1c7b7b746
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74978205"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Azure Portal을 사용하여 콘텐츠 보호 정책 구성
 
 > [!NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 평가판을](https://azure.microsoft.com/pricing/free-trial/)참조하십시오.   > 미디어 서비스 v2에 새로운 기능이나 기능이 추가되지 않습니다. <br/>최신 버전, [미디어 서비스 v3을](https://docs.microsoft.com/azure/media-services/latest/)확인하십시오. 또한 [v2에서 v3로의 마이그레이션 지침을](../latest/migrate-from-v2-to-v3.md) 참조하십시오.
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요.   > 새 기능이 나 기능이 Media Services v2에 추가 되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 >
 
  Azure Media Services를 사용하면 컴퓨터를 떠날 때부터 스토리지, 처리 및 배달에 이르는 과정 내내 미디어를 보호할 수 있습니다. Media Services를 사용하면 128비트 암호화 키를 사용하여 AES(Advanced Encryption Standard)로 동적 암호화된 콘텐츠를 배달할 수 있습니다. PlayReady 및/또는 Widevine DRM(디지털 권한 관리)과 Apple FairPlay를 사용하여 일반적인 암호화(CENC)와 함께 사용할 수도 있습니다. 
@@ -38,7 +38,7 @@ Media Services는 DRM 라이선스 및 AES 암호화되지 않은 키를 인증�
 
 1. [포털](https://portal.azure.com/)에서 Media Services 계정을 선택합니다.
 
-1. **설정** > **콘텐츠 보호**를 선택합니다.
+1. **설정** > **콘텐츠 보호**를 선택 합니다.
 
     ![콘텐츠 보호](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
@@ -90,7 +90,7 @@ FairPlay 암호화를 사용하도록 설정하려면 **FairPlay 구성**을 선
 동적 암호화를 활용하려면 소스 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩해야 합니다.
 
 ### <a name="select-an-asset-that-you-want-to-encrypt"></a>암호화하려는 자산을 선택
-모든 에셋을 보려면 **설정** > **자산**을 선택합니다.
+모든 자산을 보려면 **설정** > **자산**을 선택 합니다.
 
 ![자산 옵션](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
@@ -109,13 +109,13 @@ FairPlay 암호화를 사용하도록 설정하려면 **FairPlay 구성**을 선
 
     b. **MPEG-DASH를 사용하는 PlayReady 및 Widevine + HLS를 사용하는 FairPlay** - PlayReady 및 Widevine DRM의 MPEG-DASH 스트림을 동적으로 암호화합니다. 이 옵션은 FairPlay의 HLS 스트림도 암호화합니다.
 
-    다. **부드러운 스트리밍, HLS 및 MPEG-DASH만 사용하는 PlayReady** - PlayReady DRM의 부드러운 스트리밍, HLS, MPEG-DASH 스트림을 동적으로 암호화합니다.
+    c. **부드러운 스트리밍, HLS 및 MPEG-DASH만 사용하는 PlayReady** - PlayReady DRM의 부드러운 스트리밍, HLS, MPEG-DASH 스트림을 동적으로 암호화합니다.
 
     d. **MPEG-DASH만 사용하는 Widevine** - Widevine DRM의 MPEG-DASH를 동적으로 암호화합니다.
     
     e. **HLS만 사용하는 FairPlay** - FairPlay의 HLS 스트림을 동적으로 암호화합니다.
 
-1. FairPlay 암호화를 사용하도록 설정하려면 **콘텐츠 보호 전역 설정** 블레이드에서 **FairPlay 구성**을 선택합니다. 그런 다음 **앱 인증서를**선택하고 **응용 프로그램 보안 키를 입력합니다.**
+1. FairPlay 암호화를 사용하도록 설정하려면 **콘텐츠 보호 전역 설정** 블레이드에서 **FairPlay 구성**을 선택합니다. 그런 다음 **앱 인증서**를 선택 하 고 **응용 프로그램 비밀 키**를 입력 합니다.
 
     ![암호화 형식](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
@@ -124,7 +124,7 @@ FairPlay 암호화를 사용하도록 설정하려면 **FairPlay 구성**을 선
 >[!NOTE] 
 >Safari에서 AES 암호화 HLS를 재생하려는 경우 [Encrypted HLS in Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)(Safari의 암호화된 HLS) 블로그 게시물을 참조하세요.
 
-## <a name="additional-notes"></a>추가적인 참고 사항
+## <a name="additional-notes"></a>추가 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

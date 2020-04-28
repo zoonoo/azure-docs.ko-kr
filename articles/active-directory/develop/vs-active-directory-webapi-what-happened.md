@@ -1,6 +1,6 @@
 ---
-title: Azure AD에 연결할 때 WebAPI 프로젝트에 대한 변경 사항
-description: Visual Studio를 사용하여 Azure AD에 연결할 때 WebAPI 프로젝트에 어떤 일이 발생하는지 설명합니다.
+title: Azure AD에 연결할 때 WebAPI 프로젝트에 대 한 변경 내용
+description: Visual Studio를 사용 하 여 Azure AD에 연결할 때 WebAPI 프로젝트의 상황을 설명 합니다.
 author: ghogen
 manager: jillfra
 ms.workload: azure-vs
@@ -11,10 +11,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: 46fb0ad37b872a1d7ca72114f2f263df776aabf1
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886061"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>내 WebAPI 프로젝트(Visual Studio Azure Active Directory 연결 서비스)의 변경 내용
@@ -31,7 +31,7 @@ ms.locfileid: "80886061"
 
 프로젝트 파일(*.NET 참조) 및 `packages.config`(NuGet 참조)에 영향을 줍니다.
 
-| Type | 참조 |
+| 유형 | 참조 |
 | --- | --- |
 | .NET; NuGet | Microsoft.Owin |
 | .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
@@ -44,7 +44,7 @@ ms.locfileid: "80886061"
 
 **디렉터리 데이터 읽기** 옵션을 선택한 경우 추가 참조는 다음과 같습니다.
 
-| Type | 참조 |
+| 유형 | 참조 |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer(Visual Studio 2015만 해당) |
@@ -58,7 +58,7 @@ ms.locfileid: "80886061"
 
 다음 참조가 제거됩니다(Visual Studio 2015와 마찬가지로 ASP.NET 4 프로젝트만 해당).
 
-| Type | 참조 |
+| 유형 | 참조 |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
@@ -123,9 +123,9 @@ Visual Studio 2015는 연결된 서비스를 추가할 때 변경 및 제거된 
 - 연결된 서비스를 추가할 때 선택한 도메인에 Azure AD 애플리케이션이 생성됩니다.
 - 해당 옵션이 선택된 경우 **디렉터리 데이터 읽기** 권한을 포함하도록 앱을 업데이트했습니다.
 
-[Azure 활성 디렉터리 에 대해 자세히 알아봅니다.](https://azure.microsoft.com/services/active-directory/)
+[Azure Active Directory에 대해 자세히 알아보세요](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory에 대한 인증 시나리오](authentication-scenarios.md)
+- [Azure Active Directory에 대 한 인증 시나리오](authentication-scenarios.md)
 - [ASP.NET 웹앱에 Microsoft에 로그인 추가](quickstart-v2-aspnet-webapp.md)

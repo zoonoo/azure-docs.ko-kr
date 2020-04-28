@@ -1,13 +1,13 @@
 ---
-title: 서비스 패브릭 프로젝트 생성 다음 단계
+title: Service Fabric 프로젝트 만들기 다음 단계
 description: Visual Studio에서 방금 만든 애플리케이션 프로젝트에 대해 알아봅니다.  자습서를 사용하여 서비스를 빌드하는 방법을 알아보고 Service Fabric용 서비스 개발에 대해 자세히 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: e8fc105657bda6114851f4819be4658926ad621c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75349407"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>서비스 패브릭 애플리케이션 및 다음 단계

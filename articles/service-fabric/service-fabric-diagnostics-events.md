@@ -1,15 +1,15 @@
 ---
-title: Azure 서비스 패브릭 이벤트
+title: Azure Service Fabric 이벤트
 description: Azure Service Fabric 클러스터를 모니터링할 수 있도록 기본적으로 제공되는 Service Fabric 이벤트에 대해 자세히 알아봅니다.
 author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 638b650e485ad3e83bd6021639a7e55b540d9cdc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451722"
 ---
 # <a name="service-fabric-events"></a>Service Fabric 이벤트 
@@ -36,7 +36,7 @@ Service Fabric 플랫폼은 클러스터 내에서 발생하는 주요 운영 �
 ## <a name="how-to-access-events"></a>이벤트에 액세스하는 방법
 
 Service Fabric 이벤트에 액세스할 수 있는 몇 가지 방법이 있습니다.
-* 이벤트는 ETW/Windows 이벤트 로그와 같은 표준 채널을 통해 기록되며 Azure Monitor 로그와 같은 모니터링 도구를 사용하여 시각화할 수 있습니다. 기본적으로 포털에서 만든 클러스터에는 진단이 켜져 있고 Windows Azure 진단 에이전트가 이벤트를 Azure 테이블 저장소로 보내지만 이를 로그 분석 리소스와 통합해야 합니다. 더 많은 로그 또는 성능 카운터를 선택하고 [Azure Monitor 로그 통합을](service-fabric-diagnostics-event-analysis-oms.md) 선택하기 위해 클러스터의 진단 구성을 수정하기 위해 [Azure 진단 에이전트를](service-fabric-diagnostics-event-aggregation-wad.md) 구성하는 것에 대해 자세히 알아보십시오.
+* 이벤트는 ETW/Windows 이벤트 로그와 같은 표준 채널을 통해 기록 되며 Azure Monitor 로그와 같은 모니터링 도구를 통해 시각화할 수 있습니다. 기본적으로 포털에서 만든 클러스터는 진단을 설정 하 고 Windows Azure 진단 에이전트가 이벤트를 Azure table storage로 전송 하지만이를 log analytics 리소스와 통합 해야 합니다. 자세한 내용은 클러스터의 진단 구성을 수정 하 여 더 많은 로그 또는 성능 카운터 및 [Azure Monitor 로그 통합](service-fabric-diagnostics-event-analysis-oms.md) 을 선택 하도록 [Azure 진단 에이전트](service-fabric-diagnostics-event-aggregation-wad.md) 구성에 대해 자세히 알아보세요.
 * 클러스터를 직접 또는 Service Fabric 클러스터 라이브러리를 통해 쿼리할 수 있는 EventStore 서비스의 Rest API. [EventStore API를 통한 클러스터 이벤트 쿼리](service-fabric-diagnostics-eventstore-query.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

@@ -11,10 +11,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: 9a9f8aaa9e3f90e78668d2294ea9959b480e3384
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886078"
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>Azure Active Directory 시작(WebApi 프로젝트)
@@ -33,5 +33,5 @@ ms.locfileid: "80886078"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory에 대한 인증 시나리오](authentication-scenarios.md)
+- [Azure Active Directory에 대 한 인증 시나리오](authentication-scenarios.md)
 - [ASP.NET 웹앱에 Microsoft에 로그인 추가](quickstart-v2-aspnet-webapp.md)

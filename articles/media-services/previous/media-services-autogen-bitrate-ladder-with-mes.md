@@ -1,5 +1,5 @@
 ---
-title: 미디어 인코더 표준을 사용하여 비트 레이트 래더자동 생성 - Azure | 마이크로 소프트 문서
+title: Media Encoder Standard를 사용 하 여 비트 전송률 사다리 자동 생성-Azure | Microsoft Docs
 description: 이 항목에서는 MES(Media Encoder Standard)를 사용하여 입력 해상도 및 비트 전송률을 기반으로 비트 전송률 사다리를 자동 생성하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74896012"
 ---
-#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>미디어 인코더 표준을 사용하여 비트 레이트 래더를 자동으로 생성  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Media Encoder Standard를 사용 하 여 비트 전송률 사다리 자동 생성  
 
 ## <a name="overview"></a>개요
 
@@ -47,7 +47,7 @@ ms.locfileid: "74896012"
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-.NET 을 사용하면 Media Services 개발에 설명된 대로 개발 환경을 설정하고 app.config 파일을 연결 [정보로](media-services-dotnet-how-to-use.md)채웁니다. 
+개발 환경을 설정 하 고 [.net으로 개발 Media Services](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 
 #### <a name="example"></a>예제
 
@@ -208,6 +208,6 @@ namespace AdaptiveStreamingMESPresest
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [Media Services Encoding 개요](media-services-encode-asset.md)
 

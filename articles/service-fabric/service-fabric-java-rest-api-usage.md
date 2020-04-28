@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: rapatchi
 ms.openlocfilehash: 0a243c1cd0ab0dcb93a1cc6169c89ba18606f346
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451677"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java 클라이언트 API
@@ -117,11 +117,11 @@ Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로�
 모든 API에 대해 네 개의 구현 오버로드를 찾을 수 있습니다. 선택적 매개 변수가 있는 경우 이러한 선택적 매개 변수를 포함하여 네 개의 변형을 더 찾을 수 있습니다. 예를 들어 ``removeReplica`` API를 살펴보겠습니다.
  1. **public void removeReplica(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout)**
     * 이는 removeReplica API 호출의 동기 변형입니다.
- 2. **public ServiceFuture\<Void> 제거ReplicaAsync (문자열 노드 이름, UUID 파티션Id, 문자열 복제Id,\<부울 포스제거, 긴 시간 시간, 최종 ServiceCallback Void> 서비스콜백)**
+ 2. **공용\<Servicefutingvoid> RemoveReplicaAsync (string NODENAME, UUID PartitionId, string ReplicaId, Boolean ForceRemove, Long timeout, final ServiceCallback\<Void> ServiceCallback)**
     * 나중에 기반한 비동기 프로그래밍을 사용하고 콜백을 사용하려는 경우 이 변형의 API 호출을 사용할 수 있습니다.
- 3. **공개 관찰\<가능한 Void> 제거ReplicaAsync(문자열 노드이름, UUID 파티션Id, 문자열 복제Id)**
+ 3. **관찰\<가능한 public Void> RemoveReplicaAsync (문자열 NODENAME, UUID PartitionId, 문자열 replicaId)**
     * 사후 비동기 프로그래밍을 사용하려는 경우 이 변형의 API 호출을 사용할 수 있습니다.
- 4. **공개 관찰\<가능한\<서비스응답 제거>> 제거복제WithServiceResponseAsync(문자열 노드이름, UUID 파티션Id, 문자열 복제Id)**
+ 4. **public 관찰\<가능\<ServiceResponse Void>> removeReplicaWithServiceResponseAsync (String nodeName, UUID partitionId, string replicaId)**
     * 사후 비동기 프로그래밍을 사용하고 RAW REST 응답을 처리하려는 경우 이 변형의 API 호출을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

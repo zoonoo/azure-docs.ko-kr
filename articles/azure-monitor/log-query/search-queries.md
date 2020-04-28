@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/06/2018
 ms.openlocfilehash: e13f4abc37e348759e7d0b8a2f7d890c82fe0d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77660243"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Azure Monitor 로그에서 쿼리 검색
@@ -43,7 +43,7 @@ search in (Event, SecurityEvent) "error"
 ```
 
 ### <a name="table-and-column-scoping"></a>테이블 및 열 범위 지정
-기본적으로 **search**는 데이터 집합의 모든 열을 평가합니다. 특정 열만 검색하려면(아래 예제의 *소스라는)* 다음 구문을 사용합니다.
+기본적으로 **search**는 데이터 집합의 모든 열을 평가합니다. 특정 열 (아래 예제에서는 명명 된 *원본* )만 검색 하려면 다음 구문을 사용 합니다.
 
 ```Kusto
 search in (Event) Source:"error"
@@ -51,7 +51,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> `:` 대신 `==`를 사용하는 경우 결과는 이 대/소문자 구분에서 *Source* 열에 정확한 값 "error"가 있는 레코드를 포함합니다. ":'를 사용하면 *Source에* "오류 코드 404" 또는 "오류"와 같은 값이 있는 레코드가 포함됩니다.
+> `:` 대신 `==`를 사용하는 경우 결과는 이 대/소문자 구분에서 *Source* 열에 정확한 값 "error"가 있는 레코드를 포함합니다. ': '을 사용 하는 경우 *원본* 에 "오류 코드 404" 또는 "오류"와 같은 값이 있는 레코드가 포함 됩니다.
 
 ## <a name="case-sensitivity"></a>대/소문자 구분
 기본적으로 용어 검색은 대/소문자를 구분하지 않으므로 "dns"를 검색하면 "DNS", "dns" 또는 "Dns"와 같은 결과가 발생할 수 있습니다. 대/소문자를 구분하여 검색하려면 `kind` 옵션을 사용합니다.

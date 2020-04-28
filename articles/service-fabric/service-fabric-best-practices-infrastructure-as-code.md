@@ -1,15 +1,15 @@
 ---
-title: 코드 모범 사례로 Azure 서비스 패브릭 인프라
-description: Azure 서비스 패브릭을 코드로 인프라로 관리하기 위한 모범 사례 및 디자인 고려 사항입니다.
+title: 코드 모범 사례에 해당 하는 Azure Service Fabric 인프라
+description: Azure Service Fabric를 코드로 관리 하기 위한 모범 사례 및 디자인 고려 사항입니다.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 1c044d5fd973d3c577088a887f2fac413d2ab79d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75551831"
 ---
 # <a name="infrastructure-as-code"></a>코드 제공 인프라(Infrastructure as code)
@@ -91,7 +91,7 @@ microservices_sfpkg.close()
 ```
 
 ## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Azure 가상 컴퓨터 운영 체제 자동 업그레이드 구성 
-가상 컴퓨터를 업그레이드하는 것은 사용자가 시작한 작업이며 Azure Service Fabric 클러스터 호스트 패치 관리에 대해 [가상 시스템 확장 설정 자동 운영 체제 업그레이드를](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) 사용하는 것이 좋습니다. 패치 오케스트레이션 응용 프로그램은 Azure 외부에서 호스팅되는 경우를 위한 대체 솔루션이지만, POA는 Azure에서 사용할 수 있지만 Azure에서 POA를 호스팅하는 오버헤드는 POA보다 가상 시스템 운영 체제 자동 업그레이드를 선호하는 일반적인 이유입니다. 다음은 자동 OS 업그레이드를 사용하도록 설정하는 계산 가상 컴퓨터 규모 설정 리소스 관리자 템플릿 속성입니다.
+가상 컴퓨터를 업그레이드 하는 작업은 사용자가 시작한 작업 이므로 [가상 컴퓨터 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) 을 사용 하 여 Azure Service Fabric 클러스터의 자동 운영 체제 업그레이드 호스트 패치 관리를 사용 하는 것이 좋습니다. 패치 오케스트레이션 응용 프로그램은 azure에서 호스트 되는 경우 azure에서 poa를 호스트 하는 오버 헤드로 poa를 통해 가상 컴퓨터 운영 체제 자동 업그레이드를 선호 하는 일반적인 이유를 사용 하 여 azure에서 호스트 되는 경우에 사용할 수 있는 대체 솔루션입니다. 자동 OS 업그레이드를 사용 하도록 설정 하는 계산 가상 머신 확장 집합 리소스 관리자 템플릿 속성은 다음과 같습니다.
 
 ```json
 "upgradePolicy": {
@@ -102,11 +102,11 @@ microservices_sfpkg.close()
     }
 },
 ```
-서비스 패브릭을 사용하여 자동 OS 업그레이드를 사용하는 경우 새 OS 이미지는 서비스 패브릭에서 실행되는 서비스의 고가용성을 유지하기 위해 한 번에 하나의 업데이트 도메인을 롤아웃합니다. Service Fabric에서 자동 OS 업그레이드를 활용하려면 실버 내구성 계층 이상을 사용하도록 클러스터가 구성되어야 합니다.
+Service Fabric와 함께 자동 OS 업그레이드를 사용 하는 경우 새 OS 이미지는 Service Fabric에서 실행 되는 서비스의 고가용성을 유지 하기 위해 한 번에 하나의 업데이트 도메인에 롤오버 됩니다. Service Fabric에서 자동 OS 업그레이드를 활용하려면 실버 내구성 계층 이상을 사용하도록 클러스터가 구성되어야 합니다.
 
-다음 레지스트리 키가 false로 설정되어 windows 호스트 컴퓨터가 조정되지 않은 업데이트를 시작하지 못하도록 합니다: HKEY_LOCAL_MACHINE\SOFTWARE\Policy\Microsoft\WindowsUpdate\AU.
+Windows 호스트 컴퓨터가 조정 되지 않은 업데이트를 시작 하지 않도록 하려면 다음 레지스트리 키가 false로 설정 되어 있는지 확인 합니다. HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
-다음은 WindowsUpdate 레지스트리 키를 false로 설정하는 계산 가상 컴퓨터 규모 설정 리소스 관리자 템플릿 속성입니다.
+Windowsupdate.log 레지스트리 키를 false로 설정 하는 계산 가상 머신 확장 집합 리소스 관리자 템플릿 속성은 다음과 같습니다.
 ```json
 "osProfile": {
         "computerNamePrefix": "{vmss-name}",
@@ -119,12 +119,12 @@ microservices_sfpkg.close()
       },
 ```
 
-## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Azure 서비스 패브릭 클러스터 업그레이드 구성
-다음은 자동 업그레이드를 사용하도록 설정하는 서비스 패브릭 클러스터 리소스 관리자 템플릿 속성입니다.
+## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Azure Service Fabric 클러스터 업그레이드 구성
+자동 업그레이드를 사용 하도록 설정 하는 Service Fabric 클러스터 리소스 관리자 템플릿 속성은 다음과 같습니다.
 ```json
 "upgradeMode": "Automatic",
 ```
-클러스터를 수동으로 업그레이드하려면 캡/deb 분포를 클러스터 가상 시스템에 다운로드한 다음 다음 PowerShell을 호출합니다.
+클러스터를 수동으로 업그레이드 하려면 클러스터 가상 컴퓨터에 cab/deb 배포를 다운로드 한 후 다음 PowerShell을 호출 합니다.
 ```powershell
 Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
 Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
@@ -135,4 +135,4 @@ Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <"msi_code_version">
 
 * Windows Server를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Windows Server용 서비스 패브릭 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 * Linux를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-* 서비스 [패브릭 지원 옵션에](service-fabric-support.md) 대해 자세히 알아보기
+* [Service Fabric 지원 옵션](service-fabric-support.md) 에 대 한 자세한 정보

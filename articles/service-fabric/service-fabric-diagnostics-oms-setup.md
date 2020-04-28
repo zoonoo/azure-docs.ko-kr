@@ -1,23 +1,23 @@
 ---
-title: Azure 모니터 로그를 통해 모니터링 설정
-description: Azure 서비스 패브릭 클러스터를 모니터링하기 위해 이벤트를 시각화하고 분석하기 위해 Azure Monitor 로그를 설정하는 방법을 알아봅니다.
+title: Azure Monitor 로그를 사용 하 여 모니터링 설정
+description: Azure Service Fabric 클러스터를 모니터링 하기 위해 이벤트를 시각화 하 고 분석 하기 위해 Azure Monitor 로그를 설정 하는 방법을 알아봅니다.
 author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
 ms.openlocfilehash: cf0fab9942dcbb7ee09e554f2c9ba8738f208009
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75609930"
 ---
-# <a name="set-up-azure-monitor-logs-for-a-cluster"></a>클러스터에 대한 Azure 모니터 로그 설정
+# <a name="set-up-azure-monitor-logs-for-a-cluster"></a>클러스터에 대 한 Azure Monitor 로그 설정
 
-Azure Monitor 로그는 클러스터 수준 이벤트를 모니터링하는 데 추천됩니다. Azure Resource Manager, PowerShell 또는 Azure Marketplace를 통해 Log Analytics 작업 영역을 설정할 수 있습니다. 나중에 사용할 수 있도록 배포의 업데이트된 리소스 관리자 템플릿을 유지 관리하는 경우 동일한 템플릿을 사용하여 Azure Monitor 로그 환경을 설정합니다. 진단을 사용하도록 설정하여 클러스터를 이미 배포한 경우 Marketplace를 통한 배포가 더 용이합니다. 배포하는 계정에 구독 수준 액세스 권한이 없는 경우 PowerShell 또는 Resource Manager 템플릿을 사용하여 배포합니다.
+Azure Monitor 로그는 클러스터 수준 이벤트를 모니터링하는 데 추천됩니다. Azure Resource Manager, PowerShell 또는 Azure Marketplace를 통해 Log Analytics 작업 영역을 설정할 수 있습니다. 나중에 사용 하기 위해 배포의 업데이트 된 리소스 관리자 템플릿을 유지 관리 하는 경우 동일한 템플릿을 사용 하 여 Azure Monitor logs 환경을 설정 합니다. 진단을 사용하도록 설정하여 클러스터를 이미 배포한 경우 Marketplace를 통한 배포가 더 용이합니다. 배포하는 계정에 구독 수준 액세스 권한이 없는 경우 PowerShell 또는 Resource Manager 템플릿을 사용하여 배포합니다.
 
 > [!NOTE]
-> 클러스터를 모니터링하도록 Azure Monitor 로그를 설정하려면 클러스터 수준 또는 플랫폼 수준 이벤트를 보려면 진단을 사용하도록 설정해야 합니다. 자세한 내용은 [Windows 클러스터에서 진단을 설정하는 방법](service-fabric-diagnostics-event-aggregation-wad.md) 및 [Linux 클러스터에서 진단을 설정하는 방법](service-fabric-diagnostics-oms-syslog.md)을 참조하세요.
+> 클러스터를 모니터링 하도록 Azure Monitor 로그를 설정 하려면 클러스터 수준 또는 플랫폼 수준 이벤트를 보기 위해 진단을 사용 하도록 설정 해야 합니다. 자세한 내용은 [Windows 클러스터에서 진단을 설정하는 방법](service-fabric-diagnostics-event-aggregation-wad.md) 및 [Linux 클러스터에서 진단을 설정하는 방법](service-fabric-diagnostics-oms-syslog.md)을 참조하세요.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -40,10 +40,10 @@ Azure Monitor 로그는 클러스터 수준 이벤트를 모니터링하는 데 
 
 5. 완료되면 Service Fabric 분석 만들기 창의 맨 아래에서 **만들기**를 다시 선택합니다. **OMS 작업 영역** 아래에 새 작업 영역이 표시되는지 확인합니다. 이 작업은 방금 만든 작업 영역에 솔루션을 추가합니다.
 
-Windows를 사용하는 경우 다음 단계를 계속하여 Azure Monitor 로그를 클러스터 이벤트가 저장된 저장소 계정에 연결합니다. 
+Windows를 사용 하는 경우 다음 단계를 계속 진행 하 여 클러스터 이벤트가 저장 된 저장소 계정에 Azure Monitor 로그를 연결 합니다. 
 
 >[!NOTE]
->서비스 패브릭 분석 솔루션은 Windows 클러스터에만 지원됩니다. Linux 클러스터의 경우 [Linux 클러스터에 대한 Azure Monitor 로그를 설정하는 방법에 대한 도움말을 확인하십시오.](service-fabric-diagnostics-oms-syslog.md)  
+>Service Fabric 분석 솔루션은 Windows 클러스터에만 지원 됩니다. Linux 클러스터의 경우 [linux 클러스터에 대 한 Azure Monitor 로그를 설정 하는 방법](service-fabric-diagnostics-oms-syslog.md)에 대 한 문서를 확인 하세요.  
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Log Analytics 작업 영역을 클러스터에 연결 
 
@@ -61,14 +61,14 @@ Windows를 사용하는 경우 다음 단계를 계속하여 Azure Monitor 로�
 
 7. **확인**을 선택하여 작업 영역을 클러스터 로그에 연결합니다.
 
-    ![Azure 모니터 로그에 저장소 계정 로그 추가](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
+    ![Azure Monitor 로그에 저장소 계정 로그 추가](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
 이제 계정이 작업 영역의 데이터 원본에서 스토리지 계정 로그의 일부로 표시됩니다.
 
 Log Analytics 작업 영역에 추가한 Service Fabric 분석 솔루션이 이제 클러스터의 플랫폼 및 애플리케이션 로그 표에 제대로 연결되었습니다. 같은 방식으로 작업 영역에 추가적인 원본을 추가할 수 있습니다.
 
 
-## <a name="deploy-azure-monitor-logs-with-azure-resource-manager"></a>Azure 리소스 관리자를 사용 하 고 Azure 모니터 로그 배포
+## <a name="deploy-azure-monitor-logs-with-azure-resource-manager"></a>Azure Resource Manager를 사용 하 여 Azure Monitor 로그 배포
 
 Resource Manager 템플릿을 사용하여 클러스터를 배포하는 경우 템플릿은 새 Log Analytics 작업 영역을 만들고, 작업 영역에 Service Fabric 솔루션을 추가하고, 적절한 스토리지 테이블에서 데이터를 읽도록 구성합니다.
 
@@ -81,7 +81,7 @@ Resource Manager 템플릿을 사용하여 클러스터를 배포하는 경우 �
 * 이러한 테이블에서 이벤트를 읽도록 Log Analytics 작업 영역 구성
 
 
-Azure PowerShell 모듈의 `New-AzResourceGroupDeployment` API를 사용하여 템플릿을 리소스 관리자 업그레이드로 클러스터에 배포할 수 있습니다. 예제 명령은 다음과 같습니다.
+Azure PowerShell 모듈에서 API를 `New-AzResourceGroupDeployment` 사용 하 여 클러스터에 대 한 리소스 관리자 업그레이드로 템플릿을 배포할 수 있습니다. 예제 명령은 다음과 같습니다.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "<resourceGroupName>" -TemplateFile "<templatefile>.json" 
@@ -89,9 +89,9 @@ New-AzResourceGroupDeployment -ResourceGroupName "<resourceGroupName>" -Template
 
 Azure Resource Manager는 이 명령이 기존 리소스에 대한 업데이트임을 감지합니다. 기존 배포를 구동하는 템플릿과 제공된 새 템플릿 간의 변경 내용만 처리합니다.
 
-## <a name="deploy-azure-monitor-logs-with-azure-powershell"></a>Azure PowerShell을 통해 Azure 모니터 로그 배포
+## <a name="deploy-azure-monitor-logs-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure Monitor 로그 배포
 
-명령을 사용하여 PowerShell을 통해 로그 분석 `New-AzOperationalInsightsWorkspace` 리소스를 배포할 수도 있습니다. 이 방법을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)을 설치했는지 확인합니다. 이 스크립트를 사용하여 새 Log Analytics 작업 영역을 만들고 여기에 Service Fabric 솔루션을 추가합니다. 
+`New-AzOperationalInsightsWorkspace` 명령을 사용 하 여 PowerShell을 통해 log analytics 리소스를 배포할 수도 있습니다. 이 방법을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)을 설치했는지 확인합니다. 이 스크립트를 사용하여 새 Log Analytics 작업 영역을 만들고 여기에 Service Fabric 솔루션을 추가합니다. 
 
 ```powershell
 
@@ -117,11 +117,11 @@ Set-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -Wor
 
 ```
 
-작업이 완료되면 이전 섹션의 단계를 수행하여 Azure Monitor 로그를 적절한 저장소 계정에 연결합니다.
+완료 되 면 이전 섹션의 단계에 따라 Azure Monitor 로그를 적절 한 저장소 계정에 연결 합니다.
 
-PowerShell을 사용하여 Log Analytics 작업 영역에 다른 솔루션을 추가하거나 다른 수정 작업을 할 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Azure 모니터 로그 관리를](../azure-monitor/platform/powershell-workspace-configuration.md)참조하십시오.
+PowerShell을 사용하여 Log Analytics 작업 영역에 다른 솔루션을 추가하거나 다른 수정 작업을 할 수도 있습니다. 자세히 알아보려면 [PowerShell을 사용 하 여 Azure Monitor 로그 관리](../azure-monitor/platform/powershell-workspace-configuration.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * 노드에 [Log Analytics 에이전트를 배포](service-fabric-diagnostics-oms-agent.md)하여 성능 카운터를 수집하고 컨테이너에 대한 docker 통계 및 로그를 수집합니다.
-* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능에 익숙해지기
-* [보기 디자이너를 사용하여 Azure 모니터 로그에서 사용자 지정 보기 만들기](../azure-monitor/platform/view-designer.md)
+* Azure Monitor 로그의 일부로 제공 되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능을 사용 하 여 알아보기 가져오기
+* [뷰 디자이너를 사용 하 여 Azure Monitor 로그에 사용자 지정 보기 만들기](../azure-monitor/platform/view-designer.md)
