@@ -1,5 +1,5 @@
 ---
-title: '데이터 변환: 데이터 변환 & 프로세스 '
+title: '데이터 변환: 데이터를 처리 & 변환 '
 description: Hadoop, Machine Learning 또는 Azure Data Lake Analytics를 사용하여 Azure Data Factory에서 데이터를 변환 또는 처리하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 5b3e2db9b9769dee7599a2446b272e04cc0bedf7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74703385"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 > [!div class="op_single_selector"]
-> * [하이브](data-factory-hive-activity.md)  
+> * [Hive](data-factory-hive-activity.md)  
 > * [Pig](data-factory-pig-activity.md)  
-> * [Mapreduce](data-factory-map-reduce.md)  
+> * [MapReduce](data-factory-map-reduce.md)  
 > * [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md)
-> * [기계 학습](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
 > * [저장 프로시저](data-factory-stored-proc-activity.md)
 > * [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md)
 > * [.NET 사용자 지정](data-factory-use-custom-activities.md)
@@ -43,13 +43,13 @@ Data Factory는 개별적 또는 다른 작업과 연계하여 [파이프라인]
 > 
 
 ## <a name="hdinsight-hive-activity"></a>HDInsight Hive 작업
-Data Factory 파이프라인에서 HDInsight Hive 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터의 Hive 쿼리를 실행합니다. 이 활동에 대한 자세한 내용은 [Hive 활동](data-factory-hive-activity.md) 문서를 참조하십시오. 
+Data Factory 파이프라인에서 HDInsight Hive 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터의 Hive 쿼리를 실행합니다. 이 작업에 대 한 자세한 내용은 [Hive 작업](data-factory-hive-activity.md) 문서를 참조 하세요. 
 
 ## <a name="hdinsight-pig-activity"></a>HDInsight Pig 작업
-Data Factory 파이프라인에서 HDInsight Pig 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터의 Pig 쿼리를 실행합니다. 이 활동에 대한 자세한 내용은 [돼지 활동](data-factory-pig-activity.md) 문서를 참조하십시오. 
+Data Factory 파이프라인에서 HDInsight Pig 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터의 Pig 쿼리를 실행합니다. 이 작업에 대 한 자세한 내용은 [Pig 활동](data-factory-pig-activity.md) 문서를 참조 하세요. 
 
 ## <a name="hdinsight-mapreduce-activity"></a>HDInsight MapReduce 작업
-Data Factory 파이프라인의 HDInsight MapReduce 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터에서 MapReduce 프로그램을 실행합니다. 이 활동에 대한 자세한 내용은 [MapReduce 활동](data-factory-map-reduce.md) 문서를 참조하십시오.
+Data Factory 파이프라인의 HDInsight MapReduce 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터에서 MapReduce 프로그램을 실행합니다. 이 작업에 대 한 자세한 내용은 [MapReduce 작업](data-factory-map-reduce.md) 문서를 참조 하세요.
 
 ## <a name="hdinsight-streaming-activity"></a>HDInsight 스트리밍 작업
 Data Factory 파이프라인의 HDInsight 스트리밍 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행합니다. 이 작업에 대한 자세한 내용은 [HDInsight 스트리밍 작업](data-factory-hadoop-streaming-activity.md)을 참조하세요.
@@ -58,17 +58,17 @@ Data Factory 파이프라인의 HDInsight 스트리밍 작업은 사용자 고�
 Data Factory 파이프라인에서 HDInsight Spark 작업은 사용자 고유 HDInsight 클러스터에서 Spark 프로그램을 실행합니다. 자세한 내용은 [Azure Data Factory에서 Spark 프로그램 호출](data-factory-spark.md) 을 참조하세요. 
 
 ## <a name="machine-learning-activities"></a>Machine Learning 작업
-Azure Data Factory를 사용하면 예측 분석을 위해 게시된 Azure Machine Learning 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 [일괄 실행 작업을](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) 사용하여 기계 학습 웹 서비스를 호출하여 일괄 처리로 데이터에 대한 예측을 수행할 수 있습니다.
+Azure Data Factory를 사용하면 예측 분석을 위해 게시된 Azure Machine Learning 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 [일괄 처리 실행 작업](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) 을 사용 하면 Machine Learning 웹 서비스를 호출 하 여 일괄 처리로 데이터에 대 한 예측을 만들 수 있습니다.
 
-시간이 지남에 따라 Machine Learning 점수 매기기 실험의 예측 모델은 새 입력 데이터 세트를 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 Machine Learning 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. 리소스 활동 [업데이트를](data-factory-azure-ml-batch-execution-activity.md#updating-models-using-update-resource-activity) 사용하여 새로 학습된 모델로 웹 서비스를 업데이트할 수 있습니다.  
+시간이 지남에 따라 Machine Learning 점수 매기기 실험의 예측 모델은 새 입력 데이터 세트를 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 Machine Learning 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. [리소스 업데이트 작업](data-factory-azure-ml-batch-execution-activity.md#updating-models-using-update-resource-activity) 을 사용 하 여 새로 학습 된 모델로 웹 서비스를 업데이트할 수 있습니다.  
 
 이러한 Machine Learning 작업에 대한 자세한 내용은 [Machine Learning 작업 사용](data-factory-azure-ml-batch-execution-activity.md)을 참조하세요. 
 
 ## <a name="stored-procedure-activity"></a>저장 프로시저 작업
-Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사용하여 엔터프라이즈 또는 Azure VM의 Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database의 데이터 저장소 중 하나에서 저장 프로시저를 호출할 수 있습니다. 자세한 [내용은 저장 프로시저 활동](data-factory-stored-proc-activity.md) 문서를 참조하십시오.  
+Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사용하여 엔터프라이즈 또는 Azure VM의 Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database의 데이터 저장소 중 하나에서 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 [저장 프로시저 작업](data-factory-stored-proc-activity.md) 문서를 참조 하세요.  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 작업
-Data Lake Analytics U-SQL 작업은 Azure Data Lake Analytics 클러스터에 대해 U-SQL 스크립트를 실행합니다. 자세한 내용은 [데이터 분석 U-SQL 활동](data-factory-usql-activity.md) 문서를 참조하십시오. 
+Data Lake Analytics U-SQL 작업은 Azure Data Lake Analytics 클러스터에 대해 U-SQL 스크립트를 실행합니다. 자세한 내용은 [데이터 분석의 U-SQL 작업](data-factory-usql-activity.md) 문서를 참조 하세요. 
 
 ## <a name="net-custom-activity"></a>.NET 사용자 지정 작업
 Data Factory에서 지원되지 않는 방식으로 데이터를 변환해야 하는 경우 고유의 데이터 이동 논리가 포함된 사용자 지정 작업을 만들어서 파이프라인에 해당 작업을 사용할 수 있습니다. Azure Batch 서비스 또는 Azure HDInsight 클러스터를 사용하여 실행되도록 사용자 지정 .NET 작업을 구성할 수 있습니다. 자세한 내용은 [사용자 지정 작업 사용](data-factory-use-custom-activities.md) 문서를 참조하세요. 
@@ -88,12 +88,12 @@ Azure Data Factory는 작업에 대한 다음 데이터 변환 작업 및 컴퓨
 
 | 데이터 변환 작업 | 컴퓨팅 환경 |
 |:--- |:--- |
-| [하이브](data-factory-hive-activity.md) |HDInsight [Hadoop] |
+| [Hive](data-factory-hive-activity.md) |HDInsight [Hadoop] |
 | [Pig](data-factory-pig-activity.md) |HDInsight [Hadoop] |
-| [Mapreduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
+| [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
 | [Machine Learning 작업: Batch 실행 및 업데이트 리소스](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
 | [저장 프로시저](data-factory-stored-proc-activity.md) |Azure SQL, Azure SQL Data Warehouse 또는 SQL Server |
 | [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) |Azure 데이터 레이크 분석 |
-| [Dotnet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] 또는 Azure Batch |
+| [투명](data-factory-use-custom-activities.md) |HDInsight [Hadoop] 또는 Azure Batch |
 

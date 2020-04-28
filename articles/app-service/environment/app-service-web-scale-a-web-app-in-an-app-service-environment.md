@@ -1,6 +1,6 @@
 ---
 title: ASE v1에서 앱 크기 조정
-description: 앱 서비스 환경에서 앱 크기 조정 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
+description: App Service Environment에서 앱의 크기를 조정 합니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
 author: ccompy
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
 ms.topic: article
@@ -8,13 +8,13 @@ ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 43849ca7084f2237c37ad537c50f4e94ac4ea7c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74688671"
 ---
-# <a name="scaling-apps-in-an-app-service-environment-v1"></a>앱 서비스 환경 v1에서 앱 크기 조정
+# <a name="scaling-apps-in-an-app-service-environment-v1"></a>App Service Environment v1에서 앱 크기 조정
 Azure App Service에서는 일반적으로 다음 세 가지를 확장할 수 있습니다.
 
 * 가격 계획
@@ -58,7 +58,7 @@ ASE의 ASP에 대한 자동 크기 조정 규칙은 일반적인 경우와 동�
 > 
 
 ## <a name="getting-started"></a>시작
-앱 서비스 환경을 시작하려면 [앱 서비스 환경을 만드는 방법을][HowtoCreateASE] 참조하세요.
+App Service 환경을 시작 하려면 [App Service Environment를 만드는 방법][HowtoCreateASE] 을 참조 하세요.
 
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/aseappscale-aspblade.png

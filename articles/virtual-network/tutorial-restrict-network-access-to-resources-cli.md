@@ -1,5 +1,5 @@
 ---
-title: PaaS 리소스에 대한 네트워크 액세스 제한 - Azure CLI
+title: PaaS 리소스에 대 한 네트워크 액세스 제한-Azure CLI
 description: 이 문서에서는 Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트를 통해 Azure Storage 및 Azure SQL Database와 같은 Azure 리소스에 대한 네트워크 액세스를 제한하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
@@ -18,10 +18,10 @@ ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: f2dcc714bc9052dd51f114e24f0b9bd74b87480c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74186398"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
@@ -39,11 +39,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하십시오. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *동쪽* 위치에 *myResourceGroup이라는* 리소스 그룹을 만듭니다.
+가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create \
@@ -120,7 +120,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-각 네트워크 보안 그룹에는 몇 가지 [기본 보안 규칙이](security-overview.md#default-security-rules)포함되어 있습니다. 다음 규칙은 모든 공용 IP 주소에 대한 아웃바운드 액세스를 허용하는 기본 보안 규칙을 재정의합니다. 이 `destination-address-prefix "Internet"` 옵션은 모든 공용 IP 주소에 대한 아웃바운드 액세스를 거부합니다. 우선 순위가 더 높은 이전 규칙이 이 규칙을 재정의하여 Azure Storage의 공용 IP 주소에 대한 액세스를 허용합니다.
+각 네트워크 보안 그룹에는 몇 가지 [기본 보안 규칙이](security-overview.md#default-security-rules)포함 되어 있습니다. 다음 규칙은 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 허용 하는 기본 보안 규칙을 재정의 합니다. 옵션 `destination-address-prefix "Internet"` 은 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 거부 합니다. 우선 순위가 더 높은 이전 규칙이 이 규칙을 재정의하여 Azure Storage의 공용 IP 주소에 대한 액세스를 허용합니다.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -137,7 +137,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-다음 규칙을 사용하면 SSH 트래픽이 어디서나 서브넷으로 인바운드될 수 있습니다. 이 규칙은 인터넷의 모든 인바운드 트래픽을 거부하는 기본 보안 규칙을 재정의합니다. SSH는 서브넷에 허용되므로 이후 단계에서 연결을 테스트할 수 있습니다.
+다음 규칙은 어디에서 나 서브넷에 대 한 SSH 트래픽 인바운드를 허용 합니다. 이 규칙은 인터넷의 모든 인바운드 트래픽을 거부하는 기본 보안 규칙을 재정의합니다. 이후 단계에서 연결을 테스트할 수 있도록 서브넷에 SSH를 사용할 수 있습니다.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -272,7 +272,7 @@ VM을 만드는 데 몇 분이 걸립니다. 만든 후에는 반환된 출력�
 
 ## <a name="confirm-access-to-storage-account"></a>스토리지 계정에 대한 액세스 확인
 
-*myVmPrivate* VM으로 SSH를 수행합니다. * \<publicIpAddress>* *myVmPrivate* VM의 공용 IP 주소로 바꿉니다.
+*myVmPrivate* VM으로 SSH를 수행합니다. * \<PublicIpAddress>* 를 *myvmprivate* VM의 공용 IP 주소로 바꿉니다.
 
 ```bash 
 ssh <publicIpAddress>
@@ -316,7 +316,7 @@ ssh <publicIpAddress>
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-만든 디렉터리에 Azure 파일 공유를 탑재합니다. 이 문서에서는 최신 버전의 Ubuntu를 배포했다고 가정합니다. 이전 버전의 Ubuntu를 사용하는 경우 [Linux에 탑재](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 파일 공유 탑재에 대한 추가 지침을 참조하세요. 다음 명령을 실행하기 `<storage-account-name>` 전에 계정 이름과 `<storage-account-key>` [저장소 계정 만들기에서](#create-a-storage-account)검색한 키로 바꿉니다.
+만든 디렉터리에 Azure 파일 공유를 탑재합니다. 이 문서에서는 최신 버전의 Ubuntu를 배포했다고 가정합니다. 이전 버전의 Ubuntu를 사용하는 경우 [Linux에 탑재](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 파일 공유 탑재에 대한 추가 지침을 참조하세요. 다음 명령을 실행 하기 전에을 계정 `<storage-account-name>` 이름으로 바꾸고를 `<storage-account-key>` [저장소 계정 만들기](#create-a-storage-account)에서 검색 한 키로 바꿉니다.
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino

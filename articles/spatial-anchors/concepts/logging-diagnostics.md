@@ -1,6 +1,6 @@
 ---
 title: 로깅 및 진단
-description: Azure 공간 앵커에서 로깅 및 진단을 생성하고 검색하는 방법에 대한 자세한 설명입니다.
+description: Azure 공간 앵커에서 로깅 및 진단을 생성 하 고 검색 하는 방법에 대 한 자세한 설명입니다.
 author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
@@ -9,21 +9,21 @@ ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: f4359db1deda2295a66bcb97cf374d0fe9bc3ef7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74270121"
 ---
 # <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Azure 공간 앵커의 로깅 및 진단
 
-Azure 공간 앵커는 앱 개발에 유용한 표준 로깅 메커니즘을 제공합니다. 공간 앵커 진단 로깅 모드는 디버깅에 대한 자세한 정보가 필요할 때 유용합니다. 진단 로깅은 환경의 이미지를 저장합니다.
+Azure 공간 앵커는 앱 개발에 유용한 표준 로깅 메커니즘을 제공 합니다. 공간 고정 진단 로깅 모드는 디버깅에 추가 정보가 필요한 경우에 유용 합니다. 진단 로깅은 환경의 이미지를 저장 합니다.
 
 ## <a name="standard-logging"></a>표준 로깅
-공간 앵커 API에서 로깅 메커니즘을 구독하여 응용 프로그램 개발 및 디버깅에 유용한 로그를 얻을 수 있습니다. 표준 로깅 API는 장치 디스크에 환경 사진을 저장하지 않습니다. SDK는 이러한 로그를 이벤트 콜백으로 제공합니다. 이러한 로그를 응용 프로그램의 로깅 메커니즘에 통합하는 것은 귀하가 해야 합니다.
+공간 앵커 API에서 로깅 메커니즘을 구독 하 여 응용 프로그램 개발 및 디버깅에 대 한 유용한 로그를 가져올 수 있습니다. 표준 로깅 Api는 장치 디스크에 환경 사진을 저장 하지 않습니다. SDK는 이러한 로그를 이벤트 콜백으로 제공 합니다. 응용 프로그램의 로깅 메커니즘에 이러한 로그를 통합할 수 있습니다.
 
 ### <a name="configuration-of-log-messages"></a>로그 메시지 구성
-사용자에게는 두 가지 콜백이 있습니다. 다음 샘플에서는 세션을 구성하는 방법을 보여 주며 있습니다.
+사용자에 게는 두 가지 중요 한 콜백이 있습니다. 다음 샘플에서는 세션을 구성 하는 방법을 보여 줍니다.
 
 ```csharp
     cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
@@ -40,25 +40,25 @@ Azure 공간 앵커는 앱 개발에 유용한 표준 로깅 메커니즘을 제
 
 ### <a name="events-and-properties"></a>이벤트 및 속성
 
-이러한 이벤트 콜백은 세션에서 로그 및 오류를 처리하기 위해 제공됩니다.
+이러한 이벤트 콜백은 세션에서 로그 및 오류를 처리 하는 데 제공 됩니다.
 
-- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): 런타임에서 수신할 이벤트에 대한 세부 수준을 지정합니다.
-- [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): 표준 디버그 로그 이벤트를 제공합니다.
-- [오류](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): 런타임에서 오류로 간주하는 로그 이벤트를 제공합니다.
+- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): 런타임에서 받을 이벤트의 세부 수준을 지정 합니다.
+- [Onlogdebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): 표준 디버그 로그 이벤트를 제공 합니다.
+- [오류](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): 런타임에서 오류로 간주 하는 로그 이벤트를 제공 합니다.
 
 ## <a name="diagnostics-logging"></a>진단 로깅
 
-공간 앵커는 로깅을 위한 표준 작동 모드 외에도 진단 모드도 있습니다. 진단 모드는 환경의 이미지를 캡처하여 디스크에 기록합니다. 이 모드를 사용하여 예측 가능한 앵커를 찾지 못하는 것과 같은 특정 종류의 문제를 디버깅할 수 있습니다. 진단 로깅을 사용하여 특정 문제를 재현할 수 있습니다. 그런 다음 사용하지 않도록 설정합니다. 앱을 정상적으로 실행할 때는 진단을 사용하도록 설정하지 마십시오.
+표준 로깅 작업 모드 외에도 공간 앵커에는 진단 모드가 있습니다. 진단 모드는 환경의 이미지를 캡처하고 디스크에 기록 합니다. 이 모드를 사용 하 여 예측을 예측 하지 못한 것과 같은 특정 종류의 문제를 디버깅할 수 있습니다. 진단 로깅을 사용 하 여 특정 문제를 재현 합니다. 그런 다음 사용 하지 않도록 설정 합니다. 앱을 정상적으로 실행 하는 경우 진단을 사용 하도록 설정 하지 마세요.
 
-Microsoft와의 지원 상호 작용 중에 추가 조사를 위해 진단 번들을 제출할 의향이 있는지 Microsoft 담당자가 요청할 수 있습니다. 이 경우 진단 번들을 제출할 수 있도록 진단을 사용하도록 설정하고 문제를 재현할 수 있습니다.
+Microsoft와의 상호 작용을 지원 하는 동안 Microsoft 담당자는 추가 조사를 위해 진단 번들을 전송할지 여부를 요청할 수 있습니다. 이 경우 진단 기능을 사용 하도록 설정 하 고 문제를 재현할 수 있으므로 진단 번들을 제출할 수 있습니다.
 
-Microsoft 담당자의 사전 승인 없이 진단 로그를 Microsoft에 제출하면 제출이 응답되지 않습니다.
+Microsoft 담당자의 사전 승인 없이 진단 로그를 Microsoft에 제출 하면 제출에 응답 하지 않습니다.
 
-다음 섹션에서는 진단 모드를 활성화하는 방법과 진단 로그를 Microsoft에 제출하는 방법을 보여 주며, 진단 로그를 제출하는 방법을 보여 준다.
+다음 섹션에서는 진단 모드를 사용 하도록 설정 하는 방법과 진단 로그를 Microsoft에 제출 하는 방법을 보여 줍니다.
 
 ### <a name="enable-diagnostics-logging"></a>진단 로깅 사용
 
-진단 로깅에 대한 세션을 사용하도록 설정하면 세션의 모든 작업에 로컬 파일 시스템에 해당 진단 로깅이 있습니다. 로깅하는 동안 환경의 이미지가 디스크에 저장됩니다.
+진단 로깅에 대 한 세션을 사용 하도록 설정 하면 세션의 모든 작업에 해당 하는 진단 로깅이 로컬 파일 시스템에 있습니다. 로깅 중에 환경의 이미지는 디스크에 저장 됩니다.
 
 ```csharp
 private void ConfigureSession()
@@ -88,7 +88,7 @@ private void ConfigureSession()
 
 ### <a name="submit-the-diagnostics-bundle"></a>진단 번들 제출
 
-다음 코드 조각은 진단 번들을 Microsoft에 제출하는 방법을 보여 주며 있습니다. 이 번들에는 진단을 활성화한 후 세션에서 캡처한 환경 이미지가 포함됩니다.
+다음 코드 조각에서는 진단 번들을 Microsoft에 제출 하는 방법을 보여 줍니다. 이 번들에는 진단을 사용 하도록 설정한 후 세션에서 캡처한 환경의 이미지가 포함 됩니다.
 
 ```csharp
 // method to handle the diagnostics bundle submission
@@ -105,8 +105,8 @@ private async Task CreateAndSubmitBundle()
 ```
 
 ### <a name="parts-of-a-diagnostics-bundle"></a>진단 번들의 일부
-진단 번들에는 다음 정보가 포함될 수 있습니다.
+진단 번들에는 다음과 같은 정보가 포함 될 수 있습니다.
 
-- **키프레임 이미지**: 진단이 활성화된 동안 세션 중에 캡처한 환경 이미지입니다.
-- **로그**: 런타임에 의해 기록된 로그 이벤트입니다.
-- **세션 메타데이터**: 세션을 식별하는 메타데이터입니다.
+- **키 프레임 이미지**: 진단을 사용 하도록 설정 하는 동안 세션 중에 캡처된 환경의 이미지입니다.
+- **Logs**: 런타임에 의해 기록 된 로그 이벤트입니다.
+- **세션 메타 데이터**: 세션을 식별 하는 메타 데이터입니다.

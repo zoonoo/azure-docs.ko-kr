@@ -1,19 +1,19 @@
 ---
-title: 고가용성 - PostgreSQL용 Azure 데이터베이스 - 단일 서버
-description: 이 문서에서는 PostgreSQL - 단일 서버에 대한 Azure 데이터베이스의 고가용성에 대한 정보를 제공합니다.
+title: 고가용성-Azure Database for PostgreSQL-단일 서버
+description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버의 고가용성에 대 한 정보를 제공 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 80229ff78c4570db583f1218d5d2f72da2dec388
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74768574"
 ---
-# <a name="high-availability-concepts-in-azure-database-for-postgresql---single-server"></a>PostgreSQL용 Azure 데이터베이스의 고가용성 개념 - 단일 서버
+# <a name="high-availability-concepts-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에서 고가용성 개념
 Azure Database for PostgreSQL 서비스는 높은 수준의 가용성을 보장합니다. 재정적으로 지원되는 SLA(서비스 수준 계약)는 일반 공급 시 99.99%입니다. 이 서비스를 사용할 때는 애플리케이션 작동 중단 시간이 거의 없습니다.
 
 ## <a name="high-availability"></a>고가용성

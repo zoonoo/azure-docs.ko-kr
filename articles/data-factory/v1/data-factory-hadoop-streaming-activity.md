@@ -1,5 +1,5 @@
 ---
-title: Hadoop 스트리밍 활동을 사용하여 데이터 변환 - Azure
+title: Hadoop 스트리밍 작업을 사용 하 여 데이터 변환-Azure
 description: Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 주문형/사용자 고유의 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행함으로써 데이터를 변환하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,23 +13,23 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: a7f07365da699a40f5b51917104a68a62affa3d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74703377"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데이터 변환
-> [!div class="op_single_selector" title1="변환 활동"]
-> * [하이브 활동](data-factory-hive-activity.md) 
+> [!div class="op_single_selector" title1="변환 작업"]
+> * [Hive 작업](data-factory-hive-activity.md) 
 > * [Pig 작업](data-factory-pig-activity.md)
-> * [맵감소 활동](data-factory-map-reduce.md)
+> * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
-> * [기계 학습 일괄 실행 활동](data-factory-azure-ml-batch-execution-activity.md)
+> * [Machine Learning Batch 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
 > * [Machine Learning 업데이트 리소스 활동](data-factory-azure-ml-update-resource-activity.md)
-> * [저장 프로시저 활동](data-factory-stored-proc-activity.md)
-> * [데이터 레이크 분석 U-SQL 활동](data-factory-usql-activity.md)
+> * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 
 > [!NOTE]
@@ -38,7 +38,7 @@ ms.locfileid: "74703377"
 
 HDInsightStreamingActivity 작업을 사용하여 Azure Data Factory 파이프라인에서 Hadoop 스트리밍 작업을 호출할 수 있습니다. 다음 JSON 조각은 파이프라인 JSON 파일에서 HDInsightStreamingActivity를 사용하기 위한 구문을 보여 줍니다. 
 
-데이터 팩토리 [파이프라인의](data-factory-create-pipelines.md) HDInsight 스트리밍 활동은 자체 또는 [주문형](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 기반 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 [실행합니다.](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
+Data Factory [파이프라인](data-factory-create-pipelines.md) 의 HDInsight 스트리밍 작업은 [사용자 고유](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 또는 [주문형](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 기반 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행 합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
 
 > [!NOTE] 
 > Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](data-factory-introduction.md)를 읽고 이 문서를 읽기 전에 [첫 번째 데이터 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 자습서를 수행하세요. 
@@ -222,10 +222,10 @@ HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(
     }
 }
 ```
-## <a name="see-also"></a>관련 항목
-* [하이브 활동](data-factory-hive-activity.md)
+## <a name="see-also"></a>참고 항목
+* [Hive 작업](data-factory-hive-activity.md)
 * [Pig 작업](data-factory-pig-activity.md)
-* [맵감소 활동](data-factory-map-reduce.md)
+* [MapReduce 작업](data-factory-map-reduce.md)
 * [Spark 프로그램 호출](data-factory-spark.md)
 * [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

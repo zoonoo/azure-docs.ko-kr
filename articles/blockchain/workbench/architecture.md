@@ -1,21 +1,21 @@
 ---
 title: Azure Blockchain Workbench 아키텍처
-description: Azure 블록 체인 워크벤치 미리 보기 아키텍처 및 해당 구성 요소의 개요입니다.
+description: Azure Blockchain 워크 벤치 미리 보기 아키텍처 및 해당 구성 요소에 대 한 개요입니다.
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.reviewer: brendal
 ms.openlocfilehash: aa972e8ae486d181f0c48df72ec89c925c940451
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74324890"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench 아키텍처
 
-Azure 블록 체인 워크벤치 미리 보기는 여러 Azure 구성 요소를 사용하여 솔루션을 제공하여 블록 체인 응용 프로그램 개발을 단순화합니다. Azure Marketplace에서 솔루션 템플릿을 사용하여 Blockchain Workbench를 배포할 수 있습니다. 템플릿을 사용하면 블록체인 스택, 클라이언트 애플리케이션 종류, IoT 통합을 포함하여 배포할 구성 요소 및 모듈을 선택할 수 있습니다. Blockchain Workbench가 배포되면 웹앱, iOS 앱 및 Android 앱에 액세스할 수 있습니다.
+Azure Blockchain 워크 벤치 Preview는 여러 Azure 구성 요소를 사용 하 여 솔루션을 제공 하 여 블록 체인 응용 프로그램 개발을 간소화 합니다. Azure Marketplace에서 솔루션 템플릿을 사용하여 Blockchain Workbench를 배포할 수 있습니다. 템플릿을 사용하면 블록체인 스택, 클라이언트 애플리케이션 종류, IoT 통합을 포함하여 배포할 구성 요소 및 모듈을 선택할 수 있습니다. Blockchain Workbench가 배포되면 웹앱, iOS 앱 및 Android 앱에 액세스할 수 있습니다.
 
-![블록체인 워크벤치 아키텍처](./media/architecture/architecture.png)
+![블록 체인 워크 벤치 아키텍처](./media/architecture/architecture.png)
 
 ## <a name="identity-and-authentication"></a>ID 및 인증
 

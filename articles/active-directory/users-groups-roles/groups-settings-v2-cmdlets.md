@@ -1,5 +1,5 @@
 ---
-title: 그룹 관리를 위한 PowerShell V2 예제 - Azure AD | 마이크로 소프트 문서
+title: 그룹 관리를 위한 PowerShell V2 예제-Azure AD | Microsoft Docs
 description: 이 페이지에는 Azure Active Directory에서 그룹을 관리하는 데 도움이 되는 PowerShell 예제가 나와 있습니다.
 keywords: Azure AD, Azure Active Directory, PowerShell, 그룹, 그룹 관리
 services: active-directory
@@ -15,17 +15,17 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a218e956c72f8005e533db7b8800e98ee72ce223
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74233108"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>그룹 관리를 위한 Azure Active Directory 버전 2 cmdlet
 
 > [!div class="op_single_selector"]
-> - [Azure 포털](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
-> - [Powershell](groups-settings-v2-cmdlets.md)
+> - [Azure Portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+> - [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
 
@@ -170,7 +170,7 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
     PS C:\Windows\system32> Set-AzureADGroup -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -Description "Intune Device Administrators"
 ```
 
-이제 그룹을 다시 찾으면 설명 속성이 새 값을 반영하도록 업데이트됩니다.
+이제 그룹을 다시 찾으면 설명 속성이 새 값을 반영 하도록 업데이트 됩니다 .가 표시 됩니다.
 
 ```powershell
     PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
@@ -284,7 +284,7 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 ```
 
--ObjectId 매개 변수는 소유자를 추가하려는 그룹의 ObjectID이며 -RefObjectId는 그룹의 소유자로 추가하려는 사용자 또는 서비스 주체의 ObjectID입니다.
+-ObjectId 매개 변수는 소유자를 추가 하려는 그룹의 ObjectID 이며,-RefObjectId는 그룹 소유자로 추가 하려는 사용자 또는 서비스 주체의 ObjectID입니다.
 
 그룹의 소유자를 검색하려면 Get-AzureADGroupOwner cmdlet을 사용합니다.
 
@@ -292,7 +292,7 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 ```
 
-cmdlet은 지정된 그룹에 대한 소유자(사용자 및 서비스 주체) 목록을 반환합니다.
+Cmdlet은 지정 된 그룹에 대 한 소유자 (사용자 및 서비스 사용자) 목록을 반환 합니다.
 
 ```powershell
     DeletionTimeStamp ObjectId                             ObjectType
@@ -322,19 +322,19 @@ cmdlet은 지정된 그룹에 대한 소유자(사용자 및 서비스 주체) �
 * ssl-admin
 * webmaster
 
-## <a name="group-writeback-to-on-premises-preview"></a>온-프레미스로 의 그룹 쓰기(미리 보기)
+## <a name="group-writeback-to-on-premises-preview"></a>쓰기 저장을 온-프레미스로 그룹화 (미리 보기)
 
-오늘날에도 많은 그룹이 온-프레미스 Active Directory에서 관리되고 있습니다. 클라우드 그룹을 온-프레미스로 다시 동기화하는 요청에 응답하기 위해 Azure AD용 Office 365 그룹 쓰기 취소 기능을 미리 볼 수 있습니다.
+오늘날 대부분의 그룹은 온-프레미스 Active Directory에서 계속 관리 됩니다. 클라우드 그룹을 온-프레미스로 다시 동기화 하도록 요청에 응답 하기 위해 Azure AD에 대 한 Office 365 그룹 쓰기 저장 기능을 이제 미리 볼 수 있습니다.
 
-Office 365 그룹은 클라우드에서 만들어지고 관리됩니다. 쓰기 백 기능을 사용하면 Exchange가 설치된 Active Directory 포리스트에 메일 그룹으로 Office 365 그룹을 다시 쓸 수 있습니다. 그러면 온-프레미스 Exchange 사서함이 있는 사용자는 이러한 그룹에서 전자 메일을 보내고 받을 수 있습니다. 그룹 쓰기 백 기능은 Azure AD 보안 그룹 또는 메일 그룹을 지원하지 않습니다.
+Office 365 그룹은 클라우드에서 만들어지고 관리 됩니다. 쓰기 저장 기능을 사용 하면 Exchange가 설치 된 Active Directory 포리스트에 Office 365 그룹을 메일 그룹으로 다시 작성할 수 있습니다. 그러면 온-프레미스 Exchange 사서함이 있는 사용자가 이러한 그룹에서 전자 메일을 보내고 받을 수 있습니다. 그룹 쓰기 저장 기능은 Azure AD 보안 그룹 또는 배포 그룹을 지원 하지 않습니다.
 
-자세한 내용은 [Azure AD Connect 동기화 서비스에](../hybrid/how-to-connect-syncservice-features.md)대한 설명서를 참조하십시오.
+자세한 내용은 [Azure AD Connect sync 서비스](../hybrid/how-to-connect-syncservice-features.md)에 대 한 설명서를 참조 하세요.
 
-Office 365 그룹 쓰기 는 Azure Active Directory(Azure AD)의 공개 미리 보기 기능이며 유료 Azure AD 라이선스 계획에서 사용할 수 있습니다. 미리 보기에 대한 몇 가지 법적 정보는 [Microsoft Azure 미리 보기에 대한 추가 사용 약관을](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)참조하십시오.
+Office 365 그룹 쓰기 저장은 Azure Active Directory (Azure AD)의 공개 미리 보기 기능으로, 유료 Azure AD 라이선스 계획과 함께 사용할 수 있습니다. 미리 보기에 대 한 몇 가지 법적 정보는 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 [Azure Active Directory Cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0)에서 더 많은 Azure Active Directory PowerShell 설명서를 찾을 수 있습니다.
 
-* [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+* [Azure Active Directory 그룹을 사용 하 여 리소스에 대 한 액세스 관리](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)

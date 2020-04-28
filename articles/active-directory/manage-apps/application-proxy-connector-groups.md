@@ -1,5 +1,5 @@
 ---
-title: 커넥터 그룹을 통해 별도의 네트워크에 앱 게시 - Azure AD
+title: 커넥터 그룹을 통해 별도의 네트워크에 앱 게시-Azure AD
 description: Azure AD 애플리케이션 프록시에서 커넥터 그룹을 만들고 관리하는 방법에 대해 설명합니다.
 services: active-directory
 author: msmimart
@@ -15,10 +15,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22fa1de0a0e3bb91480212381e07b17875bf0bf4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74275575"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 애플리케이션 게시
@@ -32,7 +32,7 @@ ms.locfileid: "74275575"
 > [!TIP]
 > 대규모 애플리케이션 프록시 배포가 있는 경우 기본 커넥터 그룹에 애플리케이션을 할당하지 마십시오. 이런 방식으로 새 커넥터는 활성 커넥터 그룹에 할당될 때까지 라이브 트래픽을 수신하지 않습니다. 또한 이 구성을 통해 사용자에 영향을 주지 않고 유지 관리를 수행할 수 있도록 기본 그룹으로 다시 이동하여 커넥터를 유휴 모드로 전환할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 커넥터를 그룹화하려면 [여러 커넥터를 설치](application-proxy-add-on-premises-application.md)해야 합니다. 새 커넥터를 설치하면 자동으로 **기본** 커넥터 그룹을 조인합니다.
 
@@ -40,11 +40,11 @@ ms.locfileid: "74275575"
 
 이 단계를 사용하여 원하는 수 만큼 커넥터 그룹을 만듭니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
-1. **Azure Active Directory** > 엔터프라이즈 응용 프로그램 응용 프로그램**프록시를** > **Application proxy**선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. **Azure Active Directory** > **엔터프라이즈 응용** > 프로그램**응용 프로그램 프록시**를 선택 합니다.
 1. **새 커넥터 그룹**을 선택합니다. 새 커넥터 그룹 블레이드가 표시됩니다.
 
-   ![새 커넥터 그룹을 선택할 화면 표시](./media/application-proxy-connector-groups/new-group.png)
+   ![새 커넥터 그룹을 선택 하는 화면을 표시 합니다.](./media/application-proxy-connector-groups/new-group.png)
 
 1. 새 커넥터 그룹에 이름을 지정한 다음 드롭다운 메뉴를 사용하여 이 그룹에 속하는 커넥터를 선택합니다.
 1. **저장**을 선택합니다.
@@ -53,7 +53,7 @@ ms.locfileid: "74275575"
 
 애플리케이션 프록시를 사용하여 게시한 각 애플리케이션에 대해 이 단계를 사용합니다. 처음으로 게시할 때 애플리케이션을 커넥터 그룹에 할당하거나 이 단계를 사용하여 언제든지 할당을 변경할 수 있습니다.
 
-1. 디렉터리관리 대시보드에서 **엔터프라이즈 응용 프로그램을** > 선택하면 응용 프로그램 **프록시에**할당하려는 모든**응용 프로그램** > 응용 프로그램 >.
+1. 디렉터리에 대 한 관리 대시보드에서 **엔터프라이즈 응용 프로그램** > **모든 응용** 프로그램을 선택 하 여 커넥터 그룹 > **응용 프로그램 프록시**에 할당 하려는 응용 프로그램 > 합니다.
 1. **커넥터 그룹** 드롭다운 메뉴를 사용하여 애플리케이션에서 사용할 그룹을 선택합니다.
 1. **저장** 을 선택하여 변경 내용을 적용합니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "74275575"
   
 Azure AD 애플리케이션 프록시 커넥터 그룹을 사용하면 공통 서비스를 통해 회사 네트워크에 대한 추가 종속성을 만들지 않고도 모든 애플리케이션에 대한 액세스를 보호할 수 있습니다.
 
-![Azure AD IaaS 다중 클라우드 공급업체](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![Azure AD IaaS 다중 클라우드 공급 업체](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>다중 포리스트 - 포리스트마다 서로 다른 커넥터 그룹
 
@@ -108,7 +108,7 @@ Azure AD 애플리케이션 프록시 커넥터 그룹을 사용하면 공통 �
 
 커넥터 그룹을 사용하지 않는 경우 구성은 다음과 같습니다.
 
-![Azure AD 커넥터 그룹 예](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
+![예제 Azure AD 커넥터 그룹 없음](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
 
 이 구성은 소규모 배포 및 테스트에 충분합니다. 또한 조직에 플랫 네트워크 토폴로지가 있는 경우에도 잘 작동합니다.
 
@@ -116,7 +116,7 @@ Azure AD 애플리케이션 프록시 커넥터 그룹을 사용하면 공통 �
 
 이 구성은 기본 구성이 진화한 것으로, IaaS 가상 네트워크와 같이 격리된 네트워크에서 실행되는 특정 응용 프로그램이 있습니다.
 
-![Azure AD 커넥터 그룹 및 격리된 네트워크 예제](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
+![예: Azure AD에 커넥터 그룹 및 격리 된 네트워크 없음](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
 
 ### <a name="recommended-configuration--several-specific-groups-and-a-default-group-for-idle"></a>권장 구성 - 여러 특정 그룹 및 유휴 상태의 기본 그룹
 
@@ -124,7 +124,7 @@ Azure AD 애플리케이션 프록시 커넥터 그룹을 사용하면 공통 �
 
 아래 예에서는 회사에 두 개의 데이터 센터(A 및 B)가 있고 두 개의 커넥터에서 각 사이트를 지원합니다. 각 사이트에는 실행되는 다양한 애플리케이션이 있습니다.
 
-![2개의 데이터 센터와 2개의 커넥터가 있는 회사의 예](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
+![2 개의 데이터 센터와 2 개의 커넥터가 있는 회사의 예](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
 
 ## <a name="next-steps"></a>다음 단계
 

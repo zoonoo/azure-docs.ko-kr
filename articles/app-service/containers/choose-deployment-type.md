@@ -1,6 +1,6 @@
 ---
-title: Linux 컨테이너에 대한 배포 옵션
-description: Linux의 앱 서비스에 대한 사용자 지정 Docker 컨테이너 배포, 다중 컨테이너 및 기본 제공 응용 프로그램 프레임워크 중에서 결정합니다.
+title: Linux 컨테이너에 대 한 배포 옵션
+description: Linux의 App Service에 대 한 사용자 지정 Docker 컨테이너 배포, 다중 컨테이너 및 기본 제공 응용 프로그램 프레임 워크 중에서 결정 합니다.
 keywords: azure app service, 웹앱, linux, oss
 author: msangapu-msft
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 7c4025e393c196fb98455bac26e94e5f252840b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74687508"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>사용자 지정 이미지, 다중 컨테이너 또는 기본 제공 플랫폼 이미지
@@ -19,7 +19,7 @@ ms.locfileid: "74687508"
 [Linux의 App Service](app-service-linux-intro.md)는 웹에 게시된 애플리케이션을 가져오는 3가지 서로 다른 경로를 제공합니다.
 
 - **사용자 지정 이미지 배포**: 즉시 실행 가능한 패키지에 모든 파일 및 종속성을 포함하는 Docker 이미지로 앱을 “Docker화”합니다.
-- **다중 컨테이너 배포**: Docker 구성 구성 파일을 사용하여 여러 컨테이너에서 앱을 "Dockerize"합니다.
+- **다중 컨테이너 배포**: Docker Compose 구성 파일을 사용 하 여 여러 컨테이너에서 앱을 "dockerker".
 - **기본 제공 플랫폼 이미지를 사용한 앱 배포**: 기본 제공 플랫폼 이미지는 노드 및 PHP와 같은 일반적인 웹앱 런타임 및 종속성을 포함합니다. [Azure App Service 배포 방법](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 중 하나를 사용하여 앱을 웹앱의 스토리지에 배포한 후 기본 제공 플랫폼 이미지를 사용하여 실행합니다.
 
 ## <a name="which-method-is-right-for-your-app"></a>앱에 적합한 방법은 무엇인가요? 
@@ -43,11 +43,11 @@ ms.locfileid: "74687508"
 다중 컨테이너:
 * [다중 컨테이너 앱 만들기](quickstart-multi-container.md)
 
-다음 문서는 기본 제공 플랫폼 이미지와 리눅스에서 응용 프로그램 서비스 시작:
+다음 문서에서는 기본 제공 플랫폼 이미지를 사용 하 여 Linux에서 App Service를 시작 합니다.
 
 * [.NET Core](quickstart-dotnetcore.md)
-* [Php](quickstart-php.md)
-* [Node.js](quickstart-nodejs.md)
+* [PHP](quickstart-php.md)
+* [Node.JS](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
 * [Python](quickstart-python.md)
-* [루비](quickstart-ruby.md)
+* [Ruby](quickstart-ruby.md)

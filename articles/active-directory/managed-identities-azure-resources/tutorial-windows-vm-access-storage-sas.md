@@ -1,5 +1,5 @@
 ---
-title: 자습서`:` SAS 자격 증명을 사용 하 여 Azure 저장소에 액세스 하는 관리되는 ID를 사용 하 여 - Azure AD
+title: 자습서`:` 에서 관리 id를 사용 하 여 SAS 자격 증명을 사용 하 Azure Storage 액세스-Azure AD
 description: Windows VM 시스템 할당 관리 ID를 사용하여 스토리지 계정 액세스 키 대신 SAS 자격 증명으로 Azure Storage에 액세스하는 방법을 보여주는 자습서입니다.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c344c25a696500182030ff849a001ad586c92032
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74232154"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 SAS 자격 증명으로 Azure Storage에 액세스
@@ -35,7 +35,7 @@ ms.locfileid: "74232154"
 > * Resource Manager의 스토리지 계정 SAS에 대한 VM 액세스 권한 부여 
 > * VM ID를 사용하여 액세스 토큰을 가져오고 리소스 관리자에서 SAS를 검색하는 데 사용 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -83,7 +83,7 @@ Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  
 
 자습서의 나머지 부분에서는 이전에 만든 VM에서 작업합니다.
 
-이 부분에서는 Azure Resource Manager PowerShell cmdlet을 사용해야 합니다.  설치되어 있지 않은 경우 계속하기 전에 [최신 버전을 다운로드합니다.](https://docs.microsoft.com/powershell/azure/overview)
+이 부분에서는 Azure Resource Manager PowerShell cmdlet을 사용해야 합니다.  아직 설치 하지 않은 경우 계속 하기 전에 [최신 버전을 다운로드](https://docs.microsoft.com/powershell/azure/overview) 합니다.
 
 1. Azure Portal에서 **Virtual Machines**, Windows 가상 머신으로 이동한 후 **개요** 페이지 위쪽의 **연결**을 클릭합니다.
 2. Windows VM을 만들 때 추가한 **사용자 이름**과 **암호**를 입력합니다. 
@@ -205,6 +205,6 @@ Name              : testblob
 이 자습서에서는 Windows VM의 시스템 할당 관리 ID를 사용하여 SAS 자격 증명을 통해 Azure Storage에 액세스하는 방법을 알아보았습니다.  Azure Storage SAS에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
->[SAS(공유 액세스 서명) 사용](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+>[SAS (공유 액세스 서명) 사용](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 
 

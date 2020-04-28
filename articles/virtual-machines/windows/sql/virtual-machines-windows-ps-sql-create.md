@@ -16,10 +16,10 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: b1578547fbca4caaecb209021569f0fbb2f1ae24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74790641"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Azure PowerShell을 사용하여 SQL Server 가상 머신을 프로비전하는 방법
@@ -337,7 +337,7 @@ New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualM
 > 부트 진단에 대한 오류가 발생하면 무시해도 됩니다. 가상 머신의 디스크에 대해 지정된 스토리지 계정은 Premium Storage 계정이므로 부팅 진단에 대해서는 표준 스토리지 계정이 만들어집니다.
 
 ## <a name="install-the-sql-iaas-agent"></a>SQL Iaas 에이전트 설치
-SQL Server 가상 머신은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 사용하여 자동화된 관리 기능을 지원합니다. 새 VM에 에이전트를 설치하고 리소스 공급자에 등록하려면 가상 컴퓨터를 만든 후 [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) 명령을 실행합니다. SQL Server VM에 대한 라이선스 유형을 지정하고 [Azure 하이브리드 혜택을](https://azure.microsoft.com/pricing/hybrid-benefit/)통해 종량제 또는 사용자 고유의 라이선스 가져오기 중하나를 선택합니다. 라이선스에 대한 자세한 내용은 [라이선스 모델을](virtual-machines-windows-sql-ahb.md)참조하십시오. 
+SQL Server 가상 머신은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 사용하여 자동화된 관리 기능을 지원합니다. 새 VM에 에이전트를 설치 하 고 리소스 공급자에 에이전트를 등록 하려면 가상 머신을 만든 후 [AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) 명령을 실행 합니다. SQL Server VM에 대 한 라이선스 유형을 지정 하 여 종 량 제 또는 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)를 통해 사용자 라이선스 가져오기 중 하나를 선택 합니다. 라이선스에 대 한 자세한 내용은 [라이선스 모델](virtual-machines-windows-sql-ahb.md)을 참조 하세요. 
 
 
    ```powershell

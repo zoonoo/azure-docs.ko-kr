@@ -1,6 +1,6 @@
 ---
-title: 온-프레미스 앱을 클라우드 앱 보안과 통합 - Azure AD
-description: MCAS(Microsoft Cloud App Security)를 사용하여 작동하도록 Azure Active Directory에서 온-프레미스 애플리케이션을 구성합니다. MCAS 조건부 액세스 앱 제어를 사용하여 조건부 액세스 정책에 따라 실시간으로 세션을 모니터링하고 제어할 수 있습니다. Azure AD(Azure Active Directory)에서 애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션에 이러한 정책을 적용할 수 있습니다.
+title: Cloud App Security와 온-프레미스 앱 통합-Azure AD
+description: MCAS(Microsoft Cloud App Security)를 사용하여 작동하도록 Azure Active Directory에서 온-프레미스 애플리케이션을 구성합니다. MCAS 조건부 액세스 앱 제어를 사용 하 여 조건부 액세스 정책에 따라 실시간으로 세션을 모니터링 하 고 제어할 수 있습니다. Azure AD(Azure Active Directory)에서 애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션에 이러한 정책을 적용할 수 있습니다.
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eb97f9dd87277215a5d4708d3a6f49564c490204
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74275501"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Microsoft Cloud App Security와 Azure Active Directory를 사용하여 실시간 애플리케이션 액세스 모니터링 구성
-실시간 모니터링을 위해 MCAS(Microsoft Cloud App Security)를 사용하도록 Azure AD(Azure Active Directory)에서 온-프레미스 애플리케이션을 구성합니다. MCAS는 조건부 액세스 앱 제어를 사용하여 조건부 액세스 정책에 따라 실시간으로 세션을 모니터링하고 제어합니다. Azure AD(Azure Active Directory)에서 애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션에 이러한 정책을 적용할 수 있습니다.
+실시간 모니터링을 위해 MCAS(Microsoft Cloud App Security)를 사용하도록 Azure AD(Azure Active Directory)에서 온-프레미스 애플리케이션을 구성합니다. MCAS는 조건부 액세스 앱 제어를 사용 하 여 조건부 액세스 정책에 따라 실시간으로 세션을 모니터링 하 고 제어 합니다. Azure AD(Azure Active Directory)에서 애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션에 이러한 정책을 적용할 수 있습니다.
 
 MCAS를 사용하여 만들 수 있는 몇 가지 정책 유형의 예제는 다음과 같습니다.
 
@@ -49,8 +49,8 @@ MCAS를 사용하여 만들 수 있는 몇 가지 정책 유형의 예제는 다
 
 Azure AD에 온-프레미스 애플리케이션을 추가합니다. 빠른 시작은 [Azure AD에 온-프레미스 앱 추가](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad)를 참조하세요. 애플리케이션을 추가할 때 **온-프레미스 애플리케이션 추가** 블레이드에서 다음 두 설정을 설정해야 합니다.
 
-- **사전 인증**: **Azure Active Directory를**입력합니다.
-- **응용 프로그램 본문에서 URL 번역**: **예:**
+- **사전 인증**: **Azure Active Directory**을 입력 합니다.
+- **응용 프로그램 본문의 Url 변환**: **예**를 선택 합니다.
 
 MCAS를 사용하려면 애플리케이션에 대해 이러한 두 설정이 필요합니다.
 

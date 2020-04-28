@@ -1,5 +1,5 @@
 ---
-title: PowerShell - Azure AD를 사용하여 Azure VM에서 관리되는 ID 구성
+title: PowerShell을 사용 하 여 Azure VM에서 관리 되는 id 구성-Azure AD
 description: PowerShell을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID를 구성하는 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f24c89477d71df3f497590b49841403576343bd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74547224"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>PowerShell을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
@@ -32,7 +32,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#how-does-the-managed-identities-for-azure-resources-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
@@ -46,7 +46,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 시스템 할당 관리 ID를 사용하도록 설정된 Azure VM을 만들려면 계정에 [가상 머신 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) 역할 할당이 필요합니다.  추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
 
-1. 필요한 섹션("Azure에 로그인", "리소스 그룹 만들기", "네트워킹 그룹 만들기", "VM 만들기") 섹션만 완료하는 다음 Azure VM 빠른 시작 중 하나를 참조하십시오.
+1. 다음 Azure VM 빠른 시작 중 하나를 참조 하 여 필요한 섹션 ("Azure에 로그인", "리소스 그룹 만들기", "네트워킹 그룹 만들기", "VM 만들기")만 완료 합니다.
     
     "VM 만들기" 섹션으로 이동하려면 [New-AzVMConfig](/powershell/module/az.compute/new-azvm) cmdlet 구문을 조금 수정합니다. 시스템 할당 ID가 사용된 VM을 프로비전하려면 `-AssignIdentity:$SystemAssigned` 매개 변수를 추가해야 합니다. 예를 들면 다음과 같습니다.
       
@@ -142,9 +142,9 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 
 VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) 및 [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할 할당이 필요합니다. 추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
 
-1. 필요한 섹션("Azure에 로그인", "리소스 그룹 만들기", "네트워킹 그룹 만들기", "VM 만들기") 섹션만 완료하는 다음 Azure VM 빠른 시작 중 하나를 참조하십시오. 
+1. 다음 Azure VM 빠른 시작 중 하나를 참조 하 여 필요한 섹션 ("Azure에 로그인", "리소스 그룹 만들기", "네트워킹 그룹 만들기", "VM 만들기")만 완료 합니다. 
   
-    "VM 만들기" 섹션으로 이동하면 [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet 구문을 약간 수정합니다. 사용자 할당 ID가 있는 VM을 프로비전하려면 `-IdentityType UserAssigned` 및 `-IdentityID` 매개 변수를 추가합니다.  `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` 및 `<USER ASSIGNED IDENTITY NAME>`을 사용자 고유의 값을 바꿉니다.  예를 들어:
+    "VM 만들기" 섹션으로 이동 하는 경우 [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet 구문을 약간 수정 해야 합니다. 사용자 할당 ID가 있는 VM을 프로비전하려면 `-IdentityType UserAssigned` 및 `-IdentityID` 매개 변수를 추가합니다.  `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` 및 `<USER ASSIGNED IDENTITY NAME>`을 사용자 고유의 값을 바꿉니다.  예를 들면 다음과 같습니다.
     
     ```powershell 
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."
@@ -168,7 +168,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
 2. [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) cmdlet을 사용하여 사용자 할당 관리 ID를 만듭니다.  다음 단계에서 필요하므로 출력에서 `Id`를 메모해 둡니다.
 
    > [!IMPORTANT]
-   > 사용자 지정 관리 ID를 만드는 것은 영숫자, 밑줄 및 하이픈(0-9 또는 \_ a-z 또는 A-Z 또는 -) 문자만 지원합니다. 또한 VM/VMSS에 할당이 제대로 작동하려면 이름을 3자에서 128자 길이로 제한해야 합니다. 자세한 내용은 [FAQ 및 알려진 문제를 참조하십시오.](known-issues.md)
+   > 사용자 할당 관리 id를 만들면 영숫자, 밑줄 및 하이픈 (0-9 또는 a-z 또는 a-z 또는 \_ -) 문자만 지원 됩니다. 또한 VM/VMSS에 대 한 할당이 제대로 작동 하려면 이름이 3에서 128 자 사이 여야 합니다. 자세한 내용은 [faq 및 알려진 문제](known-issues.md) 를 참조 하세요.
 
    ```powershell
    New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>

@@ -1,5 +1,5 @@
 ---
-title: 개인 데이터 제거 - Azure Active Directory 응용 프로그램 프록시
+title: 개인 데이터 제거-Azure Active Directory 응용 프로그램 프록시
 description: Azure Active Directory 애플리케이션 프록시에 대해 설치된 커넥터에서 개인 데이터를 제거합니다.
 documentationcenter: ''
 author: msmimart
@@ -16,10 +16,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fe97956d99bd5c677e499b532ef85a1bb4d324ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74275417"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시에 대한 개인 데이터 제거
@@ -77,7 +77,7 @@ Kerberos 제한 위임을 사용하는 애플리케이션이 기록한 개인 �
 
 커넥터 로그가 개인 데이터를 포함하지 않게 하는 한 가지 옵션은 로그 생성을 끄는 것입니다. 커넥터 로그 생성을 중지하려면 `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`에서 다음의 강조 표시된 부분을 제거합니다.
 
-![제거할 강조 표시된 코드가 있는 코드 조각이 표시됩니다.](./media/application-proxy-remove-personal-data/01.png)
+![제거할 강조 표시 된 코드가 포함 된 코드 조각을 보여 줍니다.](./media/application-proxy-remove-personal-data/01.png)
 
 ## <a name="next-steps"></a>다음 단계
 

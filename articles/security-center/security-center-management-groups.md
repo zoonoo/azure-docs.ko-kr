@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center에 대한 테넌트 수준 가시성 얻기 | Microsoft Docs
-description: 이 문서에서는 Azure Active Directory 테넌트에 연결된 모든 구독에 정책을 적용하여 대규모로 보안 상태를 관리하는 방법을 설명합니다.
+description: 이 문서에서는 Azure Active Directory 테 넌 트에 연결 된 모든 구독에 정책을 적용 하 여 규모에 따라 보안 환경을 관리 하는 방법을 설명 합니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,14 +14,14 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
 ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74559340"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
-이 문서에서는 Azure Active Directory 테넌트에 연결된 모든 Azure 구독에 보안 정책을 적용하여 조직의 보안 상태를 대규모로 관리하는 방법을 설명합니다.
+이 문서에서는 Azure Active Directory 테 넌 트에 연결 된 모든 Azure 구독에 보안 정책을 적용 하 여 조직의 보안 상태를 대규모로 관리 하는 방법을 설명 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -39,8 +39,8 @@ Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 �
 관리 그룹에 구독을 구성하고 거버넌스 정책을 관리 그룹에 적용합니다. 관리 그룹에 속하는 모든 구독은 관리 그룹에 적용되는 정책을 자동으로 상속합니다. 관리 그룹은 Security Center에 등록할 필요가 없지만 루트 관리 그룹이 생성되도록 적어도 하나의 관리 그룹을 만드는 것이 좋습니다. 그룹이 만들어진 후 Azure AD 테넌트 아래의 모든 하위 구독이 연결됩니다. PowerShell에 대한 지침 및 추가 정보는 [리소스 및 조직 관리를 위한 관리 그룹 만들기](../azure-resource-manager/management-groups-create.md)를 참조하세요.
 
  
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
-2. **모든 서비스** > **관리 그룹을 선택합니다.**
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **모든 서비스** > **관리 그룹**을 선택 합니다.
 3. 주 페이지에서 **새 관리 그룹**을 선택합니다. 
 
     ![기본 그룹](./media/security-center-management-groups/main.png) 
@@ -48,11 +48,11 @@ Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 �
     - **관리 그룹 ID**는 이 관리 그룹에 명령을 전송하는 데 사용되는 디렉터리 고유 식별자입니다. 이 식별자는 Azure 시스템 전체에서 이 그룹을 식별하는 데 사용되므로 만든 후에 편집할 수 없습니다. 
     - 표시 이름 필드는 Azure Portal 내에 표시되는 이름을 포함합니다. 별도 표시 이름은 관리 그룹을 만들 때 사용되는 선택적 필드로, 언제든지 변경할 수 있습니다.  
 
-      ![생성](./media/security-center-management-groups/create_context_menu.png)  
-5.  **저장** 선택
+      ![만들기](./media/security-center-management-groups/create_context_menu.png)  
+5.  **저장**을 선택합니다.
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Azure Portal에서 관리 그룹 보기
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 관리 그룹을 보려면 Azure 주 메뉴 아래에서 **모든 서비스**를 선택합니다.
 3. **일반** 아래에서 **관리 그룹**을 선택합니다.
 
@@ -93,7 +93,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Azure Portal을 통해 사용자에게 RBAC 역할 할당: 
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 1. 관리 그룹을 보려면 Azure 주 메뉴에서 **모든 서비스**를 선택한 다음, **관리 그룹**을 선택합니다.
 1.  관리 그룹을 선택하고 **세부 정보**를 클릭합니다.
 
@@ -101,7 +101,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
  
 1. **액세스 제어(IAM)**, **역할 할당**을 차례로 클릭합니다.
 
-1. **역할 할당 추가를 클릭합니다.**
+1. **역할 할당 추가**를 클릭 합니다.
 
 1. 할당할 역할과 사용자를 선택한 다음, **저장**을 클릭합니다.  
    
@@ -112,7 +112,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. [Azure PowerShell](/powershell/azure/install-az-ps)설치 .
+1. [Azure PowerShell](/powershell/azure/install-az-ps)를 설치 합니다.
 2. 다음 명령을 실행합니다. 
 
     ```azurepowershell
@@ -140,7 +140,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 ### <a name="open-or-refresh-security-center"></a>Security Center 열기 또는 새로 고치기
 액세스 권한을 승격하면 Azure Security Center를 열거나 새로 고쳐 Azure AD 테넌트 아래의 모든 구독에 대한 가시성이 있는지 확인합니다. 
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 2. Security Center에서 보려는 모든 구독을 구독 선택기에서 선택해야 합니다.
 
     ![구독 선택기 스크린샷](./media/security-center-management-groups/subscription-selector.png)
@@ -189,7 +189,7 @@ RBAC 역할이 사용자에게 할당되면 테넌트 관리자는 사용자 액
 이 문서에서는 Azure Security Center에 대한 테넌트 수준 가시성을 얻는 방법을 배웠습니다. Security Center에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure 보안 센터의 보안 상태 모니터링](security-center-monitoring.md)
+> [Azure Security Center의 보안 상태 모니터링](security-center-monitoring.md)
 
 > [!div class="nextstepaction"]
 > [Azure Security Center에서 보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md)

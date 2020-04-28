@@ -1,19 +1,19 @@
 ---
-title: 쿼리 통계 수집 최적화 - PostgreSQL용 Azure 데이터베이스 - 단일 서버
-description: 이 문서에서는 PostgreSQL - 단일 서버에 대한 Azure 데이터베이스에서 쿼리 통계 컬렉션을 최적화하는 방법에 대해 설명합니다.
+title: 쿼리 통계 수집 최적화-Azure Database for PostgreSQL 단일 서버
+description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버에서 쿼리 통계 수집을 최적화 하는 방법을 설명 합니다.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: f467f01118470eb51f7decf3bd6457917c566723
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74770172"
 ---
-# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>PostgreSQL - 단일 서버에 대한 Azure 데이터베이스에서 쿼리 통계 수집 최적화
+# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에서 쿼리 통계 수집 최적화
 이 문서에서는 Azure Database for PostgreSQL 서버에서 쿼리 통계 컬렉션을 최적화하는 방법을 설명합니다.
 
 ## <a name="use-pg_stats_statements"></a>pg_stats_statements 사용

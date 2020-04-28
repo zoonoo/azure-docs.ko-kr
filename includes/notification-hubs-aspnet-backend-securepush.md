@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: sethm
 ms.openlocfilehash: 7fd161c90234d45a6751f173ba3685ee8c392c87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74260811"
 ---
 ## <a name="webapi-project"></a>WebAPI 프로젝트
@@ -95,4 +95,4 @@ ms.locfileid: "74260811"
 이제 `Post` 메서드는 알림 메시지를 보내지 않습니다. 중요 콘텐츠가 아닌 알림 ID만 포함하는 원시 알림을 보냅니다. 또한 알림 허브에서 자격 증명을 구성하지 않은 플랫폼에 대한 보내기 작업은 오류를 발생시키므로 이 작업을 주석으로 처리합니다.
 
 1. 이제 모든 디바이스에서 액세스할 수 있도록 이 앱을 Azure 웹 사이트에 다시 배포합니다. **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
-2. Azure 웹 사이트를 게시 대상으로 선택합니다. Azure 계정으로 로그인하고 기존 또는 새 웹 사이트를 선택하고 **연결** 탭에서 **대상 URL** 속성을 기록합니다. 이 자습서의 뒷부분에서 이 URL을 *백 엔드 끝점으로* 참조합니다. **게시**를 클릭합니다.
+2. Azure 웹 사이트를 게시 대상으로 선택합니다. Azure 계정으로 로그인 하 고 기존 또는 새 웹 사이트를 선택 하 고 **연결** 탭에서 **대상 URL** 속성을 기록 합니다. 이 URL은이 자습서의 뒷부분에 있는 *백 엔드 끝점* 으로 참조 합니다. **게시**를 클릭합니다.

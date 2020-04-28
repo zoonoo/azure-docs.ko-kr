@@ -5,15 +5,15 @@ author: ecfan
 ms.author: estfan
 ms.date: 11/03/2016
 ms.openlocfilehash: c94e7d1fb5c42a0246b38c88eb097c75ec8ca4e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789840"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [페이스북](https://www.facebook.com/) 계정 
+* [Facebook](https://www.facebook.com/) 계정 
 
 논리 앱에서 Facebook 계정을 사용하려면 먼저 Facebook 계정에 연결하도록 논리 앱에 권한을 부여해야 합니다. 다행히 Azure Portal의 논리 앱 내에서 이를 쉽게 수행할 수 있습니다. 
 

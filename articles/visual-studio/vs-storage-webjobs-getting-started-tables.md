@@ -1,5 +1,5 @@
 ---
-title: Visual Studio(WebJob 프로젝트)를 사용하여 Azure 저장소 시작
+title: Visual Studio를 사용 하 여 Azure storage 시작 (WebJob 프로젝트)
 description: Visual Studio 연결된 서비스를 사용하여 스토리지 계정에 연결한 후 Visual Studio Azure WebJobs 프로젝트에서 Azure Table Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: e4d8299c06bfa5b0f33bff8fa592a2fa549c695c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74707611"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Azure Storage 시작(Azure WebJob 프로젝트)
@@ -33,7 +33,7 @@ Azure Table Storage 서비스를 사용하면 많은 양의 구조화된 데이�
 
 ## <a name="how-to-add-entities-to-a-table"></a>테이블에 엔터티를 추가하는 방법
 
-테이블에 엔터티를 추가하려면 T가 추가하려는 엔터티의 스키마를 **지정하는** **ICollector\<T>** 또는 **IAsyncCollector\<T>** 매개 변수와 함께 **테이블** 특성을 사용합니다. 특성 생성자는 테이블의 이름을 지정하는 문자열 매개 변수를 사용합니다.
+테이블에 엔터티를 추가 하려면 **ICollector\<T>** 또는 **\<iasynccollector t>** 매개 변수와 함께 **table** 특성을 사용 합니다. 여기서 **T** 는 추가 하려는 엔터티의 스키마를 지정 합니다. 특성 생성자는 테이블의 이름을 지정하는 문자열 매개 변수를 사용합니다.
 
 다음 코드 샘플은 **Person** 엔터티를 *Ingress*라는 테이블에 추가합니다.
 
@@ -88,7 +88,7 @@ Azure 스토리지 API로 직접 작업하려는 경우 메서드 서명에 **Cl
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>테이블에서 여러 엔터티를 읽는 방법
 
-테이블을 읽으려면 **T** **형식이** TableEntity에서 파생되었거나 **ITableEntity를**구현하는 **IQueryable\<T>** 매개 변수와 함께 **테이블** 특성을 사용합니다.
+테이블을 읽으려면 **IQueryable\<t>** 매개 변수와 함께 **table** 특성을 사용 합니다. 여기서 **t** 형식은 **tableentity** 에서 파생 되거나 **itableentity**를 구현 합니다.
 
 다음 코드 샘플은 **Ingress** 테이블에서 모든 행을 읽고 기록합니다.
 

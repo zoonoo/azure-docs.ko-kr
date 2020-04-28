@@ -1,5 +1,5 @@
 ---
-title: '데이터 마이그레이션: 온-프레미스 아파치 하두롭에서 Azure HDInsight로'
+title: '데이터 마이그레이션: 온-프레미스에서 Azure HDInsight로 Apache Hadoop'
 description: 온-프레미스 Hadoop 클러스터를 Azure HDInsight로 마이그레이션하는 데이터 마이그레이션 모범 사례를 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
 ms.openlocfilehash: 41112359408497d84243ed9bb06f396acf008dc5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74666004"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 데이터 마이그레이션 모범 사례
@@ -24,21 +24,21 @@ ms.locfileid: "74666004"
 온-프레미스에서 Azure 환경으로 데이터를 마이그레이션하는 두 가지 주요 옵션이 있습니다.
 
 * TLS를 사용하여 네트워크를 통해 데이터 전송
-    * 인터넷 - Azure Storage Explorer, AzCopy, Azure Powershell, Azure CLI 등의 여러 도구 중 하나를 사용하여 일반 인터넷 연결을 통해 데이터를 Azure Storage로 전송할 수 있습니다. 자세한 내용은 Azure 저장소에서 데이터 이동 을 [참조하세요.](../../storage/common/storage-moving-data.md)
+    * 인터넷 - Azure Storage Explorer, AzCopy, Azure Powershell, Azure CLI 등의 여러 도구 중 하나를 사용하여 일반 인터넷 연결을 통해 데이터를 Azure Storage로 전송할 수 있습니다. 자세한 내용은 [Azure Storage 간 데이터 이동](../../storage/common/storage-moving-data.md)을 참조 하세요.
 
-    * Express Route - ExpressRoute는 온-프레미스 또는 공동 장소 시설에 있는 인프라와 Microsoft 데이터 센터 간에 프라이빗 연결을 만들어 주는 Azure 서비스입니다. ExpressRoute 연결은 공용 인터넷을 거치지 않으며 인터넷을 통해 일반적인 연결보다 대기 시간을 줄이면서 더 높은 보안, 안정성 및 속도를 제공합니다. 자세한 내용은 [ExpressRoute 회로 만들기 및 수정](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)을 참조하세요.
+    * Express Route - ExpressRoute는 온-프레미스 또는 공동 장소 시설에 있는 인프라와 Microsoft 데이터 센터 간에 프라이빗 연결을 만들어 주는 Azure 서비스입니다. Express 경로 연결은 공용 인터넷을 사용 하지 않으며 인터넷을 통한 일반 연결 보다 더 높은 보안, 안정성 및 속도의 대기 시간을 제공 합니다. 자세한 내용은 [ExpressRoute 회로 만들기 및 수정](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)을 참조하세요.
 
     * Data Box 온라인 데이터 전송 - Data Box Edge 및 Data Box Gateway는 사용자 사이트와 Azure 간에 데이터를 관리하는 네트워크 스토리지 게이트웨이로 작동하는 온라인 데이터 전송 제품입니다. 온-프레미스 네트워크 디바이스인 Data Box Edge는 Azure와 데이터를 주고받으며 AI(인공 지능) 지원 에지 컴퓨팅을 사용하여 데이터를 처리합니다. Data Box Gateway는 스토리지 게이트웨이 기능이 포함된 가상 어플라이언스입니다. 자세한 내용은 [Azure Data Box 설명서 - 온라인 전송](https://docs.microsoft.com/azure/databox-online/)을 참조하세요.
 
 * 오프라인 데이터 배송
 
-    Data Box 오프라인 데이터 전송 - 네트워크를 사용할 수 없는 경우 Data Box, Data Box Disk 및 Data Box Heavy 디바이스를 통해 대량 데이터를 Azure로 전송할 수 있습니다. 이러한 오프라인 데이터 전송 디바이스는 사용자 조직과 Azure 데이터 센터 간에 배송됩니다. 이러한 디바이스는 AES 암호화를 사용하여 전송 중인 데이터를 보호할 수 있고, 철저한 업로드 후 삭제 프로세스를 진행하여 디바이스에서 데이터를 삭제합니다. 데이터 박스 오프라인 전송 장치에 대한 자세한 내용은 [Azure 데이터 상자 설명서 - 오프라인 전송](https://docs.microsoft.com/azure/databox/)을 참조하십시오. Hadoop 클러스터 마이그레이션에 대한 자세한 내용은 [Azure 데이터 상자 사용을 참조하여 온-프레미스 HDFS 저장소에서 Azure 저장소로 마이그레이션합니다.](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md)
+    Data Box 오프라인 데이터 전송 - 네트워크를 사용할 수 없는 경우 Data Box, Data Box Disk 및 Data Box Heavy 디바이스를 통해 대량 데이터를 Azure로 전송할 수 있습니다. 이러한 오프라인 데이터 전송 디바이스는 사용자 조직과 Azure 데이터 센터 간에 배송됩니다. 이러한 디바이스는 AES 암호화를 사용하여 전송 중인 데이터를 보호할 수 있고, 철저한 업로드 후 삭제 프로세스를 진행하여 디바이스에서 데이터를 삭제합니다. Data Box 오프 라인 전송 장치에 대 한 자세한 내용은 [Azure Data Box 설명서-오프 라인 전송](https://docs.microsoft.com/azure/databox/)을 참조 하세요. Hadoop 클러스터의 마이그레이션에 대 한 자세한 내용은 [Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage로 마이그레이션](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md)을 참조 하세요.
 
 다음 표에는 데이터 볼륨 및 네트워크 대역폭에 따른 대략적인 데이터 전송 기간이 정리되어 있습니다. 데이터 마이그레이션 예상 시간이 3주를 초과하는 경우 Data Box를 사용합니다.
 
 |데이터 수량|네트워크 대역폭||||
 |---|---|---|---|---|
-|| **45Mbps(T3)**|**100mbps**|**1Gbps**|**10Gbps**|
+|| **45Mbps(T3)**|**100 Mbps**|**1Gbps**|**10Gbps**|
 |1TB|2일|1일| 2시간|14분|
 |10TB|22일|10일|1일|2시간|
 |35TB|76일|34일|3일|8시간|
@@ -59,7 +59,7 @@ DistCp는 MapReduce 맵 작업을 사용하여 데이터를 전송하고 오류�
 
 DistCp는 각 복사본의 바이트 수가 거의 비슷하도록 맵 작업을 만듭니다. 기본적으로 DistCp 작업은 매퍼 20개를 사용합니다. Distcp에 더 많은 매퍼를 사용하면(명령줄에서 'm' 매개 변수 사용) 데이터 전송 중에 프로세스 병렬 처리가 증가하고 데이터 전송 시간이 감소합니다. 그러나 매퍼 수를 늘릴 때 두 가지 사항을 고려해야 합니다.
 
-* DistCp의 가장 낮은 세분성 단위는 단일 파일입니다. 소스 파일 수보다 많은 수의 매퍼를 지정하는 것은 도움이 되지 않으며 사용 가능한 클러스터 리소스를 낭비합니다.
+* DistCp의 가장 낮은 세분성 단위는 단일 파일입니다. 원본 파일 수를 초과 하 여 여러 매퍼를 지정 하면 도움이 되지 않고 사용 가능한 클러스터 리소스가 낭비 됩니다.
 
 * 클러스터에서 사용 가능한 Yarn 메모리를 고려하여 매퍼 수를 결정해야 합니다. 각 맵 작업은 Yarn 컨테이너로 시작됩니다. 클러스터에서 다른 헤비 워크로드가 실행되지 않는다고 가정할 때, m = (작업자 노드 수 \* 작업자 노드당 YARN 메모리) / YARN 컨테이너 크기 공식을 사용하여 매퍼 수를 결정할 수 있습니다. 그러나 다른 애플리케이션에서 메모리를 사용하는 경우 YARN 메모리에서 DistCp 작업에 관련된 부분만 사용하도록 선택해야 합니다.
 
@@ -95,7 +95,7 @@ Hive 메타스토어는 스크립트를 사용하여 또는 DB 복제를 사용�
 
 #### <a name="hive-metastore-migration-using-scripts"></a>스크립트를 사용하여 Hive 메타스토어 마이그레이션
 
-1. 구내 Hive 메타스토어에서 하이브 DDL을 생성합니다. 이 단계는 [래퍼 Bash 스크립트](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)를 사용하여 수행할 수 있습니다.
+1. 온-프레미스 Hive metastore에서 Hive DDLs를 생성 합니다. 이 단계는 [래퍼 Bash 스크립트](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)를 사용하여 수행할 수 있습니다.
 1. 생성된 DDL을 편집하여 HDFS url을 WASB/ADLS/ABFS URL로 바꿉니다.
 1. HDInsight 클러스터의 metastore에서 업데이트된 DDL을 실행합니다.
 1. Hive 메타스토어 버전이 온-프레미스와 클라우드 간에 호환되는지 확인합니다.
@@ -112,7 +112,7 @@ Hive 메타스토어는 스크립트를 사용하여 또는 DB 복제를 사용�
 ### <a name="apache-ranger"></a>Apache Ranger
 
 - 온-프레미스 Ranger 정책을 xml 파일로 내보냅니다.
-- XSLT와 같은 도구를 사용하여 구내별 HDFS 기반 경로를 WASB/ADLS로 변환합니다.
+- XSLT와 같은 도구를 사용 하 여 온-프레미스 별 HDFS 기반 경로를 WASB/ADLS로 변환 합니다.
 - HDInsight에서 실행되는 Ranger로 정책을 가져옵니다.
 
 ## <a name="next-steps"></a>다음 단계

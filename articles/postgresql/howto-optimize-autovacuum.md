@@ -1,19 +1,19 @@
 ---
-title: 자동 진공 최적화 - PostgreSQL용 Azure 데이터베이스 - 단일 서버
-description: 이 문서에서는 PostgreSQL - 단일 서버에 대한 Azure 데이터베이스에서 자동 진공을 최적화하는 방법에 대해 설명합니다.
+title: 자동 진공 최적화-Azure Database for PostgreSQL 단일 서버
+description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버에서 autovacuum을 최적화 하는 방법을 설명 합니다.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 1917bd6744e100db54fe959292e29486f8a1784b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74770189"
 ---
-# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>PostgreSQL - 단일 서버에 대한 Azure 데이터베이스에서 자동 진공 최적화
+# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에서 autovacuum 최적화
 이 문서에서는 Azure Database for PostgreSQL 서버에서 자동 진공을 효과적으로 최적화하는 방법을 설명합니다.
 
 ## <a name="overview-of-autovacuum"></a>자동 진공 개요
@@ -44,7 +44,7 @@ XYZ라는 테이블에 있는 데드 및 라이브 튜플 수를 식별하도록
 
 이전 질문에 따라 업데이트할 수 있는 일부 자동 진공 구성 매개 변수와 몇 가지 지침은 다음과 같습니다.
 
-매개 변수|설명|기본값
+매개 변수|Description|기본값
 ---|---|---
 autovacuum_vacuum_threshold|한 테이블에서 진공 작업을 트리거하는 데 필요한 업데이트 또는 삭제된 튜플의 최소 개수를 지정합니다. 기본값은 50개 튜플입니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다. 개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다.|50
 autovacuum_vacuum_scale_factor|진공 작업을 트리거할지 여부를 결정할 때 autovacuum_vacuum_threshold에 추가할 테이블 크기의 비율을 지정합니다. 기본값은 0.2로, 테이블 크기의 20%입니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다. 개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다.|5%
@@ -91,7 +91,7 @@ autovacuum_max_worker 매개 변수는 동시에 실행할 수 있는 자동 진
 PostgreSQL을 사용하면 이러한 매개 변수를 테이블 수준 또는 인스턴스 수준에서 설정할 수 있습니다. 현재 이러한 매개 변수는 Azure Database for PostgreSQL의 테이블 수준에서만 설정할 수 있습니다.
 
 ## <a name="optimize-autovacuum-per-table"></a>테이블당 자동 진공 최적화
-테이블당 이전 구성 매개 변수를 모두 구성할 수 있습니다. 예를 들면 다음과 같습니다.
+테이블당 이전 구성 매개 변수를 모두 구성할 수 있습니다. 아래 예를 살펴보세요.
 ```sql
 ALTER TABLE t SET (autovacuum_vacuum_threshold = 1000);
 ALTER TABLE t SET (autovacuum_vacuum_scale_factor = 0.1);

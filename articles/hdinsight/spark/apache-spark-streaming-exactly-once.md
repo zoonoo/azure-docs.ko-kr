@@ -1,6 +1,6 @@
 ---
-title: 스파크 스트리밍 & 정확히 한 번 이벤트 처리 - Azure HDInsight
-description: 이벤트를 한 번만 처리하도록 아파치 스파크 스트리밍을 설정하는 방법.
+title: Spark Streaming & 정확히 한 번 이벤트 처리-Azure HDInsight
+description: Apache Spark 스트리밍을 설정 하 여 한 번만 이벤트를 처리 하는 방법입니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.openlocfilehash: ee4f9b84e822cb370e5fe3d55fcceb9c8a9f2ab9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74228981"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>이벤트를 정확하게 한 번만 처리하는 Apache Spark 스트리밍 작업 만들기
 
-스트림 처리 응용 프로그램은 시스템에서 일부 오류가 발생한 후 재처리 메시지를 처리하는 방법에 대해 서로 다른 접근 방식을 취합니다.
+스트림 처리 응용 프로그램은 시스템에서 오류가 발생 한 후 다시 처리 메시지를 처리 하는 방법에 대 한 다양 한 접근 방법을 사용 합니다.
 
 * 최소 한 번: 각 메시지는 처리되도록 보장되지만, 두 번 이상 처리될 수도 있습니다.
-* 최대 한 번: 각 메시지는 처리될 수 또는 처리되지 않을 수도 있습니다. 메시지가 처리되면 한 번만 처리됩니다.
+* 최대 한 번: 각 메시지는 처리될 수 또는 처리되지 않을 수도 있습니다. 메시지를 처리 하는 경우에는 한 번만 처리 됩니다.
 * 정확히 한 번만: 각 메시지는 오직 한 번만 처리되도록 보장됩니다.
 
 이 아티클은 정확히 한 번만 처리하도록 하기 위해 Spark Streaming을 구성하는 방법을 보여줍니다.
@@ -51,7 +51,7 @@ Spark 스트리밍에서 Event Hubs나 Kafka 같은 원본에는 *신뢰할 수 
 
 Spark 스트리밍은 Write-Ahead Log의 사용을 지원하는데 받은 이벤트는 각기 먼저 내결함성 스토리지에 있는 Spark의 검사점 디렉터리에 기록된 다음 Resilient Distributed Dataset(RDD)에 저장됩니다. Azure에서 내결함성이 있는 스토리지는 Azure Storage 또는 Azure Data Lake Storage에서 지원하는 HDFS입니다. Spark 스트리밍 애플리케이션에서 Write-Ahead Log는 `spark.streaming.receiver.writeAheadLog.enable` 구성 설정을 `true`에 설정하여 모든 수신기에 대해 사용하도록 설정됩니다. Write-Ahead Log는 드라이버와 실행기의 오류에 대한 내결함성을 제공합니다.
 
-이벤트 데이터에 대한 작업을 실행하는 작업자의 경우 각 RDD는 그 자체로 여러 작업자에게 복제되고 배포됩니다. 작업 실행 중인 작업자가 충돌하여 작업이 실패하면 이벤트 데이터의 복제본이 있는 다른 작업자에서 작업이 다시 시작되므로 이벤트가 손실되지 않습니다.
+이벤트 데이터에 대한 작업을 실행하는 작업자의 경우 각 RDD는 그 자체로 여러 작업자에게 복제되고 배포됩니다. 작업을 실행 하는 작업자의 작동이 중단 되어 작업이 실패 하는 경우 해당 태스크는 이벤트 데이터의 복제본이 있는 다른 작업자에서 다시 시작 되므로 이벤트는 손실 되지 않습니다.
 
 ### <a name="use-checkpoints-for-drivers"></a>드라이버에 대한 검사점 사용
 
@@ -79,13 +79,13 @@ Spark 스트리밍은 Write-Ahead Log의 사용을 지원하는데 받은 이벤
 
 ### <a name="use-idempotent-sinks"></a>Idempotent 싱크 사용
 
-작업이 결과를 기록하는 대상 싱크는 동일한 결과가 두 번 이상 지정된 상황을 처리할 수 있어야 합니다. 싱크는 그러한 중복 결과를 감지하여 무시할 수 있어야 합니다. *idempotent* 싱크는 상태 변경 없이 동일한 데이터로 여러 번 호출할 수 있습니다.
+작업에서 결과를 작성 하는 대상 싱크에서 동일한 결과가 두 번 이상 제공 되는 상황을 처리할 수 있어야 합니다. 싱크는 그러한 중복 결과를 감지하여 무시할 수 있어야 합니다. *idempotent* 싱크는 상태 변경 없이 동일한 데이터로 여러 번 호출할 수 있습니다.
 
-데이터 저장소에 들어오는 결과가 있는지 먼저 확인하는 논리를 구현하여 idempotent 싱크를 만들 수 있습니다. 결과가 이미 존재한다면 쓰기가 Spark 작업의 관점에서 성공한 것으로 나타나야 하지만 실제로 데이터 저장소는 중복 데이터를 무시합니다. 결과가 없으면 싱크가 이 새 결과를 저장소에 삽입해야 합니다.
+데이터 저장소에 들어오는 결과가 있는지 먼저 확인하는 논리를 구현하여 idempotent 싱크를 만들 수 있습니다. 결과가 이미 존재한다면 쓰기가 Spark 작업의 관점에서 성공한 것으로 나타나야 하지만 실제로 데이터 저장소는 중복 데이터를 무시합니다. 결과가 없는 경우 싱크는이 새 결과를 저장소에 삽입 해야 합니다.
 
 예를 들어 이벤트를 테이블에 삽입하는 Azure SQL Database와 함께 저장 프로시저를 사용할 수 있습니다. 이 저장 프로시저는 먼저 키 필드로 이벤트를 찾아보고 일치하는 이벤트가 없을 경우에만 레코드가 테이블에 삽입됩니다.
 
-또 다른 예는 Azure Storage Blob이나 Azure Data Lake Storage와 같은 분할된 파일 시스템을 사용하는 것입니다. 이 경우 싱크 논리는 파일의 존재를 확인할 필요가 없습니다. 이벤트를 나타내는 파일이 있는 경우 동일한 데이터로 덮어씁입니다. 그렇지 않은 경우 새 파일이 지정된 경로에 만들어집니다.
+또 다른 예는 Azure Storage Blob이나 Azure Data Lake Storage와 같은 분할된 파일 시스템을 사용하는 것입니다. 이 경우 싱크 논리는 파일의 존재 여부를 확인할 필요가 없습니다. 이벤트를 나타내는 파일이 있으면 동일한 데이터로 덮어쓰여집니다. 그렇지 않은 경우 새 파일이 지정된 경로에 만들어집니다.
 
 ## <a name="next-steps"></a>다음 단계
 

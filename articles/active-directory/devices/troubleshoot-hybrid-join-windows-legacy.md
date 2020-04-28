@@ -1,5 +1,5 @@
 ---
-title: 레거시 하이브리드 Azure Active Directory 조인 된 장치 문제 해결
+title: 레거시 하이브리드 Azure Active Directory 연결 된 장치 문제 해결
 description: 하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74379113"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결 
@@ -69,11 +69,11 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
     ![Windows에 대한 작업 공간 연결](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
    - Autoworkplace.exe가 Azure AD 또는 AD FS를 사용하여 자동으로 인증할 수 없습니다. 이러한 상황은 누락되었거나 잘못 구성된 AD FS(페더레이션된 도메인용) 또는 누락되었거나 잘못 구성된 Azure AD Seamless Single Sign-On(관리되는 도메인용) 또는 네트워크 문제로 인해 야기될 수 있습니다. 
-   - 사용자에 대해 MFA(다단계 인증)가 활성화/구성되고 WiAORMULTIAUTHN이 AD FS 서버에서 구성되지 않았을 수 있습니다. 
+   - 사용자에 대해 MFA (multi-factor authentication)가 설정/구성 되어 있고 AD FS 서버에 WIAORMULTIAUTHN가 구성 되어 있지 않을 수 있습니다. 
    - 또 다른 가능성은 HRD(홈 영역 검색) 페이지가 사용자 상호 작용을 기다리고 **autoworkplace.exe**가 자동으로 토큰을 요청하는 것을 방지하는 경우입니다.
    - 클라이언트의 IE 인트라넷 영역에서 AD FS 및 Azure AD URL이 누락되었을 수 있습니다.
    - 네트워크 연결 문제로 인해 **autoworkplace.exe**가 AD FS 또는 Azure AD URL에 연결하지 못할 수 있습니다. 
-   - **Autoworkplace.exe는** 클라이언트가 클라이언트에서 조직의 온-프레미스 AD 도메인 컨트롤러로 직접 연결되도록 요구하므로 하이브리드 Azure AD 조인은 클라이언트가 조직의 인트라넷에 연결되어 있는 경우에만 성공합니다.
+   - **자동 작업 영역** 을 사용 하려면 클라이언트에서 조직의 온-프레미스 AD 도메인 컨트롤러로 직접적인 시야를 사용 해야 합니다. 즉, 클라이언트가 조직의 인트라넷에 연결 된 경우에만 하이브리드 Azure AD 조인이 성공 합니다.
    - 조직에서 Azure AD Seamless Single Sign-On을 사용하고, 디바이스의 IE 인트라넷 설정에 `https://autologon.microsoftazuread-sso.com` 또는 `https://aadg.windows.net.nsatc.net`이 없고, 인트라넷 영역에 **스크립트를 통한 상태 표시줄 업데이트 허용**이 활성화되어 있지 않습니다.
 - 도메인 사용자로 로그온되지 않음
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 9345b6fb28aa282e85f1167f6f2531e5f990e3a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74688321"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Azure App Service의 “502 잘못된 게이트웨이” 및 “503 서비스를 사용할 수 없음” HTTP 오류 해결
@@ -99,14 +99,14 @@ Azure App Service에서 성능과 처리량의 증가를 위해 사용자가 실
 수동 또는 자동으로 크기를 조정할 수 있습니다.
 
 #### <a name="use-autoheal"></a>AutoHeal를 사용
-AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 기반 제한 또는 요청을 실행하는데 필요한 시간)에 따라 앱에 대한 작업자 프로세스를 재활용 합니다. 대부분의 경우에는 프로세스를 재활용하는 방법이 문제를 해결하는 가장 빠른 방법입니다. 언제든지 Azure Portal 내에서 직접 앱을 다시 시작할 수도 있지만, AutoHeal에서 자동으로 다시 시작합니다. 앱의 루트 web.config에 일부 트리거를 추가하기만 하면 됩니다. 이러한 설정은 응용 프로그램이 .NET 이 아닌 경우에도 동일한 방식으로 작동합니다.
+AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 기반 제한 또는 요청을 실행하는데 필요한 시간)에 따라 앱에 대한 작업자 프로세스를 재활용 합니다. 대부분의 경우에는 프로세스를 재활용하는 방법이 문제를 해결하는 가장 빠른 방법입니다. 언제든지 Azure Portal 내에서 직접 앱을 다시 시작할 수도 있지만, AutoHeal에서 자동으로 다시 시작합니다. 앱의 루트 web.config에 일부 트리거를 추가하기만 하면 됩니다. 이러한 설정은 응용 프로그램이 .NET이 아닌 경우에도 동일한 방식으로 작동 합니다.
 
 자세한 내용은 [Auto-Healing Azure Websites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)를 참조하세요.
 
 #### <a name="restart-the-app"></a>앱 다시 시작
-이 방법은 일회성 문제를 해결하는 가장 간단한 방법입니다. Azure [Portal에서](https://portal.azure.com/)앱의 블레이드에서 앱을 중지하거나 다시 시작하는 옵션이 있습니다.
+이 방법은 일회성 문제를 해결하는 가장 간단한 방법입니다. [Azure Portal](https://portal.azure.com/)의 앱 블레이드에서 앱을 중지 하거나 다시 시작 하는 옵션을 사용할 수 있습니다.
 
  ![앱을 다시 시작하여 502 잘못된 게이트웨이 및 503 서비스를 사용할 수 없음 HTTP 오류 해결](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-또한 Azure Powershell을 사용하여 앱을 관리할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하십시오.
+또한 Azure Powershell을 사용하여 앱을 관리할 수 있습니다. 자세한 내용은 [Azure Resource Manager와 함께 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조 하세요.
 

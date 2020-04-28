@@ -1,5 +1,5 @@
 ---
-title: '조정 성능: 스톰, HDInsight & Azure 데이터 레이크 스토리지 Gen2 | 마이크로 소프트 문서'
+title: '성능 조정: 스톰, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
 description: Azure Data Lake Storage Gen2의 Storm 성능 튜닝에 대한 지침입니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,22 +9,22 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 125c583512f6bae34c2dd3c3dd76a1b96a181ac1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74327915"
 ---
-# <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>조정 성능: 스톰, HDInsight & Azure 데이터 레이크 스토리지 Gen2
+# <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>성능 조정: 스톰, HDInsight & Azure Data Lake Storage Gen2
 
 Azure Storm 토폴로지의 성능을 조정할 때 고려해야 하는 요소를 이해합니다. 예를 들어, Spout 및 Bolt(작업이 I/O 또는 메모리 집약적인지에 따름)에서 수행한 작업의 특징을 이해하는 것이 중요합니다. 이 문서에서는 다양한 성능 조정 지침, 일반적인 문제 해결 등을 다룹니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure 데이터 레이크 저장소 Gen2 계정.** 하나를 만드는 방법에 대한 지침은 [빠른 시작: 분석용 저장소 계정 만들기를](data-lake-storage-quickstart-create-account.md)참조하십시오.
+* **Azure Data Lake Storage Gen2 계정**. 만드는 방법에 대 한 지침은 [빠른 시작: 분석을 위한 저장소 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조 하세요.
 * Data Lake Storage Gen2 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)을 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
-* **Data Lake Storage Gen2에서 Storm 클러스터 실행**. 자세한 내용은 [HDInsight에서 스톰](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview)을 참조하십시오.
+* **Data Lake Storage Gen2에서 Storm 클러스터 실행**. 자세한 내용은 [HDInsight의 스톰](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview)을 참조 하세요.
 * **Data Lake Storage Gen2에 대한 성능 튜닝 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen2 성능 튜닝 지침](data-lake-storage-performance-tuning-guidance.md)을 참조하세요.   
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>토폴로지의 병렬 처리 조정
@@ -95,11 +95,11 @@ I/O 집약적인 토폴로지에서 각 Bolt 스레드는 자체 파일에 기�
 
 * **오류 수** 시간이 초과되기 전에 완전히 처리되지 않은 튜플 수를 나타냅니다.
 
-* **용량.** 시스템이 얼마나 사용 중인지를 측정한 값입니다. 1이면 Bolt가 가장 빠르게 작동 중입니다. 1 미만이면 병렬 처리를 늘립니다. 1보다 크면 병렬 처리를 줄입니다.
+* **수용.** 시스템이 얼마나 사용 중인지를 측정한 값입니다. 1이면 Bolt가 가장 빠르게 작동 중입니다. 1 미만이면 병렬 처리를 늘립니다. 1보다 크면 병렬 처리를 줄입니다.
 
 ## <a name="troubleshoot-common-problems"></a>일반적인 문제 해결
 일반적인 문제 해결 시나리오는 다음과 같습니다.
-* **많은 tuples는 타이밍 아웃.** 토폴로지의 각 노드를 확인하여 병목 현상이 있는 위치를 확인합니다. 가장 일반적인 원인은 Bolt가 Spout을 따라갈 수 없기 때문입니다. 이렇게 하면 튜플이 처리될 때까지 대기하는 동안 내부 버퍼를 방해합니다. 시간 초과 값을 늘리거나 보류 중인 최대 Spout을 줄이세요.
+* **많은 튜플이 시간 초과 됩니다.** 토폴로지의 각 노드를 확인 하 여 병목 현상이 발생 한 위치를 확인 합니다. 가장 일반적인 원인은 Bolt가 Spout을 따라갈 수 없기 때문입니다. 이렇게 하면 튜플이 처리될 때까지 대기하는 동안 내부 버퍼를 방해합니다. 시간 초과 값을 늘리거나 보류 중인 최대 Spout을 줄이세요.
 
 * **총 프로세스 실행 대기 시간이 길지만 Bolt 프로세스 대기 시간이 짧습니다.** 이런 경우 튜플이 충분히 빨리 승인되지 않을 수 있습니다. acknowledger 수가 충분한지 확인하세요. Bolt가 처리를 시작하기 전에 큐에서 너무 오래 대기 중인 것도 원인이 될 수 있습니다. 보류 중인 최대 Spout을 줄이세요.
 
@@ -110,10 +110,10 @@ Data Lake Storage Gen2에서 제공하는 대역폭의 제한에 도달하면 �
 
 제한 여부를 확인하려면 클라이언트 쪽에서 디버그 로깅을 사용하도록 설정합니다.
 
-1. **Ambari** > **폭풍** > **구성** > **고급 폭풍 - 노동자 - log4j에서**루트 레벨 = ** &lt;"정보"를&gt; ** ** &lt;루트 수준 = "디버그"로&gt;** 변경합니다. 구성을 적용하려면 모든 노드/서비스를 다시 시작합니다.
+1. **Ambari** > **스톰** > **Advanced storm-worker-log4j****Config** ** &lt;&gt;** ** &lt;&gt; ** 구성 고급 스톰-log4j에서 root level = "info"를 root level = "debug"로 변경 합니다. >  구성을 적용하려면 모든 노드/서비스를 다시 시작합니다.
 2. Data Lake Storage Gen2 제한 예외에 대한 작업자 노드의 Storm 토폴로지 로그(/var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log 아래)를 모니터링합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[이 블로그에서는](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/)Storm에 대한 추가 성능 튜닝을 참조할 수 있습니다.
+[이 블로그에서](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/)는 스톰의 추가 성능 튜닝을 참조할 수 있습니다.
 
 추가 예제를 실행하려면 [GitHub에서 이 항목](https://github.com/hdinsight/storm-performance-automation)을 참조하세요.

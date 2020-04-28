@@ -1,5 +1,5 @@
 ---
-title: '조정 성능: 스파크, HDInsight & Azure 데이터 레이크 스토리지 Gen2 | 마이크로 소프트 문서'
+title: '성능 조정: Spark, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
 description: Azure Data Lake Storage Gen2의 Spark 성능 튜닝에 대한 지침입니다.
 services: storage
 author: normesta
@@ -10,23 +10,23 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: a70b8112af201a49e7eece8b689e75102ec55880
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74327557"
 ---
-# <a name="tune-performance-spark-hdinsight--azure-data-lake-storage-gen2"></a>튜닝 성능: 스파크, HDInsight & Azure 데이터 레이크 스토리지 Gen2
+# <a name="tune-performance-spark-hdinsight--azure-data-lake-storage-gen2"></a>성능 조정: Spark, HDInsight & Azure Data Lake Storage Gen2
 
 Spark에서 성능을 조정할 때 클러스터에서 실행될 앱 수를 고려해야 합니다.  기본적으로 HDI 클러스터에서 4개의 앱을 동시에 실행할 수 있습니다(참고: 기본 설정은 변경될 수 있음).  사용할 앱 수를 줄여서 기본 설정을 재정의하고 해당 앱에 더 많은 클러스터를 사용하도록 할 수 있습니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure 데이터 레이크 저장소 Gen2 계정.** 하나를 만드는 방법에 대한 지침은 [빠른 시작: Azure 데이터 레이크 저장소 Gen2 저장소 계정 만들기를](data-lake-storage-quickstart-create-account.md)참조하십시오.
+* **Azure Data Lake Storage Gen2 계정**. 만드는 방법에 대 한 지침은 [빠른 시작: Azure Data Lake Storage Gen2 저장소 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조 하세요.
 * Data Lake Storage Gen2 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)을 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
 * **Data Lake Storage Gen2에서 Spark 클러스터 실행**.  자세한 내용은 [HDInsight Spark 클러스터를 사용하여 Data Lake Storage Gen2의 데이터 분석](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)을 참조하세요.
-* **Data Lake Storage Gen2에 대한 성능 튜닝 지침**.  일반적인 성능 개념은 [데이터 레이크 스토리지 Gen2 성능 튜닝 지침을](data-lake-storage-performance-tuning-guidance.md) 참조하십시오. 
+* **Data Lake Storage Gen2에 대한 성능 튜닝 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen2 성능 조정 지침](data-lake-storage-performance-tuning-guidance.md) 을 참조 하세요. 
 
 ## <a name="parameters"></a>매개 변수
 
@@ -54,14 +54,14 @@ I/O 집약적인 작업에 대한 동시성을 높이는 몇 가지 일반적인
 
 **1단계: 클러스터에서 실행되는 앱 수 결정** – 현재 앱을 포함하여 클러스터에서 실행되는 앱 수를 알아야 합니다.  각 Spark 설정에 대한 기본 값에서는 4개의 앱이 동시에 실행 중이라고 가정합니다.  따라서 앱당 클러스터의 25%만 사용할 수 있습니다.  더 나은 성능을 얻기 위해 실행기 수를 변경하여 기본값을 재정의할 수 있습니다.  
 
-**2 단계: 실행기-메모리 설정** - 가장 먼저 설정해야 할 것은 실행기 메모리입니다.  메모리는 실행할 작업에 따라 달라집니다.  실행기당 메모리 할당량을 줄여 동시성을 높일 수 있습니다.  작업을 실행할 때 메모리 부족 예외가 표시되면 이 매개 변수 값을 늘려야 합니다.  한 가지 대안은 메모리가 많은 클러스터를 사용하거나 클러스터 크기를 늘려 더 많은 메모리를 확보하는 것입니다.  메모리가 많아지면 더 많은 실행기가 사용되며 이것은 동시성 증가로 이어집니다.
+**2 단계: 실행자-메모리를 설정** 합니다. 첫 번째로 설정 해야 할 일은 executor 메모리입니다.  메모리는 실행할 작업에 따라 달라집니다.  실행기당 메모리 할당량을 줄여 동시성을 높일 수 있습니다.  작업을 실행할 때 메모리 부족 예외가 표시되면 이 매개 변수 값을 늘려야 합니다.  한 가지 대안은 메모리가 많은 클러스터를 사용하거나 클러스터 크기를 늘려 더 많은 메모리를 확보하는 것입니다.  메모리가 많아지면 더 많은 실행기가 사용되며 이것은 동시성 증가로 이어집니다.
 
 **3단계: executor-cores 설정** – 복잡한 작업이 없는 I/O 집약적인 워크로드의 경우 실행기당 병렬 태스크 수를 늘리기 위해 executor-cores 수를 높게 시작하는 것이 좋습니다.  executor-cores를 4로 설정하여 시작하는 것이 좋습니다.   
 
     executor-cores = 4
 executor-cores 수를 늘리면 더 많은 병렬 처리를 제공하므로 서로 다른 executor-cores로 실험할 수 있습니다.  더욱 복잡한 작업(operation)이 있는 작업(job)의 경우 실행기당 코어 수를 줄여야 합니다.  executor-cores가 4보다 높게 설정된 경우 가비지 수집이 부족하여 성능이 저하될 수 있습니다.
 
-**4단계: 클러스터에서 YARN 메모리 양 결정** – 이 정보는 Ambari에서 제공됩니다.  YARN으로 이동하여 구성 설정 탭을 봅니다.  YARN 메모리가 이 창에 표시됩니다.  
+**4단계: 클러스터에서 YARN 메모리 양 결정** – 이 정보는 Ambari에서 제공됩니다.  YARN으로 이동 하 여 Configs 탭을 확인 합니다.  YARN 메모리가이 창에 표시 됩니다.  
 이 창에 있는 동안 기본 YARN 컨테이너 크기도 확인할 수 있습니다.  YARN 컨테이너 크기는 실행기 매개 변수당 메모리와 같습니다.
 
     Total YARN memory = nodes * YARN memory per node

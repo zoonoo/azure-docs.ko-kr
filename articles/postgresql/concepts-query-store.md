@@ -1,21 +1,21 @@
 ---
-title: 쿼리 저장소 - PostgreSQL용 Azure 데이터베이스 - 단일 서버
-description: 이 문서에서는 PostgreSQL - 단일 서버에 대한 Azure 데이터베이스의 쿼리 저장소 기능에 대해 설명합니다.
+title: 쿼리 저장소-Azure Database for PostgreSQL-단일 서버
+description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버의 쿼리 저장소 기능에 대해 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.openlocfilehash: ccc503e6718ee8f516920cfbea3ad86e7ed81d84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74768268"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>쿼리 저장소를 사용하여 성능 모니터링
 
-**다음에 적용됩니다.** PostgreSQL용 Azure 데이터베이스 - 단일 서버 버전 9.6, 10, 11
+**적용 대상:** Azure Database for PostgreSQL-단일 서버 버전 9.6, 10, 11
 
 Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따라 쿼리 성능을 추적하는 방법을 제공합니다. 쿼리 저장소는 가장 오래 실행되고 리소스를 가장 많이 사용하는 쿼리를 신속하게 찾도록 지원하여 성능 문제 해결을 단순화합니다. 쿼리 저장소는 쿼리 및 런타임 통계의 기록을 자동으로 캡처하고 검토를 위해 보존합니다. 데이터베이스 사용량 패턴을 볼 수 있도록 데이터를 기간별로 구분합니다. 모든 사용자, 데이터베이스 및 쿼리에 대한 데이터는 Azure Database for PostgreSQL 인스턴스의 **azure_sys**라는 데이터베이스에 저장됩니다.
 
@@ -29,14 +29,14 @@ Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따
 1. Azure Portal에 로그인하고 Azure Database for PostgreSQL 서버를 선택합니다.
 2. 메뉴의 **설정** 섹션에서 **서버 매개 변수**를 선택합니다.
 3. `pg_qs.query_capture_mode` 매개 변수를 검색합니다.
-4. 값을 설정하고 `TOP` **저장합니다.**
+4. 값을로 `TOP` 설정 하 고 **저장**합니다.
 
-쿼리 저장소에서 대기 통계를 사용하려면 다음을 수행합니다. 
+쿼리 저장소에서 대기 통계를 사용 하도록 설정 하려면: 
 1. `pgms_wait_sampling.query_capture_mode` 매개 변수를 검색합니다.
-1. 값을 설정하고 `ALL` **저장합니다.**
+1. 값을로 `ALL` 설정 하 고 **저장**합니다.
 
 
-또는 Azure CLI를 사용하여 이러한 매개 변수를 설정할 수 있습니다.
+또는 Azure CLI를 사용 하 여 이러한 매개 변수를 설정할 수 있습니다.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
 az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
@@ -58,9 +58,9 @@ az postgres server configuration set --name pgms_wait_sampling.query_capture_mod
 
 공간 사용량을 최소화하기 위해 런타임 통계 저장소의 런타임 실행 통계가 고정된 구성 가능 기간을 통해 집계됩니다. 이러한 저장소의 정보는 쿼리 저장소 보기를 쿼리하여 표시됩니다.
 
-## <a name="access-query-store-information"></a>쿼리 저장소 정보에 액세스
+## <a name="access-query-store-information"></a>쿼리 저장소 정보 액세스
 
-쿼리 저장소 데이터는 Postgres 서버의 azure_sys 데이터베이스에 저장됩니다. 
+쿼리 저장소 데이터는 Postgres 서버의 azure_sys 데이터베이스에 저장 됩니다. 
 
 다음 쿼리는 쿼리 저장소의 쿼리에 대한 정보를 반환합니다.
 ```sql
@@ -72,7 +72,7 @@ SELECT * FROM query_store.qs_view;
 SELECT * FROM query_store.pgms_wait_sampling_view;
 ```
 
-분석 및 경고를 위해 쿼리 저장소 데이터를 [Azure Monitor Log에](../azure-monitor/log-query/log-query-overview.md) 내보전하고 스트리밍을 위한 이벤트 허브 및 보관을 위한 Azure 저장소를 내보냅니다. 구성할 로그 범주는 **QueryStoreRuntimeStatistics** 및 **쿼리스토어웨이트통계입니다.** 설정에 대해 자세히 알아보려면 [Azure 모니터 진단 설정](../azure-monitor/platform/diagnostic-settings.md) 문서를 방문하십시오.
+또한 분석 및 경고를 위해 쿼리 저장소 데이터를 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md) 에, 스트리밍을 Event Hubs 하 고, 보관 하는 데 Azure Storage 수 있습니다. 구성할 로그 범주는 QueryStoreRuntimeStatistics 및 **Query** **waitstatistics**입니다. 설치에 대 한 자세한 내용은 [Azure Monitor 진단 설정](../azure-monitor/platform/diagnostic-settings.md) 문서를 참조 하세요.
 
 
 ## <a name="finding-wait-queries"></a>대기 쿼리 찾기
@@ -80,7 +80,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 
 다음은 쿼리 저장소의 대기 통계를 사용하여 워크로드에 대한 더 많은 통찰력을 얻을 수 있는 방법의 몇 가지 예입니다.
 
-| **관찰** | **작업** |
+| **관찰** | **동작** |
 |---|---|
 |최고 잠금 대기 | 영향을 받는 쿼리에 대한 쿼리 텍스트를 확인하고 대상 엔터티를 식별합니다. 쿼리 저장소에서 자주 실행되거나 오래 실행되는 동일한 엔터티를 수정하는 다른 쿼리를 확인합니다. 이러한 쿼리를 식별한 후 애플리케이션 논리를 변경하여 동시성을 개선하거나 덜 제한적인 격리 수준을 사용하는 것이 좋습니다.|
 | 높은 버퍼 IO 대기 | 쿼리 저장소에서 물리적 읽기 횟수가 많은 쿼리를 찾습니다. 해당 쿼리가 IO 대기가 많은 쿼리와 일치하는 경우 검사 대신 검색을 수행하기 위해 기본 엔터티에 인덱스를 도입하는 것이 좋습니다. 이렇게 하면 쿼리의 IO 오버헤드가 최소화됩니다. 포털에서 서버에 대한 **성능 권장 사항**을 확인하여 쿼리를 최적화하는 이 서버에 대한 인덱스 권장 사항이 있는지 확인합니다.|
@@ -91,7 +91,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 
 다음 옵션은 쿼리 저장소 매개 변수를 구성하는 데 사용할 수 있습니다.
 
-| **매개 변수** | **설명** | **기본** | **범위**|
+| **매개 변수** | **설명** | **기본값** | **벗어납니다**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | 추적되는 문을 설정합니다. | none | none, top, all |
 | pg_qs.max_query_text_length | 저장할 수 있는 최대 쿼리 길이를 설정합니다. 더 긴 쿼리는 잘립니다. | 6000 | 100 - 10K |
@@ -100,7 +100,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 
 다음 옵션은 특히 대기 통계에 적용됩니다.
 
-| **매개 변수** | **설명** | **기본** | **범위**|
+| **매개 변수** | **설명** | **기본값** | **벗어납니다**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | 대기 통계가 추적되는 문을 설정합니다. | none | none, all|
 | Pgms_wait_sampling.history_period | 대기 이벤트가 샘플링되는 빈도(밀리초)를 설정합니다. | 100 | 1-600000 |
@@ -119,7 +119,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="query_storeqs_view"></a>query_store.qs_view
 이 보기는 쿼리 저장소의 모든 데이터를 반환합니다. 각 고유 데이터베이스 ID, 사용자 ID 및 쿼리 ID에 대한 하나의 행이 있습니다. 
 
-|**이름**   |**유형** | **참조**  | **설명**|
+|**이름**   |**Type** | **참조**  | **설명**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | runtime_stats_entries 테이블의 ID|
 |user_id    |oid    |pg_authid.oid  |문을 실행한 사용자의 OID|
@@ -152,7 +152,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
 이 보기는 쿼리 저장소의 쿼리 텍스트 데이터를 반환합니다. 각 고유 query_text에 대한 하나의 행이 있습니다.
 
-|**이름**|  **유형**|   **설명**|
+|**이름**|  **Type**|   **설명**|
 |---|---|---|
 |query_text_id  |bigint     |query_texts 테이블의 ID|
 |query_sql_text |Varchar(10000)     |대표 문의 텍스트. 동일한 구조의 서로 다른 쿼리가 함께 클러스터되고, 이 텍스트는 클러스터에 있는 첫 번째 쿼리의 텍스트입니다.|
@@ -160,7 +160,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
 이 보기는 쿼리 저장소의 대기 이벤트 데이터를 반환합니다. 각 고유 데이터베이스 ID, 사용자 ID, 쿼리 ID 및 이벤트에 대한 하나의 행이 있습니다.
 
-|**이름**|  **유형**|   **참조**| **설명**|
+|**이름**|  **Type**|   **참조**| **설명**|
 |---|---|---|---|
 |user_id    |oid    |pg_authid.oid  |문을 실행한 사용자의 OID|
 |db_id  |oid    |pg_database.oid    |문이 실행된 데이터베이스의 OID|
@@ -170,7 +170,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 |calls  |정수        ||캡처된 동일한 이벤트 수|
 
 
-### <a name="functions"></a>함수
+### <a name="functions"></a>Functions
 Query_store.qs_reset() returns void
 
 `qs_reset`은 쿼리 저장소가 지금까지 수집한 모든 통계를 무시합니다.  이 함수는 서버 관리자 역할만 실행할 수 있습니다.
@@ -182,7 +182,7 @@ Query_store.staging_data_reset() returns void
 ## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 - PostgreSQL 서버에서 default_transaction_read_only 매개 변수가 설정되어 있으면 Query Store가 데이터를 캡처할 수 없습니다.
 - 6000바이트 이상의 긴 유니코드 쿼리가 발견되면 Query Store 기능이 중단될 수 있습니다.
-- [읽기 복제본은](concepts-read-replicas.md) 마스터 서버에서 Query 스토어 데이터를 복제합니다. 즉, 읽기 복제본의 쿼리 저장소는 읽기 복제본에서 실행되는 쿼리에 대한 통계를 제공하지 않습니다.
+- [읽기 복제본](concepts-read-replicas.md) 은 마스터 서버에서 쿼리 저장소 데이터를 복제 합니다. 즉, 읽기 복제본의 쿼리 저장소는 읽기 복제본에서 실행 되는 쿼리에 대 한 통계를 제공 하지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
