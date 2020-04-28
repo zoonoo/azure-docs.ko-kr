@@ -1,5 +1,5 @@
 ---
-title: '컴퓨터에서 VNet에 연결 - P2S VPN 및 기본 Azure 인증서 인증: PowerShell'
+title: '컴퓨터에서 VNet에 연결-P2S VPN 및 네이티브 Azure 인증서 인증: PowerShell'
 description: P2S 및 자체 서명 또는 CA 발급 인증서를 사용하여 Windows 및 Mac OS X 클라이언트를 Azure 가상 네트워크에 안전하게 연결합니다. 이 문서에서는 PowerShell을 사용합니다.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: 49fbdf4a4090350cc0a6a5a1b938621b3cb08632
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76045108"
 ---
-# <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>네이티브 Azure 인증서 인증을 사용하여 VNet에 대한 지점 간 VPN 연결 구성: PowerShell
+# <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>네이티브 Azure 인증서 인증을 사용 하 여 VNet에 지점 및 사이트 간 VPN 연결 구성: PowerShell
 
 이 문서는 Windows, Linux 또는 Mac OS X을 실행하는 개별 클라이언트를 Azure VNet에 안전하게 연결하는 데 도움이 됩니다. 지점 및 사이트 간 VPN 연결은 집 또는 회의에서 원격 통신하는 경우와 같이 원격 위치에서 VNet에 연결하려는 경우에 유용합니다. 또한 VNet에 연결해야 하는 몇 가지 클라이언트만 있는 경우 사이트 간 VPN 대신 P2S를 사용할 수도 있습니다. P2S 연결을 작동하는 데는 VPN 디바이스 또는 공용 IP 주소가 필요하지 않습니다. P2S는 SSTP(Secure Socket Tunneling Protocol) 또는 IKEv2를 통한 VPN 연결을 만듭니다. 지점 및 사이트 간 VPN에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](point-to-site-about.md)를 참조하세요.
 
@@ -39,7 +39,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 >[!NOTE]
-> 이 문서의 대부분의 단계는 Azure 클라우드 셸을 사용할 수 있습니다. 그러나 루트 인증서 공개 키를 업로드하려면 PowerShell을 로컬로 사용하거나 Azure Portal을 사용해야 합니다.
+> 이 문서의 단계 대부분은 Azure Cloud Shell를 사용할 수 있습니다. 그러나 루트 인증서 공개 키를 업로드하려면 PowerShell을 로컬로 사용하거나 Azure Portal을 사용해야 합니다.
 >
 
 ### <a name="example-values"></a><a name="example"></a>예제 값
@@ -63,7 +63,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 * **공용 IP 이름: VNet1GWPIP**
 * **VpnType: RouteBased** 
 
-## <a name="1-sign-in-and-set-variables"></a><a name="declare"></a>1. 로그인 및 설정 변수
+## <a name="1-sign-in-and-set-variables"></a><a name="declare"></a>1. 로그인 및 변수 설정
 
 이 섹션에서는 로그인하고 이 구성에 사용되는 값을 선언합니다. 선언된 값은 예제 스크립트에 사용됩니다. 값을 변경하여 고유한 환경을 반영합니다. 또는 선언된 값을 사용하고 단계를 연습 삼아 살펴볼 수 있습니다.
 
@@ -129,13 +129,13 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
    ```
 
-## <a name="3-create-the-vpn-gateway"></a><a name="creategateway"></a>3. VPN 게이트웨이 만들기
+## <a name="3-create-the-vpn-gateway"></a><a name="creategateway"></a>3. VPN gateway 만들기
 
 VNet용 가상 네트워크 게이트웨이를 구성하고 만듭니다.
 
 * -GatewayType은 **Vpn**이어야 하고 -VpnType은 **RouteBased**이어야 합니다.
-* -VpnClientProtocol은 사용하려는 터널의 유형을 지정하는 데 사용됩니다. 터널 옵션은 **OpenVPN, SSTP** 및 **IKEv2입니다.** 그 중 하나 또는 지원되는 조합을 사용하도록 선택할 수 있습니다. 여러 형식을 사용하려면 쉼표로 구분된 이름을 지정합니다. OpenVPN과 SSTP를 함께 사용할 수 없습니다. Android 및 Linux의 strongSwan 클라이언트와 iOS 및 OSX의 네이티브 IKEv2 VPN 클라이언트는 IKEv2 터널만 사용하여 연결합니다. Windows 클라이언트는 IKEv2를 먼저 시도하고 연결되지 않는 경우 SSTP로 대체합니다. OpenVPN 클라이언트를 사용하여 OpenVPN 터널 유형에 연결할 수 있습니다.
-* 가상 네트워크 게이트웨이 '기본' SKU는 IKEv2, OpenVPN 또는 RADIUS 인증을 지원하지 않습니다. Mac 클라이언트를 가상 네트워크에 연결하려는 경우 기본 SKU를 사용하지 마세요.
+* -VpnClientProtocol은 사용하려는 터널의 유형을 지정하는 데 사용됩니다. 터널 옵션은 **Openvpn, SSTP** 및 **IKEv2**입니다. 이러한 항목 중 하나 또는 지원 되는 모든 조합을 사용 하도록 선택할 수 있습니다. 여러 형식을 사용 하도록 설정 하려면 이름을 쉼표로 구분 하 여 지정 합니다. OpenVPN 및 SSTP를 함께 사용 하도록 설정할 수 없습니다. Android 및 Linux의 strongSwan 클라이언트와 iOS 및 OSX의 네이티브 IKEv2 VPN 클라이언트는 IKEv2 터널만 사용하여 연결합니다. Windows 클라이언트는 IKEv2를 먼저 시도하고 연결되지 않는 경우 SSTP로 대체합니다. OpenVPN 클라이언트를 사용 하 여 OpenVPN 터널 형식에 연결할 수 있습니다.
+* 가상 네트워크 게이트웨이 ' 기본 ' SKU는 IKEv2, OpenVPN 또는 RADIUS 인증을 지원 하지 않습니다. Mac 클라이언트를 가상 네트워크에 연결하려는 경우 기본 SKU를 사용하지 마세요.
 * VPN 게이트웨이는 선택한 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md)에 따라 완료하는 데 최대 45분이 걸릴 수 있습니다. 이 예제에서는 IKEv2를 사용합니다.
 
 ```azurepowershell-interactive
@@ -159,7 +159,7 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPoo
 
 자체 서명된 인증서를 사용하는 경우 특정 매개 변수를 사용하여 만들어야 합니다. [PowerShell 및 Windows 10](vpn-gateway-certificates-point-to-site.md)에 대한 지침을 사용하여 자체 서명된 인증서를 만들 수 있고 Windows 10을 사용하지 않는 경우 [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)를 사용할 수 있습니다. 자체 서명된 루트 인증서 및 클라이언트 인증서를 생성할 때 지침에 나와 있는 단계를 따르는 것이 중요합니다. 그렇지 않으면 생성된 인증서가 P2S 연결과 호환되지 않으며 연결 오류가 발생하게 됩니다.
 
-### <a name="1-obtain-the-cer-file-for-the-root-certificate"></a><a name="cer"></a>1. 루트 인증서에 대한 .cer 파일을 가져옵니다.
+### <a name="1-obtain-the-cer-file-for-the-root-certificate"></a><a name="cer"></a>1. 루트 인증서의 .cer 파일을 가져옵니다.
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
@@ -173,7 +173,7 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPoo
 VPN 게이트웨이에서 만들기가 완료되었는지 확인합니다. 완료되었으면 신뢰할 수 있는 루트 인증서의 .cer 파일(공개 키 정보 포함)을 Azure로 업로드할 수 있습니다. a.cer 파일이 업로드되면 Azure는 이.cer 파일을 사용하여 신뢰할 수 있는 루트 인증서에서 생성된 클라이언트 인증서를 설치한 클라이언트를 인증합니다. 필요한 경우 나중에 신뢰할 수 있는 루트 인증서 파일을 최대 20개까지 추가로 업로드할 수 있습니다.
 
 >[!NOTE]
-> Azure 클라우드 셸을 사용 하 여 .cer 파일을 업로드할 수 없습니다. 컴퓨터에서 로컬로 PowerShell을 사용하거나 Azure 포털 [단계를](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile)사용할 수 있습니다.
+> Azure Cloud Shell를 사용 하 여 .cer 파일을 업로드할 수 없습니다. 컴퓨터에서 로컬로 PowerShell을 사용 하거나 [Azure Portal 단계](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile)를 사용할 수 있습니다.
 >
 
 1. 인증서 이름에 대한 변수를 선언하고 변수를 고유한 값으로 바꿉니다.
@@ -189,7 +189,7 @@ VPN 게이트웨이에서 만들기가 완료되었는지 확인합니다. 완�
    $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
    $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
    ```
-3. 공개 키 정보를 Azure에 업로드합니다. 인증서 정보가 업로드되면 Azure는 해당 인증서를 신뢰할 수 있는 루트 인증서로 간주합니다. 업로드할 때 컴퓨터에서 로컬로 PowerShell을 실행 중인지 또는 대신 [Azure 포털 단계를](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile)사용할 수 있습니다. Azure 클라우드 셸을 사용 하 여 업로드할 수 없습니다.
+3. 공개 키 정보를 Azure에 업로드합니다. 인증서 정보가 업로드되면 Azure는 해당 인증서를 신뢰할 수 있는 루트 인증서로 간주합니다. 업로드할 때 컴퓨터에서 로컬로 PowerShell을 실행 하 고 있는지 확인 하 고, 대신 [Azure Portal 단계](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile)를 사용할 수 있습니다. Azure Cloud Shell를 사용 하 여 업로드할 수 없습니다.
 
    ```azurepowershell
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64
@@ -269,7 +269,7 @@ Azure에서 신뢰할 수 있는 루트 인증서를 추가 및 제거할 수 �
 
 Azure에 최대 20개의 루트 인증서 .cer 파일을 추가할 수 있습니다. 다음 단계를 사용하면 루트 인증서를 추가할 수 있습니다.
 
-#### <a name="method-1"></a><a name="certmethod1"></a>메서드 1
+#### <a name="method-1"></a><a name="certmethod1"></a>방법 1
 
 
 루트 인증서를 업로드하는 가장 효율적인 방법입니다. 이 방법을 사용하려면 Azure PowerShell cmdlet이 컴퓨터에 로컬로 설치되어야 합니다(Azure Cloud Shell 아님).
@@ -356,7 +356,7 @@ Azure에 최대 20개의 루트 인증서 .cer 파일을 추가할 수 있습니
 
 ### <a name="revoke-a-client-certificate"></a><a name="revokeclientcert"></a>클라이언트 인증서 해지
 
-1. 클라이언트 인증서 지문을 검색합니다. 자세한 내용은 [인증서의 지문을 검색하는 방법을](https://msdn.microsoft.com/library/ms734695.aspx)참조하십시오.
+1. 클라이언트 인증서 지문을 검색합니다. 자세한 내용은 [인증서의 지문을 검색](https://msdn.microsoft.com/library/ms734695.aspx)하는 방법을 참조 하세요.
 2. 텍스트 편집기에 정보를 복사하고 연속 문자열이 되도록 공백을 모두 제거합니다. 이 문자열은 다음 단계에서 변수로 선언됩니다.
 3. 변수를 선언합니다. 이전 단계에서 검색된 지문을 선언해야 합니다.
 
@@ -404,7 +404,7 @@ Azure에 최대 20개의 루트 인증서 .cer 파일을 추가할 수 있습니
    Get-AzVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
    ```
 
-## <a name="point-to-site-faq"></a><a name="faq"></a>지점 간 자주 묻는 질문
+## <a name="point-to-site-faq"></a><a name="faq"></a>지점 및 사이트 간 FAQ
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 

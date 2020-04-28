@@ -1,5 +1,5 @@
 ---
-title: 다중 테넌트 응용 프로그램 사용 - Azure 디지털 트윈 | 마이크로 소프트 문서
+title: 다중 테 넌 트 응용 프로그램 사용-Azure Digital Twins | Microsoft Docs
 description: Azure Digital Twins에 대한 다중 테넌트 Azure Active Directory 애플리케이션을 구성하는 방법
 ms.author: alinast
 author: alinamstanciu
@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.openlocfilehash: 6e1321e01d8d12974a2704f4478b02a26c14142f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76264936"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Azure Digital Twins에서 다중 테넌트 애플리케이션 사용
@@ -54,14 +54,14 @@ Azure Digital Twins를 빌드하는 솔루션 개발자는 단일 서비스 또�
 
 - [Azure Portal](https://portal.azure.com)에서 **고객**의 Azure Active Directory 테넌트 관리자는 다음 단계를 수행합니다.
 
-  1. 상위 Azure 검색 필드에서 **구독을 검색합니다.** **구독을 선택합니다.**
+  1. 상위 Azure search 필드에서 **구독** 을 검색 합니다. **구독**을 선택 합니다.
   1. **개발자**의 애플리케이션에서 사용할 수 있는 Azure Active Directory 테넌트를 포함한 구독을 선택합니다.
 
      [![Azure Active Directory 구독](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
 
-  1. **리소스 공급자를**선택합니다.
+  1. **리소스 공급자**를 선택 합니다.
   1. **Microsoft.IoTSpaces**를 검색합니다.
-  1. **등록을**선택합니다.
+  1. **등록**을 선택합니다.
 
      [![Azure Active Directory 리소스 공급 기업](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
   

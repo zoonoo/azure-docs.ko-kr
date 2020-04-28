@@ -1,7 +1,7 @@
 ---
-title: 공용 클라이언트 앱 인스턴스화(MSAL.NET) | Azure
+title: 공용 클라이언트 앱 인스턴스화 (MSAL.NET) | Microsoft
 titleSuffix: Microsoft identity platform
-description: .NET(MSAL.NET)에 대한 Microsoft 인증 라이브러리를 사용하여 구성 옵션을 사용하여 공용 클라이언트 응용 프로그램을 인스턴스화하는 방법을 알아봅니다.
+description: .NET 용 Microsoft 인증 라이브러리 (MSAL.NET)를 사용 하 여 구성 옵션으로 공용 클라이언트 응용 프로그램을 인스턴스화하는 방법에 대해 알아봅니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,25 +14,25 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 1dd06e139f931bbf8554f05f05c5d9b9ccf200e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77083602"
 ---
-# <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>MSAL.NET 사용하여 구성 옵션을 사용하여 공용 클라이언트 응용 프로그램을 인스턴스화합니다.
+# <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>MSAL.NET를 사용 하 여 구성 옵션을 사용 하 여 공용 클라이언트 응용 프로그램 인스턴스화
 
-이 문서에서는 .NET(MSAL.NET)에 대한 Microsoft 인증 라이브러리를 사용하여 [공용 클라이언트 응용 프로그램을](msal-client-applications.md) 인스턴스화하는 방법에 대해 설명합니다.  응용 프로그램은 설정 파일에 정의된 구성 옵션으로 인스턴스화됩니다.
+이 문서에서는 .NET 용 Microsoft Authentication Library (MSAL.NET)를 사용 하 여 [공용 클라이언트 응용 프로그램](msal-client-applications.md) 을 인스턴스화하는 방법을 설명 합니다.  응용 프로그램은 설정 파일에 정의 된 구성 옵션을 사용 하 여 인스턴스화됩니다.
 
-응용 프로그램을 초기화하기 전에 먼저 앱을 Microsoft ID 플랫폼과 통합할 수 있도록 응용 프로그램을 [등록해야](quickstart-register-app.md) 합니다. 등록 후 Azure 포털에서 찾을 수 있는 다음 정보가 필요할 수 있습니다.
+응용 프로그램을 초기화 하려면 먼저 앱이 Microsoft id 플랫폼과 통합 될 수 있도록 해당 응용 프로그램을 [등록](quickstart-register-app.md) 해야 합니다. 등록 후에는 다음 정보가 필요할 수 있습니다 (Azure Portal 참조).
 
-- 클라이언트 ID(GUID를 나타내는 문자열)
-- 인스턴스라는 ID 공급자 URL과 응용 프로그램의 로그인 대상입니다. 이러한 두 매개 변수를 통칭하여 기관이라고 합니다.
-- 조직에 대해서만 비즈니스 응용 프로그램을 작성하는 경우 테넌트 ID(단일 테넌트 응용 프로그램이라고도 함).
-- 웹 앱의 경우, 공용 클라이언트 앱(특히 앱이 브로커를 사용해야 하는 경우)의 경우 ID 공급자가 보안 토큰으로 응용 프로그램에 다시 연락하는 리디렉션Uri도 설정해야 합니다.
+- 클라이언트 ID (GUID를 나타내는 문자열)
+- 응용 프로그램에 대 한 id 공급자 URL (인스턴스 이름) 및 로그인 대상이 됩니다. 이러한 두 매개 변수를 통칭 하 여 기관 이라고 합니다.
+- 조직 전용 lob (단일 테 넌 트 응용 프로그램) 응용 프로그램을 작성 하는 경우 테 넌 트 ID입니다.
+- 웹 앱 및 공용 클라이언트 앱의 경우 (특히 앱에서 broker를 사용 해야 하는 경우) id 공급자가 응용 프로그램에 보안 토큰을 다시 연결 하는 redirectUri도 설정 해야 합니다.
 
 
-.NET 코어 콘솔 응용 프로그램에는 다음과 같은 *appsettings.json* 구성 파일이 있을 수 있습니다.
+.NET Core 콘솔 응용 프로그램에는 다음과 같은 *appsettings* 구성 파일이 있을 수 있습니다.
 
 ```json
 {
@@ -48,7 +48,7 @@ ms.locfileid: "77083602"
 }
 ```
 
-다음 코드는 .NET 구성 프레임워크를 사용하여 이 파일을 읽습니다.
+다음 코드는 .NET 구성 프레임 워크를 사용 하 여이 파일을 읽습니다.
 
 ```csharp
 public class SampleConfiguration
@@ -90,7 +90,7 @@ public class SampleConfiguration
 }
 ```
 
-다음 코드는 설정 파일의 구성을 사용하여 응용 프로그램을 만듭니다.
+다음 코드는 설정 파일의 구성을 사용 하 여 응용 프로그램을 만듭니다.
 
 ```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");

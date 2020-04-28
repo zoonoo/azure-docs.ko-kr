@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,18 +15,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 730ff3c274fd93e6344cec688ba2db212d285baf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76758950"
 ---
-응용 프로그램을 훌륭하게 만듭니다.
+응용 프로그램을 효율적으로 만드세요.
 
-- [로깅](../articles/active-directory/develop/msal-logging.md)을 사용 합니다.
-- 원격 분석을 사용하도록 설정합니다.
+- [로깅을](../articles/active-directory/develop/msal-logging.md)사용 합니다.
+- 원격 분석을 사용 하도록 설정 합니다.
 - [프록시를 사용하도록 설정하고 HTTP 클라이언트를 사용자 지정](../articles/active-directory/develop/msal-net-provide-httpclient.md)합니다.
 
 통합 테스트:
 
-- Microsoft [ID 플랫폼에 대한 통합 검사 목록을](../articles/active-directory/develop/identity-platform-integration-checklist.md)사용합니다.
+- [Microsoft id 플랫폼에 대 한 통합 검사 목록을](../articles/active-directory/develop/identity-platform-integration-checklist.md)사용 합니다.

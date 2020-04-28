@@ -1,13 +1,13 @@
 ---
-title: 잘못된 템플릿 오류
-description: Azure 리소스 관리자 템플릿을 배포할 때 잘못된 템플릿 오류를 해결하는 방법을 설명합니다.
+title: 잘못 된 템플릿 오류
+description: Azure Resource Manager 템플릿을 배포할 때 잘못 된 템플릿 오류를 해결 하는 방법을 설명 합니다.
 ms.topic: troubleshooting
 ms.date: 03/08/2018
 ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76154060"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>잘못된 템플릿 오류 해결

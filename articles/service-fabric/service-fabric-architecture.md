@@ -1,14 +1,14 @@
 ---
-title: Azure 서비스 패브릭의 아키텍처
-description: 이 문서에서는 클라우드를 위해 확장 가능하고 안정적이며 쉽게 관리할 수 있는 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼인 Service Fabric의 아키텍처에 대해 설명합니다.
+title: Azure Service Fabric의 아키텍처
+description: 이 문서에서는 클라우드를 위한 확장 가능 하 고 안정적 이며 쉽게 관리 되는 응용 프로그램을 빌드하는 데 사용 되는 분산 시스템 플랫폼인 Service Fabric의 아키텍처에 대해 설명 합니다.
 services: service-fabric
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: 972700dded1841994de9252b4aa4bbc8eaefeaf8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76024701"
 ---
 # <a name="service-fabric-architecture"></a>서비스 패브릭 아키텍처
@@ -40,7 +40,7 @@ ms.locfileid: "76024701"
 
 * 복제자는 기본 서비스 복제본에서 보조 복제본으로 자동으로 복제되는 변경되는 상태를 확인하고 서비스 복제본 세트에서 기본 및 보조 복제본간의 일관성을 유지합니다. 복제자는 복제본 세트의 복제본 간의 쿼럼 관리를 담당합니다. 장애 조치(failover) 단위와 상호 작용하여 복제할 작업 목록을 가져오고, 재구성 에이전트는 복제본 세트의 구성과 함께 이를 제공합니다. 여기서 구성은 작업을 복제해야 하는 복제본을 나타냅니다. 서비스 패브릭은 패브릭 복제자라고 불리는 기본 복제자를 제공합니다. 이는 프로그래밍 모델 API가 서비스 상태를 높은 가용성과 안정성 있게 만드는 데 이용될 수 있습니다.
 * 장애 조치(Failover) 관리자는 클러스터에 노드가 추가되거나 삭제된 경우 부하가 사용 가능한 노드에 걸쳐 자동으로 재분산되도록 합니다. 클러스터의 노드가 실패한 경우, 해당 클러스터는 자동으로 서비스 복제본을 재구성하여 가용성을 유지합니다.
-* Resource Manager는 클러스터의 장애 도메인 전체에 서비스 복제본을 배치하고 모든 장애 조치 단위가 작동하도록 합니다. 또한 리소스 관리자는 클러스터 노드의 기본 공유 풀을 통해 서비스 리소스를 분산시켜서 최적화된 균일한 부하 분산을 달성합니다.
+* 리소스 관리자는 클러스터의 장애 도메인에 서비스 복제본을 배치 하 고 모든 장애 조치 (failover) 단위가 작동 하는지 확인 합니다. 또한 리소스 관리자는 클러스터 노드의 기본 공유 풀을 통해 서비스 리소스를 분산시켜서 최적화된 균일한 부하 분산을 달성합니다.
 
 ## <a name="management-subsystem"></a>관리 하위 시스템
 

@@ -8,10 +8,10 @@ ms.date: 05/27/2017
 ms.author: dimart
 ms.custom: mvc
 ms.openlocfilehash: 1ec7ece6f5afd1bbd2613ae08af04b82e8a156b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277924"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(사용되지 않음) Azure DevOps를 사용하여 ACS Engine 및 Docker Swarm Mode를 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인
@@ -67,7 +67,7 @@ Azure DevOps를 사용하여 Docker Swarm Mode 클러스터에서 이 애플리�
 
 Azure DevOps 프로젝트와 Azure 계정 간에 연결을 설정합니다.
 
-1. 왼쪽에서 새 **서비스 끝점** > **Azure 리소스 관리자를**클릭합니다.
+1. 왼쪽에서 **새 서비스 끝점** > **Azure Resource Manager**를 클릭 합니다.
 2. Azure 계정을 사용하도록 Azure DevOps를 인증하려면 **구독**을 선택하고 **확인**을 클릭합니다.
 
     ![Azure DevOps - Azure 인증](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-azure.PNG)
@@ -76,7 +76,7 @@ Azure DevOps 프로젝트와 Azure 계정 간에 연결을 설정합니다.
 
 Azure DevOps 프로젝트와 GitHub 계정 간에 연결을 설정합니다.
 
-1. 왼쪽에서 새 **서비스 끝점** > **GitHub를**클릭합니다.
+1. 왼쪽에서 **새 서비스 끝점** > **GitHub**를 클릭 합니다.
 2. Azure DevOps를 인증하여 GitHub 계정으로 작업하려면 **인증**을 클릭하고 열린 창에서 절차를 따릅니다.
 
     ![Azure DevOps - GitHub 인증](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github.png)
@@ -126,7 +126,7 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 Docker Swarm 클러스터�
 *MyShop* 애플리케이션에 대해 빌드되는 5개의 컨테이너 이미지가 있습니다. 각 이미지는 프로젝트 폴더에 있는 Dockerfile을 사용하여 빌드됩니다.
 
 * ProductsApi
-* Proxy
+* 프록시
 * RatingsApi
 * RecommendationsApi
 * ShopFront
@@ -141,7 +141,7 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 Docker Swarm 클러스터�
 
     ![Azure DevOps - Docker 빌드](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-build.png)
 
-    빌드 작업의 경우 Azure 컨테이너 레지스트리, **이미지 빌드** 작업 및 각 이미지를 정의하는 Dockerfile을 선택합니다. **작업 디렉터리**를 Dockerfile 루트 디렉터리로 설정하고, **이미지 이름**을 정의한 후 **최신 태그 포함**을 선택합니다.
+    빌드 작업의 경우 Azure Container Registry, **이미지 빌드** 작업 및 각 이미지를 정의 하는 Dockerfile을 선택 합니다. **작업 디렉터리**를 Dockerfile 루트 디렉터리로 설정하고, **이미지 이름**을 정의한 후 **최신 태그 포함**을 선택합니다.
     
     이미지 이름은 ```$(RegistryURL)/[NAME]:$(Build.BuildId)``` 형식이어야 합니다. **[NAME]** 을 이미지 이름으로 바꿉니다.
     - ```proxy```
@@ -194,9 +194,9 @@ Azure DevOps를 사용하면 [환경에서 릴리스를 관리](https://www.visu
 
 ### <a name="initial-release-setup"></a>최초 릴리스 설정
 
-1. 릴리스 파이프라인을 만들려면 **릴리스** > **+ 릴리스를** 클릭합니다.
+1. 릴리스 파이프라인을 만들려면 릴리스 > **+ 릴리스** **를 클릭 합니다**.
 
-2. 아티팩트 소스를 구성하려면 **아티팩트** > **링크를**클릭합니다. 여기에서는 이전 단계에서 정의한 빌드에 이 새로운 릴리스 파이프라인을 연결합니다. 그런 후에 docker-compose.yml 파일을 릴리스 프로세스에서 사용할 수 있습니다.
+2. 아티팩트 소스를 구성 하려면 아티팩트 > **소스 링크** **를 클릭 합니다**. 여기에서는 이전 단계에서 정의한 빌드에 이 새로운 릴리스 파이프라인을 연결합니다. 그런 후에 docker-compose.yml 파일을 릴리스 프로세스에서 사용할 수 있습니다.
 
     ![Azure DevOps - 릴리스 아티팩트](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-artefacts.png) 
 
@@ -248,6 +248,6 @@ Azure DevOps를 사용하면 [환경에서 릴리스를 관리](https://www.visu
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure DevOps를 사용하면 CI/CD에 대한 자세한 내용은 Azure 파이프라인 설명서 문서를 [참조하세요.](/azure/devops/pipelines/?view=azure-devops)
+* Azure DevOps를 사용 하는 CI/CD에 대 한 자세한 내용은 [Azure Pipelines 설명서](/azure/devops/pipelines/?view=azure-devops) 문서를 참조 하세요.
 * ACS Engine에 대한 자세한 내용은 [ACS Engine GitHub 리포지토리](https://github.com/Azure/acs-engine)를 참조하세요.
 * Docker Swarm Mode에 대한 자세한 내용은 [Docker Swarm Mode 개요](https://docs.docker.com/engine/swarm/)를 참조하세요.

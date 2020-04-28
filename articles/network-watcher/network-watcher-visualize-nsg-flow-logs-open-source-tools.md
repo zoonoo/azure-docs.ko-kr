@@ -1,5 +1,5 @@
 ---
-title: NSG 흐름 로그 시각화 - 탄력적 스택
+title: NSG 흐름 로그 시각화-탄력적 스택
 titleSuffix: Azure Network Watcher
 description: Network Watcher 및 Elastic Stack을 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그를 관리하고 분석합니다.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: e567994038fb4f71ef86dc577760ecf4699a0b1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840641"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>오픈 소스 도구를 사용하여 Azure Network Watcher NSG 흐름 로그 시각화
@@ -37,7 +37,7 @@ ms.locfileid: "76840641"
 ## <a name="steps"></a>단계
 
 ### <a name="enable-network-security-group-flow-logging"></a>네트워크 보안 그룹 흐름 로그 사용
-이 시나리오에서는 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그 사용에 대한 지침은 다음 문서를 참조하여 [네트워크 보안 그룹에 대한 플로우 로깅 을 소개합니다.](network-watcher-nsg-flow-logging-overview.md)
+이 시나리오에서는 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그를 사용 하도록 설정 하는 방법에 대 한 지침은 [네트워크 보안 그룹에 대 한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md)문서를 참조 하세요.
 
 ### <a name="set-up-the-elastic-stack"></a>탄력적 스택 설정
 NSG 흐름 로그를 탄력적 스택과 연결하여 로그에서 정보를 검색하고, 그래프화하며 분석하고 정보를 끌어낼 수 있는 Kibana 대시보드를 만들 수 있습니다.
@@ -157,7 +157,7 @@ NSG 흐름 로그를 탄력적 스택과 연결하여 로그에서 정보를 검
    }  
    ```
 
-Logstash 설치에 대한 자세한 지침은 [공식 설명서를](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)참조하십시오.
+Logstash 태의 설치에 대 한 자세한 지침은 [공식 설명서](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)를 참조 하세요.
 
 ### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Azure Blob Storage를 위한 Logstash 입력 플러그 인 설치
 

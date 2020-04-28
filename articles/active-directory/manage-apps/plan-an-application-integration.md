@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89b16a8479f8975d101b8a4e26dcb1885d9730bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063383"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>애플리케이션과 Azure Active Directory 통합 시작 가이드
@@ -77,7 +77,7 @@ ms.locfileid: "77063383"
 Microsoft Azure AD 애플리케이션 프록시를 사용하여 어디서든 어떤 디바이스에서든 안전하게 프라이빗 네트워크 내부에 위치한 애플리케이션에 액세스를 제공할 수 있습니다. 환경 내에서 애플리케이션 프록시 커넥터를 설치한 후에 Azure AD를 이용하여 쉽게 구성될 수 있습니다.
 
 ### <a name="integrating-custom-applications"></a>사용자 지정 애플리케이션 통합
-새 응용 프로그램을 작성하고 개발자가 Azure AD의 기능을 활용하는 데 도움을 주려면 [개발자 가이딩 개발자를](../active-directory-applications-guiding-developers-for-lob-applications.md)참조하십시오.
+새 응용 프로그램을 작성 하 고 개발자가 Azure AD의 기능을 활용 하도록 지원 하려면 [개발자 가이드](../active-directory-applications-guiding-developers-for-lob-applications.md)를 참조 하세요.
 
 Azure 애플리케이션 갤러리에 사용자 지정 애플리케이션을 추가하려는 경우 [Azure AD 셀프 서비스 SAML 구성을 사용하여 "앱 가져오기"](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)를 참조하세요.
 
@@ -91,11 +91,11 @@ Azure 애플리케이션 갤러리에 사용자 지정 애플리케이션을 추
 * [계정 공유](../active-directory-sharing-accounts.md)
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [GitHub](https://aka.ms/deploymentplans)에서 Azure Active Directory 배포 계획을 다운로드할 수 있습니다. 갤러리 응용 프로그램의 경우 [Azure 포털을](https://portal.azure.com)통해 단일 사인온, 조건부 액세스 및 사용자 프로비저닝에 대한 배포 계획을 다운로드할 수 있습니다. 
+자세한 내용은 [GitHub](https://aka.ms/deploymentplans)에서 Azure Active Directory 배포 계획을 다운로드할 수 있습니다. 갤러리 응용 프로그램의 경우 [Azure Portal](https://portal.azure.com)를 통해 Single Sign-On, 조건부 액세스 및 사용자 프로 비전을 위한 배포 계획을 다운로드할 수 있습니다. 
 
 Azure Portal에서 배포 계획을 다운로드하려면:
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
-2. 엔터프라이즈 응용 프로그램을 선택 앱 | **배포 계획을** **선택합니다.** | **Pick an App**
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **엔터프라이즈 응용 프로그램** | 선택**앱** | **배포 계획**을 선택 합니다.
 
 [배포 계획 조사](https://aka.ms/DeploymentPlanFeedback)를 수행하여 배포 계획에 대한 피드백을 제공하세요.

@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
 ms.openlocfilehash: c9f10815f2fbc8a17b8b712b6e5f8391fc7d541e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75980291"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 파일 서버 보호 
@@ -45,7 +45,7 @@ DFSR은 RDC(원격 차등 압축)라는 압축 알고리즘을 사용합니다. 
 
     * VM에 Site Recovery에서 지원되지 않는 구성이 있는 경우 이 방법을 사용할 수 있습니다. 예는 경우에 따라 일반적으로 파일 서버 환경에서 사용되는 공유 클러스터 디스크입니다. DFSR은 중간 변동률을 사용하여 대역폭이 낮은 환경에서도 잘 작동합니다. Azure VM을 사용하고 항상 실행하는 추가 비용을 고려해야 합니다. 
 
-* **Azure 파일 동기화를 사용하여 파일을 복제:** 클라우드를 사용하려는 경우 또는 Azure VM을 이미 사용하려는 경우 Azure 파일 동기화를 사용할 수 있습니다. Azure File Sync는 업계 표준 [SMB(서버 메시지 블록)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) 프로토콜을 통해 액세스할 수 있는 클라우드에서 완전히 관리되는 파일 공유의 동기화를 제공합니다. Azure 파일 공유는 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. 
+* **Azure File Sync를 사용 하 여 파일 복제**: 클라우드를 사용 하려는 경우 또는 Azure VM을 이미 사용 하는 경우 Azure File Sync를 사용할 수 있습니다. Azure File Sync은 업계 표준 SMB ( [서버 메시지 블록](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) ) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리 되는 파일 공유의 동기화를 제공 합니다. Azure 파일 공유는 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. 
 
 다음 다이어그램을 사용하여 파일 서버 환경에 사용할 전략을 결정할 수 있습니다.
 
@@ -54,9 +54,9 @@ DFSR은 RDC(원격 차등 압축)라는 압축 알고리즘을 사용합니다. 
 
 ### <a name="factors-to-consider-in-your-decisions-about-disaster-recovery-to-azure"></a>Azure로 재해 복구에 대한 결정 사항에 고려해야 할 요소
 
-|Environment  |권장  |고려할 항목 |
+|환경  |권장  |고려할 항목 |
 |---------|---------|---------|
-|DFSR 포함 또는 제외 파일 서버 환경|   [복제를 위해 Site Recovery 사용](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery는 공유 디스크 클러스터 또는 NAS(Network Attached Storage)를 지원하지 않습니다. 환경에서 이러한 구성을 사용하는 경우 적절한 다른 인증 방법 중 하나를 사용합니다. <br> Site Recovery는 SMB 3.0을 지원하지 않습니다. 복제된 VM은 파일에 대한 변경 내용이 파일의 원래 위치에서 업데이트되는 경우에만 변경 내용을 통합합니다.<br>  사이트 복구는 거의 동기에 가까운 데이터 복제 프로세스를 제공하므로 계획되지 않은 장애 조치 시나리오의 경우 잠재적인 데이터 손실이 발생할 수 있으며 USN 불일치 문제가 발생할 수 있습니다.
+|DFSR 포함 또는 제외 파일 서버 환경|   [복제를 위해 Site Recovery 사용](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery는 공유 디스크 클러스터 또는 NAS(Network Attached Storage)를 지원하지 않습니다. 환경에서 이러한 구성을 사용하는 경우 적절한 다른 인증 방법 중 하나를 사용합니다. <br> Site Recovery는 SMB 3.0을 지원하지 않습니다. 복제된 VM은 파일에 대한 변경 내용이 파일의 원래 위치에서 업데이트되는 경우에만 변경 내용을 통합합니다.<br>  Site Recovery은 거의 동기 데이터 복제 프로세스를 제공 하므로 계획 되지 않은 장애 조치 (failover) 시나리오의 경우 데이터가 손실 될 수 있으며 USN 불일치 문제가 발생할 수 있습니다.
 |DFSR 포함 파일 서버 환경     |  [Azure IaaS 가상 머신으로 확장된 DFSR](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      DFSR은 대역폭 환경에서 잘 작동합니다. 이 방법에서는 Azure VM을 항상 실행해야 합니다. 계획에서 VM의 비용을 고려해야 합니다.         |
 |Azure IaaS VM     |     파일 동기화    |     재해 복구 시나리오에서 파일 동기화를 사용하는 경우 장애 조치(failover) 중 파일 공유가 투명한 방식으로 클라이언트 컴퓨터에 액세스할 수 있는지 확인하기 위해 수동 작업을 수행해야 합니다. 파일 동기화에는 클라이언트 컴퓨터에서 포트 445가 열려 있어야 합니다.     |
 
@@ -66,10 +66,10 @@ Site Recovery 복제는 애플리케이션을 제한하지 않으므로 권장 �
 
 | 원본    |보조 사이트 대상    |Azure 대상
 |---------|---------|---------|
-|Azure| -|yes|
-|Hyper-V|   yes |yes
-|VMware |yes|   yes
-|물리적 서버|   yes |yes
+|Azure| -|예|
+|Hyper-V|   예 |예
+|VMware |예|   예
+|물리적 서버|   예 |예
  
 
 > [!IMPORTANT]
@@ -97,8 +97,8 @@ Azure Files는 기존의 온-프레미스 파일 서버 또는 NAS 디바이스�
 
 다음 단계는 파일 동기화를 사용하는 방법을 간단하게 설명합니다.
 
-1. [Azure에서 스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 스토리지 계정에 대해 읽기 액세스 지역 중복 스토리지를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [Azure Storage의 재해 복구 및 강제 장애 조치(미리 보기)를](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)참조하십시오.
-2. [파일 공유 를 만듭니다.](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)
+1. [Azure에서 스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 스토리지 계정에 대해 읽기 액세스 지역 중복 스토리지를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [Azure Storage에서 재해 복구 및 강제 장애 조치 (failover) (미리 보기)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)를 참조 하세요.
+2. [파일 공유를 만듭니다](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. Azure 파일 서버에서 [파일 동기화를 시작합니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide).
 4. 동기화 그룹을 만듭니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 동기화 그룹은 Azure 파일 공유를 나타내는 하나 이상의 클라우드 엔드포인트를 포함해야 합니다. 또한 동기화 그룹은 Windows 서버의 경로를 나타내는 하나의 서버 엔드포인트를 포함해야 합니다.
 5. 파일은 이제 Azure 파일 공유 및 온-프레미스서버와 동기화된 상태를 유지합니다.
@@ -120,7 +120,7 @@ IaaS 파일 서버 가상 머신에 액세스하는 온-프레미스 클라이�
 
 다음 단계에서는 VMware VM에 대한 복제를 설명합니다. Hyper-V VM을 복제하는 단계는 [이 자습서](tutorial-hyper-v-to-azure.md)를 참조하세요.
 
-1. 온-프레미스 시스템의 복제를 위해 [Azure 리소스를 준비합니다.](tutorial-prepare-azure.md)
+1. 온-프레미스 컴퓨터를 복제 하기 위해 [Azure 리소스를 준비](tutorial-prepare-azure.md) 합니다.
 2. 온-프레미스 사이트와 Azure 네트워크 간에 사이트 간 VPN 연결을 설정합니다. 
 3. 온-프레미스 Active Directory를 확장합니다.
 4. [온-프레미스 VMware 서버를 준비합니다](tutorial-prepare-on-premises-vmware.md).
@@ -147,7 +147,7 @@ Site Recovery와 파일 동기화를 통합하려면:
 파일 동기화를 사용하려면 다음 단계를 수행합니다.
 
 1. [Azure에서 스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 스토리지 계정에 대해 읽기 액세스 지역 중복 스토리지(권장)를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [Azure Storage에서 재해 복구 및 강제 장애 조치(Failover)(미리 보기)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)를 참조하세요.
-2. [파일 공유 를 만듭니다.](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)
+2. [파일 공유를 만듭니다](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. 온-프레미스 파일 서버에서 [파일 동기화를 배포합니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide).
 4. 동기화 그룹을 만듭니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 동기화 그룹은 Azure 파일 공유를 나타내는 하나 이상의 클라우드 엔드포인트를 포함해야 합니다. 또한 동기화 그룹은 온-프레미스 Windows 서버의 경로를 나타내는 하나의 서버 엔드포인트를 포함해야 합니다.
 5. 파일은 이제 Azure 파일 공유 및 온-프레미스서버와 동기화된 상태를 유지합니다.

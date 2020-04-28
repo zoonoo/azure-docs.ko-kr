@@ -1,19 +1,19 @@
 ---
-title: 비즈니스 연속성 - PostgreSQL용 Azure 데이터베이스 - 단일 서버
-description: 이 문서에서는 PostgreSQL용 Azure 데이터베이스를 사용할 때 비즈니스 연속성(시간 복원, 데이터 센터 중단, 지역 복원)에 대해 설명합니다.
+title: 비즈니스 연속성-Azure Database for PostgreSQL-단일 서버
+description: 이 문서에서는 Azure Database for PostgreSQL를 사용 하는 경우 비즈니스 연속성 (지정 시간 복원, 데이터 센터 중단, 지역 복원)을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: afa03399933bdc8bd8ff869125955cfd9e0abecb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75981925"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>PostgreSQL용 Azure 데이터베이스 - 단일 서버를 사용하여 비즈니스 연속성 개요
+# <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버를 사용한 비즈니스 연속성 개요
 
 이 개요에서는 Azure Database for PostgreSQL에서 비즈니스 연속성 및 재해 복구를 위해 제공하는 기능에 대해 설명합니다. 데이터 손실을 유발하거나 데이터베이스 및 애플리케이션을 사용할 수 없게 될 수 있는 중단 이벤트로부터 복구하는 옵션에 대해 알아봅니다. 사용자 또는 애플리케이션 오류가 데이터 무결성에 영향을 주거나, Azure 지역에 가동 중단이 발생하거나, 애플리케이션에 유지 관리가 필요할 때 수행할 작업을 알아봅니다.
 
@@ -23,35 +23,35 @@ Azure Database for PostgreSQL에는 자동화된 백업 및 사용자가 지역 
 
 다음 표에서는 ERT와 RPO에서 사용 가능한 기능을 비교합니다.
 
-| **기능** | **Basic** | **범용** | **메모리 최적화** |
+| **기능** | **Basic** | **일반 용도** | **메모리에 최적화** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | 백업에서 특정 시점 복원 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 |
 | 지리적으로 복제된 백업에서 지역 복원 | 지원되지 않음 | ERT < 12시간<br/>RPO < 1시간 | ERT < 12시간<br/>RPO < 1시간 |
 
 > [!IMPORTANT]
-> 삭제된 서버는 복원할 수 **없습니다**. 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. [Azure 리소스 잠금을](../azure-resource-manager/management/lock-resources.md) 사용하여 서버가 실수로 삭제되지 않도록 합니다.
+> 삭제된 서버는 복원할 수 **없습니다**. 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. [Azure 리소스 잠금을](../azure-resource-manager/management/lock-resources.md) 사용 하 여 실수로 서버를 삭제 하는 것을 방지 합니다.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>사용자 또는 애플리케이션 오류가 발생한 후 서버 복구
 
 서비스의 백업을 사용하여 다양한 중단 이벤트에서 서버를 복구할 수 있습니다. 사용자가 실수로 데이터를 삭제할 수도 있고, 의도치 않게 중요한 테이블을 삭제할 수도 있고, 전체 데이터베이스를 삭제할 수도 있습니다. 애플리케이션에서 결함으로 인해 양호한 데이터를 잘못된 데이터로 덮어쓸 수도 있습니다.
 
-시간 별 **복원을** 수행하여 알려진 시점에 대한 서버 복사본을 만들 수 있습니다. 이 특정 시점은 서버에 대해 구성한 백업 보존 기간 내에 있어야 합니다. 데이터가 새 서버로 복원된 후에는 원래 서버를 새로 복원된 서버로 바꾸거나 복원된 서버에서 원래 서버로 필요한 데이터를 복사할 수 있습니다.
+지정 **시간 복원을** 수행 하 여 알려진 양호한 시점으로 서버 복사본을 만들 수 있습니다. 이 특정 시점은 서버에 대해 구성한 백업 보존 기간 내에 있어야 합니다. 데이터가 새 서버로 복원된 후에는 원래 서버를 새로 복원된 서버로 바꾸거나 복원된 서버에서 원래 서버로 필요한 데이터를 복사할 수 있습니다.
 
-## <a name="recover-from-an-azure-data-center-outage"></a>Azure 데이터 센터 중단에서 복구
+## <a name="recover-from-an-azure-data-center-outage"></a>Azure 데이터 센터 가동 중단에서 복구
 
 드문 경우지만 Azure 데이터 센터에서 가동 중단이 발생할 수 있습니다. 중단이 발생하면 비즈니스 중단이 몇 분만 지속될 수도 있지만 몇 시간 동안 지속될 수도 있습니다.
 
-한 가지 옵션은 데이터 센터 중단이 끝날 때 서버가 온라인 상태가 되기까지 기다리는 것입니다. 이것은 개발 환경처럼 일정 기간 동안 서버를 오프라인 상태로 유지할 수 있는 애플리케이션에 적합합니다. 데이터 센터에 가동 중단이 발생하면 중단이 얼마나 오래 지속될지 알 수 없으므로 이 옵션은 잠시 동안 서버가 필요하지 않은 경우에만 작동합니다.
+한 가지 옵션은 데이터 센터 중단이 끝날 때 서버가 온라인 상태가 되기까지 기다리는 것입니다. 이것은 개발 환경처럼 일정 기간 동안 서버를 오프라인 상태로 유지할 수 있는 애플리케이션에 적합합니다. 데이터 센터의 작동이 중단 되 면 중단이 얼마나 지속 될 지 알 수 없으므로이 옵션은 잠시 동안 서버가 필요 하지 않은 경우에만 작동 합니다.
 
 ## <a name="geo-restore"></a>지리적 복원
 
-지역 복원 기능은 지리적 중복 백업을 사용하여 서버를 복원합니다. 백업은 서버의 [페어링된 지역에서](../best-practices-availability-paired-regions.md)호스팅됩니다. 이러한 백업에서 다른 지역으로 복원할 수 있습니다. 지역 복원은 백업의 데이터가 있는 새 서버를 만듭니다. 백업 및 복원 개념 문서에서 지역 복원에 대해 자세히 [알아봅니다.](concepts-backup.md)
+지역 복원 기능은 지역 중복 백업을 사용 하 여 서버를 복원 합니다. 백업은 서버의 [페어링된 지역](../best-practices-availability-paired-regions.md)에서 호스팅됩니다. 이러한 백업에서 다른 지역으로 복원할 수 있습니다. 지역 복원에서는 백업의 데이터를 사용 하 여 새 서버를 만듭니다. [백업 및 복원 개념 문서](concepts-backup.md)에서 지역 복원에 대해 자세히 알아보세요.
 
 > [!IMPORTANT]
 > 지역 복원은 지역 중복 백업 스토리지로 서버를 프로비전한 경우에만 가능합니다. 기존 서버에 대한 로컬 중복 백업을 지역 중복 백업으로 전환하려는 경우 pg_dump를 사용하여 기존 서버를 덤프한 후 지역 중복 백업으로 구성된 새로 만든 서버로 복원해야 합니다.
 
-## <a name="cross-region-read-replicas"></a>지역 간 읽기 복제본
-지역 간 읽기 복제본을 사용하여 비즈니스 연속성 및 재해 복구 계획을 향상시킬 수 있습니다. 읽기 복제본은 PostgreSQL의 실제 복제 기술을 사용하여 비동기적으로 업데이트됩니다. 읽기 복제본, 사용 가능한 지역 및 [읽기 복제본 개념 문서에서](concepts-read-replicas.md)장애 조치하는 방법에 대해 자세히 알아봅니다. 
+## <a name="cross-region-read-replicas"></a>영역 간 읽기 복제본
+지역 간 읽기 복제본을 사용 하 여 비즈니스 연속성 및 재해 복구 계획을 향상할 수 있습니다. 읽기 복제본은 PostgreSQL의 물리적 복제 기술을 사용 하 여 비동기적으로 업데이트 됩니다. 복제본 읽기, 사용 가능한 지역 및 장애 조치 (failover) 방법에 대 한 자세한 내용은 [복제본 읽기 개념 문서](concepts-read-replicas.md)를 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Database for PostgreSQL의 자동화된 백업](concepts-backup.md)에 대해 자세히 알아봅니다. 

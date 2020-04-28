@@ -1,13 +1,13 @@
 ---
-title: 상위 리소스 오류
-description: Azure 리소스 관리자 템플릿에서 상위 리소스로 작업할 때 오류를 해결하는 방법을 설명합니다.
+title: 부모 리소스 오류
+description: Azure Resource Manager 템플릿에서 부모 리소스를 사용할 때 발생 하는 오류를 해결 하는 방법을 설명 합니다.
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.openlocfilehash: f1847389d60ddf3c6abc70bc3309940c2246084e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76154043"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>부모 리소스 오류 해결
@@ -38,7 +38,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 부모 리소스가 이미 존재하고 동일한 템플릿으로 배포되지 않는 경우 Resource Manager가 부모와 자식 리소스를 연결할 수 없을 때 오류가 발생합니다. 자식 리소스가 올바른 형식이 아니거나 자식 리소스가 부모 리소스용 리소스 그룹과 다른 리소스 그룹에 배포되는 경우 오류가 발생할 수 있습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 부모 및 자식 리소스가 동일한 템플릿으로 배포될 경우 이 오류를 해결하려면 종속성을 포함합니다.
 
@@ -78,4 +78,4 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 }
 ```
 
-자세한 내용은 [Azure 리소스 관리자 템플릿에서 리소스 배포 순서 정의를 참조하세요.](define-resource-dependency.md)
+자세한 내용은 [Azure Resource Manager 템플릿에서 리소스를 배포 하는 순서 정의](define-resource-dependency.md)를 참조 하세요.

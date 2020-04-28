@@ -1,5 +1,5 @@
 ---
-title: 클라우드 파운드리 모니터링을 위한 Azure 로그 분석 노즐 배포
+title: Cloud Foundry 모니터링을 위해 Azure Log Analytics 노즐 배포
 description: Azure Log Analytics을 위한 Cloud Foundry Loggregator Nozzle 배포에 대한 단계별 지침. Nozzle을 사용하여 Cloud Foundry 시스템 상태 및 성능 메트릭을 모니터링합니다.
 services: virtual-machines-linux
 author: ningk
@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277351"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry 시스템 모니터링용 Azure Log Analytics Nozzle 배포
 
-[Azure 모니터는](https://azure.microsoft.com/services/log-analytics/) Azure의 서비스입니다. Log Analytics를 사용하면 클라우드 및 온-프레미스 환경에서 생성되는 데이터를 수집하고 분석할 수 있습니다.
+[Azure Monitor](https://azure.microsoft.com/services/log-analytics/) 는 Azure의 서비스입니다. Log Analytics를 사용하면 클라우드 및 온-프레미스 환경에서 생성되는 데이터를 수집하고 분석할 수 있습니다.
 
-로그 분석 노즐(노즐)은 클라우드 파운드리(CF) 구성 요소로, 클라우드 [파운드리 로그그리게이터](https://docs.cloudfoundry.org/loggregator/architecture.html) 파이어호스에서 Azure Monitor 로그로 메트릭을 전달합니다. Nozzle을 사용하면 여러 배포에서 CF 시스템 상태와 성능 메트릭을 수집, 확인 및 분석할 수 있습니다.
+Log Analytics 노즐 (노즐)은 [Cloud Foundry loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) firehose에서 Azure Monitor 로그로 메트릭을 전달 하는 CLOUD FOUNDRY (CF) 구성 요소입니다. Nozzle을 사용하면 여러 배포에서 CF 시스템 상태와 성능 메트릭을 수집, 확인 및 분석할 수 있습니다.
 
-이 문서에서는 Nozzle을 CF 환경에 배포한 다음 Azure Monitor 로그 콘솔의 데이터에 액세스하는 방법을 알아봅니다.
+이 문서에서는 CF 환경에 노즐을 배포한 다음 Azure Monitor logs 콘솔에서 데이터에 액세스 하는 방법에 대해 알아봅니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "76277351"
 
 다음 단계는 Nozzle 배포를 위한 필수 구성 요소입니다.
 
-### <a name="1-deploy-a-cf-or-pivotal-cloud-foundry-environment-in-azure"></a>1. Azure에 CF 또는 Pivotal 클라우드 파운드리 환경 배포
+### <a name="1-deploy-a-cf-or-pivotal-cloud-foundry-environment-in-azure"></a>1. Azure에서 CF 또는 Pivotal Cloud Foundry 환경을 배포 합니다.
 
 오픈 소스 CF 배포나 PCF(Pivotal Cloud Foundry) 배포에서 Nozzle을 사용할 수 있습니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "76277351"
 
 * [Azure에서 Pivotal Cloud Foundry 배포](https://docs.pivotal.io/pivotalcf/1-11/customizing/azure.html)
 
-### <a name="2-install-the-cf-command-line-tools-for-deploying-the-nozzle"></a>2. 노즐 배포를 위한 CF 명령줄 도구 설치
+### <a name="2-install-the-cf-command-line-tools-for-deploying-the-nozzle"></a>2. 노즐을 배포 하기 위한 CF 명령줄 도구 설치
 
 Nozzle은 CF 환경에서 애플리케이션을 실행합니다. 애플리케이션을 배포하려면 CF CLI가 필요합니다.
 
@@ -50,15 +50,15 @@ Nozzle은 또한 Loggregator Firehose 및 클라우드 컨트롤러에 대한 �
 
 * [Cloud Foundry UAA 명령줄 클라이언트 설치](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
 
-UAA 명령줄 클라이언트를 설정하기 전에 RubyGems가 설치되어 있는지 확인합니다.
+UAA 명령줄 클라이언트를 설정 하기 전에 RubyGems가 설치 되어 있는지 확인 합니다.
 
-### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Azure에서 로그 분석 작업 영역 만들기
+### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Azure에서 Log Analytics 작업 영역 만들기
 
-수동으로 또는 템플릿을 사용하여 Log Analytics 작업 영역을 만들 수 있습니다. 템플릿은 Azure Monitor 로그 콘솔에 대해 미리 구성된 KPI 보기 및 경고 설정을 배포합니다. 
+수동으로 또는 템플릿을 사용하여 Log Analytics 작업 영역을 만들 수 있습니다. 템플릿은 Azure Monitor 로그 콘솔에 대 한 미리 구성 된 KPI 보기 및 경고의 설정을 배포 합니다. 
 
 #### <a name="to-create-the-workspace-manually"></a>수동으로 작업 영역을 만들려면 다음을 수행합니다.
 
-1. Azure 포털에서 Azure 마켓플레이스의 서비스 목록을 검색한 다음 로그 분석 작업 영역을 선택합니다.
+1. Azure Portal에서 Azure Marketplace의 서비스 목록을 검색 한 다음 Log Analytics 작업 영역을 선택 합니다.
 2. **만들기**를 선택한 후, 다음 항목에 대한 선택 사항을 지정합니다.
 
    * **Log Analytics 작업 영역**: 작업 영역의 이름을 입력합니다.
@@ -67,7 +67,7 @@ UAA 명령줄 클라이언트를 설정하기 전에 RubyGems가 설치되어 �
    * **위치**: 위치를 입력합니다.
    * **가격 책정 계층**: **확인**을 클릭하여 완료합니다.
 
-자세한 내용은 [Azure Monitor 로그 시작 을](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)참조하십시오.
+자세한 내용은 [Azure Monitor 로그 시작](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)을 참조 하세요.
 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Azure Marketplace에서 모니터링 템플릿을 통해 Log Analytics 작업 영역을 만들려면:
 
@@ -100,7 +100,7 @@ PCF Ops Manager를 사용하지 않는 경우 Nozzle을 애플리케이션으로
 
 #### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>CF CLI를 통해 관리자로 CF 배포에 로그인
 
-다음 명령 실행:
+다음 명령을 실행합니다.
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
@@ -124,7 +124,7 @@ uaac member add doppler.firehose ${FIREHOSE_USER}
 
 #### <a name="download-the-latest-log-analytics-nozzle-release"></a>최신 Log Analytics Nozzle 릴리스 다운로드
 
-다음 명령 실행:
+다음 명령을 실행합니다.
 ```
 git clone https://github.com/Azure/oms-log-analytics-firehose-nozzle.git
 cd oms-log-analytics-firehose-nozzle
@@ -155,7 +155,7 @@ LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Azur
 
 ### <a name="push-the-application-from-your-development-computer"></a>개발 컴퓨터에서 애플리케이션 푸시
 
-현재 위치가 oms-log-analytics-firehose-nozzle 폴더인지 확인합니다. 다음 명령 실행:
+현재 위치가 oms-log-analytics-firehose-nozzle 폴더인지 확인합니다. 다음 명령을 실행합니다.
 ```
 cf push
 ```
@@ -177,13 +177,13 @@ OMS Nozzle 애플리케이션이 실행되고 있는지 확인합니다.
 
 ## <a name="view-the-data-in-the-azure-portal"></a>Azure Portal에서 데이터 보기
 
-마켓플레이스를 통해 모니터링 솔루션을 배포한 경우 Azure Portal로 이동하고 솔루션을 찾습니다. 이 솔루션은 템플릿에서 지정한 리소스 그룹에 있습니다. 솔루션을 클릭하고 "로그 분석 콘솔"을 탐색하고, 미리 구성된 뷰가 나열되고, 상위 클라우드 파운드리 시스템 KPI, 애플리케이션 데이터, 경고 및 VM 상태 메트릭이 표시됩니다. 
+마켓플레이스를 통해 모니터링 솔루션을 배포한 경우 Azure Portal로 이동하고 솔루션을 찾습니다. 이 솔루션은 템플릿에서 지정한 리소스 그룹에 있습니다. 솔루션을 클릭 하 고, "log analytics console"로 이동 하 여 미리 구성 된 보기가 나열 됩니다. 여기에는 상위 Cloud Foundry 시스템 Kpi, 응용 프로그램 데이터, 경고 및 VM 상태 메트릭이 포함 됩니다. 
 
 Log Analytics 작업 영역을 수동으로 만든 경우 다음 단계에 따라 뷰와 경고를 만듭니다.
 
 ### <a name="1-import-the-oms-view"></a>1. OMS 보기 가져오기
 
-OMS 포털에서 **디자이너** > **가져오기** > 찾아보기 로 찾아보고 omsview 파일 중 하나를**선택합니다.** 예를 들어 *Cloud Foundry.omsview*를 선택하고 보기를 저장합니다. 이제 타일이 **개요** 페이지에 표시됩니다. 시각화된 메트릭을 보려면 이 항목을 선택합니다.
+OMS 포털에서 **뷰 디자이너** > **가져오기** > **찾아보기**로 이동 하 여 omsview 파일 중 하나를 선택 합니다. 예를 들어 *Cloud Foundry.omsview*를 선택하고 보기를 저장합니다. 이제 타일이 **개요** 페이지에 표시됩니다. 시각화된 메트릭을 보려면 이 항목을 선택합니다.
 
 **뷰 디자이너**를 통해 새 뷰를 만들거나 이러한 뷰를 사용자 지정할 수 있습니다.
 
@@ -193,7 +193,7 @@ OMS 포털에서 **디자이너** > **가져오기** > 찾아보기 로 찾아�
 
 [경고를 작성](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts)하고 필요에 따라 쿼리와 임계값을 사용자 지정할 수 있습니다. 권장되는 경고는 다음과 같습니다.
 
-| 검색 쿼리                                                                  | 경고 생성 조건 | 설명                                                                       |
+| 검색 쿼리                                                                  | 경고 생성 조건 | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | 결과 수 < 1   | **bbs.Domain.cf-apps**는 cf-apps 도메인이 최신 상태인지 여부를 나타냅니다. 즉 Cloud Controller로부터의 CF App 요청이 실행을 위해 bbs.LRPsDesired(Diego에 적합한 AI)로 동기화되는지 여부를 나타냅니다. 수신되는 데이터가 없으면 지정한 기간에 cf-apps 도메인이 최신 상태가 아닌 것입니다. |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | 결과 수 > 0   | Diego 셀의 경우 값이 0이면 정상 상태이고 1이면 비정상 상태입니다. 지정한 기간에 비정상 Diego 셀이 여러 개 검색되면 경고를 설정합니다. |
@@ -201,7 +201,7 @@ OMS 포털에서 **디자이너** > **가져오기** > 찾아보기 로 찾아�
 | Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | 결과 수 > 0   | Consul은 상태를 주기적으로 내보냅니다. 값이 0이면 시스템이 정상 상태이며, 1이면 경로 내보내기에서 Consul이 다운되었음을 감지한 것입니다. |
 | Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | 결과 수 > 0 | 백 프레셔로 인해 Doppler가 의도적으로 삭제한 메시지의 델타 번호입니다. |
 | Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | 결과 수 > 0   | Loggregator는 로깅 프로세스의 문제를 나타내기 위해 **LGR**을 내보냅니다. 이러한 문제의 예는 로그 메시지 출력이 너무 높은 경우입니다. |
-| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | 결과 수 > 0   | 노즐이 로그그리게이터에서 느린 소비자 경고를 받으면 **slowConsumerAlert** ValueMetric을 Azure 모니터 로그로 보냅니다. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | 결과 수 > 0   | 노즐은 loggregator에서 저속 소비자 경고를 받으면 **slowConsumerAlert** ValueMetric를 Azure Monitor 로그에 보냅니다. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | 결과 수 > 0   | 손실된 이벤트의 델타 번호가 임계값에 도달하는 경우 Nozzle 실행과 관련하여 문제가 있을 수 있습니다. |
 
 ## <a name="scale"></a>확장
@@ -226,7 +226,7 @@ Nozzle을 최신 버전으로 업데이트하려면 새 Nozzle 릴리스를 다�
 ### <a name="remove-the-nozzle-from-ops-manager"></a>Ops Manager에서 Nozzle 제거
 
 1. Ops Manager에 로그인합니다.
-2. PCF 타일에 **대 한 마이크로소프트 Azure 로그 분석 노즐을** 찾습니다.
+2. PCF 타일 **에 대 한 Microsoft Azure Log Analytics 노즐** 을 찾습니다.
 3. 휴지통 아이콘을 선택하고 삭제 작업을 확인합니다.
 
 ### <a name="remove-the-nozzle-from-your-development-computer"></a>개발 컴퓨터에서 Nozzle 제거
@@ -236,7 +236,7 @@ CF CLI 창에서 다음을 입력합니다.
 cf delete <App Name> -r
 ```
 
-Nozzle을 제거하는 경우 OMS 포털의 데이터는 자동으로 제거되지 않습니다. Azure Monitor 로그 보존 설정에 따라 만료됩니다.
+Nozzle을 제거하는 경우 OMS 포털의 데이터는 자동으로 제거되지 않습니다. Azure Monitor 로그 보존 설정에 따라 만료 됩니다.
 
 ## <a name="support-and-feedback"></a>지원 및 피드백
 
@@ -244,6 +244,6 @@ Azure Log Analytics Nozzle은 오픈 소스입니다. [GitHub 섹션](https://gi
 
 ## <a name="next-step"></a>다음 단계
 
-PCF2.0에서 VM 성능 메트릭은 시스템 메트릭 전달자별로 Azure Log Analytics 노즐로 전송되고 로그 분석 작업 영역에 통합됩니다. 이제 VM 성능 메트릭에 Log Analytics 에이전트가 필요하지 않습니다. 그러나 Log Analytics 에이전트를 사용하여 Syslog 정보를 계속 수집할 수 있습니다. Log Analytics 에이전트는 Bosh 추가 기능으로 CF VM에 설치됩니다. 
+PCF 2.0에서 VM 성능 메트릭은 시스템 메트릭 전달자에 의해 Azure Log Analytics 노즐에 전송 되 고 Log Analytics 작업 영역에 통합 됩니다. 이제 VM 성능 메트릭에 Log Analytics 에이전트가 필요하지 않습니다. 그러나 Log Analytics 에이전트를 사용하여 Syslog 정보를 계속 수집할 수 있습니다. Log Analytics 에이전트는 Bosh 추가 기능으로 CF VM에 설치됩니다. 
 
 자세한 내용은 [Cloud Foundry 배포에 Log Analytics 에이전트 배포](https://github.com/Azure/oms-agent-for-linux-boshrelease)를 참조하세요.

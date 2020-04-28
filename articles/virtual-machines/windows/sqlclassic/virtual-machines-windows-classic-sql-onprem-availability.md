@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 4521c2c112c93e83144cfc84d600208817b2ccac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75978040"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>온-프레미스 Always On 가용성 그룹을 Azure로 확장
@@ -28,20 +28,20 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 이 자습서에서는 사용자에게 다음 항목이 있다고 가정합니다.
 
-* 활성화된 Azure 구독. 무료 [평가판에 등록할](https://azure.microsoft.com/pricing/free-trial/)수 있습니다.
+* 활성화된 Azure 구독. [무료 평가판에 등록할](https://azure.microsoft.com/pricing/free-trial/)수 있습니다.
 * 기존 Always On 가용성 그룹 온-프레미스. 가용성 그룹에 대한 자세한 내용은 [Always On 가용성 그룹](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 * Azure 가상 네트워크와 온-프레미스 네트워크 간의 연결. 이 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Azure Portal(클래식)을 사용하여 사이트 간 연결 만들기](../../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md)를 참조하세요.
 
 > [!IMPORTANT] 
-> Azure에는 리소스 를 만들고 작업하기 위한 두 가지 배포 모델( [리소스 관리자 및 클래식.](../../../azure-resource-manager/management/deployment-models.md) 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업 하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../../../azure-resource-manager/management/deployment-models.md)이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 ## <a name="add-azure-replica-wizard"></a>Azure Replica Wizard 추가
 이 섹션에서는 **Azure 복제본 추가 마법사** 를 사용하여 Azure 복제본을 포함하도록 Always On 가용성 그룹 솔루션을 확장하는 방법을 보여줍니다.
 
 > [!IMPORTANT]
-> **Azure 복제본 추가 마법사**는 클래식 배포 모델을 사용하여 만든 가상 머신만 지원합니다. 새 VM 배포는 최신 Resource Manager 모델을 사용해야 합니다. 리소스 관리자에서 VM을 사용하는 경우 Transact-SQL 명령을 사용하여 보조 Azure 복제본을 수동으로 추가해야 합니다(여기에 표시되지 않음). 이 마법사는 Resource Manager 시나리오에서는 작동하지 않습니다.
+> **Azure 복제본 추가 마법사**는 클래식 배포 모델을 사용하여 만든 가상 머신만 지원합니다. 새 VM 배포는 최신 Resource Manager 모델을 사용해야 합니다. 리소스 관리자와 함께 Vm을 사용 하는 경우 Transact-sql 명령을 사용 하 여 보조 Azure 복제본을 수동으로 추가 해야 합니다 (여기에 표시 되지 않음). 이 마법사는 Resource Manager 시나리오에서는 작동하지 않습니다.
 
-1. SQL Server 관리 스튜디오 내에서 **항상 고가용성** > **가용성 그룹** > **[가용성 그룹의 이름]을**확장합니다.
+1. SQL Server Management Studio에서 **Always On 고가용성** > **가용성 그룹** > **[가용성 그룹 이름]** 을 확장 합니다.
 2. **가용성 복제본**을 마우스 오른쪽 단추로 클릭하고 **복제본 추가**를 클릭합니다.
 3. 기본적으로는 **가용성 그룹에 복제본 추가 마법사** 가 표시됩니다. **다음**을 클릭합니다.  이전에 이 마법사를 실행하는 동안 페이지 아래쪽에서 **이 페이지를 다시 표시 안 함** 옵션을 선택한 경우에는 이 화면이 표시되지 않습니다.
    
@@ -55,7 +55,7 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742864.png)
 7. 복제본을 호스팅하는 Azure Virtual Machine(VM)을 만드는 데 사용할 값으로 페이지의 각 필드를 입력하게 됩니다.
    
-   | 설정 | 설명 |
+   | 설정 | Description |
    | --- | --- |
    | **이미지** |원하는 OS와 SQL Server 조합 선택 |
    | **VM 크기** |비즈니스 요구에 가장 적합한 VM 크기를 선택합니다. |
@@ -63,7 +63,7 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
    | **VM 사용자 이름** |VM에서 관리자 계정이 될 사용자 이름을 지정합니다. |
    | **VM 관리자 암호** |새 계정의 암호 지정 |
    | **암호 확인** |새 계정의 암호 확인 |
-   | **가상 네트워크** |새 VM이 사용해야 할 Azure 가상 네트워크를 지정합니다. 가상 네트워크에 대한 자세한 내용은 [Virtual Network 개요](../../../virtual-network/virtual-networks-overview.md)를 참조하세요. |
+   | **Virtual Network** |새 VM이 사용해야 할 Azure 가상 네트워크를 지정합니다. 가상 네트워크에 대한 자세한 내용은 [Virtual Network 개요](../../../virtual-network/virtual-networks-overview.md)를 참조하세요. |
    | **Virtual Network 서브넷** |새 VM이 사용해야 할 가상 네트워크서브넷을 지정합니다. |
    | **도메인** |도메인에 대해 사전 입력된 값이 정확한지 확인합니다. |
    | **도메인 사용자 이름** |로컬 클러스터 노드에서 로컬 관리자 그룹에 해당하는 계정을 지정합니다. |

@@ -1,5 +1,5 @@
 ---
-title: Java에서 Azure 알림 허브를 사용하는 방법
+title: Java에서 Azure Notification Hubs를 사용 하는 방법
 description: Java 백 엔드에서 Azure Notification Hubs를 사용하는 방법에 대해 알아봅니다.
 services: notification-hubs
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76263866"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Java에서 Notification Hubs를 사용하는 방법
@@ -41,7 +41,7 @@ ms.locfileid: "76263866"
 * 일반 보내기
 * 예약된 보내기
 * Java NIO를 통한 비동기 작업
-* 지원되는 플랫폼 : APNS (아이폰 OS), FCM (안드로이드), WNS (윈도우 스토어 애플 리케이션), MPNS (윈도우 폰), ADM (아마존 킨들 파이어), 바이두 (구글 서비스가없는 안드로이드)
+* 지원 되는 플랫폼: APNS (iOS), FCM (Android), WNS (Windows 스토어 앱), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Google 서비스 없이 Android)
 
 ## <a name="sdk-usage"></a>SDK 사용
 
@@ -132,7 +132,7 @@ ms.locfileid: "76263866"
     hub.createRegistration(reg);
     ```
 
-**등록 ID + upsert 패턴 만들기를 사용하여 등록을 만듭니다.**
+**Create registration ID + upsert 패턴을 사용 하 여 등록을 만듭니다.**
 
 디바이스에 등록 ID를 저장하는 경우 응답 손실로 인한 중복 항목을 제거합니다.
 
@@ -316,7 +316,7 @@ Amazon Kindle Fire의 경우 예제:
     hub.sendNotification(n);
     ```
 
-* **Android**
+* **OWA(Outlook Web Access)**
 
     ```java
     String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";

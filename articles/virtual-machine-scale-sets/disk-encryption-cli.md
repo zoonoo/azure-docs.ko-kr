@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용할 수 있는 Azure 규모 집합에 대한 디스크 암호화
+title: Azure CLI를 사용 하 여 Azure 확장 집합에 대 한 디스크 암호화
 description: Azure PowerShell을 사용하여 Windows 가상 머신 확장 집합에서 VM 인스턴스 및 연결된 디스크를 암호화하는 방법 알아보기
 author: msmbaldwin
 manager: rkarlin
@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 557d5c023acbc7987d58c9e78bfe11e25f314879
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76279073"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 설정된 가상 시스템 규모에서 OS 및 연결된 데이터 디스크 암호화
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용 하 여 가상 머신 확장 집합의 OS 및 연결 된 데이터 디스크 암호화
 
-명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작은 Azure CLI를 사용하여 가상 시스템 규모 집합을 만들고 암호화하는 방법을 보여 주며, 이를 보여 주며, 이를 통해 가상 시스템 규모 집합에 Azure 디스크 암호화를 적용하는 방법에 대한 자세한 내용은 [가상 시스템 확장 집합에 대한 Azure 디스크 암호화를](disk-encryption-overview.md)참조하십시오.
+명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용 하 여 가상 머신 확장 집합을 만들고 암호화 하는 방법을 보여 줍니다. 가상 머신 확장 집합에 Azure Disk encryption을 적용 하는 방법에 대 한 자세한 내용은 [Virtual Machine Scale Sets에 대 한 Azure Disk Encryption](disk-encryption-overview.md)를 참조 하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.31 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하십시오.
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.31 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
 
-확장 집합을 만들려면 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *동쪽* 위치에 *myResourceGroup이라는* 리소스 그룹을 만듭니다.
+확장 집합을 만들려면 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -104,9 +104,9 @@ az vmss encryption enable \
 
 확장 집합이 이전 단계에 만든 확장 집합에 대한 업그레이드 정책이며 “자동”으로 설정되어 있으므로 VM 인스턴스가 암호화 프로세스를 자동으로 시작합니다.** 업그레이드 정책이 수동으로 설정된 확장 집합의 경우에는 [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances)를 사용하여 VM 인스턴스에 대해 암호화 정책을 시작합니다.
 
-### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>KEK를 사용하여 키를 래핑하는 암호화 사용
+### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>KEK를 사용 하 여 암호화를 사용 하 여 키 래핑
 
-가상 시스템 규모 집합을 암호화할 때 보안을 강화하기 위해 키 암호화 키를 사용할 수도 있습니다.
+가상 머신 확장 집합을 암호화할 때 보안을 강화 하기 위해 키 암호화 키를 사용할 수도 있습니다.
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
@@ -123,10 +123,10 @@ az vmss encryption enable \
 ```
 
 > [!NOTE]
->  디스크 암호화 키볼트 매개 변수 값에 대한 구문은 전체 식별자 문자열입니다.</br>
-/구독/[구독-ID-guid]/resourceGroups/[리소스 그룹 이름]/공급자/Microsoft.KeyVault/볼트/[키볼트 이름]</br></br>
-> 키 암호화 키 매개 변수값에 대한 구문은 다음과 같이 KEK에 대한 전체 URI입니다.</br>
-https://[키볼트 이름].vault.azure.net/keys/[kekname]/[kek-unique-id]
+>  디스크 암호화-keyvault 매개 변수 값에 대 한 구문은 전체 식별자 문자열입니다.</br>
+/subscriptions/[구독 id-guid]/Ssourceg/[/providers/Microsoft.KeyVault/vaults/] [keyvault-name]</br></br>
+> 키-암호화 키 매개 변수의 값 구문은 KEK의 전체 URI입니다.</br>
+https://[keyvault-name]. kek/keys/[kekname]/[]
 
 ## <a name="check-encryption-progress"></a>암호화 진행 확인
 
@@ -173,6 +173,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## <a name="next-steps"></a>다음 단계
 
-- 이 문서에서는 Azure CLI를 사용하여 가상 머신 확장 집합을 암호화했습니다. [Azure PowerShell](disk-encryption-powershell.md) 또는 [Azure 리소스 관리자 템플릿을](disk-encryption-azure-resource-manager.md)사용할 수도 있습니다.
-- 다른 확장을 프로비전한 후에 Azure 디스크 암호화를 적용하려면 [확장 시퀀싱을](virtual-machine-scale-sets-extension-sequencing.md)사용할 수 있습니다. 
+- 이 문서에서는 Azure CLI를 사용하여 가상 머신 확장 집합을 암호화했습니다. [Azure PowerShell](disk-encryption-powershell.md) 또는 [Azure Resource Manager 템플릿을](disk-encryption-azure-resource-manager.md)사용할 수도 있습니다.
+- 다른 확장이 프로 비전 된 후 Azure Disk Encryption 적용 하려는 경우 [확장 시퀀싱](virtual-machine-scale-sets-extension-sequencing.md)을 사용할 수 있습니다. 
 - Linux 확장 집합 데이터 디스크 암호화에 대한 엔드투엔드 배치 파일 예제는 [여기](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat)서 찾을 수 있습니다. 이 예제에서는 리소스 그룹, Linux 확장 집합을 만들고, 5GB 데이터 디스크를 탑재하고, 가상 머신 확장 집합을 암호화합니다.

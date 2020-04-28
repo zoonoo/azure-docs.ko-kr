@@ -1,5 +1,5 @@
 ---
-title: 스키마를 사용하면 XML 유효성 검사
+title: 스키마를 사용 하 여 XML 유효성 검사
 description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 XML 문서 유효성을 검사하는 스키마 추가
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75979371"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 스키마로 XML 유효성 검사
@@ -44,7 +44,7 @@ ms.locfileid: "75979371"
 
     * 데스크톱 버전의 경우 [Azure Storage Explorer를 다운로드 및 설치](https://www.storageexplorer.com/)합니다. 
     그런 다음, [Storage Explorer 시작](../vs-azure-tools-storage-manage-with-storage-explorer.md)의 단계에 따라 Storage Explorer를 스토리지 계정에 연결합니다. 
-    자세한 내용은 [빠른 시작: Azure 저장소 탐색기를 사용하여 개체 저장소에 Blob 만들기를](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)참조하십시오.
+    자세히 알아보려면 [빠른 시작: Azure Storage 탐색기을 사용 하 여 개체 저장소에 Blob 만들기](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)를 참조 하세요.
 
 스키마를 만들고 추가할 때 논리 앱은 필요하지 않습니다. 그러나 스키마를 사용하려면 논리 앱에서 해당 스키마를 저장하는 통합 계정에 연결해야 합니다. [논리 앱을 통합 계정에 연결하는 방법](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account)을 알아봅니다. 논리 앱이 아직 없는 경우 [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 알아봅니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "75979371"
 
 1. Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다.
 
-1. 통합 계정을 찾아서 열려면 Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합 계정"을 입력합니다. **통합 계정을**선택합니다.
+1. 통합 계정을 찾아서 열려면 Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합 계정"을 입력합니다. **통합 계정**을 선택 합니다.
 
    ![통합 계정 찾기](./media/logic-apps-enterprise-integration-schemas/find-integration-account.png)
 
@@ -87,7 +87,7 @@ ms.locfileid: "75979371"
 
 ### <a name="add-schemas-more-than-2-mb"></a>2MB보다 큰 스키마 추가
 
-더 큰 스키마를 추가하려면 Azure Storage 계정의 Azure blob 컨테이너에 스키마를 업로드할 수 있습니다. 스키마를 추가하는 단계는 Blob 컨테이너에 공용 읽기 액세스 권한이 있는지 여부에 따라 다릅니다. 그래서 먼저, Blob 컨테이너다음 단계에 따라 공용 읽기 액세스 가 있는지 여부를 확인: [Blob 컨테이너에 대 한 공용 액세스 수준 설정](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+더 큰 스키마를 추가하려면 Azure Storage 계정의 Azure blob 컨테이너에 스키마를 업로드할 수 있습니다. 스키마를 추가 하는 단계는 blob 컨테이너에 공용 읽기 액세스 권한이 있는지 여부에 따라 달라 집니다. 먼저 다음 단계를 수행 하 여 blob 컨테이너에 공용 읽기 액세스 권한이 있는지 확인 합니다. [blob 컨테이너에 대 한 공용 액세스 수준 설정](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>컨테이너 액세스 수준 확인
 
@@ -97,11 +97,11 @@ ms.locfileid: "75979371"
 
 1. Blob 컨테이너의 바로 가기 메뉴에서 **공용 액세스 수준 설정**을 선택합니다.
 
-   * Blob 컨테이너에 최소한 공용 액세스 권한이 있는 경우 **취소를**선택하고 이 페이지의 다음 단계: [공용 액세스 권한이 있는 컨테이너에 업로드](#public-access)
+   * Blob 컨테이너에 공용 액세스 권한이 있는 경우 **취소**를 선택 하 고이 페이지의 뒷부분에서 [공용 액세스를 사용 하 여 컨테이너에 업로드](#public-access) 를 수행 합니다.
 
      ![공용 액세스](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
-   * Blob 컨테이너에 공용 액세스 권한이 없는 경우 **취소를**선택하고 이 페이지의 다음 단계: [공용 액세스 없이 컨테이너에 업로드](#public-access)
+   * Blob 컨테이너에 공용 액세스 권한이 없는 경우 **취소**를 선택 하 고이 페이지의 뒷부분에 있는 다음 단계를 수행 합니다. [공용 액세스 없이 컨테이너에 업로드](#public-access) 합니다.
 
      ![공용 액세스 권한 없음](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
 
@@ -154,7 +154,7 @@ ms.locfileid: "75979371"
 
 1. Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 
    검색 상자에 "통합 계정"을 입력합니다. 
-   **통합 계정을**선택합니다.
+   **통합 계정**을 선택 합니다.
 
 1. 스키마를 업데이트할 통합 계정을 선택합니다.
 
@@ -174,7 +174,7 @@ ms.locfileid: "75979371"
 
 1. Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 
    검색 상자에 "통합 계정"을 입력합니다. 
-   **통합 계정을**선택합니다.
+   **통합 계정**을 선택 합니다.
 
 1. 스키마를 삭제할 통합 계정을 선택합니다.
 

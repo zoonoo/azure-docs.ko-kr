@@ -16,10 +16,10 @@ ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75981400"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Azure에서 새 Windows VM 생성 시 배포 문제 해결
@@ -51,7 +51,7 @@ VM 배포 문제 및 질문은 [Azure에서 Windows 가상 컴퓨터 배포 문�
 
 **N<sup>2</sup>:** OS가 특수화된 Windows이고 일반화된 것으로 업로드된다면, 새 VM이 원래 컴퓨터 이름, 사용자 이름 및 암호로 실행되기 때문에 VM이 OOBE 화면에서 중단되면서 프로비전 실패 오류가 발생합니다.
 
-**해상도**
+**해결 방법**
 
 이 두 가지 오류를 모두 해결하려면, OS와 같은 설정(일반화/특수화)으로, [Add-AzVhd를 사용하여 온-프레미스에 있는 원본 VHD를 업로드](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd)합니다. 일반화된 것으로 업로드하려면, 먼저 sysprep을 실행해야 합니다.
 
@@ -61,7 +61,7 @@ VM 배포 문제 및 질문은 [Azure에서 Windows 가상 컴퓨터 배포 문�
 
 **N<sup>4</sup>:** OS가 특수화된 Windows이고 일반화된 것으로 캡처된다면, 새 VM이 원래 컴퓨터 이름, 사용자 이름 및 암호로 실행되기 때문에 프로비전 실패 오류가 발생합니다. 또한, 원본 VM이 일반화된 것으로 표시되기 때문에 사용할 수 없습니다.
 
-**해상도**
+**해결 방법**
 
 이 두 가지 오류를 모두 해결하려면, 현재 이미지를 포털에서 제거하고, OS와 같은 설정(일반화/특수화)으로 [현재 VHD에서 다시 캡처](../windows/create-vm-specialized.md)합니다.
 
@@ -75,9 +75,9 @@ VM 배포 문제 및 질문은 [Azure에서 Windows 가상 컴퓨터 배포 문�
 * 더 작은 VM 크기를 사용하여 요청을 다시 시도합니다.
 * 요청한 VM의 크기를 변경할 수 없으면:
   * 가용성 집합의 VM을 모두 중지합니다.
-    리소스**Resources****Stop** **그룹을** >  >  >  > *your resource group* > 클릭하면*가용성설정* > **가상 머신가상 머신에서***중지할*수 있습니다.
+     > 리소스 **그룹**리소스*그룹* > **리소스** > 를 클릭 하 여*가용성 집합* > 에서*가상 컴퓨터* > 를**중지****Virtual Machines** > 합니다.
   * VM을 모두 중지한 후에, 원하는 크기로 VM을 새로 만듭니다.
-  * 먼저 새 VM을 시작한 다음 중지된 각 VM을 선택하고 **시작을 클릭합니다.**
+  * 먼저 새 VM을 시작한 다음 중지 된 각 Vm을 선택 하 고 **시작**을 클릭 합니다.
 
 **원인 2:** 클러스터에 여유 리소스가 없습니다.
 

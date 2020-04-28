@@ -1,6 +1,6 @@
 ---
-title: PowerShell을 사용하여 알림 허브 배포 및 관리
-description: 자동화를 위한 PowerShell을 사용하여 알림 허브를 만들고 관리하는 방법
+title: PowerShell을 사용 하 여 Notification Hubs 배포 및 관리
+description: 자동화를 위해 PowerShell을 사용 하 여 Notification Hubs를 만들고 관리 하는 방법
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 863fdb445cce41f0fe4cbee63a3d6198c0a79339
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76264647"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>PowerShell을 사용하여 Notification Hubs 배포 및 관리

@@ -15,22 +15,22 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: ba6f1300353247ef2de99b2bd903bc82665d9a52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75978151"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>PowerShell을 사용하여 Azure VM에 Always On 가용성 그룹 구성
 > [!div class="op_single_selector"]
 > * [클래식: UI](../classic/portal-sql-alwayson-availability-groups.md)
-> * [클래식: 파워쉘](../classic/ps-sql-alwayson-availability-groups.md)
+> * [클래식: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 시작하기 전에 이제 Azure Resource Manager 모델에서 이 작업을 완료할 수 있는지 확인하는 것이 좋습니다. 새 배포에는 Azure Resource Manager 모델을 사용하는 것이 좋습니다. [Azure Virtual Machines의 SQL Server Always On 가용성 그룹](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다. Azure에는 리소스 를 만들고 작업하기 위한 두 가지 배포 모델( [리소스 관리자 및 클래식.](../../../azure-resource-manager/management/deployment-models.md) 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다.
+> 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다. Azure에는 리소스를 만들고 작업 하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../../../azure-resource-manager/management/deployment-models.md)이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다.
 
 Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL Server 시스템의 비용을 절감하도록 도와줍니다. 이 자습서에서는 Azure 환경 내에서 엔드투엔드 SQL Server Always On을 사용하여 가용성 그룹을 구현하는 방법을 보여줍니다. 자습서 마지막에서 Azure의 SQL Server Always On 솔루션은 다음 요소로 구성됩니다.
 
@@ -46,7 +46,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
 
 * 가상 머신 구독이 포함된 Azure 계정이 이미 있습니다.
 * [Azure PowerShell cmdlet](/powershell/azure/overview)이 설치되어 있습니다.
-* 온-프레미스 솔루션에 대한 Always On 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [SQL Server(가용성 그룹)에 항상](https://msdn.microsoft.com/library/hh510230.aspx)표시를 참조하십시오.
+* 온-프레미스 솔루션에 대한 Always On 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [Always On 가용성 그룹 (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)를 참조 하세요.
 
 ## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Azure 구독에 연결하고 가상 네트워크 만들기
 1. 로컬 컴퓨터의 PowerShell 창에서 Azure 모듈을 가져오고, 게시 설정 파일을 사용자 컴퓨터에 다운로드한 다음 다운로드한 게시 설정을 가져와서 PowerShell 세션을 Azure 구독에 연결합니다.
@@ -377,11 +377,11 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
     SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL Server가 설치되어 있습니다.
 
 ## <a name="initialize-the-failover-cluster-vms"></a>장애 조치(Failover) 클러스터 VM 초기화
-이 섹션에서는 장애 조치(Failover) 클러스터 및 SQL Server 설치에 사용할 3개의 서버를 수정해야 합니다. 특히 다음에 대한 내용을 설명합니다.
+이 섹션에서는 장애 조치(Failover) 클러스터 및 SQL Server 설치에 사용할 3개의 서버를 수정해야 합니다. 특히:
 
 * 모든 서버: **장애 조치(Failover) 클러스터링** 기능을 설치해야 합니다.
 * 모든 서버: **CORP\Install**을 컴퓨터 **관리자**로 추가해야 합니다.
-* ContosoSQL1 및 ContosoSQL2만: 기본 데이터베이스에서 **CORP\Install를** **시스템 관리자** 역할로 추가해야 합니다.
+* ContosoSQL1 및 ContosoSQL2만 해당: 기본 데이터베이스에서 **CORP\Install** 를 **sysadmin** 역할로 추가 해야 합니다.
 * ContosoSQL1 및 ContosoSQL2만 해당: **NT AUTHORITY\System**을 다음 권한이 있는 로그인으로 추가해야 합니다.
 
   * 가용성 그룹 변경

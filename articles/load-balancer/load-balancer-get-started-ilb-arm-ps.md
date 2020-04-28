@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: da564f8d49675ba0d51c5120768028e9d333e2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76045479"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 내부 부하 분산 장치 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
-> * [Powershell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [템플릿](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
@@ -48,7 +48,7 @@ ms.locfileid: "76045479"
 * 프로브 구성: 가상 머신에 대한 상태 프로브.
 * 인바운드 NAT 규칙: 가상 머신에 직접 액세스를 위한 포트 규칙.
 
-로드 밸러버 구성 요소에 대한 자세한 내용은 [Azure 로드 밸분산 구성 요소를](concepts-limitations.md#load-balancer-components)참조하십시오.
+부하 분산 장치 구성 요소에 대 한 자세한 내용은 [Azure Load Balancer 구성 요소](concepts-limitations.md#load-balancer-components)를 참조 하세요.
 
 다음 단계에서는 두 개의 가상 머신 간에 부하 분산 장치를 구성하는 방법을 설명합니다.
 
@@ -251,7 +251,7 @@ $backendnic2= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-b
 
 ### <a name="step-1-store-the-load-balancer-resource"></a>1단계: 부하 분산 장치 리소스 저장
 
-부하 분산 장치 리소스를 변수로 저장(아직 수행하지 않은 경우)합니다. 변수 이름을 **$lb.** 스크립트의 특성 값의 경우 이전 단계에서 만든 로드 밸러버 리소스의 이름을 사용합니다.
+부하 분산 장치 리소스를 변수로 저장(아직 수행하지 않은 경우)합니다. **$Lb**변수 이름을 사용 하 고 있습니다. 스크립트의 특성 값에 대해 이전 단계에서 만든 부하 분산 장치 리소스의 이름을 사용 합니다.
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG

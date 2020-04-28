@@ -12,10 +12,10 @@ ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ddbf1eb960a24cfaa8d09ab45b6febca07e6d504
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75979921"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure App Service를 사용하는 ClearDB MySQLl 데이터베이스에 대한 FAQ
@@ -30,7 +30,7 @@ ms.locfileid: "75979921"
 해당 서비스에 대한 최신 정보는 [ClearDB](https://w2.cleardb.net/)를 참조하세요. ClearDB는 MySQL 호스팅 서비스이며 MySQL 인프라를 관리합니다. 
 
 Azure에서 MySQL 호스팅에 대한 몇 가지 다른 옵션이 있습니다.
-* [MySQL용 Azure 데이터베이스](https://azure.microsoft.com/services/mysql/)
+* [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)
 * [Azure VM에서 실행되는 MySQL 클러스터](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
 * [Azure VM에서 실행되는 MySQL의 단일 인스턴스](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -49,7 +49,7 @@ Azure에서 MySQL 호스팅에 대한 몇 가지 다른 옵션이 있습니다.
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Azure 가상 머신에서 MySQL을 실행하고 있습니다. Azure 웹앱을 내 데이터베이스에 연결할 수 있나요?
 예. Azure VM에서 웹앱으로 원격 액세스할 수 있으면 웹앱을 데이터베이스에 연결할 수 있습니다. 자세한 내용은 [가상 머신에 MySQL 설치](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 
-## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>어떤 국가/지역에서 ClearDB 프리미엄 MySQL 클러스터가 지원되나요?
+## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>ClearDB 프리미엄 MySQL 클러스터가 지원 되는 국가/지역은 어디 인가요?
 ClearDB 프리미엄 MySQL 클러스터는 인도, 오스트레일리아, 브라질 남부 및 중국을 제외한 전 세계 모든 Azure 지역에서 사용할 수 있습니다.
 
 ## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>ClearDB 프리미엄 클러스터 솔루션을 사용하여 데이터베이스를 만들기 전에 새 클러스터를 만들 수 있나요?
@@ -68,7 +68,7 @@ Web Apps의 경우 기본이나 더 높은 가격 책정 계층을 사용합니�
 [Azure Portal](https://portal.azure.com)의 경우 ClearDB 공유 호스팅 데이터베이스를 강화할 수 있습니다. 자세한 내용은 이 [문서](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/)를 참조하세요. 현재는 Azure Portal에서 ClearDB 프리미엄 클러스터에 대한 업그레이드를 지원하지 않습니다.
 
 ## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>Azure Portal에서 내 ClearDB 데이터베이스를 볼 수 없나요?
-클래식에서 ClearDB 데이터베이스를 만든 경우 [Azure 포털에서](https://portal.azure.com)데이터베이스를 볼 수 없습니다. 이 시나리오의 경우 해결 방법이 없습니다.
+클래식에서 ClearDB 데이터베이스를 만든 경우에는 [Azure Portal](https://portal.azure.com)에서 데이터베이스를 볼 수 없습니다. 이 시나리오의 경우 해결 방법이 없습니다.
 
 ## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>데이터베이스가 다운되었을 때 지원을 받으려면 누구에게 문의해야 하나요?
 데이터베이스 관련 문제에 대해서는 [ClearDB 지원](https://www.cleardb.com/developers/help/support) 에 문의하세요. Azure 구독 정보를 제공해야 하므로 준비합니다.
@@ -80,7 +80,7 @@ Web Apps의 경우 기본이나 더 높은 가격 책정 계층을 사용합니�
 예, Basic 시리즈 데이터베이스는 전체 업그레이드(Basic 60 ~ Basic 500)할 수 있습니다. Pro 시리즈는 Pro 60을 제외하고 전체 업그레이드(Pro 125 ~ Pro 1000)할 수 있습니다. 현재 Pro 60 데이터베이스 업그레이드는 지원되지 않습니다. 
 
 ## <a name="when-i-migrate-my-resources-from-one-subscription-to-another-does-my-cleardb-mysql-database-get-migrated-as-well"></a>리소스를 하나의 구독에서 다른 구독으로 마이그레이션할 때 ClearDB MySQL 데이터베이스도 마이그레이션되나요?
-구독 간에 리소스 마이그레이션을 수행하는 경우 몇 가지 [제한 사항이](azure-resource-manager/management/move-support-resources.md) 적용됩니다. ClearDB MySQL 데이터베이스는 타사 서비스이므로 Azure 구독 마이그레이션 중에 마이그레이션되지 않습니다. Azure 리소스를 마이그레이션하기 전에 MySQL 데이터베이스의 마이그레이션을 관리하지 않으면 ClearDB MySQL 데이터베이스가 사용할 수 없도록 설정될 수 있습니다. 먼저 수동으로 데이터베이스를 마이그레이션한 다음 웹앱에 대한 Azure 구독 마이그레이션을 수행합니다. 
+구독 간에 리소스 마이그레이션을 수행 하는 경우 몇 가지 [제한 사항이](azure-resource-manager/management/move-support-resources.md) 적용 됩니다. ClearDB MySQL 데이터베이스는 타사 서비스이므로 Azure 구독 마이그레이션 중에 마이그레이션되지 않습니다. Azure 리소스를 마이그레이션하기 전에 MySQL 데이터베이스의 마이그레이션을 관리하지 않으면 ClearDB MySQL 데이터베이스가 사용할 수 없도록 설정될 수 있습니다. 먼저 수동으로 데이터베이스를 마이그레이션한 다음 웹앱에 대한 Azure 구독 마이그레이션을 수행합니다. 
 
 ## <a name="i-hit-the-spending-limit-on-my-subscription-i-removed-the-limit-and-my-app-service-is-online-however-the-database-is-not-accessible-how-do-i-re-enable-the-cleardb-database"></a>내 구독에서 지출 한도에 도달했습니다. 한도를 삭제했고 App Service는 온라인 상태지만 데이터베이스에 액세스할 수 없습니다. 어떻게 ClearDB 데이터베이스를 다시 사용하나요?
 [ClearDB 지원](https://www.cleardb.com/developers/help/support)에 연락하여 데이터베이스를 다시 사용합니다. Azure 구독 정보와 데이터베이스 이름을 제공합니다.
@@ -105,6 +105,6 @@ EA Azure 등록 관리자가 관리할 수 있는 타사 서비스용 Azure Mark
 ## <a name="who-do-i-contact-for-questions-about-my-bill-for-cleardb-services-in-my-ea-subscription"></a>EA 구독의 ClearDB 서비스의 요금에 대한 질문이 있는 경우 누구에게 문의해야 하나요?
 EA 등록에서 요금 청구와 관련된 사항은 [엔터프라이즈 고객 지원](https://aka.ms/AzureEntSupport) 에 문의하세요. EA 포털 지원 팀이 질문에 대답하거나 문제를 해결하는데 도움을 줄 것입니다.
 
-## <a name="more-information"></a>자세한 정보
+## <a name="more-information"></a>추가 정보
 [Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/)
 

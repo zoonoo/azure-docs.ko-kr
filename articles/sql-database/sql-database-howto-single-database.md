@@ -1,5 +1,5 @@
 ---
-title: 단일 데이터베이스를 구성하는 방법
+title: 단일 데이터베이스를 구성 하는 방법
 description: Azure SQL Database - Single Database를 구성 및 관리하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/14/2020
 ms.openlocfilehash: 4283e1a2c92b7fe738fb57a8103cea1deb0015a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76027707"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스를 사용하는 방법
@@ -34,7 +34,7 @@ ms.locfileid: "76027707"
 - 중요한 데이터를 보호하도록 [동적 데이터 마스킹을 구성](sql-database-dynamic-data-masking-get-started-portal.md)합니다.
 - Azure Blob Storage에 백업을 유지하도록 데이터베이스에 대해 [백업 보존을 구성](sql-database-long-term-backup-retention-configure.md)합니다. 대안으로 [Azure 자격 증명 모음을 사용하여 백업 보존 구성(사용되지 않음)](sql-database-long-term-backup-retention-configure-vault.md) 접근 방식이 있습니다.
 - 데이터베이스의 복제본을 다른 지역에 유지하도록 [지역에서 복제를 구성](sql-database-geo-replication-portal.md)합니다.
-- [지리적 복제본에 대한 보안을 구성합니다.](sql-database-geo-replication-security-config.md)
+- [지역 복제본에 대 한 보안을 구성](sql-database-geo-replication-security-config.md)합니다.
 
 ## <a name="monitor-and-tune-your-database"></a>데이터베이스 모니터링 및 튜닝
 
@@ -48,27 +48,27 @@ ms.locfileid: "76027707"
 ## <a name="query-distributed-data"></a>분산 데이터 쿼리
 
 - 여러 데이터베이스에서 [수직 분할된 데이터를 쿼리](sql-database-elastic-query-getting-started-vertical.md)합니다.
-- [확장된 데이터 계층 간에 보고합니다.](sql-database-elastic-query-horizontal-partitioning.md)
-- [스키마가 다른 테이블에서 쿼리합니다.](sql-database-elastic-query-vertical-partitioning.md)
+- [확장 된 데이터 계층에 대해 보고](sql-database-elastic-query-horizontal-partitioning.md)합니다.
+- [여러 스키마를 사용 하 여 여러 테이블을 쿼리](sql-database-elastic-query-vertical-partitioning.md)합니다.
 
 ## <a name="elastic-database-jobs"></a>Elastic Database 작업
 
-- [만들기 및 관리](elastic-jobs-powershell.md) PowerShell을 사용하는 탄력적 데이터베이스 작업입니다.
+- [만들기 및 관리](elastic-jobs-powershell.md) PowerShell을 사용 하 여 작업을 Elastic Database 합니다.
 - Transact-SQL을 사용하여 Elastic Database 작업을 [만들고 관리](elastic-jobs-tsql.md)합니다.
 - [오래된 탄력적 작업부터 마이그레이션](elastic-jobs-migrate.md)합니다.
 
 ## <a name="database-sharding"></a>분할된 데이터베이스
 
-- [탄력적 데이터베이스 클라이언트 라이브러리를 업그레이드합니다.](sql-database-elastic-scale-upgrade-client-library.md)
-- [샤드 응용 프로그램을 만듭니다.](sql-database-elastic-scale-get-started.md)
+- [탄력적 데이터베이스 클라이언트 라이브러리를 업그레이드](sql-database-elastic-scale-upgrade-client-library.md)합니다.
+- [분할 된 앱을 만듭니다](sql-database-elastic-scale-get-started.md).
 - [수평 분할된 데이터를 쿼리](sql-database-elastic-query-getting-started.md)합니다.
 - [다중 분할된 쿼리](sql-database-elastic-scale-multishard-querying.md)를 실행합니다.
-- [샤드 된 데이터를 이동합니다.](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+- [분할 된 데이터를 이동](sql-database-elastic-scale-configure-deploy-split-and-merge.md)합니다.
 - 분할된 데이터베이스에서 [보안을 구성](sql-database-elastic-scale-split-merge-security-configuration.md)합니다.
 - 현재 분할된 데이터베이스 세트에 [분할된 데이터베이스를 추가](sql-database-elastic-scale-add-a-shard.md)합니다.
-- [샤드 맵 문제를 해결합니다.](sql-database-elastic-database-recovery-manager.md)
-- [샤드 DB 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md).
-- [카운터를 만듭니다.](sql-database-elastic-database-perf-counters.md)
+- 분할 [맵 문제를 해결](sql-database-elastic-database-recovery-manager.md)합니다.
+- [분할 된 DB를 마이그레이션합니다](sql-database-elastic-convert-to-use-elastic-tools.md).
+- [카운터를 만듭니다](sql-database-elastic-database-perf-counters.md).
 - [Entity Framework를 사용하여](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) 분할된 데이터를 쿼리합니다.
 - [Dapper 프레임워크를 사용하여](sql-database-elastic-scale-working-with-dapper.md) 분할된 데이터를 쿼리합니다.
 

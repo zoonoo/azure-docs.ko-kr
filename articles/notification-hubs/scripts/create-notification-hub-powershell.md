@@ -1,6 +1,6 @@
 ---
-title: PowerShell을 사용하여 Azure 알림 허브 만들기 | 마이크로 소프트 문서
-description: PowerShell 스크립트를 사용하여 Azure 알림 허브를 만드는 방법에 대해 알아봅니다.
+title: PowerShell을 사용 하 여 Azure 알림 허브 만들기 | Microsoft Docs
+description: PowerShell 스크립트를 사용 하 여 Azure 알림 허브를 만드는 방법에 대해 알아봅니다.
 author: dimazaid
 manager: femila
 services: notification-hubs
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: dimazaid
 ms.openlocfilehash: 01749e1ae5c29a7e77b2143939e25cf1ccd1aec2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76263979"
 ---
 # <a name="use-powershell-to-create-an-azure-notification-hub"></a>PowerShell을 사용하여 Azure 알림 허브 만들기

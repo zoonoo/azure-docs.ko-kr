@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alkohli
 ms.openlocfilehash: 5dadd231335e93839e947077168f32dbfe96eb45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76278355"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS를 실행하는 StorSimple 호스트에서 MPIO 구성
@@ -338,9 +338,9 @@ A. 두 개의 경로를 라우팅할 수 있으며 동일한 서브넷에 있는
 
 17. 사용 가능한 경로를 나열하는 경우 어떤 출력도 나타나지 않습니다.
 
-A. 일반적으로 다중 경로가 표시되지 않는 것은 다중 경로 에 문제가 있음을 시사하며 여기에 문제가 `multipath.conf` 있는 것이 파일에 문제가 발생할 가능성이 큽입니다.
+A. 일반적으로 다중 경로인 경로를 표시 하지 않는 것은 다중 경로 디먼의 문제를 제안 하며,이는 `multipath.conf` 파일에 문제가 있을 가능성이 높습니다.
 
-또한 다중 경로 목록의 응답이 없기 때문에 대상에 연결한 후 실제로 일부 디스크를 볼 수 있는지 확인하는 것이 좋습니다.
+또한 다중 경로 목록의 응답이 디스크가 없음을 의미할 수 있으므로 대상에 연결한 후에 일부 디스크를 실제로 볼 수 있는지 확인 하는 것이 좋습니다.
 
 * 다음 명령을 사용하여 SCSI 버스를 다시 스캔합니다.
   
@@ -358,7 +358,7 @@ A. 일반적으로 다중 경로가 표시되지 않는 것은 다중 경로 에
   
     `cat /sys/block/<DISK>/device/model`
   
-    이렇게 하면 문자열이 반환되어 StorSimple 디스크인지 여부를 결정합니다.
+    이는 StorSimple 디스크 인지 여부를 확인 하는 문자열을 반환 합니다.
 
 또한 가능성이 적지만 가능한 원인은 iscsid pid일 수 있습니다. 다음 명령을 사용하여 iSCSI 세션에서 로그오프합니다.
 
@@ -410,10 +410,10 @@ A. 디바이스를 허용 목록에 추가되었는지를 확인하려면 다음
     dm-3 devnode blacklisted, unmonitored
 
 
-자세한 내용은 [다중 경로 에 대한 문제 해결로](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot)이동하십시오.
+자세한 내용은 [다중 경로 문제 해결](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot)을 참조 하세요.
 
 ## <a name="list-of-useful-commands"></a>유용한 명령 목록
-| Type | 명령 | 설명 |
+| 유형 | 명령 | Description |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |iSCSI 서비스 시작 |
 | &nbsp; |`service iscsid stop` |iSCSI 서비스 중지 |

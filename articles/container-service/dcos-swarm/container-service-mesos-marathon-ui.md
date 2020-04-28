@@ -8,10 +8,10 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: b251096915506c3c7a4eebf45b6a03e24779a3d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277796"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(사용되지 않음) Marathon 웹 UI를 통해 Azure Container Service DC/OS 클러스터 관리
@@ -34,12 +34,12 @@ DC/OS는 기본 하드웨어를 추상화하는 동안 클러스터형 워크로
 >
 
 ## <a name="explore-the-dcos-ui"></a>DC/OS UI 탐색
-보안 셸(SSH) 터널이 [설정되면](../container-service-connect.md)http:\//localhost/로 찾아보십시오. DC/OS 웹 UI가 로드되면서 클러스터에 대한 정보(예: 사용된 리소스, 활성 에이전트)가 표시되고 실행 중인 서비스를 보여 줍니다.
+SSH (Secure Shell) 터널이 [설정](../container-service-connect.md)된 상태에서 http:/localhost/.로\/이동 합니다. DC/OS 웹 UI가 로드되면서 클러스터에 대한 정보(예: 사용된 리소스, 활성 에이전트)가 표시되고 실행 중인 서비스를 보여 줍니다.
 
 ![DC/OS UI](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Marathon UI 탐색
-마라톤 UI를 보려면 http:\//localhost/marathon을 찾아보십시오. 이 화면에서는 Azure 컨테이너 서비스 DC/OS 클러스터에 새 컨테이너 또는 다른 애플리케이션을 시작할 수 있습니다. 컨테이너 및 애플리케이션을 실행하는 방법에 대한 정보를 볼 수 있습니다.  
+Marathon UI를 보려면 http:/localhost/marathon.로 이동 합니다\/. 이 화면에서는 Azure 컨테이너 서비스 DC/OS 클러스터에 새 컨테이너 또는 다른 애플리케이션을 시작할 수 있습니다. 컨테이너 및 애플리케이션을 실행하는 방법에 대한 정보를 볼 수 있습니다.  
 
 ![Marathon UI](./media/container-service-mesos-marathon-ui/dcos3.png)
 
@@ -83,7 +83,7 @@ DC/OS 클러스터는 프라이빗 및 공용 에이전트와 함께 배포됩�
 
 ![Marathon 기본 페이지 UI--컨테이너 배포 상태](./media/container-service-mesos-marathon-ui/dcos7.png)
 
-DC/OS 웹 UI(http:\//localhost/)로 다시 전환하면 DC/OS 클러스터에서 작업(이 경우 Docker 형식의 컨테이너)이 실행되고 있음을 알 수 있습니다.
+DC/OS 웹 UI (http:\//localhost/)로 다시 전환 하면 DC/os 클러스터에서 작업 (이 경우 Docker로 포맷 된 컨테이너)이 실행 되 고 있는 것을 알 수 있습니다.
 
 ![DC/OS 웹 UI--클러스터에서 실행 중인 작업](./media/container-service-mesos-marathon-ui/dcos8.png)
 

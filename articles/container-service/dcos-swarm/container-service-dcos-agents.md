@@ -8,10 +8,10 @@ ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: bb9b33bf537ebd5a563f8e8a8afd45cd2e5b292d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76278371"
 ---
 # <a name="deprecated-dcos-agent-pools-for-azure-container-service"></a>(사용되지 않음) Azure Container Service의 DC/OS 에이전트 풀
@@ -38,7 +38,7 @@ Azure Container Service의 DC/OS 에이전트 풀은 다음과 같이 만들어�
 프라이빗 풀과 공용 풀은 Azure 가상 머신 규모 집합입니다. 배포 후 이러한 풀의 크기를 조정할 수 있습니다.
 
 ## <a name="use-agent-pools"></a>에이전트 풀 사용
-기본적으로 **Marathon**은 새 애플리케이션을 *프라이빗* 에이전트 노드에 배포합니다. 애플리케이션 생성 중에 애플리케이션을 *공용* 노드에 명시적으로 배포해야 합니다. **선택 사항** 탭을 선택하고 **수락된 리소스 역할** 값에 **slave_public**을 입력합니다. 이 프로세스는 여기와 [DC/OS](https://docs.mesosphere.com/1.7/administration/installing/oss/custom/create-public-agent/) 설명서에 설명되어 [있습니다.](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container)
+기본적으로 **Marathon**은 새 애플리케이션을 *프라이빗* 에이전트 노드에 배포합니다. 애플리케이션 생성 중에 애플리케이션을 *공용* 노드에 명시적으로 배포해야 합니다. **선택 사항** 탭을 선택하고 **수락된 리소스 역할** 값에 **slave_public**을 입력합니다. 이 프로세스는 [DC/OS](https://docs.mesosphere.com/1.7/administration/installing/oss/custom/create-public-agent/) 설명서 [에 설명 되어](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [DC/OS 컨테이너 관리](container-service-mesos-marathon-ui.md)에 대해 자세히 알아보세요.

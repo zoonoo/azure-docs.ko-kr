@@ -8,10 +8,10 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 3492f35d54dd3ee61ab8d29a3af06e4998bbd477
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277792"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(사용되지 않음) Marathon REST API를 통해 DC/OS 컨테이너 관리
@@ -28,7 +28,7 @@ DC/OS는 기본 하드웨어를 추상화하는 동안 클러스터형 워크로
 * [Azure 컨테이너 서비스 클러스터에 연결](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>DC/OS API 액세스
-Azure 컨테이너 서비스 클러스터에 연결한 후 http:\//localhost:local-port를 통해 DC/OS 및 관련 REST API에 액세스할 수 있습니다. 이 문서의 예제에서는 포트 80에서 터널링하는 것을 가정합니다. 예를 들어, 마라톤 엔드포인트는 http:/localhost/marathon/v2/로\/시작하는 URI에서 도달할 수 있습니다. 
+Azure Container Service 클러스터에 연결한 후에는 http:\//shosts: local-port를 통해 DC/OS 및 관련 REST api에 액세스할 수 있습니다. 이 문서의 예제에서는 포트 80에서 터널링하는 것을 가정합니다. 예를 들어 http:/localhost/marathon/v2/.로 시작 하는 Uri에서 Marathon 끝점에\/도달할 수 있습니다. 
 
 다양한 API에 대한 자세한 내용은 [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) 및 [Chronos API](https://mesos.github.io/chronos/docs/api.html)에 대한 Mesosphere 문서와 [Mesos Scheduler API](https://mesos.apache.org/documentation/latest/scheduler-http-api/)에 대한 Apache 문서를 참조하세요.
 
@@ -121,7 +121,7 @@ Marathon API를 사용하여 애플리케이션 배포의 규모를 확장 또�
 터널링된 연결에서 애플리케이션의 규모를 확장하려면 다음 명령을 실행합니다.
 
 > [!NOTE]
-> URI는 http:\//localhost/marathon/v2/apps/ 다음에 확장할 응용 프로그램의 ID가 뒤따릅니다. 여기에 제공된 Nginx 샘플을 사용하는 경우 URI는 http:\//localhost/marathon/v2/apps/nginx입니다.
+> URI는 크기를 조정할\/응용 프로그램의 ID를 http:/localhost/marathon/v2/apps/다음에 입력 합니다. 여기에 제공 된 Nginx 샘플을 사용 하는 경우 URI는 http:/localhost/marathon/v2/apps/nginx.입니다.\/
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -178,13 +178,13 @@ Marathon API를 사용하여 애플리케이션 배포의 규모를 확장 또�
 애플리케이션의 규모를 확장하려면 다음 명령을 실행합니다.
 
 > [!NOTE]
-> URI는 http:\//localhost/marathon/v2/apps/ 다음에 확장할 응용 프로그램의 ID가 뒤따릅니다. 여기에 제공된 Nginx 샘플을 사용하는 경우 URI는 http:\//localhost/marathon/v2/apps/nginx입니다.
+> URI는 크기를 조정할\/응용 프로그램의 ID를 http:/localhost/marathon/v2/apps/다음에 입력 합니다. 여기에 제공 된 Nginx 샘플을 사용 하는 경우 URI는 http:/localhost/marathon/v2/apps/nginx.\/입니다.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [메소스 HTTP 엔드포인트에 대해 자세히 알아보기](https://mesos.apache.org/documentation/latest/endpoints/)
+* [Mesos HTTP 끝점에 대해 자세히 알아보세요.](https://mesos.apache.org/documentation/latest/endpoints/)
 * [Marathon REST API에 대해 자세히 알아보기](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

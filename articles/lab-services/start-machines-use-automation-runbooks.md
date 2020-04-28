@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest 랩에서 자동화 런북을 사용하여 컴퓨터 시작
-description: Azure 자동화 실행책을 사용하여 Azure DevTest Labs의 랩에서 가상 컴퓨터를 시작하는 방법을 알아봅니다.
+title: Azure DevTest Labs에서 자동화 runbook을 사용 하 여 컴퓨터 시작
+description: Azure Automation runbook을 사용 하 여 Azure DevTest Labs에서 랩에서 가상 머신을 시작 하는 방법을 알아봅니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,26 +13,26 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 9bb97a73b7ca570ca122323e8e9c5a70c9348b15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76166304"
 ---
-# <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Azure 자동화 실행책을 사용하여 랩에서 가상 컴퓨터를 순서대로 시작
-DevTest Labs의 [자동 시작](devtest-lab-set-lab-policy.md#set-autostart) 기능을 사용하면 지정된 시간에 VM을 자동으로 시작하도록 구성할 수 있습니다. 그러나 이 기능은 특정 순서로 시작하는 컴퓨터를 지원하지 않습니다. 이러한 유형의 자동화가 유용한 몇 가지 시나리오가 있습니다.  한 가지 시나리오는 점프박스가 다른 VM의 액세스 포인트로 사용되기 때문에 랩 내의 Jumpbox VM을 먼저 다른 VM보다 먼저 시작해야 하는 경우입니다.  이 문서에서는 스크립트를 실행하는 PowerShell 실행책을 사용하여 Azure 자동화 계정을 설정하는 방법을 보여 주며 있습니다. 스크립트는 랩의 VM에 대한 태그를 사용하여 스크립트를 변경하지 않고도 시작 순서를 제어할 수 있습니다.
+# <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Azure Automation runbook을 사용 하 여 랩에서 가상 머신 시작
+DevTest Labs [의 자동 시작 기능을](devtest-lab-set-lab-policy.md#set-autostart) 사용 하면 지정 된 시간에 vm이 자동으로 시작 되도록 구성할 수 있습니다. 그러나이 기능은 특정 순서로 컴퓨터를 시작 하는 것을 지원 하지 않습니다. 이러한 종류의 자동화가 유용한 몇 가지 시나리오가 있습니다.  한 가지 시나리오는 Jumpbox가 다른 vm에 대 한 액세스 지점으로 사용 되기 때문에 다른 Vm 보다 먼저 랩 내의 Jumpbox VM을 먼저 시작 해야 하는 경우입니다.  이 문서에서는 스크립트를 실행 하는 PowerShell runbook을 사용 하 여 Azure Automation 계정을 설정 하는 방법을 보여 줍니다. 스크립트는 랩에서 Vm의 태그를 사용 하 여 스크립트를 변경 하지 않고도 시작 순서를 제어할 수 있도록 합니다.
 
 ## <a name="setup"></a>설치 프로그램
-이 예제에서는 랩의 VM에 적절한 값(0,1,2 등)으로 **StartupOrder** 태그를 추가해야 합니다. 시작할 필요가 없는 컴퓨터를 -1로 지정합니다.
+이 예제에서 랩의 Vm에는 적절 한 값 (0, 1, 2 등)을 사용 하 여 **Startuporder** 태그가 추가 되어야 합니다. -1로 시작할 필요가 없는 모든 컴퓨터를 지정 합니다.
 
 ## <a name="create-an-azure-automation-account"></a>Azure Automation 계정 만들기
-[이 문서의](../automation/automation-create-standalone-account.md)지침에 따라 Azure 자동화 계정을 만듭니다. 계정을 만들 때 **계정으로 실행** 옵션을 선택합니다. 자동화 계정이 만들어지면 **모듈** 페이지를 열고 메뉴 모음에서 **Azure 모듈 업데이트를** 선택합니다. 기본 모듈은 이전 버전의 여러 버전이며 업데이트없이 스크립트가 작동하지 않을 수 있습니다.
+[이 문서의](../automation/automation-create-standalone-account.md)지침에 따라 Azure Automation 계정을 만듭니다. 계정을 만들 때 **실행 계정** 옵션을 선택 합니다. Automation 계정이 만들어지면 **모듈** 페이지를 열고 메뉴 모음에서 **Azure 모듈 업데이트** 를 선택 합니다. 기본 모듈은 몇 가지 이전 버전 이며 업데이트가 없는 경우 스크립트가 작동 하지 않을 수 있습니다.
 
 ## <a name="add-a-runbook"></a>Runbook 추가
-이제 자동화 계정에 Runbook을 추가하려면 왼쪽 메뉴에서 **Runbook을** 선택합니다. 메뉴에서 **Runbook 추가를** 선택하고 지침에 따라 [PowerShell Runbook을 만듭니다.](../automation/automation-first-runbook-textual-powershell.md)
+이제 automation 계정에 runbook을 추가 하려면 왼쪽 메뉴에서 **runbook** 을 선택 합니다. 메뉴에서 **Runbook 추가** 를 선택 하 고 지침에 따라 [PowerShell runbook을 만듭니다](../automation/automation-first-runbook-textual-powershell.md).
 
 ## <a name="powershell-script"></a>PowerShell 스크립트
-다음 스크립트는 구독 이름, 랩 이름을 매개 변수로 사용합니다. 스크립트의 흐름은 랩의 모든 VM을 가져옵니다. 스크립트는 VM을 순서대로 살펴보고 VM을 시작합니다. 특정 주문 번호에 여러 VM이 있는 경우 PowerShell 작업을 사용하여 비동기적으로 시작됩니다. 태그가 없는 VM의 경우 시작 값을 마지막(10)으로 설정하면 기본적으로 마지막으로 시작됩니다.  랩에서 VM을 자동으로 시작하지 않으려면 태그 값을 11로 설정하면 무시됩니다.
+다음 스크립트는 구독 이름 및 랩 이름을 매개 변수로 사용 합니다. 이 스크립트 흐름은 랩에서 모든 Vm을 가져온 다음 태그 정보를 구문 분석 하 여 VM 이름 및 해당 시작 순서 목록을 만드는 것입니다. 이 스크립트는 vm을 순서 대로 실행 하 고 Vm을 시작 합니다. 특정 주문 번호에 여러 Vm이 있는 경우 PowerShell 작업을 사용 하 여 비동기적으로 시작 됩니다. 태그를 포함 하지 않는 Vm의 경우 시작 값을 마지막 (10)으로 설정 하면 기본적으로 마지막으로 시작 됩니다.  랩에서 VM을 자동 시작 하지 않으려는 경우 태그 값을 11로 설정 하면 무시 됩니다.
 
 ```powershell
 #Requires -Version 3.0
@@ -133,9 +133,9 @@ While ($current -le 10) {
 ```
 
 ## <a name="create-a-schedule"></a>일정 만들기
-이 스크립트를 매일 실행하려면 자동화 계정에 [일정을 만듭니다.](../automation/shared-resources/schedules.md#creating-a-schedule) 일정이 만들어지면 [Runbook에 연결합니다.](../automation/shared-resources/schedules.md#linking-a-schedule-to-a-runbook) 
+이 스크립트를 매일 실행 하려면 automation 계정에 [일정을 만듭니다](../automation/shared-resources/schedules.md#creating-a-schedule) . 일정이 만들어지면 [runbook에 연결](../automation/shared-resources/schedules.md#linking-a-schedule-to-a-runbook)합니다. 
 
-여러 랩이 있는 여러 구독이 있는 대규모 상황에서는 매개 변수 정보를 다른 랩의 파일에 저장하고 개별 매개 변수 대신 스크립트에 파일을 전달합니다. 스크립트를 수정해야 하지만 핵심 실행은 동일합니다. 이 샘플에서는 Azure 자동화를 사용하여 PowerShell 스크립트를 실행하는 동안 빌드/릴리스 파이프라인에서 작업을 사용하는 것과 같은 다른 옵션이 있습니다.
+여러 랩을 포함 하는 여러 구독이 있는 대규모 상황에서 여러 랩을 위한 파일에 매개 변수 정보를 저장 하 고 개별 매개 변수 대신 스크립트에 파일을 전달 합니다. 스크립트를 수정 해야 하지만 핵심 실행은 동일 합니다. 이 샘플에서는 Azure Automation 사용 하 여 PowerShell 스크립트를 실행 하는 동안 빌드/릴리스 파이프라인에서 작업을 사용 하는 것과 같은 다른 옵션을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure 자동화: [Azure 자동화 소개에](../automation/automation-intro.md)대해 자세히 알아보려면 다음 문서를 참조하세요.
+Azure Automation: [Azure Automation 소개](../automation/automation-intro.md)에 대 한 자세한 내용은 다음 문서를 참조 하세요.

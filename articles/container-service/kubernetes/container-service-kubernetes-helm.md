@@ -8,10 +8,10 @@ ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: a32c9fab3877a693d2df26571b9fae4aa7b4380c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76271092"
 ---
 # <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(사용되지 않음) Helm을 사용하여 Kubernetes 클러스터에 컨테이너 배포
@@ -30,7 +30,7 @@ Helm에는 두 가지 구성 요소가 있습니다.
  
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 컨테이너 서비스에서 [Kubernetes 클러스터 만들기](container-service-kubernetes-walkthrough.md)
+* Azure Container Service에서 [Kubernetes 클러스터 만들기](container-service-kubernetes-walkthrough.md)
 
 * 로컬 컴퓨터에서 [설치 및 구성`kubectl`](../container-service-connect.md)
 
@@ -143,7 +143,7 @@ sudo mysql –h v1-mariadb
 ```
  
  
-이제 표준 SQL 명령을 사용하여 데이터베이스, 테이블 등을 만들 수 있습니다. 예를 들어 `Create DATABASE testdb1;` 빈 데이터베이스를 만듭니다. 
+이제 표준 SQL 명령을 사용 하 여 데이터베이스, 테이블 등을 만들 수 있습니다. 예를 들어 `Create DATABASE testdb1;` 는 빈 데이터베이스를 만듭니다. 
  
  
  

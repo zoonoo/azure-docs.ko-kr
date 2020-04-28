@@ -8,10 +8,10 @@ ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 423dc7f62806f774a5ec4855faa8be9001292773
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277708"
 ---
 # <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(사용되지 않음) 애플리케이션 또는 사용자 특정 Marathon 서비스 만들기
@@ -25,7 +25,7 @@ Azure 컨테이너 서비스는 Apache Mesos 및 Marathon을 미리 구성하는
 이 서비스는 단일 사용자 또는 팀에 속하므로 원하는 방식으로 자유롭게 구성할 수 있습니다. 또한 Azure 컨테이너 서비스를 사용하여 서비스를 계속해서 실행되도록 합니다. 서비스가 실패하면 Azure 컨테이너 서비스는 서비스를 다시 시작합니다. 중단 시간은 대부분 느끼지 못합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
-오케스트레이터 유형 DC/OS를 사용하여 [Azure 컨테이너 서비스의 인스턴스를 배포하고](container-service-deployment.md) [클라이언트가 클러스터에 연결할 수 있는지 확인합니다.](../container-service-connect.md) 또한 다음 단계를 수행합니다.
+Orchestrator 유형 DC/OS를 사용 하 여 [Azure Container Service 인스턴스를 배포](container-service-deployment.md) 하 고 [클라이언트가 클러스터에 연결할 수 있는지 확인](../container-service-connect.md)합니다. 또한 다음 단계를 수행합니다.
 
 [!INCLUDE [install the DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]
 

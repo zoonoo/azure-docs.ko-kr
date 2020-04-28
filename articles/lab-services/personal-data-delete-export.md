@@ -1,5 +1,5 @@
 ---
-title: Azure DevTest 랩에서 개인 데이터를 삭제하고 내보내는 방법
+title: Azure DevTest Labs에서 개인 데이터를 삭제 하 고 내보내는 방법
 description: GDPR(일반 데이터 보호 규정)에 따라 사용자의 의무를 지원하기 위해 Azure DevLast Labs 서비스에서 개인 데이터 삭제 및 내보내는 방법에 대해 알아봅니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: c87e2fb534480bbf9bbe625d67782e5a11eda18c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76169693"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Azure DevTest Labs에서 개인 데이터 내보내기 또는 삭제
@@ -39,11 +39,11 @@ DevTest Labs에서는 사용자 이메일 주소를 사용하여 랩 사용자�
 ### <a name="user-object-id"></a>사용자 개체 ID
 DevTest Labs는 사용자 개체 ID를 사용하여 랩 관리자에게 월별 비용 추세와 리소스별 비용을 보여줍니다. 이를 통해 비용을 추적하고 랩에 대한 임계값을 관리할 수 있습니다. 
 
-**현재 달의 예상 비용 추세:**
-![현재 달의 예상 비용 추세](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
+**현재 달력 월에 대 한 예상 비용 추세:**
+![현재 월의 예상 비용 추세](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
 
-**리소스별 예상 월별 비용:**
-![리소스별 예상 월별 비용](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
+**자원별 예상 월별 비용:**
+![리소스별 예상 월 누계 비용](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
 
 
 ## <a name="why-do-we-need-this-personal-data"></a>이 개인 데이터가 필요한 이유는?
@@ -55,10 +55,10 @@ DevTest Labs 서비스는 작업 목적을 위해 개인 데이터를 사용합�
 예를 들어 VM을 삭제하거나 이메일 주소를 제거하는 경우 DevTest Labs 서비스는 리소스가 삭제된 후 30일 동안 이 데이터를 익명화합니다. 삭제 후 30일 보존 정책은 랩 관리자에게 월별 정확한 비용 예측을 제공하는지 확인하는 것입니다.
 
 ## <a name="how-can-i-request-an-export-on-my-personal-data"></a>내 개인 데이터에 대한 내보내기는 어떻게 요청할 수 있나요?
-Azure 포털 또는 PowerShell을 사용하여 개인 및 랩 사용 데이터를 내보낼 수 있습니다. 데이터는 두 개의 서로 다른 CSV 파일로 내보내됩니다.
+Azure Portal 또는 PowerShell을 사용 하 여 개인 및 랩 사용 현황 데이터를 내보낼 수 있습니다. 데이터는 두 개의 다른 CSV 파일로 내보내집니다.
 
-- **disks.csv** - 다른 VM에서 사용 중인 디스크에 대한 정보가 포함되어 있습니다.
-- **virtualmachine.csv** - 랩의 VM에 대한 정보가 포함되어 있습니다.
+- **disks** -다른 vm에서 사용 되는 디스크에 대 한 정보를 포함 합니다.
+- **virtualmachines** -랩에서 vm에 대 한 정보를 포함 합니다.
 
 ### <a name="azure-portal"></a>Azure portal
 랩 사용자인 경우 DevTest Labs 서비스가 저장하는 개인 데이터에 대한 내보내기를 요청할 수 있습니다. 내보내기를 요청하려면 랩의 **개요** 페이지에 있는 **개인 데이터** 옵션으로 이동합니다. **내보내기 요청** 단추를 선택하면 랩 관리자의 스토리지 계정에서 다운로드 가능한 Excel 파일 생성이 시작됩니다. 그런 다음, 랩 관리자에게 문의하여 이 데이터를 볼 수 있습니다.
@@ -144,73 +144,73 @@ else
 }
 ```
 
-위의 샘플의 주요 구성 요소는 다음과 같습니다.
+위의 샘플에서 주요 구성 요소는 다음과 같습니다.
 
-- 호출-AzureRmResourceAction 명령입니다.
+- AzureRmResourceAction 명령입니다.
    
     ```
     Invoke-AzureRmResourceAction -Action 'exportLabResourceUsage' -ResourceId $resourceId -Parameters $actionParameters -Force
     ```
-- 두 가지 작업 매개 변수
-    - **blobStorageAbsoluteSasUri** - 공유 액세스 서명(SAS) 토큰이 있는 저장소 계정 URI입니다. PowerShell 스크립트에서 이 값은 저장소 키 대신 전달될 수 있습니다.
-    - **useStartDate** - 종료 날짜가 작업이 실행되는 현재 날짜인 데이터를 가져올 시작 날짜입니다. 세분성은 일 수준에 있으므로 시간 정보를 추가하더라도 무시됩니다.
+- 작업 매개 변수 2 개
+    - **blobStorageAbsoluteSasUri** -SAS (공유 액세스 서명) 토큰이 포함 된 저장소 계정 URI입니다. PowerShell 스크립트에서는 저장소 키 대신이 값을 전달할 수 있습니다.
+    - **usageStartDate** -데이터를 끌어올 시작 날짜 이며 종료 날짜는 작업이 실행 되는 현재 날짜입니다. 세분성은 일 수준 이므로 시간 정보를 추가 하더라도 무시 됩니다.
 
-### <a name="exported-data---a-closer-look"></a>내보낸 데이터 - 자세히 보기
-이제 내보낸 데이터를 자세히 살펴보겠습니다. 앞에서 설명한 것처럼 데이터가 성공적으로 내보내지면 두 개의 CSV 파일이 있습니다. 
+### <a name="exported-data---a-closer-look"></a>내보낸 데이터-자세히 보기
+이제 내보낸 데이터를 좀 더 자세히 살펴보겠습니다. 앞서 설명한 것 처럼 데이터가 성공적으로 내보내진 후에는 두 개의 CSV 파일이 있습니다. 
 
-**virtualmachine.csv에는** 다음 데이터 열이 포함되어 있습니다.
+**Virtualmachines** 에는 다음 데이터 열이 포함 되어 있습니다.
 
-| 열 이름 | 설명 |
+| 열 이름 | Description |
 | ----------- | ----------- | 
-| SubscriptionId | 랩이 있는 구독 식별자입니다. |
-| 라부이드 (것)들 | 랩의 고유한 GUID 식별자입니다. |
-| 랩 네임 | 랩의 이름 |
-| 랩리소스ID | 정규화된 랩 리소스 ID. |
-| ResourceGroupName | VM을 포함하는 리소스 그룹의 이름 | 
-| ResourceId | VM에 대해 정규화된 리소스 ID입니다. |
-| 리소스UID | VM에 대한 GUID |
-| 이름 | 가상 머신 이름. |
-| CreatedTime | VM이 생성된 날짜 시간입니다. |
-| DeletedDate | VM이 삭제된 날짜 시간입니다. 비어 있는 경우 아직 삭제가 발생하지 않았습니다. |
-| 리소스 소유자 | VM의 소유자입니다. 값이 비어 있으면 청구 가능한 VM이거나 서비스 주체가 만든 값입니다. |
-| 가격 책정 계층 | VM의 가격 책정 계층 |
-| 리소스 상태 | VM의 가용성 상태입니다. VM이 삭제된 경우 활성(여전히 존재하거나 비활성). |
-| 계산리소스 ID | 정규화된 가상 머신 컴퓨팅 리소스 식별자입니다. |
-| 청구 가능 | VM이 클레임 가능한 VM인 경우 true로 설정 | 
-| 환경 ID | 가상 시스템이 만들어진 환경 리소스 식별자입니다. 환경 리소스의 일부로 VM을 만들지 않은 경우 비어 있습니다. |
-| ExpirationDate | VM의 만료 날짜입니다. 만료 날짜가 설정되지 않은 경우 비어 있는 상태로 설정됩니다.
-| 갤러리이미지레퍼런스버전 |  VM 기본 이미지의 버전입니다. |
-| 갤러리이미지레퍼 | VM 베이스 이미지의 제공. |
-| 갤러리이미지참조퍼블리퍼 | VM 기본 이미지의 게시자입니다. |
-| 갤러리이미지레퍼레퍼리퍼스쿠 | VM 베이스 이미지의 스쿠 |
-| 갤러리이미지레퍼런스유형 | VM 기본 이미지의 OS 유형 |
-| 사용자 지정 이미지 ID | VM 기본 사용자 지정 이미지의 정규화 된 ID입니다. |
+| SubscriptionId | 랩이 존재 하는 구독 식별자입니다. |
+| 랩 Uid | 랩의 고유 GUID 식별자입니다. |
+| 랩 이름 | 랩의 이름 |
+| 인 Resourceid | 정규화 된 랩 리소스 ID입니다. |
+| ResourceGroupName | VM을 포함 하는 리소스 그룹의 이름 | 
+| ResourceId | VM에 대 한 정규화 된 리소스 ID입니다. |
+| ResourceUId | VM에 대 한 GUID |
+| 속성 | 가상 컴퓨터 이름입니다. |
+| CreatedTime | VM을 만든 날짜/시간입니다. |
+| DeletedDate | VM이 삭제 된 날짜/시간입니다. 비어 있는 경우 삭제는 아직 발생 하지 않았습니다. |
+| ResourceOwner | VM의 소유자입니다. 값이 비어 있으면 클레임 할 수 있는 VM 이거나 서비스 사용자가 만든 것입니다. |
+| PricingTier | VM의 가격 책정 계층 |
+| ResourceStatus | VM의 가용성 상태입니다. VM이 삭제 된 경우 활성 상태 이거나 비활성 상태 이면 활성 상태입니다. |
+| ComputeResourceId | 정규화 된 가상 컴퓨터 계산 리소스 식별자입니다. |
+| 클레임 할 수 | VM이 클레임 할 수 있는 VM 인 경우 true로 설정 합니다. | 
+| EnvironmentId | 에서 가상 컴퓨터를 만든 환경 리소스 식별자입니다. VM이 환경 리소스의 일부로 생성 되지 않은 경우에는 비어 있습니다. |
+| ExpirationDate | VM의 만료 날짜입니다. 만료 날짜가 설정 되지 않은 경우 empty로 설정 됩니다.
+| GalleryImageReferenceVersion |  VM 기본 이미지의 버전입니다. |
+| GalleryImageReferenceOffer | VM 기본 이미지의 제품입니다. |
+| GalleryImageReferencePublisher | VM 기본 이미지의 게시자입니다. |
+| GalleryImageReferenceSku | VM 기본 이미지의 Sku |
+| GalleryImageReferenceOsType | VM 기본 이미지의 OS 유형 |
+| CustomImageId | VM 기본 사용자 지정 이미지의 정규화 된 ID입니다. |
 
-**disks.csv에** 포함된 데이터 열은 다음과 같습니다.
+아래에는 **disks** 에 포함 된 데이터 열이 나열 되어 있습니다.
 
-| 열 이름 | 설명 | 
+| 열 이름 | Description | 
 | ----------- | ----------- | 
-| SubscriptionId | 랩을 포함하는 구독의 ID |
-| 라부이드 (것)들 | 랩용 GUID |
-| 랩 네임 | 랩 이름 | 
-| 랩리소스ID | 랩에 대한 정규화된 리소스 ID | 
-| ResourceGroupName | 랩을 포함하는 리소스 그룹의 이름 | 
-| ResourceId | VM에 대해 정규화된 리소스 ID입니다. |
-| 리소스UID | VM에 대한 GUID |
- |이름 | 연결된 디스크의 이름 |
-| CreatedTime |데이터 디스크가 생성된 날짜 및 시간입니다. |
-| DeletedDate | 데이터 디스크가 삭제된 날짜 및 시간입니다. |
-| 리소스 상태 | 리소스의 상태입니다. 리소스가 있는 경우 활성입니다. 비활성( 삭제된 경우). |
-| 디스크블럼이름 | 데이터 디스크의 Blob 이름입니다. |
-| 디스크 사이즈GB | 데이터 디스크의 크기입니다. |
-| DiskType | 데이터 디스크의 유형입니다. 표준의 경우 0, 프리미엄의 경우 1. |
-| 임대비엠Id | 데이터 디스크가 연결된 VM의 리소스 ID입니다. |
+| SubscriptionId | 랩을 포함 하는 구독의 ID입니다. |
+| 랩 Uid | 랩에 대 한 GUID |
+| 랩 이름 | 랩 이름 | 
+| 인 Resourceid | 랩에 대 한 정규화 된 리소스 ID | 
+| ResourceGroupName | 랩을 포함 하는 리소스 그룹의 이름 | 
+| ResourceId | VM에 대 한 정규화 된 리소스 ID입니다. |
+| ResourceUId | VM에 대 한 GUID |
+ |속성 | 연결 된 디스크의 이름 |
+| CreatedTime |데이터 디스크를 만든 날짜와 시간입니다. |
+| DeletedDate | 데이터 디스크가 삭제 된 날짜 및 시간입니다. |
+| ResourceStatus | 리소스의 상태입니다. 리소스가 있으면 활성 상태입니다. 비활성, 삭제 된 경우 |
+| DiskBlobName | 데이터 디스크에 대 한 Blob 이름입니다. |
+| DiskSizeGB | 데이터 디스크의 크기입니다. |
+| DiskType | 데이터 디스크의 유형입니다. Standard의 경우 0, 프리미엄의 경우 1입니다. |
+| LeasedByVmId | 데이터 디스크가 연결 된 VM의 리소스 ID입니다. |
 
 
 > [!NOTE]
-> 여러 랩을 다루고 전체 정보를 얻으려면 두 개의 주요 열은 구독 간에 고유 ID인 **LabUID** 및 **ResourceUId입니다.**
+> 여러 랩을 처리 하 고 전반적인 정보를 얻기 위해 두 개의 키 열은 게시 **uid** 와 **resourceuid**이며이는 구독 전체에서 고유 id입니다.
 
-내보낸 데이터는 SQL Server, Power BI 등과 같은 도구를 사용하여 조작하고 시각화할 수 있습니다. 이 기능은 랩 사용량을 관리 팀에 보고하려는 경우 와 동일한 Azure 구독을 사용하지 않을 수 있는 경우에 특히 유용합니다.
+SQL Server, Power BI 등과 같은 도구를 사용 하 여 내보낸 데이터를 조작 하 고 시각화할 수 있습니다. 이 기능은 사용자가 수행한 것과 동일한 Azure 구독을 사용 하지 않을 수 있는 관리 팀에 랩의 사용량을 보고 하려는 경우에 특히 유용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요. 

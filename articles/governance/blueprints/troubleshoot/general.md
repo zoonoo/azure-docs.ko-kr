@@ -1,18 +1,18 @@
 ---
 title: 일반적인 오류 문제 해결
-description: 정책 위반 및 Blueprint 매개 변수 함수와 같은 Blueprint를 생성, 할당 및 제거하는 문제를 해결하는 방법을 알아봅니다.
+description: 정책 위반 및 청사진 매개 변수 함수와 같은 청사진을 만들고 할당 하 고 제거 하는 문제를 해결 하는 방법에 대해 알아봅니다.
 ms.date: 01/15/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: 7306e344a479008a87164a954c4444d375950b0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76157086"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Azure Blueprints를 사용하여 오류 문제 해결
 
-Blueprint를 작성, 할당 또는 제거할 때 오류가 발생할 수 있습니다. 이 문서에서는 발생할 수 있는 다양한 오류와 이러한 오류를 해결하는 방법에 대해 설명합니다.
+청사진을 만들거나 할당 하거나 제거 하는 동안 오류가 발생할 수 있습니다. 이 문서에서는 발생할 수 있는 다양한 오류와 이러한 오류를 해결하는 방법에 대해 설명합니다.
 
 ## <a name="finding-error-details"></a>오류 세부 정보 찾기
 
@@ -20,9 +20,9 @@ Blueprint를 작성, 할당 또는 제거할 때 오류가 발생할 수 있습�
 
 1. 왼쪽 창에서 **모든 서비스**를 선택합니다. **청사진**을 검색하고 선택합니다.
 
-1. 왼쪽 의 페이지에서 **할당된 청사진을** 선택하고 검색 상자를 사용하여 청사진 할당을 필터링하여 실패한 할당을 찾습니다. 실패한 모든 할당을 그룹화하여 표시하도록 **프로비전 상태** 열을 기준으로 할당 테이블을 정렬할 수도 있습니다.
+1. 왼쪽 페이지에서 **할당 된 청사진** 을 선택 하 고 검색 상자를 사용 하 여 청사진 할당을 필터링 하 여 실패 한 할당을 찾습니다. 실패한 모든 할당을 그룹화하여 표시하도록 **프로비전 상태** 열을 기준으로 할당 테이블을 정렬할 수도 있습니다.
 
-1. _실패_ 한 상태와 청사진에 왼쪽 클릭 또는 오른쪽 클릭 하 고 **할당 세부 정보 보기**를 선택 합니다.
+1. _실패_ 한 상태가 포함 된 청사진을 마우스 왼쪽 단추로 클릭 하거나 마우스 오른쪽 단추를 클릭 하 고 **할당 정보 보기**를 선택 합니다.
 
 1. 청사진 할당 페이지의 위쪽에는 실패한 할당임을 알려주는 경고의 빨간색 배너가 있습니다. 자세한 내용을 보려면 배너의 아무 곳을 클릭합니다.
 
@@ -47,7 +47,7 @@ Blueprint를 작성, 할당 또는 제거할 때 오류가 발생할 수 있습�
 
 청사진이 오류 세부 정보의 정책과 충돌하지 않도록 변경합니다. 이렇게 변경할 수 없으면 대체 옵션으로 정책 할당의 범위를 변경하여 청사진이 더 이상 정책과 충돌하지 않도록 합니다.
 
-### <a name="scenario-blueprint-parameter-is-a-function"></a><a name="escape-function-parameter"></a>시나리오: 블루프린트 파라미터는 함수입니다.
+### <a name="scenario-blueprint-parameter-is-a-function"></a><a name="escape-function-parameter"></a>시나리오: 청사진 매개 변수는 함수입니다.
 
 #### <a name="issue"></a>문제
 
@@ -59,28 +59,28 @@ Blueprint를 작성, 할당 또는 제거할 때 오류가 발생할 수 있습�
 
 #### <a name="resolution"></a>해결 방법
 
-함수를 매개 변수로 전달하려면 청사진 매개 변수가 `[[resourceGroup().tags.myTag]`와 같이 표시되도록 `[`를 사용하여 전체 문자열을 이스케이프 처리합니다. 이스케이프 문자를 추가하면 청사진을 처리할 때 Blueprints에서 값을 문자열로 처리합니다. Blueprints는 그런 후에 함수를 아티팩트에 배치하므로 함수가 동적으로 올바르게 설정됩니다. 자세한 내용은 [Azure 리소스 관리자 템플릿의 구문 및 식을 참조하세요.](../../../azure-resource-manager/templates/template-expressions.md)
+함수를 매개 변수로 전달하려면 청사진 매개 변수가 `[[resourceGroup().tags.myTag]`와 같이 표시되도록 `[`를 사용하여 전체 문자열을 이스케이프 처리합니다. 이스케이프 문자를 추가하면 청사진을 처리할 때 Blueprints에서 값을 문자열로 처리합니다. Blueprints는 그런 후에 함수를 아티팩트에 배치하므로 함수가 동적으로 올바르게 설정됩니다. 자세한 내용은 [Azure Resource Manager 템플릿의 구문 및 식](../../../azure-resource-manager/templates/template-expressions.md)을 참조 하세요.
 
-## <a name="delete-errors"></a>오류 삭제
+## <a name="delete-errors"></a>삭제 오류
 
-### <a name="scenario-assignment-deletion-timeout"></a><a name="assign-delete-timeout"></a>시나리오: 할당 삭제 시간 지정
+### <a name="scenario-assignment-deletion-timeout"></a><a name="assign-delete-timeout"></a>시나리오: 할당 삭제 제한 시간
 
 #### <a name="issue"></a>문제
 
-Blueprint 할당 삭제가 완료되지 않습니다.
+청사진 할당 삭제가 완료 되지 않았습니다.
 
 #### <a name="cause"></a>원인
 
-Blueprint 할당이 삭제되면 터미널이 아닌 상태에 갇히게 될 수 있습니다. 이 상태는 Blueprint 할당으로 생성된 리소스가 여전히 삭제 보류 중이거나 상태 코드를 Azure Blueprint에 반환하지 않는 경우에 발생합니다.
+청사진 할당은 삭제 시 비 터미널 상태에서 중단 될 수 있습니다. 이 상태는 청사진 할당을 통해 생성 된 리소스가 여전히 삭제 보류 중이거나 Azure 청사진으로 상태 코드를 반환 하지 않는 경우에 발생 합니다.
 
 #### <a name="resolution"></a>해결 방법
 
-터미널이 아닌 상태의 Blueprint 할당은 _6시간_ 시간 시간 후에 자동으로 **실패로** 표시됩니다. 시간 시간이 Blueprint 할당의 상태를 조정하면 삭제를 다시 시도할 수 있습니다.
+비 터미널 상태의 청사진 할당은 _6 시간_ 제한 시간 후에 자동으로 **실패** 로 표시 됩니다. 시간 제한이 청사진 할당의 상태를 조정한 후에는 삭제를 다시 시도할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
-- Azure 포럼을 통해 Azure 전문가의 답변을 얻을 [수 있습니다.](https://azure.microsoft.com/support/forums/)
-- 연결 [@AzureSupport](https://twitter.com/azuresupport) - Azure 커뮤니티를 올바른 리소스(답변, 지원 및 전문가)에 연결하여 고객 경험을 개선하기 위한 공식 Microsoft Azure 계정과 연결합니다.
-- 추가 지원이 필요한 경우, Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 **지원 받기를**선택합니다.
+- Azure [포럼](https://azure.microsoft.com/support/forums/)을 통해 azure 전문가 로부터 답변을 받으세요.
+- 연결 방법 [@AzureSupport](https://twitter.com/azuresupport) – Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 하 여 고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다.
+- 추가 지원이 필요한 경우, Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 **지원 받기**를 선택 합니다.

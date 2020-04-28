@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: b01bcb743e4ffc110f0182e50630baea288f16d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76153703"
 ---
 # <a name="avere-vfxt-demo-projects"></a>Avere vFXT 데모 프로젝트
@@ -19,13 +19,13 @@ ms.locfileid: "76153703"
 
 ## <a name="video-rendering"></a>비디오 렌더링
 
-* [Azure Batch 및 Avere vFXT를 사용한 렌더링](https://github.com/Azure/Avere/blob/master/docs/maya_azure_batch_avere_vfxt_demo.md) - Azure Batch 및 Avere vFXT 클러스터를 사용하여 애니메이션 된 동영상을 생성하는 오토데스크 Maya를 사용하는 방법을 보여 주는 60분 프로젝트
+* [Azure Batch 및 Avere vFXT를 사용 하 여 렌더링](https://github.com/Azure/Avere/blob/master/docs/maya_azure_batch_avere_vfxt_demo.md) -Azure Batch 및 Avere vFXT 클러스터와 함께 Autodesk Maya를 사용 하 여 애니메이션 동영상을 생성 하는 방법을 보여 주는 60 분 프로젝트
 
-* [Avere vFXT를 렌더링에 사용하는 이유](https://github.com/Azure/Avere/blob/master/docs/why_avere_for_rendering.md) - Avere vFXT 클러스터와 함께 또는 없는 네트워크 연결 스토리지의 렌더링 시간을 비교하는 데모
+* [Avere vFXT를 렌더링에 사용하는 이유](https://github.com/Azure/Avere/blob/master/docs/why_avere_for_rendering.md) -Avere vFXT 클러스터를 사용 하거나 사용 하지 않고 네트워크에 연결 된 저장소의 렌더링 시간을 비교 하는 데모
 
 ## <a name="high-performance-computing"></a>고성능 컴퓨팅
 
-* [Azure 가상 머신(VM) 부팅 시간을 개선하기 위한 모범 사례](https://github.com/Azure/Avere/blob/master/docs/azure_vm_provision_best_practices.md) - 수천 개의 계산 클라이언트를 빠르게 회전할 때 부팅 시간을 개선하기 위해 Azure용 Avere vFXT를 사용하는 재현 가능한 테스트
+* [AZURE VM (가상 머신) 부팅 시간 개선을 위한 모범 사례](https://github.com/Azure/Avere/blob/master/docs/azure_vm_provision_best_practices.md) -Azure 용 Avere vFXT를 사용 하 여 수천 개의 계산 클라이언트를 빠르게 계산할 때 부팅 시간을 개선 하는 재현 가능한 테스트
 
 ## <a name="vfxt-performance"></a>vFXT 성능
 

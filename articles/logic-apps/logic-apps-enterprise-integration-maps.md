@@ -1,5 +1,5 @@
 ---
-title: XSLT 맵으로 XML 변환
+title: XSLT 맵을 사용 하 여 XML 변환
 description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 XML을 변환하는 XSLT 맵 추가
 services: logic-apps
 ms.suite: integration
@@ -9,15 +9,15 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75979401"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 맵을 사용하여 XML 변환
 
-Azure Logic Apps에서 엔터프라이즈 통합 시나리오에 대한 형식 간에 XML 데이터를 전송하려면 논리 앱에서 맵을 사용하거나 보다 구체적으로 확장 가능한 스타일 시트 언어 변환(XSLT) 맵을 사용할 수 있습니다. 맵은 XML 문서의 데이터를 다른 형식으로 변환하는 방법을 설명하는 XML 문서입니다. 
+Azure Logic Apps에서 엔터프라이즈 통합 시나리오에 대 한 형식 간에 XML 데이터를 전송 하기 위해 논리 앱은 지도 또는 더욱 구체적으로 확장 가능한 XSLT (스타일 시트 언어 변환) 맵을 사용할 수 있습니다. 맵은 XML 문서의 데이터를 다른 형식으로 변환하는 방법을 설명하는 XML 문서입니다. 
 
 예를 들어, YYYMMDD 날짜 형식을 사용하는 고객에게서 정기적으로 B2B 주문 또는 송장을 받는 경우를 가정해 보겠습니다. 그러나 조직은 MMDDYYY 날짜 형식을 사용합니다. 고객 작업 데이터베이스에서 주문 또는 송장 세부 정보를 저장하기 전에 YYYMMDD 날짜 형식을 MMDDYYY 형식으로 변환하는 맵을 정의하여 사용할 수 있습니다.
 
@@ -29,18 +29,18 @@ Azure Logic Apps에서 엔터프라이즈 통합 시나리오에 대한 형식 �
 
 * [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md): 엔터프라이즈 통합 및 B2B(기업 간) 솔루션을 위한 맵 및 기타 아티팩트를 저장합니다.
 
-* 맵이 외부 어셈블리를 참조하는 경우 *어셈블리 및 맵을 둘 다* 통합 계정에 업로드해야 합니다. [*어셈블리를 먼저 업로드한 다음 어셈블리를*](#add-assembly)참조하는 맵을 업로드해야 합니다.
+* 맵이 외부 어셈블리를 참조하는 경우 *어셈블리 및 맵을 둘 다* 통합 계정에 업로드해야 합니다. [*먼저 어셈블리를 업로드*](#add-assembly)한 다음 어셈블리를 참조 하는 맵을 업로드 해야 합니다.
 
   어셈블리가 *2MB 이하*이면 Azure Portal에서 직접 통합 계정에 어셈블리를 추가할 수 있습니다. 그러나 어셈블리 또는 맵이 2MB보다는 크지만 [어셈블리 또는 맵의 크기 제한](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits)보다 크지 않으면 다음 옵션을 사용할 수 있습니다.
 
   * 어셈블리의 경우 어셈블리를 업로드할 수 있는 Azure blob 컨테이너와 해당 컨테이너의 위치가 필요합니다. 이러한 방식으로 나중에 통합 계정에 어셈블리를 추가할 때 해당 위치를 지정할 수 있습니다. 
   이 작업에는 다음과 같은 항목이 필요합니다.
 
-    | 항목 | 설명 |
+    | 항목 | Description |
     |------|-------------|
-    | [Azure 저장소 계정](../storage/common/storage-account-overview.md) | 이 계정에서 어셈블리의 Azure blob 컨테이너를 만듭니다. [스토리지 계정을 만드는](../storage/common/storage-account-create.md) 방법을 알아봅니다. |
+    | [Azure storage 계정](../storage/common/storage-account-overview.md) | 이 계정에서 어셈블리의 Azure blob 컨테이너를 만듭니다. [스토리지 계정을 만드는](../storage/common/storage-account-create.md) 방법을 알아봅니다. |
     | Blob 컨테이너 | 이 컨테이너에 어셈블리를 업로드할 수 있습니다. 통합 계정에 어셈블리를 추가할 때도 이 컨테이너의 위치가 필요합니다. [blob 컨테이너를 만드는](../storage/blobs/storage-quickstart-blobs-portal.md) 방법을 알아봅니다. |
-    | [Azure 저장소 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md) | 이 도구를 사용하면 스토리지 계정 및 blob 컨테이너를 더 쉽게 관리할 수 있습니다. Storage Explorer를 사용하려면 [Azure Storage Explorer를 다운로드하고 설치](https://www.storageexplorer.com/)합니다. 그런 다음, [Storage Explorer 시작](../vs-azure-tools-storage-manage-with-storage-explorer.md)의 단계에 따라 Storage Explorer를 스토리지 계정에 연결합니다. 자세한 내용은 [빠른 시작: Azure 저장소 탐색기를 사용하여 개체 저장소에 Blob 만들기를](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)참조하십시오. <p>또는 Azure Portal에서 스토리지 계정을 선택합니다. 스토리지 계정 메뉴에서 **Storage Explorer**를 선택합니다. |
+    | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | 이 도구를 사용하면 스토리지 계정 및 blob 컨테이너를 더 쉽게 관리할 수 있습니다. Storage Explorer를 사용하려면 [Azure Storage Explorer를 다운로드하고 설치](https://www.storageexplorer.com/)합니다. 그런 다음, [Storage Explorer 시작](../vs-azure-tools-storage-manage-with-storage-explorer.md)의 단계에 따라 Storage Explorer를 스토리지 계정에 연결합니다. 자세히 알아보려면 [빠른 시작: Azure Storage 탐색기을 사용 하 여 개체 저장소에 Blob 만들기](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)를 참조 하세요. <p>또는 Azure Portal에서 스토리지 계정을 선택합니다. 스토리지 계정 메뉴에서 **Storage Explorer**를 선택합니다. |
     |||
 
   * 맵의 경우 현재 [Azure Logic Apps REST API - 맵](https://docs.microsoft.com/rest/api/logic/maps/createorupdate)을 사용하여 더 큰 맵을 추가할 수 있습니다.
@@ -55,7 +55,7 @@ Azure Logic Apps에서 엔터프라이즈 통합 시나리오에 대한 형식 �
 
 1. 통합 계정을 찾아서 열려면 Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 
    검색 상자에 "통합 계정"을 입력합니다. 
-   **통합 계정을**선택합니다.
+   **통합 계정**을 선택 합니다.
 
    ![통합 계정 찾기](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
 
@@ -75,7 +75,7 @@ Azure Logic Apps에서 엔터프라이즈 통합 시나리오에 대한 형식 �
 통합 계정의 어셈블리 수량 제한에 대해서는 [Azure Logic Apps의 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)을 참조하세요.
 
 > [!NOTE]
-> 어셈블리를 변경하는 경우 맵이 변경되었는지 여부에 관계없이 맵도 업데이트해야 합니다.
+> 어셈블리를 변경 하는 경우 지도에 변경 내용이 있는지 여부에 관계 없이 맵도 업데이트 해야 합니다.
 
 <a name="smaller-assembly"></a>
 
@@ -101,7 +101,7 @@ Azure Logic Apps에서 엔터프라이즈 통합 시나리오에 대한 형식 �
 
 ### <a name="add-assemblies-more-than-2-mb"></a>2MB보다 큰 어셈블리 추가
 
-더 큰 어셈블리를 추가하려면 Azure Storage 계정의 Azure blob 컨테이너에 어셈블리를 업로드할 수 있습니다. 어셈블리를 추가하는 단계는 Blob 컨테이너에 공용 읽기 액세스 권한이 있는지 여부에 따라 다릅니다. 그래서 먼저, Blob 컨테이너다음 단계에 따라 공용 읽기 액세스 가 있는지 여부를 확인: [Blob 컨테이너에 대 한 공용 액세스 수준 설정](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+더 큰 어셈블리를 추가하려면 Azure Storage 계정의 Azure blob 컨테이너에 어셈블리를 업로드할 수 있습니다. 어셈블리를 추가 하는 단계는 blob 컨테이너에 공용 읽기 권한이 있는지 여부에 따라 달라 집니다. 먼저 다음 단계를 수행 하 여 blob 컨테이너에 공용 읽기 액세스 권한이 있는지 확인 합니다. [blob 컨테이너에 대 한 공용 액세스 수준 설정](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>컨테이너 액세스 수준 확인
 
@@ -111,11 +111,11 @@ Azure Logic Apps에서 엔터프라이즈 통합 시나리오에 대한 형식 �
 
 1. Blob 컨테이너의 바로 가기 메뉴에서 **공용 액세스 수준 설정**을 선택합니다.
 
-   * Blob 컨테이너에 최소한 공용 액세스 권한이 있는 경우 **취소를**선택하고 이 페이지의 다음 단계: [공용 액세스 권한이 있는 컨테이너에 업로드](#public-access-assemblies)
+   * Blob 컨테이너에 공용 액세스 권한이 있는 경우 **취소**를 선택 하 고이 페이지의 뒷부분에서 [공용 액세스를 사용 하 여 컨테이너에 업로드](#public-access-assemblies) 를 수행 합니다.
 
      ![공용 액세스](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
-   * Blob 컨테이너에 공용 액세스 권한이 없는 경우 **취소를**선택하고 이 페이지의 다음 단계: [공용 액세스 없이 컨테이너에 업로드](#no-public-access-assemblies)
+   * Blob 컨테이너에 공용 액세스 권한이 없는 경우 **취소**를 선택 하 고이 페이지의 뒷부분에 있는 다음 단계를 수행 합니다. [공용 액세스 없이 컨테이너에 업로드](#no-public-access-assemblies) 합니다.
 
      ![공용 액세스 권한 없음](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
 
@@ -176,7 +176,7 @@ Azure Logic Apps에서 엔터프라이즈 통합 시나리오에 대한 형식 �
 
 1. 통합 계정을 아직 열지 않은 경우 Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 
    검색 상자에 "통합 계정"을 입력합니다. 
-   **통합 계정을**선택합니다.
+   **통합 계정**을 선택 합니다.
 
    ![통합 계정 찾기](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
 
@@ -198,7 +198,7 @@ Azure Logic Apps에서 엔터프라이즈 통합 시나리오에 대한 형식 �
 
 1. **맵 추가**에서 맵의 이름을 입력합니다. 
 
-1. **맵 유형에서**예를 들어 **액체,** **XSLT,** **XSLT 2.0**또는 **XSLT 3.0과**같은 유형을 선택합니다.
+1. **지도 유형**아래에서 유형 (예: **액체**, **Xslt**, **xslt 2.0**또는 **xslt 3.0**)을 선택 합니다.
 
 1. **작은 파일**을 선택한 상태로 둡니다. **맵** 상자 옆에서 폴더 아이콘을 선택합니다. 업로드하려는 맵을 찾아 선택합니다. 예를 들면 다음과 같습니다.
 
@@ -314,7 +314,7 @@ the map appears in the **Maps** list.
 
 1. [Azure Portal](https://portal.azure.com)에서 통합 계정이 아직 열려 있지 않으면 찾아서 엽니다.
 
-1. Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합 계정"을 입력합니다. **통합 계정을**선택합니다.
+1. Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합 계정"을 입력합니다. **통합 계정**을 선택 합니다.
 
 1. 맵을 업데이트할 통합 계정을 선택합니다.
 
@@ -334,7 +334,7 @@ the map appears in the **Maps** list.
 
 1. Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 
    검색 상자에 "통합 계정"을 입력합니다. 
-   **통합 계정을**선택합니다.
+   **통합 계정**을 선택 합니다.
 
 1. 맵을 삭제할 통합 계정을 선택합니다.
 

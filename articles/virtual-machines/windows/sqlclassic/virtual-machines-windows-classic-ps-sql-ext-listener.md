@@ -1,5 +1,5 @@
 ---
-title: 가용성 그룹에 대한 외부 수신기 구성
+title: 가용성 그룹에 대 한 외부 수신기 구성
 description: 이 자습서에서는 연결된 클라우드 서비스의 공용 가상 IP 주소를 사용하여 외부에서 액세스 가능한 Azure의 Always On 가용성 그룹 수신기를 만드는 과정을 안내합니다.
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,15 +16,15 @@ ms.date: 05/31/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: ca13d5e8369d007188a17352913519172ed8744e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75978189"
 ---
-# <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Azure SQL Server VM의 가용성 그룹에 대한 외부 수신기 구성
+# <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Azure SQL Server Vm에서 가용성 그룹에 대 한 외부 수신기 구성
 > [!div class="op_single_selector"]
-> * [내부 청취자](../classic/ps-sql-int-listener.md)
+> * [내부 수신기](../classic/ps-sql-int-listener.md)
 > * [외부 수신기](../classic/ps-sql-ext-listener.md)
 > 
 > 
@@ -32,7 +32,7 @@ ms.locfileid: "75978189"
 이 항목에서는 외부에서 인터넷에 액세스할 수 있는 Always On 가용성 그룹에 대해 수신기를 구성하는 방법을 보여줍니다. 수신기를 구성하려면 클라우드 서비스의 **공용 VIP(가상 IP)** 주소를 수신기와 연결해야 합니다.
 
 > [!IMPORTANT] 
-> Azure에는 리소스 를 만들고 작업하기 위한 두 가지 배포 모델( [리소스 관리자 및 클래식.](../../../azure-resource-manager/management/deployment-models.md) 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업 하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../../../azure-resource-manager/management/deployment-models.md)이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 가용성 그룹은 온-프레미스 전용, Azure 전용 또는 하이브리드 구성에 대한 온-프레미스와 Azure 모두에 걸쳐 있는 복제본을 포함할 수 있습니다. Azure 복제본은 동일한 지역 내 또는 여러 Vnet(가상 네트워크)을 사용하 여 여러 지역에 걸쳐 있을 수 있습니다. 다음 단계에서는 [가용성 그룹을 구성](../classic/portal-sql-alwayson-availability-groups.md)했지만 수신기는 구성하지 않았다고 가정합니다.
 
@@ -53,12 +53,12 @@ ms.locfileid: "75978189"
 ## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>직접 서버 반환이 있는 부하 분산 VM 엔드포인트 만들기
 외부 부하 분산에서는 VM을 호스팅하는 클라우드 서비스의 공용 가상 IP 주소를 사용합니다. 따라서 이 경우에는 부하 분산 장치를 만들거나 구성할 필요가 없습니다.
 
-Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 엔드포인트를 만들어야 합니다. 여러 지역에 복제본이 있는 경우 해당 지역에 대한 각 복제본은 동일한 VNet의 동일한 클라우드 서비스에 있어야 합니다. 여러 Azure 지역에 걸쳐 있는 가용성 그룹 복제본을 만들려면 여러 VNet을 구성해야 합니다. 교차 VNet 연결 구성에 대한 자세한 내용은 [VNet에서 VNet 연결로 구성을](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)참조하십시오.
+Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 엔드포인트를 만들어야 합니다. 여러 지역에 복제본이 있는 경우 해당 지역에 대한 각 복제본은 동일한 VNet의 동일한 클라우드 서비스에 있어야 합니다. 여러 Azure 지역에 걸쳐 있는 가용성 그룹 복제본을 만들려면 여러 VNet을 구성해야 합니다. VNet 간 연결을 구성 하는 방법에 대 한 자세한 내용은 vnet 간 [연결 구성](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)을 참조 하세요.
 
 1. Azure 포털에서 복제본을 호스트하는 각 VM으로 이동하고 세부 정보를 봅니다.
 2. 각 VM에 대한 **엔드포인트** 탭을 클릭합니다.
 3. 사용하려는 수신기 엔드포인트의 **이름** 및 **공용 포트**가 이미 사용되고 있지 않은지 확인합니다. 아래 예제에서는 이름이 "MyEndpoint"이고 포트는 "1433"입니다.
-4. 로컬 클라이언트에서 [최신 PowerShell 모듈을](https://azure.microsoft.com/downloads/)다운로드하여 설치합니다.
+4. 로컬 클라이언트에서 [최신 PowerShell 모듈](https://azure.microsoft.com/downloads/)을 다운로드 하 여 설치 합니다.
 5. **Azure PowerShell**을 시작합니다. 새 PowerShell 세션이 Azure 관리 모듈이 로드된 상태로 열립니다.
 6. **Get-AzurePublishSettingsFile**을 실행합니다. 이 cmdlet은 게시 설정 파일을 로컬 디렉터리에 다운로드하도록 브라우저로 안내합니다. Azure 구독에 대한 로그인 자격 증명을 묻는 메시지가 표시될 수 있습니다.
 7. 다운로드한 게시 설정 파일의 경로와 함께 **Import-AzurePublishSettingsFile** 명령을 사용합니다.
@@ -123,7 +123,7 @@ Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 엔드�
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>(인터넷을 통해)가용성 그룹 수신기 테스트
-가상 네트워크 외부에서 수신기에 액세스하려면 동일한 VNet 내에서만 액세스할 수 있는 ILB가 아닌 외부/공용 로드 분산(이 항목에 설명된)을 사용해야 합니다. 연결 문자열에서 클라우드 서비스 이름을 지정합니다. 예를 들어 이름이 *mycloudservice*인 클라우드 서비스가 있는 경우 sqlcmd 문은 다음과 같습니다.
+가상 네트워크 외부에서 수신기에 액세스 하려면 동일한 VNet 내 에서만 액세스할 수 있는 ILB가 아닌 외부/공용 부하 분산 (이 항목에서 설명)을 사용 해야 합니다. 연결 문자열에서 클라우드 서비스 이름을 지정합니다. 예를 들어 이름이 *mycloudservice*인 클라우드 서비스가 있는 경우 sqlcmd 문은 다음과 같습니다.
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 

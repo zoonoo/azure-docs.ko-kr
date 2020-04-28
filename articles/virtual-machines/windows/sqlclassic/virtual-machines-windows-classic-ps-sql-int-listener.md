@@ -1,6 +1,6 @@
 ---
-title: 가용성 그룹에 대한 ILB 수신기 구성(클래식)
-description: 이 자습서에서는 클래식 배포 모델로 만든 리소스를 사용 하 고 내부 로드 밸런서를 사용 하는 Azure의 SQL Server VM에 대 한 항상 가용성 그룹 리스너를 만듭니다.
+title: 가용성 그룹에 대 한 ILB 수신기 구성 (클래식)
+description: 이 자습서에서는 클래식 배포 모델을 사용 하 여 만든 리소스를 사용 하며, 내부 부하 분산 장치를 사용 하는 Azure의 SQL Server VM에 대 한 Always On 가용성 그룹 수신기를 만듭니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -16,13 +16,13 @@ ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: f26c5a6c6fc2774d19beaa021015357a1991f0ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75978162"
 ---
-# <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Azure SQL Server VM에서 가용성 그룹에 대한 ILB 수신기 구성
+# <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Azure SQL Server Vm에서 가용성 그룹에 대 한 ILB 수신기 구성
 > [!div class="op_single_selector"]
 > * [내부 수신기](../classic/ps-sql-int-listener.md)
 > * [외부 수신기](../classic/ps-sql-ext-listener.md)
@@ -32,7 +32,7 @@ ms.locfileid: "75978162"
 ## <a name="overview"></a>개요
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델이 있습니다: [Azure 리소스 관리자 및 클래식.](../../../azure-resource-manager/management/deployment-models.md) 이 문서에서는 클래식 배포 모델의 사용에 대해 설명합니다. 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업 하기 위한 두 가지 배포 모델인 [Azure Resource Manager와 클래식](../../../azure-resource-manager/management/deployment-models.md)이 있습니다. 이 문서에서는 클래식 배포 모델의 사용에 대해 설명합니다. 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다.
 
 Resource Manager 모델에서 Always On 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 부하 분산 장치 구성](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)을 참조하세요.
 
@@ -105,7 +105,7 @@ Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 엔드�
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. 변수를 설정한 후에는 텍스트 편집기에서 해당 스크립트를 PowerShell 세션에 복사하여 실행합니다. 프롬프트가 **>>** 계속 표시되면 Enter를 다시 눌러 스크립트가 실행되기 시작했는지 확인합니다.
+13. 변수를 설정한 후에는 텍스트 편집기에서 해당 스크립트를 PowerShell 세션에 복사하여 실행합니다. 프롬프트가 계속 표시 **>>** 되 면 enter 키를 눌러 스크립트 실행이 시작 되도록 합니다.
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>필요한 경우 KB2854082가 설치되었는지 확인합니다.
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -151,7 +151,7 @@ Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 엔드�
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. 변수를 설정한 후에는 앞으로 온 Windows PowerShell 창을 열고 텍스트 편집기의 스크립트를 복사하여 PowerShell 세션에 붙여넣어 실행합니다. 프롬프트가 **>>** 계속 표시되면 다시 입력을 눌러 스크립트가 실행되기 시작했는지 확인합니다.
+3. 변수를 설정한 후에는 앞으로 온 Windows PowerShell 창을 열고 텍스트 편집기의 스크립트를 복사하여 PowerShell 세션에 붙여넣어 실행합니다. 프롬프트가 계속 표시 **>>** 되 면 enter 키를 눌러 스크립트 실행이 시작 되도록 합니다.
 
 4. 각 VM에 대해 이전 단계를 반복합니다.  
     이 스크립트는 클라우드 서비스의 IP 주소로 IP 주소 리소스를 구성하고 프로브 포트 등의 다른 매개 변수를 설정합니다. IP 주소 리소스를 온라인으로 불러올 때 앞 부분에서 부하가 분산된 엔드포인트로부터 프로브 포트에 대한 폴링에 응답할 수 있습니다.

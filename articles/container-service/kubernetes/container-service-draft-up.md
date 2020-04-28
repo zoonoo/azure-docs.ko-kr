@@ -8,10 +8,10 @@ ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: 8d688d2918c9100019d033e93e9a3dca9e492de2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76271142"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(사용되지 않음) Azure Container Service 및 Azure Container Registry에서 Draft를 사용하여 애플리케이션 빌드 및 Kubernetes에 배포
@@ -29,7 +29,7 @@ ms.locfileid: "76271142"
 ## <a name="create-an-azure-container-registry"></a>Azure Container Registry 만들기
 [새 Azure Container Registry를 쉽게 만들](../../container-registry/container-registry-get-started-azure-cli.md) 수 있으며, 그 단계는 다음과 같습니다.
 
-1. Azure 리소스 그룹을 만들어 ACR 레지스트리와 ACS의 Kubernetes 클러스터를 관리합니다.
+1. ACS에서 ACR 레지스트리 및 Kubernetes 클러스터를 관리 하는 Azure 리소스 그룹을 만듭니다.
       ```azurecli
       az group create --name draft --location eastus
       ```
@@ -202,7 +202,7 @@ kubernetes                    10.0.0.1       <none>          443/TCP            
 
 ### <a name="map-the-ingress-ip-to-a-custom-subdomain"></a>사용자 지정 하위 도메인에 수신 IP 매핑
 
-Draft는 자체에서 만든 각 Helm 차트, 즉 작업 중인 각 애플리케이션에 대한 릴리스를 만듭니다. 각각은 **draft**에서 사용자가 제어하는 루트 _배포 도메인_의 최상위에 있는 _하위 도메인_으로 사용하도록 생성된 이름을 가져옵니다. 이 예제에서는 배포 `squillace.io` 도메인으로 사용합니다. 이 하위 도메인 동작을 사용하려면 배포 `'*.draft'` 도메인에 대한 DNS 항목에 대한 A 레코드를 만들어 생성된 각 하위 도메인이 Kubernetes 클러스터의 침투 컨트롤러로 라우팅되도록 해야 합니다. 
+Draft는 자체에서 만든 각 Helm 차트, 즉 작업 중인 각 애플리케이션에 대한 릴리스를 만듭니다. 각각은 **draft**에서 사용자가 제어하는 루트 _배포 도메인_의 최상위에 있는 _하위 도메인_으로 사용하도록 생성된 이름을 가져옵니다. (이 예제에서는를 배포 도메인 `squillace.io` 으로 사용 합니다.) 이 하위 도메인 동작을 사용 하도록 설정 하려면 생성 된 각 하위 `'*.draft'` 도메인이 Kubernetes 클러스터의 수신 컨트롤러로 라우팅될 수 있도록 배포 도메인의 DNS 항목에서에 대 한 A 레코드를 만들어야 합니다. 
 
 사용자의 도메인 공급자에는 DNS 서버를 할당하는 자체의 고유한 방법이 있습니다. [도메인 이름 서버를 Azure DNS로 위임](../../dns/dns-delegate-domain-azure-dns.md)하려면 다음 단계를 수행합니다.
 

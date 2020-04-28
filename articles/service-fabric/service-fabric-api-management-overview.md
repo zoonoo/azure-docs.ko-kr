@@ -1,20 +1,20 @@
 ---
-title: API 관리 개요를 갖춘 Azure 서비스 패브릭
+title: Azure Service Fabric API Management 개요
 description: 이 문서에서는 Service Fabric 애플리케이션에 대한 게이트웨이로 Azure API Management를 사용하는 것을 소개합니다.
 author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
 ms.openlocfilehash: 2a331715d4e4538cfdda8d958ff549a81b627b79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76028540"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric 및 API Management 개요
 
-일반적으로 클라우드 애플리케이션에는 사용자, 디바이스 또는 기타 애플리케이션 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. Service Fabric에서 게이트웨이는 [ASP.NET 핵심 응용 프로그램과](service-fabric-reliable-services-communication-aspnetcore.md)같은 상태 비누비 서비스이거나 이벤트 허브, [IoT Hub](https://docs.microsoft.com/azure/iot-hub/)또는 Azure [API 관리와](https://docs.microsoft.com/azure/api-management/)같은 트래픽 을 위해 설계된 다른 서비스일 수 [있습니다.](https://docs.microsoft.com/azure/event-hubs/)
+일반적으로 클라우드 애플리케이션에는 사용자, 디바이스 또는 기타 애플리케이션 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. Service Fabric에서 게이트웨이는 [ASP.NET Core 응용 프로그램과](service-fabric-reliable-services-communication-aspnetcore.md)같은 상태 비저장 서비스 이거나 트래픽 수신 용으로 설계 된 다른 서비스 (예: [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/)또는 [Azure API Management](https://docs.microsoft.com/azure/api-management/)) 일 수 있습니다.
 
 이 문서에서는 Service Fabric 애플리케이션에 대한 게이트웨이로 Azure API Management를 사용하는 것을 소개합니다. API Management는 Service Fabric과 직접 통합되므로 다양한 라우팅 규칙 집합을 사용하여 백 엔드 Service Fabric 서비스에 API를 게시할 수 있습니다.
 
@@ -45,7 +45,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 ## <a name="send-traffic-to-a-stateless-service"></a>트래픽을 상태 비저장 서비스로 보내기
 
-가장 간단한 경우, 트래픽은 상태 비저장 서비스 인스턴스로 전달됩니다. 이를 위해 API Management 작업에는 Service Fabric 백 엔드에서 특정 상태 비저장 서비스 인스턴스에 매핑되는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 해당 서비스로 전송된 요청은 서비스의 임의 인스턴스로 전송됩니다.
+가장 간단한 경우, 트래픽은 상태 비저장 서비스 인스턴스로 전달됩니다. 이를 위해 API Management 작업에는 Service Fabric 백 엔드에서 특정 상태 비저장 서비스 인스턴스에 매핑되는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 해당 서비스에 전송 된 요청은 임의의 서비스 인스턴스로 전송 됩니다.
 
 **예제**
 
@@ -69,7 +69,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 보다 고급 시나리오에서는 요청을 둘 이상의 서비스 인스턴스로 매핑하는 API Management 작업을 정의할 수 있습니다. 이 경우 각 작업은 요청을 들어오는 HTTP 요청의 값(예: URL 경로 또는 쿼리 문자열, 상태 저장 서비스의 경우 서비스 인스턴스 내에 있는 파티션)에 따라 특정 서비스 인스턴스로 매핑하는 정책을 포함합니다.
 
-이를 위해 API Management 작업에는 들어오는 HTTP 요청에서 검색된 값에 따라 Service Fabric 백 엔드에서 상태 비저장 서비스 인스턴스에 매핑되는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 서비스에 대한 요청은 서비스의 임의 인스턴스로 전송됩니다.
+이를 위해 API Management 작업에는 들어오는 HTTP 요청에서 검색된 값에 따라 Service Fabric 백 엔드에서 상태 비저장 서비스 인스턴스에 매핑되는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 서비스에 대 한 요청은 임의의 서비스 인스턴스로 전송 됩니다.
 
 **예제**
 
@@ -77,7 +77,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 - `fabric:/app/users/<username>`
 
-  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예를 들어:
+  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 다음은 그 예입니다.
 
   - `/api/users/foo`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/foo`로 라우팅됩니다.
   - `/api/users/bar`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/bar`로 라우팅됩니다.
@@ -96,7 +96,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 - `fabric:/app/users/<username>`
 
-  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예를 들어:
+  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 다음은 그 예입니다.
 
   - `/api/users/foo`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/foo`로 라우팅됩니다.
   - `/api/users/bar`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/bar`로 라우팅됩니다.

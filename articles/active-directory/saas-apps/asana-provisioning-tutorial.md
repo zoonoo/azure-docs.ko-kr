@@ -1,5 +1,5 @@
 ---
-title: '자습서: Asana - Azure AD에 대한 사용자 프로비저닝'
+title: '자습서: Asana에 대 한 사용자 프로 비전-Azure AD'
 description: 사용자 계정을 Asana에 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -17,17 +17,17 @@ ms.author: arvinh
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abeac030db419f7fb7d561df5dcd407684f20ca2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77058934"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Asana 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Asana로 자동으로 프로비전 및 프로비전 해제하기 위해 Asana 및 Azure AD(Azure Active Directory)에서 수행해야 하는 단계를 설명하는 것입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "77058934"
 
 ## <a name="assign-users-to-asana"></a>Asana에 사용자 할당
 
-Azure AD는 *할당이라는* 개념을 사용하여 선택한 앱에 대한 액세스를 받아야 하는 사용자를 결정합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 할당된 사용자만 동기화됩니다.
+Azure AD는 *할당* 이라는 개념을 사용 하 여 선택한 앱에 대 한 액세스 권한을 받아야 하는 사용자를 결정 합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 할당된 사용자만 동기화됩니다.
 
 프로비전 서비스를 구성 및 사용하도록 설정하기 전에 Azure AD에서 Asana 앱에 액세스해야 하는 사용자를 결정해야 합니다. 그런 후에 다음 지침에 따라 해당 사용자를 Asana 앱에 할당할 수 있습니다.
 
@@ -75,7 +75,7 @@ Azure AD는 *할당이라는* 개념을 사용하여 선택한 앱에 대한 액
 
     b. 맨 위 막대에서 프로필 사진을 선택하고 현재 조직 이름 설정을 선택합니다.
 
-    다. **서비스 계정** 탭으로 이동합니다.
+    c. **서비스 계정** 탭으로 이동합니다.
 
     d. **서비스 계정 추가**를 선택합니다.
 
@@ -87,7 +87,7 @@ Azure AD는 *할당이라는* 개념을 사용하여 선택한 앱에 대한 액
 
 1. **저장**을 선택합니다.
 
-1. **매핑** 섹션에서 **Azure Active Directory 사용자를 Asana로 동기화합니다.**
+1. **매핑** 섹션 아래에서 **Asana에 사용자 Azure Active Directory 동기화를**선택 합니다.
 
 1. **특성 매핑** 섹션에서 Azure AD에서 Asana로 동기화할 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Asana의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다. 자세한 내용은 [사용자 프로비전 특성 매핑 사용자 지정](../app-provisioning/customize-application-attributes.md)을 참조하세요.
 
@@ -102,5 +102,5 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
-* [단일 사인온 구성](asana-tutorial.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Single Sign-On 구성](asana-tutorial.md)

@@ -1,5 +1,5 @@
 ---
-title: 마이크로 소프트 Azure Stor간단한 데이터 관리자 작업에 대한 .NET SDK를 사용하여
+title: Microsoft Azure StorSimple Data Manager 작업에 .NET SDK 사용
 description: .NET SDK를 사용하여 StorSimple 데이터 관리자 작업을 시작하는 방법에 대해 알아보기
 author: alkohli
 ms.service: storsimple
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: b7cf1d3b9d4a9d751348c4792f904062b00ac104
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76270734"
 ---
-# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>.NET SDK를 사용하여 데이터 변환 시작
+# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>.NET SDK를 사용 하 여 데이터 변환 시작
 
 ## <a name="overview"></a>개요
 
@@ -36,7 +36,7 @@ ms.locfileid: "76270734"
     - Azure Powershell. [Azure Powershell을 다운로드합니다](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
 *   리소스 그룹 내 StorSimple 데이터 관리자에 올바르게 구성된 작업 정의
 *   모든 필수 dll입니다. 이러한 dll을 [GitHub 리포지토리](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls)에서 다운로드합니다.
-*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1)GitHub 리포지토리의 스크립트입니다.
+*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1)GitHub 리포지토리에서 스크립트를 시작 합니다.
 
 ## <a name="step-by-step-procedure"></a>단계별 절차
 
@@ -61,7 +61,7 @@ ms.locfileid: "76270734"
 
 3. Visual Studio 2012, 2013 또는 2015를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
 
-    1. **비주얼 스튜디오 2012/2013/2015를**시작합니다.
+    1. **Visual Studio 2012/2013/2015**를 시작 합니다.
     1. **파일 > 새로 만들기 > 프로젝트**를 선택합니다.
 
         ![프로젝트 1 만들기](media/storsimple-data-manager-dotnet-jobs/create-new-project-7.png)        
@@ -83,7 +83,7 @@ ms.locfileid: "76270734"
 
        ![dll 2 추가](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 
-5. 프로젝트의 소스 파일(Program.cs)에 문을 **사용하여** 다음을 추가합니다.
+5. 다음 **using** 문을 프로젝트의 소스 파일 (Program.cs)에 추가 합니다.
 
     ```
     using System;

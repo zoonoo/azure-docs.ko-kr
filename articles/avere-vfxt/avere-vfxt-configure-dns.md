@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: 81b53904f85e2ac936195b1e39d7586fd1d47524
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76153788"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Avere 클러스터 DNS 구성
@@ -74,7 +74,7 @@ update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 
 ## <a name="cluster-dns-settings"></a>클러스터 DNS 설정
 
-**클러스터** > **관리 네트워크** 설정 페이지에서 vFXT 클러스터가 사용하는 DNS 서버를 지정합니다. 해당 페이지의 설정은 다음과 같습니다.
+**클러스터** > **관리 네트워크** 설정 페이지에서 vFXT 클러스터가 사용 하는 DNS 서버를 지정 합니다. 해당 페이지의 설정은 다음과 같습니다.
 
 * DNS 서버 주소
 * DNS 도메인 이름
