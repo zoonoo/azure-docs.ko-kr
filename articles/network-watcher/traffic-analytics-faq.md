@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 5e31ed905f05070c8715a63ef3386b0006df0a75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2402e72d2ef9fcda46f2f40bff48759262ee30e0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840624"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189048"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -52,11 +52,11 @@ ms.locfileid: "76840624"
         
 구독에 대해 사용자에게 할당된 역할을 확인하려면:
 
-1. **로그인-AzAccount**.를 사용하여 Azure에 로그인합니다. 
+1. **AzAccount**를 사용 하 여 Azure에 로그인 합니다. 
 
-2. **Select-Az구독을**사용하여 필요한 구독을 선택합니다. 
+2. **AzSubscription**를 사용 하 여 필요한 구독을 선택 합니다. 
 
-3. 지정된 사용자에게 할당된 모든 역할을 나열하려면 **Get-AzRoleAssignment -SignInName [사용자 전자 메일] -IncludeClassicAdministrators**를 사용합니다. 
+3. 지정 된 사용자에 게 할당 된 모든 역할을 나열 하려면 **AzRoleAssignment-SignInName [사용자 전자 메일]-IncludeClassicAdministrators**를 사용 합니다. 
 
 출력이 표시되지 않으면 각 구독 관리자에게 문의하여 명령을 실행할 권한을 얻으세요. 자세한 내용은 [Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)를 참조하세요.
 
@@ -126,7 +126,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 ## <a name="can-i-use-an-existing-workspace"></a>기존 작업 영역을 사용해도 되나요?
 
-예. 기존 작업 영역을 선택하는 경우, 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. 작업 영역을 업그레이드하지 않으려면 새 작업 영역을 만들어야 합니다. 새 쿼리 언어에 대한 자세한 내용은 [Azure Monitor 로그 업그레이드를 새 로그 검색으로](../log-analytics/log-analytics-log-search-upgrade.md)참조하십시오.
+예. 기존 작업 영역을 선택하는 경우, 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. 작업 영역을 업그레이드하지 않으려면 새 작업 영역을 만들어야 합니다. 새 쿼리 언어에 대 한 자세한 내용은 [새 로그 검색으로 로그 업그레이드 Azure Monitor](../log-analytics/log-analytics-log-search-upgrade.md)를 참조 하세요.
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Azure Storage 계정과 Log Analytics 작업 영역이 서로 다른 구독에 있어도 되나요?
 
@@ -134,7 +134,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>원시 로그를 다른 구독에 저장할 수 있나요?
 
-아니요. 흐름 로그에 NSG를 사용할 수 있는 스토리지 계정에 원시 로그를 저장할 수 있습니다. 그러나 스토리지 계정과 원시 로그는 둘 다 동일한 구독 및 지역에 있어야 합니다.
+예. 적절 한 권한이 있고 저장소 계정이 NSG와 동일한 지역에 있는 경우 다른 구독에 있는 저장소 계정에 전송 되도록 NSG 흐름 로그를 구성할 수 있습니다. 또한 NSG와 대상 저장소 계정은 동일한 Azure Active Directory 테 넌 트를 공유 해야 합니다.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>“찾을 수 없음” 오류로 인해 트래픽 분석에 대해 NSG를 구성할 수 없으면 어떻게 하나요?
 
@@ -176,7 +176,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>PowerShell 또는 Azure Resource Manager 템플릿 또는 클라이언트를 사용하여 트래픽 분석을 구성할 수 있나요?
 
-버전 6.2.1부터 Windows PowerShell을 사용하여 트래픽 분석을 구성할 수 있습니다. cmdlet 설정을 사용하여 특정 NSG에 대한 흐름 로깅 및 트래픽 분석을 구성하려면 [Set-AzNetworkWatcherConfigFlow](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog)Log 를 참조하십시오. 특정 NSG에 대한 흐름 로깅 및 트래픽 분석 상태를 얻으려면 [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus)를 참조하십시오.
+버전 6.2.1부터 Windows PowerShell을 사용하여 트래픽 분석을 구성할 수 있습니다. Set cmdlet을 사용 하 여 특정 NSG에 대 한 흐름 로깅 및 트래픽 분석을 구성 하려면 [AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog)를 참조 하세요. 특정 NSG에 대 한 흐름 로깅 및 트래픽 분석 상태를 가져오려면 [AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus)를 참조 하세요.
 
 현재 트래픽 분석을 구성하는 데는 Azure Resource Manager 템플릿을 사용할 수 없습니다.
 
@@ -248,23 +248,23 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 예를 들어 [가격 책정 계획](https://azure.microsoft.com/pricing/details/network-watcher/)과 관련해서 미국 중서부 지역을 고려해보겠습니다. 트래픽 분석에 의해 처리되는 스토리지 계정에 저장된 흐름 로그 데이터가 10GB이고 Log Analytics 작업 영역에서 수집된 보강된 로그가 1GB인 경우 해당 요금은 10 x 2.3$ + 1 x 2.76$ = 25.76$가 됩니다.
 
-## <a name="how-frequently-does-traffic-analytics-process-data"></a>트래픽 분석에서 데이터를 처리하는 빈도는 얼마나 됩니까?
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>트래픽 분석에서 데이터를 처리 하는 빈도
 
-트래픽 분석 스키마 및 데이터 집계 문서의 [데이터 집계 섹션](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) 참조
+트래픽 분석 스키마 및 데이터 집계 문서의 [데이터 집계 섹션](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) 을 참조 하세요.
 
-## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>트래픽 분석에서 IP가 악의적이라고 판단하는 방법은 무엇입니까? 
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>IP가 악성 임을 어떻게 트래픽 분석 결정 하나요? 
 
-트래픽 분석은 Ip를 악의적인 것으로 간주하기 위해 Microsoft 내부 위협 인텔리전스 시스템에 의존합니다. 이러한 시스템은 Microsoft 제품 및 서비스, Microsoft 디지털 범죄 단위(DCU), Microsoft 보안 응답 센터(MSRC) 및 외부 피드와 같은 다양한 원격 분석 소스를 활용하고 그 위에 많은 인텔리전스를 구축합니다. 이 데이터 중 일부는 Microsoft 내부입니다. 알려진 IP가 악의적인 것으로 플래그가 지정되면 지원 티켓을 올려 자세한 내용을 알아두십시오.
+트래픽 분석는 Microsoft 내부 위협 인텔리전스 시스템을 사용 하 여 IP를 악성으로 간주 합니다. 이러한 시스템은 Microsoft 제품 및 서비스, microsoft DCU (Digital Crimes Unit), MSRC (Microsoft 보안 대응 센터) 및 외부 피드와 같은 다양 한 원격 분석 원본을 활용 하 고 그 위에 많은 인텔리전스를 구축 합니다. 이러한 데이터 중 일부는 Microsoft 내부입니다. 알려진 IP가 악성으로 플래그가 지정 되 면 세부 정보를 파악 하기 위해 지원 티켓을 제기 하세요.
 
-## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>트래픽 분석 데이터에 대한 알림을 설정하면 어떻게 하나요?
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>트래픽 분석 데이터에 대 한 경고를 설정 하려면 어떻게 해야 하나요?
 
-트래픽 분석에는 경고에 대한 붙들기 지원이 없습니다. 그러나 트래픽 분석 데이터는 Log Analytics에 저장되므로 사용자 지정 쿼리를 작성하고 경고를 설정할 수 있습니다. 단계:
-- 트래픽 분석에서 로그 분석에 대한 단축 링크를 사용할 수 있습니다. 
-- 여기에 [설명된 스키마를](traffic-analytics-schema.md) 사용하여 쿼리 작성 
-- "새 경고 규칙"을 클릭하여 경고를 만듭니다.
-- [로그 경고 설명서를](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) 참조하여 경고를 만듭니다.
+트래픽 분석는 경고에 대 한 기본 제공 지원을 제공 하지 않습니다. 그러나 트래픽 분석 데이터가 Log Analytics에 저장 되므로 사용자 지정 쿼리를 작성 하 고 경고를 설정할 수 있습니다. 위한
+- 트래픽 분석에서 Log Analytics에 받습니다를 사용할 수 있습니다. 
+- 여기에 [설명 된 스키마](traffic-analytics-schema.md) 를 사용 하 여 쿼리 작성 
+- "새 경고 규칙"을 클릭 하 여 경고를 만듭니다.
+- 경고를 만들려면 [로그 경고 설명서](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) 를 참조 하세요.
 
-## <a name="how-do-i-check-which-vms-are-receiving-most-on-premise-traffic"></a>가장 많이 수신되는 VM을 확인하려면 어떻게 해야 합니까?
+## <a name="how-do-i-check-which-vms-are-receiving-most-on-premise-traffic"></a>어떻게 할까요? 가장 많은 온-프레미스 트래픽을 수신 하는 Vm 확인
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -275,7 +275,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
             | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by vm
             | render timechart
 
-  IP의 경우:
+  Ip의 경우:
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -286,9 +286,9 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
             | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by IP
             | render timechart
 
-시간, 사용 형식 : yyy-mm-dd 00:00:00
+Time의 경우 형식: yyyy-mm-dd 00:00:00을 사용 합니다.
 
-## <a name="how-do-i-check-standard-deviation-in-traffic-recieved-by-my-vms-from-on-premise-machines"></a>온-프레미스 컴퓨터에서 VM이 수신한 트래픽의 표준 편차를 확인하려면 어떻게 해야 합니까?
+## <a name="how-do-i-check-standard-deviation-in-traffic-recieved-by-my-vms-from-on-premise-machines"></a>온-프레미스 컴퓨터에서 내 Vm이 받은 트래픽의 표준 편차를 확인 어떻게 할까요?
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -299,7 +299,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
             | summarize deviation = stdev(traffic)  by vm
 
 
-IP의 경우:
+Ip의 경우:
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -309,7 +309,7 @@ IP의 경우:
             | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
             | summarize deviation = stdev(traffic)  by IP
             
-## <a name="how-do-i-check-which-ports-are-reachable-or-bocked-between-ip-pairs-with-nsg-rules"></a>NSG 규칙이 있는 IP 쌍 간에 연결할 수 있는 포트(또는 bocked)를 확인하려면 어떻게 해야 합니까?
+## <a name="how-do-i-check-which-ports-are-reachable-or-bocked-between-ip-pairs-with-nsg-rules"></a>NSG 규칙을 사용 하 여 IP 쌍 간에 연결할 수 있는 포트 (또는 bocked)를 확인 어떻게 할까요?
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
@@ -324,8 +324,8 @@ IP의 경우:
 
 지역 지도 페이지에는 두 개의 기본 섹션이 있습니다.
     
-- **배너**: 지리적 맵 상단의 배너는 트래픽 분포 필터(예: 배포, 국가/지역 트래픽 및 악의적인)를 선택하는 단추를 제공합니다. 단추를 선택하면 각 필터가 지도에 적용됩니다. 예를 들어, [활성] 단추를 선택하면 지도에서 배포의 활성 데이터 센터가 강조 표시됩니다.
-- **지도**: 배너 아래지도 섹션에는 Azure 데이터 센터와 국가/지역 간의 트래픽 분포가 표시됩니다.
+- **배너**: 지역 맵 맨 위에 있는 배너는 트래픽 분산 필터를 선택 하는 단추를 제공 합니다 (예: 배포, 국가/지역의 트래픽 및 악성). 단추를 선택하면 각 필터가 지도에 적용됩니다. 예를 들어, [활성] 단추를 선택하면 지도에서 배포의 활성 데이터 센터가 강조 표시됩니다.
+- **지도**: 배너 아래에서 맵 섹션은 Azure 데이터 센터 및 국가/지역 간의 트래픽 분포를 보여 줍니다.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>배너에서 키보드 탐색
     

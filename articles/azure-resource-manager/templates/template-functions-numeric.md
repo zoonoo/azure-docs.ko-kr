@@ -1,45 +1,42 @@
 ---
-title: 템플릿 함수 - 숫자
+title: 템플릿 함수-numeric
 description: Azure Resource Manager 템플릿에서 숫자 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 11/08/2017
-ms.openlocfilehash: 2ca5c539036d002b83b8141132a0ebf2530dc6af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: dc15ade453fc5ea4dc031ced0377892f4f8cf27d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156347"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192351"
 ---
-# <a name="numeric-functions-for-arm-templates"></a>ARM 템플릿에 대한 숫자 함수
+# <a name="numeric-functions-for-arm-templates"></a>ARM 템플릿에 대 한 숫자 함수
 
-리소스 관리자는 ARM(Azure 리소스 관리자) 템플릿에서 정수로 작업하기 위한 다음 기능을 제공합니다.
+리소스 관리자는 ARM (Azure Resource Manager) 템플릿에서 정수를 사용 하기 위한 다음 함수를 제공 합니다.
 
-* [추가](#add)
+* [add](#add)
 * [copyIndex](#copyindex)
 * [div](#div)
-* [플 로트](#float)
-* [Int](#int)
-* [최대](#max)
-* [분](#min)
-* [모드](#mod)
+* [float](#float)
+* [int](#int)
+* [max](#max)
+* [일별](#min)
+* [연산을](#mod)
 * [mul](#mul)
 * [sub](#sub)
 
-<a id="add" />
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## <a name="add"></a>add
+
 `add(operand1, operand2)`
 
 제공된 두 정수의 합을 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | 유형 | Description |
 |:--- |:--- |:--- |:--- |
-|operand1 |yes |int |더할 첫 번째 숫자입니다. |
-|operand2 |yes |int |더할 두 번째 숫자입니다. |
+|operand1 |예 |int |더할 첫 번째 숫자입니다. |
+|operand2 |예 |int |더할 두 번째 숫자입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -82,81 +79,87 @@ ms.locfileid: "80156347"
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | addResult | Int | 8 |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
-```
-
-<a id="copyindex" />
-
 ## <a name="copyindex"></a>copyIndex
+
 `copyIndex(loopName, offset)`
 
 반복 루프의 인덱스를 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | 유형 | Description |
 |:--- |:--- |:--- |:--- |
-| loopName | 예 | 문자열 | 반복을 가져오기 위한 루프의 이름입니다. |
-| offset |예 |int |0부터 시작하는 반복 값에 더할 숫자입니다. |
+| loopName | 아니요 | string | 반복을 가져오기 위한 루프의 이름입니다. |
+| offset |아니요 |int |0부터 시작하는 반복 값에 더할 숫자입니다. |
 
 ### <a name="remarks"></a>설명
 
-이 함수는 항상 **copy** 개체에 사용됩니다. **offset** 값을 제공하지 않으면 현재 반복 값이 반환됩니다. 반복 값은 0부터 시작합니다. 리소스 또는 변수를 정의할 때 반복 루프를 사용할 수 있습니다.
+이 함수는 항상 **copy** 개체에 사용됩니다. **offset** 값을 제공하지 않으면 현재 반복 값이 반환됩니다. 반복 값은 0부터 시작합니다.
 
 **loopName** 속성을 사용하면 copyIndex에서 리소스 반복 또는 속성 반복을 참조하는지 여부를 지정할 수 있습니다. **loopName**에 값을 제공하지 않으면 현재 리소스 종류 반복이 사용됩니다. 속성에서 반복하는 경우 **loopName**의 값을 제공합니다.
 
-**copyIndex**를 사용하는 방법의 설명은 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조하세요.
+Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
-변수를 정의할 때 **copyIndex**를 사용하는 예제는 [변수](template-syntax.md#variables)를 참조하세요.
+* [ARM 템플릿의 리소스 반복](copy-resources.md)
+* [ARM 템플릿의 속성 반복](copy-properties.md)
+* [ARM 템플릿의 변수 반복](copy-variables.md)
+* [ARM 템플릿의 출력 반복](copy-outputs.md)
 
 ### <a name="example"></a>예제
 
 다음 예제에서는 복사 루프 및 이름에 포함되는 인덱스 값을 보여 줍니다.
 
 ```json
-"resources": [
-  {
-    "name": "[concat('examplecopy-', copyIndex())]",
-    "type": "Microsoft.Web/sites",
-    "copy": {
-      "name": "websitescopy",
-      "count": "[parameters('count')]"
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageCount": {
+            "type": "int",
+            "defaultValue": 2
+        }
     },
-    ...
-  }
-]
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
+            "copy": {
+                "name": "storagecopy",
+                "count": "[parameters('storageCount')]"
+            }
+        }
+    ],
+    "outputs": {}
+}
 ```
 
 ### <a name="return-value"></a>반환 값
 
 반복의 현재 인덱스를 나타내는 정수입니다.
 
-<a id="div" />
-
 ## <a name="div"></a>div
+
 `div(operand1, operand2)`
 
 제공된 두 정수의 나누기를 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | 유형 | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |yes |int |나누어지는 수입니다. |
-| operand2 |yes |int |나누는 데 사용되는 정수입니다. 0일 수 없습니다. |
+| operand1 |예 |int |나누어지는 수입니다. |
+| operand2 |예 |int |나누는 데 사용되는 정수입니다. 0 일 수 없습니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -199,36 +202,24 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | divResult | Int | 2 |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
-```
-
-<a id="float" />
-
 ## <a name="float"></a>float
+
 `float(arg1)`
 
 값을 부동 소수점 숫자로 변환합니다. 논리 앱과 같은 애플리케이션에 사용자 지정 매개 변수를 전달할 때만 이 함수를 사용합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | 유형 | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |문자열 또는 int |부동 소수점 숫자로 변환할 값입니다. |
+| arg1 |예 |문자열 또는 int |부동 소수점 숫자로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
+
 부동 소수점 수입니다.
 
 ### <a name="example"></a>예제
@@ -249,18 +240,17 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
             },
 ```
 
-<a id="int" />
-
 ## <a name="int"></a>int
+
 `int(valueToConvert)`
 
 지정된 값을 정수로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | 유형 | Description |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |yes |문자열 또는 int |정수로 변환할 값입니다. |
+| valueToConvert |예 |문자열 또는 int |정수로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -293,34 +283,21 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | intResult | Int | 4 |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
-```
-
-<a id="max" />
-
 ## <a name="max"></a>max
+
 `max (arg1)`
 
 정수 배열 또는 쉼표로 구분된 정수 목록 중에서 최대값을 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | 유형 | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
+| arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -356,35 +333,22 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
-```
-
-<a id="min" />
-
 ## <a name="min"></a>min
+
 `min (arg1)`
 
 정수 배열 또는 쉼표로 구분된 정수 목록 중에서 최소값을 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | 유형 | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
+| arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -420,38 +384,26 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
-```
-
-<a id="mod" />
-
 ## <a name="mod"></a>mod
+
 `mod(operand1, operand2)`
 
 제공된 두 정수를 사용하여 나누기한 나머지를 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | 유형 | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |yes |int |나누어지는 수입니다. |
-| operand2 |yes |int |나누는 데 사용되는 정수로, 0일 수 없습니다. |
+| operand1 |예 |int |나누어지는 수입니다. |
+| operand2 |예 |int |나누는 데 사용 되는 숫자는 0 일 수 없습니다. |
 
 ### <a name="return-value"></a>반환 값
+
 나머지를 나타내는 정수입니다.
 
 ### <a name="example"></a>예제
@@ -491,35 +443,22 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | modResult | Int | 1 |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
-```
-
-<a id="mul" />
-
 ## <a name="mul"></a>mul
+
 `mul(operand1, operand2)`
 
 제공된 두 정수의 곱하기를 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | 유형 | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |yes |int |곱할 첫 번째 숫자입니다. |
-| operand2 |yes |int |곱할 두 번째 숫자입니다. |
+| operand1 |예 |int |곱할 첫 번째 숫자입니다. |
+| operand2 |예 |int |곱할 두 번째 숫자입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -562,37 +501,25 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | mulResult | Int | 15 |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
-```
-
-<a id="sub" />
-
 ## <a name="sub"></a>sub
+
 `sub(operand1, operand2)`
 
 제공된 두 정수의 빼기를 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | 유형 | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |yes |int |빼는 피감수입니다. |
-| operand2 |yes |int |빼는 감수입니다. |
+| operand1 |예 |int |빼는 피감수입니다. |
+| operand2 |예 |int |빼는 감수입니다. |
 
 ### <a name="return-value"></a>반환 값
+
 빼기를 나타내는 정수입니다.
 
 ### <a name="example"></a>예제
@@ -632,25 +559,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | subResult | Int | 4 |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
-```
-
 ## <a name="next-steps"></a>다음 단계
-* Azure 리소스 관리자 템플릿의 섹션에 대한 설명은 [Azure 리소스 관리자 템플릿 작성을](template-syntax.md)참조하십시오.
-* 여러 템플릿을 병합하려면 [연결된 템플릿 사용을 Azure 리소스 관리자와](linked-templates.md)함께 참조합니다.
-* 리소스 형식을 만들 때 지정된 횟수를 반복하려면 [Azure 리소스 관리자에서 여러 리소스 인스턴스 만들기를](copy-resources.md)참조하십시오.
-* 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포 를](deploy-powershell.md)참조하세요.
 
+* Azure Resource Manager 템플릿의 섹션에 대 한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* 리소스 형식을 만들 때 지정 된 횟수 만큼 반복 하려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조 하세요.

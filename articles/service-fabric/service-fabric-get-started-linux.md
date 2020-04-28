@@ -3,12 +3,12 @@ title: Linux에서 개발 환경 설정
 description: Linux에서 런타임 및 SDK를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 마치면 애플리케이션을 빌드할 수 있습니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 6cedd97144a3fd32d9af8582e24ad5c12914e575
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 000d615d779ed14eb1698cf297075480a07c71ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682618"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193414"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -179,7 +179,7 @@ RHEL | - | OpenJDK 1.8 | npm에서 암시적 | 최신 |
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. 웹 브라우저를 열고 [서비스 패브릭 탐색기](http://localhost:19080/Explorer) ()로`http://localhost:19080/Explorer`이동합니다. 클러스터를 시작하는 경우 Service Fabric Explorer 대시보드가 표시됩니다. 클러스터가 완전히 설치될 때까지 몇 분 정도 걸릴 수 있습니다. 브라우저에서 URL이 열리지 않거나 Service Fabric Explorer에 시스템이 준비되었다고 표시되지 않으면 몇 분 후 다시 시도합니다.
+2. 웹 브라우저를 열고 **Service Fabric Explorer** (`http://localhost:19080/Explorer`)로 이동 합니다. 클러스터를 시작하는 경우 Service Fabric Explorer 대시보드가 표시됩니다. 클러스터가 완전히 설치될 때까지 몇 분 정도 걸릴 수 있습니다. 브라우저에서 URL이 열리지 않거나 Service Fabric Explorer에 시스템이 준비되었다고 표시되지 않으면 몇 분 후 다시 시도합니다.
 
     ![Linux의 Service Fabric Explorer][sfx-linux]
 
@@ -261,11 +261,11 @@ Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabr
 > 
 > Ubuntu의 경우 패키지 설치 관리자(`apt` 또는 `apt-get`)를 사용하는 대신 Eclipse 사이트에서 직접 설치하는 것이 좋습니다. 이렇게 하면 최신 버전의 Eclipse를 확보할 수 있습니다. Java 개발자용 또는 Java EE 개발자용 Eclipse IDE를 설치할 수 있습니다.
 
-1. Eclipse에서 Eclipse Neon 이상 및 Buildship 버전 2.2.1 이상이 설치되어 있는지 확인합니다. **이클립스** > **설치 세부 정보** **도움말을** > 선택하여 설치된 구성 요소의 버전을 확인합니다. [Eclipse Buildship: Gradle용 Eclipse 플러그 인(영문)][buildship-update]의 지침을 사용하여 Buildship을 업데이트할 수 있습니다.
+1. Eclipse에서 Eclipse Neon 이상 및 Buildship 버전 2.2.1 이상이 설치되어 있는지 확인합니다. Eclipse > **설치 정보****에 대 한** **도움말** > 을 선택 하 여 설치 된 구성 요소의 버전을 확인 합니다. [Eclipse Buildship: Gradle용 Eclipse 플러그 인(영문)][buildship-update]의 지침을 사용하여 Buildship을 업데이트할 수 있습니다.
 
-2. 서비스 패브릭 플러그인을 설치하려면**새 소프트웨어 설치** **도움말을** > 선택합니다.
+2. Service Fabric 플러그 인을 설치 하려면 **도움말** > **새 소프트웨어 설치**를 선택 합니다.
 
-3. 상자가 **있는 작업에서** https를 입력 **\/dl.microsoft.com/eclipse합니다.**
+3. **작업** 위치 상자에 **https\/:/dl.microsoft.com/eclipse**를 입력 합니다.
 
 4. **추가**를 선택합니다.
 
@@ -275,7 +275,7 @@ Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabr
 
 6. 설치 단계를 수행합니다. 최종 사용자 라이선스 계약에 동의합니다.
 
-Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버전인지 확인합니다. **이클립스** > **설치 세부 정보에**대한 **도움말을** > 선택하여 확인합니다. 그런 다음 설치된 플러그인 목록에서 서비스 패브릭을 검색합니다. **Update**
+Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버전인지 확인합니다. Eclipse > **설치 정보****에 대 한** **도움말** > 을 선택 하 여 확인 합니다. 그런 다음 설치 된 플러그 인 목록에서 Service Fabric을 검색 합니다. 최신 버전을 사용할 수 있는 경우 **업데이트** 를 선택 합니다.
 
 자세한 내용은 [Eclipse Java 애플리케이션 배포를 위한 Azure Service Fabric 플러그 인](service-fabric-get-started-eclipse.md)을 참조하세요.
 

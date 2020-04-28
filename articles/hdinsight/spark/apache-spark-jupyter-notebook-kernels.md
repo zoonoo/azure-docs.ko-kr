@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 01aad05995f4df5181a82bdedf630d4082760c38
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.openlocfilehash: f7f460b01674359847427296e4526fc5771658f0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82137436"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191960"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark 클러스터에 있는 Jupyter Notebook에 대한 커널
 
@@ -25,7 +25,7 @@ HDInsight Spark 클러스터는 애플리케이션 테스트를 위해 [Apache S
 
 이 문서에서는 이러한 커널의 사용 방법과 사용 시의 이점에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
@@ -68,7 +68,7 @@ HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에�
 
     다음 표에는 커널을 통해 사용할 수 있는 다양한 매직이 나열되어 있습니다.
 
-   | 매직 | 예제 | 설명 |
+   | 매직 | 예제 | Description |
    | --- | --- | --- |
    | 도움말 |`%%help` |예제 및 설명과 함께 사용할 수 있는 모든 매직이 포함된 테이블을 생성합니다. |
    | 정보 |`%%info` |현재 Livy 엔드포인트에 대한 출력 세션 정보 |
@@ -88,7 +88,7 @@ HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에�
 
 `%%sql` 매직은 쿼리를 실행할 때 검색하는 출력 종류를 제어하는 데 사용할 수 있는 여러 매개 변수를 지원합니다. 다음 표에는 출력이 나와 있습니다.
 
-| 매개 변수 | 예제 | 설명 |
+| 매개 변수 | 예제 | Description |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |이 매개 변수를 사용하여 쿼리 결과를 %%local Python 컨텍스트에서 [Pandas](https://pandas.pydata.org/) 데이터 프레임으로 유지할 수 있습니다. 데이터 프레임 변수 이름은 사용자가 지정한 변수 이름입니다. |
 | -Q |`-q` |이 매개 변수를 사용 하 여 셀에 대 한 시각화를 해제할 수 있습니다. 셀 내용을 자동으로 시각화 하지 않고 데이터 프레임 캡처하려면를 사용 `-q -o <VARIABLE>`하는 것이 좋습니다. `CREATE TABLE` 문과 같은 SQL 쿼리를 실행하려는 등의 경우 결과를 캡처하지 않고 시각화를 해제하려면 `-o` 인수를 지정하지 않고 `-q`만 사용합니다. |

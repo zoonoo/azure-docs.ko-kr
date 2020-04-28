@@ -1,16 +1,16 @@
 ---
-title: macOS에서 개발 환경 설정
-description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 macOS에서 응용 프로그램을 빌드할 준비가 된 것입니다.
+title: MacOS에서 개발 환경 설정
+description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정이 완료 되 면 macOS에서 응용 프로그램을 빌드할 준비가 됩니다.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: e278bcedc48226a59f258ad7d7064fa224737496
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: c7e2d556c4fb8bebc0b75bdf9d4c209c27f86971
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81308978"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193397"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X에서 개발 환경 설정
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
     
     >[!NOTE]
     >
-    >docker에서 직접 데몬을 수정하는 것이 좋습니다. 예: ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >디먼 파일의 위치는 컴퓨터 마다 다를 수 있으므로 Docker에서 직접 디먼을 수정 하는 것이 좋습니다. 예: ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 
     >[!TIP]
@@ -76,7 +76,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
     >예를 들어 `RUN apt-get install nodejs -y`를 추가하면 게스트 실행 파일인 `nodejs` 애플리케이션에 대한 지원이 허용됩니다.
     
     >[!TIP]
-    > 기본적으로 이렇게 하면 최신 버전의 Service Fabric으로 이미지를 가져옵니다. 특정 개정은 [Docker 허브](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 페이지를 방문하십시오.
+    > 기본적으로 이렇게 하면 최신 버전의 Service Fabric으로 이미지를 가져옵니다. 특정 수정 버전은 [Docker 허브](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 페이지를 참조 하세요.
 
 3. `Dockerfile`에서 다시 사용할 수 있는 이미지를 빌드하려면 터미널을 열고 `Dockerfile`을 보관하는 디렉터리에 `cd`한 후 다음을 실행합니다.
 
@@ -101,7 +101,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. 클러스터를 시작하는 데 시간이 걸립니다. 실행 중인 경우 다음 명령을 사용하여 로그를 보거나 대시보드로 이동하여 클러스터 [http://localhost:19080](http://localhost:19080)상태를 볼 수 있습니다.
+5. 클러스터를 시작하는 데 시간이 걸립니다. 클러스터가 실행되면 다음 명령을 사용하여 로그를 보거나, 대시보드로 이동하여 클러스터 상태(`http://localhost:19080`)를 볼 수 있습니다.
 
     ```bash 
     docker logs sftestcluster
@@ -166,8 +166,8 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
     ```
 
     > [!IMPORTANT]
-    > 현재 버전의 `brew cask install java` JDK는 최신 버전을 설치할 수 있습니다.
-    > JDK 8을 설치해야 합니다.
+    > 최신 버전의 `brew cask install java` JDK는 최신 버전의 JDK를 설치할 수 있습니다.
+    > JDK 8을 설치 해야 합니다.
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>터미널에서 Mac에 애플리케이션 배포
 

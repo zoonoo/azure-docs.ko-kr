@@ -5,20 +5,20 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: 2249dde8578dcd5cc3444aeef6b51c8afb2f31fa
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: abc71d644b44b432d0ebf2a8c849554fe8db0256
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160599"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190336"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상용 marketplace 혜택
 
 Marketplace에 게시 했으므로 이제 제품이 성공적으로 완료 된 것을 확인 하려고 합니다. 제품의 성장을 가속화 하는 데 필요한 판매, 기술 및 마케팅 혜택을 제공 합니다.
 
-제품을 사용 하는 경우 Marketplace 보상 팀은 적합 한 혜택에 대 한 작업을 시작 하기 위해 연락 합니다. Marketplace는 상업적 marketplace engagement와 판매에 따라 혜택을 얻습니다. 더 많은 정보를 얻는 것이 더 좋습니다.
+제품이 Azure Marketplace 또는 AppSource에 살고 있으면 [파트너 센터](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) 로 이동 하 여 적격 마케팅, 영업 및 기술 혜택을 액세스 하 고 활성화 합니다. Marketplace는 상업적 marketplace engagement와 판매에 따라 혜택을 얻습니다. 더 많은 정보를 얻는 것이 더 좋습니다.
 
 ## <a name="marketplace-rewards"></a>Marketplace Rewards
 
@@ -41,7 +41,19 @@ Marketplace 보상은 첫 번째 고객을 가져오는 데 도움이 되는 인
 시작 하는 단계는 간단 합니다.
 
 1. Microsoft AppSource 또는 Azure Marketplace에 제품을 게시 합니다.
-2. 팀에서 marketplace 제품에 대 한 "소유자" 또는 "기본 연락처"에 도달 합니다. 정기적으로 확인 하는 개인 또는 별칭을 입력 하는 것이 가장 좋습니다. 예를 들어 별칭으로 전송 info@company.com 되는 메시지는 자주 손실 됩니다.
+2. 파트너 센터 [대시보드로](https://partner.microsoft.com/dashboard/directory)이동 하 고 Marketplace 보상 페이지에서 **판매 및 마케팅 혜택** 탭을 선택 하 여 혜택 목록을 봅니다.
+3. 판매 및 마케팅 혜택을 활성화 하려면 먼저 회사 마케팅 담당자를 할당 해야 합니다. 이 연락처는 Marketplace 보상에 대 한 추가 정보를 받습니다.
+4. 마케팅 연락처 정보를 추가 하거나 업데이트 하려면 Marketplace 보상 페이지의 영업 및 마케팅 혜택 탭 맨 위로 이동한 다음 **추가, 업데이트 또는 변경**을 선택 합니다.  다음으로, 아래 작업을 수행합니다.
+
+    1. 목록에서 사용자를 선택합니다. 할당하려는 사용자가 목록에 없는 경우 계정 설정에서 **새 사용자를 추가**할 수 있습니다.
+    1. 회사의 파트너 센터 계정과 연결된 이메일 주소와 다른 사용자 이메일 주소를 입력합니다. Marketplace를 사용 하는 방법에 대 한 지침은 지정 된 마케팅 연락처의 전자 메일 주소에 대 한 혜택을 받을 수 있습니다.
+    1. 이 마케팅 담당자에 대한 연락처 전화 번호와 기본 설정 언어를 제공합니다. 이 정보 입력을 마친 후 **사용자 할당**을 선택합니다.
+    1. 마케팅 연락처를 업데이트 한 후에는 사용을 시작 하려는 혜택에 대해 **활성화** 를 선택 합니다. 혜택을 활성화 하면 한 주 내에 보상 팀의 구성원이 마케팅 담당자에 게 연락 하 게 됩니다.
+
+**기술 혜택**
+
+1. 기술 혜택을 사용 하 여 클라우드 및 하이브리드 솔루션의 예약 판매, 디자인, 배포 및 앱 개발 단계 중에 기술 지원을 요청할 수 있습니다. 지원을 요청하려면 요청 양식을 작성하고 **요청 제출**을 선택합니다.
+2. Azure 후원 혜택을 활용 하는 방법은 이러한 혜택의 잠금을 해제할 때 전자 메일을 통해 공유 됩니다.
 
 >[!Note]
 >제품이 4 주 이상 지속 되 고 메시지를 받지 못한 경우 파트너 센터에서 확인 하 여 해당 제품의 소유자 인 조직 내에서 확인 하세요. 통신 및 다음 단계를 수행 해야 합니다. <br> <br> 소유자를 확인할 수 없거나 소유자가 회사를 떠난 경우 [도움말 및 지원](https://partner.microsoft.com/support/v2/?stage=1)에서 지원 티켓을 발생 시킬 수 있습니다.

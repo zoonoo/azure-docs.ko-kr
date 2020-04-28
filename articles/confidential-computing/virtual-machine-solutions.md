@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 8db477f87f344b28e8941e185c70c81d9b860a72
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: e574ac33e5f7da814c4bd813fc1c083c7cb4c2c9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82149477"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187888"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Azure virtual machines의 솔루션
 
-이 문서에서는 intel SGX ( [소프트웨어 확장 가드](https://software.intel.com/sgx) )에서 지원 되는 intel 프로세서를 실행 하는 Azure 기밀 컴퓨팅 vm (가상 머신) 배포에 대 한 정보를 다룹니다. 
+이 문서에서는 intel SGX ( [Software Guard Extension](https://software.intel.com/sgx) )로 지원 되는 intel 프로세서를 실행 하는 Azure 기밀 컴퓨팅 vm (가상 머신) 배포에 대 한 정보를 다룹니다. 
 
 ## <a name="azure-confidential-computing-vm-sizes"></a>Azure 기밀 컴퓨팅 VM 크기
 
@@ -148,5 +148,5 @@ ARM 템플릿에서 DCsv2 시리즈 VM을 배포 하려면 [가상 머신 리소
 
 이 문서에서는 기밀 컴퓨팅 가상 머신을 만들 때 필요한 자격 및 구성에 대해 알아보았습니다. 이제 Azure Marketplace로 이동 하 여 DCsv2 시리즈 VM을 배포할 수 있습니다.
 
-[!div class=”nextstepaction”]
-[Azure Marketplace에 DCsv2 시리즈 가상 머신 배포](quick-create-marketplace.md)
+> [!div class="nextstepaction"]
+> [Azure Marketplace에 DCsv2 시리즈 가상 머신 배포](quick-create-marketplace.md)

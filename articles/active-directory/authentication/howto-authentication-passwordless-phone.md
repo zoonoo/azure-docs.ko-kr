@@ -1,6 +1,6 @@
 ---
-title: Microsoft 인증자 앱으로 암호 없는 로그인 - Azure Active Directory
-description: Microsoft 인증자 앱을 사용하여 Azure AD에 암호 없는 로그인 을 사용하도록 설정합니다(미리 보기)
+title: Microsoft Authenticator 앱을 사용 하 여 passwordless 로그인-Azure Active Directory
+description: Microsoft Authenticator 앱 (미리 보기)을 사용 하 여 Azure AD에 대해 암호 없는 로그인을 사용 하도록 설정
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,94 +12,94 @@ manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3412938cfc2ad3fbec293fd33f64e114e14e6f7e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81450975"
 ---
-# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Microsoft 인증자 앱에서 암호 없는 로그인 사용(미리 보기)
+# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Microsoft Authenticator 앱 (미리 보기)을 사용 하 여 암호 없는 로그인 사용
 
-암호를 사용하지 않고 Microsoft Authenticator 앱을 사용하여 모든 Azure AD 계정에 로그인할 수 있습니다. [비즈니스용 Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification) 기술과 마찬가지로 Microsoft Authenticator는 키 기반 인증을 사용하여 디바이스에 연결되고 생체 인식 또는 PIN을 사용하는 사용자 자격 증명을 사용하도록 설정합니다. 이 인증 방법은 모바일을 포함한 모든 장치 플랫폼과 Microsoft 인증 라이브러리와 통합되는 모든 앱 또는 웹 사이트에서 사용할 수 있습니다. 
+암호를 사용하지 않고 Microsoft Authenticator 앱을 사용하여 모든 Azure AD 계정에 로그인할 수 있습니다. [비즈니스용 Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification) 기술과 마찬가지로 Microsoft Authenticator는 키 기반 인증을 사용하여 디바이스에 연결되고 생체 인식 또는 PIN을 사용하는 사용자 자격 증명을 사용하도록 설정합니다. 이 인증 방법은 모바일을 비롯 한 모든 장치 플랫폼과 Microsoft 인증 라이브러리와 통합 되는 모든 앱 또는 웹 사이트에서 사용할 수 있습니다. 
 
-![사용자가 로그인을 승인하도록 요청하는 브라우저 로그인의 예](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
+![사용자가 로그인을 승인 하도록 요청 하는 브라우저 로그인의 예](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
-사용자 이름을 입력한 후 암호에 대한 프롬프트를 보는 대신 Microsoft 인증자 앱에서 전화 로그인을 사용하도록 설정한 사용자에게 앱의 번호를 탭하라는 메시지가 표시됩니다. 앱에서 사용자는 번호가 일치해야 하고 [승인]을 선택한 다음, PIN 또는 생체 인식을 제공해야 인증이 완료됩니다.
+사용자 이름을 입력 한 후 암호를 입력 하 라는 메시지가 표시 되는 대신 Microsoft Authenticator 앱에서 휴대폰 로그인을 사용 하도록 설정한 사용자는 앱의 번호를 탭 하 라는 메시지를 표시 합니다. 앱에서 사용자는 번호가 일치해야 하고 [승인]을 선택한 다음, PIN 또는 생체 인식을 제공해야 인증이 완료됩니다.
 
 > [!NOTE]
-> 이 기능은 2017년 3월부터 Microsoft 인증자 앱에 사용되어 왔기 때문에 디렉터리에 대해 정책을 사용하도록 설정하면 사용자가 이 흐름을 즉시 접하고 정책에 의해 활성화되지 않은 경우 오류 메시지가 표시될 수 있습니다. 이러한 변화를 인지하고 사용자가 대비하도록 하세요.
+> 이 기능은 2017 년 3 월부터 Microsoft Authenticator 앱에 포함 되었으므로 디렉터리에 대해 정책을 사용 하도록 설정 하면 사용자가이 흐름을 즉시 발견할 수 있으며 정책에 의해 사용 하도록 설정 되지 않은 경우 오류 메시지가 표시 될 수 있습니다. 이러한 변화를 인지하고 사용자가 대비하도록 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-- 확인 방법으로 푸시 알림을 허용하는 Azure 다단계 인증 
+- Azure Multi-Factor Authentication, 푸시 알림이 확인 방법으로 허용 됨 
 - iOS 8.0 이상 또는 Android 6.0 이상을 실행하는 디바이스에 설치된 최신 버전의 Microsoft Authenticator
 
 > [!NOTE]
-> Azure AD PowerShell을 사용하여 이전 Microsoft 인증자 앱 암호 없는 로그인 미리 보기를 사용하도록 설정한 경우 전체 디렉터리에서 사용하도록 설정되었습니다. 이 새 메서드를 사용 하 여 사용 하는 경우 PowerShell 정책을 대체 합니다. 새 인증 방법을 통해 테넌트의 모든 사용자를 사용하도록 설정하는 것이 좋습니다. 
+> Azure AD PowerShell을 사용 하 여 이전 Microsoft Authenticator app 암호 없는 로그인 미리 보기를 사용 하도록 설정한 경우 전체 디렉터리에 대해 사용 하도록 설정 되었습니다. 이 새 메서드를 사용 하도록 설정 하면 PowerShell 정책이 대체 됩니다. 새 인증 방법을 통해 테 넌 트의 모든 사용자에 대해을 사용 하도록 설정 하는 것이 좋습니다. 그렇지 않으면 새 정책에 없는 사용자가 더 이상 passwordlessly에 로그인 할 수 없습니다. 
 
 ## <a name="enable-passwordless-authentication-methods"></a>암호 없는 인증 방법 사용
 
-### <a name="enable-the-combined-registration-experience"></a>결합된 등록 환경 사용
+### <a name="enable-the-combined-registration-experience"></a>결합 된 등록 환경 사용
 
-암호 없는 인증 방법에 대 한 등록 기능은 결합 된 등록 기능에 의존 합니다. 결합된 등록을 활성화하려면 [결합된 보안 정보 등록을](howto-registration-mfa-sspr-combined.md)활성화하는 문서의 단계를 따릅니다.
+암호 없는 인증 방법에 대 한 등록 기능은 결합 된 등록 기능을 사용 합니다. 결합 된 [보안 정보 등록 사용](howto-registration-mfa-sspr-combined.md)문서의 단계를 수행 하 여 결합 된 등록을 사용 하도록 설정 합니다.
 
-### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>암호없는 전화 로그인 인증 방법 사용
+### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>암호 없는 휴대폰 로그인 인증 방법 사용
 
-1. [Azure 포털에](https://portal.azure.com) 로그인
-1. *Azure Active Directory*를 검색하고 선택합니다. **보안** > **인증 방법** > **인증 방법 정책 선택(미리 보기)**
-1. **암호가 없는 전화 로그인에서**다음 옵션을 선택합니다.
-   1. **사용 -** 예 또는 아니요
-   1. **대상** - 모든 사용자 또는 사용자 선택
-1. 새 정책을 설정하기 위해 **저장**
+1. [Azure 포털](https://portal.azure.com)
+1. *Azure Active Directory*를 검색하고 선택합니다. **보안** > **인증 방법** > **인증 방법 정책 (미리 보기)을** 선택 합니다.
+1. **Passwordless 휴대폰 로그인**에서 다음 옵션을 선택 합니다.
+   1. **사용** -예 또는 아니요
+   1. **대상** -모든 사용자 또는 사용자 선택
+1. **저장** 새 정책 설정
 
-## <a name="user-registration-and-management-of-microsoft-authenticator-app"></a>Microsoft 인증자 앱의 사용자 등록 및 관리
+## <a name="user-registration-and-management-of-microsoft-authenticator-app"></a>Microsoft Authenticator 앱의 사용자 등록 및 관리
 
 1. [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)으로 이동합니다.
-1. 아직 로그인하지 않은 경우
-1. **메서드 추가를**클릭하고 인증자 앱을 선택하고 **추가를** 클릭하여 **인증자 앱을**추가합니다.
-1. 지침에 따라 장치에 Microsoft 인증자 앱을 설치하고 구성합니다.
-1. **완료를** 클릭하여 인증자 MFA 앱 설정 흐름을 완료합니다. 
-1. **Microsoft 인증자에서**계정 드롭다운 메뉴에서 **전화 로그인 활성화를** 선택합니다.
-1. 암호없는 전화 로그인에 대한 등록을 완료하려면 응용 프로그램의 지침을 따르십시오. 
+1. 아직 로그인 하지 않은 경우 로그인
+1. **방법 추가**를 클릭 하 고 **authenticator 앱**을 선택한 다음 **추가** 를 클릭 하 여 인증자 앱을 추가 합니다.
+1. 지침에 따라 장치에 Microsoft Authenticator 앱을 설치 하 고 구성 합니다.
+1. **완료** 를 클릭 하 여 인증자 MFA 앱 설정 흐름을 완료 합니다. 
+1. **Microsoft Authenticator**의 계정 드롭다운 메뉴에서 **휴대폰 로그인 사용** 을 선택 합니다.
+1. 앱의 지침에 따라 암호 없는 휴대폰 로그인에 대 한 등록을 완료 합니다. 
 
-조직은 Microsoft 인증자 앱에서 설정하고 전화 로그인을 활성화하기 위한 추가 지원을 위해 [암호가 아닌 휴대폰으로](../user-help/microsoft-authenticator-app-phone-signin-faq.md) 로그인하는 문서를 사용자를 가리킬 수 있습니다. 이러한 설정을 적용하려면 로그아웃하고 테넌트에 다시 로그아웃해야 할 수 있습니다. 
+조직에서는 사용자에 게 암호를 지정 [하지 않고 휴대폰으로 로그인을](../user-help/microsoft-authenticator-app-phone-signin-faq.md) 지정 하 여 Microsoft Authenticator 앱에서 추가 지원을 설정 하 고 휴대폰 로그인을 사용 하도록 설정할 수 있습니다. 이러한 설정을 적용 하려면 로그 아웃 한 후 다시 테 넌 트에 다시 로그인 해야 할 수 있습니다. 
 
-## <a name="sign-in-with-passwordless-credential"></a>암호 없는 자격 증명으로 로그인
+## <a name="sign-in-with-passwordless-credential"></a>암호 없는 자격 증명을 사용 하 여 로그인
 
-공개 미리 보기의 경우 사용자가 이 새 자격 증명을 만들거나 사용할 수 있도록 하는 방법은 없습니다. 사용자는 관리자가 테넌트를 사용하도록 설정하고 사용자가 전화 **and** 로그인을 사용하도록 Microsoft 인증자 앱을 업데이트한 경우에만 암호 없는 로그인을 발생합니다.
+공개 미리 보기의 경우 사용자가 이 새 자격 증명을 만들거나 사용할 수 있도록 하는 방법은 없습니다. 관리자가 테 넌 트를 사용 하도록 설정 하 **고** 사용자가 휴대폰 로그인을 사용 하도록 Microsoft Authenticator 앱을 업데이트 한 후에만 사용자에 게 암호 없는 로그인이 발생 합니다.
 
-웹에서 사용자 이름을 입력하고 **다음을**선택하면 사용자에게 번호가 표시되고 Microsoft 인증자 앱에서 암호를 사용하는 대신 인증할 적절한 번호를 선택하라는 메시지가 표시됩니다. 
+웹에서 사용자 이름을 입력 하 고 **다음**을 선택 하면 사용자에 게 숫자가 표시 되 고, 암호를 사용 하는 대신 인증에 적합 한 수를 선택 하도록 Microsoft Authenticator 앱에 메시지가 표시 됩니다. 
 
-![Microsoft 인증자 앱을 사용하는 브라우저 로그인의 예](./media/howto-authentication-passwordless-phone/web-sign-in-microsoft-authenticator-app.png)
+![Microsoft Authenticator 앱을 사용한 브라우저 로그인 예](./media/howto-authentication-passwordless-phone/web-sign-in-microsoft-authenticator-app.png)
 
 ## <a name="known-issues"></a>알려진 문제
 
-### <a name="user-is-not-enabled-by-policy-but-still-has-passwordless-phone-sign-in-method-in-microsoft-authenticator"></a>사용자는 정책에 의해 활성화되지 않지만 여전히 Microsoft 인증기에서 암호가없는 전화 로그인 방법이 있습니다.
+### <a name="user-is-not-enabled-by-policy-but-still-has-passwordless-phone-sign-in-method-in-microsoft-authenticator"></a>사용자가 정책으로 사용 하도록 설정 되어 있지 않지만에서 암호를 사용 하지 않는 휴대폰 로그인 방법을 Microsoft Authenticator
 
-사용자가 현재 Microsoft 인증자 앱 또는 이전 장치에서 암호가 없는 전화 로그인 자격 증명을 만들었을 수 있습니다. 관리자가 암호 없는 전화 로그인에 대 한 인증 방법 정책을 사용 하면 등록 된 자격 증명을 가진 모든 사용자가 새 로그인 프롬프트를 경험 하기 시작 합니다., 그들은 정책을 사용 하도록 사용 하 여 여부에 관계 없이. 사용자가 정책별 자격 증명을 사용할 수 없는 경우 인증 흐름을 완료한 후 오류가 표시됩니다. 
+사용자가 현재 Microsoft Authenticator 앱 또는 이전 장치에서 암호 없는 휴대폰 로그인 자격 증명을 만든 시점이 있을 수 있습니다. 관리자가 암호 없는 휴대폰 로그인에 대 한 인증 방법 정책을 사용 하도록 설정 하면 자격 증명을 등록 한 모든 사용자가 정책을 사용 하도록 설정 되었는지 여부에 관계 없이 새 로그인 프롬프트가 표시 되기 시작 합니다. 사용자가 정책으로 자격 증명을 사용할 수 없는 경우 인증 흐름을 완료 한 후에 오류가 표시 됩니다. 
 
-관리자는 사용자가 암호없는 전화 로그인을 사용하도록 선택하거나 사용자가 메서드를 제거해야합니다. 사용자가 더 이상 등록된 장치가 없는 경우 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 이동하여 제거할 수 있습니다. 여전히 MFA에 대한 인증자를 사용하는 경우 Microsoft 인증자 내에서 **전화 로그인 비활성화를** 선택할 수 있습니다.  
+관리자는 사용자가 암호 없는 휴대폰 로그인을 사용 하도록 선택할 수 있습니다. 또는 사용자가 메서드를 제거 해야 합니다. 사용자에 게 더 이상 등록 된 장치가 없는 경우로 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 이동 하 여 제거할 수 있습니다. 여전히 MFA에 대 한 인증자를 사용 하는 경우 Microsoft Authenticator 내에서 **휴대폰 로그인 사용 안 함** 을 선택할 수 있습니다.  
 
 ### <a name="ad-fs-integration"></a>AD FS 통합
 
-사용자가 Microsoft Authenticator 암호 없는 자격 증명을 사용하도록 설정하면 해당 사용자의 인증은 항상 승인을 위해 알림을 보내는 것으로 기본 설정됩니다. 이 논리는 하이브리드 테넌트의 사용자가 "대신 암호 사용"을 클릭하는 추가 단계를 취하지 않고도 로그인 확인을 위해 ADFS로 보내지는 것을 방지합니다. 또한 이 프로세스는 온-프레미스 조건부 액세스 정책 및 통과 인증 흐름을 무시합니다. 
+사용자가 Microsoft Authenticator 암호 없는 자격 증명을 사용하도록 설정하면 해당 사용자의 인증은 항상 승인을 위해 알림을 보내는 것으로 기본 설정됩니다. 이 논리는 "암호 대신 사용"을 클릭 하는 추가 단계를 수행 하지 않고 하이브리드 테 넌 트의 사용자가 로그인 확인을 위해 ADFS로 전달 되지 않도록 합니다. 또한 이 프로세스는 온-프레미스 조건부 액세스 정책 및 통과 인증 흐름을 무시합니다. 
 
-사용자가 응답되지 않은 암호없는 전화 로그인 확인이 보류 중이고 다시 로그인을 시도하는 경우, 사용자는 대신 암호를 입력하기 위해 ADFS로 이동 될 수 있습니다.  
+사용자가 응답 하지 않는 암호를 사용 하 여 로그인 인증을 보류 중이 고 다시 로그인을 시도 하면 사용자가 ADFS로 이동 하 여 암호를 입력할 수 있습니다.  
 
 ### <a name="azure-mfa-server"></a>Azure MFA 서버
 
-조직의 온-프레미스 Azure MFA 서버를 통해 MFA를 사용하도록 설정된 최종 사용자는 암호가 없는 단일 전화 로그인 자격 증명을 만들고 사용할 수 있습니다. 사용자가 자격 증명으로 Microsoft Authenticator의 여러 설치(5개 이상)를 업그레이드하려고 시도하면 이 변경으로 인해 오류가 발생할 수 있습니다.  
+조직의 온-프레미스 Azure mfa 서버를 통해 mfa를 사용 하도록 설정한 최종 사용자는 여전히 단일 암호 없는 전화 로그인 자격 증명을 만들고 사용할 수 있습니다. 사용자가 자격 증명으로 Microsoft Authenticator의 여러 설치(5개 이상)를 업그레이드하려고 시도하면 이 변경으로 인해 오류가 발생할 수 있습니다.  
 
 ### <a name="device-registration"></a>디바이스 등록
 
-이 새로운 강력한 자격 증명을 만들기 위한 전제 조건 중 하나는 Microsoft 인증자 앱이 설치된 장치도 Azure AD 테넌트 내에 개별 사용자에게 등록해야 한다는 것입니다. 현재 장치 등록 제한으로 인해 장치는 단일 테넌트에만 등록할 수 있습니다. 이 제한은 Microsoft Authenticator 앱에서 휴대폰 로그인에 대해 하나의 회사 또는 학교 계정만 설정할 수 있음을 의미합니다.
+이 새로운 강력한 자격 증명을 만들기 위한 필수 구성 요소 중 하나는 Microsoft Authenticator 앱이 설치 된 장치가 Azure AD 테 넌 트 내에 개별 사용자에 등록 되어야 한다는 것입니다. 현재 장치 등록 제한으로 인해 장치는 단일 테 넌 트에만 등록할 수 있습니다. 이 제한은 Microsoft Authenticator 앱에서 휴대폰 로그인에 대해 하나의 회사 또는 학교 계정만 설정할 수 있음을 의미합니다.
 
 ### <a name="intune-mobile-application-management"></a>Intune 모바일 애플리케이션 관리 
 
-MAM(모바일 응용 프로그램 관리)이 필요한 정책의 적용을 받는 최종 사용자는 Microsoft 인증자 앱에서 암호없는 자격 증명을 등록할 수 없습니다. 
+MAM (모바일 응용 프로그램 관리)이 필요한 정책에 적용 되는 최종 사용자는 Microsoft Authenticator 앱에서 암호 없는 자격 증명을 등록할 수 없습니다. 
 
 > [!NOTE]
-> 장치 등록은 장치 관리 또는 "MDM"과 다름없습니다. Azure AD 디렉터리에서 장치 ID와 사용자 ID만 함께 연결합니다.  
+> 장치 등록은 장치 관리 또는 "MDM"과 동일 하지 않습니다. Azure AD 디렉터리에서 장치 ID와 사용자 ID를 함께 연결 합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

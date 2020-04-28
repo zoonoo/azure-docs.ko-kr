@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: c5ea32fb198a61391e1be3648d1d2d2e829a7214
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.openlocfilehash: 06c344130156ae5f72f6e65baa519c11adff2bae
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82137266"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186444"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집
 
@@ -33,6 +33,9 @@ Azure Monitor를 사용하면 애플리케이션 원격 분석, Azure 리소스�
 
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
+> [!NOTE]  
+> 기존 경고 규칙을 마이그레이션하고 기존 Linux 가상 머신을 사용 하려면 가상 컴퓨터의 시스템 할당 id가 **On**으로 설정 되어 있는지 확인 합니다.
+
 새 Linux VM을 만듭니다. 
 
 1. 왼쪽 탐색 창에서 **리소스 만들기** 옵션을 선택 합니다. 
@@ -41,7 +44,7 @@ Azure Monitor를 사용하면 애플리케이션 원격 분석, Azure 리소스�
 1. VM 이름 (예: **MyTelegrafVM**)을 제공 합니다.  
 1. 디스크 유형은 **SSD**로 그대로 둡니다. 그런 다음 **azureuser**와 같은 **사용자 이름을**제공 합니다. 
 1. **인증 유형**으로 **암호**를 선택 합니다. 나중에 이 VM에 대해 SSH를 수행할 때 사용할 암호를 입력합니다. 
-1. **새 리소스 그룹을 만들도록**선택 합니다. 그런 다음 **Myresourcegroup**과 같은 이름을 제공 합니다. **위치**를 선택 합니다. 그런 다음, **확인**을 선택합니다. 
+1. **새 리소스 그룹을 만들도록**선택 합니다. 그런 다음 **Myresourcegroup**과 같은 이름을 제공 합니다. **위치**를 선택 합니다. 그런 다음 **확인**을 선택합니다. 
 
     ![Ubuntu VM 만들기](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 

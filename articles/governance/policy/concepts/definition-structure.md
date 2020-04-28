@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용 하 여 조직의 Azure 리소스에 대 한 규칙을 설정 하는 방법을 설명 합니다.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 329692c7220810af1d47fe7036e727bb49284810
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 5d4a86f4d9f74cf17229467f19a3afa8bebcf40f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82117287"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187769"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -324,7 +324,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-### <a name="value"></a>Value
+### <a name="value"></a>값
 
 **value**를 사용하여 조건을 구성할 수도 있습니다. **value**는 [매개 변수](#parameters), [지원되는 템플릿 함수](#policy-functions) 또는 리터럴에 대해 조건을 확인합니다.
 **value**는 지원되는 모든 [조건](#conditions)과 쌍을 이룹니다.
@@ -629,7 +629,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
   [Visual Studio Code에 대 한 Azure Policy 확장](../how-to/extension-for-vscode.md) 을 사용 하 여 리소스 속성에 대 한 별칭을 보고 검색할 수 있습니다.
 
-  ![Visual Studio Code Azure Policy 확장](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Visual Studio Code Azure Policy 확장" border="false":::
 
 - Azure Resource Graph
 
@@ -682,7 +682,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 ### <a name="understanding-the--alias"></a>[*] 별칭 이해
 
-사용할 수 있는 여러 별칭에는 ' normal ' 이름으로 표시 되 고 다른 ** \[ \* ** 버전에 연결 된 버전이 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+사용할 수 있는 여러 별칭에는 ' normal ' 이름으로 표시 되 고 다른 ** \[ \* ** 버전에 연결 된 버전이 있습니다. 다음은 그 예입니다.
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

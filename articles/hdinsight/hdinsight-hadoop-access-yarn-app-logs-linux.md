@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 7da6536e78a0b981306e3909b06a674cbb8cbaa1
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 726cf362e62f0ef914dfaea090a08c224bd5d8d6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106273"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192504"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Apache Hadoop YARN 애플리케이션 로그에 액세스
 
@@ -56,7 +56,7 @@ YARN Timeline Server는 다음과 같은 형식의 데이터를 포함합니다.
 
 Ambari의 사용자 지정 `mapred-site` 에 두 가지 구성을 추가 해야 합니다.
 
-1. 웹 브라우저에서로 `https://CLUSTERNAME.azurehdinsight.net`이동 합니다. 여기서 `CLUSTERNAME` 은 클러스터의 이름입니다.
+1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net`로 이동합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
 1. Ambari UI에서 **MapReduce2** > **Configs** > **Advanced** > **Custom mapred-site**로 이동 합니다.
 

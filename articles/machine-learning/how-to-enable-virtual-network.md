@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/17/2020
-ms.openlocfilehash: bd4dabe1d5fbc4722d03f31492d2118802292df2
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 6cf89790ee125d8d09d9bdead2f6e34dcb73e8f8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82111969"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188126"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 > [!WARNING]
 > Microsoft는 기본 저장소에서 가상 네트워크를 사용할 수 있는 경우 자동화 된 ML, 데이터 집합, Datalabeling, 디자이너 및 전자 필기장과 같은 Azure Machine Learning Studio 기능을 사용 하도록 지원 하지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + Azure Machine Learning [작업 영역](how-to-manage-workspace.md)입니다.
 
@@ -508,19 +508,7 @@ Azure Container Instances은 모델을 배포할 때 동적으로 생성 됩니�
 
 ## <a name="use-azure-firewall"></a>Azure 방화벽 사용
 
-Azure 방화벽을 사용 하는 경우 다음 주소와의 트래픽을 허용 하도록 네트워크 규칙을 구성 해야 합니다.
-
-- `*.batchai.core.windows.net`
-- `ml.azure.com`
-- `*.azureml.ms`
-- `*.experiments.azureml.net`
-- `*.modelmanagement.azureml.net`
-- `mlworkspace.azure.ai`
-- `*.aether.ms`
-
-규칙을 추가 하는 경우 __프로토콜__ 을 any로 설정 하 고 포트를 `*`로 설정 합니다.
-
-네트워크 규칙을 구성 하는 방법에 대 한 자세한 내용은 [Azure 방화벽 배포 및 구성](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule)을 참조 하세요.
+Azure 방화벽과 함께 Azure Machine Learning를 사용 하는 방법에 대 한 자세한 내용은 [Azure 방화벽 뒤에 Azure Machine Learning 작업 영역 사용](how-to-access-azureml-behind-firewall.md)을 참조 하세요.
 
 ## <a name="use-azure-container-registry"></a>Azure Container Registry 사용
 

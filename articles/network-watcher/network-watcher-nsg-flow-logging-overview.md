@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: a1674f51d5b877a1296e9a457c6acf61a507c82e
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: ed14d3fb1cd3d9d8af37088811ce62b050778a95
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82131356"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189806"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -51,7 +51,7 @@ Nsg ( [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-netw
 - 로그는 Azure 플랫폼을 통해 수집 되며 고객 리소스나 네트워크 성능에 영향을 주지 않습니다.
 - 로그는 JSON 형식으로 작성 되며, NSG 규칙에 따라 아웃 바운드 및 인바운드 흐름을 표시 합니다.
 - 각 로그 레코드에는 흐름이 적용 되는 NIC (네트워크 인터페이스), 5 튜플 정보, 트래픽 결정 & (버전 2에만 해당) 처리량 정보가 포함 됩니다. 전체 세부 정보는 아래 _로그 형식_ 을 참조 하세요.
-- 흐름 로그에는 생성 후 1 년까지 자동으로 로그를 삭제할 수 있는 보존 기능이 있습니다.
+- 흐름 로그에는 생성 후 최대 1 년까지 로그를 자동으로 삭제할 수 있는 보존 기능이 있습니다. **참고**: 보존은 [범용 v2 저장소 계정 (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts)을 사용 하는 경우에만 사용할 수 있습니다. 
 
 **핵심 개념**
 
@@ -365,13 +365,13 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 ## <a name="troubleshooting-common-issues"></a>일반적인 문제 해결
 
-### <a name="i-could-not-enable-nsg-flow-logs"></a>**NSG 흐름 로그를 사용하도록 설정할 수 없습니다.**
+**NSG 흐름 로그를 사용하도록 설정할 수 없습니다.**
 
 - **Microsoft Insights** 리소스 공급자가 등록 되지 않았습니다.
 
 _Authorizationfailed_ 또는 _GatewayAuthenticationFailed_ 오류를 받은 경우 구독에서 Microsoft Insights 리소스 공급자를 사용하도록 설정하지 않았을 수 있습니다. [지침에 따라](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#register-insights-provider) Microsoft Insights 공급자를 사용 하도록 설정 합니다.
 
-### <a name="i-have-enabled-nsg-flow-logs-but-do-not-see-data-in-my-storage-account"></a>**NSG 흐름 로그를 사용하도록 설정했지만 스토리지 계정에 데이터가 표시되지 않습니다.**
+**NSG 흐름 로그를 사용하도록 설정했지만 스토리지 계정에 데이터가 표시되지 않습니다.**
 
 - **설치 시간**
 
@@ -381,21 +381,21 @@ _Authorizationfailed_ 또는 _GatewayAuthenticationFailed_ 오류를 받은 경�
 
 경우에 따라 VM이 활성화되어 있지 않거나 App Gateway의 업스트림 필터 또는 NSG에 대한 트래픽을 차단하는 기타 디바이스 때문에 로그가 표시되지 않습니다.
 
-### <a name="i-want-to-automate-nsg-flow-logs"></a>**NSG 흐름 로그를 자동화하려고 함**
+**NSG 흐름 로그를 자동화하려고 함**
 
 ARM 템플릿을 통한 자동화 지원은 현재 NSG 흐름 로그에 대해 사용할 수 없습니다. 자세한 내용은 [기능 공지](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) 를 참조 하세요.
 
 ## <a name="faq"></a>FAQ
 
-### <a name="what-does-nsg-flow-logs-do"></a>**NSG 흐름 로그는 어떻게 되나요?**
+**NSG 흐름 로그는 어떻게 되나요?**
 
 Azure 네트워크 리소스는 [NSGs (네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/security-overview)를 통해 결합 및 관리할 수 있습니다. NSG 흐름 로그를 사용 하 여 Nsg를 통한 모든 트래픽에 대 한 5 튜플 흐름 정보를 기록할 수 있습니다. 원시 흐름 로그는 필요에 따라 추가로 처리, 분석, 쿼리 또는 내보낼 수 있는 Azure Storage 계정에 기록 됩니다.
 
-### <a name="does-using-flow-logs-impact-my-network-latency-or-performance"></a>**흐름 로그를 사용 하 여 네트워크 대기 시간 또는 성능에 영향을 미칩니까?**
+**흐름 로그를 사용 하 여 네트워크 대기 시간 또는 성능에 영향을 미칩니까?**
 
 흐름 로그 데이터는 네트워크 트래픽 경로 외부에서 수집 되므로 네트워크 처리량 또는 대기 시간에 영향을 주지 않습니다. 네트워크 성능에 영향을 미치는 위험 없이 흐름 로그를 만들거나 삭제할 수 있습니다.
 
-### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-firewall"></a>**방화벽 뒤의 저장소 계정을 사용 하 여 NSG 흐름 로그를 사용 어떻게 할까요??**
+**방화벽 뒤의 저장소 계정을 사용 하 여 NSG 흐름 로그를 사용 어떻게 할까요??**
 
 방화벽 뒤의 저장소 계정을 사용 하려면 저장소 계정에 액세스 하기 위해 신뢰할 수 있는 Microsoft 서비스에 대 한 예외를 제공 해야 합니다.
 
@@ -407,11 +407,11 @@ Azure 네트워크 리소스는 [NSGs (네트워크 보안 그룹)](https://docs
 
 몇 분 후에 스토리지 로그를 확인할 수 있습니다. 그러면 업데이트된 타임스탬프 또는 새로 만든 JSON 파일이 표시됩니다.
 
-### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-service-endpoint"></a>**서비스 끝점 뒤의 저장소 계정으로 NSG 흐름 로그를 사용 어떻게 할까요??**
+**서비스 끝점 뒤의 저장소 계정으로 NSG 흐름 로그를 사용 어떻게 할까요??**
 
 NSG 흐름 로그는 추가 구성이 필요 없이 서비스 끝점과 호환 됩니다. 가상 네트워크에서 [서비스 끝점을 사용 하도록 설정 하는 방법에 대 한 자습서](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) 를 참조 하세요.
 
-### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>**흐름 로그 버전 1 & 2의 차이점은 무엇 인가요?**
+**흐름 로그 버전 1 & 2의 차이점은 무엇 인가요?**
 
 흐름 로그 버전 2에는 전송 되는 바이트와 패킷에 대 한 정보를 저장 하 & _흐름 상태의_ 개념이 도입 되었습니다. [자세히 알아보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)
 

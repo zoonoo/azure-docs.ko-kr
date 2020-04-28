@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0228f317e2d3380f2387dd557a27203eb3abc4ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c90f4166bf88a8df18a93e84903c93461b904d2c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240271"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187265"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 페이지 추가
 
@@ -29,7 +29,7 @@ ms.locfileid: "80240271"
 이 방법 가이드의 단계를 완료하려면 로컬 개발 머신에 다음과 같은 소프트웨어가 설치되어 있어야 합니다.
 
 - [Git](https://git-scm.com/downloads)
-- [Node.js](https://nodejs.org/download/)
+- [Node.JS](https://nodejs.org/download/)
 
 ## <a name="prepare-a-local-development-environment-for-the-ui"></a>UI에 대한 로컬 개발 환경 준비
 
@@ -142,7 +142,7 @@ npm install
 npm start
 ```
 
-이전 명령은 에서 [http://localhost:3000/dashboard](http://localhost:3000/dashboard)UI를 로컬로 실행합니다.
+이전 명령은 `http://localhost:3000/dashboard`에서 UI를 로컬로 실행합니다.
 
 웹 UI의 로컬 인스턴스를 솔루션 가속기의 배포된 인스턴스에 연결하지 않으면 대시보드에 오류가 표시됩니다. 이러한 오류는 새 페이지를 테스트하는 기능에 영향을 주지 않습니다.
 
@@ -154,15 +154,15 @@ npm start
 
 1. **pcs** CLI를 사용하여 솔루션 가속기의 **기본** 인스턴스를 배포합니다. 가상 머신에 대해 제공한 배포 및 자격 증명의 이름을 기록해 둡니다. 자세한 내용은 [CLI를 사용하여 배포](iot-accelerators-remote-monitoring-deploy-cli.md)를 참조하세요.
 
-1. Azure 포털 또는 [az CLI를](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 사용하여 솔루션에서 마이크로 서비스를 호스팅하는 가상 컴퓨터에 대한 SSH 액세스를 활성화합니다. 예를 들어:
+1. Azure Portal 또는 [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 를 사용 하 여 솔루션에서 마이크로 서비스를 호스팅하는 가상 컴퓨터에 대 한 SSH 액세스를 사용 하도록 설정 합니다. 다음은 그 예입니다.
 
     ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    테스트 및 개발하는 동안 SSH 액세스만 활성화해야 합니다. SSH를 사용하도록 설정한 경우 [가능한 한 빨리 다시 비활성화해야 합니다.](../security/fundamentals/network-best-practices.md)
+    테스트 및 개발하는 동안 SSH 액세스만 활성화해야 합니다. SSH를 사용 하도록 설정 하는 경우 [가능한 한 빨리 다시 사용 하지 않도록 설정 해야](../security/fundamentals/network-best-practices.md)합니다.
 
-1. Azure Portal 또는 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 예를 들어:
+1. Azure Portal 또는 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 다음은 그 예입니다.
 
     ```azurecli
     az resource list --resource-group {your solution name} -o table
