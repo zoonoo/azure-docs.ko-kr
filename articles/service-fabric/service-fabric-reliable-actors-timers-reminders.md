@@ -1,15 +1,15 @@
 ---
-title: 신뢰할 수있는 행위자 타이머 및 알림
-description: 서비스 패브릭 신뢰할 수 있는 행위자에 대한 타이머 소개 및 알림(각 사용 시기에 대한 지침 포함)
+title: Reliable Actors 타이머 및 미리 알림
+description: 각각의 사용 시기에 대 한 지침을 포함 하 여 Service Fabric Reliable Actors에 대 한 타이머 및 미리 알림을 소개 합니다.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 02d6220b31ee9c991e8450759bf46759af6177a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75639618"
 ---
 # <a name="actor-timers-and-reminders"></a>행위자 타이머 및 미리 알림
@@ -220,5 +220,5 @@ CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
 
 ## <a name="next-steps"></a>다음 단계
 Reliable Actor 이벤트 및 재진입에 대해 알아봅니다.
-* [액터 이벤트](service-fabric-reliable-actors-events.md)
-* [배우 재응신](service-fabric-reliable-actors-reentrancy.md)
+* [행위자 이벤트](service-fabric-reliable-actors-events.md)
+* [행위자 재입력](service-fabric-reliable-actors-reentrancy.md)

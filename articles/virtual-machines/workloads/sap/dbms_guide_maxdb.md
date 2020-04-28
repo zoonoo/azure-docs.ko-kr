@@ -16,10 +16,10 @@ ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 90de49ae3137735683bae6a18b5f7c8951b021ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645874"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Azure VM에서 SAP MaxDB, liveCache 및 Content Server 배포
@@ -320,7 +320,7 @@ SAP MaxDB에서 SAP NetWeaver를 실행하는 방법에 대한 일반적인 내�
 Azure에서 지원되는 SAP MaxDB DBMS용 Microsoft Windows 버전을 찾으려면 다음을 참조하세요.
 
 * [SAP PAM(제품 가용성 매트릭스)][sap-pam]
-* SAP 주 [1928533]
+* SAP Note [1928533]
 
 최신 버전의 Microsoft Windows 운영 체제인 Microsoft Windows 2016을 사용하는 것이 좋습니다.
 
@@ -386,7 +386,7 @@ Azure Virtual Machines에서 지원되는 SAP liveCache의 최소 버전은 **Eh
 Azure에서 지원되는 SAP liveCache용 Microsoft Windows 버전을 찾으려면 다음을 참조하세요.
 
 * [SAP PAM(제품 가용성 매트릭스)][sap-pam]
-* SAP 주 [1928533]
+* SAP Note [1928533]
 
 최신 버전의 운영 체제인 Microsoft Windows Server를 사용하는 것이 좋습니다. 
 
@@ -433,12 +433,12 @@ SAP에서 현재 다음을 지원합니다.
 Azure의 SAP Content Server에서 지원되는 Windows 버전을 확인하려면 다음을 참조하세요.
 
 * [SAP PAM(제품 가용성 매트릭스)][sap-pam]
-* SAP 주 [1928533]
+* SAP Note [1928533]
 
 최신 버전의 Microsoft Windows Server를 사용하는 것이 좋습니다.
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 SAP Content Server 구성 지침
-#### <a name="storage-configuration-for-content-server-in-azure"></a>Azure의 콘텐츠 서버에 대한 저장소 구성
+#### <a name="storage-configuration-for-content-server-in-azure"></a>Azure의 콘텐츠 서버에 대 한 저장소 구성
 SAP MaxDB 데이터베이스에 파일을 저장하도록 SAP Content Server를 구성하는 경우 이 문서에서 SAP MaxDB에 대해 언급한 모든 Azure Storage 모범 사례 권장 사항이 SAP Content Server 시나리오에도 적용됩니다. 
 
 파일 시스템에 파일을 저장하도록 SAP Content Server를 구성한 경우 전용 논리 드라이브를 사용하는 것이 좋습니다. Windows 스토리지 공간을 사용하면 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명한 대로 논리 디스크 크기 및 IOPS 처리량을 늘릴 수 있습니다. 

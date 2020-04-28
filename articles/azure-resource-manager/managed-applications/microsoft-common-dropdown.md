@@ -1,15 +1,15 @@
 ---
-title: 드롭다운 UI 요소
-description: Azure Portal의 Microsoft.Common.DropDown UI 요소에 대해 설명합니다. 관리되는 응용 프로그램을 배포할 때 사용 가능한 옵션 중에서 선택하는 데 사용합니다.
+title: DropDown UI 요소
+description: Azure Portal의 Microsoft.Common.DropDown UI 요소에 대해 설명합니다. 관리 되는 응용 프로그램을 배포할 때 사용 가능한 옵션 중에서 선택 하는 데 사용 합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: a09f9695c18f368a585dbcd0d1e654dee4adfa03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75652386"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Microsoft.Common.DropDown UI 요소

@@ -1,5 +1,5 @@
 ---
-title: HDInsight에서 ML 서비스를 위한 Azure 스토리지 솔루션 - Azure
+title: HDInsight의 ML 서비스용 azure storage 솔루션-Azure
 description: HDInsight의 ML Services에서 사용할 수 있는 다양한 스토리지 옵션에 대해 알아봅니다.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,25 +9,25 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/02/2020
 ms.openlocfilehash: 1c79d0390a80a1358ddb09707fbabf6a5a2affdc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75660242"
 ---
-# <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight의 ML 서비스를 위한 Azure 스토리지 솔루션
+# <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight의 ML 서비스용 azure storage 솔루션
 
-HDInsight의 ML 서비스는 다양한 스토리지 솔루션을 사용하여 분석 결과를 포함하는 데이터, 코드 또는 개체를 지속할 수 있습니다. 이러한 솔루션에는 다음 옵션이 포함됩니다.
+HDInsight의 ML 서비스는 다른 저장소 솔루션을 사용 하 여 분석 결과를 포함 하는 데이터, 코드 또는 개체를 유지할 수 있습니다. 이러한 솔루션에는 다음 옵션이 포함 됩니다.
 
 - [Azure Blob](https://azure.microsoft.com/services/storage/blobs/)
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)
-- [Azure File Storage](https://azure.microsoft.com/services/storage/files/)
+- [Azure 파일 저장소](https://azure.microsoft.com/services/storage/files/)
 
-필요한 경우, HDInsight 클러스터가 있는 여러 Azure Storage 계정 또는 컨테이너에 액세스할 수도 있습니다. Azure File 저장소는 Azure 저장소 파일 공유를 Linux 파일 시스템과 같은 에지 노드에서 사용할 수 있는 편리한 데이터 저장소 옵션입니다. 하지만, Azure File 공유는 마운팅이 가능하고 Windows 또는 Linux 등 지원되는 운영 체제가 있는 모든 시스템에서 사용할 수 있습니다.
+필요한 경우, HDInsight 클러스터가 있는 여러 Azure Storage 계정 또는 컨테이너에 액세스할 수도 있습니다. Azure File storage는 Azure storage 파일 공유를 Linux 파일 시스템에 탑재할 수 있도록 하는에 지 노드에서 사용할 수 있는 편리한 데이터 저장소 옵션입니다. 하지만, Azure File 공유는 마운팅이 가능하고 Windows 또는 Linux 등 지원되는 운영 체제가 있는 모든 시스템에서 사용할 수 있습니다.
 
-HDInsight에서 아파치 하두롭 클러스터를 만들 때 **Azure 저장소** 계정 또는 데이터 **레이크 저장소**를 지정합니다. 해당 계정의 특정 스토리지 컨테이너에는 사용자가 만든 클러스터의 파일 시스템(예: Hadoop 분산 파일 시스템)이 있습니다. 자세한 내용 및 지침은 다음을 참조하세요.
+HDInsight에서 Apache Hadoop 클러스터를 만들 때 **Azure Storage** 계정 또는 **Data Lake Storage**를 지정 합니다. 해당 계정의 특정 스토리지 컨테이너에는 사용자가 만든 클러스터의 파일 시스템(예: Hadoop 분산 파일 시스템)이 있습니다. 자세한 내용 및 지침은 다음을 참조하세요.
 
-- [HDInsight와 함께 Azure 스토리지 사용](../hdinsight-hadoop-use-blob-storage.md)
+- [HDInsight에서 Azure Storage 사용](../hdinsight-hadoop-use-blob-storage.md)
 - [Azure HDInsight 클러스터에 Data Lake Storage 사용](../hdinsight-hadoop-use-data-lake-store.md)
 
 ## <a name="use-azure-blob-storage-accounts-with-ml-services-cluster"></a>ML Services 클러스터에서 Azure Blob Storage 계정 사용
@@ -100,7 +100,7 @@ inputFile <-file.path(bigDataDirRoot,"mysamplefile1.csv")
 
 모든 디렉터리와 파일 참조는 이제 스토리지 계정 `wasbs://container2@storage2.blob.core.windows.net`을 지정합니다. 지정한 **이름 노드**입니다.
 
-다음과 `/user/RevoShare/<SSH username>` 같이 **storage2에서** 디렉터리를 구성합니다.
+다음과 같이 `/user/RevoShare/<SSH username>` **storage2** 에서 디렉터리를 구성 합니다.
 
 ```bash
 hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user
@@ -128,7 +128,7 @@ HDInsight 클러스터와 연결된 Azure AD(Azure Active Directory) 서비스 �
 
 ### <a name="how-to-access-data-lake-storage-gen1-from-ml-services-on-hdinsight"></a>HDInsight의 ML Services에서 Data Lake Storage Gen1에 액세스하는 방법
 
-Data Lake Storage Gen1에 대한 액세스 권한을 부여한 후에는 HDInsight의 ML 서비스 클러스터에서 보조 Azure 저장소 계정과 같은 방식으로 저장소를 사용할 수 있습니다. 유일한 차이점은 접두사가 다음과 같이 **adl://** **wasbs://** 변경된다는 것입니다.
+Data Lake Storage Gen1에 대 한 액세스 권한을 부여 받은 후에는 보조 Azure storage 계정을 사용 하는 방식으로 HDInsight의 ML Services 클러스터에서 저장소를 사용할 수 있습니다. 유일한 차이점은 다음과 같이 **wasbs://** 접두사가 **adl://** 로 변경 된다는 것입니다.
 
 ```R
 # Point to the ADL Storage (e.g. ADLtest)
@@ -167,7 +167,7 @@ hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 
 ## <a name="use-azure-file-storage-with-ml-services-on-hdinsight"></a>HDInsight의 ML Services에서 Azure File Storage 사용
 
-[Azure Files라는](https://azure.microsoft.com/services/storage/files/)에지 노드에서 사용하기 위한 편리한 데이터 저장소 옵션도 있습니다. Azure 파일을 사용하면 Linux 파일 시스템에서 Azure Storage 파일 공유를 탑재할 수 있습니다. 이 옵션은 특히 나중에 HDFS 대신 에지 노드의 원시 파일 시스템을 사용하는 것이 유용할 때 필요할 수 있는 데이터 파일, R 스크립트 및 결과 개체를 저장하는 데 편리합니다.
+또한 [Azure Files](https://azure.microsoft.com/services/storage/files/)이라는 가장자리 노드에서 사용할 수 있는 편리한 데이터 저장소 옵션도 있습니다. Azure 파일을 사용하면 Linux 파일 시스템에서 Azure Storage 파일 공유를 탑재할 수 있습니다. 이 옵션은 특히 나중에 HDFS 대신 에지 노드의 원시 파일 시스템을 사용하는 것이 유용할 때 필요할 수 있는 데이터 파일, R 스크립트 및 결과 개체를 저장하는 데 편리합니다.
 
 Azure 파일의 장점은 파일 공유가 탑재되고 Windows 또는 Linux 등 지원되는 OS가 있는 모든 시스템에서 사용할 수 있다는 점입니다. 예를 들어, 사용자 또는 팀의 다른 사용자가 보유한 HDInsight 클러스터, Azure VM 또는 온-프레미스 시스템에서도 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 

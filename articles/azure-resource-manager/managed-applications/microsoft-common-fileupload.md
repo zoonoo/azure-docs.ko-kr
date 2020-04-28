@@ -1,15 +1,15 @@
 ---
-title: 파일 업로드 UI 요소
-description: Azure Portal의 Microsoft.Common.FileUpload UI 요소에 대해 설명합니다. 사용자가 관리되는 응용 프로그램을 배포할 때 파일을 업로드해야 합니다.
+title: FileUpload UI 요소
+description: Azure Portal의 Microsoft.Common.FileUpload UI 요소에 대해 설명합니다. 사용자가 관리 되는 응용 프로그램을 배포할 때 파일을 업로드 해야 할 수 있습니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
 ms.openlocfilehash: 61e1c9fe07fdd29ebc00e7e3491472d073bc4e5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75652490"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI 요소
@@ -81,8 +81,8 @@ CreateUiDefinition을 테스트할 때 일부 브라우저(예: Chrome)에서는
 ## <a name="remarks"></a>설명
 
 - `constraints.accept`는 브라우저의 파일 대화 상자에 표시되는 파일 형식을 지정합니다. 허용되는 값은 [HTML5 사양](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept)을 참조하세요. 기본값은 **null**입니다.
-- `options.multiple`이 **true**로 설정되면 사용자가 브라우저의 파일 대화 상자에서 둘 이상의 파일을 선택할 수 있게 합니다. 기본값은 **false**입니다.
-- 이 요소는 `options.uploadMode` 값에 따라 두 가지 모드로 파일 업로드를 지원합니다. **file**을 지정하면 출력에 파일의 내용이 Blob으로 포함됩니다. **url**을 지정하면 파일은 임시 위치에 업로드되고 출력에 Blob의 URL이 포함됩니다. 임시 Blob은 24시간 후에 제거됩니다. 기본값은 **파일**입니다.
+- `options.multiple`이 **true**로 설정되면 사용자가 브라우저의 파일 대화 상자에서 둘 이상의 파일을 선택할 수 있게 합니다. 기본 값은 **false**입니다.
+- 이 요소는 `options.uploadMode` 값에 따라 두 가지 모드로 파일 업로드를 지원합니다. **file**을 지정하면 출력에 파일의 내용이 Blob으로 포함됩니다. **url**을 지정하면 파일은 임시 위치에 업로드되고 출력에 Blob의 URL이 포함됩니다. 임시 Blob은 24시간 후에 제거됩니다. 기본값은 **file**입니다.
 - 업로드된 파일은 보호됩니다. 출력 URL에는 배포 중에 파일에 액세스하기 위한 [SAS 토큰](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)이 포함됩니다.
 - `options.openMode` 값은 파일을 읽는 방법을 결정합니다. 파일이 일반 텍스트여야 하면 **text**를 지정합니다. 그렇지 않으면 **binary**를 지정합니다. 기본값은 **text**입니다.
 - `options.uploadMode`를 **file**로 설정하고 `options.openMode`를 **binary**로 설정하면 출력이 base64로 인코딩됩니다.

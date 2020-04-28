@@ -1,15 +1,15 @@
 ---
-title: 서비스 패브릭 신뢰할 수 있는 행위자 개요
-description: 가상 액터 패턴에 기반한 서비스 패브릭 신뢰할 수 있는 액터 프로그래밍 모델 소개.
+title: Service Fabric Reliable Actors 개요
+description: 가상 행위자 패턴을 기반으로 하는 Service Fabric Reliable Actors 프로그래밍 모델을 소개 합니다.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 6aafa2a3372c431f8afa7fad41051c26c3fe5fcd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645568"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors 알아보기

@@ -1,6 +1,6 @@
 ---
 title: Azure Portal 바로 가기 키 | Microsoft Docs
-description: Azure 포털은 Azure 포털의 작업을 수행하고 탐색하고 위치로 이동하는 데 도움이 되는 전역 키보드 단축키를 지원합니다.
+description: Azure Portal는 Azure Portal에서 작업을 수행 하 고, 탐색 하 고, 위치를 이동 하는 데 도움이 되는 전역 바로 가기 키를 지원 합니다.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -16,17 +16,17 @@ ms.date: 12/20/2019
 ms.author: mblythe
 ms.custom: accessibility
 ms.openlocfilehash: e42dfc82fa0db028894dd77225621e867d79dac6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75641336"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure Portal에서 바로 가기 키
 
-이 문서에서는 Azure 포털의 모든 곳에서 작동하는 바로 가기 키를 나열합니다. 개별 서비스에는 자신의 고유한 바로 가기 키가 있을 수 있습니다.
+이 문서에는 Azure Portal의 모든 위치에서 작동 하는 바로 가기 키가 나열 되어 있습니다. 개별 서비스에는 자신의 고유한 바로 가기 키가 있을 수 있습니다.
 
-## <a name="actions"></a>동작
+## <a name="actions"></a>작업
 
 |수행할 작업 |작업 방법 |
 | --- | --- |
@@ -39,19 +39,19 @@ ms.locfileid: "75641336"
 
 ## <a name="navigation"></a>탐색
 
-|이 탐색을 수행하려면 |작업 방법 |
+|이 탐색을 수행 하려면 |작업 방법 |
 | --- | --- |
 |포커스를 명령 모음으로 이동 |G+, |
-|헤더와 왼쪽 사이드바 사이의 초점 전환 | G+. |
+|머리글과 왼쪽 사이드바 간 포커스 전환 | G+. |
 
 ## <a name="go-to"></a>다음으로 이동
 
-|이 위치로 이동하려면 |작업 방법 |
+|이 위치로 이동 하려면 |작업 방법 |
 | --- | --- |
 |**대시보드로** 이동 |G+D |
-|모든 **리소스로** 이동|G+A |
-|리소스 **그룹으로** 이동|G+R |
-|이 위치에서 왼쪽 사이드바 항목을 엽니다. |G+번호|
+|**모든 리소스** 로 이동|G+A |
+|**리소스 그룹** 으로 이동|G+R |
+|이 위치에서 왼쪽 세로 막대를 엽니다. |G+번호|
 
 ## <a name="next-steps"></a>다음 단계
 

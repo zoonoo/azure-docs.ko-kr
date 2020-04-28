@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.openlocfilehash: 640ec54e9634751d05c2cea90d7c03d02e7a3387
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75720058"
 ---
 # <a name="benchmarking-a-disk"></a>디스크 벤치마킹
@@ -26,6 +26,6 @@ Windows 및 Linux용으로 각각 일반 벤치마킹 도구 Iometer 및 FIO를 
 
 ## <a name="next-steps"></a>다음 단계
 
-[고성능 설계에 대한](premium-storage-performance.md)기사를 진행하십시오.
+[고성능을 위한 디자인](premium-storage-performance.md)에 대 한 문서를 진행 합니다.
 
-이 문서에서는 프로토타입에 대한 기존 응용 프로그램과 유사한 검사 목록을 만듭니다. 벤치마킹 도구를 사용하여 작업을 시뮬레이션하고 프로토타입 애플리케이션의 성능을 측정할 수 있습니다. 이렇게 하면 애플리케이션 성능 요구 사항과 일치하거나 능가할 수 있는 디스크 제품을 확인할 수 있습니다. 그런 다음, 프로덕션 애플리케이션에 대해 동일한 지침을 구현할 수 있습니다.
+이 문서에서는 프로토타입에 대 한 기존 응용 프로그램과 유사한 검사 목록을 만듭니다. 벤치마킹 도구를 사용하여 작업을 시뮬레이션하고 프로토타입 애플리케이션의 성능을 측정할 수 있습니다. 이렇게 하면 애플리케이션 성능 요구 사항과 일치하거나 능가할 수 있는 디스크 제품을 확인할 수 있습니다. 그런 다음, 프로덕션 애플리케이션에 대해 동일한 지침을 구현할 수 있습니다.

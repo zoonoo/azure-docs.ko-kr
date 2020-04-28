@@ -1,15 +1,15 @@
 ---
-title: Azure 서비스 패브릭 환경 변수
-description: Azure 서비스 패브릭의 환경 변수에 대해 알아봅니다. 변수 및 해당 용도의 전체 목록에 대한 참조가 포함되어 있습니다.
+title: Azure Service Fabric 환경 변수
+description: Azure Service Fabric의 환경 변수에 대해 알아봅니다. 변수의 전체 목록 및 해당 용도에 대 한 참조를 포함 합니다.
 author: mikkelhegn
 ms.topic: reference
 ms.date: 12/07/2017
 ms.author: mikhegn
 ms.openlocfilehash: b13522b1d9f2acd2aa3f7923c1b623fab696056d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645687"
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric 환경 변수

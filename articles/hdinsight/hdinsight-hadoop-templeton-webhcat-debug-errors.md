@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
 ms.openlocfilehash: 011ef4f192bbae12be7d2464d5b0526f584821a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75638853"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>HDInsight WebHCat에서 받은 오류 이해 및 해결
@@ -21,11 +21,11 @@ HDInsight에서 WebHCat을 사용할 때 수신되는 오류 및 해결 방법�
 
 ## <a name="what-is-webhcat"></a>WebHCat이란?
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)은 [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog)용 REST API, Apache Hadoop용 테이블 및 스토리지 관리 계층입니다. WebHCat은 HDInsight 클러스터에서 기본적으로 활성화되며 클러스터에 로그인하지 않고 작업을 제출하고 작업 상태를 얻는 등 다양한 도구에서 사용됩니다.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)은 [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog)용 REST API, Apache Hadoop용 테이블 및 스토리지 관리 계층입니다. WebHCat은 HDInsight 클러스터에서 기본적으로 사용 하도록 설정 되며, 클러스터에 로그인 하지 않고도 작업을 제출 하 고 작업 상태를 가져오는 등 다양 한 도구에서 사용 됩니다.
 
 ## <a name="modifying-configuration"></a>구성 수정
 
-구성된 최대값을 초과하기 때문에 이 문서에 나열된 몇몇 오류가 발생합니다. 해결 단계에서 값을 변경할 수 있다고 언급하면 아파치 암바리(웹 또는 REST API)를 사용하여 값을 수정합니다. 자세한 내용은 [Apache Ambari를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+구성된 최대값을 초과하기 때문에 이 문서에 나열된 몇몇 오류가 발생합니다. 해결 단계에서 값을 변경할 수 있다는 것을 언급 하는 경우 Apache Ambari (웹 또는 REST API)를 사용 하 여 값을 수정 합니다. 자세한 내용은 [Apache Ambari를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
 ### <a name="default-configuration"></a>기본 구성
 
@@ -43,7 +43,7 @@ HDInsight에서 WebHCat을 사용할 때 수신되는 오류 및 해결 방법�
 
 | 원인 | 해결 방법 |
 | --- | --- |
-| 분당 WebHCat에서 제공하는 최대 동시 요청을 초과했습니다(기본 값 20). |워크로드를 줄여 최대 동시 요청 수를 초과하지 않도록 하거나 을 수정하여 동시 요청 `templeton.exec.max-procs`한도를 증가시키지 않도록 합니다. 자세한 내용은 [구성 수정](#modifying-configuration)을 참조하세요. |
+| 분당 WebHCat이 제공 하는 최대 동시 요청 수를 초과 했습니다 (기본값 20). |작업을 축소 하 여 최대 동시 요청 수를 초과 하 여 전송 하지 않도록 하거나를 수정 `templeton.exec.max-procs`하 여 동시 요청 제한을 늘립니다. 자세한 내용은 [구성 수정](#modifying-configuration)을 참조하세요. |
 
 ## <a name="server-unavailable"></a>서버 사용할 수 없음
 
@@ -61,7 +61,7 @@ HDInsight에서 WebHCat을 사용할 때 수신되는 오류 및 해결 방법�
 | --- | --- |
 | 작업 세부 정보는 작업 기록 클리너에서  정리됩니다. |작업 기록에 대한 기본 보존 기간은 7일입니다. 기본 보존 기간은 `mapreduce.jobhistory.max-age-ms`를 수정하여 변경할 수 있습니다. 자세한 내용은 [구성 수정](#modifying-configuration)을 참조하세요. |
 | 장애 조치때문에 작업이 중단되었습니다. |최대 2분 동안 작업 제출을 다시 시도하세요. |
-| 잘못된 작업 ID가 사용되었습니다. |작업 ID가 올바른지 확인 |
+| 잘못 된 작업 ID가 사용 되었습니다. |작업 ID가 올바른지 확인 합니다. |
 
 ## <a name="bad-gateway"></a>나쁜 게이트웨이
 
@@ -71,7 +71,7 @@ HDInsight에서 WebHCat을 사용할 때 수신되는 오류 및 해결 방법�
 | --- | --- |
 | WebHCat 프로세스 내에서 내부 가비지 컬렉션이 발생합니다. |가비지 컬렉션이 WebHCat 서비스 다시 시작 또는 완료를 대기합니다. |
 | ResourceManager 서비스에서 응답을 기다리는 동안 시간이 초과되었습니다. 이 오류는 활성 애플리케이션 수가 구성된 최대값(기본값 10,000)에 도달할 때 발생할 수 있습니다. |현재 실행 중인 작업을 완료하거나 `yarn.scheduler.capacity.maximum-applications`을 수정하여 동시 작업 제한을 늘릴 때까지 대기합니다. 자세한 내용은 [구성 수정](#modifying-configuration) 섹션을 참조하세요. |
-| `Fields`가 `*`로 설정되어 있는 동안 [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) 호출을 통해 모든 작업을 검색하려고 시도합니다. |*모든* 작업 세부 정보를 검색하지 마십시오. 대신 `jobid` 특정 작업 ID보다 큰 작업에 대한 세부 정보를 검색하는 데 사용합니다. 또는 사용하지 마십시오.`Fields` |
+| `Fields`가 `*`로 설정되어 있는 동안 [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) 호출을 통해 모든 작업을 검색하려고 시도합니다. |*모든* 작업 세부 정보를 검색 하지 않습니다. 대신를 `jobid` 사용 하 여 특정 작업 ID 보다 큰 작업에 대 한 세부 정보를 검색 합니다. 또는 사용 하지 마십시오.`Fields` |
 | 헤드 노드의 장애 조치 중 WebHCat 서비스가 종료됩니다. |2분을 기다린 후 작업을 다시 시도합니다. |
 | WebHCat을 통해 전송되는 500개 이상의 보류 중인 작업이 있습니다. |더 많은 작업을 제출하기 전에 현재 보류 중인 작업이 완료될 때까지 대기합니다. |
 

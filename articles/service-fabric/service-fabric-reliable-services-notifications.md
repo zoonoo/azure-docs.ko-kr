@@ -1,15 +1,15 @@
 ---
 title: Reliable Services 알림
-description: 신뢰할 수있는 상태 관리자 및 신뢰할 수있는 사전에 대한 서비스 패브릭 신뢰할 수있는 서비스 알림에 대한 개념 문서
+description: 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 사전에 대 한 Service Fabric Reliable Services 알림에 대 한 개념 설명서
 author: mcoskun
 ms.topic: conceptual
 ms.date: 6/29/2017
 ms.author: mcoskun
 ms.openlocfilehash: 1f3239ea1da252ccd84c6572b562756c8fd1677d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75639567"
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services 알림
@@ -158,7 +158,7 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 
 * **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
 * **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
-* **NotifyDictionary변경작업.추가**: **notifyDictionary항목추가이벤트아그**
+* **Notifydictionarychangedaction.remove**: **NotifyDictionaryItemAddedEventArgs**
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
@@ -208,7 +208,7 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 
 ## <a name="next-steps"></a>다음 단계
 * [신뢰할 수 있는 컬렉션](service-fabric-work-with-reliable-collections.md)
-* [신뢰할 수 있는 서비스 빠른 시작](service-fabric-reliable-services-quick-start.md)
+* [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services 백업 및 복원(재해 복구)](service-fabric-reliable-services-backup-restore.md)
 * [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 

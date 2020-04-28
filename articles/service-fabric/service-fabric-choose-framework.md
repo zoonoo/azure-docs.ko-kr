@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
 ms.openlocfilehash: 11e32c9d1290227e638a314ed8417b1bed906842
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75749541"
 ---
 # <a name="service-fabric-programming-model-overview"></a>서비스 패브릭 프로그래밍 모델 개요
@@ -24,29 +24,29 @@ Service Fabric은 서비스의 작성 및 관리를 위한 여러 방법을 제�
 
 ## <a name="containers"></a>컨테이너
 
-기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. Service Fabric도 [컨테이너](service-fabric-containers-overview.md)에 서비스를 배포할 수 있습니다. Service Fabric은 Windows Server 2016 이상에서 Linux 컨테이너 및 Windows 컨테이너 배포를 지원합니다. 컨테이너 이미지는 컨테이너 저장소에서 가져오고 컴퓨터에 배포될 수 있습니다. 기존 애플리케이션을 컨테이너에서 게스트 실행 파일, Service Fabric 상태 비저장 또는 상태 저장 서비스, Reliable Actors로 배포할 수 있으며, 프로세스의 서비스와 컨테이너의 서비스를 동일한 애플리케이션에서 함께 사용할 수 있습니다.
+기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. Service Fabric도 [컨테이너](service-fabric-containers-overview.md)에 서비스를 배포할 수 있습니다. Service Fabric는 Windows Server 2016 이상에서 Linux 컨테이너 및 Windows 컨테이너의 배포를 지원 합니다. 컨테이너 이미지는 컨테이너 저장소에서 가져오고 컴퓨터에 배포될 수 있습니다. 기존 애플리케이션을 컨테이너에서 게스트 실행 파일, Service Fabric 상태 비저장 또는 상태 저장 서비스, Reliable Actors로 배포할 수 있으며, 프로세스의 서비스와 컨테이너의 서비스를 동일한 애플리케이션에서 함께 사용할 수 있습니다.
 
 [Windows 또는 Linux에서 서비스를 컨테이너화하는 방법에 대해 자세히 알아보기](service-fabric-deploy-container.md)
 
-## <a name="reliable-services"></a>신뢰할 수 있는 서비스
+## <a name="reliable-services"></a>Reliable Services
 
 Reliable Services는 서비스 패브릭 플랫폼과 통합하여 전체 플랫폼 기능을 활용하는 서비스 작성을 위한 간단한 프레임워크입니다. Reliable Services는 서비스 패브릭 런타임이 서비스의 수명 주기를 관리하고 서비스가 런타임과 상호 작용할 수 있도록 하는 최소한의 API 집합을 제공합니다. 애플리케이션 프레임워크는 최소한의 부담으로 완전한 설계 및 구현 제어를 제공하며, 이를 통해 ASP.NET Core 등의 다른 애플리케이션 프레임워크를 호스팅할 수 있습니다.
 
 Reliable Services는 웹 서버나 등, 대부분의 서비스 플랫폼과 유사하게 상태 비저장이 될 수 있습니다. 여기서는 서비스의 각 인스턴스가 동등하게 생성되고 상태가 Azure DB나 Azure Table Storage 같은 외부 솔루션에 유지됩니다.
 
-서비스 패브릭에만 사용할 수 있는 신뢰할 수 있는 서비스는 상태 상태 상태일 수도 있으며, 여기서 는 신뢰할 수 있는 컬렉션을 사용하여 서비스 자체에 직접 상태를 유지합니다. 상태는 복제를 통해 고가용성이 유지되고 분할을 통해 배포되며, 모두 서비스 패브릭에서 자동으로 관리합니다.
+Service Fabric 뿐 Reliable Services 아니라 상태는 상태 저장 일 수 있으며, 상태는 신뢰할 수 있는 컬렉션을 사용 하 여 서비스 자체에 직접 유지 됩니다. 상태는 복제를 통해 고가용성이 유지되고 분할을 통해 배포되며, 모두 서비스 패브릭에서 자동으로 관리합니다.
 
 [Reliable Actors에 대해 자세히 알아보거나](service-fabric-reliable-services-introduction.md)[첫 번째 Reliable Services를 작성해 보세요.](service-fabric-reliable-services-quick-start.md)
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-ASP.NET Core는 웹 앱, IoT 앱 및 모바일 백엔드와 같은 최신 클라우드 기반 인터넷 연결 응용 프로그램을 구축하기 위한 오픈 소스 크로스 플랫폼 프레임워크입니다. Service Fabric은 ASP.NET Core와 통합되므로 신뢰할 수 있는 컬렉션 및 Service Fabric의 고급 오케스트레이션 기능을 활용하는 상태 비저장 및 상태 저장 ASP.NET Core 애플리케이션을 작성할 수 있습니다.
+ASP.NET Core은 웹 앱, IoT 앱 및 모바일 백 엔드와 같이 최신 클라우드 기반의 인터넷에 연결 된 응용 프로그램을 빌드하기 위한 오픈 소스 플랫폼 간 프레임 워크입니다. Service Fabric은 ASP.NET Core와 통합되므로 신뢰할 수 있는 컬렉션 및 Service Fabric의 고급 오케스트레이션 기능을 활용하는 상태 비저장 및 상태 저장 ASP.NET Core 애플리케이션을 작성할 수 있습니다.
 
 [첫 번째 ASP.NET Core Service Fabric 애플리케이션을 작성](service-fabric-tutorial-create-dotnet-app.md)하여 [Service Fabric의 ASP.NET Core에 대해 자세히 알아보세요](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="reliable-actors"></a>Reliable Actors
 
-신뢰할 수 있는 서비스 위에 구축된 신뢰할 수 있는 행위자 프레임워크는 계산 [행위자 모델을](https://en.wikipedia.org/wiki/Actor_model)기반으로 [가상 행위자](https://research.microsoft.com/en-us/projects/orleans/) 패턴을 구현하는 응용 프로그램 프레임워크입니다. 신뢰할 수 있는 행위자 프레임워크는 독립적인 계산 단위를 사용하며 *액터라고*하는 단일 스레드 실행을 사용합니다. Reliable Actor 프레임워크는 행위자와 사전 설정 상태 지속성 및 확장 구성에 대해 기본 포함된 통신을 제공합니다.
+Reliable Services을 기반으로 구축 된 신뢰할 수 있는 행위자 프레임 워크는 계산 [행위자 모델](https://en.wikipedia.org/wiki/Actor_model)을 기반으로 [가상 행위자](https://research.microsoft.com/en-us/projects/orleans/) 패턴을 구현 하는 응용 프로그램 프레임 워크입니다. 신뢰할 수 있는 행위자 프레임 워크는 *행위자*라고 하는 단일 스레드 실행과 함께 계산 및 상태의 독립적인 단위를 사용 합니다. Reliable Actor 프레임워크는 행위자와 사전 설정 상태 지속성 및 확장 구성에 대해 기본 포함된 통신을 제공합니다.
 
 Reliable Actors 자체는 Reliable Services에 구축된 애플리케이션 프레임워크이므로 Service Fabric 플랫폼과 완전히 통합되며 플랫폼이 제공하는 모든 기능을 완벽히 활용할 수 있습니다.
 
@@ -58,8 +58,8 @@ Reliable Actors 자체는 Reliable Services에 구축된 애플리케이션 프�
 
 [Service Fabric 및 컨테이너 개요](service-fabric-containers-overview.md)
 
-[Reliable Services 개요](service-fabric-reliable-services-introduction.md)
+[신뢰할 수 있는 서비스 개요](service-fabric-reliable-services-introduction.md)
 
 [Reliable Actors 개요](service-fabric-reliable-actors-introduction.md)
 
-[서비스 패브릭 및 ASP.NET 코어](service-fabric-reliable-services-communication-aspnetcore.md)
+[Service Fabric 및 ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)

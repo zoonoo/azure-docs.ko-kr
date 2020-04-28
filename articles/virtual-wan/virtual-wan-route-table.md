@@ -1,5 +1,5 @@
 ---
-title: '가상 WAN: NVA에 가상 허브 경로 테이블 만들기: Azure PowerShell'
+title: '가상 WAN: NVA에 대 한 가상 허브 경로 테이블 만들기: Azure PowerShell'
 description: 네트워크 가상 어플라이언스에 대한 트래픽을 조정하기 위한 가상 WAN 가상 허브 경로 테이블.
 services: virtual-wan
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
 ms.openlocfilehash: a55e1453fe7fe4d135286b22dabf58d434762581
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645109"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>가상 허브 경로 테이블을 생성하여 네트워크 가상 어플라이언스에 대한 트래픽 조정
@@ -36,7 +36,7 @@ ms.locfileid: "75645109"
 
 다음 기준을 충족하는지 확인합니다.
 
-1. NVA(네트워크 가상 어플라이언스)가 있습니다. 이 소프트웨어는 일반적으로 가상 네트워크의 Azure Marketplace에서 프로비전되는 선택한 타사 소프트웨어입니다.
+1. NVA (네트워크 가상 어플라이언스)가 있습니다. 이 소프트웨어는 일반적으로 가상 네트워크의 Azure Marketplace에서 프로 비전 되는 타사 소프트웨어입니다.
 2. NVA 네트워크 인터페이스에 지정된 프라이빗 IP가 있습니다. 
 3. NVA는 가상 허브에 배포할 수 없습니다. 별도의 VNet에 배포해야 합니다. 이 문서에서는 NVA VNet을 'DMZ VNet'이라고 합니다.
 4. 'DMZ VNet'에는 하나 이상의 가상 네트워크가 연결되어 있을 수 있습니다. 이 문서에서는 이 VNet을 '간접 스포크 VNet'이라고 합니다. 이러한 VNet은 VNet 피어링을 사용하여 DMZ VNet에 연결할 수 있습니다.

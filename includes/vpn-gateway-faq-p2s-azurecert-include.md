@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -9,27 +9,27 @@ ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f322803d3484b4ec2d5449e19d67d75b35d6d92f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75752483"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
-### <a name="what-should-i-do-if-im-getting-a-certificate-mismatch-when-connecting-using-certificate-authentication"></a>인증서 인증을 사용하여 연결할 때 인증서 불일치가 발생하면 어떻게 해야 합니까?
+### <a name="what-should-i-do-if-im-getting-a-certificate-mismatch-when-connecting-using-certificate-authentication"></a>인증서 인증을 사용 하 여 연결할 때 인증서 불일치를 가져오는 경우 어떻게 해야 하나요?
 
-**"인증서의 유효성을 검사하여 서버의 ID 확인"을** 선택 취소하거나 수동으로 프로필을 만들 때 **인증서와 함께 서버 FQDN을 추가합니다.** 명령 프롬프트에서 **rasphone을** 실행하고 드롭다운 목록에서 프로필을 선택하여 이 작업을 수행할 수 있습니다.
+프로필을 수동으로 만들 때 **"인증서의 유효성을 검사 하 여 서버의 Id 확인"** 을 선택 취소 하거나 **인증서와 함께 서버 FQDN을 추가** 합니다. 명령 프롬프트에서 **rasphone** 를 실행 하 고 드롭다운 목록에서 프로필을 선택 하 여이 작업을 수행할 수 있습니다.
 
-서버 ID 유효성 검사를 우회하는 것은 일반적으로 권장되지 않지만 Azure 인증서 인증을 사용하면 VPN 터널링 프로토콜(IKEv2/SSTP) 및 EAP 프로토콜의 서버 유효성 검사에 동일한 인증서가 사용됩니다. 서버 인증서와 FQDN은 이미 VPN 터널링 프로토콜에 의해 검증되었기 때문에 EAP에서 동일한 유효성을 다시 검사하는 것은 중복됩니다.
+서버 id 유효성 검사를 무시 하는 것은 일반적으로 권장 되지 않지만 Azure 인증서 인증을 사용 하는 경우 VPN 터널링 프로토콜 (IKEv2/SSTP) 및 EAP 프로토콜의 서버 유효성 검사에 동일한 인증서가 사용 됩니다. 서버 인증서 및 FQDN은 이미 VPN 터널링 프로토콜에서 유효성 검사를 수행 하므로 EAP에서 다시 유효성을 검사 하는 것은 중복 됩니다.
 
-![지점 간](./media/vpn-gateway-faq-p2s-all-include/servercert.png "서버 인증서")
+![지점 및 사이트 간](./media/vpn-gateway-faq-p2s-all-include/servercert.png "서버 인증서")
 
-### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>내 내부 PKI 루트 CA를 사용하여 사이트 간 연결에 대한 인증서를 생성할 수 있습니까?
+### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>자체 내부 PKI 루트 CA를 사용 하 여 지점 및 사이트 간 연결에 대 한 인증서를 생성할 수 있나요?
 
 예. 이전에는 자체 서명한 루트 인증서만 사용할 수 있었습니다. 여전히 20개의 루트 인증서를 업로드할 수 있습니다.
 
-### <a name="can-i-use-certificates-from-azure-key-vault"></a>Azure 키 자격 증명 모음의 인증서를 사용할 수 있습니까?
+### <a name="can-i-use-certificates-from-azure-key-vault"></a>Azure Key Vault에서 인증서를 사용할 수 있나요?
 
 아니요.
 
@@ -45,7 +45,7 @@ You can use your Enterprise PKI 솔루션(사용자 인터넷 PKI), Azure PowerS
 
 * **Makecert:** 단계는 [Makecert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) 문서를 참조하세요.
 
-* **Openssl:** 
+* **OpenSSL** 
 
     * 인증서를 내보낼 때는 루트 인증서를 Base64로 변환해야 합니다.
 

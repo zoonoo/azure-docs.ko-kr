@@ -1,6 +1,6 @@
 ---
 title: 딥 다이브 분석 - 고급 분석 - Azure HDInsight
-description: 고급 분석에서 알고리즘을 사용하여 Azure HDInsight에서 빅 데이터를 처리하는 방법을 알아봅니다.
+description: 고급 분석에서 알고리즘을 사용 하 여 Azure HDInsight에서 빅 데이터를 처리 하는 방법을 알아봅니다.
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
 ms.openlocfilehash: 6fc6ea9ca0ce3bf82f027b964db94df50f07f2bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646526"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
@@ -33,21 +33,21 @@ HDInsight는 대량의 구조화된 데이터, 구조화되지 않은 데이터 
 
 고급 분석 솔루션은 일단의 기계 학습 알고리즘을 제공합니다. 다음은 알고리즘 범주 및 관련된 일반적인 비즈니스 사용 사례를 요약한 것입니다.
 
-![기계 학습 범주 요약](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
+![Machine Learning 범주 요약](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
 
 가장 적합한 알고리즘을 선택하는 것과 함께 학습용 데이터를 제공해야 하는지 여부를 고려해야 합니다. 기계 학습 알고리즘은 다음과 같이 분류됩니다.
 
 * 감독됨 - 결과를 제공하기 전에 레이블이 지정된 일단의 데이터에 대해 알고리즘을 학습해야 합니다.
-* 반 감독 - 교육의 초기 단계에서 사용할 수 없었던 트레이너의 대화형 쿼리를 통해 추가 대상에 의해 알고리즘을 보강할 수 있습니다.
-* 감독되지 않은 - 알고리즘에는 학습 데이터가 필요하지 않습니다.
+* 반 감독 된 알고리즘은 교육 과정의 초기 단계에서 사용할 수 없는 강사의 대화형 쿼리를 통해 추가 대상으로 확대할 수 있습니다.
+* 자율-알고리즘이 학습 데이터를 요구 하지 않습니다.
 * 보충 - 알고리즘에서 소프트웨어 에이전트를 사용하여 특정 컨텍스트 내에서 이상적인 동작을 결정합니다(종종 로봇 공학에서 사용됨)
 
 | 알고리즘 범주| 사용 | 학습 유형 | 알고리즘 |
 | --- | --- | --- | -- |
 | 분류 | 사람 또는 사물을 그룹으로 분류합니다. | 감독 | 의사 결정 트리, 로지스틱 회귀, 신경망 |
-| Clustering | 일단의 예제를 동일 그룹으로 분할합니다. | 자율 | K-평균 클러스터링 |
+| 클러스터링 | 일단의 예제를 동일 그룹으로 분할합니다. | 자율 | K-평균 클러스터링 |
 | 패턴 검색 | 데이터에서 빈번한 연결을 확인합니다. | 자율 | 연결 규칙 |
-| 회귀 | 숫자 결과를 예측합니다. | 감독 | 선형 회귀, 신경망 |
+| 재발 | 숫자 결과를 예측합니다. | 감독 | 선형 회귀, 신경망 |
 | 보충 | 최적의 로봇 동작을 결정합니다. | 보충 | 몬테카를로 시뮬레이션, 딥 마인드 |
 
 ## <a name="machine-learning-on-hdinsight"></a>HDInsight의 기계 학습
@@ -75,7 +75,7 @@ HDInsight의 일부로서, 대량 데이터 세트 및 모델과 함께 사용�
 
 ### <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning 및 Apache Hive
 
-[Azure Machine Learning Studio(클래식)는](https://studio.azureml.net/) 예측 분석을 모델링하는 도구와 예측 모델을 즉시 사용할 수 있는 웹 서비스로 배포하는 데 사용할 수 있는 완전히 관리되는 서비스를 제공합니다. Azure Machine Learning은 클라우드에서 완전한 예측 분석 솔루션을 만들어 예측 모델을 빠르게 만들고, 테스트하고, 운영하고, 관리할 수 있는 도구를 제공합니다. 대형 알고리즘 라이브러리에서 선택하고, 웹 기반 스튜디오를 사용하여 모델을 작성하고, 이 모델을 웹 서비스로 쉽게 배포합니다.
+[Azure Machine Learning Studio (클래식)](https://studio.azureml.net/) 은 예측 분석을 모델링 하는 도구와 예측 모델을 사용할 준비가 된 웹 서비스로 배포 하는 데 사용할 수 있는 완전히 관리 되는 서비스를 제공 합니다. Azure Machine Learning은 클라우드에서 완전한 예측 분석 솔루션을 만들어 예측 모델을 빠르게 만들고, 테스트하고, 운영하고, 관리할 수 있는 도구를 제공합니다. 대형 알고리즘 라이브러리에서 선택하고, 웹 기반 스튜디오를 사용하여 모델을 작성하고, 이 모델을 웹 서비스로 쉽게 배포합니다.
 
 ### <a name="apache-spark-and-deep-learning"></a>Apache Spark 및 딥 러닝
 
@@ -85,7 +85,7 @@ HDInsight의 일부로서, 대량 데이터 세트 및 모델과 함께 사용�
 
 HDInsight를 사용하는 고급 분석 기계 학습 파이프라인의 예를 살펴보겠습니다.
 
-이 시나리오에서는 DN이 딥 러닝 프레임워크에서 어떻게 생성되는지, Microsoft의 인지 도구 키트(CNTK)는 HDInsight 스파크 클러스터의 PySpark를 사용하여 Azure Blob Storage 계정에 저장된 대규모 이미지 컬렉션을 채점하기 위해 운영될 수 있습니다. 이 방법은 일반적인 DNN 사용 사례와 항공 이미지 분류에 적용되며, 도시 개발의 최근 패턴을 식별하는 데 사용할 수 있습니다.  미리 학습된 이미지 분류 모델을 사용합니다. 이 모델은 [CIFAR-10 데이터 세트](https://www.cs.toronto.edu/~kriz/cifar.html)에서 미리 학습되어 보류 중인 10,000개 이미지에 적용되었습니다.
+이 시나리오에서는 HDInsight Spark 클러스터에서 PySpark를 사용 하 여 Azure Blob Storage 계정에 저장 된 대량 이미지 컬렉션의 점수를 Cognitive Toolkit 매길 수 있도록 CNTK (심층 학습 프레임 워크)의 DNNs가 조작 가능한 수 있습니다. 이 방법은 일반적인 DNN 사용 사례와 항공 이미지 분류에 적용되며, 도시 개발의 최근 패턴을 식별하는 데 사용할 수 있습니다.  미리 학습 된 이미지 분류 모델을 사용 합니다. 이 모델은 [CIFAR-10 데이터 세트](https://www.cs.toronto.edu/~kriz/cifar.html)에서 미리 학습되어 보류 중인 10,000개 이미지에 적용되었습니다.
 
 이 고급 분석 시나리오에는 다음 세 가지 주요 작업이 있습니다.
 
@@ -95,9 +95,9 @@ HDInsight를 사용하는 고급 분석 기계 학습 파이프라인의 예를 
 
 이 예에서는 Alex Krizhevsky, Vinod Nair 및 Geoffrey Hinton이 컴파일하고 배포한 CIFAR-10 이미지 집합을 사용합니다. CIFAR-10 데이터 세트에는 상호 배타적인 10개의 클래스에 속하는 60,000개의 32×32 컬러 이미지가 포함되어 있습니다.
 
-![기계 학습 예제 이미지](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
+![Machine Learning 예제 이미지](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
 
-데이터 집합에 대한 자세한 내용은 작은 이미지에서 알렉스 Krizhevsky의 [여러 기능 레이어 학습을](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf)참조하십시오.
+데이터 집합에 대 한 자세한 내용은 Alex Krizhevsky 's [여러 계층의 작은 이미지에서 기능 학습](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf)을 참조 하세요.
 
 데이터 세트는 50,000개 이미지의 학습 집합과 10,000개 이미지의 테스트 집합으로 분할되었습니다. 첫 번째 집합은 Cognitive Toolkit GitHub 리포지토리에서 [이 자습서](https://github.com/Microsoft/CNTK/tree/master/Examples/Image/Classification/ResNet)에 따라 Microsoft Cognitive Toolkit를 사용하여 20개 계층 딥 합성곱 ResNet(deep convolutional residual network) 모델을 학습하는 데 사용되었습니다. 나머지 10,000개의 이미지는 모델의 정확도를 테스트하는 데 사용되었습니다. 여기서 분산 컴퓨팅이 작동됩니다. 이미지를 사전 처리하고 점수를 매기는 작업은 매우 쉽게 병렬 처리할 수 있습니다. 보유 중인 저장된 학습 모델을 다음과 같이 사용했습니다.
 
@@ -108,11 +108,11 @@ HDInsight를 사용하는 고급 분석 기계 학습 파이프라인의 예를 
 
 4개의 작업자 노드가 있는 클러스터에서 10,000개의 이미지 전체를 사전 처리하고 점수를 매기는 데 1분 미만이 걸립니다. 이 모델은 9,100개(91%)까지의 이미지에 대한 레이블을 정확하게 예측합니다. 혼동 행렬에서는 가장 일반적인 분류 오류를 보여 줍니다. 예를 들어 행렬에서는 개가 고양이로 잘못 지정되거나 그 반대로 잘못 지정되는 레이블이 다른 레이블 쌍보다 더 자주 발생한다는 것을 보여 줍니다.
 
-![기계 학습 결과 차트](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
+![Machine Learning 결과 차트](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
 
-### <a name="try-it-out"></a>사용해 보세요!
+### <a name="try-it-out"></a>기능 직접 사용해 보기
 
-[이 자습서를](../spark/apache-spark-microsoft-cognitive-toolkit.md) 따라 이 솔루션을 종단 간 구현: HDInsight 스파크 클러스터 설정, 코그너티브 툴킷 설치, CIFAR 이미지 10,000개에 달하는 Jupyter 노트북 실행.
+[이 자습서](../spark/apache-spark-microsoft-cognitive-toolkit.md) 에 따라이 솔루션을 구현 하 여 종단 간 구현: HDInsight Spark 클러스터를 설정 하 고, Cognitive Toolkit를 설치 하 고, 1만 cifar 이미지를 점수를 Jupyter Notebook 실행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -124,8 +124,8 @@ Apache Hive 및 Azure Machine Learning
 Apache Spark 및 MLLib
 
 * [HDInsight에서 Apache Spark를 사용하는 Machine Learning](../../machine-learning/team-data-science-process/spark-overview.md)
-* [기계 학습을 이용한 아파치 스파크: HVAC 데이터를 사용하여 건물 온도를 분석하기 위해 HDInsight에서 아파치 스파크 사용](../spark/apache-spark-ipython-notebook-machine-learning.md)
-* [기계 학습을 사용한 아파치 스파크: HDInsight의 아파치 스파크를 사용하여 식품 검사 결과를 예측합니다.](../spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning Apache Spark: HVAC 데이터를 사용 하 여 온도를 분석 하기 위해 HDInsight에서 Apache Spark 사용](../spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning Apache Spark: HDInsight에서 Apache Spark를 사용 하 여 음식 검사 결과 예측](../spark/apache-spark-machine-learning-mllib-ipython.md)
 
 딥 러닝, Cognitive Toolkit 등
 

@@ -1,15 +1,15 @@
 ---
-title: 사용자 이름텍스트박스 UI 요소
-description: Azure Portal의 Microsoft.Compute.UserNameTextBox UI 요소에 대해 설명합니다. 사용자가 Windows 또는 Linux 사용자 이름을 제공할 수 있도록 합니다.
+title: UserNameTextBox UI 요소
+description: Azure Portal의 Microsoft.Compute.UserNameTextBox UI 요소에 대해 설명합니다. 사용자가 Windows 또는 Linux 사용자 이름을 제공할 수 있습니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: c7544ae7d872a64547cb6c57ce8af9a09fc6c3d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651905"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Microsoft.Compute.UserNameTextBox UI 요소
@@ -47,7 +47,7 @@ Windows 및 Linux 사용자 이름에 대한 기본 제공 유효성 검사가 �
 
 ## <a name="remarks"></a>설명
 
-- `constraints.required`를 **true**로 설정하면 텍스트 상자에서 유효성을 성공적으로 검사할 수 있는 값을 포함해야 합니다. 기본값은 **true입니다.**
+- `constraints.required`를 **true**로 설정하면 텍스트 상자에서 유효성을 성공적으로 검사할 수 있는 값을 포함해야 합니다. 기본값은 **true**입니다.
 - `osPlatform`을 지정해야 하며 **Windows** 또는 **Linux**일 수 있습니다.
 - `constraints.regex`는 JavaScript 정규식 패턴입니다. 지정하면 텍스트 상자의 값이 유효성을 성공적으로 검사하기 위한 패턴과 일치해야 합니다. 기본값은 **null**입니다.
 - `constraints.validationMessage`는 텍스트 상자의 값이 `constraints.regex`에 지정된 유효성 검사에 실패할 때 표시할 문자열입니다. 지정하지 않으면 텍스트 상자의 기본 제공 유효성 검사 메시지가 사용됩니다. 기본값은 **null**입니다.

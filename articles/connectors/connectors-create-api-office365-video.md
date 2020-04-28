@@ -1,6 +1,6 @@
 ---
 title: Office 365 비디오에 연결
-description: Azure Logic 앱을 사용하여 Office 365 비디오에서 비디오를 관리하는 작업 및 워크플로 자동화
+description: Azure Logic Apps를 사용 하 여 Office 365 비디오의 비디오를 관리 하는 작업 및 워크플로 자동화
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 05/18/2016
 tags: connectors
 ms.openlocfilehash: 8ac6b7b411e7f42dd076c5b16e7b500a819c617f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75665788"
 ---
-# <a name="manage-videos-in-office365-video-by-using-azure-logic-apps"></a>Azure 논리 앱을 사용하여 Office365 비디오에서 비디오 관리
+# <a name="manage-videos-in-office365-video-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Office365 비디오의 비디오 관리
 
 Office 365 비디오에 연결하여 Office 365 비디오에 대한 정보 가져오기, 비디오 목록 가져오기 등을 수행합니다. Office 365 비디오로 다음을 수행할 수 있습니다.
 

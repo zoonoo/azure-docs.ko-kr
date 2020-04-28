@@ -1,15 +1,15 @@
 ---
-title: Azure 서비스 패브릭 이미지 저장소 연결 문자열
-description: Service Fabric 클러스터에 대한 사용 및 응용 프로그램을 포함하여 이미지 저장소 연결 문자열에 대해 알아봅니다.
+title: Azure Service Fabric 이미지 저장소 연결 문자열
+description: 사용 및 응용 프로그램을 포함 하 여 Service Fabric 클러스터에 이미지 저장소 연결 문자열에 대해 알아봅니다.
 author: alexwun
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: alexwun
 ms.openlocfilehash: c3395248188c2a16736cfc8cea262fe163a6944b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645670"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>ImageStoreConnectionString 설정 이해

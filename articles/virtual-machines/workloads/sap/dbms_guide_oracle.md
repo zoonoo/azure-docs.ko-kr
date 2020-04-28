@@ -16,10 +16,10 @@ ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a23fb981e24f6152d99b76bd72115f8159f5d60f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645847"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포
@@ -320,12 +320,12 @@ Oracle 소프트웨어는 Microsoft Azure에서 실행되도록 Oracle에서 지
 
 | Note 번호 | 제목 |
 | --- | --- |
-| [1928533] |Azure에서 SAP 응용 프로그램: 지원되는 제품 및 Azure VM 형식 |
-| [2015553] |마이크로소프트 Azure에 SAP: 지원 필수 구성 조건 |
+| [1928533] |Azure의 SAP 응용 프로그램: 지원 되는 제품 및 Azure VM 유형 |
+| [2015553] |Microsoft Azure의 SAP: 지원 필수 구성 요소 |
 | [1999351] |SAP용 고급 Azure 모니터링 문제 해결 |
 | [2178632] |Microsoft Azure의 SAP용 주요 모니터링 메트릭 |
-| [2191498] |Azure와 리눅스에 SAP: 향상 된 모니터링 |
-| [2039619] |Oracle 데이터베이스를 사용하여 Microsoft Azure의 SAP 응용 프로그램: 지원되는 제품 및 버전 |
+| [2191498] |Azure를 사용 하는 Linux의 SAP: 향상 된 모니터링 |
+| [2039619] |Oracle 데이터베이스를 사용 하는 Microsoft Azure의 SAP 응용 프로그램: 지원 되는 제품 및 버전 |
 | [2243692] |Microsoft Azure(IaaS) VM의 Linux: SAP 라이선스 문제 |
 | [2069760] |Oracle Linux 7.x SAP 설치 및 업그레이드 |
 | [1597355] |Linux에 대한 스왑 공간 권장 사항 |
@@ -374,10 +374,10 @@ Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 �
 
 | 구성 요소 | 디스크 | 캐싱 | 스토리지 풀 |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA & mirrlogB | Premium | None | 필요하지 않음 |
-| \oracle\<SID>\origlogaB & mirrlogA | Premium | None | 필요하지 않음 |
+| \oracle\<SID>\origlogaA & mirrlogB | Premium | 없음 | 필요하지 않음 |
+| \oracle\<SID>\origlogaB & mirrlogA | Premium | 없음 | 필요하지 않음 |
 | \oracle\<SID>\sapdata1...n | Premium | 읽기 전용 | 사용할 수 있음 |
-| \oracle\<SID>\oraarch | Standard | None | 필요하지 않음 |
+| \oracle\<SID>\oraarch | Standard | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | | 필요하지 않음 |
 
 
@@ -387,13 +387,13 @@ Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 �
 
 | 구성 요소 | 디스크 | 캐싱 | 스토리지 풀 |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA | Premium | None | 사용할 수 있음  |
-| \oracle\<SID>\origlogaB | Premium | None | 사용할 수 있음 |
-| \oracle\<SID>\mirrlogAB | Premium | None | 사용할 수 있음 |
-| \oracle\<SID>\mirrlogBA | Premium | None | 사용할 수 있음 |
+| \oracle\<SID>\origlogaA | Premium | 없음 | 사용할 수 있음  |
+| \oracle\<SID>\origlogaB | Premium | 없음 | 사용할 수 있음 |
+| \oracle\<SID>\mirrlogAB | Premium | 없음 | 사용할 수 있음 |
+| \oracle\<SID>\mirrlogBA | Premium | 없음 | 사용할 수 있음 |
 | \oracle\<SID>\sapdata1...n | Premium | 읽기 전용 | 권장  |
-| \oracle\SID\sapdata(n+1)* | Premium | None | 사용할 수 있음 |
-| \oracle\<SID>\oraarch* | Premium | None | 필요하지 않음 |
+| \oracle\SID\sapdata(n+1)* | Premium | 없음 | 사용할 수 있음 |
+| \oracle\<SID>\oraarch* | Premium | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | 필요하지 않음 |
 
 *(n+1): SYSTEM, TEMP 및 UNDO 테이블스페이스를 호스트합니다. I/O 패턴의 시스템 및 Undo 테이블스페이스는 애플리케이션 데이터를 호스팅하는 다른 테이블스페이스와 다릅니다. 캐싱 없음이 시스템의 성능 및 Undo 테이블스페이스에 최적의 옵션입니다.
@@ -464,10 +464,10 @@ Azure 페이지 Blob 스토리지 또는 Managed Disks를 기준으로 하는 �
 
 | 구성 요소 | 디스크 | 캐싱 | 제거* |
 | --- | ---| --- | --- |
-| /오라클/시드\<>/오리글로가a & mirrlogB | Premium | None | 필요하지 않음 |
-| /오라클/시드\<>/오리글로가비 & mirrlogA | Premium | None | 필요하지 않음 |
-| /오라클/\<SID>/삽데이터1... N | Premium | 읽기 전용 | 사용할 수 있음 |
-| /오라클/시드\<>/오라크 | Standard | None | 필요하지 않음 |
+| /oracle/\<SID>/Origlogaa & mirrlogB | Premium | 없음 | 필요하지 않음 |
+| /oracle/\<SID>/Origlogab & mirrlogA | Premium | 없음 | 필요하지 않음 |
+| /oracle/\<SID>/sapdata1... 개의 | Premium | 읽기 전용 | 사용할 수 있음 |
+| /oracle/\<SID>/oraarch | Standard | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | | 필요하지 않음 |
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM
@@ -478,18 +478,18 @@ Oracle의 온라인 다시 실행 로그를 호스팅하기 위한 디스크 선
 
 | 구성 요소 | 디스크 | 캐싱 | 제거* |
 | --- | ---| --- | --- |
-| /오라클/시드\<>/오리글로가 | Premium | None | 사용할 수 있음  |
-| /오라클/\<시드>/오리글로가B | Premium | None | 사용할 수 있음 |
-| /오라클/시드\<>/mirrlogAB | Premium | None | 사용할 수 있음 |
-| /오라클/시드\<>/미르로그바 | Premium | None | 사용할 수 있음 |
-| /오라클/\<SID>/삽데이터1... N | Premium | 읽기 전용 | 권장  |
-| /오라클/\<SID>/삽데이터(n+1)* | Premium | None | 사용할 수 있음 |
-| /오라클/시드\<>/오라아크* | Premium | None | 필요하지 않음 |
+| /oracle/\<SID>/origlogaa | Premium | 없음 | 사용할 수 있음  |
+| /oracle/\<SID>/origlogab | Premium | 없음 | 사용할 수 있음 |
+| /oracle/\<SID>/mirrlogab | Premium | 없음 | 사용할 수 있음 |
+| /oracle/\<SID>/mirrlogba | Premium | 없음 | 사용할 수 있음 |
+| /oracle/\<SID>/sapdata1... 개의 | Premium | 읽기 전용 | 권장  |
+| /oracle/\<SID> 형식이 며/sapdata (n + 1) * | Premium | 없음 | 사용할 수 있음 |
+| /oracle/\<SID>/oraarch * | Premium | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | 필요하지 않음 |
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM
 
-*(n+1): 호스팅 시스템, TEMP 및 UNDO 테이블스페이스: 시스템 및 취소 테이블스페이스의 I/O 패턴은 응용 프로그램 데이터를 호스팅하는 다른 테이블스페이스와 다릅니다. 캐싱 없음이 시스템의 성능 및 Undo 테이블스페이스에 최적의 옵션입니다.
+* (n + 1): 호스팅 시스템, 임시 및 실행 취소 테이블: 시스템의 i/o 패턴 및 실행 테이블은 다른 테이블 스페이스 호스팅 응용 프로그램 데이터와 다릅니다. 캐싱 없음이 시스템의 성능 및 Undo 테이블스페이스에 최적의 옵션입니다.
 
 * oraarch: 성능 관점에서 스토리지 풀이 필요하지 않습니다.
 

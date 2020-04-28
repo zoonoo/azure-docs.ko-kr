@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b802cab7d52fd886770c326e97d0378a0da64762
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75752107"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -51,6 +51,6 @@ RADIUS 인증서 인증에서 인증 요청은 실제 인증서 유효성 검사
 
 예, RADIUS 인증은 IKEv2 및 SSTP VPN 모두에서 지원됩니다. 
 
-### <a name="does-radius-authentication-work-with-the-openvpn-client"></a>RADIUS 인증이 OpenVPN 클라이언트에서 작동합니까?
+### <a name="does-radius-authentication-work-with-the-openvpn-client"></a>RADIUS 인증은 OpenVPN 클라이언트에서 작동 하나요?
 
-RADIUS 인증은 PowerShell을 통해서만 OpenVPN 프로토콜에 대해 지원됩니다.
+RADIUS 인증은 PowerShell을 통해서만 OpenVPN 프로토콜에 대해 지원 됩니다.

@@ -1,15 +1,15 @@
 ---
-title: Azure 서비스 패브릭 액터의 재진입
-description: 호출 컨텍스트에 따라 차단을 논리적으로 방지하는 방법인 서비스 패브릭 신뢰할 수 있는 행위자에 대한 재진입 소개.
+title: Azure Service Fabric 행위자에서 재진입
+description: 호출 컨텍스트에 따라 차단을 논리적으로 방지 하는 방법인 Service Fabric Reliable Actors에 대 한 재입력을 소개 합니다.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 46ce91e607341e2fbdc0b6a3018e74cb24e76839
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645534"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reliable Actors 다시 표시

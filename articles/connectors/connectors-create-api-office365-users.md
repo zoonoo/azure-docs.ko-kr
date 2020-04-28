@@ -1,6 +1,6 @@
 ---
 title: Office 365 사용자에 연결
-description: Azure Logic Apps를 사용하여 Office 365 사용자 프로필에서 프로필을 받고 관리하는 작업 및 워크플로 자동화
+description: Azure Logic Apps를 사용 하 여 Office 365 사용자 프로필에서 프로필을 가져오고 관리 하는 작업 및 워크플로 자동화
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,13 +8,13 @@ ms.date: 08/18/2016
 ms.topic: article
 tags: connectors
 ms.openlocfilehash: 179c7538d8072f0e1a4f7d049cf521971efd7a21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75666859"
 ---
-# <a name="get-and-manage-profiles-in-office-365-users-by-using-azure-logic-apps"></a>Azure 논리 앱을 사용하여 Office 365 사용자의 프로필 을 가져옵니다.
+# <a name="get-and-manage-profiles-in-office-365-users-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Office 365 사용자의 프로필 가져오기 및 관리
 
 Office 365 사용자에 연결하여 프로필 가져오기, 사용자 검색 등을 수행합니다. Office 365 사용자를 사용하여 다음을 수행할 수 있습니다.
 
@@ -25,7 +25,7 @@ Office 365 사용자에 연결하여 프로필 가져오기, 사용자 검색 �
 
 ## <a name="create-a-connection-to-office-365-users"></a>Office 365 사용자에 대한 연결 만들기
 
-논리 앱에 이 커넥터를 추가할 때 Azure Logic Apps가 계정에 연결할 수 있도록 Office 365 사용자 계정에 로그인해야 합니다.
+논리 앱에이 커넥터를 추가할 때 Azure Logic Apps 사용자 계정에 연결할 수 있도록 Office 365 사용자 계정에 로그인 해야 합니다.
 
 > [!INCLUDE [Steps to create a connection to Office 365 Users](../../includes/connectors-create-api-office365users.md)]
 > 
@@ -35,7 +35,7 @@ Office 365 사용자에 연결하여 프로필 가져오기, 사용자 검색 �
 
 ## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 
-커넥터의 Swagger 설명에 설명된 트리거, 작업 및 제한에 대한 기술적 세부 정보는 [커넥터의 참조 페이지를](/connectors/officeusers/)검토합니다.
+커넥터의 Swagger 설명에서 설명 하는 트리거, 작업 및 제한에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지를 참조](/connectors/officeusers/)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

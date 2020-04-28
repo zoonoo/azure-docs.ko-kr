@@ -16,10 +16,10 @@ ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: c8314b04c05e2ecba2715b807171b5c1a2fa988a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646866"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Azure VM에서 SQL Server로 SQL Server 데이터베이스 마이그레이션
@@ -30,7 +30,7 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
   > [!NOTE]
-  > SQL Server 2008 및 SQL Server 2008 R2는 온-프레미스 인스턴스에 대한 [지원 수명 주기의 끝에](https://www.microsoft.com/sql-server/sql-server-2008) 가까워지고 있습니다. 지원을 확장하려면 SQL Server 인스턴스를 Azure VM으로 마이그레이션하거나 확장 보안 업데이트를 구입하여 온-프레미스로 유지할 수 있습니다. 자세한 내용은 [Azure를 사용하여 SQL Server 2008 및 2008 R2에 대한 지원 확장을](virtual-machines-windows-sql-server-2008-eos-extend-support.md) 참조하십시오.
+  > SQL Server 2008 및 SQL Server 2008 R2가 온-프레미스 인스턴스에 대 한 [지원 수명 주기 끝](https://www.microsoft.com/sql-server/sql-server-2008) 에 도달 하 고 있습니다. 지원을 확장 하려면 SQL Server 인스턴스를 Azure VM으로 마이그레이션하거나 확장 된 보안 업데이트를 구입 하 여 온-프레미스로 유지할 수 있습니다. 자세한 내용은 [Azure를 사용 하 여 SQL Server 2008 및 2008 R2 지원 확장](virtual-machines-windows-sql-server-2008-eos-extend-support.md) (영문)을 참조 하세요.
 
 ## <a name="what-are-the-primary-migration-methods"></a>기본 마이그레이션 메서드란?
 기본 마이그레이션 메서드는 다음과 같습니다.
@@ -62,7 +62,7 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 | --- | --- | --- | --- | --- |
 | [압축을 사용하여 온-프레미스 백업을 수행하고 Azure 가상 머신에 백업 파일을 수동으로 복사](#backup-and-restore) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 스토리지 제한](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) | 컴퓨터 간에 데이터베이스를 이동하는 매우 간단하고 검증된 방법입니다. |
 | [URL에 백업을 수행하고 URL에서 Azure 가상 컴퓨터로 복원](#backup-to-url-and-restore) |SQL Server 2012 SP1 CU2 이상 |SQL Server 2012 SP1 CU2 이상 |SQL Server 2016의 경우 12.8TB 미만, 그렇지 않은 경우 1TB 미만 | 이 방법은 Azure Storage를 사용하여 VM에 백업 파일을 이동하는 또 다른 방법입니다. |
-| [데이터와 로그 파일을 분리하여 Azure Blob Storage에 복사한 후 URL로 Azure 가상 머신의 SQL Server에 첨부](#detach-and-attach-from-url) |SQL Server 2005 이상 |SQL Server 2014 이상 |[Azure VM 스토리지 제한](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |[Azure Blob 저장소 서비스를 사용하여 이러한 파일을 저장하고](https://msdn.microsoft.com/library/dn385720.aspx) Azure VM에서 실행되는 SQL Server에 연결하려는 경우 이 방법을 사용합니다( 특히 매우 큰 데이터베이스). |
+| [데이터와 로그 파일을 분리하여 Azure Blob Storage에 복사한 후 URL로 Azure 가상 머신의 SQL Server에 첨부](#detach-and-attach-from-url) |SQL Server 2005 이상 |SQL Server 2014 이상 |[Azure VM 스토리지 제한](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |[Azure Blob storage 서비스를 사용 하 여 이러한 파일을 저장](https://msdn.microsoft.com/library/dn385720.aspx) 하 고 azure VM에서 실행 되는 SQL Server (특히 매우 큰 데이터베이스의 경우)에 연결 하려는 경우이 방법을 사용 합니다. |
 | [온-프레미스 컴퓨터를 Hyper-V VHD로 변환하고 Azure Blob Storage에 업로드한 후 업로드된 VHD를 사용하여 새 가상 머신 배포](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 스토리지 제한](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |[자체 SQL Server 라이선스를 소유](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)하는 경우, 이전 버전의 SQL Server에서 실행되는 데이터베이스를 마이그레이션하는 경우, 또는 다른 사용자 데이터베이스 및/또는 시스템 데이터베이스에 종속되는 데이터베이스 마이그레이션의 일부로 시스템과 사용자 데이터베이스를 함께 마이그레이션하는 경우에 사용합니다. |
 | [Windows Import/Export 서비스를 사용하여 하드 드라이브 제공](#ship-hard-drive) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 스토리지 제한](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |매우 큰 데이터베이스에 사용하는 경우와 같이 수동 복사 메서드가 너무 느린 경우 [Windows Import/Export 서비스](../../../storage/common/storage-import-export-service.md) 를 사용 |
 | [Azure 복제본 추가 마법사 사용](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 이상 |SQL Server 2012 이상 |[Azure VM 스토리지 제한](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |가동 중지 시간을 최소화하고 Always On 온-프레미스 배포가 있는 경우 사용 |
@@ -83,7 +83,7 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 데이터베이스 및 로그 파일을 분리하고 [Azure Blob Storage](https://msdn.microsoft.com/library/dn385720.aspx)로 전송합니다. 그런 다음 Azure VM의 URL에서 데이터베이스를 연결합니다. 실제 데이터베이스 파일을 Blob Storage에 상주시키는 경우 이 방법을 사용합니다. 매우 큰 데이터베이스에 유용할 수 있습니다. 수동 메서드를 사용하여 사용자 데이터베이스를 마이그레이션하려면 다음과 같은 일반적인 단계를 사용합니다.
 
 1. 온-프레미스 데이터베이스 인스턴스에서 데이터베이스 파일을 분리합니다.
-2. 분리된 데이터베이스 파일을 [AZCopy 명령줄 유틸리티를](../../../storage/common/storage-use-azcopy.md)사용하여 Azure Blob 저장소에 복사합니다.
+2. [AZCopy 명령줄 유틸리티](../../../storage/common/storage-use-azcopy.md)를 사용 하 여 분리 된 데이터베이스 파일을 Azure blob storage에 복사 합니다.
 3. Azure URL의 데이터베이스 파일을 Azure VM에서 SQL Server 인스턴스로 연결합니다.
 
 ## <a name="convert-to-vm-and-upload-to-url-and-deploy-as-new-vm"></a>VM으로 변환하고 URL에 업로드하고 새 VM으로 배포
@@ -97,7 +97,7 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 > 전체 애플리케이션을 마이그레이션하려면 [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md)사용을 고려합니다.
 
 ## <a name="ship-hard-drive"></a>하드 드라이브를 제공합니다.
-Windows [가져오기/내보내기 서비스 방법을](../../../storage/common/storage-import-export-service.md) 사용하여 네트워크를 통해 업로드하는 데 비용이 많이 들거나 실행 불가능한 경우 많은 양의 파일 데이터를 Azure Blob 저장소로 전송합니다. 이 서비스를 사용하여 해당 데이터가 포함된 하나 이상의 하드 드라이브를 Azure 데이터 센터로 보내서 데이터를 스토리지 계정으로 업로드할 수 있습니다.
+[Windows Import/Export 서비스 메서드](../../../storage/common/storage-import-export-service.md) 를 사용 하 여 네트워크를 통한 업로드가 비용이 많이 들고 불가능 한 상황에서 Azure Blob 저장소로 많은 양의 파일 데이터를 전송 합니다. 이 서비스를 사용하여 해당 데이터가 포함된 하나 이상의 하드 드라이브를 Azure 데이터 센터로 보내서 데이터를 스토리지 계정으로 업로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Virtual Machines의 SQL Server 실행에 대한 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: bf8d8a2c11962467300ae8d65fe5bbbe9a65cf92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75708358"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Azure API Management에서 캐싱을 추가하여 성능 향상
@@ -43,16 +43,16 @@ ms.locfileid: "75708358"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-+ [Azure API 관리 인스턴스 만들기](get-started-create-service-instance.md)
++ [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 + [API 제품 가져오기 및 게시](import-and-publish.md)
 
 ## <a name="add-the-caching-policies"></a><a name="caching-policies"> </a>캐싱 정책 추가
 
 이 예제에 나와 있는 캐싱 정책을 사용하면 **GetSpeakers** 작업에 대한 첫 번째 요청이 백 엔드 서비스의 응답을 반환합니다. 이 응답은 지정된 헤더 및 쿼리 문자열 매개 변수를 통해 캐시 및 입력됩니다. 일치하는 매개 변수를 사용하는, 작업에 대한 후속 호출은 캐시 기간 간격이 만료될 때까지 캐시된 응답을 반환합니다.
 
-1. 에서 [https://portal.azure.com](https://portal.azure.com)Azure 포털에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. APIM 인스턴스로 이동합니다.
-3. **API** 탭을 선택합니다.
+3. **API** 탭을 선택 합니다.
 4. API 목록에서 **Demo Conference API**를 선택합니다.
 5. **GetSpeakers**를 선택합니다.
 6. 화면 맨 위에서 **디자인** 탭을 선택합니다.
@@ -81,7 +81,7 @@ ms.locfileid: "75708358"
 실행 중인 캐싱을 확인하려면 개발자 포털에서 작업을 호출합니다.
 
 1. Azure Portal에서 APIM 인스턴스로 이동합니다.
-2. **API** 탭을 선택합니다.
+2. **Api** 탭을 선택 합니다.
 3. 캐싱 정책을 추가할 API를 선택합니다.
 4. **GetSpeakers** 작업을 선택합니다.
 5. 맨 위 오른쪽 메뉴에 **테스트** 탭을 클릭합니다.

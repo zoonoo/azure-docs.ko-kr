@@ -1,6 +1,6 @@
 ---
 title: HBase 클러스터를 최신 버전으로 마이그레이션 - Azure HDInsight
-description: 아파치 HBase 클러스터를 Azure HDInsight의 최신 버전으로 마이그레이션하는 방법.
+description: Azure HDInsight에서 Apache HBase 클러스터를 최신 버전으로 마이그레이션하는 방법입니다.
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: 30cda7a83feddaeb41385252a61d1dc68a881a47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646509"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Apache HBase 클러스터를 최신 버전으로 마이그레이션
 
-이 문서에서는 Azure HDInsight에서 아파치 HBase 클러스터를 최신 버전으로 업데이트하는 데 필요한 단계에 대해 설명합니다.
+이 문서에서는 Azure HDInsight의 Apache HBase 클러스터를 최신 버전으로 업데이트 하는 데 필요한 단계를 설명 합니다.
 
 업그레이드하는 동안 가동 중지 시간은 몇 분 정도로 최소이어야 합니다. 이 가동 중지 시간은 모든 메모리 내 데이터를 플러시하는 단계로 인해 발생하며, 그런 후에 새 클러스터에서 서비스를 구성하고 다시 시작합니다. 결과는 노드 수, 데이터 양 및 기타 변수에 따라 달라집니다.
 
@@ -28,7 +28,7 @@ Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 H
 > [!NOTE]  
 > [HBase 도서](https://hbase.apache.org/book.html#upgrading)에서 버전 호환성 매트릭스를 검토하는 것이 좋습니다. 모든 주요 비호환성은 HBase 버전 릴리스 정보에 설명되어 있습니다.
 
-다음은 예제 버전 호환성 매트릭스입니다. Y는 호환성을 나타내고 N은 잠재적인 비호환성을 나타냅니다.
+예제 버전 호환성 매트릭스는 다음과 같습니다. Y는 호환성을 나타내고 N은 잠재적인 비 호환성을 나타냅니다.
 
 | 호환성 유형 | 주 버전| 부 버전 | 패치 |
 | --- | --- | --- | --- |
@@ -46,7 +46,7 @@ Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 H
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>동일한 Apache HBase 주 버전으로 업그레이드
 
-Azure HDInsight에서 아파치 HBase 클러스터를 업그레이드하려면 다음 단계를 완료하십시오.
+Azure HDInsight에서 Apache HBase 클러스터를 업그레이드 하려면 다음 단계를 완료 합니다.
 
 1. HBase 호환성 매트릭스 및 릴리스 정보에서 표시한 대로 애플리케이션이 새 버전과 호환되는지 확인합니다. HDInsight 및 HBase의 대상 버전을 실행하는 클러스터에서 애플리케이션을 테스트합니다.
 
@@ -54,7 +54,7 @@ Azure HDInsight에서 아파치 HBase 클러스터를 업그레이드하려면 �
 
     ![동일한 스토리지 계정을 사용하지만 다른 컨테이너 만들기](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
 
-1. 업그레이드하는 클러스터인 소스 HBase 클러스터를 플러시합니다. HBase는 들어오는 데이터를 _memstore_라는 메모리 내 저장소에 씁니다. memstore가 특정 크기에 도달하면 HBase는 클러스터의 저장소 계정에 장기 저장소를 위해 디스크로 플러시합니다. 이전 클러스터를 삭제하는 경우 memstore가 재활용되어 데이터가 잠재적으로 손실될 수 있습니다. 각 테이블에 대한 memstore를 디스크로 수동으로 플러시하려면 다음 스크립트를 실행합니다. 이 스크립트의 최신 버전은 Azure의 [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh)에 있습니다.
+1. 업그레이드 하는 클러스터 인 원본 HBase 클러스터를 플러시합니다. HBase는 들어오는 데이터를 _memstore_라는 메모리 내 저장소에 씁니다. Memstore가 특정 크기에 도달 하면 HBase는 클러스터의 저장소 계정에 장기 저장을 위해 디스크에 플러시합니다. 이전 클러스터를 삭제하는 경우 memstore가 재활용되어 데이터가 잠재적으로 손실될 수 있습니다. 각 테이블에 대한 memstore를 디스크로 수동으로 플러시하려면 다음 스크립트를 실행합니다. 이 스크립트의 최신 버전은 Azure의 [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh)에 있습니다.
 
     ```bash
     #!/bin/bash
@@ -176,31 +176,31 @@ Azure HDInsight에서 아파치 HBase 클러스터를 업그레이드하려면 �
 
 1. memstore의 최근 데이터가 플러시되도록 하려면 이전 스크립트를 다시 실행합니다.
 
-1. 이전 클러스터 ()에서`https://OLDCLUSTERNAME.azurehdidnsight.net` [아파치 암바리에](https://ambari.apache.org/) 로그인하고 HBase 서비스를 중지합니다. 서비스를 중지하라는 메시지가 표시되면 HBase의 유지 관리 모드를 켜려면 확인란을 선택합니다. Ambari 연결 및 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+1. 이전 클러스터 (`https://OLDCLUSTERNAME.azurehdidnsight.net`)에서 [Apache Ambari](https://ambari.apache.org/) 에 로그인 하 고 HBase 서비스를 중지 합니다. 서비스를 중지 하 시겠습니까를 확인 하는 메시지가 표시 되 면 해당 확인란을 선택 하 여 HBase에 대 한 유지 관리 모드를 설정 합니다. Ambari 연결 및 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
-    ![Ambari에서 서비스 > 서비스 > 서비스 작업 중지를 클릭합니다.](./media/apache-hbase-migrate-new-version/stop-hbase-services1.png)
+    ![Ambari에서 서비스 > HBase > 서비스 작업에서 중지를 클릭 합니다.](./media/apache-hbase-migrate-new-version/stop-hbase-services1.png)
 
     ![HBase에 대한 [유지 관리 모드 켜기] 확인란을 선택한 다음, 확인함](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 
-1. 새로운 HDInsight 클러스터에서 Ambari에 로그인합니다. 원래 클러스터에서 사용한 컨테이너 이름을 가리키도록 `fs.defaultFS` HDFS 설정을 변경합니다. 이 설정은 **HDFS > 구성> 고급 > 고급 코어 사이트** 아래에 있습니다.
+1. 새 HDInsight 클러스터의 Ambari에 로그인 합니다. 원래 클러스터에서 사용한 컨테이너 이름을 가리키도록 `fs.defaultFS` HDFS 설정을 변경합니다. 이 설정은 **HDFS > 구성> 고급 > 고급 코어 사이트** 아래에 있습니다.
 
-    ![암바리에서, 고급 > 구성에 > HDFS> 서비스를 클릭](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
+    ![Ambari에서 서비스 > HDFS > Configs > 고급을 클릭 합니다.](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
 
     ![Ambari에서 컨테이너 이름을 변경함](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-1. 향상된 쓰기 기능을 사용하여 HBase 클러스터를 사용하지 않는 경우 이 단계를 건너뜁니다. 향상된 쓰기 기능이 있는 HBase 클러스터에만 필요합니다.
+1. 향상 된 쓰기 기능으로 HBase 클러스터를 사용 하지 않는 경우이 단계를 건너뜁니다. 쓰기 기능이 향상 된 HBase 클러스터에만 필요 합니다.
 
-   경로를 `hbase.rootdir` 원래 클러스터의 컨테이너를 가리키도록 변경합니다.
+   원본 클러스터 `hbase.rootdir` 의 컨테이너를 가리키도록 경로를 변경 합니다.
 
-    ![암바리에서 HBase 루트디르의 컨테이너 이름을 변경합니다.](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+    ![Ambari에서 HBase rootdir의 컨테이너 이름을 변경 합니다.](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
 
-1. HDInsight 3.6을 4.0으로 업그레이드하는 경우 아래 단계를 따르고 10단계로 건너뜁니다.
-    1. Ambari에서 필요한 모든 서비스를 다시 시작하려면 필요한 모든 **서비스를** > **다시 시작합니다.**
-    1. HBase 서비스를 중지합니다.
-    1. 사육사 노드에 SSH, 그리고 사육사에서 `rmr /hbase-unsecure` HBase 루트 znode를 제거하기 위해 [zkCli](https://github.com/go-zkcli/zkcli) 명령을 실행합니다.
-    1. HBase를 다시 시작합니다.
+1. HDInsight 3.6을 4.0로 업그레이드 하는 경우 아래 단계를 수행 하 고, 그렇지 않은 경우에는 10 단계로 건너뜁니다.
+    1. **서비스** > **다시 시작 필요**를 선택 하 여 Ambari에서 필요한 모든 서비스를 다시 시작 합니다.
+    1. HBase 서비스를 중지 합니다.
+    1. 아웃 들 노드에 대해 SSH를 수행 하 고 [Zkcli](https://github.com/go-zkcli/zkcli) 명령을 `rmr /hbase-unsecure` 실행 하 여 사육 사에서 HBase 루트 znode를 제거 합니다.
+    1. HBase를 다시 시작 합니다.
 
-1. 4.0 이외의 다른 HDInsight 버전으로 업그레이드하는 경우 다음 단계를 따르세요.
+1. 4.0 이외의 다른 HDInsight 버전으로 업그레이드 하는 경우 다음 단계를 수행 합니다.
     1. 변경 내용을 저장합니다.
     1. Ambari에서 표시한 대로 필요한 모든 서비스를 다시 시작합니다.
 

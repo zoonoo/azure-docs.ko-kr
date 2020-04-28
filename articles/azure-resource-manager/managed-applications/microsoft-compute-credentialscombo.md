@@ -1,15 +1,15 @@
 ---
-title: 자격 증명콤보 UI 요소
+title: CredentialsCombo UI 요소
 description: Azure Portal의 Microsoft.Compute.CredentialsCombo UI 요소에 대해 설명합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/29/2018
 ms.author: tomfitz
 ms.openlocfilehash: baee83e08505ddabb4680b5bbb4101479010ea47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75652139"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI 요소
@@ -112,9 +112,9 @@ Windows의 경우 다음 스키마를 사용합니다.
 ## <a name="remarks"></a>설명
 
 - `osPlatform`을 지정해야 하며 **Windows** 또는 **Linux**일 수 있습니다.
-- `constraints.required`가 **true**로 설정되면 암호 또는 SSH 공개 키 텍스트 상자에 유효성을 성공적으로 검사하기 위한 값이 있어야 합니다. 기본값은 **true입니다.**
-- `options.hideConfirmation`을 **true**로 설정하면 사용자의 암호를 확인하는 두 번째 텍스트 상자가 숨겨집니다. 기본값은 **false**입니다.
-- `options.hidePassword`를 **true**로 설정하면 암호 인증을 사용하는 옵션이 숨겨집니다. `osPlatform`이 **Linux**인 경우에만 사용할 수 있습니다. 기본값은 **false**입니다.
+- `constraints.required`가 **true**로 설정되면 암호 또는 SSH 공개 키 텍스트 상자에 유효성을 성공적으로 검사하기 위한 값이 있어야 합니다. 기본값은 **true**입니다.
+- `options.hideConfirmation`을 **true**로 설정하면 사용자의 암호를 확인하는 두 번째 텍스트 상자가 숨겨집니다. 기본 값은 **false**입니다.
+- `options.hidePassword`를 **true**로 설정하면 암호 인증을 사용하는 옵션이 숨겨집니다. `osPlatform`이 **Linux**인 경우에만 사용할 수 있습니다. 기본 값은 **false**입니다.
 - 허용되는 암호에 대한 추가 제한 조건은 `customPasswordRegex` 속성을 사용하여 구현할 수 있습니다. 암호가 사용자 지정 유효성 검사에 실패하면 `customValidationMessage`의 문자열이 표시됩니다. 두 속성의 기본값은 **null**입니다.
 
 ## <a name="next-steps"></a>다음 단계

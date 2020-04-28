@@ -1,5 +1,5 @@
 ---
-title: Azure 저장소 Blob에서 데이터 레이크 저장소 Gen1로 데이터 복사
+title: Azure Storage blob에서 Data Lake Storage Gen1로 데이터 복사
 description: AdlCopy 도구를 사용하여 Azure Storage Blob에서 Azure Data Lake Storage Gen1로 데이터 복사
 author: twooley
 ms.service: data-lake-store
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: ad408df140be49da2e50ef810285dd850e9da6a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75638871"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Azure Storage Blob에서 Azure Data Lake Storage Gen1로 데이터 복사
@@ -21,10 +21,10 @@ ms.locfileid: "75638871"
 >
 >
 
-데이터 레이크 저장소 Gen1은 다음 소스에서 데이터를 복사하는 명령줄 [도구인 AdlCopy를](https://www.microsoft.com/download/details.aspx?id=50358)제공합니다.
+Data Lake Storage Gen1는 다음 원본에서 데이터를 복사할 수 있는 명령줄 도구인 [Adlcopy](https://www.microsoft.com/download/details.aspx?id=50358)를 제공 합니다.
 
-* Azure 저장소 에서 데이터 레이크 저장소 Gen1로 브입니다. AdlCopy를 사용하여 데이터 레이크 저장소 Gen1에서 Azure 저장소 Blob에 데이터를 복사할 수 없습니다.
-* 두 데이터 레이크 스토리지 Gen1 계정 사이.
+* Azure Storage blob에서 Data Lake Storage Gen1. AdlCopy를 사용 하 여 Data Lake Storage Gen1에서 Azure Storage blob으로 데이터를 복사할 수 없습니다.
+* 두 Data Lake Storage Gen1 계정 사이.
 
 또한 다음 두 가지 방법으로 AdlCopy 도구를 사용할 수 있습니다.
 
@@ -36,10 +36,10 @@ ms.locfileid: "75638871"
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* 일부 데이터가 있는 **Azure Storage Blob** 컨테이너입니다.
-* **Data Lake Storage Gen1 계정**. 하나를 만드는 방법에 대 한 지침은 [참조 Azure 데이터 호수 저장소 Gen1시작](data-lake-store-get-started-portal.md)
-* **데이터 레이크 애널리틱스 계정(선택 사항)** - 데이터 레이크 분석 계정을 만드는 방법에 대한 지침은 [Azure 데이터 레이크 애널리틱스 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md) 을 참조하십시오.
-* **애들 복사 도구**. [AdlCopy 도구를 설치합니다.](https://www.microsoft.com/download/details.aspx?id=50358)
+* 일부 데이터를 사용 하 여 blob 컨테이너를 **Azure Storage** 합니다.
+* **Data Lake Storage Gen1 계정**. 만드는 방법에 대 한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md) 을 참조 하세요.
+* **Data Lake Analytics 계정 (선택 사항)** -Data Lake Analytics 계정을 만드는 방법에 대 한 지침은 [Azure Data Lake Analytics 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md) 을 참조 하세요.
+* **Adlcopy 도구**입니다. [Adlcopy 도구](https://www.microsoft.com/download/details.aspx?id=50358)를 설치 합니다.
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>AdlCopy 도구 구문
 
@@ -49,14 +49,14 @@ ms.locfileid: "75638871"
 
 이 구문에서 매개 변수는 다음과 같습니다.
 
-| 옵션 | 설명 |
+| 옵션 | Description |
 | --- | --- |
 | 원본 |Azure Storage Blob에서 원본 데이터의 위치를 지정합니다. 원본은 Blob 컨테이너, Blob 또는 다른 Data Lake Storage Gen1 계정일 수 있습니다. |
 | Dest |복사할 Data Lake Storage Gen1 대상을 지정합니다. |
 | SourceKey |Azure Storage Blob 원본에 대한 스토리지 액세스 키를 지정합니다. 원본이 Blob 컨테이너 또는 Blob인 경우에만 필요합니다. |
 | 계정 |**선택 사항입니다**. 복사 작업을 실행하기 위해 Azure 데이터 레이크 분석 계정을 사용하려는 경우 사용합니다. 구문에서 /Account 옵션을 사용하지만 데이터 레이크 분석 계정을 지정하지 않으면 AdlCopy는 기본 계정을 사용하여 작업을 실행합니다. 또한 이 옵션을 사용하는 경우 원본(Azure Storage Blob) 및 대상(Azure Data Lake Storage Gen1)을 Data Lake Analytics 계정에 대한 데이터 원본으로 추가해야 합니다. |
-| Units |복사 작업에 사용할 데이터 레이크 분석 단위의 수를 지정합니다. 이 옵션은 **/Account** 옵션을 사용하여 데이터 레이크 분석 계정을 지정하는 경우 필수입니다. |
-| 패턴 |복사할 Blob 또는 파일을 나타내는 regex 패턴을 지정합니다. AdlCopy는 대/소문자 구분 일치를 사용합니다. 패턴이 지정되지 않은 경우 기본 패턴은 모든 항목을 복사하는 것입니다. 여러 파일 패턴을 지정할 수는 없습니다. |
+| 단위 |복사 작업에 사용할 데이터 레이크 분석 단위의 수를 지정합니다. 이 옵션은 **/Account** 옵션을 사용하여 데이터 레이크 분석 계정을 지정하는 경우 필수입니다. |
+| 패턴 |복사할 Blob 또는 파일을 나타내는 regex 패턴을 지정합니다. AdlCopy는 대/소문자 구분 일치를 사용합니다. 지정 된 패턴이 없는 경우의 기본 패턴은 모든 항목을 복사 하는 것입니다. 여러 파일 패턴을 지정할 수는 없습니다. |
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>AdlCopy(독립 실행형)를 사용하여 Azure Storage Blob에서 데이터 복사
 
@@ -65,7 +65,7 @@ ms.locfileid: "75638871"
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
 
-    예를 들어:
+    다음은 그 예입니다.
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
@@ -84,7 +84,7 @@ ms.locfileid: "75638871"
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/ /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>        
 
-    예를 들어:
+    다음은 그 예입니다.
 
         AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
@@ -101,7 +101,7 @@ AdlCopy를 사용하여 두 Data Lake Storage Gen1 계정 간에 데이터를 �
 
         AdlCopy /Source adl://<source_adlsg1_account>.azuredatalakestore.net/<path_to_file> /dest adl://<dest_adlsg1_account>.azuredatalakestore.net/<path>/
 
-    예를 들어:
+    다음은 그 예입니다.
 
         AdlCopy /Source adl://mydatastorage.azuredatalakestore.net/mynewfolder/909f2b.log /dest adl://mynewdatalakestorage.azuredatalakestore.net/mynewfolder/
 
@@ -123,7 +123,7 @@ AdlCopy를 사용하여 두 Data Lake Storage Gen1 계정 간에 데이터를 �
 
 ### <a name="performance-considerations"></a>성능 고려 사항
 
-AdlCopy를 독립 실행형 도구로 사용하는 경우 복사본은 공유Azure 관리 리소스에서 실행됩니다. 이 환경에서의 성능은 시스템 부하 및 사용 가능한 리소스에 따라 다릅니다. 이 모드는 임시로 작은 양을 전송하는 데 가장 적합합니다. AdlCopy를 독립 실행형 도구로 사용하는 경우 매개 변수를 조정할 필요가 없습니다.
+AdlCopy를 독립 실행형 도구로 사용 하는 경우 복사본은 Azure 관리 되는 공유 리소스에서 실행 됩니다. 이 환경에서의 성능은 시스템 부하 및 사용 가능한 리소스에 따라 다릅니다. 이 모드는 임시로 작은 양을 전송하는 데 가장 적합합니다. AdlCopy를 독립 실행형 도구로 사용하는 경우 매개 변수를 조정할 필요가 없습니다.
 
 ## <a name="use-adlcopy-with-data-lake-analytics-account-to-copy-data"></a>Data Lake Analytics 계정에 AdlCopy를 사용하여 데이터 복사
 
@@ -140,7 +140,7 @@ AdlCopy와 함께 Data Lake Analytics 계정을 사용하여 Azure Storage Blob�
 
     AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Units <number_of_data_lake_analytics_units_to_be_used>
 
-예를 들어:
+다음은 그 예입니다.
 
     AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
@@ -161,7 +161,7 @@ AdlCopy와 함께 Data Lake Analytics 계정을 사용하여 Azure Storage Blob�
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
 
-    예를 들어:
+    다음은 그 예입니다.
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv
 
@@ -172,11 +172,11 @@ AdlCopy와 함께 Data Lake Analytics 계정을 사용하여 Azure Storage Blob�
 
 ## <a name="considerations-for-using-adlcopy"></a>AdlCopy 사용에 대한 고려 사항
 
-* AdlCopy(버전 1.0.5)는 모두 수천 개가 넘는 파일과 폴더가 있는 원본에서 데이터를 복사하는 작업을 지원합니다. 그러나 큰 데이터 집합을 복사하는 문제가 발생하면 파일/폴더를 다른 하위 폴더에 배포하고 대신 해당 하위 폴더에 대한 경로를 소스로 사용할 수 있습니다.
+* AdlCopy(버전 1.0.5)는 모두 수천 개가 넘는 파일과 폴더가 있는 원본에서 데이터를 복사하는 작업을 지원합니다. 그러나 많은 데이터 집합을 복사 하는 데 문제가 발생 하는 경우에는 파일/폴더를 다른 하위 폴더로 배포 하 고 대신 해당 하위 폴더에 대 한 경로를 원본으로 사용할 수 있습니다.
 
 ## <a name="performance-considerations-for-using-adlcopy"></a>AdlCopy 사용에 대한 성능 고려 사항
 
-AdlCopy는 수천 개의 파일 및 폴더가 포함된 데이터의 복사를 지원합니다. 그러나 큰 데이터 집합을 복사하는 데 문제가 발생하면 파일/폴더를 더 작은 하위 폴더에 배포할 수 있습니다. AdlCopy는 임시 복사본용으로 빌드되었습니다. 반복적으로 데이터를 복사하려는 경우 복사 작업 관련 전체 관리 기능을 제공하는 [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) 사용을 고려해야 합니다.
+AdlCopy는 수천 개의 파일 및 폴더가 포함된 데이터의 복사를 지원합니다. 그러나 많은 데이터 집합을 복사 하는 문제가 발생 하는 경우에는 파일/폴더를 더 작은 하위 폴더로 배포할 수 있습니다. AdlCopy는 임시 복사본용으로 빌드되었습니다. 반복적으로 데이터를 복사하려는 경우 복사 작업 관련 전체 관리 기능을 제공하는 [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) 사용을 고려해야 합니다.
 
 ## <a name="release-notes"></a>릴리스 정보
 

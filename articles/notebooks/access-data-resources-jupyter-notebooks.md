@@ -1,13 +1,13 @@
 ---
-title: Jupyter 노트북의 데이터 액세스 - Azure 노트북 미리 보기
-description: Jupyter 노트북에서 파일, REST API, 데이터베이스 및 다양한 Azure 저장소 리소스에 액세스하는 방법을 알아봅니다.
+title: Jupyter 노트북에서 데이터 액세스-Azure Notebooks 미리 보기
+description: Jupyter 노트북에서 파일, REST Api, 데이터베이스 및 다른 Azure Storage 리소스에 액세스 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: 47d2f869021851c1451a66a84b1a70ec4ff4998f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646350"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Notebook에서 클라우드 데이터 액세스
@@ -63,7 +63,7 @@ Azure Cosmos DB는 JSON 문서에 대해 완벽하게 인덱싱된 NoSQL 스토�
 - [Python 사용하여 SQL API 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
 - [Azure Cosmos DB의 MongoDB API를 사용하여 Flask 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
 - [Python 및 Gremlin API를 사용하여 그래프 데이터베이스 만들기](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
-- [파이썬과 Azure 코스모스 DB와 카산드라 응용 프로그램을 구축](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
+- [Python 및 Azure Cosmos DB를 사용 하 여 Cassandra 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
 - [Python 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
 
 Cosmos DB로 작업할 때 [Azure-cosmosdb-table](https://pypi.org/project/azure-cosmosdb-table/) 라이브러리를 사용할 수 있습니다.
@@ -75,9 +75,9 @@ Azure는 사용할 수 있는 많은 다른 데이터베이스 형식을 제공 
 - [PostgreSQL용 Azure Database: Python을 사용하여 데이터 연결 및 쿼리](https://docs.microsoft.com/azure/postgresql/connect-python)
 - [빠른 시작: Azure Redis Cache를 Python과 함께 사용](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
 - [MySQL용 Azure Database: Python을 사용하여 데이터 연결 및 쿼리](https://docs.microsoft.com/azure/mysql/connect-python)
-- [Azure 데이터 팩터리](https://azure.microsoft.com/services/data-factory/)
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Azure Data Factory 복사 마법사](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [방법: 프로젝트 데이터 파일로 작업](work-with-project-data-files.md)
+- [방법: 프로젝트 데이터 파일 작업](work-with-project-data-files.md)

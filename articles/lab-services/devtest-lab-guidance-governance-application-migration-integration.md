@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest 랩의 응용 프로그램 마이그레이션 및 통합
-description: 이 문서에서는 응용 프로그램 마이그레이션 및 통합의 컨텍스트에서 Azure DevTest Labs 인프라의 거버넌스에 대한 지침을 제공합니다.
+title: Azure DevTest Labs에서 응용 프로그램 마이그레이션 및 통합
+description: 이 문서에서는 응용 프로그램 마이그레이션 및 통합의 컨텍스트에서 Azure DevTest Labs 인프라의 관리에 대 한 지침을 제공 합니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,10 +14,10 @@ ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 14641e9096fa9366334e9f7460ae55cda0e6c2e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75644889"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Azure DevTest Labs 인프라의 거버넌스 - 애플리케이션 마이그레이션 및 통합
@@ -64,7 +64,7 @@ Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 �
 DevTest Labs를 사용하여 Azure Pipelines에서 사용자 지정 이미지 파이프라인 만들기:
 
 - [소개: Azure DevTest Labs에서 이미지 팩터리를 설정하여 몇 분 내에 VM 준비](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
-- [이미지 팩토리 - 파트 2! VM을 만들기 위한 Azure 파이프라인 및 팩터리 랩 설정](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
+- [이미지 팩터리 – 2 부! Vm을 만들기 위한 Azure Pipelines 및 공장 랩 설정](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
 - [Image Factory – 3부: 사용자 지정 이미지 저장 및 여러 랩에 배포](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
 - [비디오: Azure DevTest Labs를 통해 사용자 지정 Image Factory 만들기](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
 
@@ -117,7 +117,7 @@ VM이 기존 인프라와 상호 작용해야 하는 경우에는 DevTest Labs �
 사용자/랩당 가상 머신 수를 고려할 때는 다음의 세 가지 요소를 주로 파악해야 합니다.
 
 - 팀이 랩의 리소스에 재출할 수 있는 **전체 비용**. 여러 컴퓨터를 스핀업하는 것 자체는 간단합니다. 이 경우 비용을 제어하는 메커니즘 중 하나는 사용자 및/또는 랩당 VM 수를 제한하는 것입니다.
-- 랩의 총 가상 머신 수는 사용 가능한 [구독 수준 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)에 따라 달라집니다. 예를 들어 구독당 리소스 그룹 800개 등의 상한이 적용될 수 있습니다. 공유 공용 IP를 사용하는 경우가 아니면 DevTest Labs는 현재 각 VM에 대해 새 리소스 그룹을 만듭니다. 구독에 10개의 랩이 있는 경우 랩은 각 랩에 약 79개의 가상 머신(상한 800개 – 10개 랩 자체에 대한 리소스 그룹 10개)= 랩당 79개의 가상 머신을 수용할 수 있습니다.
+- 랩의 총 가상 머신 수는 사용 가능한 [구독 수준 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)에 따라 달라집니다. 예를 들어 구독당 리소스 그룹 800개 등의 상한이 적용될 수 있습니다. 공유 공용 IP를 사용하는 경우가 아니면 DevTest Labs는 현재 각 VM에 대해 새 리소스 그룹을 만듭니다. 구독에 10 개의 lab이 있는 경우 labs는 각 랩에 약 79 개의 가상 머신을 맞출 수 있습니다 (10 개의 랩 자체에 대 한 800 상한-10 개의 리소스 그룹) = 79 가상 머신을 랩 당 합니다.
 - 랩이 Express 경로 등을 통해 온-프레미스에 연결되는 경우에는 VNet/서브넷용으로 **정의된 사용 가능한 IP 주소 공간**이 있습니다. ‘IP 주소를 가져올 수 없음’ 오류로 인해 랩에서 VM 생성이 실패하는 일이 없도록 하려는 경우 랩 소유자는 사용 가능한 IP 주소 공간에 맞게 랩당 최대 VM 수를 적절하게 지정할 수 있습니다.
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager 템플릿 사용

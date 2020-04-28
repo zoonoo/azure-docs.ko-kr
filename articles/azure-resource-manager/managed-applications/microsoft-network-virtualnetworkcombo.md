@@ -1,15 +1,15 @@
 ---
-title: 가상 네트워크콤보 UI 요소
+title: VirtualNetworkCombo UI 요소
 description: Azure Portal의 Microsoft.Network.VirtualNetworkCombo UI 요소에 대해 설명합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 53c9653b44a6c9d26d49d37b351cf6000676e2d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651970"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Microsoft.Network.VirtualNetworkCombo UI 요소
@@ -110,9 +110,9 @@ ms.locfileid: "75651970"
 - `constraints.minAddressPrefixSize`를 지정해야 합니다. 지정한 값보다 작은 주소 공간이 있는 기존 가상 네트워크는 선택할 수 없습니다.
 - `subnets`를 지정해야 하며, 각 서브넷에 대해 `constraints.minAddressPrefixSize`를 지정해야 합니다.
 - 새 가상 네트워크를 만들 때 각 서브넷의 주소 접두사는 가상 네트워크의 주소 접두사와 각각의 `addressPrefixSize`에 따라 자동으로 계산됩니다.
-- 기존 가상 네트워크를 사용할 때 각각의 `constraints.minAddressPrefixSize`보다 작은 서브넷은 모두 선택할 수 없습니다. 또한 지정하는 경우 `minAddressCount` 값 이상의 사용 가능한 주소를 포함하지 않는 서브넷은 선택할 수 없습니다. 기본값은 **0입니다.** 사용 가능한 주소가 연속적인 주소가 되도록 하려면 `requireContiguousAddresses`에 대해 **true**를 지정합니다. 기본값은 **true입니다.**
+- 기존 가상 네트워크를 사용할 때 각각의 `constraints.minAddressPrefixSize`보다 작은 서브넷은 모두 선택할 수 없습니다. 또한 지정하는 경우 `minAddressCount` 값 이상의 사용 가능한 주소를 포함하지 않는 서브넷은 선택할 수 없습니다. 기본값은 **0**입니다. 사용 가능한 주소가 연속적인 주소가 되도록 하려면 `requireContiguousAddresses`에 대해 **true**를 지정합니다. 기본값은 **true**입니다.
 - 기존 가상 네트워크에서 서브넷을 만드는 것은 지원되지 않습니다.
-- `options.hideExisting`이 **true**이면 사용자가 기존 가상 네트워크를 선택할 수 없습니다. 기본값은 **false**입니다.
+- `options.hideExisting`이 **true**이면 사용자가 기존 가상 네트워크를 선택할 수 없습니다. 기본 값은 **false**입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
