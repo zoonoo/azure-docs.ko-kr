@@ -1,6 +1,6 @@
 ---
-title: 보안 모범 사례 및 패턴 - Microsoft Azure | 마이크로 소프트 문서
-description: 이 문서에서는 서로 다른 Azure 리소스에 대한 보안 모범 사례 및 패턴에 연결됩니다.
+title: 보안 모범 사례 및 패턴-Microsoft Azure | Microsoft Docs
+description: 이 문서에서는 다양 한 Azure 리소스에 대 한 보안 모범 사례 및 패턴으로 연결 합니다.
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
 ms.openlocfilehash: 0bf9b4d3aa1926343ad25000a05762a31d49617d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73889849"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure 보안 모범 사례 및 패턴
@@ -31,7 +31,7 @@ ms.locfileid: "73889849"
 * [Azure 경계 보안 모범 사례](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 * [Azure 데이터베이스 보안 모범 사례](database-best-practices.md)
 * [Azure 데이터 보안 및 암호화 모범 사례](data-encryption-best-practices.md)
-* [Azure ID 관리 및 액세스 제어 보안 모범 사례](identity-management-best-practices.md)
+* [Azure id 관리 및 액세스 제어 보안 모범 사례](identity-management-best-practices.md)
 * [Azure 네트워크 보안 모범 사례](network-best-practices.md)
 * [Azure 운영 보안 모범 사례](operational-best-practices.md)
 * [Azure PaaS 모범 사례](paas-deployments.md)

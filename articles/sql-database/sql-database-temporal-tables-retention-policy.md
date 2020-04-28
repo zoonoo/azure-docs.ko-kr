@@ -1,5 +1,5 @@
 ---
-title: 임시 테이블에서 기록 데이터 관리
+title: Temporal 테이블에서 기록 데이터 관리
 description: 임시 재방문 주기 정책을 사용하여 과거 데이터를 제어하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 09/25/2018
 ms.openlocfilehash: 3c2460c6f5e0905f45106148ecc3e8a949cf221f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73820677"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>재방문 주기 정책 사용하여 Temporal Tables에서 과거 데이터 관리
@@ -30,11 +30,11 @@ Temporal 기록 보존은 개별 테이블 수준에서 구성할 수 있으므�
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
 ```
 
-앞의 예제에서는 **ValidTo** 열이 SYSTEM_TIME 기간의 끝에 해당한다고 가정했습니다.
+앞의 예제에서는 **ValidTo** 열이 SYSTEM_TIME 기간의 끝에 해당 하는 것으로 가정 합니다.
 
 ## <a name="how-to-configure-retention-policy"></a>보존 정책을 구성하는 방법
 
-임시 테이블에 대한 보존 정책을 구성하기 전에 먼저 데이터베이스 수준에서 임시 기록 *보존이*활성화되어 있는지 확인합니다.
+Temporal 테이블에 대 한 보존 정책을 구성 하기 전에 먼저 *데이터베이스 수준에서*temporal 기록 보존이 사용 되는지 여부를 확인 합니다.
 
 ```
 SELECT is_temporal_history_retention_enabled, name
@@ -106,7 +106,7 @@ ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 정리 프로세스는 기록 테이블의 인덱스 레이아웃에 따라 달라집니다. *클러스터형 인덱스(B-트리 또는 columnstore)를 사용하는 기록 테이블에만 유한 보존 정책을 구성할 수 있다*는 점을 기억해야 합니다. 보존 기간이 한정된 모든 temporal 테이블에 대한 오래된 데이터 정리를 수행하는 백그라운드 태스크가 만들어집니다.
 rowstore(B-트리) 클러스터형 인덱스에 대한 정리 논리를 사용해 오래된 행을 더 작은 청크(최대 10K)로 삭제하여 데이터베이스 로그 및 IO 하위 시스템에 대한 압력을 최소화합니다. 정리 논리에서 필요한 B-트리 인덱스를 활용하긴 하지만 보존 기간보다 오래된 행의 삭제 순서를 확실히 보장할 수는 없습니다. 따라서 *애플리케이션의 정리 순서를 신뢰하지 마세요*.
 
-클러스터된 columnstore에 대한 정리 작업은 전체 [행 그룹을](https://msdn.microsoft.com/library/gg492088.aspx) 한 번에 제거합니다(일반적으로 각 행이 1백만 개 포함됨)은 특히 기록 데이터가 빠른 속도로 생성되는 경우 매우 효율적입니다.
+클러스터형 columnstore에 대 한 정리 태스크는 전체 [행 그룹](https://msdn.microsoft.com/library/gg492088.aspx) 을 한 번에 (일반적으로 각각 100만 행을 포함) 제거 하므로 매우 효율적입니다. 특히 기록 데이터를 고속으로 생성 하는 경우 매우 효율적입니다.
 
 ![클러스터형 columnstore 보존](./media/sql-database-temporal-tables-retention-policy/cciretention.png)
 
@@ -116,11 +116,11 @@ rowstore(B-트리) 클러스터형 인덱스에 대한 정리 논리를 사용�
 
 Rowstore 클러스터형 인덱스가 있는 테이블에 대한 정리 작업은 SYSTEM_TIME 기간의 끝에 해당하는 열로 시작하는 인덱스를 필요로 합니다. 이러한 인덱스가 없는 경우 한정된 재방문 주기 기간을 구성할 수 없습니다.
 
-*Msg 13765, 레벨 16, 상태 1 <br> </br> 설정 유한 보존 기간은 시스템 버전 시간 테이블 'temporalstagetestdb.dbo.WebsiteUserInfo'에 실패 기록 표 'temporalstagetestdb.dbo.Website.Website'필요한 클러스터된 인덱스를 포함 하지 않습니다. 기록 테이블에서 SYSTEM_TIME 기간의 끝과 일치하는 열로 시작하는 클러스터된 열 저장소 또는 B-트리 인덱스를 만드는 것이 좋습니다.*
+*기록 테이블 ' temporalstagetestdb '에 필요한 클러스터형 <br> </br> 인덱스가 포함 되어 있지 않으므로 메시지 13765, 수준 16, 상태 1 설정 유한 보존 기간을 시스템 버전 관리 된 temporal 테이블 ' temporalstagetestdb. WebsiteUserInfo '에서 실패 했습니다. 기록 테이블에서 SYSTEM_TIME 기간의 끝과 일치 하는 열로 시작 하는 클러스터형 columnstore 또는 B-트리 인덱스를 만드는 것이 좋습니다.*
 
 Azure SQL Database에서 만든 기본 기록 테이블에 재방문 주기 정책과 호환되는 클러스터형 인덱스가 이미 있는지 유의해야 합니다. 재방문 주기 기간이 한정된 테이블에서 해당 인덱스를 제거하려 하면 다음 오류와 함께 작업이 실패합니다.
 
-*Msg 13766, 레벨 16, 상태 1은 <br> </br> 세에 달하는 데이터의 자동 정리에 사용되기 때문에 클러스터된 인덱스 'WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory'을 삭제할 수 없습니다. 이 인덱스를 삭제해야 하는 경우 해당 시스템 버전 의 임시 테이블에서 HISTORY_RETENTION_PERIOD INFINITE로 설정하는 것이 좋습니다.*
+*메시지 13766, 수준 16, 상태 1 <br> </br> 은 (는) 오래 된 데이터의 자동 정리에 사용 되 고 있으므로 클러스터형 인덱스 ' IX_WebsiteUserInfoHistory WebsiteUserInfoHistory '를 삭제할 수 없습니다. 이 인덱스를 삭제 해야 하는 경우 해당 하는 시스템 버전 관리 된 temporal 테이블에서 HISTORY_RETENTION_PERIOD을 무한대로 설정 하는 것이 좋습니다.*
 
 클러스터형 columnstore 인덱스 상의 정리는 기록 행이 오름차순(기간 열 끝의 순서로 정렬됨)으로 삽입된 경우 최적으로 작동합니다. 특히 기록 테이블이 SYSTEM_VERSIONIOING 메커니즘에 의해 단독으로 채워질 때 항상 그렇습니다. 기록 테이블의 행이 기간 열(기존 과거 데이터를 마이그레이션한 경우에 해당될 수 있음)의 끝을 기준으로 정렬되지 경우, 최적의 성능을 얻으려면 제대로 정렬된 B-트리 rowstore 인덱스 위에 클러스터형 columnstore 인덱스를 다시 만들어야 합니다.
 
@@ -144,7 +144,7 @@ CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
 
 위의 문을 실행하면 다음 오류와 함께 실패합니다.
 
-*Msg 13772, 수준 16, 상태 1은 <br> </br> 제한된 보존 기간과 클러스터된 열저장소 인덱스가 정의되어 있으므로 임시 기록 테이블 'WebsiteUserInfoHistory'에서 클러스터되지 않은 인덱스를 만들 수 없습니다.*
+*메시지 13772, 수준 16, 상태 1 <br> </br> 은 (는) 유한 보존 기간 및 클러스터형 columnstore 인덱스가 정의 되어 있으므로 ' WebsiteUserInfoHistory ' temporal 기록 테이블에 비클러스터형 인덱스를 만들 수 없습니다.*
 
 ## <a name="querying-tables-with-retention-policy"></a>재방문 주기 정책을 사용한 테이블 쿼리
 
@@ -181,7 +181,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 
 ## <a name="next-steps"></a>다음 단계
 
-응용 프로그램에서 임시 테이블을 사용하는 방법을 알아보려면 [Azure SQL Database에서 임시 테이블 시작](sql-database-temporal-tables.md)을 체크 아웃하십시오.
+응용 프로그램에서 Temporal 테이블을 사용 하는 방법에 대 한 자세한 내용은 [Azure SQL Database Temporal 테이블 시작](sql-database-temporal-tables.md)을 참조 하세요.
 
 Channel 9을 방문하여 [실제 고객 임시 구현 성공 사례](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions)를 듣고 [라이브 임시 데모](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)를 시청합니다.
 

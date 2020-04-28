@@ -1,21 +1,21 @@
 ---
-title: Azure 데이터 레이크 저장소 Gen1 - 오프라인 메서드에 대용량 데이터 집합 업로드
-description: 가져오기/내보내기 서비스를 사용하여 Azure Blob 저장소에서 Azure 데이터 레이크 저장소 Gen1로 데이터를 복사합니다.
+title: Azure Data Lake Storage Gen1-오프 라인 메서드로 대량 데이터 집합 업로드
+description: Import/Export 서비스를 사용 하 여 Azure Blob 저장소에서 Azure Data Lake Storage Gen1로 데이터를 복사 합니다.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: aa3eb0bcd9ddd2a094563efe326f7af7e9e8708a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73839303"
 ---
-# <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-storage-gen1"></a>Azure 가져오기/내보내기 서비스를 사용하여 데이터 레이크 저장소 Gen1에 대한 데이터의 오프라인 복사본을 사용합니다.
+# <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-storage-gen1"></a>데이터의 오프 라인 복사본에 대 한 Azure Import/Export 서비스를 사용 하 여 Data Lake Storage Gen1
 
-이 문서에서는 [Azure 가져오기/내보내기 서비스와](../storage/common/storage-import-export-service.md)같은 오프라인 복사 메서드를 사용하여 거 대 한 데이터 집합(>200GB)을 Data Lake Storage Gen1에 복사하는 방법을 배웁니다. 특히 이 문서에서 예제로 사용하는 파일의 크기는 디스크에서 339,420,860,416바이트(약 319GB)입니다. 이 파일을 319GB.tsv라고 하겠습니다.
+이 문서에서는 [Azure Import/Export 서비스](../storage/common/storage-import-export-service.md)와 같은 오프 라인 복사 방법을 사용 하 여 대용량 데이터 집합 (>200 GB)을 Data Lake Storage Gen1로 복사 하는 방법에 대해 알아봅니다. 특히 이 문서에서 예제로 사용하는 파일의 크기는 디스크에서 339,420,860,416바이트(약 319GB)입니다. 이 파일을 319GB.tsv라고 하겠습니다.
 
 Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 제공하여 대량 데이터를 Azure Blob Storage로 더 안전하게 전송할 수 있습니다.
 
@@ -29,7 +29,7 @@ Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 A
 
 ## <a name="prepare-the-data"></a>데이터 준비
 
-Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 **200GB 미만의 복사본**으로 분할해야 합니다. 200GB보다 큰 파일인 경우 가져오기 도구를 작동할 수 없기 때문입니다. 이 문서에서는 파일을 각각 100GB의 청크로 분할합니다. [Cygwin](https://cygwin.com/install.html)을 사용하면 이렇게 수행할 수 있습니다. Cygwin은 Linux 명령을 지원합니다. 이 경우 다음 명령을 사용합니다.
+Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 **200GB 미만의 복사본**으로 분할해야 합니다. 200GB보다 큰 파일인 경우 가져오기 도구를 작동할 수 없기 때문입니다. 이 문서에서는 파일을 각각 100 GB 청크로 분할 합니다. [Cygwin](https://cygwin.com/install.html)을 사용하면 이렇게 수행할 수 있습니다. Cygwin은 Linux 명령을 지원합니다. 이 경우 다음 명령을 사용합니다.
 
     split -b 100m 319GB.tsv
 
@@ -65,7 +65,7 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
 
 이제 디스크를 Azure 데이터 센터에 물리적으로 제공할 수 있습니다. 여기서 데이터는 가져 오기 작업을 만드는 동안 사용자가 제공한 Azure Storage Blob으로 복사됩니다. 또한 작업을 만드는 동안 나중에 추적 정보를 제공하도록 선택한 경우 가져오기 작업으로 돌아가서 추적 번호를 업데이트할 수 있습니다.
 
-## <a name="copy-data-from-blobs-to-data-lake-storage-gen1"></a>Blob에서 데이터 레이크 스토리지 Gen1로 데이터 복사
+## <a name="copy-data-from-blobs-to-data-lake-storage-gen1"></a>Blob에서 Data Lake Storage Gen1로 데이터 복사
 
 가져오기 작업의 상태가 완료되었다고 표시되면 지정한 Azure Storage Blob에서 데이터를 사용할 수 있는지 확인할 수 있습니다. 그런 다음, 다양한 방법으로 Blob에서 Azure Data Lake Storage Gen1로 해당 데이터를 이동할 수 있습니다. 데이터를 업로드하는 데 사용 가능한 모든 옵션은 [Data Lake Storage Gen1에 데이터 수집](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-storage-gen1)을 참조하세요.
 
@@ -86,7 +86,7 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
 }
 ```
 
-### <a name="target-linked-service-data-lake-storage-gen1"></a>대상 연결 서비스(데이터 레이크 스토리지 Gen1)
+### <a name="target-linked-service-data-lake-storage-gen1"></a>대상 연결 된 서비스 (Data Lake Storage Gen1)
 
 ```JSON
 {
@@ -198,7 +198,7 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
 
 자세한 내용은 [Azure Data Factory를 사용하여 Azure Storage Blob에서 Azure Data Lake Storage Gen1로 데이터 이동](../data-factory/connector-azure-data-lake-store.md)을 참조하세요.
 
-## <a name="reconstruct-the-data-files-in-data-lake-storage-gen1"></a>데이터 레이크 스토리지 Gen1의 데이터 파일 재구성
+## <a name="reconstruct-the-data-files-in-data-lake-storage-gen1"></a>Data Lake Storage Gen1에서 데이터 파일 재구성
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

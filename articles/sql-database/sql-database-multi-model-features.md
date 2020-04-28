@@ -12,24 +12,24 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
 ms.openlocfilehash: 2e8519fa8d96b7fe016b9da4ba84ce481a57d94e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73802826"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL Database의 다중 모델 기능
 
 다중 모델 데이터베이스를 사용하면 관계형 데이터, 그래프, JSON/XML 문서, 키-값 쌍 등의 여러 데이터 형식으로 표시되는 데이터를 저장하고 사용할 수 있습니다.
 
-## <a name="when-to-use-multi-model-capabilities"></a>다중 모델 기능을 사용하는 경우
+## <a name="when-to-use-multi-model-capabilities"></a>다중 모델 기능을 사용 하는 경우
 
 Azure SQL Database는 다양한 범용 애플리케이션에서 대부분의 경우 최상의 성능을 제공하는 관계형 모델을 사용하도록 설계되었습니다. 그러나 Azure SQL Database는 관계형 데이터만으로 제한되지 않습니다. Azure SQL Database를 사용하면 관계형 모델에 완전 통합된 다양한 비관계형 형식을 사용할 수 있습니다.
-다음과 같은 경우 Azure SQL Database의 다중 모델 기능을 사용하는 것이 좋습니다.
-- NoSQL 모델에 더 적합한 일부 정보 나 구조가 있으며 별도의 NoSQL 데이터베이스를 사용하지 않으려고합니다.
-- 대부분의 데이터는 관계형 모델에 적합하며 데이터의 일부를 NoSQL 스타일로 모델링해야 합니다.
-- 풍부한 Transact-SQL 언어를 활용하여 관계형 및 NoSQL 데이터를 쿼리 및 분석하고 SQL 언어를 사용할 수 있는 다양한 도구 및 응용 프로그램과 통합하려고 합니다.
-- NoSQL 데이터 구조의 분석 또는 처리 성능을 향상시키기 위해 메모리 내 [기술과](sql-database-in-memory.md) 같은 데이터베이스 기능을 적용하고, [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) 또는 읽을 수 있는 [복제본을](sql-database-read-scale-out.md) 사용하여 다른 위치에 있는 데이터의 복사본을 만들고 기본 데이터베이스에서 일부 분석 워크로드를 오프로드하려고 합니다.
+다음과 같은 경우 Azure SQL Database의 다중 모델 기능을 사용 하는 것이 좋습니다.
+- NoSQL 모델에 적합 하 고 별도의 NoSQL 데이터베이스를 사용 하지 않으려는 일부 정보나 구조가 있습니다.
+- 대부분의 데이터는 관계형 모델에 적합 하며 NoSQL 스타일로 데이터의 일부를 모델링 해야 합니다.
+- 풍부한 Transact-sql 언어를 활용 하 여 관계형 및 NoSQL 데이터를 쿼리하고 분석 하 고 SQL 언어를 사용할 수 있는 다양 한 도구 및 응용 프로그램과 통합 하려고 합니다.
+- [메모리 내 기술과](sql-database-in-memory.md) 같은 데이터베이스 기능을 적용 하 여 nosql 데이터 구조의 분석 또는 처리 성능을 향상 시킬 수 있습니다. [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) 나 [읽을 수 있는 복제본](sql-database-read-scale-out.md) 을 사용 하 여 다른 장소에 데이터 복사본을 만들고 주 데이터베이스에서 일부 분석 작업을 오프 로드 합니다.
 
 ## <a name="overview"></a>개요
 
@@ -38,7 +38,7 @@ Azure SQL은 다음 다중 모델 기능을 제공합니다.
 - [JSON 기능](#json-features)을 사용하면 JSON 문서를 테이블에 넣고, 관계형 데이터를 JSON 문서로 변환하거나 그 반대로 변환할 수 있습니다. JSON 함수로 향상된 표준 Transact-SQL 언어를 문서 구문 분석에 사용하고, 비클러스터형 인덱스, columnstore 인덱스 또는 메모리 최적화 테이블을 사용하여 쿼리를 최적화할 수 있습니다.
 - [공간 기능](#spatial-features)을 사용하면 지리적 및 기하학적 데이터를 저장하고, 공간 인덱스를 사용하여 해당 데이터를 인덱싱하고, 공간 쿼리를 사용하여 데이터를 검색할 수 있습니다.
 - [XML 기능](#xml-features)을 사용하면 데이터베이스에서 XML 데이터를 저장 및 인덱싱하고 네이티브 XQuery/XPath 작업을 통해 XML 데이터를 사용할 수 있습니다. Azure SQL 데이터베이스에는 XML 데이터를 처리하는 특수화된 기본 제공 XML 쿼리 엔진이 있습니다.
-- [키-값 쌍은](#key-value-pairs) 기본적으로 2열 테이블로 모델링할 수 있기 때문에 특수 기능으로 명시적으로 지원되지 않습니다.
+- 키-값 쌍은 기본적으로 두 열 테이블로 모델링할 수 있으므로 [키-값 쌍](#key-value-pairs) 은 특별 한 기능으로 명시적으로 지원 되지 않습니다.
 
   > [!Note]
   > 동일한 Transact-SQL 쿼리에서 JSON 경로 식, XQuery/XPath 식, 공간 함수 및 그래프-쿼리 식을 사용하여 데이터베이스에 저장한 데이터에 액세스할 수 있습니다. Transact-SQL 쿼리를 실행할 수 있는 도구나 프로그래밍 언어도 해당 쿼리 인터페이스를 사용하여 다중 모델 데이터에 액세스할 수 있습니다. 이는 다양한 데이터 모델에 대한 특수화된 API를 제공하는 [Azure Cosmos DB](/azure/cosmos-db/)와 같은 다중 모델 데이터베이스와 비교되는 주요 차이점입니다.
@@ -68,7 +68,7 @@ Azure SQL Database는 데이터베이스에서 다 대 다 관계를 모델링�
 
 Azure SQL Database를 사용하면 [JSON](https://www.json.org/)(JavaScript Object Notation) 형식으로 표현된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 JSON 텍스트로 내보낼 수 있습니다.
 
-JSON은 최신 웹 및 모바일 애플리케이션에서 데이터를 교환하는 데 사용되는 일반적인 데이터 형식입니다. 또한 JSON은 로그 파일 또는 NoSQL 데이터베이스(예: [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/))에 반구조화된 데이터를 저장하는 데도 사용됩니다. 많은 REST 웹 서비스에서 JSON 텍스트로 형식이 지정된 결과를 반환하거나 JSON으로 형식이 지정된 데이터를 허용합니다. [Azure 인지 검색,](https://azure.microsoft.com/services/search/)Azure [저장소](https://azure.microsoft.com/services/storage/)및 [Azure Cosmos DB와](https://azure.microsoft.com/services/cosmos-db/) 같은 대부분의 Azure 서비스에는 JSON을 반환하거나 사용하는 REST 끝점이 있습니다.
+JSON은 최신 웹 및 모바일 애플리케이션에서 데이터를 교환하는 데 사용되는 일반적인 데이터 형식입니다. 또한 JSON은 로그 파일 또는 NoSQL 데이터베이스(예: [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/))에 반구조화된 데이터를 저장하는 데도 사용됩니다. 많은 REST 웹 서비스에서 JSON 텍스트로 형식이 지정된 결과를 반환하거나 JSON으로 형식이 지정된 데이터를 허용합니다. [Azure Cognitive Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/)및 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 와 같은 대부분의 azure 서비스에는 JSON을 반환 하거나 사용 하는 REST 끝점이 있습니다.
 
 Azure SQL Database를 사용하여 JSON 데이터를 쉽게 사용하고 데이터베이스를 최신 서비스와 통합할 수 있습니다. Azure SQL Database는 JSON 데이터를 사용하기 위한 다음과 같은 함수를 제공합니다.
 
@@ -89,7 +89,7 @@ JSON 텍스트가 있는 경우 JSON에서 데이터를 추출하거나 기본 �
 
 ## <a name="spatial-features"></a>공간 기능
 
-공간 데이터는 기하학적 개체의 물리적 위치 및 모양 정보를 나타냅니다. 이러한 객체는 포인트 위치이거나 국가/지역, 도로 또는 호수와 같은 보다 복잡한 객체일 수 있습니다.
+공간 데이터는 기하학적 개체의 물리적 위치 및 모양 정보를 나타냅니다. 이러한 개체는 지점 위치 또는 국가/지역,도로 또는 레이크와 같은 복잡 한 개체 일 수 있습니다.
 
 Azure SQL Database는 두 개의 공간 데이터 형식(기하 도형 데이터 형식 및 지리 데이터 형식)을 지원합니다.
 - 기하 도형 형식은 유클리드(평면) 좌표계의 데이터를 나타냅니다.

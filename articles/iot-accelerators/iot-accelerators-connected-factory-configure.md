@@ -1,6 +1,6 @@
 ---
 title: 연결된 팩터리 토폴로지 구성 - Azure | Microsoft Docs
-description: 이 문서에서는 토폴로지를 포함하여 연결된 팩터리 솔루션 가속기를 구성하는 방법에 대해 설명합니다.
+description: 이 문서에서는 토폴로지를 포함 하 여 연결 된 팩터리 솔루션 가속기를 구성 하는 방법을 설명 합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73820125"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기 구성
@@ -29,7 +29,7 @@ ms.locfileid: "73820125"
 * 테스트 스테이션
 * 포장 스테이션
 
-이러한 OPC UA 서버에는 OPC UA 노드가 있으며 [OPC 게시자](overview-opc-publisher.md)는 연결된 팩터리를 이러한 노드 값을 보냅니다. 다음 내용이 포함됩니다.
+이러한 OPC UA 서버에는 OPC UA 노드가 있으며 [OPC 게시자](overview-opc-publisher.md)는 연결된 팩터리를 이러한 노드 값을 보냅니다. 여기에는 다음 항목이 포함됩니다.
 
 * 현재 전력 소비와 같은 현재 작동 상태
 * 생산된 제품의 수와 같은 프로덕션 정보
@@ -264,11 +264,11 @@ ms.locfileid: "73820125"
 
 이 범주의 속성이 연결된 팩터리 대시보드의 시각적 모양을 정의합니다. 다음은 이러한 템플릿의 예입니다.
 
-* 이름
-* 설명
+* Name
+* Description
 * 이미지
 * 위치
-* Units
+* 단위
 * Visible
 
 ### <a name="internal-topology-tree-addressing"></a>내부 토폴로지 트리 주소 지정
@@ -282,7 +282,7 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 * OPC UA 노드 값은 계산에 포함되어야 합니다.
 * 수치가 원격 분석 값에서 계산되는 방식입니다.
 
-연결된 팩터리는 [http://www.oeefoundation.org](http://www.oeefoundation.org)에서 게시한 OEE 수식을 사용합니다.
+연결 된 팩터리는 [http://www.oeefoundation.org](http://www.oeefoundation.org)에서 게시 된 oee 수식을 사용 합니다.
 
 스테이션의 OPC UA 노드 개체를 사용하여 OEE/KPI 계산용으로 태그를 지정할 수 있습니다. **Relevance** 속성은 OPC UA 노드 값을 사용해야 하는 OEE/KPI 수치를 나타냅니다. **OpCode** 속성은 값을 계산에 사용할 방식을 정의합니다.
 
@@ -307,7 +307,7 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 
   OPC UA 서버에서 노드 값을 식별합니다. 속성의 형식은 UA OPC 사양에 지정되어야 합니다. 수집된 메시지에서 이 속성은 **NodeId**로 전송됩니다.
 
-원격 분석 데이터가 연결된 팩터리로 수집되는 방법에 대한 자세한 내용은 [OPC 게시자란 무엇입니까?](overview-opc-publisher.md)
+원격 분석 데이터를 연결 된 팩터리에 수집 하는 방법에 대 한 자세한 내용은 [OPC 게시자 란?](overview-opc-publisher.md) 을 참조 하세요.
 
 ## <a name="example-how-kpi1-is-calculated"></a>예제: KPI1 계산 방법
 
@@ -340,4 +340,4 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 단계는 [연결된 팩터리 솔루션을 사용자 지정하는](iot-accelerators-connected-factory-customize.md)방법을 알아보는 것입니다.
+제안 된 다음 단계는 [연결 된 팩터리 솔루션을 사용자 지정](iot-accelerators-connected-factory-customize.md)하는 방법을 설명 하는 것입니다.

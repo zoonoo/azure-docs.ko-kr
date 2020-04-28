@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
 ms.openlocfilehash: 79abaade22fc107fa4c848607ff48232eeeb58ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823755"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
@@ -28,7 +28,7 @@ ms.locfileid: "73823755"
 
 비분할 데이터베이스의 경우 [여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리](sql-database-elastic-query-vertical-partitioning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * 탄력적 데이터베이스 클라이언트 라이브러리를 사용하여 분할된 데이터베이스 맵을 만듭니다. [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 참조하세요. 또는 [탄력적 데이터베이스 도구 시작하기](sql-database-elastic-scale-get-started.md)의 샘플 앱을 사용하세요.
 * 또는 [기존 데이터베이스를 확장된 데이터베이스로 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)을 참조합니다.
@@ -42,7 +42,7 @@ ms.locfileid: "73823755"
 1. [마스터 키 만들기](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [외부 테이블 만들기](https://msdn.microsoft.com/library/dn935021.aspx)
+4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
 
 ## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 데이터베이스 범위 마스터 키 및 자격 증명 만들기
 
@@ -54,7 +54,7 @@ ms.locfileid: "73823755"
     [;]
 
 > [!NOTE]
-> *"사용자\<\>이름"에* *"서버\@이름"* 접미사가 포함되어 있지 않은지 확인합니다.
+> *\<"Username\>"* 에 *"\@servername"* 접미사가 포함 되지 않아야 합니다.
 
 ## <a name="12-create-external-data-sources"></a>1.2 외부 데이터 원본 만들기
 
@@ -142,9 +142,9 @@ SCHEMA\_NAME 및 OBJECT\_NAME 절은 외부 테이블 정의를 다른 스키마
 
 DISTRIBUTION 절은 이 테이블에 사용되는 데이터 배포를 지정합니다. 쿼리 프로세서는 가장 효율적인 쿼리 계획을 구성하기 위해 DISTRIBUTION에서 제공하는 정보를 활용합니다.
 
-1. **SHARDED는** 데이터가 데이터베이스 간에 수평으로 분할된다는 것을 의미합니다. 데이터 배포의 분할 키는 **<sharding_column_name>** 매개 변수입니다.
-2. **복제는** 테이블의 동일한 복사본이 각 데이터베이스에 있음을 의미합니다. 사용자가 데이터베이스 전체에서 복제본이 동일한지 확인해야 합니다.
-3. **ROUND\_ROBIN은** 테이블이 응용 프로그램 종속 배포 방법을 사용하여 수평으로 분할된다는 것을 의미합니다.
+1. **분할 된** 는 데이터가 데이터베이스 전체에 걸쳐 수평 분할 됨을 의미 합니다. 데이터 배포의 분할 키는 **<sharding_column_name>** 매개 변수입니다.
+2. **복제** 됨은 각 데이터베이스에 동일한 테이블 복사본이 있음을 의미 합니다. 사용자가 데이터베이스 전체에서 복제본이 동일한지 확인해야 합니다.
+3. **라운드\_로빈** 은 테이블이 응용 프로그램 종속 배포 방법을 사용 하 여 수평 분할 됨을 의미 합니다.
 
 **데이터 계층 참조**: 외부 테이블 DDL은 외부 데이터 원본을 가리킵니다. 외부 데이터 원본은 외부 테이블에 데이터 계층의 모든 데이터베이스를 찾는 데 필요한 정보를 제공하는 분할 맵을 지정합니다.
 

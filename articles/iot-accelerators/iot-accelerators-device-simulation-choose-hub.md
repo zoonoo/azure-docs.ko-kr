@@ -1,5 +1,5 @@
 ---
-title: 장치 시뮬레이션 솔루션으로 기존 IoT 허브 사용 - Azure | 마이크로 소프트 문서
+title: 장치 시뮬레이션 솔루션에서 기존 IoT hub 사용-Azure | Microsoft Docs
 description: 이 문서에서는 기존 IoT Hub를 사용하도록 디바이스 시뮬레이션 솔루션 가속기를 구성하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1f89e23d7bb279e7cce5c104060cc7898517f8b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73889190"
 ---
 # <a name="use-an-existing-iot-hub-with-the-device-simulation-solution-accelerator"></a>디바이스 시뮬레이션 솔루션 가속기에서 기존 IoT Hub 사용
@@ -31,7 +31,7 @@ IoT Hub가 없는 경우에는 [Azure Portal](https://portal.azure.com)에서 �
 
 1. 기본 또는 보조 연결 문자열을 복사합니다.
 
-[![연결 문자열 받기](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-inline.png)](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-expanded.png#lightbox)
+[![연결 문자열 가져오기](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-inline.png)](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-expanded.png#lightbox)
 
 시뮬레이션을 구성할 때 복사한 연결 문자열을 사용합니다.
 

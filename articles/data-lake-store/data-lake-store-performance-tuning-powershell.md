@@ -1,27 +1,27 @@
 ---
-title: Azure 데이터 레이크 스토리지 Gen1 성능 튜닝 - PowerShell
-description: Azure 데이터 레이크 저장소 Gen1에서 Azure PowerShell을 사용할 때 성능을 향상시키는 방법에 대한 팁입니다.
+title: Azure Data Lake Storage Gen1 성능 조정-PowerShell
+description: Azure Data Lake Storage Gen1에서 Azure PowerShell를 사용할 때 성능을 향상 시키는 방법에 대 한 팁
 author: stewu
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: stewu
 ms.openlocfilehash: c975af1799d427651b76bb9fde5ff765afed3f86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73904572"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에서 PowerShell을 사용하기 위한 성능 조정 지침
 
-이 문서에서는 PowerShell을 사용하여 데이터 레이크 저장소 Gen1에서 작업하는 동안 더 나은 성능을 얻기 위해 조정할 수 있는 속성에 대해 설명합니다.
+이 문서에서는 PowerShell을 사용 하 여 Data Lake Storage Gen1 작업을 수행 하는 동안 성능을 향상 시키기 위해 튜닝할 수 있는 속성을 설명 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="performance-related-properties"></a>성능 관련 속성
 
-| 속성            | 기본값 | 설명 |
+| 속성            | 기본값 | Description |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | 이 매개 변수로 각 파일의 업로드 또는 다운로드를 위한 병렬 스레드 수를 선택할 수 있습니다. 이 숫자는 파일당 할당할 수 있는 최대 스레드 수를 나타내지만 시나리오에 따라 스레드 수가 줄어들 수 있습니다 .예를 들어 1KB 파일을 업로드하는 경우 20개의 스레드를 요청해도 하나의 스레드만 발생합니다.  |
 | ConcurrentFileCount | 10      | 이 매개 변수는 특히 폴더 업로드 또는 다운로드를 위한 것입니다. 이 매개 변수는 업로드 또는 다운로드할 수 있는 동시 파일 수를 결정합니다. 이 숫자는 한 번에 업로드 또는 다운로드할 수 있는 최대 동시 파일 수를 나타내지만 시나리오에 따라 동시 수가 줄어들 수 있습니다. 예를 들어 두 개 파일을 업로드하는 경우 15개를 요청해도 두 개의 동시 파일 업로드가 발생합니다. |
@@ -40,11 +40,11 @@ Export-AzDataLakeStoreItem -AccountName "Data Lake Storage Gen1 account name" `
     -Recurse
 ```
 
-## <a name="how-to-determine-property-values"></a>속성 값을 결정하는 방법
+## <a name="how-to-determine-property-values"></a>속성 값을 확인 하는 방법
 
 그 다음으로 나올 수 있는 질문은 성능 관련 속성에 입력해야 하는 값을 결정하는 방법입니다. 다음은 사용할 수 있는 몇 가지 지침입니다.
 
-* **1단계: 총 스레드 수를 결정** - 사용할 총 스레드 수를 계산하여 시작합니다. 일반적으로 물리적 코어 하나당 6개의 스레드를 사용해야 합니다.
+* **1 단계:** 사용할 총 스레드 수를 계산 하 여 총 스레드 수를 확인 합니다. 일반적으로 물리적 코어 하나당 6개의 스레드를 사용해야 합니다.
 
     `Total thread count = total physical cores * 6`
 
@@ -54,7 +54,7 @@ Export-AzDataLakeStoreItem -AccountName "Data Lake Storage Gen1 account name" `
 
     `Total thread count = 16 cores * 6 = 96 threads`
 
-* **2 단계 : PerFileThreadCount 계산** - 파일 의 크기에 따라 PerFileThreadCount를 계산합니다. 파일 크기가 2.5GB 미만인 경우 기본값인 10이면 충분하므로 이 매개 변수를 변경하지 않아도 됩니다. 파일 크기가 2.5GB를 초과하는 경우 처음 2.5GB를 기준으로 10개 스레드를 사용하고 파일 크기가 256MB 증가할 때마다 1개 스레드를 추가해야 합니다. 더 큰 크기의 파일 범위로 폴더를 복사하는 경우 보다 작은 파일 크기로 그룹화하는 것이 좋습니다. 다른 파일 크기를 사용하면 성능이 저하될 수 있습니다. 유사한 파일 크기를 그룹화할 수 없는 경우 가장 큰 파일 크기를 기준으로 PerFileThreadCount를 설정해야 합니다.
+* **2 단계: Perfilethreadcount 계산** -파일 크기를 기반으로 PerFileThreadCount를 계산 합니다. 파일 크기가 2.5GB 미만인 경우 기본값인 10이면 충분하므로 이 매개 변수를 변경하지 않아도 됩니다. 파일 크기가 2.5GB를 초과하는 경우 처음 2.5GB를 기준으로 10개 스레드를 사용하고 파일 크기가 256MB 증가할 때마다 1개 스레드를 추가해야 합니다. 더 큰 크기의 파일 범위로 폴더를 복사하는 경우 보다 작은 파일 크기로 그룹화하는 것이 좋습니다. 다른 파일 크기를 사용하면 성능이 저하될 수 있습니다. 유사한 파일 크기를 그룹화할 수 없는 경우 가장 큰 파일 크기를 기준으로 PerFileThreadCount를 설정해야 합니다.
 
     `PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size`
 

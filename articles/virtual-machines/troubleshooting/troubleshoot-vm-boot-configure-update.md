@@ -14,21 +14,21 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
 ms.openlocfilehash: da45e24898bc3b5aead250077af69a61bdb33bab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73749628"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM 시작이 다음 상태에서 중지되었습니다. "Windows가 준비 중입니다. Azure에서 컴퓨터를 끄지 마세요."
 
-이 문서에서는 Microsoft Azure에서 Windows 가상 컴퓨터(VM)를 부팅할 때 발생할 수 있는 "준비" 및 "Windows 준비" 화면에 대해 설명합니다. 지원 티켓에 대한 데이터를 수집할 수 있도록 하는 단계를 제공합니다.
+이 문서에서는 Microsoft Azure에서 Windows VM (가상 머신)을 부팅할 때 발생할 수 있는 "준비 하기" 및 "Windows 준비" 화면에 대해 설명 합니다. 지원 티켓에 대한 데이터를 수집할 수 있도록 하는 단계를 제공합니다.
 
  
 
 ## <a name="symptoms"></a>증상
 
-Windows VM이 부팅되지 않습니다. **부팅 진단을** 사용하여 VM의 스크린샷을 가져오는 경우 VM에 "준비" 또는 "Windows 준비"라는 메시지가 표시될 수 있습니다.
+Windows VM은 부팅 되지 않습니다. **부팅 진단을** 사용 하 여 vm의 스크린샷을 가져오는 경우 vm에 "준비 중" 또는 "Windows 준비 중" 메시지가 표시 될 수 있습니다.
 
 ![Windows Server 2012 R2에 대한 메시지 예제](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
@@ -40,19 +40,19 @@ Windows VM이 부팅되지 않습니다. **부팅 진단을** 사용하여 VM의
 
 ## <a name="collect-an-os-memory-dump"></a>OS 메모리 덤프 수집
 
-변경 내용이 처리될 때까지 기다린 후에도 문제가 해결되지 않으면 메모리 덤프 파일을 수집하고 지원팀에 문의해야 합니다. 덤프 파일을 수집하려면 다음 단계를 수행합니다.
+처리가 변경 될 때까지 기다린 후 문제가 해결 되지 않으면 메모리 덤프 파일을 수집 하 여 지원 담당자에 게 문의 해야 합니다. 덤프 파일을 수집하려면 다음 단계를 수행합니다.
 
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>복구 VM에 OS 디스크 연결
 
 1. 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
-2. [복구 VM에 OS 디스크를 연결합니다.](../windows/troubleshoot-recovery-disks-portal.md)
+2. [OS 디스크를 복구 VM에 연결](../windows/troubleshoot-recovery-disks-portal.md)합니다.
 3. 복구 VM에 원격 데스크톱을 연결합니다. 
-4. OS 디스크가 암호화된 경우 다음 단계로 이동하기 전에 암호화를 해제해야 합니다. 자세한 내용은 [부팅할 수 없는 VM의 암호화된 OS 디스크 해독을](troubleshoot-bitlocker-boot-error.md#solution)참조하십시오.
+4. OS 디스크가 암호화 된 경우 다음 단계로 이동 하기 전에 암호화를 해제 해야 합니다. 자세한 내용은 [부팅할 수 없는 VM에서 암호화 된 OS 디스크 암호 해독](troubleshoot-bitlocker-boot-error.md#solution)을 참조 하세요.
 
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>덤프 파일을 찾아서 지원 티켓을 제출
 
 1. 복구 VM에서 연결된 OS 디스크의 Windows 폴더로 이동합니다. 연결된 OS 디스크에 할당된 드라이브 문자가 F인 경우 F:\Windows로 이동해야 합니다.
-2. memory.dmp 파일을 찾은 다음 덤프 [파일로 지원 티켓을 제출합니다.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 
+2. Memory.dmp 파일을 찾은 다음 덤프 파일을 사용 하 여 [지원 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 합니다. 
 
 덤프 파일을 찾을 수 없는 경우 덤프 로그 및 직렬 콘솔을 사용하도록 설정하는 단계로 이동합니다.
 
@@ -98,10 +98,10 @@ Windows VM이 부팅되지 않습니다. **부팅 진단을** 사용하여 VM의
             reg unload HKLM\BROKENSYSTEM
 
 3. [OS 디스크를 분리한 다음, OS 디스크를 영향을 받는 VM에 다시 연결합니다](../windows/troubleshoot-recovery-disks-portal.md).
-4. VM을 시작하고 직렬 콘솔에 액세스합니다.
-5. 메모리 덤프를 트리거하려면 **NMI(비마스크 인터럽트) 보내기를** 선택합니다.
-    ![마스크가 불가능한 인터럽트를 보낼 위치에 대한 이미지](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
-6. OS 디스크를 복구 VM에 다시 연결하고 덤프 파일을 수집합니다.
+4. VM을 시작 하 고 직렬 콘솔에 액세스 합니다.
+5. 메모리 덤프를 트리거하기 위해 **비 마스크 인터럽트 보내기 (NMI)** 를 선택 합니다.
+    ![마스크 불가능 인터럽트를 보낼 위치에 대 한 이미지](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
+6. OS 디스크를 복구 VM에 다시 연결 하 고 덤프 파일을 수집 합니다.
 
 ## <a name="contact-microsoft-support"></a>Microsoft 지원에 문의
 

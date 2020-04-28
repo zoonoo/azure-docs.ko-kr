@@ -1,5 +1,5 @@
 ---
-title: 'Azure 코스모스 DB 디자인 패턴: 소셜 미디어 앱'
+title: 'Azure Cosmos DB 디자인 패턴: 소셜 미디어 앱'
 description: Azure Cosmos DB 및 기타 Azure 서비스의 스토리지 유연성을 활용하여 소셜 네트워크에 대한 디자인 패턴을 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
 ms.openlocfilehash: 8428e417f5f86edca77edae6ca4b7ef84e5ff425
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73827292"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 소셜 네트워크 디자인
@@ -96,7 +96,7 @@ Azure Cosmos DB는 모든 속성이 자체 자동 인덱싱을 통해 인덱싱�
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-게시물이 만든 날짜별로 정렬되는 "최신" 스트림이 있을 수 있습니다. 또는 지난 24시간 동안 더 많은 '좋아요'가 달린 게시물을 포함하는 "인기" 스트림이 있을 수 있습니다. 팔로워와 관심 분야와 같은 논리에 따라 각 사용자의 사용자 지정 스트림을 구현할 수도 있습니다. 그래도 게시물 목록인 것은 마찬가지입니다. 이러한 목록을 빌드하는 방법이 중요하지만 읽기 성능이 그대로 유지되어야 합니다. 이러한 목록 중 하나를 얻으면 [IN 키워드를](sql-query-keywords.md#in) 사용하여 Cosmos DB에 단일 쿼리를 발행하여 한 번에 게시물 페이지를 가져옵니다.
+게시물이 만든 날짜별로 정렬되는 "최신" 스트림이 있을 수 있습니다. 또는 지난 24시간 동안 더 많은 '좋아요'가 달린 게시물을 포함하는 "인기" 스트림이 있을 수 있습니다. 팔로워와 관심 분야와 같은 논리에 따라 각 사용자의 사용자 지정 스트림을 구현할 수도 있습니다. 그래도 게시물 목록인 것은 마찬가지입니다. 이러한 목록을 빌드하는 방법이 중요하지만 읽기 성능이 그대로 유지되어야 합니다. 이러한 목록 중 하나를 가져온 후 [에는 IN 키워드](sql-query-keywords.md#in) 를 사용 하 여 한 번에 게시물의 페이지를 가져오는 Cosmos DB 하는 단일 쿼리를 실행 합니다.
 
 피드 스트림은 [Azure App Services](https://azure.microsoft.com/services/app-service/)의 백그라운드 프로세스인 [Webjobs](../app-service/webjobs-create.md)를 사용하여 빌드할 수 있습니다. 게시물을 만든 후 [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)를 통해 트리거되고 고유한 사용자 지정 논리를 기반으로 스트림 내에 게시물 전파를 구현하는 [Azure Storage, ](https://azure.microsoft.com/services/storage/) [큐](../storage/queues/storage-dotnet-how-to-use-queues.md) 및 Webjobs를 사용하여 백그라운드 처리를 트리거할 수 있습니다.
 
@@ -194,13 +194,13 @@ Azure Cosmos DB [Gremlin API](../cosmos-db/graph-introduction.md)를 사용하�
 
 다행히 사용자는 많은 콘텐츠를 생성합니다. 우리는 콘텐츠 스트림에 없을 수 있는 콘텐츠를 검색하고 찾을 수 있는 기능을 제공할 수 있어야 합니다. 만든 사람을 추적하지 않거나 6개월 전에 게시한 오래된 게시물을 찾으려고 할 수 있기 때문입니다.
 
-Azure Cosmos DB를 사용 하 고 있기 때문에 검색 프로세스 및 UI 이외의 코드를 입력 하지 않고 몇 분 안에 [Azure 인지 검색을](https://azure.microsoft.com/services/search/) 사용 하 여 검색 엔진을 쉽게 구현할 수 있습니다.
+Azure Cosmos DB를 사용 하 고 있으므로 검색 프로세스 및 UI 이외의 코드를 입력 하지 않고 몇 분 안에 [Azure Cognitive Search](https://azure.microsoft.com/services/search/) 를 사용 하 여 검색 엔진을 쉽게 구현할 수 있습니다.
 
 이 프로세스는 왜 그렇게 쉬울까요?
 
-Azure Cognitive Search는 [인덱서라고](https://msdn.microsoft.com/library/azure/dn946891.aspx)부르는 것을 구현하며, 데이터 리포지토리에 후크하고 인덱스에서 개체를 자동으로 추가, 업데이트 또는 제거하는 백그라운드 프로세스를 구현합니다. Azure Search는 [Azure SQL Database 인덱서](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blob 인덱서](../search/search-howto-indexing-azure-blob-storage.md) 그리고 다행히도 [Azure Cosmos DB 인덱서](../search/search-howto-index-documentdb.md)를 지원합니다. Cosmos DB에서 Azure 인지 검색으로 정보를 전환하는 것은 간단합니다. 두 기술은 모두 정보를 JSON 형식으로 저장하므로 [인덱스를 만들고](../search/search-create-index-portal.md) 인덱싱할 문서에서 특성을 매핑하면 됩니다. 끝났습니다. 데이터의 크기에 따라, 모든 콘텐츠는 클라우드 인프라에서 최상의 Search-as-a-Service 솔루션을 통해 몇 분 내에 검색될 수 있습니다.
+Azure Cognitive Search는 [인덱서](https://msdn.microsoft.com/library/azure/dn946891.aspx), 데이터 리포지토리를 연결 하는 백그라운드 프로세스 및 인덱스에서 개체를 추가, 업데이트 또는 제거 하는 자동으로를 구현 합니다. Azure Search는 [Azure SQL Database 인덱서](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blob 인덱서](../search/search-howto-indexing-azure-blob-storage.md) 그리고 다행히도 [Azure Cosmos DB 인덱서](../search/search-howto-index-documentdb.md)를 지원합니다. Cosmos DB에서 Azure Cognitive Search로 정보를 전환 하는 것은 간단 합니다. 두 기술은 모두 정보를 JSON 형식으로 저장하므로 [인덱스를 만들고](../search/search-create-index-portal.md) 인덱싱할 문서에서 특성을 매핑하면 됩니다. 정말 간단하죠. 데이터의 크기에 따라, 모든 콘텐츠는 클라우드 인프라에서 최상의 Search-as-a-Service 솔루션을 통해 몇 분 내에 검색될 수 있습니다.
 
-Azure 인지 검색에 대한 자세한 내용은 [히치하이커 검색 가이드를](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/)참조할 수 있습니다.
+Azure Cognitive Search에 대 한 자세한 내용은 Hitchhiker 가이드를 방문 [하 여 검색할](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/)수 있습니다.
 
 ## <a name="the-underlying-knowledge"></a>기본 지식
 
@@ -224,7 +224,7 @@ Azure 인지 검색에 대한 자세한 내용은 [히치하이커 검색 가이
 
 Cosmos DB는 기본적으로 동적 분할을 지원합니다. 문서에 특성으로 정의되는 지정된 **파티션 키**를 기준으로 파티션을 자동으로 만듭니다. 올바른 파티션 키를 정의하는 작업은 디자인 타임에 수행해야 합니다. 자세한 내용은 [Azure Cosmos DB 분할](partitioning-overview.md)을 참조하세요.
 
-소셜 환경의 경우 쿼리 및 쓰기 방식에 따라 분할 전략을 조정해야 합니다. 예를 들어 동일한 파티션 내에서 읽기가 바람직하며 여러 파티션에 쓰기를 분산하여 "핫 스폿"을 방지합니다. 일부 옵션은 시간별 키(일/월/주) 기반파티션, 콘텐츠 범주, 지리적 지역별 또는 사용자별로 입니다. 실제로 소셜 환경에서의 데이터 쿼리 방식 및 표시 방식에 따라 옵션이 결정됩니다.
+소셜 환경의 경우 쿼리 및 쓰기 방식에 따라 분할 전략을 조정해야 합니다. 예를 들어 동일한 파티션 내에서 읽기가 바람직한 경우 여러 파티션에 쓰기를 분산 하 여 "핫 스폿"을 방지 합니다. 몇 가지 옵션은 임시 키 (일/월/주)를 기반으로 하는 파티션, 콘텐츠 범주, 지리적 지역 또는 사용자별입니다. 실제로 소셜 환경에서의 데이터 쿼리 방식 및 표시 방식에 따라 옵션이 결정됩니다.
 
 Cosmos DB는 모든 파티션에 투명하게 쿼리([집계](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/) 포함)를 실행하므로 데이터의 증가에 따라 논리를 추가할 필요가 없습니다.
 
@@ -249,7 +249,7 @@ Cosmos DB를 사용하면 몇 번의 클릭으로 투명하게 [데이터를 전
 
 ![소셜 네트워킹에 대한 Azure 서비스 간 상호 작용의 다이어그램](./media/social-media-apps/social-media-apps-azure-solution.png)
 
-이러한 종류의 시나리오에 대한 묘책은 없습니다. Azure Cosmos DB의 속도와 자유, 훌륭한 소셜 응용 프로그램을 제공하는 Azure Cosmos DB의 자유, Azure Cognitive Search와 같은 일류 검색 솔루션의 인텔리전스, 언어에 구애받지 않는 응용 프로그램뿐만 아니라 강력한 백그라운드 프로세스와 확장 가능한 Azure Storage 및 Azure SQL Database를 호스팅할 수 있는 Azure App Services의 유연성은 방대한 양의 데이터와 Azure Machine Learning의 분석 능력을 저장합니다. 프로세스에 피드백을 제공하고 올바른 사용자에게 올바른 콘텐츠를 제공하는 데 도움이 되는 지식과 인텔리전스를 생성할 수 있습니다.
+이러한 종류의 시나리오에 대한 묘책은 없습니다. 뛰어난 환경을 구축할 수 있는 훌륭한 서비스의 조합에 의해 생성 된 시너지 효과입니다. 뛰어난 소셜 응용 프로그램을 제공 하 고, Azure Cognitive Search와 같은 고급 검색 솔루션의 인텔리전스를 제공 하는 Azure Cosmos DB의 속도와 자유는 Azure 앱 서비스의 유연성을 활용 하 여 언어에 관계 없이 응용 프로그램을 호스팅할 수 있는 유연성, 강력한 백그라운드 프로세스 및 대규모 데이터를 저장 하 고 Azure 컴퓨터의 분석 기능 Azure SQL Database Azure Storage 프로세스에 대 한 피드백을 제공 하 고 올바른 사용자에 게 적절 한 콘텐츠를 제공 하는 데 도움이 되는 지식과 인텔리전스를 만드는 방법을 배웁니다.
 
 ## <a name="next-steps"></a>다음 단계
 

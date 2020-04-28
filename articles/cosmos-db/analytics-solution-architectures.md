@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB에서 전역적으로 분산된 분석을 사용하는 솔루션입니다.
-description: Azure Cosmos DB에서 전역적으로 분산된 분석을 사용하여 빌드할 수 있는 솔루션에 대해 알아봅니다.
+title: Azure Cosmos DB에서 전역적으로 분산 분석을 사용 하는 솔루션입니다.
+description: Azure Cosmos DB의 전역적으로 분산 된 분석을 사용 하 여 빌드할 수 있는 솔루션에 대해 알아봅니다.
 author: markjbrown
 ms.author: mjbrown
 ms.topic: conceptual
@@ -8,15 +8,15 @@ ms.service: cosmos-db
 ms.date: 09/26/2019
 ms.reviewer: sngun
 ms.openlocfilehash: d0b5042c1401a95cc75f4c01ace843659b6babfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73681706"
 ---
-# <a name="solutions-using-globally-distributed-analytics-in-azure-cosmos-db"></a>Azure 코스모스 DB에서 전 세계적으로 분산된 분석을 사용하는 솔루션
+# <a name="solutions-using-globally-distributed-analytics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 전역적으로 분산 분석을 사용 하는 솔루션
 
-이 문서에서는 Azure Cosmos DB에서 전역적으로 분산된 분석을 사용하여 빌드할 수 있는 솔루션에 대해 설명합니다.
+이 문서에서는 Azure Cosmos DB의 전역적으로 분산 된 분석을 사용 하 여 빌드할 수 있는 솔루션에 대해 설명 합니다.
 
 ## <a name="retail-and-consumer-goods"></a>소매 및 소비재
 

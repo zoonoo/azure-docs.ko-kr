@@ -1,5 +1,5 @@
 ---
-title: 1433을 초과하는 항구
+title: 1433 이외의 포트
 description: ADO.NET에서 Azure SQL Database로 클라이언트 연결이 프록시를 무시하고, 1433 이외의 포트를 사용하여 데이터베이스와 직접 상호 작용하는 경우가 있습니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 04/03/2019
 ms.openlocfilehash: c0012b61cf43d01afd5e7f5f52948310b5eb8420
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73828070"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5에 대한 1433 이외 포트
@@ -42,11 +42,11 @@ Azure SQL Database에 연결하려면 먼저 Azure 클라우드 경계의 *외�
 
 1. ADO.NET 4.5 (또는 그 이상)는 Azure 클라우드와 간단한 상호작용을 시작하고, 동적으로 식별된 포트 번호를 받습니다.
 
-   * 동적으로 식별된 포트 번호는 11000-11999 의 범위에 있습니다.
+   * 동적으로 식별 된 포트 번호의 범위는 11000-11999입니다.
 2. 그런 다음, ADO.NET은 미들웨어 없이 직접 SQL Database 서버로 연결합니다.
 3. 쿼리는 데이터베이스로 직접 전송되며 결과는 클라이언트에 직접 반환됩니다.
 
-Azure 클라이언트 컴퓨터의 포트 범위가 11000-11999로 SQL Database와의 ADO.NET 4.5 클라이언트 상호 작용에 사용할 수 있는지 확인합니다.
+Azure 클라이언트 컴퓨터에서 11000-11999의 포트 범위를 SQL Database와의 ADO.NET 4.5 클라이언트 상호 작용에 사용할 수 있도록 유지 해야 합니다.
 
 * 특히 해당 범위의 포트는 모든 다른 아웃바운드 차단으로부터 자유로워야 합니다.
 * Azure VM의 **고급 보안이 포함된 Windows 방화벽** 이 포트 설정을 제어합니다.
@@ -82,7 +82,7 @@ Azure 클라이언트 컴퓨터의 포트 범위가 11000-11999로 SQL Database�
 
 * [TDS 프로토콜 버전 목록](https://www.freetds.org/userguide/tdshistory.htm)
 * [SQL Database 개발 개요](sql-database-develop-overview.md)
-* [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)
+* [Azure SQL Database 방화벽](sql-database-firewall-configure.md)
 * [방법: SQL Database에서 방화벽 설정 구성](sql-database-configure-firewall-settings.md)
 
 

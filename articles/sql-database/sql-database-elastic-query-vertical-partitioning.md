@@ -1,5 +1,5 @@
 ---
-title: 다른 스키마를 사용하여 클라우드 데이터베이스간에 쿼리
+title: 다른 스키마를 사용 하 여 클라우드 데이터베이스에서 쿼리
 description: 수직 분할을 통해 데이터베이스 간 쿼리를 설정하는 방법
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: d5983d25685242a696300f293231bbf987e8442d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823726"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리(미리 보기)
@@ -24,7 +24,7 @@ ms.locfileid: "73823726"
 
 수직 분할 데이터베이스는 서로 다른 데이터베이스에서 다양한 테이블 집합을 사용합니다. 즉 스키마가 데이터베이스마다 서로 다릅니다. 예를 들어, 재고의 모든 테이블은 한 데이터베이스 안에 있지만 모든 회계 관련 테이블은 보조 데이터베이스에 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * 사용자는 모든 외부 데이터 원본 ALTER 권한이 있어야 합니다. 이 사용 권한은 ALTER DATABASE 권한에 포함됩니다.
 * 기본 데이터 원본을 참조하기 위해 ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다.
@@ -38,7 +38,7 @@ ms.locfileid: "73823726"
 1. [마스터 키 만들기](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [외부 테이블 만들기](https://msdn.microsoft.com/library/dn935021.aspx) 
+4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) 
 
 ## <a name="create-database-scoped-master-key-and-credentials"></a>데이터베이스 범위 마스터 키 및 자격 증명 만들기
 
@@ -50,7 +50,7 @@ ms.locfileid: "73823726"
     [;]
 
 > [!NOTE]
-> `<username>` **"서버\@이름"** 접미사가 포함되어 있지 않은지 확인합니다. 
+> 에 `<username>` **\@"servername"** 접미사가 포함 되지 않았는지 확인 합니다. 
 >
 
 ## <a name="create-external-data-sources"></a>외부 데이터 원본 만들기

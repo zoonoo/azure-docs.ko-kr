@@ -1,6 +1,6 @@
 ---
-title: 응용 프로그램 게이트웨이에서 LetsEncrypt.org 인증서 사용
-description: 이 문서에서는 LetsEncrypt.org 인증서를 가져오고 AKS 클러스터용 응용 프로그램 게이트웨이에서 사용하는 방법에 대한 정보를 제공합니다.
+title: Application Gateway에서 LetsEncrypt.org certificate 사용
+description: 이 문서에서는 LetsEncrypt.org에서 인증서를 획득 하 여 AKS 클러스터에 대 한 Application Gateway에서 사용 하는 방법에 대 한 정보를 제공 합니다.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 92e9747865f1a0910c8bae4001cc597ae9ea3da6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73957978"
 ---
-# <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>AKS 클러스터에 대한 응용 프로그램 게이트웨이에서 LetsEncrypt.org 있는 인증서 사용
+# <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>AKS 클러스터에 대 한 Application Gateway에 LetsEncrypt.org에서 인증서 사용
 
-이 섹션에서는 [LETSENCRYPT.ORG](https://letsencrypt.org/) 활용하고 도메인에 대한 TLS/SSL 인증서를 자동으로 획득하도록 AKS를 구성합니다. 인증서는 AKS 클러스터에 대한 SSL/TLS 종료를 수행하는 응용 프로그램 게이트웨이에 설치됩니다. 여기에 설명된 설정은 인증서 생성 및 관리를 자동화하는 [인증서 관리자](https://github.com/jetstack/cert-manager) Kubernetes 추가 기능을 사용합니다.
+이 섹션에서는 AKS를 구성 하 여 [LetsEncrypt.org](https://letsencrypt.org/) 를 활용 하 고 도메인에 대 한 TLS/SSL 인증서를 자동으로 가져옵니다. AKS 클러스터에 대 한 SSL/TLS 종료를 수행 하는 Application Gateway에 인증서가 설치 됩니다. 여기서 설명 하는 설정은 인증서의 생성 및 관리를 자동화 하는 [cert manager](https://github.com/jetstack/cert-manager) Kubernetes 추가 기능을 사용 합니다.
 
-아래 단계에 따라 기존 AKS 클러스터에 [인증서 관리자를](https://docs.cert-manager.io) 설치합니다.
+아래 단계에 따라 기존 AKS 클러스터에 [인증서 관리자](https://docs.cert-manager.io) 를 설치 합니다.
 
 1. 투구 차트
 
-    다음 스크립트를 실행하여 `cert-manager` 투구 차트를 설치합니다. 그러면
+    다음 스크립트를 실행 하 여 `cert-manager` 투구 차트를 설치 합니다. 그러면
 
-    - AKS에 `cert-manager` 새 네임스페이스 만들기
-    - 인증서, 챌린지, 클러스터 발급자, 발급자, 주문
-    - 인증서 관리자 차트 [설치(docs.cert-manager.io)](https://docs.cert-manager.io/en/latest/getting-started/install/kubernetes.html#steps)
+    - AKS에 새 `cert-manager` 네임 스페이스 만들기
+    - 인증서, 챌린지, ClusterIssuer, 발급자, 주문을 만듭니다.
+    - [docs.cert-manager.io](https://docs.cert-manager.io/en/latest/getting-started/install/kubernetes.html#steps) 에서 인증서-관리자 차트 설치
 
     ```bash
     #!/bin/bash
@@ -54,16 +54,16 @@ ms.locfileid: "73957978"
       jetstack/cert-manager
     ```
 
-2. 클러스터 발급자 리소스
+2. ClusterIssuer 리소스
 
-    리소스를 `ClusterIssuer` 만듭니다. 서명된 `cert-manager` 인증서를 `Lets Encrypt` 얻을 수 있는 인증 기관을 대표해야 합니다.
+    리소스를 `ClusterIssuer` 만듭니다. 에서 `cert-manager` 서명 된 인증서를 가져올 `Lets Encrypt` 인증 기관을 나타내는 데 필요 합니다.
 
-    cert-manager는 namespaced가 아닌 `ClusterIssuer` 리소스를 사용하여 여러 네임스페이스에서 사용할 수 있는 인증서를 발급합니다. `Let’s Encrypt`ACME 프로토콜을 사용하여 지정된 도메인 이름을 제어하고 인증서를 발급합니다. `ClusterIssuer` 속성 구성에 대한 자세한 내용은 [여기를 참조하십시오.](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html) `ClusterIssuer`테스트에 `cert-manager` 사용되는 `Lets Encrypt` 스테이징 환경(브라우저/클라이언트 트러스트 저장소에 없는 루트 인증서)을 사용하여 인증서를 발급하도록 지시합니다.
+    Namespaced `ClusterIssuer` 이 아닌 리소스를 사용 하 여 인증서 관리자는 여러 네임 스페이스에서 사용할 수 있는 인증서를 발급 합니다. `Let’s Encrypt`ACME 프로토콜을 사용 하 여 지정 된 도메인 이름을 제어 하 고 인증서를 발급 하는지 확인 합니다. 여기에서 속성을 `ClusterIssuer` 구성 [here](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html)하는 방법에 대해 자세히 설명 합니다. `ClusterIssuer`는 테스트 `cert-manager` 에 사용 되는 `Lets Encrypt` 스테이징 환경을 사용 하 여 인증서를 발급 하도록 지시 합니다 (루트 인증서가 브라우저/클라이언트 신뢰 저장소에 없음).
 
-    아래 YAML의 기본 챌린지 `http01`유형은 . 다른 과제는 [letsencrypt.org - 챌린지 유형에 대해 문서화되어 있습니다.](https://letsencrypt.org/docs/challenge-types/)
+    아래 YAML의 기본 챌린지 형식은 `http01`입니다. 다른 문제는 [letsencrypt.org](https://letsencrypt.org/docs/challenge-types/) 에 설명 되어 있습니다.
 
     > [!IMPORTANT] 
-    > 아래 `<YOUR.EMAIL@ADDRESS>` YAML에서 업데이트
+    > 아래 `<YOUR.EMAIL@ADDRESS>` yaml의 업데이트
 
     ```bash
     #!/bin/bash
@@ -95,13 +95,13 @@ ms.locfileid: "73957978"
 
 3. 앱 배포
 
-    인크립팅 인증서를 사용하여 `guestbook` 응용 프로그램 게이트웨이를 사용하여 응용 프로그램을 노출하는 받는 리소스를 만듭니다.
+    에서 Application Gateway를 사용 하 여 `guestbook` 응용 프로그램을 노출 하는 수신 리소스를 만들어 인증서 암호화를 사용 합니다.
 
-    응용 프로그램 게이트웨이에 DNS 이름이 있는 공용 프런트 엔드 `azure.com` IP 구성(기본 `Azure DNS Zone` 도메인 사용 또는 서비스 프로비저닝 및 사용자 지정 도메인 할당)이 있는지 확인합니다.
-    인증서 관리자에게 `certmanager.k8s.io/cluster-issuer: letsencrypt-staging`태그가 지정된 인그레스 리소스를 처리하도록 알려주는 주석에 유의하십시오.
+    DNS 이름을 사용 하는 공용 프런트 엔드 IP 구성이 있는지 확인 합니다 (기본 `azure.com` 도메인을 사용 하거나 `Azure DNS Zone` 서비스를 프로 비전 하 고 사용자 지정 도메인을 할당 하는 Application Gateway).
+    주석에 `certmanager.k8s.io/cluster-issuer: letsencrypt-staging`태그가 지정 된 수신 리소스를 처리 하도록 인증서를 알려 줍니다.
 
     > [!IMPORTANT] 
-    > 아래 `<PLACEHOLDERS.COM>` YAML에서 사용자 고유의 도메인(또는 응용 프로그램 게이트웨이(예: 'kh-aks-ingress.westeurope.cloudapp.azure.com')으로 업데이트합니다.
+    > 사용자 `<PLACEHOLDERS.COM>` 고유의 도메인 (또는 ' kh-aks-ingress.westeurope.cloudapp.azure.com '과 같은 Application Gateway)으로 아래 yaml의 업데이트
 
     ```bash
     kubectl apply -f - <<EOF
@@ -127,15 +127,15 @@ ms.locfileid: "73957978"
     EOF
     ```
 
-    몇 초 후 자동으로 발급되는 `guestbook` **스테이징** `Lets Encrypt` 인증서를 사용하여 응용 프로그램 게이트웨이 HTTPS URL을 통해 서비스에 액세스할 수 있습니다.
-    브라우저에서 잘못된 인증서 권한을 경고할 수 있습니다. 준비 인증서는 에서 `CN=Fake LE Intermediate X1`발급됩니다. 이는 시스템이 예상대로 작동했으며 프로덕션 인증서를 사용할 준비가 되었다는 것을 나타냅니다.
+    몇 초 후에 자동으로 발급 된 `guestbook` **준비** `Lets Encrypt` 인증서를 사용 하 여 Application Gateway HTTPS url을 통해 서비스에 액세스할 수 있습니다.
+    브라우저에서 잘못 된 인증 기관에 대해 경고할 수 있습니다. 에서 `CN=Fake LE Intermediate X1`준비 인증서를 발급 합니다. 시스템이 예상 대로 작동 하 고 프로덕션 인증서를 사용할 준비가 되었음을 나타냅니다.
 
-4. 생산 증명서
+4. 프로덕션 인증서
 
-    스테이징 인증서가 성공적으로 설정되면 프로덕션 ACME 서버로 전환할 수 있습니다.
-    1. Reress 리소스의 스테이징 어칭을 다음과 같은 것으로 바꿉꿉을 바꿉습니다.`certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
-    1. 이전 단계에서 `ClusterIssuer` 만든 기존 스테이징을 삭제하고 위의 ClusterIssueR YAML에서 ACME 서버를 새 스테이징으로 대체하여 새 스테이징을 만듭니다.`https://acme-v02.api.letsencrypt.org/directory`
+    스테이징 인증서가 성공적으로 설정 되 면 프로덕션 ACME 서버로 전환할 수 있습니다.
+    1. 수신 리소스에서 준비 주석을 다음으로 바꿉니다.`certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
+    1. 이전 단계에서 만든 `ClusterIssuer` 기존 준비를 삭제 하 고 위의 CLUSTERISSUER YAML에서 ACME 서버를 대체 하 여 새로 만듭니다.`https://acme-v02.api.letsencrypt.org/directory`
 
 5. 인증서 만료 및 갱신
 
-    인증서가 `Lets Encrypt` 만료되기 `cert-manager` 전에 Kubernetes 비밀 저장소에서 인증서가 자동으로 업데이트됩니다. 이 때 응용 프로그램 게이트웨이 인그리스 컨트롤러는 응용 프로그램 게이트웨이를 구성하는 데 사용하는 받는 리소스에 참조되는 업데이트된 비밀을 적용합니다.
+    `Lets Encrypt` 인증서가 만료 되기 전에 `cert-manager` 은 Kubernetes 암호 저장소에서 인증서를 자동으로 업데이트 합니다. 이 시점에서 Application Gateway 수신 컨트롤러는 Application Gateway를 구성 하는 데 사용 하는 수신 리소스에서 참조 되는 업데이트 된 암호를 적용 합니다.

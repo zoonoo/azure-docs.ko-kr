@@ -1,5 +1,5 @@
 ---
-title: Azure 데이터 팩터리를 사용하여 예측 데이터 파이프라인 만들기
+title: Azure Data Factory를 사용 하 여 예측 데이터 파이프라인 만들기
 description: Azure Data Factory 및 Azure Machine Learning을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
@@ -12,24 +12,24 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: eba5df587d6bd6dda6083314cfb94836c6669393
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73683137"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
 
-> [!div class="op_single_selector" title1="변환 활동"]
-> * [하이브 활동](data-factory-hive-activity.md)
+> [!div class="op_single_selector" title1="변환 작업"]
+> * [Hive 작업](data-factory-hive-activity.md)
 > * [Pig 작업](data-factory-pig-activity.md)
-> * [맵감소 활동](data-factory-map-reduce.md)
+> * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
-> * [기계 학습 일괄 실행 활동](data-factory-azure-ml-batch-execution-activity.md)
+> * [Machine Learning Batch 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
 > * [Machine Learning 업데이트 리소스 활동](data-factory-azure-ml-update-resource-activity.md)
-> * [저장 프로시저 활동](data-factory-stored-proc-activity.md)
-> * [데이터 레이크 분석 U-SQL 활동](data-factory-usql-activity.md)
+> * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 
 ## <a name="introduction"></a>소개
@@ -40,8 +40,8 @@ ms.locfileid: "73683137"
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)을 사용하여 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다. 대략적인 관점에서 이 작업은 다음 세 단계로 수행됩니다.
 
-1. **교육 실험을 만듭니다.** Azure Machine Learning Studio를 사용하여 이 단계를 수행합니다. Azure Machine Learning Studio는 학습 데이터를 사용하여 예측 분석 모델을 학습하고 테스트하는 데 사용하는 시각적 공동 개발 환경입니다.
-2. **예측 실험으로 변환합니다.** 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 점수 매기기를 위해 실험을 준비하고 간소화합니다.
+1. **학습 실험을 만듭니다**. Azure Machine Learning Studio를 사용하여 이 단계를 수행합니다. Azure Machine Learning Studio는 학습 데이터를 사용하여 예측 분석 모델을 학습하고 테스트하는 데 사용하는 시각적 공동 개발 환경입니다.
+2. **예측 실험으로 변환**합니다. 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 점수 매기기를 위해 실험을 준비하고 간소화합니다.
 3. **웹 서비스로 배포**. 점수 매기기 실험을 Azure 웹 서비스로 게시할 수 있습니다. 이 웹 서비스 끝점을 통해 데이터를 모델로 전송하고 모델로부터 결과 예측을 받을 수 있습니다.
 
 ### <a name="azure-data-factory"></a>Azure 데이터 팩터리
@@ -52,7 +52,7 @@ Data Factory 서비스를 통해 데이터를 이동하고 변환하는 파이�
 [Azure Data Factory 소개](data-factory-introduction.md) 및 [첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 문서를 참조하여 Azure Data Factory 서비스를 빠르게 시작합니다.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory 및 Machine Learning
-Azure Data Factory를 사용하면 예측 분석을 위해 게시된 [Azure 기계 학습][azure-machine-learning] 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 **일괄 처리 실행 작업**을 사용하면 Azure Machine Learning Studio 웹 서비스를 호출하여 데이터에 대해 일괄 처리 방식으로 예측할 수 있습니다. 자세한 내용은 일괄 처리 실행 작업을 사용하여 Azure Machine Learning Studio 웹 서비스 호출 섹션을 참조하세요.
+Azure Data Factory를 사용 하면 예측 분석을 위해 게시 된 [Azure Machine Learning][azure-machine-learning] 웹 서비스를 사용 하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 **일괄 처리 실행 작업**을 사용하면 Azure Machine Learning Studio 웹 서비스를 호출하여 데이터에 대해 일괄 처리 방식으로 예측할 수 있습니다. 자세한 내용은 일괄 처리 실행 작업을 사용하여 Azure Machine Learning Studio 웹 서비스 호출 섹션을 참조하세요.
 
 시간이 지남에 따라 Azure Machine Learning Studio 점수 매기기 실험의 예측 모델에서 새 입력 데이터 세트를 사용하여 재학습해야 합니다. 다음 단계를 수행하여 Data Factory 파이프라인에서 Azure Machine Learning Studio 모델을 재학습할 수 있습니다.
 
@@ -80,7 +80,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
 > [!IMPORTANT]
 > 웹 서비스에서 다중 입력을 받을 경우 **webServiceInput**를 사용하는 대신에 **webServiceInputs** 속성을 사용합니다. webServiceInputs 속성을 사용하는 예제는 [웹 서비스에는 다중 입력이 필요합니다](#web-service-requires-multiple-inputs) 섹션을 참조합니다.
 >
-> **webServiceInput**/**웹서비스입력** 및 **webServiceOutputs** 속성(typeProperties)에서 참조되는 데이터 집합도 활동 **입력** 및 **출력에**포함되어야 합니다. **typeProperties**
+> **Webserviceinput**/**webserviceinput** 및 **webserviceinput** 속성에서 참조 하는 데이터 집합 ( **typeProperties**)은 활동 **입력** 및 **출력**에도 포함 되어야 합니다.
 >
 > Azure Machine Learning Studio 실험에서 웹 서비스 입력 및 출력 포트와 글로벌 매개 변수에는 사용자 지정할 수 있는 기본 이름("input1", "input2")이 있습니다. WebServiceInputs, webServiceOutputs 및 globalParameters 설정에 대해 사용하는 이름은 실험에서의 이름과 정확히 일치해야 합니다. Azure Machine Learning Studio 엔드포인트에 대한 일괄 처리 실행 도움말 페이지에서 요청 페이로드 샘플을 보고 예상되는 매핑을 확인할 수 있습니다.
 >
@@ -182,7 +182,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
     }
     ```
 
-    입력 csv 파일에는 열 머리글 행이 있어야 합니다. **복사 작업**을 사용하여 csv를 만들고 Blob Storage로 이동하는 경우 싱크 속성 **blobWriterAddHeader**를 **true**로 설정해야 합니다. 예를 들어:
+    입력 csv 파일에는 열 머리글 행이 있어야 합니다. **복사 작업**을 사용하여 csv를 만들고 Blob Storage로 이동하는 경우 싱크 속성 **blobWriterAddHeader**를 **true**로 설정해야 합니다. 예를 들면 다음과 같습니다.
 
     ```JSON
     sink:
@@ -192,7 +192,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
     }
     ```
 
-    csv 파일에 헤더 행이 없는 경우 다음과 같은 오류가 표시될 수 **있습니다. 예기치 않은 토큰: StartObject. 경로 '', 라인 1, 위치 1**.
+    Csv 파일에 헤더 행이 없는 경우 다음 오류가 표시 될 수 있습니다. **작업에 오류: 문자열을 읽는 중 오류가 발생 했습니다. 예기치 않은 토큰: StartObject. 경로 ' ', 줄 1, 위치 1**.
 3. **출력** Azure Data Factory **데이터 세트**를 만듭니다. 이 예제에서는 분할을 사용하여 각 조각 실행의 고유한 출력 경로를 만듭니다. 분할하지 않으면 작업에서 파일을 덮어씁니다.
 
     ```JSON
@@ -301,7 +301,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
       }
       ```
 
-      **시작** 날짜와 **종료** 날짜 시간은 모두 [ISO 형식이어야](https://en.wikipedia.org/wiki/ISO_8601)합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **끝** 속성에 대 한 값을 지정 하지 않으면 **"시작 + 48 시간"으로**계산 됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx) 를 참조하세요.
+      **시작** 및 **종료** 날짜/시간 모두 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **End** 속성의 값을 지정 하지 않으면 "**시작 + 48 시간**"으로 계산 됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx) 를 참조하세요.
 
       > [!NOTE]
       > AzureMLBatchExecution 작업에 대한 입력 지정은 선택 사항입니다.
@@ -405,7 +405,7 @@ Azure Machine Learning 실험에서 판독기 모듈을 사용하는 경우 입�
 위 JSON 예제에서
 
 * 배포된 Azure Machine Learning 웹 서비스는 판독기 및 기록기 모듈을 사용하여 Azure SQL Database에서/로 데이터를 읽고/쓸 수 있습니다. 이 웹 서비스는 네 개의 매개 변수, 즉 데이터베이스 서버 이름, 데이터베이스 이름, 서버 사용자 계정 이름 및 서버 사용자 계정 암호를 공개합니다.
-* **시작** 날짜와 **종료** 날짜 시간은 모두 [ISO 형식이어야](https://en.wikipedia.org/wiki/ISO_8601)합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **끝** 속성에 대 한 값을 지정 하지 않으면 **"시작 + 48 시간"으로**계산 됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx) 를 참조하세요.
+* **시작** 및 **종료** 날짜/시간 모두 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **End** 속성의 값을 지정 하지 않으면 "**시작 + 48 시간**"으로 계산 됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx) 를 참조하세요.
 
 ### <a name="other-scenarios"></a>기타 시나리오
 #### <a name="web-service-requires-multiple-inputs"></a>웹 서비스에는 다중 입력이 필요합니다
@@ -555,7 +555,7 @@ Azure Blob/Azure SQL 판독기/기록기에 대한 자세한 내용은 MSDN 라�
 ## <a name="frequently-asked-questions"></a>질문과 대답
 **Q:** 빅 데이터 파이프라인에서 생성된 여러 파일이 있습니다. 모든 파일에서 작동하도록 AzureMLBatchExecution 작업을 사용할 수 있습니까?
 
-**A:** 예. 자세한 내용은 **Azure Blob에서 여러 파일의 데이터를 읽는 판독기 모듈 사용** 섹션을 참조하세요.
+**A:** 예로. 자세한 내용은 **Azure Blob에서 여러 파일의 데이터를 읽는 판독기 모듈 사용** 섹션을 참조하세요.
 
 ## <a name="azure-machine-learning-studio-batch-scoring-activity"></a>Azure Machine Learning Studio 일괄 처리 채점 작업
 **AzureMLBatchScoring** 작업을 사용하여 Azure Machine Learning과 통합하는 경우 최신 **AzureMLBatchExecution** 작업을 사용하는 것이 좋습니다.
@@ -627,7 +627,7 @@ AzureMLBatchScoring 작업을 사용하여 계속하려면 이 섹션을 계속 
 >
 >
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 * [Azure 블로그 게시물: Azure 데이터 팩터리 및 Azure Machine Learning 시작하기](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md

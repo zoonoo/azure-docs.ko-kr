@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
 ms.openlocfilehash: 3ca00a03976ae38b7956616b8287220a7bc5998c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73825847"
 ---
 # <a name="performing-disaster-recovery-drill"></a>재해 복구 훈련 수행
@@ -69,5 +69,5 @@ ms.locfileid: "73825847"
 
 * 비즈니스 연속성 시나리오에 대해 알아보려면 [연속성 시나리오](sql-database-business-continuity.md)를 참조하세요.
 * Azure SQL Database 자동화 백업에 대한 자세한 내용은 [SQL Database 자동화 백업](sql-database-automated-backups.md)
-* 복구를 위해 자동화된 백업을 사용하는 방법에 대해 알아보려면 [서비스 시작 백업에서 데이터베이스 복원을](sql-database-recovery-using-backups.md)참조하십시오.
+* 복구를 위해 자동화 된 백업을 사용 하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조 하세요.
 * 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](sql-database-active-geo-replication.md)와 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md)을 참조하세요.

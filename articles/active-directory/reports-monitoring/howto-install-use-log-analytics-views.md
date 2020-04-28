@@ -1,6 +1,6 @@
 ---
-title: 로그 분석 보기를 설치하고 사용하는 방법 | 마이크로 소프트 문서
-description: Azure Active Directory에 대한 로그 분석 보기를 설치하고 사용하는 방법에 대해 알아봅니다.
+title: Log analytics 보기를 설치 및 사용 하는 방법 | Microsoft Docs
+description: Azure Active Directory에 대 한 log analytics 보기를 설치 하 고 사용 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,20 +18,20 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b17026e4cfbe69e36c8e459aa259fe16b1c9d80d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74014412"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Azure Active Directory용 로그 분석 보기 설치 및 사용
 
 Azure Active Directory 로그 분석 보기를 통해 Azure AD 테넌트에서 Azure AD 활동 로그를 분석하고 검색할 수 있습니다. Azure AD 활동 로그에는 포함되는 항목은 다음과 같습니다.
 
-* 감사 로그: [감사 로그 활동 보고서를](concept-audit-logs.md) 통해 테넌트에서 수행되는 모든 작업의 기록에 액세스할 수 있습니다.
-* 로그인 로그: 로그인 [활동 보고서를](concept-sign-ins.md)사용하여 감사 로그에 보고된 작업을 수행한 사람을 확인할 수 있습니다.
+* 감사 로그: [감사 로그 작업 보고서](concept-audit-logs.md) 는 테 넌 트에서 수행 된 모든 작업의 기록에 대 한 액세스를 제공 합니다.
+* 로그인 로그: [로그인 활동 보고서](concept-sign-ins.md)를 사용 하 여 감사 로그에 보고 되는 태스크를 수행한 사용자를 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 로그 분석 보기를 사용하려면 다음이 필요합니다.
 

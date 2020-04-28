@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74007696"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 보고 대기 시간
@@ -66,9 +66,9 @@ ms.locfileid: "74007696"
 
 ## <a name="risk-detections"></a>위험 탐지
 
-Azure AD는 적응형 기계 학습 알고리즘 및 추론을 사용하여 사용자 계정과 관련된 의심스러운 동작을 감지합니다. 탐지된 각 의심스러운 작업은 **위험 감지라는**레코드에 저장됩니다.
+Azure AD는 적응형 기계 학습 알고리즘 및 추론을 사용하여 사용자 계정과 관련된 의심스러운 동작을 감지합니다. 검색 된 각 의심 스러운 동작은 **위험 검색**이라고 하는 레코드에 저장 됩니다.
 
-다음 표에는 위험 검색에 대한 대기 시간 정보가 나열되어 있습니다.
+다음 표에서는 위험 검색에 대 한 대기 시간 정보를 나열 합니다.
 
 | 보고서 | 최소 | 평균 | 최대 |
 | :-- | --- | --- | --- |
@@ -84,4 +84,4 @@ Azure AD는 적응형 기계 학습 알고리즘 및 추론을 사용하여 사�
 
 * [Azure AD 보고서 개요](overview-reports.md)
 * [Azure AD 보고서에 대한 프로그래밍 방식 액세스](concept-reporting-api.md)
-* [Azure Active Directory 위험 검색](concept-risk-events.md)
+* [Azure Active Directory 위험 탐지](concept-risk-events.md)

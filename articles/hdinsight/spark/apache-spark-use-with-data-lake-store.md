@@ -1,6 +1,6 @@
 ---
-title: HDInsight 아파치 스파크로 Azure 데이터 레이크 스토리지 Gen1 분석
-description: 아파치 스파크 작업을 실행하여 Azure 데이터 레이크 스토리지 Gen1에 저장된 데이터를 분석합니다.
+title: HDInsight를 사용 하 여 Azure Data Lake Storage Gen1 분석 Apache Spark
+description: Apache Spark 작업을 실행 하 여 Azure Data Lake Storage Gen1에 저장 된 데이터 분석
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: f7a6ab954aff1bcc2e3dae3fc035db4b136ccbbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73818177"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>HDInsight Spark 클러스터를 사용하여 Data Lake Storage Gen1의 데이터 분석
 
-이 문서에서는 HDInsight 스파크 클러스터에서 사용할 수 있는 [Jupyter 노트북을](https://jupyter.org/) 사용하여 데이터 레이크 저장소 계정에서 데이터를 읽는 작업을 실행합니다.
+이 문서에서는 HDInsight Spark 클러스터에서 사용할 수 있는 [Jupyter Notebook](https://jupyter.org/) 를 사용 하 여 Data Lake Storage 계정에서 데이터를 읽는 작업을 실행 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Azure Data Lake Storage Gen1 계정. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](../../data-lake-store/data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
@@ -56,7 +56,7 @@ Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>Data Lake Storage Gen1을 포함한 HDInsight Spark 클러스터 사용
 
-1. 시작 보드에서 [Azure 포털에서](https://portal.azure.com/)아파치 스파크 클러스터의 타일을 클릭합니다(시작 보드에 고정한 경우). **모든** > HDInsight 클러스터 찾아보기 아래에서 클러스터로 이동할 수도**있습니다.**
+1. [Azure Portal](https://portal.azure.com/)시작 보드에서 Apache Spark 클러스터 (시작 보드에 고정 한 경우)에 대 한 타일을 클릭 합니다. **모든** > **HDInsight 클러스터**찾아보기에서 클러스터로 이동할 수도 있습니다.
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 

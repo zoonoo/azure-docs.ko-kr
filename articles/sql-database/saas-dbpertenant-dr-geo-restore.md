@@ -1,5 +1,5 @@
 ---
-title: 'SaaS 앱: 재해 복구를 위한 지리적 중복 백업'
+title: 'SaaS 앱: 재해 복구를 위한 지역 중복 백업'
 description: 가동 중단 시 Azure SQL Database 지역 중복 백업을 사용하여 다중 테넌트 SaaS 앱을 복구하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/14/2019
 ms.openlocfilehash: 270fc157fa14efa19ed30d35b614fb769804b72e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73826466"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>데이터베이스 백업에서 지역 복원을 사용하여 다중 테넌트 SaaS 애플리케이션 복구
@@ -29,7 +29,7 @@ ms.locfileid: "73826466"
 > [!NOTE]
 > 지역 복원 대신 지역 복제를 사용하여 가능한 가장 낮은 RPO 및 RTO를 통해 애플리케이션을 복구합니다.
 
-이 자습서에서는 복원 및 송환 워크플로를 살펴봅니다. 다음 방법을 알아봅니다.
+이 자습서에서는 복원 및 송환 워크플로를 살펴봅니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 > [!div class="checklist"]
 > 
 > * 데이터베이스 및 탄력적 풀 구성 정보를 테넌트 카탈로그로 동기화합니다.
@@ -41,8 +41,8 @@ ms.locfileid: "73826466"
  
 
 이 자습서를 완료하려면 다음과 같은 필수 구성 요소를 완료해야 합니다.
-* Wingtip Tickets SaaS 테넌트당 데이터베이스 앱을 배포합니다. 5분 이내에 배포하려면 [테넌트 응용 프로그램당 Wingtip Tickets SaaS 데이터베이스 배포 및 탐색을](saas-dbpertenant-get-started-deploy.md)참조하십시오. 
-* Azure PowerShell을 설치합니다. 자세한 내용은 [Azure PowerShell을 시작하기](https://docs.microsoft.com/powershell/azure/get-started-azureps)를 참조하십시오.
+* Wingtip Tickets SaaS 테넌트당 데이터베이스 앱을 배포합니다. 5 분 내에 배포 하려면 [테 넌 트 당 정문 Ticket SaaS 데이터베이스 응용 프로그램 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조 하세요. 
+* Azure PowerShell을 설치합니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조 하세요.
 
 ## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>지역 복원 복구 패턴 소개
 

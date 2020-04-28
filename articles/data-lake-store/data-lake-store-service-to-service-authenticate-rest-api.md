@@ -1,16 +1,16 @@
 ---
-title: 서비스 간 인증 - 데이터 레이크 스토리지 Gen1 - REST API
-description: REST API를 사용하여 Azure Data Lake Storage Gen1 및 Azure Active Directory를 사용하여 서비스 간 인증을 달성하는 방법을 알아봅니다.
+title: 서비스 간 인증-Data Lake Storage Gen1-REST API
+description: Azure Data Lake Storage Gen1를 사용 하 여 서비스 간 인증을 수행 하 고 REST API를 사용 하 여 Azure Active Directory 하는 방법을 알아봅니다.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 59d0bf20b16beda47d76e6a9940ac9fa4436da3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73904523"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>REST API를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
@@ -22,7 +22,7 @@ ms.locfileid: "73904523"
 > 
 > 
 
-이 문서에서는 REST API를 사용하여 Azure Data Lake Storage Gen1을 사용하여 서비스 간 인증을 수행하는 방법을 알아봅니다. REST API를 사용한 Data Lake Storage Gen1 최종 사용자 인증의 경우 [REST API를 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-rest-api.md)을 참조하세요.
+이 문서에서는 REST API를 사용 하 여 Azure Data Lake Storage Gen1에서 서비스 간 인증을 수행 하는 방법에 대해 알아봅니다. REST API를 사용한 Data Lake Storage Gen1 최종 사용자 인증의 경우 [REST API를 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-rest-api.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

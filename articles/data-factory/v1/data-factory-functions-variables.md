@@ -1,5 +1,5 @@
 ---
-title: 데이터 팩터리 기능 및 시스템 변수
+title: Data Factory 함수 및 시스템 변수
 description: Azure 데이터 팩터리 함수 및 시스템 변수 목록을 제공합니다.
 documentationcenter: ''
 author: djpmsft
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73667660"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure 데이터 팩터리 - 함수 및 시스템 변수
@@ -56,7 +56,7 @@ ms.locfileid: "73667660"
 
 1. 데이터 선택 쿼리 지정([데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 참조되는 커넥터 문서 참조)
    
-   데이터 팩터리 함수를 ** $$ \<** 호출하는 구문은 활동 및 데이터 집합의 데이터 선택 쿼리 및 기타 속성에 대한 함수>입니다.  
+   데이터 팩터리 함수를 호출 하는 구문은 데이터 선택 쿼리와 작업 및 데이터 집합의 기타 속성에 대 한 ** $$ \<함수>** 입니다.  
 2. 작업 입력 컬렉션에서 데이터 팩터리 함수에 입력 종속성 지정
    
     $$는 입력 종속성 식을 지정할 때는 필요하지 않습니다.     
@@ -72,14 +72,14 @@ ms.locfileid: "73667660"
 
 사용할 수 있는 다른 서식 옵션을 설명하는 [사용자 지정 날짜 및 시간 형식 문자열](https://msdn.microsoft.com/library/8kb3ddd4.aspx)(예: ay 및 yyyy) 토픽을 참조하세요. 
 
-### <a name="functions"></a>함수
+### <a name="functions"></a>Functions
 다음 표에서는 Azure Data Factory의 모든 함수를 보여 줍니다.
 
-| Category | 함수 | 매개 변수 | 설명 |
+| 범주 | 함수 | 매개 변수 | 설명 |
 | --- | --- | --- | --- |
-| Time |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |지정된 시간 X에 Y시간을 추가합니다. <br/><br/>예: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
-| Time |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |X에 Y분을 추가합니다.<br/><br/>예: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Time |StartOfHour(X) |X: DateTime |X의 시간 구성 요소로 표현되는 시간에 대한 시작 시간을 가져옵니다. <br/><br/>예: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| 시간 |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |지정된 시간 X에 Y시간을 추가합니다. <br/><br/>예: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| 시간 |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |X에 Y분을 추가합니다.<br/><br/>예: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| 시간 |StartOfHour(X) |X: DateTime |X의 시간 구성 요소로 표현되는 시간에 대한 시작 시간을 가져옵니다. <br/><br/>예: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
 | Date |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |X에 Y일을 추가합니다. <br/><br/>예제: 9/15/2013 12:00:00 PM + 2일 = 9/17/2013 12:00:00 PM<br/><br/>Y를 음수로 지정하여 일도 뺄 수 있습니다.<br/><br/>예: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
 | Date |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |X에 Y개월을 추가합니다.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Y를 음수로 지정하여 월도 뺄 수 있습니다.<br/><br/>예: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
 | Date |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |X에 Y * 3개월을 추가합니다.<br/><br/>예: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
@@ -87,17 +87,17 @@ ms.locfileid: "73667660"
 | Date |AddYears(X,Y) |X: DateTime<br/><br/>Y: int |X에 Y년을 추가합니다.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Y를 음수로 지정하여 년도 뺄 수 있습니다.<br/><br/>예: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
 | Date |Day(X) |X: DateTime |X의 일 구성 요소를 가져옵니다.<br/><br/>예: `Day of 9/15/2013 12:00:00 PM is 9`. |
 | Date |DayOfWeek(X) |X: DateTime |X의 요일 구성 요소를 가져옵니다.<br/><br/>예: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
-| Date |DayOfYear(X) |X: DateTime |X의 연도 구성 요소로 표현되는 연도의 일을 가져옵니다.<br/><br/>예제:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
+| Date |DayOfYear(X) |X: DateTime |X의 연도 구성 요소로 표현되는 연도의 일을 가져옵니다.<br/><br/>예:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
 | Date |DaysInMonth(X) |X: DateTime |매개 변수 X의 월 구성 요소로 표현되는 월의 일을 가져옵니다.<br/><br/>예: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
 | Date |EndOfDay(X) |X: DateTime |X의 끝나는 날(일 구성 요소)을 나타내는 날짜-시간을 가져옵니다.<br/><br/>예: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
 | Date |EndOfMonth(X) |X: DateTime |매개 변수 X의 월 구성 요소로 표현되는 월의 끝을 가져옵니다. <br/><br/>예: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM`(9월의 끝을 나타내는 날짜 시간) |
 | Date |StartOfDay(X) |X: DateTime |매개 변수 X의 일 구성 요소로 표현되는 일의 시작을 가져옵니다.<br/><br/>예: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
 | DateTime |From(X) |X: String |문자열 X를 날짜 시간으로 구문 분석합니다. |
 | DateTime |Ticks(X) |X: DateTime |매개 변수 X의 틱 속성을 가져옵니다. 1틱은 100나노초에 해당합니다. 이 속성 값은 0001년 1월 1일 자정 12:00:00 이후 경과된 틱 수를 나타냅니다. |
-| 텍스트 |Format(X) |X: String 변수 |텍스트의 서식을 지정합니다(`\\'` 조합을 사용하여 `'` 문자 이스케이프).|
+| Text |Format(X) |X: String 변수 |텍스트의 서식을 지정합니다(`\\'` 조합을 사용하여 `'` 문자 이스케이프).|
 
 > [!IMPORTANT]
-> 다른 함수 내에서 함수를 사용하는 경우 내부 **$$** 함수에 접두사를 사용할 필요가 없습니다. 예: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' 및 RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). 이 예제에서는 **$$** **접두사가 Time.AddHours** 함수에 사용되지 않습니다. 
+> 다른 함수 내에서 함수를 사용 하는 경우 내부 함수에 대 **$$** 한 접두사를 사용할 필요가 없습니다. 예: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' 및 RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). 이 예제에서 **$$** 접두사는 시간에 사용 되지 않습니다 **. addhours** 함수를 사용 합니다. 
 
 #### <a name="example"></a>예제
 다음 예제에서는 Hive 활동에 대한 입력 및 출력 매개 변수가 `Text.Format` 함수 및 SliceStart 시스템 변수를 사용하여 결정됩니다. 

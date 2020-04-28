@@ -12,10 +12,10 @@ ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
 ms.openlocfilehash: 05fa542a0ad1c72f73148eefd304a9771798598d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73820624"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL Database의 DNS 별칭
@@ -29,7 +29,7 @@ DNS 별칭의 일반적인 용도에는 다음과 같은 경우가 포함됩니�
 - Azure SQL Server에 대해 기억하기 쉬운 이름을 만듭니다.
 - 초기 개발 동안, 별칭은 테스트 SQL Database 서버를 참조할 수 있습니다. 애플리케이션이 라이브되면 프로덕션 서버를 참조하도록 별칭을 수정할 수 있습니다. 테스트에서 프로덕션 환경으로 전환하기 위해 데이터베이스 서버에 연결되는 여러 클라이언트의 구성을 수정할 필요는 없습니다.
 - 애플리케이션의 데이터베이스만 다른 SQL Database 서버로 이동된다고 가정합니다. 여기서 여러 클라이언트 구성을 수정하지 않고도 별칭을 수정할 수 있습니다.
-- 지역 중단 중에 지역 복원을 사용하여 다른 서버 및 지역에서 데이터베이스를 복구할 수 있습니다. 기존 클라이언트 응용 프로그램이 다시 연결할 수 있도록 새 서버를 가리키도록 기존 별칭을 수정할 수 있습니다. 
+- 지역 가동 중단 중에는 지역 복원을 사용 하 여 다른 서버 및 지역에서 데이터베이스를 복구 합니다. 기존 별칭을 기존 클라이언트 응용 프로그램에 다시 연결할 수 있도록 새 서버를 가리키도록 수정할 수 있습니다. 
 
 ## <a name="domain-name-system-dns-of-the-internet"></a>인터넷의 DNS(Domain Name System)
 
@@ -49,7 +49,7 @@ Azure SQL Database의 DNS 별칭 기능은 다음과 같은 시나리오에서 �
 
 ### <a name="cross-region-support"></a>지역 간 지원
 
-재해 복구를 수행하면 SQL Database 서버가 다른 지리적 지역으로 이동될 수 있습니다. DNS 별칭을 사용하는 시스템의 경우 모든 클라이언트에 대한 모든 연결 문자열을 찾아 업데이트해야 할 필요가 없습니다. 대신, 이제 데이터베이스를 호스트하는 새 SQL Database 서버를 참조하도록 별칭을 업데이트할 수 있습니다.
+재해 복구를 수행하면 SQL Database 서버가 다른 지리적 지역으로 이동될 수 있습니다. DNS 별칭을 사용 하는 시스템의 경우 모든 클라이언트에 대 한 모든 연결 문자열을 찾아서 업데이트 하지 않아도 됩니다. 대신, 이제 데이터베이스를 호스트하는 새 SQL Database 서버를 참조하도록 별칭을 업데이트할 수 있습니다.
 
 ## <a name="properties-of-a-dns-alias"></a>DNS 별칭의 속성
 
@@ -82,7 +82,7 @@ REST API에 대한 설명서는 다음 웹 위치 근처에서 사용할 수 있
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure 리소스 관리자 모듈은 Azure SQL Database에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈용입니다. 이러한 cmdlet에 대 한 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조 합니다. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 거의 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
 
 REST API를 호출하는 PowerShell cmdlet을 사용할 수 있습니다.
 
@@ -92,10 +92,10 @@ DNS 별칭을 관리하는 데 사용되는 PowerShell cmdlet의 코드 예제�
 
 코드 예제에 사용된 cmdlet은 다음과 같습니다.
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Azure SQL Database 서비스 시스템에서 새 DNS 별칭을 만듭니다. 이 별칭은 Azure SQL Database 서버 1을 가리킵니다.
-- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): SQL DB 서버 1에 할당된 모든 DNS 별칭을 가져옵니다.
-- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): 별칭이 참조하도록 구성된 서버 이름을 서버 1에서 SQL DB 서버 2까지 수정합니다.
-- [제거-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias)제거 : 별칭의 이름을 사용하여 SQL DB 서버 2에서 DNS 별칭을 제거합니다.
+- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Azure SQL Database 서비스 시스템에 새 DNS 별칭을 만듭니다. 이 별칭은 Azure SQL Database 서버 1을 가리킵니다.
+- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): SQL DB 서버 1에 할당 된 모든 DNS 별칭을 가져오고 나열 합니다.
+- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): 별칭을 참조 하도록 구성 된 서버 이름을 서버 1에서 SQL DB 서버 2로 수정 합니다.
+- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): 별칭 이름을 사용 하 여 SQL DB 서버 2에서 DNS 별칭을 제거 합니다.
 
 ## <a name="limitations-during-preview"></a>미리 보기 중 제한 사항
 
@@ -104,7 +104,7 @@ DNS 별칭을 관리하는 데 사용되는 PowerShell cmdlet의 코드 예제�
 - *최대 2분 간 지연:* DNS 별칭을 업데이트하거나 제거하는 데는 최대 2분이 소요됩니다.
   - 지연 시간이 길어지든, 짧아지든, 별칭은 레거시 서버에 대한 클라이언트 연결 참조를 즉시 중지합니다.
 - *DNS 조회:* 현재, DNS 별칭이 지정된 서버를 확인하는 신뢰할 수 있는 유일한 방법은 [DNS 조회](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup)를 수행하는 것입니다.
-- _테이블 감사는 지원되지 않습니다._ 데이터베이스에서 *테이블 감사를* 사용하도록 설정한 Azure SQL Database 서버에서는 DNS 별칭을 사용할 수 없습니다.
+- _테이블 감사는 지원 되지 않습니다._ 데이터베이스에서 *테이블 감사* 를 사용 하는 Azure SQL Database 서버에는 DNS 별칭을 사용할 수 없습니다.
   - 테이블 감사는 더 이상 사용되지 않습니다.
   - 따라서 [Blob 감사](sql-database-auditing.md)로 전환하는 것이 좋습니다.
 

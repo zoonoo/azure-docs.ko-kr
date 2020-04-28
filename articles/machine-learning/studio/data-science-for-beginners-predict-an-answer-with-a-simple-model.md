@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 6ad9c7912eee6c3f5ec55b9cd7ab340bc79c9db7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73837765"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>단순 모델을 사용하여 답변 예측
@@ -124,8 +124,8 @@ ms.locfileid: "73837765"
 
 오늘은 선형 회귀를 수행하는 방법을 논의했으며 데이터를 사용해서 예측을 수행했습니다.
 
-Microsoft Azure 기계 학습 스튜디오(클래식)의 "초보자를 위한 데이터 과학"의 다른 비디오를 확인하십시오.
+Microsoft Azure Machine Learning Studio (클래식)에서 "초보자를 위한 데이터 과학"의 다른 비디오를 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [기계 학습 스튜디오(클래식)를 사용하여 첫 번째 데이터 과학 실험을 해보세요.](create-experiment.md)
+* [Machine Learning Studio를 사용 하 여 첫 번째 데이터 과학 실험 시도 (클래식)](create-experiment.md)
 * [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/preview/overview-what-is-azure-ml)

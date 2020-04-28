@@ -1,5 +1,5 @@
 ---
-title: 복구 관리자는 샤드맵 문제를 해결합니다.
+title: 분할 맵 문제를 해결 Recovery Manager
 description: RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵의 문제 해결
 services: sql-database
 ms.service: sql-database
@@ -12,15 +12,15 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 6101e00ab98b0d8d901f2e42bf4083d40d0a3227
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823845"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵 문제 해결
 
-[RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) 클래스는 ADO.NET 응용 프로그램에 샤드 데이터베이스 환경에서 전역 샤드 맵(GSM)과 로컬 샤드 맵(LSM) 간의 불일치를 쉽게 감지하고 수정할 수 있는 기능을 제공합니다.
+[Recoverymanager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) 클래스를 통해 ADO.NET 응용 프로그램은 분할 된 데이터베이스 환경에서 GSM (전역 분할 된 데이터베이스 맵) 및 LSM (로컬 분할 된 데이터베이스 맵) 간의 불일치를 쉽게 감지 하 고 수정할 수 있습니다.
 
 GSM 및 LSM은 분할된 데이터베이스 환경에서 각 데이터베이스의 매핑을 추적합니다. 경우에 따라 GSM과 LSM 사이에서 중단이 발생합니다. 이 경우 RecoveryManager 클래스를 사용하여 중단을 검색하고 복구합니다.
 
@@ -37,13 +37,13 @@ RecoveryManager 클래스는 [Elastic Database 클라이언트 라이브러리](
 GSM 및 LSM이 동기화되지 않는 이유는 다음과 같습니다.
 
 1. 범위가 더 이상 사용되지 않는 분할된 데이터베이스가 삭제되거나 분할된 데이터베이스의 이름이 변경되었습니다. **분리되어 분할된 매핑**에서 분할된 데이터베이스 결과 삭제. 마찬가지로 이름이 바뀐 데이터베이스도 분리되어 분할된 데이터베이스 매핑을 발생시킬 수 있습니다. 변경 의도에 따라 분할된 데이터베이스를 제거하거나 분할된 데이터베이스 위치를 업데이트할 필요가 있습니다. 삭제된 데이터베이스를 복구하려면 [삭제된 데이터베이스 복구](sql-database-recovery-using-backups.md)를 참조하세요.
-2. 지역 장애 조치(failover) 이벤트가 발생합니다. 계속하려면 분할된 데이터베이스 맵의 모든 분할된 데이터베이스에 대해 서버 이름과 애플리케이션에 있는 분할된 데이터베이스 맵 관리자의 데이터베이스 이름을 업데이트한 다음, 분할된 데이터베이스 매핑 정보를 업데이트해야 합니다. 지역 장애 조치의 경우 이러한 복구 논리는 장애 조치 워크플로 내에서 자동화됩니다. 복구 작업을 자동화하면 지역 지원 데이터베이스에 대해 원활한 관리 효율성을 제공하며 사람이 직접 작업하지 않아도 됩니다. 데이터 센터 가동 중단이 있는 경우 데이터베이스를 복구하는 옵션에 대한 자세한 내용은 [비즈니스 연속성](sql-database-business-continuity.md) 및 [재해 복구를](sql-database-disaster-recovery.md)참조하십시오.
+2. 지역 장애 조치(failover) 이벤트가 발생합니다. 계속하려면 분할된 데이터베이스 맵의 모든 분할된 데이터베이스에 대해 서버 이름과 애플리케이션에 있는 분할된 데이터베이스 맵 관리자의 데이터베이스 이름을 업데이트한 다음, 분할된 데이터베이스 매핑 정보를 업데이트해야 합니다. 지역 장애 조치의 경우 이러한 복구 논리는 장애 조치 워크플로 내에서 자동화됩니다. 복구 작업을 자동화하면 지역 지원 데이터베이스에 대해 원활한 관리 효율성을 제공하며 사람이 직접 작업하지 않아도 됩니다. 데이터 센터가 중단 된 경우 데이터베이스를 복구 하는 옵션에 대해 알아보려면 [비즈니스 연속성](sql-database-business-continuity.md) 및 [재해 복구](sql-database-disaster-recovery.md)를 참조 하세요.
 3. 분할된 데이터베이스 또는 ShardMapManager 데이터베이스는 이전 시점으로 복원됩니다. 백업을 사용하여 시간 복구 지점에 대해 알아보려면 [백업을 사용하여 복구](sql-database-recovery-using-backups.md)를 참조하세요.
 
 Azure SQL Database Elastic Database 도구, 지역 복제 및 복원에 대한 자세한 내용은 다음을 참조하세요.
 
-* [개요: SQL 데이터베이스를 사용하여 클라우드 비즈니스 연속성 및 데이터베이스 재해 복구](sql-database-business-continuity.md)
-* [탄력적 데이터베이스 도구 시작](sql-database-elastic-scale-get-started.md)  
+* [개요: SQL Database 사용 하 여 클라우드 비즈니스 연속성 및 데이터베이스 재해 복구](sql-database-business-continuity.md)
+* [탄력적 데이터베이스 도구 시작 하기](sql-database-elastic-scale-get-started.md)  
 * [ShardMap 관리](sql-database-elastic-scale-shard-map-management.md)
 
 ## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>ShardMapManager에서 RecoveryManager 검색
@@ -65,7 +65,7 @@ Azure SQL Database Elastic Database 도구, 지역 복제 및 복원에 대한 �
 [DetachShard 메서드](https://docs.microsoft.com/previous-versions/azure/dn842083(v=azure.100)) 는 분할된 데이터베이스 맵에서 지정된 분할된 데이터베이스를 분리하고 여기에 연결된 매핑을 삭제합니다.  
 
 * 위치 매개 변수는 분할된 데이터베이스 위치, 특히 분리 중인 분할된 데이터베이스의 서버 이름 및 데이터베이스 이름입니다.
-* shardMapName 매개 변수는 분할된 데이터베이스 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. (선택 사항)
+* shardMapName 매개 변수는 분할된 데이터베이스 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. 선택 사항입니다.
 
 > [!IMPORTANT]
 > 업데이트되는 매핑의 범위가 비어 있는 것이 확실한 경우에만 이 기술을 사용하세요. 위의 방법에서는 이동하는 범위에서 데이터를 확인하지 않으므로 코드에 검사를 포함하는 것이 가장 좋습니다.
@@ -76,7 +76,7 @@ Azure SQL Database Elastic Database 도구, 지역 복제 및 복원에 대한 �
    rm.DetachShard(s.Location, customerMap);
    ```
 
-분할된 데이터베이스 맵에 분할된 데이터베이스를 삭제하기 전에 GSM에서의 분할된 데이터베이스 위치가 반영됩니다. 분할된 데이터베이스는 삭제되었기 때문에 의도적인 것으로 간주되며 분할 키 범위는 더 이상 사용 중이 아닙니다. 그렇지 않은 경우 특정 시점 복원을 실행할 수 있습니다. 이전 시점에서 분할된 데이터베이스를 복구할 수 있습니다. 이 경우 다음 섹션을 검토하여 샤드 불일치를 검색합니다. 복구하려면 [시간 복구 를](sql-database-recovery-using-backups.md)참조하십시오.
+분할된 데이터베이스 맵에 분할된 데이터베이스를 삭제하기 전에 GSM에서의 분할된 데이터베이스 위치가 반영됩니다. 분할된 데이터베이스는 삭제되었기 때문에 의도적인 것으로 간주되며 분할 키 범위는 더 이상 사용 중이 아닙니다. 그렇지 않은 경우 특정 시점 복원을 실행할 수 있습니다. 이전 시점에서 분할된 데이터베이스를 복구할 수 있습니다. 이 경우 다음 섹션을 검토 하 여 분할 된 항목 불일치를 검색 합니다. 복구 하려면 특정 [시점 복구](sql-database-recovery-using-backups.md)를 참조 하세요.
 
 데이터베이스 삭제를 의도적인 것으로 가정하므로 최종 관리 정리 작업은 분할된 데이터베이스 맵 관리자에서 분할된 데이터베이스에 대한 항목을 삭제하는 것입니다. 이렇게 하면 애플리케이션에서 예기치 않은 범위에 정보를 실수록 기록하는 일을 방지할 수 있습니다.
 
@@ -89,7 +89,7 @@ Azure SQL Database Elastic Database 도구, 지역 복제 및 복원에 대한 �
    ```
 
 * *위치* 는 서버 이름과 데이터베이스 이름을 지정합니다.
-* *샤드맵네임* 매개 변수는 샤드 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. (선택 사항)
+* *ShardMapName* 매개 변수는 분할 된 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. 선택 사항입니다.
 
 ## <a name="to-resolve-mapping-differences"></a>매핑 차이를 해결하려면
 
@@ -112,7 +112,7 @@ Azure SQL Database Elastic Database 도구, 지역 복제 및 복원에 대한 �
    ```
 
 * *location* 매개 변수는 분리 중인 분할된 데이터베이스의 서버 이름 및 데이터베이스 이름입니다.
-* *샤드맵네임* 매개 변수는 샤드 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. (선택 사항)
+* *ShardMapName* 매개 변수는 분할 된 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. 선택 사항입니다.
 
 이 예제는 분할된 데이터베이스를 최근 이전 시점에서 복원된 분할된 데이터베이스 맵에 추가합니다. 분할된 데이터베이스(즉, LSM에서 분할된 데이터베이스에 대한 매핑)를 복원한 후에는 GSM에서 분할된 데이터베이스 항목과 일치하지 않을 수 있습니다. 이 예제 코드 외부에서 분할된 데이터베이스가 복원되었고 데이터베이스의 원래 이름으로 바뀌었습니다. 복원된 후에는 LSM에서의 매핑이 신뢰할 수 있는 매핑으로 간주됩니다.
 

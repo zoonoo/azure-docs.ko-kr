@@ -1,5 +1,5 @@
 ---
-title: CSV 파일의 데이터를 데이터베이스(숨은 값)로 로드
+title: CSV 파일에서 데이터베이스로 데이터 로드 (bcp)
 description: 작은 데이터 크기의 경우 bcp를 사용하여 Azure SQL Database로 데이터를 가져옵니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/25/2019
 ms.openlocfilehash: b0df3d588f1d9b0a50c3ea7a583b0704e7e85c39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73827483"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>CSV에서 Azure SQL Database(플랫 파일)로 데이터 로드
@@ -24,7 +24,7 @@ bcp 명령줄 유틸리티를 사용하여 CSV 파일에서 Azure SQL Database�
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
@@ -38,7 +38,7 @@ bcp 명령줄 유틸리티를 사용하여 CSV 파일에서 Azure SQL Database�
 
 사용자의 데이터로 이 자습서를 수행하는 경우에는, bcp가 UTF-8을 지원하지 않으므로, 데이터에 ASCII 또는 UTF-16 인코딩을 사용해야 합니다. 
 
-## <a name="1-create-a-destination-table"></a>1. 대상 테이블 만들기
+## <a name="1-create-a-destination-table"></a>1. 대상 테이블을 만듭니다.
 
 SQL Database에서 테이블을 대상 테이블로 정의합니다. 테이블의 열은 데이터 파일의 각 행에 있는 데이터와 일치해야 합니다.
 
@@ -57,7 +57,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## <a name="2-create-a-source-data-file"></a>2. 소스 데이터 파일 만들기
+## <a name="2-create-a-source-data-file"></a>2. 원본 데이터 파일 만들기
 
 메모장을 열고 다음 데이터 줄을 새 텍스트 파일에 복사한 다음 이 파일을 로컬 임시 디렉터리 C:\Temp\DimDate2.txt에 저장합니다. 이 데이터는 ASCII 형식입니다.
 

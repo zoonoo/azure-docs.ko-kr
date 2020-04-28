@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/07/2019
 ms.openlocfilehash: f00ecd19877ba6236bde5de73d450967abc1fe15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73821039"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database Premium RS 서비스 계층(미리 보기)이 더 이상 사용되지 않음 - 마이그레이션 옵션
@@ -26,7 +26,7 @@ ms.locfileid: "73821039"
 
 - vCore 서비스 계층
 
-  [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)의 **범용** 및 **중요 비즈니스** 서비스 계층입니다. 이러한 두 서비스 계층은 일반 공급됩니다. 또한 vCore 기반 구매 모델은 데이터베이스당 최대 100TB까지 자동 확장하여 워크로드의 요구에 맞게 온디맨드를 조정하는 **하이퍼스케일** 서비스 계층을 제공합니다. 하이퍼스케일 서비스 계층은 프리미엄 RS 서비스 계층과 비슷한 가격으로 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)의 프리미엄 서비스 계층에 필적할만한 IO 성능을 제공합니다.
+  [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)의 **범용** 및 **중요 비즈니스** 서비스 계층입니다. 이러한 두 서비스 계층은 일반 공급됩니다. 또한 vCore 기반 구매 모델은 데이터베이스당 최대 100 TB의 자동 확장을 사용 하 여 워크 로드의 요구에 맞게 적응 하는 하이퍼 **규모** 의 서비스 계층을 제공 합니다. 하이퍼스케일 서비스 계층은 프리미엄 RS 서비스 계층과 비슷한 가격으로 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)의 프리미엄 서비스 계층에 필적할만한 IO 성능을 제공합니다.
 - 개발/테스트 가격
 
   [개발/테스트 가격](https://azure.microsoft.com/pricing/dev-test/)은 최대 55% 비용 절감 효과를 가져오거나 Visual Studio 구독을 통한 라이선스 포함 요금이 됩니다.
@@ -69,10 +69,10 @@ Microsoft 가격 책정 및 설명서와 함께 이 문서의 지침을 참조�
 
 |**현재 상태...**|**필적할만한 vCore 기반 서비스 계층으로 마이그레이션...**|**필적할만한 DTU 기반 서비스 계층으로 마이그레이션...**|
 |---|---|---|
-|프리미엄 RS 1| 하이퍼스케일 1 vCore(Gen4) 또는 비즈니스 크리티컬 1 vCore(Gen4)|프리미엄 1|
-|프리미엄 RS 2| 하이퍼스케일 2 vCore(Gen4) 또는 비즈니스 크리티컬 2 vCore(Gen4|프리미엄 2|
-|프리미엄 RS 4| 하이퍼스케일 4 vCore(Gen4) 또는 비즈니스 크리티컬 4 vCore(Gen4)|프리미엄 4
-|프리미엄 RS 6| 하이퍼스케일 6 vCore(Gen4) 또는 비즈니스 크리티컬 6 vCore(Gen4)|프리미엄 6|
+|프리미엄 RS 1| Hyperscale 1 vCore (Gen4) 또는 중요 비즈니스용 1 vCore (Gen4)|프리미엄 1|
+|프리미엄 RS 2| 하이퍼 확장 2 vCores (Gen4) 또는 중요 비즈니스용 2 vCores (Gen4|프리미엄 2|
+|프리미엄 RS 4| Hyperscale 4 vCores (Gen4) 또는 중요 비즈니스용 4 vCores (Gen4)|프리미엄 4
+|프리미엄 RS 6| Hyperscale 6 vCores (Gen4) 또는 중요 비즈니스용 6 vCores (Gen4)|프리미엄 6|
 
 |**현재 상태...**|**필적할만한 vCore 기반 서비스 계층으로 마이그레이션...**|**필적할만한 DTU 기반 서비스 계층으로 마이그레이션...**|
 |---|---|---|
@@ -100,4 +100,4 @@ vCore 기반 구매 모델의 서비스 계층은 80%까지 비용을 절감할 
 ## <a name="next-steps"></a>다음 단계
 
 - 단일 데이터베이스에 사용할 수 있는 특정 컴퓨팅 크기 및 스토리지 크기 선택 방법에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md)을 참조하세요.
-- 탄력적 풀에 사용할 수 있는 특정 계산 크기 및 저장소 크기 선택 사항에 대한 자세한 내용은 [탄력적 풀에 대한 SQL Database vCore 기반 리소스 제한을](sql-database-vcore-resource-limits-elastic-pools.md)참조하십시오.
+- 탄력적 풀에 사용할 수 있는 특정 계산 크기 및 저장소 크기 선택 항목에 대 한 자세한 내용은 [탄력적 풀에 대 한 vCore 기반 리소스 제한 SQL Database](sql-database-vcore-resource-limits-elastic-pools.md)을 참조 하세요.

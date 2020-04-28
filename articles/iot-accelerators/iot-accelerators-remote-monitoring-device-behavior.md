@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링 솔루션의 시뮬레이션 된 장치 - Azure | 마이크로 소프트 문서
+title: 원격 모니터링 솔루션의 시뮬레이션 된 장치-Azure | Microsoft Docs
 description: 이 문서에서는 JavaScript를 사용하여 원격 모니터링 솔루션의 시뮬레이션된 디바이스 동작을 정의하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: c39ca0a018bd22844cf7e5350e6d3586319aac16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73890855"
 ---
 # <a name="implement-the-device-model-behavior"></a>디바이스 모델 동작 구현
@@ -156,7 +156,7 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-GitHub에서 전체 [냉각기-01-state.js를](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) 볼 수 있습니다.
+GitHub에서 전체 [chiller-01-state.js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) 를 볼 수 있습니다.
 
 ## <a name="method-behavior"></a>메서드 동작
 

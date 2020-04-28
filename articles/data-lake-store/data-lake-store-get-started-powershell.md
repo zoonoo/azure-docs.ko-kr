@@ -1,41 +1,41 @@
 ---
-title: Azure 데이터 레이크 스토리지 Gen1 - PowerShell 시작하기 | 마이크로 소프트 문서
-description: Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소 Gen1 계정을 만들고 기본 작업을 수행합니다.
+title: Azure Data Lake Storage Gen1 시작 하기-PowerShell | Microsoft Docs
+description: Azure PowerShell를 사용 하 여 Azure Data Lake Storage Gen1 계정을 만들고 기본 작업을 수행 합니다.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 42ddab6991b418af3e41da9966cdab69ded87461
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73837886"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1 시작
 
 > [!div class="op_single_selector"]
 > * [포털](data-lake-store-get-started-portal.md)
-> * [Powershell](data-lake-store-get-started-powershell.md)
+> * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >
 >
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등과 같은 기본 작업을 수행하는 방법을 알아봅니다. 데이터 레이크 스토리지 Gen1에 대한 자세한 내용은 [데이터 레이크 스토리지 Gen1 의 개요를](data-lake-store-overview.md)참조하십시오.
+Azure PowerShell를 사용 하 여 Azure Data Lake Storage Gen1 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행 하는 방법을 알아봅니다. Data Lake Storage Gen1에 대 한 자세한 내용은 [Data Lake Storage Gen1 개요](data-lake-store-overview.md)를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure PowerShell 1.0 이상.** [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
+* **1.0 이상 Azure PowerShell**합니다. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
 ## <a name="authentication"></a>인증
 
-이 문서에서는 Azure 계정 자격 증명을 입력하라는 메시지가 표시되는 Data Lake Storage Gen1을 사용하여 간단한 인증 방법을 사용합니다. Data Lake Storage Gen1 계정 및 파일 시스템에 대한 액세스 수준은 로그인한 사용자의 액세스 수준에 따라 결정됩니다. 그러나 최종 사용자 인증 또는 서비스 간 인증인 Data Lake Storage Gen1을 사용하여 인증하는 다른 방법이 있습니다. 지침 및 인증 방법에 대한 자세한 내용은 [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md) 또는 [서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
+이 문서에서는 Azure 계정 자격 증명을 입력 하 라는 메시지가 표시 되는 Data Lake Storage Gen1를 사용 하는 간단한 인증 방법을 사용 합니다. Data Lake Storage Gen1 계정 및 파일 시스템에 대한 액세스 수준은 로그인한 사용자의 액세스 수준에 따라 결정됩니다. 그러나 최종 사용자 인증 또는 서비스 간 인증 인 Data Lake Storage Gen1를 사용 하 여 인증 하는 다른 방법도 있습니다. 지침 및 인증 방법에 대한 자세한 내용은 [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md) 또는 [서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Data Lake Storage Gen1 계정 만들기
 

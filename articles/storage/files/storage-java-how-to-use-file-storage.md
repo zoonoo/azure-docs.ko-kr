@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 28a280ea7c3bf9ef84a1fff05da5090ed526fb12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73837468"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Java를 사용하여 Azure Files 개발
@@ -154,7 +154,7 @@ if ( containerDir.deleteIfExists() ) {
 ```
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Azure 파일 공유의 파일 및 디렉터리 열거
-공유 내에서 파일 및 디렉터리 목록을 가져오는 것은 쉽게 호출하여 **수행할 수 있습니다., 호출 하는 목록FilesAndDirectories** CloudFileDirectory 참조에. 메서드는 반복할 수 있는 ListFileItem 개체 목록을 반환합니다. 한 예로, 다음 코드는 파일 및 디렉터리를 루트 디렉터리 안에 나열합니다.
+공유 내에서 파일 및 디렉터리 목록을 가져오는 작업은 CloudFileDirectory 참조에서 **Listfilesanddirectories** 를 호출 하 여 쉽게 수행할 수 있습니다. 메서드는 반복할 수 있는 ListFileItem 개체 목록을 반환합니다. 한 예로, 다음 코드는 파일 및 디렉터리를 루트 디렉터리 안에 나열합니다.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -224,11 +224,11 @@ if ( file.deleteIfExists() ) {
 ## <a name="next-steps"></a>다음 단계
 다른 Azure Storage API에 대해 더 알아보려면 다음 링크를 따르십시오.
 
-* [Java 개발자용 Azure](/java/azure)/)
-* [자바용 Azure 스토리지 SDK](https://github.com/azure/azure-storage-java)
+* [Java 개발자 용 Azure](/java/azure)/)
+* [Java 용 Azure Storage SDK](https://github.com/azure/azure-storage-java)
 * [Android용 Azure Storage SDK](https://github.com/azure/azure-storage-android)
 * [Azure Storage 클라이언트 SDK 참조](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
-* [Azure 저장소 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Storage 팀 블로그](https://blogs.msdn.com/b/windowsazurestorage/)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](../common/storage-use-azcopy.md)
 * [Azure Files 문제 해결 - Windows](storage-troubleshoot-windows-file-connection-problems.md)

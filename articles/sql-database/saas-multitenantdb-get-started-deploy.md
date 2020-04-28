@@ -1,5 +1,5 @@
 ---
-title: 샤드 다중 테넌트 데이터베이스 SaaS 앱 배포
+title: 분할 된 다중 테 넌 트 데이터베이스 SaaS 앱 배포
 description: Azure SQL Database를 사용하여 SaaS 패턴을 보여 주는 분할된 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션을 배포하고 탐색합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 ms.date: 10/16/2018
 ms.openlocfilehash: 3277318e01362df8fc21ff7ca769aaeb8006abc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73828002"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>분할된 다중 테넌트 애플리케이션 배포 및 탐색
@@ -40,7 +40,7 @@ ms.locfileid: "73828002"
 > - Wingtip Tickets SaaS 애플리케이션을 배포하는 방법.
 > - 애플리케이션 소스 코드 및 관리 스크립트를 가져올 위치.
 > - 앱을 구성하는 서버 및 데이터베이스 정보.
-> - 테넌이 *카탈로그를*사용하여 데이터에 매핑되는 방법.
+> - *카탈로그*를 사용 하 여 테 넌 트가 데이터에 매핑되는 방법입니다.
 > - 새 테넌트를 프로비전하는 방법.
 > - 앱에서 테넌트 활동을 모니터링하는 방법.
 
@@ -50,15 +50,15 @@ ms.locfileid: "73828002"
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-- 최신 Azure PowerShell SDK가 설치되어 있습니다. 자세한 내용은 [Azure PowerShell을 시작하기][link-azure-get-started-powershell-41q]를 참조하십시오.
+- 최신 Azure PowerShell SDK가 설치되어 있습니다. 자세한 내용은 [Azure PowerShell 시작][link-azure-get-started-powershell-41q]을 참조 하세요.
 
 ## <a name="deploy-the-wingtip-tickets-app"></a>Wingtip Tickets 앱 배포
 
 ### <a name="plan-the-names"></a>이름 계획
 
 이 섹션의 단계에서는 리소스 이름을 전역에서 고유하게 설정하는 데 사용되는 ‘사용자’ 값과 앱 배포에서 만들어진 모든 리소스를 포함하는 ‘리소스 그룹’의 이름을 제공합니다.**** *Ann Finley*라는 사람의 경우 다음을 제안합니다.
-- *사용자:* **af1***af1(이면에 숫자와 숫자.) 앱을 두 번 배포하는 경우 다른 값(예: af2)을 사용합니다.*  
-- *리소스 그룹:* **wingtip-mt-af1(wingtip-mt는** *이 앱이 샤드다중 테넌트 앱임을 나타냅니다. 사용자 이름 af1을 적용하면 리소스 그룹 이름과 리소스 그룹 이름이 포함된 리소스 이름과 상관 관계가 있습니다.)*
+- *사용자:* **af1**  *(이니셜 및 숫자) 앱을 두 번째로 배포 하는 경우 다른 값 (예: af2)을 사용 합니다.*
+- *리소스 그룹:* **동-mt-af1** *(동-mt는 분할 된 다중 테 넌 트 앱 임을 나타냅니다. af1 사용자 이름을 추가 하면 리소스 그룹 이름이 포함 된 리소스의 이름과 상관 관계가 지정 됩니다.)*
 
 이제 이름을 선택하고, 기록합니다. 
 
@@ -75,14 +75,14 @@ ms.locfileid: "73828002"
     > 이 데모의 경우 모든 기존 리소스 그룹, 서버 또는 풀을 사용하지 마십시오. 대신 **새 리소스 그룹 만들기**를 선택합니다. 관련된 결제를 중지하려면 애플리케이션을 완료할 때 이 리소스 그룹을 삭제합니다.
     > 이 애플리케이션이나 여기에서 만든 리소스를 프로덕션에 사용하지 마세요. 일부 인증 및 서버 방화벽 설정은 데모를 이용하기 위해 앱에서 의도적으로 보호되지 않습니다.
 
-    - **리소스 그룹의** 경우 - **새 만들기를**선택한 다음 리소스 그룹에 대한 **이름을** 제공합니다(대/소문자 구분).
-        - 드롭다운 목록에서 **위치를** 선택합니다.
+    - **리소스 그룹** - **새로 만들기**를 선택 하 고 리소스 그룹의 **이름** (대/소문자 구분)을 입력 합니다.
+        - 드롭다운 목록에서 **위치** 를 선택 합니다.
     - **사용자**의 경우 - 짧은 **사용자** 값을 선택하는 것이 좋습니다.
 
-1. **응용 프로그램을 배포합니다.**
+1. **응용 프로그램을 배포**합니다.
 
     - 사용 약관에 동의하려면 클릭합니다.
-    - **구매**를
+    - **구매**를 클릭합니다.
 
 1. **알림**(검색 상자 오른쪽의 벨 아이콘)을 클릭하여 배포 상태를 모니터링합니다. Wingtip 앱을 배포하는 데는 5분 정도 걸립니다.
 
@@ -97,13 +97,13 @@ ms.locfileid: "73828002"
 
 1. [WingtipTicketsSaaS-MultiTenantDb GitHub 리포지토리](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)로 이동합니다.
 2. **복제 또는 다운로드**를 클릭합니다.
-3. **ZIP 다운로드를** 클릭하고 파일을 저장합니다.
+3. **ZIP 다운로드** 를 클릭 하 고 파일을 저장 합니다.
 4. **WingtipTicketsSaaS-MultiTenantDb-master.zip** 파일을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
 5. **일반** 탭에서 **차단 해제**를 선택하고 **적용**을 클릭합니다.
 6. **확인**을 클릭합니다.
 7. 파일의 압축을 풉니다.
 
-스크립트는 *.에 있습니다. 윙팁티켓SaaS-멀티테넌트DB\\마스터\\ 학습 모듈 폴더. \\*
+스크립트는에 있습니다 *. Wingtipticketssaas-dbpertenant-master-wingtipticketssaas-multitenantdb-master\\Learning Modules\\ \\*
 
 ## <a name="update-the-configuration-file-for-this-deployment"></a>이 배포에 대한 구성 파일 업데이트
 
@@ -124,7 +124,7 @@ Wingtip 앱에서 테넌트는 장소입니다. 장소는 콘서트 홀, 스포�
 중앙 **이벤트 허브** 웹 페이지는 특정 배포에 있는 테넌트의 링크 목록을 제공합니다. 다음 단계를 사용하여 **이벤트 허브** 웹 페이지 및 개별 웹앱을 경험합니다.
 
 1. 웹 브라우저에서 **이벤트 허브**를 엽니다.
-   - http://events.wingtip-mt.&lt;user&gt; &nbsp; * &lt;.trafficmanager.net(사용자를&gt; 배포의 사용자 값으로 바꿉니다.)*
+   - http://events.wingtip-mt.&lt; user&gt;. trafficmanager.net &nbsp; *(사용자 &lt;&gt; 를 배포의 사용자 값으로 바꿉니다.)*
 
      ![Events Hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -136,7 +136,7 @@ Wingtip 앱에서 테넌트는 장소입니다. 장소는 콘서트 홀, 스포�
 
 들어오는 요청의 배포를 제어하기 위해 Wingtip 앱에서는 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 사용합니다. 각 테넌트에 대한 이벤트 페이지는 해당 URL에 테넌트 이름을 포함합니다. 각 URL은 특정 사용자 값도 포함합니다. 각 URL은 다음 단계를 사용하여 표시된 형식을 따릅니다.
 
-- http://events.wingtip-mt.&lt;사용자&gt;.trafficmanager.net/*파브리캄재즈클럽*
+- http://events.wingtip-mt.&lt; user&gt;. trafficmanager.net/*fabrikamjazzclub*
 
 1. 이벤트 앱은 URL에서 테넌트 이름을 구문 분석합니다. 테넌트 이름은 위의 예제 URL에서 *fabrikamjazzclub*입니다.
 2. 앱은 테넌트 이름을 해시하여 [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 사용하는 카탈로그에 액세스하기 위한 키를 만듭니다.
@@ -245,7 +245,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- 다중 테넌트 SaaS 응용 프로그램에 대한 자세한 내용은 [다중 테넌트 SaaS 응용 프로그램에 대한 디자인 패턴을](saas-tenancy-app-design-patterns.md)참조하십시오.
+- 다중 테 넌 트 SaaS 응용 프로그램에 대해 알아보려면 [다중 테 넌 트 saas 응용 프로그램에 대 한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조 하세요.
 
 - 탄력적 풀에 대해 알아보려면 다음을 참조하세요.
 
@@ -264,7 +264,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 > - 풀 사용률을 검토하여 테넌트 작업을 모니터링하는 방법
 > - 샘플 리소스를 삭제하여 관련 결제를 중지하는 방법
 
-이제 [프로비저닝 및 카탈로그 자습서를](sql-database-saas-tutorial-provision-and-catalog.md)사용해 보십시오.
+이제 [프로 비전 및 카탈로그 자습서](sql-database-saas-tutorial-provision-and-catalog.md)를 사용해 보세요.
 
 
 <!--  Link references.

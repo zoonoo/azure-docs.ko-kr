@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/25/2018
 ms.openlocfilehash: ae26f669ddbe2cc2c5b6e25a9c1c0229e88dc2e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823917"
 ---
 # <a name="building-scalable-cloud-databases"></a>확장성 있는 클라우드 데이터베이스 빌드
@@ -27,16 +27,16 @@ Azure SQL Database의 확장성 있는 도구 및 기능을 사용하여 데이�
 * 라이브러리의 Java 버전: [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools) 참조
 * 라이브러리의 .NET 버전: [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) 참조
 
-## <a name="documentation"></a>설명서
+## <a name="documentation"></a>문서화
 
-1. [탄력적 데이터베이스 도구 시작](sql-database-elastic-scale-get-started.md)
+1. [Elastic Database 도구 시작 하기](sql-database-elastic-scale-get-started.md)
 2. [Elastic Database 기능](sql-database-elastic-scale-introduction.md)
 3. [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)
 4. [확장하기 위해 기존 데이터베이스 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)
 5. [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)
 6. [다중 분할된 쿼리](sql-database-elastic-scale-multishard-querying.md)
 7. [Elastic Database 도구를 사용하여 분할된 데이터베이스 추가하기](sql-database-elastic-scale-add-a-shard.md)
-8. [탄력적 데이터베이스 도구및 행 수준 보안을 갖춘 다중 테넌트 응용 프로그램](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+8. [탄력적 데이터베이스 도구 및 행 수준 보안을 사용 하는 다중 테 넌 트 응용 프로그램](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 9. [클라이언트 라이브러리 앱 업그레이드](sql-database-elastic-scale-upgrade-client-library.md) 
 10. [탄력적 쿼리 개요](sql-database-elastic-query-overview.md)
 11. [탄력적 데이터베이스 도구 용어집](sql-database-elastic-scale-glossary.md)

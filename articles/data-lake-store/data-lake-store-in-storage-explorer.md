@@ -1,5 +1,5 @@
 ---
-title: 데이터 레이크 스토리지 Gen1 리소스 관리 - Azure 저장소 탐색기
+title: Data Lake Storage Gen1 리소스 관리-Azure Storage 탐색기
 description: Azure Storage Explorer에서 Azure Data Lake Storage Gen1 데이터 및 리소스에 액세스하고 관리하는 방법 알아보기
 author: jejiang
 ms.service: data-lake-store
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: jejiang
 ms.openlocfilehash: a5117f72f933e1e48dc471a75624a8d3921f55af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73832270"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Storage Explorer를 사용하여 Azure Data Lake Storage Gen1 리소스 관리
@@ -195,7 +195,7 @@ URL이 있는 경우 파일 탐색기 또는 브라우저의 주소 경로에 UR
 ## <a name="next-steps"></a>다음 단계
 
 * [최신 Storage Explorer 릴리스 정보 및 비디오](https://www.storageexplorer.com)를 보세요.
-* [Azure 저장소 탐색기에서 Azure 코스모스 DB를 관리하는](https://docs.microsoft.com/azure/cosmos-db/storage-explorer)방법에 대해 알아봅니다.
-* [저장소 탐색기를 시작하십시오.](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
-* [Azure 데이터 레이크 저장소 Gen1을 시작하십시오.](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)
+* [Azure Storage 탐색기에서 Azure Cosmos DB를 관리](https://docs.microsoft.com/azure/cosmos-db/storage-explorer)하는 방법을 알아봅니다.
+* [Storage 탐색기를 시작](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)합니다.
+* [Azure Data Lake Storage Gen1를 시작](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)합니다.
 * [Azure Storage Explorer에서 Azure Cosmos DB를 사용하는 방법에 대한 YouTube 비디오](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)를 시청합니다.

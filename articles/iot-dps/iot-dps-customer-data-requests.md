@@ -1,6 +1,6 @@
 ---
-title: Azure DPS 장치에 대한 고객 데이터 요청 기능
-description: 개인 용 Azure 장치 프로비저닝 서비스(DPS)에서 관리되는 장치의 경우 이 문서에서는 관리자에게 개인 데이터를 내보내거나 삭제하는 방법을 보여 주며 이 문서에서는
+title: Azure DPS 장치에 대 한 고객 데이터 요청 기능
+description: 개인 인 Azure 장치 프로 비전 서비스 (DPS)에서 관리 되는 장치의 경우이 문서에서는 관리자가 개인 데이터를 내보내거나 삭제 하는 방법을 보여 줍니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/16/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 1dcf1b9f62f94b8f75ef2fe77f3e237a387c53eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73890644"
 ---
 # <a name="summary-of-customer-data-request-features"></a>고객 데이터 요청 기능 요약
@@ -62,6 +62,6 @@ REST API를 사용하여 등록 및 등록 레코드에 대한 내보내기 작�
 
 ## <a name="links-to-additional-documentation"></a>추가 설명서에 대한 링크
 
-장치 프로비저닝 서비스 API에 [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps)대한 전체 설명서는 에 있습니다.
+장치 프로 비전 서비스 Api에 대 한 전체 설명서 [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps)는에 있습니다.
 
 Azure IoT Hub [고객 데이터 요청 기능](../iot-hub/iot-hub-customer-data-requests.md)

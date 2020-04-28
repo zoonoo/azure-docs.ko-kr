@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 12/18/2018
 ms.openlocfilehash: c589d9619da8b5150d0fb4752625571c48393552
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73826373"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 단일 테넌트 앱
@@ -24,7 +24,7 @@ ms.locfileid: "73826373"
 
 1.  각 테넌트 데이터베이스에서 분석 저장소로 데이터를 **추출**하고 **로드**합니다.
 2.  분석 처리를 위해 **추출된 데이터를 변환**합니다.
-3.  **비즈니스 인텔리전스** 도구를 사용하여 의사 결정을 안내할 수 있는 유용한 통찰력을 얻을 수 있습니다. 
+3.  **비즈니스 인텔리전스** 도구를 사용 하 여 의사 결정에 도움이 되는 유용한 정보를 그려 볼 수 있습니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "73826373"
 
 ## <a name="setup"></a>설치 프로그램
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
 
@@ -78,8 +78,8 @@ ms.locfileid: "73826373"
 
 이 자습서에서는 티켓 판매량 데이터를 대상으로 분석을 수행합니다. 이 단계에서는 모든 테넌트의 티켓 데이터를 생성합니다.  생성된 데이터는 나중에 분석을 위해 추출됩니다. *유의미한 데이터 양을 확보하기 위해 앞에서 설명한 바와 같이 테넌트 배치가 프로비전되어 있어야 합니다*. 데이터가 일정 양을 넘어서면 다양한 티켓 구매 패턴을 파악할 수 있습니다.
 
-1. PowerShell ISE에서 열기 *...\학습 모듈\운영 분석\테넌트 분석\데모-테넌트 Analytics.ps1*및 다음 값을 설정합니다.
-    - **$DemoScenario** = **1** 모든 장소에서 이벤트 티켓 구매
+1. PowerShell ISE에서 *. ..\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*를 열고 다음 값을 설정 합니다.
+    - **$DemoScenario** = **1** 모든 장소에서 이벤트에 대 한 구매 티켓 구입
 2. **F5** 키를 눌러 스크립트를 실행하고 모든 행사장의 모든 이벤트에 대한 티켓 구매 이력을 생성합니다.  스크립트가 몇 분 동안 실행되며 수만 개의 티켓을 생성합니다.
 
 ### <a name="deploy-the-analytics-store"></a>분석 저장소 배포하기
@@ -88,11 +88,11 @@ ms.locfileid: "73826373"
 이어지는 단계에서는 **tenantanalytics**라는 분석 저장소를 배포합니다. 자습서 뒷부분에서 자동으로 입력되게 되는 사전 정의된 테이블도 배포합니다.
 1. PowerShell ISE에서 *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*을 엽니다. 
 2. 선택한 분석 저장소에 맞도록 $DemoScenario 값을 설정합니다.
-    - 열 저장소없이 SQL 데이터베이스를 사용하려면 **$DemoScenario** = **2로** 설정하십시오.
-    - 열 저장소에 SQL 데이터베이스를 사용하려면 **$DemoScenario** = **설정 3**  
-3. **F5를** 눌러 테넌트 분석 저장소를 만드는 *데모 스크립트(Deploy-TenantAnalytics\<XX>.ps1* 스크립트라고 부름)를 실행합니다. 
+    - 열 저장소 없이 SQL database를 사용 하려면 **$DemoScenario** = **2** 를 설정 합니다.
+    - 열 저장소에서 SQL database를 사용 하려면 **$DemoScenario** = **3** 으로 설정 합니다.  
+3. **F5** 키를 눌러 테 넌 트 분석 저장소를 만드는 데모 스크립트 ( *tenantanalytics\<XX>. ps1* 스크립트)를 실행 합니다. 
 
-이제 응용 프로그램을 배포하고 흥미로운 테넌트 데이터로 채웠으니 [SQL Server 관리 스튜디오(SSMS)를](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 사용하여 로그인 = *개발자*, 암호 = *P\@ssword1을*사용하여 **테넌트1-dpt-사용자&lt;&gt; ** 및 **카탈로그-dpt-사용자&lt;&gt; ** 서버를 연결합니다. 자세한 내용은 [입문용 자습서](saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
+응용 프로그램을 배포 하 고 관심 있는 테 넌 트 데이터로 채운 후에는 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 를 사용 하 여 Login = *developer*, Password = *P\@ssword1*를 사용 하 여 **tenants1-user&lt;&gt; ** 및 **user-&lt;user&gt; ** 서버를 연결 합니다. 자세한 내용은 [입문용 자습서](saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -174,13 +174,13 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 왼쪽 창에서 **데이터베이스를** 선택한 다음 사용자 이름 = *개발자를*입력하고 암호 = *P\@sword1을*입력합니다. **연결**을 클릭합니다.  
+5. 왼쪽 창에서 **데이터베이스** 를 선택 하 고 사용자 이름 = *개발자*를 입력 한 다음 password = *P\@ssword1*을 입력 합니다. **연결**을 클릭합니다.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. **탐색기** 패널의 분석 데이터베이스 아래에서 스타 스키마 테이블(fact_Tickets, dim_Events, dim_Venues, dim_Customers, dim_Dates)을 선택합니다. 그런 다음 **로드**를 선택합니다. 
 
-축하합니다! Power BI에 데이터를 성공적으로 로드했습니다. 지금부터 시각화 데이터를 살펴보고 테넌트에 대한 유용한 정보를 얻을 수 있습니다. 이번에는 Wingtip Tickets 비즈니스 팀이 분석을 사용하여 데이터 기반 권장 사항을 확인하는 예를 살펴보겠습니다. 권장 사항을 바탕으로 비즈니스 모델과 고객 경험을 최적화할 수 있습니다.
+지금까지 Power BI에 데이터를 성공적으로 로드했습니다. 지금부터 시각화 데이터를 살펴보고 테넌트에 대한 유용한 정보를 얻을 수 있습니다. 이번에는 Wingtip Tickets 비즈니스 팀이 분석을 사용하여 데이터 기반 권장 사항을 확인하는 예를 살펴보겠습니다. 권장 사항을 바탕으로 비즈니스 모델과 고객 경험을 최적화할 수 있습니다.
 
 먼저 티켓 판매량 데이터를 분석하여 행사장별 판매량의 차이를 확인합니다. Power BI에서 아래 그림과 같이 옵션을 선택하여 각 행사장에서 판매된 총 티켓 수를 막대형 차트로 표시합니다. 티켓 생성기가 임의로 작동하기 때문에 결과가 그림과 다르게 나타날 수 있습니다.
  
@@ -235,10 +235,10 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 > - 분석 데이터베이스 쿼리하기 
 > - 데이터 시각화를 위해 Power BI를 사용하여 테넌트 데이터의 추세 관찰하기 
 
-축하합니다!
+지금까지
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Wingtip SaaS 응용 프로그램을 기반으로 하는](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)추가 자습서 .
-- [탄력적 작업](elastic-jobs-overview.md).
+- [정문 SaaS 응용 프로그램을 기반으로 구축 되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)입니다.
+- [탄력적 작업](elastic-jobs-overview.md)
 - [추출된 데이터를 사용하여 교차 테넌트 분석 - 다중 테넌트 앱](saas-multitenantdb-tenant-analytics.md)

@@ -1,5 +1,5 @@
 ---
-title: 서비스 간 인증 - 데이터 레이크 스토리지 Gen1 - Java SDK
+title: 서비스 간 인증-Data Lake Storage Gen1 – Java SDK
 description: Azure Active Directory를 사용하여 Java로 Azure Data Lake Storage Gen1 서비스 간 인증을 수행하는 방법을 알아봅니다.
 author: twooley
 ms.service: data-lake-store
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: f355da7cd9c035b4ed0845bbd374a93bfb4a7350
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73904545"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Java를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
@@ -31,7 +31,7 @@ ms.locfileid: "73904545"
 
 * **Azure Active Directory "웹" 애플리케이션 만들기**. [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 서비스 간 인증](data-lake-store-service-to-service-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.
 
-* [메이븐](https://maven.apache.org/install.html). 이 자습서에서는 빌드 및 프로젝트 종속성을 위해 Maven을 사용합니다. Maven 또는 Gradle과 같은 빌드 시스템을 사용하지 않고 빌드할 수 있지만 이러한 시스템을 사용하면 종속성을 훨씬 쉽게 관리할 수 있습니다.
+* [Maven](https://maven.apache.org/install.html). 이 자습서에서는 빌드 및 프로젝트 종속성을 위해 Maven을 사용합니다. Maven 또는 Gradle와 같은 빌드 시스템을 사용 하지 않고 빌드할 수 있지만 이러한 시스템을 사용 하면 종속성을 훨씬 더 쉽게 관리할 수 있습니다.
 
 * (선택 사항)[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) 또는 [Eclipse](https://www.eclipse.org/downloads/)나 유사한 IDE
 
@@ -39,7 +39,7 @@ ms.locfileid: "73904545"
 
 1. 명령줄에서 [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)을 사용하거나 IDE에서 Maven 프로젝트를 만듭니다. IntelliJ를 사용하여 Java 프로젝트를 만드는 방법에 대한 자세한 내용은 [여기](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html)를 참조하세요. Eclipse를 사용하여 프로젝트를 만드는 방법에 대한 자세한 내용은 [여기](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm)를 참조하세요.
 
-2. Maven **pom.xml** 파일에 다음 종속성을 추가합니다. ** \</project>** 태그 앞에 다음 스니펫을 추가합니다.
+2. Maven **pom.xml** 파일에 다음 종속성을 추가합니다. /Project>태그 앞에 다음 코드 조각을 추가 합니다. ** \<**
 
         <dependencies>
           <dependency>

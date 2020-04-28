@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링 솔루션을 로컬로 배포 - VS IDE - Azure | 마이크로 소프트 문서
+title: 로컬로 원격 모니터링 솔루션 배포-VS IDE-Azure | Microsoft Docs
 description: 이 방법 가이드에서는 테스트 및 개발을 위해 Visual Studio를 사용하여 원격 모니터링 솔루션 가속기를 로컬 머신에 배포하는 방법을 보여줍니다.
 author: avneet723
 manager: hegate
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: a1eba1fceb959bd475d205176c2c53f6409fdc77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73890883"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>로컬에 원격 모니터링 솔루션 가속기 배포 - Visual Studio
@@ -27,7 +27,7 @@ ms.locfileid: "73890883"
 
 원격 모니터링 솔루션 가속기에 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
 
-계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판을](https://azure.microsoft.com/pricing/free-trial/)참조하십시오.
+계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요.
 
 ### <a name="machine-setup"></a>머신 설치
 
@@ -60,7 +60,7 @@ ms.locfileid: "73890883"
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>그 외의 모든 마이크로 서비스를 로컬 머신에 배포
 
-다음 단계는 Visual Studio에서 원격 모니터링 마이크로 서비스를 실행하는 방법을 보여 주며 다음과 같은 단계를 보여 주며 있습니다.
+다음 단계는 Visual Studio에서 원격 모니터링 마이크로 서비스를 실행 하는 방법을 보여 줍니다.
 
 1. Visual Studio를 시작합니다.
 1. 리포지토리의 로컬 복사본에서 **services** 폴더의 **remote-monitoring.sln** 솔루션을 엽니다.
@@ -82,7 +82,7 @@ ms.locfileid: "73890883"
 
 다음 단계에 따라 Stream Analytics 작업을 시작합니다.
 
-1. [Azure 포털로](https://portal.azure.com)이동합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동 합니다.
 1. 솔루션에 대해 만든 **리소스 그룹**으로 이동합니다. 리소스 그룹의 이름은 **start.cmd** 스크립트를 실행할 때 선택한 솔루션 이름입니다.
 1. 리소스 목록에서 **Stream Analytics 작업**을 클릭합니다.
 1. Stream Analytics 작업 **개요** 페이지에서 **시작** 단추를 클릭합니다. 그런 다음, **시작**을 클릭하여 지금 작업을 시작합니다.
@@ -96,7 +96,7 @@ npm install
 npm start
 ```
 
-시작이 완료되면 브라우저에 **페이지 http:\//localhost:3000/대시보드가**표시됩니다. 이 페이지의 오류는 예상된 것입니다. 애플리케이션을 오류 없이 표시하려면 다음 단계를 완료합니다.
+시작이 완료 되 면 브라우저에서 **http:\//hosts: 3000/dashboard**페이지가 표시 됩니다. 이 페이지의 오류는 예상된 것입니다. 애플리케이션을 오류 없이 표시하려면 다음 단계를 완료합니다.
 
 ### <a name="configure-and-run-nginx"></a>NGINX 구성 및 실행
 
@@ -109,7 +109,7 @@ npm start
 
 ### <a name="connect-to-the-dashboard"></a>대시보드에 연결
 
-원격 모니터링 솔루션 대시보드에 액세스하려면\/브라우저에서 http: /localhost:9000으로 이동합니다.
+원격 모니터링 솔루션 대시보드에 액세스 하려면 브라우저에서 http:\//shosts: 9000로 이동 합니다.
 
 ## <a name="clean-up"></a>정리
 

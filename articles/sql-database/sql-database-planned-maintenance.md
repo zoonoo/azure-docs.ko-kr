@@ -12,10 +12,10 @@ ms.author: aamalvea
 ms.reviewer: carlrab
 ms.date: 01/30/2019
 ms.openlocfilehash: ba882176fbe17f7b74c786f421dde8fadd58d9b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73821313"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Azure SQL Database의 Azure 유지 관리 이벤트 계획
@@ -28,7 +28,7 @@ Azure SQL 데이터베이스에서 계획된 유지 관리 이벤트를 준비�
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>계획된 유지 관리 이벤트 기간 동안 예상되는 상황
 
-재구성/장애 조치(failover)는 일반적으로 30초 이내에 완료되며 평균은 8초가 걸립니다. 이미 연결되어있는 경우, 애플리케이션은 데이터베이스의 새로운 주 복제본을 정상적으로 복제해야 합니다. 새 주 복제본이 온라인 상태가 되기 전에 데이터베이스가 재구성되는 동안 새 연결을 시도하는 경우 오류 40613(데이터베이스 사용 불가): 서버 '{servername}'의 데이터베이스 '{데이터베이스 이름}'은 현재 사용할 수 없습니다. 나중에 연결을 다시 시도해보세요." 오류가 발생합니다. 데이터베이스에 장기 실행 쿼리가 있으면, 이 쿼리가 재구성 중에 중단되어 다시 시작해야 합니다.
+재구성/장애 조치(failover)는 일반적으로 30초 이내에 완료되며 평균은 8초가 걸립니다. 이미 연결되어있는 경우, 애플리케이션은 데이터베이스의 새로운 주 복제본을 정상적으로 복제해야 합니다. 새 주 복제본이 온라인 상태가 되기 전에 데이터베이스를 다시 구성 하는 동안 새 연결을 시도 하면 오류 40613 (데이터베이스를 사용할 수 없음): "{servername} ' 서버에서" 데이터베이스 ' {databasename} '을 (를) 현재 사용할 수 없습니다. 나중에 연결을 다시 시도해보세요." 오류가 발생합니다. 데이터베이스에 장기 실행 쿼리가 있으면, 이 쿼리가 재구성 중에 중단되어 다시 시작해야 합니다.
 
 ## <a name="retry-logic"></a>재시도 논리
 

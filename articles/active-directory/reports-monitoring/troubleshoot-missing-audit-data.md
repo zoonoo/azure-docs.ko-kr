@@ -1,5 +1,5 @@
 ---
-title: 활동 로그에서 누락된 데이터 문제 해결 | 마이크로 소프트 문서
+title: 활동 로그에서 누락 된 데이터 문제 해결 | Microsoft Docs
 description: Azure Active Directory 활동 로그의 데이터 누락 문제 해결 방법을 제공합니다.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c335a4d30846f7c1b4dbd6b6aedc4d100a9b43a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74014279"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>문제 해결: Azure Active Directory 활동 로그의 데이터 누락 | Microsoft Docs 
@@ -95,5 +95,5 @@ Azure Active Directory 작업은 사용자 라이선스에 따라 다음 기간 
 
 * [Azure AD 보고서 보존](reference-reports-data-retention.md).
 * [Azure Active Directory 보고 대기 시간](reference-reports-latencies.md)입니다.
-* [Azure Active Directory 보고 FAQ](reports-faq.md).
+* [보고 FAQ를 Azure Active Directory](reports-faq.md)합니다.
 

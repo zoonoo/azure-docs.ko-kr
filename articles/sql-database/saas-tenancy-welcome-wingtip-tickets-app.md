@@ -1,5 +1,5 @@
 ---
-title: 윙 팁 응용 프로그램에 오신 것을 환영합니다
+title: Wingtips 앱 시작
 description: 클라우드 환경의 Azure SQL Database에 대한 샘플 Wingtips SaaS 애플리케이션 및 데이터베이스 테넌시 모델에 대해 알아봅니다.
 keywords: SQL Database 자습서
 services: sql-database
@@ -13,21 +13,21 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
 ms.openlocfilehash: 4e0b3afe51ac7c7a6b9213fcee79af57cbbd8197
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73818325"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip Tickets SaaS 애플리케이션
 
-세 개의 샘플 각각에 동일한 *Wingtip Tickets* SaaS 애플리케이션이 구현되어 있습니다. 극장, 클럽 등 - 응용 프로그램은 작은 장소를 대상으로 간단한 이벤트 목록 및 발권 SaaS 응용 프로그램입니다 각 장소는 앱의 테넌트이며 장소 세부 정보, 이벤트 목록, 고객, 티켓 주문 등 자체 데이터가 있습니다.  이 앱은 관리 스크립트 및 자습서와 함께 종단 간 SaaS 시나리오를 보여 주었습니다. 여기에는 테넌트 프로비전, 성능 모니터링 및 관리, 스키마 관리, 테넌트 간 보고 및 분석이 포함됩니다.
+세 개의 샘플 각각에 동일한 *Wingtip Tickets* SaaS 애플리케이션이 구현되어 있습니다. 앱은 small 장소-극장, 클럽 등을 대상으로 하는 간단한 이벤트 목록 및 티켓 SaaS 앱입니다. 각 장소는 앱의 테 넌 트 이며, 장소 세부 정보, 이벤트 목록, 고객, 티켓 주문 등의 고유한 데이터가 있습니다.  앱은 관리 스크립트 및 자습서와 함께 종단 간 SaaS 시나리오를 소개 합니다. 여기에는 테넌트 프로비전, 성능 모니터링 및 관리, 스키마 관리, 테넌트 간 보고 및 분석이 포함됩니다.
 
 ## <a name="three-saas-application-and-tenancy-patterns"></a>세 개의 SaaS 애플리케이션과 테넌트 패턴
 
 세 버전의 앱을 사용할 수 있으며, 각각 Azure SQL Database에서 다른 데이터베이스 테넌트 패턴을 보여 줍니다.  첫 번째는 자체 데이터베이스를 사용하여 테넌트별로 각각 독립 실행형 애플리케이션을 사용합니다. 두 번째는 테넌트별 데이터베이스를 사용하여 다중 테넌트 앱을 사용합니다. 세 번째 샘플은 다중 테넌트 앱과 분할된 다중 테넌트 데이터베이스를 사용합니다.
 
-![세 가지 테넌시 패턴][image-three-tenancy-patterns]
+![3 개의 테 넌 트 패턴][image-three-tenancy-patterns]
 
  각 샘플에는 다양한 디자인 및 관리 패턴을 살펴볼 수 있는 자습서, 관리 스크립트와 애플리케이션 코드가 포함되어 있습니다.  각 샘플은 5분 내에 배포됩니다.  세 패턴은 모두 나란히 배포되어 디자인 및 관리의 차이를 비교할 수 있습니다.
 
