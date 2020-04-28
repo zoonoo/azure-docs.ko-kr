@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에서 일관성 관리
-description: Azure 포털, .Net SDK, Java SDK 및 기타 다양한 SDK를 사용하여 Azure Cosmos DB에서 일관성 수준을 구성하고 관리하는 방법을 알아봅니다.
+description: Azure Portal, .NET SDK, Java SDK 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos DB에서 일관성 수준을 구성 하 고 관리 하는 방법을 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 04/24/2020
 ms.author: mjbrown
-ms.openlocfilehash: 651daa0af8188b386220d97390e7a61615f94120
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e18abf5d8e26dba7a48bd1deb7d53102b9971690
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79369406"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184285"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준 관리
 
@@ -21,42 +21,32 @@ ms.locfileid: "79369406"
 
 ## <a name="configure-the-default-consistency-level"></a>기본 일관성 수준 구성
 
-[기본 일관성 수준](consistency-levels.md)은 클라이언트에서 기본적으로 사용하는 일관성 수준입니다. 클라이언트는 언제든지 기본 일관성 수준을 재정의할 수 있습니다.
+[기본 일관성 수준](consistency-levels.md)은 클라이언트에서 기본적으로 사용하는 일관성 수준입니다.
 
 ### <a name="cli"></a>CLI
 
+세션 일관성을 사용 하 여 Cosmos 계정을 만든 다음 기본 일관성을 업데이트 합니다.
+
 ```azurecli
-# create with a default consistency
-az cosmosdb create --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Session
+# Create a new account with Session consistency
+az cosmosdb create --name $accountName --resource-group $resourceGroupName --default-consistency-level Session
 
 # update an existing account's default consistency
-az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Eventual
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --default-consistency-level Strong
 ```
 
 ### <a name="powershell"></a>PowerShell
 
-이 예제에서는 미국 동부 및 미국 서부 지역에 다중 쓰기 지역을 사용하도록 설정된 새 Azure Cosmos 계정을 만듭니다. 기본 일관성 수준은 *세션* 일관성으로 설정됩니다.
+세션 일관성을 사용 하 여 Cosmos 계정을 만든 다음 기본 일관성을 업데이트 합니다.
 
 ```azurepowershell-interactive
-$locations = @(@{"locationName"="East US"; "failoverPriority"=0},
-             @{"locationName"="West US"; "failoverPriority"=1})
+# Create a new account with Session consistency
+New-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
+  -Location $locations -Name $accountName -DefaultConsistencyLevel "Session"
 
-$iprangefilter = ""
-
-$consistencyPolicy = @{"defaultConsistencyLevel"="Session"}
-
-$CosmosDBProperties = @{"databaseAccountOfferType"="Standard";
-                        "locations"=$locations;
-                        "consistencyPolicy"=$consistencyPolicy;
-                        "ipRangeFilter"=$iprangefilter;
-                        "enableMultipleWriteLocations"="true"}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-  -ApiVersion "2015-04-08" `
-  -ResourceGroupName "myResourceGroup" `
-  -Location "East US" `
-  -Name "myCosmosDbAccount" `
-  -Properties $CosmosDBProperties
+# Update an existing account's default consistency
+Update-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
+  -Name $accountName -DefaultConsistencyLevel "Strong"
 ```
 
 ### <a name="azure-portal"></a>Azure portal
@@ -68,6 +58,9 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 ## <a name="override-the-default-consistency-level"></a>기본 일관성 수준 재정의
 
 클라이언트는 서비스에서 설정한 기본 일관성 수준을 재정의할 수 있습니다. 일관성 수준을 요청별로 설정할 수 있으며, 이렇게 하면 계정 수준에서 설정된 기본 일관성 수준이 재정의됩니다.
+
+> [!TIP]
+> 일관성은 요청 수준 에서만 **완화할** 수 있습니다. 더 약한에서 더 강력한 일관성으로 이동 하려면 Cosmos 계정에 대 한 기본 일관성을 업데이트 합니다.
 
 ### <a name="net-sdk-v2"></a><a id="override-default-consistency-dotnet"></a>.NET SDK V2
 
@@ -89,8 +82,8 @@ ItemRequestOptions requestOptions = new ItemRequestOptions { ConsistencyLevel = 
 
 var response = await client.GetContainer(databaseName, containerName)
     .CreateItemAsync(
-        item, 
-        new PartitionKey(itemPartitionKey), 
+        item,
+        new PartitionKey(itemPartitionKey),
         requestOptions);
 ```
 
@@ -231,10 +224,9 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>PBS(확률적 제한된 부실) 메트릭 모니터링
 
-최종 일관성은 어떻게 최종인가요? 평균적인 사례의 경우 버전 기록 및 시간과 관련하여 부실 범위를 제공할 수 있습니다. [**PBS(확률적 제한된 부실)**](https://pbs.cs.berkeley.edu/) 메트릭은 부실의 확률을 수량화하여 메트릭으로 표시하려고 시도합니다. PBS 메트릭을 보려면 Azure Portal에서 Cosmos 계정으로 이동합니다. **메트릭** 창을 열고 **일관성** 탭을 선택합니다. **워크로드에 따라 강력하게 일관된 읽기의 확률이라는 그래프를 확인합니다(PBS 참조).**
+최종 일관성은 어떻게 최종인가요? 평균적인 사례의 경우 버전 기록 및 시간과 관련하여 부실 범위를 제공할 수 있습니다. [**PBS(확률적 제한된 부실)**](https://pbs.cs.berkeley.edu/) 메트릭은 부실의 확률을 수량화하여 메트릭으로 표시하려고 시도합니다. PBS 메트릭을 보려면 Azure Portal에서 Cosmos 계정으로 이동합니다. **메트릭** 창을 열고 **일관성** 탭을 선택 합니다. **작업을 기반으로 하는 강력한 일관성 읽기의 확률**이라는 그래프를 확인 합니다 (PBS 참조).
 
 ![Azure Portal의 PBS 그래프](./media/how-to-manage-consistency/pbs-metric.png)
-
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -243,6 +235,6 @@ item = client.ReadItem(doc_link, options)
 * [Azure Cosmos DB의 일관성 수준](consistency-levels.md)
 * [Azure 지역 간 충돌 관리](how-to-manage-conflicts.md)
 * [분할 및 데이터 배포](partition-data.md)
-* [최신 분산 데이터베이스 시스템 설계의 일관성 장단점](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+* [최신 분산 데이터베이스 시스템 디자인의 일관성 절충](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [고가용성](high-availability.md)
 * [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

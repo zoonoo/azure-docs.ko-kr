@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 2192260c3106a6b8d3d3ffd0e063ee945734f308
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8f2e99ffc9f9ee5c5553e8d933d82f83999c8ab2
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79136315"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732893"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>빠른 시작: Linux의 App Service에서 Java 앱 만들기
 
@@ -52,19 +52,19 @@ az login
 
 그런 다음, 배포를 구성하고 명령 프롬프트에서 maven 명령을 실행하고 **확인(Y/N)** 프롬프트가 표시될 때까지 **ENTER** 키를 눌러 기본 구성을 사용한 다음, **'y'** 를 누르면 구성이 완료됩니다. 
 ```cmd
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
 샘플 프로세스는 다음과 같습니다.
 
 ```cmd
-~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.0:config
+~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 [INFO] Scanning for projects...
 [INFO]
 [INFO] ----------------------< example.demo:helloworld >-----------------------
 [INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
 [INFO] --------------------------------[ war ]---------------------------------
 [INFO]
-[INFO] --- azure-webapp-maven-plugin:1.9.0:config (default-cli) @ helloworld ---
+[INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ helloworld ---
 [WARNING] The plugin may not work if you change the os of an existing webapp.
 Define value for OS(Default: Linux):
 1. linux [*]
@@ -141,10 +141,10 @@ az group delete --name <your resource group name; for example: helloworld-155840
 > [Java를 사용하여 Azure SQL 데이터베이스에 연결](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 
 > [!div class="nextstepaction"]
-> [Java를 사용하여 Azure DB for MySQL에 연결](/azure/mysql/connect-java?toc=/azure/java/toc.json)
+> [Java를 사용하여 Azure DB for MySQL에 연결](/azure/mysql/connect-java)
 
 > [!div class="nextstepaction"]
-> [Java를 사용하여 Azure DB for PostgreSQL에 연결](/azure/postgresql/connect-java?toc=/azure/java/toc.json)
+> [Java를 사용하여 Azure DB for PostgreSQL에 연결](/azure/postgresql/connect-java)
 
 > [!div class="nextstepaction"]
 > [Java 앱 구성](configure-custom-container.md)

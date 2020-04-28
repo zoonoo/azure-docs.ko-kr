@@ -12,14 +12,14 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/19/2020
-ms.author: jeedes
-ms.openlocfilehash: 22b673ef481593247b6ee1007c13390a498c66be
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 01/15/2020
+ms.author: miguego
+ms.openlocfilehash: 7e47891a74feb60b0f3e4594bd1621e8b62d64d1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80048627"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866985"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sharepoint-on-premises"></a>자습서: SharePoint 온-프레미스와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -33,47 +33,57 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하려면 다음 항목이 필요합니다.
+SharePoint 온-프레미스와 Azure Active Directory의 통합을 구성하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* SharePoint 온-프레미스 SSO(Single Sign-On)가 설정된 구독
+* Azure Active Directory 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* SharePoint 2013 팜 이상
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
+이 자습서에서는 테스트 환경에서 Azure Active Directory SSO를 구성하고 테스트합니다. Azure Active Directory의 사용자는 Sharepoint 온-프레미스에 액세스할 수 있습니다.
 
-* SharePoint 온-프레미스에서 **SP** 시작 SSO를 지원합니다.
-* SharePoint 온-프레미스가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-* 이 [링크](https://docs.microsoft.com/archive/blogs/kaevans/sharepoint-2013-user-profile-sync-for-claims-users)에서 SharePoint 온-프레미스의 사용자 프로필을 Azure AD에 동기화하는 방법을 참조하세요.
-
-## <a name="adding-sharepoint-on-premises-from-the-gallery"></a>갤러리에서 SharePoint 온-프레미스 추가
+## <a name="create-the-enterprise-applications-in-azure-portal"></a>Azure Portal에서 엔터프라이즈 애플리케이션 만들기
 
 SharePoint 온-프레미스의 Azure AD 통합을 구성하려면 갤러리의 SharePoint 온-프레미스를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
-1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
+갤러리의 SharePoint 온-프레미스를 추가하려면 다음 단계를 수행합니다.
 
-    > [!NOTE]
-    > 요소를 사용할 수 없는 경우 왼쪽 탐색 패널의 맨 위에 고정된 **전체 서비스** 링크를 통해 열 수도 있습니다. 다음 개요에서 **Azure Active Directory** 링크는 **ID** 섹션에 있습니다. 또는 필터 텍스트 상자를 사용하여 검색할 수 있습니다.
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
-1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
-1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
-1. **갤러리에서 추가** 섹션의 검색 상자에 **SharePoint 온-프레미스**를 입력합니다.
-1. 결과 패널에서 **SharePoint 온-프레미스**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+ > [!NOTE]
+ > 요소를 사용할 수 없는 경우 왼쪽 탐색 패널의 맨 위에 고정된 **전체 서비스** 링크를 통해 열 수도 있습니다. 다음 개요에서 **Azure Active Directory** 링크는 **ID** 섹션에 있습니다. 또는 필터 텍스트 상자를 사용하여 검색할 수 있습니다.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sharepoint-on-premises"></a>SharePoint 온-프레미스에 대한 Azure AD Single Sign-On 구성 및 테스트
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
-**B.Simon**이라는 테스트 사용자를 사용하여 SharePoint 온-프레미스에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 SharePoint 온-프레미스의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-SharePoint 온-프레미스에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+4. 검색 상자에서 **SharePoint 온-프레미스**를 입력하고, 결과 패널에서 **SharePoint 온-프레미스**를 선택합니다.
+
+    <kbd>![결과 목록의 SharePoint 온-프레미스](./media/sharepoint-on-premises-tutorial/search-new-app.png)</kbd>
+
+1. SharePoint OnPrem에 대한 이름을 지정하고, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+
+1. 새 엔터프라이즈 애플리케이션에서 [속성]을 클릭하고, **사용자 할당 필요** 값을 확인합니다.
+
+   <kbd>![결과 목록의 SharePoint 온-프레미스](./media/sharepoint-on-premises-tutorial/user-assignment-required.png)</kbd>
+
+이 시나리오에서 이 값은 **아니요**로 설정됩니다.
+
+## <a name="configure-and-test-azure-ad"></a>Azure AD 구성 및 테스트
+
+이 섹션에서는 SharePoint 온-프레미스를 사용하여 Azure AD Single Sign-On을 구성합니다.
+Single Sign-On이 작동하려면 Azure AD 사용자와 SharePoint 온-프레미스의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+
+SharePoint 온-프레미스에서 Azure Active Directory Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[SharePoint 온-프레미스 Single Sign-On 구성](#configure-sharepoint-on-premises-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Azure Portal에서 Azure AD 보안 그룹 만들기](#create-an-azure-ad-security-group-in-the-azure-portal)** - Azure AD의 새 보안 그룹이 Single Sign-On을 사용하도록 설정합니다.
-5. **[SharePoint 온-프레미스 보안 그룹에 대한 액세스 권한 부여](#grant-access-to-sharepoint-on-premises-security-group)** - Azure AD에 특정 그룹에 대한 액세스 권한을 부여합니다.
-6. **[Azure Portal에서 Azure AD 보안 그룹 할당](#assign-the-azure-ad-security-group-in-the-azure-portal)** - 인증을 위해 Azure AD에 특정 그룹을 할당합니다.
-7. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+1. **[SharePoint 온-프레미스 구성](#configure-sharepoint-on-premises)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+1. **[Azure Portal에서 Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user-in-the-azure-portal)** - Single Sign-On에 대한 새 사용자를 Azure AD에 만듭니다.
+1. **[Azure Portal에서 Azure AD 보안 그룹 만들기](#create-an-azure-ad-security-group-in-the-azure-portal)** - Single Sign-On에 대한 새 보안 그룹을 Azure AD에 만듭니다.
+1. **[SharePoint 온-프레미스에서 Azure Active Directory 계정에 권한 부여](#grant-permissions-to-azure-active-directory-account-in-sharepoint-on-premises)** - Azure AD 사용자에게 권한을 부여합니다.
+1. **[SharePoint 온-프레미스에서 Azure AD 그룹에 권한 부여](#grant-permissions-to-azure-ad-group-in-sharepoint-on-premises)** - Azure AD 그룹에 권한을 부여합니다.
+1. **[Azure Portal에서 SharePoint 온-프레미스에 게스트 계정에 대한 액세스 권한 부여](#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal)** - Azure AD의 게스트 계정에 SharePoint 온-프레미스에 대한 권한을 부여합니다.
+1. **[여러 웹 애플리케이션에 대해 신뢰할 수 있는 ID 공급자 구성](#configuring-the-trusted-identity-provider-for-multiple-web-applications)** - 여러 웹 애플리케이션에 대해 신뢰할 수 있는 동일한 ID 공급자를 사용하는 방법에 대해 설명합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -81,79 +91,67 @@ SharePoint 온-프레미스에서 Azure AD SSO를 구성하고 테스트하려�
 
 SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **SharePoint 온-프레미스** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 Azure AD 디렉터리를 열고, **엔터프라이즈 애플리케이션**, **이전에 만든 엔터프라이즈 애플리케이션 이름**, **Single Sign-On**을 차례로 클릭합니다.
 
-    ![Single Sign-On 구성 링크](common/select-sso.png)
-
-2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
-
-    ![Single Sign-On 선택 모드](common/select-saml-option.png)
-
+2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML** 모드를 클릭하여 Single Sign-On을 사용하도록 설정합니다.
+ 
 3. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 아이콘을 클릭하여 **기본 SAML 구성** 대화 상자를 엽니다.
-
-    ![기본 SAML 구성 편집](common/edit-urls.png)
 
 4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
+    ![SharePoint 온-프레미스 도메인 및 URL Single Sign-On 정보](./media/sharepoint-on-premises-tutorial/sp-identifier-reply.png)
 
-    a. **로그인 URL** 텍스트 상자에서 `https://<YourSharePointServerURL>/_trust/default.aspx` 패턴을 사용하여 URL을 입력합니다.
+    1. **식별자** 텍스트 상자에서 `urn:<sharepointFarmName>:<federationName>` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에서 `urn:sharepoint:federation` 패턴을 사용하는 URL을 입력합니다.
+    1. **회신 URL** 텍스트 상자에서 `https://<YourSharePointSiteURL>/_trust/` 패턴을 사용하여 URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에서 `https://<YourSharePointServerURL>/_trust/default.aspx` 패턴을 사용하여 URL을 입력합니다.
+    1. **로그인 URL** 텍스트 상자에서 `https://<YourSharePointSiteURL>/` 패턴을 사용하여 URL을 입력합니다.
+    1. [저장]을 클릭합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [SharePoint 온-프레미스 클라이언트 지원 팀](https://support.office.com/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
-    ![인증서 다운로드 링크](common/certificatebase64.png)
+    ![인증서 다운로드 링크](./media/sharepoint-on-premises-tutorial/certificatebase64.png)
 
-    > [!Note]
-    > 구성을 위해 PowerShell 스크립트에서 나중에 사용해야 하므로 인증서 파일을 다운로드한 파일 경로를 적어 두세요.
+6. **SharePoint 온-프레미스 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+    
+    1. **로그인 URL**
+    
+        로그인 URL을 복사하고, 끝부분에 있는 **/saml2**를 **/wsfed**로 바꿉니다. 그러면 **https://login.microsoftonline.com/2c4f1a9f-be5f-10ee-327d-a95dac567e4f/wsfed** 처럼 보입니다(이 URL은 정확하지 않음).
 
-6. **SharePoint 온-프레미스 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다. **Single Sign-On 서비스 URL**의 경우 다음 패턴의 값을 사용합니다. `https://login.microsoftonline.com/_my_directory_id_/wsfed`
-
-    > [!Note]
-    > _my_directory_id_는 Azure Ad 구독의 테넌트 ID입니다.
-
-    ![구성 URL 복사](common/copy-configuration-urls.png)
-
-    a. 로그인 URL
-
-    b. Azure AD 식별자
-
-    다. 로그아웃 URL
-
+    1. **Azure AD 식별자**
+    1. **로그아웃 URL**
     > [!NOTE]
-    > Sharepoint On-Premises 애플리케이션은 SAML 1.1 토큰을 사용하므로, Azure AD는 SharePoint 서버로부터 WS Fed 요청을 기대하고 인증 후 SAML 1.1 토큰을 발급합니다.
+    > 이 URL은 SharePoint에서 있는 그대로 사용할 수 없습니다. 따라서 **/saml2**를 **/wsfed**로 바꿔야 합니다. Sharepoint On-Premises 애플리케이션은 SAML 1.1 토큰을 사용하므로, Azure AD는 SharePoint 서버로부터 WS Fed 요청을 기대하고 인증 후 SAML 1.1 토큰을 발급합니다.
 
-### <a name="configure-sharepoint-on-premises-single-sign-on"></a>SharePoint 온-프레미스 Single Sign-On 구성
+### <a name="configure-sharepoint-on-premises"></a>SharePoint 온-프레미스 구성
 
-1. 다른 웹 브라우저 창에서 SharePoint 온-프레미스 회사 사이트에 관리자 권한으로 로그인합니다.
+1. **SharePoint Server 2016에서 신뢰할 수 있는 새 ID 공급자 만들기**
 
-2. **SharePoint Server 2016에서 신뢰할 수 있는 새 ID 공급자 구성**
+    SharePoint 서버에 로그인하고, SharePoint 관리 셸을 엽니다. 다음 값을 입력합니다.
+    1. **$realm**(Azure Portal의 SharePoint 온-프레미스 도메인 및 URL 섹션의 식별자 값)
+    1. **$wsfedurl**(Single Sign-On 서비스 URL)
+   1. **$filepath**(Azure Portal에서 인증서 파일을 다운로드한 파일 경로)
 
-    SharePoint Server 2016 서버에 로그인하고 SharePoint 2016 관리 셸을 엽니다. Azure Portal에서 $realm(Azure Portal의 온-프레미스 도메인 및 URL 섹션에서 SharePoint의 식별자 값), $wsfedurl(Single Sign-On 서비스 URL) 및 $filepath(인증서 파일을 다운로드한 파일 경로)의 값을 채우고 다음 명령을 실행하여 새 신뢰할 수 있는 ID 공급자를 구성합니다.
+    다음 명령을 실행하여 신뢰할 수 있는 새 ID 공급자를 구성합니다.
 
     > [!TIP]
     > PowerShell을 처음 사용하거나 PowerShell 작동 방법에 대해 자세히 알아보려면 [SharePoint PowerShell](https://docs.microsoft.com/powershell/sharepoint/overview?view=sharepoint-ps)을 참조하세요.
 
+
     ```
-    $realm = "<Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal>"
-    $wsfedurl="<SAML single sign-on service URL value which you have copied from the Azure portal>"
-    $filepath="<Full path to SAML signing certificate file which you have downloaded from the Azure portal>"
+    $realm = "urn:sharepoint:sps201x"
+    $wsfedurl="https://login.microsoftonline.com/2c4f1a9f-be5f-10ee-327d-a95dac567e4f/wsfed"
+    $filepath="C:\temp\SharePoint 2019 OnPrem.cer"
     $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($filepath)
     New-SPTrustedRootAuthority -Name "AzureAD" -Certificate $cert
-    $map = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
-    $map2 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" -IncomingClaimTypeDisplayName "GivenName" -SameAsIncoming
-    $map3 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" -IncomingClaimTypeDisplayName "SurName" -SameAsIncoming
-    $map4 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" -IncomingClaimTypeDisplayName "Email" -SameAsIncoming
-    $map5 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming
-    $ap = New-SPTrustedIdentityTokenIssuer -Name "AzureAD" -Description "SharePoint secured by Azure AD" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $map,$map2,$map3,$map4,$map5 -SignInUrl $wsfedurl -IdentifierClaim "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
+    $map1 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
+    $map2 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming
+    $ap = New-SPTrustedIdentityTokenIssuer -Name "AzureAD" -Description "Azure AD SharePoint server 201x" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $map1,$map2 -SignInUrl $wsfedurl -IdentifierClaim $map1.InputClaimType
     ```
-
-    이제 다음 단계에 따라 애플리케이션에 대해 신뢰할 수 있는 ID 공급자를 사용하도록 설정합니다.
+1. **애플리케이션에 대해 신뢰할 수 있는 ID 공급자를 사용하도록 설정**
 
     a. 중앙 관리에서 **웹 애플리케이션 관리**로 이동하고 Azure AD로 보호하려는 웹 애플리케이션을 선택합니다.
 
@@ -161,199 +159,136 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하려면 다
 
     다. **신뢰할 수 있는 ID 공급자**를 선택하고 방금 등록한 이름이 *AzureAD*인 ID 공급자를 선택합니다.
 
-    d. 로그인 페이지 URL 설정에서 **사용자 지정 로그인 페이지**를 선택하고 “/_trust/”값을 입력합니다.
+    d. **확인**을 클릭합니다.
 
-    e. **확인**을 클릭합니다.
+    ![인증 공급자 구성](./media/sharepoint-on-premises-tutorial/config-auth-provider.png)
 
-    ![인증 공급자 구성](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
+### <a name="create-an-azure-ad-test-user-in-the-azure-portal"></a>Azure Portal에서 Azure AD 테스트 사용자 만들기
 
-    > [!NOTE]
-    > 일부 외부 사용자는 해당 UPN이 `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`과 같은 손상된 값을 가지므로 이 Single Sign-On 통합을 사용할 수 없습니다. 곧 사용자 유형에 따라 UPN을 처리하는 방법에 대한 고객 앱 구성을 허용할 계획입니다. 그런 다음, 모든 게스트 사용자는 조직의 직원으로 SSO를 원활하게 사용할 수 있어야 합니다.
+이 섹션에서는 Azure Portal에서 테스트 사용자를 만듭니다.
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**를 선택하고, **관리** 창에서 **사용자**를 선택합니다.
 
-이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
+2. 그런 다음, 화면 위쪽에서 **모든 사용자**를 선택한 다음, **새 사용자**를 선택합니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+3. **사용자 만들기** 옵션을 선택하고, [사용자] 속성에서 다음 단계를 수행합니다.  
+   테넌트 접미사 또는 확인된 도메인을 사용하여 사용자를 Azure AD에 만들 수 있습니다. 
 
-    !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
-
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
-
-    ![새 사용자 단추](common/new-user.png)
-
-3. 사용자 속성에서 다음 단계를 수행합니다.
-
-    ![사용자 대화 상자](common/user-properties.png)
-
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
+    a. **이름** 필드에서 사용자 이름을 입력합니다. 여기서는 **TestUser**를 사용했습니다.
   
-    b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
+    b. **사용자 이름** 필드에 `TestUser@yourcompanydomain.extension`을 입력합니다.  
+    예를 들어 TestUser@contoso.com
+
+    ![사용자 대화 상자](./media/sharepoint-on-premises-tutorial/user-properties.png)
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
+    e. 이제 사이트를 TestUser@contoso.com과 공유하고, 이 사용자가 액세스하도록 허용할 수 있습니다.
+
 ### <a name="create-an-azure-ad-security-group-in-the-azure-portal"></a>Azure Portal에서 Azure AD 보안 그룹 만들기
 
-1. **Azure Active Directory > 모든 그룹**을 클릭합니다.
-
-    ![Azure AD 보안 그룹 만들기](./media/sharepoint-on-premises-tutorial/allgroups.png)
+1. **Azure Active Directory > 그룹**을 차례로 클릭합니다.
 
 2. **새 그룹**을 클릭합니다.
 
-    ![Azure AD 보안 그룹 만들기](./media/sharepoint-on-premises-tutorial/newgroup.png)
-
 3. **그룹 유형**, **그룹 이름**, **그룹 설명**, **멤버 자격 유형**을 입력합니다. 화살표를 클릭하여 멤버를 선택하고 그룹에 추가하려는 멤버를 검색하거나 클릭합니다. **선택**을 클릭하여 선택한 멤버를 추가하고 **만들기**를 클릭합니다.
 
-    ![Azure AD 보안 그룹 만들기](./media/sharepoint-on-premises-tutorial/addingmembers.png)
+![Azure AD 보안 그룹 만들기](./media/sharepoint-on-premises-tutorial/new-group.png)
+
+### <a name="grant-permissions-to-azure-active-directory-account-in-sharepoint-on-premises"></a>SharePoint 온-프레미스에서 Azure Active Directory 계정에 권한 부여
+
+SharePoint 온-프레미스에서 Azure Active Directory 사용자에게 액세스 권한을 부여하려면 사이트 모음을 공유하거나 Azure Active Directory 사용자를 사이트 모음의 그룹 중 하나에 추가해야 합니다. 사용자는 이제 Azure AD의 ID를 사용하여 SharePoint 201x에 로그인할 수 있지만, 사용자 환경을 향상시킬 수 있는 기회가 여전히 남아 있습니다. 예를 들어, 사용자 선택에서 사용자를 검색하면 여러 검색 결과가 표시됩니다. 클레임 매핑에서 만들어진 각 클레임 유형에 대한 검색 결과가 있습니다. 사용자 선택기를 사용하여 사용자를 선택하려면 사용자 이름을 정확하게 입력하고 **이름** 클레임 결과를 선택해야 합니다.
+
+![클레임 검색 결과](./media/sharepoint-on-premises-tutorial/claims-search-results.png)
+
+검색한 값에 대한 유효성 검사가 없으므로 맞춤법 오류가 발생하거나 사용자가 실수로 잘못된 클레임 유형을 선택할 수 있습니다. 이렇게 되면 사용자가 리소스에 액세스하지 못할 수 있습니다.
+
+이 시나리오에서 **사용자 선택기를 수정**하기 위해 SharePoint 2013, 2016 및 2019에 대한 사용자 지정 클레임 공급자를 제공하는 [AzureCP](https://yvand.github.io/AzureCP/)라는 오픈 소스 솔루션이 있습니다. Microsoft Graph API를 사용하여 사용자 입력을 확인하고 유효성 검사를 수행합니다. [AzureCP](https://yvand.github.io/AzureCP/)에 대한 정보를 알아보세요.
+
+  > [!NOTE]
+  > AzureCP를 사용하지 않으면 Azure AD 그룹의 ID를 추가하여 그룹을 추가할 수 있지만, 이는 사용자에게 편리하고 안정적인 방법이 아닙니다. 다음과 같이 표시됩니다.  
+  >   
+  >![Sharepoint 그룹에 Azure AD 그룹 추가](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
+  
+### <a name="grant-permissions-to-azure-ad-group-in-sharepoint-on-premises"></a>SharePoint 온-프레미스에서 Azure AD 그룹에 권한 부여
+
+Azure Active Directory 보안 그룹을 SharePoint 온-프레미스에 할당하려면 SharePoint Server에 대한 사용자 지정 클레임 공급자를 사용해야 합니다. 이 예에서는 AzureCP를 사용했습니다.
+
+ > [!NOTE]
+ > AzureCP는 Microsoft 제품이 아니며 Microsoft 기술 지원 서비스에서 지원되지 않습니다. https://yvand.github.io/AzureCP/ 에 따라 온-프레미스 SharePoint 팜에서 AzureCP를 다운로드, 설치 및 구성합니다. 
+
+1. SharePoint 온-프레미스 팜 또는 대체 사용자 지정 클레임 공급자 솔루션에서 AzureCP를 구성합니다. AzureCP 구성 단계는 https://yvand.github.io/AzureCP/Register-App-In-AAD.html 에서 사용할 수 있습니다.
+
+1. Azure Portal에서 Azure AD 디렉터리를 엽니다. **엔터프라이즈 애플리케이션**, **이전에 만든 엔터프라이즈 애플리케이션 이름**, **Single Sign-On**을 차례로 클릭합니다.
+
+1. **SAML로 Single Sign-On 설정** 페이지에서 **사용자 특성 및 클레임** 섹션을 편집합니다.
+
+1. **그룹 클레임 추가**를 클릭합니다.
+
+1. 클레임에서 반환되어야 하는 사용자와 연결된 그룹을 선택합니다. 이 경우 **모든 그룹**을 선택하고, [원본 특성] 섹션에서 **그룹 ID**를 선택하고. **저장**을 클릭합니다.
+
+온-프레미스 SharePoint에서 Azure Active Directory 보안 그룹에 대한 액세스 권한을 부여하려면 사이트 모음을 공유하거나 Azure Active Directory 보안 그룹을 사이트 모음의 그룹 중 하나에 추가해야 합니다.
+
+1. SharePoint 사이트 모음으로 이동하여 사이트 모음에 대한 [사이트 설정] 아래에서 "사용자 및 그룹"을 클릭합니다. SharePoint 그룹을 선택한 다음, [새로 만들기], "이 그룹에 사용자 추가"를 차례로 클릭하고, 사용자 선택기에서 Azure Active Directory 보안 그룹을 표시할 그룹 이름을 입력합니다.
+
+    ![Sharepoint 그룹에 Azure AD 그룹 추가](./media/sharepoint-on-premises-tutorial/permission-azure-ad-group.png)
+
+### <a name="grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal"></a>Azure Portal에서 SharePoint 온-프레미스에 게스트 계정에 대한 액세스 권한 부여
+
+이제 SharePoint 사이트에 대한 액세스 권한을 게스트 계정에 일관된 방식으로 부여할 수 있습니다. UPN이 수정되는 경우가 있습니다. jdoe@outlook.com을 사용하는 사용자는 `jdoe_outlook.com#ext#@TENANT.onmicrosoft.com`과 같이 표시됩니다. 사이트를 외부 사용자와 공유하는 동안 원활한 환경을 제공할 수 있으며, Azure Portal의 **사용자 특성 및 클레임** 섹션에서 몇 가지 수정 사항을 추가해야 합니다.
+
+1. Azure Portal에서 Azure AD 디렉터리를 엽니다. **엔터프라이즈 애플리케이션**, **이전에 만든 엔터프라이즈 애플리케이션 이름**, **Single Sign-On**을 차례로 클릭합니다.
+
+1. **SAML로 Single Sign-On 설정** 페이지에서 **사용자 특성 및 클레임** 섹션을 편집합니다.
+
+1. **클레임 필요** 영역에서 **사용자의 고유 식별자(이름 ID)** 를 클릭합니다.
+
+1. **원본 특성** 속성을 **user.localuserprincipalname** 값으로 변경하고, **저장**합니다.
+
+    ![초기 사용자 특성 및 클레임](./media/sharepoint-on-premises-tutorial/manage-claim.png)
+
+1. 리본 메뉴를 사용하여 **SAML 기반 로그온**으로 돌아갑니다. 이제 **사용자 특성 및 클레임** 섹션은 다음과 같습니다. 
+
+    ![최종 사용자 특성 및 클레임](./media/sharepoint-on-premises-tutorial/user-attributes-claims-final.png)  
 
     > [!NOTE]
-    > Azure Active Directory 보안 그룹을 SharePoint 온-프레미스에 할당하려면 온-프레미스 SharePoint 팜에서 [AzureCP](https://yvand.github.io/AzureCP/)를 설치 및 구성하거나 SharePoint용 대체 사용자 지정 클레임 공급자를 개발 및 구성해야 합니다.  AzureCP를 사용하지 않는 경우, 이 문서 끝에서 사용자 고유의 사용자 지정 클레임 공급자 생성에 대한 섹션을 참조하세요.
+    > 이 설정에서는 성과 이름이 필요하지 않습니다.
 
-### <a name="grant-access-to-sharepoint-on-premises-security-group"></a>SharePoint 온-프레미스 보안 그룹에 대한 액세스 권한 부여
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택합니다.
 
-**앱 등록에서 보안 그룹 및 사용 권한 구성**
+1. **새 게스트 사용자**를 클릭합니다.
 
-1. Azure Portal에서 **Azure Active Directory**를 선택한 다음, **앱 등록**을 선택합니다.
+1. **사용자 초대** 옵션을 선택하고, 사용자 속성을 채우고, **초대**를 클릭합니다.
 
-    ![엔터프라이즈 애플리케이션 블레이드](./media/sharepoint-on-premises-tutorial/appregistrations.png)
+1. 이제 사이트를 MyGuestAccount@outlook.com과 공유하고, 이 사용자가 액세스하도록 허용할 수 있습니다.
 
-2. 검색 상자에서 **SharePoint 온-프레미스**를 입력하고 선택합니다.
+    ![게스트 계정과 사이트 공유](./media/sharepoint-on-premises-tutorial/sharing-guest-account.png)
 
-    ![결과 목록의 SharePoint 온-프레미스](./media/sharepoint-on-premises-tutorial/appsearch.png)
+### <a name="configuring-the-trusted-identity-provider-for-multiple-web-applications"></a>여러 웹 애플리케이션에 대해 신뢰할 수 있는 ID 공급자 구성
 
-3. **매니페스트**를 클릭합니다.
+이 구성은 단일 웹 애플리케이션에서 작동하지만 여러 웹 애플리케이션에 대해 동일한 신뢰할 수 있는 ID 공급자를 사용하려는 경우 추가 구성이 필요합니다. 예를 들어 웹 애플리케이션을 확장하여 `https://sales.contoso.com` URL를 사용하고 이제 `https://marketing.contoso.com`에 대해 사용자를 인증하려고 합니다. 이렇게 하려면 ID 공급자를 업데이트하여 WReply 매개 변수를 인식하고 Azure AD에서 애플리케이션 등록을 업데이트하여 회신 URL을 추가해야 합니다.
 
-    ![매니페스트 옵션](./media/sharepoint-on-premises-tutorial/manifest.png)
+1. Azure Portal에서 Azure AD 디렉터리를 엽니다. **엔터프라이즈 애플리케이션**, **이전에 만든 엔터프라이즈 애플리케이션 이름**, **Single Sign-On**을 차례로 클릭합니다.
 
-4. `groupMembershipClaims`: `NULL`을 `groupMembershipClaims`: `SecurityGroup`으로 수정합니다. 그런 후, 저장을 클릭합니다.
+2. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**을 편집합니다.
 
-    ![매니페스트 편집](./media/sharepoint-on-premises-tutorial/manifestedit.png)
+    ![기본 SAML 구성 편집](./media/sharepoint-on-premises-tutorial/add-reply-url.png)
 
-5. **설정**을 클릭한 후 **필수 권한**을 클릭합니다.
+3. **회신 URL(Assention Consumer Service URL)** 에서 추가 웹 애플리케이션에 대한 URL을 추가하고, **저장**을 클릭합니다.
 
-    ![필요한 사용 권한](./media/sharepoint-on-premises-tutorial/settings.png)
+    ![기본 SAML 구성 편집](./media/sharepoint-on-premises-tutorial/reply-url-for-web-application.png)
 
-6. **추가**를 클릭하고 **API 선택**을 클릭합니다.
-
-    ![API 액세스](./media/sharepoint-on-premises-tutorial/required_permissions.png)
-
-7. **Microsoft Azure Active Directory** 및 **Microsoft Graph API**를 둘 다 추가합니다. 그렇지만 선택할 때는 한 번에 하나씩만 선택할 수 있습니다.
-
-    ![API 선택](./media/sharepoint-on-premises-tutorial/permissions.png)
-
-8. Microsoft Azure Active Directory를 선택하고 디렉터리 데이터 읽기를 선택한 후 선택을 클릭합니다. 돌아가서 Microsoft Graph를 추가한 후, 마찬가지로 디렉터리 데이터 읽기를 선택합니다.  선택을 클릭하고 완료를 클릭합니다.
-
-    ![액세스 사용](./media/sharepoint-on-premises-tutorial/readpermission.png)
-
-9. 이제 필수 설정 아래에서 **권한 부여**를 클릭하고 예를 클릭하여 권한을 부여합니다.
-
-    ![사용 권한 부여](./media/sharepoint-on-premises-tutorial/grantpermission.png)
-
-    > [!NOTE]
-    > 알림 아래에서 권한이 성공적으로 부여되었는지를 확인합니다.  그렇지 않은 경우, AzureCP가 제대로 작동하지 않고, Azure Active Directory 보안 그룹을 사용하여 SharePoint 온-프레미스를 구성할 수 없습니다.
-
-10. SharePoint 온-프레미스 팜 또는 대체 사용자 지정 클레임 공급자 솔루션에서 AzureCP를 구성합니다.  이 예제에서는 AzureCP를 사용합니다.
-
-    > [!NOTE]
-    > AzureCP는 Microsoft 제품이 아니며 Microsoft 기술 지원 서비스에서 지원되지 않습니다. [https://yvand.github.io/AzureCP/](https://yvand.github.io/AzureCP/)에 따라 온-프레미스 SharePoint 팜에서 AzureCP 다운로드, 설치 및 구성 
-
-11. **온-프레미스 SharePoint에서 Azure Active Directory 보안 그룹에 대한 액세스 권한 부여** - 그룹에 SharePoint 온-프레미스의 애플리케이션에 대한 액세스 권한을 부여해야 합니다.  다음 단계를 사용하여 웹 애플리케이션에 액세스하기 위한 권한을 설정합니다.
-
-12. 중앙 관리에서 애플리케이션 관리, 웹 애플리케이션 관리를 클릭하고, 웹 애플리케이션을 선택하여 리본을 활성화한 후 사용자 정책을 클릭합니다.
-
-    ![중앙 관리](./media/sharepoint-on-premises-tutorial/centraladministration.png)
-
-13. 웹 애플리케이션 정책 아래에서 사용자 추가를 클릭하고 영역을 선택한 후 다음을 클릭합니다.  주소록을 클릭합니다.
-
-    ![웹 애플리케이션 정책](./media/sharepoint-on-premises-tutorial/webapp-policy.png)
-
-14. 그런 다음, Azure Active Directory 보안 그룹을 검색한 후 추가하고 확인을 클릭합니다.
-
-    ![보안 그룹 추가](./media/sharepoint-on-premises-tutorial/securitygroup.png)
-
-15. 권한을 선택한 다음, 마침을 클릭합니다.
-
-    ![보안 그룹 추가](./media/sharepoint-on-premises-tutorial/permissions1.png)
-
-16. 웹 애플리케이션 아래에서 Azure Active Directory 그룹이 추가되었는지 확인합니다.  그룹 클레임은 사용자 이름의 Azure Active Directory 보안 그룹 개체 ID를 표시합니다.
-
-    ![보안 그룹 추가](./media/sharepoint-on-premises-tutorial/addgroup.png)
-
-17. SharePoint 사이트 모음을 찾은 다음, 그룹도 추가합니다. 사이트 설정에서 사이트 권한 및 권한 부여를 차례로 클릭합니다.  그룹 역할 클레임을 검색하고, 사용 권한 수준을 할당한 후 공유를 클릭합니다.
-
-    ![보안 그룹 추가](./media/sharepoint-on-premises-tutorial/grantpermission1.png)
-
-### <a name="configuring-one-trusted-identity-provider-for-multiple-web-applications"></a>여러 웹 애플리케이션에 대해 하나의 신뢰할 수 있는 ID 공급자 구성
-
-이 구성은 단일 웹 애플리케이션에서 작동하지만 여러 웹 애플리케이션에 대해 동일한 신뢰할 수 있는 ID 공급자를 사용하려는 경우 추가 구성이 필요합니다. 예를 들어 웹 애플리케이션을 확장하여 `https://portal.contoso.local` URL를 사용하고 이제 `https://sales.contoso.local`에 대해 사용자를 인증하려고 합니다. 이렇게 하려면 ID 공급자를 업데이트하여 WReply 매개 변수를 인식하고 Azure AD에서 애플리케이션 등록을 업데이트하여 회신 URL을 추가해야 합니다.
-
-1. Azure Portal에서 Azure AD 디렉터리를 엽니다. **앱 등록**을 클릭한 다음, **모든 애플리케이션 보기**를 클릭합니다. 이전에 만든 애플리케이션을 클릭합니다(SharePoint SAML 통합).
-
-2. **설정**을 클릭합니다.
-
-3. 설정 블레이드에서 **회신 URL**을 클릭합니다.
-
-4. URL(예: `https://sales.contoso.local/_trust/default.aspx`)에 추가된 `/_trust/default.aspx`를 사용하여 추가 웹 애플리케이션에 대한 URL을 추가하고 **저장**을 클릭합니다.
-
-5. SharePoint Server에서 **SharePoint 2016 관리 셸**을 열고 다음 명령을 실행하여 이전에 사용한 신뢰할 수 있는 ID 토큰 발급자의 이름을 사용합니다.
-
+4. SharePoint Server에서 **SharePoint 201x 관리 셸**을 열고, 이전에 사용한 신뢰할 수 있는 ID 토큰 발급자의 이름을 사용하여 다음 명령을 실행합니다.
     ```
     $t = Get-SPTrustedIdentityTokenIssuer "AzureAD"
     $t.UseWReplyParameter=$true
     $t.Update()
     ```
+5. 중앙 관리에서 웹 애플리케이션으로 이동하고 기존의 신뢰할 수 있는 ID 공급자를 사용하도록 설정합니다.
 
-6. 중앙 관리에서 웹 애플리케이션으로 이동하고 기존의 신뢰할 수 있는 ID 공급자를 사용하도록 설정합니다. 로그인 페이지 URL을 사용자 지정 로그인 페이지 `/_trust/`로 구성해야합니다.
-
-7. 중앙 관리에서 웹 애플리케이션을 클릭하고 **사용자 정책**을 선택합니다. 이 아티클에서 이전에 설명한 대로 적절한 사용 권한이 있는 사용자를 추가합니다.
-
-### <a name="fixing-people-picker"></a>사용자 선택 수정
-
-이제 사용자가 Azure AD의 ID를 사용하여 SharePoint 2016에 로그인할 수 있지만 사용자 환경을 개선할 수 있는 여지가 남아 있습니다. 예를 들어, 사용자 선택에서 사용자를 검색하면 여러 검색 결과가 표시됩니다. 클레임 매핑에서 생성된 3가지 클레임 유형 각각에 대한 검색 결과가 있습니다. 사용자 선택기를 사용하여 사용자를 선택하려면 사용자 이름을 정확하게 입력하고 **이름** 클레임 결과를 선택해야 합니다.
-
-![클레임 검색 결과](./media/sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
-
-검색한 값에 대해 유효성 검사가 없기 때문에 철자 오류가 발생하거나, 사용자가 실수로 **SurName** 클레임 등, 잘못된 클레임 유형을 선택하여 할당할 수 있습니다. 이렇게 되면 사용자가 리소스에 액세스하지 못할 수 있습니다.
-
-이 시나리오를 지원하기 위해 [AzureCP](https://yvand.github.io/AzureCP/)라고 하는 오픈 소스 솔루션이 SharePoint 2016에 대한 사용자 지정 클레임 공급자를 제공합니다. Microsoft Graph API를 사용하여 사용자 입력을 확인하고 유효성 검사를 수행합니다. [AzureCP](https://yvand.github.io/AzureCP/)에 대한 정보를 알아보세요.
-
-### <a name="assign-the-azure-ad-security-group-in-the-azure-portal"></a>Azure Portal에서 Azure AD 보안 그룹 할당
-
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **SharePoint 온-프레미스**를 차례로 선택합니다.
-
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
-
-2. 애플리케이션 목록에서 **SharePoint 온-프레미스**를 입력하고 선택합니다.
-
-    ![애플리케이션 목록의 SharePoint 온-프레미스 링크](common/all-applications.png)
-
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
-
-    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
-
-4. **사용자 추가**를 클릭합니다.
-
-    ![할당 추가 창](common/add-assign-user.png)
-
-5. 사용하려는 보안 그룹을 검색하고 그룹을 클릭하여 멤버 선택 섹션에 추가합니다. **선택**을 클릭한 다음, **할당**을 클릭합니다.
-
-    ![보안 그룹 검색](./media/sharepoint-on-premises-tutorial/securitygroup1.png)
-
-    > [!NOTE]
-    > Azure Portal에서 엔터프라이즈 애플리케이션에 그룹이 할당되었다는 알림을 받으려면 메뉴 모음에서 알림을 선택합니다.
-
-### <a name="create-sharepoint-on-premises-test-user"></a>SharePoint 온-프레미스 테스트 사용자 만들기
-
-이 섹션에서는 SharePoint 온-프레미스에서 Britta Simon이라는 사용자를 만듭니다. [SharePoint 온-프레미스 지원 팀](https://support.office.com/)과 협력하여 SharePoint 온-프레미스 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
-
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트
-
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
-
-액세스 패널에서 SharePoint 온-프레미스 타일을 클릭하면 SSO를 설정한 SharePoint 온-프레미스 애플리케이션에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+내부 사용자를 위해 온-프레미스 Sharepoint에 대한 액세스 권한을 부여하려는 다른 시나리오가 있을 수 있습니다. 이 시나리오에서는 온프레미스 사용자를 Azure Active Directory와 동기화할 수 있는 Microsoft Azure Active Directory Connect를 배포해야 합니다. 이 설치는 다른 문서의 일부입니다. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
@@ -363,4 +298,4 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하려면 다
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Azure Active Directory를 사용하는 하이브리드 ID란?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)

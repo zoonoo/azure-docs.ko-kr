@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: d1e6d6db1465b20f1f32a8ffb2f978d0a04a1033
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4eddf34f4887f0e2bad08eb5700d83eaeae0ef7e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79470846"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687084"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>빠른 시작: Maven 플러그 인을 사용하여 Azure Spring Cloud 앱 시작
 
@@ -93,7 +93,7 @@ Azure Spring Cloud Maven 플러그 인을 사용하면 Azure Spring Cloud 애플
 1. 부모 POM을 포함하는 PiggyMetrics의 루트 폴더에서 다음 명령을 실행하여 구성을 생성합니다.
 
     ```console
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.0.0:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
     ```
 
     a. `gateway`,`auth-service` 및 `account-service` 모듈을 선택합니다.

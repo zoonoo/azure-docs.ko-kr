@@ -1,6 +1,6 @@
 ---
-title: Azure 키 자격 증명 모음 및 Azure CLI를 통해 저장소 계정 키 관리
-description: 저장소 계정 키는 Azure 키 자격 증명 모음과 Azure 저장소 계정에 대한 키 기반 액세스 간에 원활한 통합을 제공합니다.
+title: Azure Key Vault 및 Azure CLI를 사용 하 여 저장소 계정 키 관리
+description: Storage 계정 키는 Azure storage 계정에 대 한 Azure Key Vault 및 키 기반 액세스 간의 원활한 통합을 제공 합니다.
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
@@ -10,37 +10,37 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.openlocfilehash: 1125bafa43ce1752c58d1cce0bba66a6bbd32c32
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81685427"
 ---
-# <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>키 볼트 및 Azure CLI를 통해 저장소 계정 키 관리
+# <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Key Vault 및 Azure CLI를 사용 하 여 저장소 계정 키 관리
 
-Azure 저장소 계정은 계정 이름과 키로 구성된 자격 증명을 사용합니다. 키는 자동으로 생성되며 암호가 아닌 암호로 제공됩니다. 키 볼트는 저장소 계정 키를 키 볼트 비밀로 저장하여 관리합니다. 
+Azure storage 계정은 계정 이름과 키를 구성 하는 자격 증명을 사용 합니다. 키가 자동으로 생성 되 고 암호화 키가 아닌 암호로 사용 됩니다. Key Vault 저장소 계정 키를 Key Vault 비밀으로 저장 하 여 관리 합니다. 
 
-Key Vault 관리형 저장소 계정 키 기능을 사용하여 Azure 저장소 계정과 키를 나열(동기화)하고 주기적으로 키를 다시 생성(회전)할 수 있습니다. 저장소 계정과 클래식 저장소 계정 모두에 대한 키를 관리할 수 있습니다.
+Key Vault 관리 저장소 계정 키 기능을 사용 하 여 Azure storage 계정으로 키를 나열 (동기화) 하 고 키를 주기적으로 다시 생성 (회전) 할 수 있습니다. 저장소 계정 및 클래식 저장소 계정에 대 한 키를 관리할 수 있습니다.
 
-관리 저장소 계정 키 기능을 사용하는 경우 다음 사항을 고려하십시오.
+관리 되는 저장소 계정 키 기능을 사용 하는 경우 다음 사항을 고려 하세요.
 
-- 키 값은 호출자에 대한 응답으로 반환되지 않습니다.
-- 키 볼트만 저장소 계정 키를 관리해야 합니다. 키를 직접 관리하지 말고 Key Vault 프로세스를 방해하지 마십시오.
-- 키 Vault 개체는 저장소 계정 키를 관리해야 합니다. 여러 개체에서 키 관리를 허용하지 마십시오.
-- Key Vault에서 서비스 주체가 아닌 사용자 주체를 사용하여 저장소 계정을 관리하도록 요청할 수 있습니다.
-- 키 볼트만 사용하여 키를 다시 생성합니다. 스토리지 계정 키를 수동으로 다시 생성하지 않습니다.
+- 호출자에 대 한 응답으로 키 값이 반환 되지 않습니다.
+- Key Vault만 저장소 계정 키를 관리 해야 합니다. 키를 직접 관리 하지 않고 Key Vault 프로세스를 방해 하지 않습니다.
+- 단일 Key Vault 개체만 저장소 계정 키를 관리 해야 합니다. 여러 개체의 키 관리를 허용 하지 않습니다.
+- 사용자 계정을 사용 하 여 저장소 계정을 관리 하는 Key Vault를 요청 하 고 서비스 사용자는 사용할 수 없습니다.
+- Key Vault만 사용 하 여 키를 다시 생성 합니다. 스토리지 계정 키를 수동으로 다시 생성하지 않습니다.
 
-Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스인 Azure Active Directory(Azure AD)와 Azure 저장소 통합을 사용하는 것이 좋습니다. Azure AD 통합은 [Azure Blob 및 큐에](../../storage/common/storage-auth-aad.md)사용할 수 있으며 Azure 키 볼트와 마찬가지로 Azure 저장소에 대한 OAuth2 토큰 기반 액세스를 제공합니다.
+Microsoft의 클라우드 기반 id 및 액세스 관리 서비스인 Azure Active Directory (Azure AD)와 Azure Storage 통합 하는 것이 좋습니다. Azure AD 통합은 [azure blob 및 큐](../../storage/common/storage-auth-aad.md)에서 사용할 수 있으며, Azure Storage에 대 한 OAuth2 토큰 기반 액세스를 제공 합니다 (Azure Key Vault와 마찬가지로).
 
-Azure AD를 사용하면 저장소 계정 자격 증명 대신 응용 프로그램 또는 사용자 ID를 사용하여 클라이언트 응용 프로그램을 인증할 수 있습니다. Azure에서 실행할 때 [Azure AD 관리 ID를](/azure/active-directory/managed-identities-azure-resources/) 사용할 수 있습니다. 관리되는 ID는 클라이언트 인증및 응용 프로그램 또는 응용 프로그램과 함께 자격 증명을 저장할 필요가 없습니다.
+Azure AD를 사용 하면 저장소 계정 자격 증명 대신 응용 프로그램 또는 사용자 id를 사용 하 여 클라이언트 응용 프로그램을 인증할 수 있습니다. Azure에서 실행할 때 [AZURE AD 관리 id](/azure/active-directory/managed-identities-azure-resources/) 를 사용할 수 있습니다. 관리 되는 id는 클라이언트 인증에 대 한 필요성을 제거 하 고 또는 응용 프로그램에 자격 증명을 저장 합니다.
 
-Azure AD는 역할 기반 액세스 제어(RBAC)를 사용하여 키 볼트에서 지원하는 권한 부여를 관리합니다.
+Azure AD는 RBAC (역할 기반 액세스 제어)를 사용 하 여 권한 부여를 관리 합니다 .이는 Key Vault 에서도 지원 됩니다.
 
-## <a name="service-principal-application-id"></a>서비스 주체 응용 프로그램 ID
+## <a name="service-principal-application-id"></a>서비스 사용자 응용 프로그램 ID
 
-Azure AD 테넌트는 등록된 각 응용 프로그램에 [서비스 주체를](/azure/active-directory/develop/developer-glossary#service-principal-object)제공합니다. 서비스 주체는 RBAC를 통해 다른 Azure 리소스에 액세스하기 위해 권한 부여 설정 중에 사용되는 응용 프로그램 ID역할을 합니다.
+Azure AD 테 넌 트는 등록 된 각 응용 프로그램을 [서비스 사용자](/azure/active-directory/develop/developer-glossary#service-principal-object)에 게 제공 합니다. 서비스 주체는 RBAC를 통해 다른 Azure 리소스에 액세스 하기 위해 권한 부여 설정 중에 사용 되는 응용 프로그램 ID로 사용 됩니다.
 
-키 볼트는 모든 Azure AD 테넌트의 사전 등록된 Microsoft 응용 프로그램입니다. 키 볼트는 각 Azure 클라우드에서 동일한 응용 프로그램 ID로 등록됩니다.
+Key Vault은 모든 Azure AD 테 넌 트에서 미리 등록 된 Microsoft 응용 프로그램입니다. Key Vault은 각 Azure 클라우드에서 동일한 응용 프로그램 ID로 등록 됩니다.
 
 | 테넌트 | 클라우드 | 애플리케이션 UI |
 | --- | --- | --- |
@@ -48,38 +48,38 @@ Azure AD 테넌트는 등록된 각 응용 프로그램에 [서비스 주체를]
 | Azure AD | Azure 공용 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | 기타  | 모두 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-이 가이드를 완료하려면 먼저 다음을 수행해야 합니다.
+이 가이드를 완료 하려면 먼저 다음을 수행 해야 합니다.
 
-- [Azure CLI를 설치합니다.](/cli/azure/install-azure-cli)
-- [키 자격 증명 모음 만들기](quick-create-cli.md)
-- [Azure 저장소 계정을 만듭니다.](../../storage/common/storage-account-create.md?tabs=azure-cli) 저장소 계정 이름은 소문자와 숫자만 사용해야 합니다. 이름의 길이는 3자에서 24자 사이여야 합니다.
+- [Azure CLI를 설치](/cli/azure/install-azure-cli)합니다.
+- [주요 자격 증명 모음 만들기](quick-create-cli.md)
+- [Azure storage 계정을 만듭니다](../../storage/common/storage-account-create.md?tabs=azure-cli). 저장소 계정 이름에는 소문자와 숫자만 사용 해야 합니다. 이름의 길이는 3 자에서 24 자 사이 여야 합니다.
       
 ## <a name="manage-storage-account-keys"></a>저장소 계정 키 관리
 
 ### <a name="connect-to-your-azure-account"></a>Azure 계정에 연결
 
-[az 로그인](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 명령을 사용하여 Azure CLI 세션을 인증합니다.
+[Az login](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 명령을 사용 하 여 Azure CLI 세션을 인증 합니다.
 
 ```azurecli-interactive
 az login
 ``` 
 
-### <a name="give-key-vault-access-to-your-storage-account"></a>저장소 계정에 키 볼트 액세스 권한 부여
+### <a name="give-key-vault-access-to-your-storage-account"></a>저장소 계정에 대 한 Key Vault 액세스 권한 부여
 
-Azure CLI [az 역할 할당 만들기](/cli/azure/role/assignment?view=azure-cli-latest) 명령을 사용하여 Key Vault가 저장소 계정에 액세스할 수 있도록 합니다. 명령에 다음 매개 변수 값을 제공합니다.
+Azure CLI [az role 대입문 create](/cli/azure/role/assignment?view=azure-cli-latest) 명령을 사용 하 여 저장소 계정에 대 한 액세스 Key Vault 제공 합니다. 다음 매개 변수 값에 명령을 제공 합니다.
 
-- `--role`: "저장소 계정 키 운영자 서비스 역할" RBAC 역할을 전달합니다. 이 역할은 저장소 계정에 대한 액세스 범위를 제한합니다. 클래식 저장소 계정의 경우 대신 "클래식 저장소 계정 키 운영자 서비스 역할"을 전달합니다.
-- `--assignee`: Azure 공용https://vault.azure.net클라우드에서 키 볼트의 URL인 값 "을 전달합니다. (Azure Goverment 클라우드에서 '--asingee-object-id'를 대신 사용하지만 [서비스 주체 응용 프로그램 ID를](#service-principal-application-id)참조하십시오.)
-- `--scope`: 양식에 `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`있는 저장소 계정 리소스 ID를 전달합니다. 구독 ID를 찾으려면 Azure CLI [az 계정 목록](/cli/azure/account?view=azure-cli-latest#az-account-list) 명령을 사용합니다. 저장소 계정 이름 및 저장소 계정 리소스 그룹을 찾으려면 Azure CLI [az 저장소 계정 목록](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) 명령을 사용합니다.
+- `--role`: "저장소 계정 키 운영자 서비스 역할" RBAC 역할을 전달 합니다. 이 역할은 저장소 계정에 대 한 액세스 범위를 제한 합니다. 클래식 저장소 계정의 경우 "클래식 저장소 계정 키 운영자 서비스 역할"을 대신 전달 합니다.
+- `--assignee`: Azure 공용 클라우드에서 Key Vaulthttps://vault.azure.net에 대 한 url 인 "" 값을 전달 합니다. (Azure 정부 클라우드의 경우 '--asingee-개체-i d '를 대신 사용 하세요. [서비스 사용자 응용 프로그램 id](#service-principal-application-id)를 참조 하세요.)
+- `--scope`: 형식 `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`으로 된 저장소 계정 리소스 ID를 전달 합니다. 구독 ID를 찾으려면 Azure CLI [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) 명령을 사용 합니다. 저장소 계정 이름 및 저장소 계정 리소스 그룹을 찾으려면 Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) 명령을 사용 합니다.
 
 ```azurecli-interactive
 az role assignment create --role "Storage Account Key Operator Service Role" --assignee 'https://vault.azure.net' --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
  ```
 ### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>관리 스토리지 계정에 사용자 계정 권한 부여
 
-Azure CLI [az 키볼트 설정 정책](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) cmdlet을 사용하여 키 볼트 액세스 정책을 업데이트하고 사용자 계정에 저장소 계정 권한을 부여합니다.
+Azure CLI [az keyvault-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) cmdlet을 사용 하 여 Key Vault 액세스 정책을 업데이트 하 고 사용자 계정에 저장소 계정 권한을 부여 합니다.
 
 ```azurecli-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
@@ -88,13 +88,13 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage
 ```
 
 스토리지 계정에 대한 권한은 Azure Portal의 스토리지 계정 “액세스 정책” 페이지에서 제공되지 않습니다.
-### <a name="create-a-key-vault-managed-storage-account"></a>키 볼트 관리 저장소 계정 만들기
+### <a name="create-a-key-vault-managed-storage-account"></a>Key Vault 관리 저장소 계정 만들기
 
- Azure CLI [az 키볼트](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) 저장소 명령을 사용하여 키 볼트 관리 저장소 계정을 만듭니다. 재생 기간을 90일로 설정합니다. 90일이 지나면 키 볼트가 활성 키를 `key1` `key2` 에서 `key1`로 다시 생성하고 교환합니다. `key1`그러면 활성 키로 표시됩니다. 명령에 다음 매개 변수 값을 제공합니다.
+ Azure CLI [az keyvault storage](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) 명령을 사용 하 여 Key Vault 관리 저장소 계정을 만듭니다. 90 일의 다시 생성 기간을 설정 합니다. 90 일 후 Key Vault가 다시 `key1` 생성 되 고 활성 키를 `key2` 에서 `key1`로 바꿉니다. `key1`가 활성 키로 표시 됩니다. 다음 매개 변수 값에 명령을 제공 합니다.
 
-- `--vault-name`: 키 볼트의 이름을 전달합니다. 키 자격 증명 모음의 이름을 찾으려면 Azure CLI [az 키 볼트 목록](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list) 명령을 사용합니다.
-- `-n`: 저장소 계정의 이름을 전달합니다. 저장소 계정의 이름을 찾으려면 Azure CLI [az 저장소 계정 목록](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) 명령을 사용합니다.
-- `--resource-id`: 양식에 `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`있는 저장소 계정 리소스 ID를 전달합니다. 구독 ID를 찾으려면 Azure CLI [az 계정 목록](/cli/azure/account?view=azure-cli-latest#az-account-list) 명령을 사용합니다. 저장소 계정 이름 및 저장소 계정 리소스 그룹을 찾으려면 Azure CLI [az 저장소 계정 목록](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) 명령을 사용합니다.
+- `--vault-name`: Key vault의 이름을 전달 합니다. Key vault의 이름을 찾으려면 Azure CLI [az keyvault list](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list) 명령을 사용 합니다.
+- `-n`: 저장소 계정의 이름을 전달 합니다. 저장소 계정의 이름을 찾으려면 Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) 명령을 사용 합니다.
+- `--resource-id`: 형식 `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`으로 된 저장소 계정 리소스 ID를 전달 합니다. 구독 ID를 찾으려면 Azure CLI [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) 명령을 사용 합니다. 저장소 계정 이름 및 저장소 계정 리소스 그룹을 찾으려면 Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) 명령을 사용 합니다.
    
  ```azurecli-interactive
 az keyvault storage add --vault-name <YourKeyVaultName> -n <YourStorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
@@ -102,34 +102,34 @@ az keyvault storage add --vault-name <YourKeyVaultName> -n <YourStorageAccountNa
 
 ## <a name="shared-access-signature-tokens"></a>공유 액세스 서명 토큰
 
-Key Vault에 공유 액세스 서명 토큰을 생성하도록 요청할 수도 있습니다. 공유 액세스 서명은 스토리지 계정의 리소스에 대한 위임된 권한을 제공합니다. 계정 키를 공유하지 않고 클라이언트에게 저장소 계정의 리소스에 대한 액세스 권한을 부여할 수 있습니다. 공유 액세스 서명은 계정 키를 손상시키지 않고 저장소 리소스를 안전하게 공유할 수 있는 방법을 제공합니다.
+Key Vault를 요청 하 여 공유 액세스 서명 토큰을 생성할 수도 있습니다. 공유 액세스 서명은 스토리지 계정의 리소스에 대한 위임된 권한을 제공합니다. 계정 키를 공유 하지 않고 저장소 계정의 리소스에 대 한 액세스 권한을 클라이언트에 부여할 수 있습니다. 공유 액세스 서명은 계정 키를 손상 시 키 지 않고 저장소 리소스를 공유 하는 안전한 방법을 제공 합니다.
 
-이 섹션의 명령은 다음 작업을 완료합니다.
+이 섹션의 명령은 다음 작업을 완료 합니다.
 
-- 계정 공유 액세스 서명 `<YourSASDefinitionName>`정의를 설정합니다. 정의는 키 자격 증명 모음의 `<YourStorageAccountName>` `<YourKeyVaultName>`키 자격 증명 모음관리 저장소 계정에 설정됩니다.
-- Blob, 파일, 테이블 및 큐 서비스에 대한 계정 공유 액세스 서명 토큰을 만듭니다. 토큰은 리소스 유형 서비스, 컨테이너 및 개체에 대해 만들어집니다. 토큰은 모든 권한, https 를 초과하며 지정된 시작 및 종료 날짜로 만들어집니다.
-- 볼트에서 키 볼트 관리 스토리지 공유 액세스 서명 정의를 설정합니다. 정의에는 생성된 공유 액세스 서명 토큰의 템플릿 URI가 있습니다. 정의에는 공유 액세스 서명 `account` 유형이 있으며 N 일 동안 유효합니다.
-- 공유 액세스 서명이 키 자격 증명 모음에 비밀로 저장되었는지 확인합니다.
+- 계정 공유 액세스 서명 정의 `<YourSASDefinitionName>`를 설정 합니다. 이 정의는 키 자격 증명 모음 `<YourStorageAccountName>` `<YourKeyVaultName>`에서 관리 되는 Key Vault 저장소 계정에 설정 됩니다.
+- Blob, 파일, 테이블 및 큐 서비스에 대 한 계정 공유 액세스 서명 토큰을 만듭니다. 토큰은 리소스 유형 서비스, 컨테이너 및 개체에 대해 생성 됩니다. 토큰은 지정 된 시작 및 종료 날짜를 사용 하 여 https를 통해 모든 사용 권한으로 만들어집니다.
+- 자격 증명 모음에서 관리 되는 저장소 공유 액세스 서명 정의를 Key Vault 설정 합니다. 정의에는 만들어진 공유 액세스 서명 토큰의 템플릿 URI가 있습니다. 정의는 공유 액세스 서명 유형이 `account` 며 N 일 동안 유효 합니다.
+- 공유 액세스 서명이 키 자격 증명 모음에 암호로 저장 되었는지 확인 합니다.
 
 ### <a name="create-a-shared-access-signature-token"></a>공유 액세스 서명 토큰 만들기
 
-Azure CLI az 저장소 계정 [생성 sas](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas) 명령을 사용하여 공유 액세스 서명 정의를 만듭니다. 이 작업에는 `storage` `setsas` 및 사용 권한이 필요합니다.
+Azure CLI [az storage account generate sas](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas) 명령을 사용 하 여 공유 액세스 서명 정의를 만듭니다. 이 작업 `storage` 을 수행 하려면 `setsas` 및 권한이 필요 합니다.
 
 
 ```azurecli-interactive
 az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name <YourStorageAccountName> --account-key 00000000
 ```
-작업이 성공적으로 실행되면 출력을 복사합니다.
+작업이 성공적으로 실행 되 면 출력을 복사 합니다.
 
 ```console
 "se=2020-01-01&sp=***"
 ```
 
-이 출력은 다음 단계에서 `--template-id` 매개 변수에 전달됩니다.
+이 출력은 다음 단계에서 `--template-id` 매개 변수로 전달 됩니다.
 
 ### <a name="generate-a-shared-access-signature-definition"></a>공유 액세스 서명 정의 생성
 
-Azure CLI [az 키볼트 저장소 sas-정의 만들기](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) 명령을 사용하여 이전 단계의 출력을 `--template-id` 매개 변수로 전달하여 공유 액세스 서명 정의를 만듭니다.  선택한 이름을 매개 변수에 `-n` 제공할 수 있습니다.
+이전 단계의 출력을 `--template-id` 매개 변수로 전달 하는 Azure CLI [az keyvault 저장소 sas-정의 만들기](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) 명령을 사용 하 여 공유 액세스 서명 정의를 만듭니다.  원하는 이름을 `-n` 매개 변수에 제공할 수 있습니다.
 
 ```azurecli-interactive
 az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>
@@ -137,32 +137,32 @@ az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --acco
 
 ### <a name="verify-the-shared-access-signature-definition"></a>공유 액세스 서명 정의 확인
 
-Azure CLI [az 키볼트 비밀 목록](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) 및 az [keyvault 비밀 표시](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) 명령을 사용하여 공유 액세스 서명 정의가 키 자격 증명 모음에 저장되었는지 확인할 수 있습니다.
+Azure CLI [az keyvault secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) 및 [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) 명령을 사용 하 여 공유 액세스 서명 정의가 키 자격 증명 모음에 저장 되었는지 확인할 수 있습니다.
 
-먼저 [az keyvault 비밀 목록](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) 명령을 사용하여 키 자격 증명 모음에서 공유 액세스 서명 정의를 찾습니다.
+먼저 [az keyvault secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) 명령을 사용 하 여 주요 자격 증명 모음에서 공유 액세스 서명 정의를 찾습니다.
 
 ```azurecli-interactive
 az keyvault secret list --vault-name <YourKeyVaultName>
 ```
 
-SAS 정의에 해당하는 비밀에는 다음과 같은 속성이 있습니다.
+SAS 정의에 해당 하는 암호에는 다음 속성이 포함 됩니다.
 
 ```console
     "contentType": "application/vnd.ms-sastoken-storage",
     "id": "https://<YourKeyVaultName>.vault.azure.net/secrets/<YourStorageAccountName>-<YourSASDefinitionName>",
 ```
 
-이제 [az keyvault 비밀 표시](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) 명령과 `id` 속성을 사용하여 해당 비밀의 내용을 볼 수 있습니다.
+이제 [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) 명령 및 `id` 속성을 사용 하 여 해당 암호의 콘텐츠를 볼 수 있습니다.
 
 ```azurecli-interactive
 az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
 ```
 
-이 명령의 출력에는 SAS 정의`value`문자열이 로 표시됩니다.
+이 명령의 출력은 SAS 정의 문자열을으로`value`표시 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [키, 암호 및 인증서에](https://docs.microsoft.com/rest/api/keyvault/)대해 자세히 알아봅니다.
-- Azure 키 [볼트 팀 블로그의](https://blogs.technet.microsoft.com/kv/)문서를 검토합니다.
-- az [키볼트 스토리지](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest) 참조 문서를 참조하십시오.
+- [키, 암호 및 인증서](https://docs.microsoft.com/rest/api/keyvault/)에 대해 자세히 알아보세요.
+- [Azure Key Vault 팀 블로그에서](https://blogs.technet.microsoft.com/kv/)문서를 검토 합니다.
+- [Az keyvault 저장소](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest) 참조 설명서를 참조 하세요.

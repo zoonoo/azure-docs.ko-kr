@@ -108,6 +108,8 @@
           href: how-to-windows-shutdown.md
         - name: 지원 정보 보기(강사)
           href: lab-creator-support-information.md
+        - name: 강사 보기에서 학생 VM 액세스
+          href: instructor-access-virtual-machines.md
     - name: 클래스룸 랩에서 VM에 연결(학생)
       items:
         - name: 클래스룸 랩 액세스

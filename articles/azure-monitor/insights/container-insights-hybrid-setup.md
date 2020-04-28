@@ -2,19 +2,39 @@
 title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 하이브리드 Kubernetes 클러스터 구성 | Microsoft Docs
 description: 이 문서에서는 Azure Stack 또는 기타 환경에서 호스트 되는 Kubernetes 클러스터를 모니터링 하도록 컨테이너에 Azure Monitor를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: c0dbbf9f65aa96db1ebcd0b03552bba8d1f91863
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.date: 04/22/2020
+ms.openlocfilehash: a0008f7a2d6b808a8ff55d85330801305361d7c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82143166"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185968"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 하이브리드 Kubernetes 클러스터 구성
 
 컨테이너에 대 한 Azure Monitor는 azure에서 호스트 되는 자체 관리 되는 Kubernetes 클러스터 인 azure의 AKS (Azure Kubernetes Service) 및 [AKS Engine](https://github.com/Azure/aks-engine)에 대 한 풍부한 모니터링 환경을 제공 합니다. 이 문서에서는 Azure 외부에서 호스트 되는 Kubernetes 클러스터의 모니터링을 사용 하도록 설정 하 고 비슷한 모니터링 환경을 구현 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="supported-configurations"></a>지원되는 구성
+
+다음은 Azure Monitor 컨테이너에 대해 공식적으로 지원 됩니다.
+
+* 에서는 
+
+    * Kubernetes 온-프레미스
+    
+    * Azure의 AKS 엔진과 Azure Stack. 자세한 내용은 [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) 을 참조 하세요.
+    
+    * [Openshift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) 버전 4 이상, 온-프레미스 또는 기타 클라우드 환경.
+
+* Kubernetes 및 지원 정책의 버전은 [지원 되는 AKS](../../aks/supported-kubernetes-versions.md)버전과 동일 합니다.
+
+* 컨테이너 런타임: Docker, Moby 및 CRI compatible runtime (CRI 및 ContainerD).
+
+* 마스터 및 작동 하는 노드에 대 한 Linux OS 릴리스: Ubuntu (18.04 LTS 및 16.04 LTS) 및 Red Hat Enterprise Linux CoreOS 43.81
+
+* 지원 되는 액세스 제어: Kubernetes RBAC 및 비 RBAC
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
@@ -33,10 +53,9 @@ ms.locfileid: "82143166"
 * 다음 프록시 및 방화벽 구성 정보는 Linux 용 Log Analytics 에이전트의 컨테이너 화 된 버전이 Azure Monitor와 통신 하는 데 필요 합니다.
 
     |에이전트 리소스|포트 |
-    |------|---------|   
-    |*.ods.opinsights.azure.com |포트 443 |  
-    |*.oms.opinsights.azure.com |포트 443 |  
-    |\*.blob.core.windows.net |포트 443 |  
+    |------|---------|
+    |*.ods.opinsights.azure.com |포트 443 |
+    |*.oms.opinsights.azure.com |포트 443 |
     |*. dc.services.visualstudio.com |포트 443 |
 
 * 컨테이너 화 된 에이전트는 성능 메트릭을 수집 `cAdvisor secure port: 10250` 하기 `unsecure port :10255` 위해 클러스터의 모든 노드에서 Kubelet 또는를 열어야 합니다. 아직 구성 되지 않은 `secure port: 10250` 경우 Kubelet의 cadvisor에서 구성 하는 것이 좋습니다.
@@ -45,16 +64,6 @@ ms.locfileid: "82143166"
 
 >[!IMPORTANT]
 >하이브리드 Kubernetes 클러스터 모니터링에 대해 지원 되는 최소 에이전트 버전은 ciprod10182019 이상입니다.
-
-## <a name="supported-configurations"></a>지원되는 구성
-
-다음은 Azure Monitor 컨테이너에 대해 공식적으로 지원 됩니다.
-
-- 환경: Kubernetes 온-프레미스, Azure의 AKS 엔진 및 Azure Stack 자세한 내용은 [Azure Stack AKS Engine](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)을 참조 하세요.
-- Kubernetes 및 지원 정책의 버전은 [지원 되는 AKS](../../aks/supported-kubernetes-versions.md)버전과 동일 합니다.
-- 컨테이너 런타임: Docker 및 Moby
-- 마스터 및 작동 하는 노드에 대 한 Linux OS 릴리스: Ubuntu (18.04 LTS 및 16.04 LTS)
-- 지원 되는 액세스 제어: Kubernetes RBAC 및 비 RBAC
 
 ## <a name="enable-monitoring"></a>모니터링 사용
 
@@ -242,7 +251,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 ## <a name="install-the-chart"></a>차트 설치
 
 >[!NOTE]
->다음 명령은 투구 버전 2에만 적용 됩니다. --Name 매개 변수는 투구 버전 3에는 사용할 수 없습니다.
+>다음 명령은 투구 버전 2에만 적용 됩니다. `--name` 매개 변수를 사용 하는 것은 투구 버전 3에는 적용 되지 않습니다.
 
 투구 차트를 사용 하도록 설정 하려면 다음을 수행 합니다.
 
@@ -272,6 +281,28 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     $ helm install --name myrelease-1 \
     --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
+
+### <a name="enable-the-helm-chart-using-the-api-model"></a>API 모델을 사용 하 여 투구 차트 사용
+
+API 모델이 라고도 하는 AKS 엔진 클러스터 사양 json 파일에서 추가 기능을 지정할 수 있습니다. 이 추가 기능에서 수집 된 모니터링 데이터가 저장 되 `WorkspaceGUID` 는 `WorkspaceKey` Log Analytics 작업 영역 및의 base64 인코딩 버전을 제공 합니다.
+
+Azure Stack 허브 클러스터에 대해 지원 되는 API 정의는이 예제- [kubernetes-monitoring_existing_workspace_id_and_key](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json)에서 찾을 수 있습니다. 특히 **kubernetesConfig**에서 **addons** 속성을 찾습니다.
+
+```json
+"orchestratorType": "Kubernetes",
+       "kubernetesConfig": {
+         "addons": [
+           {
+             "name": "container-monitoring",
+             "enabled": true,
+             "config": {
+               "workspaceGuid": "<Azure Log Analytics Workspace Guid in Base-64 encoded>",
+               "workspaceKey": "<Azure Log Analytics Workspace Key in Base-64 encoded>"
+             }
+           }
+         ]
+       }
+```
 
 ## <a name="configure-agent-data-collection"></a>에이전트 데이터 수집 구성
 

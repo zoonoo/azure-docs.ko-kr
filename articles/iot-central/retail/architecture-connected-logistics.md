@@ -7,12 +7,13 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 0ecf73443073275bf854d516eedf3286eaadaaa0
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.custom: mqtt
+ms.openlocfilehash: 8925b98269b67bfb8a96cb057982ee4e396f17ed
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81001092"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686208"
 ---
 # <a name="architecture-of-iot-central-connected-logistics-application-template"></a>IoT Central 커넥티드 물류 애플리케이션 템플릿의 아키텍처
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
-ms.openlocfilehash: f700b06e6ade0d72178777b67cb734f3120b36dc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bf453587b354b5db3f3ef1a80f974bcb8f8f4e14
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214961"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730028"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>빠른 시작: Azure Cosmos DB Gremlin API 계정을 사용한 .NET Framework 또는 Core 애플리케이션 빌드
 
@@ -118,7 +118,7 @@ Visual Studio 2019가 아직 설치되지 않은 경우 **평가판** [Visual St
 1. 계정의 URI 및 기본 키를 복사한 후 애플리케이션을 실행하는 로컬 머신의 새 환경 변수에 저장합니다. 환경 변수를 설정하려면 명령 프롬프트 창을 열고 다음 명령을 실행합니다. <Your_Azure_Cosmos_account_URI> 및 <Your_Azure_Cosmos_account_PRIMARY_KEY> 값을 바꾸세요.
 
    ```console
-   setx EndpointUrl "https://<your cosmos db account name>.gremlin.cosmosdb.azure.com"
+   setx EndpointUrl "<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com"
    setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
    ```
 
