@@ -1,5 +1,5 @@
 ---
-title: Azure 데이터 팩터리를 사용하여 웹 테이블의 데이터 복사
+title: Azure Data Factory를 사용 하 여 웹 테이블에서 데이터 복사
 description: 웹 테이블의 데이터를 데이터 팩터리에서 싱크로 지원하는 데이터 저장소로 복사할 수 있는 Azure Data Factory의 웹 테이블 커넥터에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 0eb4d37342685c13027a69bb6cb85f618fa63f20
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81410209"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 웹 테이블의 데이터 복사
@@ -29,23 +29,23 @@ ms.locfileid: "81410209"
 이 웹 테이블 커넥터인 [REST 커넥터](connector-rest.md)와 [HTTP 커넥터](connector-http.md) 간의 차이점은 다음과 같습니다.
 
 - **웹 테이블 커넥터**는 HTML 웹 페이지에서 테이블 콘텐츠를 추출합니다.
-- **REST 커넥터는** 특히 RESTful API에서 데이터 복사를 지원합니다.
+- **REST 커넥터** 는 특히 RESTful api의 데이터 복사를 지원 합니다.
 - **HTTP 커넥터**는 일반적으로 모든 HTTP 엔드포인트에서 데이터를 검색합니다(예: 파일 다운로드). 
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-이 웹 테이블 커넥터는 다음 활동에 대해 지원됩니다.
+이 웹 테이블 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [지원되는 소스/싱크 매트릭스로](copy-activity-overview.md) [활동 복사](copy-activity-overview.md)
-- [조회 활동](control-flow-lookup-activity.md)
+- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
+- [조회 작업](control-flow-lookup-activity.md)
 
 웹 테이블 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 특히 이 웹 테이블 커넥터는 **HTML 페이지에서 테이블 콘텐츠를 추출**하도록 지원합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-이 웹 테이블 커넥터를 사용하려면 자체 호스팅 Integration Runtime을 설정해야 합니다. 자세한 내용은 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md) 문서를 참조하십시오.
+이 웹 테이블 커넥터를 사용하려면 자체 호스팅 Integration Runtime을 설정해야 합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md) 문서를 참조 하세요.
 
 ## <a name="getting-started"></a>시작
 
@@ -62,7 +62,7 @@ ms.locfileid: "81410209"
 | type | 형식 속성은 **웹** |예 |
 | url | 웹 원본에 대한 URL입니다. |예 |
 | authenticationType | 허용되는 값은 **Anonymous**입니다. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임입니다.](concepts-integration-runtime.md) [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
+| connectVia | 데이터 저장소에 연결 하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md) 입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예제:**
 
@@ -85,14 +85,14 @@ ms.locfileid: "81410209"
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합을 정의하는 데 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 웹 테이블 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조 하세요. 이 섹션에서는 웹 테이블 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
 웹 테이블에서 데이터를 복사하려면 데이터 세트의 type 속성을 **WebTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **WebTable**로 설정해야 합니다. | 예 |
-| 경로 |테이블을 포함하는 리소스에 대한 상대 URL입니다. |아니요. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. |
+| path |테이블을 포함하는 리소스에 대한 상대 URL입니다. |아니요. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. |
 | 인덱스 |리소스에 있는 테이블의 인덱스입니다. HTML 페이지에서 테이블의 인덱스를 가져오는 단계는 [HTML 페이지에서 테이블의 인덱스 가져오기](#get-index-of-a-table-in-an-html-page) 섹션을 참조하세요. |예 |
 
 **예제:**
@@ -183,9 +183,9 @@ ms.locfileid: "81410209"
 Excel 2013을 사용하는 경우 [Excel용 Microsoft 파워 쿼리](https://www.microsoft.com/download/details.aspx?id=39379) 를 사용하여 인덱스를 가져옵니다. 자세한 내용은 [웹 페이지에 연결](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) 문서를 참조하세요. [Microsoft Power BI for Desktop](https://powerbi.microsoft.com/desktop/)을 사용하는 경우에도 작업 단계는 비슷합니다.
 
 
-## <a name="lookup-activity-properties"></a>조회 활동 속성
+## <a name="lookup-activity-properties"></a>조회 작업 속성
 
-속성에 대한 자세한 내용을 보려면 [조회 활동을](control-flow-lookup-activity.md)선택합니다.
+속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

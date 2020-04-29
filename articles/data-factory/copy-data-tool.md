@@ -1,5 +1,5 @@
 ---
-title: 복사 데이터 도구 Azure 데이터 팩터리
+title: 데이터 복사 도구 Azure Data Factory
 description: Azure Data Factory UI의 데이터 복사 도구에 대한 정보를 제공합니다.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: df078673aed60086a88961ff64f9bfa596d96346
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414095"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory의 데이터 복사 도구

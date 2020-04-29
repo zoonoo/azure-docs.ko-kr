@@ -1,26 +1,26 @@
 ---
-title: 새 서비스 패브릭 클러스터에 대한 관리되는 ID 지원 구성
-description: 새 Azure 서비스 패브릭 클러스터에서 관리되는 ID 지원을 활성화하는 방법은 다음과 같습니다.
+title: 새 Service Fabric 클러스터에 대 한 관리 id 지원 구성
+description: 새 Azure Service Fabric 클러스터에서 관리 id 지원을 사용 하도록 설정 하는 방법은 다음과 같습니다.
 ms.topic: article
 ms.date: 12/09/2019
 ms.custom: sfrev
 ms.openlocfilehash: dd0cbd3251185a7831852ead47ca0b120126cf55
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415662"
 ---
-# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster"></a>새 서비스 패브릭 클러스터에 대한 관리되는 ID 지원 구성
+# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster"></a>새 Service Fabric 클러스터에 대 한 관리 id 지원 구성
 
-Service Fabric 응용 프로그램에서 [Azure 리소스에 대해 관리되는 ID를](../active-directory/managed-identities-azure-resources/overview.md) 사용하려면 먼저 클러스터에서 *관리되는 ID 토큰 서비스를* 사용하도록 설정합니다. 이 서비스는 관리되는 ID를 사용하여 Service Fabric 응용 프로그램의 인증을 담당하며 해당 응용 프로그램을 대신하여 액세스 토큰을 얻는 작업을 담당합니다. 서비스가 활성화되면 왼쪽 창의 **시스템** 섹션 아래의 서비스 패브릭 탐색기에서 다른 시스템 서비스 옆에 있는 **패브릭:/System/ManagedIdentityTokenService라는** 이름으로 실행되는 것을 볼 수 있습니다.
+Service Fabric 응용 프로그램에서 [Azure 리소스에 관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하려면 먼저 클러스터에서 *관리 되는 id 토큰 서비스* 를 사용 하도록 설정 합니다. 이 서비스는 관리 되는 id를 사용 하 여 Service Fabric 응용 프로그램을 인증 하 고 사용자 대신 액세스 토큰을 가져오는 일을 담당 합니다. 서비스를 사용 하도록 설정 하면 왼쪽 창의 **시스템** 섹션 아래에 있는 Service Fabric Explorer에서 다른 시스템 서비스 옆의 **Fabric:/System/ManagedIdentityTokenService** 이름으로 실행 되는 것을 볼 수 있습니다.
 
 > [!NOTE]
-> 서비스 패브릭 런타임 버전 6.5.658.9590 이상은 **관리되는 ID 토큰 서비스를**활성화하는 데 필요합니다.  
+> **관리 되는 Id 토큰 서비스**를 사용 하려면 Service Fabric runtime version 6.5.658.9590 이상이 필요 합니다.  
 
-## <a name="enable-the-managed-identity-token-service"></a>관리되는 ID 토큰 서비스 사용
+## <a name="enable-the-managed-identity-token-service"></a>관리 되는 Id 토큰 서비스 사용
 
-클러스터 생성 시 관리되는 ID 토큰 서비스를 활성화하려면 클러스터 Azure 리소스 관리자 템플릿에 다음 코드 조각을 추가합니다.
+클러스터를 만들 때 관리 되는 Id 토큰 서비스를 사용 하도록 설정 하려면 클러스터 Azure Resource Manager 템플릿에 다음 코드 조각을 추가 합니다.
 
 ```json
 "fabricSettings": [
@@ -38,7 +38,7 @@ Service Fabric 응용 프로그램에서 [Azure 리소스에 대해 관리되는
 
 ## <a name="errors"></a>오류
 
-이 메시지로 배포에 실패하면 클러스터가 필요한 Service Fabric 버전에 없음을 의미합니다(지원되는 최소 런타임은 6.5 CU2입니다).
+이 메시지와 함께 배포가 실패 하면 클러스터가 필요한 Service Fabric 버전에 있지 않음을 의미 합니다 (지원 되는 최소 런타임은 6.5 CU2).
 
 
 ```json
@@ -50,13 +50,13 @@ Service Fabric 응용 프로그램에서 [Azure 리소스에 대해 관리되는
 
 ## <a name="related-articles"></a>관련 문서
 
-* Azure 서비스 패브릭에서 [관리되는 ID 지원](./concepts-managed-identity.md) 검토
+* Azure Service Fabric에서 [관리 되는 id 지원](./concepts-managed-identity.md) 검토
 
-* [기존 Azure 서비스 패브릭 클러스터에서 관리되는 ID 지원 활성화](./configure-existing-cluster-enable-managed-identity-token-service.md)
+* [기존 Azure Service Fabric 클러스터에서 관리 되는 id 지원 사용](./configure-existing-cluster-enable-managed-identity-token-service.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [시스템 할당된 관리되는 ID를 사용 하 고 Azure 서비스 패브릭 응용 프로그램 배포](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [사용자 할당된 관리되는 ID를 사용 하 고 Azure 서비스 패브릭 응용 프로그램 배포](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [서비스 코드에서 서비스 패브릭 응용 프로그램의 관리되는 ID 활용](./how-to-managed-identity-service-fabric-app-code.md)
-* [Azure 서비스 패브릭 응용 프로그램 액세스 권한을 다른 Azure 리소스에 부여합니다.](./how-to-grant-access-other-resources.md)
+* [시스템 할당 관리 id를 사용 하 여 Azure Service Fabric 응용 프로그램 배포](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [사용자 할당 관리 id를 사용 하 여 Azure Service Fabric 응용 프로그램 배포](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [서비스 코드에서 Service Fabric 응용 프로그램의 관리 되는 id 활용](./how-to-managed-identity-service-fabric-app-code.md)
+* [Azure Service Fabric 응용 프로그램에 다른 Azure 리소스에 대 한 액세스 권한 부여](./how-to-grant-access-other-resources.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure 데이터 팩터리에서 파이프라인 활동 실행
+title: Azure Data Factory 파이프라인 실행 작업
 description: 파이프라인 실행 작업을 사용하여 하나의 Data Factory 파이프라인에서 다른 Data Factory 파이프라인을 호출하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 4bd667a2302136b5e12d2e4e548c9e8863715621
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415272"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 작업
@@ -69,8 +69,8 @@ ms.locfileid: "81415272"
 name | 파이프라인 실행 작업의 이름입니다. | String | 예
 type | **ExecutePipeline**으로 설정되어야 합니다. | String | 예
 pipeline | 이 파이프라인을 호출하는 종속 파이프라인에 대한 파이프라인 참조입니다. 파이프라인 참조 개체에는 두 가지 속성(**referenceName** 및 **type**)이 있습니다. referenceName 속성은 참조 파이프라인의 이름을 지정합니다. type 속성은 PipelineReference로 설정되어야 합니다. | PipelineReference | 예
-매개 변수 | 호출된 파이프라인으로 전달될 매개 변수 | 매개 변수 이름을 인수 값에 매핑하는 JSON 개체 | 예
-waitOnCompletion | 종속 파이프라인 실행이 완료될 때까지 작업 실행을 기다릴지 여부를 정의합니다. 기본값은 false입니다. | 부울 | 예
+매개 변수 | 호출된 파이프라인으로 전달될 매개 변수 | 매개 변수 이름을 인수 값에 매핑하는 JSON 개체 | 아니요
+waitOnCompletion | 종속 파이프라인 실행이 완료될 때까지 작업 실행을 기다릴지 여부를 정의합니다. 기본값은 false입니다. | 부울 | 아니요
 
 ## <a name="sample"></a>예제
 이 시나리오에는 두 개의 파이프라인이 있습니다.

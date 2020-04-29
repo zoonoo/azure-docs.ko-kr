@@ -1,30 +1,30 @@
 ---
-title: 기존 서비스 패브릭 클러스터에서 관리되는 ID 지원 구성
-description: 기존 Azure 서비스 패브릭 클러스터에서 관리되는 ID 지원을 활성화하는 방법은 다음과 같습니다.
+title: 기존 Service Fabric 클러스터에서 관리 id 지원 구성
+description: 기존 Azure Service Fabric 클러스터에서 관리 id 지원을 사용 하도록 설정 하는 방법은 다음과 같습니다.
 ms.topic: article
 ms.date: 03/11/2019
 ms.custom: sfrev
 ms.openlocfilehash: 73c890e960f26b8e0e3fa924d9ff6b7a4cd4a4dc
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415682"
 ---
-# <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>기존 서비스 패브릭 클러스터에서 관리되는 ID 지원 구성
+# <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>기존 Service Fabric 클러스터에서 관리 id 지원 구성
 
-Service Fabric 응용 프로그램에서 [Azure 리소스에 대해 관리되는 ID를](../active-directory/managed-identities-azure-resources/overview.md) 사용하려면 먼저 클러스터에서 *관리되는 ID 토큰 서비스를* 사용하도록 설정합니다. 이 서비스는 관리되는 ID를 사용하여 Service Fabric 응용 프로그램의 인증을 담당하며 해당 응용 프로그램을 대신하여 액세스 토큰을 얻는 작업을 담당합니다. 서비스가 활성화되면 왼쪽 창의 **시스템** 섹션 아래의 서비스 패브릭 탐색기에서 이름 **패브릭:/System/ManagedIdentityTokenService**에서 실행되는 것을 볼 수 있습니다.
+Service Fabric 응용 프로그램에서 [Azure 리소스에 관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하려면 먼저 클러스터에서 *관리 되는 id 토큰 서비스* 를 사용 하도록 설정 합니다. 이 서비스는 관리 되는 id를 사용 하 여 Service Fabric 응용 프로그램을 인증 하 고 사용자 대신 액세스 토큰을 가져오는 일을 담당 합니다. 서비스를 사용 하도록 설정 하면 왼쪽 창에 있는 **시스템** 섹션의 이름 **Fabric:/System/ManagedIdentityTokenService**에서 실행 되는 Service Fabric Explorer에서 해당 서비스를 볼 수 있습니다.
 
 > [!NOTE]
-> 서비스 패브릭 런타임 버전 6.5.658.9590 이상은 **관리되는 ID 토큰 서비스를**활성화하는 데 필요합니다.  
+> **관리 되는 Id 토큰 서비스**를 사용 하려면 Service Fabric runtime version 6.5.658.9590 이상이 필요 합니다.  
 >
-> 클러스터 리소스를 열고 Essentials 섹션에서 Service Fabric 버전 속성을 확인하여 Azure 포털에서 **클러스터의 서비스 패브릭 버전을** 찾을 수 **있습니다.**
+> 클러스터 리소스를 열고 **Essentials** 섹션에서 **Service Fabric 버전** 속성을 확인 하 여 Azure Portal에서 클러스터의 Service Fabric 버전을 찾을 수 있습니다.
 >
-> 클러스터가 **수동** 업그레이드 모드에 있는 경우 먼저 클러스터를 6.5.658.9590 이상으로 업그레이드해야 합니다.
+> 클러스터가 **수동** 업그레이드 모드에 있는 경우 먼저 6.5.658.9590 이상으로 업그레이드 해야 합니다.
 
-## <a name="enable-managed-identity-token-service-in-an-existing-cluster"></a>기존 클러스터에서 *관리되는 ID 토큰 서비스* 사용
+## <a name="enable-managed-identity-token-service-in-an-existing-cluster"></a>기존 클러스터에서 *관리 되는 Id 토큰 서비스* 사용
 
-기존 클러스터에서 관리되는 ID 토큰 서비스를 활성화하려면 (1) 관리되는 ID 토큰 서비스 사용 및 (2) 각 노드의 재시작을 요청하는 두 가지 변경 사항을 지정하는 클러스터 업그레이드를 시작해야 합니다. 먼저 클러스터 Azure 리소스 관리자 템플릿을 다음 코드 조각을 추가합니다.
+기존 클러스터에서 관리 되는 Id 토큰 서비스를 사용 하도록 설정 하려면 두 가지 변경 사항을 지정 하 여 클러스터 업그레이드를 시작 해야 합니다. (1) 관리 되는 Id 토큰 서비스를 사용 하도록 설정 하 고, (2) 각 노드를 다시 시작 하도록 요청 합니다. 먼저 클러스터 Azure Resource Manager 템플릿에 다음 코드 조각을 추가 합니다.
 
 ```json
 "fabricSettings": [
@@ -40,7 +40,7 @@ Service Fabric 응용 프로그램에서 [Azure 리소스에 대해 관리되는
 ]
 ```
 
-변경 내용이 적용되도록 업그레이드 정책을 변경하여 업그레이드가 클러스터를 통해 진행됨에 따라 각 노드에서 Service Fabric 런타임을 강제로 다시 시작하도록 지정해야 합니다. 이렇게 다시 시작하면 각 노드에서 새로 활성화된 시스템 서비스가 시작되고 실행됩니다. 아래 코드 조각에서 `forceRestart` 다시 시작을 활성화하는 데 필수적인 설정이 있습니다. 나머지 매개 변수의 경우 아래에 설명된 값을 사용하거나 클러스터 리소스에 대해 이미 지정된 기존 사용자 지정 값을 사용합니다. 패브릭 업그레이드 정책에 대한 사용자 지정 설정('업그레이드설명')은 서비스 패브릭 리소스 또는 resources.azure.com '패브릭 업그레이드' 옵션을 선택하여 Azure Portal에서 볼 수 있습니다. 업그레이드 정책('upgradeDescription')에 대한 기본 옵션은 전원 셸또는 resources.azure.com 볼 수 없습니다. 자세한 내용은 [클러스터 업그레이드 정책을](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) 참조하십시오.  
+변경 내용을 적용 하려면 업그레이드가 클러스터를 진행 하면서 각 노드에서 Service Fabric 런타임의 강제 다시 시작을 지정 하도록 업그레이드 정책을 변경 해야 합니다. 이렇게 다시 시작 하면 새로 활성화 된 시스템 서비스가 각 노드에서 시작 되 고 실행 됩니다. 아래 코드 조각에서는 다시 `forceRestart` 시작을 사용 하도록 설정 하는 것이 중요 합니다. 나머지 매개 변수의 경우 아래에서 설명 하는 값을 사용 하거나 클러스터 리소스에 이미 지정 된 기존 사용자 지정 값을 사용 합니다. 패브릭 업그레이드 정책 (' upgradeDescription ')에 대 한 사용자 지정 설정은 Service Fabric 리소스 또는 resources.azure.com에서 ' 패브릭 업그레이드 ' 옵션을 선택 하 여 Azure Portal에서 볼 수 있습니다. 업그레이드 정책에 대 한 기본 옵션 (' upgradeDescription ')은 powershell 또는 resources.azure.com에서 볼 수 없습니다. 자세한 내용은 [Clusterupgradepolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) 를 참조 하세요.  
 
 ```json
 "upgradeDescription": {
@@ -55,11 +55,11 @@ Service Fabric 응용 프로그램에서 [Azure 리소스에 대해 관리되는
 ```
 
 > [!NOTE]
-> 업그레이드가 성공적으로 완료되면 `forceRestart` 설정을 롤백하여 후속 업그레이드의 영향을 최소화하는 것을 잊지 마십시오. 
+> 업그레이드가 성공적으로 완료 되 면 이후 업그레이드의 영향을 최소화 하기 위해 `forceRestart` 설정을 롤백하는 것을 잊지 마세요. 
 
 ## <a name="errors-and-troubleshooting"></a>오류 및 문제 해결
 
-다음 메시지로 배포에 실패하면 클러스터가 충분히 높은 Service Fabric 버전에서 실행되고 있지 않음을 의미합니다.
+다음 메시지와 함께 배포가 실패 하는 경우 클러스터가 충분 한 Service Fabric 버전에서 실행 되 고 있지 않음을 의미 합니다.
 
 ```json
 {
@@ -69,7 +69,7 @@ Service Fabric 응용 프로그램에서 [Azure 리소스에 대해 관리되는
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [시스템 할당된 관리되는 ID를 사용 하 고 Azure 서비스 패브릭 응용 프로그램 배포](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [사용자 할당된 관리되는 ID를 사용 하 고 Azure 서비스 패브릭 응용 프로그램 배포](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [서비스 코드에서 서비스 패브릭 응용 프로그램의 관리되는 ID 활용](./how-to-managed-identity-service-fabric-app-code.md)
-* [Azure 서비스 패브릭 응용 프로그램 액세스 권한을 다른 Azure 리소스에 부여합니다.](./how-to-grant-access-other-resources.md)
+* [시스템 할당 관리 id를 사용 하 여 Azure Service Fabric 응용 프로그램 배포](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [사용자 할당 관리 id를 사용 하 여 Azure Service Fabric 응용 프로그램 배포](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [서비스 코드에서 Service Fabric 응용 프로그램의 관리 되는 id 활용](./how-to-managed-identity-service-fabric-app-code.md)
+* [Azure Service Fabric 응용 프로그램에 다른 Azure 리소스에 대 한 액세스 권한 부여](./how-to-grant-access-other-resources.md)

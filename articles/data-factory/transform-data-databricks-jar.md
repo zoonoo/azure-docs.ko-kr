@@ -1,5 +1,5 @@
 ---
-title: 데이터브릭 항아리로 데이터 변환
+title: Databricks Jar를 사용 하 여 데이터 변환
 description: Databricks Jar를 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ author: nabhishek
 manager: shwang
 ms.date: 03/15/2018
 ms.openlocfilehash: 6b010000a674e351051c664dd5eeacd40e802439
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414622"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Azure Databricks에서 Jar 활동을 실행하여 데이터 변환
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[Data Factory 파이프라인](concepts-pipelines-activities.md)의 Azure Databricks Jar 활동은 Azure Databricks 클러스터에서 Spark Jar를 실행합니다. 이 문서에서는 데이터 변환 및 지원되는 변환 활동에 대한 일반적인 개요를 제공하는 [데이터 변환 활동](transform-data.md) 문서를 기반으로 합니다.Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다.
+[Data Factory 파이프라인](concepts-pipelines-activities.md)의 Azure Databricks Jar 활동은 Azure Databricks 클러스터에서 Spark Jar를 실행합니다. 이 문서는 데이터 변환 및 지원 되는 변환 활동의 일반적인 개요를 제공 하는 [데이터 변환 활동](transform-data.md) 문서를 기반으로 합니다.Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다.
 
 11분 동안 이 기능의 소개 및 데모에 대한 다음 비디오를 시청하세요.
 
@@ -59,15 +59,15 @@ Databricks Jar 활동에 대한 샘플 JSON 정의는 다음과 같습니다.
 |속성|Description|필수|
 |:--|---|:-:|
 |name|파이프라인의 작업 이름입니다.|예|
-|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|예|
+|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아니요|
 |type|Databricks Jar 활동의 경우 활동 유형은 DatabricksSparkJar입니다.|예|
-|linkedServiceName|Jar 활동이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 서비스](compute-linked-services.md) 계산 문서를 참조하십시오.|예|
+|linkedServiceName|Jar 활동이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결 된 서비스에 대 한 자세한 내용은 [Compute 연결 된 서비스](compute-linked-services.md) 문서를 참조 하세요.|예|
 |mainClassName|실행될 main 메서드가 포함된 클래스의 전체 이름입니다. 이 클래스는 라이브러리로 제공된 JAR에 포함되어야 합니다.|예|
-|매개 변수|main 메서드에 전달할 매개 변수이며,  문자열의 배열입니다.|예|
+|매개 변수|main 메서드에 전달할 매개 변수이며,  문자열의 배열입니다.|아니요|
 |라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. <문자열, 개체>의 배열일 수 있습니다.|예(mainClassName 메서드가 하나 이상 포함되는 경우)|
 
 > [!NOTE]
-> **알려진 문제** - 동시 Databricks Jar 활동을 실행하기 위해 동일한 [대화형 클러스터를](compute-linked-services.md#example---using-existing-interactive-cluster-in-databricks) 사용하는 경우(클러스터 다시 시작 없이) Databricks에서 첫 번째 활동의 매개 변수도 다음 활동에서 사용되는 알려진 문제가 있습니다. 따라서 잘못된 매개 변수가 후속 작업에 전달됩니다. 이를 완화하려면 [대신 작업 클러스터를](compute-linked-services.md#example---using-new-job-cluster-in-databricks) 사용합니다. 
+> **알려진 문제** -동시 Databricks Jar 활동을 실행 하기 위해 동일한 [대화형 클러스터](compute-linked-services.md#example---using-existing-interactive-cluster-in-databricks) 를 사용 하는 경우 (클러스터를 다시 시작 하지 않음) Databricks에는 알려진 문제가 있습니다. 여기서 첫 번째 활동의 매개 변수는 다음 활동에도 사용 됩니다. 따라서 후속 작업에 전달 되는 잘못 된 매개 변수를 생성 합니다. 이를 완화 하려면 [작업 클러스터](compute-linked-services.md#example---using-new-job-cluster-in-databricks) 를 대신 사용 합니다. 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Databricks 활동에 지원되는 라이브러리
 

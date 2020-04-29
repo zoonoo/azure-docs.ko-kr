@@ -1,27 +1,27 @@
 ---
-title: Azure에서 Linux 서비스 패브릭 클러스터 만들기
+title: Azure에서 Linux Service Fabric 클러스터 만들기
 description: Azure CLI를 사용하여 기존 Azure 가상 네트워크에 Linux Service Fabric 클러스터를 배포하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
 ms.openlocfilehash: a9026e46f2fd386892af5a3d8f4ec8d7e0c9f649
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81411019"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Azure 가상 네트워크에 Linux Service Fabric 클러스터 배포
 
 이 문서에서는 Azure CLI 및 템플릿을 사용하여 [Azure VNET(가상 네트워크)](../virtual-network/virtual-networks-overview.md)에 Linux Service Fabric 클러스터를 배포하는 방법을 알아봅니다. 작업이 완료되면 애플리케이션을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다. PowerShell을 사용하여 Windows 클러스터를 만들려면 [Azure에서 보안 Windows 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 시작하기 전에
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Service Fabric CLI](service-fabric-cli.md)를 설치합니다.
-* Azure [CLI](/cli/azure/install-azure-cli) 설치
+* [Azure CLI](/cli/azure/install-azure-cli) 설치
 * 클러스터의 주요 개념을 알아보려면 [Azure 클러스터 개요](service-fabric-azure-clusters-overview.md)를 읽어보세요.
 * 프로덕션 클러스터 배포를 [계획 및 준비](service-fabric-cluster-azure-deployment-preparation.md)합니다.
 
@@ -31,19 +31,19 @@ ms.locfileid: "81411019"
 
 다음 Resource Manager 템플릿 파일을 다운로드합니다.
 
-우분투 16.04 LTS의 경우:
+Ubuntu 16.04 LTS의 경우:
 
-* [AzureDeploy.json][template]
-* [AzureDeploy.매개 변수.json][parameters]
+* [AzureDeploy. json][template]
+* [AzureDeploy. Parameters. json][parameters]
 
-우분투 18.04 LTS의 경우:
+Ubuntu 18.04 LTS의 경우:
 
-* [AzureDeploy.json][template2]
-* [AzureDeploy.매개 변수.json][parameters2]
+* [AzureDeploy. json][template2]
+* [AzureDeploy. Parameters. json][parameters2]
 
-두 템플릿의 차이점은 "18.04-LTS"로 설정되는 **vmImageSku** 특성과 각 노드의 **typeHandlerVersion이** 1.1로 설정되는 특성입니다.
+두 템플릿의 차이점은 **vmImageSku** 특성은 "18.04-lts"로 설정 되 고 각 노드의 **typehandlerversion** 은 1.1로 설정 됩니다.
 
-이 템플릿은 7개 가상 머신 및 3개 노드 유형의 보안 클러스터를 가상 네트워크에 배포합니다.  다른 예제 템플릿은 [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates)에 있을 수 있습니다. [AzureDeploy.json은][template] 다음을 포함하여 여러 리소스를 배포합니다.
+이 템플릿은 7개 가상 머신 및 3개 노드 유형의 보안 클러스터를 가상 네트워크에 배포합니다.  다른 예제 템플릿은 [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates)에 있을 수 있습니다. [Azuredeploy. json][template] 은 다음을 비롯 한 숫자 리소스를 배포 합니다.
 
 ### <a name="service-fabric-cluster"></a>Service Fabric 클러스터
 
@@ -51,11 +51,11 @@ ms.locfileid: "81411019"
 
 * 3개 노드 유형
 * 기본 노드 유형의 5개 노드(템플릿 매개 변수에서 구성 가능), 다른 두 노드 유형의 각 1개 노드
-* OS : (우분투 16.04 LTS / 우분투 18.04 LTS) (템플릿 매개 변수에서 구성 가능)
+* OS: (Ubuntu 16.04 LTS/Ubuntu 18.04 LTS) (템플릿 매개 변수에서 구성 가능)
 * 보안된 인증서(템플릿 매개 변수에서 구성 가능)
-* [DNS 서비스가](service-fabric-dnsservice.md) 활성화되어 있습니다.
-* 브론즈의 [내구성 수준(템플릿](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) 매개변수에서 구성 가능)
-* 실버의 [안정성 수준(템플릿](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) 매개 변수에서 구성 가능)
+* [DNS 서비스](service-fabric-dnsservice.md) 사용
+* 브론즈의 [내구성 수준](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) (템플릿 매개 변수에서 구성 가능)
+* 실버의 [안정성 수준](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) (템플릿 매개 변수에서 구성 가능)
 * 클라이언트 연결 엔드포인트: 19000(템플릿 매개 변수에서 구성 가능)
 * 클라이언트 연결 엔드포인트: 19080(템플릿 매개 변수에서 구성 가능)
 
@@ -79,7 +79,7 @@ ms.locfileid: "81411019"
 
 ## <a name="set-template-parameters"></a>템플릿 매개 변수 설정
 
-**AzureDeploy.Parameters** 파일은 클러스터 및 관련 리소스를 배포하는 데 사용되는 많은 값을 선언합니다. 배포에 대해 수정이 필요할 수도 있는 매개 변수 중 일부는 다음과 같습니다.
+**Azuredeploy. Parameters** 파일은 클러스터와 연결 된 리소스를 배포 하는 데 사용 되는 많은 값을 선언 합니다. 배포에 대해 수정이 필요할 수도 있는 매개 변수 중 일부는 다음과 같습니다.
 
 |매개 변수|예제 값|메모|
 |---|---||
@@ -97,7 +97,7 @@ ms.locfileid: "81411019"
 
 다음으로 네트워크 토폴로지를 설정하고 Service Fabric 클러스터를 배포합니다. **AzureDeploy.json** Resource Manager 템플릿은 VNET(가상 네트워크) 및 Service Fabric에 대한 서브넷을 만듭니다. 템플릿은 활성화된 인증서 보안으로 클러스터도 배포합니다.  프로덕션 클러스터의 경우 클러스터 인증서로 CA(인증 기관)의 인증서를 사용합니다. 테스트 클러스터를 보호하는 데 자체 서명된 인증서를 사용할 수 있습니다.
 
-이 문서의 템플릿은 인증서 지문을 사용하여 클러스터 인증서를 식별하는 클러스터를 배포합니다.  두 인증서에 동일한 지문을 사용할 수 없으므로 인증서 관리가 더 어려워집니다. 배포된 클러스터를 인증서 지문에서 인증서 일반 이름으로 전환하면 인증서 관리 방법이 훨씬 간단해집니다.  인증서 관리에 인증서 공통 이름을 사용하도록 클러스터를 업데이트하는 방법을 알아보려면 [인증서 공통 이름 관리에 대한 변경 클러스터를](service-fabric-cluster-change-cert-thumbprint-to-cn.md)읽습니다.
+이 문서의 템플릿은 인증서 지문을 사용하여 클러스터 인증서를 식별하는 클러스터를 배포합니다.  두 인증서에 동일한 지문을 사용할 수 없으므로 인증서 관리가 더 어려워집니다. 배포된 클러스터를 인증서 지문에서 인증서 일반 이름으로 전환하면 인증서 관리 방법이 훨씬 간단해집니다.  인증서 관리를 위해 인증서 일반 이름을 사용 하도록 클러스터를 업데이트 하는 방법을 알아보려면 [클러스터를 인증서 일반 이름 관리로 변경](service-fabric-cluster-change-cert-thumbprint-to-cn.md)을 참조 하세요.
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>기존 인증서를 사용하여 클러스터 만들기
 
@@ -168,7 +168,7 @@ sfctl cluster health
 
 [클러스터 크기 조정](service-fabric-tutorial-scale-cluster.md) 방법에 대해 알아보세요.
 
-이 문서의 템플릿은 인증서 지문을 사용하여 클러스터 인증서를 식별하는 클러스터를 배포합니다.  두 인증서에 동일한 지문을 사용할 수 없으므로 인증서 관리가 더 어려워집니다. 배포된 클러스터를 인증서 지문에서 인증서 일반 이름으로 전환하면 인증서 관리 방법이 훨씬 간단해집니다.  인증서 관리에 인증서 공통 이름을 사용하도록 클러스터를 업데이트하는 방법을 알아보려면 [인증서 공통 이름 관리에 대한 변경 클러스터를](service-fabric-cluster-change-cert-thumbprint-to-cn.md)읽습니다.
+이 문서의 템플릿은 인증서 지문을 사용하여 클러스터 인증서를 식별하는 클러스터를 배포합니다.  두 인증서에 동일한 지문을 사용할 수 없으므로 인증서 관리가 더 어려워집니다. 배포된 클러스터를 인증서 지문에서 인증서 일반 이름으로 전환하면 인증서 관리 방법이 훨씬 간단해집니다.  인증서 관리를 위해 인증서 일반 이름을 사용 하도록 클러스터를 업데이트 하는 방법을 알아보려면 [클러스터를 인증서 일반 이름 관리로 변경](service-fabric-cluster-change-cert-thumbprint-to-cn.md)을 참조 하세요.
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json

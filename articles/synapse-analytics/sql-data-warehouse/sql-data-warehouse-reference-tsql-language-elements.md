@@ -1,6 +1,6 @@
 ---
 title: T-SQL 언어 요소
-description: Synapse SQL 풀에서 지원되는 T-SQL 문에 대한 설명서에 대한 링크입니다.
+description: Synapse SQL 풀에서 지원 되는 T-sql 문에 대 한 설명서에 대 한 링크입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,53 +12,53 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 1696e227b26283cdb26a0493bef819768de756e6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81411650"
 ---
-# <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>시냅스 SQL 풀에서 지원되는 T-SQL 언어 요소
+# <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>Synapse SQL 풀에서 지원 되는 t-sql 언어 요소
 
-Synapse SQL 풀에서 지원되는 T-SQL 언어 요소에 대한 설명서에 대한 링크입니다.
+Synapse SQL 풀에서 지원 되는 T-sql 언어 요소에 대 한 설명서에 대 한 링크입니다.
 
 ## <a name="core-elements"></a>핵심 요소
 
-* [구문 규칙](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [개체 이름 지정 규칙](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [예약된 키워드](/sql/t-sql/language-elements/reserved-keywords-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [데이터 정렬을](/sql/t-sql/statements/collations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [코멘트](/sql/t-sql/language-elements/comment-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [상수](/sql/t-sql/data-types/constants-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [데이터 유형](/sql/t-sql/data-types/data-types-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [실행](/sql/t-sql/language-elements/execute-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [식](/sql/t-sql/language-elements/expressions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [구문 표기 규칙](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [개체 명명 규칙](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [예약 된 키워드](/sql/t-sql/language-elements/reserved-keywords-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [정렬과](/sql/t-sql/statements/collations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [주석만](/sql/t-sql/language-elements/comment-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [상수가](/sql/t-sql/data-types/constants-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [데이터 형식](/sql/t-sql/data-types/data-types-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [실행할](/sql/t-sql/language-elements/execute-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [산술식](/sql/t-sql/language-elements/expressions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [KILL](/sql/t-sql/language-elements/kill-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [IDENTITY 속성 해결 방법](/sql/t-sql/statements/create-table-transact-sql-identity-property?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [PRINT](/sql/t-sql/language-elements/print-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [USE](/sql/t-sql/language-elements/use-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [인쇄가](/sql/t-sql/language-elements/print-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [사용](/sql/t-sql/language-elements/use-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="batches-control-of-flow-and-variables"></a>일괄 처리, 흐름 제어 및 변수
 
 * [BEGIN...END](/sql/t-sql/language-elements/begin-end-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [휴식](/sql/t-sql/language-elements/break-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [선언@local_variable](/sql/t-sql/language-elements/declare-local-variable-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [경우... 다른](/sql/t-sql/language-elements/if-else-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [끊어야](/sql/t-sql/language-elements/break-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [있다고@local_variable](/sql/t-sql/language-elements/declare-local-variable-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [... 사람이](/sql/t-sql/language-elements/if-else-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [RAISERROR](/sql/t-sql/language-elements/raiserror-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SET@local_variable](/sql/t-sql/language-elements/set-local-variable-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [던져](/sql/t-sql/language-elements/throw-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [시도... 잡을](/sql/t-sql/language-elements/try-catch-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [동안](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [반환할](/sql/t-sql/language-elements/throw-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [TRY ... TRY-CATCH](/sql/t-sql/language-elements/try-catch-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [진행](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="operators"></a>연산자
 
 * [+(더하기)](/sql/t-sql/language-elements/add-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [+ (문자열 연결)](/sql/t-sql/language-elements/string-concatenation-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [- (음수)](/sql/t-sql/language-elements/unary-operators-negative?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [-(음수)](/sql/t-sql/language-elements/unary-operators-negative?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [-(빼기)](/sql/t-sql/language-elements/subtract-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [*(곱하기)](/sql/t-sql/language-elements/multiply-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [/(나누기)](/sql/t-sql/language-elements/divide-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [모듈로](/sql/t-sql/language-elements/modulo-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [나머지값](/sql/t-sql/language-elements/modulo-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="wildcard-characters-to-match"></a>일치하는 와일드 카드 문자
 
@@ -67,22 +67,22 @@ Synapse SQL 풀에서 지원되는 T-SQL 언어 요소에 대한 설명서에 �
 * [< (다음보다 적음)](/sql/t-sql/language-elements/less-than-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [>= (다음보다 크거나 다음과 같음)](/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [<= (다음보다 작거나 같음)](/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [<> (같지 않음)](/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [!= (같지 않음)](/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [및](/sql/t-sql/language-elements/and-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [<>  (같지 않음)](/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [! = (같지 않음)](/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [하거나](/sql/t-sql/language-elements/and-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [BETWEEN](/sql/t-sql/language-elements/between-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [존재](/sql/t-sql/language-elements/exists-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [에서](/sql/t-sql/language-elements/in-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [[아님] NULL](/sql/t-sql/queries/is-null-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [있으면](/sql/t-sql/language-elements/exists-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [진행](/sql/t-sql/language-elements/in-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [IS [NOT] NULL](/sql/t-sql/queries/is-null-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [LIKE](/sql/t-sql/language-elements/like-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [NOT](/sql/t-sql/language-elements/not-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [또는](/sql/t-sql/language-elements/or-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [나타내지](/sql/t-sql/language-elements/not-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [디스크나](/sql/t-sql/language-elements/or-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ### <a name="bitwise-operators"></a>비트 연산자
 
 * [&(비트 단위 AND)](/sql/t-sql/language-elements/bitwise-and-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [|(비트 OR)](/sql/t-sql/language-elements/bitwise-or-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [^ (비트와이즈 배타적 OR)](/sql/t-sql/language-elements/bitwise-exclusive-or-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [^ (배타적 비트 OR)](/sql/t-sql/language-elements/bitwise-exclusive-or-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [~ (비트 NOT)](/sql/t-sql/language-elements/bitwise-not-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [^=(배타적 비트 단위 OR EQUALS)](/sql/t-sql/language-elements/bitwise-exclusive-or-equals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [|=(비트 단위 OR EQUALS)](/sql/t-sql/language-elements/bitwise-or-equals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -91,22 +91,22 @@ Synapse SQL 풀에서 지원되는 T-SQL 언어 요소에 대한 설명서에 �
 ## <a name="functions"></a>Functions
 
 * [@@DATEFIRST](/sql/t-sql/functions/datefirst-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [@]/sql/t-sql/함수/오류-거래-sql?toc=/azure/시냅스@ERROR분석/sql-데이터 웨어하우스/toc.json&bc=/azure/시냅스 분석/sql-데이터 웨어하우스/이동/toc.json&보기=azure-sqldw-최신)
+* [@@ERROR]/sql/t-sql/functions/error-transact-sql? toc =/azure/synapse-analytics/sql-data-warehouse/toc.json&bc =/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view = azure-sqldw-최신)
 * [@@LANGUAGE](/sql/t-sql/functions/language-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [@@SPID](/sql/t-sql/functions/spid-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [@@TRANCOUNT](/sql/t-sql/functions/trancount-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [@@VERSION](/sql/t-sql/functions/version-transact-sql-configuration-functions?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [ABS](/sql/t-sql/functions/abs-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [ACOS](/sql/t-sql/functions/acos-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [ASCII]/sql/t-sql/함수/ascii-transact-sql?toc=/azure/시냅스 분석/sql-데이터 웨어하우스/toc.json&bc=/azure/시냅스 분석/sql 데이터 웨어하우스/이동 경로/toc.json&보기=azure-sqldw-최신)
+* [ASCII]/sql/t-sql/functions/ascii-transact-sql? toc =/azure/synapse-analytics/sql-data-warehouse/toc.json&bc =/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view = azure-sqldw-최신)
 * [ASIN](/sql/t-sql/functions/asin-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [ATAN](/sql/t-sql/functions/atan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [ATN2](/sql/t-sql/functions/atn2-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [BINARY_CHECKSUM]/sql/t-sql/함수/바이너리 체크섬-트랜스액트 sql?toc=/azure/시냅스 분석/sql-데이터 웨어하우스/toc.json&bc=/azure/시냅스 분석/sql 데이터 웨어하우스/이동 경로/toc.json&보기=azure-sqld-최신)
-* [CASE](/sql/t-sql/language-elements/case-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [BINARY_CHECKSUM]/sql/t-sql/functions/binary-checksum-transact-sql? toc =/azure/synapse-analytics/sql-data-warehouse/toc.json&bc =/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view = azure-sqldw-최신)
+* [경우](/sql/t-sql/language-elements/case-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [CAST 및 CONVERT](/sql/t-sql/functions/cast-and-convert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [CEILING](/sql/t-sql/functions/ceiling-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [Char](/sql/t-sql/functions/char-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [CHAR](/sql/t-sql/functions/char-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [CHARINDEX](/sql/t-sql/functions/charindex-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [CHECKSUM](/sql/t-sql/functions/checksum-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [COALESCE](/sql/t-sql/language-elements/coalesce-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -115,7 +115,7 @@ Synapse SQL 풀에서 지원되는 T-SQL 언어 요소에 대한 설명서에 �
 * [CONCAT](/sql/t-sql/functions/concat-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [COS](/sql/t-sql/functions/cos-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [COT](/sql/t-sql/functions/cot-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [개수](/sql/t-sql/functions/count-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [수](/sql/t-sql/functions/count-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [COUNT_BIG](/sql/t-sql/functions/count-big-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [CUME_DIST](/sql/t-sql/functions/cume-dist-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [CURRENT_TIMESTAMP](/sql/t-sql/functions/current-timestamp-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -151,7 +151,7 @@ Synapse SQL 풀에서 지원되는 T-SQL 언어 요소에 대한 설명서에 �
 * [HASHBYTES](/sql/t-sql/functions/hashbytes-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [INDEXPROPERTY](/sql/t-sql/functions/indexproperty-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [ISDATE](/sql/t-sql/functions/isdate-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [Isnull](/sql/t-sql/functions/isnull-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [ISNULL](/sql/t-sql/functions/isnull-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [ISNUMERIC](/sql/t-sql/functions/isnumeric-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [LAG](/sql/t-sql/functions/lag-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [LAST_VALUE](/sql/t-sql/functions/last-value-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -162,7 +162,7 @@ Synapse SQL 풀에서 지원되는 T-SQL 언어 요소에 대한 설명서에 �
 * [LOG10](/sql/t-sql/functions/log10-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [LOWER](/sql/t-sql/functions/lower-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [LTRIM](/sql/t-sql/functions/ltrim-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [최대](/sql/t-sql/functions/max-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [MAX](/sql/t-sql/functions/max-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [최소](/sql/t-sql/functions/min-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [MONTH](/sql/t-sql/functions/month-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [NCHAR](/sql/t-sql/functions/nchar-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -180,7 +180,7 @@ Synapse SQL 풀에서 지원되는 T-SQL 언어 요소에 대한 설명서에 �
 * [PERCENTILE_DISC](/sql/t-sql/functions/percentile-disc-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [PERCENT_RANK](/sql/t-sql/functions/percent-rank-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [PI](/sql/t-sql/functions/pi-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [POWER](/sql/t-sql/functions/power-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [동력](/sql/t-sql/functions/power-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [QUOTENAME](/sql/t-sql/functions/quotename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [RADIANS](/sql/t-sql/functions/radians-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [RAND](/sql/t-sql/functions/rand-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -203,20 +203,20 @@ Synapse SQL 풀에서 지원되는 T-SQL 언어 요소에 대한 설명서에 �
 * [SPACE](/sql/t-sql/functions/space-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SQL_VARIANT_PROPERTY](/sql/t-sql/functions/sql-variant-property-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SQRT](/sql/t-sql/functions/sqrt-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [SQUARE](/sql/t-sql/functions/square-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [대괄호](/sql/t-sql/functions/square-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [STDEV](/sql/t-sql/functions/stdev-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [STDEVP](/sql/t-sql/functions/stdevp-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [STR](/sql/t-sql/functions/str-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [STUFF](/sql/t-sql/functions/stuff-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [SUBSTRING](/sql/t-sql/functions/substring-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [부분](/sql/t-sql/functions/substring-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [합계](/sql/t-sql/functions/sum-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SUSER_SNAME](/sql/t-sql/functions/suser-sname-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SWITCHOFFSET](/sql/t-sql/functions/switchoffset-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SYSDATETIME](/sql/t-sql/functions/sysdatetime-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SYSDATETIMEOFFSET](/sql/t-sql/functions/sysdatetimeoffset-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SYSTEM_USER](/sql/t-sql/functions/system-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [SYSUTCDATETIME]/sql/t-sql/함수/sysutcdatetime-transact-sql?toc=/azure/시냅스 분석/sql-데이터 웨어하우스/toc.json&bc=/azure/시냅스 분석/sql-데이터 웨어하우스/이동/toc.json&보기=azure-sqldw-sqldw-s
+* [SYSUTCDATETIME]/sql/t-sql/functions/sysutcdatetime-transact-sql? toc =/azure/synapse-analytics/sql-data-warehouse/toc.json&bc =/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view = azure-sqldw-최신)
 * [TAN](/sql/t-sql/functions/tan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [TERTIARY_WEIGHTS](/sql/t-sql/functions/collation-functions-tertiary-weights-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [TIMEFROMPARTS](/sql/t-sql/functions/timefromparts-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -227,7 +227,7 @@ Synapse SQL 풀에서 지원되는 T-SQL 언어 요소에 대한 설명서에 �
 * [유니코드](/sql/t-sql/functions/unicode-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [UPPER](/sql/t-sql/functions/upper-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [사용자](/sql/t-sql/functions/user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [User_name](/sql/t-sql/functions/user-name-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [USER_NAME](/sql/t-sql/functions/user-name-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [VAR](/sql/t-sql/functions/var-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [VARP](/sql/t-sql/functions/varp-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [YEAR](/sql/t-sql/functions/year-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -241,7 +241,7 @@ Synapse SQL 풀에서 지원되는 T-SQL 언어 요소에 대한 설명서에 �
 
 * [CREATE DIAGNOSTICS SESSION](/sql/t-sql/language-elements/create-diagnostics-session-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="procedures"></a>프로시저
+## <a name="procedures"></a>절차
 
 * [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sp_columns](/sql/relational-databases/system-stored-procedures/sp-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -290,4 +290,4 @@ Synapse SQL 풀에서 지원되는 T-SQL 언어 요소에 대한 설명서에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 참조 정보는 [Synapse SQL 풀의 T-SQL 문](sql-data-warehouse-reference-tsql-statements.md)및 [시냅스 SQL 풀의 시스템 보기를](../sql/reference-tsql-system-views.md)참조하십시오.
+자세한 참조 정보는 [SYNAPSE sql pool의 t-sql 문](sql-data-warehouse-reference-tsql-statements.md)및 [Synapse Sql pool의 시스템 뷰](../sql/reference-tsql-system-views.md)를 참조 하세요.

@@ -12,10 +12,10 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
 ms.openlocfilehash: 14f1d3b58996d438279bfa2a234c754a6d840c79
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414740"
 ---
 # <a name="templates"></a>템플릿
@@ -31,7 +31,7 @@ ms.locfileid: "81414740"
 
     ![개요 페이지에서 템플릿 갤러리 열기](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  리소스 탐색기의 작성자 **+** 탭에서 **템플릿에서 파이프라인을** 선택하여 템플릿 갤러리를 엽니다.
+1.  리소스 탐색기의 작성자 탭에서을 선택 하 **+** 고 **템플릿에서 파이프라인** 을 선택 하 여 템플릿 갤러리를 엽니다.
 
     ![작성자 탭에서 템플릿 갤러리 열기](media/solution-templates-introduction/templates-intro-image2.png)
 
@@ -41,7 +41,7 @@ ms.locfileid: "81414740"
 
 ### <a name="out-of-the-box-data-factory-templates"></a>기본 제공 Data Factory 템플릿
 
-Data Factory는 데이터 팩터리 파이프라인 템플릿을 저장하기 위해 Azure Resource Manager 템플릿을 사용합니다. [공식 Azure Data Factory GitHub 리포지토리에서](https://github.com/Azure/Azure-DataFactory/tree/master/templates)모든 리소스 관리자 템플릿과 기본 데이터 팩터리 템플릿에 사용되는 매니페스트 파일을 볼 수 있습니다. Microsoft에서 제공하는 미리 정의된 템플릿에는 다음 항목이 포함되지만 이에만 제한되지는 않습니다.
+Data Factory는 데이터 팩터리 파이프라인 템플릿을 저장하기 위해 Azure Resource Manager 템플릿을 사용합니다. [공식 Azure Data Factory GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/templates)리포지토리에서 기본 Data Factory 템플릿에 사용 되는 매니페스트 파일과 함께 모든 리소스 관리자 템플릿을 볼 수 있습니다. Microsoft에서 제공하는 미리 정의된 템플릿에는 다음 항목이 포함되지만 이에만 제한되지는 않습니다.
 
 -   템플릿 복사:
 

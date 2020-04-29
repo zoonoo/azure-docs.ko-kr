@@ -1,5 +1,5 @@
 ---
-title: MariaDB에 대 한 Azure 데이터베이스에서 데이터 복사
+title: Azure Database for MariaDB에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Azure Database for MariaDB에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 services: data-factory
 ms.author: jingwang
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: c433fc5d919a57476097257cac1b7176a9da598d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81410697"
 ---
 # <a name="copy-data-from-azure-database-for-mariadb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Database for MariaDB에서 데이터 복사 
@@ -26,10 +26,10 @@ ms.locfileid: "81410697"
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-MariaDB 커넥터에 대한 이 Azure 데이터베이스는 다음 활동에 대해 지원됩니다.
+이 Azure Database for MariaDB 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [지원되는 소스/싱크 매트릭스로](copy-activity-overview.md) [활동 복사](copy-activity-overview.md)
-- [조회 활동](control-flow-lookup-activity.md)
+- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
+- [조회 작업](control-flow-lookup-activity.md)
  
 Azure Database for MariaDB에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
@@ -47,9 +47,9 @@ Azure Database for MariaDB 연결된 서비스에 다음 속성이 지원됩니�
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성을 설정해야 **합니다.** | 예 |
+| type | 형식 속성은 **Azuremariadb** 로 설정 되어야 합니다. | 예 |
 | connectionString | Azure Database for MariaDB에 연결하는 연결 문자열입니다. Azure Portal -> Azure Database for MariaDB -> 연결 문자열 -> ADO.NET에서 찾을 수 있습니다. <br/> Azure Key Vault에 암호를 넣고, 연결 문자열에서 `pwd` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임입니다.](concepts-integration-runtime.md) 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
+| connectVia | 데이터 저장소에 연결 하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md) 입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
 
@@ -97,13 +97,13 @@ Azure Database for MariaDB 연결된 서비스에 다음 속성이 지원됩니�
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합을 정의하는 데 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Azure Database for MariaDB 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조 하세요. 이 섹션에서는 Azure Database for MariaDB 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-MariaDB에 대한 Azure 데이터베이스의 데이터를 복사하려면 다음 속성이 지원됩니다.
+Azure Database for MariaDB에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 형식 속성을 **AzureMariaDBTable으로** 설정해야 합니다. | 예 |
+| type | 데이터 집합의 type 속성은 **Azuremariadbtable** 로 설정 해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -129,11 +129,11 @@ MariaDB에 대한 Azure 데이터베이스의 데이터를 복사하려면 다�
 
 ### <a name="azure-database-for-mariadb-as-source"></a>Azure Database for MariaDB 원본
 
-MariaDB에 대 한 Azure 데이터베이스에서 데이터를 복사 하려면 다음 속성 복사 활동 **원본** 섹션에서 지원 됩니다.
+Azure Database for MariaDB에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 활동 원본의 형식 속성을 **AzureMariaDBSource로** 설정해야 합니다. | 예 |
+| type | 복사 작업 원본의 type 속성은 **Azuremariadbsource** 로 설정 해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
@@ -167,9 +167,9 @@ MariaDB에 대 한 Azure 데이터베이스에서 데이터를 복사 하려면 
     }
 ]
 ```
-## <a name="lookup-activity-properties"></a>조회 활동 속성
+## <a name="lookup-activity-properties"></a>조회 작업 속성
 
-속성에 대한 자세한 내용을 보려면 [조회 활동을](control-flow-lookup-activity.md)선택합니다.
+속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

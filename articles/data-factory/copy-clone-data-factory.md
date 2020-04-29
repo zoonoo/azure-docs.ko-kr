@@ -12,10 +12,10 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.openlocfilehash: 5e44bda8648fbf26487b04cf36a8fd0ec085c411
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414102"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Azure Data Factory에서 데이터 팩터리 복사 또는 복제
@@ -38,7 +38,7 @@ ms.locfileid: "81414102"
 
 1. 필수 요소로, Azure Portal에서 대상 데이터 팩터리를 만들어야 합니다.
 
-1. 원본 팩터리에서 SelfHosted IntegrationRuntime이 있는 경우 대상 팩터리에서 동일한 이름으로 미리 만들어야 합니다. 다른 팩터리 간에 SelfHosted IRs를 공유하려면 [여기에](source-control.md#best-practices-for-git-integration)게시된 패턴을 사용할 수 있습니다.
+1. 원본 팩터리에 SelfHosted IntegrationRuntime가 있는 경우 대상 팩터리에 동일한 이름으로 precreate 해야 합니다. 서로 다른 팩터리 간에 SelfHosted IRs를 공유 하려는 경우 [여기](source-control.md#best-practices-for-git-integration)에 게시 된 패턴을 사용할 수 있습니다.
 
 1. GIT 모드에서는 포털에서 게시할 때마다 팩터리의 Resource Manager 템플릿이 리포지토리의 adf_publish 분기에 있는 GIT에 저장됩니다.
 

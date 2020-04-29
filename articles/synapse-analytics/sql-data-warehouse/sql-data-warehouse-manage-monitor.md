@@ -1,6 +1,6 @@
 ---
-title: DMV를 사용하여 SQL 풀 워크로드 모니터링
-description: DMV를 사용하여 Azure Synapse Analytics SQL 풀 워크로드 및 쿼리 실행을 모니터링하는 방법을 알아봅니다.
+title: Dmv를 사용 하 여 SQL 풀 워크 로드 모니터링
+description: Dmv를 사용 하 여 Azure Synapse Analytics SQL 풀 작업 및 쿼리 실행을 모니터링 하는 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,19 +12,19 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
 ms.openlocfilehash: 5360d91a17a7eee2dd0373ac311c79d22e085939
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416093"
 ---
-# <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>DMV를 사용하여 Azure 시냅스 분석 SQL 풀 워크로드 모니터링
+# <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Dmv를 사용 하 여 Azure Synapse Analytics SQL 풀 워크 로드 모니터링
 
-이 문서에서는 동적 관리 보기(DMV)를 사용하여 SQL 풀에서 쿼리 실행을 조사하는 것을 포함하여 워크로드를 모니터링하는 방법에 대해 설명합니다.
+이 문서에서는 Dmv (동적 관리 뷰)를 사용 하 여 SQL 풀에서 쿼리 실행을 조사 하는 작업을 비롯 한 작업을 모니터링 하는 방법을 설명 합니다.
 
 ## <a name="permissions"></a>사용 권한
 
-이 문서에서 DMV를 쿼리하려면 **데이터베이스 상태 보기** 또는 **제어** 권한이 필요합니다. 일반적으로 VIEW **데이터베이스 상태를** 부여하는 것이 훨씬 더 제한적이기 때문에 기본 권한입니다.
+이 문서에서 Dmv를 쿼리하려면 **VIEW DATABASE STATE** 또는 **CONTROL** 권한이 필요 합니다. 일반적으로 **뷰 데이터베이스 상태** 를 부여 하는 것은 매우 제한적 이기 때문에 기본 설정 된 사용 권한입니다.
 
 ```sql
 GRANT VIEW DATABASE STATE TO myuser;
@@ -32,7 +32,7 @@ GRANT VIEW DATABASE STATE TO myuser;
 
 ## <a name="monitor-connections"></a>연결 모니터링
 
-데이터 웨어하우스에 대한 모든 로그인은 [sys.dm_pdw_exec_sessions.](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-sessions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  이 DMV에는 마지막 10,000회의 로그인 정보가 포함됩니다.  session_id(기본 키)는 각각의 새 로그인에 대해 순차적으로 할당됩니다.
+데이터 웨어하우스에 대 한 모든 로그인은 [sys. dm_pdw_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-sessions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)에 기록 됩니다.  이 DMV에는 마지막 10,000회의 로그인 정보가 포함됩니다.  session_id(기본 키)는 각각의 새 로그인에 대해 순차적으로 할당됩니다.
 
 ```sql
 -- Other Active Connections
@@ -41,7 +41,7 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 
 ## <a name="monitor-query-execution"></a>쿼리 실행 모니터링
 
-SQL 풀에서 실행되는 모든 쿼리는 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)로 기록됩니다.  이 DMV에는 마지막으로 실행한 쿼리 10,000개가 포함됩니다.  이 DMV의 기본 키인 request_id는 각 쿼리를 고유하게 식별합니다.  request_id는 각각의 새 쿼리에 대해 순차적으로 할당되며 쿼리 ID를 나타내는 QID가 접두사로 추가됩니다.  이 DMV에서 지정된 session_id를 쿼리하면 지정된 로그온에 대한 모든 쿼리가 표시됩니다.
+SQL 풀에서 실행 되는 모든 쿼리는 [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)에 기록 됩니다.  이 DMV에는 마지막으로 실행한 쿼리 10,000개가 포함됩니다.  이 DMV의 기본 키인 request_id는 각 쿼리를 고유하게 식별합니다.  request_id는 각각의 새 쿼리에 대해 순차적으로 할당되며 쿼리 ID를 나타내는 QID가 접두사로 추가됩니다.  이 DMV에서 지정된 session_id를 쿼리하면 지정된 로그온에 대한 모든 쿼리가 표시됩니다.
 
 > [!NOTE]
 > 저장 프로시저는 여러 요청 ID를 사용합니다.  요청 ID는 순차적으로 할당됩니다.
@@ -67,9 +67,9 @@ ORDER BY total_elapsed_time DESC;
 
 위의 쿼리 결과에서 조사할 쿼리의 **요청 ID를 적어 둡니다** .
 
-활성 실행 중인 쿼리수가 많기 때문에 **일시 중단된** 상태의 쿼리가 큐에 대기될 수 있습니다. 이러한 쿼리는 [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 사용자 ConcurrencyResourceType의 형식을 사용 하 고 대기 쿼리에도 나타납니다. 동시성 제한에 대한 자세한 내용은 워크로드 관리를 위한 [메모리 및 동시성 제한](memory-concurrency-limits.md) 또는 리소스 [클래스를](resource-classes-for-workload-management.md)참조하십시오. 쿼리는 개체 잠금 등의 기타 이유로 인해 대기 상태일 수도 있습니다.  쿼리가 리소스를 대기 중인 경우 이 문서 뒷부분의 [리소스를 대기 중인 쿼리 조사](#monitor-waiting-queries)를 참조하세요.
+**일시 중단** 상태의 쿼리는 실행 중인 활성 쿼리 수가 많기 때문에 큐에 대기할 수 있습니다. 이러한 쿼리는 UserConcurrencyResourceType 형식으로 [dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 대기 하는 쿼리를 사용 하 여 표시 됩니다. 동시성 제한에 대 한 자세한 내용은 [메모리 및 동시성 제한](memory-concurrency-limits.md) 또는 [워크 로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조 하세요. 쿼리는 개체 잠금 등의 기타 이유로 인해 대기 상태일 수도 있습니다.  쿼리가 리소스를 대기 중인 경우 이 문서 뒷부분의 [리소스를 대기 중인 쿼리 조사](#monitor-waiting-queries)를 참조하세요.
 
-[sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 테이블에서 쿼리의 조회를 단순화하려면 [LABEL을](/sql/t-sql/queries/option-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 사용하여 sys.dm_pdw_exec_requests 보기에서 조회할 수 있는 쿼리에 주석을 할당합니다.
+[Dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 테이블에서 쿼리 조회를 간소화 하려면 [레이블을](/sql/t-sql/queries/option-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 사용 하 여 쿼리에 주석을 할당 합니다 .이는 dm_pdw_exec_requests 뷰에서 조회할 수 있습니다.
 
 ```sql
 -- Query with Label
@@ -87,7 +87,7 @@ WHERE   [label] = 'My Query';
 
 ### <a name="step-2-investigate-the-query-plan"></a>2단계: 쿼리 계획 조사
 
-요청 ID를 사용하여 [sys.dm_pdw_request_steps에서](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 쿼리의 분산 SQL(DSQL) 계획을 검색합니다.
+요청 ID를 사용 하 여 [sys. dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 에서 쿼리의 분산 SQL (sql) 계획을 검색 합니다.
 
 ```sql
 -- Find the distributed query plan steps for a specific query.
@@ -98,14 +98,14 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-DSQL 계획의 시간이 생각보다 오래 걸리는 경우 계획이 여러 DSQL 단계를 포함하여 복잡하거나 한 단계에 시간이 오래 걸리는 것일 수 있습니다.  계획에 많은 단계가 포함되어 있으며 여러 이동 작업이 수행되는 경우에는 테이블 분산을 최적화하여 데이터 이동을 줄일 수 있습니다. [테이블 배포](sql-data-warehouse-tables-distribute.md) 문서에서는 쿼리를 해결하기 위해 데이터를 이동해야 하는 이유를 설명합니다. 또한 데이터 이동을 최소화하기 위한 몇 가지 배포 전략에 대해서도 설명합니다.
+DSQL 계획의 시간이 생각보다 오래 걸리는 경우 계획이 여러 DSQL 단계를 포함하여 복잡하거나 한 단계에 시간이 오래 걸리는 것일 수 있습니다.  계획에 많은 단계가 포함되어 있으며 여러 이동 작업이 수행되는 경우에는 테이블 분산을 최적화하여 데이터 이동을 줄일 수 있습니다. [테이블 배포](sql-data-warehouse-tables-distribute.md) 문서에는 쿼리를 해결 하기 위해 데이터를 이동 해야 하는 이유가 설명 되어 있습니다. 이 문서에서는 데이터 이동을 최소화 하기 위한 몇 가지 배포 전략에 대해서도 설명 합니다.
 
 한 단계에서 추가 세부 정보를 조사하려면 오래 실행되는 쿼리 단계의 *operation_type* 열을 확인하고 **단계 인덱스**를 적어 둡니다.
 
 * OnOperation, RemoteOperation, ReturnOperation 등의 **SQL 작업**에 대해 3a단계를 진행합니다.
 * ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation 등의 **데이터 이동 작업**에 대해 3b단계를 진행합니다.
 
-### <a name="step-3-investigate-sql-on-the-distributed-databases"></a>3단계: 분산 데이터베이스에서 SQL 조사
+### <a name="step-3-investigate-sql-on-the-distributed-databases"></a>3 단계: 분산 데이터베이스에서 SQL 조사
 
 요청 ID와 단계 인덱스를 사용하여 [sys.dm_pdw_sql_requests](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)에서 세부 정보를 검색합니다. 이 보기에는 모든 분산 데이터베이스에 대한 쿼리 단계의 실행 정보가 포함되어 있습니다.
 
@@ -126,7 +126,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### <a name="step-4-investigate-data-movement-on-the-distributed-databases"></a>4단계: 분산 데이터베이스의 데이터 이동 조사
+### <a name="step-4-investigate-data-movement-on-the-distributed-databases"></a>4 단계: 분산 데이터베이스에서 데이터 이동 조사
 
 요청 ID 및 단계 인덱스를 사용하여 [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)에서 각 분산에 대해 실행 중인 데이터 이동 단계에 대한 정보를 검색합니다.
 
@@ -141,7 +141,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 * *total_elapsed_time* 열을 검사하여 특정 배포에서 데이터 이동 시간이 다른 배포보다 오래 걸리는지 확인합니다.
 * 장기 실행 배포의 경우 *rows_processed* 열을 검사하여 해당 배포에서 이동되는 행 수가 다른 배포보다 훨씬 큰지 확인합니다. 그렇다면 이 결과는 기본 데이터의 왜곡을 나타낼 수 있습니다.
 
-쿼리가 실행 중인 경우 [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 사용하여 특정 배포내에서 현재 실행 중인 SQL Step에 대한 SQL Server 계획 캐시에서 SQL Server 예상 계획을 검색할 수 있습니다.
+쿼리가 실행 중이면 [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 를 사용 하 여 특정 배포 내에서 현재 실행 중인 SQL 단계에 대 한 SQL Server 계획 캐시에서 예상 SQL Server 계획을 검색할 수 있습니다.
 
 ```sql
 -- Find the SQL Server estimated plan for a query running on a specific SQL pool Compute or control node.
@@ -180,11 +180,11 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 
 ## <a name="monitor-tempdb"></a>tempdb 모니터링
 
-Tempdb는 쿼리 실행 중에 중간 결과를 유지하는 데 사용됩니다. tempdb 데이터베이스를 사용하면 쿼리 성능이 저하될 수 있습니다. 구성된 모든 DW100c에 대해 399GB의 tempdb 공간이 할당됩니다(DW1000c는 총 tempdb 공간의 3.99TB를 갖습니다).  다음은 tempdb 사용량을 모니터링하고 쿼리에서 tempdb 사용량을 줄이는 방법에 대한 팁입니다.
+Tempdb는 쿼리를 실행 하는 동안 중간 결과를 저장 하는 데 사용 됩니다. Tempdb 데이터베이스의 사용률이 높으면 쿼리 성능이 저하 될 수 있습니다. 구성 된 모든 DW100c에 대해 399 g b의 tempdb 공간이 할당 됩니다 (DW1000c에 3.99 TB의 tempdb 공간이 있는 경우).  다음은 tempdb 사용을 모니터링 하 고 쿼리에서 tempdb 사용을 줄이는 데 유용한 팁입니다.
 
-### <a name="monitoring-tempdb-with-views"></a>뷰를 통해 tempdb 모니터링
+### <a name="monitoring-tempdb-with-views"></a>뷰를 사용 하 여 tempdb 모니터링
 
-tempdb 사용을 모니터링하려면 먼저 [SQL 풀용 Microsoft 도구 키트에서](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring) [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) 보기를 설치합니다. 그런 다음 다음 쿼리를 실행하여 실행된 모든 쿼리에 대해 노드당 tempdb 사용량을 확인할 수 있습니다.
+Tempdb 사용 현황을 모니터링 하려면 먼저 [sql 풀 용 Microsoft Toolkit](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring)의 [microsoft. vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) 뷰를 설치 합니다. 그러면 다음 쿼리를 실행 하 여 실행 된 모든 쿼리에 대 한 노드당 tempdb 사용량을 확인할 수 있습니다.
 
 ```sql
 -- Monitor tempdb
@@ -216,11 +216,11 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-많은 양의 메모리를 사용 하거나 tempdb의 할당과 관련 된 오류 메시지를 받은 쿼리, 그것은 매우 큰 [만들기 테이블 으로 SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 또는 마지막 데이터 이동 작업에서 실패 하는 INSERT SELECT 문을 실행 하는 [때문일](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 수 있습니다. 일반적으로 최종 INSERT SELECT 바로 전에 분산 쿼리 계획에서 ShuffleMove 작업으로 식별할 수 있습니다.  [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 사용하여 셔플이동 작업을 모니터링합니다.
+많은 양의 메모리를 사용 하는 쿼리가 있거나 tempdb 할당과 관련 된 오류 메시지를 받은 경우 최종 데이터 이동 작업에서 실패 하는 [select (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 또는 [INSERT select](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문으로 매우 큰 CREATE TABLE 때문일 수 있습니다. 이는 일반적으로 분산 쿼리 계획에서 최종 INSERT SELECT 바로 전에 ShuffleMove 작업으로 식별 될 수 있습니다.  ShuffleMove를 [dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 사용 하 여 작업을 모니터링할 수 있습니다.
 
-가장 일반적인 완화 방법은 데이터 볼륨이 노드 tempdb 제한당 1TB를 초과하지 않도록 CTAS 또는 INSERT SELECT 문을 여러 로드 문으로 분할하는 것입니다. 클러스터를 더 큰 크기로 확장하여 더 많은 노드에 걸쳐 tempdb 크기를 분산시켜 각 개별 노드의 tempdb를 줄일 수도 있습니다.
+가장 일반적인 완화 방법은 CTAS 또는 INSERT SELECT 문을 여러 개의 load 문으로 분할 하는 것입니다. 따라서 데이터 볼륨은 노드 tempdb 제한 당 1TB를 초과 하지 않습니다. 또한 클러스터의 크기를 더 크게 조정 하 여 더 많은 노드 간에 tempdb 크기를 분산할 수 있습니다. 그러면 각 개별 노드에서 tempdb를 줄일 수 있습니다.
 
-CTAS 및 INSERT SELECT 문 외에도 메모리가 부족하여 실행되는 크고 복잡한 쿼리가 tempdb로 유출되어 쿼리가 실패할 수 있습니다.  tempdb로 유출되지 않도록 더 큰 [리소스 클래스로](resource-classes-for-workload-management.md) 실행하는 것이 좋습니다.
+CTAS 및 INSERT SELECT 문 외에도 메모리 부족으로 실행 되는 복잡 한 쿼리는 tempdb로 분할 되어 쿼리가 실패할 수 있습니다.  Tempdb로 분산 하지 않도록 더 큰 [리소스 클래스](resource-classes-for-workload-management.md) 를 사용 하 여 실행 하는 것이 좋습니다.
 
 ## <a name="monitor-memory"></a>메모리 모니터링
 
@@ -281,9 +281,9 @@ JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id
 GROUP BY t.pdw_node_id, nod.[type]
 ```
 
-## <a name="monitor-polybase-load"></a>폴리베이스 부하 모니터링
+## <a name="monitor-polybase-load"></a>PolyBase 부하 모니터링
 
-다음 쿼리는 로드 진행률에 대한 대략적인 추정치를 제공합니다. 쿼리는 현재 처리 중인 파일만 표시합니다.
+다음 쿼리는 예상 되는 로드 진행률을 제공 합니다. 이 쿼리는 현재 처리 중인 파일만 표시 합니다.
 
 ```sql
 
