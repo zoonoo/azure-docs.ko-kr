@@ -8,14 +8,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.openlocfilehash: ce58aae3b1db1f0f338d353025d4f277aeb6944f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77137490"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>여러 Azure Monitor Application Insights 리소스 통합 
-이 문서에서는 응용 프로그램 인사이트 커넥터의 사용 중단을 대체하기 위해 다른 Azure 구독에 있는 경우에도 모든 응용 프로그램 인사이트 로그 데이터를 한 곳에서 쿼리하고 보는 방법을 설명합니다. 단일 쿼리에 포함할 수 있는 Application Insights 리소스 수는 100개로 제한됩니다.
+이 문서에서는 다른 Azure 구독에 있는 경우에도 Application Insights 커넥터의 사용 중단을 대체 하 여 한 곳에서 모든 Application Insights 로그 데이터를 쿼리하고 보는 방법을 설명 합니다. 단일 쿼리에 포함할 수 있는 Application Insights 리소스의 수는 100 개로 제한 됩니다.
 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>여러 Application Insights 리소스를 쿼리하는 권장 방식 
 여러 Application Insights 리소스의 목록을 쿼리에 표시하는 방식은 번거로우며 유지 관리하기가 어려울 수 있습니다. 이러한 방식 대신 함수를 사용해 애플리케이션 범위에서 쿼리 논리를 분리할 수 있습니다.  
@@ -27,9 +27,9 @@ ms.locfileid: "77137490"
 언제든지 포털에서 작업 영역의 쿼리 탐색기로 이동한 후 편집할 함수를 선택하고 저장하여, 또는 `SavedSearch` PowerShell cmdlet을 사용하여 나열된 애플리케이션을 수정할 수 있습니다. 
 
 >[!NOTE]
->작업 영역 및 응용 프로그램을 포함한 경고 규칙 리소스의 액세스 유효성 검사가 경고 생성 시 수행되므로 로그 경고와 함께 이 메서드를 사용할 수 없습니다. 경고 생성 후 함수에 새 리소스를 추가하는 것은 지원되지 않습니다. 로그 경고에서 리소스 범위를 지정하는 데 함수를 사용하려면 포털또는 리소스 관리자 템플릿을 사용하여 범위 가 있는 리소스를 업데이트해야 합니다. 또는 로그 경고 쿼리에 리소스 목록을 포함할 수 있습니다.
+>작업 영역 및 응용 프로그램을 포함 하 여 경고 규칙 리소스의 액세스 유효성 검사는 경고 생성 시 수행 되므로이 메서드는 로그 경고와 함께 사용할 수 없습니다. 경고를 만든 후 함수에 새 리소스를 추가 하는 것은 지원 되지 않습니다. 로그 경고에 리소스 범위를 지정 하는 함수를 사용 하려면 포털에서 또는 리소스 관리자 템플릿을 사용 하 여 범위 리소스를 업데이트 해야 합니다. 또는 로그 경고 쿼리에 리소스 목록을 포함할 수 있습니다.
 
-`withsource= SourceApp` 명령은 로그를 전송한 애플리케이션을 지정하는 열을 결과에 추가합니다. 구문 분석 연산자는 이 예제에서 선택 사항이며 SourceApp 속성에서 응용 프로그램 이름을 추출하는 데 사용합니다. 
+`withsource= SourceApp` 명령은 로그를 전송한 애플리케이션을 지정하는 열을 결과에 추가합니다. Parse 연산자는이 예제에서 선택 사항이 며를 사용 하 여 SourceApp 속성에서 응용 프로그램 이름을 추출 합니다. 
 
 ```
 union withsource=SourceApp 

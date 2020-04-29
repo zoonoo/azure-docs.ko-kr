@@ -1,15 +1,15 @@
 ---
-title: 확장을 사용하여 배포 후 구성
+title: 확장을 사용 하 여 배포 후 구성
 description: Azure Resource Manager 템플릿 확장을 사용하여 배포 후 구성을 제공하는 방법을 알아봅니다.
 author: mumian
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: jgao
 ms.openlocfilehash: b3c4110c8761b3e8daf324d65ac7fa1dcbcdf61f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77023500"
 ---
 # <a name="provide-post-deployment-configurations-by-using-extensions"></a>확장을 사용하여 배포 후 구성 제공
@@ -30,7 +30,7 @@ ms.locfileid: "77023500"
 
 이러한 확장을 사용하는 방법을 알아보려면 다음을 참조하세요.
 
-- [자습서: Azure 리소스 관리자 템플릿을 사용 하 고 가상 컴퓨터 확장을 배포 합니다.](template-tutorial-deploy-vm-extensions.md)
+- [자습서: Azure Resource Manager 템플릿을 사용 하 여 가상 머신 확장을 배포](template-tutorial-deploy-vm-extensions.md)합니다.
 - [자습서: Azure Resource Manager 템플릿을 사용하여 SQL BACPAC 파일 가져오기](template-tutorial-deploy-sql-extensions-bacpac.md)
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,34 +1,34 @@
 ---
-title: 아이덴티티 셀렉터 UI 요소
-description: Azure 포털에 대한 Microsoft.ManagedIdentity.Identity.IdentitySelector UI 요소에 대해 설명합니다. 관리되는 ID를 리소스에 할당하는 데 사용합니다.
+title: IdentitySelector UI 요소
+description: Azure Portal에 대 한 Microsoft.managedidentity IdentitySelector UI 요소에 대해 설명 합니다. 를 사용 하 여 관리 되는 id를 리소스에 할당 합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tomfitz
 ms.openlocfilehash: cb66a2684e0b83f4f0cc01a07cc724f6beab4d68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77087545"
 ---
-# <a name="microsoftmanagedidentityidentityselector-ui-element"></a>마이크로소프트.ManagedIdentity.IdSelector UI 요소
+# <a name="microsoftmanagedidentityidentityselector-ui-element"></a>Microsoft.managedidentity IdentitySelector UI 요소
 
-배포의 리소스에 대해 [관리되는 ID를](../../active-directory/managed-identities-azure-resources/overview.md) 할당하기 위한 컨트롤입니다.
+배포에서 리소스에 대 한 [관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 할당 하기 위한 컨트롤입니다.
 
 ## <a name="ui-sample"></a>UI 샘플
 
-컨트롤은 다음 요소로 구성됩니다.
+컨트롤은 다음 요소로 구성 됩니다.
 
-![마이크로소프트.ManagedIdentity.IdSelector 첫 번째 단계](./media/managed-application-elements/microsoft.managedidentity.identityselector1.png)
+![Microsoft.managedidentity. IdentitySelector first step](./media/managed-application-elements/microsoft.managedidentity.identityselector1.png)
 
-사용자가 **Add를**선택하면 다음 양식이 열립니다. 사용자는 리소스에 대해 하나 이상의 사용자 할당ID를 선택할 수 있습니다.
+사용자가 **추가**를 선택 하면 다음 양식이 열립니다. 사용자는 리소스에 대해 사용자 할당 id를 하나 이상 선택할 수 있습니다.
 
-![마이크로소프트.ManagedIdentity.IdSelector 두 번째 단계](./media/managed-application-elements/microsoft.managedidentity.identityselector2.png)
+![Microsoft.managedidentity. IdentitySelector second 단계](./media/managed-application-elements/microsoft.managedidentity.identityselector2.png)
 
-선택한 ID가 테이블에 표시됩니다. 사용자는 이 테이블에서 항목을 추가하거나 삭제할 수 있습니다.
+선택한 id가 테이블에 표시 됩니다. 사용자는이 테이블에서 항목을 추가 하거나 삭제할 수 있습니다.
 
-![마이크로소프트.ManagedIdentity.IdSelector 세 번째 단계](./media/managed-application-elements/microsoft.managedidentity.identityselector3.png)
+![Microsoft.managedidentity. IdentitySelector 3 단계](./media/managed-application-elements/microsoft.managedidentity.identityselector3.png)
 
 ## <a name="schema"></a>스키마
 
@@ -69,14 +69,14 @@ ms.locfileid: "77087545"
 
 ## <a name="remarks"></a>설명
 
-- **defaultValue.systemAssignedIdentity를** 사용하여 시스템에 할당된 ID 옵션 컨트롤에 대한 초기 값을 설정합니다. 기본값은 **꺼져 있습니다.** 허용되는 값은
-  - **On** – ID가 할당된 시스템이 리소스에 할당됩니다.
-  - **꺼기** – ID가 할당된 시스템이 리소스에 할당되지 않습니다.
-  - **OnOnly** – ID가 할당된 시스템이 리소스에 할당됩니다. 배포 하는 동안이 값을 편집할 수 없습니다.
-  - **OffOnly** – ID가 할당된 시스템이 리소스에 할당되지 않습니다. 배포 하는 동안이 값을 편집할 수 없습니다.
+- 시스템 할당 id 옵션 컨트롤의 초기 값을 설정 하려면 **systemAssignedIdentity** 를 사용 합니다. 기본값은 **Off**입니다. 허용되는 값은
+  - **On** – 시스템 할당 id가 리소스에 할당 됩니다.
+  - **Off** – 시스템 할당 id가 리소스에 할당 되지 않습니다.
+  - **Ononly** – 시스템 할당 id가 리소스에 할당 됩니다. 사용자는 배포 중에이 값을 편집할 수 없습니다.
+  - **Offonly** – 시스템 할당 id는 리소스에 할당 되지 않습니다. 사용자는 배포 중에이 값을 편집할 수 없습니다.
 
-- **options.hideSystemAssignedId가** **true로**설정된 경우 시스템에 할당된 ID를 구성하는 UI가 표시되지 않습니다. 이 옵션의 기본값은 **false입니다.**
-- **options.hideUserAssignedIdentity가** **true로**설정된 경우 사용자에게 할당된 ID를 구성하는 UI가 표시되지 않습니다. 리소스에 할당된 사용자에게 할당된 ID가 할당되지 않았습니다. 이 옵션의 기본값은 **false입니다.**
+- **HideSystemAssignedIdentity** 가 **true**로 설정 된 경우 시스템 할당 id를 구성 하는 UI가 표시 되지 않습니다. 이 옵션의 기본값은 **false**입니다.
+- **HideUserAssignedIdentity** 가 **true**로 설정 된 경우 사용자 할당 id를 구성 하는 UI가 표시 되지 않습니다. 리소스에 사용자 할당 id가 할당 되지 않았습니다. 이 옵션의 기본값은 **false**입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
