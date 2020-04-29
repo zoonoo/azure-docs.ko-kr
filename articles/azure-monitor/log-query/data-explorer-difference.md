@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/01/2020
 ms.openlocfilehash: 265179909c8ae4a6fa630b835bc9993f042d6460
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80585705"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Azure Monitor 로그 쿼리 언어 차이점
@@ -24,16 +24,16 @@ ms.locfileid: "80585705"
 
 ### <a name="statements-not-supported-in-azure-monitor"></a>Azure Monitor에서 지원되지 않는 명령문
 
-* [별칭](/azure/kusto/query/aliasstatement)
+* [앤티앨리어스](/azure/kusto/query/aliasstatement)
 * [쿼리 매개 변수](/azure/kusto/query/queryparametersstatement)
 
 ### <a name="functions-not-supported-in-azure-monitor"></a>Azure Monitor에서 지원되지 않는 함수
 
-* [클러스터()](/azure/kusto/query/clusterfunction)
+* [cluster()](/azure/kusto/query/clusterfunction)
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
 * [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
 * [cursor_current(), current_cursor()](/azure/kusto/query/cursorcurrent)
-* [데이터베이스()](/azure/kusto/query/databasefunction)
+* [데이터베이스 ()](/azure/kusto/query/databasefunction)
 * [current_principal()](/azure/kusto/query/current-principalfunction)
 * [extent_id()](/azure/kusto/query/extentidfunction)
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)
@@ -44,15 +44,15 @@ ms.locfileid: "80585705"
 
 ### <a name="plugins-not-supported-in-azure-monitor"></a>Azure Monitor에서 지원되지 않는 플러그 인
 
-* [파이썬 플러그인](/azure/kusto/query/pythonplugin)
+* [Python 플러그 인](/azure/kusto/query/pythonplugin)
 * [sql_request 플러그 인](/azure/kusto/query/sqlrequestplugin)
 
 
 ## <a name="additional-operators-in-azure-monitor"></a>Azure Monitor의 추가 연산자
 다음 연산자는 특정 Azure Monitor 기능을 지원하며 Azure Monitor 외에는 사용할 수 없습니다.
 
-* [앱()](app-expression.md)
-* [작업 영역()](workspace-expression.md)
+* [앱 ()](app-expression.md)
+* [작업 영역 ()](workspace-expression.md)
 
 ## <a name="next-steps"></a>다음 단계
 

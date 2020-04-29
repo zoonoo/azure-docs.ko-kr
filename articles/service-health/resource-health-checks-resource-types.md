@@ -4,10 +4,10 @@ description: Azure Resource Health를 통해 지원되는 리소스 유형
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: 5cc80147730fdc97b1181690f6e70fc538d4afcc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478895"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
@@ -26,7 +26,7 @@ ms.locfileid: "80478895"
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 |실행된 검사|
 |---|
-|<ul><li>Batch 계정이 실행되고 있습니까?</li><li>이 일괄 처리 계정에 대한 풀 할당량을 초과했습니다.</li></ul>|
+|<ul><li>Batch 계정이 작동 하 고 실행 되 고 있나요?</li><li>이 배치 계정에 대 한 풀 할당량을 초과 했습니까?</li></ul>|
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/Redis
 |실행된 검사|
@@ -41,32 +41,32 @@ ms.locfileid: "80478895"
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.classiccompute/virtualmachines
 |실행된 검사|
 |---|
-|<ul><li>호스트 서버가 작동 중인가?</li><li>호스트 OS 부팅이 완료되었는가?</li><li>가상 컴퓨터 컨테이너가 프로비전되고 전원이 공급되는가?</li><li>호스트와 스토리지 계정 간에 네트워크 연결이 되어 있는가?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li><li>호스트 하드웨어가 성능이 저하되고 곧 실패할 것으로 예상되고 있습니까?</li></ul>|
+|<ul><li>호스트 서버가 작동 중인가?</li><li>호스트 OS 부팅이 완료되었는가?</li><li>가상 컴퓨터 컨테이너가 프로비전되고 전원이 공급되는가?</li><li>호스트와 스토리지 계정 간에 네트워크 연결이 되어 있는가?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li><li>호스트 하드웨어의 성능이 저하 되 고 곧 오류가 발생 하나요?</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |실행된 검사|
 |---|
 |<ul><li>데이터 센터 내에서 계정에 도달할 수 있는가?</li><li>Cognitive Services 리소스 공급자를 사용할 수 있는가?</li><li>해당 지역에서 Cognitive Service를 사용할 수 있는가?</li><li>리소스 메타데이터가 있는 스토리지 계정에서 읽기 작업을 수행할 수 있는가?</li><li>API 호출 할당량에 도달했는가?</li><li>API 호출 읽기 제한에 도달했는가?</li></ul>|
 
-## <a name="microsoftcomputehostgroupshosts"></a>Microsoft.계산/호스트 그룹/호스트
+## <a name="microsoftcomputehostgroupshosts"></a>Microsoft. compute/hostgroups/hosts
 |실행된 검사|
 |---|
-|<ul><li>호스트가 실행 중입니까?</li><li>호스트 하드웨어의 성능이 저하되어 있습니까?</li><li>호스트가 할당 된 할당 인가?</li><li>호스트 하드웨어 서비스가 다른 하드웨어로 복구되셨습니까?</li></ul>|
+|<ul><li>호스트를 실행 하 고 있습니다.</li><li>호스트 하드웨어가 저하 됩니까?</li><li>호스트가 할당 취소 되었습니까?</li><li>호스트 하드웨어 서비스가 다른 하드웨어에 치유 되었습니까?</li></ul>|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |실행된 검사|
 |---|
-|<ul><li>가상 머신을 호스팅하는 서버가 작동 중인가?</li><li>호스트 OS 부팅이 완료되었는가?</li><li>가상 컴퓨터 컨테이너가 프로비전되고 전원이 공급되는가?</li><li>호스트와 스토리지 계정 간에 네트워크 연결이 되어 있는가?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li><li>호스트 하드웨어가 성능이 저하되고 곧 실패할 것으로 예상되고 있습니까?</li></ul>|
+|<ul><li>가상 머신을 호스팅하는 서버가 작동 중인가?</li><li>호스트 OS 부팅이 완료되었는가?</li><li>가상 컴퓨터 컨테이너가 프로비전되고 전원이 공급되는가?</li><li>호스트와 스토리지 계정 간에 네트워크 연결이 되어 있는가?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li><li>호스트 하드웨어의 성능이 저하 되 고 곧 오류가 발생 하나요?</li></ul>|
 
-## <a name="microsoftdatafactoryfactories"></a>마이크로소프트.데이터 팩토리/팩토리
+## <a name="microsoftdatafactoryfactories"></a>Datafactory/팩터리
 |실행된 검사|
 |---|
-|<ul><li>파이프라인 실행 실패가 있었습니까?</li><li>데이터 팩터리를 호스팅하는 클러스터가 정상입니까?</li></ul>|
+|<ul><li>파이프라인 실행 실패가 있나요?</li><li>Data Factory를 호스팅하는 클러스터가 정상 상태 인가요?</li></ul>|
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |실행된 검사|
 |---|
-|<ul><li>사용자가 Data Lake Analytics 작업을 제출하거나 나열하는 데 문제가 있는가?</li><li>시스템 오류로 인해 데이터 레이크 애널리틱스 작업을 완료할 수 있습니까?</li></ul>|
+|<ul><li>사용자가 Data Lake Analytics 작업을 제출하거나 나열하는 데 문제가 있는가?</li><li>시스템 오류로 인해 작업을 완료할 수 Data Lake Analytics 있습니까?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
@@ -74,30 +74,30 @@ ms.locfileid: "80478895"
 |---|
 |<ul><li>사용자가 Data Lake Store에 데이터를 업로드하는 데 문제가 있는가?</li><li>사용자가 Data Lake Store에서 데이터를 다운로드하는 데 문제가 있는가?</li></ul>|
 
-## <a name="microsoftdatamigrationservices"></a>Microsoft.데이터 마이그레이션/서비스
+## <a name="microsoftdatamigrationservices"></a>Microsoft.datamigration/서비스
 |실행된 검사|
 |---|
-|<ul><li>데이터베이스 마이그레이션 서비스를 프로비전하지 못했습니까?</li><li>비활성 또는 사용자 요청으로 인해 데이터베이스 마이그레이션 서비스가 중지되었음을</li></ul>|
+|<ul><li>데이터베이스 마이그레이션 서비스를 프로 비전 하지 못했습니다.</li><li>비활성 또는 사용자 요청으로 인해 데이터베이스 마이그레이션 서비스가 중지 되었습니까?</li></ul>|
 
-## <a name="microsoftdatashareaccounts"></a>마이크로소프트.데이터 쉐어/계정
+## <a name="microsoftdatashareaccounts"></a>DataShare/계정
 |실행된 검사|
 |---|
-|<ul><li>데이터 공유 계정이 실행되고 있습니까?</li><li>데이터 공유를 호스팅하는 클러스터를 사용할 수 있습니까?</li></ul>|
+|<ul><li>데이터 공유 계정이 작동 하 고 실행 되 고 있나요?</li><li>데이터 공유를 호스팅하는 클러스터를 사용할 수 있나요?</li></ul>|
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
 |실행된 검사|
 |---|
-|<ul><li>유지 관리로 인해 서버를 사용할 수 있습니까?</li><li>재구성으로 인해 서버를 사용할 수 있습니까?</li></ul>|
+|<ul><li>유지 관리로 인해 서버를 사용할 수 없습니까?</li><li>재구성으로 인해 서버를 사용할 수 없습니까?</li></ul>|
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 |실행된 검사|
 |---|
-|<ul><li>유지 관리로 인해 서버를 사용할 수 있습니까?</li><li>재구성으로 인해 서버를 사용할 수 있습니까?</li></ul>|
+|<ul><li>유지 관리로 인해 서버를 사용할 수 없습니까?</li><li>재구성으로 인해 서버를 사용할 수 없습니까?</li></ul>|
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 |실행된 검사|
 |---|
-|<ul><li>유지 관리로 인해 서버를 사용할 수 있습니까?</li><li>재구성으로 인해 서버를 사용할 수 있습니까?</li></ul>|
+|<ul><li>유지 관리로 인해 서버를 사용할 수 없습니까?</li><li>재구성으로 인해 서버를 사용할 수 없습니까?</li></ul>|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 |실행된 검사|
@@ -109,15 +109,15 @@ ms.locfileid: "80478895"
 |---|
 |<ul><li>Azure Cosmos DB 서비스를 사용할 수 없어서 데이터베이스 또는 컬렉션 요청이 처리되지 않았는가?</li><li>Azure Cosmos DB 서비스를 사용할 수 없어서 문서 요청이 처리되지 않았는가?</li></ul>|
 
-## <a name="microsofteventhubnamespaces"></a>마이크로소프트.이벤트 허브/네임스페이스
+## <a name="microsofteventhubnamespaces"></a>Microsoft eventhub/네임 스페이스
 |실행된 검사|
 |---|
-|<ul><li>이벤트 허브 네임스페이스에서 사용자가 생성된 오류가 발생합니까?</li><li>이벤트 허브 네임스페이스가 현재 업그레이드되고 있습니까?</li></ul>|
+|<ul><li>사용자 생성 오류가 발생 한 Event Hubs 네임 스페이스 입니까?</li><li>현재 Event Hubs 네임 스페이스가 업그레이드 되 고 있나요?</li></ul>|
 
-## <a name="microsofthdinsightclusters"></a>마이크로소프트.hdinsight/클러스터
+## <a name="microsofthdinsightclusters"></a>Microsoft hdinsight/클러스터
 |실행된 검사|
 |---|
-|<ul><li>HDInsight 클러스터에서 핵심 서비스를 사용할 수 있습니까?</li><li>HDInsight 클러스터가 미사용 BYOK 암호화키에 액세스할 수 있습니까?</li></ul>|
+|<ul><li>HDInsight 클러스터에서 핵심 서비스를 사용할 수 있나요?</li><li>HDInsight 클러스터가 휴지 상태의 BYOK 암호화에 대 한 키에 액세스할 수 있나요?</li></ul>|
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |실행된 검사|
@@ -127,37 +127,37 @@ ms.locfileid: "80478895"
 ## <a name="microsoftmachinelearningwebservices"></a>Microsoft.MachineLearning/webServices
 |실행된 검사|
 |---|
-|<ul><li>웹 서비스가 실행되고 있습니까?</li></ul>|
+|<ul><li>웹 서비스를 실행 하 고 있습니까?</li></ul>|
 
-## <a name="microsoftmediamediaservices"></a>마이크로소프트.미디어/미디어 서비스
+## <a name="microsoftmediamediaservices"></a>Microsoft. Media/windowsazure.mediaservices
 |실행된 검사|
 |---|
-|<ul><li>미디어 서비스가 실행되고 있습니까?</li></ul>|
+|<ul><li>미디어 서비스를 실행 하 고 있습니까?</li></ul>|
 
-## <a name="microsoftnetworkapplicationgateways"></a>마이크로소프트.네트워크/애플리케이션 게이트웨이
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft. network/applicationgateways
 |실행된 검사|
 |---|
-|<ul><li>응용 프로그램 게이트웨이의 성능이 저하되고 있습니까?</li><li>응용 프로그램 게이트웨이를 사용할 수 있습니까?</li></ul>|
+|<ul><li>Application Gateway 성능이 저하 됩니까?</li><li>Application Gateway 사용 가능 여부</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |실행된 검사|
 |---|
 |<ul><li>VPN 터널이 연결되어 있는가?</li><li>연결에 구성 충돌이 있는가?</li><li>미리 공유한 키를 적절히 구성하였는가?</li><li>VPN 온-프레미스 디바이스에 연결할 수 있나요?</li><li>IPSec/IKE 보안 정책에 일치하지 않는 사항이 있는가?</li><li>S2S VPN 연결이 적절히 프로비전되었는가 아니면 실패한 상태인가?</li><li>VNET-VNET 연결이 적절히 프로비전되었는가 아니면 실패한 상태인가?</li></ul>|
 
-## <a name="microsoftnetworkexpressroutecircuits"></a>마이크로소프트.네트워크/익스프레스루트회로
+## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft. network/expressroutecircuits
 |실행된 검사|
 |---|
-|<ul><li>익스프레스루트 서킷은 건강합니까?</li></ul>|
+|<ul><li>Express 경로 회로가 정상 입니까?</li></ul>|
 
-## <a name="microsoftnetworkfrontdoors"></a>마이크로소프트 네트워크/실문
+## <a name="microsoftnetworkfrontdoors"></a>Microsoft. network/frontdoors
 |실행된 검사|
 |---|
-|<ul><li>정문 백엔드가 건강 프로브에 오류로 응답하고 있습니까?</li><li>구성 변경이 지연됩니까?</li></ul>|
+|<ul><li>전면 도어 백 엔드가 상태 프로브에 대 한 오류와 함께 응답 하나요?</li><li>구성 변경이 지연 되었습니까?</li></ul>|
 
-## <a name="microsoftnetworkloadbalancers"></a>마이크로소프트.네트워크/로드밸런스
+## <a name="microsoftnetworkloadbalancers"></a>Microsoft. 네트워크/LoadBalancers 장치
 |실행된 검사|
 |---|
-|<ul><li>부하 분산 끝점을 사용할 수 있습니까?</li></ul>|
+|<ul><li>부하 분산 끝점을 사용할 수 있나요?</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |실행된 검사|
@@ -169,10 +169,10 @@ ms.locfileid: "80478895"
 |---|
 |<ul><li>네임스페이스에서 등록, 설치 또는 전송과 같은 런타임 작업을 수행 할 수 있는가?</li></ul>|
 
-## <a name="microsoftoperationalinsightsworkspaces"></a>마이크로소프트.운영 인사이트/작업 영역
+## <a name="microsoftoperationalinsightsworkspaces"></a>Operationalinsights/작업 영역
 |실행된 검사|
 |---|
-|<ul><li>작업 영역에 대한 인덱싱 지연이 있습니까?</li></ul>|
+|<ul><li>작업 영역에 대 한 인덱싱 지연이 있나요?</li></ul>|
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |실행된 검사|
@@ -182,7 +182,7 @@ ms.locfileid: "80478895"
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |실행된 검사|
 |---|
-|<ul><li>호스트 OS가 작동 중인가?</li><li>데이터 센터 외부에서 workspaceCollection에 연결할 수 있는가?</li><li>Power BI 리소스 공급자를 사용할 수 있습니까?</li><li>전원 BI 서비스를 해당 지역에서 사용할 수 있습니까?</li></ul>|
+|<ul><li>호스트 OS가 작동 중인가?</li><li>데이터 센터 외부에서 workspaceCollection에 연결할 수 있는가?</li><li>Power BI 리소스 공급자를 사용할 수 있나요?</li><li>Power BI 서비스를 해당 지역에서 사용할 수 있나요?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |실행된 검사|
@@ -197,14 +197,14 @@ ms.locfileid: "80478895"
 ## <a name="microsoftservicefabricclusters"></a>Microsoft.ServiceFabric/clusters
 |실행된 검사|
 |---|
-|<ul><li>서비스 패브릭 클러스터가 가동되고 있습니까?</li><li>서비스 패브릭 클러스터를 Azure 리소스 관리자를 통해 관리할 수 있습니까?</li></ul>|
+|<ul><li>Service Fabric 클러스터가 작동 하 고 있습니까?</li><li>Azure Resource Manager를 통해 Service Fabric 클러스터를 관리할 수 있나요?</li></ul>|
 
-## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft.SQL/관리형 인스턴스/데이터베이스
+## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft .SQL/managedInstances/databases
 |실행된 검사|
 |---|
-|<ul><li>데이터베이스가 실행되고 있습니까?</li></ul>|
+|<ul><li>데이터베이스를 실행 하 고 있습니까?</li></ul>|
 
-## <a name="microsoftsqlserverdatabases"></a>마이크로소프트.SQL/서버/데이터베이스
+## <a name="microsoftsqlserverdatabases"></a>Microsoft .SQL/서버/데이터베이스
 |실행된 검사|
 |---|
 |<ul><li>데이터베이스에 로그인했는가?</li></ul>|

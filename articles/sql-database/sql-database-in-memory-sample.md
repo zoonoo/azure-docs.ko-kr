@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: b707d67c88eb550d397134b2294c1c5b0e1f7f7d
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80528209"
 ---
 # <a name="in-memory-sample"></a>메모리 내 샘플
@@ -27,14 +27,14 @@ Azure SQL Database에서 메모리 내 기술을 사용하면 애플리케이션
 자세한 내용은 다음을 참조하세요.
 - [메모리 내 OLTP 개요 및 사용 시나리오](https://msdn.microsoft.com/library/mt774593.aspx)(고객 사례 연구 및 시작 정보에 대한 참조 포함)
 - [메모리 내 OLTP에 대한 설명서](https://msdn.microsoft.com/library/dn133186.aspx)
-- [열저장소 인덱스 가이드](https://msdn.microsoft.com/library/gg492088.aspx)
+- [Columnstore 인덱스 가이드](https://msdn.microsoft.com/library/gg492088.aspx)
 - HTAP(하이브리드 트랜잭션/분석 처리) 즉, [실시간 운영 분석](https://msdn.microsoft.com/library/dn817827.aspx)
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
 &nbsp;
 
-## <a name="1-install-the-in-memory-oltp-sample"></a>1. 인메모리 OLTP 샘플 설치
+## <a name="1-install-the-in-memory-oltp-sample"></a>1. 메모리 내 OLTP 샘플 설치
 
 [Azure Portal](https://portal.azure.com/)에서 몇 번만 클릭하면 AdventureWorksLT 샘플 데이터베이스를 만들 수 있습니다. 그런 다음 이 섹션의 단계에서는 메모리 내 OLTP 개체를 사용하여 AdventureWorksLT 데이터베이스를 보강할 수 있는 방법 및 성능 이점을 설명합니다.
 
@@ -87,7 +87,7 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 - Demo.DemoSalesOrderDetailSeed
 
 
-SSMS의 **개체 탐색기**를 통해 메모리 최적화 테이블을 검사할 수 있습니다. 마우스 오른쪽 단추로 클릭 **테이블** > **필터** > **필터 설정은** > **메모리 최적화입니다.** 값은 1과 같습니다.
+SSMS의 **개체 탐색기**를 통해 메모리 최적화 테이블을 검사할 수 있습니다. 마우스 오른쪽 단추 클릭 **테이블** > **필터** > 필터**설정** > **메모리 액세스에 최적화 됨**. 값은 1과 같습니다.
 
 
 또는 다음과 같은 카탈로그 뷰를 쿼리할 수 있습니다.
@@ -181,7 +181,7 @@ VM 또는 선택한 호스트에서 RML(Replay Markup Language) 유틸리티를 
 
 자세한 내용은 다음을 참조하세요.
 - [메모리 내 OLTP에 대한 샘플 데이터베이스](https://msdn.microsoft.com/library/mt465764.aspx)의 ostress.exe 설명
-- [메모리 내 OLTP에 대한 샘플 데이터베이스.](https://msdn.microsoft.com/library/mt465764.aspx)
+- [메모리 내 OLTP에 대 한 예제 데이터베이스](https://msdn.microsoft.com/library/mt465764.aspx).
 - [ostress.exe 설치에 대한 블로그](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
 
 
@@ -239,7 +239,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 #### <a name="reset-edit-for-_ondisk-then-rerun"></a>*_ondisk*에 대해 다시 설정하고 편집한 다음 다시 실행합니다.
 
 
-*_inmem* 실행의 결과가 나면 *_ondisk* 실행에 대해 다음 단계를 수행합니다.
+*_Inmem* 결과를 실행 한 후 실행 *_ondisk* 에 대해 다음 단계를 수행 합니다.
 
 
 1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스를 다시 설정합니다.
@@ -262,7 +262,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 
 &nbsp;
 
-## <a name="2-install-the-in-memory-analytics-sample"></a>2. 인메모리 분석 샘플 설치
+## <a name="2-install-the-in-memory-analytics-sample"></a>2. 메모리 내 분석 샘플 설치
 
 
 이 섹션에서는 columnstore 인덱스 및 전형적인 b-트리 인덱스를 사용하는 경우의 IO 및 통계 결과를 비교합니다.
@@ -382,7 +382,7 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른 시작 1: 더 빠른 T-SQL 성능을 위한 메모리 내 OLTP 기술](https://msdn.microsoft.com/library/mt694156.aspx)
+- [빠른 시작 1: 더 빠른 T-sql 성능을 위한 메모리 내 OLTP 기술](https://msdn.microsoft.com/library/mt694156.aspx)
 
 - [기존 Azure SQL 응용 프로그램에서 메모리 내 OLTP 사용](sql-database-in-memory-oltp-migration.md)
 
@@ -393,7 +393,7 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 #### <a name="deeper-information"></a>자세한 정보
 
-- [SQL 데이터베이스의 메모리 내 OLTP를 사용하여 DTU를 70% 줄이면서 쿼럼이 키 데이터베이스의 워크로드를 두 배로 늘리는 방법에 대해 알아봅니다.](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [SQL Database의 메모리 내 OLTP를 사용 하 여 DTU를 70% 줄이는 동시에 쿼럼에서 키 데이터베이스의 워크 로드를 두 배로 늘리는 방법을 알아보세요.](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 - [Azure SQL Database의 메모리 내 OLTP 블로그 게시물](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
@@ -413,8 +413,8 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 #### <a name="tools"></a>도구
 
-- [Azure portal](https://portal.azure.com/)
+- [Azure Portal](https://portal.azure.com/)
 
-- [SQL 서버 관리 스튜디오(SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
+- [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)
 
-- [SQL 서버 데이터 도구(SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SSDT(SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx)

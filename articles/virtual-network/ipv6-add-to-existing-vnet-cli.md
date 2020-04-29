@@ -1,7 +1,7 @@
 ---
-title: Azure 가상 네트워크의 IPv4 응용 프로그램에 IPv6 추가 - Azure CLI
+title: Azure virtual network에서 IPv4 응용 프로그램에 IPv6 추가-Azure CLI
 titlesuffix: Azure Virtual Network
-description: 이 문서에서는 Azure CLI를 사용하여 Azure 가상 네트워크의 기존 응용 프로그램에 IPv6 주소를 배포하는 방법을 보여 주며 있습니다.
+description: 이 문서에서는 Azure CLI를 사용 하 여 Azure 가상 네트워크의 기존 응용 프로그램에 IPv6 주소를 배포 하는 방법을 보여 줍니다.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,28 +14,28 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: f3f9b32ea55f0ceebf08b22ccc7e2ceec0b6227e
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80420798"
 ---
-# <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Azure 가상 네트워크의 IPv4 응용 프로그램에 IPv6 추가 - Azure CLI
+# <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Azure virtual network에서 IPv4 응용 프로그램에 IPv6 추가-Azure CLI
 
-이 문서에서는 Azure CLI를 사용하는 표준 로드 밸런서에 대해 Azure 가상 네트워크에서 IPv4 공용 IP 주소를 사용하는 응용 프로그램에 IPv6 주소를 추가하는 방법을 보여 주십니다. 현재 업그레이드에는 가상 네트워크 및 서브넷, IPv4 + IPv6 프런트 엔드 구성이 있는 표준 로드 밸런서, IPv4 + IPv6 구성이 있는 NIC가 있는 VM, 네트워크 보안 그룹 및 공용 IP가 포함됩니다.
+이 문서에서는 Azure CLI를 사용 하 여 표준 Load Balancer에 대 한 Azure 가상 네트워크에서 IPv4 공용 IP 주소를 사용 하는 응용 프로그램에 IPv6 주소를 추가 하는 방법을 보여 줍니다. 현재 위치의 업그레이드에는 가상 네트워크 및 서브넷, IPv4 + IPV6 프런트 엔드 구성을 사용 하는 표준 Load Balancer, IPv4 + IPv6 구성, 네트워크 보안 그룹 및 공용 Ip가 있는 Nic가 있는 Vm이 포함 됩니다.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 대신 Azure CLI를 로컬에 설치하고 사용하려는 경우 이 빠른 시작을 진행하려면 Azure CLI 버전 2.0.28 이상을 사용해야 합니다. 설치된 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드 정보는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-이 문서에서는 [빠른 시작: 표준 로드 밸러커 만들기 - Azure CLI에](../load-balancer/quickstart-load-balancer-standard-public-cli.md)설명된 대로 표준 로드 밸러서를 배포했다고 가정합니다.
+이 문서에서는 [빠른 시작: 표준 Load Balancer Azure CLI 만들기](../load-balancer/quickstart-load-balancer-standard-public-cli.md)에 설명 된 대로 표준 Load Balancer를 배포 했다고 가정 합니다.
 
 ## <a name="create-ipv6-addresses"></a>IPv6 주소 만들기
 
-표준 로드 밸런서에 대한 [az 네트워크 공용 IP 만들기를](/cli/azure/network/public-ip) 사용하여 공용 IPv6 주소를 만듭니다. 다음 예제에서는 *myResourceGroupSLB* 리소스 그룹에 *PublicIP_v6* 라는 IPv6 공용 IP 주소를 만듭니다.
+표준 Load Balancer에 대 한 [az network 공용-ip create](/cli/azure/network/public-ip) 를 사용 하 여 공용 IPv6 주소를 만듭니다. 다음 예제에서는 *Myresourcegroupslb* 리소스 그룹에 *PublicIP_v6* 이라는 IPv6 공용 IP 주소를 만듭니다.
 
 ```azurecli
   
@@ -48,9 +48,9 @@ az network public-ip create \
 --version IPv6
 ```
 
-## <a name="configure-ipv6-load-balancer-frontend"></a>IPv6 로드 밸론자 프런트 엔드 구성
+## <a name="configure-ipv6-load-balancer-frontend"></a>IPv6 부하 분산 장치 프런트 엔드 구성
 
-다음과 같이 [az 네트워크 lb 프런트 엔드 IP create를](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) 사용하여 새로운 IPv6 IP 주소로 로드 밸러블러를 COnfigure:
+다음과 같이 [az network lb 프런트 엔드-IP create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) 를 사용 하 여 새 IPv6 IP 주소를 사용 하 여 부하 분산 장치를 구성 합니다.
 
 ```azurecli
 az network lb frontend-ip create \
@@ -60,9 +60,9 @@ az network lb frontend-ip create \
 --public-ip-address PublicIP_v6
 ```
 
-## <a name="configure-ipv6-load-balancer-backend-pool"></a>IPv6 로드 밸러서 백엔드 풀 구성
+## <a name="configure-ipv6-load-balancer-backend-pool"></a>IPv6 부하 분산 장치 백 엔드 풀 구성
 
-az 네트워크 lb 주소 풀을 사용하여 IPv6 주소가 있는 NIC용 백 엔드 풀을 다음과 같이 [만듭니다.](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create)
+다음과 같이 [az network lb address pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create) 를 사용 하 여 IPv6 주소를 사용 하 여 nic에 대 한 백 엔드 풀을 만듭니다.
 
 ```azurecli
 az network lb address-pool create \
@@ -71,9 +71,9 @@ az network lb address-pool create \
 --resource-group MyResourceGroupSLB
 ```
 
-## <a name="configure-ipv6-load-balancer-rules"></a>IPv6 로드 밸러블러 규칙 구성
+## <a name="configure-ipv6-load-balancer-rules"></a>IPv6 부하 분산 장치 규칙 구성
 
-az 네트워크 lb 규칙을 사용하여 IPv6 로드 밸러터 [규칙을 만듭니다.](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create)
+[Az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create)를 사용 하 여 IPv6 부하 분산 장치 규칙을 만듭니다.
 
 ```azurecli
 az network lb rule create \
@@ -89,7 +89,7 @@ az network lb rule create \
 
 ## <a name="add-ipv6-address-ranges"></a>IPv6 주소 범위 추가
 
-다음과 같이 로드 밸러블러를 호스팅하는 가상 네트워크 및 서브넷에 IPv6 주소 범위를 추가합니다.
+다음과 같이 부하 분산 장치를 호스트 하는 서브넷 및 가상 네트워크에 IPv6 주소 범위를 추가 합니다.
 
 ```azurecli
 az network vnet update \
@@ -104,9 +104,9 @@ az network vnet subnet update \
 --address-prefixes  "10.0.0.0/24"  "ace:cab:deca:deed::/64"  
 ```
 
-## <a name="add-ipv6-configuration-to-nics"></a>NIC에 IPv6 구성 추가
+## <a name="add-ipv6-configuration-to-nics"></a>Nic에 IPv6 구성 추가
 
-다음과 같이 [az 네트워크 nic ip-config create를](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create) 사용하여 IPv6 주소로 VM NIC를 구성합니다.
+다음과 같이 [az network nic ip config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create) 를 사용 하 여 IPv6 주소를 사용 하 여 VM nic를 구성 합니다.
 
 ```azurecli
 az network nic ip-config create \
@@ -141,12 +141,12 @@ az network nic ip-config create \
 
 ```
 
-## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Azure 포털에서 IPv6 듀얼 스택 가상 네트워크 보기
-다음과 같이 Azure 포털에서 IPv6 듀얼 스택 가상 네트워크를 볼 수 있습니다.
-1. 포털의 검색 표시줄에서 *myVnet을*입력합니다.
-2. **myVnet이** 검색 결과에 나타나면 선택합니다. 그러면 *myVNet이라는*듀얼 스택 가상 네트워크의 **개요** 페이지가 시작됩니다. 듀얼 스택 가상 네트워크는 *mySubnet라는*듀얼 스택 서브넷에 있는 IPv4 및 IPv6 구성을 모두 갖춘 3개의 NIC를 보여줍니다.
+## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Azure Portal에서 IPv6 이중 스택 가상 네트워크 보기
+다음과 같이 Azure Portal에서 IPv6 이중 스택 가상 네트워크를 볼 수 있습니다.
+1. 포털의 검색 창에서 *Myvnet*을 입력 합니다.
+2. 검색 결과에 **Myvnet** 이 표시 되 면 선택 합니다. 그러면 *Myvnet*이라는 이중 스택 가상 네트워크의 **개요** 페이지가 시작 됩니다. 이중 스택 가상 네트워크는 *Mysubnet*이라는 이중 스택 서브넷에 있는 IPv4 및 IPv6 구성을 모두 사용 하 여 세 개의 nic를 표시 합니다.
 
-  ![Azure의 IPv6 듀얼 스택 가상 네트워크](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
+  ![Azure의 IPv6 이중 스택 가상 네트워크](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -159,4 +159,4 @@ Remove-AzResourceGroup -Name MyAzureResourceGroupSLB
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 IPv4 프런트 엔드 IP 구성을 사용하여 기존 표준 로드 밸런서를 이중 스택(IPv4 및 IPv6) 구성으로 업데이트했습니다. 또한 백 엔드 풀에 있는 VM의 NIC에 IPv6 구성을 추가했습니다. Azure 가상 네트워크에서 IPv6 지원에 대해 자세히 알아보려면 [Azure 가상 네트워크에 대한 IPv6이란 무엇입니까?](ipv6-overview.md)
+이 문서에서는 IPv4 프런트 엔드 IP 구성을 사용 하 여 기존 표준 Load Balancer를 이중 스택 (IPv4 및 IPv6) 구성으로 업데이트 했습니다. 또한 백 엔드 풀의 Vm Nic에 IPv6 구성을 추가 했습니다. Azure virtual network의 IPv6 지원에 대 한 자세한 내용은 [azure Virtual Network에 대 한](ipv6-overview.md) i p v 6을 참조 하세요.

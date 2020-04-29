@@ -1,6 +1,6 @@
 ---
 title: Azure Cloud Shell 기능 | Microsoft Docs
-description: Azure 클라우드 셸의 기능 개요
+description: Azure Cloud Shell의 기능 개요
 services: Azure
 documentationcenter: ''
 author: maertendMSFT
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: 78275211b77cb34cf9aa92e44778e5d4d81fffed
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521007"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell에 대한 기능 및 도구
@@ -44,22 +44,22 @@ Cloud Shell은 Azure CLI 및 Azure PowerShell에 대한 계정 액세스를 안�
 
 ### <a name="azure-drive-azure"></a>Azure 드라이브(Azure:)
 
-클라우드 셸의 PowerShell은 Azure`Azure:`드라이브()를 제공합니다. 을 사용하여 홈 디렉터리로 다시 Azure 드라이브로 `cd Azure:` 전환할 수 있습니다. `cd  ~`
+Cloud Shell PowerShell은 Azure drive (`Azure:`)를 제공 합니다. 을 사용 하 여 Azure 드라이브로 전환 하 `cd Azure:` 고를 사용 `cd  ~`하 여 홈 디렉터리로 돌아갈 수 있습니다.
 Azure 드라이브는 파일 시스템 탐색과 비슷하게 Compute, 네트워크, Storage 등과 같은 Azure 리소스를 쉽게 검색 및 탐색할 수 있습니다.
 사용하는 드라이브에 관계 없이 이러한 리소스를 관리하기 위해 친숙한 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure)을 계속 사용할 수 있습니다.
 Azure Portal에서 또는 Azure PowerShell cmdlet을 통해 직접 만들어진 Azure 리소스에 대한 변경 내용은 Azure 드라이브에 반영됩니다.  `dir -Force`를 실행하여 리소스를 새로 고칠 수 있습니다.
 
 ![](media/features-powershell/azure-drive.png)
 
-### <a name="manage-exchange-online"></a>온라인 교환 관리
+### <a name="manage-exchange-online"></a>Exchange Online 관리
 
-클라우드 셸의 PowerShell에는 Exchange Online 모듈의 개인 빌드가 포함되어 있습니다.  `Connect-EXOPSSession` 실행하여 Exchange cmdlet을 가져옵니다.
+Cloud Shell PowerShell에는 Exchange Online 모듈의 개인 빌드가 포함 되어 있습니다.  을 `Connect-EXOPSSession` 실행 하 여 Exchange cmdlet을 가져옵니다.
 
 ![](media/features-powershell/exchangeonline.png)
 
  `Get-Command -Module tmp_*`을 실행합니다.
 > [!NOTE]
-> 모듈 이름은 동일한 `tmp_`접두사를 가진 모듈을 설치한 경우 의 이름으로 시작해야 하며 cmdlet도 표시됩니다. 
+> 모듈 이름은로 `tmp_`시작 해야 하며, 동일한 접두사를 사용 하 여 모듈을 설치한 경우 해당 cmdlet도 표시 됩니다. 
 
 ![](media/features-powershell/exchangeonlinecmdlets.png)
 
@@ -69,16 +69,16 @@ Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 �
 
 ## <a name="tools"></a>도구
 
-|Category   |속성   |
+|범주   |속성   |
 |---|---|
 |Linux 도구            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
-|Azure 도구            |[Azure CLI](https://github.com/Azure/azure-cli) 및 [Azure 클래식 CLI](https://github.com/Azure/azure-xplat-cli)<br> [아즈카피](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Azure Functions CLI](https://github.com/Azure/azure-functions-core-tools)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Azure 도구            |[Azure CLI](https://github.com/Azure/azure-cli) 및 [Azure 클래식 CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Azure Functions CLI](https://github.com/Azure/azure-functions-core-tools)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |텍스트 편집기           |코드(Cloud Shell 편집기)<br> vim<br> nano<br> emacs    |
 |원본 제어         |git                    |
 |빌드 도구            |make<br> maven<br> npm<br> pip         |
-|컨테이너             |[Docker 컴퓨터](https://github.com/docker/machine)<br> [쿠베틀 (것)들](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [투구](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
+|컨테이너             |[Docker 컴퓨터](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [름](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |데이터베이스              |MySQL 클라이언트<br> PostgreSql 클라이언트<br> [sqlcmd 유틸리티](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|기타                  |iPython 클라이언트<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [퍼펫 볼트](https://puppet.com/docs/bolt/latest/bolt.html)<br> [하시코프 패커](https://www.packer.io/)|
+|기타                  |iPython 클라이언트<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [퍼핏 볼트](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp 팩](https://www.packer.io/)|
 
 ## <a name="language-support"></a>언어 지원
 
@@ -92,7 +92,7 @@ Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 �
 |Python     |2.7 및 3.5(기본값)|
 
 ## <a name="next-steps"></a>다음 단계
-[클라우드 쉘 퀵스타트의 배쉬](quickstart.md) <br>
-[클라우드 쉘 퀵스타트의 파워쉘](quickstart-powershell.md) <br>
+[Cloud Shell 빠른 시작의 Bash](quickstart.md) <br>
+[Cloud Shell 빠른 시작의 PowerShell](quickstart-powershell.md) <br>
 [Azure CLI에 대한 자세한 정보](https://docs.microsoft.com/cli/azure/) <br>
 [Microsoft Azure PowerShell에 관해 알아보기](https://docs.microsoft.com/powershell/azure/) <br>

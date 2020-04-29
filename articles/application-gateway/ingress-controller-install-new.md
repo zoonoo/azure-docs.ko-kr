@@ -1,6 +1,6 @@
 ---
-title: 새 응용 프로그램 게이트웨이를 사용 하 고 있는 응용 프로그램 컨트롤러 만들기
-description: 이 문서에서는 새 응용 프로그램 게이트웨이를 사용하여 응용 프로그램 게이트웨이 인서스 컨트롤러를 배포하는 방법에 대한 정보를 제공합니다.
+title: 새 Application Gateway를 사용 하 여 수신 컨트롤러 만들기
+description: 이 문서에서는 새 Application Gateway를 사용 하 여 Application Gateway 수신 컨트롤러를 배포 하는 방법에 대 한 정보를 제공 합니다.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,54 +8,54 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: b46c9f8b0cad74f3a4e9be8903270a60993c01f4
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80585894"
 ---
-# <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>새 응용 프로그램 게이트웨이를 사용하여 AGIC(응용 프로그램 게이트웨이 인그레스 컨트롤러) 설치 하는 방법
+# <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>새 Application Gateway를 사용 하 여 AGIC (Application Gateway 수신 컨트롤러)를 설치 하는 방법
 
-아래 지침은 응용 프로그램 게이트웨이 인그레스 컨트롤러(AGIC)가 기존 구성 요소가 없는 환경에 설치된다고 가정합니다.
+아래 지침에서는 AGIC (수신 컨트롤러)가 기존 구성 요소가 없는 환경에 설치 되어 있다고 Application Gateway 가정 합니다.
 
-## <a name="required-command-line-tools"></a>필수 명령줄 도구
+## <a name="required-command-line-tools"></a>필요한 명령줄 도구
 
-아래의 모든 명령줄 작업에 [Azure Cloud Shell을](https://shell.azure.com/) 사용하는 것이 좋습니다. shell.azure.com 또는 링크를 클릭하여 셸을 시작합니다.
+아래의 모든 명령줄 작업에 [Azure Cloud Shell](https://shell.azure.com/) 를 사용 하는 것이 좋습니다. Shell.azure.com에서 또는 링크를 클릭 하 여 셸을 시작 합니다.
 
-[![포함 시작](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
+[![시작 포함](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
 
-또는 다음 아이콘을 사용하여 Azure 포털에서 클라우드 셸을 시작합니다.
+또는 다음 아이콘을 사용 하 여 Azure Portal에서 Cloud Shell를 시작 합니다.
 
 ![포털 시작](./media/application-gateway-ingress-controller-install-new/portal-launch-icon.png)
 
-[Azure 클라우드 셸에는](https://shell.azure.com/) 이미 필요한 모든 도구가 있습니다. 다른 환경을 사용하도록 선택한 경우 다음 명령줄 도구가 설치되어 있는지 확인하십시오.
+[Azure Cloud Shell](https://shell.azure.com/) 에는 이미 필요한 도구가 모두 있습니다. 다른 환경을 사용 하도록 선택 하는 경우 다음 명령줄 도구가 설치 되어 있는지 확인 하세요.
 
-* `az`- Azure CLI: [설치 지침](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* `kubectl`- Kubernetes 명령줄 도구 : [설치 지침](https://kubernetes.io/docs/tasks/tools/install-kubectl)
-* `helm`- Kubernetes 패키지 관리자 : [설치 지침](https://github.com/helm/helm/releases/latest)
-* `jq`- 명령줄 JSON 프로세서 : [설치 지침](https://stedolan.github.io/jq/download/)
+* `az`-Azure CLI: [설치 지침](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* `kubectl`-Kubernetes 명령줄 도구: [설치 지침](https://kubernetes.io/docs/tasks/tools/install-kubectl)
+* `helm`-Kubernetes 패키지 관리자: [설치 지침](https://github.com/helm/helm/releases/latest)
+* `jq`-명령줄 JSON 프로세서: [설치 지침](https://stedolan.github.io/jq/download/)
 
 
-## <a name="create-an-identity"></a>ID 만들기
+## <a name="create-an-identity"></a>Id 만들기
 
-아래 단계에 따라 AAD(Azure Active Directory) [서비스 주체 개체를](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)만듭니다. `appId`에서 `password`및 `objectId` 값을 기록하십시오 .
+다음 단계를 수행 하 여 AAD (Azure Active Directory) [서비스 주체 개체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)를 만듭니다. `appId`, `password`및 `objectId` 값을 기록 하세요 .이 값은 다음 단계에서 사용 됩니다.
 
-1. AD 서비스 주체[만들기(RBAC에 대해 자세히 알아보기):](https://docs.microsoft.com/azure/role-based-access-control/overview)
+1. AD 서비스 주체 만들기 ([RBAC에 대 한 자세한 정보](https://docs.microsoft.com/azure/role-based-access-control/overview)):
     ```azurecli
     az ad sp create-for-rbac --skip-assignment -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
     password=$(jq -r ".password" auth.json)
     ```
-    JSON 출력의 `appId` 및 `password` 값은 다음 단계에서 사용됩니다.
+    JSON `appId` 출력 `password` 의 및 값은 다음 단계에서 사용 됩니다.
 
 
-1. 이전 `appId` 명령의 출력에서 새 서비스 `objectId` 주체를 가져옵니다.
+1. 이전 명령의 `appId` 출력에서를 사용 하 여 새 서비스 주체의 `objectId` 를 가져옵니다.
     ```azurecli
     objectId=$(az ad sp show --id $appId --query "objectId" -o tsv)
     ```
-    이 명령의 출력은 `objectId`아래 Azure 리소스 관리자 템플릿에서 사용할 것입니다.
+    이 명령의 `objectId`출력은 아래 Azure Resource Manager 템플릿에서 사용 됩니다.
 
-1. 나중에 Azure 리소스 관리자 템플릿 배포에 사용할 매개 변수 파일을 만듭니다.
+1. 나중에 Azure Resource Manager 템플릿 배포에 사용할 매개 변수 파일을 만듭니다.
     ```bash
     cat <<EOF > parameters.json
     {
@@ -66,23 +66,23 @@ ms.locfileid: "80585894"
     }
     EOF
     ```
-    **RBAC** 지원 클러스터를 배포하려면 `aksEnabledRBAC` 필드를`true`
+    **RBAC** 사용 클러스터를 배포 하려면 필드를로 `aksEnabledRBAC` 설정 합니다.`true`
 
 ## <a name="deploy-components"></a>구성 요소 배포
-이 단계에서는 구독에 다음 구성 요소를 추가합니다.
+이 단계에서는 구독에 다음 구성 요소를 추가 합니다.
 
 - [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-- [애플리케이션 게이트웨이](https://docs.microsoft.com/azure/application-gateway/overview) v2
-- [서브넷 2개가 있는](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) [가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+- [Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview) v2
+- 2 개의 [서브넷](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 이 있는 [Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
 - [공용 IP 주소](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
-- [관리되는 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)- [AAD 포드 ID에서](https://github.com/Azure/aad-pod-identity/blob/master/README.md) 사용할 수 있습니다.
+- [AAD Pod id](https://github.com/Azure/aad-pod-identity/blob/master/README.md) 에서 사용 되는 [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-1. Azure 리소스 관리자 템플릿을 다운로드하고 필요에 따라 템플릿을 수정합니다.
+1. Azure Resource Manager 템플릿을 다운로드 하 고 필요에 따라 템플릿을 수정 합니다.
     ```bash
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/deploy/azuredeploy.json -O template.json
     ```
 
-1. 을 사용하여 `az cli`Azure 리소스 관리자 템플릿을 배포합니다. 이 경우 최대 5분이 소요될 수 있습니다.
+1. 을 사용 하 여 `az cli`Azure Resource Manager 템플릿을 배포 합니다. 이 작업은 5 분 정도 걸릴 수 있습니다.
     ```azurecli
     resourceGroupName="MyResourceGroup"
     location="westus2"
@@ -99,19 +99,19 @@ ms.locfileid: "80585894"
             --parameters parameters.json
     ```
 
-1. 배포가 완료되면 배포 출력을 라는 `deployment-outputs.json`파일로 다운로드합니다.
+1. 배포가 완료 되 면 배포 출력을 이라는 `deployment-outputs.json`파일로 다운로드 합니다.
     ```azurecli
     az group deployment show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
     ```
 
-## <a name="set-up-application-gateway-ingress-controller"></a>애플리케이션 게이트웨이 인그레스 컨트롤러 설정
+## <a name="set-up-application-gateway-ingress-controller"></a>Application Gateway 수신 컨트롤러 설정
 
-이전 섹션의 지침과 함께 새 AKS 클러스터와 응용 프로그램 게이트웨이를 만들고 구성했습니다. 이제 샘플 앱과 침투 컨트롤러를 새로운 Kubernetes 인프라에 배포할 준비가 되었습니다.
+이전 섹션의 지침을 사용 하 여 새 AKS 클러스터 및 Application Gateway을 만들고 구성 했습니다. 이제 샘플 앱 및 수신 컨트롤러를 새로운 Kubernetes 인프라에 배포할 준비가 되었습니다.
 
 ### <a name="setup-kubernetes-credentials"></a>Kubernetes 자격 증명 설정
-다음 단계를 위해 새로운 Kubernetes 클러스터에 연결하는 데 사용할 설정 [kubectl](https://kubectl.docs.kubernetes.io/) 명령이 필요합니다. [클라우드 셸이](https://shell.azure.com/) 이미 설치되었습니다. `kubectl` CLI를 `az` 사용하여 Kubernetes에 대한 자격 증명을 얻습니다.
+다음 단계에서는 새 Kubernetes 클러스터에 연결 하는 데 사용할 수 있는 setup [kubectl](https://kubectl.docs.kubernetes.io/) 명령이 필요 합니다. [Cloud Shell](https://shell.azure.com/) `kubectl` 이미 설치 되어 있습니다. Kubernetes에 대 `az` 한 자격 증명을 얻기 위해 CLI를 사용 합니다.
 
-새로 배포된 AKS에 대한 자격 증명 을[가져옵니다(자세히 보기):](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)
+새로 배포 된 AKS에 대 한 자격 증명을 가져옵니다 ([자세히 읽기](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)).
 ```azurecli
 # use the deployment-outputs.json created after deployment to get the cluster name and resource group name
 aksClusterName=$(jq -r ".aksClusterName.value" deployment-outputs.json)
@@ -120,18 +120,18 @@ resourceGroupName=$(jq -r ".resourceGroupName.value" deployment-outputs.json)
 az aks get-credentials --resource-group $resourceGroupName --name $aksClusterName
 ```
 
-### <a name="install-aad-pod-identity"></a>AAD 포드 ID 설치
-  Azure Active Directory 포드 ID는 [ARM(Azure 리소스 관리자)에](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)대한 토큰 기반 액세스를 제공합니다.
+### <a name="install-aad-pod-identity"></a>AAD Pod Id 설치
+  Azure Active Directory Pod Id는 [ARM (Azure Resource Manager)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)에 대 한 토큰 기반 액세스를 제공 합니다.
 
-  [AAD 포드 ID는](https://github.com/Azure/aad-pod-identity) Kubernetes 클러스터에 다음 구성 요소를 추가합니다.
-   * 쿠버네츠 [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity``AzureIdentityBinding`
+  [AAD Pod id](https://github.com/Azure/aad-pod-identity) 는 다음 구성 요소를 Kubernetes 클러스터에 추가 합니다.
+   * Kubernetes [Crds](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`,`AzureIdentityBinding`
    * [MIC(Managed Identity Controller)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic) 구성 요소
    * [NMI(Node Managed Identity)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi) 구성 요소
 
 
-클러스터에 AAD 포드 ID를 설치하려면 다음을 수행하십시오.
+AAD Pod Id를 클러스터에 설치 하려면 다음을 수행 합니다.
 
-   - *RBAC 사용 가능* AKS 클러스터
+   - *RBAC 사용* AKS 클러스터
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
@@ -144,11 +144,11 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
      ```
 
 ### <a name="install-helm"></a>Helm 설치
-[헬름은](https://docs.microsoft.com/azure/aks/kubernetes-helm) 쿠베네츠의 패키지 매니저입니다. 우리는 패키지를 설치하는 데 `application-gateway-kubernetes-ingress` 활용합니다 :
+[투구](https://docs.microsoft.com/azure/aks/kubernetes-helm) 는 Kubernetes 패키지 관리자입니다. 이를 활용 하 여 `application-gateway-kubernetes-ingress` 패키지를 설치 합니다.
 
-1. [투구를](https://docs.microsoft.com/azure/aks/kubernetes-helm) 설치하고 다음을 `application-gateway-kubernetes-ingress` 실행하여 투구 패키지를 추가합니다.
+1. [투구](https://docs.microsoft.com/azure/aks/kubernetes-helm) 를 설치 하 고 다음을 실행 `application-gateway-kubernetes-ingress` 하 여 투구 패키지를 추가 합니다.
 
-    - *RBAC 사용 가능* AKS 클러스터
+    - *RBAC 사용* AKS 클러스터
 
         ```bash
         kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -170,7 +170,7 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 
 ### <a name="install-ingress-controller-helm-chart"></a>수신 컨트롤러 Helm 차트 설치
 
-1. 위에서 `deployment-outputs.json` 만든 파일을 사용하고 다음 변수를 만듭니다.
+1. 위에서 만든 `deployment-outputs.json` 파일을 사용 하 고 다음 변수를 만듭니다.
     ```bash
     applicationGatewayName=$(jq -r ".applicationGatewayName.value" deployment-outputs.json)
     resourceGroupName=$(jq -r ".resourceGroupName.value" deployment-outputs.json)
@@ -178,11 +178,11 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
     identityClientId=$(jq -r ".identityClientId.value" deployment-outputs.json)
     identityResourceId=$(jq -r ".identityResourceId.value" deployment-outputs.json)
     ```
-1. 다운로드 helm-config.yaml, AGIC를 구성합니다:
+1. AGIC를 구성 하는 투구-config.xml을 다운로드 합니다.
     ```bash
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
     ```
-    또는 아래YAML 파일을 복사하십시오. 
+    또는 아래에서 YAML 파일을 복사 합니다. 
     
     ```yaml
     # This file contains the essential configs for the ingress controller helm chart
@@ -237,7 +237,7 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
         apiServerAddress: <aks-api-server-address>
     ```
 
-1. 새로 다운로드한 helm-config.yaml을 편집하고 `appgw` 섹션을 `armAuth`작성하고 .
+1. 새로 다운로드 한 투구-config.xml을 편집 하 고 섹션 `appgw` 및 `armAuth`을 입력 합니다.
     ```bash
     sed -i "s|<subscriptionId>|${subscriptionId}|g" helm-config.yaml
     sed -i "s|<resourceGroupName>|${resourceGroupName}|g" helm-config.yaml
@@ -250,24 +250,24 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
     ```
 
    값
-     - `verbosityLevel`: AGIC 로깅 인프라의 세부 수준을 설정합니다. 가능한 값은 [로깅 수준](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels)을 참조하세요.
-     - `appgw.subscriptionId`: 응용 프로그램 게이트웨이가 있는 Azure 구독 ID입니다. 예: `a123b234-a3b4-557d-b2df-a0bc12de1234`
-     - `appgw.resourceGroup`: 응용 프로그램 게이트웨이가 만들어진 Azure 리소스 그룹의 이름입니다. 예: `app-gw-resource-group`
-     - `appgw.name`: 응용 프로그램 게이트웨이의 이름입니다. 예: `applicationgatewayd0f0`
-     - `appgw.shared`: 이 부울 플래그는 `false`기본값으로 설정해야 합니다. 공유 `true` 응용 프로그램 [게이트웨이가](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway)필요한 지 설정합니다.
-     - `kubernetes.watchNamespace`: AGIC가 확인해야 할 이름 공간을 지정합니다. 이 값은 단일 문자열 값또는 쉼표로 구분된 네임스페이스 목록일 수 있습니다.
-    - `armAuth.type`: `aadPodIdentity` 또는`servicePrincipal`
-    - `armAuth.identityResourceID`: Azure 관리 ID의 리소스 ID
-    - `armAuth.identityClientId`: ID의 클라이언트 ID입니다. ID에 대한 자세한 내용은 아래를 참조하십시오.
-    - `armAuth.secretJSON`: 서비스 주체 보안 원칙 을 `armAuth.type` 선택한 경우에만 `servicePrincipal`필요합니다(설정된 경우). 
+     - `verbosityLevel`: AGIC 로깅 인프라의 자세한 정도 수준을 설정 합니다. 가능한 값은 [로깅 수준](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels)을 참조하세요.
+     - `appgw.subscriptionId`: Application Gateway 있는 Azure 구독 ID입니다. 예: `a123b234-a3b4-557d-b2df-a0bc12de1234`
+     - `appgw.resourceGroup`: Application Gateway 생성 된 Azure 리소스 그룹의 이름입니다. 예: `app-gw-resource-group`
+     - `appgw.name`: Application Gateway의 이름입니다. 예: `applicationgatewayd0f0`
+     - `appgw.shared`:이 부울 플래그는 기본적으로로 `false`설정 되어야 합니다. `true` [공유 Application Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway)필요 하면로 설정 합니다.
+     - `kubernetes.watchNamespace`: AGIC에서 감시 해야 하는 이름 공간을 지정 합니다. 단일 문자열 값 또는 쉼표로 구분 된 네임 스페이스 목록 일 수 있습니다.
+    - `armAuth.type`: 또는 일 `aadPodIdentity` 수 있습니다.`servicePrincipal`
+    - `armAuth.identityResourceID`: Azure 관리 Id의 리소스 ID
+    - `armAuth.identityClientId`: Id의 클라이언트 ID입니다. Id에 대 한 자세한 내용은 아래를 참조 하세요.
+    - `armAuth.secretJSON`: 서비스 주체 암호 유형을 선택 하는 경우에만 필요 `armAuth.type` 합니다 (가로 `servicePrincipal`설정 된 경우). 
 
 
    > [!NOTE]
-   > 및 구성 요소 배포 단계 중에 생성된 값이며 다음 명령을 사용하여 다시 가져올 수 있습니다. [Deploy Components](ingress-controller-install-new.md#deploy-components) `identityResourceID` `identityClientID`
+   > `identityResourceID` 및 `identityClientID` 는 [구성 요소 배포](ingress-controller-install-new.md#deploy-components) 단계 중에 생성 된 값으로, 다음 명령을 사용 하 여 다시 가져올 수 있습니다.
    > ```azurecli
    > az identity show -g <resource-group> -n <identity-name>
    > ```
-   > `<resource-group>`위의 명령에서 응용 프로그램 게이트웨이의 리소스 그룹입니다. `<identity-name>`은 생성된 ID의 이름입니다. 지정된 구독의 모든 ID는 다음을 사용하여 나열할 수 있습니다.`az identity list`
+   > `<resource-group>`위의 명령에는 Application Gateway의 리소스 그룹이 있습니다. `<identity-name>`만든 id의 이름입니다. 다음을 사용 하 여 지정 된 구독에 대 한 모든 id를 나열할 수 있습니다.`az identity list`
 
 
 1. Application Gateway 수신 컨트롤러 패키지 설치
@@ -277,7 +277,7 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
     ```
 
 ## <a name="install-a-sample-app"></a>샘플 앱 설치
-이제 응용 프로그램 게이트웨이, AKS 및 AGIC가 설치되었으므로 [Azure Cloud Shell을](https://shell.azure.com/)통해 샘플 앱을 설치할 수 있습니다.
+이제 Application Gateway, AKS 및 AGIC가 설치 되었으므로 [Azure Cloud Shell](https://shell.azure.com/)를 통해 샘플 앱을 설치할 수 있습니다.
 
 ```yaml
 cat <<EOF | kubectl apply -f -
@@ -330,7 +330,7 @@ EOF
 
 또는 다음을 수행할 수 있습니다.
 
-* 위의 YAML 파일을 다운로드하십시오.
+* 위의 YAML 파일을 다운로드 합니다.
 
 ```bash
 curl https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/aspnetapp.yaml -o aspnetapp.yaml
@@ -344,4 +344,4 @@ kubectl apply -f aspnetapp.yaml
 
 
 ## <a name="other-examples"></a>기타 예
-이 [방법 가이드에는](ingress-controller-expose-service-over-http-https.md) HTTP 또는 HTTPS를 통해 응용 프로그램 게이트웨이를 사용하여 인터넷에 AKS 서비스를 노출하는 방법에 대한 자세한 예제가 포함되어 있습니다.
+이 [방법 가이드](ingress-controller-expose-service-over-http-https.md) 에는 HTTP 또는 HTTPS를 통해 AKS 서비스를 Application Gateway 인터넷에 공개 하는 방법에 대 한 더 많은 예제가 포함 되어 있습니다.

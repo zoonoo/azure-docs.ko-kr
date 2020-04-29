@@ -1,5 +1,5 @@
 ---
-title: 배포 매니페스트가 있는 모듈 & 경로 배포 - Azure IoT Edge
+title: 배포 매니페스트를 사용 하 여 모듈 & 경로 배포-Azure IoT Edge
 description: 배포 매니페스트에서 배포할 모듈을 선언하는 방법, 배포하는 방법 및 이들 간에 메시지 경로를 만드는 방법을 알아봅니다.
 author: kgremban
 manager: philmea
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 6a4b90d8b6fe67de26c8e652e0dc5b62cc27023f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80545623"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>IoT Edge에서 모듈을 배포하고 경로를 설정하는 방법 알아보기
 
-각 IoT Edge 디바이스는 적어도 $edgeAgent 및 $edgeHub라는 두 개의 모듈을 실행합니다. 두 모듈은 IoT Edge 런타임의 일부입니다. IoT Edge 장치는 여러 프로세스에 대해 여러 개의 추가 모듈을 실행할 수 있습니다. 배포 매니페스트를 사용하여 장치에 설치할 모듈과 함께 작동하도록 구성하는 방법을 알려줍니다.
+각 IoT Edge 디바이스는 적어도 $edgeAgent 및 $edgeHub라는 두 개의 모듈을 실행합니다. 두 모듈은 IoT Edge 런타임의 일부입니다. IoT Edge 장치는 여러 개의 프로세스에 대해 여러 모듈을 추가로 실행할 수 있습니다. 배포 매니페스트를 사용 하 여 설치할 모듈 및 함께 작동 하도록 구성 하는 방법을 장치에 알립니다.
 
 *배포 매니페스트*는 다음 항목을 설명하는 JSON 문서입니다.
 
-* 세 가지 구성 요소를 포함하는 **IoT Edge 에이전트** 모듈 트윈:
-  * 장치에서 실행되는 각 모듈의 컨테이너 이미지입니다.
-  * 모듈 이미지가 포함된 개인 컨테이너 레지스트리에 액세스하는 자격 증명입니다.
-  * 각 모듈을 만들고 관리하는 방법에 대한 지침입니다.
+* 다음 세 가지 구성 요소를 포함 하는 **IoT Edge agent** 모듈 쌍
+  * 장치에서 실행 되는 각 모듈의 컨테이너 이미지입니다.
+  * 모듈 이미지를 포함 하는 개인 컨테이너 레지스트리에 액세스 하기 위한 자격 증명입니다.
+  * 각 모듈을 만들고 관리 하는 방법에 대 한 지침입니다.
 * 모듈 간 및 궁극적으로 IoT Hub에 대한 메시지 흐름 방법을 포함하는 **IoT Edge 허브** 모듈 쌍입니다.
-* 추가 모듈 쌍둥이의 원하는 속성(선택 사항).
+* 추가 모듈 쌍의 desired 속성입니다 (선택 사항).
 
 모든 IoT Edge 디바이스는 배포 매니페스트로 구성해야 합니다. 새로 설치된 IoT Edge 런타임은 유효한 매니페스트로 구성될 때까지 오류 코드를 보고합니다.
 
@@ -77,9 +77,9 @@ IoT Edge 런타임(edgeAgent 및 edgeHub)만 포함하는 배포 매니페스트
 
 ## <a name="configure-modules"></a>모듈 구성
 
-IoT Edge 런타임에서 사용자 배포에 모듈을 설치하는 방법을 정의합니다. IoT Edge 에이전트는 IoT Edge 디바이스에 대한 설치, 업데이트 및 상태 보고를 관리하는 런타임 구성 요소입니다. 따라서 $edgeAgent 모듈 트윈에는 모든 모듈에 대한 구성 및 관리 정보가 포함되어 있습니다. 이 정보에는 IoT Edge 에이전트 자체에 대한 구성 매개 변수가 포함됩니다.
+IoT Edge 런타임에서 사용자 배포에 모듈을 설치하는 방법을 정의합니다. IoT Edge 에이전트는 IoT Edge 디바이스에 대한 설치, 업데이트 및 상태 보고를 관리하는 런타임 구성 요소입니다. 따라서 $edgeAgent 모듈 쌍은 모든 모듈에 대 한 구성 및 관리 정보를 포함 합니다. 이 정보에는 IoT Edge 에이전트 자체의 구성 매개 변수가 포함 됩니다.
 
-포함할 수 있거나 포함해야 하는 속성의 전체 목록은 [IoT Edge 에이전트 및 IoT Edge 허브의 속성을](module-edgeagent-edgehub.md)참조하십시오.
+포함 하거나 포함 해야 하는 속성의 전체 목록은 [IoT Edge 에이전트 및 IoT Edge 허브의 속성](module-edgeagent-edgehub.md)을 참조 하세요.
 
 $edgeAgent 속성은 다음과 같은 구조를 따릅니다.
 
@@ -135,9 +135,9 @@ IoT Edge 허브는 모듈, IoT Hub 및 리프 디바이스 간의 통신을 관�
 
 ### <a name="source"></a>원본
 
-원본은 메시지가 발생한 위치를 지정합니다. IoT Edge는 모듈 또는 리프 장치에서 메시지를 라우팅할 수 있습니다.
+원본은 메시지가 발생한 위치를 지정합니다. IoT Edge 모듈 또는 리프 장치에서 메시지를 라우팅할 수 있습니다.
 
-모듈은 IoT SDK를 사용하여 ModuleClient 클래스를 사용하여 메시지에 대한 특정 출력 큐를 선언할 수 있습니다. 출력 큐는 필요하지 않지만 여러 경로를 관리하는 데 유용합니다. 리프 장치는 IoT SDK의 DeviceClient 클래스를 사용하여 IoT Hub로 메시지를 보내는 것과 동일한 방식으로 IoT Edge 게이트웨이 장치에 메시지를 보낼 수 있습니다. 자세한 내용은 [Azure IoT Hub SDK 이해 및 사용을](../iot-hub/iot-hub-devguide-sdks.md)참조하십시오.
+IoT Sdk를 사용 하 여 모듈은 ModuleClient 클래스를 사용 하 여 메시지에 대 한 특정 출력 큐를 선언할 수 있습니다. 출력 큐는 필요 하지 않지만 여러 경로를 관리 하는 데 유용 합니다. 리프 장치는 IoT Hub에 메시지를 전송 하는 것과 동일한 방식으로 IoT Sdk의 DeviceClient 클래스를 사용 하 여 IoT Edge 게이트웨이 장치에 메시지를 보낼 수 있습니다. 자세한 내용은 [Azure IoT Hub Sdk 이해 및 사용](../iot-hub/iot-hub-devguide-sdks.md)을 참조 하세요.
 
 원본 속성은 다음 값 중 하나일 수 있습니다.
 
@@ -145,7 +145,7 @@ IoT Edge 허브는 모듈, IoT Hub 및 리프 디바이스 간의 통신을 관�
 | ------ | ----------- |
 | `/*` | 모든 모듈 또는 리프 디바이스의 모든 디바이스-클라우드 메시지 또는 쌍 변경 알림 |
 | `/twinChangeNotifications` | 모든 모듈 또는 리프 디바이스에서 발생하는 모든 쌍 변경(보고된 속성) |
-| `/messages/*` | 일부 또는 전혀 출력을 통해 또는 리프 장치에 의해 모듈에서 보낸 모든 장치-클라우드 메시지 |
+| `/messages/*` | 일부 출력을 통하거나 리프 장치에서 모듈을 통해 전송 되는 모든 장치-클라우드 메시지 |
 | `/messages/modules/*` | 일부 출력을 통하거나 어떠한 출력도 없이 모듈에서 보낸 모든 디바이스-클라우드 메시지 |
 | `/messages/modules/<moduleId>/*` | 일부 출력을 통하거나 어떠한 출력도 없이 특정 모듈에서 보낸 모든 디바이스-클라우드 메시지 |
 | `/messages/modules/<moduleId>/outputs/*` | 일부 출력을 통해 특정 모듈에서 보낸 모든 디바이스-클라우드 메시지 |
@@ -153,7 +153,7 @@ IoT Edge 허브는 모듈, IoT Hub 및 리프 디바이스 간의 통신을 관�
 
 ### <a name="condition"></a>조건
 
-조건은 경로 선언의 선택 사항입니다. 소스에서 싱크로 모든 메시지를 전달하려면 **WHERE** 절을 완전히 빼두십시오. 또는 [IoT Hub 쿼리 언어](../iot-hub/iot-hub-devguide-routing-query-syntax.md)를 사용하여 조건을 만족하는 특정 메시지 또는 메시지 유형에 대해 필터링할 수 있습니다. IoT Edge 경로는 쌍 태그 또는 속성을 기반으로 하는 메시지 필터링을 지원하지 않습니다.
+조건은 경로 선언의 선택 사항입니다. 원본에서 싱크로 모든 메시지를 전달 하려면 **WHERE** 절을 완전히 생략 하면 됩니다. 또는 [IoT Hub 쿼리 언어](../iot-hub/iot-hub-devguide-routing-query-syntax.md)를 사용하여 조건을 만족하는 특정 메시지 또는 메시지 유형에 대해 필터링할 수 있습니다. IoT Edge 경로는 쌍 태그 또는 속성을 기반으로 하는 메시지 필터링을 지원하지 않습니다.
 
 IoT Edge의 모듈 간에 전달되는 메시지는 디바이스와 Azure IoT Hub 간에 전달되는 메시지와 동일한 서식이 지정됩니다. 모든 메시지는 JSON으로 서식이 지정되고 **systemProperties**, **appProperties** 및 **body** 매개 변수를 포함합니다.
 
@@ -182,9 +182,9 @@ FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 | `$upstream` | 메시지를 IoT Hub로 보냅니다. |
 | `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | 특정 모듈의 특정 입력으로 메시지 보내기 |
 
-IoT Edge는 최소 한 번의 보장을 제공합니다. IoT Edge 허브는 경로가 싱크에 메시지를 전달할 수 없는 경우에 대비하여 메시지를 로컬에 저장합니다. 예를 들어 IoT Edge 허브를 IoT Hub에 연결할 수 없거나 대상 모듈이 연결되지 않은 경우
+IoT Edge는 최소 한 번의 보장을 제공합니다. 경로에서 해당 싱크에 메시지를 전달할 수 없는 경우 IoT Edge 허브는 메시지를 로컬로 저장 합니다. 예를 들어 IoT Edge 허브가 IoT Hub에 연결할 수 없거나 대상 모듈이 연결 되어 있지 않은 경우입니다.
 
-IoT Edge 허브는 `storeAndForwardConfiguration.timeToLiveSecs` [IoT Edge 허브 원하는 속성의](module-edgeagent-edgehub.md)속성에 지정된 시간까지 메시지를 저장합니다.
+IoT Edge 허브는 `storeAndForwardConfiguration.timeToLiveSecs` [IoT Edge hub desired 속성](module-edgeagent-edgehub.md)의 속성에 지정 된 시간까지 메시지를 저장 합니다.
 
 ## <a name="define-or-update-desired-properties"></a>원하는 속성 정의 또는 업데이트
 
@@ -281,6 +281,6 @@ IoT Edge 허브는 `storeAndForwardConfiguration.timeToLiveSecs` [IoT Edge 허�
 
 ## <a name="next-steps"></a>다음 단계
 
-* $edgeAgent 및 $edgeHub 포함될 수 있거나 포함해야 하는 속성의 전체 목록은 [IoT Edge 에이전트 및 IoT Edge 허브의 속성을](module-edgeagent-edgehub.md)참조하십시오.
+* $EdgeAgent 및 $edgeHub에 포함 될 수 있거나 포함 되어야 하는 속성의 전체 목록은 [IoT Edge 에이전트 및 IoT Edge 허브의 속성](module-edgeagent-edgehub.md)을 참조 하세요.
 
 * 이제 IoT Edge 모듈을 사용하는 방법을 알았으므로 [IoT Edge 모듈 개발을 위한 요구 사항 및 도구에 대해 알아봅니다](module-development.md).

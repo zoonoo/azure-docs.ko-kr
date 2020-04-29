@@ -1,6 +1,6 @@
 ---
 title: Azure Relay 포트 설정 | Microsoft Docs
-description: 이 문서에는 Azure 릴레이에 필요한 포트 값에 필요한 구성을 설명하는 테이블이 포함되어 있습니다.
+description: 이 문서에는 Azure Relay에 대 한 포트 값에 필요한 구성을 설명 하는 표가 포함 되어 있습니다.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 532e3c297c42ea16b1f462a01699fc2fd71c6cce
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529121"
 ---
 # <a name="azure-relay-port-settings"></a>Azure Relay 포트 설정
@@ -27,7 +27,7 @@ ms.locfileid: "80529121"
 
 ## <a name="hybrid-connections"></a>하이브리드 연결
 
-하이브리드 연결은 포트 443에서 WebSockets를 TLS를 **HTTPS만** 사용하는 기본 전송 메커니즘으로 사용합니다. 
+하이브리드 연결은 **HTTPS** 만 사용 하는 기본 전송 메커니즘으로 TLS를 사용 하는 포트 443에서 websocket을 사용 합니다. 
 
 ## <a name="wcf-relays"></a>WCF 릴레이
   

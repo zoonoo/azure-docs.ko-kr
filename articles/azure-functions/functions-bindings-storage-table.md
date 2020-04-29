@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.openlocfilehash: 1aa3537679ee37cbc6085344d2f31ae4043d32bb
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80520666"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Table Storage 바인딩
@@ -26,7 +26,7 @@ Table Storage 바인딩은 [Microsoft.Azure.WebJobs](https://www.nuget.org/packa
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## <a name="packages---functions-2x-and-higher"></a>패키지 - 기능 2.x 이상
+## <a name="packages---functions-2x-and-higher"></a>패키지-함수 2.x 이상
 
 Table Storage 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables) GitHub 리포지토리에 있습니다.
 
@@ -40,7 +40,7 @@ Azure Table Storage 입력 바인딩을 사용하여 Azure Storage 계정에서 
 
 ### <a name="one-entity"></a>하나의 엔터티
 
-다음 예제에서는 단일 테이블 행을 읽을 수 있는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 테이블에 삽입된 모든 레코드에 대해 함수가 트리거됩니다.
+다음 예제에서는 단일 테이블 행을 읽을 수 있는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 테이블에 삽입 된 모든 레코드에 대해 함수가 트리거됩니다.
 
 행 키 값 "{queueTrigger}"는 큐 메시지 문자열에서 나온 행 키를 의미합니다.
 
@@ -67,7 +67,7 @@ public class TableStorage
 
 ### <a name="iqueryable"></a>IQueryable
 
-다음 예제에서는 `MyPoco` 클래스에서 파생되는 여러 테이블 행을 읽는 `TableEntity` [C# 함수를](functions-dotnet-class-library.md) 보여 주며 있습니다.
+다음 예제에서는 `MyPoco` 클래스가에서 `TableEntity`파생 되는 여러 테이블 행을 읽는 [c # 함수](functions-dotnet-class-library.md) 를 보여 줍니다.
 
 ```csharp
 public class TableStorage
@@ -93,7 +93,7 @@ public class TableStorage
 
 ### <a name="cloudtable"></a>CloudTable
 
-`IQueryable`은 [Functions v2 런타임](functions-versions.md)에서 지원되지 않습니다. 대신 Azure Storage SDK를 사용하여 테이블을 읽는 `CloudTable` 메서드 매개 변수를 사용합니다. 다음은 Azure Functions 로그 테이블을 쿼리하는 함수의 예입니다.
+`IQueryable`은 [Functions v2 런타임](functions-versions.md)에서 지원되지 않습니다. 대신 Azure Storage SDK를 사용하여 테이블을 읽는 `CloudTable` 메서드 매개 변수를 사용합니다. Azure Functions 로그 테이블을 쿼리 하는 함수의 예는 다음과 같습니다.
 
 ```csharp
 using Microsoft.Azure.WebJobs;
@@ -248,7 +248,7 @@ public class Person : TableEntity
 
 ### <a name="cloudtable"></a>CloudTable
 
-`IQueryable`[버전 2.x 이상에](functions-versions.md)대 한 함수 런타임에서 지원 되지 않습니다. 대신 Azure Storage SDK를 사용하여 테이블을 읽는 `CloudTable` 메서드 매개 변수를 사용합니다. 다음은 Azure Functions 로그 테이블을 쿼리하는 함수의 예입니다.
+`IQueryable`[버전 2.x 이상의](functions-versions.md)함수 런타임에서는 지원 되지 않습니다. 대신 Azure Storage SDK를 사용하여 테이블을 읽는 `CloudTable` 메서드 매개 변수를 사용합니다. Azure Functions 로그 테이블을 쿼리 하는 함수의 예는 다음과 같습니다.
 
 ```json
 {
@@ -403,7 +403,7 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-다음 예제에서는 테이블 저장소에서 지정된 파티션에 있는 사람 개체 목록을 반환 하는 HTTP 트리거된 함수를 보여 준다. 이 예제에서는 파티션 키가 http 경로에서 추출되고 테이블이름 및 연결은 함수 설정에서 추출됩니다. 
+다음 예에서는 테이블 저장소의 지정 된 파티션에 있는 person 개체의 목록을 반환 하는 HTTP 트리거 함수를 보여 줍니다. 이 예에서는 http 경로에서 파티션 키를 추출 하 고 tableName과 연결을 함수 설정에서 추출 합니다. 
 
 ```java
 public class Person {
@@ -432,7 +432,7 @@ public Person[] get(
 }
 ```
 
-TableInput 어구는 다음 예제와 같이 요청의 json 본문에서 바인딩을 추출할 수도 있습니다.
+TableInput 주석은 다음 예제와 같이 요청의 json 본문에서 바인딩을 추출할 수도 있습니다.
 
 ```java
 @FunctionName("GetPersonsByKeysFromRequest")
@@ -454,7 +454,7 @@ public HttpResponseMessage get(
 }
 ```
 
-다음 예제에서는 Filter를 사용하여 Azure Table에서 특정 이름을 가진 사람을 쿼리하고 가능한 일치 횟수를 10개로 제한합니다.
+다음 예에서는 필터를 사용 하 여 Azure 테이블의 특정 이름을 가진 사람을 쿼리하고 가능한 일치 항목 수를 10 개 결과로 제한 합니다.
 
 ```java
 @FunctionName("getPersonsByName")
@@ -472,7 +472,7 @@ public Person[] get(
 
 ---
 
-## <a name="input---attributes-and-annotations"></a>입력 - 속성 및 주석
+## <a name="input---attributes-and-annotations"></a>입력-특성 및 주석
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -480,7 +480,7 @@ public Person[] get(
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)
 
-  특성의 생성자는 테이블 이름, 파티션 키 및 행 키를 사용합니다. 다음 예제와 같이 `out` 매개 변수 또는 함수의 반환 값에 특성을 사용할 수 있습니다.
+  특성의 생성자는 테이블 이름, 파티션 키 및 행 키를 사용합니다. 특성은 다음 예제에 표시 된 `out` 것 처럼 매개 변수 또는 함수의 반환 값에 사용할 수 있습니다.
 
   ```csharp
   [FunctionName("TableInput")]
@@ -534,15 +534,15 @@ public Person[] get(
 
 # <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
-특성은 C# 스크립트에서 지원되지 않습니다.
+특성은 c # 스크립트에서 지원 되지 않습니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-속성은 자바 스크립트에서 지원되지 않습니다.
+JavaScript에서는 특성을 지원 하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-특성은 파이썬에서 지원되지 않습니다.
+Python에서 특성을 지원 하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -552,19 +552,19 @@ public Person[] get(
 
 ## <a name="input---configuration"></a>입력 - 구성
 
-다음 표에서는 *function.json* 파일및 특성에서 설정한 바인딩 `Table` 구성 속성에 대해 설명합니다.
+다음 표에서는 *함수. json* 파일 및 `Table` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**종류** | 해당 없음 | `table`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다.|
-|**direction** | 해당 없음 | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
-|**(이름)** | 해당 없음 | 함수 코드에서 테이블 또는 엔터티를 나타내는 변수의 이름입니다. | 
-|**Tablename** | **Tablename** | 테이블의 이름입니다.| 
-|**파티션키** | **PartitionKey** |(선택 사항) 읽을 테이블 엔터티의 파티션 키입니다. 이 속성을 사용하는 방법에 대한 지침은 [사용](#input---usage) 섹션을 참조하세요.| 
-|**로키** |**로우키** | (선택 사항) 읽을 테이블 엔터티의 행 키입니다. 이 속성을 사용하는 방법에 대한 지침은 [사용](#input---usage) 섹션을 참조하세요.| 
-|**테이크** |**테이크 (것)** | (선택 사항) JavaScript에서 읽을 수 있는 엔터티의 최대 수입니다. 이 속성을 사용하는 방법에 대한 지침은 [사용](#input---usage) 섹션을 참조하세요.| 
-|**필터** |**필터** | (선택 사항) JavaScript에서 테이블 입력에 대한 OData 필터 식입니다. 이 속성을 사용하는 방법에 대한 지침은 [사용](#input---usage) 섹션을 참조하세요.| 
-|**연결** |**연결** | 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 이 설정은 "AzureWebJobs" 접두사 앱 설정 또는 연결 문자열 이름의 이름일 수 있습니다. 예를 들어 설정 이름이 "AzureWebJobsMyStorage"인 경우 여기에서 "MyStorage"를 지정할 수 있습니다. 함수 런타임은 "AzureWebJobsMyStorage"라는 앱 설정을 자동으로 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.|
+|**type** | 해당 없음 | `table`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다.|
+|**방향도** | 해당 없음 | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
+|**name** | 해당 없음 | 함수 코드에서 테이블 또는 엔터티를 나타내는 변수의 이름입니다. | 
+|**tableName** | **TableName** | 테이블의 이름입니다.| 
+|**partitionKey** | **PartitionKey** |선택 사항입니다. 읽을 테이블 엔터티의 파티션 키입니다. 이 속성을 사용하는 방법에 대한 지침은 [사용](#input---usage) 섹션을 참조하세요.| 
+|**rowKey** |**RowKey** | 선택 사항입니다. 읽을 테이블 엔터티의 행 키입니다. 이 속성을 사용하는 방법에 대한 지침은 [사용](#input---usage) 섹션을 참조하세요.| 
+|**노트** |**노트** | 선택 사항입니다. JavaScript에서 읽을 수 있는 엔터티의 최대 수입니다. 이 속성을 사용하는 방법에 대한 지침은 [사용](#input---usage) 섹션을 참조하세요.| 
+|**필터가** |**Filter** | 선택 사항입니다. JavaScript에서 테이블 입력에 대한 OData 필터 식입니다. 이 속성을 사용하는 방법에 대한 지침은 [사용](#input---usage) 섹션을 참조하세요.| 
+|**connection** |**연결** | 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 설정은 "AzureWebJobs" 접두사가 붙은 앱 설정 또는 연결 문자열 이름의 이름일 수 있습니다. 예를 들어 설정 이름이 "AzureWebJobsMyStorage" 인 경우 여기에서 "MyStorage"를 지정할 수 있습니다. 함수 런타임은 "AzureWebJobsMyStorage" 라는 앱 설정을 자동으로 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -572,7 +572,7 @@ public Person[] get(
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-* **에서 한 행 읽기**
+* **에서 한 행을 읽습니다.**
 
   `partitionKey` 및 `rowKey`를 설정합니다. `T <paramName>` 메서드 매개 변수를 사용하여 테이블 데이터에 액세스합니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. `T`는 일반적으로 `ITableEntity`를 구현하거나 `TableEntity`에서 파생되는 형식입니다. `filter` 및 `take` 속성은 이 시나리오에서 사용되지 않습니다.
 
@@ -585,7 +585,7 @@ public Person[] get(
 
 # <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
-* **에서 한 행 읽기**
+* **에서 한 행을 읽습니다.**
 
   `partitionKey` 및 `rowKey`를 설정합니다. `T <paramName>` 메서드 매개 변수를 사용하여 테이블 데이터에 액세스합니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. `T`는 일반적으로 `ITableEntity`를 구현하거나 `TableEntity`에서 파생되는 형식입니다. `filter` 및 `take` 속성은 이 시나리오에서 사용되지 않습니다.
 
@@ -602,11 +602,11 @@ public Person[] get(
 
 # <a name="python"></a>[Python](#tab/python)
 
-테이블 데이터는 JSON 문자열로 함수에 전달됩니다. 입력 [예제에](#input)표시된 대로 `json.loads` 호출하여 메시지를 직렬화 해제합니다.
+테이블 데이터는 JSON 문자열로 함수에 전달 됩니다. 입력 `json.loads` [예제](#input)와 같이를 호출 하 여 메시지를 역직렬화 합니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-[TableInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableinput) 특성을 사용하면 함수를 트리거한 테이블 행에 액세스할 수 있습니다.
+[Tableinput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableinput) 특성은 함수를 트리거한 테이블 행에 대 한 액세스를 제공 합니다.
 
 ---
 
@@ -745,7 +745,7 @@ module.exports = function (context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-다음 예제에서는 Table 저장소 출력 바인딩을 사용 하는 방법을 보여 줍니다. `table` 바인딩은 에 값을 할당하여 *function.json에서* `name` `tableName` `partitionKey` `connection`구성됩니다.
+다음 예에서는 Table storage 출력 바인딩을 사용 하는 방법을 보여 줍니다. `table` 바인딩은 `name`, `tableName` *function.json* `partitionKey`, 및 `connection`에 값을 할당 하 여 함수 json에서 구성 됩니다.
 
 ```json
 {
@@ -778,7 +778,7 @@ module.exports = function (context) {
 }
 ```
 
-다음 함수는 `rowKey` 값에 대한 고유한 UUI를 생성하고 메시지를 테이블 저장소에 유지합니다.
+다음 함수는 `rowKey` 값에 대 한 고유 uui를 생성 하 고 테이블 저장소에 메시지를 유지 합니다.
 
 ```python
 import logging
@@ -804,7 +804,7 @@ def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-다음 예제에서는 HTTP 트리거를 사용하여 단일 테이블 행을 작성하는 Java 함수를 보여 주습니다.
+다음 예제에서는 단일 테이블 행을 쓰기 위해 HTTP 트리거를 사용 하는 Java 함수를 보여 줍니다.
 
 ```java
 public class Person {
@@ -845,7 +845,7 @@ public class AddPerson {
 }
 ```
 
-다음 예제에서는 HTTP 트리거를 사용하여 여러 테이블 행을 작성하는 Java 함수를 보여 주습니다.
+다음 예제에서는 여러 테이블 행을 쓰기 위해 HTTP 트리거를 사용 하는 Java 함수를 보여 줍니다.
 
 ```java
 public class Person {
@@ -881,13 +881,13 @@ public class AddPersons {
 
 ---
 
-## <a name="output---attributes-and-annotations"></a>출력 - 특성 및 주석
+## <a name="output---attributes-and-annotations"></a>출력-특성 및 주석
 
 # <a name="c"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)를 사용합니다.
 
-특성의 생성자는 테이블 이름을 사용합니다. 다음 예제와 같이 `out` 매개 변수 또는 함수의 반환 값에 특성을 사용할 수 있습니다.
+특성의 생성자는 테이블 이름을 사용합니다. 특성은 다음 예제에 표시 된 `out` 것 처럼 매개 변수 또는 함수의 반환 값에 사용할 수 있습니다.
 
 ```csharp
 [FunctionName("TableOutput")]
@@ -919,37 +919,37 @@ public static MyPoco TableOutput(
 
 # <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
-특성은 C# 스크립트에서 지원되지 않습니다.
+특성은 c # 스크립트에서 지원 되지 않습니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-속성은 자바 스크립트에서 지원되지 않습니다.
+JavaScript에서는 특성을 지원 하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-특성은 파이썬에서 지원되지 않습니다.
+Python에서 특성을 지원 하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Java [함수 런타임 라이브러리에서](/java/api/overview/azure/functions/runtime)매개 변수의 [TableOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) 추가를 사용하여 테이블 저장소에 값을 작성합니다.
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 매개 변수에 대 한 [tableoutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) 주석을 사용 하 여 테이블 저장소에 값을 씁니다.
 
-자세한 [내용은 예제를](#output)참조하십시오.
+자세한 내용은 [예제](#output)를 참조 하세요.
 
 ---
 
 ## <a name="output---configuration"></a>출력 - 구성
 
-다음 표에서는 *function.json* 파일및 특성에서 설정한 바인딩 `Table` 구성 속성에 대해 설명합니다.
+다음 표에서는 *함수. json* 파일 및 `Table` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**종류** | 해당 없음 | `table`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다.|
-|**direction** | 해당 없음 | `out`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
-|**(이름)** | 해당 없음 | 테이블 또는 엔터티를 나타내는 함수 코드에서 사용되는 변수 이름입니다. `$return`으로 설정하여 함수 반환 값을 참조합니다.| 
-|**Tablename** |**Tablename** | 테이블의 이름입니다.| 
-|**파티션키** |**PartitionKey** | 쓸 테이블 엔터티의 파티션 키입니다. 이 속성을 사용하는 방법에 대한 지침은 [사용 섹션을](#output---usage) 참조하십시오.| 
-|**로키** |**로우키** | 쓸 테이블 엔터티의 행 키입니다. 이 속성을 사용하는 방법에 대한 지침은 [사용 섹션을](#output---usage) 참조하십시오.| 
-|**연결** |**연결** | 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 "MyStorage"로 설정하면 `connection` 함수 런타임에서 "MyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.|
+|**type** | 해당 없음 | `table`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다.|
+|**방향도** | 해당 없음 | `out`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
+|**name** | 해당 없음 | 테이블 또는 엔터티를 나타내는 함수 코드에서 사용되는 변수 이름입니다. `$return`으로 설정하여 함수 반환 값을 참조합니다.| 
+|**tableName** |**TableName** | 테이블의 이름입니다.| 
+|**partitionKey** |**PartitionKey** | 쓸 테이블 엔터티의 파티션 키입니다. 이 속성을 사용 하는 방법에 대 한 지침은 [사용 섹션](#output---usage) 을 참조 하세요.| 
+|**rowKey** |**RowKey** | 쓸 테이블 엔터티의 행 키입니다. 이 속성을 사용 하는 방법에 대 한 지침은 [사용 섹션](#output---usage) 을 참조 하세요.| 
+|**connection** |**연결** | 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어를 "MyStorage"로 설정 `connection` 하는 경우 함수 런타임은 "mystorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -957,41 +957,41 @@ Java [함수 런타임 라이브러리에서](/java/api/overview/azure/functions
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-메서드 `ICollector<T> paramName` 매개 변수를 사용하거나 `IAsyncCollector<T> paramName` `T` `PartitionKey` 및 `RowKey` 속성을 포함하는 위치에 대해 출력 테이블 엔터티에 액세스합니다. 이러한 속성은 종종 `ITableEntity` 구현 하거나 `TableEntity`상속 을 함께 합니다.
+메서드 매개 변수 `ICollector<T> paramName` 를 사용 하거나 `IAsyncCollector<T> paramName` 에 `T` `PartitionKey` 및 `RowKey` 속성을 포함 하 여 출력 테이블 엔터티에 액세스 합니다. 이러한 속성에는를 구현 `ITableEntity` 하거나 상속 `TableEntity`하는 경우가 많습니다.
 
-또는 Azure Storage `CloudTable` SDK를 사용하여 메서드 매개 변수를 사용하여 테이블에 쓸 수 있습니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
+또는 Azure Storage SDK를 사용 `CloudTable` 하 여 메서드 매개 변수를 사용 하 여 테이블에 쓸 수 있습니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
 # <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
-메서드 `ICollector<T> paramName` 매개 변수를 사용하거나 `IAsyncCollector<T> paramName` `T` `PartitionKey` 및 `RowKey` 속성을 포함하는 위치에 대해 출력 테이블 엔터티에 액세스합니다. 이러한 속성은 종종 `ITableEntity` 구현 하거나 `TableEntity`상속 을 함께 합니다. `paramName` 값은 *function.json*의 `name` 속성에 지정됩니다.
+메서드 매개 변수 `ICollector<T> paramName` 를 사용 하거나 `IAsyncCollector<T> paramName` 에 `T` `PartitionKey` 및 `RowKey` 속성을 포함 하 여 출력 테이블 엔터티에 액세스 합니다. 이러한 속성에는를 구현 `ITableEntity` 하거나 상속 `TableEntity`하는 경우가 많습니다. `paramName` 값은 `name` *함수 json*의 속성에 지정 됩니다.
 
-또는 Azure Storage `CloudTable` SDK를 사용하여 메서드 매개 변수를 사용하여 테이블에 쓸 수 있습니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
+또는 Azure Storage SDK를 사용 `CloudTable` 하 여 메서드 매개 변수를 사용 하 여 테이블에 쓸 수 있습니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-*function.json*의 `context.bindings.<name>` `<name>` `name` 속성에 지정된 값을 사용하여 출력 이벤트에 액세스합니다.
+을 `context.bindings.<name>` 사용 하 여 출력 이벤트에 `<name>` 액세스 합니다. 여기서은 `name` *함수 json*의 속성에 지정 된 값입니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-함수에서 테이블 저장소 행 메시지를 입력하는 데는 두 가지 옵션이 있습니다.
+함수에서 테이블 저장소 행 메시지를 출력 하는 두 가지 옵션은 다음과 같습니다.
 
-- **반환 값**: `name` *function.json에서* `$return`속성을 으로 설정합니다. 이 구성을 사용하면 함수의 반환 값이 테이블 저장소 행으로 유지됩니다.
+- **반환 값**: `name` *함수 json* 의 속성을로 `$return`설정 합니다. 이 구성을 사용 하면 함수의 반환 값이 테이블 저장소 행으로 유지 됩니다.
 
-- 명령적 : [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) 유형으로 선언된 매개 변수의 [설정](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) 메서드에 값을 **전달합니다.** `set` 전달된 값은 이벤트 허브 메시지로 유지됩니다.
+- **명령적**: [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) 형식으로 선언 된 매개 변수의 [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) 메서드에 값을 전달 합니다. 에 `set` 전달 된 값은 이벤트 허브 메시지로 유지 됩니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-[TableStorageOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet) 부침을 사용하여 함수에서 테이블 저장소 행을 출력하는 두 가지 옵션이 있습니다.
+[Tablestorageoutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet) 주석을 사용 하 여 함수에서 테이블 저장소 행을 출력 하는 두 가지 옵션이 있습니다.
 
-- **반환 값**: 함수 자체에 부침을 적용하면 함수의 반환 값이 테이블 저장소 행으로 유지됩니다.
+- **반환 값**: 함수 자체에 주석을 적용 하면 함수의 반환 값이 테이블 저장소 행으로 유지 됩니다.
 
-- **명령적**: 메시지 값을 명시적으로 설정하려면 annotation을 형식의 [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding)특정 `T` 매개 `PartitionKey` `RowKey` 변수에 적용합니다. 이러한 속성은 종종 `ITableEntity` 구현 하거나 `TableEntity`상속 을 함께 합니다.
+- **명령적**: 메시지 값을 명시적 [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding)으로 설정 하려면 `T` `PartitionKey` 및 `RowKey` 속성을 포함 하는 형식의 특정 매개 변수에 주석을 적용 합니다. 이러한 속성에는를 구현 `ITableEntity` 하거나 상속 `TableEntity`하는 경우가 많습니다.
 
 ---
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
-| 바인딩 | 참고 |
+| 바인딩 | 참조 |
 |---|---|
 | 테이블 | [테이블 오류 코드](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
 | Blob, 테이블, 큐 | [스토리지 오류 코드](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

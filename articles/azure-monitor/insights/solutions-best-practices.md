@@ -1,16 +1,16 @@
 ---
-title: Azure 모범 사례의 관리 솔루션
-description: 이 문서에서는 관리 솔루션 파일을 만드는 방법에 대한 팁을 알아봅니다. 데이터 원본, Runbook, 보기 및 경고로 작업하는 방법을 알아봅겠습니다.
+title: Azure의 관리 솔루션 모범 사례
+description: 이 문서에서는 관리 솔루션 파일을 만들기 위한 팁에 대해 알아봅니다. 데이터 원본, runbook, 보기 및 경고를 사용 하 여 작업 하는 방법을 참조 하세요.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
 ms.openlocfilehash: 7cb300297336edcce4294b800520ad570b12bcde
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548156"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Azure에서 관리 솔루션을 만들기 위한 모범 사례(미리 보기)

@@ -1,7 +1,7 @@
 ---
-title: 멀티테넌시 및 콘텐츠 격리
+title: 배포할지에 및 콘텐츠 격리
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search를 사용하는 동안 다중 테넌트 SaaS 응용 프로그램에 대한 일반적인 디자인 패턴에 대해 알아봅니다.
+description: Azure Cognitive Search을 사용 하는 동안 다중 테 넌 트 SaaS 응용 프로그램의 일반적인 디자인 패턴에 대해 알아봅니다.
 manager: nitinme
 author: LiamCavanagh
 ms.author: liamca
@@ -9,33 +9,33 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d8e453336005f3389f67e9571fac438bfc340c1b
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80549022"
 ---
-# <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>다중 테넌트 SaaS 응용 프로그램 및 Azure 인지 검색을 위한 디자인 패턴
-다중 테넌트 애플리케이션은 다른 테넌트의 데이터를 보거나 공유할 수 없는 임의 개수의 테넌트에 동일한 서비스와 기능을 제공하는 애플리케이션입니다. 이 문서에서는 Azure Cognitive Search로 빌드된 다중 테넌트 응용 프로그램에 대한 테넌트 격리 전략에 대해 설명합니다.
+# <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>다중 테 넌 트 SaaS 응용 프로그램 및 Azure Cognitive Search에 대 한 디자인 패턴
+다중 테넌트 애플리케이션은 다른 테넌트의 데이터를 보거나 공유할 수 없는 임의 개수의 테넌트에 동일한 서비스와 기능을 제공하는 애플리케이션입니다. 이 문서에서는 Azure Cognitive Search로 빌드된 다중 테 넌 트 응용 프로그램의 테 넌 트 격리 전략에 대해 설명 합니다
 
-## <a name="azure-cognitive-search-concepts"></a>Azure 인지 검색 개념
-서비스로서의 검색 솔루션인 Azure Cognitive Search를 통해 개발자는 인프라를 관리하거나 정보 검색 전문가가 되지 않고도 응용 프로그램에 풍부한 검색 환경을 추가할 수 있습니다. 데이터는 서비스에 업로드된 후 클라우드에 저장됩니다. Azure 인지 검색 API에 대한 간단한 요청을 사용하여 데이터를 수정하고 검색할 수 있습니다. 서비스의 개요는 [이 문서](https://aka.ms/whatisazsearch)에서 확인할 수 있습니다. 디자인 패턴에 대해 논의하기 전에 Azure Cognitive Search에서 몇 가지 개념을 이해하는 것이 중요합니다.
+## <a name="azure-cognitive-search-concepts"></a>Azure Cognitive Search 개념
+Azure Cognitive Search는 개발자가 인프라를 관리 하거나 정보를 검색 하지 않고도 풍부한 검색 환경을 응용 프로그램에 추가할 수 있습니다. 데이터는 서비스에 업로드된 후 클라우드에 저장됩니다. Azure Cognitive Search API에 대 한 간단한 요청을 사용 하 여 데이터를 수정 하 고 검색할 수 있습니다. 서비스의 개요는 [이 문서](https://aka.ms/whatisazsearch)에서 확인할 수 있습니다. 디자인 패턴에 대해 설명 하기 전에 Azure Cognitive Search의 몇 가지 개념을 이해 하는 것이 중요 합니다.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Search 서비스, 인덱스, 필드 및 문서
-Azure Cognitive Search를 사용하는 경우 *검색 서비스를*구독합니다. 데이터가 Azure Cognitive Search에 업로드되면 검색 서비스 내의 *인덱스에* 저장됩니다. 하나의 서비스 내에 많은 수의 인덱스가 있을 수 있습니다. 데이터베이스의 익숙한 개념을 사용하기 위해 검색 서비스를 데이터베이스에, 서비스 내의 인덱스를 데이터베이스 내의 테이블에 비유할 수 있습니다.
+Azure Cognitive Search를 사용 하는 경우 하나는 *검색 서비스*를 구독 합니다. 데이터가 Azure Cognitive Search에 업로드 되 면 검색 서비스 내의 *인덱스* 에 저장 됩니다. 하나의 서비스 내에 많은 수의 인덱스가 있을 수 있습니다. 데이터베이스의 익숙한 개념을 사용하기 위해 검색 서비스를 데이터베이스에, 서비스 내의 인덱스를 데이터베이스 내의 테이블에 비유할 수 있습니다.
 
-검색 서비스 내의 각 인덱스는 많은 수의 사용자 지정 가능 *필드*로 정의되는 고유 스키마를 갖습니다. 데이터는 개별 *문서의*형태로 Azure 인지 검색 인덱스에 추가됩니다. 각 문서는 특정 인덱스에 업로드되어야 하고 해당 인덱스의 스키마를 결정해야 합니다. Azure Cognitive Search를 사용하여 데이터를 검색할 때 특정 인덱스에 대해 전체 텍스트 검색 쿼리가 발급됩니다.  이러한 개념을 데이터베이스의 개념과 비교하려면 필드를 테이블의 열에, 문서를 행에 비유할 수 있습니다.
+검색 서비스 내의 각 인덱스는 많은 수의 사용자 지정 가능 *필드*로 정의되는 고유 스키마를 갖습니다. 데이터는 개별 *문서*형식으로 Azure Cognitive Search 인덱스에 추가 됩니다. 각 문서는 특정 인덱스에 업로드되어야 하고 해당 인덱스의 스키마를 결정해야 합니다. Azure Cognitive Search를 사용 하 여 데이터를 검색할 때 전체 텍스트 검색 쿼리는 특정 인덱스에 대해 실행 됩니다.  이러한 개념을 데이터베이스의 개념과 비교하려면 필드를 테이블의 열에, 문서를 행에 비유할 수 있습니다.
 
 ### <a name="scalability"></a>확장성
-표준 [가격 책정 계층의](https://azure.microsoft.com/pricing/details/search/) 모든 Azure Cognitive Search 서비스는 저장소 와 가용성이라는 두 가지 차원으로 확장할 수 있습니다.
+표준 [가격 책정 계층](https://azure.microsoft.com/pricing/details/search/) 의 모든 Azure Cognitive Search 서비스는 저장소 및 가용성의 두 차원으로 확장할 수 있습니다.
 
 * *파티션* 을 추가하여 검색 서비스 스토리지를 늘릴 수 있습니다.
 * *복제본* 을 서비스에 추가하여 검색 서비스가 처리할 수 있는 요청 처리량을 늘릴 수 있습니다.
 
 파티션 및 복제본을 추가 또는 제거하여 애플리케이션이 요구하는 데이터 및 트래픽 양으로 검색 서비스의 용량을 늘릴 수 있습니다. 검색 서비스가 읽기 [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)를 달성하려면 2개의 복제본이 필요합니다. 검색 서비스가 읽기/쓰기 [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)를 달성하려면 3개의 복제본이 필요합니다.
 
-### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Azure 인지 검색의 서비스 및 인덱스 제한
-Azure Cognitive Search에는 몇 가지 다른 [가격 책정 계층이](https://azure.microsoft.com/pricing/details/search/) 있으며 각 계층에는 서로 다른 [제한 과 할당량이 있습니다.](search-limits-quotas-capacity.md) 서비스 수준에서 적용되는 제한도 있고, 인덱스 수준에서 적용되는 제한도 있고, 파티션 수준에서 적용되는 제한도 있습니다.
+### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Azure Cognitive Search의 서비스 및 인덱스 제한
+Azure Cognitive Search에는 몇 가지 다른 [가격 책정 계층이](https://azure.microsoft.com/pricing/details/search/) 있으며 각 계층에는 서로 다른 [제한과 할당량이](search-limits-quotas-capacity.md)있습니다. 서비스 수준에서 적용되는 제한도 있고, 인덱스 수준에서 적용되는 제한도 있고, 파티션 수준에서 적용되는 제한도 있습니다.
 
 |  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
@@ -47,48 +47,48 @@ Azure Cognitive Search에는 몇 가지 다른 [가격 책정 계층이](https:/
 | 서비스당 최대 인덱스 |5 |50 |200 |200 |3000(인덱서/파티션 최대 1000) |
 
 #### <a name="s3-high-density"></a>S3 고밀도
-Azure Cognitive Search의 S3 가격 책정 계층에는 다중 테넌트 시나리오를 위해 특별히 설계된 HD(고밀도) 모드에 대한 옵션이 있습니다. 대부분의 경우 간소성 및 비용 효율성을 달성하기 위해 단일 서비스에서 여러 소규모 테넌트를 지원해야 합니다.
+Azure Cognitive Search의 S3 가격 책정 계층에는 다중 테 넌 트 시나리오용으로 특별히 설계 된 HD (고밀도) 모드에 대 한 옵션이 있습니다. 대부분의 경우 간소성 및 비용 효율성을 달성하기 위해 단일 서비스에서 여러 소규모 테넌트를 지원해야 합니다.
 
 S3 HD는 파티션을 사용하여 인덱스를 확장할 수 있는 기능을 단일 서비스에서 더 많은 인덱스를 호스트할 수 있는 기능과 교환하여 단일 검색 서비스에서 관리되는 여러 작은 인덱스의 압축을 허용합니다.
 
-S3 서비스는 고정된 수의 인덱스(최대 200개)를 호스트하고 새 파티션이 서비스에 추가될 때 각 인덱스의 크기를 가로로 확장할 수 있도록 설계되었습니다. S3 HD 서비스에 파티션을 추가하면 서비스가 호스팅할 수 있는 최대 인덱스 수가 증가합니다. 개별 S3HD 인덱스의 이상적인 최대 크기는 약 50 ~ 80GB이지만 시스템에 의해 부과된 각 인덱스에 대한 하드 크기 제한은 없습니다.
+S3 서비스는 고정 된 수의 인덱스 (최대 200)를 호스팅하도록 설계 되었으며, 새 파티션이 서비스에 추가 될 때 각 인덱스가 수평으로 크기를 조정할 수 있도록 설계 되었습니다. S3 HD services에 파티션을 추가 하면 서비스에서 호스트할 수 있는 최대 인덱스 수가 늘어납니다. 개별 S3HD 인덱스에 대 한 이상적인 최대 크기는 50-80 GB 이지만 시스템에서 적용 하는 각 인덱스에 대 한 하드 크기 제한은 없습니다.
 
 ## <a name="considerations-for-multitenant-applications"></a>다중 테넌트 애플리케이션에 대한 고려 사항
 다중 테넌트 애플리케이션은 다양한 테넌트 간에 일정 수준의 개인 정보를 유지하면서 테넌트 간에 리소스를 효과적으로 배포해야 합니다. 이러한 애플리케이션에 대한 아키텍처를 디자인할 때 다음과 같은 사항을 고려해야 합니다.
 
 * *테넌트 격리:* 애플리케이션 개발자는 다른 테넌트의 데이터에 무단으로 또는 동의 없이 액세스하는 테넌트가 없도록 하기 위해 적절한 조치를 수행해야 합니다. 테넌트 격리 전략은 데이터 개인 정보 보호 측면 외에도, 공유 리소스를 효과적으로 관리하고 노이즈 환경으로부터 보호할 수 있어야 합니다.
 * *클라우드 리소스 비용:* 다른 애플리케이션과 마찬가지로, 소프트웨어 솔루션은 다중 테넌트 애플리케이션의 구성 요소로서 비용 경쟁력을 유지해야 합니다.
-* *작업의 용이성:* 다중 테넌트 아키텍처를 개발할 때 애플리케이션의 작업 및 복잡성에 미치는 영향도 중요한 고려 사항입니다. Azure 인지 검색에는 [99.9% SLA.](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
+* *작업의 용이성:* 다중 테넌트 아키텍처를 개발할 때 애플리케이션의 작업 및 복잡성에 미치는 영향도 중요한 고려 사항입니다. Azure Cognitive Search에는 [99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)가 있습니다.
 * *전역 공간:* 다중 테넌트 애플리케이션은 전 세계에 분산되어 있는 테넌트를 효과적으로 서비스할 수 있어야 합니다.
 * *확장성:* 애플리케이션 개발자는 충분히 낮은 수준의 애플리케이션 복잡성을 유지하면서 테넌트의 데이터 및 워크로드의 수와 규모에 맞게 조정되도록 애플리케이션을 설계하는 방안을 고려해야 합니다.
 
-Azure Cognitive Search는 테넌트의 데이터 및 워크로드를 격리하는 데 사용할 수 있는 몇 가지 경계를 제공합니다.
+Azure Cognitive Search은 테 넌 트의 데이터 및 워크 로드를 격리 하는 데 사용할 수 있는 몇 가지 경계를 제공 합니다.
 
-## <a name="modeling-multitenancy-with-azure-cognitive-search"></a>Azure 인지 검색으로 다중 테넌시 모델링
-다중 테넌트 시나리오에서 애플리케이션 개발자는 하나 이상의 검색 서비스를 사용하고 서비스, 인덱스 또는 둘 다에서 해당 테넌트를 나눕니다. Azure Cognitive Search에는 다중 테넌트 시나리오를 모델링할 때 몇 가지 일반적인 패턴이 있습니다.
+## <a name="modeling-multitenancy-with-azure-cognitive-search"></a>Azure Cognitive Search를 사용 하 여 배포할지에 모델링
+다중 테넌트 시나리오에서 애플리케이션 개발자는 하나 이상의 검색 서비스를 사용하고 서비스, 인덱스 또는 둘 다에서 해당 테넌트를 나눕니다. 다중 테 넌 트 시나리오를 모델링할 때 Azure Cognitive Search에는 몇 가지 일반적인 패턴이 있습니다.
 
 1. *테넌트당 인덱스:* 각 테넌트는 다른 테넌트와 공유되는 검색 서비스 내의 자체 인덱스를 갖습니다.
-2. *테넌트당 서비스:* 각 테넌트에는 최고 수준의 데이터와 워크로드 구분을 제공하는 자체 전용 Azure Cognitive Search 서비스가 있습니다.
+2. *테 넌 트 당 서비스:* 각 테 넌 트에는 최고 수준의 데이터와 워크 로드 분리를 제공 하는 고유한 전용 Azure Cognitive Search 서비스가 있습니다.
 3. *두 가지 조합:* 좀 더 작은 테넌트에는 공유 서비스 내에서 개별 인덱스가 할당되지만, 좀 더 큰 활성 테넌트에는 전용 서비스가 할당됩니다.
 
-## <a name="1-index-per-tenant"></a>1. 테넌트당 색인
+## <a name="1-index-per-tenant"></a>1. 테 넌 트 당 인덱스
 ![테넌트당 인덱스 모델](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
 
-테넌트당 인덱스 모델에서 여러 테넌트가 각 테넌트에 고유한 인덱스를 가지는 단일 Azure Cognitive Search 서비스를 차지합니다.
+테 넌 트 당 인덱스 모델에서 여러 테 넌 트는 각 테 넌 트에 고유한 인덱스가 있는 단일 Azure Cognitive Search 서비스를 차지 합니다.
 
-모든 검색 요청 및 문서 작업이 Azure Cognitive Search의 인덱스 수준에서 발급되므로 테넌트는 데이터 격리를 달성합니다. 애플리케이션 계층에서는 모든 테넌트의 서비스 수준에서 리소스를 관리하면서 다양한 테넌트의 트래픽을 적절한 인덱스로 전달해야 한다는 것을 인식해야 합니다.
+모든 검색 요청 및 문서 작업은 Azure Cognitive Search의 인덱스 수준에서 실행 되기 때문에 테 넌 트는 데이터 격리를 달성할 수 있습니다. 애플리케이션 계층에서는 모든 테넌트의 서비스 수준에서 리소스를 관리하면서 다양한 테넌트의 트래픽을 적절한 인덱스로 전달해야 한다는 것을 인식해야 합니다.
 
 테넌트당 인덱스 모델의 주요 특성은 애플리케이션 개발자가 애플리케이션의 테넌트 간에 검색 서비스의 용량을 초과 구독할 수 있다는 것입니다. 테넌트의 워크로드가 균일하지 않게 분산되는 경우 사용 빈도가 낮은 테넌트의 긴 꼬리를 동시에 처리하면서 사용 빈도가 높은 많은 수의 리소스 집약적 테넌트를 수용하도록 하는 최적의 테넌트 조합을 검색 서비스의 인덱스에서 분산할 수 있습니다. 단점은 이 모델의 경우 각 테넌트의 사용 빈도가 동시에 높아지는 상황을 처리하지 못한다는 것입니다.
 
-테넌트당 인덱스 모델은 전체 Azure Cognitive Search 서비스를 미리 구입한 다음 테넌트로 채워진 가변 비용 모델의 기초를 제공합니다. 따라서 평가판 및 무료 계정을 위해 미사용 용량을 디자인할 수 있습니다.
+테 넌 트 당 인덱스 모델은 전체 Azure Cognitive Search 서비스를 먼저 구매한 후 나중에 테 넌 트로 채우는 변수 비용 모델의 기반을 제공 합니다. 따라서 평가판 및 무료 계정을 위해 미사용 용량을 디자인할 수 있습니다.
 
 전역 공간이 있는 애플리케이션의 경우 테넌트당 인덱스 모델이 가장 효율적이 아닐 수도 있습니다. 애플리케이션의 테넌트가 전 세계에 걸쳐 분산되어 있으면 각 지역에 대해 별도 서비스가 필요할 수 있으므로 각각에 대해 비용이 중복될 수 있습니다.
 
-Azure Cognitive Search를 사용하면 개별 인덱스의 배율과 증가하는 총 인덱스 수를 모두 사용할 수 있습니다. 적절한 가격 계층을 선택한 경우 서비스 내의 개별 인덱스가 스토리지 또는 트래픽 측면에서 너무 커질 때 전체 검색 서비스에 파티션 및 복제본을 추가할 수 있습니다.
+Azure Cognitive Search는 개별 인덱스와 전체 인덱스 수를 확장할 수 있습니다. 적절한 가격 계층을 선택한 경우 서비스 내의 개별 인덱스가 스토리지 또는 트래픽 측면에서 너무 커질 때 전체 검색 서비스에 파티션 및 복제본을 추가할 수 있습니다.
 
-인덱스의 총 수가 단일 서비스에 대해 너무 커지면 새 테넌트를 수용하도록 다른 서비스를 프로비전해야 합니다. 새 서비스가 추가될 때 검색 서비스 간에 인덱스를 이동해야 하는 경우 Azure Cognitive Search에서 인덱스를 이동할 수 없기 때문에 인덱스의 데이터를 한 인덱스에서 다른 인덱스로 수동으로 복사해야 합니다.
+인덱스의 총 수가 단일 서비스에 대해 너무 커지면 새 테넌트를 수용하도록 다른 서비스를 프로비전해야 합니다. 새 서비스가 추가 될 때 검색 서비스 간에 인덱스를 이동 해야 하는 경우 Azure Cognitive Search 인덱스를 이동 하는 것을 허용 하지 않으므로 인덱스의 데이터를 한 인덱스에서 다른 인덱스로 수동으로 복사 해야 합니다.
 
-## <a name="2-service-per-tenant"></a>2. 테넌트당 서비스
+## <a name="2-service-per-tenant"></a>2. 테 넌 트 당 서비스
 ![테넌트당 서비스 모델](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
 
 테넌트당 서비스 아키텍처에서 각 테넌트에는 자체 검색 서비스가 있습니다.
@@ -101,9 +101,9 @@ Azure Cognitive Search를 사용하면 개별 인덱스의 배율과 증가하�
 
 테넌트당 서비스 모델은 전역 공간을 차지하는 애플리케이션에 효율적인 선택입니다. 지리적으로 분산 테넌트를 사용할 경우 각 테넌트 서비스를 적절한 지역에 두기 쉽습니다.
 
-개별 테넌트가 서비스보다 커지면 이 패턴의 규모를 조정하기 어렵습니다. Azure Cognitive Search는 현재 검색 서비스의 가격 책정 계층 업그레이드를 지원하지 않으므로 모든 데이터를 새 서비스에 수동으로 복사해야 합니다.
+개별 테넌트가 서비스보다 커지면 이 패턴의 규모를 조정하기 어렵습니다. Azure Cognitive Search는 현재 검색 서비스의 가격 책정 계층을 업그레이드 하는 것을 지원 하지 않으므로 모든 데이터를 새 서비스에 수동으로 복사 해야 합니다.
 
-## <a name="3-mixing-both-models"></a>3. 두 모델 혼합
+## <a name="3-mixing-both-models"></a>3. 두 모델을 혼합 합니다.
 다중 테넌트를 모델링하기 위한 또 다른 패턴은 테넌트당 인덱스 및 테넌트당 서비스 전략을 조합하는 것입니다.
 
 두 가지 패턴을 조합하면 애플리케이션의 가장 큰 테넌트가 전용 서비스를 차지할 수 있지만, 사용 빈도가 낮으면서 좀 더 작은 테넌트의 긴 꼬리가 공유 서비스의 인덱스를 차지할 수 있습니다. 이 모델에서는 노이즈 이웃의 좀 더 작은 테넌트를 보호하면서 가장 큰 테넌트가 서비스에서 일관된 고성능을 보장합니다.
@@ -111,11 +111,11 @@ Azure Cognitive Search를 사용하면 개별 인덱스의 배율과 증가하�
 그러나 이 전략을 구현하려면 공유 서비스의 인덱스 대비, 전용 서비스를 요구하는 테넌트를 예측해야 합니다. 이러한 다중 테넌트 모델을 둘 다 관리하기 위해 애플리케이션 복잡성이 증가합니다.
 
 ## <a name="achieving-even-finer-granularity"></a>훨씬 더 미세한 세밀성 달성
-Azure Cognitive Search에서 다중 테넌트 시나리오를 모델링하는 위의 디자인 패턴은 각 테넌트가 응용 프로그램의 전체 인스턴스인 균일한 범위를 가정합니다. 그러나 애플리케이션은 경우에 따라 좀 더 작은 여러 범위를 처리할 수 있습니다.
+Azure Cognitive Search 다중 테 넌 트 시나리오를 모델링 하기 위한 위의 디자인 패턴은 각 테 넌 트가 응용 프로그램의 전체 인스턴스인 일관 된 범위를 가정 합니다. 그러나 애플리케이션은 경우에 따라 좀 더 작은 여러 범위를 처리할 수 있습니다.
 
 테넌트당 서비스 및 테넌트당 인덱스 모델은 충분히 작은 범위가 아니므로 훨씬 더 미세한 세밀성을 얻기 위헤 인덱스를 모델링할 수 있습니다.
 
-단일 인덱스가 다양한 클라이언트 엔드포인트에 대해 다르게 동작하도록 하기 위해 가능한 각 클라이언트에 대한 특정 값을 지정하는 필드를 인덱스에 추가할 수 있습니다. 클라이언트가 Azure Cognitive Search를 호출하여 인덱스를 쿼리하거나 수정할 때마다 클라이언트 응용 프로그램의 코드는 쿼리 시 Azure Cognitive Search의 [필터](https://msdn.microsoft.com/library/azure/dn798921.aspx) 기능을 사용하여 해당 필드에 적합한 값을 지정합니다.
+단일 인덱스가 다양한 클라이언트 엔드포인트에 대해 다르게 동작하도록 하기 위해 가능한 각 클라이언트에 대한 특정 값을 지정하는 필드를 인덱스에 추가할 수 있습니다. 클라이언트에서 Azure Cognitive Search를 호출 하 여 인덱스를 쿼리하거나 수정할 때마다 클라이언트 응용 프로그램의 코드는 쿼리 시 Azure Cognitive Search의 [필터](https://msdn.microsoft.com/library/azure/dn798921.aspx) 기능을 사용 하 여 해당 필드에 대 한 적절 한 값을 지정 합니다.
 
 이 방법을 사용하면 별도의 사용자 계정, 별도의 사용 권한 수준 및 완전 별도의 애플리케이션 기능을 얻을 수 있습니다.
 
@@ -125,7 +125,7 @@ Azure Cognitive Search에서 다중 테넌트 시나리오를 모델링하는 �
 > 
 
 ## <a name="next-steps"></a>다음 단계
-Azure 인지 검색은 많은 응용 프로그램에 적합합니다. 다중 테넌트 응용 프로그램에 대한 다양한 디자인 패턴을 평가할 때 는 다양한 [가격 책정 계층과](https://azure.microsoft.com/pricing/details/search/) 각 [서비스 제한을](search-limits-quotas-capacity.md) 고려하여 모든 규모의 응용 프로그램 워크로드 및 아키텍처에 맞게 Azure Cognitive Search를 가장 잘 맞춤화합니다.
+Azure Cognitive Search는 많은 응용 프로그램에 적합 합니다. 다중 테 넌 트 응용 프로그램에 대 한 다양 한 디자인 패턴을 평가할 때 [다양 한 가격 책정 계층](https://azure.microsoft.com/pricing/details/search/) 및 해당 [서비스 제한을](search-limits-quotas-capacity.md) 고려 하 여 모든 규모의 응용 프로그램 워크 로드 및 아키텍처에 맞게 Azure Cognitive Search를 적절 하 게 조정 합니다.
 
-Azure 인지 검색 및 다중 테넌트 azuresearch_contact@microsoft.com시나리오에 대한 질문은 로 이동하여 할 수 있습니다.
+Azure Cognitive Search 및 다중 테 넌 트 시나리오에 대 한 질문 azuresearch_contact@microsoft.com은로 이동할 수 있습니다.
 

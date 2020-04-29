@@ -1,5 +1,5 @@
 ---
-title: Azure 분석을 위한 공용 데이터 집합
+title: Azure analytics에 대 한 공용 데이터 집합
 description: Azure 분석 서비스 및 솔루션의 프로토타입을 생성하고 테스트를 수행하는 데 사용할 수 있는 공용 데이터 집합에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,26 +12,26 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
 ms.openlocfilehash: 0fe20c90cf857ce09a83c6ac53e6fe77eb512153
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80528203"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>테스트 및 프로토타입 생성을 위한 공용 데이터 집합
 
 스토리지 및 분석 서비스/솔루션의 프로토타입을 생성하는 데 사용할 수 있는 데이터를 이 공용 데이터 세트에서 찾아봅니다.
 
-## <a name="us-government-and-agency-data"></a>미국 정부 및 기관 데이터
+## <a name="us-government-and-agency-data"></a>미국 정부 및 에이전시 데이터
 
 | 데이터 원본 | 데이터 정보 | 파일 정보 |
 |---|---|---|
-| [미국 정부 데이터](https://catalog.data.gov/dataset) | 농업, 기후, 소비자, 생태계, 교육, 에너지, 금융, 건강, 지방 정부, 제조, 해양, 해양, 공공 안전, 미국의 과학 및 연구를 포함하는 250,000 개 이상의 데이터 세트. | 다양한 크기의 파일이 HTML, XML, CSV, JSON, Excel 등의 여러 형식으로 제공됩니다. 사용할 수 있는 데이터 집합을 파일 형식별로 필터링할 수 있습니다. |
+| [미국 정부 데이터](https://catalog.data.gov/dataset) | 농업, 기후, 소비자, 에코 시스템, 교육, 에너지, 재무, 건강, 지방 정부, 제조, maritime, 해양, 공공 안전, 미국에서 과학 및 연구를 다루는 데이터 집합 25만 | 다양한 크기의 파일이 HTML, XML, CSV, JSON, Excel 등의 여러 형식으로 제공됩니다. 사용할 수 있는 데이터 집합을 파일 형식별로 필터링할 수 있습니다. |
 | [미국 인구 조사 데이터](https://www.census.gov/data.html) | 미국 모집단에 대한 통계 데이터 | 데이터 집합은 다양한 형식으로 제공됩니다. |
 | [NASA에서 지구 과학 데이터](https://earthdata.nasa.gov/) | 농업, 대기, 생물권, 기후, 빙설권, 인간 차원, 수권, 지표면, 대양, 태양-지구 상호 작용 등을 포괄하는 32,000가지 이상의 데이터 컬렉션입니다. | 데이터 집합은 다양한 형식으로 제공됩니다. |
-| [항공사 항공편 지연 및 기타 교통 데이터](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "미국 교통부(DOT) 교통통계국(BTS)은 대형 항공사가 운항하는 국내선의 정시 성과를 추적합니다. 정시 운항, 취소 또는 우회 항공편의 수에 대한 요약 정보가 표로 요약되어 이 웹 사이트에 게시됩니다." | 파일은 CSV 형식입니다. |
+| [항공사 항공편 지연 및 기타 교통 데이터](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "BTS (교통)의 미국 차량 (교통) 기관 (BTS)은 대기업에서 운영 하는 국내 항공편의 실시간 성능을 추적 합니다. 정시 운항, 취소 또는 우회 항공편의 수에 대한 요약 정보가 표로 요약되어 이 웹 사이트에 게시됩니다." | 파일은 CSV 형식입니다. |
 | [교통 사고 사망률 - 미국 FARS(사망률 분석 보고 시스템)](https://www.nhtsa.gov/FARS) | "FARS는 교통 사고로 인한 심각한 부상과 관련된 연간 데이터를 NHTSA, 의회 및 미국인에게 제공하는 전국 인구 조사입니다." | "FARS 쿼리 시스템을 사용하여 온라인으로 실행되는 사망률 데이터를 만들 수 있습니다. 또는 FTP 사이트에서 1975부터 현재까지의 모든 FARS 데이터를 다운로드할 수 있습니다." |
-| [독성 화학 데이터 - EPA 독성 포피캐스터&trade;(톡스캐스트) 데이터](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "EPA에서 제공하는 수천 가지 화학물에 대한 최신의 업데이트된 고효율 독성물 데이터입니다. 이 데이터는 EPA의 ToxCast 연구를 통해 생성된 것입니다." | 데이터 집합은 스프레드시트, R 패키지 및 MySQL 데이터베이스 파일을 비롯한 다양한 형식으로 제공됩니다. |
+| [유해 화학 데이터-Toxicity ForeCaster (ToxCast&trade;) 데이터](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "EPA에서 제공하는 수천 가지 화학물에 대한 최신의 업데이트된 고효율 독성물 데이터입니다. 이 데이터는 EPA의 ToxCast 연구를 통해 생성된 것입니다." | 데이터 집합은 스프레드시트, R 패키지 및 MySQL 데이터베이스 파일을 비롯한 다양한 형식으로 제공됩니다. |
 | [유해 화학물 데이터 - NIH Tox21 데이터 챌린지 2014](https://tripod.nih.gov/tox21/challenge/) | "2014 Tox21 데이터 챌린지는 과학자들이 Toxicology in the 21st Century(21세기 독성학 이니셔티브)를 통해 테스트되는 화학물 및 화합물이 독성 효과를 통해 생물학적 경로를 중단시킬 수 있는 가능성을 이해하도록 하기 위해 고안되었습니다." | 데이터 집합은 SMILES 및 SDF 형식으로 사용할 수 있습니다. 데이터는 "10,000개 이하의 합성물(Tox21 10K)로 이루어진 Tox21 컬렉션에 대한 분석 활동 데이터 및 화학물 구조"를 제공합니다. |
 | [NCBI의 생명 공학 및 게놈 데이터](https://www.ncbi.nlm.nih.gov/guide/data-software/) | 유전자, 게놈 및 단백질을 포함하는 여러 데이터 집합입니다. | 데이터 집합은 텍스트, XML, BLAST 및 기타 형식으로 제공됩니다. BLAST 앱을 사용할 수 있습니다. |
 

@@ -1,6 +1,6 @@
 ---
 title: 원격 모니터링 솔루션 가속기 개요 - Azure | Microsoft Docs
-description: 이 문서에서는 원격 모니터링 솔루션의 작동 방식을 이해할 수 있도록 원격 모니터링 솔루션의 몇 가지 주요 요소에 대한 개요를 제공합니다.
+description: 이 문서에서는 원격 모니터링 솔루션의 핵심 요소 중 일부에 대 한 개요를 제공 하 여 작동 방식을 이해할 수 있도록 합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: f501eb55f72811063ddf1d8e02a0ce2137d598f3
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80546307"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>원격 모니터링 솔루션 가속기 개요
@@ -32,7 +32,7 @@ ms.locfileid: "80546307"
 
 ## <a name="logical-architecture"></a>논리 아키텍처
 
-다음 다이어그램에서는 [IoT 아키텍처에](../iot-fundamentals/iot-introduction.md)중첩된 원격 모니터링 솔루션 가속기의 논리적 구성 요소를 간략하게 설명합니다.
+다음 다이어그램은 [IoT 아키텍처](../iot-fundamentals/iot-introduction.md)에 중첩 된 원격 모니터링 솔루션 가속기의 논리적 구성 요소를 간략하게 설명 합니다.
 
 ![논리 아키텍처](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -167,4 +167,4 @@ ASA 작업은 스토리지 및 분석을 위해 원격 분석을 연결된 디�
 자세한 솔루션 아키텍처 다이어그램:
 * [원격 모니터링 아키텍처를 위한 솔루션 가속기](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-원격 모니터링 솔루션 가속기에 대한 자세한 개념 정보는 [솔루션 가속기 사용자 지정을](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)참조하십시오.
+원격 모니터링 솔루션 가속기에 대 한 자세한 개념 정보는 [솔루션 가속기 사용자 지정](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)을 참조 하세요.

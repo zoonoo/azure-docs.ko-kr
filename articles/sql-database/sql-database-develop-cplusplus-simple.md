@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
 ms.openlocfilehash: ed8e5eaa0ff9b58f80473b052aacfb9f01d45055
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529211"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>C 및 C++를 사용하여 SQL Database에 연결
@@ -27,11 +27,11 @@ ms.locfileid: "80529211"
 다음 항목이 있는지 확인합니다.
 
 * 활성 Azure 계정. 아직 구독하지 않은 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
-* [비주얼 스튜디오](https://www.visualstudio.com/downloads/). 이 샘플을 빌드하고 실행하려면 C++ 언어 구성 요소를 설치해야 합니다.
+* [Visual Studio](https://www.visualstudio.com/downloads/). 이 샘플을 빌드하고 실행하려면 C++ 언어 구성 요소를 설치해야 합니다.
 * [Visual Studio Linux 개발](https://docs.microsoft.com/cpp/linux/?view=vs-2019). Linux에서 개발하는 경우에 Visual Studio Linux 확장도 설치해야 합니다.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>가상 머신에서 Azure SQL Database 및 SQL Server
-Azure SQL은 Microsoft SQL Server에서 빌드되고 가용성이 높고 성능과 확장성이 뛰어난 서비스를 제공하도록 설계되었습니다. SQL Azure를 사용하는 것은 온-프레미스에서 실행되는 전용 데이터베이스를 사용하는 것보다 많은 이점이 있습니다. SQL Azure를 사용하면 데이터베이스를 설치, 설정, 유지 관리 또는 관리할 필요가 없으며 데이터베이스의 내용과 구조만 사용할 수 있습니다. 내결함성과 중복성처럼 데이터 베이스에 대해 일반적으로 걱정하는 것이 모두 기본 제공됩니다.
+Azure SQL은 Microsoft SQL Server에서 빌드되고 가용성이 높고 성능과 확장성이 뛰어난 서비스를 제공하도록 설계되었습니다. SQL Azure를 사용하는 것은 온-프레미스에서 실행되는 전용 데이터베이스를 사용하는 것보다 많은 이점이 있습니다. SQL Azure를 사용 하 여 데이터베이스를 설치, 설정, 유지 관리 또는 관리할 필요 없이 데이터베이스의 내용과 구조만 사용할 수 있습니다. 내결함성과 중복성처럼 데이터 베이스에 대해 일반적으로 걱정하는 것이 모두 기본 제공됩니다.
 
 Azure에는 현재 Azure SQL server 작업 부하를 호스팅하기 위한 두 가지 옵션, 즉 서비스로서 데이터베이스인 Azure SQL 데이터베이스와 VM(Virtual Machines)의 SQL 서버가 있습니다. Azure SQL 데이터베이스가 새로운 클라우드 기반 애플리케이션을 위해 클라우드 서비스가 제공하는 비용 절감과 성능 최적화를 활용하는 최선의 방법이라는 점을 제외하고 이 두 옵션 간에 차이점을 찾을 수 없습니다. 클라우드로 온-프레미스 애플리케이션을 마이그레이션 또는 확장하려는 경우 Azure 가상 머신에서 SQL server가 더 적합할 수 있습니다. 이 문서에서 작업을 더 간단하게 유지하기 위해, Azure SQL 데이터베이스를 만들어 보겠습니다.
 
@@ -74,10 +74,10 @@ Visual Studio로 만든 [이 샘플을 사용하는 Windows에서 ODBC를 사용
 
 ![파일 DSN 만들기](./media/sql-database-develop-cplusplus-simple/datasource.png)
 
-축하합니다! 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요.
+지금까지 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요.
 
 ## <a name="step-5-connecting-from-a-linux-cc-application"></a><a id="Linux"></a>5 단계: Linux C/C++ 애플리케이션에서 연결
-아직 소식을 듣지 못한 경우 Visual Studio를 사용하면 C ++ Linux 응용 프로그램도 개발할 수 있습니다. [Linux 개발용 Visual C++](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) 블로그에서 이 새 시나리오에 대해 참고할 수 있습니다. Linux용으로 빌드하려면 Linux distro가 실행되고 있는 원격 컴퓨터가 필요합니다. 사용 가능한 시스템이 없는 경우 Linux Azure 가상 [컴퓨터를](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)사용하여 빠르게 설정할 수 있습니다.
+아직 소식을 듣지 않은 경우 Visual Studio를 사용 하 여 c + + Linux 응용 프로그램을 개발할 수도 있습니다. [Linux 개발용 Visual C++](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) 블로그에서 이 새 시나리오에 대해 참고할 수 있습니다. Linux용으로 빌드하려면 Linux distro가 실행되고 있는 원격 컴퓨터가 필요합니다. 사용할 수 있는 권한이 없는 경우 [Linux Azure Virtual machines](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용 하 여 신속 하 게 설정할 수 있습니다.
 
 이 자습서에서는 Ubuntu 16.04 Linux 배포판이 설치되어 있다고 가정합니다. 여기 나온 단계는 Ubuntu 15.10, Red Hat 6 및 Red Hat 7에도 적용 해야 합니다.
 
@@ -119,7 +119,7 @@ Windows ODBC 샘플과 마찬가지로 이전에 Azure Portal에서 복사한 �
 
 ![Linux 콘솔 창 출력](./media/sql-database-develop-cplusplus-simple/linuxconsolewindow.png)
 
-축하합니다! 이 자습서를 성공적으로 완료했습니다. 이제 Windows 및 Linux 플랫폼의 C++에서 Azure SQL DB에 연결할 수 있습니다.
+지금까지 이 자습서를 성공적으로 완료했습니다. 이제 Windows 및 Linux 플랫폼의 C++에서 Azure SQL DB에 연결할 수 있습니다.
 
 ## <a name="get-the-complete-cc-tutorial-solution"></a><a id="GetSolution"></a> 전체 C++ 자습서 솔루션 가져오기
 GitHub에서 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을 찾을 수 있습니다.
@@ -128,7 +128,7 @@ GitHub에서 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을
 * [ODBC C++ Windows 샘플](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29), Azure SQL에 연결하려면 Linux C++ ODBC 샘플 다운로드
 
 ## <a name="next-steps"></a>다음 단계
-* SQL [데이터베이스 개발 개요](sql-database-develop-overview.md) 검토
+* [SQL Database 개발 개요](sql-database-develop-overview.md) 를 검토 합니다.
 * [ODBC API 참조](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)에 대한 자세한 정보
 
 ## <a name="additional-resources"></a>추가 리소스

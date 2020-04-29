@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구에서 실제 서버에 대한 구성 서버 관리
+title: Azure Site Recovery의 실제 서버에 대 한 구성 서버 관리
 description: 이 문서에서는 물리적 서버와 Azure 간 재해 복구를 위한 Azure Site Recovery 구성 서버를 관리하는 방법을 설명합니다.
 services: site-recovery
 author: mayurigupta13
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: eb7e891c031be5ac01295905d5c3304dc6818737
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478972"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>물리적 서버 재해 복구용 구성 서버 관리
@@ -35,7 +35,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 | 운영 체제 로케일 | 영어(미국)|
 | VMware vSphere PowerCLI 버전 | 필요하지 않음|
 | Windows Server 역할 | 다음 역할을 사용하지 않도록 설정함: <br> - Active Directory Domain Services <br>- 인터넷 정보 서비스 <br> - Hyper-V |
-| 그룹 정책| 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세히 알아보기](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+| 그룹 정책| 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세한 정보](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 | IIS | - 기존의 기본 웹 사이트 없음 <br> - [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용  <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/애플리케이션 없음<br>|
 | NIC 유형 | VMXNET3(VMware VM으로 배포될 경우) |
 | IP 주소 유형 | 정적 |
@@ -47,7 +47,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 구성 서버 설치 파일의 최신 버전은 Site Recovery 포털에서 사용할 수 있습니다. 또한 [Microsoft 다운로드 센터](https://aka.ms/unifiedsetup)에서 직접 다운로드할 수 있습니다.
 
 1. Azure Portal에 로그온하고 Recovery Services 자격 증명 모음으로 이동합니다.
-2. VMware & 물리적 컴퓨터의 경우 **사이트 복구 인프라** > **구성 서버를** 찾아봅니다.
+2. **Site Recovery 인프라** > **구성 서버** (VMware & 물리적 컴퓨터의 경우)로 이동 합니다.
 3. **+ 서버** 단추를 클릭합니다.
 4. **서버 추가** 페이지에서 다운로드 단추를 클릭하여 등록 키를 다운로드합니다. 구성 서버 설치 동안 Azure Site Recovery 서비스에 등록하기 위해 이 키가 필요합니다.
 5. **Microsoft Azure Site Recovery 통합 설치 다운로드** 링크를 클릭하여 구성 서버의 최신 버전을 다운로드합니다.
@@ -58,7 +58,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 ## <a name="install-and-register-the-server"></a>서버 설치 및 등록
 
 1. 통합 설치 프로그램 설치 파일을 실행합니다.
-2. **시작하기 전에**구성 **서버 설치 및 프로세스 서버**를 선택합니다.
+2. **시작 하기 전에**에서 **구성 서버 및 프로세스 서버 설치**를 선택 합니다.
 
     ![시작하기 전에](./media/physical-manage-configuration-server/combined-wiz1.png)
 
@@ -69,7 +69,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
     - 공급자를 직접 연결하려면 **프록시 서버 없이 Azure Site Recovery에 직접 연결**을 선택합니다.
     - 기존 프록시에 인증이 필요하거나 공급자 연결에 사용자 지정 프록시를 사용하려면 **사용자 지정 프록시 설정으로 연결**을 선택하고 주소, 포트 및 자격 증명을 지정합니다.
      ![방화벽](./media/physical-manage-configuration-server/combined-wiz4.png)
-6. **필수 구성 조건 검사에서**설치는 설치를 실행할 수 있는지 확인하기 위해 검사를 실행합니다. 전역 시간 동기화 **검사에**대한 경고가 나타나면 시스템 시계(날짜 및 시간 설정)의 시간이 표준**시간대와** 동일한지 확인합니다.
+6. **필수 조건 확인**에서 설치 프로그램은 설치를 실행할 수 있는지 확인 하는 검사를 실행 합니다. **글로벌 시간 동기화 확인**에 대 한 경고가 표시 되 면 시스템 클록의 시간 (**날짜 및 시간** 설정)이 표준 시간대와 같은지 확인 합니다.
 
     ![사전 요구 사항](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. **MySQL 구성**에서 설치된 MySQL 서버 인스턴스에 로그온하기 위한 자격 증명을 만듭니다.
@@ -87,7 +87,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 11. **요약**에서 정보를 검토하고 **설치**를 클릭합니다. 설치가 완료되면 암호가 생성됩니다. 복제를 사용하도록 설정할 때 필요하므로 암호를 복사하고 안전한 위치에 보관합니다.
 
 
-등록이 완료되면 서버가 볼트의 **설정** > **서버** 블레이드에 표시됩니다.
+등록이 완료 되 면 자격 증명 모음의 **설정** > **서버** 블레이드에 서버가 표시 됩니다.
 
 
 ## <a name="install-from-the-command-line"></a>명령줄에서 설치
@@ -108,7 +108,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수 이름| Type | Description| 값|
+|매개 변수 이름| Type | 설명| 값|
 |-|-|-|-|
 | /ServerMode|필수|구성 서버와 프로세스 서버를 모두 설치할지 또는 프로세스 서버만 설치할지 여부를 지정합니다.|CS<br>PS|
 |/InstallLocation|필수|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|
@@ -158,7 +158,7 @@ ProxyPassword="Password"
    ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. 새 프록시 세부 정보를 제공하고 **등록** 단추를 클릭합니다.
 6. 관리자 PowerShell 명령 창을 엽니다.
-7. 다음 명령 실행:
+7. 다음 명령을 실행합니다.
 
    ```powershell
    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -236,13 +236,13 @@ ProxyPassword="Password"
 
 > [!WARNING]
 > 구성 서버의 서비스 해제를 시작하기 전에 다음 사항을 확인하세요.
-> 1. 이 구성 서버의 모든 가상 시스템에 대한 [보호를 비활성화합니다.](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)
-> 2. 구성 서버에서 모든 복제 정책을 [연결 해제하고](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) [삭제합니다.](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy)
-> 3. 구성 서버에 연결된 모든 vCenters 서버/vSphere 호스트를 [삭제합니다.](vmware-azure-manage-vcenter.md#delete-a-vcenter-server)
+> 1. 이 구성 서버 아래의 모든 가상 머신에 대해 [보호를 사용 하지 않도록 설정](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) 합니다.
+> 2. 구성 서버에서 모든 복제 정책을 [분리 하 고](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) [삭제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) 합니다.
+> 3. 구성 서버에 연결 된 모든 vCenters/vSphere 호스트를 [삭제](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) 합니다.
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Azure Portal에서 구성 서버 삭제
-1. Azure 포털에서 Vault 메뉴에서 **사이트 복구 인프라** > **구성 서버를** 찾아봅습니다.
+1. Azure Portal 자격 증명 모음 메뉴에서 **Site Recovery 인프라** > **구성 서버** 로 이동 합니다.
 2. 서비스를 해제하려는 구성 서버를 클릭합니다.
 3. 구성 서버의 세부 정보 페이지에서 **삭제** 단추를 클릭합니다.
 4. **예**를 클릭하여 서버 삭제를 확인합니다.
@@ -288,10 +288,10 @@ ProxyPassword="Password"
     `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> 제거-AzSiteRecoveryFabric의 **-Force** 옵션은 구성 서버의 제거/삭제를 강제로 사용할 수 있습니다.
+> AzSiteRecoveryFabric의 **-force** 옵션을 사용 하 여 구성 서버를 강제로 제거 하거나 삭제할 수 있습니다.
 
 ## <a name="renew-tlsssl-certificates"></a>TLS/SSL 인증서 갱신
-구성 서버에는 기본 제공 웹 서버가 있습니다. 이 서버는 모바일 서비스, 프로세스 서버 및 마스터 대상 서버의 작업을 오케스트레이션합니다. 웹 서버는 TLS/SSL 인증서를 사용하여 클라이언트를 인증합니다. 인증서는 3년 후에 만료되며 언제든지 갱신할 수 있습니다.
+구성 서버에는 기본 제공 웹 서버가 있습니다. 이 서버는 모바일 서비스, 프로세스 서버 및 마스터 대상 서버의 작업을 오케스트레이션합니다. 웹 서버는 TLS/SSL 인증서를 사용 하 여 클라이언트를 인증 합니다. 인증서는 3년 후에 만료되며 언제든지 갱신할 수 있습니다.
 
 ### <a name="check-expiry"></a>만료 확인
 
@@ -303,7 +303,7 @@ ProxyPassword="Password"
 
 ### <a name="renew-the-certificate"></a>인증서 갱신
 
-1. 볼트에서 사이트 **복구 인프라** > **구성 서버를**열고 필요한 구성 서버를 클릭합니다.
+1. 자격 증명 모음에서 **Site Recovery 인프라** > **구성 서버**를 열고 필요한 구성 서버를 클릭 합니다.
 2. 만료 날짜가 **구성 서버 상태** 아래에 나타납니다.
 3. **인증서 갱신**을 클릭합니다. 
 

@@ -1,5 +1,5 @@
 ---
-title: 제한 사항 - MySQL용 Azure 데이터베이스
+title: 제한 사항-Azure Database for MySQL
 description: 이 문서에서는 Azure Database for MySQL에 대한 연결 수 및 스토리지 엔진 옵션과 같은 제한 사항을 설명합니다.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/1/2020
 ms.openlocfilehash: 6ca09ab0578fb88e443d6e9e1f920c22457eb042
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548480"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Azure Database for MySQL의 제한 사항
@@ -18,11 +18,11 @@ ms.locfileid: "80548480"
 
 ## <a name="server-parameters"></a>서버 매개 변수
 
-인기 있는 여러 서버 매개 변수의 최소 값과 최대 값은 가격 책정 계층 및 vCore에 의해 결정됩니다. 제한은 아래 표를 참조하십시오.
+널리 사용 되는 여러 서버 매개 변수의 최소값 및 최대값은 가격 책정 계층 및 vCores에 의해 결정 됩니다. 제한 사항은 아래 표를 참조 하세요.
 
 ### <a name="max_connections"></a>max_connections
 
-|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최대 값**|
+|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최 댓 값**|
 |---|---|---|---|---|
 |Basic|1|50|10|50|
 |Basic|2|100|10|100|
@@ -42,23 +42,23 @@ ms.locfileid: "80548480"
 > 오류 1040(08004): 너무 많은 연결이 있습니다.
 
 > [!IMPORTANT]
-> 최상의 환경을 위해 ProxySQL과 같은 연결 풀러를 사용하여 연결을 효율적으로 관리하는 것이 좋습니다.
+> 최상의 환경을 위해 ProxySQL과 같은 연결 풀을 사용 하 여 효율적으로 연결을 관리 하는 것이 좋습니다.
 
-MySQL에 대한 새 클라이언트 연결을 만드는 데는 시간이 걸리고 일단 설정되면 이러한 연결은 유휴 상태일 때에도 데이터베이스 리소스를 차지합니다. 대부분의 응용 프로그램은 이 상황을 복잡하게 하는 많은 단기 연결을 요청합니다. 그 결과 실제 워크로드에 사용할 수 있는 리소스가 줄어들어 성능이 저하됩니다. 유휴 연결을 줄이고 기존 연결을 다시 사용하는 연결 풀러는 이를 방지하는 데 도움이 됩니다. ProxySQL 설정에 대해 자세히 알아보려면 [블로그 게시물을](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042)방문하십시오.
+MySQL에 대 한 새 클라이언트 연결을 만들면 시간이 오래 걸리고 일단 설정 되 면 이러한 연결은 유휴 상태일 때에도 데이터베이스 리소스를 차지 합니다. 대부분의 응용 프로그램은이 상황을 복합어 하는 많은 단기 연결을 요청 합니다. 결과적으로 실제 워크 로드에 사용할 수 있는 리소스의 성능이 저하 될 수 있습니다. 유휴 연결을 줄이고 기존 연결을 다시 사용 하는 연결 풀러는 이러한 문제를 방지 하는 데 도움이 됩니다. ProxySQL 설정에 대 한 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042)을 참조 하세요.
 
 ### <a name="query_cache_size"></a>query_cache_size
 
-쿼리 캐시는 기본적으로 꺼져 있습니다. 쿼리 캐시를 사용하려면 `query_cache_type` 매개 변수를 구성합니다. 
+쿼리 캐시는 기본적으로 해제 되어 있습니다. 쿼리 캐시를 사용 하도록 설정 하려면 `query_cache_type` 매개 변수를 구성 합니다. 
 
-이 매개 변수에 대해 자세히 알아보려면 [MySQL 설명서를](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size) 검토하십시오.
+이 매개 변수에 대 한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size) 를 참조 하세요.
 
 > [!NOTE]
-> 쿼리 캐시는 MySQL 5.7.20으로 더 이상 사용되지 않으며 MySQL 8.0에서 제거되었습니다.
+> MySQL 5.7.20 및 MySQL 8.0에서 제거 된 쿼리 캐시는 더 이상 사용 되지 않습니다.
 
-|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최대 값**|
+|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최 댓 값**|
 |---|---|---|---|---|
-|Basic|1|기본 계층에서 구성할 수 없습니다.|N/A|N/A|
-|Basic|2|기본 계층에서 구성할 수 없습니다.|N/A|N/A|
+|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
+|Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |범용|2|0|0|16777216|
 |범용|4|0|0|33554432|
 |범용|8|0|0|67108864|
@@ -73,12 +73,12 @@ MySQL에 대한 새 클라이언트 연결을 만드는 데는 시간이 걸리�
 
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 
-이 매개 변수에 대해 자세히 알아보려면 [MySQL 설명서를](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) 검토하십시오.
+이 매개 변수에 대 한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) 를 참조 하세요.
 
-|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최대 값**|
+|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최 댓 값**|
 |---|---|---|---|---|
-|Basic|1|기본 계층에서 구성할 수 없습니다.|N/A|N/A|
-|Basic|2|기본 계층에서 구성할 수 없습니다.|N/A|N/A|
+|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
+|Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |범용|2|524288|32768|4194304|
 |범용|4|524288|32768|8388608|
 |범용|8|524288|32768|16777216|
@@ -93,12 +93,12 @@ MySQL에 대한 새 클라이언트 연결을 만드는 데는 시간이 걸리�
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
-이 매개 변수에 대해 자세히 알아보려면 [MySQL 설명서를](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) 검토하십시오.
+이 매개 변수에 대 한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) 를 참조 하세요.
 
-|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최대 값**|
+|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최 댓 값**|
 |---|---|---|---|---|
-|Basic|1|기본 계층에서 구성할 수 없습니다.|N/A|N/A|
-|Basic|2|기본 계층에서 구성할 수 없습니다.|N/A|N/A|
+|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
+|Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |범용|2|262144|128|268435455|
 |범용|4|262144|128|536870912|
 |범용|8|262144|128|1073741824|
@@ -113,12 +113,12 @@ MySQL에 대한 새 클라이언트 연결을 만드는 데는 시간이 걸리�
 
 ### <a name="max_heap_table_size"></a>max_heap_table_size
 
-이 매개 변수에 대해 자세히 알아보려면 [MySQL 설명서를](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) 검토하십시오.
+이 매개 변수에 대 한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) 를 참조 하세요.
 
-|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최대 값**|
+|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최 댓 값**|
 |---|---|---|---|---|
-|Basic|1|기본 계층에서 구성할 수 없습니다.|N/A|N/A|
-|Basic|2|기본 계층에서 구성할 수 없습니다.|N/A|N/A|
+|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
+|Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |범용|2|16777216|16384|268435455|
 |범용|4|16777216|16384|536870912|
 |범용|8|16777216|16384|1073741824|
@@ -133,12 +133,12 @@ MySQL에 대한 새 클라이언트 연결을 만드는 데는 시간이 걸리�
 
 ### <a name="tmp_table_size"></a>tmp_table_size
 
-이 매개 변수에 대해 자세히 알아보려면 [MySQL 설명서를](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) 검토하십시오.
+이 매개 변수에 대 한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) 를 참조 하세요.
 
-|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최대 값**|
+|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최 댓 값**|
 |---|---|---|---|---|
-|Basic|1|기본 계층에서 구성할 수 없습니다.|N/A|N/A|
-|Basic|2|기본 계층에서 구성할 수 없습니다.|N/A|N/A|
+|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
+|Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |범용|2|16777216|1024|67108864|
 |범용|4|16777216|1024|134217728|
 |범용|8|16777216|1024|268435456|
@@ -153,18 +153,18 @@ MySQL에 대한 새 클라이언트 연결을 만드는 데는 시간이 걸리�
 
 ### <a name="time_zone"></a>time_zone
 
-표준 시간대 테이블은 MySQL 명령줄 또는 MySQL 워크벤치와 같은 도구에서 `mysql.az_load_timezone` 저장된 프로시저를 호출하여 채울 수 있습니다. 저장 프로시저를 호출하고 전역 또는 세션 수준 표준 시간대를 설정하는 방법에 대한 [Azure 포털](howto-server-parameters.md#working-with-the-time-zone-parameter) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) 문서를 참조하십시오.
+표준 시간대 테이블은 MySQL 명령줄 또는 MySQL 워크 벤치 `mysql.az_load_timezone` 와 같은 도구에서 저장 프로시저를 호출 하 여 채울 수 있습니다. 저장 프로시저를 호출 하 고 전역 또는 세션 수준 표준 시간대를 설정 하는 방법은 [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) 문서를 참조 하세요.
 
 ## <a name="storage-engine-support"></a>스토리지 엔진 지원
 
 ### <a name="supported"></a>지원됨
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
-- [메모리](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+- [RAM](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
 
 ### <a name="unsupported"></a>지원되지 않음
 - [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
 - [BLACKHOLE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
-- [아카이브](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
+- [보관](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
 - [FEDERATED](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
 
 ## <a name="privilege-support"></a>권한 지원
@@ -172,7 +172,7 @@ MySQL에 대한 새 클라이언트 연결을 만드는 데는 시간이 걸리�
 ### <a name="unsupported"></a>지원되지 않음
 - DBA 역할: 서버 매개 변수 및 설정이 많으면 실수로 서버 성능이 저하되거나 DBMS의 ACID 속성이 무효화될 수 있습니다. 따라서 제품 수준에서 서비스 무결성 및 SLA를 유지하기 위해 이 서비스에서는 DBA 역할이 노출되지 않습니다. 사용자는 새 데이터베이스 인스턴스를 만들 때 생성되는 기본 사용자 계정을 통해 관리되는 데이터베이스 인스턴스에서 대부분의 DDL 및 DML 문을 수행할 수 있습니다. 
 - SUPER 권한: 마찬가지로 [SUPER 권한](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)도 제한됩니다.
-- 정의자: 만들려면 슈퍼 권한이 필요하며 제한됩니다. 백업을 사용하여 데이터를 가져올 경우 mysqldump를 수행할 때 수동으로 또는 `--skip-definer` 명령을 사용하여 `CREATE DEFINER` 명령을 제거하세요.
+- DEFINER:를 만들고 제한 되는 슈퍼 권한이 필요 합니다. 백업을 사용하여 데이터를 가져올 경우 mysqldump를 수행할 때 수동으로 또는 `--skip-definer` 명령을 사용하여 `CREATE DEFINER` 명령을 제거하세요.
 
 ## <a name="data-manipulation-statement-support"></a>데이터 조작 명령문 지원
 
@@ -199,11 +199,11 @@ MySQL에 대한 새 클라이언트 연결을 만드는 데는 시간이 걸리�
 - VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
 
 ### <a name="storage-size"></a>스토리지 크기
-- 가격 [책정 계층당](concepts-pricing-tiers.md) 저장소 크기 제한에 대한 가격 책정 계층을 참조하십시오.
+- 가격 책정 계층 당 저장소 크기 제한에 대 한 [가격 책정 계층](concepts-pricing-tiers.md) 을 참조 하세요.
 
 ## <a name="current-known-issues"></a>현재 알려진 문제
 - 연결이 설정된 후에 MySQL 서버 인스턴스에서 잘못된 서버 버전을 표시합니다. 올바른 서버 인스턴스 엔진 버전을 설치하려면 `select version();` 명령을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [각 서비스 계층에서 사용할 수 있는 내용](concepts-pricing-tiers.md)
+- [각 서비스 계층에서 사용할 수 있는 기능](concepts-pricing-tiers.md)
 - [지원되는 MySQL 데이터베이스 버전](concepts-supported-versions.md)

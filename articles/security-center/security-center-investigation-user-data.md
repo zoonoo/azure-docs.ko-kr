@@ -14,14 +14,14 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
 ms.openlocfilehash: aa262b0be3902f6e143a53f8f1302156fc5aede6
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80582977"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Azure Security Center 조사에서 사용자 데이터 관리
-이 아티클에서는 Azure Security Center 조사 기능에서 사용자 데이터를 관리하는 방법에 대한 정보를 제공합니다. 조사 데이터는 [Azure 모니터 로그에](../log-analytics/log-analytics-overview.md) 저장되고 보안 센터에 노출됩니다. 사용자 데이터 관리에는 데이터를 삭제하거나, 내보내는 기능이 포함됩니다.
+이 아티클에서는 Azure Security Center 조사 기능에서 사용자 데이터를 관리하는 방법에 대한 정보를 제공합니다. 조사 데이터는 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 에 저장 되 고 Security Center에 노출 됩니다. 사용자 데이터 관리에는 데이터를 삭제하거나, 내보내는 기능이 포함됩니다.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
@@ -57,4 +57,4 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 ## <a name="next-steps"></a>다음 단계
 사용자 데이터를 관리하는 방법에 대한 자세한 내용은 [Azure Security Center에서 사용자 데이터 관리](security-center-privacy.md)를 참조하세요.
-Azure Monitor 로그에서 개인 데이터 삭제에 대해 자세히 알아보려면 [개인 데이터를 내보내고 삭제하는 방법을](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data)참조하세요.
+Azure Monitor 로그에서 개인 데이터를 삭제 하는 방법에 대 한 자세한 내용은 [개인 데이터를 내보내고 삭제 하는 방법](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data)을 참조 하세요.

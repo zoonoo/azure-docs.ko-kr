@@ -1,6 +1,6 @@
 ---
-title: 아웃바운드 트래픽 잠금
-description: Azure 방화벽과 통합하여 앱 서비스 환경 내에서 아웃바운드 트래픽을 보호하는 방법을 알아봅니다.
+title: 아웃 바운드 트래픽 잠금
+description: Azure 방화벽과 통합 하 여 App Service 환경 내에서 아웃 바운드 트래픽을 보호 하는 방법에 대해 알아봅니다.
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
@@ -8,50 +8,50 @@ ms.date: 03/31/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 3dadb57c6358623974de1a27e1601d99b28fee32
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80584327"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service Environment 잠금
 
 ASE(App Service Environment)에는 제대로 작동하기 위해 액세스해야 하는 여러 가지 외부 종속성이 있습니다. ASE는 고객의 Azure VNet(Virtual Network)에 상주합니다. 고객은 ASE 종속성 트래픽을 허용해야 합니다. 이는 VNet의 모든 송신을 잠그려고 하는 고객에게는 문제가 됩니다.
 
-ASE를 관리하는 데 사용되는 인바운드 끝점이 많이 있습니다. 인바운드 관리 트래픽은 방화벽 디바이스를 통해 보낼 수 없습니다. 이 트래픽에 대한 원본 주소는 알려져 있으며 [App Service Environment 관리 주소](https://docs.microsoft.com/azure/app-service/environment/management-addresses) 문서에 게시됩니다. 또한 인바운드 트래픽을 보호하기 위해 NSG(네트워크 보안 그룹)와 함께 사용할 수 있는 AppServiceManagement라는 서비스 태그도 있습니다.
+ASE를 관리 하는 데 사용 되는 여러 인바운드 끝점이 있습니다. 인바운드 관리 트래픽은 방화벽 디바이스를 통해 보낼 수 없습니다. 이 트래픽에 대한 원본 주소는 알려져 있으며 [App Service Environment 관리 주소](https://docs.microsoft.com/azure/app-service/environment/management-addresses) 문서에 게시됩니다. 또한 NSGs (네트워크 보안 그룹)에서 인바운드 트래픽을 보호 하는 데 사용할 수 있는 AppServiceManagement 라는 서비스 태그가 있습니다.
 
-ASE 아웃바운드 종속성은 거의 전적으로 뒤에 고정 주소가 없는 FQDN을 사용하여 정의됩니다. 정적 주소가 부족하면 네트워크 보안 그룹을 사용하여 ASE에서 아웃바운드 트래픽을 잠글 수 없습니다. 주소는 현재 확인에 기반한 규칙을 설정하고 NSG를 만드는 데 사용할 수 없을 만큼 자주 변경됩니다. 
+ASE 아웃바운드 종속성은 거의 전적으로 뒤에 고정 주소가 없는 FQDN을 사용하여 정의됩니다. 고정 주소가 없으면 네트워크 보안 그룹을 사용 하 여 ASE에서 아웃 바운드 트래픽을 잠글 수 없습니다. 주소는 현재 확인에 기반한 규칙을 설정하고 NSG를 만드는 데 사용할 수 없을 만큼 자주 변경됩니다. 
 
 아웃바운드 주소를 보호하는 솔루션은 도메인 이름에 따라 아웃바운드 트래픽을 제어할 수 있는 방화벽 디바이스를 사용하는 것입니다. Azure Firewall은 대상의 FQDN을 기반으로 아웃바운드 HTTP 및 HTTPS 트래픽을 제한할 수 있습니다.  
 
 ## <a name="system-architecture"></a>시스템 아키텍처
 
-방화벽 장치를 통과하는 아웃바운드 트래픽이 있는 ASE를 배포하려면 ASE 서브넷에서 경로를 변경해야 합니다. 경로는 IP 수준에서 작동합니다. 경로를 정의하는 데 주의를 기울여야 하지 않으면 TCP 회신 트래픽을 다른 주소의 소스로 강제할 수 있습니다. 회신 주소가 전송된 주소 트래픽과 다른 경우 문제를 비대칭 라우팅이라고 하며 TCP가 중단됩니다.
+방화벽 장치를 통과 하는 아웃 바운드 트래픽을 사용 하 여 ASE를 배포 하려면 ASE 서브넷에서 경로를 변경 해야 합니다. 경로는 IP 수준에서 작동 합니다. 경로를 정의 하는 데 주의 하지 않으면 다른 주소에서 TCP 회신 트래픽을 원본에 강제로 적용할 수 있습니다. 회신 주소가 전송 된 주소와 다른 경우 문제를 비대칭 라우팅 이라고 하 고 TCP를 중단 합니다.
 
-ASE로의 인바운드 트래픽이 트래픽이 들어온 것과 동일한 방식으로 회신할 수 있도록 정의된 경로가 있어야 합니다. 인바운드 관리 요청 및 인바운드 응용 프로그램 요청에 대해 경로를 정의해야 합니다.
+ASE에 대 한 인바운드 트래픽이 트래픽이 발생 하는 것과 동일한 방식으로 다시 응답할 수 있도록 정의 된 경로가 있어야 합니다. 인바운드 관리 요청 및 인바운드 응용 프로그램 요청에 대 한 경로를 정의 해야 합니다.
 
-ASE를 오//도 인하여 다음 규칙을 준수해야 합니다.
+ASE에서 들어오고 나가는 트래픽은 다음 규칙을 준수 해야 합니다.
 
-* Azure SQL, 저장소 및 이벤트 허브에 대한 트래픽은 방화벽 장치를 사용하여 지원되지 않습니다. 이 트래픽은 해당 서비스로 직접 전송되어야 합니다. 이를 실현하는 방법은 이러한 세 서비스에 대한 서비스 끝점을 구성하는 것입니다. 
-* 경로 테이블 규칙은 인바운드 관리 트래픽을 발생한 위치에서 다시 보내는 것으로 정의되어야 합니다.
-* 경로 테이블 규칙은 인바운드 응용 프로그램 트래픽을 발생한 위치에서 다시 보내는 것을 정의해야 합니다. 
-* ASE를 떠나는 다른 모든 트래픽은 경로 테이블 규칙을 사용하여 방화벽 장치로 전송할 수 있습니다.
+* Azure SQL, 저장소 및 이벤트 허브에 대 한 트래픽은 방화벽 장치를 사용 하 여 지원 되지 않습니다. 이러한 트래픽은 해당 서비스로 직접 전송 되어야 합니다. 이를 수행 하는 방법은 해당 세 서비스에 대 한 서비스 끝점을 구성 하는 것입니다. 
+* 들어오는 위치에서 인바운드 관리 트래픽을 다시 보내는 경로 테이블 규칙을 정의 해야 합니다.
+* 들어오는 위치에서 인바운드 응용 프로그램 트래픽을 다시 보내는 경로 테이블 규칙을 정의 해야 합니다. 
+* ASE를 종료 하는 다른 모든 트래픽은 경로 테이블 규칙을 사용 하 여 방화벽 장치로 보낼 수 있습니다.
 
 ![Azure Firewall 연결 흐름 포함 ASE][5]
 
 ## <a name="locking-down-inbound-management-traffic"></a>인바운드 관리 트래픽 잠금
 
-ASE 서브넷에 NSG가 아직 할당되지 않은 경우 하나를 만듭니다. NSG 내에서 포트 454, 455에서 AppServiceManagement라는 서비스 태그의 트래픽을 허용하는 첫 번째 규칙을 설정합니다. AppServiceManagement 태그에서 액세스를 허용하는 규칙은 ASE를 관리하기 위해 공용 IP에서 필요한 유일한 것입니다. 해당 서비스 태그 뒤에 있는 주소는 Azure 앱 서비스를 관리하는 데만 사용됩니다. 이러한 연결을 통해 흐르는 관리 트래픽은 인증 인증서로 암호화되고 보호됩니다. 이 채널의 일반적인 트래픽에는 고객이 시작한 명령 및 상태 프로브와 같은 트래픽이 포함됩니다. 
+ASE 서브넷에 NSG가 아직 할당 되지 않은 경우 하나를 만듭니다. NSG 내에서 포트 454, 455에서 이름이 AppServiceManagement 인 서비스 태그의 트래픽을 허용 하도록 첫 번째 규칙을 설정 합니다. AppServiceManagement 태그에서 액세스를 허용 하는 규칙은 ASE를 관리 하기 위해 공용 Ip에서 필요한 유일한 작업입니다. 해당 서비스 태그 뒤에 있는 주소는 Azure App Service를 관리 하는 데만 사용 됩니다. 이러한 연결을 통해 흐르는 관리 트래픽은 암호화 되어 인증 인증서로 보호 됩니다. 이 채널의 일반적인 트래픽에는 고객 시작 명령 및 상태 프로브와 같은 항목이 포함 됩니다. 
 
-새 서브넷으로 포털을 통해 만들어진 ASA는 AppServiceManagement 태그에 대한 허용 규칙을 포함하는 NSG로 만들어집니다.  
+새 서브넷을 사용 하 여 포털을 통해 수행 되는 Ase는 AppServiceManagement 태그에 대 한 허용 규칙이 포함 된 NSG를 사용 하 여 생성 됩니다.  
 
-또한 ASE는 포트 16001의 로드 밸러서 태그에서 인바운드 요청을 허용해야 합니다. 포트 16001의 로드 밸러서의 요청은 로드 밸러블러와 ASE 프런트 엔드 간에 계속 유지됩니다. 포트 16001이 차단되면 ASE가 비정상으로 바갑니다.
+ASE는 포트 16001의 Load Balancer 태그에서 인바운드 요청을 허용 해야 합니다. 16001 포트에서 Load Balancer의 요청은 Load Balancer와 ASE 프런트 엔드 사이에서 연결 유지 검사입니다. 16001 포트를 차단 하면 ASE가 비정상 상태가 됩니다.
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>ASE를 사용하여 Azure Firewall 구성 
 
 Azure Firewall을 사용하여 기존 ASE의 송신을 잠그는 단계는 다음과 같습니다.
 
-1. ASE 서브넷에서 서비스 엔드포인트를 SQL, Storage 및 Event Hub에 사용하도록 설정합니다. 서비스 끝점을 사용하려면 서브넷을 > 네트워킹 포털로 이동하여 서비스 끝점 드롭다운에서 Microsoft.EventHub, Microsoft.SQL 및 Microsoft.Storage를 선택합니다. 서비스 엔드포인트를 Azure SQL에 사용하도록 설정하면 앱에 있는 Azure SQL 종속성도 서비스 엔드포인트로 구성되어야 합니다. 
+1. ASE 서브넷에서 서비스 엔드포인트를 SQL, Storage 및 Event Hub에 사용하도록 설정합니다. 서비스 끝점을 사용 하도록 설정 하려면 네트워킹 포털 > 서브넷으로 이동 하 여 서비스 끝점 드롭다운에서 microsoft EventHub, Microsoft .SQL 및 Microsoft Storage를 선택 합니다. 서비스 엔드포인트를 Azure SQL에 사용하도록 설정하면 앱에 있는 Azure SQL 종속성도 서비스 엔드포인트로 구성되어야 합니다. 
 
    ![서비스 엔드포인트 선택][2]
   
@@ -61,11 +61,11 @@ Azure Firewall을 사용하여 기존 ASE의 송신을 잠그는 단계는 다�
    
    ![애플리케이션 규칙 추가][1]
    
-1. [Azure Firewall UI] > [규칙] > [애플리케이션 규칙 컬렉션]에서 [네트워크 규칙 컬렉션 추가]를 선택합니다. 이름, 우선 순위를 제공하고 허용을 설정합니다. IP 주소 아래의 규칙 섹션에서 이름을 제공하고, **Any의**ptocol을 선택하고, *를 소스 및 대상 주소로 설정하고, 포트를 123으로 설정합니다. 이 규칙은 시스템이 NTP를 사용하여 클록 동기화를 수행할 수 있게 합니다. 시스템 문제를 분류하기 위해 포트 12000과 동일한 방식으로 다른 규칙을 만듭니다. 
+1. [Azure Firewall UI] > [규칙] > [애플리케이션 규칙 컬렉션]에서 [네트워크 규칙 컬렉션 추가]를 선택합니다. 이름, 우선 순위를 제공하고 허용을 설정합니다. 규칙 섹션의 IP 주소에서 이름을 제공 하 고, **임의**의 ptocol을 선택 하 고, *를 원본 및 대상 주소로 설정 하 고, 포트를 123으로 설정 합니다. 이 규칙은 시스템이 NTP를 사용하여 클록 동기화를 수행할 수 있게 합니다. 시스템 문제를 분류하기 위해 포트 12000과 동일한 방식으로 다른 규칙을 만듭니다. 
 
    ![NTP 네트워크 규칙 추가][3]
    
-1. [Azure Firewall UI] > [규칙] > [애플리케이션 규칙 컬렉션]에서 [네트워크 규칙 컬렉션 추가]를 선택합니다. 이름, 우선 순위를 제공하고 허용을 설정합니다. 서비스 태그 아래의 규칙 섹션에서 이름을 제공하고, **Any의**프로토콜을 선택하고, *를 소스 주소로 설정하고, AzureMonitor의 서비스 태그를 선택하고, 포트를 80, 443으로 설정합니다. 이 규칙을 사용하면 시스템에서 Azure 모니터에 상태 및 메트릭 정보를 제공할 수 있습니다.
+1. [Azure Firewall UI] > [규칙] > [애플리케이션 규칙 컬렉션]에서 [네트워크 규칙 컬렉션 추가]를 선택합니다. 이름, 우선 순위를 제공하고 허용을 설정합니다. 규칙 섹션의 서비스 태그에서 이름을 제공 하 고, 프로토콜을 선택 하 고 **, 주소**를 원본 주소로 설정 하 고, azuremonitor의 서비스 태그를 선택 하 고, 포트를 80, 443로 설정 합니다. 이 규칙은 시스템에서 상태 및 메트릭 정보를 Azure Monitor 제공할 수 있도록 합니다.
 
    ![NTP 서비스 태그 네트워크 규칙 추가][6]
    
@@ -98,7 +98,7 @@ Azure Firewall은 로그를 Azure Storage, Event Hub 또는 Azure Monitor 로그
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
-Azure 방화벽을 Azure Monitor 로그와 통합하면 모든 응용 프로그램 종속성을 인식하지 못하는 경우 응용 프로그램이 처음 작동할 때 유용합니다. Azure 모니터 에서 [로그 데이터 분석에서](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)Azure 모니터 로그에 대해 자세히 알아볼 수 있습니다.
+Azure 방화벽을 Azure Monitor 로그와 통합 하는 것은 응용 프로그램의 모든 종속성을 인식 하지 못할 때 응용 프로그램을 처음 사용할 때 유용 합니다. [Azure Monitor에서 로그 데이터 분석](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)의 Azure Monitor 로그에 대해 자세히 알아볼 수 있습니다.
  
 ## <a name="dependencies"></a>종속성
 
@@ -123,15 +123,15 @@ Azure 방화벽을 Azure Monitor 로그와 통합하면 모든 응용 프로그�
 | 엔드포인트 | 세부 정보 |
 |----------| ----- |
 | \*:123 | NTP 클록 확인. 트래픽이 포트 123의 여러 엔드포인트에서 확인됩니다. |
-| \*:12000 | 이 포트는 일부 시스템 모니터링에 사용됩니다. 차단된 경우 일부 문제는 심사하기 어렵지만 ASE는 계속 작동합니다. |
-| 40.77.24.27:80 | ASE 문제를 모니터링하고 경고하는 데 필요 |
-| 40.77.24.27:443 | ASE 문제를 모니터링하고 경고하는 데 필요 |
-| 13.90.249.229:80 | ASE 문제를 모니터링하고 경고하는 데 필요 |
-| 13.90.249.229:443 | ASE 문제를 모니터링하고 경고하는 데 필요 |
-| 104.45.230.69:80 | ASE 문제를 모니터링하고 경고하는 데 필요 |
-| 104.45.230.69:443 | ASE 문제를 모니터링하고 경고하는 데 필요 |
-| 13.82.184.151:80 | ASE 문제를 모니터링하고 경고하는 데 필요 |
-| 13.82.184.151:443 | ASE 문제를 모니터링하고 경고하는 데 필요 |
+| \*:12000 | 이 포트는 일부 시스템 모니터링에 사용됩니다. 차단 된 경우 일부 문제는 심사 하기 어려우므로 ASE는 계속 작동 합니다. |
+| 40.77.24.27:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 40.77.24.27:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 13.90.249.229:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 13.90.249.229:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 104.45.230.69:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 104.45.230.69:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 13.82.184.151:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 13.82.184.151:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
 
 Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동으로 가져옵니다. 
 
@@ -226,9 +226,9 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
-| \*.identity.azure.net:443 |
-| \*.ctldl.windowsupdate.com:80 |
-| \*.ctldl.windowsupdate.com:443 |
+| \*. identity.azure.net:443 |
+| \*. ctldl.windowsupdate.com:80 |
+| \*. ctldl.windowsupdate.com:443 |
 
 #### <a name="linux-dependencies"></a>Linux 종속성 
 
@@ -243,7 +243,7 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 |download.mono-project.com:80 |
 |packages.treasuredata.com:80|
 |security.ubuntu.com:80 |
-| \*.cdn.mscr.io:443 |
+| \*. cdn.mscr.io:443 |
 |mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
 |packages.fluentbit.io:443 |
@@ -260,17 +260,17 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 |40.76.35.62:11371 |
 |104.215.95.108:11371 |
 
-## <a name="us-gov-dependencies"></a>미국 정부 종속성
+## <a name="us-gov-dependencies"></a>US Gov 종속성
 
-미국 정부 지역의 ASE의 경우 이 문서의 [ASE 섹션으로 Azure 방화벽 구성의](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase) 지침에 따라 ASE를 사용하여 Azure 방화벽을 구성합니다.
+US Gov 지역의 Ase의 경우이 문서의 [ase를 사용 하 여 Azure 방화벽 구성](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase) 섹션의 지침에 따라 ase를 사용 하 여 azure 방화벽을 구성 합니다.
 
-미국 정부에서 Azure 방화벽 이외의 장치를 사용하려는 경우 
+US Gov에서 Azure 방화벽 이외의 장치를 사용 하려는 경우 
 
 * 서비스 엔드포인트 지원 서비스는 서비스 엔드포인트로 구성되어야 합니다.
 * FQDN HTTP/HTTPS 엔드포인트는 방화벽 디바이스에 배치할 수 있습니다.
 * 와일드카드 HTTP/HTTPS 엔드포인트는 몇 가지 한정자를 기반으로 하여 ASE에 따라 달라질 수 있는 종속성입니다.
 
-Linux는 미국 정부 지역에서 사용할 수 없으므로 선택적 구성으로 나열되지 않습니다.
+Linux는 US Gov 지역에서 사용할 수 없으며, 따라서 선택적 구성으로 표시 되지 않습니다.
 
 #### <a name="service-endpoint-capable-dependencies"></a>서비스 엔드포인트 지원 종속성 ####
 
@@ -285,23 +285,23 @@ Linux는 미국 정부 지역에서 사용할 수 없으므로 선택적 구성�
 | 엔드포인트 | 세부 정보 |
 |----------| ----- |
 | \*:123 | NTP 클록 확인. 트래픽이 포트 123의 여러 엔드포인트에서 확인됩니다. |
-| \*:12000 | 이 포트는 일부 시스템 모니터링에 사용됩니다. 차단된 경우 일부 문제는 심사하기 어렵지만 ASE는 계속 작동합니다. |
-| 40.77.24.27:80 | ASE 문제를 모니터링하고 경고하는 데 필요 |
-| 40.77.24.27:443 | ASE 문제를 모니터링하고 경고하는 데 필요 |
-| 13.90.249.229:80 | ASE 문제를 모니터링하고 경고하는 데 필요 |
-| 13.90.249.229:443 | ASE 문제를 모니터링하고 경고하는 데 필요 |
-| 104.45.230.69:80 | ASE 문제를 모니터링하고 경고하는 데 필요 |
-| 104.45.230.69:443 | ASE 문제를 모니터링하고 경고하는 데 필요 |
-| 13.82.184.151:80 | ASE 문제를 모니터링하고 경고하는 데 필요 |
-| 13.82.184.151:443 | ASE 문제를 모니터링하고 경고하는 데 필요 |
+| \*:12000 | 이 포트는 일부 시스템 모니터링에 사용됩니다. 차단 된 경우 일부 문제는 심사 하기 어려우므로 ASE는 계속 작동 합니다. |
+| 40.77.24.27:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 40.77.24.27:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 13.90.249.229:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 13.90.249.229:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 104.45.230.69:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 104.45.230.69:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 13.82.184.151:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 13.82.184.151:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
 
 #### <a name="dependencies"></a>종속성 ####
 
 | 엔드포인트 |
 |----------|
-| \*.ctldl.windowsupdate.com:80 |
-| \*.management.usgovcloudapi.net:80 |
-| \*.update.microsoft.com:80 |
+| \*. ctldl.windowsupdate.com:80 |
+| \*. management.usgovcloudapi.net:80 |
+| \*. update.microsoft.com:80 |
 |admin.core.usgovcloudapi.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
@@ -344,9 +344,9 @@ Linux는 미국 정부 지역에서 사용할 수 없으므로 선택적 구성�
 |management.usgovcloudapi.net:80 |
 |maupdateaccountff.blob.core.usgovcloudapi.net:80 |
 |mscrl.microsoft.com
-|ocsp.digicert.0 |
+|digicert. 0 |
 |ocsp.msocsp.co|
-|ocsp.verisign.0 |
+|ocsp. verisign. 0 |
 |rteventse.trafficmanager.net:80 |
 |settings-n.data.microsoft.com:80 |
 |shavamafestcdnprod1.azureedge.net:80 |
@@ -358,7 +358,7 @@ Linux는 미국 정부 지역에서 사용할 수 없으므로 선택적 구성�
 |www.msftconnecttest.com:80 |
 |www.thawte.com:80 |
 |\*ctldl.windowsupdate.com:443 |
-|\*.management.usgovcloudapi.net:443 |
+|\*. management.usgovcloudapi.net:443 |
 |\*.update.microsoft.com:443 |
 |admin.core.usgovcloudapi.net:443 |
 |azperfmerges.blob.core.windows.net:443 |

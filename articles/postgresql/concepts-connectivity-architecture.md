@@ -1,35 +1,35 @@
 ---
-title: 연결 아키텍처 - PostgreSQL용 Azure 데이터베이스 - 단일 서버
-description: PostgreSQL - 단일 서버에 대한 Azure 데이터베이스의 연결 아키텍처에 대해 설명합니다.
+title: 연결 아키텍처-Azure Database for PostgreSQL-단일 서버
+description: Azure Database for PostgreSQL 단일 서버의 연결 아키텍처에 대해 설명 합니다.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.openlocfilehash: d23a59e97ee3fc935a0d0954bc70b547b727fddc
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80546606"
 ---
-# <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 연결 아키텍처
-이 문서에서는 PostgreSQL 연결 아키텍처에 대한 Azure 데이터베이스와 트래픽이 Azure 내부 및 외부 클라이언트에서 PostgreSQL 데이터베이스 인스턴스에 대한 Azure 데이터베이스로 연결되는 방법에 대해 설명합니다.
+# <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 연결 아키텍처
+이 문서에서는 Azure Database for PostgreSQL 연결 아키텍처 뿐만 아니라 Azure 내부 및 외부의 클라이언트에서 Azure Database for PostgreSQL 데이터베이스 인스턴스로 트래픽이 전송 되는 방법에 대해 설명 합니다.
 
 ## <a name="connectivity-architecture"></a>연결 아키텍처
-PostgreSQL에 대한 Azure 데이터베이스에 대한 연결은 클러스터에서 서버의 실제 위치에 들어오는 연결을 라우팅하는 게이트웨이를 통해 설정됩니다. 다음 다이어그램은 트래픽 흐름을 보여 줍니다.
+들어오는 연결을 클러스터에 있는 서버의 실제 위치로 라우팅하는 게이트웨이를 통해 Azure Database for PostgreSQL에 대 한 연결이 설정 됩니다. 다음 다이어그램은 트래픽 흐름을 보여 줍니다.
 
 ![연결 아키텍처 개요](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-클라이언트가 데이터베이스에 연결하면 게이트웨이에 연결되는 연결 문자열이 표시됩니다. 이 게이트웨이에는 포트 5432를 수신하는 공용 IP 주소가 있습니다. 데이터베이스 클러스터 트래픽 은 PostgreSQL에 대한 적절한 Azure 데이터베이스로 전달됩니다. 따라서 회사 네트워크와 같은 서버에 연결하려면 아웃바운드 트래픽이 게이트웨이에 도달할 수 있도록 클라이언트 측 방화벽을 열어야 합니다. 아래에서 리전별 게이트웨이에서 사용하는 IP 주소의 전체 목록을 확인할 수 있습니다.
+클라이언트는 데이터베이스에 연결할 때 게이트웨이에 연결 되는 연결 문자열을 가져옵니다. 이 게이트웨이에는 5432 포트를 수신 하는 공용 IP 주소가 있습니다. 데이터베이스 클러스터 트래픽이 적절 한 Azure Database for PostgreSQL 전달 됩니다. 따라서 회사 네트워크에서와 같이 서버에 연결 하려면 클라이언트 쪽 방화벽을 열어 아웃 바운드 트래픽이 게이트웨이에 도달할 수 있도록 해야 합니다. 아래에서 지역별 게이트웨이에서 사용 하는 IP 주소의 전체 목록을 찾을 수 있습니다.
 
-## <a name="azure-database-for-postgresql-gateway-ip-addresses"></a>PostgreSQL 게이트웨이 IP 주소에 대한 Azure 데이터베이스
-다음 표에는 모든 데이터 영역에 대한 PostgreSQL 게이트웨이용 Azure 데이터베이스의 기본 및 보조 IP가 나열됩니다. 기본 IP 주소는 게이트웨이의 현재 IP 주소이며 두 번째 IP 주소는 주 IP 오류가 발생할 경우 장애 조치 IP 주소입니다. 앞서 언급했듯이 고객은 두 IP 주소모두에 대한 아웃바운드를 허용해야 합니다. 두 번째 IP 주소는 PostgreSQL에 대한 Azure 데이터베이스에서 연결을 수락할 때까지 서비스에서 수신 대기되지 않습니다.
+## <a name="azure-database-for-postgresql-gateway-ip-addresses"></a>게이트웨이 IP 주소 Azure Database for PostgreSQL
+다음 표에서는 모든 데이터 영역에 대 한 Azure Database for PostgreSQL 게이트웨이의 기본 및 보조 Ip를 나열 합니다. 주 IP 주소는 게이트웨이의 현재 IP 주소이 고 두 번째 IP 주소는 주 복제본의 오류가 발생 하는 경우 장애 조치 (failover) IP 주소입니다. 앞서 언급 했 듯이, 고객은 두 IP 주소에 대 한 아웃 바운드를 허용 해야 합니다. 두 번째 IP 주소는 연결을 허용 하기 위해 Azure Database for PostgreSQL에 의해 활성화 될 때까지 서비스에서 수신 하지 않습니다.
 
 | **지역 이름** | **게이트웨이 IP 주소** |
 |:----------------|:-------------|
 | 오스트레일리아 중부| 20.36.105.0     |
-| 오스트레일리아 센트럴2     | 20.36.113.0   |
+| 오스트레일리아 Central2     | 20.36.113.0   |
 | 오스트레일리아 동부 | 13.75.149.87, 40.79.161.1     |
 | 오스트레일리아 동남부 |191.239.192.109, 13.73.109.251   |
 | 브라질 남부 | 104.41.11.5, 191.233.201.8, 191.233.200.16  |
@@ -56,7 +56,7 @@ PostgreSQL에 대한 Azure 데이터베이스에 대한 연결은 클러스터�
 | 미국 중북부 | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    |
 | 북유럽 | 40.113.93.91, 191.235.193.75, 52.138.224.6, 52.138.224.7    |
 | 남아프리카 북부  | 102.133.152.0    |
-| 남아프리카 공화국 서부 | 102.133.24.0   |
+| 남아프리카 공화국 서 부 | 102.133.24.0   |
 | 미국 중남부 |13.66.62.124, 23.98.162.75, 104.214.16.39, 20.45.120.0   |
 | 동남아시아 | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | 아랍에미리트 중부 | 20.37.72.64  |

@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 다중 계층 응용 프로그램에 대한 네트워크 만들기
+title: Azure PowerShell 스크립트 샘플-다중 계층 응용 프로그램용 네트워크 만들기
 description: Azure PowerShell 스크립트 샘플 - 다중 계층 애플리케이션을 위한 가상 네트워크를 만듭니다.
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: kumud
 ms.openlocfilehash: 2faa799276bafca1ac731dbbef1c08430c7cea73
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521492"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>다중 계층 애플리케이션을 위한 네트워크 만들기
 
 이 스크립트 샘플은 프런트 엔드 및 백 엔드 서브넷이 있는 가상 네트워크를 만듭니다. 프런트 엔드 서브넷에 대한 트래픽은 HTTP 및 SSH로 제한되며, 백 엔드 서브넷에 대한 트래픽은 MySQL(3306 포트)로 제한됩니다. 스크립트를 실행한 후에는 웹 서버와 MySQL 소프트웨어를 배포할 수 있는 두 개의 가상 머신이 각 서브넷에 하나씩 있게 됩니다.
 
-필요한 경우 [Azure PowerShell 가이드에](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)있는 명령을 사용하여 Azure PowerShell을 설치한 다음 실행하여 `Connect-AzAccount` Azure와의 연결을 만듭니다.
+필요한 경우 [Azure PowerShell 가이드](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

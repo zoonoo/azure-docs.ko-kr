@@ -1,6 +1,6 @@
 ---
-title: Azure 서비스 버스 진단 로그 | 마이크로 소프트 문서
-description: 이 문서에서는 Azure Service Bus에서 사용할 수 있는 모든 운영 및 진단 로그에 대한 개요를 제공합니다.
+title: Azure Service Bus 진단 로그 | Microsoft Docs
+description: 이 문서에서는 Azure Service Bus에 사용할 수 있는 모든 운영 및 진단 로그에 대 한 개요를 제공 합니다.
 keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
@@ -16,38 +16,38 @@ ms.workload: data-services
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: a80fb97810fee04a4eb50c43178c168e66f29173
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80618722"
 ---
-# <a name="enable-diagnostics-logs-for-service-bus"></a>서비스 버스에 대한 진단 로그 사용
+# <a name="enable-diagnostics-logs-for-service-bus"></a>Service Bus에 대 한 진단 로그 사용
 
-Azure Service Bus 네임스페이스사용을 시작할 때 네임스페이스를 만들거나 삭제하거나 액세스하는 방법과 시기를 모니터링할 수 있습니다. 이 문서에서는 사용 가능한 모든 운영 및 진단 로그에 대한 개요를 제공합니다.
+Azure Service Bus 네임 스페이스 사용을 시작 하는 경우 네임 스페이스를 생성, 삭제 또는 액세스 하는 방법과 시기를 모니터링할 수 있습니다. 이 문서에서는 사용 가능한 모든 운영 및 진단 로그에 대 한 개요를 제공 합니다.
 
-Azure Service Bus는 현재 Azure Service Bus 네임스페이스에서 수행되는 *관리 작업을* 캡처하는 활동 및 운영 로그를 지원합니다. 특히 이러한 로그는 큐 생성, 사용된 리소스 및 작업 상태를 비롯한 작업 형식을 캡처합니다.
+Azure Service Bus은 현재 Azure Service Bus 네임 스페이스에서 수행 되는 *관리 작업* 을 캡처하는 활동 및 작업 로그를 지원 합니다. 특히 이러한 로그는 큐 생성, 사용된 리소스 및 작업 상태를 비롯한 작업 형식을 캡처합니다.
 
 ## <a name="operational-logs-schema"></a>작업 로그 스키마
 
-모든 로그는 다음과 같은 두 위치에서 자바스크립트 객체 표기술(JSON) 형식으로 저장됩니다.
+모든 로그는 다음 두 위치에서 JavaScript Object Notation (JSON) 형식으로 저장 됩니다.
 
-- **AzureActivity**: Azure 포털또는 Azure 리소스 관리자 템플릿 배포를 통해 네임스페이스에 대해 수행되는 작업 및 작업의 로그를 표시합니다.
-- **AzureDiagnostics**: API를 사용하거나 언어 SDK의 관리 클라이언트를 통해 네임스페이스에 대해 수행되는 작업 및 작업의 로그를 표시합니다.
+- **Azureactivity**: Azure Portal 또는 Azure Resource Manager 템플릿 배포를 통해 네임 스페이스에 대해 수행 되는 작업 및 작업의 로그를 표시 합니다.
+- **Azurediagnostics**: API를 사용 하거나 언어 SDK의 관리 클라이언트를 통해 네임 스페이스에 대해 수행 되는 작업 및 작업의 로그를 표시 합니다.
 
-운영 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함됩니다.
+작업 로그 JSON 문자열에는 다음 표에 나열 된 요소가 포함 됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | ------- | ------- |
-| ActivityId | 지정된 활동을 식별하는 데 사용되는 내부 ID |
+| ActivityId | 지정 된 작업을 식별 하는 데 사용 되는 내부 ID |
 | EventName | 작업 이름 |
 | ResourceId | Azure Resource Manager 리소스 ID |
 | SubscriptionId | 구독 ID |
 | EventTimeString | 작업 시간 |
 | EventProperties | 작업 속성 |
 | 상태 | 작업 상태 |
-| Caller | 작업 호출자(Azure 포털 또는 관리 클라이언트) |
-| Category | OperationalLogs |
+| Caller | 작업 호출자 (Azure Portal 또는 관리 클라이언트) |
+| 범주 | OperationalLogs |
 
 작업 로그 JSON 문자열 예제는 다음과 같습니다.
 
@@ -65,59 +65,59 @@ Azure Service Bus는 현재 Azure Service Bus 네임스페이스에서 수행되
 }
 ```
 
-## <a name="events-and-operations-captured-in-operational-logs"></a>운영 로그에 캡처된 이벤트 및 작업
+## <a name="events-and-operations-captured-in-operational-logs"></a>작업 로그에 캡처되는 이벤트 및 작업
 
-운영 로그는 Azure Service Bus 네임스페이스에서 수행되는 모든 관리 작업을 캡처합니다. Azure Service Bus에서 수행되는 많은 양의 데이터 작업으로 인해 데이터 작업이 캡처되지 않습니다.
+작업 로그는 Azure Service Bus 네임 스페이스에 대해 수행 되는 모든 관리 작업을 캡처합니다. Azure Service Bus에서 수행 되는 대량의 데이터 작업으로 인해 데이터 작업이 캡처되지 않습니다.
 
 > [!NOTE]
-> 데이터 작업을 더 잘 추적하려면 클라이언트 쪽 추적을 사용하는 것이 좋습니다.
+> 데이터 작업을 보다 효율적으로 추적할 수 있도록 클라이언트 쪽 추적을 사용 하는 것이 좋습니다.
 
-다음 관리 작업은 운영 로그에 캡처됩니다. 
+다음 관리 작업은 작업 로그에 캡처됩니다. 
 
 | 범위 | 작업(Operation)|
 |-------| -------- |
-| 네임스페이스 | <ul> <li> 네임스페이스 만들기</li> <li> 네임스페이스 업데이트 </li> <li> 네임스페이스 삭제 </li> <li> 네임스페이스 공유 액세스 정책 업데이트 </li> </ul> | 
-| 큐 | <ul> <li> 큐 만들기</li> <li> 큐 업데이트</li> <li> 큐 삭제 </li> <li> 자동 삭제 삭제 큐 </li> </ul> | 
-| 항목 | <ul> <li> 토픽 만들기 </li> <li> 토픽 업데이트 </li> <li> 토픽 삭제 </li> <li> 자동 삭제 항목 삭제 항목 </li> </ul> |
-| Subscription | <ul> <li> 구독 만들기 </li> <li> 구독 업데이트 </li> <li> 구독 삭제 </li> <li> 자동 삭제 구독 삭제 </li> </ul> |
+| 네임스페이스 | <ul> <li> 네임스페이스 만들기</li> <li> 네임 스페이스 업데이트 </li> <li> 네임스페이스 삭제 </li> <li> 네임 스페이스 SharedAccess 정책 업데이트 </li> </ul> | 
+| 큐 | <ul> <li> 큐 만들기</li> <li> 큐 업데이트</li> <li> 큐 삭제 </li> <li> 삭제 큐 자동 삭제 </li> </ul> | 
+| 항목 | <ul> <li> 토픽 만들기 </li> <li> 토픽 업데이트 </li> <li> 토픽 삭제 </li> <li> Delete 토픽 자동 삭제 </li> </ul> |
+| Subscription | <ul> <li> 구독 만들기 </li> <li> 구독 업데이트 </li> <li> 구독 삭제 </li> <li> 구독 삭제 자동 삭제 </li> </ul> |
 
 > [!NOTE]
-> 현재 *읽기* 작업은 운영 로그에서 추적되지 않습니다.
+> 현재 *읽기* 작업은 작업 로그에서 추적 되지 않습니다.
 
-## <a name="enable-operational-logs"></a>운영 로그 사용
+## <a name="enable-operational-logs"></a>작업 로그 사용
 
-운영 로그는 기본적으로 비활성화됩니다. 진단 로그를 사용하려면 다음을 수행합니다.
+작업 로그는 기본적으로 사용 되지 않습니다. 진단 로그를 사용 하도록 설정 하려면 다음을 수행 합니다.
 
-1. Azure [포털에서](https://portal.azure.com)Azure Service Bus 네임스페이스로 이동한 다음 **모니터링에서** **진단 설정을 선택합니다.**
+1. [Azure Portal](https://portal.azure.com)에서 Azure Service Bus 네임 스페이스로 이동한 후 **모니터링**아래에서 **진단 설정**을 선택 합니다.
 
    !["진단 설정" 링크](./media/service-bus-diagnostic-logs/image1.png)
 
-1. 진단 **설정** 창에서 진단 **추가 설정을**선택합니다.  
+1. **진단 설정** 창에서 **진단 설정 추가**를 선택 합니다.  
 
    !["진단 설정 추가" 링크](./media/service-bus-diagnostic-logs/image2.png)
 
-1. 다음을 수행하여 진단 설정을 구성합니다.
+1. 다음을 수행 하 여 진단 설정을 구성 합니다.
 
-   a. **이름** 상자에 진단 설정의 이름을 입력합니다.  
+   a. **이름** 상자에 진단 설정의 이름을 입력 합니다.  
 
-   b. 진단 로그에 대해 다음 세 가지 대상 중 하나를 선택합니다.  
-   - **저장소 계정에 보관을**선택하는 경우 진단 로그가 저장될 저장소 계정을 구성해야 합니다.  
-   - **이벤트 허브로 Stream을**선택하는 경우 진단 로그를 스트리밍할 이벤트 허브를 구성해야 합니다.
-   - **로그 분석으로 보내기를**선택하는 경우 진단 프로그램이 전송될 로그 분석의 인스턴스를 지정해야 합니다.  
+   b. 진단 로그에 대해 다음 세 대상 중 하나를 선택 합니다.  
+   - **저장소 계정에 보관**을 선택 하는 경우 진단 로그가 저장 되는 저장소 계정을 구성 해야 합니다.  
+   - **이벤트 허브로 스트림**을 선택 하는 경우 진단 로그를 스트리밍할 이벤트 허브를 구성 해야 합니다.
+   - **Log Analytics 보내기를**선택 하는 경우 진단이 전송 될 Log Analytics 인스턴스를 지정 해야 합니다.  
 
-   다. 운영 **로그 확인란을 선택합니다.**
+   다. **OperationalLogs** 확인란을 선택 합니다.
 
     !["진단 설정" 창](./media/service-bus-diagnostic-logs/image3.png)
 
 1. **저장**을 선택합니다.
 
-새 설정은 약 10분 만에 적용됩니다. 로그는 진단 **로그** 창에 구성된 보관 대상에 표시됩니다.
+새 설정은 약 10 분 후에 적용 됩니다. 로그는 구성 된 보관 대상의 **진단 로그** 창에 표시 됩니다.
 
-진단 설정 구성에 대한 자세한 내용은 [Azure 진단 로그 개요를](../azure-monitor/platform/diagnostic-logs-overview.md)참조하십시오.
+진단 설정을 구성 하는 방법에 대 한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-서비스 버스에 대한 자세한 내용은 다음을 참조하십시오.
+Service Bus에 대 한 자세한 내용은 다음을 참조 하세요.
 
 * [Service Bus 소개](service-bus-messaging-overview.md)
 * [Service Bus 시작](service-bus-dotnet-get-started-with-queues.md)

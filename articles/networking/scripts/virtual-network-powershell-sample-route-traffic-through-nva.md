@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 네트워크 가상 어플라이언스를 통해 트래픽 라우팅
+title: Azure PowerShell 스크립트 샘플-네트워크 가상 어플라이언스를 통한 트래픽 라우팅
 description: Azure PowerShell 스크립트 샘플 - 방화벽 네트워크 가상 어플라이언스를 통해 트래픽을 라우팅합니다.
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: kumud
 ms.openlocfilehash: 98509399c1f4bd66640152e8a9cb02cf396a1b62
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521465"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>네트워크 가상 어플라이언스를 통한 트래픽 라우팅
 
 이 스크립트 샘플은 프런트 엔드 및 백 엔드 서브넷이 있는 가상 네트워크를 만듭니다. 또한 두 서브넷 간에 트래픽을 라우팅할 수 있게 하는 IP 전달을 사용하여 VM을 만듭니다. 스크립트를 실행한 후에 방화벽 애플리케이션과 같은 네트워크 소프트웨어를 VM에 배포할 수 있습니다.
 
-필요한 경우 [Azure PowerShell 가이드에](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)있는 명령을 사용하여 Azure PowerShell을 설치한 다음 실행하여 `Connect-AzAccount` Azure와의 연결을 만듭니다.
+필요한 경우 [Azure PowerShell 가이드](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

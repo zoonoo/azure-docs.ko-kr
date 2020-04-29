@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 스크립트 샘플 - 다중 계층 응용 프로그램에 대한 네트워크 만들기
+title: Azure CLI 스크립트 샘플-다중 계층 응용 프로그램용 네트워크 만들기
 description: Azure CLI 스크립트 샘플 - 다중 계층 애플리케이션을 위한 가상 네트워크를 만듭니다.
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.openlocfilehash: 97e26eaed72bc15ebc46a893d269b05484d8a064
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521532"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>다중 계층 애플리케이션을 위한 네트워크 만들기
@@ -61,4 +61,4 @@ az group delete --name MyResourceGroup --yes
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
-추가 네트워킹 CLI 스크립트 샘플은 [Azure 네트워킹 개요 설명서에서](../cli-samples.md) 찾을 수 있습니다.
+추가 네트워킹 CLI 스크립트 샘플은 [Azure 네트워킹 개요 설명서](../cli-samples.md) 에서 찾을 수 있습니다.

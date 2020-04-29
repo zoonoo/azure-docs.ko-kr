@@ -1,5 +1,5 @@
 ---
-title: 'Azure의 상호 운용성 : 테스트 설정 | 마이크로 소프트 문서'
+title: 'Azure의 상호 운용성: 테스트 설정 | Microsoft Docs'
 description: 이 문서에서는 ExpressRoute, 사이트 간 VPN 및 Azure의 가상 네트워크 피어링 간의 상호 운용성을 분석하는 데 사용할 수 있는 테스트 설정에 대해 설명합니다.
 documentationcenter: na
 services: networking
@@ -11,13 +11,13 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 3aec41a145d2c94a45a453393831902069b9c41b
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80518197"
 ---
-# <a name="interoperability-in-azure--test-setup"></a>Azure의 상호 운용성 : 테스트 설정
+# <a name="interoperability-in-azure--test-setup"></a>Azure의 상호 운용성: 테스트 설정
 
 이 문서에서는 Azure 네트워킹 서비스가 제어 평면 수준 및 데이터 평면 수준에서 상호 운용하는 방법을 분석하는 데 사용할 수 있는 테스트 설정에 대해 설명합니다. Azure 네트워킹 구성 요소를 간단하게 살펴보겠습니다.
 
@@ -82,7 +82,7 @@ ExpressRoute 및 사이트 간 VPN의 공존 연결을 구성하는 방법에 �
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/TestSetup.png "테스트 토폴로지 다이어그램"
+[1]: ./media/backend-interoperability/TestSetup.png "테스트 토폴로지의 다이어그램"
 
 <!--Link References-->
 [ExpressRoute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction

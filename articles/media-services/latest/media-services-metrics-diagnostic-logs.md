@@ -1,7 +1,7 @@
 ---
-title: Azure 모니터를 사용하는 미디어 서비스 메트릭 및 진단 로그
+title: Azure Monitor를 사용 하 여 메트릭 및 진단 로그 Media Services
 titleSuffix: Azure Media Services
-description: Azure 모니터를 통해 Azure 미디어 서비스 메트릭 및 진단 로그를 모니터링하는 방법에 대해 알아봅니다.
+description: Azure Monitor를 통해 Azure Media Services 메트릭 및 진단 로그를 모니터링 하는 방법에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,25 +15,25 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: 75363212684bb09e84a4bc4881af26e6d2a8e7e3
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80585283"
 ---
-# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Azure 모니터를 통해 미디어 서비스 메트릭 및 진단 로그 모니터링
+# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Azure Monitor를 통해 Media Services 메트릭 및 진단 로그를 모니터링 합니다.
 
-[Azure Monitor를](../../azure-monitor/overview.md) 사용하면 앱의 성능을 이해하는 데 도움이 되는 메트릭 및 진단 로그를 모니터링할 수 있습니다. Azure Monitor에서 수집한 모든 데이터는 메트릭 및 로그라는 두 가지 기본 유형 중 하나에 적합합니다. Media Services 진단 로그를 모니터링하고 수집된 메트릭 및 로그에 대한 경고 및 알림을 만들 수 있습니다. [메트릭 탐색기를](../../azure-monitor/platform/metrics-getting-started.md)사용하여 메트릭 데이터를 시각화하고 분석할 수 있습니다. [Azure Storage에](https://azure.microsoft.com/services/storage/)로그를 보내고, [Azure Event Hubs로](https://azure.microsoft.com/services/event-hubs/)스트리밍하거나, [로그 애널리틱스로](https://azure.microsoft.com/services/log-analytics/)내보내거나, 타사 서비스를 사용할 수 있습니다.
+[Azure Monitor](../../azure-monitor/overview.md) 를 사용 하면 앱의 작동 방식을 이해 하는 데 도움이 되는 메트릭 및 진단 로그를 모니터링할 수 있습니다. Azure Monitor에서 수집 된 모든 데이터는 메트릭 및 로그의 두 가지 기본 형식 중 하나에 적합 합니다. Media Services 진단 로그를 모니터링 하 고 수집 된 메트릭 및 로그에 대 한 경고 및 알림을 만들 수 있습니다. [메트릭 탐색기](../../azure-monitor/platform/metrics-getting-started.md)를 사용 하 여 메트릭 데이터를 시각화 하 고 분석할 수 있습니다. [Azure Storage](https://azure.microsoft.com/services/storage/)로 로그를 전송 하 고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)에 스트림 하거나, [Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보내거나, 타사 서비스를 사용할 수 있습니다.
 
-자세한 개요는 Azure [모니터 메트릭](../../azure-monitor/platform/data-platform.md) 및 [Azure 모니터 진단 로그를](../../azure-monitor/platform/platform-logs-overview.md)참조하십시오.
+자세한 개요는 [Azure Monitor 메트릭](../../azure-monitor/platform/data-platform.md) 및 [Azure Monitor 진단 로그](../../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
 
-이 항목에서는 지원되는 [미디어 서비스 메트릭](#media-services-metrics) 및 미디어 [서비스 진단 로그에 대해 설명합니다.](#media-services-diagnostic-logs)
+이 항목에서는 지원 되는 [Media Services 메트릭과](#media-services-metrics) [진단 로그 Media Services](#media-services-diagnostic-logs)에 대해 설명 합니다.
 
-## <a name="media-services-metrics"></a>미디어 서비스 메트릭
+## <a name="media-services-metrics"></a>Media Services 메트릭
 
-메트릭은 값이 변경되었는지 여부와 상관 없이 정기적으로 수집됩니다. 메트릭은 자주 샘플링할 수 있고 경고는 비교적 간단한 논리를 사용하여 신속하게 발생시킬 수 있기 때문에, 메트릭은 경고에 유용합니다. 메트릭 경고를 만드는 방법에 대한 자세한 내용은 [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리를 참조합니다.](../../azure-monitor/platform/alerts-metric.md)
+메트릭은 값이 변경되었는지 여부와 상관 없이 정기적으로 수집됩니다. 메트릭은 자주 샘플링할 수 있고 경고는 비교적 간단한 논리를 사용하여 신속하게 발생시킬 수 있기 때문에, 메트릭은 경고에 유용합니다. 메트릭 경고를 만드는 방법에 대 한 자세한 내용은 [Azure Monitor를 사용 하 여 메트릭 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-metric.md)를 참조 하세요.
 
-미디어 서비스는 다음 리소스에 대한 모니터링 메트릭을 지원합니다.
+Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 합니다.
 
 * 계정
 * 스트리밍 엔드포인트
@@ -42,76 +42,76 @@ ms.locfileid: "80585283"
 
 다음 계정 메트릭을 모니터링할 수 있습니다.
 
-|메트릭 이름|표시 이름|설명|
+|메트릭 이름|표시 이름|Description|
 |---|---|---|
-|자산 계산|자산 수|계정의 자산입니다.|
-|자산 할당량|자산 할당량|계정의 자산 할당량입니다.|
-|자산할당량사용비율|자산 할당량 사용 비율|이미 사용된 자산 할당량의 백분율입니다.|
-|콘텐츠 키정책 카운트|콘텐츠 키 정책 수|계정의 콘텐츠 키 정책입니다.|
-|콘텐츠 키정책 할당량|콘텐츠 키 정책 할당량|계정의 콘텐츠 키 정책 할당량입니다.|
-|콘텐츠 키정책사용백분율|콘텐츠 키 정책 할당량 사용 백분율|이미 사용된 콘텐츠 키 정책 할당량의 백분율입니다.|
-|스트리밍정책카운트|스트리밍 정책 수|계정의 스트리밍 정책입니다.|
-|스트리밍정책할당량|스트리밍 정책 할당량|계정의 스트리밍 정책 할당량입니다.|
-|스트리밍정책할당량사용비율|스트리밍 정책 할당량 사용 백분율|이미 사용된 스트리밍 정책 할당량의 백분율입니다.|
+|AssetCount|자산 수|계정의 자산입니다.|
+|AssetQuota|자산 할당량|계정의 자산 할당량입니다.|
+|AssetQuotaUsedPercentage|사용 되는 자산 할당량 백분율|이미 사용 된 자산 할당량의 백분율입니다.|
+|ContentKeyPolicyCount|콘텐츠 키 정책 수|계정의 콘텐츠 키 정책입니다.|
+|ContentKeyPolicyQuota|콘텐츠 키 정책 할당량|계정의 콘텐츠 키 정책 할당량입니다.|
+|ContentKeyPolicyQuotaUsedPercentage|콘텐츠 키 정책 할당량 사용 백분율|이미 사용 된 콘텐츠 키 정책 할당량의 백분율입니다.|
+|StreamingPolicyCount|스트리밍 정책 수|계정의 스트리밍 정책.|
+|StreamingPolicyQuota|스트리밍 정책 할당량|계정의 스트리밍 정책 할당량입니다.|
+|StreamingPolicyQuotaUsedPercentage|스트리밍 정책 할당량 사용 백분율|이미 사용 된 스트리밍 정책 할당량의 백분율입니다.|
 
-또한 계정 [할당량 및 한도를](limits-quotas-constraints.md)검토해야 합니다.
+[계정 할당량 및 제한](limits-quotas-constraints.md)도 검토 해야 합니다.
 
 ### <a name="streaming-endpoint"></a>스트리밍 엔드포인트
 
-다음 미디어 서비스 [스트리밍 엔드포인트](https://docs.microsoft.com/rest/api/media/streamingendpoints) 메트릭이 지원됩니다.
+다음 Media Services [스트리밍 끝점](https://docs.microsoft.com/rest/api/media/streamingendpoints) 메트릭이 지원 됩니다.
 
-|메트릭 이름|표시 이름|설명|
+|메트릭 이름|표시 이름|Description|
 |---|---|---|
-|요청|요청|스트리밍 엔드포인트에서 제공하는 총 HTTP 요청 수를 제공합니다.|
-|송신|송신|송신 바이트의 총 수입니다. 예를 들어 스트리밍 끝점에서 스트리밍되는 바이트입니다.|
-|SuccessE2ELatency|성공은 종료 시간 끝까지|스트리밍 끝점이 요청을 받은 시점부터 응답의 마지막 바이트가 전송된 시점까지의 기간입니다.|
+|요청|요청|스트리밍 끝점에서 제공 하는 총 HTTP 요청 수를 제공 합니다.|
+|송신|송신|송신 바이트의 총 수입니다. 예를 들어 스트리밍 끝점에 의해 스트리밍되는 바이트입니다.|
+|SuccessE2ELatency|성공 종단 간 대기 시간|스트리밍 끝점이 응답의 마지막 바이트를 보낸 시점에서 요청을 받은 시간입니다.|
 
-### <a name="why-would-i-want-to-use-metrics"></a>메트릭을 사용해야 하는 이유는 무엇입니까?
+### <a name="why-would-i-want-to-use-metrics"></a>메트릭을 사용 하는 이유는 무엇 인가요?
 
-다음은 미디어 서비스 메트릭을 모니터링하는 것이 앱의 실적을 이해하는 데 도움이 되는 방법의 예입니다. 미디어 서비스 메트릭으로 해결할 수 있는 몇 가지 질문은 다음과 같습니다.
+다음은 응용 프로그램의 작동 방식을 이해 하는 데 Media Services 메트릭을 모니터링 하는 방법에 대 한 예입니다. Media Services 메트릭을 사용 하 여 해결할 수 있는 몇 가지 질문은 다음과 같습니다.
 
-* 표준 스트리밍 엔드포인트를 모니터링하여 한도를 초과한 시기를 알려면 어떻게 해야 합니까?
-* 프리미엄 스트리밍 엔드포인트 스케일 단위가 충분한지 어떻게 알 수 있습니까?
-* 스트리밍 엔드포인트를 확장할 시기를 알 수 있도록 경고를 설정하려면 어떻게 해야 하나요?
-* 계정에서 구성된 최대 송신에 도달한 시기를 알 도록 경고를 설정하려면 어떻게 해야 합니까?
-* 실패한 요청의 분석과 실패의 원인을 어떻게 확인할 수 있습니까?
-* 포장기에서 얼마나 많은 HLS 또는 DASH 요청이 가져온지 어떻게 알 수 있습니까?
-* 실패한 요청의 임계값 #이 언제 도달했는지 알 수 있도록 경고를 설정하려면 어떻게 해야 합니까?
+* 표준 스트리밍 끝점을 모니터링 하 여 한도를 초과 하는 경우를 확인 어떻게 할까요??
+* 어떻게 할까요? 프리미엄 스트리밍 끝점 배율 단위가 충분 한지 확인
+* 내 스트리밍 끝점을 확장할 시기를 알 수 있도록 경고를 설정 하려면 어떻게 해야 하나요?
+* 계정에 구성 된 최대 송신에 도달 했을 때 알 수 있도록 경고를 설정 어떻게 할까요??
+* 실패 한 요청에 대 한 분석 및 실패 원인을 어떻게 확인할 수 있나요?
+* 패키지에서 얼마나 많은 HLS 또는 대시 요청을 가져올 수 있나요?
+* 실패 한 요청 수의 임계값이 적중 된 경우를 알 수 있도록 경고를 설정 어떻게 할까요??
 
 ### <a name="example"></a>예제
 
-[미디어 서비스 메트릭을 모니터링하는 방법을](media-services-metrics-howto.md)참조하십시오.
+[Media Services 메트릭을 모니터링 하는 방법을](media-services-metrics-howto.md)참조 하세요.
 
-## <a name="media-services-diagnostic-logs"></a>미디어 서비스 진단 로그
+## <a name="media-services-diagnostic-logs"></a>진단 로그 Media Services
 
-진단 로그는 Azure 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공합니다. 자세한 내용은 [Azure 리소스에서 로그 데이터를 수집하고 사용하는 방법을 참조하세요.](../../azure-monitor/platform/platform-logs-overview.md)
+진단 로그는 Azure 리소스 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. 자세한 내용은 [Azure 리소스에서 로그 데이터를 수집 하 고 사용 하는 방법](../../azure-monitor/platform/platform-logs-overview.md)을 참조 하세요.
 
-미디어 서비스는 다음과 같은 진단 로그를 지원합니다.
+Media Services는 다음 진단 로그를 지원 합니다.
 
 * 키 배달
 
 ### <a name="key-delivery"></a>키 배달
 
-|속성|설명|
+|속성|Description|
 |---|---|
-|주요 배송 서비스 요청|키 배달 서비스 요청 정보를 표시하는 로그입니다. 자세한 내용은 [스키마](media-services-diagnostic-logs-schema.md)를 참조하십시오.|
+|키 배달 서비스 요청|키 배달 서비스 요청 정보를 표시 하는 로그입니다. 자세한 내용은 [스키마](media-services-diagnostic-logs-schema.md)를 참조 하세요.|
 
-### <a name="why-would-i-want-to-use-diagnostics-logs"></a>진단 로그를 사용해야 하는 이유는 무엇입니까?
+### <a name="why-would-i-want-to-use-diagnostics-logs"></a>진단 로그를 사용 하려면 어떻게 해야 하나요?
 
-키 배달 진단 로그를 통해 검사할 수 있는 몇 가지 사항은 다음과 같습니다.
+키 배달 진단 로그를 사용 하 여 검사할 수 있는 몇 가지 작업은 다음과 같습니다.
 
-* DRM 유형으로 제공되는 라이센스 수를 확인합니다.
-* 정책으로 제공되는 라이선스 수를 확인합니다.
-* DRM 또는 정책 유형에 의한 오류를 참조하십시오.
-* 클라이언트의 무단 라이선스 요청 수를 확인합니다.
+* DRM 유형에 의해 제공 되는 라이선스 수를 참조 하세요.
+* 정책에서 제공 하는 라이선스 수를 확인 합니다.
+* DRM 또는 정책 유형별 오류를 참조 하세요.
+* 클라이언트에서 승인 되지 않은 라이선스 요청 수를 확인 합니다.
 
 ### <a name="example"></a>예제
 
-[미디어 서비스 진단 로그를 모니터링하는 방법을](media-services-diagnostic-logs-howto.md)참조하십시오.
+[Media Service 진단 로그를 모니터링 하는 방법을](media-services-diagnostic-logs-howto.md)참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 리소스에서 로그 데이터를 수집하고 사용하는 방법](../../azure-monitor/platform/platform-logs-overview.md)
+* [Azure 리소스에서 로그 데이터를 수집 하 고 사용 하는 방법](../../azure-monitor/platform/platform-logs-overview.md)
 * [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-metric.md)
-* [미디어 서비스 메트릭을 모니터링하는 방법](media-services-metrics-howto.md)
-* [미디어 서비스 진단 로그를 모니터링하는 방법](media-services-diagnostic-logs-howto.md)
+* [Media Services 메트릭을 모니터링 하는 방법](media-services-metrics-howto.md)
+* [Media Service 진단 로그를 모니터링 하는 방법](media-services-diagnostic-logs-howto.md)

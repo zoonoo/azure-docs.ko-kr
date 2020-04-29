@@ -1,5 +1,5 @@
 ---
-title: '익스프레스라우팅: 회로에 VNet 연결: Azure PowerShell'
+title: 'Express 경로: 회로에 VNet 연결: Azure PowerShell'
 description: 이 문서는 리소스 관리자 배포 모델 및 PowerShell을 사용하여 VNet(가상 네트워크)을 ExpressRoute 회로에 연결하는 방법에 대한 개요를 제공합니다.
 services: expressroute
 author: charwen
@@ -9,10 +9,10 @@ ms.date: 05/20/2018
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 755b1898ee4cbc32de3a65a6bbc368ecf3eb3acf
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80616377"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Virtual Network를 ExpressRoute 회로에 연결
@@ -21,7 +21,7 @@ ms.locfileid: "80616377"
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [비디오 - Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
-> * [파워 쉘 (클래식)](expressroute-howto-linkvnet-classic.md)
+> * [PowerShell (클래식)](expressroute-howto-linkvnet-classic.md)
 >
 
 이 문서를 참조하면 Resource Manager 배포 모델 및 PowerShell을 사용하여 VNet(가상 네트워크)을 Azure ExpressRoute 회로에 연결할 수 있습니다. 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다. 또한 이 문서는 가상 네트워크 링크를 업데이트하는 방법을 보여줍니다.
@@ -39,7 +39,7 @@ ms.locfileid: "80616377"
 
 * 활성화된 ExpressRoute 회로가 있어야 합니다. 
   * 지침을 수행하여 [ExpressRoute 회로를 만들고](expressroute-howto-circuit-arm.md) 연결 공급자를 통해 회로를 사용하도록 설정합니다. 
-  * 회로에 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 라우팅 지침은 [라우팅 구성](expressroute-howto-routing-arm.md) 문서를 참조하십시오. 
+  * 회로에 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 라우팅 지침은 [라우팅 구성](expressroute-howto-routing-arm.md) 문서를 참조 하세요. 
   * Azure 개인 피어링이 구성되어 있고 네트워크와 Microsoft 간의 BGP 피어링이 엔드투엔드 연결을 사용하도록 작동 중이어야 합니다.
   * 가상 네트워크 및 가상 네트워크 게이트웨이를 만들어서 완전히 프로비전해야 합니다. 지침에 따라 [ExpressRoute에 대한 가상 네트워크 게이트웨이를 만듭니다](expressroute-howto-add-gateway-resource-manager.md). ExpressRoute의 가상 네트워크 게이트웨이는 GatewayType으로 VPN이 아닌 'ExpressRoute'를 사용합니다.
 
@@ -176,8 +176,8 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 *RoutingWeight*의 범위는 0에서 32000입니다. 기본값은 0입니다.
 
-## <a name="configure-expressroute-fastpath"></a>익스프레스루트 패스트패스 구성 
-가상 네트워크 게이트웨이가 울트라 성능 또는 ErGw3AZ인 경우 [ExpressRoute FastPath를](expressroute-about-virtual-network-gateways.md) 사용하도록 설정할 수 있습니다. FastPath는 온-프레미스 네트워크와 가상 네트워크 간의 초당 패킷 및 초당 연결과 같은 데이터 경로 성능을 향상시킵니다. 
+## <a name="configure-expressroute-fastpath"></a>Express 경로 구성 
+가상 네트워크 게이트웨이가 Ultra Performance 또는 ErGw3AZ 인 경우 [Express 경로 fastpath](expressroute-about-virtual-network-gateways.md) 를 사용 하도록 설정할 수 있습니다. FastPath를 통해 온-프레미스 네트워크와 가상 네트워크 간에 초당 패킷 및 초당 연결과 같은 데이터 경로 성능을 향상 시킬 수 있습니다. 
 
 **새 연결에서 FastPath 구성**
 
@@ -187,7 +187,7 @@ $gw = Get-AzVirtualNetworkGateway -Name "MyGateway" -ResourceGroupName "MyRG"
 $connection = New-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" -ExpressRouteGatewayBypass -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute -Location "MyLocation" 
 ``` 
 
-**FastPath를 사용하도록 기존 연결 업데이트**
+**FastPath를 사용 하도록 기존 연결 업데이트**
 
 ```azurepowershell-interactive 
 $connection = Get-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" 
@@ -196,4 +196,4 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 ``` 
 
 ## <a name="next-steps"></a>다음 단계
-익스프레스루트에 대한 자세한 내용은 [익스프레스루트 FAQ를](expressroute-faqs.md)참조하십시오.
+Express 경로에 대 한 자세한 내용은 [express 경로 FAQ](expressroute-faqs.md)를 참조 하십시오.
