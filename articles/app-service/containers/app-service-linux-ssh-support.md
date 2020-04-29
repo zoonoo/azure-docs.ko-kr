@@ -1,6 +1,6 @@
 ---
-title: 리눅스 컨테이너에 대 한 SSH 액세스
-description: Azure 앱 서비스에서 Linux 컨테이너에 SSH 세션을 열 수 있습니다. 사용자 지정 Linux 컨테이너는 사용자 지정 이미지에 대한 일부 수정 사항으로 지원됩니다.
+title: Linux 컨테이너에 대 한 SSH 액세스
+description: Azure App Service에서 Linux 컨테이너에 대 한 SSH 세션을 열 수 있습니다. 사용자 지정 Linux 컨테이너는 사용자 지정 이미지를 수정 하 여 지원 됩니다.
 keywords: azure app service, 웹앱, linux, oss
 author: msangapu-msft
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
@@ -9,17 +9,17 @@ ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: dab13f222b441c7415a8d09d0d91ab3af5aaf836
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280184"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux의 Azure App Service에 대한 SSH 지원
 
-[SSH(Secure Shell)](https://wikipedia.org/wiki/Secure_Shell)는 주로 명령줄 터미널에서 원격으로 관리 명령을 실행하는 데 사용합니다. Linux의 앱 서비스는 앱 컨테이너에 SSH 지원을 제공합니다. 
+[SSH(Secure Shell)](https://wikipedia.org/wiki/Secure_Shell)는 주로 명령줄 터미널에서 원격으로 관리 명령을 실행하는 데 사용합니다. Linux의 App Service는 앱 컨테이너에 SSH 지원을 제공 합니다. 
 
-![리눅스 앱 서비스 SSH](./media/app-service-linux-ssh-support/app-service-linux-ssh.png)
+![Linux App Service SSH](./media/app-service-linux-ssh-support/app-service-linux-ssh.png)
 
 SSH 및 SFTP를 사용하여 로컬 개발 컴퓨터에서 직접 컨테이너에 연결할 수도 있습니다.
 
@@ -29,7 +29,7 @@ SSH 및 SFTP를 사용하여 로컬 개발 컴퓨터에서 직접 컨테이너�
 
 ## <a name="use-ssh-support-with-custom-docker-images"></a>사용자 지정 Docker 이미지를 사용한 SSH 지원 사용
 
-[사용자 지정 컨테이너에서 SSH 구성을](configure-custom-container.md#enable-ssh)참조하십시오.
+[사용자 지정 컨테이너에서 SSH 구성을](configure-custom-container.md#enable-ssh)참조 하세요.
 
 ## <a name="open-ssh-session-from-remote-shell"></a>원격 셸에서 SSH 세션 열기
 
@@ -41,7 +41,7 @@ TCP 터널링을 사용하여 인증된 WebSocket 연결을 통해 개발 컴퓨
 
 시작하려면 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치해야 합니다. Azure CLI를 설치하지 않고 작동 방식을 확인하려면 [Azure Cloud Shell](../../cloud-shell/overview.md)을 엽니다. 
 
-[az webapp 원격 연결 만들기](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 명령을 사용하여 앱에 원격 연결을 엽니다. 앱에 대한 _ \<구독 id>, _ _ \<그룹 이름>_ 및 \_ \<앱 이름>_ 지정합니다.
+[az webapp 원격 연결 만들기](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 명령을 사용하여 앱에 원격 연결을 엽니다. 앱에 대 한 _ \<구독 id>_, _ \<그룹 이름>_ 및 \_ \<앱 이름>_을 지정 합니다.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
@@ -121,4 +121,4 @@ Load average: 0.07 0.04 0.08 4/765 45738
 * [Web App for Containers에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-docker-go.md)
 * [Linux의 Azure App Service에서 .NET Core 사용](quickstart-dotnetcore.md)
 * [Linux의 Azure App Service에서 Ruby 사용](quickstart-ruby.md)
-* [컨테이너 FAQ에 대한 Azure 앱 서비스 웹 앱](app-service-linux-faq.md)
+* [Azure App Service Web App for Containers FAQ](app-service-linux-faq.md)

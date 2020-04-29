@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: 78fc3428274be5e1998abe9189bea996f15e278c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79454264"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Azure DNS에서 역방향 DNS 조회 영역 호스트
@@ -28,7 +28,7 @@ Azure 서비스에 할당된 Azure 소유 IP 주소에 역방향 DNS를 구성�
 
 ## <a name="create-a-reverse-lookup-dns-zone"></a>역방향 조회 DNS 영역 만들기
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **허브** 메뉴에서 **새로 만들기** > **네트워킹**을 선택한 다음, **DNS 영역**을 선택합니다.
 
    !["DNS 영역" 선택](./media/dns-reverse-dns-hosting/figure1.png)

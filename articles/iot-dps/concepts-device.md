@@ -1,6 +1,6 @@
 ---
 title: Azure 디바이스 프로비저닝에서 디바이스 개념 | Microsoft Docs
-description: DPS(장치 프로비저닝 서비스) 및 IoT Hub를 사용하여 장치와 관련된 장치 프로비저닝 개념에 대해 설명합니다.
+description: DPS (장치 프로 비전 서비스) 및 IoT Hub를 사용 하는 장치에 특정 한 장치 프로 비전 개념 설명
 author: nberdy
 ms.author: nberdy
 ms.date: 11/06/2019
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: f5f931622f793a1146c04403e8c5e1a5ef7a7d62
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79285163"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>IoT Hub Device Provisioning Service 디바이스 개념
@@ -31,7 +31,7 @@ IoT Hub Device Provisioning Service는 지정된 IoT 허브에 대한 제로 터
 Device Provisioning Service는 다음 형식의 증명을 지원합니다.
 * 표준 X.509 인증서 인증 흐름을 기반으로 하는 **X.509 인증서**
 * nonce 문제를 기반으로 하는 **TPM(신뢰할 수 있는 플랫폼 모듈)** 은 서명된 SAS(공유 액세스 서명) 토큰을 표시하기 위해 키에 TPM 표준을 사용합니다. 디바이스에서 실제 TPM이 필요하지 않지만 서비스는 [TPM 사양](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)당 인증 키를 사용하여 증명하기를 기대합니다.
-* 해시된 서명과 포함된 만료가 포함된 SAS(공유 액세스 서명) [보안 토큰을](../iot-hub/iot-hub-devguide-security.md#security-tokens)기반으로 하는 **대칭 키입니다.** 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 참조하세요.
+* 해시 된 서명 및 포함 된 만료를 포함 하는 SAS (공유 액세스 서명) [보안 토큰](../iot-hub/iot-hub-devguide-security.md#security-tokens)을 기반으로 하는 **대칭 키** 입니다. 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 참조하세요.
 
 ## <a name="hardware-security-module"></a>하드웨어 보안 모듈
 
@@ -44,14 +44,14 @@ Device Provisioning Service는 다음 형식의 증명을 지원합니다.
 
 ## <a name="registration-id"></a>등록 ID
 
-Device Provisioning Service에서 디바이스를 고유하게 식별하는 데 사용되는 등록 ID입니다. 디바이스 ID는 프로비전 서비스 [ID 범위](#id-scope)에서 고유해야 합니다. 각 디바이스에는 등록 ID가 있어야 합니다. 등록 ID는 사용작이며 대소문자를 구분하지 않으며 콜론, 마침표, 밑줄 및 하이픈을 포함한 특수 문자를 포함할 수 있습니다.
+Device Provisioning Service에서 디바이스를 고유하게 식별하는 데 사용되는 등록 ID입니다. 디바이스 ID는 프로비전 서비스 [ID 범위](#id-scope)에서 고유해야 합니다. 각 디바이스에는 등록 ID가 있어야 합니다. 등록 ID는 영숫자, 대/소문자를 구분 하지 않으며, 콜론, 마침표, 밑줄, 하이픈 등의 특수 문자를 포함할 수 있습니다.
 
 * TPM의 경우 TPM 자체에서 등록 ID를 제공합니다.
 * X.509 기반 증명의 경우 등록 ID는 인증서의 주체 이름으로 제공됩니다.
 
 ## <a name="device-id"></a>디바이스 ID
 
-디바이스 ID는 IoT Hub에 표시되는 ID입니다. 등록 항목에서 원하는 디바이스 ID를 설정할 수 있지만 설정할 필요가 없습니다. 원하는 장치 ID 설정은 개별 등록에서만 지원됩니다. 등록 목록에 원하는 디바이스 ID가 지정되지 않은 경우 등록 ID는 디바이스를 등록할 때 디바이스 ID로 사용됩니다. [IoT Hub의 디바이스 ID](../iot-hub/iot-hub-devguide-identity-registry.md)에 대해 자세히 알아봅니다.
+디바이스 ID는 IoT Hub에 표시되는 ID입니다. 등록 항목에서 원하는 디바이스 ID를 설정할 수 있지만 설정할 필요가 없습니다. 원하는 장치 ID 설정은 개별 등록 지원 됩니다. 등록 목록에 원하는 디바이스 ID가 지정되지 않은 경우 등록 ID는 디바이스를 등록할 때 디바이스 ID로 사용됩니다. [IoT Hub의 디바이스 ID](../iot-hub/iot-hub-devguide-identity-registry.md)에 대해 자세히 알아봅니다.
 
 ## <a name="id-scope"></a>ID 범위
 

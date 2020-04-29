@@ -1,6 +1,6 @@
 ---
-title: 'Azure 익스프레스라우팅: 연결 모델'
-description: 이 문서에서는 고객의 네트워크와 Microsoft Azure 및 Office 365 서비스 간의 다양한 연결 모드에 대해 설명합니다. 고객은 MPLS 공급자, 클라우드 Exchange 및 이더넷 공급자를 사용할 수 있습니다.
+title: 'Azure Express 경로: 연결 모델'
+description: 이 문서에서는 고객 네트워크와 Microsoft Azure 간의 다양 한 연결 모드와 Office 365 서비스를 설명 합니다. 고객은 MPLS 공급자, 클라우드 Exchange 및 이더넷 공급자를 사용할 수 있습니다.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 375d2f9d3b455c0495c69f2b23d62b1ab6522710
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280886"
 ---
 # <a name="expressroute-connectivity-models"></a>ExpressRoute 연결 모델
@@ -34,8 +34,8 @@ Microsoft 클라우드로 WAN을 통합할 수 있습니다. IPVPN 공급자(일
 * ExpressRoute 기능에 대해 알아봅니다. [ExpressRoute 기술 개요](expressroute-introduction.md) 참조
 * 서비스 공급자를 찾습니다. [ExpressRoute 파트너 및 피어링 위치](expressroute-locations.md)를 확인하세요.
 * 모든 필수 조건이 충족되었는지 확인합니다. [ExpressRoute 필수 조건](expressroute-prerequisites.md)을 참조하세요.
-* [라우팅,](expressroute-routing.md) [NAT](expressroute-nat.md)및 [QoS에](expressroute-qos.md)대한 요구 사항을 참조하십시오.
+* [라우팅](expressroute-routing.md), [NAT](expressroute-nat.md)및 [QoS](expressroute-qos.md)에 대 한 요구 사항을 참조 하세요.
 * ExpressRoute 연결을 구성합니다.
-  * [익스프레스루트 회로 만들기](expressroute-howto-circuit-portal-resource-manager.md)
+  * [ExpressRoute 회로 만들기](expressroute-howto-circuit-portal-resource-manager.md)
   * [라우팅 구성](expressroute-howto-routing-portal-resource-manager.md)
   * [VNet을 ExpressRoute 회로에 연결](expressroute-howto-linkvnet-portal-resource-manager.md)

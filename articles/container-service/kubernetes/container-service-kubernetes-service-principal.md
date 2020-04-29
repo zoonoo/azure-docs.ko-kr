@@ -8,10 +8,10 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 40d4dc898efe6b719ec5e1f1ec0471a9677d3c95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371123"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(사용되지 않음) Container Service에서 Kubernetes 클러스터에 대한 Azure AD 서비스 주체 설정
@@ -33,9 +33,9 @@ Azure Container Service에서 Kubernetes 클러스터는 Azure API와 상호 작
 
 * **범위**: 리소스 그룹
 
-* **역할**: 기고자
+* **역할**: 기여자
 
-* **클라이언트 암호**: 암호여야 합니다. 현재 인증서 인증을 위해 설정된 서비스 주체는 사용할 수 없습니다.
+* **클라이언트 암호**: 암호 여야 합니다. 현재 인증서 인증을 위해 설정된 서비스 주체는 사용할 수 없습니다.
 
 > [!IMPORTANT]
 > 서비스 주체를 만들려면 Azure AD 테넌트에 애플리케이션을 등록하고 구독의 역할에 해당 애플리케이션을 할당할 수 있는 권한이 있어야 합니다. 필요한 권한이 있는지 확인하려면 [포털에서 확인합니다](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
@@ -61,7 +61,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 
 ![서비스 주체 만들기](./media/container-service-kubernetes-service-principal/service-principal-creds.png)
 
-강조 표시된 것은`appId`클러스터 배포를 위한`password`서비스 주체 매개 변수로 사용하는 클라이언트 **ID()와** 클라이언트 **보안()** 입니다.
+강조 표시 된 **클라이언트 ID** (`appId`) 및 **클라이언트 암호** (`password`)는 클러스터 배포를 위한 서비스 주체 매개 변수로 사용 합니다.
 
 
 ### <a name="specify-service-principal-when-creating-the-kubernetes-cluster"></a>Kubernetes 클러스터를 만들 때 서비스 주체 지정
@@ -78,7 +78,7 @@ Kubernetes 클러스터를 만들 때 기존 서비스 주체의 **클라이언�
 
 1. GitHub에서 템플릿 매개 변수 파일 `azuredeploy.parameters.json`을 [다운로드](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json)합니다.
 
-2. 서비스 주체를 지정하려면 파일에 `servicePrincipalClientId` 및 `servicePrincipalClientSecret`의 값을 입력합니다. (또한 `dnsNamePrefix` 및 `sshRSAPublicKey`에 대한 고유한 값을 제공해야 합니다. 후자는 클러스터에 액세스하는 SSH 공개 키입니다. 파일을 저장합니다.
+2. 서비스 주체를 지정하려면 파일에 `servicePrincipalClientId` 및 `servicePrincipalClientSecret`의 값을 입력합니다. (또한 `dnsNamePrefix` 및 `sshRSAPublicKey`에 대한 고유한 값을 제공해야 합니다. 후자는 클러스터에 액세스 하는 SSH 공개 키입니다. 파일을 저장 합니다.
 
     ![서비스 주체 매개 변수 전달](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
@@ -97,7 +97,7 @@ Kubernetes 클러스터를 만들 때 기존 서비스 주체의 **클라이언�
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>옵션 2: `az acs create`를 사용하여 클러스터를 만들 때 서비스 주체 생성
 
-[`az acs create`](/cli/azure/acs#az-acs-create) 명령을 실행하여 Kubernetes 클러스터를 만드는 경우 서비스 주체를 자동으로 생성할 수 있습니다.
+Kubernetes 클러스터를 만드는 [`az acs create`](/cli/azure/acs#az-acs-create) 명령을 실행 하는 경우 서비스 주체를 자동으로 생성 하는 옵션이 있습니다.
 
 다른 Kubernetes 클러스터 만들기 옵션과 마찬가지로 `az acs create`를 실행할 때 기존 서비스 주체에 대한 매개 변수를 지정할 수 있습니다. 그러나 이러한 매개 변수를 생략하면 Container Service에서 사용할 수 있도록 Azure CLI에서 하나의 서비스 주체를 자동으로 만듭니다. 이는 배포 중에 투명하게 발생합니다.
 

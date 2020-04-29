@@ -1,5 +1,5 @@
 ---
-title: 도메인 영역 파일 가져오기 및 내보내기 - Azure CLI
+title: 도메인 영역 파일 가져오기 및 내보내기-Azure CLI
 titleSuffix: Azure DNS
 description: Azure CLI를 사용하여 Azure DNS에 DNS 영역 파일을 가져오고 내보내는 방법을 알아봅니다
 services: dns
@@ -9,10 +9,10 @@ ms.date: 4/3/2019
 ms.author: rohink
 ms.topic: conceptual
 ms.openlocfilehash: a5c2fdde564eba2d95e7f14f4d47e4d381739d5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79365171"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Azure CLI를 사용하여 DNS 영역 파일 가져오기 및 내보내기
@@ -54,7 +54,7 @@ Azure DNS에 DNS 영역 파일을 가져오기 전에 영역 파일의 복사본
 * `$TTL` 지시어는 선택적이며 지원됩니다. `$TTL` 지시어를 지정하지 않는 경우 기본 TTL 3600초로 설정하고 명시적 TTL이 없는 레코드를 가져올 수 있습니다. 동일한 레코드 집합의 두 레코드가 다른 TTL을 지정하는 경우 낮은 값이 사용됩니다.
 * `$ORIGIN` 지시어는 선택적이며 지원됩니다. `$ORIGIN` 을(를) 설정하지 않는 경우 사용된 기본 값은 명령줄에 지정된 영역 이름입니다(그리고 종료하는 ".").
 * `$INCLUDE` 및 `$GENERATE` 지시어는 지원되지 않습니다.
-* 이러한 레코드 형식은 A, AAAA, CAA, CNAME, MX, NS, SOA, SRV 및 TXT가 지원됩니다.
+* 이러한 레코드 유형은 지원 됩니다 (A, AAAA, CAA, CNAME, MX, NS, SOA, SRV 및 TXT).
 * SOA 레코드는 영역이 만들어질 때 Azure DNS에서 자동으로 생성됩니다. 영역 파일을 가져오는 경우 `host` 매개 변수를 *제외한* 모든 SOA 매개 변수는 영역 파일에서 가져옵니다. 이 매개 변수는 Azure DNS에서 제공 되는 값을 사용합니다. 이 매개 변수가 Azure DNS에서 제공하는 기본 이름 서버를 참조해야 하기 때문입니다.
 * 또한 영역을 만들 때 역영 광선의 이름 서버 레코드 집합은 Azure DNS에서 자동으로 만들어집니다. 이 레코드 집합의 TTL만을 가져옵니다. 이러한 레코드는 Azure DNS에서 제공하는 이름 서버 이름을 포함합니다. 레코드 데이터를 가져온 영역 파일에 포함된 값으로 덮어쓰지 않습니다.
 * 공개 미리 보기 중에 Azure DNS는 단일 문자 TXT 레코드만 지원합니다. 다중 문자열 TXT 레코드는 연결되어 255자로 제한됩니다.
@@ -149,13 +149,13 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
         134.170.188.221
     ```
 
-### <a name="step-3-update-dns-delegation"></a>3단계. DNS 위임 업데이트
+### <a name="step-3-update-dns-delegation"></a>3단계: DNS 위임 업데이트
 
 영역을 올바르게 가져왔는지 확인한 후 Azure DNS 이름 서버를 가리키도록 DNS 위임을 업데이트해야 합니다. 자세한 내용은 [DNS 위임 업데이트](dns-domain-delegation.md)문서를 참조하세요.
 
 ## <a name="export-a-dns-zone-file-from-azure-dns"></a>Azure DNS에서 DNS 영역 파일 내보내기
 
-DNS 영역을 내보내는 Azure CLI 명령의 형식은 다음과 입니다.
+DNS 영역을 내보내는 Azure CLI 명령의 형식은 다음과 같습니다.
 
 ```azurecli
 az network dns zone export -g <resource group> -n <zone name> -f <zone file name>

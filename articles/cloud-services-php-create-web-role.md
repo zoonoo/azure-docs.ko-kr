@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.openlocfilehash: 54410e1e70a2ec0d3a9e2f853dc9556cd05996ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79297257"
 ---
 # <a name="create-php-web-and-worker-roles"></a>PHP 웹 및 작업자 역할 만들기
@@ -32,7 +32,7 @@ Azure는 애플리케이션을 실행하기 위한 세 가지 컴퓨팅 모델�
 
 ## <a name="download-the-azure-sdk-for-php"></a>PHP용 Azure SDK 다운로드(영문)
 
-[PHP용 Azure SDK](https://github.com/Azure/azure-sdk-for-php)는 여러 구성 요소로 구성됩니다. 이 문서에서는 이러한 구성 요소 중 두 가지인 Azure PowerShell 및 Azure 에뮬레이터를 사용합니다. 이러한 두 구성 요소는 Microsoft 웹 플랫폼 설치 관리자를 통해 설치할 수 있습니다. 자세한 내용은 [Azure PowerShell을 설치하고 구성하는 방법을](/powershell/azure/overview)참조하세요.
+[PHP용 Azure SDK](https://github.com/Azure/azure-sdk-for-php)는 여러 구성 요소로 구성됩니다. 이 문서에서는 이러한 구성 요소 중 두 가지인 Azure PowerShell 및 Azure 에뮬레이터를 사용합니다. 이러한 두 구성 요소는 Microsoft 웹 플랫폼 설치 관리자를 통해 설치할 수 있습니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/overview)을 참조 하세요.
 
 ## <a name="create-a-cloud-services-project"></a>Cloud Services 프로젝트 만들기
 
@@ -171,8 +171,8 @@ Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 애플리케�
 자세한 내용은 [PHP 개발자 센터](https://azure.microsoft.com/develop/php/)를 참조하세요.
 
 [install ps and emulators]: https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[서비스 정의(.csdef)]: https://msdn.microsoft.com/library/windowsazure/ee758711.aspx
-[서비스 구성(.cscfg)]: https://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[서비스 정의 (.csdef)]: https://msdn.microsoft.com/library/windowsazure/ee758711.aspx
+[서비스 구성 (.cscfg)]: https://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: https://www.iis.net/
 [sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
 [sqlsrv drivers]: https://php.net/sqlsrv

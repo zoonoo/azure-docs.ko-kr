@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
 ms.openlocfilehash: 043369bd6112c4cac36539bbd764393d889439c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79274581"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics 문제 해결
@@ -32,7 +32,7 @@ ms.locfileid: "79274581"
 | **Azure Diagnostics 구성 파일** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **로그 파일** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
 | **진단 데이터에 대한 로컬 저장소** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
-| **에이전트 구성 파일 모니터링** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
+| **모니터링 에이전트 구성 파일** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Azure 진단 확장 패키지** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **로그 컬렉션 유틸리티 경로** | %SystemDrive%\Packages\GuestAgent\ |
 | **MonAgentHost 로그 파일** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
@@ -43,20 +43,20 @@ ms.locfileid: "79274581"
 | **Azure Diagnostics 구성 파일** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **로그 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
 | **진단 데이터에 대한 로컬 저장소** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
-| **에이전트 구성 파일 모니터링** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
+| **모니터링 에이전트 구성 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
 | **상태 파일** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Azure 진단 확장 패키지** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
-| **로그 컬렉션 유틸리티 경로** | C:\WindowsAzure\로그\WaAppAgent.log |
+| **로그 컬렉션 유틸리티 경로** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **MonAgentHost 로그 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Azure Portal에 메트릭 데이터가 나타나지 않음
-Azure Diagnostics는 Azure Portal에 표시할 수 있는 메트릭 데이터를 제공합니다. 포털에서 데이터를 보는 데 문제가 있는 경우\* Azure 진단 저장소 계정의 WADMetrics 테이블을 확인하여 해당 메트릭 레코드가 있는지 확인하고 [리소스 공급자](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft.Insights가 등록되어 있는지 확인합니다.
+Azure Diagnostics는 Azure Portal에 표시할 수 있는 메트릭 데이터를 제공합니다. 포털에서 데이터를 표시 하는 데 문제가 있는 경우 Azure 진단 저장소\* 계정의 WADMetrics 테이블을 확인 하 여 해당 메트릭 레코드가 있는지 확인 하 고 [리소스 공급자](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft 인 사이트를 등록 했는지 확인 합니다.
 
 여기서 테이블의 **PartitionKey**는 리소스 ID, 가상 머신 또는 가상 머신 확장 집합입니다. **RowKey**는 메트릭 이름(일명 성능 카운터 이름)입니다.
 
 리소스 ID가 올바르지 않으면 **진단** **구성** > **메트릭** > **리소스 ID**가 올바르게 설정되었는지 확인합니다.
 
-특정 메트릭에 대한 데이터가 없는 경우 **진단 구성** > **성능 카운터를** 선택하여 메트릭(성능 카운터)이 포함되어 있는지 확인합니다. 다음 카운터를 기본적으로 활성화합니다.
+특정 메트릭에 대 한 데이터가 없는 경우 **진단 구성** > **PerformanceCounter** 를 확인 하 여 메트릭 (성능 카운터)이 포함 되어 있는지 확인 합니다. 다음 카운터를 기본적으로 활성화합니다.
 - \Processor(_Total)\% 프로세서 시간
 - \Memory\Available Bytes
 - \ASP.NET Applications(__Total__)\Requests/Sec
@@ -70,7 +70,7 @@ Azure Diagnostics는 Azure Portal에 표시할 수 있는 메트릭 데이터를
 - \Process(WaWorkerHost)\% Processor Time
 - \Process(WaWorkerHost)\Private Bytes
 - \Memory\Page Faults/sec
-- \.순 CLR 메모리\% _(전역)_ GC의 시간
+- \.NET CLR Memory (_Global_)\% Time in GC
 - \LogicalDisk(C:)\Disk Write Bytes/sec
 - \LogicalDisk(C:)\Disk Read Bytes/sec
 - \LogicalDisk(D:)\Disk Write Bytes/sec
@@ -79,7 +79,7 @@ Azure Diagnostics는 Azure Portal에 표시할 수 있는 메트릭 데이터를
 구성이 올바르게 설정되었지만 여전히 메트릭 데이터를 볼 수 없는 경우 다음 지침을 사용하여 문제를 해결해 보세요.
 
 
-## <a name="azure-diagnostics-is-not-starting"></a>Azure 진단이 시작되지 않음
+## <a name="azure-diagnostics-is-not-starting"></a>Azure 진단를 시작 하지 않습니다.
 Azure Diagnostics가 시작하지 못한 이유에 대한 자세한 내용은 앞서 제공한 로그 파일 위치에서 **DiagnosticsPluginLauncher.log** 및 **DiagnosticsPlugin.log** 파일을 참조하세요.
 
 이러한 로그가 `Monitoring Agent not reporting success after launch`를 표시하는 경우 MonAgentHost.exe를 시작하지 못한 것을 의미합니다. 이전 섹션의 `MonAgentHost log file`에 대해 지정된 위치에서 해당 로그를 찾습니다.
@@ -102,15 +102,15 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 
 해결 방법: 진단 구성을 수정하고 진단을 다시 설치합니다.
 
-저장소 계정이 올바르게 구성된 경우 컴퓨터에 대한 원격 액세스및 *DiagnosticsPlugin.exe* 및 *MonAgentCore.exe가* 실행 중인지 확인합니다. 실행 중이 아닌 경우 Azure [진단의](#azure-diagnostics-is-not-starting)단계를 따르지 않습니다.
+저장소 계정이 올바르게 구성 된 경우 컴퓨터에 원격으로 액세스 하 여 *diagnosticsplugin.exe* 및 *monagentcore.exe가* 가 실행 중인지 확인 합니다. 실행 되 고 있지 않으면 Azure 진단의 단계를 수행 [하지](#azure-diagnostics-is-not-starting)않습니다.
 
 프로세스가 실행되고 있으면 [데이터가 로컬로 캡처되고 있습니까?](#is-data-getting-captured-locally)로 이동하고 여기서 지침을 따릅니다.
 
-그래도 문제가 해결되지 않으면 다음을 시도해 보십시오.
+그래도 문제가 해결 되지 않으면 다음을 시도 합니다.
 
 1. 에이전트 제거
-2. 디렉토리 C:\WindowsAzure\로그\플러그인\Microsoft.Azure.Diagnostics.IaaS진단
-3. 에이전트를 다시 설치
+2. 디렉터리 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics 제거
+3. 에이전트를 다시 설치 합니다.
 
 
 ### <a name="part-of-the-data-is-missing"></a>일부 데이터가 누락됨
@@ -120,12 +120,12 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 진단 구성에는 수집할 데이터의 특정 형식에 대한 지침이 있습니다. [구성을 검토](#how-to-check-diagnostics-extension-configuration)하여 컬렉션에 대해 구성한 데이터만 찾고 있는지 확인합니다.
 
 #### <a name="is-the-host-generating-data"></a>호스트에서 데이터를 생성하고 있습니까?
-- **성능 카운터**: perfmon을 열고 카운터를 확인합니다.
+- **성능 카운터**: perfmon을 열고 카운터를 확인 합니다.
 
 - **추적 로그**: VM에 원격 액세스하고 앱의 구성 파일에 TextWriterTraceListener를 추가합니다.  https://msdn.microsoft.com/library/sk36c28t.aspx 문서를 참조하여 텍스트 수신기를 설정합니다.  `<trace>` 요소에 `<trace autoflush="true">`가 있는지 확인합니다.<br />
 생성된 추적 로그가 표시되지 않으면 누락된 추적 로그에 대한 자세한 정보를 참조하세요.
 
-- **ETW 추적**: VM에 원격 액세스하고 PerfView를 설치합니다.  PerfView에서 **파일** > **사용자 명령** > **듣기 etwprovder1** > **etwprovider2**등을 실행합니다. **Listen** 명령은 대/소문자를 구분하며, 쉼표로 구분된 ETW 공급자 목록 사이에는 공백이 없어야 합니다. 명령을 실행하지 못하는 경우 Perfview 도구의 오른쪽 아래에 있는 **로그** 단추를 선택하여 실행하려고 시도한 내용과 그 결과를 확인할 수 있습니다.  입력이 올바르다고 가정하면 새 창이 나타납니다. 몇 초 후 ETW 추적 보기를 시작합니다.
+- **ETW 추적**: VM에 원격 액세스하고 PerfView를 설치합니다.  Perfview에서 **File** > **User Command** > **Listen etwprovder1** > **etwprovider2 등**를 실행 합니다. **Listen** 명령은 대/소문자를 구분하며, 쉼표로 구분된 ETW 공급자 목록 사이에는 공백이 없어야 합니다. 명령을 실행하지 못하는 경우 Perfview 도구의 오른쪽 아래에 있는 **로그** 단추를 선택하여 실행하려고 시도한 내용과 그 결과를 확인할 수 있습니다.  입력이 올바르다고 가정하면 새 창이 나타납니다. 몇 초 후 ETW 추적 보기를 시작합니다.
 
 - **이벤트 로그**: VM에 원격 액세스합니다. `Event Viewer`를 연 다음 이벤트가 있는지 확인합니다.
 
@@ -205,12 +205,12 @@ ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드
 ```
 이 코드는 테이블 네 개를 생성합니다.
 
-| 행사 | 테이블 이름 |
+| 이벤트 | 테이블 이름 |
 | --- | --- |
-| 공급자="prov1" &lt;이벤트 id="1" /&gt; |WADEvent+MD5("prov1")+"1" |
-| 공급자="prov1" &lt;이벤트 id="2" 이벤트대상="dest1" /&gt; |WADdest1 |
-| 공급자="prov1" &lt;기본 이벤트 /&gt; |WADDefault+MD5("prov1") |
-| 공급자="prov2" &lt;기본 이벤트대상="dest2" /&gt; |WADdest2 |
+| provider = "prov1" &lt;이벤트 id = "1"/&gt; |WADEvent + MD5 ("prov1") + "1" |
+| provider = "prov1" &lt;이벤트 id = "2" eventdestination = "dest1"/&gt; |WADdest1 |
+| provider = "prov1" &lt;defaultevents/&gt; |WADDefault + MD5 ("prov1") |
+| provider = "prov2" &lt;Defaultevents eventdestination = "dest2"/&gt; |WADdest2 |
 
 ## <a name="references"></a>참조
 
@@ -228,7 +228,7 @@ Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터�
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Azure Diagnostics 플러그 인 종료 코드
 플러그 인은 다음 종료 코드를 반환합니다.
 
-| 종료 코드 | 설명 |
+| 종료 코드 | Description |
 | --- | --- |
 | 0 |성공했습니다. |
 | -1 |일반 오류. |
@@ -266,13 +266,13 @@ Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터�
 >[!NOTE]
 > 다음 정보는 주로 IaaS VM에서 실행되는 애플리케이션에 DiagnosticsMonitorTraceListener를 구성하지 않은 경우에만 Azure Cloud Services에 적용됩니다.
 
-- **진단 모니터추적Listener가** web.config 또는 app.config에서 구성되어 있는지 확인합니다.  클라우드 서비스 프로젝트에서 기본적으로 구성됩니다. 그러나 일부 고객은 추적 문이 진단에서 수집되지 않도록 이 부분을 주석화합니다.
+- **DiagnosticMonitorTraceListener** 가 web.config 또는 app.config에 구성 되어 있는지 확인 합니다.  이는 클라우드 서비스 프로젝트에서 기본적으로 구성 됩니다. 그러나 일부 고객은 추적 문이 진단에서 수집되지 않도록 이 부분을 주석화합니다.
 
-- **OnStart** 또는 **Run** 메서드에서 로그를 작성하지 않는 경우 **DiagnosticMonitorTraceListener가** app.config에 있는지 확인합니다.  기본적으로 web.config에 있지만 w3wp.exe 내에서 실행되는 코드에만 적용됩니다. 그러므로 WaIISHost.exe에서 실행하는 추적을 캡처하려면 이것을 app.config에 넣어야 합니다.
+- 로그가 **OnStart** 또는 **Run** 메서드에서 기록 되지 않으면 **DiagnosticMonitorTraceListener** 가 app.config에 있는지 확인 합니다.  기본적으로이 파일은 web.config에 있지만 w3wp.exe에서 실행 되는 코드에만 적용 됩니다. 그러므로 WaIISHost.exe에서 실행하는 추적을 캡처하려면 이것을 app.config에 넣어야 합니다.
 
 - **Diagnostics.Debug.WriteXXX** 대신 **Diagnostics.Trace.TraceXXX**를 사용하고 있는지 확인합니다. Debug(디버그) 문은 릴리스 빌드에서 제거됩니다.
 
-- 컴파일된 코드에 실제로 **Diagnostics.Trace 줄이** 있는지 확인합니다(리플렉터, ildasm 또는 ILSpy를 사용하여 확인). TRACE 조건부 컴파일 기호를 사용하지 않는 한 **Diagnostics.Trace** 명령은 컴파일된 이진에서 제거됩니다. 이는 msbuild를 사용하여 프로젝트를 빌드할 때 발생하는 일반적인 문제입니다.   
+- 컴파일된 코드에 실제로 진단이 있는지 확인 **합니다. Trace 줄** (반영자, Ildasm 또는 ilspy를 사용 하 여 확인). **진단** -추적 조건부 컴파일 기호를 사용 하지 않으면 컴파일된 이진 파일에서 추적 명령이 제거 됩니다. 이는 msbuild를 사용하여 프로젝트를 빌드할 때 발생하는 일반적인 문제입니다.   
 
 ## <a name="known-issues-and-mitigations"></a>알려진 문제 및 완화 방법
 다음은 알려진 문제 및 완화 방법을 보여 주는 목록입니다.
@@ -283,18 +283,18 @@ Windows Azure Diagnostics 확장은 .NET 4.5 프레임워크 이상에 대한 �
 
 .NET 4.5 이상이 없는 머신에서 Windows Azure Diagnostics 확장의 실행을 시도하는 상황은 여전히 발생할 수 있습니다. 이 문제는 오래된 이미지 또는 스냅샷에서 컴퓨터를 만들거나 사용자 지정 디스크를 가져올 때 발생합니다.
 
-이는 일반적으로 **진단 플러그인런처.exe를** 실행할 때 종료 코드 **255로** 나타납니다. 다음과 같이 처리되지 않은 예외로 인해 실패가 발생합니다.
+일반적으로 Diagnosticspluginlauncher.exe 실행할를 실행 하는 경우 종료 코드 **255** 로 매니페스트 **합니다.** 다음과 같이 처리되지 않은 예외로 인해 실패가 발생합니다.
 ```
 System.IO.FileLoadException: Could not load file or assembly 'System.Threading.Tasks, Version=1.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies
 ```
 
 **완화 방법:** 컴퓨터에 .NET 4.5 이상을 설치합니다.
 
-**2. 성능 카운터 데이터는 저장소에서 사용할 수 있지만 포털에 표시되지 않습니다.**
+**2. 성능 카운터 데이터는 저장소에서 사용할 수 있지만 포털에는 표시 되지 않습니다.**
 
 가상 머신의 포털 환경에는 기본적으로 특정 성능 카운터가 표시됩니다. 성능 카운터가 표시되지 않더라도 스토리지에서 사용할 수 있기 때문에 데이터가 생성되고 있음을 알 수 있는 경우 다음을 확인합니다.
 
-- 스토리지의 데이터에 영어 카운터 이름이 있는지 여부. 카운터 이름이 영어가 아닌 경우 포털 메트릭 차트에서 해당 이름을 인식할 수 없습니다. **완화 방법**: 시스템 계정에 대한 컴퓨터의 언어를 영어로 변경합니다. 이렇게 하려면 **제어판** > **영역** > **관리** > 복사본**설정을**선택합니다. 그런 다음 사용자 지정 언어가 시스템 계정에 적용되지 않도록 **시작 화면 및 시스템 계정**을 선택 취소합니다.
+- 스토리지의 데이터에 영어 카운터 이름이 있는지 여부. 카운터 이름이 영어가 아닌 경우 포털 메트릭 차트에서 해당 이름을 인식할 수 없습니다. **완화 방법**: 시스템 계정에 대한 컴퓨터의 언어를 영어로 변경합니다. 이렇게 하려면 **제어판** > **영역** > **관리** > **복사 설정**을 선택 합니다. 그런 다음 사용자 지정 언어가 시스템 계정에 적용되지 않도록 **시작 화면 및 시스템 계정**을 선택 취소합니다.
 
-- 성능 카운터 이름에 와일드카드(\*)를 사용하는 경우 성능 카운터가 Azure Storage 싱크에 전송될 때 포털에서 구성된 카운터와 수집된 카운터 간의 상관관계를 지정할 수 없습니다. **완화**: 와일드카드를 사용하고 포털에서 ()를\*확장하도록 하려면 성능 카운터를 Azure Monitor 싱크로 라우팅합니다.
+- 성능 카운터 이름에 와일드카드(\*)를 사용하는 경우 성능 카운터가 Azure Storage 싱크에 전송될 때 포털에서 구성된 카운터와 수집된 카운터 간의 상관관계를 지정할 수 없습니다. **완화**: 와일드 카드를 사용 하 고 포털이 (\*)를 확장 하도록 하려면 성능 카운터를 Azure Monitor 싱크로 라우팅합니다.
 

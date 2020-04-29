@@ -4,22 +4,22 @@ description: 이 문서에서는 Azure에 SQL Server를 백업하는 방법을 �
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.openlocfilehash: 537257733d7693598fd8007da6ce12c28fbeb02a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79408763"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server 백업 정보
 
-[Azure Backup은](backup-overview.md) Azure VM에서 실행되는 SQL Server를 백업하는 스트림 기반의 특수 솔루션을 제공합니다. 이 솔루션은 인프라 제로 백업, 장기 보존 및 중앙 관리의 Azure Backup의 이점과 일치합니다. 또한 SQL Server에 대해 다음과 같은 이점을 제공합니다.
+[Azure Backup](backup-overview.md) 은 Azure vm에서 실행 되는 SQL Server를 백업 하는 스트림 기반의 특수 솔루션을 제공 합니다. 이 솔루션은 제로 인프라 백업, 장기 보존 및 중앙 관리에 대 한 Azure Backup의 이점에 부합 합니다. 또한 SQL Server에 대해 특별히 다음과 같은 이점을 제공 합니다.
 
-1. 모든 백업 유형을 지원하는 워크로드 인식 백업- 전체, 차등 및 로그
-2. 빈번한 로그 백업으로 15분 RPO(복구 지점 목표)
-3. 최대 1초의 시점 복구
+1. 모든 백업 유형을 지 원하는 작업 인식 백업-전체, 차등 및 로그
+2. 로그 백업이 빈번한 15 분 RPO (복구 지점 목표)
+3. 지정 시간 복구 (초)
 4. 개별 데이터베이스 수준 백업 및 복원
 
-오늘 지원되는 백업 및 복원 시나리오를 보려면 [지원 매트릭스를](sql-support-matrix.md#scenario-support)참조하십시오.
+현재 지원 되는 백업 및 복원 시나리오를 보려면 [지원 매트릭스](sql-support-matrix.md#scenario-support)를 참조 하세요.
 
 ## <a name="backup-process"></a>백업 프로세스
 
@@ -58,11 +58,11 @@ Windows 2008 R2에서 실행되는 **SQL 2008** 및 **2008 R2**의 경우 권한
 다른 모든 버전의 경우 다음 단계에 따라 권한을 수정합니다.
 
   1. SQL Server sysadmin 권한이 있는 계정을 사용하여 SSMS(SQL Server Management Studio)에 로그인합니다. 특별한 사용 권한이 필요하지 않으면 Windows 인증이 작동해야 합니다.
-  2. SQL Server에서 **보안/로그인 폴더를 엽니다.**
+  2. SQL Server에서 **Security/로그인** 폴더를 엽니다.
 
       ![Security/Logins 폴더를 열어서 계정 보기](./media/backup-azure-sql-database/security-login-list.png)
 
-  3. **로그인** 폴더를 마우스 오른쪽 단추로 클릭하고 **새 로그인을**선택합니다. **로그인 - 새로 만들기**에서 **검색**을 선택합니다.
+  3. **로그인** 폴더를 마우스 오른쪽 단추로 클릭 하 고 **새 로그인**을 선택 합니다. **로그인 - 새로 만들기**에서 **검색**을 선택합니다.
 
       ![로그인 - 신규 대화 상자에서 검색 선택](./media/backup-azure-sql-database/new-login-search.png)
 
@@ -109,7 +109,7 @@ SQL Server 인스턴스에 **NT AUTHORITY\SYSTEM** 및 **NT Service\AzureWLBacku
 
 7. 확인을 클릭합니다.
 8. 동일한 일련의 단계(위의 1~7)를 반복하여 SQL Server 인스턴스에 NT Service\AzureWLBackupPluginSvc 로그인을 추가합니다. 로그인이 이미 있으면 sysadmin 서버 역할이 있는지 확인하고 상태에서 데이터베이스 엔진 연결 권한이 허용되고 로그인이 사용되는지 확인합니다.
-9. 권한을 부여한 후 포털에서 **DB를** 다시 **->** 검색합니다: Azure VM의 Vault 백업 인프라 **->** 워크로드:
+9. 사용 권한을 부여 하 고 나면 포털에서 **db** 를 다시 **->** 검색 합니다 **->** . Azure VM의 자격 증명 모음 백업 인프라 워크 로드:
 
     ![Azure Portal에서 DB 다시 검색](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 포털 - Azure AD에서 관리되는 ID의 서비스 주체 보기
+title: Azure Portal에서 관리 되는 id의 서비스 사용자 보기-Azure AD
 description: Azure Portal에서 관리 ID의 서비스 주체를 보기 위한 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 11/29/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c12f15cc79d5329d028239ade4e18a853000bf01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79298600"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-in-the-azure-portal"></a>Azure Portal에서 관리 ID의 서비스 주체 보기
@@ -31,7 +31,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
  > [!NOTE] 
  > 서비스 주체는 엔터프라이즈 응용 프로그램입니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요.
 - 아직 Azure 계정이 없는 경우 [체험 계정에 가입](https://azure.microsoft.com/free/)합니다.
@@ -42,12 +42,12 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 이 프로시저는 시스템 할당 ID를 사용하도록 설정된 VM의 서비스 주체를 보는 방법을 보여줍니다(애플리케이션에도 동일하게 적용됨).
 
 1. **Azure Active Directory**를 클릭한 다음 **Enterprise 애플리케이션**을 클릭합니다.
-2. **응용 프로그램 유형에서**모든 응용 프로그램을 선택한 다음 **적용을** **클릭합니다.**
+2. **응용 프로그램 종류**아래에서 **모든 응용 프로그램** 을 선택 하 고 **적용**을 클릭 합니다.
 3. 검색 필터 상자에서 관리 ID를 사용하도록 설정된 VM 또는 애플리케이션의 이름을 입력하거나 표시된 목록에서 선택합니다.
 
    ![포털에서 관리 ID 서비스 주체 보기](./media/how-to-view-managed-identity-service-principal-portal/view-managed-identity-service-principal-portal.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 리소스에 대한 관리되는 ID](/azure/active-directory/managed-identities-azure-resources/overview)
+[Azure 리소스에 대한 관리 ID](/azure/active-directory/managed-identities-azure-resources/overview)
 

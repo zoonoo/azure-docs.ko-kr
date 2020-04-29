@@ -8,10 +8,10 @@ ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 02d04076ccc41d243a493838667f5e8cc6bfa5ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371157"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(사용되지 않음) Log Analytics를 사용하여 Azure Container Service 클러스터 모니터링
@@ -21,7 +21,7 @@ ms.locfileid: "79371157"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이 연습에서는 [Azure Container Service를 사용하여 Kubernetes 클러스터를 만들었다고](container-service-kubernetes-walkthrough.md) 가정합니다.
 
 또한 `az` Azure CLI 및 `kubectl` 도구가 설치되어 있다고 가정합니다.
@@ -81,7 +81,7 @@ Log Analytics 에이전트가 서비스와 통신하려면 작업 영역 ID 및 
 DaemonSet은 Kubernetes가 클러스터의 각 호스트에서 컨테이너의 단일 인스턴스를 실행하기 위해 사용합니다.
 모니터링 에이전트를 실행하는 데 완벽합니다.
 
-다음은 [데몬셋 YAML 파일입니다.](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) `oms-daemonset.yaml`라는 파일로 저장하고 `WSID` 및 `KEY`에 대한 자리 표시자 값을 파일의 작업 영역 ID 및 키로 바꿉니다.
+[DaemonSet YAML 파일](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)은 다음과 같습니다. `oms-daemonset.yaml`라는 파일로 저장하고 `WSID` 및 `KEY`에 대한 자리 표시자 값을 파일의 작업 영역 ID 및 키로 바꿉니다.
 
 작업 영역 ID와 키를 DaemonSet 구성에 추가한 후 `kubectl` 명령줄 도구를 사용하여 클러스터에 Log Analytics 에이전트를 설치할 수 있습니다.
 
@@ -92,7 +92,7 @@ kubectl create -f oms-daemonset.yaml
 ### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Kubernetes 비밀을 사용하여 Log Analytics 에이전트 설치
 Log Analytics 작업 영역 ID 및 키를 보호하려면 Kubernetes 암호를 DaemonSet YAML 파일의 일부로 사용하면 됩니다.
 
-- 스크립트, 비밀 템플릿 파일 및 [저장소에서](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)DaemonSet YAML 파일을 복사하고 동일한 디렉터리에 있는지 확인합니다.
+- [리포지토리](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)에서 스크립트, 비밀 템플릿 파일 및 DaemonSet yaml 파일을 복사 하 여 동일한 디렉터리에 있는지 확인 합니다.
   - 비밀 생성 스크립트 - secret-gen.sh
   - 비밀 템플릿 - secret-template.yaml
     - DaemonSet YAML 파일 - omsagent-ds-secrets.yaml
@@ -132,11 +132,11 @@ Log Analytics 작업 영역 ID 및 키를 보호하려면 Kubernetes 암호를 D
   KEY:    88 bytes
   ```
 
-  - 다음을 실행하여 omsagent 데몬 세트를 만듭니다.
+  - 다음을 실행 하 여 omsagent 데몬 집합을 만듭니다.
   
   ```console
   kubectl create -f omsagent-ds-secrets.yaml
   ```
 
 ### <a name="conclusion"></a>결론
-이것으로 끝입니다. 몇 분 후 Log Analytics 대시보드로 이동하는 데이터를 볼 수 있습니다.
+간단하죠. 몇 분 후 Log Analytics 대시보드로 이동하는 데이터를 볼 수 있습니다.

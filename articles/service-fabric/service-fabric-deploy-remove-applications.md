@@ -1,20 +1,20 @@
 ---
-title: PowerShell을 사용 하 고 Azure 서비스 패브릭 배포
-description: Azure 서비스 패브릭에서 응용 프로그램을 제거하고 배포하는 방법과 Powershell에서 이러한 작업을 수행하는 방법에 대해 알아봅니다.
+title: PowerShell을 사용 하 여 Azure Service Fabric 배포
+description: Azure Service Fabric에서 응용 프로그램을 제거 하 고 배포 하는 방법과 Powershell에서 이러한 작업을 수행 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282511"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>PowerShell을 사용하여 애플리케이션 배포 및 제거
 
 > [!div class="op_single_selector"]
 > * [리소스 관리자](service-fabric-application-arm-resource.md)
-> * [Powershell](service-fabric-deploy-remove-applications.md)
+> * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 > * [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -32,7 +32,7 @@ ms.locfileid: "79282511"
 2. 더 이상 필요하지 않은 경우 애플리케이션 유형을 등록 취소합니다.
 3. 이미지 저장소에서 애플리케이션 패키지를 제거합니다.
 
-로컬 개발 클러스터에서 Visual Studio를 사용하여 애플리케이션을 배포 및 디버그하는 경우 이전의 모든 단계는 PowerShell 스크립트를 통해 자동으로 처리됩니다.  이 스크립트는 응용 프로그램 프로젝트의 *스크립트* 폴더에 있습니다. 이 문서에서는 Visual Studio 외부에서 동일한 작업을 수행할 수 있도록 스크립트에서 수행하는 작업에 대한 배경을 설명합니다. 
+로컬 개발 클러스터에서 Visual Studio를 사용하여 애플리케이션을 배포 및 디버그하는 경우 이전의 모든 단계는 PowerShell 스크립트를 통해 자동으로 처리됩니다.  이 스크립트는 응용 프로그램 프로젝트의 *Scripts* 폴더에 있습니다. 이 문서에서는 Visual Studio 외부에서 동일한 작업을 수행할 수 있도록 스크립트에서 수행하는 작업에 대한 배경을 설명합니다. 
 
 애플리케이션을 배포하는 또 다른 방법은 외부 프로비전을 사용하는 것입니다. 애플리케이션 패키지는 [`sfpkg`으로 패키지](service-fabric-package-apps.md#create-an-sfpkg)되거나 외부 저장소에 업로드될 수 있습니다. 이 경우 이미지 저장소에 업로드할 필요가 없습니다. 배포에는 다음 단계가 필요합니다.
 
@@ -191,7 +191,7 @@ Register application type succeeded
 
 ### <a name="register-the-application-package-copied-to-an-external-store"></a>외부 저장소에 복사된 애플리케이션 패키지 등록
 
-Service Fabric 버전 6.1부터, 프로비전 기능은 외부 저장소에서 패키지를 다운로드하도록 지원합니다. 다운로드 URI는 HTTP 또는 [ `sfpkg` ](service-fabric-package-apps.md#create-an-sfpkg) HTTPS 프로토콜을 사용하여 응용 프로그램 패키지를 다운로드할 수 있는 응용 프로그램 패키지에 대한 경로를 나타냅니다. 패키지는 이전에 이 외부 위치에 업로드되었을 것입니다. URI는 Service Fabric이 파일을 다운로드할 수 있도록 읽기 액세스를 허용해야 합니다. `sfpkg` 파일 확장명은 ".sfpkg"여야 합니다. 프로비전 작업은 애플리케이션 매니페스트에 나오는 애플리케이션 유형 정보를 포함해야 합니다.
+Service Fabric 버전 6.1부터, 프로비전 기능은 외부 저장소에서 패키지를 다운로드하도록 지원합니다. 다운로드 URI는 HTTP 또는 HTTPS 프로토콜을 사용 하 여 응용 프로그램 패키지를 다운로드할 수 있는 [ `sfpkg` 응용 프로그램 패키지](service-fabric-package-apps.md#create-an-sfpkg) 의 경로를 나타냅니다. 패키지는 이전에 이 외부 위치에 업로드되었을 것입니다. URI는 Service Fabric이 파일을 다운로드할 수 있도록 읽기 액세스를 허용해야 합니다. `sfpkg` 파일 확장명은 ".sfpkg"여야 합니다. 프로비전 작업은 애플리케이션 매니페스트에 나오는 애플리케이션 유형 정보를 포함해야 합니다.
 
 ```powershell
 Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
@@ -353,7 +353,7 @@ ImageStoreConnectionString은 클러스터 매니페스트에 있습니다.
 클라이언트 컴퓨터가 클러스터가 아닌 다른 지역에 있는 경우 해당 클러스터와 가깝거나 동일한 지역에 있는 클라이언트 컴퓨터를 사용하는 것이 좋습니다.
 - 외부 제한에 도달하고 있는지 확인합니다. 예를 들어 Azure Storage를 사용하도록 이미지 스토리지를 구성한 경우 업로드가 제한될 수 있습니다.
 
-문제: 패키지 업로드가 성공적으로 완료되었지만 [등록 서비스패브릭ApplicationType이](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 시간 단축됩니다. 시도:
+문제: 패키지 업로드가 성공적으로 완료 되었지만 [register-servicefabricapplicationtype](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 시간이 초과 되었습니다. 하려고
 - 이미지 저장소에 복사하기 전에 [패키지를 압축합니다](service-fabric-package-apps.md#compress-a-package).
 압축하면 파일의 크기와 수가 줄어들므로 Service Fabric에서 수행해야 하는 트래픽과 작업량도 줄어듭니다. 업로드 작업이 느려질 수 있지만(특히 압축 시간이 포함되는 경우), 애플리케이션 유형을 더 빠르게 등록 및 등록 취소할 수 있습니다.
 - [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)에 `TimeoutSec` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다.
@@ -392,7 +392,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 
 ## <a name="next-steps"></a>다음 단계
 
-[응용 프로그램 패키지](service-fabric-package-apps.md)
+[애플리케이션 패키지 작성](service-fabric-package-apps.md)
 
 [서비스 패브릭 애플리케이션 업그레이드](service-fabric-application-upgrade.md)
 

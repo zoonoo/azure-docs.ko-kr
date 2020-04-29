@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -9,26 +9,26 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: feaf72de1d2c578d2b2d0df9e86ec0fbe0b49445
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371760"
 ---
-장치 터널을 성공적으로 설정하려면 다음 요구 사항을 충족해야 합니다.
+장치 터널을 성공적으로 설정 하려면 다음 요구 사항을 충족 해야 합니다.
 
-* 장치는 Windows 10 엔터프라이즈 또는 교육 버전 1809 이상을 실행하는 도메인 에 가입된 컴퓨터여야 합니다.
-* 터널은 Windows 기본 제공 VPN 솔루션에 대해서만 구성할 수 있으며 컴퓨터 인증서 인증을 사용하여 IKEv2를 사용하여 설정됩니다.
-* 장치당 하나의 장치 터널만 구성할 수 있습니다.
+* 장치는 Windows 10 Enterprise 또는 교육용 버전 1809 이상을 실행 하는 도메인에 가입 된 컴퓨터 여야 합니다.
+* 터널은 Windows 기본 제공 VPN 솔루션에 대해서만 구성할 수 있으며 컴퓨터 인증서 인증과 함께 IKEv2를 사용 하 여 설정 됩니다.
+* 장치 마다 장치 터널을 하나만 구성할 수 있습니다.
 
-1. 지점 간 VPN 클라이언트 아티클을 사용하여 Windows 10 클라이언트에 클라이언트 [인증서를 설치합니다.](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) 인증서는 로컬 컴퓨터 저장소에 있어야 합니다.
-1. VPN 프로필을 만들고 다음 지침을 사용하여 LOCAL SYSTEM 계정의 컨텍스트에서 장치 터널을 [구성합니다.](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration)
+1. [지점 및 사이트 간 VPN 클라이언트](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) 문서를 사용 하 여 Windows 10 클라이언트에 클라이언트 인증서를 설치 합니다. 인증서는 로컬 컴퓨터 저장소에 있어야 합니다.
+1. VPN 프로필을 만들고 [이러한 지침](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration)을 사용 하 여 로컬 시스템 계정의 컨텍스트에서 장치 터널을 구성 합니다.
 
-### <a name="configuration-example-for-device-tunnel"></a>장치 터널의 구성 예
+### <a name="configuration-example-for-device-tunnel"></a>장치 터널에 대 한 구성 예제
 
-가상 네트워크 게이트웨이를 구성하고 Windows 10 클라이언트의 로컬 컴퓨터 저장소에 클라이언트 인증서를 설치한 후 다음 예제를 사용하여 클라이언트 장치 터널을 구성합니다.
+가상 네트워크 게이트웨이를 구성 하 고 Windows 10 클라이언트의 로컬 컴퓨터 저장소에 클라이언트 인증서를 설치한 후 클라이언트 장치 터널을 구성 하려면 다음 예제를 사용 합니다.
 
-1. 다음 텍스트를 복사하여 ***devicecert.ps1로***저장합니다.
+1. 다음 텍스트를 복사 하 고 ***devicecert***로 저장 합니다.
 
    ```
    Param(
@@ -80,7 +80,7 @@ ms.locfileid: "79371760"
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. 다음 텍스트를 복사하여 **devicecert.ps1과**동일한 폴더에 ***VPNProfile.xml로*** 저장합니다. 환경에 맞게 다음 텍스트를 편집합니다.
+1. 다음 텍스트를 복사 하 여 **devicecert**와 동일한 폴더에 ***VPNProfile*** 로 저장 합니다. 다음 텍스트를 사용자 환경에 맞게 편집 합니다.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`
@@ -115,8 +115,8 @@ ms.locfileid: "79371760"
    <RegisterDNS>true</RegisterDNS>
    </VPNProfile>
    ```
-1. [Sysinternals에서](https://docs.microsoft.com/sysinternals/downloads/psexec) **PsExec을** 다운로드하고 **C :\PSTools로**파일을 추출합니다.
-1. 관리자 CMD 프롬프트에서 다음을 실행하여 PowerShell을 시작합니다.
+1. [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) 에서 **PsExec** 를 다운로드 하 여 **C:\PSTools**에 파일을 추출 합니다.
+1. 관리자 CMD 프롬프트에서 다음을 실행 하 여 PowerShell을 시작 합니다.
 
    ```
    PsExec.exe Powershell for 32-bit Windows
@@ -124,17 +124,17 @@ ms.locfileid: "79371760"
    ```
 
    ![PowerShell](./media/vpn-gateway-vwan-always-on-device/powershell.png)
-1. PowerShell에서 **devicecert.ps1** 및 **VPNProfile.xml이** 있는 폴더로 전환하고 다음 명령을 실행합니다.
+1. PowerShell에서 **devicecert** 및 **VPNProfile** 가 있는 폴더로 전환 하 고 다음 명령을 실행 합니다.
 
    ```powershell
    .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
-   ![기계 테스트](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
-1. **rasphone을 실행합니다.**
+   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
+1. **Rasphone**를 실행 합니다.
 
-   ![라스폰](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
-1. **MachineCertTest** 항목을 찾아 **연결**을 클릭합니다.
+   ![rasphone](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
+1. **MachineCertTest** 항목을 찾아 **연결**을 클릭 합니다.
 
    ![연결](./media/vpn-gateway-vwan-always-on-device/connect.png)
-1. 연결이 성공하면 컴퓨터를 다시 부팅합니다. 터널이 자동으로 연결됩니다.
+1. 연결에 성공 하면 컴퓨터를 다시 부팅 합니다. 터널이 자동으로 연결 됩니다.

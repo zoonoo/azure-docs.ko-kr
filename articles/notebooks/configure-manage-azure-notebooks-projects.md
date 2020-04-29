@@ -1,18 +1,18 @@
 ---
-title: Azure 노트북 미리 보기 구성 및 관리
-description: Azure Notebooks UI와 직접 터미널 액세스를 통해 프로젝트 메타데이터, 프로젝트 파일, 프로젝트 환경 및 설정 단계를 관리하는 방법을 알아봅니다.
+title: Azure Notebooks 미리 보기 구성 및 관리
+description: Azure Notebooks UI와 직접 터미널 액세스를 통해 프로젝트 메타 데이터, 프로젝트 파일, 프로젝트 환경 및 설정 단계를 관리 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 02/28/2020
 ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280600"
 ---
-# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Azure 노트북 미리 보기에서 프로젝트 관리 및 구성
+# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Azure Notebooks 미리 보기에서 프로젝트 관리 및 구성
 
-Azure 노트북 미리 보기의 프로젝트는 기본적으로 Jupyter 노트북이 실행되는 기본 Linux 가상 컴퓨터의 구성이며 파일 폴더 및 설명 메타데이터가 있습니다. 
+Azure Notebooks 미리 보기의 프로젝트는 기본적으로 Jupyter 노트북이 파일 폴더 및 설명이 포함 된 메타 데이터와 함께 실행 되는 기본 Linux 가상 머신의 구성입니다. 
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
@@ -31,16 +31,16 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 
 ## <a name="compute-tier"></a>컴퓨팅 계층
 
-기본적으로 프로젝트는 사용 되지 않는 4GB 메모리와 1GB의 데이터로 제한 되는 **무료 계산** 계층에서 실행 됩니다. Azure 구독에서 프로비전한 다른 가상 컴퓨터를 사용하여 이러한 제한을 우회하고 컴퓨팅 성능을 높일 수 있습니다. 자세한 내용은 [데이터 과학 가상 컴퓨터를 사용하는 방법을](use-data-science-virtual-machine.md)참조하십시오.
+기본적으로 프로젝트는 악성을 방지 하기 위해 4GB의 메모리와 1GB의 데이터로 제한 되는 **무료 계산** 계층에서 실행 됩니다. 이러한 제한을 무시 하 고 Azure 구독에서 프로 비전 한 다른 가상 머신을 사용 하 여 계산 능력을 높일 수 있습니다. 자세한 내용은 [데이터 과학을 사용 하는 방법 Virtual Machines](use-data-science-virtual-machine.md)을 참조 하세요.
 
 ## <a name="edit-project-metadata"></a>프로젝트 메타데이터 편집
 
 프로젝트 대시보드에서 **프로젝트 설정**를 선택하고, 다음 표에 설명된 것처럼 프로젝트의 메타데이터를 포함하고 있는 **정보** 탭을 선택합니다. 언제든지 프로젝트 메타데이터를 변경할 수 있습니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 | --- | --- |
 | 프로젝트 이름 | Azure Notebooks에서 표시용으로 사용하는 프로젝트의 식별 이름입니다. "Hello World in Python"을 예로 들 수 있습니다. |
-| 프로젝트 ID | 프로젝트를 공유하기 위해 사용하는 URL의 일부가 되는 사용자 지정 식별자입니다. 이 ID는 문자, 숫자 및 하이픈만 사용할 수 있으며 30자로 제한되며 [예약된 프로젝트 ID가](create-clone-jupyter-notebooks.md#reserved-project-ids)될 수 없습니다. 무엇을 사용해야 할지 잘 모르겠으면 일반적인 규칙에 따라 프로젝트 이름의 소문자 버전을 사용하세요. 이때 공백은 "my-notebook-project"처럼 하이픈으로 바뀝니다(길이 제한 때문에 잘릴 수 있음). |
+| 프로젝트 ID | 프로젝트를 공유하기 위해 사용하는 URL의 일부가 되는 사용자 지정 식별자입니다. 이 ID는 문자, 숫자 및 하이픈만 사용할 수 있으며, 30 자로 제한 되며, [예약 된 프로젝트 id](create-clone-jupyter-notebooks.md#reserved-project-ids)가 될 수 없습니다. 무엇을 사용해야 할지 잘 모르겠으면 일반적인 규칙에 따라 프로젝트 이름의 소문자 버전을 사용하세요. 이때 공백은 "my-notebook-project"처럼 하이픈으로 바뀝니다(길이 제한 때문에 잘릴 수 있음). |
 | 공용 프로젝트 | 이 옵션을 설정하면 링크가 있는 사람은 누구든지 프로젝트에 액세스할 수 있습니다. 프라이빗 프로젝트를 만들려면 이 옵션의 선택을 취소합니다. |
 | 복제본 숨기기 | 이 옵션을 설정하면 다른 사용자가 이 프로젝트에 대해 만들어진 복제본 목록을 볼 수 없습니다. 복제본 숨기기는 강의에 Notebook을 사용하는 경우처럼 같은 조직에 속하지 않은 여러 사람이 공유하는 프로젝트에 유용합니다. |
 
@@ -56,7 +56,7 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 
 **+ 새로 만들기** 명령(바로 가기 키: n)은 새 파일 또는 폴더를 만듭니다. 이 명령을 사용할 때, 만들려는 항목의 유형부터 선택해야 합니다.
 
-| 항목 유형 | 설명 | 명령 동작 |
+| 항목 유형 | Description | 명령 동작 |
 | --- | --- | --- |
 | **Notebook** | Jupyter Notebook입니다. | Notebook의 파일 이름 및 언어를 지정하는 팝업을 표시합니다. |
 | **폴더** | 하위 폴더입니다. | 프로젝트의 파일 목록에 폴더 이름을 입력하는 편집 필드를 만듭니다. |
@@ -65,7 +65,7 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 
 ### <a name="upload-files"></a>파일 업로드
 
-**업로드** 명령은 **URL에서** 와 **컴퓨터에서**의 두 가지 옵션을 제공합니다. 자세한 내용은 [Azure Notebook 프로젝트에서 데이터 파일 작업](work-with-project-data-files.md)을 참조하세요.
+**Upload** 명령은 다른 위치 ( **URL** 및 **컴퓨터**)에서 데이터를 가져오는 두 가지 옵션을 제공 합니다. 자세한 내용은 [Azure Notebook 프로젝트에서 데이터 파일 작업](work-with-project-data-files.md)을 참조하세요.
 
 ### <a name="select-file-specific-commands"></a>파일 관련 명령 선택
 
@@ -73,16 +73,16 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 
 ![파일 팝업 메뉴의 명령](media/project-file-commands.png)
 
-| 명령 | 바로 가기 키 | 작업 |
+| 명령 | 키보드 바로 가기 키 | 작업 |
 | --- | --- | --- |
-| 다음을 실행합니다. | r(또는 클릭) | Notebook 파일을 실행합니다. 다른 파일 형식은 보는 용도로 열립니다.  |
+| Run | r(또는 클릭) | Notebook 파일을 실행합니다. 다른 파일 형식은 보는 용도로 열립니다.  |
 | 링크 복사 | y | 파일 링크를 클립보드에 복사합니다. |
 | Jupyter 랩에서 실행 | j | Jupyter가 일반적으로 제공하는 환경보다 개발자 중심의 인터페이스인 JupyterLab에서 Notebook을 실행합니다. |
 | 미리 보기 | p | 파일의 HTML 미리 보기를 엽니다. Notebook의 경우 미리 보기는 Notebook의 읽기 전용 렌더링입니다. 자세한 내용은 [미리 보기](#preview) 섹션을 참조하세요. |
 | 파일 편집 | i | 편집할 파일을 엽니다. |
 | 다운로드 | d | 폴더의 파일 또는 콘텐츠를 포함하고 있는 Zip 파일을 다운로드합니다. |
 | 이름 바꾸기 | a | 파일 또는 폴더의 새 이름을 요청합니다. |
-| DELETE | x | 확인을 요청한 다음, 프로젝트에서 파일을 영구적으로 제거합니다. 삭제 작업은 실행 취소할 수 없습니다. |
+| 삭제 | x | 확인을 요청한 다음, 프로젝트에서 파일을 영구적으로 제거합니다. 삭제 작업은 실행 취소할 수 없습니다. |
 | 이동 | m | 파일을 같은 프로젝트의 다른 폴더로 이동합니다. |
 
 #### <a name="preview"></a>미리 보기
@@ -91,11 +91,11 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 
 미리 보기 페이지는 바로 가기 키를 사용하여 여러 도구 모음 명령을 지원합니다.
 
-| 명령 | 바로 가기 키 | 작업 |
+| 명령 | 키보드 바로 가기 키 | 작업 |
 | --- | --- | --- |
 | 공유 | s | 링크를 획득하고, 소셜 미디어에 공유하고, 포함할 HTML을 획득하고, 이메일을 보낼 수 있는 공유 팝업을 표시합니다. |
 | 복제 | c  | Notebook을 계정에 복제합니다. |
-| 다음을 실행합니다. | r | 실행 권한이 있는 경우 Notebook을 실행합니다. |
+| Run | r | 실행 권한이 있는 경우 Notebook을 실행합니다. |
 | 다운로드 | d | Notebook의 복사본을 다운로드합니다. |
 
 ## <a name="configure-the-project-environment"></a>프로젝트 환경 구성
@@ -110,7 +110,7 @@ Notebook이 실행되는 기본 가상 머신의 환경을 구성하는 세 가�
 
 ### <a name="one-time-initialization-script"></a>일회용 초기화 스크립트
 
-Azure Notebooks가 프로젝트를 위한 서버를 처음 만들때 *프로젝트에서 aznbsetup.sh*라는 파일을 찾습니다. 이 파일이 있으면 Azure 전자 필기장이 해당 파일을 실행합니다. 스크립트의 출력은 프로젝트 폴더에 *. aznbsetup.log*로 저장됩니다.
+처음 Azure Notebooks 프로젝트에 대 한 서버를 만들 때 *aznbsetup.sh*이라는 프로젝트에서 파일을 찾습니다. 이 파일이 있는 경우 Azure Notebooks 실행 합니다. 스크립트의 출력은 프로젝트 폴더에 *. aznbsetup.log*로 저장됩니다.
 
 ### <a name="environment-setup-steps"></a>환경 설정 단계
 
@@ -126,14 +126,14 @@ Azure Notebooks가 프로젝트를 위한 서버를 처음 만들때 *프로젝�
 
 프로젝트에서 얻는 정보는 선택한 작업의 유형에 따라 달라집니다.
 
-- **Requirements.txt**: 두 번째 드롭다운 목록에서 프로젝트에 이미 있는 *requirements.txt* 파일을 선택합니다. 그리고 표시되는 세 번째 드롭다운 목록에서 Python 버전을 선택합니다. Azure Notebooks는 Notebook 서버를 시작할 때 *requirements.txt* 파일을 사용하여 *requirements.txt* 파일에서 `pip install -r`을 실행합니다. Notebook 내에서 명시적으로 패키지를 설치할 필요가 없습니다.
+- **요구 사항 .txt**: 두 번째 드롭다운 목록에서 프로젝트에 이미 있는 *요구 사항 .txt* 파일을 선택 합니다. 그리고 표시되는 세 번째 드롭다운 목록에서 Python 버전을 선택합니다. Azure Notebooks는 Notebook 서버를 시작할 때 *requirements.txt* 파일을 사용하여 *requirements.txt* 파일에서 `pip install -r`을 실행합니다. Notebook 내에서 명시적으로 패키지를 설치할 필요가 없습니다.
 
-- **셸 스크립트**: 두 번째 드롭다운 목록에서 환경을 초기화하기 위해 실행하려는 명령을 포함하는 프로젝트의 bash 셸 스크립트(일반적으로 *.sh* 확장명이 있는 파일)를 선택합니다.
+- **셸 스크립트**: 두 번째 드롭다운 목록에서 환경을 초기화 하기 위해 실행 하려는 명령을 포함 하는 프로젝트 (일반적으로 확장명이 *sh* 인 파일)에서 bash 셸 스크립트를 선택 합니다.
 
-- **Environment.yml**: 두 번째 드롭 다운 목록에서 conda 환경을 사용하여 Python 프로젝트에 대한 *environment.yml* 파일을 선택합니다.
+- **환경 .yml**: 두 번째 드롭다운 목록에서 conda 환경을 사용 하 여 Python 프로젝트용 *환경 .yml* 파일을 선택 합니다.
 
    > [!WARNING]
-   > 현재 개발 중인 미리 보기 서비스이기 때문에 `Environment.yml` 현재 설정이 예상대로 프로젝트에 적용되지 않는 알려진 문제가 있습니다. 현재 지정된 환경 파일을 로드하지 않는 프로젝트 및 Jupyter 노트북내의 전자 필기장입니다.
+   > 이는 개발 중인 미리 보기 서비스 이므로 현재 `Environment.yml` 설정이 프로젝트에 예상 대로 적용 되지 않는 알려진 문제가 있습니다. 에서 프로젝트와 Jupyter 노트북은 현재 지정 된 환경 파일을 로드 하지 않습니다.
 
 단계 추가를 마쳤으면 **저장**을 선택합니다.
 
@@ -188,5 +188,5 @@ Python Notebook의 코드 셀에서 명령을 사용할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [방법: 프로젝트 데이터 파일로 작업](work-with-project-data-files.md)
+- [방법: 프로젝트 데이터 파일 작업](work-with-project-data-files.md)
 - [Notebook에서 클라우드 데이터 액세스](access-data-resources-jupyter-notebooks.md)

@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Monitor를 사용하여 컨테이너에 �
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.openlocfilehash: 618a4d7e10212dd2b042724b1ea11c97920dad57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79275257"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS(Azure Kubernetes Service) 모니터링을 중단하는 방법
@@ -17,7 +17,7 @@ AKS 클러스터를 모니터링하도록 설정한 후 더 이상 모니터링�
 
 ## <a name="azure-cli"></a>Azure CLI
 
-[az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) 명령을 사용하여 컨테이너용 Azure Monitor를 해제합니다. 명령은 클러스터 노드에서 에이전트를 제거하며 솔루션 또는 Azure Monitor 리소스에 이미 수집되고 저장된 데이터를 제거하지 않습니다.  
+[az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) 명령을 사용하여 컨테이너용 Azure Monitor를 해제합니다. 이 명령은 클러스터 노드에서 에이전트를 제거 합니다. 솔루션이 나 이미 수집 되어 Azure Monitor 리소스에 저장 된 데이터는 제거 하지 않습니다.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -34,7 +34,7 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 * [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)
 
 >[!NOTE]
->템플릿은 클러스터의 동일한 리소스 그룹에 배포되어야 합니다. 이 템플릿을 사용할 때 다른 속성이나 추가 기능을 생략하면 해당 항목이 클러스터에서 제거될 수 있습니다. 예를 들어 클러스터에서 구현된 RBAC 정책에 대한 *RBAC를 사용하도록 설정하거나* AKS 클러스터에 대해 태그가 지정된 경우 *aksResourceTagValues를* 지정합니다.  
+>템플릿은 클러스터의 동일한 리소스 그룹에 배포 해야 합니다. 이 템플릿을 사용할 때 다른 속성이나 추가 기능을 생략하면 해당 항목이 클러스터에서 제거될 수 있습니다. 예를 들어 클러스터에 구현 된 RBAC 정책에 대 한 *Enablerbac* 또는 AKS 클러스터에 대해 태그가 지정 된 경우 *aksResourceTagValues* 입니다.  
 >
 
 Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
@@ -121,7 +121,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 
     **속성** 페이지에서 **작업 영역 리소스 ID**도 복사합니다. 이 값은 나중에 Log Analytics 작업 영역을 삭제하려는 경우 필요합니다. Log Analytics 작업 영역을 삭제하는 작업은 이 단계에서는 수행되지 않습니다.
 
-    **aksResourceTagValues의** 값을 편집하여 AKS 클러스터에 대해 지정된 기존 태그 값과 일치합니다.
+    **AksResourceTagValues** 에 대 한 값을 편집 하 여 AKS 클러스터에 지정 된 기존 태그 값과 일치 시킵니다.
 
 5. 이 파일을 로컬 폴더에 **OptOutParam.json**으로 저장합니다.
 
@@ -164,4 +164,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>다음 단계
 
-클러스터 모니터링을 지원하려는 목적으로만 작업 영역을 만들었으며 더 이상 필요하지 않은 경우 수동으로 삭제해야 합니다. 작업 영역을 삭제하는 방법을 모를 경우 [Azure Portal에서 Azure Log Analytics 작업 영역 삭제](../../log-analytics/log-analytics-manage-del-workspace.md)를 참조하세요. 4단계에서 이전에 복사된 **작업 영역 리소스 ID에** 대해 잊지 마십시오.
+클러스터 모니터링을 지원하려는 목적으로만 작업 영역을 만들었으며 더 이상 필요하지 않은 경우 수동으로 삭제해야 합니다. 작업 영역을 삭제하는 방법을 모를 경우 [Azure Portal에서 Azure Log Analytics 작업 영역 삭제](../../log-analytics/log-analytics-manage-del-workspace.md)를 참조하세요. 4 단계에서 이전에 복사한 **작업 영역 리소스 ID** 를 잊지 마세요 .이 작업은 필요 합니다.

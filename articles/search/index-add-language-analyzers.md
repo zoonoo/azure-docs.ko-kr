@@ -1,7 +1,7 @@
 ---
 title: 문자열 필드에 언어 분석기 추가
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search에서 영어 이외의 쿼리 및 인덱스에 대한 다국어 어휘 텍스트 분석
+description: 영어가 아닌 쿼리 및 Azure Cognitive Search의 인덱스에 대 한 다중 다국어 어휘 텍스트 분석.
 manager: nitinme
 author: Yahnoosh
 ms.author: jlembicz
@@ -20,17 +20,17 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: a97bee27b74aa211b4d4d56547726555edefa87a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79283148"
 ---
-# <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Azure 인지 검색 인덱스의 문자열 필드에 언어 분석기 추가
+# <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스의 문자열 필드에 언어 분석기 추가
 
 ‘언어 분석기’는 대상 언어의 언어 규칙을 사용하여 어휘 분석을 수행하는 특정 유형의 [텍스트 분석기](search-analyzers.md)입니다.** 검색 가능한 모든 필드에 **analyzer** 속성이 있습니다. 영어 및 중국어 텍스트의 개별 필드와 같이 인덱스에 번역된 문자열이 포함되어 있는 경우 각 필드에 언어 분석기를 지정하여 해당 분석기의 풍부한 언어 기능에 액세스할 수 있습니다.  
 
-Azure Cognitive Search는 Lucene이 지원하는 35개의 분석기와 Office 및 Bing에 사용되는 독점적인 Microsoft 자연어 처리 기술로 뒷받침되는 50개의 분석기를 지원합니다.
+Azure Cognitive Search는 Lucene에 의해 지원 되는 35 분석기와 Office 및 Bing에서 사용 되는 독점적인 Microsoft 자연어 처리 기술로 지원 되는 50 분석기를 지원 합니다.
 
 ## <a name="comparing-analyzers"></a>분석기 비교
 
@@ -44,18 +44,18 @@ Azure Cognitive Search는 Lucene이 지원하는 35개의 분석기와 Office �
  
 + Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는 단어에서 소유격(후행 's)을 제거하고, Porter 형태소 분석 알고리즘에 따라 형태소 분석을 적용하며, 영어의 중지 단어를 제거합니다.  
 
-+ Microsoft 영어 분석기는 형태소 분석 대신 분류 정리를 수행합니다. 즉, 굴절되고 불규칙한 단어 형태를 훨씬 잘 처리할 수 있어 관련성이 더 많은 검색 결과를 생성할 수 있습니다. 
++ Microsoft 영어 분석기는 형태소 분석 대신 분류 정리를 수행합니다. 즉, 더 많은 관련 검색 결과가 발생 하는 만들거나 굴절 형 및 불규칙 한 단어 형태를 처리할 수 있습니다. 
 
 ## <a name="configuring-analyzers"></a>분석기 구성
 
 언어 분석기는 있는 그대로 사용됩니다. 인덱스 정의의 각 필드에 대한 **analyzer** 속성으로 언어 및 언어 체계 스택(Microsoft 또는 Lucene)을 지정하는 분석기 이름을 설정할 수 있습니다. 해당 필드를 인덱싱 및 검색하는 경우 동일한 분석기를 적용합니다. 예를 들어 영어, 프랑스어, 스페인어 호텔 설명을 표시하는 개별 필드를 같은 인덱스에서 나란히 표시할 수 있습니다.
 
 > [!NOTE]
-> 인덱싱 시 필드의 쿼리 시간과 다른 언어 분석기를 사용할 수 없습니다. 이 기능은 [사용자 지정 분석기용으로](index-add-custom-analyzers.md)예약되어 있습니다. 이러한 이유로 **searchAnalyzer** 또는 **indexAnalyzer** 속성을 언어 분석기의 이름으로 설정하려고 하면 REST API가 오류 응답을 반환합니다. 대신 **분석기** 속성을 사용해야 합니다.
+> 필드에 대 한 쿼리 시간에는 인덱싱 시 다른 언어 분석기를 사용할 수 없습니다. 이 기능은 [사용자 지정 분석기](index-add-custom-analyzers.md)에 대해 예약 되어 있습니다. 이러한 이유로 **searchanalyzer** 또는 **indexanalyzer** 속성을 언어 분석기의 이름으로 설정 하려고 하면 REST API 오류 응답이 반환 됩니다. 대신 **analyzer** 속성을 사용 해야 합니다.
 
 **searchFields** 쿼리 매개 변수를 사용하여 쿼리에서 검색할 언어별 필드를 지정합니다. analyzer 속성을 포함하는 쿼리 예제는 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents)에서 검토할 수 있습니다. 
 
-인덱스 속성에 대한 자세한 내용은 [인덱스 만들기 &#40;Azure 인지 검색 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하십시오. Azure 인지 검색에서 분석에 대한 자세한 내용은 [Azure 인지 검색의 분석기를](https://docs.microsoft.com/azure/search/search-analyzers)참조하십시오.
+인덱스 속성에 대 한 자세한 내용은 [Create index &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조 하세요. Azure Cognitive Search 분석에 대 한 자세한 내용은 [azure Cognitive Search의 분석기](https://docs.microsoft.com/azure/search/search-analyzers)를 참조 하세요.
 
 <a name="language-analyzer-list"></a>
 
@@ -92,7 +92,7 @@ Azure Cognitive Search는 Lucene이 지원하는 35개의 분석기와 Office �
 |아일랜드어||ga.lucene|  
 |이탈리아어|it.microsoft|it.lucene|  
 |일본어|ja.microsoft|ja.lucene|  
-|칸나다어|kn.마이크로소프트||  
+|칸나다어|kn. microsoft||  
 |한국어|ko.microsoft|ko.lucene|  
 |라트비아어|lv.microsoft|lv.lucene|  
 |리투아니아어|lt.microsoft||  
@@ -123,9 +123,9 @@ Azure Cognitive Search는 Lucene이 지원하는 35개의 분석기와 Office �
 
  이름에 **Lucene** 주석이 포함된 모든 분석기는 [Apache Lucene 언어 분석기](https://lucene.apache.org/core/6_6_1/core/overview-summary.html )를 통해 구동됩니다.
 
-## <a name="see-also"></a>참조  
+## <a name="see-also"></a>참고 항목  
 
-+ [Azure 인지 검색 REST API&#41;&#40;인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)  
++ [Azure Cognitive Search REST API &#40;인덱스 만들기&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
 
 + [AnalyzerName 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
 ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273099"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>클라우드 서비스 모니터링 소개
@@ -34,7 +34,7 @@ ms.locfileid: "79273099"
 
 ## <a name="advanced-monitoring"></a>고급 모니터링
 
-고급 모니터링에는 모니터링하려는 역할에 Azure 진단 확장(및 선택적으로 응용 프로그램 인사이트 SDK)을 사용하는 작업이 **포함됩니다.** 진단 확장은 **diagnostics.wadcfgx**라는 구성 파일(역할당)을 사용하여 모니터링되는 진단 메트릭을 구성합니다. Azure 진단 확장은 데이터를 수집하고 Azure Storage 계정에 저장합니다. 이러한 설정은 **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 및 [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) 파일에서 구성됩니다. 따라서 고급 모니터링에는 추가 비용이 부과됩니다.
+고급 모니터링에서는 모니터링 하려는 역할에 **Azure 진단** 확장 (필요에 따라 Application Insights SDK)을 사용 해야 합니다. 진단 확장은 **diagnostics.wadcfgx**라는 구성 파일(역할당)을 사용하여 모니터링되는 진단 메트릭을 구성합니다. Azure 진단 확장은 데이터를 수집하고 Azure Storage 계정에 저장합니다. 이러한 설정은 **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 및 [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) 파일에서 구성됩니다. 따라서 고급 모니터링에는 추가 비용이 부과됩니다.
 
 각 역할을 만들 때 Visual Studio는 역할에 Azure Diagnostics 확장을 추가합니다. 이 진단 확장은 다음과 같은 유형의 정보를 수집할 수 있습니다.
 
@@ -48,13 +48,13 @@ ms.locfileid: "79273099"
 * 고객 오류 로그
 
 > [!IMPORTANT]
-> 이 모든 데이터가 저장소 계정으로 집계되지만 포털은 데이터를 차트로 차트화하는 기본 방법을 **제공하지** 않습니다. 애플리케이션에 Application Insights와 같은 다른 서비스를 통합하는 것이 좋습니다.
+> 이러한 모든 데이터는 저장소 계정으로 집계 되지만 포털은 데이터를 차트로 만드는 기본적인 방법을 제공 **하지** 않습니다. 애플리케이션에 Application Insights와 같은 다른 서비스를 통합하는 것이 좋습니다.
 
 ## <a name="setup-diagnostics-extension"></a>진단 확장 설정
 
 먼저 **클래식** 스토리지 계정이 없는 경우 [하나 만듭니다](../storage/common/storage-account-create.md). **클래식 배포 모델**을 지정하여 스토리지 계정을 만듭니다.
 
-다음으로, **스토리지 계정(클래식)** 리소스로 이동합니다. **설정** > **액세스 키를** 선택하고 **기본 연결 문자열** 값을 복사합니다. 클라우드 서비스에 대해 이 값이 필요합니다. 
+다음으로, **스토리지 계정(클래식)** 리소스로 이동합니다. **설정** > **액세스 키** 를 선택 하 고 **기본 연결 문자열** 값을 복사 합니다. 클라우드 서비스에 대해 이 값이 필요합니다. 
 
 고급 진단을 사용하려면 두 개의 구성 파일인 **ServiceDefinition.csdef** 및 **ServiceConfiguration.cscfg**를 변경해야 합니다.
 

@@ -1,7 +1,7 @@
 ---
-title: ML 실험 & 메트릭 로그
+title: ML 실험 & 메트릭 기록
 titleSuffix: Azure Machine Learning
-description: Azure ML 실험을 모니터링하고 실행 메트릭을 모니터링하여 모델 생성 프로세스를 향상시킵니다. 학습 스크립트에 로깅을 추가하고 실행의 기록된 결과를 봅니다.  run.log, Run.start_logging 또는 스크립트런Config를 사용합니다.
+description: Azure ML 실험을 모니터링 하 고 실행 메트릭을 모니터링 하 여 모델 생성 프로세스를 향상 시킵니다. 학습 스크립트에 로깅을 추가 하 고 실행의 기록 된 결과를 확인 합니다.  실행 .log, start_logging 또는 ScriptRunConfig를 사용 합니다.
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -13,24 +13,24 @@ ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0c77e9d0aa4f44f33b1345a6021fc0378459ee85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79296968"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Azure ML 실험 실행 및 메트릭 모니터링
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-실험을 추적하고 실행 메트릭을 모니터링하여 모델 생성 프로세스를 향상시킵니다. 이 문서에서는 학습 스크립트에 로깅 코드를 추가하고, 실험 실행을 제출하고, 실행되는 모니터링을 하고, Azure Machine Learning의 결과를 검사하는 방법을 알아봅니다.
+실험 및 모니터링 실행 메트릭을 추적 하 여 모델 생성 프로세스를 개선 합니다. 이 문서에서는 학습 스크립트에 로깅 코드를 추가 하 고, 실험 실행을 제출 하 고, 실행을 모니터링 하 고, Azure Machine Learning 결과를 검사 하는 방법에 대해 알아봅니다.
 
 > [!NOTE]
-> Azure Machine Learning은 자동화된 기계 학습 실행 또는 학습 작업을 실행하는 Docker 컨테이너와 같이 교육 중에 다른 소스의 정보를 기록할 수도 있습니다. 이러한 로그는 문서화되지 않습니다. 문제가 발생하여 Microsoft 지원에 문의하는 경우 문제 해결 중에 이러한 로그를 사용할 수 있습니다.
+> 자동화 된 Machine Learning 실행 또는 교육 작업을 실행 하는 Docker 컨테이너와 같은 학습 중 다른 원본의 정보를 기록할 수도 Azure Machine Learning. 이러한 로그는 문서화 되어 있지 않습니다. 문제가 발생 하 고 Microsoft 지원에 문의 하는 경우 문제 해결 중에 이러한 로그를 사용할 수 있습니다.
 
 > [!TIP]
-> 이 문서의 정보는 주로 모델 학습 프로세스를 모니터링하려는 데이터 과학자 및 개발자를 위한 것입니다. 할당량, 완료된 교육 실행 또는 완료된 모델 배포와 같은 Azure Machine 학습의 리소스 사용량 및 이벤트를 모니터링하는 데 관심이 있는 관리자는 [Azure Machine Learning 모니터링을](monitor-azure-machine-learning.md)참조하십시오.
+> 이 문서의 정보는 주로 모델 학습 프로세스를 모니터링 하려는 데이터 과학자 및 개발자를 위한 것입니다. 할당량, 완료 된 학습 실행 또는 완료 된 모델 배포와 같이 Azure Machine learning의 리소스 사용 및 이벤트를 모니터링 하는 데 관심이 있는 관리자는 [모니터링 Azure Machine Learning](monitor-azure-machine-learning.md)을 참조 하세요.
 
-## <a name="available-metrics-to-track"></a>추적할 수 있는 사용 가능한 메트릭
+## <a name="available-metrics-to-track"></a>추적할 수 있는 메트릭
 
 실험을 학습하는 동안 실행에 추가할 수 있는 메트릭은 다음과 같습니다. 실행 시 추적할 수 있는 메트릭에 대한 자세한 목록을 보려면 [Run 클래스 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)를 참조하세요.
 
@@ -56,83 +56,83 @@ ms.locfileid: "79296968"
 ## <a name="set-up-the-workspace"></a>작업 영역 설정
 로깅을 추가하고 실험을 제출하기 전에 작업 영역을 설정해야 합니다.
 
-1. 작업 영역을 로드합니다. 작업 영역 구성 설정에 대한 자세한 내용은 [작업 영역 구성 파일을](how-to-configure-environment.md#workspace)참조하십시오.
+1. 작업 영역을 로드합니다. 작업 영역 구성을 설정 하는 방법에 대해 자세히 알아보려면 [작업 영역 구성 파일](how-to-configure-environment.md#workspace)을 참조 하세요.
 
-[!노트북-파이썬[~/기계 학습 노트북/사용 법 azureml/교육/기차 내 노트북/기차 내 노트북.ipynb?이름=load_ws)]
+[! 노트북-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb? name = load_ws)]
 
 
 ## <a name="option-1-use-start_logging"></a>옵션 1: start_logging 사용
 
 **start_logging**은 노트북과 같은 시나리오에서 사용할 대화형 실행을 만듭니다. 세션 중에 기록된 모든 메트릭이 실험의 실행 기록에 추가됩니다.
 
-다음 예제에서는 로컬 Jupyter 노트북에서 간단한 sklearn Ridge 모델을 로컬로 학습합니다. 다른 환경에 실험을 제출하는 방법에 대해 자세히 알아보려면 [Azure Machine Learning을 사용하여 모델 학습에 대한 계산 대상 설정을](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets)참조하세요.
+다음 예제에서는 로컬 Jupyter 노트북에서 간단한 sklearn Ridge 모델을 로컬로 학습합니다. 다른 환경에 실험을 제출 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 학습을 위한 계산 대상 설정](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets)을 참조 하세요.
 
 ### <a name="load-the-data"></a>데이터 로드
 
-이 예제에서는 scikit-learn과 함께 제공되는 잘 알려진 작은 데이터 집합인 당뇨병 데이터 집합을 사용합니다. 이 셀은 데이터 집합을 로드하고 이를 임의 학습 및 테스트 집합으로 분할합니다.
+이 예제에서는 scikit와 함께 제공 되는 잘 알려진 작은 데이터 집합 인 당뇨병 데이터 집합을 사용 합니다. 이 셀은 데이터 집합을 로드 하 고 임의의 학습 및 테스트 집합으로 분할 합니다.
 
-[!노트북-파이썬[~/기계 학습 노트북/사용 법 azureml/교육/기차 내 노트북/기차 내 노트북.ipynb?이름=load_data)]
+[! 노트북-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb? name = load_data)]
 
 ### <a name="add-tracking"></a>추적 추가
-Azure 기계 학습 SDK를 사용하여 실험 추적을 추가하고 지속된 모델을 실험 실행 레코드에 업로드합니다. 다음 코드는 태그를 지정하고, 기록하고, 모델 파일을 실험 실행에 업로드합니다.
+Azure Machine Learning SDK를 사용 하 여 실험 추적을 추가 하 고 지속 된 모델을 실험 실행 레코드에 업로드 합니다. 다음 코드는 태그를 지정하고, 기록하고, 모델 파일을 실험 실행에 업로드합니다.
 
-[!노트북-파이썬[~/기계 학습 노트북/사용 법 azureml/교육/기차 내 노트북/기차 내 노트북.ipynb?이름=create_experiment]]
+[! 노트북-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb? name = create_experiment)]
 
 스크립트는 ```run.complete()```로 끝나며 실행이 완료됨으로 표시됩니다.  이 함수는 일반적으로 대화형 노트북 시나리오에서 사용됩니다.
 
 ## <a name="option-2-use-scriptrunconfig"></a>옵션 2: ScriptRunConfig 사용
 
-[**ScriptRunConfig는**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) 스크립트 실행에 대한 구성을 설정하는 클래스입니다. 이 옵션을 사용하면 완료 알림을 받거나 모니터링할 시각적 위젯을 가져오는 모니터링 코드를 추가할 수 있습니다.
+[**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) 는 스크립트 실행에 대 한 구성을 설정 하기 위한 클래스입니다. 이 옵션을 사용하면 완료 알림을 받거나 모니터링할 시각적 위젯을 가져오는 모니터링 코드를 추가할 수 있습니다.
 
 이 예제에서는 위의 기본 sklearn Ridge 모델을 확장합니다. 실험의 실행에서 메트릭 및 학습된 모델을 캡처하기 위해 모델의 알파 값을 스윕하는 간단한 매개 변수 스윕을 수행합니다. 예제는 사용자 관리 환경에 대해 로컬로 실행됩니다. 
 
 1. 학습 스크립트 `train.py`를 만듭니다.
 
-   [!코드 파이썬[](~/기계학습 노트북/사용 방법-azureml/교육/기차-현지/train.py)]
+   [! code-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
 
 2. `train.py` 스크립트는 Ridge 모델에서 사용할 알파 값 목록을 가져올 수 있는 `mylib.py`를 참조합니다.
 
-   [!코드 파이썬[](~/기계학습 노트북/사용 법 azureml/교육/기차-현지/mylib.py)] 
+   [! code-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/mylib.py)] 
 
 3. 사용자 관리 로컬 환경을 구성합니다.
 
-   [!노트북-파이썬[~/기계 학습 노트북/사용 법 azureml/교육/기차-지역/기차-에-local.ipynb?이름=user_managed_env)]
+   [! 노트북-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? name = user_managed_env)]
 
 
 4. ```train.py``` 스크립트를 제출하여 사용자 관리 환경에서 실행합니다. 이 스크립트 폴더 전체는 ```mylib.py``` 파일을 포함하여 학습을 위해 제출됩니다.
 
-   [!노트북-파이썬[~/기계 학습 노트북/사용 법 azureml/교육/기차-에-로컬/기차-에-local.ipynb?이름=src)] [!노트북-파이썬[~/기계 학습 노트북/사용 법 azureml/교육/기차-에-로컬/기차-에-local.ipynb?이름=실행)]
+   [! 노트북-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? name = src)] [! 노트북-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? name = run)]
 
 
 
 
-## <a name="manage-a-run"></a>달리기 관리
+## <a name="manage-a-run"></a>실행 관리
 
-[시작, 모니터링 및 취소 교육 실행](how-to-manage-runs.md) 문서에서는 실험을 관리하는 방법에 대한 특정 Azure 기계 학습 워크플로를 강조 합니다.
+[학습 실행 시작, 모니터링 및 취소](how-to-manage-runs.md) 문서는 실험을 관리 하는 방법에 대 한 특정 Azure Machine Learning 워크플로를 강조 표시 합니다.
 
 ## <a name="view-run-details"></a>실행 세부 정보 보기
 
-### <a name="view-activequeued-runs-from-the-browser"></a>브라우저에서 활성/큐에 대기 중인 실행 보기
+### <a name="view-activequeued-runs-from-the-browser"></a>브라우저에서 활성/대기 중인 실행 보기
 
-모델을 학습하는 데 사용되는 계산 대상은 공유 리소스입니다. 따라서 지정된 시간에 여러 실행이 큐에 대기되거나 활성 상태일 수 있습니다. 브라우저에서 특정 계산 대상에 대한 실행을 보려면 다음 단계를 사용합니다.
+모델 학습에 사용 되는 계산 대상은 공유 리소스입니다. 따라서 지정 된 시간에 큐에 대기 중이거나 활성 상태인 실행이 여러 개 있을 수 있습니다. 브라우저에서 특정 계산 대상에 대 한 실행을 확인 하려면 다음 단계를 사용 합니다.
 
-1. Azure [기계 학습 스튜디오에서](https://ml.azure.com/)작업 영역을 선택한 다음 페이지 왼쪽에서 __계산을__ 선택합니다.
+1. [Azure Machine Learning studio](https://ml.azure.com/)에서 작업 영역을 선택한 다음 페이지의 왼쪽에서 __계산__ 을 선택 합니다.
 
-1. __학습 클러스터를__ 선택하여 교육에 사용되는 계산 대상 목록을 표시합니다. 그런 다음 클러스터를 선택합니다.
+1. 학습 __클러스터__ 를 선택 하 여 학습에 사용 되는 계산 대상 목록을 표시 합니다. 그런 다음 클러스터를 선택 합니다.
 
-    ![교육 클러스터 선택](./media/how-to-track-experiments/select-training-compute.png)
+    ![학습 클러스터 선택](./media/how-to-track-experiments/select-training-compute.png)
 
-1. __실행을 선택합니다.__ 이 클러스터를 사용하는 실행 목록이 표시됩니다. 특정 실행에 대한 세부 정보를 보려면 __실행__ 열의 링크를 사용합니다. 실험에 대한 세부 정보를 보려면 __실험__ 열의 링크를 사용합니다.
+1. __실행__을 선택 합니다. 이 클러스터를 사용 하는 실행 목록이 표시 됩니다. 특정 실행에 대 한 세부 정보를 보려면 __실행__ 열의 링크를 사용 합니다. 실험에 대 한 세부 정보를 보려면 __실험__ 열의 링크를 사용 합니다.
 
-    ![교육 클러스터에 대한 실행 선택](./media/how-to-track-experiments/show-runs-for-compute.png)
+    ![학습 클러스터에 대 한 실행 선택](./media/how-to-track-experiments/show-runs-for-compute.png)
     
     > [!TIP]
-    > 실행에는 자식 실행이 포함될 수 있으므로 하나의 교육 작업이 여러 항목을 생성할 수 있습니다.
+    > 실행에는 자식 실행이 포함 될 수 있으므로 하나의 학습 작업으로 여러 항목이 생성 될 수 있습니다.
 
-실행이 완료되면 이 페이지에 더 이상 표시되지 않습니다. 완료된 실행에 대한 정보를 보려면 스튜디오의 __실험__ 섹션을 방문하여 실험을 선택하고 실행합니다. 자세한 내용은 쿼리 [실행 메트릭](#queryrunmetrics) 섹션을 참조하세요.
+실행이 완료 되 면이 페이지에 더 이상 표시 되지 않습니다. 완료 된 실행에 대 한 정보를 보려면 스튜디오의 __실험__ 섹션을 방문 하 여 실험 및 실행을 선택 합니다. 자세한 내용은 [쿼리 실행 메트릭](#queryrunmetrics) 섹션을 참조 하세요.
 
-### <a name="monitor-run-with-jupyter-notebook-widget"></a>주피터 노트북 위젯으로 실행되는 모니터
-**ScriptRunConfig** 메서드를 사용하여 실행을 제출하면 [Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)사용하여 실행 진행 상황을 볼 수 있습니다. 실행 제출과 마찬가지로, 위젯은 비동기적이며 작업이 완료될 때까지 10~15초 간격으로 라이브 업데이트를 제공합니다.
+### <a name="monitor-run-with-jupyter-notebook-widget"></a>Jupyter 노트북 위젯을 사용 하 여 모니터 실행
+**ScriptRunConfig** 메서드를 사용 하 여 실행을 제출 하는 경우 [Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)사용 하 여 실행 진행률을 볼 수 있습니다. 실행 제출과 마찬가지로, 위젯은 비동기적이며 작업이 완료될 때까지 10~15초 간격으로 라이브 업데이트를 제공합니다.
 
 1. 실행이 완료될 때까지 기다리는 동안 Jupyter 위젯을 봅니다.
 
@@ -143,13 +143,13 @@ Azure 기계 학습 SDK를 사용하여 실험 추적을 추가하고 지속된 
 
    ![Jupyter 노트북 위젯의 스크린샷](./media/how-to-track-experiments/run-details-widget.png)
 
-   작업 공간에서 동일한 디스플레이에 대한 링크를 얻을 수도 있습니다.
+   작업 영역에서 동일한 표시에 대 한 링크를 가져올 수도 있습니다.
 
    ```python
    print(run.get_portal_url())
    ```
 
-2. **[자동화된 기계 학습 실행의 경우]** 이전 실행에서 차트에 액세스합니다. 적절한 `<<experiment_name>>` 실험 이름으로 바꿉니다.
+2. **[자동화된 기계 학습 실행의 경우]** 이전 실행에서 차트에 액세스합니다. 를 `<<experiment_name>>` 적절 한 실험 이름으로 바꿉니다.
 
    ``` 
    from azureml.widgets import RunDetails
@@ -164,7 +164,7 @@ Azure 기계 학습 SDK를 사용하여 실험 추적을 추가하고 지속된 
    ![자동화된 기계 학습을 위한 Jupyter Notebook 위젯](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
-테이블에서 탐색하려는 파이프라인에 대한 파이프라인 클릭에 대한 자세한 내용을 보려면 차트가 Azure 기계 학습 스튜디오에서 팝업으로 렌더링됩니다.
+파이프라인에 대 한 추가 세부 정보를 보려면 표를 탐색 하려는 파이프라인을 클릭 합니다. 그러면 Azure Machine Learning studio에서 팝업로 차트가 렌더링 됩니다.
 
 ### <a name="get-log-results-upon-completion"></a>완료 시 로그 결과 가져오기
 
@@ -177,19 +177,19 @@ Azure 기계 학습 SDK를 사용하여 실험 추적을 추가하고 지속된 
 ```run.get_metrics()```를 사용하여 학습된 모델의 메트릭을 볼 수 있습니다. 이제 위의 예제에 기록된 모든 메트릭을 가져와 최상의 모델을 결정할 수 있습니다.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studio"></a>[Azure 기계 학습 스튜디오에서](https://ml.azure.com) 작업 영역에서 실험 보기
+## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studio"></a>[Azure Machine Learning studio](https://ml.azure.com) 에서 작업 영역의 실험 보기
 
-실험에서 실행이 완료되면 기록된 실험 실행 기록을 찾아볼 수 있습니다. [Azure 기계 학습 스튜디오에서](https://ml.azure.com)기록에 액세스할 수 있습니다.
+실험에서 실행이 완료되면 기록된 실험 실행 기록을 찾아볼 수 있습니다. [Azure Machine Learning studio](https://ml.azure.com)에서 기록에 액세스할 수 있습니다.
 
-실험 탭으로 이동하여 실험을 선택합니다. 실험 실행 대시보드로 이동하여 각 실행에 대해 기록된 추적된 메트릭 및 차트를 볼 수 있습니다. 이 경우 MSE와 알파 값을 기록했습니다.
+실험 탭으로 이동 하 여 실험을 선택 합니다. 실험 실행 대시보드로 이동 하 여 각 실행에 대해 기록 되는 추적 된 메트릭과 차트를 볼 수 있습니다. 이 경우 MSE와 알파 값을 기록했습니다.
 
-  ![Azure 기계 학습 스튜디오에서 세부 정보 실행](./media/how-to-track-experiments/experiment-dashboard.png)
+  ![Azure Machine Learning studio에서 실행 세부 정보](./media/how-to-track-experiments/experiment-dashboard.png)
 
-특정 실행으로 드릴다운하여 출력 또는 로그를 보거나 제출한 실험의 스냅샷을 다운로드하여 실험 폴더를 다른 사용자와 공유할 수 있습니다.
+특정 실행으로 드릴 다운 하 여 해당 출력 또는 로그를 보거나 제출한 실험의 스냅숏을 다운로드 하 여 다른 사람과 실험 폴더를 공유할 수 있습니다.
 
 ### <a name="viewing-charts-in-run-details"></a>실행 세부 정보에서 차트 보기
 
-로깅 API를 사용하여 실행하는 동안 다양한 유형의 메트릭을 기록하고 Azure Machine Learning studio에서 차트로 보는 다양한 방법이 있습니다.
+여러 가지 방법으로 로깅 Api를 사용 하 여 실행 중에 여러 유형의 메트릭을 기록 하 고 Azure Machine Learning studio에서 차트로 볼 수 있습니다.
 
 |기록된 값|예제 코드| 포털에서 보기|
 |----|----|----|
@@ -203,7 +203,7 @@ Azure 기계 학습 SDK를 사용하여 실험 추적을 추가하고 지속된 
 이 문서의 개념을 보여 주는 노트북은 다음과 같습니다.
 * [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
 * [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
-* [사용 방법 azureml/트랙 및 모니터 실험/로깅 API](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
+* [사용 방법-azureml/트랙-및 모니터-실험/로깅-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 

@@ -1,6 +1,6 @@
 ---
 title: IoT Device Provisioning Service의 보안 엔드포인트 | Microsoft Docs
-description: 개념 - 백 엔드 앱에 대한 DPS(IoT 장치 프로비저닝 서비스)에 대한 액세스를 제어하는 방법 보안 토큰에 대한 정보가 포함됩니다.
+description: 개념-백 엔드 앱에 대 한 IoT 장치 프로 비전 서비스에 대 한 액세스를 제어 하는 방법입니다. 보안 토큰에 대한 정보가 포함됩니다.
 author: wesmc7777
 manager: philmea
 ms.service: iot-dps
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
 ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79285150"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service에 대한 액세스 제어
@@ -75,7 +75,7 @@ Device Provisioning Service는 네트워크에서 키가 전송되는 것을 피
 
 다음은 예상 값입니다.
 
-| 값 | 설명 |
+| 값 | Description |
 | --- | --- |
 | {signature} |형식의 HMAC-SHA256 서명 문자열은 `{URL-encoded-resourceURI} + "\n" + expiry`입니다. **중요**: 키는 base64에서 디코딩되며 HMAC-SHA256 계산을 수행하는 데 키로 사용됩니다.|
 | {expiry} |1970년 1월 1일 epoch 0시 UTC 이후의 초 수에 대한 UTF8 문자열입니다. |

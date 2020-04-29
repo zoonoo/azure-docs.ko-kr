@@ -1,15 +1,15 @@
 ---
-title: Azure 서비스 패브릭 역방향 프록시
+title: Azure Service Fabric 역방향 프록시
 description: Service Fabric의 역방향 프록시를 사용하여 클러스터 내부 및 외부에서 마이크로 서비스와 통신
 author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
 ms.openlocfilehash: 4fa4c6e46dd786b833087f892d995e85b5d2ea47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282225"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric의 역방향 프록시
@@ -32,7 +32,7 @@ Azure Service Fabric에 기본 제공되는 역방향 프록시는 Service Fabri
 ![내부 통신][1]
 
 > [!NOTE]
-> **지원되는 플랫폼**
+> **지원 되는 플랫폼**
 >
 > Service Fabric의 역방향 프록시는 현재 다음 플랫폼을 지원합니다.
 > * *Windows 클러스터*: Windows 8 이상 또는 Windows Server 2012 이상
