@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
 ms.openlocfilehash: e862818a4fe2471af574d153d43f0096af7847b8
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811406"
 ---
 # <a name="how-to-configure-cloud-services"></a>Cloud Services를 구성하는 방법
@@ -46,7 +46,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 
 ## <a name="monitoring"></a>모니터링
 
-클라우드 서비스에 경고를 추가할 수 있습니다. **설정** > **경고 규칙을** > 클릭하여**경고를 추가합니다.**
+클라우드 서비스에 경고를 추가할 수 있습니다. **설정** > **경고 규칙** > **경고 추가**를 클릭 합니다.
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
@@ -62,7 +62,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>메트릭 타일에서 모니터링 구성
 
-**설정** > **경고 규칙을**사용하는 대신 클라우드 서비스의 **모니터링** 섹션에서 메트릭 타일 중 하나를 클릭할 수 있습니다.
+**설정** > **경고 규칙**을 사용 하는 대신 클라우드 서비스의 **모니터링** 섹션에서 메트릭 타일 중 하나를 클릭할 수 있습니다.
 
 ![클라우드 서비스 모니터링](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
@@ -103,7 +103,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)구성
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
-* [TLS/SSL 인증서 를 구성합니다.](cloud-services-configure-ssl-certificate-portal.md)
+* [TLS/SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성 합니다.
 
 
 

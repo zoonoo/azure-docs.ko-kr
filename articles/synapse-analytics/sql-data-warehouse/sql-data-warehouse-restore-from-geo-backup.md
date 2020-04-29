@@ -1,6 +1,6 @@
 ---
 title: 지리적 백업에서 데이터 웨어하우스 복원
-description: SQL 풀을 지역 복원하는 방법 가이드입니다.
+description: SQL 풀의 지역 복원에 대 한 방법 가이드입니다.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -12,37 +12,37 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 7e0980a9142dc966916d5a4df898ea53b0ddeae5
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745086"
 ---
-# <a name="geo-restore-for-sql-pool"></a>SQL 풀에 대한 지리적 복원
+# <a name="geo-restore-for-sql-pool"></a>SQL 풀의 지역 복원
 
-이 문서에서는 Azure 포털 및 PowerShell을 통해 지리적 백업에서 SQL 풀을 복원하는 방법을 배웁니다.
+이 문서에서는 Azure Portal 및 PowerShell을 통해 지역 백업에서 SQL 풀을 복원 하는 방법에 대해 알아봅니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**DTU 용량을 확인합니다.** 각 SQL 풀은 기본 DTU 할당량이 있는 SQL 서버(예: myserver.database.windows.net)에 의해 호스팅됩니다. 복원중인 데이터베이스에 대해 SQL 서버에 충분한 남은 DTU 할당량이 있는지 확인합니다. 필요한 DTU를 계산하거나 더 많은 DTU를 요청하는 방법을 알아보려면 [DTU 할당량 변경 요청](sql-data-warehouse-get-started-create-support-ticket.md)을 참조합니다.
+**DTU 용량을 확인합니다.** 각 SQL 풀은 기본 DTU 할당량이 있는 SQL server (예: myserver.database.windows.net)에서 호스팅됩니다. SQL server에 복원 중인 데이터베이스에 대 한 DTU 할당량이 충분히 남아 있는지 확인 합니다. 필요한 DTU를 계산하거나 더 많은 DTU를 요청하는 방법을 알아보려면 [DTU 할당량 변경 요청](sql-data-warehouse-get-started-create-support-ticket.md)을 참조합니다.
 
-## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>PowerShell을 통해 Azure 지리적 지역에서 복원
+## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>PowerShell을 통해 Azure 지역에서 복원
 
-지리적 백업에서 복원하려면 [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 및 [복원-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet을 사용합니다.
+지역 백업에서 복원 하려면 [AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 및 [AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet을 사용 합니다.
 
 > [!NOTE]
 > 지역 복원을 Gen2로 수행할 수 있습니다! 이렇게 하려면 Gen2 ServiceObjectiveName(예: DW1000**c**)을 선택적 매개 변수로 지정하세요.
 >
 
-1. 시작하기 전에 [Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 설치해야 합니다.
+1. 시작 하기 전에 [Azure PowerShell을 설치](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)해야 합니다.
 2. PowerShell을 엽니다.
 3. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
-4. 복원할 데이터 웨어하우스가 포함된 구독을 선택합니다.
-5. 복구할 데이터 웨어하우스를 가져옵니다.
-6. 데이터 웨어하우스에 대한 복구 요청을 만듭니다.
-7. 지역 복원된 데이터 웨어하우스의 상태를 확인합니다.
+4. 복원할 데이터 웨어하우스를 포함 하는 구독을 선택 합니다.
+5. 복구 하려는 데이터 웨어하우스를 가져옵니다.
+6. 데이터 웨어하우스에 대 한 복구 요청을 만듭니다.
+7. 지역 복원 데이터 웨어하우스의 상태를 확인 합니다.
 8. 복원이 완료된 후에 데이터 웨어하우스를 구성하려면 [복구 후 데이터베이스 구성]( ../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery)을 참조하세요.
 
 ```Powershell
@@ -72,30 +72,30 @@ $GeoRestoredDatabase.status
 
 원본 데이터베이스가 TDE를 사용할 수 있는 경우 복구된 데이터베이스도 TDE를 사용할 수 있습니다.
 
-## <a name="restore-from-an-azure-geographical-region-through-azure-portal"></a>Azure 포털을 통해 Azure 지리적 지역에서 복원
+## <a name="restore-from-an-azure-geographical-region-through-azure-portal"></a>Azure Portal를 통해 Azure 지역에서 복원
 
-아래 설명된 단계에 따라 지리적 백업에서 SQL 풀을 복원합니다.
+지역 백업에서 SQL 풀을 복원 하려면 아래에 설명 된 단계를 따르세요.
 
-1. [Azure 포털](https://portal.azure.com/) 계정에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/) 계정에 로그인 합니다.
 2. **+ 리소스 만들기**를 클릭합니다.
 
-   ![새로운 DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
+   ![새 DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-3. **데이터베이스를 클릭한** 다음 **Azure 시냅스 분석(이전 SQL DW)**.
+3. **데이터베이스** 를 클릭 한 다음 * * Azure Synapse Analytics (이전의 SQL DW) * *를 클릭 합니다.
 
-   ![새로운 DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
+   ![새 DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 
-4. 기본 탭에서 요청한 정보를 입력하고 **다음: 추가 설정을** **클릭합니다.**
+4. **기본 사항** 탭에서 요청 된 정보를 입력 하 고 **다음: 추가 설정**을 클릭 합니다.
 
    ![기본 사항](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
-5. 기존 데이터 매개 **변수를 사용하여** **백업을** 선택하고 스크롤 아래로 스크롤 옵션에서 적절한 백업을 선택합니다. **검토 + 만들기를**클릭합니다.
+5. **기존 데이터** 매개 변수 사용에 대해 **백업** 을 선택 하 고 아래로 스크롤 옵션에서 적절 한 백업을 선택 합니다. **검토 + 만들기**를 클릭 합니다.
 
    ![백업(backup)](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
-6. 데이터 웨어하우스가 복원되면 **상태가** 온라인 상태인지 확인합니다.
+6. 데이터 웨어하우스가 복원 되 면 **상태가** 온라인 인지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [기존 SQL 풀 복원](sql-data-warehouse-restore-active-paused-dw.md)
-- [삭제된 SQL 풀 복원](sql-data-warehouse-restore-deleted-dw.md)
+- [삭제 된 SQL 풀 복원](sql-data-warehouse-restore-deleted-dw.md)

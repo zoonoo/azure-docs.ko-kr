@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: b6f61de23ab4b637cfb5b8ee365ddea9764bf515
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80810195"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>분할-병합 서비스를 배포하여 분할된 데이터베이스 간에 데이터 이동
@@ -34,9 +34,9 @@ ms.locfileid: "80810195"
    nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
    ```  
 
-파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**라는 디렉터리에 저장됩니다. 여기서 *x.x.xxx.x*는 버전 번호를 나타냅니다. **콘텐츠\splitmerge\service** 하위 디렉토리에서 분할 병합 서비스 파일및 **콘텐츠\splitmerge\powershell** 하위 디렉토리에서 Split-Merge PowerShell 스크립트(및 필수 클라이언트 dlls)를 찾습니다.
+파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**라는 디렉터리에 저장됩니다. 여기서 *x.x.xxx.x*는 버전 번호를 나타냅니다. **찾고 content\splitmerge\powershell** 하위 디렉터리에서 분할/병합 서비스 파일을 찾고 **찾습니다** 하위 디렉터리에서 분할/병합 PowerShell 스크립트 (및 필수 클라이언트 dll)를 찾습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 1. 분할/병합 상태 데이터베이스로 사용할 Azure SQL DB 데이터베이스를 만듭니다. [Azure 포털](https://portal.azure.com)로 이동합니다. 새 **SQL Database**를 만듭니다. 데이터베이스에 이름을 지정하고 새 관리자 및 암호를 만듭니다. 나중에 사용할 수 있도록 이름과 암호를 기록합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "80810195"
 
       `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<userId>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
-1. ElasticScaleMetadata 설정에서 **SplitMergeWeb** 및 **SplitMergeWorker** 역할 섹션 모두에서 *.cscfg* 파일에 이 연결 문자열을 입력합니다.
+1. ElasticScaleMetadata 설정에서 **SplitMergeWeb** 및 **SplitMergeWorker** role 섹션의 *.cscfg* 파일에이 연결 문자열을 입력 합니다.
 
 1. **SplitMergeWorker** 역할의 경우, **WorkerRoleSynchronizationStorageAccountConnectionString** 설정에 대해 Azure 스토리지에 유효한 연결 문자열을 입력합니다.
 
@@ -140,7 +140,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 ## <a name="deploy-your-service"></a>서비스 배포
 
-1. [Azure 포털로](https://portal.azure.com) 이동
+1. [Azure Portal](https://portal.azure.com)로 이동
 2. 이전에 만든 클라우드 서비스를 선택합니다.
 3. **개요**를 클릭합니다.
 4. 스테이징 환경을 선택하고 **업로드**를 클릭합니다.
@@ -150,7 +150,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 ## <a name="troubleshoot-the-deployment"></a>배포 문제 해결
 
-웹 역할을 온라인 상태로 전환하지 못하면 보안 구성에 문제가 있는 것입니다. 위에서 설명한 대로 TLS/SSL이 구성되어 있는지 확인합니다.
+웹 역할을 온라인 상태로 전환하지 못하면 보안 구성에 문제가 있는 것입니다. TLS/SSL이 위에서 설명한 대로 구성 되었는지 확인 합니다.
 
 작업자 역할을 온라인 상태로 전환하지 못했지만 웹 역할은 성공하면 대개 이전에 만든 상태 데이터베이스에 대한 연결 문제가 있는 것입니다.
 
@@ -230,13 +230,13 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 2. Azure SQL Database 서버를 만들거나 기존 서버를 선택합니다. 이 서버에 분할된 데이터베이스 맵 관리자 및 분할된 데이터베이스가 생성됩니다.
 
    > [!NOTE]
-   > *SetupSampleSplitMergeEnvironment.ps1* 스크립트는 스크립트를 단순하게 유지하기 위해 기본적으로 동일한 서버에 이러한 모든 데이터베이스를 만듭니다. 이 제한은 분할/병합 서비스 자체의 제한은 아닙니다.
+   > *Setupsamplesplitmergeenvironment.ps1* 스크립트는 기본적으로 동일한 서버에 이러한 모든 데이터베이스를 만들어 스크립트를 단순하게 유지 합니다. 이 제한은 분할/병합 서비스 자체의 제한은 아닙니다.
 
    분할/병합 서비스에서 데이터를 이동하고 분할된 데이터베이스 맵을 업데이트하려면 읽기/쓰기 액세스 권한이 있는 SQL 인증 로그인이 필요합니다. 분할/병합 서비스는 클라우드에서 실행되므로 현재 통합 인증을 지원하지 않습니다.
 
    Azure SQL Server가 이러한 스크립트를 실행하는 컴퓨터의 IP 주소에서 액세스할 수 있도록 구성되었는지 확인합니다. 이 설정은 Azure SQL Server/구성/허용된 IP 주소에서 찾을 수 있습니다.
 
-3. *설치샘플SplitMergeEnvironment.ps1* 스크립트를 실행하여 샘플 환경을 만듭니다.
+3. *Setupsamplesplitmergeenvironment.ps1* 스크립트를 실행 하 여 샘플 환경을 만듭니다.
 
    이 스크립트를 실행하면 분할된 데이터베이스 맵 관리자 데이터베이스 및 분할된 데이터베이스에서 기존의 분할된 데이터베이스 맵 관리 데이터 구조가 모두 초기화됩니다. 분할된 데이터베이스 맵 또는 분할된 데이터베이스를 다시 초기화하려는 경우에 이 스크립트를 다시 실행하는 것이 유용할 수 있습니다.
 
@@ -254,7 +254,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. *ExecuteSampleSplitMerge.ps1* 스크립트를 실행하여 분할 작업(첫 번째 샤드의 데이터 절반을 두 번째 샤드로 이동)한 다음 병합 작업(데이터를 첫 번째 샤드로 다시 이동)을 실행합니다. TLS를 구성하고 http 끝점을 사용하지 않도록 설정한 경우 대신 https:// 끝점을 사용해야 합니다.
+5. *Executesamplesplitmerge.ps1* 스크립트를 실행 하 여 분할 작업 (첫 번째 분할 된 데이터의 절반을 두 번째 분할 된 데이터 페이지로 이동)을 실행 한 다음 병합 작업 (데이터를 첫 번째 분할 된 데이터 페이지로 다시 이동)을 실행 합니다. TLS를 구성 하 고 http 끝점을 사용 하지 않도록 설정한 경우 https://끝점을 대신 사용 해야 합니다.
 
    샘플 명령줄:
 
@@ -333,7 +333,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
    `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.`
 
-이 오류는 TLS/SSL 인증서가 올바르게 구성되지 않음을 의미합니다. '웹 브라우저로 연결' 섹션의 지침을 따르세요.
+이 오류는 TLS/SSL 인증서가 올바르게 구성 되지 않은 것을 의미 합니다. '웹 브라우저로 연결' 섹션의 지침을 따르세요.
 
 요청을 제출할 수 없는 경우에 다음이 나타날 수 있습니다.
 

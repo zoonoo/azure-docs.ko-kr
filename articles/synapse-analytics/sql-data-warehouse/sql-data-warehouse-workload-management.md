@@ -1,6 +1,6 @@
 ---
 title: 워크로드 관리
-description: Azure Synapse 분석에서 워크로드 관리를 구현하기 위한 지침입니다.
+description: Azure Synapse Analytics에서 워크 로드 관리를 구현 하기 위한 지침입니다.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,47 +12,47 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: dd867d4aa9a9ef5ed73e78a46826a8cd5239039b
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80744228"
 ---
 # <a name="what-is-workload-management"></a>워크로드 관리란?
 
-혼합 워크로드를 실행하면 사용 중인 시스템에서 리소스 문제가 발생할 수 있습니다.  솔루션 아키텍트에서는 SLA에 도달할 수 있는 충분한 리소스가 있는지 확인하기 위해 기존 데이터 웨어하우징 활동(예: 데이터 로드, 변환 및 쿼리)을 분리하는 방법을 모색합니다.  
+혼합 워크 로드를 실행 하면 사용 중인 시스템에서 리소스 문제가 발생할 수 있습니다.  솔루션 설계자는 클래식 데이터 웨어하우징 활동 (예: 데이터 로드, 변환 및 쿼리)을 분리 하 여 Sla에 충분 한 리소스가 있는지 확인 하는 방법을 검색 합니다.  
 
-물리적 서버 격리로 인해 활용도가 낮거나 초과 예약되거나 캐시가 하드웨어 시작 및 중지로 항상 준비되는 상태의 인프라가 부족할 수 있습니다.  성공적인 워크로드 관리 체계는 리소스를 효과적으로 관리하고, 매우 효율적인 리소스 활용을 보장하며, 투자 수익(ROI)을 극대화합니다.
+물리적 서버 격리는 사용이 과다 하거나, 과도 하 게 예약 되어 있거나, 캐시가 지속적으로 하드웨어 시작 및 중지에 게이머 되는 상태에 있는 인프라의 포켓으로 이어질 수 있습니다.  성공적인 워크 로드 관리 체계는 효과적으로 리소스를 관리 하 고, 매우 효율적인 리소스 사용률을 보장 하 고, ROI (투자 수익률)를 극대화 합니다.
 
-데이터 웨어하우스 워크로드는 데이터 웨어하우스와 관련하여 발생하는 모든 작업을 나타냅니다. 이러한 구성 요소의 깊이와 폭은 데이터 웨어하우스의 완성도 수준에 따라 달라집니다.  데이터 웨어하우스 워크로드에는 다음이 포함됩니다.
+데이터 웨어하우스 작업은 데이터 웨어하우스와 관련 하 여 수행 되는 모든 작업을 나타냅니다. 이러한 구성 요소의 깊이와 범위는 데이터 웨어하우스의 완성도 수준에 따라 달라 집니다.  데이터 웨어하우스 워크 로드에는 다음이 포함 됩니다.
 
-- 웨어하우스에 데이터를 로드하는 전체 프로세스
+- 웨어하우스에 데이터를 로드 하는 전체 프로세스
 - 데이터 웨어하우스 분석 및 보고 수행
 - 데이터 웨어하우스의 데이터 관리
 - 데이터 웨어하우스에서 데이터 내보내기
 
 데이터 웨어하우스의 성능 용량은 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)에 의해 결정됩니다.
 
-- 모든 성능 프로필에 할당된 리소스를 보려면 [메모리 및 동시성 제한을](memory-concurrency-limits.md)참조하십시오.
-- 용량을 조정하려면 [확장 하거나 축소할](quickstart-scale-compute-portal.md)수 있습니다.
+- 모든 성능 프로필에 할당 된 리소스를 보려면 [메모리 및 동시성 제한](memory-concurrency-limits.md)을 참조 하세요.
+- 용량을 조정 하려면 [확장 하거나 축소할](quickstart-scale-compute-portal.md)수 있습니다.
 
-## <a name="workload-management-concepts"></a>워크로드 관리 개념
+## <a name="workload-management-concepts"></a>워크 로드 관리 개념
 
-과거에는 Azure Synapse의 SQL Analytics의 경우 [리소스 클래스를](resource-classes-for-workload-management.md)통해 쿼리 성능을 관리했습니다.  역할 멤버 자격에 따라 쿼리에 메모리를 할당할 수 있는 리소스 클래스입니다.  리소스 클래스의 주요 과제는 일단 구성되면 워크로드를 제어할 거버넌스나 기능이 없다는 것입니다.  
+이전에는 Azure Synapse의 SQL 분석을 위해 [리소스 클래스](resource-classes-for-workload-management.md)를 통해 쿼리 성능을 관리 했습니다.  리소스 클래스는 역할 멤버 자격을 기반으로 쿼리에 메모리를 할당 하는 데 사용할 수 있습니다.  리소스 클래스에 대 한 주요 과제는 구성 된 후에는 작업을 제어 하는 거 버 넌 스 나 기능이 없다는 점입니다.  
 
-예를 들어 임시 사용자 역할 멤버 자격을 smallrc에 부여하면 해당 사용자가 시스템에서 메모리의 100%를 사용할 수 있습니다.  리소스 클래스에서는 중요한 워크로드에 리소스를 예약하고 사용할 수 있는지 확인할 수 없습니다.
+예를 들어 smallrc에 임시 사용자 역할 멤버 자격을 부여 하면 해당 사용자가 시스템에서 100%의 메모리를 소비할 수 있습니다.  리소스 클래스를 사용 하면 예약 하 고 중요 한 작업에 리소스를 사용할 수 있는지 확인할 방법이 없습니다.
 
-Azure Synapse의 Synapse SQL 풀 워크로드 관리는 워크로드 [분류,](sql-data-warehouse-workload-classification.md) [워크로드 중요도](sql-data-warehouse-workload-importance.md) 및 [워크로드 격리의](sql-data-warehouse-workload-isolation.md)세 가지 상위 개념으로 구성됩니다.  이러한 기능을 통해 워크로드가 시스템 리소스를 활용하는 방법을 보다 세한 제어할 수 있습니다.
+Azure Synapse의 Synapse SQL 풀 워크 로드 관리는 [작업 분류](sql-data-warehouse-workload-classification.md), [워크 로드 중요도](sql-data-warehouse-workload-importance.md) 및 [워크 로드 격리](sql-data-warehouse-workload-isolation.md)의 세 가지 상위 수준 개념으로 구성 됩니다.  이러한 기능을 통해 워크 로드에서 시스템 리소스를 활용 하는 방법을 보다 효과적으로 제어할 수 있습니다.
 
-워크로드 분류는 워크로드 그룹에 요청을 할당하고 중요도 수준을 설정하는 개념입니다.  지금까지 이 할당은 [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class)사용하여 역할 구성원 자격을 통해 수행되었습니다.  이제 [워크로드 분류 만들기](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 통해 이 작업을 수행할 수 있습니다.  분류 기능은 레이블, 세션 및 요청을 분류하는 시간과 같은 다양한 옵션 집합을 제공합니다.
+작업 분류는 작업 그룹에 요청을 할당 하 고 중요도 수준을 설정 하는 개념입니다.  지금까지이 할당은 [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class)를 사용 하 여 역할 멤버 자격을 통해 수행 되었습니다.  이제 [분류자 만들기 작업](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 통해이 작업을 수행할 수 있습니다.  분류 기능은 레이블, 세션, 요청을 분류 하는 시간 등 다양 한 옵션 집합을 제공 합니다.
 
-워크로드 중요도는 요청이 리소스에 액세스하는 순서에 영향을 미칩니다.  사용 중인 시스템에서 중요도가 높은 요청은 리소스에 먼저 액세스할 수 있습니다.  중요도는 잠금에 대한 정렬된 액세스를 보장할 수도 있습니다.
+작업 중요도는 요청에서 리소스에 액세스 하는 순서에 영향을 미칩니다.  사용 중인 시스템에서 중요도가 더 높은 요청은 리소스에 처음으로 액세스할 수 있습니다.  또한 중요도는 잠금에 대 한 순차적 액세스를 보장할 수 있습니다.
 
-워크로드 격리는 워크로드 그룹에 대한 리소스를 보유합니다.  워크로드 그룹에 예약된 리소스는 실행을 보장하기 위해 해당 워크로드 그룹에만 보관됩니다.  워크로드 그룹을 사용하면 리소스 클래스와 마찬가지로 요청당 할당된 리소스의 양을 정의할 수도 있습니다.  워크로드 그룹은 요청 집합이 사용할 수 있는 리소스의 양을 예약하거나 제한할 수 있는 기능을 제공합니다.  마지막으로 워크로드 그룹은 쿼리 시간 시간(예: 요청을)에 규칙을 적용하는 메커니즘입니다.  
+작업 격리는 작업 그룹에 대 한 리소스를 예약 합니다.  작업 그룹에 예약 된 리소스는 실행을 위해 해당 작업 그룹에 대해서만 유지 됩니다.  작업 그룹을 사용 하 여 리소스 클래스 처럼 요청 별로 할당 된 리소스의 양을 정의할 수도 있습니다.  작업 그룹은 요청 집합에서 사용할 수 있는 리소스의 양을 예약 하거나 상한으로 지정할 수 있는 기능을 제공 합니다.  마지막으로 작업 그룹은 요청에 쿼리 제한 시간 등의 규칙을 적용 하는 메커니즘입니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-- 워크로드 분류에 대한 자세한 내용은 [워크로드 분류](sql-data-warehouse-workload-classification.md)를 참조하십시오.  
-- 워크로드 격리에 대한 자세한 내용은 [워크로드 격리](sql-data-warehouse-workload-isolation.md)를 참조하십시오.  
-- 워크로드 중요도에 대한 자세한 내용은 [워크로드 중요도](sql-data-warehouse-workload-importance.md)를 참조하십시오.  
-- 워크로드 관리 모니터링에 대한 자세한 내용은 [워크로드 관리 포털 모니터링](sql-data-warehouse-workload-management-portal-monitor.md)을 참조하십시오.  
+- 작업 분류에 대 한 자세한 내용은 [작업 분류](sql-data-warehouse-workload-classification.md)를 참조 하세요.  
+- 워크 로드 격리에 대 한 자세한 내용은 [워크 로드 격리](sql-data-warehouse-workload-isolation.md)를 참조 하세요.  
+- 작업 중요도에 대 한 자세한 내용은 [워크 로드 중요도](sql-data-warehouse-workload-importance.md)를 참조 하세요.  
+- 워크 로드 관리 모니터링에 대 한 자세한 내용은 [작업 관리 포털 모니터링](sql-data-warehouse-workload-management-portal-monitor.md)을 참조 하세요.  

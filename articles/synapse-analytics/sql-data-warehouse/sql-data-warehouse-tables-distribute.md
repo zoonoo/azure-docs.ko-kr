@@ -1,6 +1,6 @@
 ---
 title: 분산 테이블 디자인 지침
-description: Synapse SQL 풀에서 해시 분산 및 라운드 로빈 분산 테이블을 디자인하기 위한 권장 사항입니다.
+description: Synapse SQL 풀의 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대 한 권장 사항입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,17 +12,17 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 04255fb6fdf83e7249fad01c75425943b580393c
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80742875"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Synapse SQL 풀에서 분산 테이블 을 디자인하기 위한 지침
+# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Synapse SQL 풀에서 분산 테이블 디자인에 대 한 지침
 
-Synapse SQL 풀에서 해시 분산 및 라운드 로빈 분산 테이블을 디자인하기 위한 권장 사항입니다.
+Synapse SQL 풀의 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대 한 권장 사항입니다.
 
-이 문서에서는 Synapse SQL 풀의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정합니다.자세한 내용은 [Azure Synapse Analytics를 참조하여 MPP(병렬 처리) 아키텍처를 대규모로 처리합니다.](massively-parallel-processing-mpp-architecture.md)
+이 문서에서는 Synapse SQL 풀의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정 합니다.자세한 내용은 [Azure Synapse Analytics 대규모 parallel processing (MPP) 아키텍처](massively-parallel-processing-mpp-architecture.md)를 참조 하세요.
 
 ## <a name="what-is-a-distributed-table"></a>분산 테이블이란?
 
@@ -36,7 +36,7 @@ Synapse SQL 풀에서 해시 분산 및 라운드 로빈 분산 테이블을 디
 
 - 테이블이 얼마나 큰가요?
 - 테이블을 얼마나 자주 새로 고치나요?
-- Synapse SQL 풀에 팩트 및 차원 테이블이 있습니까?
+- Synapse SQL 풀에 팩트 및 차원 테이블이 있나요?
 
 ### <a name="hash-distributed"></a>해시 분산
 
@@ -44,7 +44,7 @@ Synapse SQL 풀에서 해시 분산 및 라운드 로빈 분산 테이블을 디
 
 ![분산 테이블](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "분산 테이블")  
 
-동일한 값은 항상 동일한 배포에 해시하므로 데이터 웨어하우스에는 행 위치에 대한 기본 제공 정보가 있습니다. Synapse SQL 풀에서 이 지식은 쿼리 중에 데이터 이동을 최소화하는 데 사용되어 쿼리 성능을 향상시킵니다.
+동일한 값은 항상 동일한 배포에 해시하므로 데이터 웨어하우스에는 행 위치에 대한 기본 제공 정보가 있습니다. Synapse SQL 풀에서이 정보는 쿼리 중 데이터 이동을 최소화 하는 데 사용 되므로 쿼리 성능이 향상 됩니다.
 
 해시 분산 테이블은 별모양 스키마의 큰 팩트 테이블에 적합합니다. 행 수가 매우 많은 경우에도 여전히 높은 성능을 유지할 수 있습니다. 물론 분산 시스템이 제공하도록 디자인된 성능을 얻는 데 도움이 되는 디자인 고려 사항이 있습니다. 이 문서에 설명되어 있는 이러한 고려 사항 중 하나는 적합한 배포 열을 선택하는 것입니다.
 
@@ -63,12 +63,12 @@ Synapse SQL 풀에서 해시 분산 및 라운드 로빈 분산 테이블을 디
 
 - 기본값이기 때문에 간단한 시작점으로 시작하는 경우
 - 명백한 조인 키가 없는 경우
-- 테이블을 배포하는 해시에 적합한 후보 열이 없는 경우
+- 해시 테이블을 배포 하는 데 적합 한 후보 열이 없으면
 - 테이블이 다른 테이블과 공통 조인 키를 공유하지 않는 경우
 - 조인이 쿼리의 다른 조인보다 덜 중요한 경우
 - 테이블이 임시 준비 테이블인 경우
 
-뉴욕 [택시 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) 자습서는 데이터를 라운드 로빈 스테이징 테이블로 로드하는 예제를 제공합니다.
+[New 뉴욕 택시 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) 자습서에서는 라운드 로빈 준비 테이블에 데이터를 로드 하는 예제를 제공 합니다.
 
 ## <a name="choosing-a-distribution-column"></a>배포 열 선택
 
@@ -109,16 +109,16 @@ WITH
 
 - **고유 값이 많음.** 열에 일부 중복 값이 있을 수 있습니다. 그러나 값이 동일한 모든 행은 동일한 배포에 할당됩니다. 60개의 배포가 있으므로 열에 적어도 60개의 고유 값이 있어야 합니다.  일반적으로 고유 값 수는 이보다 훨씬 큽니다.
 - **NULL이 없거나 소수의 NULL만 있음.** 극단적인 예로, 열에 있는 모든 값이 NULL이면 모든 행이 동일한 배포에 할당됩니다. 결과적으로 쿼리 처리가 하나의 배포에 기울어져 병렬 처리의 이점이 없습니다.
-- **날짜 열이 아닙니다.** 동일한 날짜에 대한 모든 데이터는 동일한 배포에 할당됩니다. 여러 사용자가 모두 같은 날짜에 필터링할 경우에는 60개 배포 중 하나만 모든 처리 작업을 수행합니다.
+- **날짜 열이 아닙니다**. 동일한 날짜에 대한 모든 데이터는 동일한 배포에 할당됩니다. 여러 사용자가 모두 같은 날짜에 필터링할 경우에는 60개 배포 중 하나만 모든 처리 작업을 수행합니다.
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>데이터 이동을 최소화하는 배포 열 선택
 
-올바른 쿼리 결과를 얻기 위해 쿼리에서 데이터를 하나의 컴퓨팅 노드에서 다른 컴퓨팅 노드로 이동할 수 있습니다. 일반적으로 데이터 이동은 분산 테이블에서 쿼리 조인 및 집계 시에 발생합니다. 데이터 이동을 최소화하는 데 도움이 되는 배포 열을 선택하는 것은 Synapse SQL 풀의 성능을 최적화하기 위한 가장 중요한 전략 중 하나입니다.
+올바른 쿼리 결과를 얻기 위해 쿼리에서 데이터를 하나의 컴퓨팅 노드에서 다른 컴퓨팅 노드로 이동할 수 있습니다. 일반적으로 데이터 이동은 분산 테이블에서 쿼리 조인 및 집계 시에 발생합니다. 데이터 이동을 최소화 하는 데 도움이 되는 배포 열을 선택 하는 것은 Synapse SQL 풀의 성능을 최적화 하기 위한 가장 중요 한 전략 중 하나입니다.
 
 데이터 이동을 최소화하려면 다음과 같은 배포 열을 선택합니다.
 
 - `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` 및 `HAVING` 절에 사용됨. 두 개의 큰 팩트 테이블에서 조인이 잦은 경우 조인 열 중 하나에 두 테이블을 분산하면 쿼리 성능이 향상됩니다.  테이블을 조인에 사용하지 않는 경우 `GROUP BY` 절에 자주 사용되는 열에 테이블을 분산하는 것이 좋습니다.
-- 절에는 `WHERE` 사용되지 *않습니다.* 이렇게 하면 쿼리가 모든 배포에서 실행되지 않도록 쿼리 범위를 좁힐 수 있습니다.
+- 는 절에서 `WHERE` 사용 *되지 않습니다* . 이렇게 하면 쿼리가 모든 배포에서 실행되지 않도록 쿼리 범위를 좁힐 수 있습니다.
 - 날짜 열이 *아님*. WHERE 절은 날짜별로 필터링하는 경우가 많습니다.  이 경우 모든 처리가 몇몇 배포에서만 실행될 수 있습니다.
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>적합한 배포 열이 없을 경우 수행할 작업
@@ -225,5 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 분산 테이블을 만들려면 다음 문 중 하나를 사용합니다.
 
-- [테이블 만들기(시냅스 SQL 풀)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [선택으로 테이블 만들기(시냅스 SQL 풀)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (Synapse SQL 풀)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [SELECT AS SELECT (Synapse SQL pool) CREATE TABLE](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

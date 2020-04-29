@@ -1,6 +1,6 @@
 ---
-title: 시냅스 SQL 풀에 연결
-description: SQL 풀에 연결합니다.
+title: Synapse SQL 풀에 연결
+description: SQL 풀에 연결 합니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,30 +12,30 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: e5c015751e8b0aeed7bd84086cc4f65c234fdb41
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745320"
 ---
-# <a name="connect-to-synapse-sql-pool"></a>시냅스 SQL 풀에 연결
+# <a name="connect-to-synapse-sql-pool"></a>Synapse SQL 풀에 연결
 
-SQL 풀에 연결합니다.
+SQL 풀에 연결 합니다.
 
 ## <a name="find-your-server-name"></a>서버 이름 찾기
 
-다음 예제의 서버 이름은 sqlpoolservername.database.windows.net. 정규화된 서버 이름을 찾으려면:
+다음 예제의 서버 이름은 sqlpoolservername.database.windows.net입니다. 정규화된 서버 이름을 찾으려면:
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
-2. Azure **시냅스 분석을 클릭합니다.**
-3. 연결하려는 SQL 풀을 클릭합니다.
+2. **Azure Synapse Analytics**를 클릭 합니다.
+3. 연결 하려는 SQL 풀을 클릭 합니다.
 4. 전체 서버 이름을 찾습니다.
 
    ![전체 서버 이름](media/sql-data-warehouse-connect-overview/server-connect.PNG)
 
 ## <a name="supported-drivers-and-connection-strings"></a>지원되는 드라이버 및 연결 문자열
 
-SQL 풀은 [ADO.NET,](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) [ODBC,](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)및 [JDBC를](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)지원합니다. 최신 버전 및 설명서를 찾으려면 이전 드라이버 중 하나를 클릭합니다.
+SQL 풀은 [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)및 [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 지원 합니다. 최신 버전 및 설명서를 찾으려면 이전 드라이버 중 하나를 클릭합니다.
 
 Azure Portal에서 사용 중인 드라이버에 대한 연결 문자열을 자동으로 생성하려면 앞의 예제에서 **데이터베이스 연결 문자열 표시**를 클릭합니다. 또한 각 드라이버에 대한 연결 문자열의 모양에 대한 몇 가지 예는 다음과 같습니다.
 
@@ -68,15 +68,15 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="connection-settings"></a>연결 설정
 
-SQL 풀은 연결 및 개체 를 만드는 동안 일부 설정을 표준화합니다. 이러한 설정은 재정의되거나 다음을 포함할 수 없습니다.
+SQL 풀은 연결 및 개체 생성 중에 몇 가지 설정을 표준화 합니다. 이러한 설정은 재정의되거나 다음을 포함할 수 없습니다.
 
 | 데이터베이스 설정 | 값 |
 |:--- |:--- |
 | [ANSI_NULLS](/sql/t-sql/statements/set-ansi-nulls-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |켜기 |
 | [QUOTED_IDENTIFIERS](/sql/t-sql/statements/set-quoted-identifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |켜기 |
 | [DATEFORMAT](/sql/t-sql/statements/set-dateformat-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |mdy |
-| [날짜 우선](/sql/t-sql/statements/set-datefirst-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |7 |
+| [DATEFIRST](/sql/t-sql/statements/set-datefirst-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |7 |
 
 ## <a name="next-steps"></a>다음 단계
 
-Visual Studio를 사용하여 연결하고 쿼리하려면 [Visual Studio를 사용하여 쿼리](sql-data-warehouse-query-visual-studio.md)를 참조하세요. 인증 옵션에 대한 자세한 내용은 [Azure Synapse 분석에 대한 인증을](sql-data-warehouse-authentication.md)참조하십시오.
+Visual Studio를 사용하여 연결하고 쿼리하려면 [Visual Studio를 사용하여 쿼리](sql-data-warehouse-query-visual-studio.md)를 참조하세요. 인증 옵션에 대해 자세히 알아보려면 [Azure Synapse Analytics 인증을](sql-data-warehouse-authentication.md)참조 하세요.

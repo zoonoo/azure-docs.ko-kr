@@ -1,159 +1,159 @@
 ---
 title: 확장 리소스 종류
-description: Azure 리소스 형식이 다른 리소스 형식의 기능을 확장하는 데 사용되는 나열입니다.
+description: 다른 리소스 유형의 기능을 확장 하는 데 사용 되는 Azure 리소스 유형을 나열 합니다.
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 3a3fbc531750bec4b16e38f1fe79f613c1b94f5e
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80754861"
 ---
-# <a name="resource-types-that-extend-capabilities-of-other-resources"></a>다른 리소스의 기능을 확장하는 리소스 유형
+# <a name="resource-types-that-extend-capabilities-of-other-resources"></a>다른 리소스의 기능을 확장 하는 리소스 종류
 
-확장 리소스는 다른 리소스의 기능에 추가하는 리소스입니다. 예를 들어 리소스 잠금은 확장 리소스입니다. 리소스 잠금을 다른 리소스에 적용하여 리소스가 삭제되거나 수정되지 않도록 합니다. 자체적으로 리소스 잠금을 만드는 것은 의미가 없습니다. 확장 리소스는 항상 다른 리소스에 적용됩니다.
+확장 리소스는 다른 리소스의 기능에 추가 되는 리소스입니다. 예를 들어 리소스 잠금은 확장 리소스입니다. 리소스 잠금을 삭제 하거나 수정 하지 못하도록 다른 리소스에 적용 합니다. 리소스 잠금을 직접 만드는 것은 적절 하지 않습니다. 확장 리소스는 항상 다른 리소스에 적용 됩니다.
 
 ## <a name="extension-resource-types"></a>확장 리소스 종류
 
-- 마이크로소프트.어드바이저/구성
-- 마이크로소프트.어드바이저/권장 사항
-- 마이크로소프트.어드바이저/억제
-- 마이크로 소프트.경고관리 / 경고
-- 마이크로소프트.경고관리/경고요약
-- 마이크로소프트.권한 부여/체크액세스
-- Microsoft.권한 부여/거부할당
-- 마이크로소프트.권한 부여/findOrphan역할할당
+- Microsoft Advisor/구성
+- Microsoft Advisor/권장 사항
+- Microsoft Advisor/비 표시 오류
+- AlertsManagement/경고
+- AlertsManagement/alertsSummary
+- Microsoft. Authorization/checkAccess
+- Microsoft. Authorization/denyAssignments
+- Microsoft. Authorization/findOrphanRoleAssignments
 - Microsoft.Authorization/locks
-- 마이크로소프트.권한 부여/권한
-- Microsoft.권한 부여/정책할당
-- 마이크로소프트.권한 부여/정책정의
-- 마이크로소프트.권한 부여/정책정의
+- Microsoft. 권한 부여/사용 권한
+- Microsoft. 권한 부여/policyAssignments
+- Microsoft. Authorization/policyDefinitions
+- Microsoft. Authorization/policySetDefinitions
 - Microsoft.Authorization/roleAssignments
-- Microsoft.권한 부여/역할할당사용메트릭
-- 마이크로소프트.권한 부여/역할 정의
-- 마이크로소프트.청구/청구 기간
-- 마이크로소프트.청구/청구권한
-- Microsoft.청구/청구역할할당
-- 마이크로소프트.청구/청구역할정의
-- 마이크로소프트.청구/만들기청구 역할 할당
-- 마이크로소프트.블루프린트/블루프린트할당스
-- 마이크로소프트.블루프린트/블루프린트
-- 마이크로소프트.소비/집계 비용
-- 마이크로소프트.소비/균형
-- 마이크로소프트.소비/예산
-- 마이크로소프트.소비/요금
-- 마이크로소프트.소비/비용 태그
-- 마이크로소프트.소비/예측
-- 마이크로소프트.소비/마켓플레이스
-- 마이크로소프트.소비/운영 결과
-- 마이크로소프트.소비/운영 상태
-- 마이크로소프트.소비/가격표
-- 마이크로소프트.소비/예약 세부 정보
-- 마이크로소프트.소비/예약 권장 사항
-- 마이크로소프트.소비/예약 요약
-- 마이크로소프트.소비/예약거래
-- 마이크로소프트.소비/태그
-- 마이크로소프트.소비/약관
-- 마이크로소프트.소비/사용 세부 정보
-- 마이크로소프트.소비/크레딧
-- 마이크로소프트.소비/이벤트
-- 마이크로소프트.소비/제비
-- 마이크로소프트.소비/제품
-- 마이크로소프트.소비/테넌타
-- 마이크로소프트.컨테이너 인스턴스/서비스 연결 링크
-- 마이크로소프트.비용 관리/경고
-- 마이크로소프트.비용 관리/예산
-- 마이크로소프트.비용 관리/차원
-- 마이크로소프트.코스트 매니지먼트/수출
-- 마이크로소프트.비용 관리/외부 구독
-- 마이크로소프트.코스트매니지먼트/예측
-- 마이크로소프트.비용 관리/쿼리
-- 마이크로소프트.코스트매니지먼트/리포트컨피그
-- 마이크로소프트.코스트 매니지먼트/보고서
-- 마이크로소프트.코스트 매니지먼트/뷰
-- 마이크로소프트.코스트 매니지먼트/쇼백규칙
+- Microsoft. Authorization/roleAssignmentsUsageMetrics
+- Microsoft. Authorization/roleDefinitions
+- Microsoft. 청구/billingPeriods
+- Microsoft. 청구/billingPermissions
+- Microsoft. 청구/billingRoleAssignments
+- Microsoft. 청구/billingRoleDefinitions
+- Microsoft. 청구/createBillingRoleAssignment
+- Microsoft. 청사진/blueprintAssignments
+- Microsoft. 청사진/청사진
+- Microsoft 소비량/AggregatedCost
+- Microsoft 소비량/잔액
+- Microsoft 소비량/예산
+- Microsoft 소비량/요금
+- Microsoft 소비량/CostTags
+- Microsoft의 소비/예측
+- Microsoft 소비량/마켓플레이스
+- Microsoft의 소비율/OperationResults
+- Microsoft 사용/OperationStatus
+- Microsoft 소비량/Pricesheets
+- Microsoft 소비량/ReservationDetails
+- Microsoft 소비량/ReservationRecommendations
+- Microsoft 소비량/ReservationSummaries
+- Microsoft 소비량/ReservationTransactions
+- Microsoft. 소비/태그
+- Microsoft 사용량과 사용 약관
+- Microsoft 소비량/사용량 세부 정보
+- Microsoft 소비량/크레딧
+- Microsoft 사용량과 이벤트
+- Microsoft 사용량과 많은
+- Microsoft. 소비/제품
+- Microsoft 소비/테 넌 트
+- ContainerInstance/serviceAssociationLinks
+- CostManagement/경고
+- CostManagement/예산
+- CostManagement/차원
+- CostManagement/내보내기
+- CostManagement/ExternalSubscriptions
+- CostManagement/예측
+- CostManagement/쿼리
+- CostManagement/Reportconfigs
+- CostManagement/보고서
+- CostManagement/뷰
+- CostManagement/showbackRules
 - Microsoft.CustomProviders/associations
 - Microsoft.EventGrid/eventSubscriptions
 - Microsoft.EventGrid/extensionTopics
-- 마이크로소프트.게스트 구성/구성프로필할당
-- 마이크로소프트.게스트 구성/게스트구성할당
-- 마이크로소프트.게스트구성/소프트웨어
-- 마이크로소프트.게스트 구성/소프트웨어업데이트프로필
-- 마이크로소프트.게스트구성/소프트웨어 업데이트
-- 마이크로소프트.인사이트/기준선
-- 마이크로 소프트.인사이트 / 계산 기준
-- 마이크로소프트.인사이트/데이터컬렉션규칙협회
-- 마이크로 소프트 인사이트 / 진단설정
-- 마이크로 소프트 인사이트 / 진단설정범주
-- 마이크로 소프트.인사이트 / 이벤트 유형
-- 마이크로 소프트.인사이트 / 확장진단설정
-- 마이크로 소프트.인사이트 / 게스트진단설정협회
-- 마이크로 소프트.인사이트 / 로그정의
-- 마이크로 소프트 인사이트 / 로그
-- 마이크로 소프트.인사이트 / 메트릭정의
-- 마이크로 소프트.인사이트 /메트릭네임 스페이스
-- 마이크로 소프트.인사이트 / 메트릭 베이스 라인
-- 마이크로 소프트.인사이트 / 메트릭
-- 마이크로 소프트.인사이트 / 마이 워크 북
-- 마이크로 소프트.인사이트 / 토폴로지
-- 마이크로 소프트.인사이트 / 트랜잭션
-- 마이크로소프트.인사이트/vmInsights온보딩상태
-- 마이크로소프트.Kubernetes구성/소스제어구성
-- 마이크로소프트.유지 보수/적용 업데이트
-- 마이크로소프트.유지 관리/구성할당
-- 마이크로소프트.유지 보수/업데이트
-- 마이크로소프트.관리 되는 ID/ID
-- 마이크로소프트.관리 서비스/등록할당
-- 마이크로소프트.Managed서비스/등록정의
-- 마이크로소프트.오퍼리인사이트/스토리지인사이트컨피그
-- 마이크로소프트.운영 관리/관리 협회
-- 마이크로소프트.정책인사이트/정책이벤트
-- 마이크로소프트.정책인사이트/정책상태
-- 마이크로소프트.정책인사이트/정책추적리소스
-- Microsoft.정책 인사이트/업데이트 관리
-- 마이크로소프트.복구 서비스/백업보호항목
-- 마이크로소프트.복구 서비스/복제자격결과    
-- 마이크로소프트.리소스 건강/가용성 상태
-- 마이크로소프트.리소스 건강/자식 가용성상태
-- 마이크로소프트.자원 건강/아이 리소스
-- 마이크로소프트.리소스 건강/이벤트
-- 마이크로소프트.리소스건강/영향을 받은자원
-- 마이크로소프트.리소스 건강/알림
-- 마이크로소프트.리소스/링크
-- 마이크로소프트.리소스/태그
-- Microsoft.보안/규정 준수
-- Microsoft.보안/정보 보호 정책
-- 마이크로소프트.보안/적응네트워크 강화
-- 마이크로 소프트.보안 /고급위협 보호 설정
-- Microsoft.보안/평가메타데이터
-- Microsoft.보안/평가
-- 마이크로소프트.보안/규정 준수결과
-- 마이크로소프트.보안/데이터컬렉션에이전트
-- 마이크로소프트.보안/장치보안그룹
-- 마이크로소프트.보안/네트워크데이터
-- 마이크로 소프트.보안 / 서버 취약성평가
-- 마이크로소프트.시큐리티인사이트/집계
-- 마이크로소프트.시큐리티인사이트/경고규칙템플릿
-- 마이크로소프트.시큐리티인사이트/경고규칙
-- 마이크로소프트.시큐리티인사이트/북마크
-- 마이크로소프트.시큐리티인사이트/케이스
-- 마이크로소프트.시큐리티인사이트/데이터커넥터
-- 마이크로소프트.보안인사이트/데이터커넥터체크요건
-- 마이크로소프트.시큐리티인사이트/엔티티
-- 마이크로소프트.시큐리티인사이트/엔티티쿼리
-- 마이크로소프트.보안인사이트/인시던트
-- 마이크로소프트.시큐리티인사이트/오피스동의
-- 마이크로소프트.시큐리티인사이트/설정
-- 마이크로소프트.소프트웨어 플랜/하이브리드사용혜택
-- 마이크로소프트.구독/구독 만들기
-- 마이크로 소프트.지원 / 지원 티켓
-- 마이크로소프트.워크로드모니터/구성 요소
-- 마이크로소프트.워크로드모니터/모니터인스턴스
-- 마이크로소프트.워크로드모니터/모니터
-- 마이크로소프트.워크로드모니터/알림설정
+- GuestConfiguration/configurationprofil
+- GuestConfiguration/guestConfigurationAssignments
+- GuestConfiguration/소프트웨어
+- GuestConfiguration/Microsoft 프로필
+- GuestConfiguration/\\D 업데이트
+- microsoft. a s e/기준
+- microsoft insights/calculatebaseline
+- microsoft insights/dataCollectionRuleAssociations
+- microsoft insights/diagnosticSettings
+- microsoft insights/diagnosticSettingsCategories
+- microsoft insights/eventtypes
+- microsoft insights/extendedDiagnosticSettings
+- microsoft insights/찾은 guestdiagnosticsettingsassociation
+- microsoft insights/logDefinitions
+- microsoft 인 사이트/로그
+- microsoft insights/metricDefinitions
+- microsoft insights/metricNamespaces
+- microsoft insights/metricbaselines
+- microsoft. 통찰력/메트릭
+- microsoft insights/myWorkbooks 문서
+- microsoft. a s e/토폴로지
+- microsoft. a s e/트랜잭션
+- microsoft insights/vmInsightsOnboardingStatuses
+- KubernetesConfiguration/sourceControlConfigurations
+- Microsoft. Maintenance/applyUpdates
+- Microsoft. 유지 관리/configurationAssignments
+- Microsoft. 유지 관리/업데이트
+- Microsoft.managedidentity/Id
+- Microsoft ManagedServices/registrationAssignments
+- Microsoft ManagedServices/registrationDefinitions
+- OperationalInsights/storageInsightConfigs
+- Microsoft.operationsmanagement/managementassociations
+- Microsoft PolicyInsights/Policyinsights
+- Microsoft PolicyInsights/Policyinsights
+- Microsoft PolicyInsights/policyTrackedResources
+- Microsoft PolicyInsights/재구성
+- Microsoft RecoveryServices/backupProtectedItems
+- Microsoft RecoveryServices/replicationEligibilityResults    
+- Microsoft ResourceHealth/availabilityStatuses
+- Microsoft ResourceHealth/childAvailabilityStatuses
+- Microsoft ResourceHealth/childResources
+- Microsoft ResourceHealth/이벤트
+- Microsoft ResourceHealth/impactedResources
+- Microsoft ResourceHealth/알림
+- Microsoft .Resources/링크
+- Microsoft .Resources/태그
+- Microsoft. Security/규격
+- Microsoft. Security/InformationProtectionPolicies
+- Microsoft. Security/adaptiveNetworkHardenings
+- Microsoft. Security/advancedThreatProtectionSettings
+- Microsoft. Security/assessmentMetadata
+- Microsoft. 보안/평가
+- Microsoft. Security/complianceResults
+- Microsoft. Security/dataCollectionAgents
+- Microsoft. Security/deviceSecurityGroups
+- Microsoft. 보안/네트워크 데이터
+- Microsoft. Security/serverVulnerabilityAssessments
+- Microsoft SecurityInsights/집계
+- Microsoft SecurityInsights/alertRuleTemplates
+- Microsoft SecurityInsights/alertRules
+- Microsoft SecurityInsights/책갈피
+- Microsoft SecurityInsights/사례
+- Microsoft SecurityInsights/dataConnectors
+- Microsoft SecurityInsights/dataConnectorsCheckRequirements
+- Microsoft SecurityInsights/엔터티
+- Microsoft SecurityInsights/entityQueries
+- Microsoft SecurityInsights/인시던트
+- Microsoft SecurityInsights/officeConsents
+- Microsoft SecurityInsights/설정
+- SoftwarePlan/hybridUseBenefits
+- Microsoft. Subscription/CreateSubscription
+- microsoft. 지원/지원 티켓
+- WorkloadMonitor/구성 요소
+- WorkloadMonitor/monitorInstances
+- WorkloadMonitor/모니터
+- WorkloadMonitor/notificationSettings
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure 리소스 관리자 템플릿에서 확장 리소스 리소스에 대한 리소스 ID를 얻으려면 [extensionResourceId](../templates/template-functions-resource.md#extensionresourceid)를 사용합니다.
-- 템플릿에서 확장 리소스를 만드는 예는 [이벤트 그리드 이벤트 구독](/azure/templates/microsoft.eventgrid/2019-06-01/eventsubscriptions)을 참조하십시오.
+- Azure Resource Manager 템플릿에서 확장 리소스의 리소스 ID를 가져오려면 [Extensionresourceid](../templates/template-functions-resource.md#extensionresourceid)를 사용 합니다.
+- 템플릿에 확장 리소스를 만드는 방법에 대 한 예는 [Event Grid 이벤트 구독](/azure/templates/microsoft.eventgrid/2019-06-01/eventsubscriptions)을 참조 하십시오.

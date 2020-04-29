@@ -1,6 +1,6 @@
 ---
-title: Azure 지도 공간 IO 모듈 사용 방법 | 마이크로소프트 Azure 지도
-description: Azure 지도 웹 SDK에서 제공하는 공간 IO 모듈을 사용하는 방법에 대해 알아봅니다. 이 모듈은 개발자가 Azure Maps 웹 sdk와 공간 데이터를 쉽게 통합할 수 있도록 하는 강력한 기능을 제공합니다.
+title: Azure Maps 공간 IO 모듈을 사용 하는 방법 | Microsoft Azure 맵
+description: Azure Maps 웹 SDK에서 제공 하는 공간 IO 모듈을 사용 하는 방법에 대해 알아봅니다. 이 모듈은 개발자가 공간 데이터를 Azure Maps 웹 sdk와 쉽게 통합할 수 있도록 강력한 기능을 제공 합니다.
 author: philmea
 ms.author: philmea
 ms.date: 02/28/2020
@@ -9,55 +9,55 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 1de9dd9721700418b1aa9ba661fc070db1dbedcc
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804642"
 ---
-# <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Azure 지도 공간 IO 모듈을 사용 하는 방법
+# <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Azure Maps 공간 IO 모듈을 사용 하는 방법
 
-Azure Maps 웹 SDK는 자바스크립트 또는 TypeScript를 사용하여 공간 데이터를 Azure Maps 웹 SDK와 통합하는 **공간 IO 모듈을**제공합니다. 이 모듈의 강력한 기능을 통해 개발자는 다음을 수행할 수 있습니다.
+Azure Maps 웹 SDK는 공간 **IO 모듈**을 제공 합니다 .이 모듈은 공간 데이터를 JavaScript 또는 TypeScript를 사용 하 여 AZURE MAPS 웹 SDK와 통합 합니다. 이 모듈의 강력한 기능을 통해 개발자는 다음을 수행할 수 있습니다.
 
-- [일반적인 공간 데이터 파일을 읽고 씁니다.](spatial-io-read-write-spatial-data.md) 지원되는 파일 형식에는 KML, KMZ, GPX, GeoRSS, GML, GeoJSON 및 공간 정보가 포함된 열이 포함된 CSV 파일이 포함됩니다. 또한 잘 알려진 텍스트(WKT)를 지원합니다.
-- [OGC(개방형 지리 공간 컨소시엄) 서비스에 연결하고 Azure Maps 웹 SDK와 통합합니다. 오버레이 웹 맵 서비스(WMS) 및 웹 맵 타일 서비스(WMTS)를 맵의 레이어로](spatial-io-add-ogc-map-layer.md)사용합니다.
-- [웹 기능 서비스(WFS)의 쿼리 데이터입니다.](spatial-io-connect-wfs-service.md)
-- [스타일 정보를 포함하고 최소한의 코드를 사용하여 자동으로 렌더링되도록 하는 복잡한 데이터 집합을 오버레이합니다.](spatial-io-add-simple-data-layer.md)
-- [고속 XML 및 구분된 파일 판독기 및 기록기 클래스를 활용합니다.](spatial-io-core-operations.md)
+- [일반적인 공간 데이터 파일을 읽고 씁니다](spatial-io-read-write-spatial-data.md). 지원 되는 파일 형식에는 공간 정보가 있는 열을 포함 하는 KML, KMZ, .GPX), GeoRSS, GML, GeoJSON 및 CSV 파일이 포함 됩니다. 에서는 WKT (잘 알려진 텍스트)도 지원 합니다.
+- [Open Geospatial Consortium (OGC) 서비스에 연결 하 고 Azure Maps 웹 SDK와 통합 합니다. WMS (웹 맵 서비스)와 WMTS (웹 맵 타일 서비스)를 맵의 계층으로 설정](spatial-io-add-ogc-map-layer.md)합니다.
+- [웹 기능 서비스 (워크플로)에서 데이터를 쿼리](spatial-io-connect-wfs-service.md)합니다.
+- [스타일 정보를 포함 하 고 최소 코드를 사용 하 여 자동으로 렌더링 하는 복잡 한 데이터 집합을 오버레이](spatial-io-add-simple-data-layer.md)합니다.
+- 고속 [XML 및 구분 된 파일 판독기와 작성기 클래스를 활용](spatial-io-core-operations.md)합니다.
 
-이 가이드에서는 웹 응용 프로그램에서 Spatial IO 모듈을 통합하고 사용하는 방법을 알아봅니다.
+이 가이드에서는 웹 응용 프로그램에서 공간 IO 모듈을 통합 하 고 사용 하는 방법에 대해 알아봅니다.
 
-이 비디오에서는 Azure Maps Web SDK의 공간 IO 모듈에 대한 개요를 제공합니다.
+이 비디오는 Azure Maps Web SDK의 공간 IO 모듈에 대 한 개요를 제공 합니다.
 
 <br/>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="쉽게 Azure지도에 공간 데이터를 통합 - 마이크로 소프트 채널 9 비디오"></iframe>
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="공간 데이터를 Azure Maps에 쉽게 통합-Microsoft Channel 9 비디오"></iframe>
 
 
 > [!WARNING]
-> 특히 다른 도메인에서 참조하는 경우 신뢰할 수 있는 원본의 데이터 및 서비스만 사용합니다. 공간 IO 모듈은 위험을 최소화하기 위한 조치를 취하지만 가장 안전한 방법은 응용 프로그램에 대한 danagerous 데이터를 시작하기가 너무 허용되지 않습니다. 
+> 신뢰 하는 원본에서 가져온 데이터 및 서비스만 사용 합니다. 특히 다른 도메인에서 참조 하는 경우에만 사용 합니다. 공간 IO 모듈은 위험을 최소화 하는 단계를 수행 하지만, 가장 안전한 방법은 응용 프로그램에 danagerous 데이터를 사용할 수 없는 것입니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-공간 IO 모듈을 사용하려면 Azure Maps [계정을 만들고](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) 계정에 [대한 기본 구독 키를 가져와야 합니다.](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account)
+공간 IO 모듈을 사용 하려면 먼저 [Azure Maps 계정을](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) 만들고 [계정에 대 한 기본 구독 키를 가져와야](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account)합니다.
 
 ## <a name="installing-the-spatial-io-module"></a>공간 IO 모듈 설치
 
-다음 두 옵션 중 하나를 사용하여 Azure Maps 공간 IO 모듈을 로드할 수 있습니다.
+다음 두 옵션 중 하나를 사용 하 여 Azure Maps 공간 IO 모듈을 로드할 수 있습니다.
 
-* Azure Maps 공간 IO 모듈에 대해 전 세계적으로 호스팅되는 Azure CDN입니다. 이 옵션의 경우 HTML 파일의 요소에 `<head>` JavaScript에 대한 참조를 추가합니다.
+* Azure Maps 공간 IO 모듈에 대해 전역적으로 호스트 된 Azure CDN입니다. 이 옵션의 경우 HTML 파일의 `<head>` 요소에 JavaScript에 대 한 참조를 추가 합니다.
 
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
     ```
 
-* [azure-maps-공간 io에](https://www.npmjs.com/package/azure-maps-spatial-io) 대 한 소스 코드를 로컬로 로드 하 고 다음 응용 프로그램으로 호스트 수 있습니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 이 옵션의 경우 다음 명령을 사용하여 패키지를 설치합니다.
+* [Azure maps-공간-io](https://www.npmjs.com/package/azure-maps-spatial-io) 에 대 한 소스 코드를 로컬로 로드 한 다음 앱을 사용 하 여 호스트할 수 있습니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 이 옵션의 경우 다음 명령을 사용 하 여 패키지를 설치 합니다.
 
     ```sh
     npm install azure-maps-spatial-io
     ```
 
-    그런 다음 HTML 문서의 요소에 `<head>` JavaScript에 대한 참조를 추가합니다.
+    그런 다음 HTML 문서의 `<head>` 요소에 JavaScript에 대 한 참조를 추가 합니다.
 
     ```html
     <script src="node_modules/azure-maps-spatial-io/dist/atlas-spatial.min.js"></script>
@@ -67,7 +67,7 @@ Azure Maps 웹 SDK는 자바스크립트 또는 TypeScript를 사용하여 공�
 
 1. 새 HTML 파일 만들기
 
-2. Azure 지도 웹 SDK를 로드하고 맵 컨트롤을 초기화합니다. 자세한 내용은 [Azure 지도 맵 제어](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) 가이드를 참조하십시오. 이 단계를 완료하면 HTML 파일은 다음과 같아야 합니다.
+2. Azure Maps 웹 SDK를 로드 하 고 지도 컨트롤을 초기화 합니다. 자세한 내용은 [Azure Maps 지도 컨트롤](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) 가이드를 참조 하세요. 이 단계를 완료 하 고 나면 HTML 파일이 다음과 같이 표시 됩니다.
 
     ```html
     <!DOCTYPE html>
@@ -121,13 +121,13 @@ Azure Maps 웹 SDK는 자바스크립트 또는 TypeScript를 사용하여 공�
     </html>
     ```
 
-2. Azure 지도 공간 IO 모듈을 로드합니다. 이 연습에서는 Azure Maps 공간 IO 모듈에 CDN을 사용합니다. 아래 참조를 HTML `<head>` 파일의 요소에 추가합니다.
+2. Azure Maps 공간 IO 모듈을 로드 합니다. 이 연습에서는 Azure Maps 공간 IO 모듈에 대해 CDN을 사용 합니다. HTML 파일의 `<head>` 요소에 아래 참조를 추가 합니다.
 
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
     ```
 
-3. `datasource`을 초기화하고 데이터 원본을 맵에 추가합니다. `layer`을 초기화하고 데이터 원본을 맵 레이어에 추가합니다. 그런 다음 데이터 원본과 레이어를 모두 렌더링합니다. 아래로 스크롤하여 다음 단계에서 전체 코드를 보려면 데이터 원본 및 레이어 코드 조각을 넣을 수 있는 최적의 위치에 대해 생각해 보십시오. 맵을 프로그래밍 방식으로 조작하기 전에 맵 리소스가 준비될 때까지 기다려야 합니다.
+3. `datasource`를 초기화 하 고 지도에 데이터 소스를 추가 합니다. `layer`를 초기화 하 고 지도 계층에 데이터 소스를 추가 합니다. 그런 다음 데이터 원본 및 계층을 모두 렌더링 합니다. 다음 단계에서 전체 코드를 볼 수 있도록 아래로 스크롤하면 먼저 데이터 소스와 계층 코드 조각을 배치할 가장 좋은 위치를 생각해 야 합니다. 지도를 프로그래밍 방식으로 조작 하기 전에 지도 리소스가 준비 될 때까지 기다려야 합니다.
 
     ```javascript
     var datasource, layer;
@@ -145,7 +145,7 @@ Azure Maps 웹 SDK는 자바스크립트 또는 TypeScript를 사용하여 공�
     map.layers.add(layer);
     ```
 
-4. 이 모든 것을 종합하면 HTML 코드는 다음 코드와 같아야 합니다. 이 샘플에서는 URL에서 XML 파일을 읽는 방법을 보여 줍니다. 그런 다음 맵에 파일의 피처 데이터를 로드하고 표시합니다. 
+4. HTML 코드를 모두 함께 배치 하면 다음 코드와 같이 표시 됩니다. 이 샘플에서는 URL에서 XML 파일을 읽는 방법을 보여 줍니다. 그런 다음 파일의 기능 데이터를 로드 하 여 맵에 표시 합니다. 
 
     ```html
     <!DOCTYPE html>
@@ -222,37 +222,37 @@ Azure Maps 웹 SDK는 자바스크립트 또는 TypeScript를 사용하여 공�
     </html>
     ```
 
-5. 기본 키로 교체해야 `<Your Azure Maps Key>` 합니다. HTML 파일을 열면 다음 이미지와 유사한 결과가 표시됩니다.
+5. 를 기본 키 `<Your Azure Maps Key>` 로 바꾸어야 합니다. HTML 파일을 열면 다음 이미지와 유사한 결과가 표시 됩니다.
 
     <center>
 
-    ![공간 데이터 예제](./media/how-to-use-spatial-io-module/spatial-data-example.png)
+    ![공간 데이터 예](./media/how-to-use-spatial-io-module/spatial-data-example.png)
 
     </center>
 
 ## <a name="next-steps"></a>다음 단계
 
-여기에서 설명한 기능은 공간 IO 모듈에서 사용할 수 있는 많은 기능 중 하나일 뿐입니다. 공간 IO 모듈에서 다른 기능을 사용하는 방법을 알아보려면 아래 가이드를 읽으십시오.
+여기서 설명 하는 기능은 공간 IO 모듈에서 사용할 수 있는 여러 기능 중 하나일 뿐입니다. 공간 IO 모듈에서 다른 기능을 사용 하는 방법에 대 한 자세한 내용은 아래 가이드를 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [간단한 데이터 계층 추가](spatial-io-add-simple-data-layer.md)
+> [단순 데이터 계층 추가](spatial-io-add-simple-data-layer.md)
 
 > [!div class="nextstepaction"]
 > [공간 데이터 읽기 및 쓰기](spatial-io-read-write-spatial-data.md)
 
 > [!div class="nextstepaction"]
-> [OGC 맵 레이어 추가](spatial-io-add-ogc-map-layer.md)
+> [OGC 지도 계층 추가](spatial-io-add-ogc-map-layer.md)
 
 > [!div class="nextstepaction"]
-> [WFS 서비스에 연결](spatial-io-connect-wfs-service.md)
+> [워크플로 서비스에 연결](spatial-io-connect-wfs-service.md)
 
 > [!div class="nextstepaction"]
-> [핵심 운영 활용](spatial-io-core-operations.md)
+> [핵심 작업 활용](spatial-io-core-operations.md)
 
 > [!div class="nextstepaction"]
-> [지원되는 데이터 형식 세부 정보](spatial-io-supported-data-format-details.md)
+> [지원 되는 데이터 형식 세부 정보](spatial-io-supported-data-format-details.md)
 
-Azure 지도 공간 IO 설명서를 참조하십시오.
+Azure Maps 공간 IO 설명서를 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [Azure 지도 공간 IO 패키지](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/)
+> [Azure Maps 공간 IO 패키지](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/)

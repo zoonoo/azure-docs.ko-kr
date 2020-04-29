@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: c7eb1670ee911895bdba23921845b8795f4998af
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811311"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>확장된 클라우드 데이터베이스 간 데이터 이동
@@ -33,16 +33,16 @@ ms.locfileid: "80811311"
 ## <a name="documentation"></a>문서화
 
 1. [탄력적 데이터베이스 분할/병합 도구 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-2. [분할 병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)
+2. [분할-병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)
 3. [분할-병합 보안 고려 사항](sql-database-elastic-scale-split-merge-security-configuration.md)
 4. [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)
 5. [확장하기 위해 기존 데이터베이스 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)
 6. [탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md)
-7. [탄력적 데이터베이스 도구 용어집](sql-database-elastic-scale-glossary.md)
+7. [Elastic Database 도구 용어집](sql-database-elastic-scale-glossary.md)
 
 ## <a name="why-use-the-split-merge-tool"></a>분할-병합 도구를 사용하는 이유
 
-- **유연성**
+- **수행할**
 
   애플리케이션은 단일 Azure SQL DB 데이터베이스의 제한을 초과하여 유연하게 확장되어야 합니다. 무결성을 유지하면서 필요에 따라 데이터를 새 데이터베이스로 이동하기 위해 이 도구를 사용합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "80811311"
 
 - **고객 호스트 서비스**
 
-  분할-병합은 고객 호스트 서비스로 제공됩니다. Microsoft Azure 구독에서 서비스를 배포하고 호스트해야 합니다. NuGet에서 다운로드하는 패키지에는 특정 배포에 대한 정보를 완료하기 위한 구성 템플릿이 있습니다. 자세한 내용은 [분할-병합 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md) 를 참조하세요. 서비스가 Azure 구독에서 실행되므로 서비스의 대부분 보안 측면을 제어하고 구성할 수 있습니다. 기본 템플릿에는 TLS, 인증서 기반 클라이언트 인증, 저장된 자격 증명에 대한 암호화, DoS 보호 및 IP 제한을 구성하는 옵션이 포함되어 있습니다. [분할-병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)문서에서 보안 측면에 대한 자세한 내용을 확인할 수 있습니다.
+  분할-병합은 고객 호스트 서비스로 제공됩니다. Microsoft Azure 구독에서 서비스를 배포하고 호스트해야 합니다. NuGet에서 다운로드하는 패키지에는 특정 배포에 대한 정보를 완료하기 위한 구성 템플릿이 있습니다. 자세한 내용은 [분할-병합 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md) 를 참조하세요. 서비스가 Azure 구독에서 실행되므로 서비스의 대부분 보안 측면을 제어하고 구성할 수 있습니다. 기본 템플릿에는 TLS, 인증서 기반 클라이언트 인증, 저장 된 자격 증명에 대 한 암호화, DoS 보호 및 IP 제한 등을 구성 하는 옵션이 포함 되어 있습니다. [분할-병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)문서에서 보안 측면에 대한 자세한 내용을 확인할 수 있습니다.
 
   배포된 기본 서비스는 하나의 작업자 및 하나의 웹 역할로 실행됩니다. 각 서비스는 Azure Cloud Services에서 A1 VM 크기를 사용합니다. 패키지를 배포할 때 이러한 설정을 수정할 수 없지만 Azure 포털을 통해 실행 중인 클라우드 서비스에 배포한 후에는 변경할 수 있습니다. 기술적인 이유로 두 개 이상의 인스턴스에 대해 작업자 역할을 구성하지 않아야 합니다.
 
@@ -134,7 +134,7 @@ ms.locfileid: "80811311"
 
   작업 유형은 이 요청에 대해 서비스에서 수행하는 작업의 종류를 제어하는 라디오 단추입니다. 분할, 병합 및 이동 시나리오 중에서 선택할 수 있습니다. 이전에 제출된 작업을 취소할 수도 있습니다. 범위 분할된 데이터베이스 맵에 분할, 병합 및 이동 요청을 사용할 수 있습니다. 목록 분할된 데이터베이스 맵은 이동 작업만 지원합니다.
 
-- **샤드 맵**
+- **분할 맵**
 
   요청 매개 변수의 다음 섹션에서는 분할된 데이터베이스 맵과 분할된 데이터베이스 맵을 호스트하는 데이터베이스에 대한 정보를 다룹니다. 특히, Azure SQL Database 서버의 이름과 shardmap을 호스트하는 데이터베이스의 이름, 분할된 데이터베이스 맵 데이터베이스에 연결하는 자격 증명, 마지막으로 분할된 데이터베이스 맵의 이름을 제공해야 합니다. 현재 작업은 단일 자격 증명 집합만 허용합니다. 이러한 자격 증명에는 분할된 데이터베이스 맵과 분할된 데이터베이스의 사용자 데이터를 변경할 수 있는 권한이 있어야 합니다.
 
@@ -186,11 +186,11 @@ ms.locfileid: "80811311"
 
 분할-병합 서비스는 완료된 요청 및 진행 중인 요청의 모니터링을 위해 메타데이터 저장소 데이터베이스에서 **RequestStatus** 테이블을 제공합니다. 이 테이블은 분할/병합 서비스의 이 인스턴스에 제출된 각 분할/병합 요청에 대한 행을 나열하며, 각 요청에 대해 다음 정보를 제공합니다.
 
-- **타임 스탬프**
+- **없으면**
 
   요청이 시작된 시간 및 날짜입니다.
 
-- **오퍼레이션 ID**
+- **OperationId**
 
   요청을 고유하게 식별하는 GUID입니다. 이 요청을 사용하여 아직 진행 중인 작업을 취소할 수도 있습니다.
 
@@ -202,7 +202,7 @@ ms.locfileid: "80811311"
 
   요청이 취소되었는지 여부를 나타내는 플래그입니다.
 
-- **진행률**
+- **이므로**
 
   작업의 예상 완료율입니다. 값이 50이면 작업이 약 50% 완료된 것입니다.
 
@@ -219,7 +219,7 @@ ms.locfileid: "80811311"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure 리소스 관리자 모듈은 Azure SQL Database에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈용입니다. 이러한 cmdlet에 대 한 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조 합니다. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 거의 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
 
 모니터링 및 진단 구성을 사용하여NuGet 패키지에서 제공 하는 웹 및 작업자 역할에 대한 진단 유틸리티를 사용하려면 Azure PowerShell을 사용하여 다음 명령을 실행 합니다.
 
@@ -249,7 +249,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
 
 위의 그림에서 강조 표시된 WADLogsTable에는 분할/병합 서비스의 애플리케이션 로그에 있는 자세한 이벤트가 포함됩니다. 다운로드한 패키지의 기본 구성이 프로덕션 배포에 맞춰 조정됩니다. 그렇기 때문에, 서비스 인스턴스에서 로그 및 카운터를 가져오는 간격이 큽니다(5 분). 테스트 및 개발을 위해 필요에 따라 웹 또는 작업자 역할의 진단 설정을 조정하여 간격을 낮출 수 있습니다. Visual Studio 서버 탐색기(위 참조)의 역할을 마우스 오른쪽 단추로 클릭하여 이 작업을 수행한 다음 진단 구성 설정용 대화 상자에서 전송 기간을 조정합니다.
 
-![구성][3]
+![Configuration][3]
 
 ## <a name="performance"></a>성능
 

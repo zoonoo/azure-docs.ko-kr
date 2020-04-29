@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
 ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811089"
 ---
 # <a name="azure-network-security-overview"></a>Azure 네트워크 보안 개요
@@ -93,7 +93,7 @@ NSG는 애플리케이션 계층 검사 또는 인증된 액세스 제어를 제
 
 자세한 정보:
 
-* [서비스 끝점](../../virtual-network/virtual-network-service-endpoints-overview.md#secure-azure-services-to-virtual-networks)
+* [서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md#secure-azure-services-to-virtual-networks)
 
 ### <a name="route-control-and-forced-tunneling"></a>경로 제어 및 터널링 적용
 
@@ -111,7 +111,7 @@ Azure 네트워킹은 가상 네트워크의 네트워크 트래픽에 대한 �
 
 자세한 정보:
 
-* [사용자 정의 경로 및 IP 포워딩이란 무엇입니까?](../../virtual-network/virtual-networks-udr-overview.md)
+* [사용자 정의 경로 및 IP 전달 이란?](../../virtual-network/virtual-networks-udr-overview.md)
 
 ### <a name="virtual-network-security-appliances"></a>가상 네트워크 보안 어플라이언스
 
@@ -128,7 +128,7 @@ NSG, UDR 및 강제 터널링이 [OSI 모델](https://en.wikipedia.org/wiki/OSI_
 * 애플리케이션 액세스 제어
 * 추가적인 DDoS 보호(Azure 패브릭 자체에서 제공하는 DDoS 보호 이외)
 
-Azure 파트너 솔루션을 사용하여 이러한 향상된 네트워크 보안 기능에 액세스할 수 있습니다. [Azure Marketplace를](https://azure.microsoft.com/marketplace/)방문하여 "보안" 및 "네트워크 보안"을 검색하여 최신 Azure 파트너 네트워크 보안 솔루션을 찾을 수 있습니다.
+Azure 파트너 솔루션을 사용하여 이러한 향상된 네트워크 보안 기능에 액세스할 수 있습니다. [Azure Marketplace](https://azure.microsoft.com/marketplace/)를 방문 하 고 "보안" 및 "네트워크 보안"을 검색 하 여 최신 Azure 파트너 네트워크 보안 솔루션을 찾을 수 있습니다.
 
 ## <a name="azure-firewall"></a>Azure Firewall
 
@@ -158,9 +158,9 @@ Azure 네트워킹은 다음 보안 원격 액세스 시나리오를 지원합�
 
 개별 개발자 또는 작업 담당자가 Azure에서 가상 머신 및 서비스를 관리하도록 하려는 경우가 있을 수 있습니다. 예를 들어, 가상 네트워크의 가상 머신에 액세스해야 하지만 보안 정책에서 개별 가상 머신에 대한 RDP 또는 SSH 원격 액세스를 허용하지 않는 경우가 있습니다. 이 경우에는 [지점 및 사이트 간 VPN](../../vpn-gateway/point-to-site-about.md) 연결을 사용할 수 있습니다.
 
-지점 및 사이트 간 VPN 연결에서는 사용자와 가상 네트워크 간 프라이빗 및 보안 연결을 설정할 수 있습니다. VPN 연결이 설정되면 사용자는 VPN 링크를 통해 RDP 또는 SSH를 가상 네트워크의 가상 머신에 연결할 수 (사용자가 인증할 수 있고 권한이 있다고 가정합니다.) 지점 간 VPN은 다음을 지원합니다.
+지점 및 사이트 간 VPN 연결에서는 사용자와 가상 네트워크 간 프라이빗 및 보안 연결을 설정할 수 있습니다. VPN 연결이 설정되면 사용자는 VPN 링크를 통해 RDP 또는 SSH를 가상 네트워크의 가상 머신에 연결할 수 이는 사용자가 인증 하 고 권한을 부여할 수 있다고 가정 합니다. 지점 및 사이트 간 VPN은 다음을 지원 합니다.
 
-* SSTP(Secure Socket Tunneling Protocol) - 독점적인 SSL 기반 VPN 프로토콜입니다. 대부분의 방화벽은 TLS/SSL에서 사용하는 TCP 포트 443을 열기 때문에 SSL VPN 솔루션은 방화벽에 침투할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다.
+* SSTP(Secure Socket Tunneling Protocol) - 독점적인 SSL 기반 VPN 프로토콜입니다. 대부분의 방화벽은 TLS/SSL에서 사용 하는 TCP 포트 443를 열기 때문에 SSL VPN 솔루션은 방화벽을 통과할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다.
 
 * IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 디바이스(OSX 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
 
@@ -168,7 +168,7 @@ Azure 네트워킹은 다음 보안 원격 액세스 시나리오를 지원합�
 
 자세한 정보:
 
-* [PowerShell을 사용하여 가상 네트워크에 대한 지점 간 연결 구성](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [PowerShell을 사용 하 여 가상 네트워크에 지점 및 사이트 간 연결 구성](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-vpn"></a>VPN으로 가상 네트워크에 온-프레미스 네트워크 연결
 
@@ -178,7 +178,7 @@ Azure 네트워킹은 다음 보안 원격 액세스 시나리오를 지원합�
 
 자세한 정보:
 
-* [Azure Portal을 사용하여 사이트 간 VPN 연결로 Resource Manager VNet 만들기](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Azure Portal를 사용 하 여 사이트 간 VPN 연결로 리소스 관리자 VNet 만들기](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [VPN Gateway 정보](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-dedicated-wan-link"></a>전용 WAN 링크로 가상 네트워크에 온-프레미스 네트워크 연결
@@ -193,7 +193,7 @@ Azure 네트워킹은 다음 보안 원격 액세스 시나리오를 지원합�
 자세한 정보:
 
 * [ExpressRoute 기술 개요](../../expressroute/expressroute-introduction.md)
-* [익스프레스루트 다이렉트](../../expressroute/expressroute-erdirect-about.md)
+* [Express 경로 직접](../../expressroute/expressroute-erdirect-about.md)
 * [ExpressRoute Global Reach](../../expressroute/expressroute-global-reach.md)
 
 ### <a name="connect-virtual-networks-to-each-other"></a>가상 네트워크 간 연결
@@ -202,13 +202,13 @@ Azure 네트워킹은 다음 보안 원격 액세스 시나리오를 지원합�
 
 한 가지 옵션은 인터넷을 통해 "루프백"을 실행하여 특정 가상 네트워크의 서비스를 다른 가상 네트워크의 서비스에 연결하는 것입니다. 연결은 하나의 가상 네트워크에서 시작하여 인터넷을 거친 다음, 대상 가상 네트워크로 돌아옵니다. 이 옵션을 사용하면 인터넷 기반 통신에 내재된 보안 문제에 연결이 노출됩니다.
 
-더 나은 옵션은 두 가상 네트워크를 연결하는 사이트 간 VPN을 만드는 것입니다. 이 메서드는 위에서 언급한 크로스-프레미스 사이트 간 VPN 연결과 동일한 [IPSec 터널 모드 프로토콜을](https://technet.microsoft.com/library/cc786385.aspx) 사용합니다.
+더 나은 옵션은 두 가상 네트워크를 연결하는 사이트 간 VPN을 만드는 것입니다. 이 방법은 위에서 언급 한 크로스-프레미스 사이트 간 VPN 연결과 동일한 [IPSec 터널 모드](https://technet.microsoft.com/library/cc786385.aspx) 프로토콜을 사용 합니다.
 
 이 접근 방법의 이점은 VPN 연결이 인터넷을 통해 연결되지 않고 Azure 네트워크 패브릭을 통해 설정된다는 것입니다. 따라서 인터넷을 통해 연결하는 사이트 간 VPN에 비해 추가적인 보안 계층을 제공합니다.
 
 자세한 정보:
 
-* [Azure 리소스 관리자 및 PowerShell을 사용하여 VNet-VNet 연결 구성](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+* [Azure Resource Manager 및 PowerShell을 사용 하 여 VNet 간 연결 구성](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 가상 네트워크를 연결하는 다른 방법은 [VNET 피어링](../../virtual-network/virtual-network-peering-overview.md)입니다. 이 기능을 사용하면 두 Azure 네트워크를 연결하여 인터넷을 통해 이동하지 않고 네트워크 간 통신이 Microsoft 백본 인프라에서 발생하게 할 수 있습니다. VNET 피어링은 Azure 지역에 걸쳐 두 VNET 또는 동일한 지역 내 두 VNET을 연결할 수 있습니다. NSG는 다른 서브넷 또는 시스템 간 연결을 제한하는 데 사용될 수 있습니다.
 
@@ -232,7 +232,7 @@ Azure 네트워킹은 다음 보안 원격 액세스 시나리오를 지원합�
 Azure Application Gateway는 웹 기반 서비스에 대한 HTTP 기반 부하 분산을 제공합니다. Application Gateway는 다음을 지원합니다.
 
 * 쿠키 기반 세션 선호도. 이 기능은 해당 부하 분산 장치 뒤의 서버 중 하나에 설정된 연결이 클라이언트와 서버 사이에서 그대로 유지되도록 해줍니다. 따라서 트랜잭션의 안정성이 보장됩니다.
-* TLS 오프로드. 클라이언트가 로드 밸러블러와 연결하면 HTTPS(TLS) 프로토콜을 사용하여 해당 세션이 암호화됩니다. 그러나 성능을 개선하기 위해 HTTP(암호화되지 않은) 프로토콜을 사용하여 부하 분산 장치와 그 뒤의 웹 서버를 연결할 수 있습니다. 로드 밸러버 뒤에 있는 웹 서버는 암호화와 관련된 프로세서 오버헤드를 경험하지 않기 때문에 이를 "TLS 오프로드"라고 합니다. 요청을 보다 신속하게 제공할 수 있으므로 이를 "SSL 오프로드"라고 합니다.
+* TLS 오프 로드. 클라이언트가 부하 분산 장치에 연결 되 면 해당 세션은 HTTPS (TLS) 프로토콜을 사용 하 여 암호화 됩니다. 그러나 성능을 개선하기 위해 HTTP(암호화되지 않은) 프로토콜을 사용하여 부하 분산 장치와 그 뒤의 웹 서버를 연결할 수 있습니다. 이는 부하 분산 장치 뒤의 웹 서버가 암호화와 관련 된 프로세서 오버 헤드를 경험 하지 않으므로 "TLS 오프 로드" 라고 합니다. 요청을 보다 신속하게 제공할 수 있으므로 이를 "SSL 오프로드"라고 합니다.
 * URL 기반 콘텐츠 라우팅. 이 기능을 통해 부하 분산 장치가 대상 URL에 기반하여 연결을 전달할 위치를 결정할 수 있습니다. IP 주소에 기반하여 부하 분산 결정을 내리는 솔루션보다 훨씬 더 많은 유연성을 제공합니다.
 
 자세한 정보:
@@ -284,7 +284,7 @@ Azure에서는 Azure Traffic Manager를 사용하여 글로벌 부하 분산의 
 자세한 정보:
 
 * [가상 네트워크 개요](../../virtual-network/virtual-networks-overview.md)
-* [가상 네트워크에서 사용되는 DNS 서버 관리](../../virtual-network/manage-virtual-network.md#change-dns-servers)
+* [가상 네트워크에서 사용 하는 DNS 서버 관리](../../virtual-network/manage-virtual-network.md#change-dns-servers)
 
 외부 이름 확인에는 두 가지 옵션이 있습니다.
 
@@ -310,7 +310,7 @@ Azure는 Azure DNS의 형태로 가용성과 성능이 뛰어난 외부 DNS 솔�
 
 자세한 정보:
 
-* [마이크로소프트 클라우드 서비스 및 네트워크 보안](network-best-practices.md)
+* [Microsoft 클라우드 서비스 및 네트워크 보안](network-best-practices.md)
 
 ## <a name="azure-ddos-protection"></a>Azure DDoS 보호
 
@@ -322,11 +322,11 @@ Microsoft에서는 Azure 플랫폼의 일부로 **기본**으로 알려진 DDoS 
 * **트래픽 항시 모니터링:** DDoS 공격의 징후를 찾기 위해 애플리케이션 트래픽 패턴이 24시간 매일 모니터링됩니다. 보호 정책이 초과되면 완화가 수행됩니다.
 * **공격 완화 보고서** 공격 완화 보고서는 집계된 네트워크 데이터 흐름 데이터를 사용하여 리소스를 목표로 하는 공격에 대한 자세한 정보를 제공합니다.
 * **공격 완화 흐름 로그** 공격 완화 흐름 로그를 사용하면 활성 DDoS 공격 중에 삭제된 트래픽, 전달된 트래픽 및 기타 공격 데이터를 거의 실시간으로 검토할 수 있습니다.
-* **적응 형 튜닝:** 지능형 트래픽 프로파일링은 시간에 따른 응용 프로그램의 트래픽을 학습하고 서비스에 가장 적합한 프로필을 선택하고 업데이트합니다. 트래픽이 시간이 지남에 따라 변경되면서 프로필이 조정됩니다. 계층 3~계층 7 보호: 웹 애플리케이션 방화벽과 함께 사용될 경우 전체 스택 DDoS 보호를 제공합니다.
+* **적응 조정:** 지능형 트래픽 프로 파일링은 시간에 따른 응용 프로그램의 트래픽을 학습 하 고 서비스에 가장 적합 한 프로필을 선택 하 여 업데이트 합니다. 트래픽이 시간이 지남에 따라 변경되면서 프로필이 조정됩니다. 계층 3~계층 7 보호: 웹 애플리케이션 방화벽과 함께 사용될 경우 전체 스택 DDoS 보호를 제공합니다.
 * **광범위한 완화 규모:** 가장 큰 규모로 알려진 DDoS 공격으로부터 시스템을 보호할 수 있는 글로벌 역량으로 60가지 공격을 완화할 수 있습니다.
 * **공격 메트릭:** Azure Monitor를 통해 각 공격으로부터 요약된 메트릭에 액세스할 수 있습니다.
-* **공격 경고:** 경고는 기본 제공 공격 메트릭을 사용하여 공격의 시작 및 중지 및 공격 지속 시간 동안 구성할 수 있습니다. 경고는 Microsoft Azure 모니터 로그, 스플렁크, Azure 저장소, 전자 메일 및 Azure 포털과 같은 운영 소프트웨어에 통합됩니다.
-* **비용 보증:**  문서화된 DDoS 공격에 대한 데이터 전송 및 애플리케이션 확장 서비스 크레딧.
+* **공격 경고:** 경고는 공격 시작 및 중지 시, 그리고 공격이 진행 되는 동안 기본 제공 공격 메트릭을 사용 하 여 구성할 수 있습니다. 경고는 Microsoft Azure 모니터 로그, Splunk, Azure Storage, 전자 메일 및 Azure Portal와 같은 운영 소프트웨어에 통합 됩니다.
+* **비용 보장:**  문서화 된 DDoS 공격에 대 한 데이터 전송 및 응용 프로그램 확장 서비스 크레딧입니다.
 * **DDoS 빠른 응답** DDoS Protection 표준 고객은 이제 활성 공격 중에 빠른 응답 팀에 액세스할 수 있습니다. DRR은 공격 조사, 공격 중 사용자 지정 완화 및 공격 후 분석에 도움이 될 수 있습니다.
 
 
@@ -336,7 +336,7 @@ Microsoft에서는 Azure 플랫폼의 일부로 **기본**으로 알려진 DDoS 
 
 ## <a name="azure-front-door"></a>Azure Front Door
 
-Azure Front Door 서비스를 사용하여 웹 트래픽에 대한 전역 라우팅을 정의, 관리 및 모니터링할 수 있습니다. 최상의 성능 및 고가용성을 위해 트래픽 라우팅을 최적화합니다. Azure Front Door를 사용하면 액세스 제어에 대한 사용자 지정 웹 애플리케이션 방화벽(WAF) 규칙을 작성하여 클라이언트 IP 주소, 국가 코드 및 http 매개 변수를 기준으로 HTTP/HTTPS 워크로드 만료를 방지할 수 있습니다. 또한 Front Door를 사용하면 악의적인 봇 트래픽과 싸우기 위해 속도 제한 규칙을 만들 수 있으며 TLS 오프로드 및 HTTP/HTTPS 요청당 요청, 응용 프로그램 계층 처리가 포함됩니다.
+Azure Front Door 서비스를 사용하여 웹 트래픽에 대한 전역 라우팅을 정의, 관리 및 모니터링할 수 있습니다. 최상의 성능 및 고가용성을 위해 트래픽 라우팅을 최적화합니다. Azure Front Door를 사용하면 액세스 제어에 대한 사용자 지정 웹 애플리케이션 방화벽(WAF) 규칙을 작성하여 클라이언트 IP 주소, 국가 코드 및 http 매개 변수를 기준으로 HTTP/HTTPS 워크로드 만료를 방지할 수 있습니다. 또한 전면 도어를 사용 하면 악의적인 봇 트래픽을 전송 하기 위한 요금 제한 규칙을 만들 수 있습니다. 여기에는 TLS 오프 로딩 및 HTTP/HTTPS 요청당 응용 프로그램 계층 처리가 포함 됩니다.
 
 Front Door 플랫폼 자체는 Azure DDoS Protection Basic으로 보호됩니다. 추가 보호를 위해 VNET에서 Azure DDoS Protection Standard를 활성화하고, 자동 튜닝 및 완화를 통해 네트워크 계층(TCP/UDP) 공격으로부터 리소스를 보호할 수 있습니다. Front Door는 계층 7 역방향 프록시이며, 웹 트래픽만 백 엔드 서버를 통과하도록 허용하고 기본적으로 다른 종류의 트래픽은 차단합니다.
 
@@ -367,7 +367,7 @@ Azure Network Watcher는 문제 해결을 지원할 수 있으며, 보안 문제
 Network Watcher 및 사용자 실험실에서 몇 가지 기능 테스트를 시작하는 방법에 대한 자세한 내용은 [Azure Network Watcher 모니터링 개요](../../network-watcher/network-watcher-monitoring-overview.md)를 참조하세요.
 
 > [!NOTE]
-> 이 서비스의 가용성 및 상태에 대한 최신 알림은 [Azure 업데이트 페이지를](https://azure.microsoft.com/updates/?product=network-watcher)확인합니다.
+> 이 서비스의 가용성 및 상태에 대 한 최신 알림을 보려면 [Azure 업데이트 페이지](https://azure.microsoft.com/updates/?product=network-watcher)를 확인 하세요.
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
@@ -402,4 +402,4 @@ Azure 가상 네트워크 TAP(터미널 액세스 지점)을 사용하면 네트
 또한 강력한 시각화 도구인 [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/)를 사용하여 이러한 로그를 보고 분석할 수도 있습니다.
 자세한 정보:
 
-* [NSGs(네트워크 보안 그룹)에 대한 Azure 모니터 로그](../../virtual-network/virtual-network-nsg-manage-log.md)
+* [NSGs (네트워크 보안 그룹)에 대 한 Azure Monitor 로그](../../virtual-network/virtual-network-nsg-manage-log.md)

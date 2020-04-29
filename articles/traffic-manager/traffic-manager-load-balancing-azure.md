@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: rohink
 ms.openlocfilehash: cccd4a6b0b52608a6a17b73688e18f27088df5b0
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80757196"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Azure에서 부하 분산 서비스 사용
@@ -37,9 +37,9 @@ Microsoft Azure는 네트워크 트래픽을 분산하고 부하를 분산하는
   * 사용자의 서브넷(IP 주소 범위)을 기반으로 애플리케이션 엔드포인트에 트래픽을 분산시키는 서브넷 기반 라우팅입니다.
   * 단일 DNS 응답에서 둘 이상의 IP 주소를 보낼 수 있는 다중값 라우팅입니다.
 
-  클라이언트는 Traffic Manager가 반환하는 엔드포인트에 직접 연결합니다. Azure Traffic Manager는 엔드포인트가 비정상임을 감지한 다음 클라이언트를 다른 정상적인 인스턴스로 리디렉션합니다. 서비스에 대해 자세히 알아보려면 [Azure 트래픽 관리자 설명서를](traffic-manager-overview.md) 참조하십시오.
-* **응용 프로그램 게이트웨이는** 응용 프로그램 전송 컨트롤러(ADC)를 서비스로 제공하여 응용 프로그램에 다양한 계층 7 부하 분산 기능을 제공합니다. 이를 통해 고객은 CPU집약적인 TLS 종료를 애플리케이션 게이트웨이로 오프로드하여 웹 팜 생산성을 최적화할 수 있습니다. Layer 7의 기타 라우팅 기능으로 들어오는 트래픽의 라운드 로빈 배포, 쿠키 기반 세션 선호도, URL 패스 기반 라우팅 및 단일 Application Gateway 뒤에 여러 웹 사이트를 호스트할 수 있는 기능 등을 포함합니다. Application Gateway는 인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합으로 구성될 수 있습니다. Application Gateway는 전적으로 Azure에 의해 관리되고, 확장성 및 고가용성을 제공합니다. 관리 효율성을 향상시키기 위한 풍부한 진단 및 로깅 기능을 제공합니다.
-* **로드 밸런서는** Azure SDN 스택의 필수적인 부분으로, 모든 UDP 및 TCP 프로토콜에 대해 고성능의 낮은 대기 시간 계층 4 로드 밸런싱 서비스를 제공합니다. 인바운드 및 아웃 바운드 연결을 관리합니다. 서비스 가용성 관리 옵션을 검색하는 TCP 및 HTTP 상태를 사용하여 공용 및 내부 부하 분산된 엔드포인트를 구성하고 백 엔드 풀 대상에 인바운드 연결을 매핑하는 규칙을 정의할 수 있습니다.
+  클라이언트는 Traffic Manager가 반환하는 엔드포인트에 직접 연결합니다. Azure Traffic Manager는 엔드포인트가 비정상임을 감지한 다음 클라이언트를 다른 정상적인 인스턴스로 리디렉션합니다. 서비스에 대 한 자세한 내용은 [Azure Traffic Manager 설명서](traffic-manager-overview.md) 를 참조 하세요.
+* **Application Gateway** 는 ADC (응용 프로그램 배달 컨트롤러)를 서비스로 제공 하 여 응용 프로그램에 대 한 다양 한 계층 7 부하 분산 기능을 제공 합니다. 이를 통해 고객은 응용 프로그램 게이트웨이에 CPU 집약적 TLS 종료를 오프 로드 하 여 웹 팜 생산성을 최적화할 수 있습니다. Layer 7의 기타 라우팅 기능으로 들어오는 트래픽의 라운드 로빈 배포, 쿠키 기반 세션 선호도, URL 패스 기반 라우팅 및 단일 Application Gateway 뒤에 여러 웹 사이트를 호스트할 수 있는 기능 등을 포함합니다. Application Gateway는 인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합으로 구성될 수 있습니다. Application Gateway는 전적으로 Azure에 의해 관리되고, 확장성 및 고가용성을 제공합니다. 관리 효율성을 향상시키기 위한 풍부한 진단 및 로깅 기능을 제공합니다.
+* **Load Balancer** 은 Azure SDN 스택의 필수적인 부분으로, 모든 UDP 및 TCP 프로토콜에 대 한 고성능, 낮은 대기 시간 계층 4 부하 분산 서비스를 제공 합니다. 인바운드 및 아웃 바운드 연결을 관리합니다. 서비스 가용성 관리 옵션을 검색하는 TCP 및 HTTP 상태를 사용하여 공용 및 내부 부하 분산된 엔드포인트를 구성하고 백 엔드 풀 대상에 인바운드 연결을 매핑하는 규칙을 정의할 수 있습니다.
 
 ## <a name="scenario"></a>시나리오
 
@@ -59,13 +59,13 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 ![부하 분산 아키텍처의 다이어그램](./media/traffic-manager-load-balancing-azure/scenario-diagram.png)
 
 > [!NOTE]
-> 이 예제는 Azure에서 제공하는 부하 분산 서비스의 다양한 구성 중 하나에 불과합니다. Traffic Manager, Application Gateway 및 Load Balancer를 부하 분산 요구에 가장 잘 맞게 혼합 및 일치시킬 수 있습니다. 예를 들어 TLS 오프로드 또는 계층 7 처리가 필요하지 않은 경우 로드 밸러저를 응용 프로그램 게이트웨이 대신 사용할 수 있습니다.
+> 이 예제는 Azure에서 제공하는 부하 분산 서비스의 다양한 구성 중 하나에 불과합니다. Traffic Manager, Application Gateway 및 Load Balancer를 부하 분산 요구에 가장 잘 맞게 혼합 및 일치시킬 수 있습니다. 예를 들어 TLS 오프 로드 또는 계층 7 처리가 필요 하지 않은 경우 Application Gateway 대신 Load Balancer를 사용할 수 있습니다.
 
 ## <a name="setting-up-the-load-balancing-stack"></a>부하 분산 스택 설정
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>1단계: Traffic Manager 프로필 만들기
 
-1. Azure 포털에서 **리소스** > **네트워킹** > **트래픽 관리자 만들기 를** > 클릭합니다.**Create**
+1. Azure Portal에서 **리소스** > **만들기 네트워킹** > **Traffic Manager 프로필** > **만들기**를 클릭 합니다.
 2. 다음 기본 정보를 입력하세요.
 
    * **이름**: Traffic Manager 프로필에 DNS 접두사 이름을 지정합니다.
@@ -74,13 +74,13 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
    * **리소스 그룹**: 프로필을 포함하는 리소스 그룹을 선택합니다. 새 리소스 그룹이나 기존 리소스 그룹을 선택할 수 있습니다.
    * **리소스 그룹 위치**: Traffic Manager 서비스는 전역적이며 위치에 묶여 있지 않습니다. 그러나 Traffic Manager 프로필과 연결된 메타데이터가 있는 그룹의 지역을 지정해야 합니다. 이 위치는 프로필의 런타임 가용성에 영향을 주지 않습니다.
 
-3. **생성을** 클릭하여 트래픽 관리자 프로필을 생성합니다.
+3. **만들기** 를 클릭 하 여 Traffic Manager 프로필을 생성 합니다.
 
    !["Traffic Manager 만들기" 블레이드](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
 ### <a name="step-2-create-the-application-gateways"></a>2단계: Application Gateway 만들기
 
-1. Azure 포털에서 왼쪽 창에서 > 리소스**네트워킹** > **응용 프로그램 게이트웨이** **만들기를**클릭합니다.
+1. Azure Portal의 왼쪽 창에서 **리소스** > 만들기**네트워킹** > **Application Gateway**를 클릭 합니다.
 2. Application Gateway에 대한 기본 정보를 입력합니다.
 
    * **이름**: Application Gateway의 이름입니다.
@@ -158,12 +158,12 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 내부 부하 분산 장치 구성에 대한 자세한 내용은 [Azure Portal에서 내부 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)를 참조하세요.
 
-1. Azure 포털에서 왼쪽 창에서 리소스 > **네트워킹** > **로드 밸로터** **만들기를**클릭합니다.
+1. Azure Portal의 왼쪽 창에서 **리소스** > 만들기**네트워킹** > **부하 분산 장치**를 클릭 합니다.
 2. 부하 분산 장치의 이름을 선택합니다.
 3. **유형**을 **내부**로 설정하고 부하 분산 장치가 배치될 적절한 가상 네트워크 및 서브넷을 선택합니다.
-4. **IP 주소 할당에서** **동적** 또는 **정적**을 선택합니다.
+4. **IP 주소 할당**에서 **동적** 또는 **정적**중 하나를 선택 합니다.
 5. **리소스 그룹**에서 부하 분산 장치에 대한 리소스 그룹을 선택합니다.
-6. **위치에서**로드 밸러블러에 적합한 영역을 선택합니다.
+6. **위치**아래에서 부하 분산 장치에 대 한 적절 한 지역을 선택 합니다.
 7. **만들기**를 클릭하여 부하 분산 장치를 생성합니다.
 
 #### <a name="connect-a-back-end-database-tier-to-the-load-balancer"></a>백 엔드 데이터베이스 계층을 부하 분산 장치에 연결
@@ -185,9 +185,9 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 2. 프로브의 이름을 입력합니다.
 3. 프로브에 대한 **프로토콜**을 선택합니다. 데이터베이스의 경우 HTTP 프로브가 아닌 TCP 프로브를 사용하려고 할 수 있습니다. 부하 분산 장치 프로브에 대한 자세한 내용은 [부하 분산 장치 프로브 이해](../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
 4. 프로브에 액세스하는 데 사용될 데이터베이스의 **포트**를 입력합니다.
-5. **간격**아래에서 응용 프로그램을 프로브하는 빈도를 지정합니다.
-6. **비정상 임계값에서**백 엔드 VM이 비정상으로 간주될 때 발생해야 하는 연속 프로브 실패 수를 지정합니다.
-7. **확인을** 클릭하여 프로브를 만듭니다.
+5. **간격**에서 응용 프로그램을 검색 하는 빈도를 지정 합니다.
+6. **비정상 임계값**에서 백 엔드 VM을 비정상으로 간주 하기 위해 발생 해야 하는 연속 프로브 오류 수를 지정 합니다.
+7. **확인** 을 클릭 하 여 프로브를 만듭니다.
 
 #### <a name="configure-the-load-balancing-rules"></a>부하 분산 규칙 구성
 
@@ -197,9 +197,9 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 4. **백 엔드 포트**에서 백 엔드 풀에 사용할 포트를 지정합니다.
 5. 규칙을 적용할 이전 단계에서 만든 **백 엔드 풀**과 **프로브**를 선택합니다.
 6. **세션 지속성**에서 세션을 얼마나 지속할지 선택합니다.
-7. **유휴 시간 초과에서**유휴 시간 초과 전에 분 수를 지정합니다.
+7. **유휴**시간 제한에서 유휴 시간 제한 까지의 시간 (분)을 지정 합니다.
 8. **부동 IP**에서 **사용 안 함**이나 **사용**을 선택합니다.
-9. **확인을** 클릭하여 규칙을 만듭니다.
+9. **확인** 을 클릭 하 여 규칙을 만듭니다.
 
 ### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>5단계: 부하 분산 장치에 웹 계층 VM 연결
 
@@ -211,4 +211,4 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 * [Traffic Manager 개요](traffic-manager-overview.md)
 * [Application Gateway 개요](../application-gateway/application-gateway-introduction.md)
-* [Azure Load Balancer개요](../load-balancer/load-balancer-overview.md)
+* [Azure Load Balancer 개요](../load-balancer/load-balancer-overview.md)

@@ -8,17 +8,17 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.openlocfilehash: 872eec62e7a629d76533aa6c9906cbdb64c32236
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745548"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Stream Analytics 창 함수 소개
 
 실시간 스트리밍 시나리오에서 임시 창에 포함된 데이터에서 작업을 수행하는 것은 일반적인 패턴입니다. Stream Analytics에는 개발자가 최소한의 노력으로 복잡한 스트림 처리 작업을 작성할 수 있도록 창 함수에 대한 네이티브 지원이 있습니다.
 
-다음과 같은 선택할 수 있는 네 종류의 임시 창이 있습니다. [**연속**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**도약**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**슬라이딩**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics) 및 [**세션**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics) 창  Stream Analytics 작업에서 쿼리 구문의 [**GROUP BY**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) 절에서 창 함수를 사용합니다. [ **Windows()** 기능을](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics)사용하여 여러 창에서 이벤트를 집계할 수도 있습니다.
+다음과 같은 선택할 수 있는 네 종류의 임시 창이 있습니다. [**연속**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**도약**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**슬라이딩**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics) 및 [**세션**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics) 창  Stream Analytics 작업에서 쿼리 구문의 [**GROUP BY**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) 절에서 창 함수를 사용합니다. [ **Windows ()** 함수](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics)를 사용 하 여 여러 창에서 이벤트를 집계할 수도 있습니다.
 
 모든 [창](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) 작업 결과는 창의 **끝**에 출력됩니다. 창의 출력은 사용된 집계 함수를 기반으로 하는 단일 이벤트입니다. 출력 이벤트에는 창 끝의 타임스탬프가 있고 모든 창 함수는 고정된 길이로 정의됩니다. 
 
@@ -35,7 +35,7 @@ ms.locfileid: "80745548"
 ![Stream Analytics 도약 창](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## <a name="sliding-window"></a>슬라이딩 윈도우
-슬라이딩 윈도우 함수는 텀블링 또는 호핑 창과 달리 이벤트가 발생할 **때만** 출력을 생성합니다. 모든 창에는 하나 이상의 이벤트가 있고 창은 σ(엡실론)로 계속 앞으로 이동합니다. 도약 창과 마찬가지로 이벤트는 둘 이상의 슬라이딩 윈도우에 속할 수 있습니다.
+연속 또는 도약 창과 달리 슬라이딩 윈도우 함수는 이벤트가 발생 한 경우에 **만** 출력을 생성 합니다. 모든 창에는 하나 이상의 이벤트가 있고 창은 ε (엡실론)로 계속 해 서 앞으로 이동 합니다. 도약 창과 마찬가지로 이벤트는 둘 이상의 슬라이딩 윈도우에 속할 수 있습니다.
 
 ![Stream Analytics 슬라이딩 윈도우](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
@@ -53,8 +53,8 @@ ms.locfileid: "80745548"
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure 스트림 분석 사용 시작](stream-analytics-real-time-fraud-detection.md)
+* [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure 스트림 분석 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

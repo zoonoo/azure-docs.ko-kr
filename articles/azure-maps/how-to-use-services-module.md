@@ -1,6 +1,6 @@
 ---
-title: Azure 지도 서비스 모듈 사용 | 마이크로소프트 Azure 지도
-description: 이 문서에서는 Azure 지도 서비스 모듈을 사용하여 Microsoft Azure Maps REST 서비스를 활용하는 방법을 알아봅니다.
+title: Azure Maps Services 모듈 사용 | Microsoft Azure 맵
+description: 이 문서에서는 Azure Maps services 모듈을 사용 하 여 Microsoft Azure Maps REST 서비스를 활용 하는 방법을 알아봅니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -9,39 +9,39 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.openlocfilehash: 6e9d1f35d021c3381f9c2887dfb1c150bb720871
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804659"
 ---
-# <a name="use-the-azure-maps-services-module"></a>Azure 지도 서비스 모듈 사용
+# <a name="use-the-azure-maps-services-module"></a>Azure Maps services 모듈 사용
 
-Azure Maps 웹 SDK는 *서비스 모듈을*제공합니다. 이 모듈은 자바스크립트 또는 TypeScript를 사용하여 웹 또는 Node.js 응용 프로그램에서 Azure Maps REST 서비스를 쉽게 사용할 수 있는 도우미 라이브러리입니다.
+Azure Maps 웹 SDK는 *서비스 모듈*을 제공 합니다. 이 모듈은 JavaScript 또는 TypeScript를 사용 하 여 웹 또는 node.js 응용 프로그램에서 Azure Maps REST 서비스를 쉽게 사용할 수 있도록 하는 도우미 라이브러리입니다.
 
 ## <a name="use-the-services-module-in-a-webpage"></a>웹 페이지에서 서비스 모듈 사용
 
 1. 새 HTML 파일 만들기
-1. Azure 지도 서비스 모듈을 로드합니다. 다음 두 가지 방법 중 하나로 로드할 수 있습니다.
-    - Azure Maps 서비스 모듈의 전역 호스팅Azure 콘텐츠 배달 네트워크 버전을 사용합니다. 파일의 요소에 스크립트 `<head>` 참조를 추가합니다.
+1. Azure Maps services 모듈을 로드 합니다. 다음 두 가지 방법 중 하나로 로드할 수 있습니다.
+    - Azure Maps services 모듈의 전역적으로 호스팅된 Azure Content Delivery Network 버전을 사용 합니다. 파일의 `<head>` 요소에 스크립트 참조를 추가 합니다.
 
         ```html
         <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
         ```
 
-    - 또는 Azure [Maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm 패키지를 사용하여 Azure Maps Web SDK 소스 코드에 대한 서비스 모듈을 로컬로 로드한 다음 앱과 함께 호스트합니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 이 명령 사용:
+    - 또는 [Azure Maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm 패키지를 사용 하 여 AZURE MAPS 웹 SDK 소스 코드에 대 한 서비스 모듈을 로컬로 로드 한 다음 앱을 사용 하 여 호스팅합니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 이 명령 사용:
     
         > **npm install azure-maps-rest**
     
-        그런 다음 파일의 요소에 `<head>` 스크립트 참조를 추가합니다.
+        그런 다음 파일의 `<head>` 요소에 스크립트 참조를 추가 합니다.
 
          ```html
         <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
          ```
 
-1. 인증 파이프라인을 만듭니다. 서비스 URL 클라이언트 끝점을 초기화하려면 먼저 파이프라인을 만들어야 합니다. 고유한 Azure Maps 계정 키 또는 Azure Active Directory(Azure AD) 자격 증명을 사용하여 Azure Maps 검색 서비스 클라이언트를 인증합니다. 이 예제에서는 검색 서비스 URL 클라이언트가 만들어집니다. 
+1. 인증 파이프라인을 만듭니다. 서비스 URL 클라이언트 끝점을 초기화 하려면 먼저 파이프라인을 만들어야 합니다. 사용자 고유의 Azure Maps 계정 키 또는 Azure Active Directory (Azure AD) 자격 증명을 사용 하 여 Azure Maps Search 서비스 클라이언트를 인증 합니다. 이 예제에서는 검색 서비스 URL 클라이언트가 생성 됩니다. 
 
-    인증에 구독 키를 사용하는 경우:
+    인증에 구독 키를 사용 하는 경우:
 
     ```javascript
     // Get an Azure Maps key at https://azure.com/maps.
@@ -59,7 +59,7 @@ Azure Maps 웹 SDK는 *서비스 모듈을*제공합니다. 이 모듈은 자바
     var searchURL = new atlas.service.SearchURL(pipeline);
     ```
 
-    인증에 Azure AD를 사용하는 경우:
+    인증에 Azure AD를 사용 하는 경우:
 
     ```javascript
     // Enter your Azure AD client ID.
@@ -122,9 +122,9 @@ Azure Maps 웹 SDK는 *서비스 모듈을*제공합니다. 이 모듈은 자바
     }
     ```
 
-    자세한 내용은 [Azure 지도의 인증을](azure-maps-authentication.md)참조하십시오.
+    자세한 내용은 [Azure Maps 인증](azure-maps-authentication.md)을 참조 하세요.
 
-1. 다음 코드는 새로 만든 Azure Maps 검색 서비스 URL 클라이언트를 사용하여 "1 Microsoft Way, Redmond, WA"라는 주소를 지오코딩합니다. 코드는 함수를 `searchAddress` 사용하고 결과를 페이지 본문에 테이블로 표시합니다.
+1. 다음 코드는 새로 만든 Azure Maps Search 서비스 URL 클라이언트를 사용 하 여 "1 Microsoft 방식, Redmond, WA"와 같은 주소로 geocode를 사용 합니다. 이 코드에서는 함수 `searchAddress` 를 사용 하 고 결과를 페이지 본문에 테이블로 표시 합니다.
 
     ```javascript
     // Search for "1 microsoft way, redmond, wa".
@@ -155,56 +155,56 @@ Azure Maps 웹 SDK는 *서비스 모듈을*제공합니다. 이 모듈은 자바
     });
     ```
 
-    전체 실행 중인 코드 샘플은 다음과 같습니다.
+    전체 코드 샘플은 다음과 같습니다.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="서비스 모듈 사용" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen에서</a>Azure 지도 ()별<a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>서비스 모듈사용</a> 펜 을 참조하십시오.
+<a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>사용 하 여 서비스 모듈을 사용 하</a> 여 펜을 확인 하세요.
 </iframe>
 
 <br/>
 
-## <a name="azure-government-cloud-support"></a>Azure 정부 클라우드 지원
+## <a name="azure-government-cloud-support"></a>Azure Government 클라우드 지원
 
-Azure 지도 웹 SDK는 Azure 정부 클라우드를 지원합니다. Azure Maps 웹 SDK에 액세스하는 데 사용되는 모든 JavaScript 및 CSS URL은 동일하게 유지되지만 Azure Maps 플랫폼의 Azure 정부 클라우드 버전에 연결하려면 다음 작업을 수행해야 합니다.
+Azure Maps 웹 SDK는 Azure Government 클라우드를 지원 합니다. Azure Maps Web SDK에 액세스 하는 데 사용 되는 모든 JavaScript 및 CSS Url은 동일 하 게 유지 되지만, Azure Maps 플랫폼의 Azure Government 클라우드 버전에 연결 하려면 다음 작업을 수행 해야 합니다.
 
-대화형 맵 컨트롤을 사용하는 경우 클래스의 인스턴스를 만들기 `Map` 전에 다음 코드 줄을 추가합니다. 
+대화형 맵 컨트롤을 사용 하는 경우 `Map` 클래스의 인스턴스를 만들기 전에 다음 코드 줄을 추가 합니다. 
 
 ```javascript
 atlas.setDomain('atlas.azure.us');
 ```
 
-맵 및 서비스를 인증할 때 Azure 정부 클라우드 플랫폼에서 Azure Maps 인증 세부 정보를 사용해야 합니다.
+지도와 서비스를 인증 하는 경우 Azure Government 클라우드 플랫폼에서 Azure Maps 인증 세부 정보를 사용 해야 합니다.
 
-서비스 모듈을 사용하는 경우 API URL 끝점의 인스턴스를 만들 때 서비스에 대한 도메인을 설정해야 합니다. 예를 들어 다음 코드는 클래스의 `SearchURL` 인스턴스를 만들고 도메인을 Azure 정부 클라우드로 가리킵니다.
+서비스 모듈을 사용 하는 경우 API URL 끝점의 인스턴스를 만들 때 서비스에 대 한 도메인을 설정 해야 합니다. 예를 들어 다음 코드는 `SearchURL` 클래스의 인스턴스를 만들고 도메인을 Azure Government 클라우드로 가리킵니다.
 
 ```javascript
 var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 ```
 
-Azure Maps REST 서비스에 직접 액세스하는 경우 `atlas.azure.us`URL 도메인을 로 변경합니다. 예를 들어 검색 API 서비스를 사용하는 경우 URL `https://atlas.microsoft.com/search/` `https://atlas.azure.us/search/`도메인을 에서 로 변경합니다.
+Azure Maps REST 서비스에 직접 액세스 하는 경우 URL 도메인을로 `atlas.azure.us`변경 합니다. 예를 들어 검색 API 서비스를 사용 하는 경우 URL 도메인을에서 `https://atlas.microsoft.com/search/` 로 `https://atlas.azure.us/search/`변경 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [지도 수전](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.mapsurl?view=azure-maps-typescript-latest)
+> [MapsURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.mapsurl?view=azure-maps-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [검색 URL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-maps-typescript-latest)
+> [SearchURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-maps-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Routeurl](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest)
+> [RouteURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [구독키 자격 증명](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential?view=azure-maps-typescript-latest)
+> [SubscriptionKeyCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential?view=azure-maps-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [토큰 자격 증명](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.tokencredential?view=azure-maps-typescript-latest)
+> [TokenCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.tokencredential?view=azure-maps-typescript-latest)
 
-서비스 모듈을 사용하는 자세한 코드 샘플은 다음 문서를 참조하십시오.
+서비스 모듈을 사용 하는 더 많은 코드 샘플은 다음 문서를 참조 하세요.
 
 > [!div class="nextstepaction"]
 > [지도에 검색 결과 표시](./map-search-location.md)

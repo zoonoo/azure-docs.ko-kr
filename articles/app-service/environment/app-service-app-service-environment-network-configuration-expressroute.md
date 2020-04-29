@@ -1,6 +1,6 @@
 ---
-title: Azure 익스프레스라우팅 구성 v1
-description: Azure ExpressRoute를 사용한 PowerApps용 앱 서비스 환경에 대한 네트워크 구성입니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
+title: Azure Express 경로 v1 구성
+description: Azure Express 경로를 사용 하는 PowerApps의 App Service Environment에 대 한 네트워크 구성 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
 author: stefsch
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: fc11c6932d625b119ad933f5d4d128b4355530c5
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804438"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Azure ExpressRoute를 사용하는 PowerApps용 App Service Environment의 네트워크 구성 세부 정보
@@ -39,7 +39,7 @@ App Service Environment에서는 다음 네트워크 연결 설정이 제대로 
 
 * Azure 관리 평면 엔드포인트에 아웃바운드 네트워크 연결(Azure 클래식 배포 모델 및 Azure Resource Manager 엔드포인트 모두). 이러한 엔드포인트 연결에는 management.core.windows.net 및 management.azure.com 도메인이 포함됩니다. 
 
-* ocsp.msocsp.com, mscrl.microsoft.com 및 crl.microsoft.com 도메인에 아웃바운드 네트워크 연결. TLS 기능을 지원하려면 이러한 도메인에 대한 연결이 필요합니다.
+* ocsp.msocsp.com, mscrl.microsoft.com 및 crl.microsoft.com 도메인에 아웃바운드 네트워크 연결. 이러한 도메인에 대 한 연결은 TLS 기능을 지 원하는 데 필요 합니다.
 
 * 가상 네트워크의 DNS 구성은 이 문서에 언급된 모든 엔드포인트 및 도메인을 확인할 수 있어야 합니다. 엔드포인트를 확인할 수 없으면 App Service Environment가 만들어지지 않습니다. 기존의 모든 App Service Environment가 비정상으로 표시됩니다.
 
@@ -85,22 +85,22 @@ DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프
 
 이 섹션은 App Service Environment에 대한 예제 UDR 구성을 보여 줍니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
-* [Azure 다운로드 페이지][AzureDownloads]에서 Azure PowerShell을 설치합니다. 2015년 6월 이후 날짜의 다운로드를 선택합니다. **명령줄 도구에서** > **Windows PowerShell,** 최신 PowerShell cmdlet을 설치하려면 **설치를** 선택합니다.
+* [Azure 다운로드 페이지][AzureDownloads]에서 Azure PowerShell을 설치합니다. 2015년 6월 이후 날짜의 다운로드를 선택합니다. **명령줄 도구** > **Windows PowerShell**에서 **설치** 를 선택 하 여 최신 PowerShell cmdlet을 설치 합니다.
 
 * App Service Environment에서만 사용할 고유 서브넷을 만듭니다. 고유 서브넷을 사용하면 서브넷에 적용된 UDR이 App Service Environment의 아웃바운드 트래픽만 엽니다.
 
 > [!IMPORTANT]
 > App Service Environment는 구성 단계를 완료한 후에 배포해야 합니다. 이러한 단계에서 App Service Environment를 배포하기 전에 네트워크 연결을 사용할 수 있는지 확인합니다.
 
-### <a name="step-1-create-a-route-table"></a>1단계: 경로 테이블 만들기
+### <a name="step-1-create-a-route-table"></a>1 단계: 경로 테이블 만들기
 
 다음 코드 조각에 표시된 대로 미국 서부 Azure 지역에서 **DirectInternetRouteTable**이라는 경로 테이블을 만듭니다.
 
 `New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest`
 
-### <a name="step-2-create-routes-in-the-table"></a>2단계: 테이블에서 경로 만들기
+### <a name="step-2-create-routes-in-the-table"></a>2 단계: 테이블에 경로 만들기
 
 경로 테이블에 경로를 추가하여 아웃바운드 인터넷 액세스를 사용하도록 설정합니다.  
 
@@ -119,13 +119,13 @@ DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프
 > 단일 UDR의 기본 상한은 100개 경로입니다. 100개 경로 한도 내에 맞게 Azure IP 주소 범위를 “요약”해야 합니다. UDR 정의 경로는 ExpressRoute 연결에서 보급하는 경로보다 더 구체적이어야 합니다.
 > 
 
-### <a name="step-3-associate-the-table-to-the-subnet"></a>3단계: 테이블을 서브넷에 연결
+### <a name="step-3-associate-the-table-to-the-subnet"></a>3 단계: 서브넷에 테이블 연결
 
 App Service Environment를 배포하려는 경우 서브넷에 경로 테이블을 연결합니다. 이 명령은 App Service Environment를 포함하는 **ASESubnet** 서브넷에 **DirectInternetRouteTable** 테이블을 연결합니다.
 
 `Set-AzureSubnetRouteTable -VirtualNetworkName 'YourVirtualNetworkNameHere' -SubnetName 'ASESubnet' -RouteTableName 'DirectInternetRouteTable'`
 
-### <a name="step-4-test-and-confirm-the-route"></a>4단계: 경로 테스트 및 확인
+### <a name="step-4-test-and-confirm-the-route"></a>4 단계: 경로 테스트 및 확인
 
 경로 테이블이 서브넷에 바인딩된 후에 경로를 테스트하고 확인합니다.
 

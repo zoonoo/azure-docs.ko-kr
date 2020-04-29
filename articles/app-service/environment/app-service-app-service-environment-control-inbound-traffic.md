@@ -1,6 +1,6 @@
 ---
-title: 인바운드 트래픽 제어 v1
-description: 앱 서비스 환경에 대한 인바운드 트래픽을 제어하는 방법을 알아봅니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
+title: 인바운드 트래픽 v1 제어
+description: App Service Environment에 대 한 인바운드 트래픽을 방법 제어 하는 방법을 알아봅니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
 author: ccompy
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 857b2b00aadced567bc8ac191cdd9908f7bea7a3
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804404"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>App Service Environment로의 인바운드 트래픽을 제어하는 방법
@@ -31,10 +31,10 @@ App Service Environment는 항상 서브넷 내에 만들어야 합니다. 서�
 
 다음은 App Service 환경에서 사용되는 포트 목록입니다. 명확하게 언급이 없는 한 모든 포트는 **TCP**입니다.
 
-* 454: TLS를 통해 앱 서비스 환경을 관리하고 유지 관리하기 위해 Azure 인프라에서 사용하는 **필수 포트입니다.**  이 포트를 차단하지 마세요.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
-* 455: TLS를 통해 앱 서비스 환경을 관리하고 유지 관리하기 위해 Azure 인프라에서 사용하는 **필수 포트입니다.**  이 포트를 차단하지 마세요.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
+* 454: TLS를 통해 App Service 환경을 관리 하 고 유지 관리 하기 위해 Azure 인프라에서 사용 되는 **필수 포트** 입니다.  이 포트를 차단하지 마세요.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
+* 455: TLS를 통해 App Service 환경을 관리 하 고 유지 관리 하기 위해 Azure 인프라에서 사용 되는 **필수 포트** 입니다.  이 포트를 차단하지 마세요.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
 * 80: App Service 환경의 App Service 계획에서 실행되는 앱에 대한 인바운드 HTTP 트래픽의 기본 포트입니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩됩니다.
-* 443: 앱 서비스 환경에서 앱 서비스 계획에서 실행 중인 앱에 대한 인바운드 TLS 트래픽에 대한 기본 포트입니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩됩니다.
+* 443: App Service Environment App Service 계획에서 실행 되는 앱에 대 한 인바운드 TLS 트래픽의 기본 포트입니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩됩니다.
 * 21: FTP에 대한 컨트롤 채널입니다.  FTP를 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩될 수 있습니다.
 * 990: FTPS에 대한 컨트롤 채널입니다.  FTPS를 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩될 수 있습니다.
 * 10001~10020: FTP에 대한 데이터 채널입니다.  제어 채널과 마찬가지로 FTP를 사용하지 않는 경우 이러한 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩될 수 있습니다.
@@ -62,7 +62,7 @@ Vnet의 모든 사용자 지정 DNS 서버는 App Service Environment 생성보�
 
 네트워크 보안 그룹을 만들면 하나 이상의 네트워크 보안 규칙이 해당 그룹에 추가됩니다.  규칙 집합은 시간이 지남에 따라 변경될 수 있으므로 시간이 지남에 따라 추가 규칙을 쉽게 삽입할 수 있도록 규칙 우선 순위에 사용되는 번호 매기기 체계를 지정하는 것이 좋습니다.
 
-아래 예제에서는 Azure 인프라에서 App Service Environment를 관리 및 유지 보수하는 데 필요한 관리 포트에 대한 액세스 권한을 명시적으로 부여하는 규칙을 보여 줍니다.  모든 관리 트래픽은 TLS를 통해 흐르며 클라이언트 인증서에 의해 보호되므로 포트가 열려 있더라도 Azure 관리 인프라 가 아닌 다른 엔터티에서 액세스할 수 없습니다.
+아래 예제에서는 Azure 인프라에서 App Service Environment를 관리 및 유지 보수하는 데 필요한 관리 포트에 대한 액세스 권한을 명시적으로 부여하는 규칙을 보여 줍니다.  모든 관리 트래픽은 TLS를 통해 전달 되 고 클라이언트 인증서로 보호 되므로 포트가 열린 경우에도 Azure 관리 인프라 이외의 엔터티에서 액세스할 수 없게 됩니다.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 
@@ -79,7 +79,7 @@ FTP 지원이 필요한 경우 다음 규칙을 템플릿으로 사용하여 FTP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-**(참고:** 미리 보기 기간 동안 데이터 채널 포트 범위가 변경될 수 있습니다.)
+(**참고:** 데이터 채널 포트 범위는 미리 보기 기간 동안 변경 될 수 있습니다.)
 
 Visual Studio를 통한 원격 디버깅을 사용하는 경우 다음과 같은 규칙에 따라 액세스 권한을 부여할 수 있습니다.  버전마다 다른 포트를 원격 디버깅에 사용하기 때문에 지원되는 각 버전의 Visual Studio에 대한 별도의 규칙이 있습니다.  FTP 액세스와 마찬가지로 원격 디버깅 트래픽은 기존 WAF 또는 프록시 디바이스를 통해 제대로 흐르지 않을 수 있습니다.  대신 *SourceAddressPrefix* 를 Visual Studio를 실행하는 개발자 컴퓨터의 IP 주소 범위로 설정할 수 있습니다.
 

@@ -1,43 +1,43 @@
 ---
 title: 하늘 반사
-description: 하늘 반사에 대한 환경 맵을 설정하는 방법에 대해 설명합니다.
+description: 하늘 반사를 위한 환경 지도를 설정 하는 방법을 설명 합니다.
 author: florianborn71
 ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.openlocfilehash: 7316df7bcf78e3a154510e69116c288b2b293d4c
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680610"
 ---
 # <a name="sky-reflections"></a>하늘 반사
 
-Azure 원격 렌더링에서 하늘 텍스처는 오브젝트를 사실적으로 라이트화하는 데 사용됩니다. 증강 현실 응용 프로그램의 경우 이 텍스처는 실제 환경과 유사해야 개체가 설득력 있게 보이게 됩니다. 이 문서에서는 하늘 텍스처를 변경하는 방법에 대해 설명합니다.
+Azure 원격 렌더링에서 하늘 텍스처는 사실적 개체에 사용 됩니다. 확대 현실 응용 프로그램의 경우이 질감이 실제 환경에서 개체를 유도 하는 것 처럼 보이게 합니다. 이 문서에서는 하늘 텍스처를 변경 하는 방법을 설명 합니다.
 
 > [!NOTE]
-> 하늘 텍스처를 *환경 맵이라고도*합니다. 이러한 용어는 상호 교환적으로 사용됩니다.
+> 하늘 질감을 *환경 맵*이 라고도 합니다. 이러한 용어는 서로 바꿔 사용 됩니다.
 
-## <a name="object-lighting"></a>오브젝트 조명
+## <a name="object-lighting"></a>개체 조명
 
-Azure 원격 렌더링은 사실적인 조명 계산을 위해 물리적 기반 렌더링(PBR)을 사용합니다. *physically based rendering* 장면에 [광원을](lights.md) 추가할 수 있지만 좋은 하늘 텍스처를 사용하면 가장 큰 영향을 미칩니다.
+Azure 원격 렌더링은 실제 조명 계산을 위해 .Pbr ( *물리적 기반 렌더링* )를 사용 합니다. 장면에 [광원](lights.md) 을 추가할 수 있지만 좋은 하늘 텍스처를 사용 하면 효과가 가장 큽니다.
 
-아래 이미지는 하늘 텍스처를 통해서만 다른 표면에 조명을 비추는 결과를 보여 준다.
+아래 이미지는 하늘 질감이 있는 다른 표면의 조명 결과를 보여 줍니다.
 
-| 거칠기  | 0                                        | 0.25                                          | 0.5                                          | 0.75                                          | 1                                          |
+| 거친  | 0                                        | 0.25                                          | 0.5                                          | 0.75                                          | 1                                          |
 |:----------:|:----------------------------------------:|:---------------------------------------------:|:--------------------------------------------:|:---------------------------------------------:|:------------------------------------------:|
-| 비금속  | ![유전체0](media/dielectric-0.png)   | ![그린포인트파크](media/dielectric-0.25.png)  | ![그린포인트파크](media/dielectric-0.5.png)  | ![그린포인트파크](media/dielectric-0.75.png)  | ![그린포인트파크](media/dielectric-1.png)  |
-| Metal      | ![그린포인트파크](media/metallic-0.png)  | ![그린포인트파크](media/metallic-0.25.png)    | ![그린포인트파크](media/metallic-0.5.png)    | ![그린포인트파크](media/metallic-0.75.png)    | ![그린포인트파크](media/metallic-1.png)    |
+| 미 설치  | ![Dielectric0](media/dielectric-0.png)   | ![GreenPointPark](media/dielectric-0.25.png)  | ![GreenPointPark](media/dielectric-0.5.png)  | ![GreenPointPark](media/dielectric-0.75.png)  | ![GreenPointPark](media/dielectric-1.png)  |
+| Metal      | ![GreenPointPark](media/metallic-0.png)  | ![GreenPointPark](media/metallic-0.25.png)    | ![GreenPointPark](media/metallic-0.5.png)    | ![GreenPointPark](media/metallic-0.75.png)    | ![GreenPointPark](media/metallic-1.png)    |
 
-조명 모델에 대한 자세한 내용은 [재질](../../concepts/materials.md) 장을 참조하십시오.
+조명 모델에 대 한 자세한 내용은 [자료](../../concepts/materials.md) 챕터를 참조 하세요.
 
 > [!IMPORTANT]
-> Azure 원격 렌더링은 조명 모델에만 하늘 텍스처를 사용합니다. 증강 현실 응용 프로그램은 이미 적절한 배경을 가지고 있기 때문에 그것은 배경으로 하늘을 렌더링하지 않습니다 - 현실 세계.
+> Azure 원격 렌더링에서는 조명 모델에만 하늘 질감이 사용 됩니다. 확대 된 현실 응용 프로그램은 이미 적절 한 배경을가지고 있으므로 지구를 배경으로 렌더링 하지 않습니다.
 
-## <a name="changing-the-sky-texture"></a>하늘 텍스처 변경
+## <a name="changing-the-sky-texture"></a>하늘 질감 변경
 
-환경 맵을 변경하려면 [텍스처를 로드하고](../../concepts/textures.md) 세션의 `SkyReflectionSettings`다음 을 변경하기만 하면 됩니다.
+환경 맵을 변경 하려면 [텍스처를 로드](../../concepts/textures.md) 하 고 세션을 변경 하기만 하면 됩니다 `SkyReflectionSettings`.
 
 ``` cs
 LoadTextureAsync _skyTextureLoad = null;
@@ -66,54 +66,54 @@ void ChangeEnvironmentMap(AzureSession session)
 }
 ```
 
-기본 제공 `LoadTextureFromSASAsync` 텍스처가 로드되므로 변형이 위의 경우에 사용됩니다. [연결된 Blob 저장소에서 로드하는](../../how-tos/create-an-account.md#link-storage-accounts)경우 `LoadTextureAsync` 변형을 사용합니다.
+기본 제공 질감이 `LoadTextureFromSASAsync` 로드 되기 때문에 변형은 위에서 사용 됩니다. [연결된 Blob 스토리지](../../how-tos/create-an-account.md#link-storage-accounts)에서 로드하는 경우에는 `LoadTextureAsync` 변형을 사용합니다.
 
 ## <a name="sky-texture-types"></a>하늘 텍스처 유형
 
-*[큐브맵과](https://en.wikipedia.org/wiki/Cube_mapping)* *2D 텍스처를* 환경 맵으로 사용할 수 있습니다.
+*[Cubemaps](https://en.wikipedia.org/wiki/Cube_mapping)* 및 *2d 텍스처* 를 모두 환경 맵으로 사용할 수 있습니다.
 
-모든 텍스처는 [지원되는 텍스처 형식이어야](../../concepts/textures.md#supported-texture-formats)합니다. 하늘 텍스처에 밉맵을 제공할 필요가 없습니다.
+모든 질감은 [지원 되는 질감 형식](../../concepts/textures.md#supported-texture-formats)이어야 합니다. 하늘 질감에 대 한 mip 맵을를 제공할 필요가 없습니다.
 
 ### <a name="cube-environment-maps"></a>큐브 환경 맵
 
-참조하기 위해 래핑되지 않은 큐브맵은 다음과 같습니다.
+참조를 위해 다음은 래핑 해제 된 큐브 맵입니다.
 
-![래핑되지 않은 큐브맵](media/Cubemap-example.png)
+![래핑 해제 된 큐브 맵](media/Cubemap-example.png)
 
-큐브맵 텍스처를 로드하는 데 사용합니다. `AzureSession.Actions.LoadTextureAsync` /  `LoadTextureFromSASAsync` `TextureType.CubeMap`
+을 `AzureSession.Actions.LoadTextureAsync` /  `LoadTextureFromSASAsync` 사용 `TextureType.CubeMap` 하 여 큐브 맵 질감을 로드 합니다.
 
 ### <a name="sphere-environment-maps"></a>구 환경 맵
 
-2D 텍스처를 환경 맵으로 사용하는 경우 이미지는 [구형 좌표 공간에](https://en.wikipedia.org/wiki/Spherical_coordinate_system)있어야 합니다.
+2D 텍스처를 환경 맵으로 사용 하는 경우 이미지는 [구면 좌표 공간](https://en.wikipedia.org/wiki/Spherical_coordinate_system)에 있어야 합니다.
 
-![구형 좌표의 하늘 이미지](media/spheremap-example.png)
+![구면 좌표의 하늘 이미지](media/spheremap-example.png)
 
-구형 `TextureType.Texture2D` 환경 맵을 로드하는 데 사용합니다. `AzureSession.Actions.LoadTextureAsync`
+를 `AzureSession.Actions.LoadTextureAsync` 사용 `TextureType.Texture2D` 하 여 구형 환경 맵을 로드 합니다.
 
 ## <a name="built-in-environment-maps"></a>기본 제공 환경 맵
 
-Azure 원격 렌더링은 항상 사용할 수 있는 몇 가지 기본 제공 환경 맵을 제공합니다. 모든 기본 제공 환경 맵은 큐브맵입니다.
+Azure 원격 렌더링은 항상 사용할 수 있는 몇 가지 기본 제공 환경 맵을 제공 합니다. 모든 기본 제공 환경 맵은 cubemaps입니다.
 
-|ID                         | 설명                                              | 그림                                                      |
+|ID                         | Description                                              | 그림                                                      |
 |-----------------------------------|:---------------------------------------------------------|:-----------------------------------------------------------------:|
-|builtin://Autoshop                 | 스트라이프 조명의 다양한, 밝은 실내 베이스 조명    | ![자동 상점](media/autoshop.png)
-|builtin://BoilerRoom               | 밝은 실내 조명 설정, 여러 개의 창 조명      | ![보일러룸](media/boiler-room.png)
-|builtin://ColorfulStudio           | 중간 정도의 조명 실내 설정에서 다양한 색상의 조명  | ![컬러풀 스튜디오](media/colorful-studio.png)
-|builtin://Hangar                   | 적당히 밝은 주변 홀 조명                     | ![스몰한가르](media/hangar.png)
-|builtin://IndustrialPipeAndValve   | 밝은 어두운 대비로 어두운 실내 설정              | ![인더스트리파이프앤밸브](media/industrial-pipe-and-valve.png)
-|builtin://Lebombo                  | 주간 주변 방 조명, 밝은 창 영역 조명     | ![레봄보](media/lebombo.png)
-|builtin://SataraNight              | 어두운 밤 하늘과 많은 주변 조명과 지상   | ![사타라나이트](media/satara-night.png)
-|builtin://SunnyVondelpark          | 밝은 햇빛과 그림자 대비                      | ![서니본델파크](media/sunny-vondelpark.png)
-|builtin://Syferfontein             | 적당한 지면 조명으로 맑은 하늘광            | ![시퍼폰테인](media/syferfontein.png)
-|builtin://TearsOfSteelBridge       | 적당히 변화하는 태양과 그늘                         | ![눈물의스틸브리지](media/tears-of-steel-bridge.png)
-|builtin://VeniceSunset             | 황혼에 접근하는 저녁 일몰 빛                    | ![베니스 선셋](media/venice-sunset.png)
-|builtin://WhippleCreekRegionalPark | 밝은, 무성한 녹색, 백색 광원, 희미한 지면 | ![휘플크릭 리저널파크](media/whipple-creek-regional-park.png)
-|builtin://WinterRiver              | 밝은 주변 접지 조명으로 낮시간                 | ![윈터리버](media/winter-river.png)
-|builtin://DefaultSky               | 눈물과 동일Of스틸브리지                               | ![디폴드스카이](media/tears-of-steel-bridge.png)
+|builtin://Autoshop                 | 다양 한 스트라이프 조명, 브라이트 실내 기본 조명    | ![자동 쇼핑](media/autoshop.png)
+|builtin://BoilerRoom               | 밝은 실내 조명 설정, 여러 창 조명      | ![BoilerRoom](media/boiler-room.png)
+|builtin://ColorfulStudio           | 중간 조명 실내 설정에서 색이 지정 된 Varyingly  | ![ColorfulStudio](media/colorful-studio.png)
+|builtin://Hangar                   | 중간 밝은 주변 홀 빛                     | ![SmallHangar](media/hangar.png)
+|builtin://IndustrialPipeAndValve   | 옅은 검정 대비를 사용 하는 Dim 실내 설정              | ![IndustrialPipeAndValve](media/industrial-pipe-and-valve.png)
+|builtin://Lebombo                  | 주간 실내 실내 조명, 밝은 창 영역 광원     | ![Lebombo](media/lebombo.png)
+|builtin://SataraNight              | 주변 조명이 많은 진한 야간 하늘 및 접지   | ![SataraNight](media/satara-night.png)
+|builtin://SunnyVondelpark          | 브라이트 햇빛 및 그림자 대비                      | ![SunnyVondelpark](media/sunny-vondelpark.png)
+|builtin://Syferfontein             | 중간 접지 조명이 있는 하늘 조명 지우기            | ![Syferfontein](media/syferfontein.png)
+|builtin://TearsOfSteelBridge       | 보통의 다양 한 sun 및 음영                         | ![TearsOfSteelBridge](media/tears-of-steel-bridge.png)
+|builtin://VeniceSunset             | 저녁 일몰 뿌연 근접                    | ![VeniceSunset 해제](media/venice-sunset.png)
+|builtin://WhippleCreekRegionalPark | 밝은, lush-녹색, 흰색 밝은 톤, 흐린 접지 | ![WhippleCreekRegionalPark](media/whipple-creek-regional-park.png)
+|builtin://WinterRiver              | 밝은 주변광 조명이 있는 주간                 | ![WinterRiver](media/winter-river.png)
+|builtin://DefaultSky               | TearsOfSteelBridge와 동일                               | ![DefaultSky](media/tears-of-steel-bridge.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 * [조명](../../overview/features/lights.md)
-* [원자재](../../concepts/materials.md)
+* [재질](../../concepts/materials.md)
 * [질감](../../concepts/textures.md)
-* [텍스콩프 커맨드 라인 도구](../../resources/tools/tex-conv.md)
+* [TexConv 명령줄 도구](../../resources/tools/tex-conv.md)

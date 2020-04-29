@@ -1,5 +1,5 @@
 ---
-title: 포드 보안 모범 사례
+title: Pod 보안 모범 사례
 titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Services)에서 pod 보안을 유지하는 방법에 대한 개발자 모범 사례 알아보기
 services: container-service
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
 ms.openlocfilehash: 1f093b5276ee7ab334043e57f97a108267c32c87
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804387"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 pod 보안 모범 사례
 
 AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 경우 pod 보안 유지가 핵심 고려 사항입니다. 애플리케이션은 필요한 최소 권한 수 원칙에 따라 디자인해야 합니다. 프라이빗 데이터를 안전하게 유지하는 일은 고객을 위하는 마음입니다. 데이터베이스 연결 문자열, 키 또는 비밀과 인증서를 외부 세계에 노출하여 악의적인 공격 용도로 활용되는 것을 원하지 않을 것입니다. 이러한 항목을 코드에 추가하거나 컨테이너 이미지에 포함하지 않도록 합니다. 이러한 방식은 노출 위험을 초래하며, 컨테이너 이미지를 다시 작성해야 할 때 해당 자격 증명을 순환하는 기능을 제한합니다.
 
-이 모범 사례 문서에서는 AKS에서 포드를 보호하는 방법에 중점을 둡니다. 다음 방법을 알아봅니다.
+이 모범 사례 문서에서는 AKS에서 pod를 보호 하는 방법을 중점적으로 설명 합니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * Pod 보안 컨텍스트를 사용하여 프로세스 및 서비스나 권한 상승에 대한 액세스 제한
@@ -31,7 +31,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 �
 
 **모범 사례 지침** - 다른 사용자 또는 그룹 권한으로 실행하고 기본 노드 프로세스 및 서비스에 대한 액세스를 제한하려면 pod 보안 컨텍스트 설정을 정의합니다. 필요한 최소 권한 수를 할당합니다.
 
-애플리케이션이 제대로 실행되려면 pod를 *루트* 권한이 아닌 정의된 사용자 또는 그룹 권한으로 실행해야 합니다. pod 또는 컨테이너에 대한 `securityContext`를 사용하여 *runAsUser* 또는 *fsGroup*와 같은 설정을 정의함으로써 해당 권한을 가정할 수 있습니다. 필요한 사용자 또는 그룹 권한만 할당하고, 추가 권한을 가정하는 수단으로 보안 컨텍스트를 사용하지 않도록 합니다. *runAsUser*, 권한 에스컬레이션 및 기타 Linux 기능 설정은 Linux 노드 및 포드에서만 사용할 수 있습니다.
+애플리케이션이 제대로 실행되려면 pod를 *루트* 권한이 아닌 정의된 사용자 또는 그룹 권한으로 실행해야 합니다. pod 또는 컨테이너에 대한 `securityContext`를 사용하여 *runAsUser* 또는 *fsGroup*와 같은 설정을 정의함으로써 해당 권한을 가정할 수 있습니다. 필요한 사용자 또는 그룹 권한만 할당하고, 추가 권한을 가정하는 수단으로 보안 컨텍스트를 사용하지 않도록 합니다. *RunAsUser*, 권한 상승 및 기타 linux 기능 설정은 linux 노드 및 pod 에서만 사용할 수 있습니다.
 
 루트가 아닌 사용자 권한으로 실행하면 컨테이너는 1024 미만의 권한 있는 포트에 바인딩할 수 없습니다. 이 시나리오에서는 Kubernetes 서비스를 사용하여 앱이 특정 포트에서 실행되고 있는 것처럼 가장할 수 있습니다.
 
@@ -68,26 +68,26 @@ spec:
 
 ## <a name="limit-credential-exposure"></a>자격 증명 노출 제한
 
-**모범 사례 지침** - 애플리케이션 코드에서 자격 증명을 정의하지 않도록 합니다. Azure 리소스에 대해 관리 ID를 사용하여 pod가 다른 리소스에 대한 액세스를 요청하도록 합니다. 또한 Azure Key Vault와 같은 디지털 자격 증명 모음을 사용하여 디지털 키 및 자격 증명을 저장하고 검색하는 것이 좋습니다. 포드 관리 ID는 Linux 포드 및 컨테이너 이미지에만 사용하기 위한 것입니다.
+**모범 사례 지침** - 애플리케이션 코드에서 자격 증명을 정의하지 않도록 합니다. Azure 리소스에 대해 관리 ID를 사용하여 pod가 다른 리소스에 대한 액세스를 요청하도록 합니다. 또한 Azure Key Vault와 같은 디지털 자격 증명 모음을 사용하여 디지털 키 및 자격 증명을 저장하고 검색하는 것이 좋습니다. Pod 관리 id는 Linux pod 및 컨테이너 이미지만 사용 하기 위한 것입니다.
 
 애플리케이션 코드에 자격 증명이 노출될 위험을 제한하려면 고정 또는 공유 자격 증명을 사용하지 않도록 합니다. 자격 증명 또는 키를 코드에 직접 포함하면 안 됩니다. 이러한 자격 증명이 노출되면 애플리케이션을 업데이트하고 다시 배포해야 합니다. 더 나은 방법은 pod에 고유한 ID를 부여하고 스스로 인증을 받는 방법을 제공하거나 디지털 자격 증명 모음에서 자격 증명을 자동으로 검색하는 것입니다.
 
-다음과 같은 [연결된 AKS 오픈 소스 프로젝트를][aks-associated-projects] 통해 포드를 자동으로 인증하거나 디지털 자격 증명에서 자격 증명 및 키를 요청할 수 있습니다.
+다음 [연결 된 AKS 오픈 소스 프로젝트][aks-associated-projects] 를 사용 하 여 자동으로 pod을 인증 하거나 디지털 자격 증명 모음에서 자격 증명 및 키를 요청할 수 있습니다.
 
 * Azure 리소스에 대한 관리 ID 및
 * Azure Key Vault FlexVol 드라이버
 
-연결된 AKS 오픈 소스 프로젝트는 Azure 기술 지원에서 지원되지 않습니다. 커뮤니티에서 피드백과 버그를 수집하기 위해 제공됩니다. 이러한 프로젝트는 프로덕션 용으로는 권장되지 않습니다.
+연결 된 AKS 오픈 소스 프로젝트는 Azure 기술 지원 서비스에서 지원 되지 않습니다. 커뮤니티에서 피드백 및 버그를 수집 하기 위해 제공 됩니다. 이러한 프로젝트는 프로덕션 환경에서 사용 하지 않는 것이 좋습니다.
 
 ### <a name="use-pod-managed-identities"></a>pod 관리 ID 사용
 
-Azure 리소스에 대한 관리되는 ID를 사용하면 Pod가 저장소 또는 SQL과 같이 이를 지원하는 Azure 서비스에 대해 자체적으로 인증할 수 있습니다. pod에는 Azure Active Directory에서 인증을 받고 디지털 토큰을 받을 수 있도록 하는 Azure ID가 할당됩니다. 이 디지털 토큰은 pod가 서비스에 액세스하고 필요한 작업을 수행할 수 있는 권한이 있는지를 확인하는 다른 Azure 서비스에 제공될 수 있습니다. 이 방식은 예를 들어 데이터베이스 연결 문자열에 필요한 비밀이 없음을 의미합니다. pod 관리 ID의 간소화된 워크플로가 다음 다이어그램에 나와 있습니다.
+Azure 리소스에 대 한 관리 되는 id를 통해 pod는 저장소 또는 SQL과 같은 Azure 서비스를 지 원하는 Azure 서비스에 대해 자신을 인증할 수 있습니다. pod에는 Azure Active Directory에서 인증을 받고 디지털 토큰을 받을 수 있도록 하는 Azure ID가 할당됩니다. 이 디지털 토큰은 pod가 서비스에 액세스하고 필요한 작업을 수행할 수 있는 권한이 있는지를 확인하는 다른 Azure 서비스에 제공될 수 있습니다. 이 방식은 예를 들어 데이터베이스 연결 문자열에 필요한 비밀이 없음을 의미합니다. pod 관리 ID의 간소화된 워크플로가 다음 다이어그램에 나와 있습니다.
 
 ![Azure의 pod 관리 ID에 대한 간소화된 워크플로](media/developer-best-practices-pod-security/basic-pod-identity.png)
 
 관리 ID를 사용할 경우 애플리케이션 코드는 Azure Storage와 같은 서비스에 액세스하기 위해 자격 증명을 포함할 필요가 없습니다. 각 pod는 고유한 ID를 사용하여 인증을 받으므로 사용자는 액세스 권한을 감사 및 검토할 수 있습니다. 애플리케이션이 다른 Azure 서비스에 연결되면 관리 ID를 사용하여 자격 증명 재사용 및 노출 위험을 제한합니다.
 
-포드 ID에 대한 자세한 내용은 [포드 관리 ID 및 응용 프로그램과 함께 사용할 AKS 클러스터 구성을 참조하십시오.][aad-pod-identity]
+Pod id에 대 한 자세한 내용은 [응용 프로그램과 함께 pod 관리 되는 id를 사용 하도록 AKS 클러스터 구성][aad-pod-identity] 을 참조 하세요.
 
 ### <a name="use-azure-key-vault-with-flexvol"></a>FlexVol에서 Azure Key Vault 사용
 
@@ -99,7 +99,7 @@ pod 관리 ID는 지원하는 Azure 서비스에서 인증을 받을 때 사용�
 
 Key Vault를 사용하여 자격 증명, 스토리지 계정 키 또는 인증서와 같은 암호를 저장하고 정기적으로 순환합니다. FlexVolume을 사용하여 AKS 클러스터에 Azure Key Vault를 통합할 수 있습니다. FlexVolume 드라이버를 사용하면 AKS 클러스터가 기본적으로 Key Vault에서 자격 증명을 검색한 후 요청 pod에만 안전하게 제공할 수 있습니다. 클러스터 운영자와 함께 Key Vault FlexVol 드라이버를 AKS 노드에 배포합니다. pod 관리 ID를 사용하여 Key Vault에 대한 액세스를 요청하고 FlexVolume 드라이버를 통해 필요한 자격 증명을 검색할 수 있습니다.
 
-FlexVol을 사용하는 Azure 키 볼트는 Linux 포드 및 노드에서 실행되는 응용 프로그램 및 서비스와 함께 사용하기 위한 것입니다.
+Pod 및 노드에서 실행 되는 응용 프로그램 및 서비스와 함께 사용할 수 있습니다. Azure Key Vault
 
 ## <a name="next-steps"></a>다음 단계
 

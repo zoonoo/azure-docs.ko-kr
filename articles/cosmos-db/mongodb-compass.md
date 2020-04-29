@@ -8,10 +8,10 @@ ms.date: 03/20/2020
 author: LuisBosquez
 ms.author: lbosq
 ms.openlocfilehash: c683ec0c4b3a536b0627a7c1c8abf28ee4f83663
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80757021"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB Compass를 사용하여 Azure Cosmos DB의 API for MongoDB에 연결
@@ -22,13 +22,13 @@ Cosmos DB는 전역적으로 배포된 Microsoft의 다중 모델 데이터베�
 
 ## <a name="pre-requisites"></a>필수 구성 요소
 
-MongoDB 나침반을 사용하여 코스모스 DB 계정에 연결하려면 다음을 수행해야 합니다.
+MongoDB 나침반을 사용 하 여 Cosmos DB 계정에 연결 하려면 다음을 수행 해야 합니다.
 
 * [Compass](https://www.mongodb.com/download-center/compass?jmp=hero) 다운로드 및 설치
 * Cosmos DB [연결 문자열](connect-mongodb-account.md) 정보 확보
 
 > [!NOTE]
-> 현재 몽고DB 서버 버전 3.2에 대한 Azure 코스모스 DB의 API는 몽고DB 나침반으로 지원됩니다.
+> 현재 MongoDB Server 버전 3.2에 대 한 Azure Cosmos DB API는 MongoDB 나침반에서 지원 됩니다.
 
 ## <a name="connect-to-cosmos-dbs-api-for-mongodb"></a>MongoDB용 Cosmos DB API에 연결
 
