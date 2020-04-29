@@ -1,6 +1,6 @@
 ---
-title: Azure 저장소 - Azure CLI로 데이터 유출 제한
-description: 이 문서에서는 Azure CLI를 사용하는 가상 네트워크 서비스 끝점 정책을 사용하여 가상 네트워크 데이터 유출을 Azure Storage 리소스로 제한하고 제한하는 방법을 알아봅니다.
+title: Azure Storage에 대 한 데이터 반출 제한 Azure CLI
+description: 이 문서에서는 Azure CLI를 사용 하 여 가상 네트워크 서비스 끝점 정책으로 리소스를 Azure Storage 하는 가상 네트워크 데이터를 제한 하 고 제한 하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: rdhillon
@@ -18,34 +18,34 @@ ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
 ms.openlocfilehash: e01af052a936403162115965f2dc5b3ad46dd9cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78271177"
 ---
-# <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트 정책을 사용하여 Azure Storage 계정에 대한 데이터 유출 관리
+# <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Azure CLI를 사용 하 여 가상 네트워크 서비스 끝점 정책으로 계정을 Azure Storage 하는 데이터 반출 관리
 
-가상 네트워크 서비스 끝점 정책을 사용하면 서비스 끝점을 통해 가상 네트워크 내에서 Azure Storage 계정에 액세스 제어를 적용할 수 있습니다. 이는 워크로드를 보호하고 허용되는 저장소 계정과 데이터 유출이 허용되는 위치를 관리하는 데 핵심적인 핵심입니다.
+가상 네트워크 서비스 끝점 정책을 사용 하면 서비스 끝점을 통해 가상 네트워크 내에서 Azure Storage 계정에 대 한 액세스 제어를 적용할 수 있습니다. 이는 작업을 보호 하 고, 허용 되는 저장소 계정 및 데이터 반출이 허용 되는 위치를 관리 하는 데 중요 합니다.
 이 문서에서는 다음 방법을 설명합니다.
 
-* 가상 네트워크를 만들고 서브넷을 추가합니다.
-* Azure 저장소에 대한 서비스 끝점을 활성화합니다.
-* 두 개의 Azure Storage 계정을 만들고 위에 작성된 서브넷에서 네트워크에 액세스할 수 있도록 허용합니다.
-* 저장소 계정 중 하나에만 액세스할 수 있도록 서비스 끝점 정책을 만듭니다.
-* 서브넷에 가상 시스템(VM)을 배포합니다.
-* 서브넷에서 허용된 저장소 계정에 대한 액세스를 확인합니다.
-* 서브넷에서 허용되지 않는 저장소 계정에 대한 액세스가 거부되어 있는지 확인합니다.
+* 가상 네트워크를 만들고 서브넷을 추가 합니다.
+* Azure Storage에 대해 서비스 끝점을 사용 하도록 설정 합니다.
+* 두 개의 Azure Storage 계정을 만들고 위에서 만든 서브넷에서 네트워크 액세스를 허용 합니다.
+* 저장소 계정 중 하나에만 액세스를 허용 하는 서비스 끝점 정책을 만듭니다.
+* 서브넷에 VM (가상 머신)을 배포 합니다.
+* 서브넷에서 허용 된 저장소 계정에 대 한 액세스를 확인 합니다.
+* 서브넷에서 허용 되지 않는 저장소 계정에 대 한 액세스가 거부 되었는지 확인 합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하십시오. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *동쪽* 위치에 *myResourceGroup이라는* 리소스 그룹을 만듭니다.
+가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create \
@@ -66,7 +66,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>서비스 엔드포인트 사용 
 
-이 예제에서는 서브넷 *Private에*대해 *Microsoft.Storage에* 대한 서비스 끝점이 만들어집니다. 
+이 예제에서는 서브넷 *개인*에 대해 *Microsoft. Storage* 에 대 한 서비스 끝점을 만듭니다. 
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -114,7 +114,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-각 네트워크 보안 그룹에는 몇 가지 [기본 보안 규칙이](security-overview.md#default-security-rules)포함되어 있습니다. 다음 규칙은 모든 공용 IP 주소에 대한 아웃바운드 액세스를 허용하는 기본 보안 규칙을 재정의합니다. 이 `destination-address-prefix "Internet"` 옵션은 모든 공용 IP 주소에 대한 아웃바운드 액세스를 거부합니다. 우선 순위가 더 높은 이전 규칙이 이 규칙을 재정의하여 Azure Storage의 공용 IP 주소에 대한 액세스를 허용합니다.
+각 네트워크 보안 그룹에는 몇 가지 [기본 보안 규칙이](security-overview.md#default-security-rules)포함 되어 있습니다. 다음 규칙은 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 허용 하는 기본 보안 규칙을 재정의 합니다. 옵션 `destination-address-prefix "Internet"` 은 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 거부 합니다. 우선 순위가 더 높은 이전 규칙이 이 규칙을 재정의하여 Azure Storage의 공용 IP 주소에 대한 액세스를 허용합니다.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -131,7 +131,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-다음 규칙을 사용하면 SSH 트래픽이 어디서나 서브넷으로 인바운드될 수 있습니다. 이 규칙은 인터넷의 모든 인바운드 트래픽을 거부하는 기본 보안 규칙을 재정의합니다. SSH는 서브넷에 허용되므로 이후 단계에서 연결을 테스트할 수 있습니다.
+다음 규칙은 어디에서 나 서브넷에 대 한 SSH 트래픽 인바운드를 허용 합니다. 이 규칙은 인터넷의 모든 인바운드 트래픽을 거부하는 기본 보안 규칙을 재정의합니다. 이후 단계에서 연결을 테스트할 수 있도록 서브넷에 SSH를 사용할 수 있습니다.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -148,13 +148,13 @@ az network nsg rule create \
   --destination-port-range "22"
 ```
 
-## <a name="restrict-network-access-to-azure-storage-accounts"></a>Azure Storage 계정에 대한 네트워크 액세스 제한
+## <a name="restrict-network-access-to-azure-storage-accounts"></a>Azure Storage 계정에 대 한 네트워크 액세스 제한
 
-이 섹션에서는 서비스 끝점을 통해 가상 네트워크의 지정된 서브넷에서 Azure Storage 계정에 대한 네트워크 액세스를 제한하는 단계를 나열합니다.
+이 섹션에서는 서비스 끝점을 통해 가상 네트워크의 지정 된 서브넷에서 Azure Storage 계정에 대 한 네트워크 액세스를 제한 하는 단계를 나열 합니다.
 
 ### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-az 저장소 계정을 만들어 두 개의 Azure [저장소 계정을 만듭니다.](/cli/azure/storage/account)
+[Az storage account create](/cli/azure/storage/account)를 사용 하 여 두 개의 Azure storage 계정을 만듭니다.
 
 ```azurecli-interactive
 storageAcctName1="allowedstorageacc"
@@ -174,7 +174,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-저장소 계정을 만든 후 az 저장소 계정 [표시 연결 문자열을](/cli/azure/storage/account)가진 변수로 저장소 계정에 대 한 연결 문자열을 검색합니다. 이 연결 문자열은 이후 단계에서 파일 공유를 만드는 데 사용됩니다.
+저장소 계정을 만든 후에는 [az storage account show-connection 문자열](/cli/azure/storage/account)을 사용 하 여 저장소 계정에 대 한 연결 문자열을 변수로 검색 합니다. 이 연결 문자열은 이후 단계에서 파일 공유를 만드는 데 사용됩니다.
 
 ```azurecli-interactive
 saConnectionString1=$(az storage account show-connection-string \
@@ -214,7 +214,7 @@ az storage share create \
   --connection-string $saConnectionString2 > /dev/null
 ```
 
-### <a name="deny-all-network-access-to-the-storage-account"></a>저장소 계정에 대한 모든 네트워크 액세스 거부
+### <a name="deny-all-network-access-to-the-storage-account"></a>저장소 계정에 대 한 모든 네트워크 액세스 거부
 
 기본적으로 스토리지 계정은 네트워크에 있는 클라이언트의 네트워크 연결을 허용합니다. 선택한 네트워크에 대한 액세스를 제한하려면 [az storage account update](/cli/azure/storage/account)를 사용하여 기본 작업을 *거부*로 변경합니다. 네트워크 액세스가 거부되면 네트워크에서 스토리지 계정에 액세스할 수 없습니다.
 
@@ -230,7 +230,7 @@ az storage account update \
   --default-action Deny
 ```
 
-### <a name="enable-network-access-from-virtual-network-subnet"></a>가상 네트워크 서브넷에서 네트워크 액세스 활성화
+### <a name="enable-network-access-from-virtual-network-subnet"></a>가상 네트워크 서브넷에서 네트워크 액세스 사용
 
 [az storage account network-rule add](/cli/azure/storage/account/network-rule)를 사용하여 *프라이빗* 서브넷에서 스토리지 계정에 대한 네트워크 액세스를 허용합니다.
 
@@ -248,11 +248,11 @@ az storage account network-rule add \
   --subnet Private
 ```
 
-## <a name="apply-policy-to-allow-access-to-valid-storage-account"></a>유효한 저장소 계정에 대한 액세스를 허용하도록 정책을 적용
+## <a name="apply-policy-to-allow-access-to-valid-storage-account"></a>올바른 저장소 계정에 대 한 액세스를 허용 하는 정책 적용
 
-Azure 서비스 엔드포인트 정책은 Azure 저장소에서만 사용할 수 있습니다. 따라서 이 예제 설정에 대해 이 서브넷에서 *Microsoft.Storage용* 서비스 엔드포인트를 사용하도록 설정합니다.
+Azure 서비스 끝점 정책은 Azure Storage에만 사용할 수 있습니다. 따라서이 예제 설치에서는이 서브넷의 *Microsoft 저장소* 에 대 한 서비스 끝점을 사용 하도록 설정 합니다.
 
-서비스 끝점 정책은 서비스 끝점에 적용됩니다. 먼저 서비스 끝점 정책을 만듭니다. 그런 다음 이 정책에 따라 Azure Storage 계정이 이 서브넷에 대해 화이트리스트에 등록될 정책 정의를 만듭니다.
+서비스 끝점 정책은 서비스 끝점에 적용 됩니다. 서비스 끝점 정책을 만들어 시작 합니다. 그런 다음이 서브넷에 대 한 허용 목록 계정이이 정책 Azure Storage에 정책 정의를 만듭니다.
 
 서비스 엔드포인트 정책 만들기
 
@@ -263,13 +263,13 @@ az network service-endpoint policy create \
   --location eastus
 ```
 
-허용된 저장소 계정에 대한 리소스 URI를 변수에 저장합니다. 아래 명령을 실행하기 전에 * \<구독 id>* 구독 ID의 실제 값으로 바꿉습니다.
+허용 되는 저장소 계정에 대 한 리소스 URI를 변수에 저장 합니다. 아래 명령을 실행 하기 전에 * \<-subscription id>* 를 구독 id의 실제 값으로 바꿉니다.
 
 ```azurecli-interactive
 $serviceResourceId="/subscriptions/<your-subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/allowedstorageacc"
 ```
 
-& 만들기 서비스 끝점 정책에 위의 Azure Storage 계정을 허용 하기 위한 정책 정의 추가
+위의 Azure Storage 계정을 서비스 끝점 정책에 허용 하는 정책 정의를 만들고 & 추가 합니다.
 
 ```azurecli-interactive
 az network service-endpoint policy-definition create \
@@ -280,7 +280,7 @@ az network service-endpoint policy-definition create \
   --service-resources $serviceResourceId
 ```
 
-가상 네트워크 서브넷을 업데이트하여 이전 단계에서 만든 서비스 엔드포인트 정책과 연결합니다.
+그리고 가상 네트워크 서브넷을 업데이트 하 여 이전 단계에서 만든 서비스 끝점 정책에 연결 합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -291,13 +291,13 @@ az network vnet subnet update \
   --service-endpoint-policy mysepolicy
 ```
 
-## <a name="validate-access-restriction-to-azure-storage-accounts"></a>Azure Storage 계정에 대한 액세스 제한 유효성 검사
+## <a name="validate-access-restriction-to-azure-storage-accounts"></a>Azure Storage 계정에 대 한 액세스 제한 확인
 
 ### <a name="create-the-virtual-machine"></a>가상 머신 만들기
 
-저장소 계정에 대한 네트워크 액세스를 테스트하려면 서브넷에 VM을 배포합니다.
+저장소 계정에 대 한 네트워크 액세스를 테스트 하려면 서브넷에 VM을 배포 합니다.
 
-az vm 을 만드는 *개인* 서브넷에서 [VM을 만듭니다.](/cli/azure/vm) 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.
+[Az vm create](/cli/azure/vm)를 사용 하 여 *개인* 서브넷에서 vm을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.
 
 ```azurecli-interactive
 az vm create \
@@ -313,7 +313,7 @@ VM을 만드는 데 몇 분이 걸립니다. 만든 후에는 반환된 출력�
 
 ### <a name="confirm-access-to-storage-account"></a>스토리지 계정에 대한 액세스 확인
 
-*myVmPrivate* VM으로 SSH를 수행합니다. * \<publicIpAddress>* *myVmPrivate* VM의 공용 IP 주소로 바꿉니다.
+*myVmPrivate* VM으로 SSH를 수행합니다. * \<PublicIpAddress>* 를 *myvmprivate* VM의 공용 IP 주소로 바꿉니다.
 
 ```bash 
 ssh <publicIpAddress>
@@ -325,7 +325,7 @@ ssh <publicIpAddress>
 sudo mkdir /mnt/MyAzureFileShare1
 ```
 
-만든 디렉터리에 Azure 파일 공유를 탑재합니다. 아래 명령을 실행하기 전에 * \<저장소 계정 키>* **$saConnectionString1에서** *AccountKey* 값으로 바꿉꿉습니다.
+만든 디렉터리에 Azure 파일 공유를 탑재합니다. 아래 명령을 실행 하기 전에 *AccountKey* 값으로 * \<저장소-계정 키>* 를 **$saConnectionString 1**의 값으로 바꿉니다.
 
 ```bash
 sudo mount --types cifs //allowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare1 --options vers=3.0,username=allowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -335,21 +335,21 @@ sudo mount --types cifs //allowedstorageacc.file.core.windows.net/my-file-share 
 
 ### <a name="confirm-access-is-denied-to-storage-account"></a>스토리지 계정에 대한 액세스가 거부되는지 확인
 
-동일한 VM *myVmPrivate에서*마운트 지점에 대한 디렉터리를 만듭니다.
+동일한 VM *Myvmprivate*에서 탑재 지점에 대 한 디렉터리를 만듭니다.
 
 ```bash
 sudo mkdir /mnt/MyAzureFileShare2
 ```
 
-저장소 계정에서 Azure 파일 공유를 마운트하려고 *시도하여 허용되지 않는storageacc를* 만든 디렉터리로 이동합니다. 이 문서에서는 최신 버전의 Ubuntu를 배포했다고 가정합니다. 이전 버전의 Ubuntu를 사용하는 경우 [Linux에 탑재](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 파일 공유 탑재에 대한 추가 지침을 참조하세요. 
+저장소 계정 *notallowedstorageacc* 에서 만든 디렉터리에 Azure 파일 공유를 탑재 하려고 합니다. 이 문서에서는 최신 버전의 Ubuntu를 배포했다고 가정합니다. 이전 버전의 Ubuntu를 사용하는 경우 [Linux에 탑재](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 파일 공유 탑재에 대한 추가 지침을 참조하세요. 
 
-아래 명령을 실행하기 전에 * \<저장소 계정 키>* **$saConnectionString2에서** *AccountKey* 값으로 바꿉꿉습니다.
+아래 명령을 실행 하기 전에 *AccountKey* 값으로 * \<저장소-계정 키>* 를 **$saConnectionString 2**의 값으로 바꿉니다.
 
 ```bash
 sudo mount --types cifs //notallowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare2 --options vers=3.0,username=notallowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-이 저장소 계정이 서브넷에 적용한 서비스 끝점 정책의 허용 목록에 없기 때문에 액세스가 거부되고 `mount error(13): Permission denied` 오류가 발생합니다. 
+이 저장소 계정은 서브넷에 적용 한 서비스 `mount error(13): Permission denied` 끝점 정책의 허용 목록에 없기 때문에 액세스가 거부 되 고 오류가 수신 됩니다. 
 
 *myVmPublic* VM에 대한 SSH 세션을 종료합니다.
 
@@ -363,4 +363,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure 가상 네트워크 서비스 끝점을 Azure 저장소에 서비스 끝점 정책을 적용했습니다. Azure Storage 계정을 만들고 가상 네트워크 서브넷에서 특정 저장소 계정만 네트워크 액세스(따라서 다른 저장소 계정거부)에 만 네트워크 액세스를 제한했습니다. 서비스 끝점 정책에 대한 자세한 내용은 [서비스 끝점 정책 개요를](virtual-network-service-endpoint-policies-overview.md)참조하세요.
+이 문서에서는 Azure 가상 네트워크 서비스 끝점에 대 한 서비스 끝점 정책을 Azure Storage에 적용 했습니다. 가상 네트워크 서브넷에서 특정 저장소 계정 (즉, 다른 사용자가 거부 함)에 대 한 제한 된 네트워크 액세스와 Azure Storage 계정을 만들었습니다. 서비스 끝점 정책에 대해 자세히 알아보려면 [서비스 끝점 정책 개요](virtual-network-service-endpoint-policies-overview.md)를 참조 하세요.

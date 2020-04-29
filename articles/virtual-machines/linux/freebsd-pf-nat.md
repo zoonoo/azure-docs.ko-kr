@@ -1,5 +1,5 @@
 ---
-title: FreeBSD의 패킷 필터를 사용하여 Azure에서 방화벽만들기
+title: FreeBSD의 패킷 필터를 사용 하 여 Azure에서 방화벽 만들기
 description: Azure에서 FreeBSD의 PF를 사용하여 NAT 방화벽을 배포하는 방법을 알아봅니다.
 author: KylieLiang
 ms.service: virtual-machines-linux
@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
 ms.openlocfilehash: 9b78c0d93b57a3e3f4963088d0b93f121f57483c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78945102"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Azure에서 FreeBSD 패킷 필터를 사용하여 보안 방화벽을 만드는 방법
@@ -21,7 +21,7 @@ ms.locfileid: "78945102"
 ## <a name="what-is-pf"></a>PF란?
 PF(패킷 필터 또는 pf)는 BSD에서 사용이 허가된 상태 저장 패킷 필터로, 방화벽을 위한 소프트웨어의 핵심 부분입니다. PF는 빠르게 발전해 왔으며 현재 사용 가능한 다른 방화벽에 비해 여러 가지 이점을 제공합니다. NAT(네트워크 주소 변환)는 처음부터 PF에 포함되었으며, 이후에 ALTQ를 통합하고 PF의 구성을 통해 구성할 수 있게 함으로써 패킷 스케줄러 및 활성 큐 관리 기능이 PF에 통합되었습니다. 장애 조치(failover) 및 중복성을 위한 pfsync 및 CARP, 세션 인증을 위한 authpf, 까다로운 FTP 프로토콜을 방화벽으로 쉽게 차단하기 위한 ftp-proxy 등의 기능도 PF를 확장했습니다. 즉, PF는 강력하고 풍부한 기능을 갖춘 방화벽입니다. 
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 웹 서버에 대해 클라우드에서 보안 방화벽을 설정하려는 경우 지금 시작해 보겠습니다. 네트워킹 토폴로지를 설정하기 위해 이 Azure Resource Manager 템플릿에 사용된 스크립트를 적용할 수도 있습니다.
 Azure Resource Manager 템플릿은 Nginx 웹 서버가 설치 및 구성된 2대의 FreeBSD 가상 머신과 PF를 사용하여 NAT/리디렉션을 수행하는 FreeBSD 가상 머신을 설정합니다. 두 웹 서버 송신 트래픽에 대해 NAT를 수행하는 것 외에도, NAT/리디렉션 가상 머신은 HTTP 요청을 가로챈 후 로빈 방식으로 두 웹 서버로 리디렉션합니다. VNet은 라우팅할 수 없는 개인 IP 주소 공간 10.0.0.2/24를 사용하며 사용자는 템플릿의 매개 변수를 수정할 수 있습니다. 또한 Azure Resource Manager 템플릿은 대상 IP 주소를 기준으로 Azure 기본 경로를 재정의하는 데 사용되는 개별 경로 컬렉션에 해당하는 전체 VNet에 대해 경로 테이블을 정의합니다. 
 
@@ -34,7 +34,7 @@ Azure Resource Manager 템플릿은 Nginx 웹 서버가 설치 및 구성된 2�
 az group create --name myResourceGroup --location westus
 ```
 
-다음으로 [az group deployment create](/cli/azure/group/deployment)를 사용하여 [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) 템플릿을 배포합니다. 동일한 경로에서 [azuredeploy.parameters.json을](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) 다운로드하고 에서 와 `adminPassword`같은 `networkPrefix` `domainNamePrefix`고유한 리소스 값을 정의합니다. 
+다음으로 [az group deployment create](/cli/azure/group/deployment)를 사용하여 [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) 템플릿을 배포합니다. 동일한 경로에서 [azuredeploy](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) 를 다운로드 하 고 `adminPassword`, `networkPrefix`및 `domainNamePrefix`와 같은 고유한 리소스 값을 정의 합니다. 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \

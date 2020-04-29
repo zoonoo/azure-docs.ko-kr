@@ -1,5 +1,5 @@
 ---
-title: 클라우드-init을 사용하여 Azure의 Linux VM에서 bash 스크립트를 실행합니다.
+title: Cloud init를 사용 하 여 Azure의 Linux VM에서 bash 스크립트 실행
 description: Azure CLI에서 cloud-init를 사용하여 생성 중인 Linux VM에서 bash 스크립트를 실행하는 방법
 author: rickstercdn
 ms.service: virtual-machines-linux
@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: e2f19ceb6c7f19ba749b46a3553036587be6a71a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78969225"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>cloud-init를 사용하여 Azure의 Linux VM에서 bash 스크립트 실행
-이 문서는 [cloud-init](https://cloudinit.readthedocs.io)를 사용하여 Azure의 프로비전 시간에서 Linux VM(가상 머신) 또는 VMSS(가상 머신 확장 집합)에서 기존 bash 스크립트를 실행하는 방법을 보여 줍니다. Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다. Azure 및 지원되는 Linux 배포판에서 클라우드 init이 기본적으로 작동하는 방식에 대한 자세한 내용은 [클라우드 init 개요를](using-cloud-init.md) 참조하세요.
+이 문서는 [cloud-init](https://cloudinit.readthedocs.io)를 사용하여 Azure의 프로비전 시간에서 Linux VM(가상 머신) 또는 VMSS(가상 머신 확장 집합)에서 기존 bash 스크립트를 실행하는 방법을 보여 줍니다. Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다. 클라우드 초기화가 Azure에서 기본적으로 작동 하는 방법 및 지원 되는 Linux 배포판에 대 한 자세한 내용은 [클라우드-초기화 개요](using-cloud-init.md) 를 참조 하세요.
 
 ## <a name="run-a-bash-script-with-cloud-init"></a>cloud-init를 사용하여 bash 스크립트 실행
 cloud-init를 사용하면 기존 스크립트를 cloud-config로 변환할 필요가 없습니다. cloud-init는 여러 입력 형식을 허용합니다. 그 중 하나는 bash 스크립트입니다.
@@ -28,7 +28,7 @@ Linux 사용자 지정 스크립트 Azure 확장을 사용하여 스크립트를
 echo "this has been written via cloud-init" + $(date) >> /tmp/myScript.txt
 ```
 
-이 이미지를 배포하기 전에 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만들어야 합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *동쪽* 위치에 *myResourceGroup이라는* 리소스 그룹을 만듭니다.
+이 이미지를 배포하기 전에 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만들어야 합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus

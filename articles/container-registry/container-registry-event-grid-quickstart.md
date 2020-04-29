@@ -1,17 +1,17 @@
 ---
-title: 빠른 시작 - 이벤트 그리드에 이벤트 보내기
+title: 빠른 시작-Event Grid로 이벤트 보내기
 description: 이 빠른 시작에서는 컨테이너 레지스트리에 Event Grid 이벤트를 활성화한 다음, 애플리케이션 예제에 컨테이너 이미지 push 및 delete 이벤트를 전송합니다.
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18
 ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78403242"
 ---
-# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>빠른 시작: 개인 컨테이너 레지스트리에서 이벤트 그리드로 이벤트 보내기
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>빠른 시작: 개인 컨테이너 레지스트리의 이벤트를 Event Grid으로 보내기
 
 Azure Event Grid는 게시-구독 모델을 사용하여 균일한 이벤트 소비를 제공하는 완전히 관리되는 이벤트 라우팅 서비스입니다. 이 빠른 시작에서는 Azure CLI를 사용하여 컨테이너 레지스트리를 만들고, 레지스트리 이벤트를 구독한 다음, 샘플 웹 애플리케이션을 배포하여 이벤트를 수신합니다. 마지막으로, 컨테이너 이미지 `push` 및 `delete` 이벤트를 트리거하고 애플리케이션 예제에서 이벤트 페이로드를 봅니다.
 
@@ -200,7 +200,7 @@ Are you sure you want to continue? (y/n):
 
 ![ImagePushed 및 ImageDeleted 이벤트가 있는 샘플 앱을 보여주는 웹 브라우저][sample-app-03]
 
-축하합니다! `ImagePushed` 및 `ImageDeleted` 이벤트를 보면 레지스트리가 Event Grid로 이벤트를 보내고 있고, Event Grid가 이러한 이벤트를 웹앱 엔드포인트로 전달하고 있습니다.
+지금까지 `ImagePushed` 및 `ImageDeleted` 이벤트를 보면 레지스트리가 Event Grid로 이벤트를 보내고 있고, Event Grid가 이러한 이벤트를 웹앱 엔드포인트로 전달하고 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

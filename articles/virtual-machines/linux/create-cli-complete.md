@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용하여 Linux 환경 만들기
+title: Azure CLI를 사용 하 여 Linux 환경 만들기
 description: Azure CLI를 사용하여 스토리지, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 디바이스, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 7ee4674f5e7c04709256459c3417a1379a65aedc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78969555"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI를 사용하여 완전한 Linux 가상 머신 만들기
@@ -21,7 +21,7 @@ Azure에서 가상 머신(VM)를 신속하게 만들려면 기본 값을 사용�
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myVnet*, *myVM*이 포함됩니다.
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹은 가상 머신과 지원하는 가상 네트워크 리소스에 앞서 만들어져야 합니다. [az group create](/cli/azure/group)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *동쪽* 위치에 *myResourceGroup이라는* 리소스 그룹을 만듭니다.
+Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹은 가상 머신과 지원하는 가상 네트워크 리소스에 앞서 만들어져야 합니다. [az group create](/cli/azure/group)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -473,7 +473,7 @@ az vm availability-set create \
 
 인증에 사용할 SSH 키를 지정합니다. SSH 공개 키 쌍이 없는 경우 [만들거나 ](mac-create-ssh-keys.md)`--generate-ssh-keys` 매개 변수를 사용하여 만들 수 있습니다. 키 쌍이 있으면 이 매개 변수는 `~/.ssh`의 기존 키를 사용합니다.
 
-[az vm create](/cli/azure/vm) 명령으로 모든 리소스 및 정보를 결합하여 VM을 만듭니다. 다음 예제는 *myVM이라는 VM을*만듭니다.
+[az vm create](/cli/azure/vm) 명령으로 모든 리소스 및 정보를 결합하여 VM을 만듭니다. 다음 예제에서는 *myvm*이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \
@@ -550,7 +550,7 @@ sudo apt-get install -y nginx
 ![VM의 기본 NGINX 사이트](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>템플릿으로 내보내기
-동일한 매개 변수를 사용하여 추가 개발 환경을 만들려고 하거나 일치하는 프로덕션 환경을 만들려면 어떻게 해야 할까요? Resource Manager는 사용자 환경에 대한 모든 매개 변수를 정의하는 JSON 템플릿을 사용합니다. 이 JSON 템플릿을 참조하여 전체 환경을 빌드합니다. [JSON 템플릿을 수동으로 빌드하거나](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 기존 환경을 내보내 JSON 템플릿을 만들 수 있습니다. 다음과 같이 [az group export](/cli/azure/group)를 사용하여 리소스 그룹을 내보냅니다.
+동일한 매개 변수를 사용하여 추가 개발 환경을 만들려고 하거나 일치하는 프로덕션 환경을 만들려면 어떻게 해야 할까요? Resource Manager는 사용자 환경에 대한 모든 매개 변수를 정의하는 JSON 템플릿을 사용합니다. 이 JSON 템플릿을 참조하여 전체 환경을 빌드합니다. Json [템플릿을 수동으로 작성](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 하거나 기존 환경을 내보내 json 템플릿을 만들 수 있습니다. 다음과 같이 [az group export](/cli/azure/group)를 사용하여 리소스 그룹을 내보냅니다.
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json

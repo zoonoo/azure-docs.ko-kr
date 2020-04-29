@@ -16,25 +16,25 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 292f3e8819f6f9f4b2989423814e02dfcfb4bfdb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79127675"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines에서 SQL Server의 자동화된 패치(리소스 관리자)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](virtual-machines-windows-sql-automated-patching.md)
-> * [고전적인](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
+> * [기존](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
 자동화된 패치는 SQL Server를 실행하는 Azure Virtual Machine에 대한 유지 관리 기간을 설정합니다. 이 유지 관리 기간 동안만 자동화된 업데이트를 설치할 수 있습니다. SQL Server의 경우 이 제한을 통해 시스템 업데이트 및 관련 재시작 작업이 데이터베이스에 가장 적절한 시간에 수행됩니다. 
 
 > [!IMPORTANT]
-> **중요** 또는 **중요로** 표시된 Windows 및 SQL Server 업데이트만 설치됩니다. **중요** 또는 **중요로** 표시되지 않은 서비스 팩 및 누적 업데이트와 같은 다른 SQL Server 업데이트는 수동으로 설치해야 합니다. 
+> **중요** 또는 **중요** 로 표시 된 Windows 및 SQL Server 업데이트만 설치 됩니다. **중요** 또는 **중요** 로 표시 되지 않은 서비스 팩 및 누적 업데이트와 같은 기타 SQL Server 업데이트는 수동으로 설치 해야 합니다. 
 
 자동화된 패치는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에 따라 다릅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 자동화된 패치를 사용하려면 다음 필수 조건을 고려하세요.
 
 **운영 체제**:
@@ -44,7 +44,7 @@ ms.locfileid: "79127675"
 * Windows Server 2012 R2
 * Windows Server 2016
 
-**SQL 서버 버전**:
+**SQL Server 버전**:
 
 * SQL Server 2008 R2
 * SQL Server 2012
@@ -52,7 +52,7 @@ ms.locfileid: "79127675"
 * SQL Server 2016
 * SQL Server 2017
 
-**Azure 파워쉘**:
+**Azure PowerShell**:
 
 * [최신 Azure PowerShell 명령을 설치합니다](/powershell/azure/overview) .
 
@@ -66,7 +66,7 @@ ms.locfileid: "79127675"
 ## <a name="settings"></a>설정
 다음 표에서는 자동화된 패치에 대해 구성할 수 있는 옵션을 설명합니다. 실제 구성 단계는 Azure 포털 또는 Azure Windows PowerShell 명령 사용 여부에 따라 달라집니다.
 
-| 설정 | 가능한 값 | 설명 |
+| 설정 | 가능한 값 | Description |
 | --- | --- | --- |
 | **자동화된 패치** |사용/사용 안 함(사용 안 함) |Azure 가상 머신에 대한 자동화된 패치를 사용 또는 사용 안 함으로 설정합니다. |
 | **유지 관리 일정** |매일, 월요일, 화요일, 수요일, 목요일, 금요일, 토요일, 일요일 |가상 머신에 대한 Windows, SQL Server 및 Microsoft 업데이트 다운로드 및 설치에 대한 일정입니다. |
@@ -80,7 +80,7 @@ Azure 포털을 사용하여 프로비전 중에 또는 기존 VM에 대해 자�
 ### <a name="new-vms"></a>새 VM
 Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server Virtual Machine을 만들 때 자동화된 패치를 구성합니다.
 
-SQL **Server 설정** 탭에서 자동 패치 에서 **구성 변경을** **선택합니다.** 다음 Azure 포털 스크린샷은 **SQL 자동화된 패치** 블레이드를 보여 줍니다.
+**SQL Server 설정** 탭의 **자동화 된 패치**에서 **구성 변경** 을 선택 합니다. 다음 Azure 포털 스크린샷은 **SQL 자동화된 패치** 블레이드를 보여 줍니다.
 
 ![Azure 포털에서 SQL 자동화된 패치](./media/virtual-machines-windows-sql-automated-patching/azure-sql-arm-patching.png)
 
@@ -90,7 +90,7 @@ SQL **Server 설정** 탭에서 자동 패치 에서 **구성 변경을** **선�
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-기존 SQL Server 가상 시스템의 경우 [SQL 가상 컴퓨터 리소스를](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) 열고 **설정에서** **패치를** 선택합니다. 
+기존 SQL Server 가상 컴퓨터의 경우 [SQL 가상 컴퓨터 리소스](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) 를 열고 **설정**에서 **패치** 를 선택 합니다. 
 
 ![기존 VM에 대한 SQL 자동 패치](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-existing-vms.png)
 
@@ -102,12 +102,12 @@ SQL **Server 설정** 탭에서 자동 패치 에서 **구성 변경을** **선�
 ## <a name="configuration-with-powershell"></a>PowerShell을 사용하여 구성
 SQL VM을 프로비전한 후 PowerShell을 사용하여 자동화된 패치를 구성합니다.
 
-다음 예제에서는 PowerShell을 사용하여 기존 SQL Server VM에 대해 자동화된 패치를 구성합니다. **New-AzVMSqlServer자동 패칭구성** 명령은 자동 업데이트를 위한 새 유지 관리 기간을 구성합니다.
+다음 예제에서는 PowerShell을 사용하여 기존 SQL Server VM에 대해 자동화된 패치를 구성합니다. **AzVMSqlServerAutoPatchingConfig** 명령은 자동 업데이트에 대 한 새 유지 관리 기간을 구성 합니다.
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
     $aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
-s 세트 AzVMSqlServerExtension -자동 패치설정 $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+s AzVMSqlServerExtension-AutoPatchingSettings $aps-VMName $vmname-ResourceGroupName $resourcegroupname
 
 > [!IMPORTANT]
 > 확장 프로그램이 아직 설치되지 않은 경우 확장 프로그램을 설치하면 SQL Server 서비스가 다시 시작됩니다.
@@ -116,14 +116,14 @@ s 세트 AzVMSqlServerExtension -자동 패치설정 $aps -VMName $vmname -Resou
 
 | 매개 변수 | 영향 |
 | --- | --- |
-| **Dayofweek** |매주 목요일마다 패치가 설치됩니다. |
+| **DayOfWeek** |매주 목요일마다 패치가 설치됩니다. |
 | **MaintenanceWindowStartingHour** |오전 11시에 업데이트를 시작합니다. |
 | **MaintenanceWindowsDuration** |120분 이내에 패치를 설치해야 합니다. 시작 시간을 기준으로 오후 1시까지 완료해야 합니다. |
-| **PatchCategory** |이 매개 변수에 대한 유일한 가능한 설정은 **중요**. 이렇게 하면 중요로 표시된 Windows 업데이트가 설치되고, 이 범주에 포함되지 않는 모든 SQL Server 업데이트는 설치되지 않습니다. |
+| **PatchCategory** |이 매개 변수에 사용할 수 있는 유일한 설정은 **중요**합니다. 이렇게 하면 중요로 표시된 Windows 업데이트가 설치되고, 이 범주에 포함되지 않는 모든 SQL Server 업데이트는 설치되지 않습니다. |
 
 SQL Server IaaS 에이전트를 설치하고 구성하는 데는 몇 분 정도 걸릴 수 있습니다.
 
-자동 패치를 사용하지 않으려면 **New-AzVMSqlServer자동 패칭구성에** **대한 -Enable** 매개 변수 없이 동일한 스크립트를 실행합니다. **-Enable** 매개 변수가 없는 경우 기능을 해제하는 명령을 신호로 보냅니다.
+자동화 된 패치를 사용 하지 않도록 설정 하려면 **-Enable** 매개 변수 없이 동일한 스크립트를 **AzVMSqlServerAutoPatchingConfig**으로 실행 합니다. **-Enable** 매개 변수가 없는 경우 기능을 해제하는 명령을 신호로 보냅니다.
 
 ## <a name="next-steps"></a>다음 단계
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.

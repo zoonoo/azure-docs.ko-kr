@@ -1,6 +1,6 @@
 ---
-title: Azure 모니터의 Azure 릴레이 메트릭 | 마이크로 소프트 문서
-description: 이 문서에서는 Azure 모니터를 사용하여 Azure 릴레이 상태를 모니터링하는 방법에 대한 정보를 제공합니다.
+title: Azure Monitor Azure Relay 메트릭 Microsoft Docs
+description: 이 문서에서는 Azure Monitor를 사용 하 여 Azure Relay 상태를 모니터링 하는 방법에 대 한 정보를 제공 합니다.
 services: service-bus-relay
 documentationcenter: .NET
 author: spelluru
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 159249e2c997e4c414127992b08a83b488281e46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273127"
 ---
-# <a name="azure-relay-metrics-in-azure-monitor"></a>Azure 모니터의 Azure 릴레이 메트릭 
+# <a name="azure-relay-metrics-in-azure-monitor"></a>Azure Monitor Azure Relay 메트릭 
 Azure Relay 메트릭은 Azure 구독에서 리소스의 상태를 제공합니다. 풍부한 메트릭 데이터 집합을 사용하여 네임스페이스 수준뿐만 아니라 엔터티 수준에서 Relay 리소스의 전반적인 상태를 평가할 수 있습니다. 이러한 통계는 Azure Relay의 상태를 모니터링하는 데 도움을 주므로 중요할 수 있습니다. Azure 지원에 문의할 필요 없이 메트릭을 통해 근본 원인 문제를 해결할 수도 있습니다.
 
 Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합된 사용자 인터페이스를 제공합니다. 자세한 내용은 GitHub의 [Microsoft Azure에서 모니터링](../monitoring-and-diagnostics/monitoring-overview.md) 및 [.NET을 사용하여 Azure Monitor 메트릭 검색](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) 샘플을 참조하세요.
@@ -47,7 +47,7 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 ## <a name="billing"></a>결제
 
-Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 현재 무료입니다. 그러나 메트릭 데이터를 수집하는 추가 솔루션을 사용하는 경우 해당 솔루션에서 요금을 청구할 수 있습니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 또한 고급 분석을 위해 메트릭 데이터를 Azure Monitor 로그로 스트리밍하는 경우 Azure Monitor 로그에 의해 청구됩니다.
+Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 현재 무료입니다. 그러나 메트릭 데이터를 수집하는 추가 솔루션을 사용하는 경우 해당 솔루션에서 요금을 청구할 수 있습니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 고급 분석을 위해 메트릭 데이터를 Azure Monitor 로그에 스트리밍하는 경우에도 로그를 Azure Monitor 하 여 비용이 청구 됩니다.
 
 다음 메트릭은 서비스의 상태에 대한 개요를 제공합니다. 
 
@@ -58,7 +58,7 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 현재 �
 
 ## <a name="connection-metrics"></a>연결 메트릭
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 | ------------------- | ----------------- |
 | ListenerConnections-Success  | 지정된 기간 동안 Azure Relay에 대해 성공한 리스너 연결 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |ListenerConnections-ClientError |지정된 기간 동안 리스너 연결에서 발생한 클라이언트 오류 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
@@ -68,14 +68,14 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 현재 �
 |SenderConnections-ServerError |지정된 기간 동안 발신자 연결에서 발생한 서버 오류 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |ListenerConnections-TotalRequests |지정된 기간 동안의 총 리스너 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |SenderConnections-TotalRequests |지정된 기간 동안 발신자가 수행한 연결 요청입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|ActiveConnections |활성 연결 수입니다. 이 값은 시간 내 시점 값입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|ActiveListeners |활성 수신기 수입니다. 이 값은 시간 내 시점 값입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|ActiveConnections |활성 연결 수입니다. 이 값은 지정 시간 값입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|ActiveListeners |활성 수신기의 수입니다. 이 값은 지정 시간 값입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |ListenerDisconnects |지정된 기간 동안 연결이 끊어진 리스너 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |SenderDisconnects |지정된 기간 동안 연결이 끊어진 발신자 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 
 ## <a name="memory-usage-metrics"></a>메모리 사용 메트릭
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 | ------------------- | ----------------- |
 |BytesTransferred |지정된 기간 동안 전송된 바이트 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 
@@ -83,7 +83,7 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 현재 �
 
 Azure Relay는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을 지원합니다. 메트릭에 차원을 추가하는 것은 선택 사항입니다. 차원을 추가하지 않는 경우 메트릭은 네임스페이스 수준에서 지정됩니다. 
 
-|차원 이름|설명|
+|차원 이름|Description|
 | ------------------- | ----------------- |
 |EntityName| Azure Relay는 네임스페이스에서 메시징 엔터티를 지원합니다.|
 

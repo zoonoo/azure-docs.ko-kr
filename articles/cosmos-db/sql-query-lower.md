@@ -1,6 +1,6 @@
 ---
-title: Azure 코스모스 DB 쿼리 언어의 하위
-description: Azure Cosmos DB의 LOWER SQL 시스템 함수에 대해 알아보기하여 대문자 데이터를 소문자로 변환한 후 문자열 식을 반환합니다.
+title: Azure Cosmos DB 쿼리 언어 낮음
+description: 대문자 데이터를 소문자로 변환한 후 문자열 식을 반환 하는 Azure Cosmos DB의 낮은 SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,16 +8,16 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 80dba57d4fe05630eb5ae4f8fc96bd0aa214c6d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78302273"
 ---
-# <a name="lower-azure-cosmos-db"></a>로어 (Azure 코스모스 DB)
+# <a name="lower-azure-cosmos-db"></a>LOWER (Azure Cosmos DB)
  대문자 데이터를 소문자로 변환한 후에 문자열 식을 반환합니다.  
 
-LOWER 시스템 함수는 인덱스를 사용하지 않습니다. 대/소문자를 구분하지 않는 빈번한 비교를 수행하려는 경우 LOWER 시스템 함수는 상당한 양의 RU를 소비할 수 있습니다. 이 경우 LOWER 시스템 함수를 사용하여 매번 비교를 위해 데이터를 정규화하는 대신 삽입 시 대/소문자를 정규화할 수 있습니다. 그런 다음 SELECT * FROM LOWER(c.name) = 'bob'과 같은 쿼리는 단순히 select * from c에서 c.name = 'bob'이 됩니다.
+낮은 시스템 함수는 인덱스를 사용 하지 않습니다. 대/소문자를 구분 하지 않는 비교를 자주 수행 하려는 경우에는 낮은 시스템 함수에서 많은 양의를 사용할 수 있습니다. 이 경우 하위 시스템 함수를 사용 하 여 비교할 때마다 데이터를 정규화 하는 대신 삽입 시 대/소문자를 정규화 할 수 있습니다. 그런 다음 SELECT * FROM c WHERE (c. name) = ' bob '과 같은 쿼리는 단순히 SELECT * FROM c WHERE c.name = ' bob '이 됩니다.
 
 ## <a name="syntax"></a>구문
   
@@ -28,7 +28,7 @@ LOWER(<str_expr>)
 ## <a name="arguments"></a>인수
   
 *str_expr*  
-   문자열 식입니다.  
+   는 문자열 식입니다.  
   
 ## <a name="return-types"></a>반환 형식
   
@@ -36,7 +36,7 @@ LOWER(<str_expr>)
   
 ## <a name="examples"></a>예
   
-  다음 예제에서는 쿼리에서 `LOWER` 사용하는 방법을 보여 주며 있습니다.  
+  다음 예제에서는 쿼리에서를 사용 `LOWER` 하는 방법을 보여 줍니다.  
   
 ```sql
 SELECT LOWER("Abc") AS lower
@@ -51,10 +51,10 @@ SELECT LOWER("Abc") AS lower
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 인덱스를 사용하지 않습니다.
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [문자열 함수 Azure 코스모스 DB](sql-query-string-functions.md)
-- [시스템 기능 Azure 코스모스 DB](sql-query-system-functions.md)
-- [Azure 코스모스 DB 소개](introduction.md)
+- [문자열 함수 Azure Cosmos DB](sql-query-string-functions.md)
+- [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
+- [Azure Cosmos DB 소개](introduction.md)

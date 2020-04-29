@@ -1,6 +1,6 @@
 ---
-title: 스토리지 FSLogix 프로필 컨테이너 윈도우 가상 데스크톱 - Azure
-description: Azure 저장소에 Windows 가상 데스크톱 FSLogix 프로필을 저장하기 위한 옵션입니다.
+title: 저장소 FSLogix 프로필 컨테이너 Windows 가상 데스크톱-Azure
+description: Azure Storage에 Windows 가상 데스크톱 FSLogix 프로필을 저장 하는 옵션입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,52 +9,52 @@ ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 71ba24784dee7771acbe19bf0261c7dc02478b24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79127525"
 ---
-# <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Windows 가상 데스크톱의 FSLogix 프로필 컨테이너에 대한 저장소 옵션
+# <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Windows 가상 데스크톱의 FSLogix 프로필 컨테이너에 대 한 저장소 옵션
 
-Azure는 FSLogix 프로필 컨테이너를 저장하는 데 사용할 수 있는 여러 저장소 솔루션을 제공합니다. 이 문서에서는 Azure가 Windows 가상 데스크톱 FSLogix 사용자 프로필 컨테이너에 대해 제공하는 저장소 솔루션을 비교합니다.
+Azure는 FSLogix 프로필 컨테이너를 저장 하는 데 사용할 수 있는 여러 저장소 솔루션을 제공 합니다. 이 문서에서는 Azure에서 Windows 가상 데스크톱 FSLogix 사용자 프로필 컨테이너에 대해 제공 하는 저장소 솔루션을 비교 합니다.
 
-Windows 가상 데스크톱은 FSLogix 프로필 컨테이너를 권장 사용자 프로필 솔루션으로 제공합니다. FSLogix는 Windows 가상 데스크톱과 같은 원격 컴퓨팅 환경에서 프로파일을 로밍하도록 설계되었습니다. 로그인 시 이 컨테이너는 기본적으로 지원되는 VHD(가상 하드 디스크)와 하이퍼-V 가상 하드 디스크(VHDX)를 사용하여 컴퓨팅 환경에 동적으로 연결됩니다. 사용자 프로필을 즉시 사용할 수 있으며 기본 사용자 프로필과 정확히 같은 시스템에 나타납니다.
+Windows 가상 데스크톱은 FSLogix 프로필 컨테이너를 권장 사용자 프로필 솔루션으로 제공 합니다. FSLogix는 Windows 가상 데스크톱과 같은 원격 컴퓨팅 환경에서 프로필을 로밍 하도록 설계 되었습니다. 로그인 시이 컨테이너는 기본적으로 지원 되는 VHD (가상 하드 디스크) 및 Hyper-v VHDX (가상 하드 디스크)를 사용 하 여 컴퓨팅 환경에 동적으로 연결 됩니다. 사용자 프로필은 즉시 사용할 수 있으며 시스템에서 네이티브 사용자 프로필과 똑같이 표시 됩니다.
 
-다음 표에서는 Windows 가상 데스크톱 FSLogix 프로필 컨테이너 사용자 프로필에 대해 Azure Storage가 제공하는 저장소 솔루션을 비교합니다.
+다음 표에서는 Windows 가상 데스크톱 FSLogix 프로필 컨테이너 사용자 프로필에 대 한 저장소 솔루션 Azure Storage 제공을 비교 합니다.
 
 ## <a name="azure-platform-details"></a>Azure 플랫폼 세부 정보
 
 |기능|Azure 파일|Azure NetApp Files|직접 스토리지 공간|
 |--------|-----------|------------------|---------------------|
-|사용 사례|범용 가상 컴퓨터|NetApp 온-프레미스에서 의 한-성능 또는 마이그레이션|플랫폼 간|
+|사용 사례|범용 가상 컴퓨터|NetApp 온-프레미스에서의 Ultra 성능 또는 마이그레이션|플랫폼 간|
 |플랫폼 서비스|예, Azure 네이티브 솔루션|예, Azure 네이티브 솔루션|아니요, 자체 관리|
-|국가별 가용성|모든 지역|[지역 선택](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|모든 지역|
-|중복|로컬 중복/영역 중복/지리적 중복|로컬 중복|로컬 중복/영역 중복/지리적 중복|
-|등급 및 성능|Standard<br>Premium<br>주당 최대 100k IOPS, 약 3ms 대기 시간에서 주당 5GBps|Standard<br>Premium<br>울트라<br>최대 320k(16K) IOPS, 약 1ms 대기 시간에서 부피당 4.5GBps|표준 HDD: 디스크당 최대 500 IOPS 제한<br>표준 SSD: 디스크당 최대 4k IOPS 제한<br>프리미엄 SSD: 디스크당 최대 20k IOPS 제한<br>스토리지 스페이스 다이렉트용 프리미엄 디스크를 권장합니다.|
-|용량|주당 100TiB|볼륨당 100 TiB, 구독당 최대 12.5PiB|디스크당 최대 32TiB|
-|필수 인프라|최소 공유 크기 1 GiB|최소 용량 풀 4 TiB, 최소 볼륨 크기 100 GiB|Azure IaaS(+ 클라우드 감시) 또는 디스크가 없는 VM 3개 이상에 있는 VM 2개|
-|프로토콜|중소기업 2.1/3. 및 휴식|NFSv3, NFSv4.1(미리보기), SMB 3.x/2.x|NFSv3, NFSv4.1, SMB 3.1|
+|국가별 가용성|모든 지역|[영역 선택](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|모든 지역|
+|중복|로컬 중복/영역 중복/지역 중복|로컬 중복|로컬 중복/영역 중복/지역 중복|
+|계층 및 성능|Standard<br>Premium<br>약 3 밀리초 대기 시간에 공유 당 5gbps와 공유 당 최대 10만 IOPS|Standard<br>Premium<br>매우<br>최대 320k (16K) IOPS (볼륨 당 4.5 GBps, 약 1 밀리초 대기 시간)|표준 HDD: 최대 500 IOPS 디스크당 제한<br>표준 SSD: 디스크당 최대 4k IOPS 제한<br>프리미엄 SSD: 디스크당 최대 20k IOPS 제한<br>스토리지 공간 다이렉트 프리미엄 디스크를 권장 합니다.|
+|용량|100 공유 당 TiB|볼륨당 100 TiB, 구독 당 최대 12.5 PiB|디스크당 최대 32 TiB|
+|필수 인프라|최소 공유 크기 1 GiB|최소 용량 풀 4 TiB, 최소 볼륨 크기 100 GiB|Azure IaaS의 두 Vm (+ 클라우드 감시) 또는 디스크에 대 한 비용 없이 3 개 이상의 Vm|
+|프로토콜|SMB 2.1/3. 및 REST|NFSv3, NFSv 4.1 (preview), SMB 3.x/2.x|NFSv3, NFSv 4.1, SMB 3.1|
 
 ## <a name="azure-management-details"></a>Azure 관리 세부 정보
 
 |기능|Azure 파일|Azure NetApp Files|직접 스토리지 공간|
 |--------|-----------|------------------|---------------------|
-|액세스 권한|클라우드, 온-프레미스 및 하이브리드(Azure 파일 동기화)|클라우드, 온-프레미스(익스프레스루트를 통해)|클라우드, 온-프레미스|
-|Backup|Azure 백업 스냅숏 통합|Azure NetApp 파일 스냅샷|Azure 백업 스냅숏 통합|
+|액세스|클라우드, 온-프레미스 및 하이브리드 (Azure 파일 동기화)|클라우드, 온-프레미스 (Express 경로를 통해)|클라우드, 온-프레미스|
+|Backup|Azure backup 스냅숏 통합|Azure NetApp Files 스냅숏|Azure backup 스냅숏 통합|
 |보안 및 규정 준수|[모든 Azure 지원 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO 완료|[모든 Azure 지원 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
-|Azure Active Directory 통합|[네이티브 Active 디렉터리 및 Azure Active 디렉터리 도메인 서비스](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Azure Active 디렉터리 도메인 서비스 및 네이티브 활성 디렉터리](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|네이티브 Active Directory 또는 Azure Active Directory 도메인 서비스는 지원만 합니다.|
+|Azure Active Directory 통합|[네이티브 Active Directory 및 Azure Active Directory Domain Services](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Azure Active Directory Domain Services 및 네이티브 Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|네이티브 Active Directory 또는 Azure Active Directory Domain Services 지원만|
 
-저장소 방법을 선택한 후에는 가격 책정 계획에 대한 정보를 Windows [가상 데스크톱 가격](https://azure.microsoft.com/pricing/details/virtual-desktop/) 책정을 확인하십시오.
+저장소 방법을 선택한 후 가격 계획에 대 한 자세한 내용은 [Windows 가상 데스크톱 가격 책정](https://azure.microsoft.com/pricing/details/virtual-desktop/) 을 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-FSLogix 프로필 컨테이너, 사용자 프로필 디스크 및 기타 사용자 프로필 기술에 대한 자세한 내용은 [FSLogix 프로필 컨테이너 및 Azure 파일의](fslogix-containers-azure-files.md)표를 참조하십시오.
+FSLogix 프로필 컨테이너, 사용자 프로필 디스크 및 기타 사용자 프로필 기술에 대해 자세히 알아보려면 [Fslogix 프로필 컨테이너 및 Azure files](fslogix-containers-azure-files.md)의 표를 참조 하세요.
 
-고유한 FSLogix 프로필 컨테이너를 만들 준비가 되면 다음 자습서 중 하나를 시작하십시오.
+사용자 고유의 FSLogix 프로필 컨테이너를 만들 준비가 되 면 다음 자습서 중 하나를 시작 하세요.
 
-- [Windows 가상 데스크톱의 Azure 파일에서 FSLogix 프로필 컨테이너 시작](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
-- [Azure NetApp 파일을 사용하여 호스트 풀에 대한 FSLogix 프로필 컨테이너 만들기](create-fslogix-profile-container.md)
-- [Azure의 UPD 저장소를 위한 2노드 저장소 공간 직접 확장 파일 서버 배포의](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) 지침은 사용자 프로필 디스크 대신 FSLogix 프로필 컨테이너를 사용할 때도 적용됩니다.
+- [Windows 가상 데스크톱의 Azure Files에서 FSLogix 프로필 컨테이너 시작](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
+- [Azure NetApp 파일을 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기](create-fslogix-profile-container.md)
+- [Azure에서 UPD 저장소에 대 한 2 노드 스토리지 공간 다이렉트 스케일 아웃 파일 서버 배포](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) 의 지침은 사용자 프로필 디스크 대신 FSLogix 프로필 컨테이너를 사용 하는 경우에도 적용 됩니다.
 
-또한 처음부터 시작하여 Windows 가상 데스크톱에서 [테넌트 만들기에서](tenant-setup-azure-active-directory.md)고유한 Windows 가상 데스크톱 솔루션을 설정할 수도 있습니다.
+[Windows 가상 데스크톱에서 테 넌 트 만들기](tenant-setup-azure-active-directory.md)에서 처음부터 시작 하 여 고유한 Windows 가상 데스크톱 솔루션을 설정할 수도 있습니다.

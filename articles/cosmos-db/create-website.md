@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: sngun
 ms.openlocfilehash: 2306dbe234e171ac613c33458df1990b767637df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79128381"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 및 Azure App Service Web Apps 배포
-이 자습서에서는 Azure 리소스 관리자 템플릿을 사용하여 [Microsoft Azure Cosmos DB,](https://azure.microsoft.com/services/cosmos-db/) [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 웹 앱 및 샘플 웹 응용 프로그램을 배포하고 통합하는 방법을 보여 주며, 이 자습서에서는
+이 자습서에서는 Azure Resource Manager 템플릿을 사용 하 여 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 웹 앱 및 샘플 웹 응용 프로그램을 배포 및 통합 하는 방법을 보여 줍니다.
 
 Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 구성을 쉽게 자동화할 수 있습니다.  이 자습서에서는 웹 애플리케이션을 배포하고 자동으로 Azure Cosmos DB 계정 연결 정보를 구성하는 방법을 보여줍니다.
 
@@ -25,7 +25,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 
 <a id="Prerequisites"></a>
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 > [!TIP]
 > 이 자습서에서는 Azure Resource Manager 템플릿 또는 JSON을 이전에 사용해 본 경험이 있다고 가정하지는 않지만, 참조된 템플릿 또는 배포 옵션을 수정하려면 이러한 각 영역에 대한 지식이 필요합니다.
 > 
@@ -56,7 +56,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
    ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment3.png)
 4. **매개 변수 편집**을 클릭하고 각 필수 매개 변수 값을 제공하고 **확인**을 클릭합니다.  매개 변수는 다음과 같습니다.
    
-   1. SITENAME: 앱 서비스 웹 앱 이름을 지정하고 웹 앱에 액세스하는 데 사용하는 URL을 생성하는 데 사용됩니다(예: "mydemodocdbwebapp"을 지정한 `mydemodocdbwebapp.azurewebsites.net`다음 웹 앱에 액세스하는 URL은 해당 URL).
+   1. SITENAME: App Service 웹 앱 이름을 지정 하 고 웹 앱에 액세스 하는 데 사용 하는 URL을 구성 하는 데 사용 됩니다. 예를 들어 "mydemodocdbwebsite"를 지정 하는 경우 웹 앱에 액세스 하는 `mydemodocdbwebapp.azurewebsites.net`url은입니다.
    2. HOSTINGPLANNAME: 만들려는 App Service 호스팅 계획의 이름을 지정합니다.
    3. LOCATION: Azure Cosmos DB 및 웹앱 리소스를 만들 Azure 위치를 지정합니다.
    4. DATABASEACCOUNTNAME: 만들 Azure Cosmos DB 계정의 이름을 지정합니다.   
@@ -69,7 +69,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
    ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment6.png)
 7. 배포가 완료되면 리소스 그룹 창이 열립니다.
    ![리소스 그룹 창 스크린샷](./media/create-website/TemplateDeployment7.png)  
-8. 응용 프로그램을 사용하려면 웹 앱 URL로 이동합니다(위의 예에서는 `http://mydemodocdbwebapp.azurewebsites.net`URL이 됩니다).  다음과 같은 웹 애플리케이션이 표시됩니다.
+8. 응용 프로그램을 사용 하려면 웹 앱 URL로 이동 합니다 (위의 예제에서는 URL이 인 경우 `http://mydemodocdbwebapp.azurewebsites.net`).  다음과 같은 웹 애플리케이션이 표시됩니다.
    
    ![샘플 Todo 애플리케이션](./media/create-website/image2.png)
 9. 계속해서 웹앱에서 몇 가지 작업을 만든 다음, Azure Portal의 리소스 그룹 창으로 돌아옵니다. 리소스 목록에서 Azure Cosmos DB 계정 리소스를 클릭한 다음 **데이터 탐색기**를 클릭합니다.
@@ -122,7 +122,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 * Azure 리소스 관리자 템플릿에 대해 자세히 알아보려면 [여기](https://msdn.microsoft.com/library/azure/dn790549.aspx)를 클릭하세요.
 
 ## <a name="whats-changed"></a>변경된 내용
-* 웹 사이트에서 앱 서비스로의 변경에 대한 가이드는 [Azure 앱 서비스 및 기존 Azure 서비스에 미치는 영향참조를](https://go.microsoft.com/fwlink/?LinkId=529714) 참조합니다.
+* 웹 사이트에서 App Service 변경에 대 한 지침은 [Azure App Service 및 기존 Azure 서비스에 미치는 영향](https://go.microsoft.com/fwlink/?LinkId=529714) 을 참조 하세요.
 
 > [!NOTE]
 > Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.

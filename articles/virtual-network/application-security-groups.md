@@ -1,7 +1,7 @@
 ---
 title: Azure 응용 프로그램 보안 그룹 개요
 titlesuffix: Azure Virtual Network
-description: 응용 프로그램 보안 그룹의 사용에 대해 알아봅니다.
+description: 응용 프로그램 보안 그룹을 사용 하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,10 +14,10 @@ ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: 775ef92a0ca486d1f8a6c44c78a4df04cd5ef467
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78274711"
 ---
 # <a name="application-security-groups"></a>애플리케이션 보안 그룹
@@ -32,7 +32,7 @@ ms.locfileid: "78274711"
 
 이 규칙은 인터넷에서 웹 서버로 가는 트래픽을 허용하기 위해 필요합니다. 인터넷의 인바운드 트래픽을 **DenyAllInbound** 기본 보안 규칙에서 거부하기 때문에 *AsgLogic* 또는 *AsgDb* 애플리케이션 보안 그룹에 대한 규칙을 추가하지 않아도 됩니다.
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 권한 |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 |
 |---|---|---|---|---|---|---|
 | 100 | 인터넷 | * | AsgWeb | 80 | TCP | Allow |
 
@@ -40,7 +40,7 @@ ms.locfileid: "78274711"
 
 **AllowVNetInBound** 기본 보안 규칙은 동일한 가상 네트워크의 리소스 간 통신을 모두 허용하므로, 모든 리소스에서 들어오는 트래픽을 거부하려면 이 규칙이 필요합니다.
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 권한 |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | 모두 | 거부 |
 
@@ -48,7 +48,7 @@ ms.locfileid: "78274711"
 
 이 규칙은 *AsgLogic* 애플리케이션 보안 그룹에서 *AsgDb* 애플리케이션 보안 그룹으로 가는 트래픽을 허용합니다. 이 규칙의 우선 순위는 *Deny-Database-All* 규칙의 우선 순위보다 높습니다. 결과적으로 이 규칙이 *Deny-Database-All* 규칙보다 먼저 처리되므로 *AsgLogic* 애플리케이션 보안 그룹의 트래픽은 허용되는 반면, 그 외의 트래픽은 모두 차단됩니다.
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 권한 |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | Allow |
 

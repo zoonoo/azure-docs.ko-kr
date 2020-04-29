@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: b-juche
 ms.openlocfilehash: 48055a774808aea86452e8410b7e717f5019d172
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78267895"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
-Azure NetApp 파일을 사용하여 볼륨에 대한 주문형 스냅샷을 수동으로 만들거나 스냅샷에서 새 볼륨으로 복원할 수 있습니다. Azure NetApp 파일 서비스는 볼륨 스냅숏을 자동으로 만들지 않습니다.  
+Azure NetApp Files를 사용 하 여 볼륨에 대 한 주문형 스냅숏을 수동으로 만들거나 스냅숏에서 새 볼륨으로 복원할 수 있습니다. Azure NetApp Files 서비스는 볼륨 스냅숏을 자동으로 만들지 않습니다.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>볼륨에 대한 주문형 스냅샷 만들기
 
@@ -53,7 +53,7 @@ Azure NetApp 파일을 사용하여 볼륨에 대한 주문형 스냅샷을 수�
     ![새 볼륨으로 스냅샷 복원](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 4. 새 볼륨 창에서 새 볼륨에 대한 정보를 제공합니다.  
-    * **이름**   
+    * **이름의**   
         만들고 있는 볼륨의 이름을 지정합니다.  
         
         이름은 각 리소스 그룹 내에서 고유해야 합니다. 3자 이상이어야 합니다.  영숫자 문자를 사용할 수 있습니다.
@@ -65,14 +65,14 @@ Azure NetApp 파일을 사용하여 볼륨에 대한 주문형 스냅샷을 수�
         
         파일 경로 이름에는 문자, 숫자 및 하이픈("-")만 포함할 수 있습니다. 이름은 16자~40자여야 합니다. 
 
-    * **할당량**  
+    * **양보다**  
         볼륨에 할당되는 논리 스토리지의 크기를 지정합니다.  
 
         **사용 가능한 할당량** 필드는 새 볼륨을 만들 때 사용할 수 있는 선택한 용량 풀에서 사용되지 않은 공간의 양을 보여줍니다. 새 볼륨의 크기는 사용 가능한 할당량을 초과해서는 안 됩니다.
 
     *   **가상 네트워크**  
         볼륨에 액세스하려는 Azure Vnet(가상 네트워크)을 지정합니다.  
-        지정하는 VNet에는 Azure NetApp Files에 위임된 서브넷이 있어야 합니다. Azure NetApp Files는 동일한 Vnet 또는 Vnet 피어링을 통해 볼륨과 동일한 지역에 있는 Vnet에서만 액세스할 수 있습니다. 익스프레스 루트를 통해 온-프레미스 네트워크에서 볼륨에 액세스할 수 있습니다. 
+        지정하는 VNet에는 Azure NetApp Files에 위임된 서브넷이 있어야 합니다. Azure NetApp Files는 동일한 Vnet 또는 Vnet 피어링을 통해 볼륨과 동일한 지역에 있는 Vnet에서만 액세스할 수 있습니다. Express 경로를 통해 온-프레미스 네트워크에서 볼륨에 액세스할 수 있습니다. 
 
     * **서브넷**  
         볼륨에 사용할 서브넷을 지정합니다.  

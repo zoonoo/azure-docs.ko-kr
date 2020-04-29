@@ -1,7 +1,7 @@
 ---
 title: 자동화된 ML 원격 컴퓨팅 대상
 titleSuffix: Azure Machine Learning
-description: Azure 기계 학습을 사용하여 Azure 기계 학습 원격 계산 대상에서 자동화된 기계 학습을 사용하여 모델을 빌드하는 방법을 알아봅니다.
+description: Azure Machine Learning를 통해 Azure Machine Learning 원격 계산 대상에서 자동화 된 machine learning을 사용 하 여 모델을 빌드하는 방법을 알아봅니다.
 services: machine-learning
 author: cartacioS
 ms.author: sacartac
@@ -12,27 +12,27 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 9e499d609a3f78dc5f422b9ed90df09be30f2e7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79080414"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>클라우드의 자동화된 기계 학습을 사용하여 모델 학습
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Azure Machine Learning에서 관리하는 다양한 종류의 컴퓨팅 리소스에 대해 모델을 교육할 수 있습니다. 계산 대상은 로컬 컴퓨터이거나 클라우드의 리소스일 수 있습니다.
+Azure Machine Learning에서 관리하는 다양한 종류의 컴퓨팅 리소스에 대해 모델을 교육할 수 있습니다. 계산 대상은 클라우드의 리소스 또는 로컬 컴퓨터 일 수 있습니다.
 
-Azure 기계 학습 계산(AmlCompute)과 같은 추가 계산 대상을 추가하여 기계 학습 실험을 쉽게 확장하거나 확장할 수 있습니다. AmlCompute는 단일 또는 다중 노드 컴퓨팅을 손쉽게 만들 수 있는 관리형 컴퓨팅 인프라입니다.
+Azure Machine Learning Compute (AmlCompute)와 같은 추가 계산 대상을 추가 하 여 machine learning 실험을 쉽게 확장 하거나 축소할 수 있습니다. AmlCompute는 단일 또는 다중 노드 컴퓨팅을 손쉽게 만들 수 있는 관리형 컴퓨팅 인프라입니다.
 
-이 문서에서는 AmlCompute를 사용하여 자동화된 ML을 사용하여 모델을 빌드하는 방법을 알아봅니다.
+이 문서에서는 AmlCompute에서 자동화 된 ML을 사용 하 여 모델을 작성 하는 방법에 대해 알아봅니다.
 
 ## <a name="how-does-remote-differ-from-local"></a>원격과 로컬의 차이
 
-자습서["자동화된 기계 학습으로 분류 모델 교육"](tutorial-auto-train-models.md)자동화된 ML으로 모델을 학습하는 로컬 컴퓨터를 사용하는 방법을 설명합니다. 로컬로 교육하는 워크플로는 원격 대상에도 적용됩니다. 그러나 원격 컴퓨팅을 사용하면 자동화된 ML 실험 반복이 비동기적으로 실행됩니다. 이 기능을 사용하면 특정 반복을 취소하거나, 실행 상태를 확인하거나, Jupyter 노트의 다른 셀에서 계속 작업할 수 있습니다. 원격으로 학습하려면 먼저 AmlCompute와 같은 원격 계산 대상을 만듭니다. 그런 다음, 원격 리소스를 구성하고 코드를 여기에 제출합니다.
+"[자동화 된 기계 학습으로 분류 모델 학습](tutorial-auto-train-models.md)" 자습서에서는 로컬 컴퓨터를 사용 하 여 자동화 된 ML을 사용 하 여 모델을 학습 하는 방법을 배웁니다. 로컬로 교육하는 워크플로는 원격 대상에도 적용됩니다. 그러나 원격 컴퓨팅을 사용하면 자동화된 ML 실험 반복이 비동기적으로 실행됩니다. 이 기능을 사용하면 특정 반복을 취소하거나, 실행 상태를 확인하거나, Jupyter 노트의 다른 셀에서 계속 작업할 수 있습니다. 원격으로 학습 하려면 AmlCompute와 같은 원격 계산 대상을 먼저 만듭니다. 그런 다음, 원격 리소스를 구성하고 코드를 여기에 제출합니다.
 
-이 문서에서는 원격 AmlCompute 대상에서 자동화된 ML 실험을 실행하는 데 필요한 추가 단계를 보여 주며 있습니다. 이 자습서의 작업 영역 개체 `ws`는 여기 나오는 코드 전체에서 사용됩니다.
+이 문서에서는 원격 AmlCompute 대상에서 자동화 된 ML 실험을 실행 하는 데 필요한 추가 단계를 보여 줍니다. 이 자습서의 작업 영역 개체 `ws`는 여기 나오는 코드 전체에서 사용됩니다.
 
 ```python
 ws = Workspace.from_config()
@@ -40,9 +40,9 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>리소스 만들기
 
-[`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) 작업 영역()에`ws`대상이 아직 없는 경우 대상을 만듭니다.
+아직 없는 [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) 경우 작업 영역 (`ws`)에 대상을 만듭니다.
 
-**예상 시간 :** AmlCompute 대상을 만드는 데 약 5분이 걸립니다.
+**예상 시간**: AmlCompute 대상을 만드는 데 약 5 분이 걸립니다.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -83,13 +83,13 @@ else:
 
 클러스터 이름 제한은 다음과 같습니다.
 + 64자보다 짧아야 합니다.
-+ 다음 문자를 포함할 수 없습니다. `\` ~ ! @ # # + % ^ & * \\ \\ * + = = + _ @ { | : \' \\" ,  < > / ?. `
++ 다음 문자를 포함할 수 없습니다. `\` ~ ! @ # $% ^ & * () = + _ [] {} \\ \\ |; : \' \\",  < > /? `
 
-## <a name="access-data-using-tabulardataset-function"></a>테이블 형식데이터 집합 기능을 사용하여 데이터에 액세스
+## <a name="access-data-using-tabulardataset-function"></a>TabularDataset 함수를 사용 하 여 데이터 액세스
 
-training_data [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 정의되고 레이블이 [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)에서 자동화ML로 전달됩니다. `TabularDataset` 메서드는 `from_delimited_files`기본적으로 `infer_column_types` true로 설정하여 열 유형을 자동으로 유추합니다. 
+Training_data로 [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 정의 되 고 레이블은의 자동화 된 ML에 전달 됩니다 [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). 기본적 `TabularDataset` 으로 `from_delimited_files`메서드는를 true `infer_column_types` 로 설정 하 여 열 형식을 자동으로 유추 합니다. 
 
-열 형식을 수동으로 설정하려면 `set_column_types` 인수를 설정하여 각 열의 형식을 수동으로 설정할 수 있습니다. 다음 코드 샘플의 데이터는 sklearn 패키지에서 옵니다.
+수동으로 열 유형을 설정 하려면 `set_column_types` 인수를 설정 하 여 각 열의 유형을 수동으로 설정 합니다. 다음 코드 샘플의 데이터는 sklearn 패키지에서 옵니다.
 
 ```python
 from sklearn import datasets
@@ -196,7 +196,7 @@ remote_run = experiment.submit(automl_config, show_output=True)
 
 ## <a name="explore-results"></a>결과 탐색
 
-[학습 자습서에](tutorial-auto-train-models.md#explore-the-results) 표시된 것과 동일한 [Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) 사용하여 결과 그래프와 표를 볼 수 있습니다.
+[학습 자습서](tutorial-auto-train-models.md#explore-the-results) 에 표시 된 것과 동일한 [Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) 사용 하 여 그래프와 결과 테이블을 볼 수 있습니다.
 
 ```python
 from azureml.widgets import RunDetails
@@ -210,21 +210,21 @@ RunDetails(remote_run).show()
 
 위젯은 개별 실행 세부 정보를 살펴보고 탐색하는 데 사용할 수 있는 URL을 표시합니다.  
 
-Jupyter 전자 필기장에 없는 경우 실행 자체의 URL을 표시할 수 있습니다.
+Jupyter 노트북에 없는 경우 실행 자체에서 URL을 표시할 수 있습니다.
 
 ```
 remote_run.get_portal_url()
 ```
 
-작업 영역에서도 동일한 정보를 사용할 수 있습니다.  이러한 결과에 대한 자세한 내용은 [자동화된 기계 학습 결과 이해하기를](how-to-understand-automated-ml.md)참조하십시오.
+작업 영역에서 동일한 정보를 사용할 수 있습니다.  이러한 결과에 대해 자세히 알아보려면 자동화 된 [machine learning 결과 이해](how-to-understand-automated-ml.md)를 참조 하세요.
 
 ## <a name="example"></a>예제
 
-다음 [전자 필기장에서는](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb) 이 문서의 개념을 보여 줍니다.
+다음 [노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb) 은이 문서의 개념을 보여 줍니다.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
 * [자동 학습용 설정을 구성하는 방법](how-to-configure-auto-train.md)을 알아보세요.
-* 자동화된 ML 실험에서 모델 해석 기능 활성화에 대한 [방법을](how-to-machine-learning-interpretability-automl.md) 확인하십시오.
+* 자동화 된 ML 실험에서 모델 interpretability 기능을 사용 하도록 설정 [하는 방법을](how-to-machine-learning-interpretability-automl.md) 참조 하세요.

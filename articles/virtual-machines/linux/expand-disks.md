@@ -1,6 +1,6 @@
 ---
 title: Linux VM에서 가상 하드 디스크 확장
-description: Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크를 확장하는 방법에 대해 알아봅니다.
+description: Azure CLI를 사용 하 여 Linux VM에서 가상 하드 디스크를 확장 하는 방법을 알아봅니다.
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 1295c5276f0f342323acf8d86eaaf9f785af3e9f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78945178"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크 확장
@@ -19,7 +19,7 @@ ms.locfileid: "78945178"
 이 문서에서는 Azure CLI를 사용하여 Linux VM(가상 머신)에서 관리 디스크를 확장하는 방법에 대해 설명합니다. 추가 스토리지 공간을 제공하기 위해 [데이터 디스크를 추가](add-disk.md)할 수 있고, 기존 데이터 디스크를 확장할 수도 있습니다. OS(운영 체제)에 대한 기본 가상 하드 디스크 크기는 Azure의 Linux VM에서 일반적으로 30GB입니다. 
 
 > [!WARNING]
-> 항상 파일 시스템이 정상 상태인지 확인하여 디스크 파티션 테이블 형식이 새 크기를 지원하고 디스크 크기 조정 작업을 수행하기 전에 데이터가 백업되었는지 확인합니다. 자세한 내용은 [Azure에서 Linux VM 백업](tutorial-backup-vms.md)을 참조하세요. 
+> 항상 파일 시스템이 정상 상태 인지 확인 하 고, 디스크 파티션 테이블 형식이 새 크기를 지원 하며, 디스크 크기 조정 작업을 수행 하기 전에 데이터를 백업 해야 합니다. 자세한 내용은 [Azure에서 Linux VM 백업](tutorial-backup-vms.md)을 참조하세요. 
 
 ## <a name="expand-an-azure-managed-disk"></a>Azure Managed Disk 확장
 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
@@ -133,7 +133,7 @@ ms.locfileid: "78945178"
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. 데이터 디스크의 크기가 조정되었는지 `df -h`확인하려면 을 사용합니다. 다음 출력 예제에서는 데이터 드라이브(*/dev/sdc1*)가 이제 200GB임을 보여 줍니다.
+1. 데이터 디스크가 크기 조정 되었는지 확인 하려면를 사용 `df -h`합니다. 다음 출력 예제에서는 데이터 드라이브(*/dev/sdc1*)가 이제 200GB임을 보여 줍니다.
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
@@ -142,4 +142,4 @@ ms.locfileid: "78945178"
 
 ## <a name="next-steps"></a>다음 단계
 * 추가 스토리지가 필요하면 [Linux VM에 데이터 디스크를 추가](add-disk.md)할 수도 있습니다. 
-* 디스크 암호화에 대한 자세한 내용은 [Linux VM에 대한 Azure 디스크 암호화를](disk-encryption-overview.md)참조하십시오.
+* 디스크 암호화에 대 한 자세한 내용은 [Linux vm에 대 한 Azure Disk Encryption](disk-encryption-overview.md)를 참조 하세요.

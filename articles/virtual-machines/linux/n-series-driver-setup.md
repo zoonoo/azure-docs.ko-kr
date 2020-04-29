@@ -1,5 +1,5 @@
 ---
-title: 리눅스에 대 한 Azure N 시리즈 GPU 드라이버 설정
+title: Linux 용 Azure N 시리즈 GPU 드라이버 설치
 description: Azure에서 Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버를 설정하는 방법
 services: virtual-machines-linux
 author: cynthn
@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.openlocfilehash: b424361f318504f96a57ee67722e725fbafc6561
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78944567"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
@@ -163,9 +163,9 @@ N 시리즈 VM에서 RDMA 연결을 지원하는 Azure Marketplace의 이미지 
 
 * **CentOS 기반 7.4 HPC** - RDMA 드라이버 및 Intel MPI 5.1은 VM에 설치됩니다.
 
-## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>NV 또는 NVv3 시리즈 VM에 그리드 드라이버 설치
+## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>NV 또는 NVv3 시리즈 Vm에 그리드 드라이버 설치
 
-NV 또는 NVv3 시리즈 VM에 NVIDIA GRID 드라이버를 설치하려면 각 VM에 SSH 연결을 만들고 Linux 배포판의 단계를 따릅니다. 
+NV 또는 NVv3 시리즈 Vm에 NVIDIA GRID 드라이버를 설치 하려면 각 VM에 SSH 연결을 설정 하 고 Linux 배포에 대 한 단계를 수행 합니다. 
 
 ### <a name="ubuntu"></a>Ubuntu 
 
@@ -184,7 +184,7 @@ NV 또는 NVv3 시리즈 VM에 NVIDIA GRID 드라이버를 설치하려면 각 V
    
    sudo apt-get install linux-azure -y
    ```
-3. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NVv2 VM에서만 NVIDIA 드라이버를 사용하십시오.) 이렇게 하려면 다음 내용으로 `/etc/modprobe.d` `nouveau.conf` 명명된 파일을 만듭니다.
+3. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NVv2 Vm 에서만 NVIDIA 드라이버를 사용 합니다.) 이렇게 하려면 다음 내용을 사용 하 여 `/etc/modprobe.d` 라는 `nouveau.conf` 파일을 만듭니다.
 
    ```
    blacklist nouveau
@@ -224,7 +224,7 @@ NV 또는 NVv3 시리즈 VM에 NVIDIA GRID 드라이버를 설치하려면 각 V
    EnableUI=FALSE
    ```
    
-9. 다음이 있는 `/etc/nvidia/gridd.conf` 경우 제거합니다.
+9. 다음을 제거 합니다 `/etc/nvidia/gridd.conf` (있는 경우).
  
    ```
    FeatureType=0
@@ -248,7 +248,7 @@ NV 또는 NVv3 시리즈 VM에 NVIDIA GRID 드라이버를 설치하려면 각 V
    sudo yum install hyperv-daemons
    ```
 
-2. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NV2 VM에서만 NVIDIA 드라이버를 사용하십시오.) 이렇게 하려면 다음 내용으로 `/etc/modprobe.d` `nouveau.conf` 명명된 파일을 만듭니다.
+2. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NV2 Vm 에서만 NVIDIA 드라이버를 사용 합니다.) 이렇게 하려면 다음 내용을 사용 하 여 `/etc/modprobe.d` 라는 `nouveau.conf` 파일을 만듭니다.
 
    ```
    blacklist nouveau
@@ -296,7 +296,7 @@ NV 또는 NVv3 시리즈 VM에 NVIDIA GRID 드라이버를 설치하려면 각 V
    IgnoreSP=FALSE
    EnableUI=FALSE 
    ```
-9. 다음이 있는 `/etc/nvidia/gridd.conf` 경우 제거합니다.
+9. 다음을 제거 합니다 `/etc/nvidia/gridd.conf` (있는 경우).
  
    ```
    FeatureType=0
@@ -356,7 +356,7 @@ fi
 ## <a name="troubleshooting"></a>문제 해결
 
 * `nvidia-smi`를 사용하여 지속성 모드를 설정할 수 있으므로 카드를 쿼리해야 할 때 명령 출력이 더 빠릅니다. 지속성 모드를 설정하려면 `nvidia-smi -pm 1`을 실행합니다. VM을 다시 시작하면 모드 설정이 사라집니다. 모드 설정은 시작할 때 실행되도록 항상 스크립팅할 수 있습니다.
-* NVIDIA CUDA 드라이버를 최신 버전으로 업데이트하고 RDMA 연결이 더 이상 작동하지 않는 경우 [RDMA 드라이버를 다시 설치하여](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) 해당 연결을 다시 확인합니다. 
+* NVIDIA VERDA 드라이버를 최신 버전으로 업데이트 하 고 RDMA connectivcity가 더 이상 작동 하지 않는 경우 [rdma 드라이버를 다시 설치](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) 하 여 해당 연결을 reistablish 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,7 +1,7 @@
 ---
-title: '자습서: MongoDB에 대 한 Azure 코스모스 DB API에 오프 라인 몽고 DB 를 마이그레이션'
+title: '자습서: MongoDB에 대 한 MongoDB offline을 Azure Cosmos DB API로 마이그레이션'
 titleSuffix: Azure Database Migration Service
-description: Azure 데이터베이스 마이그레이션 서비스를 사용하여 MongoDB 온-프레미스에서 MongoDB 오프라인용 Azure 코스모스 DB API로 마이그레이션하는 방법을 알아봅니다.
+description: Azure Database Migration Service를 사용 하 여 MongoDB 온-프레미스에서 Azure Cosmos DB API를 MongoDB로 오프 라인으로 마이그레이션하는 방법을 알아봅니다.
 services: dms
 author: pochiraju
 ms.author: rajpo
@@ -13,13 +13,13 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: 08fa94dbe71299a6653df0b40aa5083375526172
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78255587"
 ---
-# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>자습서: DMS를 사용 하 여 MongoDB 오프라인에 대 한 Azure 코스모스 DB의 API에 몽고DB 마이그레이션
+# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>자습서: DMS를 사용 하 여 MongoDB를 Azure Cosmos DB의 MongoDB API 오프 라인으로 마이그레이션
 
 Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이터베이스를 MongoDB 온-프레미스 또는 클라우드 인스턴스에서 Azure Cosmos DB의 API for MongoDB로 마이그레이션할 수 있습니다.
 
@@ -33,16 +33,16 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
 이 자습서에서는 Azure Database Migration Service를 사용하여 Azure Virtual Machine에서 호스트되는 MongoDB의 데이터 세트를 Azure Cosmos DB의 API for MongoDB로 마이그레이션합니다. MongoDB 원본을 설정하지 않은 경우 [Azure의 Windows VM에서 MongoDB 설치 및 구성](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb) 문서를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 처리량 추정, 파티션 키 선택 및 인덱싱 정책과 같은 [사전 마이그레이션 완료](../cosmos-db/mongodb-pre-migration.md) 단계.
 * [Azure Cosmos DB의 API for MongoDB 계정을 만듭니다](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
-* [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN을](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)사용하여 온-프레미스 소스 서버에 대한 사이트 간 연결을 제공하는 Azure 리소스 관리자 배포 모델을 사용하여 Azure 데이터베이스 마이그레이션 서비스에 대한 Microsoft Azure 가상 네트워크를 만듭니다. 가상 네트워크 만들기에 대한 자세한 내용은 [가상 네트워크 설명서](https://docs.microsoft.com/azure/virtual-network/)및 특히 단계별 세부 정보가 있는 빠른 시작 문서를 참조하십시오.
+* [Express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 경로 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용 하 여 온-프레미스 원본 서버에 사이트 간 연결을 제공 하는 Azure Resource Manager 배포 모델을 사용 하 여 Azure Database Migration Service에 대 한 Microsoft Azure Virtual Network를 만듭니다. 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/)와 특히 단계별 정보를 포함 하는 빠른 시작 문서를 참조 하세요.
 
     > [!NOTE]
-    > 가상 네트워크 설정 중에 Microsoft에 피어링하는 네트워크와 함께 ExpressRoute를 사용하는 경우 서비스를 프로비전할 서브넷에 다음 서비스 [끝점을](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 추가합니다.
+    > 가상 네트워크를 설정 하는 동안 Microsoft에 네트워크 피어 링을 사용 하는 Express 경로를 사용 하는 경우 서비스가 프로 비전 될 서브넷에 다음 서비스 [끝점](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 을 추가 합니다.
     >
     > * 대상 데이터베이스 엔드포인트(예: SQL 엔드포인트, Cosmos DB 엔드포인트 등)
     > * 스토리지 엔드포인트
@@ -50,7 +50,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
     >
     > Azure Database Migration Service에는 인터넷 연결이 없으므로 이 구성이 필요합니다.
 
-* 가상 네트워크 네트워크 보안 그룹(NSG) 규칙이 53, 443, 445, 9354 및 10000-20000의 통신 포트를 차단하지 않도록 합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹과 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)문서를 참조하십시오.
+* 가상 네트워크 NSG (네트워크 보안 그룹) 규칙이 다음 통신 포트 (53, 443, 445, 9354 및 10000-20000)를 차단 하지 않는지 확인 합니다. Virtual network NSG 트래픽 필터링에 대 한 자세한 내용은 [네트워크 보안 그룹을 사용 하 여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)문서를 참조 하세요.
 * Azure Database Migration Service에서 기본적으로 27017 TCP 포트인 원본 MongoDB 서버에 액세스할 수 있도록 Windows 방화벽을 엽니다.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우 Azure Database Migration Service에서 원본 데이터베이스에 액세스하여 마이그레이션할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
 
@@ -64,7 +64,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
     ![리소스 공급자 보기](media/tutorial-mongodb-to-cosmosdb/portal-select-resource-provider.png)
 
-3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration**의 오른쪽에서 **레지스터를**선택합니다.
+3. 마이그레이션을 검색 한 다음 **microsoft.datamigration**의 오른쪽에서 **등록**을 선택 합니다.
 
     ![리소스 공급자 등록](media/tutorial-mongodb-to-cosmosdb/portal-register-resource-provider.png)    
 
@@ -82,15 +82,15 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
 4. Azure Database Migration Service 인스턴스를 만들 위치를 선택합니다. 
 
-5. 기존 가상 네트워크를 선택하거나 새 가상 네트워크를 만듭니다.
+5. 기존 가상 네트워크를 선택 하거나 새 가상 네트워크를 만드세요.
 
-    가상 네트워크는 Azure 데이터베이스 마이그레이션 서비스에 원본 MongoDB 인스턴스 및 대상 Azure Cosmos DB 계정에 대한 액세스를 제공합니다.
+    가상 네트워크는 원본 MongoDB 인스턴스 및 대상 Azure Cosmos DB 계정에 대 한 액세스 권한이 있는 Azure Database Migration Service 제공 합니다.
 
-    Azure 포털에서 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Azure 포털을 사용하여 가상 네트워크 만들기](https://aka.ms/DMSVnet)문서를 참조하십시오.
+    Azure Portal에서 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 가상 네트워크 만들기](https://aka.ms/DMSVnet)문서를 참조 하세요.
 
 6. 가격 책정 계층을 선택합니다.
 
-    비용 및 가격 책정 계층에 대한 자세한 내용은 [가격 책정 페이지를](https://aka.ms/dms-pricing)참조하십시오.
+    비용 및 가격 책정 계층에 대 한 자세한 내용은 [가격 책정 페이지](https://aka.ms/dms-pricing)를 참조 하세요.
 
     ![Azure Database Migration Service 인스턴스 설정 구성](media/tutorial-mongodb-to-cosmosdb/dms-settings2.png)
 
@@ -134,7 +134,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
      이 Blob 컨테이너 SAS 연결 문자열은 Azure Storage Explorer에서 찾을 수 있습니다. 관련 컨테이너의 SAS를 만들면 위에서 요청한 형식으로 URL이 제공됩니다.
      
-     또한 Azure Storage의 형식 덤프 정보에 따라 다음 세부 정보를 염두에 두어야 합니다.
+     또한 Azure Storage의 형식 덤프 정보에 따라 다음 정보를 염두에 두어야 합니다.
 
      * BSON 덤프의 경우 Blob 컨테이너 내 데이터는 데이터 파일이 collection.bson 형식의 포함한 데이터베이스를 따라 이름이 지정된 폴더에 배치되는 bsondump 형식이어야 합니다. 메타데이터 파일(있는 경우)의 이름은 *collection*.metadata.json 형식을 사용하여 이름이 지정되어야 합니다.
 

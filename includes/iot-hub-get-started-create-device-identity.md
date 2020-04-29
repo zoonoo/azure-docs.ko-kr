@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: iot-hub
 author: dominicbetts
@@ -9,23 +9,23 @@ ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 68260bf8aafbbe5afd46ec7dfb763eb88ee2123e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78892742"
 ---
-이 섹션에서는 Azure CLI를 사용하여 이 문서에 대한 장치 ID를 만듭니다. 디바이스 ID는 대/소문자를 구분합니다.
+이 섹션에서는 Azure CLI를 사용 하 여이 문서에 대 한 장치 id를 만듭니다. 디바이스 ID는 대/소문자를 구분합니다.
 
-1. [Azure 클라우드 셸을](https://shell.azure.com/)엽니다.
+1. [Azure Cloud Shell](https://shell.azure.com/)을 엽니다.
 
-1. Azure 클라우드 셸에서 다음 명령을 실행하여 Azure CLI에 대한 Microsoft Azure IoT 확장을 설치합니다.
+1. Azure Cloud Shell에서 다음 명령을 실행 하 Azure CLI에 대 한 Microsoft Azure IoT 확장을 설치 합니다.
 
     ```azurecli-interactive
     az extension add --name azure-iot
     ```
 
-2. 라는 `myDeviceId` 새 장치 ID를 만들고 다음 명령을 사용 하 고 장치 연결 문자열을 검색합니다.
+2. 이라는 `myDeviceId` 새 장치 id를 만들고 다음 명령을 사용 하 여 장치 연결 문자열을 검색 합니다.
 
     ```azurecli-interactive
     az iot hub device-identity create --device-id myDeviceId --hub-name {Your IoT Hub name}

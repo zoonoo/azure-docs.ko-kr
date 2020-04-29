@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: 98e912894a4d93a057a2f6a2153d0690deaed250
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78968887"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Azure에서 IBM DB2 pureScale 배포
@@ -19,7 +19,7 @@ ms.locfileid: "78968887"
 
 마이그레이션에 사용되는 단계를 진행하려면 GitHub의 [DB2onAzure](https://aka.ms/db2onazure) 리포지토리에서 설치 스크립트를 참조하세요. 이러한 스크립트는 일반적인 중간 크기의 OLTP(온라인 트랜잭션 처리) 워크로드용 아키텍처를 기준으로 합니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 이 아키텍처를 배포하려면 GitHub의 [DB2onAzure](https://aka.ms/db2onazure) 리포지토리에 있는 deploy.sh 스크립트를 다운로드하여 실행합니다.
 
@@ -34,21 +34,21 @@ deploy.sh 스크립트는 이 아키텍처용 Azure 리소스를 만들고 구�
 
 -   설치를 위해 Azure에서 리소스 그룹, 가상 네트워크 및 서브넷을 설정합니다.
 
--   환경에 대한 네트워크 보안 그룹과 SSH를 설정합니다.
+-   환경에 대 한 네트워크 보안 그룹 및 SSH를 설정 합니다.
 
--   공유 스토리지와 DB2 pureScale 가상 머신 모두에 여러 NIC를 설정합니다.
+-   공유 저장소와 DB2 pureScale 가상 컴퓨터 모두에서 여러 Nic를 설정 합니다.
 
--   공유 저장소 가상 컴퓨터를 만듭니다. 저장소 공간 직접 또는 다른 저장소 솔루션을 사용하는 경우 [저장소 공간 직접 개요를](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)참조하세요.
+-   공유 저장소 가상 컴퓨터를 만듭니다. 스토리지 공간 다이렉트 또는 다른 저장소 솔루션을 사용 하는 경우 [스토리지 공간 다이렉트 개요](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)를 참조 하세요.
 
 -   jumpbox 가상 머신을 만듭니다.
 
--   DB2 퓨어스케일 가상 컴퓨터를 만듭니다.
+-   DB2 pureScale 가상 컴퓨터를 만듭니다.
 
--   DB2 pureScale 핑을 수행하는 미러링 모니터 서버 가상 컴퓨터를 만듭니다. Db2 pureScale 버전에 미러링 모니터 서버가 필요하지 않은 경우 배포의 이 부분을 건너뜁니다.
+-   DB2 pureScale ping을 통해 감시 가상 컴퓨터를 만듭니다. Db2 pureScale 버전이 미러링 모니터 서버가 필요 하지 않은 경우 배포의이 부분을 건너뜁니다.
 
--   테스트에 사용할 Windows 가상 컴퓨터를 만들지만 아무 것도 설치하지 않습니다.
+-   는 테스트에 사용할 Windows 가상 컴퓨터를 만들지만 그에는 아무것도 설치 하지 않습니다.
 
-다음으로 배포 스크립트는 Azure의 공유 스토리지용으로 iSCSI vSAN(가상 저장 영역 네트워크)을 설정합니다. 이 예제에서 iSCSI는 공유 저장소 클러스터에 연결합니다. 원래 고객 솔루션에서는 GlusterFS가 사용되었습니다. 그러나 IBM은 더 이상 이 방법을 지원하지 않습니다. IBM의 지원을 유지하려면 지원되는 iSCSI 호환 파일 시스템을 사용해야 합니다. 마이크로소프트는 스토리지 공간 직접 (S2D) 옵션으로 제공.
+다음으로 배포 스크립트는 Azure의 공유 스토리지용으로 iSCSI vSAN(가상 저장 영역 네트워크)을 설정합니다. 이 예제에서 iSCSI는 공유 저장소 클러스터에 연결 합니다. 원래 고객 솔루션에서 GlusterFS가 사용 되었습니다. 그러나 IBM은 더 이상이 방법을 지원 하지 않습니다. IBM의 지원을 유지 하려면 지원 되는 iSCSI 호환 파일 시스템을 사용 해야 합니다. Microsoft는 옵션으로 S2D (스토리지 공간 다이렉트)를 제공 합니다.
 
 또한 이 솔루션은 단일 Windows 노드로 iSCSI 대상 설치 옵션을 제공합니다. iSCSI는 TCP/IP를 통해 공유 블록 스토리지 인터페이스를 제공합니다. DB2 pureScale 설치 절차에서는 이 인터페이스를 통해 디바이스 인터페이스를 사용하여 공유 스토리지에 연결할 수 있습니다.
 
@@ -56,11 +56,11 @@ deploy.sh 스크립트는 이 아키텍처용 Azure 리소스를 만들고 구�
 
 1.  Azure에서 공유 스토리지 클러스터를 설정합니다. 이 단계에서는 Linux 노드 2개 이상이 설치됩니다.
 
-2.  공유 저장소 클러스터에 대한 대상 Linux 서버에 iSCSI 직접 인터페이스를 설정합니다.
+2.  공유 저장소 클러스터에 대 한 대상 Linux 서버에서 iSCSI Direct 인터페이스를 설정 합니다.
 
-3.  Linux 가상 머신에서 iSCSI 초기자를 설치합니다. 초기화자는 iSCSI 대상을 사용하여 공유 저장소 클러스터에 액세스합니다. 설치 세부 정보는 RootUsers 설명서에서 [Linux에서 iSCSI 대상 및 초기자를 구성하는 방법](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/)을 참조하세요.
+3.  Linux 가상 머신에서 iSCSI 초기자를 설치합니다. 초기자는 iSCSI 대상을 사용 하 여 공유 저장소 클러스터에 액세스 합니다. 설치 세부 정보는 RootUsers 설명서에서 [Linux에서 iSCSI 대상 및 초기자를 구성하는 방법](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/)을 참조하세요.
 
-4.  iSCSI 인터페이스에 대한 공유 스토리지 계층을 설치합니다.
+4.  ISCSI 인터페이스에 대 한 공유 저장소 계층을 설치 합니다.
 
 스크립트는 iSCSI 디바이스를 만든 후 마지막 단계에서 DB2 pureScale을 설치합니다. DB2 pureScale 설치의 일부분으로 [IBM 스펙트럼 확장](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0057167.html)(구 GPFS)이 컴파일되어 GlusterFS 클러스터에 설치됩니다. 이 클러스터된 파일 시스템을 통해 DB2 pureScale은 DB2 pureScale 엔진을 실행하는 여러 가상 머신 간에 데이터를 공유할 수 있습니다. 자세한 내용은 IBM 웹 사이트에서 [IBM 스펙트럼 확장](https://www.ibm.com/support/knowledgecenter/en/STXKQY_4.2.0/ibmspectrumscale42_welcome.html) 설명서를 참조하세요.
 
@@ -73,11 +73,11 @@ GitHub 리포지토리에는 DB2 pureScale 설치용 자동 스크립트를 생�
 
 | 화면 이름               | 필드                                        | 값                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| 환영                   |                                              | 새 설치                                                                                           |
+| 시작                   |                                              | 새 설치                                                                                           |
 | 제품 선택          |                                              | DB2 버전 11.1.3.3. DB2 pureScale이 포함된 Server Edition                                              |
 | Configuration             | 디렉터리                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | 설치 유형 선택                 | 일반                                                                                               |
-|                           | IBM 사용 약관에 동의함                     | 선택                                                                                               |
+|                           | IBM 사용 약관에 동의함                     | 선택됨                                                                                               |
 | 인스턴스 소유자            | 인스턴스, 사용자 이름에 대한 기존 사용자        | DB2sdin1                                                                                              |
 | 펜스된 사용자               | 기존 사용자, 사용자 이름                     | DB2sdin1                                                                                              |
 | 클러스터 파일 시스템       | 공유 디스크 파티션 디바이스 경로            | /dev/dm-2                                                                                             |

@@ -1,6 +1,6 @@
 ---
-title: NCv3 시리즈 - Azure 가상 시스템
-description: NCv3 시리즈 VM에 대한 사양.
+title: NCv3 시리즈-Azure Virtual Machines
+description: NCv3 시리즈 Vm에 대 한 사양입니다.
 services: virtual-machines
 author: vikancha
 ms.service: virtual-machines
@@ -8,28 +8,28 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 9ae3604a9ea82e6e50ba4d639d36572f7b052e4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78302800"
 ---
 # <a name="ncv3-series"></a>NCv3 시리즈
 
-NCv3 시리즈 VM은 [NVIDIA Tesla V100](https://www.nvidia.com/data-center/tesla-v100/) GPU로 구동됩니다. 이러한 GPU는 NCv2 시리즈보다 1.5배의 계산 성능을 제공할 수 있습니다. 고객은 저수지 모델링, DNA 배열, 단백질 분석, 몬테카를로 시뮬레이션 등 기존 HPC 워크로드에 이러한 업데이트된 GPU를 활용할 수 있습니다. NC24rs v3 구성은 긴밀하게 결합된 병렬 컴퓨팅 작업에 최적화된 짧은 대기 시간과 높은 처리량의 네트워크 인터페이스를 제공합니다. GPU 외에도 NCv3 시리즈 VM은 인텔 제온 E5-2690 v4(브로드웰) CPU로 구동됩니다.
+NCv3 시리즈 VM은 [NVIDIA Tesla V100](https://www.nvidia.com/data-center/tesla-v100/) GPU로 구동됩니다. 이러한 GPU는 NCv2 시리즈보다 1.5배의 계산 성능을 제공할 수 있습니다. 고객은 저수지 모델링, DNA 배열, 단백질 분석, 몬테카를로 시뮬레이션 등 기존 HPC 워크로드에 이러한 업데이트된 GPU를 활용할 수 있습니다. NC24rs v3 구성은 긴밀하게 결합된 병렬 컴퓨팅 작업에 최적화된 짧은 대기 시간과 높은 처리량의 네트워크 인터페이스를 제공합니다. Gpu 외에도 NCv3 시리즈 Vm은 Intel Xeon E5-2690 v4 (Broadwell) Cpu로 구동 됩니다.
 
 Premium Storage: 지원됨
 
-프리미엄 스토리지 캐싱: 지원
+Premium Storage 캐싱: 지원 됨
 
-라이브 마이그레이션: 지원되지 않음
+실시간 마이그레이션: 지원 되지 않음
 
-업데이트 메모리 보존: 지원되지 않음
+메모리 보존 업데이트: 지원 되지 않음
 
 > [!IMPORTANT]
-> 이 VM 시리즈의 경우 구독의 vCPU(코어) 할당량이 처음에는 각 리전에서 0으로 설정됩니다. [사용 가능한 리전에서](https://azure.microsoft.com/regions/services/)이 시리즈에 대한 [vCPU 할당량 증가를 요청합니다.](../azure-supportability/resource-manager-core-quotas-request.md)
+> 이 VM 시리즈의 경우 구독에서 vCPU (코어) 할당량은 초기에 각 지역에서 0으로 설정 됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서이 시리즈에 대 한 [vcpu 할당량 증가를 요청](../azure-supportability/resource-manager-core-quotas-request.md) 합니다.
 >
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
+| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 캐시 되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|
 | Standard_NC6s_v3    | 6  | 112 | 736  | 1 | 16 | 12 | 20000/200 | 4 |
 | Standard_NC12s_v3   | 12 | 224 | 1474 | 2 | 32 | 24 | 40000/400 | 8 |
@@ -44,16 +44,16 @@ Premium Storage: 지원됨
 
 ## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
 
-Azure N 시리즈 VM의 GPU 기능을 활용하려면 NVIDIA GPU 드라이버를 설치해야 합니다.
+Azure N 시리즈 Vm의 GPU 기능을 활용 하려면 NVIDIA GPU 드라이버를 설치 해야 합니다.
 
 [NVIDIA GPU 드라이버 확장](./extensions/hpccompute-gpu-windows.md)은 N 시리즈 VM에 적절한 NVIDIA CUDA 또는 GRID 드라이버를 설치합니다. Azure PowerShell 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 운영 체제 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](./extensions/hpccompute-gpu-windows.md)를 참조하세요. VM 확장에 대한 일반적인 내용은 [Azure 가상 머신 확장 및 기능](./extensions/overview.md)을 참조하세요.
 
-NVIDIA GPU 드라이버를 수동으로 설치하도록 선택한 경우 지원되는 운영 체제, 드라이버, 설치 및 확인 단계에 [대한 Linux용](./linux/n-series-driver-setup.md) N 시리즈 [GPU 드라이버 설정을 참조하세요.](./windows/n-series-driver-setup.md)
+NVIDIA GPU 드라이버를 수동으로 설치 하도록 선택 하는 경우 지원 되는 운영 체제, 드라이버, 설치 및 확인 단계에 대 한 [n 시리즈 gpu driver setup For Windows](./windows/n-series-driver-setup.md) 또는 [n 시리즈 gpu Driver setup for Linux](./linux/n-series-driver-setup.md) 를 참조 하세요.
 
 ## <a name="other-sizes"></a>기타 크기
 
 - [범용](sizes-general.md)
-- [메모리 최적화](sizes-memory.md)
+- [메모리에 최적화](sizes-memory.md)
 - [Storage에 최적화](sizes-storage.md)
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)

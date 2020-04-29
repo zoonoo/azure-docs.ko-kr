@@ -1,6 +1,6 @@
 ---
-title: 디스크 공간을 채우는 아파치 하이브 로그 - Azure HDInsight
-description: 아파치 하이브 로그가 Azure HDInsight의 헤드 노드에 디스크 공간을 채우고 있습니다.
+title: 디스크 공간을 채우는 Apache Hive 로그-Azure HDInsight
+description: Apache Hive 로그는 Azure HDInsight에서 헤드 노드의 디스크 공간을 채우고 있습니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: nisgoel
@@ -8,24 +8,24 @@ ms.author: nisgoel
 ms.reviewer: jasonh
 ms.date: 03/05/2020
 ms.openlocfilehash: d843b942702d335065a5f3798572e34c71b4cd0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943957"
 ---
-# <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>시나리오: 아파치 하이브 로그가 Azure HDInsight의 헤드 노드에서 디스크 공간을 채우고 있습니다.
+# <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>시나리오: Apache Hive 로그가 Azure HDInsight에서 헤드 노드의 디스크 공간을 채우고 있습니다.
 
-이 문서에서는 Azure HDInsight 클러스터의 헤드 노드에 디스크 공간이 충분하지 않은 문제에 대한 문제 해결 단계 및 가능한 해결 방법을 설명합니다.
+이 문서에서는 Azure HDInsight 클러스터의 헤드 노드에 디스크 공간이 부족 하 여 발생 하는 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 
 ## <a name="issue"></a>문제
 
-아파치 하이브/LLAP 클러스터에서 원치 않는 로그가 헤드 노드의 전체 디스크 공간을 차지합니다. 따라서 다음과 같은 문제가 보일 수 있습니다.
+Apache Hive/LLAP 클러스터에서 원치 않는 로그는 헤드 노드에서 전체 디스크 공간을 차지 하 고 있습니다. 이로 인해 다음 문제가 나타날 수 있습니다.
 
-1. 헤드 노드에 공간이 남아 있지 않으므로 SSH 액세스가 실패합니다.
-2. Ambari 는 HTTP 오류를 제공합니다 *: 503 서비스를 사용할 수 없습니다.*
+1. 헤드 노드에 남아 있는 공간이 없으므로 SSH 액세스가 실패 합니다.
+2. Ambari는 *HTTP 오류를 제공 합니다. 503 서비스를 사용할 수 없습니다*.
 
-`ambari-agent` 문제가 발생하면 로그에 다음이 표시됩니다.
+문제가 `ambari-agent` 발생 하면 로그에 다음이 표시 됩니다.
 ```
 ambari_agent - Controller.py - [54697] - Controller - ERROR - Error:[Errno 28] No space left on device
 ```
@@ -35,17 +35,17 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
 
 ## <a name="cause"></a>원인
 
-고급 Hive-log4j 구성에서는 매개 변수 *log4j.appender.RFA.MaxBackupIndex가* 생략됩니다. 그것은 로그 파일의 끝없는 생성을 야기한다.
+고급 Hive log4j 구성에서는 *log4j 어 펜더* 매개 변수를 생략 합니다. 이로 인해 로그 파일이 무한 생성 됩니다.
 
 ## <a name="resolution"></a>해결 방법
 
-1. Ambari 포털에서 하이브 구성 요소 요약으로 `Configs` 이동하여 탭을 클릭합니다.
+1. Ambari 포털에서 Hive 구성 요소 요약으로 이동 하 고 `Configs` 탭을 클릭 합니다.
 
-2. 고급 설정 `Advanced hive-log4j` 내의 섹션으로 이동합니다.
+2. 고급 설정 내의 `Advanced hive-log4j` 섹션으로 이동 합니다.
 
-3. 매개 `log4j.appender.RFA` 변수를 롤링파일앱펜더로 설정합니다. 
+3. 매개 `log4j.appender.RFA` 변수를 RollingFileAppender로 설정 합니다. 
 
-4. 세트 `log4j.appender.RFA.MaxFileSize` `log4j.appender.RFA.MaxBackupIndex` 및 다음과 같습니다.
+4. 다음과 `log4j.appender.RFA.MaxFileSize` 같이 `log4j.appender.RFA.MaxBackupIndex` 를 설정 합니다.
 
 ```
 log4jhive.log.maxfilesize=1024MB
@@ -58,7 +58,7 @@ log4j.appender.RFA.MaxBackupIndex=${log4jhive.log.maxbackupindex}
 log4j.appender.RFA.layout=org.apache.log4j.PatternLayout
 log4j.appender.RFA.layout.ConversionPattern=%d{ISO8601} %-5p [%t] %c{2}: %m%n
 ```
-5. 다음과 `hive.root.logger` `INFO,RFA` 같이 설정합니다. 기본 설정은 DEBUG로 로그가 매우 커집니다.
+5. 다음과 `hive.root.logger` 같이 `INFO,RFA` 로 설정 합니다. 기본 설정은 디버그로, 로그가 매우 커질 수 있습니다.
 
 ```
 # Define some default values that can be overridden by system properties
@@ -68,14 +68,14 @@ hive.log.dir=${java.io.tmpdir}/${user.name}
 hive.log.file=hive.log
 ```
 
-6. 구성을 저장하고 필요한 구성 요소를 다시 시작합니다.
+6. Configs를 저장 하 고 필수 구성 요소를 다시 시작 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
-* Azure 커뮤니티 지원을 통해 Azure 전문가의 답변을 얻을 [수 있습니다.](https://azure.microsoft.com/support/community/)
+* Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
 
-* 연결 [@AzureSupport](https://twitter.com/azuresupport) - Azure 커뮤니티를 올바른 리소스(답변, 지원 및 전문가)에 연결하여 고객 경험을 개선하기 위한 공식 Microsoft Azure 계정과 연결합니다.
+* 연결 방법 [@AzureSupport](https://twitter.com/azuresupport) -Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 하 여 고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다.
 
-* 추가 도움이 필요한 경우 [Azure 포털](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원을** 선택하거나 도움말 + 지원 허브를 **엽니다.** 자세한 내용은 [Azure 지원 요청을 만드는 방법을](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)검토하십시오. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 기술 지원은 [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 제공됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.

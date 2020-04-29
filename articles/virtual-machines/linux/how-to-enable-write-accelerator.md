@@ -1,5 +1,5 @@
 ---
-title: Azure 쓰기 액셀러레이터
+title: Azure 쓰기 가속기
 description: Write Accelerator를 사용하는 방법에 대한 설명서
 author: raiye
 manager: markkie
@@ -10,10 +10,10 @@ ms.date: 2/20/2019
 ms.author: raiye
 ms.subservice: disks
 ms.openlocfilehash: 032ce960ce0d2cca5e1690522f6a16e7b610c4fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78945077"
 ---
 # <a name="enable-write-accelerator"></a>Write Accelerator 사용

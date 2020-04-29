@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services를 사용하여 장애 조치 스트리밍 구현 | Microsoft Docs
-description: 이 문서에서는 Azure Media Services를 사용하여 장애 조치 스트리밍 시나리오를 구현하는 방법을 보여 주며 있습니다.
+description: 이 문서에서는 Azure Media Services를 사용 하 여 장애 조치 스트리밍 시나리오를 구현 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: ae1371a8f025fd5e5722d483323fbe937538eb15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78939222"
 ---
-# <a name="implement-failover-streaming-with-media-services-v2"></a>미디어 서비스 v2를 통해 장애 조치 스트리밍 구현
+# <a name="implement-failover-streaming-with-media-services-v2"></a>Media Services v2를 사용 하 여 장애 조치 스트리밍 구현
 
 이 연습에서는 주문형 스트리밍에 대한 중복성을 처리 하기 위해 한 자산에서 다른 자산으로 콘텐츠(Blob)를 복사하는 방법을 보여줍니다. 이 시나리오는 데이터 센터에서 가동이 중단되는 경우 두 데이터 센터 간에 장애 조치할 Azure Content Delivery Network를 설정하려는 경우에 유용합니다. 이 연습에서는 Azure Media Services SDK, Azure Media Services REST API 및 Azure Storage SDK를 사용하여 다음 작업을 설명합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "78939222"
 * 자산을 암호화한 스토리지(AssetCreationOptions.StorageEncrypted)는 복제에 지원되지 않습니다(암호화 키가 Media Services 계정 모두에서 다르기 때문임). 
 * 동적 패키징을 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태인지 확인합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * 신규 또는 기존 Azure 구독의 Media Services 계정 2개. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * 운영 체제: Windows 7, Windows 2008 R2 또는 Windows 8.
@@ -61,11 +61,11 @@ ms.locfileid: "78939222"
 
 이 섹션에서는 C# 콘솔 애플리케이션 프로젝트를 만들고 설정합니다.
 
-1. Visual Studio를 사용하여 C# 콘솔 애플리케이션 프로젝트가 포함된 새 솔루션을 만듭니다. 이름에 대한 **핸들RedundancyOnDemandStream을** 입력한 다음 **확인을**클릭합니다.
-2. **핸들RedundancyForOnDemandStreaming.csproj** 프로젝트 파일과 동일한 수준에서 **SupportFiles** 폴더를 만듭니다. 지원 **파일** 폴더에서 **출력 파일** 및 **MP4Files** 폴더를 만듭니다. .mp4 파일을 **MP4Files** 폴더에 복사합니다. (이 예제에서는 **ignite.mp4** 파일이 사용됩니다.) 
-3. **NuGet을** 사용하여 미디어 서비스와 관련된 DLL에 대한 참조를 추가합니다. **비주얼 스튜디오 메인 메뉴에서** **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔을**선택합니다. 콘솔 창에서 **설치 패키지 windowsazure.mediaservices를**입력하고 Enter를 누릅니다.
-4. 이 프로젝트에 필요한 다른 참조를 추가합니다: System.Runtime.Serialization 및 System.Web.
-5. 기본적으로 **Programs.cs** 파일에 추가된 **문을** 다음과 같은 문으로 바꿉니다.
+1. Visual Studio를 사용하여 C# 콘솔 애플리케이션 프로젝트가 포함된 새 솔루션을 만듭니다. 이름에 **파일과** 를 입력 한 다음 **확인**을 클릭 합니다.
+2. **파일과** 프로젝트 파일과 동일한 수준에 **supportfiles** 폴더를 만듭니다. **Supportfiles** 폴더에서 **Outputfiles** 및 **MP4Files** 폴더를 만듭니다. .mp4 파일을 **MP4Files** 폴더에 복사합니다. (이 예제에서는 **ignite** 파일이 사용 됩니다.) 
+3. **NuGet** 을 사용 하 여 Media Services와 관련 된 dll에 대 한 참조를 추가 합니다. **Visual Studio 주 메뉴**에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 선택 합니다. 콘솔 창에서 **windowsazure.servicebus windowsazure.mediaservices**를 입력 하 고 enter 키를 누릅니다.
+4. 이 프로젝트에 필요한 다른 참조를 추가 합니다 (예: System.object 및 system.web).
+5. 기본적으로 **Programs.cs** 파일에 추가 된 **using** 문을 다음과 같이 바꿉니다.
 
 ```csharp
 using System;
@@ -205,10 +205,10 @@ using System.Runtime.Serialization.Json;
         }
     }
     ```
-3. 다음 메서드 정의는 Main에서 호출됩니다. 각 방법에 대한 자세한 내용은 주석을 참조하십시오.
+3. 다음 메서드 정의는 Main에서 호출됩니다. 각 방법에 대 한 자세한 내용은 주석을 참조 하세요.
 
     >[!NOTE]
-    >다른 Media Services 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개로 제한됩니다. 항상 동일한 날짜 및 액세스 권한을 사용하는 경우 동일한 정책 ID를 사용해야 합니다. 예를 들어, 장기간 위치에 유지하려는 로케이터의 정책에 동일한 ID를 사용합니다(비 업로드 정책). 자세한 내용은 [이 항목을](media-services-dotnet-manage-entities.md#limit-access-policies)참조하십시오.
+    >다른 Media Services 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개로 제한됩니다. 항상 동일한 날짜 및 액세스 권한을 사용하는 경우 동일한 정책 ID를 사용해야 합니다. 예를 들어, 장기간 위치에 유지하려는 로케이터의 정책에 동일한 ID를 사용합니다(비 업로드 정책). 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies)을 참조 하세요.
 
     ```csharp
     public static IAsset CreateAssetAndUploadSingleFile(CloudMediaContext context,
@@ -748,13 +748,13 @@ using System.Runtime.Serialization.Json;
     
 ## <a name="content-protection"></a>콘텐츠 보호
 
-이 항목의 예제에서는 명확한 스트리밍을 보여 주며, 이 에 대한 예는 명확한 스트리밍을 보여줍니다. 보호된 스트리밍을 수행하려면 설정해야 하는 몇 가지 다른 항목이 있으며 동일한 **AssetDeliveryPolicy,** 동일한 **ContentKeyAuthorizationPolicy** 또는 외부 키 서버 URL을 사용해야 하며 동일한 식별자를 사용하여 콘텐츠 키를 복제해야 합니다.
+이 항목의 예제에서는 clear streaming을 보여 줍니다. 보호 된 스트리밍을 수행 하려는 경우 몇 가지 다른 작업을 설정 해야 합니다. 동일한 **Asset배달 Ypolicy**, 동일한 **Contentkeyauthorizationpolicy** 또는 외부 키 서버 URL을 사용 해야 하며, 동일한 식별자를 사용 하 여 콘텐츠 키를 복제 해야 합니다.
 
-콘텐츠 보호에 대한 자세한 내용은 [AES-128 동적 암호화 사용 및 키 전송 서비스를](media-services-protect-with-aes128.md)참조하십시오.
+콘텐츠 보호에 대 한 자세한 내용은 [AES-128 동적 암호화 및 키 배달 서비스 사용](media-services-protect-with-aes128.md)을 참조 하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-[Azure Webhooks를 사용하여 미디어 서비스 작업 알림 모니터링](media-services-dotnet-check-job-progress-with-webhooks.md)
+[Azure 웹 후크를 사용 하 여 Media Services 작업 알림 모니터링](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## <a name="next-steps"></a>다음 단계
 

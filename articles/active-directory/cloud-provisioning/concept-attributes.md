@@ -1,6 +1,6 @@
 ---
 title: Azure AD 스키마 및 사용자 지정 식 이해
-description: 이 문서에서는 Azure AD 스키마, 프로비저닝 에이전트가 흐르는 특성 및 사용자 지정 식에 대해 설명합니다.
+description: 이 문서에서는 Azure AD 스키마, 프로 비전 에이전트가 흐르는 특성 및 사용자 지정 식을 설명 합니다.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,67 +16,67 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ac09fb3faf55be6c07a1e0a88b6e2032c9ab8ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78299332"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Azure AD 스키마 이해
-Azure Active Directory(Azure AD)의 개체는 모든 디렉터리와 마찬가지로 사용자, 그룹 및 연락처와 같은 것을 나타내는 프로그래밍 방식의 상위 수준 데이터 구문입니다. Azure AD에서 새 사용자 또는 연락처를 만들 때 해당 개체의 새 인스턴스를 만듭니다. 이러한 인스턴스는 속성에 따라 구분할 수 있습니다.
+모든 디렉터리와 같이 Azure Active Directory (Azure AD)의 개체는 사용자, 그룹 및 연락처와 같은 작업을 나타내는 프로그래밍 방식의 고급 데이터 구문입니다. Azure AD에서 새 사용자 또는 연락처를 만들 때 해당 개체의 새 인스턴스를 만듭니다. 이러한 인스턴스는 속성을 기반으로 구분할 수 있습니다.
 
-Azure AD의 속성은 Azure AD에서 개체 인스턴스에 대한 정보를 저장하는 요소입니다.
+Azure AD의 속성은 Azure AD에서 개체의 인스턴스에 대 한 정보를 저장 하는 요소입니다.
 
-Azure AD 스키마는 항목에 사용할 수 있는 속성, 해당 속성이 가질 수 있는 값의 종류 및 사용자가 해당 값과 상호 작용하는 방법을 정의합니다. 
+Azure AD 스키마는 항목에 사용 될 수 있는 속성, 해당 속성에 포함 될 수 있는 값의 종류 및 사용자가 이러한 값으로 상호 작용 하는 방법에 대 한 규칙을 정의 합니다. 
 
-Azure AD에는 두 가지 유형의 속성이 있습니다.
-- **기본 제공 속성**: Azure AD 스키마에서 미리 정의된 속성입니다. 이러한 속성은 서로 다른 용도를 제공하며 액세스할 수 있거나 액세스할 수 없을 수도 있습니다.
-- **디렉터리 확장**: 사용자 고유의 사용을 위해 Azure AD를 사용자 지정할 수 있도록 제공되는 속성입니다. 예를 들어 온-프레미스 Active Directory를 특정 특성으로 확장하고 해당 특성을 흐름하려는 경우 제공된 사용자 지정 속성 중 하나를 사용할 수 있습니다. 
+Azure AD에는 다음과 같은 두 가지 유형의 속성이 있습니다.
+- **기본 제공 속성**: Azure AD 스키마에 의해 미리 정의 된 속성입니다. 이러한 속성은 다양 한 용도를 제공 하며 액세스할 수 있거나 액세스할 수 없는 경우도 있습니다.
+- **디렉터리 확장**: 사용자가 직접 사용 하기 위해 Azure AD를 사용자 지정할 수 있도록 제공 되는 속성입니다. 예를 들어 특정 특성을 사용 하 여 온-프레미스 Active Directory을 확장 하 고 해당 특성을 전달 하려는 경우 제공 되는 사용자 지정 속성 중 하나를 사용할 수 있습니다. 
 
 ## <a name="attributes-and-expressions"></a>특성 및 식
-사용자와 같은 개체가 Azure AD에 프로비전되면 사용자 개체의 새 인스턴스가 만들어집니다. 이 생성에는 특성이라고도 하는 해당 개체의 속성이 포함됩니다. 처음에 새로 생성된 개체에는 동기화 규칙에 의해 결정되는 값으로 설정된 특성이 있습니다. 그런 다음 이러한 특성은 클라우드 프로비저닝 에이전트를 통해 최신 상태로 유지됩니다.
+사용자와 같은 개체가 Azure AD에 프로 비전 되 면 사용자 개체의 새 인스턴스가 만들어집니다. 여기에는 해당 개체의 속성 (특성)이 포함 됩니다. 처음에는 새로 만든 개체의 특성이 동기화 규칙에 따라 결정 되는 값으로 설정 됩니다. 이러한 특성은 클라우드 프로 비전 에이전트를 통해 최신 상태로 유지 됩니다.
 
-![개체 프로비저닝](media/concept-attributes/attribute1.png)
+![개체 프로 비전](media/concept-attributes/attribute1.png)
 
-예를 들어 사용자가 마케팅 부서의 일부일 수 있습니다. Azure AD 부서 특성은 프로비전될 때 처음에 만들어지며 값은 마케팅으로 설정됩니다. 6개월 후 Sales로 변경하면 온-프레미스 Active Directory 부서 특성이 Sales로 변경됩니다. 이 변경 내용은 Azure AD와 동기화되며 Azure AD 사용자 개체에 반영됩니다.
+예를 들어 사용자가 마케팅 부서의 일부일 수 있습니다. 처음에는 해당 Azure AD 부서 특성이 프로 비전 될 때 생성 되 고 값이 Marketing으로 설정 됩니다. 6 개월 후에 판매로 변경 되 면 해당 온-프레미스 Active Directory 부서 특성이 Sales로 변경 됩니다. 이 변경 내용은 Azure AD와 동기화 되며 해당 Azure AD 사용자 개체에 반영 됩니다.
 
-특성 동기화는 Azure AD의 값이 온-프레미스 특성의 값으로 직접 설정된 직접적일 수 있습니다. 또는 프로그래밍 방식식에서 동기화를 처리할 수 있습니다. 값을 채우기 위해 일부 논리 또는 결정을 수행해야 하는 경우 프로그래밍 방식의 식이 필요합니다.
+특성 동기화는 직접적인 일 수 있습니다. 여기서 Azure AD의 값은 온-프레미스 특성의 값으로 직접 설정 됩니다. 또는 프로그래밍 식이 동기화를 처리할 수도 있습니다. 값을 채우도록 일부 논리 또는 결정을 수행 해야 하는 경우 프로그래밍 식이 필요 합니다.
 
-예를 들어 mail 속성 "을john.smith@contoso.com사용하고 ""@contoso.com부분을 제거하고 "john.smith" 값만 흐르면 다음과 같은 것을 사용합니다.
+예를 들어 메일 특성 "john.smith@contoso.com"을 사용 하 여 "@contoso.com" 부분을 제거 하 고 "john. smith" 값만 전달 해야 하는 경우 다음과 같은 항목을 사용 합니다.
 
 `Replace([mail], "@contoso.com", , ,"", ,)`  
 
 **샘플 입/출력:** <br>
 
 * **입력**(메일): “john.smith@contoso.com”
-* **출력**: "john.smith"
+* **출력**: "john. smith"
 
-사용자 지정 식 및 구문을 작성하는 방법에 대한 자세한 내용은 [Azure Active Directory의 특성 매핑에 대한 식 작성을](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)참조하십시오.
+사용자 지정 식 및 구문을 작성 하는 방법에 대 한 자세한 내용은 [Azure Active Directory에서 특성 매핑에 대 한 식 작성](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)을 참조 하세요.
 
-다음 표에는 일반적인 특성과 공통 특성이 Azure AD와 동기화되는 방식이 나열되어 있습니다.
+다음 표에서는 일반적인 특성 및 Azure AD에 동기화 되는 방법을 보여 줍니다.
 
 
 |온-프레미스 Active Directory|매핑 유형|Azure AD|
 |-----|-----|-----|
-|cn|직접|공통 이름
+|cn|직접|commonName
 |countryCode|직접|countryCode|
 |displayName|직접|displayName|
 |givenName|식|givenName|
-|objectGUID|직접|소스앵커리너이너|  
+|objectGUID|직접|sourceAnchorBinary|  
 |userprincipalName|직접|userPrincipalName|
-|프록시드레스|직접|ProxyAddress|
+|ProxyAdress|직접|ProxyAddress|
 
 ## <a name="view-the-schema"></a>스키마 보기
 > [!WARNING]
-> 클라우드 프로비저닝 구성은 서비스 주체를 만듭니다. 서비스 주체는 Azure 포털에 표시됩니다. Azure 포털의 서비스 주체 환경을 사용하여 특성 매핑을 수정해서는 안 됩니다.  이는 지원되지 않습니다.
+> 클라우드 프로 비전 구성에서는 서비스 주체를 만듭니다. 서비스 사용자는 Azure Portal에서 볼 수 있습니다. Azure Portal의 서비스 사용자 환경을 사용 하 여 특성 매핑을 수정 하면 안 됩니다.  이는 지원되지 않습니다.
 
-스키마를 보고 확인하려면 다음 단계를 따르십시오.
+스키마를 확인 하 고 확인 하려면 다음 단계를 수행 합니다.
 
-1.  그래프 [탐색기로](https://developer.microsoft.com/graph/graph-explorer)이동합니다.
-1.  글로벌 관리자 계정으로 로그인합니다.
-1.  왼쪽에서 사용 **권한을 수정하고** **Directory.ReadWrite.All이** *동의되었는지*확인합니다.
-1.  쿼리를 `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')`실행합니다. 이 쿼리는 필터링된 서비스 주체 목록을 반환합니다.
-1.  의 `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` 값을 찾아 `"id"`기록합니다.
+1.  [그래프 탐색기](https://developer.microsoft.com/graph/graph-explorer)로 이동 합니다.
+1.  전역 관리자 계정으로 로그인 합니다.
+1.  왼쪽에서 **권한 수정** 을 선택 하 고 **디렉터리. ReadWrite** 가 *동의한*인지 확인 합니다.
+1.  쿼리 `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')`를 실행 합니다. 이 쿼리는 서비스 사용자의 필터링 된 목록을 반환 합니다.
+1.  의 `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` `"id"`값을 찾아 확인 합니다.
     ```
     "value": [
             {
@@ -149,8 +149,8 @@ Azure AD에는 두 가지 유형의 속성이 있습니다.
                 "passwordCredentials": []
             },
     ```
-1. 값으로 바꾸고 `{Service Principal id}` 쿼리를 `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/`실행합니다.
-1. 의 `"id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976"` 값을 찾아 `"id"`기록합니다.
+1. 값 `{Service Principal id}` 으로 대체 하 고 쿼리 `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/`를 실행 합니다.
+1. 의 `"id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976"` `"id"`값을 찾아 확인 합니다.
     ```
     {
                 "id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976",
@@ -241,15 +241,15 @@ Azure AD에는 두 가지 유형의 속성이 있습니다.
                 ]
             }
     ```
-1. 이제 쿼리를 `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`실행합니다.
+1. 이제 쿼리 `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`를 실행 합니다.
  
     예: https://graph.microsoft.com/beta/serviceprincipals/653c0018-51f4-4736-a3a3-94da5dcb6862/synchronization/jobs/AD2AADProvisioning.e9287a7367e444c88dc67a531c36d8ec/schema
 
-   값을 `{Service Principal Id}` `{AD2ADD Provisioning Id}` 바꾸고 바꿉을 바꿉을 가지고 있습니다.
+   및 `{Service Principal Id}` `{AD2ADD Provisioning Id}` 을 사용자의 값으로 바꿉니다.
 
-1. 이 쿼리는 스키마를 반환합니다.
+1. 이 쿼리는 스키마를 반환 합니다.
 
-   ![반환된 스키마](media/concept-attributes/schema1.png)
+   ![반환 된 스키마](media/concept-attributes/schema1.png)
  
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,27 +1,27 @@
 ---
 title: Docker Compose 사용
-description: Azure CLI를 사용하여 Linux 가상 컴퓨터에서 Docker 및 작성을 설치하고 사용하는 방법.
+description: Azure CLI를 사용 하 여 Linux 가상 컴퓨터에서 Docker를 설치 및 사용 하 고 구성 하는 방법입니다.
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: cynthn
 ms.openlocfilehash: 434a3ef8c9bc1738252d59a5dca5bec16d85e45e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78970299"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Azure에서 다중 컨테이너 애플리케이션 정의 및 실행을 위해 Docker 및 Compose 시작
-[Compose를](https://github.com/docker/compose)사용하면 간단한 텍스트 파일을 사용하여 여러 Docker 컨테이너로 구성된 응용 프로그램을 정의할 수 있습니다. 그런 다음, 정의된 환경을 배포하도록 모든 작업을 수행하는 단일 명령으로 애플리케이션을 스핀업합니다. 그 예로, 이 문서에서는 Ubuntu VM의 백 엔드 MariaDB SQL Database로 WordPress 블로그를 신속하게 설정하는 방법을 보여주지만 Compose를 사용하여 좀더 복잡한 애플리케이션을 설정할 수도 있습니다.
+[작성](https://github.com/docker/compose)을 사용 하면 간단한 텍스트 파일을 사용 하 여 여러 Docker 컨테이너로 구성 된 응용 프로그램을 정의할 수 있습니다. 그런 다음, 정의된 환경을 배포하도록 모든 작업을 수행하는 단일 명령으로 애플리케이션을 스핀업합니다. 그 예로, 이 문서에서는 Ubuntu VM의 백 엔드 MariaDB SQL Database로 WordPress 블로그를 신속하게 설정하는 방법을 보여주지만 Compose를 사용하여 좀더 복잡한 애플리케이션을 설정할 수도 있습니다.
 
 이 문서는 2019년 2월 14일에 [Azure Cloud Shell](https://shell.azure.com/bash) 및 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 버전 2.0.58을 사용하여 마지막으로 테스트되었습니다.
 
 ## <a name="create-docker-host-with-azure-cli"></a>Azure CLI를 사용하여 Docker 호스트 만들기
 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인합니다.
 
-먼저 [az group create](/cli/azure/group)를 사용하여 Docker 환경에 대한 리소스 그룹을 만듭니다. 다음 예제에서는 *동쪽* 위치에 *myResourceGroup이라는* 리소스 그룹을 만듭니다.
+먼저 [az group create](/cli/azure/group)를 사용하여 Docker 환경에 대한 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myDockerGroup --location eastus

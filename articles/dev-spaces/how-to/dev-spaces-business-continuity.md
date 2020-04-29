@@ -5,14 +5,14 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.date: 01/28/2019
 ms.topic: conceptual
-description: Azure 개발자 공간 및 Azure Kubernetes 서비스를 사용하여 비즈니스 연속성을 제공하고 재해 복구에 대비하는 방법을 알아봅니다.
+description: Azure Dev Spaces 및 Azure Kubernetes 서비스를 사용 하 여 비즈니스 연속성을 제공 하 고 재해 복구를 준비 하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
 manager: gwallace
 ms.openlocfilehash: 37c0048bfa7e72b25eb56603fc027045eba25cea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78295830"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Azure Dev Spaces의 비즈니스 연속성 및 재해 복구
@@ -29,7 +29,7 @@ Azure Dev Spaces는 AKS(Azure Kubernetes Service)의 기능입니다. AKS의 재
 
 ### <a name="enable-dev-spaces-via-the-azure-portal"></a>Azure Portal을 통해 Dev Spaces를 사용하도록 설정
 
-Azure 포털의 각 클러스터 설정에서 개발자 공간 메뉴 항목을 **선택합니다.** 그런 다음 개발자 공간을 활성화하고 저장하는 옵션을 선택합니다.
+Azure Portal의 각 클러스터 설정에서 **Dev Spaces** 메뉴 항목을 선택 합니다. 그런 다음 개발 공간을 사용 하도록 설정 하 고 저장 하는 옵션을 선택 합니다.
 
 ![Azure Portal을 통해 Dev Spaces를 사용하도록 설정](../media/common/enable-dev-spaces.jpg)
 
@@ -51,7 +51,7 @@ Dev Spaces 사용 시에는 보통 Kubernetes 클러스터의 상위 개발 공�
 
 ## <a name="select-the-correct-aks-cluster-to-use-for-dev-spaces"></a>Dev Spaces용으로 사용할 올바른 AKS 클러스터 선택
 
-팀의 초기 계획을 실행하는 백업 클러스터를 올바르게 구성하고 나면 언제든지 백업 클러스터로 빠르게 전환할 수 있습니다. 그런 다음 자식 개발 공간에서 작업중인 개별 서비스를 다시 실행할 수 있습니다.
+팀의 초기 계획을 실행하는 백업 클러스터를 올바르게 구성하고 나면 언제든지 백업 클러스터로 빠르게 전환할 수 있습니다. 그런 다음 자식 dev 공간에서 작업 중인 개별 서비스를 다시 실행할 수 있습니다.
 
 다음 CLI 명령을 사용하여 다른 클러스터를 선택합니다.
 
@@ -75,7 +75,7 @@ azds space select -n <space name>
 
 Visual Studio를 사용 중이라면 다음 단계를 수행하여 기존 프로젝트에 사용되는 클러스터를 전환할 수 있습니다.
 
-1. Visual Studio에서 새 프로젝트를 엽니다.
+1. Visual Studio에서 프로젝트를 엽니다.
 1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 1. 왼쪽 창에서 **디버그**를 클릭합니다.
 1. 디버그 속성 페이지에서 **프로필** 드롭다운 목록을 클릭하고 **Azure Dev Spaces**를 선택합니다.
