@@ -1,6 +1,6 @@
 ---
 title: Azure Event Grid 이벤트 처리기
-description: Azure 이벤트 그리드에 대해 지원되는 이벤트 처리기를 설명합니다. Azure 자동화, 기능, 이벤트 허브, 하이브리드 연결, 로직 앱, 서비스 버스, 큐 저장소, 웹후크.
+description: Azure Event Grid에 대해 지원 되는 이벤트 처리기에 대해 설명 합니다. Azure Automation, 함수, Event Hubs, 하이브리드 연결, Logic Apps, Service Bus, Queue Storage, 웹 후크.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 73118823aec9b8d4bd872986b13f19496240c0b9
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393452"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure Event Grid의 이벤트 처리기
@@ -36,9 +36,9 @@ Azure Functions를 처리기로 사용할 때는 일반 HTTP 트리거 대신 Ev
 
 |제목  |Description  |
 |---------|---------|
-| [빠른 시작: 함수가 있는 이벤트 처리](custom-event-to-function.md) | 사용자 지정 이벤트를 처리를 위한 함수로 보냅니다. |
+| [빠른 시작: 함수를 사용 하 여 이벤트 처리](custom-event-to-function.md) | 처리를 위해 사용자 지정 이벤트를 함수로 보냅니다. |
 | [Azure Functions의 Event Grid 트리거](../azure-functions/functions-bindings-event-grid.md) | Functions에서 Event Grid 트리거 사용 개요. |
-| [자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정](resize-images-on-storage-blob-upload-event.md) | 사용자가 웹앱을 통해 이미지를 스토리지 계정에 업로드합니다. 스토리지 BLOB이 만들어지면 Event Grid는 이벤트를 함수 앱에 보내고, 그곳에서 업로드된 이미지를 크기 조정합니다. |
+| [자습서: Event Grid을 사용 하 여 업로드 된 이미지 크기 조정 자동화](resize-images-on-storage-blob-upload-event.md) | 사용자가 웹앱을 통해 이미지를 스토리지 계정에 업로드합니다. 스토리지 BLOB이 만들어지면 Event Grid는 이벤트를 함수 앱에 보내고, 그곳에서 업로드된 이미지를 크기 조정합니다. |
 | [자습서: 데이터 웨어하우스로 빅 데이터 스트림](event-grid-event-hubs-integration.md) | Event Hubs가 캡처 파일을 만들 때 Event Grid는 함수 앱에 이벤트를 보냅니다. 앱은 캡처 파일을 검색하고 데이터를 데이터 웨어하우스에 마이그레이션합니다. |
 | [자습서: Azure Service Bus-Azure Event Grid 통합 예제](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid는 Service Bus 토픽의 메시지를 함수 앱 및 논리 앱에 전송합니다. |
 
@@ -67,21 +67,21 @@ Logic Apps를 사용하여 이벤트에 응답하는 비즈니스 프로세스�
 
 |제목  |Description  |
 |---------|---------|
-| [자습서: Azure 이벤트 그리드 및 논리 앱으로 가상 컴퓨터 변경 모니터링](monitor-virtual-machine-changes-event-grid-logic-app.md) | 논리 앱은 가상 머신의 변경 내용을 모니터링하고 이러한 변경에 대한 이메일을 보냅니다. |
+| [자습서: Azure Event Grid 및 Logic Apps를 사용 하 여 가상 머신 변경 모니터링](monitor-virtual-machine-changes-event-grid-logic-app.md) | 논리 앱은 가상 머신의 변경 내용을 모니터링하고 이러한 변경에 대한 이메일을 보냅니다. |
 | [자습서: Logic Apps를 사용하여 Azure IoT Hub 이벤트에 대한 이메일 알림 보내기](publish-iot-hub-events-to-logic-apps.md) | 논리 앱은 사용자의 IoT Hub에 디바이스가 추가될 때마다 알림 이메일을 보냅니다. |
 | [자습서: Azure Service Bus-Azure Event Grid 통합 예제](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid는 Service Bus 토픽의 메시지를 함수 앱 및 논리 앱에 전송합니다. |
 
-## <a name="service-bus"></a>Service Bus
+## <a name="service-bus"></a>서비스 버스
 
 ### <a name="service-bus-queues"></a>Service Bus 큐
 
-이벤트 그리드에서 이벤트를 서비스 버스 큐로 직접 라우팅하여 버퍼링에 사용하거나 엔터프라이즈 응용 프로그램에서 & 제어 시나리오를 명령할 수 있습니다.
+엔터프라이즈 응용 프로그램에서 버퍼링 또는 명령 & 제어 시나리오에서 사용 하기 위해 Event Grid의 이벤트를 Service Bus 큐에 직접 라우팅할 수 있습니다.
 
-Azure 포털에서 이벤트 구독을 만드는 동안 "서비스 버스 큐"를 끝점 유형으로 선택한 다음 "끝점 선택"을 클릭하여 서비스 버스 큐를 선택합니다.
+Azure Portal에서 이벤트 구독을 만드는 동안 끝점 유형으로 "Service Bus 큐"를 선택한 다음 "끝점 선택"을 클릭 하 여 Service Bus 큐를 선택 합니다.
 
-#### <a name="using-cli-to-add-a-service-bus-queue-handler"></a>CLI를 사용하여 서비스 버스 큐 처리기를 추가합니다.
+#### <a name="using-cli-to-add-a-service-bus-queue-handler"></a>CLI를 사용 하 여 Service Bus 큐 처리기 추가
 
-Azure CLI의 경우 다음 예제에서는 이벤트 그리드 항목을 구독하고 서비스 버스 큐에 연결합니다.
+Azure CLI의 경우 다음 예제에서는 event grid 토픽을 구독 하 고 Service Bus 큐에 연결 합니다.
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
@@ -97,13 +97,13 @@ az eventgrid event-subscription create \
 
 ### <a name="service-bus-topics"></a>Service Bus 토픽
 
-Event Grid에서 이벤트를 Service Bus 항목으로 Azure 시스템 이벤트를 처리하거나 명령 & 제어 메시징 시나리오를 위해 서비스 버스 항목으로 직접 이벤트를 라우팅할 수 있습니다.
+Service Bus 항목을 사용 하 여 Azure 시스템 이벤트를 처리 하기 위해 Event Grid의 이벤트를 Service Bus 항목으로 직접 라우트 하거나 명령 & 메시징 시나리오를 제어할 수 있습니다.
 
-Azure 포털에서 이벤트 구독을 만드는 동안 "서비스 버스 항목"을 끝점 유형으로 선택한 다음 "선택 및 끝점"을 클릭하여 서비스 버스 항목을 선택합니다.
+Azure Portal에서 이벤트 구독을 만드는 동안 "Service Bus 토픽"을 끝점 유형으로 선택 하 고 "선택 및 끝점"을 클릭 하 여 Service Bus 항목을 선택 합니다.
 
-#### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>CLI를 사용하여 서비스 버스 토픽 처리기를 추가합니다.
+#### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>CLI를 사용 하 여 Service Bus 토픽 처리기 추가
 
-Azure CLI의 경우 다음 예제에서는 이벤트 그리드 항목을 구독하고 서비스 버스 큐에 연결합니다.
+Azure CLI의 경우 다음 예제에서는 event grid 토픽을 구독 하 고 Service Bus 큐에 연결 합니다.
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
@@ -138,5 +138,5 @@ Queue Storage를 사용하여 끌어와야 할 이벤트를 수신합니다. 응
 
 ## <a name="next-steps"></a>다음 단계
 
-* 이벤트 그리드에 대한 소개는 [이벤트 그리드 소개를](overview.md)참조하십시오.
+* Event Grid에 대 한 소개는 [Event Grid 정보](overview.md)를 참조 하세요.
 * Event Grid를 빠르게 시작하려면 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.

@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 8/15/2018
 ms.author: victorh
 ms.openlocfilehash: 4c0c0ab84e60335f58ac075459b95cfabb9135ac
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311958"
 ---
 # <a name="renew-application-gateway-certificates"></a>Application Gateway 인증서 갱신
 
-TLS/SSL 암호화를 위해 응용 프로그램 게이트웨이를 구성한 경우 인증서를 갱신해야 합니다.
+특정 시점에 TLS/SSL 암호화에 대해 application gateway를 구성한 경우 인증서를 갱신 해야 합니다.
 
 Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 수신기와 연결된 인증서를 갱신할 수 있습니다.
 
@@ -62,4 +62,4 @@ az network application-gateway ssl-cert update \
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 응용 프로그램 게이트웨이를 사용하여 TLS 오프로드를 구성하는 방법을 알아보려면 [TLS 오프로드 구성을](application-gateway-ssl-portal.md) 참조하세요.
+Azure 애플리케이션 Gateway를 사용 하 여 TLS 오프 로드를 구성 하는 방법을 알아보려면 [Tls 오프 로드 구성](application-gateway-ssl-portal.md) 을 참조 하세요.

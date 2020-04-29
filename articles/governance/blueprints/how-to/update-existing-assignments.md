@@ -1,13 +1,13 @@
 ---
 title: 포털에서 기존 할당 업데이트
-description: Azure Blueprint의 포털에서 기존 Blueprint 할당을 업데이트하는 메커니즘에 대해 알아봅니다.
+description: Azure 청사진의 포털에서 기존 청사진 할당을 업데이트 하는 메커니즘에 대해 알아봅니다.
 ms.date: 04/15/2020
 ms.topic: how-to
 ms.openlocfilehash: a00a8bcc10b37af576777e3816a794225a3832f7
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81381800"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>기존 청사진 할당을 업데이트하는 방법
@@ -24,18 +24,18 @@ ms.locfileid: "81381800"
 
 1. 왼쪽 페이지에서 **할당된 청사진**을 선택합니다.
 
-1. 청사진 목록에서 청사진 할당을 마우스 왼쪽 단추로 클릭하고 그런 다음 **할당 업데이트** 단추를 클릭하거나 Blueprint 할당을 마우스 오른쪽 단추로 클릭하고 할당 **업데이트**를 선택합니다.
+1. 청사진 목록에서 청사진 할당을 마우스 왼쪽 단추로 클릭하고 그런 다음 **업데이트 할당** 단추를 클릭 하거나 청사진 할당을 마우스 오른쪽 단추로 클릭 하 고 **할당 업데이트**를 선택 합니다.
 
    :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="기존 청사진 할당 업데이트" border="false":::
 
-1. **청사진 할당** 페이지는 원래 할당의 모든 값으로 미리 채워진 로드됩니다.
+1. **청사진 할당** 페이지가 원래 할당의 모든 값으로 미리 채워져 로드 됩니다.
    **청사진 정의 버전**, **잠금 할당** 상태, 청사진 정의에 있는 동적 매개 변수를 변경합니다. 변경을 마쳤으면 **할당**을 클릭합니다.
 
 1. 업데이트된 할당 세부 정보 페이지에서 새 상태를 확인합니다. 이 예제에서는 할당에 **잠금**을 추가했습니다.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="기존 청사진 할당 업데이트 - 잠금 모드변경" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="기존 청사진 할당을 업데이트 함-잠금 모드 변경 됨" border="false":::
 
-1. 드롭다운을 사용하여 다른 **할당 작업에** 대한 세부 정보를 탐색합니다. **관리되는 리소스** 테이블은 선택한 할당 작업에 의해 업데이트됩니다.
+1. 드롭다운을 사용 하 여 다른 **할당 작업** 에 대 한 세부 정보를 탐색 합니다. 선택한 할당 작업에서 **관리 되는 리소스** 를 업데이트 하는 테이블입니다.
 
    :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="청사진 할당의 할당 작업" border="false":::
 
@@ -65,7 +65,7 @@ ms.locfileid: "81381800"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [청사진 수명 주기에](../concepts/lifecycle.md)대해 자세히 알아봅니다.
+- [청사진 수명 주기](../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](../concepts/resource-locking.md)을 활용하는 방법 알아보기

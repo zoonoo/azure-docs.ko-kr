@@ -1,6 +1,6 @@
 ---
 title: Ambari REST API를 사용하여 Hadoop 모니터링 및 관리 - Azure HDInsight
-description: Ambari를 사용하여 Azure HDInsight에서 Hadoop 클러스터를 모니터링하고 관리하는 방법에 대해 알아봅니다. 이 문서에서는 HDInsight 클러스터에 포함된 Ambari REST API를 사용하는 방법을 알아봅니다.
+description: Ambari를 사용하여 Azure HDInsight에서 Hadoop 클러스터를 모니터링하고 관리하는 방법에 대해 알아봅니다. 이 문서에서는 HDInsight 클러스터에 포함 된 Ambari REST API를 사용 하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
 ms.openlocfilehash: 317d12f6d5dee92d998266d4e9b6d52e6ef9c7a5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81381392"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Apache Ambari REST API를 사용하여 HDInsight 클러스터 관리
@@ -21,54 +21,54 @@ ms.locfileid: "81381392"
 
 Apache Ambari REST API를 사용하여 Azure HDInsight에서 Apache Hadoop 클러스터를 관리하고 모니터링하는 방법에 대해 알아봅니다.
 
-## <a name="what-is-apache-ambari"></a>아파치 암바리란?
+## <a name="what-is-apache-ambari"></a>Apache Ambari 이란?
 
-[아파치 암바리는](https://ambari.apache.org) [REST API를](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)통해 사용이 간편한 웹 UI를 제공하여 하둡 클러스터의 관리 및 모니터링을 간소화합니다.  Ambari는 Linux 기반 HDInsight 클러스터를 기본으로 제공합니다.
+[Apache Ambari](https://ambari.apache.org) 는 [REST api](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)에서 지원 되는 웹 UI를 쉽게 사용할 수 있도록 하 여 Hadoop 클러스터의 관리 및 모니터링을 간소화 합니다.  Ambari는 Linux 기반 HDInsight 클러스터를 기본으로 제공합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-* HDInsight의 하두프 클러스터. [리눅스에서 HDInsight로 시작하기를](hadoop/apache-hadoop-linux-tutorial-get-started.md)참조하십시오.
+* HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조 하세요.
 
-* 윈도우 에 우분투에 강타 10.  이 문서의 예제에서는 Windows 10의 Bash 셸을 사용합니다. [Windows 10을 위한 Linux용 Windows 하위 시스템 설치 가이드](https://docs.microsoft.com/windows/wsl/install-win10)에서 설치 단계를 참조하세요.  다른 [Unix 셸](https://www.gnu.org/software/bash/)도 작동합니다.  몇 가지 약간의 수정이 있는 예제는 Windows 명령 프롬프트에서 작동할 수 있습니다.  또는 Windows PowerShell을 사용할 수 있습니다.
+* Windows 10에서 Ubuntu의 Bash  이 문서의 예제에서는 Windows 10의 Bash 셸을 사용합니다. [Windows 10을 위한 Linux용 Windows 하위 시스템 설치 가이드](https://docs.microsoft.com/windows/wsl/install-win10)에서 설치 단계를 참조하세요.  다른 [Unix 셸](https://www.gnu.org/software/bash/)도 작동합니다.  약간의 수정이 있는 예제는 Windows 명령 프롬프트에서 작동할 수 있습니다.  또는 Windows PowerShell을 사용할 수 있습니다.
 
-* 간단한 jq 명령줄 JSON 프로세서.  을 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)참조하십시오.
+* 간단한 jq 명령줄 JSON 프로세서.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)을 참조하세요.
 
-* Windows PowerShell.  또는 [Bash](https://www.gnu.org/software/bash/).
+* Windows PowerShell.  또는 [Bash](https://www.gnu.org/software/bash/)를 사용할 수 있습니다.
 
-## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Ambari 나머지 API에 대 한 기본 균일 한 리소스 식별자
+## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Ambari Rest API에 대 한 기본 Uniform Resource Identifier
 
- HDInsight의 Ambari REST API의 기본 균일 리소스 식별자(URI)는 클러스터 이름이 있는 `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` `CLUSTERNAME` 위치입니다.  URI의 클러스터 이름은 **대/소문자를 구분합니다.**  URI(URI)의`CLUSTERNAME.azurehdinsight.net`정규화된 도메인 이름(FQDN) 부분의 클러스터 이름은 대/소문자를 구분하지 않지만 URI의 다른 발생은 대/소문자를 구분합니다.
+ HDInsight에서 Ambari REST API에 대 한 기본 URI (Uniform Resource Identifier)는 `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`이며, `CLUSTERNAME` 여기서은 클러스터의 이름입니다.  Uri의 클러스터 이름은 **대/소문자를 구분**합니다.  URI ()의 FQDN (`CLUSTERNAME.azurehdinsight.net`정규화 된 도메인 이름) 부분에 있는 클러스터 이름은 대/소문자를 구분 하지 않지만 uri에서 다른 항목은 대/소문자를 구분 합니다.
 
 ## <a name="authentication"></a>인증
 
 HTTPS를 요구하는 HDInsight에서 Ambari로 연결 클러스터 만들기 중 입력한 관리자 계정 이름(기본값은 **admin**) 및 암호를 사용합니다.
 
-엔터프라이즈 보안 패키지 클러스터의 `admin`경우 에서와 같은 `username@domain.onmicrosoft.com`정규화된 사용자 이름을 사용합니다.
+Enterprise Security Package 클러스터의 경우 대신 `admin`와 같이 `username@domain.onmicrosoft.com`정규화 된 사용자 이름을 사용 합니다.
 
 ## <a name="examples"></a>예
 
-### <a name="setup-preserve-credentials"></a>설정(자격 증명 보존)
+### <a name="setup-preserve-credentials"></a>설치 (자격 증명 유지)
 
-자격 증명을 보존하여 각 예제에 대해 자격 증명을 다시 입력하지 않도록 합니다.  클러스터 이름은 별도의 단계로 유지됩니다.
+각 예제에 대해 자격 증명을 입력할 필요가 없도록 자격 증명을 유지 합니다.  클러스터 이름은 별도의 단계로 유지 됩니다.
 
-**A. 배쉬**  
-실제 암호로 대체하여 `PASSWORD` 아래 스크립트를 편집합니다.  그런 다음 명령을 입력합니다.
+**A. Bash**  
+실제 암호로 대체 `PASSWORD` 하 여 아래 스크립트를 편집 합니다.  그런 다음 명령을 입력 합니다.
 
 ```bash
 export password='PASSWORD'
 ```  
 
-**B. 파워쉘**  
+**B. PowerShell**  
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ```
 
-### <a name="identify-correctly-cased-cluster-name"></a>올바르게 대/소문자 클러스터 이름 식별
+### <a name="identify-correctly-cased-cluster-name"></a>대/소문자를 올바르게 식별 하는 클러스터 이름
 
-클러스터 이름의 실제 대/소문자는 예상과 다를 수 있습니다.  여기에 있는 단계는 실제 대/소문자와 함께 다음 모든 이후 예제에 대 한 변수에 저장 됩니다.
+클러스터 이름의 실제 대/소문자는 기대한 것과 다를 수 있습니다.  여기에서 설명 하는 단계는 실제 대/소문자를 표시 한 다음 나중에 모든 예제에 대 한 변수에 저장 합니다.
 
-클러스터 이름으로 바꾸려면 `CLUSTERNAME` 아래 스크립트를 편집합니다. 그런 다음 명령을 입력합니다. (FQDN의 클러스터 이름은 대/소문자를 구분하지 않습니다.)
+아래 스크립트를 편집 하 여 `CLUSTERNAME` 를 클러스터 이름으로 바꿉니다. 그런 다음 명령을 입력 합니다. FQDN의 클러스터 이름은 대/소문자를 구분 하지 않습니다.
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -87,7 +87,7 @@ $clusterName
 
 ### <a name="parsing-json-data"></a>JSON 데이터 구문 분석
 
-다음 예제에서는 [jq](https://stedolan.github.io/jq/) 또는 [ConvertFrom-Json을](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) 사용하여 JSON 응답 문서를 `health_report` 구문 분석하고 결과의 정보만 표시합니다.
+다음 예제에서는 [jq](https://stedolan.github.io/jq/) 또는 [convertfrom-csv-json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) 을 사용 하 여 json 응답 문서를 구문 분석 하 `health_report` 고 결과의 정보만 표시 합니다.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -103,7 +103,7 @@ $respObj.Clusters.health_report
 
 ### <a name="get-the-fqdn-of-cluster-nodes"></a>클러스터 노드의 FQDN 가져오기
 
-클러스터 노드의 정규화된 도메인 이름(FQDN)을 알아야 할 수 있습니다. 다음 예제를 사용하여 클러스터의 다양한 노드에 대한 FQDN을 쉽게 검색할 수 있습니다.
+클러스터 노드의 FQDN (정규화 된 도메인 이름)을 알아야 할 수 있습니다. 다음 예제를 사용하여 클러스터의 다양한 노드에 대한 FQDN을 쉽게 검색할 수 있습니다.
 
 **모든 노드**  
 
@@ -163,11 +163,11 @@ $respObj.host_components.HostRoles.host_name
 
 ### <a name="get-the-internal-ip-address-of-cluster-nodes"></a>클러스터 노드의 내부 IP 주소 가져오기
 
-이 섹션의 예제에서 반환되는 IP 주소는 인터넷을 통해 직접 액세스할 수 없습니다. HDInsight 클러스터가 포함된 Azure 가상 네트워크 내에서만 액세스할 수 있습니다.
+이 섹션의 예제에서 반환 된 IP 주소는 인터넷을 통해 직접 액세스할 수 없습니다. HDInsight 클러스터를 포함 하는 Azure Virtual Network 내 에서만 액세스할 수 있습니다.
 
-HDInsight 및 가상 네트워크 작업에 대한 자세한 내용은 [HDInsight용 가상 네트워크 계획을](hdinsight-plan-virtual-network-deployment.md)참조하십시오.
+HDInsight 및 가상 네트워크 작업에 대 한 자세한 내용은 [hdinsight에 대 한 가상 네트워크 계획](hdinsight-plan-virtual-network-deployment.md)을 참조 하세요.
 
-IP 주소를 찾으려면 클러스터 노드의 내부 FQDN(정규화된 도메인 이름)을 알아야 합니다. FQDN을 알고 있으므로 호스트의 IP 주소를 얻을 수 있습니다. 다음 예제는 모든 호스트 노드의 FQDN에 대한 Ambari를 먼저 쿼리합니다. 그런 다음 각 호스트의 IP 주소에 대해 Ambari를 쿼리합니다.
+IP 주소를 찾으려면 클러스터 노드의 내부 FQDN(정규화된 도메인 이름)을 알아야 합니다. FQDN을 알고 있으므로 호스트의 IP 주소를 얻을 수 있습니다. 다음 예에서는 먼저 Ambari 모든 호스트 노드의 FQDN에 대해 쿼리를 수행 합니다. 그런 다음 쿼리는 각 호스트의 IP 주소를 Ambari 합니다.
 
 ```bash
 for HOSTNAME in $(curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts" | jq -r '.items[].Hosts.host_name')
@@ -193,7 +193,7 @@ foreach($item in $respObj.items) {
 
 ### <a name="get-the-default-storage"></a>기본 스토리지 가져오기
 
-HDInsight 클러스터는 Azure 저장소 계정 또는 데이터 레이크 저장소를 기본 저장소로 사용해야 합니다. 클러스터를 만든 후 Ambari를 사용하여 이 정보를 검색할 수 있습니다. 예를 들어 HDInsight 외부 컨테이너에 데이터를 읽고 쓰려는 경우가 여기에 해당합니다.
+HDInsight 클러스터는 Azure Storage 계정 또는 Data Lake Storage를 기본 저장소로 사용 해야 합니다. 클러스터를 만든 후 Ambari를 사용하여 이 정보를 검색할 수 있습니다. 예를 들어 HDInsight 외부 컨테이너에 데이터를 읽고 쓰려는 경우가 여기에 해당합니다.
 
 다음 예제에서는 클러스터에서 기본 스토리지 구성을 검색합니다.
 
@@ -253,9 +253,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     반환 값은 `/clusters/CLUSTERNAME/`과 비슷합니다. 이 값은 Data Lake Storage 계정 내의 경로입니다. 이 경로는 클러스터에 대한 HDFS 호환 파일 시스템의 루트입니다.  
 
 > [!NOTE]  
-> [Azure PowerShell에서](/powershell/azure/overview) 제공하는 [Get-AzHDInsight클러스터](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) cmdlet도 클러스터에 대한 저장소 정보를 반환합니다.
+> [Azure PowerShell](/powershell/azure/overview) 에서 제공 하는 [AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) cmdlet은 클러스터에 대 한 저장소 정보를 반환 하기도 합니다.
 
-### <a name="get-all-configurations"></a>모든 구성 받기
+### <a name="get-all-configurations"></a>모든 구성 가져오기
 
 클러스터에 사용할 수 있는 구성을 가져옵니다.
 
@@ -269,7 +269,7 @@ $respObj = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v
 $respObj.Content
 ```
 
-이 예제는 설치된 구성 요소에 대한 현재 구성을 포함하는 JSON 문서를 반환합니다. *태그* 값을 참조하십시오. 다음 예제는 Spark 클러스터 형식에서 반환된 데이터에서 발췌한 것입니다.
+이 예제에서는 설치 된 구성 요소에 대 한 현재 구성이 포함 된 JSON 문서를 반환 합니다. *태그* 값을 참조 하세요. 다음 예제는 Spark 클러스터 형식에서 반환된 데이터에서 발췌한 것입니다.
 
 ```json
 "jupyter-site" : {
@@ -286,9 +286,9 @@ $respObj.Content
 },
 ```
 
-### <a name="get-configuration-for-specific-component"></a>특정 구성 요소에 대한 구성 받기
+### <a name="get-configuration-for-specific-component"></a>특정 구성 요소에 대 한 구성 가져오기
 
-관심 있는 구성 요소에 대한 구성을 가져옵니다. 다음 예제에서는 이전 요청에서 반환된 태그 값으로 `INITIAL`을 바꿉니다.
+관심이 있는 구성 요소에 대 한 구성을 가져옵니다. 다음 예제에서는 이전 요청에서 반환된 태그 값으로 `INITIAL`을 바꿉니다.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL"
@@ -305,20 +305,20 @@ $resp.Content
 ### <a name="update-configuration"></a>구성 업데이트
 
 1. `newconfig.json`를 만듭니다.  
-   수정한 다음 아래 명령을 입력합니다.
+   을 수정 하 고 아래 명령을 입력 합니다.
 
-   * 새 `livy2-conf` 구성 요소로 바꿉습니다.
-   * 모든 `INITIAL` 구성 `tag` 받기에서 검색된 실제 [값으로 바꿉꿉입니다.](#get-all-configurations)
+   * 새 `livy2-conf` 구성 요소로 대체 합니다.
+   * `INITIAL` `tag` [모든 구성 가져오기](#get-all-configurations)에서 검색 된 실제 값으로 대체 합니다.
 
-     **A. 배쉬**
+     **A. Bash**
 
      ```bash
      curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" \
      | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
      ```
 
-     **B. 파워쉘**  
-     PowerShell 스크립트는 [jq를](https://stedolan.github.io/jq/)사용합니다.  `C:\HD\jq\jq-win64` [jq의](https://stedolan.github.io/jq/)실제 경로 및 버전을 반영하기 위해 아래편집 .
+     **B. PowerShell**  
+     PowerShell 스크립트는 [jq](https://stedolan.github.io/jq/)를 사용 합니다.  다음 `C:\HD\jq\jq-win64` 을 편집 하 여 실제 경로와 [jq](https://stedolan.github.io/jq/)의 버전을 반영 합니다.
 
      ```powershell
      $epoch = Get-Date -Year 1970 -Month 1 -Day 1 -Hour 0 -Minute 0 -Second 0
@@ -329,11 +329,11 @@ $resp.Content
      $resp.Content | C:\HD\jq\jq-win64 --arg newtag "version$unixTimeStamp" '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
      ```
 
-     Jq는 HDInsight에서 검색한 데이터를 새 구성 템플릿으로 반환하는 데 사용됩니다. 특히 이러한 예제에서는 다음과 같은 작업을 수행합니다.
+     Jq는 HDInsight에서 검색한 데이터를 새 구성 템플릿으로 반환하는 데 사용됩니다. 특히 이러한 예제에서는 다음 작업을 수행 합니다.
 
    * 문자열 "version" 및 날짜를 포함하는 고유 값을 만듭니다. 이 값은 `newtag`에 저장됩니다.
 
-   * 새 구성에 대한 루트 문서를 만듭니다.
+   * 새 구성에 대 한 루트 문서를 만듭니다.
 
    * `.items[]` 배열의 내용을 가져와서 **desired_config** 요소에 추가합니다.
 
@@ -366,9 +366,9 @@ $resp.Content
 
         "livy.server.csrf_protection.enabled": "false",
 
-    수정작업이 완료되면 파일을 저장합니다.
+    수정을 완료 한 후 파일을 저장 합니다.
 
-3. 을 `newconfig.json`제출합니다.  
+3. 제출 `newconfig.json`.  
    다음 명령을 사용하여 업데이트된 구성을 Ambari에 제출합니다.
 
     ```bash
@@ -385,13 +385,13 @@ $resp.Content
     $resp.Content
     ```  
 
-    이러한 명령은 new 구성으로 클러스터에 **newconfig.json** 파일의 내용을 제출합니다. 이 요청은 JSON 문서를 반환합니다. 이 문서의 **versionTag** 요소는 제출한 버전과 일치해야 하며, **configs** 개체에는 요청한 구성 변경 내용이 포함됩니다.
+    이러한 명령은 **newconfig** 파일의 내용을 새 구성으로 클러스터에 제출 합니다. 이 요청은 JSON 문서를 반환합니다. 이 문서의 **versionTag** 요소는 제출한 버전과 일치해야 하며, **configs** 개체에는 요청한 구성 변경 내용이 포함됩니다.
 
 ### <a name="restart-a-service-component"></a>서비스 구성 요소 다시 시작
 
-이 시점에서 Ambari 웹 UI는 새 구성을 적용하기 전에 Spark 서비스를 다시 시작해야 한다는 것을 나타냅니다. 다음 단계를 사용하여 서비스를 다시 시작합니다.
+이 시점에서 Ambari 웹 UI는 새 구성을 적용 하기 위해 Spark 서비스를 다시 시작 해야 함을 나타냅니다. 다음 단계를 사용하여 서비스를 다시 시작합니다.
 
-1. Spark2 서비스에 대한 유지 관리 모드를 활성화하려면 다음을 사용합니다.
+1. Spark2 서비스에 대해 유지 관리 모드를 사용 하도록 설정 하려면 다음을 사용 합니다.
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -407,7 +407,7 @@ $resp.Content
         -Body '{"RequestInfo": {"context": "turning on maintenance mode for SPARK2"},"Body": {"ServiceInfo": {"maintenance_state":"ON"}}}'
     ```
 
-2. 유지 보수 모드 확인  
+2. 유지 관리 모드 확인  
 
     이러한 명령은 서버에 JSON 문서를 보내 유지 관리 모드를 켭니다. 이제 다음 요청을 사용하여 서비스가 유지 관리 모드인지 확인할 수 있습니다.
 
@@ -426,7 +426,7 @@ $resp.Content
 
     반환 값은 `ON`입니다.
 
-3. 다음으로 다음을 사용하여 Spark2 서비스를 끕니다.
+3. 다음으로 Spark2 서비스를 해제 하려면 다음을 사용 합니다.
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -456,10 +456,10 @@ $resp.Content
     ```
 
     > [!IMPORTANT]  
-    > 이 URI에서 반환된 `href` 값은 클러스터 노드의 내부 IP 주소를 사용합니다. 클러스터 외부에서 사용하려면 `10.0.0.18:8080` 부분을 클러스터의 FQDN으로 바꿉습니다.  
+    > 이 URI에서 반환된 `href` 값은 클러스터 노드의 내부 IP 주소를 사용합니다. 클러스터 외부에서 사용 하려면 해당 `10.0.0.18:8080` 부분을 클러스터의 FQDN으로 바꿉니다.  
 
-4. 요청을 확인합니다.  
-    이전 단계에서 `29` `id` 반환된 실제 값으로 대체하여 아래 명령을 편집합니다.  다음 명령은 요청의 상태를 검색합니다.
+4. 요청을 확인 합니다.  
+    이전 단계에서 반환 된에 `29` 대 한 `id` 실제 값으로 대체 하 여 아래 명령을 편집 합니다.  다음 명령은 요청의 상태를 검색합니다.
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -476,7 +476,7 @@ $resp.Content
 
     응답 `COMPLETED`는 요청이 완료되었음을 나타냅니다.
 
-5. 이전 요청이 완료되면 다음을 사용하여 Spark2 서비스를 시작합니다.
+5. 이전 요청이 완료 되 면 다음을 사용 하 여 Spark2 서비스를 시작 합니다.
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -513,4 +513,4 @@ $resp.Content
 
 ## <a name="next-steps"></a>다음 단계
 
-REST API의 모든 참조 문서를 보려면 [Apache Ambari API 참조 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)을 참조하세요.  또한, [아파치 암바리 보기에 대 한 사용자 권한 부여](./hdinsight-authorize-users-to-ambari.md)
+REST API의 모든 참조 문서를 보려면 [Apache Ambari API 참조 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)을 참조하세요.  또한 [Apache Ambari view에 대 한 사용자 권한 부여](./hdinsight-authorize-users-to-ambari.md) 를 참조 하세요.

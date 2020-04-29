@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: 음성 텍스트 변환 설명서
-summary: 음성 인식이라고도 하는 음성 서비스에서 음성-텍스트 변환을 통해 오디오 스트림을 텍스트로 실시간으로 일괄 녹음할 수 있습니다.
+summary: 음성 인식으로 알려진 음성 텍스트에서 음성 텍스트는 오디오 스트림에 대 한 실시간 및 일괄 기록을 텍스트로 설정 합니다.
 metadata:
-  title: 음성-텍스트 문서 - 자습서, API 참조 - Azure 인지 서비스 | 마이크로 소프트 문서
+  title: 음성 텍스트 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,13 +12,13 @@ metadata:
   ms.date: 03/19/2020
   ms.author: trbye
   ms.openlocfilehash: 717c4e0322b48eca0acfacd20ed527a629bd1ff0
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401378"
 landingContent:
-- title: 음성-텍스트 정보
+- title: 음성 텍스트 정보
   linkLists:
   - linkListType: overview
     links:
@@ -36,7 +36,7 @@ landingContent:
       url: quickstarts/speech-to-text-from-file.md
     - text: Blob 스토리지에 저장된 음성 인식
       url: quickstarts/from-blob.md
-- title: 음성-텍스트개발
+- title: 음성 텍스트를 사용 하 여 개발
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -60,7 +60,7 @@ landingContent:
       url: how-to-custom-speech-train-model.md
     - text: 휴먼 레이블 전사 만들기
       url: how-to-custom-speech-human-labeled-transcriptions.md
-- title: 참조 항목
+- title: 참조
   linkLists:
   - linkListType: reference
     links:
@@ -68,5 +68,5 @@ landingContent:
       url: language-support.md#speech-to-text
     - text: 음성 텍스트 변환 FAQ
       url: faq-stt.md
-    - text: 음성-텍스트 가격 책정
+    - text: 음성 텍스트 가격
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

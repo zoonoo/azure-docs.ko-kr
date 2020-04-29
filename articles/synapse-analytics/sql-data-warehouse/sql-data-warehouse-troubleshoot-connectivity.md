@@ -1,6 +1,6 @@
 ---
 title: 연결 문제 해결
-description: Synapse SQL 풀에서 연결 문제 해결.
+description: Synapse SQL 풀의 연결 문제 해결
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -12,55 +12,55 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: d69c8dd28b946df3fff500c31c7cdefa4767c0c4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81408178"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>연결 문제 해결
 
-이 문서에서는 SQL Analytics 데이터베이스에 연결하는 일반적인 문제 해결 방법을 나열합니다.
+이 문서에서는 SQL Analytics 데이터베이스에 연결 하는 방법에 대 한 일반적인 문제 해결 방법을 보여 줍니다.
 
 ## <a name="check-service-availability"></a>서비스 가용성 확인
 
-서비스를 사용할 수 있는지 확인합니다. Azure 포털에서 연결하려는 Synapse SQL 풀로 이동합니다. 왼쪽 TOC 패널에서 **진단 및 문제 해결을**클릭합니다.
+서비스를 사용할 수 있는지 확인 하십시오. Azure Portal에서 연결 하려는 Synapse SQL 풀로 이동 합니다. 왼쪽 TOC 패널에서 **문제 진단 및 해결**을 클릭 합니다.
 
 ![리소스 상태 선택](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-Synapse SQL 풀의 상태는 여기에 표시됩니다. 서비스가 **사용 가능한**것으로 표시되지 않으면 추가 단계를 확인합니다.
+Synapse SQL 풀의 상태가 여기에 표시 됩니다. 서비스가 **사용 가능한**것으로 표시 되지 않으면 추가 단계를 확인 합니다.
 
 ![서비스 사용 가능](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-리소스 상태에서 Synapse SQL 풀 인스턴스가 일시 중지또는 크기 조정중임을 표시하면 지침을 따라 인스턴스를 다시 시작합니다.
+리소스 상태에서 Synapse SQL 풀 인스턴스가 일시 중지 또는 크기 조정 되는 것으로 표시 되는 경우 지침에 따라 인스턴스를 다시 시작 합니다.
 
-![서비스 일시](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) 중지 리소스 상태에 대한 추가 정보는 여기에서 찾을 수 있습니다.
+![서비스 일시](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) 중지 된 Resource Health에 대 한 추가 정보는 여기에서 찾을 수 있습니다.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>일시 중지 또는 크기 조정 작업 확인
 
-포털을 확인하여 Synapse SQL 풀 인스턴스가 일시 중지되었는지 또는 크기 조정하는지 확인합니다.
+포털을 확인 하 여 Synapse SQL 풀 인스턴스가 일시 중지 되었거나 크기 조정 되었는지 확인 합니다.
 
-![서비스 일시 중지](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![서비스가 일시 중지 됨](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-서비스가 일시 중지또는 확장중인지 확인하여 유지 관리 일정 중에 서비스가 없는지 확인합니다. Synapse SQL 풀 *개요에*대한 포털에서 선출된 유지 관리 일정을 볼 수 있습니다.
+서비스를 일시 중지 하거나 크기를 조정 하는 것이 확인 되는 경우 유지 관리 일정 중이 아닌 것을 확인 합니다. Synapse SQL 풀에 대 한 포털 *개요*에서 선택 된 유지 관리 일정을 볼 수 있습니다.
 
 ![개요 유지 관리 일정](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-그렇지 않으면 IT 관리자에게 이 유지 관리가 예약된 이벤트가 아닌지 확인합니다. SQL 분석 인스턴스를 다시 시작하려면 [다음 단계를](pause-and-resume-compute-portal.md)따르십시오.
+그렇지 않으면 IT 관리자에 게이 유지 관리가 예약 된 이벤트가 아닌지 확인 합니다. SQL Analytics 인스턴스를 다시 시작 하려면 [다음 단계](pause-and-resume-compute-portal.md)를 수행 합니다.
 
 ## <a name="check-your-firewall-settings"></a>방화벽 설정 확인
 
-SQL Analytics 데이터베이스는 포트 1433을 통해 통신합니다.회사 네트워크 내에서 연결하려는 경우 1433 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 1433 포트를 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다. 방화벽 구성에 대한 추가 정보는 [여기에서](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules)찾을 수 있습니다.
+SQL Analytics 데이터베이스는 1433 포트를 통해 통신 합니다.회사 네트워크 내에서 연결하려는 경우 1433 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 1433 포트를 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다. 방화벽 구성에 대 한 추가 정보는 [여기](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules)를 참조 하세요.
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>VNet/서비스 엔드포인트 설정 확인
 
-오류 40914 및 40615를 받는 경우 [여기에서 오류 설명 및 해결 을](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615)참조하십시오.
+40914 및 40615 오류를 수신 하는 경우 [여기에서 오류 설명 및 해결](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615)을 참조 하세요.
 
 ## <a name="check-for-the-latest-drivers"></a>최신 드라이버 확인
 
 ### <a name="software"></a>소프트웨어
 
-Synapse SQL 풀에 연결하기 위해 최신 도구를 사용하고 있는지 확인합니다.
+Synapse SQL 풀에 연결 하는 데 최신 도구를 사용 하 고 있는지 확인 합니다.
 
 - SSMS
 - Azure Data Studio
@@ -68,7 +68,7 @@ Synapse SQL 풀에 연결하기 위해 최신 도구를 사용하고 있는지 �
 
 ### <a name="drivers"></a>드라이버
 
-최신 드라이버 버전을 사용하고 있는지 확인합니다.이전 버전의 드라이버를 사용하면 이전 드라이버가 새 기능을 지원하지 않을 수 있기 때문에 예기치 않은 동작이 발생할 수 있습니다.
+최신 드라이버 버전을 사용 하 고 있는지 확인 합니다.이전 버전의 드라이버를 사용 하면 이전 드라이버가 새 기능을 지원 하지 않을 수 있으므로 예기치 않은 동작이 발생할 수 있습니다.
 
 - [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -105,12 +105,12 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>일시적 연결 문제
 
-대기 중인 요청 수가 많은 서버에서 부하가 과도하게 발생하는지 확인합니다. 추가 리소스를 위해 Synapse SQL 풀을 확장해야 할 수 있습니다.
+대기 중인 요청 수가 많은 서버에서 부하가 과도하게 발생하는지 확인합니다. 추가 리소스에 대 한 Synapse SQL 풀을 확장 해야 할 수도 있습니다.
 
 ## <a name="common-error-messages"></a>일반적인 오류 메시지
 
-오류 40914 및 40615는 [오류 설명 및 해결 방법은 여기를](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615)참조하십시오.
+오류 40914 및 40615에 대 한 자세한 내용은 [여기에서 오류 설명 및 해결](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615)을 참조 하세요.
 
-## <a name="still-having-connectivity-issues"></a>여전히 연결 문제가 있습니까?
+## <a name="still-having-connectivity-issues"></a>여전히 연결 문제가 있나요?
 
-엔지니어링 팀이 지원할 수 있도록 [지원 티켓을](sql-data-warehouse-get-started-create-support-ticket.md) 만듭니다.
+엔지니어링 팀이 지원할 수 있도록 [지원 티켓](sql-data-warehouse-get-started-create-support-ticket.md) 을 만듭니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure 다중 요소 인증 공급자 - Azure 활성 디렉터리
+title: Azure Multi-factor Auth 공급자-Azure Active Directory
 description: Auth 공급자는 언제 Azure MFA에 사용하나요?
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf50a8f58978a010fe3d8228ace8579fcf52eb38
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81309894"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Azure Multi-Factor Authentication 공급자를 사용하는 시기
 
 > [!IMPORTANT]
-> 2018년 9월 1일부터, 새 인증 공급자는 더 이상 생성되지 않을 수 있습니다. 기존 인증 공급자는 계속 사용 및 업데이트될 수 있지만 마이그레이션은 더 이상 불가능합니다. Multi-Factor Authentication은 Azure AD Premium 라이선스의 기능으로 계속 사용할 수 있게 지원됩니다.
+> 2018년 9월 1일부터, 새 인증 공급자는 더 이상 생성되지 않을 수 있습니다. 기존 인증 공급자는 계속 사용 되 고 업데이트 될 수 있지만 마이그레이션은 더 이상 가능 하지 않습니다. Multi-Factor Authentication은 Azure AD Premium 라이선스의 기능으로 계속 사용할 수 있게 지원됩니다.
 
 두 단계 인증은 기본적으로 Azure Active Directory 및 Office 365 사용자가 있는 전역 관리자를 위해 사용할 수 있습니다. 그러나 [고급 기능](howto-mfa-mfasettings.md)을 활용하려는 경우 Azure MFA(Multi-Factor Authentication)의 전체 버전을 구입해야 합니다.
 
@@ -46,31 +46,31 @@ MFA로 설정된 모든 사용자를 처리할 만큼 충분한 라이선스를 
 ### <a name="removing-an-authentication-provider"></a>인증 공급자 제거
 
 > [!CAUTION]
-> 인증 공급자를 삭제할 때 확인이 없습니다. **삭제를** 선택하는 것은 영구적인 프로세스입니다.
+> 인증 공급자를 삭제 하는 경우에는 확인이 필요 하지 않습니다. **삭제** 를 선택 하는 것은 영구적 프로세스입니다.
 
-인증 공급자는 Azure **포털** > **Azure Active Directory** > **보안** > **MFA** > **공급자에서**찾을 수 있습니다. 나열된 공급자를 클릭하여 해당 공급자와 연결된 세부 정보 및 구성을 확인합니다.
+인증 공급자는 **Azure Portal** > **Azure Active Directory** > **보안** > **MFA** > **공급자**에서 찾을 수 있습니다. 나열 된 공급자를 클릭 하 여 해당 공급자와 관련 된 세부 정보 및 구성을 확인 합니다.
 
-인증 공급자를 제거하기 전에 공급자에 구성된 사용자 지정 설정을 기록해 둡니다. 공급자의 일반 MFA 설정으로 마이그레이션해야 하는 설정을 결정하고 해당 설정의 마이그레이션을 완료합니다. 
+인증 공급자를 제거 하기 전에 공급자에 구성 된 사용자 지정 설정을 기록해 둡니다. 공급자의 일반 MFA 설정으로 마이그레이션해야 하는 설정을 결정 하 고 해당 설정의 마이그레이션을 완료 합니다. 
 
-공급자에 연결된 Azure MFA 서버는 **Azure 포털** > **Azure Active Directory** > **보안** > **MFA** > 서버**설정에서**생성된 자격 증명을 사용하여 다시 활성화해야 합니다. 다시 활성화하기 전에 다음 파일은 사용자 `\Program Files\Multi-Factor Authentication Server\Data\` 환경의 Azure MFA 서버의 디렉터리에서 삭제해야 합니다.
+공급자에 연결 된 Azure mfa 서버는 **Azure Portal** > **Azure Active Directory** > **Security** > **MFA** > **서버 설정**에서 생성 된 자격 증명을 사용 하 여 다시 활성화 해야 합니다. 다시 활성화 하기 전에 사용자 환경에서 Azure MFA 서버의 `\Program Files\Multi-Factor Authentication Server\Data\` 디렉터리에서 다음 파일을 삭제 해야 합니다.
 
-- 카세르트 (것)와
+- caCert
 - cert
-- 그룹카세르트
-- 그룹 키
+- groupCACert
+- groupKey
 - groupName
-- 라이센스 키
+- licenseKey
 - pkey
 
-![Azure 포털에서 인증 공급자 삭제](./media/concept-mfa-authprovider/authentication-provider-removal.png)
+![Azure Portal에서 인증 공급자를 삭제 합니다.](./media/concept-mfa-authprovider/authentication-provider-removal.png)
 
-모든 설정이 마이그레이션되었음을 확인한 경우 Azure **포털** > **Azure Active Directory** > **보안** > **MFA** >  **...** **공급자를** 찾아보고 타원을 선택하고 **삭제를**선택할 수 있습니다.
+모든 설정이 마이그레이션 되었음을 확인 한 경우 **Azure Portal** > **Azure Active Directory** > **보안** > **MFA** > **공급자** 를 찾아 줄임표 **...** 를 선택 하 고 **삭제**를 선택할 수 있습니다.
 
 > [!WARNING]
-> 인증 공급자를 삭제하면 해당 공급자와 관련된 모든 보고 정보가 삭제됩니다. 공급자를 삭제하기 전에 활동 보고서를 저장할 수 있습니다.
+> 인증 공급자를 삭제 하면 해당 공급자와 연결 된 보고 정보가 삭제 됩니다. 공급자를 삭제 하기 전에 작업 보고서를 저장 하는 것이 좋습니다.
 
 > [!NOTE]
-> 이전 버전의 Microsoft 인증자 앱 및 Azure MFA 서버를 보유한 사용자는 앱을 다시 등록해야 할 수 있습니다.
+> 이전 버전의 Microsoft Authenticator 앱 및 Azure MFA 서버를 사용 하는 사용자는 앱을 다시 등록 해야 할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

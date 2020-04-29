@@ -1,6 +1,6 @@
 ---
 title: Azure VM 확장 집합 VM의 인스턴스 ID 이해
-description: Azure VM 스케일에 대한 인스턴스 아이디가 가상 컴퓨터와 표시되는 다양한 방법을 이해합니다.
+description: Azure VM 확장 집합에 대 한 인스턴스 Id를 이해 하 고, 가상 머신과 그에 노출 되는 다양 한 방법을 설명 합니다.
 author: mimckitt
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: mimckitt
 ms.openlocfilehash: aa8b88bde4b6f8f02f6c9c81d0742d0dede761ac
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273687"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Azure VM 확장 집합 VM의 인스턴스 ID 이해
@@ -26,7 +26,7 @@ REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/reso
 
 Powershell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage`(자세한 내용은 [Powershell 설명서](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm) 참조)
 
-CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (자세한 내용은 [CLI 설명서를](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)참조하십시오).
+CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (자세한 내용은 [cli 설명서](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)참조).
 
 확장 집합에 있는 모든 인스턴스를 나열하여 인스턴스 ID 목록을 가져올 수 있습니다.
 
@@ -34,7 +34,7 @@ REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resou
 
 Powershell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}`(자세한 내용은 [Powershell 설명서](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm) 참조)
 
-CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (자세한 내용은 [CLI 설명서를](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)참조하십시오).
+CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (자세한 내용은 [cli 설명서](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)참조).
 
 [resources.azure.com](https://resources.azure.com) 또는 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용하여 확장 집합의 VM을 나열할 수도 있습니다.
 

@@ -1,7 +1,7 @@
 ---
-title: CLI를 사용하여 HTTPS 리디렉션에 HTTP
+title: CLI를 사용 하 여 HTTP에서 HTTPS로 리디렉션
 titleSuffix: Azure Application Gateway
-description: 응용 프로그램 게이트웨이를 만들고 Azure CLI를 사용하여 TLS 종료에 대한 인증서를 추가하는 방법에 대해 알아봅니다.
+description: Azure CLI를 사용 하 여 응용 프로그램 게이트웨이를 만들고 TLS 종료를 위한 인증서를 추가 하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
 ms.openlocfilehash: 6bf8f3b7bfb446db78f0c97a246977fec6cd54cb
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312151"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
-Azure CLI를 사용하여 TLS/SSL 종료에 대한 인증서가 있는 [응용 프로그램 게이트웨이를](overview.md) 만들 수 있습니다. 라우팅 규칙은 애플리케이션 게이트웨이에서 HTTP 트래픽을 HTTPS 포트로 리디렉션하는 데 사용됩니다. 이 예제에서는 두 개의 가상 머신 인스턴스를 포함하는 애플리케이션 게이트웨이의 백 엔드 풀에 대한 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)도 만듭니다.
+Azure CLI를 사용 하 여 TLS/SSL 종료를 위한 인증서로 [응용 프로그램 게이트웨이](overview.md) 를 만들 수 있습니다. 라우팅 규칙은 애플리케이션 게이트웨이에서 HTTP 트래픽을 HTTPS 포트로 리디렉션하는 데 사용됩니다. 이 예제에서는 두 개의 가상 머신 인스턴스를 포함하는 애플리케이션 게이트웨이의 백 엔드 풀에 대한 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)도 만듭니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -84,7 +84,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-[az 네트워크 응용 프로그램 게이트웨이 만들기를](/cli/azure/network/application-gateway#az-network-application-gateway-create) 사용하여 *myAppGateway*라는 응용 프로그램 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 
+[Az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) 를 사용 하 여 *myAppGateway*라는 응용 프로그램 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 
 
 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다. 이 예제에서는 애플리케이션 게이트웨이 만들 때 사용자가 만든 인증서 및 해당 암호를 연결합니다. 
 

@@ -4,10 +4,10 @@ description: LUIS 포털의 의도 세부 정보 페이지에서 예제 발화�
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: ea5fbea902c9694d9a8a6a8a5bffcf5e7234bbbd
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382411"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>예제 발화의 기계 학습된 엔터티에 레이블 지정
@@ -81,9 +81,9 @@ ms.locfileid: "81382411"
 1. **엔터티 검사자**로 이동하여 기존 역할을 선택하거나 새 역할을 만듭니다.
 1. 예제 발화 텍스트에서 엔터티 역할을 사용하여 텍스트에 레이블을 지정합니다.
 
-## <a name="labeling-for-punctuation"></a>문장 부호에 대한 레이블 지정
+## <a name="labeling-for-punctuation"></a>문장 부호 레이블
 
-문장 부호에 레이블을 붙일 필요가 없습니다. [응용 프로그램 설정을](luis-reference-application-settings.md) 사용하여 문장 부호가 발화 예측에 영향을 미치는지 제어합니다.
+문장 부호에 레이블을 추가할 필요가 없습니다. [응용 프로그램 설정을](luis-reference-application-settings.md) 사용 하 여 문장 부호가 utterance 예측에 영향을 주는지 여부를 제어 합니다.
 
 ## <a name="unlabel-entities"></a>엔터티 레이블 지정 해제
 

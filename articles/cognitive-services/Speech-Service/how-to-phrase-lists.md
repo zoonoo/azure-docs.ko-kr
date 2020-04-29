@@ -1,7 +1,7 @@
 ---
-title: 구 목록 - 음성 서비스
+title: 구 목록-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: '`PhraseListGrammar` 개체를 사용하여 음성-텍스트 인식 결과를 개선하는 구 목록으로 음성 서비스를 제공하는 방법을 알아봅니다.'
+description: 음성 텍스트 인식 결과를 개선 하기 위해 개체를 `PhraseListGrammar` 사용 하 여 문구 목록에 음성 서비스를 제공 하는 방법을 알아봅니다.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,26 +12,26 @@ ms.date: 02/04/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 5a21358edae4c61f35993770c22634da9ac83633
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81401962"
 ---
-# <a name="phrase-lists-for-speech-to-text"></a>음성-텍스트에 대한 구 목록
+# <a name="phrase-lists-for-speech-to-text"></a>음성 텍스트에 대 한 구 목록
 
-음성 서비스에 구문 목록을 제공하여 음성 인식의 정확도를 향상시킬 수 있습니다. 구 목록은 오디오 데이터에서 사람의 이름이나 특정 위치처럼 알려진 문구를 식별하는 데 사용됩니다.
+음성 서비스에 구 목록을 제공 하 여 음성 인식의 정확도를 향상 시킬 수 있습니다. 구 목록은 오디오 데이터에서 사람의 이름이나 특정 위치처럼 알려진 문구를 식별하는 데 사용됩니다.
 
-예를 들어,로 이동"이라는 명령과 "와드로 이동"이라는 명령이 있는 경우 "와드로 이동"의 항목을 추가할 수 있습니다. 구를 추가하면 오디오가 인식될 때 "앞으로 이동"이 아니라 "와드로 이동"이 인식될 확률이 높아집니다.
+예를 들어 "이동" 명령과 음성 될 수 있는 "말"의 가능한 대상이 있는 경우 "앞으로 이동" 항목을 추가할 수 있습니다. 문구를 추가 하면 오디오가 인식 될 때 "이동"이 아니라 "이동" 하는 것으로 인식 될 확률이 높아집니다.
 
-단일 단어 또는 전체 구를 구 목록에 추가할 수 있습니다. 인식 하는 동안 전체 구에 대 한 정확한 일치 가 별도 구로 오디오에 포함 된 경우 구 목록의 항목이 사용 됩니다. 구와 정확히 일치하는 항목을 찾을 수 없는 경우 인식이 지원되지 않습니다.
+단일 단어 또는 전체 구를 구 목록에 추가할 수 있습니다. 인식 하는 동안 전체 구와 정확히 일치 하는 구가 오디오에 별도의 구로 포함 되는 경우 구 목록의 항목이 사용 됩니다. 구와 정확히 일치하는 항목을 찾을 수 없는 경우 인식이 지원되지 않습니다.
 
 >[!Note]
-> 현재 구 목록은 음성-텍스트에 대한 영어만 지원합니다.
+> 현재 문구 목록은 음성 텍스트에 대 한 영어만 지원 합니다.
 
-## <a name="how-to-use-phrase-lists"></a>구 목록 사용 방법
+## <a name="how-to-use-phrase-lists"></a>구 목록을 사용 하는 방법
 
-아래 샘플에서는 `PhraseListGrammar` 개체를 사용하여 구 목록을 작성하는 방법을 보여 줍니다.
+아래 샘플에서는 개체를 `PhraseListGrammar` 사용 하 여 구 목록을 작성 하는 방법을 보여 줍니다.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -89,9 +89,9 @@ phraseListGrammar.addPhrase("Move to Ted");
 ::: zone-end
 
 >[!Note]
-> Speech 서비스가 음성과 일치하는 데 사용할 구 목록의 최대 수는 1024개입니다.
+> 음성 서비스에서 음성을 일치 시키는 데 사용할 수 있는 최대 문구 목록은 1024 구입니다.
 
-clear()를 `PhraseListGrammar` 호출하여 와 연관된 구를 지울 수도 있습니다.
+Clear ()를 호출 `PhraseListGrammar` 하 여와 관련 된 구를 지울 수도 있습니다.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -134,8 +134,8 @@ phraseListGrammar.clear();
 ::: zone-end
 
 > [!NOTE]
-> 개체에 `PhraseListGrammar` 대한 변경 사항은 다음 인식 또는 음성 서비스에 대한 다시 연결에 적용됩니다.
+> `PhraseListGrammar` 개체에 대 한 변경 내용은 다음 인식에 적용 되거나 음성 서비스에 다시 연결 된 후 적용 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 SDK 참조 문서](speech-sdk.md)
+* [Speech SDK 참조 설명서](speech-sdk.md)

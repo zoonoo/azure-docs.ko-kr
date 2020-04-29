@@ -1,5 +1,5 @@
 ---
-title: Azure 규모 집합 템플릿에서 사용자 지정 이미지 참조
+title: Azure 확장 집합 템플릿에서 사용자 지정 이미지 참조
 description: 기존 Azure Virtual Machine Scale Set 템플릿에 사용자 지정 이미지를 추가하는 방법 알아보기
 author: mimckitt
 tags: azure-resource-manager
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: mimckitt
 ms.openlocfilehash: 3965090239949b5e1116ceebe427728e49ffafe4
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273701"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Azure 확장 집합 템플릿에 사용자 지정 이미지 추가
 
-이 문서에서는 사용자 지정 이미지에서 배포할 [기본 축척 집합 템플릿을](virtual-machine-scale-sets-mvss-start.md) 수정하는 방법을 보여 주며 이 문서에서는
+이 문서에서는 사용자 지정 이미지에서 배포 하도록 [기본 확장 집합 템플릿을](virtual-machine-scale-sets-mvss-start.md) 수정 하는 방법을 보여 줍니다.
 
 ## <a name="change-the-template-definition"></a>템플릿 정의 변경
-이전 [문서에서는](virtual-machine-scale-sets-mvss-start.md) 기본 축척 집합 템플릿을 만들었습니다. 이제 이전 템플릿을 사용하고 수정하여 사용자 지정 이미지에서 축척 집합을 배포하는 템플릿을 만듭니다.  
+[이전 문서](virtual-machine-scale-sets-mvss-start.md) 에서는 기본 확장 집합 템플릿을 만들었습니다. 이제 이전 템플릿을 사용 하 고 수정 하 여 사용자 지정 이미지에서 확장 집합을 배포 하는 템플릿을 만듭니다.  
 
 ### <a name="creating-a-managed-disk-image"></a>Managed Disk 이미지 만들기
 

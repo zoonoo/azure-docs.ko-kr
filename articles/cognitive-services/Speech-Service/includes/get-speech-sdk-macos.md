@@ -5,30 +5,30 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: 57de7f1e7c37fec66cda666d3f144e52849a026f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399868"
 ---
-macOS용으로 개발할 때 세 가지 음성 SDK를 사용할 수 있습니다.
+MacOS 용으로 개발 하는 경우 세 가지 음성 Sdk를 사용할 수 있습니다.
 
-- Objective-C 스피치 SDK는 기본적으로 CocoaPod 패키지로 제공됩니다.
-- .NET 음성 SDK는 .NET 표준 2.0을 구현할 때 **Xamarin.Mac과** 함께 사용할 수 있습니다.
-- 파이썬 스피치 SDK는 PyPI 모듈로 사용할 수 있습니다.
+- 목표-C Speech SDK는 기본적으로 CocoaPod 패키지로 사용할 수 있습니다.
+- .NET Speech SDK는 .NET Standard 2.0를 구현 하므로 Xamarin.ios와 함께 사용할 수 있습니다 **.**
+- Python Speech SDK는 PyPI 모듈로 사용할 수 있습니다.
 
 > [!TIP]
-> Swift를 사용하여 Objective-C 음성 SDK를 사용하는 자세한 내용은 <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Objective-C를 <span class="docon docon-navigate-external x-hidden-focus"> </span>Swift로 가져오기 </a>를 참조하십시오.
+> Swift와 함께 목표-C Speech SDK를 사용 하는 방법에 대 한 자세한 내용은 <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Swift <span class="docon docon-navigate-external x-hidden-focus"> </span>로 목표-c 가져오기 </a>를 참조 하세요.
 
 ### <a name="system-requirements"></a>시스템 요구 사항
 
-- macOS 버전 10.13 이상
+- MacOS 버전 10.13 이상
 
 # <a name="xcode"></a>[Xcode](#tab/mac-xcode)
 
 :::row:::
     :::column span="3":::
-        macOS CocoaPod 패키지는 <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1(이상) <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 통합 개발 환경(IDE)과 함께 다운로드하여 사용할 수 있습니다. 먼저, <a href="https://aka.ms/csspeech/macosbinary" target="_blank">바이너리 <span class="docon docon-navigate-external x-hidden-focus"> </span>코코아팟을 다운로드 </a>. 의도된 용도로 동일한 디렉토리에서 포드를 추출하고 *Podfile을* 만들고 를 `pod` 로 나열합니다. `target`
+        Macos CocoaPod 패키지는 <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (이상) <span class="docon docon-navigate-external x-hidden-focus"></span> </a> IDE (통합 개발 환경)에서 다운로드 하 여 사용할 수 있습니다. 먼저 <a href="https://aka.ms/csspeech/macosbinary" target="_blank">이진 CocoaPod <span class="docon docon-navigate-external x-hidden-focus"> </span>를 다운로드 </a>합니다. 사용 하기 위해 동일한 디렉터리에서 pod를 추출 하 고, *Podfile* 을 만들고,를 `pod` 로 나열 합니다 `target`.
     :::column-end:::
     :::column:::
         <br>
@@ -47,11 +47,11 @@ target 'MyApp' do
 end
 ```
 
-# <a name="xamarinmac"></a>[자마린.맥](#tab/mac-xamarin)
+# <a name="xamarinmac"></a>[Xamarin.ios](#tab/mac-xamarin)
 
 :::row:::
     :::column span="3":::
-        Xamarin.Mac은 .NET 개발자가 C#을 사용하여 원시 Mac 애플리케이션을 빌드하기 위한 전체 macOS SDK를 제공합니다. 자세한 내용은 <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">Xamarin.Mac <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>을 참조하십시오.
+        Xamarin.Mac은 .NET 개발자가 C#을 사용하여 원시 Mac 애플리케이션을 빌드하기 위한 전체 macOS SDK를 제공합니다. 자세한 내용은 <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">xamarin.ios <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>를 참조 하세요.
     :::column-end:::
     :::column:::
         <br>
@@ -71,5 +71,5 @@ end
 
 #### <a name="additional-resources"></a>추가 리소스
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos" target="_blank">맥OS 스피치 SDK 퀵스타트 목표-C 소스 코드<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos" target="_blank">맥OS 음성 SDK 빠른 시작 스위프트 소스 코드<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos" target="_blank">macOS Speech SDK 퀵 스타트 목표-C 소스 코드<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos" target="_blank">macOS Speech SDK 퀵 스타트 Swift 원본 코드<span class="docon docon-navigate-external x-hidden-focus"></span></a>

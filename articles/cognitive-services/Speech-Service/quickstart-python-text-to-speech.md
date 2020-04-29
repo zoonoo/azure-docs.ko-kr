@@ -1,7 +1,7 @@
 ---
 title: 텍스트 음성 변환, Python - Speech Service
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 파이썬 및 텍스트 음성 변환 REST API를 사용하여 텍스트 음성 변환 방법을 배웁니다. 이 가이드에 포함된 샘플 텍스트는 SSML(Speech Synthesis Markup Language)로 구조화되어 있습니다. 이를 통해 음성 응답의 음성 및 언어를 선택할 수 있습니다.
+description: 이 문서에서는 Python 및 텍스트 음성 변환 REST API를 사용 하 여 텍스트를 음성으로 변환 하는 방법을 알아봅니다. 이 가이드에 포함된 샘플 텍스트는 SSML(Speech Synthesis Markup Language)로 구조화되어 있습니다. 이를 통해 음성 응답의 음성 및 언어를 선택할 수 있습니다.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -11,22 +11,22 @@ ms.topic: how-to
 ms.date: 04/13/2020
 ms.author: trbye
 ms.openlocfilehash: 171fdb033cba422d8ba580da3ab54db88ca20872
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81400827"
 ---
 # <a name="convert-text-to-speech-using-python"></a>Python을 사용하여 텍스트 음성 변환
 
-이 문서에서는 파이썬과 텍스트 음성 간 REST API를 사용하여 텍스트 음성 변환 방법을 배웁니다. 이 가이드의 요청 본문은 [SSML(Speech Synthesis Markup Language)](speech-synthesis-markup.md)로 구조화되어 있으므로 응답의 음성 및 언어를 선택할 수 있습니다.
+이 문서에서는 Python 및 텍스트 음성 변환 REST API를 사용 하 여 텍스트를 음성으로 변환 하는 방법을 알아봅니다. 이 가이드의 요청 본문은 [SSML(Speech Synthesis Markup Language)](speech-synthesis-markup.md)로 구조화되어 있으므로 응답의 음성 및 언어를 선택할 수 있습니다.
 
-이 문서에는 음성 서비스 리소스가 있는 [Azure Cognitive Services 계정이](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 필요합니다. 계정이 없는 경우 [평가판](get-started.md)을 사용하여 구독 키를 가져올 수 있습니다.
+이 문서에는 음성 서비스 리소스를 사용 하는 [Azure Cognitive Services 계정이](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 필요 합니다. 계정이 없는 경우 [평가판](get-started.md)을 사용하여 구독 키를 가져올 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Python 2.7.x 또는 3.x
-* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">비주얼 <span class="docon docon-navigate-external x-hidden-focus"> </span>스튜디오, </a> <a href="https://code.visualstudio.com/download" target="_blank">비주얼 <span class="docon docon-navigate-external x-hidden-focus"> </span>스튜디오 코드, </a>또는 좋아하는 텍스트 편집기
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio <span class="docon docon-navigate-external x-hidden-focus"></span></a>, <a href="https://code.visualstudio.com/download" target="_blank"> Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"></span></a> 또는 즐겨 사용하는 텍스트 편집기
 * Speech Service에 대한 Azure 구독 키
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기

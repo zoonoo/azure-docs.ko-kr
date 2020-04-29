@@ -1,7 +1,7 @@
 ---
 title: 사용자 검토를 사용한 비디오 조정 - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: 기계 지원 비디오 조정 및 검토 도구를 사용하여 부적절한 콘텐츠를 조정합니다.
+description: 기계 지원 비디오 조정 및 검토 도구를 사용 하 여 중간에 부적절 한 콘텐츠 사용
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 0c031a890efc7fad7e5d9caefce3b0e66c515d90
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81404246"
 ---
 # <a name="video-moderation-with-human-review"></a>사용자 검토를 사용한 비디오 조정
 
-콘텐츠 운영자의 기계 지원 [비디오 중재](video-moderation-api.md) 및 검토 [도구를](Review-Tool-User-Guide/human-in-the-loop.md) 사용하여 성인용(노골적인) 및 외설적인(암시적) 콘텐츠에 대한 동영상 및 성적표를 검토하여 비즈니스에 가장 적합한 결과를 얻을 수 있습니다.
+Content Moderator의 기계 지원 [비디오](video-moderation-api.md) 조정 및 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md) 를 사용 하 여 성인 (명시적) 및 추천 (외설) 콘텐츠에 대 한 중간 비디오 및 성적 증명서를 통해 비즈니스에 대 한 최상의 결과를 얻을 수 있습니다.
 
 ## <a name="video-trained-classifier-preview"></a>비디오 학습 분류자(미리 보기)
 

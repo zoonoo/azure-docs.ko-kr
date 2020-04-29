@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: 호스팅 설명서
-summary: 음성 서비스 컨테이너는 표준 또는 사용자 지정 모델을 포괄하는 음성-텍스트 및 텍스트 음성 변환 시나리오 모두에 사용할 수 있습니다.
+summary: 음성 서비스 컨테이너는 표준 또는 사용자 지정 모델을 포괄 하는 음성 텍스트 및 텍스트 음성 변환 시나리오 모두에 사용할 수 있습니다.
 metadata:
-  title: 호스팅 문서 - 자습서, API 참조 - Azure 인지 서비스 | 마이크로 소프트 문서
+  title: 호스팅 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,13 +12,13 @@ metadata:
   ms.date: 03/23/2020
   ms.author: trbye
   ms.openlocfilehash: 640c1b8e9c51059bc4c296ef93a4e6dd54ea7a42
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401503"
 landingContent:
-- title: 호스팅 에 대해
+- title: 호스팅 정보
   linkLists:
   - linkListType: concept
     links:
@@ -32,7 +32,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Azure Speech 리소스 만들기
+    - text: Azure 음성 리소스 만들기
       url: get-started.md#new-resource
     - text: 음성 초기화 구성
       url: speech-container-configuration.md

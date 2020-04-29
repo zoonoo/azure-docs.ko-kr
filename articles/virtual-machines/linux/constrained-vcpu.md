@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.author: mimckitt
 ms.openlocfilehash: 70e6d043b3ad033e1a43c566e5d1da49a1447c6b
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273565"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>제한된 vCPU 지원 VM 크기

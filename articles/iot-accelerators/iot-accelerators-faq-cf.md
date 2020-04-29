@@ -1,6 +1,6 @@
 ---
 title: 연결된 팩터리 솔루션 FAQ - Azure | Microsoft Docs
-description: 이 문서에서는 커넥티드 팩토리 솔루션 가속기에 대해 자주 묻는 질문에 대한 답변을 제공합니다. 여기에는 GitHub 리포지토리에 대한 링크가 포함되어 있습니다.
+description: 이 문서에서는 연결 된 팩터리 솔루션 가속기에 대 한 자주 묻는 질문에 답변 합니다. GitHub 리포지토리에 대 한 링크를 포함 합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: f2f8c08176f80436a339924adb4b2a09338a548a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81313597"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기에 대한 질문과 대답
@@ -148,7 +148,7 @@ IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문�
 
 또한 배포 후 솔루션 가속기에 Azure Maps 계정 키를 추가할 수도 있습니다. Azure Portal로 이동한 후 연결된 팩터리 배포의 App Service 리소스에 액세스합니다. **애플리케이션 설정** 섹션을 찾을 수 있는 **애플리케이션 설정**으로 이동합니다. **MapApiQueryKey**를 [Azure Maps 계정의 키](../azure-maps/how-to-manage-account-keys.md)로 설정합니다. 설정을 저장한 다음 **개요**로 이동하고 App Service를 다시 시작합니다.
 
-### <a name="how-do-i-create-an-azure-maps-account"></a>Azure Maps 계정을 만들려면 어떻게 해야 합니까?
+### <a name="how-do-i-create-an-azure-maps-account"></a>Azure Maps 계정을 만들 어떻게 할까요? 있나요?
 
 [Azure Maps 계정과 키를 관리하는 방법](../azure-maps/how-to-manage-account-keys.md)을 참조하세요.
 

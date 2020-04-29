@@ -2,7 +2,7 @@
 title: 음성 디바이스 설명서
 summary: Speech Devices SDK는 특별히 만들어진 마이크 배열 개발 키트와 쌍으로 연결된 미리 조정된 라이브러리입니다.
 metadata:
-  title: 음성 장치 설명서 - 자습서, API 참조 - Azure 코그너티브 서비스 | 마이크로 소프트 문서
+  title: 음성 장치 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,10 +12,10 @@ metadata:
   ms.date: 03/10/2020
   ms.author: trbye
   ms.openlocfilehash: 76bb63654778a08244e2207839e12812b7227dff
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401381"
 landingContent:
 - title: 음성 장치 SDK 정보
@@ -26,19 +26,19 @@ landingContent:
       url: speech-devices-sdk.md
   - linkListType: quickstart
     links:
-    - text: 음성 장치 SDK(Windows) 사용
+    - text: 음성 장치 SDK 사용 (Windows)
       url: speech-devices-sdk-quickstart.md?pivots=platform-windows
-    - text: 음성 장치 SDK(Linux) 사용
+    - text: 음성 장치 SDK 사용 (Linux)
       url: speech-devices-sdk-quickstart.md?pivots=platform-linux
-    - text: 음성 장치 SDK (안드로이드) 사용
+    - text: 음성 장치 SDK 사용 (Android)
       url: speech-devices-sdk-quickstart.md?pivots=platform-android
-- title: 음성 장치 SDK로 개발
+- title: 음성 장치 SDK를 사용 하 여 개발
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 마이크 어레이 디자인
+    - text: 마이크 배열 디자인
       url: speech-devices-sdk-microphone.md
-    - text: 루보 v1 키트 설치
+    - text: Roobo v1 키트 설정
       url: speech-devices-sdk-roobo-v1.md
 - title: 참조
   linkLists:

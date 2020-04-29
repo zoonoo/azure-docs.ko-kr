@@ -1,5 +1,5 @@
 ---
-title: Azure 데이터 팩터리에서 통합 런타임 모니터링
+title: Azure Data Factory에서 통합 런타임 모니터링
 description: Azure Data Factory에서 다양한 유형의 통합 런타임을 모니터링하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -11,10 +11,10 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 6d2ea5c0b7354867086fc0cce43732f2d73c53ab
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81398957"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링
@@ -38,7 +38,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGr
 이 cmdlet은 여러 유형의 통합 런타임에 대해 서로 다른 정보를 반환합니다. 이 문서는 각 통합 런타임 유형의 속성 및 상태에 대해 설명합니다.  
 
 ## <a name="azure-integration-runtime"></a>Azure 통합 런타임
-Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적으로 관리됩니다. 다음 표에서는 **Get-AzDataFactoryV2IntegrationRuntime** 명령에서 반환되는 속성에 대한 설명을 제공합니다.
+Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적으로 관리됩니다. 다음 표에서는 **AzDataFactoryV2IntegrationRuntime** 명령에서 반환 된 속성에 대 한 설명을 제공 합니다.
 
 ### <a name="properties"></a>속성
 다음 테이블은 Azure 통합 런타임에 대해 cmdlet에서 반환하는 속성에 대한 설명을 제공합니다.
@@ -61,7 +61,7 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 | 오프라인 | Azure 통합 런타임이 내부 오류로 인해 오프라인 상태입니다. |
 
 ## <a name="self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임
-이 섹션에서는 Get-AzDataFactoryV2IntegrationRuntime cmdlet에서 반환되는 속성에 대한 설명을 제공합니다. 
+이 섹션에서는 AzDataFactoryV2IntegrationRuntime cmdlet이 반환 하는 속성에 대해 설명 합니다. 
 
 > [!NOTE] 
 > 반환된 속성 및 상태에는 전반적인 자체 호스팅 통합 런타임 및 런타임의 각 노드에 대한 정보가 포함됩니다.  
@@ -73,7 +73,7 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 | 속성 | Description | 
 | -------- | ----------- | 
 | 속성 | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
-| 상태 | 전반적인 자체 호스팅 통합 런타임 및 각 노드의 상태. 예: 온라인/오프라인/제한/기타 이러한 상태에 대한 자세한 내용은 다음 섹션을 참조하십시오. | 
+| 상태 | 전반적인 자체 호스팅 통합 런타임 및 각 노드의 상태. 예: 온라인/오프 라인/제한 됨/등 이러한 상태에 대 한 자세한 내용은 다음 섹션을 참조 하세요. | 
 | 버전 | 자체 호스팅 통합 런타임 및 각 노드의 버전. 자체 호스팅 통합 런타임 버전은 그룹에 있는 노드의 대다수 버전을 기반으로 결정됩니다. 자체 호스팅 통합 런타임 설정에 다른 버전의 노드가 있는 경우 논리 자체 호스팅 통합 런타임과 버전 번호가 동일한 노드만 제대로 작동합니다. 다른 버전의 노드는 제한된 모드에 있으므로 수동으로 업데이트해야 합니다(자동 업데이트가 실패할 경우에만). | 
 | 사용 가능한 메모리 | 자체 호스팅 통합 런타임 노드에서 사용 가능한 메모리. 이 값은 거의 실시간 스냅샷입니다. | 
 | CPU 사용률 | 자체 호스팅 통합 런타임 노드의 CPU 사용률. 이 값은 거의 실시간 스냅샷입니다. |
@@ -89,7 +89,7 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 노드 수를 늘려서 규모를 확장할 수 있습니다. 노드의 수를 늘리면 동시 작업 제한은 사용 가능한 모든 노드의 동시 작업 제한 값의 합계입니다.  예를 들어 하나의 노드를 사용하여 최대 12개의 동시 작업을 실행할 수 있는 경우 세 가지 유사한 노드를 추가하면 최대 48개(4x12)의 동시 작업을 실행할 수 있습니다. 각 노드의 기본 값을 포함하는 낮은 리소스 사용량이 표시되는 경우에만 동시 작업 제한을 늘리는 것이 좋습니다.
 
-Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성자 > 연결 > 통합 런타임 > 편집 > 노드 > 노드당 동시 작업 값 수정을 차례로 선택합니다. PowerShell [업데이트-Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) 명령을 사용할 수도 있습니다.
+Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성자 > 연결 > 통합 런타임 > 편집 > 노드 > 노드당 동시 작업 값 수정을 차례로 선택합니다. PowerShell [Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) 명령을 사용할 수도 있습니다.
   
 ### <a name="status-per-node"></a>상태(노드당)
 다음 테이블은 자체 호스팅 통합 런타임 노드의 가능한 상태를 제공합니다.
@@ -114,7 +114,7 @@ Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성�
 | 오프라인 | 온라인 상태인 노드가 없습니다. |
 | 제한적 | 자체 호스팅 통합 런타임의 일부 노드가 정상 상태가 아닙니다. 이 상태는 일부 노드가 중단되었을 수 있다는 경고입니다. 이 상태는 디스패처/작업자 노드의 자격 증명 동기화 문제 때문일 수 있습니다. |
 
-**Get-AzDataFactory2IntegrationRuntimeRuntimecmdlet을** 사용하여 cmdlet실행 시 자세한 자체 호스팅 통합 런타임 속성 및 해당 스냅숏 값을 포함하는 JSON 페이로드를 가져옵니다.
+**AzDataFactoryV2IntegrationRuntimeMetric** cmdlet을 사용 하 여 자체 호스팅 통합 런타임 속성이 포함 된 JSON 페이로드 및 cmdlet을 실행 하는 동안 해당 스냅숏 값을 가져옵니다.
 
 ```powershell
 Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName | ConvertTo-Json 
@@ -223,7 +223,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 Azure-SSIS 통합 런타임에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure-SSIS 통합 런타임.](concepts-integration-runtime.md#azure-ssis-integration-runtime) 이 문서는 Azure-SSIS IR을 비롯한 일반적인 통합 런타임에 대한 개념 정보를 제공합니다. 
+- [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). 이 문서는 Azure-SSIS IR을 비롯한 일반적인 통합 런타임에 대한 개념 정보를 제공합니다. 
 - [자습서: Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md). 이 문서는 Azure-SSIS IR을 만들고 Azure SQL 데이터베이스를 사용하여 SSIS 카탈로그를 호스트하는 단계별 지침을 제공합니다. 
 - [방법: Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md). 자습서의 내용을 보충하는 이 문서에서는 Azure SQL Database Managed Instance를 사용하고 IR을 가상 네트워크에 조인하는 방법에 대한 지침을 제공합니다. 
 - [Azure-SSIS IR 관리](manage-azure-ssis-integration-runtime.md). 이 문서는 Azure-SSIS IR을 중지, 시작 또는 제거하는 방법을 설명합니다. 또한 IR에 노드를 추가하여 Azure-SSIS IR 규모를 확장하는 방법을 보여줍니다. 
@@ -232,5 +232,5 @@ Azure-SSIS 통합 런타임에 대한 자세한 내용은 다음 문서를 참�
 ## <a name="next-steps"></a>다음 단계
 다른 방식으로 파이프라인을 모니터링하려면 다음 문서를 참조하세요. 
 
-- [빠른 시작: 데이터 팩터리 만들기.](quickstart-create-data-factory-dot-net.md)
+- [빠른 시작: 데이터 팩터리를 만듭니다](quickstart-create-data-factory-dot-net.md).
 - [Azure Monitor를 사용하여 Data Factory 파이프라인 모니터링](monitor-using-azure-monitor.md)

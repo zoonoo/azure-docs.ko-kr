@@ -1,13 +1,13 @@
 ---
-title: 신뢰할 수 있는 컬렉션에 대한 지침
-description: Azure 서비스 패브릭 응용 프로그램에서 서비스 패브릭 신뢰할 수 있는 컬렉션 사용에 대 한 지침 및 권장 사항입니다.
+title: 신뢰할 수 있는 컬렉션에 대 한 지침
+description: Azure Service Fabric 응용 프로그램에서 Service Fabric 신뢰할 수 있는 컬렉션을 사용 하기 위한 지침과 권장 사항입니다.
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: db37067069b2a9eb08009eb6bb373f6fce1cafa9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81398536"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric에서 신뢰할 수 있는 컬렉션에 대한 지침 및 권장 사항
@@ -20,8 +20,8 @@ ms.locfileid: "81398536"
 * 시간제한에 `TimeSpan.MaxValue` 를 사용하지 마세요. 시간 제한은 교착 상태를 감지하는 데 사용되어야 합니다.
 * 트랜잭션을 커밋, 중단 또는 삭제한 후에는 사용하지 마십시오.
 * 열거형이 만들어진 트랜잭션 범위 외부에서는 해당 열거형을 사용하지 마세요.
-* 교착 상태가 발생할 수 있으므로 `using` 다른 트랜잭션의 문 내에서 트랜잭션을 만들지 마십시오.
-* 동일한 트랜잭션에서 `IReliableStateManager.GetOrAddAsync` 신뢰할 수 있는 상태를 만들고 신뢰할 수 있는 상태를 사용 하지 마십시오. 이로 인해 잘못된작업예외가 발생합니다.
+* 교착 상태가 발생할 수 있으므로 다른 트랜잭션의 `using` 문 내에 트랜잭션을 만들지 마십시오.
+* 를 사용 하 여 `IReliableStateManager.GetOrAddAsync` 신뢰할 수 있는 상태를 만들지 말고 동일한 트랜잭션에서 신뢰할 수 있는 상태를 사용 합니다. 이로 인해 InvalidOperationException이 발생 합니다.
 * `IComparable<TKey>` 구현이 올바른지 확인하세요. 시스템은 검사점 및 행 병합을 위해 `IComparable<TKey>`에 대한 종속성을 보유합니다.
 * 특정 유형의 교착 상태를 방지하기 위해 항목을 업데이트하려는 경우에는 항목을 읽을 때 업데이트 잠금을 사용하지 마세요.
 * 파티션당 신뢰할 수 있는 컬렉션 수를 1,000개 미만으로 유지하세요. 항목 수가 더 적은 신뢰할 수 있는 컬렉션보다 항목 수가 더 많은 신뢰할 수 있는 컬렉션이 우선됩니다.
@@ -41,24 +41,24 @@ ms.locfileid: "81398536"
   주에서 읽은 내용은 항상 안정적이며 거짓 처리될 수 없습니다.
 * 애플리케이션에서 유지되는 데이터의 보안/개인 정보 보호는 사용자가 결정하게 되며, 스토리지 관리에서 제공하는 보호 기능이 적용됩니다. 운영 체제 디스크 암호화는 미사용 데이터를 보호하는 데 사용될 수 있습니다.  
 
-## <a name="volatile-reliable-collections"></a>휘발성 신뢰할 수 있는 컬렉션
-휘발성 신뢰할 수 있는 컬렉션을 사용하기로 결정할 때는 다음을 고려하십시오.
+## <a name="volatile-reliable-collections"></a>휘발성 안정적인 컬렉션
+휘발성의 신뢰할 수 있는 컬렉션을 사용 하기로 결정 하는 경우 다음을 고려 하십시오.
 
-* ```ReliableDictionary```휘발성 지원이 있습니까?
-* ```ReliableQueue```휘발성 지원이 있습니까?
-* ```ReliableConcurrentQueue```휘발성 지원이 없습니다.
-* 지속된 서비스는 휘발성으로 만들 수 없습니다. 플래그를 ```HasPersistedState``` 변경하려면 ```false``` 전체 서비스를 처음부터 다시 만들어야 합니다.
-* 휘발성 서비스는 지속될 수 없습니다. 플래그를 ```HasPersistedState``` 변경하려면 ```true``` 전체 서비스를 처음부터 다시 만들어야 합니다.
-* ```HasPersistedState```은 서비스 수준 구성입니다. 즉, **모든** 컬렉션이 유지되거나 휘발성이 있습니다. 휘발성 및 지속컬렉션을 혼합할 수 없습니다.
-* 휘발성 파티션의 쿼럼 손실로 인해 전체 데이터 손실이 발생합니다.
-* 휘발성 서비스에는 백업 및 복원을 사용할 수 없습니다.
+* ```ReliableDictionary```volatile 지원
+* ```ReliableQueue```volatile 지원
+* ```ReliableConcurrentQueue```volatile을 지원 하지 않습니다.
+* 지속형 서비스는 일시적으로 만들 수 없습니다. ```HasPersistedState``` 플래그를로 변경 ```false``` 하려면 전체 서비스를 처음부터 다시 만들어야 합니다.
+* 휘발성 서비스는 지속 될 수 없습니다. ```HasPersistedState``` 플래그를로 변경 ```true``` 하려면 전체 서비스를 처음부터 다시 만들어야 합니다.
+* ```HasPersistedState```는 서비스 수준 구성입니다. 즉, **모든** 컬렉션이 지속 되거나 휘발성이 됩니다. Volatile 및 지속형 컬렉션을 혼합할 수 없습니다.
+* 휘발성 파티션의 쿼럼 손실로 인해 전체 데이터 손실이 발생 합니다.
+* 휘발성 서비스에 대해 백업 및 복원을 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [신뢰할 수 있는 컬렉션 작업](service-fabric-work-with-reliable-collections.md)
 * [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * 데이터 관리
   * [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
-  * [공지](service-fabric-reliable-services-notifications.md)
+  * [알림](service-fabric-reliable-services-notifications.md)
   * [Serialization 및 업그레이드](service-fabric-application-upgrade-data-serialization.md)
   * [신뢰할 수 있는 상태 관리자 구성](service-fabric-reliable-services-configuration.md)
 * 기타

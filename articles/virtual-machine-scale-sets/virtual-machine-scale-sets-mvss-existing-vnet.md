@@ -1,5 +1,5 @@
 ---
-title: Azure 규모 집합 템플릿에서 기존 가상 네트워크 참조
+title: Azure 확장 집합 템플릿에서 기존 가상 네트워크를 참조 합니다.
 description: 기존 Azure Virtual Machine Scale Set 템플릿에 가상 네트워크를 추가하는 방법 알아보기
 author: mimckitt
 tags: azure-resource-manager
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimckitt
 ms.openlocfilehash: 83328a31dad8009c28e146c81b24d6d9244f88a8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273667"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Azure 확장 집합 템플릿에 기존 가상 네트워크에 대한 참조 추가
 
-이 문서에서는 새 가상 네트워크를 만드는 대신 기존 가상 네트워크에 배포할 [기본 축척 집합 템플릿을](virtual-machine-scale-sets-mvss-start.md) 수정하는 방법을 보여 주었습니다.
+이 문서에서는 [기본 확장 집합 템플릿을](virtual-machine-scale-sets-mvss-start.md) 수정 하 여 새 가상 네트워크를 만드는 대신 기존 가상 네트워크에 배포 하는 방법을 보여 줍니다.
 
 ## <a name="change-the-template-definition"></a>템플릿 정의 변경
 
-이전 [문서에서는](virtual-machine-scale-sets-mvss-start.md) 기본 축척 집합 템플릿을 만들었습니다. 이제 이전 템플릿을 사용하고 수정하여 기존 가상 네트워크에 축척 집합을 배포하는 템플릿을 만듭니다. 
+[이전 문서](virtual-machine-scale-sets-mvss-start.md) 에서는 기본 확장 집합 템플릿을 만들었습니다. 이제 이전 템플릿을 사용 하 고 수정 하 여 기존 가상 네트워크에 확장 집합을 배포 하는 템플릿을 만듭니다. 
 
-먼저 `subnetId` 매개 변수를 추가합니다. 이 문자열은 확장 집합 구성에 전달되어 확장 집합에서 미리 만든 서브넷을 식별하여 가상 머신을 배포할 수 있게 합니다. 이 문자열은 다음과 같은 형식이어야 합니다.`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
+먼저 `subnetId` 매개 변수를 추가합니다. 이 문자열은 확장 집합 구성에 전달되어 확장 집합에서 미리 만든 서브넷을 식별하여 가상 머신을 배포할 수 있게 합니다. 이 문자열의 형식은 다음과 같아야 합니다.`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
 
 예를 들어 `myvnet` 이름, `mysubnet` 서브넷, `myrg` 리소스 그룹 및 `00000000-0000-0000-0000-000000000000` 구독을 사용하여 기존 가상 네트워크에 확장 집합을 배포하려면 subnetId가 `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`이 됩니다.
 
@@ -82,7 +82,7 @@ ms.locfileid: "81273667"
          "capacity": 2
 ```
 
-마지막으로, 사용자가 `subnetId` 설정한 매개 변수를 전달하는 `resourceId` 대신 동일한 배포에서 vnet의 ID를 얻는 대신 기본 실행 가능한 스케일 집합 템플릿이 수행하는 작업을 수행합니다.
+마지막으로,를 사용 `subnetId` `resourceId` 하는 대신 사용자가 설정한 매개 변수를 전달 하 여 동일한 배포에서 vnet의 ID를 가져옵니다 .이는 기본 실행 가능 크기 집합 템플릿에서 수행 됩니다.
 
 ```diff
                        "name": "myIpConfig",

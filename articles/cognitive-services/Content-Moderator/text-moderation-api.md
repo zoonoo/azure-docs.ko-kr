@@ -1,7 +1,7 @@
 ---
 title: 텍스트 조정 - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: 원치 않는 텍스트, 개인 데이터 및 사용자 지정 용어 목록을 보려면 텍스트 조정을 사용합니다.
+description: 원치 않는 텍스트, 개인 데이터 및 사용자 지정 약관 목록에 대해 텍스트 조정을 사용 합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 41e88dd5a08de485f770559959843ba3b54e590f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81274013"
 ---
 # <a name="learn-text-moderation-concepts"></a>텍스트 조정 개념 알아보기
 
-콘텐츠 운영자의 기계 지원 텍스트 조정 및 [인적 검토](Review-Tool-User-Guide/human-in-the-loop.md) 기능을 사용하여 텍스트 콘텐츠를 조정합니다.
+Content Moderator의 기계 지원 텍스트 조정 및 [사용자 검토](Review-Tool-User-Guide/human-in-the-loop.md) 기능을 사용 하 여 일반 텍스트 콘텐츠를 제공 합니다.
 
 정책 및 임계값에 따라 콘텐츠를 차단, 승인 또는 검토합니다. 사용자의 환경 중재를 강화하여 파트너, 직원 및 소비자가 텍스트 콘텐츠를 생성하도록 하는 데 사용됩니다. 여기에는 채팅방, 토론 게시판, 챗봇, 전자 상거래 카탈로그 및 문서가 포함됩니다. 
 
@@ -51,7 +51,7 @@ API가 [지원되는 언어](Text-Moderation-API-Languages.md)의 욕설을 감�
 
 ## <a name="classification"></a>분류
 
-콘텐츠 운영자의 기계 지원 **텍스트 분류 기능은** **영어만**지원하며 원치 않는 콘텐츠를 감지하는 데 도움이 됩니다. 플래그가 지정된 콘텐츠는 컨텍스트에 따라 부적절한 콘텐츠로 평가될 수 있습니다. 각 범주의 가능성을 전달하고 사용자 검토를 권장할 수 있습니다. 이 기능은 학습된 모델을 사용하여 상스럽거나 경멸적이거나 차별적인 언어를 식별합니다. 여기에는 은어, 약어, 불쾌한 단어, 의도적으로 철자가 틀린 단어의 검토가 포함됩니다. 
+Content Moderator의 기계 지원 **텍스트 분류 기능은** **영어만**지원 하 고 잠재적으로 원치 않는 콘텐츠를 검색 하는 데 도움이 됩니다. 플래그가 지정된 콘텐츠는 컨텍스트에 따라 부적절한 콘텐츠로 평가될 수 있습니다. 각 범주의 가능성을 전달하고 사용자 검토를 권장할 수 있습니다. 이 기능은 학습된 모델을 사용하여 상스럽거나 경멸적이거나 차별적인 언어를 식별합니다. 여기에는 은어, 약어, 불쾌한 단어, 의도적으로 철자가 틀린 단어의 검토가 포함됩니다. 
 
 JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 
@@ -78,9 +78,9 @@ JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 
 ## <a name="personal-data"></a>개인 데이터
 
-개인 데이터 기능은 이 정보의 잠재적 존재를 감지합니다.
+개인 데이터 기능은이 정보의 잠재적 존재 여부를 검색 합니다.
 
-- 메일 주소
+- 전자 메일 주소
 - 미국 우편 주소
 - IP 주소
 - 미국 전화 번호
@@ -125,7 +125,7 @@ JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 
 ## <a name="auto-correction"></a>자동 고침
 
-입력 텍스트가 ('lzay'와 'f0x'는 의도적이라고 가정합니다).
+입력 텍스트가 인 경우 (' lzay ' 및 ' f0x '는 의도적인 것으로 가정):
 
     The qu!ck brown f0x jumps over the lzay dog.
 
@@ -155,4 +155,4 @@ Content Moderator는 사용자 지정 용어 목록 관리 작업이 포함된 [
 
 ## <a name="next-steps"></a>다음 단계
 
-[텍스트 조정 API 콘솔](try-text-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. 또한 Visual Studio 및 C#에 익숙한 경우 [.NET SDK 퀵스타트의](dotnet-sdk-quickstart.md) 텍스트 검토 섹션을 확인하십시오.
+[텍스트 조정 API 콘솔](try-text-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. Visual Studio 및 c #에 대해 잘 알고 있는 경우 [.NET SDK 퀵 스타트](dotnet-sdk-quickstart.md) 의 텍스트 조정 섹션도 확인 하세요.

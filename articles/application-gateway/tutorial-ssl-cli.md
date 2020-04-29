@@ -1,6 +1,6 @@
 ---
-title: CLI - Azure 응용 프로그램 게이트웨이를 사용한 TLS 종료
-description: 응용 프로그램 게이트웨이를 만들고 Azure CLI를 사용하여 TLS 종료에 대한 인증서를 추가하는 방법에 대해 알아봅니다.
+title: CLI를 사용 하 여 TLS 종료-Azure 애플리케이션 게이트웨이
+description: Azure CLI를 사용 하 여 응용 프로그램 게이트웨이를 만들고 TLS 종료를 위한 인증서를 추가 하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,15 +9,15 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 6cd8cca65762de3da6a0e69e93c8d79bbe498dde
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311970"
 ---
-# <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Azure CLI를 사용하여 TLS 종료를 사용하여 응용 프로그램 게이트웨이 만들기
+# <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Azure CLI를 사용 하 여 TLS 종료로 응용 프로그램 게이트웨이 만들기
 
-Azure CLI를 사용하여 [TLS 종료에](ssl-overview.md)대한 인증서가 있는 [응용 프로그램 게이트웨이를](overview.md) 만들 수 있습니다. 백 엔드 서버의 경우 [가상 시스템 크기 집합을](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) 사용할 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다.
+Azure CLI를 사용 하 여 [TLS 종료](ssl-overview.md)를 위한 인증서로 [응용 프로그램 게이트웨이](overview.md) 를 만들 수 있습니다. 백 엔드 서버의 경우 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) 을 사용할 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -165,7 +165,7 @@ az network public-ip show \
   --output tsv
 ```
 
-공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 이 예제의 경우 URL은 은 . **https://52.170.203.149**
+공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 이 예제에서 URL은 **https://52.170.203.149**입니다.
 
 ![보안 경고](./media/tutorial-ssl-cli/application-gateway-secure.png)
 

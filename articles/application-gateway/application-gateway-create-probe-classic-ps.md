@@ -1,5 +1,5 @@
 ---
-title: PowerShell - Azure 응용 프로그램 게이트웨이를 사용하여 사용자 지정 프로브 만들기
+title: PowerShell을 사용 하 여 사용자 지정 프로브 만들기-Azure 애플리케이션 게이트웨이
 description: 클래식 배포 모델에서 PowerShell을 사용하여 Application Gateway에 대한 사용자 지정 프로브를 만드는 방법에 대해 알아봅니다.
 services: application-gateway
 author: vhorne
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 0ba3e9ae7b5075d1f5457cb2960423ad1c737e94
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312546"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>PowerShell을 사용하여 Azure Application Gateway(클래식)에 대한 사용자 지정 프로브 만들기
@@ -19,12 +19,12 @@ ms.locfileid: "81312546"
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
-> * [Azure 클래식 파워쉘](application-gateway-create-probe-classic-ps.md)
+> * [Azure 클래식 PowerShell](application-gateway-create-probe-classic-ps.md)
 
 이 문서에서는 PowerShell을 사용하여 기존 애플리케이션 게이트웨이에 사용자 지정 프로브를 추가합니다. 사용자 지정 프로브는 특정 상태 확인 페이지를 사용하는 애플리케이션이나 기본 웹 애플리케이션에서 성공적으로 응답을 제공하지 않는 애플리케이션에 유용합니다.
 
 > [!IMPORTANT]
-> Azure에는 리소스 를 만들고 작업하기 위한 두 가지 배포 모델( [리소스 관리자 및 클래식.](../azure-resource-manager/management/deployment-models.md) 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 모델을 사용하여 이러한 단계를 수행](application-gateway-create-probe-ps.md)하는 방법을 알아봅니다.
+> Azure에는 리소스를 만들고 작업 하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/management/deployment-models.md)이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 모델을 사용하여 이러한 단계를 수행](application-gateway-create-probe-ps.md)하는 방법을 알아봅니다.
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -53,11 +53,11 @@ Get-AzureApplicationGateway AppGwTest
 ```
 
 > [!NOTE]
-> *InstanceCount의* 기본값은 2이며 최대값은 10입니다. *GatewaySize* 에 대한 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
+> *InstanceCount* 의 기본값은 2이 고, 최대값은 10입니다. *GatewaySize* 에 대한 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
 > 
 > 
 
-*게이트웨이가* 아직 시작되지 않았기 때문에 가상 IP 및 *DnsName은* 공백으로 표시됩니다. 이 값들은 게이트웨이가 실행 상태가 되면 생성됩니다.
+게이트웨이가 아직 시작 되지 않았으므로 *Virtualips* 및 *DnsName* 이 빈 상태로 표시 됩니다. 이 값들은 게이트웨이가 실행 상태가 되면 생성됩니다.
 
 ### <a name="configure-an-application-gateway-by-using-xml"></a>XML을 사용하여 애플리케이션 게이트웨이 구성
 
@@ -140,13 +140,13 @@ Get-AzureApplicationGateway AppGwTest
 
 구성 매개 변수:
 
-|매개 변수|설명|
+|매개 변수|Description|
 |---|---|
 |**이름** |사용자 지정 프로브에 대한 참조 이름입니다. |
 | **프로토콜** | 사용되는 프로토콜입니다(가능한 값: HTTP 또는 HTTPS).|
-| **Host** 및 **Path** | 애플리케이션 게이트웨이에서 인스턴스 상태를 확인하기 위해 호출하는 완전한 URL 경로입니다. 예를 들어 웹 사이트 http:\//contoso.com/ 있는 경우 프로브 검사가 성공적인 HTTP\/응답을 갖도록 "http: /contoso.com/path/custompath.htm"에 대해 사용자 지정 프로브를 구성할 수 있습니다.|
-| **간격** | 프로브 간격 확인을 구성합니다(단위: 초).|
-| **타임 아웃** | HTTP 응답 확인에 대한 프로브 시간 제한을 정의합니다.|
+| **Host** 및 **Path** | 애플리케이션 게이트웨이에서 인스턴스 상태를 확인하기 위해 호출하는 완전한 URL 경로입니다. 예를 들어 http:\//contoso.com/웹 사이트가 있는 경우 프로브 검사에 대 한 사용자 지정 프로브를 "http:\//contoso.com/path/custompath.htm"에 대해 구성 하 여 성공적인 http 응답을 받을 수 있습니다.|
+| **간격은** | 프로브 간격 확인을 구성합니다(단위: 초).|
+| **Timeout** | HTTP 응답 확인에 대한 프로브 시간 제한을 정의합니다.|
 | **UnhealthyThreshold** | 백 엔드 인스턴스를 *unhealthy*(비정상) 플래그로 지정하는 데 필요한 실패한 HTTP 응답 수입니다.|
 
 프로브 이름은 사용자 지정 프로브 설정에 사용할 백 엔드 풀을 할당하는 \<BackendHttpSettings\> 구성에서 참조합니다.
@@ -200,7 +200,7 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>다음 단계
 
-이전에 SSL(보안 소켓 계층) 오프로드라고 하는 TLS(전송 계층 보안)를 구성하려면 [TLS 오프로드에 대한 응용 프로그램 게이트웨이 구성을](application-gateway-ssl.md)참조하십시오.
+이전에 SSL(Secure Sockets Layer) (SSL) 오프 로드를 통해 TLS (전송 계층 보안)를 구성 하려는 경우 [tls 오프 로드에 대 한 응용 프로그램 게이트웨이 구성](application-gateway-ssl.md)을 참조 하세요.
 
 내부 부하 분산 장치에서 사용되도록 애플리케이션 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 애플리케이션 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 

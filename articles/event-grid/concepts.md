@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
 ms.openlocfilehash: 348d82f704b89b97e11a09b8f88e92831901b3bf
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393455"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid의 개념
@@ -22,7 +22,7 @@ ms.locfileid: "81393455"
 
 이벤트는 시스템에서 발생하는 무언가를 완벽히 설명하는 가장 작은 크기의 정보입니다. 모든 이벤트에는 이벤트의 원본, 이벤트가 발생한 시간 및 고유 식별자와 같은 일반적인 정보가 있습니다. 또한 모든 이벤트에는 특정 유형의 이벤트에만 관련된 특정 정보도 있습니다. 예를 들어 Azure Storage에서 만드는 새 파일에 대한 이벤트에는 `lastTimeModified` 값과 같은 파일에 대한 세부 정보가 포함되어 있습니다. 또는 Event Hubs 이벤트는 캡처 파일의 URL을 갖습니다. 
 
-최대 64KB 크기의 이벤트는 일반 가용성(GA) 서비스 수준 계약(SLA)의 적용을 받는다. 최대 1MB 크기의 이벤트에 대한 지원은 현재 미리 보기 상태입니다. 64KB를 초과하는 이벤트는 64KB 단위로 청구됩니다. 
+최대 64 KB 크기의 이벤트는 GA (일반 공급) Service Level Agreement(서비스 수준 약정) (SLA)에서 다룹니다. 최대 1mb 크기의 이벤트에 대 한 지원은 현재 미리 보기 상태입니다. 64 KB를 초과 하는 이벤트는 64 KB 단위로 요금이 부과 됩니다. 
 
 
 이벤트에 포함되어 전송되는 속성은 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
@@ -80,12 +80,12 @@ Event Grid에서 이벤트가 구독자의 엔드포인트에서 수신되었는
 
 ## <a name="batching"></a>일괄 처리
 
-사용자 지정 토픽을 사용하는 경우 이벤트를 항상 배열에 게시해야 합니다. 처리량이 적은 시나리오를 위한 일괄 처리로 사용할 수 있지만, 볼륨이 큰 사용 사례인 경우 효율을 높일 수 있도록 게시마다 여러 이벤트를 일괄 처리하는 것이 좋습니다. 일괄 처리의 최대 크기는 1MB입니다. 각 이벤트는 여전히 64KB(일반 가용성) 또는 1MB(미리 보기)를 초과해서는 안 됩니다.
+사용자 지정 토픽을 사용하는 경우 이벤트를 항상 배열에 게시해야 합니다. 처리량이 적은 시나리오를 위한 일괄 처리로 사용할 수 있지만, 볼륨이 큰 사용 사례인 경우 효율을 높일 수 있도록 게시마다 여러 이벤트를 일괄 처리하는 것이 좋습니다. 일괄 처리의 최대 크기는 1MB입니다. 각 이벤트는 여전히 64 KB (일반 공급) 또는 1mb (미리 보기) 보다 크지 않아야 합니다.
 
 > [!NOTE]
-> 최대 64KB 크기의 이벤트는 일반 가용성(GA) 서비스 수준 계약(SLA)의 적용을 받는다. 최대 1MB 크기의 이벤트에 대한 지원은 현재 미리 보기 상태입니다. 64KB를 초과하는 이벤트에는 64KB 단위로 요금이 부과됩니다. 
+> 최대 64 KB 크기의 이벤트는 GA (일반 공급) Service Level Agreement(서비스 수준 약정) (SLA)에서 다룹니다. 최대 1mb 크기의 이벤트에 대 한 지원은 현재 미리 보기 상태입니다. 64 KB를 초과 하는 이벤트는 64 KB 단위로 요금이 부과 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-* 이벤트 그리드에 대한 소개는 [이벤트 그리드 소개를](overview.md)참조하십시오.
+* Event Grid에 대 한 소개는 [Event Grid 정보](overview.md)를 참조 하세요.
 * Event Grid를 빠르게 시작하려면 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.

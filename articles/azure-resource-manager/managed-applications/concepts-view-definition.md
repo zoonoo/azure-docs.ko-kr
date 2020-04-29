@@ -1,32 +1,32 @@
 ---
 title: 뷰 정의 개요
-description: Azure 관리되는 응용 프로그램에 대한 뷰 정의를 만드는 개념을 설명합니다.
+description: Azure Managed Applications에 대 한 뷰 정의를 만드는 개념을 설명 합니다.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
 ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81391685"
 ---
-# <a name="view-definition-artifact-in-azure-managed-applications"></a>Azure 관리 형 응용 프로그램의 정의 아티팩트 보기
+# <a name="view-definition-artifact-in-azure-managed-applications"></a>Azure Managed Applications에서 뷰 정의 아티팩트
 
-뷰 정의는 Azure 관리 되는 응용 프로그램에서 선택적 아티팩트입니다. 이를 통해 개요 페이지를 사용자 지정하고 측정항목 및 사용자 지정 리소스와 같은 보기를 더 추가할 수 있습니다.
+뷰 정의는 Azure Managed Applications의 선택적 아티팩트입니다. 이를 통해 개요 페이지를 사용자 지정 하 고 메트릭 및 사용자 지정 리소스와 같은 보기를 더 추가할 수 있습니다.
 
-이 문서에서는 뷰 정의 아티팩트 및 해당 기능에 대한 개요를 제공합니다.
+이 문서에서는 뷰 정의 아티팩트 및 해당 기능에 대 한 개요를 제공 합니다.
 
 ## <a name="view-definition-artifact"></a>보기 정의 아티팩트
 
-뷰 정의 아티팩트는 **viewDefinition.json이라는** 이름을 지정하고 관리되는 응용 프로그램 정의를 만드는 .zip 패키지의 **createUiDefinition.json** 및 **mainTemplate.json과** 동일한 수준에 배치되어야 합니다. .zip 패키지를 만들고 관리되는 응용 프로그램 정의를 게시하는 방법을 알아보려면 [Azure 관리되는 응용 프로그램 정의 게시를](publish-service-catalog-app.md) 참조하십시오.
+뷰 정의 아티팩트 이름을 **Viewdefinition. json** 으로 지정 하 고 관리 되는 응용 프로그램 정의를 만드는 .zip 패키지의 **createuidefinition. json** 및 **maintemplate.json** 와 동일한 수준에 배치 해야 합니다. .Zip 패키지를 만들고 관리 되는 응용 프로그램 정의를 게시 하는 방법을 알아보려면 [Azure 관리 되는 응용 프로그램 정의 게시](publish-service-catalog-app.md) 를 참조 하세요.
 
 ## <a name="view-definition-schema"></a>정의 스키마 보기
 
-**viewDefinition.json** 파일에는 뷰 배열인 최상위 속성이 `views` 하나만 있습니다. 각 보기는 관리되는 응용 프로그램 사용자 인터페이스에 목치표의 별도의 메뉴 항목으로 표시됩니다. 각 뷰에는 `kind` 뷰 유형을 설정하는 속성이 있습니다. [개요,](#overview) [메트릭,](#metrics) [사용자 지정 리소스,](#custom-resources)연결 중 하나로 설정해야 [합니다.](#associations) 자세한 내용은 [viewDefinition.json](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)에 대한 현재 JSON 스키마를 참조하십시오.
+**Viewdefinition. json** 파일에는 뷰 배열인 하나의 최상위 `views` 속성만 있습니다. 각 보기는 관리 되는 응용 프로그램 사용자 인터페이스에 목차에서 별도의 메뉴 항목으로 표시 됩니다. 각 뷰에는 뷰의 `kind` 유형을 설정 하는 속성이 있습니다. [개요](#overview), [메트릭](#metrics), [customresources](#custom-resources), [association](#associations)값 중 하나로 설정 해야 합니다. 자세한 내용은 [viewDefinition에 대 한 현재 json 스키마 (json](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#))를 참조 하세요.
 
-보기 정의를 위한 샘플 JSON:
+뷰 정의에 대 한 샘플 JSON:
 
 ```json
 {
@@ -107,7 +107,7 @@ ms.locfileid: "81391685"
 
 `"kind": "Overview"`
 
-**viewDefinition.json에서**이 보기를 제공 하면 관리 되는 응용 프로그램에서 기본 개요 페이지를 재정의 합니다.
+**Viewdefinition. json**에이 뷰를 제공 하면 관리 되는 응용 프로그램의 기본 개요 페이지가 재정의 됩니다.
 
 ```json
 {
@@ -127,9 +127,9 @@ ms.locfileid: "81391685"
 
 |속성|필수|Description|
 |---------|---------|---------|
-|머리글|예|개요 페이지의 헤더입니다.|
-|description|예|관리되는 응용 프로그램에 대한 설명입니다.|
-|명령|예|개요 페이지의 추가 도구 모음 단추 배열은 [명령을](#commands)참조하십시오.|
+|머리글|아니요|개요 페이지의 머리글입니다.|
+|description|아니요|관리 되는 응용 프로그램에 대 한 설명입니다.|
+|명령|아니요|개요 페이지의 추가 도구 모음 단추에 대 한 배열입니다. [명령](#commands)을 참조 하십시오.|
 
 ![개요](./media/view-definition/overview.png)
 
@@ -137,7 +137,7 @@ ms.locfileid: "81391685"
 
 `"kind": "Metrics"`
 
-메트릭 보기를 사용하면 Azure Monitor 메트릭에서 관리되는 응용 프로그램 리소스에서 데이터를 수집하고 집계할 수 [있습니다.](../../azure-monitor/platform/data-platform-metrics.md)
+메트릭 보기를 사용 하면 [Azure Monitor 메트릭의](../../azure-monitor/platform/data-platform-metrics.md)관리 되는 응용 프로그램 리소스에서 데이터를 수집 하 고 집계할 수 있습니다.
 
 ```json
 {
@@ -166,27 +166,27 @@ ms.locfileid: "81391685"
 
 |속성|필수|Description|
 |---------|---------|---------|
-|displayName|예|뷰의 표시된 제목입니다.|
-|버전|예|뷰를 렌더링하는 데 사용되는 플랫폼 버전입니다.|
+|displayName|아니요|표시 된 뷰의 제목입니다.|
+|버전|아니요|뷰를 렌더링 하는 데 사용 되는 플랫폼의 버전입니다.|
 |차트|예|메트릭 페이지의 차트 배열입니다.|
 
 ### <a name="chart"></a>차트
 
 |속성|필수|Description|
 |---------|---------|---------|
-|displayName|예|차트의 표시된 제목입니다.|
-|차트유형|예|이 차트에 사용할 시각화입니다. 기본적으로 선부 차트를 사용합니다. 지원되는 차트 `Bar, Line, Area, Scatter`유형: .|
-|메트릭|예|이 차트에서 플롯할 메트릭의 배열입니다. Azure 포털에서 지원되는 메트릭에 대해 자세히 알아보려면 [Azure 모니터를 사용하여 지원되는 메트릭을](../../azure-monitor/platform/metrics-supported.md) 참조하십시오.|
+|displayName|예|표시 된 차트의 제목입니다.|
+|chartType|아니요|이 차트에 사용할 시각화입니다. 기본적으로 꺾은선형 차트를 사용 합니다. 지원 되는 차트 `Bar, Line, Area, Scatter`종류:.|
+|메트릭|예|이 차트에 그릴 메트릭의 배열입니다. Azure Portal에서 지원 되는 메트릭에 대 한 자세한 내용은 [Azure Monitor에서 지원 되는 메트릭](../../azure-monitor/platform/metrics-supported.md) 을 참조 하세요.|
 
 ### <a name="metric"></a>메트릭
 
 |속성|필수|Description|
 |---------|---------|---------|
 |name|예|메트릭의 이름입니다.|
-|집계 유형|예|이 메트릭에 사용할 집계 유형입니다. 지원되는 집계 유형:`none, sum, min, max, avg, unique, percentile, count`|
-|네임스페이스|예|올바른 메트릭 공급자를 결정할 때 사용할 추가 정보입니다.|
-|리소스 태그 필터|예|메트릭이 표시될 리소스 태그 배열(단어로 `or` 구분). 리소스 유형 필터 위에 적용됩니다.|
-|resourceType|예|메트릭이 표시될 리소스 유형입니다.|
+|aggregationType|예|이 메트릭에 사용할 집계 유형입니다. 지원 되는 집계 유형:`none, sum, min, max, avg, unique, percentile, count`|
+|namespace|아니요|올바른 메트릭 공급자를 결정할 때 사용할 추가 정보입니다.|
+|resourceTagFilter|아니요|메트릭이 표시 되는 리소스 태그 배열 (word `or` 로 구분 됨)입니다. 리소스 종류 필터의 위에 적용 됩니다.|
+|resourceType|예|메트릭이 표시 되는 리소스 종류입니다.|
 
 ![메트릭](./media/view-definition/metrics.png)
 
@@ -194,9 +194,9 @@ ms.locfileid: "81391685"
 
 `"kind": "CustomResources"`
 
-이 유형의 여러 뷰를 정의할 수 있습니다. 각 보기는 **mainTemplate.json**에서 정의한 사용자 지정 공급자의 **고유한** 사용자 지정 리소스 유형을 나타냅니다. 사용자 지정 공급 기업에 대한 소개는 [Azure 사용자 지정 공급 기업 미리 보기 개요](../custom-providers/overview.md)를 참조하세요.
+이 형식의 뷰를 여러 개 정의할 수 있습니다. 각 보기는 **maintemplate.json**에서 정의한 사용자 지정 공급자의 **고유한** 사용자 지정 리소스 형식을 나타냅니다. 사용자 지정 공급 기업에 대한 소개는 [Azure 사용자 지정 공급 기업 미리 보기 개요](../custom-providers/overview.md)를 참조하세요.
 
-이 보기에서 사용자 지정 리소스 유형에 대해 GET, PUT, DELETE 및 POST 작업을 수행할 수 있습니다. POST 작업은 사용자 지정 리소스 유형의 컨텍스트에서 전역 사용자 지정 작업 또는 사용자 지정 작업일 수 있습니다.
+이 보기에서 사용자 지정 리소스 종류에 대 한 GET, PUT, DELETE 및 POST 작업을 수행할 수 있습니다. POST 작업은 사용자 지정 리소스 형식의 컨텍스트에서 전역 사용자 지정 작업 또는 사용자 지정 작업 일 수 있습니다.
 
 ```json
 {
@@ -226,19 +226,19 @@ ms.locfileid: "81391685"
 
 |속성|필수|Description|
 |---------|---------|---------|
-|displayName|예|뷰의 표시된 제목입니다. 제목은 **viewDefinition.json**의 각 사용자 지정 리소스 보기에 대해 **고유해야** 합니다.|
-|버전|예|뷰를 렌더링하는 데 사용되는 플랫폼 버전입니다.|
-|resourceType|예|사용자 지정 리소스 유형입니다. 사용자 지정 공급자의 **고유한** 사용자 지정 리소스 유형이어야 합니다.|
-|icon|예|뷰의 아이콘입니다. 예제 아이콘 목록은 [JSON 스키마에](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)정의되어 있습니다.|
-|createUI정의|예|사용자 지정 리소스 명령을 만들기 위해 UI 정의 스키마를 만듭니다. UI 정의 만들기에 대한 소개는 [CreateUiDefinition를 시작하기](create-uidefinition-overview.md) 를 참조하십시오.|
-|명령|예|CustomResources 보기의 추가 도구 모음 단추 배열은 [명령을](#commands)참조하십시오.|
-|열|예|사용자 지정 리소스의 열 배열입니다. 정의되지 않은 `name` 경우 열이 기본적으로 표시됩니다. 열에는 및 `"key"` `"displayName"`가 있어야 합니다. 키의 경우 뷰에 표시할 속성의 키를 제공합니다. 중첩된 경우 예를 들어 점을 구분 `"key": "name"` 기호로 사용하거나 `"key": "properties.property1"`. 표시 이름의 경우 뷰에 표시할 속성의 표시 이름을 제공합니다. 숙소를 `"optional"` 제공할 수도 있습니다. true로 설정하면 기본적으로 열이 뷰에 숨김이 있습니다.|
+|displayName|예|표시 된 뷰의 제목입니다. 제목은 Viewdefinition의 각 CustomResources 뷰에 대해 **고유** 해야 합니다 **. json**.|
+|버전|아니요|뷰를 렌더링 하는 데 사용 되는 플랫폼의 버전입니다.|
+|resourceType|예|사용자 지정 리소스 형식입니다. 사용자 지정 공급자의 **고유한** 사용자 지정 리소스 형식 이어야 합니다.|
+|icon|아니요|뷰의 아이콘입니다. 예제 아이콘 목록은 [JSON 스키마](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)에 정의 되어 있습니다.|
+|createUIDefinition|아니요|사용자 지정 리소스 만들기 명령에 대 한 UI 정의 스키마를 만듭니다. UI 정의를 만드는 방법에 대 한 소개는 [CreateUiDefinition 시작](create-uidefinition-overview.md) 하기를 참조 하세요.|
+|명령|아니요|CustomResources 뷰의 추가 도구 모음 단추에 대 한 배열입니다. [명령](#commands)을 참조 하십시오.|
+|열|아니요|사용자 지정 리소스의 열 배열입니다. 정의 되지 않은 경우 `name` 열은 기본적으로 표시 됩니다. 열에는 및 `"key"` `"displayName"`가 있어야 합니다. 키에 대해 뷰에 표시할 속성의 키를 제공 합니다. 중첩 된 경우에는 점으로를 구분 기호로 사용 합니다 `"key": "name"` ( `"key": "properties.property1"`예: 또는). 표시 이름에는 뷰에 표시할 속성의 표시 이름을 제공 합니다. `"optional"` 속성을 제공할 수도 있습니다. True로 설정 하면 기본적으로 뷰에서 열이 숨겨집니다.|
 
 ![CustomResources](./media/view-definition/customresources.png)
 
 ## <a name="commands"></a>명령
 
-명령은 페이지에 표시되는 추가 도구 모음 단추의 배열입니다. 각 명령은 **mainTemplate.json에**정의된 Azure 사용자 지정 공급자의 POST 작업을 나타냅니다. 사용자 지정 공급자에 대한 소개는 [Azure 사용자 지정 공급자 개요를](../custom-providers/overview.md)참조하십시오.
+명령은 페이지에 표시 되는 추가 도구 모음 단추의 배열입니다. 각 명령은 **maintemplate.json**에 정의 된 Azure 사용자 지정 공급자의 게시 작업을 나타냅니다. 사용자 지정 공급자에 대 한 소개는 [Azure 사용자 지정 공급자 개요](../custom-providers/overview.md)를 참조 하세요.
 
 ```json
 {
@@ -255,18 +255,18 @@ ms.locfileid: "81391685"
 
 |속성|필수|Description|
 |---------|---------|---------|
-|displayName|예|명령 단추의 표시된 이름입니다.|
-|경로|예|사용자 지정 공급자 작업 이름입니다. 작업은 **mainTemplate.json**.|
-|icon|예|명령 단추의 아이콘입니다. 예제 아이콘 목록은 [JSON 스키마에](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)정의되어 있습니다.|
-|createUI정의|예|명령에 대한 UI 정의 스키마를 만듭니다. UI 정의 만들기에 대한 소개는 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.|
+|displayName|예|명령 단추의 표시 이름입니다.|
+|path|예|사용자 지정 공급자 작업 이름입니다. 작업은 **maintemplate.json**에서 정의 해야 합니다.|
+|icon|아니요|명령 단추의 아이콘입니다. 예제 아이콘 목록은 [JSON 스키마](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)에 정의 되어 있습니다.|
+|createUIDefinition|아니요|명령에 대 한 UI 정의 스키마를 만듭니다. UI 정의 만들기에 대한 소개는 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.|
 
 ## <a name="associations"></a>연결
 
 `"kind": "Associations"`
 
-이 유형의 여러 뷰를 정의할 수 있습니다. 이 보기를 사용하면 **mainTemplate.json**에 정의한 사용자 지정 공급자를 통해 기존 리소스를 관리되는 응용 프로그램에 연결할 수 있습니다. 사용자 지정 공급 기업에 대한 소개는 [Azure 사용자 지정 공급 기업 미리 보기 개요](../custom-providers/overview.md)를 참조하세요.
+이 형식의 뷰를 여러 개 정의할 수 있습니다. 이 보기에서는 **maintemplate.json**에서 정의한 사용자 지정 공급자를 통해 기존 리소스를 관리 되는 응용 프로그램에 연결할 수 있습니다. 사용자 지정 공급 기업에 대한 소개는 [Azure 사용자 지정 공급 기업 미리 보기 개요](../custom-providers/overview.md)를 참조하세요.
 
-이 보기에서는 을 기반으로 기존 Azure `targetResourceType`리소스를 확장할 수 있습니다. 리소스를 선택하면 **공용** 사용자 지정 공급자에 대한 온보딩 요청을 생성하여 리소스에 부작용을 적용할 수 있습니다. 
+이 보기에서는에 따라 기존 Azure 리소스를 확장할 수 있습니다 `targetResourceType`. 리소스를 선택 하면 리소스에 부작용을 적용할 수 있는 **공용** 사용자 지정 공급자에 대 한 온 보 딩 요청이 생성 됩니다. 
 
 ```json
 {
@@ -282,10 +282,10 @@ ms.locfileid: "81391685"
 
 |속성|필수|Description|
 |---------|---------|---------|
-|displayName|예|뷰의 표시된 제목입니다. 제목은 **ViewDefinition.json**에서 각 연결 보기에 대해 **고유해야** 합니다.|
-|버전|예|뷰를 렌더링하는 데 사용되는 플랫폼 버전입니다.|
-|targetResourceType|예|대상 리소스 유형입니다. 리소스 온보딩에 대해 표시되는 리소스 유형입니다.|
-|createUI정의|예|연결 리소스 명령을 만들기 위해 UI 정의 스키마를 만듭니다. UI 정의 만들기에 대한 소개는 [CreateUiDefinition를 시작하기](create-uidefinition-overview.md) 를 참조하십시오.|
+|displayName|예|표시 된 뷰의 제목입니다. 제목은 Viewdefinition의 각 연결 뷰에 대해 **고유** 해야 합니다 **. json**.|
+|버전|아니요|뷰를 렌더링 하는 데 사용 되는 플랫폼의 버전입니다.|
+|targetResourceType|예|대상 리소스 종류입니다. 리소스 온 보 딩에 대해 표시 되는 리소스 종류입니다.|
+|createUIDefinition|아니요|연결 리소스 만들기 명령에 대 한 UI 정의 스키마를 만듭니다. UI 정의를 만드는 방법에 대 한 소개는 [CreateUiDefinition 시작](create-uidefinition-overview.md) 하기를 참조 하세요.|
 
 ## <a name="looking-for-help"></a>도움말 찾기
 
@@ -294,5 +294,5 @@ Azure Managed Applications에 대한 질문이 있는 경우 [Stack Overflow](ht
 ## <a name="next-steps"></a>다음 단계
 
 - 관리되는 애플리케이션에 대한 소개는 [Azure Managed Application 개요](overview.md)를 참조하세요.
-- 사용자 지정 공급자에 대한 소개는 [Azure 사용자 지정 공급자 개요를](../custom-providers/overview.md)참조하십시오.
-- Azure 사용자 지정 공급자를 사용하여 Azure 관리 응용 프로그램을 만드는 경우 [자습서: 사용자 지정 공급자 작업 및 리소스 형식을 사용하여 관리되는 응용 프로그램 만들기](tutorial-create-managed-app-with-custom-provider.md) 를 참조하십시오.
+- 사용자 지정 공급자에 대 한 소개는 [Azure 사용자 지정 공급자 개요](../custom-providers/overview.md)를 참조 하세요.
+- Azure 사용자 지정 공급자를 사용 하 여 Azure 관리 되는 응용 프로그램을 만들려면 [자습서: 사용자 지정 공급자 작업 및 리소스 종류를 사용 하 여 관리 되는 응용 프로그램 만들기](tutorial-create-managed-app-with-custom-provider.md)

@@ -1,13 +1,13 @@
 ---
-title: 좋은 예 발언 - LUIS
+title: 좋은 예 길이 발언-LUIS
 description: 발언은 앱이 해석해야 하는 사용자의 입력입니다. 사용자가 입력할 것으로 생각되는 구를 수집합니다. 같은 내용을 의미하지만, 단어 길이 및 단어 배치가 다르게 구성된 발언을 포함합니다.
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: d851082a4ec4a003619826eeffd4f4b856a67824
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382280"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>LUIS 앱에 적합한 발언이 무엇인지 이해
@@ -23,7 +23,7 @@ ms.locfileid: "81382280"
 * 복수형
 * 형태소 분석
 * 명사 및 동사 선택
-* [구두점](luis-reference-application-settings.md#punctuation-normalization) - 올바른, 잘못된, 그리고 문법을 사용하여 좋은 다양성
+* [문장 부호](luis-reference-application-settings.md#punctuation-normalization) -정확 하 고 잘못 된 문법 및 문법을 사용 하지 않는 다양 한 기능을 사용 합니다.
 
 ## <a name="how-to-choose-varied-utterances"></a>다양한 발언을 선택하는 방법
 
@@ -52,11 +52,11 @@ LUIS 모델에 [예제 발언을 추가](luis-how-to-add-example-utterances.md)�
 |I want to get a computer, how do I go about it?|
 |When can I have a computer?|
 
-여기서 핵심 용어인 "컴퓨터"는 다양하지 않습니다. 데스크톱 컴퓨터, 랩톱, 워크스테이션 또는 간단히 머신과 같은 대체 용어를 사용합니다. LUIS는 컨텍스트에서 동의어를 지능적으로 추론할 수 있지만 교육을 위해 발언을 만들 때 항상 이를 변경하는 것이 좋습니다.
+여기서 핵심 용어 "computer"는 다양 하지 않습니다. 데스크톱 컴퓨터, 랩톱, 워크스테이션 또는 간단히 머신과 같은 대체 용어를 사용합니다. LUIS는 컨텍스트에서 동의어를 지능적으로 유추할 수 있지만 교육용 길이 발언을 만드는 경우에는 항상 변경 하는 것이 좋습니다.
 
 ## <a name="example-utterances-in-each-intent"></a>각 의도의 예제 발언
 
-각 의도에는 15개 이상의 예제 발언이 필요합니다. 예제 발언이 없는 의도로는 LUIS를 학습시킬 수 없습니다. 예제 발언이 하나이거나 거의 없는 의도가 있는 경우 LUIS가 의도를 정확하게 예측하지 못할 수 있습니다.
+각 의도에는 15개 이상의 예제 발언이 필요합니다. 예제 발언이 없는 의도로는 LUIS를 학습시킬 수 없습니다. 길이 발언 예를 하나 이상 사용 하는 경우 LUIS가 의도를 정확 하 게 예측 하지 못할 수 있습니다.
 
 ## <a name="add-small-groups-of-15-utterances-for-each-authoring-iteration"></a>각 작성 반복에 대해 15개의 소규모 발언 그룹 추가
 
@@ -66,23 +66,23 @@ LUIS는 LUIS 모델 작성자가 신중하게 선택한 발언으로 효과적�
 
 처음에는 소수의 발언으로 시작한 후 정확한 의도 예측 및 엔터티 추출을 위해 [엔드포인트 발언을 검토](luis-how-to-review-endpoint-utterances.md)합니다.
 
-## <a name="utterance-normalization"></a>발화 정규화
+## <a name="utterance-normalization"></a>Utterance 정규화
 
-발화 정규화는 교육 및 예측 중에 구두점 및 분음 부호의 영향을 무시하는 프로세스입니다. [응용 프로그램 설정을](luis-reference-application-settings.md) 사용하여 발사 정규화가 발화 예측에 미치는 영향을 제어합니다.
+Utterance 표준화는 학습 및 예측 중에 문장 부호와 분음 부호의 효과를 무시 하는 프로세스입니다. [응용 프로그램 설정을](luis-reference-application-settings.md) 사용 하 여 utterance 정규화가 utterance 예측에 미치는 영향을 제어 합니다.
 
-## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>분음 부호 및 문장 부호에 대한 발화 정규화
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>분음 부호 및 문장 부호에 대 한 Utterance 정규화
 
-발화 정규화는 응용 프로그램 JSON 파일의 설정이기 때문에 앱을 만들거나 가져올 때 정의됩니다. 발화 정규화 설정은 기본적으로 꺼져 있습니다.
+Utterance 정규화는 앱 JSON 파일의 설정 이므로 앱을 만들거나 가져올 때 정의 됩니다. Utterance 정규화 설정은 기본적으로 해제 되어 있습니다.
 
-분음 부호는 다음과 같이 텍스트 내의 표시 또는 기호입니다.
+분음 부호는 다음과 같이 텍스트에서 표시 되거나 서명 됩니다.
 
 ```
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-앱이 정규화를 켜면 **분음** 부호 또는 문장 부호를 사용하여 모든 발언에 대해 테스트 창, 일괄 처리 테스트 및 끝점 쿼리의 점수가 변경됩니다.
+앱에서 정규화를 설정 하면 **테스트** 창의 점수, 일괄 처리 테스트 및 끝점 쿼리가 분음 부호 나 문장 부호를 사용 하 여 모든 길이 발언에 대해 변경 됩니다.
 
-`settings` 매개 변수에서 LUIS JSON 앱 파일에 분음 부호 또는 문장 부호에 대한 발화 정규화를 켭니다.
+`settings` 매개 변수에서 LUIS JSON 앱 파일에 대 한 분음 부호 또는 문장 부호에 대 한 utterance 정규화를 설정 합니다.
 
 ```JSON
 "settings": [
@@ -91,25 +91,25 @@ LUIS는 LUIS 모델 작성자가 신중하게 선택한 발언으로 효과적�
 ]
 ```
 
-문장 **부호를** 정규화한다는 것은 모델이 학습되기 전에 끝점 쿼리가 예측되기 전에 발포점에서 문장 부호가 제거된다는 것을 의미합니다.
+**문장 부호** 표준화는 모델이 학습 되 고 끝점 쿼리가 예측 되기 전에 길이 발언에서 문장 부호가 제거 된다는 것을 의미 합니다.
 
-분음 **부호를** 정규화하는 것은 발언에서 분음 부호로 문자를 일반 문자로 바꿉니다. 예를 `Je parle français` 들어. `Je parle francais`
+**분음 부호** 를 정규화 하면 길이 발언의 분음 부호 문자를 일반 문자로 바꿉니다. 예를 들어 `Je parle français` 은 `Je parle francais`가 됩니다.
 
-정규화는 예제 발언 이나 예측 응답에서 구두점 및 분음 부호를 볼 수 없습니다 의미 하지는 않습니다., 단지 그들은 훈련 및 예측 하는 동안 무시 됩니다.
+정규화는 예제 길이 발언 또는 예측 응답에서 문장 부호와 분음 부호를 표시 하지 않는다는 것을 의미 하지 않습니다. 단순히 학습 및 예측 중에 무시 됩니다.
 
 ### <a name="punctuation-marks"></a>문장 부호
 
-문장 부호는 LUIS에서 별도 토큰입니다. 끝에 마침표와 끝에 마침표가 포함되지 않은 발언이 포함된 발언은 두 개의 별도 발언이며 두 개의 서로 다른 예측을 얻을 수 있습니다.
+문장 부호는 LUIS에서 별도 토큰입니다. 끝에 마침표를 포함 하지 않는 end와 utterance를 포함 하는 utterance는 두 개의 개별 길이 발언 이며 두 개의 다른 예측을 받을 수 있습니다.
 
-구두점이 정규화되지 않은 경우 일부 클라이언트 응용 프로그램은 이러한 마크에 중요한 의미를 지정할 수 있으므로 LUIS는 기본적으로 구두점 표시를 무시하지 않습니다. 문장 부호를 사용하는 예제 발언과 문장 부호를 사용하지 않은 예제 발언이 모두 동일한 관련 점수를 반환하는지 확인해야 합니다.
+문장 부호가 정규화 되지 않은 경우에는 일부 클라이언트 응용 프로그램이 이러한 표시에 중요 한 영향을 줄 수 있으므로 LUIS는 기본적으로 문장 부호를 무시 하지 않습니다. 문장 부호를 사용하는 예제 발언과 문장 부호를 사용하지 않은 예제 발언이 모두 동일한 관련 점수를 반환하는지 확인해야 합니다.
 
 모델이 예제 발언(문장 부호를 포함하거나 포함하지 않음) 또는 [패턴](luis-concept-patterns.md)(`I am applying for the {Job} position[.]` 특수 구문을 사용하여 문장 부호를 무시하는 것이 더 쉬움)에서 문장 부호를 처리하는지 확인합니다.
 
-구두점클라이언트 응용 프로그램에 특별한 의미가 없는 경우 문장 부호를 정규화하여 [문장 부호를 무시하는](#utterance-normalization) 것이 좋습니다.
+클라이언트 응용 프로그램에서 문장 부호에 특정 한 의미가 없으면 문장 부호를 정규화 하 여 문장 부호를 [무시](#utterance-normalization) 하는 것이 좋습니다.
 
 ### <a name="ignoring-words-and-punctuation"></a>단어 및 문장 부호 무시
 
-패턴에서 특정 단어 나 문장 부호를 무시하려면 대괄호를 _무시구가있는_ `[]` [패턴을](luis-concept-patterns.md#pattern-syntax) 사용합니다.
+패턴에서 특정 단어나 문장 부호를 무시 하려면 대괄호의 _ignore_ 구문과 `[]`함께 [패턴](luis-concept-patterns.md#pattern-syntax) 을 사용 합니다.
 
 ## <a name="training-utterances"></a>발언 학습
 

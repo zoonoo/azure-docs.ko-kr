@@ -1,7 +1,7 @@
 ---
-title: 음성 번역 기본 사항 - 음성 서비스
+title: 음성 번역 기본 사항-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 음성 SDK를 사용하여 음성을 번역하는 방법을 알아봅니다. 이 문서에서는 개체 구성, 지원되는 오디오 입력 형식 및 음성 번역을 위한 구성 옵션에 대해 알아봅니다.
+description: 음성 SDK를 사용 하 여 음성을 번역 하는 방법에 대해 알아봅니다. 이 문서에서는 개체 생성, 지원 되는 오디오 입력 형식 및 음성 번역을 위한 구성 옵션에 대해 알아봅니다.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,18 +12,18 @@ ms.date: 04/13/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 04ece5ccf91056af02bd450eb760534b82de5959
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399579"
 ---
 # <a name="learn-the-basics-of-speech-translation"></a>음성 번역의 기본 사항 알아보기
 
-음성 서비스의 핵심 기능 중 하나는 인간의 음성을 인식하고 다른 언어로 번역할 수 있는 기능입니다. 이 문서에서는 앱 및 제품에서 음성 SDK를 사용하여 고품질 음성 번역을 수행하는 방법을 배웁니다.
+음성 서비스의 핵심 기능 중 하나는 휴먼 음성을 인식 하 고 다른 언어로 번역 하는 기능입니다. 이 문서에서는 앱 및 제품에서 음성 SDK를 사용 하 여 고품질 음성 번역을 수행 하는 방법을 알아봅니다.
 
 > [!TIP]
-> 퀵스타트 를 완료할 기회가 없다면 타이어를 걷어차고 직접 음성 번역을 시도해 보시기 좋습니다.
+> 빠른 시작 중 하나를 완료할 기회가 없다면 타이어를 시작 하 고 음성 번역을 직접 사용해 보는 것이 좋습니다.
 > * [음성을 텍스트로 변환](quickstarts/translate-speech-to-text.md)
 > * [음성을 여러 언어로 번역](quickstarts/translate-speech-to-text-multiple-languages.md)
 > * [음성을 음성으로 번역](quickstarts/translate-speech-to-speech.md)

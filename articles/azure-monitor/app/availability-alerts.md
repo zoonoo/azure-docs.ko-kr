@@ -1,5 +1,5 @@
 ---
-title: Azure 응용 프로그램 인사이트를 통해 가용성 경고 설정 | 마이크로 소프트 문서
+title: Azure 애플리케이션 Insights를 사용 하 여 가용성 경고 설정 | Microsoft Docs
 description: Application Insights에서 웹 테스트를 설정합니다. 웹 사이트가 사용할 수 없게 되거나 느리게 응답하는 경우 알림이 제공됩니다.
 ms.topic: conceptual
 author: lgayhardt
@@ -7,19 +7,19 @@ ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 5af6aec2267384c37f664522d075bf26c632e7e9
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81382876"
 ---
 # <a name="availability-alerts"></a>가용성 경고
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 애플리케이션에 웹 요청을 보냅니다. 응용 프로그램이 응답하지 않거나 너무 느리게 응답하는 경우 경고할 수 있습니다.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 애플리케이션에 웹 요청을 보냅니다. 응용 프로그램이 응답 하지 않거나 너무 느리게 응답 하는 경우 사용자에 게 경고할 수 있습니다.
 
 ## <a name="enable-alerts"></a>경고 사용
 
-이제 경고는 기본적으로 자동으로 활성화되지만 경고를 완전히 구성하려면 먼저 가용성 테스트를 먼저 만들어야 합니다.
+경고는 이제 기본적으로 자동으로 사용 하도록 설정 되지만 경고를 완전히 구성 하려면 먼저 가용성 테스트를 처음으로 만들어야 합니다.
 
 ![환경 만들기](./media/availability-alerts/create-test.png)
 
@@ -35,7 +35,7 @@ ms.locfileid: "81382876"
    ![저장 후 편집](./media/availability-alerts/set-action-group.png)
 
 > [!NOTE]
-> 이 환경을 통해 생성된 가용성 경고는 상태 기반입니다. 즉, 경고 기준이 충족되면 사이트를 사용할 수 없는 것으로 감지되면 단일 경고가 생성됩니다. 다음에 경고 기준을 평가할 때 사이트가 여전히 다운된 경우 새 경고가 생성되지 않습니다. 따라서 사이트가 한 시간 동안 다운되어 전자 메일 경고를 설정한 경우 사이트가 다운되었을 때만 전자 메일이 수신되고 사이트가 백업될 때 후속 전자 메일이 표시됩니다. 사이트를 계속 사용할 수 없음을 알리는 지속적인 경고가 수신되지 않습니다.
+> 이 경험을 통해 생성 된 가용성 경고는 상태 기반입니다. 즉, 경고 조건이 충족 되 면 사이트를 사용할 수 없는 것으로 검색 될 때 단일 경고가 생성 됩니다. 다음 번에 경고 조건이 평가 될 때 사이트가 계속 작동 하지 않으면 새 경고가 생성 되지 않습니다. 따라서 사이트가 한 시간 동안 다운 되었고 전자 메일 알림을 설정한 경우 사이트가 다운 된 경우에만 전자 메일을 수신 하 고 사이트가 백업 될 때 후속 전자 메일을 받게 됩니다. 사이트를 여전히 사용할 수 없다는 경고 메시지가 표시 되지 않습니다.
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Y 위치에서 오류를 보고하는 X에 대해 경고
 
@@ -57,7 +57,7 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
 
 ### <a name="alert-on-custom-analytics-queries"></a>사용자 지정 분석 쿼리에 대한 경고
 
-[새로 통합된 경고](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)를 통해 [사용자 지정 로그 쿼리](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log)에 대해 경고할 수 있습니다. 사용자 지정 쿼리를 통해 임의의 모든 조건에 대해 경고하여 가용성 문제에서 가장 안정적인 신호를 얻을 수 있습니다. 이는 TrackAvailability SDK를 사용하여 사용자 지정 가용성 결과를 보내는 경우에도 적용됩니다.
+[새로 통합된 경고](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)를 통해 [사용자 지정 로그 쿼리](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log)에 대해 경고할 수 있습니다. 사용자 지정 쿼리를 통해 임의의 모든 조건에 대해 경고하여 가용성 문제에서 가장 안정적인 신호를 얻을 수 있습니다. 이는 지 수 가용성 SDK를 사용 하 여 사용자 지정 가용성 결과를 전송 하는 경우에도 적용 됩니다.
 
 > [!Tip]
 > 가용성 데이터에 대한 메트릭에는 TrackAvailability SDK를 호출하여 제출할 수 있는 사용자 지정 가용성 결과가 모두 포함됩니다. 사용자 지정 가용성 결과를 경고하려면 메트릭 지원에 대한 경고를 사용할 수 있습니다.
@@ -65,7 +65,7 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
 
 ## <a name="automate-alerts"></a>경고 자동화
 
-Azure 리소스 관리자 템플릿을 사용하여 이 프로세스를 자동화하려면 리소스 관리자 템플릿 설명서를 [사용하여 메트릭 경고 만들기를](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) 참조하십시오.
+Azure Resource Manager 템플릿을 사용 하 여이 프로세스를 자동화 하려면 [리소스 관리자 템플릿을 사용 하 여 메트릭 경고 만들기](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) 설명서를 참조 하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -74,4 +74,4 @@ Azure 리소스 관리자 템플릿을 사용하여 이 프로세스를 자동�
 ## <a name="next-steps"></a>다음 단계
 
 * [다중 단계 웹 테스트](availability-multistep.md)
-* [Url 핑 웹 테스트](monitor-web-app-availability.md)
+* [Url ping 웹 테스트](monitor-web-app-availability.md)

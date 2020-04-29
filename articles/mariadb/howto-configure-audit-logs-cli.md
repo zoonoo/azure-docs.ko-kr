@@ -1,24 +1,24 @@
 ---
-title: 액세스 감사 로그 - Azure CLI - MariaDB용 Azure 데이터베이스
-description: 이 문서에서는 Azure CLI에서 MariaDB에 대한 Azure 데이터베이스의 감사 로그를 구성하고 액세스하는 방법을 설명합니다.
+title: 감사 로그에 액세스-Azure CLI-Azure Database for MariaDB
+description: 이 문서에서는 Azure CLI에서 Azure Database for MariaDB의 감사 로그를 구성 하 고 액세스 하는 방법을 설명 합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: e9716f0fa8e0ae44d614bbb28ed6846105e683d6
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81384195"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Azure CLI에서 감사 로그 구성 및 액세스
 
-Azure CLI에서 [MariaDB 감사 로그에 대한 Azure 데이터베이스를](concepts-audit-logs.md) 구성할 수 있습니다.
+Azure CLI에서 [Azure Database for MariaDB 감사 로그](concepts-audit-logs.md) 를 구성할 수 있습니다.
 
 > [!IMPORTANT]
-> 감사 로그 기능은 현재 미리 보기 상태입니다.
+> 감사 로그 기능은 현재 미리 보기로 제공 됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -33,29 +33,29 @@ Azure CLI에서 [MariaDB 감사 로그에 대한 Azure 데이터베이스를](co
 
 ## <a name="configure-audit-logging"></a>감사 로깅 구성
 
-다음 단계를 사용하여 감사 로깅을 활성화하고 구성합니다. 
+다음 단계를 사용 하 여 감사 로깅을 설정 하 고 구성 합니다. 
 
-1. **audit_logs_enabled** 매개 변수를 "ON"으로 설정하여 감사 로그를 켭니다. 
+1. **Audit_logs_enabled** 매개 변수를 "설정"으로 설정 하 여 감사 로그를 설정 합니다. 
     ```azurecli-interactive
     az mariadb server configuration set --name audit_log_enabled --resource-group myresourcegroup --server mydemoserver --value ON
     ```
 
-1. **audit_log_egitvents** 매개 변수를 업데이트하여 기록할 [이벤트 유형을](concepts-audit-logs.md#configure-audit-logging) 선택합니다.
+1. **Audit_log_egitvents** 매개 변수를 업데이트 하 여 로깅할 [이벤트 유형을](concepts-audit-logs.md#configure-audit-logging) 선택 합니다.
     ```azurecli-interactive
     az mariadb server configuration set --name audit_log_events --resource-group myresourcegroup --server mydemoserver --value "ADMIN,CONNECTION"
     ```
 
-1. **audit_log_exclude_users** 매개 변수를 업데이트하여 로깅에서 제외할 MariaDB 사용자를 추가합니다. MariaDB 사용자 이름을 제공하여 사용자를 지정합니다.
+1. **Audit_log_exclude_users** 매개 변수를 업데이트 하 여 로깅에서 제외할 모든 다른 모든 사용자를 추가 합니다. 해당 사용자 이름을 입력 하 여 사용자를 지정 합니다.
     ```azurecli-interactive
     az mariadb server configuration set --name audit_log_exclude_users --resource-group myresourcegroup --server mydemoserver --value "azure_superuser"
     ```
 
-1. **audit_log_include_users** 매개 변수를 업데이트하여 로깅에 포함할 특정 MariaDB 사용자를 추가합니다. MariaDB 사용자 이름을 제공하여 사용자를 지정합니다.
+1. **Audit_log_include_users** 매개 변수를 업데이트 하 여 로깅에 포함할 특정 Aadb 사용자를 추가 합니다. 해당 사용자 이름을 입력 하 여 사용자를 지정 합니다.
     ```azurecli-interactive
     az mariadb server configuration set --name audit_log_include_users --resource-group myresourcegroup --server mydemoserver --value "sampleuser"
     ```
 
 ## <a name="next-steps"></a>다음 단계
 
-- MariaDB용 Azure 데이터베이스의 [감사 로그에](concepts-audit-logs.md) 대해 자세히 알아보기
-- [Azure 포털에서](howto-configure-audit-logs-portal.md) 감사 로그를 구성하는 방법에 대해 알아봅니다.
+- 에서 [감사 로그](concepts-audit-logs.md) 에 대해 자세히 알아보세요 Azure Database for MariaDB
+- [Azure Portal](howto-configure-audit-logs-portal.md) 에서 감사 로그를 구성 하는 방법을 알아봅니다.

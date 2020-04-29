@@ -1,5 +1,5 @@
 ---
-title: Azure 가상 시스템 크기 집합을 사용하여 응용 프로그램 상태 확장 사용
+title: Azure 가상 머신 확장 집합에서 응용 프로그램 상태 확장 사용
 description: 애플리케이션 상태 확장을 사용하여 가상 머신 확장 집합에 배포된 애플리케이션의 상태를 모니터링하는 방법을 알아봅니다.
 author: mimckitt
 tags: azure-resource-manager
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: mimckitt
 ms.openlocfilehash: cb5f1d48bb1a95db004d9da553e19a35071c73b0
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273735"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 애플리케이션 상태 확장 사용
@@ -19,7 +19,7 @@ ms.locfileid: "81273735"
 
 이 문서에서는 애플리케이션 상태 확장을 사용하여 가상 머신 확장 집합에 배포된 애플리케이션의 상태를 모니터링하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이 문서에서는 사용자가 다음에 대해 잘 알고 있다고 가정합니다.
 -   Azure 가상 머신 [확장](../virtual-machines/extensions/overview.md)
 -   가상 머신 확장 집합 [수정](virtual-machine-scale-sets-upgrade-scale-set.md)
@@ -58,17 +58,17 @@ ms.locfileid: "81273735"
 | 속성 | 값/예제 | 데이터 형식
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| publisher | `Microsoft.ManagedServices` | 문자열 |
-| type | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows`(Windows) | 문자열 |
+| 게시자 | `Microsoft.ManagedServices` | string |
+| type | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows`(Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>설정
 
 | 속성 | 값/예제 | 데이터 형식
 | ---- | ---- | ----
-| protocol | `http` 또는 `tcp` | 문자열 |
+| protocol | `http` 또는 `tcp` | string |
 | 포트 | 프로토콜이 `http`인 경우 선택 항목이고, 프로토콜이 `tcp`인 경우 필수 항목입니다. | int |
-| requestPath | 프로토콜이 `http`인 경우 필수 항목이고, 프로토콜이 `tcp`인 경우 허용되지 않습니다. | 문자열 |
+| requestPath | 프로토콜이 `http`인 경우 필수 항목이고, 프로토콜이 `tcp`인 경우 허용되지 않습니다. | string |
 
 ## <a name="deploy-the-application-health-extension"></a>애플리케이션 상태 확장 배포
 아래 예제에서 자세히 설명한 대로 애플리케이션 상태 확장은 확장 집합에 여러 가지 방법으로 배포할 수 있습니다.
@@ -141,7 +141,7 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 
 [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set)를 사용하여 애플리케이션 상태 확장을 확장 집합 모델 정의에 추가합니다.
 
-다음 예제는 Linux 기반 축척 집합의 축척 집합 모델에 응용 프로그램 상태 확장을 추가합니다.
+다음 예에서는 Linux 기반 확장 집합의 확장 집합 모델에 응용 프로그램 상태 확장을 추가 합니다.
 
 ```azurecli-interactive
 az vmss extension set \
@@ -152,7 +152,7 @@ az vmss extension set \
   --vmss-name <myVMScaleSet> \
   --settings ./extension.json
 ```
-extension.json 파일 내용입니다.
+확장명 json 파일 콘텐츠입니다.
 
 ```json
 {
