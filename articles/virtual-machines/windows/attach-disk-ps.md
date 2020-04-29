@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용하여 Azure의 Windows VM에 데이터 디스크 연결
+title: PowerShell을 사용 하 여 Azure에서 Windows VM에 데이터 디스크 연결
 description: Resource Manager 배포 모델에서 PowerShell을 사용하여 새롭거나 기존의 데이터 디스크를 Windows VM에 연결하는 방법입니다.
 author: roygara
 ms.service: virtual-machines-windows
@@ -8,10 +8,10 @@ ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: ce995a84d2290845e83416caf9c8b0004242eed4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267756"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>PowerShell을 사용하여 Windows VM에 데이터 디스크 연결
@@ -20,10 +20,10 @@ ms.locfileid: "79267756"
 
 먼저 다음 팁을 검토합니다.
 
-* 가상 머신의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 시스템의 크기를](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)참조하십시오.
+* 가상 머신의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 컴퓨터의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조 하세요.
 * 프리미엄 SSD를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 머신과 같은 [Premium Storage 지원 VM 유형](sizes-memory.md)이 필요합니다.
 
-이 문서에서는 Azure [클라우드 셸](https://docs.microsoft.com/azure/cloud-shell/overview)내에서 PowerShell을 사용 하며 최신 버전으로 지속적으로 업데이트 됩니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
+이 문서에서는 최신 버전으로 지속적으로 업데이트 되는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)내에서 PowerShell을 사용 합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>가상 머신에 빈 데이터 디스크 추가
 
@@ -117,4 +117,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>다음 단계
 
-템플릿을 사용하여 관리디스크를 배포할 수도 있습니다. 자세한 내용은 [Azure 리소스 관리자 템플릿에서 관리되는 디스크 사용](using-managed-disks-template-deployments.md) 또는 여러 데이터 디스크배포를 위한 빠른 시작 [템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) 참조하십시오.
+템플릿을 사용 하 여 관리 디스크를 배포할 수도 있습니다. 자세한 내용은 [Azure Resource Manager 템플릿에서 Managed Disks 사용](using-managed-disks-template-deployments.md) 또는 여러 데이터 디스크 배포를 위한 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) 을 참조 하세요.

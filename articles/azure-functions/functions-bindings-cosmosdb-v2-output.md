@@ -1,26 +1,26 @@
 ---
-title: Azure 코스모스 DB 함수에 대한 출력 바인딩 2.x
-description: Azure 함수에서 Azure Cosmos DB 출력 바인딩을 사용하는 방법을 알아봅니다.
+title: 함수 2.x에 대 한 Azure Cosmos DB 출력 바인딩
+description: Azure Functions에서 Azure Cosmos DB 출력 바인딩을 사용 하는 방법을 알아봅니다.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.openlocfilehash: 636903c20e07f11a2fd919654cfaa62037171f20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277766"
 ---
-# <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Azure 코스모스 DB 출력 바인딩용 Azure 함수 2.x
+# <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Azure Functions 2.x에 대 한 Azure Cosmos DB 출력 바인딩
 
 Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이스에 SQL API를 사용하여 새 문서를 작성할 수 있습니다.
 
-설정 및 구성 세부 정보에 대한 자세한 내용은 [개요를](./functions-bindings-cosmosdb-v2.md)참조하십시오.
+설정 및 구성 세부 정보에 대 한 자세한 내용은 [개요](./functions-bindings-cosmosdb-v2.md)를 참조 하세요.
 
 <a id="example" name="example"></a>
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
@@ -247,7 +247,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예제에서는 *function.json* 파일의 Azure Cosmos DB 출력 바인딩 및 해당 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여 줍니다. 이 함수는 다음 형식으로 JSON을 수신하는 큐에 대한 큐 입력 바인딩을 사용합니다.
 
@@ -304,9 +304,9 @@ JavaScript 코드는 다음과 같습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-다음 예제에서는 Azure CosmosDB 데이터베이스에 함수의 출력으로 문서를 작성하는 방법을 보여 줍니다.
+다음 예제에서는 Azure CosmosDB 데이터베이스에 문서를 함수의 출력으로 작성 하는 방법을 보여 줍니다.
 
-바인딩 정의는 *type이* 로 설정된 `cosmosDB` *function.json에서* 정의됩니다.
+바인딩 정의는 *형식이* 로 `cosmosDB`설정 된 *함수인 json* 에 정의 되어 있습니다.
 
 ```json
 {
@@ -340,7 +340,7 @@ JavaScript 코드는 다음과 같습니다.
 }
 ```
 
-데이터베이스에 쓰려면 문서 개체를 데이터베이스 `set` 매개 변수의 메서드에 전달합니다.
+데이터베이스에 쓰려면 문서 개체를 데이터베이스 매개 변수의 `set` 메서드에 전달 합니다.
 
 ```python
 import azure.functions as func
@@ -426,7 +426,7 @@ public String cosmosDbQueryById(
 
 ### <a name="http-trigger-save-one-document-to-database-via-outputbinding"></a>HTTP 트리거, OutputBinding을 통해 데이터베이스에 단일 문서 저장
 
-다음 예제에서는 ```OutputBinding<T>``` 출력 매개 변수를 통해 CosmosDB에 문서를 쓰는 Java 함수를 보여줍니다. 이 예제에서는 ```outputItem``` 매개 변수에 함수 시그니처가 ```@CosmosDBOutput```아닌 에 추가되어야 합니다. ```OutputBinding<T>```을 사용하면 JSON 또는 XML 문서와 같은 함수 호출자에 다른 값을 반환하도록 허용하면서 함수가 바인딩을 활용하여 CosmosDB에 문서를 쓸 수 있습니다.
+다음 예제에서는 ```OutputBinding<T>``` 출력 매개 변수를 통해 CosmosDB에 문서를 쓰는 Java 함수를 보여줍니다. 이 예제에서 매개 변수 ```outputItem``` 는 함수 서명이 아니라로 ```@CosmosDBOutput```주석을 추가 해야 합니다. ```OutputBinding<T>```을 사용하면 JSON 또는 XML 문서와 같은 함수 호출자에 다른 값을 반환하도록 허용하면서 함수가 바인딩을 활용하여 CosmosDB에 문서를 쓸 수 있습니다.
 
 ```java
     @FunctionName("WriteOneDocOutputBinding")
@@ -472,7 +472,7 @@ public String cosmosDbQueryById(
 
 ### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding"></a>HTTP 트리거, OutputBinding을 통해 데이터베이스에 여러 문서 저장
 
-다음 예제에서는 ```OutputBinding<T>``` 출력 매개 변수를 통해 CosmosDB에 여러 문서를 쓰는 Java 함수를 보여줍니다. 이 예제에서는 ```outputItem``` 매개 변수에 함수 ```@CosmosDBOutput```서명이 아닌 "로 추가됩니다. 출력 매개 변수 ```outputItem```에는 ```ToDoItem``` 개체 목록이 템플릿 매개 변수 형식으로 포함되어 있습니다. ```OutputBinding<T>```을 사용하면 JSON 또는 XML 문서와 같은 함수 호출자에 다른 값을 반환하도록 허용하면서 함수가 바인딩을 활용하여 CosmosDB에 문서를 쓸 수 있습니다.
+다음 예제에서는 ```OutputBinding<T>``` 출력 매개 변수를 통해 CosmosDB에 여러 문서를 쓰는 Java 함수를 보여줍니다. 이 예제에서 매개 변수 ```outputItem``` 는 함수 서명이 아니라 ```@CosmosDBOutput```로 주석을 답니다. 출력 매개 변수 ```outputItem```에는 ```ToDoItem``` 개체 목록이 템플릿 매개 변수 형식으로 포함되어 있습니다. ```OutputBinding<T>```을 사용하면 JSON 또는 XML 문서와 같은 함수 호출자에 다른 값을 반환하도록 허용하면서 함수가 바인딩을 활용하여 CosmosDB에 문서를 쓸 수 있습니다.
 
 ```java
     @FunctionName("WriteMultipleDocsOutputBinding")
@@ -525,7 +525,7 @@ public String cosmosDbQueryById(
 
 ## <a name="attributes-and-annotations"></a>특성 및 주석
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) 특성을 사용합니다.
 
@@ -543,39 +543,39 @@ public String cosmosDbQueryById(
 
 # <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
-특성은 C# 스크립트에서 지원되지 않습니다.
+특성은 c # 스크립트에서 지원 되지 않습니다.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-속성은 자바 스크립트에서 지원되지 않습니다.
+JavaScript에서는 특성을 지원 하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-특성은 파이썬에서 지원되지 않습니다.
+Python에서 특성을 지원 하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-`CosmosDBOutput` 이 비추가 Cosmos DB에 데이터를 쓸 수 있습니다. 함수 또는 개별 함수 매개 변수에 추가를 적용할 수 있습니다. 함수 메서드에서 사용할 경우 함수의 반환 값은 Cosmos DB에 기록된 값입니다. 매개 변수와 함께 추가를 사용하는 경우 매개 변수의 형식은 `OutputBinding<T>` `T` 네이티브 Java 형식 또는 POJO로 선언되어야 합니다.
+`CosmosDBOutput` 주석은 Cosmos DB 데이터를 쓰는 데 사용할 수 있습니다. 함수 또는 개별 함수 매개 변수에 주석을 적용할 수 있습니다. 함수 메서드에서 사용 되는 경우 함수의 반환 값은 Cosmos DB에 기록 됩니다. 매개 변수와 함께 주석을 사용 하는 경우 매개 변수의 형식은 네이티브 Java 형식 또는 POJO로 `OutputBinding<T>` `T` 선언 해야 합니다.
 
 ---
 
 ## <a name="configuration"></a>Configuration
 
-다음 표에서는 *function.json* 파일및 특성에서 설정한 바인딩 `CosmosDB` 구성 속성에 대해 설명합니다.
+다음 표에서는 *함수. json* 파일 및 `CosmosDB` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**종류**     | 해당 없음 | `cosmosDB`로 설정해야 합니다.        |
-|**direction**     | 해당 없음 | `out`로 설정해야 합니다.         |
-|**(이름)**     | 해당 없음 | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
-|**databaseName** | **Databasename**|문서가 만들어진 컬렉션을 포함하는 데이터베이스입니다.     |
-|**컬렉션이름** |**CollectionName**  | 문서가 만들어진 컬렉션의 이름입니다. |
-|**createIfNotExists**  |**CreateIfNotExists**    | 컬렉션이 존재하지 않는 경우 만들 수 있는지 여부를 나타내는 부울 값입니다. 새 컬렉션이 예약된 처리량으로 만들어져 비용이 부과되기 기본값은 *false*입니다. 자세한 내용은 가격 [책정 페이지를](https://azure.microsoft.com/pricing/details/cosmos-db/)참조하십시오.  |
-|**파티션키**|**PartitionKey** |true이면 `CreateIfNotExists` 생성된 컬렉션의 파티션 키 경로를 정의합니다.|
-|**컬렉션관통**|**CollectionThroughput**| true이면 `CreateIfNotExists` 생성된 컬렉션의 [처리량을](../cosmos-db/set-throughput.md) 정의합니다.|
-|**연결문자열 설정**    |**ConnectionStringSetting** |Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.        |
-|**기본 설정위치**| **기본 설정 위치**| (선택 사항) Azure Cosmos DB 서비스에서 지리적으로 복제된 데이터베이스 계정에 대한 기본 위치(영역)를 정의합니다. 값은 쉼표로 구분되어야 합니다. 예를 들어 "미국 동부, 미국 중남부, 북유럽". |
-|**사용다중쓰기위치**| **사용다중쓰기위치**| (선택 사항) 와 `PreferredLocations`함께 `true` 설정하면 Azure Cosmos DB 서비스에서 [다중 지역 쓰기를](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) 활용할 수 있습니다. |
+|**type**     | 해당 없음 | `cosmosDB`로 설정해야 합니다.        |
+|**방향도**     | 해당 없음 | `out`로 설정해야 합니다.         |
+|**name**     | 해당 없음 | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
+|**databaseName** | **DatabaseName**|문서가 만들어진 컬렉션을 포함하는 데이터베이스입니다.     |
+|**collectionName** |**CollectionName**  | 문서가 만들어진 컬렉션의 이름입니다. |
+|**createIfNotExists**  |**CreateIfNotExists**    | 컬렉션이 존재하지 않는 경우 만들 수 있는지 여부를 나타내는 부울 값입니다. 새 컬렉션이 예약된 처리량으로 만들어져 비용이 부과되기 기본값은 *false*입니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조 하세요.  |
+|**partitionKey**|**PartitionKey** |`CreateIfNotExists` 이 true 이면 생성 된 컬렉션에 대 한 파티션 키 경로를 정의 합니다.|
+|**collectionThroughput**|**CollectionThroughput**| `CreateIfNotExists` 이 true 이면 생성 된 컬렉션의 [처리량](../cosmos-db/set-throughput.md) 을 정의 합니다.|
+|**connectionStringSetting**    |**ConnectionStringSetting** |Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.        |
+|**preferredLocations**| **PreferredLocations**| 필드 Azure Cosmos DB 서비스에서 지역에서 복제 된 데이터베이스 계정에 대 한 기본 위치 (지역)를 정의 합니다. 값은 쉼표로 구분 해야 합니다. 예를 들면 "미국 동부, 미국 중 북부, 유럽 유럽"입니다. |
+|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| 필드 와 `true` `PreferredLocations`함께로 설정 하면 Azure Cosmos DB 서비스에서 [다중 지역 쓰기](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) 를 활용할 수 있습니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -588,7 +588,7 @@ public String cosmosDbQueryById(
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
-| 바인딩 | 참고 |
+| 바인딩 | 참조 |
 |---|---|
 | CosmosDB | [CosmosDB 오류 코드](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
@@ -613,7 +613,7 @@ public String cosmosDbQueryById(
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------|
 |GatewayMode|게이트웨이|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 모드입니다. 옵션은 `Direct` 및 `Gateway`입니다.|
 |프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다.  [두 모드에 대한 설명은 여기](../cosmos-db/performance-tips.md#networking)를 참조하세요.|
@@ -621,5 +621,5 @@ public String cosmosDbQueryById(
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Cosmos DB 문서를 만들거나 수정할 때 함수실행(트리거)](./functions-bindings-cosmosdb-v2-trigger.md)
-- [Azure 코스모스 DB 문서 읽기(입력 바인딩)](./functions-bindings-cosmosdb-v2-input.md)
+- [Azure Cosmos DB 문서를 만들거나 수정할 때 함수 실행 (트리거)](./functions-bindings-cosmosdb-v2-trigger.md)
+- [Azure Cosmos DB 문서 읽기 (입력 바인딩)](./functions-bindings-cosmosdb-v2-input.md)

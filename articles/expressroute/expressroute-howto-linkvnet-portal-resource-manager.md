@@ -1,6 +1,6 @@
 ---
-title: '익스프레스라우팅: 회로에 VNet 연결: Azure 포털'
-description: VNet을 Azure 익스프레스루트 회로에 연결합니다. 작업 단계
+title: 'Express 경로: 회로에 VNet 연결: Azure Portal'
+description: Azure Express 경로 회로에 VNet을 연결 합니다. 작업 단계
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -9,19 +9,19 @@ ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 4c7a24ad692086398059d1afd48c8927e9d18582
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79272917"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>포털을 사용하여 ExpressRoute 회로에 가상 네트워크 연결
 > [!div class="op_single_selector"]
-> * [Azure 포털](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Powershell](expressroute-howto-linkvnet-arm.md)
+> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [비디오 - Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
-> * [파워 쉘 (클래식)](expressroute-howto-linkvnet-classic.md)
+> * [PowerShell (클래식)](expressroute-howto-linkvnet-classic.md)
 > 
 
 이 문서에서는 Azure Portal을 사용하여 Azure ExpressRoute 회로에 가상 네트워크를 연결하는 연결을 만들 수 있습니다. Azure ExpressRoute 회로에 연결한 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다.
@@ -32,7 +32,7 @@ ms.locfileid: "79272917"
 
 * 활성화된 ExpressRoute 회로가 있어야 합니다.
   * 지침을 수행하여 [ExpressRoute 회로를 만들고](expressroute-howto-circuit-portal-resource-manager.md) 연결 공급자를 통해 회로를 사용하도록 설정합니다.
-  * 회로에 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 피어링 및 라우팅 [지침에 대한 ExpressRoute 회로 에 대한 피어링 만들기 및 수정을](expressroute-howto-routing-portal-resource-manager.md) 참조하십시오.
+  * 회로에 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 피어 링 및 라우팅 지침은 [express 경로 회로에 대 한 피어 링 만들기 및 수정](expressroute-howto-routing-portal-resource-manager.md) 문서를 참조 하세요.
   * Azure 개인 피어링이 구성되어 있고 네트워크와 Microsoft 간의 BGP 피어링이 엔드투엔드 연결을 사용하도록 작동 중이어야 합니다.
   * 가상 네트워크 및 가상 네트워크 게이트웨이를 만들어서 완전히 프로비전해야 합니다. 지침에 따라 [ExpressRoute에 대한 가상 네트워크 게이트웨이를 만듭니다](expressroute-howto-add-gateway-resource-manager.md). ExpressRoute의 가상 네트워크 게이트웨이는 GatewayType으로 VPN이 아닌 'ExpressRoute'를 사용합니다.
 
@@ -52,12 +52,12 @@ ms.locfileid: "79272917"
 
 ### <a name="to-create-a-connection"></a>연결을 만들려면
 
-1. ExpressRoute 회로 및 Azure 프라이빗 피어링이 성공적으로 구성되었는지 확인합니다. [ExpressRoute 회로 만들기의](expressroute-howto-circuit-arm.md) 지침에 따라 [ExpressRoute 회로에 대한 피어링 생성 및 수정.](expressroute-howto-routing-arm.md) ExpressRoute 회로가 다음 이미지와 같이 표시됩니다.
+1. ExpressRoute 회로 및 Azure 프라이빗 피어링이 성공적으로 구성되었는지 확인합니다. [Express 경로 회로 만들기](expressroute-howto-circuit-arm.md) 의 지침에 따라 [express 경로 회로에 대 한 피어 링을 만들고 수정](expressroute-howto-routing-arm.md)합니다. ExpressRoute 회로가 다음 이미지와 같이 표시됩니다.
 
    [![ExpressRoute 회로 스크린샷](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png "회로 보기")](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1-exp.png#lightbox)
-2. 이제 연결 프로비전을 시작하여 가상 네트워크 게이트웨이를 ExpressRoute 회로에 연결할 수 있습니다. **연결** > **추가를** 클릭하여 **연결 추가** 페이지를 연 다음 값을 구성합니다.
+2. 이제 연결 프로비전을 시작하여 가상 네트워크 게이트웨이를 ExpressRoute 회로에 연결할 수 있습니다. **연결** > **추가** 를 클릭 하 여 **연결 추가** 페이지를 연 다음 값을 구성 합니다.
 
-   [![연결 스크린샷 추가](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png "연결 스크린샷 추가")](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1-exp.png#lightbox)
+   [![연결 추가 스크린샷](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png "연결 추가 스크린샷")](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1-exp.png#lightbox)
 3. 연결이 성공적으로 구성되면 연결 개체가 연결에 대한 정보를 표시합니다.
 
    ![연결 개체 스크린샷](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
@@ -122,7 +122,7 @@ ms.locfileid: "79272917"
 
    ![기본 페이지](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. **설정** 페이지에서 **가상 네트워크 게이트웨이**를 선택하고 **권한 부여 사용** 확인란을 선택합니다.
-6. **권한 부여 키** 및 **피어 회로 URI**를 입력한 후 연결 이름을 지정합니다. **확인**을 클릭합니다. **피어 회로 URI는** 익스프레스루트 회로의 리소스 ID입니다(ExpressRoute 회로의 속성 설정 창 아래에서 찾을 수 있음).
+6. **권한 부여 키** 및 **피어 회로 URI**를 입력한 후 연결 이름을 지정합니다. **확인**을 클릭합니다. **피어 회로 URI** 는 express 경로 회로의 리소스 ID입니다 .이는 Express 경로 회로의 속성 설정 창에서 찾을 수 있습니다.
 
    ![설정 페이지](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. **요약** 페이지에서 정보를 검토하고 **확인**을 클릭합니다.
@@ -136,4 +136,4 @@ ExpressRoute 회로와 가상 네트워크의 연결을 삭제하여 권한 부�
 연결에 대한 페이지에서 **삭제** 아이콘을 선택하여 연결을 삭제하고 ExpressRoute 회로에 대한 VNet 연결을 해제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-익스프레스루트에 대한 자세한 내용은 [익스프레스루트 FAQ를](expressroute-faqs.md)참조하십시오.
+Express 경로에 대 한 자세한 내용은 [express 경로 FAQ](expressroute-faqs.md)를 참조 하십시오.

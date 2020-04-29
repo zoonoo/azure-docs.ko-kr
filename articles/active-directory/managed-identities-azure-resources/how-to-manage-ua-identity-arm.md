@@ -1,5 +1,5 @@
 ---
-title: Azure 리소스 관리자를 사용하여 사용자 할당된 관리 되는 id를 삭제 하는 & 만들기
+title: Azure Resource Manager를 사용 하 여 사용자 할당 관리 id 만들기 & 삭제
 description: Azure Resource Manager를 사용하여 사용자 할당 관리 ID를 만들고 삭제하는 방법에 대한 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 12/10/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 244965da4e22c0808fd1ea9088aa182b27eaf484
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79253378"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 사용자 할당 관리 ID 생성, 나열 및 삭제
@@ -33,7 +33,7 @@ Azure Resource Manager 템플릿을 사용하여 사용자 할당 관리 ID를 �
 
 - [사용자 할당 관리 ID 나열](how-to-manage-ua-identity-cli.md#list-user-assigned-managed-identities)
 - [사용자 할당 관리 ID 삭제](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
-  ## <a name="prerequisites"></a>사전 요구 사항
+  ## <a name="prerequisites"></a>전제 조건
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#how-does-the-managed-identities-for-azure-resources-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구를 사용 하 여 Azure VM 장애 조치 후 IP 주소를 유지 합니다.
+title: Azure Site Recovery를 사용 하 여 Azure VM 장애 조치 (failover) 후 IP 주소 유지
 description: Azure Site Recovery를 사용하여 보조 지역으로 재해 복구를 수행하기 위해 Azure VM을 장애 조치(failover)할 때 IP 주소를 보존하는 방법을 설명합니다.
 ms.service: site-recovery
 ms.date: 4/9/2019
@@ -7,10 +7,10 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257564"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>장애 조치(failover) 중에 IP 주소 유지
@@ -37,7 +37,7 @@ A사의 모든 앱은 Azure에서 실행됩니다.
 다음은 장애 조치(failover) 전의 아키텍처입니다.
 
 - A사는 원본 Azure 지역과 대상 Azure 지역의 네트워크 및 서브넷이 동일합니다.
-- RTO(복구 시간 목표)를 줄이기 위해 회사는 SQL Server Always On, 도메인 컨트롤러 등에 복제 노드를 사용합니다. 이러한 복제본 노드는 대상 리전의 다른 VNet에 있으므로 원본과 대상 지역 간에 VPN 사이트 간 연결을 설정할 수 있습니다. 원본과 대상에서 동일한 IP 주소 공간이 사용되는 경우에는 이것이 불가능합니다.  
+- RTO (복구 시간 목표)를 줄이기 위해 회사는 SQL Server Always On, 도메인 컨트롤러 등에 대해 복제 노드를 사용 합니다. 이러한 복제본 노드는 대상 지역의 다른 VNet에 있으므로 원본 지역과 대상 지역 간에 VPN 사이트 간 연결을 설정할 수 있습니다. 원본과 대상에서 동일한 IP 주소 공간이 사용되는 경우에는 이것이 불가능합니다.  
 - 다음은 장애 조치(failover) 전의 네트워크 아키텍처입니다.
     - 주 지역은 Azure 동아시아
         - 동아시아에는 주소 공간이 10.1.0.0/16인 VNet(**원본 VNet**)이 있습니다.
@@ -49,7 +49,7 @@ A사의 모든 앱은 Azure에서 실행됩니다.
         - 동남 아시아에는 **원본 VNet**과 동일한 복구 VNet(**Recovery VNet**)이 있습니다.
         - 동남 아시아에는 주소 공간이 10.2.0.0/16인 추가 VNet(**Azure VNet**)이 있습니다.
         - **Azure VNet**에는 주소 공간이 10.2.4.0/24인 서브넷(**Subnet 4**)이 포함됩니다.
-        - SQL Server Always On, 도메인 컨트롤러 등의 복제본 노드는 **Subnet 4에**있습니다.
+        - SQL Server Always On, 도메인 컨트롤러 등의 복제 노드는 **서브넷 4**에 있습니다.
     - **원본 VNet** 및 **Azure VNet**은 VPN 사이트 간 연결을 통해 연결됩니다.
     - **Recovery VNet**은 다른 가상 네트워크와 연결되어 있지 않습니다.
     - **A사**는 복제된 항목의 대상 IP 주소를 할당/확인합니다. 대상 IP는 각 VM의 원본 IP와 같습니다.
@@ -92,7 +92,7 @@ A사의 모든 앱은 Azure에서 실행됩니다.
 - 보조(대상) 지역은 Azure 동남 아시아입니다. 동남 아시아에는 **Source VNet 1** 및 **Source VNet 2**와 동일한 복구 VNet(**Recovery VNet 1** 및 **Recovery VNet 2**)이 있습니다.
         - **Recovery VNet 1** 및 **Recovery VNet 2**에는 각각 **Source VNet 1** 및 **Source VNet 2**의 서브넷과 일치하는 두 개의 서브넷이 있습니다. 동남 아시아에는 주소 공간이 10.3.0.0/16인 추가 VNet(**Azure VNet**)이 있습니다.
         - **Azure VNet**에는 주소 공간이 10.3.4.0/24인 서브넷(**Subnet 4**)이 포함됩니다.
-        - SQL Server Always On, 도메인 컨트롤러 등의 복제본 노드는 **Subnet 4에**있습니다.
+        -SQL Server Always On, 도메인 컨트롤러 등의 복제 노드는 **서브넷 4**에 있습니다.
 - 여러 개의 사이트 간 VPN 연결이 있습니다. 
     - **Source VNet 1** 및 **Azure VNet**
     - **Source VNet 2** 및 **Azure VNet**
@@ -132,10 +132,10 @@ A사의 모든 앱은 Azure에서 실행됩니다.
   - 동아시아의 워크로드는 **Source VNet**의 세 개 서브넷에 분산됩니다.
     - **서브넷 1**: 10.1.1.0/24
     - **서브넷 2**: 10.1.2.0/24
-    - **서브넷 3**: 10.1.3.0/24, 주소 공간 10.1.0.0/16이 있는 Azure 가상 네트워크를 활용합니다. 이 가상 네트워크의 이름은 **Source VNet**입니다.
+    - **서브넷 3**: 10.1.3.0/24, 주소 공간이 10.1.0.0/16 인 Azure 가상 네트워크 활용 이 가상 네트워크의 이름은 **Source VNet**입니다.
       - 보조(대상) 지역은 Azure 동남아시아:
   - 동남 아시아에는 **원본 VNet**과 동일한 복구 VNet(**Recovery VNet**)이 있습니다.
-- 동아시아의 VM은 Azure ExpressRoute 또는 사이트 간 VPN을 사용하여 온-프레미스 데이터 센터에 연결됩니다.
+- 동아시아 Vm은 Azure Express 경로 또는 사이트 간 VPN을 사용 하 여 온-프레미스 데이터 센터에 연결 됩니다.
 - RTO를 줄이기 위해 B사는 장애 조치(failover) 전에 Azure 동남 아시아의 Recovery VNet에 게이트웨이를 프로비전합니다.
 - B사는 복제된 VM의 대상 IP 주소를 할당/확인합니다. 대상 IP 주소는 각 VM의 원본 IP 주소와 같습니다.
 

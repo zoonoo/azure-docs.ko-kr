@@ -1,6 +1,6 @@
 ---
 title: ASE v1에서 웹 앱 만들기
-description: 앱 서비스 환경 v1에서 웹 앱을 만드는 방법을 알아봅니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
+description: App Service Environment v1에서 웹 앱을 만드는 방법에 대해 알아봅니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
 author: ccompy
 ms.assetid: 983ba055-e9e4-495a-9342-fd3708dcc9ac
 ms.topic: article
@@ -8,16 +8,16 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266196"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>App Service Environment v1에서 웹앱 만들기
 
 > [!NOTE]
-> 이 문서는 ASE(App Service Environment) v1에 관한 내용입니다.  사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대한 자세한 내용은 [앱 서비스 환경 소개로](intro.md)시작합니다.
+> 이 문서는 ASE(App Service Environment) v1에 관한 내용입니다.  사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대 한 자세한 내용은 [App Service Environment 소개](intro.md)부터 시작 합니다.
 > 
 
 ## <a name="overview"></a>개요
@@ -28,7 +28,7 @@ ms.locfileid: "79266196"
 > 
 > 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이 자습서는 App Service Environment를 만든 적이 있는 개발자를 대상으로 합니다. 만들어 본 적이 없는 경우 [App Service Environment 만들기](app-service-web-how-to-create-an-app-service-environment.md)를 참조하세요. 
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
@@ -40,10 +40,10 @@ ms.locfileid: "79266196"
     여러 구독이 있는 경우 App Service Environment의 앱을 만들려면 환경을 만드는 데 사용한 동일한 구독을 사용해야 한다는 점에 주의합니다. 
 3. 리소스 그룹을 선택하거나 만듭니다.
    
-    *리소스 그룹을* 사용하면 관련 Azure 리소스를 단위로 관리할 수 있으며 앱에 대한 *RBAC(역할 기반 액세스 제어)* 규칙을 설정할 때 유용합니다. 자세한 내용은 [Azure Resource Manager 개요][ResourceGroups]를 참조하세요. 
+    *리소스 그룹* 을 사용 하면 관련 된 Azure 리소스를 하나의 단위로 관리할 수 있으며 앱에 대 한 RBAC ( *역할 기반 액세스 제어* ) 규칙을 설정할 때 유용 합니다. 자세한 내용은 [Azure Resource Manager 개요][ResourceGroups]를 참조하세요. 
 4. App Service 계획을 선택하거나 만듭니다.
    
-    *App Service 계획*은 관리되는 웹앱 집합입니다.  일반적으로 가격 책정을 선택하면 개별 앱이 아니라 App Service 계획에 청구되는 가격이 적용됩니다. ASE에서는 ASP와 함께 표시된 컴퓨팅 인스턴스가 아니라 ASE에 할당된 컴퓨팅 인스턴스에 대해 비용을 지불합니다.  웹앱의 인스턴스 수를 늘리려면 App Service 계획 인스턴스를 늘립니다. 그러면 해당 계획의 모든 웹앱에 적용됩니다.  사이트 슬롯 또는 VNET 통합과 같은 일부 기능에는 계획 내 수량 제한도 있습니다.  자세한 내용은 [Azure App Service 계획 개요](../overview-hosting-plans.md)를 참조하세요.
+    *App Service 계획*은 관리되는 웹앱 집합입니다.  일반적으로 가격 책정을 선택하면 개별 앱이 아니라 App Service 계획에 청구되는 가격이 적용됩니다. ASE에서는 ASP와 함께 표시된 컴퓨팅 인스턴스가 아니라 ASE에 할당된 컴퓨팅 인스턴스에 대해 비용을 지불합니다.  웹앱의 인스턴스 수를 늘리려면 App Service 계획 인스턴스를 늘립니다. 그러면 해당 계획의 모든 웹앱에 적용됩니다.  사이트 슬롯 또는 VNET 통합과 같은 일부 기능에는 계획 내 수량 제한도 있습니다.  자세한 내용은 [Azure App Service 계획 개요](../overview-hosting-plans.md) 를 참조 하세요.
    
     계획 이름에서 설명한 위치를 확인하여 ASE의 App Service 계획을 식별할 수 있습니다.  
    
@@ -57,8 +57,8 @@ ms.locfileid: "79266196"
     ASE에서 내부 VIP를 사용하는 경우 해당 ASE에 있는 앱의 URL은 [*사이트 이름*].[*ASE 생성 중에 지정된 하위 도메인*]과 같습니다.   
     ASE 생성 중에 ASP를 선택한 후 **이름**에서 하위 도메인 업데이트가 표시됩니다.
 
-## <a name="create-an-app-service-plan"></a><a name="createplan"></a>앱 서비스 계획 만들기
-App Service Environment에서 App Service 계획을 만들 때 ASE에 공유 작업자가 없기 때문에 작업자 선택이 다릅니다.  사용해야 하는 작업자는 관리자가 ASE에 할당한 작업자입니다.  즉, 새 계획을 만들려면 해당 작업자 풀에 이미 있는 모든 계획의 총 인스턴스 수보다 더 많은 작업자가 ASE 작업자 풀에 할당해야 합니다.  ASE 작업자 풀의 작업자 수가 부족하여 계획을 만들 수 없는 경우 ASE 관리자와 함께 추가해야 합니다.
+## <a name="create-an-app-service-plan"></a><a name="createplan"></a>App Service 계획 만들기
+App Service Environment에서 App Service 계획을 만들 때 ASE에 공유 작업자가 없기 때문에 작업자 선택이 다릅니다.  사용 해야 하는 작업자는 관리자가 ASE에 할당 한 작업자입니다.  즉, 새 계획을 만들려면 해당 작업자 풀에 이미 있는 모든 계획의 총 인스턴스 수보다 많은 작업 자가 ASE 작업자 풀에 할당 되어야 합니다.  ASE 작업자 풀의 작업자 수가 부족하여 계획을 만들 수 없는 경우 ASE 관리자와 함께 추가해야 합니다.
 
 App Service Environment에서 호스팅되는 App Service 계획의 또 다른 차이점은 가격 책정을 선택할 수 없다는 점입니다.  App Service Environment가 있는 경우 시스템에서 사용되는 컴퓨팅 리소스에 대한 비용을 지불하며 해당 환경의 계획에 대한 추가 요금은 없습니다.  일반적으로 App Service 계획을 만들 때 청구를 결정하는 가격 책정 계획을 선택합니다.  App Service Environment는 기본적으로 콘텐츠를 만들 수 있는 프라이빗 위치입니다.  따라서 콘텐츠 호스트 비용이 아니라 환경에 대한 비용을 지불합니다.
 

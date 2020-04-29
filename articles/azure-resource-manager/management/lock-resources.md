@@ -1,13 +1,13 @@
 ---
-title: 변경 을 방지하기 위해 리소스 잠금
+title: 변경을 방지 하기 위해 리소스 잠그기
 description: 모든 사용자 및 역할에 대해 잠금을 적용하여 사용자가 중요한 Azure 리소스를 업데이트하거나 삭제하지 못하도록 합니다.
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 70fb189adb634b7ac24afe7cc8b94738117da5ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79274009"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기
@@ -25,41 +25,41 @@ ms.locfileid: "79274009"
 
 리소스 관리자 잠금은 `https://management.azure.com`에 전송된 작업으로 구성되는 관리 수준에서 발생된 작업에만 적용됩니다. 잠금은 리소스 자체 기능을 수행하는 방법을 제한하지 않습니다. 리소스 변경은 제한되지만 리소스 작업은 제한되지 않습니다. 예를 들어, SQL Database에 대해 ReadOnly 잠금이 지정되면 데이터베이스를 삭제하거나 수정하지 못합니다. 데이터베이스에서 데이터를 생성, 업데이트 또는 삭제하지 못하게 됩니다. 이러한 작업은 `https://management.azure.com`으로 전송되지 않으므로 데이터 트랜잭션이 허용됩니다.
 
-**ReadOnly를** 적용하면 리소스를 수정하지 않는 일부 작업에는 실제로 잠금에 의해 차단된 작업이 필요하기 때문에 예기치 않은 결과가 발생할 수 있습니다. **ReadOnly** 잠금은 리소스 또는 리소스를 포함하는 리소스 그룹에 적용할 수 있습니다. **ReadOnly** 잠금에 의해 차단된 작업의 몇 가지 일반적인 예는 다음과 같습니다.
+**ReadOnly** 를 적용 하면 리소스를 수정 하지 않는 일부 작업에는 실제로 잠금으로 차단 된 작업이 필요 하기 때문에 예기치 않은 결과가 발생할 수 있습니다. **ReadOnly** 잠금은 리소스를 포함 하는 리소스 그룹 또는 리소스에 적용할 수 있습니다. **ReadOnly** 잠금으로 차단 된 작업의 몇 가지 일반적인 예는 다음과 같습니다.
 
-* 저장소 계정의 **ReadOnly** 잠금은 모든 사용자가 키를 나열하지 못하도록 합니다. 반환되는 키를 쓰기 작업에 사용할 수 있기 때문에 목록 키 작업은 POST 요청을 통해 처리됩니다.
+* 저장소 계정에 대 한 **ReadOnly** 잠금을 설정 하면 모든 사용자가 키를 나열할 수 없습니다. 반환되는 키를 쓰기 작업에 사용할 수 있기 때문에 목록 키 작업은 POST 요청을 통해 처리됩니다.
 
 * App Service 리소스에 **ReadOnly** 잠금을 설정하면 해당 상호 작용이 쓰기 액세스를 필요로 하기 때문에 Visual Studio 서버 탐색기가 리소스에 대한 파일을 표시하지 않도록 방지합니다.
 
-* **ReadOnly** 가상 컴퓨터를 포함 하는 리소스 그룹에 잠금 모든 사용자가 시작 하거나 가상 컴퓨터를 다시 시작 하지 못하게 합니다. 이러한 작업에는 POST 요청이 필요합니다.
+* 가상 컴퓨터를 포함 하는 리소스 그룹에 대 한 **ReadOnly** 잠금을 설정 하면 모든 사용자가 가상 컴퓨터를 시작 하거나 다시 시작할 수 없습니다. 이러한 작업에는 POST 요청이 필요 합니다.
 
 ## <a name="who-can-create-or-delete-locks"></a>잠금을 만들거나 삭제할 수 있는 사람
 
-관리 잠금을 만들거나 삭제하려면 `Microsoft.Authorization/*` 또는 `Microsoft.Authorization/locks/*` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할 중 **소유자** 및 **사용자 액세스 관리자만** 해당 작업을 부여합니다.
+관리 잠금을 만들거나 삭제하려면 `Microsoft.Authorization/*` 또는 `Microsoft.Authorization/locks/*` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 **소유자** 및 **사용자 액세스 관리자**에게만 이러한 작업의 권한이 부여됩니다.
 
-## <a name="managed-applications-and-locks"></a>관리되는 응용 프로그램 및 잠금
+## <a name="managed-applications-and-locks"></a>관리 되는 응용 프로그램 및 잠금
 
-Azure Databricks와 같은 일부 Azure 서비스는 [관리되는 응용 프로그램을](../managed-applications/overview.md) 사용하여 서비스를 구현합니다. 이 경우 서비스는 두 개의 리소스 그룹을 만듭니다. 한 리소스 그룹에는 서비스에 대한 개요가 포함되어 있으며 잠겨 있지 않습니다. 다른 리소스 그룹에는 서비스에 대한 인프라가 포함되며 잠겨 있습니다.
+Azure Databricks와 같은 일부 Azure 서비스는 [관리 되는 응용 프로그램](../managed-applications/overview.md) 을 사용 하 여 서비스를 구현 합니다. 이 경우 서비스는 두 개의 리소스 그룹을 만듭니다. 한 리소스 그룹에는 서비스에 대 한 개요가 포함 되어 있으며 잠겨 있지 않습니다. 다른 리소스 그룹에는 서비스에 대 한 인프라가 포함 되어 있으며 잠깁니다.
 
-인프라 리소스 그룹을 삭제하려고 하면 리소스 그룹이 잠겨 있다는 오류가 발생합니다. 인프라 리소스 그룹에 대한 잠금을 삭제하려고 하면 시스템 응용 프로그램에서 소유하고 있으므로 잠금을 삭제할 수 없다는 오류가 발생합니다.
+인프라 리소스 그룹을 삭제 하려고 하면 리소스 그룹이 잠겨 있음을 나타내는 오류가 표시 됩니다. 인프라 리소스 그룹에 대 한 잠금을 삭제 하려고 하면 시스템 응용 프로그램이 소유 하 고 있으므로 잠금을 삭제할 수 없다는 오류 메시지가 표시 됩니다.
 
-대신 인프라 리소스 그룹도 삭제하는 서비스를 삭제합니다.
+대신 인프라 리소스 그룹도 삭제 하는 서비스를 삭제 합니다.
 
-관리되는 응용 프로그램의 경우 배포한 서비스를 선택합니다.
+관리 되는 응용 프로그램의 경우 배포한 서비스를 선택 합니다.
 
 ![서비스 선택](./media/lock-resources/select-service.png)
 
-서비스에 **관리되는 리소스 그룹에**대한 링크가 포함되어 있습니다. 해당 리소스 그룹은 인프라를 보유하며 잠겨 있습니다. 직접 삭제할 수 없습니다.
+서비스에 **관리 되는 리소스 그룹**에 대 한 링크가 포함 되어 있는지 확인 합니다. 해당 리소스 그룹은 인프라를 보유 하 고 있으며 잠깁니다. 직접 삭제할 수 없습니다.
 
 ![관리 그룹 표시](./media/lock-resources/show-managed-group.png)
 
-잠긴 인프라 리소스 그룹을 포함하여 서비스에 대한 모든 항목을 삭제하려면 서비스에 대한 **삭제를** 선택합니다.
+잠긴 인프라 리소스 그룹을 포함 하 여 서비스에 대 한 모든 항목을 삭제 하려면 서비스에 대해 **삭제** 를 선택 합니다.
 
 ![서비스 삭제](./media/lock-resources/delete-service.png)
 
 ## <a name="azure-backups-and-locks"></a>Azure 백업 및 잠금
 
-Azure Backup Service에서 만든 리소스 그룹을 잠그면 백업이 실패하기 시작합니다. 이 서비스는 최대 18개의 복원 지점을 지원합니다. **CanNotDelete** 잠금을 사용하면 백업 서비스가 복원 지점을 정리할 수 없습니다. 자세한 내용은 [자주 묻는 질문-Azure VM 백업을](../../backup/backup-azure-vm-backup-faq.md)참조하십시오.
+Azure Backup 서비스에 의해 생성 된 리소스 그룹을 잠그면 백업이 실패 하기 시작 합니다. 이 서비스는 최대 18 개의 복원 지점만 지원 합니다. **Cannotdelete** 잠금을 사용 하 여 백업 서비스에서 복원 지점이 정리 되지 않습니다. 자세한 내용은 질문과 [대답-Azure Vm 백업](../../backup/backup-azure-vm-backup-faq.md)을 참조 하세요.
 
 ## <a name="portal"></a>포털
 
@@ -67,16 +67,16 @@ Azure Backup Service에서 만든 리소스 그룹을 잠그면 백업이 실패
 
 ## <a name="template"></a>템플릿
 
-리소스 관리자 템플릿을 사용하여 잠금을 배포하는 경우 잠금 범위에 따라 이름 및 형식에 대해 다른 값을 사용합니다.
+리소스 관리자 템플릿을 사용 하 여 잠금을 배포할 때 잠금 범위에 따라 이름 및 형식에 대해 서로 다른 값을 사용 합니다.
 
-**리소스에**잠금을 적용할 때 다음 형식을 사용합니다.
+**리소스**에 잠금을 적용 하는 경우 다음 형식을 사용 합니다.
 
-* 이름 -`{resourceName}/Microsoft.Authorization/{lockName}`
+* 이름의`{resourceName}/Microsoft.Authorization/{lockName}`
 * 유형 - `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
-**리소스 그룹** 또는 **구독에**잠금을 적용할 때 다음 형식을 사용합니다.
+**리소스 그룹** 또는 **구독**에 잠금을 적용 하는 경우 다음 형식을 사용 합니다.
 
-* 이름 -`{lockName}`
+* 이름의`{lockName}`
 * 유형 - `Microsoft.Authorization/locks`
 
 다음 예제에서는 웹 사이트에 App Service 계획, 웹 사이트 및 잠금을 만드는 템플릿을 보여 줍니다. 잠금의 리소스 종류는 잠그려는 리소스의 리소스 종류로, **입니다**. 잠금의 이름은 리소스 이름을 **/Microsoft.Authorization/** 과 연결하여 만들어집니다.
@@ -136,7 +136,7 @@ Azure Backup Service에서 만든 리소스 그룹을 잠그면 백업이 실패
 }
 ```
 
-리소스 그룹에 잠금을 설정하는 예는 리소스 [그룹 만들기를 참조하고 잠급전서를 잠급전서입니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment)
+리소스 그룹에 대 한 잠금을 설정 하는 예제는 [리소스 그룹을 만들고 잠그기](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment)를 참조 하세요.
 
 ## <a name="powershell"></a>PowerShell
 [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) 명령을 사용하여 Azure PowerShell을 통해 배포된 리소스를 잠급니다.
@@ -153,7 +153,7 @@ New-AzResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName exam
 New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
-잠금에 대한 정보를 얻으려면 [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock)을 사용합니다. 구독의 모든 잠금을 가져오려면 다음을 사용합니다.
+잠금에 대 한 정보를 가져오려면 [AzResourceLock](/powershell/module/az.resources/get-azresourcelock)을 사용 합니다. 구독의 모든 잠금을 가져오려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
 Get-AzResourceLock
@@ -226,7 +226,7 @@ az lock delete --ids $lockid
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-범위는 구독, 리소스 그룹 또는 리소스일 수 있습니다. lock-name은 원하는 잠금 이름입니다. api 버전의 경우 **2016-09-01을**사용합니다.
+범위는 구독, 리소스 그룹 또는 리소스일 수 있습니다. lock-name은 원하는 잠금 이름입니다. Api 버전의 경우 **2016-09-01**을 사용 합니다.
 
 요청에서 잠금에 대한 속성을 지정하는 JSON 개체를 포함합니다.
 
@@ -239,6 +239,6 @@ az lock delete --ids $lockid
 
 ## <a name="next-steps"></a>다음 단계
 * 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](tag-resources.md)
-* 사용자 지정된 정책을 사용하여 구독을 통해 제한 사항 및 규칙을 적용할 수 있습니다. 자세한 내용은 [Azure 정책이란 무엇입니까?](../../governance/policy/overview.md)
+* 사용자 지정된 정책을 사용하여 구독을 통해 제한 사항 및 규칙을 적용할 수 있습니다. 자세한 내용은 [Azure Policy 란?](../../governance/policy/overview.md)을 참조 하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance)를 참조하세요.
 

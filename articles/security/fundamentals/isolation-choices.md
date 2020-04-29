@@ -1,6 +1,6 @@
 ---
 title: Azure 퍼블릭 클라우드에서 격리 | Microsoft Docs
-description: Azure가 악의적인 사용자와 악의적이지 않은 사용자 모두에 대해 격리를 제공하고 설계자에게 다양한 격리 옵션을 제공하는 방법을 알아봅니다.
+description: Azure에서 악의적인 사용자와 악의적인 사용자 모두에 대해 격리를 제공 하는 방법에 대해 알아보고 설계자에 게 다양 한 격리 선택 항목을 제공 합니다.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280314"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 퍼블릭 클라우드에서 격리
-Azure를 사용하면 공유 물리적 인프라에서 응용 프로그램 및 VM(가상 컴퓨터)을 실행할 수 있습니다. 클라우드 환경에서 애플리케이션을 실행하는 데 있어 가장 중요한 경제적 동기 중 하나는 여러 고객에게 공유 리소스에 대한 비용을 분산할 수 있는 능력입니다. 이러한 다중 테넌트 방식은 저렴한 비용으로 서로 다른 고객 간에 리소스를 다중화함으로써 효율성을 향상시킵니다. 아쉽게도 물리적 서버 및 기타 인프라 리소스를 공유하여 임의의 잠재적 악성 사용자에게 속할 수 있는 중요한 애플리케이션과 VM을 실행할 위험이 있습니다.
+Azure를 통해 공유 되는 물리적 인프라에서 응용 프로그램 및 Vm (가상 머신)을 실행할 수 있습니다. 클라우드 환경에서 애플리케이션을 실행하는 데 있어 가장 중요한 경제적 동기 중 하나는 여러 고객에게 공유 리소스에 대한 비용을 분산할 수 있는 능력입니다. 이러한 다중 테넌트 방식은 저렴한 비용으로 서로 다른 고객 간에 리소스를 다중화함으로써 효율성을 향상시킵니다. 아쉽게도 물리적 서버 및 기타 인프라 리소스를 공유하여 임의의 잠재적 악성 사용자에게 속할 수 있는 중요한 애플리케이션과 VM을 실행할 위험이 있습니다.
 
-이 문서에서는 Azure가 악의적인 사용자와 악의적인 사용자 모두에 대해 격리를 제공하는 방법을 설명하고 설계자에게 다양한 격리 옵션을 제공하여 클라우드 솔루션을 설계하는 방법에 대한 지침역할을 합니다.
+이 문서에서는 Azure에서 악의적인 사용자와 악의적인 사용자에 대해 격리를 제공 하는 방법에 대해 설명 하며, 다양 한 격리 선택 항목을 설계자에 게 제공 하 여 클라우드 솔루션을 설계 하기 위한 가이드 역할을
 
 ## <a name="tenant-level-isolation"></a>테넌트 수준 격리
 클라우드 컴퓨팅의 주요 이점 중 하나는 수많은 고객들에게 동시에 공유되는 일반적인 인프라 개념에 있으며 규모의 경제를 실현합니다. 이 개념을 다중 테넌트라고 합니다. Microsoft는 Microsoft Cloud Azure의 다중 테넌트 아키텍처에서 보안, 기밀성, 개인 정보 보호, 무결성 및 가용성 표준을 지원할 수 있도록 지속적으로 노력하고 있습니다.
@@ -52,7 +52,7 @@ Azure 테넌트(Azure 구독)는 [Azure Active Directory](../../active-directory
 
 - Azure AD 사용자는 물리적 자산 또는 위치에 액세스할 수 없으므로 다음과 같은 논리적 RBAC 정책 검사를 무시할 수 없습니다.
 
-진단 및 유지 관리 요구 사항에 따라 Just-In-Time 권한 상승 시스템을 사용하는 작업 모델이 필요하고 사용됩니다. Azure AD 권한 ID 관리(PIM)는 적격 관리자의 개념을 소개합니다. [적격 관리자는](../../active-directory/privileged-identity-management/pim-configure.md) 현재 권한이 있는 액세스 권한이 필요한 사용자여야 하지만 매일 액세스하지는 않아야 합니다. 역할은 사용자가 액세스가 필요할 때까지 비활성으로 있다가, 활성화 프로세스를 완료하고 미리 정해진 시간 동안 활성 관리자가 됩니다.
+진단 및 유지 관리 요구 사항에 따라 Just-In-Time 권한 상승 시스템을 사용하는 작업 모델이 필요하고 사용됩니다. PIM (Azure AD Privileged Identity Management)은 적격 관리자의 개념을 소개 합니다. [적격 관리자](../../active-directory/privileged-identity-management/pim-configure.md) 는 현재 권한 있는 액세스가 필요한 사용자 여야 하지만 매일은 아닙니다. 역할은 사용자가 액세스가 필요할 때까지 비활성으로 있다가, 활성화 프로세스를 완료하고 미리 정해진 시간 동안 활성 관리자가 됩니다.
 
 ![Azure AD Privileged Identity Management](./media/isolation-choices/azure-isolation-fig2.png)
 
@@ -67,9 +67,9 @@ Azure Active Directory는 테넌트에서만 소유하고 관리하는 컨테이
 
 Azure RBAC에는 모든 리소스 유형에 적용되는 3가지 기본 역할이 있습니다.
 
-- **소유자는** 다른 사람에게 액세스 권한을 위임할 수 있는 권한을 포함하여 모든 리소스에 대한 모든 액세스 권한을 갖습니다.
+- **소유자** 는 다른 사용자에 게 액세스 권한을 위임할 수 있는 권한을 포함 하 여 모든 리소스에 대 한 모든 권한을 갖습니다.
 
-- **기여자는** 모든 유형의 Azure 리소스를 만들고 관리할 수 있지만 다른 사람에게는 액세스 권한을 부여할 수 없습니다.
+- **참가자** 는 모든 유형의 Azure 리소스를 만들고 관리할 수 있지만 다른 사용자에 게 액세스 권한을 부여할 수는 없습니다.
 
 - **읽기 권한자** 는 기존 Azure 리소스를 볼 수 있습니다.
 
@@ -80,7 +80,7 @@ Azure의 나머지 RBAC 역할은 특정 Azure 리소스의 관리를 허용합�
 [RBAC 기본 제공 역할](../../role-based-access-control/built-in-roles.md)은 Azure에서 사용할 수 있는 역할을 나열합니다. 각 기본 제공 역할이 사용자에게 부여하는 작업 및 범위를 지정합니다. 더 많은 제어를 위해 사용자 고유의 역할을 정의하려는 경우 [Azure RBAC에서 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 빌드하는 방법을 참조하세요.
 
 Azure Active Directory의 몇 가지 다른 기능은 다음과 같습니다.
-- Azure AD는 호스팅되는 위치에 관계 없이 SaaS 애플리케이션에 SSO를 사용할 수 있게 합니다. 애플리케이션 일부는 Azure AD를 사용하여 페더레이션되고 나머지는 암호 SSO를 사용합니다. 페더레이션된 응용 프로그램은 사용자 프로비저닝 및 [암호 보관을](https://www.techopedia.com/definition/31415/password-vault)지원할 수도 있습니다.
+- Azure AD는 호스팅되는 위치에 관계 없이 SaaS 애플리케이션에 SSO를 사용할 수 있게 합니다. 애플리케이션 일부는 Azure AD를 사용하여 페더레이션되고 나머지는 암호 SSO를 사용합니다. 페더레이션된 응용 프로그램은 사용자 프로 비전 및 [암호 보관](https://www.techopedia.com/definition/31415/password-vault)을 지원할 수도 있습니다.
 
 - [Azure Storage](https://azure.microsoft.com/services/storage/)의 데이터 액세스는 인증을 통해 제어됩니다. 각 스토리지 계정에는 기본 키([스토리지 계정 키](../../storage/common/storage-create-storage-account.md) 또는 SAK) 및 보조 비밀 키(공유 액세스 서명 또는 SAS)가 있습니다.
 
@@ -113,7 +113,7 @@ Microsoft Azure는 애플리케이션 또는 엔터프라이즈의 요구 사항
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
 
 ### <a name="dedicated-hosts"></a>전용 호스트
-Azure는 이전 섹션에 설명된 격리된 호스트 외에도 전용 호스트도 제공합니다. Azure의 전용 호스트는 하나 이상의 가상 컴퓨터를 호스트할 수 있고 단일 Azure 구독전용인 물리적 서버를 제공하는 서비스입니다. 전용 호스트는 물리적 서버 수준에서 하드웨어 격리를 제공합니다. 호스트에는 다른 VM이 배치되지 않습니다. 전용 호스트는 동일한 데이터 센터에 배포되며 격리되지 않은 다른 호스트와 동일한 네트워크 및 기본 스토리지 인프라를 공유합니다. 자세한 내용은 [Azure 전용 호스트에](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)대한 자세한 개요를 참조하십시오.
+이전 섹션에서 설명한 isolated 호스트 외에도 Azure는 전용 호스트를 제공 합니다. Azure의 전용 호스트는 하나 이상의 가상 컴퓨터를 호스팅할 수 있는 물리적 서버 및 단일 Azure 구독 전용 서비스를 제공 하는 서비스입니다. 전용 호스트는 물리적 서버 수준에서 하드웨어 격리를 제공 합니다. 다른 Vm은 호스트에 배치 되지 않습니다. 전용 호스트는 동일한 데이터 센터에 배포 되며 동일한 네트워크 및 기본 저장소 인프라를 격리 되지 않은 다른 호스트로 공유 합니다. 자세한 내용은 [Azure 전용 호스트](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)의 상세 개요를 참조 하세요.
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>루트 VM과 게스트 VM 간 Hyper-V 및 루트 OS 격리
 Azure의 컴퓨팅 플랫폼은 Hyper-V 가상 머신에서 모든 고객 코드를 실행한다는 것을 의미하는 머신 가상화를 기반으로 합니다. 각 Azure 노드(또는 네트워크 엔드포인트)에는 하드웨어를 통해 직접 실행되는 하이퍼바이저가 있으며, 노드는 여러 게스트 VM(Virtual Machines)으로 나누어집니다.
@@ -160,9 +160,9 @@ Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 컴퓨팅 �
 
 프로그래밍되는 규칙에는 다음 두 가지 범주의 규칙이 있습니다.
 
--   **컴퓨터 구성 또는 인프라 규칙:** 기본적으로 모든 통신이 차단됩니다. 가상 머신이 DHCP 및 DNS 트래픽을 보내고 받을 수 있는 데 예외 사항이 있습니다. 또한 가상 머신에서 "공용" 인터넷에 트래픽을 보내고, 동일한 Azure Virtual Network 및 OS 정품 인증 서버 내에서 다른 가상 머신으로 트래픽을 보낼 수도 있습니다. 가상 머신의 허용된 송신 대상 목록에는 Azure 라우터 서브넷, Azure 관리 및 기타 Microsoft 속성이 포함되어 있지 않습니다.
+-   **컴퓨터 구성 또는 인프라 규칙:** 기본적으로 모든 통신이 차단 됩니다. 가상 머신이 DHCP 및 DNS 트래픽을 보내고 받을 수 있는 데 예외 사항이 있습니다. 또한 가상 머신에서 "공용" 인터넷에 트래픽을 보내고, 동일한 Azure Virtual Network 및 OS 정품 인증 서버 내에서 다른 가상 머신으로 트래픽을 보낼 수도 있습니다. 가상 머신의 허용된 송신 대상 목록에는 Azure 라우터 서브넷, Azure 관리 및 기타 Microsoft 속성이 포함되어 있지 않습니다.
 
--   **역할 구성 파일:** 테넌트의 서비스 모델을 기반으로 인바운드 액세스 제어 목록(ACL)을 정의합니다.
+-   **역할 구성 파일:** 이는 테 넌 트의 서비스 모델을 기반으로 하는 인바운드 Access Control 목록 (Acl)을 정의 합니다.
 
 ### <a name="vlan-isolation"></a>VLAN 격리
 각 클러스터에는 다음과 같이 3개의 VLAN이 있습니다.
@@ -206,18 +206,18 @@ Azure는 다음과 같은 유형의 암호화를 제공하여 데이터를 보�
 #### <a name="encryption-in-transit"></a>전송 중 암호화
 전송 중 암호화는 네트워크를 통해 전송되는 경우 데이터 보호의 메커니즘입니다. Azure Storage를 사용하면 다음을 사용하여 데이터를 보호할 수 있습니다.
 
--   Azure 저장소로 또는 Azure 저장소에서 데이터를 전송할 때 HTTPS와 같은 [전송 수준 암호화.](../../storage/blobs/security-recommendations.md)
+-   [전송 수준 암호화](../../storage/blobs/security-recommendations.md)(예: Azure Storage으로 데이터를 전송 하거나 외부로 전송할 때 HTTPS)
 
--   Azure File 공유에 대한 SMB 3.0 암호화와 같은 [유선 암호화.](../../storage/blobs/security-recommendations.md)
+-   [실시간 암호화](../../storage/blobs/security-recommendations.md)(예: Azure 파일 공유에 대 한 SMB 3.0 암호화)
 
--   [클라이언트 측 암호화는](../../storage/blobs/security-recommendations.md)데이터가 저장소로 전송되기 전에 데이터를 암호화하고 저장소 밖으로 전송된 후 데이터를 해독합니다.
+-   [클라이언트 쪽 암호화](../../storage/blobs/security-recommendations.md)-데이터를 저장소로 전송 하기 전에 암호화 하 고 저장소 외부로 전송 된 후 데이터의 암호를 해독 합니다.
 
 #### <a name="encryption-at-rest"></a>휴지 상태의 암호화
-많은 조직에서 [미사용 데이터 암호화는](isolation-choices.md) 데이터 개인 정보 보호, 규정 준수 및 데이터 주권을 향한 필수 단계입니다. “휴지 상태”의 데이터 암호화를 제공하는 세 가지 Azure 기능이 있습니다.
+대부분의 조직에서 [휴지 상태의 데이터 암호화](isolation-choices.md) 는 데이터 개인 정보 보호, 규정 준수 및 데이터 주권에 대 한 필수 단계입니다. “휴지 상태”의 데이터 암호화를 제공하는 세 가지 Azure 기능이 있습니다.
 
 -   [Storage 서비스 암호화](../../storage/blobs/security-recommendations.md) 를 사용하면 Storage 서비스가 Azure Storage에 데이터를 쓸 때 데이터를 자동으로 암호화하도록 요청할 수 있습니다.
 
--   [클라이언트 측 암호화는](../../storage/blobs/security-recommendations.md) 미사용 암호화 기능도 제공합니다.
+-   또한 [클라이언트 쪽 암호화](../../storage/blobs/security-recommendations.md) 는 미사용 암호화 기능을 제공 합니다.
 
 -   [Azure 디스크 암호화](../azure-security-disk-encryption-overview.md) 를 사용하면 IaaS 가상 머신에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다.
 
@@ -241,7 +241,7 @@ Windows용 디스크 암호화 솔루션은 [Microsoft BitLocker 드라이브 �
 
 -   탑재 경로가 있는 볼륨에서 암호화 사용
 
--   [mdadm을](https://en.wikipedia.org/wiki/Mdadm) 사용하여 디스크 스트라이프(RAID)로 구성된 Linux VM에서 암호화 사용
+-   [Mdadm](https://en.wikipedia.org/wiki/Mdadm) 을 사용 하 여 디스크 스트라이프 (RAID)로 구성 된 Linux vm에서 암호화 사용
 
 -   데이터 디스크에 대해 [LVM(논리 볼륨 관리자)](https://msdn.microsoft.com/library/windows/desktop/bb540532)을 사용하여 Linux VM에서 암호화 사용
 
@@ -310,19 +310,19 @@ VIP(가상 IP 주소) 뒤에는 상태 비저장 게이트웨이 서비스의 �
 일반적으로 백 엔드 시스템은 보안상의 이유로 다른 시스템으로 아웃바운드 통신하지 않습니다. 이는 프런트 엔드(게이트웨이) 계층의 시스템에 예약되어 있습니다. 게이트웨이 계층 컴퓨터는 백 엔드 컴퓨터로 제한된 권한을 가지므로 심층 방어 메커니즘으로 공격 노출 영역을 최소화합니다.
 
 ### <a name="isolation-by-machine-function-and-access"></a>시스템 함수 및 액세스 권한으로 격리
-SQL Azure는 다른 시스템 함수에서 실행되는 서비스로 구성됩니다. SQL Azure는 "백 엔드" 클라우드 데이터베이스와 "게이트웨이/관리" 환경으로 나뉘며, 일반적인 트래픽 원칙은 백 엔드로만 전환되고 아웃되지 않습니다. 프런트 엔드 환경은 다른 서비스의 외부 세계와 통신할 수 있으며 일반적으로 백 엔드에 제한된 권한만 있습니다(호출해야 하는 진입점을 호출하기에 충분).
+SQL Azure는 다른 시스템 함수에서 실행되는 서비스로 구성됩니다. SQL Azure은 "백 엔드" 클라우드 데이터베이스 및 "프런트 엔드" (게이트웨이/관리) 환경으로 나뉩니다 .이는 백 엔드에만 들어오고 나가는 트래픽의 일반적인 원칙이 있습니다. 프런트 엔드 환경은 다른 서비스의 외부 세계와 통신할 수 있으며, 일반적으로 백 엔드에서 제한 된 권한만 가집니다 (호출 해야 하는 진입점을 호출 하는 데 충분 함).
 
 ## <a name="networking-isolation"></a>네트워킹 격리
 Azure 배포에는 여러 계층의 네트워크 격리가 있습니다. 다음 다이어그램에서는 Azure에서 고객에게 제공하는 다양한 계층의 네트워크 격리를 보여 줍니다. 이러한 계층은 Azure 플랫폼 자체 기능 및 고객 정의 기능에서 모두 고유합니다. Azure DDoS는 인바운드 인터넷을 통해 Azure에 대한 대규모 공격에 대한 격리를 제공합니다. 다음 격리 계층은 클라우드 서비스를 통해 가상 네트워크로 전달할 수 있는 트래픽을 결정하는 데 사용하도록 고객이 정의한 공용 IP 주소(엔드포인트)입니다. 기본 Azure Virtual Network 격리를 통해 모든 타 네트워크를 격리하고 트래픽이 사용자가 구성한 경로 및 방법을 통해서만 전달되도록 할 수 있습니다. 이러한 경로와 방법은 NSG, UDR 및 네트워크 가상 어플라이언스를 사용하여 보호된 네트워크의 애플리케이션 배포를 보호하기 위해 격리 경계를 만드는 데 사용할 수 있는 다음 계층입니다.
 
 ![네트워킹 격리](./media/isolation-choices/azure-isolation-fig13.png)
 
-**교통 격리:** [가상 네트워크는](../../virtual-network/virtual-networks-overview.md) Azure 플랫폼의 트래픽 격리 경계입니다. 두 Virtual Network를 같은 고객이 만들었다 하더라도, 한 Virtual Network의 VM(가상 머신)은 다른 가상 네트워크의 VM과 직접 통신할 수 없습니다. 격리는 고객 VM과 통신이 가상 네트워크 안에서 프라이빗 상태를 유지하는 데 있어 중요한 속성입니다.
+**트래픽 격리:** [가상 네트워크](../../virtual-network/virtual-networks-overview.md) 는 Azure 플랫폼에서 트래픽 격리 경계입니다. 두 Virtual Network를 같은 고객이 만들었다 하더라도, 한 Virtual Network의 VM(가상 머신)은 다른 가상 네트워크의 VM과 직접 통신할 수 없습니다. 격리는 고객 VM과 통신이 가상 네트워크 안에서 프라이빗 상태를 유지하는 데 있어 중요한 속성입니다.
 
 [서브넷](../../virtual-network/virtual-networks-overview.md)은 IP 범위를 기반으로 하는 가상 네트워크에서 추가 격리 계층을 제공합니다. 가상 네트워크의 IP 주소를 사용하면 조직과 보안을 위해 가상 네트워크를 여러 서브넷으로 분할할 수 있습니다. VNet 내부의 서브넷(같은 또는 다른)에 배포된 VM 및 PaaS 역할 인스턴스는 추가 구성 없이 서로 통신할 수 있습니다. 또한 NSG의 ACL(액세스 제어 목록)에 구성된 규칙을 기반으로 하여 VM 인스턴스에 대한 네트워크 트래픽을 허용하거나 거부하도록 [NSG(네트워크 보안 그룹)](../../virtual-network/virtual-networks-overview.md)를 구성할 수도 있습니다. Nsg는 서브넷 또는 서브넷 내의 개별 VM 인스턴스 중 하나와 연결될 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Windows [Azure 가상 네트워크의 컴퓨터에 대한 네트워크 격리 옵션에](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)대해 자세히 알아봅니다. 여기에는 특정 백 엔드 네트워크 또는 하위 네트워크의 컴퓨터가 특정 클라이언트 또는 다른 컴퓨터가 허용 IP 주소 목록을 기반으로 특정 끝점에만 연결할 수 있도록 허용할 수 있는 고전적인 프런트 엔드 및 백 엔드 시나리오가 포함됩니다.
+- [Microsoft Azure 가상 네트워크의 컴퓨터에 대 한 네트워크 격리 옵션](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)에 대해 알아봅니다. 여기에는 특정 백 엔드 네트워크 또는 하위 네트워크의 컴퓨터에서 허용 되는 IP 주소 목록에 따라 특정 끝점에 연결 하는 특정 클라이언트 또는 다른 컴퓨터에만 허용할 수 있는 클래식 프런트 엔드 및 백 엔드 시나리오가 포함 됩니다.
 
-- Azure [에서 가상 시스템 격리에](../../virtual-machines/windows/isolation.md)대해 자세히 알아보기 Azure Compute는 특정 하드웨어 유형으로 격리되고 단일 고객전용가상 시스템 크기를 제공합니다.
+- [Azure의 가상 머신 격리](../../virtual-machines/windows/isolation.md)에 대해 알아봅니다. Azure Compute는 특정 하드웨어 종류에 격리 되 고 단일 고객 전용으로 제공 되는 가상 머신 크기를 제공 합니다.

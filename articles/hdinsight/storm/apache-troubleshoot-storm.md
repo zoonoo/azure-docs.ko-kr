@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271929"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Storm 문제 해결
@@ -24,7 +24,7 @@ ms.locfileid: "79271929"
 
 브라우저에서 Storm UI에 액세스할 때는 다음 두 가지 옵션 중 하나를 사용할 수 있습니다.
 
-### <a name="apache-ambari-ui"></a>아파치 암바리 UI
+### <a name="apache-ambari-ui"></a>Apache Ambari UI
 
 1. Ambari 대시보드로 이동합니다.
 2. 서비스 목록에서 **Storm**을 선택합니다.
@@ -46,9 +46,9 @@ HDInsight Storm 이벤트 허브 spout .jar 파일을 사용하여 Azure Event H
 
 오프셋에 대한 검사점 데이터는 Zookeeper의 이벤트 허브 Spout를 통해 다음 두 루트 경로에 저장됩니다.
 
-- 비트랜잭션 주어프 체크포인트 검사점은 에 `/eventhubspout`저장됩니다.
+- 비트랜잭션 spout 검사점은에 `/eventhubspout`저장 됩니다.
 
-- 트랜잭션 주어점 검사점 데이터는 `/transactional`에 저장됩니다.
+- 트랜잭션 spout 검사점 데이터는에 `/transactional`저장 됩니다.
 
 ### <a name="how-to-restore"></a>복원하는 방법
 
@@ -65,7 +65,7 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 #### <a name="export-offset-metadata"></a>오프셋 메타데이터 내보내기
 
 1. SSH를 사용하여 검사점 오프셋을 내보내야 하는 클러스터의 ZooKeeper 클러스터로 이동합니다.
-2. 다음 명령을 실행(HDP 버전 문자열업데이트 후)을 실행하여 ZooKeeper 오프셋 데이터를 `/stormmetadta/zkdata` HDFS 경로로 내보냅니다.
+2. HDP 버전 문자열을 업데이트 한 후 다음 명령을 실행 하 여 `/stormmetadta/zkdata` HDFS 경로에 사육 사 오프셋 데이터를 내보냅니다.
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
@@ -74,7 +74,7 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 #### <a name="import-offset-metadata"></a>오프셋 메타데이터 가져오기
 
 1. SSH를 사용하여 검사점 오프셋을 내보내야 하는 클러스터의 ZooKeeper 클러스터로 이동합니다.
-2. 다음 명령을 실행(HDP 버전 문자열을 업데이트한 후)을 실행하여 ZooKeeper `/stormmetadata/zkdata` 경로에서 대상 클러스터의 ZooKeeper 서버로 오프셋 데이터를 가져옵니다.
+2. HDP 버전 문자열을 업데이트 한 후 다음 명령을 실행 하 여 HDFS 경로 `/stormmetadata/zkdata` 에서 대상 클러스터의 사육 사 서버로의 사육 사 오프셋 데이터를 가져옵니다.
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
@@ -91,9 +91,9 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 
 ## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>클러스터에서 Storm 이진을 찾는 방법
 
-현재 HDP 스택의 폭풍 바이너리에 `/usr/hdp/current/storm-client`있습니다. 위치는 헤드 노드 및 작업자 노드 둘 다에 대해 동일합니다.
+현재 HDP 스택에 대 한 스톰 이진 파일은 `/usr/hdp/current/storm-client`에 있습니다. 위치는 헤드 노드 및 작업자 노드 둘 다에 대해 동일합니다.
 
-/usr/hdp(예: `/usr/hdp/2.5.0.1233/storm`)의 특정 HDP 버전에 대해 여러 바이너리가 있을 수 있습니다. 폴더가 `/usr/hdp/current/storm-client` 클러스터에서 실행 중인 최신 버전에 대해 교제됩니다.
+/Usr/hdp에는 특정 HDP 버전에 대 한 여러 바이너리가 있을 수 있습니다 ( `/usr/hdp/2.5.0.1233/storm`예:). 폴더 `/usr/hdp/current/storm-client` 는 클러스터에서 실행 되는 최신 버전에 연결 되어 있습니다.
 
 자세한 내용은 [SSH를 사용하여 HDInsight 클러스터에 연결](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) 및 [Apache Storm](https://storm.apache.org/)을 참조하세요.
 
@@ -145,7 +145,7 @@ Storm 작업자 노드에서 실행하는 서비스는 다음과 같습니다.
 
 ### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>HDInsight 3.5 이상 Linux Storm 클러스터용 최신 Apache Storm 이벤트 허브 Spout 이진 파일
 
-HDInsight 3.5+ Linux 스톰 클러스터에서 작동하는 최신 Storm 이벤트 허브 주푸를 사용하는 방법을 알아보려면 [mvn-repo readme 파일을](https://github.com/hdinsight/mvn-repo/blob/master/README.md)참조하십시오.
+HDInsight 3.5 + Linux 스톰 클러스터에서 작동 하는 최신 스톰 event hub spout를 사용 하는 방법에 대 한 자세한 내용은 [mvn 추가 정보 파일](https://github.com/hdinsight/mvn-repo/blob/master/README.md)을 참조 하세요.
 
 ### <a name="source-code-examples"></a>소스 코드 예제
 
@@ -157,24 +157,24 @@ Storm 서비스에 대한 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/
 
 ### <a name="on-head-nodes"></a>헤드 노드에서
 
-님버스 Log4J 구성은 에서 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`읽습니다.
+Nimbus Log4J 구성은에서 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`읽습니다.
 
 ### <a name="on-worker-nodes"></a>작업자 노드에서
 
-감독자 Log4J 구성을 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`읽습니다.
+감독자 Log4J 구성은에서 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`읽습니다.
 
-작업자 Log4J 구성 파일이 `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`에서 읽습니다.
+Worker Log4J 구성 파일은에서 `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`읽습니다.
 
-예제:`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
+예와`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 `/usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml`
 
 ---
 
-## <a name="not-a-leader-exception"></a>리더 예외가 아님
+## <a name="not-a-leader-exception"></a>리더 예외가 아닙니다.
 
-토폴로지제출 시 다음과 유사한 오류 메시지가 나타날 `Topology submission exception, cause not a leader, the current leader is NimbusInfo`수 있습니다.
+토폴로지를 제출 하는 경우 사용자에 게 다음과 `Topology submission exception, cause not a leader, the current leader is NimbusInfo`유사한 오류 메시지가 표시 될 수 있습니다.
 
-해결하려면 노드를 다시 시작/재부팅하려면 티켓을 제출해야 할 수 있습니다. 자세한 내용은 을 [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)참조하십시오.
+이 문제를 해결 하려면 사용자가 노드를 다시 시작/다시 부팅 하기 위해 티켓을 제출 해야 할 수 있습니다. 자세한 내용은을 참조 [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)하십시오.
 
 ---
 
@@ -182,8 +182,8 @@ Storm 서비스에 대한 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/
 
 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
-- Azure 커뮤니티 지원을 통해 Azure 전문가의 답변을 얻을 [수 있습니다.](https://azure.microsoft.com/support/community/)
+- Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
 
-- 연결 [@AzureSupport](https://twitter.com/azuresupport) - 고객 경험을 개선하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 올바른 리소스( 답변, 지원 및 전문가)에 연결합니다.
+- 을 사용 [@AzureSupport](https://twitter.com/azuresupport) 하 여 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
 
-- 추가 도움이 필요한 경우 [Azure 포털](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원을** 선택하거나 도움말 + 지원 허브를 **엽니다.** 자세한 내용은 Azure [지원 요청을 만드는 방법을](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)검토합니다. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 기술 지원은 [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 제공됩니다.
+- 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.

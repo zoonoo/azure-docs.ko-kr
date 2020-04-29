@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 22060cc6dd5eb15e81a0c397a7b0255f16780d74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79284253"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 VM 추가
@@ -27,7 +27,7 @@ ms.locfileid: "79284253"
 또한 이 문서에서는 랩에서 VM의 아티팩트를 만드는 방법을 보여 줍니다.
 
 ## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 VM을 추가하는 단계
-1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. **모든 서비스**를 선택한 다음, **DEVOPS** 섹션에서 **DevTest Labs**를 선택합니다. **DEVOPS** 섹션에서 **DevTest Labs** 옆에 있는 *(별표)를 선택하는 경우입니다. 이 작업을 수행하면 다음에 쉽게 액세스할 수 있도록 **DevTest Labs**가 왼쪽 탐색 메뉴에 추가됩니다. 그러면 왼쪽 탐색 메뉴에서 **DevTest Labs**를 선택할 수 있습니다.
 
     ![모든 서비스 - DevTest Labs 선택](./media/devtest-lab-create-lab/all-services-select.png)
@@ -66,11 +66,11 @@ ms.locfileid: "79284253"
 VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 각 랩에는 공용 DevTest Lab 아티팩트 리포지토리의 아티팩트 및 사용자가 만들어서 사용자 고유 아티팩트 리포지토리에 추가한 아티팩트가 포함되어 있습니다.
 
 * Windows PowerShell 스크립트 실행, Bash 명령 실행 및 소프트웨어 설치 등 Azure DevTest Labs *아티팩트*를 통해 VM을 프로비전할 때 수행하는 *작업*을 지정할 수 있습니다.
-* 아티팩트 *매개 변수를* 사용하면 특정 시나리오에 대한 아티팩트를 사용자 지정할 수 있습니다.
+* 아티팩트 *매개 변수* 를 사용 하 여 특정 시나리오에 대 한 아티팩트를 사용자 지정할 수 있습니다.
 
 아티팩트를 만드는 방법을 알아보려면 [DevTest Labs와 함께 사용할 사용자 고유의 아티팩트를 저작하는 방법 알아보기](devtest-lab-artifact-author.md)문서를 참조하세요.
 
-1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 1. 랩 목록에서 사용하려는 VM을 포함하는 랩을 선택합니다.
 1. **내 가상 머신**를 선택합니다.
@@ -122,4 +122,4 @@ Azure Resource Manager 템플릿을 사용하면 반복 가능한 배포를 선�
 ## <a name="next-steps"></a>다음 단계
 * VM을 만든 후에는 해당 VM의 창에서 **연결** 을 선택하여 VM에 연결할 수 있습니다.
 * [DevTest Labs VM용 사용자 지정 아티팩트 작성](devtest-lab-artifact-author.md)방법을 알아봅니다.
-* [DevTest 랩 Azure 리소스 관리자 빠른 시작 템플릿 갤러리를](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)탐색합니다.
+* [DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)를 탐색 합니다.

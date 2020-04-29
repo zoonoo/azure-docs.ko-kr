@@ -1,5 +1,5 @@
 ---
-title: 연결 문제 해결 - Azure 포털
+title: 연결 문제 해결-Azure Portal
 titleSuffix: Azure Network Watcher
 description: Azure Portal을 사용하여 Azure Network Watcher의 연결 문제 해결 기능을 사용하는 방법을 알아봅니다.
 services: network-watcher
@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: damendo
 ms.openlocfilehash: e405a91b1ea541b4ed3328fdb3bf80ca82731c93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79283239"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Network Watcher로 연결 문제 해결
 
 > [!div class="op_single_selector"]
 > - [포털](network-watcher-connectivity-portal.md)
-> - [Powershell](network-watcher-connectivity-powershell.md)
+> - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
@@ -59,7 +59,7 @@ Network Watcher로 이동하여 **연결 문제 해결**을 클릭합니다. 가
 
 [경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 머신 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
 
-[IP 흐름 확인 확인을](diagnose-vm-network-traffic-filtering-problem.md) 방문하여 VM 내/에서 특정 트래픽이 허용되는지 확인합니다.
+[IP 흐름 확인 확인](diagnose-vm-network-traffic-filtering-problem.md) 을 방문 하 여 VM에서 또는 VM에서 특정 트래픽이 허용 되는지 확인 합니다.
 
 [1]: ./media/network-watcher-connectivity-portal/figure1.png
 [2]: ./media/network-watcher-connectivity-portal/figure2.png

@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
 ms.openlocfilehash: 77a768f907ad989a457ee498f26ad0f6e004f786
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79264935"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Event Hubs 연결 문자열 가져오기
@@ -37,14 +37,14 @@ Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 이 문서에서는 연결 문자열을 가져오는 다양한 방법을 안내합니다.
 
 ## <a name="get-connection-string-from-the-portal"></a>포털에서 연결 문자열 가져오기
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. 
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 
 2. 왼쪽 탐색 메뉴에서 **모든 서비스**를 선택합니다. 
 3. **Analytics** 섹션에서 **Event Hubs**를 선택합니다. 
 4. 이벤트 허브 목록에서 해당 이벤트 허브를 선택합니다.
 6. **Event Hubs 네임스페이스** 페이지의 왼쪽 메뉴에서 **공유 액세스 정책**을 선택합니다.
 
     ![공유 액세스 정책 메뉴 항목](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
-7. 정책 목록에서 **공유 액세스 정책**을 선택합니다. 기본 이름은 다음과 같은 **이름으로 지정됩니다.** 적절한 권한(읽기, 쓰기)으로 정책을 추가하고 해당 정책을 사용할 수 있습니다. 
+7. 정책 목록에서 **공유 액세스 정책**을 선택합니다. 기본 이름은 **RootManageSharedAccessPolicy**입니다. 적절한 권한(읽기, 쓰기)으로 정책을 추가하고 해당 정책을 사용할 수 있습니다. 
 
     ![Event Hubs 공유 액세스 정책](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
 8. **연결 문자열 기본 키** 필드 옆에 있는 **복사** 단추를 선택합니다. 
@@ -55,7 +55,7 @@ Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Get-AzEventHubKey를](/powershell/module/az.eventhub/get-azeventhubkey) 사용하여 아래와 같이 특정 정책/규칙 이름에 대한 연결 문자열을 얻을 수 있습니다.
+[AzEventHubKey](/powershell/module/az.eventhub/get-azeventhubkey) 를 사용 하 여 아래와 같이 특정 정책/규칙 이름에 대 한 연결 문자열을 가져올 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
@@ -68,7 +68,7 @@ Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummyname
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
 ```
 
-또는 다음을 사용하여 EventHub 엔터티에 대한 연결 문자열을 얻을 수 있습니다.
+또는 다음을 사용 하 여 EventHub 엔터티에 대 한 연결 문자열을 가져올 수 있습니다.
 
 ```azurecli-interactive
 az eventhubs eventhub authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --eventhub-name dummyeventhub --name RootManageSharedAccessKey

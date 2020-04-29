@@ -15,10 +15,10 @@ ms.custom: mvc
 ms.date: 03/17/2020
 ms.author: spelluru
 ms.openlocfilehash: db1e60ccd7e05cb8b6923d6b2ec008cdfb76eaa1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79501923"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Azure Lab Services의 클래스룸 랩에 액세스하는 방법
@@ -26,7 +26,7 @@ ms.locfileid: "79501923"
 
 ## <a name="register-to-the-lab"></a>랩에 등록
 
-1. 교수/강사로부터 받은 **등록 URL**로 이동합니다. 등록을 완료한 후에는 등록 URL을 사용할 필요가 없습니다. 대신 URL: [https://labs.azure.com](https://labs.azure.com)을 사용합니다. Internet Explorer 11은 아직 지원되지 않습니다. 
+1. 교수/강사로부터 받은 **등록 URL**로 이동합니다. 등록을 완료한 후에는 등록 URL을 사용할 필요가 없습니다. 대신 URL [https://labs.azure.com](https://labs.azure.com)을 사용 합니다. Internet Explorer 11은 아직 지원되지 않습니다. 
 1. 학교 계정을 사용하여 서비스에 로그인하여 등록을 완료합니다. 
 
     > [!NOTE]
@@ -80,7 +80,7 @@ ms.locfileid: "79501923"
 ## <a name="view-all-the-classroom-labs"></a>모든 클래스룸 랩 보기
 랩에 등록한 후 다음 단계를 수행하여 모든 클래스 룸 랩을 볼 수 있습니다. 
 
-1. 로 [https://labs.azure.com](https://labs.azure.com)이동합니다. Internet Explorer 11은 아직 지원되지 않습니다. 
+1. [https://labs.azure.com](https://labs.azure.com)으로 이동합니다. Internet Explorer 11은 아직 지원되지 않습니다. 
 2. 랩에 등록하는 데 사용한 사용자 계정을 사용하여 서비스에 로그인합니다. 
 3. 액세스 권한이 있는 모든 랩이 표시되는지 확인합니다. 
 

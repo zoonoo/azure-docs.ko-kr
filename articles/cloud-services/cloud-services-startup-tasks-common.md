@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273060"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>일반적인 클라우드 서비스 시작 작업
@@ -300,7 +300,7 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 
 컴퓨팅 에뮬레이터와 클라우드에서 서로 다른 동작을 수행하도록 하는 이 기능은 [ServiceDefinition.csdef] 파일에서 환경 변수를 만들어서 수행될 수 있습니다. 그런 다음 시작 태스크에서 값의 해당 환경 변수를 테스트합니다.
 
-환경 변수를 만들려면 [변수]/[RoleInstanceValue] 요소를 추가하고 `/RoleEnvironment/Deployment/@emulated`의 XPath 값을 만듭니다. **%ComputeEmulatorRunning%** 환경 변수의 값은 컴퓨팅 에뮬레이터에서 실행되는 경우 `true`이 되고 클라우드에서 실행되는 경우 `false`가 됩니다.
+환경 변수를 만들려면[RoleInstanceValue] 요소 `/RoleEnvironment/Deployment/@emulated` [변수]/를 추가 하 고의 XPath 값을 만듭니다. **%ComputeEmulatorRunning%** 환경 변수의 값은 컴퓨팅 에뮬레이터에서 실행되는 경우 `true`이 되고 클라우드에서 실행되는 경우 `false`가 됩니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -500,18 +500,18 @@ EXIT %ERRORLEVEL%
 
 [만들고 배포하세요](cloud-services-how-to-create-deploy-portal.md) .
 
-[서비스정의.csdef]: cloud-services-model-and-package.md#csdef
-[작업]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[ServiceDefinition. .csdef]: cloud-services-model-and-package.md#csdef
+[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [환경]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [변수]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
-[롤인스턴스값]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 [엔드포인트]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
-[로컬 스토리지]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
+[LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
-[롤인스턴스값]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
 
 
