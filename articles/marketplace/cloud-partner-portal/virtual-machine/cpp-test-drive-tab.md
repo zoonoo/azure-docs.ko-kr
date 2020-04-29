@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
 ms.openlocfilehash: adac73d64feb6280c5043776249072e9f7595faa
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82142979"
 ---
 # <a name="virtual-machine-test-drive-tab"></a>가상 머신 시험 사용 탭
@@ -31,10 +31,10 @@ ms.locfileid: "82142979"
 다음 표에서는 이러한 필드의 용도와 내용을 설명합니다.  필수 필드는 별표(*)로 표시됩니다.
 
 
-|    필드                  |       설명                                                            |
+|    필드                  |       Description                                                            |
 |  ---------                |     ---------------                                                          |
 |  *세부 정보*   |  |
-| **설명\***           | 시험 사용 시나리오에 대한 개요를 제공합니다. 이 텍스트는 시험 사용을 프로비전하는 동안 사용자에게 표시됩니다. 서식 있는 콘텐츠를 제공하려는 경우 이 필드는 기본 HTML을 지원합니다.  |
+| **Description\***           | 시험 사용 시나리오에 대한 개요를 제공합니다. 이 텍스트는 시험 사용을 프로비전하는 동안 사용자에게 표시됩니다. 서식 있는 콘텐츠를 제공하려는 경우 이 필드는 기본 HTML을 지원합니다.  |
 | **사용자 설명서\***           | 시험 사용 사용자가 솔루션을 사용하는 방법을 이해하는 데 도움이 되는 자세한 사용자 설명서(.pdf)를 업로드합니다.  |
 | **시험 사용 데모 비디오** | 솔루션을 보여 주는 비디오를 업로드합니다.  이 옵션을 선택한 경우 비디오에 대한 이름, URL(YouTube 또는 Vimeo에서 호스팅됨) 및 썸네일(533x324 픽셀)을 제공해야 합니다. |
 | *기술 구성* |  |

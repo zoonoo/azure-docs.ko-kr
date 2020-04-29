@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: labrenne
 ms.openlocfilehash: d28223c79f96f35a6ee11f98e0f09f21d7db4451
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115944"
 ---
 # <a name="pool-delete-complete-event"></a>풀 삭제 완료 이벤트
@@ -27,7 +27,7 @@ ms.locfileid: "82115944"
 
 |요소|Type|메모|
 |-------------|----------|-----------|
-|`id`|String|풀의 ID입니다.|
+|`id`|문자열|풀의 ID입니다.|
 |`startTime`|DateTime|풀 삭제가 시작된 시간입니다.|
 |`endTime`|DateTime|풀 삭제가 완료된 시간입니다.|
 

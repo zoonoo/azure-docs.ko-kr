@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
 ms.openlocfilehash: 58e096a3b25b16e54cf2f18935dcf4a2d44cd767
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146205"
 ---
 # <a name="publish-container-offer"></a>컨테이너 제품 게시
@@ -30,7 +30,7 @@ ms.locfileid: "82146205"
 다음 표에서는 각 게시 단계를 설명합니다. 각 단계를 완료하는 예상 시간이 지정됩니다.
 
 
-|  **게시 단계**           | **시간**    | **설명**                                                            |
+|  **게시 단계**           | **런타임**    | **설명**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | 필수 구성 요소 유효성 검사         | 15분   | 제안 정보 및 제안 설정의 유효성이 검사됩니다.                        |
 | 인증                  | 1주 | Azure 인증 팀에서 제안을 분석합니다. 이 제품은 바이러스, 맬웨어, 안전 규정 준수 및 보안 문제에 대해 검사됩니다. 모든 자격 조건을 충족하는지 제품을 확인합니다. 자세한 내용은 [필수 구성 요소](./cpp-prerequisites.md) 및 [기술 자산 준비](./cpp-create-technical-assets.md)를 참조하세요. 문제가 발견되면 피드백이 제공됩니다. |

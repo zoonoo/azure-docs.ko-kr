@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.openlocfilehash: 732c405cad20aef3485b521fa245cb504a809c40
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82129070"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞게 자동으로 클러스터 크기 조정
@@ -17,7 +17,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞추려면 �
 
 이 문서에서는 AKS 클러스터에서 클러스터 자동 크기 조정기를 사용하도록 설정하고 관리하는 방법을 보여 줍니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 Azure CLI 버전 2.0.76 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
@@ -145,7 +145,7 @@ az aks update \
   --cluster-autoscaler-profile scan-interval=30s
 ```
 
-클러스터의 노드 풀에서 클러스터 autoscaler를 사용 하도록 설정 하면 해당 클러스터는 cluster autoscaler profile도 사용 합니다. 예를 들어:
+클러스터의 노드 풀에서 클러스터 autoscaler를 사용 하도록 설정 하면 해당 클러스터는 cluster autoscaler profile도 사용 합니다. 다음은 그 예입니다.
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -162,7 +162,7 @@ az aks nodepool update \
 
 ### <a name="set-the-cluster-autoscaler-profile-when-creating-an-aks-cluster"></a>AKS 클러스터를 만들 때 cluster autoscaler profile 설정
 
-클러스터를 만들 때 *autoscaler* 매개 변수를 사용할 수도 있습니다. 예를 들어:
+클러스터를 만들 때 *autoscaler* 매개 변수를 사용할 수도 있습니다. 다음은 그 예입니다.
 
 ```azurecli-interactive
 az aks create \

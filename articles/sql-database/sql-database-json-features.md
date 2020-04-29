@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 04/19/2020
 ms.openlocfilehash: 992c981d49e7c6fbf8b6156570f6554a05caab5d
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687751"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL Database의 JSON 기능 시작
@@ -69,7 +69,7 @@ FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 }
 ```
 
-이 예제에서는 [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) 옵션을 지정하여 배열 대신 단일 JSON 개체를 반환했습니다. 쿼리 결과로 단일 개체를 반환하는지 알고 있다면 이 옵션을 사용할 수 있습니다.
+이 예제에서는 [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) 옵션을 지정 하 여 배열 대신 단일 JSON 개체를 반환 했습니다. 쿼리 결과로 단일 개체를 반환하는지 알고 있다면 이 옵션을 사용할 수 있습니다.
 
 FOR JSON 절의 주 값은 중첩된 JSON 개체 또는 배열로 형식이 지정된 데이터베이스에서 복잡한 계층적 데이터를 반환할 수 있도록 합니다. 다음 예제에서는 `Customer`에 속하는 `Orders` 테이블의 행을 `Orders`의 중첩 배열로 포함하는 방법을 보여 줍니다.
 

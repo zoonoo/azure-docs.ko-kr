@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 18e1ab1d01394d585cfb06ced8c5fbac04114177
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431957"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
@@ -20,11 +20,11 @@ ms.locfileid: "81431957"
 Key Vault를 사용하면 애플리케이션 내에서 중요한 정보를 안전하게 액세스할 수 있습니다.
 
 - 키와 암호는 코드 작성 없이 보호되며 애플리케이션에서 쉽게 사용할 수 있습니다.
-- 고객들에게 고유한 키를 부여하여 관리하게 하므로 핵심 소프트웨어 기능을 제공하는 데 집중할 수 있습니다 이러한 방식으로 응용 프로그램은 고객의 테넌트 키 및 비밀에 대한 책임이나 잠재적 책임을 소유하지 않습니다.
+- 고객들에게 고유한 키를 부여하여 관리하게 하므로 핵심 소프트웨어 기능을 제공하는 데 집중할 수 있습니다 이러한 방식으로 응용 프로그램은 고객의 테 넌 트 키와 암호에 대 한 책임 또는 잠재적인 책임을 소유 하지 않습니다.
 - 애플리케이션은 서명 및 암호화를 위해 키를 사용할 수 있지만, 애플리케이션 외부에서 키 관리를 유지할 수 있으므로 지리적으로 분산된 앱에 적합한 솔루션을 구현할 수 있습니다.
-- 키 볼트 인증서를 관리합니다. 자세한 내용은 [인증서를 참조하십시오.](../certificates/about-certificates.md)
+- Key Vault 인증서를 관리 합니다. 자세한 내용은 [인증서](../certificates/about-certificates.md) 를 참조 하세요.
 
-Azure 키 자격 증명 모음에 대한 자세한 내용은 [키 자격 증명 모음이란 무엇입니까)를](overview.md)참조하십시오.
+Azure Key Vault에 대 한 일반적인 정보는 [Key Vault 정의](overview.md))를 참조 하세요.
 
 ## <a name="public-previews"></a>공개 미리 보기
 
@@ -34,17 +34,17 @@ Azure 키 자격 증명 모음에 대한 자세한 내용은 [키 자격 증명 
 
 Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. Azure 리소스에 대한 관리 ID를 사용하면 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공하여 이 문제를 더 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다. 
 
-Azure 리소스의 관리 ID에 대한 자세한 내용은 [관리 ID 개요](../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요. Azure AD 작업에 대한 자세한 내용은 [응용 프로그램을 Azure Active Directory와 통합참조할](../../active-directory/develop/active-directory-integrating-applications.md)수 있습니다.
+Azure 리소스의 관리 ID에 대한 자세한 내용은 [관리 ID 개요](../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요. Azure AD로 작업 하는 방법에 대 한 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](../../active-directory/develop/active-directory-integrating-applications.md)을 참조 하세요.
 
 Key Vault에서 키, 암호 또는 인증서를 사용하기 전에 다음 문서에 설명된 대로 CLI, PowerShell, Resource Manager 템플릿 또는 REST를 통해 Key Vault를 만들고 관리합니다.
 
 - [CLI를 사용하여 Key Vault 만들기 및 관리](../secrets/quick-create-cli.md)
 - [PowerShell을 사용하여 Key Vault 만들기 및 관리](../secrets/quick-create-powershell.md)
-- [Azure 포트를 사용하여 키 볼트 만들기 및 관리](../secrets/quick-create-portal.md)
-- [파이썬으로 키 볼트 만들기 및 관리](../secrets/quick-create-python.md)
-- [Java로 키 볼트 생성 및 관리](../secrets/quick-create-java.md)
-- [Node.js로 키 볼트 생성 및 관리](../secrets/quick-create-node.md)
-- [.NET(v4 SDK)을 사용하여 키 볼트 만들기 및 관리](../secrets/quick-create-net.md)
+- [Azure 포트를 사용 하 여 주요 자격 증명 모음 만들기 및 관리](../secrets/quick-create-portal.md)
+- [Python을 사용 하 여 주요 자격 증명 모음 만들기 및 관리](../secrets/quick-create-python.md)
+- [Java를 사용 하 여 주요 자격 증명 모음 만들기 및 관리](../secrets/quick-create-java.md)
+- [Node.js를 사용 하 여 키 자격 증명 모음 만들기 및 관리](../secrets/quick-create-node.md)
+- [.NET을 사용 하 여 주요 자격 증명 모음 만들기 및 관리 (v4 SDK)](../secrets/quick-create-net.md)
 - [Azure Resource Manager 템플릿을 통한 Key Vault 만들기 및 암호 추가](../secrets/quick-create-template.md)
 - [REST를 사용하여 Key Vault 만들기 및 관리](/rest/api/keyvault/)
 
@@ -59,7 +59,7 @@ Key Vault에서 키, 암호 또는 인증서를 사용하기 전에 다음 문�
 
 REST 인터페이스를 통해 자격 증명 모음, 키, 암호 등을 비롯한 모든 Key Vault 리소스에 액세스할 수 있습니다. 
 
-[키 볼트 나머지 API 참조](/rest/api/keyvault/).
+[Key Vault REST API 참조](/rest/api/keyvault/)입니다.
 
 #### <a name="net"></a>.NET
 
@@ -117,15 +117,15 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 
 다음 문서에서는 사용하거나 Key Vault와 통합하는 다른 시나리오 및 서비스에 대한 정보를 다룹니다.
 
-- [Azure 디스크 암호화는](../../security/fundamentals/encryption-overview.md) Windows의 업계 표준 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 기능과 Linux의 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 활용하여 OS 및 데이터 디스크에 대한 볼륨 암호화를 제공합니다. 이 솔루션은 Azure Key Vault와 함께 통합되어 주요 자격 증명 모음 구독에서 디스크 암호화 키 및 암호를 제어하고 관리할 수 있도록 하며 가상 머신 디스크의 모든 휴지 상태 데이터가 Azure Storage에서 암호화되도록 보장합니다.
+- [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md) 는 Windows의 업계 표준 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 기능과 Linux의 [DM-자리](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 활용 하 여 OS 및 데이터 디스크에 대 한 볼륨 암호화를 제공 합니다. 이 솔루션은 Azure Key Vault와 함께 통합되어 주요 자격 증명 모음 구독에서 디스크 암호화 키 및 암호를 제어하고 관리할 수 있도록 하며 가상 머신 디스크의 모든 휴지 상태 데이터가 Azure Storage에서 암호화되도록 보장합니다.
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-get-started-portal.md)는 계정에 저장된 데이터의 암호화에 대한 옵션을 제공합니다. 키 관리의 경우 Data Lake Store는 Data Lake Store에 저장된 모든 데이터의 암호를 해독하는 데 필요한 MEK(마스터 암호화 키)를 관리하는 두 가지 모드를 제공합니다. Data Lake Store에서 MEK를 관리하도록 하거나 Azure Key Vault 계정을 사용하여 MEK의 소유권을 유지하도록 선택할 수 있습니다. Data Lake Store 계정을 만들면서 키 관리 모드를 지정합니다.
 - [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key)을 통해 테넌트 키를 직접 관리할 수 있습니다. 예를 들어, Microsoft가 테넌트 키를 관리하는 대신(기본값) 테넌트 키를 직접 관리하여 해당 조직에 적용되는 특정 규정을 준수할 수 있습니다. 테넌트 키 직접 관리는 BYOK(Bring Your Own Key)라고 하기도 합니다.
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault 개요 및 개념
 
-- [키 볼트 소프트 삭제 동작)](overview-soft-delete.md) 삭제가 우발적이든 의도적이든 삭제된 개체를 복구할 수 있는 기능을 설명합니다.
+- [Key Vault 일시 삭제 동작](overview-soft-delete.md)) 삭제 된 개체를 실수로 또는 의도적으로 복구할 수 있는 기능에 대해 설명 합니다.
 - [Key Vault 클라이언트 제한](overview-throttling.md)에서는 제한의 기본 개념을 소개하고 앱에 맞는 접근 방식을 제공합니다.
-- [키 볼트 저장소 계정 키 개요)](../secrets/overview-storage-keys.md) 키 볼트 통합 Azure 저장소 계정 키에 대해 설명합니다.
+- [Key Vault 저장소 계정 키 개요](../secrets/overview-storage-keys.md)) 계정 키 Azure Storage Key Vault 통합에 대해 설명 합니다.
 - [Key Vault 보안 권역](overview-security-worlds.md)에서는 지역과 보안 영역 간의 관계를 설명합니다.
 
 ## <a name="social"></a>사회적

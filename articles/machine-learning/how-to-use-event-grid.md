@@ -11,10 +11,10 @@ author: shivp950
 ms.reviewer: larryfr
 ms.date: 03/11/2020
 ms.openlocfilehash: 2a1440dcda27a487c89be4ac63e624a2bb6b393a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82111881"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>이벤트 기반 기계 학습 워크플로 만들기 (미리 보기)
@@ -34,7 +34,7 @@ Event Grid를 사용 하 여 다음과 같은 일반적인 시나리오를 사�
 > 현재 runStatusChanged 이벤트는 실행 상태가 failed 인 경우에만 트리거됩니다 **.**
 >
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * Azure Machine Learning 작업 영역에 대 한 참가자 또는 소유자 액세스는 이벤트를 만들 수 있습니다.
 
 ### <a name="configure-eventgrid-using-the-azure-portal"></a>Azure Portal를 사용 하 여 EventGrid 구성

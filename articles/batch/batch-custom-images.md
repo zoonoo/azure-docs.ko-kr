@@ -4,10 +4,10 @@ description: 응용 프로그램에 대 한 소프트웨어 및 데이터를 사
 ms.topic: article
 ms.date: 09/16/2019
 ms.openlocfilehash: 10e3932bc6006e1d91fbc7e4cf58a5d98c043520
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82117321"
 ---
 # <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>관리 되는 이미지를 사용 하 여 가상 머신 풀 만들기
@@ -17,7 +17,7 @@ Batch 풀의 Vm (가상 머신)에 대 한 사용자 지정 이미지를 만들�
 > [!TIP]
 > 대부분의 경우 공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지를 만들어야 합니다. 공유 이미지 갤러리를 사용 하면 풀을 더 빠르게 프로 비전 하 고, 더 많은 수의 Vm을 확장 하 고, Vm을 프로 비전 할 때 안정성을 향상 시킬 수 있습니다. 자세히 알아보려면 [공유 이미지 갤러리를 사용 하 여 사용자 지정 풀 만들기](batch-sig-images.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - **관리되는 이미지 리소스**. 사용자 지정 이미지를 사용하여 가상 머신 풀을 만들려면 Batch 계정과 동일한 Azure 구독 및 지역에 관리되는 이미지 리소스가 있거나 해당 리소스를 만들어야 합니다. VM OS 디스크 및 연결된 데이터 디스크(선택 사항)의 스냅샷에서 이미지를 만들어야 합니다. 자세한 내용 및 관리되는 이미지를 준비하는 단계는 다음 섹션을 참조하세요.
   - 작성하는 각 풀에 대해 고유한 사용자 지정 이미지를 사용합니다.

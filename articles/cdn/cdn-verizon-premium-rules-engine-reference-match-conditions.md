@@ -1,6 +1,6 @@
 ---
-title: 버라이존 프리미엄 규칙 엔진 일치 조건에서 Azure CDN | 마이크로 소프트 문서
-description: Verizon Premium 규칙 엔진 일치 조건에서 Azure 콘텐츠 배달 네트워크에 대한 참조 설명서입니다.
+title: Verizon 프리미엄 규칙 엔진 일치 조건의 Azure CDN | Microsoft Docs
+description: Verizon 프리미엄 규칙 엔진 일치 조건의 Azure Content Delivery Network에 대 한 참조 설명서입니다.
 services: cdn
 author: asudbring
 ms.service: azure-cdn
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: e2361590118668f2cdf22c4a29534b16790b90e4
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253444"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>버라이존 프리미엄 규칙 엔진 일치 조건에서 Azure CDN
+# <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Verizon 프리미엄 규칙 엔진 일치 조건의 Azure CDN
 
-이 문서에서는 Verizon Premium [규칙 엔진에서](cdn-verizon-premium-rules-engine.md)AZURE 콘텐츠 배달 네트워크(CDN)에 사용할 수 있는 일치 조건에 대한 자세한 설명을 나열합니다.
+이 문서에서는 Verizon Premium [규칙 엔진](cdn-verizon-premium-rules-engine.md)의 Azure CONTENT DELIVERY NETWORK (CDN)에 대해 사용 가능한 일치 조건에 대 한 자세한 설명을 나열 합니다.
 
 규칙의 두 번째 부분이 일치 조건입니다. 일치 조건은 기능 집합에 대해 수행할 특정 요청 유형을 식별합니다.
 
 예를 들어 다음을 수행하는 데 일치 조건을 사용할 수 있습니다.
 
 - 특정 위치에서 콘텐츠에 대한 필터 요청
-- 특정 IP 주소 또는 국가/지역에서 생성된 요청을 필터링합니다.
+- 특정 IP 주소 또는 국가/지역에서 생성 된 필터 요청
 - 헤더 정보에 의한 필터 요청
 
 ## <a name="always-match-condition"></a>항상 일치 조건
@@ -49,7 +49,7 @@ ms.locfileid: "81253444"
 속성 | 목적
 -----|--------
 [AS 숫자](#as-number) | 특정 네트워크에서 발생하는 요청을 식별합니다.
-[국가](#country) | 지정된 국가/지역에서 시작된 요청을 식별합니다.
+[국가](#country) | 지정 된 국가/지역에서 시작 되는 요청을 식별 합니다.
 
 ## <a name="origin-match-conditions"></a>원본 일치 조건
 
@@ -112,7 +112,7 @@ URL 일치 조건은 해당 URL에 따라 요청을 식별합니다.
 
 AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니다. 
 
-**일치하지**/**않음** 일치 옵션에는 AS 번호 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 AS 번호 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 클라이언트 네트워크의 ASN이 지정된 ASN 중 하나와 일치해야 합니다. 
 - **일치하지 않음**: 클라이언트 네트워크의 ASN이 지정된 ASN과 일치하지 않아야 합니다.
@@ -157,7 +157,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 
 ### <a name="client-ip-address"></a>클라이언트 IP 주소
 
-일치하지 않음 조건에 따라 **일치하지**/**않음** 옵션이 클라이언트 IP 주소 일치 조건이 충족되는 조건을 결정합니다.
+일치 일치**하지 않음** 옵션은 클라이언트 IP 주소 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 클라이언트의 IP 주소가 지정된 IP 주소 중 하나와 일치해야 합니다. 
 - **일치하지 않음**: 클라이언트의 IP 주소가 지정된 IP 주소와 일치하지 않아야 합니다. 
@@ -186,7 +186,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 
 ### <a name="cookie-parameter"></a>쿠키 매개 변수
 
-**일치하지**/**않음** 일치 옵션에는 쿠키 매개 변수 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 쿠키 매개 변수 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 이 일치 조건에 정의된 값 중 하나 이상과 일치하는 값으로 지정된 쿠키를 포함하는 요청이 필요합니다.
 - **일치하지 않음**: 요청이 다음 조건 중 하나를 충족해야 합니다.
@@ -220,7 +220,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 
 쿠키 매개 변수 Regex 일치 조건은 쿠키 이름과 값을 정의합니다. [정규식](cdn-verizon-premium-rules-engine-reference.md#regular-expressions)을 사용하여 원하는 쿠키 값을 정의할 수 있습니다.
 
-**일치하지**/**않음** 일치 옵션에는 쿠키 매개 변수 정규식 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 쿠키 매개 변수 Regex 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 지정된 정규식과 일치하는 값으로 지정된 쿠키를 포함하는 요청이 필요합니다.
 - **일치하지 않음**: 요청이 다음 조건 중 하나를 충족해야 합니다.
@@ -253,7 +253,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 
 해당 국가 번호를 통해 국가를 지정할 수 있습니다. 
 
-일치하지**않는** **일치**/옵션에 따라 국가 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 국가 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 지정된 국가 코드 값이 요청에 포함되어야 합니다. 
 - **일치하지 않음**: 지정된 국가 코드 값이 요청에 포함되지 않아야 합니다.
@@ -311,7 +311,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 
 디바이스 일치 조건은 속성에 따라 모바일 디바이스에서 생성되는 요청을 식별합니다. 모바일 디바이스 검색은 [WURFL](http://wurfl.sourceforge.net/)을 통해 이루어집니다. 
 
-일치하지 않음 조건에 따라 **일치하지**/**않음** 옵션이 장치 일치 조건이 충족되는 조건을 결정합니다.
+일치 일치**하지 않음** 옵션은 장치 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 요청자의 디바이스가 지정된 값과 일치해야 합니다. 
 - **일치하지 않음**: 요청자의 디바이스가 지정된 값과 일치하지 않아야 합니다.
@@ -330,7 +330,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 
 WURFL 기능은 일반적으로 숫자, 문자 및 기호의 모든 조합을 허용합니다. 이 기능이 유연하기 때문에 이 일치 조건과 연결된 값이 해석되는 방식을 선택해야 합니다. 다음 테이블에는 사용 가능한 옵션 집합이 설명되어 있습니다.
 
-Type     | Description
+Type     | 설명
 ---------|------------
 리터럴  | 대부분의 문자가 [리터럴 값](cdn-verizon-premium-rules-engine-reference.md#literal-values)을 사용하여 특별한 의미를 갖지 못하게 하려면 이 옵션을 선택합니다.
 와일드카드 | 모든 [와일드카드 문자]([와일드카드 값](cdn-verizon-premium-rules-engine-reference.md#wildcard-values))을 활용하려면 이 옵션을 선택합니다.
@@ -351,7 +351,7 @@ WURFL 기능은 모바일 디바이스를 설명하는 범주를 나타냅니다
 디바이스 OS | %{wurfl_cap_device_os} | 디바이스에 설치된 운영 체제를 나타내는 문자열입니다. | IOS
 디바이스 OS 버전 | %{wurfl_cap_device_os_version} | 디바이스에 설치된 운영 체제의 버전 번호를 나타내는 문자열입니다. | 1.0.1
 이중 방향 | %{wurfl_cap_dual_orientation} | 디바이스가 이중 방향을 지원하는지 여부를 나타내는 부울입니다. | true
-HTML 기본 DTD | %{wurfl_cap_html_preferred_dtd} | HTML 콘텐츠에 대한 모바일 디바이스의 기본 DTD(문서 종류 정의)를 나타내는 문자열입니다. | 없음<br/>xhtml_basic<br/>html5
+HTML 기본 DTD | %{wurfl_cap_html_preferred_dtd} | HTML 콘텐츠에 대한 모바일 디바이스의 기본 DTD(문서 종류 정의)를 나타내는 문자열입니다. | none<br/>xhtml_basic<br/>html5
 이미지 인라인 처리 | %{wurfl_cap_image_inlining} | 디바이스가 Base64로 인코딩된 이미지를 지원하는지 여부를 나타내는 부울입니다. | false
 Android 여부 | %{wurfl_vcap_is_android} | 디바이스가 Android OS를 사용하는지 여부를 나타내는 부울입니다. | true
 IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 여부를 나타내는 부울입니다. | false
@@ -398,7 +398,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 콘텐츠가 요청되었던 참조 페이지와 연결된 호스트 이름은 참조 도메인 조건이 충족되는지 여부를 결정합니다.
 
-**일치하지**/**않음** 일치 옵션에는 참조 도메인 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 참조 하는 도메인 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 참조하는 호스트 이름이 지정된 값과 일치해야 합니다. 
 - **일치하지 않음**: 참조하는 호스트 이름이 지정된 값과 일치하지 않아야 합니다.
@@ -424,7 +424,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 ### <a name="request-header-literal"></a>요청 헤더 리터럴
 
-**일치하지**/**않음** 일치 옵션에는 요청 헤더 리터럴 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 요청 헤더 리터럴 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 지정된 헤더를 포함하는 요청이 필요합니다. 해당 값은 이 일치 조건에 정의된 것과 일치해야 합니다.
 - **일치하지 않음**: 요청이 다음 조건 중 하나를 충족해야 합니다.
@@ -449,7 +449,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 ### <a name="request-header-regex"></a>요청 헤더 Regex
 
-**일치하지**/**않음** 일치 옵션에는 요청 헤더 정규식 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 요청 헤더 Regex 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 지정된 헤더를 포함하는 요청이 필요합니다. 해당 값은 지정된 [정규식](cdn-verizon-premium-rules-engine-reference.md#regular-expressions)에 정의된 패턴과 일치해야 합니다.
 - **일치하지 않음**: 요청이 다음 조건 중 하나를 충족해야 합니다.
@@ -480,7 +480,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 ### <a name="request-header-wildcard"></a>요청 헤더 와일드카드
 
-**일치하지**/**않음** 일치 옵션에는 요청 헤더 와일드카드 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 요청 헤더 와일드 카드 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 지정된 헤더를 포함하는 요청이 필요합니다. 해당 값은 이 일치 조건에 정의된 값 중 하나 이상과 일치해야 합니다.
 - **일치하지 않음**: 요청이 다음 조건 중 하나를 충족해야 합니다.
@@ -565,7 +565,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 상대 경로로 요청을 식별하며 요청된 자산의 파일 이름은 제외됩니다.
 
-**일치하지**/**않음** 일치 옵션에는 URL 경로 디렉터리 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 URL 경로 디렉터리 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 지정된 URL 패턴과 일치하는 상대 URL 경로(파일 이름 제외)가 요청에 포함되어야 합니다.
 - **일치하지 않음**: 지정된 URL 패턴과 일치하지 않는 상대 URL 경로(파일 이름 제외)가 요청에 포함되어야 합니다.
@@ -583,7 +583,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
   예: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder**/index.htm 
 
-  이 URL은 다음 Verizon CDN 호스트\/이름을 가리킵니다: http: /wpc.0001. &lt;도메인&gt;/800001/마이오리진/ 마이폴더/index.htm**myfolder**
+  이 URL은 다음 Verizon CDN 호스트 이름을 가리킵니다. http:\//wpc.0001. &lt;도메인&gt;/800001/myorigin/**myfolder**/index.htm
 
 - 에지 CNAME URL은 URL을 비교하기 전에 CDN URL로 다시 작성됩니다.
 
@@ -623,7 +623,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 요청된 자산의 파일 확장명으로 요청을 식별합니다.
 
-**일치하지**/**않음** 일치 옵션에는 URL 경로 확장 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 URL 경로 확장 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 지정된 패턴과 정확히 일치하는 파일 확장명이 요청의 URL에 포함되어야 합니다.
 
@@ -647,7 +647,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 다음 샘플 구성에서는 지정된 확장명 중 하나와 요청이 일치할 때 이 일치 조건이 충족된다고 가정합니다.
 
-값 사양 : asp aspx php html
+값 사양: asp aspx php html
 
 이 일치 조건은 다음 확장명으로 끝나는 URL을 찾으면 충족됩니다.
 
@@ -666,7 +666,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 요청된 자산의 파일 이름으로 요청을 식별합니다. 이 일치 조건의 경우, 파일 이름은 요청된 자산의 이름, 마침표 및 파일 확장명으로 구성됩니다(예: index.html).
 
-일치하지**않음** **일치**/옵션에는 URL 경로 파일 이름 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 URL 경로 파일 이름 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 지정된 패턴과 일치하는 파일 이름이 요청의 URL 경로에 포함되어야 합니다.
 - **일치하지 않음**: 지정된 패턴과 일치하지 않는 파일 이름이 요청의 URL 경로에 포함되어야 합니다.
@@ -697,7 +697,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 요청의 URL 경로(파일 이름 포함)를 지정된 값과 비교합니다.
 
-**일치하지**/**않음** 일치 옵션에는 URL 경로 리터럴 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 URL 경로 리터럴 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 지정된 패턴과 일치하는 URL 경로가 요청에 포함되어야 합니다.
 - **일치하지 않음**: 지정된 패턴과 일치하지 않는 URL 경로가 요청에 포함되어야 합니다.
@@ -713,9 +713,9 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
   - **원본**: URL 비교 지점이 콘텐츠 액세스 포인트 다음에 시작됩니다(예: /000001 또는 /800001/myorigin). \*.azureedge.net CNAME은 기본적으로 Verizon CDN 호스트 이름의 원본 디렉터리를 기준으로 생성되기 때문에 Azure CDN 사용자는 **원본** 값을 사용해야 합니다. 
 
-    예: https:\//&lt;끝점&gt;.azureedge.net/**myfolder/index.htm**
+    예: https:\//&lt;endpoint&gt;. azureedge.net/**myfolder/index.htm**
 
-  이 URL은 다음 Verizon CDN 호스트\/이름을 가리킵니다: http: /wpc.0001. &lt;도메인&gt;/800001/마이오리진/**myfolder/index.htm**
+  이 URL은 다음 Verizon CDN 호스트 이름을 가리킵니다. http:\//wpc.0001. &lt;도메인&gt;/800001/myorigin/**myfolder/index.htm**
 
 - 에지 CNAME URL은 URL을 비교하기 전에 CDN URL로 다시 작성됩니다.
 
@@ -746,7 +746,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 요청의 URL 경로를 지정된 [정규식](cdn-verizon-premium-rules-engine-reference.md#regular-expressions)과 비교합니다.
 
-**일치하지**/**않음** 일치 옵션에는 URL 경로 정규식 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 URL 경로 Regex 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 지정된 정규식과 일치하는 URL 경로가 요청에 포함되어야 합니다.
 - **일치하지 않음**: 지정된 정규식과 일치하지 않는 URL 경로가 요청에 포함되어야 합니다.
@@ -781,7 +781,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 요청의 상대 URL 경로를 지정된 와일드카드 패턴과 비교합니다.
 
-**일치하지**/**않음** 일치 옵션에는 URL 경로 와일드카드 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 URL 경로 와일드 카드 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 지정된 와일드카드 패턴과 일치하는 URL 경로가 요청에 포함되어야 합니다.
 - **일치하지 않음**: 지정된 와일드카드 패턴과 일치하지 않는 URL 경로가 요청에 포함되어야 합니다.
@@ -797,9 +797,9 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
      - **원본**: URL 비교 지점이 콘텐츠 액세스 포인트 다음에 시작됩니다(예: /000001 또는 /800001/myorigin). \*.azureedge.net CNAME은 기본적으로 Verizon CDN 호스트 이름의 원본 디렉터리를 기준으로 생성되기 때문에 Azure CDN 사용자는 **원본** 값을 사용해야 합니다. 
 
-       예: https:\//&lt;끝점&gt;.azureedge.net/**myfolder/index.htm**
+       예: https:\//&lt;endpoint&gt;. azureedge.net/**myfolder/index.htm**
 
-     이 URL은 다음 Verizon CDN 호스트\/이름을 가리킵니다: http: /wpc.0001. &lt;도메인&gt;/800001/마이오리진/**myfolder/index.htm**
+     이 URL은 다음 Verizon CDN 호스트 이름을 가리킵니다. http:\//wpc.0001. &lt;도메인&gt;/800001/myorigin/**myfolder/index.htm**
 
 - 에지 CNAME URL은 URL을 비교하기 전에 CDN URL로 다시 작성됩니다.
 
@@ -847,7 +847,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 요청의 쿼리 문자열을 지정된 값과 비교합니다.
 
-일치하지**않음** **일치**/옵션에는 URL 쿼리 리터럴 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 URL 쿼리 리터럴 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 지정된 쿼리 문자열과 일치하는 URL 쿼리 문자열이 요청에 포함되어야 합니다.
 - **일치하지 않음**: 지정된 쿼리 문자열과 일치하지 않는 URL 쿼리 문자열이 요청에 포함되어야 합니다.
@@ -884,7 +884,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 지정된 쿼리 문자열 매개 변수를 포함하는 요청을 식별합니다. 이 매개 변수는 지정된 패턴과 일치하는 값으로 설정됩니다. 요청 URL의 쿼리 문자열 매개 변수(예: parameter=value)가 이 조건이 충족되는지 여부를 결정합니다. 이 일치 조건은 쿼리 문자열 매개 변수를 이름으로 식별하고 매개 변수 값에 하나 이상의 값을 허용합니다. 
 
-일치하지**않음** **일치**/옵션에는 URL 쿼리 매개 변수 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 URL 쿼리 매개 변수 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 이 일치 조건에 정의된 값 중 하나 이상과 일치하는 값으로 지정된 매개 변수가 요청에 포함되어야 합니다.
 - **일치하지 않음**: 요청이 다음 조건 중 하나를 충족해야 합니다.
@@ -953,11 +953,11 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 다음 예제는 이 옵션이 특정 상황에서 작동하는 방식을 보여줍니다.
 
-이름  | 값 |  결과
+속성  | 값 |  결과
 ------|-------|--------
 사용자  | Joe   | 이 패턴은 요청된 URL의 쿼리 문자열이 "?user=joe"인 경우에 일치합니다.
 사용자  | *     | 이 패턴은 요청된 URL의 쿼리 문자열에 User 매개 변수가 포함된 경우에 일치합니다.
-Email | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시작되는 Email 매개 변수가 포함된 경우에 일치합니다.
+메일 | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시작되는 Email 매개 변수가 포함된 경우에 일치합니다.
 
 [맨 위로 이동](#reference-for-rules-engine-match-conditions)
 
@@ -969,7 +969,7 @@ Email | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시�
 
 지정된 쿼리 문자열 매개 변수를 포함하는 요청을 식별합니다. 이 매개 변수는 지정된 [정규식](cdn-verizon-premium-rules-engine-reference.md#regular-expressions)과 일치하는 값으로 설정됩니다.
 
-**일치하지**/**않음** 일치 옵션에는 URL 쿼리 정규식 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 URL 쿼리 Regex 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 지정된 정규식과 일치하는 URL 쿼리 문자열이 요청에 포함되어야 합니다.
 - **일치하지 않음**: 지정된 정규식과 일치하지 않는 URL 쿼리 문자열이 요청에 포함되어야 합니다.
@@ -1017,7 +1017,7 @@ Email | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시�
 
 지정된 값을 요청의 쿼리 문자열에 대해 비교합니다.
 
-**일치하지**/**않음** 일치 옵션에는 URL 쿼리 와일드카드 일치 조건이 충족되는 조건이 결정됩니다.
+일치 일치**하지 않음** 옵션은 URL 쿼리 와일드 카드 일치 조건이 충족 되는 조건을 결정 합니다. **Matches**/
 
 - **일치**: 지정된 와일드카드 값과 일치하는 URL 쿼리 문자열이 요청에 포함되어야 합니다.
 - **일치하지 않음**: 지정된 와일드카드 값과 일치하지 않는 URL 쿼리 문자열이 요청에 포함되어야 합니다.
@@ -1025,7 +1025,7 @@ Email | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시�
 주요 정보:
 
 - 이 옵션의 경우, 쿼리 문자열은 쿼리 문자열의 물음표(?) 구분 기호 뒤에 나오는 첫 번째 문자로 시작됩니다.
-- 매개 변수 값에는 와일드카드 값이 포함될 수 [있습니다.](cdn-verizon-premium-rules-engine-reference.md#wildcard-values)
+- 매개 변수 값은 [와일드 카드 값](cdn-verizon-premium-rules-engine-reference.md#wildcard-values)을 포함할 수 있습니다.
    - 각 매개 변수 값 패턴은 하나 이상의 별표(*)로 구성될 수 있으며 각 별표는 하나 이상의 문자 시퀀스와 일치할 수 있습니다.
    - 특정 문자는 URL 인코딩이 필요합니다. 다음 문자를 URL 인코딩하려면 백분율 기호를 사용합니다.
 
@@ -1053,10 +1053,10 @@ Email | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시�
 
 다음 예제는 이 옵션이 특정 상황에서 작동하는 방식을 보여줍니다.
 
- 속성                 | Description
+ Name                 | Description
  ---------------------|------------
 user=joe              | 이 패턴은 요청된 URL의 쿼리 문자열이 "?user=joe"인 경우에 일치합니다.
-\*사용자=\* \*옵트아웃=\* | 이 패턴은 CDN URL 쿼리에 user 또는 optout 매개 변수가 포함되는 경우에만 일치합니다.
+\*user =\* \*optout =\* | 이 패턴은 CDN URL 쿼리에 user 또는 optout 매개 변수가 포함되는 경우에만 일치합니다.
 
 [맨 위로 이동](#reference-for-rules-engine-match-conditions)
 
@@ -1066,6 +1066,6 @@ user=joe              | 이 패턴은 요청된 URL의 쿼리 문자열이 "?use
 
 - [Azure Content Delivery Network 개요](cdn-overview.md)
 - [규칙 엔진 참조](cdn-verizon-premium-rules-engine-reference.md)
-- [규칙 엔진 조건식](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
+- [규칙 엔진 조건 식](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [규칙 엔진 기능](cdn-verizon-premium-rules-engine-reference-features.md)
 - [규칙 엔진을 사용하여 기본 HTTP 동작 재정의](cdn-verizon-premium-rules-engine.md)

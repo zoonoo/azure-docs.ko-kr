@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: allensu
-ms.openlocfilehash: 46ecf1bf2f5bd7900677cd115f8571ec3551a874
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 477a5ffa971120d1a98c09ac4ae8ebda1c82b770
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134274"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209029"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Azure 개인 끝점 DNS 구성
 
@@ -55,7 +55,7 @@ Azure 서비스의 경우 다음 표에 설명 된 대로 권장 된 영역 이�
 |Azure Database for MySQL (Microsoft DBforMySQL/servers)|mysqlServer|privatelink.mysql.database.azure.com|
 |Azure Database for MariaDB (DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|
 |Azure Key Vault (Microsoft. KeyVault/자격 증명 모음)|자격 증명 모음|privatelink.vaultcore.azure.net|
-|Azure Kubernetes Service-Kubernetes API (ContainerService/managedClusters)    | managedCluster | {guid}. privatelink. <region>. azmk8s.io|
+|Azure Kubernetes Service-Kubernetes API (ContainerService/managedClusters)    | managedCluster | {guid}. privatelink. {region}. azmk8s|
 |Azure Search (Microsoft 검색/searchServices)|searchService|privatelink.search.windows.net|   
 |Azure Container Registry (Microsoft.containerregistry/레지스트리) | 사용된 | privatelink.azurecr.io |
 |Azure 앱 구성 (Microsoft Appconfiguration/configurationStores)| configurationStore | privatelink.azconfig.io|

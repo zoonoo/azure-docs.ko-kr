@@ -1,19 +1,19 @@
 ---
-title: AKS에서 Helm을 사용 하 고 기존 응용 프로그램 설치
-description: Helm 패키징 도구를 사용하여 AKS(Azure Kubernetes) 클러스터에 컨테이너를 배포하는 방법 알아보기
+title: AKS에서 투구를 사용 하 여 기존 응용 프로그램 설치
+description: 투구 패키징 도구를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 컨테이너를 배포 하는 방법을 알아봅니다.
 services: container-service
 author: zr-msft
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: zarhoads
 ms.openlocfilehash: e46bed5fc9fd83a907f8c9e716317a54548c58cc
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870246"
 ---
-# <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스(AKS)에서 Helm을 사용 하 고 기존 응용 프로그램 설치
+# <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 투구를 사용 하 여 기존 응용 프로그램 설치
 
 [Helm][helm]은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. *APT*, *Yum* 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다.
 
@@ -23,20 +23,20 @@ ms.locfileid: "81870246"
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-또한 개발 시스템에서 실행되는 클라이언트인 Helm CLI가 설치되어 있어야 합니다. Helm을 사용하여 응용 프로그램을 시작, 중지 및 관리할 수 있습니다. Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습니다. 로컬 플랫폼의 설치 지침은 [헬름 설치][helm-install]를 참조하십시오.
+또한 개발 시스템에서 실행 되는 클라이언트 인 투구 CLI가 설치 되어 있어야 합니다. 이를 통해 투구로 응용 프로그램을 시작, 중지 및 관리할 수 있습니다. Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습니다. 로컬 플랫폼에 대 한 설치 지침은 [투구 설치][helm-install]를 참조 하세요.
 
 > [!IMPORTANT]
-> 헬름은 Linux 노드에서 실행됩니다. 클러스터에 Windows Server 노드가 있는 경우 Helm 포드가 Linux 노드에서만 실행되도록 예약되어 있는지 확인해야 합니다. 또한 설치한 Helm 차트가 올바른 노드에서 실행되도록 예약되어 있는지 확인해야 합니다. 이 문서의 명령은 [노드 선택기를][k8s-node-selector] 사용하여 포드가 올바른 노드로 예약되도록 하지만 일부 Helm 차트에서 노드 선택기를 노출할 수 있는 것은 아닙니다. 클러스터의 다른 옵션(예: [오염)을][taints]사용하는 것도 고려할 수 있습니다.
+> 투구는 Linux 노드에서 실행 하기 위한 것입니다. 클러스터에 Windows Server 노드가 있는 경우에는 투구 pod가 Linux 노드에서 실행 되도록 예약 되어 있는지 확인 해야 합니다. 또한 설치 하는 투구 차트가 올바른 노드에서 실행 되도록 예약 되어 있는지도 확인 해야 합니다. 이 문서의 명령은 [노드][k8s-node-selector] 선택기를 사용 하 여 pod이 올바른 노드에 예약 되어 있는지 확인 하지만 일부 투구 차트는 노드 선택기를 노출할 수 없습니다. [Taints][taints]와 같은 클러스터의 다른 옵션을 사용 하는 것을 고려할 수도 있습니다.
 
 ## <a name="verify-your-version-of-helm"></a>투구 버전 확인
 
-명령을 `helm version` 사용하여 설치한 Helm 버전을 확인합니다.
+`helm version` 명령을 사용 하 여 설치한 투구 버전을 확인 합니다.
 
 ```console
 helm version
 ```
 
-다음 예제에서는 Helm 버전 3.0.0이 설치되어 있는 것을 보여 주며 다음과 같은 것을 보여 주며 다음과 같은 것을 보여 주며 다음과 같은 것을 보여 주며 다음과 같은 것을 보여 주
+다음 예제에서는 3.0.0 설치 된 투구 버전을 보여 줍니다.
 
 ```console
 $ helm version
@@ -44,13 +44,13 @@ $ helm version
 version.BuildInfo{Version:"v3.0.0", GitCommit:"e29ce2a54e96cd02ccfce88bee4f58bb6e2a28b6", GitTreeState:"clean", GoVersion:"go1.13.4"}
 ```
 
-Helm v3의 경우 Helm [v3 섹션의](#install-an-application-with-helm-v3)단계를 따릅니다. 투구 v2의 경우 Helm [v2 섹션의](#install-an-application-with-helm-v2) 단계를 따릅니다.
+투구 v3의 경우 [투구 v3 섹션](#install-an-application-with-helm-v3)의 단계를 따릅니다. 투구 v2의 경우 [투구 v2 섹션](#install-an-application-with-helm-v2) 의 단계를 따르세요.
 
-## <a name="install-an-application-with-helm-v3"></a>Helm v3로 응용 프로그램 설치
+## <a name="install-an-application-with-helm-v3"></a>투구 v3을 사용 하 여 응용 프로그램 설치
 
-### <a name="add-the-official-helm-stable-charts-repository"></a>공식 헬름 안정 차트 저장소 추가
+### <a name="add-the-official-helm-stable-charts-repository"></a>공식 투구 안정적인 차트 리포지토리 추가
 
-helm [리포지토리][helm-repo-add] 명령을 사용하여 공식 Helm 안정 차트 저장소를 추가합니다.
+[투구 리포지토리][helm-repo-add] 명령을 사용 하 여 공식 투구 안정적인 차트 리포지토리를 추가 합니다.
 
 ```console
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
@@ -58,7 +58,7 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 ### <a name="find-helm-charts"></a>Helm 차트 찾기
 
-Helm 차트는 Kubernetes 클러스터에 애플리케이션을 배포하는 데 사용됩니다. 미리 만들어진 투구 차트를 검색하려면 [helm 검색][helm-search] 명령을 사용합니다.
+Helm 차트는 Kubernetes 클러스터에 애플리케이션을 배포하는 데 사용됩니다. 미리 만든 투구 차트를 검색 하려면 [투구 검색][helm-search] 명령을 사용 합니다.
 
 ```console
 helm search repo stable
@@ -126,7 +126,7 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ### <a name="run-helm-charts"></a>Helm 차트 실행
 
-Helm을 사용하여 차트를 설치하려면 [helm 설치][helm-install-command] 명령을 사용하고 설치할 릴리스 이름과 차트 이름을 지정합니다. 헬름 차트 설치를 확인하려면 Helm 차트를 사용하여 기본 nginx 배포를 설치해 보겠습니다.
+투구를 사용 하 여 차트를 설치 하려면 [투구 install][helm-install-command] 명령을 사용 하 고 릴리스 이름 및 설치할 차트 이름을 지정 합니다. 동작에서 투구 차트 설치를 보려면 투구 차트를 사용 하 여 기본 nginx 배포를 설치 해 보겠습니다.
 
 ```console
 helm install my-nginx-ingress stable/nginx-ingress \
@@ -154,7 +154,7 @@ You can watch the status by running 'kubectl --namespace default get services -o
 ...
 ```
 
-`kubectl get services` 명령을 사용하여 서비스의 *외부 IP를* 가져옵니다. 예를 들어, 아래 명령은 *my-nginx-inres-컨트롤러* 서비스에 대한 *외부 IP를* 보여 주십니다.
+`kubectl get services` 명령을 사용 하 여 서비스의 *외부 IP* 를 가져옵니다. 예를 들어 아래 명령은 *nginx* 서비스에 대 한 *외부 IP* 를 표시 합니다.
 
 ```console
 $ kubectl --namespace default get services -o wide -w my-nginx-ingress-controller
@@ -163,15 +163,15 @@ NAME                          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT
 my-nginx-ingress-controller   LoadBalancer   10.0.123.1     <EXTERNAL-IP>   80:31301/TCP,443:31623/TCP   96s   app=nginx-ingress,component=controller,release=my-nginx-ingress
 ```
 
-### <a name="list-releases"></a>목록 릴리스
+### <a name="list-releases"></a>릴리스 목록
 
-클러스터에 설치된 릴리스 목록을 보려면 명령을 `helm list` 사용합니다.
+클러스터에 설치 된 릴리스 목록을 보려면 `helm list` 명령을 사용 합니다.
 
 ```console
 helm list
 ```
 
-다음 예제에서는 이전 단계에서 배포된 *my-nginx-inress* 릴리스를 보여 주며 있습니다.
+다음 예제에서는 이전 단계에서 배포한 *nginx 수신* 릴리스를 보여 줍니다.
 
 ```console
 $ helm list
@@ -182,13 +182,13 @@ my-nginx-ingress    default     1           2019-11-22 10:08:06.048477 -0600 CST
 
 ### <a name="clean-up-resources"></a>리소스 정리
 
-Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이러한 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 이러한 리소스를 정리하려면 [helm 제거][helm-cleanup] 명령을 사용하고 이전 `helm list` 명령에 있는 것처럼 릴리스 이름을 지정합니다.
+Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이러한 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 이러한 리소스를 정리 하려면 [투구 uninstall][helm-cleanup] 명령을 사용 하 여 이전 `helm list` 명령에 나와 있는 대로 릴리스 이름을 지정 합니다.
 
 ```console
 helm uninstall my-nginx-ingress
 ```
 
-다음 예제에서는 *my-nginx-inress라는* 릴리스가 제거되었음을 보여 주며,
+다음 예제에서는 *nginx* 라는 릴리스가 제거 된 것을 보여 줍니다.
 
 ```console
 $ helm uninstall my-nginx-ingress
@@ -196,7 +196,7 @@ $ helm uninstall my-nginx-ingress
 release "my-nginx-ingress" uninstalled
 ```
 
-## <a name="install-an-application-with-helm-v2"></a>Helm v2로 응용 프로그램 설치
+## <a name="install-an-application-with-helm-v2"></a>투구 v2를 사용 하 여 응용 프로그램 설치
 
 ### <a name="create-a-service-account"></a>서비스 계정 만들기
 
@@ -239,7 +239,7 @@ RBAC 지원 Kubernetes 클러스터를 사용하여 Tiller가 클러스터에 �
 
 ### <a name="configure-helm"></a>Helm 구성
 
-기본 Tiller를 AKS 클러스터에 배포하려면 [helm init][helm2-init] 명령을 사용합니다. 클러스터가 RBAC를 사용할 수 없는 경우 `--service-account` 인수 및 값을 제거합니다. 다음 예제는 기록 [최대를][helm2-history-max] 200으로 설정합니다.
+기본 Tiller를 AKS 클러스터에 배포하려면 [helm init][helm2-init] 명령을 사용합니다. 클러스터가 RBAC를 사용할 수 없는 경우 `--service-account` 인수 및 값을 제거합니다. 또한 다음 예제에서는 [기록-최대][helm2-history-max] 를 200으로 설정 합니다.
 
 Tiller 및 Helm에 대한 TLS/SSL를 구성한 경우 이 기본 초기화 단계를 건너뛰고 대신 다음 예제와 같이 필수 `--tiller-tls-`를 제공합니다.
 
@@ -263,7 +263,7 @@ helm init \
 
 ### <a name="find-helm-charts"></a>Helm 차트 찾기
 
-Helm 차트는 Kubernetes 클러스터에 애플리케이션을 배포하는 데 사용됩니다. 미리 만들어진 투구 차트를 검색하려면 [helm 검색][helm2-search] 명령을 사용합니다.
+Helm 차트는 Kubernetes 클러스터에 애플리케이션을 배포하는 데 사용됩니다. 미리 만든 투구 차트를 검색 하려면 [투구 검색][helm2-search] 명령을 사용 합니다.
 
 ```console
 helm search
@@ -317,7 +317,7 @@ Update Complete.
 
 ### <a name="run-helm-charts"></a>Helm 차트 실행
 
-Helm을 사용하여 차트를 설치하려면 [helm install][helm2-install-command] 명령을 사용하고 설치할 차트의 이름을 지정합니다. 헬름 차트 설치를 확인하려면 Helm 차트를 사용하여 기본 nginx 배포를 설치해 보겠습니다. TLS/SSL을 구성한 경우 `--tls` 매개 변수를 추가하여 Helm 클라이언트 인증서를 사용합니다.
+Helm을 사용하여 차트를 설치하려면 [helm install][helm2-install-command] 명령을 사용하고 설치할 차트의 이름을 지정합니다. 동작에서 투구 차트 설치를 보려면 투구 차트를 사용 하 여 기본 nginx 배포를 설치 해 보겠습니다. TLS/SSL을 구성한 경우 `--tls` 매개 변수를 추가하여 Helm 클라이언트 인증서를 사용합니다.
 
 ```console
 helm install stable/nginx-ingress \
@@ -352,11 +352,11 @@ flailing-alpaca-nginx-ingress-default-backend  ClusterIP     10.0.44.97  <none> 
 ...
 ```
 
-nginx-inress-controller 서비스의 *외부 IP* 주소가 채워지고 웹 브라우저로 액세스할 수 있도록 하는 데 1~2분 정도 걸립니다.
+Nginx 서비스의 *외부 IP* 주소에 대해 1 ~ 2 시간이 걸리고 웹 브라우저를 사용 하 여 액세스할 수 있습니다.
 
 ### <a name="list-helm-releases"></a>Helm 릴리스 나열
 
-클러스터에 설치된 릴리스 목록을 보려면 [helm list][helm2-list] 명령을 사용합니다. 다음 예제에서는 이전 단계에서 배포된 nginx-inress 릴리스를 보여 주습니다. TLS/SSL을 구성한 경우 `--tls` 매개 변수를 추가하여 Helm 클라이언트 인증서를 사용합니다.
+클러스터에 설치된 릴리스 목록을 보려면 [helm list][helm2-list] 명령을 사용합니다. 다음 예제에서는 이전 단계에서 배포 된 nginx를 수신 하는 방법을 보여 줍니다. TLS/SSL을 구성한 경우 `--tls` 매개 변수를 추가하여 Helm 클라이언트 인증서를 사용합니다.
 
 ```console
 $ helm list
@@ -367,7 +367,7 @@ flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingres
 
 ### <a name="clean-up-resources"></a>리소스 정리
 
-Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이러한 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 이러한 리소스를 정리하려면 `helm delete` 명령을 사용하고 이전 `helm list` 명령에서 찾은 릴리스 이름을 지정합니다. 다음 예제는 *도리깨 알파카라는*릴리스를 삭제합니다.
+Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이러한 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 이러한 리소스를 정리하려면 `helm delete` 명령을 사용하고 이전 `helm list` 명령에서 찾은 릴리스 이름을 지정합니다. 다음 예제에서는 *flailing-alpaca*라는 릴리스를 삭제 합니다.
 
 ```console
 $ helm delete flailing-alpaca

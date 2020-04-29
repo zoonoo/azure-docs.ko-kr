@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
 ms.openlocfilehash: a25f6877f1fb4940fb1de127b81d83975c8e835c
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82142719"
 ---
 # <a name="create-virtual-machine-offer"></a>Virtual Machine 제안 만들기
@@ -29,7 +29,7 @@ ms.locfileid: "82142719"
 |  ---------------   |  ---------------  |
 |    SKU            |  제안의 가장 작은 구매 가능 단위입니다. 단일 제안(제품 클래스)은 여러 개의 SKU를 연결하여 지원되는 기능, VM 이미지 유형 및 청구 모델을 구별할 수 있습니다. |
 |  Marketplace       | 마케팅, 법적 정보 및 잠재 고객 관리 자산 및 사양이 포함됩니다.  <ul><li> 마케팅 자산에는 제안 이름, 설명 및 로고가 포함됩니다.</li> <li> 법적 정보 자산에는 개인정보처리방침, 사용 약관 및 기타 법률 문서가 포함됩니다.</li>  <li> 잠재 고객 관리 정책을 사용하면 Azure Marketplace 최종 사용자 포털에서 잠재 고객을 처리하는 방법을 지정할 수 있습니다.</li> </ul> |
-| 지원            | 지원 연락처 및 정책 정보가 포함됩니다. |
+| Support(지원)            | 지원 연락처 및 정책 정보가 포함됩니다. |
 | 시험 사용         | 최종 사용자가 제안을 구입하기 전에 해당 제안을 테스트할 수 있도록 하는 자산을 정의합니다. |
 |  |  |
 

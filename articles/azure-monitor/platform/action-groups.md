@@ -7,10 +7,10 @@ ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: 339b11664308962962c59b2e9386ff122681293a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116216"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
@@ -195,7 +195,7 @@ Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```
 
-### <a name="sms"></a>sms
+### <a name="sms"></a>SMS
 추가 중요 정보는 [요금 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 및 [SMS 경고 동작](../../azure-monitor/platform/alerts-sms-behavior.md) 을 참조 하세요. 
 
 작업 그룹에서 제한 된 수의 SMS 작업이 있을 수 있습니다.

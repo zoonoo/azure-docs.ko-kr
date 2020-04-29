@@ -1,5 +1,5 @@
 ---
-title: 단일 및 풀린 데이터베이스에 대한 VNet 끝점 및 규칙
+title: 단일 및 풀링된 데이터베이스에 대 한 VNet 끝점 및 규칙
 description: 서브넷을 Virtual Network 서비스 엔드포인트로 표시합니다. 그런 다음 해당 엔드포인트를 가상 네트워크 규칙으로 Azure SQL Database의 ACL에 추가합니다. 그러면 SQL Database가 해당 서브넷에 있는 모든 가상 머신과 다른 노드에서 보낸 통신을 수락합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
 ms.openlocfilehash: 7032f9e8f57ea9400bf6a92f89b13fa1866f8fc1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414386"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>데이터베이스 서버에 대한 가상 네트워크 서비스 엔드포인트 및 규칙 사용
@@ -60,7 +60,7 @@ Virtual Network 서비스 엔드포인트 관리에는 보안 역할 분리가 �
 
 네트워크 관리자 및 데이터베이스 관리자 역할에는 가상 네트워크 규칙을 관리하는 데 필요한 것보다 많은 기능이 포함됩니다. 해당 기능의 하위 집합만 필요합니다.
 
-Azure에서 [RBAC(역할 기반 액세스 제어)][rbac-what-is-813s]를 사용하여 기능의 필요한 하위 집합만 포함된 단일 사용자 지정 역할을 만들 수도 있습니다. 사용자 지정 역할은 네트워크 관리자 또는 데이터베이스 관리자를 포함 하는 대신 사용할 수 있습니다. 사용자 지정 역할에 사용자를 추가하는 경우 다른 두 가지 주요 관리자 역할에 사용자를 추가하는 대신 보안 노출의 노출 영역이 낮아집니다.
+Azure에서 [RBAC(역할 기반 액세스 제어)][rbac-what-is-813s]를 사용하여 기능의 필요한 하위 집합만 포함된 단일 사용자 지정 역할을 만들 수도 있습니다. 네트워크 관리자 또는 데이터베이스 관리자를 포함 하는 대신 사용자 지정 역할을 사용할 수 있습니다. 사용자를 사용자 지정 역할에 추가 하 고 다른 두 개의 주요 관리자 역할에 사용자를 추가 하는 경우 보안 노출의 노출 영역이 낮습니다.
 
 > [!NOTE]
 > 일부 경우에 Azure SQL Database 및 VNet 서브넷은 서로 다른 구독에 있습니다. 이러한 경우에는 다음과 같은 구성을 확인해야 합니다.
@@ -111,18 +111,18 @@ Azure Storage는 사용자가 Azure Storage 계정에 대한 연결성을 제한
 
 PolyBase는 대개 Azure Storage 계정에서 Azure SQL Data Warehouse로 데이터를 로드하는 데 사용됩니다. 데이터를 로드하는 Azure Storage 계정이 액세스를 VNet 서브넷 집합으로만 제한하는 경우 PolyBase에서 계정으로의 연결은 중단됩니다. Azure SQL Data Warehouse가 VNet으로 보호되는 Azure Storage에 연결되는 PolyBase 가져오기 및 내보내기 시나리오를 사용하도록 설정하는 경우 아래에 설명된 단계를 따르세요.
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>전제 조건
 
 - [이 가이드](https://docs.microsoft.com/powershell/azure/install-az-ps)를 사용하여 Azure PowerShell을 설치합니다.
 - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 범용 v2로 업그레이드해야 합니다.
 - Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다.** 를 설정해야 합니다. 자세한 내용은 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)를 참조하세요.
 
 > [!IMPORTANT]
-> PowerShell Azure 리소스 관리자 모듈은 Azure SQL Database에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈용입니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 계속 받을 것입니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 거의 동일합니다. 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개를](/powershell/azure/new-azureps-module-az)참조하십시오.
+> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. AzureRM 모듈은 12 월 2020 일까 때까지 버그 수정을 계속 받습니다.  Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다. 호환성에 대 한 자세한 내용은 [새 Azure PowerShell Az Module 소개](/powershell/azure/new-azureps-module-az)를 참조 하세요.
 
 #### <a name="steps"></a>단계
 
-1. PowerShell에서 Azure SQL 데이터 웨어하우스 인스턴스를 Azure 활성 디렉터리(AAD)를 사용하여 호스팅하는 Azure SQL **Server를 등록합니다.**
+1. PowerShell에서 AAD (Azure Active Directory)를 사용 하 여 Azure SQL Data Warehouse 인스턴스를 호스트 하는 **Azure SQL Server를 등록** 합니다.
 
    ```powershell
    Connect-AzAccount
@@ -136,7 +136,7 @@ PolyBase는 대개 Azure Storage 계정에서 Azure SQL Data Warehouse로 데이
    > - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 **v2로 업그레이드**해야 합니다.
    > - Azure Data Lake Storage Gen2의 알려진 문제에 대해서는 이 [가이드](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues)를 참조하세요.
 
-1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가**를 클릭합니다. 단계 #1과 같이 Azure Active Directory(AAD)에 등록한 Azure SQL 데이터 웨어하우스를 호스팅하는 Azure SQL Server에 **저장소 Blob 데이터 기여자** RBAC 역할을 할당합니다.
+1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가**를 클릭합니다. 1 단계에서와 같이 AAD (Azure Active Directory에 등록 한 Azure SQL Data Warehouse를 호스팅하는 Azure SQL Server에 **저장소 Blob 데이터 참가자** RBAC 역할을 할당 합니다.
 
    > [!NOTE]
    > 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. Azure 리소스에 대한 다양한 기본 제공 역할을 보려면 이 [가이드](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)를 참조하세요.
@@ -159,15 +159,15 @@ PolyBase는 대개 Azure Storage 계정에서 Azure SQL Data Warehouse로 데이
        > - 이 메커니즘은 내부적으로 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 사용하므로 Azure Storage 액세스 키로 SECRET을 지정할 필요가 없습니다.
        > - PolyBase 연결을 VNet에서 보호되는 Azure Storage 계정에 사용하려면 IDENTITY 이름이 **'관리 서비스 ID'** 여야 합니다.
 
-   1. PolyBase를 사용하여 `abfss://` 범용 v2 저장소 계정에 연결하기 위한 스키마를 사용하여 외부 데이터 원본을 만듭니다.
+   1. PolyBase를 사용 하 여 `abfss://` 범용 v2 저장소 계정에 연결 하기 위한 스키마를 사용 하 여 외부 데이터 원본 만들기:
 
        ```SQL
        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
        ```
 
        > [!NOTE]
-       > - 범용 v1 또는 Blob Storage 계정과 연결된 외부 테이블이 이미 있는 경우 먼저 해당 외부 테이블을 삭제한 다음, 해당 외부 데이터 원본을 삭제해야 합니다. 그런 다음 위와 `abfss://` 같이 범용 v2 저장소 계정에 연결하는 스키마를 사용하여 외부 데이터 원본을 만들고 이 새 외부 데이터 원본을 사용하여 모든 외부 테이블을 다시 만듭니다. [스크립트 생성 및 게시 마법사](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard)를 사용하여 모든 외부 테이블용 create-scripts를 쉽게 생성할 수 있습니다.
-       > - 구성표에 `abfss://` 대한 자세한 내용은 이 [가이드를](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri)참조하십시오.
+       > - 범용 v1 또는 Blob Storage 계정과 연결된 외부 테이블이 이미 있는 경우 먼저 해당 외부 테이블을 삭제한 다음, 해당 외부 데이터 원본을 삭제해야 합니다. 그런 다음 위와 같이 범용 v2 `abfss://` 저장소 계정에 연결 하는 구성표를 사용 하 여 외부 데이터 원본을 만들고이 새 외부 데이터 원본을 사용 하 여 모든 외부 테이블을 다시 만듭니다. [스크립트 생성 및 게시 마법사](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard)를 사용하여 모든 외부 테이블용 create-scripts를 쉽게 생성할 수 있습니다.
+       > - 구성표에 `abfss://` 대 한 자세한 내용은이 [가이드](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri)를 참조 하세요.
        > - CREATE EXTERNAL DATA SOURCE에 대한 자세한 내용은 이 [가이드](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)를 참조하세요.
 
    1. [외부 테이블](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)을 사용하여 평소와 같이 쿼리합니다.
@@ -217,7 +217,7 @@ PowerShell을 사용하여 **IgnoreMissingVNetServiceEndpoint** 플래그를 설
 
 ## <a name="powershell-alternative"></a>PowerShell 대체
 
-스크립트는 PowerShell cmdlet **New-AzSqlServerVirtualNetworkRule** 또는 az [네트워크 vnet 을 사용하여](/cli/azure/network/vnet#az-network-vnet-create)가상 네트워크 규칙을 만들 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Azure SQL Database에 대한 Virtual Network 서비스 엔드포인트 및 규칙 만들기][sql-db-vnet-service-endpoint-rule-powershell-md-52d]를 참조하세요.
+또한 스크립트는 PowerShell cmdlet **AzSqlServerVirtualNetworkRule** 또는 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용 하 여 가상 네트워크 규칙을 만들 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 Azure SQL Database에 대한 Virtual Network 서비스 엔드포인트 및 규칙 만들기][sql-db-vnet-service-endpoint-rule-powershell-md-52d]를 참조하세요.
 
 ## <a name="rest-api-alternative"></a>REST API 대체
 
@@ -225,7 +225,7 @@ PowerShell을 사용하여 **IgnoreMissingVNetServiceEndpoint** 플래그를 설
 
 - [가상 네트워크 규칙: 작업][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 Azure SQL Database에 관련된 특정 Virtual Network 서비스 엔드포인트 *형식 이름*으로 태그가 지정된 서브넷이 있어야 합니다.
 
@@ -238,12 +238,12 @@ Azure SQL Database에 관련된 특정 Virtual Network 서비스 엔드포인트
 
 1. [Azure Portal][http-azure-portal-link-ref-477t]에 로그인합니다.
 
-2. **SQL 서버를**검색하고 선택한 다음 서버를 선택합니다. **보안에서** **방화벽 및 가상 네트워크를 선택합니다.**
+2. **SQL 서버**를 검색 하 고 선택한 다음 서버를 선택 합니다. **보안**에서 **방화벽 및 가상 네트워크**를 선택 합니다.
 
 3. **Azure 서비스에 대한 액세스 허용** 컨트롤을 [끄기]로 설정합니다.
 
     > [!IMPORTANT]
-    > 컨트롤을 ON으로 설정하면 Azure SQL Database 서버는 Azure 경계 내의 모든 서브넷(예: Azure 데이터 센터에 대해 정의된 범위 내에서 인식되는 IP 주소 중 하나에서 시작된)의 통신을 허용합니다. 제어 집합을 ON으로 유지하면 보안 관점에서 과도하게 액세스할 수도 있습니다. Microsoft Azure Virtual Network 서비스 엔드포인트 기능을 SQL Database의 가상 네트워크 규칙 기능과 함께 사용하여 보안 노출 영역을 줄일 수 있습니다.
+    > 제어를 설정 된 상태로 두면 Azure SQL Database 서버는 azure 경계 내의 모든 서브넷 (즉, Azure 데이터 센터에 대해 정의 된 범위 내에 있는 것으로 인식 되는 IP 주소 중 하나에서 시작)의 통신을 수락 합니다. 제어 집합을 ON으로 유지하면 보안 관점에서 과도하게 액세스할 수도 있습니다. Microsoft Azure Virtual Network 서비스 엔드포인트 기능을 SQL Database의 가상 네트워크 규칙 기능과 함께 사용하여 보안 노출 영역을 줄일 수 있습니다.
 
 4. **가상 네트워크** 섹션에서 **+ 기존 항목 추가** 컨트롤을 클릭합니다.
 
@@ -273,7 +273,7 @@ Azure SQL Database에 관련된 특정 Virtual Network 서비스 엔드포인트
 
 <a name="anchor-how-to-links-60h" />
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 
 - [Azure 가상 네트워크 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]
 - [Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙][sql-db-firewall-rules-config-715d]
@@ -282,7 +282,7 @@ Azure SQL Database에 대한 가상 네트워크 규칙 기능은 2017년 9월 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PowerShell을 사용하여 가상 네트워크 서비스 끝점을 만든 다음 Azure SQL Database에 대한 가상 네트워크 규칙을 만듭니다.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [PowerShell을 사용 하 여 가상 네트워크 서비스 끝점을 만든 다음 Azure SQL Database에 대 한 가상 네트워크 규칙을 만듭니다.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 - REST API를 사용한 [가상 네트워크 규칙: 작업][rest-api-virtual-network-rules-operations-862r]
 
 <!-- Link references, to images. -->

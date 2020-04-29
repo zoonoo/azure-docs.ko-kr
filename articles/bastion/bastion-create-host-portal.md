@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: cherylmc
 ms.openlocfilehash: 1fa4b6a33b055f2042c9bf941a33ae03ead6ebde
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82148332"
 ---
 # <a name="create-an-azure-bastion-host-using-the-portal"></a>포털을 사용 하 여 Azure 방호 호스트 만들기
@@ -20,7 +20,7 @@ ms.locfileid: "82148332"
 
 모든 설정을 수동으로 지정 하거나 기존 VM에 해당 하는 설정을 사용 하 여 포털에서 새 요새 호스트 리소스를 만들 수 있습니다. VM 설정을 사용 하 여 요새 호스트를 만들려면 [빠른](quickstart-host-portal.md) 시작 문서를 참조 하세요. 필요에 따라 [Azure PowerShell](bastion-create-host-powershell.md) 를 사용 하 여 Azure 방호 호스트를 만들 수 있습니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 요새는 다음과 같은 Azure 공용 지역에서 제공 됩니다.
 

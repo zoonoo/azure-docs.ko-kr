@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: dsindona
 ms.openlocfilehash: 9f16d26fa95254282e453cd7bf35d85f8b81ed73
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143206"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Azure Virtual Machine 이미지의 유효성을 사전 검사하는 자체 테스트 클라이언트 만들기
@@ -65,7 +65,7 @@ Request body:    The Request body parameters should use the following JSON forma
 다음 표에서는 API 필드에 대해 설명합니다.
 
 
-|      필드         |    설명    |
+|      필드         |    Description    |
 |  ---------------   |  ---------------  |
 |  권한 부여     |  "Xxxxx" 문자열에는 PowerShell을 사용 하 여 만들 수 있는 AD (Azure Active Directory) 클라이언트 토큰이 포함 되어 있습니다.          |
 |  DNSName           |  테스트할 VM의 DNS 이름    |
@@ -272,9 +272,9 @@ https://isvapp.azurewebsites.net/selftest-vm
     ![앱에 대한 API 액세스 사용](./media/stclient-enable-api-access.png)
 
 14. **선택**을 클릭합니다.
-15. **완료** 를 선택합니다.
+15. **완료**를 선택합니다.
 16. **설정** 아래에서 **속성**을 선택합니다.
-17. **속성** 아래에서 **다중 테넌트**까지 아래로 스크롤합니다. **Yes**를 선택합니다.
+17. **속성** 아래에서 **다중 테넌트**까지 아래로 스크롤합니다. **예**를 선택합니다.
 
     ![앱에 대한 다중 테넌트 구성](./media/stclient-yes-multitenant.png)
 

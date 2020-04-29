@@ -12,10 +12,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
 ms.openlocfilehash: ffebb8f82a69f0404974e6c8ea91bec951ca80e1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415777"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 다시 구성
@@ -27,7 +27,7 @@ ms.locfileid: "81415777"
 ## <a name="data-factory-ui"></a>Data Factory UI 
 Data Factory UI를 사용하여 Azure-SSIS IR을 중지하거나, 편집/다시 구성하거나 삭제할 수 있습니다. 
 
-1. 데이터 **팩터리 UI에서** **편집** 탭으로 전환합니다. 데이터 팩터리 UI를 시작하려면 데이터 팩터리의 홈 페이지에서 **모니터 작성&을** 클릭합니다.
+1. **DATA FACTORY UI**에서 **편집** 탭으로 전환 합니다. Data Factory UI를 시작 하려면 데이터 팩터리의 홈 페이지에서 **작성자 & 모니터** 를 클릭 합니다.
 2. 왼쪽 창에서 **연결**을 클릭합니다.
 3. 오른쪽 창에서 **Integration Runtime**으로 전환합니다. 
 4. 작업 열에서 단추를 사용하여 통합 런타임을 **중지**, **편집** 또는 **삭제**할 수 있습니다. **작업** 열에서 **코드** 단추를 사용하여 통합 런타임과 연결된 JSON 정의를 볼 수 있습니다.  
@@ -49,17 +49,17 @@ Azure-SSIS 통합 런타임 인스턴스를 프로비전하고 시작한 후에�
 
 ### <a name="reconfigure-an-azure-ssis-ir"></a>Azure-SSIS IR 다시 구성
 
-1. 먼저 [Stop-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/stop-Azdatafactoryv2integrationruntime) cmdlet을 사용하여 Azure-SSIS 통합 런타임을 중지합니다. 이 명령은 모든 노드를 해제하고 청구를 중지합니다.
+1. 먼저 [AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/stop-Azdatafactoryv2integrationruntime) cmdlet을 사용 하 여 Azure SSIS 통합 런타임을 중지 합니다. 이 명령은 모든 노드를 해제하고 청구를 중지합니다.
 
     ```powershell
     Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
     ```
-2. 그런 다음 [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) cmdlet을 사용하여 Azure-SSIS IR을 다시 구성합니다. 다음 샘플 명령은 Azure-SSIS Integration Runtime을 5개 노드로 확장합니다.
+2. 그런 다음 [AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) cmdlet을 사용 하 여 Azure-SSIS IR를 다시 구성 합니다. 다음 샘플 명령은 Azure-SSIS Integration Runtime을 5개 노드로 확장합니다.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
     ```  
-3. 그런 다음 [시작-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) cmdlet을 사용하여 Azure-SSIS 통합 런타임을 시작합니다. 이 명령은 SSIS 패키지 실행을 위한 모든 노드를 할당합니다.   
+3. 그런 다음 [AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) cmdlet을 사용 하 여 Azure SSIS 통합 런타임을 시작 합니다. 이 명령은 SSIS 패키지 실행을 위한 모든 노드를 할당합니다.   
 
     ```powershell
     Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
@@ -95,7 +95,7 @@ Azure-SSIS 통합 런타임 인스턴스를 프로비전하고 시작한 후에�
 ## <a name="next-steps"></a>다음 단계
 Azure-SSIS 런타임에 대한 자세한 내용은 다음 항목을 참조하세요. 
 
-- [Azure-SSIS 통합 런타임.](concepts-integration-runtime.md#azure-ssis-integration-runtime) 이 문서는 Azure-SSIS IR을 비롯한 일반적인 통합 런타임에 대한 개념 정보를 제공합니다. 
+- [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). 이 문서는 Azure-SSIS IR을 비롯한 일반적인 통합 런타임에 대한 개념 정보를 제공합니다. 
 - [자습서: Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md). 이 문서는 Azure-SSIS IR을 만들고 Azure SQL 데이터베이스를 사용하여 SSIS 카탈로그를 호스트하는 단계별 지침을 제공합니다. 
 - [방법: Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md). 자습서의 내용을 보충하는 이 문서에서는 Azure SQL Database Managed Instance를 사용하고 IR을 가상 네트워크에 조인하는 방법에 대한 지침을 제공합니다. 
 - [Azure-SSIS IR을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network.md). 이 문서에서는 Azure-SSIS IR을 Azure 가상 네트워크에 조인하는 방법에 대한 개념 정보를 제공합니다. 또한 Azure Portal을 사용하여 Azure-SSIS IR이 가상 네트워크에 조인할 수 있도록 가상 네트워크를 구성하는 단계도 제공합니다. 

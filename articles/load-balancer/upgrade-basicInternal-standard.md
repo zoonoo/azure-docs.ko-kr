@@ -1,6 +1,6 @@
 ---
-title: 기본 내부에서 표준 내부 - Azure 로드 밸러커로 업그레이드
-description: 이 문서에서는 Azure 내부 로드 밸러서를 기본 SKU에서 표준 SKU로 업그레이드하는 방법을 보여 주며
+title: 기본 내부에서 표준 내부-Azure Load Balancer로 업그레이드
+description: 이 문서에서는 Azure 내부 Load Balancer를 기본 SKU에서 표준 SKU로 업그레이드 하는 방법을 보여 줍니다.
 services: load-balancer
 author: irenehua
 ms.service: load-balancer
@@ -8,71 +8,71 @@ ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
 ms.openlocfilehash: 239dc0f3133a5adf59a23d333131c91d3a655597
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81770382"
 ---
-# <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Azure 내부 부하 분산 검사기 업그레이드- 아웃바운드 연결이 필요하지 않습니다.
-[Azure 표준 로드 밸러저는](load-balancer-overview.md) 영역 중복성을 통해 풍부한 기능과 고가용성을 제공합니다. 로드 밸러워 SKU에 대한 자세한 내용은 [비교 표를](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus)참조하십시오.
+# <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Azure 내부 Load Balancer 업그레이드-아웃 바운드 연결이 필요 하지 않음
+[Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus)를 참조 하세요.
 
-이 문서에서는 기본 로드 밸러저에서 표준 로드 밸러워로 트래픽을 마이그레이션하는 것과 함께 기본 로드 밸러블러와 동일한 구성의 표준 로드 밸워서를 만드는 PowerShell 스크립트를 소개합니다.
+이 문서에서는 기본 Load Balancer에서 표준 Load Balancer로의 트래픽을 마이그레이션하는 것과 함께 기본 Load Balancer와 동일한 구성을 사용 하 여 표준 Load Balancer를 만드는 PowerShell 스크립트를 소개 합니다.
 
 ## <a name="upgrade-overview"></a>업그레이드 개요
 
-Azure PowerShell 스크립트는 다음을 수행하는 데 사용할 수 있습니다.
+다음을 수행 하는 Azure PowerShell 스크립트를 사용할 수 있습니다.
 
-* 지정한 위치에 표준 내부 SKU 부하 밸러커를 만듭니다. 표준 내부 부하 밸런서에서 [아웃바운드 연결이](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 제공되지 않습니다.
-* 기본 SKU 로드 밸러블러의 구성을 새로 만든 표준 로드 밸러블러에 원활하게 복사합니다.
-* 프라이빗 IP를 기본 로드 밸러저에서 새로 생성된 표준 로드 밸러저로 원활하게 이동합니다.
-* VM을 기본 로드 밸랜서의 백 엔드 풀에서 표준 로드 밸러서의 백 엔드 풀로 원활하게 이동
+* 지정 하는 위치에 표준 내부 SKU Load Balancer을 만듭니다. [아웃 바운드 연결은](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 표준 내부 Load Balancer에서 제공 되지 않습니다.
+* 기본 SKU Load Balancer의 구성을 새로 만든 표준 Load Balancer에 원활 하 게 복사 합니다.
+* 기본 Load Balancer에서 새로 만든 표준 Load Balancer으로 개인 Ip를 원활 하 게 이동 합니다.
+* 기본 Load Balancer의 백 엔드 풀에서 표준 Load Balancer의 백 엔드 풀로 Vm을 원활 하 게 이동 합니다.
 
-### <a name="caveatslimitations"></a>주의 사항\제한 사항
+### <a name="caveatslimitations"></a>Caveats\Limitations
 
-* 스크립트는 아웃바운드 연결이 필요하지 않은 경우에만 내부 로드 밸런서 업그레이드를 지원합니다. 일부 VM에 대한 [아웃바운드 연결이](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 필요한 경우 이 [페이지를](upgrade-InternalBasic-To-PublicStandard.md) 참조하십시오. 
-* 표준 로드 밸러블러가 다른 리전에서 생성되는 경우 이전 지역에 있는 VM을 새로 만든 표준 로드 밸러커에 연결할 수 없습니다. 이러한 제한을 해결하려면 새 리전에서 새 VM을 만들어야 합니다.
-* 로드 밸런서에 프런트 엔드 IP 구성 또는 백 엔드 풀이 없는 경우 스크립트를 실행하는 오류가 발생할 수 있습니다. 비어 있지 않은지 확인합니다.
+* 스크립트는 아웃 바운드 연결이 필요 하지 않은 내부 Load Balancer 업그레이드만 지원 합니다. 일부 Vm에 대 한 [아웃 바운드 연결이](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 필요한 경우에는이 [페이지](upgrade-InternalBasic-To-PublicStandard.md) 에서 지침을 참조 하세요. 
+* 표준 부하 분산 장치를 다른 지역에 만든 경우 이전 지역의 기존 Vm을 새로 만든 표준 Load Balancer에 연결할 수 없습니다. 이 제한 사항을 해결 하려면 새 지역에 새 VM을 만들어야 합니다.
+* Load Balancer 프런트 엔드 IP 구성 또는 백 엔드 풀이 없는 경우 스크립트를 실행 하는 동안 오류가 발생할 수 있습니다. 비어 있지 않은지 확인 합니다.
 
 ## <a name="download-the-script"></a>스크립트 다운로드
 
-[PowerShell 갤러리에서](https://www.powershellgallery.com/packages/AzureILBUpgrade/2.0)마이그레이션 스크립트를 다운로드합니다.
+[PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureILBUpgrade/2.0)에서 마이그레이션 스크립트를 다운로드 합니다.
 ## <a name="use-the-script"></a>스크립트 사용
 
-로컬 PowerShell 환경 설정 및 기본 설정에 따라 두 가지 옵션이 있습니다.
+로컬 PowerShell 환경 설정 및 기본 설정에 따라 다음과 같은 두 가지 옵션을 사용할 수 있습니다.
 
-* Azure Az 모듈이 설치되어 있지 않거나 Azure Az 모듈을 제거해도 괜찮다면 이 `Install-Script` 옵션을 사용하여 스크립트를 실행하는 것이 가장 좋습니다.
-* Azure Az 모듈을 유지해야 하는 경우 스크립트를 다운로드하여 직접 실행하는 것이 가장 좋습니다.
+* Azure Az 모듈이 설치 되어 있지 않거나 Azure Az 모듈을 제거 하는 것이 아닌 경우 `Install-Script` 옵션을 사용 하 여 스크립트를 실행 하는 것이 가장 좋습니다.
+* Azure Az modules를 유지 해야 하는 경우에는 스크립트를 다운로드 하 여 직접 실행 하는 것이 가장 좋습니다.
 
-Azure Az 모듈이 설치되어 있는지 확인하려면 을 실행합니다. `Get-InstalledModule -Name az` 설치된 Az 모듈이 표시되지 않으면 이 `Install-Script` 방법을 사용할 수 있습니다.
+Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-InstalledModule -Name az`합니다. 설치 된 Az modules가 표시 되지 않으면 메서드를 `Install-Script` 사용할 수 있습니다.
 
-### <a name="install-using-the-install-script-method"></a>설치 스크립트 방법을 사용하여 설치
+### <a name="install-using-the-install-script-method"></a>Install-Script 메서드를 사용 하 여 설치
 
-이 옵션을 사용하려면 컴퓨터에 Azure Az 모듈이 설치되어 있지 않아야 합니다. 설치된 경우 다음 명령에 오류가 표시됩니다. Azure Az 모듈을 제거하거나 다른 옵션을 사용하여 스크립트를 수동으로 다운로드하여 실행할 수 있습니다.
+이 옵션을 사용 하려면 컴퓨터에 Azure Az 모듈이 설치 되어 있지 않아야 합니다. 설치 된 경우 다음 명령에서 오류를 표시 합니다. Azure Az modules를 제거 하거나 다른 옵션을 사용 하 여 스크립트를 수동으로 다운로드 하 여 실행할 수 있습니다.
   
 다음 명령을 사용하여 스크립트를 실행합니다.
 
 `Install-Script -Name AzureILBUpgrade`
 
-이 명령은 필요한 Az 모듈도 설치합니다.  
+또한이 명령은 필요한 Az modules을 설치 합니다.  
 
-### <a name="install-using-the-script-directly"></a>스크립트를 사용하여 직접 설치
+### <a name="install-using-the-script-directly"></a>스크립트를 사용 하 여 직접 설치
 
-일부 Azure Az 모듈이 설치되어 있고 제거할 수 없거나 제거할 수 없는 경우 스크립트 다운로드 링크의 수동 **다운로드** 탭을 사용하여 스크립트를 수동으로 다운로드할 수 있습니다. 스크립트는 원시 nupkg 파일로 다운로드됩니다. 이 nupkg 파일에서 스크립트를 설치하려면 [수동 패키지 다운로드](/powershell/scripting/gallery/how-to/working-with-packages/manual-download)를 참조하십시오.
+일부 Azure Az 모듈이 설치 되어 있고 제거할 수 없는 경우 (또는 제거 하지 않으려는 경우) 스크립트 다운로드 링크의 **수동 다운로드** 탭을 사용 하 여 스크립트를 수동으로 다운로드할 수 있습니다. 이 스크립트는 원시 nupkg 파일로 다운로드 됩니다. 이 nupkg 파일에서 스크립트를 설치 하려면 [수동 패키지 다운로드](/powershell/scripting/gallery/how-to/working-with-packages/manual-download)를 참조 하세요.
 
 스크립트를 실행하려면
 
-1. Azure에 연결하는 데 사용합니다. `Connect-AzAccount`
+1. 를 `Connect-AzAccount` 사용 하 여 Azure에 연결 합니다.
 
-1. Az `Import-Module Az` 모듈을 가져오는 데 사용합니다.
+1. 를 `Import-Module Az` 사용 하 여 Az 모듈을 가져옵니다.
 
-1. 필요한 매개 변수를 검사합니다.
+1. 필수 매개 변수를 검사 합니다.
 
-   * **rgName: [문자열]: 필수** – 기존 기본 로드 밸러터 및 새 표준 로드 밸러서에 대한 리소스 그룹입니다. 이 문자열 값을 찾으려면 Azure 포털로 이동하여 기본 로드 밸러터 소스를 선택하고 로드 밸러터에 대한 **개요를** 클릭합니다. 리소스 그룹은 해당 페이지에 있습니다.
-   * **oldLBName: [문자열]: 필수** – 업그레이드하려는 기존 기본 밸러서의 이름입니다. 
-   * **newlocation: [문자열]: 필수** – 표준 로드 밸러서가 생성되는 위치입니다. 선택한 기본 로드 밸러서의 동일한 위치를 다른 기존 리소스와 더 잘 연결하려면 표준 로드 밸러블러에 상속하는 것이 좋습니다.
-   * **newLBName: [문자열]: 필수** – 이 이름은 만들 표준 로드 밸러서의 이름입니다.
-1. 적절한 매개 변수를 사용하여 스크립트를 실행합니다. 완료하는 데 5~7분정도 걸릴 수 있습니다.
+   * **rgName: [String]: 필수** – 기존 기본 Load Balancer 및 새 표준 Load Balancer에 대 한 리소스 그룹입니다. 이 문자열 값을 찾으려면 Azure Portal로 이동 하 고, 기본 Load Balancer 원본을 선택 하 고, 부하 분산 장치에 대 한 **개요** 를 클릭 합니다. 리소스 그룹은 해당 페이지에 있습니다.
+   * **Oldlbname: [String]: 필수** – 업그레이드 하려는 기존 기본 분산 장치의 이름입니다. 
+   * **newlocation: [String]: Required** -표준 Load Balancer을 만들 위치입니다. 다른 기존 리소스와의 연결을 개선 하기 위해 선택한 기본 Load Balancer의 동일한 위치를 표준 Load Balancer에 상속 하는 것이 좋습니다.
+   * **newLBName: [String]: Required** – 만들려는 표준 Load Balancer의 이름입니다.
+1. 적절 한 매개 변수를 사용 하 여 스크립트를 실행 합니다. 완료 하는 데 5 ~ 7 분 정도 걸릴 수 있습니다.
 
     **예제**
 
@@ -82,18 +82,18 @@ Azure Az 모듈이 설치되어 있는지 확인하려면 을 실행합니다. `
 
 ## <a name="common-questions"></a>일반적인 질문
 
-### <a name="are-there-any-limitations-with-the-azure-powershell-script-to-migrate-the-configuration-from-v1-to-v2"></a>Azure PowerShell 스크립트에서 구성을 v1에서 v2로 마이그레이션하는 데 제한이 있습니까?
+### <a name="are-there-any-limitations-with-the-azure-powershell-script-to-migrate-the-configuration-from-v1-to-v2"></a>V1에서 v 2로 구성을 마이그레이션하기 위한 Azure PowerShell 스크립트에 제한이 있나요?
 
-예. [주의 사항/제한 사항을](#caveatslimitations)참조하십시오.
+예. [주의 사항/제한 사항](#caveatslimitations)을 참조 하세요.
 
-### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>Azure PowerShell 스크립트도 기본 로드 밸러서에서 새로 생성된 표준 로드 밸러저로 트래픽을 전환합니까?
+### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>또한 Azure PowerShell 스크립트는 기본 Load Balancer에서 새로 만든 표준 Load Balancer으로 트래픽을 전환 하나요?
 
-예, 트래픽을 마이그레이션합니다. 트래픽을 개인적으로 마이그레이션하려면 VM을 이동하지 않는 [이 스크립트를](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0) 사용하십시오.
+예, 트래픽을 마이그레이션합니다. 트래픽을 개인적으로 마이그레이션하려면이 스크립트를 사용 합니다. [이 스크립트](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0) 는 vm을 이동 하지 않습니다.
 
-### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>이 스크립트를 사용하는 데 몇 가지 문제가 있습니다. 어떻게 도움을 받을 수 있나요?
+### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>이 스크립트를 사용 하는 경우 몇 가지 문제가 발생 했습니다. 도움을 받으려면 어떻게 해야 하나요?
   
-slbupgradesupport@microsoft.com에 전자 메일을 보낼 수 있습니다 ., Azure 지원 으로 지원 사례를 열거나 둘 다 수행할 수 있습니다.
+에 slbupgradesupport@microsoft.com전자 메일을 보내거나 Azure 지원으로 지원 사례를 열거나 둘 다 수행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[표준 로드 밸워서에 대해 알아보기](load-balancer-overview.md)
+[표준 Load Balancer에 대해 알아보기](load-balancer-overview.md)

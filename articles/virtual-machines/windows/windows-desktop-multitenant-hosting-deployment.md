@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
 ms.openlocfilehash: c85eef1a5d035e23c7e63632ac92c21440b15cae
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82101555"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>다중 테넌트 호스팅 권한으로 Azure에서 Windows 10을 배포하는 방법 
@@ -26,7 +26,7 @@ Windows 10 Enterprise E3/E5 사용자 단위 또는 Windows Virtual Desktop Acce
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Azure Marketplace에서 Windows 10 이미지 배포 
 Powershell, CLI 및 Azure Resource Manager 템플릿 배포의 경우 Windows 10 이미지를 다음 publishername, 제품, SKU로 찾을 수 있습니다.
 
-| OS  |      PublisherName      |  제안 | SKU |
+| OS  |      PublisherName      |  제품 | SKU |
 |:----------|:-------------:|:------|:------|
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
@@ -49,7 +49,7 @@ if($adminAccount.Disabled)
     $adminAccount.Put()
 }
 ```
-자세한 내용은 다음을 참조하세요. 
+추가 정보는 다음 항목을 참조하세요. 
 * [Azure에 VHD를 업로드하는 방법](upload-generalized-managed.md)
 * [Azure에 업로드할 Windows VHD를 준비하는 방법](prepare-for-upload-vhd-image.md)
 

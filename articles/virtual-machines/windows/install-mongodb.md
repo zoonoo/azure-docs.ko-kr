@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: a5ba7d7fce3f3eabd223956ca8d9cc824fbd0c5f
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869446"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Azure에서 Windows VM에 MongoDB를 설치 및 구성
@@ -54,13 +54,13 @@ MongoDB 설치 및 구성을 시작하려면 원격 데스크톱을 사용하여
 ## <a name="configure-the-vm-and-mongodb"></a>VM 및 MongoDB 구성
 1. path 변수는 MongoDB 설치 관리자를 통해 업데이트되지 않습니다. path 변수에 MongoDB `bin` 위치가 없으면 MongoDB 실행 파일을 사용할 때마다 전체 경로를 지정해야 합니다. path 변수에 위치를 추가하려면:
    
-   * **시작** 메뉴를 마우스 오른쪽 단추로 클릭하고 **시스템**을 선택합니다.
+   * **시작** 메뉴를 마우스 오른쪽 단추로 클릭 하 고 **시스템**을 선택 합니다.
    * **고급 시스템 설정**을 클릭한 다음 **환경 변수**를 클릭합니다.
    * **시스템 변수**에서 **Path**를 선택하고 **편집**을 클릭합니다.
      
      ![PATH 변수 구성](./media/install-mongodb/configure-path-variables.png)
      
-     MongoDB `bin` 폴더에 경로를 추가합니다. MongoDB는 일반적으로 *C:\프로그램 파일\MongoDB에*설치됩니다. VM의 설치 경로를 확인합니다. 다음은 `PATH` 변수에 기본 MongoDB 설치 위치를 추가하는 예제입니다.
+     MongoDB `bin` 폴더에 경로를 추가합니다. MongoDB는 일반적으로 *C:\Program Files\MongoDB*에 설치 됩니다. VM의 설치 경로를 확인합니다. 다음은 `PATH` 변수에 기본 MongoDB 설치 위치를 추가하는 예제입니다.
      
      ```
      ;C:\Program Files\MongoDB\Server\3.6\bin

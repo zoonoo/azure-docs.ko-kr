@@ -1,7 +1,7 @@
 ---
-title: 파이썬에서 ML 모델을 설명하는 & 해석
+title: Python에서 ML 모델을 설명 하는 & 해석
 titleSuffix: Azure Machine Learning
-description: 기계 학습 모델이 기능 의 중요성을 결정하고 Azure 기계 학습 SDK를 사용할 때 예측을 만드는 방법에 대한 설명을 얻는 방법을 알아봅니다.
+description: 기계 학습 모델이 기능 중요도를 결정 하 고 Azure Machine Learning SDK를 사용 하는 경우 예측을 수행 하는 방법에 대 한 설명을 가져오는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,43 +11,43 @@ author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
 ms.openlocfilehash: 45eef976fe10bbb5acda2cd348a77b28c3ffbe02
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81769798"
 ---
-# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>해석 가능성 패키지를 사용하여 파이썬에서 ML 모델 & 예측 설명
+# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Interpretability 패키지를 사용 하 여 Python의 ML 모델 & 예측을 설명 합니다.
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 방법 가이드에서는 Azure 기계 학습 파이썬 SDK의 해석 가능성 패키지를 사용하여 다음 작업을 수행하는 방법을 배웁니다.
+이 방법 가이드에서는 Azure Machine Learning Python SDK의 interpretability 패키지를 사용 하 여 다음 작업을 수행 하는 방법을 알아봅니다.
 
 
-* 개인 컴퓨터에서 전체 모델 동작 또는 개별 예측을 로컬로 설명합니다.
+* 로컬에서 개인 컴퓨터의 전체 모델 동작 또는 개별 예측을 설명 합니다.
 
-* 엔지니어링 된 기능에 대한 해석 기술을 활성화합니다.
+* Interpretability 기술을 사용 하 여 엔지니어링 된 기능을 지원 합니다.
 
-* Azure에서 전체 모델 및 개별 예측에 대한 동작을 설명합니다.
+* Azure에서 전체 모델 및 개별 예측의 동작을 설명 합니다.
 
-* 시각화 대시보드를 사용하여 모델 설명과 상호 작용할 수 있습니다.
+* 시각화 대시보드를 사용 하 여 모델 설명과 상호 작용할 수 있습니다.
 
-* 추론 하는 동안 설명을 관찰 하기 위해 모델 함께 점수 설명기를 배포 합니다.
+* 모델에 설명 점수 매기기를 배포 하 여 추론 중에 설명을 관찰 합니다.
 
 
 
-지원되는 해석 기술 및 기계 학습 모델에 대한 자세한 내용은 Azure 기계 학습 및 [샘플 노트북의](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) [모델 해석 가능성을](how-to-machine-learning-interpretability.md) 참조하십시오.
+지원 되는 interpretability 기술 및 기계 학습 모델에 대 한 자세한 내용은 [모델 interpretability의 Azure Machine Learning](how-to-machine-learning-interpretability.md) 및 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)을 참조 하세요.
 
-## <a name="generate-feature-importance-value-on-your-personal-machine"></a>개인 기기에서 기능 중요도 가치 생성 
-다음 예제에서는 Azure 서비스에 연결하지 않고 개인 컴퓨터에서 해석 가능성 패키지를 사용하는 방법을 보여 줍니다.
+## <a name="generate-feature-importance-value-on-your-personal-machine"></a>개인용 컴퓨터에서 기능 중요도 값 생성 
+다음 예제에서는 Azure 서비스에 연결 하지 않고 개인 컴퓨터에서 interpretability 패키지를 사용 하는 방법을 보여 줍니다.
 
-1. 설치 `azureml-interpret` `azureml-contrib-interpret` 및 패키지.
+1. 및 `azureml-interpret` 패키지 `azureml-contrib-interpret` 를 설치 합니다.
     ```bash
     pip install azureml-interpret
     pip install azureml-contrib-interpret
     ```
 
-2. 로컬 Jupyter 노트북에서 샘플 모델을 학습합니다.
+2. 로컬 Jupyter 노트북에서 샘플 모델을 학습 합니다.
 
     ```python
     # load breast cancer dataset, a well-known small dataset that comes with scikit-learn
@@ -67,13 +67,13 @@ ms.locfileid: "81769798"
     model = clf.fit(x_train, y_train)
     ```
 
-3. 설명자가 로컬로 호출합니다.
-   * 설명자 개체를 초기화하려면 모델 및 일부 학습 데이터를 설명자의 생성자에게 전달합니다.
-   * 설명 및 시각화를 보다 유익하게 만들려면 분류를 수행하는 경우 피처 이름 및 출력 클래스 이름을 전달하도록 선택할 수 있습니다.
+3. 설명를 로컬로 호출 합니다.
+   * 설명 개체를 초기화 하려면 모델 및 일부 학습 데이터를 설명의 생성자에 전달 합니다.
+   * 설명 및 시각화에 대 한 자세한 정보를 제공 하기 위해 분류를 수행 하는 경우 기능 이름 및 출력 클래스 이름을 전달 하도록 선택할 수 있습니다.
 
-   다음 코드 블록에서는 설명자 개체를 `TabularExplainer`을 (? `MimicExplainer`및 `PFIExplainer` 로컬)으로 인스턴스화하는 방법을 보여 준다.
-   * `TabularExplainer`아래 세 SHAP 설명자 중`TreeExplainer` `DeepExplainer`하나를 `KernelExplainer`호출합니다.
-   * `TabularExplainer`사용 사례에 가장 적합한 설명서를 자동으로 선택하지만 세 가지 기본 설명자 각각을 직접 호출할 수 있습니다.
+   다음 코드 블록은, `TabularExplainer` `MimicExplainer`및 `PFIExplainer` 을 로컬로 사용 하 여 설명 개체를 인스턴스화하는 방법을 보여 줍니다.
+   * `TabularExplainer`는 (`TreeExplainer`, `DeepExplainer`또는 `KernelExplainer`) 아래에 있는 세 개의 shap explainers 중 하나를 호출 합니다.
+   * `TabularExplainer`는 사용 사례에 가장 적합 한 항목을 자동으로 선택 하지만 세 가지 기본 explainers를 직접 호출할 수 있습니다.
 
     ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -122,9 +122,9 @@ ms.locfileid: "81769798"
                              classes=classes)
     ```
 
-### <a name="explain-the-entire-model-behavior-global-explanation"></a>전체 모델 동작 설명(전역 설명) 
+### <a name="explain-the-entire-model-behavior-global-explanation"></a>전체 모델 동작 설명 (전역 설명) 
 
-집계(전역) 피쳐 중요도 값을 얻는 데 도움이 되는 다음 예제를 참조하십시오.
+집계 (전역) 기능 중요도 값을 가져오는 데 도움이 되는 다음 예를 참조 하세요.
 
 ```python
 
@@ -143,10 +143,10 @@ dict(zip(sorted_global_importance_names, sorted_global_importance_values))
 global_explanation.get_feature_importance_dict()
 ```
 
-### <a name="explain-an-individual-prediction-local-explanation"></a>개별 예측 설명(로컬 설명)
-개별 인스턴스 또는 인스턴스 그룹에 대한 설명을 호출하여 서로 다른 데이터 포인트의 개별 기능 중요도 값을 가져옵니다.
+### <a name="explain-an-individual-prediction-local-explanation"></a>개별 예측 설명 (로컬 설명)
+개별 인스턴스 또는 인스턴스 그룹에 대 한 설명을 호출 하 여 서로 다른 datapoints의 개별 기능 중요도 값을 가져옵니다.
 > [!NOTE]
-> `PFIExplainer`로컬 설명을 지원하지 않습니다.
+> `PFIExplainer`는 로컬 설명을 지원 하지 않습니다.
 
 ```python
 # get explanation for the first data point in the test set
@@ -159,11 +159,11 @@ sorted_local_importance_values = local_explanation.get_ranked_local_values()
 
 ### <a name="raw-feature-transformations"></a>원시 기능 변환
 
-엔지니어링된 기능이 아닌 변형되지 않은 원시 기능에 대한 설명을 얻을 수 있습니다. 이 옵션의 경우 기능 변환 파이프라인을 `train_explain.py`의 설명자에게 전달합니다. 그렇지 않으면 설명자는 엔지니어링된 기능에 대한 설명을 제공합니다.
+엔지니어링 된 기능이 아니라 원시 레이크의 기능을 사용 하 여 설명을 볼 수 있습니다. 이 옵션의 경우 기능 변환 파이프라인을 설명에 전달 `train_explain.py`합니다. 그렇지 않으면 설명는 엔지니어링 된 기능 측면에서 설명을 제공 합니다.
 
-지원되는 변환의 형식은 [sklearn-pandas에 설명된 것과 동일합니다.](https://github.com/scikit-learn-contrib/sklearn-pandas) 일반적으로 모든 변환은 단일 열에서 작동하는 한 지원되므로 일대다인 것이 분명합니다.
+지원 되는 변환 형식은 [pandas](https://github.com/scikit-learn-contrib/sklearn-pandas)에서 설명한 것과 같습니다. 일반적으로 모든 변환은 단일 열에 대해 작동 하는 한, 즉 일대다를 명확 하 게 수행 하는 동안 지원 됩니다.
 
-`sklearn.compose.ColumnTransformer` 또는 피팅 된 변압기 튜플 목록을 사용하여 원시 기능에 대한 설명을 가져옵니다. 다음 예제에서는 `sklearn.compose.ColumnTransformer`을 사용합니다.
+또는에 적합 한 변환기 튜플 목록과 함께 또는 `sklearn.compose.ColumnTransformer` 를 사용 하 여 원시 기능에 대 한 설명을 가져옵니다. 다음 예에서는를 `sklearn.compose.ColumnTransformer`사용 합니다.
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -197,7 +197,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
                                      transformations=preprocessor)
 ```
 
-피팅된 변압기 tuples 목록으로 예제를 실행하려는 경우 다음 코드를 사용합니다.
+피팅 변환기 튜플 목록으로 예제를 실행 하려는 경우 다음 코드를 사용 합니다.
 
 ```python
 from sklearn.pipeline import Pipeline
@@ -233,12 +233,12 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 ## <a name="generate-feature-importance-values-via-remote-runs"></a>원격 실행을 통해 기능 중요도 값 생성
 
-다음 예제에서는 클래스를 `ExplanationClient` 사용하여 원격 실행에 대한 모델 해석을 활성화하는 방법을 보여 주며 있습니다. 다음과 같은 경우를 제외하고는 개념적으로 로컬 프로세스와 유사합니다.
+다음 예제에서는 `ExplanationClient` 클래스를 사용 하 여 원격 실행에 대해 모델 interpretability를 사용 하도록 설정 하는 방법을 보여 줍니다. 다음을 제외 하 고는 로컬 프로세스와 개념적으로 유사 합니다.
 
-* 원격 `ExplanationClient` 실행에서 해석 가능성 컨텍스트를 업로드합니다.
-* 나중에 로컬 환경에서 컨텍스트를 다운로드합니다.
+* 원격 실행 `ExplanationClient` 에서를 사용 하 여 interpretability 컨텍스트를 업로드 합니다.
+* 로컬 환경에서 나중에 컨텍스트를 다운로드 합니다.
 
-1. 설치 `azureml-interpret` `azureml-interpret-contrib` 및 패키지.
+1. 및 `azureml-interpret` 패키지 `azureml-interpret-contrib` 를 설치 합니다.
     ```bash
     pip install azureml-interpret
     pip install azureml-interpret-contrib
@@ -274,9 +274,9 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Azure 기계 학습 계산을 계산 대상으로 설정하고 교육 실행을 제출합니다. 지침에 [대한 모델 학습에 대한 계산 대상 설정을](how-to-set-up-training-targets.md#amlcompute) 참조하십시오. [예제 전자 필기장이](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) 도움이 될 수도 있습니다.
+1. 계산 대상으로 Azure Machine Learning 계산을 설정 하 고 학습 실행을 제출 합니다. 지침은 [모델 학습을 위한 계산 대상 설정](how-to-set-up-training-targets.md#amlcompute) 을 참조 하세요. 또한 [예제 노트북이](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) 도움이 될 것입니다.
 
-1. 해당 지역의 Jupyter 노트북에서 설명을 다운로드하십시오.
+1. 로컬 Jupyter 노트북에서 설명을 다운로드 합니다.
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
@@ -297,42 +297,42 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 ## <a name="visualizations"></a>시각화
 
-로컬 Jupyter 노트북에서 설명을 다운로드한 후 시각화 대시보드를 사용하여 모델을 이해하고 해석할 수 있습니다.
+로컬 Jupyter 노트북에서 설명을 다운로드 한 후 시각화 대시보드를 사용 하 여 모델을 이해 하 고 해석할 수 있습니다.
 
-### <a name="understand-entire-model-behavior-global-explanation"></a>전체 모델 동작 이해(전역 설명) 
+### <a name="understand-entire-model-behavior-global-explanation"></a>전체 모델 동작 이해 (전역 설명) 
 
-다음 플롯은 예측 및 설명과 함께 학습된 모델의 전체 보기를 제공합니다.
+다음 그림에서는 학습 된 모델을 예측 및 설명과 함께 전체 보기를 제공 합니다.
 
-|플롯|설명|
+|그리면|Description|
 |----|-----------|
-|데이터 탐색| 예측 값과 함께 데이터 집합의 개요를 표시합니다.|
-|글로벌 중요성|집계는 모델의 전체 상위 K(구성 가능한 K)의 중요한 피처를 표시하기 위해 개별 데이터 포인트의 중요도 값을 특징으로 합니다. 기본 모델의 전반적인 동작을 이해하는 데 도움이 됩니다.|
-|설명 탐색|기능이 모델의 예측 값 의 변화 또는 예측 값의 확률에 미치는 영향을 보여 줍니다. 기능 상호 작용의 영향을 표시합니다.|
-|요약 중요도|모든 데이터 포인트에서 개별 피쳐 중요도 값을 사용하여 각 피쳐가 예측 값에 미치는 영향의 분포를 표시합니다. 이 다이어그램을 사용하여 기능 값이 예측 값에 영향을 미치는 방향을 조사합니다.
+|데이터 탐색| 예측 값과 함께 데이터 집합의 개요를 표시 합니다.|
+|글로벌 중요도|개별 datapoints의 기능 중요도 값을 집계 하 여 모델의 전체 상위 K (구성 가능 K) 중요 기능을 표시 합니다. 기본 모델의 전반적인 동작을 이해 하는 데 도움이 됩니다.|
+|설명 탐색|기능이 모델의 예측 값 또는 예측 값의 확률 변경에 영향을 주는 방법을 보여 줍니다. 기능 상호 작용의 영향을 보여 줍니다.|
+|요약 중요도|모든 데이터 요소에서 개별 기능 중요도 값을 사용 하 여 예측 값에 대 한 각 기능의 영향 분포를 표시 합니다. 이 다이어그램을 사용 하 여 기능 값이 예측 값에 영향을 주는 방향을 조사 합니다.
 |
 
-[![시각화 대시보드 글로벌](./media/how-to-machine-learning-interpretability-aml/global-charts.png)](./media/how-to-machine-learning-interpretability-aml/global-charts.png#lightbox)
+[![시각화 대시보드 전역](./media/how-to-machine-learning-interpretability-aml/global-charts.png)](./media/how-to-machine-learning-interpretability-aml/global-charts.png#lightbox)
 
-### <a name="understand-individual-predictions-local-explanation"></a>개별 예측 이해(현지 설명) 
+### <a name="understand-individual-predictions-local-explanation"></a>개별 예측 이해 (로컬 설명) 
 
-전체 플롯의 개별 데이터 점을 클릭하여 모든 데이터 포인트에 대한 개별 피쳐 중요도 플롯을 로드할 수 있습니다.
+전체 플롯에서 개별 데이터 요소 중 하나를 클릭 하 여 모든 데이터 요소에 대 한 개별 기능 중요도 그림을 로드할 수 있습니다.
 
-|플롯|설명|
+|그리면|Description|
 |----|-----------|
-|지역 적 중요성|개별 예측에 대한 상위 K(구성 가능한 K) 중요한 피처를 표시합니다. 특정 데이터 포인트에서 기본 모델의 로컬 동작을 보여 줍니다.|
-|섭동 탐색(분석하는 경우 는 무엇인가)|선택한 데이터 포인트의 피처 값을 변경하고 예측 값에 대한 결과 변경 사항을 관찰할 수 있습니다.|
-|개인 조건부 기대 (ICE)| 피처 값을 최소값에서 최대값으로 변경할 수 있습니다. 피쳐가 변경될 때 데이터 포인트의 예측이 어떻게 변경되는지 보여 줍니다.|
+|로컬 중요도|개별 예측에 대 한 최상위 K (구성 가능 K) 중요 기능을 보여 줍니다. 특정 데이터 요소에 대 한 기본 모델의 로컬 동작을 보여 줍니다.|
+|Perturbation 탐색 (what-if 분석)|선택한 데이터 요소의 기능 값에 대 한 변경 내용을 허용 하 고 그 결과 예측 값에 대 한 변경 내용을 관찰 합니다.|
+|개별 조건부 예상 (ICE)| 최소값에서 최대값으로 기능 값을 변경할 수 있습니다. 기능이 변경 될 때 데이터 요소의 예측이 어떻게 변경 되는지를 보여 줍니다.|
 
 [![시각화 대시보드 로컬 기능 중요도](./media/how-to-machine-learning-interpretability-aml/local-charts.png)](./media/how-to-machine-learning-interpretability-aml/local-charts.png#lightbox)
 
 
-[![시각화 대시보드 기능 섭동](./media/how-to-machine-learning-interpretability-aml/perturbation.gif)](./media/how-to-machine-learning-interpretability-aml/perturbation.gif#lightbox)
+[![시각화 대시보드 기능 Perturbation](./media/how-to-machine-learning-interpretability-aml/perturbation.gif)](./media/how-to-machine-learning-interpretability-aml/perturbation.gif#lightbox)
 
 
 [![시각화 대시보드 ICE 플롯](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
 
 > [!NOTE]
-> Jupyter 커널이 시작되기 전에 시각화 대시보드에 대한 위젯 확장을 사용하도록 설정해야 합니다.
+> Jupyter 커널을 시작 하기 전에 시각화 대시보드에 대 한 위젯 확장을 사용 하도록 설정 해야 합니다.
 
 * Jupyter Notebook
 
@@ -341,14 +341,14 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
     jupyter nbextension enable --py --sys-prefix azureml.contrib.interpret.visualize
     ```
 
-* 주피터랩
+* JupyterLab
 
     ```shell
     jupyter labextension install @jupyter-widgets/jupyterlab-manager
     jupyter labextension install microsoft-mli-widget
     ```
 
-시각화 대시보드를 로드하려면 다음 코드를 사용합니다.
+시각화 대시보드를 로드 하려면 다음 코드를 사용 합니다.
 
 ```python
 from interpret_community.widget import ExplanationDashboard
@@ -356,30 +356,30 @@ from interpret_community.widget import ExplanationDashboard
 ExplanationDashboard(global_explanation, model, x_test)
 ```
 
-### <a name="visualization-in-azure-machine-learning-studio"></a>Azure 기계 학습 스튜디오의 시각화
+### <a name="visualization-in-azure-machine-learning-studio"></a>Azure Machine Learning studio의 시각화
 
-원격 해석 [가능성](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) 단계(생성된 설명을 Azure 기계 학습 실행 기록에 업로드)를 완료하면 [Azure 기계 학습 스튜디오에서](https://ml.azure.com)시각화 대시보드를 볼 수 있습니다. 이 대시보드는 위에서 설명한 시각화 대시보드의 간단한 버전입니다(설명 탐색 및 ICE 플롯은 실시간 계산을 수행할 수 있는 스튜디오에서 활성 계산이 없기 때문에 비활성화됨).
+Azure Machine Learning 실행 기록에 생성 된 설명 업로드) [원격 interpretability](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) 단계를 완료 한 경우 [Azure Machine Learning studio](https://ml.azure.com)에서 시각화 대시보드를 볼 수 있습니다. 이 대시보드는 위에 설명 된 시각화 대시보드의 더 간단한 버전입니다 (실시간 계산을 수행할 수 있는 스튜디오의 활성 계산이 없기 때문에 설명 탐색 및 ICE 플롯은 사용 하지 않도록 설정 됨).
 
-데이터 집합, 전역 및 로컬 설명을 사용할 수 있는 경우 데이터는 모든 탭을 채웁니다(교란 탐색 및 ICE 제외). 전역 설명만 사용할 수 있는 경우 요약 중요도 탭 및 모든 로컬 설명 탭이 비활성화됩니다.
+데이터 집합, 전역 및 로컬 설명을 사용할 수 있는 경우 데이터는 모든 탭 (Perturbation 탐색 및 ICE 제외)을 채웁니다. 글로벌 설명만 사용할 수 있는 경우 요약 중요도 탭과 모든 로컬 설명 탭을 사용할 수 없습니다.
 
-다음 경로 중 하나를 따라 Azure 기계 학습 스튜디오에서 시각화 대시보드에 액세스합니다.
+다음 경로 중 하나를 따라 Azure Machine Learning studio에서 시각화 대시보드에 액세스 합니다.
 
-* **실험** 창(미리 보기)
-  1. 왼쪽 창에서 **실험을** 선택하여 Azure 기계 학습에서 실행한 실험 목록을 확인합니다.
-  1. 특정 실험을 선택하여 해당 실험의 모든 실행을 확인합니다.
-  1. 실행을 선택한 다음 설명 시각화 대시보드에 **대한 설명** 탭을 선택합니다.
+* **실험** 창 (미리 보기)
+  1. 왼쪽 창에서 **실험** 을 선택 하 여 Azure Machine Learning에서 실행 한 실험의 목록을 확인 합니다.
+  1. 특정 실험을 선택 하 여 해당 실험의 모든 실행을 볼 수 있습니다.
+  1. 실행을 선택한 다음 설명 시각화 대시보드에 **설명 탭을 선택 합니다.**
 
    [![시각화 대시보드 로컬 기능 중요도](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * **모델** 창
-  1. [Azure 기계 학습을 사용하여 모델 배포의](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)단계에 따라 원래 모델을 등록한 경우 왼쪽 창에서 **모델을** 선택하여 볼 수 있습니다.
-  1. 모델을 선택한 다음 **설명** 탭을 클릭하여 설명 시각화 대시보드를 봅니다.
+  1. [Azure Machine Learning를 사용 하 여 모델 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)의 단계를 수행 하 여 원래 모델을 등록 한 경우 왼쪽 창에서 **모델** 을 선택 하 여 볼 수 있습니다.
+  1. 모델을 선택한 다음 **설명 탭을 클릭 하 여 설명** 시각화 대시보드를 확인 합니다.
 
-## <a name="interpretability-at-inference-time"></a>추론 시간에 통역성
+## <a name="interpretability-at-inference-time"></a>유추 시 Interpretability
 
-설명기를 원래 모델과 함께 배포하고 추론 시간에 사용하여 새 새 데이터 포인트에 대한 개별 기능 중요도 값(로컬 설명)을 제공할 수 있습니다. 또한 추론 시간에 해석 성능을 향상시키기 위해 경량 점수 설명자를 제공합니다. 경량 점수 설명기를 배포하는 프로세스는 모델을 배포하는 것과 유사하며 다음 단계를 포함합니다.
+원본 모델과 함께 설명를 배포 하 고 유추 시이를 사용 하 여 새 모든 요소에 대 한 개별 기능 중요도 값 (로컬 설명)을 제공할 수 있습니다. 또한 유추 시 interpretability 성능을 향상 시키기 위해 가벼운 점수 매기기 explainers 제공 합니다. 가벼운 점수 매기기 설명를 배포 하는 프로세스는 모델 배포와 유사 하며 다음 단계를 포함 합니다.
 
-1. 설명 개체를 만듭니다. 예를 들어 다음을 `TabularExplainer`사용할 수 있습니다.
+1. 설명 개체를 만듭니다. 예를 들어 다음을 사용할 `TabularExplainer`수 있습니다.
 
    ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -392,7 +392,7 @@ ExplanationDashboard(global_explanation, model, x_test)
                                 transformations=transformations)
    ```
 
-1. 설명 개체를 사용하여 점수 매기기 설명기를 만듭니다.
+1. 설명 개체를 사용 하 여 점수 매기기 설명을 만듭니다.
 
    ```python
    from azureml.interpret.scoring.scoring_explainer import KernelScoringExplainer, save
@@ -406,7 +406,7 @@ ExplanationDashboard(global_explanation, model, x_test)
    save(scoring_explainer, directory=OUTPUT_DIR, exist_ok=True)
    ```
 
-1. 점수 매기기 설명 모델을 사용하는 이미지를 구성하고 등록합니다.
+1. 점수 매기기 설명 모델을 사용 하는 이미지를 구성 하 고 등록 합니다.
 
    ```python
    # register explainer model using the path from ScoringExplainer.save - could be done on remote compute
@@ -418,7 +418,7 @@ ExplanationDashboard(global_explanation, model, x_test)
    print(scoring_explainer_model.name, scoring_explainer_model.id, scoring_explainer_model.version, sep = '\t')
    ```
 
-1. 선택적 단계로 클라우드에서 채점 설명자를 검색하고 설명을 테스트할 수 있습니다.
+1. 선택적 단계로 클라우드에서 설명 점수 매기기를 검색 하 고 설명을 테스트할 수 있습니다.
 
    ```python
    from azureml.interpret.scoring.scoring_explainer import load
@@ -435,9 +435,9 @@ ExplanationDashboard(global_explanation, model, x_test)
    print(preds)
    ```
 
-1. 다음 단계에 따라 계산 대상에 이미지를 배포합니다.
+1. 다음 단계를 수행 하 여 계산 대상에 이미지를 배포 합니다.
 
-   1. 필요한 경우 [Azure Machine Learning을 사용하는 모델 배포의](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)단계에 따라 원래 예측 모델을 등록합니다.
+   1. 필요한 경우 [Azure Machine Learning를 사용 하 여 모델 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)의 단계를 수행 하 여 원래 예측 모델을 등록 합니다.
 
    1. 점수 매기기 파일을 만듭니다.
 
@@ -477,7 +477,7 @@ ExplanationDashboard(global_explanation, model, x_test)
          ```
    1. 배포 구성을 정의합니다.
 
-         이 구성은 모델의 요구 사항에 따라 다릅니다. 다음 예제에서는 CPU 코어 1개와 메모리 1GB를 사용하는 구성을 정의합니다.
+         이 구성은 모델 요구 사항에 따라 달라 집니다. 다음 예제에서는 하나의 CPU 코어 및 1GB의 메모리를 사용 하는 구성을 정의 합니다.
 
          ```python
          from azureml.core.webservice import AciWebservice
@@ -512,16 +512,16 @@ ExplanationDashboard(global_explanation, model, x_test)
             print(f.read())
          ```
 
-   1. g++가 설치된 사용자 지정 도커 파일을 만듭니다.
+   1. G + +가 설치 된 사용자 지정 dockerfile을 만듭니다.
 
          ```python
          %%writefile dockerfile
          RUN apt-get update && apt-get install -y g++
          ```
 
-   1. 생성된 이미지를 배포합니다.
+   1. 만든 이미지를 배포 합니다.
    
-         이 프로세스는 약 5분 정도 걸립니다.
+         이 프로세스는 5 분 정도 걸립니다.
 
          ```python
          from azureml.core.webservice import Webservice
@@ -568,7 +568,7 @@ ExplanationDashboard(global_explanation, model, x_test)
 
 ## <a name="next-steps"></a>다음 단계
 
-[모델 해석성에 대해 자세히 알아보기](how-to-machine-learning-interpretability.md)
+[모델 interpretability에 대 한 자세한 정보](how-to-machine-learning-interpretability.md)
 
-[Azure 기계 학습 해석 가능성 샘플 노트북 확인](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
+[Azure Machine Learning Interpretability 샘플 노트북 확인](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
 

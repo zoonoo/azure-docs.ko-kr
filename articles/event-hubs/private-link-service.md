@@ -8,10 +8,10 @@ ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
 ms.openlocfilehash: fb8fc93174345d0bdb09e4308a4206a65ed2270a
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82148196"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Azure 개인 링크를 사용 하 여 Azure Event Hubs 통합 (미리 보기)
@@ -200,7 +200,7 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 
 다음 네 가지 프로비저닝 상태가 있습니다.
 
-| 서비스 작업 | 서비스 소비자 프라이빗 엔드포인트 상태 | 설명 |
+| 서비스 작업 | 서비스 소비자 프라이빗 엔드포인트 상태 | Description |
 |--|--|--|
 | 없음 | Pending | 연결이 수동으로 만들어지고, Private Link 리소스 소유자의 승인이 보류 중입니다. |
 | 승인 | 승인됨 | 연결이 자동 또는 수동으로 승인되었으며, 사용할 준비가 되었습니다. |

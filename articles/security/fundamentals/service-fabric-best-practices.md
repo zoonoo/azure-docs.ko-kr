@@ -1,5 +1,5 @@
 ---
-title: Azure 서비스 패브릭 보안을 위한 모범 사례
+title: Azure Service Fabric 보안에 대 한 모범 사례
 description: 이 문서에서는 Azure Service Fabric 보안을 위한 여러 모범 사례를 제공합니다.
 author: unifycloud
 ms.author: tomsh
@@ -8,10 +8,10 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461653"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 보안 모범 사례
@@ -32,7 +32,7 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 -   X.509 인증서를 사용합니다.
 -   보안 정책 구성.
 -   Reliable Actors 보안 구성을 구현합니다.
--   Azure 서비스 패브릭에 대한 TLS를 구성합니다.
+-   Azure Service Fabric에 대 한 TLS를 구성 합니다.
 -   Azure Service Fabric을 통한 네트워크 격리 및 보안을 사용합니다.
 -   보안을 위해 Azure Key Vault를 구성합니다.
 -   사용자에게 역할을 할당합니다.
@@ -118,13 +118,13 @@ Service Fabric의 경우 행위자는 Reliable Actors 애플리케이션 프레�
 [복제자 보안 구성](../../service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)은 복제하는 동안 사용되는 통신 채널을 보호하는 데 사용됩니다. 이 구성은 서비스가 다른 사용자의 복제 트래픽을 보지 못하도록 하고 항상 사용 가능한 데이터를 보호합니다. 기본적으로 빈 보안 구성 섹션에서는 복제 보안이 되지 않습니다.
 복제자 구성은 행위자 상태 제공자의 상태를 매우 안정적으로 만드는 작업을 담당하는 복제자를 구성합니다.
 
-## <a name="configure-tls-for-azure-service-fabric"></a>Azure 서비스 패브릭에 대한 TLS 구성
-서버 인증 프로세스는 관리 클라이언트에 대해 클러스터 관리 엔드포인트를 [인증](../../service-fabric/service-fabric-cluster-creation-via-arm.md)합니다. 그러면 관리 클라이언트가 실제 클러스터와 통신하고 있음을 인식합니다. 또한 이 인증서는 HTTPS 관리 API 및 HTTPS를 통해 서비스 패브릭 탐색기용 [TLS를](../../service-fabric/service-fabric-cluster-creation-via-arm.md) 제공합니다.
+## <a name="configure-tls-for-azure-service-fabric"></a>Azure Service Fabric에 대 한 TLS 구성
+서버 인증 프로세스는 관리 클라이언트에 대해 클러스터 관리 엔드포인트를 [인증](../../service-fabric/service-fabric-cluster-creation-via-arm.md)합니다. 그러면 관리 클라이언트가 실제 클러스터와 통신하고 있음을 인식합니다. 또한이 인증서는 https 관리 API 및 HTTPS를 통한 Service Fabric Explorer에 대 한 [TLS](../../service-fabric/service-fabric-cluster-creation-via-arm.md) 를 제공 합니다.
 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. 인증 기관으로부터 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
-응용 프로그램에 대한 TLS를 구성하려면 먼저 CA에서 서명한 SSL/TLS 인증서를 받아야 합니다. CA는 TLS 보안을 위해 인증서를 발급하는 신뢰할 수 있는 타사입니다. 아직 SSL/TLS 인증서가 없는 경우 SSL/TLS 인증서를 판매하는 회사에서 인증서를 받아야 합니다.
+응용 프로그램에 대 한 TLS를 구성 하려면 먼저 CA에서 서명 된 SSL/TLS 인증서를 가져와야 합니다. CA는 TLS 보안을 위해 인증서를 발급 하는 신뢰할 수 있는 타사입니다. SSL/TLS 인증서가 아직 없는 경우 SSL/TLS 인증서를 판매 하는 회사에서 받아야 합니다.
 
-인증서는 Azure의 SSL/TLS 인증서에 대한 다음 요구 사항을 충족해야 합니다.
+인증서는 Azure의 SSL/TLS 인증서에 대 한 다음 요구 사항을 충족 해야 합니다.
 -   인증서에 프라이빗 키가 포함되어 있어야 합니다.
 
 -   인증서는 키 교환을 위해 만들어야 하며 개인 정보 교환(.pfx) 파일로 내보낼 수 있어야 합니다.
@@ -135,13 +135,13 @@ Service Fabric의 경우 행위자는 Reliable Actors 애플리케이션 프레�
     - 서비스의 사용자 지정 도메인 이름과 일치하는 주체 이름을 가진 CA로부터 인증서를 요청합니다. 예를 들어 사용자 지정 도메인 이름이 __contoso__**.com**인 경우 CA로부터 받은 인증서에 **.contoso.com** 또는 __www__**.contoso.com**의 주체 이름이 있어야 합니다.
 
     >[!NOTE]
-    >__cloudapp__**.net** 도메인에 대 한 CA에서 SSL/TLS 인증서를 가져올 수 없습니다.
+    >__Cloudapp.net__**.net** 도메인에 대 한 CA에서 SSL/TLS 인증서를 가져올 수 없습니다.
 
 -   인증서는 최소한 2,048비트 암호화를 사용해야 합니다.
 
 HTTP 프로토콜은 보안되지 않으며 도청 공격을 받기 쉽습니다. HTTP를 통해 전송된 데이터는 웹 브라우저에서 웹 서버로 또는 다른 엔드포인트 간에 일반 텍스트로 전송됩니다. 공격자는 신용카드 정보와 계정 로그인 같이 HTTP를 통해 보내진 중요 데이터를 가로채 볼 수 있습니다. 데이터가 HTTPS를 통한 브라우저를 통해 전송 또는 게시될 경우 SSL이 중요한 정보를 암호화하여 가로채기로부터 보호합니다.
 
-SSL/TLS 인증서 사용에 대해 자세히 알아보려면 [Azure의 응용 프로그램에 대한 TLS 구성을](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md)참조하십시오.
+SSL/TLS 인증서를 사용 하는 방법에 대 한 자세한 내용은 [Azure에서 응용 프로그램에 대 한 TLS 구성](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md)을 참조 하세요.
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Azure Service Fabric을 통한 네트워크 격리 및 보안 사용
 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)을 샘플로 사용하여 3 nodetype 보안 클러스터를 설정합니다. 템플릿 및 네트워크 보안 그룹을 사용하여 인바운드 및 아웃바운드 네트워크 트래픽을 제어합니다.
@@ -169,7 +169,7 @@ Service Fabric은 클러스터에 보안을 적용하고 애플리케이션 보�
 키 자격 증명 모음 설정 방법에 대한 자세한 내용은 [Azure Key Vault란?](../../key-vault/general/overview.md)을 참조하세요.
 
 ## <a name="assign-users-to-roles"></a>역할에 사용자 할당
-클러스터를 나타내는 응용 프로그램을 만든 후 서비스 패브릭에서 지원하는 역할( 읽기 전용 및 관리자)에 사용자를 할당합니다. Azure 포털을 사용하여 이러한 역할을 할당할 수 있습니다.
+클러스터를 나타내는 응용 프로그램을 만든 후에는 Service Fabric에서 지 원하는 역할 (읽기 전용 및 관리자)에 사용자를 할당 합니다. Azure Portal를 사용 하 여 이러한 역할을 할당할 수 있습니다.
 
 >[!NOTE]
 > Service Fabric에서 역할 사용에 대한 자세한 내용은 [Service Fabric 클라이언트의 역할 기반 액세스 제어](../../service-fabric/service-fabric-cluster-security-roles.md)를 참조하세요.

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5fe73770dbe8dfe6d69cb08e1fbf44d42bff9e54
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82117372"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
@@ -28,7 +28,7 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
 
 ## <a name="command-help"></a>명령 도움말
 
-명령에 `-h`를 추가하여 Azure CLI의 모든 명령에 대한 도움말 텍스트를 표시할 수 있습니다. 다른 모든 옵션은 생략합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+명령에 `-h`를 추가하여 Azure CLI의 모든 명령에 대한 도움말 텍스트를 표시할 수 있습니다. 다른 모든 옵션은 생략합니다. 다음은 그 예입니다.
 
 * `az` 명령에 대한 도움말을 보려면 `az -h`을 입력합니다.
 * CLI에서 모든 Batch 명령의 목록을 가져오려면 `az batch -h`을 사용합니다.
@@ -111,7 +111,7 @@ Azure Batch CLI 확장을 설치하면 Azure CLI를 사용하여 코드를 작�
 
 ## <a name="json-files-for-resource-creation"></a>리소스를 만들기 위한 JSON 파일
 
-풀 및 작업같은 Batch 리소스를 만들 때 매개 변수를 명령줄 옵션으로 전달하는 대신 새 리소스의 구성이 포함된 JSON 파일을 지정할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+풀 및 작업같은 Batch 리소스를 만들 때 매개 변수를 명령줄 옵션으로 전달하는 대신 새 리소스의 구성이 포함된 JSON 파일을 지정할 수 있습니다. 다음은 그 예입니다.
 
 ```azurecli
 az batch pool create my_batch_pool.json
@@ -141,7 +141,7 @@ az batch task list --job-id job001
 
 다음 표에서는 Batch 서비스에서 지원하는 OData 절을 설명합니다.
 
-| 절 | 설명 |
+| 절 | Description |
 |---|---|
 | `--select-clause [select-clause]` | 각 엔터티에 대한 속성의 하위 집합을 반환합니다. |
 | `--filter-clause [filter-clause]` | 지정된 OData 식과 일치하는 엔터티만 반환합니다. |

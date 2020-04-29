@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: 1a523872bb15981958eeb1678caa1d911a9cbbba
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82142403"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>IoT Edge 모듈 기술 자산 준비
@@ -61,7 +61,7 @@ IoT Edge에서 지원되는 계층 1 플랫폼의 하위 집합(하나 이상)�
     <p><u>Minimum hardware requirements:</u> Linux x64 and arm32  OS, 1GB of RAM, 500 Mb of storage</p>
   ```
 
-### <a name="configuration"></a>구성
+### <a name="configuration"></a>Configuration
 
 또한 IoT Edge 디바이스에 가능한 간편하게 배포할 수 있도록 하는 기본 구성 설정을 포함합니다. 이 컨테이너는 Edge 허브 및 IoT Hub와 통신할 수 있도록 하는 IoT Edge 모듈 SDK를 포함할 수도 있습니다.
 

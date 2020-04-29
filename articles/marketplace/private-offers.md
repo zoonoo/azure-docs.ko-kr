@@ -1,5 +1,5 @@
 ---
-title: 프라이빗 프로모션 | Azure 마켓플레이스
+title: 개인 제품 | Azure Marketplace
 description: 앱 및 서비스 게시자용 Azure Marketplace의 프라이빗 제품
 author: qianw211
 ms.service: marketplace
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: dsindona
 ms.openlocfilehash: efda9fb66a65f1f2cd40de8bf32a8a3fa99aea7f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81681426"
 ---
 # <a name="private-offers"></a>프라이빗 제품
 
 [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/)의 프라이빗 제품을 사용하면 게시자가 대상 고객에게만 표시되는 SKU를 만들 수 있습니다.
 
-## <a name="unlock-enterprise-deals-with-private-offers"></a>프라이빗 오퍼로 엔터프라이즈 거래의 잠금 해제
+## <a name="unlock-enterprise-deals-with-private-offers"></a>Enterprise에서 개인 제품으로 거래
 
 점점 더 많은 엔터프라이즈 고객이 온라인 마켓플레이스를 사용하여 클라우드 솔루션을 찾고, 사용하고, 구입합니다. 이제 프라이빗 제품에서 게시자는 마켓플레이스를 사용하여 개별적으로 엔터프라이즈가 요구하는 기능을 포함한 사용자 지정 솔루션을 대상 고객과 공유할 수 있습니다.
 
@@ -33,34 +33,34 @@ ms.locfileid: "81681426"
 <!--- Like public offers, private offers can be created and managed via the [Cloud Partner Portal](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md).  Customers can be granted or revoked access to private offers in minutes.
 --->
 
-## <a name="creating-private-offers-using-skus-and-plans"></a>SUS 및 계획을 사용하여 비공개 오퍼 만들기
+## <a name="creating-private-offers-using-skus-and-plans"></a>Sku 및 요금제를 사용 하 여 개인 제안 만들기
 
 *공용 SKU 또는 계획을 포함한 새 제품 또는 기존 제품*의 경우 게시자는 새로운 SKU 또는 계획을 만들고 프라이빗으로 표시하여 새로운 프라이빗 변형을 쉽게 만들 수 있습니다.  
 
 <!--- [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) ---> 
 
-프라이빗 SKU 및 계획은 제품의 구성 요소이며 대상 고객에게만 표시되고 구입 가능합니다. 프라이빗 SKU 및 계획은 기본 이미지를 다시 사용하거나 공용 SKU 또는 계획에 이미 게시된 메타데이터를 제공할 수 있습니다. 이 옵션을 통해 게시자가 동일한 기본 이미지의 여러 버전을 게시하고 메타데이터를 제공하지 않고 공용 제품의 여러 프라이빗 변형을 만들 수 있습니다. 가상 컴퓨터 및 Azure 응용 프로그램에서만 개인 SKU가 공용 SKU와 기본 이미지를 공유하는 경우에만 해당 기본 이미지를 사용하여 오퍼의 기본 이미지에 대한 변경 내용이 모든 공용 및 개인 SKU에 전파됩니다.
+프라이빗 SKU 및 계획은 제품의 구성 요소이며 대상 고객에게만 표시되고 구입 가능합니다. 프라이빗 SKU 및 계획은 기본 이미지를 다시 사용하거나 공용 SKU 또는 계획에 이미 게시된 메타데이터를 제공할 수 있습니다. 이 옵션을 통해 게시자가 동일한 기본 이미지의 여러 버전을 게시하고 메타데이터를 제공하지 않고 공용 제품의 여러 프라이빗 변형을 만들 수 있습니다. 가상 컴퓨터 및 Azure 응용 프로그램의 경우에만, 전용 SKU가 공용 SKU를 사용 하 여 기본 이미지를 공유 하는 경우 제품의 기본 이미지에 대 한 모든 변경 내용이 해당 기본 이미지를 사용 하 여 모든 공용 및 사설 Sku에 전파 됩니다.
 
-*프라이빗 SKU 또는 계획을 포함하는 새 제품*의 경우 게시자는 해당 제품을 다른 제품으로 만든 다음, SKU 또는 계획을 프라이빗으로 표시할 수 있습니다. 개인 SCO 또는 계획만 있는 오퍼는 Microsoft 상용 마켓플레이스 또는 오퍼와 연결되지 않은 고객이 [Azure 포털을](https://azure.microsoft.com/features/azure-portal/) 통해 검색하거나 액세스할 수 없습니다.
+*프라이빗 SKU 또는 계획을 포함하는 새 제품*의 경우 게시자는 해당 제품을 다른 제품으로 만든 다음, SKU 또는 계획을 프라이빗으로 표시할 수 있습니다. 비공개 Sku 또는 요금제만 포함 하는 제안은 Microsoft 상용 marketplace 또는 제품에 연결 되지 않은 고객의 [Azure Portal](https://azure.microsoft.com/features/azure-portal/) 을 통해 검색 되거나 액세스할 수 없게 됩니다.
 
-## <a name="targeting-customers-with-private-offers"></a>비공개 오퍼로 고객 타겟팅
+## <a name="targeting-customers-with-private-offers"></a>비공개 제품을 사용 하 여 고객 대상 지정
 
-새로운 프라이빗 제품 및 기존 전용 제품의 경우 게시자는 구독 식별자를 사용하여 고객을 대상으로 지정할 수 있습니다. Virtual Machine 또는 Azure 애플리케이션 제품을 사용하는 게시자는 개별 Azure 구독 ID로 프라이빗 SKU의 가용성을 제한하거나 최대 20,000개의 Azure 구독 ID의 CSV를 업로드할 수 있습니다. 게시자는 SaaS 앱 비공개 오퍼를 사용하는 동안 테넌트 ID를 연결하여 수동 또는 CSV 업로드 방법을 사용하여 개인 요금제의 가용성을 제한할 수 있습니다.
+새로운 프라이빗 제품 및 기존 전용 제품의 경우 게시자는 구독 식별자를 사용하여 고객을 대상으로 지정할 수 있습니다. Virtual Machine 또는 Azure 애플리케이션 제품을 사용하는 게시자는 개별 Azure 구독 ID로 프라이빗 SKU의 가용성을 제한하거나 최대 20,000개의 Azure 구독 ID의 CSV를 업로드할 수 있습니다. SaaS 앱 개인 제안을 사용 하는 동안 게시자는 수동 또는 CSV 업로드 방법을 사용 하 여 테 넌 트 ID를 연결 하 여 개인 계획의 가용성을 제한할 수 있습니다.
 
-제품이 인증되고 게시되면 고객은 동기화 프라이빗 구독 기능을 사용하여 몇 분 내에 SKU 또는 계획에서 업데이트되거나 제거될 수 있습니다. 이 기능을 사용하면 게시자가 제안을 다시 인증하거나 게시하지 않고도 개인 SKU 또는 계획이 표시되는 고객 목록을 빠르고 쉽게 업데이트할 수 있습니다.
+제품이 인증되고 게시되면 고객은 동기화 프라이빗 구독 기능을 사용하여 몇 분 내에 SKU 또는 계획에서 업데이트되거나 제거될 수 있습니다. 이 기능을 통해 게시자는 제품을 인증 하거나 게시 하지 않고도 비공개 SKU 또는 요금제가 제공 되는 고객 목록을 빠르고 쉽게 업데이트할 수 있습니다.
 
-## <a name="deploying-private-offers"></a>비공개 오퍼 배포
+## <a name="deploying-private-offers"></a>개인 제품 배포
 
-비공개 오퍼는 Azure [포털을](https://azure.microsoft.com/features/azure-portal/) 통해서만 검색할 수 있으며 [Microsoft AppSource](https://appsource.microsoft.com/) 또는 [Azure 마켓플레이스에](https://azuremarketplace.microsoft.com)표시되지 않습니다. 다른 상업용 마켓플레이스 상점에 게시하는 방법에 대해 자세히 알아보려면 [게시 결정 옵션을](./determine-your-listing-type.md)참조하십시오.
+개인 제공은 [Azure Portal](https://azure.microsoft.com/features/azure-portal/) 통해서만 검색할 수 있으며 [Microsoft AppSource](https://appsource.microsoft.com/) 또는 [Azure Marketplace](https://azuremarketplace.microsoft.com)에는 표시 되지 않습니다. 다른 상업용 marketplace 상점에 게시 하는 방법에 대 한 자세한 내용은 [게시 옵션 결정](./determine-your-listing-type.md)을 참조 하세요.
 
-Azure Portal에 로그인하면 고객은 프라이빗 제품에 액세스할 Marketplace 검색 요소를 선택할 수 있습니다. 비공개 오퍼는 검색 결과에도 표시되며 다른 오퍼와 마찬가지로 명령줄 및 Azure Resource Manager 템플릿을 통해 배포할 수 있습니다.
+Azure Portal에 로그인하면 고객은 프라이빗 제품에 액세스할 Marketplace 검색 요소를 선택할 수 있습니다. 개인 제안은 검색 결과에 표시 되 고 다른 모든 제품 처럼 명령줄 및 Azure Resource Manager 템플릿을 통해 배포할 수 있습니다.
 
 ![[프라이빗 제품]](./media/marketplace-publishers-guide/private-offer.png)
 
-또한 프라이빗 제품은 검색 결과에 나타납니다. "비공개" 배지를 찾으세요.
+또한 프라이빗 제품은 검색 결과에 나타납니다. "개인" 배지만 찾습니다.
 
 >[!Note]
->비공개 오퍼는 CSP(클라우드 솔루션 공급자 프로그램)의 리셀러를 통해 설정된 구독에서는 지원되지 않습니다.
+>사설 제품은 클라우드 솔루션 공급자 프로그램 (CSP)의 재판매인을 통해 설정 된 구독에서 지원 되지 않습니다.
 
 <!---
 ## Next steps

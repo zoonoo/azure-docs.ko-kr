@@ -1,5 +1,5 @@
 ---
-title: Java를 사용하여 Azure 가상 컴퓨터 만들기 및 관리
+title: Java를 사용 하 여 Azure 가상 머신 만들기 및 관리
 description: Java 및 Azure Resource Manager를 사용하여 가상 컴퓨터 및 모든 지원 리소스를 배포합니다.
 services: virtual-machines-windows
 author: cynthn
@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: a99924983bf0e78bd8c8901e25819a363583169a
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870025"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Java를 사용하여 Azure에서 Windows VM 만들기 및 관리
 
-[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 Java를 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음 방법을 알아봅니다.
+[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 Java를 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * Maven 프로젝트 만들기
@@ -33,7 +33,7 @@ ms.locfileid: "81870025"
 ## <a name="create-a-maven-project"></a>Maven 프로젝트 만들기
 
 1. 아직 수행하지 않았다면 [Java](https://aka.ms/azure-jdks)를 설치합니다.
-2. [메이븐을](https://maven.apache.org/download.cgi)설치합니다 .
+2. [Maven](https://maven.apache.org/download.cgi)를 설치 합니다.
 3. 새 폴더와 프로젝트를 만듭니다.
     
     ```
@@ -127,7 +127,7 @@ ms.locfileid: "81870025"
     graphURL=https://graph.microsoft.com/
     ```
 
-    ** &lt;구독 ID를&gt; ** 구독 식별자로 바꾸고, ** &lt;&gt; 응용 프로그램 ID를** Active Directory 응용 프로그램 식별자로 바꾸고, ** &lt;인증 키를&gt; ** 응용 프로그램 키로, ** &lt;테넌트 식별자를&gt; ** 사용합니다.
+    ** &lt;구독 id&gt; ** 를 구독 식별자로, ** &lt;응용 프로그램&gt; id** 를 Active Directory 응용 프로그램 식별자로, ** &lt;인증 키&gt; ** 를 응용 프로그램 키로, ** &lt;테 넌 트 id&gt; ** 를 테 넌 트 식별자로 바꿉니다.
 
 2. 파일을 저장합니다.
 3. 인증 파일에 전체 경로로 프로그램 셸의 AZURE_AUTH_LOCATION이라는 환경 변수를 설정합니다.
@@ -182,7 +182,7 @@ ms.locfileid: "81870025"
 
 ### <a name="create-the-resource-group"></a>리소스 그룹 만들기
 
-모든 리소스는 리소스 [그룹에](../../azure-resource-manager/management/overview.md)포함되어야 합니다.
+모든 리소스는 [리소스 그룹](../../azure-resource-manager/management/overview.md)에 포함 되어야 합니다.
 
 애플리케이션의 값을 지정하고 리소스 그룹을 만들려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
 

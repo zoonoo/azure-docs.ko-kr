@@ -14,10 +14,10 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: fc6cbbd0aa9cb0750e497c7cc7edbd42f21bda55
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82025002"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Azure DevTest Labs의 구현 오케스트레이션
@@ -43,7 +43,7 @@ Azure DevTest Labs 솔루션 배포 시 처음으로 확인해야 하는 주요 
 ## <a name="milestone-2-deploy-the-pilot-lab"></a>중요 시점 2: 파일럿 랩 배포
 네트워크 토폴로지를 구축한 후에는 다음 단계를 수행하여 첫 번째/파일럿 랩을 만들 수 있습니다.
 
-1. 초기 DevTest 랩 환경을 만듭니다.
+1. 초기 DevTest Labs 환경을 만듭니다.
 2. 랩에서 사용할 허용 가능한 VM 이미지와 크기를 결정합니다. DevTest Labs에 사용할 사용자 지정 이미지를 Azure에 업로드할 수 있는지 여부를 결정합니다.
 3. 랩용 초기 RBAC(역할 기반 액세스 제어)를 작성하여 랩 액세스를 보호합니다(랩 소유자 및 랩 사용자). DevTest Labs의 ID로는 Azure Active Directory와 동기화되는 Active Directory 계정을 사용하것는 이 좋습니다.
 4. 일정, 비용 관리, 클레임할 수 있는 VM, 사용자 지정 이미지 또는 수식과 같은 정책을 사용하도록 DevTest Labs를 구성합니다.

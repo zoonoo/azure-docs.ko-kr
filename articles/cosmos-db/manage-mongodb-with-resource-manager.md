@@ -1,37 +1,252 @@
 ---
-title: MongoDB용 Azure 코스모스 DB API에 대한 리소스 관리자 템플릿
-description: Azure 리소스 관리자 템플릿을 사용하여 MongoDB에 대한 Azure Cosmos DB API를 만들고 구성합니다.
-author: TheovanKraay
+title: MongoDB 용 Azure Cosmos DB API에 대 한 리소스 관리자 템플릿
+description: Azure Resource Manager 템플릿을 사용 하 여 MongoDB 용 Azure Cosmos DB API를 만들고 구성 합니다.
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.author: thvankra
-ms.openlocfilehash: 531f122679c463b11c84eba2fca9f30b09e0935f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.author: mjbrown
+ms.openlocfilehash: e312b5d8b6052dafa4855afa035429ef06608f1b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063632"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82200788"
 ---
-# <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿을 사용하여 Azure Cosmos DB MongoDB API 리소스 관리
+# <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB MongoDB API 리소스 관리
 
-이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너관리를 자동화하기 위해 다양한 작업을 수행하는 방법에 대해 설명합니다. 이 문서에는 MongoDB에 대한 Azure Cosmos DB의 API에 대한 예제가 있으며, 다른 API 형식 계정에 대한 예제를 찾을 [Cassandra](manage-cassandra-with-resource-manager.md)수 [Gremlin](manage-gremlin-with-resource-manager.md)있습니다. [SQL](manage-sql-with-resource-manager.md) [Table](manage-table-with-resource-manager.md)
+이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너의 관리를 자동화 하는 다양 한 작업을 수행 하는 방법을 설명 합니다. 이 문서에는 Azure Cosmos DB의 MongoDB 용 API에 대 한 예제만 있습니다. 다른 API 형식 계정에 대 한 예제를 찾으려면 Azure Cosmos DB의 API를 사용 하 여 [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [SQL](manage-sql-with-resource-manager.md), [테이블](manage-table-with-resource-manager.md) 아티클에 대 한 Azure Resource Manager 템플릿 사용을 참조 하세요.
 
-## <a name="create-azure-cosmos-db-api-for-mongodb-account-database-and-collection"></a>MongoDB 계정, 데이터베이스 및 컬렉션에 대한 Azure 코스모스 DB API 만들기<a id="create-resource"></a>
+## <a name="create-azure-cosmos-db-api-for-mongodb-account-database-and-collection"></a>MongoDB 계정, 데이터베이스 및 컬렉션에 대 한 Azure Cosmos DB API 만들기<a id="create-resource"></a>
 
-Azure 리소스 관리자 템플릿을 사용하여 Azure Cosmos DB 리소스를 만듭니다. 이 템플릿은 데이터베이스 수준에서 400 RU/s 처리량을 공유하는 두 개의 컬렉션이 있는 MongoDB API용 Azure Cosmos 계정을 만듭니다. 아래 와 같이 템플릿을 복사하여 배포하거나 [Azure Quickstart 갤러리를](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb/) 방문하여 Azure 포털에서 배포합니다. 템플릿을 로컬 컴퓨터에 다운로드하거나 새 템플릿을 만들고 매개 변수를 `--template-file` 사용하여 로컬 경로를 지정할 수도 있습니다.
+Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 리소스를 만듭니다. 이 템플릿은 데이터베이스 수준에서 400 r u/s 처리량을 공유 하는 두 개의 컬렉션을 사용 하 여 MongoDB API 용 Azure Cosmos 계정을 만듭니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb/) 를 방문 하 여 Azure Portal에서 배포 합니다. 템플릿을 로컬 컴퓨터에 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
 
 > [!NOTE]
-> 계정 이름은 소문자여야 하며 문자는 44자 이상이어야 합니다.
-> RU/s를 업데이트하려면 업데이트된 처리량 속성 값으로 템플릿을 다시 제출합니다.
->
-> 현재 PowerShell 및 CLI를 사용하여 MongoDB 계정에 대한 `*.documents.azure.com`Azure Cosmos DB의 API의 3.2 버전(즉, 형식의 끝점을 사용하는 계정)만 만들 수 있습니다. 3.6 버전의 계정을 만들려면 리소스 관리자 템플릿(아래) 또는 Azure 포털을 대신 사용합니다.
+> 계정 이름은 소문자와 44 자이 하 여야 합니다.
+> R u/s를 업데이트 하려면 업데이트 된 처리량 속성 값을 사용 하 여 템플릿을 다시 배포 합니다.
 
-:::code language="json" source="~/quickstart-templates/101-cosmosdb-mongodb/azuredeploy.json":::
+```json
+{
+"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+"contentVersion": "1.0.0.0",
+"parameters": {
+   "accountName": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+         "description": "Cosmos DB account name"
+      }
+   },
+   "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+         "description": "Location for the Cosmos DB account."
+      }
+   },
+   "primaryRegion":{
+      "type":"string",
+      "metadata": {
+         "description": "The primary replica region for the Cosmos DB account."
+      }
+   },
+   "secondaryRegion":{
+      "type":"string",
+      "metadata": {
+        "description": "The secondary replica region for the Cosmos DB account."
+     }
+   },
+   "defaultConsistencyLevel": {
+      "type": "string",
+      "defaultValue": "Session",
+      "allowedValues": [ "Eventual", "ConsistentPrefix", "Session", "BoundedStaleness", "Strong" ],
+      "metadata": {
+         "description": "The default consistency level of the Cosmos DB account."
+      }
+   },
+   "serverVersion": {
+      "defaultValue": "3.6",
+      "allowedValues": [
+         "3.2",
+         "3.6"
+      ],
+      "type": "String",
+      "metadata": {
+         "description": "Specifies the MongoDB server version to use."
+      }
+   },
+   "maxStalenessPrefix": {
+      "type": "int",
+      "defaultValue": 100000,
+      "minValue": 10,
+      "maxValue": 1000000,
+      "metadata": {
+         "description": "Max stale requests. Required for BoundedStaleness. Valid ranges, Single Region: 10 to 1000000. Multi Region: 100000 to 1000000."
+      }
+   },
+   "maxIntervalInSeconds": {
+      "type": "int",
+      "defaultValue": 300,
+      "minValue": 5,
+      "maxValue": 86400,
+      "metadata": {
+         "description": "Max lag time (seconds). Required for BoundedStaleness. Valid ranges, Single Region: 5 to 84600. Multi Region: 300 to 86400."
+      }
+   },
+   "databaseName": {
+      "type": "string",
+      "defaultValue": "Database1",
+      "metadata": {
+         "description": "The name for the Mongo DB database"
+      }
+   },
+   "throughput": {
+      "type": "int",
+      "defaultValue": 400,
+      "minValue": 400,
+      "maxValue": 1000000,
+      "metadata": {
+         "description": "The shared throughput for the Mongo DB database"
+      }
+   },
+   "collection1Name": {
+      "type": "string",
+      "defaultValue": "Collection1",
+      "metadata": {
+         "description": "The name for the first Mongo DB collection"
+      }
+   },
+   "collection2Name": {
+      "type": "string",
+      "defaultValue": "Collection2",
+      "metadata": {
+         "description": "The name for the second Mongo DB collection"
+      }
+   }
+},
+"variables": {
+   "accountName": "[toLower(parameters('accountName'))]",
+   "consistencyPolicy": {
+      "Eventual": {
+         "defaultConsistencyLevel": "Eventual"
+      },
+      "ConsistentPrefix": {
+         "defaultConsistencyLevel": "ConsistentPrefix"
+      },
+      "Session": {
+         "defaultConsistencyLevel": "Session"
+      },
+      "BoundedStaleness": {
+         "defaultConsistencyLevel": "BoundedStaleness",
+         "maxStalenessPrefix": "[parameters('maxStalenessPrefix')]",
+         "maxIntervalInSeconds": "[parameters('maxIntervalInSeconds')]"
+      },
+      "Strong": {
+         "defaultConsistencyLevel": "Strong"
+      }
+   },
+   "locations":
+   [
+      {
+         "locationName": "[parameters('primaryRegion')]",
+         "failoverPriority": 0,
+         "isZoneRedundant": false
+      },
+      {
+         "locationName": "[parameters('secondaryRegion')]",
+         "failoverPriority": 1,
+         "isZoneRedundant": false
+      }
+   ]
+},
+"resources":
+[
+   {
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "name": "[variables('accountName')]",
+      "apiVersion": "2020-03-01",
+      "location": "[parameters('location')]",
+      "kind": "MongoDB",
+      "properties": {
+         "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
+         "locations": "[variables('locations')]",
+         "databaseAccountOfferType": "Standard",
+         "apiProperties": {
+            "serverVersion": "[parameters('serverVersion')]"
+         }
+      }
+   },
+   {
+      "type": "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases",
+      "name": "[concat(variables('accountName'), '/', parameters('databaseName'))]",
+      "apiVersion": "2020-03-01",
+      "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/', variables('accountName'))]" ],
+      "properties":{
+         "resource":{
+            "id": "[parameters('databaseName')]"
+         },
+         "options": { "throughput": "[parameters('throughput')]" }
+      }
+   },
+   {
+      "type": "Microsoft.DocumentDb/databaseAccounts/mongodbDatabases/collections",
+      "name": "[concat(variables('accountName'), '/', parameters('databaseName'), '/', parameters('collection1Name'))]",
+      "apiVersion": "2020-03-01",
+      "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/mongodbDatabases', variables('accountName'), parameters('databaseName'))]" ],
+      "properties":
+      {
+         "resource":{
+            "id":  "[parameters('collection1Name')]",
+            "shardKey": { "user_id": "Hash" },
+            "indexes": [
+               {
+                  "key": { "keys":["user_id", "user_address"] },
+                  "options": { "unique": "true" }
+               },
+               {
+                  "key": { "keys":["_ts"] },
+                  "options": { "expireAfterSeconds": "2629746" }
+               }
+            ],
+            "options": {
+               "If-Match": "<ETag>"
+            }
+         }
+      }
+   },
+   {
+      "type": "Microsoft.DocumentDb/databaseAccounts/mongodbDatabases/collections",
+      "name": "[concat(variables('accountName'), '/', parameters('databaseName'), '/', parameters('collection2Name'))]",
+      "apiVersion": "2020-03-01",
+      "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/mongodbDatabases', variables('accountName'),  parameters('databaseName'))]" ],
+      "properties":
+      {
+         "resource":{
+            "id":  "[parameters('collection2Name')]",
+            "shardKey": { "company_id": "Hash" },
+            "indexes": [
+               {
+                  "key": { "keys":["company_id", "company_address"] },
+                  "options": { "unique": "true" }
+               },
+               {
+                  "key": { "keys":["_ts"] },
+                  "options": { "expireAfterSeconds": "2629746" }
+               }
+            ],
+            "options": {
+               "If-Match": "<ETag>"
+            }
+         }
+      }
+   }
+]
+}
+```
 
-### <a name="deploy-via-the-azure-cli"></a>Azure CLI를 통한 배포
+### <a name="deploy-via-the-azure-cli"></a>Azure CLI를 통해 배포
 
-Azure CLI를 사용하여 Azure 리소스 관리자 템플릿을 배포하려면 스크립트를 **복사하고** Azure 클라우드 셸을 **열려고 시도를** 선택합니다. 스크립트를 붙여 넣은 다음 셸을 마우스 오른쪽 단추로 클릭한 다음 **붙여넣기를 선택합니다.**
+Azure CLI를 사용 하 여 Azure Resource Manager 템플릿을 배포 하려면 스크립트를 **복사** 하 고 **사용해 보기** 를 선택 하 여 Azure Cloud Shell를 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
 
 ```azurecli-interactive
 
@@ -41,6 +256,7 @@ read -p 'Enter the account name: ' accountName
 read -p 'Enter the primary region (i.e. westus2): ' primaryRegion
 read -p 'Enter the secondary region (i.e. eastus2): ' secondaryRegion
 read -p 'Enter the database name: ' databaseName
+read -p 'Enter the database throughput: ' throughput
 read -p 'Enter the first collection name: ' collection1Name
 read -p 'Enter the second collection name: ' collection2Name
 
@@ -48,18 +264,18 @@ az group create --name $resourceGroupName --location $location
 az group deployment create --resource-group $resourceGroupName \
   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-mongodb/azuredeploy.json \
   --parameters accountName=$accountName primaryRegion=$primaryRegion secondaryRegion=$secondaryRegion \
-  databaseName=$databaseName collection1Name=$collection1Name collection2Name=$collection2Name
+  databaseName=$databaseName throughput=$throughput collection1Name=$collection1Name collection2Name=$collection2Name
 
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-이 `az cosmosdb show` 명령은 프로비전된 후 새로 만든 Azure Cosmos 계정을 표시합니다. 클라우드 셸을 사용하는 대신 로컬로 설치된 Azure CLI 버전을 사용하도록 선택한 경우 [Azure CLI](/cli/azure/) 문서를 참조하세요.
+`az cosmosdb show` 명령은 프로 비전 된 후 새로 만든 Azure Cosmos 계정을 보여 줍니다. Cloud Shell를 사용 하는 대신 로컬로 설치 된 Azure CLI 버전을 사용 하도록 선택 하는 경우 [Azure CLI](/cli/azure/) 문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 다음은 몇 가지 추가 리소스입니다.
 
 - [Azure Resource Manager 설명서](/azure/azure-resource-manager/)
-- [Azure 코스모스 DB 리소스 공급자 스키마](/azure/templates/microsoft.documentdb/allversions)
-- [Azure 코스모스 DB 퀵스타트 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
-- [일반적인 Azure 리소스 관리자 배포 오류 문제 해결](../azure-resource-manager/templates/common-deployment-errors.md)
+- [Azure Cosmos DB 리소스 공급자 스키마](/azure/templates/microsoft.documentdb/allversions)
+- [Azure Cosmos DB 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
+- [일반적인 Azure Resource Manager 배포 오류 문제 해결](../azure-resource-manager/templates/common-deployment-errors.md)

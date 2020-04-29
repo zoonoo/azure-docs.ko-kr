@@ -1,15 +1,15 @@
 ---
-title: 관리되는 앱을 배포할 때 키 자격 증명 모음 사용
+title: 관리 되는 앱을 배포할 때 Key Vault 사용
 description: Managed Applications를 배포하는 경우 Azure Key Vault에서 액세스 비밀 사용하는 방법 보여주기
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458286"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Azure Managed Applications를 배포할 때 Key Vault 비밀 액세스
@@ -22,7 +22,7 @@ ms.locfileid: "81458286"
 
 1. 포털에서 Key Vault를 선택합니다.
 
-1. **액세스 정책을**선택합니다.   
+1. **액세스 정책**을 선택 합니다.   
 
    ![액세스 정책 선택](./media/key-vault-access/select-access-policies.png)
 
@@ -30,13 +30,13 @@ ms.locfileid: "81458286"
 
    ![고급 액세스 정책 표시](./media/key-vault-access/advanced.png)
 
-1. **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**을 선택합니다. 그런 다음 **저장을**선택합니다.
+1. **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**을 선택합니다. 그런 다음, **저장**을 선택 합니다.
 
    ![템플릿 배포 사용하도록 설정](./media/key-vault-access/enable-template.png)
 
 ## <a name="add-service-as-contributor"></a>서비스를 기여자로 추가
 
-1. **액세스 제어(IAM)를**선택합니다.
+1. **액세스 제어 (IAM)** 를 선택 합니다.
 
    ![액세스 제어 선택](./media/key-vault-access/access-control.png)
 
@@ -52,7 +52,7 @@ ms.locfileid: "81458286"
 
 ## <a name="reference-key-vault-secret"></a>Key Vault 비밀 참조
 
-키 볼트에서 관리되는 응용 프로그램의 템플릿으로 비밀을 전달하려면 [연결된 또는 중첩된 템플릿을](../templates/linked-templates.md) 사용하고 연결된 또는 중첩된 템플릿에 대한 매개 변수의 Key Vault를 참조해야 합니다. Key Vault의 리소스 ID 및 비밀의 이름을 제공합니다.
+Key Vault에서 관리 되는 응용 프로그램의 템플릿으로 암호를 전달 하려면 [연결 된 템플릿 또는 중첩 된 템플릿을](../templates/linked-templates.md) 사용 하 고 연결 된 템플릿 또는 중첩 된 템플릿의 매개 변수에서 Key Vault을 참조 해야 합니다. Key Vault의 리소스 ID 및 비밀의 이름을 제공합니다.
 
 ```json
 {

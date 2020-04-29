@@ -4,10 +4,10 @@ description: Service Fabric 상태 저장 서비스는 가용성 높고, 확장 
 ms.topic: conceptual
 ms.date: 3/10/2020
 ms.openlocfilehash: 78ecc57a4da43bf416839226253e6d0e2f4c1651
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81398423"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure 서비스 패브릭 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개
@@ -26,7 +26,7 @@ ms.locfileid: "81398423"
 * 복제됨: 고가용성을 위해 상태 변경 내용이 복제됩니다.
 * 비동기: API는 IO를 초래할 때 스레드가 차단되지 않도록 비동기적입니다.
 * 트랜잭션: API가 트랜잭션 추상화를 활용하므로 서비스 내에서 여러 신뢰할 수 있는 컬렉션을 쉽게 관리할 수 있습니다.
-* 지속 또는 휘발성: 대규모 가동 중단(예: 데이터 센터 정전)에 대한 내구성을 위해 데이터를 디스크에 유지시킬 수 있습니다. 일부 신뢰할 수 있는 컬렉션은 복제된 메모리 캐시와 같이 모든 데이터가 메모리에 유지되는 휘발성 [모드(주의](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)사항 사용)도 지원합니다.
+* 지속형 또는 휘발성: 대규모 작동 중단 (예: 데이터 센터 전력 중단)에 대 한 내구성을 위해 데이터를 디스크에 유지할 수 있습니다. 일부 신뢰할 수 있는 컬렉션은 복제 된 메모리 내 캐시와 같이 모든 데이터가 메모리 내에 유지 되는 휘발성 모드 ( [주의](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)포함)도 지원 합니다.
 
 신뢰할 수 있는 컬렉션은 기본적으로 강력한 일관성을 보장하여 애플리케이션 상태에 대한 추론을 보다 쉽게 해줍니다.
 강력한 일관성은 주 복제본을 포함한 복제본의 과반수 쿼럼에 전체 트랜잭션이 기록된 후에만 트랜잭션 커밋을 완료하여 수행됩니다.
@@ -35,7 +35,7 @@ ms.locfileid: "81398423"
 신뢰할 수 있는 컬렉션 API는 동시 컬렉션 API( **System.Collections.Concurrent** 네임스페이스에 있음)의 진화입니다.
 
 * 비동기: 동시 컬렉션과 달리 작업이 복제 및 유지되므로 작업을 반환합니다.
-* out 매개 변수 `ConditionalValue<T>` 없음: `bool` out 매개 변수 대신 a 및 값을 반환하는 데 사용합니다. `ConditionalValue<T>`는 `Nullable<T>`과 유사하지만 T가 구조체일 필요는 없습니다.
+* Out 매개 변수 없음: `ConditionalValue<T>` 를 사용 하 `bool` 여 출력 매개 변수 대신 및 값을 반환 합니다. `ConditionalValue<T>`는 `Nullable<T>`과 유사하지만 T가 구조체일 필요는 없습니다.
 * 트랜잭션: 트랜잭션 개체를 사용하여 사용자가 트랜잭션의 여러 신뢰할 수 있는 컬렉션에 대한 작업을 그룹화하도록 지원합니다.
 
 오늘날 **Microsoft.ServiceFabric.Data.Collections** 은 다음과 같은 3가지 컬렉션을 포함합니다.
@@ -46,12 +46,12 @@ ms.locfileid: "81398423"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [신뢰할 수 있는 수집 지침 & 권장 사항](service-fabric-reliable-services-reliable-collections-guidelines.md)
+* [신뢰할 수 있는 컬렉션 지침 & 권장 사항](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [신뢰할 수 있는 컬렉션 작업](service-fabric-work-with-reliable-collections.md)
 * [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * 데이터 관리
   * [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
-  * [공지](service-fabric-reliable-services-notifications.md)
+  * [알림](service-fabric-reliable-services-notifications.md)
   * [신뢰할 수 있는 컬렉션 직렬화](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Serialization 및 업그레이드](service-fabric-application-upgrade-data-serialization.md)
   * [신뢰할 수 있는 상태 관리자 구성](service-fabric-reliable-services-configuration.md)

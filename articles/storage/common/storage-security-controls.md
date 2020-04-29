@@ -10,10 +10,10 @@ ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: 96fde15eb5071e157fedcff6154e6b0635a34721
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82128028"
 ---
 # <a name="security-controls-for-azure-storage"></a>Azure Storage에 대 한 보안 제어
@@ -32,7 +32,7 @@ ms.locfileid: "82128028"
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화)| 예 | 표준 HTTPS/TLS 메커니즘을 지원 합니다.  사용자는 서비스에 전송 되기 전에 데이터를 암호화할 수도 있습니다. |
 | API 호출 암호화| 예 |  |
 
-## <a name="network"></a>Network (네트워크)
+## <a name="network"></a>네트워크
 
 | 보안 제어 | 예/아니요 | 메모 |
 |---|---|--|

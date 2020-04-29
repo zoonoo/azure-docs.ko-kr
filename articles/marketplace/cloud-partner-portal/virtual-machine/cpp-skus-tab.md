@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
 ms.openlocfilehash: 6ca2ebf9d02c43c3fe6bb3abec6bc0d5815fac74
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143023"
 ---
 # <a name="virtual-machine-skus-tab"></a>가상 머신 SKU 탭
@@ -47,7 +47,7 @@ ms.locfileid: "82143023"
 |  *SKU 세부 정보*   |  |
 | **제목\***        | 마켓플레이스에 표시할 제안에 대한 이름입니다. 최대 길이는 50자입니다. |
 | **요약\***      | 마켓플레이스에 표시할 제안에 대한 간결한 설명입니다. 최대 길이는 100자입니다. |
-| **설명\***  | 제안에 대한 자세한 설명을 제공하는 설명 텍스트입니다.  <!-- TD: max len/guidance? 3k characters -->  |
+| **Description\***  | 제안에 대한 자세한 설명을 제공하는 설명 텍스트입니다.  <!-- TD: max len/guidance? 3k characters -->  |
 | **이 SKU 숨기기\*** | SKU가 마켓플레이스에서 고객에게 표시되어야 하는지 여부를 나타냅니다.  개별적으로 구입하지 않고 솔루션 템플릿을 통해서만 사용할 수 있도록 하려면 SKU를 숨기는 것이 좋습니다.  또한 초기 테스트 또는 임시/계절별 제안에도 유용할 수 있습니다. |
 | **클라우드 가용성\*** | SKU를 사용할 수 있는 클라우드를 결정합니다.  기본값은 Azure의 공개 버전입니다.  Microsoft Azure Government는 미국 연방, 주, 지방 또는 부족 정부 및 해당 인증 파트너에 대한 액세스를 제어하는 정부-커뮤니티 클라우드입니다.  정부 클라우드에 대한 자세한 내용은 [Azure Government 시작](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요. |
 | **사설 SKU 입니까?\*** | SKU가 프라이빗 또는 공개인지 여부를 나타냅니다. 기본값은 **아니요**(공개)입니다.  자세한 내용은 [공개 및 프라이빗 SKU](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)를 참조하세요. |

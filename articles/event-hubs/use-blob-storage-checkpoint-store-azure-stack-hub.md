@@ -1,6 +1,6 @@
 ---
-title: Azure 스택 허브에서 검사점 저장소로 Blob 저장소를 사용 하 여 (미리 보기)
-description: 이 문서에서는 Azure 스택 허브의 이벤트 허브(미리 보기)에서 Blob 저장소를 검사점 저장소로 사용하는 방법을 설명합니다.
+title: Azure Stack 허브 (미리 보기)에서 Blob Storage를 검사점 저장소로 사용
+description: 이 문서에서는 Azure Stack 허브 (미리 보기)의 Event Hubs에서 Blob Storage을 검사점 저장소로 사용 하는 방법을 설명 합니다.
 services: event-hubs
 documentationcenter: na
 author: spelluru
@@ -9,32 +9,32 @@ ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: spelluru
 ms.openlocfilehash: 2938099383c32eac493e4b4bb620f03c76ca5c44
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82023662"
 ---
-# <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Blob 저장소를 검사점 저장소로 사용 - Azure 스택 허브의 이벤트 허브(미리 보기)
-Azure Blob Storage를 Azure에서 일반적으로 사용할 수 있는 버전보다 다른 버전의 저장소 Blob SDK를 지원하는 환경에서 검사점 저장소로 사용하는 경우 코드를 사용하여 저장소 서비스 API 버전을 해당 환경에서 지원하는 특정 버전으로 변경해야 합니다. 예를 들어 Azure 스택 [허브 버전 2002에서 이벤트 허브를](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)실행 하는 경우 저장소 서비스에 대 한 사용 가능한 가장 높은 버전은 버전 2017-11-09입니다. 이 경우 코드를 사용하여 저장소 서비스 API 버전을 2017-11-09로 지정해야 합니다. 특정 저장소 API 버전을 대상으로 지정하는 방법에 대한 예제는 GitHub에서 다음 샘플을 참조하십시오. 
+# <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Blob Storage를 검사점 저장소로 사용-Azure Stack 허브 (미리 보기)에서 Event Hubs
+Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지 원하는 환경에서 검사점 저장소로 Azure Blob Storage을 사용 하는 경우, 코드를 사용 하 여 저장소 서비스 API 버전을 해당 환경에서 지 원하는 특정 버전으로 변경 해야 합니다. 예를 들어 [Azure Stack 허브 버전 2002에서 Event Hubs](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)를 실행 하는 경우 저장소 서비스에 사용할 수 있는 가장 높은 버전은 2017-11-09입니다. 이 경우에는 코드를 사용 하 여 저장소 서비스 API 버전을 2017-11-09로 대상으로 해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 GitHub의 다음 샘플을 참조 하세요. 
 
 - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)
-- [자바](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java). 
-- [자바 스크립트](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) 또는 [타이프 스크립트](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) 
-- 파이썬 - [동기,](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) [비동기](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
+- [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java). 
+- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) 또는 [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) 
+- Python- [동기](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [비동기](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
 
 > [!IMPORTANT]
-> Azure 스택 허브의 이벤트 허브는 현재 [미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 중이며 무료입니다. 
+> Azure Stack Hub의 Event Hubs는 현재 [미리 보기로](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 제공 되며 무료입니다. 
 
-Azure Stack Hub가 지원하는 버전을 대상으로 하지 않고 Blob Storage를 검사점 저장소로 사용하는 이벤트 허브 수신기를 실행하면 다음과 같은 오류 메시지가 나타납니다.
+Azure Stack 허브가 지 원하는 버전을 대상으로 하지 않고 Blob Storage를 검사점 저장소로 사용 하는 Event Hubs 수신자를 실행 하는 경우 다음 오류 메시지가 표시 됩니다.
 
 ```
 The value for one of the HTTP headers is not in the correct format
 ```
 
 
-## <a name="sample-error-message-in-python"></a>파이썬의 샘플 오류 메시지
-파이썬의 `azure.core.exceptions.HttpResponseError` 경우 의 오류 `on_error(partition_context, error)` 처리기의 `EventHubConsumerClient.receive()`오류 처리기에 오류가 전달됩니다. 그러나 메서드는 `receive()` 예외를 발생 하지 않습니다. `print(error)`다음 예외 정보를 인쇄합니다.
+## <a name="sample-error-message-in-python"></a>Python의 샘플 오류 메시지
+Python의 경우 오류는의 `azure.core.exceptions.HttpResponseError` `on_error(partition_context, error)` `EventHubConsumerClient.receive()`오류 처리기에 전달 됩니다. 그러나 메서드 `receive()` 는 예외를 발생 시 키 지 않습니다. `print(error)`는 다음과 같은 예외 정보를 인쇄 합니다.
 
 ```bash
 The value for one of the HTTP headers is not in the correct format.
@@ -47,7 +47,7 @@ HeaderName:x-ms-version
 HeaderValue:2019-07-07
 ```
 
-로거는 다음과 같은 두 가지 경고를 기록합니다.
+로 거는 다음과 같은 두 가지 경고를 기록 합니다.
 
 ```bash
 WARNING:azure.eventhub.extensions.checkpointstoreblobaio._blobstoragecsaio: 
@@ -64,4 +64,4 @@ The exception is HttpResponseError('The value for one of the HTTP headers is not
 
 ## <a name="next-steps"></a>다음 단계
 
-분할 및 검사점에 대한 다음 문서 보기: [응용 프로그램의 여러 인스턴스에서 파티션 로드 균형](event-processor-balance-partition-load.md) 조정
+분할 및 검사점에 대 한 자세한 내용은 다음 문서를 참조 하세요. [응용 프로그램의 여러 인스턴스에서 파티션 로드 균형 조정](event-processor-balance-partition-load.md)

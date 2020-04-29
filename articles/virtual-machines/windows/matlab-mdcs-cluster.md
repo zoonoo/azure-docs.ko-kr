@@ -1,5 +1,5 @@
 ---
-title: 가상 머신의 MATLAB 클러스터
+title: 가상 컴퓨터의 MATLAB 클러스터
 description: Microsoft Azure 가상 머신을 사용하여 계산 집약적인 병렬 MATLAB 작업을 실행하기 위한 MATLAB 분산 컴퓨팅 서버 클러스터를 만듭니다.
 author: mscurrell
 ms.service: virtual-machines-windows
@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
 ms.openlocfilehash: d34481587fd48e2eddfd268c39f6bc4f7c4e0c76
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869415"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Azure VM에 MATLAB 분산 컴퓨팅 서버 클러스터 만들기
@@ -27,7 +27,7 @@ Azure 가상 머신을 사용하면, 대화형 작업, 배치 작업, 독립 작
 * **클라이언트 컴퓨터** - 배포 후 Azure 및 MATLAB 분산 컴퓨팅 서버 클러스터와 통신하기 위한 Windows 기반 클라이언트 컴퓨터가 필요합니다.
 * **Azure PowerShell** - 클라이언트 컴퓨터에 설치하려면 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하세요.
 * **Azure 구독** - 구독이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/) 을 만들 수 있습니다. 대규모 클러스터의 경우, 종량제 구독이나 다른 구매 옵션을 고려하세요.
-* **vCPU 할당량** - 대형 클러스터 또는 MATLAB 분산 컴퓨팅 서버 클러스터를 하나 이상 배포하려면 vCPU 할당량을 늘리는 것이 필요할 수 있습니다. 할당량을 늘리려면 [온라인 고객 지원 요청을](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) 무료로 엽니다.
+* **vCPU 할당량** - 대형 클러스터 또는 MATLAB 분산 컴퓨팅 서버 클러스터를 하나 이상 배포하려면 vCPU 할당량을 늘리는 것이 필요할 수 있습니다. 할당량을 늘리려면 무료로 [온라인 고객 지원 요청을 여세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) .
 * **MATLAB, 병렬 컴퓨팅 도구 상자 및 MATLAB 분산 컴퓨팅 서버 정보 라이선스** - 스크립트는 모든 라이선스에 대해 [MathWorks 호스티드 라이선스 관리자](https://www.mathworks.com/help/install/license-management.html) 가 사용되었다고 가정합니다.  
 * **MATLAB 분산 컴퓨팅 서버 소프트웨어** - 클러스터 VM의 기본 VM 이미지로 사용될 VM에 설치됩니다.
 

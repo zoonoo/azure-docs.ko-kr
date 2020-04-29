@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: c8273025b92a74286d3f918289ef9f21bd992182
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143113"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Power BI 앱 제품 만들기
@@ -23,7 +23,7 @@ ms.locfileid: "82143113"
 
 자산 그룹은 다음 표에 설명되어 있습니다.
 
-|   자산 그룹      | 설명                                                                         |
+|   자산 그룹      | Description                                                                         |
 | ----------------   | ----------------                                                                    |
 | 제품 설정     | 제품의 기본 ID와 이름입니다.                                      |
 | 기술 정보     | 클라이언트의 Power BI 작업 영역에 앱을 설치 하는 데 사용 하는 설치 관리자 URL입니다. 이 URL을 생성하는 방법에 대한 자세한 내용은 [Power BI 앱 문서](https://go.microsoft.com/fwlink/?linkid=2028636)를 참조하세요. |

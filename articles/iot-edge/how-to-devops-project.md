@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c7598aafea85e91f28233645d3d71bf85bf45425
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82130987"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Azure DevOps Projects를 사용하여 IoT Edge에 대한 CI/CD 파이프라인 만들기
@@ -32,7 +32,7 @@ DevOps Projects는 Azure DevOps에 CI/CD 파이프라인을 만듭니다. 새 Az
 
 ## <a name="create-a-new-application-pipeline"></a>새 애플리케이션 파이프라인 만들기
 
-1. Azure IoT Edge 모듈은[C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) 및 [Java](tutorial-java-module.md)로 작성할 수 있습니다. **.NET**, **Node.js**, **Python**, **C** 또는 **Java** 중에 원하는 언어를 선택하여 새 애플리케이션을 시작합니다. **다음**을 선택하여 계속합니다.
+1. Azure IoT Edge 모듈은[C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) 및 [Java](tutorial-java-module.md)로 작성할 수 있습니다. **.NET**, **Node.js**, **Python**, **C** 또는 **Java** 중에 원하는 언어를 선택하여 새 애플리케이션을 시작합니다. 계속하려면 **다음**을 선택합니다.
 
    ![언어를 선택하여 새 애플리케이션을 만듭니다.](./media/how-to-devops-project/select-language.png)
 

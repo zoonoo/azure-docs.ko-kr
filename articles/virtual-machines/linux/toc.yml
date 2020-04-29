@@ -564,14 +564,14 @@
             - name: Cloud-init를 위해 기존 VM 준비
               href: cloudinit-prepare-custom-image.md
         - name: Jenkins
-          href: ../../jenkins/overview.md
+          href: /azure/developer/jenkins/overview.md
           items:
             - name: Jenkins 서버 만들기
-              href: ../../jenkins/install-jenkins-solution-template.md
+              href: /azure/developer/jenkins/configure-on-linux-vm.md
             - name: VM 에이전트를 사용하여 크기 조정
-              href: ../../jenkins/jenkins-azure-vm-agents.md
+              href: /azure/developer/jenkins/scale-deployments-using-vm-agents.md
             - name: Storage에 아티팩트 게시
-              href: ../../jenkins/storage-java-jenkins-continuous-integration-solution.md
+              href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository.md
             - name: Jenkins 보안
               href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: 컨테이너 실행

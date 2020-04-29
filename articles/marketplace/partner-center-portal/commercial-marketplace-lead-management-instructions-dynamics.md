@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
 ms.openlocfilehash: b9158f7b2e3fc73a2fe2a9b20ead2558b7467f6f
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131048"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Dynamics 365 고객 Engagement에 대 한 리드 관리 구성
@@ -21,7 +21,7 @@ ms.locfileid: "82131048"
 >[!NOTE]
 >이러한 지침은 Dynamics 365 고객 참여를 위한 Microsoft 호스팅 클라우드 환경에만 적용 됩니다. Dynamics 온-프레미스 환경에 직접 연결 하는 것은 현재 지원 되지 않습니다. 예를 들어 [HTTPS 끝점](./commercial-marketplace-lead-management-instructions-https.md) 또는 [Azure 테이블](./commercial-marketplace-lead-management-instructions-azure-table.md)을 구성 하는 등의 다른 옵션을 통해 잠재 고객을 받을 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 완료 하려면 다음 사용자 권한이 필요 합니다. 그러려면 다음 작업을 수행해야 합니다.
 

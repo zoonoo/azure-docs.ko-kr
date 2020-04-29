@@ -1,5 +1,5 @@
 ---
-title: Azure 인프라 연습 사례 예
+title: Azure 인프라 연습 예제
 description: Azure에서 인프라 예제를 배포하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,10 +9,10 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 43e96b891e60dfcf8bc3c29b202bb60213905372
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869462"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Windows VM에 대한 Azure 인프라 연습 예제
@@ -45,7 +45,7 @@ Adventure Works Cycles는 Azure에서 다음으로 구성된 온라인 스토어
 위의 모든 사항은 명명 규칙을 따릅니다.
 
 * Adventure Works Cycles는 **[IT 작업]-[위치]-[Azure 리소스]** 를 접두사로 사용합니다.
-  * 이 예제에서 "**azos**" (Azure Online Store)는 IT 워크로드 이름이며 "**"사용"**(미국 동부 2)은 위치입니다.
+  * 이 예의 경우 "**azos**" (Azure 온라인 저장소)는 IT 워크 로드 이름이 고 "**USE**" (미국 동부 2)는 위치입니다.
 * 가상 네트워크는 AZOS-USE-VN **[숫자]** 를 사용합니다.
 * 가용성 집합은 azos-use-as-**[역할]** 을 사용합니다.
 * 가상 머신 이름은 azos-use-vm-**[VM 이름]** 을 사용합니다.

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab51030ad39e1360cabc7d63390af7c1654d2891
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82082121"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
@@ -87,7 +87,7 @@ ms.locfileid: "82082121"
 | givenName |X |X | | |
 | homePhone |X |X | | |
 | 정보 |X |X |X |이 특성은 현재 그룹에 사용되지 않습니다. |
-| Initials |X |X | | |
+| 이니셜 |X |X | | |
 | l |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
@@ -251,12 +251,12 @@ ms.locfileid: "82082121"
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역
+| usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다.
 . 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 | wWWHomePage |X |X | | |
 
-## <a name="teams-and-skype-for-business-online"></a>온라인 비즈니스를 위한 팀 및 스카이프
+## <a name="teams-and-skype-for-business-online"></a>팀 및 비즈니스용 Skype Online
 | 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
@@ -375,7 +375,7 @@ ms.locfileid: "82082121"
 * Yammer(User만 사용됨)
 * [SharePoint와 같은 리소스에서 제공하는 하이브리드 B2B 조직 간 협업 시나리오](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-이 그룹은 Azure AD Directory가 Office 365, Dynamics, 또는 Intune을 지원하지 않을 때 사용되는 특성의 집합입니다. 코어 특성의 작은 집합이 있습니다. 일부 타사 응용 프로그램에 대한 단일 사인온 또는 프로비전은 여기에 설명된 특성 외에 특성의 동기화를 구성해야 합니다. 응용 프로그램 요구 사항은 각 응용 프로그램에 대한 [SaaS 앱 자습서에](../saas-apps/tutorial-list.md) 설명되어 있습니다.
+이 그룹은 Azure AD Directory가 Office 365, Dynamics, 또는 Intune을 지원하지 않을 때 사용되는 특성의 집합입니다. 코어 특성의 작은 집합이 있습니다. 일부 타사 응용 프로그램을 Single Sign-On 또는 프로 비전 하려면 여기에 설명 된 특성과 함께 특성 동기화를 구성 해야 합니다. 응용 프로그램 요구 사항은 각 응용 프로그램에 대 한 [SaaS 앱 자습서](../saas-apps/tutorial-list.md) 에 설명 되어 있습니다.
 
 | 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
 | --- |:---:|:---:|:---:| --- |
@@ -430,7 +430,7 @@ Windows 10 도메인에 가입된 컴퓨터(디바이스)는 일부 특성을 Az
 | msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |필터링: 온-프레미스 필터링을 다시 쓰고 온라인 보관 및 보낸 사람의 데이터를 클라이어트로부터 차단합니다. |
 | msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |필터링: 온-프레미스 필터링을 다시 쓰고 온라인 보관 및 보낸 사람의 데이터를 클라이어트로부터 차단합니다. |
 | msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |UM(통합 메시징)-온라인 음성 메일 사용: Microsoft Lync Server Intergration 사용자가 온라인 서비스에 음성 메일이 있는지 Lync Server 온-프레미스에 나타내기 위해서 사용합니다. |
-| msExchUserHoldPolicies| ms-Exch-사용자 보류 정책 |X | | |소송 보류: 어떤 사용자가 소송을 보류 중인지 확인하기 위해 클라우드 서비스를 사용합니다. |
+| msExchUserHoldPolicies| UserHoldPolicies |X | | |소송 보류: 어떤 사용자가 소송을 보류 중인지 확인하기 위해 클라우드 서비스를 사용합니다. |
 | proxyAddresses| proxyAddresses |X |X |X |Exchange Online의 x500 주소만 삽입됩니다. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Exchange Online 사서함에 온-프레미스 Exchange 사서함이 있는 사용자에게 SendOnBehalfTo 권한을 부여할 수 있습니다. Azure AD Connect 빌드 1.1.552.0 이상이 필요합니다. |
 
@@ -466,7 +466,7 @@ Active Directory에 디바이스 개체를 만듭니다. 이러한 개체는 Azu
 | msDS-IsManaged |X | |
 | msDS-RegisteredOwner |X | |
 
-## <a name="notes"></a>참고
+## <a name="notes"></a>메모
 * 대체 ID를 사용하면, 온-프레미스 특성 userPrincipalName은 Azure AD 특성 onPremisesUserPrinciparlName과 동기화됩니다. 대체 ID 특성(예: 메일)은 Azure AD 특성 userPrincipalName과 동기화됩니다.
 * 위의 목록에서 개체 형식 **User**는 개체 형식 **iNetOrgPerson**에도 적용됩니다.
 

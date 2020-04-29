@@ -11,10 +11,10 @@ ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 05d658c052c5bc12f49d957bb29ad085c269c57b
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82137371"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
@@ -53,13 +53,13 @@ ms.locfileid: "82137371"
 자동화 된 ML은 사용자에 게 기본 시계열 및 심층 학습 모델을 모두 권장 사항 시스템의 일부로 제공 합니다. 
 
 
-모델| 설명 | 이점
+모델| Description | 이점
 ----|----|---
 Prophet (미리 보기)|Prophet는 계절 효과가 강 하 고 기록 데이터가 여러 개 있는 시계열에서 가장 잘 작동 합니다. | 정확한 & 빠르고, 이상 값이 강력 하 고, 데이터가 누락 되 고, 시계열이 대폭 변경 되었습니다.
 자동 ARIMA (미리 보기)|ARIMA (자동 회귀 Integrated 이동 평균)는 데이터가 고정 되어 있을 때 가장 잘 수행 됩니다. 즉, 평균과 편차와 같은 통계 속성은 전체 집합에 대해 일정 합니다. 예를 들어 동전을 대칭 이동 하는 경우 오늘, 내일 또는 다음 연도의 대칭 이동 여부와 관계 없이 헤드를 가져오는 확률은 50%입니다.| 이전 값을 사용 하 여 미래 값을 예측 하므로 계열 계열에 적합 합니다.
 ForecastTCN (미리 보기)| ForecastTCN는 데이터의 비선형 로컬 및 글로벌 추세 뿐만 아니라 시계열 간의 관계를 캡처하기 위해 가장 까다로운 예측 작업을 처리 하도록 설계 된 신경망 모델입니다.|데이터의 복잡 한 추세를 활용 하 고 데이터 집합의 가장 큰 값으로 쉽게 확장할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 * 이 문서에서는 자동화 된 machine learning 실험을 설정 하는 방법에 대 한 기본 지식이 있다고 가정 합니다. [자습서](tutorial-auto-train-models.md) 또는 [방법에](how-to-configure-auto-train.md) 따라 기본적인 자동화 된 기계 학습 실험 디자인 패턴을 볼 수 있습니다.
@@ -134,7 +134,7 @@ automl_config = AutoMLConfig(task='forecasting',
 
 개체 [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) 는 자동화 된 machine learning 작업에 필요한 설정 및 데이터를 정의 합니다. 회귀 문제와 마찬가지로 작업 유형, 반복 횟수, 학습 데이터 및 교차 유효성 검사 수와 같은 표준 학습 매개 변수를 정의 합니다. 예측 작업의 경우 실험에 영향을 주는 추가 매개 변수를 설정 해야 합니다. 다음 표에서는 각 매개 변수 및 사용법을 설명 합니다.
 
-| 매개&nbsp;변수 이름 | 설명 | 필수 |
+| 매개&nbsp;변수 이름 | Description | 필수 |
 |-------|-------|-------|
 |`time_column_name`|시계열을 작성 하 고 해당 빈도를 유추 하는 데 사용 되는 입력 데이터의 datetime 열을 지정 하는 데 사용 됩니다.|✓|
 |`grain_column_names`|입력 데이터에서 개별 계열 그룹을 정의 하는 이름입니다. 그레인을 정의 하지 않으면 데이터 집합은 하나의 시계열으로 간주 됩니다.||

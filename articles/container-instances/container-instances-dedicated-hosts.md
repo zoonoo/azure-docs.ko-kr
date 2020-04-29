@@ -1,46 +1,46 @@
 ---
 title: 전용 호스트에 배포
-description: 전용 호스트를 사용하여 Azure 컨테이너 인스턴스 워크로드에 대한 진정한 호스트 수준 격리 달성
+description: 전용 호스트를 사용 하 여 Azure Container Instances 작업에 대 한 실제 호스트 수준 격리 얻기
 ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82025036"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>전용 호스트에 배포
 
-"전용"은 안전하게 실행되는 컨테이너를 위해 격리되고 전용된 계산 환경을 제공하는 Azure 컨테이너 인스턴스(ACI) sku입니다. 전용 sku를 사용하면 각 컨테이너 그룹에 Azure 데이터 센터에 전용 물리적 서버가 있으므로 조직의 보안 및 규정 준수 요구 사항을 충족하는 데 도움이 되는 전체 워크로드 격리가 보장됩니다. 
+"전용"은 컨테이너를 안전 하 게 실행 하기 위해 격리 된 전용 계산 환경을 제공 하는 ACI (Azure Container Instances) sku입니다. 전용 sku를 사용 하면 각 컨테이너 그룹에서 Azure 데이터 센터에 전용 물리적 서버가 있으므로 조직의 보안 및 규정 준수 요구 사항을 충족 하는 데 도움이 되는 전체 워크 로드 격리를 보장할 수 있습니다. 
 
-전용 sku는 물리적 서버 관점에서 워크로드 격리가 필요한 컨테이너 워크로드에 적합합니다.
+전용 sku는 물리적 서버 관점에서 작업을 격리 해야 하는 컨테이너 작업에 적합 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 전용 sku를 사용하는 구독의 기본 제한은 0입니다. 프로덕션 컨테이너 배포에 이 sku를 사용하려면 Azure [Support 요청을][azure-support] 만들어 제한을 늘립니다.
+* 전용 sku를 사용 하는 모든 구독에 대 한 기본 제한은 0입니다. 프로덕션 컨테이너 배포에이 sku를 사용 하려는 경우 [Azure 지원 요청][azure-support] 를 만들어 제한을 늘립니다.
 
-## <a name="use-the-dedicated-sku"></a>전용 스쿠 사용
+## <a name="use-the-dedicated-sku"></a>전용 sku 사용
 
 > [!IMPORTANT]
-> 전용 sku를 사용하는 것은 현재 출시중인 최신 API 버전(2019-12-01)에서만 사용할 수 있습니다. 배포 템플릿에서 이 API 버전을 지정합니다.
+> 전용 sku를 사용 하는 것은 현재 롤아웃 중인 최신 API 버전 (2019-12-01) 에서만 사용할 수 있습니다. 배포 템플릿에서이 API 버전을 지정 합니다.
 >
 
-API 버전 2019-12-01부터 ACI `sku` 배포에 필요한 배포 템플릿의 컨테이너 그룹 속성 섹션 아래에 속성이 있습니다. 현재 이 속성을 ACI에 대한 Azure 리소스 관리자 배포 템플릿의 일부로 사용할 수 있습니다. [자습서: 리소스 관리자 템플릿을 사용하여 다중 컨테이너 그룹을 배포하는 방법에](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)대해 자세히 알아보기 
+API 버전 2019-12-01부터 ACI 배포에 필요한 배포 `sku` 템플릿의 컨테이너 그룹 속성 섹션 아래에 속성이 있습니다. 현재이 속성은 ACI 용 Azure Resource Manager 배포 템플릿의 일부로 사용할 수 있습니다. [자습서: 리소스 관리자 템플릿을 사용 하 여 다중 컨테이너 그룹 배포](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)에서 템플릿을 사용 하 여 ACI 리소스를 배포 하는 방법에 대해 자세히 알아보세요. 
 
-속성은 `sku` 다음 값 중 하나를 가질 수 있습니다.
-* `Standard`- 하이퍼바이저 수준의 보안을 보장하는 표준 ACI 배포 선택 
-* `Dedicated`- 컨테이너 그룹에 대한 전용 물리적 호스트와 워크로드 수준 격리에 사용
+속성 `sku` 은 다음 값 중 하나를 가질 수 있습니다.
+* `Standard`-하이퍼바이저 수준 보안을 보장 하는 표준 ACI 배포 선택 
+* `Dedicated`-컨테이너 그룹에 대 한 전용 물리적 호스트와 워크 로드 수준 격리에 사용 됨
 
 ## <a name="modify-your-json-deployment-template"></a>JSON 배포 템플릿 수정
 
-배포 템플릿에서 다음 속성을 수정하거나 추가합니다.
-* 에서 `resources`으로 `apiVersion` `2019-12-01`설정합니다.
-* 컨테이너 그룹 속성 아래에 `sku` 값이 `Dedicated`있는 속성을 추가합니다.
+배포 템플릿에서 다음 속성을 수정 하거나 추가 합니다.
+* 에서 `resources`을로 `apiVersion` `2019-12-01`설정 합니다.
+* 컨테이너 그룹 속성에서 value `sku` `Dedicated`를 사용 하 여 속성을 추가 합니다.
 
-다음은 전용 sku를 사용하는 컨테이너 그룹 배포 템플릿의 리소스 섹션에 대한 예제 코드 입니다.
+다음은 전용 sku를 사용 하는 컨테이너 그룹 배포 템플릿의 리소스 섹션에 대 한 예제 코드 조각입니다.
 
 ```json
 [...]
@@ -60,7 +60,7 @@ API 버전 2019-12-01부터 ACI `sku` 배포에 필요한 배포 템플릿의 �
 ]
 ```
 
-다음은 단일 컨테이너 인스턴스를 실행하는 샘플 컨테이너 그룹을 배포하는 전체 템플릿입니다.
+다음은 단일 컨테이너 인스턴스를 실행 하는 샘플 컨테이너 그룹을 배포 하는 전체 템플릿입니다.
 
 ```json
 {
@@ -129,7 +129,7 @@ API 버전 2019-12-01부터 ACI `sku` 배포에 필요한 배포 템플릿의 �
 
 ## <a name="deploy-your-container-group"></a>컨테이너 그룹 배포
 
-데스크톱에서 배포 템플릿 파일을 만들고 편집한 경우 파일을 끌어서 Cloud Shell 디렉터리에 업로드할 수 있습니다. 
+바탕 화면에서 배포 템플릿 파일을 만들고 편집한 경우에는 파일을 끌어서 Cloud Shell 디렉터리에 업로드할 수 있습니다. 
 
 [az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다.
 
@@ -143,7 +143,7 @@ az group create --name myResourceGroup --location eastus
 az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
-몇 초 정도 지나면 Azure에서 초기 응답이 수신됩니다. 성공적인 배포는 전용 호스트에서 이루어집니다.
+몇 초 정도 지나면 Azure에서 초기 응답이 수신됩니다. 배포는 전용 호스트에서 수행 됩니다.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create

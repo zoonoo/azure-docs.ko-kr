@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.openlocfilehash: 46a2badbbe957f6a8a6af7f5a40633ea24cadcd4
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82083368"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Marketplace에서 Windows VM 이미지 찾기
@@ -30,7 +30,7 @@ ms.locfileid: "82083368"
 
 다음 표에는 지정된 게시자 및 제안에 사용할 수 있는 SKU의 하위 집합이 나와 있습니다.
 
-| 게시자 | 제안 | SKU |
+| 게시자 | 제품 | SKU |
 |:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-Core |
@@ -115,7 +115,7 @@ advantys
 ...
 ```
 
-*마이크로소프트윈도우 서버* 게시자의 경우:
+*MicrosoftWindowsServer* 게시자의 경우:
 
 ```powershell
 $pubName="MicrosoftWindowsServer"
@@ -206,7 +206,7 @@ DataDiskImages   : []
 
 ```
 
-아래 예제에서는 다음과 같은 속성이 있는 *데이터 과학 가상 컴퓨터 - Windows 2016* 이미지에 대한 유사한 명령을 보여 `PurchasePlan` 주며, `name`이 명령은 다음과 같습니다. `product` `publisher` 일부 이미지에는 `promotion code` 속성도 있습니다. 이 이미지를 배포하려면 다음 섹션에서 약관에 동의하고 프로그래밍 방식 배포를 사용하도록 설정합니다.
+아래 예제 `PurchasePlan` 에서는 `name`, `product`및 `publisher`속성을 포함 하는 *Data Science Virtual Machine Windows 2016* 이미지에 대 한 유사한 명령을 보여 줍니다. 일부 이미지에는 `promotion code` 속성도 있습니다. 이 이미지를 배포하려면 다음 섹션에서 약관에 동의하고 프로그래밍 방식 배포를 사용하도록 설정합니다.
 
 ```powershell
 Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"

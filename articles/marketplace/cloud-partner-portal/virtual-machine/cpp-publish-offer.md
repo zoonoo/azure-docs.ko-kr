@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: dsindona
 ms.openlocfilehash: f66ce0c15e976898d5022bf5705a82fe0969ec07
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82147652"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>가상 머신 제안 게시
@@ -27,7 +27,7 @@ ms.locfileid: "82147652"
 <!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
-|  **게시 단계**           | **시간**    | **설명**                                                            |
+|  **게시 단계**           | **런타임**    | **설명**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | 필수 구성 요소 유효성 검사         | 15분   | 제안 정보 및 제안 설정의 유효성이 검사됩니다.                        |
 | 시험 사용 유효성 검사(선택 사항) | 2시간 | 시험 사용을 사용하도록 선택한 경우 Microsoft는 선택한 지역을 통해 시험 사용 구성, 해당 배포 및 복제의 유효성을 검사합니다. |

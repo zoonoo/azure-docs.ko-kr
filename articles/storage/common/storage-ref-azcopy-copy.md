@@ -1,6 +1,6 @@
 ---
-title: 아즈카피 카피 | 마이크로 소프트 문서
-description: 이 문서에서는 azcopy 복사 명령에 대한 참조 정보를 제공합니다.
+title: azcopy 복사 | Microsoft Docs
+description: 이 문서에서는 azcopy copy 명령에 대 한 참조 정보를 제공 합니다.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,51 +9,51 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 0325a71fb069f3d96f05d106afac1639fc38fe42
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253342"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
-원본 데이터를 대상 위치로 복사합니다.
+원본 데이터를 대상 위치에 복사 합니다.
 
 ## <a name="synopsis"></a>개요
 
-원본 데이터를 대상 위치로 복사합니다. 지원되는 방향은 다음과 같습니다.
+원본 데이터를 대상 위치에 복사 합니다. 지원 되는 지침은 다음과 같습니다.
 
-  - 로컬 < > Azure Blob(SAS 또는 OAuth 인증)
-  - 로컬 < > Azure 파일(공유/디렉터리 SAS 인증)
-  - 로컬 < > ADLS Gen 2(SAS, OAuth 또는 공유 키 인증)
-  - Azure Blob(SAS 또는 공용) -> Azure Blob(SAS 또는 OAuth 인증)
-  - Azure Blob(SAS 또는 공용) -> Azure 파일(SAS)
-  - Azure 파일(SAS) -> Azure 파일(SAS)
-  - Azure 파일(SAS) -> Azure Blob(SAS 또는 OAuth 인증)
-  - AWS S3(액세스 키) -> Azure 블록 Blob(SAS 또는 OAuth 인증)
+  - 로컬 <-> Azure Blob (SAS 또는 OAuth 인증)
+  - 로컬 <-> Azure Files (공유/디렉터리 SAS 인증)
+  - 로컬 <-> ADLS Gen 2 (SAS, OAuth 또는 SharedKey authentication)
+  - Azure Blob (SAS 또는 public)-> Azure Blob (SAS 또는 OAuth 인증)
+  - Azure Blob (SAS 또는 공용)-SAS (> Azure Files)
+  - Sas (Azure Files)-SAS (> Azure Files)
+  - SAS (Azure Files)-> Azure Blob (SAS 또는 OAuth 인증)
+  - AWS S3 (액세스 키)-> Azure 블록 Blob (SAS 또는 OAuth 인증)
 
-자세한 내용은 예제를 참조하십시오.
+자세한 내용은 예제를 참조 하세요.
 
-## <a name="related-conceptual-articles"></a>관련 개념 기사
+## <a name="related-conceptual-articles"></a>관련 개념 문서
 
 - [AzCopy 시작](storage-use-azcopy-v10.md)
-- [AzCopy 및 Blob 저장소로 데이터 전송](storage-use-azcopy-blobs.md)
+- [AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](storage-use-azcopy-blobs.md)
 - [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 - [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
 
 ## <a name="advanced"></a>고급
 
-AzCopy는 파일 확장명또는 콘텐츠(확장확장이 지정되지 않은 경우)에 따라 로컬 디스크에서 업로드할 때 파일의 콘텐츠 유형을 자동으로 감지합니다.
+AzCopy는 파일 확장명 또는 콘텐츠 (확장명이 지정 되지 않은 경우)에 따라 로컬 디스크에서 업로드할 때 파일의 콘텐츠 형식을 자동으로 검색 합니다.
 
-기본 제공 조회 테이블은 작지만 유닉스에서는 로컬 시스템의 mime.type 파일(들)에 의해 보강되어 이러한 이름 중 하나 이상에서 사용할 수 있습니다.
+기본 제공 조회 테이블은 작지만 Unix에서 다음 이름 중 하나 이상에서 사용할 수 있는 경우 로컬 시스템의 mime. types 파일에 의해 확대 됩니다.
 
-- /etc/mime.type
-- /etc/아파치2/마임.type
-- /etc/아파치/마임.type
+- /etc/mime.types
+- /etc/apache2/mime.types
+- /etc/apache/mime.types
 
-Windows에서 MIME 형식은 레지스트리에서 추출됩니다. 이 기능은 플래그의 도움으로 해제할 수 있습니다. 플래그 섹션을 참조하십시오.
+Windows에서는 레지스트리에서 MIME 형식이 추출 됩니다. 플래그를 사용 하 여이 기능을 끌 수 있습니다. 플래그 섹션을 참조 하십시오.
 
-명령줄을 사용하여 환경 변수를 설정하면 명령줄 기록에서 해당 변수를 읽을 수 있습니다. 명령줄 기록의 자격 증명이 포함된 변수를 지우는 것이 좋습니다. 기록에 변수가 나타나지 않도록 하려면 스크립트를 사용하여 사용자에게 자격 증명을 묻고 환경 변수를 설정할 수 있습니다.
+명령줄을 사용 하 여 환경 변수를 설정 하는 경우 명령줄 기록에서 해당 변수를 읽을 수 있습니다. 명령줄 기록에서 자격 증명을 포함 하는 변수를 지우는 것이 좋습니다. 기록에 변수가 나타나지 않게 하려면 스크립트를 사용 하 여 사용자에 게 자격 증명을 묻는 메시지를 표시 하 고 환경 변수를 설정할 수 있습니다.
 
 ```
 azcopy copy [source] [destination] [flags]
@@ -61,193 +61,193 @@ azcopy copy [source] [destination] [flags]
 
 ## <a name="examples"></a>예
 
-OAuth 인증을 사용하여 단일 파일을 업로드합니다. AzCopy에 아직 로그인하지 않은 경우 다음 명령을 실행하기 전에 azcopy 로그인 명령을 실행하십시오.
+OAuth 인증을 사용 하 여 단일 파일을 업로드 합니다. AzCopy에 아직 로그인 하지 않은 경우 다음 명령을 실행 하기 전에 AzCopy login 명령을 실행 하세요.
 
-- azcopy cp "/경로/to/file.txt" "https://[계정].blob.core.net/[컨테이너]/[경로/경로/blob]"
+- azcopy cp "/path/to/file.txt" "https://[account]. blob. w i n. w i n.
 
-위와 동일하지만 이번에는 파일 콘텐츠의 MD5 해시를 계산하고 Blob의 Content-MD5 속성으로 저장합니다.
+위와 동일 하지만 이번에는 파일 콘텐츠의 MD5 해시를 계산 하 고 blob의 콘텐츠-MD5 속성으로 저장 합니다.
 
-- azcopy cp "/경로/to/file.txt" "https://[계정].blob.core.net/[컨테이너]/[경로/에/blob]" --put-md5
+- azcopy cp "/path/to/file.txt" "https://[account]. blob. w i n d o w s/[container]/[path/to/blob]"--
 
-SAS 토큰을 사용하여 단일 파일을 업로드합니다.
+SAS 토큰을 사용 하 여 단일 파일을 업로드 합니다.
 
-- azcopy cp "/경로/에/file.txt" "https://[계정].blob.core.net/[컨테이너]/[경로/에/blob]? [SAS]"
+- azcopy cp "/path/to/file.txt" "https://[account]./[container]/[path/to/blob]? [SAS] "
 
-SAS 토큰 및 파이핑을 사용하여 단일 파일을 업로드합니다(블록 Blob만 사용):
+SAS 토큰과 파이프 (블록 blob만)를 사용 하 여 단일 파일을 업로드 합니다.
   
-- 고양이 "/경로/에/file.txt" | azcopy cp "https://[계정].blob.core.net/[컨테이너]/[경로/에/blob]? [SAS]"
+- cat "/path/to/file.txt" | azcopy cp "https://[account] .cc.net/[container]/[path/to/blob]? [SAS] "
 
-SAS 토큰을 사용하여 전체 디렉터리 업로드:
+SAS 토큰을 사용 하 여 전체 디렉터리를 업로드 합니다.
   
-- azcopy cp "/경로/에/dir" "https://[계정].blob.core.windows.net/[컨테이너]/[경로/경로/디렉토리]? [SAS]" --재귀=true
+- azcopy cp "/path/to/dir" "https://[account]./[container]/[path/to/directory]? [SAS] "--recursive = true
 
 또는
 
-- azcopy cp "/경로/에/dir" "https://[계정].blob.core.windows.net/[컨테이너]/[경로/경로/디렉토리]? [SAS]" --재귀=true --put-md5
+- azcopy cp "/path/to/dir" "https://[account]./[container]/[path/to/directory]? [SAS] "--recursive = true--입력-md5
 
-SAS 토큰 및 와일드카드(*) 문자를 사용하여 파일 집합을 업로드합니다.
+SAS 토큰 및 와일드 카드 (*) 문자를 사용 하 여 파일 집합을 업로드 합니다.
 
-- azcopy cp "/경로/foo/bar/*.pdf" "https://[계정].blob.core.net/[컨테이너]/[경로/to/directory]?*foo/* [SAS]"
+- azcopy cp "/path/*foo/* bar/* .pdf" "https://[account]. blob. net.tcp/[container]/[path/to/directory]? [SAS] "
 
-SAS 토큰 및 와일드카드(*) 문자를 사용하여 파일 및 디렉터리 업로드:
+SAS 토큰 및 와일드 카드 (*) 문자를 사용 하 여 파일 및 디렉터리를 업로드 합니다.
 
-- azcopy cp *"/경로/foo/바*"*"https://[계정].blob.core.net/[컨테이너]/[경로/경로/디렉토리]? [SAS]" --재귀=true
+- azcopy cp "/path/*foo/* bar *" "https://[account]. blob/[container]/[path/to/directory]? [SAS] "--recursive = true
 
-OAuth 인증을 사용하여 단일 파일을 다운로드합니다. AzCopy에 아직 로그인하지 않은 경우 다음 명령을 실행하기 전에 azcopy 로그인 명령을 실행하십시오.
+OAuth 인증을 사용 하 여 단일 파일을 다운로드 합니다. AzCopy에 아직 로그인 하지 않은 경우 다음 명령을 실행 하기 전에 AzCopy login 명령을 실행 하세요.
 
-- azcopy cp "https://[계정].blob.core.net/[컨테이너]/[경로/에/blob]" "/경로/에/file.txt"
+- azcopy cp "https://[account] .cc.net/[container]/[path/to/blob]" "/path/to/file.txt"
 
-SAS 토큰을 사용하여 단일 파일을 다운로드합니다.
+SAS 토큰을 사용 하 여 단일 파일을 다운로드 합니다.
 
-- azcopy cp "https://[계정].blob.core.net/[컨테이너]/[경로/에/blob]? [SAS]" "/경로/파일.txt"
+- azcopy cp "https://[account] .cc.net/[container]/[path/to/blob]? [SAS] ""/path/to/file.txt "
 
-SAS 토큰을 사용하여 단일 파일을 다운로드한 다음 출력을 파일로 파이핑합니다(블록 Blob만 사용).
+SAS 토큰을 사용 하 여 단일 파일을 다운로드 한 다음 출력을 파일로 파이프 합니다 (블록 blob에만 해당).
   
-- azcopy cp "https://[계정].blob.core.net/[컨테이너]/[경로/에/blob]? [SAS]" > "/경로/에/file.txt"
+- azcopy cp "https://[account] .cc.net/[container]/[path/to/blob]? [SAS] ">"/path/to/file.txt "
 
-SAS 토큰을 사용하여 전체 디렉토리를 다운로드합니다.
+SAS 토큰을 사용 하 여 전체 디렉터리를 다운로드 합니다.
   
-- azcopy cp "https://[계정].blob.core.net/[컨테이너]/[경로/경로/에/디렉토리]? [SAS]" "/경로/에/dir" --재귀=true
+- azcopy cp "https://[account] .cc.net/[container]/[path/to/directory]? [SAS] ""/path/to/dir "--recursive = true
 
-URL에서 와일드카드 문자(*)를 사용하는 것에 대한 참고 사항:
+Url에 와일드 카드 문자 (*)를 사용 하는 방법에 대 한 참고 사항:
 
-URL에서 와일드카드 문자를 사용하는 지원되는 방법은 두 가지뿐입니다. 
+URL에 와일드 카드 문자를 사용 하는 데는 두 가지 방법이 지원 됩니다. 
 
-- URL의 최종 정방향 슬래시(/) 바로 이후에 하나를 사용할 수 있습니다. 이렇게 하면 디렉터리에 있는 모든 파일을 하위 디렉터리로 배치하지 않고 대상에 직접 복사합니다.
+- URL의 마지막 슬래시 (/) 바로 다음에 하나를 사용할 수 있습니다. 이렇게 하면 디렉터리에 있는 모든 파일이 하위 디렉터리에 배치 되지 않고 대상에 직접 복사 됩니다.
 
-- URL이 Blob이 아닌 컨테이너만 참조하는 한 컨테이너 이름에 하나를 사용할 수도 있습니다. 이 방법을 사용하여 컨테이너의 하위 집합에서 파일을 가져올 수 있습니다.
+- URL이 blob이 아닌 컨테이너를 참조 하는 한 컨테이너 이름에 하나를 사용할 수도 있습니다. 이 방법을 사용 하 여 컨테이너의 하위 집합에서 파일을 가져올 수 있습니다.
 
-포함된 디렉터리 자체를 복사하지 않고 디렉터리 내용을 다운로드합니다.
+포함 하는 디렉터리 자체를 복사 하지 않고 디렉터리의 콘텐츠를 다운로드 합니다.
 
-- azcopy cp "https://[srcaccount].blob.core.windows.net/[컨테이너]/[경로/에/폴더]/*? [SAS]" "/경로/경로/디르"
+- azcopy cp "https://[srcaccount]. blob./[container]/[path/to/folder]/*? [SAS] ""/path/to/dir "
 
-전체 저장소 계정을 다운로드합니다.
+전체 저장소 계정을 다운로드 합니다.
 
-- azcopy cp "https://[srcaccount].blob.core.windows.net/" "/경로/to/dir" --재귀
+- azcopy cp "https://[srcaccount]. blob./path/to/dir/" ""--recursive
 
-컨테이너 이름에 와일드카드 기호(*)를 사용하여 저장소 계정 내에서 컨테이너의 하위 집합을 다운로드합니다.
+컨테이너 이름에 와일드 카드 기호 (*)를 사용 하 여 저장소 계정 내에서 컨테이너의 하위 집합을 다운로드 합니다.
 
-- azcopy cp "https://[srcaccount].blob.core.windows.net/[컨테이너*이름]" "/path/to/dir" --재귀
+- azcopy cp "https://[srcaccount]. blob./path/to/dir/[container * name]" ""--recursive
 
-SAS 토큰을 사용하여 단일 Blob을 다른 Blob에 복사합니다.
+SAS 토큰을 사용 하 여 단일 blob을 다른 blob에 복사 합니다.
 
-- azcopy cp "https://[srcaccount].blob.core.windows.net/[컨테이너]/[경로/에/blob]? [SAS]" "https://[destaccount].blob.core.windows.net/[컨테이너]/[경로/에/blob]? [SAS]"
+- cp "https://[srcaccount] azcopy/[container]/[path/to/blob]? [SAS] "" https://[destaccount] .cc.net/[container]/[path/to/blob]? [SAS] "
 
-SAS 토큰과 OAuth 토큰을 사용하여 단일 Blob을 다른 Blob에 복사합니다. 원본 계정 URL 끝에 SAS 토큰을 사용해야 하지만 azcopy 로그인 명령을 사용하여 AzCopy에 로그인하는 경우 대상 계정이 필요하지 않습니다. 
+SAS 토큰과 OAuth 토큰을 사용 하 여 단일 blob을 다른 blob에 복사 합니다. 원본 계정 URL의 끝에 SAS 토큰을 사용 해야 하지만 AzCopy login 명령을 사용 하 여 AzCopy에 로그인 하는 경우 대상 계정이 필요 하지 않습니다. 
 
-- azcopy cp "https://[srcaccount].blob.core.windows.net/[컨테이너]/[경로/에/blob]? [SAS]" "https://[destaccount].blob.core.windows.net/[컨테이너]/[경로/에/blob]"
+- cp "https://[srcaccount] azcopy/[container]/[path/to/blob]? [SAS] "" https://[destaccount]. blob. w i n. w i n d o w s/[container]/[path/to/blob] "
 
-SAS 토큰을 사용하여 한 Blob 가상 디렉터리를 다른 Blob 가상 디렉터리로 복사합니다.
+SAS 토큰을 사용 하 여 blob 가상 디렉터리 하나를 다른 blob 가상 디렉터리에 복사 합니다.
 
-- azcopy cp "https://[srcaccount].blob.core.windows.net/[컨테이너]/[경로/에/디렉토리]? [SAS]" "https://[destaccount].blob.core.windows.net/[컨테이너]/[경로/에/디렉토리]? [SAS]" --재귀=true
+- cp "https://[srcaccount] azcopy/[container]/[path/to/directory]? [SAS] "" https://[destaccount] .cc.net/[container]/[path/to/directory]? [SAS] "--recursive = true
 
-SAS 토큰을 사용하여 저장소 계정에서 다른 Blob 컨테이너, 디렉터리 및 Blob을 복사합니다.
+SAS 토큰을 사용 하 여 모든 blob 컨테이너, 디렉터리 및 blob을 저장소 계정에서 다른 계정으로 복사 합니다.
 
-- azcopy CP "https://[srcaccount].blob.core.windows.net? [SAS]" "https://[destaccount].blob.core.windows.net? [SAS]" --재귀=true
+- azcopy cp "https://[srcaccount]. blob. [SAS] "" https://[destaccount]. blob. [SAS] "--recursive = true
 
-액세스 키와 SAS 토큰을 사용하여 Amazon Web Services(AWS) S3에서 단일 개체를 Blob Storage에 복사합니다. 먼저 AWS S3 소스에 대한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY 설정합니다.
+액세스 키 및 SAS 토큰을 사용 하 여 AWS (Amazon Web Services) s 3에서 Blob Storage 단일 개체를 복사 합니다. 먼저 AWS S3 source에 대 한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 합니다.
   
-- azcopy cphttps://s3.amazonaws.com/" [버킷]/[개체]" "https://[destaccount].blob.core.net/[컨테이너]/[경로/에/blob]? [SAS]"
+- azcopy cp "https://s3.amazonaws.com/[버킷]/[object]" "https://[destaccount]. blob. w i n d o w s/[container]/[path/to/blob]? [SAS] "
 
-액세스 키와 SAS 토큰을 사용하여 AWS S3에서 전체 디렉터리에서 Blob Storage로 복사합니다. 먼저 AWS S3 소스에 대한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY 설정합니다.
+액세스 키 및 SAS 토큰을 사용 하 여 AWS s 3에서 전체 디렉터리를 Blob Storage에 복사 합니다. 먼저 AWS S3 source에 대 한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 합니다.
 
-- azcopy cphttps://s3.amazonaws.com/" [버킷]/[폴더]" "https://[destaccount].blob.core.net/[컨테이너]/[경로/경로/디렉토리]? [SAS]" --재귀=true
+- cp "https://s3.amazonaws.com/[버킷]/[folder]" "https://[destaccount] azcopy/[container]/[path/to/directory]? [SAS] "--recursive = true
 
-[폴더] https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html 자리 표시자를 더 잘 이해하려면 참조하십시오.
+[폴더] https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html 자리 표시자에 대 한 자세한 내용은를 참조 하십시오.
 
-액세스 키와 SAS 토큰을 사용하여 모든 버킷을 Amazon 웹 서비스(AWS)의 Blob Storage로 복사합니다. 먼저 AWS S3 소스에 대한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY 설정합니다.
+액세스 키 및 SAS 토큰을 사용 하 여 Blob Storage Amazon Web Services (AWS)에서 모든 버킷을 복사 합니다. 먼저 AWS S3 source에 대 한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 합니다.
 
-- azcopy cphttps://s3.amazonaws.com/" " "https://[destaccount].blob.core.windows.net? [SAS]" --재귀=true
+- azcopy cp "https://s3.amazonaws.com/" "" "" https://[destaccount]. blob. [SAS] "--recursive = true
 
-액세스 키와 SAS 토큰을 사용하여 Amazon 웹 서비스(AWS) 리전에서 모든 버킷을 Blob Storage로 복사합니다. 먼저 AWS S3 소스에 대한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY 설정합니다.
+액세스 키 및 SAS 토큰을 사용 하 여 Amazon Web Services (AWS) 지역에서 Blob Storage 모든 버킷을 복사 합니다. 먼저 AWS S3 source에 대 한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 합니다.
 
-- azcopy cphttps://s3-" [지역].amazonaws.com/" "https://[destaccount].blob.core.net? [SAS]" --재귀=true
+- azcopy cp "https://s3-[region]. amazonaws/" "https://[destaccount]. blob. [SAS] "--recursive = true
 
-버킷 이름에 와일드카드 기호(*)를 사용하여 버킷의 하위 집합을 복사합니다. 이전 예제와 마찬가지로 액세스 키와 SAS 토큰이 필요합니다. AWS S3 소스에 대한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY 설정해야 합니다.
+버킷 이름에 와일드 카드 기호 (*)를 사용 하 여 버킷의 하위 집합을 복사 합니다. 이전 예제와 마찬가지로 액세스 키와 SAS 토큰이 필요 합니다. AWS S3 원본에 대해 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 해야 합니다.
 
-- azcopy cphttps://s3.amazonaws.com/" [버킷*이름]/" "https://[destaccount].blob.core.net? [SAS]" --재귀=true
+- azcopy cp "https://s3.amazonaws.com/[버킷 * name]/" "https://[destaccount]. blob. [SAS] "--recursive = true
 
 ## <a name="options"></a>옵션
 
-**--백업**                               업로드에 대 한 Windows의 SeBackupPrivilege 활성화, 또는 다운로드에 대 한 SeRestorePrivilege, AzCopy 모든 파일을 읽을 수 있도록 허용, 그들의 파일 시스템 권한에 관계 없이, 모든 권한을 복원. AzCopy를 실행하는 계정에 이미 이러한 권한이 있어야 합니다(예: 관리자 권한이 있거나 '백업 운영자' 그룹의 구성원). 이 플래그는 계정에 이미 있는 권한을 활성화하는 것입니다.
+**--백업**                               파일 시스템 사용 권한에 관계 없이 AzCopy가 모든 파일을 읽고 모든 권한을 복원 하는 것을 허용 하도록 Windows ' SeBackupPrivilege를 업로드 하거나 다운로드를 위해 SeRestorePrivilege를 활성화 합니다. AzCopy를 실행 하는 계정에는이 권한이 이미 있어야 합니다 (예: 관리자 권한이 있거나 ' Backup Operators ' 그룹의 구성원). 이 플래그는 모두 계정에 이미 있는 활성화 권한입니다.
 
-**--Blob 형식** 문자열 대상에서 Blob 의 형식을 정의합니다. 이는 Blob을 업로드하고 계정 간에 복사할 때 사용됩니다(기본 '감지'). 유효한 값으로는 '감지', '블록블랍', 'PageBlob', 'AppendBlob'가 있습니다. 계정 간에 복사할 때 '감지' 값을 사용하면 AzCopy에서 소스 Blob 유형을 사용하여 대상 Blob의 유형을 결정합니다. 파일을 업로드할 때 '감지'는 파일 확장명에 따라 파일이 VHD 또는 VHDX 파일인지 여부를 결정합니다. 파일이 VHD 또는 VHDX 파일인 경우 AzCopy는 파일을 페이지 Blob로 처리합니다. (기본값 "감지")
+**--blob 형식** 문자열은 대상에서 blob의 유형을 정의 합니다. 이는 blob을 업로드 하 고 계정 간에 복사할 때 사용 됩니다 (기본값 ' 검색 '). 유효한 값으로는 ' 검색 ', ' BlockBlob ', ' PageBlob ' 및 ' AppendBlob '가 있습니다. 계정 간에 복사 하는 경우 값이 ' 검색 ' 이면 AzCopy에서 원본 blob의 유형을 사용 하 여 대상 blob의 유형을 결정 합니다. 파일을 업로드할 때 ' 검색 '은 파일이 파일 확장명을 기반으로 하는 VHD 또는 VHDX 파일 인지 여부를 확인 합니다. 파일이 VHD 또는 VHDX 파일 에테르 스코프 경우 AzCopy는 해당 파일을 페이지 blob으로 처리 합니다. (기본 "검색")
 
-**--블록-Blob 계층** 문자열 블록 Blob을 선택한 [액세스 계층에](../blobs/storage-blob-storage-tiers.md) 직접 업로드합니다. (기본값 '없음')을 입력합니다. 유효한 값에는 '없음', '핫', '쿨', '아카이브'가 포함됩니다. '없음' 또는 계층이 전달되지 않으면 Blob은 저장소 계정의 계층을 상속합니다.
+**--블록-blob 계층** 문자열 업로드 블록 blob을 사용자가 선택한 [액세스 계층](../blobs/storage-blob-storage-tiers.md) 에 직접 업로드 합니다. (기본값 ' 없음 '). 유효한 값에는 ' None ', ' Hot ', ' 쿨 ' 및 ' Archive '가 포함 됩니다. ' 없음 ' 또는 계층이 전달 되지 않으면 blob는 저장소 계정의 계층을 상속 합니다.
 
-**--블록 크기-mb** 부동 Azure 저장소에 업로드 하 고 Azure 저장소에서 다운로드할 때 이 블록 크기(MiB에 지정)를 사용합니다. 기본값은 파일 크기에 따라 자동으로 계산됩니다. 소수분은 허용됩니다(예: 0.25).
+**--블록 크기-mb** 부동 소수점 Azure Storage에 업로드 하 고 Azure Storage에서 다운로드 하는 경우이 블록 크기 (MiB에 지정)를 사용 합니다. 기본값은 파일 크기에 따라 자동으로 계산 됩니다. 소수 부분을 사용할 수 있습니다 (예: 0.25).
 
-**--캐시 제어** 문자열 캐시 제어 헤더를 설정합니다. 다운로드 시 반환되었습니다.
+**--cache 컨트롤** 문자열이 cache-control 헤더를 설정 합니다. 다운로드 시 반환 됩니다.
 
-**--체크 길이**                         전송 후 대상에 있는 파일의 길이를 확인합니다. 원본과 대상 간에 불일치가 있는 경우 전송은 실패한 것으로 표시됩니다. (기본 참)
+**--check length**                         전송 후 대상에서 파일의 길이를 확인 합니다. 원본과 대상이 일치 하지 않는 경우 전송이 실패 한 것으로 표시 됩니다. (기본값 true)
 
-**--check-md5** 문자열은 다운로드 할 때 MD5 해시의 유효성을 엄격하게 검사하는 방법을 지정합니다. 다운로드 할 때만 사용할 수 있습니다. 사용 가능한 옵션: 없음 검사, 로그만, FailIfDifferent, FailIfDifferentOrMissing. (기본값 "FailIfDifferent")
+**--확인란을 선택** 하면 md5 문자열을 다운로드할 때 유효성을 검사 하는 방법을 지정 합니다. 다운로드 하는 경우에만 사용할 수 있습니다. 사용 가능한 옵션: NoCheck, LogOnly, FailIfDifferent,. (기본값 "FailIfDifferent")
 
-**--콘텐츠 처리** 문자열 콘텐츠 처리 헤더를 설정합니다. 다운로드 시 반환되었습니다.
+**--콘텐츠** 처리 문자열이 콘텐츠 처리 헤더를 설정 합니다. 다운로드 시 반환 됩니다.
 
-**--콘텐츠 인코딩** 문자열 콘텐츠 인코딩 헤더를 설정합니다. 다운로드 시 반환되었습니다.
+**--콘텐츠** 인코딩 문자열이 콘텐츠 인코딩 헤더를 설정 합니다. 다운로드 시 반환 됩니다.
 
-**--콘텐츠 언어** 문자열 콘텐츠 언어 헤더를 설정합니다. 다운로드 시 반환되었습니다.
+**--content-type** 문자열이 content-type 헤더를 설정 합니다. 다운로드 시 반환 됩니다.
 
-**--콘텐츠 유형** 문자열은 파일의 콘텐츠 형식을 지정합니다. 추측-마임 형이 없음을 의미합니다. 다운로드 시 반환되었습니다.
+**--content 형식** 문자열은 파일의 콘텐츠 형식을 지정 합니다. -추측-mime 형식이 없음을 의미 합니다. 다운로드 시 반환 됩니다.
 
-**--압축 해제**                           다운로드 할 때 파일의 콘텐츠 인코딩이 압축되어 있음을 나타내는 경우 파일을 자동으로 압축 해제합니다. 지원되는 콘텐츠 인코딩 값은 'gzip' 및 'deflate'입니다. '.gz'/'gzip' 또는 '.zz'의 파일 확장자는 필요하지 않지만 있는 경우 제거됩니다.
+**--압축 풀기**                           다운로드 시 파일의 압축을 자동으로 풀고 (콘텐츠 인코딩 시 압축 된 것으로 표시 된 경우). 지원 되는 콘텐츠 인코딩 값은 ' gzip ' 및 ' deflate '입니다. '. Release.tar.gz '/' gzip ' 또는 '. a l l '의 파일 확장명은 필요 하지 않지만 있는 경우 제거 됩니다.
 
-**--제외 특성** 문자열(Windows만 해당) 특성이 특성 목록과 일치하는 파일을 제외합니다. 예를 들어: A; S; R
+**--exclude 특성** 문자열 (Windows에만 해당) 특성 목록과 일치 하는 특성을 가진 파일을 제외 합니다. 예: A; 삭제 &
 
-**--제외 Blob 유형** 문자열 선택적으로 컨테이너 또는 계정에서 Blob을 복사할 때 제외할 Blob 유형(BlockBlob/ PageBlob/ AppendBlob)을 지정합니다. 이 플래그의 사용은 Azure 서비스가 아닌 서비스에서 서비스로 데이터를 복사하는 데 는 적용되지 않습니다. 두 개 이상의 Blob은 ';'로 구분되어야 합니다.
+**--exclude-blob 형식** 문자열은 필요에 따라 컨테이너 또는 계정에서 blob을 복사할 때 제외할 blob 유형 (Blockblob/Pageblob/appendblob)을 지정 합니다. 비 azure 서비스에서 서비스로 데이터를 복사 하는 경우에는이 플래그를 사용할 수 없습니다. 하나 이상의 blob이 '; '으로 구분 되어야 합니다.
 
-**--제외 경로** 문자열 복사할 때 이러한 경로를 제외합니다. 이 옵션은 와일드카드 문자(*)를 지원하지 않습니다. 상대 경로 접두사를 확인합니다(예: myFolder;myFolder/subDirName/file.pdf). 계정 통과와 함께 사용하는 경우 경로에는 컨테이너 이름이 포함되지 않습니다.
+**--제외-경로 문자열은** 복사할 때 이러한 경로를 제외 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 하지 않습니다. 상대 경로 접두사 (예: myFolder; myFolder/subDirName/file .pdf)를 확인 합니다. 계정 순회와 함께 사용 하는 경우 경로는 컨테이너 이름을 포함 하지 않습니다.
 
-**--제외 패턴** 문자열 복사 할 때 이러한 파일을 제외합니다. 이 옵션은 와일드카드 문자(*)를 지원합니다.
+**--exclude-패턴 문자열은** 복사할 때 이러한 파일을 제외 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 합니다.
 
-**--팔로우 심볼링크**                      로컬 파일 시스템에서 업로드할 때 기호 링크를 따릅니다.
+**--팔 로우-symlink**                      로컬 파일 시스템에서 업로드할 때 기호화 된 링크를 따르세요.
 
-**--에서** 문자열선택적으로 소스 대상 조합을 지정합니다. 예: 로컬Blob, BlobLocal, 로컬BlobFS.
+**--from** 문자열은 필요에 따라 원본 대상 조합을 지정 합니다. 예: LocalBlob, BlobLocal, LocalBlobFS.
 
-**-h, --도움말** 복사에 대 한 도움말
+**-h,--** 복사에 대 한 도움말 도움말
 
-**--포함 특성** 문자열(Windows만) 특성이 특성 목록과 일치하는 파일을 포함합니다. 예를 들어: A; S; R
+**--include** 특성 문자열 (Windows에만 해당)은 특성 목록과 일치 하는 특성을 가진 파일을 포함 합니다. 예: A; 삭제 &
 
-**--포함 경로** 문자열 복사할 때 이러한 경로만 포함합니다. 이 옵션은 와일드카드 문자(*)를 지원하지 않습니다. 상대 경로 접두사를 확인합니다(예: myFolder;myFolder/subDirName/file.pdf).
+**--include-path** 문자열은 복사할 때 이러한 경로만 포함 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 하지 않습니다. 상대 경로 접두사 (예: myFolder; myFolder/subDirName/file .pdf)를 확인 합니다.
 
-**--포함 패턴** 문자열 복사 할 때 이러한 파일만 포함합니다. 이 옵션은 와일드카드 문자(*)를 지원합니다. ';'를 사용하여 파일을 분리합니다.
+**--include-패턴** 문자열은 복사할 때 이러한 파일만 포함 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 합니다. '; '을 사용 하 여 파일을 구분 합니다.
 
-**--로그 수준** 문자열 로그 파일, 사용 가능한 수준: INFO(모든 요청/응답), 경고(느린 응답), ERROR(실패한 요청만), NONE(출력 로그 없음)에 대한 로그 세부 정보를 정의합니다. (기본값 "정보")
+**--로그 수준** 문자열은 로그 파일에 대 한 로그의 자세한 정도, 사용 가능한 수준: 정보 (모든 요청/응답), 경고 (저속 응답), 오류 (실패 한 요청만) 및 없음 (출력 로그 없음)을 정의 합니다. (기본 "정보")
 
-**--메타데이터** 문자열 이러한 키-값 쌍을 메타데이터로 사용하여 Azure Storage에 업로드합니다.
+**--** 이러한 키-값 쌍을 메타 데이터로 Azure Storage에 대 한 메타 데이터 문자열 업로드입니다.
 
-**--추측 마임 타입**                   AzCopy가 파일의 확장 또는 내용에 따라 콘텐츠 형식을 검색하지 못하도록 합니다.
+**--추측-mime 형식**                   AzCopy에서 파일의 확장명 또는 내용을 기준으로 콘텐츠 형식을 검색 하지 못하도록 합니다.
 
---이 플래그가 true로 설정된 경우 대상에서 충돌하는 파일과 Blob을 **덮어씁니다.** 가능한 값으로는 'true', 'false', 'ifSourceNewer', '프롬프트'가 있습니다. (기본값 "true")
+**--** 이 플래그가 true로 설정 된 경우 문자열을 덮어써서 destination은 충돌 하는 파일 및 Blob을 덮어씁니다. 가능한 값에는 ' true ', ' false ', ' ifSourceNewer ' 및 ' prompt '가 있습니다. (기본값 "true")
 
-**--페이지-Blob 계층** 문자열 이 Blob 계층을 사용하여 페이지 Blob을 Azure 저장소에 업로드합니다. (기본값 "없음")
+**--** 이 blob 계층을 사용 하 여 Azure Storage에 페이지 blob 계층 문자열을 업로드 합니다. (기본 "없음")
 
-**--보존 - 마지막 수정 시간**          대상이 파일 시스템인 경우에만 사용할 수 있습니다.
+**--유지-마지막-수정 시간**          Destination이 파일 시스템 인 경우에만 사용할 수 있습니다.
 
-**--보존-smb-권한** 문자열 기본적으로 False. 인식 리소스(Windows 및 Azure 파일) 간에 SMB ACL을 보존합니다. 다운로드의 경우 플래그를 `--backup` 사용하여 새 소유자가 AzCopy를 실행하는 사용자가 아닌 권한을 복원해야 합니다. 이 플래그는 파일 전용 필터를 지정하지 않는 한 파일과 폴더 `include-pattern`모두에 적용됩니다(예: ).
+**--기본적으로 smb 사용 권한** 문자열 False를 유지 합니다. 인식 리소스 (Windows 및 Azure Files) 사이에서 SMB Acl을 유지 합니다. 다운로드의 경우 플래그를 `--backup` 사용 하 여 새 소유자가 AzCopy를 실행 하는 사용자가 아닌 권한을 복원 해야 합니다. 이 플래그는 파일 전용 필터가 지정 된 경우를 제외 하 고 파일 및 폴더에 모두 적용 됩니다 `include-pattern`(예:).
 
-**--보존-smb-정보** 문자열 기본적으로 False. SMB 인식 리소스(Windows 및 Azure 파일) 간에 SMB 속성 정보(마지막 쓰기 시간, 생성 시간, 특성 비트)를 유지합니다. Azure 파일에서 지원하는 특성 비트만 전송됩니다. 다른 사람은 무시됩니다. 이 플래그는 파일 전용 필터(예: 포함 패턴)를 지정하지 않는 한 파일과 폴더 모두에 적용됩니다. 폴더에 대해 전송된 정보는 폴더에 대해 보존되지 않는 마지막 쓰기 시간을 제외하고 파일의 정보와 동일합니다.
+**--기본적으로 smb 정보** 문자열 False입니다. SMB 인식 리소스 (Windows 및 Azure Files) 간에 SMB 속성 정보 (마지막으로 쓴 시간, 만든 시간, 특성 비트)를 유지 합니다. Azure Files에서 지 원하는 특성 비트만 전송 됩니다. 다른 모든 항목은 무시 됩니다. 이 플래그는 파일 전용 필터가 지정 된 경우를 제외 하 고 파일 및 폴더에 모두 적용 됩니다 (예: include-패턴). 폴더에 대해 전송 되는 정보는 폴더에 대해 유지 되지 않는 마지막 쓰기 시간을 제외 하 고 파일의 경우와 동일 합니다.
 
-**--보존 소유자**                       데이터를 다운로드할 때만, 그리고 이 가 `--preserve-smb-permissions` 사용될 때만 효과가 있다. true(기본값)이면 파일 소유자 및 그룹은 다운로드에서 유지됩니다. 이 플래그가 false로 `--preserve-smb-permissions` 설정된 경우에도 ACL은 유지되지만 소유자 및 그룹은 AzCopy를 실행하는 사용자를 기반으로 합니다.
+**--소유자 유지**                       는 데이터를 다운로드 하는 경우에만 적용 되며를 사용 `--preserve-smb-permissions` 하는 경우에만 적용 됩니다. True (기본값) 이면 다운로드 시 파일 소유자 및 그룹이 유지 됩니다. 이 플래그가 false로 설정 된 경우는 `--preserve-smb-permissions` 여전히 acl을 유지 하지만 소유자와 그룹은 AzCopy를 실행 하는 사용자를 기반으로 합니다.
 
-**--put-md5**                             각 파일의 MD5 해시를 만들고 해시를 대상 Blob 또는 파일의 Content-MD5 속성으로 저장합니다. (기본적으로 해시가 만들어지지 않습니다.) 업로드할 때만 사용할 수 있습니다.
+**--입력-md5**                             각 파일의 MD5 해시를 만들고 대상 blob 또는 파일의 콘텐츠-MD5 속성으로 해시를 저장 합니다. 기본적으로 해시가 생성 되지 않습니다. 업로드할 때만 사용할 수 있습니다.
 
-**--재귀**                            로컬 파일 시스템에서 업로드할 때 하위 디렉터리를 재귀적으로 살펴봅니다.
+**--recursive**                            로컬 파일 시스템에서 업로드할 때 하위 디렉터리를 재귀적으로 확인 합니다.
 
-**--s2s 감지 소스 변경**           를 지정한 후 소스가 변경되었는지 확인합니다.
+**--s2s-검색-소스-변경 됨**           를 열거 한 후 원본이 변경 되었는지 확인 합니다.
 
-**--s2s 핸들-잘못된 메타데이터** 문자열은 잘못된 메타데이터 키를 처리하는 방법을 지정합니다. 사용 가능한 옵션: 제외IfIn유효, FailIfInid, 이름변경유효. (기본값 "제외된 경우 유효하지 않음")
+**--s2s-핸들-잘못** 된 메타 데이터 문자열은 잘못 된 메타 데이터 키를 처리 하는 방법을 지정 합니다. 사용 가능한 옵션: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (기본 "ExcludeIfInvalid")
 
-**--s2s-보존 액세스 계층**             서비스 복사본에 서비스하는 동안 액세스 계층을 보존합니다. [Azure Blob 저장소: 핫, 쿨 및 아카이브 액세스 계층을](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) 참조하여 대상 저장소 계정이 액세스 계층 설정설정을 지원하는지 확인하십시오. 액세스 계층 설정이 지원되지 않는 경우 s2sPreserveAccessTier=false를 사용하여 복사 액세스 계층을 우회하십시오. (기본 참)
+**--s2s-보존-액세스 계층**             서비스를 복사 하는 동안 액세스 계층을 유지 합니다. 대상 저장소 계정에서 액세스 계층 설정을 지원 하도록 하려면 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) 을 참조 하세요. 액세스 계층 설정이 지원 되지 않는 경우에는 s2sPreserveAccessTier = false를 사용 하 여 액세스 계층 복사를 무시 하세요. (기본값 true)
 
-**--s2s 보존 속성**              서비스 복사본에 서비스 하는 동안 전체 속성을 유지 합니다. AWS S3 및 Azure File 비단일 파일 소스의 경우 목록 작업이 개체 및 파일의 전체 속성을 반환하지 않습니다. 전체 속성을 보존하려면 AzCopy는 개체 또는 파일당 하나의 추가 요청을 보내야 합니다. (기본 참)
+**--s2s-preserve-속성**              서비스에서 서비스를 복사 하는 동안 전체 속성을 유지 합니다. AWS S3 및 Azure 파일 비 단일 파일 원본의 경우 목록 작업에서 개체 및 파일의 전체 속성을 반환 하지 않습니다. 전체 속성을 유지 하려면 AzCopy는 개체 또는 파일당 하나의 추가 요청을 전송 해야 합니다. (기본값 true)
 
-## <a name="options-inherited-from-parent-commands"></a>상위 명령에서 상속된 옵션
+## <a name="options-inherited-from-parent-commands"></a>부모 명령에서 상속 된 옵션
 
-**--캡 mbps uint32**      초당 메가비트로 전송 속도를 한도 를 캡슐화합니다. 모멘트별 처리량은 캡과 약간 다를 수 있습니다. 이 옵션이 0으로 설정되어 있거나 생략된 경우 처리량은 제한되지 않습니다.
+**--0mbps uint32**      전송 률 (메가 비트/초)을 대문자로 처리 합니다. 순간 처리량은 cap와 약간 다를 수 있습니다. 이 옵션을 0으로 설정 하거나 생략 하면 처리량이 생략 되지 않습니다.
 
-**--출력 유형** 문자열 명령출력의 형식입니다. 선택 사항은 다음과 같습니다: 텍스트, json. 기본값은 '텍스트'입니다. (기본값 "텍스트")
+**--output-** 명령 출력의 문자열 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 ' text '입니다. (기본 "텍스트")
 
 ## <a name="see-also"></a>참고 항목
 

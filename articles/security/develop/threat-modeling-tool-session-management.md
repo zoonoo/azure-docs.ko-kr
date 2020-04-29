@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5d9dc1595e3cc812ba060d958b6e981867500ae2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5ff9ab8e2fcc1bb3b72f56348a1c86dc173bafc
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "73161502"
+ms.locfileid: "82203865"
 ---
 # <a name="security-frame-session-management"></a>보안 프레임: 세션 관리
 | 제품/서비스 | 아티클 |
@@ -30,7 +30,7 @@ ms.locfileid: "73161502"
 | **Azure Document DB** | <ul><li>[생성된 리소스 토큰에 대해 최소 토큰 수명 사용](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[ADFS를 사용하는 경우에 WsFederation 메서드를 사용하여 적절한 로그아웃 구현](#wsfederation-logout)</li></ul> |
 | **ID 서버** | <ul><li>[Id 서버를 사용 하는 경우 적절 한 로그 아웃 구현](#proper-logout)</li></ul> |
-| **웹 응용 프로그램** | <ul><li>[HTTPS를 통해 사용할 수 있는 애플리케이션은 보안 쿠키를 사용해야 함](#https-secure-cookies)</li><li>[모든 http 기반 애플리케이션은 쿠키 정의에 대해서 http만을 지정해야 함](#cookie-definition)</li><li>[ASP.NET 웹 페이지에서 CSRF(교차 사이트 요청 위조) 공격에 대해 완화](#csrf-asp)</li><li>[비활성 수명에 대 한 세션 설정](#inactivity-lifetime)</li><li>[응용 프로그램에서 적절 한 로그 아웃 구현](#proper-app-logout)</li></ul> |
+| **웹 애플리케이션** | <ul><li>[HTTPS를 통해 사용할 수 있는 애플리케이션은 보안 쿠키를 사용해야 함](#https-secure-cookies)</li><li>[모든 http 기반 애플리케이션은 쿠키 정의에 대해서 http만을 지정해야 함](#cookie-definition)</li><li>[ASP.NET 웹 페이지에서 CSRF(교차 사이트 요청 위조) 공격에 대해 완화](#csrf-asp)</li><li>[비활성 수명에 대 한 세션 설정](#inactivity-lifetime)</li><li>[응용 프로그램에서 적절 한 로그 아웃 구현](#proper-app-logout)</li></ul> |
 | **Web API** | <ul><li>[ASP.NET Web API에서 CSRF(교차 사이트 요청 위조) 공격에 대해 완화](#csrf-api)</li></ul> |
 
 ## <a name="implement-proper-logout-using-adal-methods-when-using-azure-ad"></a><a id="logout-adal"></a>Azure AD를 사용하는 경우에 ADAL 메서드를 사용하여 적절한 로그아웃 구현
@@ -221,7 +221,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 | **적용 가능한 기술** | 웹 양식 |
 | **특성**              | 해당 없음  |
 | **참조**              | [FormsAuthentication.RequireSSL 속성](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
-| **단계** | RequireSSL 속성 값은 구성 요소의 requireSSL 특성을 사용하여 ASP.NET 애플리케이션의 구성 파일에서 설정됩니다. ASP.NET 애플리케이션에 대한 Web.config 파일에서 SSL(Secure Sockets Layer)이 requireSSL 특성을 설정하여 서버에 양식 인증 쿠키를 반환해야 하는지 여부를 지정할 수 있습니다.|
+| **단계** | RequireSSL 속성 값은 구성 요소의 requireSSL 특성을 사용하여 ASP.NET 애플리케이션의 구성 파일에서 설정됩니다. ASP.NET 응용 프로그램에 대해 Web.config 파일에서를 지정할 수 있습니다. 이전에 SSL (SSL(Secure Sockets Layer)) 이라고 하는 TLS (전송 계층 보안)는 requireSSL 특성을 설정 하 여 서버에 폼 인증 쿠키를 반환 해야 합니다.|
 
 ### <a name="example"></a>예제 
 다음 코드 예제에서는 Web.config 파일에서 requireSSL 특성을 설정합니다.
@@ -291,7 +291,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 ```
 
 ### <a name="example"></a>예제
-동시에 Html.AntiForgeryToken()은 위에 표시된 임의의 숨겨진 값과 동일한 값을 포함하는 __RequestVerificationToken이라는 쿠키를 방문자에게 제공합니다. 다음으로 들어오는 양식 게시의 유효성을 검사하려면 [ValidateAntiForgeryToken] 필터를 대상 작업 메서드에 추가합니다. 예를 들면 다음과 같습니다.
+동시에 Html.AntiForgeryToken()은 위에 표시된 임의의 숨겨진 값과 동일한 값을 포함하는 __RequestVerificationToken이라는 쿠키를 방문자에게 제공합니다. 다음으로 들어오는 양식 게시의 유효성을 검사하려면 [ValidateAntiForgeryToken] 필터를 대상 작업 메서드에 추가합니다. 다음은 그 예입니다.
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
@@ -535,7 +535,7 @@ CSRF 방지 및 ASP.NET MVC 양식 - 뷰에서 AntiForgeryToken 도우미 메서
 ```
 
 ### <a name="example"></a>예제
-동시에 Html.AntiForgeryToken()은 위에 표시된 임의의 숨겨진 값과 동일한 값을 포함하는 __RequestVerificationToken이라는 쿠키를 방문자에게 제공합니다. 다음으로 들어오는 양식 게시의 유효성을 검사하려면 [ValidateAntiForgeryToken] 필터를 대상 작업 메서드에 추가합니다. 예를 들면 다음과 같습니다.
+동시에 Html.AntiForgeryToken()은 위에 표시된 임의의 숨겨진 값과 동일한 값을 포함하는 __RequestVerificationToken이라는 쿠키를 방문자에게 제공합니다. 다음으로 들어오는 양식 게시의 유효성을 검사하려면 [ValidateAntiForgeryToken] 필터를 대상 작업 메서드에 추가합니다. 다음은 그 예입니다.
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()

@@ -14,19 +14,19 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 40db6e9f429569bc19641aa5f0f371f287db7b18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61318fbccdf92c6502aa8b2236d8b234cec67668
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79281471"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209148"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - 지리적 재해 복구 
 
-([가용성 영역](../availability-zones/az-overview.md)을 사용하지 않는 경우)전체 Azure 지역 또는 데이터 센터에서 가동 중지 시간이 발생하면 데이터 처리가 다른 지역 또는 데이터 센터에서 계속 작동되는 것이 중요합니다. 따라서 *지오 재해 복구* 및 지리적 *복제는* 모든 기업에서 중요한 기능입니다. Azure Event Hubs는 네임스페이스 수준에서 지리적 재해 복구 및 지리적 복제를 둘 다 지원합니다. 
+([가용성 영역](../availability-zones/az-overview.md)을 사용하지 않는 경우)전체 Azure 지역 또는 데이터 센터에서 가동 중지 시간이 발생하면 데이터 처리가 다른 지역 또는 데이터 센터에서 계속 작동되는 것이 중요합니다. 따라서 *지역 재해 복구* 및 *지역에서 복제* 는 모든 기업의 중요 한 기능입니다. Azure Event Hubs는 네임스페이스 수준에서 지리적 재해 복구 및 지리적 복제를 둘 다 지원합니다. 
 
 > [!NOTE]
-> 지오 재해 복구 기능은 [표준 및 전용 SCO에서만](https://azure.microsoft.com/pricing/details/event-hubs/)사용할 수 있습니다.  
+> 지역 재해 복구 기능은 [표준 및 전용 sku](https://azure.microsoft.com/pricing/details/event-hubs/)에서만 사용할 수 있습니다.  
 
 ## <a name="outages-and-disasters"></a>중단 및 재해
 
@@ -40,7 +40,7 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 
 재해 복구 기능은 메타데이터 재해 복구를 구현하며 주 및 보조 재해 복구 네임스페이스를 사용합니다. 
 
-지오 재해 복구 기능은 표준 [및 전용 SCO에서만](https://azure.microsoft.com/pricing/details/event-hubs/) 사용할 수 있습니다. 별칭을 통해 연결이 수행되므로 연결 문자열을 변경할 필요가 없습니다.
+지역 재해 복구 기능은 [표준 및 전용 sku](https://azure.microsoft.com/pricing/details/event-hubs/) 에 대해서만 사용할 수 있습니다. 별칭을 통해 연결이 수행되므로 연결 문자열을 변경할 필요가 없습니다.
 
 이 문서에서는 다음 용어가 사용됩니다.
 
@@ -52,18 +52,18 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 
 -  *장애 조치(Failover)*: 보조 네임스페이스를 활성화하는 프로세스입니다.
 
-## <a name="supported-namespace-pairs"></a>지원되는 네임스페이스 쌍
-기본 네임스페이스와 보조 네임스페이스의 다음 조합이 지원됩니다.  
+## <a name="supported-namespace-pairs"></a>지원 되는 네임 스페이스 쌍
+기본 및 보조 네임 스페이스의 다음과 같은 조합이 지원 됩니다.  
 
-| 기본 네임스페이스 | 보조 네임스페이스 | 지원됨 | 
+| 기본 네임 스페이스 | 보조 네임 스페이스 | 지원됨 | 
 | ----------------- | -------------------- | ---------- |
-| Standard | Standard | yes | 
-| Standard | 전용 | yes | 
-| 전용 | 전용 | yes | 
-| 전용 | Standard | 예 | 
+| Standard | Standard | 예 | 
+| Standard | 전용 | 예 | 
+| 전용 | 전용 | 예 | 
+| 전용 | Standard | 아니요 | 
 
 > [!NOTE]
-> 동일한 전용 클러스터에 있는 네임스페이스는 페어링할 수 없습니다. 별도의 클러스터에 있는 네임스페이스를 페어링할 수 있습니다. 
+> 동일한 전용 클러스터에 있는 네임 스페이스는 쌍으로 연결할 수 없습니다. 별도의 클러스터에 있는 네임 스페이스를 쌍으로 연결할 수 있습니다. 
 
 ## <a name="setup-and-failover-flow"></a>흐름 설정 및 장애 조치
 
@@ -110,11 +110,11 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 
 이 릴리스에서 고려할 다음과 같은 고려 사항에 유의하세요.
 
-1. 의도적으로 Event Hubs 지리적 재해 복구는 데이터를 복제하지 않으므로 보조 이벤트 허브에서 기본 이벤트 허브의 이전 오프셋 값을 다시 사용할 수 없습니다. 다음 중 하나를 통해 이벤트 수신기를 다시 시작하는 것이 좋습니다.
+1. Event Hubs 기본적으로 지역 재해 복구는 데이터를 복제 하지 않으므로 보조 이벤트 허브에서 기본 이벤트 허브의 이전 오프셋 값을 다시 사용할 수 없습니다. 다음 중 하나를 사용 하 여 이벤트 수신기를 다시 시작 하는 것이 좋습니다.
 
-- *EventPosition.FromStart()* - 보조 이벤트 허브의 모든 데이터를 읽으려면.
-- *EventPosition.FromEnd()* - 보조 이벤트 허브에 연결된 시점부터 모든 새 데이터를 읽으려는 경우.
-- *EventPosition.FromEnqueuedTime(dateTime)* - 지정된 날짜와 시간부터 보조 이벤트 허브에서 수신된 모든 데이터를 읽으려면.
+- *Eventposition. FromStart ()* -보조 이벤트 허브의 모든 데이터를 읽도록 합니다.
+- *FromEnd ()* -보조 이벤트 허브에 연결 된 시간부터 모든 새 데이터를 읽으려고 합니다.
+- *FromEnqueuedTime (dateTime)* -지정 된 날짜 및 시간에서 시작 하 여 보조 이벤트 허브에서 받은 모든 데이터를 읽으려고 합니다.
 
 2. 장애 조치 계획에서 시간 요소를 고려해야 합니다. 예를 들어 15~20분이 넘게 연결이 손실된 경우 장애 조치를 시작하기로 결정할 수 있습니다. 
  
@@ -129,7 +129,7 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 Event Hubs 표준 SKU는 Azure 지역 내에서 오류가 없는 위치를 제공하는 [가용성 영역](../availability-zones/az-overview.md)을 지원합니다. 
 
 > [!NOTE]
-> Azure Event Hubs 표준에 대한 가용성 영역 지원은 가용성 영역이 있는 [Azure 지역](../availability-zones/az-overview.md#services-support-by-region)에서만 사용할 수 있습니다.
+> Azure Event Hubs 표준에 대한 가용성 영역 지원은 가용성 영역이 있는 [Azure 지역](../availability-zones/az-region.md)에서만 사용할 수 있습니다.
 
 Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영역을 사용하도록 설정할 수 있습니다. Event Hubs에서는 기존 네임스페이스의 마이그레이션을 지원하지 않습니다. 네임스페이스를 사용하도록 설정한 후에는 영역 중복성을 사용하지 않도록 설정할 수 없습니다.
 
@@ -146,7 +146,7 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 방문하세요.
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [자바 스크립트](get-started-java-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Event Hubs를 사용하는 샘플 애플리케이션](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

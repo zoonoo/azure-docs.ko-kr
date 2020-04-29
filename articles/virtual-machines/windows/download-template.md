@@ -1,6 +1,6 @@
 ---
-title: Azure VM에 대한 템플릿 다운로드
-description: 포털 또는 PowerShell을 사용하여 VM용 템플릿을 다운로드합니다.
+title: Azure VM에 대 한 템플릿 다운로드
+description: 포털 또는 PowerShell을 사용 하 여 VM에 대 한 템플릿을 다운로드 합니다.
 author: cynthn
 manager: gwallace
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
 ms.openlocfilehash: af6905f0ba62a9053e44134348721312ade6b9d7
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085385"
 ---
 # <a name="download-the-template-for-a-vm"></a>VM에 대한 템플릿 다운로드

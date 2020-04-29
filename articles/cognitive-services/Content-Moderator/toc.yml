@@ -10,14 +10,8 @@
   items:
     - name: 웹에서 Content Moderator 사용해 보기
       href: quick-start.md
-    - name: 클라이언트 SDK 사용
-      items:
-        - name: .NET SDK 사용
-          href: dotnet-sdk-quickstart.md
-        - name: Python SDK 사용
-          href: python-sdk-quickstart.md
-        - name: Java SDK 사용
-          href: java-sdk-quickstart.md
+    - name: 클라이언트 라이브러리 사용
+      href: client-libraries.md
 - name: 자습서
   items:
     - name: 전자 상거래 이미지 관리
@@ -126,7 +120,7 @@
       href: 'https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator'
     - name: 언어 지원
       href: language-support.md
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/'

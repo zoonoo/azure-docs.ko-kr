@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
 ms.openlocfilehash: ac1ed9ac25d65d0391175fc6d43b48048da74926
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82101589"
 ---
 # <a name="security-controls-for-windows-virtual-machines"></a>Windows Virtual Machines에 대 한 보안 제어
@@ -36,7 +36,7 @@ ms.locfileid: "82101589"
 |---|---|--|
 | Azure 모니터링 지원 (Log analytics, App insights 등)| 예 | [Azure에서 Windows 가상 머신을 모니터링 하 고 업데이트](tutorial-monitoring.md)합니다. |
 | 제어 및 관리 평면 로깅 및 감사| 예 |  |
-| 데이터 평면 로깅 및 감사 | 예 |  |
+| 데이터 평면 로깅 및 감사 | 아니요 |  |
 
 ## <a name="identity"></a>ID
 

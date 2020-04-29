@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: 0a394c14842fe0c4eb4baa18cbb13acb8ca3170a
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82142453"
 ---
 # <a name="iot-edge-module-skus-tab"></a>IoT Edge 모듈 SKU 탭
@@ -54,7 +54,7 @@ Sku **세부 정보** 를 구성 하 여 Azure Marketplace 및 Azure Portal WEBS
 |  ---------       |     ---------------                                                          |
 | **제목\***        | 이 SKU의 제목입니다. 최대 길이는 50자입니다. <br/> Azure Portal에 표시 되 고 배포 될 때 기본 모듈 이름 (공백 및 특수 문자 포함 안 함)으로 사용 됩니다. 이 필드가 표시되는 위치를 정확하게 확인하려면 아래 그림을 참조하세요.|
 | **요약\***      | 이 SKU의 간단한 요약입니다. 최대 길이는 100자입니다. 제품을 요약하지 **마십시오**. SKU만 요약합니다.  이 요약은 Azure Marketplace에 표시됩니다. 이 필드가 표시되는 위치를 정확하게 확인하려면 아래 그림을 참조하세요.|
-| **설명\***  | 이 SKU의 짧은 설명입니다. 최대 길이는 3,000자입니다. 제품을 설명하지 마십시오. 이 SKU만 설명합니다. Azure Marketplace 및 Azure Portal에 표시 됩니다. Azure Portal Marketplace 탭에 정의 된 제품을 설명 하는 Marketplace 설명에 추가 됩니다.  SKU 요약과 동일할 수 있습니다. 이 필드가 표시되는 위치를 정확하게 확인하려면 아래 그림을 참조하세요.|
+| **Description\***  | 이 SKU의 짧은 설명입니다. 최대 길이는 3,000자입니다. 제품을 설명하지 마십시오. 이 SKU만 설명합니다. Azure Marketplace 및 Azure Portal에 표시 됩니다. Azure Portal Marketplace 탭에 정의 된 제품을 설명 하는 Marketplace 설명에 추가 됩니다.  SKU 요약과 동일할 수 있습니다. 이 필드가 표시되는 위치를 정확하게 확인하려면 아래 그림을 참조하세요.|
 | **이 SKU 숨기기\*** | 기본 설정을 유지합니다. **아니요**입니다. |
 |  |  |
 
@@ -112,7 +112,7 @@ Sku **세부 정보** 를 구성 하 여 Azure Marketplace 및 Azure Portal WEBS
 | **리소스 그룹 이름\***      | ACR의 리소스 그룹 이름입니다.|
 | **레지스트리 이름\***  | ACR 레지스트리 이름입니다. 로그인 서버 이름이 아닌 레지스트리 이름만을 복사합니다(예: `azurecr.io` 없이). |
 | **리포지토리 이름\***  | IoT Edge 모듈을 포함하는 ACR의 리포지토리 이름입니다. **참고:** 이름이 설정되면 나중에 변경할 수 없습니다. 계정에 같은 이름의 다른 제품이 없도록 고유한 이름을 사용합니다. |
-| **이름\*** | ACR(관리자 사용자 이름)과 연결된 사용자 이름입니다. |
+| **사용자 이름\*** | ACR(관리자 사용자 이름)과 연결된 사용자 이름입니다. |
 | **암호\*** | ACR과 연결된 암호입니다. |
 |    |  ***이미지 버전***   |
 | **이미지 태그 또는 다이제스트\*** | 하나 이상의 `latest` 태그 및 버전 태그를 포함해야 합니다(예: `xx.xx.xx-`로 시작, 여기서 xx는 숫자). 여러 플랫폼을 대상으로 하는 [매니페스트 태그](https://github.com/estesp/manifest-tool)여야 합니다. 매니페스트 태그에서 참조하는 모든 태그는 업로드할 수 있도록 추가되어야 합니다. 태그를 사용하여 IoT Edge 모듈의 여러 버전을 추가할 수 있습니다. 모든 매니페스트 태그(`latest` 제외)는 `X.Y-` 또는 `X.Y.Z-`로 시작해야 합니다. 여기서 X, Y, Z는 정수입니다. ["IoT Edge 모듈 기술 자산 준비"의 태그 및 버전 관리](./cpp-create-technical-assets.md)에 대해 자세히 알아봅니다. <br/> 예를 들어 `latest` 태그가 `1.0.1-linux-x64`, `1.0.1-linux-arm32` 및 `1.0.1-windows-arm32`를 가리키는 경우 이러한 6개의 태그는 여기에 추가되어야 합니다. |

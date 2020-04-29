@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 2549cb0408c9dad3e92f2cec9625757de45a10dc
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086252"
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services에 적합한 크기
@@ -62,8 +62,8 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
 | [E v3](#ev3-series) |160 - 190* |
-| [G](#g-series) |180 - 240* |
-| [H](#h-series) |290 - 300* |
+| [Express-g](#g-series) |180 - 240* |
+| [넣기](#h-series) |290 - 300* |
 
 *로 표시된 ACU는 Intel® 터보 기술을 사용하여 CPU 주파수를 증가시키고 성능 향상을 제공합니다. 상승량은 VM 크기, 워크로드 및 동일한 호스트에서 실행 중인 다른 작업에 따라 달라질 수 있습니다.
 
@@ -76,11 +76,11 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 * 최대 네트워크 대역폭은 VM 유형별로 할당되고 집계된 최대 집계 대역폭입니다. 최대 대역폭은 적절한 네트워크 용량을 사용할 수 있도록 하는 올바른 VM 유형을 선택하기 위한 지침을 제공합니다. 낮음, 보통, 높음, 매우 높음 간을 이동할 경우 그에 따라 처리량이 증가합니다. 실제 네트워크 성능은 네트워크 및 애플리케이션 부하, 애플리케이션 네트워크 설정을 비롯한 여러 요인에 따라 달라집니다.
 
 ## <a name="a-series"></a>A 시리즈
-| 크기            | CPU 코어 | 메모리: GiB  | 임시 스토리지: GiB       | 최대 NIC 수/네트워크 대역폭 |
+| Size            | CPU 코어 | 메모리: GiB  | 임시 스토리지: GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | 매우 작음      | 1         | 0.768        | 20                   | 1/낮음 |
 | 작음           | 1         | 1.75         | 225                  | 1/보통 |
-| 중간          | 2         | 3.5          | 490                  | 1/보통 |
+| 보통          | 2         | 3.5          | 490                  | 1/보통 |
 | 큰           | 4         | 7            | 1000                 | 2/높음 |
 | 매우 큼      | 8         | 14           | 2040                 | 4/높음 |
 | A5              | 2         | 14           | 490                  | 1/보통 |
@@ -90,7 +90,7 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 ## <a name="a-series---compute-intensive-instances"></a>A-시리즈 - 계산 집약적 인스턴스
 이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [고성능 컴퓨팅 VM 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-| 크기            | CPU 코어 | 메모리: GiB  | 임시 스토리지: GiB       | 최대 NIC 수/네트워크 대역폭 |
+| Size            | CPU 코어 | 메모리: GiB  | 임시 스토리지: GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | A8*             |8          | 56           | 1817                 | 2/높음 |
 | A9*             |16         | 112          | 1817                 | 4/매우 높음 |
@@ -101,7 +101,7 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 
 ## <a name="av2-series"></a>Av2 시리즈
 
-| 크기            | CPU 코어 | 메모리: GiB  | 임시 스토리지(SSD): GiB       | 최대 NIC 수/네트워크 대역폭 |
+| Size            | CPU 코어 | 메모리: GiB  | 임시 스토리지(SSD): GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_A1_v2  | 1         | 2            | 10                   | 1/보통                 |
 | Standard_A2_v2  | 2         | 4            | 20                   | 2/보통                 |
@@ -113,7 +113,7 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 
 
 ## <a name="d-series"></a>D 시리즈
-| 크기            | CPU 코어 | 메모리: GiB  | 임시 스토리지(SSD): GiB       | 최대 NIC 수/네트워크 대역폭 |
+| Size            | CPU 코어 | 메모리: GiB  | 임시 스토리지(SSD): GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1     | 1         | 3.5          | 50                   | 1/보통 |
 | Standard_D2     | 2         | 7            | 100                  | 2/높음 |
@@ -125,7 +125,7 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 | Standard_D14    | 16        | 112          | 800                  | 8/매우 높음 |
 
 ## <a name="dv2-series"></a>Dv2 시리즈
-| 크기            | CPU 코어 | 메모리: GiB  | 임시 스토리지(SSD): GiB       | 최대 NIC 수/네트워크 대역폭 |
+| Size            | CPU 코어 | 메모리: GiB  | 임시 스토리지(SSD): GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1_v2  | 1         | 3.5          | 50                   | 1/보통 |
 | Standard_D2_v2  | 2         | 7            | 100                  | 2/높음 |
@@ -140,7 +140,7 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 
 ## <a name="dv3-series"></a>Dv3 시리즈
 
-| 크기            | CPU 코어 | 메모리: GiB   | 임시 스토리지(SSD): GiB       | 최대 NIC 수/네트워크 대역폭 |
+| Size            | CPU 코어 | 메모리: GiB   | 임시 스토리지(SSD): GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_D2_v3  | 2         | 8             | 50                   | 2/보통 |
 | Standard_D4_v3  | 4         | 16            | 100                  | 2/높음 |
@@ -152,7 +152,7 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 
 ## <a name="ev3-series"></a>Ev3 시리즈
 
-| 크기            | CPU 코어 | 메모리: GiB   | 임시 스토리지(SSD): GiB       | 최대 NIC 수/네트워크 대역폭 |
+| Size            | CPU 코어 | 메모리: GiB   | 임시 스토리지(SSD): GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_E2_v3  | 2         | 16            | 50                   | 2/보통 |
 | Standard_E4_v3  | 4         | 32            | 100                  | 2/높음 |
@@ -164,7 +164,7 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 
 
 ## <a name="g-series"></a>G 시리즈
-| 크기            | CPU 코어 | 메모리: GiB  | 임시 스토리지(SSD): GiB       | 최대 NIC 수/네트워크 대역폭 |
+| Size            | CPU 코어 | 메모리: GiB  | 임시 스토리지(SSD): GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_G1     | 2         | 28           | 384                  |1/높음 |
 | Standard_G2     | 4         | 56           | 768                  |2/높음 |
@@ -177,7 +177,7 @@ Azure H 시리즈 가상 머신은 분자 모델링 및 컴퓨팅 유체 역학 
 
 H 시리즈 제품은 뛰어난 CPU 처리 능력 외에도 FDR InfiniBand 및 여러 메모리 구성을 사용하는 낮은 대기 시간 RDMA 네트워킹을 위한 다양한 옵션을 제공하여 메모리 집약적 계산 요구 사항을 지원합니다.
 
-| 크기            | CPU 코어 | 메모리: GiB  | 임시 스토리지(SSD): GiB       | 최대 NIC 수/네트워크 대역폭 |
+| Size            | CPU 코어 | 메모리: GiB  | 임시 스토리지(SSD): GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_H8     | 8         | 56           | 1000                 | 8/높음 |
 | Standard_H16    | 16        | 112          | 2000                 | 8/매우 높음 |
@@ -216,7 +216,7 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* Azure [구독 및 서비스 제한, 할당량 및 제약 조건에 대해 알아봅니다.](../azure-resource-manager/management/azure-subscription-service-limits.md)
+* [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)에 대해 알아봅니다.
 * 자세한 내용은 HPC 워크로드의 [고성능 컴퓨팅 VM 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대해 자세히 알아보세요.
 
 

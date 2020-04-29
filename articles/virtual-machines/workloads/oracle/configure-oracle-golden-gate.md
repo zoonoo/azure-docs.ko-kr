@@ -15,23 +15,23 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: ae6bfb0ab0208d0f778476c9f0959b0c0f1d6471
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683727"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Azure Linux VM에서 Oracle Golden Gate 구현 
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 가이드에서는 Azure CLI를 사용하여 Azure Marketplace 갤러리 이미지에서 Oracle 12c 데이터베이스를 배포하는 방법을 자세히 설명합니다. 
 
-이 문서에서는 Azure VM에서 Oracle Golden Gate를 만들고, 설치 및 구성하는 방법을 단계별로 보여 줍니다. 이 자습서에서는 두 개의 가상 컴퓨터가 단일 리전의 가용성 집합에 설정되어 있습니다. 동일한 자습서를 사용하여 단일 Azure 리전의 서로 다른 가용성 영역에서 VM에 대한 OracleGolden 게이트를 설정하거나 두 개의 서로 다른 리전에서 VM 을 설정할 수 있습니다.
+이 문서에서는 Azure VM에서 Oracle Golden Gate를 만들고, 설치 및 구성하는 방법을 단계별로 보여 줍니다. 이 자습서에서는 단일 지역의 가용성 집합에서 두 개의 가상 머신을 설정 합니다. 동일한 자습서를 사용 하 여 단일 Azure 지역에서 다른 가용성 영역 Vm에 대 한 OracleGolden 게이트를 설정 하거나 두 개의 다른 지역에서 Vm을 설정할 수 있습니다.
 
 시작하기 전에 Azure CLI가 설치되었는지 확인합니다. 자세한 내용은 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="prepare-the-environment"></a>환경 준비
 
-Oracle Golden Gate 설치를 수행하려면 동일한 가용성 집합에서 두 개의 Azure VM을 만들어야 합니다. VM을 만드는 데 사용하는 마켓플레이스 이미지는 **오라클:오라클-데이터베이스-Ee:12.1.0.2:최신.**
+Oracle Golden Gate 설치를 수행하려면 동일한 가용성 집합에서 두 개의 Azure VM을 만들어야 합니다. Vm을 만드는 데 사용 하는 Marketplace 이미지는 **oracle: oracle-Database-Ee: 12.1.0.2: 최신**입니다.
 
 Unix 편집기 vi를 잘 알고 있고 x11(X Windows)을 기본적으로 이해해야 합니다.
 
@@ -40,7 +40,7 @@ Unix 편집기 vi를 잘 알고 있고 x11(X Windows)을 기본적으로 이해�
 > |  | **기본 사이트** | **복제 사이트** |
 > | --- | --- | --- |
 > | **Oracle 릴리스** |Oracle 12c 릴리스 2 – (12.1.0.2) |Oracle 12c 릴리스 2 – (12.1.0.2)|
-> | **컴퓨터 이름** |myVM1 |myVM2 |
+> | **머신 이름** |myVM1 |myVM2 |
 > | **운영 체제** |Oracle Linux 6.x |Oracle Linux 6.x |
 > | **Oracle SID** |CDB1 |CDB1 |
 > | **복제 스키마** |테스트|테스트 |
@@ -362,7 +362,7 @@ Oracle Golden Gate 소프트웨어를 다운로드 및 준비하려면 다음 �
    $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
    ```
 
-3. .zip 파일을 **/opt** 폴더로 이동합니다. 그다음에 다음과 같이 파일의 소유자를 변경합니다.
+3. .Zip 파일을 **/opt** 폴더로 이동 합니다. 그다음에 다음과 같이 파일의 소유자를 변경합니다.
 
    ```bash
    $ sudo su -
@@ -396,7 +396,7 @@ Oracle Golden Gate 소프트웨어를 다운로드 및 준비하려면 다음 �
 3. PuTTY 키 생성기에서,
 
    - 키를 생성하려면 **생성** 단추를 선택합니다.
-   - 키의 내용을**복사합니다(Ctrl+C).**
+   - 키의 콘텐츠를 복사 합니다 (**Ctrl + C**).
    - **프라이빗 키 저장** 단추를 선택합니다.
    - 표시되는 경고를 무시하고 **확인**을 선택합니다.
 
@@ -416,7 +416,7 @@ Oracle Golden Gate 소프트웨어를 다운로드 및 준비하려면 다음 �
    > 키에는 문자열 `ssh-rsa`가 포함되어야 합니다. 또한 키의 콘텐츠는 한 줄 텍스트여야 합니다.
    >  
 
-6. PuTTY를 시작합니다. **범주** 창에서 **연결** > **SSH** > **Auth를**선택합니다. 인증 상자에 **대한 개인 키 파일에서** 이전에 생성한 키를 찾아봅습니다.
+6. PuTTY를 시작합니다. **범주** 창에서 **연결** > **SSH** > **인증**을 선택 합니다. **인증을 위한 개인 키 파일** 상자에서 이전에 생성 한 키를 찾습니다.
 
    ![프라이빗 키 설정 페이지의 스크린샷](./media/oracle-golden-gate/setprivatekey.png)
 
@@ -432,7 +432,7 @@ Oracle Golden Gate 소프트웨어를 다운로드 및 준비하려면 다음 �
 
 Oracle Golden Gate를 설치하려면 다음 단계를 완료합니다.
 
-1. oracle로 로그인합니다. (암호를 입력하지 않고 로그인할 수 있어야 합니다.) 설치를 시작하기 전에 Xming이 실행되고 있는지 확인합니다.
+1. oracle로 로그인합니다. 암호를 입력 하 라는 메시지가 표시 되지 않고 로그인 할 수 있습니다. 설치를 시작 하기 전에 Xming가 실행 되 고 있는지 확인 합니다.
 
    ```bash
    $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
@@ -443,7 +443,7 @@ Oracle Golden Gate를 설치하려면 다음 단계를 완료합니다.
 
    ![설치 관리자 설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. 소프트웨어 위치를 변경합니다. 그다음에 **관리자 시작** 상자를 선택하고 데이터베이스 위치를 입력합니다. **다음**을 선택하여 계속합니다.
+3. 소프트웨어 위치를 변경합니다. 그다음에 **관리자 시작** 상자를 선택하고 데이터베이스 위치를 입력합니다. 계속하려면 **다음**을 선택합니다.
 
    ![설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_02.png)
 
@@ -732,7 +732,7 @@ Oracle Golden Gate를 설치하려면 다음 단계를 완료합니다.
 
 ### <a name="set-up-the-replication-myvm1-and-myvm2"></a>복제 설정(myVM1 및 myVM2)
 
-#### <a name="1-set-up-the-replication-on-myvm2-replicate"></a>1. myVM2에서 복제 설정(복제)
+#### <a name="1-set-up-the-replication-on-myvm2-replicate"></a>1. myVM2 (복제)에서 복제를 설정 합니다.
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -755,7 +755,7 @@ Oracle Golden Gate를 설치하려면 다음 단계를 완료합니다.
   GGSCI> EXIT
   ```
 
-#### <a name="2-set-up-the-replication-on-myvm1-primary"></a>2. myVM1(기본)에서 복제 설정
+#### <a name="2-set-up-the-replication-on-myvm1-primary"></a>2. myVM1 (기본)에서 복제를 설정 합니다.
 
 초기 로드를 시작하고 오류를 확인합니다.
 
@@ -766,7 +766,7 @@ GGSCI> START EXTRACT INITEXT
 GGSCI> VIEW REPORT INITEXT
 ```
 
-#### <a name="3-set-up-the-replication-on-myvm2-replicate"></a>3. myVM2에서 복제 설정(복제)
+#### <a name="3-set-up-the-replication-on-myvm2-replicate"></a>3. myVM2 (복제)에서 복제를 설정 합니다.
 
 이전에 얻은 번호로 SCN 번호를 변경합니다.
 

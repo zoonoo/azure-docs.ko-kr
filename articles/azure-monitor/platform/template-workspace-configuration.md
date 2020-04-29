@@ -1,5 +1,5 @@
 ---
-title: 로그 분석 작업 영역에 대한 Azure 리소스 관리자 템플릿
+title: Log Analytics 작업 영역에 대 한 Azure Resource Manager 템플릿
 description: Azure Resource Manager 템플릿을 사용하여 Log Analytics 작업 영역 만들고 구성할 수 있습니다.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,19 +7,19 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
 ms.openlocfilehash: dbeaa58da109c5afceb03a560e69e0c8bf63ad42
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81768123"
 ---
-# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿을 사용하여 로그 분석 작업 영역 관리
+# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[Azure 리소스 관리자 템플릿을](../../azure-resource-manager/templates/template-syntax.md) 사용하여 Azure 모니터에서 로그 분석 작업 영역을 만들고 구성할 수 있습니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
+[Azure Resource Manager 템플릿을](../../azure-resource-manager/templates/template-syntax.md) 사용 하 여 Azure Monitor에서 Log Analytics 작업 영역을 만들고 구성할 수 있습니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
 
-* 가격 책정 계층 및 용량 예약 설정을 포함한 작업 공간 만들기
+* 가격 책정 계층 및 용량 예약 설정을 포함 하는 작업 영역 만들기
 * 솔루션 추가
 * 저장된 검색 만들기
 * 컴퓨터 그룹 만들기
@@ -46,22 +46,22 @@ ms.locfileid: "81768123"
 
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 
-다음 예제는 로컬 컴퓨터의 템플릿을 사용하여 작업 영역을 만듭니다. JSON 템플릿은 새 작업 영역의 이름과 위치만 요구하도록 구성됩니다. [액세스 제어 모드,](design-logs-deployment.md#access-control-mode)가격 책정 계층, 보존 및 용량 예약 수준과 같은 다른 작업 영역 매개 변수에 지정된 값을 사용합니다.
+다음 예에서는 로컬 컴퓨터의 템플릿을 사용 하 여 작업 영역을 만듭니다. JSON 템플릿이 새 작업 영역의 이름과 위치만을 요구 하도록 구성 되어 있습니다. [액세스 제어 모드](design-logs-deployment.md#access-control-mode), 가격 책정 계층, 보존 및 용량 예약 수준과 같은 다른 작업 영역 매개 변수에 지정 된 값을 사용 합니다.
 
 > [!WARNING]
-> 다음 템플릿은 Log Analytics 작업 영역을 만들고 데이터 수집을 구성합니다. 이렇게 하면 결제 설정이 변경될 수 있습니다. [Azure 모니터 로그를 사용하여 사용량 및 비용 관리를](manage-cost-storage.md) 검토하여 Azure 환경에 적용하기 전에 Log Analytics 작업 영역에서 수집된 데이터에 대한 청구를 이해합니다.
+> 다음 템플릿은 Log Analytics 작업 영역을 만들고 데이터 컬렉션을 구성 합니다. 이로 인해 청구 설정이 변경 될 수 있습니다. [Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리](manage-cost-storage.md) 를 검토 하 여 Azure 환경에 적용 하기 전에 Log Analytics 작업 영역에서 수집 된 데이터에 대 한 청구를 이해 합니다.
 
-용량 예약의 경우 SKU `CapacityReservation` 및 속성에 `capacityReservationLevel`대한 GB 값을 지정하여 데이터를 수집하기 위해 선택한 용량 예약을 정의합니다. 다음 목록에서는 지원되는 값과 동작을 구성할 때 자세히 설명합니다.
+용량 예약의 경우 SKU `CapacityReservation` 와 속성 `capacityReservationLevel`에 대 한 값 (GB)을 지정 하 여 수집 데이터에 대 한 선택 된 용량 예약을 정의 합니다. 다음 목록에서는이를 구성할 때 지원 되는 값과 동작을 자세히 설명 합니다.
 
-- 예약 한도를 설정한 후에는 31일 이내에 다른 SKU로 변경할 수 없습니다.
+- 예약 제한을 설정한 후에는 31 일 이내에 다른 SKU로 변경할 수 없습니다.
 
-- 예약 값을 설정하면 31일 이내에만 예약 값을 늘릴 수 있습니다.
+- 예약 값을 설정한 후에는 31 일 이내에만 값을 늘릴 수 있습니다.
 
-- 최대 값은 `capacityReservationLevel` 50000인 100의 배수로만 값을 설정할 수 있습니다.
+- 값 `capacityReservationLevel` 은 100의 배수로만 설정할 수 있으며 최대값은 5만입니다.
 
-- 예약 수준을 높이면 타이머가 재설정되고 이 업데이트로부터 31일 동안 변경할 수 없습니다.  
+- 예약 수준을 늘리면 타이머가 다시 설정 되 고이 업데이트에서 31 일이 지나면 타이머가 변경 되지 않습니다.  
 
-- 작업 영역에 대한 다른 속성을 수정하지만 예약 제한을 동일한 수준으로 유지하면 타이머가 재설정되지 않습니다. 
+- 작업 영역의 다른 속성을 수정 하지만 예약 제한을 동일한 수준으로 유지 하면 타이머가 다시 설정 되지 않습니다. 
 
 ### <a name="create-and-deploy-template"></a>템플릿 만들기 및 배포
 
@@ -149,15 +149,15 @@ ms.locfileid: "81768123"
     ```
 
    >[!NOTE]
-   >용량 예약 설정의 경우 "sku"에서 다음 속성을 사용합니다.
-   >* "이름": "용량 예약",
-   >* "용량 예약 수준": 100
+   >용량 예약 설정의 경우 "sku"에서 다음 속성을 사용 합니다.
+   >* "name": "CapacityReservation",
+   >* "capacityReservationLevel": 100
 
-2. 요구 사항을 충족하도록 템플릿을 편집합니다. 매개 [변수를](../../azure-resource-manager/templates/parameter-files.md) 인라인 값으로 전달하는 대신 Resource Manager 매개 변수 파일을 만드는 것이 좋습니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) 참조를 검토하세요. 
+2. 요구 사항을 충족하도록 템플릿을 편집합니다. 매개 변수를 인라인 값으로 전달 하는 대신 [리소스 관리자 매개 변수 파일](../../azure-resource-manager/templates/parameter-files.md) 을 만드는 것이 좋습니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) 참조를 검토하세요. 
 
 3. 이 파일을 로컬 폴더에 **deploylaworkspacetemplate.json**으로 저장합니다.
 
-4. 이제 이 템플릿을 배포할 수 있습니다. PowerShell 또는 명령줄을 사용하여 작업 영역을 만들고 작업 영역 이름과 위치를 명령의 일부로 지정합니다. 작업 영역 이름은 모든 Azure 구독에서 전역적으로 고유해야 합니다.
+4. 이제 이 템플릿을 배포할 수 있습니다. PowerShell 또는 명령줄을 사용 하 여 작업 영역을 만들고 작업 영역 이름 및 위치를 명령의 일부로 지정 합니다. 모든 Azure 구독에서 작업 영역 이름은 전역적으로 고유 해야 합니다.
 
    * PowerShell의 경우 템플릿이 포함된 폴더에서 다음 명령을 사용합니다.
    
@@ -179,8 +179,8 @@ ms.locfileid: "81768123"
 다음 템플릿 샘플에서는 다음 작업의 방법을 보여 줍니다.
 
 1. 작업 영역에 솔루션 추가
-2. 저장된 검색을 만듭니다. 배포가 저장된 검색을 실수로 재정의하지 않도록 하려면 저장된 검색의 idempotncy를 재정의하고 유지하기 위해 "saveSearches" 리소스에 eTag 속성을 추가해야 합니다.
-3. 저장된 함수를 만듭니다. eTag는 함수를 재정의하고 idempotency를 유지하기 위해 추가되어야 합니다.
+2. 저장 된 검색을 만듭니다. 배포가 저장 된 검색을 실수로 재정의 하지 않도록 하려면 "savedSearches" 리소스에 eTag 속성을 추가 하 여 저장 된 검색의 멱 등 성를 재정의 하 고 유지 관리 해야 합니다.
+3. 저장 된 함수를 만듭니다. 함수를 재정의 하 고 멱 등 성을 유지 하려면 eTag를 추가 해야 합니다.
 4. 컴퓨터 그룹 만들기
 5. Windows 에이전트가 설치된 컴퓨터에서 IIS 로그 수집 활성화
 6. Linux 컴퓨터에서 논리 디스크 성능 카운터 수집(사용된 Inode 비율, 사용 가능한 MB, 사용된 공간 비율, 초당 디스크 전송, 초당 디스크 읽기, 초당 디스크 쓰기)

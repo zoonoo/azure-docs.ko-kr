@@ -1,6 +1,6 @@
 ---
-title: Azure HDInsight 클러스터를 사용자 지정하는 스크립트 작업 개발
-description: Bash 스크립트를 사용하여 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다. 스크립트 작업을 사용하면 클러스터 생성 중 또는 후에 스크립트를 실행하여 클러스터 구성 설정을 변경하거나 추가 소프트웨어를 설치할 수 있습니다.
+title: Azure HDInsight 클러스터를 사용자 지정 하는 스크립트 작업 개발
+description: Bash 스크립트를 사용 하 여 HDInsight 클러스터를 사용자 지정 하는 방법을 알아봅니다. 스크립트 동작을 사용 하면 클러스터를 만들 때 또는 이후에 스크립트를 실행 하 여 클러스터 구성 설정을 변경 하거나 추가 소프트웨어를 설치할 수 있습니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
 ms.openlocfilehash: db37a56ffbf0cb64530f8f7af38841bac72c77d4
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81767544"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
@@ -44,7 +44,7 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 * [사전 컴파일한 리소스 사용](#bPS4)
 * [클러스터 사용자 지정 스크립트가 멱등원인지 확인](#bPS3)
 * [클러스터 아키텍처의 고가용성 확인](#bPS5)
-* [Azure Blob 저장소를 사용하도록 사용자 지정 구성 요소 구성](#bPS6)
+* [Azure Blob storage를 사용 하도록 사용자 지정 구성 요소 구성](#bPS6)
 * [STDOUT 및 STDERR에 정보 쓰기](#bPS7)
 * [줄 끝을 LF인 파일을 ASCII로 저장](#bps8)
 * [다시 시도 논리를 사용하여 일시적 오류에서 복구](#bps9)
@@ -73,9 +73,9 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-### <a name="target-the-operating-system-version"></a><a name="bps10"></a>운영 체제 버전 대상 지정
+### <a name="target-the-operating-system-version"></a><a name="bps10"></a>운영 체제 버전을 대상으로 합니다.
 
-HDInsight는 우분투 리눅스 배포판을 기반으로합니다. HDInsight는 버전이 다르면 다른 버전의 Ubuntu에 의존하는데 이는 스크립트 동작 방식을 변경할 수 있습니다. 예를 들어 HDInsight 3.4 이전 버전은 Upstart를 사용하는 Ubuntu 버전을 기반으로 합니다. 버전 3.5 이상은 Systemd를 사용하는 Ubuntu 16.04를 기반으로 합니다. Systemd 및 Upstart는 다른 명령에 의존하기 때문에 이를 사용하여 작업하기 위해 스크립트가 작성되어야 합니다.
+HDInsight는 Ubuntu Linux 분포를 기반으로 합니다. HDInsight는 버전이 다르면 다른 버전의 Ubuntu에 의존하는데 이는 스크립트 동작 방식을 변경할 수 있습니다. 예를 들어 HDInsight 3.4 이전 버전은 Upstart를 사용하는 Ubuntu 버전을 기반으로 합니다. 버전 3.5 이상은 Systemd를 사용하는 Ubuntu 16.04를 기반으로 합니다. Systemd 및 Upstart는 다른 명령에 의존하기 때문에 이를 사용하여 작업하기 위해 스크립트가 작성되어야 합니다.
 
 HDInsight 3.4와 3.5 간의 또 다른 중요한 차이는 현재 `JAVA_HOME`이 Java 8을 가리킨다는 것입니다. 다음 코드는 Ubuntu 14 또는 16에서 스크립트가 실행되고 있는지 확인하는 방법을 보여 줍니다.
 
@@ -123,7 +123,7 @@ Systemd와 Upstart 간의 차이점을 이해하려면 [Upstart 사용자에 대
 > [!IMPORTANT]  
 > 사용된 스토리지 계정은 클러스터의 기본 스토리지 계정 또는 다른 모든 스토리지 계정의 공용 읽기 전용 컨테이너에 있어야 합니다.
 
-예를 들어 Microsoft에서 제공하는 샘플은 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 저장소 계정에 저장됩니다. 이 위치는 HDInsight 팀에서 유지 관리하는 공용, 읽기 전용 컨테이너입니다.
+예를 들어 Microsoft에서 제공 하는 샘플은 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 저장소 계정에 저장 됩니다. 이 위치는 HDInsight 팀에서 유지 관리하는 공용, 읽기 전용 컨테이너입니다.
 
 ### <a name="use-pre-compiled-resources"></a><a name="bPS4"></a>사전 컴파일한 리소스 사용
 
@@ -133,11 +133,11 @@ Systemd와 Upstart 간의 차이점을 이해하려면 [Upstart 사용자에 대
 
 스크립트는 idempotent여야 합니다. 스크립트를 여러 번 실행하는 경우 매번 동일한 상태로 클러스터를 반환해야 합니다.
 
-예를 들어 구성 파일을 수정하는 스크립트는 여러 번 실행된 경우 중복 항목을 추가해서는 안 됩니다.
+예를 들어 구성 파일을 수정 하는 스크립트는 여러 번 실행 될 경우 중복 된 항목을 추가 하지 않아야 합니다.
 
 ### <a name="ensure-high-availability-of-the-cluster-architecture"></a><a name="bPS5"></a>클러스터 아키텍처의 고가용성 확인
 
-Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 두 헤드 노드를 제공하며 스크립트 작업은 두 노드에서 실행됩니다. 설치하는 구성 요소에 헤드 노드가 하나만 필요한 경우 두 헤드 노드에 구성 요소를 설치하지 마십시오.
+Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 두 헤드 노드를 제공하며 스크립트 작업은 두 노드에서 실행됩니다. 설치 하는 구성 요소에 헤드 노드가 하나만 있어야 하는 경우 두 헤드 노드에 구성 요소를 설치 하지 마세요.
 
 > [!IMPORTANT]  
 > HDInsight의 일부로 제공되는 서비스는 두 헤드 노드 간에 필요에 따라 장애 조치하도록 설계되었습니다. 이 기능은 스크립트 작업을 통해 설치된 구성 요소를 사용자 지정하도록 확장되지 않습니다. 사용자 지정 구성 요소에 대한 고가용성이 필요한 경우 사용자 고유의 장애 조치 메커니즘을 구현해야 합니다.
@@ -146,7 +146,7 @@ Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 �
 
 클러스터에 설치하는 구성 요소에는 Apache HDFS(Hadoop 분산 파일 시스템) 스토리지를 사용하기 위한 기본 구성이 있을 수 있습니다. HDInsight는 Azure Storage 또는 Data Lake Storage를 기본 스토리지로 사용합니다. 클러스터가 삭제되는 경우에도 데이터가 지속되는 HDFS 호환 가능 파일 시스템을 제공합니다. 설치하는 구성 요소가 HDFS 대신 WASB 또는 ADL을 사용하도록 구성해야 할 수 있습니다.
 
-대부분의 작업의 경우 파일 시스템을 지정할 필요가 없습니다. 예를 들어 다음 복사본은 로컬 파일 시스템에서 클러스터 저장소로 hadoop-common.jar 파일을 복사합니다.
+대부분의 작업에서는 파일 시스템을 지정할 필요가 없습니다. 예를 들어 다음은 hadoop-common 파일을 로컬 파일 시스템에서 클러스터 저장소로 복사 합니다.
 
 ```bash
 hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
@@ -159,25 +159,25 @@ hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
 HDInsight는 STDOUT 및 STDERR로 작성된 스크립트 출력을 기록합니다. Ambari 웹 UI를 사용하여 이 정보를 볼 수 있습니다.
 
 > [!NOTE]  
-> Apache Ambari는 클러스터를 정상적으로 만든 경우에만 사용할 수 있습니다. 클러스터 를 만드는 동안 스크립트 작업을 사용하고 생성에 실패한 경우 기록된 정보에 액세스하는 다른 방법에 대한 [스크립트 문제 해결 작업을](./troubleshoot-script-action.md) 참조하세요.
+> Apache Ambari는 클러스터를 정상적으로 만든 경우에만 사용할 수 있습니다. 클러스터를 만드는 동안 스크립트 작업을 사용 하 고 만들기가 실패 하는 경우 기록 된 정보에 액세스 하는 다른 방법에 대 한 [스크립트 작업 문제 해결](./troubleshoot-script-action.md) 을 참조 하세요.
 
-대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓰지만 추가 로깅을 추가하려 할 수도 있습니다. 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 예를 들어:
+대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓰지만 추가 로깅을 추가하려 할 수도 있습니다. 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 다음은 그 예입니다.
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-기본적으로 `echo`는 STDOUT에 문자열을 보냅니다. STDERR에 전달하려면 `echo` 앞에 `>&2`를 추가합니다. 예를 들어:
+기본적으로 `echo`는 STDOUT에 문자열을 보냅니다. STDERR에 전달하려면 `echo` 앞에 `>&2`를 추가합니다. 다음은 그 예입니다.
 
 ```bash
 >&2 echo "An error occurred installing Foo"
 ```
 
-이는 STDOUT에 작성된 정보를 STDERR(2)로 대신 리디렉션합니다. IO 리디렉션에 대한 자세한 [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html)내용은 을 참조하십시오.
+이는 STDOUT에 작성된 정보를 STDERR(2)로 대신 리디렉션합니다. IO 리디렉션에 대 한 자세한 내용은을 [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html)참조 하십시오.
 
-스크립트 작업으로 기록된 정보 보기에 대한 자세한 내용은 [스크립트 작업 문제 해결 을](./troubleshoot-script-action.md)참조하십시오.
+스크립트 동작에서 기록한 정보를 보는 방법에 대 한 자세한 내용은 [스크립트 작업 문제 해결](./troubleshoot-script-action.md)을 참조 하세요.
 
-### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a>LF 라인 엔딩으로 파일을 ASCII로 저장
+### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a>LF 줄 끝을 사용 하 여 파일을 ASCII로 저장
 
 Bash 스크립트는 LF에서 종료한 줄을 사용하여 ASCII 형식으로 저장되어야 합니다. UTF-8로 저장되거나 줄 끝으로 CRLF를 사용하는 파일은 다음 오류와 함께 실패할 수 있습니다.
 
@@ -186,9 +186,9 @@ $'\r': command not found
 line 1: #!/usr/bin/env: No such file or directory
 ```
 
-### <a name="use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a>재시도 논리를 사용하여 일시적인 오류로부터 복구
+### <a name="use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a>다시 시도 논리를 사용 하 여 일시적 오류에서 복구
 
-파일을 다운로드하거나 apt-get을 사용하여 패키지를 설치하거나 인터넷을 통해 데이터를 전송하는 기타 작업을 수행할 때 일시적인 네트워킹 오류로 인해 작업이 실패할 수 있습니다. 예를 들어 통신하는 원격 리소스가 백업 노드로 장애 처리중일 수 있습니다.
+파일을 다운로드 하거나, apt을 사용 하 여 패키지를 설치 하거나, 인터넷을 통해 데이터를 전송 하는 다른 작업을 수행 하는 경우 일시적인 네트워킹 오류로 인해 작업이 실패할 수 있습니다. 예를 들어,와 통신 하는 원격 리소스는 백업 노드로 장애 조치 (failover) 하는 중일 수 있습니다.
 
 스크립트를 일시적인 오류에 대해 탄력적으로 만들려면 다시 시도 논리를 구현할 수 있습니다. 다음 함수는 재시도 논리를 구현하는 방법을 보여 줍니다. 실패하기 전에 작업을 세 번 다시 시도합니다.
 
@@ -226,7 +226,7 @@ retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxh
 
 ## <a name="helper-methods-for-custom-scripts"></a><a name="helpermethods"></a>사용자 지정 스크립트에 대한 도우미 메서드
 
-스크립트 작업 도우미 메서드는 사용자 지정 스크립트를 쓰는 동안 사용할 수 있는 유틸리티입니다. 이러한 메서드는 스크립트에 [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) 포함 됩니다. 다음을 사용하여 다운로드하고 스크립트의 일부로 사용합니다.
+스크립트 작업 도우미 메서드는 사용자 지정 스크립트를 쓰는 동안 사용할 수 있는 유틸리티입니다. 이러한 메서드는 [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) 스크립트에 포함 됩니다. 다음을 사용하여 다운로드하고 스크립트의 일부로 사용합니다.
 
 ```bash
 # Import the helper method module.
@@ -235,7 +235,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 스크립트에서 사용하기 위해 다음 도우미를 사용할 수 있습니다.
 
-| 도우미 사용 | 설명 |
+| 도우미 사용 | Description |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |원본 URI에서 지정된 파일 경로로 파일을 다운로드합니다. 기본적으로 기존 파일을 덮어쓰지 않습니다. |
 | `untar_file TARFILE DESTDIR` |(`-xf`를 사용하여) 대상 디렉터리에 tar 파일을 추출합니다. |
@@ -288,7 +288,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 * __공개적으로 읽을 수 있는 URI__ 예를 들어 OneDrive, Dropbox 또는 다른 파일 호스팅 서비스에 저장된 데이터에 대한 URL
 
-* HDInsight 클러스터와 연결된 __Azure Data Lake Storage 계정__ HDInsight를 사용하여 Azure 데이터 레이크 스토리지를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight의 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하십시오.
+* HDInsight 클러스터와 연결된 __Azure Data Lake Storage 계정__ HDInsight에서 Azure Data Lake Storage를 사용 하는 방법에 대 한 자세한 내용은 [빠른 시작: hdinsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조 하세요.
 
     > [!NOTE]  
     > HDInsight에서 Data Lake Storage에 액세스하는 데 사용하는 서비스 주체에는 스크립트에 대한 읽기 권한이 있어야 합니다.
@@ -322,19 +322,19 @@ Azure Storage 계정 또는 Azure Data Lake Storage에서 파일을 저장하면
 
 ## <a name="custom-script-samples"></a><a name="sampleScripts"></a>사용자 지정 스크립트 샘플
 
-Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘플 스크립트를 제공합니다. [HDInsight 클러스터의 Hue 설치 및 사용을](hdinsight-hadoop-hue-linux.md) 예제 스크립트 작업으로 사용합니다.
+Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘플 스크립트를 제공합니다. 예제 스크립트 작업으로 [HDInsight 클러스터에서 색상 설치 및 사용](hdinsight-hadoop-hue-linux.md) 을 참조 하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
 다음은 개발한 스크립트를 사용할 때 발생할 수 있는 오류입니다.
 
-**오류** `$'\r': command not found`: . 때로는 `syntax error: unexpected end of file`이 이어집니다.
+**오류**: `$'\r': command not found`. 때로는 `syntax error: unexpected end of file`이 이어집니다.
 
 *원인*:이 오류는 스크립트에서 줄이 CRLF로 끝날 때 발생합니다. Unix 시스템은 줄 끝에 LF이 필요합니다.
 
 스크립트가 Windows 환경에서 작성된 경우 CRLF은 Windows의 많은 텍스트 편집기에서 줄 끝에 흔하게 쓰이기 때문에 이 문제가 가장 자주 발생합니다.
 
-*해결 방법*: 텍스트 편집기에서 옵션인 경우 줄 끝에 대해 유닉스 형식 또는 LF를 선택합니다. 또한 Unix 시스템에서 다음 명령을 사용하여 CRLF는 LF로 변경할 수 있습니다.
+*해결*방법: 텍스트 편집기에서 옵션을 선택 하는 경우 줄 끝에 대해 Unix 형식 또는 LF를 선택 합니다. 또한 Unix 시스템에서 다음 명령을 사용하여 CRLF는 LF로 변경할 수 있습니다.
 
 > [!NOTE]  
 > 다음 명령은 CRLF 줄 끝을 LF으로 변경해야 하는 것과 거의 동일합니다. 시스템에서 사용할 수 있는 유틸리티에 따라 하나를 선택합니다.
@@ -346,7 +346,7 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | 파일을 직접 수정 |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |OUTFILE은 끝이 LF인 버전만 포함합니다. |
 
-**오류** `line 1: #!/usr/bin/env: No such file or directory`: .
+**오류**: `line 1: #!/usr/bin/env: No such file or directory`.
 
 *원인*: 스크립트가 바이트 순서 표시(BOM)를 사용하여 UTF-8로 저장될 때 이 오류가 발생합니다.
 

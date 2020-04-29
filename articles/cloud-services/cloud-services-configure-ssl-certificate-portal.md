@@ -1,6 +1,6 @@
 ---
-title: 클라우드 서비스에 대한 TLS 구성 | 마이크로 소프트 문서
-description: 웹 역할에 대한 HTTPS 끝점을 지정하는 방법과 응용 프로그램을 보호하기 위해 TLS/SSL 인증서를 업로드하는 방법에 대해 알아봅니다. 이 예제는 Azure 포털을 사용합니다.
+title: 클라우드 서비스에 대 한 TLS 구성 | Microsoft Docs
+description: 웹 역할에 대 한 HTTPS 끝점을 지정 하는 방법 및 응용 프로그램 보안을 위해 TLS/SSL 인증서를 업로드 하는 방법을 알아봅니다. 이 예제는 Azure 포털을 사용합니다.
 services: cloud-services
 documentationcenter: .net
 author: tgore03
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
 ms.openlocfilehash: c69b74cf91d8e097f8ad8a9ba2a16f3375f483ae
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024849"
 ---
-# <a name="configuring-tls-for-an-application-in-azure"></a>Azure에서 응용 프로그램에 대한 TLS 구성
+# <a name="configuring-tls-for-an-application-in-azure"></a>Azure에서 응용 프로그램에 대 한 TLS 구성
 
-이전에 는 SSL(보안 소켓 계층) 암호화라고 도가던 전송 계층 보안(TLS)은 인터넷을 통해 전송되는 데이터를 보호하는 가장 일반적으로 사용되는 방법입니다. 이 일반적인 태스크에서는 웹 역할에 대한 HTTPS 끝점을 지정하는 방법과 응용 프로그램을 보호하기 위해 TLS/SSL 인증서를 업로드하는 방법에 대해 설명합니다.
+이전에 SSL (Secure Socket Layer) 암호화로 알려진 TLS (Transport Layer Security)는 인터넷을 통해 전송 되는 데이터를 보호 하는 가장 일반적으로 사용 되는 방법입니다. 이 일반 작업에서는 웹 역할에 대 한 HTTPS 끝점을 지정 하는 방법 및 응용 프로그램 보안을 위해 TLS/SSL 인증서를 업로드 하는 방법을 설명 합니다.
 
 > [!NOTE]
 > 이 작업의 절차는 Azure Cloud Services에 적용됩니다. App Services에 대해서는 [이 항목](../app-service/configure-ssl-bindings.md)을 참조하세요.
@@ -27,14 +27,14 @@ ms.locfileid: "82024849"
 
 클라우드 서비스를 아직 만들지 않은 경우 먼저 [이 문서를](cloud-services-how-to-create-deploy-portal.md) 읽어보세요.
 
-## <a name="step-1-get-a-tlsssl-certificate"></a>1단계: TLS/SSL 인증서 받기
-응용 프로그램에 대한 TLS를 구성하려면 먼저 이 목적을 위해 인증서를 발급하는 신뢰할 수 있는 타사인 CA(인증 기관)가 서명한 TLS/SSL 인증서를 받아야 합니다. 아직 없는 경우 TLS/SSL 인증서를 판매하는 회사에서 인증서를 받아야 합니다.
+## <a name="step-1-get-a-tlsssl-certificate"></a>1 단계: TLS/SSL 인증서 가져오기
+응용 프로그램에 대해 TLS를 구성 하려면 먼저이 목적으로 인증서를 발급 하는 신뢰할 수 있는 타사 CA (인증 기관)에서 서명 된 TLS/SSL 인증서를 받아야 합니다. 아직 없는 경우 TLS/SSL 인증서를 판매 하는 회사에서 받아야 합니다.
 
-인증서는 Azure의 TLS/SSL 인증서에 대한 다음 요구 사항을 충족해야 합니다.
+인증서는 Azure에서 TLS/SSL 인증서에 대 한 다음 요구 사항을 충족 해야 합니다.
 
-* 인증서에는 공개 키가 포함되어야 합니다.
+* 인증서는 공개 키를 포함 해야 합니다.
 * 개인 정보 교환(.pfx) 파일로 내보낼 수 있는 키 교환용 인증서를 만들어야 합니다.
-* 인증서의 주체 이름은 클라우드 서비스 액세스에 사용되는 도메인과 일치해야 합니다. cloudapp.net 도메인에 대한 인증 기관(CA)에서 TLS/SSL 인증서를 가져올 수 없습니다. 서비스에 액세스할 때 사용할 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 애플리케이션 액세스에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다. 예를 들어 사용자 지정 도메인 이름이 **contoso.com** 경우 CA에서 ***.contoso.com** 또는 **\.www contoso.com**대한 인증서를 요청합니다.
+* 인증서의 주체 이름은 클라우드 서비스 액세스에 사용되는 도메인과 일치해야 합니다. Cloudapp.net 도메인에 대 한 CA (인증 기관)에서 TLS/SSL 인증서를 가져올 수 없습니다. 서비스에 액세스할 때 사용할 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 애플리케이션 액세스에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다. 예를 들어 사용자 지정 도메인 이름이 **contoso.com** 인 경우 CA에서 ***. contoso.com** 또는 **www\.contoso.com**에 대 한 인증서를 요청 합니다.
 * 인증서는 최소한 2048비트 암호화를 사용해야 합니다.
 
 테스트용으로 자체 서명된 인증서를 [만들어](cloud-services-certs-create.md) 사용할 수 있습니다. 자체 서명된 인증서는 CA를 통해 인증되지 않으며 cloudapp.net 도메인을 웹 사이트 URL로 사용할 수 있습니다. 예를 들어 다음 작업에서는 인증서에서 사용되는 CN(일반 이름)이 **sslexample.cloudapp.net**인 자체 서명된 인증서를 사용합니다.
@@ -76,7 +76,7 @@ ms.locfileid: "82024849"
 
    권한(`permissionLevel` 특성)은 다음 값 중 하나로 설정될 수 있습니다.
 
-   | 권한 값 | 설명 |
+   | 권한 값 | Description |
    | --- | --- |
    | limitedOrElevated |**(기본값)** 모든 역할 프로세스는 프라이빗 키에 액세스할 수 있습니다. |
    | elevated |승격된 프로세스만 프라이빗 키에 액세스할 수 있습니다. |
@@ -166,7 +166,7 @@ Azure Portal에 연결하고 다음을 수행합니다.
    ![사이트 미리 보기](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
    > [!TIP]
-   > 프로덕션 배포 대신 스테이징 배포에 TLS를 사용하려면 먼저 스테이징 배포에 사용되는 URL을 결정해야 합니다. 클라우드 서비스가 배포되면 `https://deployment-id.cloudapp.net/` 형식의 **배포 ID** GUID에 따라 스테이징 환경에 대한 URL이 결정됩니다.  
+   > 프로덕션 배포 대신 스테이징 배포에 TLS를 사용 하려는 경우 먼저 스테이징 배포에 사용 되는 URL을 결정 해야 합니다. 클라우드 서비스가 배포되면 `https://deployment-id.cloudapp.net/` 형식의 **배포 ID** GUID에 따라 스테이징 환경에 대한 URL이 결정됩니다.  
    >
    > GUID 기반 URL과 같은 CN(일반 이름)으로 인증서를 만듭니다(예: **328187776e774ceda8fc57609d404462.cloudapp.net**). 스테이징된 클라우드 서비스에 인증서를 추가하려면 포털을 사용합니다. 그런 다음 인증서 정보를 CSDEF 및 CSCFG 파일에 추가하고 애플리케이션을 다시 패키지하고 스테이징된 배포를 업데이트하여 새 패키지를 사용합니다.
    >

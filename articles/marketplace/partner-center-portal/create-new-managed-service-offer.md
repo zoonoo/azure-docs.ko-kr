@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: c82c3e0b6e6d11ccc33bf8556b06aeb04a6d37b5
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82147920"
 ---
 # <a name="create-a-new-managed-service-offer"></a>새 관리 서비스 제안 만들기
@@ -59,7 +59,7 @@ ms.locfileid: "82147920"
 
 **속성** 페이지에서 marketplace에서 제품을 그룹화 하는 데 사용 되는 범주와 제품을 지 원하는 법적 계약을 정의할 수 있습니다. 이 페이지를 완료 한 후 **저장** 을 선택 합니다.
 
-### <a name="category"></a>Category
+### <a name="category"></a>범주
 
 제품을 적절 한 marketplace 검색 영역에 추가 하는 데 사용 되는 최소 1 개 및 최대 5 개의 범주를 선택 합니다. 제품이 제품 설명에서 이러한 범주를 어떻게 지원 하는지 확인 해야 합니다.
 
@@ -74,7 +74,7 @@ ms.locfileid: "82147920"
 > [!NOTE]
 > 제품 설명 (예: 설명, 문서, 스크린샷, 사용 약관 등)은 영어로 시작 하지 않아도 됩니다. "이 응용 프로그램은 [영어가 아닌 언어] 에서만 사용할 수 있습니다." 또한 제품 목록 콘텐츠에 사용 되는 것 이외의 언어로 콘텐츠를 제공 하는 *데 유용한 링크 URL* 을 제공 하는 것도 허용 됩니다.
 
-### <a name="name"></a>Name
+### <a name="name"></a>속성
 
 여기에 입력 하는 이름은 고객에 게 제품 목록의 제목으로 표시 됩니다. 이 필드는 제품을 만들 때 **제공 별칭** 에 입력 한 텍스트로 미리 채워져 있지만이 값을 변경할 수 있습니다. 이 이름은 상표 수 있으며 상표 또는 저작권 기호를 포함할 수 있습니다. 이름은 50 자를 초과할 수 없으며, 모든 emojis를 포함할 수 없습니다.
 
@@ -86,7 +86,7 @@ Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 �
 
 제품에 대 한 더 긴 설명 (최대 256 자)을 제공 합니다. 이 긴 요약은 marketplace 검색 결과에도 사용할 수 있습니다.
 
-### <a name="description"></a>설명
+### <a name="description"></a>Description
 
 제품에 대 한 더 긴 설명 (최대 3000 자)을 제공 합니다. 이 설명은 marketplace 목록 개요에서 고객에 게 표시 됩니다. 제품의 가치 제안, 주요 이점, 범주 및/또는 업계 연결, 앱 내 구매 기회 및 필요한 공개를 포함 합니다.
 

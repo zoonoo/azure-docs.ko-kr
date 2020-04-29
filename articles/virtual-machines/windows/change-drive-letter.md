@@ -1,5 +1,5 @@
 ---
-title: 'D: VM 드라이브를 데이터 디스크로 만들기 '
+title: 'VM의 D: 드라이브를 데이터 디스크로 만들기 '
 description: 'Windows VM의 D: 드라이브를 데이터 드라이브로 사용할 수 있도록 드라이브 문자를 변경하는 방법을 설명합니다.'
 services: virtual-machines-windows
 author: cynthn
@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: 15df3178f2860fa066a82cb1429e0c1a6e5c2b08
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82083425"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>D: 드라이브를 Windows VM의 데이터 드라이브로 사용
@@ -36,7 +36,7 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 7. **C** 드라이브를 선택한 후 **시스템이 관리하는 크기**를 클릭하고 **설정**을 클릭합니다.
 8. **D** 드라이브를 선택하고 **페이징 파일 없음**을 클릭하고 **설정**을 클릭합니다.
 9. 적용을 클릭합니다. 변경 내용을 적용하려면 컴퓨터를 다시 시작해야 한다는 경고가 표시됩니다.
-10. 가상 머신을 다시 시작합니다.
+10. 가상 컴퓨터를 다시 시작합니다.
 
 ## <a name="change-the-drive-letters"></a>드라이브 문자 변경
 1. VM이 다시 시작되면 VM에 다시 로그인합니다.
@@ -47,7 +47,7 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 6. 드라이브 문자에서 드라이브 **D**를 선택한 후 **확인**을 클릭합니다. 
 
 ## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>pagefile.sys를 임시 스토리지 드라이브로 다시 이동합니다.
-1. **시작** 메뉴를 마우스 오른쪽 단추로 클릭하고 **시스템** 선택
+1. **시작** 메뉴를 마우스 오른쪽 단추로 클릭 하 고 **시스템** 을 선택 합니다.
 2. 왼쪽 메뉴에서 **고급 시스템 설정**을 선택합니다.
 3. **성능** 섹션에서 **설정**을 선택합니다.
 4. **고급** 탭을 선택합니다.
@@ -55,8 +55,8 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 6. OS 드라이브 **C**를 선택하고 **페이징 파일 없음**을 클릭하고 **설정**을 클릭합니다.
 7. 임시 스토리지 드라이브 **T**를 선택한 후 **시스템이 관리하는 크기**를 클릭하고 **설정**을 클릭합니다.
 8. **적용**을 클릭합니다. 변경 내용을 적용하려면 컴퓨터를 다시 시작해야 한다는 경고가 표시됩니다.
-9. 가상 머신을 다시 시작합니다.
+9. 가상 컴퓨터를 다시 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [추가 데이터 디스크를 연결하여](attach-managed-disk-portal.md)가상 컴퓨터에서 사용할 수 있는 저장소를 늘릴 수 있습니다.
+* [추가 데이터 디스크를 연결](attach-managed-disk-portal.md)하 여 가상 컴퓨터에 사용할 수 있는 저장소를 늘릴 수 있습니다.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
 ms.openlocfilehash: a7266d0f32a8ac18a4a76dee7eb3c39be253f7bd
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82148283"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Cloud 파트너 포털을 사용하여 새 컨테이너 제품 만들기
@@ -25,7 +25,7 @@ ms.locfileid: "82148283"
 |  ---------------   |  ---------------  |
 |    SKU            |  제품의 가장 작은 배포 가능한 단위입니다. 단일 제품(product 클래스)은 제품과 관련된 여러 SKU를 가질 수 있습니다. SKU를 사용하여 지원되는 기능과 청구 모델을 구분할 수 있습니다. |
 |  Marketplace       | 마케팅, 법적 정보 및 잠재 고객 관리 자산 및 사양이 포함됩니다.  <ul><li> 마케팅 자산에는 제안 이름, 설명 및 로고가 포함됩니다.</li> <li> 법적 정보 자산에는 개인정보처리방침, 사용 약관 및 기타 법률 문서가 포함됩니다.</li>  <li> 잠재 고객 관리 정책을 사용하면 Azure Marketplace 최종 사용자 포털에서 잠재 고객을 처리하는 방법을 지정할 수 있습니다.</li> </ul> |
-| 지원            | 지원 연락처 및 정책 정보가 포함됩니다. |
+| Support(지원)            | 지원 연락처 및 정책 정보가 포함됩니다. |
 
 
 ## <a name="new-offer-form"></a>새 제안 양식 

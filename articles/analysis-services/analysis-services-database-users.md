@@ -8,10 +8,10 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b7e3cc2b9d35eafcb875efa167821a8e9ad80146
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81454206"
 ---
 # <a name="manage-database-roles-and-users"></a>데이터베이스 역할 및 사용자 관리
@@ -25,15 +25,15 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
 *  **처리** - 사용자가 데이터베이스에서 프로세스 작업에 연결하고 수행할 수 있으며 model 데이터베이스 데이터를 분석할 수 있습니다.
 *  **읽기** - 사용자가 클라이언트 애플리케이션을 사용하여 model 데이터베이스 데이터에 연결하고 분석할 수 있습니다.
 
-테이블 형식 모델 프로젝트를 만들 때 분석 서비스 프로젝트를 사용하여 Visual Studio의 역할 관리자를 사용하여 역할을 만들고 해당 역할에 사용자 또는 그룹을 추가합니다. 서버에 배포할 때 SQL Server 관리 스튜디오(SSMS), [분석 서비스 PowerShell cmdlet](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)또는 [TMSL(테이블 모델 스크립팅 언어)을](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) 사용하여 역할 및 사용자 구성원을 추가하거나 제거합니다.
+테이블 형식 모델 프로젝트를 만들 때 Visual Studio에서 역할 관리자를 사용 하 여 Analysis Services 프로젝트에 역할을 만들고 해당 역할에 사용자 또는 그룹을 추가 합니다. 서버에 배포 된 경우 SSMS (SQL Server Management Studio), [PowerShell cmdlet Analysis Services](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)또는 Tmsl ( [Tabular Model Scripting Language](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) )을 사용 하 여 역할 및 사용자 멤버를 추가 하거나 제거 합니다.
 
-**보안 그룹을**추가할 때 `obj:groupid@tenantid`을 사용합니다.
+**보안 그룹**을 추가할 때를 사용 `obj:groupid@tenantid`합니다.
 
-## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Visual Studio에서 역할 및 사용자를 추가하거나 관리하려면  
+## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Visual Studio에서 역할 및 사용자를 추가 하거나 관리 하려면  
   
-1.  **테이블 모델 탐색기에서** **역할을**마우스 오른쪽 단추로 클릭합니다.  
+1.  **테이블 형식 모델 탐색기**에서 **역할**을 마우스 오른쪽 단추로 클릭 합니다.  
   
-2.  **역할 관리자에서**새 을 **클릭합니다.**  
+2.  **역할 관리자**에서 **새로 만들기**를 클릭 합니다.  
   
 3.  역할의 이름을 입력합니다.  
   
@@ -47,11 +47,11 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
     |**읽기**|멤버는 행 필터를 기반으로 데이터를 쿼리할 수 있지만 모델 스키마를 수정할 수 없습니다.|  
     |**읽기 및 처리**|멤버는 행 수준 필터를 기반으로 데이터를 쿼리하고 처리 및 모두 처리 작업을 실행할 수 있지만 모델 스키마를 수정할 수 없습니다.|  
     |**프로세스**|멤버는 처리 및 모두 처리 작업을 실행할 수 있습니다. 모델 스키마를 읽거나 수정할 수 없으며 데이터를 쿼리할 수 없습니다.|  
-    |**관리자**|멤버는 모델 스키마를 수정하고 모든 데이터를 쿼리할 수 있습니다.|   
+    |**관리자나**|멤버는 모델 스키마를 수정하고 모든 데이터를 쿼리할 수 있습니다.|   
   
 5.  만들려는 역할에 읽기 또는 읽기 및 처리 권한이 있는 경우 DAX 수식을 사용하여 행 필터를 추가할 수 있습니다. **행 필터** 탭을 클릭하고 테이블을 선택한 다음 **DAX 필터** 필드를 클릭하고 DAX 수식을 입력합니다.
   
-6.  **멤버** > **추가 외부**를 클릭합니다.  
+6.  **멤버** > **외부 추가**를 클릭 합니다.  
   
 8.  **외부 멤버 추가**에서 Azure AD 테넌트의 사용자 또는 그룹을 메일 주소로 입력합니다. [확인]을 클릭하고 [역할 관리자]를 닫으면 역할 및 역할 멤버가 [테이블 형식 모델 탐색기]에 나타납니다. 
  
@@ -64,7 +64,7 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
 
 배포된 model 데이터베이스에 역할 및 사용자를 추가하려면 서버 관리자로 서버에 연결되어 있거나 관리자 권한이 있는 데이터베이스 역할이 이미 있어야 합니다.
 
-1. 오브젝트 익스포저에서 **역할** > **새 역할을**마우스 오른쪽 단추로 클릭합니다.
+1. 개체 탐색기에서 **역할** > **새 역할**을 마우스 오른쪽 단추로 클릭 합니다.
 
 2. **역할 만들기**에서 역할 이름 및 설명을 입력합니다.
 
@@ -122,7 +122,7 @@ SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를
   
 |Cmdlet|Description|
 |------------|-----------------| 
-|[추가 역할 멤버](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|데이터베이스 역할에 구성원을 추가합니다.| 
+|[RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|데이터베이스 역할에 구성원을 추가합니다.| 
 |[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|데이터베이스 역할에서 구성원을 제거합니다.|   
 |[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|TMSL 스크립트를 실행합니다.|
 
@@ -132,7 +132,7 @@ SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를
   
 행 필터는 읽기와 읽기 및 처리 권한이 있는 역할에 대해서만 정의할 수 있습니다. 기본적으로 특정 테이블에 대해 행 필터가 정의되지 않은 경우 다른 테이블에서 교차 필터링을 적용하지 않는 한 멤버는 테이블의 모든 행을 쿼리할 수 있습니다.
   
- 해당 특정 역할의 멤버가 쿼리할 수 있는 행을 정의하려면 행 필터에 DAX 수식이 필요하며, 이 수식은 TRUE/FALSE 값으로 계산되어야 합니다. DAX 수식에 포함되지 않은 행은 쿼리할 수 없습니다. 예를 들어 다음 행 필터 식을 사용 하 여 Customers 테이블 = *고객 [국가] = "미국"* 영업 역할의 구성원은 미국에서만 고객을 볼 수 있습니다.  
+ 해당 특정 역할의 멤버가 쿼리할 수 있는 행을 정의하려면 행 필터에 DAX 수식이 필요하며, 이 수식은 TRUE/FALSE 값으로 계산되어야 합니다. DAX 수식에 포함되지 않은 행은 쿼리할 수 없습니다. 예를 들어 다음 행 필터 식, *= Customers [Country] = "USA"* 를 가진 customers 테이블에서 Sales 역할의 멤버는 미국의 고객만 볼 수 있습니다.  
   
 행 필터는 지정된 행과 관련 행에 적용됩니다. 테이블에 여러 관계가 있는 경우 필터는 활성 관계에 대한 보안을 적용합니다. 행 필터는 관련 테이블에 대해 정의된 다른 행 필터와 교차됩니다. 예를 들면 다음과 같습니다.  
   

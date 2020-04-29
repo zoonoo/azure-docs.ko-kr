@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
 ms.openlocfilehash: 15bbd7776f2ac8fef78cde43a22e59b0e60a6f50
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82142997"
 ---
 # <a name="virtual-machine-support-tab"></a>가상 머신 지원 탭
@@ -27,14 +27,14 @@ ms.locfileid: "82142997"
 
 다음 표에서는 이러한 필드의 용도와 내용을 설명합니다. 필수 필드는 별표(*)로 표시됩니다.
 
-|         필드                 |       설명                                                        |
+|         필드                 |       Description                                                        |
 |        -------                |       ------------                                                       |
 | *엔지니어링 연락처*     | Microsoft와 조직 간의 기술 연락처 역할을 합니다. | 
-| **Name\***                | 기술/엔지니어링 지원 역할을 하는 사람 또는 그룹의 이름     |
+| **속성\***                | 기술/엔지니어링 지원 역할을 하는 사람 또는 그룹의 이름     |
 | **메일\***               | 이 기술 담당자의 이메일 주소                                      |
 | **Phone\***               | 기술 지원 전화 번호                                           |
 | *고객 지원*        | Azure 내에서 고객이 연 지원 티켓을 받습니다. |
-| **Name\***                | 고객 지원 역할을 하는 사람 또는 그룹의 이름                  |
+| **속성\***                | 고객 지원 역할을 하는 사람 또는 그룹의 이름                  |
 | **메일\***               | 고객 지원 이메일 주소                                            |
 | **Phone\***               | 고객 지원 전화 번호                                            |
 | *지원 URL*            | 고객이 지원 티켓을 열 때 Microsoft에서 사용할 지원 사이트 |

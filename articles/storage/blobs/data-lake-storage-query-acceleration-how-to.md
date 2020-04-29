@@ -9,10 +9,10 @@ ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.openlocfilehash: 22776d9498676ec77cd71845ca5e39f01926259d
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82137572"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration-preview"></a>Azure Data Lake Storage 쿼리 가속 (미리 보기)을 사용 하 여 데이터 필터링
@@ -24,7 +24,7 @@ ms.locfileid: "82137572"
 > [!NOTE]
 > 쿼리 가속 기능은 공개 미리 보기로 제공 되며 캐나다 중부 및 프랑스 중부 지역에서 사용할 수 있습니다. 제한 사항을 검토 하려면 [알려진 문제](data-lake-storage-known-issues.md) 문서를 참조 하세요. 미리 보기에 등록 하려면 [이 양식을](https://aka.ms/adls/qa-preview-signup)참조 하세요.  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
