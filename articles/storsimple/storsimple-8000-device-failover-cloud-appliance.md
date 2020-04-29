@@ -1,5 +1,5 @@
 ---
-title: StorSimple 클라우드 어플라이언스에 대한 장애 조치 및 재해 복구
+title: StorSimple Cloud Appliance 장애 조치 (Failover) 및 재해 복구
 description: 클라우드 어플라이언스로 StorSimple 8000 시리즈 물리적 디바이스를 장애 조치(failover)하는 방법에 대해 알아봅니다.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 347b899608d4322a7873b9f80f38ca1c767194d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77468748"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>StorSimple Cloud Appliance로 장애 조치(failover)
@@ -31,7 +31,7 @@ ms.locfileid: "77468748"
 
 StorSimple 물리적 디바이스를 다른 물리적 디바이스로 장애 조치(failover)하려면 [StorSimple 물리적 디바이스로 장애 조치(failover)](storsimple-8000-device-failover-physical-device.md)로 이동하세요. 디바이스를 자체 디바이스로 장애 조치(failover)하려면 [동일한 StorSimple 물리적 디바이스로 장애 조치(failover)](storsimple-8000-device-failover-same-device.md)로 이동하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - 디바이스 장애 조치(failover)에 대한 고려 사항을 검토했는지 확인하세요. 자세한 내용을 보려면 [디바이스 장애 조치(failover)에 대한 일반적인 고려 사항](storsimple-8000-device-failover-disaster-recovery.md)으로 이동하세요.
 

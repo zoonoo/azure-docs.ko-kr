@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77564647"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>원격 모니터링과 Azure Time Series Insights 통합
@@ -24,7 +24,7 @@ Azure Time Series Insights는 클라우드에서 IoT 규모 시계열 데이터�
 > [!NOTE]
 > Time Series Insights는 현재 Azure 중국 클라우드에서 사용할 수 없습니다. Azure China 클라우드에서 새 원격 모니터링 솔루션 가속기를 배포하는 경우 모든 스토리지에 Cosmos DB를 사용합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 방법을 완료하려면 이미 원격 모니터링 솔루션이 배포되어 있어야 합니다.
 
@@ -49,9 +49,9 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 다음으로, 원격 모니터링 솔루션에 Time Series Insights를 추가 리소스로 배포하고 IoT 허브에 연결합니다.
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1.  > 리소스 사물 > **인터넷****[시간대] [인사이트]** **Create a resource**
+1. **리소스** > 만들기**사물 인터넷** > **Time Series Insights**를 선택 합니다.
 
     ![새로운 Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights.png)
 
@@ -61,7 +61,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
     | ------- | ----- |
     | 환경 이름 | 다음 스크린샷에서는 **contorosrmtsi**라는 이름을 사용합니다. 이 단계를 완료할 때는 자신만의 고유한 이름을 선택합니다. |
     | Subscription | 드롭다운에서 Azure 구독을 선택합니다. |
-    | Resource group | **기존 을 사용합니다.** 기존 원격 모니터링 리소스 그룹의 이름을 선택합니다. |
+    | Resource group | **기존를 사용**합니다. 기존 원격 모니터링 리소스 그룹의 이름을 선택합니다. |
     | 위치 | **미국 동부**를 사용합니다. 가능하면 원격 모니터링 솔루션으로 동일한 지역의 환경을 만듭니다. |
     | SKU |**S1** |
     | 용량 | **1** |
@@ -209,13 +209,13 @@ Time Series Insights 통합을 완료하려면 업데이트된 마이크로서�
 
 1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** 탭을 클릭합니다.
 
-1. 앱 **등록을 클릭합니다.**
+1. **앱 등록**를 클릭 합니다.
 
 1. **ContosoRM** 애플리케이션을 검색하여 클릭합니다.
 
-1. **설정** > **키로** 이동한 다음 응용 프로그램에 대한 새 키를 만듭니다. 키 값을 안전한 위치에 복사해야 합니다.
+1. **설정** > **키** 로 이동한 다음 응용 프로그램에 대 한 새 키를 만듭니다. 키 값을 안전한 위치에 복사해야 합니다.
 
-1. 최신 태그를 사용하여 GitHub 리포지토리에서 [yaml 파일을 구성하는 최신 도커를](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) 가져옵니다. 
+1. 최신 태그를 사용 하 여 GitHub 리포지토리에서 [최신 docker 작성 yaml 파일](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) 을 가져옵니다. 
 
 1. [SSH 키 생성 및 사용 방법](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)에 설명된 단계를 따라 VM에 SSH합니다.
 
@@ -238,7 +238,7 @@ Time Series Insights 통합을 완료하려면 업데이트된 마이크로서�
 1. VM에서 `sudo ./start.sh`를 사용하여 Docker 컨테이너를 다시 시작합니다.
 
 > [!NOTE]
-> 환경 변수의 위의 구성은 1.0.2 이전의 원격 모니터링 버전에 유효합니다.
+> 위의 환경 변수 구성은 1.0.2 이전 버전의 원격 모니터링에 유효 합니다.
 
 ### <a name="standard-deployments"></a>표준 배포
 

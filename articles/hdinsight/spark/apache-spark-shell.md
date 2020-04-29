@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
 ms.openlocfilehash: f8737f645df2aefbf9ce544199f0cc45ce6a3d60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77162806"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Spark 셸에서 Apache Spark 실행
@@ -21,13 +21,13 @@ ms.locfileid: "77162806"
 
 ## <a name="run-an-apache-spark-shell"></a>Apache Spark 셸 실행
 
-1. [ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용하여 클러스터에 연결합니다. CLUSTERNAME을 클러스터 이름으로 바꿉니다 아래 명령을 편집한 다음 명령을 입력합니다.
+1. [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 클러스터에 연결 합니다. CLUSTERNAME을 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. 스파크는 스칼라(스파크 쉘) 및 파이썬(파이스파크)에 대한 포탄을 제공합니다. SSH 세션에서 다음 명령 *중 하나를* 입력합니다.
+1. Spark는 Scala (spark-shell) 및 Python (pyspark)에 대 한 셸을 제공 합니다. SSH 세션에서 다음 명령 *중 하나* 를 입력 합니다.
 
     ```bash
     spark-shell
@@ -43,9 +43,9 @@ ms.locfileid: "77162806"
     # pyspark --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4
     ```
 
-    선택적 구성을 사용하려는 경우 [먼저 아파치 스파크에 대한 OutOfMemoryError 예외를](./apache-spark-troubleshoot-outofmemory.md)검토해야 합니다.
+    선택적 구성을 사용 하려는 경우 먼저 [Apache Spark OutOfMemoryError 예외](./apache-spark-troubleshoot-outofmemory.md)를 검토 해야 합니다.
 
-1. 몇 가지 기본 예제 명령입니다. 관련 언어를 선택합니다.
+1. 몇 가지 기본 예제 명령입니다. 관련 언어를 선택 합니다.
 
     ```spark-shell
     val textFile = spark.read.textFile("/example/data/fruits.txt")
@@ -59,13 +59,13 @@ ms.locfileid: "77162806"
     textFile.filter(textFile.value.contains("apple")).show()
     ```
 
-1. CSV 파일을 쿼리합니다. 아래 언어는 에 `spark-shell` `pyspark`대해 잘 작동합니다.
+1. CSV 파일을 쿼리 합니다. 아래 언어는 및 `spark-shell` `pyspark`에 대해 작동 합니다.
 
     ```scala
     spark.read.csv("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv").show()
     ```
 
-1. CSV 파일을 쿼리하고 변수로 결과를 저장합니다.
+1. CSV 파일을 쿼리하고 결과를 변수에 저장 합니다.
 
     ```spark-shell
     var data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv")
@@ -105,7 +105,7 @@ SparkSession 인스턴스에 액세스하려면 `spark`를 입력합니다. Spar
 
 ## <a name="important-shell-parameters"></a>중요한 셸 매개 변수
 
-Spark Shell 명령`spark-shell`(또는)은 `pyspark`많은 명령줄 매개 변수를 지원합니다. 매개 변수의 전체 목록을 보려면 스위치 `--help`를 사용하여 Spark 셸을 시작합니다. 이러한 매개 변수 중 일부는 `spark-submit`Spark Shell이 래핑하는 에만 적용될 수 있습니다.
+Spark Shell 명령 (`spark-shell`또는 `pyspark`)은 많은 명령줄 매개 변수를 지원 합니다. 매개 변수의 전체 목록을 보려면 스위치 `--help`를 사용하여 Spark 셸을 시작합니다. 이러한 매개 변수 중 일부는 Spark 셸이 `spark-submit`래핑하는에만 적용 될 수 있습니다.
 
 | switch | description | 예제 |
 | --- | --- | --- |

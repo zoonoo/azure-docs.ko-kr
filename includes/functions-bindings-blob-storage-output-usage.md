@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: functions
 author: craigshoemaker
@@ -10,25 +10,25 @@ ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: 0c0ab0e62a5d951f0bc0e237f44cf55c5b8e16cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77202100"
 ---
-다음 형식에 바인딩하여 Blob을 작성할 수 있습니다.
+다음 형식에 바인딩하여 blob을 쓸 수 있습니다.
 
 * `TextWriter`
 * `out string`
 * `out Byte[]`
 * `CloudBlobStream`
 * `Stream`
-* `CloudBlobContainer`<sup>1</sup>
+* `CloudBlobContainer`<sup>1(sp1)</sup>
 * `CloudBlobDirectory`
-* `ICloudBlob`<sup>2</sup>
-* `CloudBlockBlob`<sup>2</sup>
-* `CloudPageBlob`<sup>2</sup>
-* `CloudAppendBlob`<sup>2</sup>
+* `ICloudBlob`<sup>sr-2</sup>
+* `CloudBlockBlob`<sup>sr-2</sup>
+* `CloudPageBlob`<sup>sr-2</sup>
+* `CloudAppendBlob`<sup>sr-2</sup>
 
 <sup>1</sup>*function.json*에서 `direction` 또는 C# 클래스 라이브러리에서 `FileAccess.Read`의 “in” 바인딩이 필요합니다. 그러나 런타임에서 제공하는 컨테이너를 사용하여 컨테이너에 BLOB 업로드 등의 쓰기 작업을 수행할 수 있습니다.
 

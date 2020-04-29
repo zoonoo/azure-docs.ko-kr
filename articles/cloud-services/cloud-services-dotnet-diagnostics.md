@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: tagore
 ms.openlocfilehash: 1e49a0935a70a2470267e5458fa1f55e3059e965
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77469768"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure Cloud Services에서 Azure Diagnostics 사용
@@ -23,11 +23,11 @@ Azure Diagnostics의 배경은 [Azure Diagnostics 개요](../azure-diagnostics.m
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>작업자 역할에서 진단을 사용하는 방법
 이 연습에서는 .NET EventSource 클래스를 사용하여 원격 분석 데이터를 내보내는 Azure 작업자 역할을 구현하는 방법에 대해 설명합니다. Azure Diagnostics는 원격 분석 데이터를 수집하고 이를 Azure 스토리지 계정에 저장하는 데 사용됩니다. Visual Studio 작업자 역할을 만드는 경우 Azure .NET SDK 2.4 이상 버전에서 진단 1.0을 솔루션의 일부로 자동으로 사용하도록 설정합니다. 다음 지침에서는 작업자 역할을 만들고, 솔루션에서 진단 1.0을 사용하지 않도록 설정하고, 진단 1.2 또는 1.3을 작업자 역할에 배포하기 위한 프로세스에 대해 설명합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 이 문서에서는 Azure 구독이 있으며 Visual Studio와 Azure SDK를 함께 사용 중인 것으로 가정합니다. Azure 구독이 없는 경우 [무료 평가판][Free Trial]에 등록할 수 있습니다. [Azure PowerShell 버전 0.8.7 이상을 설치 및 구성][Install and configure Azure PowerShell version 0.8.7 or later]해야 합니다.
 
 ### <a name="step-1-create-a-worker-role"></a>1단계: 작업자 역할 만들기
-1. **비주얼 스튜디오를**시작합니다.
+1. **Visual Studio**를 시작 합니다.
 2. .NET Framework 4.5를 대상으로 하는 **Cloud** 템플릿에서 **Azure Cloud Service** 프로젝트를 만듭니다.  프로젝트의 이름을 "WadExample"로 지정하고 확인을 클릭합니다.
 3. **작업자 역할**을 선택하고 확인을 클릭합니다. 프로젝트가 만들어집니다.
 4. **솔루션 탐색기**에서 **WorkerRole1** 속성 파일을 두 번 클릭합니다.
@@ -124,7 +124,7 @@ namespace WorkerRole1
 
 1. 솔루션 Explorer에서 **WadExample** 프로젝트를 선택한 후 **빌드** 메뉴에서 **게시**를 선택하여 Visual Studio 내에서 Azure에 작업자 역할을 배포합니다.
 2. 구독을 선택합니다.
-3. Microsoft **Azure 게시 설정** 대화 상자에서 **새 만들기를 선택합니다.**
+3. **Microsoft Azure 게시 설정** 대화 상자에서 **새로 만들기 ...** 를 선택 합니다.
 4. **클라우드 서비스 및 Storage 계정 만들기** 대화 상자에서 **이름**(예: "WadExample")을 입력하고 지역 또는 선호도 그룹을 선택합니다.
 5. **환경**을 **스테이징**으로 설정합니다.
 6. 다른 **설정**을 적절히 수정하고 **게시**를 클릭합니다.
@@ -136,10 +136,10 @@ namespace WorkerRole1
     ```powershell
     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
     ```
-2. **WorkerRole1** 프로젝트에 XML 파일을 추가합니다. **WorkerRole1** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** -> **새 항목…** -> **시각적 C # 항목** -> **데이터** -> **XML 파일**. 파일 이름을 “WadExample.xml”로 지정합니다.
+2. **WorkerRole1** 프로젝트에 XML 파일을 추가합니다. **WorkerRole1** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** -> **새 항목…** -> **Visual c # 항목** -> **데이터** -> **XML 파일**입니다. 파일 이름을 “WadExample.xml”로 지정합니다.
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-3. WadConfig.xsd를 구성 파일과 연결합니다. WadExample.xml 편집기 창이 활성 창인지 확인합니다. **F4**를 눌러 **속성** 창을 엽니다. **속성** 창에서 **Schemas** 속성을 클릭합니다. 를 **클릭합니다.** **...** 를 클릭합니다. **추가를 클릭합니다...** 단추를 클릭하고 XSD 파일을 저장한 위치로 이동한 후 WadConfig.xsd 파일을 선택하고 **확인**을 클릭합니다.
+3. WadConfig.xsd를 구성 파일과 연결합니다. WadExample.xml 편집기 창이 활성 창인지 확인합니다. **F4**를 눌러 **속성** 창을 엽니다. **속성** 창에서 **Schemas** 속성을 클릭합니다. **...를 클릭** 합니다. **...** 를 클릭합니다. **추가** ...를 클릭 합니다. 단추를 클릭하고 XSD 파일을 저장한 위치로 이동한 후 WadConfig.xsd 파일을 선택하고 **확인**을 클릭합니다.
 
 4. WadExample.xml 구성 파일의 내용을 다음 XML로 바꾸고 파일을 저장합니다. 이 구성 파일은 각각 CPU 사용률 및 메모리 사용률을 수집할 두 가지 성능 카운터를 정의합니다. 그런 다음 이 구성에서는 SampleEventSourceWriter 클래스의 메서드에 해당하는 네 개의 이벤트를 정의합니다.
 

@@ -4,28 +4,28 @@ description: Azure Functions는 여러 버전의 런타임을 지원합니다. A
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 5a71338b1b9735d7e7494dc2667bd7addf5d4a53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77151958"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Azure Functions 런타임 버전을 대상으로 지정하는 방법
 
-함수 앱은 특정 Azure Functions 런타임 버전에서 실행됩니다. [1.x, 2.x 및 3.x의](functions-versions.md)세 가지 주요 버전이 있습니다. 기본적으로 함수 앱은 런타임의 버전 2.x에서 만들어집니다. 이 문서에는 선택한 버전에서 실행할 함수 앱을 Azure에서 구성하는 방법을 설명합니다. 특정 버전에 대한 로컬 개발 환경을 구성하는 방법에 대한 자세한 내용은 [로컬로 Azure Functions 코딩 및 테스트](functions-run-local.md)를 참조하세요.
+함수 앱은 특정 Azure Functions 런타임 버전에서 실행됩니다. [1. x, 2.x 및 3(sp3)](functions-versions.md)의 세 가지 주요 버전이 있습니다. 기본적으로 함수 앱은 런타임의 버전 2.x에 생성 됩니다. 이 문서에는 선택한 버전에서 실행할 함수 앱을 Azure에서 구성하는 방법을 설명합니다. 특정 버전에 대한 로컬 개발 환경을 구성하는 방법에 대한 자세한 내용은 [로컬로 Azure Functions 코딩 및 테스트](functions-run-local.md)를 참조하세요.
 
 ## <a name="automatic-and-manual-version-updates"></a>자동 및 수동 버전 업데이트
 
-Azure Functions를 사용하면 함수 앱에서 응용 프로그램 `FUNCTIONS_EXTENSION_VERSION` 설정을 사용하여 특정 버전의 런타임을 대상으로 지정할 수 있습니다. 함수 앱을 새 버전으로 변경하도록 명시적으로 선택할 때까지 지정된 주 버전에서 유지합니다.
+Azure Functions를 사용 하면 함수 앱에서 `FUNCTIONS_EXTENSION_VERSION` 응용 프로그램 설정을 사용 하 여 특정 버전의 런타임을 대상으로 지정할 수 있습니다. 함수 앱을 새 버전으로 변경하도록 명시적으로 선택할 때까지 지정된 주 버전에서 유지합니다.
 
-주 버전만 지정하면 함수 앱이 사용 가능해지면 런타임의 새 부 버전으로 자동으로 업데이트됩니다. 새 부 버전에서는 주요 변경 사항을 도입해서는 안 됩니다. 부 버전(예: "2.0.12345")을 지정하면 버전을 명시적으로 변경할 때까지 함수 앱은 특정 버전으로 고정됩니다.
+주 버전만 지정 하는 경우 함수 앱은 사용할 수 있게 되 면 런타임의 새로운 부 버전으로 자동 업데이트 됩니다. 새 부 버전에는 주요 변경 내용이 도입 되지 않습니다. 부 버전(예: "2.0.12345")을 지정하면 버전을 명시적으로 변경할 때까지 함수 앱은 특정 버전으로 고정됩니다.
 
 > [!NOTE]
-> 특정 버전의 Azure Functions에 고정한 다음 Visual Studio를 사용하여 Azure에 게시하려고 하면 최신 버전으로 업데이트하거나 게시를 취소하라는 메시지가 표시됩니다. 이를 방지하려면 파일에 `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` 속성을 `.csproj` 추가합니다.
+> Azure Functions의 특정 버전에 고정 한 후 Visual Studio를 사용 하 여 Azure에 게시 하려고 하면 최신 버전으로 업데이트 하거나 게시를 취소 하 라는 대화 상자가 표시 됩니다. 이를 방지 하려면 `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` `.csproj` 파일에 속성을 추가 합니다.
 
 새 버전을 공개적으로 사용할 수 있으면 포털에서 메시지를 표시하여 해당 버전으로 업그레이드할 수 있는 기회를 제공합니다. 새 버전으로 변경한 후에 `FUNCTIONS_EXTENSION_VERSION` 애플리케이션 설정을 사용하여 이전 버전으로 다시 변경할 수 있습니다.
 
-다음 표에서는 `FUNCTIONS_EXTENSION_VERSION` 자동 업데이트를 사용하도록 설정하는 각 주 버전의 값을 보여 주며 있습니다.
+다음 표에서는 자동 업데이트 `FUNCTIONS_EXTENSION_VERSION` 를 사용 하도록 설정 하기 위해 각 주 버전에 대 한 값을 보여 줍니다.
 
 | 주 버전 | `FUNCTIONS_EXTENSION_VERSION` 값 |
 | ------------- | ----------------------------------- |
@@ -37,7 +37,7 @@ Azure Functions를 사용하면 함수 앱에서 응용 프로그램 `FUNCTIONS_
 
 ## <a name="view-and-update-the-current-runtime-version"></a>현재 런타임 버전 확인 및 업데이트
 
-함수 앱에서 사용하는 런타임 버전을 변경할 수 있습니다. 변경 내용이 변경될 수 있으므로 함수 앱에서 함수를 생성하기 전에런시 버전만 변경할 수 있습니다. 
+함수 앱에서 사용 하는 런타임 버전을 변경할 수 있습니다. 주요 변경 사항이 있으므로 함수 앱에서 함수를 만들기 전에 런타임 버전만 변경할 수 있습니다. 
 
 > [!IMPORTANT]
 > 런타임 버전은 `FUNCTIONS_EXTENSION_VERSION` 설정에서 결정되지만, 설정을 직접 변경하지 않고 Azure Portal에서 이 변경을 수행해야 합니다. 그 이유는 포털에서 변경 내용이 확인되고 필요에 따라 관련된 다른 변경 내용이 적용되기 때문입니다.
@@ -47,7 +47,7 @@ Azure Functions를 사용하면 함수 앱에서 응용 프로그램 `FUNCTIONS_
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
 > [!NOTE]
-> Azure 포털을 사용하면 이미 함수가 포함된 함수 앱의 런타임 버전을 변경할 수 없습니다.
+> Azure Portal를 사용 하 여 이미 함수가 포함 된 함수 앱에 대 한 런타임 버전을 변경할 수 없습니다.
 
 ### <a name="from-the-azure-cli"></a><a name="view-and-update-the-runtime-version-using-azure-cli"></a>Azure CLI에서
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 493340764f507c4fa364a5000f65cc232630b243
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77167037"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows 명령 - CMD 및 PowerShell
@@ -117,7 +117,7 @@ Azure VM은 IP 주소를 얻는 데 DHCP를 사용하려면 항상 게스트 운
 ### <a name="disable-windows-firewall"></a>Windows 방화벽 사용 안 함
 `netsh advfirewall set allprofiles state off`
 
-Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 명령을 사용할 수 있습니다. 그것은 다음에 다시 시작하거나 아래 의 명령을 사용하여 활성화 할 때 활성화됩니다. Windows 방화벽을 제외하기 위한 방법으로 Windows 방화벽 서비스(MPSSVC) 또는 기본 필터링 엔진(BFE) 서비스를 중지하지 마십시오. MPSSVC 또는 BFE 중지하면 모든 연결이 차단되게 됩니다.
+Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 명령을 사용할 수 있습니다. 다음에 다시 시작할 때 사용 하도록 설정 하거나, 아래 명령을 사용 하 여 사용 하도록 설정 합니다. Windows 방화벽을 제외하기 위한 방법으로 Windows 방화벽 서비스(MPSSVC) 또는 기본 필터링 엔진(BFE) 서비스를 중지하지 마십시오. MPSSVC 또는 BFE 중지하면 모든 연결이 차단되게 됩니다.
 ### <a name="enable-windows-firewall"></a>Windows 방화벽 사용
 `netsh advfirewall set allprofiles state on`
 ## <a name="manage-users-and-groups"></a>사용자 및 그룹 관리
@@ -320,7 +320,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 `test-netconnection`
 
 > [!NOTE]
-> 쓰기-진행률 cmdlet이 이 명령에서 작동하지 않을 수 있습니다. 완화로 PowerShell에서 실행하여 `$ProgressPreference = "SilentlyContinue"` 진행률 표시줄을 비활성화할 수 있습니다.
+> 쓰기 진행률 cmdlet은이 명령에서 작동 하지 않을 수 있습니다. 완화를 위해 PowerShell에서를 실행 `$ProgressPreference = "SilentlyContinue"` 하 여 진행률 표시줄을 사용 하지 않도록 설정할 수 있습니다.
 
 또는
 
@@ -479,5 +479,5 @@ osType, Location, vmSize, vmId, name, resourceGroupName, subscriptionId, private
 
 ## <a name="next-steps"></a>다음 단계
 * 주 직렬 콘솔 Windows 설명서 페이지는 [여기](serial-console-windows.md)에 있습니다.
-* 직렬 콘솔은 [Linux](serial-console-linux.md) VM에서도 사용할 수 있습니다.
+* 직렬 콘솔은 [Linux](serial-console-linux.md) vm 에서도 사용할 수 있습니다.
 * [부트 진단](boot-diagnostics.md)에 대해 자세히 알아봅니다.

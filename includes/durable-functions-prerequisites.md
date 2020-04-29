@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: glenga
 ms.openlocfilehash: 85fbd7a65fe19e785488714411d671c8ee29ab40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77562068"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 * [빠른 시작 문서 완료](../articles/azure-functions/durable/durable-functions-create-first-csharp.md)
-* [GitHub에서 샘플 프로젝트를 복제하거나 다운로드](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/precompiled)
+* [GitHub에서 샘플 프로젝트 복제 또는 다운로드](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/precompiled)
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 * [빠른 시작 문서 완료](../articles/azure-functions/durable/quickstart-js-vscode.md)
-* [GitHub에서 샘플 프로젝트를 복제하거나 다운로드](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript)
+* [GitHub에서 샘플 프로젝트 복제 또는 다운로드](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript)
 
 ---

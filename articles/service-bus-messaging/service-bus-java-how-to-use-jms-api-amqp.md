@@ -1,5 +1,5 @@
 ---
-title: Azure 서비스 버스에서 Java 메시지 서비스 API와 함께 AMQP 를 &
+title: Java 메시지 서비스 API를 사용 하 여 AMQP & Azure Service Bus
 description: Azure Service Bus 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용하는 방법을 설명합니다.
 services: service-bus-messaging
 documentationcenter: java
@@ -15,21 +15,21 @@ ms.date: 10/22/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: cd06838abbb69af5684fdea18c42f6a8f95ffe2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77371260"
 ---
-# <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Azure 서비스 버스 및 AMQP 1.0에서 자하 메시지 서비스(JMS) 사용
-이 문서에서는 인기 있는 JMS(Java Message Service) API 표준을 사용하여 Java 응용 프로그램에서 Azure Service Bus 메시징 기능(큐 및 게시/구독 항목)을 사용하는 방법을 설명합니다. Azure Service Bus .NET API를 사용하여 동일한 작업을 수행하는 방법을 설명하는 [컴패니언 문서가](service-bus-amqp-dotnet.md) 있습니다. AMQP 1.0을 사용한 플랫폼 간 메시징에 대해 알아보려면 이 두 가지 가이드를 함께 사용할 수 있습니다.
+# <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Azure Service Bus 및 AMQP 1.0와 함께 JMS (Java Message Service) 사용
+이 문서에서는 널리 사용 되는 JMS (Java Message Service) API 표준을 사용 하 여 Java 응용 프로그램에서 Azure Service Bus 메시징 기능 (큐 및 게시/구독 토픽)을 사용 하는 방법을 설명 합니다. Azure Service Bus .NET API를 사용 하 여 동일한 작업을 수행 하는 방법을 설명 하는 [동반 문서가](service-bus-amqp-dotnet.md) 있습니다. AMQP 1.0을 사용한 플랫폼 간 메시징에 대해 알아보려면 이 두 가지 가이드를 함께 사용할 수 있습니다.
 
 AMQP(Advanced Message Queuing Protocol) 1.0은 강력한 크로스 플랫폼 메시징 애플리케이션을 빌드하는 데 사용할 수 있는 효율성과 안정성이 뛰어난 유선 수준 메시징 프로토콜입니다.
 
-Azure Service Bus에서 AMQP 1.0을 지원한다는 것은 효율적인 바이너리 프로토콜을 사용하여 다양한 플랫폼의 큐잉 및 게시/구독 중개 메시징 기능을 사용할 수 있음을 의미합니다. 뿐만 아니라 여러 언어, 프레임워크 및 운영 체제가 혼합되어 사용된 구성 요소로 이루어진 애플리케이션을 만들 수 있습니다.
+Azure Service Bus에서 AMQP 1.0에 대 한 지원은 효율적인 이진 프로토콜을 사용 하 여 다양 한 플랫폼에서 큐 및 게시/구독 조정 된 메시징 기능을 사용할 수 있음을 의미 합니다. 뿐만 아니라 여러 언어, 프레임워크 및 운영 체제가 혼합되어 사용된 구성 요소로 이루어진 애플리케이션을 만들 수 있습니다.
 
 ## <a name="get-started-with-service-bus"></a>Service Bus 시작
-이 가이드에서는 이미 .라는 `basicqueue`큐를 포함하는 Service Bus 네임스페이스가 있다고 가정합니다. 그렇지 않으면 [Azure 포털을](https://portal.azure.com)사용하여 [네임스페이스 및 큐를 만들](service-bus-create-namespace-portal.md) 수 있습니다. Service Bus 네임스페이스와 큐를 만드는 방법에 대한 자세한 내용은 [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)을 참조하세요.
+이 가이드에서는 라는 `basicqueue`큐를 포함 하는 Service Bus 네임 스페이스가 이미 있다고 가정 합니다. 그렇지 않으면 [Azure Portal](https://portal.azure.com)를 사용 하 여 [네임 스페이스와 큐를 만들](service-bus-create-namespace-portal.md) 수 있습니다. Service Bus 네임스페이스와 큐를 만드는 방법에 대한 자세한 내용은 [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)을 참조하세요.
 
 > [!NOTE]
 > 분할된 큐 및 토픽은 또한 AMQP를 지원합니다. 자세한 내용은 [분할된 메시징 엔터티](service-bus-partitioning.md) 및 [Service Bus 분할 큐 및 토픽을 위한 AMQP 1.0 지원](service-bus-partitioned-queues-and-topics-amqp-overview.md)을 참조하세요.
@@ -37,7 +37,7 @@ Azure Service Bus에서 AMQP 1.0을 지원한다는 것은 효율적인 바이�
 > 
 
 ## <a name="downloading-the-amqp-10-jms-client-library"></a>AMQP 1.0 JMS 클라이언트 라이브러리 다운로드
-아파치 Qpid JMS AMQP 1.0 클라이언트 라이브러리의 최신 버전을 다운로드할 [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html)위치에 대한 자세한 내용은 다음을 방문하십시오.
+Apache Qpid JMS AMQP 1.0 클라이언트 라이브러리의 최신 버전을 다운로드 하는 위치에 대 한 자세한 내용은 [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html)을 참조 하세요.
 
 Service Bus를 사용하여 JMS 애플리케이션을 빌드 및 실행할 때 Apache Qpid JMS AMQP 1.0 배포 보관에 포함된 다음 JAR 파일 4개를 Java CLASSPATH에 추가해야 합니다.
 
@@ -49,7 +49,7 @@ Service Bus를 사용하여 JMS 애플리케이션을 빌드 및 실행할 때 A
 
 ## <a name="coding-java-applications"></a>Java 애플리케이션 코딩
 ### <a name="java-naming-and-directory-interface-jndi"></a>JNDI(Java Naming and Directory Interface)
-JMS는 JNDI(Java Naming and Directory Interface)를 사용하여 논리적 이름과 물리적 이름 간에 구분을 만듭니다. JNDI를 사용하여 두 유형의 JMS 개체인 ConnectionFactory와 Destination을 확인합니다. JNDI는 다양한 디렉터리 서비스를 연결할 수 있는 공급자 모델을 사용하여 이름 확인 책임을 처리합니다. 아파치 Qpid JMS AMQP 1.0 라이브러리는 다음 형식의 속성 파일을 사용하여 구성된 간단한 속성 파일 기반 JNDI 공급자와 함께 제공됩니다.
+JMS는 JNDI(Java Naming and Directory Interface)를 사용하여 논리적 이름과 물리적 이름 간에 구분을 만듭니다. JNDI를 사용하여 두 유형의 JMS 개체인 ConnectionFactory와 Destination을 확인합니다. JNDI는 다양한 디렉터리 서비스를 연결할 수 있는 공급자 모델을 사용하여 이름 확인 책임을 처리합니다. Apache Qpid JMS AMQP 1.0 라이브러리는 다음 형식의 속성 파일을 사용 하 여 구성 된 간단한 속성 파일 기반 JNDI 공급자와 함께 제공 됩니다.
 
 ```TEXT
 # servicebus.properties - sample JNDI configuration
@@ -66,7 +66,7 @@ queue.QUEUE = queue1
 
 #### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>JNDI 컨텍스트 설정 및 ConnectionFactory 구성
 
-기본 연결 **문자열** [아래의 Azure 포털의](https://portal.azure.com) '공유 액세스 정책'에서 사용할 수 있는 연결 **문자열에서** 참조되는 연결 문자열
+**기본 연결 문자열** 아래에 있는 [Azure Portal](https://portal.azure.com) 의 ' 공유 액세스 정책 '에서 참조 되는 **ConnectionString**
 ```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
@@ -136,7 +136,7 @@ Context context = new InitialContext(hashtable);
 ### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Service Bus 큐를 사용하는 간단한 JMS 애플리케이션
 다음 예제 프로그램은 JNDI 논리적 이름이 QUEUE인 Service Bus 큐에 JMS TextMessages를 보내고 메시지를 받습니다.
 
-[Azure 서비스 버스 샘플 JMS 큐 빠른 시작의](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client/JmsQueueQuickstart) 모든 소스 코드 및 구성 정보에 모두 액세스할 수 있습니다.
+모든 소스 코드와 구성 정보는 [Azure Service Bus 샘플 JMS 큐 빠른](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client/JmsQueueQuickstart) 시작에서 액세스할 수 있습니다.
 
 ```java
 // Copyright (c) Microsoft. All rights reserved.
@@ -341,24 +341,24 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
-## <a name="jms-topics-vs-service-bus-topics"></a>JMS 토픽 vs. 서비스 버스 토픽
-JMS(Java 메시지 서비스) API를 통해 Azure Service Bus 항목 및 구독을 사용하면 기본 송신 및 수신 기능을 제공합니다. 서비스 버스 항목은 JMS 항목과 다르고 몇 가지 조정이 필요하더라도 JMS 호환 API를 사용하는 다른 메시지 브로커에서 응용 프로그램을 이식할 때 편리한 선택입니다. 
+## <a name="jms-topics-vs-service-bus-topics"></a>JMS 토픽 및 Service Bus 항목
+JMS (Java Message Service) API를 통해 Azure Service Bus 토픽 및 구독을 사용 하면 기본 송신 및 수신 기능이 제공 됩니다. Jms 규격 Api를 사용 하 여 다른 메시지 브로커의 응용 프로그램을 이식 하는 경우에는 Service Bus 항목이 JMS 항목과 다르며 몇 가지 조정이 필요 하더라도 편리 합니다. 
 
-Azure Service Bus 토픽은 Azure 리소스 관리 인터페이스, Azure 명령줄 도구 또는 Azure 포털을 통해 관리되는 명명된 공유, 지속 가능한 구독으로 메시지를 라우팅합니다. 각 구독을 사용하면 최대 2,000개의 선택 규칙을 사용할 수 있으며, 각 규칙은 필터 조건을 가질 수 있으며 SQL 필터의 경우 메타데이터 변환 작업도 사용할 수 있습니다. 각 필터 조건 일치는 구독에 복사할 입력 메시지를 선택합니다.  
+Azure Service Bus 항목은 Azure 리소스 관리 인터페이스, Azure 명령줄 도구 또는 Azure Portal를 통해 관리 되는 명명 된 공유 및 지 속성 구독으로 메시지를 라우팅합니다. 각 구독은 최대 2000 개의 선택 규칙을 허용 합니다. 각 규칙에는 필터 조건이 있고 SQL 필터의 경우 메타 데이터 변환 동작도 있습니다. 각 필터 조건 일치는 구독으로 복사할 입력 메시지를 선택 합니다.  
 
-구독에서 메시지를 받는 것은 큐에서 받는 메시지와 동일합니다. 각 구독에는 연결된 배달 못한 편지 대기열과 메시지를 다른 큐 또는 토픽으로 자동으로 전달하는 기능이 있습니다. 
+구독에서 메시지를 받는 것은 큐에서 메시지를 수신 하는 것과 동일 합니다. 각 구독에는 연결 된 배달 못 한 편지 큐가 있고 메시지를 다른 큐 나 토픽으로 자동으로 전달할 수 있는 기능이 있습니다. 
 
-JMS 토픽을 사용하면 클라이언트가 메시지 선택기로 메시지를 필터링할 수 있는 지속적이지 않고 내구성이 뛰어난 구독자를 동적으로 만들 수 있습니다. 이러한 공유되지 않은 엔터티는 Service Bus에서 지원되지 않습니다. 그러나 Service Bus에 대한 SQL 필터 규칙 구문은 JMS에서 지원하는 메시지 선택기 구문과 유사합니다. 
+JMS 토픽을 사용 하면 클라이언트가 메시지 선택기를 사용 하 여 메시지를 필터링 할 수 있도록 지 속성 및 내구성 있는 구독자를 동적으로 만들 수 있습니다. 이러한 공유 되지 않은 엔터티는 Service Bus 지원 되지 않습니다. 그러나 Service Bus의 SQL 필터 규칙 구문은 JMS에서 지 원하는 메시지 선택기 구문과 유사 합니다. 
 
-JMS 토픽 게시자 쪽은 이 샘플과 같이 서비스 버스와 호환되지만 동적 구독자는 그렇지 않습니다. 다음 토폴로지 관련 JMS API는 서비스 버스에서 지원되지 않습니다. 
+JMS 토픽 게시자 쪽은이 샘플에 표시 된 것 처럼 Service Bus와 호환 되지만 동적 구독자는 그렇지 않습니다. Service Bus에서 지원 되지 않는 토폴로지 관련 JMS Api는 다음과 같습니다. 
 
 ## <a name="unsupported-features-and-restrictions"></a>지원되지 않는 기능 및 제한
 Service Bus와 함께 JMS over AMQP 1.0을 사용하는 경우 다음과 같은 제한 사항이 있습니다.
 
-* **세션당**하나의 **메시지 생산자** 또는 **메시지소비자만** 허용됩니다. 애플리케이션에서 **MessageProducers** 또는 **MessageConsumers**를 여러 개 만들어야 하는 경우 각 항목에 대한 전용 **세션**을 만듭니다.
-* 휘발성 토픽 구독은 현재 지원되지 않습니다.
-* **메시지 선택기는** 현재 지원되지 않습니다.
-* 분산 트랜잭션은 지원되지 않지만 트랜잭션 세션은 지원됩니다.
+* **세션**당 **Messageproducer** 또는 **MessageConsumer** 하나만 허용 됩니다. 애플리케이션에서 **MessageProducers** 또는 **MessageConsumers**를 여러 개 만들어야 하는 경우 각 항목에 대한 전용 **세션**을 만듭니다.
+* Volatile 토픽 구독은 현재 지원 되지 않습니다.
+* **Messageselectors** 는 현재 지원 되지 않습니다.
+* 분산 트랜잭션은 지원 되지 않습니다 (트랜잭션 세션은 지원 됨).
 
 또한 Azure Service Bus는 데이터 평면에서 제어 평면을 분리하므로 여러 JMS의 동적 토폴로지 함수를 지원하지 않습니다.
 
@@ -374,7 +374,7 @@ Service Bus와 함께 JMS over AMQP 1.0을 사용하는 경우 다음과 같은 
 | createBrowser               | 지원되지 않습니다. Service Bus API의 Peek() 기능을 사용합니다.                         |
 | createQueue                 | 관리 API/도구/포털을 통해 큐를 만듭니다.                                           | 
 | createTemporaryQueue        | *AutoDeleteOnIdle*이 만료 기간으로 설정된 관리 API/도구/포털을 통해 큐를 만듭니다. |
-| 수신NoWait               | Service Bus SDK에서 제공하는 receive() 메서드를 사용하고 매우 낮거나 제로 타임아웃을 지정합니다. |
+| receiveNoWait               | Service Bus SDK에서 제공 하는 receive () 메서드를 사용 하 고 매우 낮거나 0 시간 제한을 지정 합니다. |
 
 ## <a name="summary"></a>요약
 이 방법 가이드에서는 널리 사용되는 JMS API 및 AMQP 1.0을 통해 Java에서 Service Bus 조정된 메시징 기능(큐 및 게시/구독 토픽)에 액세스하는 방법을 설명했습니다.
@@ -384,7 +384,7 @@ Service Bus와 함께 JMS over AMQP 1.0을 사용하는 경우 다음과 같은 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Service Bus의 AMQP 1.0 지원](service-bus-amqp-overview.md)
 * [Service Bus .NET API와 함께 AMQP 1.0을 사용하는 방법](service-bus-dotnet-advanced-message-queuing.md)
-* [서비스 버스 AMQP 1.0 개발자 가이드](service-bus-amqp-dotnet.md)
+* [Service Bus AMQP 1.0 개발자 가이드](service-bus-amqp-dotnet.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
-* [자바 개발자 센터](https://azure.microsoft.com/develop/java/)
+* [Java 개발자 센터](https://azure.microsoft.com/develop/java/)
 

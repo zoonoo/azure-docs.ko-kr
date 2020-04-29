@@ -17,10 +17,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 68aa62ad34f8db531d439a581ef024862da0f90c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77162313"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
@@ -48,7 +48,7 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 
     ![진단 로그의 상태 변경](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  원하는 아카이브 대상을 설정합니다. 예를 들어 저장소 계정, 이벤트 허브 또는 Azure Monitor 로그를 예로 들 수 있습니다.
+5.  원하는 보관 대상을 설정 합니다. 예를 들어 저장소 계정, 이벤트 허브 또는 Azure Monitor 로그가 있습니다.
 
 6.  새 진단 설정을 저장합니다.
 
@@ -71,7 +71,7 @@ Event Hubs는 다음 두 가지 범주에 대한 진단 로그를 캡처합니�
 
 보관 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-이름 | 설명
+속성 | Description
 ------- | -------
 TaskName | 실패한 작업에 대한 설명입니다.
 ActivityId | 추적에 사용되는 내부 ID입니다.
@@ -109,7 +109,7 @@ category | ArchiveLogs
 
 작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-이름 | 설명
+속성 | Description
 ------- | -------
 ActivityId | 추적 목적에 사용되는 내부 ID입니다.
 EventName | 작업 이름입니다.  
@@ -145,4 +145,4 @@ Example:
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [자바 스크립트](get-started-java-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)

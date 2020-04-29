@@ -16,15 +16,15 @@ ms.custom: seodec18
 ms.date: 09/18/2019
 ms.author: shvija
 ms.openlocfilehash: 96c346f4359740fda5638dfdbe5735c5bdfce8c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77162653"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Event Hubs 메트릭
 
-이벤트 허브 메트릭은 Azure 구독의 이벤트 허브 리소스 상태를 제공합니다. 풍부한 메트릭 데이터 집합을 사용하여 네임스페이스 수준뿐만 아니라 엔터티 수준에서 Event Hubs의 전반적인 상태를 평가할 수 있습니다. 이러한 통계는 Event Hubs의 상태를 모니터링하는 데 도움을 주므로 중요할 수 있습니다. Azure 지원에 문의할 필요 없이 메트릭을 통해 근본 원인 문제를 해결할 수도 있습니다.
+Event Hubs 메트릭은 Azure 구독에서 Event Hubs 리소스의 상태를 제공 합니다. 풍부한 메트릭 데이터 집합을 사용하여 네임스페이스 수준뿐만 아니라 엔터티 수준에서 Event Hubs의 전반적인 상태를 평가할 수 있습니다. 이러한 통계는 Event Hubs의 상태를 모니터링하는 데 도움을 주므로 중요할 수 있습니다. Azure 지원에 문의할 필요 없이 메트릭을 통해 근본 원인 문제를 해결할 수도 있습니다.
 
 Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합된 사용자 인터페이스를 제공합니다. 자세한 내용은 GitHub의 [Microsoft Azure에서 모니터링](../monitoring-and-diagnostics/monitoring-overview.md) 및 [.NET을 사용하여 Azure Monitor 메트릭 검색](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) 샘플을 참조하세요.
 
@@ -41,7 +41,7 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 ![성공 메트릭 보기][1]
 
-네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임스페이스를 선택한 다음 **메트릭을 클릭합니다.** Event Hub 범위로 필터링된 메트릭을 표시하려면 Event Hub를 선택한 다음 **메트릭**을 클릭합니다.
+네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임 스페이스를 선택한 다음 **메트릭**을 클릭 합니다. Event Hub 범위로 필터링된 메트릭을 표시하려면 Event Hub를 선택한 다음 **메트릭**을 클릭합니다.
 
 다음 예제와 같이 차원을 지원하는 메트릭의 경우 원하는 차원 값을 사용하여 필터링해야 합니다.
 
@@ -49,7 +49,7 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 ## <a name="billing"></a>결제
 
-Azure Monitor에서 메트릭 사용은 현재 무료입니다. 그러나 메트릭 데이터를 수집하는 추가 솔루션을 사용하는 경우 해당 솔루션에서 요금을 청구할 수 있습니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 또한 고급 분석을 위해 메트릭 데이터를 Azure Monitor 로그로 스트리밍하는 경우에도 Azure에서 요금이 청구됩니다.
+Azure Monitor에서 메트릭 사용은 현재 무료입니다. 그러나 메트릭 데이터를 수집하는 추가 솔루션을 사용하는 경우 해당 솔루션에서 요금을 청구할 수 있습니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 또한 고급 분석을 위해 Azure Monitor 로그에 메트릭 데이터를 스트리밍하는 경우 Azure에 의해 요금이 청구 됩니다.
 
 다음 메트릭은 서비스의 상태에 대한 개요를 제공합니다. 
 
@@ -62,7 +62,7 @@ Azure Monitor에서 메트릭 사용은 현재 무료입니다. 그러나 메트
 
 데이터 및 관리 작업 요청 수를 계산합니다.
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 | ------------------- | ----------------- |
 | 들어오는 요청  | 지정된 기간 동안 Azure Event Hubs 서비스에 대한 요청 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName |
 | 성공한 요청    | 지정된 기간 동안 Azure Event Hubs 서비스에 대한 성공한 요청 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName |
@@ -72,56 +72,56 @@ Azure Monitor에서 메트릭 사용은 현재 무료입니다. 그러나 메트
 
 ## <a name="throughput-metrics"></a>처리량 메트릭
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 | ------------------- | ----------------- |
-|제한된 요청 |처리량 단위 사용량이 초과되었기 때문에 제한된 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|제한 된 요청 |처리량 단위 사용량이 초과되었기 때문에 제한된 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 
 ## <a name="message-metrics"></a>메시지 메트릭
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 | ------------------- | ----------------- |
 |들어오는 메시지 |지정된 기간 동안 Event Hubs에 전송된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |보내는 메시지 |지정된 기간 동안 Event Hubs에서 검색된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |들어오는 바이트 |지정된 기간 동안 Azure Event Hubs 서비스에 전송된 바이트 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|나가는 바이트 |지정된 기간 동안 Azure Event Hubs 서비스에서 검색된 바이트 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|보내는 바이트 |지정된 기간 동안 Azure Event Hubs 서비스에서 검색된 바이트 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 
 ## <a name="connection-metrics"></a>연결 메트릭
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 | ------------------- | ----------------- |
 |ActiveConnections |네임스페이스와 엔터티의 활성 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|연결이 열렸습니다. |열린 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|연결 닫힘 |닫힌 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|열린 연결 |열린 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|연결이 닫혔습니다. |닫힌 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 
 ## <a name="event-hubs-capture-metrics"></a>Event Hubs 캡처 메트릭
 
 Event Hubs에 캡처 기능을 사용하도록 설정하면 Event Hubs 캡처 메트릭을 모니터링할 수 있습니다. 다음 메트릭은 캡처를 사용하도록 설정하여 모니터링할 수 있는 항목을 설명합니다.
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 | ------------------- | ----------------- |
-|백로그 캡처 |선택한 대상에 캡처될 수 있는 바이트 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|캡처된 메시지 |지정된 기간 동안 선택한 대상에 캡처된 메시지 또는 이벤트의 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|캡처 백로그 |선택한 대상에 캡처될 수 있는 바이트 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|캡처한 메시지 |지정된 기간 동안 선택한 대상에 캡처된 메시지 또는 이벤트의 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |캡처된 바이트 |지정된 기간 동안 선택한 대상에 캡처된 바이트의 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 
 ## <a name="metrics-dimensions"></a>메트릭 차원
 
 Azure Event Hubs는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을 지원합니다. 메트릭에 차원을 추가하는 것은 선택 사항입니다. 차원을 추가하지 않는 경우 메트릭은 네임스페이스 수준에서 지정됩니다. 
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 | ------------------- | ----------------- |
 |EntityName| Event Hubs는 네임스페이스 아래에서 Event Hub 엔터티를 지원합니다.|
 
-## <a name="azure-monitor-integration-with-siem-tools"></a>SIEM 도구와의 Azure 모니터 통합
-Azure Monitor를 사용하여 모니터링 데이터(활동 로그, 진단 로그 등)를 이벤트 허브로 라우팅하면 보안 정보 및 SIEM(이벤트 관리) 도구와 쉽게 통합할 수 있습니다. 자세한 내용은 다음 기사/블로그 게시물을 참조하십시오.
+## <a name="azure-monitor-integration-with-siem-tools"></a>SIEM 도구와 Azure Monitor 통합
+Azure Monitor를 사용 하 여 모니터링 데이터 (활동 로그, 진단 로그 등)를 이벤트 허브로 라우팅하는 방법으로 SIEM (보안 정보 및 이벤트 관리) 도구와 쉽게 통합할 수 있습니다. 자세한 내용은 다음 문서/블로그 게시물을 참조 하세요.
 
 - [Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
-- [Azure 로그 통합 소개](../security/fundamentals/azure-log-integration-overview.md)
+- [Azure Log Integration 소개](../security/fundamentals/azure-log-integration-overview.md)
 - [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-SIEM 도구가 이벤트 허브에서 로그 데이터를 사용하는 시나리오에서는 들어오는 메시지가 표시되지 않거나 메트릭 그래프에 들어오는 메시지가 표시되지만 나가는 메시지가 표시되지 않는 경우 다음 단계를 따르십시오.
+SIEM 도구가 이벤트 허브에서 로그 데이터를 사용 하는 시나리오에서 들어오는 메시지가 표시 되지 않거나 메트릭 그래프에 들어오는 메시지가 있지만 나가는 메시지가 표시 되지 않으면 다음 단계를 수행 합니다.
 
-- **들어오는 메시지가 없는**경우 Azure Monitor 서비스가 감사/진단 로그를 이벤트 허브로 이동하지 않음을 의미합니다. 이 시나리오에서는 Azure Monitor 팀과 함께 지원 티켓을 엽니다. 
-- 들어오는 메시지가 있지만 나가는 **메시지가 없는**경우 SIEM 응용 프로그램이 메시지를 읽지 않음을 의미합니다. SIEM 공급자에게 문의하여 해당 응용 프로그램의 구성이 올바른지 확인합니다.
+- **들어오는 메시지가**없으면 Azure Monitor 서비스가 감사/진단 로그를 이벤트 허브로 이동 하지 않음을 의미 합니다. 이 시나리오에서 Azure Monitor 팀과 함께 지원 티켓을 엽니다. 
+- 들어오는 메시지가 있지만 **보내는 메시지**는 없는 경우 siem 응용 프로그램에서 메시지를 읽지 않는 것입니다. SIEM 공급자에 게 문의 하 여 이벤트 허브의 구성이 올바른지 여부를 확인 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -135,7 +135,7 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 방문하세요.
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [자바 스크립트](get-started-java-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Event Hubs를 사용하는 샘플 애플리케이션](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

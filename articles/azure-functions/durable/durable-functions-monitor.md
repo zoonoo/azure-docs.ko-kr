@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77562125"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
@@ -38,7 +38,7 @@ ms.locfileid: "77562125"
 
 이 샘플에는 Weather Underground API를 사용하여 특정 위치의 현재 기상 조건을 확인하는 작업이 포함됩니다.
 
-가장 먼저 필요한 것은 Weather Underground 계정입니다. 에서 [https://www.wunderground.com/signup](https://www.wunderground.com/signup)무료로 만들 수 있습니다. 계정이 있으면 API 키를 확보해야 합니다. [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1)방문을 통해 키 설정을 선택하여 수행할 수 있습니다. Stratus Developer 계획은 무료이며 이 샘플을 실행하기에 충분합니다.
+가장 먼저 필요한 것은 Weather Underground 계정입니다. 에서 [https://www.wunderground.com/signup](https://www.wunderground.com/signup)무료로 만들 수 있습니다. 계정이 있으면 API 키를 확보해야 합니다. 이 작업을 수행 하려면를 [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1)방문 하 고 키 설정을 선택 합니다. Stratus Developer 계획은 무료이며 이 샘플을 실행하기에 충분합니다.
 
 API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
@@ -50,19 +50,19 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 이 문서에서는 샘플 앱의 다음 함수에 대해 설명합니다.
 
-* `E3_Monitor`: 주기적으로 호출하는 `E3_GetIsClear` [오케스트레이터 함수입니다.](durable-functions-bindings.md#orchestration-trigger) `E3_GetIsClear`가 true를 반환하면 `E3_SendGoodWeatherAlert`를 호출합니다.
-* `E3_GetIsClear`: 위치의 현재 기상 조건을 확인하는 [활동 기능입니다.](durable-functions-bindings.md#activity-trigger)
+* `E3_Monitor`: 정기적 [orchestrator function](durable-functions-bindings.md#orchestration-trigger) 으로를 호출 `E3_GetIsClear` 하는 오 케 스트레이 터 함수입니다. `E3_GetIsClear`가 true를 반환하면 `E3_SendGoodWeatherAlert`를 호출합니다.
+* `E3_GetIsClear`: 위치에 대 한 현재 날씨 조건을 확인 하는 [작업 함수](durable-functions-bindings.md#activity-trigger) 입니다.
 * `E3_SendGoodWeatherAlert`: Twilio를 통해 SMS 메시지를 보내는 작업 함수입니다.
 
-### <a name="e3_monitor-orchestrator-function"></a>E3_Monitor 오케스트레이터 기능
+### <a name="e3_monitor-orchestrator-function"></a>E3_Monitor orchestrator 함수
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=41-78,97-115)]
 
-오케스트레이터는 모니터링할 위치와 위치가 명확해지면 메시지를 보낼 전화 번호가 필요합니다. 이 데이터는 강하게 형식이 된 개체로 `MonitorRequest` 오케스트레이터에 전달됩니다.
+오 케 스트레이 터가 해당 위치에서 분명 하 게 표시 되는 경우 오 케 스트레이 터는 모니터링할 위치와 메시지를 보낼 전화 번호를 요구 합니다. 이 데이터는 orchestrator에 강력한 형식의 `MonitorRequest` 개체로 전달 됩니다.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 **E3_Monitor** 함수는 오케스트레이터 함수에 표준 *function.json*을 사용합니다.
 
@@ -81,19 +81,19 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 3. **E3_GetIsClear**를 호출하여 요청 받은 위치에 하늘이 맑은지 확인합니다.
 4. 날씨가 맑으면 **E3_SendGoodWeatherAlert**를 호출하여 요청 받은 전화 번호로 SMS 알림을 보냅니다.
 5. 다음 폴링 간격에서 오케스트레이션을 다시 시작하도록 지속성 타이머를 만듭니다. 간결함을 위해 이 샘플에서는 하드 코드된 값을 사용합니다.
-6. 현재 UTC 시간이 모니터의 만료 시간을 통과하거나 SMS 경고가 전송될 때까지 계속 실행됩니다.
+6. 현재 UTC 시간이 모니터의 만료 시간을 경과 하거나 SMS 경고가 전송 될 때까지 계속 실행 됩니다.
 
-여러 오케스트레이터 인스턴스는 오케스트레이터 함수를 여러 번 호출하여 동시에 실행할 수 있습니다. 모니터링할 위치와 SMS 알림을 보낼 전화 번호를 지정할 수 있습니다.
+여러 orchestrator 인스턴스는 오 케 스트레이 터 함수를 여러 번 호출 하 여 동시에 실행할 수 있습니다. 모니터링할 위치와 SMS 알림을 보낼 전화 번호를 지정할 수 있습니다.
 
-### <a name="e3_getisclear-activity-function"></a>E3_GetIsClear 활동 기능
+### <a name="e3_getisclear-activity-function"></a>E3_GetIsClear activity 함수
 
 다른 샘플과 마찬가지로 도우미 작업 함수는 `activityTrigger` 트리거 바인딩을 사용하는 일반 함수입니다. **E3_GetIsClear** 함수는 Weather Underground API를 사용하여 현재 기상 조건을 가져와서 하늘이 맑은지를 판단합니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=80-85)]
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 *function.json*은 다음과 같이 정의됩니다.
 
@@ -105,18 +105,18 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 ---
 
-### <a name="e3_sendgoodweatheralert-activity-function"></a>E3_SendGoodWeatherAlert 활동 기능
+### <a name="e3_sendgoodweatheralert-activity-function"></a>E3_SendGoodWeatherAlert activity 함수
 
 **E3_SendGoodWeatherAlert** 함수는 Twilio 바인딩을 사용하여 최종 사용자에게 걷기 좋은 시간임을 알리는 SMS 메시지를 보냅니다
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=87-96,140-205)]
 
 > [!NOTE]
-> 샘플 코드를 실행하려면 `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget 패키지를 설치해야 합니다.
+> 예제 코드를 실행 하려면 `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget 패키지를 설치 해야 합니다.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 *function.json*은 간단합니다.
 

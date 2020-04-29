@@ -1,5 +1,5 @@
 ---
-title: Azure AD 사용자 지정 역할 구성 - 권한 있는 ID 관리(PIM)
+title: Azure AD 사용자 지정 역할 구성-PIM (Privileged Identity Management)
 description: PIM(Privileged Identity Management)에서 Azure AD 사용자 지정 역할을 구성하는 방법
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f087ffe824a198c578f076857cca7fdf0f0a60c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77498686"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 사용자 지정 역할 구성
@@ -28,7 +28,7 @@ ms.locfileid: "77498686"
 권한 있는 역할 관리자는 자신의 사용자 지정 역할에 대한 할당을 활성화하는 사용자와 사용자 지정 역할을 할당하는 다른 애플리케이션 관리자에게 적용되는 역할 설정을 변경할 수 있습니다.
 
 > [!NOTE]
-> 미리 보기 기간 중에는 Azure AD 사용자 지정 역할이 기본 제공 디렉터리 역할과 통합되지 않습니다. 이 기능이 일반 공급되면 기본 제공 역할 환경에서 역할 관리가 수행됩니다. 다음 배너가 표시되면 기본 제공 [역할 환경에서](pim-how-to-activate-role.md) 이러한 역할을 관리해야 하며 이 문서는 적용되지 않습니다.
+> 미리 보기 기간 중에는 Azure AD 사용자 지정 역할이 기본 제공 디렉터리 역할과 통합되지 않습니다. 이 기능이 일반 공급되면 기본 제공 역할 환경에서 역할 관리가 수행됩니다. 다음 배너가 표시 되는 경우 이러한 역할은 [기본 제공 역할 환경에서](pim-how-to-activate-role.md) 관리 해야 하며이 문서는 적용 되지 않습니다.
 >
 > [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
@@ -56,13 +56,13 @@ ms.locfileid: "77498686"
 
 이러한 *적격* 할당 기간 옵션 중 하나를 선택할 수 있습니다.
 
-- **영구 적격 할당 허용:** 관리자는 영구 적격 멤버십을 할당할 수 있습니다.
-- **적격 할당 만료 후**: 관리자는 모든 적격 할당에 지정된 시작 및 종료 날짜가 있어야 할 수 있습니다.
+- **영구 적격 할당 허용**: 관리자가 영구 적격 멤버 자격을 할당할 수 있습니다.
+- **다음 기간 후에 적격 할당 만료**: 관리자가 적격 할당에 지정 된 시작 및 종료 날짜를 요구할 수 있습니다.
 
 또한 다음 *활성* 할당 기간 옵션 중 하나를 선택할 수 있습니다.
 
-- **영구 활성 할당 허용**: 관리자는 영구 활성 멤버십을 할당할 수 있습니다.
-- **활성 할당 만료 후**: 관리자는 모든 활성 할당에 지정된 시작 및 종료 날짜가 있어야 할 수 있습니다.
+- **영구 활성 할당 허용**: 관리자는 영구 활성 구성원 자격을 할당할 수 있습니다.
+- **다음 이후에 활성 할당 만료**: 관리자가 모든 활성 할당에 지정 된 시작 및 종료 날짜를 요구할 수 있습니다.
 
 ### <a name="require-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 필요
 

@@ -16,10 +16,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 987c3ee7c90eb0bb793b96eb2771efbb258f16a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77565505"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD와 계정 공유
@@ -47,11 +47,11 @@ Azure AD는 이러한 단점을 제거하는 새로운 방법의 공유 계정 �
 
 Azure AD 관리자는 해당 애플리케이션에 대해 액세스 패널을 사용하고 가장 적합한 Single Sign On 형식을 선택하여 액세스할 수 있는 애플리케이션을 구성합니다. 이러한 유형 중 하나인 *암호 기반 Single Sign-on*을 통해 Azure AD는 해당 앱의 로그온 프로세스 중에 일종의 "broker"로 작동합니다.
 
-사용자는 조직 계정으로 한 번 로그인합니다. 정기적으로 데스크톱 또는 이메일에 액세스하는 데 사용하는 것과 동일한 계정입니다. 사용자는 자신에게 할당된 애플리케이션만 확인하고 액세스할 수 있습니다. 공유 계정을 사용하면 이 애플리케이션 목록이 수에 관계없이 공유 자격 증명을 포함할 수 있습니다. 최종 사용자는 자신이 사용하는 다양한 계정을 기억하거나 기록해 둘 필요가 없습니다.
+사용자는 조직 계정을 사용 하 여 한 번 로그인 합니다. 정기적으로 데스크톱 또는 이메일에 액세스하는 데 사용하는 것과 동일한 계정입니다. 사용자는 자신에게 할당된 애플리케이션만 확인하고 액세스할 수 있습니다. 공유 계정을 사용하면 이 애플리케이션 목록이 수에 관계없이 공유 자격 증명을 포함할 수 있습니다. 최종 사용자는 자신이 사용하는 다양한 계정을 기억하거나 기록해 둘 필요가 없습니다.
 
 공유 계정을 사용하면 관리뿐 아니라 활용성도 높아지며 보안도 향상됩니다. 자격 증명을 사용할 권한이 있는 사용자는 공유 암호를 보는 것이 아니라 조정된 인증 흐름의 일환으로 암호를 사용할 권한을 받는 것입니다. 또한 일부 암호 SSO 애플리케이션에는 Azure AD를 사용하여 정기적으로 암호를 롤오버(업데이트)하는 옵션이 있습니다. 시스템은 계정 보안을 증대하는 길고 복잡한 암호를 사용합니다. 관리자는 애플리케이션에 액세스 권한을 쉽게 부여 또는 취소할 수 있으며 누가 계정에 액세스 권한이 있고 누가 과거에 액세스했는지 파악할 수 있습니다.
 
-Azure AD는 모든 유형의 암호 단일 사인온 응용 프로그램에서 모든 EMS(엔터프라이즈 이동성 제품군) 또는 Azure AD 프리미엄 라이선스 계획에 대한 공유 계정을 지원합니다. 애플리케이션 갤러리에서 수천 개의 사전 통합된 애플리케이션에서 계정을 공유하고, [사용자 지정 SSO 앱](../manage-apps/configure-single-sign-on-non-gallery-applications.md)으로 자체 암호 인증 애플리케이션을 추가할 수 있습니다.
+Azure AD는 모든 유형의 암호 Single Sign-On 응용 프로그램에서 EMS (Enterprise Mobility Suite) 또는 Azure AD Premium 라이선스 계획에 대 한 공유 계정을 지원 합니다. 애플리케이션 갤러리에서 수천 개의 사전 통합된 애플리케이션에서 계정을 공유하고, [사용자 지정 SSO 앱](../manage-apps/configure-single-sign-on-non-gallery-applications.md)으로 자체 암호 인증 애플리케이션을 추가할 수 있습니다.
 
 계정에 공유를 사용하는 Azure AD 기능은 다음과 같습니다.
 
@@ -77,5 +77,5 @@ Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Active Directory의 애플리케이션 관리](../manage-apps/what-is-application-management.md)
-* [조건부 액세스로 앱 보호](../active-directory-conditional-access-azure-portal.md)
+* [조건부 액세스를 사용 하 여 앱 보호](../active-directory-conditional-access-azure-portal.md)
 * [셀프 서비스 그룹 관리/SSAA](groups-self-service-management.md)

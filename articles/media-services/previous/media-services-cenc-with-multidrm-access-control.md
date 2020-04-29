@@ -15,10 +15,10 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.openlocfilehash: 68f42aa13288c2416257f3ba6c0b6072c1572977
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77162993"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Azure Media Services를 사용하여 액세스 제어가 포함된 콘텐츠 보호 시스템 설계 
@@ -61,7 +61,7 @@ Microsoft는 몇몇 주요 기업들과 더불어 DASH 및 CENC의 적극적인 
 | **클라이언트 플랫폼** | **네이티브 DRM 지원** | **브라우저/앱** | **스트리밍 형식** |
 | --- | --- | --- | --- |
 | **스마트 TV, 연산자 STB, OTT STB** |주로 PlayReady 및/또는 Widevine 및/또는 기타 |Linux, Opera, WebKit, 기타 |다양한 형식 |
-| **윈도우 10 장치 (윈도우 PC, 윈도우 태블릿, 윈도우 폰, X 박스)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>범용 Windows 플랫폼 |DASH(HLS의 경우 PlayReady는 지원되지 않음)<br/><br/>DASH, 부드러운 스트리밍(HLS의 경우 PlayReady는 지원되지 않음) |
+| **Windows 10 장치 (Windows PC, Windows 태블릿, Windows Phone, Xbox)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>UWP |DASH(HLS의 경우 PlayReady는 지원되지 않음)<br/><br/>DASH, 부드러운 스트리밍(HLS의 경우 PlayReady는 지원되지 않음) |
 | **Android 디바이스(전화, 태블릿, TV)** |Widevine |크롬/EME |DASH, HLS |
 | **iOS(iPhone, iPad), OS X 클라이언트 및 Apple TV** |FairPlay |Safari 8+/EME |HLS |
 
@@ -146,15 +146,15 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
 
 다음 표에서 이러한 매핑을 보여 줍니다.
 
-| **구성 요소** | **Technology** |
+| **구성 요소** | **기술** |
 | --- | --- |
-| **플레이어** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
+| **혼자서** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
 | **IDP(ID 공급자)** |Azure AD(Azure Active Directory) |
 | **STS(보안 토큰 서비스)** |Azure AD |
 | **DRM 보호 워크플로** |Media Services 동적 보호 |
 | **DRM 라이선스 배달** |* Media Services 라이선스 배달(PlayReady, Widevine, FairPlay) <br/>* Axinom License Server <br/>* 사용자 지정 PlayReady 라이선스 서버 |
-| **기원** |Media Services 스트리밍 엔드포인트 |
-| **주요 관리** |참조 구현에는 필요하지 않음 |
+| **원본** |Media Services 스트리밍 엔드포인트 |
+| **키 관리** |참조 구현에는 필요하지 않음 |
 | **콘텐츠 관리** |C# 콘솔 애플리케이션 |
 
 즉, IDP와 STS 둘 다 Azure AD에서 사용됩니다. 플레이어로는 [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/)가 사용됩니다. Media Services와 Media Player는 모두 다중 DRM의 DASH 및 CENC를 지원합니다.
@@ -189,7 +189,7 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
 ### <a name="implementation-procedures"></a>구현 절차
 구현에는 다음 단계가 포함됩니다.
 
-1. 테스트 자산을 준비합니다. Media Services에서 테스트 비디오를 다중 비트 전송률 조각화된 MP4로 인코딩/패키징합니다. 이 자산은 DRM이 *보호되지 않습니다.* DRM 보호는 나중에 동적 보호로 수행됩니다.
+1. 테스트 자산을 준비합니다. Media Services에서 테스트 비디오를 다중 비트 전송률 조각화된 MP4로 인코딩/패키징합니다. 이 자산은 DRM으로 보호 *되지 않습니다* . DRM 보호는 나중에 동적 보호로 수행됩니다.
 
 2. 키 ID 및 콘텐츠 키(필요한 경우 키 시드에서)를 만듭니다. 이 인스턴스에서는 여러 테스트 자산에 대해 단일 키 ID 및 콘텐츠 키만 필요하므로 키 관리 시스템이 필요하지 않습니다.
 
@@ -217,12 +217,12 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
     | --- | --- | --- | --- |
     | **PlayReady** |Windows 10의 Microsoft Edge 또는 Internet Explorer 11 |합격 |실패 |
     | **Widevine** |Chrome, Firefox, Opera |합격 |실패 |
-    | **Fairplay** |macOS의 Safari      |합격 |실패 |
+    | **FairPlay** |macOS의 Safari      |합격 |실패 |
     | **AES-128** |최신 브라우저  |합격 |실패 |
 
 ASP.NET MVC 플레이어 앱에 대해 Azure AD를 설정하는 방법에 대한 내용은 [Azure Media Services OWIN MVC 기반 앱을 Azure Active Directory와 통합하고 JWT 클레임을 기준으로 콘텐츠 키 배달 제한](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)을 참조하세요.
 
-자세한 내용은 [Azure 미디어 서비스 및 동적 암호화에서 JWT 토큰 인증을](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)참조하십시오.  
+자세한 내용은 [Azure Media Services 및 동적 암호화의 JWT 토큰 인증](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)을 참조 하세요.  
 
 Azure AD에 대한 내용:
 
@@ -470,7 +470,7 @@ Widevine은 보호된 비디오의 화면 캡처 만들기를 차단하지 않�
 * Azure, Media Services 및 Media Player에 대한 참조 구현도 제공되었습니다.
 * 디자인 및 구현에 직접 관련된 몇 가지 토픽도 설명되었습니다.
 
-## <a name="additional-notes"></a>추가적인 참고 사항
+## <a name="additional-notes"></a>추가 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

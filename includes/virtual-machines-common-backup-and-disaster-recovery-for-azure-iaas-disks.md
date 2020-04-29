@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: storage
 author: roygara
@@ -9,10 +9,10 @@ ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: aa7ddb75017a532b436b9a5cfc71d1a7c2832cb6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77179088"
 ---
 이 문서에서는 Azure에서 IaaS VM(가상 머신) 및 디스크의 백업 및 DR(재해 복구)을 계획하는 방법을 설명합니다. Managed Disks 및 Unmanaged Disks를 모두 다루고 있습니다.
@@ -96,7 +96,7 @@ IaaS 애플리케이션 데이터 문제도 발생할 수 있습니다. 애플�
 
 ## <a name="disaster-recovery-solution-azure-backup"></a>재해 복구 솔루션: Azure Backup 
 
-[Azure Backup은](https://azure.microsoft.com/services/backup/) 백업 및 DR에 사용되며 [관리디스크](../articles/virtual-machines/windows/managed-disks-overview.md) 및 관리되지 않는 디스크와 함께 작동합니다. 시간 기반 백업, 손쉬운 VM 복원 및 백업 보존 정책을 사용하여 백업 작업을 만들 수 있습니다.
+[Azure Backup](https://azure.microsoft.com/services/backup/) 은 백업 및 DR에 사용 되며 관리 되는 [디스크](../articles/virtual-machines/windows/managed-disks-overview.md) 및 관리 되지 않는 디스크와 함께 작동 합니다. 시간 기반 백업, 손쉬운 VM 복원 및 백업 보존 정책을 사용하여 백업 작업을 만들 수 있습니다.
 
 [프리미엄 SSD](../articles/virtual-machines/windows/disks-types.md), [관리 디스크](../articles/virtual-machines/windows/managed-disks-overview.md) 또는 [로컬 중복 스토리지](../articles/storage/common/storage-redundancy-lrs.md) 옵션이 적용된 다른 디스크 유형을 사용하는 경우 정기적인 DR 백업을 만드는 것이 특히 중요합니다. Azure Backup은 장기 보존을 위해 복구 서비스 자격 증명 모음에 데이터를 저장합니다. 백업 복구 서비스 자격 증명 모음에 대해 [지역 중복 스토리지](../articles/storage/common/storage-redundancy-grs.md) 옵션을 선택합니다. 이 옵션은 지역 재해로부터 보호하기 위해 백업을 다른 Azure 지역에 복제하도록 합니다.
 
@@ -109,11 +109,11 @@ IaaS 애플리케이션 데이터 문제도 발생할 수 있습니다. 애플�
 
 | 시나리오 | 자동 복제 | DR 솔루션 |
 | --- | --- | --- |
-| 프리미엄 SSD 디스크 | 로컬([로컬 중복 스토리지](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure 백업](https://azure.microsoft.com/services/backup/) |
-| 관리 디스크 | 로컬([로컬 중복 스토리지](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure 백업](https://azure.microsoft.com/services/backup/) |
-| 관리되지 않은 로컬 중복 스토리지 디스크 | 로컬([로컬 중복 스토리지](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure 백업](https://azure.microsoft.com/services/backup/) |
-| 관리되지 않은 지역 중복 스토리지 디스크 | 지역 간([지역 중복 스토리지](../articles/storage/common/storage-redundancy-grs.md)) | [Azure 백업](https://azure.microsoft.com/services/backup/)<br/>[일관성 있는 스냅샷](#alternative-solution-consistent-snapshots) |
-| 관리되지 않은 읽기 액세스 지역 중복 스토리지 디스크 | 지역 간([읽기 액세스 지역 중복 스토리지](../articles/storage/common/storage-redundancy.md)) | [Azure 백업](https://azure.microsoft.com/services/backup/)<br/>[일관성 있는 스냅샷](#alternative-solution-consistent-snapshots) |
+| 프리미엄 SSD 디스크 | 로컬([로컬 중복 스토리지](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| 관리 디스크 | 로컬([로컬 중복 스토리지](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| 관리되지 않은 로컬 중복 스토리지 디스크 | 로컬([로컬 중복 스토리지](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| 관리되지 않은 지역 중복 스토리지 디스크 | 지역 간([지역 중복 스토리지](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[일관성 있는 스냅샷](#alternative-solution-consistent-snapshots) |
+| 관리되지 않은 읽기 액세스 지역 중복 스토리지 디스크 | 지역 간([읽기 액세스 지역 중복 스토리지](../articles/storage/common/storage-redundancy.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[일관성 있는 스냅샷](#alternative-solution-consistent-snapshots) |
 
 Azure Backup과 함께 가용성 집합에서 Managed Disks를 사용할 경우에 가장 고가용성이 충족됩니다. Unmanaged Disks를 사용하는 경우 DR에 Azure Backup을 계속 사용할 수 있습니다. Azure Backup을 사용할 수 없는 경우 백업 및 DR을 위한 대안 솔루션은 이후의 섹션에서 설명하는 [일관성 있는 스냅샷](#alternative-solution-consistent-snapshots)을 사용하는 것입니다.
 
@@ -128,7 +128,7 @@ Azure Backup과 함께 가용성 집합에서 Managed Disks를 사용할 경우�
 
 [Azure Backup](../articles/backup/backup-azure-vms-introduction.md)은 Windows 또는 Linux를 실행 중인 VM을 Azure 복구 서비스 자격 증명 모음으로 백업할 수 있습니다. 데이터를 생성하는 애플리케이션이 실행되는 동안 중요 업무용 데이터를 백업해야 하므로 이러한 데이터를 백업하고 복원하는 것은 복잡합니다. 
 
-이 문제를 해결하기 위해 Azure Backup은 Microsoft 워크로드에 대해 애플리케이션에 일관된 백업을 제공합니다. 데이터가 스토리지에 올바르게 작성되었는지를 확인하는 데 볼륨 섀도 서비스를 사용합니다. Linux VM의 경우 기본 백업 일관성 모드는 Windows의 경우와 같이 볼륨 섀도우 서비스와 동일한 기능을 갖지 않기 때문에 파일 일관된 백업입니다. Linux 컴퓨터의 경우 [Azure Linux VM의 응용 프로그램 일관된 백업을](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)참조하십시오.
+이 문제를 해결하기 위해 Azure Backup은 Microsoft 워크로드에 대해 애플리케이션에 일관된 백업을 제공합니다. 데이터가 스토리지에 올바르게 작성되었는지를 확인하는 데 볼륨 섀도 서비스를 사용합니다. Linux Vm의 경우 기본 백업 일관성 모드는 Windows의 경우와 같이 볼륨 섀도 서비스에 해당 하는 기능이 Linux에 없기 때문에 파일 일치 백업입니다. Linux 컴퓨터의 경우 [Azure Linux vm의 응용 프로그램 일치 백업](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)을 참조 하세요.
 
 ![Azure Backup 흐름][1]
 
@@ -146,7 +146,7 @@ Azure Backup은 예약된 시간에 백업 작업을 시작할 때 VM에 설치�
 
     b. **Recovery Services 자격 증명 모음** 메뉴에서 **추가**를 클릭하고, 단계에 따라 VM과 동일한 지역에 새 자격 증명 모음을 만듭니다. 예를 들어 VM이 미국 서부 지역에 있으면 미국 서부를 선택하여 자격 증명 모음을 찾습니다.
 
-1.  새로 만든 자격 증명 모음에 대한 스토리지 복제를 확인합니다. 복구 서비스 자격 증명 모음에서 볼트에 액세스하고 **속성** > **백업 구성** > **업데이트로** **이동합니다.** **지역 중복 스토리지** 옵션을 기본적으로 선택하도록 합니다. 이 옵션을 사용하면 자격 증명 모음이 보조 데이터 센터에 자동으로 복제됩니다. 예를 들어 미국 서부의 자격 증명 모음이 미국 동부에 자동으로 복제됩니다.
+1.  새로 만든 자격 증명 모음에 대한 스토리지 복제를 확인합니다. 자격 증명 모음 **Recovery Services** 자격 증명 모음에 액세스 하 고 **속성** > **백업 구성** > **업데이트**로 이동 합니다. **지역 중복 스토리지** 옵션을 기본적으로 선택하도록 합니다. 이 옵션을 사용하면 자격 증명 모음이 보조 데이터 센터에 자동으로 복제됩니다. 예를 들어 미국 서부의 자격 증명 모음이 미국 동부에 자동으로 복제됩니다.
 
 1.  백업 정책을 구성하고 동일한 UI에서 VM을 선택합니다.
 

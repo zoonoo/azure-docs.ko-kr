@@ -9,26 +9,26 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
 ms.openlocfilehash: 2d6182ba01507c2fb361628e01bb52e1ea821f44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77152655"
 ---
 # <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩을 사용하여 플랫 파일 인코딩 또는 디코딩
 
-B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내기 전에 XML 콘텐츠를 인코딩하려 할 수 있습니다. 논리 앱에서 플랫 파일 인코딩 커넥터를 사용하여 이 작업을 수행할 수 있습니다. 만든 논리 앱은 HTTP 요청 트리거를 포함하여 다른 애플리케이션 또는 다양한 [커넥터](../connectors/apis-list.md)에서도 다양한 원본의 XML 콘텐츠를 가져올 수 있습니다. 논리 앱에 대한 자세한 내용은 [논리 앱 설명서를](logic-apps-overview.md "로직 앱에 대해 자세히 알아보기")참조하십시오.  
+B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내기 전에 XML 콘텐츠를 인코딩하려 할 수 있습니다. 논리 앱에서 플랫 파일 인코딩 커넥터를 사용하여 이 작업을 수행할 수 있습니다. 만든 논리 앱은 HTTP 요청 트리거를 포함하여 다른 애플리케이션 또는 다양한 [커넥터](../connectors/apis-list.md)에서도 다양한 원본의 XML 콘텐츠를 가져올 수 있습니다. 논리 앱에 대 한 자세한 내용은 [논리 앱 설명서](logic-apps-overview.md "논리 앱에 대 한 자세한 정보")를 참조 하세요.  
 
 ## <a name="create-the-flat-file-encoding-connector"></a>플랫 파일 인코딩 커넥터 만들기
 다음 단계를 수행하여 플랫 파일 인코딩 커넥터를 논리 앱을 추가합니다.
 
-1. 논리 앱을 만들고 [통합 계정에 연결합니다.](logic-apps-enterprise-integration-accounts.md "통합 계정을 논리 앱에 연결하는 방법을 알아봅니다.") 이 계정은 XML 데이터를 인코딩하는 데 사용할 스키마를 포함합니다.  
+1. 논리 앱을 만들고 [통합 계정에 연결](logic-apps-enterprise-integration-accounts.md "논리 앱에 통합 계정을 연결 하는 방법 알아보기")합니다. 이 계정은 XML 데이터를 인코딩하는 데 사용할 스키마를 포함합니다.  
 
-1. 논리 앱 디자이너에서 **HTTP 요청이 수신될 때 트리거를** 논리 앱에 추가합니다.
+1. 논리 앱 디자이너에서 논리 앱에 **HTTP 요청을 받을 때** 트리거를 추가 합니다.
 
 1. 다음을 수행하여 플랫 파일 인코딩 작업을 추가합니다.
 
-   a. 더하기 기호를 **선택합니다.**
+   a. **더하기** 기호를 선택 합니다.
 
    b. 더하기 기호를 선택한 후에 표시되는 **작업 추가** 링크를 선택합니다.
 
@@ -63,11 +63,11 @@ B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내
 > [!NOTE]
 > 이러한 단계를 완료하려면 통합 계정에 이미 업로드된 스키마 파일이 있어야 합니다.
 
-1. 논리 앱 디자이너에서 **HTTP 요청이 수신될 때 트리거를** 논리 앱에 추가합니다.
+1. 논리 앱 디자이너에서 논리 앱에 **HTTP 요청을 받을 때** 트리거를 추가 합니다.
 
 1. 다음을 수행하여 플랫 파일 디코딩 작업을 추가합니다.
 
-   a. 더하기 기호를 **선택합니다.**
+   a. **더하기** 기호를 선택 합니다.
 
    b. 더하기 기호를 선택한 후에 표시되는 **작업 추가** 링크를 선택합니다.
 
@@ -94,5 +94,5 @@ B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내
 이제 HTTP 엔드포인트에 요청하고 요청 본문에 디코딩하려는 XML 콘텐츠를 포함하여 커넥터를 테스트할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
-* [엔터프라이즈 통합 팩에 대해 자세히 알아보십시오.](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 자세히 알아보기")  
+* [엔터프라이즈 통합 팩에 대해 자세히 알아보세요](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기").  
 

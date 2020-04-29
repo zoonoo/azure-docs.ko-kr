@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
 ms.openlocfilehash: b4750ad9fdfa214aa4d7b6a0355c319e7eb1d9c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77484403"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결
@@ -25,11 +25,11 @@ VM(가상 머신)을 만들거나 중지된(할당이 취소된) VM을 재시작
 
 **오류 코드**: AllocationFailed 또는 ZonalAllocationFailed
 
-**오류 메시지**: "할당하지 못했습니다. 이 지역에 요청된 VM 크기에 대해 충분한 용량이 없습니다. https:\//aka.ms/allocation-guidance"에서 할당 성공 가능성을 개선하는 것에 대해 자세히 알아보기
+**오류 메시지**: "할당하지 못했습니다. 이 지역에 요청된 VM 크기에 대해 충분한 용량이 없습니다. Https:/aka.ms/allocation-guidance에서 할당 성공 가능성 향상에 대해\/자세히 알아보세요.
 
 이 문서는 일부 일반적인 할당 오류의 이유를 설명하고 가능한 해결 방법을 제안합니다.
 
-이 문서에서 Azure 문제를 해결하지 않는 경우 [MSDN 및 스택 오버플로의 Azure 포럼을](https://azure.microsoft.com/support/forums/)방문하십시오. 이러한 포럼이나 Twitter의 @AzureSupport에 문제를 게시할 수 있습니다. 또한 [Azure 지원](https://azure.microsoft.com/support/options/) 사이트에서 지원 받기를 선택하여 Azure 지원 요청을 제출할 수 있습니다.
+이 문서에서 Azure 문제가 해결 되지 않으면 [MSDN에서 azure 포럼](https://azure.microsoft.com/support/forums/)을 방문 하 여 Stack Overflow 합니다. 이러한 포럼이나 Twitter의 @AzureSupport에 문제를 게시할 수 있습니다. 또한 [Azure 지원](https://azure.microsoft.com/support/options/) 사이트에서 지원 받기를 선택하여 Azure 지원 요청을 제출할 수 있습니다.
 
 배포 문제가 있는 고객은 원하는 지역에서 원하는 VM 유형을 사용할 수 있게 될 때까지 임시 해결 방법으로 다음 표의 지침을 고려하는 것이 좋습니다. 
 
@@ -79,13 +79,13 @@ Dv1, DSv1, Av1, D15v2, DS15v2와 같은 이전 VM 시리즈 또는 크기를 사
 
 할당 요청이 큰 경우(500개가 넘는 코어) 다음 섹션의 지침을 참조하여 소규모 배포로 요청을 분할합니다.
 
-VM 을 [다시 배포해](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows)보십시오. VM을 다시 배포할 경우 VM이 리전 내의 새 클러스터에 할당됩니다.
+[VM을 다시 배포](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows)해 보세요. VM을 다시 배포 하면 VM이 지역 내의 새 클러스터에 할당 됩니다.
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>이전 VM 크기의 할당 오류(Av1, Dv1, DSv1, D15v2, DS15v2 등)
 
 Azure 인프라가 확장되면서 최신 세대 가상 머신 유형을 지원하도록 설계된 차세대 하드웨어가 배포됩니다. 이전 시리즈 VM 중 일부는 최신 세대 인프라에서 실행되지 않습니다. 이러한 이유 때문에 레거시 SKU에 대해 때때로 할당 오류가 발생할 수 있습니다. 이 문제를 방지하려면 레거시 시리즈 가상 머신을 사용하는 경우 다음 권장 사항에 따라 신규 VM으로 이동을 고려하는 것이 좋습니다. 이러한 VM은 최신 하드웨어에 맞게 최적화되어 보다 나은 가격 및 성능의 이점을 활용할 수 있습니다. 
 
-|레거시 VM 시리즈/크기|권장되는 신규 VM 시리즈/크기|자세한 정보|
+|레거시 VM 시리즈/크기|권장되는 신규 VM 시리즈/크기|추가 정보|
 |----------------------|----------------------------|--------------------|
 |Av1 시리즈|[Av2 시리즈](../av2-series.md)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
 |Dv1 또는 DSv1 시리즈(D1 - D5)|[Dv3 또는 DSv3 시리즈](../dv3-dsv3-series.md)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/

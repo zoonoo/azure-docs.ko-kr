@@ -1,6 +1,6 @@
 ---
-title: 그룹 라이선싱에 대한 PowerShell 및 그래프 예제 - Azure AD | 마이크로 소프트 문서
-description: Azure Active Directory 그룹 기반 라이선스에 대한 PowerShell + 그래프 예제 및 시나리오
+title: 그룹 라이선스에 대 한 PowerShell 및 그래프 예제-Azure AD | Microsoft Docs
+description: Azure Active Directory 그룹 기반 라이선스에 대 한 PowerShell + 그래프 예제 및 시나리오
 services: active-directory
 keywords: Azure AD 라이선스
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5387daffcd3dd231aef5eade1c896db50947b386
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77484862"
 ---
-# <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD의 그룹 기반 라이선스에 대한 PowerShell 및 그래프 예제
+# <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD의 그룹 기반 라이선스에 대 한 PowerShell 및 그래프 예제
 
-그룹 기반 라이선스에 대한 모든 기능은 [Azure 포털을](https://portal.azure.com)통해 사용할 수 있으며 현재 PowerShell 및 Microsoft 그래프 지원은 읽기 전용 작업으로 제한됩니다. 그러나 기존 [MSOnline PowerShell cmdlet](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) 및 Microsoft Graph를 사용하여 수행할 수 있는 몇 가지 유용한 작업이 있습니다. 이 문서는 가능한 작업에 대한 예제를 제공합니다.
+[Azure Portal](https://portal.azure.com)를 통해 그룹 기반 라이선스의 전체 기능을 사용할 수 있으며 현재 PowerShell 및 Microsoft Graph 지원은 읽기 전용 작업으로 제한 됩니다. 그러나 기존 [MSOnline PowerShell cmdlet](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) 및 Microsoft Graph를 사용하여 수행할 수 있는 몇 가지 유용한 작업이 있습니다. 이 문서는 가능한 작업에 대한 예제를 제공합니다.
 
 > [!NOTE]
-> cmdlet 실행을 시작하기 전에 `Connect-MsolService`  cmdlet을 실행하여 먼저 조직에 연결해야 합니다.
+> Cmdlet 실행을 시작 하기 전에 `Connect-MsolService`  cmdlet을 실행 하 여 조직에 먼저 연결 해야 합니다.
 
 > [!WARNING]
 > 이 코드는 데모 용도의 예로 제공됩니다. 사용자 환경에서 사용하려는 경우, 먼저 작은 규모로 테스트하거나 별도의 테스트 테넌트에서 테스트하는 것이 좋습니다. 환경의 특정 요구에 맞게 코드를 조정해야 할 수도 있습니다.
@@ -50,7 +50,7 @@ EMSPREMIUM
 > [!NOTE]
 > 데이터는 제품(SKU) 정보로 제한됩니다. 라이선스에 사용하지 않도록 설정된 서비스 계획은 나열할 수 없습니다.
 
-다음 샘플을 사용하여 Microsoft 그래프에서 동일한 데이터를 가져옵니다.
+다음 샘플을 사용 하 여 Microsoft Graph에서 동일한 데이터를 가져올 수 있습니다.
 
 ```
 GET https://graph.microsoft.com/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41?$select=assignedLicenses
@@ -227,7 +227,7 @@ ObjectId                             DisplayName      License Error
 6d325baf-22b7-46fa-a2fc-a2500613ca15 Catherine Gibson MutuallyExclusiveViolation
 ```
 
-다음을 사용하여 Microsoft 그래프에서 동일한 데이터를 가져옵니다.
+다음을 사용 하 여 Microsoft Graph에서 동일한 데이터를 가져옵니다.
 
 ```powershell
 GET https://graph.microsoft.com/v1.0/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors
@@ -388,7 +388,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 240622ac-b9b8-4d50-94e2-dad19a3bf4b5 contoso:EMS             True              True
 ```
 
-그래프는 결과를 표시하는 간단한 방법이 없지만 이 API에서 볼 수 있습니다.
+그래프에는 결과를 표시 하는 간단한 방법이 없지만이 API에서 볼 수 있습니다.
 
 ```powershell
 GET https://graph.microsoft.com/v1.0/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
@@ -617,7 +617,7 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
 > [!NOTE]
-> 위의 스크립트를 실행하기 `$skuId` 전에 `$groupId`  변수 및 테스트 환경에 따라 직접 라이센스 제거대상이 되는 변수의 값을 업데이트하십시오. 
+> 위의 스크립트를 실행 하기 전에 테스트 `$skuId` 환경 `$groupId`  에 따라 직접 라이선스 제거를 대상으로 하는 변수에 대 한 값을 업데이트 하십시오. 
 
 ## <a name="next-steps"></a>다음 단계
 

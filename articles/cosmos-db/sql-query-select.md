@@ -1,21 +1,21 @@
 ---
-title: Azure 코스모스 DB의 SELECT 절
-description: Azure 코스모스 DB에 대한 SQL SELECT 절에 대해 알아봅니다. SQL을 Azure 코스모스 DB JSON 쿼리 언어로 사용합니다.
+title: Azure Cosmos DB에서 절 선택
+description: Azure Cosmos DB에 대 한 SQL SELECT 절에 대해 알아봅니다. Azure Cosmos DB JSON 쿼리 언어로 SQL을 사용 합니다.
 author: ginarobinson
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
 ms.openlocfilehash: 013ebdcdbac41825c10a1362f73ab4c94052400d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77469938"
 ---
-# <a name="select-clause-in-azure-cosmos-db"></a>Azure 코스모스 DB의 SELECT 절
+# <a name="select-clause-in-azure-cosmos-db"></a>Azure Cosmos DB에서 절 선택
 
-모든 쿼리는 ANSI SQL 표준에 따라 SELECT 절과 선택적 [FROM](sql-query-from.md) 및 [WHERE](sql-query-where.md) 절로 구성됩니다. 일반적으로 FROM 절의 소스가 확장되고 WHERE 절은 JSON 항목의 하위 집합을 검색하기 위해 원본에 필터를 적용합니다. 그런 다음 SELECT 절은 선택 목록에 요청된 JSON 값을 투영합니다.
+모든 쿼리는 ANSI SQL 표준에 따라 SELECT 절과 optional [from](sql-query-from.md) 및 [WHERE](sql-query-where.md) 절로 구성 됩니다. 일반적으로 FROM 절의 소스는 열거 되 고 WHERE 절은 소스에 필터를 적용 하 여 JSON 항목의 하위 집합을 검색 합니다. 그런 다음 SELECT 절은 요청 된 JSON 값을 select 목록에 프로젝션 합니다.
 
 ## <a name="syntax"></a>구문
 
@@ -52,7 +52,7 @@ SELECT <select_specification>
  
 - `DISTINCT`
   
-  투영된 속성의 중복을 제거해야 한다고 지정합니다.  
+  프로젝션 된 속성의 중복 항목을 제거 하도록 지정 합니다.  
 
 - `<scalar_expression>`  
 
@@ -78,7 +78,7 @@ SELECT <select_specification>
   
 ## <a name="examples"></a>예
 
-다음 SELECT 쿼리 `address` 예제는 `AndersenFamily`일치 하는 항목에서 `Families` `id` 반환 합니다.
+`address` 다음 SELECT 쿼리 예제에서는 `Families` `id` 와 일치 하 `AndersenFamily`는을 반환 합니다.
 
 ```sql
     SELECT f.address
@@ -99,7 +99,7 @@ SELECT <select_specification>
 ```
 
 ### <a name="quoted-property-accessor"></a>따옴표 붙은 속성 접근자
-인용된 속성 연산자 []를 사용하여 속성에 액세스할 수 있습니다. 예를 들어 `SELECT c.grade` and `SELECT c["grade"]` 와 동일합니다. 이 구문은 공백, 특수 문자를 포함하거나 SQL 키워드 또는 예약된 단어와 같은 이름을 가진 속성을 이스케이프하는 데 유용합니다.
+따옴표 붙은 속성 연산자 []를 사용 하 여 속성에 액세스할 수 있습니다. 예를 들어 `SELECT c.grade` and `SELECT c["grade"]` 와 동일합니다. 이 구문은 공백이 나 특수 문자가 포함 된 속성을 이스케이프 하거나 SQL 키워드 또는 예약어와 동일한 이름을 가진 속성을 이스케이프 하는 데 유용 합니다.
 
 ```sql
     SELECT f["lastName"]
@@ -109,7 +109,7 @@ SELECT <select_specification>
 
 ### <a name="nested-properties"></a>중첩 속성
 
-다음 예제에서는 두 개의 `f.address.state` 중첩된 속성 및 `f.address.city`을 프로세서합니다.
+다음 예제에서는 및 `f.address.state` `f.address.city`라는 두 개의 중첩 된 속성을 프로젝션 합니다.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -125,9 +125,9 @@ SELECT <select_specification>
       "city": "Seattle"
     }]
 ```
-### <a name="json-expressions"></a>JSON 표현식
+### <a name="json-expressions"></a>JSON 식
 
-프로젝션은 다음 예제와 같이 JSON 표현식도 지원합니다.
+또한 다음 예제와 같이 프로젝션은 JSON 식도 지원 합니다.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
@@ -147,7 +147,7 @@ SELECT <select_specification>
     }]
 ```
 
-앞의 예제에서 SELECT 절은 JSON 개체를 만들어야 하며 샘플에서 키를 제공하지 않으므로 절은 `$1`암시적 인수 변수 이름을 사용합니다. 다음 쿼리는 두 개의 암시적 인수 `$1` 변수와 `$2`를 반환합니다.
+앞의 예제에서 SELECT 절은 JSON 개체를 만들어야 하며, 샘플에서 키를 제공 하지 않으므로 절은 암시적 인수 변수 이름을 `$1`사용 합니다. 다음 쿼리는 두 개의 암시적 인수 변수인 `$1` 및 `$2`를 반환 합니다.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -169,11 +169,11 @@ SELECT <select_specification>
       }
     }]
 ```
-## <a name="reserved-keywords-and-special-characters"></a>예약된 키워드 및 특수 문자
+## <a name="reserved-keywords-and-special-characters"></a>예약 된 키워드 및 특수 문자
 
-데이터에 "주문" 또는 "Group"과 같은 예약된 키워드와 이름이 같은 속성이 포함된 경우 이러한 문서에 대한 쿼리로 인해 구문 오류가 발생합니다. 쿼리를 성공적으로 실행하려면 `[]` 속성을 문자에 명시적으로 포함해야 합니다.
+데이터에 "order" 또는 "Group"과 같은 예약 키워드와 이름이 같은 속성이 포함 된 경우 이러한 문서에 대 한 쿼리를 수행 하면 구문 오류가 발생 합니다. 쿼리를 성공적으로 실행 하려면 속성 `[]` 을 문자에 명시적으로 포함 해야 합니다.
 
-예를 들어 다음은 명명된 `order` 속성과 특수 문자가 포함된 속성이 있는 문서입니다. `price($)`
+예를 들어 속성 `order` 및 특수 문자를 포함 하는 속성 `price($)` 을 포함 하는 문서는 다음과 같습니다.
 
 ```json
 {
@@ -190,7 +190,7 @@ SELECT <select_specification>
 }
 ```
 
-`order` 속성 또는 `price($)` 속성을 포함 하는 쿼리를 실행 하는 경우 구문 오류가 발생 합니다.
+`order` 속성이 나 `price($)` 속성을 포함 하는 쿼리를 실행 하는 경우 구문 오류가 표시 됩니다.
 
 ```sql
 SELECT * FROM c where c.order.orderid = "12345"
@@ -204,7 +204,7 @@ SELECT * FROM c where c.order.price($) > 50
 Syntax error, incorrect syntax near 'order'
 `
 
-아래와 동일한 쿼리를 다시 작성해야 합니다.
+다음과 같이 동일한 쿼리를 다시 작성 해야 합니다.
 
 ```sql
 SELECT * FROM c WHERE c["order"].orderId = "12345"

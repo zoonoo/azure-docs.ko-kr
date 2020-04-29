@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: tagore
 ms.openlocfilehash: 3b4028a09f69acd5d7a6579b4610785ed32e227d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77469530"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Azure Cloud Service에 대한 성능 카운터 수집
@@ -76,7 +76,7 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 
 Azure Diagnostics 또는 Application Insights를 위해 클라우드 서비스에 성능 카운터를 추가할 수 있습니다.
 
-### <a name="application-insights"></a>애플리케이션 정보
+### <a name="application-insights"></a>Application Insights
 
 Cloud Services용 Azure Application Insights를 사용하면 수집할 성능 카운터를 지정할 수 있습니다. [Application Insights를 프로젝트에 추가](../azure-monitor/app/cloudservices.md#sdk)하면 **ApplicationInsights.config**라는 구성 파일이 Visual Studio 프로젝트에 추가됩니다. 이 구성 파일은 Application Insights가 수집하여 Azure에 전송하는 정보 유형을 정의합니다.
 
@@ -103,7 +103,7 @@ Cloud Services용 Azure Application Insights를 사용하면 수집할 성능 �
 
 Application Insights는 다음 성능 카운터를 자동으로 수집합니다.
 
-* \프로세스(?? APP_WIN32_PROC?) \% 프로세서 시간
+* \Process (?? APP_WIN32_PROC?) \% 프로세서 시간
 * \Memory\Available Bytes
 * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
 * \Process(??APP_WIN32_PROC??)\Private Bytes
@@ -115,11 +115,11 @@ Application Insights는 다음 성능 카운터를 자동으로 수집합니다.
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
 > [!IMPORTANT]
-> 이 모든 데이터가 저장소 계정으로 집계되지만 포털은 데이터를 차트로 차트화하는 기본 방법을 **제공하지** 않습니다. Application Insights 등의 다른 진단 서비스를 애플리케이션에 통합하는 것이 좋습니다.
+> 이러한 모든 데이터는 저장소 계정으로 집계 되지만 포털은 데이터를 차트로 만드는 기본적인 방법을 제공 **하지** 않습니다. Application Insights 등의 다른 진단 서비스를 애플리케이션에 통합하는 것이 좋습니다.
 
 Cloud Services용 Azure Diagnostics 확장을 사용하면 수집할 성능 카운터를 지정할 수 있습니다. Azure Diagnostics를 설정하려면 [클라우드 서비스 모니터링 개요](cloud-services-how-to-monitor.md#setup-diagnostics-extension)를 참조하세요.
 
-수집하려는 성능 카운터는 **diagnostics.wadcfgx** 파일에 정의됩니다. Visual Studio에서 이 파일(역할별 정의)을 열고 **진단 구성** > **공용 구성** > **WadCfg** > **진단 모니터 구성** > 성능 카운터 요소를**찾습니다.** 새 **PerformanceCounterConfiguration** 요소를 자식으로 추가합니다. 이 요소에는 두 가지 특성(`counterSpecifier` 및 `sampleRate`)이 있습니다. `counterSpecifier` 특성은 수집할 시스템 성능 카운터 세트(이전 섹션에 요약되어 있음)를 정의합니다. `sampleRate` 값은 해당 값이 폴링되는 빈도를 나타냅니다. 전반적으로 모든 성능 카운터는 부모 `PerformanceCounters` 요소의 `scheduledTransferPeriod` 특성 값에 따라 Azure에 전송됩니다.
+수집하려는 성능 카운터는 **diagnostics.wadcfgx** 파일에 정의됩니다. Visual Studio에서이 파일 (역할 별로 정의 됨)을 열고 **DiagnosticsConfiguration** > **publicconfig** > **diagnostics.wadcfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters** 요소를 찾습니다. 새 **PerformanceCounterConfiguration** 요소를 자식으로 추가합니다. 이 요소에는 두 가지 특성(`counterSpecifier` 및 `sampleRate`)이 있습니다. `counterSpecifier` 특성은 수집할 시스템 성능 카운터 세트(이전 섹션에 요약되어 있음)를 정의합니다. `sampleRate` 값은 해당 값이 폴링되는 빈도를 나타냅니다. 전반적으로 모든 성능 카운터는 부모 `PerformanceCounters` 요소의 `scheduledTransferPeriod` 특성 값에 따라 Azure에 전송됩니다.
 
 `PerformanceCounters` 스키마 요소에 대한 자세한 내용은 [Azure Diagnostics 스키마](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)를 참조하세요.
 
@@ -234,7 +234,7 @@ counterServiceUsed.Increment();
 이제 애플리케이션에서 사용자 지정 카운터를 사용하므로 카운터를 추적하도록 Azure Diagnostics 또는 Application Insights를 구성해야 합니다.
 
 
-### <a name="application-insights"></a>애플리케이션 정보
+### <a name="application-insights"></a>Application Insights
 
 이전에 설명한 대로 Application Insights의 성능 카운터는 **ApplicationInsights.config** 파일에서 정의됩니다. **ApplicationInsights.config**를 열고 **ApplicationInsights** > **TelemetryModules** > **Add** > **Counters** 요소를 찾습니다. `<Add>` 자식 요소를 만들고 `PerformanceCounter` 특성을 코드에서 만든 성능 카운터의 범주 및 이름으로 설정합니다. `ReportAs` 특성을 포털에 표시하려는 이름으로 설정합니다.
 
@@ -259,7 +259,7 @@ counterServiceUsed.Increment();
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
-이전에 언급한 대로 수집하려는 성능 카운터는 **diagnostics.wadcfgx** 파일에 정의됩니다. Visual Studio에서 이 파일(역할별 정의)을 열고 **진단 구성** > **공용 구성** > **WadCfg** > **진단 모니터 구성** > 성능 카운터 요소를**찾습니다.** 새 **PerformanceCounterConfiguration** 요소를 자식으로 추가합니다. `counterSpecifier` 특성을 코드에서 만든 성능 카운터의 범주 및 이름으로 설정합니다. 
+이전에 언급한 대로 수집하려는 성능 카운터는 **diagnostics.wadcfgx** 파일에 정의됩니다. Visual Studio에서이 파일 (역할 별로 정의 됨)을 열고 **DiagnosticsConfiguration** > **publicconfig** > **diagnostics.wadcfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters** 요소를 찾습니다. 새 **PerformanceCounterConfiguration** 요소를 자식으로 추가합니다. `counterSpecifier` 특성을 코드에서 만든 성능 카운터의 범주 및 이름으로 설정합니다. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -286,7 +286,7 @@ counterServiceUsed.Increment();
 </DiagnosticsConfiguration>
 ```
 
-## <a name="more-information"></a>자세한 정보
+## <a name="more-information"></a>추가 정보
 
 - [Azure Cloud Services용 Application Insights](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Application Insights의 시스템 성능 카운터](../azure-monitor/app/performance-counters.md)
