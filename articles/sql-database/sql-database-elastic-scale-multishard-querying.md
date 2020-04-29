@@ -1,5 +1,5 @@
 ---
-title: 샤드 데이터베이스 쿼리
+title: 분할 된 데이터베이스 쿼리
 description: 분할된 데이터베이스간의 쿼리를 실행할 때는 탄력적 데이터베이스 클라이언트 라이브러리를 사용합니다.
 services: sql-database
 ms.service: sql-database
@@ -9,10 +9,10 @@ author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: ae14a9fd8fc8479eac596fb694e12e3e0a9027f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067303"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Elastic Database 도구를 사용하여 쿼리 다중 분할
@@ -63,6 +63,6 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 
 ## <a name="multi-shard-queries-and-split-merge-operations"></a>다중 분할된 데이터베이스 쿼리 및 분할/병합 작업
 
-다중 분할된 데이터베이스 쿼리는 쿼리되는 데이터베이스의 shardlet이 지속적인 분할/병합 작업에 참여하는지 여부를 확인하지 않습니다. [(탄력적 데이터베이스 분할 병합 도구를 사용하여 크기 조정을](sql-database-elastic-scale-overview-split-and-merge.md)참조하십시오.) 이로 인해 동일한 샤드 쿼리의 여러 데이터베이스에 대해 동일한 샤드렛의 행이 표시되는 불일치가 발생할 수 있습니다. 이러한 제한 사항에 유의하고 다중 분할된 데이터베이스 쿼리를 수행하는 동안 사용되는 지속적인 분할-병합 작업과 분할된 데이터베이스 맵 변경 사항을 고려해야 합니다.
+다중 분할된 데이터베이스 쿼리는 쿼리되는 데이터베이스의 shardlet이 지속적인 분할/병합 작업에 참여하는지 여부를 확인하지 않습니다. [Elastic Database 분할/병합 도구를 사용 하 여 크기 조정](sql-database-elastic-scale-overview-split-and-merge.md)을 참조 하세요. 이로 인해 동일한 shardlet의 행이 동일한 다중 분할 된 데이터베이스 쿼리의 여러 데이터베이스에 대해 표시 되는 불일치 문제가 발생할 수 있습니다. 이러한 제한 사항에 유의하고 다중 분할된 데이터베이스 쿼리를 수행하는 동안 사용되는 지속적인 분할-병합 작업과 분할된 데이터베이스 맵 변경 사항을 고려해야 합니다.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

@@ -1,5 +1,5 @@
 ---
-title: Linux를 실행하는 가상 컴퓨터에서 LVM 구성
+title: Linux를 실행 하는 가상 머신에서 LVM 구성
 description: Azure에서 Linux에 LVM을 구성하는 방법에 대해 알아봅니다.
 author: gbowerman
 ms.service: virtual-machines-linux
@@ -8,10 +8,10 @@ ms.date: 09/27/2018
 ms.author: guybo
 ms.subservice: disks
 ms.openlocfilehash: 7f560a1e6266b5f2452bf9442d2d4c983de1236e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066805"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Azure에서 Linux VM에 LVM 구성
@@ -26,7 +26,7 @@ LVM을 사용하여 단일 스토리지 볼륨에 여러 실제 디스크를 결
 하나의 디스크가 LVM을 사용하는 경우 일반적으로 두 개 이상의 빈 데이터 디스크로 시작합니다. IO 요구 사항에 따라 Standard Storage에 저장된 디스크(디스크당 최대 500IO/ps) 또는 Premium Storage에 저장된 디스크(디스크당 최대 5000IO/ps)를 연결할 수 있습니다. Linux 가상 컴퓨터에 데이터 디스크를 프로비전 및 연결하는 방법은 이 문서에서 자세히 다루지 않습니다. Azure에서 빈 데이터 디스크를 Linux 가상 머신에 연결하는 방법에 대한 자세한 내용은 Microsoft Azure 문서 [디스크 연결](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 을 참조하세요.
 
 ## <a name="install-the-lvm-utilities"></a>LVM 유틸리티 설치
-* **우분투**
+* **Ubuntu**
 
     ```bash  
     sudo apt-get update
@@ -157,7 +157,7 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 
 - 일부 경우 `discard` 옵션에는 성능이 저하 될 수 있습니다. 또는 `fstrim` 명령을 명령줄에서 수동으로 실행하거나, 또는 정기적으로 실행하기 위해 crontab에 추가할 수 있습니다.
 
-    **우분투**
+    **Ubuntu**
 
     ```bash 
     # sudo apt-get install util-linux

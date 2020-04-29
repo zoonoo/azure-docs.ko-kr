@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: guybo
 ms.openlocfilehash: 1ad1a66d67be7aefe4d9a7acae993e8788cbb193
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066755"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>OpenBSD 디스크 이미지 만들기 및 Azure로 업로드
@@ -20,9 +20,9 @@ ms.locfileid: "80066755"
 ## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 사용자에게 다음 항목이 있다고 가정합니다.
 
-* **Azure 구독** - 계정이 없는 경우 몇 분 만에 계정을 만들 수 있습니다. MSDN 구독이 있는 경우 [Visual Studio 구독자에 대한 월별 Azure 크레딧을](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)참조하십시오. 그렇지 않으면 [무료 평가판 계정 만들기](https://azure.microsoft.com/pricing/free-trial/)를 참조하세요.  
+* **Azure 구독** - 계정이 없는 경우 몇 분 만에 계정을 만들 수 있습니다. MSDN 구독이 있는 경우 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조 하세요. 그렇지 않으면 [무료 평가판 계정 만들기](https://azure.microsoft.com/pricing/free-trial/)를 참조하세요.  
 * **Azure CLI** - 최신 [Azure CLI](/cli/azure/install-azure-cli)를 설치했고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
-* **.vhd 파일에 설치된 OpenBSD 운영 체제** - 지원되는 OpenBSD 운영 체제(6.6[버전 AMD64)를](https://ftp.openbsd.org/pub/OpenBSD/6.6/amd64/)가상 하드 디스크에 설치해야 합니다. .vhd 파일을 만드는 도구는 여러 가지가 있습니다. 예를 들어 Hyper-V와 같은 가상화 솔루션을 사용하여 .vhd 파일을 만들고 운영 체제를 설치할 수 있습니다. Hyper-V를 설치하고 사용하는 방법에 대한 자세한 내용은 [Hyper-V 설치 및 가상 머신 만들기](https://technet.microsoft.com/library/hh846766.aspx)를 참조하세요.
+* **.Vhd 파일에 설치 된 Openbsd 운영** 체제-가상 하드 디스크에 지원 되는 openbsd 운영 체제 ([6.6 버전 AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.6/amd64/))를 설치 해야 합니다. .vhd 파일을 만드는 도구는 여러 가지가 있습니다. 예를 들어 Hyper-V와 같은 가상화 솔루션을 사용하여 .vhd 파일을 만들고 운영 체제를 설치할 수 있습니다. Hyper-V를 설치하고 사용하는 방법에 대한 자세한 내용은 [Hyper-V 설치 및 가상 머신 만들기](https://technet.microsoft.com/library/hh846766.aspx)를 참조하세요.
 
 
 ## <a name="prepare-openbsd-image-for-azure"></a>OpenBSD 이미지를 Azure에 사용하도록 준비
@@ -94,7 +94,7 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>스토리지 리소스 만들기 및 업로드
-먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *동쪽* 위치에 *myResourceGroup이라는* 리소스 그룹을 만듭니다.
+먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

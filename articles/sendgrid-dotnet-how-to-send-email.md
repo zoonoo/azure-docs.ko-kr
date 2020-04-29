@@ -1,6 +1,6 @@
 ---
 title: SendGrid 메일 서비스를 사용하는 방법(.NET) | Microsoft Docs
-description: Azure에서 SendGrid 전자 메일 서비스를 사용하여 전자 메일을 보내는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 .NET API를 사용합니다.
+description: Azure에서 SendGrid 메일 서비스를 사용 하 여 전자 메일을 보내는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 .NET API를 사용합니다.
 services: ''
 documentationcenter: .net
 author: georgewallace
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
 ms.openlocfilehash: 33df6b5c8c5c16a6eb896944de05068affc2b407
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062210"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Azure에서 SendGrid를 사용하여 전자 메일을 보내는 방법
@@ -34,7 +34,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 * 고객 질문 전달
 * 수신 메일 처리
 
-자세한 내용은 SendGrid의 [https://sendgrid.com](https://sendgrid.com) [C# 라이브러리][sendgrid-csharp] GitHub 리포지토리를 방문하거나 방문하십시오.
+자세한 내용은 또는 SendGrid의 [https://sendgrid.com](https://sendgrid.com) [c # 라이브러리][sendgrid-csharp] GitHub 리포지토리를 참조 하세요.
 
 ## <a name="create-a-sendgrid-account"></a>SendGrid 계정 만들기
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -43,7 +43,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 [SendGrid NuGet 패키지](https://www.nuget.org/packages/Sendgrid) 는 SendGrid API를 가져오고 애플리케이션에서 종속성을 모두 갖도록 구성하는 가장 쉬운 방법입니다. NuGet은 Microsoft Visual Studio 2015 이상에 포함된 Visual Studio 확장 프로그램으로서 라이브러리 및 도구를 쉽게 설치하고 업데이트할 수 있습니다.
 
 > [!NOTE]
-> Visual Studio 2015보다 이전에 Visual Studio 버전을 실행 중인 경우 [https://www.nuget.org](https://www.nuget.org) **NuGet을** 설치하려면 를 방문하여 NuGet 설치 단추를 클릭합니다.
+> Visual Studio 2015 이전 버전의 Visual Studio를 실행 하는 경우 NuGet을 설치 하려면를 방문 [https://www.nuget.org](https://www.nuget.org)하 여 **nuget 설치** 단추를 클릭 합니다.
 >
 >
 
@@ -63,7 +63,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 
 SendGrid의 .NET 클래스 라이브러리는 **SendGrid**라고 합니다. 다음 네임스페이스가 포함되어 있습니다.
 
-* **SendGrid의** API와 통신하기 위한 SendGrid.
+* SendGrid의 API와 통신 하기 위한 **SendGrid** 입니다.
 * **SendGrid.Helpers.Mail**은 도우미 메서드가 전자 메일을 보내는 방법을 지정하는 SendGridMessage 개체를 쉽게 만들 수 있습니다.
 
 프로그래밍 방식으로 SendGrid 전자 메일 서비스에 액세스하려는 C# 파일의 맨 위에 다음과 같은 코드 네임스페이스 선언을 추가합니다.
@@ -100,7 +100,7 @@ SendGrid의 .NET 클래스 라이브러리는 **SendGrid**라고 합니다. 다�
 
 메일을 보내려면 SendGrid API 키를 제공해야 합니다. API 키를 구성하는 방법에 대한 세부 정보가 필요한 경우 SendGrid의 API 키 [설명서][documentation]를 방문하세요.
 
-응용 프로그램 설정을 클릭하고 앱 설정 아래에 키/값 쌍을 추가하여 Azure 포털을 통해 이러한 자격 증명을 저장할 수 있습니다.
+응용 프로그램 설정을 클릭 하 고 앱 설정 아래에 키/값 쌍을 추가 하 여 Azure Portal 통해 이러한 자격 증명을 저장할 수 있습니다.
 
  ![Azure 앱 설정][azure_app_settings]
 

@@ -8,10 +8,10 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.openlocfilehash: 0314095a053087a7d490926c41c6ae386c304919
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066641"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>SMB를 사용하여 Linux VM에 Azure File Storage 탑재
@@ -35,7 +35,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-[az storage account create](/cli/azure/storage/account)를 사용하여 만든 리소스 그룹 내에 새 스토리지 계정을 만듭니다. 이 예제에서는 *mySTORAGEACCT\<난수>* 라는 저장소 계정을 만들고 해당 저장소 계정의 이름을 변수 **STORAGEACCT에**넣습니다. 스토리지 계정 이름은 고유해야 하며, 사용하는 `$RANDOM` 끝에 숫자를 추가하여 고유하게 만듭니다.
+[az storage account create](/cli/azure/storage/account)를 사용하여 만든 리소스 그룹 내에 새 스토리지 계정을 만듭니다. 이 예제에서는 *Mystorageacct\<random number>* 라는 저장소 계정을 만들고 해당 저장소 계정의 이름을 **storage계정**변수에 넣습니다. 스토리지 계정 이름은 고유해야 하며, 사용하는 `$RANDOM` 끝에 숫자를 추가하여 고유하게 만듭니다.
 
 ```azurecli
 STORAGEACCT=$(az storage account create \
@@ -110,5 +110,5 @@ Linux VM를 다시 부팅하면 탑재된 SMB 공유가 종료하는 동안 분�
 
 - [cloud-init를 사용하여 생성 중인 Linux VM 사용자 지정](using-cloud-init.md)
 - [Linux VM에 디스크 추가](add-disk.md)
-- [리눅스 VM에 대 한 Azure 디스크 암호화](disk-encryption-overview.md)
+- [Linux Vm에 대 한 Azure Disk Encryption](disk-encryption-overview.md)
 

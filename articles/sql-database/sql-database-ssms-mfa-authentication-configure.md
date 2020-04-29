@@ -12,10 +12,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
 ms.openlocfilehash: 5d4d410f6fca566dab14e601972952b5996c331a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80124883"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>SQL Server Management Studio 및 Azure AD에 대한 Multi-factor Authentication(MFA) 구성
@@ -28,7 +28,7 @@ ms.locfileid: "80124883"
 ## <a name="configuration-steps"></a>구성 단계
 
 1. **Azure Active Directory 구성** - 자세한 내용은 [Azure AD 디렉터리 관리](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Azure Active Directory와 온-프레미스 ID 통합](../active-directory/hybrid/whatis-hybrid-identity.md), [Azure AD에 고유한 도메인 이름 추가](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure는 이제 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) 및 [Windows PowerShell을 사용하여 Azure AD 관리](https://msdn.microsoft.com/library/azure/jj151815.aspx)를 참조하세요.
-2. **MFA 구성** - 단계별 지침은 [Azure Multi-factor Authentication(MFA)이란?](../active-directory/authentication/multi-factor-authentication.md), [Azure SQL Database 및 데이터웨어 하우스에서의 조건부 액세스(MFA)](sql-database-conditional-access.md)를 참조하세요. (전체 조건부 액세스에는 프리미엄 Azure Active Directory(Azure AD)가 필요합니다. 표준 Azure AD에서는 제한된 MFA가 제공됩니다.
+2. **MFA 구성** - 단계별 지침은 [Azure Multi-factor Authentication(MFA)이란?](../active-directory/authentication/multi-factor-authentication.md), [Azure SQL Database 및 데이터웨어 하우스에서의 조건부 액세스(MFA)](sql-database-conditional-access.md)를 참조하세요. (전체 조건부 액세스에는 Premium Azure Active Directory (Azure AD)가 필요 합니다. 표준 Azure AD에서는 제한된 MFA가 제공됩니다.
 3. **Azure AD 인증을 위해 SQL Database 또는 SQL Data Warehouse 구성** - 단계별 지침은 [Azure Active Directory 인증을 사용하여 SQL Database 또는 SQL Data Warehouse에 연결](sql-database-aad-authentication.md)을 참조하세요.
 4. **SSMS 다운로드** - 클라이언트 컴퓨터에서 최신 SSMS를 [SSMS(SQL Server Management Studio) 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)에서 다운로드합니다. 이 항목의 모든 기능에서는 2017년 7월 버전 17.2 이상을 사용합니다.  
 
@@ -40,13 +40,13 @@ ms.locfileid: "80124883"
    ![1mfa-universal-connect][1]  
 2. Azure Active Directory 자격 증명을 사용하여 **사용자 이름** 상자를 `user_name@domain.com` 형식으로 입력합니다.  
    ![1mfa-universal-connect-user](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect-user.png)   
-3. 게스트 사용자로 연결하는 경우 SSMS 18.x 이상에서 자동으로 인식되므로 게스트 사용자를 위한 AD 도메인 이름 또는 테넌트 ID 필드를 더 이상 완료할 필요가 없습니다. 자세한 내용은 [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](sql-database-ssms-mfa-authentication.md)을 참조하세요.
-   ![mfa-no-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-no-tenant-ssms.png)
+3. 게스트 사용자로 연결 하는 경우 SSMS 4.x 이상에서 자동으로 인식 하기 때문에 게스트 사용자에 대 한 AD 도메인 이름 또는 테 넌 트 ID 필드를 더 이상 완료할 필요가 없습니다. 자세한 내용은 [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](sql-database-ssms-mfa-authentication.md)을 참조하세요.
+   ![mfa-테 넌 트 없음-ssms](./media/sql-database-ssms-mfa-auth/mfa-no-tenant-ssms.png)
 
-   그러나 SSMS 17.x 이상을 사용하여 게스트 사용자로 연결하는 경우 **옵션**및 **연결 속성** 대화 상자에서 **클릭하고 AD 도메인 이름 또는 테넌트 ID** 상자를 완료해야 합니다.
+   그러나 SSMS 17.x 이상을 사용 하 여 게스트 사용자로 연결 하는 경우에는 **옵션**을 클릭 하 고 **연결 속성** 대화 상자에서 **AD 도메인 이름 또는 테 넌 트 ID** 상자를 완료 해야 합니다.
    ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)
 
-4. SQL 데이터베이스 및 SQL 데이터 웨어하우스의 경우와 마찬가지로 **옵션을** 클릭하고 **옵션** 대화 상자에서 데이터베이스를 지정해야 합니다. 연결된 사용자가 게스트 사용자이면(즉 joe@outlook.com) 상자를 선택하고 현재 AD 도메인 이름이나 테넌트 ID를 옵션의 일부로 추가해야 합니다. [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](sql-database-ssms-mfa-authentication.md)을 참조하세요. 그런 다음 **연결**을 클릭합니다.  
+4. SQL Database 및 SQL Data Warehouse에 대 한 일반적인 경우 **옵션** 을 클릭 하 고 **옵션** 대화 상자에서 데이터베이스를 지정 해야 합니다. 연결된 사용자가 게스트 사용자이면(즉 joe@outlook.com) 상자를 선택하고 현재 AD 도메인 이름이나 테넌트 ID를 옵션의 일부로 추가해야 합니다. [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](sql-database-ssms-mfa-authentication.md)을 참조하세요. 그런 다음 **연결**을 클릭합니다.  
 5. **사용자 계정 로그인** 대화 상자가 나타나면 Azure Active Directory ID의 계정 및 암호를 제공합니다. 사용자가 Azure AD와 페더레이션된 도메인에 속할 경우 암호가 필요하지 않습니다.  
    ![2mfa-sign-in][2]  
 
@@ -65,7 +65,7 @@ ms.locfileid: "80124883"
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure SQL Database 다단계 인증에 대한 개요는 [SQL 데이터베이스 및 SQL 데이터 웨어하우스(MFA에 대한 SSMS 지원)를](sql-database-ssms-mfa-authentication.md)사용하여 범용 인증을 참조합니다.  
+- Multi-factor authentication Azure SQL Database의 개요는 SQL Database 및 SQL Data Warehouse를 사용 하는 유니버설 인증 [(MFA에 대 한 SSMS 지원)](sql-database-ssms-mfa-authentication.md)을 참조 하세요.  
 - 데이터베이스에 대한 액세스를 부여합니다. [SQL Database 인증 및 권한 부여: 액세스 부여](sql-database-manage-logins.md)  
 - 방화벽을 통해 연결할 수 있는지 확인합니다. [Azure Portal을 사용하여 Azure SQL Database 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings.md)  
 - **Active Directory- MFA 유니버설** 인증을 사용할 때 ADAL 추적은 [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)에서 시작할 수 있습니다. 기본적으로 꺼짐인 ADAL 추적은 **도구**, **옵션** 메뉴, **Azure Services**, **Azure Cloud**, **ADAL 출력 창 추적 수준**을 사용하고 **보기** 메뉴의 **출력**을 활성화하여 켤 수 있습니다. 추적은 **Azure Active Directory 옵션**을 선택할 때 출력 창에서 사용할 수 있습니다.   

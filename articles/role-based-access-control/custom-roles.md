@@ -16,22 +16,22 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9454962e210781559f2fdceb1c36f499c4ae8ff7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062181"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Azure 리소스에 대한 사용자 지정 역할
 
 > [!IMPORTANT]
-> 관리 그룹을 추가하려면 `AssignableScopes` 현재 미리 보기 상태입니다.
+> 에 관리 그룹을 추가 `AssignableScopes` 하는 것은 현재 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 관리 그룹, 구독 및 리소스 그룹 범위에서 사용자, 그룹 및 서비스 주체에게 사용자 지정 역할을 할당할 수 있습니다.
+[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 관리 그룹, 구독 및 리소스 그룹 범위에서 사용자, 그룹 및 서비스 사용자에 게 사용자 지정 역할을 할당할 수 있습니다.
 
-사용자 지정 역할은 동일한 Azure AD 디렉터리를 신뢰하는 구독 간에 공유할 수 있습니다. 디렉터리당 사용자 지정 역할은 **5,000개로** 제한됩니다. Azure 독일 및 Azure China 21Vianet의 경우 제한은 2,000개의 사용자 지정 역할입니다. 사용자 지정 역할은 Azure 포털(미리 보기), Azure PowerShell, Azure CLI 또는 REST API를 사용하여 만들 수 있습니다.
+동일한 Azure AD 디렉터리를 신뢰 하는 구독 간에 사용자 지정 역할을 공유할 수 있습니다. 디렉터리 당 사용자 지정 역할은 **5000** 개로 제한 됩니다. (Azure 독일 및 Azure 중국 21Vianet의 경우 제한은 2000 사용자 지정 역할입니다.) Azure Portal (미리 보기), Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 사용자 지정 역할을 만들 수 있습니다.
 
 ## <a name="custom-role-example"></a>사용자 지정 역할 예제
 
@@ -73,13 +73,13 @@ ms.locfileid: "80062181"
 
 ## <a name="steps-to-create-a-custom-role"></a>사용자 지정 역할을 만드는 단계
 
-1. 사용자 지정 역할을 만드는 방법 결정
+1. 사용자 지정 역할을 만들 방법을 결정 합니다.
 
-    [Azure 포털(미리](custom-roles-portal.md) 보기), Azure [PowerShell,](custom-roles-powershell.md) [Azure CLI](custom-roles-cli.md)또는 [REST API를](custom-roles-rest.md)사용하여 사용자 지정 역할을 만들 수 있습니다.
+    [Azure Portal](custom-roles-portal.md) (미리 보기), [Azure PowerShell](custom-roles-powershell.md), [Azure CLI](custom-roles-cli.md)또는 [REST API](custom-roles-rest.md)를 사용 하 여 사용자 지정 역할을 만들 수 있습니다.
 
 1. 필요한 권한 결정
 
-    사용자 지정 역할을 만드는 경우 권한을 정의하는 데 사용할 수 있는 리소스 공급자 작업을 알고 있어야 합니다. 작업 목록을 보려면 [Azure 리소스 관리자 리소스 공급자 작업을](resource-provider-operations.md)참조하십시오. [역할 정의의](role-definitions.md) `Actions` 또는 `NotActions` 속성에 작업을 추가합니다. 데이터 작업이 있는 경우 `DataActions` 또는 `NotDataActions` 속성에 추가합니다.
+    사용자 지정 역할을 만드는 경우 권한을 정의하는 데 사용할 수 있는 리소스 공급자 작업을 알고 있어야 합니다. 작업 목록을 보려면 [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)을 참조 하세요. `Actions` [역할 정의](role-definitions.md)의 또는 `NotActions` 속성에 작업을 추가 합니다. 데이터 작업을 수행 하는 경우 `DataActions` 또는 `NotDataActions` 속성에 해당 작업을 추가 합니다.
 
 1. 사용자 지정 역할 만들기
 
@@ -95,42 +95,42 @@ ms.locfileid: "80062181"
 
 사용자 지정 역할의 속성은 다음과 같습니다.
 
-| 속성 | 필수 | Type | Description |
+| 속성 | 필수 | Type | 설명 |
 | --- | --- | --- | --- |
-| `Name` | yes | String | 사용자 지정 역할의 표시 이름입니다. 역할 정의는 관리 그룹 또는 구독 수준 리소스이지만 역할 정의는 동일한 Azure AD 디렉터리를 공유하는 여러 구독에서 사용할 수 있습니다. 표시 이름은 Azure AD 디렉터리의 범위에서 고유해야 합니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 128자입니다. |
-| `Id` | yes | String | 사용자 지정 역할의 고유 ID입니다. Azure PowerShell 및 Azure CLI의 경우 이 ID는 새 역할을 만들 때 자동으로 생성됩니다. |
-| `IsCustom` | yes | String | 사용자 지정 역할인지 여부를 나타냅니다. 사용자 지정 역할인 경우 `true`로 설정합니다. |
-| `Description` | yes | String | 사용자 지정 역할에 대한 설명입니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 1,024자입니다. |
-| `Actions` | yes | String[] | 역할에서 수행할 수 있는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Actions](role-definitions.md#actions)를 참조하세요. |
-| `NotActions` | 예 | String[] | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotActions](role-definitions.md#notactions)를 참조하세요. |
-| `DataActions` | 예 | String[] | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. 을 사용하여 `DataActions`사용자 지정 역할을 만드는 경우 관리 그룹 범위에서 해당 역할을 할당할 수 없습니다. 자세한 내용은 [데이터 작업](role-definitions.md#dataactions)을 참조하십시오. |
-| `NotDataActions` | 예 | String[] | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotDataAction](role-definitions.md#notdataactions)을 참조하십시오. |
-| `AssignableScopes` | yes | String[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 사용자 지정 `AssignableScopes` 역할의 관리 그룹 하나만 정의할 수 있습니다. 관리 그룹을 추가하려면 `AssignableScopes` 현재 미리 보기 상태입니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes)를 참조하세요. |
+| `Name` | 예 | String | 사용자 지정 역할의 표시 이름입니다. 역할 정의는 관리 그룹 또는 구독 수준 리소스 이지만 동일한 Azure AD 디렉터리를 공유 하는 여러 구독에서 역할 정의를 사용할 수 있습니다. 표시 이름은 Azure AD 디렉터리의 범위에서 고유해야 합니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 128자입니다. |
+| `Id` | 예 | String | 사용자 지정 역할의 고유 ID입니다. Azure PowerShell 및 Azure CLI의 경우 이 ID는 새 역할을 만들 때 자동으로 생성됩니다. |
+| `IsCustom` | 예 | String | 사용자 지정 역할인지 여부를 나타냅니다. 사용자 지정 역할인 경우 `true`로 설정합니다. |
+| `Description` | 예 | String | 사용자 지정 역할에 대한 설명입니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 1,024자입니다. |
+| `Actions` | 예 | String[] | 역할에서 수행할 수 있는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Actions](role-definitions.md#actions)를 참조하세요. |
+| `NotActions` | 아니요 | String[] | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotActions](role-definitions.md#notactions)를 참조하세요. |
+| `DataActions` | 아니요 | String[] | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. 를 사용 `DataActions`하 여 사용자 지정 역할을 만드는 경우 해당 역할은 관리 그룹 범위에서 할당할 수 없습니다. 자세한 내용은 [Dataactions](role-definitions.md#dataactions)를 참조 하세요. |
+| `NotDataActions` | 아니요 | String[] | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Notdataactions](role-definitions.md#notdataactions)를 참조 하세요. |
+| `AssignableScopes` | 예 | String[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 사용자 지정 역할에 `AssignableScopes` 는 하나의 관리 그룹만 정의할 수 있습니다. 에 관리 그룹을 추가 `AssignableScopes` 하는 것은 현재 미리 보기 상태입니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes)를 참조하세요. |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>사용자 지정 역할을 생성, 삭제, 업데이트 또는 볼 수 있는 사용자
 
 기본 제공 역할과 마찬가지로, `AssignableScopes` 속성은 할당에 사용할 수 있는 역할에 대한 범위를 지정합니다. 또한 사용자 지정 역할에 대한 `AssignableScopes` 속성은 사용자 지정 역할을 생성, 삭제, 업데이트 또는 볼 수 있는 사용자도 제어합니다.
 
-| Task | 작업(Operation) | 설명 |
+| 작업 | 작업(Operation) | Description |
 | --- | --- | --- |
-| 사용자 지정 역할 만들기/삭제 | `Microsoft.Authorization/ roleDefinitions/write` | 사용자 지정 역할의 모든 `AssignableScopes`에 이 작업이 부여된 사용자는 해당 범위에서 사용할 사용자 지정 역할을 만들거나 삭제할 수 있습니다. 예를 들어 관리 그룹, 구독 및 리소스 그룹의 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자입니다.](built-in-roles.md#user-access-administrator) |
-| 사용자 지정 역할 업데이트 | `Microsoft.Authorization/ roleDefinitions/write` | 사용자 지정 역할의 모든 `AssignableScopes`에 이 작업이 부여된 사용자는 해당 범위에의 사용자 지정 역할을 업데이트할 수 있습니다. 예를 들어 관리 그룹, 구독 및 리소스 그룹의 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자입니다.](built-in-roles.md#user-access-administrator) |
+| 사용자 지정 역할 만들기/삭제 | `Microsoft.Authorization/ roleDefinitions/write` | 사용자 지정 역할의 모든 `AssignableScopes`에 이 작업이 부여된 사용자는 해당 범위에서 사용할 사용자 지정 역할을 만들거나 삭제할 수 있습니다. 예를 들어 관리 그룹, 구독 및 리소스 그룹의 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 가 있습니다. |
+| 사용자 지정 역할 업데이트 | `Microsoft.Authorization/ roleDefinitions/write` | 사용자 지정 역할의 모든 `AssignableScopes`에 이 작업이 부여된 사용자는 해당 범위에의 사용자 지정 역할을 업데이트할 수 있습니다. 예를 들어 관리 그룹, 구독 및 리소스 그룹의 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 가 있습니다. |
 | 사용자 지정 역할 보기 | `Microsoft.Authorization/ roleDefinitions/read` | 범위에서 이 작업이 부여된 사용자는 해당 범위에서 할당에 사용할 수 있는 사용자 지정 역할을 볼 수 있습니다. 모든 기본 제공 역할을 통해 사용자 지정 역할을 할당할 수 있습니다. |
 
 ## <a name="custom-role-limits"></a>사용자 지정 역할 제한
 
-다음 목록에서는 사용자 지정 역할에 대한 제한에 대해 설명합니다.
+다음 목록에서는 사용자 지정 역할에 대 한 제한을 설명 합니다.
 
-- 각 디렉터리에는 최대 **5,000개의** 사용자 지정 역할이 있을 수 있습니다.
-- Azure 독일 및 Azure China 21Vianet은 각 디렉터리마다 최대 2,000개의 사용자 지정 역할을 가질 수 있습니다.
-- 루트 범위 `AssignableScopes` ()로`"/"`설정할 수 없습니다.
-- 사용자 지정 `AssignableScopes` 역할의 관리 그룹 하나만 정의할 수 있습니다. 관리 그룹을 추가하려면 `AssignableScopes` 현재 미리 보기 상태입니다.
-- 관리 그룹 `DataActions` 범위에서 사용자 지정 역할을 할당할 수 없습니다.
-- Azure Resource Manager는 역할 정의의 할당 가능한 범위에서 관리 그룹의 존재를 확인 하지 않습니다.
+- 각 디렉터리에는 최대 **5000** 개의 사용자 지정 역할이 있을 수 있습니다.
+- Azure 독일 및 Azure 중국 21Vianet에는 각 디렉터리에 대해 최대 2000 개의 사용자 지정 역할이 있을 수 있습니다.
+- 루트 범위 ( `AssignableScopes` `"/"`)로 설정할 수 없습니다.
+- 사용자 지정 역할에 `AssignableScopes` 는 하나의 관리 그룹만 정의할 수 있습니다. 에 관리 그룹을 추가 `AssignableScopes` 하는 것은 현재 미리 보기 상태입니다.
+- 를 사용 하 `DataActions` 는 사용자 지정 역할은 관리 그룹 범위에서 할당할 수 없습니다.
+- Azure Resource Manager는 관리 그룹이 역할 정의의 할당 가능한 범위에 있는지 확인 하지 않습니다.
 
-사용자 지정 역할 및 관리 그룹에 대한 자세한 내용은 [Azure 관리 그룹으로 리소스 구성을](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment)참조하십시오.
+사용자 지정 역할 및 관리 그룹에 대 한 자세한 내용은 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure 포털을 사용하여 Azure 사용자 지정 역할 만들기 또는 업데이트(미리 보기)](custom-roles-portal.md)
+- [Azure Portal (미리 보기)를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트](custom-roles-portal.md)
 - [Azure 리소스에 대한 역할 정의 이해](role-definitions.md)
 - [Azure 리소스에 대한 RBAC 문제 해결](troubleshooting.md)

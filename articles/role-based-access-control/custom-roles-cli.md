@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기 또는 업데이트 | 마이크로 소프트 문서
-description: Azure CLI를 사용하여 Azure 리소스에 대한 역할 기반 액세스 제어(RBAC)를 사용하여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제하는 방법을 알아봅니다.
+title: Azure CLI를 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기 또는 업데이트 Microsoft Docs
+description: Azure CLI를 사용 하 여 Azure 리소스에 대 한 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,22 +15,22 @@ ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 44676f7b92c2bcd30612295840054ab2f0c0cf12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062221"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-cli"></a>Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기 또는 업데이트
+# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기 또는 업데이트
 
 > [!IMPORTANT]
-> 관리 그룹을 추가하려면 `AssignableScopes` 현재 미리 보기 상태입니다.
+> 에 관리 그룹을 추가 `AssignableScopes` 하는 것은 현재 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제하는 방법에 대해 설명합니다.
+[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure CLI를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법을 설명 합니다.
 
-사용자 지정 역할을 만드는 방법에 대한 단계별 자습서는 [자습서: Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기를](tutorial-custom-role-cli.md)참조하십시오.
+사용자 지정 역할을 만드는 방법에 대 한 단계별 자습서는 [자습서: Azure CLI 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기](tutorial-custom-role-cli.md)를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -70,13 +70,13 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 
 ## <a name="list-a-custom-role-definition"></a>사용자 지정 역할 정의 나열
 
-사용자 지정 역할 정의를 나열하려면 [az 역할 정의 목록을](/cli/azure/role/definition#az-role-definition-list)사용합니다. 기본 제공 역할에 사용할 명령과 동일합니다.
+사용자 지정 역할 정의를 나열 하려면 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용 합니다. 이는 기본 제공 역할에 사용 하는 것과 동일한 명령입니다.
 
 ```azurecli
 az role definition list --name <role_name>
 ```
 
-다음 예제에는 *가상 시스템 운영자* 역할 정의가 나열되어 있습니다.
+다음 예제에서는 *가상 머신 운영자* 역할 정의를 나열 합니다.
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator"
@@ -118,7 +118,7 @@ az role definition list --name "Virtual Machine Operator"
 ]
 ```
 
-다음 예제에는 가상 시스템 *운영자* 역할의 작업만 나열됩니다.
+다음 예제에서는 *가상 머신 운영자* 역할의 작업만 나열 합니다.
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator" --output json | jq '.[] | .permissions[0].actions'
@@ -191,7 +191,7 @@ az role definition create --role-definition ~/roles/vmoperator.json
 az role definition update --role-definition <role_definition>
 ```
 
-다음 예제는 *Microsoft.Insights/diagnosticSettings/작업을* `Actions` 추가하고 가상 컴퓨터 `AssignableScopes` *운영자* 사용자 지정 역할에 대한 관리 그룹을 추가합니다. 관리 그룹을 추가하려면 `AssignableScopes` 현재 미리 보기 상태입니다.
+다음 예에서는에 *Microsoft diagnosticSettings//* 작업을 추가 하 `Actions` 고 *Virtual Machine Operator* 사용자 지정 `AssignableScopes` 역할에 대 한 관리 그룹을에 추가 합니다. 에 관리 그룹을 추가 `AssignableScopes` 하는 것은 현재 미리 보기 상태입니다.
 
 vmoperator.json
 
@@ -244,6 +244,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: Azure CLI를 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기](tutorial-custom-role-cli.md)
+- [자습서: Azure CLI을 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기](tutorial-custom-role-cli.md)
 - [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)
-- [Azure 리소스 관리자 리소스 공급자 작업](resource-provider-operations.md)
+- [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)

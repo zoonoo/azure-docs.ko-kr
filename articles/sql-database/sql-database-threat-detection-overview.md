@@ -1,6 +1,6 @@
 ---
 title: 고급 위협 보호
-description: 고급 위협 보호는 Azure SQL Database에서 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다.
+description: Advanced Threat Protection은 Azure SQL Database 잠재적 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색 합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,32 +13,32 @@ ms.reviewer: vanto, carlrab
 ms.date: 02/05/2020
 tags: azure-synapse
 ms.openlocfilehash: 17ca8cbb7a55e9c0d44af099f4884f71b1cd457a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80124767"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Azure SQL Database의 Advanced Threat Protection
 
-Azure SQL [데이터베이스](sql-database-technical-overview.md) 및 [Azure Synapse Analytics에](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 대한 고급 위협 보호는 데이터베이스에 액세스하거나 악용하려는 비정상적이고 잠재적으로 유해한 시도를 나타내는 비정상적인 활동을 검색합니다.
+[Azure SQL Database](sql-database-technical-overview.md) 및 [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 에 대 한 Advanced Threat Protection은 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 비정상적인 시도를 감지 합니다.
 
-고급 위협 보호는 [고급](sql-database-advanced-data-security.md) SQL 보안 기능을 위한 통합 패키지인 ADS(고급 데이터 보안) 제공의 일부입니다. 중앙의 SQL ADS 포털을 통해 Advanced Threat Protection에 액세스하고 관리할 수 있습니다.
+Advanced Threat Protection은 고급 SQL 보안 기능을 위한 통합 패키지인 광고 ( [advanced data security](sql-database-advanced-data-security.md) ) 제품의 일부입니다. 중앙의 SQL ADS 포털을 통해 Advanced Threat Protection에 액세스하고 관리할 수 있습니다.
 
 > [!NOTE]
-> 이 항목은 Azure SQL 서버및 Azure SQL 서버에서 생성된 SQL 데이터베이스 및 Azure 시냅스 모두에 적용됩니다. 간단히 하기 위해 SQL 데이터베이스는 SQL 데이터베이스와 Azure Synapse를 모두 참조할 때 사용됩니다.
+> 이 항목은 azure sql server에 적용 되며, Azure SQL server에서 생성 되는 SQL Database 및 Azure Synapse에 모두 적용 됩니다. 간단히 하기 위해 SQL Database와 Azure Synapse를 둘 다 참조할 때 SQL Database 사용 됩니다.
 
-## <a name="what-is-advanced-threat-protection"></a>고급 위협 보호란 무엇입니까?
+## <a name="what-is-advanced-threat-protection"></a>Advanced Threat Protection 이란?
 
- 고급 위협 보호는 새로운 보안 계층을 제공하므로 고객은 비정상적인 활동에 대한 보안 경고를 제공하여 잠재적인 위협을 감지하고 대응할 수 있습니다. 사용자는 의심스러운 데이터베이스 활동, 잠재적 취약성 및 SQL 삽입 공격뿐만 아니라 비정상적인 데이터베이스 액세스 및 쿼리 패턴에 대한 경고도 받습니다. 고급 위협 보호는 의심스러운 활동에 대한 세부 정보를 포함하는 [Azure Security Center와](https://azure.microsoft.com/services/security-center/)경고를 통합하고 위협을 조사하고 완화하는 방법에 대한 조치를 권장합니다. 고급 위협 보호를 사용하면 보안 전문가가 되거나 고급 보안 모니터링 시스템을 관리할 필요 없이 데이터베이스에 대한 잠재적 위협을 쉽게 해결할 수 있습니다.
+ Advanced Threat Protection은 비정상적인 활동에 대 한 보안 경고를 제공 하 여 고객이 발생할 때 잠재적 위협을 감지 하 고 대응할 수 있도록 하는 새로운 보안 계층을 제공 합니다. 사용자는 의심스러운 데이터베이스 활동, 잠재적 취약성 및 SQL 삽입 공격뿐만 아니라 비정상적인 데이터베이스 액세스 및 쿼리 패턴에 대한 경고도 받습니다. Advanced Threat Protection은 경고를 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합 하 여 의심 스러운 활동의 세부 정보를 포함 하 고 위협을 조사 하 고 완화 하는 방법에 대 한 작업을 권장 합니다. Advanced Threat Protection을 사용 하면 보안 전문가가 되거나 고급 보안 모니터링 시스템을 관리할 필요 없이 데이터베이스에 대 한 잠재적 위협을 쉽게 해결할 수 있습니다.
 
 완전한 조사 환경을 위해, Azure Storage 계정의 감사 로그에 데이터베이스 이벤트를 쓰는 [SQL Database 감사](sql-database-auditing.md)를 사용하도록 설정하는 것이 좋습니다.  
 
 ## <a name="advanced-threat-protection-alerts"></a>Advanced Threat Protection 경고
 
-Azure SQL Database에 대한 고급 위협 보호는 데이터베이스에 액세스하거나 악용하려는 비정상적이고 잠재적으로 유해한 시도를 나타내는 비정상적인 활동을 감지하고 다음 경고를 트리거할 수 있습니다.
+Azure SQL Database에 대 한 Advanced Threat Protection은 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 비정상적인 시도를 감지 하 고 다음 경고를 트리거할 수 있습니다.
 
-- **SQL 주입에 대한 취약성**: 응용 프로그램이 데이터베이스에서 잘못된 SQL 문을 생성할 때 이 경고가 트리거됩니다. 이 경고는 SQL 삽입 공격에 대한 가능한 취약점을 나타낼 수 있습니다. 잘못된 문 생성에 대한 두 가지 가능한 이유가 있습니다.
+- **SQL 삽입에 대 한 취약점**:이 경고는 응용 프로그램이 데이터베이스에서 잘못 된 SQL 문을 생성할 때 트리거됩니다. 이 경고는 SQL 삽입 공격에 대한 가능한 취약점을 나타낼 수 있습니다. 잘못된 문 생성에 대한 두 가지 가능한 이유가 있습니다.
 
   - 잘못된 SQL문을 구성하는 애플리케이션 코드의 결함
   - 애플리케이션 코드 또는 저장 프로시저는 SQL 삽입에 악용될 수 있는 잘못된 SQL문을 생성할 때 사용자 입력을 삭제하지 않습니다.
@@ -65,21 +65,21 @@ Azure SQL Database에 대한 고급 위협 보호는 데이터베이스에 액�
 
    ![특정 경고](./media/sql-database-threat-detection/specific_alert.png)
 
-## <a name="explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal"></a>Azure 포털에서 데이터베이스에 대한 고급 위협 보호 경고 살펴보기
+## <a name="explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal"></a>Azure Portal에서 데이터베이스에 대 한 고급 위협 방지 경고 살펴보기
 
-고급 위협 보호는 경고를 [Azure 보안 센터와](https://azure.microsoft.com/services/security-center/)통합합니다. Azure 포털의 데이터베이스 및 SQL ADS 블레이드 내의 라이브 SQL 고급 위협 보호 타일은 활성 위협의 상태를 추적합니다.
+Advanced Threat Protection은 경고를 [Azure security center](https://azure.microsoft.com/services/security-center/)와 통합 합니다. 데이터베이스 내의 라이브 SQL Advanced Threat Protection 타일과 Azure Portal의 SQL 광고 블레이드는 활성 위협의 상태를 추적 합니다.
 
-**고급 위협 보호 경고를** 클릭하여 Azure 보안 센터 경고 페이지를 시작하고 데이터베이스에서 검색된 활성 SQL 위협에 대한 개요를 가져옵니다.
+경고 Azure Security Center 페이지를 시작 하 고 데이터베이스에서 감지 된 활성 SQL 위협에 대 한 개요를 보려면 **Advanced Threat Protection 경고** 를 클릭 합니다.
 
-   ![고급 위협 보호 경고](./media/sql-database-threat-detection/threat_detection_alert.png)
+   ![Advanced Threat Protection 경고](./media/sql-database-threat-detection/threat_detection_alert.png)
 
-   ![고급 위협 보호 경고2](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
+   ![Advanced Threat Protection alert2](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [단일 및 풀로 풀린 데이터베이스의 고급 위협 보호에](sql-database-threat-detection.md)대해 자세히 알아보십시오.
-- [관리되는 인스턴스의 고급 위협 보호에](sql-database-managed-instance-threat-detection.md)대해 자세히 알아보십시오.
-- [고급 데이터 보안에](sql-database-advanced-data-security.md)대해 자세히 알아보십시오.
-- [Azure SQL 데이터베이스 감사에](sql-database-auditing.md) 대해 자세히 알아보기
+- [단일 및 풀링된 데이터베이스에서 Advanced Threat Protection](sql-database-threat-detection.md)에 대해 자세히 알아보세요.
+- [관리 되는 인스턴스의 Advanced Threat Protection](sql-database-managed-instance-threat-detection.md)에 대해 자세히 알아보세요.
+- [고급 데이터 보안](sql-database-advanced-data-security.md)에 대해 자세히 알아보세요.
+- [Azure SQL Database 감사](sql-database-auditing.md) 에 대 한 자세한 정보
 - [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대해 자세히 알아봅니다.
-- 가격 책정에 대한 자세한 내용은 [SQL Database 가격 책정 페이지를](https://azure.microsoft.com/pricing/details/sql-database/) 참조하십시오.  
+- 가격 책정에 대 한 자세한 내용은 [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/) 를 참조 하세요.  

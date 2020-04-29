@@ -1,5 +1,5 @@
 ---
-title: Azure 알림 허브를 사용하여 특정 iOS 장치에 푸시 알림 보내기 | 마이크로 소프트 문서
+title: Azure Notification Hubs을 사용 하 여 특정 iOS 장치에 푸시 알림 보내기 Microsoft Docs
 description: 이 자습서에서는 Azure Notification Hubs를 사용하여 특정 iOS 디바이스로 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: ios
@@ -17,13 +17,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
 ms.openlocfilehash: a775963f1b0fa19cd687c839f527f4a078c76864
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80126987"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>자습서: Azure 알림 허브를 사용 하 여 특정 iOS 장치에 푸시 알림을 보내기
+# <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용 하 여 특정 iOS 장치에 푸시 알림 보내기
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -159,7 +159,7 @@ ms.locfileid: "80126987"
 9. `AppDelegate.m`의 `didRegisterForRemoteNotificationsWithDeviceToken` 메서드에서 디바이스 토큰을 `notifications` 클래스에 전달하는 다음 코드로 메서드의 코드를 바꿉니다. `notifications` 클래스는 범주를 사용하여 알림에 대해 등록을 수행합니다. 사용자가 범주 선택 항목을 변경하는 경우 **구독** 단추에 대한 응답으로 `subscribeWithCategories` 메서드를 호출하여 범주 선택 항목을 업데이트합니다.
 
     > [!NOTE]
-    > APNS(Apple Push Notification Service)에서 할당한 장치 토큰은 언제든지 변경될 수 있으므로 알림 오류를 방지하려면 알림을 자주 등록해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.
+    > APNS (Apple Push Notification Service)에서 할당 하는 장치 토큰은 언제 든 지 변경 될 수 있으므로 알림 실패를 방지 하려면 알림을 자주 등록 해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.
 
     ```objc
     self.notifications.deviceToken = deviceToken;
@@ -371,4 +371,4 @@ Visual Studio에 액세스할 수 없는 경우 다음 섹션으로 건너뛰고
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Azure 포털]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

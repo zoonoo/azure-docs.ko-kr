@@ -1,6 +1,6 @@
 ---
-title: 단일 및 풀린 데이터베이스에 대한 VNet 끝점 및 규칙에 대한 PowerShell
-description: Azure SQL 데이터베이스 및 Azure Synapse에 대한 가상 서비스 끝점을 만들고 관리하는 PowerShell 스크립트를 제공합니다.
+title: 단일 및 풀링된 데이터베이스에 대 한 VNet 끝점 및 규칙에 대 한 PowerShell
+description: Azure SQL Database 및 Azure Synapse에 대 한 가상 서비스 끝점을 만들고 관리 하는 PowerShell 스크립트를 제공 합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,18 +12,18 @@ ms.reviewer: genemi, vanto
 ms.date: 03/12/2019
 tags: azure-synapse
 ms.openlocfilehash: 1e8ec394eab1df0aebe394b8acebc74c7ed49e9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80124698"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell: SQL에 대한 가상 서비스 엔드포인트 및 VNet 규칙 만들기
 
-*가상 네트워크 규칙은* Azure [SQL Database의](sql-database-technical-overview.md) 단일 데이터베이스 및 탄력적 풀에 대한 데이터베이스 서버또는 [Azure Synapse의](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 데이터베이스에 대한 데이터베이스 서버가 가상 네트워크의 특정 서브넷에서 전송되는 통신을 수락하는지 여부를 제어하는 방화벽 보안 기능 입니다.
+*가상 네트워크 규칙* 은 단일 데이터베이스에 대 한 데이터베이스 서버와 [SQL Database](sql-database-technical-overview.md) azure의 탄력적 풀 또는 [azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 의 데이터베이스에 대 한 데이터베이스 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락 하는지 여부를 제어 하는 하나의 방화벽 보안 기능입니다.
 
 > [!IMPORTANT]
-> 이 문서는 Azure SQL 서버와 Azure SQL 서버에서 만든 Azure Synapse의 SQL 데이터베이스 및 데이터 웨어하우스모두에 적용됩니다. 간단히 하기 위해 SQL 데이터베이스는 SQL 데이터베이스와 Azure Synapse를 모두 참조할 때 사용됩니다. Azure SQL Database의 **관리되는 인스턴스** 배포는 서비스 엔드포인트와 연결되지 않으므로 이 문서는 해당 배포에 적용되지 *않습니다*.
+> 이 문서는 azure sql server에 적용 되며, azure SQL server에 생성 된 Azure Synapse의 SQL Database 및 데이터 웨어하우스에 모두 적용 됩니다. 간단히 하기 위해 SQL Database와 Azure Synapse를 둘 다 참조할 때 SQL Database 사용 됩니다. Azure SQL Database의 **관리되는 인스턴스** 배포는 서비스 엔드포인트와 연결되지 않으므로 이 문서는 해당 배포에 적용되지 *않습니다*.
 
 이 문서에서는 다음 작업을 수행하는 PowerShell 스크립트를 제공하고 설명합니다.
 
@@ -38,19 +38,19 @@ ms.locfileid: "80124698"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure 리소스 관리자 모듈은 Azure SQL Database에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈용입니다. 이러한 cmdlet에 대 한 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조 합니다. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 거의 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
 
 ## <a name="major-cmdlets"></a>주요 cmdlet
 
-이 문서에서는 Azure SQL Database 서버의 액세스 제어 목록(ACL)에 서브넷 끝점을 추가하여 규칙을 만드는 **New-AzSqlServerVirtualNetworkRule** cmdlet을 강조합니다.
+이 문서에서는 Azure SQL Database 서버의 ACL (액세스 제어 목록)에 서브넷 끝점을 추가 하 여 규칙을 만드는 **AzSqlServerVirtualNetworkRule** cmdlet을 강조 합니다.
 
-다음 목록은 **New-AzSqlServerVirtualNetworkRule에**대한 호출을 준비하기 위해 실행해야 하는 다른 *주요* cmdlet의 시퀀스를 보여 줍니다. 이 문서에서 이러한 호출은 [스크립트 3 “가상 네트워크 규칙”](#a-script-30)에서 수행됩니다.
+다음 목록에서는 **AzSqlServerVirtualNetworkRule**에 대 한 호출을 준비 하기 위해 실행 해야 하는 다른 *주요* cmdlet의 시퀀스를 보여 줍니다. 이 문서에서 이러한 호출은 [스크립트 3 “가상 네트워크 규칙”](#a-script-30)에서 수행됩니다.
 
-1. [New-Az가상네트워크서브넷구성](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig): 서브넷 개체를 만듭니다.
-2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): 가상 네트워크를 생성하여 서브넷을 제공합니다.
-3. [설정-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): 서브넷에 가상 서비스 끝점을 할당합니다.
-4. [설정-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork): 가상 네트워크에 대한 업데이트를 유지합니다.
-5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): 서브넷이 끝점이 된 후 서브넷을 가상 네트워크 규칙으로 추가하여 Azure SQL Database 서버의 ACL에 추가합니다.
+1. [AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig): 서브넷 개체를 만듭니다.
+2. [AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): 가상 네트워크를 만들어 서브넷을 제공 합니다.
+3. [AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): 서브넷에 가상 서비스 끝점을 할당 합니다.
+4. [AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork): 가상 네트워크에 대 한 업데이트를 유지 합니다.
+5. [AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): 서브넷은 끝점으로, 서브넷을 가상 네트워크 규칙으로 AZURE SQL DATABASE 서버의 ACL에 추가 합니다.
    - 이 cmdlet은 Azure RM PowerShell 모듈 버전 5.1.1에서 시작하는 **-IgnoreMissingVNetServiceEndpoint** 매개 변수를 제공합니다.
 
 ## <a name="prerequisites-for-running-powershell"></a>PowerShell을 실행하기 위한 필수 구성 요소

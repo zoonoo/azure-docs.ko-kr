@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용하여 VM에 대한 포트 열기
-description: Azure CLI를 사용하여 포트를 여는 방법 / VM에 끝점을 만드는 방법에 대해 알아봅니다.
+title: Azure CLI를 사용 하 여 VM에 대 한 포트 열기
+description: Azure CLI를 사용 하 여 VM에 대 한 포트를 열고 끝점을 만드는 방법에 대해 알아봅니다.
 author: cynthn
 manager: gwallace
 ms.service: virtual-machines
@@ -10,13 +10,13 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.openlocfilehash: c29fb075fc2d8b512070d7a6cf3fef949def5894
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066621"
 ---
-# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 VM에 대한 포트 및 끝점 열기
+# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Azure CLI를 사용 하 여 VM에 대 한 포트 및 끝점 열기
 
 서브넷 또는 VM 네트워크 인터페이스에서 네트워크 필터를 만들어, Azure에서 VM(가상 컴퓨터)에 대한 포트를 열거나 엔드포인트를 만듭니다. 인바운드 및 아웃바운드 트래픽을 모두 제어하는 이러한 필터를 트래픽을 수신하는 리소스에 연결된 네트워크 보안 그룹에 배치합니다. 포트 80에서 웹 트래픽의 일반적인 예제를 사용해 보겠습니다. 이 문서에서는 Azure CLI를 사용하여 VM에 포트를 여는 방법을 보여 줍니다. 
 
@@ -37,7 +37,7 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 80
 
 
 ## <a name="create-a-network-security-group-and-rules"></a>네트워크 보안 그룹 및 규칙 만들기
-[az network nsg create](/cli/azure/network/nsg)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *동쪽* 위치에 *myNetworkSecurityGroup이라는* 네트워크 보안 그룹을 만듭니다.
+[az network nsg create](/cli/azure/network/nsg)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예에서는 *e미국* 위치에 *mynetworksecuritygroup* 이라는 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli
 az network nsg create \
@@ -87,5 +87,5 @@ az network vnet subnet update \
 ## <a name="next-steps"></a>다음 단계
 이 예제에서는 HTTP 트래픽을 허용하는 간단한 규칙을 만들었습니다. 다음 문서에서 보다 자세한 환경을 만들기 위한 정보를 찾을 수 있습니다.
 
-* [Azure 리소스 관리자 개요](../../azure-resource-manager/management/overview.md)
+* [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)
 * [NSG(네트워크 보안 그룹)란?](../../virtual-network/security-overview.md)

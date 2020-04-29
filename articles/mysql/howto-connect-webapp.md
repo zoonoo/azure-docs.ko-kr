@@ -1,5 +1,5 @@
 ---
-title: Azure 앱 서비스 연결 - MySQL용 Azure 데이터베이스
+title: Azure App Service에 연결-Azure Database for MySQL
 description: 기존 Azure App Service를 Azure Database for MySQL에 적절하게 연결하는 방법에 대한 지침
 author: ajlam
 ms.author: andrela
@@ -7,17 +7,17 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: ba75daa47ca1f77cd5828d13877238a64deeeb41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062470"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>기존 Azure App Service를 Azure Database for MySQL 서버에 연결
 이 항목에서는 기존 Azure App Service를 Azure Database for MySQL 서버에 연결하는 방법을 설명합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-[Azure 포털에](https://portal.azure.com)로그인합니다. Azure Database for MySQL 서버를 만듭니다. 자세한 내용은 [포털에서 Azure Database for MySQL 서버 만들기](quickstart-create-mysql-server-database-using-azure-portal.md) 또는 [CLI를 사용하여 Azure Database for MySQL 서버 만들기](quickstart-create-mysql-server-database-using-azure-cli.md)를 참조하세요.
+[Azure Portal](https://portal.azure.com)에 로그인합니다. Azure Database for MySQL 서버를 만듭니다. 자세한 내용은 [포털에서 Azure Database for MySQL 서버 만들기](quickstart-create-mysql-server-database-using-azure-portal.md) 또는 [CLI를 사용하여 Azure Database for MySQL 서버 만들기](quickstart-create-mysql-server-database-using-azure-cli.md)를 참조하세요.
 
 현재 Azure App Service에서 Azure Database for MySQL로의 액세스를 가능하게 하는 두 가지 솔루션이 있습니다. 두 솔루션 모두 서버 수준 방화벽 규칙 설정 작업이 포함됩니다.
 
@@ -49,7 +49,7 @@ Azure App Service에서는 시간이 지나도 IP 주소를 동일하게 유지�
 ## <a name="ssl-configuration"></a>SSL 구성
 Azure Database for MySQL은 기본적으로 SSL을 사용하도록 설정됩니다. 애플리케이션에서 데이터베이스에 연결할 때 SSL을 사용하지 않는 경우 MySQL 서버에서 SSL을 사용하지 않도록 설정해야 합니다. SSL을 구성하는 방법에 대한 자세한 내용은 [Azure Database for MySQL에 SSL 사용](howto-configure-ssl.md)을 참조하세요.
 
-### <a name="django-pymysql"></a>장고 (피미SQL)
+### <a name="django-pymysql"></a>Django (PyMySQL)
 ```python
 DATABASES = {
     'default': {

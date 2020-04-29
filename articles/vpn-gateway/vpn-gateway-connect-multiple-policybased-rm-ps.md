@@ -1,5 +1,5 @@
 ---
-title: 'Azure VPN 게이트웨이: 게이트웨이를 여러 온-프레미스 정책 기반 VPN 장치에 연결'
+title: 'Azure VPN Gateway: 게이트웨이를 여러 온-프레미스 정책 기반 VPN 장치에 연결'
 description: Azure Resource Manager 및 PowerShell을 사용하여 여러 정책 기반 VPN 디바이스에 대해 Azure 경로 기반 VPN 게이트웨이를 구성합니다.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: yushwang
 ms.openlocfilehash: 687c33e50a986cf8af08d0201fe0159a79cf02a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80123327"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>PowerShell을 사용하여 여러 온-프레미스 정책 기반 VPN 디바이스에 Azure VPN Gateway 연결
@@ -20,7 +20,7 @@ ms.locfileid: "80123327"
 
 ## <a name="about-policy-based-and-route-based-vpn-gateways"></a><a name="about"></a>정책 기반 및 경로 기반 VPN 게이트웨이 정보
 
-정책 기반 *및* 경로 기반 VPN 장치는 IPsec 트래픽 선택기의 연결 설정 방식이 다릅니다.
+정책 기반 *및* 경로 기반 VPN 장치는 연결에서 IPsec 트래픽 선택기를 설정 하는 방법에 차이가 있습니다.
 
 * **정책 기반** VPN 디바이스는 두 네트워크의 접두사 조합을 사용하여 트래픽이 IPsec 터널을 통해 암호화/암호 해독되는 방법을 정의합니다. 이는 일반적으로 패킷 필터링을 수행하는 방화벽 디바이스에 구축됩니다. IPsec 터널 암호화 및 암호 해독이 패킷 필터링 및 처리 엔진에 추가됩니다.
 * **경로 기반** VPN 디바이스는 임의(와일드 카드) 트래픽 선택기를 사용하며, 라우팅/전달 테이블이 서로 다른 IPsec 터널로 트래픽을 전달하도록 합니다. 이는 일반적으로 각 IPsec 터널이 네트워크 인터페이스 또는 VTI(가상 터널 인터페이스)로 모델링되는 라우터 플랫폼에 구축됩니다.
@@ -36,11 +36,11 @@ ms.locfileid: "80123327"
 ### <a name="azure-support-for-policy-based-vpn"></a>정책 기반 VPN에 대한 Azure 지원
 현재 Azure에서는 VPN Gateway의 두 가지 모드(경로 기반 VPN Gateway 및 정책 기반 VPN Gateway)를 모두 지원합니다. 이러한 게이트웨이는 서로 다른 플랫폼에 구축되므로 사양이 서로 다릅니다.
 
-|                          | **PolicyBased VPN Gateway** | **경로 기반 VPN 게이트웨이**       |**경로 기반 VPN 게이트웨이**                          |
+|                          | **PolicyBased VPN Gateway** | **경로 기반 VPN Gateway**       |**경로 기반 VPN Gateway**                          |
 | ---                      | ---                         | ---                              |---                                                 |
 | **Azure Gateway SKU**    | Basic                       | Basic                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **IKE 버전**          | IKEv1                       | IKEv2                            | IKEv1 및 IKEv2                         |
-| **최대. S2S 연결** | **1**                       | 10                               | 30                     |
+| **최대값. S2S 연결** | **1**                       | 10                               | 30                     |
 |                          |                             |                                  |                                                    |
 
 이제 사용자 지정 IPsec/IKE 정책을 사용하여 "**PolicyBasedTrafficSelectors**" 옵션과 함께 접두사 기반 트래픽 선택기를 사용하여 온-프레미스 정책 기반 VPN 디바이스에 연결하도록 Azure 경로 기반 VPN 게이트웨이를 구성할 수 있습니다. 이 기능을 사용하면 Azure Virtual Network 및 VPN Gateway에서 여러 온-프레미스 정책 기반 VPN/방화벽 디바이스에 연결할 수 있으므로 현재 Azure 정책 기반 VPN Gateway에서 단일 연결 제한이 제거됩니다.
@@ -56,17 +56,17 @@ ms.locfileid: "80123327"
 
 다이어그램에 나와 있는 것처럼 Azure VPN Gateway의 트래픽 선택기는 가상 네트워크에서 각각의 온-프레미스 네트워크 접두사로는 연결되지만 교차 연결 접두사로는 연결되지 않습니다. 예를 들어 온-프레미스 사이트 2, 3 및 4는 각각 VNet1과 통신할 수 있지만 Azure VPN Gateway를 통해 서로 연결할 수는 없습니다. 다이어그램에서는 이 구성을 사용할 경우 Azure VPN Gateway에서 사용할 수 없는 상호 연결 트래픽 선택기를 보여줍니다.
 
-## <a name="workflow"></a><a name="workflow"></a>Workflow
+## <a name="workflow"></a><a name="workflow"></a>워크플로
 
 이 문서의 지침은 [S2S 또는 VNet 간 연결에 대한 IPsec/IKE 정책 구성](vpn-gateway-ipsecikepolicy-rm-powershell.md)에 설명된 동일한 예제에 따라 S2S VPN 연결을 설정합니다. 다음 다이어그램에 이러한 연결이 나와 있습니다.
 
 ![s2s-policy](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
 
 이 연결을 사용하도록 설정하는 워크플로는 다음과 같습니다.
-1. 크로스-프레미스 연결을 위한 가상 네트워크, VPN 게이트웨이 및 로컬 네트워크 게이트웨이를 만듭니다.
+1. 크로스-프레미스 연결에 대 한 가상 네트워크, VPN gateway 및 로컬 네트워크 게이트웨이를 만듭니다.
 2. IPsec/IKE 정책을 만듭니다.
-3. S2S 또는 VNet-VNet 연결을 만들 때 정책을 적용하고 연결에서 **정책 기반 트래픽 선택기를 사용하도록 설정합니다.**
-4. 연결이 이미 생성된 경우 기존 연결에 정책을 적용하거나 업데이트할 수 있습니다.
+3. S2S 또는 VNet 간 연결을 만들 때 정책을 적용 하 고 연결에서 **정책 기반 트래픽 선택기를 사용 하도록 설정** 합니다.
+4. 연결이 이미 생성 된 경우 기존 연결에 정책을 적용 하거나 업데이트할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -76,13 +76,13 @@ ms.locfileid: "80123327"
 
 ## <a name="enable-policy-based-traffic-selectors"></a><a name="enablepolicybased"></a>정책 기반 트래픽 선택기 사용
 
-이 섹션에서는 연결에서 정책 기반 트래픽 선택기를 사용하도록 설정하는 방법을 보여 주며, 이 섹션에서는 [IPsec/IKE 정책 구성 문서의 3부분을](vpn-gateway-ipsecikepolicy-rm-powershell.md)완료했는지 확인합니다. 이 문서의 단계는 동일한 매개 변수를 사용합니다.
+이 섹션에서는 연결에서 정책 기반 트래픽 선택기를 사용 하도록 설정 하는 방법을 보여 줍니다. [IPsec/IKE 정책 구성 문서의 3 부](vpn-gateway-ipsecikepolicy-rm-powershell.md)를 완료 했는지 확인 합니다. 이 문서의 단계는 동일한 매개 변수를 사용 합니다.
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>1단계 - 가상 네트워크, VPN Gateway 및 로컬 네트워크 게이트웨이 만들기
 
 #### <a name="connect-to-your-subscription-and-declare-your-variables"></a>구독에 연결하고 변수 선언
 
-1. 컴퓨터에서 로컬로 PowerShell을 실행하는 경우 *Connect-AzAccount* cmdlet을 사용하여 로그인합니다. 또는 대신 브라우저에서 Azure 클라우드 셸을 사용합니다.
+1. 컴퓨터에서 로컬로 PowerShell을 실행 하는 경우 *AzAccount* cmdlet을 사용 하 여 로그인 합니다. 대신 브라우저에서 Azure Cloud Shell를 사용 합니다.
 
 2. 변수 선언. 이 연습에서는 다음 변수가 사용됩니다.
 
@@ -136,7 +136,7 @@ ms.locfileid: "80123327"
     New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
     ```
 
-### <a name="step-2---create-an-s2s-vpn-connection-with-an-ipsecike-policy"></a>2단계 - IPsec/IKE 정책으로 S2S VPN 연결 만들기
+### <a name="step-2---create-an-s2s-vpn-connection-with-an-ipsecike-policy"></a>2 단계-IPsec/IKE 정책을 사용 하 여 S2S VPN 연결 만들기
 
 1. IPsec/IKE 정책을 만듭니다.
 
@@ -150,7 +150,7 @@ ms.locfileid: "80123327"
    ```azurepowershell-interactive
    $ipsecpolicy6 = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
    ```
-1. 정책 기반 트래픽 선택기 및 IPsec/IKE 정책을 사용하여 S2S VPN 연결을 만들고 이전 단계에서 만든 IPsec/IKE 정책을 적용합니다. 연결에서 정책 기반 트래픽 선택기"를 활성화하는 추가 매개 변수 "-UsePolicyBasedTrafficSelectors $True"에 유의하십시오.
+1. 정책 기반 트래픽 선택기와 IPsec/IKE 정책을 사용 하 여 S2S VPN 연결을 만들고 이전 단계에서 만든 IPsec/IKE 정책을 적용 합니다. 연결에서 정책 기반 트래픽 선택기를 사용 하도록 설정 하는 추가 매개 변수 "-UsePolicyBasedTrafficSelectors $True"를 알고 있어야 합니다.
 
    ```azurepowershell-interactive
    $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
@@ -160,8 +160,8 @@ ms.locfileid: "80123327"
    ```
 1. 단계를 완료하면 S2S VPN 연결에서 정의된 IPsec/IKE 정책을 사용하며 연결에서 정책 기반 트래픽 선택기를 활성화합니다. 동일한 단계를 반복하여 동일한 Azure VPN 게이트웨이에서 추가 온-프레미스 정책 기반 VPN 디바이스에 연결을 더 추가할 수 있습니다.
 
-## <a name="to-update-policy-based-traffic-selectors"></a><a name="update"></a>정책 기반 트래픽 선택기를 업데이트하려면
-이 섹션에서는 기존 S2S VPN 연결에 대한 정책 기반 트래픽 선택기 옵션을 업데이트하는 방법을 보여 주며, 이 섹션에서는
+## <a name="to-update-policy-based-traffic-selectors"></a><a name="update"></a>정책 기반 트래픽 선택기를 업데이트 하려면
+이 섹션에서는 기존 S2S VPN 연결에 대 한 정책 기반 트래픽 선택기 옵션을 업데이트 하는 방법을 보여 줍니다.
 
 1. 연결 리소스를 가져옵니다.
 
@@ -178,9 +178,9 @@ ms.locfileid: "80123327"
    ```
 
    이 줄에서 "**True**"가 반환되면 연결에 정책 기반 트래픽 선택기가 구성되어 있는 것이고, 그렇지 않으면 "**False**"가 반환됩니다.
-1. 연결 리소스를 가져오면 연결에서 정책 기반 트래픽 선택기에서 사용 하거나 비활성화할 수 있습니다.
+1. 연결 리소스를 가져온 후에는 연결에서 정책 기반 트래픽 선택기를 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
-   - 사용하려면
+   - 사용 하도록 설정 하려면
 
       아래 예제에서는 IPsec/IKE 정책을 변경되지 않은 상태로 두고 정책 기반 트래픽 선택기 옵션을 사용하도록 설정합니다.
 
@@ -192,7 +192,7 @@ ms.locfileid: "80123327"
       Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $True
       ```
 
-   - 비활성화하려면
+   - 사용 하지 않도록 설정 하려면
 
       아래 예제에서는 IPsec/IKE 정책을 변경되지 않은 상태로 두고 정책 기반 트래픽 선택기 옵션을 사용하지 않도록 설정합니다.
 

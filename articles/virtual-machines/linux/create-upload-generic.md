@@ -7,35 +7,35 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: guybo
 ms.openlocfilehash: f700dec6486bad9e7024d7c908a70dd0ff2b342c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066770"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>비보증 배포에 대한 정보
 
 [보증 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 중 하나를 사용하는 경우에만 Linux OS를 실행하는 가상 머신에 Azure 플랫폼 SLA가 적용됩니다. 이러한 보증 배포판의 경우 미리 구성된 Linux 이미지가 Azure Marketplace에 제공됩니다.
 
-* [Azure에 리눅스 - 승인 된 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure 보증 배포판의 Linux](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Microsoft Azure의 Linux 이미지 지원](https://support.microsoft.com/kb/2941892)
 
 Azure에서 실행되는 모든 배포에는 여러 가지 필수 구성 요소가 있습니다. 모든 배포가 다르기 때문에 이 문서는 포괄적일 수 없습니다. 아래의 모든 조건을 충족하더라도 Linux 시스템이 제대로 작동하려면 Linux 시스템을 크게 조정해야 할 수도 있습니다.
 
 [Azure의 Linux 보증 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 중 하나로 시작하는 것이 좋습니다. 다음 문서에서는 Azure에서 지원되는 다양한 Linux 보증 배포판을 준비하는 방법을 보여 줍니다.
 
-* **[센트로스 기반 배포판](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[데비안 리눅스](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[CentOS 기반 배포](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[레드 햇 엔터프라이즈 리눅스](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[SLES & 오픈수즈](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[우분투](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[SLES & openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
 이 문서에서는 Azure에서 Linux 배포판을 실행하기 위한 일반 지침에 대해 중점적으로 설명합니다.
 
 ## <a name="general-linux-installation-notes"></a>일반 Linux 설치 참고 사항
-* Azure에서는 *고정 VHD*만 지원하며, VHDX(Hyper-V 가상 하드 디스크) 형식은 지원하지 않습니다.  하이퍼 V 관리자 또는 [변환-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd) cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다. VirtualBox를 사용하는 경우 디스크를 만들 때 기본값(동적 할당) 대신 **고정 크기**를 선택합니다.
-* Azure는 Gen1(BIOS 부팅) & Gen2(UEFI 부팅) 가상 컴퓨터를 지원합니다.
+* Azure에서는 *고정 VHD*만 지원하며, VHDX(Hyper-V 가상 하드 디스크) 형식은 지원하지 않습니다.  Hyper-v 관리자 또는 [변환-vhd](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd) cmdlet을 사용 하 여 디스크를 VHD 형식으로 변환할 수 있습니다. VirtualBox를 사용하는 경우 디스크를 만들 때 기본값(동적 할당) 대신 **고정 크기**를 선택합니다.
+* Azure는 Gen1 (BIOS boot) & Gen2 (UEFI 부팅) 가상 머신을 지원 합니다.
 * VHD에 허용되는 최대 크기는 1,023GB입니다.
 * Linux 시스템을 설치하는 경우 대부분의 설치에 대한 기본값인 LVM(논리 볼륨 관리자) 대신 표준 파티션을 사용하는 것이 좋습니다. 표준 파티션을 사용하면 특히 문제를 해결하기 위해 OS 디스크가 동일한 다른 VM에 연결되는 경우에도 LVM 이름이 복제된 VM과 충돌하지 않습니다. 데이터 디스크에서 [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용할 수 있습니다.
 * UDF 파일 시스템을 탑재하기 위한 커널 지원이 필요합니다. Azure에서 처음 부팅할 때 게스트에 연결된 UDF 형식의 미디어를 사용하여 Linux VM에 프로비전 구성이 전달됩니다. Azure Linux 에이전트는 해당 구성을 읽고 VM을 프로비전하기 위해 UDF 파일 시스템을 탑재해야 합니다.
@@ -44,7 +44,7 @@ Azure에서 실행되는 모든 배포에는 여러 가지 필수 구성 요소�
 * Azure의 모든 VHD에는 1MB로 정렬된 가상 크기가 있어야 합니다. 원시 디스크에서 VHD로 변환하는 경우 다음 단계에서 설명한 대로 변환하기 전에 먼저 원시 디스크 크기가 1MB의 배수인지 확인해야 합니다.
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>Hyper-V 없이 커널 모듈 설치
-Azure는 Hyper-V 하이퍼바이저에서 실행되므로 Linux에는 Azure에서 실행되는 특정 커널 모듈이 필요합니다. Hyper-V 외부에서 만든 VM이 있는 경우 VM이 Hyper-V 환경에서 실행되는 것으로 감지하지 않는 한 Linux 설치 관리자는 초기 ramdisk(initrd 또는 initramfs)에 Hyper-V용 드라이버를 포함하지 않을 수 있습니다. 다른 가상화 시스템(예: 버추얼박스, KVM 등)을 사용하여 Linux 이미지를 준비하는 경우 초기 빌드를 다시 빌드하여 초기 램디스크에서 최소한 hv_vmbus 및 hv_storvsc 커널 모듈을 사용할 수 있도록 해야 할 수 있습니다.  이와 같이 알려진 문제는 업스트림 Red Hat 배포판을 기반으로 하는 시스템 및 다른 시스템과 관련된 것입니다.
+Azure는 Hyper-V 하이퍼바이저에서 실행되므로 Linux에는 Azure에서 실행되는 특정 커널 모듈이 필요합니다. Hyper-V 외부에서 만든 VM이 있는 경우 VM이 Hyper-V 환경에서 실행되는 것으로 감지하지 않는 한 Linux 설치 관리자는 초기 ramdisk(initrd 또는 initramfs)에 Hyper-V용 드라이버를 포함하지 않을 수 있습니다. 다른 가상화 시스템 (예: VirtualBox, KVM 등)을 사용 하 여 Linux 이미지를 준비할 경우 초기 ramdisk에서 적어도 hv_vmbus 및 hv_storvsc 커널 모듈을 사용할 수 있도록 initrd을 다시 빌드해야 할 수 있습니다.  이와 같이 알려진 문제는 업스트림 Red Hat 배포판을 기반으로 하는 시스템 및 다른 시스템과 관련된 것입니다.
 
 initrd 또는 initramfs 이미지를 다시 작성하는 메커니즘은 배포에 따라 다를 수 있습니다. 적절한 절차에 대해서는 배포판의 설명서를 참조하거나 고객 지원팀에 문의하세요.  다음은 `mkinitrd` 유틸리티를 사용하여 initrd를 다시 작성하는 예제입니다.
 
@@ -64,7 +64,7 @@ initrd 또는 initramfs 이미지를 다시 작성하는 메커니즘은 배포�
 ### <a name="resizing-vhds"></a>VHD 크기 조정
 Azure의 VHD 이미지에는 1MB로 조정된 가상 크기가 있어야 합니다.  일반적으로 Hyper-V를 사용하여 만든 VHD는 올바르게 정렬되어 있습니다.  VHD가 올바르게 정렬되지 않으면 VHD에서 이미지를 만들려고 할 때 다음과 비슷한 오류 메시지가 나타날 수 있습니다.
 
-* VHD http:\//\<mystorageaccount>.blob.core.net/vhds/MyLinuxVM.vhd는 지원되지 않는 가상 크기 21475270656 바이트입니다. 크기는 정수(MB 단위)여야 합니다.
+* VHD http:\//\<mystorageaccount> blob.core.windows.net/vhds/MyLinuxVM.vhd의 가상 크기가 지원 되지 않는 21475270656 바이트입니다. 크기는 정수(MB 단위)여야 합니다.
 
 이 경우 Hyper-V 관리자 콘솔 또는 [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx) PowerShell cmdlet을 사용하여 VM 크기를 조정합니다.  Windows 환경에서 실행하지 않는 경우 `qemu-img`를 사용하여 VHD를 변환하고(필요한 경우) 크기를 조정하는 것이 좋습니다.
 
@@ -142,12 +142,12 @@ Red Hat Enterprise Linux 버전 6.0-6.3의 변형을 실행하는 경우 [Hyper-
 * [scsi_sysfs: __scsi_remove_device 이중 실행 방지](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
 ## <a name="the-azure-linux-agent"></a>Azure Linux 에이전트
-[Azure Linux 에이전트는](../extensions/agent-linux.md) `waagent` Azure에서 Linux 가상 컴퓨터를 프로비전합니다. [Linux 에이전트 GitHub 리포지토리](https://github.com/Azure/WALinuxAgent)에서 최신 버전을 가져오거나, 문제를 제기하거나, 끌어오기 요청을 제출할 수 있습니다.
+Azure [linux 에이전트](../extensions/agent-linux.md) `waagent` 는 azure에서 linux 가상 머신을 프로 비전 합니다. [Linux 에이전트 GitHub 리포지토리](https://github.com/Azure/WALinuxAgent)에서 최신 버전을 가져오거나, 문제를 제기하거나, 끌어오기 요청을 제출할 수 있습니다.
 
-* Linux 에이전트는 Apache 2.0 라이선스 하에서 릴리스되었습니다. 많은 배포판에서 이미 에이전트에 대한 RPM 또는 .deb 패키지를 제공하며 이러한 패키지를 쉽게 설치하고 업데이트할 수 있습니다.
+* Linux 에이전트는 Apache 2.0 라이선스 하에서 릴리스되었습니다. 많은 배포판에는 에이전트에 대 한 RPM 또는. deb 패키지가 이미 제공 되어 있으며 이러한 패키지를 쉽게 설치 하 고 업데이트할 수 있습니다.
 * Azure Linux 에이전트를 사용하려면 Python v2.6 이상이 필요합니다.
 * 또한 에이전트에는 python-pyasn1 모듈도 필요합니다. 대부분의 배포판에서 이 모듈을 설치할 별도의 패키지로 제공합니다.
-* 경우에 따라 Azure Linux 에이전트가 NetworkManager와 호환되지 않을 수도 있습니다. 배포에서 제공하는 많은 RPM/deb 패키지는 NetworkManager를 waagent 패키지와의 충돌로 구성합니다. 이러한 경우 Linux 에이전트 패키지를 설치하면 NetworkManager가 제거됩니다.
+* 경우에 따라 Azure Linux 에이전트가 NetworkManager와 호환되지 않을 수도 있습니다. 배포판에서 제공 하는 여러 RPM/deb 패키지는 NetworkManager를 waagent 패키지에 대 한 충돌로 구성 합니다. 이러한 경우 Linux 에이전트 패키지를 설치하면 NetworkManager가 제거됩니다.
 * Azure Linux 에이전트는 [지원되는 최소 버전](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 이상이어야 합니다.
 
 ## <a name="general-linux-system-requirements"></a>일반 Linux 시스템 요구 사항
@@ -164,7 +164,7 @@ Red Hat Enterprise Linux 버전 6.0-6.3의 변형을 실행하는 경우 [Hyper-
 
 1. Azure Linux 에이전트를 설치합니다.
   
-    Azure에서 Linux 이미지를 프로비전하려면 Azure Linux 에이전트가 필요합니다.  많은 배포판에서 에이전트를 RPM 또는 .deb 패키지로 제공합니다(패키지는 일반적으로 WALinuxAgent 또는 walinuxagent라고 함).  [Linux 에이전트 가이드](../extensions/agent-linux.md)의 단계를 수행하여 에이전트를 수동으로 설치할 수도 있습니다.
+    Azure에서 Linux 이미지를 프로비전하려면 Azure Linux 에이전트가 필요합니다.  많은 배포판에서 에이전트를 RPM 또는. deb 패키지로 제공 합니다 .이 패키지는 일반적으로 WALinuxAgent 또는 WALinuxAgent 라고 합니다.  [Linux 에이전트 가이드](../extensions/agent-linux.md)의 단계를 수행하여 에이전트를 수동으로 설치할 수도 있습니다.
 
 1. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.  일반적으로 이 구성이 기본값입니다.
 

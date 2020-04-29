@@ -1,6 +1,6 @@
 ---
-title: Azure 알림 허브에서 라우팅 및 태그 식
-description: Azure 알림 허브에 대한 식을 라우팅하고 태그를 붙이는 방법에 대해 알아봅니다.
+title: Azure Notification Hubs의 라우팅 및 태그 식
+description: Azure Notification Hubs 식의 경로 및 태그를 결정 하는 방법에 대해 알아봅니다.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
 ms.openlocfilehash: 2432ac41645e373ea3a87ff7e69ef02a4e30c81d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062307"
 ---
 # <a name="routing-and-tag-expressions"></a>라우팅 및 태그 식
@@ -31,7 +31,7 @@ ms.locfileid: "80062307"
 
 ## <a name="targeting-specific-registrations"></a>특정 등록을 대상으로 지정
 
-특정한 알림 등록을 대상으로 지정하는 유일한 방법은 등록에 태그를 연결한 후에 해당 태그를 대상으로 지정하는 것입니다. [등록 관리에서](notification-hubs-push-notification-registration-management.md)설명한 대로 푸시 알림을 받으려면 앱이 알림 허브에 장치 핸들을 등록해야 합니다. 앱이 알림 허브에 등록을 생성하면 응용 프로그램 백 엔드에서 푸시 알림을 보낼 수 있습니다. 애플리케이션 백 엔드는 다음과 같은 방식으로 등록이 특정 알림을 대상으로 지정하도록 선택할 수 있습니다.
+특정한 알림 등록을 대상으로 지정하는 유일한 방법은 등록에 태그를 연결한 후에 해당 태그를 대상으로 지정하는 것입니다. [등록 관리](notification-hubs-push-notification-registration-management.md)에 설명 된 대로 푸시 알림을 받으려면 앱이 알림 허브에 장치 핸들을 등록 해야 합니다. 앱이 알림 허브에서 등록을 만들면 응용 프로그램 백 엔드에서 푸시 알림을 보낼 수 있습니다. 애플리케이션 백 엔드는 다음과 같은 방식으로 등록이 특정 알림을 대상으로 지정하도록 선택할 수 있습니다.
 
 1. **브로드캐스트**: 알림 허브 내의 모든 등록이 알림을 수신합니다.
 2. **태그**: 지정된 태그를 포함하는 모든 등록이 알림을 수신합니다.
@@ -39,11 +39,11 @@ ms.locfileid: "80062307"
 
 ## <a name="tags"></a>태그들
 
-태그는 영숫자와 다음 비영숫자 문자를 포함하는 최대 120자 까지의 모든 문자열이 될`@`수`#`있습니다.`.``:``-``_` 다음 예제는 특정 음악 그룹에 대한 토스트 알림을 받을 수 있는 애플리케이션을 보여줍니다. 이 시나리오에서 알림을 라우팅 하는 간단한 방법은 다음 그림에서와 같이 다른 밴드를 나타내는 태그로 등록에 레이블을 지정하는 것입니다.
+태그는 영숫자`_`및 영숫자가 아닌 문자 (' ', '`@`', '`#`', '`.`', '`:`',`-`' ')를 포함 하는 모든 문자열을 최대 120 자까지 사용할 수 있습니다. 다음 예제는 특정 음악 그룹에 대한 토스트 알림을 받을 수 있는 애플리케이션을 보여줍니다. 이 시나리오에서 알림을 라우팅하는 간단한 방법은 다음 그림과 같이 다양 한 밴드를 나타내는 태그를 사용 하 여 등록을 레이블 처리 하는 것입니다.
 
 ![태그 개요](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
-그림에서 **비틀즈로** 태그된 메시지는 **비틀즈**태그에 등록된 태블릿에만 도달합니다.
+그림에서 **Beatles** 로 태그가 지정 된 메시지는 **beatles**태그에 등록 된 태블릿에만 도달 합니다.
 
 태그에 대한 등록을 생성하는 내용은 [등록 관리](notification-hubs-push-notification-registration-management.md)를 참조하세요.
 
@@ -63,13 +63,13 @@ toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
 outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Wailers");
 ```
 
-태그는 미리 프로비전되어서는 안 되며 여러 앱별 개념을 참조할 수 있습니다. 예를 들어, 이 예제 애플리케이션 사용자는 밴드에 대한 댓글을 추가할 수 있고 자신이 좋아하는 밴드에 대한 댓글뿐만 아니라 친구가 추가하는(어떤 밴드에 관한 댓글이든 상관없이) 댓글에 대해서도 토스트를 수신하고자 합니다. 다음 그림은 이 시나리오의 예를 강조 합니다.
+태그는 미리 프로 비전 되 면 안 되며 여러 앱 특정 개념을 참조할 수 있습니다. 예를 들어, 이 예제 애플리케이션 사용자는 밴드에 대한 댓글을 추가할 수 있고 자신이 좋아하는 밴드에 대한 댓글뿐만 아니라 친구가 추가하는(어떤 밴드에 관한 댓글이든 상관없이) 댓글에 대해서도 토스트를 수신하고자 합니다. 다음 그림은이 시나리오의 예를 보여 줍니다.
 
 ![친구 태그](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags2.png)
 
-이 예제에서 Alice는 비틀즈업데이트에 관심이 있으며 Bob은 Wailers 업데이트에 관심이 있습니다. 밥은 찰리의 의견에도 관심이 있고, 찰리는 와일러스에 관심이 있습니다. 비틀즈에 대한 찰리의 코멘트에 대한 알림이 전송되면 알림 허브는 앨리스와 밥 모두에게 전송됩니다.
+이 예제에서 Alice는 Beatles에 대 한 업데이트에 관심이 있으며 Bob은 Wers에 대 한 업데이트에 관심이 있습니다. Bob은 charlie 의견에도 관심이 있으며, charlie에 관심이 있습니다. Beatles에서 Charlie 메모에 대 한 알림이 전송 되는 경우 Notification Hubs Alice와 Bob 모두에 게 보냅니다.
 
-태그(예: `band_Beatles` 또는)에서 `follows_Charlie`여러 문제를 인코딩할 수 있지만 태그는 간단한 문자열이며 값이 있는 속성은 아닙니다. 등록은 특정 태그의 유무에 따라 일치합니다.
+태그에서 여러 문제를 인코딩할 수 있지만 (예: `band_Beatles` 또는 `follows_Charlie`) 태그는 값이 포함 된 속성이 아닌 간단한 문자열입니다. 등록은 특정 태그의 존재 또는 부재 시에만 일치 합니다.
 
 태그를 사용하여 흥미가 있는 그룹에 알림을 보내는 방법에 대한 단계별 전체 자습서는 [속보](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)를 참조하세요.
 
@@ -78,15 +78,15 @@ outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(to
 
 ## <a name="using-tags-to-target-users"></a>태그를 사용하여 사용자를 대상으로 지정하기
 
-태그를 사용하는 또 다른 방법은 특정 사용자와 연결된 모든 장치를 식별하는 것입니다. 다음 그림과 같이 사용자 ID가 포함된 태그로 등록에 태그를 붙일 수 있습니다.
+태그를 사용 하는 또 다른 방법은 특정 사용자와 연결 된 모든 장치를 식별 하는 것입니다. 다음 그림과 같이 사용자 ID를 포함 하는 태그를 사용 하 여 등록에 태그를 지정할 수 있습니다.
 
 ![사용자 태그](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
-그림에서 태그가 지정된 `user_Alice` 메시지는 로 태그된 `user_Alice`모든 장치에 도달합니다.
+그림에서 태그가 지정 `user_Alice` 된 메시지는로 `user_Alice`태그가 지정 된 모든 장치에 도달 합니다.
 
 ## <a name="tag-expressions"></a>태그 식
 
-알림이 단일 태그가 아니라 태그를 사용하는 부울 식으로 식별된 등록 집합을 대상으로 해야 하는 경우가 있습니다.
+알림이 단일 태그가 아닌 것으로 식별 되는 등록 집합을 대상으로 하지만 태그를 사용 하는 부울 식에 의해 대상이 되어야 하는 경우가 있습니다.
 
 보스턴에 있는 모든 사람에게 Red Sox와 Cardinals의 경기에 대해 미리 알림을 보내는 스포츠 애플리케이션을 생각해 보겠습니다. 클라이언트 앱이 팀과 지역 관심사에 대한 태그를 등록하면, 알림은 Red Sox 또는 Cardinals에 관심이 있는 보스턴의 모든 사람을 대상으로 하게 됩니다. 이 조건은 다음과 같은 부울 식으로 표현될 수 있습니다.
 
@@ -96,9 +96,9 @@ outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(to
 
 ![태그 식](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
-태그 `AND` 식은 (),`&&`() `OR` `||`및 `NOT` (;`!` 괄호를 포함할 수도 있습니다. 연산자만 `OR` 사용하는 태그 식은 20개의 태그를 참조할 수 있습니다. `AND` 연산자가 있지만 `OR` 연산자가 없는 식은 10개의 태그를 참조할 수 없습니다. 그렇지 않으면 태그 표현식은 6개의 태그로 제한됩니다.
+태그 식은 ( `AND` `&&`), `OR` (`||`) 및 `NOT` (`!`)와 같은 일반적인 부울 연산자를 지원 합니다. 괄호를 포함할 수도 있습니다. 연산자만 `OR` 사용 하는 태그 식에서는 20 개의 태그를 참조할 수 있습니다. 연산자가 `AND` 있지만 연산자가 `OR` 없는 식은 10 개의 태그를 참조할 수 있습니다. 그렇지 않으면 태그 식의 태그가 6 개로 제한 됩니다.
 
-다음은 SDK를 사용하여 태그 식을 사용하여 알림을 보내는 예제입니다.
+SDK를 사용 하 여 태그 식으로 알림을 보내는 예제는 다음과 같습니다.
 
 ```csharp
 Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
