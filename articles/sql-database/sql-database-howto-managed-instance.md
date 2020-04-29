@@ -1,5 +1,5 @@
 ---
-title: 관리되는 인스턴스를 구성하는 방법
+title: 관리 되는 인스턴스를 구성 하는 방법
 description: Azure SQL Database Managed Instance를 구성 및 관리하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
 ms.openlocfilehash: b56375388f6293d27bcd2f2548d8b20205a92b15
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80638025"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database에서 Managed Instance를 사용하는 방법
@@ -35,7 +35,7 @@ ms.locfileid: "80638025"
 - [Managed Instance용 기존 VNet 및 서브넷 구성](sql-database-managed-instance-configure-vnet-subnet.md) - 내부에 Managed Instance를 배포하도록 기존 VNet 및 서브넷을 구성하려는 경우 이 문서에서 [네트워크 요구 사항](sql-database-managed-instance-connectivity-architecture.md#network-requirements)을 확인하고 요구 사항에 따라 서브넷을 구성하는 스크립트를 확인할 수 있습니다.
 - [사용자 지정 DNS 구성](sql-database-managed-instance-custom-dns.md) - db 메일 프로필의 연결된 서버를 통해 Managed Instance에서 사용자 지정 도메인의 외부 리소스에 액세스하려는 경우 사용자 지정 DNS를 구성해야 합니다.
 - [네트워크 구성 동기화](sql-database-managed-instance-sync-network-configuration.md) - [Azure Virtual Network와 앱을 통합](../app-service/web-sites-integrate-with-vnet.md)했는데 Managed Instance로의 연결을 설정할 수 없는 상황이 발생할 수 있습니다. 시도할 수 있는 방법은 서비스 계획에 대한 네트워킹 구성을 새로 고치는 것입니다.
-- [관리 엔드포인트 IP 주소 찾기](sql-database-managed-instance-find-management-endpoint-ip-address.md) - 관리형 인스턴스는 관리 목적으로 공용 끝점을 사용합니다. 여기에 설명된 스크립트를 사용하여 관리 엔드포인트의 IP 주소를 확인할 수 있습니다.
+- 관리 [끝점 IP 주소 찾기](sql-database-managed-instance-find-management-endpoint-ip-address.md) – 관리 되는 인스턴스는 관리 목적으로 공용 끝점을 사용 합니다. 여기에 설명된 스크립트를 사용하여 관리 엔드포인트의 IP 주소를 확인할 수 있습니다.
 - [기본 제공 방화벽 보호 확인](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) - Managed Instance는 필요한 포트에서만 트래픽을 허용하는 기본 제공 방화벽으로 보호됩니다. 이 가이드에 설명된 스크립트를 사용하여 기본 제공 방화벽 규칙을 확인할 수 있습니다.
 - [애플리케이션 연결](sql-database-managed-instance-connect-app.md) - Managed Instance가 개인 IP 주소를 사용하여 고유한 프라이빗 Azure VNet에 배치됩니다. 애플리케이션을 Managed Instance에 연결하는 데 사용할 수 있는 다양한 패턴에 대해 알아보세요.
 
@@ -43,8 +43,8 @@ ms.locfileid: "80638025"
 
 - [트랜잭션 복제](replication-with-sql-database-managed-instance.md)를 사용하면 Managed Instance 간에, 또는 온-프레미스 SQL Server와 Managed Instance 간에 데이터를 복제할 수 있습니다. 이 가이드에서 트랜잭션 복제를 사용 및 구성하는 방법에 대한 자세한 내용을 확인하세요.
 - [위협 검색 구성](sql-database-managed-instance-threat-detection.md) - [위협 검색](sql-database-threat-detection-overview.md)은 SQL 삽입 또는 의심스러운 위치에서의 액세스와 같은 다양한 잠재적 공격을 검색하는 기본 제공 Azure SQL Database 기능입니다. 이 가이드에서 Managed Instance에 대해 [위협 검색](sql-database-threat-detection-overview.md)을 사용하도록 설정하고 구성하는 방법을 확인할 수 있습니다.
-- [경고를 만들면](sql-database-managed-instance-alerts.md) CPU 사용률, 스토리지 공간 소비, IOPS 등 모니터링되는 인스턴스에 대한 경고를 설정할 수 있습니다. 이 가이드에서는 관리되는 인스턴스에 대한 경고를 활성화하고 구성하는 방법을 알아봅니다.
+- [경고를 만들면](sql-database-managed-instance-alerts.md) CPU 사용률, 저장소 공간 사용, IOPS 및 기타 관리 되는 인스턴스의 경고를 설정할 수 있습니다. 이 가이드에서는 관리 되는 인스턴스의 경고를 사용 하도록 설정 하 고 구성 하는 방법을 설명 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [단일 데이터베이스의 방법 가이드에 대해](sql-database-howto-single-database.md) 자세히 알아보기
+- [단일 데이터베이스에 대 한 방법 가이드](sql-database-howto-single-database.md) 에 대해 자세히 알아보기

@@ -1,6 +1,6 @@
 ---
-title: 시냅스 SQL 권장 사항
-description: Synapse SQL 권장 사항 및 생성 방법에 대해 알아보기
+title: Synapse SQL 권장 사항
+description: Synapse SQL 권장 사항 및 생성 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg-msft
@@ -12,19 +12,19 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 17877a1ef5d949fbbee080b6157844ac5b516fe7
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633679"
 ---
-# <a name="synapse-sql-recommendations"></a>시냅스 SQL 권장 사항
+# <a name="synapse-sql-recommendations"></a>Synapse SQL 권장 사항
 
-이 문서에서는 Azure Advisor를 통해 제공되는 시냅스 SQL 권장 사항에 대해 설명합니다.  
+이 문서에서는 Azure Advisor를 통해 제공 되는 Synapse SQL 권장 사항을 설명 합니다.  
 
-SQL Analytics는 데이터 웨어하우스 워크로드가 성능에 지속적으로 최적화되도록 권장 사항을 제공합니다. 권장 사항은 [Azure Advisor와](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 긴밀하게 통합되어 [Azure 포털](https://aka.ms/Azureadvisor)내에서 직접 모범 사례를 제공합니다. SQL Analytics는 원격 분석을 수집하고 활성 워크로드에 대한 권장 사항을 매일 주기로 표시합니다. 지원되는 권장 사항 시나리오는 권장 작업을 적용하는 방법과 함께 아래에 설명되어 있습니다.
+SQL Analytics는 데이터 웨어하우스 작업이 성능에 대해 일관 되 게 최적화 되도록 권장 사항을 제공 합니다. 권장 사항은 [Azure Portal](https://aka.ms/Azureadvisor)내에서 직접 모범 사례를 제공 하기 위해 [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 와 긴밀 하 게 통합 됩니다. SQL Analytics는 일별 흐름에서 활성 워크 로드에 대 한 원격 분석 및 표면 권장 사항을 수집 합니다. 지원 되는 권장 사항을 적용 하는 방법은 아래에 설명 되어 있습니다.
 
-당신은 [당신의 추천을 오늘 확인할](https://aka.ms/Azureadvisor) 수 있습니다! 현재 이 기능은 Gen2 데이터 웨어하우스에만 적용됩니다.
+지금 바로 [권장 사항을 확인할](https://aka.ms/Azureadvisor) 수 있습니다. 현재 이 기능은 Gen2 데이터 웨어하우스에만 적용됩니다.
 
 ## <a name="data-skew"></a>데이터 기울이기
 
@@ -32,13 +32,13 @@ SQL Analytics는 데이터 웨어하우스 워크로드가 성능에 지속적�
 
 - [기울이기 식별 및 제거](sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice)
 
-## <a name="no-or-outdated-statistics"></a>아니거나 오래된 통계
+## <a name="no-or-outdated-statistics"></a>또는 오래 된 통계
 
-최적이 아닌 통계를 사용하면 SQL 쿼리 최적화 프로그램이 최적이 아닌 쿼리 계획을 생성할 수 있으므로 쿼리 성능에 심각한 영향을 줄 수 있습니다. 다음 문서에서는 통계 생성 및 업데이트와 관련된 모범 사례를 설명합니다.
+최적이 아닌 통계가 있으면 SQL 쿼리 최적화 프로그램이 만족 스 럽 지 못한 쿼리 계획을 생성할 수 있기 때문에 쿼리 성능에 심각한 영향을 줄 수 있습니다. 다음 문서에서는 통계 생성 및 업데이트와 관련된 모범 사례를 설명합니다.
 
 - [테이블 통계 생성 및 업데이트](sql-data-warehouse-tables-statistics.md)
 
-이러한 권장 사항에 의해 영향을 받는 테이블 목록을 보려면 다음 [T-SQL 스크립트를](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables)실행합니다. Advisor는 계속 동일한 T-SQL 스크립트를 실행하여 이러한 권장 사항을 생성합니다.
+이러한 권장 사항에 따라 영향을 받는 테이블 목록을 보려면 다음 [t-sql 스크립트](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables)를 실행 합니다. Advisor는 계속 동일한 T-SQL 스크립트를 실행하여 이러한 권장 사항을 생성합니다.
 
 ## <a name="replicate-tables"></a>테이블 복제
 

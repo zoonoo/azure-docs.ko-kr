@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: a6030cbb756525137497834ac911835033858401
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80652088"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>.NET에서 웹 또는 작업자 역할의 수명 주기 사용자 지정
@@ -23,7 +23,7 @@ ms.locfileid: "80652088"
 
 **RoleEntryPoint**를 확장하는 경우 메서드의 다음 동작을 알고 있어야 합니다.
 
-* [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) 메서드는 부울 값을 반환하므로 이 메서드에서 **false를** 반환할 수 있습니다.
+* [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) 메서드는 부울 값을 반환 하므로이 메서드에서 **false** 를 반환할 수 있습니다.
   
    코드가 **false**를 반환하는 경우, 준비된 모든 종료 시퀀스를 실행하지 않고 역할 프로세스가 갑자기 종료됩니다. 일반적으로, **OnStart** 메서드에서 **false**를 반환하지 않아야 합니다.
 * **RoleEntryPoint** 메서드의 오버로드 내에서 catch되지 않은 모든 예외는 처리되지 않은 예외로 취급됩니다.

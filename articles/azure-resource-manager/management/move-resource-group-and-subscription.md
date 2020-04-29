@@ -1,20 +1,20 @@
 ---
-title: 리소스를 새 구독 또는 리소스 그룹으로 이동
+title: 새 구독 또는 리소스 그룹으로 리소스 이동
 description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 ms.topic: conceptual
 ms.date: 03/02/2020
 ms.openlocfilehash: ffb5f8be81d3628084d127db404ab994d4d5b938
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631498"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
 이 문서에서는 Azure 리소스를 다른 Azure 구독 또는 동일한 구독의 다른 리소스 그룹으로 이동하는 방법을 보여 줍니다. Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용하여 리소스를 이동할 수 있습니다.
 
-이동 작업 동안 원본 그룹과 대상 그룹 모두 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 리소스 그룹에서 차단됩니다. 이 잠금은 리소스 그룹에 리소스를 추가, 업데이트 또는 삭제할 수 없습니다. 리소스가 고정된 것은 아닙니다. 예를 들어, SQL Server와 해당 데이터베이스를 새 리소스 그룹으로 이동하는 경우 해당 데이터베이스를 사용하는 애플리케이션에는 가동 중지 시간이 발생하지 않습니다. 데이터베이스에 계속해서 읽고 쓸 수 있습니다. 잠금은 최대 4시간 동안 지속될 수 있지만 대부분의 이동은 훨씬 적은 시간에 완료됩니다.
+이동 작업 동안 원본 그룹과 대상 그룹 모두 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 리소스 그룹에서 차단됩니다. 이 잠금은 리소스 그룹에서 리소스를 추가, 업데이트 또는 삭제할 수 없음을 의미 합니다. 리소스가 고정 된 것은 아닙니다. 예를 들어, SQL Server와 해당 데이터베이스를 새 리소스 그룹으로 이동하는 경우 해당 데이터베이스를 사용하는 애플리케이션에는 가동 중지 시간이 발생하지 않습니다. 데이터베이스에 계속해서 읽고 쓸 수 있습니다. 잠금은 최대 4 시간 동안 지속 될 수 있지만 대부분의 시간이 훨씬 더 짧습니다.
 
 리소스를 이동할 때는 새 리소스 그룹 또는 구독으로만 이동됩니다. 리소스의 위치는 변경하지 않습니다.
 
@@ -22,16 +22,16 @@ ms.locfileid: "80631498"
 
 리소스를 이동하기 전에 몇 가지 중요한 단계가 있습니다. 이러한 조건을 확인하면 오류를 방지할 수 있습니다.
 
-1. 이동하려는 리소스는 이동 작업을 지원해야 합니다. 이동을 지원하는 리소스 목록은 [리소스에 대한 작업 지원 이동을](move-support-resources.md)참조하십시오.
+1. 이동 하려는 리소스는 이동 작업을 지원 해야 합니다. 이동을 지 원하는 리소스 목록은 [리소스에 대 한 이동 작업 지원](move-support-resources.md)을 참조 하세요.
 
-1. 일부 서비스에는 리소스를 이동할 때 특정 제한 사항이나 요구 사항이 있습니다. 다음 서비스 중 한 가지라도 이동하는 경우 이동하기 전에 해당 지침을 확인하십시오.
+1. 일부 서비스에는 리소스를 이동할 때 특정 제한 사항이 나 요구 사항이 있습니다. 다음 서비스를 이동 하는 경우 이동 하기 전에 지침을 확인 합니다.
 
-   * [앱 서비스 이동 지침](./move-limitations/app-service-move-limitations.md)
-   * [Azure DevOps 서비스 이동 지침](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
-   * [클래식 배포 모델 이동 지침](./move-limitations/classic-model-move-limitations.md) - 클래식 컴퓨팅, 클래식 스토리지, 클래식 가상 네트워크 및 클라우드 서비스
+   * [App Services 이동 지침](./move-limitations/app-service-move-limitations.md)
+   * [Azure DevOps Services 이동 지침](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
+   * [클래식 배포 모델 이동 지침](./move-limitations/classic-model-move-limitations.md) -클래식 계산, 클래식 저장소, 클래식 가상 네트워크 및 Cloud Services
    * [네트워킹 이동 지침](./move-limitations/networking-move-limitations.md)
-   * [복구 서비스 이동 지침](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
-   * [가상 컴퓨터 이동 지침](./move-limitations/virtual-machines-move-limitations.md)
+   * [Recovery Services 이동 지침](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
+   * [Virtual Machines 이동 지침](./move-limitations/virtual-machines-move-limitations.md)
 
 1. 원본 및 대상 구독이 활성 상태여야 합니다. 사용하지 않도록 설정된 계정을 사용하도록 설정하는 과정에서 문제가 발생하면 [Azure 지원 요청을 작성](../../azure-portal/supportability/how-to-create-azure-support-request.md)하세요. 문제 유형으로 **구독 관리**를 선택합니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "80631498"
    원본 및 대상 구독에 대한 테넌트 ID가 다른 경우 다음 메서드를 사용하여 테넌트 ID를 조정합니다.
 
    * [Azure 구독의 소유권을 다른 계정으로 양도](../../billing/billing-subscription-transfer.md)
-   * [Azure Active Directory에 Azure 구독을 연결하거나 추가하는 방법](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+   * [Azure Active Directory에 Azure 구독을 연결 하거나 추가 하는 방법](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 오류가 표시될 수 있습니다.
 
@@ -86,32 +86,32 @@ ms.locfileid: "80631498"
 
 1. 리소스를 이동시키는 계정에는 적어도 다음과 같은 권한이 있어야 합니다.
 
-   * 소스 리소스 그룹에 대한 **Microsoft.Resources/구독/리소스 그룹/이동 리소스/작업입니다.**
-   * 대상 리소스 그룹에 **Microsoft.Resources/구독/리소스 그룹/쓰기입니다.**
+   * 원본 리소스 그룹에 대 한 **Microsoft .resources/subscription/resourceGroups/moveResources/action** .
+   * 대상 리소스 그룹에 대 한 **Microsoft .resources/subscription/resourceGroups/write**
 
 1. 리소스를 이동하기 전에 리소스를 이동하려는 구독에 대한 구독 할당량을 확인합니다. 리소스 이동 시 구독이 해당 한계를 초과하는 경우 할당량 증가를 요청할 수 있는지 여부를 검토해야 합니다. 제한의 목록 및 증가 요청 방법은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요.
 
-1. **구독 간에 이동하려면 리소스와 해당 종속 리소스가 동일한 리소스 그룹에 있어야 하며 함께 이동해야 합니다.** 예를 들어 관리 디스크가 있는 VM에서는 VM과 관리 디스크를 다른 종속 리소스와 함께 이동해야 합니다.
+1. **구독 간 이동의 경우 리소스와 해당 종속 리소스는 동일한 리소스 그룹에 위치 해야 하며 함께 이동 해야 합니다.** 예를 들어 관리 디스크가 있는 VM은 다른 종속 리소스와 함께 VM 및 관리 디스크를 함께 이동 해야 합니다.
 
-   리소스를 새 구독으로 이동하는 경우 리소스에 종속 리소스가 있는지 여부와 리소스가 동일한 리소스 그룹에 있는지 확인합니다. 리소스가 동일한 리소스 그룹에 없는 경우 리소스를 동일한 리소스 그룹에 통합할 수 있는지 확인합니다. 그렇다면 리소스 그룹 간에 이동 작업을 사용하여 이러한 모든 리소스를 동일한 리소스 그룹으로 가져옵니다.
+   리소스를 새 구독으로 이동 하는 경우 리소스에 종속 리소스가 있는지와 동일한 리소스 그룹에 있는지 여부를 확인 합니다. 리소스가 동일한 리소스 그룹에 없는 경우 리소스를 동일한 리소스 그룹으로 통합할 수 있는지 확인 합니다. 그렇다면 리소스 그룹 간에 이동 작업을 사용 하 여 이러한 모든 리소스를 동일한 리소스 그룹으로 가져옵니다.
 
-   자세한 내용은 [구독 간에 이동하는 시나리오를](#scenario-for-move-across-subscriptions)참조하십시오.
+   자세한 내용은 [구독 간 이동 시나리오](#scenario-for-move-across-subscriptions)를 참조 하십시오.
 
 ## <a name="scenario-for-move-across-subscriptions"></a>구독 간 이동 시나리오
 
-리소스를 한 구독에서 다른 구독으로 이동하는 것은 세 단계로 진행됩니다.
+한 구독에서 다른 구독으로 리소스를 이동 하는 과정은 다음 3 단계로 진행 됩니다.
 
 ![구독 간 이동 시나리오](./media/move-resource-group-and-subscription/cross-subscription-move-scenario.png)
 
-그림으로 는 종속 리소스가 하나만 있습니다.
+설명을 위해 종속 리소스가 하나만 있습니다.
 
-* 1단계: 종속 리소스가 서로 다른 리소스 그룹에 분산되어 있는 경우 먼저 해당 리소스 그룹을 하나의 리소스 그룹으로 이동합니다.
-* 2단계: 리소스 및 종속 리소스를 원본 구독에서 대상 구독으로 함께 이동합니다.
-* 3단계: 선택적으로 대상 구독 내의 다른 리소스 그룹에 종속 리소스를 재배포합니다.
+* 1 단계: 다른 리소스 그룹에 종속 리소스가 분산 된 경우 먼저 하나의 리소스 그룹으로 이동 합니다.
+* 2 단계: 리소스 및 종속 리소스를 원본 구독에서 대상 구독으로 함께 이동 합니다.
+* 3 단계: 필요에 따라 대상 구독 내의 다른 리소스 그룹에 종속 리소스를 재배포할 수 있습니다.
 
 ## <a name="validate-move"></a>이동 유효성 검사
 
-[이동 작업 유효성 검사](/rest/api/resources/resources/validatemoveresources)를 수행하면 실제로 리소스를 이동하지 않고 이동 시나리오를 테스트할 수 있습니다. 이 작업을 사용하여 이동이 성공할지 확인합니다. 이동 요청을 보낼 때 유효성 검사가 자동으로 호출됩니다. 결과를 미리 결정해야 하는 경우에만 이 작업을 사용합니다. 이 작업을 실행하려면 다음이 필요합니다.
+[이동 작업 유효성 검사](/rest/api/resources/resources/validatemoveresources)를 수행하면 실제로 리소스를 이동하지 않고 이동 시나리오를 테스트할 수 있습니다. 이 작업을 사용 하 여 이동이 성공 하는지 확인 합니다. 이동 요청을 보내면 유효성 검사가 자동으로 호출 됩니다. 결과를 predetermine 해야 하는 경우에만이 작업을 사용 합니다. 이 작업을 실행하려면 다음이 필요합니다.
 
 * 원본 리소스 그룹의 이름
 * 대상 리소스 그룹의 리소스 ID
@@ -182,7 +182,7 @@ Authorization: Bearer <access-token>
 
 ![이동 결과 표시](./media/move-resource-group-and-subscription/show-result.png)
 
-오류가 발생하면 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동하는 문제 해결을](troubleshoot-move.md)참조하십시오.
+오류가 발생 하는 경우 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 문제 해결](troubleshoot-move.md)을 참조 하세요.
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
@@ -196,7 +196,7 @@ Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Resource
 
 새 구독으로 이동하려면 `DestinationSubscriptionId` 매개 변수 값을 포함합니다.
 
-오류가 발생하면 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동하는 문제 해결을](troubleshoot-move.md)참조하십시오.
+오류가 발생 하는 경우 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 문제 해결](troubleshoot-move.md)을 참조 하세요.
 
 ## <a name="use-azure-cli"></a>Azure CLI 사용
 
@@ -210,11 +210,11 @@ az resource move --destination-group newgroup --ids $webapp $plan
 
 새 구독으로 이동하려면 `--destination-subscription-id` 매개 변수를 제공합니다.
 
-오류가 발생하면 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동하는 문제 해결을](troubleshoot-move.md)참조하십시오.
+오류가 발생 하는 경우 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 문제 해결](troubleshoot-move.md)을 참조 하세요.
 
 ## <a name="use-rest-api"></a>REST API 사용
 
-기존 리소스를 다른 리소스 그룹 또는 구독으로 이동하려면 [리소스 이동](/rest/api/resources/Resources/MoveResources) 작업을 사용합니다.
+기존 리소스를 다른 리소스 그룹 또는 구독으로 이동 하려면 [리소스 이동](/rest/api/resources/Resources/MoveResources) 작업을 사용 합니다.
 
 ```HTTP
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
@@ -229,35 +229,35 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 }
 ```
 
-오류가 발생하면 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동하는 문제 해결을](troubleshoot-move.md)참조하십시오.
+오류가 발생 하는 경우 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 문제 해결](troubleshoot-move.md)을 참조 하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-**질문: 일반적으로 몇 분 정도 걸리는 리소스 이동 작업이 거의 한 시간 동안 실행되었습니다. 뭔가 잘못되었습니까?**
+**질문: 일반적으로 몇 분 정도 걸리는 내 리소스 이동 작업은 거의 1 시간 동안 실행 되었습니다. 문제가 있나요?**
 
-리소스 이동은 단계가 다른 복잡한 작업입니다. 이동하려는 리소스의 리소스 공급자 이상과 관련이 있을 수 있습니다. 리소스 공급자 간의 종속성으로 인해 Azure Resource Manager는 작업을 완료하는 데 4시간을 허용합니다. 이 기간은 리소스 공급자에게 일시적인 문제에서 복구할 수 있는 기회를 제공합니다. 이동 요청이 4시간 내에 있는 경우 작업이 계속 완료되고 계속 성공할 수 있습니다. 일관성 문제를 피하기 위해 이 시간 동안 원본 및 대상 리소스 그룹이 잠깁니다.
+리소스 이동은 단계가 서로 다른 복잡 한 작업입니다. 이동 하려는 리소스의 리소스 공급자 보다 더 많은 관련이 있을 수 있습니다. 리소스 공급자 간의 종속성 때문에 Azure Resource Manager 작업을 완료 하는 데 4 시간을 허용 합니다. 이 기간을 사용 하면 리소스 공급자에 게 일시적인 문제를 복구할 수 있는 기회가 제공 됩니다. 이동 요청이 4 시간 내에 있는 경우 작업을 완료 하는 동안 계속 시도 하 고 성공할 수 있습니다. 이 시간 동안에는 일관성 문제를 방지 하기 위해 원본 및 대상 리소스 그룹이 잠깁니다.
 
-**질문: 리소스 를 이동하는 동안 리소스 그룹이 4시간 동안 잠겨 있는 이유는 무엇입니까?**
+**질문: 리소스 이동 중에 리소스 그룹이 4 시간 동안 잠겨 있는 이유는 무엇 인가요?**
 
-4시간 기간은 리소스 이동에 허용되는 최대 시간입니다. 이동 중인 리소스에 대한 수정을 방지하기 위해 리소스 이동 기간 동안 원본 및 대상 리소스 그룹이 모두 잠깁니다.
+4 시간 창은 리소스 이동에 허용 되는 최대 시간입니다. 이동 되는 리소스에 대 한 수정을 방지 하기 위해 원본 및 대상 리소스 그룹은 리소스 이동 기간 동안 잠깁니다.
 
-이동 요청에는 두 단계가 있습니다. 첫 번째 단계에서는 리소스가 이동됩니다. 두 번째 단계에서는 이동중인 리소스에 종속된 다른 리소스 공급자에게 알림이 전송됩니다. 리소스 공급자가 두 단계 중 하나에 실패하면 전체 4시간 동안 리소스 그룹을 잠글 수 있습니다. 허용된 시간 동안 리소스 관리자는 실패한 단계를 다시 시도합니다.
+이동 요청에는 두 단계가 있습니다. 첫 번째 단계에서 리소스를 이동 합니다. 두 번째 단계에서는 이동 하는 리소스에 종속 된 다른 리소스 공급자에 게 알림이 전송 됩니다. 리소스 공급자가 한 단계를 실패할 경우 전체 4 시간 기간 동안 리소스 그룹을 잠글 수 있습니다. 허용 되는 시간 동안 리소스 관리자는 실패 한 단계를 다시 시도 합니다.
 
-4시간 기간 내에 리소스를 이동할 수 없는 경우 리소스 관리자는 두 리소스 그룹의 잠금을 해제합니다. 성공적으로 이동된 리소스는 대상 리소스 그룹에 있습니다. 이동하지 못한 리소스는 소스 리소스 그룹으로 남아 있습니다.
+4 시간 기간 내에 리소스를 이동할 수 없는 경우 리소스 관리자는 두 리소스 그룹의 잠금을 해제 합니다. 성공적으로 이동 된 리소스는 대상 리소스 그룹에 있습니다. 이동 하지 못한 리소스는 소스 리소스 그룹에 남아 있습니다.
 
-**질문: 리소스 이동 중에 잠긴 소스 및 대상 리소스 그룹의 의미는 무엇입니까?**
+**질문: 리소스 이동 중에 잠겨 있는 원본 및 대상 리소스 그룹의 의미는 무엇 인가요?**
 
-잠금을 사용하면 리소스 그룹을 삭제하거나, 리소스 그룹에 새 리소스를 만들거나, 이동과 관련된 리소스를 삭제할 수 없습니다.
+잠금은 리소스 그룹을 삭제 하거나 리소스 그룹에서 새 리소스를 만들거나 이동에 관련 된 모든 리소스를 삭제할 수 없도록 합니다.
 
-다음 이미지는 사용자가 진행 중인 이동의 일부인 리소스 그룹을 삭제하려고 할 때 Azure Portal의 오류 메시지를 보여 주며 있습니다.
+다음 이미지는 사용자가 진행 중인 이동의 일부인 리소스 그룹을 삭제 하려고 할 때 Azure Portal의 오류 메시지를 보여 줍니다.
 
-![삭제하려고 하는 오류 메시지 이동](./media/move-resource-group-and-subscription/move-error-delete.png)
+![삭제 하려는 이동 오류 메시지](./media/move-resource-group-and-subscription/move-error-delete.png)
 
-**질문: 오류 코드 "MissingMoveDependentResources"는 무엇을 의미합니까?**
+**질문: "MissingMoveDependentResources" 오류 코드는 무엇을 의미 하나요?**
 
-리소스를 이동할 때 해당 종속 리소스가 대상 리소스 그룹 또는 구독에 있거나 이동 요청에 포함되어야 합니다. 종속 리소스가 이 요구 사항을 충족하지 않는 경우 MissingMoveDependentResources 오류 코드가 표시됩니다. 오류 메시지에는 이동 요청에 포함해야 하는 종속 리소스에 대한 세부 정보가 있습니다.
+리소스를 이동할 때 종속 리소스는 대상 리소스 그룹 또는 구독에 존재 하거나 이동 요청에 포함 되어야 합니다. 종속 리소스가이 요구 사항을 충족 하지 않는 경우 MissingMoveDependentResources 오류 코드가 표시 됩니다. 오류 메시지에는 이동 요청에 포함 해야 하는 종속 리소스에 대 한 세부 정보가 포함 됩니다.
 
-예를 들어 가상 컴퓨터를 이동하려면 세 개의 다른 리소스 공급자가 있는 7개의 리소스 유형을 이동해야 할 수 있습니다. 이러한 리소스 공급자 및 유형은 다음과 같습니다.
+예를 들어 가상 컴퓨터를 이동 하려면 세 가지 리소스 공급자를 사용 하 여 7 개의 리소스 유형을 이동 해야 할 수 있습니다. 이러한 리소스 공급자 및 유형은 다음과 같습니다.
 
 * Microsoft.Compute
 
@@ -271,12 +271,12 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 * Microsoft.Storage
   * storageAccounts
 
-또 다른 일반적인 예로는 가상 네트워크 이동이 포함됩니다. 해당 가상 네트워크와 연결된 다른 여러 리소스를 이동해야 할 수 있습니다. 이동 요청에는 공용 IP 주소, 경로 테이블, 가상 네트워크 게이트웨이, 네트워크 보안 그룹 등을 이동해야 할 수 있습니다.
+또 다른 일반적인 예에는 가상 네트워크 이동이 포함 됩니다. 해당 가상 네트워크와 연결 된 다른 여러 리소스를 이동 해야 할 수 있습니다. 이동 요청은 공용 IP 주소, 경로 테이블, 가상 네트워크 게이트웨이, 네트워크 보안 그룹 등을 이동 해야 할 수 있습니다.
 
 **질문: Azure에서 일부 리소스를 이동할 수 없는 이유는 무엇입니까?**
 
-현재 Azure 지원의 모든 리소스가 이동하지는 않습니다. 이동을 지원하는 리소스 목록은 [리소스에 대한 작업 지원 이동을](move-support-resources.md)참조하십시오.
+현재 Azure 지원의 모든 리소스가 이동 하는 것은 아닙니다. 이동을 지 원하는 리소스 목록은 [리소스에 대 한 이동 작업 지원](move-support-resources.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-이동을 지원하는 리소스 목록은 [리소스에 대한 작업 지원 이동을](move-support-resources.md)참조하십시오.
+이동을 지 원하는 리소스 목록은 [리소스에 대 한 이동 작업 지원](move-support-resources.md)을 참조 하세요.

@@ -1,21 +1,21 @@
 ---
 title: AKS(Azure Kubernetes Service)의 HTTP 애플리케이션 라우팅 추가 기능
-description: HTTP 응용 프로그램 라우팅 추가 기능을 사용하여 AKS(Azure Kubernetes Service)에 배포된 응용 프로그램에 액세스합니다.
+description: HTTP 응용 프로그램 라우팅 추가 기능을 사용 하 여 AKS (Azure Kubernetes Service)에 배포 된 응용 프로그램에 액세스 합니다.
 services: container-service
 author: lachie83
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
 ms.openlocfilehash: 6ffc9daaf1b87fc9fb6ebbb0f2787f07282afe5e
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632398"
 ---
 # <a name="http-application-routing"></a>HTTP 애플리케이션 라우팅
 
-HTTP 애플리케이션 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes Service) 클러스터에 배포된 애플리케이션에 쉽게 액세스할 수 있습니다. 솔루션이 활성화되면 AKS 클러스터에서 [Ingress 컨트롤러를](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) 구성합니다. 애플리케이션이 배포되면 솔루션에서 애플리케이션 엔드포인트에 대해 공개적으로 액세스할 수 있는 DNS 이름도 만듭니다.
+HTTP 애플리케이션 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes Service) 클러스터에 배포된 애플리케이션에 쉽게 액세스할 수 있습니다. 솔루션을 사용 하도록 설정 하면 AKS 클러스터에서 [수신 컨트롤러](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) 를 구성 합니다. 애플리케이션이 배포되면 솔루션에서 애플리케이션 엔드포인트에 대해 공개적으로 액세스할 수 있는 DNS 이름도 만듭니다.
 
 추가 기능이 사용하도록 설정되면 구독에 DNS 영역을 만듭니다. DNS 비용에 대한 자세한 내용은 [DNS 가격 책정][dns-pricing]을 참조하세요.
 
@@ -24,9 +24,9 @@ HTTP 애플리케이션 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes
 
 ## <a name="http-routing-solution-overview"></a>HTTP 라우팅 솔루션 개요
 
-추가 기능을 배포하는 두 가지 구성 요소: [Kubernetes 침투 컨트롤러][ingress] 및 [외부-DNS][external-dns] 컨트롤러입니다.
+추가 기능에서는 [Kubernetes 수신 컨트롤러][ingress] 와 [외부 DNS][external-dns] 컨트롤러의 두 구성 요소를 배포 합니다.
 
-- **수신 컨트롤러**: 수신 컨트롤러가 LoadBalancer 유형의 Kubernetes 서비스를 사용하여 인터넷에 노출됩니다. Ingress 컨트롤러는 응용 프로그램 끝점에 대한 경로를 생성하는 [Kubernetes 침투 리소스를][ingress-resource]보고 구현합니다.
+- **수신 컨트롤러**: 수신 컨트롤러가 LoadBalancer 유형의 Kubernetes 서비스를 사용하여 인터넷에 노출됩니다. 수신 컨트롤러는 응용 프로그램 끝점에 대 한 경로를 만드는 [Kubernetes 수신 리소스][ingress-resource]를 감시 하 고 구현 합니다.
 - **외부 DNS 컨트롤러**: Kubernetes 수신 리소스를 감시하고 클러스터 특정 DNS 영역에 DNS A 레코드를 만듭니다.
 
 ## <a name="deploy-http-routing-cli"></a>HTTP 라우팅 배포: CLI
@@ -221,7 +221,7 @@ Azure Portal의 DNS 영역 리소스에서 이러한 레코드를 볼 수도 있
 
 ![DNS 레코드 가져오기](media/http-routing/clippy.png)
 
-[kubectl 로그][kubectl-logs] 명령을 사용하여 Nginx Ingress 컨트롤러의 응용 프로그램 로그를 봅니다. 로그에서 수신 리소스 `CREATE` 및 컨트롤러 다시 로드를 확인합니다. 모든 HTTP 작업이 기록됩니다.
+[Kubectl logs][kubectl-logs] 명령을 사용 하 여 Nginx 수신 컨트롤러에 대 한 응용 프로그램 로그를 확인 합니다. 로그에서 수신 리소스 `CREATE` 및 컨트롤러 다시 로드를 확인합니다. 모든 HTTP 작업이 기록됩니다.
 
 ```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system

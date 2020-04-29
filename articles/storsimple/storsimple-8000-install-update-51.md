@@ -1,6 +1,6 @@
 ---
-title: StorSimple 8000 시리즈 장치에 업데이트 5.1 설치 | 마이크로 소프트 문서
-description: StorSimple 8000 시리즈 장치에 StorSimple 8000 시리즈 업데이트 5.1을 설치하는 방법에 대해 설명합니다.
+title: StorSimple 8000 시리즈 장치에 업데이트 5.1 설치 | Microsoft Docs
+description: Storsimple 8000 시리즈 장치에 StorSimple 8000 시리즈 업데이트 5.1을 설치 하는 방법을 설명 합니다.
 services: storsimple
 documentationcenter: NA
 author: priestlg
@@ -13,25 +13,25 @@ ms.workload: TBD
 ms.date: 03/05/2020
 ms.author: v-grpr
 ms.openlocfilehash: b90f0f35f908d16b0746075e638fe66769939a64
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80658041"
 ---
-# <a name="install-update-51-on-your-storsimple-device"></a>StorSimple 장치에 5.1 업데이트 설치
+# <a name="install-update-51-on-your-storsimple-device"></a>StorSimple 장치에 업데이트 5.1 설치
 
 ## <a name="overview"></a>개요
 
-이 자습서에서 Azure 포털을 통해 이전 소프트웨어 버전을 실행하는 StorSimple 장치에 업데이트 5.1을 설치하는 방법을 설명합니다. <!--The hotfix method is used when you are trying to install Update 5.1 on a device running pre-Update 3 versions. The hotfix method is also used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.-->
+이 자습서에서는 Azure Portal를 통해 이전 소프트웨어 버전을 실행 하는 StorSimple 장치에 업데이트 5.1을 설치 하는 방법을 설명 합니다. <!--The hotfix method is used when you are trying to install Update 5.1 on a device running pre-Update 3 versions. The hotfix method is also used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.-->
 
-업데이트 5.1에는 중단 없는 보안 업데이트가 포함되어 있습니다. 중단 또는 정기적 인 업데이트는 Azure 포털을 통해 적용 할 수 있습니다 <!--or by the hotfix method-->.
+업데이트 5.1에는 중단 없는 보안 업데이트가 포함 되어 있습니다. 비 중단 또는 정기 업데이트는 Azure Portal를 통해 적용할 수 있습니다. <!--or by the hotfix method-->.
 
 > [!IMPORTANT]
 >
-> * 업데이트 5.1은 필수 업데이트이며 즉시 설치해야 합니다. 자세한 내용은 [5.1 릴리스 정보 업데이트를](storsimple-update51-release-notes.md)참조하십시오.
-> * 설치하기 전에 일련의 수동 및 자동 전 검사를 수행하며 하드웨어 상태와 네트워크 연결 측면에서 디바이스 상태를 확인합니다. 이러한 사전 검사는 Azure 포털에서 업데이트를 적용하는 경우에만 수행됩니다.
-> * 핫픽스 방법을 사용하여 설치하려면 [Microsoft 지원에](mailto:support@microsoft.com)문의하십시오.
+> * 업데이트 5.1은 필수 업데이트 이며 즉시 설치 해야 합니다. 자세한 내용은 [업데이트 5.1 릴리스 정보](storsimple-update51-release-notes.md)를 참조 하세요.
+> * 설치하기 전에 일련의 수동 및 자동 전 검사를 수행하며 하드웨어 상태와 네트워크 연결 측면에서 디바이스 상태를 확인합니다. 이러한 사전 검사는 Azure Portal에서 업데이트를 적용 하는 경우에만 수행 됩니다.
+> * 핫픽스 방법을 사용 하 여를 설치 하려는 경우 [Microsoft 지원](mailto:support@microsoft.com)에 문의 하세요.
 
 <!--
 > * We strongly recommend that when updating a device running versions prior to Update 3, you install the updates using hotfix method. If you encounter any issues, [log a support ticket](storsimple-8000-contact-microsoft-support.md). 
@@ -45,9 +45,9 @@ ms.locfileid: "80658041"
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
-## <a name="install-update-51-through-the-azure-portal"></a>Azure 포털을 통해 업데이트 5.1 설치
+## <a name="install-update-51-through-the-azure-portal"></a>Azure Portal를 통해 업데이트 5.1 설치
 
-다음 단계를 수행하여 장치를 [업데이트 5.1로](storsimple-update51-release-notes.md)업데이트합니다.
+장치를 업데이트 [5.1](storsimple-update51-release-notes.md)로 업데이트 하려면 다음 단계를 수행 합니다.
 
 > [!NOTE]
 > Microsoft는 디바이스로부터 추가적인 진단 정보를 확보할 수 있습니다. 따라서 운영 팀에서 문제가 있는 디바이스를 확인하는 경우, 디바이스로부터 정보를 수집하고 문제를 진단할 준비가 더욱 잘 갖추어져 있습니다.
@@ -58,7 +58,7 @@ ms.locfileid: "80658041"
 
     ![디바이스 선택](./media/storsimple-8000-install-update-51/update1.png)
 
-2. 장치 **설정으로** > 이동**장치 업데이트.**
+2. **장치 설정** > **장치 업데이트**로 이동 합니다.
 
     ![디바이스 업데이트 클릭](./media/storsimple-8000-install-update-51/update2.png)
 
@@ -95,7 +95,7 @@ ms.locfileid: "80658041"
 10. 작업이 완료되면 **디바이스 설정 &gt; 디바이스 업데이트**로 이동합니다. 이제 소프트웨어 버전이 업데이트됩니다.
 
 
-장치가 **StorSimple 8000 시리즈 업데이트 5.1(6.3.9600.17885)을**실행 중인지 확인합니다. **마지막 업데이트 날짜**를 수정해야 합니다.
+장치가 **StorSimple 8000 시리즈 업데이트 5.1 (6.3.9600.17885)** 를 실행 중인지 확인 합니다. **마지막 업데이트 날짜**를 수정해야 합니다.
 <!-- 5.1 - KB 4542887-->
 
 <!--You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). The steps to install maintenance mode update are detailed in the next section.
@@ -168,4 +168,4 @@ Perform the following steps to download and install the hotfixes.
 
 ## <a name="next-steps"></a>다음 단계
 
-[5.1 업데이트 릴리스에](storsimple-update51-release-notes.md)대해 자세히 알아보십시오.
+[업데이트 5.1 릴리스](storsimple-update51-release-notes.md)에 대해 자세히 알아보세요.

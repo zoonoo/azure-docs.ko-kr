@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: shvija
 ms.openlocfilehash: 1b292f9b894dac7df6b9634ce1bad627c8d24fe6
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632757"
 ---
-# <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>아파치 스파크 응용 프로그램을 Azure 이벤트 허브와 연결
-이 자습서에서는 Spark 응용 프로그램을 이벤트 허브에 연결하여 실시간 스트리밍을 진행합니다. 이렇게 통합하면 프로토콜 클라이언트를 변경하거나 사용자 고유의 Kafka 또는 Zookeeper 클러스터를 실행할 필요 없이 스트리밍이 가능합니다. 이 자습서에서는 Apache Spark v2.4+ 및 Apache Kafka v2.0+가 필요합니다.
+# <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Azure Event Hubs를 사용 하 여 Apache Spark 응용 프로그램 연결
+이 자습서에서는 Spark 응용 프로그램을 실시간 스트리밍에 대 한 Event Hubs 연결 하는 과정을 안내 합니다. 이렇게 통합하면 프로토콜 클라이언트를 변경하거나 사용자 고유의 Kafka 또는 Zookeeper 클러스터를 실행할 필요 없이 스트리밍이 가능합니다. 이 자습서에서는 Apache Spark v2.4+ 및 Apache Kafka v2.0+가 필요합니다.
 
 > [!NOTE]
 > 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/spark/)에서 사용할 수 있습니다.
@@ -43,7 +43,7 @@ ms.locfileid: "80632757"
 
 
 ## <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
-Event Hubs 서비스와 통신하려면 Event Hubs 네임스페이스가 필요합니다. 네임스페이스 및 이벤트 허브를 만드는 방법에 대한 지침은 [이벤트 허브 만들기를](event-hubs-create.md) 참조하십시오. 나중에 사용할 수 있도록 Event Hubs 연결 문자열 및 FQDN(정규화된 도메인 이름)을 가져옵니다. 자세한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조하세요. 
+Event Hubs 서비스와 통신하려면 Event Hubs 네임스페이스가 필요합니다. 네임 스페이스 및 이벤트 허브를 만드는 방법에 대 한 지침은 [이벤트 허브 만들기](event-hubs-create.md) 를 참조 하세요. 나중에 사용할 수 있도록 Event Hubs 연결 문자열 및 FQDN(정규화된 도메인 이름)을 가져옵니다. 자세한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조하세요. 
 
 ## <a name="clone-the-example-project"></a>프로젝트 예제 복제
 Azure Event Hubs 리포지토리를 복제하고 `tutorials/spark` 하위 폴더로 이동합니다.
@@ -103,8 +103,8 @@ Event Hubs 및 Kafka용 Event Hubs에 대해 자세한 내용은 다음 문서�
 
 - [이벤트 허브에서 Kafka broker 미러링](event-hubs-kafka-mirror-maker-tutorial.md)
 - [이벤트 허브에 Apache Flink 연결](event-hubs-kafka-flink-tutorial.md)
-- [카프카 커넥트와 이벤트 허브 통합](event-hubs-kafka-connect-tutorial.md)
+- [Kafka Connect를 이벤트 허브와 통합](event-hubs-kafka-connect-tutorial.md)
 - [GitHub에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
-- [이벤트 허브에 Akka 스트림 연결](event-hubs-kafka-akka-streams-tutorial.md)
-- [Azure 이벤트 허브에 대 한 아파치 카프카 개발자 가이드](apache-kafka-developer-guide.md)
+- [이벤트 허브에 Akka Streams 연결](event-hubs-kafka-akka-streams-tutorial.md)
+- [Azure Event Hubs에 대 한 Apache Kafka 개발자 가이드](apache-kafka-developer-guide.md)
 

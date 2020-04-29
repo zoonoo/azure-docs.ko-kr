@@ -1,5 +1,5 @@
 ---
-title: 서버 매개 변수 구성 - Azure CLI - MariaDB용 Azure 데이터베이스
+title: 서버 매개 변수 구성-Azure CLI-Azure Database for MariaDB
 description: 이 문서에서는 Azure CLI 명령줄 유틸리티를 사용하여 Azure Database for MariaDB에서 서비스 매개 변수를 구성하는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
@@ -8,10 +8,10 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 4/1/2020
 ms.openlocfilehash: 3ba06ea592d51eedbe827e1ab6418f65722d579c
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632298"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Azure CLI를 사용하여 서버 구성 매개 변수 사용자 지정
@@ -19,7 +19,7 @@ Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for Mar
 
 ## <a name="prerequisites"></a>사전 요구 사항
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
-- [MariaDB 서버에 대한 Azure 데이터베이스](quickstart-create-mariadb-server-database-using-azure-cli.md)
+- [Azure Database for MariaDB 서버](quickstart-create-mariadb-server-database-using-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) 명령줄 유틸리티 또는 브라우저의 Azure Cloud Shell
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mariadb-server"></a>Azure Database for MariaDB에 대한 서버 구성 매개 변수 나열
@@ -69,7 +69,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> 표준 시간대 테이블이 제대로 채워지도록 서버를 다시 시작해야 합니다. 서버를 다시 시작하려면 [Azure 포털](howto-restart-server-portal.md) 또는 [CLI를](howto-restart-server-cli.md)사용합니다.
+> 표준 시간대 테이블이 제대로 채워졌는지 확인 하려면 서버를 다시 시작 해야 합니다. 서버를 다시 시작 하려면 [Azure Portal](howto-restart-server-portal.md) 또는 [CLI](howto-restart-server-cli.md)를 사용 합니다.
 
 사용 가능한 표준 시간대 값을 보려면 다음 명령을 실행합니다.
 

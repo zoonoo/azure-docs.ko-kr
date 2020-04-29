@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure 함수를 사용하는 계산 관리'
-description: Azure 함수를 사용하여 Azure Synapse 분석에서 SQL 풀의 계산을 관리하는 방법
+title: '자습서: Azure Functions을 사용 하 여 계산 관리'
+description: Azure 함수를 사용 하 여 Azure Synapse Analytics에서 SQL 풀의 계산을 관리 하는 방법입니다.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -12,25 +12,25 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: aa2cff552b49bceeaf6fd46510bf78384f0e7bfb
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631956"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Azure 함수를 사용하여 Azure 시냅스 분석 SQL 풀에서 계산 리소스 관리
+# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Azure Functions를 사용 하 여 Azure Synapse Analytics SQL 풀에서 계산 리소스 관리
 
-이 자습서에서는 Azure Functions를 사용하여 Azure Synapse 분석에서 SQL 풀에 대한 계산 리소스를 관리합니다.
+이 자습서에서는 Azure Functions를 사용 하 여 Azure Synapse Analytics의 SQL 풀에 대 한 계산 리소스를 관리 합니다.
 
-SQL 풀에서 Azure Function 앱을 사용하려면 SQL 풀 인스턴스와 동일한 구독에서 기여자 액세스 권한이 있는 [서비스 주체 계정을](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 만들어야 합니다.
+SQL 풀에서 Azure 함수 앱를 사용 하려면 SQL 풀 인스턴스와 동일한 구독에서 참가자 액세스 권한이 있는 [서비스 사용자 계정을](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 만들어야 합니다.
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 타이머 기반 크기 조정 배포
 
 템플릿을 배포하려면 다음 정보가 필요합니다.
 
-- SQL 풀 인스턴스가 있는 리소스 그룹의 이름
+- SQL 풀 인스턴스가 있는 리소스 그룹의 이름입니다.
 - SQL 풀 인스턴스가 있는 논리 서버의 이름
-- SQL 풀 인스턴스의 이름
+- SQL 풀 인스턴스의 이름입니다.
 - Azure Active Directory의 테넌트 ID(디렉터리 ID)
 - 구독 ID
 - 서비스 사용자 애플리케이션 ID
@@ -97,7 +97,7 @@ SQL 풀에서 Azure Function 앱을 사용하려면 SQL 풀 인스턴스와 동�
 
 현재는 템플릿에 크기 조정 함수가 두 개밖에 없습니다. 이러한 함수를 사용하면 강화 및 규모 축소를 각각 하루에 한 번만 수행할 수 있습니다. 하루에 여러 번 규모를 축소하거나 주말에 다른 크기 조정 동작을 수행하는 등 더 세밀한 제어가 필요한 경우 또 다른 트리거를 추가해야 합니다.
 
-1. 빈 함수를 만듭니다. 함수 *+* 위치 근처의 단추를 선택하여 함수 템플릿 창을 표시합니다.
+1. 빈 함수를 만듭니다. 함수 위치 *+* 근처의 단추를 선택 하 여 함수 템플릿 창을 표시 합니다.
 
    ![새 함수 만들기](./media/manage-compute-with-azure-functions/create-new-function.png)
 
@@ -171,4 +171,4 @@ SQL 풀에서 Azure Function 앱을 사용하려면 SQL 풀 인스턴스와 동�
 
 [타이머 트리거](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Azure 함수에 대해 자세히 알아봅니다.
 
-SQL 풀 [샘플 리포지토리를 체크 아웃합니다.](https://github.com/Microsoft/sql-data-warehouse-samples)
+SQL 풀 [샘플 리포지토리](https://github.com/Microsoft/sql-data-warehouse-samples)를 체크 아웃 합니다.

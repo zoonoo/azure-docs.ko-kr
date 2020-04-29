@@ -1,6 +1,6 @@
 ---
 title: Apache Kafka용 Akka Streams 사용 - Azure Event Hubs | Microsoft Docs
-description: 이 문서에서는 Akka Streams를 Azure 이벤트 허브에 연결하는 방법에 대한 정보를 제공합니다.
+description: 이 문서에서는 Akka streams 스트림을 Azure event hub에 연결 하는 방법에 대 한 정보를 제공 합니다.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -12,14 +12,14 @@ ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: shvija
 ms.openlocfilehash: 0b96f1448fd223aae2dde77c5c05a8c9bd74ee9b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632852"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs에서 Akka Streams 사용
-이 자습서에서는 프로토콜 클라이언트를 변경하거나 자체 클러스터를 실행하지 않고 Akka Streams를 이벤트 허브에 연결하는 방법을 보여 줍니다. Apache Kafka용 Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
+이 자습서에서는 프로토콜 클라이언트를 변경 하거나 사용자 고유의 클러스터를 실행 하지 않고 Akka streams 스트림을 이벤트 허브에 연결 하는 방법을 보여 줍니다. Apache Kafka용 Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -40,18 +40,18 @@ ms.locfileid: "80632852"
 * [JDK(Java Development Kit) 1.8 이상](https://aka.ms/azure-jdks)
     * Ubuntu에서 `apt-get install default-jdk`를 실행하여 JDK를 설치합니다.
     * JAVA_HOME 환경 변수가 반드시 JDK가 설치된 폴더를 지정하도록 설정합니다.
-* Maven 이진 아카이브 [다운로드](https://maven.apache.org/download.cgi) 및 [설치](https://maven.apache.org/install.html)
+* Maven 이진 보관 파일 [다운로드](https://maven.apache.org/download.cgi) 및 [설치](https://maven.apache.org/install.html)
     * Ubuntu에서 `apt-get install maven`을 실행하여 Maven을 실행할 수 있습니다.
 * [Git](https://www.git-scm.com/downloads)
     * Ubuntu에서 `sudo apt-get install git`를 실행하여 Git를 실행할 수 있습니다.
 
 ## <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
 
-Event Hubs 서비스에서 보내거나 받으려면 Event Hubs 네임스페이스가 필요합니다. 자세한 내용은 [이벤트 허브 만들기를](event-hubs-create.md) 참조하십시오. 나중에 사용하기 위해 Event Hubs 연결 문자열을 복사합니다.
+Event Hubs 서비스에서 보내거나 받으려면 Event Hubs 네임스페이스가 필요합니다. 자세한 내용은 [이벤트 허브 만들기](event-hubs-create.md) 를 참조 하세요. 나중에 사용하기 위해 Event Hubs 연결 문자열을 복사합니다.
 
 ## <a name="clone-the-example-project"></a>프로젝트 예제 복제
 
-이제 이벤트 허브 연결 문자열이 있으므로 Kafka 리포지토리에 대한 Azure 이벤트 허브를 복제하고 `akka` 하위 폴더로 이동합니다.
+이제 연결 문자열 Event Hubs 있으므로 Kafka 리포지토리의 Azure Event Hubs를 복제 하 고 하위 폴더로 이동 합니다 `akka` .
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
@@ -93,11 +93,11 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestProducer"
 ```
 
-생산자는 토픽에서 `test`이벤트 허브로 이벤트를 보내기 시작하고 이벤트를 stdout에 인쇄합니다.
+생산자는 토픽 `test`에서 이벤트 허브로 이벤트를 보내기 시작 하 고 이벤트를 stdout에 출력 합니다.
 
 ## <a name="run-akka-streams-consumer"></a>Akka Streams 소비자 실행
 
-제공된 소비자 예제를 사용하여 이벤트 허브에서 메시지를 받습니다.
+제공 된 소비자 예제를 사용 하 여 이벤트 허브에서 메시지를 수신 합니다.
 
 ### <a name="provide-an-event-hubs-kafka-endpoint"></a>Event Hubs Kafka 엔드포인트 제공
 
@@ -133,16 +133,16 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestConsumer"
 ```
 
-이벤트 허브에 이벤트가 있는 경우(예: 생산자도 실행 중인 경우) 소비자는 토픽에서 `test`이벤트를 수신하기 시작합니다. 
+이벤트 허브에 이벤트가 있는 경우 (예를 들어 생산자가 실행 중인 경우) 소비자는 토픽 `test`에서 이벤트를 수신 하기 시작 합니다. 
 
 Akka Streams에 대한 자세한 내용은 [Akka Streams Kafka 가이드](https://doc.akka.io/docs/akka-stream-kafka/current/home.html)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
-카프카의 이벤트 허브에 대한 자세한 내용은 다음 문서를 참조하세요.  
+Kafka에 대 한 Event Hubs에 대해 자세히 알아보려면 다음 문서를 참조 하세요.  
 
 - [이벤트 허브에서 Kafka broker 미러링](event-hubs-kafka-mirror-maker-tutorial.md)
 - [이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)
 - [이벤트 허브에 Apache Flink 연결](event-hubs-kafka-flink-tutorial.md)
-- [카프카 커넥트와 이벤트 허브 통합](event-hubs-kafka-connect-tutorial.md)
+- [Kafka Connect를 이벤트 허브와 통합](event-hubs-kafka-connect-tutorial.md)
 - [GitHub에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
-- [Azure 이벤트 허브에 대 한 아파치 카프카 개발자 가이드](apache-kafka-developer-guide.md)
+- [Azure Event Hubs에 대 한 Apache Kafka 개발자 가이드](apache-kafka-developer-guide.md)

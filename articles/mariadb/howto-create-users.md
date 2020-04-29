@@ -1,5 +1,5 @@
 ---
-title: 사용자 만들기 - MariaDB용 Azure 데이터베이스
+title: 사용자 만들기-Azure Database for MariaDB
 description: 이 문서에서는 Azure Database for MariaDB 서버와 상호 작용할 새로운 사용자 계정을 만드는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/2/2020
 ms.openlocfilehash: 1b79a49b2fb87ebf180aaaa40447f40c5a982c2e
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632282"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 사용자 만들기 
@@ -23,7 +23,7 @@ Azure Database for MariaDB를 처음으로 만든 경우 서버 관리자 로그
 Azure Database for MariaDB 서버가 생성되면 첫 번째 서버 관리 사용자 계정을 사용하여 추가 사용자를 만들어 이들에게 관리자 액세스 권한을 부여할 수 있습니다. 또한 서버 관리자 계정은 개별 데이터베이스 스키마에 액세스할 수 있는 권한의 사용자가 만드는 데 사용할 수 있습니다.
 
 > [!NOTE]
-> SUPER 권한 및 DBA 역할은 지원되지 않습니다. 제한 문서의 [권한을](concepts-limits.md#privilege-support) 검토하여 서비스에서 지원되지 않는 내용을 이해합니다.
+> SUPER 권한 및 DBA 역할은 지원 되지 않습니다. 제한 사항 문서의 [권한](concepts-limits.md#privilege-support) 을 검토 하 여 서비스에서 지원 되지 않는 기능을 파악 합니다.
 
 ## <a name="create-additional-admin-users"></a>추가 관리 사용자 만들기
 1. 연결 정보 및 관리 사용자 이름을 가져옵니다.

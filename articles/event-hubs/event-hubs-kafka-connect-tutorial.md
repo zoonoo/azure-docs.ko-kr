@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: shvija
 ms.openlocfilehash: 60c6207b1c90ca40f02097a1c82d2811a50f664d
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632825"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Azure Event Hubs(미리 보기)에 Apache Kafka Connect 지원 통합
-수집되는 비즈니스 요구 사항이 증가함에 따라 다양한 외부 소스 및 싱크에 대한 수집 요구 사항도 증가합니다. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect)는 Kafka 클러스터를 통해 MySQL, HDFS 같은 외부 시스템 및 파일 시스템에 연결하고 데이터를 가져오는/내보내는 프레임워크를 제공합니다. 이 자습서에서는 이벤트 허브와 함께 Kafka Connect 프레임워크를 사용하는 데 대해 안내합니다.
+수집되는 비즈니스 요구 사항이 증가함에 따라 다양한 외부 소스 및 싱크에 대한 수집 요구 사항도 증가합니다. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect)는 Kafka 클러스터를 통해 MySQL, HDFS 같은 외부 시스템 및 파일 시스템에 연결하고 데이터를 가져오는/내보내는 프레임워크를 제공합니다. 이 자습서에서는 Event Hubs와 함께 Kafka Connect 프레임 워크를 사용 하는 과정을 안내 합니다.
 
-이 자습서에서는 Kafka Connect를 이벤트 허브와 통합하고 기본 FileStreamSource 및 FileStreamSink 커넥터를 배포하는 작업을 안내합니다. 이 기능은 현재 미리 보기로 제공됩니다. 이러한 커넥터는 프로덕션 용도로 제작된 것이 아니지만, Azure Event Hubs가 Kafka broker 역할을 하는 엔드투엔드 Kafka Connect 시나리오를 보여줍니다.
+이 자습서에서는 Kafka Connect를 이벤트 허브와 통합 하 고 기본 FileStreamSource 및 FileStreamSink 커넥터를 배포 하는 과정을 안내 합니다. 이 기능은 현재 미리 보기로 제공됩니다. 이러한 커넥터는 프로덕션 용도로 제작된 것이 아니지만, Azure Event Hubs가 Kafka broker 역할을 하는 엔드투엔드 Kafka Connect 시나리오를 보여줍니다.
 
 > [!NOTE]
 > 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect)에서 사용할 수 있습니다.
@@ -42,7 +42,7 @@ ms.locfileid: "80632825"
 - [Apache Kafka용 Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) 지침 문서를 참조하세요.
 
 ## <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
-Event Hubs 서비스와 통신하려면 Event Hubs 네임스페이스가 필요합니다. 네임스페이스 및 이벤트 허브를 만드는 방법에 대한 지침은 [이벤트 허브 만들기를](event-hubs-create.md) 참조하십시오. 나중에 사용할 수 있도록 Event Hubs 연결 문자열 및 FQDN(정규화된 도메인 이름)을 가져옵니다. 자세한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조하세요. 
+Event Hubs 서비스와 통신하려면 Event Hubs 네임스페이스가 필요합니다. 네임 스페이스 및 이벤트 허브를 만드는 방법에 대 한 지침은 [이벤트 허브 만들기](event-hubs-create.md) 를 참조 하세요. 나중에 사용할 수 있도록 Event Hubs 연결 문자열 및 FQDN(정규화된 도메인 이름)을 가져옵니다. 자세한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조하세요. 
 
 ## <a name="clone-the-example-project"></a>프로젝트 예제 복제
 Azure Event Hubs 리포지토리를 복제하고 자습서/연결 하위 폴더로 이동합니다. 
@@ -157,11 +157,11 @@ Kafka Connect는 Connect 클러스터가 중단된 후에도 유지되는 구성
 
 ## <a name="next-steps"></a>다음 단계
 
-카프카의 이벤트 허브에 대한 자세한 내용은 다음 문서를 참조하세요.  
+Kafka에 대 한 Event Hubs에 대해 자세히 알아보려면 다음 문서를 참조 하세요.  
 
 - [이벤트 허브에서 Kafka broker 미러링](event-hubs-kafka-mirror-maker-tutorial.md)
 - [이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)
 - [이벤트 허브에 Apache Flink 연결](event-hubs-kafka-flink-tutorial.md)
 - [GitHub에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
-- [이벤트 허브에 Akka 스트림 연결](event-hubs-kafka-akka-streams-tutorial.md)
-- [Azure 이벤트 허브에 대 한 아파치 카프카 개발자 가이드](apache-kafka-developer-guide.md)
+- [이벤트 허브에 Akka Streams 연결](event-hubs-kafka-akka-streams-tutorial.md)
+- [Azure Event Hubs에 대 한 Apache Kafka 개발자 가이드](apache-kafka-developer-guide.md)
