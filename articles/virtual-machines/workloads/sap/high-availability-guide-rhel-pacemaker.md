@@ -1,5 +1,5 @@
 ---
-title: Azure의 RHEL에 페이스메이커 설정 | 마이크로 소프트 문서
+title: Azure에서 RHEL의 Pacemaker 설정 Microsoft Docs
 description: Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: radeltch
 ms.openlocfilehash: 21c551721815847eea4cb1435298ea6f7bf37966
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79264480"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정
@@ -55,28 +55,28 @@ ms.locfileid: "79264480"
 * SAP Note [1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
 * [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [Linux에서 SAP용 Azure 가상 시스템 배포(이 문서)][deployment-guide]
+* [Linux에서 SAP 용 Azure Virtual Machines 배포 (이 문서)][deployment-guide]
 * [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
 * [SAP HANA system replication in pacemaker cluster](https://access.redhat.com/articles/3004101)(Pacemaker 클러스터의 SAP HANA 시스템 복제)
 * 일반 RHEL 설명서
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)(고가용성 추가 기능 개요)
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)(고가용성 추가 기능 관리)
   * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)(고가용성 추가 기능 참조)
-  * [RHEL 고가용성 클러스터지원 정책 - sbd 및 fence_sbd](https://access.redhat.com/articles/2800691)
+  * [RHEL 고가용성 클러스터에 대 한 지원 정책-sbd 및 fence_sbd](https://access.redhat.com/articles/2800691)
 * Azure 관련 RHEL 설명서:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)(RHEL 고가용성 클러스터용 지원 정책 - Microsoft Azure Virtual Machines(클러스터 멤버))
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)(Microsoft Azure에서 Red Hat Enterprise Linux 7.4 이상 고가용성 클러스터 설치 및 구성)
-  * [RHEL 7.6의 페이스메이커에서 독립실행형 큐 서버 2(ENSA2)로 SAP S/4HANA ASCS/ERS 구성](https://access.redhat.com/articles/3974941)
+  * [Pacemaker의 RHEL 7.6에서 독립 실행형 큐에 넣기 서버 2 (ENSA2)를 사용 하 여 SAP S/4HANA ASCS/ERS 구성](https://access.redhat.com/articles/3974941)
 
 ## <a name="cluster-installation"></a>클러스터 설치
 
 ![RHEL의 Pacemaker 개요](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
 
 > [!NOTE]
-> Red Hat은 소프트웨어 에뮬레이션된 감시 타이머를 지원하지 않습니다. Red Hat은 클라우드 플랫폼에서 SBD를 지원하지 않습니다. 자세한 내용은 [RHEL 고가용성 클러스터(sbd 및 fence_sbd 대한 지원 정책을](https://access.redhat.com/articles/2800691)참조하십시오.
-> Azure에서 Pacemaker Red Hat 엔터프라이즈 Linux 클러스터에 대해 지원되는 유일한 펜싱 메커니즘은 Azure 울타리 에이전트입니다.  
+> Red Hat은 소프트웨어 에뮬레이션 watchdog을 지원 하지 않습니다. Red Hat은 클라우드 플랫폼에서 SBD을 지원 하지 않습니다. 자세한 내용은 [RHEL High Availability sbd 및 fence_sbd에 대 한 지원 정책](https://access.redhat.com/articles/2800691)을 참조 하세요.
+> Azure의 Pacemaker Red Hat Enterprise Linux 클러스터에 대해 지원 되는 유일한 펜스 메커니즘은 Azure fence 에이전트입니다.  
 
-다음 항목은 모든 노드에 적용 가능한 **[A]** 중 하나, **[1]** - 노드 1 또는 **[2]에만** 적용가능하며 노드 2에만 적용됩니다.
+다음 항목에는 접두사 **[A]** -모든 노드에 적용, **[1]** -노드 1에만 적용 됩니다. [ **2]** -노드 2에만 적용 됩니다.
 
 1. **[A]** 등록
 
@@ -88,7 +88,7 @@ ms.locfileid: "79264480"
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Azure Marketplace PAYG RHEL 이미지에 풀을 연결하면 PAYG 이미지에 대해 한 번, 연결하는 풀의 RHEL 권한에 대해 한 번 씩 RHEL 사용량에 대해 효과적으로 두 배청구됩니다. 이를 완화하기 위해 Azure는 이제 BYOS RHEL 이미지를 제공합니다. 자세한 내용은 [여기에서](../redhat/byos.md)확인할 수 있습니다.
+   풀을 Azure Marketplace PAYG RHEL 이미지에 연결 하면 RHEL 사용에 대 한 비용이 효과적으로 두 배 청구 됩니다. PAYG 이미지에 대해 한 번, 연결한 풀의 RHEL 자격에 대해 한 번입니다. 이를 완화 하기 위해 Azure는 이제 BYOS RHEL 이미지를 제공 합니다. 자세한 내용은 [여기](../redhat/byos.md)에 있습니다.
 
 1. **[A]** SAP 리포지토리에 RHEL 사용
 
@@ -107,20 +107,20 @@ ms.locfileid: "79264480"
    </code></pre>
 
    > [!IMPORTANT]
-   > 리소스 중지가 실패하거나 클러스터 노드가 더 이상 서로 통신할 수 없는 경우 고객이 더 빠른 장애 조치 시간의 이점을 누릴 수 있도록 다음 버전의 Azure Fence 에이전트(또는 이후)를 권장합니다.  
-   > RHEL 7.6: 울타리 에이전트-4.2.1-11.el7_6.8  
-   > RHEL 7.5: 울타리 에이전트-4.0.11-86.el7_5.8  
-   > RHEL 7.4: 울타리 에이전트-4.0.11-66.el7_4.12  
-   > 자세한 내용은 [RHEL 고가용성 클러스터 멤버로 실행되는 Azure VM을 참조하여 울타리를 두는 데 시간이 오래 걸리거나 VM이 종료되기 전에 펜싱실패/시간 단축을](https://access.redhat.com/solutions/3408711)참조하세요.
+   > 더 빠른 장애 조치 (failover) 시간을 활용 하기 위해 고객에 게 더 빠른 장애 조치 (failover)를 수행 하거나 클러스터 노드가 더 이상 서로 통신할 수 없는 경우 다음 버전의 Azure Fence 에이전트 (또는 이후 버전)를 권장 합니다.  
+   > RHEL 7.6:4.2.1-11. el7_6.8  
+   > RHEL 7.5:4.0.11-86. el7_5.8  
+   > RHEL 7.4:4.0.11-66. el7_4 12  
+   > 자세한 내용은 [RHEL 고가용성 클러스터 구성원으로 실행 되는 AZURE vm을 친 하는 데 시간이 오래 걸리고, VM이 종료 되기 전에 펜스가 실패 하거나 시간이 초과](https://access.redhat.com/solutions/3408711)되는 경우를 참조 하세요.
 
-   Azure 울타리 에이전트의 버전을 확인합니다. 필요한 경우 위에서 언급한 버전과 같거나 늦은 버전으로 업데이트합니다.
+   Azure fence 에이전트의 버전을 확인 합니다. 필요한 경우 위에 명시 된 것 보다 이전 버전 또는 같은 버전으로 업데이트 합니다.
 
    <pre><code># Check the version of the Azure Fence Agent
     sudo yum info fence-agents-azure-arm
    </code></pre>
 
    > [!IMPORTANT]
-   > Azure Fence 에이전트를 업데이트해야 하고 사용자 지정 역할을 사용하는 경우 작업 **powerOff를**포함하도록 사용자 지정 역할을 업데이트해야 합니다. 자세한 내용은 [울타리 에이전트에 대한 사용자 지정 역할 만들기를](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent)참조하십시오.  
+   > Azure Fence 에이전트를 업데이트 해야 하 고 사용자 지정 역할을 사용 하는 경우에는 **전원 꺼짐**작업을 포함 하도록 사용자 지정 역할을 업데이트 해야 합니다. 자세한 내용은 [fence 에이전트에 대 한 사용자 지정 역할 만들기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent)를 참조 하세요.  
 
 1. **[A]** 호스트 이름 확인 설정
 
@@ -200,22 +200,22 @@ ms.locfileid: "79264480"
 
 STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 다음 단계에 따라 서비스 주체를 만듭니다.
 
-1. [https://editor.swagger.io](<https://portal.azure.com>) 으로 이동합니다.
+1. [https://editor.swagger.io](<https://portal.azure.com> ) 으로 이동합니다.
 1. Azure Active Directory 블레이드 열기  
    속성으로 이동하여 Directory ID 기록 이 ID는 **테넌트 ID**입니다.
 1. 앱 등록 클릭
-1. 새 등록을 클릭합니다.
-1. 이름을 입력하고 "이 조직 디렉터리에서만 계정"을 선택합니다. 
-2. 응용 프로그램 유형 "웹"을 선택하고 사인온 URL(예: http:\//localhost)을 입력하고 추가를 클릭합니다.  
+1. 새 등록을 클릭 합니다.
+1. 이름을 입력 하 고 "이 조직 디렉터리에만 있는 계정"을 선택 합니다. 
+2. 응용 프로그램 유형 "웹"을 선택 하 고 로그온 URL (예: http:/slocallocalhost)을 입력 한 다음 추가를 클릭 합니다.\/  
    로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
-1. 인증서 및 비밀을 선택한 다음 새 클라이언트 비밀을 클릭합니다.
-1. 새 키에 대한 설명을 입력하고 "만료되지 않습니다"를 선택하고 추가를 클릭합니다.
-1. 값을 기록해 둡니다. 서비스 주체의 **암호로** 사용됩니다.
-1. 개요를 선택합니다. 애플리케이션 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의**로그인 ID)으로** 사용됩니다.
+1. 인증서 및 암호를 선택 하 고 새 클라이언트 암호를 클릭 합니다.
+1. 새 키에 대 한 설명을 입력 하 고 "기간 제한 없음"을 선택 하 고 추가를 클릭 합니다.
+1. 값을 기록해 둡니다. 서비스 사용자의 **암호로** 사용 됩니다.
+1. 개요를 선택합니다. 애플리케이션 ID를 적어둡니다. 서비스 주체의 사용자 이름 (아래 단계의**로그인 ID** )으로 사용 됩니다.
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 펜스 에이전트에 대한 사용자 지정 역할 만들기
 
-서비스 주체에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다. 클러스터의 모든 가상 컴퓨터를 시작하고 중지(전원 끄기)할 수 있는 서비스 주체 권한을 서비스 주체에게 부여해야 합니다. 사용자 지정 역할을 아직 만들지 않은 경우 [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) 또는 [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)를 사용하여 만들 수 있습니다.
+서비스 주체에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다. 서비스 사용자에 게 클러스터의 모든 가상 컴퓨터를 시작 하 고 중지 (전원 끄기) 할 수 있는 권한을 부여 해야 합니다. 사용자 지정 역할을 아직 만들지 않은 경우 [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) 또는 [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)를 사용하여 만들 수 있습니다.
 
 입력 파일에 다음 콘텐츠를 사용합니다. 구독에 맞게 콘텐츠를 조정해야 합니다. 즉 c276fc76-9cd4-44c9-99a7-4fd71546436e 및 e91d47c4-76f3-4271-a796-21b4ecfe3624를 구독의 ID로 교체해야 합니다. 구독이 하나만 있는 경우 AssignableScopes에서 두 번째 항목을 제거합니다.
 
@@ -243,7 +243,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 
 마지막 단원에서 만든 사용자 지정 역할인 "Linux 펜스 에이전트 역할"을 서비스 주체에 할당합니다. 소유자 역할을 더 이상 사용하지 마십시오!
 
-1. [https://editor.swagger.io](https://portal.azure.com) 으로 이동합니다.
+1. [https://editor.swagger.io](https://portal.azure.com ) 으로 이동합니다.
 1. 모든 리소스 블레이드 열기
 1. 첫 번째 클러스터 노드의 가상 머신 선택
 1. 액세스 제어(IAM) 클릭

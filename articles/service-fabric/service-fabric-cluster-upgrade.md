@@ -1,14 +1,14 @@
 ---
 title: Azure Service Fabric 클러스터 업그레이드
-description: Azure Service Fabric 클러스터의 버전 또는 구성 업그레이드(클러스터 업데이트 모드 설정, 인증서 업그레이드, 응용 프로그램 포트 추가, OS 패치 수행) 및 업그레이드가 수행될 때 기대할 수 있는 작업에 대해 알아봅니다.
+description: 클러스터 업데이트 모드를 설정 하 고, 인증서를 업그레이드 하 고, 응용 프로그램 포트를 추가 하 고, OS 패치를 수행 하 고, 업그레이드가 수행 될 때 예측할 수 있는 Azure Service Fabric 클러스터의 버전 또는 구성을 업그레이드 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.custom: sfrev
 ms.openlocfilehash: 6897854820339fc78dd9083c82147dce95ab68b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258656"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터 업그레이드 및 업데이트
@@ -17,7 +17,7 @@ ms.locfileid: "79258656"
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>클러스터에서 실행되는 패브릭 버전 제어
 
-클러스터가 항상 [지원되는 패브릭 버전을](service-fabric-versions.md)실행하고 있는지 확인합니다. Microsoft가 새 버전의 서비스 패브릭 릴리스를 발표할 때마다 이전 버전은 해당 날짜로부터 최소 60일 후에 지원 종료로 표시됩니다. 새로운 릴리스는 [서비스 패브릭 팀 블로그에](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)발표됩니다.
+클러스터가 항상 지원 되는 [패브릭 버전](service-fabric-versions.md)을 실행 하 고 있는지 확인 합니다. Microsoft에서 새 버전의 Service Fabric를 발표할 때마다 이전 버전은 해당 날짜부터 최소 60 일 후 지원 종료로 표시 됩니다. 새 릴리스는 [Service Fabric 팀 블로그에서](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)발표 됩니다.
 
 클러스터가 실행되는 릴리스가 만료되기 14일 전에, 클러스터를 경고 성능 상태로 전환하는 상태 이벤트가 생성됩니다. 지원되는 패브릭 버전으로 업그레이드할 때까지 클러스터는 경고 상태로 유지됩니다.
 
@@ -25,21 +25,21 @@ Microsoft에서 자동 패브릭 업그레이드를 릴리스하면 클러스터
 
 ## <a name="fabric-upgrade-behavior-during-automatic-upgrades"></a>자동 업그레이드 중 패브릭 업그레이드 동작
 
-Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성을 유지 관리합니다. 필요한 기준으로 소프트웨어에 자동 모니터링된 업그레이드를 수행합니다. 이러한 업그레이드는 코드, 구성 또는 둘 모두가 될 수 있습니다. 이러한 업그레이드로 인해 응용 프로그램에 영향을 미치지 않거나 영향을 최소화하려면 다음 단계에서 업그레이드가 수행됩니다.
+Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성을 유지 관리합니다. 필요한 기준으로 소프트웨어에 자동 모니터링된 업그레이드를 수행합니다. 이러한 업그레이드는 코드, 구성 또는 둘 모두가 될 수 있습니다. 응용 프로그램이 이러한 업그레이드로 인 한 영향 또는 최소의 영향을 받지 않도록 하기 위해 다음 단계에서 업그레이드를 수행 합니다.
 
 ### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>1단계: 모든 클러스터 상태 정책을 사용하여 업그레이드 수행
 
-이 단계 동안 업그레이드는 한 번에 하나의 업그레이드 도메인을 진행하고 클러스터에서 실행 중이던 애플리케이션은 가동 중지 시간 없이 계속 실행합니다. 클러스터 상태(노드 상태 및 응용 프로그램 상태)는 업그레이드 중에 준수됩니다.
+이 단계 동안 업그레이드는 한 번에 하나의 업그레이드 도메인을 진행하고 클러스터에서 실행 중이던 애플리케이션은 가동 중지 시간 없이 계속 실행합니다. 클러스터 상태 정책 (노드 상태 및 응용 프로그램 상태)은 업그레이드 중에 준수 됩니다.
 
-클러스터 상태 정책이 충족되지 않으면 업그레이드가 롤백되고 구독 소유자에게 전자 메일이 전송됩니다. 전자 메일에는 다음 정보가 포함되어 있습니다.
+클러스터 상태 정책이 충족 되지 않으면 업그레이드가 롤백되고 구독 소유자에 게 전자 메일이 전송 됩니다. 전자 메일에는 다음 정보가 포함되어 있습니다.
 
 * 클러스터 업그레이드를 롤백해야 했다는 알림.
 * 권장 수정 작업(있는 경우).
-* 2단계를 실행할*n*때까지의 일 수(n)입니다.
+* 2 단계를 실행할 때까지 일 수 (*n*)입니다.
 
-인프라 이유로 업그레이드가 실패한 경우 동일한 업그레이드를 몇 번 더 실행하기 위해 노력합니다. 전자 메일을 보낸 날짜로부터 *n일* 후에 2단계로 진행합니다.
+인프라 이유로 업그레이드가 실패한 경우 동일한 업그레이드를 몇 번 더 실행하기 위해 노력합니다. 전자 메일이 전송 된 날짜에서 *n* 일 후 2 단계로 진행 합니다.
 
-클러스터 상태 정책이 충족하는 경우 업그레이드가 성공한 것으로 간주하고 완료로 표시됩니다. 이는 초기 업그레이드 또는 이 단계의 업그레이드 다시 실행 중 발생할 수 있습니다. 성공적 실행에 대한 전자 메일 확인은 없습니다. 이는 너무 많은 이메일을 보내지 않기 위한 것입니다. 전자 메일을 받는 것은 정상의 예외로 간주되어야 합니다. 클러스터 업그레이드가 애플리케이션 가용성에 영향을 주지 않고 성공되기를 예상합니다.
+클러스터 상태 정책이 충족하는 경우 업그레이드가 성공한 것으로 간주하고 완료로 표시됩니다. 이는 초기 업그레이드 또는 이 단계의 업그레이드 다시 실행 중 발생할 수 있습니다. 성공적 실행에 대한 전자 메일 확인은 없습니다. 이는 너무 많은 전자 메일을 보내지 않도록 하기 위한 것입니다. 전자 메일을 받는 것은 일반적인 경우에는 예외로 표시 되어야 합니다. 클러스터 업그레이드가 애플리케이션 가용성에 영향을 주지 않고 성공되기를 예상합니다.
 
 ### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>2단계: 기본 상태 정책만을 사용하여 업그레이드 수행
 
@@ -104,9 +104,9 @@ POA(패치 오케스트레이션 애플리케이션)는 Service Fabric 클러스
 
 ## <a name="next-steps"></a>다음 단계
 
-* 일부 서비스 패브릭 클러스터 [패브릭 설정을](service-fabric-cluster-fabric-settings.md) 사용자 지정하는 방법 알아보기
+* [Service fabric 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md) 중 일부를 사용자 지정 하는 방법 알아보기
 * [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
-* 애플리케이션 [업그레이드에](service-fabric-application-upgrade.md) 대해 알아보기
+* [응용 프로그램 업그레이드](service-fabric-application-upgrade.md) 에 대 한 자세한 정보
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png

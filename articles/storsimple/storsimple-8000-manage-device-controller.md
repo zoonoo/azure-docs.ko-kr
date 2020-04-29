@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
 ms.openlocfilehash: ce49dcaa06288ba9e7a4d232338c727064d59685
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267769"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>StorSimple 디바이스 컨트롤러 관리
@@ -111,7 +111,7 @@ Azure Portal에서 디바이스 컨트롤러를 관리하려면 다음 단계를
 Microsoft Azure StorSimple 디바이스를 공장 기본 설정으로 다시 설정하려면 다음 단계를 수행합니다.
 
 ### <a name="to-reset-the-device-to-default-settings-in-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell의 기본 설정으로 디바이스를 재설정하려면
-1. 직렬 콘솔을 통해 디바이스에 액세스합니다. 배너 메시지를 확인하여 **활성** 컨트롤러에 연결되어 있는지 확인합니다.
+1. 직렬 콘솔을 통해 디바이스에 액세스합니다. 배너 메시지를 확인 하 여 **활성** 컨트롤러에 연결 되어 있는지 확인 합니다.
 2. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다.
 3. 프롬프트에서 전체 클러스터를 다시 설정하는 다음 명령을 입력하면 모든 데이터, 메타데이터 및 컨트롤러 설정을 제거합니다.
    

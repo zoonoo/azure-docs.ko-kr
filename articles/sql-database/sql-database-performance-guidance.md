@@ -1,6 +1,6 @@
 ---
-title: 응용 프로그램 및 데이터베이스에 대한 성능 조정 지침
-description: Azure SQL 데이터베이스의 성능을 위해 데이터베이스 응용 프로그램 및 데이터베이스를 튜닝하는 방법에 대해 알아봅니다.
+title: 응용 프로그램 및 데이터베이스에 대 한 성능 조정 지침
+description: Azure SQL Database의 성능을 위해 데이터베이스 응용 프로그램 및 데이터베이스를 튜닝 하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,13 +12,13 @@ ms.author: carlrab
 ms.reviewer: carlrab; jrasnick
 ms.date: 03/10/2020
 ms.openlocfilehash: 4f30ebe39d86db7076baa8c29b2a5cf060b07bf5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79255952"
 ---
-# <a name="tune-applications-and-databases-for-performance-in-azure-sql-database"></a>Azure SQL 데이터베이스의 성능을 위해 응용 프로그램 및 데이터베이스 조정
+# <a name="tune-applications-and-databases-for-performance-in-azure-sql-database"></a>Azure SQL Database의 성능을 위해 응용 프로그램 및 데이터베이스 조정
 
 SQL Database에서 직면한 성능 문제를 확인한 후 이 문서는 다음과 같은 작업을 돕기 위해 작성되었습니다.
 
@@ -37,7 +37,7 @@ Azure SQL Database 서비스 계층이 애플리케이션의 성능 안정성과
 
 - **"번잡한" 동작으로 인해 성능이 느려지는 애플리케이션**
 
-  번잡한 애플리케이션은 네트워크 대기 시간에 민감한 과도한 데이터 액세스 작업을 만듭니다. 이러한 종류의 애플리케이션은 SQL Database에 대한 데이터 액세스 작업 수를 줄이기 위한 수정이 필요할 수 있습니다. 예를 들어 임시 쿼리 일괄 처리 또는 쿼리를 저장 프로시저로 이동하는 등의 기술을 사용하여 응용 프로그램 성능을 향상시킬 수 있습니다. 자세한 내용은 [쿼리 일괄 처리](#batch-queries)를 참조하세요.
+  번잡한 애플리케이션은 네트워크 대기 시간에 민감한 과도한 데이터 액세스 작업을 만듭니다. 이러한 종류의 애플리케이션은 SQL Database에 대한 데이터 액세스 작업 수를 줄이기 위한 수정이 필요할 수 있습니다. 예를 들어 임시 쿼리를 일괄 처리 하거나 쿼리를 저장 프로시저로 이동 하는 등의 방법을 사용 하 여 응용 프로그램 성능을 향상 시킬 수 있습니다. 자세한 내용은 [쿼리 일괄 처리](#batch-queries)를 참조하세요.
 
 - **전체 단일 시스템에서 지원할 수 없는 집중적인 워크로드를 가진 데이터베이스**
 
@@ -234,7 +234,7 @@ ORDER BY start_time DESC
 
 ### <a name="very-large-database-architectures"></a>매우 큰 데이터베이스 아키텍처
 
-Azure SQL Database의 단일 데이터베이스에 대한 [하이퍼스케일](sql-database-service-tier-hyperscale.md) 서비스 계층이 릴리스되기 전에 는 고객이 개별 데이터베이스에 대한 용량 제한을 초과하는 데 사용했습니다. 이러한 용량 제한은 관리되는 인스턴스의 탄력적 풀및 인스턴스 데이터베이스의 풀린 데이터베이스에 대해 여전히 존재합니다. 다음 두 섹션에서는 Hyperscale 서비스 계층을 사용할 수 없는 경우 Azure SQL Database에서 매우 큰 데이터베이스의 문제를 해결하기 위한 두 가지 옵션에 대해 설명합니다.
+Azure SQL Database의 단일 데이터베이스에 대 한 하이퍼 [규모](sql-database-service-tier-hyperscale.md) 서비스 계층 릴리스 전에는 개별 데이터베이스에 대 한 용량 제한을 적중 하는 데 사용 되는 고객이 있습니다. 이러한 용량 제한은 탄력적 풀의 풀링된 데이터베이스와 관리 되는 인스턴스의 인스턴스 데이터베이스에 대해서도 계속 존재 합니다. 다음 두 섹션에서는 Hyperscale 서비스 계층을 사용할 수 없는 경우 Azure SQL Database에서 매우 큰 데이터베이스에 대 한 문제를 해결 하는 두 가지 옵션에 대해 설명 합니다.
 
 ### <a name="cross-database-sharding"></a>교차-데이터베이스 분할
 

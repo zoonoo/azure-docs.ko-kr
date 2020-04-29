@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.openlocfilehash: e4945535417f7d8d33308121267ba97e1f835e13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259605"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션
@@ -18,7 +18,7 @@ Kubernetes 클러스터를 인증하고 보호하는 여러 가지 방법이 있
 이 문서에서는 AKS에서 권한을 인증하고 할당하는 데 도움이 되는 핵심 개념을 소개합니다.
 
 - [Kubernetes 서비스 계정](#kubernetes-service-accounts)
-- [Azure Active 디렉터리 통합](#azure-active-directory-integration)
+- [Azure Active Directory 통합](#azure-active-directory-integration)
 - [RBAC(역할 기반 액세스 제어)](#role-based-access-controls-rbac)
 - [Roles 및 ClusterRoles](#roles-and-clusterroles)
 - [RoleBindings 및 ClusterRoleBindings](#rolebindings-and-clusterrolebindings)
@@ -27,7 +27,7 @@ Kubernetes 클러스터를 인증하고 보호하는 여러 가지 방법이 있
 
 Kubernetes의 기본 사용자 유형 중 하나는 *서비스 계정*입니다. 서비스 계정은 Kubernetes API에서 보유하고 관리합니다. 서비스 계정에 대한 자격 증명은 Kubernetes 비밀로 저장되어 권한 있는 Pod에서 API 서버와 통신하는 데 사용할 수 있습니다. 대부분의 API 요청은 서비스 계정 또는 일반 사용자 계정에 대한 인증 토큰을 제공합니다.
 
-일반 사용자 계정은 서비스 및 프로세스뿐만 아니라 사용자 관리자 또는 개발자에게도 더 일반적인 액세스를 허용합니다. Kubernetes 자체는 일반 사용자 계정과 암호가 저장되는 ID 관리 솔루션을 제공하지 않습니다. 대신, 외부 ID 솔루션이 Kubernetes에 통합될 수 있습니다. AKS 클러스터의 경우 이 통합 ID 솔루션은 Azure Active Directory입니다.
+일반 사용자 계정은 서비스 및 프로세스뿐만 아니라 사용자 관리자 또는 개발자에게도 더 일반적인 액세스를 허용합니다. Kubernetes 자체는 일반 사용자 계정 및 암호를 저장 하는 id 관리 솔루션을 제공 하지 않습니다. 대신, 외부 ID 솔루션이 Kubernetes에 통합될 수 있습니다. AKS 클러스터의 경우 이 통합 ID 솔루션은 Azure Active Directory입니다.
 
 Kubernetes의 ID 옵션에 대한 자세한 내용은 [Kubernetes 인증][kubernetes-authentication]을 참조하세요.
 
@@ -39,7 +39,7 @@ AKS 클러스터의 보안은 Azure AD(Active Directory) 통합으로 강화될 
 
 Azure AD 통합 AKS 클러스터를 사용하면 네임스페이스 내에서 또는 클러스터 전체에서 Kubernetes 리소스에 대한 액세스 권한을 사용자 또는 그룹에 부여할 수 있습니다. `kubectl` 구성 컨텍스트를 가져오려면 사용자가 [az aks get-credentials][az-aks-get-credentials] 명령을 실행할 수 있습니다. 그러면 사용자가 `kubectl`을 사용하여 AKS 클러스터와 상호 작용할 때 해당 Azure AD 자격 증명을 사용하여 로그인하라는 메시지가 표시됩니다. 이 방법은 사용자 계정 관리 및 암호 자격 증명을 위한 단일 원본을 제공합니다. 사용자는 클러스터 관리자가 정의한 리소스에만 액세스할 수 있습니다.
 
-AKS 클러스터의 Azure AD 인증은 OAuth 2.0 프로토콜에 기반하여 구축된 ID 계층인 OpenID Connect를 사용합니다. OAuth 2.0은 액세스 토큰을 가져와서 보호된 리소스에 액세스하는 메커니즘을 정의하며, OpenID Connect는 OAuth 2.0 권한 부여 프로세스의 확장으로서 인증을 구현합니다. OpenID Connect에 대한 자세한 내용은 [OpenID 연결 설명서를][openid-connect]참조하십시오. AKS 클러스터에서는 OpenID Connect를 통해 Azure AD에서 가져온 인증 토큰을 확인하기 위해 Kubernetes 웹후크 토큰 인증을 사용합니다. 자세한 내용은 [웹후크 토큰 인증 설명서][webhook-token-docs]를 참조하세요.
+AKS 클러스터의 Azure AD 인증은 OAuth 2.0 프로토콜에 기반하여 구축된 ID 계층인 OpenID Connect를 사용합니다. OAuth 2.0은 액세스 토큰을 가져와서 보호된 리소스에 액세스하는 메커니즘을 정의하며, OpenID Connect는 OAuth 2.0 권한 부여 프로세스의 확장으로서 인증을 구현합니다. Openid connect Connect에 대 한 자세한 내용은 [OPEN ID connect 설명서][openid-connect]를 참조 하세요. AKS 클러스터에서는 OpenID Connect를 통해 Azure AD에서 가져온 인증 토큰을 확인하기 위해 Kubernetes 웹후크 토큰 인증을 사용합니다. 자세한 내용은 [웹후크 토큰 인증 설명서][webhook-token-docs]를 참조하세요.
 
 ## <a name="role-based-access-controls-rbac"></a>RBAC(역할 기반 액세스 제어)
 
@@ -72,7 +72,7 @@ ClusterRoleBinding은 사용자에게 역할을 바인딩하는 것과 동일한
 
 Azure AD 및 Kubernetes RBAC를 시작하려면 [AKS와 Azure Active Directory 통합][aks-aad]을 참조하세요.
 
-관련 모범 사례는 [AKS의 인증 및 권한 부여에 대한 모범 사례를][operator-best-practices-identity]참조하십시오.
+관련 모범 사례는 [AKS에서 인증 및 권한 부여에 대 한 모범 사례][operator-best-practices-identity]를 참조 하세요.
 
 Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 참조하세요.
 

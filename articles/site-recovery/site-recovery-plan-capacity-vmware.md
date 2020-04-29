@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구를 통해 VMware 재해 복구를 위한 용량 계획
+title: Azure Site Recovery를 사용 하 여 VMware 재해 복구를 위한 용량 계획
 description: 이 문서는 Azure Site Recovery를 사용하여 Azure로의 복제로 VMware VM의 재해 복구를 설정할 때 적용할 용량 및 크기 조정을 계획하는 데 참고할 수 있습니다.
 author: nsoneji
 manager: garavd
@@ -8,10 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257616"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위한 용량 및 크기 조정 계획
@@ -42,7 +42,7 @@ CPU | 메모리 | 캐시 디스크 크기 | 데이터 변경률 | 보호된 머�
 12개 vCPU(2개 소켓 * 6코어 \@ 2.5GHz) | 18GB | 600GB | 501GB~1TB | 100~150대의 머신을 복제하는 데 사용됩니다.
 16개 vCPU(2개 소켓 * 8코어 \@ 2.5GHz) | 32GB | 1TB | >1TB~2TB | 151~200개의 머신을 복제하는 데 사용됩니다.
 [OVF 템플릿](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template)을 사용하여 다른 구성 서버 배포 | | | | 200대가 넘는 머신을 복제하는 경우 새 구성 서버를 배포합니다.
-다른 [프로세스 서버를](vmware-azure-set-up-process-server-scale.md#download-installation-file)배포합니다. | | | >2TB| 전체 일별 데이터 변경률이 2TB를 초과하는 경우 새 스케일 아웃 프로세스 서버를 배포합니다.
+다른 [프로세스 서버](vmware-azure-set-up-process-server-scale.md#download-installation-file)를 배포 합니다. | | | >2TB| 전체 일별 데이터 변경률이 2TB를 초과하는 경우 새 스케일 아웃 프로세스 서버를 배포합니다.
 
 이러한 구성에서 다음을 확인할 수 있습니다.
 
@@ -78,21 +78,21 @@ CPU | 메모리 | 캐시 디스크 크기 | 데이터 변경률 | 보호된 머�
 [Site Recovery Deployment Planner](site-recovery-deployment-planner.md)를 실행하여 복제(초기 복제 및 델타)에 필요한 대역폭을 계산한 다음, 복제에 사용되는 대역폭 양을 제어할 수 있는 옵션은 다음과 같이 두 가지입니다.
 
 * **대역폭 제한**: Azure에 복제하는 VMware 트래픽이 특정 프로세스 서버를 통과합니다. 프로세스 서버로 실행되는 머신에서 대역폭을 제한할 수 있습니다.
-* **영향 대역폭**: 몇 가지 레지스트리 키를 사용하여 복제에 사용되는 대역폭에 영향을 미칠 수 있습니다.
+* **대역폭에 영향**: 몇 가지 레지스트리 키를 사용 하 여 복제에 사용 되는 대역폭에 영향을 줄 수 있습니다.
   * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** 레지스트리 값은 디스크의 데이터 전송(초기 또는 델타 복제)에 사용되는 스레드 수를 지정합니다. 값이 높을수록 복제에 사용되는 네트워크 대역폭이 증가합니다.
   * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** 레지스트리 값은 장애 복구(failback) 중에 데이터 전송에 사용되는 스레드 수를 지정합니다.
 
 ### <a name="throttle-bandwidth"></a>대역폭 제한
 
-1. 프로세스 서버 역할을 하는 머신에서 Azure Backup MMC 스냅인을 엽니다. 기본적으로 백업에 대한 바로 가기는 바탕 화면이나 다음 폴더에서 사용할 수 있습니다: C:\프로그램 파일\Microsoft Azure 복구 서비스 에이전트\bin.
+1. 프로세스 서버 역할을 하는 머신에서 Azure Backup MMC 스냅인을 엽니다. 기본적으로 바탕 화면 또는 C:\Program Files\Microsoft Azure Recovery Services Agent\bin. 폴더에서 백업에 대 한 바로 가기를 사용할 수 있습니다.
 2. 스냅인에서 **속성 변경**을 선택합니다.
 
     ![속성을 변경하는 Azure Backup MMC 스냅인 옵션의 스크린샷](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. **제한** 탭에서 **백업 작업에 대한 인터넷 대역폭 사용 제한 을 선택합니다.** 작업 시간 및 비 작업 시간의 제한을 설정합니다. 유효 범위는 512Kbps~1,023Mbps입니다.
+3. **제한** 탭에서 **백업 작업에 인터넷 대역폭 사용 제한 사용**을 선택 합니다. 작업 시간 및 비 작업 시간의 제한을 설정합니다. 유효 범위는 512Kbps~1,023Mbps입니다.
 
     ![Azure Backup 속성 대화 상자의 스크린샷](./media/site-recovery-vmware-to-azure/throttle2.png)
 
-[Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet를 사용하여 제한을 설정할 수도 있습니다. 예를 들면 다음과 같습니다.
+[Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet를 사용하여 제한을 설정할 수도 있습니다. 아래 예를 살펴보세요.
 
     $mon = [System.DayOfWeek]::Monday
     $tue = [System.DayOfWeek]::Tuesday
@@ -114,17 +114,17 @@ Site Recovery 인프라를 설정하기 전에 환경에 액세스하여 호환�
 1. 이러한 매개 변수를 측정하려면 사용자 환경에서 Site Recovery Deployment Planner를 실행합니다. 유용한 지침은 [VMware에서 Azure로의 Azure Site Recovery Deployment Planner 정보](site-recovery-deployment-planner.md)를 참조하세요.
 2. [구성 서버의 권장 크기](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server)에 맞는 구성 서버를 배포합니다. 프로덕션 워크로드가 650개 가상 머신을 초과하는 경우 다른 구성 서버를 배포합니다.
 3. 측정된 일일 데이터 변경률을 기준으로 [크기 지침](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server)에 따라 [스케일 아웃 프로세스 서버](vmware-azure-set-up-process-server-scale.md#download-installation-file)를 배포합니다.
-4. 디스크 가상 컴퓨터의 데이터 변경 속도가 2MBps를 초과할 것으로 예상되는 경우 프리미엄 관리 디스크를 사용해야 합니다. Site Recovery Deployment Planner는 특정 기간 동안 실행됩니다. 다른 시간의 데이터 변경률 최고치는 보고서에 캡처되지 않을 수 있습니다.
+4. 디스크 가상 머신의 데이터 변경 률이 2 MBps를 초과 하는 경우 프리미엄 managed disks를 사용 해야 합니다. Site Recovery Deployment Planner는 특정 기간 동안 실행됩니다. 다른 시간의 데이터 변경률 최고치는 보고서에 캡처되지 않을 수 있습니다.
 5. 달성하려는 RPO에 따라 [네트워크 대역폭을 설정](site-recovery-plan-capacity-vmware.md#control-network-bandwidth)합니다.
 6. 인프라가 설정되면 워크로드에 대한 재해 복구를 활성화합니다. 방법을 알아보려면 [Azure 복제에 대한 VMware의 원본 환경 설정](vmware-azure-set-up-source.md)을 참조하세요.
 
 ## <a name="deploy-additional-process-servers"></a>추가 프로세스 서버 배포
 
-원본 머신이 200개를 초과하도록 배포를 스케일 아웃하거나 총 일일 변동률이 2TB를 초과하는 경우에는 트래픽 볼륨을 처리할 프로세스 서버를 추가해야 합니다. 9.24 버전에서 제품을 개선하여 스케일 아웃 프로세스 서버를 설정하는 시기에 대한 [프로세스 서버 경고를](vmware-physical-azure-monitor-process-server.md#process-server-alerts) 제공합니다. [프로세스 서버를 설정하여](vmware-azure-set-up-process-server-scale.md) 새 원본 컴퓨터를 보호하거나 [부하의 균형을 조정합니다.](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load)
+원본 머신이 200개를 초과하도록 배포를 스케일 아웃하거나 총 일일 변동률이 2TB를 초과하는 경우에는 트래픽 볼륨을 처리할 프로세스 서버를 추가해야 합니다. 확장 프로세스 서버를 설정 하는 시기에 대 한 [프로세스 서버 경고](vmware-physical-azure-monitor-process-server.md#process-server-alerts) 를 제공 하기 위해 9.24 버전의 제품을 향상 시켰습니다. 새 원본 컴퓨터를 보호 하거나 [부하를 분산](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load)하기 위해 [프로세스 서버를 설정](vmware-azure-set-up-process-server-scale.md) 합니다.
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>새 프로세스 서버를 사용하도록 컴퓨터 마이그레이션
 
-1. **설정** > **사이트 복구 서버를 선택합니다.** 구성 서버를 선택한 다음, **프로세스 서버**를 확장합니다.
+1. **설정** > **Site Recovery 서버**를 선택 합니다. 구성 서버를 선택한 다음, **프로세스 서버**를 확장합니다.
 
     ![프로세스 서버 대화 상자의 스크린샷](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 2. 현재 사용 중인 프로세스 서버를 마우스 오른쪽 단추로 클릭한 다음, **전환**을 클릭합니다.
@@ -144,12 +144,12 @@ Linux 기반 가상 머신에 마스터 대상 서버를 추가하는 방법을 
 
 Windows 기반 가상 머신에 대해 마스터 대상 서버를 추가하려면:
 
-1. 복구 **서비스 볼트** > **사이트 복구 인프라** > **구성 서버로 이동합니다.**
+1. **Recovery Services 자격 증명 모음** > **Site Recovery 인프라** > **구성 서버**로 이동 합니다.
 2. 필요한 구성 서버를 선택한 다음, **마스터 대상 서버**를 선택합니다.
 
     ![마스터 대상 서버 추가 단추를 보여주는 스크린샷](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
 3. 통합 설치 파일을 다운로드 한 다음, VM에서 파일을 실행하여 마스터 대상 서버를 설치합니다.
-4. **마스터 대상** > 다음 설치를**선택합니다.**
+4. **마스터 대상** > 설치**다음**을 선택 합니다.
 
     ![마스터 대상 설치 옵션 선택을 보여주는 스크린샷](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
 5. 기본 설치 위치를 선택한 다음, **설치**를 선택합니다.
@@ -161,9 +161,9 @@ Windows 기반 가상 머신에 대해 마스터 대상 서버를 추가하려�
 7. 구성 서버의 IP 주소를 입력한 다음, 암호를 입력합니다. 암호를 생성하는 방법을 알아보려면 [구성 서버 암호 생성](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)을 참조하세요. 
 
     ![구성 서버에 대한 IP 주소와 암호를 입력하는 곳을 보여주는 스크린샷](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
-8. **등록을**선택합니다. 등록을 마치면 **마침**을 선택합니다.
+8. **등록**을 선택합니다. 등록을 마치면 **마침**을 선택합니다.
 
-등록이 성공적으로 완료되면 서버는 복구 서비스 **볼트** > **사이트 복구 인프라** > **구성 서버의**Azure 포털에 구성 서버의 마스터 대상 서버에 나열됩니다.
+등록이 성공적으로 완료 되 면 서버는 구성 서버의 마스터 대상 서버에서 **Recovery Services 자격 증명 모음** > **Site Recovery 인프라** > **구성 서버**Azure Portal에 나열 됩니다.
 
  > [!NOTE]
  > [Windows용 마스터 대상 서버 통합 설치 파일](https://aka.ms/latestmobsvc)의 최신 버전을 다운로드하십시오.

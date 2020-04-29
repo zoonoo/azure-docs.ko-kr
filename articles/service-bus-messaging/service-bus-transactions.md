@@ -1,6 +1,6 @@
 ---
-title: Azure 서비스 버스의 트랜잭션 처리 개요
-description: 이 문서에서는 Azure Service Bus의 트랜잭션 처리 및 기능을 통한 전송에 대한 개요를 제공합니다.
+title: Azure Service Bus에서 트랜잭션 처리 개요
+description: 이 문서에서는 Azure Service Bus의 트랜잭션 처리 및 전송 via 기능에 대 한 개요를 제공 합니다.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -14,19 +14,19 @@ ms.workload: na
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 22744ecbced40b3195f4d047227b1e2a37228102
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260905"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Service Bus 트랜잭션 처리의 개요
 
-이 문서에서는 Microsoft Azure Service Bus의 트랜잭션 기능을 설명합니다. 대부분의 토론은 [서비스 버스 샘플을 사용하는 AMQP 트랜잭션에](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia)의해 설명됩니다. 이 문서는 트래잭션 처리에 대한 개요와 Service Bus의 *send via* 기능으로 제한되며 원자적 트랜잭선 샘플의 범위는 훨씬 광범위하고 더 복잡합니다.
+이 문서에서는 Microsoft Azure Service Bus의 트랜잭션 기능을 설명합니다. 설명의 대부분은 [Service Bus 샘플을 사용 하는 Amqp 트랜잭션에](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia)설명 되어 있습니다. 이 문서는 트래잭션 처리에 대한 개요와 Service Bus의 *send via* 기능으로 제한되며 원자적 트랜잭선 샘플의 범위는 훨씬 광범위하고 더 복잡합니다.
 
 ## <a name="transactions-in-service-bus"></a>Service Bus의 트랜잭션
 
-*트랜잭션은* 두 개 이상의 작업을 함께 *실행 범위로*그룹화합니다. 기본적으로 이러한 트랜잭션은 지정된 작업 그룹에 속한 모든 작업이 성공 또는 실패해야 합니다. 이러한 점에서 트랜잭션은 하나의 단위(또는 *원자성*이라고 함)로 작용합니다.
+*트랜잭션은* 둘 이상의 작업을 *실행 범위로*그룹화 합니다. 기본적으로 이러한 트랜잭션은 지정된 작업 그룹에 속한 모든 작업이 성공 또는 실패해야 합니다. 이러한 점에서 트랜잭션은 하나의 단위(또는 *원자성*이라고 함)로 작용합니다.
 
 Service Bus는 트랜잭션 메시지 broker이며 메시지 저장소에 대한 모든 내부 작업의 트랜잭션 무결성을 보장합니다. 엔터티 간 메시지의 [원자성 전달](service-bus-auto-forwarding.md) 또는 [배달 못한 편지 큐](service-bus-dead-letter-queues.md)로 메시지 이동과 같이 Service Bus 내 메시지의 모든 전송은 트랜잭션입니다. 따라서 Service Bus에서 메시지를 수락할 경우 이미 저장되어 시퀀스 번호가 레이블로 지정되었습니다. 이후로 Service Bus 내 메시지 전송은 엔터티 전반에서 조정된 작업으로 손실(원본 성공 및 대상 실패) 또는 메시지의 중복(원본 실패 및 대상 성공)이 발생하지 않습니다.
 
@@ -45,13 +45,13 @@ Service Bus는 트랜잭션 범위 내에서 단일 메시징 엔터티(큐, 토
 
 ## <a name="transfers-and-send-via"></a>전송 및 "send via"
 
-큐에서 프로세서, 그런 다음 다른 큐로 데이터의 트랜잭션을 인도하기 위해 Service Bus는 *전송*을 지원합니다. 전송 작업에서 보낸 사람은 먼저 *메시지를 전송 큐로*보내고 전송 큐는 자동 전달 기능이 사용하는 것과 동일한 강력한 전송 구현을 사용하여 메시지를 의도한 대상 큐로 즉시 이동합니다. 이 메시지는 전송 큐의 소비자에게 표시되는 방식으로 전송 큐의 로그에 커밋되지 안습니다.
+큐에서 프로세서, 그런 다음 다른 큐로 데이터의 트랜잭션을 인도하기 위해 Service Bus는 *전송*을 지원합니다. 전송 작업에서 발신자는 먼저 *전송 큐*에 메시지를 보내고, 전송 큐는 자동 전달 기능이 사용 하는 것과 동일한 강력한 전송 구현을 사용 하 여 메시지를 의도 된 대상 큐로 즉시 이동 합니다. 이 메시지는 전송 큐의 소비자에게 표시되는 방식으로 전송 큐의 로그에 커밋되지 안습니다.
 
 이 트랜잭션 기능 자체는 전송 큐가 발신자의 입력 메시지 원본인 경우에 분명해집니다. 즉, Service Bus는 하나의 통합된 원자성 작업으로 입력 메시지에 대한 완료(또는 지연, 또는 배달 못 한 편지) 작업을 수행하면서 메시지를 전송 큐를 “통해" 대상 큐로 메시지를 전송할 수 있습니다. 
 
 ### <a name="see-it-in-code"></a>실제 코드 엿보기
 
-이러한 전송을 설정하기 위해 전송 큐를 통해 대상 큐를 목표로 하는 메시지 보낸 사람을 생성합니다. 또한 같은 큐에서 메시지를 풀링하는 수신기가 있을 수도 있습니다. 예를 들어:
+이러한 전송을 설정하기 위해 전송 큐를 통해 대상 큐를 목표로 하는 메시지 보낸 사람을 생성합니다. 또한 같은 큐에서 메시지를 풀링하는 수신기가 있을 수도 있습니다. 다음은 그 예입니다.
 
 ```csharp
 var connection = new ServiceBusConnection(connectionString);
@@ -60,7 +60,7 @@ var sender = new MessageSender(connection, QueueName);
 var receiver = new MessageReceiver(connection, QueueName);
 ```
 
-그런 다음 간단한 트랜잭션은 다음 예제와 같이 이러한 요소를 사용합니다. 전체 예제를 참조하려면 [GitHub의 소스 코드를](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia)참조하십시오.
+다음 예제와 같이 단순 트랜잭션은 이러한 요소를 사용 합니다. 전체 예제를 참조 하려면 [GitHub의 소스 코드](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia)를 참조 하세요.
 
 ```csharp
 var receivedMessage = await receiver.ReceiveAsync();
@@ -101,8 +101,8 @@ using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 
 Service Bus 큐에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [서비스 버스 대기열 사용 방법](service-bus-dotnet-get-started-with-queues.md)
-* [자동 전달을 통해 서비스 버스 엔터티 연결](service-bus-auto-forwarding.md)
+* [Service Bus 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
+* [자동 전달 기능을 사용 하 여 Service Bus 엔터티 연결](service-bus-auto-forwarding.md)
 * [자동 전달 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
 * [Service Bus 샘플과 함께 원자성 트랜잭션](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
 * [Azure 큐와 Service Bus 큐 비교](service-bus-azure-and-service-bus-queues-compared-contrasted.md)

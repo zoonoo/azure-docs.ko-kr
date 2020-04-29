@@ -1,5 +1,5 @@
 ---
-title: 마이그레이션 후 단일 및 풀풀데이터베이스 관리
+title: 마이그레이션 후 단일 및 풀링된 데이터베이스 관리
 description: Azure SQL Database로 마이그레이션 후 데이터베이스를 관리하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: ebb512fee0186bed3cc7f49f0525dac43e57da3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256186"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 단일 데이터베이스 및 풀링된 데이터베이스 관리
@@ -28,7 +28,7 @@ ms.locfileid: "79256186"
 
 이 문서에서는 탄력적 풀에 풀링된 데이터베이스와 단일 데이터베이스로 작업할 때 쉽게 활용할 수 있는 플랫폼인 Azure SQL Database의 몇 가지 핵심 특징을 설명합니다. 다음과 같은 특성을 설명합니다.
 
-- Azure 포털을 사용하여 데이터베이스 모니터링
+- Azure Portal를 사용 하 여 데이터베이스 모니터링
 - 비즈니스 연속성 및 재해 복구(BCDR)
 - 보안 및 규정 준수
 - 지능형 데이터베이스 모니터링 및 유지 관리
@@ -39,14 +39,14 @@ ms.locfileid: "79256186"
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Azure 포털을 사용하여 데이터베이스 모니터링
 
-Azure [포털에서](https://portal.azure.com/)데이터베이스를 선택하고 **모니터링** 차트를 클릭하여 개별 데이터베이스 사용률을 모니터링할 수 있습니다. 그러면 **메트릭** 창이 나타나며 **차트 편집** 단추를 클릭하면 이 창을 변경할 수 있습니다. 다음 메트릭을 추가합니다.
+[Azure Portal](https://portal.azure.com/)에서 데이터베이스를 선택 하 고 **모니터링** 차트를 클릭 하 여 개별 데이터베이스 사용률을 모니터링할 수 있습니다. 그러면 **메트릭** 창이 나타나며 **차트 편집** 단추를 클릭하면 이 창을 변경할 수 있습니다. 다음 메트릭을 추가합니다.
 
 - CPU 비율
 - DTU 비율
 - 데이터 IO 비율
 - 데이터베이스 크기 비율
 
-이러한 측정항목을 추가한 후에는 **메트릭** 창에 대한 자세한 정보를 사용하여 **모니터링** 차트에서 해당 지표를 계속 볼 수 있습니다. 네 가지 메트릭 모두 데이터베이스의 **DTU** 를 기준으로 평균 사용률 비율을 표시합니다. 서비스 계층에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 문서를 참조하세요.  
+이러한 메트릭을 추가한 후에는 **메트릭** 창에 대 한 자세한 정보가 포함 된 **모니터링** 차트에서 메트릭을 계속 볼 수 있습니다. 네 가지 메트릭 모두 데이터베이스의 **DTU** 를 기준으로 평균 사용률 비율을 표시합니다. 서비스 계층에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 문서를 참조하세요.  
 
 ![데이터베이스 성능의 서비스 계층 모니터링.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 
@@ -91,7 +91,7 @@ Azure SQL DB에 백업을 만들지는 않으며 그럴 필요가 없습니다. 
 
 SQL Database는 보안 및 개인 정보 보호를 매우 중대하게 실행합니다. SQL Database의 보안은 데이터베이스 수준 및 플랫폼 수준에서 사용할 수 있으며 여러 레이어로 분류된 경우 가장 이해하기 쉽습니다. 각 레이어에서 용도에 맞는 최적의 보안을 제어 및 제공합니다. 레이어는 다음과 같습니다.
 
-- ID &[인증(SQL 인증 및 Azure Active Directory [AAD] 인증)](sql-database-manage-logins.md)
+- Id & 인증 ([SQL 인증 및 Azure Active Directory [AAD] 인증](sql-database-manage-logins.md)).
 - 활동 모니터링([감가](sql-database-auditing.md) 및 [위협 검색](sql-database-threat-detection.md)).
 - 실제 데이터 보호([TDE[투명한 데이터 암호화]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 및 [AE[Always Encrypted]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - 중요 및 권한 있는 데이터에 대한 액세스 제어([행 수준 보안](/sql/relational-databases/security/row-level-security) 및 [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)).
@@ -107,7 +107,7 @@ SQL Database에서 두 가지 사용자 인증 방법이 제공됩니다.
 
 기존 Windows 인증은 지원되지 않습니다. Azure Active Directory(AD)는 중앙 집중식 ID 및 액세스 관리 서비스입니다. 이 서비스를 사용하면 조직의 모든 인원에게 SSO(Single Sign-On)를 아주 편리하게 제공할 수 있습니다. 즉, 더 간단한 인증을 위해 자격 증명이 모든 Azure 서비스에 걸쳐 공유됩니다. AAD는 [MFA(Multi-Factor Authentication)](sql-database-ssms-mfa-authentication.md)을 지원하며 [클릭 몇 번](../active-directory/hybrid/how-to-connect-install-express.md)으로 AAD를 Windows Server Active Directory와 통합할 수 있습니다. SQL 인증은 과거에 사용하던 것과 똑같이 작동합니다. 즉, 사용자 이름/암호를 제공하고 사용자를 지정된 SQL Database 서버의 임의 데이터베이스에 대해 인증할 수 있습니다. 또한 Microsoft Azure SQL Database 및 SQL Data Warehouse에서 Azure AD 도메인 내에서 다단계 인증 및 게스트 사용자 계정을 제공할 수 있습니다. 이미 Active Directory 온-프레미스가 있는 경우, Azure Active Directory로 디렉터리를 페더레이션하여 디렉터리를 Azure로 확장할 수 있습니다.
 
-|**만약 당신이...**|**SQL Database / SQL Data Warehouse**|
+|**...**|**SQL Database / SQL Data Warehouse**|
 |---|---|
 |Azure에서 Azure Active Directory(AD)를 사용하지 않는 것을 선호함|[SQL 인증](sql-database-security-overview.md) 사용|
 |AD를 SQL Server 온-프레미스에 사용함|[AD를 Microsoft Azure Active Directory와 페더레이션](../active-directory/hybrid/whatis-hybrid-identity.md)하고, Azure AD 인증을 사용합니다. 이런 경우에 Single Sign-On을 사용할 수 있습니다.|
@@ -130,11 +130,11 @@ SQL Database에서 두 가지 사용자 인증 방법이 제공됩니다.
 
 방화벽은 특정 엔터티에 대해서만 SQL Database 서버에 액세스를 허용하여 외부 엔터티에서의 서버 액세스를 방지합니다. 기본적으로 다른 Azure 서비스의 연결을 제외하고 SQL Database 서버 내의 모든 연결 및 데이터베이스는 허용되지 않습니다. 방화벽 규칙을 사용하여 방화벽을 통해 개발자 컴퓨터의 IP 주소를 허용하면 직접 승인하는 엔터티(예: 개발자 머신)에 대해서만 서버 액세스를 개방할 수 있습니다. 또한 SQL Database 서버에 대한 액세스를 허용할 IP 범위를 지정할 수도 있습니다. 예를 들어 방화벽 설정 페이지에서 범위를 지정하여 조직의 개발자 머신 IP 주소들을 동시에 추가할 수 있습니다.
 
-서버 및 데이터베이스 수준의 방화벽 규칙을 만들 수 있습니다. Azure Portal 또는 SSMS를 사용하여 서버 수준 IP 방화벽 규칙을 만들 수 있습니다. 서버 수준 및 데이터베이스 수준 방화벽 규칙을 설정하는 방법에 대한 자세한 내용은 [SQL Database에서 IP 방화벽 규칙 만들기](sql-database-security-tutorial.md#create-firewall-rules)를 참조하십시오.
+서버 및 데이터베이스 수준의 방화벽 규칙을 만들 수 있습니다. Azure Portal 또는 SSMS를 사용하여 서버 수준 IP 방화벽 규칙을 만들 수 있습니다. 서버 수준 및 데이터베이스 수준 방화벽 규칙을 설정 하는 방법에 대 한 자세한 내용은 [SQL Database에서 IP 방화벽 규칙 만들기](sql-database-security-tutorial.md#create-firewall-rules)를 참조 하세요.
 
 #### <a name="service-endpoints"></a>서비스 엔드포인트
 
-기본적으로 SQL 데이터베이스는 "Azure 서비스의 서버 액세스 허용"으로 구성되며, 이는 Azure의 모든 가상 머신에서 데이터베이스에 연결하려고 시도한다는 것을 의미합니다. 이러한 시도는 여전히 인증을 받아야 합니다. 그러나 모든 Azure IP에서 데이터베이스에 액세스하지 않도록 하려면 "Azure 서비스의 서버 액세스 허용"을 사용하지 않도록 설정할 수 있습니다. 또한 [VNet 서비스 끝점을](sql-database-vnet-service-endpoint-rule-overview.md)구성할 수 있습니다.
+기본적으로 SQL 데이터베이스는 "Azure 서비스의 서버 액세스 허용"으로 구성되며, 이는 Azure의 모든 가상 머신에서 데이터베이스에 연결하려고 시도한다는 것을 의미합니다. 이러한 시도는 여전히 인증을 받아야 합니다. 그러나 모든 Azure IP에서 데이터베이스에 액세스하지 않도록 하려면 "Azure 서비스의 서버 액세스 허용"을 사용하지 않도록 설정할 수 있습니다. 또한 [VNet 서비스 끝점](sql-database-vnet-service-endpoint-rule-overview.md)을 구성할 수 있습니다.
 
 서비스 엔드포인트(SE)를 사용하면 중요 Azure 자원을 Azure의 자신의 프라이빗 가상 네트워크에 대해서만 노출할 수 있습니다. 그렇게 하면 기본적으로 사용자의 리소스에 대한 공용 액세스가 제거됩니다. 가상 네트워크와 Azure 간의 트래픽은 Azure 백본 네트워크에서 유지됩니다. SE가 없으면 강제 적용 터널링 패킷 라우팅을 하게 됩니다. 사용자의 가상 네트워크는 인터넷 트래픽을 강제로 사용자의 조직으로 이동하며 Azure 서비스 트래픽은 같은 경로를 통해 이동합니다. 서비스 엔드포인트를 사용하면 패킷이 사용자의 가상 네트워크에서 Azure 백본 네트워크의 서비스로 곧장 흐르므로 이 작업을 최적화할 수 있습니다.
 
@@ -142,7 +142,7 @@ SQL Database에서 두 가지 사용자 인증 방법이 제공됩니다.
 
 #### <a name="reserved-ips"></a>예약된 IP
 
-또 다른 옵션은 VM에 [예약된 IP를](../virtual-network/virtual-networks-reserved-public-ip.md) 프로비전하고 서버 방화벽 설정에 특정 VM IP 주소를 추가하는 것입니다. 예약된 IP를 할당하면 IP 주소 변경에 따라 방화벽 규칙을 직접 업데이트해야 할 필요가 없습니다.
+또 다른 옵션은 Vm에 대해 [예약 된 ip](../virtual-network/virtual-networks-reserved-public-ip.md) 를 프로 비전 하 고 서버 방화벽 설정에 해당 특정 VM IP 주소를 추가 하는 것입니다. 예약된 IP를 할당하면 IP 주소 변경에 따라 방화벽 규칙을 직접 업데이트해야 할 필요가 없습니다.
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>어떤 포트를 통해 SQL Database에 연결하나요?
 
@@ -152,11 +152,11 @@ SQL Database에서 두 가지 사용자 인증 방법이 제공됩니다.
 
 #### <a name="sql-database-auditing"></a>SQL Database 감사
 
-SQL Database를 사용하면 감사를 켜서 데이터베이스 이벤트를 추적할 수 있습니다. [QL Database 감사](sql-database-auditing.md)는 데이터베이스 이벤트를 기록하고 Azure Storage 계정의 감사 로그 파일에 이를 기록합니다. 감사는 잠재적인 보안 및 정책 위반에 대한 통찰력을 얻고 규정 준수 를 유지하려는 경우에 특히 유용합니다. 이를 통해 감사가 필요하다고 생각되는 특정 이벤트 범주를 정의하고 구성할 수 있으며, 이를 기반으로 미리 구성된 보고서와 대시보드를 통해 데이터베이스에서 발생하는 이벤트에 대한 개요를 얻을 수 있습니다. 이러한 감사 정책을 데이터베이스 수준 또는 서버 수준에서 적용할 수 있습니다. 서버/데이터베이스에 대해 감사를 켜는 방법에 대한 지침은 [SQL Database 감사 사용](sql-database-security-tutorial.md#enable-security-features)을 참조하세요.
+SQL Database를 사용하면 감사를 켜서 데이터베이스 이벤트를 추적할 수 있습니다. [QL Database 감사](sql-database-auditing.md)는 데이터베이스 이벤트를 기록하고 Azure Storage 계정의 감사 로그 파일에 이를 기록합니다. 감사는 잠재적 보안 및 정책 위반에 대 한 통찰력을 확보 하 고 규정 준수를 유지 하려는 경우에 특히 유용 합니다. 감사를 필요로 하는 이벤트의 특정 범주를 정의 및 구성 하 고, 미리 구성 된 보고서 및 대시보드를 사용 하 여 데이터베이스에서 발생 하는 이벤트의 개요를 파악할 수 있습니다. 이러한 감사 정책을 데이터베이스 수준 또는 서버 수준에서 적용할 수 있습니다. 서버/데이터베이스에 대해 감사를 켜는 방법에 대한 지침은 [SQL Database 감사 사용](sql-database-security-tutorial.md#enable-security-features)을 참조하세요.
 
 #### <a name="threat-detection"></a>위협 감지
 
-[위협 감지](sql-database-threat-detection.md)를 사용하여 감사에 의해 감지된 보안 또는 정책 위반에 대해 매우 쉽게 행동하는 기능을 얻습니다. 시스템의 잠재적 위협 또는 위반을 해결하기 위해 보안 전문가가 될 필요가 없습니다. 위협 감지는 SQL 삽입 감지 같은 몇 가지 기본 제공 기능도 포함합니다. SQL 삽입은 데이터 변경 또는 훼손 시도이며 일반적으로 데이터베이스 애플리케이션을 공격할 때 아주 많이 사용되는 방법입니다. 위협 탐지는 잠재적인 취약점 및 SQL 삽입 공격뿐만 아니라 비정상 데이터베이스 액세스 패턴(예: 비정상적인 위치에서나 알 수 없는 보안 주체의 액세스)을 탐지하는 여러 알고리즘 세트를 실행합니다. 보안 책임자 또는 지정된 다른 관리자는 데이터베이스에서 위협이 감지되면 전자 메일 알림을 받게 됩니다. 각 알림에서는 의심스러운 활동에 대한 세부 정보와 해당 위협을 자세히 조사하고 완화하는 방법에 대한 권장 사항을 제공합니다. 위협 탐지를 설정하는 방법을 알아보려면 [다음을](sql-database-security-tutorial.md#enable-security-features)참조하십시오.
+[위협 감지](sql-database-threat-detection.md)를 사용하여 감사에 의해 감지된 보안 또는 정책 위반에 대해 매우 쉽게 행동하는 기능을 얻습니다. 시스템의 잠재적 위협 또는 위반을 해결하기 위해 보안 전문가가 될 필요가 없습니다. 위협 감지는 SQL 삽입 감지 같은 몇 가지 기본 제공 기능도 포함합니다. SQL 삽입은 데이터 변경 또는 훼손 시도이며 일반적으로 데이터베이스 애플리케이션을 공격할 때 아주 많이 사용되는 방법입니다. 위협 탐지는 잠재적인 취약점 및 SQL 삽입 공격뿐만 아니라 비정상 데이터베이스 액세스 패턴(예: 비정상적인 위치에서나 알 수 없는 보안 주체의 액세스)을 탐지하는 여러 알고리즘 세트를 실행합니다. 보안 책임자 또는 지정된 다른 관리자는 데이터베이스에서 위협이 감지되면 전자 메일 알림을 받게 됩니다. 각 알림에서는 의심스러운 활동에 대한 세부 정보와 해당 위협을 자세히 조사하고 완화하는 방법에 대한 권장 사항을 제공합니다. 위협 감지를 설정 하는 방법을 알아보려면 [위협 감지 사용](sql-database-security-tutorial.md#enable-security-features)을 참조 하세요.
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>일반적으로 SQL Database에서 내 데이터를 보호하려면 어떻게 할까요?
 
@@ -168,10 +168,10 @@ SQL Database를 사용하면 감사를 켜서 데이터베이스 이벤트를 �
 SQL Database에서 기본적으로 스토리지 하위 시스템에 있는 데이터 및 로그 파일의 미사용 데이터는 [TDE[투명한 데이터 암호화]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 통해 완전하게 항상 암호화됩니다. 백업도 암호화됩니다. TDE를 사용하면 이 데이터에 액세스 중인 애플리케이션 쪽에서 변경이 필요하지 않습니다. 암호화 및 암호 해독은 투명하게 이루어지며, 이름도 마찬가지입니다.
 이동 중 및 미사용 중요 데이터를 보호하기 위해 SQL Database는 [AE(Always Encrypted)](/sql/relational-databases/security/encryption/always-encrypted-database-engine)라는 기능을 제공합니다. AE는 데이터베이스의 중요한 열을 암호화하는 클라이언트 쪽 암호화의 양식입니다. (따라서 데이터베이스 관리자와 권한이 없는 사용자에게 그것은 ciphertext에 있습니다.) 서버는 시작하려면 암호화된 데이터를 수신합니다. Always Encrypted를 위한 키는 클라이언트 쪽에도 저장되어 권한 있는 클라이언트만이 중요한 열을 암호 해독할 수 있습니다. 암호화 키가 클라이언트에 저장되기 때문에 서버 관리자 및 데이터 관리자는 중요한 데이터를 볼 수 없습니다. AE는 권한이 없는 클라이언트부터 실제 디스크에 이르기까지, 테이블 종단 간에 중요한 열을 암호화합니다. AE는 같음 비교를 지원하므로 DBA는 계속해서 암호화된 열을 해당 SQL 명령의 일환으로 쿼리할 수 있습니다. Always Encrypted는 [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md), Windows 인증서 저장소, 및 로컬 하드웨어 보안 모듈과 같은 다양한 키 저장소 옵션과 함께 사용될 수 있습니다.
 
-|**특징**|**항상 암호화**|**투명한 데이터 암호화**|
+|**특징**|**Always Encrypted**|**투명한 데이터 암호화**|
 |---|---|---|
 |**암호화 범위**|엔드투엔드|미사용 데이터|
-|**데이터베이스 서버는 중요 데이터에 액세스 가능**|예|예, 암호화는 미사용 데이터를 위한 것이므로|
+|**데이터베이스 서버는 중요 데이터에 액세스 가능**|아니요|예, 암호화는 미사용 데이터를 위한 것이므로|
 |**허용되는 T-SQL 작업**|같음 비교|모든 T-SQL 노출 영역을 사용할 수 있음|
 |**기능을 사용하려면 앱 변경이 필요함**|최소|아주 미미함|
 |**암호화 세분성**|열 수준|데이터베이스 수준|
@@ -179,7 +179,7 @@ SQL Database에서 기본적으로 스토리지 하위 시스템에 있는 데�
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>데이터베이스 내의 중요한 데이터에 대한 액세스를 어떻게 제한할 수 있나요?
 
-모든 애플리케이션은 데이터베이스에 아무나 볼 수 없도록 보호해야 하는 중요 데이터를 어느 정도 가지고 있습니다. 조직의 특정 인원은 이 데이터를 보아야 하지만, 다른 인원은 이 데이터를 볼 수 없어야 합니다. 한 예로 직원의 임금이 있습니다. 관리자는 직접 보고서에 대한 임금 정보에 액세스해야 하지만 개별 팀 구성원은 동료의 임금 정보에 액세스할 수 없어야 합니다. 다른 시나리오로 개발 단계 또는 시험 중에 중요 데이터(예: 고객의 SSN)로 상호 작용할 수 있는 데이터 개발자가 있습니다. 이 정보 역시 개발자에게 노출되지 않아야 합니다. 그러한 경우 중요 데이터를 마스킹하거나 전혀 노출하지 않아야 합니다. SQL Database는 권한이 없는 사용자가 중요한 데이터를 보지 못하도록 방지하기 위한 몇 가지 방법을 제공합니다.
+모든 애플리케이션은 데이터베이스에 아무나 볼 수 없도록 보호해야 하는 중요 데이터를 어느 정도 가지고 있습니다. 조직의 특정 인원은 이 데이터를 보아야 하지만, 다른 인원은 이 데이터를 볼 수 없어야 합니다. 한 예로 직원의 임금이 있습니다. 관리자는 직접 보고서에 대 한 임금 정보에 액세스할 수 있어야 하지만 개별 팀 멤버는 해당 피어의 임금 정보에 액세스할 수 없습니다. 다른 시나리오로 개발 단계 또는 시험 중에 중요 데이터(예: 고객의 SSN)로 상호 작용할 수 있는 데이터 개발자가 있습니다. 이 정보 역시 개발자에게 노출되지 않아야 합니다. 그러한 경우 중요 데이터를 마스킹하거나 전혀 노출하지 않아야 합니다. SQL Database는 권한이 없는 사용자가 중요한 데이터를 보지 못하도록 방지하기 위한 몇 가지 방법을 제공합니다.
 
 [동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md)은 애플리케이션 레이어에서 권한이 없는 사용자로 마스킹하여 중요한 데이터 노출을 제한할 수 있도록 하는 데이터 마스킹 기능입니다. 마스킹 패턴(예를 들어, SSN: XXX-XX-0000과 같이 국적 ID의 마지막 4자리만을 보여주고 나머지를 X로 표시함)을 만들 수 있는 마스킹 규칙을 정의하고 마스킹 규칙에서 어떤 사용자를 제외해야 할지 식별합니다. 마스킹은 즉시 이루어지며 여러 데이터 범주에 사용할 수 있는 다양한 마스킹 기능이 있습니다. 동적 데이터 마스킹을 사용하면 데이터베이스에서 자동으로 중요 데이터를 검색하고 해당 데이터에 마스킹을 적용합니다.
 
@@ -221,12 +221,12 @@ TDE에는 두 키 계층이 있습니다 – 각 사용자 데이터베이스의
 또한 Express Route를 사용하면 추가 요금 없이 구입하는 대역폭 제한을 최대 2배까지 증가시킬 수 있습니다. 또한 기본 경로를 사용하여 크로스 영역 연결을 구성하는 것도 가능합니다. ER 연결 공급자의 목록을 보려면 [ 파트너 및 피어링 위치](../expressroute/expressroute-locations.md)를 참조하세요. 다음 문서에서 Express Route를 자세히 설명합니다.
 
 - [기본 경로 소개](../expressroute/expressroute-introduction.md)
-- [필수 조건](../expressroute/expressroute-prerequisites.md)
+- [전제 조건](../expressroute/expressroute-prerequisites.md)
 - [워크플로](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL Database가 규정 요구 사항을 준수하나요? 그리고 이것이 조직의 규정 준수에 어떤 도움이 되나요?
 
-SQL Database는 다양한 규정 준수를 준수합니다. SQL Database에서 충족된 최신 준수 집합을 보려면 Microsoft 신뢰 [센터를](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 방문하여 조직에 중요한 준수 사항을 드릴다운하여 SQL Database가 준수 Azure 서비스에 포함되어 있는지 확인합니다. SQL Database가 규격 서비스로 인증된다 하더라도, 조직 서비스의 준수를 지원하지만 자동으로 보장하지는 않는다는 점을 확인하는 것이 중요합니다.
+SQL Database는 규정 compliancies의 범위를 준수 합니다. SQL Database에서 충족 된 최신 compliancies 집합을 보려면 [Microsoft 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 를 방문 하 여 조직에 중요 한 compliancies에 대 한 드릴 다운 하 여 SQL Database 호환 Azure 서비스에 포함 되어 있는지 확인 하세요. SQL Database가 규격 서비스로 인증된다 하더라도, 조직 서비스의 준수를 지원하지만 자동으로 보장하지는 않는다는 점을 확인하는 것이 중요합니다.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>마이그레이션 후 지능형 데이터베이스 모니터링 및 유지 관리
 
@@ -280,11 +280,11 @@ Azure Portal은 개요 창에서 데이터베이스를 선택하고 차트를 �
 
 ![쿼리](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure 모니터 로그의 Azure SQL 분석(미리 보기)
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure Monitor 로그의 Azure SQL 분석 (미리 보기)
 
-[Azure Monitor 로그를](../azure-monitor/insights/azure-sql.md) 사용하면 주요 Azure SQL 데이터베이스 성능 메트릭을 수집하고 시각화하여 작업 영역당 최대 150,000개의 SQL 데이터베이스와 5,000개의 SQL Elastic 풀을 지원할 수 있습니다. 그것을 사용하여 알림을 모니터링하고 받을 수 있습니다. 여러 Azure 구독 및 탄력적 풀에서 SQL Database 및 탄력적 풀 메트릭을 모니터링할 수 있으며 애플리케이션 스택의 각 레이어에서 문제를 식별하는 데 사용할 수 있습니다.
+[Azure Monitor 로그](../azure-monitor/insights/azure-sql.md) 를 사용 하면 주요 Azure sql database 성능 메트릭을 수집 하 고 시각화할 수 있으며,이를 통해 최대 15만 개의 sql database 및 5000 sql 탄력적 풀을 지원할 수 있습니다. 그것을 사용하여 알림을 모니터링하고 받을 수 있습니다. 여러 Azure 구독 및 탄력적 풀에서 SQL Database 및 탄력적 풀 메트릭을 모니터링할 수 있으며 애플리케이션 스택의 각 레이어에서 문제를 식별하는 데 사용할 수 있습니다.
 
-### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>성능 문제를 알아차리고 있습니다: SQL Database 문제 해결 방법론은 SQL Server와 어떻게 다른가요?
+### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>성능 문제를 발견 했습니다. SQL Database 문제 해결 방법은 어떻게 다릅니까 SQL Server
 
 문제 해결 기술의 주요 부분은 진단 쿼리에 사용되며 데이터베이스 성능 문제는 동일하게 유지됩니다. 결국 동일한 SQL Server 엔진이 클라우드를 구동합니다. 그러나 플랫폼, 즉 Azure SQL DB가 기본 제공 '지능'을 포함합니다. 이는 성능 문제를 훨씬 더 쉽게 문제 해결 및 진단하는 데 도움이 될 수 있습니다. 또한 사용자를 대신하여 이러한 정정 작업 중 일부를 수행할 수 있으며, 경우에 따라 사전에 자동 해결할 수 있습니다.
 
@@ -292,7 +292,7 @@ Azure Portal은 개요 창에서 데이터베이스를 선택하고 차트를 �
 
 성능 문제 해결의 경우 애플리케이션 성능에 영향을 주는 것이 문제 해결을 지원하는 애플리케이션 또는 데이터베이스뿐인지 여부를 식별하는 것이 중요합니다. 성능 문제는 애플리케이션 레이어에 있는 경우가 많습니다. 즉, 아키텍처 또는 데이터 액세스 패턴이 문제일 수 있습니다. 예를 들어 네트워크 대기 시간에 중요한 대화 애플리케이션이 있다고 생각해 보겠습니다. 이 경우 애플리케이션은 애플리케이션과 서버 사이를 오가는 짧은 요청("대화")이 많이 있고 혼잡한 네트워크에서는 이러한 왕복이 빠르게 증가하므로 문제가 발생합니다. 이 경우 성능을 개선하려면 [일괄 쿼리](sql-database-performance-guidance.md#batch-queries)를 사용할 수 있습니다. 일괄 처리를 사용하면 이제 요청이 일괄 처리되므로 크게 도움이 되며, 따라서 왕복 대기 시간을 줄이고 애플리케이션 성능을 개선하는 데 도움이 됩니다.
 
-또한 데이터베이스의 전반적인 성능이 저하되는 경우 cpu, IO 및 메모리 소비를 이해하기 위해 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 동적 관리 뷰를 모니터링할 수 있습니다. 데이터베이스가 사용할 리소스가 부족하여 성능에 영향을 줄 수 있습니다. 증가하고 줄어드는 워크로드 수요에 따라 컴퓨팅 크기 및/또는 서비스 계층을 변경해야 할 수 있습니다.
+또한 데이터베이스의 전반적인 성능이 저하 되는 경우 CPU, IO 및 메모리 소비를 이해 하기 위해 [dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 동적 관리 뷰를 모니터링할 수 있습니다. 데이터베이스가 사용할 리소스가 부족하여 성능에 영향을 줄 수 있습니다. 증가하고 줄어드는 워크로드 수요에 따라 컴퓨팅 크기 및/또는 서비스 계층을 변경해야 할 수 있습니다.
 
 성능 문제 조정에 대한 포괄적인 권장 사항은 [데이터베이스 조정](sql-database-performance-guidance.md#tune-your-database)을 참조하세요.
 
@@ -309,7 +309,7 @@ SQL Database는 여러 가지 서비스 계층, 즉, Basic, Standard, Premium을
 
 컴퓨팅 크기가 적절한지 확인하려면 위의 "SQL Database에서 성능 및 리소스 사용률을 모니터링하려면 어떻게 해야 하나요?"에서 설명한 방법 중 하나를 통해 쿼리 및 데이터베이스 리소스 사용을 모니터링할 수 있습니다. 쿼리/데이터베이스가 CPU/메모리 등에서 일관되게 많이 실행되고 있다고 확인되면 더 큰 컴퓨팅 크기로 강화하도록 고려할 수 있습니다. 마찬가지로, 최고 사용량 시간에도 리소스를 그리 많이 사용하지 않는 것으로 확인되면 현재 컴퓨팅 크기를 축소하는 것이 좋습니다.
 
-SaaS 앱 패턴 또는 데이터베이스 통합 시나리오가 있으면 비용 최적화를 위해 탄력적 풀을 사용하는 것이 좋습니다. 탄력적 풀은 데이터베이스 통합 및 비용 최적화를 달성하는 훌륭한 방법입니다. 탄력적 풀을 사용하여 여러 데이터베이스를 관리하는 방법을 자세히 보려면 [풀 및 데이터베이스 관리를](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)참조하십시오.
+SaaS 앱 패턴 또는 데이터베이스 통합 시나리오가 있으면 비용 최적화를 위해 탄력적 풀을 사용하는 것이 좋습니다. 탄력적 풀은 데이터베이스 통합 및 비용 최적화를 달성하는 훌륭한 방법입니다. 탄력적 풀을 사용 하 여 여러 데이터베이스를 관리 하는 방법에 대 한 자세한 내용은 [풀 및 데이터베이스 관리](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)를 참조 하세요.
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>내 데이터베이스에 대해 데이터베이스 무결성 검사를 얼마나 자주 실행해야 하나요?
 

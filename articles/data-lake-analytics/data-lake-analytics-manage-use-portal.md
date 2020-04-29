@@ -10,10 +10,10 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8a6b7cb3fd45e17b84519efcaa826b569083e156
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265702"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 관리
@@ -29,8 +29,8 @@ ms.locfileid: "79265702"
 
 ### <a name="create-an-account"></a>계정 만들기
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
-2. **리소스** > 인텔리전스 + 분석 > 데이터 레이크**분석**만들기를**클릭합니다.**
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **리소스** > 만들기**인텔리전스 + 분석** > **Data Lake Analytics**를 클릭 합니다.
 3. 다음 항목에 대한 값을 선택합니다. 
    1. **이름**: Data Lake Analytics 계정의 이름입니다.
    2. **구독**: 계정에 사용되는 Azure 구독입니다.
@@ -111,7 +111,7 @@ Data Lake Analytics 개발자 역할을 사용하여 U-SQL 개발자가 Data Lak
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Data Lake Analytics 계정에 사용자 또는 보안 그룹 추가
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
-2. **액세스 제어(IAM)를** > **클릭합니다.**
+2. **액세스 제어 (IAM)** > **역할 할당 추가**를 클릭 합니다.
 3. 원하는 역할을 선택합니다.
 4. 사용자를 추가합니다.
 5. **확인**을 클릭합니다.
@@ -150,7 +150,7 @@ Data Lake Analytics 개발자 역할을 사용하여 U-SQL 개발자가 Data Lak
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
 2. **작업 정보**를 클릭합니다. "모든 작업" 탭에 기본값이 지정되고 실행 중, 대기 및 종료된 작업 목록이 표시됩니다.
-3. 파이프라인 작업 탭을 **클릭합니다.** 파이프라인 작업 목록은 각 파이프라인에 대한 집계된 통계와 함께 표시됩니다.
+3. **파이프라인 작업** 탭을 클릭 합니다. 파이프라인 작업 목록이 각 파이프라인에 대 한 집계 된 통계와 함께 표시 됩니다.
 
 ### <a name="monitoring-recurring-jobs"></a>되풀이 작업 모니터링
 되풀이 작업은 동일한 비즈니스 논리를 갖지만 실행될 때마다 다른 입력 데이터를 사용하는 작업입니다. 이상적으로, 되풀이 작업은 항상 성공해야 하며 실행 시간도 비교적 안정적입니다. 이러한 동작을 모니터링하면 작업이 정상 상태인지 확인하는 데 도움이 됩니다. 되풀이 작업은 “되풀이” 속성을 사용하여 식별됩니다. ADF V2를 사용하여 예약된 작업에는 이 속성이 자동으로 포함됩니다.
@@ -159,7 +159,7 @@ Data Lake Analytics 개발자 역할을 사용하여 U-SQL 개발자가 Data Lak
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
 2. **작업 정보**를 클릭합니다. "모든 작업" 탭에 기본값이 지정되고 실행 중, 대기 및 종료된 작업 목록이 표시됩니다.
-3. 되풀이 작업 탭을 **클릭합니다.** 되풀이 작업 목록은 각 되풀이 작업에 대한 집계된 통계와 함께 표시됩니다.
+3. **되풀이 작업** 탭을 클릭 합니다. 되풀이 작업 목록이 각 되풀이 작업에 대 한 집계 된 통계와 함께 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

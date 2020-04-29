@@ -1,15 +1,15 @@
 ---
-title: Azure 서비스 패브릭 메시의 상태 저장소 옵션
+title: Azure Service Fabric 메시의 상태 저장소 옵션
 description: Azure Service Fabric Mesh에서 실행되는 Service Fabric Mesh 애플리케이션에 상태를 안정적으로 저장하는 방법을 알아봅니다.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0b0bd611fa86d155bb5bf2e07808e7365e28871c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259098"
 ---
 # <a name="state-management-with-service-fabric"></a>Service Fabric을 사용한 상태 관리
@@ -26,7 +26,7 @@ Service Fabric Mesh를 사용하면 새 애플리케이션을 쉽게 배포하�
 
 ### <a name="service-fabric-reliable-volume"></a>Service Fabric 신뢰할 수 있는 볼륨
 
-Service Fabric 신뢰할 수 있는 볼륨은 로컬 볼륨을 컨테이너에 탑재하는 데 사용된 Docker 볼륨 드라이버입니다. 읽기 및 쓰기는 로컬 작업이며 빠릅니다. 데이터는 보조 노드로 복제되어 가용성이 높습니다. 장애 조치(failover)도 빠릅니다. 컨테이너가 충돌하면 데이터의 복사본이 이미 있는 노드로 장애 조치됩니다. 예를 들어 [서비스 패브릭 신뢰할 수 있는 볼륨을 사용하여 앱을 배포하는 방법을](service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md)참조하세요.
+Service Fabric 신뢰할 수 있는 볼륨은 로컬 볼륨을 컨테이너에 탑재하는 데 사용된 Docker 볼륨 드라이버입니다. 읽기 및 쓰기는 로컬 작업이며 빠릅니다. 데이터는 보조 노드로 복제되어 가용성이 높습니다. 장애 조치(failover)도 빠릅니다. 컨테이너가 충돌하면 데이터의 복사본이 이미 있는 노드로 장애 조치됩니다. 예를 들어 [Service Fabric 신뢰할 수 있는 볼륨으로 앱을 배포 하는 방법](service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md)을 참조 하세요.
 
 ### <a name="azure-files-volume"></a>Azure Files 볼륨
 

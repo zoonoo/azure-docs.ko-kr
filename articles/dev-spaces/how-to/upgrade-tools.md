@@ -3,13 +3,13 @@ title: Azure Dev Spaces 도구를 업그레이드하는 방법
 services: azure-dev-spaces
 ms.date: 07/03/2018
 ms.topic: conceptual
-description: Azure 개발자 공백 명령줄 도구, Visual Studio 코드 확장 및 Visual Studio 확장을 업그레이드하는 방법에 대해 알아봅니다.
+description: Azure Dev Spaces 명령줄 도구, Visual Studio Code 확장 및 Visual Studio 확장을 업그레이드 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
 ms.openlocfilehash: 748ed4699591a21a5a09da924e093011b0813b46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265234"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Azure Dev Spaces 도구를 업그레이드하는 방법
@@ -25,7 +25,7 @@ ms.locfileid: "79265234"
 
 ## <a name="update-the-dev-spaces-cli-extension-and-command-line-tools"></a>Dev Spaces CLI 확장 및 명령줄 도구 업데이트
 
-다음 명령 실행:
+다음 명령을 실행합니다.
 
 ```azurecli
 az aks use-dev-spaces -n <your-aks-cluster> -g <your-aks-cluster-resource-group> --update

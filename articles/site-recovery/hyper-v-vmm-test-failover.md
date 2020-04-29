@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구를 사용하여 보조 사이트에 NHyper-V 재해 복구 드릴 실행
+title: Azure Site Recovery를 사용 하 여 보조 사이트로 NHyper 재해 복구 훈련 실행
 description: Azure Site Recovery를 사용하여 보조 온-프레미스 데이터 센터로 VMM 클라우드의 Hyper-V VM에 대한 DR 훈련을 실행하는 방법을 알아봅니다.
 author: rajani-janaki-ram
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257967"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>보조 사이트로 Hyper-V VM에 대한 DR 훈련 실행
@@ -117,15 +117,15 @@ VM 네트워크가 Windows 네트워크 가상화를 사용하여 VMM에서 구�
 
 ## <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행
 
-이 절차는 복구 계획에 대한 테스트 장애 조치를 실행하는 방법을 설명합니다. 또는 **가상 시스템** 탭에서 단일 가상 시스템에 대한 장애 조치(failover)를 실행할 수 있습니다.
+이 절차는 복구 계획에 대한 테스트 장애 조치를 실행하는 방법을 설명합니다. 또는 **Virtual Machines** 탭에서 단일 가상 컴퓨터에 대 한 장애 조치 (failover)를 실행할 수 있습니다.
 
-1. **복구 계획** > *recoveryplan_name*선택합니다. 장애 조치 테스트 장애 조치 > **(failover)를**클릭합니다. **Failover**
+1. Recoveryplan_name **복구 계획** > *recoveryplan_name*을 선택 합니다. **장애 조치 (failover** > )**테스트 장애**조치를 클릭 합니다.
 2. **테스트 장애 조치** 블레이드에서 테스트 장애 조치(failover) 후에 복제 VM을 네트워크에 연결할 방법을 지정합니다.
 3. **작업** 탭에서 장애 조치 진행 상황을 추적합니다.
 4. 장애 조치(failover)가 완료되면 VM이 정상적으로 시작되는지 확인합니다.
-5. 작업이 완료되면 복구 계획에서 **테스트 장애 조치 정리**를 클릭합니다. **Notes에서**테스트 장애 조치와 관련된 모든 관찰을 기록하고 저장합니다. 이 단계는 테스트 장애 조치(failover) 중에 Site Recovery에 의해 생성된 VM 및 네트워크를 삭제합니다. 
+5. 작업이 완료되면 복구 계획에서 **테스트 장애 조치 정리**를 클릭합니다. **참고**에서 테스트 장애 조치와 관련된 모든 관측 내용을 기록하고 저장합니다. 이 단계는 테스트 장애 조치(failover) 중에 Site Recovery에 의해 생성된 VM 및 네트워크를 삭제합니다. 
 
-![테스트 장애 조치](./media/hyper-v-vmm-test-failover/TestFailover.png)
+![테스트 장애 조치(failover)](./media/hyper-v-vmm-test-failover/TestFailover.png)
  
 
 

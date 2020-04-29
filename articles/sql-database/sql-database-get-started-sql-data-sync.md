@@ -12,13 +12,13 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
 ms.openlocfilehash: 019ddbac1900856666b958d90b4395f25eb5ee84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268965"
 ---
-# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>자습서: Azure SQL 데이터베이스와 SQL Server 온-프레미스 간에 SQL 데이터 동기화 설정
+# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>자습서: 온-프레미스에서 Azure SQL Database와 SQL Server 간에 SQL 데이터 동기화 설정
 
 이 자습서에서는 Azure SQL Database와 SQL Server 인스턴스를 모두 포함하는 동기화 그룹을 만들어 Azure SQL 데이터 동기화를 설정하는 방법에 대해 설명합니다. 동기화 그룹은 사용자 지정 방식으로 구성되며 사용자가 설정하는 일정에 따라 동기화됩니다.
 
@@ -29,24 +29,24 @@ SQL 데이터 동기화의 개요는 [Azure SQL 데이터 동기화를 사용하
 SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예제는 [Azure SQL 데이터베이스를 동기화하는 방법](scripts/sql-database-sync-data-between-sql-databases.md) 또는 [Azure SQL Database와 SQL Server 온-프레미데이스 터베이스 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)를 참조하세요.
 
 > [!IMPORTANT]
-> Azure SQL Data Sync는 현재 Azure SQL 데이터베이스 관리 인스턴스를 지원하지 **않습니다.**
+> Azure SQL 데이터 동기화는 현재 Azure SQL Database Managed Instance를 지원 **하지** 않습니다.
 
 ## <a name="create-sync-group"></a>동기화 그룹 만들기
 
-1. [Azure 포털로](https://portal.azure.com) 이동하여 SQL 데이터베이스를 찾습니다. **SQL 데이터베이스**를 검색하고 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 SQL 데이터베이스를 찾습니다. **SQL 데이터베이스**를 검색하고 선택합니다.
 
-    ![SQL 데이터베이스 검색, Microsoft Azure 포털](media/sql-database-get-started-sql-data-sync/search-for-sql-databases.png)
+    ![SQL 데이터베이스 검색, Microsoft Azure portal](media/sql-database-get-started-sql-data-sync/search-for-sql-databases.png)
 
-1. 데이터 동기화의 허브 데이터베이스로 사용할 데이터베이스를 선택합니다.
+1. 데이터 동기화를 위해 허브 데이터베이스로 사용할 데이터베이스를 선택 합니다.
 
-    ![SQL 데이터베이스 목록, Microsoft Azure 포털에서 선택](media/sql-database-get-started-sql-data-sync/select-sql-database.png)
+    ![SQL database 목록에서 선택 Microsoft Azure portal](media/sql-database-get-started-sql-data-sync/select-sql-database.png)
 
     > [!NOTE]
     > 허브 데이터베이스는 동기화 그룹에 여러 데이터베이스 끝점이 있는 동기화 토폴로지의 중앙 끝점입니다. 동기화 그룹에서 엔드포인트를 포함하는 기타 모든 멤버 데이터베이스는 허브 데이터베이스와 동기화됩니다.
 
-1. 선택한 **데이터베이스의 SQL 데이터베이스** 메뉴에서 **다른 데이터베이스에 대한 동기화를 선택합니다.**
+1. 선택한 데이터베이스에 대 한 **SQL database** 메뉴에서 **다른 데이터베이스에 동기화를**선택 합니다.
 
-    ![다른 데이터베이스, SQL 데이터베이스, Microsoft Azure 포털에 동기화](media/sql-database-get-started-sql-data-sync/sync-to-other-databases.png)
+    ![다른 데이터베이스, SQL database, Microsoft Azure portal로 동기화](media/sql-database-get-started-sql-data-sync/sync-to-other-databases.png)
 
 1. **다른 데이터베이스와 동기화** 페이지에서 **새 동기화 그룹**을 선택합니다. **동기화 그룹 만들기**(1단계)가 강조 표시된 상태로 **새 동기화 그룹** 페이지가 열립니다.
 
@@ -54,7 +54,7 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
    **데이터 동기화 그룹 만들기** 페이지에서 다음 설정을 변경합니다.
 
-   | 설정                        | 설명 |
+   | 설정                        | Description |
    | ------------------------------ | ------------------------------------------------- |
    | **동기화 그룹 이름** | 새 동기화 그룹의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과 구분됩니다. |
    | **메타데이터 데이터베이스 동기화** | 데이터베이스를 만들지(권장) 아니면 기존 데이터베이스를 사용할지를 선택합니다.<br/><br/>**새 데이터베이스**를 선택하는 경우 **새 데이터베이스 만들기**를 선택합니다. **SQL 데이터베이스** 페이지에서 새 데이터베이스의 이름을 지정하고 데이터베이스를 구성한 다음 **확인**을 선택합니다.<br/><br/>**기존 데이터베이스 사용**을 선택하는 경우 목록에서 데이터베이스를 선택합니다. |
@@ -82,7 +82,7 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
   **Azure SQL Database 구성** 페이지에서 다음 설정을 변경합니다.
 
-  | 설정                       | 설명 |
+  | 설정                       | Description |
   | ----------------------------- | ------------------------------------------------- |
   | **동기화 구성원 이름** | 새 동기화 구성원의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과는 달라야 합니다. |
   | **구독** | 대금 청구용으로 연결된 Azure 구독을 선택합니다. |
@@ -125,7 +125,7 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
     1. 동기화 에이전트 앱에서 **에이전트 키 전송**을 선택합니다. **동기화 메타데이터 데이터베이스 구성** 대화 상자가 열립니다.
 
-    1. **동기화 메타데이터 데이터베이스 구성** 대화 상자에 Azure Portal에서 복사된 에이전트 키를 붙여 넣습니다. 또한 메타데이터 데이터베이스가 있는 Azure SQL Database 서버에 기존 자격 증명을 입력합니다. 메타데이터 데이터베이스를 만든 경우 이 데이터베이스는 허브 데이터베이스와 동일한 서버에 있습니다. **확인을** 선택하고 구성이 완료될 때까지 기다립니다.
+    1. **동기화 메타데이터 데이터베이스 구성** 대화 상자에 Azure Portal에서 복사된 에이전트 키를 붙여 넣습니다. 또한 메타데이터 데이터베이스가 있는 Azure SQL Database 서버에 기존 자격 증명을 입력합니다. 메타 데이터 데이터베이스를 만든 경우이 데이터베이스는 허브 데이터베이스와 동일한 서버에 있습니다. **확인** 을 선택 하 고 구성이 완료 될 때까지 기다립니다.
 
         ![에이전트 키 및 서버 자격 증명을 입력합니다.](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
@@ -161,7 +161,7 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
 1. **테이블** 페이지의 동기화 그룹 구성원 목록에서 데이터베이스를 선택한 다음 **스키마 새로 고침**을 선택합니다.
 
-1. 목록에서 동기화할 테이블을 선택합니다. 기본적으로 모든 열이 선택되므로 동기화하지 않으려는 열의 확인란을 사용하지 않도록 설정합니다. 기본 키 열을 선택된 상태로 두어야 합니다.
+1. 목록에서 동기화 할 테이블을 선택 합니다. 기본적으로 모든 열이 선택 되어 있으므로 동기화 하지 않을 열에 대해 확인란을 사용 하지 않도록 설정 합니다. 기본 키 열을 선택 된 상태로 두어야 합니다.
 
 1. **저장**을 선택합니다.
 
@@ -242,5 +242,5 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 
 SQL Database에 대한 자세한 내용은 다음을 참조하세요.
 
-- [SQL 데이터베이스 개요](sql-database-technical-overview.md)
+- [SQL Database 개요](sql-database-technical-overview.md)
 - [데이터베이스 수명 주기 관리](https://msdn.microsoft.com/library/jj907294.aspx)

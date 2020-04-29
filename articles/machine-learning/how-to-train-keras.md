@@ -1,7 +1,7 @@
 ---
-title: 딥 러닝 케라스 모델 교육
+title: 심층 학습 Keras 모델 학습
 titleSuffix: Azure Machine Learning
-description: Azure 기계 학습을 사용하여 TensorFlow에서 실행되는 Keras 심층 신경망 분류 모델을 학습하고 등록하는 방법을 알아봅니다.
+description: Azure Machine Learning를 사용 하 여 TensorFlow에서 실행 되는 심층 신경망 분류 모델로 Keras를 학습 하 고 등록 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,47 +12,47 @@ ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: ba7976d602412037578d0a324916718b2d515aac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79269966"
 ---
-# <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Azure 기계 학습을 통해 Keras 분류 모델 교육 및 등록
+# <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 Keras 분류 모델 학습 및 등록
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 Azure 기계 학습을 사용하여 TensorFlow에 빌드된 Keras 분류 모델을 학습하고 등록하는 방법을 보여 주었습니다. 인기 있는 [MNIST 데이터 집합을](http://yann.lecun.com/exdb/mnist/) 사용하여 [TensorFlow](https://www.tensorflow.org/overview)위에서 실행되는 [Keras Python 라이브러리를](https://keras.io) 사용하여 빌드된 DNN(심층 신경망)을 사용하여 필기 숫자를 분류합니다.
+이 문서에서는 Azure Machine Learning를 사용 하 여 TensorFlow를 기반으로 하는 Keras 분류 모델을 학습 하 고 등록 하는 방법을 보여 줍니다. 인기 있는 [Mnist 데이터 집합](http://yann.lecun.com/exdb/mnist/) 을 사용 하 여 [TensorFlow](https://www.tensorflow.org/overview)에서 실행 되는 [KERAS Python 라이브러리로](https://keras.io) 빌드된 DNN (심층 신경망)를 사용 하 여 필기 된 숫자를 분류 합니다.
 
-Keras는 개발을 단순화하기 위해 인기 있는 다른 DNN 프레임워크의 최상위를 실행할 수 있는 고급 신경망 API입니다. Azure 기계 학습을 사용하면 탄력적 클라우드 계산 리소스를 사용하여 교육 작업을 빠르게 확장할 수 있습니다. 또한 교육 실행, 버전 모델, 배포 모델 등을 추적할 수 있습니다.
+Keras는 기타 인기 있는 DNN 프레임 워크를 실행 하 여 개발을 간소화할 수 있는 높은 수준의 신경망 API입니다. Azure Machine Learning를 사용 하면 탄력적 클라우드 계산 리소스를 사용 하 여 학습 작업을 신속 하 게 확장할 수 있습니다. 또한 학습 실행과 버전 모델을 추적 하 고 모델을 배포할 수 있습니다.
 
-처음부터 Keras 모델을 개발하든 기존 모델을 클라우드로 가져오든 Azure Machine Learning을 통해 프로덕션 지원 모델을 빌드하는 데 도움이 됩니다.
+처음부터 Keras 모델을 개발 하 든, 기존 모델을 클라우드로 전환 하는 경우에는 프로덕션에 사용할 수 있는 모델을 빌드하는 데 도움이 Azure Machine Learning.
 
-기계 학습과 딥 러닝의 차이점에 대한 자세한 내용은 [개념 문서를](concept-deep-learning-vs-machine-learning.md) 참조하십시오.
+기계 학습 및 심층 학습 간의 차이점에 대 한 자세한 내용은 [개념 문서](concept-deep-learning-vs-machine-learning.md) 를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-다음 환경 중 하나에서 이 코드를 실행합니다.
+이러한 환경 중 하나에서이 코드를 실행 합니다.
 
-- Azure 기계 학습 계산 인스턴스 - 다운로드 또는 설치 필요 없음
+- Azure Machine Learning 계산 인스턴스-다운로드 또는 설치 필요 없음
 
-     - 자습서 [완료: 설정 환경 및 작업 영역을](tutorial-1st-experiment-sdk-setup.md) 설정하여 SDK 및 샘플 리포지토리로 미리 로드된 전용 노트북 서버를 만듭니다.
-    - 노트북 서버의 샘플 폴더에서 이 디렉토리를 탐색하여 완료되고 확장된 전자 필기장을 찾을 수 있습니다 **> >.**
+     - [자습서: 설치 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md) 을 완료 하 여 SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 한 전용 노트북 서버를 만듭니다.
+    - 노트북 서버의 samples 폴더에서 다음 디렉터리로 이동 하 여 완료 및 확장 된 노트북을 찾습니다. **사용 방법-azureml > 교육-심층 학습 > 학습-hyperparameter 변수-튜닝-배포-keras** 폴더로 이동 합니다.
 
  - 사용자 고유의 Jupyter Notebook 서버
 
-    - [Azure 기계 학습 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)를 설치합니다.
-    - [작업 영역 구성 파일 만들기](how-to-configure-environment.md#workspace).
-    - [샘플 스크립트 파일을](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` 다운로드하고`utils.py`
+    - [AZURE MACHINE LEARNING SDK를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)합니다.
+    - [작업 영역 구성 파일을 만듭니다](how-to-configure-environment.md#workspace).
+    - [예제 스크립트 파일](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` 을 다운로드 하 고`utils.py`
 
-    GitHub 샘플 페이지에서 이 가이드의 완성된 [Jupyter 노트북 버전을](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) 찾을 수도 있습니다. 노트북에는 지능형 하이퍼매개 변수 튜닝, 모델 배포 및 노트북 위젯을 포함하는 확장된 섹션이 포함되어 있습니다.
+    GitHub 샘플 페이지에서이 가이드의 전체 [Jupyter Notebook 버전](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) 을 찾을 수도 있습니다. 노트북에는 지능형 하이퍼 매개 변수 튜닝, 모델 배포 및 노트북 위젯을 다루는 확장 된 섹션이 포함 되어 있습니다.
 
 ## <a name="set-up-the-experiment"></a>실험 설정
 
-이 섹션에서는 필요한 파이썬 패키지를 로드하고, 작업 영역을 초기화하고, 실험을 만들고, 학습 데이터 및 학습 스크립트를 업로드하여 학습 실험을 설정합니다.
+이 섹션에서는 필요한 python 패키지를 로드 하 고, 작업 영역을 초기화 하 고, 실험을 만들고, 학습 데이터 및 학습 스크립트를 업로드 하 여 학습 실험을 설정 합니다.
 
 ### <a name="import-packages"></a>패키지 가져오기
 
-먼저 필요한 파이썬 라이브러리를 가져옵니다.
+먼저 필요한 Python 라이브러리를 가져옵니다.
 
 ```Python
 import os
@@ -65,9 +65,9 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>작업 영역 초기화
 
-[Azure 기계 학습 작업 영역은](concept-workspace.md) 서비스의 최상위 리소스입니다. 그것은 당신이 만드는 모든 아티팩트와 함께 작업 할 수있는 중앙 집중식 장소를 제공합니다. Python SDK에서 개체를 만들어 작업 영역 아티팩트에 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 액세스할 수 있습니다.
+[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 개체를 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 만들어 작업 영역 아티팩트에 액세스할 수 있습니다.
 
-[필수 구성 조건 섹션에서](#prerequisites)만든 `config.json` 파일에서 작업 영역 개체를 만듭니다.
+`config.json` [전제 조건 섹션](#prerequisites)에서 만든 파일에서 작업 영역 개체를 만듭니다.
 
 ```Python
 ws = Workspace.from_config()
@@ -75,7 +75,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-an-experiment"></a>실험 만들기
 
-작업 영역에서 "keras-mnist"라는 실험을 만듭니다.
+작업 영역에서 "keras-mnist" 라는 실험을 만듭니다.
 
 ```Python
 exp = Experiment(workspace=ws, name='keras-mnist')
@@ -98,7 +98,7 @@ web_paths = [
 dataset = Dataset.File.from_files(path=web_paths)
 ```
 
-이 `register()` 방법을 사용하여 데이터 집합을 작업 영역에 등록하여 다른 사용자와 공유하고, 다양한 실험에서 재사용하고, 학습 스크립트의 이름으로 참조할 수 있습니다.
+`register()` 메서드를 사용 하 여 데이터 집합을 다른 사용자와 공유 하 고, 다양 한 실험에서 재사용 하 고, 학습 스크립트에서 이름으로 참조할 수 있도록 작업 영역에 데이터 집합을 등록할 수 있습니다.
 
 ```python
 dataset = dataset.register(workspace=ws,
@@ -109,7 +109,7 @@ dataset = dataset.register(workspace=ws,
 
 ## <a name="create-a-compute-target"></a>컴퓨팅 대상 만들기
 
-실행할 TensorFlow 작업에 대한 계산 대상을 만듭니다. 이 예제에서는 GPU 지원 Azure 기계 학습 계산 클러스터를 만듭니다.
+TensorFlow 작업을 실행할 계산 대상을 만듭니다. 이 예제에서는 GPU 사용 Azure Machine Learning 계산 클러스터를 만듭니다.
 
 ```Python
 cluster_name = "gpucluster"
@@ -127,13 +127,13 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-계산 대상에 대한 자세한 내용은 [계산 대상](concept-compute-target.md) 문서를 참조하세요.
+계산 대상에 대 한 자세한 내용은 [계산 대상 이란?](concept-compute-target.md) 문서를 참조 하세요.
 
-## <a name="create-a-tensorflow-estimator-and-import-keras"></a>텐서플로우 추정기 작성 및 케라스 가져오기
+## <a name="create-a-tensorflow-estimator-and-import-keras"></a>TensorFlow 평가기를 만들고 Keras를 가져옵니다.
 
-[TensorFlow 추정기는](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) 계산 대상에서 TensorFlow 교육 작업을 시작하는 간단한 방법을 제공합니다. Keras는 텐서플로우 위에서 실행되므로 텐서플로우 추정기를 사용하고 `pip_packages` 인수를 사용하여 Keras 라이브러리를 가져올 수 있습니다.
+[TensorFlow 평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) 는 계산 대상에서 TensorFlow 학습 작업을 시작 하는 간단한 방법을 제공 합니다. Keras는 TensorFlow에서 실행 되므로 TensorFlow 평가기를 사용 하 고 인수를 `pip_packages` 사용 하 여 keras 라이브러리를 가져올 수 있습니다.
 
-먼저 `Dataset` 클래스를 사용하여 작업 영역 데이터 스토어에서 데이터를 가져옵니다.
+먼저 클래스를 `Dataset` 사용 하 여 작업 영역 데이터 저장소에서 데이터를 가져옵니다.
 
 ```python
 dataset = Dataset.get_by_name(ws, 'mnist dataset')
@@ -142,7 +142,7 @@ dataset = Dataset.get_by_name(ws, 'mnist dataset')
 dataset.to_path()
 ```
 
-TensorFlow 추정기는 모든 프레임 [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 워크를 지원 하기 위해 사용할 수 있는 제네릭 클래스를 통해 구현 됩니다. 또한 DNN `script_params` 하이퍼 매개 변수 설정을 포함 하는 사전을 만듭니다. 일반 추정기를 사용하는 학습 모델에 대한 자세한 내용은 [추정기를 사용하여 Azure 기계 학습을 사용하는 학습 모델을](how-to-train-ml-models.md) 참조하십시오.
+TensorFlow 평가기는 프레임 워크를 지 원하는 [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 데 사용할 수 있는 제네릭 클래스를 통해 구현 됩니다. 또한 DNN 하이퍼 매개 변수 설정을 `script_params` 포함 하는 사전을 만듭니다. 제네릭 평가기을 사용한 학습 모델에 대 한 자세한 내용은 [평가기를 사용 하 여 Azure Machine Learning를](how-to-train-ml-models.md) 사용 하 여 모델 학습을 참조 하세요.
 
 ```python
 from azureml.train.dnn import TensorFlow
@@ -163,37 +163,37 @@ est = TensorFlow(source_directory=script_folder,
                  use_gpu=True)
 ```
 
-## <a name="submit-a-run"></a>달리기 제출
+## <a name="submit-a-run"></a>실행 제출
 
-[Run 개체는](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) 작업이 실행되는 동안 및 작업이 완료된 후 실행 기록에 대한 인터페이스를 제공합니다.
+[실행 개체](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) 는 작업이 실행 되는 동안 그리고 작업이 완료 된 후 실행 기록에 인터페이스를 제공 합니다.
 
 ```Python
 run = exp.submit(est)
 run.wait_for_completion(show_output=True)
 ```
 
-실행이 실행되면 다음 단계를 거칩니다.
+실행이 실행 되 면 다음 단계를 거칩니다.
 
-- **준비**: 텐서플로우 추정기에 따라 도커 이미지가 만들어집니다. 이미지가 작업 영역의 컨테이너 레지스트리에 업로드되고 나중에 실행될 수 있도록 캐시됩니다. 로그는 실행 기록으로 스트리밍되며 진행 상황을 모니터링하기 위해 볼 수 있습니다.
+- **준비**: TensorFlow 평가기에 따라 docker 이미지가 생성 됩니다. 이미지는 작업 영역 컨테이너 레지스트리로 업로드 되 고 나중에 실행할 수 있도록 캐시 됩니다. 로그는 실행 기록에도 스트리밍되 고 진행률을 모니터링 하기 위해 볼 수 있습니다.
 
-- **크기 조정**: Batch AI 클러스터에 현재 사용 가능한 것보다 실행을 실행하는 데 더 많은 노드가 필요한 경우 클러스터가 확장하려고 시도합니다.
+- **크기 조정**: 클러스터는 현재 사용 가능한 것 보다 더 많은 노드를 실행 하는 Batch AI 클러스터가 필요한 경우 확장을 시도 합니다.
 
-- **실행**중 : 스크립트 폴더의 모든 스크립트가 계산 대상에 업로드되고 데이터 저장소가 탑재되거나 복사되고 entry_script 실행됩니다. stdout 및 ./logs 폴더의 출력은 실행 기록으로 스트리밍되며 실행을 모니터링하는 데 사용할 수 있습니다.
+- **실행 중**: 스크립트 폴더의 모든 스크립트가 계산 대상으로 업로드 되 고, 데이터 저장소가 탑재 되거나 복사 되 고, entry_script 실행 됩니다. Stdout의 출력과./clogs 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
 
-- **사후 처리**: 실행의 ./outputs 폴더가 실행 기록에 복사됩니다.
+- **사후 처리**: 실행의./출력 폴더가 실행 기록에 복사 됩니다.
 
 ## <a name="register-the-model"></a>모델 등록
 
-DNN 모델을 학습한 후에는 작업 영역에 등록할 수 있습니다. 모델 등록을 사용하면 모델 관리 및 배포를 간소화하기 위해 작업 영역에 모델을 [저장하고](concept-model-management-and-deployment.md)버전이 정번할 수 있습니다.
+DNN 모델을 학습 한 후에는 작업 영역에 등록할 수 있습니다. 모델 등록을 사용 하면 모델 [관리 및 배포](concept-model-management-and-deployment.md)를 간소화 하기 위해 작업 영역에 모델을 저장 하 고 버전을 지정할 수 있습니다.
 
 ```Python
 model = run.register_model(model_name='keras-dnn-mnist', model_path='outputs/model')
 ```
 
 > [!TIP]
-> 방금 등록한 모델은 교육에 사용한 추정기에 관계없이 Azure Machine Learning의 다른 등록된 모델과 동일한 방식으로 배포됩니다. 배포 방법은 모델 등록에 대한 섹션을 포함하지만 이미 등록된 모델이 있으므로 배포에 대한 [계산 대상을 만드는](how-to-deploy-and-where.md#choose-a-compute-target) 데 직접 건너뛸 수 있습니다.
+> 방금 등록 한 모델은 학습에 사용한 평가기에 관계 없이 Azure Machine Learning에서 등록 된 다른 모델과 정확히 동일한 방식으로 배포 됩니다. 배포 방법에는 모델 등록에 대 한 섹션이 포함 되어 있지만 등록 된 모델이 이미 있기 때문에 배포에 대 한 [계산 대상을 직접 만드는](how-to-deploy-and-where.md#choose-a-compute-target) 것으로 건너뛸 수 있습니다.
 
-모델의 로컬 복사본을 다운로드할 수도 있습니다. 이 기능은 추가 모델 유효성 검사 작업을 로컬에서 수행하는 데 유용할 수 있습니다. 학습 스크립트에서 `mnist-keras.py`TensorFlow 보호기 개체는 모델을 로컬 폴더(계산 대상에 로컬)로 유지합니다. 실행 개체를 사용하여 데이터스토어에서 복사본을 다운로드할 수 있습니다.
+모델의 로컬 복사본을 다운로드할 수도 있습니다. 이는 로컬에서 추가 모델 유효성 검사 작업을 수행 하는 데 유용할 수 있습니다. 학습 스크립트 `mnist-keras.py`에서 TensorFlow 보호기 개체는 모델을 로컬 폴더 (계산 대상의 로컬 폴더)에 유지 합니다. Run 개체를 사용 하 여 데이터 저장소에서 복사본을 다운로드할 수 있습니다.
 
 ```Python
 # Create a model folder in the current directory
@@ -208,11 +208,11 @@ for f in run.get_file_names():
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure 기계 학습에서 Keras 모델을 학습하고 등록했습니다. 모델을 배포하는 방법을 알아보려면 모델 배포 문서를 계속 계속 설명합니다.
+이 문서에서는 Azure Machine Learning에서 Keras 모델을 학습 하 고 등록 했습니다. 모델을 배포 하는 방법에 대 한 자세한 내용은 모델 배포 문서를 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)
+> [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)
 * [학습 중에 실행 메트릭 추적](how-to-track-experiments.md)
-* [하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md)
+* [hyperparameters 조정](how-to-tune-hyperparameters.md)
 * [학습된 모델 배포](how-to-deploy-and-where.md)
-* [Azure의 분산 딥 러닝 교육을 위한 참조 아키텍처](/azure/architecture/reference-architectures/ai/training-deep-learning)
+* [Azure의 분산 심층 학습 교육에 대 한 참조 아키텍처](/azure/architecture/reference-architectures/ai/training-deep-learning)
