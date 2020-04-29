@@ -1,5 +1,5 @@
 ---
-title: Azure 계산 - Linux 진단 확장
+title: Azure Compute-Linux 진단 확장
 description: Azure에서 실행 중인 Linux VM에서 메트릭 및 로그 이벤트를 수집하도록 Azure LAD(Linux 진단 확장)를 구성하는 방법입니다.
 services: virtual-machines-linux
 author: axayjo
@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
 ms.openlocfilehash: 7a7c1af1193ba391550438229a22c4a8c116e6be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80289178"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
@@ -49,7 +49,7 @@ Azure PowerShell cmdlet, Azure CLI 스크립트, ARM 템플릿 또는 Azure Port
 
 다운로드 가능한 구성은 예로 든 것일 뿐입니다. 사용자 요구 사항에 맞게 수정합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
 * **Azure Linux 에이전트 버전 2.2.0 이상**. 대부분의 Azure VM Linux 갤러리 이미지에는 2.2.7 이후 버전이 포함되어 있습니다. VM에 설치된 버전을 확인하려면 `/usr/sbin/waagent -version`을 실행합니다. VM이 게스트 에이전트의 이전 버전을 실행 중인 경우 [이 지침](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)에 따라 업데이트합니다.
 * **Azure CLI**. 머신에 [Azure CLI 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
@@ -59,7 +59,7 @@ Azure PowerShell cmdlet, Azure CLI 스크립트, ARM 템플릿 또는 Azure Port
 
 ### <a name="sample-installation"></a>샘플 설치
 
-실행하기 전에 첫 번째 섹션의 변수에 대한 올바른 값을 입력합니다.
+실행 하기 전에 첫 번째 섹션의 변수에 대해 올바른 값을 입력 합니다.
 
 ```azurecli
 # Set your Azure VM diagnostic variables correctly below
@@ -89,7 +89,7 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
-이 예제에서 다운로드한 샘플 구성은 표준 데이터 집합을 수집하여 테이블 저장소로 보냅니다. 샘플 구성 및 해당 내용에 대한 URL은 변경될 수 있습니다. 대부분의 경우 포털 설정 JSON 파일의 복사본을 다운로드하여 필요에 맞게 사용자 지정한 다음 구성한 템플릿이나 자동화가 매번 해당 URL을 다운로드하는 대신 구성 파일의 고유한 버전을 사용해야 합니다.
+이 예제에서 다운로드 한 샘플 구성은 표준 데이터 집합을 수집 하 여 테이블 저장소에 보냅니다. 샘플 구성 및 해당 콘텐츠에 대 한 URL은 변경 될 수 있습니다. 대부분의 경우 포털 설정 JSON 파일의 복사본을 다운로드 하 고 필요에 맞게 사용자 지정 하 고, 생성 하는 템플릿 또는 자동화를 사용 하 여 매번 해당 URL을 다운로드 하는 대신 구성 파일의 고유한 버전을 사용 해야 합니다.
 
 #### <a name="powershell-sample"></a>PowerShell 샘플
 
@@ -155,7 +155,7 @@ Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location 
 }
 ```
 
-이름 | 값
+속성 | 값
 ---- | -----
 storageAccountName | 확장에 의해 데이터가 기록될 스토리지 계정의 이름입니다.
 storageAccountEndPoint | (선택 사항) 스토리지 계정이 있는 클라우드를 식별하는 엔드포인트입니다. 이 설정이 없는 경우 LAD는 Azure 퍼블릭 클라우드, `https://core.windows.net`으로 기본 설정됩니다. Azure Germany, Azure Government 또는 Azure China에서 스토리지 계정을 사용하려면 이 값을 적절하게 설정합니다.
@@ -163,7 +163,7 @@ storageAccountSasToken | Blob service 및 Table service(`ss='bt'`)용으로, 컨
 mdsdHttpProxy | (선택 사항) 지정된 스토리지 계정 및 엔드포인트에 연결할 확장을 사용하도록 설정하는 데 필요한 HTTP 프록시 정보입니다.
 sinksConfig | (선택 사항) 메트릭 및 이벤트를 전달할 수 있는 대체 대상의 세부 정보입니다. 확장에서 지원되는 각 데이터 싱크의 특정 세부 정보는 다음에 나오는 섹션에 설명되어 있습니다.
 
-리소스 관리자 템플릿 내에서 SAS 토큰을 얻으려면 **listAccountSas** 함수를 사용합니다. 예제 템플릿은 [목록 함수 예제를](../../azure-resource-manager/templates/template-functions-resource.md#list-example)참조하십시오.
+리소스 관리자 템플릿 내에서 SAS 토큰을 가져오려면 **Listaccountsas** 함수를 사용 합니다. 예제 템플릿은 [List 함수 예제](../../azure-resource-manager/templates/template-functions-resource.md#list-example)를 참조 하세요.
 
 Azure Portal을 통해 필요한 SAS 토큰을 쉽게 생성할 수 있습니다.
 
@@ -225,7 +225,7 @@ Linux 진단 확장 3.0 버전에서는 두 개의 싱크 유형(EventHub 및 Js
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-이벤트 허브에 대한 SAS 토큰에 대한 정보를 생성하고 검색하는 방법에 대한 자세한 내용은 [이 웹 페이지를](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell)참조하십시오.
+Event Hubs SAS 토큰에 대 한 정보를 생성 하 고 검색 하는 방법에 대 한 자세한 내용은 [이 웹 페이지](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell)를 참조 하세요.
 
 #### <a name="the-jsonblob-sink"></a>JsonBlob 싱크
 
@@ -528,7 +528,7 @@ TransfersPerSecond | 초당 읽기 또는 쓰기 작업
 
 `"condition": "IsAggregate=True"`로 설정하면 모든 파일 시스템에서 집계된 값을 얻을 수 있습니다. `"condition": 'Name="/mnt"'`로 설정하면 특정 탑재된 파일 시스템(예: "/mnt")에 대한 값을 얻을 수 있습니다. 
 
-**참고**: JSON 대신 Azure 포털을 사용하는 경우 올바른 조건 필드 양식은 Name='/mnt'입니다.
+**참고**: JSON 대신 Azure Portal을 사용 하는 경우 올바른 조건 필드 형식은 Name = '/mnt '입니다.
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>디스크 클래스의 기본 제공 메트릭
 
@@ -723,7 +723,7 @@ JsonBlob 싱크로 전송된 데이터는 [보호 설정](#protected-settings)�
 또한 다음 UI 도구를 사용하여 Azure Storage의 데이터에 액세스할 수 있습니다.
 
 * Visual Studio 서버 탐색기.
-* [마이크로 소프트 Azure 스토리지 탐색기](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+* [Microsoft Azure Storage 탐색기](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
 Microsoft Azure Storage Explorer의 이 스냅샷 세션은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#an-example-lad-30-configuration)과 정확히 일치하지는 않습니다.
 
