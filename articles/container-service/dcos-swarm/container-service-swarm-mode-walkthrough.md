@@ -8,17 +8,17 @@ ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
 ms.openlocfilehash: d4bbd5560681aa73709019e87c6c22470a64ad78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481741"
 ---
 # <a name="deprecated-deploy-docker-ce-cluster"></a>(사용되지 않음) Docker CE 클러스터 배포
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-이 빠른 시작에서는 Azure CLI를 사용하여 Docker CE 클러스터가 배포됩니다. 웹 프런트 엔드 및 Redis 인스턴스로 구성된 다중 컨테이너 애플리케이션이 클러스터에 배포되어 실행됩니다. 완료되면 인터넷을 통해 애플리케이션에 액세스할 수 있습니다.
+이 빠른 시작에서 Docker CE 클러스터는 Azure CLI를 사용 하 여 배포 됩니다. 웹 프런트 엔드 및 Redis 인스턴스로 구성된 다중 컨테이너 애플리케이션이 클러스터에 배포되어 실행됩니다. 완료되면 인터넷을 통해 애플리케이션에 액세스할 수 있습니다.
 
 Azure Container Service에서 Docker CE는 미리 보기 상태이며 **프로덕션 워크로드에는 사용할 수 없습니다**.
 
@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location westus2
 
 ## <a name="create-docker-swarm-cluster"></a>Docker Swarm 클러스터 만들기
 
-[az acs create](/cli/azure/acs#az-acs-create) 명령을 사용하여 Azure Container Service에서 Docker CE 클러스터를 만듭니다. Docker CE의 지역 가용성에 대한 자세한 내용은 [Docker CE의 ACS 지역을](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md) 참조하십시오.
+[az acs create](/cli/azure/acs#az-acs-create) 명령을 사용하여 Azure Container Service에서 Docker CE 클러스터를 만듭니다. Docker CE의 지역 가용성에 대 한 자세한 내용은 [DOCKER ce 용 ACS 지역](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md) 을 참조 하세요.
 
 다음 예제에서는 하나의 Linux 마스터 노드와 세 개의 Linux 에이전트 노드가 있는 *mySwarmCluster*라는 클러스터를 만듭니다.
 
@@ -67,7 +67,7 @@ az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-grou
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
-이 빠른 시작 을 통해 Docker 군단 마스터와 Docker 에이전트 풀의 FQDN이 필요합니다. 마스터 및 에이전트 FQDN을 모두 반환하려면 다음 명령을 실행합니다.
+이 빠른 시작에서 Docker Swarm 마스터와 Docker 에이전트 풀의 FQDN이 모두 필요 합니다. 마스터 및 에이전트 FQDN을 모두 반환하려면 다음 명령을 실행합니다.
 
 ```azurecli
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
@@ -159,13 +159,13 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>코드 가져오기
 
-이 빠른 시작에서는 미리 만들어진 컨테이너 이미지가 Docker 서비스를 만드는 데 사용되었습니다. 관련된 애플리케이션 코드, Dockerfile 및 Compose 파일을 GitHub에서 사용할 수 있습니다.
+이 빠른 시작에서 미리 만든 컨테이너 이미지는 Docker 서비스를 만드는 데 사용 되었습니다. 관련된 애플리케이션 코드, Dockerfile 및 Compose 파일을 GitHub에서 사용할 수 있습니다.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Docker Swarm 클러스터를 배포하고 다중 컨테이너 응용 프로그램을 배포했습니다.
+이 빠른 시작에서는 Docker Swarm 클러스터를 배포 하 고이 클러스터에 다중 컨테이너 응용 프로그램을 배포 했습니다.
 
 Docker Swarm을 Azure DevOps와 통합하는 방법에 대해 알아보려면 Docker Swarm 및 Azure DevOps를 사용하는 CI/CD를 진행합니다.
 

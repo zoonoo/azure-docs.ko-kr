@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
 ms.openlocfilehash: 202b3dc5df75af4c9075b3962fcf6e86833ecdfa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477292"
 ---
 > [!IMPORTANT]
-> 신뢰할 수 있는 원본에서 만들거나 가져오는 모델만 사용해야 합니다. 보안 취약점이 여러 인기 형식에서 발견되었기 때문에 직렬화된 모델을 코드로 처리해야 합니다. 또한 모델이 편향되거나 부정확한 출력을 제공하기 위해 악의적인 의도로 의도적으로 학습될 수 있습니다.
+> 사용자가 만들거나 신뢰할 수 있는 원본에서 가져온 모델만 사용 해야 합니다. 보안 취약성이 널리 사용 되는 여러 형식으로 검색 되기 때문에 직렬화 된 모델을 코드로 처리 해야 합니다. 또한 모델은 의도적으로 또는 부정확 한 결과를 제공 하기 위해 악의적인 의도를 사용 하 여 의도적으로 교육을 받을 수 있습니다.

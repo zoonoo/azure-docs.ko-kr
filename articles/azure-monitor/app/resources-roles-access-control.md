@@ -4,10 +4,10 @@ description: 조직 Insights의 소유자, 참여자 및 읽기 권한자입니�
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.openlocfilehash: 1e57af269c4052d0dcd4a8f7970ca23017024299
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79473135"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights에서 리소스, 역할 및 액세스 제어
@@ -15,7 +15,7 @@ ms.locfileid: "79473135"
 [Microsoft Azure의 역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md)를 사용하여 Azure [Application Insights][start]의 데이터에 대한 읽기 및 업데이트 액세스를 제어할 수 있습니다.
 
 > [!IMPORTANT]
-> 리소스 자체가 아닌 애플리케이션 리소스가 속한 **리소스 그룹 또는 구독** 의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 기여자** 역할을 할당합니다. 이렇게 하면 애플리케이션 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세히 알아봅니다](#access).
+> 리소스 자체가 아닌 애플리케이션 리소스가 속한 **리소스 그룹 또는 구독** 의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 기여자** 역할을 할당합니다. 이렇게 하면 애플리케이션 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세히 알아보기](#access).
 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "79473135"
 
 * **리소스** - Microsoft Azure 서비스의 인스턴스입니다. Application Insights는 애플리케이션에서 보낸 원격 분석 데이터를 수집, 분석 및 표시합니다.  다른 유형의 Azure 리소스로는 웹 앱, 데이터베이스 및 VM이 있습니다.
   
-    리소스를 보려면 Azure [포털을][portal]열고 로그인한 다음 모든 리소스를 클릭합니다. 리소스를 찾으려면 필터 필드에 리소스 이름의 일부를 입력합니다.
+    리소스를 보려면 [Azure Portal][portal]열고 로그인 한 후 모든 리소스를 클릭 합니다. 리소스를 찾으려면 필터 필드에 리소스 이름의 일부를 입력합니다.
   
     ![Azure 리소스 목록](./media/resources-roles-access-control/10-browse.png)
 
@@ -39,7 +39,7 @@ ms.locfileid: "79473135"
 
 ## <a name="control-access-in-the-resource-group"></a><a name="access"></a> 리소스 그룹의 액세스 제어
 
-애플리케이션에 대해 만든 리소스 외에도 경고 및 웹 테스트에 대한 별도의 리소스가 숨겨져 있다는 사실을 이해해야 합니다. 응용 프로그램 인사이트 [리소스와](#resource-group) 동일한 리소스 그룹에 연결 됩니다. 웹 사이트 또는 스토리지 같은 다른 Azure 서비스를 여기에 넣었을 수도 있습니다.
+애플리케이션에 대해 만든 리소스 외에도 경고 및 웹 테스트에 대한 별도의 리소스가 숨겨져 있다는 사실을 이해해야 합니다. Application Insights 리소스와 동일한 [리소스 그룹](#resource-group) 에 연결 됩니다. 웹 사이트 또는 스토리지 같은 다른 Azure 서비스를 여기에 넣었을 수도 있습니다.
 
 이러한 리소스에 대한 액세스를 제어하기 위한 권장 사항이 있습니다.
 
@@ -75,9 +75,9 @@ ms.locfileid: "79473135"
 | 역할 | 리소스 그룹에서 할 수 있는 일 |
 | --- | --- |
 | [소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |사용자 액세스를 포함하여 모든 것을 변경할 수 있습니다. |
-| [참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |모든 리소스를 포함하여 모든 것을 편집할 수 있습니다. |
-| [애플리케이션 인사이트 구성 요소 기고자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |애플리케이션 인사이트 리소스를 편집할 수 있습니다. |
-| [읽기 권한자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |모든 것을 볼 수 있지만 변경할 수는 없습니다. |
+| [기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |모든 리소스를 포함하여 모든 것을 편집할 수 있습니다. |
+| [Application Insights 구성 요소 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Application Insights 리소스를 편집할 수 있습니다. |
+| [판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |모든 것을 볼 수 있지만 변경할 수는 없습니다. |
 | [Application Insights 스냅샷 디버거](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | 사용자에게 Application Insights 스냅샷 디버거 기능을 사용할 수 있는 권한을 부여합니다. 이 역할은 소유자 또는 기여자 역할 모두에 포함되지 않습니다. |
 | Azure Service Deploy 릴리스 관리 기여자 | Azure Service Deploy를 통해 배포하는 서비스에 대한 기여자 역할입니다. |
 | [데이터 제거자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | 개인 데이터 제거를 위한 특별 역할입니다. 자세한 내용은 [개인 데이터에 대한 지침](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data)을 참조하세요.   |

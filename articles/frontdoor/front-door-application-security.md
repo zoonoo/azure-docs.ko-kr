@@ -1,6 +1,6 @@
 ---
-title: Azure 정문 - 응용 프로그램 계층 보안 | 마이크로 소프트 문서
-description: 이 문서에서는 Azure Front Door를 사용하여 응용 프로그램 백엔드를 보호하고 보호하는 방법을 이해하는 데 도움이 됩니다.
+title: Azure 전면 도어-응용 프로그램 계층 보안 | Microsoft Docs
+description: 이 문서는 Azure 프런트 도어를 통해 응용 프로그램 백 엔드를 보호 하 고 보호 하는 방법을 이해 하는 데 도움이 됩니다.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,20 +12,20 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: e458926930c1b95d48886559551878fc6c9d0673
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471798"
 ---
 # <a name="application-layer-security-with-front-door"></a>Front Door와 애플리케이션 계층 보안
-Azure Front Door는 SQL 주입 또는 XSS(교차 사이트 스크립팅)와 같은 일반적인 웹 취약성 악용으로부터 웹 응용 프로그램을 보호하는 웹 응용 프로그램 보호 기능을 제공합니다. http(s) 프런트 엔드를 사용할 수 있게 설정된 Front Door의 애플리케이션 계층 보안은 전역적으로 배포되며, 항상 켜져 있으므로 백 엔드와 멀리 떨어진 Azure의 네트워크 에지에서 악의적인 공격을 막아줍니다. 보안 및 성능이 더욱 최적화된 Front Door는 최종 사용자에게 빠르고 안전한 웹 환경을 제공합니다.
+Azure 전면 도어는 웹 응용 프로그램을 보호 하는 웹 응용 프로그램 보호 기능을 제공 합니다 .이 기능을 통해 웹 응용 프로그램을 네트워크 공격 으로부터 보호 하 고 SQL 삽입 또는 XSS (교차 사이트 스크립팅) 같은 http(s) 프런트 엔드를 사용할 수 있게 설정된 Front Door의 애플리케이션 계층 보안은 전역적으로 배포되며, 항상 켜져 있으므로 백 엔드와 멀리 떨어진 Azure의 네트워크 에지에서 악의적인 공격을 막아줍니다. 보안 및 성능이 더욱 최적화된 Front Door는 최종 사용자에게 빠르고 안전한 웹 환경을 제공합니다.
 
 ## <a name="application-protection"></a>애플리케이션 보호
 Front Door의 애플리케이션 보호는 전 세계 각 에지 환경에서 애플리케이션과 함께 구성되어 있으며, http(s) 이외의 트래픽이 웹 애플리케이션에 도달하지 못하게 자동으로 차단합니다. 다중 테넌트 분산 아키텍처는 성능 저하 없이 대규모로 글로벌 보호를 가능하게 합니다. http(s) 워크로드의 경우 Front Door의 웹 애플리케이션 보호 서비스가 사용자 지정 규칙, 일반적인 공격에 대해 미리 구성된 규칙 집합, 규칙과 일치하는 모든 요청에 대한 세부적인 로깅을 위한 풍부한 규칙 엔진을 제공합니다. 허용, 차단 또는 기록만 포함된 유연한 작업이 지원됩니다.
 
 ## <a name="custom-access-control-rules"></a>사용자 지정 액세스 제어 규칙
-- **IP 허용 목록 및 차단 목록:** 클라이언트 IP 주소 목록에 따라 웹 응용 프로그램에 대한 액세스를 제어하도록 사용자 지정 규칙을 구성할 수 있습니다. IP v4 및 IP v6이 모두 지원됨
+- **IP 허용 목록 및 차단 목록:** 클라이언트 IP 주소 목록을 기반으로 웹 응용 프로그램에 대 한 액세스를 제어 하는 사용자 지정 규칙을 구성할 수 있습니다. IP v4 및 IP v6이 모두 지원됨
 - **지리적 기반 액세스 제어:** 클라이언트 IP가 수신된 국가 코드에 따라 웹 애플리케이션에 대한 액세스를 제어하도록 사용자 지정 규칙을 구성할 수 있습니다
 - **HTTP 매개 변수 필터링:** 헤더, URL 및 쿼리 문자열 등 일치하는 http(s) 요청 매개 변수에 따라 사용자 지정 액세스 규칙을 구성할 수 있습니다.
 

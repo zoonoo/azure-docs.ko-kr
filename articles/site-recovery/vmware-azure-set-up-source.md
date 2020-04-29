@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구를 사용 하 고 Azure에 VM웨어 재해 복구에 대 한 소스 설정을 설정
+title: Azure Site Recovery를 사용 하 여 Azure에 대 한 VMware 재해 복구를 위한 원본 설정 설정
 description: 이 아티클에서는 Azure Site Recovery를 사용하여 Azure에 VMware VM을 복제하도록 온-프레미스 환경을 설정하는 방법을 설명합니다.
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257057"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Azure 복제에 대한 VMware의 원본 환경 설정
 
-이 아티클에서는 VMware VM을 Azure에 복제하도록 원본 온-프레미스 환경을 설정하는 방법을 설명합니다. 이 문서에는 복제 시나리오를 선택하고, 온-프레미스 컴퓨터를 사이트 복구 구성 서버로 설정하고, 온-프레미스 VM을 자동으로 검색하는 단계가 포함되어 있습니다.
+이 아티클에서는 VMware VM을 Azure에 복제하도록 원본 온-프레미스 환경을 설정하는 방법을 설명합니다. 이 문서에는 복제 시나리오를 선택 하 고, 온-프레미스 컴퓨터를 Site Recovery 구성 서버로 설정 하 고, 온-프레미스 Vm을 자동으로 검색 하는 단계가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에서는 사용자가 다음 작업을 이미 수행한 것으로 가정합니다.
 
@@ -31,9 +31,9 @@ ms.locfileid: "79257057"
 
 1. **Recovery Services 자격 증명 모음**에서 자격 증명 모음 이름을 선택합니다. 이 시나리오에서는 **ContosoVMVault**를 사용합니다.
 2. **시작**에서 Site Recovery를 선택합니다. 그런 다음, **인프라 준비**를 선택합니다.
-3. **보호 목표에서** > **컴퓨터가 있는 위치:** **온-프레미스를**선택합니다.
+3. **컴퓨터가 있는** **보호 목표** > 에서 **온-프레미스**를 선택 합니다.
 4. **컴퓨터를 복제할 위치를 선택하세요.** 에서 **Azure**를 선택합니다.
-5. **컴퓨터가 가상화된 경우**에서 **예, VMware vSphere 하이퍼바이저 사용**을 선택합니다. 그런 다음 **확인을**선택합니다.
+5. **컴퓨터가 가상화된 경우**에서 **예, VMware vSphere 하이퍼바이저 사용**을 선택합니다. 그런 다음 **확인**을 선택합니다.
 
 ## <a name="set-up-the-configuration-server"></a>구성 서버 설정
 
@@ -41,7 +41,7 @@ OVA(Open Virtualization Application) 템플릿을 통해 구성 서버를 온-�
 
 1. 구성 서버 배포에 대한 [필수 구성 요소](vmware-azure-deploy-configuration-server.md#prerequisites)에 대해 알아봅니다.
 2. 배포에 대한 [용량 수치를 확인](vmware-azure-deploy-configuration-server.md#sizing-and-capacity-requirements)합니다.
-3. OVA 템플릿을 [다운로드](vmware-azure-deploy-configuration-server.md#download-the-template)하고 [가져와서](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) 구성 서버를 실행하는 온-프레미스 VMware VM을 설정합니다. 템플릿과 함께 제공되는 라이선스는 평가판 라이센스이며 180일 동안 유효합니다. 이 기간을 게시하면 고객은 조달된 라이센스로 창을 활성화해야 합니다.
+3. OVA 템플릿을 [다운로드](vmware-azure-deploy-configuration-server.md#download-the-template)하고 [가져와서](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) 구성 서버를 실행하는 온-프레미스 VMware VM을 설정합니다. 템플릿과 함께 제공 되는 라이선스는 평가 라이선스 이며 180 일 동안 유효 합니다. 이 기간을 게시 하면 고객이 원하는 라이선스를 사용 하 여 windows를 활성화 해야 합니다.
 4. VMware VM을 켜고 Recovery Services 자격 증명 모음에 [등록](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services)합니다.
 
 ## <a name="azure-site-recovery-folder-exclusions-from-antivirus-program"></a>바이러스 백신 프로그램에서 Azure Site Recovery 폴더 제외
@@ -69,7 +69,7 @@ OVA(Open Virtualization Application) 템플릿을 통해 구성 서버를 온-�
   - C:\ProgramData\ASRSetupLogs
   - C:\ProgramData\LogUploadServiceLogs
   - C:\inetpub
-  - 사이트 복구 서버 설치 디렉토리. 예: E:\Program Files (x86)\Microsoft Azure Site Recovery
+  - 서버 설치 디렉터리를 Site Recovery 합니다. 예: E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>바이러스 백신 소프트웨어가 스케일 아웃 프로세스 서버/마스터 대상에서 활성 상태인 경우
 
@@ -81,7 +81,7 @@ OVA(Open Virtualization Application) 템플릿을 통해 구성 서버를 온-�
 4. C:\ProgramData\ASRSetupLogs
 5. C:\ProgramData\LogUploadServiceLogs
 6. C:\ProgramData\Microsoft Azure Site Recovery
-7. Azure 사이트 복구 로드 균형 처리 서버 설치 디렉터리, 예제: C:\프로그램 파일 (x86)\Microsoft Azure 사이트 복구
+7. 부하가 분산 된 프로세스 서버 설치 디렉터리 Azure Site Recovery 예: C:\Program Files (x86) \Microsoft Azure Site Recovery
 
 
 ## <a name="next-steps"></a>다음 단계

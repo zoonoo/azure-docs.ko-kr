@@ -1,5 +1,5 @@
 ---
-title: 자바와 IntelliJ로 Azure 함수 만들기
+title: Java 및 IntelliJ를 사용 하 여 Azure 함수 만들기
 description: Java 및 IntelliJ로 간단한 HTTP 트리거 서버리스 앱을 만들어 Azure에 게시하는 방법을 알아봅니다.
 author: jeffhollan
 ms.topic: how-to
@@ -7,13 +7,13 @@ ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 05074696ca2cc9d425269561523beb11eb18c4f3
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80756454"
 ---
-# <a name="create-your-first-azure-function-with-java-and-intellij"></a>자바와 IntelliJ로 첫 번째 Azure 함수 만들기
+# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Java 및 IntelliJ를 사용 하 여 첫 번째 Azure function 만들기
 
 이 문서에서는 다음을 안내합니다.
 - IntelliJ IDEA 및 Apache Maven을 사용하여 [서버리스](https://azure.microsoft.com/overview/serverless-computing/) 함수 프로젝트를 만드는 방법
@@ -28,7 +28,7 @@ ms.locfileid: "80756454"
 
 Java 및 IntelliJ를 사용하여 함수를 개발하려면 다음 소프트웨어를 설치합니다.
 
-- [자바 개발자 키트](https://www.azul.com/downloads/zulu/) (JDK), 버전 8
+- [JDK(Java Developer Kit)](https://www.azul.com/downloads/zulu/) 버전 8
 - [Apache Maven](https://maven.apache.org) 버전 3.0 이상
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download) Community 또는 Ultimate 버전(Maven 포함)
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
@@ -44,11 +44,11 @@ Java 및 IntelliJ를 사용하여 함수를 개발하려면 다음 소프트웨�
 1. **새 프로젝트** 창의 왼쪽 창에서 **Maven**을 선택합니다.
 1. **archetype에서 만들기** 확인란을 선택한 다음, [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)으로 **Archetype 추가**를 선택합니다.
 1. **Archetype 추가** 창에서 다음과 같이 필드를 완성합니다.
-    - _그룹Id_: com.마이크로소프트.azure
-    - _아티팩트 Id_: azure 함수-아키타입
-    - _버전_: 중앙 [저장소의](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![최신 버전을 확인하고 IntelliJ IDEA의 아키타입에서 메이븐 프로젝트 만들기](media/functions-create-first-java-intellij/functions-create-intellij.png)  
-1. **확인을**선택한 다음 **다음을**선택합니다.
+    - _GroupId_: com.microsoft.azure
+    - _ArtifactId_: azure-함수-원형
+    - _버전_: [중앙 리포지토리에서](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![최신 버전을 확인 하 고 사용 IntelliJ 개념 원형에서 Maven 프로젝트 만들기](media/functions-create-first-java-intellij/functions-create-intellij.png)  
+1. **확인**선택하고 **다음**을 선택합니다.
 1. 현재 프로젝트에 대한 세부 정보를 입력하고 **완료**를 선택합니다.
 
 Maven은 이름이 _ArtifactId_ 값인 새 폴더에 프로젝트 파일을 만듭니다. 프로젝트에서 생성된 코드는 HTTP 트리거 요청의 본문을 에코하는 간단한 [HTTP 트리거](/azure/azure-functions/functions-bindings-http-webhook) 함수입니다.
@@ -59,9 +59,9 @@ Maven은 이름이 _ArtifactId_ 값인 새 폴더에 프로젝트 파일을 만�
 > 로컬로 함수를 실행하고 디버그하려면 [Azure Functions Core Tools 버전 2](functions-run-local.md#v2)를 설치해야 합니다.
 
 1. 변경 내용을 수동으로 가져오거나 [자동 가져오기](https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html)를 사용합니다.
-1. **메이븐 프로젝트** 도구 모음을 엽니다.
+1. **Maven 프로젝트** 도구 모음을 엽니다.
 1. **수명 주기**를 확장하고 **패키지**를 엽니다. 새로 만든 대상 디렉터리에 솔루션이 빌드 및 패키징됩니다.
-1. **플러그인** > **azure 함수를** 확장 하 고 **azure-함수를 엽니다.실행** Azure Functions 로컬 런타임을 시작 합니다.  
+1. **플러그 인** > **azure-functions**를 확장하고 **azure-functions:run**을 열어 Azure Functions 로컬 런타임을 시작합니다.  
   ![Azure Functions에 대한 Maven 도구 모음](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
 
 1. 함수 테스트를 완료했으면 실행 대화 상자를 닫습니다. 한 번에 하나의 함수 호스트만 활성화되고 로컬로 실행될 수 있습니다.
@@ -85,7 +85,7 @@ Maven은 이름이 _ArtifactId_ 값인 새 폴더에 프로젝트 파일을 만�
 
 ## <a name="deploy-the-function-to-azure"></a>Azure에 함수 배포
 
-1. Azure에 함수를 배포하려면 먼저 [Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)를 사용하여 로그인해야 합니다.
+1. 함수를 Azure에 배포 하려면 먼저 [Azure CLI를 사용 하 여 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)해야 합니다.
 
    ``` azurecli
    az login

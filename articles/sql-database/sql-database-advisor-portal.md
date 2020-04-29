@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
 ms.openlocfilehash: b0452d51dc472e100ef52536d8e3814ff395292b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79214173"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
@@ -28,8 +28,8 @@ Azure Portal을 사용하여 Azure SQL Database의 성능을 최적화할 수 �
 
 다음 단계를 사용하여 Azure Portal에서 성능 권장 사항을 찾을 수 있습니다.
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
-2. 모든 **서비스** > SQL 데이터베이스로 이동하여 데이터베이스를**선택합니다.**
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. **모든 서비스** > **SQL 데이터베이스**로 이동 하 여 데이터베이스를 선택 합니다.
 3. **성능 권장 사항**으로 이동하여 선택된 데이터베이스의 사용 가능한 권장 사항을 봅니다.
 
 성능 권장 사항은 다음 그림에서 보여주는 표와 비슷하게 표시됩니다.
@@ -38,16 +38,16 @@ Azure Portal을 사용하여 Azure SQL Database의 성능을 최적화할 수 �
 
 권장 사항은 성능의 잠재적 영향 순으로 다음과 같은 카테고리에 정렬됩니다.
 
-| 영향 | 설명 |
+| 영향 | Description |
 |:--- |:--- |
 | 높음 |높은 영향 권장사항은 가장 중요한 성능 영향을 제공합니다. |
-| 중간 |중간 영향 권장 사항은 성능을 향상시키지만, 크게 향상시키지는 않습니다. |
+| 보통 |중간 영향 권장 사항은 성능을 향상시키지만, 크게 향상시키지는 않습니다. |
 | 낮음 |낮은 영향 권장 사항은 없는 것보다 나은 성능을 제공하지만, 향상된 기능이 눈에 띄지는 않습니다. |
 
 > [!NOTE]
 > Azure SQL Database는 일부 권장 사항을 파악하기 위해 적어도 하루 동안 작업을 모니터링해야 합니다. Azure SQL Database는 임의적이며 폭발적으로 발생하는 작업보다 일관성 있는 쿼리 패턴을 더욱 쉽게 최적화할 수 있습니다. 현재 권장 사항을 사용할 수 없는 경우 **성능 권장** 페이지에서 원인에 대해 설명하는 메시지를 제공합니다.
 
-또한 과거 작업의 상태도 볼 수 있습니다. 더 많은 정보를 보려면 추천 또는 상태를 선택합니다.
+또한 과거 작업의 상태도 볼 수 있습니다. 추가 정보를 보려면 권장 사항 또는 상태를 선택 합니다.
 
 Azure Portal에서 "인덱스 만들기" 권장 사항의 예는 다음과 같습니다.
 
@@ -109,11 +109,11 @@ Azure SQL Database가 권장 사항을 자동으로 구현하도록 설정할 �
 
 원하는 구성을 선택한 후 적용을 클릭합니다.
 
-### <a name="manually-apply-recommendations-through-t-sql"></a>T-SQL을 통해 권장 사항을 수동으로 적용
+### <a name="manually-apply-recommendations-through-t-sql"></a>T-sql을 통해 수동으로 권장 사항 적용
 
 권장 사항을 선택한 다음 **스크립트 보기**를 클릭합니다. 권장 구성을 수동으로 적용하도록 데이터베이스에 대해 이 스크립트를 실행합니다.
 
-*수동으로 실행된 인덱스는 성능에 미치는 서비스 영향에 대해 모니터링하고 유효성 검사를 실시하지 않으므로* 필요한 경우 인덱스 생성 후 인덱스를 성능을 향상시키거나 조절 또는 삭제하기 위해 모니터링하는 것이 좋습니다. 인덱스 만들기에 대한 세부 정보는 [CREATE INDEX (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql)를 참조하세요. 또한 수동으로 적용한 권장 사항은 활성 상태로 유지되며 24-48시간 동안 권장 사항 목록에 표시됩니다. 시스템이 자동으로 철회되기 전에. 권장 사항을 더 빨리 제거하려면 수동으로 삭제할 수 있습니다.
+*수동으로 실행된 인덱스는 성능에 미치는 서비스 영향에 대해 모니터링하고 유효성 검사를 실시하지 않으므로* 필요한 경우 인덱스 생성 후 인덱스를 성능을 향상시키거나 조절 또는 삭제하기 위해 모니터링하는 것이 좋습니다. 인덱스 만들기에 대한 세부 정보는 [CREATE INDEX (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql)를 참조하세요. 또한 수동으로 적용 된 권장 사항은 활성 상태로 유지 되 고 24-48 시간에 대 한 권장 사항 목록에 표시 됩니다. 시스템에서 자동으로 인출 합니다. 권장 사항을 더 일찍 제거 하려면 수동으로 삭제할 수 있습니다.
 
 ### <a name="canceling-recommendations"></a>권장 사항 취소
 
@@ -126,13 +126,13 @@ Azure SQL Database가 권장 사항을 자동으로 구현하도록 설정할 �
 
 권장 구성을 적용해도 즉각적으로 일어나지 않을 수 있습니다. 포털에서는 권장 사항의 상태에 대한 세부 정보를 제공합니다. 다음은 인덱스 안에 나타날 수 있는 상태입니다.
 
-| 상태 | 설명 |
+| 상태 | Description |
 |:--- |:--- |
 | Pending |권장 사항 적용 명령을 수신했고 실행이 예약됩니다. |
 | 실행 중 |권장 사항을 적용 중입니다. |
 | 유효성 검사 중 |권장 사항이 성공적으로 적용되면 서비스가 성능을 측정합니다. |
-| Success |권장 사항이 성공적으로 적용되면 성능을 측정합니다. |
-| Error |권장 사항을 적용하는 과정 중에 오류가 발생했습니다. 일시적인 문제일 수도 있고, 테이블의 스키마변경 문제일 수도 있고, 스크립트가 더 이상 유효하지 않을 수도 있습니다. |
+| 성공 |권장 사항이 성공적으로 적용되면 성능을 측정합니다. |
+| 오류 |권장 사항을 적용하는 과정 중에 오류가 발생했습니다. 일시적인 문제일 수도 있고, 테이블의 스키마변경 문제일 수도 있고, 스크립트가 더 이상 유효하지 않을 수도 있습니다. |
 | 되돌리기 |권장 사항이 적용되었지만 효율적이지 않은 것으로 간주되어 자동으로 되돌리고 있습니다. |
 | 되돌림 |권장 사항을 되돌렸습니다. |
 
@@ -170,5 +170,5 @@ Azure SQL Database는 SQL 데이터베이스 성능을 향상하기 위한 권�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE  INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
+* [인덱스 만들기](https://msdn.microsoft.com/library/ms188783.aspx)
 * [역할 기반 액세스 제어](../role-based-access-control/overview.md)

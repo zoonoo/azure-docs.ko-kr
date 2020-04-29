@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79252611"
 ---
 # <a name="configure-storage"></a>스토리지 구성
@@ -18,13 +18,13 @@ ms.locfileid: "79252611"
 이 단계에서는 vFXT 클러스터용 백 엔드 스토리지 시스템을 설정합니다.
 
 > [!TIP]
-> Avere vFXT 클러스터와 함께 새 Azure Blob 컨테이너를 만든 경우 해당 컨테이너는 이미 구성되어 사용할 준비가 되었습니다.
+> Avere vFXT 클러스터와 함께 새 Azure Blob 컨테이너를 만든 경우 해당 컨테이너가 이미 구성 되어 사용할 준비가 되었습니다.
 
 클러스터와 함께 새 Blob 컨테이너를 만들지 않았거나 추가 하드웨어 또는 클라우드 기반 스토리지 시스템을 추가하려는 경우 다음 지침을 따릅니다.
 
 다음 두 가지 주요 작업이 있습니다.
 
-1. vFXT 클러스터를 기존 저장소 시스템 또는 Azure 저장소 계정 컨테이너에 연결하는 [핵심 파일러를 만듭니다.](#create-a-core-filer)
+1. VFXT 클러스터를 기존 저장소 시스템 또는 Azure Storage 계정 컨테이너에 연결 하는 [core 필터를 만듭니다](#create-a-core-filer).
 
 1. [네임스페이스 접합 만들기](#create-a-junction) - 클라이언트에서 탑재할 경로를 정의합니다.
 
@@ -32,22 +32,22 @@ ms.locfileid: "79252611"
 
 ## <a name="create-a-core-filer"></a>코어 파일러 만들기
 
-"코어 파일러"는 백 엔드 스토리지 시스템의 vFXT 용어입니다. 스토리지는 NetApp 또는 Isilon과 같은 하드웨어 NAS 어플라이언스이거나 클라우드 개체 스토리지일 수 있습니다. 핵심 파일러에 대한 자세한 내용은 [Avere 클러스터 설정 가이드에서](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers)확인할 수 있습니다.
+"Core 필터"는 백 엔드 저장소 시스템에 대 한 vFXT 용어입니다. 스토리지는 NetApp 또는 Isilon과 같은 하드웨어 NAS 어플라이언스이거나 클라우드 개체 스토리지일 수 있습니다. 핵심 필터에 대 한 자세한 내용은 [Avere 클러스터 설정 가이드](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers)에서 찾을 수 있습니다.
 
 코어 파일러를 추가하려면 다음 두 가지 주요 유형 중 하나의 코어 파일러를 선택합니다.
 
 * [NAS 코어 파일러](#nas-core-filer) - NAS 코어 파일러를 추가하는 방법을 설명합니다
-* [Azure Storage 클라우드 코어 파일러](#azure-blob-storage-cloud-core-filer) - Azure Blob 저장소 컨테이너를 클라우드 코어 파일러로 추가하는 방법을 설명합니다.
+* [Azure Storage cloud core 필터](#azure-blob-storage-cloud-core-filer) -Azure Blob 저장소 컨테이너를 cloud core 필터로 추가 하는 방법을 설명 합니다.
 
 ### <a name="nas-core-filer"></a>NAS 코어 파일러
 
-NAS 코어 파일러는 온-프레미스 NetApp 또는 Isilon 어플라이언스 또는 클라우드의 NAS 끝점일 수 있습니다. 스토리지 시스템은 Avere vFXT 클러스터(예: 1GBps ExpressRoute 연결(VPN 아님))에 대한 안정적인 고속 연결이 있어야 하며, 사용되는 NAS 내보내기에 대한 클러스터 루트 액세스 권한을 제공해야 합니다.
+NAS 코어 필터 온-프레미스 NetApp 또는 Isilon 어플라이언스 또는 클라우드의 NAS 끝점이 될 수 있습니다. 스토리지 시스템은 Avere vFXT 클러스터(예: 1GBps ExpressRoute 연결(VPN 아님))에 대한 안정적인 고속 연결이 있어야 하며, 사용되는 NAS 내보내기에 대한 클러스터 루트 액세스 권한을 제공해야 합니다.
 
-다음 단계에 따라 NAS 코어 파일러를 추가합니다.
+NAS core 필터를 추가 하려면 다음 단계를 수행 합니다.
 
 1. Avere 제어판의 위쪽에서 **설정** 탭을 클릭합니다.
 
-1. 왼쪽에 있는 **코어 파일러** > **관리를** 클릭합니다.
+1. 왼쪽의 핵심 **필터** > **관리 핵심 필터** 를 클릭 합니다.
 
 1. **만들기**를 클릭합니다.
 
@@ -67,9 +67,9 @@ NAS 코어 파일러는 온-프레미스 NetApp 또는 Isilon 어플라이언스
 
 그런 다음, [접합 만들기](#create-a-junction)로 계속 진행합니다.  
 
-### <a name="azure-blob-storage-cloud-core-filer"></a>Azure Blob 스토리지 클라우드 코어 파일러
+### <a name="azure-blob-storage-cloud-core-filer"></a>Azure Blob Storage cloud core 필터
 
-Azure Blob 저장소를 vFXT 클러스터의 백 엔드 저장소로 사용하려면 핵심 파일러로 추가하려면 빈 컨테이너가 필요합니다.
+VFXT 클러스터의 백 엔드 저장소로 Azure Blob 저장소를 사용 하려면 빈 컨테이너가 핵심 필터로 추가 되어야 합니다.
 
 Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다.
 
@@ -80,14 +80,14 @@ Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다
 * 클라이언트에서 코어 파일러를 탑재하는 데 사용하는 네임스페이스 접합 만들기([접합 만들기](#create-a-junction), 하드웨어 및 클라우드 스토리지 모두에 대해 동일함)
 
 > [!TIP]
-> Azure 클러스터에 대한 Avere vFXT를 만들 때 새 Blob 컨테이너를 만드는 경우 배포 템플릿은 컨테이너를 핵심 파일러로 자동으로 구성합니다. 요청 시 사용할 수 있는 생성 스크립트를 사용하는 경우에도 마찬가지입니다. 나중에 핵심 파일러를 구성할 필요가 없습니다.
+> Azure 클러스터에 대해 Avere vFXT를 만들 때 새 Blob 컨테이너를 만드는 경우 배포 템플릿은 자동으로 컨테이너를 핵심 필터 구성 합니다. (요청 시 사용할 수 있는 생성 스크립트를 사용 하는 경우에도 마찬가지입니다.) 나중에 핵심 필터을 구성할 필요가 없습니다.
 >
-> 클러스터 만들기 도구는 다음 구성 작업을 수행합니다.
+> 클러스터 만들기 도구는 다음 구성 작업을 수행 합니다.
 >
-> * 제공된 저장소 계정에 새 Blob 컨테이너를 만듭니다.
-> * 컨테이너를 핵심 파일러로 정의합니다.
-> * 컨테이너에 네임스페이스 접합을 만듭니다.
-> * 클러스터의 가상 네트워크 내부에 스토리지 서비스 엔드포인트 생성
+> * 제공 된 저장소 계정에서 새 Blob 컨테이너를 만듭니다.
+> * 컨테이너를 핵심 필터 정의 합니다.
+> * 컨테이너에 대 한 네임 스페이스 연결을 만듭니다.
+> * 클러스터의 가상 네트워크 내에 저장소 서비스 끝점을 만듭니다.
 
 클러스터를 만든 후에 Blob Storage를 추가하려면 다음 단계를 수행합니다.
 
@@ -105,17 +105,17 @@ Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다
 
    Azure Portal을 사용하거나 아래의 "Azure에 배포" 단추를 클릭합니다.
 
-   [![저장소 계정을 만들 수 있는 버튼](media/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAvere%2Fmaster%2Fsrc%2Fvfxt%2Fstorageaccount%2Fazuredeploy.json)
+   [![저장소 계정 만들기 단추](media/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAvere%2Fmaster%2Fsrc%2Fvfxt%2Fstorageaccount%2Fazuredeploy.json)
 
 1. 계정이 만들어지면 스토리지 계정 페이지로 이동합니다.
 
    ![Azure Portal의 새 스토리지 계정](media/avere-vfxt-new-storage-acct.png)
 
-1. 새 Blob 컨테이너 만들기: 개요 페이지에서 **컨테이너를** 클릭한 다음 **+컨테이너를**클릭합니다. 컨테이너 이름을 사용하고, 액세스가 **프라이빗**으로 설정되어 있는지 확인합니다.
+1. 새 Blob 컨테이너 만들기: 개요 페이지에서 **컨테이너** 를 클릭 한 다음 **+ 컨테이너**를 클릭 합니다. 컨테이너 이름을 사용하고, 액세스가 **프라이빗**으로 설정되어 있는지 확인합니다.
 
-   ![+컨테이너 버튼이 동그라미가 있고 팝업 페이지에 새 컨테이너가 만들어지는 저장소 Blob 페이지](media/avere-vfxt-new-blob.png)
+   ![+ 컨테이너 단추가 원으로 표시 되 고 팝업 페이지에서 새 컨테이너를 만드는 저장소 blob 페이지](media/avere-vfxt-new-blob.png)
 
-1. **설정**에서 **액세스 키를** 클릭하여 Azure 저장소 계정 키를 가져옵니다. 제공된 키 중 하나를 복사합니다.
+1. **설정**아래에서 **액세스 키** 를 클릭 하 여 Azure Storage 계정 키를 가져옵니다. 제공 된 키 중 하나를 복사 합니다.
 
    ![키 복사를 위한 Azure Portal GUI](media/avere-vfxt-copy-storage-key.png)
 
@@ -128,7 +128,7 @@ Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다
    | 필드 | 값 |
    | --- | --- |
    | 자격 증명 이름 | 설명이 포함된 이름 |
-   | 서비스 유형 | (Azure 저장소 액세스 키 선택) |
+   | 서비스 유형 | (액세스 키 Azure Storage 선택) |
    | 테넌트 | 스토리지 계정 이름 |
    | Subscription | 구독 ID |
    | 스토리지 액세스 키 | Azure Storage 계정 키(이전 단계에서 복사됨) |
@@ -137,7 +137,7 @@ Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다
 
    ![Avere 제어판에서 완성된 클라우드 자격 증명 양식](media/avere-vfxt-new-credential-submit.png)
 
-1. 다음으로, 코어 파일러를 만듭니다. Avere 제어판의 왼쪽에서 코어 **파일러** >  **관리 코어 파일러를**클릭합니다.
+1. 다음으로, 코어 파일러를 만듭니다. Avere 컨트롤 패널의 왼쪽에서 **core 필터** >  **core filers 관리**를 클릭 합니다.
 
 1. **코어 파일러 관리** 설정 페이지에서 **만들기** 단추를 클릭합니다.
 
@@ -170,9 +170,9 @@ Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다
 
 접합에 대한 자세한 내용은 [Avere 클러스터 구성 가이드의 네임스페이스 섹션](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html)에서 찾을 수 있습니다.
 
-Avere 제어판 인터페이스에서 다음 단계를 따르십시오.
+Avere 제어판 인터페이스에서 다음 단계를 수행 합니다.
 
-* 왼쪽 상단에 있는 **VServer** > **네임스페이스를** 클릭합니다.
+* 왼쪽 위에서 **VServer** > **네임 스페이스** 를 클릭 합니다.
 * ``/vfxt/data``와 같이 /(슬래시)로 시작하는 네임스페이스 경로를 제공합니다.
 * 코어 파일러를 선택합니다.
 * 코어 파일러 내보내기를 선택합니다.
@@ -182,9 +182,9 @@ Avere 제어판 인터페이스에서 다음 단계를 따르십시오.
 
 몇 초 후에 접합이 표시됩니다. 필요에 따라 추가 접합을 만듭니다.
 
-접합을 만든 후 클라이언트는 네임스페이스 경로를 사용하여 저장소 시스템에서 파일에 액세스합니다.
+연결을 만든 후에는 클라이언트에서 네임 스페이스 경로를 사용 하 여 저장소 시스템의 파일에 액세스 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Avere vFXT 클러스터 탑재](avere-vfxt-mount-clients.md)
-* 데이터를 새 [Blob 컨테이너로 이동하는](avere-vfxt-data-ingest.md) 효율적인 방법 알아보기
+* [데이터를 새 Blob 컨테이너로 이동 하는](avere-vfxt-data-ingest.md) 효율적인 방법 알아보기

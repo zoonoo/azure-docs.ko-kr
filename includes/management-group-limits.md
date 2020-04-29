@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 author: tfitzmac
 ms.service: governance
@@ -8,20 +8,20 @@ ms.date: 03/26/2020
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 9b2bf8763d175bca028be1fcceda921e87eb5b23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335116"
 ---
 | 리소스 | 제한 |
 | --- | --- |
-| 디렉터리당 관리 그룹 | 10000 |
-| 관리 그룹별 구독 | 무제한. |
-| 관리 그룹 계층 구조 수준 | 루트 레벨 플러스 6 레벨<sup>1</sup> |
-| 관리 그룹당 직접 상위 관리 그룹 | 1 |
-| 위치별 [관리 그룹 수준 배포](../articles/azure-resource-manager/templates/deploy-to-management-group.md) | 800<sup>2</sup> |
+| 디렉터리 당 관리 그룹 | 10000 |
+| 관리 그룹당 구독 | 무제한. |
+| 관리 그룹 계층 구조 수준 | 루트 수준 + 6 수준<sup>1</sup> |
+| 관리 그룹당 직접 부모 관리 그룹 | 하나 |
+| 위치 당 [관리 그룹 수준 배포](../articles/azure-resource-manager/templates/deploy-to-management-group.md) | 800<sup>2</sup> |
 
-<sup>1개</sup> 6개 수준에는 구독 수준이 포함되지 않습니다.
+<sup>1</sup> 6 수준에는 구독 수준이 포함 되지 않습니다.
 
-<sup>2개</sup> 배포 800개 한도에 도달하면 더 이상 필요하지 않은 기록에서 배포를 삭제합니다. 관리 그룹 수준 배포를 삭제하려면 [제거-AzManagementGroupDeploy](/powershell/module/az.resources/Remove-AzManagementGroupDeployment) 또는 [az 배포 mg 삭제를](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-delete)사용합니다.
+<sup>2</sup> 800 배포 제한에 도달 하면 더 이상 필요 하지 않은 기록에서 배포를 삭제 합니다. 관리 그룹 수준 배포를 삭제 하려면 [AzManagementGroupDeployment](/powershell/module/az.resources/Remove-AzManagementGroupDeployment) 또는 [az deployment mg delete](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-delete)를 사용 합니다.

@@ -1,6 +1,6 @@
 ---
-title: Azure 사이트 복구를 통해 VMware 재해 복구에 대한 배포 계획기 보고서 분석
-description: 이 문서에서는 Azure 사이트 복구를 사용하여 VMware 재해 복구에 대한 복구 배포 플래너에서 생성된 보고서를 Azure에 분석하는 방법을 설명합니다.
+title: Azure Site Recovery를 사용 하 여 VMware 재해 복구에 대 한 Deployment Planner 보고서 분석
+description: 이 문서에서는 Azure Site Recovery를 사용 하 여 Azure에 대 한 VMware 재해 복구에 대 한 복구 Deployment Planner에서 생성 된 보고서를 분석 하는 방법을 설명 합니다.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
 ms.openlocfilehash: 4dad11e8331064a9df1b1aed561e00b9a9b24017
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257512"
 ---
-# <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Azure에 VMware 재해 복구에 대한 배포 계획기 보고서 분석
+# <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Azure에 대 한 VMware 재해 복구를 위한 Deployment Planner 보고서 분석
 
 생성된 Microsoft Excel 보고서에는 다음과 같은 시트가 포함되어 있습니다.
 ## <a name="on-premises-summary"></a>온-프레미스 요약
@@ -53,7 +53,7 @@ VMware에서 Azure로 보고서의 권장 사항 시트에는 선택된 원하�
 
 **서버 이름**: VM의 보고서가 생성된 VMware vCenter 또는 ESXi 호스트의 이름 또는 IP 주소입니다.
 
-**원하는 RPO**: 배포를 위한 복구 지점 목표입니다. 기본적으로 필요한 네트워크 대역폭은 15, 30 및 60분의 RPO 값에 대해 계산됩니다. 선택에 따라 영향을 받은 값이 시트에서 업데이트됩니다. 보고서를 생성하는 동안 *DesiredRPOinMin* 매개 변수를 사용한 경우 해당 값은 원하는 RPO 결과에 표시됩니다.
+**원하는 RPO**: 배포를 위한 복구 지점 목표입니다. 기본적으로 필요한 네트워크 대역폭은 15, 30 및 60분의 RPO 값에 대해 계산됩니다. 선택에 따라 영향을 받은 값이 시트에서 업데이트됩니다. 보고서를 생성 하는 동안 *DesiredRPOinMin* 매개 변수를 사용한 경우이 값은 원하는 RPO 결과에 표시 됩니다.
 
 ### <a name="profiling-overview"></a>프로파일링 개요
 
@@ -71,7 +71,7 @@ VMware에서 Azure로 보고서의 권장 사항 시트에는 선택된 원하�
 
 ![Deployment Planner에 필요한 네트워크 대역폭](media/site-recovery-vmware-deployment-planner-analyze-report/required-network-bandwidth-v2a.png)
 
-**RPO 100%를 충족하려면 다음을 수행하십시오.** 원하는 RPO 100%를 충족하도록 할당할 Mbps의 권장 대역폭입니다. 이 양의 대역폭은 RPO 위반을 방지하는 데 호환되는 모든 VM의 안정적인 상태 델타 복제 전용이어야 합니다.
+**RPO 100%의 시간을 충족 하려면:** 원하는 RPO 시간 100%를 충족 하기 위해 할당 되는 권장 대역폭 (Mbps)입니다. 이 양의 대역폭은 RPO 위반을 방지하는 데 호환되는 모든 VM의 안정적인 상태 델타 복제 전용이어야 합니다.
 
 **RPO 시간 90% 충족**: 광대역 가격 책정 또는 다른 이유로 인해 원하는 RPO 시간 100%를 충족시키는 데 필요한 대역폭을 설정할 수 없는 경우 원하는 RPO 시간 90%를 충족할 수 있는 더 낮은 대역폭을 설정하도록 선택할 수 있습니다. 이 낮은 대역폭을 설정하는 의미를 이해하기 위해 보고서에서 예상되는 RPO 위반 횟수 및 기간에 대한 가상(what-if) 분석을 제공합니다.
 
@@ -92,7 +92,7 @@ VMware에서 Azure로 보고서의 권장 사항 시트에는 선택된 원하�
 모든 엔터프라이즈 Site Recovery 배포의 경우 [ExpressRoute](https://aka.ms/expressroute)를 사용하는 것이 좋습니다.
 
 ### <a name="required-storage-accounts"></a>필요한 스토리지 계정
-다음 차트에서는 호환되는 모든 VM을 보호하는 데 필요한 스토리지 계정(표준 및 프리미엄)의 총 수를 보여 줍니다. 각 VM에 사용할 스토리지 계정에 대해 알아보려면 &quot;VM 스토리지 배치&quot; 섹션을 참조하세요. 배포 플래너의 v2.5를 사용하는 경우 이 권장 사항은 데이터가 관리되는 디스크에 직접 기록되기 때문에 복제에 필요한 표준 캐시 저장소 계정 수만 보여 주며 이 권장 사항입니다.
+다음 차트에서는 호환되는 모든 VM을 보호하는 데 필요한 스토리지 계정(표준 및 프리미엄)의 총 수를 보여 줍니다. 각 VM에 사용할 스토리지 계정에 대해 알아보려면 &quot;VM 스토리지 배치&quot; 섹션을 참조하세요. Deployment Planner v 2.5를 사용 하는 경우이 권장 사항은 데이터를 Managed Disks에 직접 기록 하기 때문에 복제에 필요한 표준 캐시 저장소 계정의 수만 보여 줍니다.
 
 ![Deployment Planner에 필요한 스토리지 계정](media/site-recovery-vmware-deployment-planner-analyze-report/required-storage-accounts-v2a.png)
 
@@ -157,19 +157,19 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 ## <a name="vm-storage-placement"></a>VM-스토리지 배치
 
 >[!Note]
->배포 플래너 v2.5 이후관리 디스크에 직접 복제할 컴퓨터에 대 한 저장소 배치를 권장 합니다.
+>Deployment Planner v 2.5는 관리 디스크에 직접 복제 되는 컴퓨터에 대 한 저장소 배치를 권장 합니다.
 
 ![VM-스토리지 배치](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**복제 저장소 유형**: **VM에서 배치** 열에 언급된 모든 해당 VM을 복제하는 데 사용되는 표준 또는 프리미엄 관리 디스크입니다.
+**복제 저장소 유형**: **위치 열에 대해 vm** 에서 언급 된 모든 해당 vm을 복제 하는 데 사용 되는 표준 또는 프리미엄 관리 디스크입니다.
 
-**로그 저장소 계정 유형**: 모든 복제 로그가 표준 저장소 계정에 저장됩니다.
+**로그 저장소 계정 유형**: 모든 복제 로그는 standard Storage 계정에 저장 됩니다.
 
-**저장소 계정에 대한 권장 접두사:** 캐시 저장소 계정의 이름을 지정하는 데 사용할 수 있는 제안된 세 문자 접두사입니다. 고유한 접두사를 사용할 수 있지만 도구의 제안은 [스토리지 계정에 대 한 파티션 명명 규칙](https://aka.ms/storage-performance-checklist)을 따릅니다.
+**저장소 계정에 대 한 제안 된 접두사**: 캐시 저장소 계정의 이름을 지정 하는 데 사용할 수 있는 제안 된 3 자 접두사입니다. 고유한 접두사를 사용할 수 있지만 도구의 제안은 [스토리지 계정에 대 한 파티션 명명 규칙](https://aka.ms/storage-performance-checklist)을 따릅니다.
 
-**권장 로그 계정 이름:** 제안된 접두사를 포함하는 저장소 계정 이름입니다. 꺾쇠 괄호(< 및 >) 안의 이름을 사용자 지정 입력으로 바꿉니다.
+**제안 된 로그 계정 이름**: 제안 된 접두사를 포함 한 후의 저장소 계정 이름입니다. 꺾쇠 괄호(< 및 >) 안의 이름을 사용자 지정 입력으로 바꿉니다.
 
-**배치 요약**: 저장소 유형별로 VM을 보호하는 데 필요한 디스크 요약입니다. 여기에는 총 VM 수, 모든 디스크에 대한 총 프로비저닝 크기 및 총 디스크 수가 포함됩니다.
+**배치 요약**: 저장소 유형별로 보호 된 vm에 필요한 디스크의 요약입니다. 총 Vm 수, 모든 디스크에서 프로 비전 된 총 크기 및 총 디스크 수를 포함 합니다.
 
 **배치할 Virtual Machines**: 최적의 성능과 사용을 위해 지정된 스토리지 계정에 배치해야 하는 VM을 모두 나열합니다.
 
@@ -178,7 +178,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **VM 이름**: 보고서가 생성될 때 VMListFile에 사용되는 VM 이름 또는 IP 주소입니다. 또한 이 열은 VM에 연결된 디스크(VMDK)를 나열합니다. 중복 이름 또는 IP 주소와 vCenter VM을 구분하기 위해 이름에 ESXi 호스트 이름을 포함합니다. 나열된 ESXi 호스트는 도구가 프로 파일링 기간 중에 발견한 VM을 배치하는 호스트입니다.
 
-**VM 호환성**: 값은 **예** 및 **예\*** 입니다. **예는** \* VM이 [프리미엄 SSD에](../virtual-machines/windows/disks-types.md)적합한 경우입니다. 여기서 프로파일링된 높은 변동량 또는 IOPS 디스크는 P20 또는 P30 범주에 적합하지만 디스크의 크기 때문에 P10 또는 P20에 낮게 매핑됩니다. 스토리지 계정 크기에 따라 디스크를 매핑할 Premium Storage 디스크 유형이 결정됩니다. 예를 들어:
+**VM 호환성**: 값은 **예** 및 **예\*** 입니다. **예** \* 는 VM이 [premium ssd](../virtual-machines/windows/disks-types.md)에 적합 한 인스턴스에 대 한 것입니다. 여기서 프로파일링된 높은 변동량 또는 IOPS 디스크는 P20 또는 P30 범주에 적합하지만 디스크의 크기 때문에 P10 또는 P20에 낮게 매핑됩니다. 스토리지 계정 크기에 따라 디스크를 매핑할 Premium Storage 디스크 유형이 결정됩니다. 다음은 그 예입니다.
 * 128GB 미만은 P10입니다.
 * 128GB ~ 256GB는 P15입니다.
 * 256GB ~ 512GB는 P20입니다.
@@ -186,11 +186,11 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 * 1,025GB ~ 2,048GB는 P40입니다.
 * 2,049GB ~ 4,095GB는 P50입니다.
 
-예를 들어 디스크의 워크로드 특성이 P20 또는 P30 범주에 배치되었지만 크기가 더 낮은 프리미엄 저장소 디스크 유형으로 매핑되는 경우 도구는 VM을 **예로**\*표시합니다. 또한 도구에서는 원본 디스크 크기를 권장 Premium Storage 디스크 유형에 맞게 변경하거나 대상 디스크 유형 사후 장애 조치를 변경할 것을 권장합니다.
+예를 들어, 디스크의 워크 로드 특성이 P20 또는 P30 범주에 배치 되지만 크기가 더 낮은 프리미엄 저장소 디스크 유형에 매핑되는 경우 도구에서 해당 VM을 **예**\*로 표시 합니다. 또한 도구에서는 원본 디스크 크기를 권장 Premium Storage 디스크 유형에 맞게 변경하거나 대상 디스크 유형 사후 장애 조치를 변경할 것을 권장합니다.
 
 **스토리지 유형**: 표준 또는 프리미엄입니다.
 
-**복제를 위해 만든 Asrseeddisk(관리되는 디스크)**: 복제를 사용하도록 설정할 때 생성되는 디스크의 이름입니다. 데이터와 해당 스냅숏을 Azure에 저장합니다.
+**복제를 위해 만든 Asrseeddisk (관리 디스크)**: 복제를 사용 하도록 설정할 때 생성 되는 디스크의 이름입니다. Azure에 데이터와 해당 스냅숏을 저장 합니다.
 
 **최고 읽기/쓰기 IOPS(증가율 포함)**: 향후 증가율(기본값: 30%)을 포함한 디스크의 최고 워크로드 읽기/쓰기 IOPS(기본값: 95번째 백분위수)입니다. 참고로 VM의 최고 읽기/쓰기 IOPS는 프로파일링 기간의 매분마다 개별 디스크의 읽기/쓰기 IOPS를 합친 최고값이기 때문에 VM의 총 읽기/쓰기 IOPS가 항상 VM에 속한 개별 디스크의 읽기/쓰기 IOPS 합계가 되는 것은 아닙니다.
 
@@ -221,14 +221,14 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **VM 호환성**: 지정된 VM을 Site Recovery에서 사용할 수 없는 이유를 나타냅니다. 이유는 게시된 [스토리지 한도](https://aka.ms/azure-storage-scalbility-performance)를 기반으로 VM의 각 호환되지 않는 디스크에 대해 설명되며 다음 중 하나일 수 있습니다.
 
-* 잘못된 데이터 디스크 크기 또는 잘못된 OS 디스크 크기. 지원 한도를 [검토합니다.](vmware-physical-azure-support-matrix.md#azure-vm-requirements) 
+* 데이터 디스크 크기가 잘못 되었거나 OS 디스크 크기가 잘못 되었습니다. 지원 제한을 [검토](vmware-physical-azure-support-matrix.md#azure-vm-requirements) 합니다. 
 * 총 VM 크기(복제 + TFO)가 지원되는 스토리지 계정 크기 한도(35TB)를 초과합니다. 이러한 비호환성은 일반적으로 VM의 단일 디스크가 표준 스토리지에 대해 지원되는 최대 Azure 또는 Site Recovery 한도를 초과하는 성능 특성을 가지고 있는 경우에 발생합니다. 이러한 인스턴스는 VM을 Premium Storage 영역에 푸시합니다. 그러나 Premium Storage 계정의 최대 지원 크기는 35TB이며, 보호된 단일 VM을 여러 스토리지 계정에서 보호할 수 없습니다. 또한 보호되는 VM에 대해 테스트 장애 조치를 실행하면 복제가 진행 중인 스토리지 계정과 동일한 계정에서 실행된다는 점에 유의해야 합니다. 이 인스턴스에서 복제 진행과 테스트 장애 조치를 동시에 성공하려면 디스크 크기를 2배로 설정합니다.
 
 * 원본 IOPS가 디스크당 지원되는 스토리지 IOPS 한도(7500)를 초과합니다.
 
 * 원본 IOPS가 VM당 지원되는 스토리지 IOPS 한도(80,000)를 초과합니다.
 
-* 평균 데이터 변동이 지원되는 사이트 복구 데이터 변동 제한을 20MB/s를 초과하여 디스크의 평균 I/O 크기입니다.
+* 평균 데이터 변동이 디스크의 평균 i/o 크기에 대해 지원 되는 Site Recovery 데이터 변동 제한인 20mb/s를 초과 합니다.
 
 * VM의 모든 디스크에 대한 최고 데이터 변동률이 지원되는 Site Recovery 최고 데이터 변동률 한도(54MB/s)를 초과합니다.
 
@@ -255,7 +255,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다.  현재 Azure Site Recovery는 부팅 디스크의 파티션 수가 4개 미만이고 부팅 섹터 크기가 512바이트인 경우 Windows Server EFI VM(Windows Server 2012, 2012 R2 및 2016)을 지원합니다. EFI VM을 보호하려면 Azure Site Recovery 모바일 서비스 버전이 9.13 이상이어야 합니다. EFI VM에서는 장애 조치만 지원되고, 장애 복구는 지원되지 않습니다.
 
-**OS 유형**: VM의 OS 유형입니다. Windows, Linux 또는 VM을 만드는 동안 VMware vSphere에서 선택된 템플릿을 기반으로 하는 다른 OS일 수도 있습니다.
+**Os 종류**: VM의 os 유형입니다. Windows, Linux 또는 VM을 만드는 동안 VMware vSphere에서 선택된 템플릿을 기반으로 하는 다른 OS일 수도 있습니다.
 
 ## <a name="azure-site-recovery-limits"></a>Azure Site Recovery 제한
 다음 테이블에는 Azure Site Recovery 제한이 제공됩니다. 이러한 한도는 테스트를 기반으로 하지만 모든 가능한 애플리케이션 I/O 조합을 다룰 수는 없습니다. 실제 결과는 애플리케이션 I/O 조합에 따라 달라질 수 있습니다. 최상의 결과를 얻으려면 배포를 계획한 후에도 항상 테스트 장애 조치를 통해 광범위한 애플리케이션 테스트를 수행하여 애플리케이션의 진정한 성능 상황을 이해하는 것이 좋습니다.
@@ -267,7 +267,7 @@ Standard Storage | 8KB | 2MB/초 | 디스크당 168GB
 프리미엄 P10 또는 P15 디스크 | 16KB | 4MB/초 |  디스크당 336GB
 프리미엄 P10 또는 P15 디스크 | 32KB 이상 | 8MB/초 | 디스크당 672GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 8KB    | 5MB/초 | 디스크당 421GB
-프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 | 20 MB/s | 디스크당 1684GB
+프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 | 20 m b/초 | 디스크당 1684
 
 **원본 데이터 변동률** | **최대 제한**
 ---|---

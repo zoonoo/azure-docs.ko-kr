@@ -1,5 +1,5 @@
 ---
-title: 단일 데이터베이스란?
+title: 단일 데이터베이스 란?
 description: Azure SQL Database의 단일 데이터베이스에 대해 알아보기
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
 ms.openlocfilehash: fc63de4057def632d3ac1980e8cb3eaedbff2175
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79500749"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스란?
@@ -29,7 +29,7 @@ ms.locfileid: "79500749"
 
 ## <a name="dynamic-scalability"></a>동적 확장성
 
-서버리스 컴퓨팅 계층에서 저렴한 비용으로 또는 프로비저닝된 계산 계층의 작은 계산 크기로 작은 단일 데이터베이스에 첫 번째 앱을 빌드할 수 있습니다. 솔루션의 요구 사항을 충족하기 위해 언제든지 [계산 또는 서비스 계층을](sql-database-single-database-scale.md) 수동으로 또는 프로그래밍 방식으로 변경합니다. 앱이나 고객에게 가동 중지 시간 없이 성능을 조정할 수 있습니다. 동적 확장성을 통해 데이터베이스는 급변하는 리소스 요구 사항에 투명하게 대응할 수 있으며, 필요할 때 필요한 리소스에 대해서만 비용을 지불할 수 있습니다.
+서버를 사용 하지 않는 계산 계층 또는 프로 비전 된 계산 계층의 작은 계산 크기에서 저렴 한 가격으로 소규모 단일 데이터베이스에 첫 번째 앱을 빌드할 수 있습니다. 언제 든 지 수동으로 또는 프로그래밍 방식으로 [계산 또는 서비스 계층](sql-database-single-database-scale.md) 을 변경 하 여 솔루션의 요구 사항을 충족할 수 있습니다. 앱이나 고객에게 가동 중지 시간 없이 성능을 조정할 수 있습니다. 동적 확장성을 통해 데이터베이스는 급변하는 리소스 요구 사항에 투명하게 대응할 수 있으며, 필요할 때 필요한 리소스에 대해서만 비용을 지불할 수 있습니다.
 
 ## <a name="single-databases-and-elastic-pools"></a>단일 데이터베이스 및 탄력적 풀
 
@@ -37,11 +37,11 @@ ms.locfileid: "79500749"
 
 ## <a name="monitoring-and-alerting"></a>모니터링 및 경고
 
-성능 [등급과](sql-database-performance-guidance.md) 함께 기본 제공 성능 모니터링 및 [경고 도구를](sql-database-insights-alerts-portal.md)사용합니다. 이 도구를 사용하면 현재 또는 프로젝트의 성능 요구에 기반하여 확장 또는 축소의 영향을 신속하게 평가할 수 있습니다. 또한 SQL Database는 쉽게 모니터링할 수 있도록 [메트릭 및 리소스 로그를 내보사할](sql-database-metrics-diag-logging.md) 수 있습니다.
+성능 등급과 결합 된 기본 제공 [성능 모니터링](sql-database-performance-guidance.md) 및 [경고 도구](sql-database-insights-alerts-portal.md)를 사용 합니다. 이 도구를 사용하면 현재 또는 프로젝트의 성능 요구에 기반하여 확장 또는 축소의 영향을 신속하게 평가할 수 있습니다. 또한 보다 쉽게 모니터링할 수 있도록 [메트릭과 리소스 로그를 내보낼](sql-database-metrics-diag-logging.md) 수 SQL Database.
 
 ## <a name="availability-capabilities"></a>가용성 기능
 
-단일 데이터베이스, 탄력적 풀 및 관리되는 인스턴스는 모두 많은 가용성 특성을 제공합니다. 자세한 내용은 [가용성 특성](sql-database-technical-overview.md#availability-capabilities)을 참조하세요.
+단일 데이터베이스, 탄력적 풀 및 관리 되는 인스턴스는 모두 다양 한 가용성 특성을 제공 합니다. 자세한 내용은 [가용성 특성](sql-database-technical-overview.md#availability-capabilities)을 참조하세요.
 
 ## <a name="transact-sql-differences"></a>Transact-SQL 차이점
 
@@ -55,10 +55,10 @@ ms.locfileid: "79500749"
 SQL Database는 다양한 [기본 제공 보안 및 규정 준수 기능](sql-database-security-overview.md)을 제공하여 애플리케이션이 다양한 보안 및 규정 준수 요구 사항을 충족할 수 있도록 도와줍니다.
 
 > [!IMPORTANT]
-> Azure SQL Database(모든 배포 옵션)는 여러 규정 준수 표준에 대해 인증되었습니다. 자세한 내용은 최신 SQL 데이터베이스 준수 인증 목록을 찾을 수 있는 [Microsoft Azure 트러스트 센터를](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 참조하십시오.
+> Azure SQL Database (모든 배포 옵션)은 다양 한 규정 준수 표준에 대해 인증 되었습니다. 자세한 내용은 SQL Database 준수 인증의 최신 목록을 찾을 수 있는 [Microsoft Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 단일 데이터베이스로 빠르게 시작하려면 단일 [데이터베이스 빠른 시작 가이드로](sql-database-single-database-quickstart-guide.md)시작합니다.
+- 단일 데이터베이스를 신속 하 게 시작 하려면 [단일 데이터베이스 빠른 시작 가이드](sql-database-single-database-quickstart-guide.md)를 시작 하세요.
 - SQL Server 데이터베이스를 Azure로 마이그레이션하는 방법에 대한 자세한 내용은 [Azure SQL Database로 마이그레이션](sql-database-single-database-migrate.md)을 참조하세요.
 - 지원되는 기능에 대한 자세한 내용은 [기능](sql-database-features.md)을 참조하세요.

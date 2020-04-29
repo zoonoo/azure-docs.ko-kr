@@ -12,19 +12,19 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/21/2019
 ms.openlocfilehash: d28edd28dcbe31bfe63c2d0a9c3e975967efef04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256381"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL Database 복원 또는 보조 데이터베이스에 대한 장애 조치(failover)
 
 Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공합니다.
 
-- [활성 지역 복제](sql-database-active-geo-replication.md)
+- [활성 지리적 복제](sql-database-active-geo-replication.md)
 - [자동 장애 조치 그룹](sql-database-auto-failover-group.md)
-- [지오 복원](sql-database-recovery-using-backups.md#point-in-time-restore)
+- [지역 복원](sql-database-recovery-using-backups.md#point-in-time-restore)
 - [영역 중복 데이터베이스](sql-database-high-availability.md)
 
 비즈니스 연속성 시나리오와 이러한 시나리오를 지원하는 기능에 대해 알아보려면 [비즈니스 연속성](sql-database-business-continuity.md)을 참조하세요.
@@ -33,11 +33,11 @@ Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공�
 > 영역 중복 프리미엄 또는 중요 비즈니스용 데이터베이스 또는 풀을 사용하는 경우, 복구 프로세스가 자동화되고 이 자료의 나머지 부분이 적용되지 않습니다.
 
 > [!NOTE]
-> 동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 또한 보조 데이터베이스는 기본 데이터베이스와 동일한 계산 크기(DT 또는 vCore)로 만드는 것이 좋습니다. 자세한 내용은 [기본 데이터베이스로 업그레이드 또는 다운그레이드를](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database)참조하십시오.
+> 동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 주 데이터베이스와 동일한 계산 크기 (Dtu 또는 vCores)를 사용 하 여 보조 데이터베이스를 만드는 것이 좋습니다. 자세한 내용은 [주 데이터베이스로 업그레이드 또는 다운 그레이드](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database)를 참조 하세요.
 
 > [!NOTE]
-> 하나 이상의 장애 조치 그룹을 사용하여 여러 데이터베이스의 장애 조치(failover)를 관리합니다.
-> 장애 조치(failover) 그룹에 기존의 지역 복제 관계를 추가하는 경우 보조 데이터베이스가 주 데이터베이스와 동일한 서비스 계층 및 컴퓨팅 크기로 구성되었는지 확인합니다. 자세한 내용은 [자동 장애 조치 그룹 사용을 참조하여 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용하도록 설정합니다.](sql-database-auto-failover-group.md)
+> 하나 또는 여러 장애 조치 그룹을 사용 하 여 여러 데이터베이스의 장애 조치를 관리 합니다.
+> 장애 조치(failover) 그룹에 기존의 지역 복제 관계를 추가하는 경우 보조 데이터베이스가 주 데이터베이스와 동일한 서비스 계층 및 컴퓨팅 크기로 구성되었는지 확인합니다. 자세한 내용은 [자동 장애 조치 그룹을 사용 하 여 여러 데이터베이스의 투명 및 조정 된 장애 조치 (failover)를 사용 하도록 설정](sql-database-auto-failover-group.md)을 참조 하세요.
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>가동 중단 이벤트에 대비
 
@@ -49,7 +49,7 @@ Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공�
 - 새로운 주 서버의 master 데이터베이스에 있어야 하는 로그인을 식별하고 필요에 따라 만든 후, 이러한 로그인(있는 경우)이 master 데이터베이스에서 적절한 권한이 있는지 확인합니다. 자세한 내용은 [재해 복구 후 Azure SQL Database 보안](sql-database-geo-replication-security-config.md)
 - 새로운 주 데이터베이스에 매핑하기 위해 업데이트해야 하는 경고 규칙을 식별합니다.
 - 현재 주 데이터베이스에 대한 감사 구성을 문서화합니다.
-- 재해 [복구 드릴을 수행합니다.](sql-database-disaster-recovery-drills.md) 지역 복원 기능에 대해 가동 중단을 시뮬레이션하려면 원본 데이터베이스를 삭제하거나 이름을 바꿔 애플리케이션 연결 오류를 발생시킬 수 있습니다. 장애 조치(Failover) 그룹을 사용한 가동 중단을 시뮬레이트하려면 데이터베이스에 연결된 웹 애플리케이션 또는 가상 머신을 사용하지 않도록 설정하거나 데이터베이스를 장애 조치하여 애플리케이션 연결 오류를 발생시킬 수 있습니다.
+- [재해 복구 훈련](sql-database-disaster-recovery-drills.md)을 수행 합니다. 지역 복원 기능에 대해 가동 중단을 시뮬레이션하려면 원본 데이터베이스를 삭제하거나 이름을 바꿔 애플리케이션 연결 오류를 발생시킬 수 있습니다. 장애 조치(Failover) 그룹을 사용한 가동 중단을 시뮬레이트하려면 데이터베이스에 연결된 웹 애플리케이션 또는 가상 머신을 사용하지 않도록 설정하거나 데이터베이스를 장애 조치하여 애플리케이션 연결 오류를 발생시킬 수 있습니다.
 
 ## <a name="when-to-initiate-recovery"></a>복구를 시작해야 하는 시기
 
@@ -79,7 +79,7 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 
 - [Azure Portal을 사용하여 지역에서 복제된 보조 서버로 장애 조치](sql-database-geo-replication-portal.md)
 - [PowerShell을 사용하여 보조 서버로 장애 조치](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-- [T-SQL(거래-SQL)을 사용하여 보조 서버로 장애 조치](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
+- [Transact-sql (T-sql)을 사용 하 여 보조 서버로 장애 조치 (failover)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>지역 복원을 사용한 복구
 
@@ -101,7 +101,7 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 
 ### <a name="configure-logins-and-database-users"></a>로그인 및 데이터베이스 사용자 구성
 
-애플리케이션에서 사용하는 모든 로그인이 복구된 데이터베이스를 호스팅하는 서버에 존재하도록 해야 합니다. 자세한 내용은 [지역 복제에 대한 보안 구성을](sql-database-geo-replication-security-config.md)참조하십시오.
+애플리케이션에서 사용하는 모든 로그인이 복구된 데이터베이스를 호스팅하는 서버에 존재하도록 해야 합니다. 자세한 내용은 [지역에서 복제를 위한 보안 구성](sql-database-geo-replication-security-config.md)을 참조 하세요.
 
 > [!NOTE]
 > 재해 복구 훈련 동안 서버 방화벽 규칙 및 로그인(및 해당 사용 권한)을 구성하고 테스트해야 합니다. 이러한 서버 수준 개체 및 해당 구성을 중단 도중에는 사용하지 못할 수 있습니다.

@@ -1,13 +1,13 @@
 ---
-title: Azure 서비스 패브릭 앱 패키지
-description: Azure Service Fabric 응용 프로그램 패키징 및 클러스터에 배포를 준비하는 방법에 대해 알아봅니다.
+title: Azure Service Fabric 앱 패키지
+description: Azure Service Fabric 응용 프로그램 패키징 및 클러스터에 배포를 준비 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258344"
 ---
 # <a name="package-an-application"></a>애플리케이션 패키지 작성
@@ -43,12 +43,12 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ## <a name="use-setupentrypoint"></a>SetupEntryPoint 사용
 
-**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예를 들어:
+**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 다음은 그 예입니다.
 
 * 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 Service Fabric 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지 않습니다. 예를 들어 npm.exe 파일에는 node.js 애플리케이션 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.
 
-**SetupEntryPoint를**구성하는 방법에 대한 자세한 내용은 [서비스 설정 진입점에 대한 정책 구성을](service-fabric-application-runas-security.md) 참조하십시오.
+**Setupentrypoint**를 구성 하는 방법에 대 한 자세한 내용은 [서비스 설치 진입점에 대 한 정책 구성](service-fabric-application-runas-security.md) 을 참조 하세요.
 
 <a id="Package-App"></a>
 
@@ -56,9 +56,9 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Visual Studio를 사용하여 패키지 빌드
 
-Visual Studio를 사용하여 응용 프로그램을 만든 경우 *패키지* 명령을 사용하여 위에서 설명한 레이아웃과 일치하는 패키지를 자동으로 만들 수 있습니다.
+Visual Studio를 사용 하 여 응용 프로그램을 만든 경우 *패키지* 명령을 사용 하 여 위에 설명 된 레이아웃과 일치 하는 패키지를 자동으로 만들 수 있습니다.
 
-패키지를 만들려면 *솔루션 탐색기에서* 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **패키지** 명령을 선택합니다.
+패키지를 만들려면 *솔루션 탐색기* 에서 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **패키지** 명령을 선택 합니다.
 
 ![Visual Studio를 통해 애플리케이션 패키징][vs-package-command]
 
@@ -226,7 +226,7 @@ ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
 
 ## <a name="next-steps"></a>다음 단계
 
-[응용 프로그램 배포 및 제거는][10] PowerShell을 사용하여 응용 프로그램 인스턴스를 관리하는 방법을 설명합니다.
+응용 [프로그램 배포 및 제거][10] PowerShell을 사용 하 여 응용 프로그램 인스턴스를 관리 하는 방법을 설명 합니다.
 
 [여러 환경에 대한 애플리케이션 매개 변수 관리][11]에서는 여러 애플리케이션 인스턴스의 매개 변수 및 환경 변수를 구성하는 방법을 설명합니다.
 

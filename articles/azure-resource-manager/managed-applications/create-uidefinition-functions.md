@@ -6,28 +6,28 @@ ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6e56c5e528a17d42a75da54158f00857a917645c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79248451"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition 함수
 이 섹션에는 CreateUiDefinition의 지원되는 모든 함수에 대한 서명이 포함되어 있습니다.
 
-함수를 사용하려면 선언을 대괄호로 묶습니다. 예를 들어:
+함수를 사용하려면 선언을 대괄호로 묶습니다. 다음은 그 예입니다.
 
 ```json
 "[function()]"
 ```
 
-문자열 및 기타 함수를 함수에 대한 매개 변수로 참조할 수 있지만 문자열을 따옴표로 묶어야 합니다. 예를 들어:
+문자열 및 기타 함수를 함수에 대한 매개 변수로 참조할 수 있지만 문자열을 따옴표로 묶어야 합니다. 다음은 그 예입니다.
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-해당하는 경우 점 연산자를 사용하여 함수 출력의 속성을 참조할 수 있습니다. 예를 들어:
+해당하는 경우 점 연산자를 사용하여 함수 출력의 속성을 참조할 수 있습니다. 다음은 그 예입니다.
 
 ```json
 "[func().prop1]"
@@ -189,7 +189,7 @@ ms.locfileid: "79248451"
 "[length(steps('foo').element1)]"
 ```
 
-### <a name="empty"></a>empty
+### <a name="empty"></a>비어 있음
 문자열, 배열 또는 개체가 null이거나 비어 있으면 `true`를 반환합니다.
 
 #### <a name="example-1-string"></a>예제 1: 문자열
@@ -518,7 +518,7 @@ null이 아닌 첫 번째 매개 변수의 값을 반환합니다. 이 함수는
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>문자열
+### <a name="string"></a>string
 매개 변수를 문자열로 변환합니다. 이 함수는 모든 JSON 데이터 형식의 매개 변수를 지원합니다.
 
 다음 예제는 `"1"`을 반환합니다.

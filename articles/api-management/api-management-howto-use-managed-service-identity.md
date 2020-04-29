@@ -1,6 +1,6 @@
 ---
-title: Azure API 관리에서 관리되는 ID 사용 | 마이크로 소프트 문서
-description: API 관리에서 관리되는 ID를 사용하는 방법 알아보기
+title: Azure API Management |에서 관리 되는 id 사용 Microsoft Docs
+description: API Management에서 관리 되는 id를 사용 하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -12,24 +12,24 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
 ms.openlocfilehash: 49576b805e6c6d01340e663bfb5d8e9013917625
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249634"
 ---
-# <a name="use-managed-identities-in-azure-api-management"></a>Azure API 관리에서 관리되는 ID 사용
+# <a name="use-managed-identities-in-azure-api-management"></a>Azure API Management에서 관리 되는 id 사용
 
-이 문서에서는 API 관리 서비스 인스턴스에 대해 관리되는 ID를 만드는 방법과 다른 리소스에 액세스하는 방법을 보여 주었습니다. Azure Active Directory(Azure AD)에서 생성된 관리ID를 사용하면 API 관리 인스턴스가 Azure 키 자격 증명 모음과 같은 다른 Azure AD 보호 리소스에 쉽고 안전하게 액세스할 수 있습니다. 이 ID는 Azure에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. 관리되는 ID에 대한 자세한 내용은 [Azure 리소스에 대해 관리되는 ID를](../active-directory/managed-identities-azure-resources/overview.md)참조하십시오.
+이 문서에서는 API Management 서비스 인스턴스에 대 한 관리 되는 id를 만드는 방법과 다른 리소스에 액세스 하는 방법을 보여 줍니다. Azure Active Directory (Azure AD)에서 생성 된 관리 되는 id를 사용 하면 API Management 인스턴스가 Azure Key Vault 같은 다른 Azure AD 보호 리소스에 쉽고 안전 하 게 액세스할 수 있습니다. 이 id는 Azure에서 관리 되며 암호를 프로 비전 하거나 회전할 필요가 없습니다. 관리 id에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 Id 란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조 하세요.
 
-## <a name="create-a-managed-identity-for-an-api-management-instance"></a>API 관리 인스턴스에 대해 관리되는 ID 만들기
+## <a name="create-a-managed-identity-for-an-api-management-instance"></a>API Management 인스턴스에 대 한 관리 id 만들기
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-포털에서 관리되는 ID를 설정하려면 먼저 API 관리 인스턴스를 정상적으로 만든 다음 기능을 사용하도록 설정합니다.
+포털에서 관리 되는 id를 설정 하려면 먼저 API Management 인스턴스를 정상적으로 만든 후 기능을 사용 하도록 설정 합니다.
 
 1. 평소처럼 포털에서 API Management 인스턴스를 만듭니다. 포털에서 해당 앱으로 이동합니다.
-2. **관리되는 서비스 ID를 선택합니다.**
+2. **관리 서비스 id**를 선택 합니다.
 3. Azure Active Directory로 등록을 켜기로 전환합니다. 저장을 클릭합니다.
 
 ![MSI 사용](./media/api-management-msi/enable-msi.png)
@@ -75,14 +75,14 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
 ## <a name="use-the-managed-service-identity-to-access-other-resources"></a>관리되는 서비스 ID를 사용하여 다른 리소스에 액세스
 
 > [!NOTE]
-> 현재 관리되는 ID를 사용하여 API 관리 사용자 지정 도메인 이름에 대한 Azure Key Vault에서 인증서를 가져올 수 있습니다. 더 많은 시나리오는 곧 지원될 예정입니다.
+> 현재 관리 되는 id를 사용 하 여 API Management 사용자 지정 도메인 이름에 대 한 Azure Key Vault에서 인증서를 가져올 수 있습니다. 더 많은 시나리오는 곧 지원될 예정입니다.
 >
 >
 
 
 ### <a name="obtain-a-certificate-from-azure-key-vault"></a>Azure Key Vault에서 인증서 가져오기
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>전제 조건
 1. pfx 인증서가 포함된 Key Vault는 API Management 서비스와 동일한 Azure 구독 및 리소스 그룹에 있어야 합니다. 이것은 Azure Resource Manager 템플릿의 요구 사항입니다.
 2. 비밀의 콘텐츠 형식은 *application/x-pkcs12*이어야 합니다. 다음 스크립트를 사용하여 인증서를 업로드합니다.
 
@@ -105,7 +105,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 다음 예제에서는 다음 단계를 포함하는 Azure Resource Manager 템플릿을 보여줍니다.
 
-1. 관리되는 ID를 사용하여 API 관리 인스턴스를 만듭니다.
+1. 관리 id를 사용 하 여 API Management 인스턴스를 만듭니다.
 2. Azure Key Vault 인스턴스의 액세스 정책을 업데이트하고 API Management 인스턴스가 비밀을 가져올 수 있도록 허용합니다.
 3. Key Vault 인스턴스의 인증서를 통해 사용자 지정 도메인 이름을 설정하여 API Management 인스턴스를 업데이트합니다.
 
@@ -233,8 +233,8 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 리소스에 대한 관리ID에 대해 자세히 알아보십시오.
+Azure 리소스에 대 한 관리 id에 대해 자세히 알아보세요.
 
-* [Azure 리소스에 대한 관리ID란?](../active-directory/managed-identities-azure-resources/overview.md)
+* [Azure 리소스에 대 한 관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md)
 * [Azure 리소스 관리자 템플릿](https://github.com/Azure/azure-quickstart-templates)
-* [정책에서 관리되는 ID로 인증](./api-management-authentication-policies.md#ManagedIdentity)
+* [정책에서 관리 id를 사용 하 여 인증](./api-management-authentication-policies.md#ManagedIdentity)

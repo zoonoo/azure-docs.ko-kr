@@ -9,10 +9,10 @@ ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79255315"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export에 대한 시스템 요구 사항
@@ -26,7 +26,7 @@ WAImportExport 도구를 사용하여 하드 드라이브를 준비하기 위해
 
 |플랫폼 |버전 |
 |---------|---------|
-|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> 윈도우 10        |
+|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Windows 클라이언트에 필요한 다른 소프트웨어
@@ -72,7 +72,7 @@ Azure Import/Export 서비스의 경우 데이터를 복사할 지원되는 디�
 다음 디스크 목록은 Import/Export 서비스에서 사용하도록 지원됩니다.
 
 
-|디스크 유형  |크기  |지원됨 |
+|디스크 유형  |Size  |지원됨 |
 |---------|---------|---------|
 |SSD    |   2.5"      |SATA III          |
 |HDD     |  2.5"<br>3.5"       |SATA II, SATA III         |

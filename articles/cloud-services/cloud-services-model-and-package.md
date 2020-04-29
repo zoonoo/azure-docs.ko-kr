@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247489"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>클라우드 서비스 모델 정의 및 패키지 방법
@@ -83,9 +83,9 @@ Azure에서 클라우드 서비스가 실행 중이면 **ServiceConfig.cscfg** �
 </ServiceDefinition>
 ```
 
-여기서 사용되는 XML 스키마에 대한 자세한 내용은 [서비스 정의 스키마를](/previous-versions/azure/reference/ee758711(v=azure.100)) 참조할 수 있지만, 여기에 몇 가지 요소에 대한 간략한 설명이 있습니다.
+여기에 사용 된 XML 스키마를 더 잘 이해 하기 위해 [서비스 정의 스키마](/previous-versions/azure/reference/ee758711(v=azure.100)) 를 참조할 수 있지만, 다음은 몇 가지 요소에 대 한 간략 한 설명입니다.
 
-**사이트**  
+**사이트용**  
 IIS7에서 호스트되는 웹 사이트 또는 웹 애플리케이션에 대한 정의를 포함합니다.
 
 **InputEndpoints**  
@@ -94,7 +94,7 @@ IIS7에서 호스트되는 웹 사이트 또는 웹 애플리케이션에 대한
 **InternalEndpoints**  
 서로 통신하기 위해 역할 인스턴스에서 사용되는 엔드포인트에 대한 정의를 포함합니다.
 
-**구성 설정**  
+**ConfigurationSettings**  
  특정 역할의 기능에 대한 설정 정의를 포함합니다.
 
 **인증서**  
@@ -103,7 +103,7 @@ IIS7에서 호스트되는 웹 사이트 또는 웹 애플리케이션에 대한
 **LocalResources**  
  로컬 스토리지 리소스에 대한 정의를 포함합니다. 로컬 스토리지 리소스는 역할의 인스턴스가 실행 중인 가상 머신의 파일 시스템에 예약된 디렉터리입니다.
 
-**가져옵니다**  
+**가져오도록**  
  가져온 모듈에 대한 정의를 포함합니다. 앞의 코드 예제에서는 원격 데스크톱 연결 및 Azure Connect에 대한 모듈을 보여 줍니다.
 
 **Startup 클래스**  
@@ -139,7 +139,7 @@ IIS7에서 호스트되는 웹 사이트 또는 웹 애플리케이션에 대한
 **인스턴스**  
 역할에 대해 실행 중인 인스턴스 수를 구성합니다. 업그레이드하는 동안 잠재적으로 클라우드 서비스를 사용할 수 없게 되는 것을 방지하려면 웹과 관련된 역할의 인스턴스를 두 개 이상 배포하는 것이 좋습니다. 둘 이상의 인스턴스를 배포하면 [Azure Compute SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/)의 지침을 준수하게 되므로 서비스를 위해 둘 이상의 역할 인스턴스가 배포될 때 인터넷 연결 역할에 대한 99.95%의 외부 연결을 보증합니다.
 
-**구성 설정**  
+**ConfigurationSettings**  
  역할에 대해 실행 중인 인스턴스의 설정을 구성합니다. `<Setting>` 요소의 이름은 서비스 정의 파일에 있는 설정 정의와 일치해야 합니다.
 
 **인증서**  
