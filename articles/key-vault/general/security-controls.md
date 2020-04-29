@@ -1,6 +1,6 @@
 ---
-title: Azure 키 자격 증명 모음에 대한 보안 제어
-description: Azure 키 자격 증명 모음을 평가하기 위한 보안 컨트롤검사 목록
+title: Azure Key Vault에 대 한 보안 제어
+description: Azure Key Vault 평가를 위한 보안 컨트롤의 검사 목록
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
 ms.openlocfilehash: cd6602f68b63e2c236e7f3905d33b88fbda36ed2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81429864"
 ---
-# <a name="security-controls-for-azure-key-vault"></a>Azure 키 자격 증명 모음에 대한 보안 제어
+# <a name="security-controls-for-azure-key-vault"></a>Azure Key Vault에 대 한 보안 제어
 
-이 문서에서는 Azure Key Vault에 기본 제공된 보안 컨트롤에 대해 간증권으로 작성합니다. 
+이 문서에서는 Azure Key Vault에 기본 제공 되는 보안 컨트롤을 설명 합니다. 
 
 [!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
@@ -25,16 +25,16 @@ ms.locfileid: "81429864"
 
 | 보안 제어 | 예/아니요 | 메모 |
 |---|---|--|
-| 서비스 엔드포인트 지원| 예 | VNet(가상 네트워크) 서비스 끝점을 사용합니다. |
-| VNet 주입 지원| 예 |  |
-| 네트워크 격리 및 방화벽 지원| 예 | VNet 방화벽 규칙을 사용. |
-| 강제 터널링 지원| 예 |  |
+| 서비스 엔드포인트 지원| 예 | VNet (Virtual Network) 서비스 끝점을 사용 합니다. |
+| VNet 삽입 지원| 아니요 |  |
+| 네트워크 격리 및 방화벽 지원| 예 | VNet 방화벽 규칙을 사용 합니다. |
+| 강제 터널링 지원| 아니요 |  |
 
-## <a name="monitoring--logging"></a>모니터링 & 로깅
+## <a name="monitoring--logging"></a>& 로깅 모니터링
 
 | 보안 제어 | 예/아니요 | 메모|
 |---|---|--|
-| Azure 모니터링 지원(로그 분석, 앱 인사이트 등)| 예 | Log Analytics를 사용합니다. |
+| Azure 모니터링 지원 (Log analytics, App insights 등)| 예 | Log Analytics를 사용합니다. |
 | 컨트롤/관리 평면 로깅 및 감사| 예 | Log Analytics를 사용합니다. |
 | 데이터 평면 로깅 및 감사| 예 | Log Analytics를 사용합니다. |
 
@@ -49,10 +49,10 @@ ms.locfileid: "81429864"
 
 | 보안 제어 | 예/아니요 | 메모 |
 |---|---|--|
-| 미사용 서버 측 암호화: Microsoft에서 관리하는 키 | 예 | 모든 개체가 암호화됩니다. |
-| 미사용 서버 측 암호화: 고객 관리 키(BYOK) | 예 | 고객은 키 자격 증명 모음의 모든 키를 제어합니다. HSM(하드웨어 보안 모듈) 백업 키가 지정되면 FIPS 수준 2 HSM이 키, 인증서 또는 비밀을 보호합니다. |
-| 열 수준 암호화(Azure 데이터 서비스)| 해당 없음 |  |
-| 전송 중 암호화(예: 익스프레스루트 암호화, VNet 암호화 및 VNet-VNet 암호화)| 예 | 모든 통신은 암호화된 API 호출을 통해 수행됩니다. |
+| 미사용 서버 쪽 암호화: Microsoft 관리 키 | 예 | 모든 개체가 암호화됩니다. |
+| 미사용 서버 쪽 암호화: 고객 관리 키 (BYOK) | 예 | 고객은 해당 Key Vault의 모든 키를 제어 합니다. HSM (하드웨어 보안 모듈) 지원 키가 지정 된 경우 FIPS 수준 2 HSM은 키, 인증서 또는 암호를 보호 합니다. |
+| 열 수준 암호화 (Azure Data Services)| 해당 없음 |  |
+| 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화)| 예 | 모든 통신은 암호화된 API 호출을 통해 수행됩니다. |
 | API 호출 암호화| 예 | HTTPS를 사용합니다. |
 
 ## <a name="access-controls"></a>액세스 제어
@@ -64,4 +64,4 @@ ms.locfileid: "81429864"
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure 서비스 [에서 기본 제공 보안 컨트롤에](../../security/fundamentals/security-controls.md)대해 자세히 알아봅니다.
+- [Azure 서비스에서 기본 제공 되는 보안 컨트롤](../../security/fundamentals/security-controls.md)에 대해 자세히 알아보세요.

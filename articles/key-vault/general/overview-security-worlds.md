@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault 보안 권역 | Microsoft Docs
-description: Azure 키 볼트는 다중 테넌트 서비스입니다. 각 Azure 위치에 있는 HSM 풀을 사용합니다. 지리적 영역의 모든 위치는 암호화 경계를 공유합니다.
+description: Azure Key Vault은 다중 테 넌 트 서비스입니다. 각 Azure 위치에서 Hsm의 풀을 사용 합니다. 지리적 지역의 모든 위치는 암호화 경계를 공유 합니다.
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -9,10 +9,10 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 07/03/2017
 ms.openlocfilehash: 3584f83c5e1a5e83d069373395227b70c084eae9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81428954"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Azure Key Vault 보안 권역 및 지리적 경계

@@ -1,6 +1,6 @@
 ---
-title: 시냅스 SQL에서 그룹별 옵션 사용
-description: Synapse SQL을 사용하면 다양한 그룹 별 옵션을 구현하여 솔루션을 개발할 수 있습니다.
+title: Synapse SQL의 GROUP BY 옵션 사용
+description: Synapse SQL을 사용 하면 다른 GROUP BY 옵션을 구현 하 여 솔루션을 개발할 수 있습니다.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -12,24 +12,24 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
 ms.openlocfilehash: 261f75344d250ae8a8d9687f4bcd80535d11716b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81429045"
 ---
-# <a name="group-by-options-in-synapse-sql"></a>시냅스 SQL의 그룹별 옵션
-Synapse SQL을 사용하면 다양한 그룹 별 옵션을 구현하여 솔루션을 개발할 수 있습니다. 
+# <a name="group-by-options-in-synapse-sql"></a>Synapse SQL의 GROUP BY 옵션
+Synapse SQL을 사용 하면 다른 GROUP BY 옵션을 구현 하 여 솔루션을 개발할 수 있습니다. 
 
-## <a name="what-does-group-by-do"></a>그룹 BY가 하는 일
+## <a name="what-does-group-by-do"></a>그룹화 방법
 
 [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 절을 사용하여 데이터를 요약 행 집합으로 집계합니다.
 
-SQL 온디맨드 옵션은 그룹 별 옵션의 전체 범위를 지원합니다. SQL 풀은 제한된 수의 GROUP BY 옵션을 지원합니다.
+SQL 주문형은 전체 범위의 GROUP BY 옵션을 지원 합니다. SQL 풀은 제한 된 수의 GROUP BY 옵션을 지원 합니다.
 
-## <a name="group-by-options-supported-in-sql-pool"></a>SQL 풀에서 지원되는 그룹별 옵션
+## <a name="group-by-options-supported-in-sql-pool"></a>SQL 풀에서 지원 되는 GROUP BY 옵션
 
-GROUP BY에는 SQL 풀에서 지원하지 않는 몇 가지 옵션이 있습니다. 이러한 옵션에는 다음과 같은 해결 방법을 포함합니다.
+GROUP BY에는 SQL 풀에서 지원 하지 않는 몇 가지 옵션이 있습니다. 이러한 옵션에는 다음과 같은 해결 방법이 있습니다.
 
 * GROUP BY with ROLLUP
 * GROUPING SETS
@@ -37,9 +37,9 @@ GROUP BY에는 SQL 풀에서 지원하지 않는 몇 가지 옵션이 있습니�
 
 ### <a name="rollup-and-grouping-sets-options"></a>롤업 및 그룹화 집합 옵션
 
-여기서 가장 간단한 옵션은 명시적 구문에 의존하지 않고 UNION ALL을 사용하여 롤업을 실행하는 것입니다. 결과는 완전히 동일합니다.
+여기서 가장 간단한 옵션은 명시적 구문에 의존 하는 대신 UNION ALL을 사용 하 여 롤업을 실행 하는 것입니다. 결과는 완전히 동일합니다.
 
-다음 예제에서는 ROLLUP 옵션과 함께 GROUP BY 문을 사용합니다.
+다음 예에서는 ROLLUP 옵션과 함께 GROUP BY 문을 사용 합니다.
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -91,9 +91,9 @@ GROUPING SETS를 바꾸려면 샘플 원칙이 적용됩니다. 보려는 집계
 
 ### <a name="cube-options"></a>큐브 옵션
 
-UNION ALL 접근 방식을 사용하여 큐브를 사용하여 그룹 BY 를 만들 수 있습니다. 문제는 코드가 금세 번거롭고 다루기 힘들게 될 수 있다는 것입니다. 이 문제를 완화하려면 이 고급 방법을 사용할 수 있습니다.
+UNION ALL 방법을 사용 하 여 큐브를 사용 하 여 GROUP BY를 만들 수 있습니다. 문제는 코드가 금세 번거롭고 다루기 힘들게 될 수 있다는 것입니다. 이 문제를 완화 하기 위해이 고급 방법을 사용할 수 있습니다.
 
-첫 번째 단계는 만들고자 하는 집계의 모든 수준을 정의하는 ‘큐브'를 정의하는 것입니다. 모든 레벨을 생성할 때 파생된 두 테이블의 CROSS JOIN을 기록해 둡니다. 나머지 코드는 서식을 지정하기 위해 있습니다.
+첫 번째 단계는 만들고자 하는 집계의 모든 수준을 정의하는 ‘큐브'를 정의하는 것입니다. 모든 수준이 생성 될 때 파생 된 두 테이블의 CROSS JOIN을 기록해 둡니다. 코드의 나머지 부분은 서식을 지정 하기 위한 것입니다.
 
 ```sql
 CREATE TABLE #Cube
@@ -124,11 +124,11 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-다음 이미지는 [테이블 만들기 를 선택으로](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)보여 주며 다음과 같이 합니다.
+다음 이미지는 CREATE TABLE의 결과를 [SELECT로](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)보여 줍니다.
 
 ![큐브별로 그룹화](./media/develop-group-by-options/develop-group-by-cube.png)
 
-두 번째 단계는 중간 결과를 저장하기 위한 대상 테이블을 지정하는 것입니다.
+두 번째 단계는 중간 결과를 저장할 대상 테이블을 지정 하는 것입니다.
 
 ```sql
 DECLARE
@@ -151,7 +151,7 @@ WITH
 ;
 ```
 
-세 번째 단계는 집계를 수행하는 열 큐브를 반복하는 것입니다. 쿼리는 #Cube 임시 테이블의 모든 행에 대해 한 번 실행됩니다. 결과는 #Results 임시 테이블에 저장됩니다.
+세 번째 단계는 집계를 수행 하는 열의 큐브를 반복 하는 것입니다. 쿼리가 #Cube 임시 테이블의 모든 행에 대해 한 번씩 실행 됩니다. 결과는 #Results 임시 테이블에 저장 됩니다.
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -175,7 +175,7 @@ BEGIN
 END
 ```
 
-마지막으로 #Results 임시 테이블을 읽고 결과를 반환할 수 있습니다.
+마지막으로 #Results 임시 테이블에서 읽어서 결과를 반환할 수 있습니다.
 
 ```sql
 SELECT *
@@ -184,7 +184,7 @@ ORDER BY 1,2,3
 ;
 ```
 
-코드를 섹션으로 나누고 루프 생성 구문 생성을 통해 코드를 보다 관리 및 유지 관리가 용이하게 됩니다.
+코드를 섹션으로 분할 하 고 루핑 구문을 생성 하면 코드의 관리 및 유지 관리가 더 쉬워집니다.
 
 ## <a name="next-steps"></a>다음 단계
 

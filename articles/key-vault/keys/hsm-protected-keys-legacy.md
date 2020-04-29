@@ -11,40 +11,40 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 28f066668d580f16d831371f2d02a5abcc0e84b3
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81429734"
 ---
-# <a name="import-hsm-protected-keys-for-key-vault-legacy"></a>키 볼트(레거시)에 대해 HSM으로 보호된 키 가져오기
+# <a name="import-hsm-protected-keys-for-key-vault-legacy"></a>Key Vault 용 HSM 보호 키 가져오기 (레거시)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-보안을 강화하기 위해 Azure Key Vault 사용 시 HSM 경계를 절대로 벗어나지 않고 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. 이 시나리오를 흔히 BYOK( *Bring Your Own Key*)라고 합니다. Azure 키 볼트는 nCipher nShield 제품군인 HSM(FIPS 140-2 수준 2 검증)을 사용하여 키를 보호합니다.
+보안을 강화하기 위해 Azure Key Vault 사용 시 HSM 경계를 절대로 벗어나지 않고 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. 이 시나리오를 흔히 BYOK( *Bring Your Own Key*)라고 합니다. Azure Key Vault는 nCipher nShield 집합 (FIPS 140-2 Level 2 유효성 검사)을 사용 하 여 키를 보호 합니다.
 
 이 토픽의 내용을 통해 Azure Key Vault에서 사용할 고유의 HSM 보호된 키를 생성하고 전송하는 데 필요한 계획을 세울 수 있습니다.
 
 이 기능은 Azure 중국에 사용할 수 없습니다.
 
 > [!NOTE]
-> Azure 키 자격 증명 모음에 대한 자세한 내용은 [Azure 키 자격 증명 모음이란 무엇입니까?](../general/overview.md)  
+> Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 항목](../general/overview.md) 을 참조 하세요.  
 > HSM 보호 키에 대한 자격 증명 모음을 만드는 내용이 포함된 자습서를 시작하려면 [Azure Key Vault란?](../general/overview.md)을 참조하세요.
 
 다음은 인터넷을 통해 HSM 보호된 키를 생성하고 전송하는 작업에 대한 추가 정보입니다.
 
 * 공격에 대한 취약성을 줄이기 위해 오프라인 워크스테이션에서 키를 생성합니다.
 * 키는 KEK(키 교환 키)로 암호화되어 Azure Key Vault HSM으로 전송될 때까지 암호화 상태를 유지합니다. 암호화된 버전의 키만 원래 워크스테이션을 벗어납니다.
-* 도구 집합은 Azure Key Vault 보안 영역에 키를 바인딩하는 테넌트 키에 대한 속성을 설정합니다. 따라서 Azure Key Vault HSM이 키를 받고 암호를 해독한 후에는 이 HSM만 사용할 수 있습니다. 키는 내보낼 수 없습니다. 이 바인딩은 nCipher HSM에 의해 적용됩니다.
-* 키 암호화에 사용되는 KEK(키 교환 키)는 Azure Key Vault HSM 내에서 생성되며 내보낼 수 없습니다. HSM은 HSM 외부에 클리어 버전의 KEK가 있을 수 없도록 강제합니다. 또한, 이 툴세트에는 KEK를 수출할 수 없으며 nCipher에서 제조한 정품 HSM 내부에서 생성된 nCipher의 증명이 포함되어 있습니다.
-* 이 도구 집합에는 nCipher에서 제조한 정품 HSM에서도 Azure Key Vault 보안 세계가 생성되었다는 nCipher의 증명이 포함되어 있습니다. 이를 통해 Microsoft가 정품 하드웨어를 사용하고 있다는 것을 입증합니다.
+* 도구 집합은 Azure Key Vault 보안 영역에 키를 바인딩하는 테넌트 키에 대한 속성을 설정합니다. 따라서 Azure Key Vault HSM이 키를 받고 암호를 해독한 후에는 이 HSM만 사용할 수 있습니다. 키는 내보낼 수 없습니다. 이 바인딩은 nCipher Hsm에 의해 적용 됩니다.
+* 키 암호화에 사용되는 KEK(키 교환 키)는 Azure Key Vault HSM 내에서 생성되며 내보낼 수 없습니다. HSM은 HSM 외부에 클리어 버전의 KEK가 있을 수 없도록 강제합니다. 또한 도구 집합에는 KEK를 내보낼 수 없고 nCipher에서 제조한 정품 HSM 내부에서 생성 된 nCipher의 증명이 포함 되어 있습니다.
+* 도구 집합에는 Azure Key Vault 보안 세계가 nCipher에서 제조한 정품 HSM에도 생성 되었다는 nCipher의 증명이 포함 되어 있습니다. 이를 통해 Microsoft가 정품 하드웨어를 사용하고 있다는 것을 입증합니다.
 * Microsoft는 각 지역별로 별도의 보안 권역과 별도의 KEK를 사용합니다. 이러한 구분을 통해 해당 키가 사용자가 암호화한 지역의 데이터 센터에서만 사용되게 할 수 있습니다. 예를 들어 유럽 고객의 키는 북아메리카 또는 아시아의 데이터 센터에서 사용할 수 없습니다.
 
-## <a name="more-information-about-ncipher-hsms-and-microsoft-services"></a>nCipher HSM 및 마이크로소프트 서비스에 대한 자세한 정보
+## <a name="more-information-about-ncipher-hsms-and-microsoft-services"></a>NCipher Hsm 및 Microsoft 서비스에 대 한 자세한 정보
 
-nCipher Security는 데이터 카드 회사를 위탁하여 범용 HSM 시장의 선두 주자로, 비즈니스 에 중요한 정보 및 애플리케이션에 신뢰, 무결성 및 제어를 제공함으로써 세계 최고의 조직에 권한을 부여합니다. nCipher의 암호화 솔루션은 클라우드, IoT, 블록 체인, 디지털 결제와 같은 새로운 기술을 보호하고 글로벌 조직이 민감한 데이터, 네트워크 통신 및 엔터프라이즈 인프라에 대한 위협으로부터 보호하기 위해 오늘날 의존하는 입증된 기술과 동일한 입증된 기술을 사용하여 새로운 규정 준수 의무를 충족하는 데 도움을 줍니다. nCipher는 비즈니스 크리티컬 애플리케이션에 대한 신뢰를 제공하여 데이터의 무결성을 보장하고 고객을 현재, 내일, 항상 완벽하게 제어할 수 있도록 합니다.
+Entrust Datacard 회사인 nCipher Security는 범용 HSM 시장의 리더 이며, 비즈니스에 중요 한 정보 및 응용 프로그램에 대 한 신뢰, 무결성 및 제어를 제공 하 여 세계 최고의 조직의 역량을 강화 합니다. nCipher의 암호화 솔루션은 새로운 기술 (클라우드, IoT, blockchain, 디지털 지불)을 보호 하 고, 글로벌 조직이 오늘날에 의존 하 여 중요 한 데이터, 네트워크 통신 및 엔터프라이즈 인프라를 위협 으로부터 보호 하는 동일한 검증 된 기술을 사용 하 여 새로운 규정 준수 조건을 충족 하는 데 도움을 줍니다. nCipher는 비즈니스에 중요 한 응용 프로그램에 대 한 신뢰를 제공 하 여 데이터의 무결성을 보장 하 고 고객에 게 현재, 내일, 언제 든 지 고객을 배치 합니다.
 
-마이크로소프트는 nCipher 보안 HSM에 대 한 최첨단을 향상 시키기 위해 협력 했다. 이렇게 향상된 기능을 통해 사용자는 자신의 키에 대한 제어를 포기하지 않으면서 호스트된 서비스의 일반적인 이점을 누릴 수 있습니다. Microsoft에서 이러한 향상된 기능을 사용하여 HSM을 관리해 주므로 이 부분에 신경 쓰지 않아도 된다는 것이 특별한 장점입니다. 클라우드 서비스인 Azure Key Vault는 조직의 사용량 급증을 충족하기 위해 짧은 시간에 확장됩니다. 동시에 키는 Microsoft의 HSM 내에서 보호됩니다.
+Microsoft는 Hsm의 상태를 향상 시키기 위해 nCipher 보안을 협력 했습니다. 이렇게 향상된 기능을 통해 사용자는 자신의 키에 대한 제어를 포기하지 않으면서 호스트된 서비스의 일반적인 이점을 누릴 수 있습니다. Microsoft에서 이러한 향상된 기능을 사용하여 HSM을 관리해 주므로 이 부분에 신경 쓰지 않아도 된다는 것이 특별한 장점입니다. 클라우드 서비스로 서는 조직의 사용 급증을 충족 하기 위해 Azure Key Vault를 쉽게 확장할 수 있습니다. 동시에 Microsoft의 Hsm 내에서 키를 보호 합니다. 키를 생성 하 여 Microsoft Hsm으로 전송 하기 때문에 키 수명 주기에 대 한 제어를 유지 합니다.
 
 ## <a name="implementing-bring-your-own-key-byok-for-azure-key-vault"></a>Azure Key Vault에 대한 BYOK(Bring Your Own Key) 구현
 
@@ -54,12 +54,12 @@ nCipher Security는 데이터 카드 회사를 위탁하여 범용 HSM 시장의
 
 Azure Key Vault에 대해 BYOK(Bring Your Own Key)를 위한 필수 조건 목록은 다음 표를 참조하세요.
 
-| 요구 사항 | 자세한 정보 |
+| 요구 사항 | 추가 정보 |
 | --- | --- |
 | Azure 구독 |Azure Key Vault를 만들려면 Azure 구독이 필요합니다([무료 평가판 가입](https://azure.microsoft.com/pricing/free-trial/)). |
 | HSM 보호 키를 지원하는 Azure Key Vault 프리미엄 서비스 계층 |Azure Key Vault에 대한 서비스 계층 및 기능에 대한 자세한 내용은 [Azure Key Vault 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/) 웹 사이트를 참조하세요. |
-| nCipher nShield HSM, 스마트 카드 및 지원 소프트웨어 |nCipher 하드웨어 보안 모듈및 nCipher nShield HSM에 대한 기본 운영 지식에 액세스할 수 있어야 합니다. 호환 되는 모델의 목록에 대 한 [nCipher nShield 하드웨어 보안 모듈을](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/how-to-buy) 참조 하거나 HSM을 구입 하지 않은 경우. |
-| 다음 하드웨어 및 소프트웨어:<ol><li>윈도우 7의 최소 윈도우 운영 체제와 오프라인 x64 워크 스테이션 및 nCipher nShield 소프트웨어는 적어도 버전 11.50입니다.<br/><br/>이 워크스테이션에서 Windows 7을 실행하는 경우 [Microsoft.NET Framework 4.5를 설치](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe)해야 합니다.</li><li>인터넷에 연결되어 있으며 Windows 7 이상의 Windows 운영 체제 및 [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **최소 버전 1.1.0**이 설치된 워크스테이션</li><li>여유 공간이 16MB 이상인 USB 드라이브 또는 기타 휴대용 스토리지 디바이스</li></ol> |보안상의 이유로 첫 번째 워크스테이션은 네트워크에 연결하지 않는 것이 좋습니다. 그러나 이 권고는 프로그램 방식으로 강제 적용되지는 않습니다.<br/><br/>이후의 지침에서는 이 워크스테이션을 분리된 워크스테이션이라고 합니다.</p></blockquote><br/>또한 테넌트 키가 프로덕션 네트워크용인 경우 별도의 두 번째 워크스테이션을 사용하여 도구 세트를 다운로드하고 테넌트 키를 업로드하는 것이 좋습니다. 그러나 테스트 목적인 경우에는 첫 번째와 동일한 워크스테이션을 사용할 수 있습니다.<br/><br/>이후의 지침에서는 이 두 번째 워크스테이션을 인터넷에 연결된 워크스테이션이라고 합니다.</p></blockquote><br/> |
+| nCipher nShield Hsm, 스마트 카드 및 지원 소프트웨어 |NCipher 하드웨어 보안 모듈에 대 한 액세스 권한이 있어야 하며 nCipher nShield Hsm에 대 한 기본 운영 지식이 있어야 합니다. 호환 되는 모델 목록은 [NCipher nShield 하드웨어 보안 모듈](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/how-to-buy) 을 참조 하 고, 없는 경우 HSM을 구입 합니다. |
+| 다음 하드웨어 및 소프트웨어:<ol><li>Windows 7 및 nCipher nShield 소프트웨어의 최소 Windows 운영 체제를 사용 하는 오프 라인 x64 워크스테이션 (버전 11.50 이상)<br/><br/>이 워크스테이션에서 Windows 7을 실행하는 경우 [Microsoft.NET Framework 4.5를 설치](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe)해야 합니다.</li><li>인터넷에 연결되어 있으며 Windows 7 이상의 Windows 운영 체제 및 [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **최소 버전 1.1.0**이 설치된 워크스테이션</li><li>여유 공간이 16MB 이상인 USB 드라이브 또는 기타 휴대용 스토리지 디바이스</li></ol> |보안상의 이유로 첫 번째 워크스테이션은 네트워크에 연결하지 않는 것이 좋습니다. 그러나 이 권고는 프로그램 방식으로 강제 적용되지는 않습니다.<br/><br/>이후의 지침에서는 이 워크스테이션을 분리된 워크스테이션이라고 합니다.</p></blockquote><br/>또한 테넌트 키가 프로덕션 네트워크용인 경우 별도의 두 번째 워크스테이션을 사용하여 도구 세트를 다운로드하고 테넌트 키를 업로드하는 것이 좋습니다. 그러나 테스트 목적인 경우에는 첫 번째와 동일한 워크스테이션을 사용할 수 있습니다.<br/><br/>이후의 지침에서는 이 두 번째 워크스테이션을 인터넷에 연결된 워크스테이션이라고 합니다.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>키 생성 및 Azure Key Vault에 전송
 
@@ -107,14 +107,14 @@ KeyVault-BYOK-Tools-UnitedStates.zip
 2E8C00320400430106366A4E8C67B79015524E4EC24A2D3A6DC513CA1823B0D4
 
 ---
-**유럽:**
+**유럽**
 
 KeyVault-BYOK-Tools-Europe.zip
 
 9AAA63E2E7F20CF9BB62485868754203721D2F88D300910634A32DFA1FB19E4A
 
 ---
-**아시아:**
+**아시아**
 
 KeyVault-BYOK-Tools-AsiaPacific.zip
 
@@ -144,16 +144,16 @@ KeyVault-BYOK-Tools-Korea.zip
 ---
 **남아프리카 공화국:**
 
-키볼트-BYOK-Tools-남아프리카 공화국.zip
+KeyVault-BYOK-Tools-SouthAfrica
 
-C41060C5C0170AAAA896DA732E31433D14CB9FC83AC3C6766F46D98620784A
+C41060C5C0170AAAAD896DA732E31433D14CB9FC83AC3C67766F46D98620784A
 
 ---
-**아랍 에미리트 연방:**
+**아랍에미리트**
 
-키볼트-BYOK-Tools-UAE.zip
+KeyVault-BYOK-Tools-UAE
 
-FADE80210B0662AA0913EA411DAB977929248C65F365F953BB9F241D55FC0D3
+FADE80210B06962AA0913EA411DAB977929248C65F365FD953BB9F241D5FC0D3
 
 ---
 **오스트레일리아:**
@@ -163,7 +163,7 @@ KeyVault-BYOK-Tools-Australia.zip
 CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A
 
 ---
-[**Azure 정부:**](https://azure.microsoft.com/features/gov/)
+[**Azure Government:**](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
@@ -191,11 +191,11 @@ KeyVault-BYOK-Tools-Germany.zip
 5385E615880AAFC02AFD9841F7BADD025D7EE819894AA29ED3C71C3F844C45D6
 
 ---
-**독일 공공:**
+**독일 공개:**
 
-키볼트-BYOK-Tools-독일-퍼블릭.zip
+KeyVault-BYOK-Tools-Germany-Public
 
-54534936D0A0A0C99C8117DB724C34A55E50FD204CFCBD75C78972B785666A29
+54534936D0A0C99C8117DB724C34A5E50FD204CFCBD75C78972B785865364A29
 
 ---
 **인도:**
@@ -221,9 +221,9 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
 ---
 **스위스:**
 
-키볼트-BYOK-Tools-스위스.zip
+KeyVault-BYOK-Tools-Switzerland
 
-88CF8D39899E26D456D4E0BC57E5559913ABF1D73A89013FCE3BBD959999AD2FE9
+88CF8D39899E26D456D4E0BC57E5C94913ABF1D73A89013FCE3BBD9599AD2FE9
 
 ---
 
@@ -248,17 +248,17 @@ USB 드라이브 또는 기타 휴대용 스토리지에 패키지를 복사합�
 
 이 두 번째 단계에서는 네트워크(인터넷 또는 내부 네트워크)에 연결되지 않은 워크스테이션에서 다음 절차를 수행합니다.
 
-### <a name="step-21-prepare-the-disconnected-workstation-with-ncipher-nshield-hsm"></a>2.1 단계: nCipher nShield HSM으로 연결이 끊긴 워크스테이션 준비
+### <a name="step-21-prepare-the-disconnected-workstation-with-ncipher-nshield-hsm"></a>2.1 단계: nCipher nShield HSM을 사용 하 여 연결 되지 않은 워크스테이션 준비
 
-Windows 컴퓨터에 nCipher 지원 소프트웨어를 설치한 다음 해당 컴퓨터에 nCipher nShield HSM을 연결합니다.
+Windows 컴퓨터에 nCipher 지원 소프트웨어를 설치한 후 해당 컴퓨터에 nCipher nShield HSM을 연결 합니다.
 
-nCipher 도구가 경로에 있는지**확인합니다(%nfast_home%\bin).** 예를 들어 다음을 입력합니다.
+NCipher 도구가 경로 (**% nfast_home% \ bin**)에 있는지 확인 하십시오. 예를 들어 다음을 입력합니다.
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
   ```
 
-자세한 내용은 nShield HSM에 포함된 사용 설명서를 참조하십시오.
+자세한 내용은 nShield HSM에 포함 된 사용자 가이드를 참조 하세요.
 
 ### <a name="step-22-install-the-byok-toolset-on-the-disconnected-workstation"></a>2.2단계: 연결이 끊어진 워크스테이션에 BYOK 도구 집합 설치
 
@@ -274,24 +274,24 @@ USB 드라이브 또는 기타 휴대용 스토리지에서 BYOK 도구 집합 �
 
 ### <a name="step-31-change-the-hsm-mode-to-i"></a>3.1단계: HSM 모드를 'I'로 변경
 
-nCipher nShield 가장자리를 사용하는 경우 모드를 변경하려면 1입니다. 모드 단추를 사용하여 필요한 모드를 강조 표시합니다. 2. 몇 초 안에 지우기 단추를 몇 초간 길게 누릅니다. 모드가 변경되면 새 모드의 LED가 깜박이는 것을 멈추고 불이 켜진 상태로 유지됩니다. 상태 LED가 몇 초간 불규칙하게 깜박일 수도 있으며, 디바이스가 준비되면 정기적으로 깜박입니다. 그렇지 않으면 디바이스가 현재 모드로 유지되고 해당 모드 LED가 켜져 있습니다.
+NCipher nShield Edge를 사용 하 여 모드를 변경 하려면 다음을 수행 합니다. 1. 모드 단추를 사용하여 필요한 모드를 강조 표시합니다. 2. 몇 초 안에 지우기 단추를 몇 초간 길게 누릅니다. 모드가 변경 되 면 새 모드의 LED가 깜박이는 것을 중지 하 고 계속 켜 집니다. 상태 LED가 몇 초간 불규칙하게 깜박일 수도 있으며, 디바이스가 준비되면 정기적으로 깜박입니다. 그렇지 않으면 디바이스가 현재 모드로 유지되고 해당 모드 LED가 켜져 있습니다.
 
 ### <a name="step-32-create-a-security-world"></a>3.2단계: 보안 영역 만들기
 
-명령 프롬프트를 시작하고 nCipher 새 세계 프로그램을 실행합니다.
+명령 프롬프트를 시작 하 고 nCipher 새 세계 프로그램을 실행 합니다.
 
    ```cmd
     new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
    ```
 
-이 프로그램은 %NFAST_KMDATA%\local\world(C:\ProgramData\nCipher\Key Management Data\local 폴더에 해당함)에 **보안 권역** 파일을 만듭니다. 쿼럼에 대해 서로 다른 값을 사용할 수 있지만 이 예제에서는 각 정원에 대해 세 개의 빈 카드와 핀을 입력하라는 메시지가 표시됩니다. 그러면 임의의 두 카드에서 보안 영역에 대한 모든 권한을 제공합니다. 이러한 카드는 새 보안 권역의 **관리자 카드 집합**이 됩니다.
+이 프로그램은 %NFAST_KMDATA%\local\world(C:\ProgramData\nCipher\Key Management Data\local 폴더에 해당함)에 **보안 권역** 파일을 만듭니다. 쿼럼에 다른 값을 사용할 수 있지만이 예에서는 각각에 대해 3 개의 빈 카드와 pin을 입력 하 라는 메시지가 표시 됩니다. 그러면 임의의 두 카드에서 보안 영역에 대한 모든 권한을 제공합니다. 이러한 카드는 새 보안 권역의 **관리자 카드 집합**이 됩니다.
 
 > [!NOTE]
 > HSM이 최신 암호 제품군 DLf3072s256mRijndael을 지원하지 않는 경우 --cipher-suite= DLf3072s256mRijndael을 --cipher-suite=DLf1024s160mRijndael로 바꿀 수 있습니다.
 > 
-> nCipher 소프트웨어 버전 12.50과 함께 제공되는 new-world.exe로 만든 보안 세계는 이 BYOK 절차와 호환되지 않습니다. 사용 가능한 두 가지 옵션이 있습니다.
-> 1) nCipher 소프트웨어 버전을 12.40.2로 다운그레이드하여 새로운 보안 세계를 만듭니다.
-> 2) nCipher 지원에 문의하여 12.50 소프트웨어 버전에 대한 핫픽스를 제공하도록 요청하면 이 BYOK 절차와 호환되는 12.40.2 버전의 new-world.exe를 사용할 수 있습니다.
+> NCipher software 버전 12.50과 함께 제공 되는 new-world을 사용 하 여 만든 보안 환경은이 BYOK 절차와 호환 되지 않습니다. 사용 가능한 두 가지 옵션이 있습니다.
+> 1) 새 보안 환경을 만들려면 nCipher software 버전을 12.40.2로 다운 그레이드 합니다.
+> 2) NCipher 지원에 문의 하 여이 BYOK 절차와 호환 되는 12.40.2 버전의 new-world를 사용할 수 있도록 하는 12.50 소프트웨어 버전에 대 한 핫픽스를 제공 하도록 요청 합니다.
 
 그런 다음 아래 작업을 수행합니다.
 
@@ -299,18 +299,18 @@ nCipher nShield 가장자리를 사용하는 경우 모드를 변경하려면 1�
 
 ### <a name="step-33-change-the-hsm-mode-to-o"></a>3.3단계: HSM 모드를 'O'로 변경
 
-nCipher nShield 가장자리를 사용하는 경우 모드를 변경하려면 1입니다. 모드 단추를 사용하여 필요한 모드를 강조 표시합니다. 2. 몇 초 안에 지우기 단추를 몇 초간 길게 누릅니다. 모드가 변경되면 새 모드의 LED가 깜박이는 것을 멈추고 불이 켜진 상태로 유지됩니다. 상태 LED가 몇 초간 불규칙하게 깜박일 수도 있으며, 디바이스가 준비되면 정기적으로 깜박입니다. 그렇지 않으면 디바이스가 현재 모드로 유지되고 해당 모드 LED가 켜져 있습니다.
+NCipher nShield Edge를 사용 하 여 모드를 변경 하려면 다음을 수행 합니다. 1. 모드 단추를 사용하여 필요한 모드를 강조 표시합니다. 2. 몇 초 안에 지우기 단추를 몇 초간 길게 누릅니다. 모드가 변경 되 면 새 모드의 LED가 깜박이는 것을 중지 하 고 계속 켜 집니다. 상태 LED가 몇 초간 불규칙하게 깜박일 수도 있으며, 디바이스가 준비되면 정기적으로 깜박입니다. 그렇지 않으면 디바이스가 현재 모드로 유지되고 해당 모드 LED가 켜져 있습니다.
 
 ### <a name="step-34-validate-the-downloaded-package"></a>3.4단계: 다운로드한 패키지의 유효성 검사
 
 이 단계는 선택 사항이지만 다음 사항을 확인할 수 있으므로 권장됩니다.
 
-* 도구 집합에 포함된 키 교환 키는 정품 nCipher nShield HSM에서 생성되었습니다.
-* 도구 집합에 포함된 보안 세계의 해시는 정품 nCipher nShield HSM에서 생성되었습니다.
+* 도구 집합에 포함 된 키 교환 키가 정품 nCipher nShield HSM에서 생성 되었습니다.
+* 도구 집합에 포함 된 보안 환경의 해시가 정품 nCipher nShield HSM에서 생성 되었습니다.
 * 키 교환 키를 내보낼 수 없습니다.
 
 > [!NOTE]
-> 다운로드한 패키지의 유효성을 검사하려면 HSM을 연결하고 전원을 켜야 하며 보안 세계가 있어야 합니다(예: 방금 만든 패키지).
+> 다운로드 한 패키지의 유효성을 검사 하려면 HSM이 연결 되어 있고 전원이 켜져 있어야 하 고, 여기에는 앞서 만든 것과 같은 보안 세계가 있어야 합니다.
 
 다운로드한 패키지의 유효성을 검사하려면:
 
@@ -334,10 +334,10 @@ nCipher nShield 가장자리를 사용하는 경우 모드를 변경하려면 1�
    * 한국:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-KOREA-1 -w BYOK-SecurityWorld-pkg-KOREA-1
-   * 남아프리카 공화국의 경우:
+   * 남아프리카 공화국:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-SA-1 -w BYOK-SecurityWorld-pkg-SA-1
-   * 아랍 에미리트 연방의 경우:
+   * 아랍에미리트의 경우:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UAE-1 -w BYOK-SecurityWorld-pkg-UAE-1
    * 오스트레일리아:
@@ -355,7 +355,7 @@ nCipher nShield 가장자리를 사용하는 경우 모드를 변경하려면 1�
    * 독일:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-GERMANY-1 -w BYOK-SecurityWorld-pkg-GERMANY-1
-   * 독일 퍼블릭의 경우:
+   * 독일 공개의 경우:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-GERMANY-1 -w BYOK-SecurityWorld-pkg-GERMANY-1
    * 인도:
@@ -372,18 +372,18 @@ nCipher nShield 가장자리를 사용하는 경우 모드를 변경하려면 1�
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-SUI-1 -w BYOK-SecurityWorld-pkg-SUI-1
 
      > [!TIP]
-     > nCipher nShield 소프트웨어에는 %NFAST_HOME%\파이썬\빈의 파이썬이 포함되어 있습니다.
+     > NCipher nShield 소프트웨어 는% NFAST_HOME% \ python\bin에 python을 포함 합니다.
      >
      >
 2. 다음 내용이 표시되는지 확인합니다. 이는 유효성 검사가 성공했다는 것입니다. **Result: SUCCESS**
 
-이 스크립트는 nShield 루트 키까지 서명자 체인의 유효성을 검사합니다. 이 루트 키의 해시는 스크립트에 포함되어 있으며 해당 값은 **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**여야 합니다. [또한 nCipher 웹 사이트를](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation)방문하여 이 값을 별도로 확인할 수도 있습니다.
+이 스크립트는 서명자 체인의 유효성을 nShield 루트 키로 확인 합니다. 이 루트 키의 해시는 스크립트에 포함되어 있으며 해당 값은 **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**여야 합니다. [NCipher 웹 사이트](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation)를 방문 하 여 별도로이 값을 확인할 수도 있습니다.
 
 이제 새 키를 만들 준비가 되었습니다.
 
 ### <a name="step-35-create-a-new-key"></a>3.5단계: 새 키 만들기
 
-nCipher nShield **생성 키** 프로그램을 사용하여 키를 생성합니다.
+NCipher nShield **generatekey** 프로그램을 사용 하 여 키를 생성 합니다.
 
 다음 명령을 실행하여 키를 생성합니다.
 
@@ -393,14 +393,14 @@ nCipher nShield **생성 키** 프로그램을 사용하여 키를 생성합니�
 
 * 매개 변수 *보호* 는 다음과 같이 값 **모듈**에 설정되어야 합니다. 이렇게 하면 모듈 보호 키가 만들어집니다. BYOK 도구 집합은 OCS 보호 키를 지원하지 않습니다.
 * **ident** 및 **plainname**의 *contosokey* 값을 임의의 문자열 값으로 바꿉니다. 관리 오버헤드를 최소화하고 오류 위험성을 줄이려면 두 가지에 동일한 값을 사용하는 것이 좋습니다. **ident** 값에는 숫자, 대시 및 소문자만 사용할 수 있습니다.
-* pubexp는 이 예에서 비어 있지만(기본값) 특정 값을 지정할 수 있습니다. 자세한 내용은 [nCipher 설명서를 참조하십시오.](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based)
+* pubexp는 이 예에서 비어 있지만(기본값) 특정 값을 지정할 수 있습니다. 자세한 내용은 [nCipher 설명서](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based) 를 참조 하세요.
 
 이 명령은 %NFAST_KMDATA%\local 폴더에 토큰화된 키 파일을 만듭니다. 이 파일은 이름이 **key_simple_** 로 시작하며 명령에서 지정한 **ident**가 뒤에 붙습니다. 예들 들어 **key_simple_contosokey**입니다. 이 파일은 암호화된 키를 포함합니다.
 
 안전한 위치에 이 토큰화된 키 파일을 백업합니다.
 
 > [!IMPORTANT]
-> 나중에 Azure Key Vault에 키를 전송하는 경우 Microsoft에서는 이 키를 사용자에게 다시 내보낼 수 없으므로 키 및 보안 영역을 안전하게 백업하는 것이 매우 중요합니다. 키 를 백업하는 지침 및 모범 사례는 [nCipher에](https://www.ncipher.com/about-us/contact-us) 문의하십시오.
+> 나중에 Azure Key Vault에 키를 전송하는 경우 Microsoft에서는 이 키를 사용자에게 다시 내보낼 수 없으므로 키 및 보안 영역을 안전하게 백업하는 것이 매우 중요합니다. 키 백업에 대 한 지침과 모범 사례는 [nCipher](https://www.ncipher.com/about-us/contact-us) 에 문의 하세요.
 >
 
 
@@ -432,10 +432,10 @@ nCipher nShield **생성 키** 프로그램을 사용하여 키를 생성합니�
 * 한국:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-KOREA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-KOREA-1
-* 남아프리카 공화국의 경우:
+* 남아프리카 공화국:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SA-1
-* 아랍 에미리트 연방의 경우:
+* 아랍에미리트의 경우:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UAE-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UAE-1
 * 오스트레일리아:
@@ -453,7 +453,7 @@ nCipher nShield **생성 키** 프로그램을 사용하여 키를 생성합니�
 * 독일:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1
-* 독일 퍼블릭의 경우:
+* 독일 공개의 경우:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1
 * 인도:
@@ -473,9 +473,9 @@ nCipher nShield **생성 키** 프로그램을 사용하여 키를 생성합니�
 
 보안 영역 관리자 카드를 플러그인하라는 메시지가 표시됩니다.
 
-명령이 완료되면 **결과: 성공** 및 사용 권한이 감소한 키의 복사본이 contosokey> key_xferacId_\<이름의 파일에 표시됩니다.
+명령이 완료 되 면 **Result: SUCCESS** 가 표시 되 고 권한이 감소 된 키의 복사본이 key_xferacId_\<contosokey과> 라는 파일에 있습니다.
 
-nCipher nShield 유틸리티를 사용하여 다음 명령을 사용하여 ACLS를 검사할 수 있습니다.
+NCipher nShield 유틸리티를 사용 하 여 다음 명령을 사용 하 여 ACL을 검사 할 수 있습니다.
 
 * aclprint.py:
 
@@ -485,7 +485,7 @@ nCipher nShield 유틸리티를 사용하여 다음 명령을 사용하여 ACLS�
         "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
   이러한 명령을 실행할 때 [키 생성](#step-3-generate-your-key) 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 contosokey를 바꿉니다.
 
-### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>단계 4.2: 마이크로소프트의 키 교환 키를 사용 하 여 키를 암호화
+### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>4.2 단계: Microsoft의 키 교환 키를 사용 하 여 키 암호화
 
 지리적 지역 또는 Azure의 인스턴스에 따라 다음 명령 중 하나를 실행합니다.
 
@@ -507,10 +507,10 @@ nCipher nShield 유틸리티를 사용하여 다음 명령을 사용하여 ACLS�
 * 한국:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-KOREA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-KOREA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
-* 남아프리카 공화국의 경우:
+* 남아프리카 공화국:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
-* 아랍 에미리트 연방의 경우:
+* 아랍에미리트의 경우:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UAE-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UAE-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 * 오스트레일리아:
@@ -528,7 +528,7 @@ nCipher nShield 유틸리티를 사용하여 다음 명령을 사용하여 ACLS�
 * 독일:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
-* 독일 퍼블릭의 경우:
+* 독일 공개의 경우:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 * 인도:
@@ -569,4 +569,4 @@ USB 드라이브 또는 기타 휴대용 스토리지를 사용하여 인터넷�
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 주요 자격 증명 모음에서 이 HSM 보호된 키를 사용할 수 있습니다. 자세한 내용은 이 가격 및 기능 [비교를](https://azure.microsoft.com/pricing/details/key-vault/)참조하십시오.
+이제 주요 자격 증명 모음에서 이 HSM 보호된 키를 사용할 수 있습니다. 자세한 내용은이 가격 및 기능 [비교](https://azure.microsoft.com/pricing/details/key-vault/)를 참조 하세요.

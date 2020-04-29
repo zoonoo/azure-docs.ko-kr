@@ -1,6 +1,6 @@
 ---
-title: 시냅스 스파크 버전 지원
-description: 스파크, 스칼라, 파이썬의 지원 되는 버전
+title: Synapse Spark 버전 지원
+description: 지원 되는 Spark, Scala, Python 버전
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -10,171 +10,171 @@ ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 77f7ed5787a723b54fef38d12812b825e2c08813
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81429240"
 ---
-# <a name="supported-language-and-runtime-versions-for-apache-spark-and-dependent-components"></a>아파치 스파크 및 종속 구성 요소에 대한 지원되는 언어 및 런타임 버전  
+# <a name="supported-language-and-runtime-versions-for-apache-spark-and-dependent-components"></a>Apache Spark 및 종속 구성 요소에 대해 지원 되는 언어 및 런타임 버전  
 
-Azure Synapse Analytics 서비스의 아파치 스파크는 여러 가지 실행 시간을 지원하며 이 문서에서는 버전이 나열되는 서비스를 지원합니다.
+Azure Synapse Analytics 서비스의 Apache Spark는 여러 가지 실행 시간 및 서비스를 지원 합니다 .이 문서에는 버전이 나와 있습니다.
 
-## <a name="spark-version"></a>스파크 버전
+## <a name="spark-version"></a>Spark 버전
 
-스파크 2.4는 현재 지원되는 버전입니다.
+Spark 2.4은 현재 지원 되는 버전입니다.
 
 ## <a name="operating-system-version"></a>운영 체제 버전
 
-Azure 시냅스의 아파치 스파크는 우분투 버전 16.04에서 실행됩니다.
+Azure Synapse의 Apache Spark는 Ubuntu 버전 16.04에서 실행 됩니다.
 
 ## <a name="java-version"></a>Java 버전
 
-Azure 시냅스의 아파치 스파크에는 자바 버전 1.8.0_222가 포함되어 있습니다.
+Azure Synapse의 Apache Spark에는 Java 버전 1.8.0 _222가 포함 되어 있습니다.
 
 ## <a name="scala-version"></a>Scala 버전
 
-Azure 시냅스의 아파치 스파크에는 스칼라 2.11.12가 포함되어 있습니다.
+Azure Synapse의 Apache Spark에 Scala 2.11.12 포함
 
 ## <a name="net-core-version"></a>.NET Core 버전
 
-Azure 시냅스의 아파치 스파크에는 .NET Core 3.0이 포함되어 있습니다.
+Azure Synapse의 Apache Spark에는 .NET Core 3.0이 포함 되어 있습니다.
 
-## <a name="net-support-for-apache-spark"></a>아파치 스파크에 대한 .NET 지원
+## <a name="net-support-for-apache-spark"></a>Apache Spark에 대 한 .NET 지원
 
-Azure 시냅스에는 아파치 스파크 0.5.0에 대한 .NET 지원이 포함되어 있습니다.
+Azure Synapse에는 Apache Spark 0.5.0에 대 한 .NET 지원이 포함 됩니다.
 
 ## <a name="delta-lake"></a>Delta Lake
 
-시냅스 애널리틱스에는 델타 레이크 0.5.0에 대한 지원이 포함되어 있습니다.
+Synapse Analytics에는 델타 Lake 0.5.0에 대 한 지원이 포함 되어 있습니다.
 
 ## <a name="python-version"></a>Python 버전
 
-Azure 시냅스의 아파치 스파크에는 파이썬 버전 3.6.1의 설치가 포함되어 있습니다.
+Azure Synapse의 Apache Spark에는 Python 버전 3.6.1 설치가 포함 됩니다.
 
-## <a name="scala-and-java-libraries"></a>스칼라 및 자바 라이브러리
+## <a name="scala-and-java-libraries"></a>Scala 및 Java 라이브러리
 
-액세서리 스마트 1.2.jar
+accessors-smart-1.2
 
-활성화-1.1.1.jar
+activation-1.1.1
 
-공기 압축기-0.10.jar
+aircompressor-0.10
 
-주석-2.0.1.jar
+annotations-2.0.1
 
-antlr-2.7.7.jar
+antlr-2.7.7
 
-antlr4-런타임-4.7.jar
+antlr4-runtime-4.7
 
-antlr 런타임-3.4.jar
+antlr-runtime-3.4
 
-aopalliance-1.0.jar
+aopalliance-1.0. jar
 
-aopalliance-재포장-2.4.0-b34.jar
+aopalliance-repackaged-2.4.0-b34. jar
 
-아파치-i18n-2.0.0-M15.jar
+apacheds-i18n-2.0.0-M23jar
 
-아파치 케르베로스 코덱-2.0.0-M15.jar
+apacheds-kerberos-codec-2.0.0-M23jar
 
-아파치 log4j 엑스트라 - 1.2.17.jar
+apache-log4j-extras-1.2.17
 
-api-asn1-api-1.0.0-M20.jar
+api-asn1-api-1.0.0-M20
 
-api-유틸리티-1.0.0-M20.jar
+api-util-1.0.0-M20
 
-애플리케이션 인사이트-코어-2.3.1.jar
+applicationinsights-core-2.3.1
 
-애플리케이션 인사이트 로깅 log4j1_2-2.3.1.jar
+applicationinsights log4j1_2-2.3.1-
 
-애플리케이션인사이트-웹-2.3.1.jar
+applicationinsights-web-2.3.1
 
-arpack_combined_all-0.1.jar
+arpack_combined_all-0.1. jar
 
-화살표 형식-0.10.0.jar
+arrow-format-0.10.0
 
-화살표 메모리-0.10.0.jar
+arrow-memory-0.10.0
 
-화살표 벡터 0.10.0.jar
+arrow-vector-0.10.0
 
-청중 주석-0.5.0.jar
+audience-annotations-0.5.0
 
-아브로 1.8.2.jar
+avro-1.8.2
 
-아브로 -ipc-1.8.2.jar
+avro-ipc-1.8.2
 
-avro-mapred-1.8.2-hadoop2.jar
+avro-mapred-1.7.4-hadoop2.jar 1.8.2 avro-mapred-1.7.4-hadoop2.jar
 
-aws-java-sdk-번들-1.11.199.jar
+aws-java-sdk-bundle-1.11.199
 
-azuredw-0.3.0.2.6.99.99.201-SNAPSHOT.jar
+azuredw-0.3.0.2.6.99.201-SNAPSHOT jar
 
-azure 키볼트 코어-0.8.0.jar
+azure-keyvault-core-0.8.0부터
 
-azure 스토리지 -5.4.0.jar
+azure-storage-5.4.0
 
-bonecp-0.8.0.RELEASE.jar
+bonecp-0.8.0부터
 
-breeze_2.11-0.13.2.jar
+breeze_2 11-0.13.2
 
-산들 macros_2.11-0.13.2.jar
+간편 하 게 macros_2 11-0.13.2
 
-방해석 - avatica-1.2.0-인큐베이팅.jar
+calcite-avatica-1.2.0-incubating
 
-방해석 코어 -1.2.0-인큐베이팅.jar
+calcite-core-1.2.0-incubating
 
-방해석 linq4j-1.2.0-인큐베이팅.jar
+calcite-linq4j-1.2.0-incubating
 
-chill_2.11-0.9.3.jar
+chill_2 11-0.9.3
 
-칠 자바-0.9.3.jar
+chill-java-0.9.3
 
-커먼스-비틸트-1.9.3.jar
+commons-beanutils-1.9.3
 
-커먼스 클라이-1.2.jar
+commons-cli-1.2
 
-커먼스 코덱-1.10.jar
+commons-codec-1.10
 
-공용 컬렉션-3.2.2.jar
+commons-collections-3.2.2
 
-공용 컴파일러-3.0.9.jar
+commons-compiler-3.0.9
 
-공용 압축 1.8.1.jar
+commons-compress-1.8.1
 
-공용 구성-1.6.jar
+commons-configuration-1.6
 
-공용 암호 - 1.0.0.jar
+commons-crypto-1.0.0
 
-커먼스 dbcp-1.4.jar
+commons-dbcp-1.4 jar
 
-공용 소화기-1.8.jar
+commons-digester-1.8. jar
 
-커먼스-httpclient-3.1.jar
+commons-httpclient-3.1
 
-커먼스-io-2.4.jar
+commons-io-2.4.
 
-커먼스 랭-2.6.jar
+commons-lang-2.6
 
-커먼스 랭3-3.5.jar
+commons-lang3-3.5 jar
 
-공용 로깅-1.1.3.jar
+commons-logging-1.1.3
 
-커먼스 수학3-3.4.1.jar
+commons-math3-3.4.1
 
-커먼스 넷-3.1.jar
+commons-net-3.1
 
-공용 풀-1.5.4.jar
+commons-pool-1.5.4
 
-압축 lzf-1.0.3.jar
+compress-lzf-1.0.3
 
-코어 1.1.2.jar
+core-1.1.2
 
-큐레이터 - 클라이언트 -2.7.1.jar
+curator-client-2.7.1
 
-큐레이터 프레임 워크 - 2.7.1.jar
+curator-framework-2.7.1
 
-큐레이터 - 조리법 - 2.7.1.jar
+curator-recipes-2.7.1
 
-사용자 정의 액세스 토큰공급자-1.0-SNAPSHOT.jar
+CustomAccessTokenProvider-1.0-SNAPSHOT jar
 
 datanucleus-api-jdo-3.2.6.jar
 
@@ -182,1075 +182,1075 @@ datanucleus-core-3.2.10.jar
 
 datanucleus-rdbms-3.2.9.jar
 
-더비-10.12.1.1.jar
+derby-10.12.1.1
 
-ehcache-3.3.1.jar
+ehcache-3.3.1
 
-아이젠베이스-속성-1.1.5.jar
+eigenbase-properties-1.1.5
 
-플랫 버퍼-1.2.0-3f79e055.jar
+flatbuffers-1.2.0 -3f79e055 jar
 
-제로니모 jcache_1.0_spec-1.0 알파-1.jar
+geronimo-jms jcache_1 0_spec-1.0-alpha-1
 
-gson-2.2.4.jar
+gson-2.2.4
 
-구아바-14.0.1.jar
+guava-14.0.1
 
-구이스-3.0.jar
+guice-3.0
 
-구이스 서틀릿-3.0.jar
+guice-servlet-3.0
 
-hadoop 주석-2.9.1.2.6.99.99.201-1240.jar
+hadoop-annotations-2.9.1.2.6.99.201 -1240
 
-hadoop-auth-2.9.1.2.6.99.99.201-1240.jar
+hadoop-auth-2.9.1.2.6.99.201 -1240
 
-hadoop-aws-2.9.1.2.6.99.99.201-1240.jar
+hadoop-aws-2.9.1.2.6.99.201 -1240
 
-hadoop-azure-2.9.1.2.6.99.99.201-1240.jar
+hadoop-azure-2.9.1.2.6.99.201 -1240
 
-hadoop-클라이언트-2.9.1.2.6.99.99.201-1240.jar
+hadoop-client-2.9.1.2.6.99.201 -1240
 
-hadoop-common-2.9.1.2.6.99.99.201-1240.jar
+hadoop-common-2.9.1.2.6.99.201 -1240
 
-hadoop-hdfs-클라이언트-2.9.1.2.6.99.201-1240.jar
+hadoop-hdfs-client-2.9.1.2.6.99.201 -1240
 
-hadoop-mapreduce-클라이언트-앱-2.9.1.1.2.6.99.201-1240.jar
+hadoop-mapreduce-client-app-2.9.1.2.6.99.201 -1240
 
-hadoop-mapreduce-client-common-2.9.1.2.6.99.201-1240.jar
+hadoop-mapreduce-client-common-2.9.1.2.6.99.201 -1240
 
-hadoop-mapreduce-클라이언트 코어-2.9.1.2.6.99.201-1240.jar
+hadoop-mapreduce-client-core-2.9.1.2.6.99.201 -1240
 
-hadoop-mapreduce-클라이언트-jobclient-2.9.1.2.6.99.201-1240.jar
+hadoop-mapreduce-client-jobclient-2.9.1.2.6.99.201 -1240
 
-hadoop-mapreduce-클라이언트-셔플-2.9.1.2.2.6.99.201-1240.jar
+hadoop-mapreduce-client-shuffle-2.9.1.2.6.99.201 -1240
 
-hadoop-오픈 스택-2.9.1.2.6.99.99.201-1240.jar
+hadoop-openstack-2.9.1.2.6.99.201 -1240
 
-hadoop-원사 api-2.9.1.2.6.99.201-1240.jar
+hadoop-yarn-api-2.9.1.2.6.99.201 -1240
 
-hadoop-원사 클라이언트-2.9.1.2.6.99.201-1240.jar
+hadoop-yarn-client-2.9.1.2.6.99.201 -1240
 
-hadoop-원사 공통-2.9.1.2.6.99.201-1240.jar
+hadoop-yarn-common-2.9.1.2.6.99.201 -1240
 
-hadoop-원사 레지스트리-2.9.1.1.2.6.99.201-1240.jar
+hadoop-yarn-registry-2.9.1.2.6.99.201 -1240
 
-hadoop-원사 서버 공통-2.9.1.2.2.6.99.201-1240.jar
+hadoop-yarn-server-common-2.9.1.2.6.99.201 -1240
 
-hadoop-원사-서버-웹 프록시-2.9.1.1.2.6.99.201-1240.jar
+hadoop-yarn-server-web-proxy-2.9.1.2.6.99.201 -1240
 
-히카리CP 자바7-2.4.12.jar
+HikariCP-java7-2.4.12
 
-하이브 비린-1.2.1.spark2.jar
+hive-beeline-1.2.1. spark2
 
-하이브 -cli-1.2.1.spark2.jar
+hive-cli-1.2.1. spark2
 
-하이브-exec-1.2.1.spark2.jar
+hive-exec-1.2.1. spark2
 
-하이브 jdbc-1.2.1.spark2.jar
+hive-jdbc-1.2.1. spark2
 
-하이브 메타 스토어-1.2.1.spark2.jar
+hive-metastore-1.2.1. spark2
 
-hk2-api-2.4.0-b34.jar
+hk2-api-2.4.0-b34. jar
 
-hk2-로케이터-2.4.0-b34.jar
+hk2-locator-2.4.0-b34. jar
 
-hk2-유틸리티-2.4.0-b34.jar
+hk2-utils-2.4.0-b34. jar
 
-hppc-0.7.2.jar
+hppc-0.7.2
 
-htrace-core4-4.1.0-인큐베이팅.jar
+htrace-core4-4.1.0-incubating
 
-httpclient-4.5.6.jar
+httpclient-4.5.6
 
-httpcore-4.4.10.jar
+httpcore-4.4.10
 
-아이비 2.4.0.jar
+ivy-2.4.0
 
-잭슨 주석-2.6.7.jar
+jackson-annotations-2.6.7
 
-잭슨 코어 -2.6.7.jar
+jackson-core-2.6.7
 
-잭슨 코어 - asl-1.9.13.jar
+jackson-core-asl-1.9.13
 
-잭슨 데이터 바인딩-2.6.7.1.jar
+jackson-databind-2.6.7.1
 
-잭슨 데이터 포맷 - XML-2.4.5.jar
+jackson-dataformat-xml-2.4.5
 
-잭슨 데이터 형식 - yaml-2.4.5.jar
+jackson-dataformat-yaml-2.4.5
 
-잭슨 데이터 타입 - 조다-2.4.5.jar
+jackson-datatype-joda-2.4.5
 
-잭슨 -jaxrs-1.9.13.jar
+jackson-jaxrs-1.9.13
 
-잭슨 - 잭슨 - 재서스 베이스 - 2.4.5.jar
+jackson-jaxrs-base-2.4.5
 
-잭슨 - 잭슨 - json - 제공 업체 - 2.4.5.jar
+jackson-jaxrs-json-provider-2.4.5
 
-잭슨 매퍼 - asl-1.9.13.jar
+jackson-mapper-asl-1.9.13
 
-잭슨 모듈 - jaxb 주석 - 2.6.7.jar
+jackson-module-jaxb-annotations-2.6.7
 
-잭슨 모듈 파라 나메 -2.7.9.jar
+jackson-module-paranamer-2.7.9
 
-잭슨 모듈 scala_2.11-2.6.7.1.jar
+jackson-모듈 scala_2 11-2.6.7.1
 
-잭슨 xc-1.9.13.jar
+jackson-xc-1.9.13
 
-자니노-3.0.9.jar
+janino-3.0.9
 
-자바와-0.3.2.jar
+JavaEWAH-0.3.2
 
-javassist-3.18.1-GA.jar
+javassist-3.18.1-GA
 
-javax.annotation-api-1.2.jar
+javax.sql. annotation-api-1.2
 
-자바x.inject-1.jar
+javax.sql. inject-1
 
-자바 엑스 주입 -2.4.0-b34.jar
+javax.sql. inject-2.4.0-b34.
 
-자바x.servlet-api-3.1.0.jar
+javax.sql. servlet-api-3.1.0
 
-javax.ws.rs-api-2.0.1.jar
+javax.ws.rs-2.0.1
 
-javolution-5.5.1.jar
+javolution-5.5.1
 
-jaxb-api-2.2.2.jar
+jaxb-api-
 
-jcip 주석-1.0-1.jar
+jcip-annotations-1.0 -1
 
-jcl 오버 slf4j-1.7.16.jar
+jcl-over-slf4j-1.7.16
 
-jdo-api-3.0.1.jar
+jdo-api-3.0.1
 
-저지 클라이언트-2.22.2.jar
+jersey-client-2.22.2
 
-저지 공통 2.22.2.jar
+jersey-common-2.22.2
 
-저지 컨테이너 서볼레-2.22.2.jar
+jersey-container-servlet-2.22.2
 
-저지 컨테이너 - 서벌릿 코어 - 2.22.2.jar
+jersey-container-servlet-core-2.22.2
 
-저지 구아바-2.22.2.jar
+jersey-guava-2.22.2
 
-저지 미디어 -jaxb-2.22.2.jar
+jersey-media-jaxb-2.22.2
 
-저지 미디어 멀티 파트 -2.1.jar
+jersey-media-multipart-2.1
 
-저지 서버-2.22.2.jar
+jersey-server-2.22.2
 
-부두-6.1.26.jar
+jetty-6.1.26
 
-부두 -sslengine-6.1.26.jar
+jetty-sslengine-6.1.26
 
-부두 유틸리티-6.1.26.jar
+jetty-util-6.1.26
 
-jline-2.14.6.jar
+jline-2.14.6
 
-조다 시간 - 2.9.3.jar
+joda-time-2.9.3
 
-조드 코어-3.5.2.jar
+jodd-core-3.5.2
 
-jpam-1.1.jar
+jpam-1.1
 
-json4s-ast_2.11-3.5.3.jar
+ast_2 json4s 11-3.5.3
 
-json4s-core_2.11-3.5.3.jar
+core_2 json4s 11-3.5.3
 
-json4s-jackson_2.11-3.5.3.jar
+jackson_2 json4s 11-3.5.3
 
-json4s-scalap_2.11-3.5.3.jar
+scalap_2 json4s 11-3.5.3
 
-json-스마트-2.3.jar
+json-smart-2.3
 
-jsp-api-2.1.jar
+jsp-api-2.1
 
-jsr305-1.3.9.jar
+jsr305-1.3.9
 
-jta-1.1.jar
+jta-1.1
 
-jtransforms-2.4.0.jar
+jtransforms-2.4.0
 
-jul-to-slf4j-1.7.16.jar
+jul-to-slf4j-1.7.16
 
-kryo-그늘-4.0.2.jar
+kryo-shaded-4.0.2
 
-leveldbjni-all-1.8.jar
+leveldbjni-all-1.8. jar
 
-libfb303-0.9.3.jar
+libfb303-0.9.3
 
-libthrift-0.9.3.jar
+libthrift-0.9.3
 
-log4j-1.2.17.jar
+log4j-1.2.17
 
-lz4-자바-1.4.0.jar
+lz4-java-1.4.0
 
-machinist_2.11-0.6.1.jar
+machinist_2 11-v0.6.1
 
-매크로 compat_2.11-1.1.1.jar
+매크로-compat_2 11-1.1.1
 
-메트릭 코어-3.1.5.jar
+metrics-core-3.1.5
 
-메트릭 - 흑연 -3.1.5.jar
+metrics-graphite-3.1.5
 
-메트릭-json-3.1.5.jar
+metrics-json-3.1.5
 
-메트릭 -jvm-3.1.5.jar
+metrics-jvm-3.1.5
 
-마이크로 소프트 스파크 -2.4.x-0.4.0.jar
+microsoft-spark-2.4. x-0.4.0
 
-mimepull-1.8.jar
+mimepull-1.8. jar
 
-minlog-1.3.0.jar
+minlog-1.3.0
 
-mssql-jdbc-6.2.1.jre7.jar
+mssql-jdbc-6.2.1. jre7
 
-netty-3.9.9.Final.jar
+netty-3.9.9
 
-netty-all-4.1.17.Final.jar
+netty-all-4.1.17
 
-님버스 호세 jwt-4.41.1.jar
+nimbus-jose-jwt-4.41.1
 
-2.5.1.jar
+objenesis-2.5.1
 
-okhttp-2.7.5.jar
+okhttp-2.7.5
 
-오키오-1.6.0.jar
+okio-1.6.0
 
-opencsv-2.3.jar
+opencsv-2.3
 
-오크 코어 -1.5.5-nohive.jar
+orc-core-1.5.5-nohive
 
-오크 맵감소-1.5.5-nohive.jar
+orc-mapreduce-1.5.5-nohive
 
-오크 심스 - 1.5.5.jar
+orc-shims-1.5.5
 
-오로-2.0.8.jar
+oro-2.0.8 이상이 필요
 
-osgi-자원 로케이터-1.0.1.jar
+osgi-resource-locator-1.0.1
 
-파라나메-2.8.jar
+paranamer-2.8
 
-마루 열-1.10.1.jar
+parquet-column-1.10.1
 
-마루 공통 - 1.10.1.jar
+parquet-common-1.10.1
 
-마루 인코딩-1.10.1.jar
+parquet-encoding-1.10.1
 
-마루 형식- 2.4.0.jar
+parquet-format-2.4.0
 
-마루 - 하두프 -1.10.1.jar
+parquet-hadoop-1.10.1
 
-마루 - 하두프 번들 - 1.6.0.jar
+parquet-hadoop-bundle-1.6.0
 
-마루 잭슨-1.10.1.jar
+parquet-jackson-1.10.1
 
-프로토부프 자바-2.5.0.jar
+protobuf-java-2.5.0
 
-py4j-0.10.7.jar
+py4j-0.10.7
 
-발열-4.13.jar
+pyrolite-4.13
 
-반사-0.9.10.jar
+reflections-0.9.10
 
-포효비트맵-0.7.45.jar
+RoaringBitmap-0.7.45
 
-록스bjni-6.0.1.jar
+rocksdbjni-6.0.1
 
-스칼라 컴파일러-2.11.12.jar
+scala-compiler-2.11.12
 
-스칼라 라이브러리-2.11.12.jar
+scala-library-2.11.12
 
-스칼라 파서 combinators_2.11-1.1.0.jar
+combinators_2 scala 11-1.1.0.
 
-스칼라 반사-2.11.12.jar
+scala-reflect-2.11.12
 
-스칼라-xml_2.11-1.0.5.jar
+xml_2 scala 11-1.0.5
 
-shapeless_2.11-2.3.2.jar
+shapeless_2 11-2.3.2
 
-심스-0.7.45.jar
+shims-0.7.45
 
-slf4j-api-1.7.16.jar
+slf4j-api-1.7.16
 
-slf4j-log4j12-1.7.16.jar
+slf4j-log4j12-1.7.16
 
-뱀약-1.12.jar
+snakeyaml-1.12
 
-스냅-0.2.jar
+snappy-0.2. jar
 
-스냅 자바-1.1.7.3.jar
+snappy-java-1.1.7.3
 
-스파크 catalyst_2.11-2.4.0.2.6.99.201-1240.jar
+spark-catalyst_2 11-2.4.0.2.6.99.201 -1240
 
-스파크 core_2.11-2.4.0.2.6.99.201-1240.jar
+spark-core_2 11-2.4.0.2.6.99.201 -1240
 
-스파크 graphx_2.11-2.4.0.2.6.99.201-1240.jar
+spark-graphx_2 11-2.4.0.2.6.99.201 -1240
 
-스파크 hive_2.11-2.4.0.2.6.99.201-1240.jar
+spark-hive_2 11-2.4.0.2.6.99.201 -1240
 
-스파크 하이브 thriftserver_2.11-2.4.0.2.2.6.99.201-1240.jar
+spark-hive-thriftserver_2 11-2.4.0.2.6.99.201 -1240
 
-스파크 kvstore_2.11-2.4.0.2.6.99.201-1240.jar
+spark-kvstore_2 11-2.4.0.2.6.99.201 -1240
 
-스파크 launcher_2.11-2.0.2.2.6.99.201-1240.jar
+spark-launcher_2 11-2.4.0.2.6.99.201 -1240
 
-스파크 mllib_2.11-2.4.0.2.6.99.201-1240.jar
+spark-mllib_2 11-2.4.0.2.6.99.201 -1240
 
-스파크-mllib-local_2.11-2.4.0.2.6.99.201-1240.jar
+spark-mllib-local_2 11-2.4.0.2.6.99.201 -1240
 
-스파크 멀티 테넌트 역사 -server_2.11-2.4.0.0.2.6.99.201-1240.jar
+spark-다중 테 넌 트-server_2.11-2.4.0.2.6.99.201 -1240
 
-스파크 네트워크 common_2.11-2.4.0.2.2.6.99.201-1240.jar
+11-2.4.0.2.6.99.201 -1240입니다. common_2
 
-스파크 네트워크 shuffle_2.11-2.4.0.2.2.6.99.201-1240.jar
+11-2.4.0.2.6.99.201 -1240입니다. shuffle_2
 
-스파크 repl_2.11-2.0.2.2.6.99.201-1240.jar
+spark-repl_2 11-2.4.0.2.6.99.201 -1240
 
-스파크 sketch_2.11-2.4.0.2.6.99.201-1240.jar
+spark-sketch_2 11-2.4.0.2.6.99.201 -1240
 
-스파크 sql_2.11-2.4.0.2.6.99.201-1240.jar
+spark-sql_2 11-2.4.0.2.6.99.201 -1240
 
-스파크 streaming_2.11-2.0.2.2.6.99.201-1240.jar
+spark-streaming_2 11-2.4.0.2.6.99.201 -1240
 
-스파크 tags_2.11-2.4.0.2.6.99.201-1240.jar
+spark-tags_2 11-2.4.0.2.6.99.201 -1240
 
-스파크 unsafe_2.11-2.4.0.2.6.99.201-1240.jar
+spark-unsafe_2 11-2.4.0.2.6.99.201 -1240
 
-스파크 yarn_2.11-2.4.0.2.6.99.201-1240.jar
+spark-yarn_2 11-2.4.0.2.6.99.201 -1240
 
-spire_2.11-0.13.0.jar
+spire_2 11-0.13.0
 
-첨탑 macros_2.11-0.13.0.jar
+macros_2 spire 11-0.13.0
 
-ST4-4.0.4.jar
+ST4-4.0.4
 
-stax2-api-3.1.4.jar
+stax2-api-3.1.4
 
-스탁 스api-1.0.1.jar
+stax-api-1.0.1
 
-스탁 스api-1.0-2.jar
+stax-api-1.0 -2
 
-스트림-2.7.0.jar
+stream-합니다
 
-문자열 템플릿-3.2.1.jar
+stringtemplate-3.2.1
 
-슈퍼 CSV-2.2.0.jar
+super-csv-2.2.0
 
-스웨거 주석-1.5.8.jar
+swagger-annotations-1.5.8
 
-스웨거 코어 -1.5.8.jar
+swagger-core-1.5.8
 
-스웨거 -jaxrs-1.5.8.jar
+swagger-jaxrs-1.5.8
 
-스웨거 저지2-jaxrs-1.5.8.jar
+swagger-jersey2-jaxrs-1.5.8
 
-스웨거 모델 - 1.5.8.jar
+swagger-models-1.5.8
 
-스웨거 스칼라 module_2.11-1.0.2.jar
+scala-module_2 11-1.0.2
 
-univocity-구문 분석-2.7.3.jar
+univocity-parsers-2.7.3
 
-유효성 검사-api-1.1.0.Final.jar
+validation-api-1.1.0
 
-와일드플라이-오픈슬-1.0.4.Final.jar
+wildfly-openssl-1.0.4
 
-우드톡스 코어-5.0.3.jar
+woodstox-core-5.0.3
 
-xbean-asm6-그늘진 4.8.jar
+xbean-asm6-shaded-4.8
 
-xmlenc-0.52.jar
+xmlenc-0.52
 
-xz-1.5.jar
+xz-1.5-jar
 
-사육사-3.4.11.2.6.99.201-1240.jar
+zookeeper-3.4.11.2.6.99.201 -1240
 
-zstd-jni-1.3.2-2.jar
+zstd-jni-1.3.2 -2
 
 ## <a name="python-libraries"></a>Python 라이브러리
-_license=1.1
+_license = = 1.1
 
-압셀 파이=0.8.1
+absl-py = = 0.8.1
 
-아달==1.2.2
+adal = = 1.2.2
 
-알라바스터==0.7.10
+alabaster = = 0.7.10
 
-알테어==3.2.0
+altair = = 3.2.0
 
-애플리케이션 인사이트==0.11.9
+applicationinsights = = 0.11.9
 
-asn1crypto=0.22.0
+asn1crypto = = 0.22.0
 
-asn1crypto=1.0.1
+asn1crypto = = 1.0.1
 
-어토르==0.8.0
+astor = = 0.8.0부터
 
-아스트로이드==1.4.9
+astroid = = 1.4.9
 
-요조 ==1.3.2
+astropy = = 1.3.2
 
-attrs==19.2.0
+attrs = = 19.2.0
 
-azure-공통==1.1.23
+azure-common = = 1.1.23
 
-azure-graphrbac=0.61.1
+azure-graphrbac = = 0.61.1
 
-azure-mgmt 권한 부여=0.60.0
+azure 관리-권한 부여 = = 0.60.0
 
-azure-mgmt-컨테이너 레지스트리==2.8.0
+azure-mgmt-microsoft.containerregistry = = 2.8.0
 
-azure-mgmt-키볼트==2.0.0
+azure-mgmt-keyvault = = 2.0.0
 
-azure-mgmt-리소스=5.1.0
+azure-mgmt-resource = = 5.1.0
 
-azure-mgmt 저장소==4.2.0
+azure-관리-저장소 = = 4.2.0
 
-azureml-automl-코어==1.0.65.1
+azureml-automl-core = = 1.0.65.1
 
-azureml 코어==1.0.65.1
+azureml-코어 = = 1.0.65.1
 
-azureml-데이터 준비==1.1.20
+azureml-dataprep = = 1.1.20
 
-azureml-데이터 준비-네이티브==13.1.0
+azureml-dataprep-native = = 13.1.0
 
-azureml 파이프라인==1.0.65
+azureml 파이프라인 = = 1.0.65
 
-azureml 파이프라인 코어==1.0.65
+azureml-파이프라인-코어 = = 1.0.65
 
-azureml 파이프라인 단계==1.0.65
+azureml-파이프라인-단계 = = 1.0.65
 
-azureml-sdk==1.0.65
+azureml-sdk = = 1.0.65
 
-azureml-원격 분석==1.0.65
+azureml-원격 분석 = = 1.0.65
 
-azureml 열차==1.0.65
+azureml-학습 = = 1.0.65
 
-azureml-기차-automl=1.0.65
+azureml-학습-automl = = 1.0.65
 
-azureml-기차 코어==1.0.65
+azureml-학습-코어 = = 1.0.65
 
-azureml-기차-restclients-하이퍼 드라이브==1.0.65
+azureml-restclients-hyperdrive = = 1.0.65
 
-바벨==2.4.0
+babel = = 2.4.0
 
-백포트.템파일=1.0
+backports. tempfile = = 1.0
 
-백포트.약어==1.0.post1
+backports. weakref = = 1.0. post1
 
-백포트=1.0
+backports = = 1.0
 
-아름다운 수프4==4.6.0
+beautifulsoup4 = = 4.6.0
 
-비트어레이==0.8.1
+bitarray = = 0.8.1
 
-블레이즈==0.10.1
+레이즈 = = 0.10.1
 
-표백제==1.5.0
+bleach = = 1.5.0
 
-보케==0.12.5
+bokeh = = 0.12.5
 
-보케==1.3.4
+bokeh = = 1.3.4
 
-보토==2.46.1
+boto = = 2.46.1
 
-보토==2.49.0
+boto = = 2.49.0
 
-보토3==1.9.245
+boto3 = = 1.9.245
 
-보토코어==1.12.245
+botocore = = 1.12.245
 
-병목 현상==1.2.1
+병목 상태 = = 1.2.1
 
-카이로==1.14.8
+카이로 = = 1.14.8
 
-인증==2019.9.11
+certifi = = 2019.9.11
 
-cffi==1.10.0
+cffi = = 1.10.0
 
-cffi==1.12.3
+cffi = = 1.12.3
 
-chardet=3.0.3
+chardet = = 3.0.3
 
-chardet=3.0.4
+chardet = = 3.0.4
 
-클릭==6.7
+= = 6.7를 클릭 합니다.
 
-클릭==7.0
+= = 7.0을 클릭 합니다.
 
-클라우드 피클==0.2.2
+cloudpickle = = 0.2.2
 
-클라우드 피클==1.2.2
+cloudpickle = = 1.2.2
 
-clyent==1.2.2
+clyent = = 1.2.2
 
-콜로라도==0.3.9
+colorama = = 0.3.9
 
-컨텍스트 lib2==0.5.5
+contextlib2 = = 0.5.5
 
-컨텍스트 lib2=0.6.0
+contextlib2 = = 0.6.0
 
-암호화==1.8.1
+암호화 = = 1.8.1
 
-암호화==2.7
+암호화 = = 2.7
 
-컬==7.52.1
+말아 7.52.1
 
-사이클러==0.10.0
+cycler = = 0.10.0
 
-사이클러==0.10.0
+cycler = = 0.10.0
 
-시톤==0.25.2
+cython = = 0.25.2
 
-사이톤==0.29.13
+Cython = = 0.29.13
 
-사이툴즈==0.8.2
+cytoolz = = 0.8.2
 
-dask=0.14.3
+6ask = = 0.14.3
 
-데이터 셰이프==0.5.4
+datashape = = 0.5.4
 
-dbus==1.10.10
+6bus = = 1.10.10
 
-데코레이터==4.0.11
+데코레이터 = = 4.0.11
 
-딜==0.3.1.1
+잘못 됨 = = 0.3.1.1
 
-분포==1.16.3
+distributed = = 1.16.3
 
-배포산만==1.4.0
+배포판 = = 1.4.0
 
-도커==4.1.0
+docker = = 4.1.0
 
-교약==0.13.1
+docutils = = 0.13.1
 
-교화==0.15.2
+docutils = = 0.15.2
 
-도트넷코어2=2.1.9
+dotnetcore2 = = 2.1.9
 
-진입점==0.2.2
+진입점 = = 0.2.2
 
-진입점==0.3
+진입점 = = 0.3
 
-et_xmlfile=1.0.1
+et_xmlfile = = 1.0.1
 
-외국인=2.1.0
+2.1.0 = = =
 
-패스트캐시=1.0.2
+fastcache = = 1.0.2
 
-화재==0.2.1
+fire = = 0.2.1
 
-플라스크==0.12.2
+flask = = 0.12.2
 
-플라스크 코르스=3.0.2
+flask-cors = = 3.0.2
 
-글꼴 ==2.12.1
+글꼴 구성 = = 2.12.1
 
-자유 유형==2.5.5
+freetype = = 2.5.5
 
-fsspec==0.5.2
+fsspec = = 0.5.2
 
-퓨즈피==3.0.1
+fusepy = = 3.0.1
 
-가스트==0.3.2
+gast = = 0.3.2
 
-젠심==3.8.1
+gensim = = 3.8.1
 
-get_terminal_size=1.0.0
+get_terminal_size = = 1.0.0
 
-gevent==1.2.1
+gevent = = 1.2.1
 
-글리브==2.50.2
+glib = = 2.50.2
 
-구글 파스타 ==0.1.7
+google-파스타 = = 0.1.7
 
-그린렛=0.4.12
+greenlet = = 0.4.12
 
-grpcio=1.24.1
+grpcio = = 1.24.1
 
-gst 플러그인-기본=1.8.0
+gst-플러그 인-base = = 1.8.0
 
-gstreamer=1.8.0
+gstreamer = = 1.8.0
 
-h5py==2.10.0
+h5py = = 2.10.0
 
-h5py=2.7.0
+h5py = = 합니다
 
-하프버즈==0.9.39
+harfbuzz = = 0.9.39
 
-hdf5==1.8.17
+hdf5 = = 1.8.17
 
-힙디치==1.0.0
+heapdict = = 1.0.0
 
-html5lib==0.999
+html5lib = = 0.999
 
-icu==54.1
+icu = = 54.1
 
-idna==2.5
+idna = = 2.5
 
-idna==2.8
+idna = = 2.8
 
-이미지 크기==0.7.1
+imagesize = = 0.7.1
 
-importlib 메타데이터==0.23
+importlib-metadata = = 0.23
 
-아이커넬=4.6.1
+ipykernel = = 4.6.1
 
-ipython_genutils=0.2.0
+ipython_genutils = = 0.2.0
 
-아이파이톤=5.3.0
+ipython = = 5.3.0
 
-ipywidgets==6.0.0
+ipywidgets = = 6.0.0
 
-아이소데이트=0.6.0
+isodate = = 0.6.0
 
-isort==4.2.5
+isort = = 4.2.5
 
-위험==0.24
+itsdangerous = = 0.24
 
-jbig==2.1
+jbig = = 2.1
 
-jdcal==1.3
+jdcal = = 1.3
 
-제다이==0.10.2
+jedi = = 0.10.2
 
-지프니==0.4.1
+jeepney = = 0.4.1
 
-진자2=2.10.3
+Jinja2 = = 2.10.3
 
-진자2=2.9.6
+jinja2 = = 2.9.6
 
-jmespath==0.9.4
+jmespath = = 0.9.4
 
-jpeg==9b
+jpeg = = 9b 했으면
 
-JsonForm=0.0.2
+JsonForm = = 0.0.2
 
-jsonpickle==1.2
+jsonpickle = = 1.2
 
-jsonschema==2.6.0
+jsonschema = = 2.6.0
 
-jsonschema==3.1.0
+jsonschema = = 3.1.0
 
-JsonSir=0.0.2
+JsonSir = = 0.0.2
 
-js-정규식==1.0.0
+js-regex = = 1.0.0
 
-jupyter_client=5.0.1
+jupyter_client = = 5.0.1 용
 
-jupyter_console=5.1.0
+jupyter_console = = 5.1.0
 
-jupyter_core=4.3.0
+jupyter_core = = 4.3.0
 
-주피터==1.0.0
+jupyter = = 1.0.0
 
-커라스2온스==1.5.2
+keras2onnx = = 1.5.2
 
-케라스 응용 프로그램==1.0.8
+Keras 응용 프로그램 = = 1.0.8
 
-케라스 전처리==1.1.0
+Keras 전처리 = = 1.1.0
 
-키위 솔버==1.1.0
+kiwisolver = = 1.1.0
 
-지연-개체 프록시==1.2.2
+지연 개체-프록시 = = 1.2.2
 
-libffi==3.2.1
+libffi = = 3.2.1
 
-libgcc==4.8.5
+4.8.5 gcc = = =
 
-리브포르트란=3.0.0
+libgfortran = = 3.0.0
 
-리비콘프==1.14
+1.14 아이콘 v = =
 
-libpng==1.6.27
+1.6.27 png = = =
 
-리브나트륨==1.0.10
+libsodium = = 1.0.10
 
-libtiff==4.0.6
+4.0.6 tiff = = =
 
-libtool==2.4.2
+도구 = = 2.4.2 sections
 
-libxcb==1.12
+libxcb = = 1.12
 
-libxml2=2.9.4
+libxml2 = = 2.9.4
 
-libxslt==1.1.29
+1.1.29 xslt = = =
 
-라이트gbm==2.2.3
+lightgbm = = 2.2.3
 
-llvmlite=0.18.0
+llvmlite = = 0.18.0
 
-llvmlite==0.29.0
+llvmlite = = 0.29.0
 
-로켓==0.2.0
+locket = = 0.2.0
 
-로켓==0.2.0
+locket = = 0.2.0
 
-lxml==3.7.3
+lxml = = 3.7.3
 
-마크다운==3.1.1
+Markdown = = 3.1.1
 
-마크업 세이프==0.23
+markupsafe = = 0.23
 
-마크업세이프=1.1.1
+MarkupSafe = = 1.1.1
 
-매트플롯립==2.0.2
+matplotlib = = 2.0.2
 
-매트플롯립==3.1.1
+matplotlib = = 3.1.1
 
-누락된 없음==0.4.2
+missingno = = 0.4.2
 
-오튜닝==0.7.4
+mistune = = 0.7.4
 
-mkl==2017.0.1
+mkl = = 2017.0.1
 
-mkl-서비스==1.1.2
+mkl-service = = 1.1.2
 
-더 많은 도구==7.2.0
+itertools = = 7.2.0
 
-mpmath==0.19
+mpmath = = 0.19
 
-msgpack ==0.6.2
+msgpack = = 0.6.2
 
-msgpack-파이썬 =0.4.8
+msgpack-python = = 0.4.8
 
-msrest==0.6.10
+msrest = = 0.6.10
 
-msrestazure==0.6.2
+msrestazure = = 0.6.2
 
-다중 디스패치=0.4.9
+multipledispatch = = 0.4.9
 
-네비게이터-업데이터=0.1.0
+탐색기-업데이트 프로그램 = = 0.1.0
 
-nbconvert==5.1.1
+nbconvert = = 5.1.1
 
-nbformat=4.3.0
+nbformat = = 4.3.0
 
-ndg-httpsclient==0.5.1
+ndg-httpsclient = = 0.5.1
 
-네트워크x==1.11
+networkx = = 1.11
 
-님버스ml=1.5.0
+nimbusml = = 1.5.0
 
-nltk==3.2.3
+nltk = = 3.2.3
 
-코=1.3.7
+코 = = 1.3.7
 
-노트북=5.0.0
+노트북 = = 5.0.0
 
-마비==0.33.0
+numba = = 0.33.0
 
-마비 ==0.45.1
+numba = = 0.45.1
 
-누멕스프르=2.6.2
+numexpr = = 2.6.2 critical
 
-numpy==1.12.1
+numpy = = 1.12.1
 
-numpy==1.16.2
+numpy = = 1.16.2
 
-numpydoc==0.6.0
+numpydoc = = 0.6.0
 
-오우스립==3.1.0
+oauthlib = = 3.1.0
 
-odo==0.5.0
+odo = = 0.5.0
 
-올레파일==0.44
+olefile = = 0.44
 
-온x==1.6.0
+onnx = = 1.6.0
 
-onnxconverter-공통==1.5.5
+onnxconverter-common = = 1.5.5
 
-온스ml툴==1.4.1
+onnxmltools = = 1.4.1
 
-온x런타임=0.4.0
+onnxruntime = = 0.4.0
 
-오픈피슬=2.4.7
+openpyxl = = 2.4.7
 
-연강==1.0.2l
+openssl = = 1.0.2 l
 
-포장==16.8
+패키징 = = 16.8
 
-포장==19.2
+패키징 = = 19.2
 
-팬더==0.20.1
+pandas = = 0.20.1
 
-팬더==0.23.4
+pandas = = 0.23.4
 
-팬독 필터==1.4.1
+1.4.1 docfilters = = =
 
-판고==1.40.3
+pango = = 1.40.3
 
-분할==0.3.8
+partd = = 0.3.8
 
-분할==1.0.0
+partd = = 1.0.0
 
-path.py=10.3.1
+경로. py = = 10.3.1
 
-경로 lib2==2.2.1
+pathlib2 = = 2.2.1
 
-경로 사양==0.6.0
+pathspec = = 0.6.0
 
-패시==0.4.1
+patsy = = 0.4.1
 
-패시==0.5.1
+patsy = = 0.5.1
 
-pcre=8.39
+pcre = = 8.39
 
-pep8=1.7.0
+pep8 = = 1.7.0
 
-pexpect==4.2.1
+pexpect = = 4.2.1
 
-피클쉐어=0.7.4
+pickleshare = = 0.7.4
 
-베개==4.1.1
+pillow = = 4.1.1
 
-베개=6.2.0
+Pillow = = 6.2.0
 
-핍=9.0.1
+pip = = 9.0.1
 
-핍=9.0.1
+pip = = 9.0.1
 
-픽스맨==0.34.0
+pixman = = 0.34.0
 
-플롯==4.1.1
+plotly = = 4.1.1
 
-ply==3.10
+시트 = = 3.10
 
-pmdarima==1.1.1
+pmdarima = = 1.1.1
 
-prompt_toolkit=1.0.14
+prompt_toolkit = = 1.0.14
 
-프로토부프==3.10.0
+protobuf = = 3.10.0
 
-psutil==5.2.2
+psutil = = 5.2.2
 
-ptyprocess==0.5.1
+ptyprocess = = 0.5.1
 
-py=1.4.33
+py = = 1.4.33
 
-pyasn1=0.4.7
+pyasn1 = = 0.4.7
 
-pycosat==0.6.2
+pycosat = = 0.6.2
 
-파이파서=2.17
+pycparser = = 2.17
 
-파이파서=2.19
+pycparser = = 2.19
 
-파이크립토크립티블=2.6.1
+pycrypto = = 2.6.1
 
-파이컬==7.43.0
+pycurl = = 7.43.0
 
-파이플레이크==1.5.0
+pyflakes = = 1.5.0
 
-파이갈=2.4.0
+pygal = = 2.4.0
 
-피그먼트==2.2.0
+pygments = = 2.2.0
 
-파이JWT=1.7.1
+PyJWT = = 1.7.1 for
 
-파일린트==1.6.4
+pylint = = 1.6.4
 
-pymssql==2.1.4
+pymssql = = 2.1.4
 
-피오bc==4.0.16
+pyodbc = = 4.0.16
 
-파이오슬=17.0.0
+pyopenssl = = 17.0.0
 
-파이오픈SSL==19.0.0
+pyOpenSSL = = 19.0.0
 
-파이파스싱==2.1.4
+pyparsing = = 2.1.4
 
-파이파스싱==2.4.2
+pyparsing = = 2.4.2 sections
 
-pyqt==5.6.0
+pyqt = = 5.6.0
 
-pyrsistent==0.15.4
+pyrsistent = = 0.15.4
 
-파이테이블==3.3.0
+pytables = = 3.3.0
 
-pytest=3.0.7
+pytest = = 3.0.7 이상을
 
-파이썬 =3.6.1
+python = = 3.6.1
 
-파이썬 날짜 수틸 ==2.6.0
+python-dateutil = = 2.6.0
 
-파이썬 날짜 수틸 ==2.8.0
+python-dateutil = = 2.8.0
 
-파이썬 이지콘피그=0.1.7
+Python-EasyConfig = = 0.1.7
 
-pytz==2017.2
+pytz = = 2017.2
 
-pytz==2019.3
+pytz = = 2019.3
 
-파이웨이브렛==0.5.2
+pywavelets = = 0.5.2
 
-pyyaml==3.12
+pyyaml = = 3.12
 
-파이야ML=5.1.2
+PyYAML = = 5.1.2
 
-pyzmq==16.0.2
+pyzmq = = 16.0.2
 
-qt==5.6.2
+qt = = 5.6.2
 
-qtawesome==0.4.4
+qtawesome = = 0.4.4
 
-qtconsole==4.3.0
+qtconsole = = 4.3.0
 
-qtpy==1.2.1
+qtpy = = 1.2.1
 
-읽기 줄==6.2
+readline = = 6.2
 
-요청==2.14.2
+요청 = = 2.14.2
 
-요청==2.22.0
+요청 = = 2.22.0
 
-요청-authlib==1.2.0
+요청-oauthlib = = 1.2.0
 
-리소스==0.2.1
+Resource = = 0.2.1
 
-다시 시도==1.3.3
+다시 시도 중 = = 1.3.3
 
-로프=0.9.4
+rope = = 0.9.4
 
-ruamel.yaml=0.15.89
+0.15.89 = = =
 
-ruamel_yaml=0.11.14
+ruamel_yaml = = 0.11.14
 
-s3전송=0.2.1
+s3transfer = = 0.2.1
 
-사이킷 이미지==0.13.0
+scikit = = 0.13.0
 
-사이킷 학습==0.18.1
+scikit-배우기 = = 0.18.1
 
-사이킷 학습==0.20.3
+scikit-배우기 = = 0.20.3
 
-사이피==0.19.0
+scipy = = 0.19.0
 
-scipy=1.1.0
+scipy = = 1.1.0
 
-바닷아==0.7.1
+seaborn = = 0.7.1
 
-바닷아본=0.9.0
+seaborn = = 0.9.0
 
-시크릿 스토리지=3.1.1
+SecretStorage = = 3.1.1
 
-설치 도구==27.2.0
+setuptools = = 27.2.0
 
-설치 도구==41.4.0
+setuptools = = 41.4.0
 
-심플제네릭==0.8.1
+simplegeneric = = 0.8.1
 
-단일 디스패치=3.4.0.3
+singledispatch = = 3.4.0.3
 
-한 모금==4.18
+sip = = 4.18
 
-6==1.10.0
+6 = = 1.10.0
 
-6=1.12.0
+6 = = 1.12.0
 
-skl2onnx==1.4.9
+skl2onnx = = 1.4.9
 
-sklearn-팬더==1.7.0
+pandas = = 1.7.0
 
-스마트 오픈==1.8.4
+스마트 열림 = = 1.8.4
 
-스노우볼스템머==1.2.1
+snowballstemmer = = 1.2.1
 
-정렬된 컬렉션==0.5.3
+sortedcollections = = 0.5.3
 
-정렬된 컨테이너==1.5.7
+sortedcontainers = = 1.5.7
 
-정렬된 컨테이너==2.1.0
+sortedcontainers = = 2.1.0
 
-스핑크스 ==1.5.6
+sphinx = = 1.5.6
 
-스파이더=3.1.4
+spyder = = 3.1.4
 
-sqlalchemy==1.1.9
+sqlalchemy = = 1.1.9
 
-sqlite==3.13.0
+sqlite = = 3.13.0
 
-통계 모델==0.10.1
+statsmodels = = 0.10.1
 
-통계 모델==0.8.0
+statsmodels = = 0.8.0부터
 
-심칭==1.0
+sympy = = 1.0
 
-tblib==1.3.2
+tblib = = 1.3.2
 
-tblib==1.4.0
+tblib = = 1.4.0
 
-텐서보드==1.14.0
+tensorboard = = 1.14.0
 
-텐서플로우==1.14.0
+tensorflow = = 1.14.0
 
-텐서플로우 추정기==1.14.0
+tensorflow-평가기 = = 1.14.0
 
-용어색상==1.1.0
+termcolor = = 1.1.0
 
-테르미나도=0.6
+terminado = = 0.6
 
-테스트 경로==0.3
+testpath = = 0.3
 
-tk==8.5.18
+tk = = 8.5.18
 
-도구==0.10.0
+toolz = = 0.10.0
 
-도구==0.8.2
+toolz = = 0.8.2
 
-토치==1.2.0
+torch = = 1.2.0
 
-토네이도=4.5.1
+토네이도 = = 4.5.1
 
-토네이도=6.0.3
+토네이도 = = 6.0.3
 
-특성자==4.3.2
+traitlets = = 4.3.2
 
-타이핑 확장==3.7.4
+입력-확장명 = = 3.7.4
 
-유니코덱스v==0.14.1
+unicodecsv = = 0.14.1
 
-unixodbc==2.3.4
+= 2.3.4
 
-urllib3==1.25.6
+urllib3 = = 1.25.6
 
-wcwidth=0.1.7
+wcwidth = = 0.1.7
 
-웹소켓-클라이언트==0.56.0
+websocket-client = = 0.56.0
 
-베르크제우그==0.12.2
+werkzeug = = 0.12.2
 
-베르크제우그=0.16.0
+Werkzeug = = 0.16.0
 
-휠=0.29.0
+wheel = = 0.29.0
 
-휠==0.30.0
+wheel = = 0.30.0
 
-위젯엔확장=2.0.0
+widgetsnbextension = = 2.0.0
 
-랩 ==1.10.10
+wrapt = = 1.10.10
 
-랩 ==1.11.2
+wrapt = = 1.11.2
 
-xlrd==1.0.0
+xlrd = = 1.0.0
 
-xlsxwriter=0.9.6
+xlsxwriter = = 0.9.6
 
-xlwt=1.2.0
+xlwt = = 1.2.0
 
-xz==5.2.2
+xz = = 5.2.2
 
-yaml==0.1.6
+yaml = = 0.1.6
 
-0mq==4.1.5
+zeromq = = 4.1.5
 
-zict==0.1.2
+zict = = 0.1.2
 
-지프==0.6.0
+zipp = = 0.6.0
 
-zlib==1.2.8
+zlib = = 1.2.8
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [아파치 스파크 문서](https://spark.apache.org/docs/2.4.4/)
-- [아파치 스파크 컨셉](apache-spark-concepts.md)
+- [Apache Spark 설명서](https://spark.apache.org/docs/2.4.4/)
+- [Apache Spark 개념](apache-spark-concepts.md)
