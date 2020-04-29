@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79275179"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Azure에서 관리 솔루션 파일 만들기(Preview)
@@ -61,7 +61,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 
 다음 표에서는 매개 변수의 특성을 설명합니다.
 
-| 특성 | 설명 |
+| 특성 | Description |
 |:--- |:--- |
 | type |매개 변수의 데이터 형식입니다. 사용자에게 표시되는 입력 컨트롤은 데이터 형식에 따라 다릅니다.<br><br>bool - 드롭다운 상자<br>string - 텍스트 상자<br>int - 텍스트 상자<br>securestring - 암호 필드<br> |
 | category |매개 변수의 선택적 범주입니다.  같은 범주의 매개 변수는 함께 그룹화됩니다. |
@@ -76,14 +76,14 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 >
 >
 
-| 매개 변수 | Type | Description |
+| 매개 변수 | Type | 설명 |
 |:--- |:--- |:--- |
-| accountName |문자열 |Azure Automation 계정 이름입니다. |
-| pricingTier |문자열 |Log Analytics 작업 영역 및 Azure Automation 계정의 가격 책정 계층입니다. |
-| regionId |문자열 |Azure Automation 계정의 지역입니다. |
-| solutionName |문자열 |솔루션의 이름입니다.  빠른 시작 템플릿을 통해 솔루션을 배포하는 경우 사용자에게 지정하도록 요구하는 대신 문자열을 정의할 수 있도록 solutionName을 매개 변수로 정의해야 합니다. |
-| workspaceName |문자열 |Log Analytics 작업 영역 이름입니다. |
-| workspaceRegionId |문자열 |Log Analytics 작업 영역의 지역입니다. |
+| accountName |string |Azure Automation 계정 이름입니다. |
+| pricingTier |string |Log Analytics 작업 영역 및 Azure Automation 계정의 가격 책정 계층입니다. |
+| regionId |string |Azure Automation 계정의 지역입니다. |
+| solutionName |string |솔루션의 이름입니다.  빠른 시작 템플릿을 통해 솔루션을 배포하는 경우 사용자에게 지정하도록 요구하는 대신 문자열을 정의할 수 있도록 solutionName을 매개 변수로 정의해야 합니다. |
+| workspaceName |string |Log Analytics 작업 영역 이름입니다. |
+| workspaceRegionId |string |Log Analytics 작업 영역의 지역입니다. |
 
 
 다음은 솔루션 파일에 복사하여 붙여넣을 수 있는 표준 매개 변수 구조입니다.  
@@ -122,7 +122,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
     }
 
 
-**parameters('매개 변수 이름')** 구문을 사용하여 솔루션의 다른 요소에 있는 매개 변수 값을 참조할 수 있습니다.  예를 들어 작업 영역 이름에 액세스하려면 **매개 변수('workspaceName')를** 사용합니다.
+**parameters('매개 변수 이름')** 구문을 사용하여 솔루션의 다른 요소에 있는 매개 변수 값을 참조할 수 있습니다.  예를 들어 작업 영역 이름에 액세스 하려면 **매개 변수 (' workspaceName ')** 를 사용 합니다.
 
 ## <a name="variables"></a>변수
 [Variables](../../azure-resource-manager/templates/template-syntax.md#variables)는 관리 솔루션의 나머지 부분에 사용할 값입니다.  이러한 값은 솔루션을 설치하는 사용자에게 노출되지 않습니다.  작성자가 솔루션을 만드는 동안 여러 번 사용할지도 모르는 값을 관리할 수 있는 단일 위치를 제공하는 것이 이러한 값의 목적입니다. 솔루션 관련 값을 **resources** 요소로 하드 코드하지 않고 해당 값을 변수에 포함해야 합니다.  이렇게 하면 코드를 더 쉽게 읽을 수 있고 이후 버전에서 이들 값을 쉽게 변경할 수 있습니다.
@@ -137,7 +137,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
         "AutomationApiVersion": "2015-10-31"
     },
 
-**variables('변수 이름')** 구문을 사용하여 솔루션 전체의 변수 값을 참조할 수 있습니다.  예를 들어 SolutionName 변수에 액세스하려면 **변수('SolutionName')를**사용합니다.
+**variables('변수 이름')** 구문을 사용하여 솔루션 전체의 변수 값을 참조할 수 있습니다.  예를 들어 SolutionName 변수에 액세스 하려면 **변수 (' SolutionName ')** 를 사용 합니다.
 
 여러 값 집합이 있는 복잡한 변수를 정의할 수도 있습니다.  이러한 변수는 서로 다른 형식의 리소스에 대해 여러 속성을 정의하는 관리 솔루션에서 특히 유용합니다.  예를 들어 위에 표시된 솔루션 변수를 다음으로 재구성할 수 있습니다.
 
@@ -204,9 +204,9 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 ### <a name="properties"></a>속성
 솔루션 리소스는 테이블의 속성을 가집니다.  여기에는 솔루션 설치 후 리소스 관리 방식을 정의하는 솔루션에서 참조 및 포함하는 리소스가 포함됩니다.  솔루션의 각 리소스는 **referencedResources** 또는 **containedResources** 속성에 나열되어야 합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
-| workspaceResourceId |* \<리소스 그룹 ID>/공급자/Microsoft.운영 통찰력/작업 영역/작업\<영역 이름\>* 형식의 로그 분석 작업 영역의 ID입니다. |
+| workspaceResourceId |* \<리소스 그룹 id>/providers/microsoft.operationalinsights/workspaces/\<작업 영역 이름\>* 형식으로 Log Analytics 작업 영역의 id입니다. |
 | referencedResources |솔루션을 제거해도 함께 제거되면 안 되는 솔루션의 리소스 목록입니다. |
 | containedResources |솔루션을 제거하면 함께 제거되어야 하는 솔루션의 리소스 목록입니다. |
 
@@ -215,12 +215,12 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 ### <a name="plan"></a>계획
 솔루션 리소스의 **plan** 엔터티는 테이블의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | name |솔루션의 이름입니다. |
 | 버전 |솔루션 버전은 작성자가 결정합니다. |
 | product |솔루션을 식별하는 고유 문자열입니다. |
-| publisher |솔루션의 게시자입니다. |
+| 게시자 |솔루션의 게시자입니다. |
 
 
 

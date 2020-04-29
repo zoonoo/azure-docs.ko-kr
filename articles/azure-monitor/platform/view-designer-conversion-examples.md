@@ -1,5 +1,5 @@
 ---
-title: 통합 문서 변환 예제에 Azure 모니터 보기 디자이너
+title: Azure Monitor 뷰 디자이너에서 통합 문서 변환 예제
 description: ''
 author: austonli
 ms.author: aul
@@ -7,19 +7,19 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: b50d8cfa4731c487997e2bf431a9c71eff08f5d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79274165"
 ---
-# <a name="view-designer-conversion-examples"></a>디자이너 변환 예제 보기
+# <a name="view-designer-conversion-examples"></a>뷰 디자이너 변환 예제
 
-뷰 디자이너 탭 통합 문서를 복제하려면 도구 모음의 </> 기호로 표시된 고급 편집기에 다음 코드를 복사하여 붙여넣습니다.
+뷰 디자이너 탭 통합 문서를 복제 하려면 다음 코드를 복사 하 여 고급 편집기에 붙여 넣습니다 .이 편집기는 도구 모음의 </> 기호로 표시 됩니다.
 
 ![고급 편집기 도구 모음](media/view-designer-conversion-examples/toolbar.png)
 
-사용자는 액세스 가능한 리소스에 대한 쿼리 설정 및 구독을 업데이트해야 할 수 있습니다.
+사용자는 자신의 액세스 가능한 리소스에 대 한 쿼리 설정 및 구독을 업데이트 해야 할 수 있습니다.
 
 ## <a name="vertical"></a>Vertical
 
