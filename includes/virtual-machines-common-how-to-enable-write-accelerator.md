@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: virtual-machines
 author: msraiye
@@ -9,10 +9,10 @@ ms.date: 11/27/2019
 ms.author: raiye
 ms.custom: include file
 ms.openlocfilehash: 456d550659c04b2272c048fcd64fe73b1a11522a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74566314"
 ---
 Write Accelerator는 Azure Managed Disks를 단독으로 갖춘 Premium Storage의 M 시리즈 VM(가상 머신)용 디스크 기능입니다. 이름에서 알 수 있듯이, 이 기능은 Azure Premium Storage에 대한 쓰기의 I/O 대기 시간을 향상시키기 위한 것입니다. Write Accelerator는 최신 데이터베이스를 위해 성능이 매우 뛰어난 방식으로 디스크에서 로그 파일 업데이트를 유지해야 하는 경우에 이상적입니다.
@@ -60,7 +60,7 @@ IOPS 제한은 VM당 및 디스크가 *아닌* VM을 기준으로 합니다. 모
 
 다음 몇 가지 섹션에서는 Azure Premium Storage VHD에 Write Accelerator를 사용하도록 설정하는 방법에 대해 설명합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
 이 시점에서 Write Accelerator 사용에 적용되는 필수 조건은 다음과 같습니다.
 
@@ -74,14 +74,14 @@ Write Accelerator에서 지원하는 디스크를 사용하도록 설정하거�
 
 새 스위치 매개 변수인 **WriteAccelerator**가 추가된 cmdlet은 다음과 같습니다.
 
-- [세트 아즈모스 디스크](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-6.0.0)
+- [AzVMOsDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-6.0.0)
 - [추가 AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVMDataDisk?view=azurermps-6.0.0)
 - [집합 AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVMDataDisk?view=azurermps-6.0.0)
 - [추가 AzVmssDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVmssDataDisk?view=azurermps-6.0.0)
 
 매개 변수를 제공하지 않을 경우 해당 속성을 false로 설정하고 Write Accelerator에서 지원하지 않는 디스크를 배포합니다.
 
-새 스위치 매개 변수인 **-OsDiskWriteAccelerator가** 다음 cmdlet에 추가되었습니다.
+새 스위치 매개 변수인 **-osdiskwriteaccelerator** 가 다음 cmdlet에 추가 되었습니다.
 
 - [집합 AzVmssStorageProfile](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVmssStorageProfile?view=azurermps-6.0.0)
 
@@ -171,7 +171,7 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 Write Accelerator가 설정된 디스크를 연결하려면 [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach)를 사용합니다. 사용자 고유의 항목으로 바꾸는 경우, 다음 예제를 사용할 수 있습니다. `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
 
-액셀러레이터 쓰기를 사용하지 않도록 설정하려면 [az vm 업데이트를](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-update)사용하여 속성을 false로 설정합니다.`az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
+쓰기 가속기를 사용 하지 않도록 설정 하려면 [az vm update](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-update)를 사용 하 고 속성을 false로 설정 합니다.`az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
 ## <a name="enabling-write-accelerator-using-rest-apis"></a>REST API를 사용하여 Write Accelerator를 사용하도록 설정
 

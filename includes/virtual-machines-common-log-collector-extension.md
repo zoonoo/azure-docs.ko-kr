@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74085262"
 ---
 Microsoft Azure 클라우드 서비스 관련 문제를 진단하려면 문제가 발생할 때 가상 머신에서 서비스의 로그 파일을 수집해야 합니다. 필요에 따라 AzureLogCollector 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure Storage 계정으로 보낼 수 있습니다.
 
 > [!NOTE]
-> 기록된 대부분의 정보에 대한 설명은https://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/
+> 기록 된 대부분의 정보에 대 한 설명은 다음에서 찾을 수 있습니다.https://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/
 > 
 > 
 
 수집할 파일의 유형에 따라 달라지는 두 가지 모드의 컬렉션이 있습니다.
 
-* **Azure 게스트 에이전트로그만 (GA)**. 이 컬렉션 모드는 Azure 게스트 에이전트 및 기타 Azure 구성 요소와 관련된 모든 로그를 포함합니다.
+* **Azure 게스트 에이전트 로그만 (GA)**. 이 컬렉션 모드는 Azure 게스트 에이전트 및 기타 Azure 구성 요소와 관련된 모든 로그를 포함합니다.
 * **모든 로그 (전체)**. 이 컬렉션 모드는 GA 모드의 모든 파일과 다음 정보를 수집합니다.
   
   * 시스템 및 애플리케이션 이벤트 로그
@@ -36,12 +36,12 @@ Microsoft Azure 클라우드 서비스 관련 문제를 진단하려면 문제�
 * **SearchPattern**: 수집할 파일의 이름 패턴입니다. 기본값은 “\*”입니다.
 * **재귀**: 수집되는 파일이 지정된 위치에 재귀적으로 배치됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 * 생성된 zip 파일을 저장하려면 확장에 대한 스토리지 계정이 있어야 합니다.
-* Azure PowerShell. 설치 지침은 [Azure PowerShell 설치]를](/powershell/azure/install-az-ps)참조하십시오.
+* Azure PowerShell. 설치 지침은 install [Azure PowerShell](/powershell/azure/install-az-ps)]를 참조 하세요.
 
 ## <a name="add-the-extension"></a>확장 추가
 [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlet 또는 [서비스 관리 REST API](https://msdn.microsoft.com/library/ee460799.aspx)를 사용하여 AzureLogCollector 확장을 추가할 수 있습니다.
@@ -177,14 +177,14 @@ param (
 )
 ```
 
-* **서비스 이름**: 클라우드 서비스 이름입니다.
+* **ServiceName**: 클라우드 서비스 이름입니다.
 * **역할**: "WebRole1" 또는 "WorkerRole1"과 같은 역할 목록입니다.
 * **인스턴스**: 쉼표로 구분된 역할 인스턴스의 이름 목록입니다. 모든 역할 인스턴스에 대해 와일드카드 문자열(“*”)을 사용합니다.
 * **슬롯**: 슬롯 이름입니다. “프로덕션” 또는 “스테이징”입니다.
-* **모드**: 수집 모드. "Full" 또는 "GA"입니다.
-* **StorageAccountName**: 수집된 데이터를 저장하기 위한 Azure 저장소 계정의 이름입니다.
-* **StorageAccountKey**: Azure 저장소 계정 키의 이름입니다.
-* **추가데이터위치목록**: 다음 구조의 목록:
+* **모드**: 컬렉션 모드입니다. "Full" 또는 "GA"입니다.
+* **Storageaccountname**: 수집 된 데이터를 저장 하기 위한 Azure 저장소 계정의 이름입니다.
+* **StorageAccountKey**: Azure storage 계정 키의 이름입니다.
+* **AdditionalDataLocationList**: 다음 구조의 목록입니다.
 
   ```powershell
   {
@@ -259,12 +259,12 @@ param (
 )
 ```
 
-* **서비스 이름**: 클라우드 서비스 이름입니다.
+* **ServiceName**: 클라우드 서비스 이름입니다.
 * **VMName**: VM의 이름입니다.
-* **모드**: 수집 모드. "Full" 또는 "GA"입니다.
-* **StorageAccountName**: 수집된 데이터를 저장하기 위한 Azure 저장소 계정의 이름입니다.
-* **StorageAccountKey**: Azure 저장소 계정 키의 이름입니다.
-* **추가데이터위치목록**: 다음 구조의 목록:
+* **모드**: 컬렉션 모드입니다. "Full" 또는 "GA"입니다.
+* **Storageaccountname**: 수집 된 데이터를 저장 하기 위한 Azure 저장소 계정의 이름입니다.
+* **StorageAccountKey**: Azure storage 계정 키의 이름입니다.
+* **AdditionalDataLocationList**: 다음 구조의 목록입니다.
 
   ```
   {
