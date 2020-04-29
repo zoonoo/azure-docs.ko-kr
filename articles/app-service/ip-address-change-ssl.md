@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: dcfe11bcab25f6267a557de5faf7befab467bc29
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535726"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>SSL IP 주소 변경 준비하는 방법
@@ -25,7 +25,7 @@ Azure App Service 앱의 SSL IP 주소가 변경된다는 알림을 받은 경�
 
 4.  **설정** 헤더 아래의 왼쪽 탐색에서 **SSL 설정**을 클릭합니다.
 
-1. TLS/SSL 바인딩 섹션에서 호스트 이름 레코드를 선택합니다. 열린 편집기의 **SSL 형식** 드롭 다운 메뉴에서 **SNI SSL**를 선택하고 **바인딩 추가**를 클릭합니다. 작업 성공 메시지가 표시되는 경우 기존 IP 주소가 릴리스되었습니다.
+1. TLS/SSL 바인딩 섹션에서 호스트 이름 레코드를 선택 합니다. 열린 편집기의 **SSL 형식** 드롭 다운 메뉴에서 **SNI SSL**를 선택하고 **바인딩 추가**를 클릭합니다. 작업 성공 메시지가 표시되는 경우 기존 IP 주소가 릴리스되었습니다.
 
 6.  **SSL 바인딩** 섹션에서 인증서를 사용하여 동일한 호스트 이름 레코드를 다시 선택합니다. 이번에는 열린 편집기의 **SSL 형식** 드롭 다운 메뉴에서 **IP 기반 SSL**를 선택하고 **바인딩 추가**를 클릭합니다. 작업 성공 메시지가 표시되는 경우 새 IP 주소를 획득했습니다.
 

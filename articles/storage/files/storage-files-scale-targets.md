@@ -8,10 +8,10 @@ ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536445"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
@@ -33,25 +33,25 @@ Azure 파일 공유에 대한 부모 리소스는 Azure Storage 계정입니다.
 
 ## <a name="azure-files-scale-targets"></a>Azure Files 크기 조정 목표
 
-Azure 파일에 대해 고려해야 할 세 가지 제한 범주는 저장소 계정, 공유 및 파일입니다.
+저장소 계정, 공유 및 파일 Azure Files에 대해 고려할 세 가지 제한 범주가 있습니다.
 
-예를 들어 프리미엄 파일 공유를 사용하면 단일 공유로 100,000 IOPS를 달성할 수 있으며 단일 파일은 최대 5,000 IOPS까지 확장할 수 있습니다. 따라서 한 공유에 세 개의 파일이 있는 경우 해당 공유에서 얻을 수 있는 최대 IOPS는 15,000입니다.
+예를 들어 프리미엄 파일 공유를 사용 하는 경우 단일 공유에서 10만 IOPS를 달성할 수 있으며 단일 파일이 5000 IOPS까지 확장 될 수 있습니다. 따라서 한 공유에 세 개의 파일이 있는 경우 해당 공유에서 얻을 수 있는 최대 IOPS는 15000입니다.
 
-### <a name="standard-storage-account-limits"></a>표준 스토리지 계정 한도
+### <a name="standard-storage-account-limits"></a>표준 저장소 계정 제한
 
-이러한 제한에 대한 [Azure 저장소 계정 확장 대상](#azure-storage-account-scale-targets) 섹션을 참조하십시오.
+이러한 제한에 대해서는 [Azure storage 계정 크기 목표](#azure-storage-account-scale-targets) 섹션을 참조 하세요.
 
-### <a name="premium-filestorage-account-limits"></a>프리미엄 파일스토리지 계정 한도
+### <a name="premium-filestorage-account-limits"></a>프리미엄 FileStorage 계정 제한
 
 [!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
-> 저장소 계정 한도는 모든 공유에 적용됩니다. FileStorage 계정당 공유가 하나만 있는 경우에만 FileStorage 계정의 최대 크기 조정을 달성할 수 있습니다.
+> 저장소 계정 제한은 모든 공유에 적용 됩니다. 최대 FileStorage 계정에 대 한 최대 크기 조정은 FileStorage 계정 당 하나의 공유만 있는 경우에만 달성할 수 있습니다.
 
-### <a name="file-share-and-file-scale-targets"></a>파일 공유 및 파일 배율 대상
+### <a name="file-share-and-file-scale-targets"></a>파일 공유 및 파일 크기 조정 대상
 
 > [!NOTE]
-> 5 TiB보다 큰 표준 파일 공유에는 특정 제한 사항이 있습니다. 더 큰 파일 공유 크기를 활성화하기 위한 제한 사항 및 지침 목록은 계획 가이드의 표준 파일 공유 섹션에서 [더 큰 파일 공유 를 사용하도록 설정합니다.](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib)
+> 5 보다 큰 표준 파일 공유에는 특정 제한 사항이 TiB. 더 큰 파일 공유 크기를 사용 하도록 설정 하는 제한 사항 목록과 지침은 계획 가이드의 [표준 파일 공유에서 더 큰 파일 공유 사용](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) 섹션을 참조 하세요.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -86,8 +86,8 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 |-|-|
 | 개체 수 | 2500만 개 개체 |
 | 데이터 세트 크기| ~ 4.7 TiB |
-| 평균 파일 크기 | ~ 200 KiB (가장 큰 파일 : 100 GiB) |
-| 처리량 업로드 | 동기화 그룹당 초당 20개의 개체 |
+| 평균 파일 크기 | ~ 200 KiB (가장 큰 파일: 100 GiB) |
+| 처리량 업로드 | 동기화 그룹당 초당 20 개의 개체 |
 | 네임스페이스 다운로드 처리량* | 초당 개체 400개 |
 
 *새 서버 엔드포인트를 만들 때 Azure 파일 동기화 에이전트는 파일 콘텐츠를 다운로드하지 않습니다. 먼저 전체 네임스페이스를 동기화한 다음, 백그라운드 회수를 트리거하여 전체 파일을 다운로드하거나 클라우드 계층화를 사용하는 경우 서버 엔드포인트에서 설정된 클라우드 계층화 정책에 파일을 다운로드합니다.
@@ -97,7 +97,7 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 | 동기화된 개체 수| 125000개 개체(~1% 변동) |
 | 데이터 세트 크기| 50GiB |
 | 평균 파일 크기 | ~500KiB |
-| 처리량 업로드 | 동기화 그룹당 초당 20개의 개체 |
+| 처리량 업로드 | 동기화 그룹당 초당 20 개의 개체 |
 | 전체 다운로드 처리량* | 초당 개체 60개 |
 
 *클라우드 계층화를 사용하면 일부 파일 데이터만을 다운로드할 때 성능이 더 개선될 수도 있습니다. Azure 파일 동기화는 엔드포인트 중 하나에서 캐시된 파일의 데이터가 변경될 때에만 해당 데이터를 다운로드합니다. 계층되거나 새로 생성된 파일의 경우 에이전트는 파일 데이터를 다운로드하지 않습니다. 대신 모든 서버 엔드포인트에 네임스페이스만을 동기화합니다. 에이전트는 사용자가 액세스할 때 계층화된 파일의 부분 다운로드도 지원합니다. 

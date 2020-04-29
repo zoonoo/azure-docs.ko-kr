@@ -7,15 +7,15 @@ ms.topic: reference
 ms.date: 11/1/2019
 ms.author: brendm
 ms.openlocfilehash: 36e9b272bb4648853829364b22881ab8bec1ff70
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733050"
 ---
 # <a name="azure-spring-cloud-developer-resources"></a>Azure 스프링 클라우드 개발자 리소스
 
-개발자는 다음과 같은 Azure Spring 클라우드 리소스를 유용할 수 있습니다.
+개발자는 다음과 같은 Azure 스프링 클라우드 리소스를 유용 하 게 사용할 수 있습니다.
 
 * [Azure 로드맵](https://azure.microsoft.com/updates)
 * [질문과 대답](spring-cloud-faq.md)

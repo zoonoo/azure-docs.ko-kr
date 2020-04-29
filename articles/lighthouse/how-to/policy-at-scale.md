@@ -4,10 +4,10 @@ description: Azure 위임 리소스 관리를 통해 여러 테넌트에서 정�
 ms.date: 11/8/2019
 ms.topic: conceptual
 ms.openlocfilehash: 3fe7e48c56e9a5af93e9642ee16c50cfbce34f9e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81481815"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>대규모로 위임된 구독에 Azure Policy 배포
@@ -18,7 +18,7 @@ ms.locfileid: "81481815"
 
 ## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Azure Resource Graph를 사용하여 고객 테넌트에서 쿼리
 
-[Azure Resource Graph](../../governance/resource-graph/index.yml)를 사용하여 관리하는 고객 테넌트의 모든 구독에서 쿼리를 수행할 수 있습니다. 이 예제에서는 현재 HTTPS 트래픽이 필요하지 않은 이러한 구독의 저장소 계정을 식별합니다.  
+[Azure Resource Graph](../../governance/resource-graph/index.yml)를 사용하여 관리하는 고객 테넌트의 모든 구독에서 쿼리를 수행할 수 있습니다. 이 예제에서는 현재 HTTPS 트래픽을 요구 하지 않는 이러한 구독에서 저장소 계정을 식별 합니다.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"
@@ -32,7 +32,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 ## <a name="deploy-a-policy-across-multiple-customer-tenants"></a>여러 고객 테넌트 간에 정책 배포
 
-아래 예제에서는 [Azure Resource Manager 템플릿](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-https-storage/enforceHttpsStorage.json)을 사용하여 여러 고객 테넌트의 위임된 구독에서 정책 정의 및 정책 할당을 배포하는 방법을 보여 줍니다. 이 정책 정의에 따라 모든 저장소 계정이 HTTPS 트래픽을 사용하도록 요구하므로 준수하지 않는 새 저장소 계정이 생성되지 않고 설정이 비준수로 설정되지 않은 기존 저장소 계정을 표시하지 않습니다.
+아래 예제에서는 [Azure Resource Manager 템플릿](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-https-storage/enforceHttpsStorage.json)을 사용하여 여러 고객 테넌트의 위임된 구독에서 정책 정의 및 정책 할당을 배포하는 방법을 보여 줍니다. 이 정책 정의에서는 모든 저장소 계정이 HTTPS 트래픽을 사용 해야 하므로 설정 없이 기존 저장소 계정을 준수 하지 않는 새 저장소 계정 만들기를 방해 하지 않습니다.
 
 ```powershell
 Write-Output "In total, there are $($ManagedSubscriptions.Count) delegated customer subscriptions to be managed"
@@ -50,7 +50,7 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 
 ## <a name="validate-the-policy-deployment"></a>정책 배포의 유효성 검사
 
-Azure 리소스 관리자 템플릿을 배포한 후 위임된 구독 중 하나에서 **False로** 설정된 **EnableHttpsTrafficOnly를** 사용하여 저장소 계정을 만들려고 시도하여 정책 정의가 성공적으로 적용된 것을 확인할 수 있습니다. 정책 할당으로 인해 이 스토리지 계정을 만들 수 없습니다.  
+Azure Resource Manager 템플릿을 배포한 후에는 위임 된 구독 중 하나에서 **EnableHttpsTrafficOnly** 가 **false** 로 설정 된 저장소 계정을 만들어 정책 정의가 성공적으로 적용 되었는지 확인할 수 있습니다. 정책 할당으로 인해 이 스토리지 계정을 만들 수 없습니다.  
 
 ```powershell
 New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -Location eastus -Force).ResourceGroupName `
@@ -63,7 +63,7 @@ New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-완료되면 배포에서 만든 정책 정의 및 할당을 제거합니다.
+작업이 완료 되 면 배포에 의해 생성 된 정책 정의 및 할당을 제거 합니다.
 
 ```powershell
 foreach ($ManagedSub in $ManagedSubscriptions)

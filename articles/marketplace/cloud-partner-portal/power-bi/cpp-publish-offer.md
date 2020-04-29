@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: eb31520c81a4064edbe54a0256b694c4ad88fb49
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82141706"
 ---
 # <a name="publish-a-power-bi-app-offer"></a>Power BI 앱 제안 게시
@@ -30,7 +30,7 @@ ms.locfileid: "82141706"
 
 이 표에서는 각 단계를 설명 하 고 예상 완료 시간을 제공 합니다.
 
-|   게시 단계            |   시간     |   설명                                                                  |
+|   게시 단계            |   시간     |   Description                                                                  |
 | --------------------         |------------| ----------------                                                               |
 | 필수 구성 요소 유효성 검사       | 15분     | 제안 정보 및 제안 설정의 유효성이 검사됩니다.                            |
 | 인증                | 1-7일   | Power BI 인증 팀은 제품을 분석 합니다. 팀은 제공 된 설치 URL을 통해 앱을 설치 하 여 수동 확인 테스트를 통해 Power BI 앱을 실행 합니다. 기본 유효성 검사는이 문서의 뒷부분에서 설명 하는 앱 인증 프로세스의 일부로 수행 됩니다.         |

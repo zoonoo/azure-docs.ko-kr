@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 titleSuffix: Azure
 description: 포함 파일
 services: internet-peering
@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: f8e93cf34ac56344ff7e3d145ce8c7c3529767b7
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678669"
 ---
-다음 예제에서는 시애틀의 Equinix 인터넷 교환에서 Exchange 연결을 만드는 방법을 보여 주입니다. 다른 공급자와 다른 설정을 사용하는 경우, 요청을 수행할 때 해당 정보를 대체합니다.
+다음 예에서는 시애틀에서 Exchange 연결을 만드는 방법을 보여 줍니다. 다른 공급자와 다른 설정을 사용하는 경우, 요청을 수행할 때 해당 정보를 대체합니다.
 
-PowerShell cmdlet **New-AzPeeringExchangeExchangeObject를** 사용하여 새 피어링 요청을 생성하는 데 사용되는 PowerShell 연결 개체를 만듭니다.
+PowerShell cmdlet **AzPeeringExchangeConnectionObject** 를 사용 하 여 새 피어 링 요청을 생성 하는 데 사용 되는 powershell 연결 개체를 만들 수 있습니다.
 
-이 예제에서는 Exchange 연결을 만드는 방법을 보여 주며 있습니다.
+이 예제에서는 Exchange 연결을 만드는 방법을 보여 줍니다.
 
 ```powershell
 $connection1 = New-AzPeeringExchangeConnectionObject `
@@ -30,7 +30,7 @@ $connection1 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-지정된 피어링 위치에서 중복성이 필요한 경우 다른 연결을 만듭니다.
+지정 된 피어 링 위치에 중복이 필요한 경우 다른 연결을 만듭니다.
 
 ```powershell
 $connection2 = New-AzPeeringExchangeConnectionObject `
@@ -41,7 +41,7 @@ $connection2 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-PowerShell cmdlet **New-AzPeering을** 사용하여 새 Exchange 피어링을 만들 수 있습니다.
+PowerShell cmdlet **AzPeering** 를 사용 하 여 새 Exchange 피어 링을 만들 수 있습니다.
 
 ```powershell
 $asn = Get-AzPeerAsn
@@ -54,7 +54,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-이 예제 응답은 하나의 연결을 사용하여 요청이 실행된 시기를 보여 주며, 이 에 대한 응답은 다음과 같은 것입니다.
+이 예제 응답은 하나의 연결을 사용 하 여 요청을 실행 한 경우를 보여 줍니다.
 
 ```powershell
 
@@ -73,10 +73,10 @@ Tags              : {}
 ```
 
 > [!IMPORTANT]
-> Microsoft는 요청된 피어링 프로비저닝을 시작하고 진행 상황을 `ConnectionState` 반영합니다.
-> 프로비저닝 관련 단계에 대한 자세한 내용은 [Exchange 피어링 연습을](../walkthrough-exchange-all.md)참조하십시오.
+> Microsoft에서 요청 된 피어 링의 프로 `ConnectionState` 비전을 시작 하 고 진행 상황을 반영 합니다.
+> 프로 비전 관련 단계에 대 한 자세한 내용은 [Exchange 피어 링 연습](../walkthrough-exchange-all.md)을 참조 하세요.
 
-여기에 표시된 대로 연결 상태를 확인할 수 있습니다.
+여기에 표시 된 것 처럼 연결 상태를 확인할 수 있습니다.
 
 ```powershell
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 로그를 Azure 모니터 로그로 스트리밍 | 마이크로 소프트 문서
-description: Azure Active Directory 로그를 Azure 모니터 로그와 통합하는 방법에 대해 알아봅니다.
+title: Azure Active Directory 로그를 Azure Monitor 로그로 스트림 | Microsoft Docs
+description: Azure Active Directory 로그를 Azure Monitor 로그와 통합 하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d0ef55f6f5117ffa77052118155afea716125a4
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81639738"
 ---
-# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Azure AD 로그를 Azure 모니터 로그와 통합
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Azure Monitor 로그와 Azure AD 로그 통합
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -51,7 +51,7 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 > B2C 관련 감사 및 로그인 활동 로그는 현재 지원되지 않습니다.
 >
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>전제 조건 
 
 이 기능을 사용하려면 다음이 필요합니다.
 
@@ -62,13 +62,13 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 
 ## <a name="licensing-requirements"></a>라이선싱 요구 사항
 
-이 기능을 사용하려면 Azure AD 프리미엄 P1 또는 P2 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Free, Basic 및 Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+이 기능을 사용 하려면 Azure AD Premium P1 또는 P2 라이선스가 필요 합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Free, Basic 및 Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
 
-## <a name="send-logs-to-azure-monitor"></a>Azure 모니터로 로그 보내기
+## <a name="send-logs-to-azure-monitor"></a>Azure Monitor로 로그 보내기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-2. **Azure 활성 디렉터리** > **진단 설정** -> **선택 진단 설정 추가**합니다. 또한 **감사 로그** 또는 **로그인 페이지**에서 **설정 내보내기**를 선택하여 진단 설정 구성 페이지로 이동할 수도 있습니다.  
+2. **Azure Active Directory** > **진단**설정 -> **추가 진단**설정 Azure Active Directory 선택 합니다. 또한 **감사 로그** 또는 **로그인 페이지**에서 **설정 내보내기**를 선택하여 진단 설정 구성 페이지로 이동할 수도 있습니다.  
     
 3. **진단 설정** 메뉴에서 **Log Analytics 작업 영역에 보내기** 확인란을 선택한 다음, **구성**을 선택합니다.
 
@@ -87,4 +87,4 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Monitor 로그를 사용하여 Azure AD 활동 로그 분석](howto-analyze-activity-logs-log-analytics.md)
-* [Azure Active Directory에 대한 로그 분석 보기 설치 및 사용](howto-install-use-log-analytics-views.md)
+* [Azure Active Directory에 대 한 log analytics 보기 설치 및 사용](howto-install-use-log-analytics-views.md)

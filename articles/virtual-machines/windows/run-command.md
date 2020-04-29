@@ -9,10 +9,10 @@ ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
 ms.openlocfilehash: f4e318281da5cd704d9fbf13c96cbec0a2d1b1b6
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143788"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Run 명령을 사용 하 여 Windows VM에서 PowerShell 스크립트 실행

@@ -4,10 +4,10 @@ description: Application Insights를 사용하여 웹 및 작업자 역할을 �
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537596"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
@@ -15,10 +15,10 @@ ms.locfileid: "81537596"
 
 ![개요 대시보드](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이 작업을 시작하려면 다음이 필요합니다.
 
-* [Azure](https://azure.com) 구독입니다. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 Microsoft 계정으로 로그인합니다. 
+* [Azure](https://azure.com) 구독. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 Microsoft 계정으로 로그인합니다. 
 * Microsoft Azure 도구 2.9 이상
 * 개발자 분석 도구 7.10 이상
 
@@ -31,7 +31,7 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
 
 이 옵션만 필요한 경우, 옵션 선택 후 게시를 완료하면 됩니다. 
 
-다음 단계는 [앱에서 측정항목을 보고](../../azure-monitor/platform/metrics-charts.md) [애널리틱스를 사용하여 데이터를 쿼리하는 것입니다.](../../azure-monitor/app/analytics.md) 
+다음 단계는 분석을 사용 하 여 데이터를 [쿼리](../../azure-monitor/app/analytics.md)하는 [앱에서 메트릭을 보는](../../azure-monitor/platform/metrics-charts.md)것입니다. 
 
 브라우저에서 성능을 모니터링하려면 [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 설정하고 [웹 페이지에 코드를 추가](../../azure-monitor/app/javascript.md)할 수도 있습니다.
 
@@ -48,7 +48,7 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
 ## <a name="plan-resources-and-resource-groups"></a>리소스 및 리소스 그룹 계획
 앱의 원격 분석은 Application Insights 형식의 Azure 리소스에 저장, 분석 및 표시됩니다. 
 
-각 리소스는 리소스 그룹에 속합니다. 리소스 그룹은 비용을 관리하고, 팀 구성원에게 액세스 권한을 부여하고, 조정된 단일 트랜잭션에서 업데이트를 배포하는 데 사용됩니다. 예를 들어 Azure 클라우드 서비스 및 응용 프로그램 인사이트 모니터링 리소스를 모두 하나의 작업에 [배포하는 스크립트를 작성할](../../azure-resource-manager/templates/deploy-powershell.md) 수 있습니다.
+각 리소스는 리소스 그룹에 속합니다. 리소스 그룹은 비용을 관리하고, 팀 구성원에게 액세스 권한을 부여하고, 조정된 단일 트랜잭션에서 업데이트를 배포하는 데 사용됩니다. 예를 들어 Azure 클라우드 서비스와 해당 Application Insights 모니터링 리소스를 모두 단일 작업으로 [배포 하는 스크립트를 작성할](../../azure-resource-manager/templates/deploy-powershell.md) 수 있습니다.
 
 ### <a name="resources-for-components"></a>구성 요소에 대한 리소스
 앱의 각 구성 요소에 대해 별도 리소스를 만드는 것이 좋습니다. 즉, 각 웹 역할 및 작업자 역할에 대해 리소스를 만드는 것입니다. 각 구성 요소를 개별적으로 분석할 수 있지만 모든 구성 요소의 주요 차트를 함께 표시하는 [대시보드](../../azure-monitor/app/overview-dashboard.md)를 만들어 단일 보기에서 이러한 차트를 비교하고 함께 모니터링할 수 있습니다. 
@@ -82,7 +82,7 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>각 역할에 대한 Azure Diagnostics 설정
 Application Insights를 사용하여 앱을 모니터링하려면 이 옵션을 설정합니다. 웹 역할의 경우 이 옵션은 성능 모니터링, 경고, 진단 및 사용량 현황 분석을 제공합니다. 다른 역할의 경우 다시 시작, 성능 카운터 및 System.Diagnostics.Trace 호출과 같은 Azure Diagnostics를 검색하고 모니터링할 수 있습니다. 
 
-1. Visual Studio 솔루션 탐색기에서 ** \<YourCloudService>**  >  **역할에서**각 역할의 속성을 엽니다.
+1. Visual Studio 솔루션 탐색기의 ** \<YourCloudService>**  >  **역할**에서 각 역할의 속성을 엽니다.
 
 1. **구성**에서 **진단 데이터를 Application Insights로 보내기** 확인란을 선택하고 이전에 만든 적절한 Application Insights 리소스를 선택합니다.
 
@@ -128,11 +128,11 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 
    *.config* 파일에 계측 키를 배치하도록 요청하는 메시지가 표시됩니다. 그러나 클라우드 앱의 경우에는 *.cscfg* 파일에서 설정하는 것이 좋습니다. 그래야 포털에서 역할이 정확하게 식별됩니다.
 
-## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>상태 모니터를 설정하여 전체 SQL 쿼리를 수집합니다(선택 사항)
+## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>전체 SQL 쿼리를 수집 하도록 상태 모니터 설정 (선택 사항)
 
-이 단계는 .NET Framework에서 전체 SQL 쿼리를 캡처하려는 경우에만 필요합니다. 
+.NET Framework에서 전체 SQL 쿼리를 캡처하려면이 단계가 필요 합니다. 
 
-1. 파일에서 `\*.csdef` 각 역할에 대해 [시작 작업](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) 추가 
+1. `\*.csdef` 다음과 유사한 각 역할에 대 한 [시작 작업](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) 추가 
 
     ```xml
     <Startup>
@@ -147,9 +147,9 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
     </Startup>
     ```
     
-2. [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) 및 [InstallAgent.ps1을](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)다운로드하여 `AppInsightsAgent` 각 역할 프로젝트의 폴더에 넣습니다. Visual Studio 파일 속성을 통해 출력 디렉토리에 복사하거나 스크립트를 빌드해야 합니다.
+2. [Installagent .bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) 및 [installagent.](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)p s 1을 다운로드 하 여 각 `AppInsightsAgent` 역할 프로젝트의 폴더에 배치 합니다. Visual Studio 파일 속성 또는 빌드 스크립트를 통해 출력 디렉터리에 복사 해야 합니다.
 
-3. 모든 작업자 역할에 환경 변수를 추가합니다. 
+3. 모든 작업자 역할에 대해 환경 변수를 추가 합니다. 
 
     ```xml
       <Environment>
@@ -220,7 +220,7 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 ## <a name="performance-counters"></a>성능 카운터
 다음 카운터가 기본적으로 수집됩니다.
 
-* \프로세스(?? APP_WIN32_PROC?) \% 프로세서 시간
+* \Process (?? APP_WIN32_PROC?) \% 프로세서 시간
 * \Memory\Available Bytes
 * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
 * \Process(??APP_WIN32_PROC??)\Private Bytes
@@ -233,7 +233,7 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
 * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
-이 예제에 표시된 대로 *ApplicationInsights.config를* 편집하여 추가 사용자 지정 또는 기타 Windows 성능 [카운터를 지정할](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14)수 있습니다.
+[이 예에 표시 된 것 처럼](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14) *applicationinsights .config* 를 편집 하 여 추가 사용자 지정 또는 기타 Windows 성능 카운터를 지정할 수 있습니다.
 
   ![성능 카운터](./media/cloudservices/002-servers.png)
 

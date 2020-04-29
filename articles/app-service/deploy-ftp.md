@@ -1,16 +1,16 @@
 ---
-title: FTP/S를 사용하여 콘텐츠 배포
-description: FTP 또는 FTPS를 사용하여 Azure App Service에 앱을 배포하는 방법을 알아봅니다. 암호화되지 않은 FTP를 사용하지 않도록 설정하여 웹 사이트 보안을 개선합니다.
+title: FTP/S를 사용 하 여 콘텐츠 배포
+description: FTP 또는 FTPS를 사용하여 Azure App Service에 앱을 배포하는 방법을 알아봅니다. 암호화 되지 않은 FTP를 사용 하지 않도록 설정 하 여 웹 사이트 보안 향상
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: fcc7c5b8fa182cace6e3dae0b1cae4cd41c5dcb9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81532593"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>FTP/S를 사용하여 앱에 Azure App Service에 배포
@@ -21,32 +21,32 @@ ms.locfileid: "81532593"
 
 ## <a name="open-ftp-dashboard"></a>FTP 대시보드 열기
 
-1. Azure [포털에서](https://portal.azure.com) **앱 서비스를**검색하고 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **App Services**를 검색 하 고 선택 합니다.
 
-    ![앱 서비스를 검색합니다.](media/app-service-continuous-deployment/search-for-app-services.png)
+    ![App services를 검색 합니다.](media/app-service-continuous-deployment/search-for-app-services.png)
 
-2. 배포할 웹 앱을 선택합니다.
+2. 배포 하려는 웹 앱을 선택 합니다.
 
-    ![앱을 선택합니다.](media/app-service-continuous-deployment/select-your-app.png)
+    ![앱을 선택 합니다.](media/app-service-continuous-deployment/select-your-app.png)
 
-3. **배포 센터** > **FTP** > **대시보드를**선택합니다.
+3. **Deployment Center** > **FTP** > **대시보드**를 선택 합니다.
 
     ![FTP 대시보드 열기](./media/app-service-deploy-ftp/open-dashboard.png)
 
 ## <a name="get-ftp-connection-information"></a>FTP 연결 정보 가져오기
 
-FTP 대시보드에서 **복사를** 선택하여 FTPS 끝점 및 앱 자격 증명을 복사합니다.
+FTP 대시보드에서 **복사** 를 선택 하 여 FTPS 끝점 및 앱 자격 증명을 복사 합니다.
 
 ![FTP 정보 복사](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
 각 앱에 고유하기 때문에 사용자 앱에 배포하려면 **앱 자격 증명**을 사용하는 것이 좋습니다. 단, **사용자 자격 증명**을 클릭하는 경우 구독에서 모든 App Service 앱에 대한 FTP/S 로그인에 사용할 수 있는 사용자 수준의 자격 증명을 설정할 수 있습니다.
 
 > [!NOTE]
-> 사용자 수준 자격 증명을 사용하여 FTP/FTPS 끝점에 인증하려면 다음 형식의 사용자 이름을 요구합니다. 
+> 사용자 수준 자격 증명을 사용 하 여 FTP/FTPS 끝점을 인증 하는 경우 사용자 이름은 다음 형식으로 requirers 됩니다. 
 >
 >`<app-name>\<user-name>`
 >
-> 사용자 수준 자격 증명은 특정 리소스가 아닌 사용자에 연결되므로 로그인 작업을 올바른 앱 끝점으로 연결하려면 사용자 이름이 이 형식이어야 합니다.
+> 사용자 수준 자격 증명은 특정 리소스가 아니라 사용자에 게 연결 되기 때문에 로그인 작업을 올바른 앱 끝점으로 보내기 위해 사용자 이름이이 형식 이어야 합니다.
 >
 
 ## <a name="deploy-files-to-azure"></a>Azure에 파일 배포
@@ -67,11 +67,11 @@ FTP 대시보드에서 **복사를** 선택하여 FTPS 끝점 및 앱 자격 증
 
 ## <a name="enforce-ftps"></a>FTPS 적용
 
-보안을 강화하려면 TLS/SSL에 대해서만 FTP를 허용해야 합니다. FTP 배포를 사용하지 않을 경우 FTP 및 FTPS를 둘 다 사용하지 않도록 설정할 수도 있습니다.
+보안 강화를 위해 TLS/SSL을 통해 FTP를 허용 해야 합니다. FTP 배포를 사용하지 않을 경우 FTP 및 FTPS를 둘 다 사용하지 않도록 설정할 수도 있습니다.
 
-[Azure 포털의](https://portal.azure.com)앱 리소스 페이지에서 왼쪽 탐색에서 일반 **구성** > **설정을** 선택합니다.
+[Azure Portal](https://portal.azure.com)의 앱 리소스 페이지에서 왼쪽 탐색 영역에 있는 **구성** > **일반 설정** 을 선택 합니다.
 
-암호화되지 않은 FTP를 사용하지 않도록 설정하려면 **FTP 상태에서만 FTPS를** 선택합니다. **FTP state** FTP 및 FTPS를 모두 사용하지 않도록 설정하려면 **사용 안 함**을 선택합니다. 완료되면 **저장**을 클릭합니다. **FTPS만**사용하는 경우 웹 앱의 **TLS/SSL 설정** 블레이드로 이동하여 TLS 1.2 이상을 적용해야 합니다. TLS 1.0 및 1.1은 **FTPS만**으로 지원되지 않습니다.
+암호화 되지 않은 FTP를 사용 하지 않도록 설정 하려면 **ftp 상태** **에서만 FTPS** 를 선택 합니다. FTP와 FTPS를 모두 사용 하지 않도록 설정 하려면 **사용 안 함**을 선택 합니다. 완료되면 **저장**을 클릭합니다. **FTPS만**사용 하는 경우에는 웹 앱의 **tls/SSL 설정** 블레이드로 이동 하 여 tls 1.2 이상을 적용 해야 합니다. TLS 1.0 및 1.1은 **FTPS만**으로 지원되지 않습니다.
 
 ![FTP/S 사용 안 함](./media/app-service-deploy-ftp/disable-ftp.png)
 
@@ -86,7 +86,7 @@ FTP 대시보드에서 **복사를** 선택하여 FTPS 끝점 및 앱 자격 증
 ## <a name="troubleshoot-ftp-deployment"></a>FTP 배포 문제 해결
 
 - [FTP 배포 문제를 어떻게 해결할 수 있나요?](#how-can-i-troubleshoot-ftp-deployment)
-- [FTP를 사용하여 코드를 게시할 수 없습니다. 문제를 해결하면 어떻게 해야 합니까?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+- [FTP를 수행할 수 없으며 내 코드를 게시할 수 없습니다. 문제를 해결 하려면 어떻게 해야 하나요?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
 - [수동 모드를 통해 Azure App Service에서 FTP에 연결하려면 어떻게 해야 하나요?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
 
 ### <a name="how-can-i-troubleshoot-ftp-deployment"></a>FTP 배포 문제를 어떻게 해결할 수 있나요?

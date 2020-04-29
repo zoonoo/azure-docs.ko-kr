@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ac681bb13ccea49c7a2f566a6fcdb6adb8cec5bb
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683738"
 ---
 # <a name="understand-the-device-model-schema"></a>디바이스 모델 스키마 이해
@@ -71,7 +71,7 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 
 다음 표에서는 최상위 스키마 항목에 대해 설명합니다.
 
-| 스키마 항목 | 설명 |
+| 스키마 항목 | Description |
 | -- | --- |
 | `SchemaVersion` | 스키마 버전은 항상 `1.0.0`이며 이 파일의 형식에 고유합니다. |
 | `Id` | 이 디바이스 모델의 고유 ID입니다. |
@@ -119,7 +119,7 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 
 ## <a name="properties"></a>속성
 
-스키마의 `Properties` 섹션에서는 디바이스가 솔루션에 보고하는 속성 값을 정의합니다. 예를 들어:
+스키마의 `Properties` 섹션에서는 디바이스가 솔루션에 보고하는 속성 값을 정의합니다. 다음은 그 예입니다.
 
 ```json
 "Properties": {
@@ -166,7 +166,7 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 
 * 개체 - JSON을 사용하여 직렬화됨
 * 이진 - base64를 사용하여 직렬화됨
-* 텍스트
+* Text
 * 부울
 * 정수
 * Double

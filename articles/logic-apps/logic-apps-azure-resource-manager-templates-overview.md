@@ -1,51 +1,51 @@
 ---
-title: 개요 - Azure 논리 앱에 대한 배포 자동화
-description: Azure 논리 앱에 대한 배포를 자동화하는 Azure 리소스 관리자 템플릿에 대해 알아보기
+title: 개요-Azure Logic Apps에 대 한 배포 자동화
+description: Azure Logic Apps에 대 한 배포를 자동화 하 Azure Resource Manager 템플릿에 대해 알아보기
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
 ms.openlocfilehash: 7a99038f41043b899886c7161f9b12c77c807c4c
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81641823"
 ---
-# <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>개요: Azure 리소스 관리자 템플릿을 사용하여 Azure 논리 앱에 대한 배포 자동화
+# <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>개요: Azure Resource Manager 템플릿을 사용 하 여 Azure Logic Apps에 대 한 배포 자동화
 
-논리 앱을 만들고 배포할 준비가 되면 논리 앱의 기본 워크플로 정의를 Azure 리소스 [관리자 템플릿으로](../azure-resource-manager/management/overview.md)확장할 수 있습니다. 이 템플릿은 논리 앱을 프로비저닝하고 배포하기 위한 인프라, 리소스, 매개 변수 및 기타 정보를 정의합니다. 배포에서 달라지는 값에 대한 매개 변수를 정의하여 *매개 변수화라고도*하며 다양한 배포 요구 사항에 따라 논리 앱을 반복적으로 일관되게 배포할 수 있습니다.
+논리 앱 만들기 및 배포를 자동화할 준비가 되 면 논리 앱의 기본 워크플로 정의를 [Azure Resource Manager 템플릿으로](../azure-resource-manager/management/overview.md)확장할 수 있습니다. 이 템플릿은 논리 앱을 프로 비전 하 고 배포 하기 위한 인프라, 리소스, 매개 변수 및 기타 정보를 정의 합니다. 매개 *변수화*라고도 하는 배포에 따라 달라 지는 값에 대 한 매개 변수를 정의 하 여 다양 한 배포 요구 사항에 따라 논리 앱을 반복적이 고 일관 되 게 배포할 수 있습니다.
 
-예를 들어 개발, 테스트 및 프로덕션환경에 배포하는 경우 각 환경에 대해 서로 다른 연결 문자열을 사용할 수 있습니다. 다른 연결 문자열을 허용하는 템플릿 매개 변수를 선언한 다음 해당 문자열을 별도의 매개 변수 파일에 저장할 수 [있습니다.](../azure-resource-manager/templates/parameter-files.md) 이렇게 하면 템플릿을 업데이트하고 다시 배포할 필요 없이 해당 값을 변경할 수 있습니다. 암호 및 암호와 같이 중요하거나 보호해야 하는 매개 변수 값이 있는 시나리오의 경우 해당 값을 [Azure Key Vault에](../azure-resource-manager/templates/key-vault-parameter.md) 저장하고 매개 변수 파일에서 해당 값을 검색할 수 있습니다. 그러나 이러한 시나리오에서는 현재 값을 검색 하기 위해 다시 배포 합니다.
+예를 들어 개발, 테스트 및 프로덕션 환경에 배포 하는 경우 각 환경에 서로 다른 연결 문자열을 사용할 가능성이 높습니다. 서로 다른 연결 문자열을 허용 하는 템플릿 매개 변수를 선언한 다음 이러한 문자열을 별도의 [매개 변수 파일](../azure-resource-manager/templates/parameter-files.md)에 저장할 수 있습니다. 이렇게 하면 템플릿을 업데이트 하 고 다시 배포 하지 않고도 이러한 값을 변경할 수 있습니다. 암호 및 암호와 같이 중요 하거나 보안을 유지 해야 하는 매개 변수 값이 있는 시나리오의 경우 이러한 값을 [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) 저장 하 고 매개 변수 파일에서 해당 값을 검색할 수 있습니다. 그러나이 시나리오에서는를 다시 배포 하 여 현재 값을 검색 합니다.
 
-이 개요는 논리 앱 워크플로 정의가 포함된 리소스 관리자 템플릿의 특성에 대해 설명합니다. 템플릿과 워크플로 정의 모두 JSON 구문을 사용하지만 워크플로 정의도 [워크플로 정의 언어 스키마를](../logic-apps/logic-apps-workflow-definition-language.md)따르기 때문에 몇 가지 차이점이 있습니다. 예를 들어 템플릿 표현식과 워크플로 정의 표현식은 [매개 변수를 참조하는](#parameter-references) 방법과 허용할 수 있는 값에 따라 다릅니다.
+이 개요에서는 논리 앱 워크플로 정의를 포함 하는 리소스 관리자 템플릿의 특성에 대해 설명 합니다. 템플릿과 워크플로 정의 모두 JSON 구문을 사용 하지만 워크플로 정의가 [워크플로 정의 언어 스키마](../logic-apps/logic-apps-workflow-definition-language.md)를 따라 다르므로 몇 가지 차이점이 있습니다. 예를 들어 템플릿 식과 워크플로 정의 식은 [매개 변수](#parameter-references) 및 값이 사용할 수 있는 값을 참조 하는 방식이 다릅니다.
 
 > [!TIP]
-> 배포할 준비가 된 유효한 매개 변수화된 논리 앱 템플릿을 가져오려면 Visual Studio(무료 커뮤니티 버전 이상) 및 Visual Studio용 Azure 논리 앱 도구를 사용합니다. 그런 다음 [Visual Studio에서 논리 앱을 만들거나](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) [Azure에서 Visual Studio로 기존 논리 앱을 찾아 다운로드할](../logic-apps/manage-logic-apps-with-visual-studio.md)수 있습니다.
+> 가장 쉽게 배포할 수 있는 올바른 매개 변수가 있는 논리 앱 템플릿을 가져오는 가장 쉬운 방법은 Visual Studio (무료 Community edition 이상) 및 Visual Studio 용 Azure Logic Apps 도구를 사용 하는 것입니다. 그런 다음 [Visual studio에서 논리 앱을 만들거나](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) [Azure에서 visual studio로 기존 논리 앱을 찾아 다운로드할](../logic-apps/manage-logic-apps-with-visual-studio.md)수 있습니다.
 >
-> 또는 [LogicAppTemplate 모듈을 사용하여 Azure PowerShell을](../logic-apps/logic-apps-create-azure-resource-manager-templates.md#azure-powershell)사용하여 논리 앱 템플릿을 만들 수 있습니다.
+> 또는 [LogicAppTemplate 모듈과 함께 Azure PowerShell](../logic-apps/logic-apps-create-azure-resource-manager-templates.md#azure-powershell)를 사용 하 여 논리 앱 템플릿을 만들 수 있습니다.
 
-이 항목의 예제 논리 앱은 새 전자 메일이 도착할 때 발생하는 [Office 365 Outlook 트리거와](/connectors/office365/) 전자 메일 본문에 대한 Blob을 만들고 해당 Blob을 Azure 저장소 컨테이너에 업로드하는 [Azure Blob 저장소 작업을](/connectors/azureblob/) 사용합니다. 또한 배포시 다른 값을 매개 변수화하는 방법도 보여 주며 이 예제에서는
+이 항목의 예제 논리 앱에서는 새 전자 메일이 도착할 때 발생 하는 [Office 365 Outlook 트리거와](/connectors/office365/) 메일 본문에 대 한 blob을 만들고 해당 Blob을 Azure Storage 컨테이너에 업로드 하는 [Azure Blob Storage 작업](/connectors/azureblob/) 을 사용 합니다. 또한이 예제에서는 배포에 따라 달라 지는 값을 매개 변수화 하는 방법을 보여 줍니다.
 
-리소스 관리자 템플릿에 대한 자세한 내용은 다음 항목을 참조하십시오.
+리소스 관리자 템플릿에 대 한 자세한 내용은 다음 항목을 참조 하세요.
 
-* [Azure 리소스 관리자 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md)
+* [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md)
 * [Azure Resource Manager 템플릿 모범 사례](../azure-resource-manager/templates/template-best-practices.md)
 * [클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
-샘플 논리 앱 템플릿은 다음 예제를 참조하십시오.
+샘플 논리 앱 템플릿은 다음 예제를 참조 하세요.
 
-* 이 항목의 예제에 사용되는 [전체 템플릿](#full-example-template)
-* GitHub에서 [빠른 시작 논리 앱 템플릿 샘플](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create)
+* 이 항목의 예제에 사용 되는 [전체 템플릿](#full-example-template)
+* GitHub의 [샘플 퀵 스타트 논리 앱 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create)
 
-논리 앱, 통합 계정 및 통합 계정 아티팩트와 관련된 템플릿 리소스 정보는 [Microsoft.Logic 리소스 유형을](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions)참조하십시오.
+논리 앱, 통합 계정 및 통합 계정 아티팩트와 관련 한 템플릿 리소스 정보는 [Microsoft 논리 리소스 유형](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions)을 참조 하세요.
 
 <a name="template-structure"></a>
 
 ## <a name="template-structure"></a>템플릿 구조
 
-최상위 수준에서 리소스 관리자 템플릿은 Azure Resource Manager 템플릿 [구조 및 구문](../azure-resource-manager/templates/template-syntax.md) 항목에 완전히 설명되어 있는 이 구조를 따릅니다.
+최상위 수준에서 리소스 관리자 템플릿은이 구조를 따릅니다 .이 구조는 [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md) 항목에 자세히 설명 되어 있습니다.
 
 ```json
 {
@@ -59,34 +59,34 @@ ms.locfileid: "81641823"
 }
 ```
 
-논리 앱 템플릿의 경우 주로 이러한 템플릿 개체로 작업합니다.
+논리 앱 템플릿의 경우 주로 다음 템플릿 개체를 사용 합니다.
 
-| attribute | Description |
+| 특성 | Description |
 |-----------|-------------|
-| `parameters` | Azure에서 배포를 위한 리소스를 만들고 사용자 지정할 때 사용할 값을 수락하기 위한 [템플릿 매개 변수를](../azure-resource-manager/templates/template-syntax.md#parameters) 선언합니다. 예를 들어 이러한 매개 변수는 논리 앱의 이름 및 위치, 연결 및 배포에 필요한 기타 리소스에 대한 값을 허용합니다. 이러한 매개 변수 값을 [매개 변수 파일에](#template-parameter-files)저장할 수 있으며 이 항목의 후반부에서 설명합니다. 일반적인 세부 정보는 [매개 변수 - 리소스 관리자 템플릿 구조 및 구문을](../azure-resource-manager/templates/template-syntax.md#parameters)참조하십시오. |
-| `resources` | 논리 앱, 연결, Azure 저장소 계정 등과 같은 Azure 리소스 그룹을 만들거나 업데이트하고 배포할 [리소스를](../azure-resource-manager/templates/template-syntax.md#resources) 정의합니다. 일반적인 세부 정보는 [리소스 - 리소스 관리자 템플릿 구조 및 구문을](../azure-resource-manager/templates/template-syntax.md#resources)참조하십시오. |
+| `parameters` | Azure에서 배포용 리소스를 만들고 사용자 지정할 때 사용할 값을 허용 하는 [템플릿 매개 변수](../azure-resource-manager/templates/template-syntax.md#parameters) 를 선언 합니다. 예를 들어 이러한 매개 변수는 논리 앱의 이름 및 위치, 연결 및 배포에 필요한 기타 리소스에 대 한 값을 허용 합니다. 이러한 매개 변수 값은이 항목의 뒷부분에서 설명 하는 [매개 변수 파일](#template-parameter-files)에 저장할 수 있습니다. 일반 정보는 [매개 변수-리소스 관리자 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md#parameters)을 참조 하세요. |
+| `resources` | 논리 앱, 연결, Azure storage 계정 등의 Azure 리소스 그룹을 만들거나 업데이트 하 고 배포할 [리소스](../azure-resource-manager/templates/template-syntax.md#resources) 를 정의 합니다. 일반 정보는 [리소스 리소스 관리자 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md#resources)을 참조 하세요. |
 ||||
 
-논리 앱 템플릿은 이 파일 이름 형식을 사용합니다.
+논리 앱 템플릿은이 파일 이름 형식을 사용 합니다.
 
-**<*로직 앱 이름*>.json**
+**<*논리-앱 이름*>. json**
 
 > [!IMPORTANT]
-> 템플릿 구문은 대/소문자를 구분하므로 일관된 대/소문자를 사용해야 합니다. 
+> 템플릿 구문은 대/소문자를 구분 하므로 일관 된 대/소문자를 사용 해야 합니다. 
 
 <a name="template-parameters"></a>
 
 ## <a name="template-parameters"></a>템플릿 매개 변수
 
-논리 앱 템플릿에는 `parameters` 서로 다른 수준에 존재하고 서로 다른 기능을 수행하는 여러 개체가 있습니다. 예를 들어 최상위 수준에서 Azure에서 [리소스를](../azure-resource-manager/templates/template-syntax.md#parameters) 만들고 배포할 때 배포시 수락하고 사용할 값에 대한 템플릿 매개 변수를 선언할 수 있습니다.
+논리 앱 템플릿에는 서로 다른 `parameters` 수준에 존재 하는 여러 개체가 있으며 다른 기능을 수행 합니다. 예를 들어, 최상위 수준에서 Azure에서 리소스를 만들고 배포 하는 경우 배포 시 사용할 값에 대 한 [템플릿 매개 변수](../azure-resource-manager/templates/template-syntax.md#parameters) 를 선언할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * 논리 앱
-* [관리되는 커넥터를](../connectors/apis-list.md) 통해 다른 서비스 및 시스템에 액세스하는 데 논리가 사용하는 연결
+* 논리에서 [관리 되는 커넥터](../connectors/apis-list.md) 를 통해 다른 서비스 및 시스템에 액세스 하는 데 사용 하는 연결
 * 논리 앱이 배포에 필요한 기타 리소스
 
-  예를 들어 논리 앱이 B2B(비즈니스 간) 시나리오에 대한 [통합 계정을](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 사용하는 경우 `parameters` 템플릿의 최상위 개체는 해당 통합 계정에 대한 리소스 ID를 허용하는 매개 변수를 선언합니다.
+  예를 들어 논리 앱에서 B2B (기업 간) 시나리오에 대 한 [통합 계정을](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 사용 하는 경우 템플릿의 최상위 `parameters` 개체는 해당 통합 계정에 대 한 리소스 ID를 허용 하는 매개 변수를 선언 합니다.
 
-다음은 매개 변수 - 리소스 관리자 템플릿 구조 및 [구문으로](../azure-resource-manager/templates/template-syntax.md#parameters)완전히 설명되는 매개 변수 정의에 대한 일반적인 구조 및 구문입니다.
+매개 변수 정의에 대 한 일반적인 구조와 구문은 다음과 같습니다 .이는 [매개 변수 리소스 관리자 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md#parameters)에 대해 자세히 설명 합니다.
 
 ```json
 "<parameter-name>": {
@@ -99,10 +99,10 @@ ms.locfileid: "81641823"
 },
 ```
 
-이 예제에서는 Azure에서 이러한 리소스를 만들고 배포하는 데 사용되는 값에 대한 템플릿 매개 변수만 보여 주며 있습니다.
+이 예제에서는 Azure에서 이러한 리소스를 만들고 배포 하는 데 사용 되는 값에 대 한 템플릿 매개 변수만 보여 줍니다.
 
 * 논리 앱의 이름 및 위치
-* 논리 앱에 연결된 통합 계정에 사용할 ID
+* 논리 앱에 연결 된 통합 계정에 사용할 ID입니다.
 
 ```json
 {
@@ -143,52 +143,52 @@ ms.locfileid: "81641823"
 }
 ```
 
-사용자 이름, 암호 및 암호와 같이 중요하거나 보호해야 하는 값을 처리하는 매개 변수를 `defaultValue` 제외하고 이러한 모든 매개 변수에는 특성이 포함되지만 경우에 따라 기본값은 비어 있습니다. 이러한 템플릿 매개 변수에 사용할 배포 값은 이 항목의 후반부에서 설명하는 샘플 [매개 변수 파일에](#template-parameter-files) 의해 제공됩니다.
+사용자 이름, 암호 및 암호와 같이 중요 하거나 보안을 유지 해야 하는 값을 처리 하는 매개 변수를 제외 하 고 `defaultValue` , 이러한 모든 매개 변수에는 특성이 포함 됩니다. 하지만 일부 경우에는 기본값이 빈 값입니다. 이러한 템플릿 매개 변수에 사용할 배포 값은이 항목의 뒷부분에 설명 된 샘플 [매개 변수 파일](#template-parameter-files) 에 의해 제공 됩니다.
 
-템플릿 매개 변수 보안에 대한 자세한 내용은 다음 항목을 참조하십시오.
+템플릿 매개 변수를 보호 하는 방법에 대 한 자세한 내용은 다음 항목을 참조 하세요.
 
-* [템플릿 매개 변수에 대한 보안 권장 사항](../azure-resource-manager/templates/template-best-practices.md#parameters)
-* [템플릿 매개 변수에 대한 보안 향상](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
-* [Azure 키 볼트로 보안 된 매개 변수 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)
+* [템플릿 매개 변수에 대 한 보안 권장 사항](../azure-resource-manager/templates/template-best-practices.md#parameters)
+* [템플릿 매개 변수에 대 한 보안 향상](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
+* [Azure Key Vault를 사용 하 여 보안 매개 변수 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)
 
-다른 템플릿 개체는 템플릿 매개 변수를 통과하는 값을 사용할 수 있도록 템플릿 매개 변수를 참조하는 경우가 많습니다.
+다른 템플릿 개체는 템플릿 매개 변수를 통해 전달 되는 값을 사용할 수 있도록 템플릿 매개 변수를 자주 참조 합니다. 예를 들면 다음과 같습니다.
 
-* 이 항목의 후반부에서 설명하는 [템플릿의 리소스 개체는](#template-resources) [논리 앱의 리소스 정의와](#logic-app-resource-definition)같이 만들고 배포할 Azure의 각 리소스를 정의합니다. 이러한 리소스는 논리 앱의 이름, 위치 및 연결 정보와 같은 템플릿 매개 변수 값을 사용하는 경우가 많습니다.
+* 이 항목의 뒷부분에서 설명 하는 [템플릿의 resources 개체](#template-resources)는 [논리 앱의 리소스 정의](#logic-app-resource-definition)와 같이 만들고 배포 하려는 Azure의 각 리소스를 정의 합니다. 이러한 리소스는 종종 논리 앱의 이름, 위치 및 연결 정보 등의 템플릿 매개 변수 값을 사용 합니다.
 
-* 논리 앱의 리소스 정의에서 더 자세한 수준에서 [워크플로 정의의 매개 변수 개체는](#workflow-definition-parameters) 논리 앱의 런타임에서 사용할 값에 대한 매개 변수를 선언합니다. 예를 들어 HTTP 트리거가 인증에 사용하는 사용자 이름 및 암호에 대한 워크플로 정의 매개 변수를 선언할 수 있습니다. 워크플로 정의 매개 변수에 대한 `parameters` 값을 지정하려면 워크플로 정의 *외부에* 있지만 논리 앱의 리소스 정의 *내에* 있는 개체를 사용합니다. 이 외부 `parameters` 개체에서는 매개 변수 파일에서 배포 시 값을 수락할 수 있는 이전에 선언된 템플릿 매개 변수를 참조할 수 있습니다.
+* 논리 앱의 리소스 정의에서 더 깊은 수준에서 [워크플로 정의의 parameters 개체](#workflow-definition-parameters) 는 논리 앱의 런타임에서 사용할 값에 대 한 매개 변수를 선언 합니다. 예를 들어 HTTP 트리거에서 인증을 위해 사용 하는 사용자 이름 및 암호에 대 한 워크플로 정의 매개 변수를 선언할 수 있습니다. 워크플로 정의 매개 변수의 값을 지정 하려면 워크플로 정의 `parameters` *외부* 에 있지만 논리 앱의 리소스 정의 *내* 에 있는 개체를 사용 합니다. 이 외부 `parameters` 개체에서 이전에 선언 된 템플릿 매개 변수를 참조할 수 있습니다 .이 매개 변수는 매개 변수 파일에서 배포 시 값을 사용할 수 있습니다.
 
-매개 변수를 참조할 때 템플릿 표현식 및 함수는 서로 다른 구문을 사용하고 워크플로 정의 식 및 함수와 다르게 작동합니다. 이러한 차이점에 대한 자세한 내용은 이 항목의 후반부 [매개 변수에 대한 참조를](#parameter-references) 참조하십시오.
+매개 변수를 참조할 때 템플릿 식과 함수는 다른 구문을 사용 하며 워크플로 정의 식과 함수와 다르게 동작 합니다. 이러한 차이점에 대 한 자세한 내용은이 항목의 뒷부분에 나오는 [매개 변수에](#parameter-references) 대 한 참조를 참조 하세요.
 
 <a name="best-practices-template-parameters"></a>
 
-## <a name="best-practices---template-parameters"></a>모범 사례 - 템플릿 매개 변수
+## <a name="best-practices---template-parameters"></a>모범 사례-템플릿 매개 변수
 
-매개 변수를 정의하는 몇 가지 모범 사례는 다음과 같습니다.
+매개 변수를 정의 하는 몇 가지 모범 사례는 다음과 같습니다.
 
-* 배포 요구 사항에 따라 달라지는 값에 대해서만 매개 변수를 선언합니다. 다양한 배포 요구 사항에서 동일하게 유지되는 값에 대한 매개 변수를 선언하지 마십시오.
+* 배포 요구 사항에 따라 달라 지는 값에 대해서만 매개 변수를 선언 합니다. 여러 배포 요구 사항에서 동일 하 게 유지 되는 값에 대 한 매개 변수를 선언 하지 마세요.
 
-* 중요하거나 `defaultValue` 보호해야 하는 값을 제외한 모든 매개 변수에 대해 빈 값을 지정할 수 있는 특성을 포함합니다. 항상 사용자 이름, 암호 및 암호에 대해 보안 매개 변수를 사용합니다. 중요한 매개 변수 값을 숨기거나 보호하려면 다음 항목의 지침을 따르십시오.
+* 중요 하거나 `defaultValue` 보안을 유지 해야 하는 값을 제외 하 고 모든 매개 변수에 대해 빈 값을 지정할 수 있는 특성을 포함 합니다. 사용자 이름, 암호 및 암호에는 항상 보안 매개 변수를 사용 합니다. 중요 한 매개 변수 값을 숨기 거 나 보호 하려면 다음 항목의 지침을 따르세요.
 
-  * [템플릿 매개 변수에 대한 보안 권장 사항](../azure-resource-manager/templates/template-best-practices.md#parameters)
+  * [템플릿 매개 변수에 대 한 보안 권장 사항](../azure-resource-manager/templates/template-best-practices.md#parameters)
 
-  * [템플릿 매개 변수에 대한 보안 향상](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
+  * [템플릿 매개 변수에 대 한 보안 향상](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
-  * [Azure 키 볼트로 보안 된 매개 변수 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)
+  * [Azure Key Vault를 사용 하 여 보안 매개 변수 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)
 
-* 워크플로 정의 매개 변수 이름에서 템플릿 매개 변수 이름을 구별하려면 설명이 있는 템플릿 매개 변수 이름(예:`TemplateFabrikamPassword`
+* 템플릿 매개 변수 이름을 워크플로 정의 매개 변수 이름과 구분 하기 위해 다음과 같이 설명이 포함 된 템플릿 매개 변수 이름을 사용할 수 있습니다.`TemplateFabrikamPassword`
 
-자세한 템플릿 모범 사례는 [템플릿 매개 변수에 대한 모범 사례를](../azure-resource-manager/templates/template-best-practices.md#parameters)참조하십시오.
+자세한 템플릿 모범 사례는 [템플릿 매개 변수에 대 한 모범 사례](../azure-resource-manager/templates/template-best-practices.md#parameters)를 참조 하세요.
 
 <a name="template-parameter-files"></a>
 
 ## <a name="template-parameters-file"></a>템플릿 매개 변수 파일
 
-템플릿 매개 변수에 대한 값을 제공하려면 해당 값을 [매개 변수 파일에 저장합니다.](../azure-resource-manager/templates/parameter-files.md) 이렇게 하면 배포 요구 사항에 따라 다른 매개 변수 파일을 사용할 수 있습니다. 사용할 파일 이름 형식은 다음과 같습니다.
+템플릿 매개 변수에 대 한 값을 제공 하려면 해당 값을 [매개 변수 파일](../azure-resource-manager/templates/parameter-files.md)에 저장 합니다. 이렇게 하면 배포 요구 사항에 따라 다양 한 매개 변수 파일을 사용할 수 있습니다. 사용할 파일 이름 형식은 다음과 같습니다.
 
-* 논리 앱 템플릿 파일 이름: ** < *논리 앱 이름*>.json**
-* 매개 변수 파일 이름: ** < *논리 앱 이름*>.parameters.json**
+* 논리 앱 템플릿 파일 이름: ** < *논리-앱-이름*>. json**
+* 매개 변수 파일 이름: ** < *논리-앱-이름*>. 매개 변수. json**
 
-다음은 [Azure Key Vault를 사용 하](../azure-resource-manager/templates/key-vault-parameter.md)고 보안 된 매개 변수 값을 전달 하기 위한 키 볼트 참조를 포함 하는 매개 변수 파일 내부 구조:
+다음은 [Azure Key Vault를 사용 하 여 보안 매개 변수 값을 전달](../azure-resource-manager/templates/key-vault-parameter.md)하기 위한 주요 자격 증명 모음 참조를 포함 하는 매개 변수 파일 내 구조입니다.
 
 ```json
 {
@@ -215,7 +215,7 @@ ms.locfileid: "81641823"
 }
 ```
 
-이 예제 매개 변수 파일은 이 항목의 앞에서 선언된 템플릿 매개 변수의 값을 지정합니다.
+이 예제 매개 변수 파일은이 항목의 앞부분에 선언 된 템플릿 매개 변수의 값을 지정 합니다.
 
 ```json
 {
@@ -237,7 +237,7 @@ ms.locfileid: "81641823"
 
 ## <a name="template-resources"></a>템플릿 리소스
 
-템플릿에는 `resources` [논리 앱의 리소스 정의, 연결 리소스](#logic-app-resource-definition) [정의](#connection-resource-definitions)및 논리 앱이 배포에 필요한 기타 리소스와 같이 Azure에서 만들고 배포할 각 리소스에 대한 정의가 포함된 배열이 있습니다.
+템플릿에는 `resources` [논리 앱의 리소스 정의](#logic-app-resource-definition), [연결 리소스 정의](#connection-resource-definitions), 논리 앱이 배포에 필요한 기타 리소스 등 Azure에서 만들고 배포할 각 리소스에 대 한 정의가 포함 된 배열인 개체가 있습니다.
 
 ```json
 {
@@ -263,24 +263,24 @@ ms.locfileid: "81641823"
 ```
 
 > [!NOTE]
-> 템플릿에는 여러 논리 앱에 대한 리소스 정의가 포함될 수 있으므로 모든 논리 앱 리소스가 동일한 Azure 리소스 그룹을 지정해야 합니다. Visual Studio를 사용하여 템플릿을 Azure 리소스 그룹에 배포할 때 열 려는 논리 앱에 대 한 메시지가 표시 됩니다. 또한 Azure 리소스 그룹 프로젝트에 두 개 이상의 템플릿이 포함될 수 있으므로 메시지가 표시될 때 올바른 매개 변수 파일을 선택해야 합니다.
+> 템플릿에는 여러 논리 앱에 대 한 리소스 정의가 포함 될 수 있으므로 모든 논리 앱 리소스가 동일한 Azure 리소스 그룹을 지정 하는지 확인 합니다. Visual Studio를 사용 하 여 Azure 리소스 그룹에 템플릿을 배포 하는 경우 열려는 논리 앱을 묻는 메시지가 표시 됩니다. 또한 Azure 리소스 그룹 프로젝트에는 두 개 이상의 템플릿이 포함 될 수 있으므로 메시지가 표시 되 면 올바른 매개 변수 파일을 선택 했는지 확인 합니다.
 
-템플릿 리소스 및 해당 특성에 대한 일반적인 정보는 다음 항목을 참조하십시오.
+템플릿 리소스 및 해당 특성에 대 한 일반 정보는 다음 항목을 참조 하세요.
 
-* [리소스 - 리소스 관리자 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md#resources)
-* [템플릿 리소스에 대한 모범 사례](../azure-resource-manager/templates/template-best-practices.md#resources)
+* [리소스-리소스 관리자 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md#resources)
+* [템플릿 리소스에 대 한 모범 사례](../azure-resource-manager/templates/template-best-practices.md#resources)
 
 <a name="logic-app-resource-definition"></a>
 
 ### <a name="logic-app-resource-definition"></a>논리 앱 리소스 정의
 
-논리 앱의 리소스 정의는 `properties` 다음 정보를 포함하는 개체로 시작합니다.
+논리 앱의 리소스 정의는 다음 정보를 `properties` 포함 하는 개체로 시작 됩니다.
 
 * 배포 시 논리 앱의 상태
-* 논리 앱에서 사용하는 통합 계정의 ID
+* 논리 앱에서 사용 하는 모든 통합 계정의 ID입니다.
 * 논리 앱의 워크플로 정의
-* 런타임에 사용할 값을 설정하는 `parameters` 개체
-* 이름, 유형, 위치 등과 같은 논리 앱에 대한 기타 리소스 정보
+* 런타임에 `parameters` 사용할 값을 설정 하는 개체입니다.
+* 논리 앱에 대 한 기타 리소스 정보 (예: 이름, 유형, 위치 등)
 
 ```json
 {
@@ -317,32 +317,32 @@ ms.locfileid: "81641823"
 }
 ```
 
-논리 앱 리소스 정의와 관련된 특성은 다음과 같습니다.
+논리 앱 리소스 정의와 관련 된 특성은 다음과 같습니다.
 
-| attribute | 필수 | Type | Description |
+| 특성 | 필수 | Type | 설명 |
 |-----------|----------|------|-------------|
-| `state` | 예 | String | 논리 앱이 활성 상태이고 `Enabled` `Disabled` 논리 앱이 비활성 상태임을 의미하는 배포시 논리 앱의 상태입니다. 예를 들어 논리 앱이 생방송으로 전환될 준비가 되지 않았지만 초안 버전을 배포하려는 `Disabled` 경우 이 옵션을 사용할 수 있습니다. |
-| `integrationAccount` | 예 | Object | 논리 앱에서 B2B(비즈니스 간) 시나리오에 대한 아티팩트를 저장하는 통합 계정을 사용하는 `id` 경우 이 개체에는 통합 계정에 대한 ID를 지정하는 특성이 포함됩니다. |
-| `definition` | 예 | Object | 논리 앱의 기본 워크플로 정의는 코드 보기에 나타나고 [워크플로 정의 언어에 대한 스키마 참조에](../logic-apps/logic-apps-workflow-definition-language.md) 완전히 설명되어 있는 동일한 개체입니다. 이 워크플로 정의에서 `parameters` 개체는 논리 앱 런타임에서 사용할 값에 대한 매개 변수를 선언합니다. 자세한 내용은 [워크플로 정의 및 매개 변수를](#workflow-definition-parameters)참조하십시오. <p><p>논리 앱의 워크플로 정의에서 특성을 보려면 Azure 포털 또는 Visual Studio에서 "디자인 보기"에서 "코드 보기"로 전환하거나 [Azure 리소스 탐색기와](https://resources.azure.com)같은 도구를 사용하여 . |
-| `parameters` | 예 | Object | 논리 앱 런타임에 사용할 [워크플로 정의 매개 변수 값입니다.](#workflow-definition-parameters) 이러한 값에 대한 매개 변수 정의는 [워크플로 정의의 매개 변수 개체](#workflow-definition-parameters)내에 나타납니다. 또한 논리 앱이 다른 서비스 및 시스템에 액세스하기 위해 [관리되는 커넥터를](../connectors/apis-list.md) 사용하는 경우 이 개체에는 런타임에 사용할 연결 값을 설정하는 `$connections` 개체가 포함됩니다. |
-| `accessControl` | 예 | Object | 요청 트리거에 대한 IP 액세스를 제한하거나 기록 입력 및 출력을 실행하는 등 논리 앱에 대한 보안 특성을 지정하는 경우 자세한 내용은 [논리 앱에 대한 보안 액세스를](../logic-apps/logic-apps-securing-a-logic-app.md)참조하십시오. |
+| `state` | 예 | String | 배포 시 논리 앱의 상태입니다. `Enabled` 여기서는 논리 앱이 라이브 상태 `Disabled` 이며 논리 앱이 비활성 상태임을 의미 합니다. 예를 들어 논리 앱을 라이브 상태로 전환할 준비가 되지 않았지만 초안 버전을 배포 하려는 경우 `Disabled` 옵션을 사용할 수 있습니다. |
+| `integrationAccount` | 아니요 | Object | 논리 앱에서 B2B (기업 간) 시나리오에 대 한 아티팩트를 저장 하는 통합 계정을 사용 하는 경우이 개체에는 `id` 통합 계정에 대 한 ID를 지정 하는 특성이 포함 됩니다. |
+| `definition` | 예 | Object | 논리 앱의 기본 워크플로 정의는 코드 보기에 표시 되는 것과 동일한 개체 이며 [워크플로 정의 언어에 대 한 스키마 참조](../logic-apps/logic-apps-workflow-definition-language.md) 항목에 자세히 설명 되어 있습니다. 이 워크플로 정의에서 개체는 `parameters` 논리 앱 런타임에서 사용할 값에 대 한 매개 변수를 선언 합니다. 자세한 내용은 [워크플로 정의 및 매개 변수](#workflow-definition-parameters)를 참조 하세요. <p><p>논리 앱의 워크플로 정의에서 특성을 보려면 Azure Portal 또는 Visual Studio에서 "디자인 뷰"를 "코드 보기"로 전환 하거나 [Azure Resource Explorer](https://resources.azure.com)와 같은 도구를 사용 하 여 전환 합니다. |
+| `parameters` | 아니요 | Object | 논리 앱 런타임에서 사용할 [워크플로 정의 매개 변수 값](#workflow-definition-parameters) 입니다. 이러한 값에 대 한 매개 변수 정의는 [워크플로 정의의 parameters 개체](#workflow-definition-parameters)내에 표시 됩니다. 또한 논리 앱이 [관리 되는 커넥터](../connectors/apis-list.md) 를 사용 하 여 다른 서비스 및 시스템에 액세스 하는 `$connections` 경우이 개체에는 런타임에 사용할 연결 값을 설정 하는 개체가 포함 됩니다. |
+| `accessControl` | 아니요 | Object | 논리 앱에 대 한 보안 특성을 지정 하기 위한 것입니다. 예를 들어 트리거를 요청 하거나 기록 입력 및 출력을 요청 하는 IP 액세스를 제한 합니다. 자세한 내용은 [논리 앱에 대 한 보안 액세스](../logic-apps/logic-apps-securing-a-logic-app.md)를 참조 하세요. |
 ||||
 
-논리 앱, 통합 계정 및 통합 계정 아티팩트와 관련된 템플릿 리소스 정보는 [Microsoft.Logic 리소스 유형을](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions)참조하십시오.
+논리 앱, 통합 계정 및 통합 계정 아티팩트와 관련 한 템플릿 리소스 정보는 [Microsoft 논리 리소스 유형](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions)을 참조 하세요.
 
 <a name="workflow-definition-parameters"></a>
 
 ## <a name="workflow-definition-and-parameters"></a>워크플로 정의 및 매개 변수
 
-논리 앱의 워크플로 정의가 `definition` 개체에 나타나며 `properties` 논리 앱의 리소스 정의 내의 개체에 나타납니다. 이 `definition` 개체는 코드 보기에 나타나고 워크플로 정의 언어 항목에 [대 한 스키마 참조에](../logic-apps/logic-apps-workflow-definition-language.md) 완전히 설명 된 동일한 개체입니다. 워크플로 정의에는 `parameters` 런타임시 워크플로 정의에서 사용되는 값에 대해 새 매개 변수를 정의하거나 기존 매개변수를 편집할 수 있는 내부 선언 개체가 포함되어 있습니다. 그런 다음 트리거 내부또는 워크플로의 작업 내에서 이러한 매개 변수를 참조할 수 있습니다. 논리 앱에서 `parameters` [관리되는 커넥터를](../connectors/apis-list.md)통해 다른 서비스 및 시스템에 대한 연결을 생성하지 않는 한 기본적으로 이 개체는 비어 있습니다.
+논리 앱의 워크플로 정의가 `definition` 개체에 표시 됩니다 .이 개체는 논리 앱 `properties` 의 리소스 정의 내에 있는 개체에 표시 됩니다. 이 `definition` 개체는 코드 보기에 표시 되는 것과 동일한 개체 이며 [워크플로 정의 언어에 대 한 스키마 참조](../logic-apps/logic-apps-workflow-definition-language.md) 항목에 자세히 설명 되어 있습니다. 워크플로 정의에는 런타임에 워크플로 `parameters` 정의에서 사용 하는 값에 대 한 기존 매개 변수를 새로 정의 하거나 편집할 수 있는 내부 선언 개체가 포함 되어 있습니다. 그런 다음 워크플로의 트리거 또는 작업 내에서 이러한 매개 변수를 참조할 수 있습니다. 논리 앱이 `parameters` [관리 되는 커넥터](../connectors/apis-list.md)를 통해 다른 서비스 및 시스템에 연결을 만들지 않는 한 기본적으로이 개체는 비어 있습니다.
 
-워크플로 정의 매개 변수에 대한 `parameters` 값을 설정하려면 워크플로 정의 *외부에* 있지만 논리 앱의 리소스 정의 *내에* 있는 개체를 사용합니다. 이 외부 `parameters` 개체에서는 이전에 선언된 템플릿 매개 변수를 참조하여 매개 변수 파일에서 배포 시 값을 허용할 수 있습니다.
+워크플로 정의 매개 변수에 대 한 값을 설정 하려면 워크플로 `parameters` 정의 *외부* 에 있지만 논리 앱의 리소스 정의 *내* 에 있는 개체를 사용 합니다. 그런 다음이 `parameters` 외부 개체에서 이전에 선언 된 템플릿 매개 변수를 참조할 수 있습니다. 그러면 매개 변수 파일에서 배포 시 값을 사용할 수 있습니다.
 
 > [!TIP]
 >
-> 가장 좋은 방법은 워크플로 정의 내부에서 배포 시 평가되는 템플릿 매개 변수를 직접 참조하지 마십시오. 대신 워크플로 정의 매개 변수를 선언하면 `parameters` 워크플로 정의 *정의 외부에* 있지만 논리 앱의 리소스 정의 *내에* 있는 개체에 설정할 수 있습니다. 자세한 내용은 [매개 변수에 대한 참조를](#parameter-references)참조하십시오.
+> 모범 사례로, 워크플로 정의 내에서 배포 시 평가 되는 템플릿 매개 변수를 직접 참조 하지 마십시오. 대신 워크플로 정의 매개 변수를 선언 합니다 .이 매개 변수는 워크플로 정의 `parameters` *외부* 에 있지만 아직 논리 앱의 리소스 정의 *내* 에 있는 개체에서 설정할 수 있습니다. 자세한 내용은 [매개 변수에](#parameter-references)대 한 참조를 참조 하세요.
 
-이 구문은 템플릿 및 워크플로 정의 매개 변수를 참조하여 해당 매개 변수 값을 설정할 수 있는 위치와 함께 템플릿 및 워크플로 정의 수준 모두에서 매개 변수를 선언할 수 있는 위치를 보여 주며 다음과 같은 위치에 표시됩니다.
+이 구문은 템플릿과 워크플로 정의 수준 모두에서 매개 변수를 선언할 수 있는 위치와 템플릿과 워크플로 정의 매개 변수를 참조 하 여 해당 매개 변수 값을 설정할 수 있는 위치를 보여 줍니다.
 
 ```json
 {
@@ -407,17 +407,17 @@ ms.locfileid: "81641823"
 
 <a name="secure-workflow-definition-parmameters"></a>
 
-### <a name="secure-workflow-definition-parameters"></a>워크플로 정의 매개 변수 보안
+### <a name="secure-workflow-definition-parameters"></a>보안 워크플로 정의 매개 변수
 
-런타임시 중요한 정보, 암호, 액세스 키 또는 암호를 처리하는 워크플로 정의 매개 변수의 `securestring` 경우 `secureobject` 매개 변수를 선언하거나 편집하여 또는 매개 변수 형식을 사용합니다. 워크플로 정의 전체 및 내에서 이 매개 변수를 참조할 수 있습니다. 템플릿의 최상위 수준에서 배포 시 이 정보를 처리하는 동일한 형식의 매개 변수를 선언합니다.
+런타임에 중요 한 정보, 암호, 액세스 키 또는 암호를 처리 하는 워크플로 정의 매개 변수의 경우 `securestring` 또는 `secureobject` 매개 변수 형식을 사용 하도록 매개 변수를 선언 하거나 편집 합니다. 워크플로 정의 내에서이 매개 변수를 참조할 수 있습니다. 템플릿의 최상위 수준에서 동일한 형식의 매개 변수를 선언 하 여 배포 시이 정보를 처리 합니다.
 
-워크플로 정의 매개 변수에 대한 `parameters` 값을 설정하려면 워크플로 정의 *외부에* 있지만 논리 앱 리소스 정의 *내에* 있는 개체를 사용하여 템플릿 매개 변수를 참조합니다. 마지막으로 배포 시 템플릿 매개 변수에 값을 전달하려면 Azure [Key Vault에](../azure-resource-manager/templates/key-vault-parameter.md) 해당 값을 저장하고 배포 시 템플릿에서 사용하는 매개 변수 파일의 키 자격 증명 모음을 [참조합니다.](#template-parameter-files)
+워크플로 정의 매개 변수에 대 한 값을 설정 하려면 워크플로 정의 `parameters` *외부* 에 있지만 여전히 논리 앱 리소스 정의 *내* 에 있는 개체를 사용 하 여 템플릿 매개 변수를 참조 합니다. 마지막으로, 배포 시 값을 템플릿 매개 변수에 전달 하려면 [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) 에 해당 값을 저장 하 고 배포 시 템플릿에 사용 되는 [매개 변수 파일](#template-parameter-files) 에서 해당 키 자격 증명 모음을 참조 합니다.
 
-이 예제 템플릿은 Azure Key Vault에 해당 값을 저장할 수 있도록 필요한 경우 보안 매개 변수를 정의하여 이러한 작업을 완료하는 방법을 보여 주었습니다.
+이 예제 템플릿에서는 필요 시 Azure Key Vault에 값을 저장할 수 있도록 보안 매개 변수를 정의 하 여 이러한 작업을 완료 하는 방법을 보여 줍니다.
 
-* 액세스를 인증하는 데 사용되는 값에 대한 보안 매개 변수를 선언합니다.
-* 템플릿 및 워크플로 정의 수준 모두에서 이러한 값을 사용합니다.
-* 매개 변수 파일을 사용하여 이러한 값을 제공합니다.
+* 액세스를 인증 하는 데 사용 되는 값에 대 한 보안 매개 변수를 선언 합니다.
+* 템플릿과 워크플로 정의 수준 모두에서 이러한 값을 사용 합니다.
+* 매개 변수 파일을 사용 하 여 이러한 값을 제공 합니다.
 
 **템플릿**
 
@@ -548,27 +548,27 @@ ms.locfileid: "81641823"
 
 <a name="best-practices-workflow-definition-parameters"></a>
 
-## <a name="best-practices---workflow-definition-parameters"></a>모범 사례 - 워크플로 정의 매개 변수
+## <a name="best-practices---workflow-definition-parameters"></a>모범 사례-워크플로 정의 매개 변수
 
-Logic App Designer에서 워크플로 정의 매개 변수를 올바르게 표시할 수 있는지 확인하려면 다음 모범 사례를 따르십시오.
+논리 앱 디자이너가 워크플로 정의 매개 변수를 올바르게 표시할 수 있는지 확인 하려면 다음 모범 사례를 따르세요.
 
-* 중요하거나 `defaultValue` 보호해야 하는 값을 제외한 모든 매개 변수에 대해 빈 값을 지정할 수 있는 특성을 포함합니다.
+* 중요 하거나 `defaultValue` 보안을 유지 해야 하는 값을 제외 하 고 모든 매개 변수에 대해 빈 값을 지정할 수 있는 특성을 포함 합니다.
 
-* 항상 사용자 이름, 암호 및 암호에 대해 보안 매개 변수를 사용합니다. 중요한 매개 변수 값을 숨기거나 보호하려면 다음 항목의 지침을 따르십시오.
+* 사용자 이름, 암호 및 암호에는 항상 보안 매개 변수를 사용 합니다. 중요 한 매개 변수 값을 숨기 거 나 보호 하려면 다음 항목의 지침을 따르세요.
 
-  * [작업 매개 변수에 대한 보안 권장 사항](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
+  * [작업 매개 변수에 대 한 보안 권장 사항](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
-  * [워크플로 정의의 매개 변수에 대한 보안 권장 사항](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-workflow)
+  * [워크플로 정의의 매개 변수에 대 한 보안 권장 사항](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-workflow)
 
-  * [Azure 키 볼트로 보안 매개 변수 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)
+  * [Azure Key Vault를 사용 하 여 보안 매개 변수 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)
 
-워크플로 정의 매개 변수에 대한 자세한 내용은 [매개 변수 - 워크플로 정의 언어를](../logic-apps/logic-apps-workflow-definition-language.md#parameters)참조하십시오.
+워크플로 정의 매개 변수에 대 한 자세한 내용은 [매개 변수-워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md#parameters)를 참조 하세요.
 
 <a name="connection-resource-definitions"></a>
 
 ## <a name="connection-resource-definitions"></a>연결 리소스 정의
 
-논리 앱에서 [관리되는 커넥터를](../connectors/apis-list.md)사용하여 다른 서비스 및 시스템에 대한 연결을 `resources` 만들고 사용하는 경우 템플릿의 개체에는 해당 연결에 대한 리소스 정의가 포함됩니다.
+논리 앱이 [관리 되는 커넥터](../connectors/apis-list.md)를 사용 하 여 다른 서비스와 시스템에 대 한 연결을 만들고 `resources` 사용 하는 경우 템플릿의 개체에는 해당 연결에 대 한 리소스 정의가 포함 됩니다.
 
 ```json
 {
@@ -593,9 +593,9 @@ Logic App Designer에서 워크플로 정의 매개 변수를 올바르게 표�
 }
 ```
 
-연결 리소스 정의는 해당 값에 대한 템플릿의 최상위 매개 변수를 참조하므로 매개 변수 파일을 사용하여 배포시 이러한 값을 제공할 수 있습니다. 연결이 논리 앱과 동일한 Azure 리소스 그룹 및 위치를 사용하는지 확인합니다.
+연결 리소스 정의는 해당 값에 대 한 템플릿의 최상위 매개 변수를 참조 합니다. 즉, 매개 변수 파일을 사용 하 여 배포 시 이러한 값을 제공할 수 있습니다. 연결에서 논리 앱과 동일한 Azure 리소스 그룹 및 위치를 사용 하는지 확인 합니다.
 
-Office 365 Outlook 연결 및 해당 템플릿 매개 변수에 대한 예제 리소스 정의는 다음과 같습니다.
+Office 365 Outlook 연결 및 해당 템플릿 매개 변수에 대 한 예제 리소스 정의는 다음과 같습니다.
 
 ```json
 {
@@ -648,15 +648,15 @@ Office 365 Outlook 연결 및 해당 템플릿 매개 변수에 대한 예제 �
 }
 ```
 
-논리 앱의 리소스 정의는 다음과 같은 방식으로 연결 리소스 정의에서도 작동합니다.
+논리 앱의 리소스 정의는 다음과 같은 방법으로 연결 리소스 정의에도 적용 됩니다.
 
-* 워크플로 정의 내에서 `parameters` 개체는 `$connections` 논리 앱 런타임에서 사용할 연결 값에 대한 매개 변수를 선언합니다. 또한 연결을 만드는 트리거 또는 작업은 이 `$connections` 매개 변수를 통과하는 해당 값을 사용합니다.
+* 워크플로 정의 내에서 개체는 `parameters` 논리 앱 런타임에서 `$connections` 사용할 연결 값에 대 한 매개 변수를 선언 합니다. 또한 연결을 만드는 트리거 또는 동작에는이 매개 변수를 통해 전달 되는 해당 `$connections` 값이 사용 됩니다.
 
-* 워크플로 정의 *외부에서는* 논리 앱의 리소스 정의 `parameters` *내에서* 다른 개체가 해당 템플릿 `$connections` 매개 변수를 참조하여 런타임에 사용할 값을 설정합니다. 이러한 값은 템플릿 식을 사용하여 논리 앱의 연결에 대한 메타데이터를 안전하게 저장하는 리소스를 참조합니다.
+* 워크플로 정의 *외* 에도 논리 앱의 리소스 정의 *내* 에서 다른 `parameters` 개체는 런타임에 해당 템플릿 매개 변수를 참조 하 여 `$connections` 매개 변수에 사용할 값을 설정 합니다. 이러한 값은 템플릿 식을 사용 하 여 논리 앱의 연결에 대 한 메타 데이터를 안전 하 게 저장 하는 리소스를 참조 합니다.
 
-  예를 들어 메타데이터에는 [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)에 저장할 수 있는 연결 문자열 및 액세스 토큰이 포함될 수 있습니다. 이러한 값을 템플릿 매개 변수에 전달하려면 배포 시 템플릿에서 사용하는 [매개 변수 파일의](#template-parameter-files) 해당 키 자격 증명 모음을 참조합니다. 참조 매개 변수의 차이점에 대한 자세한 내용은 이 항목의 후반부 [매개 변수에 대한 참조를](#parameter-references) 참조하십시오.
+  예를 들어 메타 데이터에는 [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)에 저장할 수 있는 연결 문자열 및 액세스 토큰이 포함 될 수 있습니다. 이러한 값을 템플릿 매개 변수에 전달 하려면 배포 시 템플릿에서 사용 하는 [매개 변수 파일](#template-parameter-files) 에서 해당 키 자격 증명 모음을 참조 합니다. 참조 매개 변수의 차이점에 대 한 자세한 내용은이 항목의 뒷부분에 나오는 [매개 변수에](#parameter-references) 대 한 참조를 참조 하세요.
 
-  Azure 포털 또는 Visual Studio를 통해 코드 보기에서 논리 앱의 `$connections` 워크플로 정의를 열면 개체가 워크플로 정의 외부에 있지만 동일한 수준으로 나타납니다. 코드 뷰에서 이 순서를 사용하면 워크플로 정의를 수동으로 업데이트할 때 이러한 매개 변수를 더 쉽게 참조할 수 있습니다.
+  Azure Portal 또는 Visual Studio를 통해 코드 보기에서 논리 앱의 워크플로 정의를 열면 `$connections` 개체가 워크플로 정의의 외부에 표시 되지만 같은 수준에 표시 됩니다. 코드 뷰에서 이러한 순서를 지정 하면 워크플로 정의를 수동으로 업데이트할 때 이러한 매개 변수를 쉽게 참조할 수 있습니다.
 
   ```json
   {
@@ -665,11 +665,11 @@ Office 365 Outlook 연결 및 해당 템플릿 매개 변수에 대한 예제 �
   }
   ```
 
-* 논리 앱의 리소스 정의에는 `dependsOn` 논리 앱에서 사용하는 연결에 대한 종속성을 지정하는 개체가 있습니다.
+* 논리 앱의 리소스 정의에는 논리 `dependsOn` 앱에서 사용 하는 연결에 대 한 종속성을 지정 하는 개체가 있습니다.
 
-만드는 각 연결에는 Azure에 고유한 이름이 있습니다. 동일한 서비스 또는 시스템에 대한 여러 연결을 만들 때 각 연결 이름에 숫자가 추가되며, 이 번호는 생성된 `office365` `office365-1`각 연결(예: 및 기타)에 따라 증가합니다.
+만든 각 연결에는 Azure에서 고유한 이름이 있습니다. 동일한 서비스 또는 시스템에 대 한 여러 연결을 만들 때 각 연결 이름은 새 연결 (예: `office365` `office365-1`,, 등)을 사용 하 여 생성 되는 숫자로 추가 됩니다.
 
-이 예제에서는 논리 앱의 리소스 정의와 Office 365 Outlook에 대한 연결 리소스 정의 간의 상호 작용을 보여 줍니다.
+이 예제에서는 논리 앱의 리소스 정의와 Office 365 Outlook에 대 한 연결 리소스 정의 간의 상호 작용을 보여 줍니다.
 
 ```json
 {
@@ -746,9 +746,9 @@ Office 365 Outlook 연결 및 해당 템플릿 매개 변수에 대한 예제 �
 
 ### <a name="secure-connection-parameters"></a>보안 연결 매개 변수
 
-중요한 정보, 암호, 액세스 키 또는 암호를 처리하는 연결 매개 변수의 경우 `parameterValues` 연결의 리소스 정의에 이름 값 쌍 형식으로 이러한 값을 지정하는 개체가 포함됩니다. 이 정보를 숨기려면 또는 `securestring` `secureobject` 매개 변수 형식을 사용하여 이러한 값에 대한 템플릿 매개 변수를 선언하거나 편집할 수 있습니다. 그런 다음 해당 정보를 [Azure 키 자격 증명 모음에](../azure-resource-manager/templates/key-vault-parameter.md)저장할 수 있습니다. 이러한 값을 템플릿 매개 변수에 전달하려면 배포 시 템플릿에서 사용하는 [매개 변수 파일의](#template-parameter-files) 해당 키 자격 증명 모음을 참조합니다.
+중요 한 정보, 암호, 액세스 키 또는 비밀을 처리 하는 연결 매개 변수의 경우 연결의 리소스 정의에는 `parameterValues` 이름-값 쌍 형식으로 이러한 값을 지정 하는 개체가 포함 됩니다. 이 정보를 숨기려면 `securestring` 또는 `secureobject` 매개 변수 형식을 사용 하 여 이러한 값에 대 한 템플릿 매개 변수를 선언 하거나 편집할 수 있습니다. 그런 다음 해당 정보를 [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)에 저장할 수 있습니다. 이러한 값을 템플릿 매개 변수에 전달 하려면 배포 시 템플릿에서 사용 하는 [매개 변수 파일](#template-parameter-files) 에서 해당 키 자격 증명 모음을 참조 합니다.
 
-다음은 Azure Blob Storage 연결에 대한 계정 이름 및 액세스 키를 제공하는 예제입니다.
+Azure Blob Storage 연결에 대 한 계정 이름 및 액세스 키를 제공 하는 예제는 다음과 같습니다.
 
 **매개 변수 파일**
 
@@ -910,9 +910,9 @@ Office 365 Outlook 연결 및 해당 템플릿 매개 변수에 대한 예제 �
 
 ### <a name="authenticate-connections"></a>연결 인증
 
-배포 후 논리 앱은 유효한 매개 변수를 사용하여 종단 간 작동합니다. 그러나 [자격 증명을 인증하기](../active-directory/develop/authentication-scenarios.md)위한 유효한 액세스 토큰을 생성하려면 OAuth 연결에 권한을 부여해야 합니다. 자세한 내용은 [OAuth 연결 권한 부여](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)를 참조하십시오.
+배포 후에 논리 앱은 유효한 매개 변수를 사용 하 여 종단 간에 작동 합니다. 그러나 [자격 증명을 인증](../active-directory/develop/authentication-scenarios.md)하는 데 유효한 액세스 토큰을 생성 하려면 여전히 OAuth 연결에 권한을 부여 해야 합니다. 자세한 내용은 [OAuth 연결 권한 부여](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)를 참조 하세요.
 
-일부 연결은 Azure Active Directory(Azure AD) [서비스 주체를](../active-directory/develop/app-objects-and-service-principals.md) 사용하여 [Azure AD에 등록된](../active-directory/develop/quickstart-register-app.md)논리 앱에 대한 연결을 승인합니다. 예를 들어 이 Azure Data Lake 연결 리소스 정의는 서비스 주체의 정보를 처리하는 템플릿 매개 변수를 참조하는 방법과 템플릿이 이러한 매개 변수를 선언하는 방법을 보여 주며 다음과 같은 방법을 보여 주며 있습니다.
+일부 연결에서는 azure ad (Azure Active Directory) [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md) 를 사용 하 여 [azure ad에 등록](../active-directory/develop/quickstart-register-app.md)된 논리 앱에 대 한 연결 권한을 부여 합니다. 예를 들어이 Azure Data Lake 연결 리소스 정의는 서비스 주체의 정보를 처리 하는 템플릿 매개 변수를 참조 하는 방법과 템플릿이 이러한 매개 변수를 선언 하는 방법을 보여 줍니다.
 
 **연결 리소스 정의**
 
@@ -938,17 +938,17 @@ Office 365 Outlook 연결 및 해당 템플릿 매개 변수에 대한 예제 �
 }
 ```
 
-| attribute | Description |
+| 특성 | Description |
 |-----------|-------------|
-| `token:clientId` | 서비스 주체와 연결된 응용 프로그램 또는 클라이언트 ID |
-| `token:clientSecret` | 서비스 주체와 연결된 키 값 |
-| `token:TenantId` | Azure AD 테넌트의 디렉터리 ID |
-| `token:grantType` | 요청된 권한 부여 유형은 에서 해야 합니다. `client_credentials` 자세한 내용은 [Microsoft ID 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름을](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md)참조하십시오. |
+| `token:clientId` | 서비스 사용자와 연결 된 응용 프로그램 또는 클라이언트 ID입니다. |
+| `token:clientSecret` | 서비스 사용자와 연결 된 키 값입니다. |
+| `token:TenantId` | Azure AD 테 넌 트의 디렉터리 ID입니다. |
+| `token:grantType` | 요청 된 권한 부여 형식으로, 이어야 `client_credentials`합니다. 자세한 내용은 [Microsoft id 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md)을 참조 하세요. |
 |||
 
 **템플릿 매개 변수 정의**
 
-템플릿의 최상위 `parameters` 개체는 예제 연결에 대해 이러한 매개 변수를 선언합니다.
+템플릿의 최상위 `parameters` 개체는 예제 연결에 대해 다음 매개 변수를 선언 합니다.
 
 ```json
 {
@@ -1003,41 +1003,41 @@ Office 365 Outlook 연결 및 해당 템플릿 매개 변수에 대한 예제 �
 }
 ```
 
-서비스 주체와 함께 작업하는 것에 대한 자세한 내용은 다음 항목을 참조하십시오.
+서비스 사용자를 사용 하는 방법에 대 한 자세한 내용은 다음 항목을 참조 하세요.
 
 * [Azure Portal을 사용하여 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Azure PowerShell을 사용하여 Azure 서비스 주체 만들기](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
-* [Azure PowerShell을 사용하여 인증서를 사용하여 서비스 주체를 만듭니다.](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Azure PowerShell를 사용 하 여 Azure 서비스 주체 만들기](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+* [Azure PowerShell를 사용 하 여 인증서를 사용 하 여 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 <a name="parameter-references"></a>
 
-## <a name="references-to-parameters"></a>매개 변수에 대한 참조
+## <a name="references-to-parameters"></a>매개 변수에 대 한 참조
 
-템플릿 매개 변수를 참조하려면 배포 시 평가되는 템플릿 함수가 있는 [템플릿 식을](../azure-resource-manager/templates/template-functions.md)사용할 수 있습니다. 템플릿 표현식은 대괄호를 사용합니다(**[]**:
+템플릿 매개 변수를 참조 하려면 배포 시 평가 되는 템플릿 [함수](../azure-resource-manager/templates/template-functions.md)에 템플릿 식을 사용할 수 있습니다. 템플릿 식은 대괄호 (**[]**)를 사용 합니다.
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 
-워크플로 정의 매개 변수를 참조하려면 런타임에 평가되는 [워크플로 정의 언어 표현식 및 함수를](../logic-apps/workflow-definition-language-functions-reference.md)사용합니다. 일부 템플릿 함수 및 워크플로 정의 함수의 이름이 같은 것을 알 수 있습니다. 워크플로 정의 표현식은 "at"**@** 기호로 시작합니다.
+워크플로 정의 매개 변수를 참조 하려면 런타임에 계산 되는 [워크플로 정의 언어 식과 함수](../logic-apps/workflow-definition-language-functions-reference.md)를 사용 합니다. 일부 템플릿 함수와 워크플로 정의 함수의 이름이 동일한 것을 확인할 수 있습니다. 워크플로 정의 식은 "at" 기호 (**@**)로 시작 합니다.
 
 `"<attribute-name>": "@parameters('<workflow-definition-parameter-name>')"`
 
-템플릿 매개 변수 값을 런타임에 사용할 논리 앱에 대한 워크플로 정의에 전달할 수 있습니다. 그러나 Logic App Designer는 템플릿 요소를 지원하지 않으므로 워크플로 정의에서 템플릿 매개 변수, 표현식 및 구문을 사용하지 마십시오. 또한 템플릿 구문 및 식은 식을 평가할 때의 차이로 인해 코드를 복잡하게 만들 수 있습니다.
+런타임에 사용할 논리 앱에 대 한 워크플로 정의에 템플릿 매개 변수 값을 전달할 수 있습니다. 그러나 논리 앱 디자이너에서 템플릿 요소를 지원 하지 않기 때문에 워크플로 정의에서 템플릿 매개 변수, 식 및 구문을 사용 하지 마십시오. 또한 식 계산 시의 차이로 인해 템플릿 구문 및 식은 코드를 복잡 하 게 만들 수 있습니다.
 
-대신 다음 일반 단계를 수행하여 런타임에 사용할 워크플로 정의 매개 변수를 선언하고 참조하고, 배포시 사용할 템플릿 매개 변수를 선언 및 참조하고, 매개 변수 파일을 사용하여 배포시 전달할 값을 지정합니다. 자세한 내용은 이 항목의 앞에서 [워크플로 정의 및 매개 변수](#workflow-definition-parameters) 섹션을 참조하십시오.
+대신, 다음 일반적인 단계에 따라 런타임에 사용할 워크플로 정의 매개 변수를 선언 하 고 참조 하며, 배포 시 사용할 템플릿 매개 변수를 선언 하 고 참조 하며, 매개 변수 파일을 사용 하 여 배포 시 전달할 값을 지정 합니다. 자세한 내용은이 항목의 앞부분에 나오는 [워크플로 정의 및 매개 변수](#workflow-definition-parameters) 섹션을 참조 하세요.
 
-1. 템플릿을 만들고 배포 시 수락하고 사용할 값에 대한 템플릿 매개 변수를 선언합니다.
+1. 템플릿을 만들고 배포할 때 사용할 값에 대 한 템플릿 매개 변수를 선언 합니다.
 
-1. 워크플로 정의에서 런타임에 수락하고 사용할 값에 대한 매개 변수를 선언합니다. 그런 다음 워크플로 정의 전체 및 내에서 이러한 값을 참조할 수 있습니다.
+1. 워크플로 정의에서 런타임에 수락 하 고 사용할 값에 대 한 매개 변수를 선언 합니다. 그런 다음 워크플로 정의 내에서 및에서 이러한 값을 참조할 수 있습니다.
 
-1. 워크플로 `parameters` 정의 *외부에* 있지만 논리 앱의 리소스 정의 *내에* 있는 개체에서 해당 템플릿 매개 변수를 참조하여 워크플로 정의 매개 변수에 대한 값을 설정합니다. 이렇게 하면 워크플로 정의 매개 변수에 템플릿 매개 변수 값을 전달할 수 있습니다.
+1. 워크플로 정의 `parameters` *외부* 에 있지만 논리 앱의 리소스 정의 *내* 에 있는 개체에서는 해당 템플릿 매개 변수를 참조 하 여 워크플로 정의 매개 변수에 대 한 값을 설정 합니다. 이렇게 하면 템플릿 매개 변수 값을 워크플로 정의 매개 변수에 전달할 수 있습니다.
 
-1. 매개 변수 파일에서 배포 시 사용할 템플릿의 값을 지정합니다.
+1. 매개 변수 파일에서 배포 시 사용할 템플릿의 값을 지정 합니다.
 
 <a name="full-example-template"></a>
 
 ## <a name="full-example-template"></a>전체 예제 템플릿
 
-다음은 이 항목의 예제에서 사용하는 매개 변수화된 샘플 템플릿입니다.
+이 항목의 예제에서 사용 하는 매개 변수가 있는 샘플 템플릿은 다음과 같습니다.
 
 ```json
 {

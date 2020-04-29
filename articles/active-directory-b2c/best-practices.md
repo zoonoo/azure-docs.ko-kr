@@ -12,17 +12,17 @@ ms.date: 03/03/2020
 ms.author: vigunase
 ms.subservice: B2C
 ms.openlocfilehash: b16c60130836cf0e3b38092b894129f503ee6e83
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82141679"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 권장 사항 및 모범 사례
 
 다음 모범 사례 및 권장 사항은 Azure Active Directory (Azure AD) B2C를 기존 또는 새 응용 프로그램 환경에 통합 하는 기본적인 몇 가지 측면을 다룹니다.
 
-## <a name="fundamentals"></a>기본 사항
+## <a name="fundamentals"></a>기본 항목
 
 |  |  |
 |--|--|
@@ -68,7 +68,7 @@ Azure AD B2C 구현을 테스트 하 고 자동화 합니다.
 | A/B 테스트 | 전체 모집단으로 롤아웃 하기 전에 소수의 사용자 집합을 사용 하 여 새로운 기능을 비행 합니다. Azure AD B2C에서 JavaScript를 사용 하도록 설정 하면 Optimizely, 명확성 및 기타와 같은 A/B 테스트 도구와 통합할 수 있습니다. |
 | 부하 테스트 | Azure AD B2C 크기를 조정할 수 있지만 모든 종속성이 확장 될 수 있는 경우에만 응용 프로그램을 확장할 수 있습니다. Api 및 CDN을 부하 테스트 합니다. |
 | 제한 |  짧은 기간 동안 동일한 원본에서 너무 많은 요청을 전송 하는 경우 제한 트래픽을 Azure AD B2C 합니다. 부하 테스트 중에 여러 트래픽 소스를 사용 하 고 `AADB2C90229` 응용 프로그램에서 오류 코드를 정상적으로 처리 합니다. |
-| 자동화 | CI/CD (지속적인 통합 및 배달) 파이프라인을 사용 하 여 [Azure DevOps](deploy-custom-policies-devops.md)와 같은 테스트 및 배포를 자동화 합니다. |
+| Automation | CI/CD (지속적인 통합 및 배달) 파이프라인을 사용 하 여 [Azure DevOps](deploy-custom-policies-devops.md)와 같은 테스트 및 배포를 자동화 합니다. |
 
 ## <a name="operations"></a>작업
 

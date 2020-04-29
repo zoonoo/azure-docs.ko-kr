@@ -1,31 +1,31 @@
 ---
-title: 하이퍼-V용 Azure 마이그레이션 어플라이언스 설정
-description: 하이퍼-V VM을 평가하고 마이그레이션하기 위해 Azure 마이그레이션 어플라이언스를 설정하는 방법에 대해 알아봅니다.
+title: Hyper-v에 대 한 Azure Migrate 어플라이언스 설정
+description: Hyper-v Vm을 평가 하 고 마이그레이션하기 위해 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 03/23/2020
 ms.openlocfilehash: 77c13a3a8c87d116bd0863324d28669185c53c84
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81538293"
 ---
-# <a name="set-up-an-appliance-for-hyper-v-vms"></a>하이퍼 VM용 어플라이언스 설정
+# <a name="set-up-an-appliance-for-hyper-v-vms"></a>Hyper-v Vm에 대 한 어플라이언스 설정
 
-이 문서에 따라 [Azure 마이그레이션:서버 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용하여 Hyper-V VM을 평가하기 위해 Azure 마이그레이션 어플라이언스를 설정합니다.
+이 문서에 따라 [Azure Migrate: 서버 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용 하 여 hyper-v vm의 평가에 대 한 Azure Migrate 어플라이언스를 설정 합니다.
 
-[Azure 마이그레이션 어플라이언스는](migrate-appliance.md) Azure Migrate:Server 평가/마이그레이션에서 온-프레미스 하이퍼-V VM을 검색하고 VM 메타데이터/성능 데이터를 Azure로 보내는 데 사용되는 경량 어플라이언스입니다.
+[Azure Migrate 어플라이언스](migrate-appliance.md) 는 온-프레미스 hyper-v vm을 검색 하 고 VM 메타 데이터/성능 데이터를 Azure로 전송 하는 Azure Migrate에서 사용 하는 경량 어플라이언스입니다.
 
-다음 몇 가지 방법을 사용하여 어플라이언스를 배포할 수 있습니다.
+몇 가지 방법을 사용 하 여 어플라이언스를 배포할 수 있습니다.
 
-- 다운로드한 VHD를 사용하여 하이퍼 V VM에 설정합니다. 이 문서에서 설명하는 방법입니다.
-- PowerShell 설치 관리자 스크립트를 통해 Hyper-V VM 또는 실제 컴퓨터에 설정합니다. [이 메서드는](deploy-appliance-script.md) VHD를 사용 하 여 VM을 설정할 수 없습니다 또는 Azure 정부에 있는 경우 사용 해야 합니다.
+- 다운로드 한 VHD를 사용 하 여 Hyper-v VM에 설정 합니다. 이 방법은이 문서에 설명 되어 있습니다.
+- PowerShell 설치 관리자 스크립트를 사용하여 Hyper-V VM 또는 물리적 머신에 설정합니다. VHD를 사용 하 여 VM을 설정할 수 없거나 Azure Government 중인 경우 [이 방법을](deploy-appliance-script.md) 사용 해야 합니다.
 
-어플라이언스가 만들어지면 Azure Migrate:Server Assessment에 연결하여 처음으로 구성하고, Azure Migrate 프로젝트에 등록할 수 있는지 확인합니다.
+어플라이언스를 만든 후 Azure Migrate:Server Assessment에 연결하여, 처음으로 구성하고, Azure Migrate 프로젝트에 등록할 수 있는지 확인합니다.
 
-## <a name="appliance-deployment-vhd"></a>어플라이언스 배포(VHD)
+## <a name="appliance-deployment-vhd"></a>어플라이언스 배포 (VHD)
 
-VHD 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 수행하십시오.
+VHD 템플릿을 사용 하 여 어플라이언스를 설정 하려면:
 
 - Azure Portal에서 압축된 Hyper-V VHD를 다운로드합니다.
 - 어플라이언스를 만들고, Azure Migrate 서버 평가에 연결할 수 있는지 확인합니다.
@@ -50,7 +50,7 @@ VHD 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 2. 다음 명령을 실행하여 VHD에 대한 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
-3.  어플라이언스 버전 2.19.11.12의 경우 생성된 해시가 이러한 [설정과](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security)일치해야 합니다.
+3.  어플라이언스 버전 2.19.11.12의 경우 생성 된 해시가 이러한 [설정과](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security)일치 해야 합니다.
 
 
 
@@ -77,11 +77,11 @@ VHD 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
-어플라이언스 VM이 [공용](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드에 대한 Azure URL에 연결할 수 있는지 확인합니다.
+어플라이언스 VM에서 [퍼블릭](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드의 Azure URL에 연결할 수 있는지 확인합니다.
 
 ## <a name="configure-the-appliance"></a>어플라이언스 구성
 
-어플라이언스를 처음으로 설정합니다. VHD 대신 스크립트를 사용하여 어플라이언스를 배포하는 경우 절차의 처음 두 단계는 적용할 수 없습니다.
+어플라이언스를 처음으로 설정합니다. VHD 대신 스크립트를 사용 하 여 어플라이언스를 배포 하는 경우 절차의 처음 두 단계는 적용 되지 않습니다.
 
 1. Hyper-V 관리자 > **Virtual Machines**에서 마우스 오른쪽 단추로 VM > **연결**을 클릭합니다.
 2. 어플라이언스에 대한 언어, 표준 시간대 및 암호를 제공합니다.
@@ -111,7 +111,7 @@ VHD 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>SMB VHD에 대한 자격 증명 위임
 
-SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 Hyper-V 호스트로 위임하도록 설정해야 합니다. 어플라이언스에서 이 작업을 수행하려면 다음을 수행하십시오.
+SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 Hyper-V 호스트로 위임하도록 설정해야 합니다. 어플라이언스에서이 작업을 수행 하려면 다음을 수행 합니다.
 
 1. 어플라이언스 VM에서 다음 명령을 실행합니다. HyperVHost1/HyperVHost2는 예제 호스트 이름입니다.
 
@@ -150,4 +150,4 @@ SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 H
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 마이그레이션 서버 [평가를](tutorial-assess-hyper-v.md) 사용 해 보십시오.
+Azure Migrate Server 평가를 사용 하 여 [hyper-v 평가](tutorial-assess-hyper-v.md) 를 사용해 보세요.

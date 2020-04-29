@@ -1,20 +1,20 @@
 ---
-title: VM 시작/중지 솔루션에서 로그를 쿼리하는 방법
-description: 이 문서에서는 Azure Monitor에서 시작/중지 VM 솔루션에서 생성된 로그 데이터를 쿼리하는 방법을 설명합니다.
+title: Vm 시작/중지 솔루션에서 로그를 쿼리 하는 방법
+description: 이 문서에서는 Azure Monitor에서 Vm 시작/중지 솔루션에 의해 생성 된 로그 데이터를 쿼리 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: 472f3762ca18f71ba95053576daf025d8477fee9
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81604732"
 ---
-# <a name="how-to-query-logs-from-startstop-vms-solution"></a>VM 시작/중지 솔루션에서 로그를 쿼리하는 방법
+# <a name="how-to-query-logs-from-startstop-vms-solution"></a>Vm 시작/중지 솔루션에서 로그를 쿼리 하는 방법
 
-Azure Automation은 연결된 로그 분석 작업 영역인 작업 로그 및 작업 스트림의 두 가지 유형의 레코드를 전달합니다. 이 데이터는 Azure 모니터에서 [쿼리에](../azure-monitor/log-query/log-query-overview.md) 사용할 수 있습니다.
+Azure Automation는 두 가지 유형의 레코드를 연결 된 Log Analytics 작업 영역 (작업 로그 및 작업 스트림)에 전달 합니다. 이 데이터는 Azure Monitor에서 [쿼리에](../azure-monitor/log-query/log-query-overview.md) 사용할 수 있습니다.
 
 ## <a name="job-logs"></a>작업 로그
 
@@ -35,7 +35,7 @@ Azure Automation은 연결된 로그 분석 작업 영역인 작업 로그 및 �
 |SourceSystem | 제출된 데이터에 대한 원본 시스템을 지정합니다. Automation의 경우 값은 OpsManager입니다.|
 |StreamType | 이벤트의 유형을 지정합니다. 가능한 값은 다음과 같습니다.<br>- Verbose입니다.<br>- 출력<br>- 오류<br>- 경고|
 |SubscriptionId | 작업의 구독 ID를 지정합니다.
-|Time | runbook 작업이 실행된 날짜 및 시간입니다.|
+|시간 | runbook 작업이 실행된 날짜 및 시간입니다.|
 
 ## <a name="job-streams"></a>작업 스트림
 
@@ -54,7 +54,7 @@ Azure Automation은 연결된 로그 분석 작업 영역인 작업 로그 및 �
 |RunbookName | runbook의 이름입니다.|
 |SourceSystem | 제출된 데이터에 대한 원본 시스템을 지정합니다. Automation의 경우 값은 OpsManager입니다.|
 |StreamType | 작업 스트림의 유형입니다. 가능한 값은 다음과 같습니다.<br>- 진행률<br>- 출력<br>- 경고<br>- 오류<br>- 디버그<br>- Verbose입니다.|
-|Time | runbook 작업이 실행된 날짜 및 시간입니다.|
+|시간 | runbook 작업이 실행된 날짜 및 시간입니다.|
 
 **JobLogs** 또는 **JobStreams**의 범주 레코드를 반환하는 로그 검색을 수행하는 경우, 검색에 의해 반환되는 업데이트를 요약하는 타일 집합을 표시하는 **JobLogs** 또는 **JobStreams** 보기를 선택할 수 있습니다.
 
@@ -65,10 +65,10 @@ Azure Automation은 연결된 로그 분석 작업 영역인 작업 로그 및 �
 |쿼리 | Description|
 |----------|----------|
 |성공적으로 완료된 ScheduledStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
-|성공적으로 완료되지 않은 runbook ScheduledStartStop_Parent 대한 작업 찾기 | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|성공적으로 완료 되지 않은 runbook ScheduledStartStop_Parent에 대 한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 |성공적으로 완료된 SequencedStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
-|성공적으로 완료되지 않은 runbook SequencedStartStop_Parent 대한 작업 찾기 | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|성공적으로 완료 되지 않은 runbook SequencedStartStop_Parent에 대 한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 
 ## <a name="next-steps"></a>다음 단계
 
-근무 외 솔루션 **중 VM 시작/중지에는** 미리 정의된 경고 집합이 포함되어 있지 않습니다. Azure 모니터를 사용하여 [로그 알림 만들기를](../azure-monitor/platform/alerts-log.md) 검토하여 DevOps 또는 운영 프로세스 및 프로시저를 지원하기 위해 작업 실패 경고를 만드는 방법을 알아봅니다.
+**작업 시간 외 VM 시작/중지** 솔루션에는 미리 정의 된 경고 집합이 포함 되어 있지 않습니다. Azure Monitor로 [로그 경고 만들기](../azure-monitor/platform/alerts-log.md) 를 검토 하 여 devops 또는 운영 프로세스 및 절차를 지 원하는 작업 실패 경고를 만드는 방법을 알아봅니다.

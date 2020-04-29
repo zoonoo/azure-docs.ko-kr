@@ -1,6 +1,6 @@
 ---
 title: 기존 플레이어를 사용하여 콘텐츠 재생 - Azure | Microsoft Docs
-description: 이 도움말에는 콘텐츠를 재생하는 데 사용할 수 있는 기존 플레이어가 나열되어 있습니다.
+description: 이 문서에서는 콘텐츠를 재생 하는 데 사용할 수 있는 기존 플레이어를 나열 합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 2d3c22e17c37bc46c16a9cc80eb3cf4b9ec93ecf
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686914"
 ---
 # <a name="playing-your-content-with-existing-players"></a>기존 플레이어를 사용하여 콘텐츠 재생
 Azure Media Services는 부드러운 스트리밍, HTTP 라이브 스트리밍 및 Mpeg-dash와 같은 여러 인기 있는 스트리밍 형식을 지원합니다. 이 항목에는 스트림을 테스트하는 데 사용할 수 있는 기존 플레이어가 나와 있습니다.
 
 ### <a name="the-azure-portal-media-services-content-player"></a>Azure Portal Media Services 콘텐츠 플레이어
-**Azure** 포털은 비디오를 테스트하는 데 사용할 수 있는 콘텐츠 플레이어를 제공합니다.
+**Azure** portal은 비디오를 테스트 하는 데 사용할 수 있는 콘텐츠 플레이어를 제공 합니다.
 
 원하는 비디오( [게시된](media-services-portal-publish.md)것이어야 함)를 클릭하고 포털 맨 아래에 있는 **재생** 단추를 클릭합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 서버 매개 변수 구성 - Azure 포털 - MariaDB용 Azure 데이터베이스
+title: 서버 매개 변수 구성-Azure Portal-Azure Database for MariaDB
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for MariaDB에서 MariaDB 서버 매개 변수를 구성하는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/16/2020
 ms.openlocfilehash: f39e9450fb922e5b93d7b4b809df73cf5ab007c1
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81602402"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB에서 서버 매개 변수를 구성하는 방법
@@ -24,7 +24,7 @@ Azure Database for MariaDB에서는 일부 서버 매개 변수를 구성할 수
 ![Azure Portal 서버 매개 변수 페이지](./media/howto-server-parameters/azure-portal-server-parameters.png)
 3. 조정해야 하는 설정을 모두 찾습니다. **설명** 열을 검토하여 용도 및 허용되는 값을 이해합니다.
 ![드롭다운 열거](./media/howto-server-parameters/3-toggle_parameter.png)
-4. 변경 내용을 저장하려면 **저장을** 클릭합니다.
+4. **저장** 을 클릭 하 여 변경 내용을 저장 합니다.
 ![변경 내용 저장 또는 제거](./media/howto-server-parameters/4-save_parameters.png)
 5. 매개 변수에 새 값을 저장한 경우 언제든지 **모두 기본값으로 다시 설정**을 선택하여 모든 항목을 기본값으로 되돌릴 수있습니다.
 ![모두 기본값으로 다시 설정](./media/howto-server-parameters/5-reset_parameters.png)
@@ -79,7 +79,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> 표준 시간대 테이블이 제대로 채워지도록 서버를 다시 시작해야 합니다. 서버를 다시 시작하려면 [Azure 포털](howto-restart-server-portal.md) 또는 [CLI를](howto-restart-server-cli.md)사용합니다.
+> 표준 시간대 테이블이 제대로 채워졌는지 확인 하려면 서버를 다시 시작 해야 합니다. 서버를 다시 시작 하려면 [Azure Portal](howto-restart-server-portal.md) 또는 [CLI](howto-restart-server-cli.md)를 사용 합니다.
 사용 가능한 표준 시간대 값을 보려면 다음 명령을 실행합니다.
 
 ```sql

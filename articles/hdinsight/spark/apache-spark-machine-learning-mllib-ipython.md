@@ -9,36 +9,36 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
 ms.openlocfilehash: 26695df299ba5d0f50c8f271b5da99284a8d6764
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81531136"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Apache Spark MLlib을 사용하여 Machine Learning 애플리케이션 빌드 및 데이터 세트 분석
 
-Apache Spark [MLlib를](https://spark.apache.org/mllib/) 사용하여 기계 학습 응용 프로그램을 만드는 방법에 대해 알아봅니다. 응용 프로그램은 열린 데이터 집합에 대한 예측 분석을 수행합니다. Spark의 기본 제공 Machine Learning 라이브러리에서 이 예제는 로지스틱 회귀를 통해 *분류*를 사용합니다.
+Apache Spark [Mllib](https://spark.apache.org/mllib/) 를 사용 하 여 기계 학습 응용 프로그램을 만드는 방법에 대해 알아봅니다. 응용 프로그램은 열려 있는 데이터 집합에 대 한 예측 분석을 수행 합니다. Spark의 기본 제공 Machine Learning 라이브러리에서 이 예제는 로지스틱 회귀를 통해 *분류*를 사용합니다.
 
-MLlib는 다음과 같은 기계 학습 작업에 유용한 많은 유틸리티를 제공하는 핵심 스파크 라이브러리입니다.
+MLlib는 다음과 같은 기계 학습 작업에 유용한 여러 유틸리티를 제공 하는 코어 Spark 라이브러리입니다.
 
 * 분류
-* 회귀
-* Clustering
+* 재발
+* 클러스터링
 * 모델링
 * SVD(특이값 분해) 및 PCA(주성분 분석)
 * 가설 테스트 및 샘플 통계 계산
 
 ## <a name="understand-classification-and-logistic-regression"></a>분류 및 로지스틱 회귀의 이해
 
-널리 사용되는 Machine Learning 작업인 *분류*는 입력 데이터를 범주로 정렬하는 프로세스입니다. 제공하는 입력 데이터에 "레이블"을 할당하는 방법을 파악하는 것은 분류 알고리즘의 작업입니다. 예를 들어 주식 정보를 입력으로 허용하는 기계 학습 알고리즘을 생각할 수 있습니다. 그런 다음 주식을 두 가지 범주로 나눕니다: 판매해야 하는 주식과 보관해야 할 주식.
+널리 사용되는 Machine Learning 작업인 *분류*는 입력 데이터를 범주로 정렬하는 프로세스입니다. 사용자가 제공 하는 입력 데이터에 "레이블"을 할당 하는 방법을 파악 하는 분류 알고리즘의 작업입니다. 예를 들어 주식 정보를 입력으로 허용 하는 기계 학습 알고리즘을 생각해 볼 수 있습니다. 그런 다음은 주식을 판매 해야 하는 주식 및 유지 해야 하는 주식 이라는 두 가지 범주로 주식을 나눕니다.
 
 로지스틱 회귀는 분류에 사용되는 알고리즘입니다. Spark의 로지스틱 회귀 API는 *이진 분류*또는 입력 데이터를 두 그룹 중 하나로 분류하는 데 유용합니다. 로지스틱 회귀에 대한 자세한 내용은 [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression)를 참조하세요.
 
-요약하면, 로지스틱 회귀 과정은 *물류 기능을*생성합니다. 함수를 사용하여 입력 벡터가 한 그룹 또는 다른 그룹에 속할 확률을 예측합니다.  
+요약 하자면 로지스틱 회귀 프로세스는 *로지스틱 함수*를 생성 합니다. 함수를 사용 하 여 입력 벡터가 한 그룹 또는 다른 그룹에 속하는 확률을 예측 합니다.  
 
 ## <a name="predictive-analysis-example-on-food-inspection-data"></a>식품 검사 데이터에 대한 예측 분석 예제
 
-이 예제에서는 Spark를 사용하여 식품 검사**데이터(Food_Inspections1.csv)에**대한 몇 가지 예측 분석을 수행합니다. 시카고 시 [데이터 포털을](https://data.cityofchicago.org/)통해 수집된 데이터. 이 데이터 집합에는 시카고에서 수행된 식품 시설 검사에 대한 정보가 포함되어 있습니다. 각 시설에 대한 정보, 발견 된 위반 (있는 경우) 및 검사 결과를 포함합니다. CSV 데이터 파일은 **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**에 있는 클러스터와 연결된 스토리지 계정에서 이미 사용할 수 있습니다.
+이 예제에서는 Spark를 사용 하 여 음식 검사 데이터 (**Food_Inspections1 .csv**)에 대 한 몇 가지 예측 분석을 수행 합니다. [시카고 데이터 포털의 도시](https://data.cityofchicago.org/)를 통해 얻은 데이터 이 데이터 집합은 시카고에서 수행 된 음식 설정 검사에 대 한 정보를 포함 합니다. 각 설정에 대 한 정보, 발견 된 위반 (있는 경우) 및 검사 결과를 포함 합니다. CSV 데이터 파일은 **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**에 있는 클러스터와 연결된 스토리지 계정에서 이미 사용할 수 있습니다.
 
 아래 단계에서는 음식 검사에 합격 또는 불합격하는 조건을 볼 수 있는 모델을 개발할 것입니다.
 
@@ -46,7 +46,7 @@ MLlib는 다음과 같은 기계 학습 작업에 유용한 많은 유틸리티�
 
 1. PySpark 커널을 사용하여 Jupyter 노트북을 만듭니다. 자세한 지침은 [Jupyter 노트북 만들기](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)를 참조하세요.
 
-2. 이 애플리케이션에 필요한 형식을 가져옵니다. 다음 코드를 복사하여 빈 셀에 붙여넣은 다음 **SHIFT + ENTER**를 누릅니다.
+2. 이 애플리케이션에 필요한 형식을 가져옵니다. 다음 코드를 복사 하 여 빈 셀에 붙여넣은 다음 **shift + enter**를 누릅니다.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -57,11 +57,11 @@ MLlib는 다음과 같은 기계 학습 작업에 유용한 많은 유틸리티�
     from pyspark.sql.types import *
     ```
 
-    PySpark 커널 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 스파크 및 하이브 컨텍스트는 첫 번째 코드 셀을 실행할 때 자동으로 만들어집니다.
+    PySpark 커널 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행 하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다.
 
 ## <a name="construct-the-input-dataframe"></a>입력 데이터 프레임 구축
 
-Spark 컨텍스트를 사용하여 원시 CSV 데이터를 구조화되지 않은 텍스트로 메모리로 가져옵니다. 그런 다음 파이썬의 CSV 라이브러리를 사용하여 데이터의 각 줄을 구문 분석합니다.
+Spark 컨텍스트를 사용 하 여 원시 CSV 데이터를 메모리에 구조화 되지 않은 텍스트로 끌어옵니다. 그런 다음 Python의 CSV 라이브러리를 사용 하 여 데이터의 각 줄을 구문 분석 합니다.
 
 1. 다음 줄을 실행하여 입력 데이터를 가져오고 구문 분석하여 RDD(복원 분산 데이터 세트)를 만듭니다.
 
@@ -106,9 +106,9 @@ Spark 컨텍스트를 사용하여 원시 CSV 데이터를 구조화되지 않�
         '(41.97583445690982, -87.7107455232781)']]
     ```
 
-    출력을 보면 입력 파일의 스키마를 알 수 있습니다. 그것은 모든 시설의 이름과 설립의 유형을 포함한다. 또한, 주소, 검사의 데이터, 위치, 무엇보다도.
+    출력을 보면 입력 파일의 스키마를 알 수 있습니다. 모든 설정의 이름 및 설정의 유형을 포함 합니다. 또한 주소, 검사 데이터 및 위치도 다른 항목 중에서 선택할 수 있습니다.
 
-3. 다음 코드를 실행하여 예측 분석에 유용한 몇 개 열이 포함된 데이터 프레임(*df*) 및 임시 테이블(*CountResults*)을 만듭니다. `sqlContext`는 구조화 된 데이터에 대한 변환을 수행하는 데 사용됩니다.
+3. 다음 코드를 실행하여 예측 분석에 유용한 몇 개 열이 포함된 데이터 프레임(*df*) 및 임시 테이블(*CountResults*)을 만듭니다. `sqlContext`는 구조화 된 데이터에 대 한 변환을 수행 하는 데 사용 됩니다.
 
     ```PySpark
     schema = StructType([
@@ -121,7 +121,7 @@ Spark 컨텍스트를 사용하여 원시 CSV 데이터를 구조화되지 않�
     df.registerTempTable('CountResults')
     ```
 
-    데이터 프레임에 관심있는 네 개의 열은 **ID,** **이름,** **결과**및 **위반입니다.**
+    데이터 프레임에서 관심 있는 네 개의 열은 **ID**, **이름**, **결과**및 **위반**입니다.
 
 4. 다음 코드를 실행하여 데이터의 작은 예제를 가져옵니다.
 
@@ -180,7 +180,7 @@ Spark 컨텍스트를 사용하여 원시 CSV 데이터를 구조화되지 않�
 
     ![SQL 쿼리 출력](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "SQL 쿼리 출력")
 
-3. 데이터의 시각화를 생성하는 데 사용되는 라이브러리인 [Matplotlib을](https://en.wikipedia.org/wiki/Matplotlib)사용하여 플롯을 만들 수도 있습니다. 로컬로 유지되는 **countResultsdf** 데이터 프레임에서 플롯을 만들어야 하므로 코드 조각은 `%%local` 매직으로 시작해야 합니다. 이렇게 하면 코드가 Jupyter 서버에서 로컬로 실행됩니다.
+3. 데이터 시각화를 생성 하는 데 사용 되는 라이브러리인 [Matplotlib](https://en.wikipedia.org/wiki/Matplotlib)를 사용 하 여 플롯을 만들 수도 있습니다. 로컬로 유지되는 **countResultsdf** 데이터 프레임에서 플롯을 만들어야 하므로 코드 조각은 `%%local` 매직으로 시작해야 합니다. 이 작업을 수행 하면 코드가 Jupyter 서버에서 로컬로 실행 됩니다.
 
     ```PySpark
     %%local
@@ -205,9 +205,9 @@ Spark 컨텍스트를 사용하여 원시 CSV 데이터를 구조화되지 않�
        - 회사를 찾을 수 없음
        - 폐업
 
-     다른 결과("비즈니스 가 위치하지 않음" 또는 "영업 외")가 있는 데이터는 유용하지 않으며 어쨌든 결과의 작은 비율을 구성합니다.
+     다른 결과 ("회사를 찾을 수 없음" 또는 "비즈니스 외")가 포함 된 데이터는 유용 하지 않으며 결과의 작은 비율을 구성 합니다.
 
-4. 다음 코드를 실행하여 기존 데이터 프레임(`df`)을 각 검사가 레이블-위반 쌍으로 표시되는 새 데이터 프레임으로 변환합니다. 이 경우 실패를 `0.0` 나타내는 레이블, 성공을 `1.0` 나타내는 레이블 및 레이블은 `-1.0` 이러한 두 결과 외에 몇 가지 결과를 나타냅니다.
+4. 다음 코드를 실행하여 기존 데이터 프레임(`df`)을 각 검사가 레이블-위반 쌍으로 표시되는 새 데이터 프레임으로 변환합니다. 이 경우의 `0.0` 레이블은 실패를 나타내고,의 `1.0` 레이블은 성공을 나타내며,의 `-1.0` 레이블은 이러한 두 결과 외에 일부 결과를 나타냅니다.
 
     ```PySpark
     def labelForResults(s):
@@ -235,11 +235,11 @@ Spark 컨텍스트를 사용하여 원시 CSV 데이터를 구조화되지 않�
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>입력 데이터 프레임으로 로지스틱 회귀 모델 만들기
 
-마지막 작업은 레이블이 지정된 데이터를 변환하는 것입니다. 로지스틱 회귀로 데이터를 분석할 수 있는 형식으로 변환합니다. 로지스틱 회귀 알고리즘에 대한 입력에는 *레이블 특징 벡터 쌍 집합이*필요합니다. 여기서 "특징 벡터"는 입력 점을 나타내는 숫자의 벡터입니다. 따라서 반구조화되어 있고 자유 텍스트에 많은 주석이 포함된 "위반" 열을 변환해야 합니다. 열을 컴퓨터가 쉽게 이해할 수 있는 실제 숫자 배열로 변환합니다.
+마지막 작업은 레이블이 지정 된 데이터를 변환 하는 것입니다. 로지스틱 회귀로 분석할 수 있는 형식으로 데이터를 변환 합니다. 로지스틱 회귀 알고리즘에 대 한 입력은 *레이블-기능 벡터 쌍*의 집합 이어야 합니다. 여기서 "기능 벡터"는 입력 지점을 나타내는 숫자의 벡터입니다. 따라서 반 구조화 되 고 자유 텍스트의 많은 주석을 포함 하는 "위반" 열을 변환 해야 합니다. 열을 컴퓨터가 쉽게 이해할 수 있는 실수 배열로 변환 합니다.
 
-자연어를 처리하기 위한 하나의 표준 기계 학습 접근 방식은 각 고유 단어를 "인덱스"로 할당하는 것입니다. 그런 다음 벡터를 기계 학습 알고리즘에 전달합니다. 각 인덱스의 값은 텍스트 문자열에서 해당 단어의 상대적인 빈도를 포함합니다.
+자연어를 처리 하는 한 가지 표준 기계 학습 방법은 각각의 고유한 단어를 "인덱스"에 할당 하는 것입니다. 그런 다음 기계 학습 알고리즘에 벡터를 전달 합니다. 각 인덱스의 값이 텍스트 문자열에 있는 해당 단어의 상대적 빈도를 포함 합니다.
 
-MLlib는 이 작업을 쉽게 수행할 수 있는 방법을 제공합니다. 첫째, 각 문자열에서 개별 단어를 가져오기 위해 각 위반 문자열을 "토큰화"합니다. 그런 다음 `HashingTF`을 사용하여 모델을 생성하는 로지스틱 회귀 알고리즘에 전달될 수 있는 기능 벡터로 각 토큰 집합을 변환합니다. "파이프라인"를 사용하여 이 모든 단계를 차례로 수행합니다.
+MLlib는이 작업을 수행 하는 쉬운 방법을 제공 합니다. 첫째, 각 문자열에서 개별 단어를 가져오기 위해 각 위반 문자열을 "토큰화"합니다. 그런 다음 `HashingTF`을 사용하여 모델을 생성하는 로지스틱 회귀 알고리즘에 전달될 수 있는 기능 벡터로 각 토큰 집합을 변환합니다. "파이프라인"를 사용하여 이 모든 단계를 차례로 수행합니다.
 
 ```PySpark
 tokenizer = Tokenizer(inputCol="violations", outputCol="words")
@@ -252,7 +252,7 @@ model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-using-another-dataset"></a>다른 데이터 세트를 사용하여 모델 평가
 
-이전에 작성한 모델을 사용하여 새 검사의 결과를 *예측할* 수 있습니다. 예측은 관찰된 위반을 기반으로 합니다. **Food_Inspections1.csv** 데이터 세트에서 이 모델을 학습했습니다. 두 번째 데이터 세트인 **Food_Inspections2.csv**를 사용하여 새 데이터에서 이 모델의 강도를 *평가*할 수 있습니다. 이 두 번째 데이터 세트(**Food_Inspections2.csv**)은 클러스터와 연결된 기본 스토리지 컨테이너에 있습니다.
+이전에 만든 모델을 사용 하 여 새 검사 결과를 *예측할* 수 있습니다. 예측은 관찰 된 위반을 기반으로 합니다. **Food_Inspections1.csv** 데이터 세트에서 이 모델을 학습했습니다. 두 번째 데이터 세트인 **Food_Inspections2.csv**를 사용하여 새 데이터에서 이 모델의 강도를 *평가*할 수 있습니다. 이 두 번째 데이터 세트(**Food_Inspections2.csv**)은 클러스터와 연결된 기본 스토리지 컨테이너에 있습니다.
 
 1. 다음 코드를 실행하여 모델에서 생성한 예측을 포함하는 새 데이터 프레임 **predictionsDf**를 만듭니다. 이 조각은 데이터 프레임을 기반으로 **Predictions**라는 임시 테이블도 만듭니다.
 
@@ -266,7 +266,7 @@ model = pipeline.fit(labeledData)
     predictionsDf.columns
     ```
 
-    다음 텍스트와 같은 출력이 표시됩니다.
+    다음 텍스트와 같은 출력이 표시 됩니다.
 
     ```
     ['id',
@@ -286,9 +286,9 @@ model = pipeline.fit(labeledData)
     predictionsDf.take(1)
     ```
 
-   테스트 데이터 집합의 첫 번째 항목에 대한 예측이 있습니다.
+   테스트 데이터 집합의 첫 번째 항목에 대 한 예측이 있습니다.
 
-1. `model.transform()` 메서드는 스키마가 같은 모든 새 데이터에 동일한 변환 방법을 적용하여 데이터 분류 방법에 대한 예측에 도달합니다. 몇 가지 통계를 수행하여 예측의 방식을 파악할 수 있습니다.
+1. `model.transform()` 메서드는 스키마가 같은 모든 새 데이터에 동일한 변환 방법을 적용하여 데이터 분류 방법에 대한 예측에 도달합니다. 몇 가지 통계를 수행 하 여 예측의 의미를 파악할 수 있습니다.
 
     ```PySpark
     numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
@@ -307,7 +307,7 @@ model = pipeline.fit(labeledData)
     This is a 86.8169618894% success rate
     ```
 
-    Spark를 사용하여 로지스틱 회귀를 사용하면 영어로 된 위반 설명 간의 관계 모델을 확인할 수 있습니다. 그리고 주어진 사업이 식품 검사를 통과하거나 실패할지 여부.
+    Spark에서 로지스틱 회귀를 사용 하면 위반 설명 간의 관계에 대 한 모델이 영어로 제공 됩니다. 지정 된 비즈니스에서 음식 검사를 통과 하거나 실패 하는지 여부를 지정 합니다.
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>예측의 시각적 표현 만들기
 
@@ -351,7 +351,7 @@ model = pipeline.fit(labeledData)
 
     다음과 같은 내용이 출력됩니다.
 
-    ![스파크 기계 학습 응용 프로그램 출력 - 실패 식품 검사의 원형 차트 비율.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "스파크 머신 러닝 결과 출력")
+    ![Spark machine learning 응용 프로그램 출력-실패 한 음식 검사의 원형 차트 백분율입니다.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Spark machine learning 결과 출력")
 
     이 차트에서 "긍정" 결과는 불합격한 음식 검사를 참조하는 반면, 부정 결과는 합격한 검사를 참조합니다.
 
@@ -365,7 +365,7 @@ model = pipeline.fit(labeledData)
 
 ### <a name="scenarios"></a>시나리오
 
-* [BI를 이용한 아파치 스파크: BI 도구를 사용하는 HDInsight의 스파크를 사용한 대화형 데이터 분석](apache-spark-use-bi-tools.md)
+* [Bi를 사용 하 여 Apache Spark: BI 도구와 함께 HDInsight에서 Spark를 사용 하 여 대화형 데이터 분석](apache-spark-use-bi-tools.md)
 * [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus 토픽 필터 | Microsoft Docs
-description: 이 문서에서는 구독자가 필터를 지정하여 토픽에서 받을 메시지를 정의하는 방법을 설명합니다.
+description: 이 문서에서는 구독자가 필터를 지정 하 여 토픽에서 수신 하려는 메시지를 정의 하는 방법을 설명 합니다.
 services: service-bus-messaging
 documentationcenter: ''
 author: spelluru
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: spelluru
 ms.openlocfilehash: fb6092b7ccb3d1a4214f8d26119d9dc50b0ed317
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81482060"
 ---
 # <a name="topic-filters-and-actions"></a>토픽 필터 및 작업
@@ -29,28 +29,28 @@ Service Bus는 세 가지 필터 조건을 지원합니다.
 
 -   *부울 필터* - **TrueFilter** 및 **FalseFilter**는 모든 도착 메시지가 구독에 대해 선택되거나(**true**) 선택되지 않도록(**false**) 합니다.
 
--   *SQL 필터* - **SqlFilter**는 broker에서 도착 메시지의 사용자 정의 속성 및 시스템 속성과 비교하여 평가되는 SQL과 비슷한 조건식을 유지합니다. 모든 시스템 속성은 조건식에서 `sys.`로 시작되어야 합니다. [필터에 대한 SQL 언어 하위 집합은](service-bus-messaging-sql-filter.md) 속성`EXISTS`(), null-값 (),`IS NULL`논리 NOT /AND / OR, 관계형 연산자, 간단한 `LIKE`숫자 산술 및 간단한 텍스트 패턴일치의 존재에 대한 테스트합니다.
+-   *SQL 필터* - **SqlFilter**는 broker에서 도착 메시지의 사용자 정의 속성 및 시스템 속성과 비교하여 평가되는 SQL과 비슷한 조건식을 유지합니다. 모든 시스템 속성은 조건식에서 `sys.`로 시작되어야 합니다. [필터 조건에 대 한 SQL 언어 하위 집합](service-bus-messaging-sql-filter.md) 은 속성 (`EXISTS`), null 값 (`IS NULL`), logical NOT/AND/OR, 관계형 연산자, 단순 숫자 산술 및와 `LIKE`의 단순 텍스트 패턴 일치 여부를 테스트 합니다.
 
--   *상관 관계 필터* - **CorrelationFilter**는 도착 메시지의 사용자 및 시스템 속성 중 하나 이상과 일치하는 조건 집합을 보유합니다. 일반적인 용도는 **CorrelationId** 속성과 일치하지만 응용 프로그램은 다음 속성과 일치하도록 선택할 수도 있습니다.
+-   *상관 관계 필터* - **CorrelationFilter**는 도착 메시지의 사용자 및 시스템 속성 중 하나 이상과 일치하는 조건 집합을 보유합니다. 일반적으로 **CorrelationId** 속성을 일치 시키는 것 이지만 응용 프로그램은 다음 속성과 일치 하도록 선택할 수도 있습니다.
 
-    - **Contenttype**
+    - **ContentType**
      - **레이블**
      - **MessageId**
-     - **Replyto**
+     - **ReplyTo**
      - **ReplyToSessionId**
      - **SessionId** 
-     - **대상**
+     - **받는 사람**
      - 사용자 정의 속성입니다. 
      
      속성에 대한 도착 메시지의 값이 상관 필터에 지정된 값과 같을 때 일치가 존재합니다. 문자열 식의 경우 비교에서 대/소문자가 구분됩니다. 여러 일치 속성을 지정할 때 필터는 이들을 논리적 AND 조건으로 결합합니다. 즉, 필터가 일치하려면 모든 조건이 일치해야 합니다.
 
 모든 필터는 메시지 속성을 평가합니다. 필터는 메시지 본문을 평가할 수 없습니다.
 
-복잡한 필터 규칙에는 처리 용량이 필요합니다. 특히 SQL 필터 규칙을 사용하면 구독, 토픽 및 네임스페이스 수준에서 전체 메시지 처리량이 낮아집니다. 가능하면 응용 프로그램은 처리 효율성이 훨씬 효율적이고 처리량에 미치는 영향이 적기 때문에 SQL과 같은 필터보다 상관 관계 필터를 선택해야 합니다.
+복잡한 필터 규칙에는 처리 용량이 필요합니다. 특히 SQL 필터 규칙을 사용 하면 구독, 토픽 및 네임 스페이스 수준에서 전체 메시지 처리량이 줄어듭니다. 가능 하면 응용 프로그램에서 SQL과 유사한 필터에 대 한 상관 관계 필터를 선택 해야 합니다. 이러한 필터는 처리 하는 것이 훨씬 더 효율적이 고 처리량에 미치는 영향은 적습니다.
 
-## <a name="actions"></a>동작
+## <a name="actions"></a>작업
 
-SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체하여 메시지에 주석을 달 수 있는 작업을 정의할 수 있습니다. 이 작업은 SQL UPDATE 문에 개괄적으로 의지하는 [SQL-like 식을 사용](service-bus-messaging-sql-filter.md)합니다. 이 작업은 메시지가 일치된 후 메시지가 구독에 선택되기 전에 완료됩니다. 메시지 속성에 대한 변경 사항은 구독에 복사된 메시지에 대한 프라이빗입니다.
+SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체하여 메시지에 주석을 달 수 있는 작업을 정의할 수 있습니다. 이 작업은 SQL UPDATE 문에 개괄적으로 의지하는 [SQL-like 식을 사용](service-bus-messaging-sql-filter.md)합니다. 작업은 메시지가 일치 된 후 구독에 메시지를 선택 하기 전에 메시지에 대해 수행 됩니다. 메시지 속성에 대한 변경 사항은 구독에 복사된 메시지에 대한 프라이빗입니다.
 
 ## <a name="usage-patterns"></a>사용 패턴
 
@@ -64,13 +64,13 @@ SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체
 
 
 > [!NOTE]
-> 현재 Azure 포털에서는 구독에 대한 필터 규칙을 지정할 수 없습니다. 지원되는 SDK 또는 Azure 리소스 관리자 템플릿을 사용하여 구독 규칙을 정의할 수 있습니다. 
+> 현재 Azure Portal에서는 구독에 대 한 필터 규칙을 지정할 수 없습니다. 지원 되는 Sdk 또는 Azure Resource Manager 템플릿 중 하나를 사용 하 여 구독 규칙을 정의할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-다음 샘플을 참조하십시오. 
+다음 샘플을 참조 하세요. 
 
-- [.NET - 기본 송신 및 필터와 튜토리얼을받을](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
-- [.NET - 토픽 필터](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
+- [.NET-필터가 포함 된 기본 송신 및 수신 자습서](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
+- [.NET 토픽 필터](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/javascript/advanced/topicFilters.js)
 - [형식 스크립트](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/typescript/src/advanced/topicFilters.ts)
 - [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)

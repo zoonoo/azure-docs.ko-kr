@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services에서 권장되는 인코더 알아보기 | Microsoft Docs
-description: 이 문서는 Azure Media 서비스에서 권장하는 구내 인코더를 나열합니다.
+description: 이 문서에서는 Azure Media Services에 의해 권장 되는 온-프레미스 인코더를 나열 합니다.
 services: media-services
 keywords: 인코딩, 인코더, 미디어
 author: dbgeorge
@@ -10,19 +10,19 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 3c42070525fc60e45b976620513929c3d5a32341
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535097"
 ---
 # <a name="recommended-on-premises-encoders"></a>권장 온-프레미스 인코더
 
-Azure Media Services를 통해 라이브 스트리밍을 사용하는 경우 채널에서 입력 스트림을 수신하는 방법을 지정할 수 있습니다. 라이브 인코딩 채널이 있는 온프레미스 인코더를 사용하도록 선택한 경우 인코더는 고품질의 단일 비트 레이트 스트림을 출력으로 푸시해야 합니다. 채널을 통과하는 온프레미스 인코더를 사용하도록 선택한 경우 인코더는 원하는 모든 출력 품질을 가진 출력으로 다중 비트 레이트 스트림을 푸시해야 합니다. 자세한 내용은 [온프레미스 인코더가 있는 라이브 스트리밍을](media-services-live-streaming-with-onprem-encoders.md)참조하십시오.
+Azure Media Services를 통해 라이브 스트리밍을 사용하는 경우 채널에서 입력 스트림을 수신하는 방법을 지정할 수 있습니다. 라이브 인코딩 채널에서 온-프레미스 인코더를 사용 하도록 선택 하는 경우 인코더는 고품질의 단일 비트 전송률 스트림을 출력으로 푸시 해야 합니다. 통과 채널에서 온-프레미스 인코더를 사용 하도록 선택 하는 경우 인코더는 다중 비트 전송률 스트림을 원하는 모든 출력 품질의 출력으로 푸시 해야 합니다. 자세한 내용은 온 [-프레미스 인코더를 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md)을 참조 하세요.
 
 ## <a name="encoder-requirements"></a>인코더 요구 사항
 
-인코더는 HTTPS 또는 RTMPS 프로토콜을 사용할 때 TLS 1.2를 지원해야 합니다.
+인코더는 HTTPS 또는 RTMPS 프로토콜을 사용 하는 경우 TLS 1.2를 지원 해야 합니다.
 
 ## <a name="live-encoders-that-output-rtmp"></a>RTMP를 출력하는 라이브 인코더 
 
@@ -31,9 +31,9 @@ Azure Media Services는 RTMP이 출력으로 포함된 다음 라이브 인코�
 - Adobe Flash Media Live Encoder 3.2
 - Haivision Makito X HEVC
 - Haivision KB
-- 텔레스트림 와이어캐스트(TLS 1.2 요구 사항으로 인해 버전 13.0.2 이상)
+- Telestream Wirecast (TLS 1.2 요구 사항으로 인해 버전 13.0.2 이상)
 
-  인코더는 RTMPS 프로토콜을 사용할 때 TLS 1.2를 지원해야 합니다.
+  RTMPS 프로토콜을 사용 하는 경우 인코더는 TLS 1.2를 지원 해야 합니다.
 - Teradek Slice 756
 - OBS Studio
 - VMIX
@@ -47,18 +47,18 @@ Azure Media Services는 다중 비트 전송률 조각화된 MP4(부드러운 �
 - Media Excel Hero Live 및 Hero 4K(UHD/HEVC)
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
-- 정령 라이브 (버전 2.14.15 이상 으로 인해 TLS 1.2 요구 사항)
+- 정령 Live (TLS 1.2 요구 사항으로 인해 버전 2.14.15 이상)
 
-  인코더는 HTTPS 프로토콜을 사용할 때 TLS 1.2를 지원해야 합니다.
+  인코더는 HTTPS 프로토콜을 사용 하는 경우 TLS 1.2를 지원 해야 합니다.
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 
 > [!NOTE]
 > 라이브 인코더는 통과 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 구성에서는 클라이언트에 대한 적응 비트 전송률 스트리밍이 허용되지 않으므로 이 구성은 권장되지 않습니다.
 
-## <a name="how-to-become-an-on-premises-encoder-partner"></a>온프레미스 인코더 파트너가 되는 방법
+## <a name="how-to-become-an-on-premises-encoder-partner"></a>온-프레미스 인코더 파트너를 만드는 방법
 
-온프레미스 인코더 파트너인 Azure Media Services는 엔터프라이즈 고객에게 인코더를 추천하여 제품을 홍보합니다. 온-프레미스 인코더 파트너가 되려면 온프레미스 인코더와 미디어 서비스의 호환성을 확인해야 합니다. 이렇게 하려면 다음 확인을 완료하세요.
+온-프레미스 인코더 파트너에 게는 Azure Media Services 기업 고객에 게 인코더를 제안 하 여 제품을 홍보 Media Services. 온-프레미스 인코더 파트너가 되기 위해서는 온-프레미스 인코더와 Media Services의 호환성을 확인 해야 합니다. 이렇게 하려면 다음 확인을 완료하세요.
 
 채널 확인 통과
 1. Azure Media Services 계정 만들기 또는 방문

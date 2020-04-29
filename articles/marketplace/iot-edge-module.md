@@ -1,5 +1,5 @@
 ---
-title: Azure 마켓플레이스 IoT 에지 모듈
+title: IoT Edge 모듈 Azure Marketplace
 description: 앱 및 서비스 게시자용으로 Azure Marketplace에서 제공되는 IoT Edge 모듈에 대해 설명합니다.
 author: qianw211
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
 ms.openlocfilehash: 762d9947046f159e992f09211bfcd76ff8d6712e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81684332"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 모듈
@@ -54,11 +54,11 @@ Marketplace는 현재 IoT Edge 모듈에 대해 **무료** 하 고 **BYOL(Bring 
 
 IoT Edge 모듈 제품에는 Microsoft Azure Marketplace 계약 및 정책의 모든 약관이 적용됩니다.  또한 IoT Edge 모듈 관련 필수 구성 요소와 기술 요구 사항도 적용됩니다.  
 
-**필수 구성 조건**
+**필수 구성 요소**
 
 IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요소를 갖춰야 합니다.
 
-- 파트너 센터에 액세스합니다. 자세한 내용은 [Azure Marketplace 및 AppSource 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)를 참조하세요.
+- 파트너 센터에 액세스 합니다. 자세한 내용은 [Azure Marketplace 및 AppSource 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)를 참조하세요.
 - Azure Container Registry에서 IoT Edge 모듈 호스팅 
 - 다음과 같은 IoT Edge 모듈 메타데이터 준비(아래 목록에는 일부 메타데이터만 나와 있음) 
     - 제목
@@ -66,7 +66,7 @@ IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요
     - 로고 이미지(PNG 형식 및 40x40px, 90x90px, 115x115px, 255x115px를 포함한 고정 이미지 크기)
     - 사용 약관 및 개인정보처리방침
     - 기본 모듈 구성(경로, 원하는 속성 쌍, createOptions, 환경 변수)
-    - 설명서
+    - 문서화
     - 지원 연락처
 
 **기술 요구 사항**
@@ -75,15 +75,15 @@ IoT Edge 모듈 인증을 받고 Azure Marketplace에 모듈을 게시하기 위
 
 ## <a name="documentation-and-resources"></a>설명서 및 리소스
 
-파트너 센터에서 새로운 IoT Edge 모듈 오퍼를 게시하기 위한 단계인 [IoT Edge 모듈 오퍼 를 만듭니다.](./partner-center-portal/azure-iot-edge-module-creation.md)
+[IoT Edge 모듈 제품 만들기](./partner-center-portal/azure-iot-edge-module-creation.md) -파트너 센터에서 새 IoT Edge 모듈 제품을 게시 하기 위한 단계입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 아직 수행하지 않았다면
 
-- 마켓플레이스에 대해 [알아보세요.](https://azuremarketplace.microsoft.com/sell)
+- Marketplace에 [대해 알아봅니다](https://azuremarketplace.microsoft.com/sell) .
 
-파트너 센터에 등록하고 새 오퍼를 만들거나 기존 오퍼를 작성하려면
+파트너 센터에 등록 하 고 새 제품을 만들거나 기존 제품에 대 한 작업을 시작 하려면 다음을 수행 합니다.
 
-- [파트너 센터에](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 로그인하여 쿠폰을 만들거나 완료하세요.
-- [IoT Edge 모듈 오퍼를](./partner-center-portal/azure-iot-edge-module-creation.md) 게시하는 방법에 대한 자세한 내용은 IoT Edge 모듈 오퍼 를 작성하십시오.
+- [파트너 센터](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 에 로그인 하 여 제품을 만들거나 완성 합니다.
+- IoT Edge 모듈 제공을 게시 하는 방법에 대 한 자세한 내용은 [IoT Edge 모듈 제품 만들기](./partner-center-portal/azure-iot-edge-module-creation.md) 를 참조 하세요.

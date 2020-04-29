@@ -1,6 +1,6 @@
 ---
 title: Azure Event Grid 보안 및 인증
-description: 이 문서에서는 이벤트 그리드 리소스(WebHook, 구독, 사용자 지정 항목)에 대한 액세스를 인증하는 다양한 방법을 설명합니다.
+description: 이 문서에서는 Event Grid 리소스 (웹 후크, 구독, 사용자 지정 항목)에 대 한 액세스를 인증 하는 다양 한 방법을 설명 합니다.
 services: event-grid
 author: banisadr
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: babanisa
 ms.openlocfilehash: 4b2d65c9523f32eed01baa8d63c3d0119d00de1b
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81532396"
 ---
-# <a name="authenticating-access-to-event-grid-resources"></a>이벤트 그리드 리소스에 대한 액세스 인증
+# <a name="authenticating-access-to-event-grid-resources"></a>Event Grid 리소스에 대 한 액세스 인증
 
 Azure Event Grid에는 세 가지 유형의 인증이 있습니다.
 
@@ -35,18 +35,18 @@ Azure Event Grid에는 세 가지 유형의 인증이 있습니다.
 
 HTTP 트리거 기반 Azure 함수와 같은 엔드포인트의 다른 형식을 사용하는 경우, 엔드포인트 코드가 Event Grid를 통해 핸드셰이크 유효성 검사에 참여해야 합니다. Event Grid는 두 가지 방법의 구독 유효성 검사를 지원합니다.
 
-1. **동기 핸드셰이크**: 이벤트 구독 생성 시 Event Grid는 구독 유효성 검사 이벤트를 엔드포인트로 보냅니다. 이 이벤트의 스키마는 다른 Event Grid 이벤트와 비슷합니다. 이 이벤트의 데이터 부분에는 `validationCode` 속성이 포함됩니다. 응용 프로그램은 유효성 검사 요청이 예상 이벤트 구독에 대한 것이있는지 확인하고 응답에서 유효성 검사 코드를 동기적으로 반환합니다. 이 핸드셰이크 메커니즘은 모든 Event Grid 버전에서 지원됩니다.
+1. **동기 핸드셰이크**: 이벤트 구독을 만들 때 Event Grid 구독 유효성 검사 이벤트를 끝점으로 보냅니다. 이 이벤트의 스키마는 다른 Event Grid 이벤트와 비슷합니다. 이 이벤트의 데이터 부분에는 `validationCode` 속성이 포함됩니다. 응용 프로그램은 유효성 검사 요청이 예상 이벤트 구독에 대 한 것 인지 확인 하 고 응답의 유효성 검사 코드를 동기적으로 반환 합니다. 이 핸드셰이크 메커니즘은 모든 Event Grid 버전에서 지원됩니다.
 
-2. **비동기 핸드셰이크**: 경우에 따라 유효성 검사 코드를 동기적으로 반환할 수 없습니다. 예를 들어 타사 서비스(예: [`Zapier`](https://zapier.com) [IFTTT)를](https://ifttt.com/)사용하는 경우 유효성 검사 코드로 프로그래밍 방식으로 응답할 수 없습니다.
+2. **비동기 핸드셰이크**: 특정 한 경우에는 응답에서 validationcode를 동기적으로 반환할 수 없습니다. 예를 들어 타사 서비스 (예: [`Zapier`](https://zapier.com) 또는 [IFTTT](https://ifttt.com/))를 사용 하는 경우 유효성 검사 코드를 프로그래밍 방식으로 응답할 수 없습니다.
 
-   버전 2018-05-01-미리 보기부터 Event Grid는 수동 유효성 검사 핸드셰이크를 지원합니다. API 버전 2018-05-01-미리 보기 이상을 사용하는 SDK 또는 도구에서 이벤트 구독을 만드는 경우 Event Grid는 구독 유효성 검사 이벤트의 데이터 부분에 `validationUrl` 속성을 전송합니다. 핸드셰이크를 완료하려면 이벤트 데이터에서 해당 URL을 찾아 GET 요청을 수행합니다. REST 클라이언트 또는 웹 브라우저를 사용할 수 있습니다.
+   버전 2018-05-01-미리 보기부터 Event Grid는 수동 유효성 검사 핸드셰이크를 지원합니다. API 버전 2018-05-01-미리 보기 이상을 사용하는 SDK 또는 도구에서 이벤트 구독을 만드는 경우 Event Grid는 구독 유효성 검사 이벤트의 데이터 부분에 `validationUrl` 속성을 전송합니다. 핸드셰이크를 완료 하려면 이벤트 데이터에서 해당 URL을 찾아 GET 요청을 수행 합니다. REST 클라이언트 또는 웹 브라우저를 사용할 수 있습니다.
 
-   제공된 URL은 **5분**동안 유효합니다. 이 시간 동안 이벤트 구독의 프로비전 상태가 `AwaitingManualAction`입니다. 5분 이내에 수동 유효성 검사를 완료하지 않으면 프로비저닝 `Failed`상태가 로 설정됩니다. 수동 유효성 검사를 시작하기 전에 이벤트 구독을 다시 작성해야 합니다.
+   제공 된 URL은 **5 분**동안 유효 합니다. 이 시간 동안 이벤트 구독의 프로비전 상태가 `AwaitingManualAction`입니다. 5 분 내에 수동 유효성 검사를 완료 하지 않으면 프로 비전 상태가로 `Failed`설정 됩니다. 수동 유효성 검사를 시작하기 전에 이벤트 구독을 다시 작성해야 합니다.
 
-   또한 이 인증 메커니즘은 웹후크 끝점이 수동 유효성 검사 모드에 넣기 전에 유효성 검사 이벤트에 대한 POST가 허용되었다는 것을 알 수 있도록 HTTP 상태 코드(200)를 반환해야 합니다. 즉, 끝점이 200을 반환하지만 유효성 검사 응답을 동기적으로 반환하지 않으면 모드가 수동 유효성 검사 모드로 전환됩니다. 5분 이내에 유효성 검사 URL에 GET이 있는 경우 유효성 검사 핸드셰이크가 성공한 것으로 간주됩니다.
+   또한이 인증 메커니즘을 사용 하려면 웹 후크 끝점에서 HTTP 상태 코드 200을 반환 하 여 유효성 검사 이벤트의 게시물이 수동 유효성 검사 모드에 배치 되기 전에 승인 되었음을 알 수 있습니다. 즉, 끝점이 200을 반환 하지만 유효성 검사 응답을 동기적으로 반환 하지 않는 경우 모드가 수동 유효성 검사 모드로 전환 됩니다. 5 분 이내에 유효성 검사 URL에 대 한 GET이 있으면 유효성 검사 핸드셰이크가 성공한 것으로 간주 됩니다.
 
 > [!NOTE]
-> 유효성 검사를 위해 자체 서명된 인증서를 사용하는 것은 지원되지 않습니다. 대신 CA(인증 기관)에서 서명된 인증서를 사용합니다.
+> 유효성 검사에 자체 서명 된 인증서를 사용 하는 것은 지원 되지 않습니다. 대신 CA (인증 기관)에서 서명 된 인증서를 사용 합니다.
 
 ### <a name="validation-details"></a>유효성 검사 세부 정보
 
@@ -87,36 +87,36 @@ SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
 }
 ```
 
-HTTP 200 정상 응답 상태 코드를 반환해야 합니다. HTTP 202 수락은 유효한 Event Grid 구독 유효성 검사 응답으로 인식되지 않습니다. http 요청은 30초 이내에 완료되어야 합니다. 작업이 30초 이내에 완료되지 않으면 작업이 취소되고 5초 후에 다시 시도될 수 있습니다. 모든 시도가 실패하면 유효성 검사 핸드셰이크 오류로 처리됩니다.
+HTTP 200 정상 응답 상태 코드를 반환해야 합니다. HTTP 202 수락은 유효한 Event Grid 구독 유효성 검사 응답으로 인식되지 않습니다. Http 요청은 30 초 내에 완료 되어야 합니다. 작업이 30 초 내에 완료 되지 않으면 작업이 취소 되 고 5 초 후에 다시 시도 수 있습니다. 모든 시도가 실패 하면 유효성 검사 핸드셰이크 오류로 처리 됩니다.
 
-또는 유효성 검사 URL에 GET 요청을 수동으로 전송하여 구독이 유효한지 수동으로 검사할 수 있습니다. 이벤트 구독은 유효성을 검사할 때까지 보류 상태로 유지됩니다. 유효성 검사 URL은 포트 553을 사용합니다. 방화벽 규칙이 포트 553을 차단하는 경우 성공적인 수동 핸드셰이크를 위해 규칙을 업데이트해야 할 수 있습니다.
+또는 유효성 검사 URL에 GET 요청을 수동으로 전송하여 구독이 유효한지 수동으로 검사할 수 있습니다. 이벤트 구독은 유효성을 검사할 때까지 보류 상태로 유지됩니다. 유효성 검사 Url은 포트 553를 사용 합니다. 방화벽 규칙이 포트 553를 차단할 경우 성공적인 수동 핸드셰이크를 위해 규칙을 업데이트 해야 할 수 있습니다.
 
 구독 유효성 검사 핸드셰이크 처리 예제를 보려면 [C# 샘플](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs)을 참조하세요.
 
-## <a name="troubleshooting-eventsubsciption-validation"></a>이벤트 문제 해결 잠정 확인 유효성 검사
+## <a name="troubleshooting-eventsubsciption-validation"></a>EventSubsciption 유효성 검사 문제 해결
 
-이벤트 구독을 만드는 동안 "제공된 끝점 https의 유효성을 검사하려는 시도:\//your-endpoint-here 와 같은 오류 메시지가 표시되는 경우 실패했습니다. 자세한 내용은 https:\//aka.ms/esvalidation"을 방문하여 유효성 검사 핸드셰이크에 오류가 있음을 나타냅니다. 이 오류를 해결하려면 다음과 같은 측면을 확인합니다.
+이벤트 구독을 만드는 동안 "제공 된 끝점의 유효성을 검사 하는 데 실패 했습니다.\/"와 같은 오류 메시지가 표시 되는 경우입니다. 자세한 내용은 https:\//aka.ms/esvalidation "를 참조 하세요 .이는 유효성 검사 핸드셰이크에 오류가 있음을 나타냅니다. 이 오류를 해결하려면 다음과 같은 측면을 확인합니다.
 
-- [샘플 구독유효성 검사와](#validation-details) 웹 후크 URL에 HTTP POST를 수행포스트맨 또는 컬 또는 유사한 도구를 사용하여 본문을 요청합니다.
-- 웹후크가 동기 유효성 검사 핸드셰이크 메커니즘을 구현하는 경우 유효성 검사 코드가 응답의 일부로 반환되는지 확인합니다.
-- 웹후크가 비동기 유효성 검사 핸드셰이크 메커니즘을 구현하는 경우 HTTP POST가 200 확인을 반환하고 있는지 확인합니다.
-- 웹후크가 응답에서 403(금지됨)을 반환하는 경우 웹후크가 Azure 응용 프로그램 게이트웨이 또는 웹 응용 프로그램 방화벽 뒤에 있는지 확인합니다. 이 경우 이러한 방화벽 규칙을 사용하지 않도록 설정하고 HTTP POST를 다시 수행해야 합니다.
+- Postman 또는 말아와 유사한 도구를 사용 하 여 [샘플 SubscriptionValidationEvent](#validation-details) 요청 본문으로 웹 후크 url에 대 한 HTTP POST를 수행 합니다.
+- Webhook에서 동기 유효성 검사 핸드셰이크 메커니즘을 구현 하는 경우 ValidationCode가 응답의 일부로 반환 되는지 확인 합니다.
+- 웹 webhook가 비동기 유효성 검사 핸드셰이크 메커니즘을 구현 하는 경우 HTTP POST가 200 OK를 반환 하는지 확인 합니다.
+- 웹 후크가 응답에서 403 (사용할 수 없음)를 반환 하는 경우 웹 후크가 Azure 애플리케이션 게이트웨이 또는 웹 응용 프로그램 방화벽 뒤에 있는지 확인 합니다. 그렇다면 이러한 방화벽 규칙을 사용 하지 않도록 설정 하 고 HTTP POST를 다시 수행 해야 합니다.
 
-  920300 (헤더 수락 누락 요청, 이 문제를 해결할 수 있습니다).
+  920300 (요청에 Accept 헤더가 누락 되었습니다 .이 문제를 해결할 수 있음)
 
-  942430(제한된 SQL 문자 변칙 검색(args): 특수 문자의 수위(12)를 초과)
+  942430 (제한 된 SQL 문자 변칙 검색 (args): 특수 문자의 # 개 초과 (12))
 
-  920230(다중 URL 인코딩 감지됨)
+  920230 (여러 URL 인코딩이 검색 됨)
 
-  942130 (SQL 주입 공격: SQL Tautology 감지.)
+  942130 (SQL 삽입 공격: SQL Tautology이 검색 되었습니다.)
 
-  931130(RFI(원격 파일 포함 가능) 공격 = 도메인 외 참조/링크)
+  931130 (가능한 원격 파일 포함 (RFI) 공격 = 오프-도메인 참조/링크)
 
 ### <a name="event-delivery-security"></a>이벤트 전달 보안
 
 #### <a name="azure-ad"></a>Azure AD
 
-Azure Active Directory를 사용하여 이벤트 그리드를 인증하고 권한을 부여하여 이벤트를 엔드포인트에 게시하여 웹후크 끝점을 보호할 수 있습니다. Azure Active Directory 응용 프로그램을 만들고, 이벤트 그리드에 권한을 부여하는 응용 프로그램에서 역할 및 서비스 원칙을 만들고, Azure AD 응용 프로그램을 사용하도록 이벤트 구독을 구성해야 합니다. [이벤트 그리드로 AAD를 구성하는 방법에 대해 알아봅니다.](secure-webhook-delivery.md)
+Azure Active Directory를 사용 하 여 끝점에 이벤트를 게시할 Event Grid를 인증 하 고 권한을 부여 하 여 webhook 끝점의 보안을 유지할 수 있습니다. Azure Active Directory 응용 프로그램을 만들고 응용 프로그램에서 Event Grid 권한을 부여 하는 역할 및 서비스 주체를 만들고 Azure AD 응용 프로그램을 사용 하도록 이벤트 구독을 구성 해야 합니다. [Event Grid를 사용 하 여 AAD를 구성 하는 방법을 알아봅니다](secure-webhook-delivery.md).
 
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
@@ -164,7 +164,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 Event Grid의 SAS 토큰에는 리소스, 만료 시간 및 서명이 포함됩니다. SAS 토큰의 형식은 다음과 같습니다. `r={resource}&e={expiration}&s={signature}`
 
-리소스는 이벤트를 전송할 Event Grid 항목의 경로입니다. 예를 들어 유효한 리소스 경로는 다음과 `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01`같습니다. 지원되는 모든 API 버전을 보려면 [Microsoft.EventGrid 리소스 유형을](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)참조하십시오. 
+리소스는 이벤트를 전송할 Event Grid 항목의 경로입니다. 예를 들어 유효한 리소스 경로는 `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01`입니다. 지원 되는 모든 API 버전을 보려면 [Microsoft EventGrid 리소스 유형](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)을 참조 하세요. 
 
 키에서 서명을 생성합니다.
 
@@ -201,10 +201,10 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
-Event Grid 서비스에 의해 디스크에 기록된 모든 이벤트 또는 데이터는 Microsoft에서 관리하는 키로 암호화되어 미사용 으로 암호화됩니다. 또한 이벤트 또는 데이터가 보존되는 최대 기간은 이벤트 그리드 다시 시도 [정책을](delivery-and-retry.md)준수하는 데 24시간입니다. 이벤트 그리드는 24시간 후에 모든 이벤트 또는 데이터를 자동으로 삭제하거나 이벤트 시간(라이브 시간)이 적거나 삭제됩니다.
+Event Grid 서비스에서 디스크에 기록 하는 모든 이벤트 또는 데이터는 Microsoft에서 관리 하는 키로 암호화 되어 암호화 된 상태로 유지 됩니다. 또한 이벤트 또는 데이터를 보존 하는 최대 기간은 [Event Grid 재시도 정책을](delivery-and-retry.md)준수 하 여 24 시간입니다. Event Grid는 24 시간 후에 모든 이벤트 또는 데이터를 자동으로 삭제 하 고, 이벤트의 ttl (time to live) 중 더 작은 값을 자동으로 삭제 합니다.
 
-## <a name="endpoint-validation-with-cloudevents-v10"></a>클라우드 이벤트 v1.0을 통한 엔드포인트 유효성 검사
-이벤트 그리드에 이미 익숙한 경우 악용을 방지하기 위한 Event Grid의 끝점 유효성 검사 핸드셰이크를 알고 있을 수 있습니다. CloudEvents v1.0HTTP OPTIONS 메서드를 사용 하 여 자체 [남용 보호 의미 체계를](security-authentication.md#webhook-event-delivery) 구현 합니다. 자세한 내용은 여기에서 확인할 수 [있습니다.](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) 출력에 CloudEvents 스키마를 사용하는 경우 이벤트 그리드는 이벤트 그리드 유효성 검사 이벤트 메커니즘 대신 CloudEvents v1.0 남용 보호와 함께 사용합니다.
+## <a name="endpoint-validation-with-cloudevents-v10"></a>CloudEvents v 1.0을 사용 하는 끝점 유효성 검사
+Event Grid에 대해 잘 알고 있는 경우 남용 방지를 위한 Event Grid의 끝점 유효성 검사 핸드셰이크를 알고 있을 수 있습니다. CloudEvents v 1.0은 HTTP OPTIONS 메서드를 사용 하 여 자체 [불건전 보호 의미 체계](security-authentication.md#webhook-event-delivery) 를 구현 합니다. [여기](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection)에서 자세한 내용을 확인할 수 있습니다. 출력에 CloudEvents 스키마를 사용 하는 경우 Event Grid는 Event Grid 유효성 검사 이벤트 메커니즘 대신 CloudEvents v1.0 남용 보호와 함께를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

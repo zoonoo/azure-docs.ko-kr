@@ -1,20 +1,20 @@
 ---
-title: 맞춤 도메인 이름 구매
-description: 앱 서비스 도메인을 구입하고 앱 Azure 앱 서비스에 대한 사용자 지정 도메인으로 사용하는 방법을 알아봅니다.
+title: 사용자 지정 도메인 이름 구입
+description: App Service 도메인을 구입 하 고 앱 Azure App Service에 대 한 사용자 지정 도메인으로 사용 하는 방법을 알아봅니다.
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
 ms.openlocfilehash: 47daf4ecd034c390a1460610e78d4fffd9277ac7
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535709"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service의 사용자 지정 도메인 이름 구입
 
-앱 서비스 도메인은 Azure에서 직접 관리되는 최상위 도메인입니다. 이 도메인을 통해 [Azure App Service](overview.md)의 사용자 지정 도메인을 쉽게 관리할 수 있습니다. 이 자습서에서는 App Service 도메인을 구입하고 DNS 이름을 Azure App Service에 할당하는 방법을 보여 줍니다.
+App Service 도메인은 Azure에서 직접 관리 되는 최상위 도메인입니다. 이 도메인을 통해 [Azure App Service](overview.md)의 사용자 지정 도메인을 쉽게 관리할 수 있습니다. 이 자습서에서는 App Service 도메인을 구입하고 DNS 이름을 Azure App Service에 할당하는 방법을 보여 줍니다.
 
 Azure VM 또는 Azure Storage의 경우 [Azure VM 또는 Azure Storage에 App Service 도메인 할당](https://azure.github.io/AppService/2017/07/31/Assign-App-Service-domain-to-Azure-VM-or-Azure-Storage)을 참조하세요. Cloud Services의 경우 [Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md)을 참조하세요.
 
@@ -70,7 +70,7 @@ App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지�
 ## <a name="buy-the-domain"></a>도메인 구입
 
 ### <a name="pricing-information"></a>가격 정보
-Azure 앱 서비스 도메인에 대한 가격 정보를 보려면 [앱 서비스 가격 책정 페이지를](https://azure.microsoft.com/pricing/details/app-service/windows/) 방문하여 앱 서비스 도메인으로 스크롤합니다.
+Azure App Service 도메인에 대 한 가격 책정 정보를 보려면 [App Service 가격 책정 페이지](https://azure.microsoft.com/pricing/details/app-service/windows/) 를 방문 하 App Service 도메인으로 스크롤합니다.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 [Azure 포털](https://portal.azure.com/)에서 Azure 계정으로 로그인합니다.
@@ -108,7 +108,7 @@ Azure 앱 서비스 도메인에 대한 가격 정보를 보려면 [앱 서비�
 
 | 설정 | 제안 값 | Description |
 |-|-|-|
-|개인 정보 보호 | 사용 | _체험_ 구매 가격에 포함된 "개인 정보 보호"를 선택합니다. 일부 최상위 도메인은 개인 정보 보호를 지원하지 않는 등록 기관에서 관리하며 **개인 정보 보호** 페이지에 나열됩니다. |
+|개인 정보 보호 | 사용 하도록 설정 | _체험_ 구매 가격에 포함된 "개인 정보 보호"를 선택합니다. 일부 최상위 도메인은 개인 정보 보호를 지원하지 않는 등록 기관에서 관리하며 **개인 정보 보호** 페이지에 나열됩니다. |
 | 기본 호스트 이름 할당 | **www** 및 **\@** | 필요한 경우 원하는 호스트 이름 바인딩을 선택합니다. 도메인 구매 작업이 완료되면 선택한 호스트 이름에서 앱에 액세스할 수 있습니다. 앱이 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) 뒤에 있는 경우 Traffic Manager는 A 레코드를 지원하지 않으므로 루트 도메인을 할당하는 옵션이 표시되지 않습니다. 도메인 구매가 완료된 후 호스트 이름 할당을 변경할 수 있습니다. |
 
 ### <a name="accept-terms-and-purchase"></a>조건에 동의하고 구매
@@ -116,7 +116,7 @@ Azure 앱 서비스 도메인에 대한 가격 정보를 보려면 [앱 서비�
 **약관**을 클릭하여 조건 및 요금을 검토한 후 **구입**을 클릭합니다.
 
 > [!NOTE]
-> 앱 서비스 도메인은 도메인 등록을 위해 GoDaddy를 사용하고 Azure DNS를 사용하여 도메인을 호스팅합니다. 도메인 등록 요금 외에도 Azure DNS에 대한 사용 요금이 적용됩니다. 자세한 내용은 [Azure DNS 가격 책정](https://azure.microsoft.com/pricing/details/dns/)을 참조하세요.
+> App Service 도메인은 도메인 등록에 GoDaddy를 사용 하 고 도메인을 호스트 하는 Azure DNS 합니다. 도메인 등록 요금 외에도 Azure DNS에 대한 사용 요금이 적용됩니다. 자세한 내용은 [Azure DNS 가격 책정](https://azure.microsoft.com/pricing/details/dns/)을 참조하세요.
 >
 >
 
@@ -137,18 +137,18 @@ Azure 앱 서비스 도메인에 대한 가격 정보를 보려면 [앱 서비�
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> 사용자 지정 도메인에 대한 **안전하지 않음** 레이블은 아직 TLS/SSL 인증서에 바인딩되지 않았으며 브라우저에서 사용자 지정 도메인으로 의한 HTTPS 요청에따라 브라우저에 따라 오류 또는 경고가 표시됩니다. TLS 바인딩을 구성하려면 [Azure 앱 서비스에서 TLS/SSL 바인딩이 있는 사용자 지정 DNS 이름 보안을](configure-ssl-bindings.md)참조하십시오.
+> 사용자 지정 도메인에 대 한 **보안 되지 않은** 레이블은 아직 TLS/SSL 인증서에 바인딩되어 있지 않음을 의미 하 고 브라우저에서 사용자 지정 도메인으로의 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받게 됩니다. TLS 바인딩을 구성 하려면 [Azure App Service에서 tls/SSL 바인딩을 사용 하 여 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)를 참조 하세요.
 >
 
-호스트 이름을 테스트하려면 브라우저에서 나열된 호스트 이름으로 이동합니다. 앞의 스크린샷의 예제에서는 _kontoso.net_ 및 _www\.kontoso.net_탐색해 보십시오.
+호스트 이름을 테스트하려면 브라우저에서 나열된 호스트 이름으로 이동합니다. 위의 스크린 샷에서 예제에서는 _kontoso.net_ 및 _www\.kontoso.net_로 이동 합니다.
 
 ## <a name="assign-hostnames-to-app"></a>앱에 호스트 이름 할당
 
-구매 프로세스 중에 앱에 하나 이상의 기본 호스트 이름을 할당하지 않도록 선택하거나 목록에 없는 호스트 이름을 할당해야 하는 경우 언제든지 호스트 이름을 할당할 수 있습니다.
+구매 프로세스 중에 앱에 하나 이상의 기본 호스트 이름을 할당 하지 않거나 나열 되지 않은 호스트 이름을 할당 해야 하는 경우 언제 든 지 호스트 이름을 할당할 수 있습니다.
 
 App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수도 있습니다. 이 단계는 App Service 도메인 및 앱이 동일한 구독에 속하는지 여부에 따라 달라집니다.
 
-- 다른 구독: 앱 서비스 도메인의 사용자 지정 DNS 레코드를 외부에서 구입한 도메인과 같은 앱에 매핑합니다. 사용자 지정 DNS 이름을 App Service 도메인에 추가하는 방법에 대한 자세한 내용은 [사용자 지정 DNS 레코드 관리](#custom)를 참조하세요. 외부에서 구매한 도메인을 앱에 매핑하려면 [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)을 참조하세요. 
+- 다른 구독: App Service 도메인의 사용자 지정 DNS 레코드를 외부에서 구매한 도메인과 같은 앱에 매핑합니다. 사용자 지정 DNS 이름을 App Service 도메인에 추가하는 방법에 대한 자세한 내용은 [사용자 지정 DNS 레코드 관리](#custom)를 참조하세요. 외부에서 구매한 도메인을 앱에 매핑하려면 [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)을 참조하세요. 
 - 같은 구독: 다음 단계를 따릅니다.
 
 ### <a name="launch-add-hostname"></a>호스트 이름 추가 시작
@@ -171,7 +171,7 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 **호스트 이름 추가** 대화 상자에서 App Service 도메인 또는 하위 도메인의 정규화된 도메인 이름을 입력합니다. 다음은 그 예입니다.
 
 - kontoso.net
-- kontoso.net\.
+- www\.kontoso.net
 - abc.kontoso.net
 
 완료되면 **유효성 검사**를 선택합니다. 호스트 이름 레코드 형식이 자동으로 선택됩니다.
@@ -199,7 +199,7 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 
 자동 갱신을 해제하거나 도메인을 수동으로 갱신하려면 다음 단계를 따릅니다.
 
-앱 **서비스** 탭에서 앱 이름을 클릭하고 **설정을**선택한 다음 **사용자 지정 도메인을 선택합니다.**
+**App Services** 탭에서 앱 이름을 클릭 하 고 **설정**을 선택한 다음 **사용자 지정 도메인**을 선택 합니다.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
@@ -211,21 +211,21 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-도메인을 수동으로 갱신하려면 **도메인 갱신**을 선택합니다. 그러나 이 단추는 [도메인이 만료되기 90일 전까지](#when-domain-expires)활성화되지 않습니다.
+도메인을 수동으로 갱신하려면 **도메인 갱신**을 선택합니다. 그러나이 단추는 [도메인 만료가 90 일 전에](#when-domain-expires)는 활성화 되지 않습니다.
 
-도메인 갱신에 성공하면 24시간 이내에 이메일 알림을 받게 됩니다.
+도메인 갱신이 성공적으로 완료 되 면 24 시간 이내에 전자 메일 알림을 받게 됩니다.
 
-## <a name="when-domain-expires"></a>도메인이 만료되는 경우
+## <a name="when-domain-expires"></a>도메인이 만료 되는 경우
 
-Azure는 다음과 같이 만료되거나 만료된 앱 서비스 도메인을 처리합니다.
+Azure는 다음과 같이 만료 되거나 만료 된 App Service 도메인을 다룹니다.
 
-* 자동 갱신이 비활성화된 경우: 도메인 만료 90일 전에 갱신 알림 이메일이 전송되고 포털에서 **도메인 갱신** 버튼이 활성화됩니다.
-* 자동 갱신이 활성화된 경우: 도메인 만료 날짜 다음 날에 Azure는 도메인 이름 갱신에 대한 요금을 청구하려고 시도합니다.
-* 자동 갱신 중에 오류가 발생하거나(예: 파일의 카드가 만료됨) 자동 갱신이 비활성화되어 도메인이 만료되도록 허용하는 경우 Azure는 도메인 만료를 알려주고 도메인 이름을 등록합니다. 도메인을 [수동으로 갱신할](#renew-the-domain) 수 있습니다.
-* 만료 후 4일과 12일에 Azure는 추가 알림 이메일을 보냅니다. 도메인을 [수동으로 갱신할](#renew-the-domain) 수 있습니다.
-* 만료 후 19일째되는 날에는 도메인이 보류 상태로 유지되지만 상환 수수료가 부과됩니다. 고객 지원에 전화하여 도메인 이름을 갱신할 수 있으며, 적용 가능한 갱신 및 사용 수수료가 부과됩니다.
-* 만료 후 25일째되는 날, Azure는 도메인 이름 산업 경매 서비스를 통해 도메인을 경매에 부적합시깁니다. 고객 지원에 전화하여 도메인 이름을 갱신할 수 있으며, 적용 가능한 갱신 및 사용 수수료가 부과됩니다.
-* 만료 후 30일째되는 날에는 더 이상 도메인을 사용할 수 없습니다.
+* 자동 갱신을 사용 하지 않도록 설정 하는 경우: 90 일 전에 도메인 만료 전 갱신 알림 전자 메일이 전송 되 고 포털에서 **도메인 갱신** 단추가 활성화 됩니다.
+* 자동 갱신을 사용 하도록 설정 하는 경우: 도메인 만료 날짜가 지난 날에 Azure는 도메인 이름 갱신에 대 한 요금을 청구 하려고 합니다.
+* 자동 갱신 중에 오류가 발생 하는 경우 (예: 파일의 카드가 만료 된 경우) 또는 자동 갱신을 사용 하지 않도록 설정 하 고 도메인 만료를 허용 하는 경우 Azure는 도메인 만료를 알리고 도메인 이름을 파킹 합니다. 도메인을 [수동으로 갱신할](#renew-the-domain) 수 있습니다.
+* 만료 후 4 일 및 12 일에 Azure는 추가 알림 전자 메일을 보냅니다. 도메인을 [수동으로 갱신할](#renew-the-domain) 수 있습니다.
+* 만료 후 19 일 일에 도메인은 보류 상태로 유지 되지만 상환 요금이 적용 됩니다. 고객 지원에 문의 하 여 해당 갱신 및 상환 요금에 따라 도메인 이름을 갱신할 수 있습니다.
+* 만료 후 25 일이 지나면 Azure는 도메인 이름 산업 경매 서비스를 사용 하 여 경매에 도메인을 배치 합니다. 고객 지원에 문의 하 여 해당 갱신 및 상환 요금에 따라 도메인 이름을 갱신할 수 있습니다.
+* 만료 후 30 일이 지나면 더 이상 도메인을 사용할 수 없습니다.
 
 <a name="custom"></a>
 
@@ -235,7 +235,7 @@ Azure에서 App Service 도메인에 대한 DNS 레코드는 [Azure DNS](https:/
 
 ### <a name="open-app-service-domain"></a>App Service 도메인 열기
 
-Azure 포털에서 왼쪽 메뉴에서 **모든 서비스** > **앱 서비스 도메인을 선택합니다.**
+Azure Portal의 왼쪽 메뉴에서 **모든 서비스** > **App Service 도메인**을 선택 합니다.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -255,7 +255,7 @@ App Service 도메인을 구매한 후 5일 이내에 구매를 취소하고 전
 
 ### <a name="open-app-service-domain"></a>App Service 도메인 열기
 
-Azure 포털에서 왼쪽 메뉴에서 **모든 서비스** > **앱 서비스 도메인을 선택합니다.**
+Azure Portal의 왼쪽 메뉴에서 **모든 서비스** > **App Service 도메인**을 선택 합니다.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -269,7 +269,7 @@ Azure 포털에서 왼쪽 메뉴에서 **모든 서비스** > **앱 서비스 �
 
 모든 호스트 이름 바인딩이 삭제되어야 App Service 도메인을 삭제할 수 있습니다.
 
-다음을 선택하여 각 호스트 이름 바인딩을 **삭제합니다.**  >  **삭제합니다.** 모든 바인딩을 삭제한 후 **저장**을 선택합니다.
+**...를 선택 하** 여 각 호스트 이름 바인딩을 삭제 합니다.  >  **삭제**. 모든 바인딩을 삭제한 후 **저장**을 선택합니다.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 

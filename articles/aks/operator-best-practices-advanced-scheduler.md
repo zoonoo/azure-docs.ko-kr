@@ -1,20 +1,20 @@
 ---
-title: 스케줄러 기능에 대한 모범 사례
+title: Scheduler 기능에 대 한 모범 사례
 titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service)의 taint/toleration, 노드 선택기 및 선호도나 노드 간 선호도 및 선호도 방지와 같은 고급 스케줄러 기능 사용에 대한 클러스터 운영자 모범 사례 알아보기
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: d0d13a699d2559c6b4360c807721e0b748959382
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617532"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 고급 스케줄러 기능 모범 사례
 
-AKS(Azure Kubernetes Service)에서 클러스터를 관리할 경우 종종 팀 및 워크로드를 격리해야 합니다. Kubernetes 스케줄러는 특정 노드에서 예약할 수 있는 포드 또는 다중 포드 응용 프로그램을 클러스터 전체에 적절하게 분산하는 방법을 제어할 수 있는 고급 기능을 제공합니다. 
+AKS(Azure Kubernetes Service)에서 클러스터를 관리할 경우 종종 팀 및 워크로드를 격리해야 합니다. Kubernetes scheduler는 특정 노드에 대해 예약할 수 있는 pod 또는 다중 pod 응용 프로그램을 클러스터 전체에 적절 하 게 분산 하는 방법을 제어할 수 있는 고급 기능을 제공 합니다. 
 
 이 모범 사례 문서에서는 클러스터 운영자의 고급 Kubernetes 예약 기능을 중점적으로 설명합니다. 이 문서에서는 다음 방법을 설명합니다.
 
@@ -29,14 +29,14 @@ AKS(Azure Kubernetes Service)에서 클러스터를 관리할 경우 종종 팀 
 
 AKS 클러스터를 만들 경우 GPU 지원 또는 많은 강력한 CPU를 사용하여 노드를 배포할 수 있습니다. 이러한 노드는 ML(기계 학습) 또는 AI와 같은 대규모 데이터 처리 워크로드에 자주 사용됩니다. 이 유형의 하드웨어는 일반적으로 배포에 비용이 많이 드는 노드 리소스이므로 이러한 노드에서 예약할 수 있는 워크로드를 제한하세요. 대신 클러스터의 일부 노드를 수신 서비스 실행에만 사용하도록 하고 다른 워크로드를 차단할 수 있습니다.
 
-여러 노드풀을 사용하여 다른 노드에 대한 이 지원은 제공됩니다. AKS 클러스터는 하나 이상의 노드 풀을 제공합니다.
+여러 노드 풀을 사용 하 여 다양 한 노드에 대 한 지원을 제공 합니다. AKS 클러스터는 하나 이상의 노드 풀을 제공 합니다.
 
 Kubernetes 스케줄러는 taint 및 toleration을 사용하여 노드에서 실행할 수 있는 워크로드를 제한할 수 있습니다.
 
 * **Taint**는 노드에서 특정 Pod만 예약할 수 있음을 나타내는 노드에 적용됩니다.
 * **Toleration**은 노드의 오류를 ‘허용’할 수 있도록 하는 Pod에 적용됩니다.**
 
-Pod를 AKS 클러스터에 배포하는 경우 Kubernetes는 toleration이 taint에 맞춰 조정되는 노드에서만 Pod를 예약합니다. 예를 들어, GPU 가 지원하는 노드에 대해 AKS 클러스터에 노드 풀이 있다고 가정합니다. 이름(예: *gpu*)을 정의한 후 예약의 값을 정의합니다. 이 값을 *NoSchedule*로 설정하면 Kubernetes 스케줄러는 Pod가 적절한 toleration을 정의하지 않는 경우 노드에서 Pod를 예약할 수 없습니다.
+Pod를 AKS 클러스터에 배포하는 경우 Kubernetes는 toleration이 taint에 맞춰 조정되는 노드에서만 Pod를 예약합니다. 예를 들어 GPU를 지 원하는 노드에 대해 AKS 클러스터에 노드 풀이 있다고 가정 합니다. 이름(예: *gpu*)을 정의한 후 예약의 값을 정의합니다. 이 값을 *NoSchedule*로 설정하면 Kubernetes 스케줄러는 Pod가 적절한 toleration을 정의하지 않는 경우 노드에서 Pod를 예약할 수 없습니다.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -73,24 +73,24 @@ Taint를 적용할 경우 애플리케이션 개발자 및 소유자와 협력�
 
 taint 및 toleration에 대한 자세한 내용은 [taint 및 toleration 적용][k8s-taints-tolerations]을 참조하세요.
 
-AKS에서 여러 노드 풀을 사용하는 방법에 대한 자세한 내용은 [AKS의 클러스터에 대해 여러 노드 풀 만들기 및 관리를][use-multiple-node-pools]참조하십시오.
+AKS에서 여러 노드 풀을 사용 하는 방법에 대 한 자세한 내용은 [AKS에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리][use-multiple-node-pools]를 참조 하세요.
 
-### <a name="behavior-of-taints-and-tolerations-in-aks"></a>AKS의 오염 및 내약행위 의 행동
+### <a name="behavior-of-taints-and-tolerations-in-aks"></a>AKS의 taints 및 tolerations 동작
 
-AKS에서 노드 풀을 업그레이드할 때 새 노드에 적용될 때 오염 및 내약품이 설정된 패턴을 따릅니다.
+AKS에서 노드 풀을 업그레이드 하는 경우 taints 및 tolerations는 새 노드에 적용 될 때 집합 패턴을 따릅니다.
 
-- **가상 시스템 확장 집합을 사용하는 기본 클러스터**
-  - *노드1* 및 *node2*- 두 노드 클러스터가 있다고 가정해 보겠습니다. 노드 풀을 업그레이드합니다.
-  - *노드3와* *노드4의*두 개의 추가 노드가 만들어지고 오염이 각각 전달됩니다.
-  - 원래 *노드1* 및 *노드2가* 삭제됩니다.
+- **Virtual machine scale sets를 사용 하는 기본 클러스터**
+  - 2 개 노드 *클러스터 노드 1과 노드* 2가 있다고 가정해 보겠습니다 *.* 노드 풀을 업그레이드 합니다.
+  - *Node3* 및 *node4*라는 두 개의 노드가 추가로 만들어지고 taints가 각각 전달 됩니다.
+  - 원래 *node1* 및 *노드* 2가 삭제 됩니다.
 
-- **가상 시스템 규모 집합 지원이 없는 클러스터**
-  - 다시 말하지만, 두 노드 클러스터 - *node1* 및 *node2가*있다고 가정해 보겠습니다. 업그레이드하면 추가*노드(노드3)가*만들어집니다.
-  - *node1의* 오염은 *node3에*적용된 다음 *node1이* 삭제됩니다.
-  - 또 다른 새 노드가 생성되고(이전 *node1이*삭제된 이후의 *노드1이라는* 이름) *노드2* 오염이 새 *노드1에*적용됩니다. 그런 다음 *node2가* 삭제됩니다.
-  - 본질적으로 *node1은* *node3이*되고 *노드2는* *node1이*됩니다.
+- **가상 컴퓨터 확장 집합이 지원 되지 않는 클러스터**
+  - 다시 한 번, 2 노드 *클러스터 노드 1과 노드* 2가 있다고 가정해 *보겠습니다.* 업그레이드 하면 추가 노드 (*node3*)가 생성 됩니다.
+  - *Node1* 의 taints가 *node3*에 적용 된 후 *node1* 이 삭제 됩니다.
+  - 새 노드 (이전 *node1* 은 삭제 *된 이후*)가 생성 되 *고 노드 2 taints가* 새 *node1*에 적용 됩니다. 그런 다음 *노드* 2가 삭제 됩니다.
+  - 기본적으로 *node1* 은 *node3*이 되 고, *노드* 2는 *node1*이 됩니다.
 
-AKS에서 노드 풀을 확장할 때 오염 및 내약성은 의도적으로 이월되지 않습니다.
+AKS에서 노드 풀의 크기를 조정 하는 경우 taints 및 tolerations은 설계를 통해 전달 되지 않습니다.
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>노드 선택기 및 선호도를 사용하여 Pod 예약 제어
 
@@ -134,7 +134,7 @@ spec:
 
 노드 선택기는 지정된 노드에 Pod를 할당하는 기본 방법입니다. *노드 선호도*를 사용하여 유연성을 높일 수 있습니다. 노드 선호도를 사용하여 Pod가 노드와 일치될 수 없는 경우 발생하는 상황을 정의합니다. Kubernetes 스케줄러가 Pod를 레이블이 지정된 호스트와 일치시키도록 ‘요구’할 수 있습니다.** 또는 일치를 ‘선호’할 수 있지만 일치 항목이 없는 경우 다른 호스트에서 Pod을 예약할 수 있습니다.**
 
-다음 예제는 노드 선호도를 *requiredDuringSchedulingIgnoredDuringExecution*으로 설정합니다. 이 선호도를 사용하려면 일치하는 레이블을 가진 노드를 사용하기 위한 Kubernetes 일정이 필요합니다. 사용 가능한 노드가 없는 경우 Pod는 예약이 계속될 때까지 기다려야 합니다. 다른 노드에서 포드를 예약할 수 있도록 하려면 대신 값을 기본 값으로 설정할 수 *있습니다.행 예약무시실행:*
+다음 예제는 노드 선호도를 *requiredDuringSchedulingIgnoredDuringExecution*으로 설정합니다. 이 선호도를 사용하려면 일치하는 레이블을 가진 노드를 사용하기 위한 Kubernetes 일정이 필요합니다. 사용 가능한 노드가 없는 경우 Pod는 예약이 계속될 때까지 기다려야 합니다. Pod가 다른 노드에서 예약 되도록 하려면 값을 *preferredDuringSchedulingIgnoreDuringExecution*로 설정 하면 됩니다.
 
 ```yaml
 kind: Pod
@@ -170,14 +170,14 @@ spec:
 
 Kubernetes 스케줄러가 워크로드를 논리적으로 격리하는 한 가지 마지막 접근 방식은 Pod 간 선호도 또는 선호도 방지를 사용하는 것입니다. 설정은 기존 일치하는 Pod가 있는 노드에서 Pod가 예약’되지 않도록’ 정의하거나 Pod가 예약’되도록’ 정의합니다.**** 기본적으로 Kubernetes 스케줄러는 전체 노드의 복제본 세트에서 여러 Pod를 예약하려고 시도합니다. 이 동작에 관한 보다 구체적인 규칙을 정의할 수 있습니다.
 
-좋은 예는 Azure Cache for Redis를 사용하는 웹 애플리케이션입니다. Pod 선호도 방지 규칙을 사용하여 Kubernetes 스케줄러가 전체 노드에 복제본을 배포하도록 요청할 수 있습니다. 그런 다음 선호도 규칙을 사용하여 각 웹 앱 구성 요소가 해당 캐시와 동일한 호스트에서 예약되도록 할 수 있습니다. 전체 노드에 대한 Pod 배포는 다음 예제와 같이 표시됩니다.
+좋은 예는 Azure Cache for Redis를 사용하는 웹 애플리케이션입니다. Pod 선호도 방지 규칙을 사용하여 Kubernetes 스케줄러가 전체 노드에 복제본을 배포하도록 요청할 수 있습니다. 그런 다음 선호도 규칙을 사용 하 여 각 웹 앱 구성 요소가 해당 캐시와 동일한 호스트에서 예약 되도록 할 수 있습니다. 전체 노드에 대한 Pod 배포는 다음 예제와 같이 표시됩니다.
 
 | **노드 1** | **노드 2** | **노드 3** |
 |------------|------------|------------|
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-이 예제는 노드 선택기 또는 노드 선호도를 사용하는 것보다 더 복잡한 배포입니다. 배포를 통해 Kubernetes가 노드에서 Pod를 예약하는 방법을 제어하고 리소스를 논리적으로 격리할 수 있습니다. Redis 예제에 대한 Azure 캐시가 있는 이 웹 응용 프로그램의 전체 예제는 [동일한 노드에서 공동 찾기 창을][k8s-pod-affinity]참조하십시오.
+이 예제는 노드 선택기 또는 노드 선호도를 사용하는 것보다 더 복잡한 배포입니다. 배포를 통해 Kubernetes가 노드에서 Pod를 예약하는 방법을 제어하고 리소스를 논리적으로 격리할 수 있습니다. Redis 용 Azure Cache 예제를 사용 하는이 웹 응용 프로그램의 전체 예제는 [동일한 노드에 Pod 배치][k8s-pod-affinity]를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

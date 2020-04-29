@@ -1,79 +1,79 @@
 ---
 title: Azure 업데이트 관리 로그 쿼리
-description: 이 문서에서는 로그 분석 작업 영역에서 업데이트 관리에 대한 로그를 쿼리하는 방법을 설명합니다.
+description: 이 문서에서는 Log Analytics 작업 영역에서 업데이트 관리에 대 한 로그를 쿼리 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.openlocfilehash: 09eacb42eff6ecf3a3fca2d7fb401f52195f5f2d
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617415"
 ---
-# <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Azure 모니터 로그의 업데이트 관리에 대한 쿼리 업데이트 레코드
+# <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Azure Monitor 로그의 업데이트 관리에 대 한 업데이트 레코드 쿼리
 
-업데이트 관리 솔루션에 제공된 세부 정보 외에도 Log Analytics 작업 영역에 저장된 로그를 검색할 수 있습니다. 솔루션 페이지에서 왼쪽 창에서 **로그를 선택합니다.** 로그 검색 페이지가 열립니다.
+업데이트 관리 솔루션에 제공 된 세부 정보 외에도 Log Analytics 작업 영역에 저장 된 로그를 검색할 수 있습니다. 솔루션 페이지의 왼쪽 창에서 **로그**를 선택 합니다. 로그 검색 페이지가 열립니다.
 
-쿼리를 사용자 지정하거나 다른 클라이언트에서 사용하는 방법을 배울 수도 있습니다. [로그 분석 검색 API 설명서를](https://dev.loganalytics.io/)참조하십시오.
+또한 쿼리를 사용자 지정 하거나 다른 클라이언트에서 사용 하는 방법을 배울 수 있습니다. [Log Analytics 검색 API 설명서](https://dev.loganalytics.io/)를 참조 하세요.
 
 ## <a name="update-records"></a>업데이트 레코드
 
-업데이트 관리는 Windows 및 Linux VM에 대한 레코드와 로그 검색 결과에 나타나는 데이터 형식을 수집합니다. 다음 섹션에서는 이러한 레코드에 대해 설명합니다.
+업데이트 관리는 Windows 및 Linux Vm에 대 한 레코드 및 로그 검색 결과에 표시 되는 데이터 형식을 수집 합니다. 다음 섹션에서는 이러한 레코드에 대해 설명 합니다.
 
 ### <a name="required-updates"></a>필수 업데이트
 
-컴퓨터에서 필요한 업데이트를 `RequiredUpdate` 나타내는 유형이 있는 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
+컴퓨터에 필요한 업데이트를 나타내는 `RequiredUpdate` 형식의 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
 | 속성 | Description | 
 |----------|-------------|
-| Computer | 보고 시스템의 정규화된 도메인 이름입니다. |
-| KBID | Windows 업데이트에 대한 기술 자료 문서 ID입니다. |
-| ManagementGroupName | 운영 관리자 관리 그룹 또는 로그 분석 작업 영역의 이름입니다. | 
-| Product | 업데이트가 적용되는 제품입니다. | 
-| PublishDate | Windows Update에서 업데이트를 다운로드하여 설치할 준비가 된 날짜입니다. |
-| 서버 | | 
-| SourceHealthServiceId | 로그 분석 Windows 에이전트 ID를 나타내는 고유 식별자입니다. |
+| Computer | 보고 컴퓨터의 정규화 된 도메인 이름입니다. |
+| KBID | Windows 업데이트에 대 한 기술 자료 문서 ID입니다. |
+| ManagementGroupName | Operations Manager 관리 그룹 또는 Log Analytics 작업 영역의 이름입니다. | 
+| Product | 업데이트를 적용할 수 있는 제품입니다. | 
+| PublishDate | 업데이트를 Windows 업데이트에서 다운로드 하 여 설치할 준비가 된 날짜입니다. |
+| Server (서버) | | 
+| SourceHealthServiceId | Log Analytics Windows 에이전트 ID를 나타내는 고유 식별자입니다. |
 | SourceSystem | *OperationsManager* | 
 | TenantId | Azure Active Directory의 조직 인스턴스를 나타내는 고유 식별자입니다. | 
 | TimeGenerated | 레코드가 생성된 날짜 및 시간입니다. | 
 | Type | *업데이트* | 
-| UpdateClassification | 적용할 수 있는 업데이트 유형을 나타냅니다. Windows의 경우:<br> *중요 업데이트*<br> *보안 업데이트*<br> *업데이트 롤업*<br> *기능 팩*<br> *서비스 팩*<br> *정의 업데이트*<br> *도구*<br> *업데이트*. Linux의 경우:<br> *중요 업데이트 및 보안 업데이트*<br> *기타* |
-| 업데이트 심각도 | 취약점에 대한 심각도 등급입니다. 값은 다음과 같습니다.<br> *중요*<br> *중요*<br> *보통*<br> *낮은* |
+| UpdateClassification | 적용할 수 있는 업데이트 유형을 나타냅니다. Windows의 경우:<br> *중요 업데이트*<br> *보안 업데이트*<br> *업데이트 롤업*<br> *기능 팩*<br> *서비스 팩*<br> *정의 업데이트*<br> *Tools*<br> *업데이트*. Linux의 경우:<br> *중요 업데이트 및 보안 업데이트*<br> *기타* |
+| UpdateSeverity | 취약성에 대 한 심각도입니다. 값은 다음과 같습니다.<br> *중요*<br> *중요*<br> *보통*<br> *낮음* |
 | UpdateTitle | 업데이트의 제목입니다.|
 
 ### <a name="update"></a>업데이트
 
-사용 가능한 업데이트와 `Update` 컴퓨터에 대한 설치 상태를 나타내는 유형이 있는 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
+컴퓨터의 설치 상태와 사용 `Update` 가능한 업데이트를 나타내는 형식의 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
 | 속성 | Description | 
 |----------|-------------|
-| 승인 소스 | Windows 운영 체제에만 적용됩니다. 레코드에 대한 승인 소스입니다. 값은 마이크로소프트 업데이트. |
-| 승인됨 | 레코드가 승인된 경우 true이거나 그렇지 않으면 False입니다. |
-| 분류 | 승인 분류. 값은 업데이트입니다. |
-| Computer | 보고 시스템의 정규화된 도메인 이름입니다. |
-| 컴퓨터 환경 | 환경. 가능한 값은 Azure 또는 비Azure입니다. |
-| MSRCBulletinID | 보안 게시판 ID 번호입니다. | 
-| MSRCSeverity | 취약점에 대한 심각도 등급입니다. 값은 다음과 같습니다.<br> 위험<br> 중요<br> 보통<br> 낮음 |  
-| KBID | Windows 업데이트에 대한 기술 자료 문서 ID입니다. |
-| ManagementGroupName | 운영 관리자 관리 그룹 또는 로그 분석 작업 영역의 이름입니다. |
+| ApprovalSource | Windows 운영 체제에만 적용 됩니다. 레코드의 승인 원본입니다. Microsoft 업데이트 값입니다. |
+| 승인됨 | 레코드가 승인 되 면 True이 고, 그렇지 않으면 False입니다. |
+| 분류 | 승인 분류. 업데이트 값입니다. |
+| Computer | 보고 컴퓨터의 정규화 된 도메인 이름입니다. |
+| ComputerEnvironment | 개발. 가능한 값은 Azure 또는 비 Azure입니다. |
+| MSRCBulletinID | 보안 공지 ID 번호입니다. | 
+| MSRCSeverity | 취약성에 대 한 심각도입니다. 값은 다음과 같습니다.<br> 중요<br> 중요<br> 보통<br> 낮음 |  
+| KBID | Windows 업데이트에 대 한 기술 자료 문서 ID입니다. |
+| ManagementGroupName | Operations Manager 관리 그룹 또는 Log Analytics 작업 영역의 이름입니다. |
 | UpdateID | 소프트웨어 업데이트의 고유 식별자입니다. |
-| RevisionNumber | 업데이트의 특정 개정의 개정 번호입니다. |
-| 옵션 | 레코드가 선택 사항인 경우 true이거나 False인 경우. | 
-| RebootBehavior | 업데이트를 설치/제거한 후 재부팅 동작입니다. |
-| _ResourceId | 레코드와 연결된 리소스에 대한 고유 식별자입니다. |
-| Type | 레코드 유형입니다. 값은 업데이트입니다. |
-| VMUUID | 가상 시스템에 대한 고유 식별자입니다. |
-| MG | 관리 그룹 또는 로그 분석 작업 영역에 대한 고유 식별자입니다. | 
+| RevisionNumber | 업데이트의 특정 수정 버전에 대 한 수정 번호입니다. |
+| Optional | 레코드가 선택적 요소 이면 True이 고, 그렇지 않으면 False입니다. | 
+| RebootBehavior | 업데이트를 설치/제거한 후의 재부팅 동작입니다. |
+| _ResourceId | 레코드와 연결 된 리소스에 대 한 고유 식별자입니다. |
+| Type | 레코드 유형입니다. 업데이트 값입니다. |
+| VMUUID | 가상 컴퓨터에 대 한 고유 식별자입니다. |
+| MG | 관리 그룹 또는 Log Analytics 작업 영역에 대 한 고유 식별자입니다. | 
 | TenantId | 조직의 Azure Active Directory 인스턴스를 나타내는 고유 식별자입니다. | 
 | SourceSystem | 레코드의 원본 시스템입니다. 값이 `OperationsManager`입니다. | 
-| TimeGenerated | 레코드 생성 날짜 및 시간입니다. | 
+| TimeGenerated | 레코드를 만든 날짜와 시간입니다. | 
 | SourceComputerId | 원본 컴퓨터를 나타내는 고유 식별자입니다. | 
 | 제목 | 업데이트의 제목입니다. |
-| 게시된 날짜(UTC) | Windows Update에서 업데이트를 다운로드하여 설치할 준비가 된 날짜입니다.  |
+| PublishedDate (UTC) | 업데이트를 다운로드 하 여 Windows 업데이트에서 설치할 준비가 된 날짜입니다.  |
 | UpdateState | 업데이트의 현재 상태입니다. | 
-| Product | 업데이트가 적용되는 제품입니다. |
+| Product | 업데이트를 적용할 수 있는 제품입니다. |
 | SubscriptionId | Azure 구독의 고유 식별자입니다. | 
 | ResourceGroup | 리소스가 속한 리소스 그룹의 이름입니다. | 
 | ResourceProvider | 리소스 공급자입니다. | 
@@ -82,98 +82,98 @@ ms.locfileid: "81617415"
 
 ### <a name="update-agent"></a>에이전트 업데이트
 
-컴퓨터의 업데이트 에이전트에 대한 세부 정보를 제공하는 유형이 `UpdateAgent` 있는 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
+컴퓨터의 업데이트 에이전트에 대 `UpdateAgent` 한 세부 정보를 제공 하는 형식의 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
 | 속성 | Description | 
 |----------|-------------|
-| 에이지오브데니드실종필수업데이트 | | 
+| AgeofOldestMissingRequiredUpdate | | 
 | AutomaticUpdateEnabled | | 
-| Computer | 보고 시스템의 정규화된 도메인 이름입니다. |
-| 데이서라스트업데이트버킷 | | 
-| ManagementGroupName | 운영 관리자 관리 그룹 또는 로그 분석 작업 영역의 이름입니다. |
+| Computer | 보고 컴퓨터의 정규화 된 도메인 이름입니다. |
+| DaySinceLastUpdateBucket | | 
+| ManagementGroupName | Operations Manager 관리 그룹 또는 Log Analytics 작업 영역의 이름입니다. |
 | OSVersion | 운영 체제의 버전입니다. |
-| 서버 | |
-| SourceHealthServiceId | 로그 분석 Windows 에이전트 ID를 나타내는 고유 식별자입니다. |
+| Server (서버) | |
+| SourceHealthServiceId | Log Analytics Windows 에이전트 ID를 나타내는 고유 식별자입니다. |
 | SourceSystem | 레코드의 원본 시스템입니다. 값이 `OperationsManager`입니다. | 
 | TenantId | 조직의 Azure Active Directory 인스턴스를 나타내는 고유 식별자입니다. |
-| TimeGenerated | 레코드 생성 날짜 및 시간입니다. |
-| Type | 레코드 유형입니다. 값은 업데이트입니다. | 
+| TimeGenerated | 레코드를 만든 날짜와 시간입니다. |
+| Type | 레코드 유형입니다. 업데이트 값입니다. | 
 | WindowsUpdateAgentVersion | Windows 업데이트 에이전트의 버전입니다. |
-| WSUSServer | Windows 업데이트 에이전트에 문제 해결을 지원하기 위해 오류가 발생했습니다. |
+| WSUSServer | 문제 해결을 지원 하기 위해 Windows 업데이트 에이전트에 문제가 있는 경우 오류가 발생 합니다. |
 
 ### <a name="update-deployment-status"></a>배포 상태 업데이트 
 
-컴퓨터별로 예약된 `UpdateRunProgress` 배포의 업데이트 배포 상태를 제공하는 유형이 있는 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
+컴퓨터에서 예약 된 배포의 `UpdateRunProgress` 업데이트 배포 상태를 제공 하는 형식이 인 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
 | 속성 | Description | 
 |----------|-------------|
-| Computer | 보고 시스템의 정규화된 도메인 이름입니다. |
-| 컴퓨터 환경 | 환경. 값은 Azure 또는 비Azure입니다. | 
-| CorrelationId | 업데이트에 대해 실행되는 Runbook 작업의 고유 식별자입니다. |
-| EndTime | 동기화 프로세스가 종료된 시간입니다. | 
-| 오류 결과 | 업데이트를 설치하지 못한 경우 생성된 Windows 업데이트 오류 코드입니다. | 
-| 설치 상태 | 클라이언트 컴퓨터에서 업데이트가 발생할 수 있는 상태,<br> `NotStarted`- 작업이 아직 트리거되지 않았습니다.<br> `FailedToStart`- 컴퓨터에서 작업을 시작할 수 없습니다.<br> `Failed`- 작업이 시작되었지만 예외로 실패했습니다.<br> `InProgress`- 진행 중인 작업.<br> `MaintenanceWindowExceeded`- 실행이 남아 있지만 유지 관리 기간 간격에 도달한 경우.<br> `Succeeded`- 작업이 성공했습니다.<br> `InstallFailed`- 업데이트가 성공적으로 설치되지 못했습니다.<br> `NotIncluded`<br> `Excluded` |
-| KBID | Windows 업데이트에 대한 기술 자료 문서 ID입니다. | 
-| ManagementGroupName | 운영 관리자 관리 그룹 또는 로그 분석 작업 영역의 이름입니다. |
-| OSType | 운영 체제 유형입니다. 값은 윈도우 또는 리눅스입니다. | 
-| Product | 업데이트가 적용되는 제품입니다. |
+| Computer | 보고 컴퓨터의 정규화 된 도메인 이름입니다. |
+| ComputerEnvironment | 개발. 값은 Azure 또는 비 Azure입니다. | 
+| CorrelationId | 업데이트에 대해 실행 되는 runbook 작업의 고유 식별자입니다. |
+| EndTime | 동기화 프로세스가 종료 된 시간입니다. | 
+| ErrorResult | 업데이트 설치에 실패 하는 경우 생성 되는 오류 코드 Windows 업데이트입니다. | 
+| 설치 상태 | 클라이언트 컴퓨터에서 업데이트의 가능한 설치 상태<br> `NotStarted`-작업이 아직 트리거되지 않았습니다.<br> `FailedToStart`-컴퓨터에서 작업을 시작할 수 없습니다.<br> `Failed`-작업이 시작 되었지만 예외로 인해 실패 했습니다.<br> `InProgress`-작업이 진행 중입니다.<br> `MaintenanceWindowExceeded`-실행이 남아 있지만 유지 관리 기간 간격에 도달한 경우<br> `Succeeded`-작업이 성공 했습니다.<br> `InstallFailed`-업데이트 설치에 실패 했습니다.<br> `NotIncluded`<br> `Excluded` |
+| KBID | Windows 업데이트에 대 한 기술 자료 문서 ID입니다. | 
+| ManagementGroupName | Operations Manager 관리 그룹 또는 Log Analytics 작업 영역의 이름입니다. |
+| OSType | 운영 체제 유형입니다. 값은 Windows 또는 Linux입니다. | 
+| Product | 업데이트를 적용할 수 있는 제품입니다. |
 | 리소스 | 리소스의 이름입니다. | 
-| ResourceId | 레코드와 연결된 리소스에 대한 고유 식별자입니다. |
+| ResourceId | 레코드와 연결 된 리소스에 대 한 고유 식별자입니다. |
 | ResourceProvider | 리소스 공급자입니다. | 
 | ResourceType | 리소스 유형입니다. | 
 | SourceComputerId | 원본 컴퓨터를 나타내는 고유 식별자입니다. | 
-| SourceSystem | 레코드의 소스 시스템입니다. 값이 `OperationsManager`입니다. |
-| StartTime | 업데이트가 설치될 예정인 시간입니다. |
+| SourceSystem | 레코드의 원본 시스템입니다. 값이 `OperationsManager`입니다. |
+| StartTime | 업데이트를 설치 하도록 예약 된 시간입니다. |
 | SubscriptionId | Azure 구독의 고유 식별자입니다. | 
-| 성공온 리트리 | 첫 번째 시도에서 업데이트 실행이 실패하고 현재 작업이 재시도인지를 나타내는 값입니다. |
-| TimeGenerated | 레코드 생성 날짜 및 시간입니다. |
+| SucceededOnRetry | 첫 번째 시도에서 업데이트 실행이 실패 하 고 현재 작업을 다시 시도할 수 있는지 여부를 나타내는 값입니다. |
+| TimeGenerated | 레코드를 만든 날짜와 시간입니다. |
 | 제목 | 업데이트의 제목입니다. |
 | Type | 업데이트의 유형입니다. 값이 `UpdateRunProgress`입니다. |
-| 업데이트 ID | 소프트웨어 업데이트의 고유 식별자입니다. |
-| VMUUID | 가상 시스템에 대한 고유 식별자입니다. |
-| ResourceId | 레코드와 연결된 리소스에 대한 고유 식별자입니다. |
+| UpdateId | 소프트웨어 업데이트의 고유 식별자입니다. |
+| VMUUID | 가상 컴퓨터에 대 한 고유 식별자입니다. |
+| ResourceId | 레코드와 연결 된 리소스에 대 한 고유 식별자입니다. |
 
 ### <a name="update-summary"></a>업데이트 요약 
 
-컴퓨터별로 업데이트 요약을 제공하는 유형이 `UpdateSummary` 있는 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
+컴퓨터 별로 업데이트 요약을 제공 `UpdateSummary` 하는 형식이 인 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
 | 속성 | Description | 
 |----------|-------------|
-| Computer | 보고 시스템의 정규화된 도메인 이름입니다. |
-| 컴퓨터 환경 | 환경. 값은 Azure 또는 비Azure입니다. | 
-| CriticalUpdatesMissing | 누락된 해당 중요 업데이트 수입니다. | 
-| ManagementGroupName | 운영 관리자 관리 그룹 또는 로그 분석 작업 영역의 이름입니다. |
-| NETRuntimeVersion | Windows 컴퓨터에 설치된 .NET 프레임워크 버전입니다. |
-| OldestMissingSecurityUpdateBucket | 가장 오래된 누락된 보안 버킷을 지정합니다. 값은 다음과 같습니다.<br> 최근 의 경우 값이 30일 미만인 경우<br> 30일 전<br> 60일 전<br> 90일 전<br> 120일 전<br> 150일 전<br> 180일 전<br> 값이 180일을 초과하는 경우 이전 값입니다. | 
-| OldestMissingSecurityUpdateInDays | 설치되지 않은 해당 업데이트가 검색된 가장 오래된 업데이트의 총 일 수입니다. |
+| Computer | 보고 컴퓨터의 정규화 된 도메인 이름입니다. |
+| ComputerEnvironment | 개발. 값은 Azure 또는 비 Azure입니다. | 
+| CriticalUpdatesMissing | 누락 된 적용 가능한 중요 업데이트의 수입니다. | 
+| ManagementGroupName | Operations Manager 관리 그룹 또는 Log Analytics 작업 영역의 이름입니다. |
+| NETRuntimeVersion | Windows 컴퓨터에 설치 된 .NET Framework 버전입니다. |
+| OldestMissingSecurityUpdateBucket | 가장 오래 된 보안 버킷에 대 한 지정자입니다. 값은 다음과 같습니다.<br> 최근 값이 30 일 미만인 경우 최근 항목<br> 30 일 전<br> 60 일 전<br> 90 일 전<br> 120 일 전<br> 150 일 전<br> 180 일 전<br> 값이 180 일 보다 큰 경우 오래 된 것입니다. | 
+| OldestMissingSecurityUpdateInDays | 설치 되지 않은 것으로 검색 된 가장 오래 된 업데이트의 총 일 수입니다. |
 | OsVersion | 운영 체제의 버전입니다. |
-| OtherUpdatesMissing | 검색된 업데이트 수가 누락되었습니다. |
-| 리소스 | 레코드의 리소스 이름입니다. | 
-| ResourceGroup | 리소스를 포함하는 리소스 그룹의 이름입니다. |
-| ResourceId | 레코드와 연결된 리소스에 대한 고유 식별자입니다. |
+| OtherUpdatesMissing | 누락 된 검색 된 업데이트 수입니다. |
+| 리소스 | 레코드에 대 한 리소스의 이름입니다. | 
+| ResourceGroup | 리소스를 포함 하는 리소스 그룹의 이름입니다. |
+| ResourceId | 레코드와 연결 된 리소스에 대 한 고유 식별자입니다. |
 | ResourceProvider | 리소스 공급자입니다. |
 | ResourceType | 리소스 유형입니다. |
-| 다시 시작 보류 | 다시 시작이 보류 중인 경우 true이거나 False그렇지 않은 경우. |
-| SecurityUpdatesMissing | 해당되는 누락된 보안 업데이트 수입니다.| 
-| SourceComputerId | 가상 시스템에 대한 고유 식별자입니다. |
-| SourceSystem | 레코드의 소스 시스템입니다. 값이 `OpsManager`입니다. | 
+| RestartPending | 다시 시작이 보류 중인 경우 True이 고, 그렇지 않으면 False입니다. |
+| SecurityUpdatesMissing | 적용할 수 있는 누락 된 보안 업데이트 수입니다.| 
+| SourceComputerId | 가상 컴퓨터에 대 한 고유 식별자입니다. |
+| SourceSystem | 레코드의 원본 시스템입니다. 값이 `OpsManager`입니다. | 
 | SubscriptionId | Azure 구독의 고유 식별자입니다. |
-| TimeGenerated | 레코드 생성 날짜 및 시간입니다. |
-| TotalUpdatesMissing | 해당되는 총 누락된 업데이트 수입니다. | 
+| TimeGenerated | 레코드를 만든 날짜와 시간입니다. |
+| TotalUpdatesMissing | 적용 가능한 총 누락 업데이트 수입니다. | 
 | Type | 레코드 유형입니다. 값이 `UpdateSummary`입니다. |
-| VMUUID | 가상 시스템에 대한 고유 식별자입니다. |
+| VMUUID | 가상 컴퓨터에 대 한 고유 식별자입니다. |
 | WindowsUpdateAgentVersion | Windows 업데이트 에이전트의 버전입니다. |
 | WindowsUpdateSetting | Windows 업데이트 에이전트의 상태입니다. 가능한 값은 다음과 같습니다.<br> `Scheduled installation`<br> `Notify before installation`<br> `Error returned from unhealthy WUA agent` | 
-| WSUSServer | Windows 업데이트 에이전트에 문제 해결을 지원하기 위해 오류가 발생했습니다. |
-| _ResourceId | 레코드와 연결된 리소스에 대한 고유 식별자입니다. |
+| WSUSServer | 문제 해결을 지원 하기 위해 Windows 업데이트 에이전트에 문제가 있는 경우 오류가 발생 합니다. |
+| _ResourceId | 레코드와 연결 된 리소스에 대 한 고유 식별자입니다. |
 
 ## <a name="sample-queries"></a>샘플 쿼리
 
-다음 섹션에서는 업데이트 관리를 위해 수집된 업데이트 레코드에 대한 샘플 로그 쿼리를 제공합니다.
+다음 섹션에서는 업데이트 관리에 대해 수집 된 업데이트 레코드에 대 한 샘플 로그 쿼리를 제공 합니다.
 
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>비 Azure 컴퓨터가 등록되어 있는지 확인
 
-직접 연결된 컴퓨터가 Azure Monitor 로그와 통신하고 있는지 확인하려면 다음 로그 검색 중 하나를 실행합니다.
+직접 연결 된 컴퓨터가 Azure Monitor 로그와 통신 하 고 있는지 확인 하려면 다음 로그 검색 중 하나를 실행 합니다.
 
 #### <a name="linux"></a>Linux
 
@@ -189,12 +189,12 @@ Heartbeat
 | where OSType == "Windows" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-Windows 컴퓨터에서 다음 정보를 검토하여 Azure Monitor 로그와에이전트 연결을 확인할 수 있습니다.
+Windows 컴퓨터에서 다음 정보를 검토 하 여 에이전트와 Azure Monitor 로그의 연결을 확인할 수 있습니다.
 
 1. 제어판에서 **Microsoft Monitoring Agent**를 엽니다. **Azure Log Analytics** 탭에서 에이전트에 **Microsoft Monitoring Agent가 Log Analytics에 성공적으로 연결되었습니다**라는 메시지가 표시됩니다.
 2. Windows 이벤트 로그를 엽니다. **애플리케이션 및 서비스 로그\Operations Manager**로 이동한 후, 원본 **서비스 커넥터**에서 이벤트 ID 3000 및 이벤트 ID 5002를 검색합니다. 이러한 이벤트는 컴퓨터가 Log Analytics 작업 영역에 등록되었으며 구성을 수신하고 있음을 나타냅니다.
 
-에이전트가 Azure Monitor 로그와 통신할 수 없고 에이전트가 방화벽 또는 프록시 서버를 통해 인터넷과 통신하도록 구성된 경우 방화벽 또는 프록시 서버가 제대로 구성되어 있는지 확인합니다. 방화벽 또는 프록시 서버가 올바르게 구성되어 있는지 확인하는 방법을 알아보려면 [Windows 에이전트에 대한 네트워크 구성](../azure-monitor/platform/agent-windows.md) 또는 [Linux 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-agent-linux.md)을 참조하세요.
+에이전트가 Azure Monitor 로그와 통신할 수 없고 에이전트가 방화벽이 나 프록시 서버를 통해 인터넷과 통신 하도록 구성 된 경우 방화벽 또는 프록시 서버가 올바르게 구성 되었는지 확인 합니다. 방화벽 또는 프록시 서버가 올바르게 구성되어 있는지 확인하는 방법을 알아보려면 [Windows 에이전트에 대한 네트워크 구성](../azure-monitor/platform/agent-windows.md) 또는 [Linux 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-agent-linux.md)을 참조하세요.
 
 > [!NOTE]
 > Linux 시스템에서 프록시 또는 Log Analytics 게이트웨이와 통신하도록 구성되고 이 솔루션을 등록하는 경우, 다음 명령을 수행하여 omiuser 그룹 읽기 권한을 파일에 부여하도록 *proxy.conf* 권한을 업데이트하세요.
@@ -204,11 +204,11 @@ Windows 컴퓨터에서 다음 정보를 검토하여 Azure Monitor 로그와에
 
 평가가 수행된 후 새로 추가된 Linux 에이전트의 상태가 **업데이트됨**으로 표시됩니다. 이 프로세스는 최대 6시간까지 걸릴 수 있습니다.
 
-운영 관리자 관리 그룹이 Azure Monitor 로그와 통신하고 있는지 확인하려면 [Azure Monitor 로그와의 작업 관리자 통합 유효성 검사를](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor)참조하십시오.
+Operations Manager 관리 그룹이 Azure Monitor 로그와 통신 하는지 확인 하려면 [Azure Monitor 로그와 Operations Manager 통합 유효성 검사](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor)를 참조 하세요.
 
 ### <a name="single-azure-vm-assessment-queries-windows"></a>단일 Azure VM 평가 쿼리(Windows)
 
-VMUUID 값을 쿼리 중인 가상 머신의 VM GUID로 바꿉니다. Azure Monitor 로그에서 다음 쿼리를 실행하여 사용해야 하는 VMUUID를 찾을 수 있습니다.`Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+VMUUID 값을 쿼리 중인 가상 머신의 VM GUID로 바꿉니다. Azure Monitor 로그에서 다음 쿼리를 실행 하 여 사용 해야 하는 VMUUID를 찾을 수 있습니다.`Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 #### <a name="missing-updates-summary"></a>누락 업데이트 요약
 
@@ -237,7 +237,7 @@ Update
 
 ### <a name="single-azure-vm-assessment-queries-linux"></a>단일 Azure VM 평가 쿼리(Linux)
 
-일부 Linux 배포판의 경우 Azure 리소스 관리자에서 제공하는 VMUUID 값및 Azure Monitor 로그에 저장된 것과 [endianness](https://en.wikipedia.org/wiki/Endianness) 불일치가 있습니다. 다음 쿼리는 엔디언의 일치 여부를 확인합니다. 결과를 적절히 반환하려면 VMUUID 값을 GUID의 big-endian 및 little-endian 형식으로 바꿉니다. Azure Monitor 로그에서 다음 쿼리를 실행하여 사용해야 하는 VMUUID를 찾을 수 있습니다.`Update | where Computer == "<machine name>"
+일부 Linux 배포판의 경우 Azure Resource Manager에서 제공 하는 VMUUID 값 및 Azure Monitor 로그에 저장 되는 값과 [endian](https://en.wikipedia.org/wiki/Endianness) 일치 하지 않습니다. 다음 쿼리는 엔디언의 일치 여부를 확인합니다. 결과를 적절히 반환하려면 VMUUID 값을 GUID의 big-endian 및 little-endian 형식으로 바꿉니다. Azure Monitor 로그에서 다음 쿼리를 실행 하 여 사용 해야 하는 VMUUID를 찾을 수 있습니다.`Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 #### <a name="missing-updates-summary"></a>누락 업데이트 요약
@@ -409,5 +409,5 @@ Update
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Monitor 로그에서](../log-analytics/log-analytics-log-searches.md) 로그 검색을 사용하여 자세한 업데이트 데이터를 볼 수 있습니다.
+* [Azure Monitor 로그](../log-analytics/log-analytics-log-searches.md) 의 로그 검색을 사용 하 여 자세한 업데이트 데이터를 확인 합니다.
 * 업데이트 배포 상태에 대한 [경고 만들기](automation-tutorial-update-management.md#configure-alerts).

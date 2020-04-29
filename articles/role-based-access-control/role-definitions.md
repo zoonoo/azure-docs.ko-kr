@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 777ea7cc29679a3819e94d39913f167ea1cb3453
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81641386"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Azure 리소스에 대한 역할 정의 이해
@@ -47,12 +47,12 @@ AssignableScopes []
 | `Name` | 역할의 표시 이름입니다. |
 | `Id` | 역할의 고유 ID입니다. |
 | `IsCustom` | 사용자 지정 역할인지 여부를 나타냅니다. 사용자 지정 역할인 경우 `true`로 설정합니다. |
-| `Description` | 역할에 대한 설명입니다. |
+| `Description` | 역할에 대 한 설명입니다. |
 | `Actions` | 역할에서 수행할 수 있는 관리 작업을 지정하는 문자열 배열입니다. |
 | `NotActions` | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. |
 | `DataActions` | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. |
 | `NotDataActions` | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. |
-| `AssignableScopes` | 역할이 할당에 사용할 수 있는 범위를 지정하는 문자열 의 배열입니다. |
+| `AssignableScopes` | 역할을 할당할 수 있는 범위를 지정 하는 문자열의 배열입니다. |
 
 ### <a name="operations-format"></a>작업 형식
 
@@ -66,8 +66,8 @@ AssignableScopes []
 | ------------------- | ------------------- |
 | `*` | 와일드카드 문자는 문자열과 일치하는 모든 작업에 대한 액세스 권한을 부여합니다. |
 | `read` | 읽기 작업(GET)을 사용하도록 설정합니다. |
-| `write` | 쓰기 작업(PUT 또는 PATCH)을 활성화합니다. |
-| `action` | POST(가상 시스템 다시 시작)와 같은 사용자 지정 작업을 활성화합니다. |
+| `write` | 쓰기 작업 (PUT 또는 PATCH)을 사용 하도록 설정 합니다. |
+| `action` | 가상 컴퓨터 다시 시작 (POST)과 같은 사용자 지정 작업을 사용 하도록 설정 합니다. |
 | `delete` | 삭제 작업(DELETE)을 사용하도록 설정합니다. |
 
 ### <a name="role-definition-example"></a>역할 정의 예제
@@ -96,7 +96,7 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 }
 ```
 
-## <a name="management-and-data-operations"></a>관리 및 데이터 운영
+## <a name="management-and-data-operations"></a>관리 및 데이터 작업
 
 관리 작업에 대한 역할 기반 액세스 제어는 역할 정의의 `Actions` 및 `NotActions` 속성에 지정됩니다. Azure의 관리 작업에 대한 몇 가지 예는 다음과 같습니다.
 
@@ -104,17 +104,17 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 - Blob 컨테이너 만들기, 업데이트 또는 삭제
 - 리소스 그룹 및 해당하는 모든 리소스 삭제
 
-컨테이너 인증 방법이 "Azure AD 사용자 계정"이 아닌 "액세스 키"로 설정되어 있는 경우 관리 액세스는 데이터에 상속되지 않습니다. 이렇게 분리하면 와일드카드(`*`)가 있는 역할에서 데이터에 무제한으로 액세스할 수 없게 됩니다. 예를 들어 구독에 [읽기 권한자](built-in-roles.md#reader) 역할이 있는 사용자는 스토리지 계정을 볼 수 있지만 기본적으로 기본 데이터는 볼 수 없습니다.
+컨테이너 인증 방법이 "액세스 키"가 아닌 "Azure AD 사용자 계정"으로 설정 된 경우 관리 액세스는 데이터에 상속 되지 않습니다. 이렇게 분리하면 와일드카드(`*`)가 있는 역할에서 데이터에 무제한으로 액세스할 수 없게 됩니다. 예를 들어 구독에 [읽기 권한자](built-in-roles.md#reader) 역할이 있는 사용자는 스토리지 계정을 볼 수 있지만 기본적으로 기본 데이터는 볼 수 없습니다.
 
-이전에는 역할 기반 액세스 제어가 데이터 작업에 사용되지 않았습니다. 데이터 작업에 대한 권한 부여는 리소스 공급자에 따라 다양합니다. 관리 작업에 사용되는 동일한 역할 기반 액세스 제어 권한 부여 모델이 데이터 작업으로 확장되었습니다.
+이전에는 역할 기반 액세스 제어가 데이터 작업에 사용되지 않았습니다. 데이터 작업에 대한 권한 부여는 리소스 공급자에 따라 다양합니다. 관리 작업에 사용 되는 것과 동일한 역할 기반 액세스 제어 권한 부여 모델이 데이터 작업으로 확장 되었습니다.
 
-데이터 작업을 지원하기 위해 역할 정의에 새 데이터 속성이 추가되었습니다. 데이터 작업은 `DataActions` 및 `NotDataActions` 속성에서 지정됩니다. 이러한 데이터 속성을 추가함으로써 관리와 데이터 간의 분리가 유지됩니다. 이렇게 하면 와일드카드(`*`)와 함께 현재 역할 할당을 사용하여 갑자기 데이터에 액세스하는 것을 방지할 수 있습니다. `DataActions` 및 `NotDataActions`에서 지정할 수 있는 데이터 작업은 다음과 같습니다.
+데이터 작업을 지원 하기 위해 새 데이터 속성이 역할 정의에 추가 되었습니다. 데이터 작업은 `DataActions` 및 `NotDataActions` 속성에서 지정됩니다. 이러한 데이터 속성을 추가함으로써 관리와 데이터 간의 분리가 유지됩니다. 이렇게 하면 와일드카드(`*`)와 함께 현재 역할 할당을 사용하여 갑자기 데이터에 액세스하는 것을 방지할 수 있습니다. `DataActions` 및 `NotDataActions`에서 지정할 수 있는 데이터 작업은 다음과 같습니다.
 
 - 컨테이너의 Blob 목록 읽기
 - 컨테이너에 Storage Blob 쓰기
 - 큐의 메시지 삭제
 
-다음은 저장소 [Blob 데이터 판독기](built-in-roles.md#storage-blob-data-reader) 역할 정의이며, `Actions` 여기에는 및 `DataActions` 속성 모두에서의 작업이 포함됩니다. 이 역할을 사용하면 Blob 컨테이너 및 기본 Blob 데이터를 읽을 수 있습니다.
+및 속성의 작업을 포함 하는 [저장소 Blob 데이터 판독기](built-in-roles.md#storage-blob-data-reader) 역할 정의는 다음과 같습니다. `DataActions` `Actions` 이 역할을 사용하면 Blob 컨테이너 및 기본 Blob 데이터를 읽을 수 있습니다.
 
 ```json
 {
@@ -142,11 +142,11 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 
 ### <a name="data-operations-example"></a>데이터 작업 예제
 
-관리 및 데이터 작업 방법에 대한 이해를 돕기 위한 구체적인 예를 살펴 보겠습니다. Alice는 구독 범위에서 [소유자](built-in-roles.md#owner) 역할을 할당 받았습니다. Bob은 저장소 계정 범위에서 [저장소 Blob 데이터 기여자](built-in-roles.md#storage-blob-data-contributor) 역할을 할당받았습니다. 다음 다이어그램은 이 예제를 보여 줍니다.
+관리 및 데이터 작업 방법에 대한 이해를 돕기 위한 구체적인 예를 살펴 보겠습니다. Alice는 구독 범위에서 [소유자](built-in-roles.md#owner) 역할을 할당 받았습니다. Bob에 게 저장소 계정 범위에서 [저장소 Blob 데이터 참가자](built-in-roles.md#storage-blob-data-contributor) 역할이 할당 되었습니다. 다음 다이어그램은 이 예제를 보여 줍니다.
 
 ![역할 기반 액세스 제어가 관리 및 데이터 작업을 모두 지원하도록 확장되었습니다.](./media/role-definitions/rbac-management-data.png)
 
-Alice의 [소유자](built-in-roles.md#owner) 역할과 Bob의 [저장소 Blob 데이터 기여자](built-in-roles.md#storage-blob-data-contributor) 역할에는 다음과 같은 작업이 있습니다.
+Alice에 대 한 [소유자](built-in-roles.md#owner) 역할 및 Bob의 [저장소 Blob 데이터 참가자](built-in-roles.md#storage-blob-data-contributor) 역할에는 다음과 같은 작업이 있습니다.
 
 소유자
 
@@ -164,9 +164,9 @@ Storage Blob 데이터 기여자
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Alice는 구독 범위에서`*`와일드카드 () 작업을 수행하므로 사용 권한이 상속되어 모든 관리 작업을 수행할 수 있습니다. Alice는 컨테이너를 읽고 쓰며 삭제할 수 있습니다. 그러나 Alice는 추가 단계를 수행하지 않고도 데이터 작업을 수행할 수 없습니다. 예를 들어 Alice는 기본적으로 컨테이너 내부의 Blob을 읽을 수 없습니다. Blob을 읽으려면 스토리지 액세스 키를 검색하고 사용하여 Blob에 액세스해야 합니다.
+Alice는 구독 범위에서 와일드`*`카드 () 작업을 포함 하므로 해당 권한은 모든 관리 작업을 수행할 수 있도록 상속 됩니다. Alice는 컨테이너를 읽고 쓰며 삭제할 수 있습니다. 그러나 Alice는 추가 단계를 수행하지 않고도 데이터 작업을 수행할 수 없습니다. 예를 들어 Alice는 기본적으로 컨테이너 내부의 Blob을 읽을 수 없습니다. Blob을 읽으려면 스토리지 액세스 키를 검색하고 사용하여 Blob에 액세스해야 합니다.
 
-Bob의 권한은 [저장소 Blob 데이터 기여자](built-in-roles.md#storage-blob-data-contributor) 역할에 지정된 권한으로만 `Actions` `DataActions` 제한됩니다. 역할에 따라 Bob은 관리 및 데이터 작업을 모두 수행할 수 있습니다. 예를 들어 Bob은 지정된 저장소 계정에서 컨테이너를 읽고 쓰고 삭제할 수 있으며 Blob을 읽고 쓰고 삭제할 수도 있습니다.
+Bob의 권한은 [저장소 Blob 데이터 참가자](built-in-roles.md#storage-blob-data-contributor) 역할 `Actions` 에 `DataActions` 지정 된 및 으로만 제한 됩니다. 역할에 따라 Bob은 관리 및 데이터 작업을 모두 수행할 수 있습니다. 예를 들어 Bob은 지정 된 저장소 계정에서 컨테이너를 읽고, 쓰고, 삭제할 수 있으며 blob을 읽고, 쓰고, 삭제할 수도 있습니다.
 
 스토리지의 관리 및 데이터 평면 보안에 대한 자세한 내용은 [Azure Storage 보안 가이드](../storage/blobs/security-recommendations.md)를 참조하세요.
 
@@ -188,7 +188,7 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 
 - 2018-07-01
 
-## <a name="actions"></a>동작
+## <a name="actions"></a>작업
 
 `Actions` 권한은 역할에서 수행할 수 있는 관리 작업을 지정합니다. Azure 리소스 공급자의 보안 개체 작업을 식별하는 작업 문자열 모음입니다. `Actions`에서 사용할 수 있는 관리 작업의 몇 가지 예제는 다음과 같습니다.
 
@@ -231,19 +231,19 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-속성은 `AssignableScopes` 이 역할 정의를 사용할 수 있는 범위(관리 그룹, 구독 또는 리소스 그룹)를 지정합니다. 필요한 관리 그룹, 구독 또는 리소스 그룹에서만 할당할 수 있도록 할 수 있습니다. 하나 이상의 관리 그룹, 구독 또는 리소스 그룹을 사용해야 합니다.
+속성 `AssignableScopes` 은이 역할 정의를 사용할 수 있는 범위 (관리 그룹, 구독 또는 리소스 그룹)를 지정 합니다. 역할을 요구 하는 관리 그룹, 구독 또는 리소스 그룹 에서만 할당에 사용할 수 있도록 설정할 수 있습니다. 하나 이상의 관리 그룹, 구독 또는 리소스 그룹을 사용 해야 합니다.
 
 기본 제공 역할에는 루트 범위(`"/"`)로 설정된 `AssignableScopes`가 있습니다. 루트 범위는 모든 범위에서 역할을 할당에 사용할 수 있음을 나타냅니다. 유효한 할당 가능한 범위의 예는 다음과 같습니다.
 
 > [!div class="mx-tableFixed"]
-> | 할당에 사용할 수 있는 역할 | 예제 |
+> | 역할을 할당에 사용할 수 있습니다. | 예제 |
 > |----------|---------|
 > | 구독 하나 사용 | `"/subscriptions/{subscriptionId1}"` |
-> | 두 개의 구독 | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
+> | 두 구독 | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
 > | 네트워크 리소스 그룹 | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
-> | 하나의 관리 그룹 | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
+> | 단일 관리 그룹 | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
 > | 관리 그룹 및 구독 | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
-> | 모든 범위(기본 제공 역할에만 적용) | `"/"` |
+> | 모든 범위 (기본 제공 역할에만 적용 됨) | `"/"` |
 
 사용자 지정 역할의 `AssignableScopes`에 대한 자세한 내용은 [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)을 참조하세요.
 
@@ -251,4 +251,4 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 
 * [Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)
 * [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)
-* [Azure 리소스 관리자 리소스 공급자 작업](resource-provider-operations.md)
+* [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)

@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: include
-ms.date: 07/05/2018
-ms.author: tomfitz
+ms.date: 04/16/2020
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: c3677e7897498aa06d7bd547988ad4dc0326f39b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8833bb75f5f50372deda3e71c1df90bed9a20054
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "67182292"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605817"
 ---
 ## <a name="enable-event-grid-resource-provider"></a>Event Grid 리소스 공급자를 사용하도록 설정
 
@@ -21,9 +21,9 @@ ms.locfileid: "67182292"
 
 Azure Portal에서 다음을 수행합니다.
 
-1. **구독**을 선택합니다.
+1. 왼쪽 메뉴에서 **구독**을 선택합니다.
 1. Event Grid에 대해 사용 중인 구독을 선택합니다.
-1. **설정**에서 **리소스 공급자**를 선택합니다.
+1. 왼쪽 메뉴의 **설정**에서 **리소스 공급자**를 선택합니다.
 1. **Microsoft.EventGrid**를 찾습니다.
 1. 등록되지 않은 경우 **등록**을 선택합니다. 
 

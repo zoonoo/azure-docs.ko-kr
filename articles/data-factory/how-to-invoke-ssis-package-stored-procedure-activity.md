@@ -1,5 +1,5 @@
 ---
-title: 저장 프로시저 활동으로 SSIS 패키지 실행 - Azure
+title: 저장 프로시저 작업을 사용 하 여 SSIS 패키지 실행-Azure
 description: 이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS(SQL Server Integration Services) 패키지를 실행하는 방법에 대해 설명합니다.
 services: data-factory
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
 ms.openlocfilehash: 7a935fa4c4e91cf8adcd6df467ac56eeecaf46c9
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81605933"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 실행
@@ -26,7 +26,7 @@ ms.locfileid: "81605933"
 
 이 문서에서는 저장 프로시저 작업을 사용하여 Azure Data Factory 파이프라인에서 SSIS 패키지를 실행하는 방법에 대해 설명합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 이 문서의 연습에서는 SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 사용합니다. Azure SQL Database Managed Instance를 사용할 수도 있습니다.
@@ -41,26 +41,26 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 먼저, Azure Portal을 사용하여 데이터 팩터리를 만듭니다. 
 
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
-2. [Azure 포털로](https://portal.azure.com)이동합니다. 
-3. 왼쪽 메뉴에서 **새** 메뉴를 클릭하고 **데이터 + 분석을**클릭하고 데이터 팩터리 를 **클릭합니다.** 
+2. [Azure Portal](https://portal.azure.com)로 이동 합니다. 
+3. 왼쪽 메뉴에서 **새로 만들기** 를 클릭 하 고 **데이터 + 분석**를 클릭 한 다음 **Data Factory**를 클릭 합니다. 
    
    ![새로 만들기->DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
 2. **새 데이터 팩터리** 페이지에서 **이름**에 대해 **ADFTutorialDataFactory**를 입력합니다. 
       
      ![새 데이터 팩터리 페이지](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
  
-   Azure 데이터 팩터의 이름은 **전역적으로 고유해야**합니다. 이름 필드에 대해 다음과 같은 오류가 표시되면 데이터 팩터리의 이름을 변경합니다(예: yournameADFTutorialDataFactory). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
+   Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 이름 필드에 대해 다음과 같은 오류가 표시되면 데이터 팩터리의 이름을 변경합니다(예: yournameADFTutorialDataFactory). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
   
      ![사용할 수 없는 이름 - 오류](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
 3. 데이터 팩터리를 만들려는 위치에 Azure **구독**을 선택합니다. 
-4. 리소스 **그룹의**경우 다음 단계 중 하나를 수행합니다.
+4. **리소스 그룹**에 대해 다음 단계 중 하나를 수행 합니다.
      
    - **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다. 
    - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
      리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.  
 4. **버전**에 대해 **V2**를 선택합니다.
-5. 데이터 팩터리의 **위치를** 선택합니다. Data Factory에서 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 위치에 있을 수 있습니다.
+5. 데이터 팩터리의 **위치** 를 선택 합니다. Data Factory에서 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 위치에 있을 수 있습니다.
 6. **대시보드에 고정**을 선택합니다.     
 7. **만들기**를 클릭합니다.
 8. 대시보드에서 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
@@ -74,7 +74,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>저장 프로시저 작업을 사용하여 파이프라인 만들기
 이 단계에서는 Data Factory UI를 사용하여 파이프라인을 만듭니다. 저장 프로시저 작업을 파이프라인에 추가하고 sp_executesql 저장 프로시저를 사용하여 SSIS 패키지를 실행하도록 구성합니다. 
 
-1. 시작 페이지에서 **파이프라인 만들기를**클릭합니다. 
+1. 시작 페이지에서 **파이프라인 만들기**를 클릭 합니다. 
 
     ![시작 페이지](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
 2. **작업** 도구 상자에서 **일반**을 펼치고, **저장 프로시저** 작업을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 
@@ -95,10 +95,10 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
     8. **저장** 단추를 클릭하여 연결된 서비스를 저장합니다. 
 
         ![Azure SQL Database 연결된 서비스](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
-5. 속성 창에서 **SQL 계정** 탭에서 **저장 프로시저** 탭으로 전환하고 다음 단계를 수행합니다. 
+5. 속성 창의 **SQL 계정** 탭에서 **저장 프로시저** 탭으로 전환 하 고 다음 단계를 수행 합니다. 
 
     1. **편집**을 선택합니다. 
-    2. 저장 **프로시저 이름** `sp_executesql`필드의 경우 을 입력합니다. 
+    2. **저장 프로시저 이름** 필드에을 입력 `sp_executesql`합니다. 
     3. **저장 프로시저 매개 변수** 섹션에서 **+ 새로 만들기**를 클릭합니다. 
     4. 매개 변수의 **이름**으로 **stmt**를 입력합니다. 
     5. 매개 변수의 **형식**으로 **String**을 입력합니다. 
@@ -121,7 +121,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 ### <a name="run-and-monitor-the-pipeline"></a>파이프라인 실행 및 모니터링
 이 섹션에서는 파이프라인 실행을 트리거한 후 모니터링합니다. 
 
-1. 파이프라인 실행을 트리거하려면 도구 모음에서 **트리거를** 클릭하고 **지금 트리거를**클릭합니다. 
+1. 파이프라인 실행을 트리거하려면 도구 모음에서 **트리거** 를 클릭 하 고 **지금 트리거**를 클릭 합니다. 
 
     ![지금 트리거](media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
 
@@ -193,7 +193,7 @@ Azure-SSIS IR이 있는 동일한 데이터 팩터리를 사용하거나 별도�
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 **참여자** 또는 **소유자** 역할의 구성원이거나, 또는 Azure 구독의 **관리자**이어야 합니다.
-* Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Azure SQL Database 연결된 서비스 만들기
 SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 팩터리에 연결하는 연결된 서비스를 만듭니다. 데이터 팩터리는 이 연결된 서비스의 정보를 사용하여 SSISDB 데이터베이스에 연결하고 저장 프로시저를 실행하여 SSIS 패키지를 실행합니다. 
@@ -217,7 +217,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
 
 2. **Azure PowerShell**에서 **C:\ADF\RunSSISPackage** 폴더로 전환합니다.
 
-3. **Set-AzDataFactoryV2LinkedService** cmdlet을 실행하여 연결된 서비스인 **AzureSqlDatabaseLinkedService**를 만듭니다. 
+3. AzDataFactoryV2LinkedService cmdlet을 실행 하 여 연결 된 서비스 ( **AzureSqlDatabaseLinkedService** **)** 를 만듭니다. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
@@ -258,7 +258,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
     }
     ```
 
-2. 파이프라인을 만들려면: **RunSIS패키지파이프라인,** **설정-AzDataFactoryV2파이프라인** cmdlet을 실행합니다.
+2. **RunSSISPackagePipeline**파이프라인을 만들려면 **AzDataFactoryV2Pipeline** cmdlet을 실행 합니다.
 
     ```powershell
     $DFPipeLine = Set-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -275,7 +275,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
     ```
 
 ### <a name="create-a-pipeline-run"></a>파이프라인 실행 만들기
-**Invoke-AzDataFactoryV2파이프라인** cmdlet을 사용하여 파이프라인을 실행합니다. Cmdlet은 향후 모니터링을 위해 파이프라인 실행 ID를 캡처합니다.
+**AzDataFactoryV2Pipeline** cmdlet을 사용 하 여 파이프라인을 실행 합니다. Cmdlet은 향후 모니터링을 위해 파이프라인 실행 ID를 캡처합니다.
 
 ```powershell
 $RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name
@@ -332,17 +332,17 @@ while ($True) {
     }    
     ```
 2. **Azure PowerShell**에서 **C:\ADF\RunSSISPackage** 폴더로 전환합니다.
-3. 트리거를 만드는 **Set-AzDataFactoryV2트리거** cmdlet을 실행합니다. 
+3. 트리거를 만드는 **AzDataFactoryV2Trigger** cmdlet을 실행 합니다. 
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
     ```
-4. 기본적으로 트리거는 중지된 상태입니다. **시작-AzDataFactoryV2트리거** cmdlet을 실행 하여 트리거를 시작합니다. 
+4. 기본적으로 트리거는 중지된 상태입니다. **AzDataFactoryV2Trigger** cmdlet을 실행 하 여 트리거를 시작 합니다. 
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" 
     ```
-5. **Get-AzDataFactoryV2트리거** cmdlet을 실행하여 트리거가 시작되어 있는지 확인합니다. 
+5. **AzDataFactoryV2Trigger** cmdlet을 실행 하 여 트리거가 시작 되었는지 확인 합니다. 
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"     

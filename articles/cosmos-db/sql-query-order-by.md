@@ -1,21 +1,21 @@
 ---
-title: Azure 코스모스 DB의 ORDER BY 절
-description: Azure Cosmos DB에 대한 SQL ORDER BY 절에 대해 알아봅니다. SQL을 Azure 코스모스 DB JSON 쿼리 언어로 사용합니다.
+title: Azure Cosmos DB의 ORDER BY 절
+description: Azure Cosmos DB에 대 한 SQL ORDER BY 절에 대해 알아봅니다. Azure Cosmos DB JSON 쿼리 언어로 SQL을 사용 합니다.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/17/2020
 ms.author: tisande
 ms.openlocfilehash: 70702ee4a77e8b3c46de4354f3394bca4080d837
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81641388"
 ---
-# <a name="order-by-clause-in-azure-cosmos-db"></a>Azure 코스모스 DB의 ORDER BY 절
+# <a name="order-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 ORDER BY 절
 
-옵션 `ORDER BY` 절은 쿼리에서 반환되는 결과의 정렬 순서를 지정합니다.
+선택적 `ORDER BY` 절은 쿼리에서 반환 되는 결과에 대 한 정렬 순서를 지정 합니다.
 
 ## <a name="syntax"></a>구문
   
@@ -29,15 +29,15 @@ ORDER BY <sort_specification>
   
 - `<sort_specification>`  
   
-   쿼리 결과 집합을 정렬할 속성이나 식을 지정합니다. 정렬 열은 이름 또는 속성 별칭으로 지정할 수 있습니다.  
+   쿼리 결과 집합을 정렬할 속성이나 식을 지정합니다. 정렬 열은 이름이 나 속성 별칭으로 지정할 수 있습니다.  
   
-   여러 속성을 지정할 수 있습니다. 속성 이름은 고유해야 합니다. `ORDER BY` 절의 정렬 속성 시퀀스는 정렬된 결과 집합의 구성을 정의합니다. 즉 결과 집합이 첫 번째 속성으로 정렬된 다음 정렬된 해당 목록이 두 번째 속성으로 정렬되는 등등입니다.  
+   여러 속성을 지정할 수 있습니다. 속성 이름은 고유 해야 합니다. `ORDER BY` 절에서 정렬 속성의 순서는 정렬 된 결과 집합의 구성을 정의 합니다. 즉 결과 집합이 첫 번째 속성으로 정렬된 다음 정렬된 해당 목록이 두 번째 속성으로 정렬되는 등등입니다.  
   
-   `ORDER BY` 절에서 참조하는 속성 이름은 선택 목록의 속성 또는 모호함 없이 절에 지정된 `FROM` 컬렉션에 정의된 속성에 해당해야 합니다.  
+   `ORDER BY` 절에서 참조 되는 속성 이름은 select 목록의 속성 또는 해당 `FROM` 절에 지정 된 컬렉션에 정의 된 속성 (모호성 없이)과 일치 해야 합니다.  
   
 - `<sort_expression>`  
   
-   쿼리 결과 집합을 정렬할 하나 이상의 속성 또는 식을 지정합니다.  
+   쿼리 결과 집합을 정렬할 하나 이상의 속성이 나 식을 지정 합니다.  
   
 - `<scalar_expression>`  
   
@@ -45,18 +45,18 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   지정된 열의 값이 오름차순으로 정렬되는지 내림차순으로 정렬되는지를 지정합니다. `ASC`가장 낮은 값에서 가장 높은 값으로 정렬합니다. `DESC`가장 높은 값에서 가장 낮은 값으로 정렬합니다. `ASC`는 기본 정렬 순서입니다. Null 값은 가능한 가장 작은 값으로 취급됩니다.  
+   지정된 열의 값이 오름차순으로 정렬되는지 내림차순으로 정렬되는지를 지정합니다. `ASC`가장 낮은 값에서 가장 높은 값 순으로 정렬 합니다. `DESC`가장 큰 값에서 가장 작은 값으로 정렬 합니다. `ASC`는 기본 정렬 순서입니다. Null 값은 가능한 가장 작은 값으로 취급됩니다.  
   
 ## <a name="remarks"></a>설명  
   
-   이 `ORDER BY` 절에서는 인덱싱 정책에 정렬중인 필드에 대한 인덱스가 포함되어야 합니다. Azure Cosmos DB 쿼리 런타임은 계산된 속성이 아닌 속성 이름에 대한 정렬을 지원합니다. Azure 코스모스 DB는 여러 `ORDER BY` 속성을 지원합니다. ORDER BY 속성이 여러 개인 쿼리를 실행하려면 정렬중인 필드의 [복합 인덱스를](index-policy.md#composite-indexes) 정의해야 합니다.
+   절 `ORDER BY` 을 사용 하려면 정렬 중인 필드에 대 한 인덱스를 인덱싱 정책에 포함 해야 합니다. Azure Cosmos DB 쿼리 런타임은 계산 된 속성이 아닌 속성 이름에 대 한 정렬을 지원 합니다. Azure Cosmos DB는 여러 `ORDER BY` 속성을 지원 합니다. 여러 ORDER BY 속성을 사용 하 여 쿼리를 실행 하려면 정렬할 필드에 [복합 인덱스](index-policy.md#composite-indexes) 를 정의 해야 합니다.
 
 > [!Note]
-> 정렬중인 속성이 일부 문서에 대해 정의되지 않고 ORDER BY 쿼리에서 검색하려는 경우 인덱스에 이 경로를 명시적으로 포함해야 합니다. 기본 인덱싱 정책은 sort 속성이 정의되지 않은 문서를 검색하는 것을 허용하지 않습니다. [누락된 필드가 있는 문서에 대한 예제 쿼리를 검토합니다.](#documents-with-missing-fields)
+> 정렬 되는 속성이 일부 문서에 대해 정의 되지 않은 경우이를 ORDER BY 쿼리로 검색 하려면이 경로를 인덱스에 명시적으로 포함 해야 합니다. 기본 인덱싱 정책은 sort 속성이 정의 되지 않은 문서를 검색 하는 것을 허용 하지 않습니다. [일부 누락 된 필드가 있는 문서에 대 한 예제 쿼리를 검토](#documents-with-missing-fields)합니다.
 
 ## <a name="examples"></a>예
 
-예를 들어, 다음은 거주 도시 이름의 오름차순으로 패밀리를 검색하는 쿼리입니다.
+예를 들어 다음은 주 도시 이름의 오름차순으로 패밀리를 검색 하는 쿼리입니다.
 
 ```sql
     SELECT f.id, f.address.city
@@ -79,7 +79,7 @@ ORDER BY <sort_specification>
     ]
 ```
 
-다음 쿼리는 항목 `id`생성 날짜 순으로 패밀리 s를 검색합니다. 항목은 `creationDate` 1970년 1월 1일 이후의 *시간*또는 경과 시간을 초단위로 나타내는 숫자입니다.
+다음 쿼리는 항목을 `id`만든 날짜 순으로 가족을 검색 합니다. 항목 `creationDate` 은 *epoch 시간*또는 경과 된 시간 (1 월 1 일 이후 1970 초)을 나타내는 숫자입니다.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -102,7 +102,7 @@ ORDER BY <sort_specification>
     ]
 ```
 
-또한 여러 속성으로 주문할 수 있습니다. 여러 속성으로 정렬하는 쿼리에는 [복합 인덱스가](index-policy.md#composite-indexes)필요합니다. 다음과 같은 쿼리를 고려해 보세요.
+또한 여러 속성을 기준으로 순서를 지정할 수 있습니다. 여러 속성으로 정렬 하는 쿼리에는 [복합 인덱스가](index-policy.md#composite-indexes)필요 합니다. 다음과 같은 쿼리를 고려해 보세요.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -110,13 +110,13 @@ ORDER BY <sort_specification>
     ORDER BY f.address.city ASC, f.creationDate DESC
 ```
 
-이 쿼리는 도시 `id` 이름의 오름차순으로 패밀리를 검색합니다. 여러 항목의 도시 이름이 동일한 경우 쿼리는 `creationDate` 내림차순으로 정렬됩니다.
+이 쿼리는 도시 이름의 `id` 오름차순으로 패밀리를 검색 합니다. 여러 항목의 도시 이름이 동일한 경우 쿼리는를 `creationDate` 기준으로 내림차순으로 정렬 됩니다.
 
-## <a name="documents-with-missing-fields"></a>필드가 없는 문서
+## <a name="documents-with-missing-fields"></a>누락 된 필드가 있는 문서
 
-`ORDER BY` 기본 인덱싱 정책이 있는 컨테이너에 대해 실행되는 쿼리는 sort 속성이 정의되지 않은 문서를 반환하지 않습니다. sort 속성이 정의되지 않은 문서를 포함하려면 이 속성을 인덱싱 정책에 명시적으로 포함해야 합니다.
+기본 인덱싱 `ORDER BY` 정책을 사용 하 여 컨테이너에 대해 실행 되는 쿼리는 sort 속성이 정의 되지 않은 문서를 반환 하지 않습니다. Sort 속성이 정의 되어 있지 않은 문서를 포함 하려는 경우에는 인덱싱 정책에이 속성을 명시적으로 포함 해야 합니다.
 
-예를 들어 다음과 같은 외에 `"/*"`명시적으로 경로를 포함하지 않는 인덱싱 정책이 있는 컨테이너가 있습니다.
+예를 들어 다음은 이외의 `"/*"`경로를 명시적으로 포함 하지 않는 인덱싱 정책이 있는 컨테이너입니다.
 
 ```json
 {
@@ -131,9 +131,9 @@ ORDER BY <sort_specification>
 }
 ```
 
-절에 포함 `lastName` 되는 쿼리를 실행 하는 경우 속성정의 된 `lastName` 문서만 포함 됩니다. `Order By` a가 없는 `lastName` 문서가 쿼리 `lastName` 결과에 나타나지 않도록 명시적 포함 경로를 정의하지 않았습니다.
+절에를 포함 `lastName` 하는 쿼리를 실행 하는 경우 속성을 `lastName` 정의 하는 문서만 결과에 포함 됩니다. `Order By` 에 대 한 `lastName` 명시적 포함 경로를 정의 하지 않았으므로가 없는 `lastName` 모든 문서가 쿼리 결과에 표시 되지 않습니다.
 
-다음은 정의된 문서가 없는 `lastName` 두 개의 문서에서 정렬하는 쿼리입니다. `lastName`
+다음은 두 문서를 기준으로 `lastName` 정렬 하는 쿼리로, 하나는 `lastName` 정의 되어 있지 않습니다.
 
 ```sql
     SELECT f.id, f.lastName
@@ -141,7 +141,7 @@ ORDER BY <sort_specification>
     ORDER BY f.lastName
 ```
 
-결과에는 정의된 `lastName`문서만 포함됩니다.
+결과는 다음과 같이 정의 `lastName`된 문서만 포함 합니다.
 
 ```json
     [
@@ -152,9 +152,9 @@ ORDER BY <sort_specification>
     ]
 ```
 
-에 대한 `lastName`경로를 명시적으로 포함하도록 컨테이너의 인덱싱 정책을 업데이트하는 경우 쿼리 결과에 정의되지 않은 정렬 속성이 있는 문서가 포함됩니다. 이 스칼라 값을 넘어서는 것이 아니라 이 스칼라 값으로 이어질 경로를 명시적으로 정의해야 합니다. 인덱싱 `?` 정책의 경로 정의에 있는 문자를 사용하여 속성을 명시적으로 인덱싱하고 그 `lastName` 외에 중첩된 경로를 추가하지 않도록 해야 합니다. `Order By` 쿼리에서 복합 [인덱스를](index-policy.md#composite-indexes)사용하는 경우 결과는 항상 쿼리 결과에 정의되지 않은 정렬 속성이 있는 문서를 포함합니다.
+에 대 한 `lastName`경로를 명시적으로 포함 하도록 컨테이너의 인덱싱 정책을 업데이트 하는 경우 쿼리 결과에 정의 되지 않은 sort 속성이 있는 문서를 포함 합니다. 경로를 명시적으로 정의 하 여이 스칼라 값 (이외에는)을 지정 해야 합니다. 인덱싱 정책의 경로 정의 `?` 에 있는 문자를 사용 하 여 속성 `lastName` 을 명시적으로 인덱싱해야 하 고 그 밖의 중첩 된 경로를 추가로 사용 하지 않도록 해야 합니다. `Order By` 쿼리에서 [복합 인덱스](index-policy.md#composite-indexes)를 사용 하는 경우 결과는 항상 쿼리 결과에 정의 되지 않은 sort 속성이 있는 문서를 포함 합니다.
 
-다음은 쿼리 결과에 정의되지 `lastName` 않은 문서가 표시되도록 하는 샘플 인덱싱 정책입니다.
+다음은 정의 되지 `lastName` 않은 문서를 쿼리 결과에 표시 하는 데 사용할 수 있는 샘플 인덱싱 정책입니다.
 
 ```json
 {
@@ -172,7 +172,7 @@ ORDER BY <sort_specification>
 }
 ```
 
-동일한 쿼리를 다시 실행하면 누락된 `lastName` 문서가 쿼리 결과에 먼저 표시됩니다.
+동일한 쿼리를 다시 실행 하는 경우 누락 `lastName` 된 문서는 먼저 쿼리 결과에 표시 됩니다.
 
 ```sql
     SELECT f.id, f.lastName
@@ -194,7 +194,7 @@ ORDER BY <sort_specification>
 ]
 ```
 
-정렬 순서를 수정하는 `DESC`경우 에서 `lastName` 누락된 문서가 쿼리 결과에 마지막으로 나타납니다.
+정렬 순서를로 `DESC`수정 하는 경우 누락 `lastName` 된 문서는 쿼리 결과의 마지막에 표시 됩니다.
 
 ```sql
     SELECT f.id, f.lastName
@@ -220,4 +220,4 @@ ORDER BY <sort_specification>
 
 - [시작](sql-query-getting-started.md)
 - [Azure Cosmos DB의 인덱싱 정책](index-policy.md)
-- [오프셋 제한 절](sql-query-offset-limit.md)
+- [OFFSET LIMIT 절](sql-query-offset-limit.md)

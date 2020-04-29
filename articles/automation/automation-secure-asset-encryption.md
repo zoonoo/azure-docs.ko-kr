@@ -1,6 +1,6 @@
 ---
 title: Azure Automation에서 보안 자산 암호화
-description: Azure 자동화는 여러 수준의 암호화를 사용하여 안전한 자산을 보호합니다. 기본적으로 암호화는 Microsoft에서 관리하는 키를 사용하여 수행됩니다. 고객은 암호화를 위해 고객 관리 키를 사용하도록 자동화 계정을 구성할 수 있습니다. 이 문서에서는 두 암호화 모드의 세부 정보와 둘 사이를 전환하는 방법에 대해 설명합니다.
+description: Azure Automation는 여러 수준의 암호화를 사용 하 여 보안 자산을 보호 합니다. 기본적으로 암호화는 Microsoft 관리 키를 사용 하 여 수행 됩니다. 고객은 암호화를 위해 고객이 관리 하는 키를 사용 하도록 automation 계정을 구성할 수 있습니다. 이 문서에서는 두 가지 암호화 모드와 둘 사이를 전환할 수 있는 방법에 대해 자세히 설명 합니다.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -10,57 +10,57 @@ ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
 ms.openlocfilehash: 594bac257c2b9739f1ece276c881348b35d2f704
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81604807"
 ---
 # <a name="encrypt-secure-assets-in-azure-automation"></a>Azure Automation에서 보안 자산 암호화
 
-Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 여러 수준의 암호화를 사용하여 Azure 자동화에서 보호됩니다. 암호화에 사용되는 최상위 키를 기반으로 암호화에 대한 두 가지 모델이 있습니다.
--    Microsoft 에서 관리하는 키 사용
+Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 여러 수준의 암호화를 사용 하 여 Azure Automation에서 보호 됩니다. 암호화에 사용 되는 최상위 키에 따라 암호화에는 두 가지 모델이 있습니다.
+-    Microsoft 관리 키 사용
 -    고객 관리 키 사용
 
-## <a name="microsoft-managed-keys"></a>마이크로소프트가 관리하는 키
+## <a name="microsoft-managed-keys"></a>Microsoft에서 관리 하는 키
 
-기본적으로 Azure 자동화 계정은 Microsoft에서 관리하는 키를 사용합니다.
+기본적으로 Azure Automation 계정은 Microsoft에서 관리 하는 키를 사용 합니다.
 
-각 보안 자산은 각 자동화 계정에 대해 생성되는 고유 키(데이터 암호화 키)를 사용하여 Azure 자동화에 암호화되고 저장됩니다. 이러한 키 자체는 AEK(계정 암호화 키)라고 하는 각 계정에 대해 생성되는 또 다른 고유한 키를 사용하여 Azure 자동화에 암호화되고 저장됩니다. 이러한 계정 암호화 키는 암호화되어 Microsoft 관리 키를 사용하여 Azure 자동화에 저장됩니다. 
+각 보안 자산은 암호화 되어 각 Automation 계정에 대해 생성 되는 고유 키 (데이터 암호화 키)를 사용 하 여 Azure Automation에 저장 됩니다. 이러한 키 자체는 AEK (계정 암호화 키) 라고 하는 각 계정에 대해 생성 된 다른 고유 키를 사용 하 여 암호화 되 고 Azure Automation 저장 됩니다. 이러한 계정 암호화 키는 Microsoft에서 관리 하는 키를 사용 하 여 암호화 되 고 Azure Automation 저장 됩니다. 
 
-## <a name="customer-managed-keys-with-key-vault-preview"></a>키 볼트가 있는 고객 관리 키(미리 보기)
+## <a name="customer-managed-keys-with-key-vault-preview"></a>Key Vault를 사용 하는 고객 관리 키 (미리 보기)
 
-자체 키로 자동화 계정에 대한 보안 자산의 암호화를 관리할 수 있습니다. 자동화 계정 수준에서 고객 관리 키를 지정하면 해당 키가 자동화 계정의 계정 암호화 키에 대한 액세스를 보호하고 제어하는 데 사용됩니다. 이것은 차례로 모든 보안 자산을 암호화하고 해독하는 데 사용됩니다. 고객 관리 키는 액세스 제어를 생성, 회전, 비활성화 및 해지할 수 있는 유연성을 제공합니다. 보안 자산을 보호하는 데 사용되는 암호화 키를 감사할 수도 있습니다.
+사용자 고유의 키를 사용 하 여 Automation 계정에 대 한 보안 자산의 암호화를 관리할 수 있습니다. Automation 계정 수준에서 고객 관리 키를 지정 하는 경우 해당 키는 Automation 계정의 계정 암호화 키에 대 한 액세스를 보호 하 고 제어 하는 데 사용 됩니다. 이는 모든 보안 자산을 암호화 하 고 암호 해독 하는 데 사용 됩니다. 고객 관리 키를 통해 액세스 제어를 보다 유연 하 게 만들고, 회전 하 고, 사용 하지 않도록 설정 하 고, 취소할 수 있습니다. 보안 자산을 보호 하는 데 사용 되는 암호화 키를 감사할 수도 있습니다.
 
-Azure 키 자격 증명 모음을 사용하여 고객 관리 키를 저장합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장하거나 Azure Key Vault API를 사용하여 키를 생성할 수 있습니다.  Azure 키 자격 증명 모음에 대한 자세한 내용은 [Azure 키 자격 증명 모음이란 무엇입니까?](../key-vault/general/overview.md)
+Azure Key Vault를 사용 하 여 고객 관리 키를 저장 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장 하거나 Azure Key Vault Api를 사용 하 여 키를 생성할 수 있습니다.  Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 항목](../key-vault/general/overview.md) 을 참조 하세요.
 
-## <a name="enable-customer-managed-keys-for-an-automation-account"></a>자동화 계정에 대한 고객 관리 키 사용
+## <a name="enable-customer-managed-keys-for-an-automation-account"></a>Automation 계정에 대해 고객이 관리 하는 키 사용
 
-자동화 계정에 대한 고객 관리 키로 암호화를 사용하도록 설정하면 Azure Automation은 연결된 키 자격 증명 모음에서 고객 관리 키로 계정 암호화 키를 래핑합니다. 고객 관리 키를 사용하도록 설정해도 성능에 영향을 미치지 않으며 계정은 지체 없이 새 키로 즉시 암호화됩니다.
+Automation 계정에 대 한 고객 관리 키를 사용 하 여 암호화를 사용 하도록 설정 하면 Azure Automation는 연결 된 키 자격 증명 모음에서 고객 관리 키를 사용 하 여 계정 암호화 키를 래핑합니다. 고객 관리 키를 사용 하도록 설정 해도 성능에 영향을 주지 않으며, 계정이 지연 없이 새 키로 즉시 암호화 됩니다.
 
-새 자동화 계정은 항상 Microsoft에서 관리하는 키를 사용하여 암호화됩니다. 계정이 생성될 때 고객 관리 키를 사용하도록 설정할 수 없습니다. 고객 관리 키는 Azure Key Vault에 저장되며 키 자격 증명 모음에는 자동화 계정과 연결된 관리되는 ID에 키 권한을 부여하는 액세스 정책이 제공되어야 합니다. 관리되는 ID는 저장소 계정을 만든 후에만 사용할 수 있습니다.
+Microsoft에서 관리 하는 키를 사용 하 여 새 Automation 계정이 항상 암호화 됩니다. 계정을 만들 때 고객 관리 키를 사용 하도록 설정할 수 없습니다. 고객 관리 키는 Azure Key Vault에 저장 되며, 키 자격 증명 모음은 Automation 계정과 연결 된 관리 되는 id에 대 한 키 권한을 부여 하는 액세스 정책을 사용 하 여 프로 비전 되어야 합니다. 관리 id는 저장소 계정이 만들어진 후에만 사용할 수 있습니다.
 
-Azure Automation보안 자산 암호화에 사용되는 키를 수정할 때 고객 관리 키를 사용 또는 비활성화하거나, 키 버전을 업데이트하거나, 다른 키를 지정하여 계정 암호화 키를 변경하지만 Azure Automation 계정의 보안 자산을 다시 암호화할 필요가 없습니다.
+Azure Automation 보안 자산 암호화에 사용 되는 키를 수정 하거나, 고객 관리 키를 사용 하거나 사용 하지 않도록 설정 하거나, 키 버전을 업데이트 하거나, 다른 키를 지정 하 여 계정 암호화 키의 암호화가 변경 되지만 Azure Automation 계정의 보안 자산은 다시 암호화 되지 않아도 됩니다.
 
-다음 세 섹션에서는 자동화 계정에 대해 고객 관리 키를 사용하도록 설정하는 메커니즘을 설명합니다. 
+다음 세 섹션에서는 Automation 계정에 대해 고객이 관리 하는 키를 사용 하도록 설정 하는 메커니즘을 설명 합니다. 
 
 > [!NOTE] 
-> 고객 관리 키를 사용하려면 API 버전 2020-01-13 미리 보기를 사용하여 Azure 자동화 REST 호출을 수행해야 합니다.
+> 고객 관리 키를 사용 하도록 설정 하려면 API 버전 2020-01-13-preview를 사용 하 여 Azure Automation REST API 호출 해야 합니다.
 
-### <a name="pre-requisites-for-using-customer-managed-keys-in-azure-automation"></a>Azure 자동화에서 고객 관리 키를 사용하기 위한 필수 구성 조건
+### <a name="pre-requisites-for-using-customer-managed-keys-in-azure-automation"></a>Azure Automation에서 고객이 관리 하는 키를 사용 하기 위한 필수 구성 요소
 
-자동화 계정에 대해 고객 관리 키를 사용하도록 설정하기 전에 다음 필수 구성 조건이 충족되었는지 확인해야 합니다.
+Automation 계정에 대해 고객이 관리 하는 키를 사용 하도록 설정 하기 전에 다음 필수 구성 요소를 충족 하는지 확인 해야 합니다.
 
- - 고객 관리 키는 Azure 키 자격 증명 모음에 저장됩니다. 
- - 키 자격 증명 모음에서 **소프트 삭제** 및 삭제 **안 건을** 모두 사용하도록 설정합니다. 이러한 기능은 실수로 삭제된 경우 키를 복구할 수 있도록 해야 합니다.
- - AZURE 자동화 암호화를 통해 RSA 키만 지원됩니다. 키에 대한 자세한 내용은 [Azure 키 볼트 정보 키, 암호 및 인증서 를](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)참조하십시오.
-- 자동화 계정과 키 자격 증명 모음은 다른 구독에 있을 수 있지만 동일한 Azure Active Directory 테넌트에 있어야 합니다.
+ - 고객 관리 되 키가 Azure Key Vault에 저장 됩니다. 
+ - 키 자격 증명 모음에서 **일시 삭제** 및 **제거 안 함** 속성을 모두 사용 하도록 설정 합니다. 이러한 기능은 실수로 삭제 하는 경우 키 복구를 허용 하는 데 필요 합니다.
+ - Azure Automation 암호화에서는 RSA 키만 지원 됩니다. 키에 대 한 자세한 내용은 [Azure Key Vault 키, 암호 및 인증서](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)정보를 참조 하세요.
+- Automation 계정과 키 자격 증명 모음은 서로 다른 구독에 있을 수 있지만 동일한 Azure Active Directory 테 넌 트에 있어야 합니다.
 
-### <a name="assign-an-identity-to-the-automation-account"></a>자동화 계정에 ID 할당
+### <a name="assign-an-identity-to-the-automation-account"></a>Automation 계정에 id 할당
 
-자동화 계정으로 고객 관리 키를 사용하려면 자동화 계정이 고객 관리 키를 저장하는 키 자격 증명 모음에 대해 인증해야 합니다. Azure Automation은 관리되는 ID를 할당된 시스템을 사용하여 Azure Key Vault를 사용하여 계정을 인증합니다. 관리되는 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리ID를 참조하세요.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Automation 계정에서 고객 관리 키를 사용 하려면 Automation 계정이 고객이 관리 하는 키를 저장 하는 주요 자격 증명 모음에 대해 인증 해야 합니다. Azure Automation는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault 계정을 인증 합니다. 관리 id에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 Id 란?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 을 참조 하세요.
 
-다음 REST API 호출을 사용하여 자동화 계정에 관리되는 ID를 할당된 시스템을 구성합니다.
+다음 REST API 호출을 사용 하 여 시스템 할당 관리 id를 Automation 계정으로 구성 합니다.
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -77,7 +77,7 @@ PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000
 }
 ```
 
-자동화 계정에 대해 할당된 시스템 ID는 다음과 유사한 응답으로 반환됩니다.
+Automation 계정에 대 한 시스템 할당 id는 다음과 비슷한 응답으로 반환 됩니다.
 
 ```json
 {
@@ -93,11 +93,11 @@ PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000
 }
 ```
 
-### <a name="configure-the-key-vault-access-policy"></a>키 볼트 액세스 정책 구성
+### <a name="configure-the-key-vault-access-policy"></a>Key Vault 액세스 정책 구성
 
-관리되는 ID가 자동화 계정에 할당되면 고객 관리 키를 저장하는 키 자격 증명 모음에 대한 액세스를 구성합니다. Azure 자동화에는 고객 관리 **키에서** **[** **복구**, **wrapKey**]
+관리 id가 Automation 계정에 할당 되 면 고객이 관리 하는 키를 저장 하는 주요 자격 증명 모음에 대 한 액세스를 구성 합니다. Azure Automation에는 고객 관리 키에 대 한 **get**, **recover**, **wrapKey**, **UnwrapKey** 가 필요 합니다.
 
-이러한 액세스 정책은 다음 REST API 호출을 사용하여 설정할 수 있습니다.
+이러한 액세스 정책은 다음 REST API 호출을 사용 하 여 설정할 수 있습니다.
 
 ```http
 PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/accessPolicies/add?api-version=2018-02-14
@@ -129,11 +129,11 @@ PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 ```
 
 > [!NOTE]
-> **테넌트Id** 및 **objectId** 필드는 자동화 계정에 대한 관리ID 응답에서 각각 **identity.tenantId** 및 **identity.principalId의** 값을 제공해야 합니다.
+> **Tenantid** 및 **ObjectId** 필드는 Automation 계정에 대 한 관리 되는 id의 응답에서 각각 **identity. Tenantid** 및 **identity. principalid** 의 값을 제공 해야 합니다.
 
-### <a name="change-the-configuration-of-automation-account-to-use-customer-managed-key"></a>고객 관리 키를 사용하도록 자동화 계정의 구성 변경
+### <a name="change-the-configuration-of-automation-account-to-use-customer-managed-key"></a>고객 관리 키를 사용 하도록 Automation 계정 구성 변경
 
-마지막으로 다음 REST API 호출을 사용하여 자동화 계정을 Microsoft 관리 키에서 고객 관리 키로 전환할 수 있습니다.
+마지막으로 다음 REST API 호출을 사용 하 여 자동화 계정을 Microsoft 관리 키에서 고객 관리 키로 전환할 수 있습니다.
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -178,17 +178,17 @@ PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000
 }
 ```
 
-## <a name="manage-customer-managed-keys-lifecycle"></a>고객 관리 키 수명 주기 관리
+## <a name="manage-customer-managed-keys-lifecycle"></a>고객이 관리 하는 키 수명 주기 관리
 
 ### <a name="rotate-customer-managed-keys"></a>고객 관리 키 회전
 
-규정 준수 정책에 따라 Azure Key Vault에서 고객 관리 키를 회전할 수 있습니다. 키가 회전되면 새 키 URI를 사용하려면 자동화 계정을 업데이트해야 합니다.
+규정 준수 정책에 따라 Azure Key Vault에서 고객이 관리 하는 키를 회전할 수 있습니다. 키를 회전 하는 경우 새 키 URI를 사용 하도록 Automation 계정을 업데이트 해야 합니다.
 
-키를 회전해도 자동화 계정에서 보안 자산의 재암호화가 트리거되지 않습니다. 추가 작업이 필요하지 않습니다.
+키를 회전 해도 Automation 계정에서 보안 자산의 다시 암호화는 트리거되지 않습니다. 추가 작업은 필요 하지 않습니다.
 
-### <a name="revoke-access-to-customer-managed-keys"></a>고객 관리 키에 대한 액세스 취소
+### <a name="revoke-access-to-customer-managed-keys"></a>고객 관리 키에 대 한 액세스 취소
 
-고객 관리 키에 대한 액세스를 취소하려면 PowerShell 또는 Azure CLI를 사용합니다. 자세한 내용은 [Azure 키 볼트 PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) 또는 Azure 키 볼트 [CLI를](https://docs.microsoft.com/cli/azure/keyvault)참조하십시오. Azure Automation에서 암호화 키에 액세스할 수 없기 때문에 액세스를 취소하면 자동화 계정의 모든 보안 자산에 대한 액세스가 효과적으로 차단됩니다.
+고객 관리 키에 대 한 액세스를 취소 하려면 PowerShell 또는 Azure CLI를 사용 합니다. 자세한 내용은 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) 또는 [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)를 참조 하세요. 액세스를 취소 하면 Azure Automation 의해 암호화 키에 액세스할 수 없으므로 Automation 계정의 모든 보안 자산에 대 한 액세스가 효과적으로 차단 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

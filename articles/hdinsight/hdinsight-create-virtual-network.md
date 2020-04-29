@@ -1,6 +1,6 @@
 ---
-title: Azure HDInsight 클러스터를 위한 가상 네트워크 만들기
-description: HDInsight를 다른 클라우드 리소스 또는 데이터 센터의 리소스에 연결하는 Azure 가상 네트워크를 만드는 방법에 대해 알아봅니다.
+title: Azure HDInsight 클러스터에 대 한 가상 네트워크 만들기
+description: Azure Virtual Network을 만들어 HDInsight를 다른 클라우드 리소스 또는 데이터 센터의 리소스에 연결 하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,33 +9,33 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/16/2020
 ms.openlocfilehash: 0c7791d43ffbbc13ab151362c5c3026ebbdb0d34
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81531019"
 ---
-# <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터를 위한 가상 네트워크 만들기
+# <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 대 한 가상 네트워크 만들기
 
-이 문서에서는 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)를 만들고 구성하기 위한 예제 및 코드 샘플을 제공합니다. Azure HDInsight 클러스터와 함께 사용하려면 NSG(네트워크 보안 그룹) 만들기 및 DNS 구성에 대한 자세한 예제가 제공됩니다.
+이 문서에서는 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)를 만들고 구성 하기 위한 예제 및 코드 샘플을 제공 합니다. Azure HDInsight 클러스터와 함께 사용 합니다. NSGs (네트워크 보안 그룹)를 만들고 DNS를 구성 하는 방법에 대 한 자세한 예가 제공 됩니다.
 
-Azure HDInsight를 사용하여 가상 네트워크 사용에 대한 배경 정보는 [Azure HDInsight에 대한 가상 네트워크 계획을](hdinsight-plan-virtual-network-deployment.md)참조하십시오.
+Azure HDInsight에서 가상 네트워크를 사용 하는 방법에 대 한 배경 정보는 [Azure hdinsight에 대 한 가상 네트워크 계획](hdinsight-plan-virtual-network-deployment.md)을 참조 하세요.
 
-## <a name="prerequisites-for-code-samples-and-examples"></a>코드 샘플 및 예제의 필수 구성 조건
+## <a name="prerequisites-for-code-samples-and-examples"></a>코드 샘플 및 예제에 대 한 필수 구성 요소
 
-이 문서에서 코드 샘플을 실행하기 전에 TCP/IP 네트워킹에 대해 이해해야 합니다. TCP/IP 네트워킹에 익숙하지 않은 경우 프로덕션 네트워크를 수정하기 전에 다른 사람과 상의하십시오.
+이 문서의 코드 샘플을 실행 하기 전에 TCP/IP 네트워킹에 대해 이해 하 고 있어야 합니다. TCP/IP 네트워킹에 익숙하지 않은 경우 프로덕션 네트워크를 수정 하기 전에 다른 사용자에 게 문의 하세요.
 
-이 문서의 샘플에 대한 다른 필수 구성 조건은 다음과 같습니다.
+이 문서의 샘플에 대 한 다른 필수 구성 요소에는 다음 항목이 포함 됩니다.
 
-* PowerShell을 사용하는 경우 [AZ 모듈을](https://docs.microsoft.com/powershell/azure/overview)설치해야 합니다.
-* Azure CLI를 사용하고 아직 설치하지 않은 경우 [Azure CLI 설치를](https://docs.microsoft.com/cli/azure/install-azure-cli)참조하십시오.
+* PowerShell을 사용 하는 경우 [AZ Module](https://docs.microsoft.com/powershell/azure/overview)을 설치 해야 합니다.
+* Azure CLI를 사용 하 고 아직 설치 하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
 
 > [!IMPORTANT]  
 > Azure Virtual Network를 사용하여 HDInsight를 온-프레미스 네트워크에 연결하는 단계별 지침을 찾으려면 [온-프레미스 네트워크에 HDInsight 연결](connect-on-premises-network.md) 문서를 참조하세요.
 
 ## <a name="example-network-security-groups-with-hdinsight"></a><a id="hdinsight-nsg"></a>예제: HDInsight에서 네트워크 보안 그룹
 
-이 섹션의 예제에서는 네트워크 보안 그룹 규칙을 만드는 방법을 보여 줍니다. 이 규칙을 통해 HDInsight는 Azure 관리 서비스와 통신할 수 있습니다. 예제를 사용하기 전에 사용 중인 Azure 지역의 IP 주소와 일치하도록 IP 주소를 조정합니다. 이 정보는 [HDInsight 관리 IP 주소에서](hdinsight-management-ip-addresses.md)찾을 수 있습니다.
+이 섹션의 예제에서는 네트워크 보안 그룹 규칙을 만드는 방법을 보여 줍니다. 이러한 규칙을 통해 HDInsight는 Azure 관리 서비스와 통신할 수 있습니다. 예제를 사용 하기 전에 사용 중인 Azure 지역에 대 한 IP 주소와 일치 하도록 IP 주소를 조정 합니다. [HDInsight 관리 IP 주소](hdinsight-management-ip-addresses.md)에서이 정보를 찾을 수 있습니다.
 
 ### <a name="azure-resource-management-template"></a>Azure Resource Management 템플릿
 
@@ -48,7 +48,7 @@ Azure HDInsight를 사용하여 가상 네트워크 사용에 대한 배경 정�
 다음 PowerShell 스크립트를 사용하여 인바운드 트래픽을 제한하며 북유럽 지역의 IP 주소에서 전송되는 트래픽을 허용하는 가상 네트워크를 만듭니다.
 
 > [!IMPORTANT]  
-> 사용 중인 Azure `hdirule1` 지역과 `hdirule2` 일치하도록 이 예제에서 IP 주소를 변경합니다. 이 정보를 찾을 수 있습니다 [HDInsight 관리 IP 주소](hdinsight-management-ip-addresses.md).
+> 이 예제에서 및 `hdirule1` `hdirule2` 에 대 한 IP 주소를 사용 하는 Azure 지역과 일치 하도록 변경 합니다. [HDInsight 관리 IP 주소](hdinsight-management-ip-addresses.md)에 대 한 정보를 찾을 수 있습니다.
 
 ```powershell
 $vnetName = "Replace with your virtual network name"
@@ -151,7 +151,7 @@ Set-AzVirtualNetworkSubnetConfig `
 $vnet | Set-AzVirtualNetwork
 ```
 
-이 예제에서는 필요한 IP 주소에서 인바운드 트래픽을 허용하도록 규칙을 추가하는 방법을 보여 줍니다. 다른 소스의 인바운드 액세스를 제한하는 규칙은 포함되어 있지 않습니다. 다음 코드는 인터넷에서 SSH 액세스를 활성화하는 방법을 보여 줍니다.
+이 예제에서는 필요한 IP 주소에서 인바운드 트래픽을 허용하도록 규칙을 추가하는 방법을 보여 줍니다. 다른 원본에서 인바운드 액세스를 제한 하는 규칙을 포함 하지 않습니다. 다음 코드에서는 인터넷에서 SSH 액세스를 사용 하도록 설정 하는 방법을 보여 줍니다.
 
 ```powershell
 Get-AzNetworkSecurityGroup -Name hdisecure -ResourceGroupName RESOURCEGROUP |
@@ -162,7 +162,7 @@ Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -So
 
 다음 단계에 따라 인바운드 트래픽을 제한하지만 HDInsight에 필요한 IP 주소에서의 트래픽은 허용하는 가상 네트워크를 만듭니다.
 
-1. 다음 명령을 사용하여 `hdisecure`이라는 새 네트워크 보안 그룹을 만듭니다. Azure `RESOURCEGROUP` 가상 네트워크를 포함하는 리소스 그룹으로 바꿉습니다. 그룹이 `LOCATION` 만들어진 위치(영역)로 바꿉니다.
+1. 다음 명령을 사용하여 `hdisecure`이라는 새 네트워크 보안 그룹을 만듭니다. 을 `RESOURCEGROUP` Azure Virtual Network를 포함 하는 리소스 그룹으로 바꿉니다. 을 `LOCATION` 그룹이 만들어진 위치 (지역)로 바꿉니다.
 
     ```azurecli
     az network nsg create -g RESOURCEGROUP -n hdisecure -l LOCATION
@@ -170,10 +170,10 @@ Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -So
 
     그룹을 만들면 새 그룹에 대한 정보를 받습니다.
 
-2. 다음을 사용하여 Azure HDInsight 상태 및 관리 서비스에서 포트 443에 대한 인바운드 통신을 허용하는 새 네트워크 보안 그룹에 규칙을 추가합니다. Azure `RESOURCEGROUP` 가상 네트워크를 포함하는 리소스 그룹의 이름으로 바꿉니다.
+2. 다음을 사용하여 Azure HDInsight 상태 및 관리 서비스에서 포트 443에 대한 인바운드 통신을 허용하는 새 네트워크 보안 그룹에 규칙을 추가합니다. 을 `RESOURCEGROUP` Azure Virtual Network를 포함 하는 리소스 그룹의 이름으로 바꿉니다.
 
     > [!IMPORTANT]  
-    > 사용 중인 Azure `hdirule1` 지역과 `hdirule2` 일치하도록 이 예제에서 IP 주소를 변경합니다. 이 정보는 [HDInsight 관리 IP 주소에서](hdinsight-management-ip-addresses.md)찾을 수 있습니다.
+    > 이 예제에서 및 `hdirule1` `hdirule2` 에 대 한 IP 주소를 사용 하는 Azure 지역과 일치 하도록 변경 합니다. [HDInsight 관리 IP 주소](hdinsight-management-ip-addresses.md)에서이 정보를 찾을 수 있습니다.
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
@@ -194,7 +194,7 @@ Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -So
 
         "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
 
-4. 다음 명령을 사용하여 네트워크 보안 그룹을 서브넷에 적용합니다. `GUID` 및 `RESOURCEGROUP` 값을 이전 단계에서 반환된 값으로 바꿉니다. 만들 가상 네트워크 이름 및 서브넷 이름으로 바꿉니다. `VNETNAME` `SUBNETNAME`
+4. 다음 명령을 사용하여 네트워크 보안 그룹을 서브넷에 적용합니다. `GUID` 및 `RESOURCEGROUP` 값을 이전 단계에서 반환 된 값으로 바꿉니다. 및 `VNETNAME` `SUBNETNAME` 를 만들려는 가상 네트워크 이름 및 서브넷 이름으로 바꿉니다.
 
     ```azurecli
     az network vnet subnet update -g RESOURCEGROUP --vnet-name VNETNAME --name SUBNETNAME --set networkSecurityGroup.id="/subscriptions/GUID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
@@ -204,7 +204,7 @@ Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -So
 
 이러한 단계를 사용하면 Azure 클라우드의 HDInsight 상태 및 관리 서비스에 대한 액세스만 열립니다. Virtual Network 외부에서 HDInsight 클러스터에 대한 기타 액세스는 차단됩니다. 가상 네트워크 외부에서 액세스할 수 있도록 하려는 경우 네트워크 보안 그룹 규칙을 추가해야 합니다.
 
-다음 코드는 인터넷에서 SSH 액세스를 활성화하는 방법을 보여 줍니다.
+다음 코드에서는 인터넷에서 SSH 액세스를 사용 하도록 설정 하는 방법을 보여 줍니다.
 
 ```azurecli
 az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
@@ -226,7 +226,7 @@ az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protoc
 
 1. Azure PowerShell 또는 Azure CLI를 사용하여 가상 네트워크의 DNS 접미사를 찾습니다.
 
-    가상 `RESOURCEGROUP` 네트워크가 포함된 리소스 그룹의 이름으로 바꾼 다음 명령을 입력합니다.
+    을 `RESOURCEGROUP` 가상 네트워크를 포함 하는 리소스 그룹의 이름으로 바꾸고 다음 명령을 입력 합니다.
 
     ```powershell
     $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"
@@ -308,7 +308,7 @@ az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protoc
 
 1. Azure PowerShell 또는 Azure CLI를 사용하여 두 가상 네트워크의 DNS 접미사를 찾습니다.
 
-    가상 `RESOURCEGROUP` 네트워크가 포함된 리소스 그룹의 이름으로 바꾼 다음 명령을 입력합니다.
+    을 `RESOURCEGROUP` 가상 네트워크를 포함 하는 리소스 그룹의 이름으로 바꾸고 다음 명령을 입력 합니다.
 
     ```powershell
     $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"
@@ -362,7 +362,7 @@ az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protoc
 
    `10.0.0.0/16` 및 `10.1.0.0/16` 값을 가상 네트워크의 IP 주소 범위로 바꿉니다. 이 항목으로 각 네트워크의 리소스가 DNS 서버에 요청할 수 있습니다.
 
-    가상 네트워크의 DNS 접미사에 대한 요청(예: microsoft.com)은 Azure 재귀 해결사에서 처리됩니다.
+    가상 네트워크의 DNS 접미사에 없는 모든 요청 (예: microsoft.com)은 Azure 재귀 확인자에 의해 처리 됩니다.
 
 4. 구성을 사용하려면 바인딩을 다시 시작합니다. 예를 들어, 두 DNS 서버에서 `sudo service bind9 restart`입니다.
 
@@ -370,11 +370,11 @@ az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protoc
 
 ## <a name="next-steps"></a>다음 단계
 
-* 온-프레미스 네트워크에 연결하기 위해 HDInsight를 구성하는 전체 예제는 [온-프레미스 네트워크에 HDInsight 연결](./connect-on-premises-network.md)참조.
-* Azure 가상 네트워크에서 아파치 HBase 클러스터를 구성하는 경우 [Azure 가상 네트워크의 HDInsight에서 아파치 HBase 클러스터 만들기를](hbase/apache-hbase-provision-vnet.md)참조하십시오.
+* 온-프레미스 네트워크에 연결 하도록 HDInsight를 구성 하는 전체 예제는 온 [-프레미스 네트워크에 Hdinsight 연결](./connect-on-premises-network.md)을 참조 하세요.
+* Azure 가상 네트워크에서 Apache HBase 클러스터를 구성 하는 방법에 대 한 자세한 내용은 [azure Virtual Network에서 HDInsight의 Apache hbase 클러스터 만들기](hbase/apache-hbase-provision-vnet.md)를 참조 하세요.
 * Apache HBase 지리적 복제를 구성하려면 [Azure 가상 네트워크에서 Apache HBase 클러스터 복제 설정](hbase/apache-hbase-replication.md)을 참조하세요.
 * Azure 가상 네트워크에 대한 자세한 내용은 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
 * 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 참조하세요.
 
-* 사용자 정의 경로에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md)을 참조하십시오.
+* 사용자 정의 경로에 대 한 자세한 내용은 [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md)을 참조 하세요.

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
 ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79480286"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure Monitor 로그 쿼리 예제
@@ -229,7 +229,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>활동 ID별 보안 이벤트 개수 계산
 
 
-이 예제는 **활동** 열의 고정된 \<구조인 ID\>-\<이름을\>기반으로 합니다.
+이 예에서는 **활동** 열의 \<고정 구조 (ID\>-\<이름\>)를 사용 합니다.
 이 구조에서는 **Activity** 값을 새 열 2개로 구문 분석하고 각 **activityID**의 발생 횟수를 계산합니다.
 
 ```Kusto
@@ -270,7 +270,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>활동 이름 및 ID 구문 분석
-아래 두 예제는 **활동** 열의 고정된 \<구조인 ID\>-\<이름에\>의존합니다. 첫 번째 예제에서는 **parse** 연산자를 사용하여 새 열 2개(**activityID** 및 **activityDesc**)에 값을 할당합니다.
+아래의 두 예제는 **활동** 열의 \<고정 구조 (ID\>-\<이름\>)를 사용 합니다. 첫 번째 예제에서는 **parse** 연산자를 사용하여 새 열 2개(**activityID** 및 **activityDesc**)에 값을 할당합니다.
 
 ```Kusto
 SecurityEvent
@@ -375,11 +375,11 @@ suspicious_users_that_later_logged_in
 
 ## <a name="usage"></a>사용
 
-`Usage` 데이터 형식을 사용하여 수집된 데이터 볼륨을 솔루션 또는 데이터 유형별로 추적할 수 있습니다. [컴퓨터](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) 또는 [Azure 구독, 리소스 그룹 또는 리소스별로](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription)수집된 데이터 볼륨을 연구하는 다른 기술도 있습니다.
+`Usage` 데이터 형식은 솔루션 또는 데이터 형식에 따라 수집 데이터 볼륨을 추적 하는 데 사용할 수 있습니다. [컴퓨터](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) 또는 [Azure 구독, 리소스 그룹 또는 리소스](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription)별로 수집 데이터 볼륨을 연구 하는 다른 방법이 있습니다.
 
 #### <a name="data-volume-by-solution"></a>솔루션별 데이터 볼륨
 
-지난 달 동안 솔루션별로 청구 가능한 데이터 볼륨을 보는 데 사용되는 쿼리는 다음과 같습니다(마지막 부분 일 제외).
+지난 한 달 동안 (마지막 부분을 제외 하 고) 솔루션 별로 청구 가능한 데이터 볼륨을 보는 데 사용 되는 쿼리는 다음과 같습니다.
 
 ```kusto
 Usage 
@@ -389,11 +389,11 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-절은 `where IsBillable = true` 수집 요금이 부과되지 않는 특정 솔루션의 데이터 형식을 필터링합니다.  또한 이 `TimeGenerated` 절은 Azure Portal의 쿼리 환경이 기본 24시간 을 초과하는 것을 다시 볼 수 있도록 하기 위한 것입니다. 사용 데이터 형식을 `StartTime` 사용하는 `EndTime` 경우 결과가 표시되는 시간 버킷을 나타냅니다. 
+절 `where IsBillable = true` 은 수집 비용이 없는 특정 솔루션의 데이터 형식을 필터링 합니다.  또한를 사용 하 `TimeGenerated` 는 절은 Azure Portal의 쿼리 환경이 기본값 24 시간을 초과 하지 않도록 하는 데만 사용 됩니다. 사용 데이터 형식을 `StartTime` 사용 하는 경우는 `EndTime` 결과가 표시 되는 시간 버킷을 나타냅니다. 
 
 #### <a name="data-volume-by-type"></a>유형별 데이터 볼륨
 
-추가로 드릴다운하여 데이터 유형별 데이터 추세를 확인할 수 있습니다.
+데이터 유형별 데이터 추세를 확인 하기 위해 더 자세히 살펴볼 수 있습니다.
 
 ```kusto
 Usage 
@@ -403,7 +403,7 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType | render barchart
 ```
 
-또는 지난 달의 솔루션 및 유형별 표를 보려면
+또는 솔루션을 기준으로 테이블을 표시 하 고 지난 달에 유형을 입력 합니다.
 
 ```kusto
 Usage 

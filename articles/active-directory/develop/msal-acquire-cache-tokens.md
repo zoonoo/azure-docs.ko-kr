@@ -1,5 +1,5 @@
 ---
-title: MSAL을 통해 & 캐시 토큰 획득 | Azure
+title: MSAL을 사용 하 여 & 캐시 토큰 얻기 | Microsoft
 titleSuffix: Microsoft identity platform
 description: MSAL(Microsoft 인증 라이브러리)을 사용하여 토큰을 획득 및 캐시하는 방법을 알아봅니다.
 services: active-directory
@@ -14,15 +14,15 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 647dff9e6401322371ef795a25ca5ced2b517e9c
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81534587"
 ---
-# <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>마이크로소프트 인증 라이브러리(MSAL)를 사용하여 토큰 획득 및 캐시
+# <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리)을 사용 하 여 토큰 가져오기 및 캐시
 
-[액세스 토큰](access-tokens.md)을 사용하면 클라이언트에서 Azure를 통해 보호되는 웹 API를 안전하게 호출할 수 있습니다. MSAL(Microsoft 인증 라이브러리)을 사용하여 토큰을 획득하는 방법에는 여러 가지가 있습니다. 몇 가지 방법에는 웹 브라우저를 통한 사용자 상호 작용이 필요합니다. 일부 방법에는 사용자 상호 작용이 필요하지 않습니다. 일반적으로 토큰을 획득하는 방법은 응용 프로그램이 공용 클라이언트 응용 프로그램(데스크톱 또는 모바일 앱) 또는 기밀 클라이언트 응용 프로그램(Windows 서비스와 같은 웹 앱, 웹 API 또는 데몬 응용 프로그램)인지에 따라 달라집니다.
+[액세스 토큰](access-tokens.md)을 사용하면 클라이언트에서 Azure를 통해 보호되는 웹 API를 안전하게 호출할 수 있습니다. MSAL(Microsoft 인증 라이브러리)을 사용하여 토큰을 획득하는 방법에는 여러 가지가 있습니다. 몇 가지 방법에는 웹 브라우저를 통한 사용자 상호 작용이 필요합니다. 일부 방법에는 사용자 상호 작용이 필요하지 않습니다. 일반적으로 토큰을 획득 하는 방법은 응용 프로그램이 공용 클라이언트 응용 프로그램 (데스크톱 또는 모바일 앱) 인지, 아니면 기밀 클라이언트 응용 프로그램 (웹 앱, web API 또는 Windows 서비스와 같은 데몬 응용 프로그램) 인지에 따라 달라 집니다.
 
 MSAL은 토큰을 획득한 후에 캐시합니다.  애플리케이션 코드는 다른 방법으로 토큰을 획득하기 전에 먼저 캐시에서 토큰을 자동으로 가져오도록 시도해야 합니다.
 
@@ -38,7 +38,7 @@ MSAL은 토큰을 획득한 후에 캐시합니다.  애플리케이션 코드�
 
 ### <a name="request-specific-scopes-for-a-web-api"></a>웹 API에 대한 특정 범위 요청
 
-응용 프로그램에서 리소스 API에 대한 특정 권한이 있는 토큰을 요청해야 하는 경우 API의 앱 ID URI를 포함하는 범위를 아래 형식으로 전달해야 * &lt;합니다.&gt;/&lt;&gt;*
+응용 프로그램에서 리소스 api에 대 한 특정 권한으로 토큰을 요청 해야 하는 경우 API의 앱 id uri가 포함 된 범위를 * &lt;앱 id uri&gt;/&lt;범위 형식으로 전달 해야 합니다.&gt;*
 
 예를 들어 Microsoft Graph API에 대한 범위가 `https://graph.microsoft.com/User.Read`이거나,
 
@@ -68,9 +68,9 @@ MSAL은 하나의 토큰 캐시(또는 기밀 클라이언트 애플리케이션
 그러나 토큰을 자동으로 획득하려고 시도하면 **안 되는** 두 가지 흐름이 있습니다.
 
 - [클라이언트 자격 증명 흐름](msal-authentication-flows.md#client-credentials) - 사용자 토큰 캐시를 사용하지 않고 애플리케이션 토큰 캐시를 사용합니다. 이 메서드는 STS에 요청을 보내기 전에 이 애플리케이션 토큰 캐시를 확인합니다.
-- 웹 앱의 [권한 부여 코드 흐름은](msal-authentication-flows.md#authorization-code) 응용 프로그램이 사용자에 로그인하여 받은 코드를 구속하고 더 많은 범위에 대한 동의를 갖기 때문에 코드는 계정이 아닌 매개 변수로 전달되므로 메서드는 코드를 사용하기 전에 캐시를 볼 수 없습니다. 어쨌든 서비스에 대한 호출이 필요합니다.
+- 응용 프로그램에서 사용자에 게 로그인 하 고 더 많은 범위에 동의 하도록 하는 코드를 교환 하는 웹 앱의 [인증 코드 흐름](msal-authentication-flows.md#authorization-code) 입니다. 코드는 계정이 아닌 매개 변수로 전달되므로 메서드는 코드를 사용하기 전에 캐시를 볼 수 없습니다. 어쨌든 서비스에 대한 호출이 필요합니다.
 
-### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>권한 부여 코드 흐름을 사용하는 웹 앱에서 권장호출 패턴
+### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>권한 부여 코드 흐름을 사용 하는 웹 앱의 권장 호출 패턴
 
 [OpenID Connect 권한 부여 코드 흐름](v2-protocols-oidc.md)을 사용하는 웹 애플리케이션의 경우 컨트롤러에 권장되는 패턴은 다음과 같습니다.
 
@@ -91,7 +91,7 @@ MSAL은 하나의 토큰 캐시(또는 기밀 클라이언트 애플리케이션
 
 ### <a name="confidential-client-applications"></a>기밀 클라이언트 애플리케이션
 
-기밀 클라이언트 응용 프로그램(웹 앱, 웹 API 또는 Windows 서비스와 같은 데몬 응용 프로그램)의 경우 다음을 수행합니다.
+기밀 클라이언트 응용 프로그램 (웹 응용 프로그램, web API 또는 Windows 서비스와 같은 데몬 응용 프로그램)의 경우 다음을 수행 합니다.
 - [클라이언트 자격 증명 흐름](msal-authentication-flows.md#client-credentials)을 사용하여 사용자가 아니라 **애플리케이션 자체**에 대한 토큰을 획득합니다. 이는 동기화 도구 또는 특정 사용자가 아니라 일반적으로 사용자를 처리하는 도구에 사용할 수 있습니다.
 - 웹 API에 대한 [On-Behalf-Of 흐름](msal-authentication-flows.md#on-behalf-of)을 사용하여 사용자를 대신해 API를 호출합니다. 사용자 어설션(예: SAML 또는 JWT 토큰)에 따라 토큰을 획득하기 위해 애플리케이션이 클라이언트 자격 증명을 사용하여 식별됩니다. 이 흐름은 서비스 간 호출에서 특정 사용자의 리소스에 액세스해야 하는 애플리케이션에서 사용됩니다.
 - 사용자가 권한 부여 요청 URL을 통해 로그인하면 웹앱에서 [권한 부여 코드 흐름](msal-authentication-flows.md#authorization-code)을 사용하여 토큰을 획득합니다. OpenID Connect 애플리케이션은 일반적으로 이 메커니즘을 사용합니다. 이 경우 사용자가 OpenID Connect를 사용하여 로그인한 다음, 사용자를 대신하여 웹 API에 액세스할 수 있습니다.
@@ -109,6 +109,6 @@ MSAL은 하나의 토큰 캐시(또는 기밀 클라이언트 애플리케이션
 
 ## <a name="next-steps"></a>다음 단계
 
-Java용 MSAL을 사용하는 경우 [JAVA에 대한 MSAL의 사용자 지정 토큰 캐시 직렬화에 대해](msal-java-token-cache-serialization.md)알아봅니다.
+Java 용 MSAL을 사용 하는 경우 [java 용 msal의 사용자 지정 토큰 캐시 serialization](msal-java-token-cache-serialization.md)에 대해 알아봅니다.
 
 [오류 및 예외 처리](msal-handling-exceptions.md)에 대해 알아봅니다.

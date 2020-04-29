@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse에 대한 열 수준 보안이란 무엇입니까?
-description: 열 수준 보안을 사용하면 고객이 사용자의 실행 컨텍스트 또는 그룹 구성원 자격에 따라 데이터베이스 테이블 열에 대한 액세스를 제어하여 응용 프로그램의 보안 설계 및 코딩을 간소화하고 열 액세스에 대한 제한을 구현할 수 있습니다.
+title: Azure Synapse에 대 한 열 수준 보안 이란?
+description: 열 수준 보안을 통해 고객은 사용자의 실행 컨텍스트 또는 그룹 멤버 자격에 따라 데이터베이스 테이블 열에 대 한 액세스를 제어 하 고, 응용 프로그램에서 보안의 디자인과 코딩을 간소화 하 고, 열 액세스에 대 한 제한을 구현할 수 있습니다.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -13,22 +13,22 @@ ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
 ms.openlocfilehash: b0a783ad5db86ca783ff1cebceec8d77ab528047
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687930"
 ---
 # <a name="column-level-security"></a>열 수준 보안
 
-열 수준 보안을 사용하면 고객이 사용자의 실행 컨텍스트 또는 그룹 구성원 자격에 따라 테이블 열에 대한 액세스를 제어할 수 있습니다.
+열 수준 보안을 통해 고객은 사용자의 실행 컨텍스트 또는 그룹 멤버 자격에 따라 테이블 열에 대 한 액세스를 제어할 수 있습니다.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-이 비디오가 게시된 이후 [행 수준 보안은](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Azure Synapse에서 사용할 수 있게 되었습니다.
+이 비디오가 게시 된 후 Azure Synapse에서 [행 수준 보안](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 을 사용할 수 있습니다.
 
-열 수준 보안은 응용 프로그램의 보안 설계 및 코딩을 단순화하여 중요한 데이터를 보호하기 위해 열 액세스를 제한할 수 있도록 합니다. 예를 들어 특정 사용자가 해당 부서와 관련된 테이블의 특정 열에만 액세스할 수 있도록 합니다. 액세스 제한 논리는 다른 애플리케이션 계층의 데이터와 다소 떨어진 데이터베이스 계층에 위치합니다. 데이터베이스는 모든 계층에서 데이터 액세스를 시도할 때마다 액세스 제한을 적용합니다. 이러한 제한으로 인해 전체 보안 시스템의 표면적을 줄여 보안을 더욱 안정적이고 견고하게 만들 수 있습니다. 또한 열 수준 보안은 사용자에게 액세스 제한을 적용하기 위해 열을 필터링하기 위해 뷰를 도입할 필요가 없습니다.
+열 수준 보안은 응용 프로그램의 보안 설계 및 코딩을 간소화 하 여 열 액세스를 제한 하 여 중요 한 데이터를 보호할 수 있도록 합니다. 예를 들어 특정 사용자가 해당 부서와 관련된 테이블의 특정 열에만 액세스할 수 있도록 합니다. 액세스 제한 논리는 다른 애플리케이션 계층의 데이터와 다소 떨어진 데이터베이스 계층에 위치합니다. 데이터베이스는 모든 계층에서 데이터 액세스를 시도할 때마다 액세스 제한을 적용 합니다. 이러한 제한으로 인해 전체 보안 시스템의 노출 영역을 줄임으로써 보안을 보다 안정적이 고 강력 하 게 만들 수 있습니다. 또한 열 수준 보안을 사용 하면 사용자에 대 한 액세스 제한을 적용 하기 위해 열을 필터링 하는 뷰를 도입할 필요가 없습니다.
 
-[GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 문을 사용하면 열 수준 보안을 구현할 수 있습니다. 이 메커니즘을 사용하면 SQL 및 AAD(Azure Active Directory) 인증이 모두 지원됩니다.
+[GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) t-sql 문으로 열 수준 보안을 구현할 수 있습니다. 이 메커니즘을 사용하면 SQL 및 AAD(Azure Active Directory) 인증이 모두 지원됩니다.
 
 ![cls](./media/column-level-security/cls.png)
 
@@ -52,9 +52,9 @@ GRANT <permission> [ ,...n ] ON
 
 ## <a name="example"></a>예제
 
-다음 예제에서는 테이블의 `TestUser` `SSN` 열에 액세스하는 `Membership` 것을 제한하는 방법을 보여 주며 다음과 같은 방법을 보여 주며 다음과 같은 방법을 보여 주며 다음과 같은 방법을 보여 주며 다음과 같은 방법을 보여 주며 다음과 같은 방법을 보여 주며 다음과 같은 방법을 보여 주
+다음 예에서는 `TestUser` `SSN` `Membership` 테이블의 열에 액세스 하는 것을 제한 하는 방법을 보여 줍니다.
 
-사회 `Membership` 보장 번호를 저장하는 데 사용되는 SSN 열을 사용하여 테이블을 만듭니다.
+주민 `Membership` 등록 번호를 저장 하는 데 사용 되는 SSN 열이 있는 테이블을 만듭니다.
 
 ```sql
 CREATE TABLE Membership
@@ -66,13 +66,13 @@ CREATE TABLE Membership
    Email varchar(100) NULL);
 ```
 
-중요한 `TestUser` 데이터가 있는 SSN 열을 제외한 모든 열에 액세스할 수 있도록 허용합니다.
+중요 `TestUser` 한 데이터가 포함 된 SSN 열을 제외 하 고 모든 열에 액세스할 수 있습니다.
 
 ```sql
 GRANT SELECT ON Membership(MemberID, FirstName, LastName, Phone, Email) TO TestUser;
 ```
 
-SSN `TestUser` 열을 포함하는 경우 실행되는 쿼리는 실패합니다.
+다음으로 `TestUser` 실행 되는 쿼리는 SSN 열을 포함 하는 경우 실패 합니다.
 
 ```sql
 SELECT * FROM Membership;
@@ -83,7 +83,7 @@ SELECT * FROM Membership;
 
 ## <a name="use-cases"></a>사용 사례
 
-현재 열 수준 보안이 사용되는 방법의 몇 가지 예는 다음과 같은 것입니다.
+현재 열 수준 보안을 사용 하는 방법에 대 한 몇 가지 예는 다음과 같습니다.
 
 - 금융 서비스 회사는 계정 관리자만 고객 SSN(사회 보장 번호), 전화 번호 및 기타 PII(개인 식별 정보)에 액세스할 수 있도록 허용합니다.
-- 의료 서비스 제공자만 의사와 간호사가 민감한 의료 기록에 액세스할 수 있도록 허용하는 동시에 청구 부서의 구성원이 이 데이터를 볼 수 없도록 합니다.
+- 의료 보험 공급자는 의사 및 간호사만이 데이터를 볼 수 있도록 하는 동시에 중요 의료 기록에 대 한 액세스를 허용 합니다.

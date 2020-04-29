@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: 77a374a83c178639052e8db6fc85c31e366ac0e6
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683634"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Azure VM에서 Oracle 데이터베이스 만들기
@@ -143,14 +143,14 @@ Oracle 소프트웨어는 이미 Marketplace 이미지에 설치되어 있습니
 
 3. Oracle 변수를 설정합니다.
 
-연결하기 전에 *ORACLE_HOME* 및 *ORACLE_SID*두 가지 환경 변수를 설정해야 합니다.
+연결 하기 전에 *ORACLE_HOME* 및 *ORACLE_SID*의 두 환경 변수를 설정 해야 합니다.
 
 ```bash
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
 
-ORACLE_HOME 및 ORACLE_SID 변수를 .bashrc 파일에 추가할 수도 있습니다. 이렇게 하면 향후 로그인에 대한 환경 변수가 절약됩니다. `~/.bashrc`
+ORACLE_HOME 및 ORACLE_SID 변수를 .bashrc 파일에 추가할 수도 있습니다. 그러면 나중에 로그인 하기 위해 환경 변수가 저장 됩니다. 선택한 편집기를 사용 하 여 다음 문이 `~/.bashrc` 파일에 추가 되었는지 확인 하세요.
 
 ```bash
 # Add ORACLE_HOME. 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/12/2019
 ms.author: dsindona
 ms.openlocfilehash: fde249f22342ed2a0c50f5fdda3bde9dc2cde183
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81685732"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Microsoft를 통한 비즈니스 홍보
@@ -36,6 +36,6 @@ Marketplace 파트너는 MPN(Microsoft 파트너 네트워크)에 속해야 합�
 
 [출시 서비스](https://partner.microsoft.com/reach-customers/gtm)로 이동하여 마켓플레이스 GTM 서비스에 대해 자세히 알아봅니다.
 
-[파트너 센터에 로그인하여](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 오퍼를 만들거나 완료합니다.
+[파트너 센터에 로그인](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 하 여 제품을 만들거나 완성 합니다.
 
 ---

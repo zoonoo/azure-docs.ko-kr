@@ -1,7 +1,7 @@
 ---
-title: 범위 및 앱 역할 보호 웹 API 확인 | Azure
+title: 범위 및 앱 역할의 보호 된 web API 확인 | Microsoft
 titleSuffix: Microsoft identity platform
-description: 보호된 웹 API를 빌드하고 응용 프로그램의 코드를 구성하는 방법을 알아봅니다.
+description: 보호 된 웹 API를 빌드하고 응용 프로그램의 코드를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,29 +13,29 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 018e7f9bc389e3d148ff6860dae9fef88991e5c4
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537171"
 ---
-# <a name="protected-web-api-verify-scopes-and-app-roles"></a>보호된 웹 API: 범위 및 앱 역할 확인
+# <a name="protected-web-api-verify-scopes-and-app-roles"></a>보호 된 웹 API: 범위 및 앱 역할 확인
 
-이 문서에서는 웹 API에 권한을 추가하는 방법에 대해 설명합니다. 이 보호 기능을 사용하면 API가 다음에서만 호출됩니다.
+이 문서에서는 web API에 권한 부여를 추가할 수 있는 방법을 설명 합니다. 이 보호는 API가에 의해서만 호출 되도록 합니다.
 
-- 적절한 범위가 있는 사용자를 대신하는 응용 프로그램입니다.
-- 올바른 응용 프로그램 역할이 있는 Daemon 앱입니다.
+- 올바른 범위를 가진 사용자를 대신 하는 응용 프로그램
+- 올바른 응용 프로그램 역할이 있는 디먼 앱입니다.
 
 > [!NOTE]
-> 이 문서의 코드 조각은 완벽하게 작동하는 다음 샘플에서 추출됩니다.
+> 이 문서의 코드 조각은 완전히 작동 하는 다음 샘플에서 추출 됩니다.
 >
-> - ASP.NET GitHub에 [코어 웹 API 증분 자습서](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs#L37)
-> - [ASP.NET 웹 API 샘플](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/dfd0115533d5a230baff6a3259c76cf117568bd9/TodoListService/Controllers/TodoListController.cs#L48)
+> - GitHub의 [ASP.NET Core WEB API 증분 자습서](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs#L37)
+> - [ASP.NET web API 샘플](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/dfd0115533d5a230baff6a3259c76cf117568bd9/TodoListService/Controllers/TodoListController.cs#L48)
 
-ASP.NET 또는 ASP.NET Core 웹 API를 보호하려면 다음 항목 중 하나에 `[Authorize]` 특성을 추가해야 합니다.
+ASP.NET 또는 ASP.NET Core web API를 보호 하려면 다음 항목 중 하나에 `[Authorize]` 특성을 추가 해야 합니다.
 
-- 모든 컨트롤러 작업을 보호하려는 경우 컨트롤러 자체
-- API에 대한 개별 컨트롤러 작업
+- 모든 컨트롤러 작업을 보호 하려는 경우 컨트롤러 자체
+- API에 대 한 개별 컨트롤러 작업
 
 ```csharp
     [Authorize]
@@ -45,14 +45,14 @@ ASP.NET 또는 ASP.NET Core 웹 API를 보호하려면 다음 항목 중 하나�
     }
 ```
 
-그러나 이 보호만으로는 충분하지 않습니다. ASP.NET ASP.NET 코어가 토큰의 유효성을 검사하는 경우에만 보장합니다. API는 API를 호출하는 데 사용되는 토큰이 예상 클레임과 함께 요청되는지 확인해야 합니다. 이러한 클레임은 특히 확인이 필요합니다.
+그러나이 보호는 충분 하지 않습니다. ASP.NET 및 ASP.NET Core 토큰의 유효성을 검사 하도록 보장 합니다. Api는 API를 호출 하는 데 사용 되는 토큰이 필요한 클레임으로 요청 되는지 확인 해야 합니다. 특히 다음과 같은 클레임을 확인 해야 합니다.
 
-- 사용자를 대신하여 API가 호출되는 *경우 범위입니다.*
-- 데몬 앱에서 API를 호출할 수 있는 경우 *앱 역할을 합니다.*
+- 사용자를 대신 하 여 API를 호출 하는 경우 *범위* 입니다.
+- 디먼 앱에서 API를 호출할 수 있는 경우 *앱 역할*
 
-## <a name="verify-scopes-in-apis-called-on-behalf-of-users"></a>사용자를 대신하여 호출된 API의 범위 확인
+## <a name="verify-scopes-in-apis-called-on-behalf-of-users"></a>사용자를 대신 하 여 Api의 범위 확인
 
-클라이언트 앱이 사용자를 대신하여 API를 호출하는 경우 API는 API에 대한 특정 범위가 있는 베어러 토큰을 요청해야 합니다. 자세한 내용은 [코드 구성 | 베어러 토큰](scenario-protected-web-api-app-configuration.md#bearer-token).
+클라이언트 앱이 사용자를 대신 하 여 API를 호출 하는 경우 api는 API에 대 한 특정 범위를 가진 전달자 토큰을 요청 해야 합니다. 자세한 내용은 코드 구성을 참조 하세요. [ 전달자 토큰](scenario-protected-web-api-app-configuration.md#bearer-token)입니다.
 
 ```csharp
 [Authorize]
@@ -76,10 +76,10 @@ public class TodoListController : Controller
 }
 ```
 
-메서드는 `VerifyUserHasAnyAcceptedScope` 다음 단계와 같은 작업을 수행합니다.
+메서드 `VerifyUserHasAnyAcceptedScope` 는 다음 단계와 같은 작업을 수행 합니다.
 
-- 또는 또는 클레임이 `http://schemas.microsoft.com/identity/claims/scope` 있는지 `scp`확인합니다.
-- 클레임에 API에서 예상하는 범위를 포함하는 값이 있는지 확인합니다.
+- 또는 `http://schemas.microsoft.com/identity/claims/scope` `scp`라는 클레임이 있는지 확인 합니다.
+- 클레임에 API에서 예상 하는 범위를 포함 하는 값이 있는지 확인 합니다.
 
 ```csharp
     /// <summary>
@@ -109,13 +109,13 @@ public class TodoListController : Controller
     }
 ```
 
-앞의 [샘플 코드는](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/Microsoft.Identity.Web/Resource/ScopesRequiredByWebAPIExtension.cs#L47) ASP.NET 코어용입니다. ASP.NET 경우 을 `HttpContext.User` `ClaimsPrincipal.Current`바꾸고 클레임 유형을 `"http://schemas.microsoft.com/identity/claims/scope"` `"scp"`로 바꿉습니다. 또한 이 문서의 후반부에서 코드 조각을 참조하십시오.
+위의 [샘플 코드](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/Microsoft.Identity.Web/Resource/ScopesRequiredByWebAPIExtension.cs#L47) 는 ASP.NET Core에 대 한 것입니다. ASP.NET의 경우를로 `HttpContext.User` `ClaimsPrincipal.Current`바꾸고 클레임 형식을 `"http://schemas.microsoft.com/identity/claims/scope"` 로 `"scp"`바꿉니다. 또한이 문서의 뒷부분에 나오는 코드 조각을 참조 하세요.
 
-## <a name="verify-app-roles-in-apis-called-by-daemon-apps"></a>데몬 앱에서 호출된 API에서 앱 역할 확인
+## <a name="verify-app-roles-in-apis-called-by-daemon-apps"></a>디먼 앱에서 호출 하는 Api의 앱 역할 확인
 
-웹 API가 [데몬 앱에서](scenario-daemon-overview.md)호출되는 경우 해당 앱에는 웹 API에 대한 응용 프로그램 권한이 필요합니다. [응용 프로그램 권한 노출(앱 역할)에](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles)표시된 대로 API는 이러한 권한을 노출합니다. 한 가지 `access_as_application` 예는 앱 역할입니다.
+웹 API가 [디먼 앱](scenario-daemon-overview.md)에 의해 호출 되는 경우 해당 앱에는 web api에 대 한 응용 프로그램 권한이 있어야 합니다. [응용 프로그램 사용 권한 (앱 역할) 노출](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles)에 표시 된 것 처럼 API는 이러한 사용 권한을 노출 합니다. 한 가지 예로 `access_as_application` 앱 역할이 있습니다.
 
-이제 API에서 수신하는 토큰에 `roles` 클레임이 포함되어 있는지, 이 클레임에 예상 값이 있는지 확인해야 합니다. 확인 코드는 컨트롤러 작업 범위가 아닌 역할에 대해 테스트하는 경우를 제외하고 위임된 권한을 확인하는 코드와 유사합니다.
+이제 API에서 받은 토큰이 클레임을 `roles` 포함 하 고이 클레임에 필요한 값이 있는지 확인 해야 합니다. 확인 코드는 컨트롤러 작업이 범위 대신 역할을 테스트 하는 경우를 제외 하 고 위임 된 권한을 확인 하는 코드와 비슷합니다.
 
 ```csharp
 [Authorize]
@@ -128,7 +128,7 @@ public class TodoListController : ApiController
     }
 ```
 
-이 `ValidateAppRole` 메서드는 다음과 같을 수 있습니다.
+메서드 `ValidateAppRole` 는 다음과 같이 지정할 수 있습니다.
 
 ```csharp
 private void ValidateAppRole(string appRole)
@@ -149,13 +149,13 @@ private void ValidateAppRole(string appRole)
 }
 ```
 
-이번에는 코드 조각이 ASP.NET 위한 것입니다. `ClaimsPrincipal.Current` ASP.NET 코어의 `HttpContext.User` `"roles"` 경우 로 바꾸고 클레임 이름을 `"http://schemas.microsoft.com/identity/claims/roles"`로 바꿉니다. 또한 이 문서의 앞에서 코드 조각을 참조하십시오.
+이번에는 ASP.NET 용 코드 조각입니다. ASP.NET Core의 경우를로 `ClaimsPrincipal.Current` `HttpContext.User`바꾸고 `"roles"` 클레임 이름을으로 `"http://schemas.microsoft.com/identity/claims/roles"`바꿉니다. 또한이 문서의 앞부분에 나오는 코드 조각을 참조 하세요.
 
-### <a name="accepting-app-only-tokens-if-the-web-api-should-be-called-only-by-daemon-apps"></a>웹 API가 데몬 앱에서만 호출되어야 하는 경우 앱 전용 토큰 수락
+### <a name="accepting-app-only-tokens-if-the-web-api-should-be-called-only-by-daemon-apps"></a>웹 API가 디먼 앱 에서만 호출 되어야 하는 경우 앱 전용 토큰 수락
 
-사용자는 응용 [프로그램에서 앱 역할을 추가하고 토큰에서 수신하는 방법](howto-add-app-roles-in-azure-ad-apps.md)과 같이 사용자 할당 패턴에서 역할 클레임을 사용할 수도 있습니다. 역할에 둘 다에 할당할 수 있는 경우 역할을 확인하면 앱이 사용자와 사용자가 앱으로 로그인할 때 앱에 로그인할 수 있습니다. 이러한 혼동을 방지하기 위해 사용자 및 앱에 대해 서로 다른 역할을 선언하는 것이 좋습니다.
+사용자 [는 응용 프로그램에 앱 역할을 추가 하 고 토큰에서 수신 하는 방법](howto-add-app-roles-in-azure-ad-apps.md)에 나와 있는 것 처럼 사용자 할당 패턴에서 역할 클레임을 사용할 수도 있습니다. 역할을 둘 다에 할당할 수 있는 경우 역할을 확인 하면 앱이 사용자 및 사용자로 로그인 하 여 앱으로 로그인 할 수 있습니다. 이러한 혼동을 방지 하기 위해 사용자와 앱에 대해 서로 다른 역할을 선언 하는 것이 좋습니다.
 
-데몬 앱만 웹 API를 호출하려면 앱 역할의 유효성을 검사할 때 토큰이 앱 전용 토큰이라는 조건을 추가합니다.
+디먼 앱만 웹 API를 호출 하도록 하려면 앱 역할의 유효성을 검사할 때 토큰이 앱 전용 토큰 이라고 하는 조건을 추가 합니다.
 
 ```csharp
 string oid = ClaimsPrincipal.Current.FindFirst("oid")?.Value;
@@ -163,7 +163,7 @@ string sub = ClaimsPrincipal.Current.FindFirst("sub")?.Value;
 bool isAppOnlyToken = oid == sub;
 ```
 
-역 조건을 확인하면 사용자가 로그인한 앱만 API를 호출할 수 있습니다.
+역 조건을 확인 하면 사용자가 로그인 하는 앱만 API를 호출할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

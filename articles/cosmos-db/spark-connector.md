@@ -7,40 +7,40 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: ramkris
 ms.openlocfilehash: edfaf50b701f64b12f9cf5fcc9ab8d2c6d241d0a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81482185"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Apache Spark-Azure Cosmos DB 커넥터를 사용하여 빅 데이터 분석 가속화
 
-코스모스 DB 스파크 커넥터를 사용하여 Azure 코스모스 DB에 저장된 데이터로 [스파크](https://spark.apache.org/) 작업을 실행할 수 있습니다. Cosmos는 배치 및 스트림 처리에 사용할 수 있으며 대기 시간 지연이 적은 서브 레이어로 사용할 수 있습니다.
+Cosmos DB Spark 커넥터를 사용 하 여 Azure Cosmos DB에 저장 된 데이터를 사용 하 여 [spark](https://spark.apache.org/) 작업을 실행할 수 있습니다. Cosmos는 일괄 처리 및 스트림 처리에 사용할 수 있으며 짧은 대기 시간 액세스를 위한 서비스 계층으로 사용할 수 있습니다.
 
-[Azure 데이터 브릭](https://azure.microsoft.com/services/databricks) 또는 Azure에서 관리되는 스파크 클러스터를 제공하는 [Azure HDInsight와](https://azure.microsoft.com/services/hdinsight/)함께 커넥터를 사용할 수 있습니다. 다음 표에는 지원되는 Spark 버전이 표시됩니다.
+Azure에서 관리 되는 Spark 클러스터를 제공 하는 [Azure Databricks](https://azure.microsoft.com/services/databricks) 또는 [azure HDInsight](https://azure.microsoft.com/services/hdinsight/)에서 커넥터를 사용할 수 있습니다. 다음 표에서는 지원 되는 Spark 버전을 보여 줍니다.
 
 | 구성 요소 | 버전 |
 |---------|-------|
-| Apache Spark | 2.4.x, 2.3.x, 2.2.x 및 2.1.x |
+| Apache Spark | 2.4. x, 2.3. x, 2.2 및 2.1. x |
 | 스칼라 | 2.11 |
 | Azure Databricks 런타임 버전 | > 3.4 |
 
 > [!WARNING]
-> 이 커넥터는 Azure Cosmos DB의 핵심(SQL) API를 지원합니다.
-> 몽고DB API용 코스모스 DB의 경우 [몽고DB 스파크 커넥터를](https://docs.mongodb.com/spark-connector/master/)사용합니다.
-> 코스모스 DB 카산드라 API의 경우 [카산드라 스파크 커넥터를](https://github.com/datastax/spark-cassandra-connector)사용합니다.
+> 이 커넥터는 Azure Cosmos DB의 코어 (SQL) API를 지원 합니다.
+> MongoDB API에 대 한 Cosmos DB [MongoDB Spark 커넥터](https://docs.mongodb.com/spark-connector/master/)를 사용 합니다.
+> Cosmos DB Cassandra API의 경우 [Cassandra Spark 커넥터](https://github.com/datastax/spark-cassandra-connector)를 사용 합니다.
 >
 
 ## <a name="quickstart"></a>빠른 시작
 
-* [Java SDK를 시작하기](sql-api-async-java-get-started.md) 의 단계를 수행하여 Cosmos DB 계정을 설정하고 일부 데이터를 채웁니다.
-* [Azure Databricks](/azure/azure-databricks/quickstart-create-databricks-workspace-portal) 작업 영역 및 클러스터 를 설정하기 시작하는 Azure Databricks의 단계를 따릅니다.
-* 이제 새 전자 필기장을 만들고 Cosmos DB 커넥터 라이브러리를 가져올 수 있습니다. 작업 영역을 설정하는 방법에 대한 자세한 내용은 [Cosmos DB 커넥터작업으로](#bk_working_with_connector) 이동합니다.
-* 다음 섹션에는 커넥터를 사용하여 읽고 쓰는 방법에 대한 스니펫이 있습니다.
+* [JAVA SDK 시작](sql-api-async-java-get-started.md) 의 단계에 따라 Cosmos DB 계정을 설정 하 고 일부 데이터를 채웁니다.
+* [시작 Azure Databricks](/azure/azure-databricks/quickstart-create-databricks-workspace-portal) 의 단계에 따라 Azure Databricks 작업 영역 및 클러스터를 설정 합니다.
+* 이제 새 노트북을 만들고 Cosmos DB 커넥터 라이브러리를 가져올 수 있습니다. 작업 영역을 설정 하는 방법에 대 한 자세한 내용은 [Cosmos DB 커넥터 작업](#bk_working_with_connector) 으로 이동 합니다.
+* 다음 섹션에는 커넥터를 사용 하 여 읽고 쓰는 방법에 대 한 조각이 있습니다.
 
-### <a name="batch-reads-from-cosmos-db"></a>코스모스 DB에서 일괄 읽기
+### <a name="batch-reads-from-cosmos-db"></a>Cosmos DB에서 일괄 읽기
 
-다음 코드 조각은 Pyspark의 코스모스 DB에서 읽을 스파크 데이터 프레임을 만드는 방법을 보여줍니다.
+다음 코드 조각에서는 PySpark의 Cosmos DB에서 읽을 Spark 데이터 프레임을 만드는 방법을 보여 줍니다.
 
 ```python
 # Read Configuration
@@ -58,7 +58,7 @@ flights = spark.read.format(
 flights.count()
 ```
 
-스칼라에서 동일한 코드 스니펫:
+Scala의 동일한 코드 조각:
 
 ```scala
 // Import Necessary Libraries
@@ -80,9 +80,9 @@ val flights = spark.read.cosmosDB(readConfig)
 flights.count()
 ```
 
-### <a name="batch-writes-to-cosmos-db"></a>코스모스 DB에 일괄 기록
+### <a name="batch-writes-to-cosmos-db"></a>일괄 처리 Cosmos DB에 쓰기
 
-다음 코드 조각은 PySpark의 코스모스 DB에 데이터 프레임을 작성하는 방법을 보여 주며 있습니다.
+다음 코드 조각에서는 PySpark에서 Cosmos DB에 데이터 프레임을 작성 하는 방법을 보여 줍니다.
 
 ```python
 # Write configuration
@@ -99,7 +99,7 @@ flights.write.format("com.microsoft.azure.cosmosdb.spark").options(
     **writeConfig).save()
 ```
 
-스칼라에서 동일한 코드 스니펫:
+Scala의 동일한 코드 조각:
 
 ```scala
 // Write configuration
@@ -117,9 +117,9 @@ import org.apache.spark.sql.SaveMode
 flights.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
 ```
 
-### <a name="streaming-reads-from-cosmos-db"></a>코스모스 DB에서 읽는 스트리밍
+### <a name="streaming-reads-from-cosmos-db"></a>Cosmos DB에서 읽기 스트리밍
 
-다음 코드 조각은 Azure Cosmos DB 변경 피드에 연결하고 읽는 방법을 보여 주며 있습니다.
+다음 코드 조각에서는 Azure Cosmos DB 변경 피드에 연결 하 고 읽는 방법을 보여 줍니다.
 
 ```python
 # Read Configuration
@@ -143,7 +143,7 @@ changes = (spark
            .options(**readConfig)
            .load())
 ```
-스칼라에서 동일한 코드 스니펫:
+Scala의 동일한 코드 조각:
 
 ```scala
 // Import Necessary Libraries
@@ -168,9 +168,9 @@ val readConfig = Config(Map(
 val df = spark.readStream.format(classOf[CosmosDBSourceProvider].getName).options(readConfig).load()
 ```
 
-### <a name="streaming-writes-to-cosmos-db"></a>코스모스 DB에 스트리밍 기록
+### <a name="streaming-writes-to-cosmos-db"></a>Cosmos DB에 대 한 스트리밍 쓰기
 
-다음 코드 조각은 PySpark의 코스모스 DB에 데이터 프레임을 작성하는 방법을 보여 주며 있습니다.
+다음 코드 조각에서는 PySpark에서 Cosmos DB에 데이터 프레임을 작성 하는 방법을 보여 줍니다.
 
 ```python
 # Write configuration
@@ -193,7 +193,7 @@ changeFeed = (changes
               .start())
 ```
 
-스칼라에서 동일한 코드 스니펫:
+Scala의 동일한 코드 조각:
 
 ```scala
 // Write configuration
@@ -215,39 +215,39 @@ df
 .options(writeConfig)
 .start()
 ```
-더 많은 조각과 끝에서 끝까지 샘플, [Jupyter를](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/notebooks)참조하십시오.
+더 많은 코드 조각 및 종단 간 샘플은 [Jupyter](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/notebooks)를 참조 하세요.
 
 ## <a name="working-with-the-connector"></a><a name="bk_working_with_connector"></a>커넥터 작업
 
-GitHub의 소스에서 커넥터를 빌드하거나 아래 링크에서 Maven의 Uber 항아리를 다운로드할 수 있습니다.
+GitHub의 원본에서 커넥터를 빌드하거나 아래 링크에서 Maven의 uber jar을 다운로드할 수 있습니다.
 
 | Spark | 스칼라 | 최신 버전 |
 |---|---|---|
-| 2.4.0 | 2.11 | [azure-코스모스db-spark_2.4.0_2.11_1.4.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/1.4.0/jar)
-| 2.3.0 | 2.11 | [azure-코스모스db-spark_2.3.0_2.11_1.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.3.0_2.11/1.3.3/jar)
-| 2.2.0 | 2.11 | [azure-코스모스db-spark_2.2.0_2.11_1.1.1](https://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-cosmosdb-spark_2.2.0_2.11%7C1.1.1%7Cjar)
-| 2.1.0 | 2.11 | [azure-코스모스db-spark_2.1.0_2.11_1.2.2](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.1.0_2.11/1.2.2/jar)
+| 2.4.0 | 2.11 | [cosmosdb-spark_2 .1.4.0 _ 2.11 _](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/1.4.0/jar)
+| 2.3.0 | 2.11 | [cosmosdb-spark_2.3.0 _ 2.11 _ 1.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.3.0_2.11/1.3.3/jar)
+| 2.2.0 | 2.11 | [cosmosdb-spark_2 .2.0 _ 2.11 _ 1.1.1](https://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-cosmosdb-spark_2.2.0_2.11%7C1.1.1%7Cjar)
+| 2.1.0 | 2.11 | [cosmosdb-spark_2 .1.0 _ 2.11 _ 1.2.2](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.1.0_2.11/1.2.2/jar)
 
-### <a name="using-databricks-notebooks"></a>데이터브릭스 노트북 사용
+### <a name="using-databricks-notebooks"></a>Databricks 노트북 사용
 
-Azure 데이터브릭 가이드 > [Azure Cosmos DB 스파크 커넥터 사용의](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/cosmosdb-connector.html) 지침에 따라 Databricks 작업 영역을 사용하여 라이브러리 만들기
+Azure Databricks 가이드의 지침에 따라 [Azure Cosmos DB Spark 커넥터 사용](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/cosmosdb-connector.html) > Databricks 작업 영역을 사용 하 여 라이브러리를 만듭니다.
 
 > [!NOTE]
-> Azure **Cosmos DB 스파크 커넥터 사용** 페이지는 현재 최신 이 아닙니다. 여섯 개의 개별 항아리를 6개의 다른 라이브러리에 다운로드하는 대신, 메이븐에서 동네 짱 항아리를 https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/1.4.0/jar) 다운로드하고이 하나의 항아리 / 라이브러리를 설치할 수 있습니다.
+> **Azure Cosmos DB Spark 커넥터 사용** 페이지는 현재 최신 상태가 아닙니다. 6 개의 개별 jar를 6 개의 다른 라이브러리로 다운로드 하는 대신 maven at https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/1.4.0/jar) 에서 uber jar를 다운로드 하 고이 한 jar/라이브러리를 설치할 수 있습니다.
 > 
 
-### <a name="using-spark-cli"></a>스파크 클리 사용
+### <a name="using-spark-cli"></a>Spark-cli 사용
 
-스파크 `spark-shell`클라이(즉, , 또는 `pyspark` `spark-submit`, 및)를 사용하여 커넥터로 `--packages` 작업하려면 커넥터의 [maven 좌표와](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11)함께 매개변수를 사용할 수 있습니다.
+Spark cli를 사용 하 여 `spark-shell`( `pyspark`즉,,, `spark-submit`) 커넥터를 사용 하 여 작업 하려면 커넥터의 `--packages` [maven 좌표](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11)에 매개 변수를 사용할 수 있습니다.
 
 ```sh
 spark-shell --master yarn --packages "com.microsoft.azure:azure-cosmosdb-spark_2.4.0_2.11:1.4.0"
 
 ```
 
-### <a name="using-jupyter-notebooks"></a>주피터 노트북 사용
+### <a name="using-jupyter-notebooks"></a>Jupyter 노트북 사용
 
-HDInsight 내에서 Jupyter 노트북을 사용하는 경우 스파크 매직 `%%configure` 셀을 사용하여 커넥터의 메이븐 좌표를 지정할 수 있습니다.
+HDInsight 내에서 Jupyter 노트북을 사용 하는 경우 spark-매직 `%%configure` 셀을 사용 하 여 커넥터의 maven 좌표를 지정할 수 있습니다.
 
 ```python
 { "name":"Spark-to-Cosmos_DB_Connector",
@@ -259,59 +259,59 @@ HDInsight 내에서 Jupyter 노트북을 사용하는 경우 스파크 매직 `%
 }
 ```
 
-> 이 `spark.jars.excludes` 포함은 커넥터, 아파치 스파크 및 리비 간의 잠재적 충돌을 제거하기 위한 것입니다.
+> 를 포함 하는 `spark.jars.excludes` 것은 커넥터, Apache Spark 및 Livy 간의 잠재적 충돌을 제거 하는 데만 적용 됩니다.
 
 ### <a name="build-the-connector"></a>커넥터 빌드
 
-현재 이 커넥터 프로젝트는 `maven` 종속성 없이 빌드하는 데 사용하므로 다음을 실행할 수 있습니다.
+현재이 커넥터 프로젝트는를 `maven` 사용 하 여 종속성 없이 빌드하기 위해 다음을 실행할 수 있습니다.
 
 ```sh
 mvn clean package
 ```
 
-## <a name="working-with-our-samples"></a>샘플 작업
+## <a name="working-with-our-samples"></a>샘플 사용
 
-[코스모스 DB 스파크 GitHub 리포지토리에는](https://github.com/Azure/azure-cosmosdb-spark) 시도할 수 있는 다음 샘플 노트북과 스크립트가 있습니다.
+[Cosmos DB Spark GitHub 리포지토리에](https://github.com/Azure/azure-cosmosdb-spark) 는 다음 샘플 노트북 및 스크립트를 사용해 볼 수 있습니다.
 
-* **스파크와 코스모스 DB(시애틀)** [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.ipynb) | [html로](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.html)정시 비행 성능 : HDInsight Jupyter 노트북 서비스를 사용하여 스파크를 코스모스 DB에 연결하여 스파크 SQL, GraphFrame 및 ML 파이프라인을 사용하여 비행 지연을 예측합니다.
-* **아파치 스파크와 Azure 코스모스 DB 변경 피드와 트위터 소스**: [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Twitter%20with%20Spark%20and%20Azure%20Cosmos%20DB%20Change%20Feed.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Twitter%20with%20Spark%20and%20Azure%20Cosmos%20DB%20Change%20Feed.html)
-* **아파치 스파크를 사용하여 코스모스 DB 그래프를 쿼리**: [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.html)
-* 을 `azure-cosmosdb-spark` **[사용하여 Azure 데이터 브릭을 Azure 코스모스 DB에 연결합니다.](https://docs.databricks.com/spark/latest/data-sources/azure/cosmosdb-connector.html)**  여기에 연결된 Azure Databricks 버전의 [정시 비행 성능 노트북도](https://github.com/dennyglee/databricks/tree/master/notebooks/Users/denny%40databricks.com/azure-databricks)있습니다.
-* **[Azure 코스모스 DB 및 HDInsight(아파치 스파크)가 있는 람다 아키텍처](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/readme.md)**: 코스모스 DB와 스파크를 사용하여 빅 데이터 파이프라인을 유지 관리하는 운영 오버헤드를 줄일 수 있습니다.
+* **시애틀 (spark 및 Cosmos DB** ) [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.html)을 사용한 시간 비행 성능: HDInsight jupyter 노트북 서비스를 사용 하 여 spark SQL, graphframes을 소개 하 고 ML 파이프라인을 사용 하 여 비행 지연 시간을 예측 하는 spark를 Cosmos DB에 연결 합니다.
+* **Apache Spark 및 Azure Cosmos DB 변경 피드가 포함 된 Twitter 원본**: [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Twitter%20with%20Spark%20and%20Azure%20Cosmos%20DB%20Change%20Feed.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Twitter%20with%20Spark%20and%20Azure%20Cosmos%20DB%20Change%20Feed.html)
+* **Apache Spark를 사용 하 여 Cosmos DB 그래프 쿼리**: [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.html)
+* 를 사용 하 여 `azure-cosmosdb-spark` **[Azure Cosmos DB에 Azure Databricks 연결](https://docs.databricks.com/spark/latest/data-sources/azure/cosmosdb-connector.html)**  여기에 연결 된 Azure Databricks 버전의 [온-비행기 성능 노트북](https://github.com/dennyglee/databricks/tree/master/notebooks/Users/denny%40databricks.com/azure-databricks)도 있습니다.
+* **[Azure Cosmos DB 및 HDInsight를 사용 하는 람다 아키텍처 (Apache Spark)](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/readme.md)**: Cosmos DB 및 Spark를 사용 하 여 빅 데이터 파이프라인을 유지 관리 하는 작업 오버 헤드를 줄일 수 있습니다.
 
 ## <a name="more-information"></a>추가 정보
 
-`azure-cosmosdb-spark` [우리는 위키에](https://github.com/Azure/azure-cosmosdb-spark/wiki) 더 많은 정보를 가지고 있습니다 :
+`azure-cosmosdb-spark` [Wiki](https://github.com/Azure/azure-cosmosdb-spark/wiki) 에는 다음과 같은 추가 정보가 있습니다.
 
-* [Azure 코스모스 DB 스파크 커넥터 사용자 가이드](https://github.com/Azure/azure-documentdb-spark/wiki/Azure-Cosmos-DB-Spark-Connector-User-Guide)
+* [Azure Cosmos DB Spark 커넥터 사용자 가이드](https://github.com/Azure/azure-documentdb-spark/wiki/Azure-Cosmos-DB-Spark-Connector-User-Guide)
 * [집계 예제](https://github.com/Azure/azure-documentdb-spark/wiki/Aggregations-Examples)
 
 ### <a name="configuration-and-setup"></a>구성 및 설정
 
-* [스파크 커넥터 구성](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references)
-* [스파크에서 코스모스 DB 커넥터 설정(진행](https://github.com/Azure/azure-documentdb-spark/wiki/Spark-to-Cosmos-DB-Connector-Setup) 중)
-* [아파치 스파크 (HDI)를 통해 Azure 코스모스 DB에 전원 BI 직접 쿼리 구성](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuring-Power-BI-Direct-Query-to-Azure-Cosmos-DB-via-Apache-Spark-(HDI))
+* [Spark 커넥터 구성](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references)
+* [Cosmos DB 커넥터 설정에 대 한 Spark](https://github.com/Azure/azure-documentdb-spark/wiki/Spark-to-Cosmos-DB-Connector-Setup) (진행 중)
+* [HDI (Apache Spark를 통해 Azure Cosmos DB에 직접 쿼리 Power BI 구성](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuring-Power-BI-Direct-Query-to-Azure-Cosmos-DB-via-Apache-Spark-(HDI))
 
 ### <a name="troubleshooting"></a>문제 해결
 
-* [코스모스 DB 집계 사용](https://github.com/Azure/azure-documentdb-spark/wiki/Troubleshooting:-Using-Cosmos-DB-Aggregates)
+* [Cosmos DB 집계 사용](https://github.com/Azure/azure-documentdb-spark/wiki/Troubleshooting:-Using-Cosmos-DB-Aggregates)
 * [알려진 문제](https://github.com/Azure/azure-cosmosdb-spark/wiki/Known-Issues)
 
 ### <a name="performance"></a>성능
 
 * [성능 팁](https://github.com/Azure/azure-cosmosdb-spark/wiki/Performance-tips)
-* [쿼리 테스트 실행](https://github.com/Azure/azure-documentdb-spark/wiki/Query-Test-Runs)
-* [테스트 실행 기록](https://github.com/Azure/azure-cosmosdb-spark/wiki/Writing-Test-Runs)
+* [테스트 실행 쿼리](https://github.com/Azure/azure-documentdb-spark/wiki/Query-Test-Runs)
+* [테스트 실행 작성](https://github.com/Azure/azure-cosmosdb-spark/wiki/Writing-Test-Runs)
 
 ### <a name="change-feed"></a>피드 변경
 
-* [Azure Cosmos DB 변경 피드 및 아파치 스파크를 사용한 스트림 처리 변경 사항](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
-* [피드 데모 변경](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)
-* [구조화 스트림 데모](https://github.com/Azure/azure-cosmosdb-spark/wiki/Structured-Stream-demos)
+* [Azure Cosmos DB 변경 피드 및 Apache Spark를 사용 하 여 스트림 처리 변경 내용](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
+* [변경 피드 데모](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)
+* [구조적 스트림 데모](https://github.com/Azure/azure-cosmosdb-spark/wiki/Structured-Stream-demos)
 
 ### <a name="monitoring"></a>모니터링
 
-* [애플리케이션 인사이트로 스파크 작업 모니터링](https://github.com/Azure/azure-cosmosdb-spark/tree/2.3/samples/monitoring)
+* [Application insights를 사용 하 여 Spark 작업 모니터링](https://github.com/Azure/azure-cosmosdb-spark/tree/2.3/samples/monitoring)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -320,4 +320,4 @@ mvn clean package
 * [집계 예제](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
 * [샘플 스크립트 및 노트북](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
 
-[또한 아파치 스파크 SQL, 데이터 프레임 및 데이터 집합 가이드](https://spark.apache.org/docs/latest/sql-programming-guide.html)및 Azure HDInsight 문서의 [아파치 스파크를](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) 검토할 수도 있습니다.
+[SQL, 데이터 프레임 및 데이터 집합 가이드](https://spark.apache.org/docs/latest/sql-programming-guide.html)를 검토 하 고 [Azure HDInsight의 Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) 문서를 Apache Spark 검토 해야 할 수도 있습니다.

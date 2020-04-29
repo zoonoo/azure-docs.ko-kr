@@ -4,10 +4,10 @@ description: Stream Analytics를 사용하면 Application Insights에서 내보�
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 15d1efa3a632024429d41f27fc23c569cd85bec2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536882"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Stream Analytics를 사용하여 Application Insights에서 내보낸 데이터 처리
@@ -89,13 +89,13 @@ ms.locfileid: "81536882"
 
 ### <a name="set-path-prefix-pattern"></a>경로 접두사 패턴 설정
 
-**날짜 형식을 YYYY-MM-DD(대시)로 설정해야 합니다.**
+**날짜 형식을 YYYY-MM-DD (대시 포함)로 설정 해야 합니다.**
 
 전위 패턴은 Stream Analytics가 스토리지에서 입력 파일을 찾는 위치를 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
-이 예제에서:
+이 예제에 대한 설명:
 
 * `webapplication27`은 Application Insights 리소스의 이름으로, **모두 소문자**입니다.
 * `1234...`는 **대시를 생략한**Application Insights 리소스의 계측 키입니다. 
@@ -107,7 +107,7 @@ ms.locfileid: "81536882"
 > 
 
 ## <a name="add-new-output"></a>새 출력 추가
-이제 작업 > 출력**추가를** **선택합니다.** > 
+이제 **출력** > **추가**> 작업을 선택 합니다.
 
 ![](./media/export-stream-analytics/SA006.png)
 

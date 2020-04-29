@@ -1,32 +1,32 @@
 ---
-title: VMware용 Azure 마이그레이션 어플라이언스 설정
-description: VMware VM을 평가하고 마이그레이션하기 위해 Azure 마이그레이션 어플라이언스를 설정하는 방법에 대해 알아봅니다.
+title: VMware에 대 한 Azure Migrate 어플라이언스 설정
+description: VMware Vm을 평가 하 고 마이그레이션하기 위해 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: b32c6a9b703e4d341fe353d6b472ea7a18adadf3
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81538259"
 ---
-# <a name="set-up-an-appliance-for-vmware-vms"></a>VMware VM용 어플라이언스 설정
+# <a name="set-up-an-appliance-for-vmware-vms"></a>VMware Vm에 대 한 어플라이언스 설정
 
-이 문서에 따라 [Azure Migrate:Server 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용하여 평가를 위한 Azure 마이그레이션 어플라이언스를 설정하고 [Azure Migrate:Server 마이그레이션](migrate-services-overview.md#azure-migrate-server-migration-tool) 도구를 사용하는 에이전트 없는 마이그레이션을 설정합니다.
+이 문서에 따라 [Azure Migrate: 서버 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용 하 여 평가에 대 한 Azure Migrate 어플라이언스를 설정 하 고 [Azure Migrate: 서버 마이그레이션](migrate-services-overview.md#azure-migrate-server-migration-tool) 도구를 사용 하 여 에이전트 없이 마이그레이션할 수 있습니다.
 
-[Azure 마이그레이션 어플라이언스는](migrate-appliance.md) Azure Migrate:Server 평가 및 서버 마이그레이션에서 온-프레미스 VM을 검색하고, VM 메타데이터/성능 데이터를 Azure로 보내고, 에이전트 없는 마이그레이션 중에 VM웨어 VM을 복제하는 데 사용되는 경량 어플라이언스입니다.
+[Azure Migrate 어플라이언스](migrate-appliance.md) 는 온-프레미스 VMware vm을 검색 하 고, AZURE에 VM 메타 데이터/성능 데이터를 전송 하 고, 에이전트 없는 마이그레이션 중 VMware vm을 복제 하기 위해 서버 평가 및 서버 마이그레이션을 Azure Migrate에서 사용 하는 경량 어플라이언스입니다.
 
-다음 몇 가지 방법을 사용하여 어플라이언스를 배포할 수 있습니다.
+몇 가지 방법을 사용 하 여 어플라이언스를 배포할 수 있습니다.
 
-- 다운로드한 OVA 템플릿을 사용하여 VMware VM에 설정합니다. 이 문서에서 설명하는 방법입니다.
-- PowerShell 설치 관리자 스크립트를 통해 VMware VM 또는 실제 컴퓨터에 설정합니다. OVA 템플릿을 사용하여 VM을 설정할 수 없거나 Azure 정부에 있는 경우 [이 메서드를](deploy-appliance-script.md) 사용해야 합니다.
+- 다운로드한 OVA 템플릿을 사용하여 VMware VM에 설정합니다. 이 방법은이 문서에 설명 되어 있습니다.
+- PowerShell 설치 관리자 스크립트를 사용하여 VMware VM 또는 물리적 머신에 설정합니다. OVA 템플릿을 사용하여 VM을 설정할 수 없거나 Azure 정부에 있는 경우 [이 방법](deploy-appliance-script.md)을 사용해야 합니다.
 
-어플라이언스가 만들어지면 Azure Migrate:Server Assessment에 연결하여 처음으로 구성하고, Azure Migrate 프로젝트에 등록할 수 있는지 확인합니다.
+어플라이언스를 만든 후 Azure Migrate:Server Assessment에 연결하여, 처음으로 구성하고, Azure Migrate 프로젝트에 등록할 수 있는지 확인합니다.
 
 
-## <a name="appliance-deployment-ova"></a>어플라이언스 배포(OVA)
+## <a name="appliance-deployment-ova"></a>OVA (어플라이언스 배포)
 
-OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 수행하십시오.
+OVA 템플릿을 사용 하 여 어플라이언스를 설정 하려면 다음을 수행 합니다.
 - OVA 템플릿 파일을 다운로드하여 vCenter Server로 가져옵니다.
 - 어플라이언스를 만들고, Azure Migrate 서버 평가에 연결할 수 있는지 확인합니다.
 - 어플라이언스를 처음으로 구성하고, Azure Migrate 프로젝트에 등록합니다.
@@ -34,7 +34,7 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 ## <a name="download-the-ova-template"></a>OVA 템플릿 다운로드
 
 1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가**에서 **검색**을 클릭합니다.
-2. **검색 컴퓨터에서** > **컴퓨터가 가상화되어 있습니까?** **Yes, with VMWare vSphere hypervisor**
+2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **예, VMWare vSphere 하이퍼바이저 사용**을 클릭합니다.
 3. **다운로드**를 클릭하여 .OVA 템플릿 파일을 다운로드합니다.
 
   ![OVA 파일 다운로드 선택](./media/tutorial-assess-vmware/download-ova.png)
@@ -44,10 +44,10 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 배포하기 전에 OVA 파일이 안전한지 확인합니다.
 
 1. 파일을 다운로드한 컴퓨터에서 관리자 명령 창을 엽니다.
-2. 다음 명령을 실행하여 OVA에 대한 해시를 생성합니다.
+2. 다음 명령을 실행 하 여 OVA에 대 한 해시를 생성 합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. 최신 어플라이언스 버전의 경우 생성된 해시가 이러한 [설정과](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security)일치해야 합니다.
+3. 최신 어플라이언스 버전의 경우 생성 된 해시가 이러한 [설정과](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security)일치 해야 합니다.
 
 
 
@@ -55,7 +55,7 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 
 다운로드한 파일을 가져오고 VM을 만듭니다.
 
-1. vSphere 클라이언트 콘솔에서 **OVF** > **템플릿 파일 배포를**클릭합니다.
+1. Vsphere 클라이언트 콘솔에서 **파일 배포 파일** > **배포 템플릿**을 클릭 합니다.
 ![OVF 템플릿을 배포하는 메뉴 명령](./media/tutorial-assess-vmware/deploy-ovf.png)
 
 2. OVF 템플릿 배포 마법사 > **원본**에서 OVA 파일의 위치를 지정합니다.
@@ -63,18 +63,18 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 5. **호스트/클러스터**에서 VM이 실행될 호스트 또는 클러스터를 지정합니다.
 6. **스토리지**에서 VM에 대한 스토리지 대상을 지정합니다.
 7. **디스크 형식**에서 디스크 유형 및 크기를 지정합니다.
-8. **네트워크 매핑에서**VM이 연결할 네트워크를 지정합니다. 메타데이터를 Azure Migrate 서버 평가에 보내려면 네트워크에 인터넷 연결이 필요합니다.
+8. **네트워크 매핑**에서 VM이 연결할 네트워크를 지정 합니다. 메타데이터를 Azure Migrate 서버 평가에 보내려면 네트워크에 인터넷 연결이 필요합니다.
 9. 설정을 검토 및 확인한 다음 **마침**을 클릭합니다.
 
 
 ## <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
-어플라이언스 VM이 [공용](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드에 대한 Azure URL에 연결할 수 있는지 확인합니다.
+어플라이언스 VM에서 [퍼블릭](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드의 Azure URL에 연결할 수 있는지 확인합니다.
 
 
 ## <a name="configure-the-appliance"></a>어플라이언스 구성
 
-어플라이언스를 처음으로 설정합니다. OVA 템플릿 대신 스크립트를 사용하여 어플라이언스를 배포하는 경우 절차의 처음 두 단계는 적용할 수 없습니다.
+어플라이언스를 처음으로 설정합니다. OVA 템플릿 대신 스크립트를 사용 하 여 어플라이언스를 배포 하는 경우 절차의 처음 두 단계는 적용 되지 않습니다.
 
 1. vSphere Client 콘솔에서 VM > **Open Console**을 마우스 오른쪽 단추로 클릭합니다.
 2. 어플라이언스에 대한 언어, 표준 시간대 및 암호를 제공합니다.
@@ -88,9 +88,9 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
         - 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
         - HTTP 프록시만 지원됩니다.
     - **시간 동기화**: 시간이 확인됩니다. 검색이 제대로 작동하려면 어플라이언스의 시간이 인터넷 시간과 동기화되어야 합니다.
-    - **업데이트 설치**: Azure 마이그레이션은 최신 어플라이언스 업데이트가 설치되어 있는지 확인합니다.
-    - **VDDK 설치**: Azure 마이그레이션에서 VMWare vSphere 가상 디스크 개발 키트(VDDK)가 설치되어 있는지 확인합니다.
-        - Azure 마이그레이션은 VDDK를 사용하여 Azure로 마이그레이션하는 동안 컴퓨터를 복제합니다.
+    - **업데이트 설치**: Azure Migrate 최신 어플라이언스 업데이트가 설치 되어 있는지 확인 합니다.
+    - **INSTALL VDDK**: Azure Migrate VMWare VSPHERE VDDK (가상 디스크 개발 키트)가 설치 되어 있는지 확인 합니다.
+        - Azure migration은 VDDK를 사용 하 여 Azure로 마이그레이션하는 동안 컴퓨터를 복제 합니다.
         - VMware에서 VDDK 6.7을 다운로드하고, 다운로드한 zip 콘텐츠를 어플라이언스의 지정된 위치에 추출합니다.
 
 ## <a name="register-the-appliance-with-azure-migrate"></a>Azure Migrate를 사용하여 어플라이언스 등록
@@ -105,7 +105,7 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 4. **등록**을 클릭합니다.
 
 
-## <a name="start-continuous-discovery-by-providing-vcenter-server-and-vm-credential"></a>vCenter 서버 및 VM 자격 증명을 제공하여 지속적인 검색 시작
+## <a name="start-continuous-discovery-by-providing-vcenter-server-and-vm-credential"></a>vCenter Server 및 VM 자격 증명을 제공 하 여 연속 검색 시작
 
 어플라이언스는 VM의 구성 및 성능 데이터를 검색하기 위해 vCenter Server에 연결해야 합니다.
 
@@ -132,4 +132,4 @@ vCenter Server 및 VM 자격 증명(선택 사항)을 지정한 후에는 **저�
 
 ## <a name="next-steps"></a>다음 단계
 
-[VMware 평가](tutorial-assess-vmware.md) 및 에이전트 [없는 마이그레이션에](tutorial-migrate-vmware.md)대한 자습서를 검토합니다.
+[VMware 평가](tutorial-assess-vmware.md) 및 [에이전트 없는 마이그레이션](tutorial-migrate-vmware.md)에 대 한 자습서를 검토 합니다.

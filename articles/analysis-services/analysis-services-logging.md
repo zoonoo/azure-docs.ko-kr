@@ -8,10 +8,10 @@ ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 71a81c4a3a57c206540e20f7c7e58949c552e582
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82128924"
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
@@ -42,7 +42,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 |쿼리     |   쿼리 종료      |
 |명령     |  명령 시작       |
 |명령     |  명령 종료       |
-|오류 및 경고     |   Error      |
+|오류 및 경고     |   오류      |
 |검색     |   검색 종료      |
 |알림     |    알림     |
 |세션     |  세션 초기화       |
@@ -78,7 +78,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
 2. **진단 설정**에서 다음 옵션을 지정합니다. 
 
-    * **이름** - 만들 로그에 대한 이름을 입력합니다.
+    * **이름**. 만들 로그에 대한 이름을 입력합니다.
 
     * **저장소 계정에 보관**합니다. 이 옵션을 사용하려면 연결할 기존 스토리지 계정이 필요합니다. [스토리지 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하세요. 지침에 따라 리소스 관리자와 범용 계정을 만든 다음 포털에서 이 페이지로 돌아가 해당 스토리지 계정을 선택합니다. 새로 만든 스토리지 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
     * **이벤트 허브로 스트림**합니다. 이 옵션을 사용하려면 연결할 기존 Event Hub 네임스페이스 및 이벤트 허브가 필요합니다. 자세한 내용은 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 그런 다음 포털의 이 페이지로 돌아가 Event Hub 네임스페이스 및 정책 이름을 선택합니다.
@@ -88,7 +88,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
     * **서비스**. 서비스 수준 이벤트를 기록하려면 이 옵션을 선택합니다. 저장소 계정에 보관 하는 경우 리소스 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
     * **메트릭**. [Metrics](analysis-services-monitor.md#server-metrics)에 자세한 데이터를 저장하려면 이 옵션을 선택합니다. 저장소 계정에 보관 하는 경우 리소스 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
 
-3. **Save**을 클릭합니다.
+3. **저장**을 클릭합니다.
 
     “\<작업 영역 이름>의 진단을 업데이트하지 못했습니다. \<subscription id> 구독은 microsoft.insights를 사용하도록 등록되지 않았습니다.” 오류를 수신하는 경우 [Azure Diagnostics 문제 해결](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) 지침을 따라 계정을 등록한 다음, 이 절차를 다시 시도합니다.
 
@@ -215,7 +215,7 @@ window
 
 이 빠른 자습서에서는 Analysis Service 서버와 동일한 구독 및 리소스 그룹에서 스토리지 계정을 만듭니다. 그런 다음 AzDiagnosticSetting를 사용 하 여 진단 로깅을 설정 하 고 출력을 새 저장소 계정으로 보냅니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 완료하려면 다음 리소스가 필요합니다.
 
 * 기존 Azure Analysis Services 서버 서버 리소스를 만드는 방법에 대한 지침은 [Azure Portal에서 서버 만들기](analysis-services-create-server.md) 또는 [PowerShell을 사용하여 Azure Analysis Services 서버 만들기](analysis-services-create-powershell.md)를 참조하세요.

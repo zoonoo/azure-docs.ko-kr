@@ -4,10 +4,10 @@ description: Stream Analytics를 사용하여 Application Insights 데이터를 
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.openlocfilehash: e67365038b9a481bc0cacf079e5d197cc3139a5f
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536916"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: Stream Analytics를 사용하여 Application Insights에서 SQL로 내보내기
@@ -153,13 +153,13 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 #### <a name="set-path-prefix-pattern"></a>경로 접두사 패턴 설정
 
-**날짜 형식을 YYYY-MM-DD(대시)로 설정해야 합니다.**
+**날짜 형식을 YYYY-MM-DD (대시 포함)로 설정 해야 합니다.**
 
 경로 접두사 패턴은 Stream Analytics가 스토리지에서 입력 파일을 찾는 방법을 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
-이 예제에서:
+이 예제에 대한 설명:
 
 * `webapplication27`은 Application Insights 리소스의 이름으로, **모두 소문자**입니다. 
 * `1234...`은 **대시를 제거한**Application Insights 리소스의 계측 키입니다. 
@@ -239,7 +239,7 @@ SQL 데이터베이스를 지정합니다.
     FROM [dbo].[PageViewsTable]
 
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 * [Stream Analytics를 사용하여 Power BI로 내보내기](../../azure-monitor/app/export-power-bi.md )
 * [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](../../azure-monitor/app/export-data-model.md)
 * [Application Insights에서 연속 내보내기](../../azure-monitor/app/export-telemetry.md)

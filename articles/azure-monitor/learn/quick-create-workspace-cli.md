@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
 ms.openlocfilehash: 0e91bc9c994a48b335c3ccb7373a9f4f5dc6d1e8
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81605081"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Azure CLI 2.0으로 Log Analytics 작업 영역 만들기
@@ -19,7 +19,7 @@ ms.locfileid: "81605081"
 
 * 구독의 Azure 리소스  
 * System Center Operations Manager에서 모니터링하는 온-프레미스 컴퓨터  
-* 구성 관리자의 장치 컬렉션  
+* Configuration Manager에서 장치 컬렉션  
 * Azure Storage에서 진단 또는 로그 데이터  
 
 Azure VM 및 사용자 환경의 Windows 또는 Linux VM 등 다른 소스의 경우 다음 항목을 참조하세요.
@@ -28,16 +28,16 @@ Azure VM 및 사용자 환경의 Windows 또는 Linux VM 등 다른 소스의 �
 * [하이브리드 Linux 컴퓨터에서 데이터 수집](../learn/quick-collect-linux-computer.md)
 * [하이브리드 Windows 컴퓨터에서 데이터 수집](quick-collect-windows-computer.md)
 
-Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 만드세요.
+Azure 구독이 없는 경우 시작 하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
-[az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)를 사용하여 작업 영역을 만듭니다. 다음 예제에서는 로컬 컴퓨터에서 리소스 관리자 템플릿을 사용하여 *eastus* 위치에 작업 영역을 만듭니다. JSON 템플릿은 작업 영역의 이름만 사용자에게 입력을 요청하도록 구성되며, 환경에서 표준 구성으로 사용될수 있는 다른 매개 변수에 대해서는 기본값을 지정합니다. 또는 조직에서 공유 액세스에 대한 Azure Storage 계정에 템플릿을 저장할 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿과 Azure CLI를 사용하여 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
+[az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)를 사용하여 작업 영역을 만듭니다. 다음 예제에서는 로컬 컴퓨터의 리소스 관리자 템플릿을 사용 하 여 *e us* 위치에 작업 영역을 만듭니다. JSON 템플릿은 작업 영역의 이름만 사용자에게 입력을 요청하도록 구성되며, 환경에서 표준 구성으로 사용될수 있는 다른 매개 변수에 대해서는 기본값을 지정합니다. 또는 조직에서 공유 액세스에 대한 Azure Storage 계정에 템플릿을 저장할 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿과 Azure CLI를 사용하여 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
 
-지원되는 지역에 대한 자세한 내용은 [로그 애널리틱스에서 사용할 수 있는 지역](https://azure.microsoft.com/regions/services/) 및 제품 검색 필드에서 Azure **Monitor를** 검색하는 참조입니다.
+지원 되는 지역에 대 한 자세한 내용은 [에서 사용할 수 있는 지역 Log Analytics](https://azure.microsoft.com/regions/services/) 를 참조 하 고 **제품 검색** 필드에서 Azure Monitor를 검색 합니다.
 
 다음 매개 변수는 기본값을 설정합니다.
 
@@ -108,7 +108,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 
 2. 요구 사항을 충족하도록 템플릿을 편집합니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) 참조를 검토하세요.
 3. 이 파일을 로컬 폴더에 **deploylaworkspacetemplate.json**으로 저장합니다.   
-4. 이제 이 템플릿을 배포할 수 있습니다. 템플릿이 포함된 폴더의 다음 명령을 사용합니다. 작업 영역 이름에 대한 메시지가 표시되면 모든 Azure 구독에서 전역적으로 고유한 이름을 제공합니다.
+4. 이제 이 템플릿을 배포할 수 있습니다. 템플릿이 포함 된 폴더에서 다음 명령을 사용 합니다. 작업 영역 이름을 입력 하 라는 메시지가 표시 되 면 모든 Azure 구독에서 전역적으로 고유한 이름을 제공 합니다.
 
     ```azurecli
     az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
