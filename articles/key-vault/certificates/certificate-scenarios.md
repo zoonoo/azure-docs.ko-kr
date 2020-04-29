@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 5881314f0d3c62e7d6181ebd7bb27a5e0e87729a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431944"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
@@ -39,10 +39,10 @@ ms.locfileid: "81431944"
 **1단계** - CA(인증 기관) 공급자  
 -   지정된 회사(예: Contoso)에 대해 IT 관리자, PKI 관리자로 등록하거나 CA로 계정을 관리하는 것은 Key Vault 인증서를 사용하는 필수 구성 요소입니다.  
     다음 CA는 Key Vault와 현재 협력하는 공급자입니다.  
-    -   DigiCert - 키 볼트는 DigiCert와 OV TLS / SSL 인증서를 제공합니다.  
-    -   GlobalSign - 키 볼트는 글로벌 사인을 통해 OV TLS/SSL 인증서를 제공합니다.  
+    -   DigiCert-Key Vault는 DigiCert와 OV-ES TLS/SSL 인증서를 제공 합니다.  
+    -   GlobalSign Key Vault는 GlobalSign을 사용 하 여 OV-ES TLS/SSL 인증서를 제공 합니다.  
 
-**2단계** - CA 공급자의 계정 관리자는 Key Vault에서 키 볼트를 통해 TLS/SSL 인증서를 등록, 갱신 및 사용하는 데 사용할 자격 증명을 만듭니다.
+**2 단계** -CA 공급자의 계정 관리자는 Key Vault에서 Key Vault를 통해 TLS/SSL 인증서를 등록 하 고 갱신 하 고 사용 하는 데 사용할 자격 증명을 만듭니다.
 
 **3단계** - CA에 따라 인증서를 소유하는 Contoso 직원(Key Vault 사용자)과 함께 Contoso 관리자는 관리자로부터 또는 CA로 계정에서 직접 인증서를 가져올 수 있습니다.  
 
@@ -63,9 +63,9 @@ ms.locfileid: "81431944"
 
 **4단계** - 다음 설명은 위의 다이어그램에서 녹색 숫자로 된 단계에 해당합니다.  
   (1) - 위의 다이어그램에서 애플리케이션은 내부적으로 키 자격 증명 모음에서 키를 만드는 작업으로 시작하는 인증서를 만듭니다.  
-  (2) - 키 볼트는 CA에 TLS / SSL 인증서 요청을 보냅니다.  
+  (2)-Key Vault는 CA에 TLS/SSL 인증서 요청을 보냅니다.  
   (3) - 애플리케이션이 인증서 완료를 위해 Key Vault에 대해 반복 및 대기 프로세스에서 폴링합니다. Key Vault가 x509 인증서를 통해 CA의 응답을 수신하는 경우 인증서 만들기가 완료됩니다.  
-  (4) - CA는 X509 TLS/SSL 인증서를 사용하여 키 볼트의 TLS/SSL 인증서 요청에 응답합니다.  
+  (4)-CA는 X509 TLS/SSL 인증서를 사용 하 여 Key Vault의 TLS/SSL 인증서 요청에 응답 합니다.  
   (5) - 새 인증서 만들기는 CA에 대한 X509 인증서를 병합하여 완료합니다.  
 
   Key Vault 사용자 - 정책을 지정하여 인증서를 만듭니다.
@@ -96,16 +96,16 @@ ms.locfileid: "81431944"
 
 -   또한 사용자는 가져오기 시 사용할 수 있지만 가져오기 시 정보가 지정되지 않은 기본값을 포함하는 정책을 편집할 수 있습니다. 예: 발급자 정보 없음  
 
-### <a name="formats-of-import-we-support"></a>우리가 지원하는 가져오기 형식
-PEM 파일 형식에 대해 다음과 같은 유형의 가져오기를 지원합니다. 다음이 있는 암호화되지 않은 암호화되지 않은 PKCS#8 인코딩된 단일 PEM 인코딩 인증서
+### <a name="formats-of-import-we-support"></a>지원 되는 가져오기의 형식
+PEM 파일 형식에 대해 다음과 같은 가져오기 유형을 지원 합니다. 다음을 포함 하는 PKCS # 8로 인코딩된 암호화 되지 않은 키와 함께 단일 PEM 인코딩 인증서
 
-인증서 시작 ---------- ----- 인증서 종료-----
+인증서----------끝 인증서를 시작----------
 
------개인 키 시작----- -----개인 키 엔드-----
+-----시작 개인 키----------최종 개인 키-----
 
-인증서 병합에서 우리는 2 PEM 기반 형식을 지원합니다. 단일 PKCS#8 인코딩된 인증서 또는 base64 인코딩된 P7B 파일을 병합할 수 있습니다. 인증서 시작 ---------- ----- 인증서 종료-----
+인증서 병합 시 2 개의 PEM 기반 형식을 지원 합니다. 단일 PKCS # 8로 인코딩된 인증서 또는 b a s e 64로 인코딩된 P7B 파일을 병합할 수 있습니다. 인증서----------끝 인증서를 시작----------
 
-현재 PEM 형식으로 EC 키를 지원하지 않습니다.
+현재는 PEM 형식의 EC 키를 지원 하지 않습니다.
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Key Vault와 협력하지 않는 CA를 통해 인증서 만들기  
  이 방법을 통해 Key Vault의 파트너 공급자가 아닌 다른 CA와 작업할 수 있습니다. 즉, 조직은 선택한 CA와 작업할 수 있습니다.  

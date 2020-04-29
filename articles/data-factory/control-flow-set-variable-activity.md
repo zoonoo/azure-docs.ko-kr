@@ -12,10 +12,10 @@ ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.openlocfilehash: e5bd3d10e4e43daf3031aae5083ee917cfe65ede
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417983"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Azure Data Factory의 변수 설정 작업
@@ -29,15 +29,15 @@ Data Factory 파이프라인에서 정의된 String, Bool 또는 Array 형식의
 -------- | ----------- | --------
 name | 파이프라인의 작업 이름 | 예
 description | 작업이 어떤 일을 수행하는지 설명하는 텍스트 | 아니요
-type | **Set변수로** 설정해야 합니다. | 예
-value | 변수가 할당될 문자열 리터럴 또는 식 개체 값 | 예
+type | **Setvariable** 로 설정 해야 합니다. | 예
+value | 변수에 할당 되는 문자열 리터럴 또는 식 개체 값 | 예
 variableName | 이 작업에 의해 설정되는 변수의 이름입니다. | 예
 
 ## <a name="incrementing-a-variable"></a>변수 증분
 
-Azure Data Factory에서 변수와 관련된 일반적인 시나리오는 때까지 또는 foreach 활동 내에서 변수를 이터레이터로 사용하는 것입니다. 집합 변수 활동에서는 필드에 설정되는 변수를 `value` 참조할 수 없습니다. 이 제한을 해결하려면 임시 변수를 설정한 다음 두 번째 집합 변수 활동을 만듭니다. 두 번째 집합 변수 활동은 이터레이터값을 임시 변수로 설정합니다. 
+Azure Data Factory 변수와 관련 된 일반적인 시나리오는 until 또는 foreach 활동 내에서 변수를 반복기로 사용 하는 것입니다. 변수 설정 작업에서는 `value` 필드에 설정 되는 변수를 참조할 수 없습니다. 이 제한을 해결 하려면 임시 변수를 설정한 다음 두 번째 변수 설정 작업을 만듭니다. 두 번째 변수 설정 작업은 반복기의 값을 임시 변수로 설정 합니다. 
 
-다음은 이 패턴의 예입니다.
+이 패턴의 예는 다음과 같습니다.
 
 ![변수 증가](media/control-flow-set-variable-activity/increment-variable.png "변수 증가")
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: bd6d6375b19689c582c0f129378c76936e624e04
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416278"
 ---
 <a name="web-analytics"></a>Web Analytics
@@ -47,7 +47,7 @@ ms.locfileid: "81416278"
     1. **utm\_campaign**
     2. **utm\_source**
     3. **ref**
-    4. **Src**
+    4. **src**
 
 예를 들어 다음과 같은 주소를 사용할 수 있습니다. ```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign```
 
@@ -70,7 +70,7 @@ ms.locfileid: "81416278"
     2.  방문 페이지 URL = ```https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName```
 3. 사용자가 \"제품 사용해 보기\" 링크를 클릭하여 AppSource로 이동합니다.
     1. 추천 URL = ```https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName```
-    2. 방문 페이지 URL **(이 URL에\_이 URL에 utm 캠페인 및 utm\_소스가 추가되어 있는지 확인합니다.**=```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**```
+    2. 방문 페이지 URL (**이 url에 utm\_캠페인과 utm\_소스를이 url에 추가 했는지 확인**) =```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**```
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>캠페인의 성공 여부를 평가하는 방법
 -----------------------------------------

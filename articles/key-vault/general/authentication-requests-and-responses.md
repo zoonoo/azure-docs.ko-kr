@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 33e3bc13e67e268b82bf517033b4b1c7c51c361f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430891"
 ---
 # <a name="authentication-requests-and-responses"></a>인증, 요청 및 응답
@@ -65,7 +65,7 @@ Azure Key Vault는 JSON 형식 요청과 응답을 지원합니다. Azure Key Va
 
 - 3xx – 리디렉션: 조건부 GET을 충족하기 위해 304 “수정되지 않음”이 반환될 수 있습니다. 나중에 DNS 및 경로 변경을 나타내기 위해 다른 3xx 코드가 사용될 수 있습니다.  
 
-- 4xx – 클라이언트 오류: 잘못된 요청, 누락된 키, 구문 오류, 잘못된 매개 변수, 인증 오류 등에 사용됩니다. 응답 본문에는 자세한 오류 설명이 포함됩니다.  
+- 4xx – 클라이언트 오류: 잘못 된 요청, 누락 된 키, 구문 오류, 잘못 된 매개 변수, 인증 오류 등에 사용 됩니다. 응답 본문에는 자세한 오류 설명이 포함 됩니다.  
 
 - 5xx – 서버 오류: 내부 서버 오류에 사용됩니다. 응답 본문에는 요약된 오류 정보가 포함됩니다.  
 
@@ -113,5 +113,5 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   권한 부여: 요청에 대한 액세스 토큰을 가져오는 데 사용할 수 있는 OAuth2 권한 부여 서비스의 주소입니다.  
 
--   리소스: 권한 부여 요청에`https://vault.azure.net`사용할 리소스() 의 이름입니다.  
+-   리소스: 권한 부여 요청에 사용할 리소스`https://vault.azure.net`()의 이름입니다.  
 

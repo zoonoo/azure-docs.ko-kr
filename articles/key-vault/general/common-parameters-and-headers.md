@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d0ada9c1e6b45b1be17b15b67f67fc64fc266203
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430878"
 ---
 # <a name="common-parameters-and-headers"></a>공통 매개 변수 및 헤더
@@ -40,10 +40,10 @@ ms.locfileid: "81430878"
    }  
 ```
 
-|요소 이름 | Type | Description |
+|요소 이름 | Type | 설명 |
 |---|---|---|
-| 코드 | 문자열 | 발생한 오류의 형식입니다.|
-| message | 문자열 | 오류 원인에 대한 설명입니다. |
+| code | string | 발생한 오류의 형식입니다.|
+| message | string | 오류 원인에 대한 설명입니다. |
 
 
 

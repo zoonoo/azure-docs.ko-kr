@@ -1,5 +1,5 @@
 ---
-title: 레거시를 사용하여 MongoDB의 데이터 복사
+title: 레거시를 사용 하 여 MongoDB에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Mongo DB에서 지원되는 싱크 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
 ms.openlocfilehash: 803e34a93e8019cfc2577bfaab3ba13c409c6b01
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418170"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 복사
@@ -40,7 +40,7 @@ MongoDB 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 - MongoDB **버전 2.4, 2.6, 3.0, 3.2, 3.4 및 3.6**
 - **Basic** 또는 **Anonymous** 인증을 사용하여 데이터를 복사합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -62,13 +62,13 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 | 서버 |MongoDB 서버의 IP 주소 또는 호스트 이름입니다. |예 |
 | 포트 |MongoDB 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |아니요(기본값: 27017) |
 | databaseName |액세스하려는 MongoDB 데이터베이스의 이름입니다. |예 |
-| authenticationType | MongoDB 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용된 값은 **기본**및 **익명**입니다. |예 |
-| 사용자 이름 |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
+| authenticationType | MongoDB 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용 되는 값은 **Basic**및 **Anonymous**입니다. |예 |
+| username |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
 | password |사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예(기본 인증을 사용하는 경우) |
 | authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |아니요. 기본 인증의 경우 기본값은 관리자 계정 및 databaseName 속성을 사용하여 지정된 데이터베이스를 사용하는 것입니다. |
-| enableSsl | 서버에 대한 연결이 TLS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 False입니다.  | 예 |
-| allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 False입니다.  | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임입니다.](concepts-integration-runtime.md) [필수 구성 조건](#prerequisites) 섹션에서 자세히 알아보십시오. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
+| enableSsl | TLS를 사용 하 여 서버에 대 한 연결을 암호화할지 여부를 지정 합니다. 기본값은 False입니다.  | 아니요 |
+| allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
+| connectVia | 데이터 저장소에 연결 하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md) 입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
 
@@ -128,7 +128,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="mongodb-as-source"></a>MongoDB를 원본으로
 
-다음 속성은 복사 활동 **소스** 섹션에서 지원됩니다.
+복사 작업 **원본** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
@@ -172,7 +172,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
 ## <a name="schema-by-data-factory"></a>Data Factory에서의 스키마
 
-Azure Data Factory 서비스는 컬렉션의 **최신 100개 문서를** 사용하여 MongoDB 컬렉션에서 스키마를 추론합니다. 이러한 100개의 문서에 전체 스키마가 포함되어 있지 않는 경우, 일부 열은 복사 작업 중 무시될 수 있습니다.
+Azure Data Factory 서비스는 컬렉션의 **최신 100 문서** 를 사용 하 여 MongoDB collection에서 스키마를 유추 합니다. 이러한 100개의 문서에 전체 스키마가 포함되어 있지 않는 경우, 일부 열은 복사 작업 중 무시될 수 있습니다.
 
 ## <a name="data-type-mapping-for-mongodb"></a>MongoDB에 대한 데이터 형식 매핑
 
@@ -186,8 +186,8 @@ MongoDB에서 데이터를 복사하는 경우 MongoDB 데이터 형식에서 Az
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |String |
-| String |String |
+| ObjectID |문자열 |
+| 문자열 |문자열 |
 | UUID |Guid |
 | Object |중첩 구분 기호로 "_"를 사용한 평면화된 열에 다시 정규화 |
 
@@ -227,7 +227,7 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 MongoDB �
 * 원본 배열 내에서 데이터의 위치 표시
 * 배열 내의 각 요소에 대해 확장된 데이터
 
-**표 "ExampleTable_Invoices":**
+**테이블 "ExampleTable_Invoices":**
 
 | _id | ExampleTable_Invoices_dim1_idx | 송장_id | 항목 | price | 할인 |
 | --- | --- | --- | --- | --- | --- |
@@ -235,7 +235,7 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 MongoDB �
 | 1111 |1 |124 |오븐 |1235 |0.2 |
 | 2222 |0 |135 |냉장고 |12543 |0.0 |
 
-**표 "ExampleTable_Ratings":**
+**테이블 "ExampleTable_Ratings":**
 
 | _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
 | --- | --- | --- |

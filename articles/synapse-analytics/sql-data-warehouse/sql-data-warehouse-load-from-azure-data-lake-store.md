@@ -1,6 +1,6 @@
 ---
-title: Azure 데이터 레이크 저장소의 자습서 로드 데이터
-description: PolyBase 외부 테이블을 사용하여 시냅스 SQL용 Azure 데이터 레이크 저장소의 데이터를 로드합니다.
+title: 자습서 Azure Data Lake Storage에서 데이터 로드
+description: PolyBase 외부 테이블을 사용 하 여 Synapse SQL에 대 한 Azure Data Lake Storage에서 데이터를 로드 합니다.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,24 +12,24 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 9713d73ee132f743ceea98cbaca6a83f36fd3a45
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416109"
 ---
-# <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>SQL 분석을 위해 Azure 데이터 레이크 스토리지에서 데이터 로드
+# <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>SQL Analytics에 대 한 Azure Data Lake Storage에서 데이터 로드
 
-이 가이드에서는 PolyBase 외부 테이블을 사용하여 Azure Data Lake Storage에서 데이터를 로드하는 방법을 간략하게 설명합니다. Data Lake Storage에 저장된 데이터에 대해 adhoc 쿼리를 실행할 수 있지만 최상의 성능을 위해 데이터를 가져오는 것이 좋습니다.
+이 가이드에서는 PolyBase 외부 테이블을 사용 하 여 Azure Data Lake Storage에서 데이터를 로드 하는 방법을 설명 합니다. Data Lake Storage에 저장 된 데이터에 대해 임시 쿼리를 실행할 수 있지만 최상의 성능을 위해 데이터를 가져오는 것이 좋습니다.
 
 > [!NOTE]  
-> 로드에 대한 대안은 현재 공개 미리 보기에서 [COPY 문입니다.](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  COPY 문은 가장 유연합니다. COPY 문에 대한 피드백을 제공하려면 다음 메일 그룹으로 sqldwcopypreview@service.microsoft.com전자 메일을 보냅니다.
+> 로드 하는 대신 현재 공개 미리 보기로 제공 되는 [복사 문이](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 있습니다.  COPY 문은 가장 뛰어난 유연성을 제공 합니다. COPY 문에 대 한 피드백을 제공 하려면 메일을 다음 메일 그룹으로 보냅니다 sqldwcopypreview@service.microsoft.com.
 >
 > [!div class="checklist"]
 >
-> * 데이터 레이크 저장소에서 로드하는 데 필요한 데이터베이스 개체를 만듭니다.
-> * 데이터 레이크 스토리지 디렉토리에 연결합니다.
-> * 데이터 웨어하우스에 데이터를 로드합니다.
+> * Data Lake Storage에서 로드 하는 데 필요한 데이터베이스 개체를 만듭니다.
+> * Data Lake Storage 디렉터리에 연결 합니다.
+> * 데이터 웨어하우스에 데이터를 로드 합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -39,18 +39,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 자습서를 실행하려면 다음이 필요합니다.
 
-* SQL 풀입니다. [SQL 풀 및 쿼리 데이터 만들기를](create-data-warehouse-portal.md)참조하십시오.
-* 데이터 레이크 스토리지 계정입니다. [Azure 데이터 레이크 저장소시작 을](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)참조하십시오. 이 저장소 계정의 경우 저장소 계정 키, Azure 디렉터리 응용 프로그램 사용자 또는 저장소 계정에 적절한 RBAC 역할을 하는 AAD 사용자 등 다음 자격 증명 중 하나를 구성하거나 지정해야 합니다.
+* SQL 풀. [SQL 풀 만들기 및 데이터 쿼리](create-data-warehouse-portal.md)를 참조 하세요.
+* Data Lake Storage 계정. [Azure Data Lake Storage 시작을](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)참조 하세요. 이 저장소 계정에는 저장소 계정 키, Azure Directory 응용 프로그램 사용자 또는 저장소 계정에 대 한 적절 한 RBAC 역할이 있는 AAD 사용자를 로드 하려면 다음 자격 증명 중 하나를 구성 하거나 지정 해야 합니다.
 
 ## <a name="create-a-credential"></a>자격 증명 만들기
 
-AAD 통과를 사용하여 인증할 때 이 섹션을 건너뛰고 "외부 데이터 원본 만들기"로 진행할 수 있습니다. AAD 통과를 사용할 때 데이터베이스 범위의 자격 증명을 만들거나 지정할 필요는 없지만 AAD 사용자에게 저장소 계정에 적절한 RBAC 역할(저장소 Blob 데이터 판독기, 기여자 또는 소유자 역할)이 있는지 확인합니다. 자세한 내용은 [여기에](https://techcommunity.microsoft.com/t5/Azure-SQL-Data-Warehouse/How-to-use-PolyBase-by-authenticating-via-AAD-pass-through/ba-p/862260)설명되어 있습니다.
+AAD 통과를 사용 하 여 인증 하는 경우이 섹션을 건너뛰고 "외부 데이터 원본 만들기"를 진행할 수 있습니다. AAD 통과를 사용 하는 경우에는 데이터베이스 범위 자격 증명을 만들거나 지정할 필요가 없지만, AAD 사용자에 게는 저장소 계정에 대 한 적절 한 RBAC 역할 (저장소 Blob 데이터 판독기, 참가자 또는 소유자 역할)이 있어야 합니다. 자세한 내용은 [여기](https://techcommunity.microsoft.com/t5/Azure-SQL-Data-Warehouse/How-to-use-PolyBase-by-authenticating-via-AAD-pass-through/ba-p/862260)에 설명 되어 있습니다.
 
-Data Lake Storage 계정에 액세스하려면 자격 증명 암호를 암호화하려면 데이터베이스 마스터 키를 만들어야 합니다. 그런 다음 데이터베이스 범위 자격 증명을 만들어 비밀을 저장합니다. 서비스 주체(Azure 디렉터리 응용 프로그램 사용자)를 사용하여 인증할 때 데이터베이스 Scoped 자격 증명은 AAD에 설정된 서비스 주체 자격 증명을 저장합니다. 데이터베이스 범위 자격 증명을 사용하여 Gen2의 저장소 계정 키를 저장할 수도 있습니다.
+Data Lake Storage 계정에 액세스 하려면 자격 증명 암호를 암호화 하는 데이터베이스 마스터 키를 만들어야 합니다. 그런 다음 암호를 저장 하는 데이터베이스 범위 자격 증명을 만듭니다. 서비스 주체 (Azure Directory 응용 프로그램 사용자)를 사용 하 여 인증 하는 경우 데이터베이스 범위 자격 증명은 AAD에 설정 된 서비스 주체 자격 증명을 저장 합니다. 데이터베이스 범위 자격 증명을 사용 하 여 Gen2에 대 한 저장소 계정 키를 저장할 수도 있습니다.
 
-서비스 주체를 사용하여 Data Lake 저장소에 연결하려면 **먼저** Azure Active Directory 응용 프로그램을 만들고 액세스 키를 만들고 Data Lake Storage 계정에 대한 응용 프로그램 액세스 권한을 부여해야 합니다. 지침은 Active [Directory를 사용하여 Azure 데이터 레이크 저장소에 대한 인증을](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)참조하십시오.
+서비스 주체를 사용 하 여 Data Lake Storage에 연결 하려면 **먼저** Azure Active Directory 응용 프로그램을 만들고, 액세스 키를 만들고, Data Lake Storage 계정에 대 한 액세스 권한을 응용 프로그램에 부여 해야 합니다. 지침은 [Active Directory를 사용 하 여 Azure Data Lake Storage에 인증을](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)참조 하세요.
 
-CONTROL 수준 권한이 있는 사용자와 함께 SQL 풀에 로그인하고 데이터베이스에 대해 다음 SQL 문을 실행합니다.
+컨트롤 수준 권한이 있는 사용자로 SQL 풀에 로그인 하 고 데이터베이스에 대해 다음 SQL 문을 실행 합니다.
 
 ```sql
 -- A: Create a Database Master Key.
@@ -93,7 +93,7 @@ WITH
 
 ## <a name="create-the-external-data-source"></a>외부 데이터 원본 만들기
 
-이 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 명령을 사용하여 데이터의 위치를 저장합니다. AAD 통과로 인증하는 경우 자격 증명 매개 변수가 필요하지 않습니다. 서비스 끝점에 대해 관리 되는 ID를 사용 하 여 인증 하는 경우 이 [설명서를](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#azure-sql-data-warehouse-polybase) 따라 외부 데이터 원본을 설정 합니다.
+이 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 명령을 사용하여 데이터의 위치를 저장합니다. AAD 통과를 사용 하 여 인증 하는 경우 자격 증명 매개 변수가 필요 하지 않습니다. 서비스 끝점에 대해 관리 Id를 사용 하 여 인증 하는 경우이 [설명서](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#azure-sql-data-warehouse-polybase) 에 따라 외부 데이터 원본을 설정 합니다.
 
 ```sql
 -- C (for Gen1): Create an external data source
@@ -123,7 +123,7 @@ WITH (
 
 ## <a name="configure-data-format"></a>데이터 형식 구성
 
-Data Lake 저장소에서 데이터를 가져오려면 외부 파일 형식을 지정해야 합니다. 이 개체는 파일이 데이터 레이크 저장소에 기록되는 방법을 정의합니다.
+Data Lake Storage에서 데이터를 가져오려면 외부 파일 형식을 지정 해야 합니다. 이 개체는 Data Lake Storage에서 파일을 작성 하는 방법을 정의 합니다.
 전체 목록은 [외부 파일 형식 만들기](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)의 T-SQL 설명서를 참조하세요.
 
 ```sql
@@ -187,7 +187,7 @@ Data Lake Storage Gen1은 RBAC(역할 기반 액세스 제어)를 사용하여 �
 
 ## <a name="load-the-data"></a>데이터 로드
 
-데이터 레이크 저장소에서 데이터를 로드하려면 [SELECT(Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문을 사용하여 테이블 만들기를 사용합니다.
+Data Lake Storage에서 데이터를 로드 하려면 [SELECT (transact-sql) 문을 CREATE TABLE](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 사용 합니다.
 
 CTAS는 새 테이블을 만들고 select 문의 결과와 함께 새 테이블을 정보표시합니다. CTAS는 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
 
@@ -204,7 +204,7 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 ## <a name="optimize-columnstore-compression"></a>Columnstore 압축을 최적화합니다.
 
-기본적으로 테이블은 클러스터된 열저장소 인덱스로 정의됩니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  여기에는 다양한 이유가 있습니다. 자세한 내용은 [Columnstore 인덱스 관리](sql-data-warehouse-tables-index.md)를 참조하세요.
+기본적으로 테이블은 클러스터형 columnstore 인덱스로 정의 됩니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  여기에는 다양한 이유가 있습니다. 자세한 내용은 [Columnstore 인덱스 관리](sql-data-warehouse-tables-index.md)를 참조하세요.
 
 로드 후 쿼리 성능과 columnstore 압축을 최적화하려면 모든 행을 압축하기 위해 columnstore 인덱스를 강제 적용할 테이블을 다시 빌드합니다.
 
@@ -224,7 +224,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 
 ## <a name="achievement-unlocked"></a>목표를 달성했습니다!
 
-데이터 웨어하우스에 데이터를 성공적으로 로드했습니다. 잘 하셨습니다!
+데이터 웨어하우스에 데이터를 성공적으로 로드 했습니다. 잘 하셨습니다!
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -233,12 +233,12 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 다음 작업을 수행했습니다.
 > [!div class="checklist"]
 >
-> * 데이터 레이크 저장소에서 로드하는 데 필요한 데이터베이스 개체를 만들었습니다.
-> * 데이터 레이크 스토리지 디렉토리에 연결되었습니다.
-> * 데이터 웨어하우스에 데이터를 로드했습니다.
+> * Data Lake Storage에서 로드 하는 데 필요한 데이터베이스 개체를 만들었습니다.
+> * Data Lake Storage 디렉터리에 연결 되어 있습니다.
+> * 데이터 웨어하우스에 데이터를 로드 했습니다.
 >
 
-데이터 로드는 Azure Synapse 분석을 사용하여 데이터 웨어하우스 솔루션을 개발하는 첫 번째 단계입니다. 개발 리소스를 확인하세요.
+데이터 로드는 Azure Synapse Analytics를 사용 하 여 데이터 웨어하우스 솔루션을 개발 하기 위한 첫 번째 단계입니다. 개발 리소스를 확인하세요.
 
 > [!div class="nextstepaction"]
-> [데이터 웨어하우징용 테이블 을 개발하는 방법 알아보기](sql-data-warehouse-tables-overview.md)
+> [데이터 웨어하우징에 대 한 테이블을 개발 하는 방법 알아보기](sql-data-warehouse-tables-overview.md)

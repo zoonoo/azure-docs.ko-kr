@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.openlocfilehash: 35d61e896a395c3044a51780fef72d54c211a31f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417188"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Azure Data Factory의 ForEach 작업
@@ -75,7 +75,7 @@ ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. �
 name | for-each 작업의 이름입니다. | String | 예
 type | **ForEach**로 설정되어야 합니다. | String | 예
 isSequential | 순차 또는 병렬로 루프를 실행할지 지정합니다.  한 번에 최대 20개의 루프 반복을 병렬로 실행할 수 있습니다. 예를 들어 **isSequential**이 False로 설정된 10개의 다른 원본과 싱크 데이터 세트가 있는 복사 작업에 대해 반복되는 ForEach 작업의 경우, 모든 복사가 한 번에 실행됩니다. 기본값은 False입니다. <br/><br/> "IsSequential"이 False로 설정된 경우 여러 실행 파일을 실행하기 위해 정확한 구성이 있는지 확인합니다. 그렇지 않으면 쓰기 충돌이 발생하지 않도록 이 속성을 주의하여 사용해야 합니다. 자세한 내용은 [병렬 실행](#parallel-execution) 섹션을 참조하세요. | 부울 | 아니요. 기본값은 False입니다.
-batchCount | 병렬 실행 수를 제어하는 데 사용하는 Batch 계정입니다(IsSequential이 false로 설정된 경우). 이는 상한 동시성 한이지만 각 활동별 활동이 항상 이 숫자로 실행되는 것은 아닙니다. | 정수(최대값 50) | 아니요. 기본값은 20입니다.
+batchCount | 병렬 실행 수를 제어하는 데 사용하는 Batch 계정입니다(IsSequential이 false로 설정된 경우). 이는 상한 동시성 제한 이지만 각 활동은 항상이 숫자에서 실행 되지 않습니다. | 정수(최대값 50) | 아니요. 기본값은 20입니다.
 Items | 반복되는 JSON 배열을 반환하는 식 | 식(JSON 배열 반환) | 예
 활동 | 실행할 작업 | 작업 목록 | 예
 
@@ -475,7 +475,7 @@ ForEach 작업에서는 여러 작업(예: 복사 및 웹 작업)에 대해 반�
 
 ## <a name="aggregating-outputs"></a>출력 집계
 
-__foreach__ 활동의 출력을 집계하려면 _변수_ 및 _변수 활동을 더하기_ 를 활용하십시오.
+__Foreach__ 활동의 출력을 집계 하려면 _변수_ 를 활용 하 고 변수 활동을 _추가_ 하세요.
 
 먼저, 파이프라인에서 `array` _변수_를 선언합니다. 그런 다음, 각 __foreach__ 루프 내에서 _변수 추가_ 작업을 호출합니다. 이후에 배열에서 집계를 검색할 수 있습니다.
 

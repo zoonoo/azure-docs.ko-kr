@@ -1,5 +1,5 @@
 ---
-title: 역학 AX에서 데이터 복사
+title: Dynamics AX에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Dynamics AX에서 지원되는 싱크 데이터 스토리지로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: 4dd82eea0a80ef81a0f972d1964a62e6c17a80c0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417377"
 ---
-# <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 동적 AX의 데이터 복사
+# <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Dynamics AX에서 데이터 복사
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -27,10 +27,10 @@ ms.locfileid: "81417377"
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-이 역학 AX 커넥터는 다음 활동에 대해 지원됩니다.
+이 Dynamics AX 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [지원되는 소스/싱크 매트릭스로](copy-activity-overview.md) [활동 복사](copy-activity-overview.md)
-- [조회 활동](control-flow-lookup-activity.md)
+- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
+- [조회 작업](control-flow-lookup-activity.md)
 
 Dynamics AX에서 지원되는 모든 싱크 데이터 스토리지로 데이터를 복사할 수 있습니다. 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.
 
@@ -45,7 +45,7 @@ Dynamics AX에서 지원되는 모든 싱크 데이터 스토리지로 데이터
 
 다음 섹션에서는 Dynamics AX 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 서비스 주체 인증을 사용하려면 다음 단계를 수행합니다.
 
@@ -69,7 +69,7 @@ Dynamics AX 연결된 서비스에 다음 속성이 지원됩니다.
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 예 |
 | aadResourceId | 권한 부여를 요청하는 AAD 리소스를 지정합니다. 예를 들어 동적 URL가 `https://sampledynamics.sandbox.operations.dynamics.com/data/`이면 그에 해당하는 AAD 리소스는 일반적으로 `https://sampledynamics.sandbox.operations.dynamics.com`입니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 선택할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 선택할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |아니요 |
 
 **예제**
 
@@ -108,7 +108,7 @@ Dynamics AX에서 데이터를 복사하려면 데이터 세트의 **type** 속�
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **DynamicsAXResource**로 설정해야 합니다. | 예 |
-| 경로 | Dynamics AX OData 엔터티의 경로입니다. | 예 |
+| path | Dynamics AX OData 엔터티의 경로입니다. | 예 |
 
 **예제**
 
@@ -137,12 +137,12 @@ Dynamics AX에서 데이터를 복사하려면 데이터 세트의 **type** 속�
 
 ### <a name="dynamics-ax-as-source"></a>원본으로 Dynamics AX
 
-Dynamics AX에서 데이터를 복사하려면 복사 작업의 **source** 형식을 **DynamicsAXSource**로 설정합니다. 다음 속성은 활동 복사 **원본** 섹션에서 지원됩니다.
+Dynamics AX에서 데이터를 복사하려면 복사 작업의 **source** 형식을 **DynamicsAXSource**로 설정합니다. 복사 작업 **원본** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성을 **DynamicsAXSource**로 설정해야 합니다. | 예 |
-| Query | 데이터 필터링에 대한 OData 쿼리 옵션입니다. 예: `"?$select=Name,Description&$top=5"`.<br/><br/>**참고**: 커넥터가 결합된 URL(`[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`)에서 데이터를 복사합니다. 자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 예 |
+| Query | 데이터 필터링에 대한 OData 쿼리 옵션입니다. 예: `"?$select=Name,Description&$top=5"`.<br/><br/>**참고**: 커넥터가 결합된 URL(`[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`)에서 데이터를 복사합니다. 자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아니요 |
 
 **예제**
 
@@ -177,9 +177,9 @@ Dynamics AX에서 데이터를 복사하려면 복사 작업의 **source** 형�
 ```
 
 
-## <a name="lookup-activity-properties"></a>조회 활동 속성
+## <a name="lookup-activity-properties"></a>조회 작업 속성
 
-속성에 대한 자세한 내용을 보려면 [조회 활동을](control-flow-lookup-activity.md)선택합니다.
+속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

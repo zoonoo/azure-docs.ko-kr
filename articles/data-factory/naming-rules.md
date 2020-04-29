@@ -1,5 +1,5 @@
 ---
-title: Azure 데이터 팩터리 엔터티 이름 지정 규칙
+title: Azure Data Factory 엔터티 명명 규칙
 description: 데이터 팩터리 엔터티에 대한 이름 지정 규칙을 설명합니다.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.openlocfilehash: f922ada663391cf65a61f4e18bba53668f9c4a1a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81419411"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - 이름 지정 규칙
@@ -31,4 +31,4 @@ ms.locfileid: "81419411"
 | 리소스 그룹 |Microsoft Azure에서 고유합니다. 이름은 대/소문자를 구분하지 않습니다. | 자세한 내용은 [Azure 명명 규칙 및 제한 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming)을 참조하세요. |
 
 ## <a name="next-steps"></a>다음 단계
-[Quickstart: 데이터 팩터리](quickstart-create-data-factory-powershell.md) 아티클 작성의 단계별 지침에 따라 데이터 팩터리를 만드는 방법을 알아봅니다. 
+[빠른 시작: 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md) 문서의 단계별 지침에 따라 데이터 팩터리를 만드는 방법에 대해 알아봅니다. 

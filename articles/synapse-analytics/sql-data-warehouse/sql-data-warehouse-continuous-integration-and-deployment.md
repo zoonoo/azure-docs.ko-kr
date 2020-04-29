@@ -1,6 +1,6 @@
 ---
-title: 지속적인 통합 및 배포
-description: 엔터프라이즈급 데이터베이스 DevOps는 Azure 파이프라인을 사용하여 지속적인 통합 및 배포를 지원하는 데이터 웨어하우징을 위한 환경을 제공합니다.
+title: 연속 통합 및 배포
+description: Azure Pipelines를 사용한 연속 통합 및 배포에 대 한 기본 제공 지원을 통해 데이터 웨어하우징에 대 한 엔터프라이즈급 데이터베이스 DevOps 환경
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: ddd24eb510405d49465ca4e0e0f326f7260e2ed1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416238"
 ---
-# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>데이터 웨어하우징을 위한 지속적인 통합 및 배포
+# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>데이터 웨어하우징에 대 한 지속적인 통합 및 배포
 
-이 간단한 자습서에서는 SSDT(SQL Server Data Tools) 데이터베이스 프로젝트를 Azure DevOps와 통합하고, Azure Pipelines를 활용하여 지속적인 통합 및 배포를 설정하는 방법에 대해 간략히 설명합니다. 이 자습서에서는 데이터 웨어하우징을 위한 지속적인 통합 및 배포 파이프라인을 구축하는 두 번째 단계입니다.
+이 간단한 자습서에서는 SSDT(SQL Server Data Tools) 데이터베이스 프로젝트를 Azure DevOps와 통합하고, Azure Pipelines를 활용하여 지속적인 통합 및 배포를 설정하는 방법에 대해 간략히 설명합니다. 이 자습서는 데이터 웨어하우징에 대 한 연속 통합 및 배포 파이프라인을 구축 하는 두 번째 단계입니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -60,7 +60,7 @@ ms.locfileid: "81416238"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [시냅스 SQL 풀 MPP 아키텍처](massively-parallel-processing-mpp-architecture.md) 살펴보기
+- [SYNAPSE SQL POOL MPP 아키텍처](massively-parallel-processing-mpp-architecture.md) 살펴보기
 - 빠르게 [SQL 풀 만들기](create-data-warehouse-portal.md)
 - [샘플 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)
 - [비디오](sql-data-warehouse-videos.md) 살펴보기

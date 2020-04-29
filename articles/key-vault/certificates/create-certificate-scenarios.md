@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 02e13ce81ed2f11c0bb69015a4864c4a1ad55593
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430969"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>인증서 만들기 모니터링 및 관리
@@ -36,7 +36,7 @@ Azure에 적용합니다.
 
 ## <a name="request-a-kv-certificate-with-a-supported-issuer"></a>지원되는 발급자로 KV 인증서 요청 
 
-|메서드|요청 URI|
+|방법|요청 URI|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
@@ -79,7 +79,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ## <a name="get-pending-request---request-status-is-inprogress"></a>보류 중인 요청 가져오기 - 요청 상태는 "진행 중"
 
-|메서드|요청 URI|
+|방법|요청 URI|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -115,7 +115,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ### <a name="request"></a>요청
 
-|메서드|요청 URI|
+|방법|요청 URI|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -147,7 +147,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ### <a name="request"></a>요청
 
-|메서드|요청 URI|
+|방법|요청 URI|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -185,7 +185,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ## <a name="get-pending-request---pending-request-status-is-deleted-or-overwritten"></a>보류 중인 요청 가져오기 - 보류 중인 요청 상태는 "삭제" 또는 "덮어쓰기"
 해당 상태가 "진행 중"이 아닌 경우 만들기/가져오기 작업으로 보류 중인 개체를 삭제하거나 덮어쓸 수 있습니다.
 
-|메서드|요청 URI|
+|방법|요청 URI|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -223,7 +223,7 @@ StatusCode: 404, ReasonPhrase: 'Not Found'
 > [!NOTE]
 > 보류 중인 개체를 삭제하는 것은 공급자로 x509 인증서 요청을 취소하거나 취소하지 않을 수 있습니다.
 
-|메서드|요청 URI|
+|방법|요청 URI|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
@@ -260,7 +260,7 @@ StatusCode: 409, ReasonPhrase: 'Conflict'
 
 x509 인증서 만들기 요청이 어떤 이유로 실패하거나 취소되는 경우, x509 인증서를 대역 외 방법으로 검색할 수 있는 경우 병합 작업은 KV 인증서를 완료하여 수행될 수 있습니다.
 
-|메서드|요청 URI|
+|방법|요청 URI|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
@@ -289,7 +289,7 @@ StatusCode: 403, ReasonPhrase: 'Forbidden'
 ## <a name="request-a-cancellation-while-the-pending-request-status-is-inprogress"></a>보류 중인 요청 상태가 "진행 중"인 동안 취소 요청
 취소만 요청할 수 있습니다. 요청이 취소되거나 취소되지 않을 수 있습니다. 요청이 "진행 중"이 아닌 경우 400(잘못된 요청)의 http 상태가 반환됩니다.
 
-|메서드|요청 URI|
+|방법|요청 URI|
 |------------|-----------------|
 |패치|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -329,7 +329,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 > [!NOTE]
 > 보류 중인 개체를 삭제하는 것은 공급자로 x509 인증서 요청을 취소하거나 취소하지 않을 수 있습니다.
 
-|메서드|요청 URI|
+|방법|요청 URI|
 |------------|-----------------|
 |Delete|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -359,7 +359,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ## <a name="create-a-kv-certificate-manually"></a>수동으로 KV 인증서 만들기
 수동 만들기 프로세스를 통해 원하는 CA로 발급된 인증서를 만들 수 있습니다. 발급자의 이름을 "알 수 없음"으로 설정하거나 발급자 필드를 지정하지 마십시오.
 
-|메서드|요청 URI|
+|방법|요청 URI|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
@@ -399,7 +399,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ## <a name="merge-when-a-pending-request-is-created---manual-certificate-creation"></a>보류 중인 요청이 만들어질 때 병합 - 수동 인증서 만들기
 
-|메서드|요청 URI|
+|방법|요청 URI|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 

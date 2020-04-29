@@ -1,6 +1,6 @@
 ---
-title: C# - Azure 타임시리즈 인사이트를 사용하여 GA 환경에서 참조 데이터 관리 | 마이크로 소프트 문서
-description: C#으로 작성된 사용자 지정 응용 프로그램을 만들어 GA 환경에 대한 참조 데이터를 관리하는 방법을 알아봅니다.
+title: 'C #을 사용 하 여 GA 환경에서 참조 데이터 관리-Azure Time Series Insights | Microsoft Docs'
+description: 'C #으로 작성 된 사용자 지정 응용 프로그램을 만들어 GA 환경에 대 한 참조 데이터를 관리 하는 방법을 알아봅니다.'
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,63 +12,63 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: f0ce0f7d90540274d24a7e0248e6f197b74033a1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416979"
 ---
-# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>C를 사용하여 Azure Time Series Insights 환경에 대한 GA 참조 데이터 관리 #
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>C를 사용 하 여 Azure Time Series Insights 환경의 GA 참조 데이터 관리 #
 
-이 문서에서는 C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)및 Azure Active Directory를 결합하여 Azure Time Series Insights GA [참조 데이터 관리 API에](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)프로그래밍 API 요청을 만드는 방법을 보여 줍니다.
+이 문서에서는 c #, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)및 Azure Active Directory를 결합 하 여 Azure Time Series Insights GA [참조 데이터 관리 api](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)에 대 한 프로그래밍 방식 api 요청을 만드는 방법을 보여 줍니다.
 
 > [!TIP]
-> 에서 GA C# 코드 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)샘플 보기
+> 에서 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)GA c # 코드 샘플을 봅니다.
 
 ## <a name="summary"></a>요약
 
-아래 샘플 코드는 다음과 같은 기능을 보여 줍니다.
+아래 샘플 코드에서는 다음과 같은 기능을 보여 줍니다.
 
-* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication을**사용하여 액세스 토큰을 획득합니다.
-* GA [참조 데이터 관리 API에](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)대한 순차적 만들기, 읽기, 업데이트 및 DELETE 작업.
-* [일반적인 오류](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling)코드를 포함한 일반적인 응답 코드 .
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **publicclientapplication**을 사용 하 여 액세스 토큰을 획득 합니다.
+* GA [참조 데이터 관리 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)에 대 한 순차적 생성, 읽기, 업데이트 및 삭제 작업입니다.
+* 일반적인 [오류 코드](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling)를 비롯 한 일반적인 응답 코드입니다.
     
-    참조 데이터 관리 API는 각 항목을 개별적으로 처리하며 한 항목의 오류로 인해 다른 항목이 성공적으로 완료되는 것을 방지하지 못합니다. 예를 들어 요청에 100개의 항목이 있고 한 항목에 오류가 있는 경우 99개의 항목이 작성되고 하나는 거부됩니다.
+    참조 데이터 관리 API는 각 항목을 개별적으로 처리 하 고 하나의 항목을 포함 하는 오류는 다른 항목을 성공적으로 완료 하는 것을 방지 하지 않습니다. 예를 들어 요청에 100 항목이 있고 한 항목에 오류가 있는 경우 99 항목이 기록 되 고 하나는 거부 됩니다.
 
-## <a name="prerequisites-and-setup"></a>전제 조건 및 설정
+## <a name="prerequisites-and-setup"></a>필수 구성 요소 및 설치
 
 샘플 코드를 컴파일 및 실행하기 전에 다음 단계를 완료합니다.
 
-1. [GA Azure 서계 정보 환경 프로비전합니다.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
-)
+1. [GA Azure Time Series Insights 환경을 프로 비전](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
+) 합니다.
 
-1. 환경 내에서 [참조 데이터 집합을 만듭니다.](time-series-insights-add-reference-data-set.md) 다음 참조 데이터 구성표를 사용합니다.
+1. 환경 내에서 [참조 데이터 집합을 만듭니다](time-series-insights-add-reference-data-set.md) . 다음 참조 데이터 구성표를 사용 합니다.
 
    | 키 이름 | Type |
    | --- | --- |
-   | uuid | String | 
+   | uuid | 문자열 | 
 
-1. [인증 및 권한 부여에](time-series-insights-authentication-and-authorization.md)설명된 대로 Azure Active Directory에 대한 Azure Time Series Insights 환경을 구성합니다. 리디렉션 `http://localhost:8080/` **URI로**사용합니다.
+1. [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)에 설명 된 대로 Azure Active Directory에 대 한 Azure Time Series Insights 환경을 구성 합니다. 를 `http://localhost:8080/` **리디렉션 URI**로 사용 합니다.
 
-1. 필요한 프로젝트 종속성을 설치합니다.
+1. 필요한 프로젝트 종속성을 설치 합니다.
 
-1. 각 **#PLACEHOLDER#을** 적절한 환경 식별자로 대체하여 아래 샘플 코드를 편집합니다.
+1. 각 **#PLACEHOLDER #** 을 적절 한 환경 식별자로 바꿔서 아래 샘플 코드를 편집 합니다.
 
-1. 프로젝트의 `dotnet run` 루트 디렉토리 내에서 실행합니다. 메시지가 표시되면 사용자 프로필을 사용하여 Azure에 로그인합니다. 
+1. 프로젝트 `dotnet run` 의 루트 디렉터리 내에서를 실행 합니다. 메시지가 표시 되 면 사용자 프로필을 사용 하 여 Azure에 로그인 합니다. 
 
 ## <a name="project-dependencies"></a>프로젝트 종속성
 
-그것은 당신이 비주얼 스튜디오와 **NETCore.app의**최신 버전을 사용하는 것이 좋습니다 :
+최신 버전의 Visual Studio 및 Netcore를 사용 하는 것이 좋습니다 **. 앱**:
 
-* [비주얼 스튜디오 2019](https://visualstudio.microsoft.com/vs/) - 버전 16.4.2+
-* [NETCore.app](https://www.nuget.org/packages/Microsoft.NETCore.App/2.2.8) - 버전 2.2.8
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) -버전 16.4.2 +
+* [Netcore. 앱](https://www.nuget.org/packages/Microsoft.NETCore.App/2.2.8) -버전 2.2.8
 
 샘플 코드에는 두 가지 필수 종속성이 있습니다.
 
-* MSAL.NET [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client/) - 4.7.1 패키지.
-* [뉴턴소프트.Json](https://www.nuget.org/packages/Newtonsoft.Json) - 12.0.3 패키지.
+* MSAL.NET [-](https://www.nuget.org/packages/Microsoft.Identity.Client/) 4.7.1 패키지를 확인 합니다.
+* [Newtonsoft.json](https://www.nuget.org/packages/Newtonsoft.Json) -12.0.3 package.
 
-[NuGet 2.12+](https://www.nuget.org/)를 사용하여 패키지를 추가합니다.
+[NuGet 2.12 +](https://www.nuget.org/)를 사용 하 여 패키지를 추가 합니다.
 
 * `dotnet add package Newtonsoft.Json --version 12.0.3`
 * `dotnet add package Microsoft.Identity.Client --version 4.7.1`
@@ -309,4 +309,4 @@ namespace CsharpTsiMsalGaSample
 
 ## <a name="next-steps"></a>다음 단계
 
-- GA [참조 데이터 관리 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) 참조 설명서를 읽어보십시오.
+- GA [참조 데이터 관리 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) 참조 설명서를 참조 하세요.

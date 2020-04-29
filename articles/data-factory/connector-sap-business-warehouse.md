@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 2f8406038be10ba3bdc207bf447fecb86a376fe8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418068"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 복사
@@ -28,14 +28,14 @@ ms.locfileid: "81418068"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP BW(Business Warehouse)에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!TIP]
->SAP 데이터 통합 시나리오에 대한 ADF의 전반적인 지원에 대해 알아보려면 자세한 소개, 비교 및 지침이 있는 [Azure Data Factory 백서를 사용하는 SAP 데이터 통합을](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 참조하세요.
+>SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 자세한 소개, comparsion 및 지침을 참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-이 SAP 비즈니스 웨어하우스 커넥터는 다음 활동에 대해 지원됩니다.
+이 SAP Business Warehouse 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [지원되는 소스/싱크 매트릭스로](copy-activity-overview.md) [활동 복사](copy-activity-overview.md)
-- [조회 활동](control-flow-lookup-activity.md)
+- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
+- [조회 작업](control-flow-lookup-activity.md)
 
 SAP Business Warehouse에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
@@ -45,12 +45,12 @@ SAP Business Warehouse에서 지원되는 모든 싱크 데이터 저장소로 �
 - MDX 쿼리를 사용하여 **InfoCubes 및 QueryCubes**(BEx 쿼리 포함)에서 데이터를 복사합니다.
 - 기본 인증을 사용하여 데이터를 복사합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 SAP Business Warehouse 커넥터를 사용 하려면 다음을 수행해야 합니다.
 
-- 자체 호스팅 Integration Runtime을 설정합니다. 자세한 내용은 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md) 문서를 참조하십시오.
-- 통합 런타임 컴퓨터에 **SAP NetWeaver 라이브러리**를 설치합니다. SAP Netweaver 라이브러리는 SAP 관리자를 통해 구하거나 [SAP 소프트웨어 다운로드 센터](https://support.sap.com/swdc)에서 바로 구할 수 있습니다. 최신 버전에 대한 다운로드 위치를 찾으려면 **SAP Note #1025361**을 검색합니다. 통합 런타임 설치와 일치하는 **64비트** SAP NetWeaver 라이브러리를 선택해야 합니다. 그런 다음 SAP Note에 따라 SAP NetWeaver RFC SDK에 포함된 모든 파일을 설치합니다. SAP NetWeaver 라이브러리는 SAP Client Tools 설치에도 포함됩니다.
+- 자체 호스팅 Integration Runtime을 설정합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md) 문서를 참조 하세요.
+- 통합 런타임 컴퓨터에 **SAP NetWeaver 라이브러리**를 설치합니다. SAP Netweaver 라이브러리는 SAP 관리자를 통해 구하거나 [SAP 소프트웨어 다운로드 센터](https://support.sap.com/swdc)에서 바로 구할 수 있습니다. 최신 버전에 대한 다운로드 위치를 찾으려면 **SAP Note #1025361**을 검색합니다. Integration Runtime 설치와 일치 하는 **64 비트** SAP NetWeaver 라이브러리를 선택 했는지 확인 합니다. 그런 다음 SAP Note에 따라 SAP NetWeaver RFC SDK에 포함된 모든 파일을 설치합니다. SAP NetWeaver 라이브러리는 SAP Client Tools 설치에도 포함됩니다.
 
 >[!TIP]
 >SAP BW에 대한 연결 문제를 해결하려면 다음을 확인합니다.
@@ -75,7 +75,7 @@ SAP BW(Business Warehouse) 연결된 서비스에 다음 속성이 지원됩니�
 | clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID.<br/>허용되는 값: 문자열로 표현되는 세 자리 10진수 | 예 |
 | userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | 예 |
 | password | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임입니다.](concepts-integration-runtime.md) [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
+| connectVia | 데이터 저장소에 연결 하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md) 입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예제:**
 
@@ -104,9 +104,9 @@ SAP BW(Business Warehouse) 연결된 서비스에 다음 속성이 지원됩니�
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합을 정의하는 데 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에는 SAP BW 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조 하세요. 이 섹션에는 SAP BW 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-SAP BW에서 데이터를 복사하려면 데이터 집합의 형식 속성을 **SapBwCube로**설정합니다. 반면에 RelationalTable 형식의 SAP BW 데이터 세트에 대해 지원되는 type별 속성은 없습니다.
+SAP BW에서 데이터를 복사 하려면 데이터 집합의 type 속성을 **SapBwCube**로 설정 합니다. 반면에 RelationalTable 형식의 SAP BW 데이터 세트에 대해 지원되는 type별 속성은 없습니다.
 
 **예제:**
 
@@ -125,7 +125,7 @@ SAP BW에서 데이터를 복사하려면 데이터 집합의 형식 속성을 *
 }
 ```
 
-형식이 지정된 데이터 집합을 사용하는 `RelationalTable` 경우 계속 지원되지만 앞으로 새 데이터 집합을 사용하는 것이 좋습니다.
+형식화 된 데이터 집합 `RelationalTable` 을 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
@@ -133,11 +133,11 @@ SAP BW에서 데이터를 복사하려면 데이터 집합의 형식 속성을 *
 
 ### <a name="sap-bw-as-source"></a>SAP BW를 원본으로
 
-SAP BW에서 데이터를 복사하려면 복사 활동 **소스** 섹션에서 다음 속성이 지원됩니다.
+SAP BW에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 활동 소스의 형식 속성을 설정해야 **합니다.** | 예 |
+| type | 복사 작업 원본의 type 속성은 **SapBwSource** 로 설정 해야 합니다. | 예 |
 | Query | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | 예 |
 
 **예제:**
@@ -172,7 +172,7 @@ SAP BW에서 데이터를 복사하려면 복사 활동 **소스** 섹션에서 
 ]
 ```
 
-형식이 지정된 소스를 사용하는 `RelationalSource` 경우 계속 있는 것으로 지원되지만 앞으로 새 소스를 사용하는 것이 좋습니다.
+형식화 된 소스를 `RelationalSource` 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
 
 ## <a name="data-type-mapping-for-sap-bw"></a>SAP BW에 대한 데이터 형식 매핑
 
@@ -182,31 +182,31 @@ SAP BW에서 데이터를 복사할 경우 SAP BW 데이터 형식에서 Azure D
 |:--- |:--- |
 | ACCP | Int |
 | CHAR | String |
-| CLNT | String |
+| CLNT | 문자열 |
 | CURR | Decimal |
-| CUKY | String |
+| CUKY | 문자열 |
 | DEC | Decimal |
 | FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | Int |
-| LANG | String |
-| LCHR | String |
+| LANG | 문자열 |
+| LCHR | 문자열 |
 | LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | String |
-| 단위 | String |
-| DATS | String |
-| NUMC | String |
-| TIMS | String |
+| STRING | 문자열 |
+| 단위 | 문자열 |
+| DATS | 문자열 |
+| NUMC | 문자열 |
+| TIMS | 문자열 |
 
 
-## <a name="lookup-activity-properties"></a>조회 활동 속성
+## <a name="lookup-activity-properties"></a>조회 작업 속성
 
-속성에 대한 자세한 내용을 보려면 [조회 활동을](control-flow-lookup-activity.md)선택합니다.
+속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

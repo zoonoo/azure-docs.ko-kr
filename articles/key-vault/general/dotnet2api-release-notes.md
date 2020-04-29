@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: 436b9c1569d7c33f79a126cd4d0513bac9385d8a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431918"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - 릴리스 정보 및 마이그레이션 가이드
@@ -49,12 +49,12 @@ Key Vault 인증서는 x509 인증서를 관리하고 다음 동작을 지원합
 
 * *비밀*을 *SecretBundle*로 변경
 * *사전*을 *IDictionary*로 변경
-* *목록\<T>, 문자열 []* *\<IList T>* 변경
+* *List\<t>, string []이* *IList\<t* 로 변경 되었습니다>
 * *NextList*를 *NextPageLink*로 변경
 
 ## <a name="return-types"></a>반환 형식
 
-* **키리스트** 및 **비밀 목록** 이제 목록 *키 응답 메시지* 대신 *IPage\<t>* 반환
+* 이제 **Keylist** 및 **SecretList** 는 *ipage* 대신 *ipage\<T>* 반환 합니다.
 * 생성된 **BackupKeyAsync**는 *값*(백업 blob)을 포함하는 *BackupKeyResult*를 반환합니다. 이전에는 메서드가 래핑되고 해당 값만 반환되었습니다.
 
 ## <a name="exceptions"></a>예외
@@ -90,8 +90,8 @@ Key Vault 인증서는 x509 인증서를 관리하고 다음 동작을 지원합
 
 ## <a name="class-changes"></a>클래스 변경
 
-* **유닉스에포크** 클래스가 삭제되었습니다.
-* **Base64Url변환기** 클래스의 이름이 **Base64UrlJsonConverter로**변경됩니다.
+* 가 수 **Xepoch** 클래스가 제거 되었습니다.
+* **Base64UrlConverter** 클래스의 이름이 **Base64UrlJsonConverter**로 바뀌었습니다.
 
 ## <a name="other-changes"></a>기타 변경 내용
 
@@ -99,7 +99,7 @@ Key Vault 인증서는 x509 인증서를 관리하고 다음 동작을 지원합
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* *볼트를*반환하는 작업의 경우 반환 형식은 **Vault** 속성을 포함하는 클래스입니다. 반환 유형은 이제 *자격 증명 모음*입니다.
+* *자격 증명 모음*을 반환 하는 작업의 경우 반환 형식은 **자격 증명 모음** 속성을 포함 하는 클래스 였습니다. 반환 유형은 이제 *자격 증명 모음*입니다.
 * *PermissionsToKeys* 및 *PermissionsToSecrets*는 이제 *Permissions.Keys* 및 *Permissions.Secrets*입니다.
 * 특정 반환 형식 변경 내용은 제어 평면에도 적용됩니다.
 

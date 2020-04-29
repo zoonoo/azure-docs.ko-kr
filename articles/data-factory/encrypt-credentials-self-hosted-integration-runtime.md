@@ -1,5 +1,5 @@
 ---
-title: Azure 데이터 팩터리에서 자격 증명 암호화
+title: Azure Data Factory에서 자격 증명 암호화
 description: 자체 호스팅 통합 런타임을 사용하는 컴퓨터에서 온-프레미스 데이터 저장소의 자격 증명을 암호화하고 저장하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
 ms.openlocfilehash: 8ce26360aca8d8408135cbe89aabff4f923013b4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416362"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Azure Data Factory에서 온-프레미스 데이터 저장소에 대한 자격 증명 암호화
@@ -27,7 +27,7 @@ ms.locfileid: "81416362"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-자격 증명이 있는 JSON 정의 파일을 <br/>[**New-AzDataFactoryV2LinkedService암호화된 자격 증명**](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) cmdlet 암호화 된 자격 증명을 가진 출력 JSON 정의 파일을 생성 합니다. 그런 다음 업데이트된 JSON 정의를 사용하여 연결된 서비스를 만듭니다.
+자격 증명이 있는 JSON 정의 파일을 <br/>[**AzDataFactoryV2LinkedServiceEncryptedCredential**](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) cmdlet을 사용 하 여 암호화 된 자격 증명이 있는 출력 JSON 정의 파일을 생성 합니다. 그런 다음 업데이트된 JSON 정의를 사용하여 연결된 서비스를 만듭니다.
 
 ## <a name="author-sql-server-linked-service"></a>SQL Server 연결된 서비스 작성
 다음 콘텐츠로 원하는 폴더에 **SqlServerLinkedService.json**이라는 JSON 파일을 만듭니다.  
@@ -51,7 +51,7 @@ ms.locfileid: "81416362"
 ```
 
 ## <a name="encrypt-credentials"></a>자격 증명 암호화
-온-프레미스 자체 호스팅 통합 런타임에서 JSON 페이로드의 중요한 데이터를 암호화하려면 **New-AzDataFactoryV2LinkedService암호화된 자격 증명을**실행하고 JSON 페이로드를 전달합니다. 이 cmdlet을 사용하면 자격 증명이 DPAPI를 사용하여 암호화되고 자체 호스팅 통합 런타임 노드에 로컬로 저장됩니다. 자격 증명에 대한 암호화된 참조가 포함된 출력 페이로드는 다른 JSON 파일로 리디렉션될 수 있습니다(이 경우 'encryptedLinkedService.json').
+온-프레미스 자체 호스팅 통합 런타임에서 JSON 페이로드의 중요 한 데이터를 암호화 하려면 **AzDataFactoryV2LinkedServiceEncryptedCredential**을 실행 하 고 json 페이로드를 전달 합니다. 이 cmdlet을 사용하면 자격 증명이 DPAPI를 사용하여 암호화되고 자체 호스팅 통합 런타임 노드에 로컬로 저장됩니다. 자격 증명에 대 한 암호화 된 참조를 포함 하는 출력 페이로드는 다른 JSON 파일 (이 경우 ' Encryptedlinkedservice.json ')로 리디렉션될 수 있습니다.
 
 ```powershell
 New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json

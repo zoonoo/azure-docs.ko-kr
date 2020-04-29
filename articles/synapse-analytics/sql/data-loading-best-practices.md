@@ -1,6 +1,6 @@
 ---
 title: 데이터 로드 모범 사례
-description: 시냅스 SQL로 데이터를 로드하기 위한 권장 사항 및 성능 최적화
+description: Synapse SQL로 데이터를 로드 하기 위한 권장 사항 및 성능 최적화
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: b80fe79a2c27de7dbaaa2edccf7b4598c6c63f47
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431047"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>데이터 웨어하우징을 위한 데이터 로드모범 사례
+# <a name="best-practices-for-loading-data-for-data-warehousing"></a>데이터 웨어하우징에 대 한 데이터 로드에 대 한 모범 사례
 
-데이터 로드를 위한 권장 사항 및 성능 최적화
+데이터 로드에 대 한 권장 사항 및 성능 최적화
 
 ## <a name="preparing-data-in-azure-storage"></a>Azure Storage에 데이터 준비
 
@@ -36,9 +36,9 @@ PolyBase는 1,000,000바이트 이상의 데이터를 포함하는 행을 로드
 
 ## <a name="running-loads-with-enough-compute"></a>충분한 컴퓨팅 리소스로 로드 실행
 
-로드 속도를 가장 빠르게 하려면 로드 작업을 한 번에 하나만 실행합니다. 이것이 가능하지 않은 경우 동시에 실행하는 로드 수를 최소화합니다. 큰 로드 작업이 예상되는 경우 로드 전에 SQL 풀을 확장하는 것이 좋습니다.
+로드 속도를 가장 빠르게 하려면 로드 작업을 한 번에 하나만 실행합니다. 이것이 가능하지 않은 경우 동시에 실행하는 로드 수를 최소화합니다. 대량 로드 작업을 원하는 경우 로드 하기 전에 SQL 풀을 확장 하는 것이 좋습니다.
 
-적절한 컴퓨팅 리소스가 포함된 로드를 실행하려면 부하를 실행하기 위해 지정된 로드 사용자를 만듭니다. 각 로드 사용자를 특정 리소스 클래스 또는 워크로드 그룹에 할당합니다. 로드를 실행하려면 로드 사용자 중 하나로 로그인한 다음 로드를 실행합니다. 사용자의 리소스 클래스를 사용하여 부하를 실행합니다.  이 메서드는 현재 리소스 클래스 요구 사항에 맞게 사용자의 리소스 클래스를 변경하는 것보다 더 간단합니다.
+적절한 컴퓨팅 리소스가 포함된 로드를 실행하려면 부하를 실행하기 위해 지정된 로드 사용자를 만듭니다. 각 로드 사용자를 특정 리소스 클래스 또는 작업 그룹에 할당 합니다. 부하를 실행 하려면 로드 하는 사용자 중 하나로 로그인 한 후 로드를 실행 합니다. 사용자의 리소스 클래스를 사용하여 부하를 실행합니다.  이 메서드는 현재 리소스 클래스 요구 사항에 맞게 사용자의 리소스 클래스를 변경하는 것보다 더 간단합니다.
 
 ### <a name="example-of-creating-a-loading-user"></a>로드 사용자를 만드는 예제
 
@@ -58,7 +58,7 @@ PolyBase는 1,000,000바이트 이상의 데이터를 포함하는 행을 로드
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
 
-staticRC20 리소스 클래스에 대 한 리소스와 부하를 실행 하려면 LoaderRC20으로 로그인 하 고 부하를 실행 합니다.
+StaticRC20 리소스 클래스에 대 한 리소스를 사용 하 여 부하를 실행 하려면 LoaderRC20로 로그인 하 고 부하를 실행 합니다.
 
 동적 리소스 클래스가 아닌 고정 리소스 클래스에서 로드를 실행합니다. 고정 리소스 클래스를 사용하면 [데이터 웨어하우스 단위](resource-consumption-models.md)에 관계 없이 동일한 리소스를 사용하도록 보장합니다. 동적 리소스 클래스를 사용하는 경우 리소스는 서비스 수준에 따라 달라집니다. 동적 클래스의 경우 서비스 수준이 낮으면 로드 사용자에 대해 큰 리소스 클래스를 사용해야 합니다.
 
@@ -73,7 +73,7 @@ staticRC20 리소스 클래스에 대 한 리소스와 부하를 실행 하려�
    DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
-User_A user_B 이제 다른 부서의 스키마에서 잠깁니다.
+User_A 및 user_B은 이제 다른 dept의 스키마에서 잠깁니다.
 
 ## <a name="loading-to-a-staging-table"></a>준비 테이블에 로드
 
@@ -88,9 +88,9 @@ columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 �
 - 로드 사용자가 메모리를 최대 압축률을 충분히 달성할 수 있도록 하려면 중간 규모 또는 대규모 리소스 클래스의 멤버인 로드 사용자를 사용합니다.
 - 새로운 행 그룹을 완전히 채울 수 있는 충분한 행을 로드합니다. 대량 로드 중에는 행 수가 1,048,576이 될 때마다 전체 열 그룹으로 직접 columnstore에 압축됩니다. 로드하는 행 수가 102,400 미만인 경우에는 B-트리 인덱스에 행이 보유되는 deltastore에 행을 보냅니다. 너무 적은 행을 로드한 경우 모두 deltastore로 이동하여 columnstore 형식으로 즉시 압축되지 않을 수 있습니다.
 
-## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>SQLBulkCopy API 또는 BCP를 사용할 때 일괄 처리 크기 증가
+## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>SQLBulkCopy API 또는 BCP를 사용 하는 경우 일괄 처리 크기 늘리기
 
-앞에서 설명한 것처럼 PolyBase로 로드하면 Synapse SQL 풀에서 가장 높은 처리량을 얻을 수 있습니다. PolyBase를 사용하여 로드할 수 없고 SQLBulkCopy API(또는 BCP)를 사용해야 하는 경우 처리량을 높이기 위해 일괄 처리 크기를 늘리는 것이 좋습니다.
+앞서 언급 했 듯이 PolyBase를 사용 하 여 로드 하면 Synapse SQL 풀에서 가장 높은 처리량이 제공 됩니다. PolyBase를 사용 하 여 로드 하 고 SQLBulkCopy API (또는 BCP)를 사용 해야 하는 경우 처리량 향상을 위해 일괄 처리 크기를 늘려야 합니다. 좋은 방법은 100,000 개 행에서 100,000 개 사이의 일괄 처리 크기입니다.
 
 ## <a name="handling-loading-failures"></a>로드 처리 실패
 
@@ -106,9 +106,9 @@ columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 �
 
 ## <a name="creating-statistics-after-the-load"></a>로드 후 통계 만들기
 
-쿼리 성능을 개선하려면 데이터를 처음 로드하거나 데이터 내에 상당한 변화가 생긴 후에, 모든 테이블의 모든 열에서 통계를 만드는 것이 중요합니다.  이 작업은 수동으로 수행하거나 [통계를 자동으로 만들](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)수 있습니다.
+쿼리 성능을 개선하려면 데이터를 처음 로드하거나 데이터 내에 상당한 변화가 생긴 후에, 모든 테이블의 모든 열에서 통계를 만드는 것이 중요합니다.  수동으로이 작업을 수행 하거나 [자동 생성 통계](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 사용 하도록 설정할 수 있습니다.
 
-통계에 대한 자세한 설명은 [통계](develop-tables-statistics.md)를 참조하세요. 다음 예제에서는 Customer_Speed 테이블의 다섯 열에 대한 통계를 수동으로 만드는 방법을 보여 주십습니다.
+통계에 대한 자세한 설명은 [통계](develop-tables-statistics.md)를 참조하세요. 다음 예에서는 Customer_Speed 테이블의 5 개 열에 대 한 통계를 수동으로 만드는 방법을 보여 줍니다.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);

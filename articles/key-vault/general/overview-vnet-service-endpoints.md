@@ -10,10 +10,10 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.openlocfilehash: 2a68a50a5d15b9f38407c19494a39a14abfa0a5a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81432074"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
@@ -39,7 +39,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 
 방화벽 및 가상 네트워크를 구성하는 데 필요한 단계는 다음과 같습니다. 이러한 단계는 PowerShell, Azure CLI 또는 Azure Portal을 사용하든 관계없이 적용됩니다.
 
-1. [키 볼트 로깅](logging.md)을 활성화하여 자세한 액세스 로그를 확인합니다. 이렇게 하면 방화벽 및 가상 네트워크 규칙이 키 자격 증명 모음에 대한 액세스를 막는 경우 진단하는 데 도움이 됩니다. (이 단계는 선택 사항이지만 강력 권장됩니다.)
+1. [Key Vault 로깅을](logging.md)사용 하도록 설정 하 여 자세한 액세스 로그를 확인 합니다. 이렇게 하면 방화벽 및 가상 네트워크 규칙이 키 자격 증명 모음에 대한 액세스를 막는 경우 진단하는 데 도움이 됩니다. (이 단계는 선택 사항이지만 강력 권장됩니다.)
 2. 대상 가상 네트워크 및 서브넷에 대한 **키 자격 증명 모음의 서비스 엔드포인트**를 사용하도록 설정합니다.
 3. 특정 가상 네트워크, 서브넷 및 IPv4 주소 범위에서 해당 키 자격 증명 모음에 대한 액세스를 제한하려면 키 자격 증명 모음에 대한 방화벽 및 가상 네트워크 규칙을 설정합니다.
 4. 이 키 자격 증명 모음을 신뢰할 수 있는 모든 Microsoft 서비스에서 액세스할 수 있게 하려면 **신뢰할 수 있는 Azure 서비스**가 Key Vault에 연결하도록 허용하는 옵션을 설정합니다.
@@ -54,14 +54,14 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 > 다음과 같은 구성 제한 사항을 고려해야 합니다.
 > * 최대한 127개 가상 네트워크 규칙 및 127개 IPv4 규칙이 허용됩니다. 
 > * "/31" 또는 "/32" 접두사 크기를 사용하는 작은 주소 범위는 지원되지 않습니다. 대신 개별 IP 주소 규칙을 사용하여 이러한 범위를 구성합니다.
-> * IP 네트워크 규칙은 공용 IP 주소에 대해서만 허용됩니다. 프라이빗 네트워크용으로 예약된 IP 주소 범위(RFC 1918에 정의)는 IP 규칙에서 허용되지 않습니다. 개인 네트워크에는 **10. 10,** **172.16-31**및 **192.168로**시작하는 주소가 포함됩니다. 
+> * IP 네트워크 규칙은 공용 IP 주소에 대해서만 허용됩니다. 프라이빗 네트워크용으로 예약된 IP 주소 범위(RFC 1918에 정의)는 IP 규칙에서 허용되지 않습니다. 개인 네트워크는 **172.16, 31**, **192.168.** **로 시작**하는 주소를 포함 합니다. 
 > * 현재 IPv4 주소만 지원됩니다.
 
 ## <a name="trusted-services"></a>신뢰할 수 있는 서비스
 
 **신뢰할 수 있는 서비스 허용** 옵션을 사용하도록 설정하는 경우 키 자격 증명 모음에 액세스하도록 허용되는 신뢰할 수 있는 서비스 목록은 다음과 같습니다.
 
-|신뢰할 수 있는 서비스|지원되는 사용 시나리오|
+|신뢰할 수 있는 서비스|지원 되는 사용 시나리오|
 | --- | --- |
 |Azure Virtual Machines 배포 서비스|[고객 관리 Key Vault에서 VM으로 인증서를 배포합니다](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
 |Azure Resource Manager 템플릿 배포 서비스|[배포 하는 동안 보안 값을 전달](../../azure-resource-manager/templates/key-vault-parameter.md)합니다.|
@@ -74,16 +74,16 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 |Azure Storage|[Azure Key Vault의 고객 관리 키를 사용하여 Storage 서비스 암호화](../../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|고객 관리 키를 사용하여 [Azure Data Lake Store의 데이터 암호화](../../data-lake-store/data-lake-store-encryption.md).|
 |Azure Databricks|[빠르고 쉬우며 공동 작업이 가능한 Apache Spark 기반 분석 서비스](../../azure-databricks/what-is-azure-databricks.md)|
-|Azure API Management|[MSI를 사용하여 키 볼트에서 사용자 지정 도메인에 대한 인증서 배포](../../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
-|Azure 데이터 팩터리|[데이터 팩터리에서 키 볼트에서 데이터 저장소 자격 증명 가져오기](https://go.microsoft.com/fwlink/?linkid=2109491)|
-|Azure Event Hubs|[고객 관리 키 시나리오에 대한 키 자격 증명 모음에 대한 액세스 허용](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
-|Azure Service Bus|[고객 관리 키 시나리오에 대한 키 자격 증명 모음에 대한 액세스 허용](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
-|Azure Import/Export| [가져오기/내보내기 서비스에 Azure 키 자격 증명 모음에서 고객 관리 키 사용](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
+|Azure API Management|[MSI를 사용 하 여 Key Vault에서 사용자 지정 도메인에 대 한 인증서 배포](../../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
+|Azure 데이터 팩터리|[Data Factory에서 Key Vault의 데이터 저장소 자격 증명 페치](https://go.microsoft.com/fwlink/?linkid=2109491)|
+|Azure Event Hubs|[고객이 관리 하는 키 시나리오의 key vault에 대 한 액세스 허용](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
+|Azure Service Bus|[고객이 관리 하는 키 시나리오의 key vault에 대 한 액세스 허용](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
+|Azure Import/Export| [Import/Export 서비스에 대 한 Azure Key Vault에서 고객이 관리 하는 키 사용](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
 
 > [!NOTE]
 > 해당 서비스가 Key Vault에 액세스할 수 있도록 하려면 관련 Key Vault 액세스 정책을 설정해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [키 금고 보안)](secure-your-key-vault.md)
+* [키 자격 증명 모음 보안](secure-your-key-vault.md))
 * [Azure Key Vault 방화벽 및 가상 네트워크 구성](network-security.md)
