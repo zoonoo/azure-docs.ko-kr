@@ -1,5 +1,5 @@
 ---
-title: GDPR 컴플라이언스 | Azure 마켓플레이스
+title: GDPR 준수 | Azure Marketplace
 description: 클라우드 파트너 포털과 GDPR에 대해 설명합니다.
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: f09bc60a59ff2a6e21d0cdae1917a1faed072ea4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280289"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>클라우드 파트너 포털 GDPR 규정 준수
@@ -24,12 +24,12 @@ ms.locfileid: "80280289"
 <a name="discover"></a>검색
 --------
 
-클라우드 파트너 포털은 사용자 탭의 모든 데이터에 대한 액세스를 제공합니다. 당신은 거기에 개인 데이터를 식별 할 수 있습니다. 사용자 추가/제거 방법을 알아보려면 [설명서](./cloud-partner-portal-manage-users.md)를 참조하세요.
+Cloud 파트너 포털 사용자 탭의 모든 데이터에 대 한 액세스를 제공 합니다. 여기에서 개인 데이터를 식별할 수 있습니다. 사용자 추가/제거 방법을 알아보려면 [설명서](./cloud-partner-portal-manage-users.md)를 참조하세요.
 
 <a name="manage"></a>관리
 ------
 
-사용자 탭에서 사용자 계정 삭제를 눌러 개인 데이터를 관리할 수 있습니다. **소유자의** 역할과 각 특정 사용자에게 할당할 수 있는 **참여자가** 있으며 둘 다 할당/복사/업데이트/삭제될 수 있습니다.
+사용자 탭에서 사용자 계정에 대해 삭제를 눌러 개인 데이터를 관리할 수 있습니다. 각 특정 사용자에 게 할당할 수 있는 **소유자** 및 **기여자** 역할이 있으며 둘 다 할당/복사/업데이트/삭제할 수 있습니다.
 
 <a name="consent"></a>동의
 -------
@@ -42,5 +42,5 @@ ms.locfileid: "80280289"
 -   [Microsoft에서 고객에게 데이터를 보내는 방법과 위치\'(지리적 위치 포함)](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
 -   [고객 데이터에 액세스할 수 있는\' 하도급업자](https://aka.ms/Online_Serv_Subcontractor_List)
 -   [Microsoft에서 관리하는 Azure 보안 조치 관련 세부 정보](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
--   [모든 Azure\'서비스를 포함하여 모든 제품에 대해 수행된 Microsoft 개인 정보 검토 프로세스에 대한 세부 정보](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards)
+-   [모든 Azure 서비스\'를 포함 하 여 모든 제품에 대해 수행 된 Microsoft 개인 정보 검토 프로세스에 대 한 세부 정보](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards)
 -   [Microsoft가 고객 시스템 및 최종 사용자로부터 수집하여 처리하는 데이터](https://www.microsoft.com/trustcenter/privacy/you-own-your-data)

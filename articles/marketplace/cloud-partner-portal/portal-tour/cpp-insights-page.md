@@ -1,6 +1,6 @@
 ---
-title: Azure 마켓플레이스에 대한 인사이트 페이지
-description: Azure 마켓플레이스용 클라우드 파트너 포털의 인사이트 페이지 개요입니다.
+title: Azure Marketplace에 대 한 정보 페이지
+description: Azure Marketplace에 대 한 Cloud 파트너 포털의 정보 페이지 개요입니다.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: dsindona
 ms.openlocfilehash: 8002d67ebd6dbeb70282bbbae84b115a778cffaf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80288872"
 ---
 # <a name="insights-page"></a>인사이트 페이지

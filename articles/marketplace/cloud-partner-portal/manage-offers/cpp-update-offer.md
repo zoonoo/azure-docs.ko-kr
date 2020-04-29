@@ -1,5 +1,5 @@
 ---
-title: 마켓플레이스 업데이트 상품 | Azure 마켓플레이스
+title: Marketplace 제품 업데이트 | Azure Marketplace
 description: Cloud 파트너 포털을 이용하여 Azure 및 AppSource Marketplace에서 제품 업데이트
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: dsindona
 ms.openlocfilehash: 101369a050770be3acd9534cef6229037fe1c366
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80288515"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Azure Marketplace 및 AppSource 제품 업데이트
@@ -46,7 +46,7 @@ ms.locfileid: "80288515"
 
 제품에 대한 지원 연락처를 업데이트하려면 다음 단계를 사용합니다.
 1. **모든 제품** 페이지에서 제품을 선택합니다.
-2. 연락처 **탭을 선택합니다.**
+2. **연락처** 탭을 선택 합니다. 연락처를 업데이트 합니다.
 3. **저장** 단추를 선택합니다.
 4. **게시**를 선택하여 게시 프로세스를 시작합니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "80288515"
 
 Azure Marketplace 제품의 경우
 
-1. **SCO** 탭을 선택합니다.  수정할 SKU를 선택합니다.
+1. **Sku** 탭을 선택 합니다.  수정할 SKU를 선택 합니다.
 1. **국가/지역 가용성** 필드 아래에서 **국가 선택** 단추를 클릭합니다.
 1. 지역 가용성 대화 상자에서 해당하는 SKU의 지역을 추가하거나 제거합니다.
 
@@ -90,7 +90,7 @@ AppSource 제품의 경우
 
 ### <a name="update-offer-marketplace-assets"></a>제품 마켓플레이스 자산 업데이트
 
-회사 로고, 제안 설명 등 마켓플레이스 텍스트 기반 및 이미지 자산을 업데이트해야 하는 시나리오가 있을 수 있습니다. 다음 단계를 사용하여 이러한 자산을 업데이트합니다.
+Marketplace 텍스트 기반 및 이미지 자산 (회사 로고, 제안 설명 등)을 업데이트 해야 하는 시나리오가 있을 수 있습니다. 다음 단계를 사용 하 여 이러한 자산을 업데이트 합니다.
 
 1. **모든 제품** 페이지에서 제품을 찾습니다. 
 2. **마켓플레이스** 탭을 선택하고 제품의 ‘마켓플레이스 탭’ 항목에 있는 지침을 따릅니다.**

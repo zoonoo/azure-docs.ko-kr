@@ -1,6 +1,6 @@
 ---
-title: Azure 포털을 통해 Azure 데이터 상자, Azure 데이터 상자 중대 관리 | 마이크로 소프트 문서
-description: Azure 포털을 사용하여 Azure 데이터 상자 및 Azure 데이터 상자 헤비를 관리하는 방법을 설명합니다.
+title: Azure Portal를 통해 Azure Data Box Azure Data Box Heavy 관리 | Microsoft Docs
+description: Azure Portal를 사용 하 여 Azure Data Box 및 Azure Data Box Heavy를 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 08/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259995"
 ---
-# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Azure 포털을 사용하여 Azure 데이터 상자 및 Azure 데이터 상자 사용량을 관리합니다.
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Azure Portal를 사용 하 여 Azure Data Box를 관리 하 고 Azure Data Box Heavy
 
-이 문서는 Azure 데이터 상자와 Azure 데이터 상자 헤비 모두에 적용됩니다. 이 문서에서는 Azure Data Box 장치에서 수행할 수 있는 몇 가지 복잡한 워크플로 및 관리 작업에 대해 설명합니다. Azure 포털또는 로컬 웹 UI를 통해 데이터 박스 장치를 관리할 수 있습니다.
+이 문서는 Azure Data Box 및 Azure Data Box Heavy에 모두 적용 됩니다. 이 문서에서는 Azure Data Box 장치에서 수행할 수 있는 몇 가지 복잡 한 워크플로 및 관리 작업에 대해 설명 합니다. Azure Portal 또는 로컬 웹 UI를 통해 Data Box 장치를 관리할 수 있습니다.
 
-이 아티클은 Azure Portal을 사용하여 수행할 수 있는 작업에 중점을 둡니다. Azure 포털을 사용하여 주문을 관리하고, 데이터 상자 장치를 관리하고, 주문이 완료되는 동안의 상태를 추적합니다.
+이 아티클은 Azure Portal을 사용하여 수행할 수 있는 작업에 중점을 둡니다. Azure Portal를 사용 하 여 주문을 관리 하 고, Data Box 장치를 관리 하 고, 완료 될 때 주문 상태를 추적할 수 있습니다.
 
 
 ## <a name="cancel-an-order"></a>주문 취소
 
-주문을 배치한 후 다양한 이유로 주문을 취소해야 할 수 있습니다. 주문은 처리되기 전까지만 취소할 수 있습니다. 주문이 처리되고 데이터 박스 장치가 준비되면 주문을 취소 할 수 없습니다.
+주문을 배치한 후 다양한 이유로 주문을 취소해야 할 수 있습니다. 주문은 처리되기 전까지만 취소할 수 있습니다. 주문이 처리 되 고 Data Box 장치가 준비 되 면 주문을 취소할 수 없습니다.
 
 다음 단계에 따라 주문을 취소합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "79259995"
 
 ## <a name="clone-an-order"></a>주문 복제
 
-복제는 특정 상황에서 유용합니다. 사용자가 Data Box를 사용하여 데이터를 전송했는데 더 많은 데이터가 생성됨에 따라 해당 데이터를 Azure로 전송하기 위해 다른 데이터 상자 장치가 필요합니다. 이 경우 동일한 주문이 복제될 수 있습니다.
+복제는 특정 상황에서 유용합니다. 사용자가 Data Box를 사용하여 데이터를 전송했는데 더 많은 데이터가 생성 되 면 다른 Data Box 장치에서 해당 데이터를 Azure로 전송 해야 합니다. 이 경우 동일한 주문이 복제될 수 있습니다.
 
 다음 단계에 따라 주문을 복제합니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "79259995"
 
 완료되거나 취소된 주문을 삭제할 수 있습니다. 주문을 삭제하려면 다음 단계를 수행합니다.
 
-1. 모든 **리소스로**이동합니다. 주문을 검색합니다.
+1. **모든 리소스**로 이동 합니다. 주문을 검색합니다.
 
 2. 삭제하려는 주문을 클릭하고 **개요**로 이동합니다. 명령 모음에서 **삭제**를 클릭합니다.
 
@@ -69,7 +69,7 @@ ms.locfileid: "79259995"
 
 ## <a name="download-shipping-label"></a>포장용 레이블 다운로드
 
-Data Box의 E-ink 디스플레이가 작동하지 않아 반송 레이블이 표시되지 않는 경우에는 배송 레이블을 다운로드해야 할 수 있습니다. 데이터 상자 헤비에는 전자 잉크 표시가 없으므로 이 워크플로는 데이터 상자 헤비에 적용되지 않습니다.
+Data Box의 E-ink 디스플레이가 작동하지 않아 반송 레이블이 표시되지 않는 경우에는 배송 레이블을 다운로드해야 할 수 있습니다. Data Box Heavy에는 E-잉크가 표시 되지 않으므로이 워크플로는 Data Box Heavy에는 적용 되지 않습니다.
 
 다음 단계에 따라 포장용 레이블을 다운로드합니다.
 
@@ -77,7 +77,7 @@ Data Box의 E-ink 디스플레이가 작동하지 않아 반송 레이블이 표
 
     ![포장용 레이블 다운로드](media/data-box-portal-admin/download-shipping-label.png)
 
-2.  다음 반송 포장용 레이블을 다운로드합니다. 라벨을 저장하고 인쇄합니다. 라벨을 접어서 장치의 투명 슬리브에 삽입합니다. 레이블이 표시되는지 확인합니다. 이전 배송 시 부착된 디바이스의 스티커를 제거합니다.
+2.  다음 반송 포장용 레이블을 다운로드합니다. 레이블을 저장 하 고 인쇄 합니다. 장치에서 일반 슬리브에 레이블을 넣고 삽입 합니다. 레이블이 표시되는지 확인합니다. 이전 배송 시 부착된 디바이스의 스티커를 제거합니다.
 
     ![예제 포장용 레이블](media/data-box-portal-admin/example-shipping-label.png)
 
@@ -120,10 +120,10 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
 
     ![주문 기록 다운로드](media/data-box-portal-admin/download-order-history-1.png)
 
-2. **주문 기록 다운로드**를 클릭합니다. 다운로드된 기록에는 운송업체 추적 로그 기록이 나와 있습니다. 데이터 상자 헤비의 두 노드에 해당하는 두 개의 로그 세트가 있습니다. 이 로그의 맨 아래로 스크롤하면 다음 링크를 볼 수 있습니다.
+2. **주문 기록 다운로드**를 클릭합니다. 다운로드된 기록에는 운송업체 추적 로그 기록이 나와 있습니다. Data Box Heavy의 두 노드에 해당 하는 두 개의 로그 집합이 있습니다. 이 로그의 맨 아래로 스크롤하면 다음 링크를 볼 수 있습니다.
     
    - **로그 복사** - Data Box에서 Azure Storage 계정으로 데이터 복사 중 오류가 발생한 파일 목록이 있습니다.
-   - **감사 로그** - Azure 데이터 센터 외부에 있을 때 데이터 상자에서 공유를 켜고 액세스하는 방법에 대한 정보가 포함되어 있습니다.
+   - **감사 로그** -Azure 데이터 센터 외부에 있을 때 Data Box에서 공유를 켜고 액세스 하는 방법에 대 한 정보를 포함 합니다.
    - **BOM 파일** - **배송 준비 중** 다운로드할 수 있는 파일 목록(또는 파일 매니페스트)과 파일 이름, 파일 크기 및 파일 체크섬이 있습니다.
 
        ```
@@ -197,7 +197,7 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
 
 포털에서 디바이스 상태가 변경되면 전자 메일을 통해 알림이 전송됩니다.
 
-|주문 상태 |설명 |
+|주문 상태 |Description |
 |---------|---------|
 |주문됨     | 주문을 성공적으로 배치했습니다. <br>디바이스 재고가 있으면 Microsoft에서 배송할 디바이스를 확인하여 준비합니다. <br> 디바이스를 즉시 배송할 수 없는 경우에는 디바이스가 배송 가능해지면 주문이 처리됩니다. 주문 처리 과정은 며칠에서 몇 달까지 걸릴 수 있습니다. 90일 이내에 처리할 수 없는 주문은 취소되며 취소 알림이 전송됩니다.         |
 |처리됨     | 주문 처리가 완료되었습니다. 주문에 따라 데이터 센터에서 디바이스 배송이 준비됩니다.         |
@@ -207,8 +207,8 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
 |수신됨     | 디바이스가 Azure 데이터 센터에서 수신되어 스캔되었습니다. <br> 배송된 디바이스 검사가 완료되면 디바이스 업로드가 시작됩니다.      |
 |데이터 복사     | 데이터 복사가 진행 중입니다. Azure Portal에서 주문에 대한 복사 진행률을 추적합니다. <br> 데이터 복사가 완료될 때까지 기다립니다. |
 |Completed       |주문이 성공적으로 완료되었습니다.<br> 서버에서 온-프레미스 데이터를 삭제하기 전에 Azure에 데이터가 있는지 확인합니다.         |
-|오류와 함께 완료됨| 데이터 복사가 완료되었지만 복사 중에 오류가 발생했습니다. <br> Azure Portal에 제공된 경로를 사용하여 복사 로그를 검토합니다. [오류로 업로드가 완료되면 복사 로그의 예를](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors)참조하십시오.   |
-|경고와 함께 완료됨| 데이터 복사본이 완료되었지만 데이터가 수정되었습니다. 데이터에 중요하지 않은 Blob 또는 파일 이름 오류가 파일 또는 Blob 이름을 변경하여 수정되었습니다. <br> Azure Portal에 제공된 경로를 사용하여 복사 로그를 검토합니다. 데이터의 수정 사항을 기록합니다. [경고로 업로드가 완료되면 복사 로그의 예를](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings)참조하십시오.   |
+|오류와 함께 완료됨| 데이터 복사가 완료되었지만 복사 중에 오류가 발생했습니다. <br> Azure Portal에 제공된 경로를 사용하여 복사 로그를 검토합니다. [업로드가 완료 되 고 오류가 발생 한 경우 복사 로그의 예](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors)를 참조 하세요.   |
+|경고와 함께 완료됨| 데이터 복사가 완료 되었지만 데이터가 수정 되었습니다. 데이터에 파일 또는 blob 이름을 변경 하 여 수정 된 중요 하지 않은 blob 또는 파일 이름 오류가 있습니다. <br> Azure Portal에 제공된 경로를 사용하여 복사 로그를 검토합니다. 데이터의 수정 사항을 기록해 둡니다. [업로드가 완료 되 고 경고가 발생 한 경우 복사 로그의 예](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings)를 참조 하세요.   |
 |취소됨            |주문이 취소되었습니다. <br> 주문을 취소했거나 오류가 발생했고 서비스에서 주문을 취소했습니다. 90일 이내에 처리할 수 없는 주문도 취소되며 취소 알림이 전송됩니다.     |
 |정리 | 디바이스 디스크의 데이터가 지워집니다. Azure Portal에서 다운로드에 주문 기록을 사용할 수 있게 되면 디바이스 정리가 완료된 것으로 간주됩니다.|
 
@@ -216,4 +216,4 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
 
 ## <a name="next-steps"></a>다음 단계
 
-- [데이터 상자 및 데이터 상자 무거운 문제를 해결](data-box-troubleshoot.md)하는 방법에 대해 알아봅니다.
+- [Data Box 및 Data Box Heavy 문제를 해결](data-box-troubleshoot.md)하는 방법을 알아봅니다.

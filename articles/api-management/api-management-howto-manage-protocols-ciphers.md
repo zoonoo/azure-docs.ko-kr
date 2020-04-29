@@ -1,6 +1,6 @@
 ---
 title: Azure API Management에서 프로토콜 및 암호화 관리 | Microsoft Docs
-description: Azure API 관리에서 프로토콜(TLS) 및 DES(암호)를 관리하는 방법을 알아봅니다.
+description: Azure API Management에서 프로토콜 (TLS) 및 암호화 (DES)를 관리 하는 방법에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
 ms.openlocfilehash: 7f87389016286c9f1b91abc77155be9e94005371
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335878"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Azure API Management에서 프로토콜 및 암호화 관리
@@ -27,7 +27,7 @@ Azure API Management는 클라이언트 및 백 엔드 쪽에서 모두 여러 T
 
 ![APIM에서 프로토콜 및 암호화 관리](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 문서의 단계를 따르려면 다음이 있어야 합니다.
 
@@ -36,7 +36,7 @@ Azure API Management는 클라이언트 및 백 엔드 쪽에서 모두 여러 T
 ## <a name="how-to-manage-tls-protocols-and-3des-cipher"></a>TLS 프로토콜 및 3DES 암호화를 관리하는 방법
 
 1. Azure Portal에서 **API Management 인스턴스**로 이동합니다.
-2. 메뉴에서 **프로토콜 설정을** 선택합니다.  
+2. 메뉴에서 **프로토콜 설정** 을 선택 합니다.  
 3. 원하는 프로토콜 또는 암호화를 사용하거나 사용하지 않도록 설정합니다.
 4. **저장**을 클릭합니다. 변경 내용은 1시간 이내에 적용됩니다.  
 

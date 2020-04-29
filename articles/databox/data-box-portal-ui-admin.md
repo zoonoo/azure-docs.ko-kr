@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259969"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Azure Portal을 사용하여 Data Box 관리
@@ -63,7 +63,7 @@ Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 아티�
 
 완료되거나 취소된 주문을 삭제할 수 있습니다. 주문을 삭제하려면 다음 단계를 수행합니다.
 
-1. 모든 **리소스로**이동합니다. 주문을 검색합니다.
+1. **모든 리소스**로 이동 합니다. 주문을 검색합니다.
 
     ![Data Box Disk 주문 검색](media/data-box-portal-ui-admin/search-data-box-disk-orders.png)
 
@@ -119,7 +119,7 @@ Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 아티�
 
 ## <a name="view-order-status"></a>주문 상태 보기
 
-|주문 상태 |설명 |
+|주문 상태 |Description |
 |---------|---------|
 |주문됨     | 주문을 성공적으로 배치했습니다. <br> 디스크를 사용할 수 없는 경우 알림을 받습니다. <br>디스크를 사용할 수 있으면 Microsoft에서 배송할 디스크를 확인하고 디스크 패키지를 준비합니다.        |
 |처리됨     | 주문 처리가 완료되었습니다. <br> 주문을 처리하는 동안 다음 작업이 발생합니다.<li>디스크는 AES-128 BitLocker 암호화를 사용하여 암호화됩니다. </li> <li>Data Box Disk는 무단 액세스를 방지하기 위해 잠겨 있습니다.</li><li>이 과정에서 디스크 잠금을 해제하는 지원 암호가 생성됩니다.</li>        |

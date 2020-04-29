@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: dsindona
 ms.openlocfilehash: 57bc370fd160b8b3d6d7941ea28cd460c99f3d96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80285370"
 ---
 <a name="store-your-appsource-package-to-azure-storage-and-generate-a-url-with-sas-key"></a>Azure Storage에 AppSource 패키지 저장 및 SAS 키를 사용하여 URL 생성
@@ -23,7 +23,7 @@ Blob Storage에 패키지를 업로드하려면 다음 단계를 수행합니다
 
 1. <https://azure.microsoft.com>으로 이동하여 무료 평가판 또는 유료 계정을 만듭니다.
 
-2. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+2. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 3. **+ 새로 만들기**를 클릭한 다음 **데이터 + 스토리지** 계정으로 이동하여 새 스토리지 계정을 만듭니다.
 

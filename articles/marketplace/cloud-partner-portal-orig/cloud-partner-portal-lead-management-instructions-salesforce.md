@@ -1,6 +1,6 @@
 ---
-title: 세일즈포스를 위한 잠재 고객 관리 구성 | Azure 마켓플레이스
-description: Azure 마켓플레이스 고객을 위한 Salesforce에서 잠재 고객 관리를 구성합니다.
+title: Salesforce에 대 한 리드 관리 구성 | Azure Marketplace
+description: Azure Marketplace 고객에 대 한 Salesforce에서 리드 관리를 구성 합니다.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dsindona
 ms.openlocfilehash: 4261f16cbe76a788f8a8a91445d432f2f810c4ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280255"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Salesforce의 잠재 고객 관리 구성
@@ -31,4 +31,4 @@ ms.locfileid: "80280255"
 5. **Create a Web-to-Lead Form**에서 **Generate** ![Salesforce generate](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png)를 선택합니다.
 
 6. 샘플에 OID를 복사한 후 저장합니다. OID를 Cloud 파트너 포털의 **개체 식별자** 필드에 붙여 넣습니다.
-![세일즈포스는 OID를 얻습니다.](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)
+![Salesforce OID 가져오기](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)

@@ -1,5 +1,5 @@
 ---
-title: 마이크로소프트 개발자 계정 만들기 | Azure 마켓플레이스
+title: Microsoft 개발자 계정 만들기 | Azure Marketplace
 description: Microsoft 개발자 계정을 만들기 위한 요구 사항 및 단계입니다.
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 161abde1ef0dfd86842fb56afe699fa632e0d9ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280374"
 ---
 <a name="create-a-microsoft-developer-account"></a>Microsoft 개발자 계정 만들기
@@ -70,11 +70,11 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
 >[!IMPORTANT]
 >제품 만들기 및 배포의 여러 단계를 진행하기 위해서는 다음 개발자 프로필 구성 요소를 완료해야 합니다.
 
-| 개발자 프로필     | 초안 시작    | 스테이징       | 무료 게시 및 솔루션 템플릿   | 상업적 게시   |
+| 개발자 프로필     | 초안 시작    | 준비       | 무료 게시 및 솔루션 템플릿   | 상업적 게시   |
 |---------------------- |----------------   |-----------    |-------------------------------------  |---------------------  |
 | 회사 등록  | 필수         | 필수     | 필수                             | 필수             |
-| 세금 프로필 ID        | Optional          | Optional      | Optional                              | 필수             |
-| 은행 계좌          | Optional          | Optional      | Optional                              | 필수             |
+| 세금 프로필 ID        | 선택          | 선택      | 선택                              | 필수             |
+| 은행 계좌          | 선택          | 선택      | 선택                              | 필수             |
 
 >[!NOTE]
 >BYOL(사용자 라이선스 필요)은 가상 머신에만 지원되며 무료 제공됩니다.
@@ -99,7 +99,7 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
    ![국가/지역 선택](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >"판매" 국가/지역: Azure Marketplace에서 서비스를 판매하려면 등록된 엔터티가 드롭다운 목록에 표시된 승인된 "판매" 국가/지역 중 하나여야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. 자세한 내용은 Marketplace 참가 정책을 참조하세요.
+    >"판매" 국가/지역: Azure Marketplace에서 서비스를 판매 하기 위해 등록 된 엔터티는 드롭다운 목록에 표시 된 승인 된 "판매" 국가/지역 중 하나에 있어야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. 자세한 내용은 Marketplace 참가 정책을 참조하세요.
 
 5. **회사**를 “계정 유형”으로 선택하고 **다음**을 선택합니다.
 
@@ -181,7 +181,7 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
 
 개발자 센터 등록에 문제가 있는 경우 다음 단계를 사용하여 지원 티켓을 엽니다.
 
-1.  [지원 링크로](https://developer.microsoft.com/windows/support)이동합니다.
+1.  [지원 링크로](https://developer.microsoft.com/windows/support)이동 합니다.
 2.  **문의하기** 아래에서 **인시던트 제출**을 선택합니다.
     ![티켓 열기](./media/cloud-partner-portal-create-dev-center-registration/imgAddTax_02.png)
 3.  **문제 유형**에서 “개발자 센터에 대한 도움말”을 선택하고 **범주**에서 “앱 게시 및 관리”를 선택합니다. **메일 시작**을 선택합니다.

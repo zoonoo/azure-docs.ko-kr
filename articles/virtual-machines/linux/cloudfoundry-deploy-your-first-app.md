@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
 ms.openlocfilehash: 793a8f291be4fcca6fad19d486849253dddc089f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294800"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Microsoft Azure의 Cloud Foundry에 첫 번째 앱 배포
@@ -27,11 +27,11 @@ Azure에 Cloud Foundry 환경을 만들기 위한 여러 가지 옵션이 있습
 - [BOSH](https://bosh.io) 디렉터, Cloud Foundry 환경의 배포를 조정하는 VM을 설정하여 [오픈 소스 Cloud Foundry 패키지를 직접 배포][oss-cf-bosh]합니다.
 
 > [!IMPORTANT] 
-> Azure Marketplace에서 PCF를 배포하는 경우 Pivotal 앱 관리자에 액세스하는 데 필요한 SYSTEMDOMAINURL 및 관리자 자격 증명을 적어 둡니다. 둘은 마켓플레이스 배포 가이드에 설명되어 있습니다. 이 자습서를 완료하는 데 필요합니다. 마켓플레이스 배포의 경우 SYSTEMDOMAINURL이 `https://system.*ip-address*.cf.pcfazure.com`있습니다.
+> Azure Marketplace에서 PCF를 배포하는 경우 Pivotal 앱 관리자에 액세스하는 데 필요한 SYSTEMDOMAINURL 및 관리자 자격 증명을 적어 둡니다. 둘은 마켓플레이스 배포 가이드에 설명되어 있습니다. 이 자습서를 완료하는 데 필요합니다. Marketplace 배포의 경우 SYSTEMDOMAINURL은 형식 `https://system.*ip-address*.cf.pcfazure.com`입니다.
 
 ## <a name="connect-to-the-cloud-controller"></a>Cloud Controller에 연결
 
-Cloud Controller는 애플리케이션 배포 및 관리를 위한 Cloud Foundry 환경에 대한 기본 진입점입니다. 핵심 CCAPI(Cloud Controller API)는 REST API이지만 다양한 도구를 통해 액세스할 수 있습니다. 이 경우 [Cloud Foundry CLI][cf-cli]를 통해 상호 작용합니다. Linux, macOS 또는 Windows에 CLI를 설치할 수 있지만 전혀 설치하지 않으려면 [Azure Cloud Shell에서][cloudshell-docs]사전 설치할 수 있습니다.
+Cloud Controller는 애플리케이션 배포 및 관리를 위한 Cloud Foundry 환경에 대한 기본 진입점입니다. 핵심 CCAPI(Cloud Controller API)는 REST API이지만 다양한 도구를 통해 액세스할 수 있습니다. 이 경우 [Cloud Foundry CLI][cf-cli]를 통해 상호 작용합니다. Linux, macOS 또는 Windows에 CLI를 설치할 수 있지만 설치 하지 않는 것이 좋습니다. [Azure Cloud Shell][cloudshell-docs]에 미리 설치 되어 있습니다.
 
 로그인하려면 마켓플레이스 배포에서 가져온 SYSTEMDOMAINURL 앞에 `api`를 추가합니다. 기본 배포는 자체 서명된 인증서를 사용하므로 `skip-ssl-validation` 스위치를 포함해야 합니다.
 

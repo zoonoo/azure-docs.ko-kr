@@ -1,6 +1,6 @@
 ---
 title: Azure 메트릭 탐색기의 고급 기능
-description: Azure 모니터 메트릭 탐색기의 고급 기능에 대해 알아보기
+description: Azure Monitor의 고급 기능에 대해 알아봅니다 메트릭 탐색기
 author: vgorbenko
 services: azure-monitor
 ms.topic: conceptual
@@ -8,45 +8,45 @@ ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 2df1e0bb7d586edb13dc86e163f0e5728608d2a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80371596"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Azure 메트릭 탐색기의 고급 기능
 
 > [!NOTE]
-> 이 문서에서는 메트릭 탐색기의 기본 기능에 익숙하다고 가정합니다. 새 사용자이고 첫 번째 메트릭 차트를 만드는 방법을 알아보려면 [Azure 메트릭 탐색기로 시작하기](metrics-getting-started.md)를 참조하십시오.
+> 이 문서에서는 사용자가 메트릭 탐색기의 기본 기능에 대해 잘 알고 있다고 가정 합니다. 새 사용자 인 경우 첫 번째 메트릭 차트를 만드는 방법을 알아보려면 [Azure 메트릭 탐색기 시작](metrics-getting-started.md)을 참조 하세요.
 
 ## <a name="metrics-in-azure"></a>Azure의 메트릭
 
-[Azure Monitor의 메트릭](data-platform-metrics.md)은 시간이 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭은 사용자 지정 이벤트 및 메트릭에 대 한 [응용 프로그램 인사이트 API를](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)사용 하 여 응용 프로그램에서 Azure로 전송 되는 반면, [Windows Azure 진단 (WAD) 확장](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)또는 Azure 모니터 REST [API에](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api)의해 .
+[Azure Monitor의 메트릭](data-platform-metrics.md)은 시간이 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭은 [사용자 지정 이벤트 및 메트릭](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [WINDOWS Azure 진단 (WAD) 확장](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)에 대 한 Application Insights API를 사용 하 여 응용 프로그램에서 Azure로 전송 되거나 [REST API Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api)됩니다.
 
-## <a name="create-views-with-multiple-metrics-and-charts"></a>여러 측정항목 및 차트를 사용하여 보기 만들기
+## <a name="create-views-with-multiple-metrics-and-charts"></a>여러 메트릭 및 차트를 사용 하 여 뷰 만들기
 
-여러 메트릭 라인을 플로팅하거나 여러 메트릭 차트를 한 번에 표시하는 차트를 만들 수 있습니다. 이 기능을 사용하면 다음을 수행할 수 있습니다.
+여러 메트릭 선을 그리거나 여러 메트릭 차트를 한 번에 표시 하는 차트를 만들 수 있습니다. 이 기능을 사용 하면 다음을 수행할 수 있습니다.
 
-- 동일한 그래프에서 관련 메트릭을 상호 연관하여 한 값이 다른 값과 어떻게 관련되는지 확인합니다.
-- 측정 단위가 다른 메트릭을 가까이에서 표시
-- 여러 리소스의 메트릭을 시각적으로 집계하고 비교합니다.
+- 동일한 그래프에서 관련 메트릭의 상관 관계를 설정 하 여 한 값이 다른 값과 관련 된 방식을 확인 합니다.
+- 가까운 근접에서 여러 측정 단위가 포함 된 메트릭 표시
+- 여러 리소스의 메트릭을 시각적으로 집계 하 고 비교
 
-예를 들어 5개의 저장소 계정이 있고 그 중 총 공간이 얼마나 사용되는지 알고 싶다면 특정 시점의 모든 값의 개인 및 합계를 표시하는 (누적) 영역 차트를 만들 수 있습니다.
+예를 들어 5 개의 저장소 계정이 있고 그 사이에 사용 되는 총 공간을 확인 하려는 경우 특정 시점에 모든 값의 개별 및 합계를 표시 하는 (누적) 영역형 차트를 만들 수 있습니다.
 
 ### <a name="multiple-metrics-on-the-same-chart"></a>동일한 차트의 여러 메트릭
 
-먼저 [새 차트를 만듭니다.](metrics-getting-started.md#create-your-first-metric-chart) **측정항목 추가를** 클릭하고 단계를 반복하여 동일한 차트에 다른 측정항목을 추가합니다.
+먼저 [새 차트를 만듭니다](metrics-getting-started.md#create-your-first-metric-chart). **메트릭 추가** 를 클릭 하 고 단계를 반복 하 여 동일한 차트에 다른 메트릭을 추가 합니다.
 
    > [!NOTE]
    > 일반적으로 하나의 차트에서 다른 단위의 측정값(예: "밀리초" 및 "킬로바이트") 또는 크게 다른 규모를 갖는 메트릭을 사용하지 않습니다. 대신, 여러 차트를 사용하는 것이 좋습니다. [차트 추가] 단추를 클릭하여 메트릭 탐색기에서 여러 개의 차트를 만듭니다.
 
 ### <a name="multiple-charts"></a>여러 차트
 
-차트 **추가를** 클릭하고 다른 측정항목으로 다른 차트를 만듭니다.
+**차트 추가** 를 클릭 하 고 다른 메트릭을 사용 하 여 다른 차트를 만듭니다.
 
-### <a name="order-or-delete-multiple-charts"></a>여러 차트 주문 또는 삭제
+### <a name="order-or-delete-multiple-charts"></a>여러 차트 순서 또는 삭제
 
-여러 차트를 주문하거나 삭제하려면 타원 **(...** ) 기호를 클릭하여 차트 메뉴를 열고 **위로 이동,** **아래로 이동**또는 **삭제의**적절한 메뉴 항목을 선택합니다.
+여러 차트를 정렬 하거나 삭제 하려면 줄임표 ( **...** ) 기호를 클릭 하 여 차트 메뉴를 열고 **위로 이동**, **아래로 이동**또는 **삭제**의 적절 한 메뉴 항목을 선택 합니다.
 
 ## <a name="apply-filters-to-charts"></a>차트에 필터 적용
 
@@ -81,7 +81,7 @@ ms.locfileid: "80371596"
 1. 차트 위쪽의 **분할 적용**을 클릭합니다.
  
    > [!NOTE]
-   > 여러 메트릭이 있는 차트에는 분할을 사용할 수 없습니다. 또한 여러 필터를 가질 수 있지만 단일 차트에 하나의 분할 차원만 적용할 수 있습니다.
+   > 여러 메트릭이 있는 차트에서는 분할을 사용할 수 없습니다. 또한 여러 필터를 포함할 수 있지만 하나의 분할 차원만 단일 차트에 적용 됩니다.
 
 2. 차트를 분할하려는 차원을 선택합니다.
 
@@ -111,16 +111,16 @@ Y축 범위를 제어하려면 “...” 차트 메뉴를 사용하고 **차트 
 > [!WARNING]
 > 일정 기간 동안 다양한 개수나 합계(이에 따라 사용 개수, 합계, 최소값 또는 최대 집계)를 추적하는 차트의 Y축 경계를 잠그려면 일반적으로 자동 기본값을 사용하지 않고 고정 시간 세분성을 지정해야 합니다. 사용자가 브라우저 창 크기를 조정하거나 화면 해상도를 변경할 때 시간 세분성이 자동으로 수정되면 차트의 값이 변경되므로 이 설정이 필요합니다. 시간 세분성의 변경 결과는 차트 모양에 영향을 주고 Y축 범위의 현재 선택이 무효화됩니다.
 
-## <a name="change-colors-of-chart-lines"></a>차트 선의 색상 변경
+## <a name="change-colors-of-chart-lines"></a>차트 선의 색 변경
 
-차트를 구성하면 차트 선에 기본 팔레트의 색상이 자동으로 할당됩니다. 이러한 색상을 변경할 수 있습니다.
+차트를 구성한 후에는 기본 색상표에서 차트 선에 색이 자동으로 할당 됩니다. 이러한 색을 변경할 수 있습니다.
 
-차트 선의 색상을 변경하려면 차트에 해당하는 범례의 색상 막대를 클릭합니다. 색상 선택기 대화 상자가 열립니다. 색상 선택기를 사용하여 선의 색상을 구성합니다.
+차트 선의 색을 변경 하려면 차트에 해당 하는 범례의 색이 지정 된 막대를 클릭 합니다. 색 선택 대화 상자가 열립니다. 색 선택기를 사용 하 여 선의 색을 구성 합니다.
 
-차트 색상을 구성한 후에는 차트를 대시보드에 고정할 때 이러한 방식으로 유지됩니다. 다음 섹션에서는 차트를 고정하는 방법을 보여 주며, 차트를 고정하는 방법을 보여 주어 도표에 고정하는 방법을 보여 주시면 됩니다.
+차트 색이 구성 된 후에는 차트를 대시보드에 고정할 때 해당 색이 그대로 유지 됩니다. 다음 섹션에서는 차트를 고정 하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> 릴리스 및 게시 일정의 제약 조건으로 인해 차트 선의 색상을 변경하려면 Azure 포털을 [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true)시작할 때 임시로 특수 매개 변수를 전달해야 **합니다.feature.colorpicker=true.** 이 제한 사항은 곧 삭제될 예정입니다. 
+> 릴리스 및 게시 일정의 제약 조건으로 인해 차트 선의 색을 일시적으로 변경 하려면 특수 매개 변수를 전달 해야 하나요? 기능을 Azure Portal [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true)시작할 때 **colorpicker = true** 를 지정 해야 합니다. 이 제한 사항은 곧 삭제될 예정입니다. 
 
 ![메트릭 이미지](./media/metrics-charts/018.png)
 

@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fcbeedddc65a916f869a778616779917a9571181
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331975"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정
@@ -32,11 +32,11 @@ ms.locfileid: "80331975"
 |:--- |:--- |
 | **AD FS 관리** | |
 | [트러스트 복구](#repairthetrust) |Office 365를 사용하여 페더레이션 트러스트를 복구하는 방법입니다. |
-| [대체 로그인 ID를 사용하여 Azure AD로 페더레이트](#alternateid) | 대체 로그인 ID를 사용하여 페더레이션 구성  |
+| [대체 로그인 ID를 사용 하 여 Azure AD와 페더레이션](#alternateid) | 대체 로그인 ID를 사용하여 페더레이션 구성  |
 | [AD FS 서버 추가](#addadfsserver) |추가 AD FS 서버를 사용하여 AD FS 팜을 확장하는 방법입니다. |
 | [AD FS 웹 애플리케이션 프록시 서버 추가](#addwapserver) |추가 WAP(웹 애플리케이션 프록시) 서버를 사용하여 AD FS 팜을 확장하는 방법입니다. |
 | [페더레이션된 도메인을 추가합니다.](#addfeddomain) |페더레이션된 도메인을 추가하는 방법입니다. |
-| [TLS/SSL 인증서 업데이트](how-to-connect-fed-ssl-update.md)| AD FS 팜에 대한 TLS/SSL 인증서를 업데이트하는 방법. |
+| [TLS/SSL 인증서 업데이트](how-to-connect-fed-ssl-update.md)| AD FS 팜에 대 한 TLS/SSL 인증서를 업데이트 하는 방법입니다. |
 | **AD FS 사용자 지정** | |
 | [사용자 지정 회사 로고 또는 일러스트레이션 추가](#customlogo) |회사 로고와 일러스트레이션을 사용하여 AD FS 로그인 페이지를 사용자 지정하는 방법입니다. |
 | [로그인 설명 추가](#addsignindescription) |로그인 페이지 설명을 추가하는 방법입니다. |
@@ -71,7 +71,7 @@ Azure AD Connect를 사용하여 AD FS와 Azure AD 트러스트의 현재 상태
 > [!NOTE]
 > Azure AD Connect는 자체 서명된 인증서에 대해서만 복구 또는 조치를 취할 수 있습니다. Azure AD Connect에서 타사 인증서를 복구할 수 없습니다.
 
-## <a name="federate-with-azure-ad-using-alternateid"></a><a name="alternateid"></a>AlternateID를 사용하여 Azure AD로 페더레이트 
+## <a name="federate-with-azure-ad-using-alternateid"></a><a name="alternateid"></a>AlternateID를 사용 하 여 Azure AD와 페더레이션 
 온-프레미스 UPN(사용자 계정 이름) 및 클라우드 사용자 계정 이름을 동일하게 유지하는 것이 좋습니다. 온-프레미스 UPN이 라우팅할 수 없는 도메인(예: Contoso.local)을 사용하거나 로컬 애플리케이션 종속성으로 인해 변경될 수 없는 경우 대체 로그인 ID를 설정하는 것이 좋습니다. 대체 로그인 ID를 사용하면 사용자가 UPN 이외의 특성(예: 메일)을 사용하여 로그인할 수 있는 로그인 환경을 구성할 수 있습니다. Azure AD Connect에서 선택할 수 있는 기본 사용자 계정 이름은 Active Directory의 userPrincipalName 특성입니다. 사용자 계정 이름에 대해 다른 특성을 선택하고 AD FS를 사용하여 페더레이션할 경우 Azure AD Connect는 대체 로그인 ID에 맞게 AD FS를 구성합니다. 사용자 계정 이름으로 선택할 수 있는 다른 특성은 아래와 같습니다.
 
 ![대체 ID 특성 선택 항목](./media/how-to-connect-fed-management/attributeselection.png)

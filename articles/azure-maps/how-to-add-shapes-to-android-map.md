@@ -1,6 +1,6 @@
 ---
-title: 안드로이드지도에 모양을 추가 | 마이크로소프트 Azure 지도
-description: 이 문서에서는 Microsoft Azure 지도 Android SDK를 사용하여 맵에서 다른 모양을 렌더링하는 방법을 배웁니다.
+title: Android maps에 셰이프 추가 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps Android SDK를 사용 하 여 지도에서 다른 모양을 렌더링 하는 방법에 대해 설명 합니다.
 author: philmea
 ms.author: philmea
 ms.date: 04/26/2019
@@ -9,26 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 7a793ff35675c876dc429976ebee96887b12735a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335603"
 ---
-# <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Azure 지도 Android SDK를 사용하여 맵에 셰이프 추가
+# <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 셰이프 추가
 
-이 문서에서는 Azure 지도 Android SDK를 사용하여 맵에서 셰이프를 렌더링하는 방법을 보여 주어집니다.
+이 문서에서는 Azure Maps Android SDK를 사용 하 여 맵에 셰이프를 렌더링 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-이 문서에서 프로세스를 완료하려면 맵을 로드하려면 [Azure Maps Android SDK를](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 설치해야 합니다.
+이 문서의 프로세스를 완료 하려면 맵을 로드 하기 위해 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 해야 합니다.
 
 
-## <a name="add-a-line-to-the-map"></a>맵에 선 추가
+## <a name="add-a-line-to-the-map"></a>지도에 선 추가
 
-**선 레이어를**사용하여 맵에 선을 추가하고 아래 단계를 수행하여 맵에 선을 추가할 수 있습니다.
+**선 계층**을 사용 하 여 지도에 선을 추가 하 고 아래 단계에 따라 지도에 선을 추가할 수 있습니다.
 
-1. **activity_main.xml에 > > 레이아웃을** 편집하여 아래와 같이 보입니다.
+1. **Res > 레이아웃 > activity_main xml** 을 편집 하 여 아래와 같이 표시 합니다.
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -51,7 +51,7 @@ ms.locfileid: "80335603"
     </FrameLayout>
     ```
 
-2. 아래의 코드 조각을 **클래스의 onCreate()** 메서드에 `MainActivity.java` 복사합니다.
+2. 아래의 다음 코드 조각을 `MainActivity.java` 클래스의 **onCreate ()** 메서드에 복사 합니다.
 
     ```Java
     mapControl.onReady(map -> {
@@ -76,9 +76,9 @@ ms.locfileid: "80335603"
 
     ```
     
-    위의 코드 코드 조각은 먼저 **onReady()** 콜백 메서드를 사용하여 Azure Maps 맵 제어 인스턴스를 가져옵니다. 그런 다음 **DataSource** 클래스를 사용하여 데이터 원본 개체를 만들고 맵에 추가합니다. 그런 다음 **Point** 개체 목록을 만듭니다. **LineString은** 점 목록에서 만들어지고 데이터 원본에 추가됩니다. **선 레이어는** 맵의 데이터 원본에 래핑된 선 오브젝트를 렌더링합니다. 그런 다음 선 레이어가 만들어지고 데이터 원본이 추가됩니다.
+    위의 코드 조각은 먼저 **Onready ()** 콜백 메서드를 사용 하 여 Azure Maps map 컨트롤 인스턴스를 가져옵니다. 그런 다음 **DataSource** 클래스를 사용 하 여 데이터 소스 개체를 만들어 맵에 추가 합니다. 그런 다음 **Point** 개체의 목록을 만듭니다. **LineString** 가 점의 목록에서 만들어지고 데이터 소스에 추가 됩니다. **선 계층** 은 지도의 데이터 원본에 래핑된 줄 개체를 렌더링 합니다. 그러면 선 계층이 만들어지고 데이터 소스가 여기에 추가 됩니다.
 
-    위의 코드 조각을 추가 한 `MainActivity.java` 후 아래 코드 조각과 같아야합니다.
+    위의 코드 조각을 추가한 후에 `MainActivity.java` 는 아래와 같이 표시 됩니다.
     
     ```Java
     package com.example.myapplication;
@@ -174,18 +174,18 @@ ms.locfileid: "80335603"
     }
     ```
 
-지금 응용 프로그램을 실행하는 경우 아래와 같이 지도에 줄이 표시됩니다.
+이제 응용 프로그램을 실행 하는 경우 아래와 같이 맵에 줄이 표시 됩니다.
 
 <center>
 
-![Android 맵에서 렌더링된 선](./media/how-to-add-shapes-to-android-map/android-map-line.png)</center>
+![Android 맵에 렌더링 된 선](./media/how-to-add-shapes-to-android-map/android-map-line.png)</center>
 
 
 ## <a name="add-a-polygon-to-the-map"></a>맵에 다각형 추가
 
-**다각형 레이어를** 사용하면 다각형 영역을 맵에 렌더링할 수 있습니다. 아래 단계에 따라 맵에 다각형을 추가합니다.
+**다각형 계층** 을 사용 하 여 다각형 영역을 지도에 렌더링할 수 있습니다. 지도에 다각형을 추가 하려면 다음 단계를 수행 합니다.
 
-1. **activity_main.xml에 > > 레이아웃을** 편집하여 아래와 같이 보입니다.
+1. **Res > 레이아웃 > activity_main xml** 을 편집 하 여 아래와 같이 표시 합니다.
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -208,7 +208,7 @@ ms.locfileid: "80335603"
     </FrameLayout>
     ```
 
-2. 다음 코드 조각을 **클래스의 onCreate()** 메서드에 `MainActivity.java` 복사합니다.
+2. `MainActivity.java` 클래스의 **onCreate ()** 메서드에 다음 코드 조각을 복사 합니다.
 
     ```Java
     mapControl.onReady(map -> {
@@ -238,9 +238,9 @@ ms.locfileid: "80335603"
     });
     ```
 
-    위의 코드 코드 조각은 먼저 **onReady()** 콜백 메서드를 사용하여 Azure Maps 맵 제어 인스턴스를 가져옵니다. 그런 다음 **DataSource** 클래스를 사용하여 데이터 원본 개체를 만들고 맵에 추가합니다. 그런 다음 **다각형** 개체가 **포인트** 개체 목록에서 만들어지고 데이터 원본에 추가됩니다. **다각형 레이어는** 맵의 데이터 원본에 래핑된 데이터를 렌더링합니다. 그런 다음 다각형 레이어를 만들어 다각형 영역을 렌더링하고 데이터 원본을 추가합니다. **선 레이어는** 데이터 원본에 래핑된 선 오브젝트를 렌더링합니다. 코드 조각의 마지막 부분에서는 다각형의 윤곽선을 렌더링하는 선 레이어를 만들고 데이터 원본을 추가합니다.
+    위의 코드 조각은 먼저 **Onready ()** 콜백 메서드를 사용 하 여 Azure Maps map 컨트롤 인스턴스를 가져옵니다. 그런 다음 **DataSource** 클래스를 사용 하 여 데이터 소스 개체를 만들어 맵에 추가 합니다. 그러면 **Point** 개체 목록에서 **Polygon** 개체가 만들어지고 데이터 소스에 추가 됩니다. **다각형 계층** 은 지도의 데이터 원본에 래핑된 데이터를 렌더링 합니다. 다각형 영역을 렌더링 하는 다각형 계층을 만들고 데이터 소스를 추가 합니다. **선 계층** 은 데이터 소스에 래핑된 줄 개체를 렌더링 합니다. 코드 조각의 마지막 부분은 다각형의 윤곽선을 렌더링 하 고이에 데이터 소스를 추가 하는 선 계층을 만듭니다.
 
-    위의 코드 조각을 추가 한 `MainActivity.java` 후 아래 코드 조각과 같아야합니다.
+    위의 코드 조각을 추가한 후에 `MainActivity.java` 는 아래와 같이 표시 됩니다.
 
     ```Java
     package com.example.myapplication;
@@ -346,19 +346,19 @@ ms.locfileid: "80335603"
     }
     ```
 
-지금 응용 프로그램을 실행하는 경우 아래와 같이 지도에 다각형이 표시됩니다.
+지금 응용 프로그램을 실행 하는 경우 아래와 같이 맵에 다각형이 표시 됩니다.
 
 <center>
 
-![안드로이드 맵에서 렌더링된 다각형](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</center>
+![Android 맵에 렌더링 된 다각형](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</center>
 
 
 ## <a name="next-steps"></a>다음 단계
 
-맵에 더 많은 데이터를 추가하려면 다음 을 수행합니다.
+지도에 데이터를 더 추가 하려면:
 
 > [!div class="nextstepaction"]
-> [기호 레이어 추가](how-to-add-symbol-to-android-map.md)
+> [기호 계층 추가](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [타일 계층 추가](how-to-add-tile-layer-android-map.md)

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: alkohli
 ms.openlocfilehash: 13d5bce46883ea4ddca91d7222f68a19ba65c21c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260047"
 ---
 # <a name="azure-data-box-limits"></a>Azure Data Box 제한
@@ -26,7 +26,7 @@ Microsoft Azure Data Box를 배포하고 운영할 때 이러한 제한을 고�
 ## <a name="data-box-limits"></a>Data Box 제한
 
 - Data Box는 최대 5억 개의 파일을 저장할 수 있습니다.
-- Data Box는 클라우드에서 최대 512개의 컨테이너 또는 공유를 지원합니다. 사용자 공유 내의 최상위 디렉터리들은 클라우드에서 컨테이너 또는 Azure 파일 공유가 됩니다. 
+- Data Box는 클라우드에서 최대 512의 컨테이너 또는 공유를 지원 합니다. 사용자 공유 내의 최상위 디렉터리는 클라우드의 컨테이너 또는 Azure 파일 공유로 사용 됩니다. 
 
 ## <a name="azure-storage-limits"></a>Azure Storage 제한
 

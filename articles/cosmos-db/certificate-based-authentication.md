@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 및 Active Directory를 사용 하 인 인증서 기반 인증
-description: Azure Cosmos DB의 키에 액세스하도록 인증서 기반 인증에 대한 Azure AD ID를 구성하는 방법에 대해 알아봅니다.
+title: Azure Cosmos DB 및 Active Directory를 사용 하는 인증서 기반 인증
+description: Azure Cosmos DB에서 키에 액세스 하는 인증서 기반 인증을 위해 Azure AD id를 구성 하는 방법에 대해 알아봅니다.
 author: voellm
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,51 +8,51 @@ ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
 ms.openlocfilehash: 085280a8064e4d12ac63939ada7cdb296d47dc70
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80365778"
 ---
-# <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에서 키에 액세스하는 Azure AD ID에 대한 인증서 기반 인증
+# <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정의 키에 액세스 하기 위해 Azure AD id에 대 한 인증서 기반 인증
 
-인증서 기반 인증을 사용하면 클라이언트 인증서와 함께 Azure AD(Azure Active Directory)를 사용하여 클라이언트 애플리케이션을 인증할 수 있습니다. Azure의 온-프레미스 컴퓨터 또는 가상 머신과 같이 ID가 필요한 컴퓨터에서 인증서 기반 인증을 수행할 수 있습니다. 그런 다음 응용 프로그램에서 직접 키를 갖지 않고도 Azure Cosmos DB 키를 읽을 수 있습니다. 이 문서에서는 샘플 Azure AD 응용 프로그램을 만들고, 인증서 기반 인증을 구성하고, 새 응용 프로그램 ID를 사용하여 Azure에 로그인한 다음 Azure Cosmos 계정에서 키를 검색하는 방법을 설명합니다. 이 문서에서는 Azure PowerShell을 사용하여 ID를 설정하고 Azure Cosmos 계정에서 키를 인증하고 액세스하는 C# 샘플 앱을 제공합니다.  
+인증서 기반 인증을 사용하면 클라이언트 인증서와 함께 Azure AD(Azure Active Directory)를 사용하여 클라이언트 애플리케이션을 인증할 수 있습니다. Azure의 온-프레미스 컴퓨터 또는 가상 머신과 같이 ID가 필요한 컴퓨터에서 인증서 기반 인증을 수행할 수 있습니다. 응용 프로그램은 응용 프로그램에 직접 키를 포함 하지 않고 Azure Cosmos DB 키를 읽을 수 있습니다. 이 문서에서는 샘플 Azure AD 응용 프로그램을 만들고, 인증서 기반 인증에 대해 구성 하 고, 새 응용 프로그램 id를 사용 하 여 Azure에 로그인 하 고, Azure Cosmos 계정에서 키를 검색 하는 방법을 설명 합니다. 이 문서에서는 Azure PowerShell를 사용 하 여 id를 설정 하 고, Azure Cosmos 계정에서 키를 인증 하 고 액세스 하는 c # 샘플 앱을 제공 합니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-* Azure PowerShell의 [최신 버전을](/powershell/azure/install-az-ps) 설치합니다.
+* [최신 버전](/powershell/azure/install-az-ps) 의 Azure PowerShell를 설치 합니다.
 
-* [Azure 구독이](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 만듭니다.
+* [Azure 구독](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
 ## <a name="register-an-app-in-azure-ad"></a>Azure AD에 앱 등록
 
-이 단계에서는 Azure AD 계정에 샘플 웹 응용 프로그램을 등록합니다. 이 응용 프로그램은 나중에 Azure Cosmos DB 계정에서 키를 읽는 데 사용됩니다. 다음 단계를 사용하여 응용 프로그램을 등록합니다. 
+이 단계에서는 Azure AD 계정에 샘플 웹 응용 프로그램을 등록 합니다. 이 응용 프로그램은 나중에 Azure Cosmos DB 계정에서 키를 읽는 데 사용 됩니다. 응용 프로그램을 등록 하려면 다음 단계를 따르십시오. 
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. 로그인은 [Azure 포털](https://portal.azure.com/)합니다.
 
-1. Azure **Active Directory** 창을 열고 **앱 등록** 창으로 이동한 다음 새 **등록을**선택합니다. 
+1. Azure **Active Directory** 창을 열고 **앱 등록** 창으로 이동 하 여 **새 등록**을 선택 합니다. 
 
    ![Active Directory의 새 응용 프로그램 등록](./media/certificate-based-authentication/new-app-registration.png)
 
-1. 신청서 **등록** 양식을 작성하여 다음 세부 정보를 확인하십시오.  
+1. 다음 세부 정보로 **응용 프로그램 등록** 폼을 채웁니다.  
 
-   * **이름** - 응용 프로그램에 대한 이름을 제공, 그것은 "sampleApp"와 같은 모든 이름이 될 수 있습니다.
-   * **지원되는 계정 유형** - 현재 디렉터리에서 이 응용 프로그램에 액세스할 수 있도록 **하려면 이 조직 디렉터리에서 만 계정을 선택합니다(기본 디렉터리).** 
-   * **URL 리디렉션** – **웹** 형식의 응용 프로그램을 선택하고 응용 프로그램이 호스팅되는 URL을 제공하므로 모든 URL이 될 수 있습니다. 이 예제에서는 앱이 존재하지 않더라도 `https://sampleApp.com` 괜찮습니다.와 같은 테스트 URL을 제공할 수 있습니다.
+   * **이름** – 응용 프로그램의 이름을 제공 합니다. "sampleapp.exe"와 같은 모든 이름일 수 있습니다.
+   * **지원 되는 계정 유형** – **이 조직 디렉터리에만 계정 (기본 디렉터리)** 을 선택 하 여 현재 디렉터리의 리소스가이 응용 프로그램에 액세스할 수 있도록 합니다. 
+   * **Url 리디렉션** – **웹** 형식의 응용 프로그램을 선택 하 고 응용 프로그램을 호스트 하는 url을 제공 합니다. url이 될 수 있습니다. 이 예제에서는 앱이 존재 하지 않는 경우에도 확인 `https://sampleApp.com` 하는 것과 같은 테스트 URL을 제공할 수 있습니다.
 
    ![샘플 웹 응용 프로그램 등록](./media/certificate-based-authentication/register-sample-web-app.png)
 
-1. 양식을 작성한 후 **등록을** 선택합니다.
+1. 양식을 채운 후 **등록** 을 선택 합니다.
 
-1. 앱이 등록된 후 **응용 프로그램(클라이언트) ID** 및 **개체 ID를**기록하면 다음 단계에서 이러한 세부 정보를 사용합니다. 
+1. 앱을 등록 한 후에 **응용 프로그램 (클라이언트) id** 와 **개체 id**를 적어 둡니다. 다음 단계에서 이러한 세부 정보를 사용 합니다. 
 
-   ![응용 프로그램 및 개체 아이디 받기](./media/certificate-based-authentication/get-app-object-ids.png)
+   ![응용 프로그램 및 개체 Id 가져오기](./media/certificate-based-authentication/get-app-object-ids.png)
 
-## <a name="install-the-azuread-module"></a>AzureAD 모듈 설치
+## <a name="install-the-azuread-module"></a>AzureAD 모듈을 설치 합니다.
 
-이 단계에서는 Azure AD PowerShell 모듈을 설치합니다. 이 모듈은 이전 단계에서 등록한 응용 프로그램의 ID를 가져오고 자체 서명된 인증서를 해당 응용 프로그램에 연결하는 데 필요합니다. 
+이 단계에서는 Azure AD PowerShell 모듈을 설치 합니다. 이 모듈은 이전 단계에서 등록 한 응용 프로그램의 ID를 가져오고 자체 서명 된 인증서를 해당 응용 프로그램에 연결 하는 데 필요 합니다. 
 
-1. 관리자 권한이 있는 Windows PowerShell ISE를 엽니다. 아직 완료하지 않은 경우 AZ PowerShell 모듈을 설치하고 구독에 연결합니다. 구독이 여러 개인 경우 다음 명령에 표시된 대로 현재 구독의 컨텍스트를 설정할 수 있습니다.
+1. 관리자 권한으로 Windows PowerShell ISE를 엽니다. 아직 수행 하지 않은 경우 AZ PowerShell module을 설치 하 고 구독에 연결 합니다. 구독이 여러 개인 경우 다음 명령에 표시 된 것 처럼 현재 구독의 컨텍스트를 설정할 수 있습니다.
 
    ```powershell
    Install-Module -Name Az -AllowClobber
@@ -72,7 +72,7 @@ ms.locfileid: "80365778"
 
 ## <a name="sign-into-your-azure-ad"></a>Azure AD에 로그인
 
-응용 프로그램을 등록한 Azure AD에 로그인합니다. 연결-AzureAD 명령을 사용하여 계정에 로그인하고 팝업 창에서 Azure 계정 자격 증명을 입력합니다. 
+응용 프로그램을 등록 한 Azure AD에 로그인 합니다. AzureAD 명령을 사용 하 여 계정에 로그인 하 고, 팝업 창에 Azure 계정 자격 증명을 입력 합니다. 
 
 ```powershell
 Connect-AzureAD 
@@ -80,7 +80,7 @@ Connect-AzureAD
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
-Windows PowerShell ISE의 다른 인스턴스를 열고 다음 명령을 실행하여 자체 서명된 인증서를 만들고 인증서와 연결된 키를 읽습니다.
+Windows PowerShell ISE의 다른 인스턴스를 열고 다음 명령을 실행 하 여 자체 서명 된 인증서를 만들고 인증서와 연결 된 키를 읽습니다.
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "Cert:\CurrentUser\My" -Subject "CN=sampleAppCert" -KeySpec KeyExchange
@@ -89,7 +89,7 @@ $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
 ## <a name="create-the-certificate-based-credential"></a>인증서 기반 자격 증명 만들기 
 
-다음으로 다음 명령을 실행하여 응용 프로그램의 개체 ID를 얻고 인증서 기반 자격 증명을 만듭니다. 이 예제에서는 인증서가 1년 후에 만료하도록 설정하고 필요한 종료 날짜로 설정할 수 있습니다.
+다음 명령을 실행 하 여 응용 프로그램의 개체 ID를 가져오고 인증서 기반 자격 증명을 만듭니다. 이 예제에서는 1 년 후에 만료 되도록 인증서를 설정 하 고, 필요한 종료 날짜를 설정할 수 있습니다.
 
 ```powershell
 $application = Get-AzureADApplication -ObjectId <Object_ID_of_Your_Application>
@@ -97,47 +97,47 @@ $application = Get-AzureADApplication -ObjectId <Object_ID_of_Your_Application>
 New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyIdentifier "Key1" -Type AsymmetricX509Cert -Usage Verify -Value $keyValue -EndDate "2020-01-01"
 ```
 
-위의 명령은 아래 스크린샷과 유사한 출력을 생성합니다.
+위의 명령은 아래 스크린샷에서 유사한 출력을 생성 합니다.
 
 ![인증서 기반 자격 증명 생성 출력](./media/certificate-based-authentication/certificate-based-credential-output.png)
 
-## <a name="configure-your-azure-cosmos-account-to-use-the-new-identity"></a>Azure Cosmos 계정을 새 ID를 사용하도록 구성합니다.
+## <a name="configure-your-azure-cosmos-account-to-use-the-new-identity"></a>새 id를 사용 하도록 Azure Cosmos 계정 구성
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. 로그인은 [Azure 포털](https://portal.azure.com/)합니다.
 
-1. Azure Cosmos 계정으로 이동하여 **IAM(액세스 컨트롤)** 블레이드를 엽니다.
+1. Azure Cosmos 계정으로 이동 하 여 **액세스 제어 (IAM)** 블레이드를 엽니다.
 
-1. 역할 할당 **추가** 및 **추가를**선택합니다. 다음 스크린샷과 같이 **기여자** 역할을 사용하여 이전 단계에서 만든 샘플앱을 추가합니다.
+1. **추가** 및 **역할 할당 추가**를 선택 합니다. 다음 스크린샷에 표시 된 것 처럼, **참가자** 역할을 사용 하 여 이전 단계에서 만든 sampleapp.exe를 추가 합니다.
 
-   ![새 ID를 사용하도록 Azure Cosmos 계정 구성](./media/certificate-based-authentication/configure-cosmos-account-with-identify.png)
+   ![새 id를 사용 하도록 Azure Cosmos 계정 구성](./media/certificate-based-authentication/configure-cosmos-account-with-identify.png)
 
-1. 양식을 작성한 후 **저장을** 선택합니다.
+1. 양식을 작성 한 후 **저장** 을 선택 합니다.
 
 ## <a name="register-your-certificate-with-azure-ad"></a>Azure AD에 인증서 등록
 
-Azure 포털에서 Azure AD의 클라이언트 응용 프로그램과 인증서 기반 자격 증명을 연결할 수 있습니다. 자격 증명을 연결하려면 인증서 파일을 다음 단계와 함께 업로드해야 합니다.
+Azure Portal에서 Azure AD의 클라이언트 응용 프로그램과 인증서 기반 자격 증명을 연결할 수 있습니다. 자격 증명을 연결 하려면 다음 단계를 수행 하 여 인증서 파일을 업로드 해야 합니다.
 
 클라이언트 애플리케이션에 대한 Azure 앱 등록에서:
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. 로그인은 [Azure 포털](https://portal.azure.com/)합니다.
 
-1. Azure **Active Directory** 창을 열고 **앱 등록** 창으로 이동한 다음 이전 단계에서 만든 샘플 앱을 엽니다. 
+1. Azure **Active Directory** 창을 열고 **앱 등록** 창으로 이동 하 여 이전 단계에서 만든 샘플 앱을 엽니다. 
 
-1. **인증서 & 비밀을** 선택한 다음 **인증서를 업로드합니다.** 업로드할 이전 단계에서 만든 인증서 파일을 찾아봅습니다.
+1. **인증서 & 암호** 를 선택 하 고 **인증서를 업로드**합니다. 이전 단계에서 만든 인증서 파일을 검색 하 여 업로드 합니다.
 
-1. **추가**를 선택합니다. 인증서를 업로드한 후 지문, 시작 날짜 및 만료 값이 표시됩니다.
+1. **추가**를 선택합니다. 인증서를 업로드 한 후에는 지문, 시작 날짜 및 만료 값이 표시 됩니다.
 
-## <a name="access-the-keys-from-powershell"></a>PowerShell에서 키에 액세스
+## <a name="access-the-keys-from-powershell"></a>PowerShell에서 키 액세스
 
-이 단계에서는 응용 프로그램 및 만든 인증서를 사용하여 Azure에 로그인하고 Azure Cosmos 계정의 키에 액세스합니다. 
+이 단계에서는 사용자가 만든 응용 프로그램 및 인증서를 사용 하 여 Azure에 로그인 하 고 Azure Cosmos 계정의 키에 액세스 합니다. 
 
-1. 처음에는 계정에 로그인하는 데 사용한 Azure 계정의 자격 증명을 지웁히 지웁습니다. 다음 명령을 사용하여 자격 증명을 지울 수 있습니다.
+1. 처음에 계정에 로그인 하는 데 사용한 Azure 계정의 자격 증명을 지웁니다. 다음 명령을 사용 하 여 자격 증명을 지울 수 있습니다.
 
    ```powershell
    Disconnect-AzAccount -Username <Your_Azure_account_email_id> 
    ```
 
-1. 그런 다음 응용 프로그램의 자격 증명을 사용하여 Azure Portal에 로그인하고 Azure Cosmos DB 키에 액세스할 수 있는지 확인합니다.
+1. 그런 다음 응용 프로그램의 자격 증명을 사용 하 여 Azure Portal에 로그인 하 고 Azure Cosmos DB 키에 액세스할 수 있는지 확인 합니다.
 
    ```powershell
    Login-AzAccount -ApplicationId <Your_Application_ID> -CertificateThumbprint $cert.Thumbprint -ServicePrincipal -Tenant <Tenant_ID_of_your_application>
@@ -148,13 +148,13 @@ Azure 포털에서 Azure AD의 클라이언트 응용 프로그램과 인증서 
       -Type "Keys"
    ```
 
-이전 명령에Azure Cosmos 계정의 기본 및 보조 마스터 키가 표시됩니다. Azure Cosmos 계정의 활동 로그를 보고 get 키 요청이 성공하고 이벤트가 "sampleApp" 응용 프로그램에 의해 시작되는지 확인할 수 있습니다.
+이전 명령은 Azure Cosmos 계정의 기본 및 보조 마스터 키를 표시 합니다. Azure Cosmos 계정의 활동 로그를 확인 하 여 키 가져오기 요청이 성공 했으며 이벤트가 "Sampleapp.exe" 응용 프로그램에 의해 시작 되었는지 확인할 수 있습니다.
 
-![Azure AD에서 get 키 호출 유효성 검사](./media/certificate-based-authentication/activity-log-validate-results.png)
+![Azure AD에서 키 가져오기 호출의 유효성을 검사 합니다.](./media/certificate-based-authentication/activity-log-validate-results.png)
 
-## <a name="access-the-keys-from-a-c-application"></a>C# 응용 프로그램에서 키에 액세스 
+## <a name="access-the-keys-from-a-c-application"></a>C # 응용 프로그램에서 키에 액세스 
 
-C# 응용 프로그램의 키에 액세스하여 이 시나리오의 유효성을 검사할 수도 있습니다. Active Directory에 등록된 앱을 사용하여 Azure Cosmos DB 키에 액세스할 수 있는 다음 C# 콘솔 응용 프로그램입니다. 코드를 실행하기 전에 tenantId, clientID, certName, 리소스 그룹 이름, 구독 ID, Azure Cosmos 계정 이름 세부 정보를 업데이트해야 합니다. 
+C # 응용 프로그램에서 키에 액세스 하 여이 시나리오의 유효성을 검사할 수도 있습니다. Active Directory에 등록 된 앱을 사용 하 여 Azure Cosmos DB 키에 액세스할 수 있는 다음 c # 콘솔 응용 프로그램입니다. 코드를 실행 하기 전에 tenantId, clientID, certName, 리소스 그룹 이름, 구독 ID, Azure Cosmos 계정 이름 세부 정보를 업데이트 해야 합니다. 
 
 ```csharp
 using System;
@@ -236,15 +236,15 @@ namespace TodoListDaemonWithCert
 }
 ```
 
-이 스크립트는 다음 스크린샷과 같이 기본 및 보조 마스터 키를 출력합니다.
+이 스크립트는 다음 스크린샷에 표시 된 대로 기본 및 보조 마스터 키를 출력 합니다.
 
 ![csharp 응용 프로그램 출력](./media/certificate-based-authentication/csharp-application-output.png)
 
-이전 섹션과 마찬가지로 Azure Cosmos 계정의 활동 로그를 보고 "sampleApp" 응용 프로그램에서 키 요청 이벤트를 시작 하 고 있는지 확인할 수 있습니다. 
+이전 섹션과 마찬가지로 Azure Cosmos 계정의 활동 로그를 확인 하 여 "Sampleapp.exe" 응용 프로그램에서 키 가져오기 요청 이벤트가 시작 되었는지 확인할 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Key Vault를 사용하여 Azure Cosmos 키 보호](access-secrets-from-keyvault.md)
 
-* [Azure 코스모스 DB에 대한 보안 기준](security-baseline.md)
+* [Azure Cosmos DB에 대 한 보안 기준](security-baseline.md)

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0518c58abf156c718ee083ffadb0ef8e0a590252
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331535"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect 및 페더레이션
@@ -34,18 +34,18 @@ Azure AD(Azure Active Directory) Connect를 통해 온-프레미스 AD FS(Active
 | **Azure AD Connect 사용자 로그인 옵션** | |
 | [사용자 로그인 옵션 이해](plan-connect-user-signin.md) |다양한 사용자 로그인 옵션 및 Azure 로그인 사용자 환경에 미치는 영향에 대해 알아봅니다. |
 | **Azure AD Connect를 사용하여 AD FS 설치** | |
-| [필수 조건](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Azure AD Connect를 통한 성공적인 AD FS 설치의 필수 구성 요소를 참조하세요. |
+| [전제 조건](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Azure AD Connect를 통한 성공적인 AD FS 설치의 필수 구성 요소를 참조하세요. |
 | [AD FS 팜 구성](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Azure AD Connect를 사용하여 새 AD FS 팜을 설치합니다. |
-| [대체 로그인 ID를 사용하여 Azure AD로 페더레이트](how-to-connect-fed-management.md#alternateid) | 대체 로그인 ID를 사용하여 페더레이션 구성  |
+| [대체 로그인 ID를 사용 하 여 Azure AD와 페더레이션](how-to-connect-fed-management.md#alternateid) | 대체 로그인 ID를 사용하여 페더레이션 구성  |
 | **AD FS 구성 수정** | |
 | [트러스트 복구](how-to-connect-fed-management.md#repairthetrust) |온-프레미스 AD FS와 Office 365/Azure 사이의 현재 트러스트를 복구합니다. |
 | [새 AD FS 서버 추가](how-to-connect-fed-management.md#addadfsserver) |초기 설치 후 추가적인 AD FS 서버를 통한 AD FS 팜을 확장합니다. |
 | [새 AD FS WAP 서버 추가](how-to-connect-fed-management.md#addwapserver) |초기 설치 후에 추가적인 WAP(웹 애플리케이션 프록시) 서버를 통한 AD FS 팜을 확장합니다. |
 | [새 페더레이션된 도메인 추가](how-to-connect-fed-management.md#addfeddomain) |Azure AD를 통해 페더레이션될 또 다른 도메인을 추가합니다. |
-| [TLS/SSL 인증서 업데이트](how-to-connect-fed-ssl-update.md)| AD FS 팜의 TLS/SSL 인증서를 업데이트합니다. |
+| [TLS/SSL 인증서 업데이트](how-to-connect-fed-ssl-update.md)| AD FS 팜에 대 한 TLS/SSL 인증서를 업데이트 합니다. |
 | [Office 365 및 Azure AD에 대한 페더레이션 인증서 갱신](how-to-connect-fed-o365-certs.md)|Azure AD로 O365 인증서를 갱신합니다.|
 | **기타 페더레이션 구성** | |
-| [Azure AD의 여러 인스턴스를 AD FS의 단일 인스턴스로 페더레이션](how-to-connect-fed-single-adfs-multitenant-federation.md) | 단일 AD FS 팜을 사용하여 여러 Azure AD 페더레이션| 
+| [AD FS의 단일 인스턴스를 사용하여 Azure AD의 여러 인스턴스를 페더레이션](how-to-connect-fed-single-adfs-multitenant-federation.md) | 단일 AD FS 팜을 사용하여 여러 Azure AD 페더레이션| 
 | [사용자 지정 회사 로고/일러스트레이션 추가](how-to-connect-fed-management.md#customlogo) |AD FS 로그인 페이지에 표시되는 사용자 지정 로고를 지정하여 로그인 환경을 수정합니다. |
 | [로그인 설명 추가](how-to-connect-fed-management.md#addsignindescription) |AD FS 로그인 페이지의 로그인 설명을 변경합니다. |
 | [AD FS 클레임 규칙 수정](how-to-connect-fed-management.md#modclaims) |Azure AD Connect 동기화 구성에 해당하는 AD FS의 클레임 규칙을 수정 또는 추가합니다. |

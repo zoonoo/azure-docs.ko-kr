@@ -1,5 +1,5 @@
 ---
-title: 클라이언트 인증서 인증을 사용하여 백 엔드 서비스 보안
+title: 클라이언트 인증서 인증을 사용 하 여 백 엔드 서비스 보호
 titleSuffix: Azure API Management
 description: Azure API Management에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법에 대해 알아봅니다.
 services: api-management
@@ -14,35 +14,35 @@ ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
 ms.openlocfilehash: b0ddf6dda99ee666e3052b5a70e51c7e4208a374
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80347100"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Azure API Management에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법
 
-API 관리를 사용하면 클라이언트 인증서를 사용하여 API의 백 엔드 서비스에 대한 액세스를 보호할 수 있습니다. 이 가이드에서는 Azure Portal에서 Azure API Management 서비스 인스턴스의 인증서를 관리하는 방법을 보여 줍니다. 또한 백 엔드 서비스에 액세스하도록 인증서를 사용하여 API를 구성하는 방법을 설명합니다.
+API Management를 사용 하면 클라이언트 인증서를 사용 하 여 API의 백 엔드 서비스에 대 한 액세스를 보호할 수 있습니다. 이 가이드에서는 Azure Portal에서 Azure API Management 서비스 인스턴스의 인증서를 관리하는 방법을 보여 줍니다. 또한 백 엔드 서비스에 액세스하도록 인증서를 사용하여 API를 구성하는 방법을 설명합니다.
 
 API Management REST API를 사용하여 인증서를 관리하는 방법에 대한 자세한 내용은 <a href="https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Azure API Management REST API 인증서 엔터티</a>를 참조하세요.
 
-## <a name="prerequisites"></a><a name="prerequisites"> </a>사전 요구 사항
+## <a name="prerequisites"></a><a name="prerequisites"> </a>전제 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-이 가이드에서는 클라이언트 인증서 인증을 사용하여 API의 백 엔드 서비스에 액세스하도록 API Management 서비스 인스턴스를 구성하는 방법을 설명합니다. 이 문서의 단계를 수행하기 전에 클라이언트 인증서 인증을 위해 백 엔드 서비스를 구성해야[합니다(Azure App Service에서 인증서 인증을 구성하려면 이 문서가 참조).][to configure certificate authentication in Azure WebSites refer to this article] API Management 서비스로 업로드하려면 인증서와 암호에 액세스해야 합니다.
+이 가이드에서는 클라이언트 인증서 인증을 사용하여 API의 백 엔드 서비스에 액세스하도록 API Management 서비스 인스턴스를 구성하는 방법을 설명합니다. 이 문서의 단계를 수행 하기 전에 클라이언트 인증서 인증에 대해 백 엔드 서비스를 구성 해야 합니다 ([Azure App Service에서 인증서 인증을 구성 하려면이 문서 참조][to configure certificate authentication in Azure WebSites refer to this article]). API Management 서비스로 업로드하려면 인증서와 암호에 액세스해야 합니다.
 
 ## <a name="upload-a-certificate"></a><a name="step1"> </a>인증서 업로드
 
 > [!NOTE]
-> 업로드된 인증서 대신 이 [예제와](https://github.com/galiniliev/api-management-policy-snippets/blob/galin/AkvCert/examples/Look%20up%20Key%20Vault%20certificate%20using%20Managed%20Service%20Identity%20and%20call%20backend.policy.xml)같이 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 서비스에 저장된 인증서를 사용할 수 있습니다.
+> 이 [예제](https://github.com/galiniliev/api-management-policy-snippets/blob/galin/AkvCert/examples/Look%20up%20Key%20Vault%20certificate%20using%20Managed%20Service%20Identity%20and%20call%20backend.policy.xml)와 같이 업로드 된 인증서 대신 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 서비스에 저장 된 인증서를 사용할 수 있습니다.
 
 ![클라이언트 인증서 추가](media/api-management-howto-mutual-certificates/apim-client-cert-new.png)
 
 새 클라이언트 인증서를 업로드하려면 다음 단계를 수행합니다. 아직 API Management 서비스 인스턴스를 만들지 않은 경우 자습서 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
 
 1. Azure Portal에서 Azure API Management 서비스 인스턴스로 이동합니다.
-2. 메뉴에서 **인증서를 선택합니다.**
+2. 메뉴에서 **인증서** 를 선택 합니다.
 3. **+추가** 단추를 클릭합니다.
     ![클라이언트 인증서 추가](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
 4. 인증서를 찾아보아 해당 ID와 암호를 제공합니다.
@@ -51,7 +51,7 @@ API Management REST API를 사용하여 인증서를 관리하는 방법에 대�
 > [!NOTE]
 > 인증서는 **.pfx** 형식이어야 합니다. 자체 서명된 인증서도 사용할 수 있습니다.
 
-인증서가 업로드되면 **인증서에**표시됩니다.  인증서가 많은 경우 [게이트웨이 인증에 클라이언트 인증서를 사용하도록 API를 구성][Configure an API to use a client certificate for gateway authentication]하려면 원하는 인증서의 지문을 기록해 둡니다.
+인증서가 업로드 되 **면 인증서에 표시 됩니다.**  인증서가 많은 경우 [게이트웨이 인증에 클라이언트 인증서를 사용하도록 API를 구성][Configure an API to use a client certificate for gateway authentication]하려면 원하는 인증서의 지문을 기록해 둡니다.
 
 > [!NOTE]
 > 사용하는 경우 인증서 체인 유효성 검사를 해제하려면(예: 자체 서명된 인증서) 이 FAQ [항목](api-management-faq.md#can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end)에 설명된 단계를 따릅니다.
@@ -86,7 +86,7 @@ API Management REST API를 사용하여 인증서를 관리하는 방법에 대�
 
 ## <a name="self-signed-certificates"></a>자체 서명된 인증서
 
-자체 서명된 인증서를 사용하는 경우 API Management가 백 엔드 시스템과 통신하기 위해 인증서 체인 유효성 검사를 사용하지 않도록 설정해야 합니다. 그렇지 않으면 500 오류 코드를 반환합니다. 이를 [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) 구성하려면(새 백 엔드의 경우) [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) 또는 PowerShell cmdlet을 사용하고 매개 `-SkipCertificateChainValidation` 변수를 `True`로 설정할 수 있습니다.
+자체 서명된 인증서를 사용하는 경우 API Management가 백 엔드 시스템과 통신하기 위해 인증서 체인 유효성 검사를 사용하지 않도록 설정해야 합니다. 그렇지 않으면 500 오류 코드를 반환합니다. [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) 이를 구성 하기 위해 (새로운 백 엔드) 또는 [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (기존 백 엔드) PowerShell cmdlet을 사용 하 고 `-SkipCertificateChainValidation` 매개 변수를로 `True`설정할 수 있습니다.
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

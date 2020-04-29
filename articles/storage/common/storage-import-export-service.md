@@ -9,10 +9,10 @@ ms.date: 03/15/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: eee0fc2797fbe0666a6b848fde574c7807f47cc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80282446"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure Import/Export 서비스란?
@@ -23,12 +23,12 @@ Azure Import/Export 서비스를 사용하면 디스크 드라이브를 Azure �
 
 Microsoft에서 제공하는 디스크 드라이브를 사용하여 데이터를 전송하려는 경우 [Azure Data Box Disk](../../databox/data-box-disk-overview.md)를 사용하여 Azure로 데이터를 가져올 수 있습니다. Microsoft는 주문당 총 40TB 용량의 암호화된 SSD(solid-state disk) 드라이브를 5개까지 지역 이동 통신 사업자를 통해 데이터 센터에 제공합니다. 신속하게 디스크 드라이브를 구성하고, USB 3.0 연결을 통해 디스크 드라이브에 데이터를 복사하고, Azure에 다시 디스크 드라이브를 제공할 수 있습니다. 자세한 내용은 [Azure Data Box Disk 개요](../../databox/data-box-disk-overview.md)로 이동합니다.
 
-## <a name="azure-importexport-use-cases"></a>Azure 가져오기/내보내기 사용 사례
+## <a name="azure-importexport-use-cases"></a>Azure Import/Export 사용 사례
 
 네트워크를 통한 데이터 업로드 또는 다운로드가 너무 느리거나 추가 네트워크 대역폭 비용이 너무 비싼 경우 Azure Import/Export 서비스 사용을 고려할 수 있습니다. 다음 시나리오에서 이 서비스를 사용하세요.
 
 * **클라우드로의 데이터 마이그레이션**: 많은 양의 데이터를 Azure로 신속하고 비용 효과적으로 이동합니다.
-* **콘텐츠 배포**: 고객 사이트에 데이터를 신속하게 전송합니다.
+* **콘텐츠 배포**: 고객 사이트로 신속 하 게 데이터를 보냅니다.
 * **백업**: 온-프레미스 데이터의 백업을 가져와 Azure Storage에 저장합니다.
 * **데이터 복구**: 스토리지에 저장된 많은 양의 데이터를 복구하여 온-프레미스 위치에 전달합니다.
 
@@ -41,7 +41,7 @@ Import/Export 서비스는 다음 구성 요소를 사용합니다.
 * **WAImportExport 도구**: 이 도구는 다음 작업을 수행하는 명령줄 도구입니다.
   * 가져오기용으로 발송할 디스크 드라이브를 준비합니다.
   * 드라이브에 데이터를 편리하게 복사할 수 있도록 합니다.
-  * AES 128비트 BitLocker를 사용하여 드라이브의 데이터를 암호화합니다. 외부 키 보호기를 사용하여 BitLocker 키를 보호할 수 있습니다.
+  * AES 128 비트 BitLocker를 사용 하 여 드라이브의 데이터를 암호화 합니다. 외부 키 보호기를 사용 하 여 BitLocker 키를 보호할 수 있습니다.
   * 가져오기 생성 동안 사용되는 드라이브 저널 파일을 생성합니다.
   * 내보내기 작업에 필요한 드라이브 수를 식별하는 데 도움이 됩니다.
 
@@ -75,9 +75,9 @@ Azure Import/Export 서비스를 사용하면 작업을 만들어 Azure Blob 및
 8. 드라이브는 운송업체 계정을 사용하여 가져오기 작업에 제공된 반송 주소로 배송됩니다.
 
 > [!NOTE]
-> 현지(데이터 센터 국가/지역 내) 발송물의 경우 국내 운송업체 계정을 공유하십시오.
+> 로컬 (데이터 센터 국가/지역 내) 배송의 경우 국내 운송 업체 계정을 공유 하세요.
 >
-> 해외(데이터 센터 국가/지역 외부) 발송물의 경우 국제 운송업체 계정을 공유하십시오.
+> 해외 (데이터 센터 국가/지역 외부) 배송에 대해 국제 운송 업체 계정을 공유 하세요.
 
  ![그림 1: 가져오기 작업 흐름](./media/storage-import-export-service/importjob.png)
 
@@ -104,9 +104,9 @@ Azure Import/Export 서비스를 사용하면 작업을 만들어 Azure Blob 및
 9. 드라이브는 운송업체 계정을 사용하여 가져오기 작업에 제공된 반송 주소로 배송됩니다.
 
 > [!NOTE]
-> 현지(데이터 센터 국가/지역 내) 발송물의 경우 국내 운송업체 계정을 공유하십시오.
+> 로컬 (데이터 센터 국가/지역 내) 배송의 경우 국내 운송 업체 계정을 공유 하세요.
 >
-> 해외(데이터 센터 국가/지역 외부) 발송물의 경우 국제 운송업체 계정을 공유하십시오.
+> 해외 (데이터 센터 국가/지역 외부) 배송에 대해 국제 운송 업체 계정을 공유 하세요.
   
  ![그림 2: 내보내기 작업 흐름](./media/storage-import-export-service/exportjob.png)
 
@@ -131,15 +131,15 @@ Azure Import/Export 서비스는 모든 Azure Storage 계정으로의 데이터 
 
 ## <a name="security-considerations"></a>보안 고려 사항
 
-드라이브의 데이터는 AES 128비트 BitLocker 드라이브 암호화를 사용하여 암호화됩니다. 이렇게 암호화하면 전송 중 데이터가 보호됩니다.
+드라이브의 데이터는 AES 128 비트 BitLocker 드라이브 암호화를 사용 하 여 암호화 됩니다. 이렇게 암호화하면 전송 중 데이터가 보호됩니다.
 
 가져오기 작업의 경우 드라이브는 두 가지 방법으로 암호화됩니다.  
 
 * 드라이브 준비 중에 WAImportExport 도구를 실행하면서 *dataset.csv* 파일을 사용할 때 옵션을 지정합니다.
 
-* 드라이브에 대해 BitLocker 암호화를 수동으로 사용하도록 설정합니다. 드라이브 준비 중에 WAImportExport 도구 명령줄을 실행할 때 *driveset.csv*에 암호화 키를 지정합니다. BitLocker 암호화 키는 외부 키 보호기(Microsoft 관리 키라고도 함) 또는 고객 관리 키를 사용하여 추가로 보호할 수 있습니다. 자세한 내용은 [고객 관리 키를 사용하여 BitLocker 키를 보호하는 방법을 참조하세요.](storage-import-export-encryption-key-portal.md)
+* 드라이브에 대해 BitLocker 암호화를 수동으로 사용하도록 설정합니다. 드라이브 준비 중에 WAImportExport 도구 명령줄을 실행할 때 *driveset.csv*에 암호화 키를 지정합니다. BitLocker 암호화 키는 외부 키 보호기 (Microsoft 관리 키 라고도 함) 또는 고객 관리 키를 사용 하 여 추가로 보호할 수 있습니다. 자세한 내용은 [고객 관리 키를 사용 하 여 BitLocker 키를 보호](storage-import-export-encryption-key-portal.md)하는 방법을 참조 하세요.
 
-내보내기 작업의 경우 데이터가 드라이브에 복사된 후 서비스에서 이를 다시 사용자에게 발송하기 전에 BitLocker를 사용하여 드라이브를 암호화합니다. 암호화 키는 Azure Portal을 통해 제공됩니다. 드라이브를 사용하여 WAImporExport 도구를 사용하여 잠금을 해제해야 합니다.
+내보내기 작업의 경우 데이터가 드라이브에 복사된 후 서비스에서 이를 다시 사용자에게 발송하기 전에 BitLocker를 사용하여 드라이브를 암호화합니다. 암호화 키는 Azure Portal을 통해 제공됩니다. 키를 사용 하 여 WAImporExport 도구를 사용 하 여 드라이브를 잠금 해제 해야 합니다.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
@@ -155,7 +155,7 @@ Azure에 드라이브를 발송하는 경우 운송업체에 발송 비용을 �
 
 **트랜잭션 비용**
 
-[표준 저장소 트랜잭션 요금은](https://azure.microsoft.com/pricing/details/storage/) 가져오기 및 데이터 내보내기 중에 적용됩니다. Azure Storage에서 데이터를 내보낼 때 저장소 트랜잭션 요금과 함께 표준 송신 요금도 적용됩니다. 송신 비용에 대한 자세한 내용은 [데이터 전송 가격을 참조하십시오.](https://azure.microsoft.com/pricing/details/data-transfers/)
+[표준 저장소 트랜잭션](https://azure.microsoft.com/pricing/details/storage/) 요금은 가져오기 및 데이터 내보내기 중에 적용 됩니다. Azure Storage에서 데이터를 내보낼 때 저장소 트랜잭션 요금과 함께 표준 송신 요금이 적용 될 수도 있습니다. 송신 비용에 대 한 자세한 내용은 [데이터 전송 가격 책정](https://azure.microsoft.com/pricing/details/data-transfers/)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

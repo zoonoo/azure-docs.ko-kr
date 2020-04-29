@@ -1,7 +1,7 @@
 ---
 title: Video Indexer를 사용할 수 있는 지역 - Azure
 titleSuffix: Azure Media Services
-description: 이 문서에서는 Azure 미디어 서비스 비디오 인덱서를 사용할 수 있는 Azure 지역에 대해 다수 있습니다.
+description: 이 문서에서는 Azure Media Services Video Indexer을 사용할 수 있는 Azure 지역에 대해 설명 합니다.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
 ms.openlocfilehash: c91b38fcbfb9b517651adead010408425e519a82
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80382752"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Video Indexer가 있는 Azure 지역

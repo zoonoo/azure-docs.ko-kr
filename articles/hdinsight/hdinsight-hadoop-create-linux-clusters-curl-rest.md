@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
 ms.openlocfilehash: 2680304bd73bdbae35b29b89f38ae2665615f5e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80239931"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Apache Hadoop 클러스터 만들기
@@ -28,9 +28,9 @@ Azure REST API를 사용하면 HDInsight 클러스터 등과 같은 새 리소�
 
 ## <a name="create-a-template"></a>템플릿 만들기
 
-Azure 리소스 관리자 템플릿은 리소스 그룹 및 **리소스의** 모든 리소스(예: HDInsight)를 설명하는 JSON 문서입니다. 이 템플릿 기반 방법을 사용하면 하나의 템플릿에서 HDInsight에 필요한 리소스를 정의할 수 있습니다.
+Azure Resource Manager 템플릿은 **리소스 그룹 및 해당 리소스 그룹** 의 모든 리소스 (예: HDInsight)를 설명 하는 JSON 문서입니다. 이 템플릿 기반 접근 방식을 사용 하면 하나의 템플릿에서 HDInsight에 필요한 리소스를 정의할 수 있습니다.
 
-다음 JSON 문서는 SSH 사용자 계정을 보호하기 [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)위해 암호를 사용하여 Linux 기반 클러스터를 만드는 템플릿 및 매개 변수 파일의 합병입니다.
+다음 JSON 문서는의 [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)템플릿과 매개 변수 파일의 병합기로, 암호를 사용 하 여 SSH 사용자 계정을 보호 하는 Linux 기반 클러스터를 만듭니다.
 
    ```json
    {
@@ -347,7 +347,7 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 ## <a name="next-steps"></a>다음 단계
 
-HDInsight 클러스터를 성공적으로 만들었으니 다음을 사용하여 클러스터를 사용하는 방법을 알아봅니다.
+HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용 하 여 클러스터 작업을 수행 하는 방법을 알아보세요.
 
 ### <a name="apache-hadoop-clusters"></a>Apache Hadoop 클러스터
 

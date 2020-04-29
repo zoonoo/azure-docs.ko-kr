@@ -1,5 +1,5 @@
 ---
-title: Azure 및 앱소스 마켓플레이스 제품 관리 | Azure 마켓플레이스
+title: Azure 및 AppSource Marketplace 제품 관리 | Azure Marketplace
 description: Azure 및 AppSource Marketplace의 제품 관리
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: dsindona
 ms.openlocfilehash: 8b964075a7ad38cae43b8f3bda15f7d8c76318ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80286441"
 ---
 # <a name="manage-azure-and-appsource-marketplace-offers"></a>Azure 및 AppSource Marketplace 제품 관리
@@ -23,7 +23,7 @@ ms.locfileid: "80286441"
 
 Cloud 파트너 포털을 통해 게시자는 제품에 대해 다음과 같은 기본 작업을 수행할 수 있습니다.
 
-|     작업(Operation)      |  설명                                           |
+|     작업(Operation)      |  Description                                           |
 |     ---------      |  -----------                                           |
 | [제품 만들기](./cpp-create-offer.md)   | 온보딩 리포지토리에 보류 중인 제품 항목을 만들지만 Microsoft 마켓플레이스에 자동으로 게시하지 않습니다. | 
 | [제품 상태 보기](./cpp-view-status-offer.md)   | 제품의 게시 상태를 제공합니다.  포털에는 상태 정보가 표시되는 여러 위치가 있습니다. |

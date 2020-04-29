@@ -1,5 +1,5 @@
 ---
-title: 마켓플레이스 오퍼 만들기 | Azure 마켓플레이스
+title: Marketplace 제품 만들기 | Azure Marketplace
 description: Cloud 파트너 포털을 사용하여 Azure 및 AppSource Marketplace에서 제품 만들기
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: dsindona
 ms.openlocfilehash: d14940eff569a80759e9db0bfa2d6d1541a01377
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80286475"
 ---
 # <a name="create-azure-marketplace-and-appsource-offers"></a>Azure Marketplace 및 AppSource 제품 만들기
@@ -36,7 +36,7 @@ Cloud 파트너 포털의 필수 용도 중 하나는 게시자가 제품을 만
 | **무시** | 최근 데이터 입력 변경 내용(마지막 저장 이후)을 취소합니다.             |
 | **비교** | 현재 제품의 상태를 게시된 제품과 비교합니다.  제품이 성공적으로 게시된 후에만 사용할 수 있습니다.  |
 | **게시** | 이 제품에 대한 게시 프로세스를 시작합니다.                       |
-| **삭제**  | 이 제품이 생성된 후 게시되기 전에 제품을 삭제합니다. |
+| **Delete**  | 이 제품이 생성된 후 게시되기 전에 제품을 삭제합니다. |
 |   |   |
 
 
@@ -46,9 +46,9 @@ Cloud 파트너 포털의 필수 용도 중 하나는 게시자가 제품을 만
 
 |      탭 이름       |   목적                                                            |
 |      --------       |   -------                                                            |
-| **제품 설정**  | 제품 및 게시자 ID 정보를 수집합니다.                    |
+| **제안 설정**  | 제품 및 게시자 ID 정보를 수집합니다.                    |
 | **SKU**            | 제품의 각 SKU(Stock Keeping Unit) 버전에 대한 기술 및 비즈니스 특성을 정의합니다. |
-| **테스트 드라이브**      | 이 선택적 기능을 지원하는 유형의 경우 제품에 대한 데모를 정의합니다.  자세한 내용은 [시험 사용이란?](../test-drive/what-is-test-drive.md)을 참조하세요.  |
+| **시험 사용**      | 이 선택적 기능을 지원하는 유형의 경우 제품에 대한 데모를 정의합니다.  자세한 내용은 [시험 사용이란?](../test-drive/what-is-test-drive.md)을 참조하세요.  |
 | **마켓플레이스** 또는 **상점** | 마켓플레이스에 제품을 나열하는 데 사용되는 텍스트 문자열, 문서 및 이미지를 수집합니다. |
 | **지원**         | 고객, 엔지니어링 및 온라인 지원을 위한 연락처 정보를 수집합니다.  |
 |  |  |

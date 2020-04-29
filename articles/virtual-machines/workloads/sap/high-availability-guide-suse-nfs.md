@@ -1,5 +1,5 @@
 ---
-title: SLES의 Azure VM에서 NFS에 대한 고가용성 | 마이크로 소프트 문서
+title: SLES에서 Azure Vm의 NFS에 대 한 고가용성 | Microsoft Docs
 description: SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
 ms.openlocfilehash: 4dce0a675f5841591da00a322b72718964d382ac
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80348864"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성
@@ -62,7 +62,7 @@ ms.locfileid: "80348864"
   * Microsoft Azure에서 Windows 및 Linux에 필요한 SAP 커널 버전
 
 * SAP Note [2015553]는 Azure에서 SAP을 지원하는 SAP 소프트웨어 배포에 대한 필수 구성 요소를 나열합니다.
-* SAP 참고 [2205917] SAP 응용 프로그램에 대 한 SUSE 리눅스 엔터프라이즈 서버에 대 한 OS 설정을 권장 했다
+* Sap Note [2205917] 에는 Sap 응용 프로그램의 SUSE Linux Enterprise Server에 대 한 OS 설정이 권장 됩니다.
 * SAP Note [1944799]에는 SAP 애플리케이션용 SUSE Linux Enterprise Server에 대한 SAP HANA 지침이 나와 있습니다.
 * SAP Note [2178632]는 Azure에서 SAP에 대해 보고된 모든 모니터링 메트릭에 대한 자세한 정보를 포함하고 있습니다.
 * SAP Note [2191498]는 Azure에서 Linux에 필요한 SAP Host Agent 버전을 포함하고 있습니다.
@@ -71,7 +71,7 @@ ms.locfileid: "80348864"
 * SAP Note [1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
 * [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [Linux에서 SAP용 Azure 가상 시스템 배포(이 문서)][deployment-guide]
+* [Linux에서 SAP 용 Azure Virtual Machines 배포 (이 문서)][deployment-guide]
 * [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
 * [SUSE Linux Enterprise 고가용성 확장 12 SP3 모범 사례 가이드][sles-hae-guides]
   * DRBD 및 Pacemaker를 사용하는 고가용성 NFS 스토리지
@@ -94,7 +94,7 @@ SAP NetWeaver의 가용성을 높이려면 NFS 서버가 필요합니다. NFS �
 * 프로브 포트
   * NW1의 경우 포트 61000
   * NW2의 경우 포트 61001
-* 로드 밸런싱 규칙(기본 로드 밸런서 사용 시)
+* 부하 분산 규칙 (기본 부하 분산 장치를 사용 하는 경우)
   * NW1의 경우 2049 TCP
   * NW1의 경우 2049 UDP
   * NW2의 경우 2049 TCP
@@ -107,20 +107,20 @@ GitHub의 Azure 템플릿을 사용하여 필요한 Azure 리소스(가상 머�
 ### <a name="deploy-linux-via-azure-template"></a>Azure 템플릿을 통해 Linux 배포
 
 Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있는 SAP Applications 12용 SUSE Linux Enterprise Server의 이미지가 포함되어 있습니다.
-GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿은 가상 시스템, 로드 밸레인저, 가용성 세트 등을 배포합니다. 다음 단계에 따라 템플릿을 배포합니다.
+GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿은 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포 합니다. 템플릿을 배포 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 [SAP 파일 서버 템플릿][template-file-server]을 엽니다.   
 1. 다음 매개 변수를 입력합니다.
    1. 리소스 접두사 -  
       사용할 접두사를 입력합니다. 이 값은 배포되는 리소스의 접두사로 사용됩니다.
    2. SAP 시스템 수 -  
-      이 파일 서버를 사용할 SAP 시스템 수를 입력합니다. 이렇게 하면 필요한 양의 프런트 엔드 구성, 로드 밸런싱 규칙, 프로브 포트, 디스크 등이 배포됩니다.
+      이 파일 서버를 사용할 SAP 시스템 수를 입력합니다. 이렇게 하면 필요한 프런트 엔드 구성, 부하 분산 규칙, 프로브 포트, 디스크 등을 배포 합니다.
    3. OS 종류 -  
       Linux 배포판 중 하나를 선택합니다. 이 예제에서는 SLES 12를 선택합니다.
    4. 관리자 사용자 이름 및 관리자 암호 -  
       컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
    5. 서브넷 ID  
-      서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 /subscriptions/**&lt;구독&gt;ID**/resourceGroups/**&lt;리소스 그룹&gt;이름**/공급자/Microsoft.Network/가상 네트워크/가상**&lt;네트워크 이름/서브넷/서브넷&gt;****&lt;이름처럼&gt; ** 보입니다.
+      서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로/subscriptions/**&lt;subscription&gt;ID**/resourcegroups//**&lt;리소스 그룹 이름&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;가상 네트워크 이름&gt;**/subnets/**&lt;서브넷 이름&gt; ** 처럼 보입니다.
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Azure Portal을 통해 Linux를 수동으로 배포
 
@@ -136,8 +136,8 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    SAP 애플리케이션 12 SP3용 SLES(BYOS)가 사용됨  
    이전에 만든 가용성 집합 선택  
 1. 두 가상 머신의 각 SAP 시스템에 하나의 데이터 디스크를 추가합니다.
-1. 로드 밸러블러(내부)를 만듭니다. 표준 [로드 밸워서를 권장합니다.](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)  
-   1. 다음 지침을 따라 표준 로드 밸러블러를 만듭니다.
+1. Load Balancer (내부)를 만듭니다. [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)를 권장 합니다.  
+   1. 표준 부하 분산 장치를 만들려면 다음 지침을 따르세요.
       1. 프런트 엔드 IP 주소 만들기
          1. NW1의 경우 IP 주소 10.0.0.4
             1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
@@ -149,10 +149,10 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
       1. 백 엔드 풀 만들기
          1. NFS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
             1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
-            1. 새 백 엔드 풀의 이름을 입력합니다(예: **nw-backend).**
-            1. 가상 네트워크 선택
+            1. 새 백 엔드 풀의 이름 입력 (예: **nw-백엔드**)
+            1. Virtual Network 선택
             1. 가상 머신 추가 클릭
-            1. NFS 클러스터의 가상 컴퓨터와 해당 IP 주소를 선택합니다.
+            1. NFS 클러스터의 가상 컴퓨터와 해당 IP 주소를 선택 합니다.
             1. 추가를 클릭합니다.
       1. 상태 프로브 만들기
          1. NW1의 경우 포트 61000
@@ -163,15 +163,15 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. NW2의 경우 포트 61001
             * 위의 단계를 반복하여 NW2용 상태 프로브 만들기
       1. 부하 분산 규칙
-         1. 로드 밸런서를 열고 로드 밸런싱 규칙을 선택한 다음 추가를 클릭합니다.
-         1. 새 로드 밸런서 규칙의 이름을 입력합니다(예: **nw1-lb)**
-         1. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택합니다(예: **nw1-프런트 엔드.** **NW 백 엔드** 및 **nw1-hp)**
-         1. **HA 포트를**선택합니다.
+         1. 부하 분산 장치를 열고 부하 분산 규칙을 선택한 다음 추가를 클릭 합니다.
+         1. 새 부하 분산 장치 규칙의 이름 입력 (예: **n w 1-lb**)
+         1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **n w 1**)를 선택 합니다. **nw-백 엔드** 및 **n w 1-hp**)
+         1. **HA 포트**를 선택 합니다.
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
          1. 확인 클릭
-         * 위의 단계를 반복하여 NW2에 대한 부하 분산 규칙을 만듭니다.
-   1. 또는 시나리오에 기본 로드 밸러블러가 필요한 경우 다음 지침을 따르십시오.
+         * 위의 단계를 반복 하 여 N W 2에 대 한 부하 분산 규칙 만들기
+   1. 또는 시나리오에 기본 부하 분산 장치가 필요한 경우 다음 지침을 따르세요.
       1. 프런트 엔드 IP 주소 만들기
          1. NW1의 경우 IP 주소 10.0.0.4
             1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
@@ -183,7 +183,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
       1. 백 엔드 풀 만들기
          1. NFS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
             1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
-            1. 새 백 엔드 풀의 이름을 입력합니다(예: **nw-backend).**
+            1. 새 백 엔드 풀의 이름 입력 (예: **nw-백엔드**)
             1. 가상 머신 추가 클릭
             1. 이전에 만든 가용성 집합 선택
             1. NFS 클러스터의 가상 머신 선택
@@ -213,10 +213,10 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
             * NW2의 UDP 및 포트 2049에 대하 위 단계 반복
 
 > [!Note]
-> 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 로드 밸런서의 백 엔드 풀에 배치되면 공용 끝점으로 라우팅을 허용하기 위한 추가 구성이 수행되지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 달성하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 로드 밸런서를 사용하는 가상 시스템에 대한 공용 엔드포인트 연결을](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)참조하십시오.  
+> 공용 IP 주소가 없는 Vm이 내부 (공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치 되는 경우 공용 끝점으로의 라우팅을 허용 하기 위해 추가 구성을 수행 하지 않는 한 아웃 바운드 인터넷 연결이 없습니다. 아웃 바운드 연결을 설정 하는 방법에 대 한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용 하 여 Virtual Machines에 대 한 공용 끝점 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)을 참조 하세요.  
 
 > [!IMPORTANT]
-> Azure 로드 밸러워 뒤에 배치된 Azure VM에서 TCP 타임스탬프를 사용하지 마십시오. TCP 타임스탬프를 사용하면 상태 프로브가 실패합니다. 매개 변수 **net.ipv4.tcp_timestamps** **0으로**설정합니다. 자세한 내용은 [로드 밸러저 상태 프로브를](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)참조하십시오.
+> Azure Load Balancer 뒤에 배치 되는 Azure Vm에서 TCP 타임 스탬프를 사용 하도록 설정 하지 마세요. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브가 실패 합니다. **Tcp_timestamps** 매개 변수를 **0**으로 설정 합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조 하세요.
 
 ### <a name="create-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
 
@@ -224,7 +224,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 ### <a name="configure-nfs-server"></a>NFS 서버 구성
 
-다음 항목은 모든 노드에 적용 가능한 **[A]** 중 하나, **[1]** - 노드 1 또는 **[2]에만** 적용가능하며 노드 2에만 적용됩니다.
+다음 항목에는 접두사 **[A]** -모든 노드에 적용, **[1]** -노드 1에만 적용 됩니다. [ **2]** -노드 2에만 적용 됩니다.
 
 1. **[A]** 호스트 이름 확인 설정
 
@@ -462,7 +462,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 1. **[A]** drbd 분할 브레인(split-brain) 검색 설정
 
-   drbd를 사용하여 한 호스트에서 다른 호스트로 데이터를 동기화 할 때 소위 분할 브레인(split-brain)이 발생할 수 있습니다. 분할 브레인은 두 클러스터 노드가 drbd 장치를 기본 으로 승격하고 동기화되지 않은 시나리오입니다. 드문 상황이지만 분할 된 뇌를 가능한 한 빨리 처리하고 해결하려고합니다. 따라서 분할 브레인(split-brain)이 발생하면 알림을 받는 것이 중요합니다.
+   drbd를 사용하여 한 호스트에서 다른 호스트로 데이터를 동기화 할 때 소위 분할 브레인(split-brain)이 발생할 수 있습니다. 분할 두뇌는 두 클러스터 노드가 drbd 장치를 주 복제본으로 승격 하 고 동기화 되지 않은 시나리오입니다. 드문 경우 이지만 가능한 한 빨리 분할을 처리 하 고 해결 하려고 합니다. 따라서 분할 브레인(split-brain)이 발생하면 알림을 받는 것이 중요합니다.
 
    분할 브레인(split-brain) 알림을 설정하는 방법은 [공식 drbd 설명서](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-split-brain-notification)를 참조하세요.
 
@@ -473,13 +473,13 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 1. **[1]** 클러스터 구성에 SAP 시스템 NW1용 NFS drbd 디바이스 추가
 
    > [!IMPORTANT]
-   > 최근 테스트결과 netcat이 백로그로 인해 요청에 응답하지 않는 상황과 하나의 연결만 처리하는 데 제한이 있는 상황이 나타났습니다. netcat 리소스는 Azure Load 밸러버 요청 수신을 중지하고 부동 IP를 사용할 수 없게 됩니다.  
-   > 기존 페이스 메이커 클러스터의 경우 과거에 netcat을 socat으로 교체하는 것이 좋습니다. 현재 패키지 리소스 에이전트의 일부인 azure-lb 리소스 에이전트를 다음과 같은 패키지 버전 요구 사항과 함께 사용하는 것이 좋습니다.
-   > - SLES 12 SP4/SP5의 경우 버전은 최소 리소스 에이전트-4.3.018.a7fb5035-3.30.1이상이어야 합니다.  
-   > - SLES 15/15 SP1의 경우 버전은 최소 리소스 에이전트-4.3.0184.6e15eb2-4.13.1이어야 합니다.  
+   > 최신 테스트로 인해 netcat이 백로그로 인 한 요청 응답을 중지 하 고 하나의 연결만 처리할 수 있는 경우를 확인할 수 있습니다. Netcat 리소스는 Azure 부하 분산 장치 요청에 대 한 수신 대기를 중지 하 고 부동 IP는 사용할 수 없게 됩니다.  
+   > 기존 Pacemaker 클러스터의 경우 netcat을 socat로 교체 하는 것이 좋습니다. 현재 패키지 리소스 에이전트의 일부인 azure-lb 리소스 에이전트를 사용 하는 것이 좋습니다. 패키지 버전 요구 사항은 다음과 같습니다.
+   > - SLES 12 SP4/SP5의 경우 버전은 4.3.018. a7fb5035-3.30.1 이상 이어야 합니다.  
+   > - SLES 15/15 s p 1의 경우 버전은 4.3.0184.6 ee15eb2-4.13.1 이상 이어야 합니다.  
    >
-   > 변경에는 짧은 가동 중지 시간이 필요합니다.  
-   > 기존 Pacemaker 클러스터의 경우 [Azure Load-Balancer 감지 강화에](https://www.suse.com/support/kb/doc/?id=7024128)설명된 대로 socat을 사용하도록 구성이 이미 변경된 경우 Azure-lb 리소스 에이전트로 즉시 전환할 필요가 없습니다.
+   > 변경 작업을 수행 하려면 짧은 가동 중지 시간이 필요 합니다.  
+   > 기존 Pacemaker 클러스터의 경우 [Azure 부하 분산 장치 검색 강화](https://www.suse.com/support/kb/doc/?id=7024128)에 설명 된 대로 구성이 이미 socat을 사용 하도록 변경 된 경우 azure-lb 리소스 에이전트로 즉시 전환 하지 않아도 됩니다.
 
    <pre><code>sudo crm configure rsc_defaults resource-stickiness="200"
 
@@ -571,7 +571,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
      g-<b>NW2</b>_nfs ms-drbd_<b>NW2</b>_nfs:Master
    </code></pre>
 
-   클러스터 `crossmnt` 리소스의 `exportfs` 옵션은 이전 SLES 버전과의 이전 버전과의 이전 버전과의 호환성에 대한 설명서에 나와 있습니다.  
+   `exportfs` 클러스터 리소스의 `crossmnt` 옵션은 이전 SLES 버전과의 호환성을 위해 설명서에 제공 됩니다.  
 
 1. **[1]** 유지 관리 모드 사용 중지
    

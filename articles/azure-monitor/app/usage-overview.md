@@ -4,10 +4,10 @@ description: 어떤 사용자가 앱으로 어떤 작업을 수행하는지 이�
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: e964b1b5b9d5500f2d9f24ed765299389e6dbbb9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80283959"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
@@ -20,9 +20,9 @@ ms.locfileid: "80283959"
 
 1. **서버 코드:**[ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md) 또는 [기타](../../azure-monitor/app/platforms.md) 앱에 적합한 모듈을 설치합니다.
 
-    * *서버 코드를 설치하고 싶지 않으십니까? [Azure 응용 프로그램 인사이트 리소스를 만드기만 하면](../../azure-monitor/app/create-new-resource.md )됩니다.*
+    * *서버 코드를 설치 하지 않으려는 경우 [Azure 애플리케이션 Insights 리소스를 만듭니다](../../azure-monitor/app/create-new-resource.md ).*
 
-2. **웹 페이지 코드:** 닫기 ``</head>``전에 웹 페이지에 다음 스크립트를 추가합니다. 계측 키를 Application Insights 리소스에 대한 적절한 값으로 바꿉니다.
+2. **웹 페이지 코드:** 닫기 ``</head>``전에 웹 페이지에 다음 스크립트를 추가 합니다. 계측 키를 Application Insights 리소스에 대한 적절한 값으로 바꿉니다.
     
     ```html
     <script type="text/javascript">
@@ -34,7 +34,7 @@ ms.locfileid: "80283959"
     </script>
     ```
 
-    웹 사이트 모니터링을 위한 고급 구성을 자세히 알아보려면 [JavaScript SDK 참조 문서를](https://docs.microsoft.com/azure/azure-monitor/app/javascript)확인하십시오.
+    웹 사이트 모니터링에 대 한 고급 구성을 알아보려면 [JAVASCRIPT SDK 참조 문서](https://docs.microsoft.com/azure/azure-monitor/app/javascript)를 확인 하세요.
 
 3. **모바일 앱 코드:** App Center SDK를 사용하여 앱에서 이벤트를 수집한 다음, 분석을 위해 [이 가이드에 따라](../../azure-monitor/learn/mobile-center-quickstart.md) 이러한 이벤트의 복사본을 Application Insights로 보냅니다.
 
@@ -152,12 +152,12 @@ Global.asax.cs 같은 웹앱 이니셜라이저에서 다음이 적용됩니다.
     }
 ```
 
-**ASP.NET 핵심 앱**
+**ASP.NET Core 앱**
 
 > [!NOTE]
-> 사용 `ApplicationInsights.config` 하거나 사용 `TelemetryConfiguration.Active` 하 여 initializer를 추가 ASP.NET 코어 응용 프로그램에 대 한 유효 하지 않습니다. 
+> 또는 `TelemetryConfiguration.Active` 를 사용 `ApplicationInsights.config` 하 여 이니셜라이저를 추가 하는 것은 ASP.NET Core 응용 프로그램에 적합 하지 않습니다. 
 
-[ASP.NET 핵심](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램의 경우 `TelemetryInitializer` 아래와 같이 종속성 주입 컨테이너에 새 응용 프로그램을 추가하여 새 응용 프로그램을 추가합니다. 이 작업은 `ConfigureServices` `Startup.cs` 클래스의 메서드에서 수행됩니다.
+[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램의 경우 아래와 `TelemetryInitializer` 같이 종속성 주입 컨테이너에 새를 추가 하 여 새를 추가 합니다. `Startup.cs` 클래스의 `ConfigureServices` 메서드에서이 작업을 수행 합니다.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;

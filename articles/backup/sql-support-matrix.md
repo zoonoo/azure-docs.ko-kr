@@ -1,18 +1,18 @@
 ---
-title: Azure VM에서 SQL 서버 백업에 대한 Azure 백업 지원 매트릭스
-description: Azure 백업 서비스를 통해 Azure VM에서 SQL Server를 백업할 때 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
+title: Azure Vm에서 SQL Server 백업에 대 한 Azure Backup 지원 매트릭스
+description: Azure Backup 서비스를 사용 하 여 Azure Vm의 SQL Server를 백업할 때 지원 설정 및 제한 사항에 대 한 요약을 제공 합니다.
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: 79a7e30ab9240c489a66b547ff85bea7887131b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79410000"
 ---
-# <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Azure VM에서 SQL 서버 백업에 대한 지원 매트릭스
+# <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Azure Vm의 SQL Server 백업에 대 한 지원 매트릭스
 
-Azure 백업을 사용하여 Microsoft Azure 클라우드 플랫폼에서 호스팅되는 Azure VM에서 SQL Server 데이터베이스를 백업할 수 있습니다. 이 문서에서는 Azure VM에서 SQL Server 백업의 시나리오 및 배포에 대한 일반적인 지원 설정 및 제한 사항에 대해 간략히 요약합니다.
+Azure Backup를 사용 하 여 Microsoft Azure 클라우드 플랫폼에서 호스트 되는 Azure Vm에서 SQL Server 데이터베이스를 백업할 수 있습니다. 이 문서에서는 Azure Vm에서 SQL Server 백업의 시나리오 및 배포에 대 한 일반 지원 설정 및 제한 사항을 요약 합니다.
 
 ## <a name="scenario-support"></a>시나리오 지원
 
@@ -26,29 +26,29 @@ Azure 백업을 사용하여 Microsoft Azure 클라우드 플랫폼에서 호스
 
 ## <a name="feature-consideration-and-limitations"></a>기능 고려 사항 및 제한 사항
 
-* SQL Server 백업은 Azure Portal 또는 **PowerShell**에서 구성할 수 있습니다. CLI는 지원하지 않습니다.
+* SQL Server 백업은 Azure Portal 또는 **PowerShell**에서 구성할 수 있습니다. CLI는 지원 하지 않습니다.
 * 솔루션은 Azure Resource Manager VM과 클래식 VM의 두 종류 [배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)에서 모두 지원됩니다.
 * SQL Server를 실행하는 VM에서 Azure 공용 IP 주소에 액세스하려면 인터넷 연결이 필요합니다.
-* SQL 서버 **장애 조치 클러스터 인스턴스(FCI)는** 지원되지 않습니다.
+* SQL Server **장애 조치 (Failover) 클러스터 인스턴스 (FCI)** 는 지원 되지 않습니다.
 * 미러 데이터베이스와 데이터베이스 스냅샷에 대한 백업 및 복원 작업은 지원되지 않습니다.
 * 백업 솔루션을 2개 이상 사용하여 독립 실행형 SQL Server 인스턴스 또는 SQL Always On 가용성 그룹을 백업하면 오류가 발생할 수 있으므로 그렇게 하지 말아야 합니다.
 * 같은 솔루션 또는 다른 솔루션을 사용하여 한 가용성 그룹의 두 노드를 개별적으로 백업해도 오류가 발생할 수 있습니다.
 * Azure Backup은 **읽기 전용** 데이터베이스에 전체 백업 및 복사 전용 전체 백업만 지원합니다.
 * 많은 수의 파일이 있는 데이터베이스는 보호할 수 없습니다. 지원되는 최대 파일 수는 **1000**개입니다.  
-* 볼트에서 ~ **2000개의** SQL Server 데이터베이스를 백업할 수 있습니다. 데이터베이스 수가 이보다 더 많은 경우 자격 증명 모음을 여러 개 만들면 됩니다.
+* 자격 증명 모음에서 최대 **~ 2000** SQL Server 데이터베이스를 백업할 수 있습니다. 데이터베이스 수가 이보다 더 많은 경우 자격 증명 모음을 여러 개 만들면 됩니다.
 * 한 번에 데이터베이스 **50**개까지 백업을 구성할 수 있습니다. 이 제한은 백업 부하 최적화에 도움이 됩니다.
-* 우리는 최대 2 **TB크기의** 데이터베이스를 지원합니다. 성능 문제가 발생할 수 있습니다.
-* 서버당 보호할 수 있는 데이터베이스 수를 파악하려면 대역폭, VM 크기, 백업 빈도, 데이터베이스 크기 등과 같은 요소를 고려해야 합니다. 리소스 플래너를 [다운로드하여](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) VM 리소스 및 백업 정책에 따라 서버당 가질 수 있는 대략적인 데이터베이스 수를 계산합니다.
-* 가용성 그룹이 구성되면 몇 가지 요인에 따라 다른 노드에서 백업이 수행됩니다. 아래는 가용성 그룹에 대한 백업 동작을 요약한 것입니다.
+* 최대 **2tb** 크기의 데이터베이스를 지원 합니다. 크기 보다 큰 경우 성능 문제가 발생할 수 있습니다.
+* 서버 별로 보호할 수 있는 데이터베이스 수에 대 한 의미를 이해 하려면 대역폭, VM 크기, 백업 빈도, 데이터베이스 크기 등의 요인을 고려 하십시오. Resource planner를 [다운로드](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) 하 여 VM 리소스 및 백업 정책에 따라 서버당 사용할 수 있는 데이터베이스의 대략적인 수를 계산 합니다.
+* 가용성 그룹이 구성 되 면 몇 가지 요소에 따라 다른 노드에서 백업이 수행 됩니다. 아래는 가용성 그룹에 대한 백업 동작을 요약한 것입니다.
 
-### <a name="back-up-behavior-with-always-on-availability-groups"></a>항상 가용성 그룹으로 비헤이비어 백업
+### <a name="back-up-behavior-with-always-on-availability-groups"></a>Always on 가용성 그룹을 사용 하 여 백업 동작
 
-백업은 AG(가용성 그룹)의 한 노드에서만 구성하는 것이 좋습니다. 항상 기본 노드와 동일한 리전에서 백업을 구성합니다. 즉, 백업을 구성하는 지역에 기본 노드가 항상 있어야 합니다. AG의 모든 노드가 백업이 구성된 동일한 지역에 있는 경우 걱정할 문제가 없습니다.
+가용성 그룹 (AG)의 한 노드에서만 백업을 구성 하는 것이 좋습니다. 항상 주 노드와 동일한 지역에 백업을 구성 합니다. 즉, 백업을 구성 하는 지역에 항상 주 노드가 있어야 합니다. AG의 모든 노드가 백업이 구성 된 동일한 지역에 있는 경우 아무 문제가 없습니다.
 
 #### <a name="for-cross-region-ag"></a>지역 간 AG
 
-* 백업 기본 설정에 관계없이 백업은 백업이 구성된 동일한 지역에 있는 노드에서만 실행됩니다. 이는 지역 간 백업이 지원되지 않기 때문입니다. 노드가 두 개만 있고 보조 노드가 다른 지역에 있는 경우 백업 기본 설정이 '보조 노드'인 경우가 아니면 기본 노드에서 백업이 계속 실행됩니다.
-* 노드가 백업이 구성된 영역과 다른 지역으로 장애 조치되면 실패한 오버 지역의 노드에서 백업이 실패합니다.
+* 백업 기본 설정에 관계 없이 백업은 백업이 구성 된 동일한 지역에 있는 노드에서만 실행 됩니다. 영역 간 백업이 지원 되지 않기 때문입니다. 노드가 두 개만 있고 보조 노드가 다른 지역에 있는 경우 백업 기본 설정이 ' 보조 전용 '이 아닌 경우 백업은 주 노드에서 계속 실행 됩니다.
+* 노드가 백업이 구성 된 지역과 다른 지역으로 장애 조치 (failover) 되 면 장애 조치 (failover) 된 지역에서 노드에 대 한 백업이 실패 합니다.
 
 백업 기본 설정 및 백업 유형(전체/차등/로그/복사 전용 전체)에 따라 특정 노드(주/보조)에서 백업이 수행됩니다.
 
@@ -61,7 +61,7 @@ Azure 백업을 사용하여 Microsoft Azure 클라우드 플랫폼에서 호스
 로그 |  주
 복사 전용 전체 |  주
 
-#### <a name="backup-preference-secondary-only"></a>백업 기본 설정: 보조 전용
+#### <a name="backup-preference-secondary-only"></a>백업 기본 설정: 보조만
 
 **백업 유형** | **노드**
 --- | ---
@@ -90,4 +90,4 @@ Azure 백업을 사용하여 Microsoft Azure 클라우드 플랫폼에서 호스
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure VM에서 실행 중인 [SQL Server 데이터베이스를 백업하는](backup-azure-sql-database.md) 방법을 알아봅니다.
+Azure VM에서 실행 되는 [SQL Server 데이터베이스를 백업](backup-azure-sql-database.md) 하는 방법에 대해 알아봅니다.

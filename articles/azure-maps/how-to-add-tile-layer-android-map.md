@@ -1,6 +1,6 @@
 ---
-title: 안드로이드지도에 타일 레이어추가 | 마이크로소프트 Azure 지도
-description: 이 문서에서는 Microsoft Azure 지도 Android SDK를 사용하여 맵에서 타일 레이어를 렌더링하는 방법을 알아봅니다.
+title: Android maps에 타일 계층 추가 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps Android SDK를 사용 하 여 지도에서 타일 계층을 렌더링 하는 방법을 알아봅니다.
 author: philmea
 ms.author: philmea
 ms.date: 04/26/2019
@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: f98598bd1307bb1b46ff23814780c5f809b9ac90
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335572"
 ---
-# <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Azure 지도 Android SDK를 사용하여 맵에 타일 레이어 추가
+# <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 타일 계층 추가
 
-이 문서에서는 Azure 지도 Android SDK를 사용하여 맵에서 타일 레이어를 렌더링하는 방법을 보여 주어집니다. 타일 계층을 사용하여 Azure Maps 기본 맵 타일의 위에 이미지를 겹칠 수 있습니다. Azure Maps의 타일 배치 체계에 대한 자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md) 설명서에서 볼 수 있습니다.
+이 문서에서는 Azure Maps Android SDK를 사용 하 여 지도에서 타일 계층을 렌더링 하는 방법을 보여 줍니다. 타일 계층을 사용하여 Azure Maps 기본 맵 타일의 위에 이미지를 겹칠 수 있습니다. Azure Maps의 타일 배치 체계에 대한 자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md) 설명서에서 볼 수 있습니다.
 
-타일 레이어는 서버에서 타일로 로드됩니다. 이러한 이미지는 타일 레이어가 이해하는 명명 규칙을 사용하여 서버의 다른 이미지처럼 미리 렌더링및 저장할 수 있습니다. 또는 이러한 이미지는 거의 실시간으로 이미지를 생성하는 동적 서비스로 렌더링할 수 있습니다. Azure Maps TileLayer 클래스에서 지원하는 세 가지 타일 서비스 명명 규칙이 있습니다.
+타일 계층이 서버에서 타일에 로드 됩니다. 이러한 이미지는 타일 계층에서 인식 하는 명명 규칙을 사용 하 여 미리 렌더링 하 고 서버의 다른 이미지와 마찬가지로 저장할 수 있습니다. 또는 이러한 이미지를 실시간으로 거의 이미지를 생성 하는 동적 서비스로 렌더링할 수 있습니다. Azure Maps TileLayer 클래스에서 지 원하는 세 가지 타일 서비스 명명 규칙은 다음과 같습니다.
 
 * X, Y, 확대/축소 표기법-확대/축소 수준에 따라 타일 그리드에서 x는 열 위치이고 y는 행 위치입니다.
 * Quadkey 표기법-x, y 조합은 정보를 타일의 고유 식별자인 단일 문자열 값으로 확대/축소합니다.
@@ -35,20 +35,20 @@ ms.locfileid: "80335572"
 * `{z}` - 타일의 확대/축소 수준입니다. 또한 `{x}` 및 `{y}`가 필요합니다.
 * `{quadkey}` - Bing Maps 타일 시스템 명명 규칙에 따라 타일 Quadkey 식별자입니다.
 * `{bbox-epsg-3857}` - EPSG 3857 공간 참조 시스템에서 `{west},{south},{east},{north}` 형식을 사용하는 경계 상자 문자열입니다.
-* `{subdomain}`- 하위 도메인 값이 지정된 경우 하위 도메인 값에 대한 자리 표시자입니다.
+* `{subdomain}`-하위 도메인 값이 지정 된 경우 하위 도메인 값에 대 한 자리 표시자입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-이 문서에서 프로세스를 완료하려면 맵을 로드하려면 [Azure Maps Android SDK를](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 설치해야 합니다.
+이 문서의 프로세스를 완료 하려면 맵을 로드 하기 위해 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 해야 합니다.
 
 
-## <a name="add-a-tile-layer-to-the-map"></a>맵에 타일 레이어 추가
+## <a name="add-a-tile-layer-to-the-map"></a>지도에 타일 계층 추가
 
- 이 샘플에서는 타일 집합을 가리키는 타일 레이어를 만드는 방법을 보여 주습니다. 이러한 타일은 "x, y, 확대/축소" 타일링 시스템을 사용합니다. 이 타일 계층의 원본은 [아이오와 주립 대학교의 Iowa Environmental Mesonet](https://mesonet.agron.iastate.edu/ogc/)에서 받은 날씨 레이더 오버레이입니다. 
+ 이 샘플에서는 타일 집합을 가리키는 타일 계층을 만드는 방법을 보여 줍니다. 이러한 타일에는 "x, y, zoom" 바둑판식 배열 시스템이 사용 됩니다. 이 타일 계층의 원본은 [아이오와 주립 대학교의 Iowa Environmental Mesonet](https://mesonet.agron.iastate.edu/ogc/)에서 받은 날씨 레이더 오버레이입니다. 
 
-아래 단계에 따라 타일 레이어를 맵에 추가할 수 있습니다.
+아래 단계를 수행 하 여 지도에 타일 계층을 추가할 수 있습니다.
 
-1. **activity_main.xml에 > > 레이아웃을** 편집하여 아래와 같이 보입니다.
+1. **Res > 레이아웃 > activity_main xml** 을 편집 하 여 아래와 같이 표시 합니다.
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -71,7 +71,7 @@ ms.locfileid: "80335572"
     </FrameLayout>
     ```
 
-2. 아래의 코드 조각을 **클래스의 onCreate()** 메서드에 `MainActivity.java` 복사합니다.
+2. 아래의 다음 코드 조각을 `MainActivity.java` 클래스의 **onCreate ()** 메서드에 복사 합니다.
 
     ```Java
     mapControl.onReady(map -> {
@@ -84,9 +84,9 @@ ms.locfileid: "80335572"
     });
     ```
     
-    위의 코드 코드 조각은 먼저 **onReady()** 콜백 메서드를 사용하여 Azure Maps 맵 제어 인스턴스를 가져옵니다. 그런 다음 `TileLayer` 개체를 만들고 형식이 지정된 **xyz** 타일 URL을 `tileUrl` 옵션에 전달합니다. 레이어의 불투명도가 `0.8` 설정되고 사용 중인 타일 서비스의 타일이 256픽셀 타일이므로 이 정보가 `tileSize` 옵션으로 전달됩니다. 그런 다음 타일 레이어가 맵 레이어 관리자로 전달됩니다.
+    위의 코드 조각은 먼저 **Onready ()** 콜백 메서드를 사용 하 여 Azure Maps map 컨트롤 인스턴스를 가져옵니다. 그런 다음 개체를 `TileLayer` 만들고 서식 지정 된 **xyz** 타일 URL을 `tileUrl` 옵션으로 전달 합니다. 계층의 불투명도는로 `0.8` 설정 되 고, 사용 되는 타일 서비스의 타일은 256 픽셀 타일로 설정 되므로이 정보는 `tileSize` 옵션으로 전달 됩니다. 그러면 타일 계층이 지도 계층 관리자로 전달 됩니다.
 
-    위의 코드 조각을 추가 한 `MainActivity.java` 후 아래 코드 조각과 같아야합니다.
+    위의 코드 조각을 추가한 후에 `MainActivity.java` 는 아래와 같이 표시 됩니다.
     
     ```Java
     package com.example.myapplication;
@@ -168,15 +168,15 @@ ms.locfileid: "80335572"
     }
     ```
 
-지금 응용 프로그램을 실행하는 경우 아래와 같이 지도에 줄이 표시됩니다.
+이제 응용 프로그램을 실행 하는 경우 아래와 같이 맵에 줄이 표시 됩니다.
 
 <center>
 
-![안드로이드지도 라인](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
+![Android 지도 선](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
 
 ## <a name="next-steps"></a>다음 단계
 
-맵 스타일을 설정하는 방법에 대해 자세히 알아보려면 다음 문서를 참조하세요.
+지도 스타일을 설정 하는 방법에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [안드로이드지도에서지도 스타일을 변경](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Android maps에서 지도 스타일 변경](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)

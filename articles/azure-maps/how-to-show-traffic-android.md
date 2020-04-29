@@ -1,6 +1,6 @@
 ---
-title: 안드로이드지도에 교통 데이터 표시 | 마이크로소프트 Azure 지도
-description: 이 문서에서는 Microsoft Azure 지도 Android SDK를 사용하여 맵에 트래픽 데이터를 표시하는 방법을 알아봅니다.
+title: Android map에 트래픽 데이터 표시 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps Android SDK를 사용 하 여 지도에 트래픽 데이터를 표시 하는 방법에 대해 알아봅니다.
 author: philmea
 ms.author: philmea
 ms.date: 02/27/2020
@@ -9,29 +9,29 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335385"
 ---
-# <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Azure지도 안드로이드 SDK를 사용하여지도에 교통 데이터 표시
+# <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 트래픽 데이터 표시
 
-흐름 데이터 및 인시던트 데이터는 맵에 표시할 수 있는 두 가지 유형의 트래픽 데이터입니다. 이 가이드에서는 두 가지 유형의 트래픽 데이터를 모두 표시하는 방법을 보여 주었습니다. 인시던트 데이터는 건설, 도로 폐쇄 및 사고와 같은 사물에 대한 포인트 및 라인 기반 데이터로 구성됩니다. 흐름 데이터는 도로의 트래픽 흐름에 대한 메트릭을 보여줍니다.
+흐름 데이터 및 인시던트 데이터는 맵에 표시 될 수 있는 두 가지 트래픽 데이터 유형입니다. 이 가이드에서는 두 가지 유형의 트래픽 데이터를 표시 하는 방법을 보여 줍니다. 인시던트 데이터는 생성,도로 클로저 및 사고와 같은 사물에 대 한 점 및 선 기반 데이터로 구성 됩니다. 흐름 데이터는 도로의 트래픽 흐름에 대 한 메트릭을 표시 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-맵에 트래픽을 표시하려면 Azure 계정을 [만들고](quick-demo-map-app.md#create-an-account-with-azure-maps) [구독 키를 가져와야](quick-demo-map-app.md#get-the-primary-key-for-your-account)합니다. 그런 다음 [Azure 지도 Android SDK를](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 설치하고 맵을 로드해야 합니다.
+맵에 트래픽을 표시 하려면 먼저 [Azure 계정을](quick-demo-map-app.md#create-an-account-with-azure-maps)만들고 [구독 키를 가져와야](quick-demo-map-app.md#get-the-primary-key-for-your-account)합니다. 그런 다음 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 하 고 맵을 로드 해야 합니다.
 
 ## <a name="incidents-traffic-data"></a>인시던트 트래픽 데이터 
 
-다음 라이브러리를 가져와서 호출해야 `setTraffic` 합니다. `incidents`
+및 `setTraffic` `incidents`를 호출 하려면 다음 라이브러리를 가져와야 합니다.
 
 ```java
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
 ```
 
- 다음 코드 조각은 맵에 교통 데이터를 표시하는 방법을 보여 주었습니다. 부울 값을 메서드에 `incidents` 전달하고 메서드에 `setTraffic` 전달합니다. 
+ 다음 코드 조각에서는 지도에 트래픽 데이터를 표시 하는 방법을 보여 줍니다. 부울 값을 `incidents` 메서드에 전달 하 고이를 `setTraffic` 메서드에 전달 합니다. 
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -44,21 +44,21 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ## <a name="flow-traffic-data"></a>흐름 트래픽 데이터
 
-먼저 다음 라이브러리를 가져와서 호출해야 `setTraffic` `flow`합니다.
+및 `setTraffic` `flow`를 호출 하려면 먼저 다음 라이브러리를 가져와야 합니다.
 
 ```java
 import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
 import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 ```
 
-다음 코드 조각을 사용하여 트래픽 흐름 데이터를 설정합니다. 이전 섹션의 코드와 마찬가지로 `flow` 메서드의 반환 값을 메서드에 `setTraffic` 전달합니다. 에 전달할 `flow`수 있는 네 개의 값이 있으며 `flow` 각 값은 각 값을 반환하기 위해 트리거됩니다. 그러면 `flow` 반환 값이 `setTraffic`인수로 전달됩니다. 다음 네 가지 값은 아래 표를 참조하십시오.
+다음 코드 조각을 사용 하 여 트래픽 흐름 데이터를 설정 합니다. 이전 섹션의 코드와 마찬가지로 메서드의 반환 값 `flow` 을 `setTraffic` 메서드에 전달 합니다. 에 `flow`전달할 수 있는 4 개의 값이 있고 각 값은 해당 값을 `flow` 반환 하도록 트리거합니다. 그런 다음의 `flow` 반환 값은에 대 `setTraffic`한 인수로 전달 됩니다. 이러한 4 가지 값에 대해서는 아래 표를 참조 하세요.
 
 | | |
 | :-- | :-- |
-| 트래픽 흐름.없음 | 지도에 교통 데이터를 표시하지 않습니다. |
-| 트래픽 흐름.상대 | 도로의 자유 흐름 속도를 기준으로 한 교통 데이터를 표시합니다. |
-| 트래픽흐름.RELATIVE_DELAY | 평균 예상 지연보다 느린 영역표시 |
-| 트래픽 흐름.절대 | 도로에있는 모든 차량의 절대 속도를 보여줍니다 |
+| TrafficFlow | 지도에 트래픽 데이터를 표시 하지 않습니다. |
+| TrafficFlow | 도로의 자유 흐름 속도에 상대적인 트래픽 데이터를 표시 합니다. |
+| TrafficFlow RELATIVE_DELAY | 평균 예상 지연 시간 보다 느린 영역을 표시 합니다. |
+| TrafficFlow | 도로의 모든 차량에 대 한 절대 속도를 표시 합니다. |
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -69,11 +69,11 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-## <a name="show-incident-traffic-data-by-clicking-a-feature"></a>피처를 클릭하여 인시던트 트래픽 데이터 표시
+## <a name="show-incident-traffic-data-by-clicking-a-feature"></a>기능을 클릭 하 여 인시던트 트래픽 데이터 표시
 
-특정 기능에 대한 인시던트를 얻으려면 아래 코드를 사용할 수 있습니다. 기능을 클릭하면 코드 논리에서 인시던트를 확인하고 인시던트에 대한 메시지를 작성합니다. 세부 정보가 있는 메시지가 화면 하단에 표시됩니다.
+특정 기능에 대 한 인시던트를 얻으려면 아래 코드를 사용할 수 있습니다. 기능을 클릭 하면 코드 논리에서 인시던트를 확인 하 고 인시던트에 대 한 메시지를 작성 합니다. 화면 맨 아래에 세부 정보를 표시 하는 메시지가 표시 됩니다.
 
-1. 먼저 **activity_main.xml에 > > 레이아웃을**편집하여 아래와 같이 보이도록해야 합니다. `mapcontrol_centerLat`을 `mapcontrol_centerLng`및 원하는 `mapcontrol_zoom` 값으로 바꿀 수 있습니다. 상기 하면 확대/축소 수준은 0에서 22 사이의 값입니다. 확대/축소 수준 0에서는 전체 세계가 단일 타일에 맞습니다.
+1. 먼저 **activity_main .xml > res > 레이아웃**을 편집 해야 합니다. 그러면 아래와 같이 표시 됩니다. `mapcontrol_centerLat`, `mapcontrol_centerLng`및 `mapcontrol_zoom` 를 원하는 값으로 바꿀 수 있습니다. 회수, 확대/축소 수준은 0에서 22 사이의 값입니다. 확대/축소 수준 0에서 전체 세계는 단일 타일에 맞게 조정 됩니다.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -96,7 +96,7 @@ protected void onCreate(Bundle savedInstanceState) {
    </FrameLayout>
    ```
 
-2. **MainActivity.java** 파일에 다음 코드를 추가합니다. 패키지는 기본적으로 포함되어 있으므로 패키지를 맨 위에 두어야 합니다.
+2. 다음 코드를 **Mainactivity. java** 파일에 추가 합니다. 패키지는 기본적으로 포함 되어 있으므로 패키지를 맨 위에 보관 해야 합니다.
 
    ```java
    package <yourpackagename>;
@@ -221,26 +221,26 @@ protected void onCreate(Bundle savedInstanceState) {
    }
    ```
 
-3. 응용 프로그램에 위의 코드를 통합하면 기능을 클릭하고 교통 사고의 세부 정보를 볼 수 있습니다. **activity_main.xml** 파일에 사용된 위도, 경도 및 확대/축소 수준 값에 따라 다음 이미지와 유사한 결과가 표시됩니다.
+3. 응용 프로그램에 위의 코드를 통합 하면 기능을 클릭 하 고 트래픽 인시던트의 세부 정보를 볼 수 있습니다. **Activity_main** 파일에 사용 된 위도, 경도 및 확대/축소 수준 값에 따라 다음 이미지와 유사한 결과가 표시 됩니다.
 
    <center>
 
-   ![지도에서 발생한 사고 트래픽](./media/how-to-show-traffic-android/android-traffic.png)
+   ![인시던트-지도에 대 한 트래픽](./media/how-to-show-traffic-android/android-traffic.png)
 
    </center>
 
 ## <a name="next-steps"></a>다음 단계
 
-맵에 데이터를 추가하는 방법을 알아보려면 다음 가이드를 참조하십시오.
+지도에 데이터를 추가 하는 방법에 대 한 자세한 내용은 다음 가이드를 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [기호 레이어 추가](how-to-add-symbol-to-android-map.md)
+> [기호 계층 추가](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [타일 계층 추가](how-to-add-tile-layer-android-map.md)
 
 > [!div class="nextstepaction"]
-> [안드로이드맵에 셰이프 추가](how-to-add-shapes-to-android-map.md)
+> [Android 맵에 셰이프 추가](how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [기능 정보 표시](display-feature-information-android.md)

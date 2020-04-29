@@ -1,6 +1,6 @@
 ---
 title: .NET 및 AMQP 1.0을 사용한 Azure Service Bus | Microsoft Docs
-description: 이 문서에서는 AMQP(고급 메시징 대기열 프로토콜)를 사용하여 .NET 응용 프로그램에서 Azure Service Bus를 사용하는 방법을 설명합니다.
+description: 이 문서에서는 AMQP (고급 메시징 큐 프로토콜)를 사용 하 여 .NET 응용 프로그램에서 Azure Service Bus를 사용 하는 방법을 설명 합니다.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 8157efac5ff1fc135659a84b4f4825ff36307480
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80297664"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>AMQP 1.0을 사용하여 .NET에서 Service Bus 사용
@@ -79,7 +79,7 @@ AMQP를 사용하는 경우 `;TransportType=Amqp`을(를) 사용하여 연결 �
 | DateTime |timestamp |AMQP 값 |
 | Guid |uuid |AMQP 값 |
 | byte[] |binary |AMQP 값 |
-| 문자열 |문자열 |AMQP 값 |
+| string |string |AMQP 값 |
 | System.Collections.IList |list |AMQP 값: 컬렉션에 포함된 항목은 이 테이블에서 정의된 것만 가능합니다. |
 | System.Array |array |AMQP 값: 컬렉션에 포함된 항목은 이 테이블에서 정의된 것만 가능합니다. |
 | System.Collections.IDictionary |map |AMQP 값: 컬렉션에 포함된 항목은 이 테이블에서 정의된 것만 가능합니다.참고: 문자열만 지원됩니다. |
@@ -105,12 +105,12 @@ AMQP를 사용하는 경우 기본 프로토콜에 비해 Service Bus .NET API�
 
 ## <a name="control-amqp-protocol-settings"></a>AMQP 프로토콜 설정 제어
 
-[.NET API는](/dotnet/api/) AMQP 프로토콜의 동작을 제어하기 위해 여러 설정을 노출합니다.
+[.Net api](/dotnet/api/) 는 amqp 프로토콜의 동작을 제어 하기 위해 여러 설정을 노출 합니다.
 
 * **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: 링크에 적용되는 초기 크레딧을 제어합니다. 기본값은 0입니다.
 * **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: 연결 열기 시간 시 협상 동안 제공되는 최대 AMQP 프레임 크기를 제어합니다. 기본값은 65,536바이트입니다.
 * **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: 전송을 배치로 사용 가능한 경우 이 값은 배치 전송을 위한 최대 지연을 결정합니다. 기본적으로 발신자/수신자를 상속합니다. 개별 발신자/수신자는 기본값 20 밀리초를 재정의할 수 있습니다.
-* **[메시징공장설정.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: TLS 연결을 통해 AMQP 연결이 설정되는지 여부를 제어합니다. 기본값은 **true입니다.**
+* **[Messagingfactorysettings.operationtimeout messagingfactorysettings.amqptransportsettings.usesslstreamsecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: AMQP 연결이 TLS 연결을 통해 설정 되는지 여부를 제어 합니다. 기본값은 **true**입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

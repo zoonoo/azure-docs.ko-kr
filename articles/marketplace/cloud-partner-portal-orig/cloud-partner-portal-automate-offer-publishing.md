@@ -1,5 +1,5 @@
 ---
-title: 오퍼 게시 자동화 | Azure 마켓플레이스
+title: 제품 게시 자동화 | Azure Marketplace
 description: 가상 머신 게시 워크플로를 프로그래밍 방식으로 자동화하는 방법을 설명합니다.
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 25c7429dc369fb8fc70a135950b16c0a5997656b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280340"
 ---
 <a name="automate-offer-publishing"></a>제품 게시 자동화

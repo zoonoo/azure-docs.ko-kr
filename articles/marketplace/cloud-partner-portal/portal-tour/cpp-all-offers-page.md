@@ -1,6 +1,6 @@
 ---
-title: Azure 마켓플레이스의 모든 혜택 페이지
-description: Azure 마켓플레이스용 클라우드 파트너 포털의 모든 제안 페이지에 대한 개요입니다.
+title: Azure Marketplace에 대 한 모든 제품 페이지
+description: Azure Marketplace에 대 한 Cloud 파트너 포털의 모든 제안 페이지 개요입니다.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: dsindona
 ms.openlocfilehash: e4001651d422d9197a849be5e7985107f9bf43dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80288991"
 ---
 # <a name="all-offers-page"></a>모든 제품 페이지

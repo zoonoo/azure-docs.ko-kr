@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 자격 증명을 사용하여 Linux VM에 로그인
-description: Azure Active Directory 인증을 사용하여 로그인하도록 Linux VM을 만들고 구성하는 방법을 알아봅니다.
+title: Azure Active Directory 자격 증명을 사용 하 여 Linux VM에 로그인 합니다.
+description: Azure Active Directory 인증을 사용 하 여 로그인 하는 Linux VM을 만들고 구성 하는 방법을 알아봅니다.
 author: iainfoulds
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -8,19 +8,19 @@ ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
 ms.openlocfilehash: 2731693667d2129a72da72455c6bbdd74c277697
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80366498"
 ---
-# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>미리 보기: Azure Active Directory 인증을 사용하여 Azure의 Linux 가상 컴퓨터에 로그인
+# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>미리 보기: Azure Active Directory 인증을 사용 하 여 Azure에서 Linux 가상 머신에 로그인 합니다.
 
 Azure에서 Linux VM(가상 머신)의 보안을 강화하려면 Azure AD(Active Directory) 인증으로 통합하면 됩니다. Linux VM에 Azure AD 인증을 사용하면 VM에 대한 액세스를 허용하거나 거부하는 정책을 중앙에서 제어하고 적용할 수 있습니다. 이 아티클에서는 Azure AD 인증을 사용하도록 Linux VM을 만들고 구성하는 방법을 보여줍니다.
 
 
 > [!IMPORTANT]
-> Azure Active Directory 인증은 현재 공개 미리 보기 상태입니다.
+> Azure Active Directory 인증은 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 > 테스트 후에 삭제하려는 테스트 가상 머신에서 이 기능을 사용합니다.
 >
@@ -28,7 +28,7 @@ Azure에서 Linux VM(가상 머신)의 보안을 강화하려면 Azure AD(Active
 
 Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 다음과 같은 많은 혜택이 있습니다.
 
-- **향상된 보안:**
+- **향상 된 보안:**
   - 회사 AD 자격 증명을 사용하여 Azure Linux VM에 로그인할 수 있습니다. 로컬 관리자 계정을 만들고 자격 증명 수명을 관리하지 않아도 됩니다.
   - 로컬 관리자 계정에 대한 의존성을 줄임으로써 자격 증명 손실/도난, 약한 자격 증명을 구성하는 사용자 등을 걱정할 필요가 없습니다.
   - Azure AD 디렉터리에 구성된 암호 복잡성 및 암호 수명 정책을 통해 Linux VM을 보호할 수 있습니다.
@@ -58,14 +58,14 @@ Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 �
 >[!IMPORTANT]
 > 이 미리 보기 기능을 사용하려면 지원되는 Linux 배포판만을 지원되는 Azure 지역에 배포합니다. Azure Government 또는 소버린 클라우드에서 이 기능이 지원되지 않습니다.
 >
-> AZURE Kubernetes 서비스(AKS) 클러스터에서 이 확장을 사용하는 것은 지원되지 않습니다. 자세한 내용은 [AKS에 대한 지원 정책을](../../aks/support-policies.md)참조하십시오.
+> AKS (Azure Kubernetes Service) 클러스터에서이 확장을 사용 하는 것은 지원 되지 않습니다. 자세한 내용은 [AKS에 대 한 지원 정책](../../aks/support-policies.md)을 참조 하세요.
 
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.31 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하십시오.
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.31 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="network-requirements"></a>네트워크 요구 사항
 
-Azure에서 Linux VM에 대한 Azure AD 인증을 사용하려면 VM 네트워크 구성에서 TCP 포트 443을 통해 다음 끝점에 대한 아웃바운드 액세스를 허용해야 합니다.
+Azure에서 Linux Vm에 대해 Azure AD 인증을 사용 하도록 설정 하려면 Vm 네트워크 구성에서 TCP 포트 443을 통해 다음 끝점에 대 한 아웃 바운드 액세스를 허용 하는지 확인 해야 합니다.
 
 * https:\//login.microsoftonline.com
 * https:\//login.windows.net
@@ -75,7 +75,7 @@ Azure에서 Linux VM에 대한 Azure AD 인증을 사용하려면 VM 네트워�
 * https:\//packages.microsoft.com
 
 > [!NOTE]
-> 현재 Azure AD 인증을 사용하도록 설정된 VM에 대해 Azure 네트워크 보안 그룹을 구성할 수 없습니다.
+> 현재 azure AD 인증을 사용 하도록 설정 된 Vm에 대해 Azure 네트워크 보안 그룹을 구성할 수 없습니다.
 
 ## <a name="create-a-linux-virtual-machine"></a>Linux 가상 머신 만들기
 
@@ -97,9 +97,9 @@ VM 및 지원 리소스를 만드는 데 몇 분이 걸립니다.
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Azure AD 로그인 VM 확장 설치
 
 > [!NOTE]
-> 이 확장을 이전에 만든 VM에 배포하면 컴퓨터에 최소 1GB의 메모리가 할당되어 있는지 확인하면 확장이 설치되지 않습니다.
+> 이전에 만든 VM에이 확장을 배포 하는 경우 컴퓨터에 최소 1GB의 메모리가 할당 되어 있는지 확인 하 고, 그렇지 않으면 확장을 설치 하지 못합니다.
 
-Azure AD 자격 증명을 사용하여 Linux VM에 로그인하려면 Azure Active Directory 로그인 VM 확장을 설치합니다. VM 확장은 Azure 가상 머신에서 배포 후 구성 및 Automation 작업을 제공하는 작은 애플리케이션입니다. [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set)을 사용하여 *myResourceGroup* 리소스 그룹의 *myVM*이라는 VM에 *AADLoginForLinux* 확장을 설치합니다.
+Azure AD 자격 증명을 사용 하 여 Linux VM에 로그인 하려면 Azure Active Directory 로그인 VM 확장을 설치 합니다. VM 확장은 Azure 가상 머신에서 배포 후 구성 및 Automation 작업을 제공하는 작은 애플리케이션입니다. [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set)을 사용하여 *myResourceGroup* 리소스 그룹의 *myVM*이라는 VM에 *AADLoginForLinux* 확장을 설치합니다.
 
 ```azurecli-interactive
 az vm extension set \
@@ -109,7 +109,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-*프로비저닝성공의상태는* 확장이 VM에 성공적으로 설치되면 표시됩니다. *Succeeded* VM은 확장을 설치하기 위해 실행 중인 VM 에이전트가 필요합니다. 자세한 내용은 [VM 에이전트 개요를](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)참조하십시오.
+확장이 VM에 성공적으로 설치 되 면 *provisioningState* 의 *성공* 이 표시 됩니다. VM에서 확장을 설치 하려면 실행 중인 VM 에이전트가 필요 합니다. 자세한 내용은 [VM 에이전트 개요](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)를 참조 하세요.
 
 ## <a name="configure-role-assignments-for-the-vm"></a>VM에 대한 역할 할당 구성
 
@@ -148,21 +148,21 @@ Linux 가상 머신에 로그인하는 특정 사용자에 대해 다단계 인�
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Azure AD 자격 증명을 사용하여 Azure Linux 가상 머신에 로그인합니다. `-l` 매개 변수를 사용하면 고유한 Azure AD 계정 주소를 지정할 수 있습니다. 예제 계정을 사용자 계정으로 바꿉습니다. 계정 주소는 모두 소문자로 입력해야 합니다. 예제 IP 주소를 이전 명령에서 VM의 공용 IP 주소로 바꿉니다.
+Azure AD 자격 증명을 사용하여 Azure Linux 가상 머신에 로그인합니다. `-l` 매개 변수를 사용하면 고유한 Azure AD 계정 주소를 지정할 수 있습니다. 예제 계정을 사용자 고유의 계정으로 바꿉니다. 계정 주소는 모두 소문자로 입력해야 합니다. 예제 IP 주소를 이전 명령에서 VM의 공용 IP 주소로 바꿉니다.
 
 ```console
 ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 ```
 
-에서 일회용 코드를 사용하여 Azure AD에 로그인하라는 [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)메시지가 표시됩니다. 일회용 코드를 복사하여 장치 로그인 페이지에 붙여넣습니다.
+에서 [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)일회성 사용 코드를 사용 하 여 Azure AD에 로그인 하 라는 메시지가 표시 됩니다. 일회성 사용 코드를 복사 하 여 장치 로그인 페이지에 붙여 넣습니다.
 
 메시지가 표시되면 로그인 페이지에서 Azure AD 로그인 자격 증명을 입력합니다. 
 
-성공적으로 인증하면 다음 메시지가 웹 브라우저에 표시됩니다.`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+성공적으로 인증 되 면 웹 브라우저에 다음 메시지가 표시 됩니다.`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
 브라우저 창을 닫고, SSH 프롬프트를 돌아가서, **Enter** 키를 누릅니다. 
 
-이제 할당된 대로 *VM 사용자* 또는 *VM 관리자*와 같은 역할 권한이 있는 Azure Linux 가상 머신에 로그인했습니다. 사용자 계정에 *가상 컴퓨터 관리자 로그인* 역할이 할당된 `sudo` 경우 루트 권한이 필요한 명령을 실행하는 데 사용할 수 있습니다.
+이제 할당된 대로 *VM 사용자* 또는 *VM 관리자*와 같은 역할 권한이 있는 Azure Linux 가상 머신에 로그인했습니다. 사용자 계정에 *가상 컴퓨터 관리자 로그인* 역할이 할당 된 경우를 사용 `sudo` 하 여 루트 권한이 필요한 명령을 실행할 수 있습니다.
 
 ## <a name="sudo-and-aad-login"></a>Sudo 및 AAD 로그인
 
@@ -200,13 +200,13 @@ Access denied
 
 웹 브라우저에서 인증 단계를 성공적으로 완료한 경우 즉시 새 코드를 사용하여 다시 로그인하라는 메시지가 표시될 수 있습니다. 이 오류는 일반적으로 SSH 프롬프트에서 지정한 로그인 이름과 Azure AD에 로그인한 계정 간의 불일치로 인해 발생합니다. 이 문제를 수정하려면:
 
-- SSH 프롬프트에 지정한 로그인 이름이 올바른지 확인합니다. 로그인 이름의 오타로 인해 SSH 프롬프트에서 지정한 로그인 이름과 Azure AD에 로그인한 계정 간의 불일치가 발생할 수 있습니다. 예를 들어 *\@azureuser contoso.onmicrosoft.com*대신 *azuresuer\@contoso.onmicrosoft.com* 입력했습니다.
+- SSH 프롬프트에 지정한 로그인 이름이 올바른지 확인합니다. 로그인 이름의 오타로 인해 SSH 프롬프트에서 지정한 로그인 이름과 Azure AD에 로그인한 계정 간의 불일치가 발생할 수 있습니다. 예를 들어 *azureuser\@contoso.onmicrosoft.com*대신 *azuresuer\@contoso.onmicrosoft.com* 를 입력 했습니다.
 - 여러 사용자 계정이 있는 경우 Azure AD에 로그인할 때 브라우저 창에서 다른 사용자 계정을 입력하지 않도록 확인합니다.
 - Linux는 대/소문자 구분 운영 체제입니다. 'Azureuser@contoso.onmicrosoft.com'및'azureuser@contoso.onmicrosoft.com' 간의 차이로 인해 불일치가 발생할 수 있습니다. SSH 프롬프트에서 대/소문자 구분이 올바른 UPN을 지정했는지 확인합니다.
 
 ### <a name="other-limitations"></a>기타 제한 사항
 
-중첩된 그룹 또는 역할 할당을 통해 액세스 권한을 상속하는 사용자는 현재 지원되지 않습니다. 사용자 또는 그룹에 [필요한 역할 할당이](#configure-role-assignments-for-the-vm)직접 할당되어야 합니다. 예를 들어 관리 그룹 또는 중첩된 그룹 역할 할당을 사용하면 사용자가 로그인할 수 있도록 올바른 권한이 부여되지 않습니다.
+중첩 된 그룹 또는 역할 할당을 통해 액세스 권한을 상속 하는 사용자는 현재 지원 되지 않습니다. 사용자 또는 그룹에 게 [필요한 역할 할당](#configure-role-assignments-for-the-vm)을 직접 할당 해야 합니다. 예를 들어 관리 그룹 또는 중첩 된 그룹 역할 할당을 사용 하는 경우 사용자가 로그인 할 수 있도록 올바른 권한을 부여 하지 않습니다.
 
 ## <a name="preview-feedback"></a>미리 보기 피드백
 

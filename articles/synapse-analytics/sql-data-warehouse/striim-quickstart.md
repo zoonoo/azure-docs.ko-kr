@@ -1,5 +1,5 @@
 ---
-title: 스트리임 빠른 시작
+title: Striim 빠른 시작
 description: Striim 및 Azure SQL Data Warehouse로 빨리 시작합니다.
 services: synapse-analytics
 author: mlee3gsd
@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: e963d62df8d2c416726852ee3d46daf1cd22936e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80349937"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striim Azure SQL DW Marketplace 제품 설치 안내서
@@ -30,7 +30,7 @@ Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQ
 
 ![Striim 구성][configure]
 
-배포된 후 \<Azure 포털에서 VM 이름> 마스터노드를 클릭하고 연결을 클릭하고 VM 로컬 계정을 사용하여 로그인을 복사합니다. 
+배포 되 면 Azure Portal에서 \<vm 이름>-masternode를 클릭 하 고 연결을 클릭 한 다음 vm 로컬 계정을 사용 하 여 로그인을 복사 합니다. 
 
 ![SQL Data Warehouse에 Striim 연결][connect]
 
@@ -56,7 +56,7 @@ Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQ
 
 ![Striim 클러스터 시작][start-striim]
 
-이제 즐겨 찾는 브라우저를 \<열고 DNS 이름>:9080으로 이동합니다.
+이제 즐겨 찾는 브라우저를 열고 DNS 이름> \<: 9080으로 이동 합니다.
 
 ![로그인 화면으로 이동][navigate]
 

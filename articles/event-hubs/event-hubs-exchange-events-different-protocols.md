@@ -1,5 +1,5 @@
 ---
-title: Azure 이벤트 허브 - 다른 프로토콜을 사용하여 이벤트를 교환합니다.
+title: Azure Event Hubs-다른 프로토콜을 사용 하 여 이벤트 교환
 description: 이 문서에서는 서로 다른 프로토콜(AMQP, Apache Kafka 및 HTTPS)을 사용하는 소비자와 생산자가 Azure Event Hubs를 사용할 때 이벤트를 교환하는 방법을 보여 줍니다.
 services: event-hubs
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: femila
 ms.openlocfilehash: 368cc568c40e878338e6b45205e74cba1d0b6378
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80372209"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>서로 다른 프로토콜(AMQP, Kafka 및 HTTPS)을 사용하는 소비자와 생산자 간의 이벤트 교환
@@ -339,10 +339,10 @@ String myStringProperty = new String(rawbytes, StandardCharsets.UTF_8);
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 프로토콜 클라이언트를 변경하거나 자체 클러스터를 실행하지 않고 이벤트 허브로 스트리밍하는 방법을 배웠습니다. Event Hubs 및 Kafka용 Event Hubs에 대해 자세한 내용은 다음 문서를 참조하세요.  
+이 문서에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Event Hubs로 스트리밍하는 방법을 배웠습니다. Event Hubs 및 Kafka용 Event Hubs에 대해 자세한 내용은 다음 문서를 참조하세요.  
 
 * [Event Hubs에 대해 알아봅니다](event-hubs-what-is-event-hubs.md).
 * [Kafka용 Event Hubs에 대해 알아보기](event-hubs-for-kafka-ecosystem-overview.md)
 * [Kafka GitHub용 Event Hubs에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
-* [MirrorMaker를](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) 사용하여 [카프카 온프레미스에서 클라우드의 이벤트 허브로 이벤트를 스트리밍할](event-hubs-kafka-mirror-maker-tutorial.md) 수 있습니다.
-* [네이티브 카프카 응용 프로그램,](event-hubs-quickstart-kafka-enabled-event-hubs.md) [아파치 Flink](event-hubs-kafka-flink-tutorial.md)또는 [Akka 스트림을](event-hubs-kafka-akka-streams-tutorial.md) 사용하여 이벤트 허브로 스트리밍하는 방법에 대해 알아봅니다.
+* [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) 를 사용 하 여 [kafka 온 프레미스의 이벤트를 클라우드에서 Event Hubs 스트리밍할 수 있습니다.](event-hubs-kafka-mirror-maker-tutorial.md)
+* [네이티브 Kafka 응용 프로그램](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md)또는 [akka streams 스트림을](event-hubs-kafka-akka-streams-tutorial.md) 사용 하 여 Event Hubs로 스트리밍하는 방법에 대해 알아봅니다.

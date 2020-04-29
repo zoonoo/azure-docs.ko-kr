@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 570c663861361a19190f6fb5d608b6aa029a0885
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80282497"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
@@ -31,10 +31,10 @@ ms.locfileid: "80282497"
 * [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다.
 * [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템이 있어야 합니다.
 * Windows 시스템에서 BitLocker를 사용하도록 설정합니다. [BitLocker를 사용하도록 설정하는 방법](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)을 참조하세요.
-* Windows 시스템에서 [최신 WAImportExport 버전 1을 다운로드하십시오.](https://www.microsoft.com/download/details.aspx?id=42659) 이 도구의 최신 버전에는 BitLocker 키에 대한 외부 보호기와 업데이트된 잠금 해제 모드 기능을 허용하는 보안 업데이트가 있습니다.
+* Windows 시스템에서 [최신 WAImportExport 버전 1을 다운로드](https://www.microsoft.com/download/details.aspx?id=42659) 합니다. 최신 버전의 도구에는 BitLocker 키에 대 한 외부 보호기 및 업데이트 된 잠금 해제 모드 기능을 허용 하기 위한 보안 업데이트가 있습니다.
 
   * `waimportexportv1` 기본 폴더에 압축을 풉니다. `C:\WaImportExportV1`)을 입력합니다.
-* FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 이동통신사를 사용하려면 Azure `adbops@microsoft.com`데이터 상자 운영 팀에 문의하십시오.  
+* FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우에 `adbops@microsoft.com`는 Azure Data Box 운영 팀에 문의 하세요.  
   * 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
   * 내보내기 작업의 추적 번호를 생성합니다.
   * 모든 작업에는 별도의 추적 번호가 있어야 합니다. 추적 번호가 동일한 여러 작업은 지원되지 않습니다.
@@ -51,13 +51,13 @@ ms.locfileid: "80282497"
 1. SATA 커넥터를 통해 디스크 드라이브를 Windows 시스템에 연결합니다.
 2. 각 드라이브에 단일 NTFS 볼륨을 만듭니다. 볼륨에 드라이브 문자를 할당합니다. 탑재 지점은 사용하지 마세요.
 3. NTFS 볼륨에서 BitLocker 암호화를 사용하도록 설정합니다. Windows Server 시스템을 사용하는 경우 [Windows Server 2012 R2에서 BitLocker를 사용하도록 설정하는 방법](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)의 지침을 따르세요.
-4. 데이터를 암호화된 볼륨으로 복사합니다. 끌어서 놓기, Robocopy 또는 이러한 복사 도구를 사용합니다. *저널(.jrn)* 파일은 도구를 실행하는 동일한 폴더에 만들어집니다.
+4. 데이터를 암호화된 볼륨으로 복사합니다. 끌어서 놓기, Robocopy 또는 이러한 복사 도구를 사용합니다. 저널 (*jrn*번째) 파일은 도구를 실행 하는 폴더와 같은 폴더에 만들어집니다.
 
-   드라이브가 잠겨 있고 드라이브의 잠금을 해제해야 하는 경우 사용 사례에 따라 잠금 해제 단계가 다를 수 있습니다.
+   드라이브가 잠기고 드라이브 잠금을 해제 해야 하는 경우 사용 사례에 따라 잠금을 해제 하는 단계가 다를 수 있습니다.
 
-   * 암호화된 사전 암호화된 드라이브에 데이터를 추가한 경우(WAImportExport 도구가 암호화에 사용되지 않음) 팝업에서 BitLocker 키(지정한 숫자 암호)를 사용하여 드라이브의 잠금을 해제합니다.
+   * 미리 암호화 된 드라이브에 데이터를 추가한 경우 (WAImportExport 도구는 암호화에 사용 되지 않음) 팝업에서 BitLocker 키 (지정 하는 숫자 암호)를 사용 하 여 드라이브 잠금을 해제 합니다.
 
-   * WAImportExport 도구로 암호화된 드라이브에 데이터를 추가한 경우 다음 명령을 사용하여 드라이브잠금을 해제합니다.
+   * WAImportExport 도구를 사용 하 여 암호화 된 드라이브에 데이터를 추가한 경우 드라이브 잠금을 해제 하려면 다음 명령을 사용 합니다.
 
         `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`
 
@@ -77,7 +77,7 @@ ms.locfileid: "80282497"
 
     다음 표에는 사용되는 매개 변수가 나와 있습니다.
 
-    |옵션  |설명  |
+    |옵션  |Description  |
     |---------|---------|
     |/j:     |확장명이 .jrn인 저널 파일의 이름입니다. 저널 파일은 드라이브마다 생성됩니다. 디스크 일련 번호를 저널 파일 이름으로 사용하는 것이 좋습니다.         |
     |/id:     |세션 ID입니다. 명령의 각 인스턴스마다 고유한 세션 번호를 사용합니다.      |
@@ -85,9 +85,9 @@ ms.locfileid: "80282497"
     |/bk:     |드라이브의 BitLocker 키입니다. `manage-bde -protectors -get D:` 출력의 숫자 암호입니다.      |
     |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. `D:\`)을 입력합니다.         |
     |/dstdir:     |Azure Storage에 있는 대상 컨테이너 이름입니다.         |
-    |/blobtype:     |이 옵션은 데이터를 가져올 Blob 유형을 지정합니다. 블록 Blob의 경우 `BlockBlob` 이 페이지 Blob의 경우 `PageBlob`입니다.         |
+    |/blobtype     |이 옵션은 데이터를 가져올 blob의 유형을 지정 합니다. 블록 blob의 경우이 `BlockBlob` 고, 페이지 blob의 경우 `PageBlob`입니다.         |
     |/skipwrite:     |복사하는 데 필요한 새 데이터가 없고 디스크의 기존 데이터를 준비하도록 지정하는 옵션입니다.          |
-    |/enablecontentmd5:     |이 옵션을 사용하도록 설정하면 MD5가 계산되고 `Content-md5` 각 Blob에서 속성으로 설정됩니다. 데이터가 Azure에 `Content-md5` 업로드된 후 필드를 사용하려는 경우에만 이 옵션을 사용합니다. <br> 이 옵션은 기본적으로 발생하는 데이터 무결성 검사에는 영향을 주지 않습니다. 이 설정은 클라우드에 데이터를 업로드하는 데 걸린 시간을 증가시게 됩니다.          |
+    |/enablecontentmd5:     |사용 하도록 설정 하면 MD5가 계산 되어 각 blob에 대 한 `Content-md5` 속성으로 설정 됩니다. 데이터를 Azure에 업로드 한 후 필드를 `Content-md5` 사용 하려는 경우에만이 옵션을 사용 합니다. <br> 이 옵션은 기본적으로 발생 하는 데이터 무결성 검사에는 영향을 주지 않습니다. 이 설정은 클라우드로 데이터를 업로드 하는 데 걸리는 시간을 증가 시킵니다.          |
 8. 배송해야 하는 각 디스크에 대해 이전 단계를 반복합니다. 명령줄을 실행할 때마다 제공된 이름의 저널 파일이 만들어집니다.
 
     > [!IMPORTANT]
@@ -102,7 +102,7 @@ ms.locfileid: "80282497"
 
     ![작업 가져오기/내보내기로 이동](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. **가져오기/내보내기 작업 만들기를**클릭합니다.
+3. **가져오기/내보내기 작업 만들기**를 클릭 합니다.
 
     ![가져오기/내보내기 작업 만들기 클릭](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
@@ -127,7 +127,7 @@ ms.locfileid: "80282497"
 
 6. **반송 정보**에서:
 
-   * 드롭다운 목록에서 운송업체를 선택합니다. FedEx/DHL 이외의 이동통신사를 사용하려면 드롭다운에서 기존 옵션을 선택합니다. 사용할 이동통신사에 대한 `adbops@microsoft.com` 정보를 Azure 데이터 상자 운영 팀에 문의하십시오.
+   * 드롭다운 목록에서 운송업체를 선택합니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우 드롭다운에서 기존 옵션을 선택 합니다. 에서 `adbops@microsoft.com` 사용 하려는 운송 업체와 관련 된 정보를 사용 하 여 Azure Data Box 운영 팀에 문의 하세요.
    * 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. 가져오기 작업이 완료되면 Microsoft는 이 계정을 사용하여 사용자에게 드라이브를 배송합니다. 계정 번호가 없는 경우 [FedEx](https://www.fedex.com/us/oadr/) 또는 [DHL](https://www.dhl.com/) 운송업체 계정을 만듭니다.
    * 완전하고 유효한 연락처 이름, 전화 번호, 이메일, 주소, 구/군/시, 우편 번호, 시/도 및 국가/지역을 제공합니다.
 
@@ -143,19 +143,19 @@ ms.locfileid: "80282497"
 
      ![가져오기 작업 만들기 - 4단계](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-optional-configure-customer-managed-key"></a>3단계(선택 사항): 고객 관리 키 구성
+## <a name="step-3-optional-configure-customer-managed-key"></a>3 단계 (선택 사항): 고객 관리 키 구성
 
-이 단계를 건너뛰고 Microsoft 관리 키를 사용하여 드라이브의 BitLocker 키를 보호하려는 경우 다음 단계로 이동합니다. BitLocker 키를 보호하도록 자체 키를 구성하려면 [Azure Portal에서 Azure 가져오기/내보내기에 대한 Azure 키 자격 증명 모음을 사용하여 고객 관리 키 구성의](storage-import-export-encryption-key-portal.md) 지침을 따릅니다.
+Microsoft 관리 키를 사용 하 여 드라이브에 대 한 BitLocker 키를 보호 하려는 경우이 단계를 건너뛰고 다음 단계로 이동 합니다. BitLocker 키를 보호 하기 위해 고유한 키를 구성 하려면 [Azure Portal에서 Azure Import/Export에 대 한 Azure Key Vault를 사용 하 여 고객 관리 키 구성](storage-import-export-encryption-key-portal.md) 의 지침을 따르세요.
 
-## <a name="step-4-ship-the-drives"></a>4단계: 드라이브 배송
+## <a name="step-4-ship-the-drives"></a>4 단계: 드라이브 배송
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## <a name="step-5-update-the-job-with-tracking-information"></a>5단계: 추적 정보로 작업 업데이트
+## <a name="step-5-update-the-job-with-tracking-information"></a>5 단계: 추적 정보를 사용 하 여 작업 업데이트
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-6-verify-data-upload-to-azure"></a>6단계: Azure에 데이터 업로드 확인
+## <a name="step-6-verify-data-upload-to-azure"></a>6 단계: Azure에 데이터 업로드 확인
 
 완료될 때까지 작업을 추적합니다. 작업이 완료되면 데이터가 Azure에 업로드되었는지 확인합니다. 업로드가 성공했음을 확인한 후에만 온-프레미스 데이터를 삭제합니다.
 

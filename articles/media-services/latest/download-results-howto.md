@@ -1,6 +1,6 @@
 ---
-title: 작업 결과 다운로드 - Azure 미디어 서비스
-description: 이 문서에서는 작업 결과를 다운로드하는 방법을 보여 줍니다.
+title: 작업 결과 다운로드-Azure Media Services
+description: 이 문서에서는 작업의 결과를 다운로드 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,21 +12,21 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: bae7104eaded8c2ed153bc141faf7eba0bb86bae
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80346311"
 ---
 # <a name="download-the-results-of-a-job"></a>작업 결과 다운로드
 
-Azure Media Services에서 비디오를 처리할 때(예: 인코딩 또는 분석) [작업](transforms-jobs-concept.md)결과를 저장하기 위해 출력 [자산을](assets-concept.md) 만들어야 합니다. 그런 다음 미디어 서비스 및 저장소 API를 사용하여 이러한 결과를 로컬 폴더에 다운로드할 수 있습니다. 
+Azure Media Services에서 비디오를 처리 하는 경우 (예: 인코딩 또는 분석) [작업](transforms-jobs-concept.md)결과를 저장 하는 출력 [자산](assets-concept.md) 을 만들어야 합니다. 그런 다음 Media Service 및 Storage Api를 사용 하 여 로컬 폴더에 이러한 결과를 다운로드할 수 있습니다. 
 
-이 문서에서는 Java 및 .NET SDK를 사용하여 결과를 다운로드하는 방법을 보여 줍니다.
+이 문서에서는 Java 및 .NET Sdk를 사용 하 여 결과를 다운로드 하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항 
 
-[자산 관리 검토](manage-asset-concept.md).
+[자산 관리](manage-asset-concept.md)를 검토합니다.
 
 ## <a name="java"></a>Java
 
@@ -71,7 +71,7 @@ private static void downloadResults(MediaManager manager, String resourceGroup, 
 }
 ```
 
-전체 코드 샘플 보기: [인코딩WITHMES사전정의사전설정](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
+전체 코드 샘플을 참조 하세요. [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
 
 ## <a name="net"></a>.NET
 
@@ -120,8 +120,8 @@ private async static Task DownloadResults(IAzureMediaServicesClient client, stri
 }
 ```
 
-전체 코드 샘플 보기: [인코딩WITHMES사전정의사전설정](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
+전체 코드 샘플을 참조 하세요. [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
 ## <a name="next-steps"></a>다음 단계
 
-[HTTPS URL에서 작업 입력을 만듭니다.](job-input-from-http-how-to.md)
+[HTTPS URL에서 작업 입력을 만듭니다](job-input-from-http-how-to.md).

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 2676dbf72309eeb51be1f08e7bae2c1502cc671e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280204"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>게시 포털에서 애플리케이션 설정
@@ -20,7 +20,7 @@ ms.locfileid: "80280204"
 
 ## <a name="login-and-create-a-new-offer"></a>로그인 및 새 제품 만들기
 
-1. 클라우드 파트너 [포털에](https://cloudpartner.azure.com/)로그인합니다.
+1. [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인 합니다.
 2. 왼쪽 탐색 모음에서 “+ 새 제품”을 클릭하고 “Dynamics 365 for Customer Engagement”를 선택합니다.
 
 ![새 제품 선택](./media/CRMScreenShot14.png)
@@ -29,7 +29,7 @@ ms.locfileid: "80280204"
 
 ![새 제품 화면](./media/CRMScreenShot15.png)
 
-1. 작성해야 할 “양식”은 “편집기” 보기 내의 왼쪽에 표시됩니다. 각 "양식"은 채울 필드 집합으로 구성됩니다. 필수 필드는 빨간색 별표()로\*표시됩니다.
+1. 작성해야 할 “양식”은 “편집기” 보기 내의 왼쪽에 표시됩니다. 각 "양식"은 채워질 필드 집합으로 구성 됩니다. 필수 필드는 빨간색 별표 (\*)로 표시 됩니다.
 
 Dynamics 365 for Customer Engagement 제품을 작성하기 위한 4개의 기본 양식이 있습니다.
 
@@ -46,13 +46,13 @@ Dynamics 365 for Customer Engagement 제품을 작성하기 위한 4개의 기�
 
 게시자 프로필 내에서 제품의 고유 ID입니다. 이 ID는 제품 URL에 표시됩니다. 소문자 영숫자 문자 또는 대시(-)로만 구성할 수 있습니다. ID는 대시로 끝내면 안 되며 최대 50문자를 포함할 수 있습니다. 이 필드는 제품이 라이브 상태가 되면 잠깁니다.
 
-예를 들어 게시자 **"contoso"** 게시자가 제안 ID **"샘플 웹앱"이**있는 쿠폰을 만드는 경우\/AppSource에 "https: /appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"로 표시됩니다.
+예를 들어 게시자 **"contoso"** 게시자가 제안 ID가 **"WebApp"** 인 제품을 만드는 경우 appsource에 "https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"로 표시 됩니다.
 
 ### <a name="publisher-id"></a>게시자 ID
 
 이 드롭다운 목록을 사용하여 이 제품을 게시할 게시자 프로필을 선택할 수 있습니다. 이 필드는 제품이 라이브 상태가 되면 잠깁니다.
 
-### <a name="name"></a>이름
+### <a name="name"></a>속성
 
 제품에 대한 표시 이름입니다. [AppSource](https://appsource.microsoft.com/)에 표시할 이름입니다. 최대 50문자를 포함할 수 있습니다.
 
@@ -77,11 +77,11 @@ Dynamics 365 for Customer Engagement 제품을 작성하기 위한 4개의 기�
 
 * 패키지의 파일 이름: CRM AppSource 패키지인 zip 파일을 만들 때 위 단계에서 만든 파일 이름입니다. 위의 예제에서는 “Microsoft\_ SamplePackage.zip”입니다.
 * 패키지 위치의 URL: 위에서 지정한 패키지 파일 이름을 포함하는 Azure Storage 계정의 URL입니다. 위 섹션의 9단계에서 만든 URL입니다.
-* 패키지 파일에 둘 이상의 CRM 패키지가 있는 경우: 여러 패키지가 포함된 여러 CRM 버전을 지원하는 경우**에만** [예]를 선택합니다. 대부분 파트너의 경우 “아니요”가 됩니다. [예]를 선택하는 경우 솔루션의 각 버전에 대한 AppSource 패키지를 만들어야 합니다. _참고 : 여러 **zip** 파일이 있는지 묻는 것은 아닙니다. 여러 solution.zip 파일이 있지만 버전이 하나만 있는 경우에도 "아니요"를 선택해야 합니다. 포장 도구는 자동으로 이들을 함께 가져올 것입니다._
+* 패키지 파일에 둘 이상의 CRM 패키지가 있는 경우: 여러 패키지가 포함된 여러 CRM 버전을 지원하는 경우**에만** [예]를 선택합니다. 대부분 파트너의 경우 “아니요”가 됩니다. [예]를 선택하는 경우 솔루션의 각 버전에 대한 AppSource 패키지를 만들어야 합니다. _참고: 여러 **zip** 파일이 있는지 여부를 묻지 않습니다. 여러 개의 솔루션 .zip 파일이 있지만 버전이 하나만 있는 경우에도 "아니요"를 선택 해야 합니다. 패키징 도구는 이러한 도구를 자동으로 함께 가져옵니다._
 
 ### <a name="crm-package-availability"></a>CRM 패키지 가용성
 
-이 섹션에서는 패키지를 사용할 수 있는 CRM의 패키지 지역을 선택합니다. CRM 지역이 어떤 국가/지역을 제공하는지에 대한 자세한 내용은 링크를 참조하십시오.[https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
+이 섹션에서는 패키지를 사용할 수 있는 CRM의 패키지 지역을 선택합니다. 어떤 국가/지역이 제공 되는 CRM 지역에 대 한 자세한 내용은 다음 링크를 참조 하세요.[https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 참고: 독일 “자치 및 US Gov 클라우드” 자치에 배포하려면 인증 중에 특수 권한 및 유효성 검사가 필요합니다.
 
@@ -117,7 +117,7 @@ Dynamics 365 for Customer Engagement 제품을 작성하기 위한 4개의 기�
 
 ### <a name="supported-languages"></a>지원되는 언어
 
-앱에서 지원하는 언어를 선택합니다. 앱에서 이 목록에 없는 추가 언어를 지원하는 경우 쿠폰을 계속 게시하고 [appsource@microsoft.com](mailto:appsource@microsoft.com) 이메일을 보내 알려주세요.
+앱에서 지원하는 언어를 선택합니다. 앱이이 목록에 없는 추가 언어를 지 원하는 경우 계속 해 서 제품을 게시 하 고에 전자 메일 [appsource@microsoft.com](mailto:appsource@microsoft.com) 을 보내 주세요.
 
 ### <a name="app-version"></a>앱 버전
 
@@ -149,7 +149,7 @@ AppSource를 사용하면 고객이 키워드를 기반으로 검색을 수행�
 
 앱 세부 정보 페이지에 표시됩니다. **png 형식만 허용됩니다.** 216PX\*216PX 해상도의 png 이미지를 업로드합니다.
 
-### <a name="videos"></a>비디오
+### <a name="videos"></a>동영상
 
 최대 4개의 동영상을 업로드할 수 있습니다. 업로드하려는 동영상마다 동영상과 연결할 동영상 이름, URL(YouTube 또는 Vimeo만 해당) 및 썸네일을 입력해야 합니다. 썸네일은 1280PX\*720PX의 png 형식이어야 합니다. 새 동영상을 추가하려면 더하기 기호를 클릭합니다. 동영상 썸네일은 앱 세부 정보 페이지에 표시됩니다.
 
@@ -167,7 +167,7 @@ PDF 형식으로 최대 3개의 문서를 업로드할 수 있습니다. 업로�
 
 앱의 개인 정보 취급 방침 URL을 입력합니다.
 
-### <a name="terms-of-use"></a>사용 약관
+### <a name="terms-of-use"></a>사용 조건
 
 앱 사용 약관을 입력합니다. AppSource 고객은 앱을 사용하기 전에 이러한 약관에 동의해야 합니다.
 
@@ -179,7 +179,7 @@ PDF 형식으로 최대 3개의 문서를 업로드할 수 있습니다. 업로�
 
 잠재 고객을 저장할 CRM 시스템을 선택합니다. CRM 시스템인 Salesforce, Marketo, Microsoft Dynamics CRM 중 하나가 있는 경우 “Azure Table”을 선택합니다. 여기서 선택하는 CRM 시스템은 AppSource에서 앱을 사용해 보는 최종 사용자(잠재 고객)의 세부 정보를 작성하는 곳입니다. 선택한 CRM 시스템에 따라 다음 필드 집합을 완료하는 방법을 알아보려면 아래에서 해당 URL을 클릭합니다.
 
-* [Azure Table](./cloud-partner-portal-lead-management-instructions-azure-table.md)
+* [Azure 테이블](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 * [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)
 * [Microsoft Dynamics CRM](./cloud-partner-portal-lead-management-instructions-dynamics.md)
 * [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md)

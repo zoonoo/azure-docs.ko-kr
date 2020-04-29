@@ -1,5 +1,5 @@
 ---
-title: 파워 BI 마이크로소프트 Azure로 데이터 시각화
+title: Power BI Microsoft Azure를 사용 하 여 데이터 시각화
 description: Power BI로 SQL Data Warehouse 데이터 시각화
 services: synapse-analytics
 author: mlee3gsd
@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 7e764eeab6f681d90e1a602f02cdb03330d6fd3d
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80350938"
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI를 사용하여 데이터 시각화
@@ -25,7 +25,7 @@ ms.locfileid: "80350938"
 > 
 > 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이 자습서를 단계별로 실행하려면 다음이 필요합니다.
 
 * AdventureWorksDW 데이터베이스로 미리 로드된 SQL Data Warehouse. 데이터 웨어하우스를 프로비전하려면 [SQL Data Warehouse 만들기](create-data-warehouse-portal.md)를 참조하고 샘플 데이터 로드를 선택합니다. 데이터 웨어하우스는 있지만 샘플 데이터가 없는 경우 [WideWorldImportersDW를 로드](load-data-wideworldimportersdw.md)할 수 있습니다.
@@ -33,7 +33,7 @@ ms.locfileid: "80350938"
 ## <a name="1-connect-to-your-database"></a>1. 데이터베이스에 연결
 Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. 로그인은 [Azure 포털](https://portal.azure.com/)합니다.
 2. **SQL 데이터베이스** 를 클릭하고 AdventureWorks SQL Data Warehouse 데이터베이스를 선택합니다.
    
     ![데이터베이스 찾기](./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png)
@@ -94,4 +94,4 @@ Azure SQL Database와 함께, SQL Data Warehouse 직접 연결을 사용하면 P
 환경이 개선되면서 이러한 제한 및 참고 사항은 변경될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 샘플 데이터를 워밍업할 시간을 주어 [개발하거나](sql-data-warehouse-overview-develop.md) [로드하는](design-elt-data-loading.md)방법을 살펴보겠습니다. 또는 [Power BI 웹 사이트](https://www.powerbi.com/)를 살펴보세요.
+이제 샘플 데이터를 준비 하는 데 약간의 시간이 제공 되었으므로 [개발](sql-data-warehouse-overview-develop.md) 또는 [로드](design-elt-data-loading.md)하는 방법을 참조 하세요. 또는 [Power BI 웹 사이트](https://www.powerbi.com/)를 살펴보세요.

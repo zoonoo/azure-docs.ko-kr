@@ -1,6 +1,6 @@
 ---
-title: Azure 마켓플레이스에서 관리되는 디스크 저장소로 가상 머신(VM) 이미지를 이동하고 있습니다.
-description: 새로운 마켓플레이스 기능 및 기능에 대한 보다 빠르고 안정적인 스토리지 및 지원을 제공하기 위해 마켓플레이스 VM 이미지를 관리형 디스크 스토리지로 이전하고 있습니다.
+title: VM (가상 컴퓨터) 이미지를 Azure Marketplace의 관리 디스크 저장소로 이동 하 고 있습니다.
+description: 새로운 marketplace 기능 및 기능에 대 한 더 빠르고 안정적인 저장소 및 지원을 제공 하기 위해 marketplace VM 이미지를 관리 되는 디스크 저장소로 이동 하 고 있습니다.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,58 +8,58 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.openlocfilehash: 17b418ab82cc88b4368efe247b06c0c8bbb27453
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80285115"
 ---
-# <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Azure 마켓플레이스에서 가상 머신(VM) 이미지를 관리디스크 저장소로 이동하고 있습니다.
+# <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Azure Marketplace에서 VM (가상 컴퓨터) 이미지를 관리 되는 디스크 저장소로 이동 하 고 있습니다.
 
-새로운 마켓플레이스 기능 및 기능에 대한 보다 빠르고 안정적인 스토리지 및 지원을 제공하기 위해 마켓플레이스 VM 이미지를 관리형 디스크 스토리지로 이전하고 있습니다.
+새로운 marketplace 기능 및 기능에 대 한 더 빠르고 안정적인 저장소 및 지원을 제공 하기 위해 marketplace VM 이미지를 관리 되는 디스크 저장소로 이동 하 고 있습니다.
 
-2020년 1월 2일부터 VM 이미지를 단계적으로 관리되는 디스크 저장소로 이동합니다. 첫 번째 단계에서는 이전 90일 동안 새 배포나 실행 중인 VM이 없는 이미지만 이동합니다. 이미지를 이동하기 전에 게시자가 어떤 이미지가 이동하고 이동할 지 알려주는 이메일을 보냅니다.
+2020 년 1 월 2 일부 터 VM 이미지를 관리 되는 디스크 저장소로 이동 합니다. 첫 번째 단계에서는 이전 90 일 동안 새 배포 또는 Vm을 실행 하지 않는 이미지만 이동 합니다. 이미지를 이동 하기 전에 게시자가 이동할 이미지 및 이동 시기를 알려 주는 전자 메일을 보냅니다.
 
-게시자 나 소비자는 어떤 조치를 취할 필요가 없습니다, 그리고 사용자는 영향을받지 않습니다. 마켓플레이스 오퍼는 계속 사용할 수 있으며 고객은 이동 중 및 이동 후에도 이러한 이미지에서 관리되는 VM을 배포할 수 있습니다.
+게시자 또는 소비자는 어떤 조치도 취할 필요가 없으며 사용자는 영향을 받지 않습니다. Marketplace 제품은 계속 사용 가능한 상태로 유지 되며, 이동 하는 동안 및 그 후에 고객은 이러한 이미지에서 관리 되는 Vm을 배포할 수 있습니다.
 
-궁금한 점이 있으시면 [저희에게 연락하십시오.](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)
+질문이 있는 경우 [문의해](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)주시기 바랍니다.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
-### <a name="would-the-users-of-my-vm-images-experience-an-outage"></a>내 VM 이미지 사용자가 중단을 경험할까요?
+### <a name="would-the-users-of-my-vm-images-experience-an-outage"></a>내 VM 이미지의 사용자가 중단을 경험 하나요?
 
-VM 이미지 사용자는 중단이 발생하지 않습니다. 
+VM 이미지의 사용자에 게는 가동 중단이 발생 하지 않습니다. 
 
-첫 번째 단계에서는 실행 중인 VM이 없는 VM 이미지만 이동합니다. 이러한 이미지에 대한 사용자가 없기 때문에 아무런 영향도 미치지 않습니다. 후속 단계의 경우 사용자에게도 영향을 미치지 않습니다.
+첫 번째 단계에서는 실행 중인 vm이 없는 VM 이미지만 이동 합니다. 이러한 이미지에 대 한 사용자가 없으므로 영향을 주지 않습니다. 이후 단계에 대해서도 사용자에 게 영향을 주지 않습니다.
 
-### <a name="how-long-does-it-take-for-the-process-to-complete"></a>프로세스가 완료되는 데 얼마나 걸립니까?
+### <a name="how-long-does-it-take-for-the-process-to-complete"></a>프로세스를 완료 하는 데 소요 되는 시간
 
-마이그레이션을 완료하는 데 최대 24시간이 걸릴 수 있습니다.
+마이그레이션을 완료 하는 데 최대 24 시간이 걸릴 수 있습니다.
 
-### <a name="do-i-need-to-take-any-action"></a>어떤 조치를 취해야 하나요?
+### <a name="do-i-need-to-take-any-action"></a>작업을 수행 해야 하나요?
 
-아니요. 게시자 나 소비자는 어떤 조치를 취할 필요가 없습니다.
+아니요. 게시자 또는 소비자는 어떤 조치도 취할 필요가 없습니다.
 
-### <a name="do-i-have-to-update-my-system-to-call-the-cloud-portal-apis-in-a-different-way-after-they-are-moved-to-managed-disk-storage"></a>관리되는 디스크 저장소로 이동한 후 다른 방식으로 클라우드 포털 API를 호출하도록 시스템을 업데이트해야 합니까?
+### <a name="do-i-have-to-update-my-system-to-call-the-cloud-portal-apis-in-a-different-way-after-they-are-moved-to-managed-disk-storage"></a>클라우드 포털 Api를 관리 디스크 저장소로 이동한 후 다른 방식으로 호출 하도록 시스템을 업데이트 해야 하나요?
 
-아니요. 기존 API 호출은 계속 작동합니다.
+아니요. 기존 API 호출은 계속 작동할 것입니다.
 
-### <a name="would-all-my-vm-images-be-moved-to-managed-disk-at-the-same-time"></a>모든 VM 이미지를 관리 디스크로 동시에 이동하시겠습니까?
+### <a name="would-all-my-vm-images-be-moved-to-managed-disk-at-the-same-time"></a>모든 내 VM 이미지를 동시에 관리 디스크로 이동 하나요?
 
-우리는 같은 날에 모든 VM 이미지를 이동합니다. 이동이 완료되면 알려드리겠습니다.
+모든 VM 이미지를 같은 날에 이동할 예정입니다. 이동 된 후 사용자에 게 알려줍니다.
 
-### <a name="can-i-request-to-schedule-the-move-of-my-vm-images-to-a-later-time"></a>나중에 VM 이미지의 이동을 예약하도록 요청할 수 있습니까?
+### <a name="can-i-request-to-schedule-the-move-of-my-vm-images-to-a-later-time"></a>내 VM 이미지를 나중에 이동 하도록 예약 하도록 요청할 수 있나요?
 
-예정된 날짜에 이미지를 이동하는 것이 좋습니다. 그러나 문제가 있는 경우 당사에 연락하여 이동 일정을 조정하십시오.
+예약 된 날짜에 이미지를 이동 하는 것이 좋습니다. 그러나 문제가 있는 경우 microsoft에 문의 하 여 이동 일정을 다시 조정 하세요.
 
-### <a name="can-i-publish-updates-to-my-vm-images-during-the-move"></a>이동하는 동안 VM 이미지에 업데이트를 게시할 수 있습니까?
+### <a name="can-i-publish-updates-to-my-vm-images-during-the-move"></a>이동 하는 동안 내 VM 이미지에 업데이트를 게시할 수 있나요?
 
-이동 하는 동안 VM 이미지에 대 한 업데이트를 만들 수 없습니다.
+이동 하는 동안에는 VM 이미지를 업데이트할 수 없습니다.
 
-### <a name="will-the-publishing-process-change-after-my-vm-image-is-moved-to-managed-disk"></a>VM 이미지를 관리디스크로 이동한 후 게시 프로세스가 변경됩니다.
+### <a name="will-the-publishing-process-change-after-my-vm-image-is-moved-to-managed-disk"></a>내 VM 이미지를 관리 디스크로 이동한 후에 게시 프로세스가 변경 됩니까?
 
-아니요, 게시 프로세스는 동일하게 유지됩니다. 
+아니요. 게시 프로세스는 동일 하 게 유지 됩니다. 
 
-### <a name="can-the-publisher-move-their-offers-to-managed-disk"></a>게시자가 오퍼를 관리 디스크로 이동할 수 있습니까?
+### <a name="can-the-publisher-move-their-offers-to-managed-disk"></a>게시자가 해당 제품을 관리 디스크로 이동할 수 있나요?
 
-아니요, 게시자는 오퍼를 관리 디스크로 이동할 수 없습니다. 그들은 기다려야하고 이미지가 자동으로 이동됩니다. 변경하기 전에 게시자에게 알림을 보내드립니다.
+아니요. 게시자는 해당 제품을 관리 디스크로 이동할 수 없습니다. 대기 해야 하며 해당 이미지가 자동으로 이동 됩니다. 변경을 수행 하기 전에 게시자에 게 알림을 보냅니다.

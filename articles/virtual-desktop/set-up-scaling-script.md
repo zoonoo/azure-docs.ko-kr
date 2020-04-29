@@ -1,6 +1,6 @@
 ---
-title: 확장 세션 호스트 Azure 자동화 - Azure
-description: Azure 자동화를 사용하여 Windows 가상 데스크톱 세션 호스트의 크기를 자동으로 조정하는 방법
+title: 세션 호스트 Azure Automation 크기 조정-Azure
+description: Azure Automation를 사용 하 여 Windows 가상 데스크톱 세션 호스트 크기를 자동으로 조정 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,79 +9,79 @@ ms.date: 03/26/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 3a853dc32f8716f3f2ba32896a7a4a239efcc5bd
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80349875"
 ---
-# <a name="scale-session-hosts-using-azure-automation"></a>Azure 자동화를 사용하여 세션 호스트 확장
+# <a name="scale-session-hosts-using-azure-automation"></a>Azure Automation를 사용 하 여 세션 호스트 크기 조정
 
-가상 컴퓨터(VM)를 확장하여 총 Windows 가상 데스크톱 배포 비용을 줄일 수 있습니다. 즉, 사용량이 많은 사용량이 많은 시간 동안 세션 호스트 VM을 종료하고 할당 해제한 다음 다시 켜고 사용량이 많은 시간에 다시 재할당합니다.
+Vm (가상 머신)을 확장 하 여 총 Windows 가상 데스크톱 배포 비용을 줄일 수 있습니다. 즉, 사용량이 적은 시간에 세션 호스트 Vm을 종료 하 고 할당을 취소 한 다음, 사용량이 많은 시간 동안 다시 설정 하 고 다시 할당 합니다.
 
-이 문서에서는 Windows 가상 데스크톱 환경에서 세션 호스트 가상 컴퓨터를 자동으로 확장하는 Azure 자동화 및 Azure Logic Apps로 빌드된 확장 도구에 대해 알아봅니다. 크기 조정 도구를 사용하는 방법을 알아보려면 [필수 구성 함으로](#prerequisites)건너뛰십시오.
+이 문서에서는 Windows 가상 데스크톱 환경에서 세션 호스트 가상 컴퓨터의 크기를 자동으로 조정 하는 Azure Automation 및 Azure Logic Apps를 사용 하 여 빌드한 크기 조정 도구에 대해 알아봅니다. 크기 조정 도구를 사용 하는 방법에 대 한 자세한 내용은 [필수 구성 요소](#prerequisites)로 건너뜁니다.
 
-## <a name="how-the-scaling-tool-works"></a>배율 조정 도구의 작동 방식
+## <a name="how-the-scaling-tool-works"></a>크기 조정 도구의 작동 원리
 
-확장 도구는 세션 호스트 VM 비용을 최적화하려는 고객을 위해 저렴한 자동화 옵션을 제공합니다.
+크기 조정 도구는 세션 호스트 VM 비용을 최적화 하려는 고객을 위한 저비용의 자동화 옵션을 제공 합니다.
 
-크기 조정 도구를 사용하여 다음을 수행할 수 있습니다.
+크기 조정 도구를 사용 하 여 다음을 수행할 수 있습니다.
  
-- 피크 및 사용량이 많은 영업 시간을 기준으로 VM을 시작하고 중지하도록 예약합니다.
-- CPU 코어당 세션 수에 따라 VM을 확장합니다.
-- 사용량이 적은 시간 동안 VM을 확장하여 최소 세션 호스트 VM이 실행됩니다.
+- 최대 업무 시간 및 사용률이 낮은 업무 시간에 따라 Vm을 시작 하 고 중지 하도록 예약 합니다.
+- CPU 코어 당 세션 수에 따라 Vm을 확장 합니다.
+- 사용량이 적은 시간에 Vm의 크기를 조정 합니다. 즉, 실행 중인 세션 호스트 Vm의 최소 수는 그대로 둡니다.
 
-크기 조정 도구는 Azure 자동화 PowerShell 런북, 웹후크 및 Azure 논리 앱의 조합을 사용하여 작동합니다. 도구가 실행되면 Azure Logic Apps는 웹후크를 호출하여 Azure 자동화 실행책을 시작합니다. 그런 다음 Runbook에서 작업을 만듭니다.
+크기 조정 도구는 Azure Automation PowerShell runbook, webhook 및 Azure Logic Apps의 조합을 사용 하 여 작동 합니다. 도구가 실행 되 면 Azure Logic Apps 웹 후크를 호출 하 여 Azure Automation runbook을 시작 합니다. 그런 다음 runbook에서 작업을 만듭니다.
 
-사용량이 가장 많은 시간 동안 작업은 각 호스트 풀에 대해 현재 실행 중인 세션 호스트의 현재 세션 수와 VM 용량을 확인합니다. 이 정보를 사용하여 실행 중인 세션 호스트 VM이 **createazurelogicapp.ps1** 파일에 대해 정의된 *SessionThresholdPerCPU* 매개 변수를 기반으로 기존 세션을 지원할 수 있는지 계산합니다. 세션 호스트 VM이 기존 세션을 지원할 수 없는 경우 작업은 호스트 풀에서 추가 세션 호스트 VM을 시작합니다.
-
->[!NOTE]
->*세션임계값PerCPU는* VM의 세션 수를 제한하지 않습니다. 이 매개 변수는 연결의 부하 분산을 위해 새 VM을 시작해야 하는 경우에만 결정됩니다. 세션 수를 제한하려면 [Set-RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) 지침에 따라 *MaxSessionLimit* 매개 변수를 적절하게 구성해야 합니다.
-
-사용량이 적은 사용 시간 동안 작업은 *MinimumNumberOfRDSH* 매개 변수를 기반으로 종료해야 하는 세션 호스트 VM을 결정합니다. 이 작업은 세션 호스트 VM을 드레인 모드로 설정하여 호스트에 연결하는 새 세션을 방지합니다. *LimitSecondsToForceLogOffUser* 매개 변수를 0이 아닌 양수 값으로 설정하면 작업이 현재 로그인한 사용자에게 작업을 저장하고 구성된 시간을 기다린 다음 강제로 로그아웃하도록 알립니다. 세션 호스트 VM의 모든 사용자 세션이 로그아웃되면 작업이 VM을 종료합니다.
-
-*LimitSecondsToForceLogUser* 매개 변수를 0으로 설정하면 작업이 지정된 그룹 정책의 세션 구성 설정을 사용하여 사용자 세션 서명을 처리할 수 있도록 합니다. 이러한 그룹 정책을 보려면 **컴퓨터 구성** > **정책** > **관리 템플릿** > **Windows 구성 요소** > **터미널 서비스** > **터미널 서버** > **세션 시간 제한으로**이동합니다. 세션 호스트 VM에 활성 세션이 있는 경우 해당 작업은 세션 호스트 VM을 실행 상태로 둡니다. 활성 세션이 없는 경우 작업이 세션 호스트 VM을 종료합니다.
-
-작업은 설정된 되풀이 간격에 따라 주기적으로 실행됩니다. Windows 가상 데스크톱 환경의 크기에 따라 이 간격을 변경할 수 있지만 가상 컴퓨터를 시작하고 종료하는 데 다소 시간이 걸릴 수 있으므로 지연을 고려해야 합니다. 되풀이 간격을 15분마다 설정하는 것이 좋습니다.
-
-그러나 이 도구에는 다음과 같은 제한 사항이 있습니다.
-
-- 이 솔루션은 풀린 세션 호스트 VM에만 적용됩니다.
-- 이 솔루션은 모든 리전에서 VM을 관리하지만 Azure 자동화 계정 및 Azure 논리 앱과 동일한 구독에서만 사용할 수 있습니다.
+최대 사용 시간 동안 작업은 현재 세션 수와 각 호스트 풀에 대해 현재 실행 중인 세션 호스트의 VM 용량을 확인 합니다. 이 정보를 사용 하 여 실행 중인 세션 호스트 Vm이 **createazurelogicapp** 파일에 대해 정의 된 *SessionThresholdPerCPU* 매개 변수를 기반으로 기존 세션을 지원할 수 있는지 여부를 계산 합니다. 세션 호스트 Vm에서 기존 세션을 지원할 수 없는 경우 작업은 호스트 풀에서 추가 세션 호스트 Vm을 시작 합니다.
 
 >[!NOTE]
->크기 조정 도구는 크기 조정하는 호스트 풀의 부하 분산 모드를 제어합니다. 피크 및 사용량이 많은 시간 모두에 대해 폭 우선 부하 밸런싱으로 설정합니다.
+>*SessionThresholdPerCPU* 는 VM의 세션 수를 제한 하지 않습니다. 이 매개 변수는 연결의 부하를 분산 하기 위해 새 Vm을 시작 해야 하는 경우에만 결정 합니다. 세션 수를 제한 하려면 *MaxSessionLimit* 매개 변수를 적절 하 게 구성 하는 명령 [집합 RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) 을 따라야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+사용량이 많지 않은 사용 시간 동안 작업은 사용 시간을 결정 *하는 데* 사용 되는 세션 호스트 vm을 결정 합니다. 작업은 세션 호스트 Vm을 드레이닝 모드로 설정 하 여 호스트에 연결 하는 새 세션을 방지 합니다. *LimitSecondsToForceLogOffUser* 매개 변수를 0이 아닌 값으로 설정 하는 경우 작업은 현재 로그인 한 사용자에 게 작업을 저장 하도록 알리고 구성 된 시간 동안 기다린 다음 사용자가 로그 아웃 하도록 합니다. 세션 호스트 VM의 모든 사용자 세션이 로그 아웃 되 면 작업에서 VM이 종료 됩니다.
 
-크기 조정 도구 설정을 시작하기 전에 다음과 같은 작업을 준비해야 합니다.
+*LimitSecondsToForceLogOffUser* 매개 변수를 0으로 설정 하면 작업에서 지정 된 그룹 정책의 세션 구성 설정을 허용 하 여 사용자 세션의 로그 오프를 처리할 수 있습니다. 이러한 그룹 정책을 보려면 **컴퓨터 구성** > **정책** > **관리 템플릿** > **Windows 구성 요소** > **터미널 서비스** > **터미널 서버** > **세션 시간 제한**으로 이동 합니다. 세션 호스트 VM에 활성 세션이 있으면 작업에서 세션 호스트 VM이 실행 되는 상태로 유지 됩니다. 활성 세션이 없으면 작업에서 세션 호스트 VM이 종료 됩니다.
 
-- [Windows 가상 데스크톱 테넌트 및 호스트 풀](create-host-pools-arm-template.md)
-- Windows 가상 데스크톱 서비스로 구성 및 등록된 세션 호스트 풀 VM
-- Azure 구독에서 [기여자 액세스 권한이](../role-based-access-control/role-assignments-portal.md) 있는 사용자
+작업은 설정 된 되풀이 간격에 따라 주기적으로 실행 됩니다. Windows 가상 데스크톱 환경의 크기에 따라이 간격을 변경할 수 있지만, 가상 컴퓨터를 시작 하 고 종료 하는 데 다소 시간이 걸릴 수 있으므로 지연 시간을 고려해 야 합니다. 되풀이 간격을 15 분 간격으로 설정 하는 것이 좋습니다.
 
-도구를 배포하는 데 사용하는 컴퓨터에는 다음이 있어야 합니다. 
+그러나이 도구에는 다음과 같은 제한 사항도 있습니다.
 
-- 윈도우 파워쉘 5.1 이상
-- 마이크로 소프트 아즈 파워 쉘 모듈
+- 이 솔루션은 풀링된 세션 호스트 Vm에만 적용 됩니다.
+- 이 솔루션은 모든 지역에서 Vm을 관리 하지만 Azure Automation 계정과 동일한 구독 에서만 사용 하 고 Azure Logic Apps 수 있습니다.
 
-모든 준비가 완료된 경우 시작해 보겠습니다.
+>[!NOTE]
+>크기 조정 도구는 크기를 조정 하는 호스트 풀의 부하 분산 모드를 제어 합니다. 이는 최고 및 사용률이 낮은 시간에 대해 너비 우선 부하 분산으로 설정 합니다.
+
+## <a name="prerequisites"></a>전제 조건
+
+크기 조정 도구를 설정 하기 전에 다음 항목을 준비 해야 합니다.
+
+- [Windows 가상 데스크톱 테 넌 트 및 호스트 풀](create-host-pools-arm-template.md)
+- Windows 가상 데스크톱 서비스를 사용 하 여 구성 하 고 등록 한 세션 호스트 풀 Vm
+- Azure 구독에 대 한 [참가자 액세스 권한이](../role-based-access-control/role-assignments-portal.md) 있는 사용자
+
+도구를 배포 하는 데 사용 하는 컴퓨터에는 다음이 있어야 합니다. 
+
+- Windows PowerShell 5.1 이상
+- Microsoft Az PowerShell module
+
+모든 것이 준비 된 경우 시작 하겠습니다.
 
 ## <a name="create-an-azure-automation-account"></a>Azure Automation 계정 만들기
 
-먼저 PowerShell 실행책을 실행하려면 Azure 자동화 계정이 필요합니다. 계정을 설정하는 방법은 다음과 같습니다.
+먼저 PowerShell runbook을 실행할 Azure Automation 계정이 필요 합니다. 계정을 설정 하는 방법은 다음과 같습니다.
 
 1. 관리자 권한으로 Windows PowerShell을 엽니다.
-2. 다음 cmdlet을 실행하여 Azure 계정에 로그인합니다.
+2. 다음 cmdlet을 실행 하 여 Azure 계정에 로그인 합니다.
 
      ```powershell
      Login-AzAccount
      ```
 
      >[!NOTE]
-     >계정에 크기 조정 도구를 배포하려는 Azure 구독에 대한 기여자 권한이 있어야 합니다.
+     >계정에는 크기 조정 도구를 배포 하려는 Azure 구독에 대 한 참가자 권한이 있어야 합니다.
 
-3. 다음 cmdlet을 실행하여 Azure 자동화 계정을 만들기 위한 스크립트를 다운로드합니다.
+3. Azure Automation 계정을 만들기 위한 스크립트를 다운로드 하려면 다음 cmdlet을 실행 합니다.
 
      ```powershell
      Set-Location -Path "c:\temp"
@@ -89,47 +89,47 @@ ms.locfileid: "80349875"
      Invoke-WebRequest -Uri $uri -OutFile ".\createazureautomationaccount.ps1"
      ```
 
-4. 다음 cmdlet을 실행하여 스크립트를 실행하고 Azure 자동화 계정을 만듭니다.
+4. 다음 cmdlet을 실행 하 여 스크립트를 실행 하 고 Azure Automation 계정을 만듭니다.
 
      ```powershell
      .\createazureautomationaccount.ps1 -SubscriptionID <azuresubscriptionid> -ResourceGroupName <resourcegroupname> -AutomationAccountName <name of automation account> -Location "Azure region for deployment"
      ```
 
-5. cmdlet의 출력에는 웹후크 URI가 포함됩니다. Azure Logic 앱에 대한 실행 일정을 설정할 때 URI 레코드를 매개 변수로 사용하기 때문에 URI 레코드를 유지해야 합니다.
+5. Cmdlet의 출력에는 webhook URI가 포함 됩니다. Azure 논리 앱에 대 한 실행 일정을 설정할 때 매개 변수로 사용할 수 있으므로 URI의 레코드를 유지 해야 합니다.
 
-6. Azure 자동화 계정을 설정한 후 Azure 구독에 로그인하고 다음 이미지와 같이 Azure Automation 계정과 관련 Runbook이 지정된 리소스 그룹에 표시되었는지 확인합니다.
+6. Azure Automation 계정을 설정한 후에는 Azure 구독에 로그인 하 고 다음 이미지와 같이 Azure Automation 계정 및 관련 runbook이 지정 된 리소스 그룹에 표시 되는지 확인 합니다.
 
-   ![새로 만든 자동화 계정 및 Runbook을 보여 주면 Azure 개요 페이지의 이미지입니다.](media/automation-account.png)
+   ![새로 만든 automation 계정 및 runbook을 보여 주는 Azure 개요 페이지의 이미지입니다.](media/automation-account.png)
 
-  웹후크가 있어야 할 위치인지 확인하려면 Runbook의 이름을 선택합니다. 그런 다음 Runbook의 리소스 섹션으로 이동하여 **웹후크를 선택합니다.**
+  웹 후크가 어디에 있는지 확인 하려면 runbook의 이름을 선택 합니다. 다음으로, runbook의 리소스 섹션으로 이동 하 고 **웹 후크**를 선택 합니다.
 
-## <a name="create-an-azure-automation-run-as-account"></a>Azure 자동화 실행 을 계정으로 만들기
+## <a name="create-an-azure-automation-run-as-account"></a>Azure Automation 실행 계정 만들기
 
-이제 Azure 자동화 계정이 있으므로 Azure 리소스에 액세스하려면 Azure 자동화 실행 계정을 만들어야 합니다.
+이제 Azure Automation 계정이 있으므로 Azure 리소스에 액세스 하기 위해 Azure Automation 실행 계정을 만들어야 합니다.
 
-[Azure 자동화 실행 As 계정은](../automation/manage-runas-account.md) Azure cmdlets를 통해 Azure의 리소스를 관리하기 위한 인증을 제공합니다. Run As 계정을 만들 때 Azure Active Directory에서 새 서비스 주체 사용자를 만들고 구독 수준에서 서비스 주체 사용자에게 기여자 역할을 할당하면 Azure Run As Account는 계정을 안전하게 인증할 수 있는 좋은 방법입니다. 자격 증명 개체에 사용자 이름과 암호를 저장할 필요 없이 인증서 및 서비스 주체 이름입니다. 인증으로 실행에 대해 자세히 알아보려면 [계정으로 실행 권한 제한](../automation/manage-runas-account.md#limiting-run-as-account-permissions)을 참조하십시오.
+[Azure Automation 실행 계정은](../automation/manage-runas-account.md) azure cmdlet을 사용 하 여 azure에서 리소스를 관리 하기 위한 인증을 제공 합니다. 실행 계정을 만들 때 Azure Active Directory에 새 서비스 주체 사용자를 만들고 구독 수준에서 서비스 주체 사용자에 게 참가자 역할을 할당 합니다. Azure 실행 계정은 자격 증명 개체에 사용자 이름과 암호를 저장 하지 않고도 인증서 및 서비스 주체 이름으로 안전 하 게 인증할 수 있는 좋은 방법입니다. 실행 인증에 대해 자세히 알아보려면 [실행 계정 권한 제한](../automation/manage-runas-account.md#limiting-run-as-account-permissions)을 참조 하세요.
 
-구독 관리자 역할의 구성원이자 구독의 공동 관리자인 모든 사용자는 다음 섹션의 지침에 따라 Run As 계정을 만들 수 있습니다.
+구독 관리자 역할의 구성원이 고 구독의 공동 관리자 인 사용자는 다음 섹션의 지침에 따라 실행 계정을 만들 수 있습니다.
 
-Azure 계정에서 실행 로 계정을 만들려면 다음을 수행합니다.
+Azure 계정에서 실행 계정을 만들려면 다음을 수행 합니다.
 
-1. Azure 포털에서 **모든 서비스를**선택합니다. 리소스 목록에서 **자동화 계정을**입력하고 선택합니다.
+1. Azure Portal에서 **모든 서비스**를 선택 합니다. 리소스 목록에서 **Automation 계정**을 입력 하 고 선택 합니다.
 
-2. 자동화 **계정** 페이지에서 자동화 계정의 이름을 선택합니다.
+2. **Automation 계정** 페이지에서 automation 계정의 이름을 선택 합니다.
 
-3. 창 왼쪽의 창에서 계정 설정 섹션에서 **거래처로 실행을** 선택합니다.
+3. 창의 왼쪽 창에서 계정 설정 섹션 아래에 있는 **실행 계정** 을 선택 합니다.
 
-4. **계정으로 Azure 실행을 선택합니다.** Azure **실행 계정으로 추가** 창이 나타나면 개요 정보를 검토한 다음 **만들기를** 선택하여 계정 만들기 프로세스를 시작합니다.
+4. **Azure 실행 계정**을 선택 합니다. **Azure 실행 계정 추가** 창이 나타나면 개요 정보를 검토 한 다음 **만들기** 를 선택 하 여 계정 만들기 프로세스를 시작 합니다.
 
-5. Azure에서 실행 로 실행 계정을 만들 때까지 몇 분 동안 기다립니다. 알림 아래의 메뉴에서 생성 진행률을 추적할 수 있습니다.
+5. Azure에서 실행 계정을 만드는 데 몇 분 정도 기다립니다. 알림 아래에 있는 메뉴에서 만들기 진행률을 추적할 수 있습니다.
 
-6. 프로세스가 완료되면 지정된 자동화 계정에서 AzureRunAsConnection라는 자산을 만듭니다. 연결 자산에는 응용 프로그램 ID, 테넌트 ID, 구독 ID 및 인증서 지문이 있습니다. 나중에 사용하므로 응용 프로그램 ID를 기억하십시오.
+6. 프로세스가 완료 되 면 지정 된 Automation 계정에 AzureRunAsConnection 이라는 자산이 생성 됩니다. 연결 자산은 응용 프로그램 ID, 테 넌 트 ID, 구독 ID 및 인증서 지문을 보유 합니다. 나중에 사용할 수 있기 때문에 응용 프로그램 ID를 잊지 마세요.
 
 ### <a name="create-a-role-assignment-in-windows-virtual-desktop"></a>Windows Virtual Desktop에서 역할 할당 수행하기
 
-다음으로 AzureRunAsConnection이 Windows 가상 데스크톱과 상호 작용할 수 있도록 역할 할당을 만들어야 합니다. PowerShell을 사용하여 역할 할당을 만들 수 있는 권한이 있는 계정으로 로그인해야 합니다.
+다음으로 AzureRunAsConnection가 Windows 가상 데스크톱과 상호 작용할 수 있도록 역할 할당을 만들어야 합니다. PowerShell을 사용 하 여 역할 할당을 만들 수 있는 권한이 있는 계정으로 로그인 해야 합니다.
 
-먼저 아직 사용하지 않은 경우 PowerShell 세션에서 사용할 [Windows 가상 데스크톱 PowerShell 모듈을](/powershell/windows-virtual-desktop/overview/) 다운로드하여 가져옵니다. 다음 PowerShell cmdlet을 실행하여 Windows Virtual Desktop에 연결하고 테넌트를 표시합니다.
+먼저 PowerShell 세션에서 사용할 [Windows 가상 데스크톱 powershell 모듈](/powershell/windows-virtual-desktop/overview/) 을 다운로드 하 고 가져옵니다 (아직 없는 경우). 다음 PowerShell cmdlet을 실행하여 Windows Virtual Desktop에 연결하고 테넌트를 표시합니다.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -137,7 +137,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Get-RdsTenant
 ```
 
-확장할 호스트 풀이 있는 테넌트를 찾으면 [Azure Automation 계정 만들기의](#create-an-azure-automation-account) 지침에 따라 다음 cmdlet의 이전 cmdlet에서 얻은 테넌트 이름을 사용하여 역할 할당을 만듭니다.
+크기를 조정 하려는 호스트 풀이 있는 테 넌 트를 찾았으면 다음 cmdlet에서 [Azure Automation 계정 만들기](#create-an-azure-automation-account) 의 지침을 따르고 이전 cmdlet에서 가져온 테 넌 트 이름을 사용 하 여 역할 할당을 만듭니다.
 
 ```powershell
 New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <applicationid> -TenantName <tenantname>
@@ -145,29 +145,29 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <appl
 
 ## <a name="create-the-azure-logic-app-and-execution-schedule"></a>Azure 논리 앱 및 실행 일정 만들기
 
-마지막으로 Azure Logic 앱을 만들고 새 크기 조정 도구에 대한 실행 일정을 설정해야 합니다.
+마지막으로, Azure 논리 앱을 만들고 새 크기 조정 도구에 대 한 실행 일정을 설정 해야 합니다.
 
-1.  관리자로 Windows PowerShell 열기
+1.  관리자 권한으로 Windows PowerShell을 엽니다.
 
-2.  다음 cmdlet을 실행하여 Azure 계정에 로그인합니다.
+2.  다음 cmdlet을 실행 하 여 Azure 계정에 로그인 합니다.
 
      ```powershell
      Login-AzAccount
      ```
 
-3. 다음 cmdlet을 실행하여 로컬 컴퓨터에서 createazurelogicapp.ps1 스크립트 파일을 다운로드합니다.
+3. 다음 cmdlet을 실행 하 여 로컬 컴퓨터에서 createazurelogicapp 스크립트 파일을 다운로드 합니다.
 
      ```powershell
      Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazurelogicapp.ps1" -OutFile "your local machine path\ createazurelogicapp.ps1"
      ```
 
-4. 다음 cmdlet을 실행하여 RDS 소유자 또는 RDS 기여자 권한이 있는 계정으로 Windows 가상 데스크톱에 로그인합니다.
+4. 다음 cmdlet을 실행 하 여 RDS Owner 또는 RDS 참여자 권한이 있는 계정으로 Windows 가상 데스크톱에 로그인 합니다.
 
      ```powershell
      Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
      ```
 
-5. 다음 PowerShell 스크립트를 실행하여 Azure 논리 앱 및 실행 일정을 만듭니다.
+5. 다음 PowerShell 스크립트를 실행 하 여 Azure 논리 앱 및 실행 일정을 만듭니다.
 
      ```powershell
      $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group for the new Azure Logic App"
@@ -229,34 +229,34 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <appl
        -MaintenanceTagName $maintenanceTagName
      ```
 
-     스크립트를 실행한 후 다음 이미지와 같이 논리 앱이 리소스 그룹에 나타납니다.
+     스크립트를 실행 한 후 다음 그림에 표시 된 것 처럼 논리 앱이 리소스 그룹에 표시 됩니다.
 
-     ![예제 Azure 논리 앱에 대한 개요 페이지의 이미지입니다.](media/logic-app.png)
+     ![예제 Azure 논리 앱에 대 한 개요 페이지 이미지입니다.](media/logic-app.png)
 
-되풀이 간격 또는 표준 시간대 를 변경하는 등 실행 일정을 변경하려면 자동 크기 조정 스케줄러로 이동하여 **편집을** 선택하여 논리 앱 디자이너로 이동합니다.
+되풀이 간격 또는 표준 시간대를 변경 하는 등의 실행 일정을 변경 하려면 자동 크기 조정 스케줄러로 이동 하 고 **편집** 을 선택 하 여 Logic Apps 디자이너로 이동 합니다.
 
-![논리 앱 디자이너의 이미지입니다. 사용자가 되풀이 시간을 편집하고 웹후크 파일을 열 수 있도록 하는 되풀이 및 웹후크 메뉴입니다.](media/logic-apps-designer.png)
+![Logic Apps 디자이너의 이미지입니다. 사용자가 되풀이 시간 및 웹 후크 파일을 편집할 수 있는 되풀이 및 Webhook 메뉴가 열립니다.](media/logic-apps-designer.png)
 
-## <a name="manage-your-scaling-tool"></a>스케일링 도구 관리
+## <a name="manage-your-scaling-tool"></a>크기 조정 도구 관리
 
-크기 조정 도구를 만들었으니 출력에 액세스할 수 있습니다. 이 섹션에서는 도움이 될 수 있는 몇 가지 기능에 대해 설명합니다.
+이제 크기 조정 도구를 만들었으므로 출력에 액세스할 수 있습니다. 이 섹션에서는 유용할 수 있는 몇 가지 기능에 대해 설명 합니다.
 
 ### <a name="view-job-status"></a>작업 상태 보기
 
-모든 Runbook 작업의 요약된 상태를 보거나 Azure Portal에서 특정 Runbook 작업의 자세한 상태를 볼 수 있습니다.
+모든 runbook 작업의 요약 된 상태를 보거나 Azure Portal의 특정 runbook 작업에 대 한 자세한 상태를 볼 수 있습니다.
 
-선택한 자동화 계정 오른쪽에서 "작업 통계"에서 모든 Runbook 작업의 요약 목록을 볼 수 있습니다. 창 왼쪽에 **있는 작업** 페이지를 열면 현재 작업 상태, 시작 시간 및 완료 시간이 표시됩니다.
+선택한 Automation 계정의 오른쪽에 있는 "작업 통계"에서 모든 runbook 작업의 요약 목록을 볼 수 있습니다. 창의 왼쪽에서 **작업** 페이지를 열면 현재 작업 상태, 시작 시간 및 완료 시간이 표시 됩니다.
 
-![작업 상태 페이지의 스크린샷입니다.](media/jobs-status.png)
+![작업 상태 페이지의 스크린샷](media/jobs-status.png)
 
-### <a name="view-logs-and-scaling-tool-output"></a>로그 및 스케일링 도구 출력 보기
+### <a name="view-logs-and-scaling-tool-output"></a>로그 보기 및 크기 조정 도구 출력
 
-Runbook을 열고 작업 이름을 선택하여 확장 및 확장 작업 로그를 볼 수 있습니다.
+Runbook을 열고 작업 이름을 선택 하 여 스케일 아웃 및 규모 확장 작업의 로그를 볼 수 있습니다.
 
-Azure 자동화 계정을 호스팅하는 리소스 그룹의 Runbook(기본 이름은 WVDAutoScaleRunbook)으로 이동하여 **개요를**선택합니다. 개요 페이지에서 다음 이미지와 같이 최근 작업 에서 작업을 선택하여 배율 조정 도구 출력을 봅니다.
+Azure Automation 계정을 호스팅하는 리소스 그룹의 runbook (기본 이름은 WVDAutoScaleRunbook)으로 이동 하 고 **개요**를 선택 합니다. 다음 그림에 표시 된 것 처럼 개요 페이지에서 최근 작업 아래의 작업을 선택 하 여 크기 조정 도구 출력을 볼 수 있습니다.
 
-![크기 조정 도구의 출력 창 이미지입니다.](media/tool-output.png)
+![크기 조정 도구에 대 한 출력 창의 이미지입니다.](media/tool-output.png)
 
 ## <a name="report-issues"></a>문제 보고
 
-크기 조정 도구에 문제가 발생하면 [RDS GitHub 페이지에서](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps)보고할 수 있습니다.
+크기 조정 도구에 문제가 발생 하는 경우 [RDS GitHub 페이지](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps)에서 보고할 수 있습니다.

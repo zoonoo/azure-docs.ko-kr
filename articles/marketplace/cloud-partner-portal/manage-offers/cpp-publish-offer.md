@@ -1,5 +1,5 @@
 ---
-title: 마켓플레이스 상품 게시 | Azure 마켓플레이스
+title: Marketplace 제품 게시 | Azure Marketplace
 description: Cloud 파트너 포털을 사용하여 Azure 및 AppSource Marketplace에 제품 게시
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/12/2019
 ms.author: dsindona
 ms.openlocfilehash: ab75afd2278433dc36c3d1280b41edfa1e34ddce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80286407"
 ---
 # <a name="publish-azure-marketplace-and-appsource-offers"></a>Azure Marketplace 및 AppSource 제품 게시
@@ -29,7 +29,7 @@ ms.locfileid: "80286407"
 2. **상태** 탭에 **게시 단계**가 순서도 양식으로 표시됩니다.  이 양식은 제품의 현재 상태와 보고된 문제도 지정합니다.
 3. 모든 항목이 올바르게 보이고 미리 보기에서 제대로 작동하는지 확인한 후에는 라이브로 전환할 수 있습니다. **상태** 탭에서 **라이브 전환**을 클릭하면 Microsoft에서 프로덕션 환경 및 적절한 마켓플레이스로 제품을 이동합니다. 일반적으로 라이브 전환에는 몇 시간이 걸립니다.
 
-게시 프로세스의 어느 시점에서든 모든 쿠폰 탭을 클릭하여 모든 **오퍼의** 최신 상태를 확인할 수도 있습니다. 제품에 대한 상태를 직접 클릭하여 제품이 게시 프로세스에서 어느 위치인지 세부 정보를 확인할 수 있습니다.
+게시 프로세스의 어느 시점에서 든 로그인 하 고 **모든 제품** 탭을 클릭 하 여 제품에 대 한 최신 상태를 볼 수도 있습니다. 제품에 대한 상태를 직접 클릭하여 제품이 게시 프로세스에서 어느 위치인지 세부 정보를 확인할 수 있습니다.
 
 
 ## <a name="canceling-the-publishing-request"></a>게시 요청 취소
