@@ -1,5 +1,5 @@
 ---
-title: NSG 흐름 로그 관리 - Azure PowerShell
+title: NSG 흐름 로그 관리-Azure PowerShell
 titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 PowerShell을 사용하여 Azure Network Watcher의 네트워크 보안 그룹 흐름 로그를 관리하는 방법을 설명합니다.
 services: network-watcher
@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 9612afdb63c6988c0027f003caeacd456b5e50e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840947"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>PowerShell을 사용하여 네트워크 보안 그룹 흐름 로그 구성
 
 > [!div class="op_single_selector"]
-> - [Azure 포털](network-watcher-nsg-flow-logging-portal.md)
-> - [Powershell](network-watcher-nsg-flow-logging-powershell.md)
+> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
-> - [나머지 API](network-watcher-nsg-flow-logging-rest.md)
+> - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 네트워크 보안 그룹 흐름 로그는 네트워크 보안 그룹을 통해 수신 및 송신 IP 트래픽에 대한 정보를 볼 수 있는 Network Watcher의 기능입니다. 이러한 흐름 로그는 json 형식으로 작성되고 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜)를 보여줍니다.
 

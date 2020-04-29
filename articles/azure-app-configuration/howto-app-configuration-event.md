@@ -1,6 +1,6 @@
 ---
-title: Azure 앱 구성을 사용하여 웹 끝점으로 이벤트 보내기
-description: Azure 앱 구성 이벤트 구독을 사용하여 키 값 수정 이벤트를 웹 끝점으로 보내는 방법을 알아봅니다.
+title: Azure 앱 구성을 사용 하 여 웹 끝점으로 이벤트 전송
+description: Azure 앱 구성 이벤트 구독을 사용 하 여 웹 끝점에 키-값 수정 이벤트를 보내는 방법에 대해 알아봅니다.
 services: azure-app-configuration
 author: lisaguthrie
 ms.assetid: ''
@@ -10,23 +10,23 @@ ms.topic: how-to
 ms.date: 02/25/2020
 ms.author: lcozzens
 ms.openlocfilehash: da64f22981cc33772783093cfe75daa3eac5cef1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672151"
 ---
 # <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Azure CLI를 사용하여 Azure App Configuration 이벤트를 웹 엔드포인트로 라우팅
 
-이 문서에서는 키 값 수정 이벤트를 웹 끝점으로 보내도록 Azure 앱 구성 이벤트 구독을 설정하는 방법을 알아봅니다. Azure 앱 구성 사용자는 키-값이 수정될 때마다 내보낸 이벤트를 구독할 수 있습니다. 이러한 이벤트는 웹 후크, Azure Functions, Azure 저장소 큐 또는 Azure Event Grid에서 지원하는 기타 이벤트 처리기를 트리거할 수 있습니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
+이 문서에서는 키-값 수정 이벤트를 웹 끝점으로 보내기 위해 Azure 앱 구성 이벤트 구독을 설정 하는 방법에 대해 알아봅니다. Azure 앱 구성 사용자는 키 값이 수정 될 때마다 내보내지는 이벤트를 구독할 수 있습니다. 이러한 이벤트는 웹 후크, Azure Functions, Azure Storage 큐 또는 Azure Event Grid에서 지원 되는 기타 모든 이벤트 처리기를 트리거할 수 있습니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-- Azure 구독 - [무료로 하나를 만듭니다.](https://azure.microsoft.com/free/) Azure Cloud Shell을 사용할 수도 있습니다.
+- Azure 구독- [무료로 하나를 만듭니다](https://azure.microsoft.com/free/). Azure Cloud Shell을 사용할 수도 있습니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 문서에서는 최신 버전의 Azure CLI(2.0.70 이상)를 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하십시오.
+CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에서는 최신 버전의 Azure CLI (2.0.70 이상)를 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 Cloud Shell을 사용하지 않는 경우 먼저 `az login`을 사용하여 로그인해야 합니다.
 
@@ -44,7 +44,7 @@ az group create --name <resource_group_name> --location westus
 
 ## <a name="create-an-app-configuration-store"></a>App Configuration 저장소 만들기
 
-구성 `<appconfig_name>` 저장소에 `<resource_group_name>` 대한 고유한 이름과 이전에 만든 리소스 그룹으로 바꿉니다. 이름은 DNS 이름으로 사용되므로 고유해야 합니다.
+를 `<appconfig_name>` 구성 저장소에 대 한 고유 이름으로 바꾸고, `<resource_group_name>` 을 이전에 만든 리소스 그룹으로 바꿉니다. 이름은 DNS 이름으로 사용되므로 고유해야 합니다.
 
 ```azurecli-interactive
 az appconfig create \
@@ -75,7 +75,7 @@ az group deployment create \
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
-## <a name="subscribe-to-your-app-configuration-store"></a>앱 구성 스토어 구독
+## <a name="subscribe-to-your-app-configuration-store"></a>앱 구성 저장소 구독
 
 항목을 구독하여 Event Grid에 추적하려는 이벤트와 해당 이벤트를 보낼 위치를 알립니다. 다음 예제에서는 앞에서 만든 App Configuration을 구독하고, 웹앱의 URL을 이벤트 알림에 대한 엔드포인트로 전달합니다. `<event_subscription_name>`을 이벤트 구독의 이름으로 바꿉니다. `<resource_group_name>` 및 `<appconfig_name>`에는 앞에서 만든 값을 사용합니다.
 

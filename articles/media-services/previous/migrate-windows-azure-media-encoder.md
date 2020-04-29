@@ -1,6 +1,6 @@
 ---
-title: Windows Azure 미디어 인코더에서 미디어 인코더 표준으로 마이그레이션 | 마이크로 소프트 문서
-description: 이 항목에서는 Azure 미디어 인코더에서 미디어 인코더 표준 미디어 프로세서로 마이그레이션하는 방법에 대해 설명합니다.
+title: Windows Azure Media Encoder에서 Media Encoder Standard로 마이그레이션 | Microsoft Docs
+description: 이 항목에서는 Azure Media Encoder에서 Media Encoder Standard Media 프로세서로 마이그레이션하는 방법에 대해 설명 합니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,21 +14,21 @@ ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
 ms.openlocfilehash: e75e3f3eecf6c34050aeaa7fe387fffb0de58a74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76513204"
 ---
-# <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>Windows Azure 미디어 인코더에서 미디어 인코더 표준으로 마이그레이션
+# <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>Windows Azure Media Encoder에서 Media Encoder Standard로 마이그레이션
 
-이 문서에서는 레거시 WaME(사용 중지 중인) 미디어 프로세서에서 미디어 인코더 표준 미디어 프로세서로 마이그레이션하는 단계에 대해 설명합니다. 사용 중지 날짜에 대 한이 [레거시 구성 요소](legacy-components.md) 항목을 참조 합니다.
+이 문서에서는 WAME (기존 Windows Azure Media Encoder) 미디어 프로세서 (사용 중지 됨)에서 Media Encoder Standard 미디어 프로세서로 마이그레이션하는 단계를 설명 합니다. 사용 중지 날짜는이 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요.
 
-WAME로 파일을 인코딩할 때 고객은 일반적으로 와 `H264 Adaptive Bitrate MP4 Set 1080p`같은 명명된 사전 설정 문자열을 사용했습니다. 마이그레이션하려면 WAME 대신 **미디어 인코더 표준** 미디어 프로세서와 와 같은 `H264 Multiple Bitrate 1080p`동일한 [시스템 사전 설정](media-services-mes-presets-overview.md) 중 하나를 사용하려면 코드를 업데이트해야 합니다. 
+WAME을 사용 하 여 파일을 인코딩할 때 고객은 일반적으로와 `H264 Adaptive Bitrate MP4 Set 1080p`같은 명명 된 사전 설정 문자열을 사용 했습니다. 마이그레이션하기 위해 코드를 업데이트 하 여 WAME 대신 **Media Encoder Standard** 미디어 프로세서를 사용 하 고와 같은 `H264 Multiple Bitrate 1080p`해당 [시스템 사전 설정](media-services-mes-presets-overview.md) 중 하나를 사용 하도록 업데이트 해야 합니다. 
 
-## <a name="migrating-to-media-encoder-standard"></a>미디어 인코더 표준으로 마이그레이션
+## <a name="migrating-to-media-encoder-standard"></a>Media Encoder Standard로 마이그레이션
 
-레거시 구성 요소를 사용하는 일반적인 C# 코드 샘플은 다음과 같습니다. 
+다음은 레거시 구성 요소를 사용 하는 일반적인 c # 코드 샘플입니다. 
 
 ```csharp
 // Declare a new job. 
@@ -45,7 +45,7 @@ ITask task = job.Tasks.AddNew("My encoding task",
     TaskOptions.None); 
 ```
 
-다음은 미디어 인코더 표준을 사용하는 업데이트된 버전입니다.
+Media Encoder Standard를 사용 하는 업데이트 된 버전은 다음과 같습니다.
 
 ```csharp
 // Declare a new job. 
@@ -64,19 +64,19 @@ ITask task = job.Tasks.AddNew("My encoding task",
 
 ### <a name="advanced-scenarios"></a>고급 시나리오 
 
-스키마를 사용하여 WAME에 대한 고유한 인코딩 사전 설정을 만든 경우 [미디어 인코더 표준에 해당하는 스키마가](media-services-mes-schema.md)있습니다.
+해당 스키마를 사용 하 여 WAME에 대해 고유한 인코딩 사전 설정을 만든 경우 [Media Encoder Standard에 대해 동일한 스키마](media-services-mes-schema.md)가 있습니다.
 
 ## <a name="known-differences"></a>알려진 차이점 
 
-미디어 인코더 표준은 더 강력하고 신뢰할 수 있으며 성능이 우수하며 레거시 WAME 인코더보다 더 나은 품질의 출력을 생성합니다. 또한: 
+Media Encoder Standard 더 강력 하 고 안정적 이며, 더 나은 성능을 가지 며, 레거시 WAME 인코더 보다 품질이 우수한 출력을 생성 합니다. 또한: 
 
-* 미디어 인코더 표준은 WAME와 다른 명명 규칙을 가진 출력 파일을 생성합니다.
-* 미디어 인코더 표준은 입력 파일 [메타데이터](media-services-input-metadata-schema.md) 및 출력 [파일 메타데이터를](media-services-output-metadata-schema.md)포함하는 파일과 같은 아티팩트를 생성합니다.
-* 가격 책정 [페이지(특히](https://azure.microsoft.com/pricing/details/media-services/#encoding) FAQ 섹션)에 설명된 대로 미디어 인코더 표준을 사용하여 비디오를 인코딩하면 출력으로 생성된 파일의 기간에 따라 요금이 청구됩니다. WAME를 사용하면 입력 비디오 파일(들)과 출력 비디오 파일의 크기에 따라 요금이 청구됩니다.
+* Media Encoder Standard은 WAME와 다른 명명 규칙을 사용 하 여 출력 파일을 생성 합니다.
+* Media Encoder Standard는 [입력 파일 메타 데이터](media-services-input-metadata-schema.md) 및 [출력 파일 메타 데이터](media-services-output-metadata-schema.md)를 포함 하는 파일과 같은 아티팩트를 생성 합니다.
+* [가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/#encoding) (특히 FAQ 섹션)에 설명 된 대로 Media Encoder Standard를 사용 하 여 비디오를 인코딩하면 출력으로 생성 된 파일의 기간을 기준으로 요금이 청구 됩니다. WAME을 사용 하면 입력 비디오 파일의 크기와 출력 비디오 파일을 기준으로 요금이 청구 됩니다.
 
-## <a name="need-help"></a>도움 필요 시
+## <a name="need-help"></a>도움이 필요하십니까?
 
-[새 지원 요청으로](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 이동하여 지원 티켓을 열 수 있습니다.
+[새 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 으로 이동 하 여 지원 티켓을 열 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

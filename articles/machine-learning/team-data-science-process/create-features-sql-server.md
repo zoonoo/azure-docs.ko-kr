@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 58fa98005d7d89e84404d99cf4f55e456fd91f21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721747"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>SQL 및 Python을 사용하여 SQL Server의 데이터에 대한 기능 만들기
@@ -28,7 +28,7 @@ ms.locfileid: "76721747"
 > 
 > 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
 * Azure Storage 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../../storage/common/storage-account-create.md)
@@ -46,8 +46,8 @@ ms.locfileid: "76721747"
 > 
 > 
 
-### <a name="count-based-feature-generation"></a><a name="sql-countfeature"></a>기반 피처 생성 카운트
-이 문서에서는 개수 기능을 생성하는 두 가지 방법을 보여 줍니다. 첫 번째 방법에서는 조건부 합계를 사용하고, 두 번째 방법에서는 'where' 절을 사용합니다. 그런 다음 이러한 새 피쳐를 원래 테이블과 조인하여 기본 키 열을 사용하여 원래 데이터와 함께 피처 수를 가질 수 있습니다.
+### <a name="count-based-feature-generation"></a><a name="sql-countfeature"></a>개수 기반 기능 생성
+이 문서에서는 개수 기능을 생성하는 두 가지 방법을 보여 줍니다. 첫 번째 방법에서는 조건부 합계를 사용하고, 두 번째 방법에서는 'where' 절을 사용합니다. 그런 다음 이러한 새 기능을 원본 테이블 (기본 키 열 사용)과 조인 하 여 원본 데이터와 함께 개수 기능을 사용할 수 있습니다.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
 
@@ -68,15 +68,15 @@ ms.locfileid: "76721747"
 * 부호는 지구에서 현재 위치의 방위(북쪽, 남쪽, 동쪽 또는 서쪽)를 알려 줍니다.
 * 0이 아닌 100자리 수는 위도를 나타내며, 경도는 사용되지 않습니다.
 * 10자리수는 약 1,000km까지의 위치를 제공합니다. 현재 위치의 대륙 또는 대양에 대한 유용한 정보를 제공합니다.
-* 단위 자리수(하나의 도 단위)는 최대 111km(60해리, 약 69마일)까지의 위치를 제공합니다. 그것은 대략, 우리가 어떤 큰 국가 또는 국가 / 지역을 나타냅니다.
+* 단위 자리수(하나의 도 단위)는 최대 111km(60해리, 약 69마일)까지의 위치를 제공합니다. 여기에는 대략적으로 많은 주 또는 국가/지역이 표시 됩니다.
 * 첫 번째 소수 자릿수는 11.1km까지 적용되며, 하나의 대도시를 인접한 대도시와 구분할 수 있습니다.
 * 두 번째 소수 자릿수는 1.1km까지 적용되며, 하나의 마을을 다음 마을과 구분할 수 있습니다.
 * 세 번째 소수 자릿수는 110m까지 적용되며, 대규모 농경지 또는 기업 부지를 식별할 수 있습니다.
 * 네 번째 소수 자릿수는 11m까지 적용되며, 하나의 필지를 식별할 수 있습니다. 이는 간섭 없이 보정되지 않은 GPS 장치의 일반적인 정확도에 해당됩니다.
 * 다섯 번째 소수 자릿수는 1.1m까지 적용되며, 수목을 서로 구분할 수 있습니다. 상용 GPS 장치에서는 미분 보정을 통해서만 이 수준의 정확도를 실현할 수 있습니다.
-* 여섯 번째 소수점 자리는 0.11m까지 가치가 있습니다: 이 레벨을 사용하여 구조물을 자세하게 배치하고, 풍경을 설계하고, 도로를 건설할 수 있습니다. 빙하 및 강의 이동을 추적하는 데 매우 적합합니다. 이 목표는 차별화 된 GPS와 같은 GPS로 근면한 조치를 취함으로써 달성 될 수 있습니다.
+* 여섯 번째 소수 자릿수는 최대 0.11 m까지 가치가 있습니다. 지형 디자인,도로 만들기에 대 한 자세한 구조를 위해이 수준을 사용할 수 있습니다. 빙하 및 강의 이동을 추적하는 데 매우 적합합니다. 이러한 목표는 differentially 수정 된 GPS와 같이 GPS으로 세밀히 조치를 수행 하 여 달성할 수 있습니다.
 
-위치 정보는 지역, 위치 및 도시 정보를 구분하여 기능화할 수 있습니다. 한 번은 Bing Maps API와 같은 REST `https://msdn.microsoft.com/library/ff701710.aspx` 끝점을 호출할 수도 있습니다(지역/지역 정보 보기 참조).
+위치 정보는 지역, 위치 및 도시 정보를 구분하여 기능화할 수 있습니다. 한 번은 Bing Maps API와 같은 REST 끝점을 호출할 수도 있습니다 ( `https://msdn.microsoft.com/library/ff701710.aspx` 지역/구역 정보를 가져오려면 참조).
 
     select
         <location_columnname>
@@ -111,7 +111,7 @@ ms.locfileid: "76721747"
     import pyodbc
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-파이썬의 [팬더 라이브러리는](https://pandas.pydata.org/) 파이썬 프로그래밍을위한 데이터 조작을위한 풍부한 데이터 구조 및 데이터 분석 도구를 제공합니다. 다음 코드는 SQL Server 데이터베이스에서 Pandas 데이터 프레임으로 반환되는 결과를 읽습니다.
+Python의 [Pandas 라이브러리](https://pandas.pydata.org/) 는 python 프로그래밍에 대 한 데이터 조작을 위한 다양 한 데이터 구조 및 데이터 분석 도구 집합을 제공 합니다. 다음 코드는 SQL Server 데이터베이스에서 Pandas 데이터 프레임으로 반환되는 결과를 읽습니다.
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)

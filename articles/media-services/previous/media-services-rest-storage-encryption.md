@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 2a5ef1837375cc395a871f9a9860fa8bde572a94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773596"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>스토리지 암호화로 콘텐츠 암호화 
 
 > [!NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 평가판을](https://azure.microsoft.com/pricing/free-trial/)참조하십시오.   > 미디어 서비스 v2에 새로운 기능이나 기능이 추가되지 않습니다. <br/>최신 버전, [미디어 서비스 v3을](https://docs.microsoft.com/azure/media-services/latest/)확인하십시오. 또한 [v2에서 v3로의 마이그레이션 지침을](../latest/migrate-from-v2-to-v3.md) 참조하십시오.
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요.   > 새 기능이 나 기능이 Media Services v2에 추가 되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 >   
 
 AES-256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로컬에서 암호화한 다음 암호화된 상태로 저장할 Azure Storage에 이를 업로드하는 것이 좋습니다.
@@ -46,7 +46,7 @@ Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체�
 
 ### <a name="storage-side-encryption"></a>스토리지 쪽 암호화
 
-|암호화 옵션|설명|Media Services v2|Media Services v3|
+|암호화 옵션|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services 스토리지 암호화|AES-256 암호화, Media Services에서 키 관리|지원<sup>(1)</sup>|지원되지 않음<sup>(2)</sup>|
 |[미사용 데이터에 대한 Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure Storage가 제공하는 서버 쪽 암호화, Azure 또는 고객이 키 관리|지원됨|지원됨|
@@ -113,9 +113,9 @@ AES 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로�
 
     스토리지 암호화를 위해 다음 속성을 요청 본문에 포함해야 합니다.
 
-    요청 본문 속성    | 설명
+    요청 본문 속성    | Description
     ---|---
-    Id | ContentKey ID는 "nb:kid:UUID:\<NEW GUID>"이라는 형식을 사용하여 생성됩니다.
+    Id | ContentKey ID는 "nb: kid: UUID:\<새 GUID>" 형식을 사용 하 여 생성 됩니다.
     ContentKeyType | 콘텐츠 키 형식은 키를 정의하는 정수입니다. 스토리지 암호화 형식에서 값은 1입니다.
     EncryptedContentKey | 256비트(32바이트) 값인 새 콘텐츠 키 값을 만듭니다. GetProtectionKeyId 및 GetProtectionKey 메서드에 대한 HTTP GET 요청을 실행하여 Microsoft Azure Media Services에서 검색하는 스토리지 암호화 X.509 인증서를 사용하여 키를 암호화합니다. .NET 코드에 대한 예제로, **여기** 에 정의된 [EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)메서드를 참조하세요.
     ProtectionKeyId | 콘텐츠 키를 암호화하는 데 사용한 스토리지 암호화 X.509 인증서에 대한 보호 키 ID입니다.
@@ -193,7 +193,7 @@ X.509 인증서를 검색한 다음 이 인증서의 공개 키를 사용하여 
 
 콘텐츠 키를 만들 때 설정해야 하는 값 중 하나가 이 유형입니다. 스토리지 암호화를 사용할 때 값은 '1'로 설정해야 합니다. 
 
-다음 예제에서는 저장소 암호화에 대 한 **ContentKeyType** 집합 ("1") 및 보호 KeyType "0" 설정 으로 **ContentKey를** 만드는 방법을 보여 주며 보호 키 ID는 X.509 인증서 지문임을 나타냅니다. **ProtectionKeyType**  
+다음 예제에서는 저장소 암호화에 대 한 **Contentkey** 집합 ("1")을 사용 하 여 **Contentkey** 를 만들고 **ProtectionKeyType** 가 "0"으로 설정 되어 보호 키 ID가 x.509 인증서 지문이 되도록 지정 하는 방법을 보여 줍니다.  
 
 요청
 

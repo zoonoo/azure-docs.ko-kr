@@ -1,15 +1,15 @@
 ---
-title: Azure 서비스 패브릭 CLI-sfctl 스토어
-description: Azure 서비스 패브릭 명령줄 인터페이스인 sfctl에 대해 알아봅니다. 클러스터 이미지 저장소에서 파일 수준 작업을 수행하기 위한 명령 목록을 포함합니다.
+title: Azure Service Fabric CLI-sfctl 저장소
+description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 클러스터 이미지 저장소에서 파일 수준 작업을 수행 하기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 75c62b54ff3aa7f3af344aa3e1ca81d431ae0ab2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905618"
 ---
 # <a name="sfctl-store"></a>sfctl store
@@ -17,9 +17,9 @@ ms.locfileid: "76905618"
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
-| delete | 기존 이미지 저장소 콘텐츠를 삭제합니다. |
+| 삭제 | 기존 이미지 저장소 콘텐츠를 삭제합니다. |
 | root-info | 이미지 저장소의 루트에서 콘텐츠 정보를 가져옵니다. |
 | stat | 이미지 저장소 콘텐츠 정보를 가져옵니다. |
 
@@ -30,14 +30,14 @@ ms.locfileid: "76905618"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --content-path [필수] | 루트에서 이미지 저장소의 파일 또는 폴더에 대한 상대 경로입니다. |
-| --timeout -t | 작업을 수행하는 서버 시간 시간이 몇 초 입니다. 이 시간 아웃은 클라이언트가 요청된 작업이 완료될 때까지 기다릴 수 있는 기간을 지정합니다. 이 매개 변수의 기본값은 60초입니다.  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -52,13 +52,13 @@ ms.locfileid: "76905618"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --timeout -t | 작업을 수행하는 서버 시간 시간이 몇 초 입니다. 이 시간 아웃은 클라이언트가 요청된 작업이 완료될 때까지 기다릴 수 있는 기간을 지정합니다. 이 매개 변수의 기본값은 60초입니다.  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -73,14 +73,14 @@ ms.locfileid: "76905618"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --content-path [필수] | 루트에서 이미지 저장소의 파일 또는 폴더에 대한 상대 경로입니다. |
-| --timeout -t | 작업을 수행하는 서버 시간 시간이 몇 초 입니다. 이 시간 아웃은 클라이언트가 요청된 작업이 완료될 때까지 기다릴 수 있는 기간을 지정합니다. 이 매개 변수의 기본값은 60초입니다.  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |

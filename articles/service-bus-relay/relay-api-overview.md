@@ -1,6 +1,6 @@
 ---
 title: Azure Relay API 개요 | Microsoft Docs
-description: 이 문서에서는 사용 가능한 Azure 릴레이 API(.NET 표준, .NET 프레임워크, Node.js 등)에 대한 개요를 제공합니다.
+description: 이 문서에서는 사용 가능한 Azure Relay Api (.NET Standard, .NET Framework, node.js 등)의 개요를 제공 합니다.
 services: event-hubs
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 41d9e2026c19c959dc6fe2546b0ef699571ec7cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76513969"
 ---
 # <a name="available-relay-apis"></a>사용 가능한 Relay API
@@ -39,7 +39,7 @@ ms.locfileid: "76513969"
 
 #### <a name="net"></a>.NET
 
-.NET 에코시스템에는 여러 개의 런타임이 있으므로 Relay용 .NET 라이브러리도 여러 개 있습니다. .NET Framework 라이브러리는 .NET Framework 환경에서만 실행될 수 있지만 .NET Standard 라이브러리는 .NET Core 또는 .NET Framework를 사용하여 실행할 수 있습니다. .NET 프레임워크에 대한 자세한 내용은 [프레임워크 버전을](/dotnet/articles/standard/frameworks)참조하십시오.
+.NET 에코시스템에는 여러 개의 런타임이 있으므로 Relay용 .NET 라이브러리도 여러 개 있습니다. .NET Framework 라이브러리는 .NET Framework 환경에서만 실행될 수 있지만 .NET Standard 라이브러리는 .NET Core 또는 .NET Framework를 사용하여 실행할 수 있습니다. .NET framework에 대 한 자세한 내용은 [프레임 워크 버전](/dotnet/articles/standard/frameworks)을 참조 하세요.
 
 .NET Framework 라이브러리는 WCF 프로그래밍 모델만 지원하고 WCF `net.tcp` 전송을 기반으로 하는 소유 이진 프로토콜을 사용합니다. 이 프로토콜 및 라이브러리는 기존 애플리케이션과의 하위 호환성을 위해 유지 관리됩니다.
 

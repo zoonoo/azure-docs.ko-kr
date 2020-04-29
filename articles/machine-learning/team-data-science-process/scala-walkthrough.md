@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: b36a3faab49ee8d51c25aa18879e6f5d1db8c2fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76716769"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure에서 Scala 및 Spark를 사용하는 데이터 과학
@@ -39,7 +39,7 @@ Java 가상 머신 기반 언어인 [Scala](https://www.scala-lang.org/)는 개�
 > 
 > 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 * Azure 구독이 있어야 합니다. 아직 없으면 [Azure 무료 평가판을 다운로드하세요](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * 다음 절차를 완료하려면 Azure HDInsight 3.4 Spark 1.6 클러스터가 필요합니다. 클러스터를 만들려면 [시작: Azure HDInsight에서 Apache Spark 만들기](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)를 참조하세요. **클러스터 형식 선택** 메뉴에서 클러스터 형식 및 버전을 설정합니다.
 
@@ -56,7 +56,7 @@ Azure 포털에서 Jupyter Notebook을 시작할 수 있습니다. 대시보드�
 
 ![클러스터 대시보드 및 Jupyter Notebook](./media/scala-walkthrough/spark-jupyter-on-portal.png)
 
-https://&lt;clustername&gt;.azurehdinsight.net/jupyter에서 Jupyter Notebook에 액세스할 수도 있습니다. *클러스터 이름을 클러스터* 이름으로 바꿉니다. Jupyter Notebook에 액세스하려면 관리자 계정에 대한 암호가 필요합니다.
+https://&lt;clustername&gt;.azurehdinsight.net/jupyter에서 Jupyter Notebook에 액세스할 수도 있습니다. *Clustername* 을 클러스터의 이름으로 바꿉니다. Jupyter Notebook에 액세스하려면 관리자 계정에 대한 암호가 필요합니다.
 
 ![클러스터 이름을 사용하여 Jupyter Notebook으로 이동](./media/scala-walkthrough/spark-jupyter-notebook.png)
 
@@ -224,7 +224,7 @@ Blob Storage에 모델 또는 파일을 저장하려면 경로를 적절히 지�
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**출력:**
+**출력**
 
 셀 실행 시간: 8초
 
@@ -245,7 +245,7 @@ Blob Storage에 모델 또는 파일을 저장하려면 경로를 적절히 지�
     # SHOW ONLY THE TOP THREE ROWS
     sqlResultsDF.show(3)
 
-**출력:**
+**출력**
 
 | fare_amount | passenger_count | tip_amount | tipped |
 | --- | --- | --- | --- |
@@ -254,12 +254,12 @@ Blob Storage에 모델 또는 파일을 저장하려면 경로를 적절히 지�
 |        10.5 |2.0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>데이터 탐색 및 시각화
-데이터를 Spark로 가져오면 데이터 과학 프로세스의 다음 단계에서 탐색 및 시각화를 통해 데이터를 더 잘 이해할 수 있습니다. 이 섹션에서는 SQL 쿼리를 사용하여 Taxi 데이터를 검사합니다. 그런 다음 결과를 데이터 프레임으로 가져와 자동 시각화 Jupyter 기능을 사용하여 시각적 검사를 위한 대상 변수 및 예상 피처를 플로팅합니다.
+데이터를 Spark로 가져오면 데이터 과학 프로세스의 다음 단계에서 탐색 및 시각화를 통해 데이터를 더 잘 이해할 수 있습니다. 이 섹션에서는 SQL 쿼리를 사용하여 Taxi 데이터를 검사합니다. 그런 다음 자동 시각화 Jupyter 기능을 사용 하 여 결과를 데이터 프레임으로 가져와 시각적 검사에 대 한 대상 변수 및 예상 기능을 그립니다.
 
 ### <a name="use-local-and-sql-magic-to-plot-data"></a>로컬 및 SQL 매직을 사용하여 데이터 그리기
 기본적으로 Jupyter Notebook에서 실행하는 코드 조각의 출력은 작업자 노드에서 유지되는 세션 컨텍스트 내에서 사용할 수 있습니다. 모든 계산에 대한 작업자 노드에 여정을 저장하는 경우와 계산에 필요한 모든 데이터를 Jupyter 서버 노드(헤드 노드)에서 로컬로 사용할 수 있는 경우, `%%local` 매직을 사용하여 Jupyter 서버에서 코드 조각을 실행할 수 있습니다.
 
-* **SQL** 매직`%%sql`(). HDInsight Spark 커널은 SQLContext에 대해 간편한 인라인 HiveQL 쿼리를 지원합니다. (`-o VARIABLE_NAME`) 인수는 Jupyter 서버에서 Pandas 데이터 프레임으로 SQL 쿼리의 출력을 유지합니다. 이 설정은 로컬 모드에서 출력을 사용할 수 있다는 것을 의미합니다.
+* **SQL 매직** (`%%sql`). HDInsight Spark 커널은 SQLContext에 대해 간편한 인라인 HiveQL 쿼리를 지원합니다. (`-o VARIABLE_NAME`) 인수는 Jupyter 서버에서 Pandas 데이터 프레임으로 SQL 쿼리의 출력을 유지합니다. 이 설정은 로컬 모드에서 출력을 사용할 수 있음을 의미 합니다.
 * `%%local` **매직**. `%%local` 매직은 HDInsight 클러스터의 헤드 노드인 Jupyter 서버에서 코드를 로컬로 실행하는 데 사용됩니다. 일반적으로 `-o` 매개 변수를 사용하여 `%%local` 매직을 `%%sql` 매직과 함께 사용합니다. `-o` 매개 변수는 SQL 쿼리의 출력을 로컬로 유지하고 그 다음 `%%local` 매직은 로컬로 유지되는 SQL 쿼리의 출력에 대해 로컬로 실행할 다음 코드 조각 집합을 트리거합니다.
 
 ### <a name="query-the-data-by-using-sql"></a>SQL을 사용하여 데이터 쿼리
@@ -327,7 +327,7 @@ Blob Storage에 모델 또는 파일을 저장하려면 경로를 적절히 지�
     plt.show()
 
 
-**출력:**
+**출력**
 
 ![팁 금액 히스토그램](./media/scala-walkthrough/plot-tip-amount-histogram.png)
 
@@ -409,7 +409,7 @@ MLlib의 모델링 및 예측 함수는 사용하기 전에 범주 입력 데이
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**출력:**
+**출력**
 
 셀 실행 시간: 4초
 
@@ -448,7 +448,7 @@ MLlib의 모델링 및 예측 함수는 사용하기 전에 범주 입력 데이
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**출력:**
+**출력**
 
 셀 실행 시간: 2초
 
@@ -491,7 +491,7 @@ MLlib의 모델링 및 예측 함수는 사용하기 전에 범주 입력 데이
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**출력:**
+**출력**
 
 셀 실행 시간: 4초
 
@@ -594,7 +594,7 @@ Spark ML을 사용하여 트리 기반 모델링 기능에 사용할 대상 및 
     println("ROC on test data = " + ROC)
 
 
-**출력:**
+**출력**
 
 ROC on test data = 0.9827381497557599
 
@@ -632,7 +632,7 @@ ROC on test data = 0.9827381497557599
     plt.show()
 
 
-**출력:**
+**출력**
 
 ![팁 여부 ROC 곡선](./media/scala-walkthrough/plot-roc-curve-tip-or-not.png)
 
@@ -665,7 +665,7 @@ ROC on test data = 0.9827381497557599
     println("ROC on test data = " + ROC)
 
 
-**출력:**
+**출력**
 
 ROC on test data = 0.9847103571552683
 
@@ -721,7 +721,7 @@ ROC on test data = 0.9847103571552683
     println(s"Area under ROC curve: ${metrics.areaUnderROC}")
 
 
-**출력:**
+**출력**
 
 Area under ROC curve: 0.9846895479241554
 
@@ -773,7 +773,7 @@ Area under ROC curve: 0.9846895479241554
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**출력:**
+**출력**
 
 셀 실행 시간: 13초
 
@@ -804,7 +804,7 @@ Area under ROC curve: 0.9846895479241554
     println("R-sqr on test data = " + r2)
 
 
-**출력:**
+**출력**
 
 R-sqr on test data = 0.5960320470835743
 
@@ -846,14 +846,14 @@ Python matplotlib를 사용하여 도표를 만듭니다.
     plt.axis([-1, 15, -1, 8])
     plt.show(ax)
 
-**출력:**
+**출력**
 
 ![팁 금액: 실제 및 예측](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
 ### <a name="create-a-gbt-regression-model"></a>GBT 회귀 모델 만들기
 Spark ML `GBTRegressor()` 함수를 사용하여 GBT 회귀 모델을 만들고 테스트 데이터에 대해 모델을 평가합니다.
 
-[그라데이션 부스트](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) 트리(GBTS)는 의사 결정 트리의 앙상블입니다. GBTS는 손실 함수를 최소화하기 위해 결정 트리를 반복적으로 훈련시훈련합니다. 회귀 및 분류에 GBTS를 사용할 수 있습니다. GBT는 범주 기능을 처리하고 기능 규모 결정을 요구하지 않으며 비선형 기능 상호 작용을 캡처할 수 있습니다. 또한 다중 클래스 분류 설정에도 사용할 수 있습니다.
+Gbts ( [그라데이션 수준 향상 트리](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) )는 의사 결정 트리의 앙상블입니다. GBTS는 의사 결정 트리를 반복적으로 학습 하 여 손실 함수를 최소화 합니다. 회귀 및 분류에는 GBTS를 사용할 수 있습니다. GBT는 범주 기능을 처리하고 기능 규모 결정을 요구하지 않으며 비선형 기능 상호 작용을 캡처할 수 있습니다. 또한 다중 클래스 분류 설정에도 사용할 수 있습니다.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -879,7 +879,7 @@ Spark ML `GBTRegressor()` 함수를 사용하여 GBT 회귀 모델을 만들고 
     println("Test R-sqr is: " + Test_R2);
 
 
-**출력:**
+**출력**
 
 Test R-sqr is: 0.7655383534596654
 
@@ -936,7 +936,7 @@ Test R-sqr is: 0.7655383534596654
     println("Test R-sqr is: " + Test_R2);
 
 
-**출력:**
+**출력**
 
 Test R-sqr is: 0.6226484708501209
 
@@ -980,7 +980,7 @@ Test R-sqr is: 0.6226484708501209
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**출력:**
+**출력**
 
 셀 실행 시간: 33초
 
@@ -1095,7 +1095,7 @@ Test R-sqr is: 0.6226484708501209
     val test_rsqr = new RegressionMetrics(labelAndPreds).r2
 
 
-**출력:**
+**출력**
 
 셀 실행 시간: 61초
 

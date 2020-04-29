@@ -1,5 +1,5 @@
 ---
-title: 진단 및 메시지 분석기를 사용하여 데이터 작업 문제 해결
+title: 진단 및 메시지 분석기를 사용 하 여 데이터 작업 문제 해결
 titleSuffix: Azure Storage
 description: Azure Storage 분석, AzCopy 및 Microsoft Message Analyzer를 사용한 엔드투엔드종 문제 해결을 보여 주는 자습서
 author: normesta
@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 69983502fb7d099f474fb1c4c084f5d381a173e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76314762"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 엔드투엔드 문제 해결
@@ -28,22 +28,22 @@ ms.locfileid: "76314762"
 
 ## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Azure Storage 애플리케이션 문제 해결 도구
 
-Microsoft Azure Storage를 사용하는 클라이언트 애플리케이션 문제를 해결하기 위해 여러 도구 조합을 사용하여 문제가 발생한 시기 및 문제의 가능한 원인을 확인할 수 있습니다. 이러한 도구로는 다음이 있습니다.
+Microsoft Azure Storage를 사용하는 클라이언트 애플리케이션 문제를 해결하기 위해 여러 도구 조합을 사용하여 문제가 발생한 시기 및 문제의 가능한 원인을 확인할 수 있습니다. 사용 가능한 도구는 다음과 같습니다.
 
-* **Azure 저장소 분석**. [Azure Storage 분석](/rest/api/storageservices/Storage-Analytics) 은 Azure Storage에 대한 로깅 및 메트릭을 제공합니다.
+* **Azure 스토리지 분석**. [Azure Storage 분석](/rest/api/storageservices/Storage-Analytics) 은 Azure Storage에 대한 로깅 및 메트릭을 제공합니다.
 
   * **Storage 메트릭** 은 Storage 계정에 대한 트랜잭션 메트릭 및 용량 메트릭을 추적합니다. 메트릭을 사용하여 다양한 여러 측정값에 따른 애플리케이션의 성능을 확인할 수 있습니다. 스토리지 분석에서 추적하는 메트릭 유형에 대한 자세한 내용은 [스토리지 분석 메트릭 테이블 스키마](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) 를 참조하세요.
   * **스토리지 로깅**은 Azure Storage 서비스에 대한 각 요청을 서버 쪽 로그에 기록합니다. 로그는 수행된 작업, 작업의 상태 및 대기 시간 정보를 비롯하여 각 요청의 자세한 데이터를 추적합니다. 스토리지 분석에서 로그에 기록한 요청 및 응답 데이터에 대한 자세한 내용은 [스토리지 분석 로그 형식](/rest/api/storageservices/Storage-Analytics-Log-Format) 을 참조하세요.
 
-* **Azure 포털**. [Azure 포털에서](https://portal.azure.com)저장소 계정에 대한 메트릭 및 로깅을 구성할 수 있습니다. 또한 시간이 지남에 따라 애플리케이션이 어떻게 수행되는지 보여 주는 차트 및 그래프를 볼 수 있으며, 애플리케이션이 지정된 메트릭에 대해 예상과 다르게 수행되는 경우 이를 알려 주도록 경고를 구성할 수도 있습니다.
+* **Azure Portal**. [Azure Portal](https://portal.azure.com)에서 저장소 계정에 대 한 메트릭 및 로깅을 구성할 수 있습니다. 또한 시간이 지남에 따라 애플리케이션이 어떻게 수행되는지 보여 주는 차트 및 그래프를 볼 수 있으며, 애플리케이션이 지정된 메트릭에 대해 예상과 다르게 수행되는 경우 이를 알려 주도록 경고를 구성할 수도 있습니다.
 
-    Azure 포털에서 모니터링 구성에 대한 자세한 내용은 [Azure 포털의 저장소 계정 모니터링을](storage-monitor-storage-account.md) 참조하십시오.
-* **아즈카피**. Azure Storage의 서버 로그는 Blob으로 저장되므로 AzCopy를 사용하여 해당 로그 Blob을, Microsoft Message Analyzer를 사용한 분석의 로컬 디렉터리로 복사할 수 있습니다. AzCopy에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md) 을 참조하세요.
-* **마이크로 소프트 메시지 분석기**. Message Analyzer는 로그 파일을 사용하여 로그 데이터를 시각적 형식으로 표시하는 도구입니다. 이 도구를 이용하면 오류 및 성능 문제를 분석하는 데 사용할 수 있는 유용한 집합으로 로그 데이터를 필터링, 검색 및 그룹화할 수 있습니다. Message Analyzer에 대한 자세한 내용은 [Microsoft Message Analyzer 운영 가이드](https://technet.microsoft.com/library/jj649776.aspx)를 참조하세요.
+    Azure Portal에서 모니터링을 구성 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md) 을 참조 하세요.
+* **AzCopy**. Azure Storage의 서버 로그는 Blob으로 저장되므로 AzCopy를 사용하여 해당 로그 Blob을, Microsoft Message Analyzer를 사용한 분석의 로컬 디렉터리로 복사할 수 있습니다. AzCopy에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md) 을 참조하세요.
+* **Microsoft Message Analyzer**. Message Analyzer는 로그 파일을 사용하여 로그 데이터를 시각적 형식으로 표시하는 도구입니다. 이 도구를 이용하면 오류 및 성능 문제를 분석하는 데 사용할 수 있는 유용한 집합으로 로그 데이터를 필터링, 검색 및 그룹화할 수 있습니다. Message Analyzer에 대한 자세한 내용은 [Microsoft Message Analyzer 운영 가이드](https://technet.microsoft.com/library/jj649776.aspx)를 참조하세요.
 
 ## <a name="about-the-sample-scenario"></a>샘플 시나리오 정보
 
-이 자습서에서는 Azure Storage 메트릭이 Azure Storage를 호출하는 애플리케이션에 대한 낮은 성공률을 나타내는 시나리오를 살펴보겠습니다. 낮은 성공률 [메트릭(Azure 포털](https://portal.azure.com) 및 메트릭 테이블에서 **PercentSuccess으로** 표시됨)은 성공하는 작업을 추적하지만 299보다 큰 HTTP 상태 코드를 반환합니다. 서버 쪽 스토리지 로그 파일에서 이러한 작업은 트랜잭션 상태 **ClientOtherErrors**로 기록됩니다. 낮은 비율의 성공 메트릭에 대한 자세한 내용은 [메트릭에 PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success)을 참조하세요.
+이 자습서에서는 Azure Storage 메트릭이 Azure Storage를 호출하는 애플리케이션에 대한 낮은 성공률을 나타내는 시나리오를 살펴보겠습니다. 낮은 성공률 메트릭 ( [Azure Portal](https://portal.azure.com) 및 메트릭 테이블에서 **percentsuccess가** 로 표시)은 성공 했지만 299 보다 큰 HTTP 상태 코드를 반환 하는 작업을 추적 합니다. 서버 쪽 스토리지 로그 파일에서 이러한 작업은 트랜잭션 상태 **ClientOtherErrors**로 기록됩니다. 낮은 비율의 성공 메트릭에 대한 자세한 내용은 [메트릭에 PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success)을 참조하세요.
 
 Azure Storage 작업은 299보다 큰 HTTP 상태 코드를 정상적인 기능의 일부로 반환할 수 있습니다. 그러나 일부의 경우에 이러한 오류는 성능 향상을 위해 클라이언트 애플리케이션을 최적화할 수 있음을 나타냅니다.
 
@@ -85,7 +85,7 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 
 ### <a name="configure-server-side-logging-and-metrics"></a>서버 쪽 로깅 및 메트릭 구성
 
-먼저 Azure Storage 로깅 및 메트릭을 구성하여 분석할 서비스 측의 데이터를 갖도록 해야 합니다. [Azure 포털을](https://portal.azure.com)통해, PowerShell을 사용하거나 프로그래밍 방식으로 다양한 방법으로 로깅 및 메트릭을 구성할 수 있습니다. [로깅](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) 및 메트릭 구성에 대한 자세한 내용은 메트릭 사용 및 [로깅 활성화를](storage-analytics-logging.md#enable-storage-logging) 참조하십시오.
+먼저 분석을 위해 서비스 측의 데이터를 포함 하도록 Azure Storage 로깅 및 메트릭을 구성 해야 합니다. [Azure Portal](https://portal.azure.com)또는 PowerShell을 사용 하거나 프로그래밍 방식으로 다양 한 방법으로 로깅 및 메트릭을 구성할 수 있습니다. 로깅 및 메트릭 구성에 대 한 자세한 내용은 [메트릭 사용](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) 및 [로깅 사용](storage-analytics-logging.md#enable-storage-logging) 을 참조 하세요.
 
 ### <a name="configure-net-client-side-logging"></a>.NET 클라이언트 쪽 로깅 구성
 
@@ -126,7 +126,7 @@ Storage 클라이언트 라이브러리는 애플리케이션의 구성 파일(w
 
 ## <a name="review-metrics-data-in-the-azure-portal"></a>Azure Portal에서 메트릭 데이터 검토
 
-응용 프로그램이 오랫동안 실행되면 [Azure 포털에](https://portal.azure.com) 표시되는 메트릭 차트를 검토하여 서비스의 성능을 확인할 수 있습니다.
+응용 프로그램을 일정 기간 동안 실행 한 후에는 [Azure Portal](https://portal.azure.com) 에 표시 되는 메트릭 차트를 검토 하 여 서비스가 수행 된 방법을 관찰할 수 있습니다.
 
 먼저 Azure Portal의 스토리지 계정으로 이동합니다. 기본적으로 **성공 비율**이 포함된 모니터링 차트가 계정 블레이드에 표시됩니다. 이전에 다른 메트릭을 표시하도록 차트를 수정한 경우 **성공 비율** 메트릭을 추가합니다.
 
@@ -143,7 +143,7 @@ Storage 클라이언트 라이브러리는 애플리케이션의 구성 파일(w
 
 Azure Storage는 메트릭이 테이블에 기록되는 동안 서버 로그 데이터를 Blob에 작성합니다. 로그 Blob은 스토리지 계정의 잘 알려진 `$logs` 컨테이너에서 사용할 수 있습니다. 로그 Blob은 조사하려는 시간 범위를 쉽게 찾을 수 있도록 연도, 월, 일 및 시간별로 계층적으로 명명됩니다. 예를 들어 `storagesample` 계정에서 2015년 1월 2일, 오전 8-9시에 대한 로그 Blob의 컨테이너는 `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`입니다. 이 컨테이너의 개별 Blob은 `000000.log`부터 시작하여 순차적으로 명명됩니다.
 
-AzCopy 명령줄 도구를 사용하여 이러한 서버 쪽 로그 파일을 로컬 컴퓨터의 원하는 위치에 다운로드할 수 있습니다. 예를 들어 다음 명령을 사용하여 2015년 1월 2일에 발생한 Blob 작업에 대한 로그 파일을 폴더에 `C:\Temp\Logs\Server`다운로드할 수 있습니다. 저장소 `<storageaccountname>` 계정의 이름으로 바꿉니다.
+AzCopy 명령줄 도구를 사용하여 이러한 서버 쪽 로그 파일을 로컬 컴퓨터의 원하는 위치에 다운로드할 수 있습니다. 예를 들어, 다음 명령을 사용 하 여 2015 년 1 월 2 일에 발생 한 blob 작업에 대 한 로그 파일을 폴더로 `C:\Temp\Logs\Server`다운로드할 수 있습니다. 을 `<storageaccountname>` 저장소 계정의 이름으로 바꿉니다.
 
 ```azcopy
 azcopy copy 'http://<storageaccountname>.blob.core.windows.net/$logs/blob/2015/01/02' 'C:\Temp\Logs\Server'  --recursive
@@ -288,7 +288,7 @@ Azure Storage 색 규칙을 사용할 뿐만 아니라 고유의 색 규칙을 �
 이제, 이 클라이언트 요청 ID를 클라이언트 로그 데이터와 상호 연결하여 오류가 발생했을 때 클라이언트가 수행한 작업을 알아보겠습니다. 다음과 같이 이 세션의 새 분석 그리드 보기를 표시하여 두 번째 탭에서 열리는 클라이언트 로그 데이터를 볼 수 있습니다.
 
 1. 먼저 **ClientRequestId** 필드의 값을 클립보드로 복사합니다. 행을 선택하고 **ClientRequestId** 필드를 찾아 데이터 값을 마우스 오른쪽 단추로 클릭하고 **'ClientRequestId' 복사**를 선택하여 이 작업을 수행할 수 있습니다.
-2. 도구 모음 리본에서 **새 뷰어를**선택한 다음 **분석 그리드를** 선택하여 새 탭을 엽니다. 새 탭에는 그룹화, 필터링 또는 색상 규칙 없이 로그 파일의 모든 데이터가 표시됩니다.
+2. 도구 모음 리본에서 **새 뷰어**를 선택한 다음 **분석 표** 를 선택 하 여 새 탭을 엽니다. 새 탭은 그룹화, 필터링 또는 색 규칙 없이 로그 파일의 모든 데이터를 표시 합니다.
 3. 도구 모음 리본에서 **보기 레이아웃**을 선택한 후 **Azure Storage** 섹션의 **모든 .NET 클라이언트 열**를 선택합니다. 이 보기 레이아웃은 서버 및 네트워크 추적 로그는 물론 클라이언트 로그의 데이터를 보여줍니다. 기본적으로 **MessageNumber** 열을 기준으로 정렬됩니다.
 4. 그런 다음 클라이언트 요청 ID의 클라이언트 로그를 검색합니다. 도구 모음 리본에서 **메시지 찾기**를 선택한 후 **찾기** 필드에서 클라이언트 요청 ID에 대한 사용자 지정 필터를 지정합니다. 이 필터에 다음 구문을 사용하여 고유의 클라이언트 요청 ID를 지정합니다.
 
@@ -319,10 +319,10 @@ Message Analyzer를 사용하여 로그 데이터를 분석하는 데 익숙해�
 | SAS(공유 액세스 서명) 권한 부여 문제 |AzureStorageLog.RequestStatus ==  "SASAuthorizationError" |네트워크 |
 | HTTP 409(충돌) 메시지 |HTTP.Response.StatusCode   == 409 |네트워크 |
 | 409(모두) |*StatusCode   == 409 |모두 |
-| PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음 |AzureStorageLog.RequestStatus ==   "ClientOtherError" |서버 |
-| Nagle 경고 |((AzureStorageLog.EndToEndLatencyMS   - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS *   1.5)) 및 (AzureStorageLog.RequestPacketSize <1460) 및 (AzureStorageLog.EndToEndLatencyMS -   AzureStorageLog.ServerLatencyMS >= 200) |서버 |
+| PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음 |AzureStorageLog.RequestStatus ==   "ClientOtherError" |Server (서버) |
+| Nagle 경고 |((AzureStorageLog.EndToEndLatencyMS   - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS *   1.5)) 및 (AzureStorageLog.RequestPacketSize <1460) 및 (AzureStorageLog.EndToEndLatencyMS -   AzureStorageLog.ServerLatencyMS >= 200) |Server (서버) |
 | 서버 및 네트워크 로그의 시간 범위 |#Timestamp   >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 |서버, 네트워크 |
-| 서버 로그의 시간 범위 |AzureStorageLog.Timestamp   >= 2014-10-20T16:36:38 및 AzureStorageLog.Timestamp <=   2014-10-20T16:36:39 |서버 |
+| 서버 로그의 시간 범위 |AzureStorageLog.Timestamp   >= 2014-10-20T16:36:38 및 AzureStorageLog.Timestamp <=   2014-10-20T16:36:39 |Server (서버) |
 
 ## <a name="next-steps"></a>다음 단계
 

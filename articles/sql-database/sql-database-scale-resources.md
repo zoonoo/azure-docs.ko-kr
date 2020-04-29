@@ -1,5 +1,5 @@
 ---
-title: 리소스 확장
+title: 리소스 크기 조정
 description: 이 문서에서는 할당된 리소스를 추가하거나 제거하여 데이터베이스 크기를 조정하는 방법을 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,15 +12,15 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
 ms.openlocfilehash: c4366b2718271b1e27325e6946c5016e9230cea4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76835915"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>최소 가동 중지 시간으로 동적으로 데이터베이스 리소스 크기 조정
 
-Azure SQL Database를 사용하면 [가동 중지 시간을](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)최소화하면서 데이터베이스에 더 많은 리소스를 동적으로 추가할 수 있습니다. 그러나 짧은 시간 동안 데이터베이스에 연결이 손실되는 기간 동안 전환이 있으며, 재시도 논리를 사용하여 완화할 수 있습니다.
+Azure SQL Database를 사용 하면 [가동 중지 시간](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)을 최소화 하면서 데이터베이스에 리소스를 동적으로 추가할 수 있습니다. 그러나 짧은 시간 동안 데이터베이스에 대 한 연결이 끊어진 스위치를 사용 하 여 다시 시도 논리를 사용 하 여 완화할 수 있습니다.
 
 ## <a name="overview"></a>개요
 
@@ -35,12 +35,12 @@ Azure SQL Database를 사용하면 [가동 중지 시간을](https://azure.micro
 Azure SQL Database는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 제공합니다.
 
 - [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)에서는 경량 또는 중량 데이터베이스 워크로드를 지원하기 위해 기본, 표준 및 프리미엄의 세 가지 서비스 계층으로 컴퓨팅, 메모리 및 IO 리소스를 함께 제공합니다. 각 계층 내의 성능 수준은 다양하게 섞인 리소스를 제공합니다. 여기에 스토리지 리소스를 추가할 수 있습니다.
-- [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 통해 vCore 개수, 크기나 메모리 및 스토리지의 크기와 속도를 선택할 수 있습니다. 이 구매 모델은 범용, 비즈니스 중요 및 하이퍼스케일의 세 가지 서비스 계층을 제공합니다.
+- [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 통해 vCore 개수, 크기나 메모리 및 스토리지의 크기와 속도를 선택할 수 있습니다. 이 구매 모델은 일반적인 용도, 중요 비즈니스용 및 Hyperscale의 세 가지 서비스 계층을 제공 합니다.
 
 기본, 표준 또는 범용 서비스 계층에서 매월 저렴한 비용으로 작은 규모의 단일 데이터베이스에 첫 번째 앱을 빌드한 다음, 솔루션의 요구 사항에 맞게 언제든지 수동 또는 프로그래밍 방식으로 이 서비스 계층을 프리미엄 또는 중요 비즈니스용 서비스 계층으로 변경할 수 있습니다. 앱이나 고객에게 가동 중지 시간 없이 성능을 조정할 수 있습니다. 동적 확장성을 통해 데이터베이스는 급변하는 리소스 요구 사항에 투명하게 대응할 수 있으며, 필요할 때 필요한 리소스에 대해서만 비용을 지불할 수 있습니다.
 
 > [!NOTE]
-> 동적 확장성은 자동 크기 조정과 다릅니다. 자동 크기 조정은 서비스가 기준에 따라 자동으로 확장되는 반면 동적 확장성은 최소한의 가동 중지 시간으로 수동 크기 조정을 허용하는 경우입니다.
+> 동적 확장성은 자동 크기 조정과 다릅니다. 자동 크기 조정은 서비스를 조건에 따라 자동으로 크기를 조정 하는 반면 동적 확장성을 사용 하면 가동 중지 시간을 최소화 하면서 수동 크기 조정이 가능 합니다.
 
 단일 Azure SQL Database는 수동 동적 확장성을 지원하지만 자동 크기 조정은 지원하지 않습니다. 더 많은 *자동* 환경은 데이터베이스에서 개별 데이터베이스 요구 사항에 따라 풀에 리소스를 공유하도록 허용하는 탄력적 풀을 사용하는 것이 좋습니다.
 그러나 단일 Azure SQL Database에 대한 확장성을 자동화할 수 있는 스크립트가 있습니다. 예제는 [PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md)을 참조하세요.
@@ -55,17 +55,17 @@ Azure SQL Database의 세 가지 버전은 모두 데이터베이스 크기를 �
 - [Managed Instance](sql-database-managed-instance.md)는 [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) 모드를 사용하며, 인스턴스에 할당되는 최대 CPU 코어 수와 최대 스토리지 수를 정의할 수 있습니다. 인스턴스 내의 모든 데이터베이스가 인스턴스에 할당된 리소스를 공유합니다.
 - [탄력적 풀](sql-database-elastic-pool-scale.md)에서는 풀의 데이터베이스 그룹당 최대 리소스 한도를 정의할 수 있습니다.
 
-모든 맛에서 확장 또는 축소 작업을 시작하면 데이터베이스 엔진 프로세스를 다시 시작하고 필요한 경우 다른 가상 컴퓨터로 이동합니다. 데이터베이스 엔진 프로세스를 새 가상 컴퓨터로 이동하는 것은 프로세스가 진행되는 동안 기존 Azure SQL Database 서비스를 계속 사용할 수 있는 **온라인 프로세스입니다.** 대상 데이터베이스 엔진이 완전히 초기화되고 쿼리를 처리할 준비가 되면 연결이 [원본에서 대상 데이터베이스 엔진으로 전환됩니다.](sql-database-single-database-scale.md#impact) 
+모든 버전에서 확장 또는 축소 작업을 시작 하면 데이터베이스 엔진 프로세스가 다시 시작 되 고 필요한 경우 다른 가상 컴퓨터로 이동 합니다. 데이터베이스 엔진 프로세스를 새 가상 컴퓨터로 이동 하는 작업은 프로세스가 진행 되는 동안 기존 Azure SQL Database 서비스를 계속 사용할 수 있는 **온라인 프로세스** 입니다. 대상 데이터베이스 엔진이 완전히 초기화 되 고 쿼리를 처리할 준비가 되 면 연결이 [원본 데이터베이스 엔진에서 대상 데이터베이스 엔진으로 전환](sql-database-single-database-scale.md#impact)됩니다. 
 
 
 > [!NOTE]
-> 확장/축소 프로세스가 완료되면 짧은 연결 중단을 예상할 수 있습니다. [표준 과도 오류에 대한 재try 논리를](sql-database-connectivity-issues.md#retry-logic-for-transient-errors)구현한 경우 장애 조치(failover)를 알 수 없습니다.
+> 수직 확장/축소 프로세스가 완료 되 면 짧은 연결 중단을 예측할 수 있습니다. [표준 일시적 오류에 대 한 재시도 논리](sql-database-connectivity-issues.md#retry-logic-for-transient-errors)를 구현 하는 경우 장애 조치 (failover)를 확인할 수 없습니다.
 
 ## <a name="alternative-scale-methods"></a>대체 크기 조정 방법
 
-리소스 크기 조정은 데이터베이스 또는 응용 프로그램 코드를 변경하지 않고 데이터베이스 성능을 향상시키는 가장 쉽고 효과적인 방법입니다. 경우에 따라 가장 높은 서비스 계층, 계산 크기 및 성능 최적화도 워크로드를 성공적이고 비용 효율적인 방식으로 처리하지 못할 수 있습니다. 이 경우 데이터베이스를 확장할 수 있는 다음과 같은 추가 옵션이 있습니다.
+리소스 크기를 조정 하는 것은 데이터베이스 또는 응용 프로그램 코드를 변경 하지 않고 데이터베이스의 성능을 향상 시키는 가장 간단 하 고 효과적인 방법입니다. 경우에 따라 가장 높은 서비스 계층, 계산 크기 및 성능 최적화도 작업을 성공적이 고 비용 효율적인 방식으로 처리 하지 못할 수 있습니다. 이 경우 다음과 같은 추가 옵션을 통해 데이터베이스를 확장할 수 있습니다.
 
-- [읽기 배율 조정은](sql-database-read-scale-out.md) 보고서와 같은 까다로운 읽기 전용 쿼리를 실행할 수 있는 데이터의 읽기 전용 복제본을 하나 가져오는 사용 가능한 기능입니다. 읽기 전용 복제본은 주 데이터베이스의 리소스 사용량에 영향을 주지 않고 읽기 전용 워크로드를 처리합니다.
+- [읽기 확장](sql-database-read-scale-out.md) 은 보고서와 같은 까다로운 읽기 전용 쿼리를 실행할 수 있는 데이터의 읽기 전용 복제본 하나를 가져오는 데 사용할 수 있는 기능입니다. 읽기 전용 복제본은 주 데이터베이스의 리소스 사용량에 영향을 주지 않고 읽기 전용 워크로드를 처리합니다.
 - [데이터베이스 분할](sql-database-elastic-scale-introduction.md)은 데이터를 여러 데이터베이스로 분할하고 독립적으로 크기를 조정할 수 있는 기술 집합입니다.
 
 ## <a name="next-steps"></a>다음 단계

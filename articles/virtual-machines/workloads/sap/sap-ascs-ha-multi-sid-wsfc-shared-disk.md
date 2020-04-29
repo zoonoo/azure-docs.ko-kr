@@ -1,5 +1,5 @@
 ---
-title: Azure에서 WSFC&공유 디스크를 갖춘 SAP ASCS/SCS 다중 SID HA | 마이크로 소프트 문서
+title: Azure의 WSFC&공유 디스크를 사용 하는 SAP ASCS/SCS 다중 SID HA | Microsoft Docs
 description: Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스를 위한 다중 SID 고가용성
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 446091263596a1fd5503f38c6a60316f9b0b6843
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79245175"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -208,7 +208,7 @@ ms.locfileid: "79245175"
 > ![Windows][Logo_Windows] Windows
 >
 
-2016년 9월, Microsoft는 [Azure 내부 로드 밸런서를][load-balancer-multivip-overview]사용하여 여러 가상 IP 주소를 관리할 수 있는 기능을 출시했습니다. 이 기능은 Azure 외부 부하 분산 장치에 이미 있습니다. 
+2016 년 9 월 Microsoft는 [Azure 내부 부하 분산 장치][load-balancer-multivip-overview]를 사용 하 여 여러 가상 IP 주소를 관리할 수 있는 기능을 출시 했습니다. 이 기능은 Azure 외부 부하 분산 장치에 이미 있습니다. 
 
 SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 서비스(ASCS/SCS) 인스턴스에 대한 Windows 클러스터 구성을 만들어야 합니다.
 
@@ -226,7 +226,7 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 �
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 다이어그램처럼 **파일 공유**를 사용하는 한 SAP ASCS/SCS 인스턴스에 사용되는 WSFC 클러스터가 이미 구성되어 있어야 합니다.
 
@@ -405,7 +405,7 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 고급 절차는 다음과 같습니다.
 
-1. [고가용성 ASCS/SCS 인스턴스를 사용 하 고 SAP를 설치][sap-high-availability-installation-wsfc-shared-disk-install-ascs]합니다.  
+1. 고가용성 [ASCS/SCS 인스턴스를 사용 하 여 SAP를 설치][sap-high-availability-installation-wsfc-shared-disk-install-ascs]합니다.  
  이 단계에서는 기존 WSFC 클러스터 노드 1에 고가용성 ASCS/SCS 인스턴스를 포함한 SAP를 설치하고 있습니다.
 
 2. [ASCS/SCS 인스턴스의 SAP 프로필 수정][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile].
@@ -432,7 +432,7 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 9. SAP 설치 가이드의 설명에 따라 새로운 전용 VM에 SAP 추가 애플리케이션 서버를 설치합니다.
 
-10. [SAP ASCS/SCS 인스턴스 장애 조치 및 SIOS 복제를 테스트합니다.][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl]
+10. [SAP ASCS/SCS 인스턴스 장애 조치 및 SIOS 복제를 테스트][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl]합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

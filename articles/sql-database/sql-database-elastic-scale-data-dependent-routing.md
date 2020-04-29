@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: fbdf8e316368be02ebd0c4bfd320917c20d80777
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77069458"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>데이터 의존 라우팅을 사용하여 적절한 데이터베이스로 쿼리 라우팅

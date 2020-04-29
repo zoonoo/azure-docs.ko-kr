@@ -16,10 +16,10 @@ ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897183"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>중복된 특성 동기화 오류 진단 및 수정
@@ -34,7 +34,7 @@ Azure AD에 대한 자세한 내용은 [ID 동기화 및 중복 특성 복원력
 
 ## <a name="problems"></a>문제
 ### <a name="a-common-scenario"></a>일반적인 시나리오
-**QuarantinedAttributeValueMustBeUnique** 및 **AttributeValueMustBeUnique** 동기화 오류가 발생하는 경우 일반적으로 Azure AD에서 **UserPrincipalName** 또는 **프록시 주소** 충돌이 발생합니다. 온-프레미스 쪽에서 충돌하는 원본 개체를 업데이트하여 동기화 오류를 해결할 수 있습니다. 동기화 오류는 다음 동기화 후 해결됩니다. 예를 들어 이 이미지는 두 사용자가 **UserPrincipalName**. 둘 다 **Joe.J\@contoso.com.** 충돌하는 개체는 Azure AD에서 격리됩니다.
+**QuarantinedAttributeValueMustBeUnique** 및 **AttributeValueMustBeUnique** 동기화 오류가 발생하는 경우 일반적으로 Azure AD에서 **UserPrincipalName** 또는 **프록시 주소** 충돌이 발생합니다. 온-프레미스 쪽에서 충돌하는 원본 개체를 업데이트하여 동기화 오류를 해결할 수 있습니다. 다음 동기화 이후에 동기화 오류가 해결 됩니다. 예를 들어이 이미지는 두 사용자가 **UserPrincipalName**충돌이 있음을 나타냅니다. 둘 다 **Joe. J\@contoso.com**입니다. 충돌하는 개체는 Azure AD에서 격리됩니다.
 
 ![동기화 오류 진단 일반적인 시나리오](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
@@ -129,10 +129,10 @@ Azure Portal에서 몇 가지 단계를 수행하여 수정 가능한 시나리�
 > **수정 적용** 변경은 분리된 개체 사례에만 적용됩니다.
 >
 
-위의 단계를 수행한 후에는 사용자가 기존 개체에 대 한 링크인 원래 리소스에 액세스할 수 있습니다. 목록 보기의 **상태 진단** 값이 **보류 중인 동기화로**업데이트됩니다. 동기화 오류는 다음 동기화 후 해결됩니다. 연결 상태는 더 이상 목록 보기에 해결된 동기화 오류가 표시되지 않습니다.
+위의 단계를 수행한 후에는 사용자가 기존 개체에 대 한 링크인 원래 리소스에 액세스할 수 있습니다. 목록 뷰의 **진단 상태** 값은 **보류 중인 동기화**로 업데이트 됩니다. 다음 동기화 이후에 동기화 오류가 해결 됩니다. 연결 상태는 더 이상 목록 보기에 확인 되지 않은 동기화 오류를 표시 하지 않습니다.
 
 ## <a name="failures-and-error-messages"></a>오류 및 오류 메시지
-**충돌하는 특성이 있는 사용자는 Azure Active Directory에서 일시 삭제됩니다. 다시 시도하기 전에 사용자가 하드 삭제되었는지 확인합니다.**  
+**충돌 하는 특성이 있는 사용자는 Azure Active Directory에서 일시 삭제 됩니다. 다시 시도 하기 전에 사용자가 하드 삭제 되었는지 확인 합니다.**  
 수정을 적용하기 전에 Azure AD에서 충돌하는 특성이 있는 사용자를 정리해야 합니다. 해당 수정을 다시 시도 하기 전에 [Azure AD에서 사용자를 영구 삭제하는 방법](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore)을 확인합니다. 사용자는 일시 삭제된 상태에서 30일이 지나면 자동으로 영구 삭제됩니다. 
 
 **원본 앵커에서 테넌트의 클라우드 기반 사용자로 업데이트하는 것은 지원되지 않습니다.**  
@@ -140,7 +140,7 @@ Azure AD의 클라우드 기반 사용자에게는 원본 앵커가 없어야 �
 
 ## <a name="faq"></a>FAQ
 **Q.** **수정 적용** 실행이 실패하면 어떻게 되나요?  
-**A.** 실행이 실패한 경우 Azure AD Connect가 내보내기 오류를 실행 중일 수 있습니다. 포털 페이지를 새로 고치고 다음 동기화 후 다시 시도합니다. 기본 동기화 주기는 30분입니다. 
+**A.** 실행이 실패한 경우 Azure AD Connect가 내보내기 오류를 실행 중일 수 있습니다. 포털 페이지를 새로 고치고 다음 동기화 후 다시 시도 합니다. 기본 동기화 주기는 30 분입니다. 
 
 
 **Q.** **기존 개체**가 삭제할 개체여야 하는 경우 어떻게 하나요?  

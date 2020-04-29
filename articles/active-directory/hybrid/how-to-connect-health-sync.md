@@ -17,14 +17,14 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 61490f75d12967f7f396d5f767f2d2e696474572
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897213"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 Azure AD Connect 동기화 모니터링
-다음 문서는 Azure AD Connect Health와 함께 Azure AD Connect (동기화) 모니터링에 중점을 둡니다.  Azure AD Connect Health와 함께 AD FS 모니터링에 대한 내용은 [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)을 참조하세요. 또한 Azure AD Connect 상태를 사용하여 Active Directory 도메인 서비스 모니터링에 대한 자세한 내용은 [Azure AD Connect 상태를 AD DS와 함께 사용](how-to-connect-health-adds.md)참조합니다.
+다음 문서는 Azure AD Connect Health와 함께 Azure AD Connect (동기화) 모니터링에 중점을 둡니다.  Azure AD Connect Health와 함께 AD FS 모니터링에 대한 내용은 [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)을 참조하세요. 또한 Azure AD Connect Health Active Directory Domain Services 모니터링에 대 한 자세한 내용은 [AD DS에서 Azure AD Connect Health 사용](how-to-connect-health-adds.md)을 참조 하세요.
 
 ![동기화에 대한 Azure AD Connect Health](./media/how-to-connect-health-sync/syncsnapshot.png)
 
@@ -70,7 +70,7 @@ Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터�
 * 보고서에서는 동기화 클라이언트를 통해 기록된 오류를 포함합니다(Azure AD Connect 1.1.281.0 버전 이상)
 * 동기화 엔진의 마지막 동기화 작업에서 발생한 오류를 포함합니다 (Azure AD 커넥터에 “내보내기”).
 * 동기화에 대한 Azure AD Connect Health agent에는 최신 데이터를 포함하는 보고서에 필요한 끝점의 아웃바운드 연결이 있어야 합니다.
-* 이 보고서는 동기화를 위해 Azure AD Connect Health 에이전트에서 업로드한 데이터를 사용하여 **30분마다 업데이트됩니다.** 다음과 같은 주요 기능을 제공합니다.
+* 보고서는 동기화를 위해 Azure AD Connect Health 에이전트가 업로드 한 데이터를 사용 하 여 **30 분 마다 업데이트** 됩니다. 다음과 같은 주요 기능을 제공 합니다.
 
   * 오류 분류
   * 범주별 오류에 따른 개체의 목록
@@ -81,7 +81,7 @@ Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터�
 ### <a name="categorization-of-errors"></a>오류 분류
 보고서에서는 기존 동기화 오류를 다음과 같은 범주로 분류합니다.
 
-| Category | 설명 |
+| 범주 | Description |
 | --- | --- |
 | 중복 특성 |proxyAddresses, UserPrincipalName 같은 테넌트 내에서 고유해야 하는 Azure AD에서 하나 이상의 특성의 값이 중복된 개체를 만들거나 업데이트하려고 시도할 때의 오류 |
 | 데이터 불일치 |소프트 일치가 동기화 오류가 발생하는 개체와 일치하도록 하는 데 실패할 경우발생하는 오류 |
@@ -118,8 +118,8 @@ Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터�
 * [중복 특성 복원력](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Azure AD Connect Health Agent 설치](how-to-connect-health-agent-install.md)
-* [Azure AD 연결 상태 작업](how-to-connect-health-operations.md)
+* [Azure AD Connect Health 작업](how-to-connect-health-operations.md)
 * [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)
 * [AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)
 * [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
-* [Azure AD 연결 상태 버전 기록](reference-connect-health-version-history.md)
+* [Azure AD Connect Health 버전 기록](reference-connect-health-version-history.md)

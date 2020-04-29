@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus 중복 메시지 검색 | Microsoft Docs
-description: 이 문서에서는 Azure Service Bus 메시지에서 중복을 검색하는 방법을 설명합니다. 중복 된 메시지를 무시 하 고 삭제할 수 있습니다.
+description: 이 문서에서는 Azure Service Bus 메시지에서 중복을 검색 하는 방법을 설명 합니다. 중복 된 메시지는 무시 하 고 삭제할 수 있습니다.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: c109b9fd310a09e5eb4c6d18cc3536e4d8069c0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76760371"
 ---
 # <a name="duplicate-detection"></a>중복 검색
@@ -37,7 +37,7 @@ ms.locfileid: "76760371"
 *MessageId*는 항상 GUID일 수 있지만 식별자를 비즈니스 프로세스에 고정하면 예측 가능한 반복성을 얻을 수 있으며 이것은 중복 검색 기능을 효과적으로 활용하는 데 바람직합니다.
 
 > [!NOTE]
-> 중복 검색을 사용하도록 설정하고 세션 ID 또는 파티션 키가 설정되지 않은 경우 메시지 ID가 파티션 키로 사용됩니다. 메시지 ID도 설정되지 않은 경우 .NET 및 AMQP 라이브러리는 메시지에 대한 메시지 ID를 자동으로 생성합니다. 자세한 내용은 [파티션 키 사용을](service-bus-partitioning.md#use-of-partition-keys)참조하십시오.
+> 중복 검색을 사용 하도록 설정 하 고 세션 ID 또는 파티션 키를 설정 하지 않은 경우에는 메시지 ID가 파티션 키로 사용 됩니다. 메시지 ID도 설정 되지 않은 경우 .NET 및 AMQP 라이브러리는 메시지에 대 한 메시지 ID를 자동으로 생성 합니다. 자세한 내용은 [파티션 키 사용](service-bus-partitioning.md#use-of-partition-keys)을 참조 하세요.
 
 ## <a name="enable-duplicate-detection"></a>중복 검색 사용
 
@@ -68,7 +68,7 @@ Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참�
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-클라이언트 코드가 이전과 동일한 *MessageId를* 사용하여 메시지를 다시 제출할 수 없는 시나리오에서는 안전하게 다시 처리할 수 있는 메시지를 디자인하는 것이 중요합니다. [idempotence에 대한](https://particular.net/blog/what-does-idempotent-mean) 이 블로그 게시물은 이를 수행하는 방법에 대한 다양한 기술을 설명합니다.
+클라이언트 코드가 이전과 동일한 *MessageId* 를 사용 하 여 메시지를 다시 전송할 수 없는 시나리오에서는 안전 하 게 다시 처리할 수 있는 메시지를 설계 하는 것이 중요 합니다. [Idempotence에 대 한이 블로그 게시물](https://particular.net/blog/what-does-idempotent-mean) 에서는이를 수행 하는 방법에 대 한 다양 한 기술을 설명 합니다.
 
 [1]: ./media/duplicate-detection/create-queue.png
 [2]: ./media/duplicate-detection/queue-prop.png

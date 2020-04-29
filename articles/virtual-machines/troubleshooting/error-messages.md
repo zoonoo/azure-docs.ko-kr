@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: f5639d1cf94c77d699dc6de9841698b045ac1f96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76543021"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Azure에서 가상 머신을 관리할 때 발생하는 일반적인 오류 메시지를 이해
@@ -99,8 +99,8 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  InvalidParameter  |  "제공된 암호의 길이는 {0}~{1}자 사이여야 하고 최소한 다음의 암호 복잡성 요구 사항 중 적어도 {2}을(를) 충족해야 합니다. <ol><li> 대문자를 포함합니다.</li><li>소문자를 포함합니다.</li><li>숫자를 포함합니다.</li><li>특수 문자를 포함합니다.</li></ol>  |
 |  InvalidParameter  |  지정된 관리자 사용자 이름이 허용되지 않습니다.  |
 |  InvalidParameter  |  VM이 플랫폼 이미지 또는 사용자 이미지에서 만들어진 경우 기존 OS 디스크를 연결할 수 없습니다.  |
-|  InvalidParameter  |  컨테이너 이름 {0}이(가) 올바르지 않습니다. 컨테이너 이름의 길이는 3-63자여야 하며 소문자 영숫자 및 하이픈만 포함할 수 있습니다. 하이픈 앞에 와 서 하 고 숫자 문자 가 야합니다.  |
-|  InvalidParameter  |  URL {1}의 컨테이너 이름 {0}이(가) 올바르지 않습니다. 컨테이너 이름의 길이는 3-63자여야 하며 소문자 영숫자 및 하이픈만 포함할 수 있습니다. 하이픈 앞에 와 서 하 고 숫자 문자 가 야합니다.  |
+|  InvalidParameter  |  컨테이너 이름 {0}이(가) 올바르지 않습니다. 컨테이너 이름의 길이는 3-63자여야 하며 소문자 영숫자 및 하이픈만 포함할 수 있습니다. 하이픈 앞에는 영숫자 문자를 입력 해야 합니다.  |
+|  InvalidParameter  |  URL {1}의 컨테이너 이름 {0}이(가) 올바르지 않습니다. 컨테이너 이름의 길이는 3-63자여야 하며 소문자 영숫자 및 하이픈만 포함할 수 있습니다. 하이픈 앞에는 영숫자 문자를 입력 해야 합니다.  |
 |  InvalidParameter  |  URL {0}의 Blob 이름은 슬래시를 포함합니다. 이 항목은 현재 디스크에 지원되지 않습니다.  |
 |  InvalidParameter  |  URI {0}이(가) 올바른 Blob URI가 아닌 것 같습니다.  |
 |  InvalidParameter  |  이름이 '{0}'인 디스크가 이미 동일한 LUN {1}을(를) 사용합니다.  |
@@ -205,7 +205,7 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  VMExtensionManagementInternalError  |  VM 확장을 준비하는 동안 여러 오류가 발생했습니다. 자세한 내용은 VM 확장 인스턴스 보기를 참조하세요.  |
 |  VMExtensionProvisioningError  |  확장 '{0}'을(를) 처리하는 동안 VM이 오류를 보고했습니다. 오류 메시지: "{1}"  |
 |  VMExtensionProvisioningError  |  여러 VM 확장은 VM에서 사용자를 프로비전하지 못했습니다. 자세한 내용은 VM 확장 인스턴스 보기를 참조하세요.  |
-|  VMExtensionProvisioningTimeout  |  VM 확장 프로비저닝 '{0}시간이 지나서야 확장 설치시간이 너무 오래 걸리거나 확장 상태를 가져올 수 없습니다.  |
+|  VMExtensionProvisioningTimeout  |  VM 확장 '{0}'의 프로 비전 시간이 초과 되었습니다. 확장을 설치 하는 데 너무 오래 걸리거나 확장 상태를 가져올 수 없습니다.  |
 |  VMMarketplaceInvalidInput  |  Marketplace가 아닌 이미지로부터 가상 컴퓨터를 만드는 데에는 계획 정보가 필요하지 않습니다. 요청에서 계획 정보를 제거하세요. OS 디스크 이름은 {0}입니다.  |
 |  VMMarketplaceInvalidInput  |  구매 정보가 일치하지 않습니다. Marketplace 이미지에서 배포할 수 없습니다. OS 디스크 이름은 {0}입니다.  |
 |  VMMarketplaceInvalidInput  |  Marketplace 이미지로부터 가상 머신을 만들려면 요청에 계획 정보가 있어야 합니다. OS 디스크 이름은 {0}입니다.  |
@@ -216,4 +216,4 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-도움이 더 필요하면 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)의 Azure 전문가에게 문의하세요. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 **지원 받기를**선택합니다.
+도움이 더 필요하면 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)의 Azure 전문가에게 문의하세요. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 **지원 받기**를 선택 합니다.

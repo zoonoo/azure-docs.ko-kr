@@ -1,6 +1,6 @@
 ---
 title: 할당량 및 제한 - Azure Event Hubs | Microsoft Docs
-description: 이 문서에서는 Azure 이벤트 허브에 대한 제한 및 할당량을 제공합니다. 예를 들어 구독당 네임스페이스 수, 네임스페이스당 이벤트 허브 수입니다.
+description: '이 문서에서는 Azure Event Hubs에 대 한 제한 및 할당량을 제공 합니다. 예: 구독 당 네임 스페이스 수, 네임 스페이스 당 event hubs 수'
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: bbe747228fa2f587bc1369c3cb1fbbc91d1817e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76309543"
 ---
 # <a name="azure-event-hubs-quotas-and-limits"></a>Azure Event Hubs 할당량 및 제한

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
 ms.openlocfilehash: 675919db55932d3ccc04fd5397f6f673832b4900
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840573"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Azure 가상 네트워크의 토폴로지 보기
@@ -84,17 +84,17 @@ ms.locfileid: "76840573"
 
 다음에 나오는 단계에서 명령을 실행할 수 있습니다.
 - Azure Cloud Shell에서 명령의 오른쪽 위에 있는 **사용해 보세요**를 선택합니다. Azure Cloud Shell은 공통 Azure 도구가 사전 설치되고 계정으로 사용하도록 구성된 체험 대화형 셸입니다.
-- 컴퓨터에서 PowerShell을 실행합니다. 컴퓨터에서 PowerShell을 실행하는 경우 이 문서에는 Azure `Az` PowerShell 모듈이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+- 컴퓨터에서 PowerShell을 실행합니다. 컴퓨터에서 PowerShell을 실행 하는 경우이 문서에 Azure PowerShell `Az` 모듈이 필요 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 사용하는 계정에 필요한 [권한](required-rbac-permissions.md)이 있어야 합니다.
 
-1. 토폴로지를 만들려는 가상 네트워크와 같은 지역에 이미 네트워크 감시자가 있는 경우 3단계로 건너뜁니다. [New-AzResourceGroup을](/powershell/module/az.Resources/New-azResourceGroup)사용하여 네트워크 감시자가 포함하도록 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 지역에 리소스 그룹을 만듭니다.
+1. 토폴로지를 만들려는 가상 네트워크와 같은 지역에 이미 네트워크 감시자가 있는 경우 3단계로 건너뜁니다. [AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup)를 사용 하 여 네트워크 감시자를 포함 하는 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 지역에 리소스 그룹을 만듭니다.
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name NetworkWatcherRG -Location EastUS
     ```
 
-2. [New-AzNetworkWatcher를](/powershell/module/az.network/new-aznetworkwatcher)사용하여 네트워크 감시자 만들기. 다음 예제에서는 eastus 지역에 네트워크 감시자를 만듭니다.
+2. [AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher)를 사용 하 여 네트워크 감시자를 만듭니다. 다음 예제에서는 eastus 지역에 네트워크 감시자를 만듭니다.
 
     ```azurepowershell-interactive
     New-AzNetworkWatcher `
@@ -102,7 +102,7 @@ ms.locfileid: "76840573"
       -ResourceGroupName NetworkWatcherRG
     ```
 
-3. [Get-AzNetworkWatcher를](/powershell/module/az.network/get-aznetworkwatcher)통해 네트워크 감시자 인스턴스를 검색합니다. 다음 예제에서는 미국 동부 지역의 네트워크 감시자를 검색합니다.
+3. [AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher)를 사용 하 여 Network Watcher 인스턴스를 검색 합니다. 다음 예제에서는 미국 동부 지역의 네트워크 감시자를 검색합니다.
 
     ```azurepowershell-interactive
     $nw = Get-AzResource `
@@ -112,7 +112,7 @@ ms.locfileid: "76840573"
       -ResourceGroupName $nw.ResourceGroupName
     ```
 
-4. [Get-AzNetworkWatcher토폴로지에서](/powershell/module/az.network/get-aznetworkwatchertopology)토폴로지 검색. 다음 예제에서는 *MyResourceGroup*이라는 리소스 그룹의 가상 네트워크에 대한 토폴로지를 검색합니다.
+4. [AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology)를 사용 하 여 토폴로지를 검색 합니다. 다음 예제에서는 *MyResourceGroup*이라는 리소스 그룹의 가상 네트워크에 대한 토폴로지를 검색합니다.
 
     ```azurepowershell-interactive
     Get-AzNetworkWatcherTopology `

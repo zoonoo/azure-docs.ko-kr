@@ -1,6 +1,6 @@
 ---
 title: Media Services Operations REST API 개요 | Microsoft Docs
-description: "\"미디어 서비스 운영 REST\" API는 미디어 서비스 계정에서 작업, 자산, 라이브 채널 및 기타 리소스를 만드는 데 사용됩니다. 이 문서에서는 Azure 미디어 서비스 v2 REST API 개요를 제공합니다."
+description: "\"Media Services Operations REST\" API는 Media Services 계정에서 작업, 자산, 라이브 채널 및 기타 리소스를 만드는 데 사용 됩니다. 이 문서에서는 Azure Media Services v2 REST API 개요를 제공 합니다."
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,16 +16,16 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773669"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services Operations REST API 개요 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전, [미디어 서비스 v3을](https://docs.microsoft.com/azure/media-services/latest/)확인하십시오. 또한 [v2에서 v3로의 마이그레이션 지침을](../latest/migrate-from-v2-to-v3.md) 참조하십시오.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 **Media Services Operations REST** API는 Media Services 계정에서 작업, 자산, 라이브 채널 및 기타 리소스를 만드는 데 사용됩니다. 자세한 내용은 [Media Services Operations REST API 참조](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)를 참조하세요.
 
@@ -75,21 +75,21 @@ Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해
 | 헤더 | Type | 값 |
 | --- | --- | --- |
 | Date |RFC 1123 날짜 |요청 타임스탬프 |
-| 수락 |내용 유형 |다음과 같은 응답에 대해 요청된 콘텐츠 형식:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Blob 인출과 같이 다른 콘텐츠 유형이 응답에 있을 수 있습니다. 여기서 성공적인 응답은 Blob 스트림을 페이로드로 포함합니다. |
+| 수락 |콘텐츠 유형 |다음과 같은 응답에 대해 요청된 콘텐츠 형식:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Blob 인출과 같이 다른 콘텐츠 유형이 응답에 있을 수 있습니다. 여기서 성공적인 응답은 Blob 스트림을 페이로드로 포함합니다. |
 | Accept-Encoding |Gzip, deflate |GZIP 및 DEFLATE 인코딩, 해당되는 경우입니다. 참고: 큰 리소스의 경우 Media Services는 이 헤더를 무시하고 압축되지 않은 데이터를 반환할 수 있습니다. |
 | Accept-Language |"en", "es" 등입니다. |응답에 대한 기본 언어를 지정합니다. |
 | Accept-Charset |"UTF-8"과 같은 문자 집합 유형 |기본값은 UTF-8입니다. |
 | X-HTTP-Method |HTTP 메서드 |PUT 또는 DELETE와 같이 HTTP 메서드를 지원하지 않는 클라이언트나 방화벽이 GET 호출을 통해 터널링된 이러한 메서드를 사용하도록 허용합니다. |
-| 콘텐츠 형식 |내용 유형 |PUT 또는 POST 요청에서 요청 본문의 콘텐츠 형식입니다. |
-| client-request-id |String |지정된 요청을 식별하는 호출자 정의 값입니다. 지정된 경우 이 값은 요청을 매핑하는 방법으로 응답 메시지에 포함됩니다. <p><p>**중요**<p>값은 2096b(2k)에서 제한되어야 합니다. |
+| 콘텐츠 형식 |콘텐츠 유형 |PUT 또는 POST 요청에서 요청 본문의 콘텐츠 형식입니다. |
+| client-request-id |문자열 |지정된 요청을 식별하는 호출자 정의 값입니다. 지정된 경우 이 값은 요청을 매핑하는 방법으로 응답 메시지에 포함됩니다. <p><p>**중요**<p>값은 2096b(2k)에서 제한되어야 합니다. |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Media Services에서 지원되는 표준 HTTP 응답 헤더
 다음은 요청한 리소스 및 수행하려는 작업에 따라 사용자에게 반환될 수 있는 헤더 집합입니다.
 
 | 헤더 | Type | 값 |
 | --- | --- | --- |
-| request-id |String |현재 작업에 대한 고유 식별자로 서비스를 생성합니다. |
-| client-request-id |String |호출자가 원래 요청을 통해 지정한 식별자입니다(있는 경우). |
+| request-id |문자열 |현재 작업에 대한 고유 식별자로 서비스를 생성합니다. |
+| client-request-id |문자열 |호출자가 원래 요청을 통해 지정한 식별자입니다(있는 경우). |
 | Date |RFC 1123 날짜 |요청이 처리된 날짜/시간입니다. |
 | 콘텐츠 형식 |다양함 |응답 본문의 콘텐츠 형식입니다. |
 | Content-Encoding |다양함 |Gzip 또는 deflate를 적절하게 합니다. |
@@ -97,7 +97,7 @@ Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Media Services에서 지원되는 표준 HTTP 동사
 다음은 HTTP 요청을 만들 때 사용할 수 있는 HTTP 동사의 전체 목록입니다.
 
-| 동사 | 설명 |
+| 동사 | Description |
 | --- | --- |
 | GET |개체의 현재 값을 반환합니다. |
 | POST |제공된 데이터를 기반으로 개체를 만들거나 명령을 제출합니다. |

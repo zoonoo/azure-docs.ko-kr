@@ -1,5 +1,5 @@
 ---
-title: Azure 포털을 사용하는 온-프레미스 인코더가 있는 라이브 스트림 | 마이크로 소프트 문서
+title: Azure Portal를 사용 하는 온-프레미스 인코더를 사용 하는 라이브 스트림 Microsoft Docs
 description: 이 자습서에서는 통과 배달을 위해 구성된 채널을 만드는 단계를 안내합니다.
 services: media-services
 documentationcenter: ''
@@ -15,30 +15,30 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a83d6ae2e3ed13f0d03e0fdc87a3b45a4119ba88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77162755"
 ---
-# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Azure 포털을 사용하여 온-프레미스 인코더로 라이브 스트리밍 수행
+# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Azure Portal를 사용 하 여 온-프레미스 인코더에서 라이브 스트리밍 수행
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [나머지](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전, [미디어 서비스 v3을](https://docs.microsoft.com/azure/media-services/latest/)확인하십시오. 또한 [v2에서 v3로의 마이그레이션 지침을](../latest/migrate-from-v2-to-v3.md) 참조하십시오.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 이 자습서에서는 Azure 포털을 사용하여 통과 배달을 위해 구성된 **채널** 을 만드는 단계를 안내합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
-* Azure 계정. 자세한 내용은 [Azure 무료 평가판을](https://azure.microsoft.com/pricing/free-trial/)참조하십시오. 
-* Media Services 계정. 미디어 서비스 계정을 만들려면 [미디어 서비스 계정을 만드는 방법을](media-services-portal-create-account.md)참조하세요.
+* Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요. 
+* Media Services 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조 하세요.
 * 웹캠. 예를 들어, [Telestream Wirecast encoder](media-services-configure-wirecast-live-encoder.md) 
 
 다음 문서를 검토하는 것이 좋습니다.
@@ -55,7 +55,7 @@ ms.locfileid: "77162755"
 > 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있는지 확인합니다. 
     
 1. 비디오 카메라를 컴퓨터에 연결합니다. <br/>설치 아이디어는 [간단하고 이동 가능한 이벤트 비디오 기어 설정]( https://link.medium.com/KNTtiN6IeT)을 확인하세요.
-1. 다중 비트 전송률 RTMP 또는 조각화된 MP4 스트림을 출력하는 온-프레미스 라이브 인코더를 실행 및 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](https://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.<br/>또한, 이 블로그를 체크 아웃: [OBS와 라이브 스트리밍 프로덕션](https://link.medium.com/ttuwHpaJeT).
+1. 다중 비트 전송률 RTMP 또는 조각화된 MP4 스트림을 출력하는 온-프레미스 라이브 인코더를 실행 및 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](https://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.<br/>또한 [OBS를 사용한 라이브 스트리밍 프로덕션](https://link.medium.com/ttuwHpaJeT)블로그를 확인 하세요.
    
     이 단계는 채널을 만든 후에도 수행할 수 있습니다.
 1. 통과 채널을 만들고 시작합니다.
@@ -82,7 +82,7 @@ ms.locfileid: "77162755"
 ## <a name="to-view-notifications-and-errors"></a>알림 및 오류를 보려면
 Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 클릭합니다.
 
-![공지](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
+![알림](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
 
 ## <a name="create-and-start-pass-through-channels-and-events"></a>통과 채널 및 이벤트 만들기 및 시작
 채널은 라이브 스트림에서 세그먼트의 게시 및 스토리지를 제어할 수 있는 이벤트/프로그램과 연결되어 있습니다. 채널은 이벤트를 관리합니다. 
@@ -125,7 +125,7 @@ Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 
 1. 이벤트를 추가하려는 채널을 선택합니다.
 2. **라이브 이벤트** 단추를 누릅니다.
 
-![행사](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+![이벤트](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
 
 ## <a name="get-ingest-urls"></a>수집 URL 가져오기
 채널을 만든 후 라이브 인코더에 제공할 수집 URL을 가져올 수 있습니다. 인코더는 이러한 URL을 사용하여 라이브 스트림을 입력합니다.

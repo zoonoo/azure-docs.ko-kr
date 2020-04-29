@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus - 메시징 엔터티 일시 중단
-description: 이 문서에서는 Azure Service Bus 메시지 엔터티(큐, 토픽 및 구독)를 일시적으로 일시 중단하고 다시 활성화하는 방법을 설명합니다.
+title: Azure Service Bus-메시징 엔터티 일시 중단
+description: 이 문서에서는 Azure Service Bus 메시지 엔터티 (큐, 토픽 및 구독)를 일시적으로 일시 중단 하 고 다시 활성화 하는 방법을 설명 합니다.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 7386932f19eee064926184eb17f5e92e30add98e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76760388"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>메시징 엔터티 일시 중단 및 다시 활성화(사용 안 함)
@@ -28,7 +28,7 @@ ms.locfileid: "76760388"
 
 사용자 또는 시스템에 의해 일시 중단 또는 다시 활성화가 수행될 수 있습니다. 시스템은 구독 지출 제한에 도달하는 등, 중대한 관리상의 이유가 있을 때만 엔터티를 일시 중단합니다. 시스템에서 사용하지 않도록 설정된 엔터티는 사용자가 다시 활성화할 수 없지만 일시 중단의 원인에 해결되면 복원됩니다.
 
-포털에서 각 엔터티의 **속성** 섹션을 사용하면 상태를 변경할 수 있습니다. 다음 스크린샷은 큐의 토글을 보여 주며,
+포털에서 해당 엔터티에 대 한 **속성** 섹션을 통해 상태를 변경할 수 있습니다. 다음 스크린샷은 큐에 대 한 토글을 보여 줍니다.
 
 ![][1]
 

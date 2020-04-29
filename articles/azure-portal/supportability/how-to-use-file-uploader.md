@@ -1,6 +1,6 @@
 ---
-title: Azure 지원 요청 - 파일 업로드 지침
-description: Microsoft Azure 지원 요청 파일 업로드 옵션을 사용할 때 지침을 설명합니다.
+title: Azure 지원 요청-파일 업로드 지침
+description: Microsoft Azure 지원 요청 파일 업로드 옵션을 사용 하는 경우 지침을 설명 합니다.
 author: genlin
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
@@ -9,27 +9,27 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: genli
 ms.openlocfilehash: ac8dffe3b1200f3925478f968170498ee744bb79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76548971"
 ---
-# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>마이크로소프트 Azure 새 지원 요청 파일 업로드 유틸리티 지침
+# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Microsoft Azure 새 지원 요청 파일 업로드 유틸리티 지침
 
-지원 [요청을 만들](https://portal.azure.com/#create/Microsoft.Support)때 파일 업로드 옵션을 사용하면 진단 파일이나 사고와 관련이 있다고 생각되는 다른 파일을 쉽게 업로드할 수 있습니다.  
+[지원 요청을 만들](https://portal.azure.com/#create/Microsoft.Support)때 파일 업로드 옵션을 통해 진단 파일 또는 인시던트에 관련 된 다른 파일을 쉽게 업로드할 수 있습니다.  
 
 > [!NOTE]
 > 개인 정보를 보호하려면 업로드 시 개인 정보를 포함시키기 마세요.
 >
 >
 
-파일 업로드 옵션을 사용할 때 다음 지침을 따르십시오.
+파일 업로드 옵션을 사용 하는 경우 다음 지침을 따르세요.
 
-* 모든 파일에는 *.docx* 또는 *.xlsx*와 같은 파일 이름 확장명이 있어야 합니다. 허용된 파일 이름 확장명에 대한 표를 참조하십시오.
+* 모든 파일에는 *.docx* 또는 *.xlsx*와 같은 파일 이름 확장명이 있어야 합니다. 허용 되는 파일 이름 확장명에 대 한 표를 참조 하세요.
 * 파일 이름은 110자 이하여야 합니다.
-* 두 개 이상의 파일을 업로드할 수 없습니다.
-* 파일은 4MB보다 클 수 없습니다.
+* 둘 이상의 파일을 업로드할 수 없습니다.
+* 파일은 4mb 보다 클 수 없습니다.
 
 ## <a name="table-of-the-allowed-file-name-extensions"></a>허용되는 파일 이름 확장명 표
 

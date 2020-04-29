@@ -8,10 +8,10 @@ ms.date: 2/19/2019
 ms.author: rohink
 ms.topic: conceptual
 ms.openlocfilehash: 9304556edb5e6207296d8ee4e8392e345869cb92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76939044"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Azure DNS를 사용하여 DNS 영역 위임
@@ -22,7 +22,7 @@ Azure DNS를 사용하면 DNS 영역을 호스트하고 Azure에서 도메인에
 
 ### <a name="domains-and-zones"></a>도메인 및 영역
 
-Domain Name System은 도메인 계층 구조입니다. 계층 구조는 이름이 단순히 **'.**'. '. '루트 도메인에서 시작됩니다.  그 아래에 'com', 'net', 'org', 'uk' 또는 'jp'와 같은 최상위 도메인이 있습니다.  이러한 최상위 수준 도메인 아래는 'org.uk' 또는 'co.jp'와 같은 두 번째 수준의 도메인입니다.  방식으로 계속됩니다. DNS 계층 구조의 도메인은 별도의 DNS 영역을 사용하여 호스트됩니다. 이러한 영역은 전체적으로 분산되며 전 세계의 DNS 이름 서버에서 호스트됩니다.
+Domain Name System은 도메인 계층 구조입니다. 계층은 이름이 '**.**' 인 ' root ' 도메인에서 시작 합니다.  그 아래에 'com', 'net', 'org', 'uk' 또는 'jp'와 같은 최상위 도메인이 있습니다.  이러한 최상위 수준 도메인 아래는 'org.uk' 또는 'co.jp'와 같은 두 번째 수준의 도메인입니다.  방식으로 계속됩니다. DNS 계층 구조의 도메인은 별도의 DNS 영역을 사용하여 호스트됩니다. 이러한 영역은 전체적으로 분산되며 전 세계의 DNS 이름 서버에서 호스트됩니다.
 
 **DNS 영역** - 도메인은 Domain Name System의 고유 이름입니다(예: 'contoso.com'). DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. 예를 들어 'contoso.com' 도메인은 'mail.contoso.com'(메일 서버) 및 'www.contoso.com'(웹 사이트)과 같은 여러 DNS 레코드를 포함할 수 있습니다.
 
@@ -67,5 +67,5 @@ PC 또는 모바일 디바이스의 DNS 클라이언트는 일반적으로 재�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure DNS에 도메인을 위임하는](dns-delegate-domain-azure-dns.md) 방법 알아보기
+[Azure DNS에 도메인을 위임](dns-delegate-domain-azure-dns.md) 하는 방법을 알아봅니다.
 

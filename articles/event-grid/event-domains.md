@@ -8,10 +8,10 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: f6698f91d7659f9fc2c314a9291380301146f8ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898857"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Event Grid 토픽을 관리하는 이벤트 도메인 이해
@@ -31,7 +31,7 @@ ms.locfileid: "78898857"
 
 ### <a name="example-use-case"></a>사용 사례
 
-이벤트 도메인을 가장 쉽게 설명하는 방법은 예제입니다. 트랙터, 굴착 장비 및 기타 중장비를 제조하는 Contoso 건설 기계를 운영한다고 가정해 보겠습니다. 비즈니스의 일부로, 여러분은 장비 유지 관리, 시스템 상태 및 계약 업데이트에 대한 실시간 정보를 고객에게 푸시합니다. 이 모든 정보는 회사 앱, 고객 엔드포인트, 고객이 설치한 기타 인프라를 비롯한 다양한 엔드포인트로 이동합니다.
+이벤트 도메인을 가장 쉽게 설명하는 방법은 예제입니다. Contoso 생성 기계를 실행 하는 경우, 예를 들어 tractors, 장비 장비 및 기타 많은 기계를 제조할 수 있습니다. 비즈니스의 일부로, 여러분은 장비 유지 관리, 시스템 상태 및 계약 업데이트에 대한 실시간 정보를 고객에게 푸시합니다. 이 모든 정보는 회사 앱, 고객 엔드포인트, 고객이 설치한 기타 인프라를 비롯한 다양한 엔드포인트로 이동합니다.
 
 이벤트 도메인을 사용하면 Contoso Construction Machinery를 단일 이벤트 엔터티로 모델링할 수 있습니다. 각 고객은 도메인 내의 토픽으로 표시됩니다. 인증 및 권한 부여는 Azure Active Directory를 사용하여 처리됩니다. 각 고객은 토픽을 구독하고 자신에게 전달된 이벤트를 가져올 수 있습니다. 이벤트 도메인을 통해 관리되는 액세스는 고객이 자신의 토픽에만 액세스할 수 있도록 보장합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "78898857"
 
 ### <a name="built-in-roles"></a>기본 제공 역할
 
-Event Grid에는 RBAC를 이벤트 도메인 작업에 보다 쉽게 적용할 수 있는 두 개의 기본 제공 역할 정의가 제공됩니다. 이러한 역할은 **EventGrid EventSubscription 기여자(미리 보기)** 및 **EventGrid EventSubscription 읽기 권한자(미리 보기)** 입니다. 이벤트 도메인의 토픽을 구독해야 하는 사용자에게 이러한 역할을 할당합니다. 역할 할당의 범위를 사용자가 구독해야 하는 항목으로만 범위를 지정합니다.
+Event Grid에는 RBAC를 이벤트 도메인 작업에 보다 쉽게 적용할 수 있는 두 개의 기본 제공 역할 정의가 제공됩니다. 이러한 역할은 **EventGrid EventSubscription 기여자(미리 보기)** 및 **EventGrid EventSubscription 읽기 권한자(미리 보기)** 입니다. 이벤트 도메인의 토픽을 구독해야 하는 사용자에게 이러한 역할을 할당합니다. 사용자가 구독 해야 하는 토픽 으로만 역할 할당의 범위를 지정 합니다.
 
 이러한 역할에 대한 자세한 내용은 [Event Grid의 기본 제공 역할](security-authorization.md#built-in-roles)을 참조하세요.
 
@@ -63,7 +63,7 @@ Event Grid에는 RBAC를 이벤트 도메인 작업에 보다 쉽게 적용할 �
 
 이벤트 도메인을 만들면 Event Grid에 토픽을 만들 때와 비슷한 게시 엔드포인트가 제공됩니다. 
 
-이벤트 도메인의 모든 토픽에 이벤트를 게시하려면 [사용자 지정 토픽과 동일한 방식으로](./post-to-custom-topic.md)이벤트를 도메인의 끝점으로 푸시합니다. 유일한 차이점은 이벤트를 전달할 토픽을 지정해야 한다는 것입니다.
+이벤트 도메인의 모든 토픽에 이벤트를 게시 하려면 [사용자 지정 토픽의 경우와 동일한 방식](./post-to-custom-topic.md)으로 이벤트를 도메인의 끝점에 푸시합니다. 유일한 차이점은 이벤트를 전달할 토픽을 지정해야 한다는 것입니다.
 
 예를 들어 다음 이벤트 배열을 게시하면 `"id": "1111"`인 이벤트는 `foo` 토픽으로 전송되고 `"id": "2222"`인 이벤트는 `bar` 토픽으로 전송됩니다.
 
@@ -97,21 +97,21 @@ Event Grid에는 RBAC를 이벤트 도메인 작업에 보다 쉽게 적용할 �
 이벤트 도메인은 토픽에 게시를 자동으로 처리합니다. 관리하는 각 토픽에 개별적으로 이벤트를 게시하는 대신, 도메인의 엔드포인트에 모든 이벤트를 게시할 수 있습니다. Event Grid는 각 이벤트가 올바른 토픽에 전송되도록 합니다.
 
 ## <a name="limits-and-quotas"></a>한도 및 할당량
-이벤트 도메인과 관련된 제한 및 할당량은 다음과 같습니다.
+다음은 이벤트 도메인과 관련 된 제한 및 할당량입니다.
 
-- 이벤트 도메인당 100,000개의 토픽 
-- Azure 구독당 100개의 이벤트 도메인 
-- 이벤트 도메인의 토픽당 500개의 이벤트 구독
-- 50개의 도메인 범위 구독 
-- 초당 5,000개의 이벤트(도메인으로)
+- 10만 이벤트 도메인당 항목 
+- 100 Azure 구독 당 이벤트 도메인 
+- 500 이벤트 도메인의 토픽 당 이벤트 구독
+- 50 도메인 범위 구독 
+- 5000 초당 이벤트 수집 율 (도메인)
 
-이러한 제한이 적합하지 않은 경우 지원 티켓을 열거나 [askgrid@microsoft.com](mailto:askgrid@microsoft.com)에 이메일을 보내 제품 팀에 문의하십시오. 
+이러한 제한에 맞지 않는 경우 지원 티켓을 열거나로 [askgrid@microsoft.com](mailto:askgrid@microsoft.com)전자 메일을 보내 제품 팀에 연락 하세요. 
 
 ## <a name="pricing"></a>가격 책정
-이벤트 도메인은 이벤트 그리드의 다른 모든 기능과 동일한 [운영 가격을](https://azure.microsoft.com/pricing/details/event-grid/) 사용합니다.
+이벤트 도메인은 Event Grid의 다른 모든 기능에서 사용 하는 것과 동일한 [작업 가격 책정](https://azure.microsoft.com/pricing/details/event-grid/) 을 사용 합니다.
 
 작업은 이벤트 도메인에서도 사용자 지정 토픽과 동일한 방식으로 작동합니다. 각 이벤트가 이벤트 도메인에 수신되는 것도 작업이고, 각 이벤트 전달 시도도 작업입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 이벤트 도메인 설정, 토픽 만들기, 이벤트 구독 만들기 및 이벤트 게시에 대해 자세히 알아보려면 [이벤트 도메인 관리를](./how-to-event-domains.md)참조하십시오.
+* 이벤트 도메인을 설정 하 고, 항목을 만들고, 이벤트 구독을 만들고, 이벤트를 게시 하는 방법에 대해 알아보려면 [이벤트 도메인 관리](./how-to-event-domains.md)를 참조 하세요.

@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus FAQ | Microsoft Docs
-description: 이 문서에서는 Azure 서비스 버스에 대한 자주 묻는 FAQ(질문)에 대한 답변을 제공합니다.
+description: 이 문서에서는 Azure Service Bus에 대 한 FAQ (질문과 대답)를 제공 합니다.
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 3cd4e69481fb452391e6dc027cb41fd6dae71b7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76760252"
 ---
-# <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure 서비스 버스 - 자주 묻는 질문(FAQ)
+# <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus-질문과 대답 (FAQ)
 
 이 문서는 Microsoft Azure Service Bus에 대한 일부 자주 묻는 질문에 대해 설명합니다. 또한 일반적인 Azure 가격 책정 및 지원 정보는 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)에서 확인할 수 있습니다.
 
@@ -24,10 +24,10 @@ ms.locfileid: "76760252"
 
 ## <a name="general-questions-about-azure-service-bus"></a>Azure Service Bus에 대한 일반적인 질문
 ### <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
-[Azure Service Bus는](service-bus-messaging-overview.md) 분리된 시스템 간에 데이터를 보낼 수 있는 비동기 메시징 클라우드 플랫폼입니다. Microsoft에서 이 기능을 서비스로 제공하므로 이를 사용하기 위해 고유한 하드웨어를 호스트할 필요는 없습니다.
+[Azure Service Bus](service-bus-messaging-overview.md) 은 분리 된 시스템 간에 데이터를 보낼 수 있도록 하는 비동기 메시징 클라우드 플랫폼입니다. Microsoft에서 이 기능을 서비스로 제공하므로 이를 사용하기 위해 고유한 하드웨어를 호스트할 필요는 없습니다.
 
 ### <a name="what-is-a-service-bus-namespace"></a>Service Bus 네임스페이스란?
-[네임스페이스는](service-bus-create-namespace-portal.md) 응용 프로그램 내에서 Service Bus 리소스를 처리하기 위한 범위 지정 컨테이너를 제공합니다. 네임스페이스를 만드는 작업은 Service Bus를 사용하는 데 필요하고 Service Bus를 시작하는 첫 번째 단계 중 하나입니다.
+[네임 스페이스](service-bus-create-namespace-portal.md) 는 응용 프로그램 내에서 Service Bus 리소스의 주소를 지정 하기 위한 범위 지정 컨테이너를 제공 합니다. 네임스페이스를 만드는 작업은 Service Bus를 사용하는 데 필요하고 Service Bus를 시작하는 첫 번째 단계 중 하나입니다.
 
 ### <a name="what-is-an-azure-service-bus-queue"></a>Azure Service Bus 큐란?
 [Service Bus 큐](service-bus-queues-topics-subscriptions.md)는 메시지가 저장되는 엔터티입니다. 큐는 서로 통신해야 하는 여러 애플리케이션 또는 분산된 애플리케이션의 여러 부분이 있는 경우에 유용합니다. 큐는 여러 제품(메시지)를 해당 위치에서 받고 보내는 배포 센터와 비슷합니다.
@@ -42,46 +42,46 @@ ms.locfileid: "76760252"
 
  분할된 엔터티는 [프리미엄 SKU](service-bus-premium-messaging.md)에서 지원되지 않습니다. 
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>방화벽에서 열어야 하는 포트는 무엇입니까? 
-Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 보내고 받을 수 있습니다.
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>방화벽에서 열어야 하는 포트는 무엇 인가요? 
+Azure Service Bus에서 다음 프로토콜을 사용 하 여 메시지를 보내고 받을 수 있습니다.
 
 - AMQP(고급 메시지 큐 프로토콜)
 - SBMP(Service Bus 메시징 프로토콜)
 - HTTP
 
-Azure Event Hubs와 통신하기 위해 이러한 프로토콜을 사용하기 위해 열어야 하는 아웃바운드 포트는 다음 표를 참조하십시오. 
+이러한 프로토콜을 사용 하 여 Azure Event Hubs와 통신 하기 위해 열어야 하는 아웃 바운드 포트는 다음 표를 참조 하세요. 
 
 | 프로토콜 | 포트 | 세부 정보 | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 및 5672 | [AMQP 프로토콜 가이드](service-bus-amqp-protocol-guide.md) 보기 | 
-| SBMP | 9350 ~ 9354 | [연결 모드](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) 참조 |
+| AMQP | 5671 및 5672 | [Amqp 프로토콜 가이드](service-bus-amqp-protocol-guide.md) 를 참조 하세요. | 
+| SBMP | 9350 ~ 9354 | [연결 모드](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) 를 참조 하세요. |
 | HTTP, HTTPS | 80, 443 | 
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>화이트리스트에 필요한 IP 주소는 무엇입니까?
-연결에 적합한 IP 주소를 화이트리스트에 포함하려면 다음 단계를 따르세요.
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>허용 목록 하는 데 필요한 IP 주소는 무엇 인가요?
+연결에 대 한 적절 한 IP 주소 목록을 찾으려면 다음 단계를 수행 합니다.
 
-1. 명령 프롬프트에서 다음 명령을 실행합니다. 
+1. 명령 프롬프트에서 다음 명령을 실행 합니다. 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. 에서 반환된 IP `Non-authoritative answer`주소를 적어 둡니다. 이 IP 주소는 정적입니다. 변경 되는 유일한 시점은 다른 클러스터에 네임 스페이스를 복원 하는 경우입니다.
+2. 에서 `Non-authoritative answer`반환 된 IP 주소를 적어둡니다. 이 IP 주소는 정적입니다. 다른 클러스터에 네임 스페이스를 복원 하는 경우에만 변경 되는 유일한 시점입니다.
 
-네임스페이스에 영역 중복성을 사용하는 경우 몇 가지 추가 단계를 수행해야 합니다. 
+네임 스페이스에 영역 중복성을 사용 하는 경우 몇 가지 추가 단계를 수행 해야 합니다. 
 
-1. 먼저 네임스페이스에서 nslookup을 실행합니다.
+1. 먼저 네임 스페이스에서 nslookup을 실행 합니다.
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. 다음 형식 중 하나인 **신뢰할 수 없는 답변** 섹션의 이름을 적어 둡니다. 
+2. 다음 형식 중 하나에 해당 하는 **신뢰할 수 없는 응답** 섹션의 이름을 적어둡니다. 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. 접미사 s1, s2 및 s3를 사용하여 각 인스턴스에 대해 nslookup을 실행하여 세 가지 가용성 영역에서 실행되는 세 인스턴스의 IP 주소를 가져옵니다. 
+3. 접미사 s1, s2 및 s 3이 포함 된 각 항목에 대해 nslookup을 실행 하 여 세 개의 가용성 영역에서 실행 되는 세 인스턴스의 IP 주소를 가져옵니다. 
 
 
 ## <a name="best-practices"></a>모범 사례
@@ -112,12 +112,12 @@ Service Bus 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 
 ### <a name="does-service-bus-charge-for-storage"></a>Service Bus는 스토리지에 대한 요금을 청구하나요?
 아니요, Service Bus는 스토리지에 대한 요금을 청구하지 않습니다. 하지만 큐/항목 당 지속될 수 있는 데이터의 최대 크기를 제한하는 할당량이 있습니다. 다음 FAQ를 참조하세요.
 
-### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>서비스 버스 표준 네임스페이스가 있습니다. 리소스 그룹 '$system'에서 요금이 표시되는 이유는 무엇입니까?
-Azure Service Bus는 최근에 청구 구성 요소를 업그레이드했습니다. 이로 인해 서비스 버스 표준 네임스페이스가 있는 경우 리소스 그룹 '$system'에서 '구독/<azure_subscription_id>/리소스그룹/$system/공급자/Microsoft.ServiceBus/네임스페이스/$system'에 대한 광고 항목이 표시될 수 있습니다.
+### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Service Bus 표준 네임 스페이스가 있습니다. 리소스 그룹 ' $system '에 요금이 표시 되는 이유는 무엇 인가요?
+최근 청구 구성 요소를 업그레이드 Azure Service Bus. 이로 인해 Service Bus 표준 네임 스페이스가 있는 경우 리소스 그룹 ' $system ' 아래에 리소스 '/subscriptions/<azure_subscription_id>/Ssourceg/$system/providers/Microsoft.ServiceBus/namespaces/$system '에 대 한 줄 항목이 표시 될 수 있습니다.
 
-이러한 요금은 서비스 버스 표준 네임스페이스를 프로비전한 Azure 구독당 기본 요금을 나타냅니다. 
+이러한 요금은 Service Bus 표준 네임 스페이스를 프로 비전 한 Azure 구독 당 기본 요금을 나타냅니다. 
 
-이러한 요금은 새로운 요금이 아니라는 점, 즉 이전 청구 모델에도 존재했다는 점에 유의해야 합니다. 유일한 변화는 이제 '$system'아래에 나열되어 있다는 것입니다. 이는 '$system' 리소스 ID에서 특정 리소스에 연결되지 않고 구독 수준 요금을 그룹화하는 새 청구 시스템의 contraints로 인해 수행됩니다.
+이러한 요금은 새로운 요금이 아니라 이전 청구 모델에도 존재 한다는 점에 유의 해야 합니다. 지금은 ' $system ' 아래에 나열 됩니다. 이는 ' $system ' 리소스 id의 특정 리소스와 연결 되지 않은 구독 수준 요금을 그룹화 하는 새로운 청구 시스템의 제약 조건 때문에 수행 됩니다.
 
 ## <a name="quotas"></a>할당량
 
@@ -141,7 +141,7 @@ Service Bus 메시징 서비스(큐 및 토픽/구독)를 사용하면 애플리
 가능한 Service Bus 예외의 목록은 [예외 개요][Exceptions overview]를 참조하세요.
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>공유 액세스 서명이란 무엇이고 어떤 언어가 서명 생성을 지원하나요?
-공유 액세스 서명은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. Node.js, PHP, Java, 파이썬 및 C#에서 사용자 고유의 서명을 생성하는 방법에 대한 자세한 내용은 [공유 액세스 서명][Shared Access Signatures] 문서를 참조하십시오.
+공유 액세스 서명은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. Node.js, PHP, Java, Python 및 c #에서 자신의 서명을 생성 하는 방법에 대 한 자세한 내용은 [공유 액세스 서명][Shared Access Signatures] 문서를 참조 하세요.
 
 ## <a name="subscription-and-namespace-management"></a>구독 및 네임스페이스 관리
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>다른 Azure 구독으로 네임스페이스를 마이그레이션하려면 어떻게 해야 하나요?
@@ -172,7 +172,7 @@ Service Bus에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure Service Bus 프리미엄 소개(블로그 게시물)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Azure Service Bus 프리미엄 소개(Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-* [서비스 버스 개요](service-bus-messaging-overview.md)
+* [Service Bus 개요](service-bus-messaging-overview.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 
 [Best practices for performance improvements using Service Bus]: service-bus-performance-improvements.md

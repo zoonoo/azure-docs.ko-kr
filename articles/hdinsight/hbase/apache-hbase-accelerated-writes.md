@@ -1,6 +1,6 @@
 ---
 title: Apache HBase에 대한 Azure HDInsight 가속 쓰기
-description: 아파치 HBase 쓰기 미리 로그의 성능을 향상시키기 위해 프리미엄 관리 디스크를 사용하는 Azure HDInsight 가속 쓰기 기능에 대한 개요를 제공합니다.
+description: Premium managed disks를 사용 하 여 Apache HBase Write 미리 로그의 성능을 개선 하는 Azure HDInsight 가속 쓰기 기능의 개요를 제공 합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,43 +8,43 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/24/2020
 ms.openlocfilehash: 7165bab96d037f6782bc9aa6767cadd9b35f058c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76764609"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Apache HBase에 대한 Azure HDInsight 가속 쓰기
 
-이 문서에서는 Azure HDInsight의 아파치 HBase에 대한 **가속 쓰기** 기능에 대한 배경 및 쓰기 성능을 향상시키는 데 효과적으로 사용할 수 있는 방법을 제공합니다. **가속 쓰기는** [Azure 프리미엄 SSD 관리 디스크를](../../virtual-machines/linux/disks-types.md#premium-ssd) 사용하여 아파치 HBase 쓰기 미리 쓰기 로그(WAL)의 성능을 향상시킵니다. 아파치 HBase에 대한 자세한 내용은 [HDInsight에서 아파치 HBase무엇을](apache-hbase-overview.md)참조하십시오.
+이 문서에서는 Azure HDInsight의 Apache HBase에 대 한 **가속화 된 쓰기** 기능 및 쓰기 성능을 향상 시키기 위해 효과적으로 사용할 수 있는 방법에 대 한 배경 지식을 제공 합니다. **가속화 된 쓰기** 는 [Azure premium SSD 관리 디스크](../../virtual-machines/linux/disks-types.md#premium-ssd) 를 사용 하 여 Apache HBase WRITE 미리 로그 (WAL)의 성능을 향상 시킵니다. Apache HBase에 대해 자세히 알아보려면 [HDInsight의 Apache hbase 란?](apache-hbase-overview.md)을 참조 하세요.
 
 ## <a name="overview-of-hbase-architecture"></a>HBase 아키텍처 개요
 
-HBase에서 **행은** 하나 이상의 **열로** 구성되며 **행 키로**식별됩니다. 여러 행이 **테이블을**구성합니다. 열에는 해당 열에 있는 값의 타임스탬프 버전인 **셀이**포함되어 있습니다. 열은 **열 패밀리로**그룹화되고 열 패밀리의 모든 열은 **HFiles**라는 저장소 파일에 함께 저장됩니다.
+HBase에서 **행** 은 하나 이상의 **열** 로 구성 되며 **행 키**로 식별 됩니다. 여러 행이 **테이블**을 구성 합니다. 열에는 해당 열에 있는 값의 타임 스탬프 버전인 **셀**이 포함 됩니다. 열은 **열**패밀리로 그룹화 되 고, 열 패밀리의 모든 열은 **hfiles**라는 저장소 파일에 함께 저장 됩니다.
 
-HBase의 **영역은** 데이터 처리 부하의 균형을 맞추는 데 사용됩니다. HBase는 먼저 테이블의 행을 단일 리전에 저장합니다. 행은 테이블의 데이터 양이 증가함에 따라 여러 지역에 분산됩니다. **리전 서버는** 여러 리전에 대한 요청을 처리할 수 있습니다.
+HBase의 **지역은** 데이터 처리 부하의 균형을 유지 하는 데 사용 됩니다. HBase는 먼저 단일 지역에 테이블의 행을 저장 합니다. 행은 테이블의 데이터 양이 증가할수록 여러 지역에 걸쳐 분산 됩니다. **지역 서버** 는 여러 지역에 대 한 요청을 처리할 수 있습니다.
 
-## <a name="write-ahead-log-for-apache-hbase"></a>아파치 HBase에 대 한 미리 로그 쓰기
+## <a name="write-ahead-log-for-apache-hbase"></a>Apache HBase의 미리 쓰기 로그
 
-HBase는 먼저 WAL(미리 쓰기 로그)이라고 하는 커밋 로그 유형에 데이터 업데이트를 씁니다. 업데이트가 WAL에 저장되면 메모리 **내 MemStore에**기록됩니다. 메모리의 데이터가 최대 용량에 도달하면 **디스크에 HFile**로 기록됩니다.
+HBase는 먼저 데이터 업데이트를 WAL (Write 앞선 로그) 이라는 커밋 로그 형식에 기록 합니다. 업데이트는 WAL에 저장 된 후 메모리 내 **Memstore**에 기록 됩니다. 메모리의 데이터가 최대 용량에 도달 하면 디스크에 **Hfile**로 기록 됩니다.
 
-MemStore를 플러시하기 전에 **RegionServer가** 충돌하거나 사용할 수 없게 되면 미리 쓰기 로그를 사용하여 업데이트를 재생할 수 있습니다. WAL이 없으면 **HFile에**대한 업데이트를 플러시하기 전에 **RegionServer가** 충돌하면 이러한 모든 업데이트가 손실됩니다.
+MemStore를 플러시하는 동안에는 지역 **서버가** 충돌 하거나 사용할 수 없게 되 면 미리 쓰기 로그를 사용 하 여 업데이트를 재생할 수 있습니다. WAL을 사용 하지 않을 경우 **Hfile**에 업데이트를 플러시하는 동안 지역 **서버가** 충돌 하면 해당 업데이트가 모두 손실 됩니다.
 
-## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>아파치 H베이스에 대한 Azure HDInsight의 가속 쓰기 기능
+## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Apache HBase 용 Azure HDInsight의 가속화 되는 쓰기 기능
 
-가속 쓰기 기능은 클라우드 저장소에 있는 미리 쓰기 로그를 사용하여 발생하는 쓰기 대기 시간 증가 문제를 해결합니다.  HDInsight 아파치 HBase 클러스터의 가속 쓰기 기능은 모든 RegionServer(작업자 노드)에 프리미엄 SSD 관리 디스크를 연결합니다. 그런 다음 클라우드 스토리지 대신 이러한 프리미엄 관리 디스크에 탑재된 HADoop 파일 시스템(HDFS)에 미리 쓰기 로그를 작성합니다.  프리미엄 관리 디스크는 솔리드 스테이트 디스크(SSD)를 사용하며 내결함성을 갖춘 우수한 I/O 성능을 제공합니다.  관리되지 않는 디스크와 달리 한 저장소 단위가 다운되면 동일한 가용성 집합의 다른 저장소 장치에는 영향을 주지 않습니다.  따라서 관리 디스크는 쓰기 대기 시간이 적고 응용 프로그램에 더 나은 복원력을 제공합니다. Azure 관리 디스크에 대한 자세한 내용은 [Azure 관리 디스크 소개를](../../virtual-machines/windows/managed-disks-overview.md)참조하십시오.
+가속화 된 쓰기 기능은 클라우드 저장소에 있는 미리 쓰기 로그를 사용 하 여 발생 하는 더 높은 쓰기 대기 시간 문제를 해결 합니다.  HDInsight Apache HBase 클러스터의 가속화 된 쓰기 기능을 통해 프리미엄 SSD 관리 디스크를 모든 영역 서버 (작업자 노드)에 연결 합니다. 그런 다음 쓰기 미리 로그가 클라우드 저장소 대신 이러한 프리미엄 관리 디스크에 탑재 된 HDFS (Hadoop 파일 시스템)에 기록 됩니다.  프리미엄 managed disks는 Ssd (반도체 디스크)를 사용 하 고 내결함성을 갖춘 뛰어난 i/o 성능을 제공 합니다.  관리 되지 않는 디스크와 달리 한 저장소 단위가 중단 되 면 동일한 가용성 집합의 다른 저장 단위에 영향을 주지 않습니다.  결과적으로 managed disks는 응용 프로그램에 대 한 낮은 쓰기 대기 시간과 더 나은 복원 력을 제공 합니다. Azure managed disks에 대해 자세히 알아보려면 [azure managed Disks 소개](../../virtual-machines/windows/managed-disks-overview.md)를 참조 하세요.
 
-## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>HDInsight에서 HBase에 대한 가속 쓰기를 활성화하는 방법
+## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>HDInsight에서 HBase에 대해 가속화 되는 쓰기를 사용 하도록 설정 하는 방법
 
-가속 쓰기 기능을 사용하여 새 HBase 클러스터를 만들려면 **3단계 저장소에**도달할 때까지 [HDInsight에서 클러스터 설정](../hdinsight-hadoop-provision-linux-clusters.md) 단계를 따릅니다. **메타스토어 설정에서**HBase 가속 쓰기 사용 옆의 확인란을 **선택합니다.** 그런 다음 클러스터 만들기를 위한 나머지 단계를 계속합니다.
+가속화 된 쓰기 기능을 사용 하 여 새 HBase 클러스터를 만들려면 **3 단계 저장소**에 도달할 때까지 [HDInsight에서 클러스터 설정](../hdinsight-hadoop-provision-linux-clusters.md) 의 단계를 따릅니다. **Metastore 설정**에서 **HBase 가속 쓰기 사용**옆의 확인란을 선택 합니다. 그런 다음 클러스터를 만들기 위한 나머지 단계를 계속 진행 합니다.
 
-![HDInsight 아파치 HBase에 대한 가속 쓰기 옵션 사용](./media/apache-hbase-accelerated-writes/azure-portal-cluster-storage-hbase.png)
+![HDInsight Apache HBase에 대 한 가속 쓰기 옵션 사용](./media/apache-hbase-accelerated-writes/azure-portal-cluster-storage-hbase.png)
 
 ## <a name="other-considerations"></a>기타 고려 사항
 
-데이터 내구성을 유지하려면 최소 3개의 작업자 노드가 있는 클러스터를 만듭니다. 생성된 후에는 클러스터를 3개 미만의 작업자 노드로 축소할 수 없습니다.
+데이터 내 구성을 유지 하려면 최소 3 개의 작업자 노드를 사용 하 여 클러스터를 만듭니다. 만든 후에는 클러스터를 3 개 미만의 작업자 노드로 확장할 수 없습니다.
 
-클러스터를 삭제하기 전에 HBase 테이블을 플러시하거나 비활성화하여 미리 쓰기 로그 데이터가 손실되지 않도록 합니다.
+클러스터를 삭제 하기 전에 HBase 테이블을 플러시 또는 사용 하지 않도록 설정 하 여 쓰기 미리 로그 데이터를 잃지 않도록 합니다.
 
 ```
 flush 'mytable'
@@ -54,13 +54,13 @@ flush 'mytable'
 disable 'mytable'
 ```
 
-클러스터를 축소할 때 유사한 단계를 따르십시오: 테이블을 플러시하고 테이블을 비활성화하여 들어오는 데이터를 중지합니다. 클러스터를 3개 미만으로 축소할 수 없습니다.
+클러스터를 축소 하는 경우 비슷한 단계를 수행 합니다. 테이블을 플러시하고 들어오는 데이터를 중지 하기 위해 테이블을 사용 하지 않도록 설정 합니다. 클러스터를 3 개 미만의 노드로 확장할 수 없습니다.
 
-다음 단계를 수행하면 성공적인 축소가 보장되고 복제되지 않거나 임시 파일로 인해 네임노드가 안전 모드로 전환될 가능성을 방지할 수 있습니다.
+이러한 단계를 수행 하면 성공적으로 축소 되 고, 복제 된 파일 또는 임시 파일 때문에 namenode 안전 모드로 전환 되지 않을 수 있습니다.
 
-네임노드가 축소 된 후 안전 모드로 전환하는 경우, 하드 디스크 명령을 사용하여 복제되지 않는 블록을 다시 복제하고 안전 모드에서 하드 디스크를 가져옵니다. 이렇게 다시 복제하면 HBase를 성공적으로 다시 시작할 수 있습니다.
+규모 축소 후에 namenode가 안전 하지 않은 경우 hdfs 명령을 사용 하 여 복제 된 블록을 다시 복제 하 고 안전 모드에서 hdfs를 가져옵니다. 이 다시 복제를 통해 HBase를 성공적으로 다시 시작할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [앞서 로그 쓰기 기능에](https://hbase.apache.org/book.html#wal) 대한 공식 아파치 HBase 문서
-* 가속 쓰기를 사용하도록 HDInsight 아파치 HBase 클러스터를 업그레이드하려면 [아파치 HBase 클러스터를 새 버전으로 마이그레이션을](apache-hbase-migrate-new-version.md)참조하십시오.
+* [미리 쓰기 로그 기능의](https://hbase.apache.org/book.html#wal) 공식 Apache HBase 설명서
+* 가속화 된 쓰기를 사용 하도록 HDInsight Apache HBase 클러스터를 업그레이드 하려면 [Apache hbase 클러스터를 새 버전으로 마이그레이션](apache-hbase-migrate-new-version.md)을 참조 하세요.

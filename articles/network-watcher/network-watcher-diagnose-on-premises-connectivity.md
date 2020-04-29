@@ -1,5 +1,5 @@
 ---
-title: VPN 게이트웨이를 통한 온-프레미스 연결 진단
+title: VPN gateway를 통한 온-프레미스 연결 진단
 titleSuffix: Azure Network Watcher
 description: 이 문서에서는 Azure Network Watcher 리소스 문제 해결을 사용하여 VPN 게이트웨이를 통해 온-프레미스 연결을 진단하는 방법을 설명합니다.
 services: network-watcher
@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 835b3a69e779b536961110b674ae67f4e8c13ce0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76845058"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>VPN Gateway를 통한 온-프레미스 연결 진단
 
-Azure VPN Gateway를 사용하여 온-프레미스 네트워크와 Azure 가상 네트워크 간의 보안 연결에 대한 필요성을 해결하는 하이브리드 솔루션을 만들 수 있습니다. 요구 사항이 고유하므로 온-프레미스 VPN 디바이스의 선택도 고유합니다. Azure는 현재 디바이스 공급 업체와 협력하여 지속적으로 유효성이 검사되는 [여러 VPN 디바이스](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)를 지원합니다. 온-프레미스 VPN 디바이스를 구성하기 전에 디바이스 관련 구성 설정을 검토합니다. 마찬가지로 Azure VPN Gateway는 연결을 설정하는 데 사용되는 [지원되는 IPsec 매개 변수](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec)의 집합으로 구성됩니다. 현재 Azure VPN Gateway에서 IPsec 매개 변수의 특정 조합을 지정하거나 선택하는 방법이 없습니다. 온-프레미스와 Azure 간의 성공적인 연결 설정을 위해 온-프레미스 VPN 디바이스 설정은 Azure VPN Gateway에서 지정한 IPsec 매개 변수를 따라야 합니다. 설정이 올바르지 않으면 연결이 끊어졌으며 지금까지 이러한 문제를 해결하는 것은 간단하지 않았으며 일반적으로 문제를 식별하고 해결하는 데 몇 시간이 걸렸습니다.
+Azure VPN Gateway를 사용하여 온-프레미스 네트워크와 Azure 가상 네트워크 간의 보안 연결에 대한 필요성을 해결하는 하이브리드 솔루션을 만들 수 있습니다. 요구 사항이 고유하므로 온-프레미스 VPN 디바이스의 선택도 고유합니다. Azure는 현재 디바이스 공급 업체와 협력하여 지속적으로 유효성이 검사되는 [여러 VPN 디바이스](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)를 지원합니다. 온-프레미스 VPN 디바이스를 구성하기 전에 디바이스 관련 구성 설정을 검토합니다. 마찬가지로 Azure VPN Gateway는 연결을 설정하는 데 사용되는 [지원되는 IPsec 매개 변수](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec)의 집합으로 구성됩니다. 현재 Azure VPN Gateway에서 IPsec 매개 변수의 특정 조합을 지정하거나 선택하는 방법이 없습니다. 온-프레미스와 Azure 간의 성공적인 연결 설정을 위해 온-프레미스 VPN 디바이스 설정은 Azure VPN Gateway에서 지정한 IPsec 매개 변수를 따라야 합니다. 설정이 잘못 된 경우 연결이 손실 되 고 현재까지 이러한 문제를 해결할 때까지 문제가 발생 하 여 문제를 식별 하 고 해결 하는 데 시간이 걸렸습니다.
 
 Azure Network Watcher 문제 해결 기능을 사용하여 게이트웨이 및 연결로 모든 문제를 진단하고 몇 분 안에 문제를 해결하기 위해 정보를 바탕으로 결정을 내릴 수 있는 충분한 정보를 얻을 수 있습니다.
 
@@ -82,34 +82,34 @@ Azure Network Watcher 문제 해결 기능을 사용하면 간단한 PowerShell 
 
 | 오류 유형 | 이유 | 로그|
 |---|---|---|
-| NoFault | 오류가 발견되지 않은 경우를 나타냅니다. |yes|
-| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |예|
-| PlannedMaintenance |  게이트웨이 인스턴스가 유지 관리되고 있습니다.  |예|
-| UserDrivenUpdate | 사용자 업데이트를 진행 중인 경우를 나타냅니다. 크기 조정 작업일 수 있습니다. | 예 |
-| VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 예 |
-| PlatformInActive | 플랫폼에 문제가 있습니다. | 예|
-| ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | 예|
-| NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 단지 경고일 뿐입니다.| 예|
-| ConnectionsNotConnected | 연결이 이루어지지 않았습니다. 단지 경고일 뿐입니다.| yes|
-| GatewayCPUUsageExceeded | 현재 게이트웨이 CPU 사용량이 95%를 초과했습니다. | yes |
+| NoFault | 오류가 발견되지 않은 경우를 나타냅니다. |예|
+| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니요|
+| PlannedMaintenance |  게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니요|
+| UserDrivenUpdate | 사용자 업데이트를 진행 중인 경우를 나타냅니다. 크기 조정 작업일 수 있습니다. | 아니요 |
+| VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 아니요 |
+| PlatformInActive | 플랫폼에 문제가 있습니다. | 아니요|
+| ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | 아니요|
+| NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 단지 경고일 뿐입니다.| 아니요|
+| ConnectionsNotConnected | 연결이 이루어지지 않았습니다. 단지 경고일 뿐입니다.| 예|
+| GatewayCPUUsageExceeded | 현재 게이트웨이 CPU 사용량이 95%를 초과했습니다. | 예 |
 
 ### <a name="connection"></a>연결
 
 | 오류 유형 | 이유 | 로그|
 |---|---|---|
-| NoFault | 오류가 발견되지 않은 경우를 나타냅니다. |yes|
-| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |예|
-| PlannedMaintenance | 게이트웨이 인스턴스가 유지 관리되고 있습니다.  |예|
-| UserDrivenUpdate | 사용자 업데이트를 진행 중인 경우를 나타냅니다. 크기 조정 작업일 수 있습니다.  | 예 |
-| VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 예 |
-| ConnectionEntityNotFound | 연결 구성이 없습니다. | 예 |
-| ConnectionIsMarkedDisconnected | 연결이 "연결 끊김"으로 표시되었습니다. |예|
-| ConnectionNotConfiguredOnGateway | 기본 서비스에 연결이 구성되어 있지 않습니다. | yes |
-| ConnectionMarkedStandby | 기본 서비스가 대기로 표시되었습니다.| yes|
-| 인증 | 미리 공유한 키가 일치하지 않습니다. | yes|
-| PeerReachability | 피어 게이트웨이에 연결할 수 없습니다. | yes|
-| IkePolicyMismatch | 피어 게이트웨이에 Azure에서 지원되지 않는 IKE 정책이 있습니다. | yes|
-| WfpParse Error | WFP 로그를 구문 분석하는 동안 오류가 발생했습니다. |yes|
+| NoFault | 오류가 발견되지 않은 경우를 나타냅니다. |예|
+| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니요|
+| PlannedMaintenance | 게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니요|
+| UserDrivenUpdate | 사용자 업데이트를 진행 중인 경우를 나타냅니다. 크기 조정 작업일 수 있습니다.  | 아니요 |
+| VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 아니요 |
+| ConnectionEntityNotFound | 연결 구성이 없습니다. | 아니요 |
+| ConnectionIsMarkedDisconnected | 연결이 "연결 끊김"으로 표시되었습니다. |아니요|
+| ConnectionNotConfiguredOnGateway | 기본 서비스에 연결이 구성되어 있지 않습니다. | 예 |
+| ConnectionMarkedStandby | 기본 서비스가 대기로 표시되었습니다.| 예|
+| 인증 | 미리 공유한 키가 일치하지 않습니다. | 예|
+| PeerReachability | 피어 게이트웨이에 연결할 수 없습니다. | 예|
+| IkePolicyMismatch | 피어 게이트웨이에 Azure에서 지원되지 않는 IKE 정책이 있습니다. | 예|
+| WfpParse Error | WFP 로그를 구문 분석하는 동안 오류가 발생했습니다. |예|
 
 ## <a name="next-steps"></a>다음 단계
 

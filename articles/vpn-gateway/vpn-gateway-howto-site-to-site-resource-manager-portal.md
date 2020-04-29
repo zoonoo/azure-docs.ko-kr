@@ -1,5 +1,5 @@
 ---
-title: '온-프레미스 네트워크를 Azure 가상 네트워크에 연결: 사이트-사이트 VPN: 포털'
+title: '온-프레미스 네트워크를 Azure virtual network에 연결: 사이트 간 VPN: 포털'
 description: 공용 인터넷을 통해 온-프레미스 네트워크에서 Azure Virtual Network에 IPsec을 만드는 단계입니다. 이 단계는 포털을 사용하여 크로스-프레미스 사이트 간 VPN Gateway 연결을 만드는 데 도움이 됩니다.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 857b50a04466f43a25cf80d7930cfb4639dc9d65
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244434"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Azure Portal에서 사이트 간 연결 만들기
@@ -20,10 +20,10 @@ ms.locfileid: "79244434"
 이 문서에서는 Azure Portal을 사용하여 온-프레미스 네트워크에서 VNet으로 사이트 간 VPN Gateway 연결을 만드는 방법을 보여줍니다. 이 문서의 단계는 Resource Manager 배포 모델에 적용됩니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Powershell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Cli](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Azure 포털(클래식)](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+> * [Azure Portal (클래식)](vpn-gateway-howto-site-to-site-classic-portal.md)
 > 
 >
 
@@ -46,16 +46,16 @@ ms.locfileid: "79244434"
 * **가상 네트워크 이름:** VNet1
 * **주소 공간:** 10.1.0.0/16
 * **구독:** 사용할 구독을 선택합니다.
-* **리소스 그룹:** 테스트RG1
+* **리소스 그룹:** TestRG1
 * **지역:** 미국 동부
 * **서브넷:** 프런트 엔드: 10.1.0.0/24, 백 엔드: 10.1.1.0/24(이 연습의 선택 사항)
 * **게이트웨이 서브넷 주소 범위:** 10.1.255.0/27
 * **가상 네트워크 게이트웨이 이름:** VNet1GW
 * **공용 IP 주소 이름:** VNet1GWpip
 * **VPN 유형:** 경로 기반
-* **연결 유형:** 사이트 간(IPsec)
-* **게이트웨이 유형:** Vpn
-* **로컬 네트워크 게이트웨이 이름:** 사이트 1
+* **연결 형식:** 사이트 간 (IPsec)
+* **게이트웨이 유형:** VPN
+* **로컬 네트워크 게이트웨이 이름:** Site1
 * **연결 이름:** VNet1toSite1
 * **공유 키:** 이 예제에서는 abc123을 사용합니다. 그러나 VPN 하드웨어와 호환이 되는 것이면 무엇이든 사용할 수 있습니다. 중요한 점은 값이 연결의 양쪽 모두에 일치합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "79244434"
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="2-create-the-vpn-gateway"></a><a name="VNetGateway"></a>2. VPN 게이트웨이 만들기
+## <a name="2-create-the-vpn-gateway"></a><a name="VNetGateway"></a>2. VPN gateway 만들기
 
 이 단계에서는 VNet용 가상 네트워크 게이트웨이를 만듭니다. 종종 선택한 게이트웨이 SKU에 따라 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다.
 
@@ -71,13 +71,13 @@ ms.locfileid: "79244434"
 
 ### <a name="example-settings"></a>예제 설정
 
-* **지역 > 인스턴스 세부 정보:** 미국 동부
-* **가상 네트워크 > 가상 네트워크:** VNet1
+* **인스턴스 세부 정보 > 영역:** 미국 동부
+* **가상 네트워크 Virtual Network >:** VNet1
 * **인스턴스 세부 정보 > 이름:** VNet1GW
-* **게이트웨이 유형에 > 인스턴스 세부 정보:** Vpn
-* **VPN 유형에 > 인스턴스 세부 정보:** 경로 기반
-* **가상 네트워크 > 게이트웨이 서브넷 주소 범위:** 10.1.255.0/27
-* **공용 IP 주소 > 공용 IP 주소 이름:** VNet1GWpip
+* **인스턴스 세부 정보 > 게이트웨이 유형:** VPN
+* **인스턴스 세부 정보 > VPN 유형:** 경로 기반
+* **Virtual Network > 게이트웨이 서브넷 주소 범위:** 10.1.255.0/27
+* 공용 ip **주소 > 공용 ip 주소 이름:** VNet1GWpip
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
@@ -90,8 +90,8 @@ ms.locfileid: "79244434"
 
 **예제 값**
 
-* **이름:** 사이트 1
-* **리소스 그룹:** 테스트RG1
+* **이름:** Site1
+* **리소스 그룹:** TestRG1
 * **위치:** 미국 동부
 
 
@@ -102,11 +102,11 @@ ms.locfileid: "79244434"
 온-프레미스 네트워크에 대한 사이트 간 연결에는 VPN 디바이스가 필요합니다. 이 단계에서는 VPN 디바이스를 구성합니다. VPN 디바이스를 구성할 때 다음이 필요합니다.
 
 - 공유 키 - 사이트 간 VPN 연결을 만들 때 지정하는 것과 동일한 공유 키입니다. 이 예제에서는 기본적인 공유 키를 사용합니다. 실제로 사용할 키는 좀 더 복잡하게 생성하는 것이 좋습니다.
-- 가상 네트워크 게이트웨이의 공용 IP 주소 Azure Portal, PowerShell 또는 CLI를 사용하여 공용 IP 주소를 볼 수 있습니다. Azure 포털을 사용하여 VPN 게이트웨이의 공용 IP 주소를 찾으려면 **가상 네트워크 게이트웨이로**이동한 다음 게이트웨이 이름을 클릭합니다.
+- 가상 네트워크 게이트웨이의 공용 IP 주소 Azure Portal, PowerShell 또는 CLI를 사용하여 공용 IP 주소를 볼 수 있습니다. Azure Portal를 사용 하 여 VPN 게이트웨이의 공용 IP 주소를 찾으려면 **가상 네트워크 게이트웨이**로 이동한 다음 게이트웨이의 이름을 클릭 합니다.
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
-## <a name="5-create-the-vpn-connection"></a><a name="CreateConnection"></a>5. VPN 연결 만들기
+## <a name="5-create-the-vpn-connection"></a><a name="CreateConnection"></a>5. VPN 연결을 만듭니다.
 
 가상 네트워크 게이트웨이와 온-프레미스 VPN 디바이스 사이의 사이트 간 VPN 연결을 만듭니다.
 

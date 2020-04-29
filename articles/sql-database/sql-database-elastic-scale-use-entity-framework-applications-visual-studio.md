@@ -1,5 +1,5 @@
 ---
-title: 엔터티 프레임워크를 사용하여 탄력적 데이터베이스 클라이언트 라이브러리 사용
+title: Entity Framework와 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용
 description: 데이터베이스 코딩을 위해 Elastic Database 클라이언트 라이브러리 및 Entity Framework 사용
 services: sql-database
 ms.service: sql-database
@@ -12,22 +12,22 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
 ms.openlocfilehash: 1653a904875964d86864c59c718603a6dacdcbda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77087175"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>엔터티 프레임 작업과 함께 Elastic Database 클라이언트 라이브러리
 
-이 문서에서는 [Elastic Database 도구](sql-database-elastic-scale-introduction.md)의 기능을 통합하는 데 필요한 Entity Framework 애플리케이션의 변경 내용을 보여줍니다. 엔터티 프레임워크 **코드 우선** 접근 방식을 사용하여 [샤드 맵 관리](sql-database-elastic-scale-shard-map-management.md) 및 데이터 종속 [라우팅을](sql-database-elastic-scale-data-dependent-routing.md) 구성하는 데 중점을 둡니다. 이 문서 전체에서는 EF용 [Code First – New Database](https://msdn.microsoft.com/data/jj193542.aspx) 자습서를 실행 예제로 사용합니다. 이 문서와 함께 제공되는 샘플 코드는 Visual Studio 코드 샘플에 포함된 탄력적 데이터베이스 도구의 샘플 세트 일부입니다.
+이 문서에서는 [Elastic Database 도구](sql-database-elastic-scale-introduction.md)의 기능을 통합하는 데 필요한 Entity Framework 애플리케이션의 변경 내용을 보여줍니다. Entity Framework **Code First** 방법을 사용 하 여 분할 된 데이터 [맵 관리](sql-database-elastic-scale-shard-map-management.md) 및 [데이터 종속 라우팅을](sql-database-elastic-scale-data-dependent-routing.md) 작성 하는 데 중점을 둡니다. 이 문서 전체에서는 EF용 [Code First – New Database](https://msdn.microsoft.com/data/jj193542.aspx) 자습서를 실행 예제로 사용합니다. 이 문서와 함께 제공되는 샘플 코드는 Visual Studio 코드 샘플에 포함된 탄력적 데이터베이스 도구의 샘플 세트 일부입니다.
 
 ## <a name="downloading-and-running-the-sample-code"></a>샘플 코드 다운로드 및 실행
 
 이 기사의 코드를 다운로드하려면:
 
 * Visual Studio 2012 이상이 필요합니다. 
-* Azure [SQL - 엔터티 프레임워크 통합 샘플에 대한 탄력적 DB 도구를](https://github.com/Azure/elastic-db-tools/)다운로드합니다. 선택한 위치에 샘플의 압축을 풉니다.
+* [AZURE SQL 용 탄력적 DB 도구-Entity Framework 통합 샘플](https://github.com/Azure/elastic-db-tools/)을 다운로드 합니다. 선택한 위치에 샘플의 압축을 풉니다.
 * Visual Studio를 시작합니다. 
 * Visual Studio에서 [파일] -> [프로젝트/솔루션 열기]를 선택합니다. 
 * **프로젝트 열기** 대화 상자에서 다운로드한 샘플로 이동하고 **EntityFrameworkCodeFirst.sln**을 선택하여 샘플을 엽니다. 
@@ -275,7 +275,7 @@ new CreateDatabaseIfNotExists<ElasticScaleContext<T>>());
 
 ## <a name="conclusion"></a>결론
 
-이 문서에 설명된 단계를 통해 EF 애플리케이션은 EF 애플리케이션에 사용된 **DbContext** 서브클래스의 생성자를 리팩터링하여 데이터 종속 라우팅을 위한 탄력적 데이터베이스 클라이언트 라이브러리 기능을 사용할 수 있습니다. 이렇게 하면 **DbContext** 클래스가 이미 있는 위치에 필요한 변경 내용이 제한됩니다. 또한 EF 애플리케이션은 분할된 데이터베이스 맵에 새 분할된 데이터베이스 및 매핑을 등록하는 단계와 필요한 EF 마이그레이션을 호출하는 단계를 결합하여 자동 스키마 배포의 이점을 계속 활용할 수 있습니다. 
+이 문서에 설명된 단계를 통해 EF 애플리케이션은 EF 애플리케이션에 사용된 **DbContext** 서브클래스의 생성자를 리팩터링하여 데이터 종속 라우팅을 위한 탄력적 데이터베이스 클라이언트 라이브러리 기능을 사용할 수 있습니다. 이렇게 하면 **DbContext** 클래스가 이미 있는 위치에 필요한 변경 내용이 제한 됩니다. 또한 EF 애플리케이션은 분할된 데이터베이스 맵에 새 분할된 데이터베이스 및 매핑을 등록하는 단계와 필요한 EF 마이그레이션을 호출하는 단계를 결합하여 자동 스키마 배포의 이점을 계속 활용할 수 있습니다. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 코스모스 DB와 아파치 스파크를 갖춘 람다 아키텍처
+title: Azure Cosmos DB 및 Apache Spark를 사용 하는 람다 아키텍처
 description: 이 문서에서는 Azure Cosmos DB, HDInsight 및 Spark를 사용하여 람다 아키텍처를 구현하는 방법을 설명합니다.
 ms.service: cosmos-db
 author: tknandu
@@ -7,10 +7,10 @@ ms.author: ramkris
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 68ce06d8a2904bf99f58a53817444b2992b23501
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76719741"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Azure 플랫폼에 람다 아키텍처 구현 
@@ -32,7 +32,7 @@ Azure에서 람다 아키텍처를 구현하려면 다음 기술을 결합하여
 
 원본: http://lambda-architecture.net/
 
-람다 아키텍처의 기본 원칙은 에 따라 [http://lambda-architecture.net](http://lambda-architecture.net/)이전 다이어그램에 설명되어 있습니다.
+람다 아키텍처의 기본 원칙은 위의 다이어그램에서에 따라 설명 됩니다 [http://lambda-architecture.net](http://lambda-architecture.net/).
 
  1. 모든 **데이터**는 *일괄 처리 계층* 및 *속도 계층**모두*로 푸시됩니다.
  2. **일괄 처리 계층**에는 마스터 데이터 세트(변경 불가능한 추가 전용 원시 데이터 세트)가 있으며, 일괄 처리 보기가 미리 계산됩니다.
@@ -42,7 +42,7 @@ Azure에서 람다 아키텍처를 구현하려면 다음 기술을 결합하여
 
 계속 참조해 가면서 다음을 사용하여 이 아키텍처를 구현할 수 있습니다.
 
-* Azure 코스모스 컨테이너
+* Azure Cosmos 컨테이너
 * HDInsight(Apache Spark 2.1) 클러스터
 * Spark 커넥터 [1.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.1.0_2.11/1.2.6/jar)
 
@@ -91,7 +91,7 @@ var streamData = spark.readStream.format(classOf[CosmosDBSourceProvider].getName
 val query = streamData.withColumn("countcol", streamData.col("id").substr(0, 0)).groupBy("countcol").count().writeStream.outputMode("complete").format("console").start()
 ```
 
-전체 코드 샘플은 [azure-cosmosdb-spark/람다/샘플을](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)참조하십시오.
+전체 코드 샘플은 다음을 비롯 한 [azure-cosmosdb-spark/람다/샘플](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)을 참조 하세요.
 * 여기에는 [Streaming Query from Cosmos DB Change Feed.scala](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) 및
 * [Streaming Tags Query from Cosmos DB Change Feed.scala](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala)가 있습니다.
 
@@ -114,7 +114,7 @@ Azure Cosmos DB 변경 피드에 대한 자세한 내용은 다음을 참조하�
 
  1. 멀티캐스팅 문제를 방지하기 위해 모든 **데이터**가 Azure Cosmos DB에만 푸시됩니다.
  2. **일괄 처리 계층**에는 Azure Cosmos DB에 저장되는 마스터 데이터 세트(변경 불가능한 추가 전용 원시 데이터 세트)가 있습니다. HDI Spark를 사용하면 집계를 미리 계산하여 계산된 일괄 처리 보기에 저장할 수 있습니다.
- 3. **게재 계층은** 마스터 데이터 집합 및 계산된 일괄 처리 보기에 대한 컬렉션이 있는 Azure Cosmos 데이터베이스입니다.
+ 3. **서비스 계층** 은 마스터 데이터 집합 및 계산 된 일괄 처리 보기에 대 한 컬렉션을 포함 하는 Azure Cosmos 데이터베이스입니다.
  4. **속도 계층**은 이 문서의 뒷부분에서 설명합니다.
  5. 일괄 처리 보기와 실시간 보기의 결과를 병합하거나 개별적으로 ping하여 모든 쿼리에 응답할 수 있습니다.
 
@@ -161,7 +161,7 @@ limit 10
 
 ![해시태그당 트윗 수를 보여 주는 차트](./media/lambda-architecture/lambda-architecture-batch-hashtags-bar-chart.png)
 
-이제 쿼리를 수행했으므로 출력 데이터를 다른 컬렉션에 저장하기 위해 Spark 커넥터를 사용하여 컬렉션에 다시 저장해 보겠습니다.  이 예제에서는 Scala를 사용하여 연결을 보여 줍니다. 이전 예제와 마찬가지로 구성 연결을 만들어 아파치 스파크 DataFrame을 다른 Azure Cosmos 컨테이너에 저장합니다.
+이제 쿼리를 수행했으므로 출력 데이터를 다른 컬렉션에 저장하기 위해 Spark 커넥터를 사용하여 컬렉션에 다시 저장해 보겠습니다.  이 예제에서는 Scala를 사용하여 연결을 보여 줍니다. 이전 예제와 마찬가지로 Apache Spark 데이터 프레임을 다른 Azure Cosmos 컨테이너에 저장 하는 구성 연결을 만듭니다.
 
 ```
 val writeConfigMap = Map(
@@ -192,20 +192,20 @@ val tweets_bytags = spark.sql("select hashtags.text as hashtags, count(distinct 
 tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
 ```
 
-이 마지막 문은 이제 Spark DataFrame을 새 Azure Cosmos 컨테이너에 저장했습니다. 람다 아키텍처 관점에서 이 보기는 **서빙 계층**내의 일괄 **처리 보기입니다.**
+이제이 마지막 문이 Spark 데이터 프레임을 새 Azure Cosmos 컨테이너에 저장 했습니다. 람다 아키텍처 관점에서 볼 때이는 **서비스 계층**내의 **일괄 처리 뷰입니다** .
  
 #### <a name="resources"></a>리소스
 
 완전한 코드 샘플은 [azure-cosmosdb-spark/lambda/samples](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)를 참조하세요.
-* 람다 아키텍처 재설계 - 배치 레이어 [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb)
-* 람다 아키텍처 재설계 - 배치에서 서빙 레이어 [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) | [ipynb로](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb)
+* 람다 아키텍처 재 설계-Batch 계층 [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb)
+* 아키텍처를 지 원하는 람다 아키텍처-Batch 계층 [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb)
 
 ## <a name="speed-layer"></a>속도 계층
 앞에서 언급한 대로 Azure Cosmos DB 변경 피드 라이브러리를 사용하면 일괄 처리 및 속도 계층 간의 작업을 간소화할 수 있습니다. 이 아키텍처에서는 HDInsight를 통해 Apache Spark를 사용하여 데이터에 대해 *구조화된 스트리밍* 쿼리를 수행합니다. 또한 다른 시스템에서 이 데이터를 액세스할 수 있도록 구조화된 스트리밍 쿼리의 결과를 일시적으로 유지하려고 할 수도 있습니다.
 
 ![속도 계층을 강조 표시한 람다 아키텍처 다이어그램](./media/lambda-architecture/lambda-architecture-speed.png)
 
-이렇게 하려면 별도의 Azure Cosmos 컨테이너를 만들어 구조화된 스트리밍 쿼리의 결과를 저장합니다.  이렇게 하면 Apache Spark뿐 아니라 다른 시스템에서도 이 정보에 액세스할 수 있습니다. Cosmos DB TTL(Time-to-Live) 기능뿐만 아니라 설정된 기간 후에 문서가 자동으로 삭제되도록 구성할 수 있습니다.  Azure Cosmos DB TTL 기능에 대한 자세한 내용은 [Azure Cosmos 컨테이너의 데이터 만료를 참조하여 살 수 있는 시간을 자동으로 참조하세요.](time-to-live.md)
+이렇게 하려면 별도의 Azure Cosmos 컨테이너를 만들어 구조화 된 스트리밍 쿼리의 결과를 저장 합니다.  이렇게 하면 Apache Spark뿐 아니라 다른 시스템에서도 이 정보에 액세스할 수 있습니다. Cosmos DB TTL(Time-to-Live) 기능뿐만 아니라 설정된 기간 후에 문서가 자동으로 삭제되도록 구성할 수 있습니다.  Azure Cosmos DB TTL 기능에 대 한 자세한 내용은 [time to live에서 자동으로 Azure Cosmos 컨테이너의 데이터 만료](time-to-live.md) 를 참조 하세요.
 
 ```
 // Import Libraries

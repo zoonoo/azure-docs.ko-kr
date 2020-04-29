@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: cherylmc
 ms.openlocfilehash: 5e64cb2db2bd16a881334779a1c6f1ef19296da2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77152026"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
@@ -20,7 +20,7 @@ ms.locfileid: "77152026"
 
 > [!div class="op_single_selector"]
 > * [포털](vpn-gateway-connect-different-deployment-models-portal.md)
-> * [Powershell](vpn-gateway-connect-different-deployment-models-powershell.md)
+> * [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 > 
 > 
 
@@ -34,9 +34,9 @@ ms.locfileid: "77152026"
 
 * 이 단계에서는 두 VNet이 이미 만들어졌다고 가정합니다. 이 문서를 사용하여 연습을 하는 경우 VNet이 없으면 단계 내에 VNet 만들기를 도와주는 링크가 있습니다.
 * VNet에 대한 주소 범위가 서로 겹치거나 게이트웨이가 연결되어 있는 다른 연결의 범위와 겹치지 않는지 확인합니다.
-* Resource Manager와 Service Management(클래식)에 대해 최신 PowerShell cmdlet을 설치합니다. 이 문서에서는 Azure Portal 및 PowerShell을 모두 사용합니다. PowerShell은 클래식 VNet에서 Resource Manager VNet에 연결을 만드는 데 필요합니다. 자세한 내용은 [Azure PowerShell을 설치하고 구성하는 방법을](/powershell/azure/overview)참조하세요. 
+* Resource Manager와 Service Management(클래식)에 대해 최신 PowerShell cmdlet을 설치합니다. 이 문서에서는 Azure Portal 및 PowerShell을 모두 사용합니다. PowerShell은 클래식 VNet에서 Resource Manager VNet에 연결을 만드는 데 필요합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/overview)을 참조 하세요. 
 
-### <a name="example-settings"></a><a name="values"></a>예제 설정
+### <a name="example-settings"></a><a name="values"></a>설정 예
 
 이러한 값을 사용하여 테스트 환경을 만들거나 이 값을 참조하여 이 문서의 예제를 보다 정확하게 이해할 수 있습니다.
 
@@ -99,7 +99,7 @@ VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨�
 ### <a name="2-configure-the-local-site"></a>2. <a name="local"> </a>로컬 사이트 구성
 
 1. **모든 리소스**로 이동하여 목록에서 **ClassicVNet**을 찾습니다.
-2. 메뉴의 **설정** 섹션에서 **게이트웨이를** 클릭한 다음 배너를 클릭하여 게이트웨이를 만듭니다.
+2. 메뉴의 **설정** 섹션에서 **게이트웨이** 를 클릭 한 다음 배너를 클릭 하 여 게이트웨이를 만듭니다.
   ![VPN Gateway 구성](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "VPN Gateway 구성")
 3. **새 VPN 연결** 페이지에서 **연결 유형**으로 **사이트 간**을 선택합니다.
 4. **로컬 사이트**로 **필요한 설정 구성**을 클릭합니다. 그러면 **로컬 사이트** 페이지가 열립니다.
@@ -120,7 +120,7 @@ VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨�
 6. **라우팅 유형**이 **동적**인지 확인하고 **확인**을 클릭하여 **새 VPN 연결** 페이지로 돌아갑니다.
 7. **새 VPN 연결** 페이지에서 **확인**을 클릭하여 VPN 게이트웨이 만들기를 시작합니다. VPN 게이트웨이 만들기를 완료하는 데 최대 45분이 걸릴 수 있습니다.
 
-### <a name="4-copy-the-virtual-network-gateway-public-ip-address"></a><a name="ip"></a>4. 가상 네트워크 게이트웨이 공용 IP 주소 복사
+### <a name="4-copy-the-virtual-network-gateway-public-ip-address"></a><a name="ip"></a>4. 가상 네트워크 게이트웨이 공용 IP 주소를 복사 합니다.
 
 가상 네트워크 게이트웨이를 만든 후에 게이트웨이 IP 주소를 볼 수 있습니다. 
 
@@ -187,7 +187,7 @@ Resource Manager VNet이 없는 상태에서 이러한 단계를 연습으로 �
 2. 가상 네트워크에 대한 페이지에서 **개요**를 클릭합니다.
 3. **VPN 연결** 섹션에서 그래픽의 로컬 사이트 이름을 클릭합니다.
 
-   ![VPN 연결](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN 연결")
+   ![VPN-연결](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN 연결")
 4. **사이트 간 VPN 연결** 페이지에서 사이트의 이름을 클릭합니다.
 
    ![사이트 이름](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "로컬 사이트 이름")
@@ -196,7 +196,7 @@ Resource Manager VNet이 없는 상태에서 이러한 단계를 연습으로 �
    ![오픈 로컬 사이트](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "로컬 사이트 열기")
 6. **로컬 사이트** 페이지에서 **VPN 게이트웨이 IP 주소**를 리소스 관리자 게이트웨이의 IP 주소로 바꿉니다.
 
-   ![게이트웨이 IP 주소](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "게이트웨이 IP 주소")
+   ![게이트웨이-ip 주소](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "게이트웨이 IP 주소")
 7. **확인**을 클릭하여 IP 주소를 업데이트합니다.
 
 ## <a name="section-4---create-resource-manager-to-classic-connection"></a><a name="RMtoclassic"></a>섹션 4 - 클래식 연결에 대해 Resource Manager 만들기
@@ -271,13 +271,13 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 - VNet 이름은 **VirtualNetworkSite name =** 으로 나열됩니다.
 - 사이트 이름은 **LocalNetworkSite name =** 으로 나열됩니다.
 
-### <a name="3-create-the-connection"></a>3. 연결 만들기
+### <a name="3-create-the-connection"></a>3. 연결을 만듭니다.
 
 공유 키를 설정하고 클래식 VNet에서 Resource Manager VNet으로 연결을 만듭니다. 포털을 사용하여 공유 키를 설정할 수 없습니다. 클래식 버전의 PowerShell cmdlet을 사용하여 로그인한 상태에서 이러한 단계를 실행해야 합니다. 이 작업에는 **Add-AzureAccount**를 사용합니다. 그러지 않으면 '-AzureVNetGatewayKey'를 설정할 수 없습니다.
 
 - 이 예제에서 **-VNetName**은 클래식 VNet의 이름이며 네트워크 구성 파일에 있습니다. 
 - **-LocalNetworkSiteName**은 로컬 사이트에 대해 지정한 이름이며 네트워크 구성 파일에 있습니다.
-- **-SharedKey는** 생성하고 지정하는 값입니다. 이 예제에서는 *abc123*을 사용했으나 좀 더 복잡한 항목을 생성할 수 있습니다. 중요한 점은 여기에서 지정한 값이 클래식 연결에 대해 Resource Manager를 만들 때 지정한 값과 동일해야 한다는 것입니다.
+- **-Sharedkey** 는 생성 하 고 지정 하는 값입니다. 이 예제에서는 *abc123*을 사용했으나 좀 더 복잡한 항목을 생성할 수 있습니다. 중요한 점은 여기에서 지정한 값이 클래식 연결에 대해 Resource Manager를 만들 때 지정한 값과 동일해야 한다는 것입니다.
 
 ```powershell
 Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `

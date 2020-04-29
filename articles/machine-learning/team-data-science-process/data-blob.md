@@ -12,19 +12,19 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4c47dfb8b221b6cb4b6237669ecd17c1637107a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721101"
 ---
 # <a name="process-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>고급 분석을 사용하여 Azure Blob 데이터 처리
 이 문서에서는 Azure Blob Storage에 저장된 데이터를 탐색하고 기능을 생성하는 방법을 다룹니다. 
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Pandas 데이터 프레임에 데이터 로드
-데이터 집합을 탐색하고 조작하려면 Blob 원본에서 팬더 데이터 프레임에 로드할 수 있는 로컬 파일로 다운로드해야 합니다. 이 절차를 수행하는 단계는 다음과 같습니다.
+데이터 집합을 탐색 하 고 조작 하려면 blob 원본에서 로컬 파일로 다운로드 한 다음 Pandas 데이터 프레임에 로드 해야 합니다. 이 절차를 수행하는 단계는 다음과 같습니다.
 
-1. Blob 서비스를 사용하여 다음 샘플 파이썬 코드를 사용하여 Azure Blob의 데이터를 다운로드합니다. 아래의 코드 변수를 사용자가 원하는 값으로 대체합니다. 
+1. Blob service를 사용 하 여 다음 샘플 Python 코드를 사용 하 여 Azure blob에서 데이터를 다운로드 합니다. 아래의 코드 변수를 사용자가 원하는 값으로 대체합니다. 
    
         from azure.storage.blob import BlobService
         import tables
@@ -94,7 +94,7 @@ ms.locfileid: "76721101"
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-## <a name="feature-generation"></a><a name="blob-featuregen"></a>피처 생성
+## <a name="feature-generation"></a><a name="blob-featuregen"></a>기능 생성
 다음과 같이 Python을 사용하여 기능을 생성할 수 있습니다.
 
 ### <a name="indicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>표시기 값 기반 기능 생성
@@ -131,7 +131,7 @@ ms.locfileid: "76721101"
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="writing-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>다시 Azure blob에 데이터를 쓰고 Azure 기계 학습에서 데이터 사용
-데이터를 탐색하고 필요한 기능을 만든 후 Azure Blob에 데이터(샘플링 또는 위약표화)를 업로드하고 다음 단계를 사용하여 Azure 기계 학습에서 사용할 수 있습니다. 스튜디오 (클래식)도. 
+데이터를 탐색 하 고 필요한 기능을 만든 후에는 다음 단계를 사용 하 여 데이터 (샘플링 또는 기능화)를 Azure blob에 업로드 하 고 Azure Machine Learning에서 사용할 수 있습니다. 또한 Azure Machine Learning Studio (클래식) 에서도 추가 기능을 만들 수 있습니다. 
 
 1. 로컬 파일에 데이터 프레임을 씁니다.
    

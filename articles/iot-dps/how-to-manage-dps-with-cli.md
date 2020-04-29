@@ -1,6 +1,6 @@
 ---
-title: Azure CLI & IoT 확장을 사용하여 IoT 허브 장치 프로비저닝 서비스 관리
-description: Azure CLI 및 IoT 확장을 사용하여 DPS(IoT 허브 장치 프로비저닝 서비스) 관리 방법 알아보기
+title: IoT 확장 Azure CLI & 사용 하 여 IoT Hub Device Provisioning Service 관리
+description: Azure CLI 및 IoT 확장을 사용 하 여 IoT Hub Device Provisioning Service (DPS)를 관리 하는 방법을 알아봅니다.
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 03ec0b41ad910ff0d1dcdc17148e01ec94ea9fb0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78674508"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Azure CLI 및 IoT 확장을 사용하여 IoT Hub Device Provisioning Service를 관리하는 방법
@@ -32,7 +32,7 @@ IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure 
 
 ### <a name="install-the-azure-cli"></a>Azure CLI 설치
 
-[설치 지침](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)에 따라 환경에 Azure CLI를 설치합니다. 최소한 Azure CLI 버전은 2.0.70 이상이어야 합니다. `az –version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다. Windows에 설치하는 간단한 방법 중 하나는 [MSI](https://aka.ms/InstallAzureCliWindows)를 다운로드하여 설치하는 것입니다.
+[설치 지침](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)에 따라 환경에 Azure CLI를 설치합니다. 최소한 Azure CLI 버전은 2.0.70 이상 이어야 합니다. `az –version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다. Windows에 설치하는 간단한 방법 중 하나는 [MSI](https://aka.ms/InstallAzureCliWindows)를 다운로드하여 설치하는 것입니다.
 
 ### <a name="install-iot-extension"></a>IoT 확장 설치
 
@@ -46,20 +46,20 @@ IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure 
 시작하기 전에 앞에서 설명한 설치 단계를 완료하세요. Azure 계정이 없으면 지금 [무료 계정](https://azure.microsoft.com/free/?v=17.39a)을 만듭니다. 
 
 
-### <a name="1-log-in-to-the-azure-account"></a>1. Azure 계정에 로그인
+### <a name="1-log-in-to-the-azure-account"></a>1. Azure 계정에 로그인 합니다.
   
     az login
 
 ![로그인](./media/how-to-manage-dps-with-cli/login.jpg)
 
-### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. 이스트러스에 리소스 그룹 IoTHubBlogDemo 만들기
+### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. eIoTHubBlogDemo에서 리소스 그룹 만들기
 
     az group create -l eastus -n IoTHubBlogDemo
 
 ![리소스 그룹 만들기](./media/how-to-manage-dps-with-cli/create-resource-group.jpg)
 
 
-### <a name="3-create-two-device-provisioning-services"></a>3. 두 개의 장치 프로비저닝 서비스 만들기
+### <a name="3-create-two-device-provisioning-services"></a>3. 두 개의 장치 프로 비전 서비스 만들기
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps
 
@@ -67,20 +67,20 @@ IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure 
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps2
 
-### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4. 이 리소스 그룹에 모든 기존 장치 프로비저닝 서비스를 나열합니다.
+### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4 .이 리소스 그룹의 기존 장치 프로 비전 서비스를 모두 나열 합니다.
 
     az iot dps list --resource-group IoTHubBlogDemo
 
 ![Device Provisioning 서비스 나열](./media/how-to-manage-dps-with-cli/list-dps.jpg)
 
 
-### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. 새로 만든 리소스 그룹에서 IoT 허브 블로그DemoHub 만들기
+### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. 새로 만든 리소스 그룹 아래에 IoT Hub blogDemoHub를 만듭니다.
 
     az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
 
 ![IoT Hub 만들기](./media/how-to-manage-dps-with-cli/create-hub.jpg)
 
-### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. 기존 IoT 허브 하나를 장치 프로비저닝 서비스에 연결
+### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. 장치 프로 비전 서비스에 기존 IoT Hub 하나 연결
 
     az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps --connection-string <connection string> -l westus
 

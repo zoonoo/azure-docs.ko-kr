@@ -1,7 +1,7 @@
 ---
-title: .NET을 사용하여 컨테이너 또는 Blob에 대한 서비스 SAS 만들기
+title: .NET을 사용 하 여 컨테이너 또는 blob에 대 한 서비스 SAS 만들기
 titleSuffix: Azure Storage
-description: .NET 클라이언트 라이브러리를 사용하여 컨테이너 또는 Blob에 대한 서비스 공유 액세스 서명(SAS)을 만드는 방법을 알아봅니다.
+description: .NET 클라이언트 라이브러리를 사용 하 여 컨테이너 또는 blob에 대 한 서비스 공유 액세스 서명 (SAS)을 만드는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,23 +11,23 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ms.openlocfilehash: 10045a760d7e0fcb02a754bc9bb52a5ebca970f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79137214"
 ---
-# <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>.NET을 사용하여 컨테이너 또는 Blob에 대한 서비스 SAS 만들기
+# <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>.NET을 사용 하 여 컨테이너 또는 blob에 대 한 서비스 SAS 만들기
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-이 문서에서는 저장소 계정 키를 사용하여 .NET에 대한 Azure Storage [클라이언트 라이브러리를](/dotnet/api/overview/azure/storage?view=azure-dotnet)사용하여 컨테이너 또는 Blob에 대한 서비스 SAS를 만드는 방법을 보여 주며 있습니다.
+이 문서에서는 저장소 계정 키를 사용 하 여 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 통해 컨테이너 또는 blob에 대 한 서비스 SAS를 만드는 방법을 보여 줍니다.
 
-## <a name="create-a-service-sas-for-a-blob-container"></a>Blob 컨테이너에 대한 서비스 SAS 만들기
+## <a name="create-a-service-sas-for-a-blob-container"></a>Blob 컨테이너에 대 한 서비스 SAS 만들기
 
-컨테이너에 대한 서비스 SAS를 만들려면 [CloudBlobContainer.GetSharedAccess서명](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) 메서드를 호출합니다.
+컨테이너에 대 한 서비스 SAS를 만들려면 [CloudBlobContainer. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) 메서드를 호출 합니다.
 
-다음 코드 예제는 컨테이너에 SAS를 만듭니다. 기존에 저장된 액세스 정책의 이름을 제공하는 경우 해당 정책은 SAS와 연결됩니다. 저장된 액세스 정책이 제공되지 않으면 코드는 컨테이너에 임시 SAS를 만듭니다.
+다음 코드 예제에서는 컨테이너에 SAS를 만듭니다. 기존에 저장된 액세스 정책의 이름을 제공하는 경우 해당 정책은 SAS와 연결됩니다. 저장 된 액세스 정책이 제공 되지 않는 경우 코드는 컨테이너에 임시 SAS를 만듭니다.
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
@@ -69,11 +69,11 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 }
 ```
 
-## <a name="create-a-service-sas-for-a-blob"></a>Blob에 대한 서비스 SAS 만들기
+## <a name="create-a-service-sas-for-a-blob"></a>Blob에 대 한 서비스 SAS 만들기
 
-Blob에 대한 서비스 SAS를 만들려면 [CloudBlob.GetSharedAccess서명](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) 메서드를 호출합니다.
+Blob에 대 한 서비스 SAS를 만들려면 [CloudBlob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) 메서드를 호출 합니다.
 
-다음 코드 예제는 Blob에서 SAS를 만듭니다. 기존에 저장된 액세스 정책의 이름을 제공하는 경우 해당 정책은 SAS와 연결됩니다. 저장된 액세스 정책이 제공되지 않으면 코드는 Blob에 임시 SAS를 만듭니다.
+다음 코드 예제에서는 blob에 SAS를 만듭니다. 기존에 저장된 액세스 정책의 이름을 제공하는 경우 해당 정책은 SAS와 연결됩니다. 저장 된 액세스 정책이 제공 되지 않는 경우 코드는 blob에 임시 SAS를 만듭니다.
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)
@@ -122,5 +122,5 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 
 ## <a name="next-steps"></a>다음 단계
 
-- [공유 액세스 서명(SAS)을 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../common/storage-sas-overview.md)
+- [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../common/storage-sas-overview.md)
 - [서비스 SAS 만들기](/rest/api/storageservices/create-service-sas)

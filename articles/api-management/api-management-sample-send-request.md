@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77190004"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Azure API Management 서비스에서 외부 서비스 사용
@@ -102,9 +102,9 @@ API Management에 권한 부여 토큰이 있다면 API Management는 토큰의 
 
 응답 개체에서 본문을 검색할 수 있고 RFC 7622는 응답이 JSON 개체를 해야 하며 API Management에 최소한 부울 값인 `active`라는 속성을 포함해야 한다고 알립니다. `active` 가 true인 경우 토큰이 유효한 것으로 간주됩니다.
 
-또는 권한 부여 서버에 토큰이 유효한지 여부를 나타내는 "활성" 필드가 없는 경우 Postman과 같은 도구를 사용하여 유효한 토큰에 설정된 속성을 확인합니다. 예를 들어 유효한 토큰 응답에 "expires_in"라는 속성이 포함되어 있는 경우 이 속성 이름이 권한 부여 서버 응답에 있는지 확인합니다.
+또는 토큰이 유효한 지 여부를 나타내는 "활성" 필드가 권한 부여 서버에 포함 되지 않은 경우 Postman과 같은 도구를 사용 하 여 유효한 토큰에 설정 된 속성을 확인 합니다. 예를 들어 유효한 토큰 응답에 "expires_in" 라는 속성이 포함 된 경우이 속성 이름이 권한 부여 서버 응답에 있는지 확인 합니다.
 
-<때 조건 ="@((IResponse)컨텍스트입니다. 변수["토큰 상태"]). Body.As<JObject>(). 속성("expires_in") == null">
+Condition = "@ ((IResponse) context 인 경우 <합니다. Variables ["tokenstate"]). Body.As<JObject>(). 속성 ("expires_in") = = null) ">
 
 ### <a name="reporting-failure"></a>오류 보고
 `<choose>` 정책을 사용하여 토큰이 유효한지 감지할 수 있으며 그럴 경우 401 응답을 반환합니다.

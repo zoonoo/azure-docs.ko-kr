@@ -1,6 +1,6 @@
 ---
 title: REST API를 사용하여 작업 진행률을 확인하는 방법 | Microsoft 문서
-description: 이 문서에서는 Azure Media Services v2 REST API를 사용하여 작업 진행 상황을 확인하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Media Services v2 REST API를 사용 하 여 작업 진행률을 확인 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: cac8622c95ca2cb08ef412ac7117caac0c52ca56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773607"
 ---
 # <a name="how-to-check-job-progress"></a>방법: 작업 진행 상태 확인
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전, [미디어 서비스 v3을](https://docs.microsoft.com/azure/media-services/latest/)확인하십시오. 또한 [v2에서 v3로의 마이그레이션 지침을](../latest/migrate-from-v2-to-v3.md) 참조하십시오.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. 작업의 상태 속성을 사용하여 작업 상태를 찾을 수 있습니다. 상태 속성에 대한 자세한 내용은 [Job 엔터티 속성](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties)을 참조하세요.
 
@@ -68,6 +68,6 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [Media Services Operations REST API 개요](media-services-rest-how-to-use.md)

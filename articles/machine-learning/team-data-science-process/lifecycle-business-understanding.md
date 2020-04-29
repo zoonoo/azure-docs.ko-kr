@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76710342"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>팀 데이터 과학 프로세스 수명 주기의 비즈니스 이해 단계
@@ -60,10 +60,10 @@ ms.locfileid: "76710342"
 
 4. 성공 메트릭을 정의합니다. 예를 들어 다음 고객 변동 예측을 수행하려고 할 수 있습니다. 이 3개월 프로젝트가 끝날 때까지 "x"%의 정확도가 필요합니다. 이 데이터를 바탕으로 고객 프로모션을 통해 변동을 줄일 수 있습니다. 메트릭은 **SMART**여야 합니다. 
 
-   * **S**pecific(특정) 
+   * **S**p) 
    * **M**easurable(측정 가능)
    * **A**chievable(달성 가능) 
-   * **R**상승 
+   * **R**elevant 
    * **T**ime-bound(시간 제한) 
 
 ### <a name="identify-data-sources"></a>데이터 원본 식별
@@ -77,7 +77,7 @@ ms.locfileid: "76710342"
 ## <a name="artifacts"></a>아티팩트
 이 단계의 결과물은 다음과 같습니다.
 
-   * [차터 문서](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): 표준 템플릿은 TDSP 프로젝트 구조 정의에 제공됩니다. 실무 문서입니다. 새로운 결과를 발견했으며 비즈니스 요구 사항이 달라질 때 프로젝트 전체에서 템플릿을 업데이트합니다. 검색 프로세스를 진행하면서 이 문서에서 반복적으로 더 자세히 추가하는 것이 핵심입니다. 고객 및 기타 이해 관계자가 변경 작업을 수행하도록 만들고 변경 이유를 명확하게 전달해야 합니다.  
+   * 기본 [문서](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): tdsp 프로젝트 구조 정의에서 표준 템플릿을 제공 합니다. 실무 문서입니다. 새로운 결과를 발견했으며 비즈니스 요구 사항이 달라질 때 프로젝트 전체에서 템플릿을 업데이트합니다. 검색 프로세스를 진행하면서 이 문서에서 반복적으로 더 자세히 추가하는 것이 핵심입니다. 고객 및 기타 이해 관계자가 변경 작업을 수행하도록 만들고 변경 이유를 명확하게 전달해야 합니다.  
    * [데이터 원본](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): TDSP 프로젝트 **데이터 보고서** 폴더에 있는 **데이터 정의** 보고서의 **원시 데이터 원본** 섹션에 데이터 원본이 포함되어 있습니다. 이 섹션은 원시 데이터의 원본 및 대상 위치를 지정합니다. 이후 단계에서 추가 세부 정보(예: 스크립트)를 입력하여 데이터를 분석 환경으로 옮깁니다.  
    * [데이터 사전](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): 이 문서는 클라이언트가 제공하는 데이터를 설명합니다. 이러한 설명에는 스키마(데이터 형식, 유효성 검사 규칙(있는 경우)에 대한 정보) 및 엔터티-관계 다이어그램(해당되는 경우)에 대한 정보가 포함됩니다.
 
@@ -91,4 +91,4 @@ TDSP의 수명 주기에서 각 단계에 대한 링크는 다음과 같습니�
    4. [배포](lifecycle-deployment.md)
    5. [고객 승인](lifecycle-acceptance.md)
 
-특정 시나리오에 대한 프로세스의 모든 단계를 보여 주는 전체 연습을 제공합니다. [예제 연습](walkthroughs.md) 문서는 링크 및 썸네일 설명을 포함하는 시나리오 목록을 제공합니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 설명합니다. 
+특정 시나리오에 대 한 프로세스의 모든 단계를 보여 주는 전체 연습을 제공 합니다. [예제 연습](walkthroughs.md) 문서는 링크 및 썸네일 설명을 포함하는 시나리오 목록을 제공합니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 설명합니다. 

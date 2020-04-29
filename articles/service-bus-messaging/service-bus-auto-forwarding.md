@@ -1,6 +1,6 @@
 ---
-title: Azure 서비스 버스 메시징 엔터티 자동 전달
-description: 이 문서에서는 Azure Service Bus 큐 또는 구독을 다른 큐 또는 토픽에 연결하는 방법을 설명합니다.
+title: 자동 전달 Azure Service Bus 메시징 엔터티
+description: 이 문서에서는 Azure Service Bus 큐 또는 구독을 다른 큐 또는 토픽에 연결 하는 방법을 설명 합니다.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 8b8883b579233962de61e7247e6ac1cbcb2a6d80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76761052"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>자동 전달을 사용한 Service Bus 엔터티 연결
@@ -48,10 +48,10 @@ namespaceManager.CreateSubscription(srcSubscription));
 Alice가 휴가를 가면 ERP 토픽이 아닌 그녀의 개인 큐가 채워집니다. 이러한 경우 영업 담당자가 메시지를 확인하지 못하기 때문에 어떤 ERP 토픽도 할당량에 도달하지 못합니다.
 
 > [!NOTE]
-> 자동 전달을 설정하면 **소스와 대상 모두에서** AutoDeleteOnIdle 값이 데이터 형식의 최대 값으로 자동으로 설정됩니다.
+> 자동 전달 설정 된 경우 **원본 및 대상 모두** 에서 autodeleteonidle의 값이 자동으로 데이터 형식의 최대값으로 설정 됩니다.
 > 
->   - 소스 측에서 자동 전달은 수신 작업역할을 합니다. 따라서 자동 전달 설정이있는 소스는 실제로 "유휴"가 되지 않습니다.
->   - 대상 측에서는 메시지를 전달할 대상이 항상 있는지 확인하기 위해 수행됩니다.
+>   - 원본 측에서 자동 전달 수신 작업으로 작동 합니다. 따라서 자동 전달 설정 된 원본은 절대 "유휴" 상태가 아닙니다.
+>   - 대상 측에서는 메시지를 전달할 대상이 항상 있는지 확인 하기 위해이 작업이 수행 됩니다.
 
 ## <a name="autoforwarding-considerations"></a>자동 전달 관련 고려 사항
 
@@ -61,7 +61,7 @@ Alice가 휴가를 가면 ERP 토픽이 아닌 그녀의 개인 큐가 채워집
 
 Service Bus는 전달된 각 메시지당 하나의 작업을 요청합니다. 예를 들어 각각 다른 큐나 토픽으로 메시지를 자동 전달하도록 구성된 구독이 20개인 토픽에 메시지를 보내는 경우 모든 첫 번째 수준 구독이 메시지 복사본을 수신한다면 21개 작업에 해당하는 대금이 청구됩니다.
 
-다른 큐 또는 토픽에 연결된 구독을 만들려면 구독 작성자가 원본 엔터티와 대상 엔터티 모두에 대한 **관리** 권한이 있어야 합니다. 원본 토픽에 메시지를 보낼 때는 원본 토픽에 대한 **보내기** 권한만 있으면 됩니다.
+다른 큐 나 토픽에 연결 된 구독을 만들려면 구독을 만든 사람에 게 원본과 대상 엔터티 모두에 대 한 **관리** 권한이 있어야 합니다. 원본 토픽에 메시지를 보낼 때는 원본 토픽에 대한 **보내기** 권한만 있으면 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -74,7 +74,7 @@ Service Bus는 전달된 각 메시지당 하나의 작업을 요청합니다. �
 Service Bus 성능 향상에 대한 자세한 내용은 다음을 참조하세요. 
 
 * [Service Bus 메시징을 사용한 성능 향상의 모범 사례](service-bus-performance-improvements.md)
-* [분할된 메시징 엔터티][Partitioned messaging entities].
+* [분할 된 메시징 엔터티][Partitioned messaging entities].
 
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
 [SubscriptionDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.forwardto#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo

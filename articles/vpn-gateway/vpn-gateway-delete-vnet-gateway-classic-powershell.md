@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: e7283f5e28edc6f7beaad3a2743aa155f6ea6e14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77198652"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>PowerShell(클래식)을 사용하여 가상 네트워크 삭제
@@ -27,15 +27,15 @@ ms.locfileid: "77198652"
 
 ## <a name="step-1-connect-to-azure"></a><a name="connect"></a>1단계: Azure에 연결
 
-### <a name="1-install-the-latest-powershell-cmdlets"></a>1. 최신 PowerShell cmdlet을 설치합니다.
+### <a name="1-install-the-latest-powershell-cmdlets"></a>1. 최신 PowerShell cmdlet을 설치 합니다.
 
 [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
-### <a name="2-connect-to-your-azure-account"></a>2. Azure 계정에 연결합니다.
+### <a name="2-connect-to-your-azure-account"></a>2. Azure 계정에 연결 합니다.
 
 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
-1. 권한 상승 권한으로 PowerShell 콘솔을 엽니다. 서비스 관리로 전환하려면 다음 명령을 사용합니다.
+1. 관리자 권한으로 PowerShell 콘솔을 엽니다. 서비스 관리로 전환 하려면 다음 명령을 사용 합니다.
 
    ```powershell
    azure config mode asm
@@ -56,7 +56,7 @@ ms.locfileid: "77198652"
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-텍스트 편집기로 파일을 열고 클래식 VNet의 이름을 확인합니다. Azure Portal에서 VNet을 만든 경우 Azure에서 사용되는 전체 이름은 포털에 표시되지 않습니다. 예를 들어 Azure Portal에서 'ClassicVNet1'이라는 이름의 VNet은 네트워크 구성 파일에서 훨씬 더 긴 이름으로 유지될 수 있습니다. 즉, 'Group ClassicRG1 ClassicVNet1'과 유사하게 표시될 수 있습니다. 가상 네트워크 이름은 **'가상 네트워크 사이트 이름 ='로**나열됩니다. PowerShell cmdlet을 실행할 때는 네트워크 구성 파일의 이름을 사용해야 합니다.
+텍스트 편집기로 파일을 열고 클래식 VNet의 이름을 확인합니다. Azure Portal에서 VNet을 만든 경우 Azure에서 사용되는 전체 이름은 포털에 표시되지 않습니다. 예를 들어 Azure Portal에서 'ClassicVNet1'이라는 이름의 VNet은 네트워크 구성 파일에서 훨씬 더 긴 이름으로 유지될 수 있습니다. 즉, 'Group ClassicRG1 ClassicVNet1'과 유사하게 표시될 수 있습니다. 가상 네트워크 이름은 **' VirtualNetworkSite name = '** 으로 나열 됩니다. PowerShell cmdlet을 실행할 때는 네트워크 구성 파일의 이름을 사용해야 합니다.
 
 ## <a name="step-3-delete-the-virtual-network-gateway"></a><a name="delete"></a>3단계: 가상 네트워크 게이트웨이 삭제
 
@@ -80,7 +80,7 @@ Status : Successful
 
 ### <a name="local-network-site-references"></a><a name="lnsref"></a>로컬 네트워크 사이트 참조
 
-사이트 참조 정보를 제거하려면 구성을 **ConnectionsToLocalNetwork/LocalNetworkSiteRef**로 변경합니다. 로컬 사이트 참조를 제거하면 Azure에서 터널을 삭제합니다. 만든 구성에 따라 **LocalNetworkSiteRef가** 나열되지 않을 수 있습니다.
+사이트 참조 정보를 제거하려면 구성을 **ConnectionsToLocalNetwork/LocalNetworkSiteRef**로 변경합니다. 로컬 사이트 참조를 제거하면 Azure에서 터널을 삭제합니다. 만든 구성에 따라 **LocalNetworkSiteRef** 나열 되지 않을 수 있습니다.
 
 ```
 <Gateway>
@@ -156,9 +156,9 @@ P2S를 VNet에 연결한 경우 **VPNClientAddressPool**이 있습니다. 삭제
  </Gateway>
 ```
 
-### <a name="gatewaysubnet"></a><a name="gwsub"></a>게이트웨이 서브넷
+### <a name="gatewaysubnet"></a><a name="gwsub"></a>GatewaySubnet
 
-VNet에 해당하는 **게이트웨이서브넷을** 삭제합니다.
+VNet에 해당 하는 **게이트웨이 서브넷** 을 삭제 합니다.
 
 ```
 <Subnets>

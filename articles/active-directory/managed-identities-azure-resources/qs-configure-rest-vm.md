@@ -1,5 +1,5 @@
 ---
-title: REST - Azure AD를 사용하여 Azure VM에서 관리되는 ID 구성
+title: REST를 사용 하 여 Azure VM에서 관리 되는 id 구성-Azure AD
 description: CURL을 통해 REST API를 호출하여 Azure VM에서 시스템 및 사용자 할당 관리 ID를 구성하기 위한 단계별 지침을 제공합니다.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9f975595e935a5c0254450168aa295e6e7366a94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244161"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>REST API 호출을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
@@ -33,7 +33,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 - Azure VM에서 시스템 할당 관리 ID를 사용 및 사용하지 않도록 설정
 - Azure VM에서 사용자 할당 관리 ID 추가 및 제거
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#how-does-the-managed-identities-for-azure-resources-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
@@ -79,12 +79,12 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    
-   **헤더 요청**
+   **요청 헤더**
    
-   |요청 헤더  |설명  |
+   |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
+   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
    
    **요청 본문**
 
@@ -168,12 +168,12 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    ```HTTP
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
-   **헤더 요청**
+   **요청 헤더**
 
-   |요청 헤더  |설명  |
+   |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
+   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
    
    **요청 본문**
     
@@ -200,12 +200,12 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    ```HTTP
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
-   **헤더 요청**
+   **요청 헤더**
 
-   |요청 헤더  |설명  |
+   |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
+   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
 
    **요청 본문**
 
@@ -235,12 +235,12 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
    ```
     
-   **헤더 요청**
+   **요청 헤더**
 
-   |요청 헤더  |설명  |
+   |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
+   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
 
    **요청 본문**
 
@@ -278,12 +278,12 @@ VM에서 시스템 할당 관리 ID를 사용하지 않도록 설정하려면 �
    ```HTTP
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
-   **헤더 요청**
+   **요청 헤더**
 
-   |요청 헤더  |설명  |
+   |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
+   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
 
    **요청 본문**
 
@@ -323,7 +323,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    az account get-access-token
    ``` 
 
-4. 여기에 있는 지침을 사용하여 사용자 할당된 관리 되는 ID 를 [만듭니다.](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity)
+4. 사용자 할당 관리 [Id 만들기](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity)에서 찾은 지침을 사용 하 여 사용자 할당 관리 id를 만듭니다.
 
 5. CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하는 VM을 만듭니다. 다음 예제에서는 요청 본문에서 `"identity":{"type":"UserAssigned"}` 값으로 식별된 사용자 할당 관리 ID `ID1`을 사용하여 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM을 만듭니다. 전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
  
@@ -337,12 +337,12 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
-   |요청 헤더  |설명  |
+   |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
+   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
 
    **요청 본문**
 
@@ -418,12 +418,12 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
-   |요청 헤더  |설명  |
+   |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
+   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
 
    **요청 본문**
 
@@ -509,13 +509,13 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    ```HTTP
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
    ```
-   **헤더 요청**
+   **요청 헤더**
 
-   |요청 헤더  |설명  |
+   |요청 헤더  |Description  |
    |---------|---------|
-   |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.
+   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.
 
-    응답의 `identity` 값에서 식별된 대로 VM에 할당된 사용자 또는 시스템 할당관리 ID가 있는 경우 VM에 사용자 할당된 관리 ID를 추가하는 동안 시스템 할당된 관리 ID를 유지하는 방법을 보여 주는 5단계로 건너뜁니다.
+    응답의 `identity` 값에서 식별 된 대로 vm에 할당 된 사용자 또는 시스템 할당 관리 id가 있는 경우, vm에 사용자 할당 관리 id를 추가 하는 동안 시스템 할당 관리 id를 유지 하는 방법을 보여 주는 5 단계로 건너뜁니다.
 
 4. VM에 할당된 사용자 할당 관리 ID가 없는 경우에는 다음 CURL 명령을 통해 Azure Resource Manager REST 엔드포인트를 호출하여 첫 번째 사용자 할당 관리 ID를 VM에 할당합니다.
 
@@ -530,12 +530,12 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    ```HTTP
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
-   **헤더 요청**
+   **요청 헤더**
 
-   |요청 헤더  |설명  |
+   |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
+   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
  
    **요청 본문**
 
@@ -562,12 +562,12 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
    ```
    
-   **헤더 요청**
+   **요청 헤더**
 
-   |요청 헤더  |설명  |
+   |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
+   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
 
    **요청 본문**
 
@@ -598,12 +598,12 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    
-   **헤더 요청**
+   **요청 헤더**
 
-   |요청 헤더  |설명  |
+   |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
+   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
 
    **요청 본문**
 
@@ -637,12 +637,12 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
-   |요청 헤더  |설명  |
+   |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
+   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
 
    **요청 본문**
 
@@ -678,12 +678,12 @@ VM의 사용자 할당 ID를 제거하려면 계정에 [가상 머신 기여자]
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
-   |요청 헤더  |설명  |
+   |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.
+   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.
  
    VM에 관리 ID가 할당되어 있는 경우, `identity` 값의 응답으로 해당 ID가 나열됩니다.
 
@@ -701,12 +701,12 @@ VM의 사용자 할당 ID를 제거하려면 계정에 [가상 머신 기여자]
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
-   |요청 헤더  |설명  |
+   |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
+   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
 
    **요청 본문**
 
@@ -733,12 +733,12 @@ VM의 사용자 할당 ID를 제거하려면 계정에 [가상 머신 기여자]
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
-   |요청 헤더  |설명  |
+   |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
+   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
 
    **요청 본문**
 
@@ -763,12 +763,12 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
 ```
 
-**헤더 요청**
+**요청 헤더**
 
-|요청 헤더  |설명  |
+|요청 헤더  |Description  |
 |---------|---------|
-|*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-|*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
+|*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+|*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
 **요청 본문**
 
@@ -790,12 +790,12 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
 ```
 
-**헤더 요청**
+**요청 헤더**
 
-|요청 헤더  |설명  |
+|요청 헤더  |Description  |
 |---------|---------|
-|*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-|*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.| 
+|*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+|*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.| 
 
 **요청 본문**
 

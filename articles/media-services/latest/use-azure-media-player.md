@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
 ms.openlocfilehash: d9e42e809443a2dd6cdeb989f692b96d63269f79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78673571"
 ---
 # <a name="azure-media-player-overview"></a>Azure Media Player 개요
@@ -25,7 +25,7 @@ Azure Media Player는 다양한 브라우저 및 디바이스의 Microsoft Azure
 Microsoft Azure Media Services에서 콘텐츠를 HLS, DASH, 부드러운 스트리밍 형식으로 제공하여 재생할 수 있습니다. Azure Media Player는 이러한 다양한 형식을 고려하여 플랫폼/브라우저 기능에 따라 최상의 링크를 자동으로 재생합니다. Media Services에서 PlayReady 암호화 또는 AES 128비트 봉투 암호화로 자산의 동적 암호화를 사용할 수 있습니다. 적절하게 구성된 경우 Azure Media Player를 사용하여 PlayReady의 및 AES 128 비트 암호화된 콘텐츠를 암호 해독할 수 있습니다. 
 
 > [!NOTE]
-> 와이드바인 암호화 된 콘텐츠에 대 한 HTTPS 재생 이 필요합니다.
+> 암호화 된 콘텐츠를 위해 HTTPS 재생이 필요 합니다.
 
 ## <a name="use-azure-media-player-demo-page"></a>Azure Media Player 데모 페이지 사용
 
@@ -49,7 +49,7 @@ Microsoft Azure Media Services에서 콘텐츠를 HLS, DASH, 부드러운 스트
 
 Azure Media Player는 설정하기 쉽습니다. Media Services 계정에서 미디어 콘텐츠의 기본 재생을 활용하려면 몇 분 정도 걸립니다. [Azure Media Player 설명서](https://aka.ms/ampdocs)에서 Azure Media Player를 설정 및 구성하는 방법에 대한 자세한 내용을 참조하세요. 
 
-## <a name="additional-notes"></a>추가적인 참고 사항
+## <a name="additional-notes"></a>추가 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 77812a3765a027152c957f6dbb7c9b3811a2278f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77191189"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Azure Network Watcher 인스턴스 만들기
@@ -49,7 +49,7 @@ az provider register -n Microsoft.Network
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>포털에서 Network Watcher 만들기
 
-모든 **서비스** > **네트워킹** > **네트워크 감시자로**이동합니다. Network Watcher에 대해 사용하도록 설정하려는 모든 구독을 선택할 수 있습니다. 이 작업은 사용할 수 있는 모든 지역에서 Network Watcher를 만듭니다.
+**모든 서비스** > **네트워킹** > **Network Watcher**로 이동 합니다. Network Watcher에 대해 사용하도록 설정하려는 모든 구독을 선택할 수 있습니다. 이 작업은 사용할 수 있는 모든 지역에서 Network Watcher를 만듭니다.
 
 ![Network Watcher 만들기](./media/network-watcher-create/figure1.png)
 
@@ -101,19 +101,19 @@ $requestBody = @"
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
 
-## <a name="delete-a-network-watcher-in-the-portal"></a>포털에서 네트워크 감시자 삭제
+## <a name="delete-a-network-watcher-in-the-portal"></a>포털에서 Network Watcher 삭제
 
-모든 **서비스** > **네트워킹** > **네트워크 감시자로**이동합니다.
+**모든 서비스** > **네트워킹** > **Network Watcher**로 이동 합니다.
 
-아직 없는 경우 개요 탭을 선택합니다. 드롭다운을 사용하여 네트워크 감시자 로 비활성화할 구독을 선택합니다.
-화살표를 클릭하여 선택한 구독의 지역 목록을 확장합니다. 주어진 경우 오른쪽에 있는 3개의 점을 사용하여 컨텍스트 메뉴에 액세스합니다.
-비활성화를 시작하려면 "네트워크 감시자 사용 안 함"을 클릭합니다. 이 단계를 확인하라는 메시지가 표시됩니다. 예를 클릭하여 계속합니다.
-포털에서 모든 구독의 모든 지역에 대해 개별적으로 이 작업을 수행해야 합니다.
+아직 없는 경우 개요 탭을 선택 합니다. 드롭다운을 사용 하 여에서 네트워크 감시자를 사용 하지 않도록 설정할 구독을 선택 합니다.
+화살표를 클릭 하 여 선택한 구독에 대 한 영역 목록을 확장 합니다. 지정 된 경우 오른쪽에 있는 3 개의 점을 사용 하 여 상황에 맞는 메뉴에 액세스 합니다.
+"네트워크 감시자 사용 안 함"을 클릭 하 여 비활성화를 시작 합니다. 이 단계를 확인 하 라는 메시지가 표시 됩니다. 예를 클릭하여 계속합니다.
+포털에서는 모든 구독의 모든 지역에 대해 개별적으로이 작업을 수행 해야 합니다.
 
 
-## <a name="delete-a-network-watcher-with-powershell"></a>PowerShell을 사용하면 네트워크 감시자 삭제
+## <a name="delete-a-network-watcher-with-powershell"></a>PowerShell을 사용 하 여 Network Watcher 삭제
 
-네트워크 감시자의 인스턴스를 삭제하려면 다음 예제를 실행합니다.
+Network Watcher 인스턴스를 삭제 하려면 다음 예제를 실행 합니다.
 
 ```powershell
 New-AzResourceGroup -Name NetworkWatcherRG -Location westcentralus

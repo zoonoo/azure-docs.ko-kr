@@ -1,56 +1,56 @@
 ---
-title: 메트릭에 대한 컨테이너에 대한 Azure 모니터를 업데이트하는 방법 | 마이크로 소프트 문서
-description: 이 문서에서는 집계된 메트릭에 대한 탐색 및 경고를 지원하는 사용자 지정 메트릭 기능을 사용하도록 컨테이너용 Azure Monitor를 업데이트하는 방법을 설명합니다.
+title: 메트릭에 대 한 컨테이너에 대 한 Azure Monitor를 업데이트 하는 방법 | Microsoft Docs
+description: 이 문서에서는 집계 된 메트릭에 대 한 탐색 및 경고를 지 원하는 사용자 지정 메트릭 기능을 사용 하도록 컨테이너에 Azure Monitor을 업데이트 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.openlocfilehash: a7f40cb0523c2366c47da228e49311c2f9579212
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76715912"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>메트릭을 사용할 수 있도록 컨테이너용 Azure Monitor를 업데이트하는 방법
 
-컨테이너용 Azure Monitor는 AKS(Azure Kubernetes Services) 클러스터 노드 및 포드에서 메트릭을 수집하고 Azure Monitor 메트릭 저장소에 기록하는 지원을 도입합니다. 이 변경 사항은 성능 차트에서 집계 계산(평균, 개수, 최대, 최소, Sum)을 표시하고, Azure 포털 대시보드에서 성능 차트 고정을 지원하며, 메트릭 경고를 지원할 때 향상된 적시량을 제공하기 위한 것입니다.
+컨테이너에 대 한 Azure Monitor AKS (Azure Kubernetes Services) 클러스터 노드 및 pod에서 메트릭을 수집 하 고이를 Azure Monitor 메트릭 저장소에 기록 하는 지원을 소개 합니다. 이 변경은 성능 차트에 집계 계산 (Avg, Count, Max, Min, Sum)을 제공할 때 향상 된 적시성을 제공 하기 위한 것으로, Azure Portal 대시보드의 고정 성능 차트를 지원 하 고 메트릭 경고를 지원 합니다.
 
 >[!NOTE]
->이 기능은 현재 Azure Red Hat OpenShift 클러스터를 지원하지 않습니다.
+>이 기능은 현재 Azure Red Hat OpenShift 클러스터를 지원 하지 않습니다.
 >
 
-다음 메트릭은 이 기능의 일부로 활성화됩니다.
+이 기능의 일부로 사용할 수 있는 메트릭은 다음과 같습니다.
 
-| 메트릭 네임스페이스 | 메트릭 | 설명 |
+| 메트릭 네임스페이스 | 메트릭 | Description |
 |------------------|--------|-------------|
-| 인사이트.컨테이너/노드 | cpuUsageMillicores, cpuusagePercentage, 메모리리터, 메모리어백분율, 메모리작업세트바이트, 메모리작업세트백, 노드카운트 | 이러한 지표는 *노드* 메트릭이며 *호스트를* 차원으로 포함하며<br> 노드의 이름을 *호스트* 차원의 값으로 지정합니다. |
-| 인사이트.컨테이너/포드 | 포드 카운트 | 다음은 *포드* 메트릭이며 컨트롤러 이름, Kubernetes 네임스페이스, 이름, 위상 등 차원으로 다음을 포함합니다. |
+| 정보. 컨테이너/노드 | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, Memoryrssbytes, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | 이러한 항목은 *노드* 메트릭이 며, *호스트* 를 차원으로 포함 하 고, 다음을 포함 합니다.<br> *호스트* 차원에 대 한 값으로 서의 노드 이름입니다. |
+| pod/ | podCount | 이러한 메트릭은 *pod* 메트릭입니다. ControllerName, Kubernetes namespace, name, phase로 다음을 포함 합니다. |
 
-이러한 새 기능을 지원 하도록 클러스터를 업데이트 Azure 포털, Azure PowerShell 또는 Azure CLI로 수행할 수 있습니다. Azure PowerShell 및 CLI를 사용하면 클러스터당 또는 구독의 모든 클러스터에 대해 이 기능을 활성화할 수 있습니다. AKS의 새 배포에는 이 구성 변경 및 기능이 자동으로 포함됩니다.
+이러한 새 기능을 지원 하도록 클러스터를 업데이트 하는 것은 Azure Portal, Azure PowerShell 또는 Azure CLI에서 수행할 수 있습니다. Azure PowerShell 및 CLI를 사용 하 여 클러스터 당 또는 구독의 모든 클러스터에 대해이를 사용 하도록 설정할 수 있습니다. AKS의 새 배포에는이 구성 변경 및 기능이 자동으로 포함 됩니다.
 
-두 프로세스 중 하나에서 에이전트가 수집한 데이터를 클러스터 리소스에 게시할 수 있도록 **모니터링 메트릭 게시자** 역할을 클러스터의 서비스 주체에 할당합니다. 모니터링 메트릭 게시자는 메트릭을 리소스에 푸시할 수 있는 권한만 가지고 있으며, 상태를 변경하거나 리소스를 업데이트하거나 데이터를 읽을 수 없습니다. 역할에 대한 자세한 내용은 [모니터링 메트릭 게시자 역할을](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher)참조하십시오.
+각 프로세스는 에이전트에서 수집한 데이터를 클러스터 리소스에 게시할 수 있도록 클러스터의 서비스 주체에 **모니터링 메트릭 게시자** 역할을 할당 합니다. 모니터링 메트릭 게시자에는 리소스에 대해 메트릭을 푸시할 수 있는 권한만 있고, 모든 상태를 변경 하거나, 리소스를 업데이트 하거나, 데이터를 읽을 수 없습니다. 역할에 대 한 자세한 내용은 [모니터링 메트릭 게시자 역할](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-시작하기 전에 다음을 확인합니다.
+시작 하기 전에 다음을 확인 합니다.
 
-* 사용자 지정 메트릭은 Azure 지역의 하위 집합에서만 사용할 수 있습니다. 지원되는 지역 목록은 여기에 설명되어 [있습니다.](../platform/metrics-custom-overview.md#supported-regions)
-* 노드 및 포드 사용자 지정 성능 메트릭의 컬렉션을 사용하도록 설정하려면 AKS 클러스터 리소스에서 **[소유자](../../role-based-access-control/built-in-roles.md#owner)** 역할의 구성원입니다. 
+* 사용자 지정 메트릭은 Azure 지역의 하위 집합 에서만 사용할 수 있습니다. 지원 되는 지역 목록은 [여기](../platform/metrics-custom-overview.md#supported-regions)에 설명 되어 있습니다.
+* AKS 클러스터 리소스에 대 한 **[소유자](../../role-based-access-control/built-in-roles.md#owner)** 역할의 멤버는 노드 및 pod 사용자 지정 성능 메트릭을 수집 하도록 설정 합니다. 
 
-Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.59 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
+Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.59 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
 
-## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Azure 포털에서 클러스터 업그레이드
+## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Azure Portal에서 클러스터 업그레이드
 
-컨테이너에 대해 Azure Monitor에서 모니터링하는 기존 AKS 클러스터의 경우 왼쪽 창에서 **Insights를** 선택하여 Azure Monitor의 다중 클러스터 보기에서 또는 클러스터에서 직접 상태를 볼 수 있도록 클러스터를 선택한 후 포털 상단에 배너가 표시됩니다.
+컨테이너에 대해 Azure Monitor 모니터링 하는 기존 AKS 클러스터의 경우, Azure Monitor의 다중 클러스터 뷰에서 해당 상태를 볼 수 있도록 클러스터를 선택 하 고 왼쪽 창에서 **Insights** 를 선택 하 여 클러스터에서 직접 상태를 보려면 포털 위쪽에 배너가 표시 되어야 합니다.
 
-![Azure 포털에서 AKS 클러스터 배너 업그레이드](./media/container-insights-update-metrics/portal-banner-enable-01.png)
+![Azure Portal에서 AKS 클러스터 배너 업그레이드](./media/container-insights-update-metrics/portal-banner-enable-01.png)
 
-**활성화를** 클릭하면 클러스터를 업그레이드하는 프로세스가 시작됩니다. 이 프로세스는 완료하는 데 수 초가 소요되며 메뉴의 알림에서 진행 상황을 추적할 수 있습니다.
+**사용** 을 클릭 하면 클러스터를 업그레이드 하는 프로세스가 시작 됩니다. 이 프로세스는 완료하는 데 수 초가 소요되며 메뉴의 알림에서 진행 상황을 추적할 수 있습니다.
 
-## <a name="upgrade-all-clusters-using-bash-in-azure-command-shell"></a>Azure 명령 셸에서 Bash를 사용하여 모든 클러스터 업그레이드
+## <a name="upgrade-all-clusters-using-bash-in-azure-command-shell"></a>Azure 명령 셸에서 Bash를 사용 하 여 모든 클러스터 업그레이드
 
-다음 단계를 수행하여 Azure 명령 셸의 Bash를 사용하여 구독의 모든 클러스터를 업데이트합니다.
+Azure 명령 셸에서 Bash를 사용 하 여 구독의 모든 클러스터를 업데이트 하려면 다음 단계를 수행 합니다.
 
-1. Azure CLI를 사용하여 다음 명령을 실행합니다.  AKS 클러스터에 대한 **AKS 개요** 페이지에서 값을 사용하여 **구독Id값을** 편집합니다.
+1. Azure CLI를 사용 하 여 다음 명령을 실행 합니다.  AKS 클러스터에 대 한 **AKS 개요** 페이지의 값을 사용 하 여 **subscriptionId** 값을 편집 합니다.
 
     ```azurecli
     az login
@@ -58,17 +58,17 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     curl -sL https://aka.ms/ci-md-onboard-atscale | bash -s subscriptionId   
     ```
 
-    구성 변경을 완료하는 데 몇 초 정도 걸릴 수 있습니다. 완료되면 다음과 유사한 메시지가 표시되고 결과가 포함됩니다.
+    구성 변경을 완료 하는 데 몇 초 정도 걸릴 수 있습니다. 완료되면 다음과 유사한 메시지가 표시되고 결과가 포함됩니다.
 
     ```azurecli
     completed role assignments for all AKS clusters in subscription: <subscriptionId>
     ```
 
-## <a name="upgrade-per-cluster-using-azure-cli"></a>Azure CLI를 사용하여 클러스터당 업그레이드
+## <a name="upgrade-per-cluster-using-azure-cli"></a>Azure CLI를 사용 하 여 클러스터 당 업그레이드
 
-Azure CLI를 사용하여 구독에서 특정 클러스터를 업데이트하려면 다음 단계를 수행합니다.
+Azure CLI를 사용 하 여 구독에서 특정 클러스터를 업데이트 하려면 다음 단계를 수행 합니다.
 
-1. Azure CLI를 사용하여 다음 명령을 실행합니다. AKS 클러스터에 대한 **AKS 개요** 페이지의 값을 사용하여 **멤버쉽Id,** **리소스그룹이름**및 **클러스터이름에** 대한 값을 편집합니다.  **clientIdOfSPN의**값을 얻으려면 아래 예제와 같이 명령을 `az aks show` 실행할 때 반환됩니다.
+1. Azure CLI를 사용 하 여 다음 명령을 실행 합니다. AKS 클러스터에 대 한 **AKS 개요** 페이지의 값을 사용 하 여 **subscriptionId**, **resourceGroupName**및 **clusterName** 의 값을 편집 합니다.  다음 예제에 표시 된 것 처럼, **Clientidofspn**값을 가져오기 위해 명령을 `az aks show` 실행 하면 반환 됩니다.
 
     ```azurecli
     az login
@@ -77,11 +77,11 @@ Azure CLI를 사용하여 구독에서 특정 클러스터를 업데이트하려
     az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
     ``` 
 
-## <a name="upgrade-all-clusters-using-azure-powershell"></a>Azure PowerShell을 사용하여 모든 클러스터 업그레이드
+## <a name="upgrade-all-clusters-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 모든 클러스터 업그레이드
 
-Azure PowerShell을 사용하여 구독의 모든 클러스터를 업데이트하려면 다음 단계를 수행합니다.
+Azure PowerShell를 사용 하 여 구독에 있는 모든 클러스터를 업데이트 하려면 다음 단계를 수행 합니다.
 
-1. 다음 스크립트를 복사하여 파일에 붙여넣습니다.
+1. 다음 스크립트를 복사 하 여 파일에 붙여 넣습니다.
 
     ```powershell
     <# 
@@ -321,23 +321,23 @@ Azure PowerShell을 사용하여 구독의 모든 클러스터를 업데이트�
     Write-Host("Completed adding role assignment for the aks clusters in subscriptionId :$SubscriptionId")   
     ```
 
-2. 이 파일을 로컬 폴더에 **onboard_metrics_atscale.ps1로** 저장합니다.
-3. Azure PowerShell을 사용하여 다음 명령을 실행합니다.  AKS 클러스터에 대한 **AKS 개요** 페이지에서 값을 사용하여 **구독Id값을** 편집합니다.
+2. 이 파일을 로컬 폴더에 **onboard_metrics_atscale.** p s 1로 저장 합니다.
+3. Azure PowerShell를 사용 하 여 다음 명령을 실행 합니다.  AKS 클러스터에 대 한 **AKS 개요** 페이지의 값을 사용 하 여 **subscriptionId** 값을 편집 합니다.
 
     ```powershell
     .\onboard_metrics_atscale.ps1 subscriptionId
     ```
-    구성 변경을 완료하는 데 몇 초 정도 걸릴 수 있습니다. 완료되면 다음과 유사한 메시지가 표시되고 결과가 포함됩니다.
+    구성 변경을 완료 하는 데 몇 초 정도 걸릴 수 있습니다. 완료되면 다음과 유사한 메시지가 표시되고 결과가 포함됩니다.
 
     ```powershell
     Completed adding role assignment for the aks clusters in subscriptionId :<subscriptionId>
     ```
 
-## <a name="upgrade-per-cluster-using-azure-powershell"></a>Azure PowerShell을 사용하여 클러스터당 업그레이드
+## <a name="upgrade-per-cluster-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 클러스터 당 업그레이드
 
-Azure PowerShell을 사용하여 특정 클러스터를 업데이트하려면 다음 단계를 수행합니다.
+Azure PowerShell를 사용 하 여 특정 클러스터를 업데이트 하려면 다음 단계를 수행 합니다.
 
-1. 다음 스크립트를 복사하여 파일에 붙여넣습니다.
+1. 다음 스크립트를 복사 하 여 파일에 붙여 넣습니다.
 
     ```powershell
     <# 
@@ -571,14 +571,14 @@ Azure PowerShell을 사용하여 특정 클러스터를 업데이트하려면 �
     }
     ```
 
-2. 이 파일을 로컬 폴더에 **onboard_metrics.ps1로** 저장합니다.
-3. Azure PowerShell을 사용하여 다음 명령을 실행합니다. AKS 클러스터에 대한 **AKS 개요** 페이지의 값을 사용하여 **멤버쉽Id,** **리소스그룹이름**및 **클러스터이름에** 대한 값을 편집합니다.
+2. 이 파일을 로컬 폴더에 **onboard_metrics.** p s 1로 저장 합니다.
+3. Azure PowerShell를 사용 하 여 다음 명령을 실행 합니다. AKS 클러스터에 대 한 **AKS 개요** 페이지의 값을 사용 하 여 **subscriptionId**, **resourceGroupName**및 **clusterName** 의 값을 편집 합니다.
 
     ```powershell
     .\onboard_metrics.ps1 subscriptionId <subscriptionId> resourceGroupName <resourceGroupName> clusterName <clusterName>
     ```
 
-    구성 변경을 완료하는 데 몇 초 정도 걸릴 수 있습니다. 완료되면 다음과 유사한 메시지가 표시되고 결과가 포함됩니다.
+    구성 변경을 완료 하는 데 몇 초 정도 걸릴 수 있습니다. 완료되면 다음과 유사한 메시지가 표시되고 결과가 포함됩니다.
 
     ```powershell
     Successfully added Monitoring Metrics Publisher role assignment to cluster : <clusterName>
@@ -586,4 +586,4 @@ Azure PowerShell을 사용하여 특정 클러스터를 업데이트하려면 �
 
 ## <a name="verify-update"></a>업데이트 확인 
 
-앞에서 설명한 방법 중 하나를 사용하여 업데이트를 시작하고 Azure Monitor 메트릭 탐색기를 사용하고 **메트릭 네임스페이스에서** **인사이트가** 나열되는지 확인할 수 있습니다. 이 경우 [메트릭 경고를](../platform/alerts-metric.md) 설정하거나 [차트를 대시보드에](../../azure-portal/azure-portal-dashboards.md)고정할 수 있음을 나타냅니다.  
+앞서 설명한 방법 중 하나를 사용 하 여 업데이트를 시작한 후 Azure Monitor 메트릭 탐색기를 사용 하 여 **정보** 를 확인할 수 있는 **메트릭 네임 스페이스** 에서 확인할 수 있습니다. 이 경우 계속 진행 하 여 [메트릭 경고](../platform/alerts-metric.md) 를 설정 하거나 [대시보드에](../../azure-portal/azure-portal-dashboards.md)차트를 고정할 수 있습니다.  

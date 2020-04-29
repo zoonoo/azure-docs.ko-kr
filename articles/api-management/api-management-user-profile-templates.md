@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4e3e430874f9d5b64f717b6ebb1cacb0eae46b1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79243953"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API Management의 사용자 프로필 템플릿
@@ -40,7 +40,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="profile"></a><a name="Profile"></a>프로필  
+##  <a name="profile"></a><a name="Profile"></a>Profile  
  **프로필** 템플릿을 사용하여 개발자 포털에서 사용자 프로필 페이지의 사용자 프로필 섹션을 사용자 지정할 수 있습니다.  
   
  ![사용자 프로필 페이지](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "APIM 사용자 프로필 페이지")  
@@ -98,7 +98,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ```  
   
 ### <a name="controls"></a>컨트롤  
- 이 템플릿은 [페이지 컨트롤을](api-management-page-controls.md)사용할 수 없습니다.  
+ 이 템플릿은 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 없습니다.  
   
 ### <a name="data-model"></a>데이터 모델  
   
@@ -108,14 +108,14 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 |속성|Type|Description|  
 |--------------|----------|-----------------|  
 |`firstName`|문자열|현재 사용자의 이름입니다.|  
-|`lastName`|문자열|현재 사용의 성입니다.|  
-|`companyName`|문자열|현재 사용의 회사 이름입니다.|  
-|`addresserEmail`|문자열|현재 사용의 전자 메일 주소입니다.|  
-|`developersUsageStatisticsLink`|문자열|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
+|`lastName`|string|현재 사용의 성입니다.|  
+|`companyName`|string|현재 사용의 회사 이름입니다.|  
+|`addresserEmail`|string|현재 사용의 전자 메일 주소입니다.|  
+|`developersUsageStatisticsLink`|string|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
 |`subscriptions`|[구독](api-management-template-data-model-reference.md#Subscription) 엔터티의 컬렉션입니다.|현재 사용자에 대한 구독입니다.|  
 |`applications`|[애플리케이션](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 애플리케이션입니다.|  
-|`changePasswordUrl`|문자열|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
-|`changeNameOrEmailUrl`|문자열|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
+|`changePasswordUrl`|string|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
+|`changeNameOrEmailUrl`|string|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
 |`canChangePassword`|boolean|현재 사용자가 암호를 변경할 수 있는지 여부입니다.|  
 |`isSystemUser`|boolean|현재 사용자가 기본 제공 [그룹](api-management-key-concepts.md#groups)의 구성원인지 여부입니다.|  
   
@@ -185,7 +185,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="subscriptions"></a><a name="Subscriptions"></a>구독  
+##  <a name="subscriptions"></a><a name="Subscriptions"></a>등에  
  **구독** 템플릿을 사용하여 개발자 포털에서 사용자 프로필 페이지의 구독 섹션을 사용자 지정할 수 있습니다.  
   
  ![사용자 구독 페이지](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "APIM 사용자 구독 페이지")  
@@ -317,9 +317,9 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ```  
   
 ### <a name="controls"></a>컨트롤  
- 이 템플릿은 다음 [페이지 컨트롤을](api-management-page-controls.md)사용할 수 있습니다.  
+ 이 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
--   [구독 취소](api-management-page-controls.md#subscription-cancel)  
+-   [구독-취소](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>데이터 모델  
   
@@ -329,14 +329,14 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 |속성|Type|Description|  
 |--------------|----------|-----------------|  
 |`firstName`|문자열|현재 사용자의 이름입니다.|  
-|`lastName`|문자열|현재 사용의 성입니다.|  
-|`companyName`|문자열|현재 사용의 회사 이름입니다.|  
-|`addresserEmail`|문자열|현재 사용의 전자 메일 주소입니다.|  
-|`developersUsageStatisticsLink`|문자열|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
+|`lastName`|string|현재 사용의 성입니다.|  
+|`companyName`|string|현재 사용의 회사 이름입니다.|  
+|`addresserEmail`|string|현재 사용의 전자 메일 주소입니다.|  
+|`developersUsageStatisticsLink`|string|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
 |`subscriptions`|[구독](api-management-template-data-model-reference.md#Subscription) 엔터티의 컬렉션입니다.|현재 사용자에 대한 구독입니다.|  
 |`applications`|[애플리케이션](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 애플리케이션입니다.|  
-|`changePasswordUrl`|문자열|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
-|`changeNameOrEmailUrl`|문자열|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
+|`changePasswordUrl`|string|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
+|`changeNameOrEmailUrl`|string|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
 |`canChangePassword`|boolean|현재 사용자가 암호를 변경할 수 있는지 여부입니다.|  
 |`isSystemUser`|boolean|현재 사용자가 기본 제공 [그룹](api-management-key-concepts.md#groups)의 구성원인지 여부입니다.|  
   
@@ -406,7 +406,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="applications"></a><a name="Applications"></a>응용 프로그램  
+##  <a name="applications"></a><a name="Applications"></a>프로그램도  
  **애플리케이션** 템플릿을 사용하여 개발자 포털에서 사용자 프로필 페이지의 구독 섹션을 사용자 지정할 수 있습니다.  
   
  ![사용자 계정 응용 프로그램 페이지](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "APIM 사용자 계정 응용 프로그램 페이지")  
@@ -480,7 +480,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ```  
   
 ### <a name="controls"></a>컨트롤  
- 이 템플릿은 다음 [페이지 컨트롤을](api-management-page-controls.md)사용할 수 있습니다.  
+ 이 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
 -   [앱-작업](api-management-page-controls.md#app-actions)  
   
@@ -492,14 +492,14 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 |속성|Type|Description|  
 |--------------|----------|-----------------|  
 |`firstName`|문자열|현재 사용자의 이름입니다.|  
-|`lastName`|문자열|현재 사용의 성입니다.|  
-|`companyName`|문자열|현재 사용의 회사 이름입니다.|  
-|`addresserEmail`|문자열|현재 사용의 전자 메일 주소입니다.|  
-|`developersUsageStatisticsLink`|문자열|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
+|`lastName`|string|현재 사용의 성입니다.|  
+|`companyName`|string|현재 사용의 회사 이름입니다.|  
+|`addresserEmail`|string|현재 사용의 전자 메일 주소입니다.|  
+|`developersUsageStatisticsLink`|string|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
 |`subscriptions`|[구독](api-management-template-data-model-reference.md#Subscription) 엔터티의 컬렉션입니다.|현재 사용자에 대한 구독입니다.|  
 |`applications`|[애플리케이션](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 애플리케이션입니다.|  
-|`changePasswordUrl`|문자열|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
-|`changeNameOrEmailUrl`|문자열|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
+|`changePasswordUrl`|string|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
+|`changeNameOrEmailUrl`|string|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
 |`canChangePassword`|boolean|현재 사용자가 암호를 변경할 수 있는지 여부입니다.|  
 |`isSystemUser`|boolean|현재 사용자가 기본 제공 [그룹](api-management-key-concepts.md#groups)의 구성원인지 여부입니다.|  
   
@@ -607,7 +607,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ```  
   
 ### <a name="controls"></a>컨트롤  
- 이 템플릿은 [페이지 컨트롤을](api-management-page-controls.md)사용할 수 없습니다.  
+ 이 템플릿은 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 없습니다.  
   
 ### <a name="data-model"></a>데이터 모델  
  [사용자 계정 정보](api-management-template-data-model-reference.md#UserAccountInfo) 엔터티입니다.  

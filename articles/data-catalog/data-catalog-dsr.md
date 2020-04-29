@@ -1,16 +1,16 @@
 ---
 title: Azure Data Catalog에서 지원되는 데이터 원본
-description: 이 문서에는 Azure 데이터 카탈로그에 대해 현재 지원되는 데이터 원본의 사양이 나열됩니다.
+description: 이 문서에서는 Azure Data Catalog에 대해 현재 지원 되는 데이터 원본의 사양을 나열 합니다.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898158"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 지원되는 데이터 원본
@@ -25,11 +25,11 @@ ms.locfileid: "78898158"
        <td><b>API</b></td>
        <td><b>수동 입력</b></td>
        <td><b>등록 도구</b></td>
-       <td><b>오픈 인 도구</b></td>
+       <td><b>열기 도구</b></td>
        <td><b>참고</b></td>
     </tr>
     <tr>
-      <td>Azure 데이터 레이크 스토어 디렉터리(1세대만)</td>
+      <td>Azure Data Lake Store directory (Gen 1만 해당)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -37,7 +37,7 @@ ms.locfileid: "78898158"
       <td></td>
     </tr>
     <tr>
-      <td>Azure 데이터 레이크 스토어 파일(1세대만)</td>
+      <td>Azure Data Lake Store 파일 (Gen 1만 해당)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -124,7 +124,7 @@ ms.locfileid: "78898158"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td>오라클 10 이상 버전.</td>
+      <td>Oracle 10 이상 버전.</td>
     </tr>
     <tr>
       <td>Oracle 데이터베이스 뷰</td>
@@ -132,7 +132,7 @@ ms.locfileid: "78898158"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td>오라클 10 이상 버전.</td>
+      <td>Oracle 10 이상 버전.</td>
     </tr>
     <tr>
       <td>기타(일반 자산)</td>
@@ -151,7 +151,7 @@ ms.locfileid: "78898158"
       <td></td>
     </tr>
     <tr>
-      <td>Azure SQL 데이터 웨어하우스 보기</td>
+      <td>Azure SQL Data Warehouse 뷰</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -164,7 +164,7 @@ ms.locfileid: "78898158"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td>SQL Server 2008 및 이후 버전입니다.</td>
+      <td>2008 이상 버전을 SQL Server 합니다.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services KPI</td>
@@ -172,7 +172,7 @@ ms.locfileid: "78898158"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td>SQL Server 2008 및 이후 버전입니다.</td>
+      <td>2008 이상 버전을 SQL Server 합니다.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services 측정값</td>
@@ -180,7 +180,7 @@ ms.locfileid: "78898158"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td>SQL Server 2008 및 이후 버전입니다.</td>
+      <td>2008 이상 버전을 SQL Server 합니다.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services 테이블</td>
@@ -188,7 +188,7 @@ ms.locfileid: "78898158"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td>SQL Server 2008 및 이후 버전입니다.</td>
+      <td>2008 이상 버전을 SQL Server 합니다.</td>
     </tr>
     <tr>
       <td>SQL Server Reporting Services 보고서</td>
@@ -196,7 +196,7 @@ ms.locfileid: "78898158"
       <td>✓</td>
       <td>✓</td>
       <td>브라우저</td>
-      <td>기본 모드 서버에만 해당. SharePoint 모드는 지원되지 않음. SQL Server 2008 및 이후 버전만</td>
+      <td>기본 모드 서버에만 해당. SharePoint 모드는 지원되지 않음. SQL Server 2008 이상 버전에만 해당</td>
     </tr>
     <tr>
       <td>SQL Server 테이블</td>
@@ -204,7 +204,7 @@ ms.locfileid: "78898158"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server 데이터 도구</td>
-      <td>SQL Server 2008 및 이후 버전입니다.</td>
+      <td>2008 이상 버전을 SQL Server 합니다.</td>
     </tr>
     <tr>
       <td>SQL Server 뷰</td>
@@ -212,7 +212,7 @@ ms.locfileid: "78898158"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server 데이터 도구</td>
-      <td>SQL Server 2008 및 이후 버전입니다.</td>
+      <td>2008 이상 버전을 SQL Server 합니다.</td>
     </tr>
     <tr>
       <td>Teradata 테이블</td>
@@ -236,7 +236,7 @@ ms.locfileid: "78898158"
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>영어로만 작동합니다. 측정값은 지원되지 않습니다.</td>
+      <td>영어로만 작동 합니다. 측정값이 지원 되지 않습니다.</td>
     </tr>
     <tr>
       <td>SAP HANA 뷰</td>
@@ -449,7 +449,7 @@ ms.locfileid: "78898158"
 
 <table>
     <tr>
-       <td><b>소스 유형</b></td>
+       <td><b>원본 유형</b></td>
        <td><b>자산 유형</b></td>
        <td><b>개체 유형</b></td>
        <td><b>DSL 구조<b></td>

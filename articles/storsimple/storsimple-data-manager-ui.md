@@ -1,5 +1,5 @@
 ---
-title: 마이크로 소프트 Azure 스토심플 데이터 관리자 UI
+title: Microsoft Azure StorSimple Data Manager UI
 description: StorSimple Data Manager 서비스 UI를 사용하는 방법 설명
 author: alkohli
 ms.service: storsimple
@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78933755"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Azure Portal에서 StorSimple 데이터 관리자 서비스 관리
 
-이 문서에서는 StorSimple 데이터 관리자 UI를 사용하여 StorSimple 8000 시리즈 디바이스에 있는 데이터를 변환하는 방법을 설명합니다. 그런 다음 변환된 데이터를 Azure 미디어 서비스, Azure HDInsight, Azure 기계 학습 및 Azure 인지 검색과 같은 다른 Azure 서비스에서 사용할 수 있습니다.
+이 문서에서는 StorSimple 데이터 관리자 UI를 사용하여 StorSimple 8000 시리즈 디바이스에 있는 데이터를 변환하는 방법을 설명합니다. 변환 된 데이터는 Azure Media Services, Azure HDInsight, Azure Machine Learning, Azure Cognitive Search 등의 다른 Azure 서비스에서 사용 될 수 있습니다.
 
 
 ## <a name="use-storsimple-data-transformation"></a>StorSimple 데이터 변환 사용
@@ -40,7 +40,7 @@ StorSimple 데이터 관리자 서비스를 만들려면 다음 단계를 수행
 
    1. StorSimple 데이터 관리자에 대한 고유한 **서비스 이름**을 제공합니다. 이 이름은 서비스를 식별하는 데 사용할 수 있는 친숙한 이름입니다. 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.
 
-   2. 드롭다운 목록에서 **구독을** 선택합니다. 구독은 대금 청구 계정에 연결됩니다. 구독이 하나만 있는 경우 이 필드가 자동으로 채워집니다(선택할 수 없음).
+   2. 드롭다운 목록에서 **구독** 을 선택 합니다. 구독은 대금 청구 계정에 연결됩니다. 구독이 하나만 있는 경우 이 필드가 자동으로 채워집니다(선택할 수 없음).
 
    3. 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. 자세한 내용은 [Azure 리소스 그룹](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/)을 참조하세요.
 
@@ -62,7 +62,7 @@ StorSimple 데이터 관리자 서비스 내에서 데이터 변환 작업 정�
 
 1. 만든 서비스로 이동합니다. **관리 > 작업 정의**로 이동합니다.
 
-2. **+ 작업 정의를 클릭합니다.**
+2. **+ 작업 정의**를 클릭 합니다.
 
     ![+작업 정의 클릭](./media/storsimple-data-manager-ui/create-job-definition-1.png)
 
@@ -102,7 +102,7 @@ StorSimple 데이터 관리자 서비스 내에서 데이터 변환 작업 정�
 
    3. **필터** 하위 섹션에서 관심 있는 데이터를 포함하는 루트 디렉터리를 _\MyRootDirectory\Data_ 형식으로 입력합니다. _\C:\Data_와 같은 드라이브 문자는 지원되지 않습니다. 여기에서 파일 필터를 추가할 수 있습니다.
 
-   4. 데이터 변환 서비스는 Azure로 푸시되는 데이터의 최신 스냅숏에서만 작동합니다.
+   4. 데이터 변환 서비스는 Azure에 푸시되는 데이터의 최신 스냅숏에 대해서만 작동 합니다.
 
    5. **확인**을 클릭합니다.
 
@@ -139,7 +139,7 @@ StorSimple에서 작업 정의에 지정된 스토리지 계정으로 데이터�
      
      ![작업 실행 시작 1](./media/storsimple-data-manager-ui/start-job-run1.png)
 
-2. **지금 실행을 클릭합니다.**
+2. **지금 실행**을 클릭 합니다.
      
      ![작업 실행 시작 2](./media/storsimple-data-manager-ui/start-job-run2.png)
 
@@ -153,8 +153,8 @@ StorSimple에서 작업 정의에 지정된 스토리지 계정으로 데이터�
 
 ### <a name="view-logs-after-job-completion"></a>작업 완료 후 로그 보기
 
-작업이 완료된 후 작업의 상태를 볼 수 있습니다. 작업 상태가 **성공,** **부분적으로 성공** 및 실패할 수 **있습니다.** 성공적으로 복사된 파일 목록과 복사하지 못한 파일 목록을 볼 수 있습니다. 이러한 목록은 대상 저장소 계정 내의 **"storsimple-data-manager-joblogs"라는** 컨테이너에서 사용할 수 있습니다. 이 컨테이너 내에서 작업 정의와 이름이 같은 폴더를 찾을 수 있습니다. 이 내에서 목록이 포함 되는 모든 작업 실행에 대 한 폴더가 만들어집니다. 이 폴더의 이름은 작업 세부 정보 페이지에서 얻을 수 있는 작업의 GUID가 됩니다. 또는 대부분의 경우 작업 페이지 자체 내에서 복사 로그에 대한 링크가 표시됩니다.
-이 폴더에는 2 세트의 CSV 파일이 있습니다. **복사파일리스트로** 시작하는 모든 파일에는 성공적으로 복사된 파일 목록이 포함됩니다. **failedfilefilelist로** 시작하는 모든 파일에는 오류 메시지와 함께 복사할 수 없는 파일이 포함됩니다.
+작업을 완료 한 후 작업의 상태를 볼 수 있습니다. 작업 상태는 **성공**, **부분적으로 성공** 및 **실패**일 수 있습니다. 성공적으로 복사 된 파일 목록과 복사 하지 못한 파일을 볼 수 있습니다. 이러한 목록은 대상 저장소 계정 내의 **"storsimple-데이터 관리자-joblogs"** 라는 컨테이너에서 사용할 수 있습니다. 이 컨테이너 내에서 작업 정의와 이름이 같은 폴더를 찾을 수 있습니다. 이 내에서 목록을 포함 하는 모든 작업 실행에 대해 폴더가 생성 됩니다. 이 폴더의 이름은 작업 세부 정보 페이지에서 가져올 수 있는 작업의 GUID가 됩니다. 또는 대부분의 경우 작업 페이지 내에서 복사 로그에 대 한 링크가 표시 됩니다.
+이 폴더에는 두 개의 csv 파일 집합이 표시 됩니다. 모든 파일에는 성공적으로 **복사 된 파일 목록이 포함 됩니다.** **Failedfilelist** 로 시작 하는 모든 파일에는 오류 메시지와 함께 복사할 수 없는 파일이 포함 되어 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

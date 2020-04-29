@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: b0b811a2b7ed432b7fc5015886b28337ca33424e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76710317"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>시나리오를 파악하고 고급 분석 데이터 처리를 계획하는 방법
@@ -48,7 +48,7 @@ ms.locfileid: "76710317"
 * 공개적으로 사용할 수 있는 HTTP 주소
 * 로컬 또는 네트워크 파일 위치
 * SQL Server 데이터베이스
-* Azure 저장소 컨테이너
+* Azure Storage 컨테이너
 
 ### <a name="what-is-the-azure-destination"></a>Azure 대상은 무엇인가요?
 
@@ -66,7 +66,7 @@ ms.locfileid: "76710317"
 다양한 스토리지 및 처리 환경에 데이터를 수집하거나 로드하기 위한 절차와 리소스에 대해서는 다음을 참조하세요.
 
 * [분석용 스토리지 환경에 데이터 로드](ingest-data.md)
-* [다양한 데이터 원본에서 교육 데이터를 Azure 기계 학습 스튜디오(클래식)로 가져옵니다.](../studio/import-data.md)
+* [다양 한 데이터 원본에서 Azure Machine Learning Studio (클래식)으로 학습 데이터 가져오기](../studio/import-data.md)
 
 ### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>데이터를 정기적으로 이동해야 하나요? 마이그레이션 중에 수정되어야 하나요?
 
@@ -75,11 +75,11 @@ ms.locfileid: "76710317"
 * 온-프레미스 및 클라우드 리소스를 둘 다 포함하는 하이브리드 시나리오
 * 마이그레이션 과정 중에 비즈니스 논리에 따라 데이터를 처리, 수정 또는 변경하는 시나리오
 
-자세한 내용은 [온-프레미스 SQL 서버에서 Azure 데이터 팩터리의 SQL Azure로 데이터 이동을](move-sql-azure-adf.md)참조하십시오.
+자세한 내용은 [Azure Data Factory를 사용 하 여 온-프레미스 SQL server에서 SQL Azure로 데이터 이동](move-sql-azure-adf.md)을 참조 하세요.
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>얼마나 많은 양의 데이터를 Azure로 이동해야 하나요?
 
-대용량 데이터 집합이 특정 환경의 저장소 용량을 초과할 수 있습니다. 예를 들어 다음 섹션에서 기계 학습 스튜디오(클래식)의 크기 제한에 대한 토론을 참조하십시오. 이런 경우, 분석하는 동안 데이터 샘플을 사용할 수 있습니다. 다양한 Azure 환경에서 데이터 세트를 다운 샘플링하는 방법에 대한 자세한 내용은 [팀 데이터 과학 프로세스의 데이터 샘플링](sample-data.md)을 참조하세요.
+대용량 데이터 집합은 특정 환경의 저장소 용량을 초과할 수 있습니다. 예제는 다음 섹션의 Machine Learning Studio (클래식)에 대 한 크기 제한 설명을 참조 하세요. 이런 경우, 분석하는 동안 데이터 샘플을 사용할 수 있습니다. 다양한 Azure 환경에서 데이터 세트를 다운 샘플링하는 방법에 대한 자세한 내용은 [팀 데이터 과학 프로세스의 데이터 샘플링](sample-data.md)을 참조하세요.
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>데이터 특성 질문: 유형, 형식, 크기
 
@@ -106,7 +106,7 @@ ms.locfileid: "76710317"
 * 보통: 2GB보다 크고 10GB보다 작음
 * 큼: 10GB 초과
 
-Azure 기계 학습 스튜디오(클래식) 환경을 예로 들어 보겠습니다.
+Azure Machine Learning Studio (클래식) 환경을 사용 합니다. 예를 들면 다음과 같습니다.
 
 * Azure Machine Learning Studio에서 지원되는 데이터 형식 및 유형의 목록은 [지원되는 데이터 형식 및 데이터 유형](../studio/import-data.md#supported-data-formats-and-data-types) 섹션을 참조하세요.
 * 분석 과정에 사용되는 다른 Azure 서비스의 제한 사항에 대한 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요.
@@ -145,14 +145,14 @@ Azure 기계 학습 스튜디오(클래식) 환경을 예로 들어 보겠습니
 
 ### <a name="what-tools-should-you-use-for-data-analysis"></a>데이터 분석에 사용해야 하는 도구는 무엇인가요?
 
-* [Microsoft Azure Powershell](/powershell/azure/overview) - Azure 리소스를 스크립트 언어로 관리하는 데 사용되는 스크립트 언어입니다.
-* [Azure 기계 학습 스튜디오](../studio/what-is-ml-studio.md)
+* [Microsoft Azure Powershell](/powershell/azure/overview) -스크립트 언어로 Azure 리소스를 관리 하는 데 사용 되는 스크립트 언어입니다.
+* [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
 * [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)
 * [Anaconda](https://www.continuum.io/why-anaconda)
-* [주피터 노트북](https://jupyter.org/)
-* [마이크로소프트 파워 BI](https://powerbi.microsoft.com)
+* [Jupyter 노트북](https://jupyter.org/)
+* [Microsoft Power BI](https://powerbi.microsoft.com)
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>고급 분석 시나리오 파악
 

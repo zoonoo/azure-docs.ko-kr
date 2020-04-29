@@ -9,10 +9,10 @@ ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: 420c9e5a1e86f54e52905e7d7d2459fa2f68e405
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76771281"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Python용 Azure Cosmos DB Table API SDK: 릴리스 정보 및 리소스
@@ -20,14 +20,14 @@ ms.locfileid: "76771281"
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
-> * [Node.js](table-sdk-nodejs.md)
+> * [Node.JS](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
  
 
 |   |   |
 |---|---|
 |**SDK 다운로드**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
-|**API 문서**|[Python API 참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**API 설명서**|[Python API 참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
 |**SDK 설치 지침**|[Python SDK 설치 지침](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**SDK에 참여**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**현재 지원되는 플랫폼**|[Python 2.7](https://www.python.org/downloads/) 또는 [Python 3.3, 3.4, 3.5, 3.6](https://www.python.org/downloads/)|
@@ -60,6 +60,6 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요. 
 

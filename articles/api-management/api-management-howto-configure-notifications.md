@@ -1,5 +1,5 @@
 ---
-title: 알림 및 이메일 템플릿 구성
+title: 알림 및 전자 메일 템플릿 구성
 titleSuffix: Azure API Management
 description: Azure API Management에서 알림 및 메일 템플릿을 구성하는 방법에 대해 알아봅니다.
 services: api-management
@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244070"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Azure API Management에서 알림 및 전자 메일 템플릿을 구성하는 방법
 
 API Management는 특정 이벤트에 대한 알림을 구성하는 기능과 API Management 인스턴스의 관리자 및 개발자와 의사를 전달하는 데 사용되는 메일 템플릿을 구성하는 기능을 제공합니다. 이 아티클에서는 사용 가능한 이벤트에 대한 알림을 구성하는 방법을 보여주고 이러한 이벤트에 사용된 이메일 템플릿을 구성하는 개요를 제공합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 API Management 서비스 인스턴스가 없는 경우 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md) 빠른 시작을 완료합니다.
 
@@ -32,7 +32,7 @@ API Management 서비스 인스턴스가 없는 경우 [Azure API Management 인
 
 ## <a name="configure-notifications"></a><a name="publisher-notifications"> </a>알림 구성
 
-1.  API **관리** 인스턴스를 선택합니다.
+1.  **API MANAGEMENT** 인스턴스를 선택 합니다.
 2.  **알림**을 클릭하여 사용 가능한 알림을 볼 수 있습니다.
 
     ![게시자 알림][api-management-publisher-notifications]
@@ -48,7 +48,7 @@ API Management 서비스 인스턴스가 없는 경우 [Azure API Management 인
     -   **구독 할당량 한도 근접** - 구독 사용량이 사용 할당량에 근접하면 다음 메일 받는 사람 및 사용자가 메일 알림을 받습니다.
 
         > [!NOTE]
-        > 알림은 구독 정책에 의해서만 [할당량에 의해](api-management-access-restriction-policies.md#SetUsageQuota) 트리거됩니다. [키 정책별 할당량은](api-management-access-restriction-policies.md#SetUsageQuotaByKey) 알림을 생성하지 않습니다.
+        > [구독은 구독](api-management-access-restriction-policies.md#SetUsageQuota) 정책에 의해서만 할당량에 의해 트리거됩니다. [키 정책의 할당량은](api-management-access-restriction-policies.md#SetUsageQuotaByKey) 알림을 생성 하지 않습니다.
 
     각 이벤트에 대해 메일 주소 입력란을 사용하여 메일 받는 사람을 지정하거나 목록에서 사용자를 선택할 수 있습니다.
 

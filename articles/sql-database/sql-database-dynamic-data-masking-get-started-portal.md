@@ -1,5 +1,5 @@
 ---
-title: 'Azure 포털: 동적 데이터 마스킹'
+title: 'Azure Portal: 동적 데이터 마스킹'
 description: Azure Portal에서 SQL 데이터베이스 동적 데이터 마스킹을 시작하는 방법
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/04/2018
 ms.openlocfilehash: a8098b31c6b389b640fc03e756da44c70d9f3a70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76722121"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Azure Portal에서 SQL Database 동적 데이터 마스킹 시작
@@ -24,7 +24,7 @@ ms.locfileid: "76722121"
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Azure Portal을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
 
-1. 에서 [https://portal.azure.com](https://portal.azure.com)Azure 포털을 시작합니다.
+1. 에서 [https://portal.azure.com](https://portal.azure.com)Azure Portal를 시작 합니다.
 2. 마스킹하려는 중요한 데이터가 포함된 데이터베이스의 설정 페이지로 이동합니다.
 3. **동적 데이터 마스킹** 구성 페이지를 시작하는 **동적 데이터 마스킹** 타일을 클릭합니다.
 

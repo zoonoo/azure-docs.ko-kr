@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 3f02690d7c54581ed80b521e8222d1bd5964c878
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76718551"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark에서 만든 Machine Learning 모델 운영
@@ -32,10 +32,10 @@ HDInsight Spark 1.6 클러스터 및 Spark 2.0 클러스터 사용을 위한 설
 HDInsight Spark 2.0 클러스터와 함께 사용하도록 Spark 1.6용 Jupyter Notebook을 수정하려면 Python 코드 파일을 [이 파일](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py)로 바꿉니다. 이 코드는 Spark 2.0에서 생성된 모델을 사용하는 방법을 보여 줍니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 1. 이 연습을 완료하려면 Azure 계정과 Spark 1.6(또는 Spark 2.0) HDInsight 클러스터가 필요합니다. 이러한 요구 사항을 충족시키는 방법에 대한 자세한 지침은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](spark-overview.md)를 참조하세요. 이 항목에는 여기에서 사용된 NYC 2013 Taxi 데이터에 대한 설명 및 Spark 클러스터의 Jupyter Notebook에서 코드를 실행하는 방법에 대한 지침이 포함되어 있습니다. 
-2. Spark 1.6 클러스터 또는 Spark 2.0 노트북에 대한 [Spark 항목으로 데이터 탐색 및 모델링을](spark-data-exploration-modeling.md) 통해 작업하여 여기서 채점할 기계 학습 모델을 만듭니다. 
+2. Spark 1.6 클러스터 또는 spark 2.0 노트북에 대 한 [spark 토픽을 사용 하 여 데이터 탐색 및 모델링](spark-data-exploration-modeling.md) 을 통해 작업 하 여 여기서 점수를 매길 기계 학습 모델을 만듭니다. 
 3. Spark 2.0 Notebook은 분류 태스크에 대한 추가 데이터 세트인 2011년부터 2012까지 유명 항공사 정시 출발 데이터 세트를 사용합니다. 노트북과 이에 연결된 링크의 설명은 이들을 포함하는 GitHub 리포지토리의 [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md)에 제공됩니다. 그뿐 아니라 여기에 있는 코드와 연결된 Notebook에 있는 코드는 일반적이므로 아무 Spark 클러스터에서나 작동할 것입니다. HDInsight Spark를 사용하지 않는 경우 클러스터 설치 및 관리 단계가 여기에 나오는 내용과 약간 다를 수 있습니다. 
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
@@ -43,7 +43,7 @@ HDInsight Spark 2.0 클러스터와 함께 사용하도록 Spark 1.6용 Jupyter 
 ## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>설정: 스토리지 위치, 라이브러리 및 사전 설정 Spark 컨텍스트
 Spark는 Azure Storage Blob(WASB)를 읽고 쓸 수 있습니다. 따라서 Spark 및 WASB에 다시 저장된 결과를 사용하여 해당 저장소에 저장된 기존 데이터를 처리할 수 있습니다.
 
-모델 또는 파일을 WASB에 저장하려면 경로를 올바르게 지정해야 합니다. Spark 클러스터에 연결된 기본 컨테이너는 *"wasb///"로*시작하는 경로를 사용하여 참조할 수 있습니다. 다음 코드 샘플은 읽을 데이터의 위치 및 모델 출력을 저장할 모델 스토리지 디렉터리에 대한 경로를 지정합니다. 
+모델 또는 파일을 WASB에 저장하려면 경로를 올바르게 지정해야 합니다. *"Wasb///"* 로 시작 하는 경로를 사용 하 여 Spark 클러스터에 연결 된 기본 컨테이너를 참조할 수 있습니다. 다음 코드 샘플은 읽을 데이터의 위치 및 모델 출력을 저장할 모델 스토리지 디렉터리에 대한 경로를 지정합니다. 
 
 ### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>WASB의 스토리지 위치에 대 한 디렉터리 경로를 설정합니다.
 모델 저장 위치: "wasb:///user/remoteuser/NYCTaxi/Models". 이 경로를 올바르게 설정하지 않으면 점수 매기기를 위한 모델이 로드되지 않습니다.
@@ -80,7 +80,7 @@ Spark는 Azure Storage Blob(WASB)를 읽고 쓸 수 있습니다. 따라서 Spar
     import datetime
     datetime.datetime.now()
 
-**출력:**
+**출력**
 
 datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
 
@@ -104,7 +104,7 @@ Spark 컨텍스트를 설정하고 다음 코드를 사용하여 필요한 라�
 
 
 ### <a name="preset-spark-context-and-pyspark-magics"></a>미리 설정된 Spark 컨텍스트 및 PySpark 매직
-Jupyter Notebook과 함께 제공되는 PySpark 커널에는 사전 설정 컨텍스트가 있습니다. 따라서 개발 중인 응용 프로그램 작업을 시작하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요가 없습니다. 이러한 컨텍스트는 기본적으로 사용할 수 있습니다.
+Jupyter Notebook과 함께 제공되는 PySpark 커널에는 사전 설정 컨텍스트가 있습니다. 따라서 개발 중인 응용 프로그램으로 작업을 시작 하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요는 없습니다. 이러한 컨텍스트는 기본적으로 사용할 수 있습니다.
 
 * sc - Spark용 
 * sqlContext - Hive용
@@ -112,7 +112,7 @@ Jupyter Notebook과 함께 제공되는 PySpark 커널에는 사전 설정 컨�
 PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하며 이러한 매직은 %%를 사용하여 호출할 수 있습니다. 이러한 코드 샘플에 사용되는 다음과 같은 두 가지 명령이 있습니다.
 
 * **%%local** 다음 줄의 코드는 로컬로 실행됩니다. 코드는 유효한 Python 코드여야 합니다.
-* **%%sql -o \<변수 이름>** 
+* **%% sql-o \<변수 이름>** 
 * sqlContext에 대해 Hive 쿼리를 실행합니다. -o 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 Pandas 데이터 프레임으로 유지됩니다.
 
 Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
@@ -180,7 +180,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**출력:**
+**출력**
 
 위의 셀을 실행하는 데 걸린 시간: 46.37초
 
@@ -252,12 +252,12 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**출력:**
+**출력**
 
 위의 셀을 실행하는 데 걸린 시간: 5.37초
 
 ### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>모델에 입력하기 위해 기능 배열을 사용하여 RDD 개체 만들기
-이 섹션은 범주 텍스트 데이터를 RDD 개체로 인덱싱하고 이 개체를 사용하여 MLlib 로지스틱 회귀 및 트리 기반 모델을 학습하고 시험할 수 있도록 원 핫 인코딩하는 방법을 보여 주는 코드를 포함하고 있습니다. 인덱싱된 데이터는 [RDD(Resilient Distributed Dataset)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) 개체에 저장됩니다. RDD는 스파크의 기본 추상화입니다. RDD 개체는 Spark와 함께 병렬로 작업을 수행할 수 있으며 변경할 수 없고 분할된 요소 컬렉션입니다.
+이 섹션은 범주 텍스트 데이터를 RDD 개체로 인덱싱하고 이 개체를 사용하여 MLlib 로지스틱 회귀 및 트리 기반 모델을 학습하고 시험할 수 있도록 원 핫 인코딩하는 방법을 보여 주는 코드를 포함하고 있습니다. 인덱싱된 데이터는 [RDD(Resilient Distributed Dataset)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) 개체에 저장됩니다. Rds는 Spark의 기본 추상화입니다. RDD 개체는 Spark와 함께 병렬로 작업을 수행할 수 있으며 변경할 수 없고 분할된 요소 컬렉션입니다.
 
 또한 광범위한 기계 학습 모델을 학습하기 위한 인기 있는 알고리즘인 SGD(Stochastic Gradient Descent)와 함께 선형 회귀에 사용하기 위해 MLlib에서 제공하는 `StandardScalar` 를 사용하여 데이터를 규모 조정하는 방법을 보여 주는 코드를 포함하고 있습니다. [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) 는 기능을 단위 분산으로 규모 조정하기 위해 사용됩니다. 데이터 정규화라고도 하는 기능 크기 조정은 폭 넓게 분배된 값을 가진 기능이 목적 함수에서 과도한 가중치를 부여하지 않도록 합니다. 
 
@@ -326,7 +326,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**출력:**
+**출력**
 
 위의 셀을 실행하는 데 걸린 시간: 11.72초
 
@@ -357,7 +357,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
-**출력:**
+**출력**
 
 위의 셀을 실행하는 데 걸린 시간: 19.22초
 
@@ -390,7 +390,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**출력:**
+**출력**
 
 위의 셀을 실행하는 데 걸린 시간: 16.63초
 
@@ -436,16 +436,16 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
-**출력:**
+**출력**
 
 위의 셀을 실행하는 데 걸린 시간: 31.07초
 
 ## <a name="score-classification-and-regression-gradient-boosting-tree-models"></a>분류 및 회귀 점진적 향상 트리 모델 점수 매기기
 이 섹션의 코드는 Azure Blob Storage에서 점진적 향상 트리 모델을 로드하고 표준 분류자 및 회귀 측정값을 사용하여 해당 성능의 점수를 매긴 다음 결과를 Blob Storage에 다시 저장하는 방법을 보여 줍니다. 
 
-**spark.mllib는** 연속 및 범주형 기능을 모두 사용하여 이진 분류 및 회귀에 대한 GBTS를 지원합니다. 
+**spark mllib** 는 연속 및 범주 기능을 모두 사용 하 여 이진 분류 및 회귀에 대해 gbts를 지원 합니다. 
 
-[그라데이션 부스팅](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) 트리(GBTS)는 의사 결정 트리의 앙상블입니다. GBTS는 손실 함수를 최소화하기 위해 반복적으로 의사 결정 트리를 학습합니다. GBTS는 범주형 피처를 처리하고, 피쳐 크기 조정이 필요하지 않으며, 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 이 알고리즘은 다중 클래스 분류 설정에서도 사용할 수 있습니다.
+앙상블 ( [그라데이션 올리기 트리](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) )는 의사 결정 트리의입니다. GBTS는 의사 결정 트리를 반복적으로 학습 하 여 손실 함수를 최소화 합니다. GBTS는 범주 기능을 처리 하 고, 기능 크기 조정을 요구 하지 않으며, 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 이 알고리즘은 다중 클래스 분류 설정에도 사용할 수 있습니다.
 
     # SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 
@@ -486,7 +486,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**출력:**
+**출력**
 
 위의 셀을 실행하는 데 걸린 시간: 14.6초
 
@@ -509,7 +509,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
     print "BoostedTreeRegressionFileLoc: " + btregressionfilename;
 
 
-**출력:**
+**출력**
 
 logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-05-0317_22_38.953814.txt
 
@@ -524,10 +524,10 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>웹 인터페이스를 통해 Spark 모델 사용
-Spark는 Livy라는 구성 요소와의 REST 인터페이스를 통해 배치 작업 또는 대화형 쿼리를 원격으로 제출하는 메커니즘을 제공합니다. Livy는 HDInsight Spark 클러스터에서 기본적으로 사용하도록 설정되어 있습니다. Livy에 대한 자세한 내용은 [Livy를 사용하여 원격으로 스파크 작업을 제출하십시오.](../../hdinsight/spark/apache-spark-livy-rest-interface.md) 
+Spark는 Livy라는 구성 요소와의 REST 인터페이스를 통해 배치 작업 또는 대화형 쿼리를 원격으로 제출하는 메커니즘을 제공합니다. Livy는 HDInsight Spark 클러스터에서 기본적으로 사용하도록 설정되어 있습니다. Livy에 대 한 자세한 내용은 Livy를 [사용 하 여 원격으로 Spark 작업 제출](../../hdinsight/spark/apache-spark-livy-rest-interface.md)을 참조 하세요. 
 
 Livy를 사용하면 Azure blob에 저장된 파일의 점수를 일괄적으로 매긴 다음 결과를 다른 blob에 쓰는 작업을 원격으로 제출할 수 있습니다. 이 작업을 수행하려면  
-[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py)에서 Python 스크립트를 Spark 클러스터의 Blob에 업로드합니다. **Microsoft Azure Storage Explorer** 또는 **AzCopy** 등과 같은 도구를 사용하여 스크립트를 클러스터 Blob에 복사할 수 있습니다. 우리의 경우 우리는 ***wasb:///example/python/ConsumeGBNYCReg.py***스크립트를 업로드 .   
+[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py)에서 Python 스크립트를 Spark 클러스터의 Blob에 업로드합니다. **Microsoft Azure Storage Explorer** 또는 **AzCopy** 등과 같은 도구를 사용하여 스크립트를 클러스터 Blob에 복사할 수 있습니다. 이 경우 ***wasb:///example/python/ConsumeGBNYCReg.py***에 스크립트를 업로드 했습니다.   
 
 > [!NOTE]
 > 필요한 액세스 키는 Spark 클러스터와 연결된 스토리지 계정용 포털에서 찾을 수 있습니다. 
@@ -580,12 +580,12 @@ HTTP 호출을 위한 Python 코드는 다음과 같습니다.
 
 코드 없는 클라이언트 환경을 선호하는 경우 [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/)를 사용하여 **Logic Apps Designer**에서 HTTP 작업을 정의하고 해당 매개 변수를 설정하여 Spark 배치 점수 매기기를 호출합니다. 
 
-* Azure 포털에서 **+New** -> **Web + 모바일** -> 논리 앱을 선택하여 새**논리 앱을**만듭니다. 
+* Azure Portal에서 **+ 새로** -> 만들기**웹 + 모바일** -> **논리 앱**을 선택 하 여 새 논리 앱을 만듭니다. 
 * **Logic Apps Designer**를 표시하려면 Logic App 및 App Service 계획의 이름을 입력합니다.
 * HTTP 작업을 선택하고 다음 그림과 같은 매개 변수를 입력합니다.
 
 ![Logic Apps 디자이너](./media/spark-model-consumption/spark-logica-app-client.png)
 
-## <a name="whats-next"></a>다음 단계
+## <a name="whats-next"></a>새로운 기능
 **교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark를 사용한 고급 데이터 탐색 및 모델링](spark-advanced-data-exploration-modeling.md) 을 참조하세요.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79243927"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Azure API Management의 제품 템플릿
@@ -28,7 +28,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 -   [제품 목록](#ProductList)  
   
--   [Product](#Product)  
+-   [제품은](#Product)  
   
 > [!NOTE]
 >  다음 문서에는 샘플 기본 템플릿이 포함되어 있지만 지속적인 향상으로 인해 변경될 수 있습니다. 원하는 개별 템플릿으로 이동하여 개발자 포털에서 라이브 기본 템플릿을 볼 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)을 참조하세요.  
@@ -73,9 +73,9 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="controls"></a>컨트롤  
  `Product list` 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
--   [페이징 제어](api-management-page-controls.md#paging-control)  
+-   [페이징-컨트롤](api-management-page-controls.md#paging-control)  
   
--   [검색 제어](api-management-page-controls.md#search-control)  
+-   [검색-컨트롤](api-management-page-controls.md#search-control)  
   
 ### <a name="data-model"></a>데이터 모델  
   
@@ -123,7 +123,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="product"></a><a name="Product"></a>제품  
+##  <a name="product"></a><a name="Product"></a>제품은  
  **제품** 템플릿을 통해 개발자 포털에서 제품 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![개발자 포털 제품 페이지](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
@@ -200,18 +200,18 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="controls"></a>컨트롤  
  `Product list` 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
--   [구독 버튼](api-management-page-controls.md#subscribe-button)  
+-   [구독-단추](api-management-page-controls.md#subscribe-button)  
   
 ### <a name="data-model"></a>데이터 모델  
   
 |속성|Type|Description|  
 |--------------|----------|-----------------|  
-|Product|[Product](api-management-template-data-model-reference.md#Product)|지정된 제품.|  
+|Product|[제품은](api-management-template-data-model-reference.md#Product)|지정된 제품.|  
 |IsDeveloperSubscribed|boolean|현재 사용자가 이 제품을 구독하는지 여부입니다.|  
 |SubscriptionState|number|구독의 상태입니다. 가능한 상태는 다음과 같습니다.<br /><br /> -   `0 - suspended` – 구독이 차단되고 구독자는 제품의 API를 호출할 수 없습니다.<br />-   `1 - active` – 구독이 활성화되어 있습니다.<br />-   `2 - expired` - 구독이 만료 날짜에 도달되었고 비활성화되었습니다.<br />-   `3 - submitted` - 구독 요청이 개발자에 의해 발생했지만 아직 승인 또는 거부되지 않았습니다.<br />-   `4 - rejected` – 구독 요청이 관리자에 의해 거부되었습니다.<br />-   `5 - cancelled` - 구독이 개발자 또는 관리자에 의해 취소되었습니다.|  
 |제한|array|이 속성은 사용되지 않으며 사용할 수 없습니다.|  
 |DelegatedSubscriptionEnabled|boolean|[위임](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/)이 이 구독에 대해 활성화되었는지 여부입니다.|  
-|DelegatedSubscriptionUrl|문자열|위임을 사용하는 경우 위임된 구독 URL입니다.|  
+|DelegatedSubscriptionUrl|string|위임을 사용하는 경우 위임된 구독 URL입니다.|  
 |IsAgreed|boolean|제품에 약관이 있는 경우 현재 사용자가 약관에 동의했는지 여부입니다.|  
 |Subscriptions|[구독 요약](api-management-template-data-model-reference.md#SubscriptionSummary) 엔터티의 컬렉션입니다.|제품에 대한 구독입니다.|  
 |Apis|[API](api-management-template-data-model-reference.md#API) 엔터티의 컬렉션입니다.|이 제품의 API입니다.|  

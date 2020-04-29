@@ -1,6 +1,6 @@
 ---
 title: Azure Relay .NET Standard API 개요 | Microsoft Docs
-description: 이 문서에서는 Azure 릴레이 하이브리드 연결 .NET 표준 API의 주요 개요를 요약합니다.
+description: 이 문서에서는 Azure Relay 하이브리드 연결 .NET Standard API에 대 한 개요를 요약 합니다.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 18eaf2d2daae817107be6cdb0da9359bb5f9b4e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514538"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Azure Relay 하이브리드 연결 .NET Standard API 개요

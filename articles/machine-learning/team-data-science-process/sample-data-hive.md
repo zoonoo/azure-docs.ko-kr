@@ -12,14 +12,14 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df85edc3de00e2b0342bc3102fe9e85564a9835b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76719996"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Azure HDInsight Hive 테이블에서 데이터 샘플링
-이 문서에서는 Hive 쿼리를 사용하여 Azure HDInsight Hive 테이블에 저장된 데이터를 다운 샘플링함으로써 분석을 위해 보다 관리하기 쉬운 크기로 줄이는 방법에 대해 설명합니다. 그것은 세 가지 널리 사용되는 샘플링 방법을 다룹니다 :
+이 문서에서는 Hive 쿼리를 사용하여 Azure HDInsight Hive 테이블에 저장된 데이터를 다운 샘플링함으로써 분석을 위해 보다 관리하기 쉬운 크기로 줄이는 방법에 대해 설명합니다. 많이에 사용 되는 세 가지 샘플링 방법이 포함 되어 있습니다.
 
 * 균일한 무작위 샘플링
 * 그룹별 무작위 샘플링
@@ -31,7 +31,7 @@ ms.locfileid: "76719996"
 이 샘플 작업은 [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계입니다.
 
 ## <a name="how-to-submit-hive-queries"></a>Hive 쿼리를 제출하는 방법
-Hadoop 클러스터 헤드 노드의 Hadoop 명령줄 콘솔에서 Hive 쿼리를 제출할 수 있습니다.  Hadoop 클러스터의 헤드 노드에 로그인하고 Hadoop 명령줄 콘솔을 열고 거기에서 Hive 쿼리를 제출합니다. Hadoop 명령줄 콘솔에서 Hive 쿼리를 제출하는 방법에 대한 지침은 [Hive 쿼리를 제출하는 방법](move-hive-tables.md#submit)을 참조하세요.
+Hadoop 클러스터 헤드 노드의 Hadoop 명령줄 콘솔에서 Hive 쿼리를 제출할 수 있습니다.  Hadoop 클러스터의 헤드 노드에 로그인 하 여 Hadoop 명령줄 콘솔을 열고 여기에서 Hive 쿼리를 제출 합니다. Hadoop 명령줄 콘솔에서 Hive 쿼리를 제출하는 방법에 대한 지침은 [Hive 쿼리를 제출하는 방법](move-hive-tables.md#submit)을 참조하세요.
 
 ## <a name="uniform-random-sampling"></a><a name="uniform"></a> 균일한 무작위 샘플링
 균일한 무작위 샘플링은 데이터 집합의 각 행에 동일한 샘플링 기회가 주어짐을 의미합니다. 이 샘플링은 해당 무작위 필드에 대한 조건을 부여하는 내부 "select" 쿼리 및 외부 "select" 쿼리에서 데이터 집합에 추가 필드 rand()를 추가하여 구현할 수 있습니다.
