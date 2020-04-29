@@ -1,6 +1,6 @@
 ---
 title: Excel을 사용하여 Azure Analysis Services에 연결 | Microsoft Docs
-description: Excel을 사용하여 Azure Analysis Services 서버에 연결하는 방법에 대해 알아봅니다. 연결되면 사용자는 피벗 테이블을 만들어 데이터를 탐색할 수 있습니다.
+description: Excel을 사용하여 Azure Analysis Services 서버에 연결하는 방법에 대해 알아봅니다. 연결 되 면 사용자는 피벗 테이블을 만들어 데이터를 탐색할 수 있습니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b5c46c8b85af59efaf611300e2ab7129b3ef3cde
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411379"
 ---
 # <a name="connect-with-excel"></a>Excel로 연결
@@ -20,7 +20,7 @@ ms.locfileid: "80411379"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-로그인에 사용하는 계정은 읽기 이상의 권한이 있는 모델 데이터베이스 역할에 속해야 합니다. 자세한 내용은 [인증 및 사용자 권한을](analysis-services-manage-users.md)참조하십시오. 
+로그인에 사용하는 계정은 읽기 이상의 권한이 있는 모델 데이터베이스 역할에 속해야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요. 
 
 ## <a name="connect-in-excel"></a>Excel에서 연결
 
@@ -40,7 +40,7 @@ Excel 2016 이상에서 Get Data를 사용하여 Excel에서 서버에 연결합
     ![Excel 선택 모델에서 연결](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [클라이언트 라이브러리](analysis-services-data-providers.md)   
 [서버 관리](analysis-services-manage.md)     

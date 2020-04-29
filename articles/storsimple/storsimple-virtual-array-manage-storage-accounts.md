@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 5cedde1e7daa49aaa7a2786c9ad8a65fb8e452f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80297569"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>StorSimple Device Manager를 사용하여 StorSimple Virtual Array의 스토리지 계정 자격 증명 관리
@@ -38,7 +38,7 @@ Storage 계정 자격 증명은 클라우드 서비스 공급자와 Storage 계�
 **Storage 계정 자격 증명** 블레이드에서 청구 구독에 대해 만들어진 모든 Storage 계정 자격 증명이 다음 정보를 포함하여 테이블 형식으로 표시됩니다.
 
 * **이름** – 계정을 만들 때 계정에 할당된 고유한 이름입니다.
-* **SSL 사용** - TLS가 활성화되어 있는지 여부와 장치-클라우드 통신이 보안 채널을 통해 전달되는지 여부입니다.
+* **SSL 사용** – TLS를 사용 하도록 설정 하 고 장치-클라우드 통신을 보안 채널을 통해 설정 합니다.
   
   ![구성 섹션](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccountcredentials-blade.png)
 
@@ -56,7 +56,7 @@ StorSimple 디바이스에서 사용할 수 있는 스토리지 계정 자격 �
 * **서비스 구독 외부의 스토리지 계정 자격 증명** - 이러한 계정 자격 증명은 서비스와 연결되지 않았고 서비스가 만들어지기 전에 존재했던 Azure Storage 계정 자격 증명입니다.
 
 ## <a name="add-a-storage-account-credential"></a>스토리지 계정 자격 증명 추가
-스토리지 계정에 연결된 액세스 자격 증명 및 고유 이름을 제공하여 스토리지 계정 자격 증명을 StorSimple Device Manager 서비스 구성에 추가할 수 있습니다. 또한 이전에 SSL(보안 소켓 계층) 모드라고 도는 TLS(전송 계층 보안) 모드를 활성화하여 장치와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만들 수도 있습니다.
+스토리지 계정에 연결된 액세스 자격 증명 및 고유 이름을 제공하여 스토리지 계정 자격 증명을 StorSimple Device Manager 서비스 구성에 추가할 수 있습니다. 또한 TLS (전송 계층 보안) 모드를 사용 하도록 설정 하는 옵션 (이전에는 SSL (SSL(Secure Sockets Layer)))을 사용 하도록 설정 하 여 장치와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만들 수 있습니다.
 
 특정 클라우드 서비스 공급자에 대해 여러 계정을 만들 수 있습니다. 스토리지 계정 자격 증명을 저장하는 동안 해당 서비스는 클라우드 서비스 공급자와 통신을 시도합니다. 사용자가 지정한 자격 증명 및 액세스 자료가 이 때 인증됩니다. 인증에 성공하는 경우에만 스토리지 계정 자격 증명이 만들어집니다. 인증에 실패하는 경우 그에 따른 오류 메시지가 표시됩니다.
 
@@ -92,7 +92,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
    
     3. **스토리지 계정 선택키** 텍스트 상자에서 Azure Storage 계정 자격 증명의 기본 선택키를 지정합니다. 이 키를 가져오려면 Azure Storage 서비스로 이동하고 스토리지 계정 자격 증명을 선택한 다음 **계정 키 관리**를 클릭합니다. 이제 기본 선택키를 복사할 수 있습니다.
    
-    4. TLS를 사용하려면 **사용** 버튼을 클릭하여 StorSimple 장치 관리자 서비스와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 프라이빗 클라우드 내에서 작동하는 경우에만 **사용 안 함** 단추를 클릭합니다.
+    4. TLS를 사용 하도록 설정 하려면 **사용** 단추를 클릭 하 여 StorSimple Device Manager 서비스와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 프라이빗 클라우드 내에서 작동하는 경우에만 **사용 안 함** 단추를 클릭합니다.
    
     5. **추가**를 클릭합니다. 스토리지 계정 자격 증명이 성공적으로 만들어진 후 알림이 표시됩니다.
 
@@ -101,7 +101,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
     ![Device Manager 서비스 구독 외부의 스토리지 계정 자격 증명 추가](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-outside-storageacct.png)
 
 ## <a name="edit-a-storage-account-credential"></a>스토리지 계정 자격 증명 편집
-디바이스에서 사용하는 스토리지 계정 자격 증명을 편집할 수 있습니다. 현재 사용 중인 저장소 계정 자격 증명을 편집하는 경우 수정할 수 있는 필드는 액세스 키와 저장소 계정 자격 증명의 TLS 모드입니다. 새 스토리지 액세스 키를 제공하거나 **SSL 모드 사용** 선택을 수정하고 업데이트된 설정을 저장할 수 있습니다.
+디바이스에서 사용하는 스토리지 계정 자격 증명을 편집할 수 있습니다. 현재 사용 중인 저장소 계정 자격 증명을 편집할 경우 수정할 수 있는 필드는 저장소 계정 자격 증명에 대 한 액세스 키 및 TLS 모드입니다. 새 스토리지 액세스 키를 제공하거나 **SSL 모드 사용** 선택을 수정하고 업데이트된 설정을 저장할 수 있습니다.
 
 #### <a name="to-edit-a-storage-account-credential"></a>스토리지 계정 자격 증명을 편집하려면
 1. Device Manager 서비스를 찾아 선택하고 두 번 클릭합니다. 그러면 **개요** 블레이드가 열립니다.

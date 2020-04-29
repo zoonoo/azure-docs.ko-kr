@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구를 사용하여 IIS 웹 앱에 대한 재해 복구 설정
+title: Azure Site Recovery를 사용 하 여 IIS 웹 앱에 대 한 재해 복구 설정
 description: Azure Site Recovery를 사용하여 IIS 웹 팜 가상 머신을 복제하는 방법을 알아봅니다.
 author: mayurigupta13
 manager: rochakm
@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478295"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 애플리케이션에 대한 재해 복구 설정
 
 애플리케이션 소프트웨어는 조직에서 비즈니스 생산성의 엔진입니다. 다양한 웹 애플리케이션은 조직 내 여러 용도로 사용될 수 있습니다. 급여 처리, 재무 및 고객 지향 웹 사이트에 사용되는 애플리케이션과 같은 일부 애플리케이션은 조직에 중요할 수 있습니다. 생산성 저하를 방지하려면 조직에서 이러한 애플리케이션을 지속적으로 작동하고 실행해야 합니다. 더 중요한 것은 이러한 애플리케이션을 일관되게 사용할 수 있게 되면 조직의 브랜드 또는 이미지가 손상되지 않도록 하는 데 도움이 될 수 있습니다.
 
-중요한 웹 애플리케이션은 일반적으로 웹, 데이터베이스 및 애플리케이션이 서로 다른 계층에 있는 다중 계층 애플리케이션으로 설정됩니다. 여러 계층으로 분산되는 것 외에도, 애플리케이션은 각 계층에 여러 서버를 사용하여 트래픽 부하를 분산할 수도 있습니다. 또한 다양한 계층 간 및 웹 서버 상의 매핑은 고정 IP 주소를 기반으로 할 수 있습니다. 장애 조치 시, 특히 웹 서버에 여러 웹 사이트가 구성된 경우 이러한 매핑 중 일부를 업데이트해야 합니다. 웹 응용 프로그램이 TLS를 사용하는 경우 인증서 바인딩을 업데이트해야 합니다.
+중요한 웹 애플리케이션은 일반적으로 웹, 데이터베이스 및 애플리케이션이 서로 다른 계층에 있는 다중 계층 애플리케이션으로 설정됩니다. 여러 계층으로 분산되는 것 외에도, 애플리케이션은 각 계층에 여러 서버를 사용하여 트래픽 부하를 분산할 수도 있습니다. 또한 다양한 계층 간 및 웹 서버 상의 매핑은 고정 IP 주소를 기반으로 할 수 있습니다. 장애 조치 시, 특히 웹 서버에 여러 웹 사이트가 구성된 경우 이러한 매핑 중 일부를 업데이트해야 합니다. 웹 응용 프로그램에서 TLS를 사용 하는 경우 인증서 바인딩을 업데이트 해야 합니다.
 
 복제를 기반으로 하지 않는 기존의 복구 방법에는 다양한 구성 파일, 레지스트리 설정, 바인딩, 사용자 지정 구성 요소(COM 또는 .NET), 콘텐츠 및 인증서를 백업하는 작업이 포함됩니다. 파일은 일단의 수동 단계를 통해 복구됩니다. 파일을 백업하고 수동으로 복구하는 기존의 복구 방법은 번거롭고, 오류가 발생하기 쉽고, 크기를 조정할 수 없습니다. 예를 들어 인증서 백업을 쉽게 잊을 수 있습니다. 장애 조치 후에는 서버에 대한 새 인증서를 구매할 수밖에 없습니다.
 
@@ -62,14 +62,14 @@ ARR, IIS 서버, 애플리케이션 서버 및 SQL Server가 있는 IIS 기반 �
 --- | --- | ---
 Hyper-V | 예 | 예
 VMware | 예 | 예
-물리적 서버 | 예 | 예
+물리적 서버 | 아니요 | 예
 Azure|해당 없음|예
 
 ## <a name="replicate-virtual-machines"></a>가상 머신 복제
 
 모든 IIS 웹 팜 가상 머신을 Azure로 복제하려면 [Site Recovery에서 Azure로 장애 조치 테스트](site-recovery-test-failover-to-azure.md)의 지침을 따릅니다.
 
-고정 IP 주소를 사용하는 경우 가상 머신에서 사용할 IP 주소를 지정할 수 있습니다. IP 주소를 설정하려면 컴퓨팅 및 네트워크 설정 > TARGET**IP로** **이동합니다.**
+고정 IP 주소를 사용하는 경우 가상 머신에서 사용할 IP 주소를 지정할 수 있습니다. Ip 주소를 설정 하려면 **계산 및 네트워크 설정** > **대상 IP**로 이동 합니다.
 
 ![Site Recovery 컴퓨팅 및 네트워크 창에서 대상 IP를 설정하는 방법을 보여주는 스크린샷](./media/site-recovery-active-directory/dns-target-ip.png)
 
@@ -125,15 +125,15 @@ IP 주소를 사이트와 연결한 경우 모든 사이트 바인딩을 새 IP 
 #### <a name="update-the-load-balancer-ip-address"></a>부하 분산 장치 IP 주소 업데이트
 ARR 가상 머신이 있는 경우 IP 주소를 업데이트하려면 그룹 4 뒤에 [IIS ARR 장애 조치 스크립트](https://aka.ms/asr-iis-arrtier-failover-script-classic)를 추가합니다.
 
-#### <a name="tlsssl-certificate-binding-for-an-https-connection"></a>HTTPS 연결에 대한 TLS/SSL 인증서 바인딩
-웹 사이트에는 웹 서버와 사용자의 브라우저 간의 보안 통신을 보장하는 데 도움이 되는 연결된 TLS/SSL 인증서가 있을 수 있습니다. 웹 사이트에 HTTPS 연결이 있고 TLS/SSL 인증서 바인딩이 있는 IIS 서버의 IP 주소에 연결된 HTTPS 사이트가 있는 경우 장애 조치 후 IIS 가상 시스템의 IP 주소가 있는 인증서에 대한 새 사이트 바인딩을 추가해야 합니다.
+#### <a name="tlsssl-certificate-binding-for-an-https-connection"></a>HTTPS 연결에 대 한 TLS/SSL 인증서 바인딩
+웹 사이트에는 웹 서버와 사용자의 브라우저 간에 보안 통신을 보장 하는 데 도움이 되는 연결 된 TLS/SSL 인증서가 있을 수 있습니다. 웹 사이트에 HTTPS 연결이 있고 TLS/SSL 인증서 바인딩을 사용 하는 IIS 서버의 IP 주소에 연결 된 HTTPS 사이트 바인딩이 있는 경우 장애 조치 (failover) 후 IIS 가상 컴퓨터의 IP 주소를 사용 하 여 인증서에 대 한 새 사이트 바인딩을 추가 해야 합니다.
 
 TLS/SSL 인증서는 다음 구성 요소에 대해 발급할 수 있습니다.
 
 * 웹 사이트의 정규화된 도메인 이름
 * 서버 이름
 * 도메인 이름에 대한 와일드카드 인증서  
-* IP 주소. IIS 서버의 IP 주소에 대해 TLS/SSL 인증서가 발급된 경우 Azure 사이트의 IIS 서버의 IP 주소에 대해 다른 TLS/SSL 인증서를 발급해야 합니다. 이 인증서에 대한 추가 TLS 바인딩을 만들어야 합니다. 따라서 IP 주소에 대해 발급된 TLS/SSL 인증서를 사용하지 않는 것이 좋습니다. 이 옵션은 널리 사용되고 있지 않으며, 새로운 인증 기관/브라우저 포럼 변경 내용에 따라 곧 사용되지 않을 예정입니다.
+* IP 주소. TLS/SSL 인증서가 IIS 서버의 IP 주소에 대해 발급 되 면 Azure 사이트에 있는 IIS 서버의 IP 주소에 대해 다른 TLS/SSL 인증서를 발급 해야 합니다. 이 인증서에 대 한 추가 TLS 바인딩을 만들어야 합니다. 따라서 IP 주소에 대해 발급 된 TLS/SSL 인증서를 사용 하지 않는 것이 좋습니다. 이 옵션은 널리 사용되고 있지 않으며, 새로운 인증 기관/브라우저 포럼 변경 내용에 따라 곧 사용되지 않을 예정입니다.
 
 #### <a name="update-the-dependency-between-the-web-tier-and-the-application-tier"></a>웹 계층과 애플리케이션 계층 간의 종속성 업데이트
 가상 머신의 IP 주소를 기반으로 하는 애플리케이션별 종속성이 있는 경우 이 종속성은 장애 조치 후에 업데이트해야 합니다.

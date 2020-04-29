@@ -1,6 +1,6 @@
 ---
-title: Azure 보안 센터 FAQ - 가상 시스템에 대한 질문
-description: 위협을 방지, 탐지 및 대응하는 데 도움이 되는 제품인 Azure Security Center의 가상 컴퓨터에 대해 자주 묻는 질문
+title: Azure Security Center FAQ-가상 컴퓨터에 대 한 질문
+description: 위협을 예방, 감지 및 대응 하는 데 도움이 되는 Azure Security Center의 가상 컴퓨터에 대 한 질문과 대답
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,13 +14,13 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 0b7817539a26b7ebfa24efd086edf8b0ef82eae3
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80436001"
 ---
-# <a name="faq---questions-about-virtual-machines"></a>자주 묻는 질문 - 가상 머신에 대한 질문
+# <a name="faq---questions-about-virtual-machines"></a>FAQ-가상 컴퓨터에 대 한 질문
 
 
 ## <a name="what-types-of-virtual-machines-are-supported"></a>어떤 유형의 가상 머신이 지원되나요?
@@ -42,7 +42,7 @@ VM에 대한 검색 데이터가 없는 경우 이 메시지가 표시됩니다.
 
 ## <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Security Center는 운영 체제 취약점, 시스템 업데이트 및 Endpoint Protection 문제를 얼마나 자주 검사합니까?
 
-다음은 보안 센터에서 취약점, 업데이트 및 문제를 검사하는 대기 시간입니다.
+다음은 취약점, 업데이트 및 문제에 대 한 Security Center 검색에 대 한 대기 시간입니다.
 
 - 운영 체제 보안 구성 - 데이터가 48시간 이내 업데이트됩니다.
 - 시스템 업데이트 – 데이터가 24시간 이내 업데이트됩니다.
@@ -51,7 +51,7 @@ VM에 대한 검색 데이터가 없는 경우 이 메시지가 표시됩니다.
 Security Center는 일반적으로 한 시간마다 새 데이터를 검사하며 그에 따라 권장 사항을 새로 고칩니다. 
 
 > [!NOTE]
-> 보안 센터는 로그 분석 에이전트를 사용하여 데이터를 수집하고 저장합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](security-center-platform-migration.md)을 참조하세요.
+> Security Center Log Analytics 에이전트를 사용 하 여 데이터를 수집 하 고 저장 합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](security-center-platform-migration.md)을 참조하세요.
 
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>"VM 에이전트가 누락됨" 메시지가 표시되는 이유는 무엇인가요?

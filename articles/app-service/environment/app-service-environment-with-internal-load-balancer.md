@@ -1,6 +1,6 @@
 ---
-title: ILB ASE v1 생성
-description: ILB를 사용하여 ASE를 만들고 사용합니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
+title: ILB ASE v1 만들기
+description: ILB를 사용 하 여 ASE 만들기 및 사용 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
 author: ccompy
 ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 0c03905017629e28e41cce2adaa65eac347b8185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294726"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 사용
@@ -50,9 +50,9 @@ ILB ASE를 만드는 과정은 일반적으로 ASE를 만드는 과정과 크게
 3. 리소스 그룹을 선택하거나 만듭니다.
 4. VNet을 선택하거나 만듭니다.
 5. VNet을 선택하는 경우 서브넷 만듭니다.
-6. **가상 네트워크/위치-> VNet 구성을** 선택하고 VIP 유형을 내부로 설정합니다.
+6. **Virtual Network/위치-> VNet 구성** 을 선택 하 고 VIP 유형을 내부로 설정 합니다.
 7. 하위 도메인 이름을 제공합니다. (이 이름은 해당 ASE에서 만든 앱에 사용되는 하위 도메인입니다.)
-8. **확인을** 선택한 다음 **을 만듭니다.**
+8. **확인** , **만들기**를 차례로 선택 합니다.
 
 ![][1]
 

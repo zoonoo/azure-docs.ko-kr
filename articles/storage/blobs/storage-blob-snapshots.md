@@ -1,6 +1,6 @@
 ---
-title: .NET - Azure 저장소에서 Blob 스냅숏 생성 및 관리
-description: 특정 시점에 Blob 데이터를 백업하기 위해 Blob의 읽기 전용 스냅샷을 만드는 방법에 대해 알아봅니다.
+title: .NET에서 blob 스냅숏 만들기 및 관리-Azure Storage
+description: Blob의 읽기 전용 스냅숏을 만들어 지정 된 시간에 blob 데이터를 백업 하는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,17 +9,17 @@ ms.date: 09/06/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 9bf5eea55002814f461d375b3db43a37fe4f7aa9
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80474089"
 ---
-# <a name="create-and-manage-a-blob-snapshot-in-net"></a>.NET에서 Blob 스냅샷 생성 및 관리
+# <a name="create-and-manage-a-blob-snapshot-in-net"></a>.NET에서 blob 스냅숏 만들기 및 관리
 
-스냅샷은 특정 시점에 생성된 Blob의 읽기 전용 버전입니다. 스냅샷은 blob를 백업하는데 유용합니다. 이 문서에서는 .NET 에 대한 Azure [Storage 클라이언트 라이브러리를](/dotnet/api/overview/azure/storage?view=azure-dotnet)사용하여 Blob 스냅숏을 만들고 관리하는 방법을 보여 주며 있습니다.
+스냅샷은 특정 시점에 생성된 Blob의 읽기 전용 버전입니다. 스냅샷은 blob를 백업하는데 유용합니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 사용 하 여 blob 스냅숏을 만들고 관리 하는 방법을 보여 줍니다.
 
-## <a name="about-blob-snapshots"></a>Blob 스냅숏 소개
+## <a name="about-blob-snapshots"></a>Blob 스냅숏 정보
 
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -29,7 +29,7 @@ Blob URI에 스냅샷이 만들어진 시점의 시간을 나타내는 Blob URI�
 > 모든 스냅샷은 기본 Blob의 URI를 공유합니다. 기본 Blob와 스냅샷의 유일한 차이는 추가된 **DateTime** 값입니다.
 >
 
-Blob 하나에 여러 스냅샷이 있을 수 있습니다. 스냅숏은 명시적으로 삭제될 때까지 유지되므로 스냅숏이 기본 Blob보다 오래 지속될 수 없습니다. 기본 Blob와 연결된 스냅샷을 열거하여 현재 스냅샷을 추적할 수 있습니다.
+Blob 하나에 여러 스냅샷이 있을 수 있습니다. 스냅숏은 명시적으로 삭제 될 때까지 유지 됩니다. 즉, 스냅숏은 기본 blob을 사용할 수 없습니다. 기본 Blob와 연결된 스냅샷을 열거하여 현재 스냅샷을 추적할 수 있습니다.
 
 Blob의 스냅샷을 만들면 blob의 시스템 속성이 같은 값으로 스냅샷에 복사됩니다. 만들 때 스냅샷에 대한 별도의 메타데이터를 지정하지 않으면 기본 Blob의 메타데이터가 스냅샷에 복사됩니다. 스냅샷을 만든 후에 읽기, 복사 또는 삭제할 수 있지만 수정할 수 없습니다.
 
@@ -39,12 +39,12 @@ VM 디스크에 대한 현재 정보 및 상태를 저장하는 데 VHD 파일�
 
 ## <a name="create-a-snapshot"></a>스냅샷 만들기
 
-블록 Blob의 스냅숏을 만들려면 다음 방법 중 하나를 사용합니다.
+블록 blob의 스냅숏을 만들려면 다음 방법 중 하나를 사용 합니다.
 
-- [스냅샷 만들기](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshot)
-- [생성스냅샷Async](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshotasync)
+- [고 icloudblob.createsnapshot](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshot)
+- [CreateSnapshotAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshotasync)
 
-다음 코드 예제에서는 스냅숏을 만드는 방법을 보여 주며 있습니다. 이 예제에서는 만들 때 스냅샷에 대한 추가 메타데이터를 지정합니다.
+다음 코드 예제에서는 스냅숏을 만드는 방법을 보여 줍니다. 이 예제에서는 만들 때 스냅샷에 대한 추가 메타데이터를 지정합니다.
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
@@ -81,14 +81,14 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
 ## <a name="delete-snapshots"></a>스냅샷 삭제
 
-Blob을 삭제하려면 먼저 해당 Blob의 스냅숏을 삭제해야 합니다. 스냅샷을 개별적으로 삭제하거나 원본 Blob를 삭제할 때 모든 스냅샷을 삭제되도록 지정할 수 있습니다. 스냅샷이 있는 Blob을 삭제하려고 하면 오류가 발생합니다.
+Blob을 삭제 하려면 먼저 해당 blob의 모든 스냅숏을 삭제 해야 합니다. 스냅샷을 개별적으로 삭제하거나 원본 Blob를 삭제할 때 모든 스냅샷을 삭제되도록 지정할 수 있습니다. 스냅샷이 있는 Blob을 삭제하려고 하면 오류가 발생합니다.
 
-Blob 스냅숏을 삭제하려면 다음 Blob 삭제 방법 중 하나를 사용하고 [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) 열거형을 포함합니다.
+Blob 스냅숏을 삭제 하려면 다음 blob 삭제 방법 중 하나를 사용 하 고 [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) 열거형을 포함 합니다.
 
-- [삭제](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
+- [Delete](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteasync)
-- [삭제IfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
-- [삭제IfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)
+- [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
+- [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)
 
 다음 코드 예제에서는 .NET에서 Blob 및 해당 스냅샷을 삭제하는 방법을 보여 줍니다. 여기서 `blockBlob`은 [CloudBlockBlob][dotnet_CloudBlockBlob] 형식의 개체입니다.
 
@@ -98,7 +98,7 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 ## <a name="return-the-absolute-uri-to-a-snapshot"></a>스냅샷에 대한 절대 URI 반환
 
-다음 코드 예제는 스냅숏을 만들고 기본 위치에 대한 절대 URI를 기록합니다.
+다음 코드 예제에서는 스냅숏을 만들고 기본 위치에 대 한 절대 URI를 작성 합니다.
 
 ```csharp
 //Create the blob service client object.

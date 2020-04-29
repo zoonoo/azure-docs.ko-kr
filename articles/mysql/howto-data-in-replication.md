@@ -1,5 +1,5 @@
 ---
-title: 데이터 인 복제 구성 - MySQL용 Azure 데이터베이스
+title: 데이터에서 복제 구성-Azure Database for MySQL
 description: 이 문서에서는 Azure Database for MySQL에 대해 데이터 내부 복제를 설정하는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
@@ -7,19 +7,19 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.openlocfilehash: 18c1d8b42dc73951901ec4ae9b79715ddbd47617
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80474032"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database for MySQL 데이터 내부 복제를 구성하는 방법
 
-이 문서에서는 마스터 및 복제본 서버를 구성하여 MySQL용 Azure 데이터베이스에서 데이터 인 복제를 설정하는 방법에 대해 설명합니다. 이 문서에서는 MySQL 서버 및 데이터베이스에 대한 사전 경험이 있다고 가정합니다.
+이 문서에서는 마스터 서버와 복제 서버를 구성 하 여 Azure Database for MySQL에서 입력 데이터 복제를 설정 하는 방법을 설명 합니다. 이 문서에서는 사용자에 게 MySQL 서버 및 데이터베이스를 사용 하는 이전 경험이 있다고 가정 합니다.
 
-MySQL 서비스에 대한 Azure 데이터베이스에서 복제본을 만들려면 Data-in Replication은 마스터 MySQL 서버온-프레미스, 가상 컴퓨터(VM) 또는 클라우드 데이터베이스 서비스의 데이터를 동기화합니다.
+Azure Database for MySQL 서비스에서 복제본을 만들기 위해 입력 데이터 복제는 master MySQL server 온-프레미스, Vm (가상 머신) 또는 클라우드 데이터베이스 서비스에서 데이터를 동기화 합니다.
 
-이 문서의 단계를 수행하기 전에 데이터 입력 복제의 [제한 사항 및 요구 사항을](concepts-data-in-replication.md#limitations-and-considerations) 검토합니다.
+이 문서의 단계를 수행 하기 전에 데이터 복제의 [제한 사항 및 요구 사항을](concepts-data-in-replication.md#limitations-and-considerations) 검토 합니다.
 
 ## <a name="create-a-mysql-server-to-be-used-as-replica"></a>복제본으로 사용할 MySQL 서버 만들기
 
@@ -35,7 +35,7 @@ MySQL 서비스에 대한 Azure 데이터베이스에서 복제본을 만들려�
 
    사용자 계정은 마스터 서버에서 복제본 서버로 복제되지 않습니다. 복제본 서버에 대한 액세스 권한을 사용자에게 제공하려는 경우, 새로 만든 이 Azure Database for MySQL 서버에서 모든 계정과 해당 권한을 수동으로 만들어야 합니다.
 
-3. 마스터 서버의 IP 주소를 복제본의 방화벽 규칙에 추가합니다. 
+3. 마스터 서버의 IP 주소를 복제본의 방화벽 규칙에 추가 합니다. 
 
    [Azure Portal](howto-manage-firewall-using-portal.md) 또는 [Azure CLI](howto-manage-firewall-using-cli.md)를 사용하여 방화벽 규칙을 업데이트합니다.
 
@@ -43,11 +43,11 @@ MySQL 서비스에 대한 Azure 데이터베이스에서 복제본을 만들려�
 다음 단계에서는 데이터 내부 복제를 위해 다른 클라우드 공급자가 호스팅하는 가상 머신 또는 데이터베이스 서비스에서 온-프레미스 호스팅 MySQL 서버를 준비하고 구성합니다. 이 서버는 데이터 내부 복제의 “마스터” 서버입니다.
 
 
-1. 계속하기 전에 [마스터 서버 요구 사항을](concepts-data-in-replication.md#requirements) 검토합니다. 
+1. 계속 하기 전에 [마스터 서버 요구 사항을](concepts-data-in-replication.md#requirements) 검토 하십시오. 
 
-   예를 들어 마스터 서버가 포트 3306에서 인바운드 및 아웃바운드 트래픽을 모두 허용하고 마스터 서버에 **공용 IP 주소가**있는지, DNS가 공개적으로 액세스할 수 있는지 또는 정규화된 도메인 이름(FQDN)이 있는지 확인합니다. 
+   예를 들어 마스터 서버에서 포트 3306에 대 한 인바운드 및 아웃 바운드 트래픽을 모두 허용 하는지 확인 하 **고, DNS**를 공개적으로 액세스할 수 있거나 FQDN (정규화 된 도메인 이름)을 포함 하는지 확인 합니다. 
    
-   다른 컴퓨터에서 호스팅되는 MySQL 명령줄과 같은 도구또는 Azure 포털에서 사용할 수 있는 [Azure Cloud Shell과](https://docs.microsoft.com/azure/cloud-shell/overview) 같은 도구에서 연결을 시도하여 마스터 서버에 대한 연결을 테스트합니다.
+   다른 컴퓨터에서 호스트 되는 MySQL 명령줄 또는 Azure Portal에서 사용할 수 있는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 와 같은 도구에서 연결을 시도 하 여 마스터 서버에 대 한 연결을 테스트 합니다.
 
 2. 이진 로깅 켜기
 
@@ -57,9 +57,9 @@ MySQL 서비스에 대한 Azure 데이터베이스에서 복제본을 만들려�
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
-   변수가 [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) "ON" 값으로 반환되면 서버에서 바이너리 로깅이 활성화됩니다. 
+   "ON" [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) 값을 사용 하 여 변수를 반환 하는 경우에는 서버에서 이진 로깅이 사용 됩니다. 
 
-   값 `log_bin` "OFF"로 반환되는 경우 my.cnf 파일을 편집하여 바이너리 로깅을 `log_bin=ON` 켜고 변경 사항을 적용하기 위해 서버를 다시 시작합니다.
+   값 `log_bin` 이 "OFF"로 반환 되는 경우 my.cnf 파일을 편집 하 여 이진 로깅을 설정 하 `log_bin=ON` 고 변경 내용을 적용 하려면 서버를 다시 시작 합니다.
 
 3. 마스터 서버 설정
 
@@ -121,7 +121,7 @@ MySQL 서비스에 대한 Azure 데이터베이스에서 복제본을 만들려�
 
 6. 이진 로그 파일 이름 및 오프셋 가져오기
 
-   [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) 명령을 실행하여 현재 바이너리 로그 파일 이름 및 오프셋을 확인합니다.
+   [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) 명령을 실행 하 여 현재 이진 로그 파일 이름과 오프셋을 확인 합니다.
     
    ```sql
    show master status;
@@ -184,14 +184,14 @@ MySQL 서비스에 대한 Azure 데이터베이스에서 복제본을 만들려�
    -----END CERTIFICATE-----'
    ```
 
-   SSL을 사용하여 복제는 도메인 "companya.com"에서 호스팅되는 마스터 서버와 MySQL용 Azure 데이터베이스에서 호스팅되는 복제 서버 간에 설정됩니다. 이 저장 프로시저는 복제본에서 실행됩니다. 
+   SSL로 복제는 도메인 "companya.com"에서 호스트 되는 마스터 서버와 Azure Database for MySQL에서 호스트 되는 복제본 서버 간에 설정 됩니다. 이 저장 프로시저는 복제본에서 실행됩니다. 
 
    ```sql
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
    ```
    *SSL 없이 복제*
 
-   SSL이 없는 복제는 도메인 "companya.com"에서 호스팅되는 마스터 서버와 MySQL용 Azure 데이터베이스에서 호스팅되는 복제 서버 간에 설정됩니다. 이 저장 프로시저는 복제본에서 실행됩니다.
+   SSL을 사용 하지 않는 복제는 도메인 "companya.com"에서 호스트 되는 마스터 서버와 Azure Database for MySQL에서 호스트 되는 복제본 서버 간에 설정 됩니다. 이 저장 프로시저는 복제본에서 실행됩니다.
 
    ```sql
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
@@ -207,13 +207,13 @@ MySQL 서비스에 대한 Azure 데이터베이스에서 복제본을 만들려�
 
 1. 복제 상태 확인
 
-   복제 [`show slave status`](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) 서버의 명령을 호출하여 복제 상태를 확인합니다.
+   복제 서버 [`show slave status`](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) 에서 명령을 호출 하 여 복제 상태를 확인 합니다.
     
    ```sql
    show slave status;
    ```
 
-   상태가 `Slave_IO_Running` `Slave_SQL_Running` "예"이고 값이 `Seconds_Behind_Master` "0"이면 복제가 잘 작동합니다. `Seconds_Behind_Master`는 복제본이 얼마나 지연되었는지를 나타냅니다. 값이 “0”이 아니면 복제본이 업데이트를 처리 중인 것입니다. 
+   및 `Slave_IO_Running` `Slave_SQL_Running` 의 상태가 "yes" `Seconds_Behind_Master` 이 고 값이 "0" 이면 복제가 정상적으로 작동 합니다. `Seconds_Behind_Master`는 복제본이 얼마나 지연되었는지를 나타냅니다. 값이 “0”이 아니면 복제본이 업데이트를 처리 중인 것입니다. 
 
 ## <a name="other-stored-procedures"></a>기타 저장 프로시저
 

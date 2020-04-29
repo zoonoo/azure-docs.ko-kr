@@ -1,6 +1,6 @@
 ---
 title: ASE v1 소개
-description: 앱 서비스 환경 v1 기능에 대해 알아봅니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
+description: App Service Environment v1 기능에 대해 알아봅니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
 author: stefsch
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
 ms.topic: article
@@ -8,20 +8,20 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: cd3881617227430488f8dd3f2f3d24072b24b8ce
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478734"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>App Service Environment v1 소개
 
 > [!NOTE]
-> 이 문서는 ASE(App Service Environment) v1에 관한 내용입니다.  사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대한 자세한 내용은 [앱 서비스 환경 소개로](intro.md)시작합니다.
+> 이 문서는 ASE(App Service Environment) v1에 관한 내용입니다.  사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대 한 자세한 내용은 [App Service Environment 소개](intro.md)부터 시작 합니다.
 
 ## <a name="overview"></a>개요
 
-앱 서비스 환경은 웹 [앱,](../overview.md) 모바일 앱 및 API 앱을 비롯한 대규모로 Azure 앱 서비스 앱을 안전하게 실행하기 위한 완전히 격리되고 전용된 환경을 제공하는 Azure 앱 서비스의 [프리미엄][PremiumTier] 서비스 계획 옵션입니다.  
+App Service Environment는 Web Apps, Mobile Apps 및 API Apps을 포함 하 여 Azure App Service 앱을 높은 규모의 안전 하 게 실행 하기 위해 완전히 격리 된 전용 환경을 제공 하는 [Azure App Service](../overview.md) [프리미엄][PremiumTier] 서비스 계획 옵션입니다.  
 
 App Service Environment는 다음을 필요로 하는 애플리케이션 작업에 적합합니다.
 
@@ -32,7 +32,7 @@ App Service Environment는 다음을 필요로 하는 애플리케이션 작업�
 
 App Service Environment는 단일 고객의 애플리케이션만을 실행하도록 격리되며 항상 가상 네트워크에 배포됩니다.  고객은 인바운드 및 아웃바운드 애플리케이션 네트워크 트래픽 둘 다에 대해 세밀하게 제어할 수 있고 애플리케이션은 가상 네트워크를 통해 온-프레미스 회사 리소스에 고속 보안 연결을 설정할 수 있습니다.
 
-앱 서비스 환경이 대규모 및 보안 네트워크 액세스를 활성화하는 방법에 대한 개요는 앱 서비스 환경에 대한 [AzureCon 심층 분석][AzureConDeepDive] 기능을 참조하세요.
+App Service 환경에서 높은 확장성 및 보안 네트워크 액세스를 사용 하는 방법에 대 한 개요는 App Service 환경에서 [AzureCon 심층][AzureConDeepDive] 살펴보기를 참조 하세요.
 
 여러 App Service Environment를 사용하는 수평 크기 조정에 대한 심층 분석은 [지역 분산 앱 메모리 공간][GeodistributedAppFootprint]을 설정하는 방법에 대한 문서를 참조하세요.
 
@@ -48,7 +48,7 @@ App Service Environment의 모든 컴퓨팅 리소스는 전적으로 단일 구
 
 App Service Environment는 1~3개 작업자 컴퓨팅 리소스 풀뿐만 아니라 프런트 엔드 컴퓨팅 리소스 풀로 구성됩니다.
 
-프런트 엔드 풀에는 TLS 종료를 담당하는 컴퓨팅 리소스와 앱 서비스 환경 내에서 앱 요청의 자동 로드 분산이 포함됩니다.
+프런트 엔드 풀에는 TLS 종료를 담당 하는 계산 리소스가 포함 되어 있으며, App Service Environment 내의 앱 요청에 대 한 자동 부하 분산도 포함 됩니다.
 
 각 작업자 풀에는 하나 이상의 Azure App Service 앱을 포함하는 [App Service 계획][AppServicePlan]에 할당된 컴퓨팅 리소스가 있습니다.  App Service Environment에는 최대 세 가지 작업자 풀을 둘 수 있으므로 작업자 풀마다 다른 컴퓨팅 리소스를 유연하게 선택할 수 있습니다.  
 
@@ -72,7 +72,7 @@ App Service 환경이 가상 네트워크 및 온-프레미스 네트워크와 �
 
 ## <a name="getting-started"></a>시작
 
-앱 서비스 환경을 시작하려면 [앱 서비스 환경을 만드는 방법을][HowToCreateAnAppServiceEnvironment] 참조하세요.
+App Service 환경을 시작 하려면 [App Service Environment를 만드는 방법][HowToCreateAnAppServiceEnvironment] 을 참조 하세요.
 
 App Service 환경 네트워크 아키텍처의 개요는 [네트워크 아키텍처 개요][NetworkArchitectureOverview] 문서를 참조하세요.
 

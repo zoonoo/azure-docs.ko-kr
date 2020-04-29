@@ -1,49 +1,49 @@
 ---
-title: Azure 응용 프로그램 인사이트 내 연결 문자열 | 마이크로 소프트 문서
-description: 연결 문자열을 사용하는 방법.
+title: Azure 애플리케이션 Insights의 연결 문자열 | Microsoft Docs
+description: 연결 문자열을 사용 하는 방법
 ms.topic: conceptual
 author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 25eda0ae2b0d873fe9850e5b886489a5f2590e69
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80410622"
 ---
 # <a name="connection-strings"></a>연결 문자열
 
 ## <a name="overview"></a>개요
 
-연결 문자열은 응용 프로그램 인사이트 사용자에게 단일 구성 설정을 제공하므로 여러 프록시 설정이 필요하지 않습니다. 모니터링 서비스로 데이터를 전송하려는 인트라넷 웹 서버, 주권 또는 하이브리드 클라우드 환경에 매우 유용합니다.
+연결 문자열은 단일 구성 설정을 사용 하 여 응용 프로그램 정보 사용자를 제공 하므로 여러 프록시 설정이 필요 하지 않습니다. 모니터링 서비스로 데이터를 전송 하려는 인트라넷 웹 서버, 소 버린 또는 하이브리드 클라우드 환경에 매우 유용 합니다.
 
-키 값 쌍은 사용자가 각 AI(AI) 서비스/제품에 대한 접두사 접미사 조합을 쉽게 정의할 수 있는 방법을 제공합니다.
+키 값 쌍을 통해 사용자는 각 Application Insights (AI) 서비스/제품에 대 한 접두사 접미사 조합을 쉽게 정의할 수 있습니다.
 
 > [!IMPORTANT]
-> 연결 문자열과 계측 키를 모두 설정하지 않는 것이 좋습니다. 사용자가 둘 다 설정하는 경우 마지막으로 설정된 것이 우선입니다. 
+> 연결 문자열과 계측 키를 모두 설정 하지 않는 것이 좋습니다. 사용자가 둘 다 설정 하는 경우에는 마지막으로 설정 된가 우선 적용 됩니다. 
 
 
 ## <a name="scenario-overview"></a>시나리오 개요 
 
-가장 큰 영향을 미치는 이를 시각화하는 고객 시나리오:
+이러한 상황을 시각화 하는 고객 시나리오는 다음과 같습니다.
 
 - 방화벽 예외 또는 프록시 리디렉션 
 
-    인트라넷 웹 서버에 대한 모니터링이 필요한 경우 이전 솔루션에서 고객에게 구성에 개별 서비스 끝점을 추가하도록 요청했습니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server)를 참조하세요. 
-    연결 문자열은 이러한 노력을 단일 설정으로 줄여 더 나은 대안을 제공합니다. 간단한 접두사, 접미사 개정은 올바른 서비스에 대한 모든 끝점의 자동 채우기 및 리디렉션을 허용합니다. 
+    인트라넷 웹 서버에 대 한 모니터링이 필요한 경우에는 이전 솔루션에서 고객이 구성에 개별 서비스 끝점을 추가 하도록 요청 했습니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server)를 참조하세요. 
+    연결 문자열은이 작업을 단일 설정으로 줄여 더 나은 대안을 제공 합니다. 간단한 접두사 접미사 수정은 모든 끝점을 올바른 서비스로 자동 채우기 및 리디렉션할 수 있습니다. 
 
-- 주권 또는 하이브리드 클라우드 환경
+- 소 버린 또는 하이브리드 클라우드 환경
 
-    사용자는 정의된 [Azure 정부 리전으로](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)데이터를 보낼 수 있습니다.
-    연결 문자열을 사용하면 인트라넷 서버 또는 하이브리드 클라우드 설정에 대한 끝점 설정을 정의할 수 있습니다. 
+    사용자는 정의 된 [Azure Government 영역](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)으로 데이터를 보낼 수 있습니다.
+    연결 문자열을 사용 하 여 인트라넷 서버 또는 하이브리드 클라우드 설정에 대 한 끝점 설정을 정의할 수 있습니다. 
 
 ## <a name="getting-started"></a>시작
 
-### <a name="finding-my-connection-string"></a>연결 문자열을 찾으시나요?
+### <a name="finding-my-connection-string"></a>연결 문자열을 찾고 있나요?
 
-연결 문자열은 응용 프로그램 인사이트 리소스의 개요 블레이드에 표시됩니다.
+연결 문자열이 Application Insights 리소스의 개요 블레이드에 표시 됩니다.
 
 ![개요 블레이드의 연결 문자열](media/overview-dashboard/overview-connection-string.png)
 
@@ -51,29 +51,29 @@ ms.locfileid: "80410622"
 
 #### <a name="max-length"></a>최대 길이
 
-연결의 최대 지원 되는 길이 4096 문자입니다.
+연결의 지원 되는 최대 길이는 4096 자입니다.
 
 #### <a name="key-value-pairs"></a>키-값 쌍
 
-연결 문자열은 세미콜론으로 구분된 키-값 쌍으로 표시되는 설정 목록으로 구성됩니다.`key1=value1;key2=value2;key3=value3`
+연결 문자열은 세미콜론으로 구분 된 키-값 쌍으로 표시 되는 설정 목록으로 구성 됩니다.`key1=value1;key2=value2;key3=value3`
 
 #### <a name="syntax"></a>구문
 
-- `InstrumentationKey`(예 : 00000000-0000-0000-0000-00000-00000000000000000000)  연결 문자열은 **필수** 필드입니다.
-- `Authorization`(예: ikey) (이 설정은 선택 사항이므로 오늘은 ikey 권한 부여만 지원합니다.)
-- `EndpointSuffix`(예: applicationinsights.azure.cn) 끝점 접미사를 설정하면 Azure 클라우드에 연결할 SDK가 지시됩니다. SDK는 개별 서비스에 대한 끝점의 나머지 부분을 조합합니다.
+- `InstrumentationKey`(예: 00000000-0000-0000-0000-000000000000)  연결 문자열은 **필수** 필드입니다.
+- `Authorization`(예: ikey) 이 설정은 현재 ikey 권한 부여만 지원 하기 때문에 선택 사항입니다.
+- `EndpointSuffix`(예: applicationinsights.azure.cn) 끝점 접미사를 설정 하면 SDK에 연결할 Azure 클라우드를 알려 줍니다. SDK는 개별 서비스에 대 한 나머지 끝점을 조합 합니다.
 - 명시적 끝점.
-  모든 서비스는 연결 문자열에서 명시적으로 재정의할 수 있습니다.
-   - `IngestionEndpoint`(예:https://dc.applicationinsights.azure.com)
-   - `LiveEndpoint`(예:https://live.applicationinsights.azure.com)
-   - `ProfilerEndpoint`(예:https://profiler.applicationinsights.azure.com)
-   - `SnapshotEndpoint`(예:https://snapshot.applicationinsights.azure.com)
+  모든 서비스는 연결 문자열에서 명시적으로 재정의 될 수 있습니다.
+   - `IngestionEndpoint`고급https://dc.applicationinsights.azure.com)
+   - `LiveEndpoint`고급https://live.applicationinsights.azure.com)
+   - `ProfilerEndpoint`고급https://profiler.applicationinsights.azure.com)
+   - `SnapshotEndpoint`고급https://snapshot.applicationinsights.azure.com)
 
 #### <a name="endpoint-schema"></a>끝점 스키마
 
 `<prefix>.<suffix>`
-- 접두사: 서비스를 정의합니다. 
-- 접미사: 공통 도메인 이름을 정의합니다.
+- Prefix: 서비스를 정의 합니다. 
+- Suffix: 공통 도메인 이름을 정의 합니다.
 
 ##### <a name="valid-suffixes"></a>유효한 접미사
 
@@ -87,71 +87,71 @@ https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that
 
 ##### <a name="valid-prefixes"></a>유효한 접두사
 
-- [원격 분석 사용 :](./app-insights-overview.md)`dc`
+- [원격 분석](./app-insights-overview.md)수집:`dc`
 - [라이브 메트릭](./live-stream.md):`live`
 - [프로파일러](./profiler-overview.md):`profiler`
-- [스냅샷](./snapshot-debugger.md):`snapshot`
+- [스냅숏](./snapshot-debugger.md):`snapshot`
 
 
 
-## <a name="connection-string-examples"></a>연결 문자열 예제
+## <a name="connection-string-examples"></a>연결 문자열 예
 
 
 ### <a name="minimal-valid-connection-string"></a>최소 유효한 연결 문자열
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;`
 
-이 예제에서는 계측 키만 설정되었습니다.
+이 예제에서는 계측 키만 설정 되었습니다.
 
-- 권한 부여 체계기본값은 "ikey"로 설정됩니다. 
-- 계측 키: 00000000-0000-0000-0000-0000-0000000000000000
-- 지역 서비스 URI는 [SDK 기본값을](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) 기반으로 하며 공용 전역 Azure에 연결됩니다.
-   - 섭취:https://dc.services.visualstudio.com/
-   - 실시간 측정항목:https://rt.services.visualstudio.com/
-   - 프로파일러:https://agent.azureserviceprofiler.net/
-   - 디버거:https://agent.azureserviceprofiler.net/  
+- 권한 부여 체계의 기본값은 "ikey"입니다. 
+- 계측 키: 00000000-0000-0000-0000-000000000000
+- 지역 서비스 Uri는 [SDK 기본값](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) 을 기반으로 하며 공용 글로벌 Azure에 연결 됩니다.
+   - Admxhttps://dc.services.visualstudio.com/
+   - 라이브 메트릭:https://rt.services.visualstudio.com/
+   - 프로필러가https://agent.azureserviceprofiler.net/
+   - 디버거로https://agent.azureserviceprofiler.net/  
 
 
 
-### <a name="connection-string-with-endpoint-suffix"></a>끝점 접미사가 있는 연결 문자열
+### <a name="connection-string-with-endpoint-suffix"></a>끝점 접미사를 사용 하는 연결 문자열
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;EndpointSuffix=ai.contoso.com;`
 
-이 예제에서 이 연결 문자열은 끝점 접미사를 지정하고 SDK는 서비스 끝점을 생성합니다.
+이 예제에서이 연결 문자열은 끝점 접미사를 지정 하 고 SDK는 서비스 끝점을 생성 합니다.
 
-- 권한 부여 체계기본값은 "ikey"로 설정됩니다. 
-- 계측 키: 00000000-0000-0000-0000-0000-0000000000000000
-- 지역 서비스 URI는 제공된 끝점 접미사를 기반으로 합니다. 
-   - 섭취:https://dc.ai.contoso.com
-   - 실시간 측정항목:https://live.ai.contoso.com
-   - 프로파일러:https://profiler.ai.contoso.com 
-   - 디버거:https://snapshot.ai.contoso.com   
+- 권한 부여 체계의 기본값은 "ikey"입니다. 
+- 계측 키: 00000000-0000-0000-0000-000000000000
+- 지역 서비스 Uri는 제공 된 끝점 접미사를 기반으로 합니다. 
+   - Admxhttps://dc.ai.contoso.com
+   - 라이브 메트릭:https://live.ai.contoso.com
+   - 프로필러가https://profiler.ai.contoso.com 
+   - 디버거로https://snapshot.ai.contoso.com   
 
 
 
-### <a name="connection-string-with-explicit-endpoint-overrides"></a>명시적 끝점 재정의가 있는 연결 문자열 
+### <a name="connection-string-with-explicit-endpoint-overrides"></a>명시적 끝점 재정의를 포함 하는 연결 문자열 
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://custom.com:111/;LiveEndpoint=https://custom.com:222/;ProfilerEndpoint=https://custom.com:333/;SnapshotEndpoint=https://custom.com:444/;`
 
-이 예제에서 이 연결 문자열은 모든 서비스에 대해 명시적 재정의를 지정합니다. SDK는 수정 없이 제공된 정확한 끝점을 사용합니다.
+이 예제에서이 연결 문자열은 모든 서비스에 대 한 명시적 재정의를 지정 합니다. SDK는 수정 없이 제공 되는 정확한 끝점을 사용 합니다.
 
-- 권한 부여 체계기본값은 "ikey"로 설정됩니다. 
-- 계측 키: 00000000-0000-0000-0000-0000-0000000000000000
-- 지역 서비스 URI는 명시적 재정의 값을 기반으로 합니다. 
-   - 섭취: https:\//custom.com:111/
-   - 실시간 지표: https:\//custom.com:222/
+- 권한 부여 체계의 기본값은 "ikey"입니다. 
+- 계측 키: 00000000-0000-0000-0000-000000000000
+- 지역 서비스 Uri는 명시적 재정의 값을 기반으로 합니다. 
+   - 수집: https:\//custom.com:111/
+   - 라이브 메트릭: https:\//custom.com:222/
    - 프로파일러: https:\//custom.com:333/ 
    - 디버거: https:\//custom.com:444/   
 
 
-## <a name="how-to-set-a-connection-string"></a>연결 문자열을 설정하는 방법
+## <a name="how-to-set-a-connection-string"></a>연결 문자열을 설정 하는 방법
 
-연결 문자열은 다음 SDK 버전에서 지원됩니다.
-- .NET 및 .NET 코어 v2.12.0
-- 자바 v2.5.1 및 자바 3.0
-- 자바 스크립트 v2.3.0
-- 노드JS v1.5.0
-- 파이썬 v1.0.0
+연결 문자열은 다음 SDK 버전에서 지원 됩니다.
+- .NET 및 .NET Core v 2.12.0
+- Java v 2.5.1 및 Java 3.0
+- Javascript v 2.3.0
+- NodeJS v 1.5.0
+- Python v 1.0.0
 
 연결 문자열은 코드, 환경 변수 또는 구성 파일에서 설정할 수 있습니다.
 
@@ -161,9 +161,9 @@ https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that
 
 - 연결 문자열: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
-# <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
+# <a name="netnetcore"></a>[.NET/NetCore](#tab/net)
 
-원격 분석 구성.연결 문자열:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
+TelemetryConfiguration:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
 .Net 명시적으로 설정:
 ```csharp
@@ -183,7 +183,7 @@ var configuration = new TelemetryConfiguration
 ```
 
 
-넷코어 config.json: 
+NetCore 구성. json: 
 
 ```json
 {
@@ -197,7 +197,7 @@ var configuration = new TelemetryConfiguration
 # <a name="java"></a>[Java](#tab/java)
 
 
-자바 (v2.5.x) 명시적으로 설정 :
+Java (v 2.5. x)가 명시적으로 설정 되어 있습니다.
 ```java
 TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
 ```
@@ -212,9 +212,9 @@ ApplicationInsights.xml
 
 # <a name="javascript"></a>[JavaScript](#tab/js)
 
-중요: 자바스크립트는 환경 변수의 사용을 지원하지 않습니다.
+중요: Javascript는 환경 변수 사용을 지원 하지 않습니다.
 
-스니펫 사용:
+코드 조각 사용:
 
 ```javascript
 <script type="text/javascript">
@@ -227,7 +227,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 ```
 
 
-수동 설정:
+수동 설치:
 ```javascript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
 
@@ -239,7 +239,7 @@ appInsights.loadAppInsights();
 appInsights.trackPageView();
 ```
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -249,9 +249,9 @@ appInsights.start();
 
 # <a name="python"></a>[Python](#tab/python)
 
-사용자가 환경 변수를 설정하는 것이 좋습니다.
+사용자가 환경 변수를 설정 하는 것이 좋습니다.
 
-연결 문자열을 명시적으로 설정하려면 다음을 수행하십시오.
+연결 문자열을 명시적으로 설정 하려면 다음을 수행 합니다.
 
 ```python
 from opencensus.ext.azure.trace_exporter import AzureExporter
@@ -275,5 +275,5 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
-* [Node.js](../../azure-monitor/app/nodejs.md)
+* [Node.JS](../../azure-monitor/app/nodejs.md)
 * [Python](../../azure-monitor/app/opencensus-python.md)

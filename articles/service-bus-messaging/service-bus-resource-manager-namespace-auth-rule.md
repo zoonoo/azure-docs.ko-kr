@@ -1,5 +1,5 @@
 ---
-title: Azure 템플릿을 사용하여 서비스 버스 권한 부여 규칙 만들기
+title: Azure 템플릿을 사용 하 여 Service Bus 권한 부여 규칙 만들기
 description: Azure Resource Manager 템플릿을 사용하여 네임스페이스 및 큐에 대한 Service Bus 권한 부여 규칙 만들기
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,29 +15,29 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: 1bfb2d2d946a85c1d051315fb29a5a63f7a00871
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80384928"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 네임스페이스 및 큐에 대한 Service Bus 권한 부여 규칙 만들기
 
 이 문서에서는 Service Bus 네임스페이스 및 큐에 대한 [권한 부여 규칙](service-bus-authentication-and-authorization.md#shared-access-signature)을 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 이 문서는 어떤 리소스를 배포할지 지정하는 방법 및 배포를 실행할 때 지정되는 매개 변수를 정의하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
-템플릿 만들기에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성을][Authoring Azure Resource Manager templates]참조하십시오.
+템플릿을 만드는 방법에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 작성][Authoring Azure Resource Manager templates]을 참조 하세요.
 
 전체 템플릿은 GitHub에서 [Service Bus 권한 부여 규칙 템플릿][Service Bus auth rule template]을 참조하세요.
 
 > [!NOTE]
 > 다음 Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다.
 > 
-> * [서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace.md)
+> * [Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace.md)
 > * [큐가 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-queue.md)
 > * [토픽 및 구독이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
 > * [토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> 최신 템플릿을 확인하려면 Azure [빠른 시작 템플릿 갤러리를][Azure Quickstart Templates] 방문하여 서비스 **버스를**검색합니다.
+> 최신 템플릿을 확인 하려면 [Azure 빠른 시작 템플릿][Azure Quickstart Templates] 갤러리를 방문 하 여 **Service Bus**를 검색 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -1,21 +1,21 @@
 ---
-title: sys_schema 활용 - MySQL용 Azure 데이터베이스
-description: sys_schema 사용하여 성능 문제를 찾고 MySQL용 Azure 데이터베이스에서 데이터베이스를 유지 관리하는 방법을 알아봅니다.
+title: Sys_schema Azure Database for MySQL 활용
+description: Sys_schema를 사용 하 여 성능 문제를 찾고 Azure Database for MySQL에서 데이터베이스를 유지 관리 하는 방법을 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
 ms.openlocfilehash: 59b8753007c3b9130c397dda30c571580cbb5326
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411083"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 성능 튜닝 및 데이터베이스 유지 관리를 위해 sys_schema를 사용하는 방법
 
-MySQL 5.5에서 처음 사용할 수 있는 MySQL performance_schema 메모리 할당, 저장된 프로그램, 메타데이터 잠금 등과 같은 많은 중요한 서버 리소스에 대한 계측을 제공합니다. 그러나 performance_schema 80개 이상의 테이블을 포함하고 있으며 필요한 정보를 얻으려면 performance_schema 내의 테이블과 information_schema 테이블을 조인해야 하는 경우가 많습니다. performance_schema 및 information_schema 모두를 기반으로 하는 sys_schema에는 읽기 전용 데이터베이스의 강력하고 [사용자에게 친숙한 보기](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) 컬렉션이 제공되며 Azure Database for MySQL 버전 5.7에서 완벽한 사용이 가능합니다.
+Mysql 5.5에서 먼저 제공 되는 MySQL performance_schema는 메모리 할당, 저장 된 프로그램, 메타 데이터 잠금 등의 많은 중요 한 서버 리소스에 대 한 계측을 제공 합니다. 그러나 performance_schema는 80 개 이상의 테이블을 포함 하 고 필요한 정보를 가져오기 위해서는 performance_schema 내의 테이블과 information_schema 테이블을 조인 해야 하는 경우가 많습니다. performance_schema 및 information_schema 모두를 기반으로 하는 sys_schema에는 읽기 전용 데이터베이스의 강력하고 [사용자에게 친숙한 보기](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) 컬렉션이 제공되며 Azure Database for MySQL 버전 5.7에서 완벽한 사용이 가능합니다.
 
 ![sys_schema의 버전](./media/howto-troubleshoot-sys-schema/sys-schema-views.png)
 
@@ -29,7 +29,7 @@ sys_schema에는 52개의 보기가 있고 각 보기에는 다음 접두사 중
 - User: 사용자별로 소비되고 그룹화된 리소스. 예: 파일 I/O, 연결 및 메모리.
 - Wait: 호스트 또는 사용자별로 그룹화된 대기 이벤트.
 
-이제 sys_schema 몇 가지 일반적인 사용 패턴을 살펴보겠습니다. 우선 사용 패턴을 **성능 튜닝** 및 **데이터베이스 유지 관리의**두 가지 범주로 그룹화합니다.
+이제 sys_schema의 몇 가지 일반적인 사용 패턴을 살펴보겠습니다. 먼저 **성능 튜닝** 및 **데이터베이스 유지 관리**와 같은 두 가지 범주로 사용 패턴을 그룹화 합니다.
 
 ## <a name="performance-tuning"></a>성능 튜닝
 
@@ -55,14 +55,14 @@ Azure Database for MySQL에서 스토리지와 관련된 IO 크기를 조정하�
 
 ![명령문 요약](./media/howto-troubleshoot-sys-schema/summary-by-statement.png)
 
-이 예제에서 Azure Database for MySQL이 slog 쿼리 로그를 44579번 플러시하는 데 53분이 소요되었습니다. 그것은 오랜 시간 많은 OS입니다. Azure Portal에서 느린 쿼리 로그를 사용하지 않도록 설정하거나 느린 쿼리 로그의 빈도를 줄여서 이 작업을 줄일 수 있습니다.
+이 예제에서 Azure Database for MySQL이 slog 쿼리 로그를 44579번 플러시하는 데 53분이 소요되었습니다. 이는 오랜 시간과 많은 Io입니다. Azure Portal에서 느린 쿼리 로그를 사용하지 않도록 설정하거나 느린 쿼리 로그의 빈도를 줄여서 이 작업을 줄일 수 있습니다.
 
 ## <a name="database-maintenance"></a>데이터베이스 유지 관리
 
 ### <a name="sysinnodb_buffer_stats_by_table"></a>*sys.innodb_buffer_stats_by_table*
 
 [!IMPORTANT]
-> 이 보기를 쿼리하면 성능에 영향을 미칠 수 있습니다. 사용량이 많은 업무 시간에는 이 문제 해결을 수행하는 것이 좋습니다.
+> 이 뷰를 쿼리하면 성능에 영향을 줄 수 있습니다. 사용량이 적은 업무 시간에이 문제 해결을 수행 하는 것이 좋습니다.
 
 InnoDB 버퍼 풀은 메모리에 상주하며 DBMS와 스토리지 사이의 주요 캐시 매커니즘입니다. InnoDB 버퍼 풀의 크기는 성능 계층에 연결되어 있고 다른 제품 SKU를 선택하지 않으면 변경할 수 없습니다. 운영 체제의 메모리와 마찬가지로 새로운 데이터를 위한 공간을 확보하기 위해 오래된 페이지가 스왑 아웃(swap out)됩니다. 어떤 테이블이 대부분의 InnoDB 버퍼 풀 메모리를 소비하는지 찾아내려면 *sys.innodb_buffer_stats_by_table* 보기를 쿼리합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: RLS 및 탄력적 데이터베이스 도구가 있는 다중 테넌트 앱
+title: RLS 및 탄력적 데이터베이스 도구를 사용 하는 다중 테 넌 트 앱
 description: 행 수준 보안으로 탄력적 데이터베이스 도구를 사용하여 확장성이 높은 데이터 계층으로 애플리케이션을 빌드합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 4cf260620d4e907fdb9190a052155fa22f1c7985
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80398336"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 애플리케이션
@@ -36,7 +36,7 @@ ms.locfileid: "80398336"
 
 ## <a name="download-the-sample-project"></a>샘플 프로젝트 다운로드
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
 - Visual Studio 2012 이상 사용
 - Azure SQL 데이터베이스 3개 만들기
@@ -53,10 +53,10 @@ ms.locfileid: "80398336"
 
 분할된 데이터베이스에서 아직 RLS를 설정하지 않았기 때문에 각 테스트에서 다음 문제가 발생합니다. 테넌트가 자신에게 속하지 않은 블로그를 볼 수 있으며 애플리케이션에서 잘못된 테넌트에 대한 블로그를 삽입할 수 있습니다. 이 문서의 나머지 부분에서는 RLS로 테넌트를 강제 격리하여 이러한 문제를 해결하는 방법을 설명합니다. 두 단계가 있습니다.
 
-1. **응용 프로그램 계층**: 연결을 연 후 세션\_컨텍스트에서 항상 현재 TenantId를 설정하도록 응용 프로그램 코드를 수정합니다. 샘플 프로젝트에서는 이미 TenantId를 이 방법으로 설정합니다.
-2. **데이터 계층**: 세션\_컨텍스트에 저장된 TenantId를 기반으로 행을 필터링하기 위해 각 샤드 데이터베이스에 RLS 보안 정책을 만듭니다. 분할된 데이터베이스 각각에 대해 정책을 만듭니다. 그렇지 않으면 다중 테넌트 분할된 데이터베이스의 행이 필터링되지 않습니다.
+1. **응용 프로그램 계층**: 연결을 연 후 응용 프로그램 코드를 수정 하 여 세션\_컨텍스트에서 현재 TenantId를 항상 설정 합니다. 샘플 프로젝트에서는 이미 TenantId를 이 방법으로 설정합니다.
+2. **데이터 계층**: 각 분할 된 데이터베이스에서 세션\_컨텍스트에 저장 된 TenantId를 기준으로 행을 필터링 하는 RLS 보안 정책을 만듭니다. 분할된 데이터베이스 각각에 대해 정책을 만듭니다. 그렇지 않으면 다중 테넌트 분할된 데이터베이스의 행이 필터링되지 않습니다.
 
-## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. 응용 프로그램 계층: 세션\_컨텍스트에서 테넌트 Id 설정
+## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. 응용 프로그램 계층: 세션\_컨텍스트에서 TenantId 설정
 
 먼저 탄력적 데이터베이스 클라이언트 라이브러리의 데이터 종속 라우팅 API를 사용하여 분할된 데이터베이스에 연결합니다. 애플리케이션은 연결을 사용 중인 TenantId를 계속 데이터베이스에 알려야 합니다. TenantId는 어떤 행을 다른 테넌트에 속하는 것으로 필터링해야 하는지 RLS 보안 정책에 알려줍니다. 연결의 [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql)에 현재 TenantId를 저장합니다.
 
@@ -304,7 +304,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 > Entity Framework 프로젝트에 기본 제약 조건을 사용하는 경우 EF 데이터 모델에 TenantId 열을 포함하지 *않는* 것이 좋습니다. 이 권장 사항은 Entity Framework 쿼리에서 자동으로 기본값을 제공하는데, 이 기본값은 T-SQL에서 만든 SESSION\_CONTEXT를 사용하는 기본 제약 조건을 재정의하기 때문입니다.
 > 예를 들어 샘플 프로젝트에서 기본 제약 조건을 사용하려면 DataClasses.cs에서 TenantId를 제거하고(그리고 패키지 관리자 콘솔에서 Add-Migration을 실행하고) 데이터베이스 테이블에만 필드가 있도록 T-SQL을 사용해야 합니다. 그러면 데이터 삽입 시 EF에서 잘못된 기본값을 자동으로 제공합니다.
 
-### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(선택 사항) *수퍼유저가* 모든 행에 액세스할 수 있도록 설정
+### <a name="optional-enable-a-superuser-to-access-all-rows"></a>필드 *수퍼유저* 가 모든 행에 액세스할 수 있도록 설정
 
 일부 애플리케이션은 모든 행에 액세스할 수 있는 *superuser*를 만들어야 할 수 있습니다. superuser는 모든 분할된 데이터베이스의 모든 테넌트에서 보고를 사용할 수 있습니다. 또는 superuser가 데이터베이스 간에 테넌트 행 이동과 관련된 분할된 데이터베이스에서 분할-병합 작업을 수행할 수 있습니다.
 

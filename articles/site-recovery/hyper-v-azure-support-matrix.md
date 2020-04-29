@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구를 사용하여 Azure에 대한 하이퍼 VM의 재해 복구 지원
+title: Azure Site Recovery를 사용 하 여 Azure에 Hyper-v Vm의 재해 복구 지원
 description: Azure Site Recovery를 사용한 Hyper-V VM과 Azure 간 재해 복구를 위해 지원되는 구성 요소 및 요구 사항이 요약되어 있습니다.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
 ms.openlocfilehash: fd10468e823201bfa67aaf7c570071bd075ec4ac
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80420841"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
@@ -30,10 +30,10 @@ Hyper-V(Virtual Machine Manager 없음) | Virtual Machine Manager에서 관리�
 
 ## <a name="on-premises-servers"></a>온-프레미스 서버
 
-**Server** | **요구 사항** | **세부 정보**
+**서버** | **요구 사항** | **세부 정보**
 --- | --- | ---
-Hyper-V(Virtual Machine Manager 없이 실행 중) |  윈도우 서버 2019, 윈도우 서버 2016 (서버 코어 설치 포함), 윈도우 서버 2012 R2 최신 업데이트 | Azure Site Recovery 및 플랜을 사용하여 Windows Server 2012 R2 또는 SCVMM 2012 R2를 이미 구성했고 OS를 업그레이드할 계획이라면 지침 [설명서](upgrade-2012R2-to-2016.md)를 따르세요. 
-Hyper-V(Virtual Machine Manager로 실행 중) | 가상 머신 관리자 2019, 가상 머신 관리자 2016, 가상 머신 관리자 2012 R2 | 가상 컴퓨터 관리자를 사용하는 경우 Windows Server 2019 호스트는 가상 컴퓨터 관리자 2019에서 관리해야 합니다. 마찬가지로 Windows Server 2016 호스트는 가상 컴퓨터 관리자 2016에서 관리해야 합니다.<br/><br/> 참고: Windows Server 2019 호스트에서는 대체 위치로의 장애 조치가 지원되지 않습니다.
+Hyper-V(Virtual Machine Manager 없이 실행 중) |  Windows Server 2019, Windows Server 2016 (server core 설치 포함), 최신 업데이트가 포함 된 Windows Server 2012 R2 | Azure Site Recovery 및 플랜을 사용하여 Windows Server 2012 R2 또는 SCVMM 2012 R2를 이미 구성했고 OS를 업그레이드할 계획이라면 지침 [설명서](upgrade-2012R2-to-2016.md)를 따르세요. 
+Hyper-V(Virtual Machine Manager로 실행 중) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Virtual Machine Manager 사용 하는 경우 Virtual Machine Manager 2019에서 Windows Server 2019 호스트를 관리 해야 합니다. 마찬가지로, Windows Server 2016 호스트는 Virtual Machine Manager 2016에서 관리 되어야 합니다.<br/><br/> 참고: Windows Server 2019 호스트의 경우 대체 위치로 장애 복구 (Failback)가 지원 되지 않습니다.
 
 
 ## <a name="replicated-vms"></a>복제된 VM
@@ -49,32 +49,32 @@ VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#azure-vm-requirem
 
 ## <a name="vmdisk-management"></a>VM/디스크 관리
 
-**작업** | **세부 정보**
+**동작** | **세부 정보**
 --- | ---
-복제된 Hyper-V VM에서 디스크 크기 조정 | 지원되지 않습니다. 복제를 사용하지 않도록 설정하고 변경한 다음 VM에 대한 복제를 다시 활성화합니다.
-복제된 Hyper-V VM에서 디스크 추가 | 지원되지 않습니다. 복제를 사용하지 않도록 설정하고 변경한 다음 VM에 대한 복제를 다시 활성화합니다.
+복제된 Hyper-V VM에서 디스크 크기 조정 | 지원 안 됨 복제를 사용 하지 않도록 설정 하 고, 변경 하 고, VM에 대 한 복제를 다시 사용 하도록 설정 합니다.
+복제된 Hyper-V VM에서 디스크 추가 | 지원 안 됨 복제를 사용 하지 않도록 설정 하 고, 변경 하 고, VM에 대 한 복제를 다시 사용 하도록 설정 합니다.
 
 ## <a name="hyper-v-network-configuration"></a>Hyper-V 네트워크 구성
 
-**구성 요소** | **가상 머신 관리자를 갖춘 하이퍼 V** | **Hyper-V(Virtual Machine Manager 없음)**
+**구성 요소** | **Virtual Machine Manager를 사용한 hyper-v** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
 호스트 네트워크: NIC 팀 | 예 | 예
 호스트 네트워크: VLAN | 예 | 예
 호스트 네트워크: IPv4 | 예 | 예
-호스트 네트워크: IPv6 | 예 | 예
-게스트 VM 네트워크: NIC 팀 | 예 | 예
+호스트 네트워크: IPv6 | 아니요 | 아니요
+게스트 VM 네트워크: NIC 팀 | 아니요 | 아니요
 게스트 VM 네트워크: IPv4 | 예 | 예
 게스트 VM 네트워크: IPv6 | 예 | 예
 게스트 VM 네트워크: 고정 IP(Windows) | 예 | 예
-게스트 VM 네트워크: 고정 IP(Linux) | 예 | 예
+게스트 VM 네트워크: 고정 IP(Linux) | 아니요 | 아니요
 게스트 VM 네트워크: 다중 NIC | 예 | 예
-Https 프록시 | 예 | 예
+Https 프록시 | 아니요 | 아니요
 
 
 
 ## <a name="azure-vm-network-configuration-after-failover"></a>장애 조치(failover) 이후의 Azure VM 네트워크 구성
 
-**구성 요소** | **가상 머신 관리자를 갖춘 하이퍼 V** | **Hyper-V(Virtual Machine Manager 없음)**
+**구성 요소** | **Virtual Machine Manager를 사용한 hyper-v** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
 Azure ExpressRoute | 예 | 예
 ILB | 예 | 예
@@ -85,62 +85,62 @@ Azure Traffic Manager | 예 | 예
 IPv4 | 예 | 예
 원본 IP 주소 유지 | 예 | 예
 Azure Virtual Network 서비스 엔드포인트<br/> (Azure Storage 방화벽 없음) | 예 | 예
-가속 네트워킹 | 예 | 예
+가속 네트워킹 | 아니요 | 아니요
 
 
 ## <a name="hyper-v-host-storage"></a>Hyper-V 호스트 스토리지
 
-**스토리지** | **가상 머신 관리자를 갖춘 하이퍼 V** | **Hyper-V(Virtual Machine Manager 없음)**
+**저장소** | **Virtual Machine Manager를 사용한 hyper-v** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | --- 
 NFS | 해당 없음 | 해당 없음
 SMB 3.0 | 예 | 예
 SAN(ISCSI) | 예 | 예
-다중 경로(MPIO). 테스트에 사용된 소프트웨어:<br></br> 마이크로소프트 DSM, EMC 파워 패스 5.7 SP4, Clariion에 대 한 EMC 파워 패스 DSM | 예 | 예
+다중 경로(MPIO). 테스트에 사용된 소프트웨어:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | 예 | 예
 
 ## <a name="hyper-v-vm-guest-storage"></a>Hyper-V VM 게스트 스토리지
 
-**스토리지** | **가상 머신 관리자를 갖춘 하이퍼 V** | **Hyper-V(Virtual Machine Manager 없음)**
+**저장소** | **Virtual Machine Manager를 사용한 hyper-v** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
 VMDK | 해당 없음 | 해당 없음
 VHD/VHDX | 예 | 예
 2세대 VM | 예 | 예
-EFI/UEFI<br></br>Azure에서 마이그레이션된 VM은 BIOS 부팅 VM으로 자동으로 변환됩니다. VM은 Windows Server 2012 이상에서만 실행되어야 합니다. OS 디스크에는 최대 5개의 파티션이 있어야 하며 OS 디스크의 크기는 300GB 미만이어야 합니다.| 예 | 예
-공유 클러스터 디스크 | 예 | 예
-암호화된 디스크 | 예 | 예
+EFI/UEFI<br></br>Azure에서 마이그레이션된 VM은 자동으로 BIOS 부팅 VM으로 변환 됩니다. VM은 Windows Server 2012 이상만 실행 해야 합니다. OS 디스크에는 최대 5 개의 파티션이 있어야 하 고 OS 디스크의 크기는 300 미만 이어야 합니다.| 예 | 예
+공유 클러스터 디스크 | 아니요 | 아니요
+암호화된 디스크 | 아니요 | 아니요
 NFS | 해당 없음 | 해당 없음
-SMB 3.0 | 예 | 예
+SMB 3.0 | 아니요 | 아니요
 RDM | 해당 없음 | 해당 없음
 디스크 1TB 이상 | 예, 최대 4,095GB | 예, 최대 4,095GB
 디스크: 4K 논리/실제 섹터 | 미지원: 1세대/2세대 | 미지원: 1세대/2세대
-디스크: 4K 논리 및 512바이트 물리적 섹터 | 예 |  예
+디스크: 4K 논리 및 512 바이트 실제 섹터 | 예 |  예
 논리 볼륨 관리(LVM)입니다. LVM은 데이터 디스크에서만 지원됩니다. Azure는 단일 OS 디스크만 제공합니다. | 예 | 예
 스트라이프 디스크 포함 볼륨 1TB 이상 | 예 | 예
-스토리지 공간 | 예 | 예
-디스크 핫 추가/제거 | 예 | 예
+스토리지 공간 | 아니요 | 아니요
+디스크 핫 추가/제거 | 아니요 | 아니요
 디스크 제외 | 예 | 예
 다중 경로(MPIO) | 예 | 예
 
 ## <a name="azure-storage"></a>Azure Storage
 
-**구성 요소** | **가상 머신 관리자를 갖춘 하이퍼 V** | **Hyper-V(Virtual Machine Manager 없음)**
+**구성 요소** | **Virtual Machine Manager를 사용한 hyper-v** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
 로컬 중복 스토리지 | 예 | 예
 지역 중복 스토리지 | 예 | 예
 읽기 액세스 지역 중복 스토리지 | 예 | 예
-쿨 스토리지 | 예 | 예
-핫 스토리지| 예 | 예
-블록 Blob | 예 | 예
+쿨 스토리지 | 아니요 | 아니요
+핫 스토리지| 아니요 | 아니요
+블록 Blob | 아니요 | 아니요
 미사용 암호화(SSE)| 예 | 예
-미사용 암호화(CMK) <br></br> (관리 되는 디스크에 장애 조치만)| 예(PowerShell Az 3.3.0 모듈 을 통해 이후) | 예(PowerShell Az 3.3.0 모듈 을 통해 이후)
+미사용 암호화 (CMK) <br></br> (관리 디스크에 대 한 장애 조치 (failover)에만 해당)| 예 (PowerShell Az 3.3.0 모듈을 통해) | 예 (PowerShell Az 3.3.0 모듈을 통해)
 Premium Storage | 예 | 예
-가져오기/내보내기 서비스 | 예 | 예
-방화벽이 활성화된 Azure 저장소 계정 | 예. 대상 저장소 및 캐시용. | 예. 대상 저장소 및 캐시용.
-저장소 계정 수정 | 아니요. 복제를 사용하도록 설정한 후에는 대상 Azure Storage 계정을 수정할 수 없습니다. 재해 복구를 수정, 비활성화한 다음 다시 활성화합니다. | 예
+Import/Export 서비스 | 아니요 | 아니요
+방화벽이 설정 된 Azure Storage 계정 | 예. 대상 저장소 및 캐시 | 예. 대상 저장소 및 캐시
+저장소 계정 수정 | 아니요. 복제를 사용 하도록 설정한 후에는 대상 Azure Storage 계정을 수정할 수 없습니다. 수정 하려면 재해 복구를 사용 하지 않도록 설정한 다음 다시 사용 하도록 설정 합니다. | 아니요
 
 
 ## <a name="azure-compute-features"></a>Azure 컴퓨팅 기능
 
-**기능** | **가상 머신 관리자를 갖춘 하이퍼 V** | **Hyper-V(Virtual Machine Manager 없음)**
+**기능** | **Virtual Machine Manager를 사용한 hyper-v** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
 가용성 집합 | 예 | 예
 HUB | 예 | 예  
@@ -152,8 +152,8 @@ Azure로 복제하는 온-프레미스 VM은 이 표에 요약되어 있는 Azur
 
 **구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---
-게스트 운영 체제 | 사이트 복구는 [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)모든 운영 체제를 지원합니다.  | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
-게스트 운영 체제 아키텍처 | 32비트(Windows 서버 2008)/64비트 | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
+게스트 운영 체제 | Site Recovery은 [Azure에서 지원](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)되는 모든 운영 체제를 지원 합니다.  | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
+게스트 운영 체제 아키텍처 | 32 비트 (Windows Server 2008)/64-bit | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
 운영 체제 디스크 크기 | 1세대 VM의 경우 최대 2,048GB<br/><br/> 2세대 VM의 경우 최대 300GB  | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
 운영 체제 디스크 수 | 1 | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
 데이터 디스크 수 | 16개 이하  | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
@@ -168,13 +168,13 @@ VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 �
 
 ## <a name="recovery-services-vault-actions"></a>Recovery Services 자격 증명 모음 작업
 
-**작업** |  **Hyper-V(VMM 포함)** | **VMM을 사용하지 않는 Hyper-V**
+**동작** |  **Hyper-V(VMM 포함)** | **VMM을 사용하지 않는 Hyper-V**
 --- | --- | ---
-리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 예 | 예
-스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 예 | 예
+리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요
+스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요
 
 > [!NOTE]
-> 온-프레미스에서 Azure로 하이퍼 VM을 복제할 때 특정 환경(Hyper-V 사이트 또는 해당되는 VMM이 있는 Hyper-V)에서 하나의 AD 테넌트만 복제할 수 있습니다.
+> 온-프레미스에서 Azure로 Hyper-v Vm을 복제 하는 경우 특정 환경에서 Hyper-v 사이트 또는 Hyper-v를 사용 하는 Hyper-v를 사용 하 여 하나의 AD 테 넌 트에만 복제할 수 있습니다.
 
 
 ## <a name="provider-and-agent"></a>공급자 및 에이전트

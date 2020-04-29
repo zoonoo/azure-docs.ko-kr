@@ -1,5 +1,5 @@
 ---
-title: 앱소스에 대한 검사 목록 게시 | Azure 마켓플레이스
+title: AppSource에 대 한 게시 검사 목록 | Azure Marketplace
 description: AppSource에 대한 게시 검사 목록.
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
 ms.openlocfilehash: 7fcf23d1a599199adfc5a50f76a7b72b96ece7a8
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80387736"
 ---
 # <a name="publishing-checklist-for-appsource"></a>AppSource에 대한 게시 검사 목록  

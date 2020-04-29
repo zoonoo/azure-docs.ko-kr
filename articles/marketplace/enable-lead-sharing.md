@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
 ms.openlocfilehash: b41a29fb3548937e9071cfb9f065dd46f63df83e
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80387612"
 ---
 # <a name="enable-lead-sharing"></a>잠재 고객 공유 사이트 사용
@@ -39,7 +39,7 @@ ms.locfileid: "80387612"
 | 상점 | 나열 |
 |:--- |:--- |
 | AppSource | <table> <tr><td>앱</td></tr> <tr><td>컨설팅 서비스</td></tr> </table> |
-| Azure Marketplace | <table> <tr><td>제안</td></tr> <tr><td>기술</td></tr> </table> |
+| Azure Marketplace | <table> <tr><td>제품</td></tr> <tr><td>기술</td></tr> </table> |
 
 다음 표에 설명된 것처럼 잠재 고객을 합류시키기 위해 준비된 프로세스가 있어야 합니다.
 

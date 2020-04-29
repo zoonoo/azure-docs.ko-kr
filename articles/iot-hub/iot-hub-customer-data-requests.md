@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치에 대한 고객 데이터 요청
-description: Azure IoT Hub에서 관리되는 대부분의 장치는 개인적이지 않지만 일부는 개인 장치입니다. 이 문서에서는 장치에서 개인 데이터를 내보내거나 삭제할 수 있는 관리자에 대해 다수 있습니다.
+title: Azure IoT Hub 장치에 대 한 고객 데이터 요청
+description: Azure IoT Hub에서 관리 되는 대부분의 장치는 개인은 아니지만 일부는입니다. 이 문서에서는 장치에서 개인 데이터를 내보내거나 삭제할 수 있는 관리자에 대해 설명 합니다.
 author: robinsh
 ms.author: robinsh
 ms.date: 05/16/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: a05fbf6e1908f88014cd8da99fafb875de033f45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79499323"
 ---
 # <a name="summary-of-customer-data-request-features"></a>고객 데이터 요청 기능 요약
@@ -40,7 +40,7 @@ Azure IoT Hub 서비스의 Azure Monitor 통합 기능을 사용하여 진단 �
 
 ## <a name="exporting-customer-data"></a>고객 데이터 내보내기
 
-테넌트 관리자는 Azure 포털의 Azure IoT Hub 확장의 IoT 장치 창 내에서 복사 및 붙여넣기를 사용하여 장치와 연결된 데이터를 내보낼 수 있습니다.
+테 넌 트 관리자는 Azure Portal에서 Azure IoT Hub 확장의 IoT 장치 창 내에서 복사 및 붙여넣기를 활용 하 여 장치와 연결 된 데이터를 내보낼 수 있습니다.
 
 또한 REST API를 사용하여 디바이스에 대한 내보내기 작업을 수행할 수 있습니다. 자세한 내용은 [서비스 - 디바이스 가져오기](/rest/api/iothub/service/registrymanager/getdevice)를 참조하세요.
 

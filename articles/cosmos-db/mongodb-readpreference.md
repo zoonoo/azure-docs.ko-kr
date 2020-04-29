@@ -1,5 +1,5 @@
 ---
-title: MongoDB에 대한 Azure 코스모스 DB의 API로 읽기 기본 설정 사용
+title: MongoDB에 대 한 Azure Cosmos DB API에서 읽기 기본 설정을 사용 합니다.
 description: Azure Cosmos DB의 MongoDB용 API에서 MongoDB 읽기 기본 설정을 사용하는 방법에 대한 자세한 정보
 author: sivethe
 ms.author: sivethe
@@ -9,10 +9,10 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 579767a0d535605a2316c35bd413a75474b5a3de
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80410009"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 MongoDB용 API를 사용하여 읽기를 전역 배포하는 방법
@@ -20,7 +20,7 @@ ms.locfileid: "80410009"
 이 문서에서는 Azure Cosmos DB의 MongoDB용 API를 사용하여 [MongoDB 읽기 기본 설정](https://docs.mongodb.com/manual/core/read-preference/)으로 읽기 작업을 전역 배포하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항 
-Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 만드세요. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 Azure Portal을 사용하여 Cosmos 계정을 전역 배포로 설정한 다음, 연결하는 방법에 대한 지침은 이 [빠른 시작](tutorial-global-distribution-mongodb.md) 문서를 참조하세요.
@@ -86,7 +86,7 @@ MongoDB 프로토콜은 클라이언트에서 사용할 수 있는 다음과 같
 일반적인 시나리오에 따라 다음 설정을 사용하는 것이 좋습니다.
 
 1. **대기 시간이 짧은 읽기**가 필요한 경우 **NEAREST** 읽기 기본 설정 모드를 사용합니다. 이 설정은 읽기 작업을 사용 가능한 가장 가까운 지역으로 보냅니다. 가장 가까운 지역이 WRITE 지역이면, 이러한 작업은 해당 지역으로 보내집니다.
-2. **읽기의 고가용성 및 지역 분포가** 필요한 경우(대기 시간은 제약 조건이 아님), **기본 기본 설정** 또는 보조 **기본** 읽기 기본 설정 모드를 사용합니다. 이 설정은 읽기 작업을 각각 사용 가능한 WRITE 또는 READ 영역으로 향합니다. 지역을 사용할 수 없는 경우 읽기 기본 설정 동작에 따라 요청이 사용 가능한 다음 지역으로 이동됩니다.
+2. **읽기의 고가용성 및 지리적 배포가** 필요한 경우 (대기 시간은 제약 조건이 아님) **기본** 기본 설정 또는 **보조 기본** 설정 모드를 사용 합니다. 이 설정은 읽기 작업을 사용 가능한 쓰기 또는 읽기 지역으로 각각 보냅니다. 지역을 사용할 수 없는 경우 요청은 읽기 기본 설정 동작에 따라 사용 가능한 다음 지역으로 전달 됩니다.
 
 샘플 애플리케이션의 다음 코드 조각에서는 NodeJS에서 NEAREST 읽기 기본 설정을 구성하는 방법을 보여 줍니다.
 
@@ -172,4 +172,4 @@ MongoClient.connect(url, function(err, client) {
 
 * [Azure Cosmos DB로 MongoDB 데이터 가져오기](mongodb-migrate.md)
 * [Azure Cosmos DB의 MongoDB용 API를 사용하여 전역 분산 데이터베이스 설정](tutorial-global-distribution-mongodb.md)합니다.
-* [Azure 코스모스 DB 에뮬레이터로 로컬로 개발](local-emulator.md)
+* [Azure Cosmos DB 에뮬레이터를 사용 하 여 로컬로 개발](local-emulator.md)

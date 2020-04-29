@@ -1,6 +1,6 @@
 ---
-title: ARM으로 ASE 생성
-description: Azure 리소스 관리자 템플릿을 사용하여 외부 또는 ILB 앱 서비스 환경을 만드는 방법에 대해 알아봅니다.
+title: ARM을 사용 하 여 ASE 만들기
+description: Azure Resource Manager 템플릿을 사용 하 여 외부 또는 ILB App Service 환경을 만드는 방법에 대해 알아봅니다.
 author: ccompy
 ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e06fcdbac097e85c039e34274c61cb51ee06bcd6
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478330"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 ASE 만들기
@@ -36,9 +36,9 @@ ASE 만들기를 자동화하려면:
 
 1. 템플릿에서 ASE를 만듭니다. 외부 ASE를 만드는 경우에는 이 단계를 수행하면 만들기가 완료됩니다. ILB ASE를 만드는 경우에는 몇 가지 추가 작업을 수행합니다.
 
-2. ILB ASE를 만든 후 ILB ASE 도메인과 일치하는 TLS/SSL 인증서가 업로드됩니다.
+2. ILB ASE를 만든 후에 ILB ASE 도메인과 일치 하는 TLS/SSL 인증서가 업로드 됩니다.
 
-3. 업로드된 TLS/SSL 인증서는 ILB ASE에 "기본" TLS/SSL 인증서로 할당됩니다.  이 인증서는 ASE에 할당된 공통 루트 도메인(예: `https://someapp.mycustomrootdomain.com`)을 사용할 때 ILB ASE의 앱에 대한 TLS/SSL 트래픽에 사용됩니다.
+3. 업로드 된 TLS/SSL 인증서는 해당 "기본" TLS/SSL 인증서로 ILB ASE에 할당 됩니다.  이 인증서는 ASE에 할당 된 공용 루트 도메인 (예: `https://someapp.mycustomrootdomain.com`)을 사용할 때 ILB ASE의 앱에 대 한 TLS/SSL 트래픽에 사용 됩니다.
 
 
 ## <a name="create-the-ase"></a>ASE 만들기
@@ -61,17 +61,17 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 ASE가 작성되려면 1시간 정도 걸립니다. 이 시간이 지나면 ASE가 Portal에서 배포를 트리거한 구독의 ASE 목록에 표시됩니다.
 
-## <a name="upload-and-configure-the-default-tlsssl-certificate"></a>"기본" TLS/SSL 인증서 업로드 및 구성
-TLS/SSL 인증서는 앱에 대한 TLS 연결을 설정하는 데 사용되는 "기본" TLS/SSL 인증서로 ASE와 연결되어야 합니다. ASE의 기본 DNS 접미사가 *internal-contoso.com*경우 * `https://some-random-app.internal-contoso.com` .internal-contoso.com 에 유효한 TLS/SSL 인증서가*필요합니다.* 
+## <a name="upload-and-configure-the-default-tlsssl-certificate"></a>"Default" TLS/SSL 인증서를 업로드 하 고 구성 합니다.
+TLS/SSL 인증서는 앱에 대 한 TLS 연결을 설정 하는 데 사용 되는 "기본" TLS/SSL 인증서로 ASE에 연결 되어야 합니다. ASE의 기본 DNS 접미사가 *internal-contoso.com*인 경우에는에 `https://some-random-app.internal-contoso.com` 대 한 연결에 **. INTERNAL-CONTOSO.COM*에 유효한 TLS/SSL 인증서가 필요 합니다. 
 
-내부 인증 기관을 사용하거나 외부 발급자로부터 인증서를 구입하거나 자체 서명된 인증서를 사용하여 유효한 TLS/SSL 인증서를 획득합니다. TLS/SSL 인증서의 출처에 관계없이 다음 인증서 특성을 올바르게 구성해야 합니다.
+내부 인증 기관을 사용 하거나, 외부 발급자 로부터 인증서를 구입 하거나, 자체 서명 된 인증서를 사용 하 여 유효한 TLS/SSL 인증서를 얻습니다. TLS/SSL 인증서의 원본에 관계 없이 다음과 같은 인증서 특성을 올바르게 구성 해야 합니다.
 
-* **제목**: 이 특성은 **.your-root-domain-here.com*로 설정해야 합니다.
-* **제목 대체 이름**: 이 특성에는 **.your-root-domain-here.com* 및 **scm.your-root-domain-here.com*모두 포함되어야 합니다. 각 앱과 연결된 SCM/Kudu 사이트에 대한 TLS 연결은 *your-app-name.scm.your-root-domain-here.com*양식의 주소를 사용합니다.
+* **Subject**:이 특성은 **. your-root-domain-here.com*로 설정 해야 합니다.
+* **주체 대체 이름**:이 특성은 **. your-root-domain-here.com* 및 **. scm.your-root-domain-here.com*를 모두 포함 해야 합니다. 각 앱과 연결 된 SCM/Kudu 사이트에 대 한 TLS 연결은 *your-app-name.scm.your-root-domain-here.com*형식의 주소를 사용 합니다.
 
-유효한 TLS/SSL 인증서를 손에 들고 있으면 두 가지 추가 준비 단계가 필요합니다. TLS/SSL 인증서를 .pfx 파일로 변환/저장합니다. .pfx 파일에는 모든 중간 인증서와 루트 인증서를 포함해야 합니다. 암호로 인증서를 보호합니다.
+유효한 TLS/SSL 인증서를 사용 하는 경우 두 가지 추가 준비 단계가 필요 합니다. TLS/SSL 인증서를 .pfx 파일로 변환/저장 합니다. .pfx 파일에는 모든 중간 인증서와 루트 인증서를 포함해야 합니다. 암호로 인증서를 보호합니다.
 
-리소스 관리자 템플릿을 사용하여 TLS/SSL 인증서를 업로드하기 때문에 .pfx 파일을 base64 문자열로 변환해야 합니다. Resource Manager 템플릿은 텍스트 파일이므로 .pfx 파일을 Base64 문자열로 변환해야 합니다. 이렇게 해당 파일을 템플릿의 매개 변수로 포함할 수 있습니다.
+리소스 관리자 템플릿을 사용 하 여 TLS/SSL 인증서를 업로드 하므로 .pfx 파일을 base64 문자열로 변환 해야 합니다. Resource Manager 템플릿은 텍스트 파일이므로 .pfx 파일을 Base64 문자열로 변환해야 합니다. 이렇게 해당 파일을 템플릿의 매개 변수로 포함할 수 있습니다.
 
 아래 PowerShell 코드 조각을 사용하여 다음 작업을 수행합니다.
 
@@ -96,16 +96,16 @@ $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 $fileContentEncoded | set-content ($fileName + ".b64")
 ```
 
-TLS/SSL 인증서가 성공적으로 생성되고 base64 인코딩된 문자열로 변환된 후 예제 리소스 관리자 템플릿을 사용하여 GitHub에서 [기본 SSL 인증서를 구성합니다.][quickstartconfiguressl] 
+TLS/SSL 인증서가 성공적으로 생성 되 고 b a s e 64로 인코딩된 문자열로 변환 된 후에는 예제 리소스 관리자 템플릿을 사용 하 여 GitHub에서 [기본 SSL 인증서를 구성][quickstartconfiguressl] 합니다. 
 
 *azuredeploy.parameters.json* 파일의 매개 변수는 다음과 같습니다.
 
-* *appService환경이름*: 구성 중인 ILB ASE의 이름입니다.
-* *기존AseLocation*: ILB ASE가 배포된 Azure 영역을 포함하는 텍스트 문자열입니다.  예를 들어 "미국 중남부"입니다.
+* *Appservice환경 이름*: 구성 하는 ILB ASE의 이름입니다.
+* *existingAseLocation*: ILB ASE가 배포 된 Azure 지역을 포함 하는 텍스트 문자열입니다.  예를 들어 "미국 중남부"입니다.
 * *pfxBlobString*: .pfx 파일의 Base64 인코딩 문자열 표현입니다. 위에 나와 있는 코드 조각을 사용하여 "exportedcert.pfx.b64"에 포함된 문자열을 복사합니다. 이 문자열을 *pfxBlobString* 특성의 값으로 붙여넣습니다.
 * *password*: .pfx 파일을 보호하는 데 사용되는 암호입니다.
-* *인증서지문*: 인증서의 지문. PowerShell에서 이 값을 검색하는 경우(예: 이전 코드 조각의 *$certificate.Thumbprint*) 값을 있는 그대로 사용할 수 있습니다. Windows 인증서 대화 상자의 값을 복사하는 경우 불필요한 공백을 제거해야 합니다. *인증서지문은* AF3143EB61D43F6727822115BB7F17BBCECAE와 같은 모양입니다.
-* *인증서 이름*: 인증서를 ID하는 데 사용되는 자신의 선택의 친숙한 문자열 식별자입니다. 이름은 TLS/SSL 인증서를 나타내는 *Microsoft.Web/인증서* 엔터티의 고유한 리소스 관리자 식별자의 일부로 사용됩니다. 이름은 다음과 같은 접미사로 *끝나야 합니다:* \_yourASENameHere_InternalLoadBalancingASE. Azure Portal에서는 인증서가 ILB 지원 ASE를 보호하는 데 사용됨을 나타내는 표시기로 이 접미사를 사용합니다.
+* *certificateThumbprint*: 인증서의 지문입니다. PowerShell에서 이 값을 검색하는 경우(예: 이전 코드 조각의 *$certificate.Thumbprint*) 값을 있는 그대로 사용할 수 있습니다. Windows 인증서 대화 상자의 값을 복사하는 경우 불필요한 공백을 제거해야 합니다. *CertificateThumbprint* 는 AF3143EB61D43F6727842115BB7F17BBCECAECAE와 같아야 합니다.
+* *Certificatename*: 인증서를 식별 하는 데 사용 되는 고유한 선택의 친숙 한 문자열 식별자입니다. 이 이름은 TLS/SSL 인증서를 나타내는 *Microsoft 웹/인증서* 엔터티에 대 한 고유 리소스 관리자 식별자의 일부로 사용 됩니다. *이름은 yourASENameHere_InternalLoadBalancingASE 접미사로 끝나야 합니다.* \_ Azure Portal에서는 인증서가 ILB 지원 ASE를 보호하는 데 사용됨을 나타내는 표시기로 이 접미사를 사용합니다.
 
 *azuredeploy.parameters.json*을 축약한 예는 다음과 같습니다.
 
@@ -136,7 +136,7 @@ TLS/SSL 인증서가 성공적으로 생성되고 base64 인코딩된 문자열�
 }
 ```
 
-*azuredeploy.parameters.json* 파일이 채워진 후 PowerShell 코드 조각을 사용하여 기본 TLS/SSL 인증서를 구성합니다. 컴퓨터에 Resource Manager 템플릿 파일이 있는 위치와 일치하도록 파일 경로를 변경합니다. Resource Manager 배포 이름 및 리소스 그룹 이름에 대해 고유한 값을 제공해야 합니다.
+*Azuredeploy. 매개 변수* 를 채운 후 PowerShell 코드 조각을 사용 하 여 기본 TLS/SSL 인증서를 구성 합니다. 컴퓨터에 Resource Manager 템플릿 파일이 있는 위치와 일치하도록 파일 경로를 변경합니다. Resource Manager 배포 이름 및 리소스 그룹 이름에 대해 고유한 값을 제공해야 합니다.
 
 ```powershell
 $templatePath="PATH\azuredeploy.json"
@@ -147,12 +147,12 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 변경 내용이 적용되려면 ASE 프런트 엔드당 약 40분이 걸립니다. 예를 들어 두 개의 프런트 엔드를 사용하는 기본 크기 ASE의 경우 템플릿을 완료하는 데 약 1시간 20분이 소요됩니다. 템플릿이 실행되는 동안에는 ASE 크기를 조정할 수 없습니다.  
 
-템플릿이 완료되면 HTTPS를 통해 ILB ASE의 앱에 액세스할 수 있습니다. 연결은 기본 TLS/SSL 인증서를 사용하여 보호됩니다. 기본 TLS/SSL 인증서는 ILB ASE의 앱이 응용 프로그램 이름과 기본 호스트 이름을 조합하여 해결될 때 사용됩니다. 예를 들어 `https://mycustomapp.internal-contoso.com` **.internal-contoso.com*에 대한 기본 TLS/SSL 인증서를 사용합니다.
+템플릿이 완료되면 HTTPS를 통해 ILB ASE의 앱에 액세스할 수 있습니다. 기본 TLS/SSL 인증서를 사용 하 여 연결을 보호 합니다. 기본 TLS/SSL 인증서는 응용 프로그램 이름과 기본 호스트 이름 조합을 사용 하 여 ILB ASE의 앱에 주소를 지정할 때 사용 됩니다. 예를 들어 `https://mycustomapp.internal-contoso.com` 는 **. internal-contoso.com*에 대 한 기본 TLS/SSL 인증서를 사용 합니다.
 
-그러나 개발자는 공용 다중 테넌트 서비스에서 실행되는 앱과 마찬가지로 개별 앱에 대해 사용자 지정 호스트 이름을 구성할 수 있습니다. 또한 개별 앱에 대해 고유한 SNI TLS/SSL 인증서 바인딩을 구성할 수도 있습니다.
+그러나 개발자는 공용 다중 테넌트 서비스에서 실행되는 앱과 마찬가지로 개별 앱에 대해 사용자 지정 호스트 이름을 구성할 수 있습니다. 또한 개별 앱에 대 한 고유한 SNI TLS/SSL 인증서 바인딩을 구성할 수 있습니다.
 
 ## <a name="app-service-environment-v1"></a>App Service 환경 v1 ##
-App Service Environment에는 두 가지 버전(ASEv1 및 ASEv2)이 있습니다. 위의 정보는 ASEv2를 기준으로 작성된 것입니다. 이 섹션은 ASEv1과 ASEv2의 차이를 보여줍니다.
+App Service Environment에는 ASEv1 및 ASEv2라는 두 가지 버전이 있습니다. 위의 정보는 ASEv2를 기준으로 작성된 것입니다. 이 섹션은 ASEv1과 ASEv2의 차이를 보여줍니다.
 
 ASEv1에서는 모든 리소스를 수동으로 관리합니다. 여기에는 IP 기반 SSL에 사용되는 프런트 엔드, 작업자 및 IP 주소가 포함됩니다. App Service 계획을 규모 확장하려면 먼저 해당 App Service를 호스트할 작업자 풀을 규모 확장해야 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 템플릿을 사용하여 서비스 버스 토픽 구독 및 규칙 만들기
+title: Azure 템플릿을 사용 하 여 Service Bus 토픽 구독 및 규칙 만들기
 description: Azure Resource Manager 템플릿을 사용하여 토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/27/2019
 ms.author: spelluru
 ms.openlocfilehash: 6cbaf447dfcf06ae11f2282d7d847978297af8b8
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80384894"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기
@@ -36,10 +36,10 @@ Azure 리소스 명명 규칙의 사례 및 패턴에 대한 자세한 내용은
 > 
 > * [큐 및 권한 부여 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-auth-rule.md)
 > * [큐가 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-queue.md)
-> * [서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace.md)
+> * [Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace.md)
 > * [토픽 및 구독이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
 > 
-> 최신 템플릿을 확인하려면 Azure [빠른 시작 템플릿 갤러리를][Azure Quickstart Templates] 방문하여 서비스 버스를 검색합니다.
+> 최신 템플릿을 확인하려면 Service Bus에 대한 [Azure 빠른 시작 템플릿][Azure Quickstart Templates] 갤러리 및 검색을 방문하세요.
 
 ## <a name="what-do-you-deploy"></a>배포할 항목
 

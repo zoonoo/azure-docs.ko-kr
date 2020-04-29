@@ -1,23 +1,23 @@
 ---
-title: 사용자 만들기 - PostgreSQL용 Azure 데이터베이스 - 단일 서버
-description: 이 문서에서는 PostgreSQL - 단일 서버에 대한 Azure 데이터베이스와 상호 작용하기 위해 새 사용자 계정을 만드는 방법에 대해 설명합니다.
+title: 사용자 만들기-Azure Database for PostgreSQL-단일 서버
+description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버와 상호 작용 하기 위해 새 사용자 계정을 만드는 방법을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.openlocfilehash: 127d484d6cfc35368803069f9c3d602e787baa56
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80384350"
 ---
-# <a name="create-users-in-azure-database-for-postgresql---single-server"></a>PostgreSQL - 단일 서버에 대한 Azure 데이터베이스에서 사용자 만들기
+# <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에서 사용자 만들기
 
-이 문서에서는 PostgreSQL 서버용 Azure 데이터베이스 내에서 사용자를 만드는 방법에 대해 설명합니다.
+이 문서에서는 Azure Database for PostgreSQL 서버 내에서 사용자를 만드는 방법을 설명 합니다.
 
-Azure 구독 사용자 및 해당 권한을 만들고 관리하는 방법에 대해 알아보려면 [AZURE 역할 기반 액세스 제어(RBAC) 문서를](../role-based-access-control/built-in-roles.md) 방문하거나 역할을 사용자 [지정하는 방법을](../role-based-access-control/custom-roles.md)검토할 수 있습니다.
+Azure 구독 사용자 및 해당 권한을 만들고 관리 하는 방법에 대해 알아보려면 [AZURE RBAC (역할 기반 액세스 제어) 문서](../role-based-access-control/built-in-roles.md) 를 방문 하거나 [역할을 사용자 지정 하는 방법을](../role-based-access-control/custom-roles.md)검토 하세요.
 
 ## <a name="the-server-admin-account"></a>서버 관리자 계정
 
@@ -70,7 +70,7 @@ PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/do
    GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
-4. 관리자 계정을 사용하면 데이터베이스의 개체를 보호하기 위해 추가 권한을 부여해야 할 수 있습니다. 데이터베이스 역할 및 권한에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/current/static/ddl-priv.html)를 참조하세요. 예를 들어:
+4. 관리자 계정을 사용하면 데이터베이스의 개체를 보호하기 위해 추가 권한을 부여해야 할 수 있습니다. 데이터베이스 역할 및 권한에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/current/static/ddl-priv.html)를 참조하세요. 다음은 그 예입니다.
 
    ```sql
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;

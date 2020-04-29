@@ -1,6 +1,6 @@
 ---
 title: Azure VM의 게스트 OS에서 방화벽 규칙 사용 또는 사용 안 함 | Microsoft Docs
-description: 온라인 또는 오프라인 원격 도구 또는 레지스트리 설정을 사용하여 원격 Azure VM에서 게스트 OS 방화벽 규칙을 사용하거나 사용하지 않도록 설정하는 방법을 알아봅니다.
+description: 온라인 또는 오프 라인 원격 도구 또는 레지스트리 설정을 사용 하 여 원격 Azure VM에서 게스트 OS 방화벽 규칙을 사용 하거나 사용 하지 않도록 설정 하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: e93dbd085ce99b8d555d6b9bb04e7eb6f60de0ee
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422889"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Azure VM 게스트 OS에서 방화벽 규칙 사용 또는 사용 안 함
@@ -29,7 +29,7 @@ ms.locfileid: "80422889"
 
 *   모든 방화벽 프로필을 사용하지 않도록 설정하면 RDP 관련 방화벽 규칙을 설정하는 것보다 훨씬 더 쉽게 문제를 해결할 수 있습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 방화벽 규칙을 구성하는 방법은 필요한 VM에 대한 액세스 수준에 따라 달라집니다. 다음 예제에서는 RDP 규칙을 사용합니다. 그러나 올바른 레지스트리 키를 가리켜서 다른 모든 종류의 트래픽에도 동일한 방법을 적용할 수 있습니다.
 
@@ -97,9 +97,9 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
 
 VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 액세스할 수 있는 경우 다른 VM에서 [원격 레지스트리](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)를 사용할 수 있습니다.
 
-1.  문제 해결 VM에서 레지스트리 편집기(regedit.exe)를 시작한 다음 **파일** > **연결 네트워크 레지스트리를**선택합니다.
+1.  문제 해결 VM에서 레지스트리 편집기 (regedit.exe)를 시작 하 고 **파일** > **연결 네트워크 레지스트리**를 선택 합니다.
 
-2.  대상 *컴퓨터*\SYSTEM 분기를 연 다음 다음 값을 지정합니다.
+2.  *대상 컴퓨터*\SYSTEM branch를 열고 다음 값을 지정 합니다.
 
     * 규칙을 사용하도록 설정하려면 다음 레지스트리 값을 엽니다.
     
@@ -107,7 +107,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
     
         그런 다음, 문자열에서 **Active=FALSE**를 **Active=TRUE**로 변경합니다.
 
-        **v2.22| 작업=허용\ 활성=TRUE | 디르=인 | 프로토콜=6 | 프로필=도메인| 프로필=비공개 | 프로필=공개 | LPort=3389| 앱=%SystemRoot%\system32\svchost.exe | Svc=기간 서비스 | 이름=\@방화벽API.dll,-28775| Desc=\@방화벽API.dll,-28756 | 임베드Ctxt\@= 방화벽API.dll,-28752 |**
+        **v 2.22 | Action = Allow | Active = TRUE | Dir = In | 프로토콜 = 6 | Profile = 도메인 | Profile = 비공개 | Profile = 공용 | LPort = 3389 | 앱 =%SystemRoot%\system32\svchost.exe | Svc = termservice | Name =\@FirewallAPI,-28775 | Desc =\@FirewallAPI,-28756 | EmbedCtxt =\@FirewallAPI,-28752 |**
     
     * 규칙을 사용하지 않도록 설정하려면 다음 레지스트리 값을 엽니다.
     
@@ -115,7 +115,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
 
         그런 다음, **Active =TRUE**를 **Active=FALSE**로 변경합니다.
         
-        **v2.22| 작업=허용\ 활성=FALSE| 디르=인 | 프로토콜=6 | 프로필=도메인| 프로필=비공개 | 프로필=공개 | LPort=3389| 앱=%SystemRoot%\system32\svchost.exe | Svc=기간 서비스 | 이름=\@방화벽API.dll,-28775| Desc=\@방화벽API.dll,-28756 | 임베드Ctxt\@= 방화벽API.dll,-28752 |**
+        **v 2.22 | Action = Allow | 활성 = FALSE | Dir = In | 프로토콜 = 6 | Profile = 도메인 | Profile = 비공개 | Profile = 공용 | LPort = 3389 | 앱 =%SystemRoot%\system32\svchost.exe | Svc = termservice | Name =\@FirewallAPI,-28775 | Desc =\@FirewallAPI,-28756 | EmbedCtxt =\@FirewallAPI,-28752 |**
 
 3.  VM을 다시 시작하여 변경 내용을 적용합니다.
 
@@ -129,20 +129,20 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
 
 2.  복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 
-3.  디스크 관리 콘솔에서 디스크가 **온라인으로** 플래그가 지정되어 있는지 확인합니다. 연결된 시스템 디스크에 할당된 드라이브 문자입니다.
+3.  디스크가 디스크 관리 콘솔에서 **온라인** 으로 플래그가 지정 되었는지 확인 합니다. 연결된 시스템 디스크에 할당된 드라이브 문자입니다.
 
 4.  변경 내용을 롤백해야 하는 경우를 대비하여 변경 전에 \windows\system32\config 폴더의 복사본을 만듭니다.
 
 5.  문제 해결을 위한 VM에서 레지스트리 편집기(regedit.exe)를 시작합니다.
 
-6.  **HKEY_LOCAL_MACHINE** 키를 강조 표시한 다음 메뉴에서 **파일** > **로드 하이브를** 선택합니다.
+6.  **HKEY_LOCAL_MACHINE** 키를 강조 표시 한 다음 메뉴에서 **파일** > **로드 하이브** 를 선택 합니다.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.  \windows\system32\config\SYSTEM 파일을 찾아 엽니다. 
 
     > [!Note]
-    > 이름을 묻는 메시지가 표시됩니다. **BROKENSYSTEM을**입력한 다음 **HKEY_LOCAL_MACHINE**확장합니다. 이제 **BROKENSYSTEM**이라는 추가 키가 표시됩니다. 이 문제 해결을 위해 이러한 문제 벌집을 **BROKENSYSTEM로**장착하고 있습니다.
+    > 이름을 묻는 메시지가 표시됩니다. **BROKENSYSTEM**를 입력 한 다음 **HKEY_LOCAL_MACHINE**를 확장 합니다. 이제 이름이 **BROKENSYSTEM**인 추가 키가 표시 됩니다. 이 문제 해결을 위해 이러한 문제 하이브를 **BROKENSYSTEM**으로 탑재 합니다.
 
 8.  BROKENSYSTEM 분기에서 다음과 같이 변경합니다.
 
@@ -154,7 +154,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
         
         그런 다음, **Active=FALSE**를 **Active=True**로 변경합니다.
         
-        **v2.22| 작업=허용\ 활성=TRUE | 디르=인 | 프로토콜=6 | 프로필=도메인| 프로필=비공개 | 프로필=공개 | LPort=3389| 앱=%SystemRoot%\system32\svchost.exe | Svc=기간 서비스 | 이름=\@방화벽API.dll,-28775| Desc=\@방화벽API.dll,-28756 | 임베드Ctxt\@= 방화벽API.dll,-28752 |**
+        **v 2.22 | Action = Allow | Active = TRUE | Dir = In | 프로토콜 = 6 | Profile = 도메인 | Profile = 비공개 | Profile = 공용 | LPort = 3389 | 앱 =%SystemRoot%\system32\svchost.exe | Svc = termservice | Name =\@FirewallAPI,-28775 | Desc =\@FirewallAPI,-28756 | EmbedCtxt =\@FirewallAPI,-28752 |**
 
     3.  규칙을 사용하지 않도록 설정하려면 다음 레지스트리 키를 엽니다.
 
@@ -162,9 +162,9 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
 
         그런 다음, **Active=True**를 **Active=FALSE**로 변경합니다.
         
-        **v2.22| 작업=허용\ 활성=FALSE| 디르=인 | 프로토콜=6 | 프로필=도메인| 프로필=비공개 | 프로필=공개 | LPort=3389| 앱=%SystemRoot%\system32\svchost.exe | Svc=기간 서비스 | 이름=\@방화벽API.dll,-28775| Desc=\@방화벽API.dll,-28756 | 임베드Ctxt\@= 방화벽API.dll,-28752 |**
+        **v 2.22 | Action = Allow | 활성 = FALSE | Dir = In | 프로토콜 = 6 | Profile = 도메인 | Profile = 비공개 | Profile = 공용 | LPort = 3389 | 앱 =%SystemRoot%\system32\svchost.exe | Svc = termservice | Name =\@FirewallAPI,-28775 | Desc =\@FirewallAPI,-28756 | EmbedCtxt =\@FirewallAPI,-28752 |**
 
-9.  **BROKENSYSTEM을**강조 표시한 다음 메뉴에서 **파일** > **언로드 하이브를** 선택합니다.
+9.  **BROKENSYSTEM**를 강조 표시 한 다음 메뉴에서 **파일** > **언로드 Hive** 를 선택 합니다.
 
 10. [시스템 디스크를 분리하고 VM을 다시 만듭니다](troubleshoot-recovery-disks-portal-windows.md).
 

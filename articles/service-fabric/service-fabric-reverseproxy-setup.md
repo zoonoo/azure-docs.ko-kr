@@ -1,14 +1,14 @@
 ---
-title: Azure 서비스 패브릭 설정 역방향 프록시
-description: Azure 서비스 패브릭 응용 프로그램에 대한 역방향 프록시 서비스를 설정하고 구성하는 방법을 이해합니다.
+title: Azure Service Fabric 역방향 프록시 설정
+description: Azure Service Fabric 응용 프로그램에 대 한 역방향 프록시 서비스를 설정 하 고 구성 하는 방법을 이해 합니다.
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
 ms.openlocfilehash: 6e3edb0fe238dcaddb7d99cc68660591f081581c
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476680"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric에서 역방향 프록시 설정 및 구성
@@ -23,7 +23,7 @@ Azure Portal에서는 새 Service Fabric 클러스터를 만들 때 역방향 �
 1. **2단계: 클러스터 구성**의 **노드 유형 구성** 아래에서 **역방향 프록시 사용**을 선택합니다.
 
    ![포털에서 역방향 프록시 사용](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. (선택 사항) 보안 역방향 프록시를 구성하려면 TLS/SSL 인증서를 구성해야 합니다. **3단계: 보안**에 있는 **클러스터 보안 설정 구성**의 **구성 형식** 아래에서 **사용자 지정**을 선택합니다. 그런 다음, **역방향 프록시 SSL 인증서** 아래에서 **역방향 프록시의 SSL 인증서 포함**을 선택하고 인증서 세부 정보를 입력합니다.
+2. 필드 보안 역방향 프록시를 구성 하려면 TLS/SSL 인증서를 구성 해야 합니다. **3단계: 보안**에 있는 **클러스터 보안 설정 구성**의 **구성 형식** 아래에서 **사용자 지정**을 선택합니다. 그런 다음, **역방향 프록시 SSL 인증서** 아래에서 **역방향 프록시의 SSL 인증서 포함**을 선택하고 인증서 세부 정보를 입력합니다.
 
    ![포털에서 보안 역방향 프록시 구성](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
@@ -74,7 +74,7 @@ Resource Manager 템플릿이 준비되면 다음 단계를 사용하여 역방�
         ...
     }
     ```
-3. 역방향 프록시에 대한 포트에서 TLS/SSL 인증서를 구성하려면 **Microsoft.ServiceFabric/클러스터** [리소스 유형 섹션의](../resource-group-authoring-templates.md) ***reverseProxyCertificate*** 속성에 인증서를 추가합니다.
+3. 역방향 프록시에 대 한 포트에서 TLS/SSL 인증서를 구성 하려면 **ServiceFabric/클러스터** [리소스 종류 섹션](../resource-group-authoring-templates.md)의 ***reverseProxyCertificate*** 속성에 인증서를 추가 합니다.
 
     ```json
     {
@@ -158,7 +158,7 @@ Resource Manager 템플릿이 준비되면 다음 단계를 사용하여 역방�
 
 다음 단계에서는 역방향 프록시를 사용하도록 설정하고, 필요에 따라 X.509 인증서를 통해 역방향 프록시를 보호하는 데 사용할 설정을 보여 줍니다. 
 
-1. 역방향 프록시를 사용하려면 클러스터 구성의 **속성** 아래 노드 유형에 대한 **역프록시EndpointPort** 값을 설정합니다. 다음 JSON은 "NodeType0"의 유형이 있는 노드의 역방향 프록시 끝점 포트를 19081로 설정하는 것을 보여 주며,
+1. 역방향 프록시를 사용 하도록 설정 하려면 클러스터 구성의 **속성** 아래에 있는 노드 형식에 대해 **reverseProxyEndpointPort** 값을 설정 합니다. 다음 JSON은 "NodeType0" 유형의 노드에 대해 역방향 프록시 끝점 포트를 19081로 설정 하는 작업을 보여 줍니다.
 
    ```json
        "properties": {
@@ -324,7 +324,7 @@ Azure에서 호스팅되는 클러스터에 대한 Resource Manager 템플릿 �
 
 Azure 클러스터에 대한 패브릭 설정을 업데이트하는 방법에 대한 자세한 내용은 [Resource Manager 템플릿을 사용하여 클러스터 설정 사용자 지정](service-fabric-cluster-config-upgrade-azure.md)을 참조하세요. 독립 실행형 클러스터의 경우 [독립 실행형 클러스터에 대한 클러스터 설정 사용자 지정](service-fabric-cluster-config-upgrade-windows-server.md)을 참조하세요. 
 
-몇 가지 패브릭 설정은 역방향 프록시와 서비스 간의 보안 통신을 설정하는 데 사용됩니다. 이러한 설정에 대한 자세한 내용은 [역방향 프록시가 있는 보안 서비스에 연결 을](service-fabric-reverseproxy-configure-secure-communication.md)참조하십시오.
+몇 가지 패브릭 설정은 역방향 프록시와 서비스 간의 보안 통신을 설정하는 데 사용됩니다. 이러한 설정에 대 한 자세한 내용은 [역방향 프록시를 사용 하 여 보안 서비스에 연결](service-fabric-reverseproxy-configure-secure-communication.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [역방향 프록시를 사용하여 보안 HTTP 서비스에 전달 설정](service-fabric-reverseproxy-configure-secure-communication.md)

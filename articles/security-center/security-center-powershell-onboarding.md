@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용하여 Azure 보안 센터에 온보보드
+title: PowerShell을 사용 하 여 Azure Security Center에 등록
 description: 이 문서에서는 PowerShell cmdlet을 사용하여 Azure Security Center 온보딩 프로세스를 단계별로 안내합니다.
 services: security-center
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
 ms.openlocfilehash: b471fbb62862cd48ebbb239d65b563aa109ef629
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80435487"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>PowerShell을 사용하여 Azure Security Center 온보딩 자동화
@@ -31,17 +31,17 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 
 이 예제에서는 ID가 d07c0080-170c-4c24-861d-9c817742786c인 구독에서 Security Center를 사용하도록 설정하고 고급 위협 보호 및 검색 기능을 제공하는 Security Center의 표준 계층을 구현하여 높은 수준의 보호를 제공합니다.
 
-1. 보안 [센터 표준 보호 수준을](https://azure.microsoft.com/pricing/details/security-center/)설정합니다. 
+1. [Security Center 표준 보호 수준을](https://azure.microsoft.com/pricing/details/security-center/)설정 합니다. 
  
-2. 이 예제에서는 기존 사용자 정의 작업 영역(myWorkspace)에서 로그 분석 에이전트가 구독과 연결된 VM에서 수집한 데이터를 전송할 로그 분석 작업 영역을 설정합니다.
+2. 구독과 연결 된 Vm에서 수집한 데이터를 Log Analytics 에이전트가 전송 하는 Log Analytics 작업 영역을 설정 합니다 .이 예제에서는 기존 사용자 정의 작업 영역 (myWorkspace)입니다.
 
-3. [로그 분석 에이전트를 배포하는](security-center-enable-data-collection.md#auto-provision-mma)보안 센터의 자동 에이전트 프로비저닝을 활성화합니다.
+3. [Log Analytics 에이전트를 배포](security-center-enable-data-collection.md#auto-provision-mma)하는 Security Center의 자동 에이전트 프로 비전을 활성화 합니다.
 
-5. 조직의 [CISO를 보안 센터 경고 및 주목할 만한 이벤트에 대한 보안 연락처로 설정합니다.](security-center-provide-security-contact-details.md)
+5. [Security Center 경고 및 주목할 만한 이벤트에 대 한 보안 연락처로 조직의 ciso](security-center-provide-security-contact-details.md)을 설정 합니다.
 
 6. Azure Security Center의 [기본 보안 정책](tutorial-security-policy.md)을 할당합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 다음 단계는 Security Center cmdlet을 실행하기 전에 수행해야 합니다.
 
@@ -68,7 +68,7 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
         Set-AzSecurityWorkspaceSetting -Name "default" -Scope
         "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
 
-4.  Azure VM에서 로그 분석 에이전트의 자동 프로비전 설치:
+4.  Azure Vm에서 Log Analytics 에이전트의 자동 프로 비전:
     
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
     
@@ -97,12 +97,12 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 PowerShell을 사용하여 Security Center에 대한 온보딩을 자동화하는 방법을 자세히 알아보려면 다음 문서를 참조하세요.
 
 * [Az.Security](https://docs.microsoft.com/powershell/module/az.security).
 
 Security Center에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure 보안 센터에서 보안 정책 설정](tutorial-security-policy.md) - Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성하는 방법을 알아봅니다.
-* [Azure 보안 센터에서 보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) --Azure 구독 및 리소스 그룹에 대 한 보안 정책을 구성 하는 방법을 알아봅니다.
+* [Azure Security Center의 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) --보안 경고를 관리 하 고 대응 하는 방법을 알아봅니다.

@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: c0d19d68d016a47762fb5d2646ea6ccf74d3ef75
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476564"
 ---
-# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>온-프레미스 인코더에서 다중 비트레이트 라이브 스트림을 수신하는 채널 작업
+# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업
 
 > [!NOTE]
 > 2018년 5월 12일부터 라이브 채널은 RTP/MPEG-2 전송 스트림 수집 프로토콜을 더 이상 지원하지 않습니다. RTP/MPEG-2에서 RTMP 또는 조각난 MP4(부드러운 스트리밍) 수집 프로토콜로 마이그레이션하세요.
@@ -45,7 +45,7 @@ Azure Media Services에서 *채널*은 라이브 스트리밍 콘텐츠를 처�
 > [!NOTE]
 > 이 문서에서는 라이브 인코딩을 수행할 수 있는 채널의 특성에 대해 설명합니다. 라이브 인코딩을 수행할 수 있는 채널 작업에 대한 자세한 내용은 [Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 >
->권장 온프레미스 인코더에 대한 자세한 내용은 [권장 온프레미스 인코더](media-services-recommended-encoders.md)를 참조하십시오.
+>온-프레미스 인코더 권장 사항에 대 한 자세한 내용은 [권장 온 프레미스 인코더](media-services-recommended-encoders.md)를 참조 하세요.
 
 다음 다이어그램은 다중 비트 전송률 RTMP 또는 조각화된 MP4(부드러운 스트리밍) 스트림을 출력하기 위해 온-프레미스 라이브 인코더를 사용하는 라이브 스트리밍 워크플로를 나타냅니다.
 
@@ -112,7 +112,7 @@ RTMP 라이브 인코더에 대한 자세한 내용은 [Azure Media Services RTM
 
 채널을 만들 때 수집 URL을 가져올 수 있습니다. 사용자가 이러한 URL을 가져오기 위해 채널이 **실행 중** 상태일 필요는 없습니다. 채널에 데이터 푸시를 시작할 준비가 되면 채널이 **실행 중** 상태여야 합니다. 채널이 데이터 수집을 시작한 후에 미리 보기 URL을 통해 스트림을 미리 볼 수 있습니다.
 
-TLS 연결을 통해 조각난 MP4(부드러운 스트리밍) 라이브 스트림을 인더스트링할 수 있습니다. TLS를 통해 인제스트하려면 인제스트 URL을 HTTPS로 업데이트해야 합니다. 현재 TLS를 통해 RTMP를 섭취할 수 없습니다.
+TLS 연결을 통해 조각화 된 MP4 (부드러운 스트리밍) 라이브 스트림을 수집 하는 옵션이 있습니다. TLS를 통해 수집 하려면 수집 URL을 HTTPS로 업데이트 해야 합니다. 현재 TLS를 통해 RTMP를 수집할 수 없습니다.
 
 #### <a name="keyframe-interval"></a><a id="keyframe_interval"></a>키프레임 간격
 다중 비트 전송률 스트림을 생성하는 데 온-프레미스 라이브 인코더를 사용하는 경우 키 프레임 간격은 GOP(Group of Pictures) 기간(외부 인코더에서 사용됨)을 지정합니다. 채널이 들어오는 스트림을 수신한 후에 HTTP(DASH) 및 HLS(HTTP 라이브 스트리밍)에 부드러운 스트리밍, 동적 적응 스트리밍의 형식으로 클라이언트 재생 애플리케이션에 라이브 스트림을 제공할 수 있습니다. 라이브 스트리밍을 수행할 경우 HLS는 항상 동적으로 패키지됩니다. Media Services는 기본적으로 라이브 인코더에서 수신되는 키 프레임 간격에 따라 자동으로 HLS 세그먼트 패키징 비율(세그먼트당 조각 수)을 계산합니다.
@@ -186,10 +186,10 @@ KeyFrameInterval 및 FragmentsPerSegment를 둘 다 명시적으로 설정하는
 
 | 채널 상태 | 포털 UI 표시기 | 청구 여부 |
 | --- | --- | --- |
-| **시작** |**시작** |없음(일시적인 상태) |
+| **시작 중** |**시작 중** |없음(일시적인 상태) |
 | **실행 중** |**준비**(실행 중인 프로그램이 없음)<p><p>또는<p>**스트리밍**(실행 중인 프로그램이 하나 이상임) |예 |
 | **중지 중** |**중지 중** |없음(일시적인 상태) |
-| **중지** |**중지** |예 |
+| **중지됨** |**중지됨** |아니요 |
 
 ## <a name="closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>선택 자막 및 광고 삽입
 다음 테이블에서는 선택 자막 및 광고 삽입의 지원되는 표준을 설명합니다.
@@ -229,7 +229,7 @@ KeyFrameInterval 및 FragmentsPerSegment를 둘 다 명시적으로 설정하는
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>관련 항목
-[구내 인코더에 권장](media-services-recommended-encoders.md)
+[온-프레미스 인코더 권장](media-services-recommended-encoders.md)
 
 [Azure Media Services 조각화된 MP4 라이브 수집 사양](../media-services-fmp4-live-ingest-overview.md)
 

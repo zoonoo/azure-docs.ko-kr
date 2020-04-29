@@ -1,6 +1,6 @@
 ---
 title: Azure VM 게스트 OS 방화벽이 인바운드 트래픽 차단 | Microsoft Docs
-description: 게스트 운영 체제 방화벽이 인바운드 트래픽을 차단하는 RDP(원격 데스크톱 포털) 연결 문제를 해결하는 방법을 알아봅니다.
+description: 게스트 운영 체제 방화벽에서 인바운드 트래픽을 차단 하는 RDP (원격 데스크톱 포털) 연결 문제를 해결 하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 1b80fc997a4b3d2b472717b1ec2f379a4e958d8c
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422550"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM 게스트 OS 방화벽이 인바운드 트래픽 차단
@@ -41,7 +41,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
 
 ![방화벽 설정](./media/guest-os-firewall-blocking-inbound-traffic/firewall-advanced-setting.png)
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 다음 단계를 따르기 전에 영향을 받는 VM의 시스템 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은  [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
@@ -53,7 +53,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
 
 #### <a name="mitigation-1"></a>해결 방법 1
 
-1.  Azure 에이전트가 설치되어 있고 VM에서 올바르게 작동하는 경우 지원 + VM 메뉴에서**암호** **문제 해결에서** > "구성 재설정 전용" 옵션을 사용할 수 있습니다.
+1.  Azure 에이전트가 vm에 설치 되어 있고 제대로 작동 하는 경우 vm 메뉴의 **지원 + 문제 해결** > **암호 재설정** 에서 "구성만 다시 설정" 옵션을 사용할 수 있습니다.
 
 2.  이 복구 옵션을 실행하면 다음 작업이 수행됩니다.
 
@@ -102,7 +102,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
 
 #### <a name="mitigation-2"></a>해결 방법 2
 
-1.  방화벽 프로필을 쿼리하여 인바운드 방화벽 정책이 *BlockInboundAlways로*설정되어 있는지 확인합니다.
+1.  방화벽 프로필을 쿼리하여 인바운드 방화벽 정책이 *BlockInboundAlways*로 설정 되었는지 여부를 확인 합니다.
 
     ```cmd
     netsh advfirewall show allprofiles | more
@@ -115,7 +115,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
     >    * *BlockInbound*: 트래픽을 허용하는 규칙이 없으면 모든 인바운드 트래픽이 차단됩니다.
     >    * *BlockInboundAlways*: 모든 방화벽 규칙이 무시되고 모든 트래픽이 차단됩니다.
 
-2.  *DefaultInboundAction을* 편집하여 이러한 프로필을 트래픽 **허용으로** 설정합니다. 이렇게 하려면 다음 명령을 실행합니다.
+2.  *DefaultInboundAction* 를 편집 하 여 트래픽을 **허용** 하도록 이러한 프로필을 설정 합니다. 이렇게 하려면 다음 명령을 실행합니다.
 
     ```cmd
     netsh advfirewall set allprofiles firewallpolicy allowinbound,allowoutbound
@@ -138,7 +138,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
 
 2.  복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 
-3.  디스크 관리 콘솔에서 디스크가 **온라인으로** 플래그가 지정되어 있는지 확인합니다. 연결된 시스템 디스크에 할당된 드라이브 문자를 적어 둡니다.
+3.  디스크가 디스크 관리 콘솔에서 **온라인** 으로 플래그가 지정 되었는지 확인 합니다. 연결된 시스템 디스크에 할당된 드라이브 문자를 적어 둡니다.
 
 #### <a name="mitigation-1"></a>해결 방법 1
 
@@ -150,7 +150,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
 
 2.  복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 
-3.  시스템 디스크가 복구 VM에 연결된 후 디스크가 디스크 관리 콘솔에서 **온라인으로** 플래그가 지정되어 있는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
+3.  시스템 디스크를 복구 VM에 연결한 후 디스크 관리 콘솔에서 디스크가 **온라인** 으로 플래그가 지정 되었는지 확인 합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
 
 4.  관리자 권한 CMD 인스턴스를 열고 다음 스크립트를 실행합니다.
 

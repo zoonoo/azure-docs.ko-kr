@@ -4,19 +4,19 @@ description: Application Insights를 사용하여 Node.js 서비스의 성능을
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 38336e3faf3764233dd94bffbfb24421e054496a
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411592"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
-[Azure Application Insights는](../../azure-monitor/app/app-insights-overview.md) 배포 후 백 엔드 서비스 및 구성 요소를 모니터링하여 성능 및 기타 문제를 검색하고 신속하게 진단할 수 있도록 지원합니다. 데이터 센터, Azure VM 및 웹앱, 다른 퍼블릭 클라우드에서도 호스팅되는 Node.js 서비스에 대한 Application Insights를 사용할 수 있습니다.
+[Azure 애플리케이션 Insights](../../azure-monitor/app/app-insights-overview.md) 는 배포 후에 백 엔드 서비스 및 구성 요소를 모니터링 하 여 성능 및 기타 문제를 검색 하 고 신속 하 게 진단할 수 있도록 합니다. 데이터 센터, Azure VM 및 웹앱, 다른 퍼블릭 클라우드에서도 호스팅되는 Node.js 서비스에 대한 Application Insights를 사용할 수 있습니다.
 
 모니터링 데이터를 수신, 저장 및 탐색하려면 코드에 SDK를 포함하고 Azure에서 해당 Application Insights 리소스를 설정합니다. SDK는 추가 분석 및 탐색을 위해 해당 리소스로 데이터를 보냅니다.
 
-Node.js SDK는 들어오고 나가는 HTTP 요청, 예외 및 여러 시스템 메트릭을 자동으로 모니터링할 수 있습니다. 버전 0.20부터 SDK는 MongoDB, MySQL 및 Redis와 같은 일반적인 [타사 패키지를](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules)모니터링할 수도 있습니다. 들어오는 HTTP 요청과 관련된 모든 이벤트는 좀 더 빠른 문제 해결을 위해 상호 관계가 지정됩니다.
+Node.js SDK는 들어오고 나가는 HTTP 요청, 예외 및 여러 시스템 메트릭을 자동으로 모니터링할 수 있습니다. 버전 0.20부터 SDK는 MongoDB, MySQL, Redis 등의 몇 가지 일반적인 [타사 패키지](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules)를 모니터링할 수도 있습니다. 들어오는 HTTP 요청과 관련된 모든 이벤트는 좀 더 빠른 문제 해결을 위해 상호 관계가 지정됩니다.
 
 TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측면을 수동으로 계측하고 모니터링 할 수 있습니다. TelemetryClient API는 이 문서의 뒷부분에 더 자세히 설명합니다.
 
@@ -24,7 +24,7 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 
 앱 또는 서비스에 대한 모니터링을 설정하려면 다음 작업을 완료합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
 시작하기 전에 Azure 구독이 있는지 확인하여 없는 경우 [무료 계정을 새로 만듭니다][azure-free-offer]. 조직에 이미 Azure 구독이 있으면 관리자가 [다음 지침][add-aad-user]에 따라 사용자를 구독에 추가할 수 있습니다.
 
@@ -36,7 +36,7 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 
 
 1. [Azure Portal][portal]에 로그인합니다.
-2. **리소스** > 개발자 도구 응용**프로그램** > **인사이트**만들기를 선택합니다. 리소스에는 원격 분석 데이터를 수신하기 위한 엔드포인트, 이 데이터 스토리지, 저장된 보고서 및 대시보드, 규칙 및 경고 구성이 포함됩니다.
+2. **리소스** > 만들기**개발자 도구** > **Application Insights**를 선택 합니다. 리소스에는 원격 분석 데이터를 수신하기 위한 엔드포인트, 이 데이터 스토리지, 저장된 보고서 및 대시보드, 규칙 및 경고 구성이 포함됩니다.
 
 3. 리소스 만들기 페이지의 **애플리케이션 유형** 상자에서 **Node.js Application**을 선택합니다. 앱 유형에 따라 생성되는 기본 대시보드 및 보고서가 결정됩니다. (모든 Application Insights 리소스는 모든 언어 및 플랫폼에서 데이터를 수집할 수 있습니다.)
 
@@ -92,7 +92,7 @@ SDK는 제출할 데이터를 일괄 처리하기 때문에 항목이 포털에 
 * 포털 리소스 보기에서 **새로 고침**을 클릭합니다. 차트는 자체에서 주기적으로 새로 고치지만, 수동으로 새로 고침하면 즉시 새로 고쳐집니다.
 * [필요한 발신 포트](../../azure-monitor/app/ip-addresses.md)가 열려 있는지 확인합니다.
 * [검색](../../azure-monitor/app/diagnostic-search.md)을 사용하여 특정 이벤트를 찾습니다.
-* 자주 [묻는 질문 (FAQ)을][FAQ]확인하십시오.
+* [FAQ][FAQ]를 확인 합니다.
 
 
 ## <a name="sdk-configuration"></a>SDK 구성

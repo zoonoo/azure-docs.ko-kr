@@ -1,6 +1,6 @@
 ---
 title: Azure VM 게스트 OS 방화벽이 잘못 구성됨 | Microsoft Docs
-description: 직렬 콘솔 또는 오프라인 메서드를 사용하여 원격 Azure VM에서 잘못 구성된 게스트 운영 체제 방화벽을 진단하고 수정하는 방법을 알아봅니다.
+description: 직렬 콘솔 또는 오프 라인 방법을 사용 하 여 원격 Azure VM에서 잘못 구성 된 게스트 운영 체제 방화벽을 진단 하 고 수정 하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: e6f42bdf462ac5261f77bc05c62e50500345fe37
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422544"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure VM 게스트 OS 방화벽이 잘못 구성됨
@@ -35,7 +35,7 @@ ms.locfileid: "80422544"
 
 게스트 시스템 방화벽의 잘못된 구성으로 인해 일부 또는 모든 종류의 네트워크 트래픽이 VM에 도달하는 것이 차단될 수 있습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 다음 단계를 따르기 전에 영향을 받는 VM의 시스템 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
@@ -98,7 +98,7 @@ ms.locfileid: "80422544"
 
 ### <a name="offline-mitigations"></a>오프라인 해결 방법
 
-1.  방화벽 규칙을 사용하거나 사용하지 않으려면 [Azure VM 게스트 OS에서 방화벽 규칙을 사용 하거나 사용하지 않도록 설정합니다.](enable-disable-firewall-rule-guest-os.md)
+1.  방화벽 규칙을 사용 하거나 사용 하지 않도록 설정 하려면 [AZURE VM 게스트 OS에서 방화벽 규칙 사용 또는 사용 안 함](enable-disable-firewall-rule-guest-os.md)을 참조 하세요.
 
 2.  [인바운드 트래픽을 차단하는 게스트 OS 방화벽 시나리오](guest-os-firewall-blocking-inbound-traffic.md)에 있는지 여부를 확인합니다.
 

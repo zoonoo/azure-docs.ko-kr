@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: f9fb250109a1c9000eae8da0d6337c96f19f0f89
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80410552"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>PHP에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
-이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. Twilio 및 응용 프로그램에서 음성 및 SMS 사용에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하십시오.
+이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS를 Twilio 하 고 사용 하는 방법에 대 한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조 하세요.
 
 ## <a name="what-is-twilio"></a><a id="WhatIs"></a>Twilio 정의
 Twilio는 개발자가 애플리케이션에 음성, VoIP 및 메시징을 포함할 수 있도록 하면서 비즈니스 통신의 미래를 이끌고 있습니다. 개발자는 클라우드 기반 글로벌 환경에 필요한 모든 인프라를 가상화하고, Twilio 통신 API 플랫폼을 통해 이를 공개합니다. 덕분에 애플리케이션을 간단히 빌드하고 확장할 수 있습니다. 종량제 가격의 유연성과 클라우드 안정성의 이점을 누리십시오.
@@ -28,7 +28,7 @@ Twilio는 개발자가 애플리케이션에 음성, VoIP 및 메시징을 포�
 **Twilio 음성**을 통해 애플리케이션에서 전화를 걸고 받을 수 있습니다. **Twilio SMS**를 사용하면 애플리케이션에서 문자 메시지를 보내고 받을 수 있습니다. **Twilio 클라이언트** 를 통해서는 전화, 태블릿 또는 브라우저에서 VoIP 통화를 하고 WebRTC를 지원할 수 있습니다.
 
 ## <a name="twilio-pricing-and-special-offers"></a><a id="Pricing"></a>Twilio 가격 책정 및 특별 제공
-Azure 고객은 Twilio 계정을 업그레이드할 때 [특별 제공](https://www.twilio.com/azure)(10달러의 Twilio 크레딧)을 받습니다. 이 Twilio 크레딧은 모든 Twilio 사용량에 적용될 수 있습니다. 10달러의 크레딧은 전화 번호 및 메시지 또는 통화 대상의 위치에 따라 SMS 메시지를 1,000개 보내거나 최대 1000분간 인바운드 음성을 받을 수 있는 금액입니다. 이 Twilio 크레딧을 교환하고 다음 [https://ahoy.twilio.com/azure](https://ahoy.twilio.com/azure)에서 시작하십시오.
+Azure 고객은 Twilio 계정을 업그레이드할 때 [특별 제공](https://www.twilio.com/azure)(10달러의 Twilio 크레딧)을 받습니다. 이 Twilio 크레딧은 모든 Twilio 사용량에 적용될 수 있습니다. 10달러의 크레딧은 전화 번호 및 메시지 또는 통화 대상의 위치에 따라 SMS 메시지를 1,000개 보내거나 최대 1000분간 인바운드 음성을 받을 수 있는 금액입니다. 이 Twilio 크레딧을 확인 하 고에서 시작 하세요 [https://ahoy.twilio.com/azure](https://ahoy.twilio.com/azure).
 
 Twilio는 종량제 서비스입니다. 설정 수수료는 없으며 언제든 계정을 종료할 수 있습니다. [Twilio 가격 책정][twilio_pricing]에서 자세한 내용을 볼 수 있습니다.
 
@@ -38,20 +38,20 @@ Twilio API는 애플리케이션에 대한 음성 및 SMS 기능을 제공하는
 Twilio API의 핵심 요소는 Twilio 동사와 TwiML(Twilio Markup Language)입니다.
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Twilio 동사
-API는 Twilio 동사를 사용합니다. 예를 들어 ** &lt;Say&gt; ** 동사는 Twilio에게 통화 시 메시지를 전달하도록 지시합니다.
+API는 Twilio 동사를 사용 합니다. 예를 들어, ** &lt;&gt; ** Twilio는 호출 시 통화에 게 메시지를 배달 하도록 지시 합니다.
 
 다음은 Twilio 동사의 목록입니다. 기타 동사 및 기능에 대해서는 [Twilio Markup Language 설명서](https://www.twilio.com/docs/api/twiml)에서 알아보세요.
 
-* **전화 걸기&gt;: 발신자를 다른 휴대폰에 연결합니다. &lt;**
-* 수집 : 전화 키패드에 입력한 숫자 숫자를 수집합니다. ** &lt;&gt;**
-* **끊기&gt;: 통화가 종료됩니다. &lt;**
-* 재생 : 오디오 파일을 재생합니다. ** &lt;&gt;**
-* **일시 중지&gt;: 지정된 시간 동안 자동으로 기다립니다. &lt;**
-* 레코드 : 발신자의 음성을 기록하고 녹음/녹화가 포함된 파일의 URL을 반환합니다. ** &lt;&gt;**
-* 리디렉션 : 다른 URL에서 통화 또는 SMS의 제어를 TwiML로 전송합니다. ** &lt;&gt;**
-* 거부 : 청구하지 않고 Twilio 번호로 걸려오는 전화를 거부합니다. ** &lt;&gt;**
-* 말하기 : 통화 시 텍스트를 음성으로 변환합니다. ** &lt;&gt;**
-* **SMS&gt;: SMS 메시지를 보냅니다. &lt;**
+* **전화 걸기&gt;: 호출자를 다른 휴대폰에 연결 &lt;** 합니다.
+* 수집: 전화 키패드에서 입력 한 숫자를 수집 합니다. ** &lt;&gt;**
+* 끊기: 호출을 종료 합니다. ** &lt;&gt;**
+* 재생: 오디오 파일을 재생 합니다. ** &lt;&gt;**
+* **일시 중지&gt;: 지정 된 시간 (초) 동안 자동으로 대기 &lt;** 합니다.
+* Record: 호출자의 음성을 기록 하 고 기록을 포함 하는 파일의 URL을 반환 합니다. ** &lt;&gt;**
+* 리디렉션: 호출 또는 SMS의 제어를 다른 URL의 TwiML으로 전송 합니다. ** &lt;&gt;**
+* 거부: 청구 하지 않고 Twilio 번호에 대 한 들어오는 호출을 거부 합니다. ** &lt;&gt;**
+* 예:를 호출 하는 경우 텍스트를 음성으로 변환 합니다. ** &lt;&gt;**
+* Sms: sms 메시지를 보냅니다. ** &lt;&gt;**
 
 ### <a name="twiml"></a><a id="TwiML"></a>TwiML
 TwiML은 Twilio에 통화 또는 SMS 처리 방법을 알려 주는 Twilio 동사를 사용하는 XML 기반 명령 집합입니다.
@@ -73,14 +73,14 @@ Twilio 계정을 사용할 준비가 되었다면 [Twilio 체험][try_twilio](�
 Twilio 계정을 등록하면 계정 ID 및 인증 토큰을 받게 됩니다. 둘 다 Twilio API 통화를 하는 데 필요합니다. 계정에 대한 무단 액세스를 방지하려면 인증 토큰을 안전하게 유지하십시오. 계정 ID 및 인증 토큰은 [Twilio 계정 페이지][twilio_account](영문)의 **ACCOUNT SID** 및 **AUTH TOKEN**에서 각기 확인할 수 있습니다.
 
 ## <a name="create-a-php-application"></a><a id="create_app"></a>HP 애플리케이션 만들기
-Twilio 서비스를 사용하고 Azure에서 실행되고 있는 PHP 애플리케이션은 Twilio 서비스를 사용하는 다른 PHP 애플리케이션과 차이가 없습니다. Twilio 서비스가 REST 기반이고 여러 가지 방법으로 PHP에서 호출될 수 있기는 하지만, 이 문서에서는 [GitHub의 PHP용 Twilio 라이브러리][twilio_php]와 Twilio 서비스를 사용하는 방법을 집중적으로 설명합니다. PHP에 대한 Twilio 라이브러리 사용에 대한 [https://www.twilio.com/docs/libraries/php][twilio_lib_docs]자세한 내용은 을 참조하십시오.
+Twilio 서비스를 사용하고 Azure에서 실행되고 있는 PHP 애플리케이션은 Twilio 서비스를 사용하는 다른 PHP 애플리케이션과 차이가 없습니다. Twilio 서비스가 REST 기반이고 여러 가지 방법으로 PHP에서 호출될 수 있기는 하지만, 이 문서에서는 [GitHub의 PHP용 Twilio 라이브러리][twilio_php]와 Twilio 서비스를 사용하는 방법을 집중적으로 설명합니다. PHP 용 Twilio 라이브러리를 사용 하는 방법에 대 한 [https://www.twilio.com/docs/libraries/php][twilio_lib_docs]자세한 내용은을 참조 하십시오.
 
 Twilio/PHP 애플리케이션을 빌드하여 Azure에 배포하는 방법에 대한 자세한 지침은 [Azure의 PHP 애플리케이션에서 Twilio를 사용하여 전화를 거는 방법][howto_phonecall_php]을 참조하세요.
 
 ## <a name="configure-your-application-to-use-twilio-libraries"></a><a id="configure_app"></a>Twilio 라이브러리를 사용하도록 애플리케이션 구성
 다음과 같은 두 가지 방법으로 PHP용 Twilio 라이브러리를 사용하도록 애플리케이션을 구성할 수 있습니다.
 
-1. GitHub ()에서[https://github.com/twilio/twilio-php][twilio_php]PHP에 대한 Twilio 라이브러리를 다운로드하고 응용 프로그램에 **서비스** 디렉토리를 추가합니다.
+1. GitHub ([https://github.com/twilio/twilio-php][twilio_php])에서 PHP 용 Twilio 라이브러리를 다운로드 하 고 응용 프로그램에 **Services** 디렉터리를 추가 합니다.
    
     또는
 2. PHP용 Twilio 라이브러리를 PEAR 패키지로 설치합니다. 다음 명령을 사용하여 설치할 수 있습니다.
@@ -92,7 +92,7 @@ PHP용 Twilio 라이브러리를 설치하고 나면 PHP 파일의 맨 위에 **
 
         require_once 'Services/Twilio.php';
 
-자세한 내용은 을 [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme]참조하십시오.
+자세한 내용은을 참조 [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme]하십시오.
 
 ## <a name="how-to-make-an-outgoing-call"></a><a id="howto_make_call"></a>방법: 발신 전화 걸기
 다음은 **Services_Twilio** 클래스를 사용하여 발신 전화를 거는 방법을 보여 줍니다. 또한 이 코드는 Twilio 제공 사이트를 사용하여 TwiML(Twilio Markup Language) 응답을 반환합니다. **From** 및 **To** 전화 번호의 값을 바꾸고, 코드를 실행하기 전에 Twilio 계정의 **From** 번호를 확인하십시오.
@@ -138,10 +138,10 @@ PHP용 Twilio 라이브러리를 설치하고 나면 PHP 파일의 맨 위에 **
 
 언급한 대로 이 코드는 Twilio 제공 사이트를 사용하여 TwiML 응답을 반환합니다. 고유한 사이트를 대신 사용하여 TwiML 응답을 제공할 수 있습니다. 자세한 내용은 [고유한 웹 사이트에서 TwiML 응답을 제공하는 방법](#howto_provide_twiml_responses)을 참조하십시오.
 
-* **참고**: TLS/SSL 인증서 유효성 검사 오류 문제를 해결하려면[http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
+* **참고**: TLS/SSL 인증서 유효성 검사 오류를 해결 하려면 다음을 참조 하세요.[http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
 
 ## <a name="how-to-send-an-sms-message"></a><a id="howto_send_sms"></a>방법: SMS 메시지 보내기
-다음은 **Services_Twilio** 클래스를 사용하여 SMS 메시지를 보내는 방법을 보여 줍니다. **보낸** 전화 번호는 SMS 메시지를 보낼 평가판 계정에 대 한 Twilio에 의해 제공 됩니다. 코드를 실행하기 전에 Twilio 계정에 대한 **To** 번호를 확인해야 합니다.
+다음은 **Services_Twilio** 클래스를 사용하여 SMS 메시지를 보내는 방법을 보여 줍니다. Twilio **는 평가판** 계정에 SMS 메시지를 보내기 위해 제공 번호를 제공 합니다. 코드를 실행하기 전에 Twilio 계정에 대한 **To** 번호를 확인해야 합니다.
 
     // Include the Twilio PHP library.
     require_once 'Services/Twilio.php';
@@ -171,8 +171,8 @@ PHP용 Twilio 라이브러리를 설치하고 나면 PHP 파일의 맨 위에 **
         echo 'Error: ' . $e->getMessage();
     }
 
-## <a name="how-to-provide-twiml-responses-from-your-own-website"></a><a id="howto_provide_twiml_responses"></a>방법: 자신의 웹 사이트에서 TwiML 응답 제공
-애플리케이션에서 Twilio API 호출을 시작하면 Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 위의 예제에서는 Twilio에서 제공한 [https://twimlets.com/message][twimlet_message_url]URL을 사용합니다. TwiML은 Twilio에서 사용되도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [https://twimlets.com/message][twimlet_message_url] 빈 `<Response>` 요소를 보려면 클릭합니다. 또 다른 예로, 요소를 `<Response>` 포함하는 요소를 `<Say>` 보려면 클릭합니다.) [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world]
+## <a name="how-to-provide-twiml-responses-from-your-own-website"></a><a id="howto_provide_twiml_responses"></a>방법: 고유한 웹 사이트에서 TwiML 응답 제공
+애플리케이션에서 Twilio API 호출을 시작하면 Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 위의 예제에서는 Twilio 제공 URL [https://twimlets.com/message][twimlet_message_url]을 사용 합니다. TwiML은 Twilio에서 사용되도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어, [https://twimlets.com/message][twimlet_message_url] 빈 `<Response>` 요소를 보려면 클릭 합니다. 또 다른 예로를 클릭 [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] 하 여 `<Say>` 요소가 `<Response>` 포함 된 요소를 확인 합니다.
 
 Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 사이트를 만들 수 있습니다. XML 응답을 반환하는 모든 언어로 사이트를 만들 수 있습니다. 이 항목에서는 TwiML을 만들기 위해 PHP를 사용 중이라고 가정합니다.
 
@@ -194,7 +194,7 @@ Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 �
     $response->say("Hello world.");
     print $response;
 
-TwiML에 대한 자세한 [https://www.twilio.com/docs/api/twiml][twiml_reference]내용은 을 참조하십시오. 
+TwiML에 대 한 자세한 내용은을 [https://www.twilio.com/docs/api/twiml][twiml_reference]참조 하십시오. 
 
 PHP 페이지가 TwiML 응답을 제공하도록 설정된 경우 `Services_Twilio->account->calls->create` 메서드에 전달되는 URL로 PHP 페이지의 URL을 사용합니다. 예를 들어 **MyTwiML**이라는 웹 애플리케이션이 Azure 호스티드 서비스에 배포되어 있고 PHP 페이지의 이름이 **mytwiml.php**인 경우 다음 예와 같이 URL을 **Services_Twilio-&gt;account-&gt;calls-&gt;create**에 전달할 수 있습니다.
 
@@ -233,7 +233,7 @@ Azure에서 PHP와 함께 Twilio를 사용하는 방법에 대한 자세한 내�
 Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내용을 보려면 다음 링크를 따라가십시오.
 
 * [Twilio 보안 지침][twilio_security_guidelines]
-* [트윌리오 하우토와 예제 코드][twilio_howtos]
+* [Twilio 방법의 및 예제 코드][twilio_howtos]
 * [Twilio 빠른 시작 자습서][twilio_quickstarts] 
 * [Twilio on GitHub][twilio_on_github]
 * [Twilio 지원 문의][twilio_support]

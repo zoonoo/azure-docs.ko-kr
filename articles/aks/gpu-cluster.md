@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/27/2020
 ms.openlocfilehash: 242fefb3b153d11e23d66f26049d0b68c0a4bf4a
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80383993"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 계산 집약적 워크로드에 GPU 사용
@@ -18,17 +18,17 @@ GPU(그래픽 처리 장치)는 그래픽 및 시각화 워크로드 같은 계�
 > [!NOTE]
 > GPU 지원 VM에는 더 높은 가격 및 지역 가용성에 맞는 특별한 하드웨어가 포함되어 있습니다. 자세한 내용은 [가격 책정][azure-pricing] 도구 및 [지역 가용성][azure-availability]을 참조하세요.
 
-현재 GPU 지원 노드 풀을 사용하는 것은 Linux 노드 풀에서만 사용할 수 있습니다.
+현재 GPU 사용 노드 풀을 사용 하는 것은 Linux 노드 풀에만 사용할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 GPU를 지원하는 노드가 포함된 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터에서 Kubernetes 1.10 이상을 실행해야 합니다. 이러한 요구 사항을 충족하는 AKS 클러스터가 필요한 경우 이 문서의 첫 번째 섹션인 [AKS 클러스터 만들기](#create-an-aks-cluster)를 참조하세요.
 
-또한 Azure CLI 버전 2.0.64 이상설치 및 구성이 필요합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.64 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
-최소 요구 사항(GPU 지원 노드 및 Kubernetes 버전 1.10 이상)을 충족하는 AKS 클러스터가 필요한 경우 다음 단계를 완료합니다. 이러한 요구 사항을 충족하는 AKS 클러스터가 이미 있는 경우 [다음 섹션으로 건너뜁니다.](#confirm-that-gpus-are-schedulable)
+최소 요구 사항(GPU 지원 노드 및 Kubernetes 버전 1.10 이상)을 충족하는 AKS 클러스터가 필요한 경우 다음 단계를 완료합니다. 이러한 요구 사항을 충족 하는 AKS 클러스터가 이미 있는 경우 [다음 섹션으로 건너뜁니다](#confirm-that-gpus-are-schedulable).
 
 먼저, [az group create][az-group-create] 명령을 사용하여 클러스터에 대한 리소스 그룹을 만듭니다. 다음 예제는 *eastus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
@@ -36,7 +36,7 @@ GPU(그래픽 처리 장치)는 그래픽 및 시각화 워크로드 같은 계�
 az group create --name myResourceGroup --location eastus
 ```
 
-이제 [az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제는 크기의 단일 노드가 `Standard_NC6`있는 클러스터를 만듭니다.
+이제 [az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예에서는 크기 `Standard_NC6`의 단일 노드를 사용 하 여 클러스터를 만듭니다.
 
 ```azurecli-interactive
 az aks create \
@@ -52,9 +52,9 @@ az aks create \
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## <a name="install-nvidia-drivers"></a>엔비디아 드라이버 설치
+## <a name="install-nvidia-drivers"></a>NVIDIA 드라이버 설치
 
-노드의 GPU를 사용하려면 먼저 NVIDIA 장치 플러그인에 대해 DaemonSet을 배포해야 합니다. 이 DaemonSet는 각 노드에서 Pod를 실행하여 GPU에 필요한 드라이버를 제공합니다.
+노드의 Gpu를 사용 하려면 먼저 NVIDIA 장치 플러그 인에 대 한 DaemonSet를 배포 해야 합니다. 이 DaemonSet는 각 노드에서 Pod를 실행하여 GPU에 필요한 드라이버를 제공합니다.
 
 먼저, *gpu-resources* 같은 [kubectl create namespace][kubectl-create] 명령을 사용하여 네임스페이스를 만듭니다.
 
@@ -62,7 +62,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl create namespace gpu-resources
 ```
 
-*nvidia-device-plugin-ds.yaml*이라는 파일을 만들고 다음 YAML 매니페스트를 붙여넣습니다. 이 매니페스트는 [Kubernetes 프로젝트에 대한 NVIDIA 장치 플러그인의][nvidia-github]일부로 제공됩니다.
+*nvidia-device-plugin-ds.yaml*이라는 파일을 만들고 다음 YAML 매니페스트를 붙여넣습니다. 이 매니페스트는 [Kubernetes 프로젝트에 대 한 NVIDIA 장치 플러그 인의][nvidia-github]일부로 제공 됩니다.
 
 ```yaml
 apiVersion: apps/v1
@@ -110,7 +110,7 @@ spec:
             path: /var/lib/kubelet/device-plugins
 ```
 
-이제 [kubectl 적용][kubectl-apply] 명령을 사용하여 DaemonSet을 만들고 다음 예제 출력과 같이 NVIDIA 장치 플러그인이 성공적으로 만들어졌는지 확인합니다.
+이제 다음 예제 출력과 같이 [kubectl apply][kubectl-apply] 명령을 사용 하 여 DaemonSet를 만들고 NVIDIA 장치 플러그 인이 성공적으로 만들어졌는지 확인 합니다.
 
 ```console
 $ kubectl apply -f nvidia-device-plugin-ds.yaml
@@ -188,7 +188,7 @@ GPU가 실제로 작동하는 모습을 보려면 적절한 리소스 요청을 
 *samples-tf-mnist-demo.yaml*이라는 파일을 만들고 다음 YAML 매니페스트를 붙여넣습니다. 다음 작업 매니페스트에는 `nvidia.com/gpu: 1`의 리소스 제한이 포함되어 있습니다.
 
 > [!NOTE]
-> CUDA 드라이버 버전이 CUDA 런타임 버전에 충분하지 않은 경우 NVIDIA 드라이버 매트릭스 호환성 차트를 검토합니다.[https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
+> 드라이버를 호출할 때 버전 불일치 오류가 발생 하는 경우, 예를 들어, verda 드라이버 버전은 verda 런타임 버전용으로 충분 하지 않은 경우 NVIDIA 드라이버 매트릭스 호환성 차트를 검토 합니다.[https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
 
 ```yaml
 apiVersion: batch/v1
@@ -222,7 +222,7 @@ kubectl apply -f samples-tf-mnist-demo.yaml
 
 ## <a name="view-the-status-and-output-of-the-gpu-enabled-workload"></a>GPU 지원 워크로드의 상태 및 출력 보기
 
-[kubectl get jobs][kubectl-get] 명령과 `--watch` 인수를 사용하여 작업 진행 상태를 모니터링합니다. 처음으로 이미지를 끌어와서 데이터 세트를 처리하는 경우 몇 분 정도 걸릴 수 있습니다. *완성* 열에 *1/1이*표시되면 작업이 성공적으로 완료되었습니다. `kubetctl --watch` *Ctrl-C로*명령을 종료합니다.
+[kubectl get jobs][kubectl-get] 명령과 `--watch` 인수를 사용하여 작업 진행 상태를 모니터링합니다. 처음으로 이미지를 끌어와서 데이터 세트를 처리하는 경우 몇 분 정도 걸릴 수 있습니다. *완료* 열에 *1/1*이 표시 되 면 작업이 성공적으로 완료 된 것입니다. Ctrl + `kubetctl --watch` *C*를 눌러 명령을 종료 합니다.
 
 ```console
 $ kubectl get jobs samples-tf-mnist-demo --watch
@@ -233,7 +233,7 @@ samples-tf-mnist-demo   0/1           3m29s      3m29s
 samples-tf-mnist-demo   1/1   3m10s   3m36s
 ```
 
-GPU 지원 워크로드의 출력을 살펴보려면 먼저 [kubectl get pods][kubectl-get] 명령을 사용하여 포드 이름을 가져옵니다.
+GPU 사용 워크 로드의 출력을 보려면 먼저 [kubectl get pod][kubectl-get] 명령을 사용 하 여 pod의 이름을 가져옵니다.
 
 ```console
 $ kubectl get pods --selector app=samples-tf-mnist-demo

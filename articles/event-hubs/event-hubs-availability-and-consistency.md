@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/27/2020
 ms.author: shvija
 ms.openlocfilehash: 0546adb6131479a8f5d2e7e31819483200586839
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80397326"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Event Hubs의 가용성 및 일관성
@@ -25,7 +25,7 @@ ms.locfileid: "80397326"
 ## <a name="overview"></a>개요
 Azure Event Hubs는 [파티셔닝 모델](event-hubs-scalability.md#partitions)을 사용하여 단일 이벤트 허브 내 가용성과 병렬 처리를 개선합니다. 예를 들어 이벤트 허브에 4개의 파티션이 있고 해당 파티션 중 하나가 부하 분산 작업 중 한 서버에서 다른 서버로 이동된 경우 여전히 나머지 3개의 파티션을 보내고 받을 수 있습니다. 또한 더 많은 파티션을 사용하면 더 많은 동시 읽기 권한자가 데이터를 처리할 수 있으므로 집계 처리량이 개선됩니다. 분산된 시스템에서 분할 및 순서 지정이 가진 의미를 이해하는 것은 솔루션 디자인의 중요한 측면입니다.
 
-주문과 가용성 사이의 장단점을 설명하려면 Brewer의 정리라고도 하는 [CAP 정리를](https://en.wikipedia.org/wiki/CAP_theorem)참조하십시오. 이 정리에서는 일관성, 가용성, 파티션 허용 오차를 선택할 때의 차이점을 다룹니다. 네트워크에서 분할한 시스템의 경우 항상 일관성과 가용성을 절충해야 합니다.
+순서와 가용성 간의 장단점을 설명 하는 데 도움이 되도록 Brewer의 정리 라고도 하는 [CAP 정리](https://en.wikipedia.org/wiki/CAP_theorem)를 참조 하세요. 이 정리에서는 일관성, 가용성, 파티션 허용 오차를 선택할 때의 차이점을 다룹니다. 네트워크에서 분할한 시스템의 경우 항상 일관성과 가용성을 절충해야 합니다.
 
 Brewer의 정리는 일관성 및 가용성을 다음과 같이 정의합니다.
 * 파티션 허용 오차: 파티션 오류가 발생하는 경우 데이터 처리를 계속하는 데이터 처리 시스템의 기능입니다.
@@ -38,10 +38,10 @@ Event Hubs는 분할된 데이터 모델을 기반으로 빌드됩니다. 설치
 ## <a name="availability"></a>가용성
 Event Hubs를 시작하는 가장 간단한 방법은 기본 동작을 사용하는 것입니다. 
 
-#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.메시징.EventHubs(5.0.0 이상)](#tab/latest)
-새 **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient?view=azure-dotnet)** 개체를 만들고 **[SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet)** 메서드를 사용 하는 경우 이벤트 이벤트 허브의 파티션 간에 자동으로 배포 됩니다. 이 동작을 사용하면 가동 시간을 최대화할 수 있습니다.
+#### <a name="azuremessagingeventhubs-500-or-later"></a>[EventHubs (5.0.0 이상)](#tab/latest)
+새 **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient?view=azure-dotnet)** 개체를 만들고 **[SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet)** 메서드를 사용 하는 경우 이벤트 허브의 파티션 간에 이벤트가 자동으로 분산 됩니다. 이 동작을 사용하면 가동 시간을 최대화할 수 있습니다.
 
-#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft.Azure.EventHubs(4.1.0 이상)](#tab/old)
+#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[EventHubs (4.1.0 또는 이전 버전)](#tab/old)
 새 **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** 개체를 만들고 **[보내기](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** 메서드를 사용하는 경우 사용자의 이벤트는 이벤트 허브의 파티션 사이에 자동으로 분산됩니다. 이 동작을 사용하면 가동 시간을 최대화할 수 있습니다.
 
 ---
@@ -49,9 +49,9 @@ Event Hubs를 시작하는 가장 간단한 방법은 기본 동작을 사용하
 최대 가동 시간을 필요로 하는 사용 사례의 경우 이 모델을 사용하는 것이 좋습니다.
 
 ## <a name="consistency"></a>일관성
-일부 시나리오에서는 이벤트의 순서가 중요합니다. 예를 들어, 백 엔드 시스템에서 삭제 명령 전에 업데이트 명령을 처리하려고 할 수 있습니다. 이 경우 이벤트에서 파티션 키를 설정하거나 `PartitionSender` 개체(이전 Microsoft.Azure.Messaging 라이브러리를 사용하는 경우)를 사용하여 특정 파티션에만 이벤트를 보낼 수 있습니다. 이렇게 하면 이러한 이벤트를 파티션에서 읽을 때 순서대로 읽게 됩니다. **Azure.Messaging.EventHubs 라이브러리를** 사용하고 자세한 내용은 [파티션센더에서 EventHubProducerClient로 코드를 마이그레이션하여 이벤트를 파티션에 게시하는 것을](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition)참조하세요.
+일부 시나리오에서는 이벤트의 순서가 중요합니다. 예를 들어, 백 엔드 시스템에서 삭제 명령 전에 업데이트 명령을 처리하려고 할 수 있습니다. 이 인스턴스에서는 이벤트에 대 한 파티션 키를 설정 하거나 `PartitionSender` 개체 (이전 Microsoft. Azure. Messaging 라이브러리를 사용 하는 경우)를 사용 하 여 특정 파티션에만 이벤트를 보낼 수 있습니다. 이렇게 하면 이러한 이벤트를 파티션에서 읽을 때 순서대로 읽게 됩니다. **EventHubs** 라이브러리를 사용 하는 경우에 대 한 자세한 내용은 [파티션 간 이벤트 게시를 위해 분할 된 발신자에서 EventHubProducerClient로 코드 마이그레이션](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition)을 참조 하세요.
 
-#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.메시징.EventHubs(5.0.0 이상)](#tab/latest)
+#### <a name="azuremessagingeventhubs-500-or-later"></a>[EventHubs (5.0.0 이상)](#tab/latest)
 
 ```csharp
 var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
@@ -68,7 +68,7 @@ await using (var producerClient = new EventHubProducerClient(connectionString, e
 }
 ```
 
-#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft.Azure.EventHubs(4.1.0 이상)](#tab/old)
+#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[EventHubs (4.1.0 또는 이전 버전)](#tab/old)
 
 ```csharp
 var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
@@ -98,7 +98,7 @@ finally
 
 가동 시간을 극대화하는 동시에 순서도 지정할 수 있는 한 가지 솔루션은 이벤트 처리 애플리케이션의 일부로 이벤트를 집계하는 것입니다. 이 작업을 수행하는 가장 쉬운 방법은 이벤트에 사용자 지정 시퀀스 번호 속성 스탬프를 지정하는 것입니다. 다음은 예를 보여 주는 코드입니다.
 
-#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.메시징.EventHubs(5.0.0 이상)](#tab/latest)
+#### <a name="azuremessagingeventhubs-500-or-later"></a>[EventHubs (5.0.0 이상)](#tab/latest)
 
 ```csharp
 // create a producer client that you can use to send events to an event hub
@@ -124,7 +124,7 @@ await using (var producerClient = new EventHubProducerClient(connectionString, e
 }
 ```
 
-#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft.Azure.EventHubs(4.1.0 이상)](#tab/old)
+#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[EventHubs (4.1.0 또는 이전 버전)](#tab/old)
 ```csharp
 // Create an Event Hubs client
 var client = new EventHubClient(connectionString, eventHubName);

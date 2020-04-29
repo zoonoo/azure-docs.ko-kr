@@ -1,6 +1,6 @@
 ---
 title: RDP를 사용한 Azure VM 연결 시의 인증 오류 문제 해결 | Microsoft Docs
-description: RDP(원격 데스크톱 프로토콜)를 사용하여 Azure 가상 시스템(VM)에 연결할 때 발생하는 인증 오류 문제를 해결하는 방법을 알아봅니다.
+description: RDP (원격 데스크톱 프로토콜)를 사용 하 여 Azure VM (가상 머신)에 연결할 때 발생 하는 인증 오류를 해결 하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 03356c0b4a93f4befdbc529523e58642137a8887
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80420810"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>RDP를 사용한 Azure VM 연결 시의 인증 오류 문제 해결
@@ -31,15 +31,15 @@ ms.locfileid: "80420810"
 
 ### <a name="error-message-1"></a>오류 메시지 1
 
-**인증 오류가 발생했습니다. 현지 보안 기관에 연락할 수 없습니다.**
+**인증 오류가 발생 했습니다. 로컬 보안 기관에 연결할 수 없습니다.**
 
 ### <a name="error-message-2"></a>오류 메시지 2
 
-**연결하려는 원격 컴퓨터에는 NLA(네트워크 수준 인증)가 필요하지만 NLA를 수행하기 위해 Windows 도메인 컨트롤러에 연결할 수 없습니다. 원격 컴퓨터의 관리자인 경우 시스템 속성 대화 상자의 원격 탭에서 옵션을 사용하여 NLA를 사용하지 않도록 설정할 수 있습니다.**
+**연결 하려는 원격 컴퓨터에 네트워크 수준 인증 (NLA)가 필요 하지만 Windows 도메인 컨트롤러에 연결 하 여 NLA를 수행할 수 없습니다. 원격 컴퓨터의 관리자 인 경우 시스템 속성 대화 상자의 원격 탭에 있는 옵션을 사용 하 여 NLA를 사용 하지 않도록 설정할 수 있습니다.**
 
 ### <a name="error-message-3-generic-connection-error"></a>오류 메시지 3(일반 연결 오류)
 
-**이 컴퓨터는 원격 컴퓨터에 연결할 수 없습니다. 문제가 계속되면 다시 연결해 보십시오.**
+**이 컴퓨터는 원격 컴퓨터에 연결할 수 없습니다. 연결을 다시 시도 합니다. 문제가 계속 되 면 원격 컴퓨터 또는 네트워크 관리자의 소유자에 게 문의 하십시오.**
 
 ## <a name="cause"></a>원인
 
@@ -161,7 +161,7 @@ Reset-ComputerMachinePassword -Server "<COMPUTERNAME>" -Credential <DOMAIN CREDE
 
 DC와 VM 간의 통신이 양호하지만 DC가 RDP 세션을 열 수 있을 만큼 정상 상태가 아닌 경우 DC를 다시 시작해 볼 수 있습니다.
 
-위의 명령으로 도메인에 대한 통신 문제가 해결되지 않으면 이 VM을 도메인에 다시 조인할 수 있습니다. 이렇게 하려면 다음 단계를 수행하세요.
+위의 명령으로 도메인에 대한 통신 문제가 해결되지 않으면 이 VM을 도메인에 다시 조인할 수 있습니다. 이를 수행하려면 다음 단계를 따르십시오.
 
 1. 다음 내용을 사용하여 Unjoin.ps1이라는 스크립트를 만든 다음, 이 스크립트를 사용자 지정 스크립트 확장으로 Azure Portal에 배포합니다.
 

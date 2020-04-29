@@ -1,6 +1,6 @@
 ---
 title: Service Bus 배달 못 한 편지 큐 | Microsoft Docs
-description: Azure Service Bus에서 배달 못한 편지 대기열에 대해 설명합니다. 서비스 버스 큐 및 토픽 구독은 배달 못한 편지 대기열이라고 하는 보조 하위 큐를 제공합니다.
+description: Azure Service Bus의 배달 못 한 편지 큐에 대해 설명 합니다. Service Bus 큐 및 토픽 구독은 배달 못 한 편지 큐 라고 하는 보조 하위 큐를 제공 합니다.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -15,32 +15,32 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: aschhab
 ms.openlocfilehash: 9c1a0cb92fbaf98d25799ffb5a85e666e7c05f8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80158907"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Service Bus 배달 못 한 편지 큐의 개요
 
-Azure Service Bus 큐 및 토픽 구독은 DLQ(배달 못한 편지 큐)라는 보조 하위 *큐를* 제공합니다. 배달 못한 편지 대기열을 명시적으로 만들 필요가 없으며 주 엔터티와 독립적으로 삭제하거나 관리할 수 없습니다.
+Azure Service Bus 큐 및 토픽 구독은 *배달 못 한 편지 큐* (dlq) 라고 하는 보조 하위 큐를 제공 합니다. 배달 못 한 편지 큐는 명시적으로 만들 필요가 없으며, 삭제 하거나 주 엔터티와 독립적으로 관리할 수 없습니다.
 
-이 문서에서는 Service Bus에서 배달하지 못한 편지 큐에 대해 설명합니다. 대부분의 토론은 GitHub의 [데드 레터 큐 샘플에서 설명합니다.](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue)
+이 문서에서는 Service Bus에서 배달하지 못한 편지 큐에 대해 설명합니다. 대부분의 토론은 GitHub의 [배달 못 한 편지 큐 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue) 에서 설명 합니다.
  
 ## <a name="the-dead-letter-queue"></a>배달하지 못한 편지 큐
 
-배달 못한 편지 대기열의 목적은 수신자로 배달할 수 없는 메시지 또는 처리할 수 없는 메시지를 보유하는 것입니다. 그런 다음 DLQ에서 메시지를 제거하여 검사할 수 있습니다. 애플리케이션에서 운영자의 도움을 받아 문제를 수정한 후 메시지를 다시 전송하고, 오류가 발생했다는 사실을 기록하고, 수정 작업을 수행할 수 있습니다. 
+배달 못 한 편지 큐의 목적은 수신자에 게 배달할 수 없는 메시지 또는 처리할 수 없는 메시지를 보관 하는 것입니다. 그런 다음 DLQ에서 메시지를 제거하여 검사할 수 있습니다. 애플리케이션에서 운영자의 도움을 받아 문제를 수정한 후 메시지를 다시 전송하고, 오류가 발생했다는 사실을 기록하고, 수정 작업을 수행할 수 있습니다. 
 
-API 및 프로토콜의 관점에서, 부모 엔터티의 배달하지 못한 편지 작업을 통해 메시지를 제출할 수 있다는 점만 제외하면 DLQ는 다른 큐와 거의 비슷합니다. 또한 실시간 시간이 관찰되지 않으며 DLQ의 메시지를 데드 레터로 보낼 수 없습니다. 배달 못 한 편지 큐는 배달 보기-잠금 및 트랜잭션 작업을 완벽하게 지원합니다.
+API 및 프로토콜의 관점에서, 부모 엔터티의 배달하지 못한 편지 작업을 통해 메시지를 제출할 수 있다는 점만 제외하면 DLQ는 다른 큐와 거의 비슷합니다. 또한 ttl (time-to-live)은 확인 되지 않으며 DLQ에서 메시지를 배달 하지 못할 수 있습니다. 배달 못 한 편지 큐는 배달 보기-잠금 및 트랜잭션 작업을 완벽하게 지원합니다.
 
-DLQ의 자동 정리는 없습니다. 사용자가 DLQ에서 명시적으로 메시지를 검색하고 배달 못 한 메시지에서 [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync)를 호출할 때까지 메시지가 DLQ에 남아 있습니다.
+DLQ는 자동으로 정리 되지 않습니다. 사용자가 DLQ에서 명시적으로 메시지를 검색하고 배달 못 한 메시지에서 [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync)를 호출할 때까지 메시지가 DLQ에 남아 있습니다.
 
 ## <a name="dlq-message-count"></a>DLQ 메시지 수
-토픽 수준에서 배달 못한 편지 대기열에서 메시지 수를 가져올 수 없습니다. 서비스 버스가 내부 오류를 throw하지 않는 한 메시지는 주제 수준에 있지 않기 때문입니다. 대신 보낸 자가 토픽에 메시지를 보내면 메시지가 밀리초 내에 토픽의 구독으로 전달되므로 더 이상 토픽 수준에 상주하지 않습니다. 따라서 항목의 구독과 연결된 DLQ에서 메시지를 볼 수 있습니다. 다음 예제에서 **Service Bus Explorer는** 현재 구독 "test1"에 대한 DLQ에 62개의 메시지가 있음을 보여 주며 있습니다. 
+항목 수준에서 배달 못 한 편지 큐에 있는 메시지 수를 가져올 수 없습니다. 이는 Service Bus 내부 오류가 발생 하지 않는 한 메시지가 토픽 수준에 있지 않기 때문입니다. 대신 발신자가 토픽에 메시지를 보낼 때 메시지는 시간 (밀리초) 이내에 항목에 대 한 구독에 전달 되므로 항목 수준에 더 이상 존재 하지 않습니다. 항목에 대 한 구독과 연결 된 DLQ의 메시지를 볼 수 있습니다. 다음 예제에서 **Service Bus 탐색기** 는 구독 "test1"에 대해 현재 dlq에 62 메시지가 있음을 보여 줍니다. 
 
 ![DLQ 메시지 수](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
 
-Azure CLI 명령을 사용하여 DLQ 메시지 수를 얻을 [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show)수도 있습니다. 
+Azure CLI 명령을 사용 하 여 DLQ 메시지 수를 가져올 수도 있습니다 [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show). 
 
 ## <a name="moving-messages-to-the-dlq"></a>DLQ로 메시지 이동
 
@@ -55,21 +55,21 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 | 항상 |HeaderSizeExceeded |이 스트림에 할당된 크기를 초과합니다. |
 | !TopicDescription.<br />EnableFilteringMessagesBeforePublishing and SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |메시지가 만료되어 배달 못 한 편지로 처리되었습니다. |
-| SubscriptionDescription.RequiresSession |세션 ID는 null입니다. |세션이 활성화된 엔터티가 세션 식별자가 null인 메시지를 허용하지 않습니다. |
-| !dead letter queue | MaxTransferHopCountExceeded | 큐 간 전달 시 허용되는 최대 홉 수입니다. 값은 4로 설정됩니다. |
+| SubscriptionDescription.RequiresSession |세션 ID가 null입니다. |세션이 활성화된 엔터티가 세션 식별자가 null인 메시지를 허용하지 않습니다. |
+| !dead letter queue | MaxTransferHopCountExceeded | 큐를 전달할 때 허용 되는 최대 홉 수입니다. 값은 4로 설정 됩니다. |
 | 애플리케이션에서 명시적으로 배달 못 한 편지로 처리 |애플리케이션에서 지정 |애플리케이션에서 지정 |
 
 ## <a name="exceeding-maxdeliverycount"></a>Exceeding MaxDeliveryCount
 
 큐와 구독에는 각각 [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) 및 [SubscriptionDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) 속성이 있으며, 기본값은 10입니다. 메시지가 잠금([ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)) 모드에서 전달되었지만 명시적으로 중단되었거나 잠금이 만료되면 메시지의 [BrokeredMessage.DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)가 증가합니다. [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)가 [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount)를 초과하면 메시지가 DLQ로 이동되고, `MaxDeliveryCountExceeded` 이유 코드를 지정합니다.
 
-이 동작을 사용하지 않도록 설정할 수는 없지만 [MaxDeliveryCount를](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) 큰 숫자로 설정할 수 있습니다.
+이 동작은 사용 하지 않도록 설정할 수 없지만 [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) 를 많은 숫자로 설정할 수 있습니다.
 
 ## <a name="exceeding-timetolive"></a>TimeToLive 초과
 
 [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) 또는 [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 속성을 **true**로 설정하면(기본값은 **false**) 만료되는 모든 메시지가 DLQ로 이동되고, `TTLExpiredException` 이유 코드를 지정합니다.
 
-만료된 메시지는 주 큐 또는 구독에서 하나 이상의 활성 수신기가 있는 경우에만 제거되고 DLQ로 이동됩니다. 그 동작은 의도적으로 입니다.
+만료 된 메시지는 기본 큐 또는 구독에서 끌어오기 중인 활성 수신기가 하나 이상 있는 경우에만 제거 되 고 DLQ로 이동 됩니다. 이 동작은 의도적으로 설계 되었습니다.
 
 ## <a name="errors-while-processing-subscription-rules"></a>구독 규칙을 처리하는 동안 오류 발생
 
@@ -77,13 +77,13 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 
 ## <a name="application-level-dead-lettering"></a>애플리케이션 수준에서 배달 못 한 편지 처리
 
-시스템에서 제공하는 배달 못 한 편지 처리 기능 외에도 애플리케이션에서 DLQ를 사용하여 허용할 수 없는 메시지를 명시적으로 거부할 수 있습니다. 여기에는 모든 종류의 시스템 문제, 잘못된 페이로드를 보유하는 메시지 또는 일부 메시지 수준 보안 체계를 사용할 때 인증에 실패한 메시지로 인해 제대로 처리할 수 없는 메시지가 포함될 수 있습니다.
+시스템에서 제공하는 배달 못 한 편지 처리 기능 외에도 애플리케이션에서 DLQ를 사용하여 허용할 수 없는 메시지를 명시적으로 거부할 수 있습니다. 이러한 메시지에는 시스템 문제로 인해 올바르게 처리할 수 없는 메시지, 잘못 된 페이로드가 포함 된 메시지 또는 메시지 수준 보안 체계가 사용 될 때 인증에 실패 한 메시지가 포함 될 수 있습니다.
 
 ## <a name="dead-lettering-in-forwardto-or-sendvia-scenarios"></a>ForwardTo 또는 SendVia 시나리오의 배달 못한 편지
 
 다음과 같은 상황에서는 배달하지 못한 편지 큐에 메시지가 전달됩니다.
 
-- 메시지는 [함께 연결된](service-bus-auto-forwarding.md)네 개 이상의 큐 또는 토픽을 통과합니다.
+- 메시지는 [함께](service-bus-auto-forwarding.md)연결 되는 4 개 이상의 큐 또는 토픽을 통해 전달 됩니다.
 - 대상 큐 또는 항목은 사용되지 않도록 설정되거나 삭제됩니다.
 - 대상 큐 또는 항목이 최대 엔터티 크기를 초과합니다.
 
@@ -110,15 +110,15 @@ while(true)
 }
 ```
 
-## <a name="path-to-the-dead-letter-queue"></a>배달 못한 편지 대기열로 가는 경로
-다음 구문을 사용하여 배달 못한 편지 큐에 액세스할 수 있습니다.
+## <a name="path-to-the-dead-letter-queue"></a>배달 못 한 편지 큐의 경로
+다음 구문을 사용 하 여 배달 못 한 편지 큐에 액세스할 수 있습니다.
 
 ```
 <queue path>/$deadletterqueue
 <topic path>/Subscriptions/<subscription path>/$deadletterqueue
 ```
 
-.NET SDK를 사용하는 경우 SubscriptionClient.FormatDeadLetterPath() 메서드를 사용하여 배달 못한 편지 대기열로 가는 경로를 얻을 수 있습니다. 이 메서드는 토픽 이름/구독 이름을 사용 하 고 **/$DeadLetterQueue**.
+.NET SDK를 사용 하는 경우 FormatDeadLetterPath () 메서드를 사용 하 여 배달 못 한 편지 큐의 경로를 가져올 수 있습니다. 이 메서드는 **/$DeadLetterQueue**항목 이름/구독 이름 및 접미사를 사용 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

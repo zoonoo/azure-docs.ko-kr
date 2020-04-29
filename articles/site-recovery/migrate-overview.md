@@ -1,6 +1,6 @@
 ---
-title: Azure 사이트 복구를 사용하여 서버 및 VM을 Azure로 마이그레이션
-description: Azure 사이트 복구 서비스를 사용하여 온-프레미스 및 Azure IaaS VM을 Azure로 마이그레이션하는 방법을 설명합니다.
+title: Azure Site Recovery를 사용 하 여 서버 및 Vm을 Azure로 마이그레이션
+description: Azure Site Recovery 서비스를 사용 하 여 온-프레미스 및 Azure IaaS Vm을 Azure로 마이그레이션하는 방법을 설명 합니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: a7107eae5c798deb78d4d35eccdf4adcf5273335
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80388902"
 ---
 # <a name="about-migration"></a>마이그레이션 정보
@@ -20,7 +20,7 @@ ms.locfileid: "80388902"
 [Azure Site Recovery](site-recovery-overview.md) 서비스가 컴퓨터 마이그레이션을 지원하는 방법을 빠르게 살펴보려면 이 문서를 읽어보세요. 
 
 > [!TIP]
-> 이제 Azure 마이그레이션 서비스를 사용하여 Azure 사이트 복구 서비스 대신 VM 및 서버를 Azure로 마이그레이션해야 합니다. [자세히 알아봅니다](../migrate/migrate-services-overview.md).
+> 이제 Azure Migrate 서비스를 사용 하 여 Azure Site Recovery 서비스 대신 Vm 및 서버를 Azure로 마이그레이션해야 합니다. [자세히 알아보기](../migrate/migrate-services-overview.md).
 
 
 Site Recovery를 사용하여 마이그레이션할 수 있는 항목은 다음과 같습니다.
@@ -30,7 +30,7 @@ Site Recovery를 사용하여 마이그레이션할 수 있는 항목은 다음�
 - **AWS 마이그레이션**: AWS Windows 인스턴스를 Azure IaaS VM으로 마이그레이션합니다. 
 
 > [!NOTE]
-> 이제 Azure Migrate 서비스를 사용하여 온-프레미스에서 Azure로 마이그레이션할 수 있습니다. [자세히 알아봅니다](../migrate/migrate-overview.md).
+> 이제 Azure Migrate 서비스를 사용하여 온-프레미스에서 Azure로 마이그레이션할 수 있습니다. [자세히 알아보기](../migrate/migrate-overview.md).
 
 ## <a name="what-do-we-mean-by-migration"></a>마이그레이션 기준은 어떤 의미인가요?
 

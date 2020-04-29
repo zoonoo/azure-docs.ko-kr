@@ -1,6 +1,6 @@
 ---
-title: 리눅스에 대 한 Azure 키 볼트 VM 확장
-description: 가상 시스템 확장을 사용하여 가상 시스템에 Key Vault 인증서의 자동 새로 고침을 수행하는 에이전트를 배포합니다.
+title: Linux 용 Azure Key Vault VM 확장
+description: 가상 컴퓨터 확장을 사용 하 여 가상 컴퓨터에서 Key Vault 인증서의 자동 새로 고침을 수행 하는 에이전트를 배포 합니다.
 services: virtual-machines-linux
 author: msmbaldwin
 tags: keyvault
@@ -9,33 +9,33 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: add2d515e4f8e8c56a98a7292e137e601332d10c
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80410876"
 ---
-# <a name="key-vault-virtual-machine-extension-for-linux"></a>리눅스에 대 한 키 볼트 가상 머신 확장
+# <a name="key-vault-virtual-machine-extension-for-linux"></a>Linux 용 가상 머신 확장 Key Vault
 
-키 볼트 VM 확장은 Azure 키 자격 증명 모음에 저장된 인증서를 자동으로 새로 고칩니다. 특히 확장은 키 자격 증명 모음에 저장된 관찰된 인증서 목록을 모니터링합니다.  변경 을 감지하면 확장이 해당 인증서를 검색하고 설치합니다. 키 볼트 VM 확장 게시 및 마이크로소프트에 의해 지원, 현재 리눅스 VM에. 이 문서에서는 Linux용 키 볼트 VM 확장을 위해 지원되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명합니다. 
+Key Vault VM 확장은 Azure Key Vault에 저장 된 인증서의 자동 새로 고침을 제공 합니다. 특히 확장은 키 자격 증명 모음에 저장 된 관찰 된 인증서 목록을 모니터링 합니다.  변경을 검색 하면 확장에서 해당 인증서를 검색 하 고 설치 합니다. Key Vault VM 확장은 Microsoft에서 현재 Linux Vm에 게시 되 고 지원 됩니다. 이 문서에서는 Linux 용 Key Vault VM 확장에 대해 지원 되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명 합니다. 
 
 ### <a name="operating-system"></a>운영 체제
 
-키 볼트 VM 확장 은 이러한 리눅스 배포판을 지원합니다:
+Key Vault VM 확장은 다음 Linux 배포를 지원 합니다.
 
-- 우분투-1604
-- 우분투-1804
-- 데비안-9
-- 수세-15 
+- Ubuntu-1604
+- Ubuntu-1804
+- Debian-9
+- Suse-15 
 
-### <a name="supported-certificate-content-types"></a>지원되는 인증서 콘텐츠 유형
+### <a name="supported-certificate-content-types"></a>지원 되는 인증서 콘텐츠 형식
 
 - PKCS #12
-- Pem
+- PEM
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 Key Vault VM 확장에 대한 스키마를 보여 줍니다. 확장에는 protected 설정이 필요하지 않습니다. 모든 설정은 보안의 영향을 받지 않는 정보로 간주됩니다. 확장에는 모니터링되는 비밀 목록, 폴링 빈도 및 대상 인증서 저장소가 필요합니다. 특히 다음에 대한 내용을 설명합니다.  
+다음 JSON은 Key Vault VM 확장에 대한 스키마를 보여 줍니다. 확장에는 protected 설정이 필요하지 않습니다. 모든 설정은 보안의 영향을 받지 않는 정보로 간주됩니다. 확장에는 모니터링되는 비밀 목록, 폴링 빈도 및 대상 인증서 저장소가 필요합니다. 특히:  
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -65,9 +65,9 @@ ms.locfileid: "80410876"
 ```
 
 > [!NOTE]
-> 관찰된 인증서 URL은 양식이어야 `https://myVaultName.vault.azure.net/secrets/myCertName`합니다.
+> 관찰 된 인증서 Url은 형식 `https://myVaultName.vault.azure.net/secrets/myCertName`이어야 합니다.
 > 
-> 경로는 `/secrets` 개인 키를 포함한 전체 인증서를 반환하지만 `/certificates` 경로는 반환하지 않기 때문입니다. 인증서에 대한 자세한 내용은 여기에서 확인할 수 [있습니다.](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> 이는 경로가 개인 `/secrets` 키를 포함 하 여 전체 인증서를 반환 하기 때문입니다. `/certificates` 경로는 그렇지 않습니다. 인증서에 대 한 자세한 내용은 [Key Vault 인증서](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates) 를 참조 하세요.
 
 
 ### <a name="property-values"></a>속성 값
@@ -75,22 +75,22 @@ ms.locfileid: "80410876"
 | 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| publisher | Microsoft.Azure.KeyVault | 문자열 |
-| type | 키볼트포리눅스 | 문자열 |
+| 게시자 | Microsoft.Azure.KeyVault | string |
+| type | KeyVaultForLinux | string |
 | typeHandlerVersion | 1.0 | int |
-| pollingIntervalInS | 3600 | 문자열 |
-| certificateStoreName | MY | 문자열 |
-| 링크온리뉴얼 | false | boolean |
-| certificateStoreLocation  | LocalMachine | 문자열 |
-| 필수초기동기화 | true | boolean |
+| pollingIntervalInS | 3600 | string |
+| certificateStoreName | MY | string |
+| linkOnRenewal | false | boolean |
+| certificateStoreLocation  | LocalMachine | string |
+| requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | 문자열 배열
 
 
 ## <a name="template-deployment"></a>템플릿 배포
 
-Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 배포 후에 인증서를 새로 고칠 필요가 있는 하나 이상의 가상 머신을 배포하는 경우 템플릿을 사용하는 것이 좋습니다. 확장은 개별 VM 또는 가상 시스템 규모 집합에 배포할 수 있습니다. 스키마와 구성은 두 템플릿 형식 모두에 공통적으로 적용됩니다. 
+Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 배포 후에 인증서를 새로 고칠 필요가 있는 하나 이상의 가상 머신을 배포하는 경우 템플릿을 사용하는 것이 좋습니다. 확장은 개별 Vm 또는 가상 머신 확장 집합에 배포할 수 있습니다. 스키마와 구성은 두 템플릿 형식 모두에 공통적으로 적용됩니다. 
 
-가상 시스템 확장을 위한 JSON 구성은 템플릿의 가상 컴퓨터 리소스 조각 `"resources": []` 내부에 중첩되어야 하며, 특히 가상 컴퓨터 `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` 템플릿에 대한 개체와 개체 아래에 설정된 가상 시스템 축척의 경우 개체입니다.
+가상 머신 확장에 대 한 JSON 구성은 템플릿의 가상 머신 리소스 조각, 특히 `"resources": []` 가상 머신 템플릿에 대 한 개체, 개체 아래 `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` 가상 머신 확장 집합의 경우 중첩 되어야 합니다.
 
 ```json
     {
@@ -142,7 +142,7 @@ Azure PowerShell은 기존 가상 머신 또는 가상 머신 확장 집합에 K
     
     ```
 
-* 가상 시스템 규모 집합에 확장을 배포하려면 다음을 수행합니다.
+* 가상 머신 확장 집합에 확장을 배포 하려면 다음을 수행 합니다.
 
     ```powershell
     
@@ -167,7 +167,7 @@ Azure PowerShell은 기존 가상 머신 또는 가상 머신 확장 집합에 K
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
-Azure CLI를 사용하여 키 볼트 VM 확장을 기존 가상 시스템 또는 가상 시스템 규모 집합에 배포할 수 있습니다. 
+Azure CLI를 사용 하 여 기존 가상 머신 또는 가상 머신 확장 집합에 Key Vault VM 확장을 배포할 수 있습니다. 
  
 * VM에 확장을 배포하려면 다음과 같습니다.
     
@@ -180,7 +180,7 @@ Azure CLI를 사용하여 키 볼트 VM 확장을 기존 가상 시스템 또는
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
     ```
 
-* 가상 시스템 규모 집합에 확장을 배포하려면 다음을 수행합니다.
+* 가상 머신 확장 집합에 확장을 배포 하려면 다음을 수행 합니다.
 
    ```azurecli
         # Start the deployment
@@ -194,7 +194,7 @@ Azure CLI를 사용하여 키 볼트 VM 확장을 기존 가상 시스템 또는
 다음 제한 사항/요구 사항에 주의하세요.
 - Key Vault 제한 사항:
   - 배포 시점에 있어야 합니다. 
-  - MSI를 사용 하 여 VM/VMSS ID에 대 한 키 볼트 액세스 정책 설정 됩니다.
+  - MSI를 사용 하 여 VM/VMSS Id에 대 한 Key Vault 액세스 정책을 설정 합니다.
 
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원
@@ -213,6 +213,6 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
 
-### <a name="support"></a>고객 지원팀
+### <a name="support"></a>Support(지원)
 
-이 문서의 어느 시점에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼의](https://azure.microsoft.com/support/forums/)Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어느 시점에서 든 도움이 필요한 경우 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 지원 받기를 선택 합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

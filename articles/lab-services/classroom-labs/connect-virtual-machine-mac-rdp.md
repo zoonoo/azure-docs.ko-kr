@@ -1,5 +1,5 @@
 ---
-title: Mac에서 Azure 랩 서비스 VM에 연결하는 방법 | 마이크로 소프트 문서
+title: Mac에서 Azure Lab Services VM에 연결 하는 방법 | Microsoft Docs
 description: 이 문서의 내용
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 03/17/2020
 ms.author: spelluru
 ms.openlocfilehash: 0d3484c1008e00bcfde3adb399e925c0e054f49e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79503089"
 ---
 # <a name="connect-to-a-vm-using-rdp-on-a-mac"></a>Mac에서 RDP를 사용하여 VM에 연결
-이 섹션에서는 학생이 RDP를 사용하여 Mac에서 교실 랩 VM에 연결할 수 있는 방법을 보여 주며, 이 섹션에서는 학생이 Mac에서 VM에 연결할 수 있는 방법을 보여 주어 있습니다.
+이 섹션에서는 학생이 RDP를 사용 하 여 Mac에서 교실 lab VM에 연결할 수 있는 방법을 보여 줍니다.
 
 ## <a name="install-microsoft-remote-desktop-on-a-mac"></a>Mac에서 Microsoft 원격 데스크톱 설치
 1. Mac에서 App Store를 열고 **Microsoft 원격 데스크톱**을 검색합니다.
@@ -45,6 +45,6 @@ ms.locfileid: "79503089"
 
 
 ## <a name="next-steps"></a>다음 단계
-RDP를 사용하여 Linux VM에 연결하는 방법을 알아보려면 [Linux 가상 컴퓨터에 원격 데스크톱 사용을](how-to-use-remote-desktop-linux-student.md) 참조하세요.
+RDP를 사용 하 여 Linux Vm에 연결 하는 방법을 알아보려면 [linux 가상 머신에 원격 데스크톱 사용](how-to-use-remote-desktop-linux-student.md) 을 참조 하세요.
 
 

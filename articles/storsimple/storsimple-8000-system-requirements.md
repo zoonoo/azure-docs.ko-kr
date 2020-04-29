@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80297719"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000 시리즈 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
@@ -65,14 +65,14 @@ StorSimple 디바이스는 잠긴 디바이스입니다. 하지만 iSCSI, 클라
 
 | 포트 번호 <sup>1, 2</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 메모 |
 | --- | --- | --- | --- | --- |
-| TCP 80(HTTP)<sup>3</sup> |아웃 |WAN |예 |<ul><li>업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li></ul> |
-| TCP 443(HTTPS)<sup>3</sup> |아웃 |WAN |yes |<ul><li>아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li><li>이 포트도 가비지 수집을 위한 두 컨트롤러에 대해 사용됩니다.</li></ul> |
+| TCP 80(HTTP)<sup>3</sup> |아웃 |WAN |아니요 |<ul><li>업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li></ul> |
+| TCP 443(HTTPS)<sup>3</sup> |아웃 |WAN |예 |<ul><li>아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li><li>이 포트도 가비지 수집을 위한 두 컨트롤러에 대해 사용됩니다.</li></ul> |
 | UDP 53(DNS) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 DNS 서버로 사용하는 경우에만 필요합니다. |
 | UDP 123(NTP) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다. |
-| TCP 9354 |아웃 |WAN |yes |아웃바운드 포트는 StorSimple 디바이스에서 StorSimple 디바이스 관리자 서비스와 통신하는 데 사용됩니다. |
-| 3260(iSCSI) |그런 다음 |LAN |예 |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
-| 5985 |그런 다음 |LAN |예 |인바운드 포트는 StorSimple 디바이스와의 통신을 위해 StorSimple 스냅샷 관리자에 사용됩니다.<br>이 포트는 HTTP를 통해 StorSimple용 Windows PowerShell에 원격으로 연결할 때에도 사용됩니다. |
-| 5986 |그런 다음 |LAN |예 |이 포트는 HTTPS를 통해 StorSimple에 대해 Windows PowerShell에 원격으로 연결할 때 사용됩니다. |
+| TCP 9354 |아웃 |WAN |예 |아웃바운드 포트는 StorSimple 디바이스에서 StorSimple 디바이스 관리자 서비스와 통신하는 데 사용됩니다. |
+| 3260(iSCSI) |그런 다음 |LAN |아니요 |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
+| 5985 |그런 다음 |LAN |아니요 |인바운드 포트는 StorSimple 디바이스와의 통신을 위해 StorSimple 스냅샷 관리자에 사용됩니다.<br>이 포트는 HTTP를 통해 StorSimple용 Windows PowerShell에 원격으로 연결할 때에도 사용됩니다. |
+| 5986 |그런 다음 |LAN |아니요 |이 포트는 HTTPS를 통해 StorSimple에 대해 Windows PowerShell에 원격으로 연결할 때 사용됩니다. |
 
 <sup>1</sup> 인바운드 포트는 공용 인터넷에서 열릴 필요가 없습니다.
 
@@ -81,7 +81,7 @@ StorSimple 디바이스는 잠긴 디바이스입니다. 하지만 iSCSI, 클라
 <sup>3</sup> StorSimple 디바이스에서 IP가 고정된 컨트롤러는 라우팅할 수 있어야 하며 인터넷에 직접 또는 구성된 웹 프록시를 통해 연결할 수 있어야 합니다. 고정 IP 주소는 가비지 수집 및 디바이스에 대한 업데이트를 제공하는 데 사용됩니다. 디바이스 컨트롤러가 고정 IP를 통해 인터넷에 연결되는 경우 StorSimple 디바이스를 업데이트할 수 없으며 가비지 수집이 제대로 작동하지 않습니다.
 
 > [!IMPORTANT]
-> 방화벽이 StorSimple 장치와 Azure 간의 TLS 트래픽을 수정하거나 해독하지 않는지 확인합니다.
+> 방화벽이 StorSimple 장치와 Azure 간의 TLS 트래픽을 수정 하거나 암호 해독 하지 않도록 합니다.
 
 
 ### <a name="url-patterns-for-firewall-rules"></a>방화벽 규칙에 대한 URL 패턴
@@ -233,7 +233,7 @@ StorSimple 디바이스 모델 8600에는 기본 인클로저 외에도 확장 E
 * 두 EBOD 인클로저 컨트롤러 모듈, 두 SAS 케이블 및 모든 하드 디스크 드라이브가 설치되어 있어야 합니다.
 * EBOD 인클로저 컨트롤러 모듈에 오류가 있는 경우 즉시 교체를 요청합니다.
 * EBOD 인클로저 컨트롤러 모듈에 오류가 있는 경우 오류가 있는 모듈을 교체하기 전에 다른 컨트롤러 모듈이 활성 상태인지 확인합니다. 컨트롤러가 활성인지 확인하려면 [디바이스의 활성 컨트롤러 식별](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device)로 이동하세요.
-* EBOD 컨트롤러 모듈 교체 중에 **모니터** > **하드웨어 상태에**액세스하여 StorSimple 장치 관리자 서비스의 구성 요소 상태를 지속적으로 모니터링합니다.
+* Ebod 컨트롤러 모듈을 교체 하는 동안 **모니터** > **하드웨어 상태**에 액세스 하 여 StorSimple Device Manager 서비스에서 구성 요소의 상태를 지속적으로 모니터링 합니다.
 * SAS 케이블에 오류가 있거나 교체가 필요한 경우(확인을 위해 Microsoft 지원이 포함되어야 함) 교체가 필요한 SAS 케이블만 제거해야 합니다.
 * 언제든지 시스템에서 두 SAS 케이블을 동시에 제거하지 마십시오.
 

@@ -1,5 +1,5 @@
 ---
-title: Microsoft로 비즈니스 홍보 | Azure 마켓플레이스
+title: Microsoft로 비즈니스 홍보 | Azure Marketplace
 description: 앱 및 서비스 게시자를 위한 Azure Marketplace 및 AppSource를 사용한 비즈니스 홍보
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: dsindona
 ms.openlocfilehash: 63708f426ced01fc7b837cc7c82ef178e4e78f95
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80387753"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Microsoft를 통한 비즈니스 홍보 

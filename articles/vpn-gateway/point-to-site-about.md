@@ -1,5 +1,5 @@
 ---
-title: Azure 지점 간 VPN 연결 정보 | VPN 게이트웨이
+title: Azure 지점 및 사이트 간 VPN 연결 정보 | VPN Gateway
 description: 이 문서에서는 지점 및 사이트 간 연결을 이해하고 P2S VPN 게이트웨이 인증 유형을 결정합니다.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: cherylmc
 ms.openlocfilehash: 381aad5d0a56362d9966ed54b931a8478f2f6bf2
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80410494"
 ---
 # <a name="about-point-to-site-vpn"></a>지점 및 사이트 간 VPN 연결 정보
@@ -22,9 +22,9 @@ P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 
 
 지점 및 사이트 간 VPN에서는 다음 프로토콜 중 하나를 사용할 수 있습니다.
 
-* **OpenVPN® 프로토콜,** SSL/TLS 기반 VPN 프로토콜. 대부분의 방화벽은 TLS가 사용하는 TCP 포트 443 아웃바운드를 열기 때문에 TLS VPN 솔루션은 방화벽에 침투할 수 있습니다. OpenVPN은 안드로이드, iOS (버전 11.0 이상), 윈도우, 리눅스 및 Mac 장치 (OSX 버전 10.13 이상)에서 연결하는 데 사용할 수 있습니다.
+* **Openvpn® 프로토콜**, SSL/TLS 기반 vpn 프로토콜입니다. 대부분의 방화벽은 TLS에서 사용 하는 TCP 포트 443 아웃 바운드를 열기 때문에 TLS VPN 솔루션은 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS (버전 11.0 이상), Windows, Linux 및 Mac 장치 (OSX 버전 10.13 이상)에서 연결 하는 데 사용할 수 있습니다.
 
-* 보안 소켓 터널링 프로토콜(SSTP) 독점 TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽은 TLS가 사용하는 TCP 포트 443 아웃바운드를 열기 때문에 TLS VPN 솔루션은 방화벽에 침투할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다.
+* 독점 TLS 기반 VPN 프로토콜인 SSTP (Secure Socket Tunneling Protocol) 대부분의 방화벽은 TLS에서 사용 하는 TCP 포트 443 아웃 바운드를 열기 때문에 TLS VPN 솔루션은 방화벽을 통과할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다.
 
 * IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 디바이스(OSX 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
 
@@ -43,17 +43,17 @@ Azure 기본 인증서 인증을 사용하는 경우 디바이스에 있는 클�
 
 클라이언트 인증서의 유효성 검사는 VPN 게이트웨이에서 수행되며, P2S VPN 연결을 설정하는 동안 발생합니다. 루트 인증서는 유효성 검사에 필요하며 Azure에 업로드해야 합니다.
 
-### <a name="authenticate-using-native-azure-active-directory-authentication"></a>네이티브 Azure Active Directory 인증을 사용하여 인증
+### <a name="authenticate-using-native-azure-active-directory-authentication"></a>네이티브 Azure Active Directory 인증을 사용 하 여 인증
 
-Azure AD 인증을 통해 사용자는 Azure Active Directory 자격 증명을 사용하여 Azure에 연결할 수 있습니다. 네이티브 Azure AD 인증은 OpenVPN 프로토콜 및 Windows 10에서만 지원되며 [Azure VPN 클라이언트](https://go.microsoft.com/fwlink/?linkid=2117554)를 사용해야 합니다.
+Azure AD 인증을 사용 하면 사용자가 Azure Active Directory 자격 증명을 사용 하 여 Azure에 연결할 수 있습니다. 네이티브 Azure AD 인증은 OpenVPN 프로토콜 및 Windows 10 에서만 지원 되며 [AZURE VPN 클라이언트](https://go.microsoft.com/fwlink/?linkid=2117554)를 사용 해야 합니다.
 
-네이티브 Azure AD 인증을 사용하면 VPN용 Azure AD의 조건부 액세스와 MFA(다단계 인증) 기능을 활용할 수 있습니다.
+네이티브 Azure AD 인증을 사용 하 여 Azure AD의 조건부 액세스 뿐만 아니라 VPN에 대 한 MFA (Multi-Factor Authentication) 기능을 활용할 수 있습니다.
 
-상위 수준에서 Azure AD 인증을 구성하려면 다음 단계를 수행해야 합니다.
+개략적인 수준에서 다음 단계를 수행 하 여 Azure AD 인증을 구성 해야 합니다.
 
 1. [Azure AD 테넌트 구성](openvpn-azure-ad-tenant.md)
 
-2. [게이트웨이에서 Azure AD 인증 사용](openvpn-azure-ad-tenant.md#enable-authentication)
+2. [게이트웨이에서 Azure AD 인증을 사용 하도록 설정](openvpn-azure-ad-tenant.md#enable-authentication)
 
 3. [Azure VPN 클라이언트 다운로드 및 구성](https://go.microsoft.com/fwlink/?linkid=2117554)
 
@@ -68,7 +68,7 @@ RADIUS 서버는 AD 인증서 서비스와 통합할 수도 있습니다. 이렇
 
 또한 RADIUS 서버는 다른 외부 ID 시스템과 통합할 수도 있습니다. 이렇게 하면 다단계 옵션을 포함하여 P2S VPN에 대한 많은 인증 옵션이 제공됩니다.
 
-![지점 간](./media/point-to-site-about/p2s.png "지점 및 사이트 간")
+![지점 및 사이트 간](./media/point-to-site-about/p2s.png "지점 및 사이트 간")
 
 ## <a name="what-are-the-client-configuration-requirements"></a>클라이언트 구성 요구 사항은 어떻게 되나요?
 
@@ -87,7 +87,7 @@ RADIUS 서버는 AD 인증서 서비스와 통합할 수도 있습니다. 이렇
 >[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="which-gateway-skus-support-p2s-vpn"></a><a name="gwsku"></a>P2S VPN을 지원하는 게이트웨이 SUS는 무엇입니까?
+## <a name="which-gateway-skus-support-p2s-vpn"></a><a name="gwsku"></a>어떤 게이트웨이 Sku에서 P2S VPN을 지원 하나요?
 
 [!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -97,12 +97,12 @@ RADIUS 서버는 AD 인증서 서비스와 통합할 수도 있습니다. 이렇
 >기본 SKU는 IKEv2 또는 RADIUS 인증을 지원하지 않습니다.
 >
 
-## <a name="what-ikeipsec-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="IKE/IPsec policies"></a>P2S용 VPN 게이트웨이에서 어떤 IKE/IPsec 정책이 구성됩니까?
+## <a name="what-ikeipsec-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="IKE/IPsec policies"></a>P2S에 대 한 VPN 게이트웨이에서 구성 된 IKE/IPsec 정책은 무엇 인가요?
 
 
 **IKEv2**
 
-|**암호화** | **무결성** | **Prf** | **DH 그룹** |
+|**암호** | **무결성** | **PRF** | **DH 그룹** |
 |---        | ---           | ---       | ---   |
 |GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_24 |
 |GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_14 |
@@ -122,9 +122,9 @@ RADIUS 서버는 AD 인증서 서비스와 통합할 수도 있습니다. 이렇
 |AES256     |   SHA256      | SHA256    | GROUP_ECP256 |
 |AES256     |   SHA256      | SHA256    | GROUP_2 |
 
-**Ipsec**
+**Ip**
 
-|**암호화** | **무결성** | **PFS 그룹** |
+|**암호** | **무결성** | **PFS 그룹** |
 |---        | ---           | ---       |
 |GCM_AES256 | GCM_AES256 | GROUP_NONE |
 |GCM_AES256 | GCM_AES256 | GROUP_24 |
@@ -138,7 +138,7 @@ RADIUS 서버는 AD 인증서 서비스와 통합할 수도 있습니다. 이렇
 | AES256    | SHA256 | GROUP_ECP256 |
 | AES256    | SHA1 | GROUP_NONE |
 
-## <a name="what-tls-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="TLS policies"></a>P2S용 VPN 게이트웨이에는 어떤 TLS 정책이 구성됩니까?
+## <a name="what-tls-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="TLS policies"></a>P2S에 대 한 VPN 게이트웨이에서 구성 된 TLS 정책은 무엇 인가요?
 **TLS**
 
 |**정책** |
@@ -166,9 +166,9 @@ P2S 구성에는 몇 가지 특정한 단계가 필요합니다. 다음 문서�
 
 * [OpenVPN 구성](vpn-gateway-howto-openvpn.md)
 
-### <a name="to-remove-the-configuration-of-a-p2s-connection"></a>P2S 연결의 구성을 제거하려면
+### <a name="to-remove-the-configuration-of-a-p2s-connection"></a>P2S 연결의 구성을 제거 하려면
 
-단계는 아래 [FAQ를](#removeconfig)참조하십시오.
+단계는 아래의 [FAQ](#removeconfig)를 참조 하세요.
  
 ## <a name="faq-for-native-azure-certificate-authentication"></a><a name="faqcert"></a>네이티브 Azure 인증서 인증에 대한 FAQ
 
@@ -184,4 +184,4 @@ P2S 구성에는 몇 가지 특정한 단계가 필요합니다. 다음 문서�
 
 * [P2S 연결 구성 - Azure 네이티브 인증서 인증](vpn-gateway-howto-point-to-site-rm-ps.md)
 
-**"오픈VPN"은 오픈VPN 의 상표입니다.**
+**"OpenVPN"은 OpenVPN i n c .의 상표입니다.**

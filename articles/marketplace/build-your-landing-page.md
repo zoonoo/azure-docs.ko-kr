@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: dsindona
 ms.openlocfilehash: 0952c1d4b6955ff20f06afc6eaded18fbd105708
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80387804"
 ---
 # <a name="build-your-landing-page"></a>방문 페이지 빌드
@@ -45,7 +45,7 @@ ms.locfileid: "80387804"
 | **판촉 내용을 헤더 또는 명확히 구분된 섹션에 포함** | 텍스트 단락의 Marketplace 목록에 링크 포함 |
 | **최적의 키워드를 조사하고 검색을 위해 페이지 최적화** | 제품 이름을 사용하는 것이 더 높은 검색 순위에 오르도록 한다고 가정 |
 | **광고 캠페인의 키워드 사용** | 웹 속성에서 여러 다양한 키워드를 사용하여 광고 투자를 희석시키는 부작용 생성 |
-| **관련 제품 이름과 키워드를 "접기 위에" 배치합니다.** | 사용자가 제품이나 솔루션을 보려면 스크롤해야 함 |
+| **관련 제품 이름 및 키워드를 "접기 위에 배치"** | 사용자가 제품이나 솔루션을 보려면 스크롤해야 함 |
 | **브랜드 이미지를 사용하여 솔루션의 유효성을 검사하고 Microsoft 브랜딩 지침 준수(예: Azure Certified)** | 승인되지 않은 Microsoft 브랜드 이미지를 사용 |
 
 ## <a name="next-steps"></a>다음 단계

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 615a6afb0f7a3e133603db10e7c79add3322070c
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476700"
 ---
 # <a name="publish-media-services-content-using-net"></a>.NET을 사용하여 Media Services 콘텐츠 게시  
@@ -108,7 +108,7 @@ ms.locfileid: "80476700"
 
 
 > [!NOTE]
-> TLS 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이 방법을 수행하려면 스트리밍 URL이 HTTPS로 시작해야 합니다. 현재 AMS는 사용자 지정 도메인을 통해 TLS를 지원하지 않습니다.
+> TLS 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이 방법을 수행하려면 스트리밍 URL이 HTTPS로 시작해야 합니다. 현재 AMS는 사용자 지정 도메인에서 TLS를 지원 하지 않습니다.
 > 
 > 
 
@@ -180,5 +180,5 @@ ms.locfileid: "80476700"
 
 ## <a name="next-steps"></a>다음 단계
 * [자산 다운로드](media-services-deliver-asset-download.md)
-* [자산 제공 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)
+* [자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)
 
