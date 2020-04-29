@@ -1,5 +1,5 @@
 ---
-title: 응용 프로그램 인사이트로 Azure 진단 데이터 보내기
+title: Azure 진단 데이터를 Application Insights으로 보내기
 description: Application Insights에 데이터를 보내도록 Azure Diagnostics 공용 구성을 업데이트 합니다.
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
 ms.openlocfilehash: 80d971abd248ca8253a374b488c693ea9aa2ea3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77672330"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기
@@ -68,8 +68,8 @@ Application Insights에 대한 싱크 예제 구성:
         - 자세히
         - 정보
         - Warning
-        - Error
-        - 위험
+        - 오류
+        - 중요
 
 채널은 필터처럼 작동하고 채널을 사용하면 대상 싱크에 보내는 특정 로그 수준을 선택할 수 있습니다. 예를 들어 자세한 정보 표시 로그를 수집하고 스토리지에 보내지만 오류만을 싱크에 보낼 수 있습니다.
 
@@ -210,7 +210,7 @@ Application Insights에 대한 싱크 예제 구성:
 
 - **성능 카운터가 아닌 로그 유형인 채널** 성능 카운터 요소를 사용하여 채널을 지정하는 경우 무시됩니다.
 - **채널에 대한 로그 수준은 Azure 진단에서 수집되는 로그 수준을 초과할 수 없습니다.** 예를 들어 로그 요소에서 애플리케이션 로그 오류를 수집하고 Application Insight 싱크에 자세한 정보 표시 로그를 보내려고 시도할 수 없습니다. *scheduledTransferLogLevelFilter* 특성은 항상 싱크에 전송하려는 로그와 같거나 더 많은 로그를 수집해야 합니다.
-- **Application Insights에 Azure 진단 확장에서 수집된 Blob 데이터를 보낼 수 없습니다.** 예를 들어 *디렉터리* 노드 아래에 지정된 모든 것. 크래시 덤프의 경우 실제 크래시 덤프는 Blob Storage에 보내지고 크래시 덤프가 생성된 알림이 Application Insights에 전송됩니다.
+- **Application Insights에 Azure 진단 확장에서 수집된 Blob 데이터를 보낼 수 없습니다.** 예를 들어 *디렉터리* 노드에 지정 된 모든 항목이 있습니다. 크래시 덤프의 경우 실제 크래시 덤프는 Blob Storage에 보내지고 크래시 덤프가 생성된 알림이 Application Insights에 전송됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Application Insights에서 [Azure 진단 정보를 보는 방법](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)에 대해 알아봅니다.

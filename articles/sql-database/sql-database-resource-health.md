@@ -1,5 +1,5 @@
 ---
-title: Azure 리소스 상태를 사용하여 데이터베이스 상태 모니터링
+title: Azure Resource Health를 사용 하 여 데이터베이스 상태 모니터링
 description: Azure Resource Health를 사용하여 SQL Database 상태를 모니터링하면 Azure 문제가 SQL 리소스에 영향을 줄 때 문제를 진단하고 지원을 받는 데 도움이 됩니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
 ms.openlocfilehash: 9e19e904b47d69444b491dd88ffe49ff812aafc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79208867"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Resource Health를 사용하여 Azure SQL Database 연결 문제 해결
@@ -26,7 +26,7 @@ SQL Database용 [Resource Health](../service-health/resource-health-overview.md#
 
 ![개요](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
-## <a name="health-checks"></a>상태 검사
+## <a name="health-checks"></a>상태 확인
 
 Resource Health는 리소스에 대한 로그인의 성공 및 실패를 검사하여 SQL 리소스의 상태를 결정합니다. 현재 SQL DB 리소스에 대한 Resource Health는 시스템 오류로 인한 로그인 실패만 검사하며 사용자 오류는 검사하지 않습니다. Resource Health 상태는 1-2분마다 업데이트됩니다.
 
@@ -40,7 +40,7 @@ Resource Health는 리소스에 대한 로그인의 성공 및 실패를 검사�
 
 ### <a name="degraded"></a>성능 저하됨
 
-**성능이 저하된** 상태는 리소스 상태가 성공적인 로그인의 대부분을 검색했지만 일부 오류도 감지되었음을 의미합니다. 이러한 오류는 일시적인 로그인 오류일 가능성이 높습니다. 일시적인 로그인 오류로 인한 연결 문제의 영향을 줄이려면 코드에서 [재시도 논리](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)를 구현하세요.
+**저하** 됨 상태는 Resource Health에서 대부분의 성공한 로그인을 검색 했지만 일부 오류가 발생 했음을 의미 합니다. 이러한 오류는 일시적인 로그인 오류일 가능성이 높습니다. 일시적인 로그인 오류로 인한 연결 문제의 영향을 줄이려면 코드에서 [재시도 논리](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)를 구현하세요.
 
 ![성능 저하됨](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
@@ -50,11 +50,11 @@ Resource Health는 리소스에 대한 로그인의 성공 및 실패를 검사�
 
 ![사용할 수 없음](./media/sql-database-resource-health/sql-resource-health-unavailable.jpg)
 
-### <a name="unknown"></a>알 수 없음
+### <a name="unknown"></a>Unknown
 
 **알 수 없음** 상태는 Resource Health에서 이 리소스에 대한 정보를 10분 넘게 수신하지 못했음을 나타냅니다. 이 상태는 리소스 상태에 대한 결정적인 표시는 아니지만 문제 해결 프로세스의 중요한 데이터 요소입니다. 리소스가 예상한 대로 실행 중이면 몇 분 후 리소스 상태가 사용 가능으로 변경됩니다. 리소스에 문제가 발생하는 경우 상태가 알 수 없음이면, 플랫폼의 이벤트가 리소스에 영향을 미치고 있다는 것을 의미할 수 있습니다.
 
-![알 수 없음](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
+![Unknown](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>기록 정보
 

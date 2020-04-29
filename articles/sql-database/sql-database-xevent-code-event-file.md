@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
 ms.openlocfilehash: a9bf28fb1b3c5278d25b417fc646d2ad3d6f1abc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79213987"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 이벤트 파일 대상 코드
@@ -39,7 +39,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure 리소스 관리자 모듈은 Azure SQL Database에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈용입니다. 이러한 cmdlet에 대 한 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조 합니다. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 거의 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
 
 - Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 - 테이블을 만들 수 있는 데이터베이스.
@@ -54,7 +54,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
 
 - [Azure PowerShell 모듈](https://go.microsoft.com/?linkid=9811175) 이 설치되어 있어야 합니다.
 
-  - 모듈은 - **New-AzStorageAccount**와 같은 명령을 제공합니다.
+  - 모듈은- **AzStorageAccount**등의 명령을 제공 합니다.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>1단계: Azure Storage 컨테이너용 PowerShell 코드
 
@@ -74,7 +74,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
 
 ### <a name="powershell-code"></a>PowerShell 코드
 
-이 PowerShell 스크립트는 Az 모듈을 이미 설치했다고 가정합니다. 자세한 내용은 [Azure PowerShell 설치 모듈을](/powershell/azure/install-Az-ps)참조하십시오.
+이 PowerShell 스크립트는 Az module을 이미 설치 했다고 가정 합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조 하세요.
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -442,9 +442,9 @@ GO
 
 ## <a name="output"></a>출력
 
-Transact-SQL 스크립트가 완료되면 **event_data_XML** 열 헤더 아래 셀을 클릭합니다. 하나의 UPDATE 문을 보여>** \<하나의 이벤트** 요소가 표시됩니다.
+Transact-SQL 스크립트가 완료되면 **event_data_XML** 열 헤더 아래 셀을 클릭합니다. 하나의 UPDATE 문을 표시 하는 하나의 ** \<이벤트>** 요소가 표시 됩니다.
 
-다음은 테스트 ** \<** 중에 생성된 이벤트>요소입니다.
+다음은 테스트 중에 생성 된 하나의 ** \<이벤트>** 요소입니다.
 
 ```xml
 <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T19:18:45.420Z">
@@ -503,14 +503,14 @@ Microsoft SQL Server에서 위의 Transact-SQL 샘플을 실행하는 경우를 
   
   - Azure Storage 계정은 사용하지 않습니다.
 
-## <a name="more-information"></a>자세한 정보
+## <a name="more-information"></a>추가 정보
 
 Azure Storage 서비스에서 계정 및 컨테이너에 대한 자세한 내용은 다음을 참조하세요.
 
 - [.NET에서 Blob Storage를 사용하는 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [컨테이너, BLOB, 메타데이터 이름 명명 및 참조](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [루트 컨테이너 사용](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-- [단원 1: Azure 컨테이너에서 저장된 액세스 정책 및 공유 액세스 서명 만들기](https://msdn.microsoft.com/library/dn466430.aspx)
+- [1 단원: Azure 컨테이너에 저장 된 액세스 정책 및 공유 액세스 서명 만들기](https://msdn.microsoft.com/library/dn466430.aspx)
   - [2단원: 공유 액세스 서명을 사용하여 SQL Server 자격 증명 만들기](https://msdn.microsoft.com/library/dn466435.aspx)
 - [Microsoft SQL Server의 확장 이벤트](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events).
 

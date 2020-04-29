@@ -1,5 +1,5 @@
 ---
-title: 패커와 리눅스 Azure VM 이미지 만들기
+title: 팩을 사용 하 여 Linux Azure VM 이미지 만들기
 description: Azure에서 Packer를 사용하여 Linux 가상 머신의 이미지를 만드는 방법에 대해 알아보기
 author: cynthn
 ms.service: virtual-machines-linux
@@ -8,23 +8,23 @@ ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
 ms.openlocfilehash: 3aec50b8c8f2033b7340bde15ea7670c1a0b6bb9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79534222"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Azure에서 Packer를 사용하여 Linux 가상 머신 이미지를 만드는 방법
 Azure의 각 VM(가상 컴퓨터)은 Linux 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 애플리케이션 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 배포 및 애플리케이션 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 작성하는 방법을 자세히 설명합니다.
 
 > [!NOTE]
-> Azure에는 이제 사용자 지정 이미지를 정의하고 만들기 위한 서비스인 Azure 이미지 빌더(미리 보기)가 있습니다. Azure 이미지 빌더는 Packer에 빌드되어 있으므로 기존 Packer 셸 프로비저스크립트를 사용할 수도 있습니다. Azure 이미지 빌더를 시작하려면 [Azure 이미지 빌더를 사용하여 Linux VM 만들기를](image-builder.md)참조하십시오.
+> 이제 azure에는 고유한 사용자 지정 이미지를 정의 하 고 만드는 데 필요한 Azure Image Builder (미리 보기) 서비스가 있습니다. Azure 이미지 작성기는 패키지를 사용 하 여 구축 되므로 기존 패키지 provisioner 스크립트를 사용할 수도 있습니다. Azure 이미지 작성기를 시작 하려면 [Azure 이미지 작성기를 사용 하 여 LINUX VM 만들기](image-builder.md)를 참조 하세요.
 
 
 ## <a name="create-azure-resource-group"></a>Azure 리소스 그룹 만들기
 빌드 프로세스 동안 Packer는 원본 VM을 빌드하므로 임시 Azure 리소스를 만듭니다. 이미지로 사용하기 위해 해당 원본 VM을 캡처하려면 리소스 그룹을 정의해야 합니다. Packer 빌드 프로세스의 출력은 이 리소스 그룹에 저장됩니다.
 
-[az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *동쪽* 위치에 *myResourceGroup이라는* 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -227,4 +227,4 @@ az vm open-port \
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 이미지 빌더를](image-builder.md)사용하여 기존 패커 프로비저 스크립트를 사용할 수도 있습니다.
+[Azure 이미지 작성기](image-builder.md)에서 기존 패키지를 사용 하 여 provisioner 스크립트를 사용할 수도 있습니다.

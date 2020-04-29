@@ -1,23 +1,23 @@
 ---
-title: Azure 서비스 패브릭, 클라우드 서비스 및 가상 컴퓨터에서 .NET 앱에 대한 스냅숏 디버거 활성화 | 마이크로 소프트 문서
-description: Azure 서비스 패브릭, 클라우드 서비스 및 가상 컴퓨터에서 .NET 앱에 대한 스냅숏 디버거 사용
+title: Azure Service Fabric, 클라우드 서비스 및 Virtual Machines에서 .NET 앱에 대 한 스냅숏 디버거 사용 Microsoft Docs
+description: Azure Service Fabric, 클라우드 서비스 및 Virtual Machines에서 .NET 앱에 대 한 스냅숏 디버거를 사용 하도록 설정
 ms.topic: conceptual
 author: brahmnes
 ms.author: bfung
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 194a2da23c8fb405c492df8f6ee173cc97fde4ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671346"
 ---
-# <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Azure 서비스 패브릭, 클라우드 서비스 및 가상 컴퓨터에서 .NET 앱에 대한 스냅숏 디버거 사용
+# <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Azure Service Fabric, 클라우드 서비스 및 Virtual Machines에서 .NET 앱에 대 한 스냅숏 디버거를 사용 하도록 설정
 
-ASP.NET 또는 ASP.NET 핵심 응용 프로그램이 Azure 앱 서비스에서 실행되는 경우 [응용 프로그램 인사이트 포털 페이지를 통해 스냅숏 디버거를 사용하도록 설정하는](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)것이 좋습니다. 그러나 응용 프로그램에 사용자 지정된 스냅숏 디버거 구성 또는 .NET 코어의 미리 보기 버전이 필요한 경우 [응용 프로그램 인사이트 포털 페이지를 통해 사용하도록 설정하는](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)지침 ***외에*** 이 명령을 따라야 합니다.
+ASP.NET 또는 ASP.NET core 응용 프로그램이 Azure App Service에서 실행 되 [는 경우 Application Insights 포털 페이지를 통해 스냅숏 디버거를 사용 하도록 설정](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)하는 것이 좋습니다. 그러나 응용 프로그램에 사용자 지정 된 스냅숏 디버거 구성 또는 .NET core의 미리 보기 버전이 필요한 경우에는 [Application Insights 포털 페이지를 통해 사용 하도록 설정](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)하는 지침 ***과 함께*** 이 지침을 따라야 합니다.
 
-응용 프로그램이 Azure 서비스 패브릭, 클라우드 서비스, 가상 컴퓨터 또는 온-프레미스 컴퓨터에서 실행되는 경우 다음 지침을 사용해야 합니다. 
+응용 프로그램이 Azure Service Fabric, 클라우드 서비스, Virtual Machines 또는 온-프레미스 컴퓨터에서 실행 되는 경우 다음 지침을 따라야 합니다. 
     
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>ASP.NET 애플리케이션에 대한 스냅샷 컬렉션 구성
 
@@ -25,7 +25,7 @@ ASP.NET 또는 ASP.NET 핵심 응용 프로그램이 Azure 앱 서비스에서 �
 
 2. [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 앱에 포함합니다.
 
-3. 필요한 경우 [ApplicationInsights.config에](../../azure-monitor/app/configuration-with-applicationinsights-config.md)추가된 스냅숏 디버거 구성을 사용자 지정했습니다. 기본 스냅숏 디버거 구성은 대부분 비어 있으며 모든 설정은 선택 사항입니다. 다음은 기본 구성과 동일한 구성을 보여 주려는 예제입니다.
+3. 필요한 경우 [Applicationinsights](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에 추가 된 스냅숏 디버거 구성을 사용자 지정 합니다. 기본 스냅숏 디버거 구성은 대부분 비어 있으며 모든 설정은 선택 사항입니다. 다음은 기본 구성에 해당 하는 구성을 보여 주는 예제입니다.
 
     ```xml
     <TelemetryProcessors>
@@ -62,7 +62,7 @@ ASP.NET 또는 ASP.NET 핵심 응용 프로그램이 Azure 앱 서비스에서 �
 4. 스냅샷은 Application Insights에 보고되는 예외에 대해서만 수집됩니다. 경우에 따라(예: 이전 버전의 .NET 플랫폼) 포털에서 스냅샷 예외를 보려면 [예외 컬렉션을 구성](../../azure-monitor/app/asp-net-exceptions.md#exceptions)해야 할 수 있습니다.
 
 
-## <a name="configure-snapshot-collection-for-applications-using-aspnet-core-20-or-above"></a>ASP.NET 코어 2.0 이상을 사용하는 응용 프로그램에 대한 스냅샷 컬렉션 구성
+## <a name="configure-snapshot-collection-for-applications-using-aspnet-core-20-or-above"></a>ASP.NET Core 2.0 이상을 사용 하 여 응용 프로그램에 대 한 스냅숏 컬렉션 구성
 
 1. 이 작업을 아직 수행하지 않은 경우 [ASP.NET Core 웹앱에서 Application Insights를 사용하도록 설정](../../azure-monitor/app/asp-net-core.md)합니다.
 
@@ -72,18 +72,18 @@ ASP.NET 또는 ASP.NET 핵심 응용 프로그램이 Azure 앱 서비스에서 �
 2. [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 앱에 포함합니다.
 
 3. 애플리케이션의 `Startup` 클래스를 수정하여 스냅샷 수집기의 원격 분석 프로세서를 추가하고 구성합니다.
-    1. [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지 버전 1.3.5 이상을 사용하는 경우 다음 `Startup.cs`문을 사용하여 다음을 추가합니다.
+    1. [Microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지 버전 1.3.5 이상이 사용 되는 경우에는 다음 using 문을에 `Startup.cs`추가 합니다.
 
        ```csharp
             using Microsoft.ApplicationInsights.SnapshotCollector;
        ```
 
-       의 클래스에서 ConfigureServices 메서드의 끝에 `Startup` 다음을 `Startup.cs`추가합니다.
+       의 `Startup` `Startup.cs`클래스에서 ConfigureServices 메서드의 끝에 다음을 추가 합니다.
 
        ```csharp
             services.AddSnapshotCollector((configuration) => Configuration.Bind(nameof(SnapshotCollectorConfiguration), configuration));
        ```
-    2. [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지 버전 1.3.4 이하가 사용되는 경우 다음 `Startup.cs`문을 사용하여 다음을 추가합니다.
+    2. [Microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지 버전 1.3.4이 사용 되는 경우에는 다음 using 문을에 `Startup.cs`추가 합니다.
 
        ```csharp
        using Microsoft.ApplicationInsights.SnapshotCollector;
@@ -129,7 +129,7 @@ ASP.NET 또는 ASP.NET 핵심 응용 프로그램이 Azure 앱 서비스에서 �
        }
        ```
 
-4. 필요한 경우 appsettings.json에 SnapshotCollectorConfiguration 섹션을 추가하여 스냅숏 디버거 구성을 사용자 지정했습니다. 스냅숏 디버거 구성의 모든 설정은 선택 사항입니다. 다음은 기본 구성과 동일한 구성을 보여 주려는 예제입니다.
+4. 필요한 경우 SnapshotCollectorConfiguration 섹션을 appsettings에 추가 하 여 스냅숏 디버거 구성을 사용자 지정 합니다. 스냅숏 디버거 구성의 모든 설정은 선택 사항입니다. 다음은 기본 구성에 해당 하는 구성을 보여 주는 예제입니다.
 
    ```json
    {
@@ -177,6 +177,6 @@ ASP.NET 또는 ASP.NET 핵심 응용 프로그램이 Azure 앱 서비스에서 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 예외를 트리거할 수 있는 응용 프로그램에 대한 트래픽을 생성합니다. 그런 다음 스냅숏이 Application Insights 인스턴스로 전송될 때까지 10~15분 동안 기다립니다.
-- Azure 포털의 [스냅숏을](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) 참조하십시오.
-- 스냅샷 디버거 문제 해결에 대한 도움말은 [스냅숏 디버거 문제 해결을](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json)참조하십시오.
+- 예외를 트리거할 수 있는 응용 프로그램에 대 한 트래픽을 생성 합니다. 그런 다음 스냅숏이 Application Insights 인스턴스로 전송 될 때까지 10 ~ 15 분 정도 기다립니다.
+- Azure Portal의 [스냅숏](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) 을 참조 하십시오.
+- 스냅숏 디버거 문제를 해결 하는 데 도움이 필요 하면 [스냅숏 디버거 문제 해결](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json)을 참조 하세요.

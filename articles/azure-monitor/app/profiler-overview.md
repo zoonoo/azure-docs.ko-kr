@@ -1,5 +1,5 @@
 ---
-title: 응용 프로그램 인사이트 프로파일러를 사용한 Azure의 프로덕션 앱 프로필
+title: Application Insights Profiler를 사용 하 여 Azure에서 프로덕션 앱 프로 파일링
 description: 적은 공간의 프로파일러를 사용하여 웹 서버 코드에서 실행 부하 과다 경로를 식별합니다.
 ms.topic: conceptual
 author: cweining
@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: ce952bd248640d03fcff43284707614577df8469
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671650"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Application Insights를 사용하여 Azure에서 프로덕션 애플리케이션 프로파일링
@@ -21,10 +21,10 @@ Azure Application Insights Profiler는 Azure의 프로덕션 환경에서 실행
 Profiler는 다음과 같은 Azure 서비스에 배포된 .NET 애플리케이션에서 작동합니다. 각 서비스 형식에 맞게 Profiler를 사용하도록 설정하기 위한 특정 지침은 아래 링크에 나와 있습니다.
 
 * [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Azure 클라우드 서비스](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Azure 서비스 패브릭](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines 및 Virtual Machine Scale Sets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
-* [**미리 보기** ASP.NET 코어 Azure 리눅스 웹 애플 리 케이 션](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
+* [**미리 보기** Azure Linux Web Apps ASP.NET Core](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
 Profiler를 사용하도록 설정해도 추적이 표시되지 않으면 [문제 해결 가이드](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)를 확인하세요.
 
@@ -89,9 +89,9 @@ Microsoft 서비스 프로파일러는 샘플링 메서드와 계측의 조합�
 
 **BLOCKED_TIME**은 코드가 다른 리소스를 사용할 수 있을 때까지 기다리고 있음을 나타냅니다. 예를 들어, 동기화 개체를 기다리거나, 스레드를 사용할 수 있거나 요청이 완료될 때까지 기다릴 수 있습니다.
 
-### <a name="unmanaged-async"></a>관리되지 않는 비동기
+### <a name="unmanaged-async"></a>관리 되지 않는 비동기
 
-.NET 프레임워크는 ETW 이벤트를 내림제하고 스레드 간에 활동 ID를 전달하므로 스레드 간에 비동기 호출을 추적할 수 있습니다. 관리되지 않는 코드(네이티브 코드) 및 일부 이전 스타일의 비동기 코드에는 이러한 이벤트 및 활동 ID가 없으므로 프로파일러는 스레드에서 실행 중인 스레드와 함수를 알 수 없습니다. 호출 스택에서 '관리되지 않는 비동기'라는 레이블이 지정됩니다. ETW 파일을 다운로드하는 경우 [PerfView를](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) 사용하여 무슨 일이 일어나고 있는지 더 자세히 알아볼 수 있습니다.
+.NET framework는 ETW 이벤트를 내보내고 스레드 간에 작업 id를 전달 하 여 스레드 간에 비동기 호출을 추적할 수 있도록 합니다. 관리 되지 않는 코드 (네이티브 코드)와 비동기 코드의 일부 이전 스타일에는 이러한 이벤트와 활동 id가 없으므로 프로파일러에서는 스레드 및 스레드에서 실행 되는 함수를 알 수 없습니다. 호출 스택에서 ' 관리 되지 않는 Async '로 레이블이 지정 됩니다. ETW 파일을 다운로드 하는 경우 [Perfview](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) 를 사용 하 여 발생 하는 상황에 대 한 자세한 정보를 얻을 수 있습니다.
 
 ### <a name="cpu-time"></a><a id="cpu"></a>CPU 시간
 
@@ -122,8 +122,8 @@ Profiler는 Profiler가 추적을 캡처하도록 설정된 애플리케이션�
 ## <a name="next-steps"></a>다음 단계
 Azure 애플리케이션에 대해 Application Insights Profiler를 사용하도록 설정합니다. 또한 다음을 참조하세요.
 * [App Services](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Azure 클라우드 서비스](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Azure 서비스 패브릭](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines 및 Virtual Machine Scale Sets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 

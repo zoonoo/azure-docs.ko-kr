@@ -1,6 +1,6 @@
 ---
-title: Dv2 및 Dsv2 시리즈 - Azure 가상 컴퓨터
-description: Dv2 및 Dsv2 시리즈 VM에 대한 사양입니다.
+title: Dv2 및 Dsv2 시리즈-Azure Virtual Machines
+description: Dv2 및 Dsv2 시리즈 Vm에 대 한 사양입니다.
 services: virtual-machines
 author: joelpelley
 ms.service: virtual-machines
@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 808b14f118e842cb9e52d110075f92ba25a343c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78164426"
 ---
 # <a name="dv2-and-dsv2-series"></a>Dv2 및 DSv2 시리즈
 
-Dv2 및 Dsv2 시리즈는 원래 D 시리즈에 이어 더욱 강력한 CPU와 최적의 CPU-메모리 구성을 갖추고 있어 대부분의 프로덕션 워크로드에 적합합니다. Dv2 시리즈는 D 시리즈보다 약 35% 빠릅니다. Dv2 시리즈는 인텔® 제온® 8171M 2.1GHz (스카이 레이크), 인텔® 제온® E5-2673 v4 2.3 GHz (브로드 웰) 또는 인텔® 제온® E5-2673 v3 2.4 GHz (하스웰) 프로세서인텔 터보 부스트 기술 2.0. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
+원본 D 시리즈에 대 한 후속 작업 인 Dv2 및 Dsv2 시리즈는 대부분의 프로덕션 워크 로드에 적합 한 강력한 CPU 및 최적의 CPU 메모리 구성을 기능 합니다. Dv2 시리즈는 D 시리즈 보다 약 35% 더 빠릅니다. Dv2 시리즈는 intel 터보 부스트 기술 2.0을 사용 하 여 Intel® Xeon® 8171M (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 또는 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서에서 실행 됩니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 
 ## <a name="dv2-series"></a>Dv2 시리즈
 
-Dv2 시리즈 크기는 인텔® 제온® 8171M 2.1GHz (스카이 레이크) 또는 인텔® 제온® E5-2673 v4 2.3 GHz (브로드 웰) 또는 인텔® 제온® E5-2673 v3 2.4 GHz의 (하스웰) 프로세서 인텔 터보 부스트 기술 2.0.
+Dv2 시리즈 크기는 intel® Xeon® 8171M (Skylake) 또는 intel® Xeon® E5-2673 v4 2.3 g h z (Broadwell) 또는 intel® Xeon® E5-2673 v3 2.4 g h z (Haswell) 프로세서와 Intel 터보 부스트 기술 2.0에서 실행 됩니다.
 
 ACU: 210-250
 
 Premium Storage: 지원되지 않음
 
-프리미엄 스토리지 캐싱: 지원되지 않음
+Premium Storage 캐싱: 지원 되지 않음
 
-라이브 마이그레이션: 지원됨
+실시간 마이그레이션: 지원 됨
 
-메모리 보존 업데이트: 지원
+메모리 보존 업데이트: 지원 됨
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 온도 저장 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크 수 | 처리량: IOPS | 최대 NIC/예상 네트워크 대역폭(Mbps) |
+| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크 수 | 처리량: IOPS | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_D1_v2 | 1  | 3.5 | 50  | 3000/46/23    | 4  | 4x500  | 2/750   |
 | Standard_D2_v2 | 2  | 7   | 100 | 6000/93/46    | 8  | 8x500  | 2/1500  |
@@ -42,19 +42,19 @@ Premium Storage: 지원되지 않음
 
 ## <a name="dsv2-series"></a>DSv2 시리즈
 
-DSv2 계열 크기는 인텔® 제온® 8171M 2.1GHz(스카이레이크) 또는 인텔® 제온® E5-2673 v4 2.3GHz(브로드웰) 또는 인텔® 제온® E5-2673 v3 2.4GHz(하스웰) 프로세서에서 실행됩니다.
+DSv2 시리즈 크기는 intel® Xeon® 8171M (Skylake) 또는 intel® Xeon® E5-2673 v4 2.3 g h z (Broadwell) 또는 intel® Xeon® E5-2673 v3 2.4 g h z (Haswell) 2.0 프로세서에서 실행 되며, 프리미엄 저장소를 사용 합니다.
 
 ACU: 210-250
 
 Premium Storage: 지원됨
 
-프리미엄 스토리지 캐싱: 지원
+Premium Storage 캐싱: 지원 됨
 
-라이브 마이그레이션: 지원됨
+실시간 마이그레이션: 지원 됨
 
-메모리 보존 업데이트: 지원
+메모리 보존 업데이트: 지원 됨
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장 처리량: IOPS/MBps(GiB의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC/예상 네트워크 대역폭(Mbps) |
+| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 최대 캐시 되지 않은 디스크 처리량: IOPS/MBps | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_DS1_v2 | 1  | 3.5 | 7   | 4  | 4000/32 (43)    | 3200/48   | 2/750   |
 | Standard_DS2_v2 | 2  | 7   | 14  | 8  | 8000/64 (86)    | 6400/96   | 2/1500  |
@@ -67,7 +67,7 @@ Premium Storage: 지원됨
 ## <a name="other-sizes"></a>기타 크기
 
 - [범용](sizes-general.md)
-- [메모리 최적화](sizes-memory.md)
+- [메모리에 최적화](sizes-memory.md)
 - [Storage에 최적화](sizes-storage.md)
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)

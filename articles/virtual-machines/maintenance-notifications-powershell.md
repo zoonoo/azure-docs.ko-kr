@@ -1,6 +1,6 @@
 ---
-title: PowerShell을 사용하여 Azure VM에 대한 유지 관리 알림 받기
-description: Azure에서 실행 중인 가상 시스템에 대한 유지 관리 알림을 보고 PowerShell을 사용하여 셀프 서비스 유지 관리를 시작합니다.
+title: PowerShell을 사용 하 여 Azure Vm에 대 한 유지 관리 알림 받기
+description: Azure에서 실행 되는 가상 머신에 대 한 유지 관리 알림을 확인 하 고 PowerShell을 사용 하 여 셀프 서비스 유지 관리를 시작 합니다.
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
 ms.openlocfilehash: b23c210d7c8a9f1d42e6e1b46e0f7f81bda857b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77916085"
 ---
-# <a name="handling-planned-maintenance-using-powershell"></a>PowerShell을 사용하여 계획된 유지 관리 처리
+# <a name="handling-planned-maintenance-using-powershell"></a>PowerShell을 사용 하 여 계획 된 유지 관리 처리
 
-**이 문서는 Linux와 Windows를 모두 실행하는 가상 컴퓨터에 적용됩니다.**
+**이 문서는 Linux 및 Windows를 실행 하는 가상 컴퓨터에 적용 됩니다.**
 
-Azure PowerShell을 사용하여 VM이 [유지 관리를](maintenance-notifications.md)위해 예약된 시기를 확인할 수 있습니다. 계획된 유지 관리 정보는 `-status` 매개 변수를 사용하는 경우 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) cmdlet에서 확인할 수 있습니다.
+Azure PowerShell를 사용 하 여 Vm이 [유지 관리](maintenance-notifications.md)되도록 예약 된 시기를 확인할 수 있습니다. 계획된 유지 관리 정보는 `-status` 매개 변수를 사용하는 경우 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) cmdlet에서 확인할 수 있습니다.
   
 유지 관리 정보는 계획된 유지 관리가 있는 경우에만 반환됩니다. VM에 영향을 미치는 유지 관리가 예약되지 않은 경우 cmdlet은 유지 관리 정보를 반환하지 않습니다. 
 
@@ -29,7 +29,7 @@ Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status
 
 MaintenanceRedeployStatus의 다음과 같은 속성이 반환됩니다. 
 
-| 값 | 설명   |
+| 값 | Description   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 이번에 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있을 때 유지 관리 셀프 서비스 기간의 시작 시간입니다. |
@@ -46,7 +46,7 @@ MaintenanceRedeployStatus의 다음과 같은 속성이 반환됩니다.
 Get-AzVM -ResourceGroupName myResourceGroup -Status
 ```
 
-다음 PowerShell 예제는 구독 ID를 가져와 유지 관리로 예약된 VM 목록을 반환합니다.
+다음 PowerShell 예제에서는 구독 ID를 사용 하 고 유지 관리를 위해 예약 된 Vm의 목록을 반환 합니다.
 
 ```powershell
 
@@ -102,4 +102,4 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure CLI](maintenance-notifications-cli.md) 또는 [포털을](maintenance-notifications-portal.md)사용하여 계획된 유지 관리를 처리할 수도 있습니다.
+[Azure CLI](maintenance-notifications-cli.md) 또는 [포털](maintenance-notifications-portal.md)을 사용 하 여 계획 된 유지 관리를 처리할 수도 있습니다.

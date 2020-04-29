@@ -8,10 +8,10 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: bb94d3596fde541f16edd1b7012f57b89ebf52eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670868"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Visual Studio에서 추세 분석
@@ -56,7 +56,7 @@ Application Insights 추세는 앱의 원격 분석으로부터 시계열 시각
 * **시간 범위** - 지난 30분에서 지난 3일까지의 범위
 * **그룹별** - 예외 형식, 문제 ID, 국가/지역 등
 
-그런 다음 **원격 분석 분석을** 클릭하여 쿼리를 실행합니다.
+그런 다음 **원격 분석 분석** 을 클릭 하 여 쿼리를 실행 합니다.
 
 시각화의 거품 사이를 이동하려면:
 
@@ -70,7 +70,7 @@ Application Insights 추세는 앱의 원격 분석으로부터 시계열 시각
 > 
 
 ## <a name="filter"></a>Assert
-창의 맨 아래에서 필터 컨트롤로 보다 구체적인 추세를 검색합니다. 필터를 적용하려면 해당 이름을 클릭합니다. 원격 분석의 특정 차원에 숨어 있을 수 있는 추세를 검색하기 위해 여러 필터 사이를 신속하게 전환할 수 있습니다. 예외 유형과 같은 한 차원에서 필터를 적용하는 경우 회색으로 표시되더라도 다른 차원의 필터는 클릭 가능한 상태로 유지됩니다. 필터 적용취소하려면 필터를 다시 클릭합니다. 동일한 차원의 여러 필터를 선택하려면 Ctrl 키를 누르고 클릭합니다.
+창의 맨 아래에서 필터 컨트롤로 보다 구체적인 추세를 검색합니다. 필터를 적용하려면 해당 이름을 클릭합니다. 원격 분석의 특정 차원에 숨어 있을 수 있는 추세를 검색하기 위해 여러 필터 사이를 신속하게 전환할 수 있습니다. 예외 유형 같은 한 차원에서 필터를 적용 하는 경우 회색으로 표시 된 경우에도 다른 차원의 필터를 클릭할 수 있습니다. 필터를 적용 취소 하려면 다시 클릭 합니다. 동일한 차원의 여러 필터를 선택하려면 Ctrl 키를 누르고 클릭합니다.
 
 ![추세 필터](./media/visual-studio-trends/TrendsFiltering-750.png)
 
@@ -99,6 +99,6 @@ Application Insights 추세는 앱의 원격 분석으로부터 시계열 시각
 |  |  |
 | --- | --- |
 | **[Visual Studio Online에서 Application Insights로 작업](../../azure-monitor/app/visual-studio.md)**<br/>원격 분석을 검색하고, CodeLens에서 데이터를 확인하며, Application Insights를 구성합니다. Visual Studio 내에서 모두 수행할 수 있습니다. |![프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 및 검색을 선택합니다.](./media/visual-studio-trends/34.png) |
-| **[더 많은 데이터 추가](../../azure-monitor/app/asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. |![Visual studio](./media/visual-studio-trends/64.png) |
+| **[추가 데이터 추가](../../azure-monitor/app/asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. |![Visual studio](./media/visual-studio-trends/64.png) |
 | **[Application Insights 포털 사용](../../azure-monitor/app/overview-dashboard.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 애플리케이션의 라이브 종속성 맵 및 원격 분석 내보내기입니다. |![Visual studio](./media/visual-studio-trends/62.png) |
 

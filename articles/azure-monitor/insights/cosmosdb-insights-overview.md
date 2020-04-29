@@ -1,127 +1,127 @@
 ---
-title: 코스모스 DB에 대한 Azure 모니터를 통해 Azure 코스모스 DB 모니터링(미리 보기)| 마이크로 소프트 문서
-description: 이 문서에서는 Cosmos DB 소유자에게 CosmosDB 계정의 성능 및 사용률 문제를 빠르게 이해할 수 있는 Cosmos DB용 Azure 모니터 기능에 대해 설명합니다.
+title: Cosmos DB에 대 한 Azure Monitor를 사용 하 여 Azure Cosmos DB 모니터링 (미리 보기) | Microsoft Docs
+description: 이 문서에서는 Cosmos DB 소유자에 게 CosmosDB 계정에 대 한 성능 및 사용 문제를 신속 하 게 이해 하는 Cosmos DB 기능을 제공 하는 Azure Monitor에 대해 설명 합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/27/2019
 ms.openlocfilehash: 9a900a2f2e950fe9b9846ebcc047d7c344284948
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78250671"
 ---
-# <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Azure 코스모스 DB용 Azure 모니터 탐색(미리 보기)
+# <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Azure Cosmos DB에 대 한 Azure Monitor 살펴보기 (미리 보기)
 
-Azure Cosmos DB용 Azure 모니터(미리 보기)는 통합대화형 환경에서 모든 Azure Cosmos DB 리소스의 전반적인 성능, 실패, 용량 및 운영 상태를 볼 수 있습니다. 이 문서에서는 이 새로운 모니터링 환경의 이점과 조직의 고유한 요구에 맞게 환경을 수정하고 조정할 수 있는 방법을 이해하는 데 도움이 됩니다.   
+Azure Cosmos DB (미리 보기)에 대 한 Azure Monitor는 통합 된 대화형 환경에서 모든 Azure Cosmos DB 리소스의 전반적인 성능, 오류, 용량 및 운영 상태를 보여 줍니다. 이 문서는이 새로운 모니터링 환경의 이점과 조직의 고유한 요구 사항에 맞게 환경을 수정 하 고 조정 하는 방법을 이해 하는 데 도움이 됩니다.   
 
 ## <a name="introduction"></a>소개
 
-경험에 다이빙하기 전에, 당신은 그것이 정보를 제시하고 시각화하는 방법을 이해해야합니다. 
+경험을 살펴보기 전에 정보를 제공 하 고 시각화 하는 방법을 이해 해야 합니다. 
 
-그것은 제공합니다 :
+다음을 제공 합니다.
 
-* 평가하려는 구독 및 리소스만 선택적으로 범위를 확장할 수 있는 기능을 통해 단일 위치에 있는 모든 구독에 걸쳐 Azure Cosmos DB 리소스의 **확장 관점에서** 볼 수 있습니다.
+* 단일 위치에 있는 모든 구독에 대 한 Azure Cosmos DB 리소스의 **규모 관점** 에서 원하는 구독 및 리소스에 대 한 범위를 선택적으로 선택할 수 있습니다.
 
-* 특정 Azure CosmosDB 리소스에 대한 **분석을 드릴다운하여** 문제를 진단하거나 범주별(사용률, 실패, 용량 및 운영)별로 자세한 분석을 수행할 수 있습니다. 이러한 옵션 중 하나를 선택하면 관련 Azure Cosmos DB 메트릭에 대한 심층적인 뷰를 볼 수 있습니다.  
+* 특정 Azure CosmosDB 리소스를 **드릴 다운 분석** 하 여 문제를 진단 하거나 범주 사용률, 실패, 용량 및 작업을 통해 자세한 분석을 수행할 수 있습니다. 이러한 옵션 중 하나를 선택 하면 관련 Azure Cosmos DB 메트릭을 자세히 확인할 수가 제공 됩니다.  
 
-* **사용자 지정 가능** - 이 환경은 Azure Monitor 통합 문서 템플릿 위에 구축되어 표시되는 메트릭을 변경하고 제한에 맞는 임계값을 수정 또는 설정한 다음 사용자 지정 통합 문서로 저장할 수 있습니다. 그러면 통합 문서의 차트를 Azure 대시보드에 고정할 수 있습니다.  
+* **사용자 지정 가능** -이 환경은 Azure Monitor 통합 문서 템플릿을 기반으로 하므로 표시 되는 메트릭을 변경 하 고, 제한과 일치 하는 임계값을 수정 하거나 설정 하 고, 사용자 지정 통합 문서에 저장할 수 있습니다. 그러면 통합 문서의 차트를 Azure 대시보드에 고정할 수 있습니다.  
 
-이 기능은 아무것도 활성화하거나 구성할 필요가 없으며 이러한 Azure Cosmos DB 메트릭은 기본적으로 수집됩니다.
+이 기능을 사용 하도록 설정 하거나 구성할 필요가 없습니다. 이러한 Azure Cosmos DB 메트릭은 기본적으로 수집 됩니다.
 
 >[!NOTE]
->이 기능에 액세스하는 데는 요금이 부과되지 않으며 [Azure Monitor 가격 세부 정보](https://azure.microsoft.com/pricing/details/monitor/) 페이지에 설명된 대로 구성하거나 활성화한 Azure Monitor 필수 기능에 대해서만 요금이 부과됩니다.
+>이 기능에 액세스 하는 것은 무료로 제공 되며 [Azure Monitor 가격 책정 정보](https://azure.microsoft.com/pricing/details/monitor/) 페이지에 설명 된 대로 구성 하거나 사용 하도록 설정한 Azure Monitor 필수 기능에 대해서만 요금이 부과 됩니다.
 
-## <a name="view-utilization-and-performance-metrics-for-azure-cosmos-db"></a>Azure 코스모스 DB의 사용률 및 성능 메트릭 보기
+## <a name="view-utilization-and-performance-metrics-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 사용률 및 성능 메트릭 보기
 
-모든 구독에서 저장소 계정의 사용률과 성능을 보려면 다음 단계를 수행합니다.
+모든 구독에서 저장소 계정의 사용률 및 성능을 보려면 다음 단계를 수행 합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **모니터를** 검색하고 **모니터를**선택합니다.
+2. **모니터** 를 검색 하 고 **모니터**를 선택 합니다.
 
-    !["모니터"라는 단어와 속도계 스타일 이미지가있는 서비스 "모니터"라는 드롭 다운이있는 검색 상자](./media/cosmosdb-insights-overview/search-monitor.png)
+    !["Monitor" 라는 단어가 포함 된 검색 상자 및 속도계 스타일 이미지를 사용 하는 "Monitor" 서비스 라는 드롭다운](./media/cosmosdb-insights-overview/search-monitor.png)
 
-3. **코스모스 DB(미리 보기)를 선택합니다.**
+3. **Cosmos DB (미리 보기)** 를 선택 합니다.
 
-    ![코스모스 DB 개요 통합 문서의 스크린샷](./media/cosmosdb-insights-overview/cosmos-db.png)
+    ![Cosmos DB 개요 통합 문서 스크린샷](./media/cosmosdb-insights-overview/cosmos-db.png)
 
 ### <a name="overview"></a>개요
 
-**개요에서**테이블에는 대화형 Azure Cosmos DB 메트릭이 표시됩니다. 다음 드롭다운 목록에서 선택한 옵션에 따라 결과를 필터링할 수 있습니다.
+**개요**의 표에는 대화형 Azure Cosmos DB 메트릭이 표시 됩니다. 다음 드롭다운 목록에서 선택한 옵션을 기준으로 결과를 필터링 할 수 있습니다.
 
-* **구독** - Azure Cosmos DB 리소스가 있는 구독만 나열됩니다.  
+* **구독** -Azure Cosmos DB 리소스를 포함 하는 구독만 나열 됩니다.  
 
-* **코스모스 DB** - 모든, 하위 집합 또는 단일 Azure 코스모스 DB 리소스를 선택할 수 있습니다.
+* **Cosmos DB** -모두, 하위 집합 또는 단일 Azure Cosmos DB 리소스를 선택할 수 있습니다.
 
-* **시간 범위** - 기본적으로 해당 선택 항목에 따라 지난 4시간의 정보가 표시됩니다.
+* **시간 범위** -기본적으로는 선택한 항목을 기준으로 지난 4 시간 동안의 정보를 표시 합니다.
 
-드롭다운 목록 아래의 카운터 타일은 선택한 구독에 있는 Azure Cosmos DB 리소스의 총 수를 롤업합니다. 트랜잭션 메트릭을 보고하는 통합 문서의 열에 대한 조건부 색상 코딩 또는 히트맵이 있습니다. 가장 깊은 색상은 가장 높은 값을 가지며 밝은 색상은 가장 낮은 값을 기반으로 합니다. 
+드롭다운 목록 아래의 카운터 타일은 선택 된 구독에 있는 Azure Cosmos DB 리소스의 총 수를 롤업 합니다. 통합 문서에서 트랜잭션 메트릭을 보고 하는 열에 대 한 조건적 색 구분 또는 열 지도이 있습니다. 가장 높은 색은 가장 높은 값을 가지 며 가장 밝은 색은 가장 작은 값을 기준으로 합니다. 
 
-Azure Cosmos DB 리소스 중 하나 옆에 있는 드롭다운 화살표를 선택하면 개별 데이터베이스 컨테이너 수준에서 성능 메트릭에 대한 분석이 표시됩니다.
+Azure Cosmos DB 리소스 중 하나 옆의 드롭다운 화살표를 선택 하면 개별 데이터베이스 컨테이너 수준에서 성능 메트릭에 대 한 분석 결과가 표시 됩니다.
 
-![개별 데이터베이스 컨테이너 및 관련 성능 분석 이 드러나는 확장된 드롭다운](./media/cosmosdb-insights-overview/container-view.png)
+![개별 데이터베이스 컨테이너 및 관련 된 성능 분석 기능이 확장 된 드롭다운](./media/cosmosdb-insights-overview/container-view.png)
 
-파란색으로 강조 표시된 Azure Cosmos DB 리소스 이름을 선택하면 연결된 Azure Cosmos DB 계정에 대한 기본 **개요로** 이동합니다. 
+파란색으로 강조 표시 된 Azure Cosmos DB 리소스 이름을 선택 하면 연결 된 Azure Cosmos DB 계정의 기본 **개요** 로 이동 합니다. 
 
 ### <a name="failures"></a>오류
 
-페이지 상단에서 **오류를** 선택하고 통합 문서 템플릿의 **실패** 부분이 열립니다. 이러한 요청을 구성하는 응답의 분포를 사용하여 총 요청을 보여 주며 다음과 같은 것을 보여 드립니다.
+페이지 맨 위에서 **실패** 를 선택 하면 통합 문서 템플릿의 **실패** 부분이 열립니다. 이러한 요청을 구성 하는 응답의 분포를 포함 하는 총 요청 수를 표시 합니다.
 
-![HTTP 요청 유형별 분석이 발생한 오류 의 스크린샷](./media/cosmosdb-insights-overview/failures.png)
+![HTTP 요청 유형별 분석 오류 스크린샷](./media/cosmosdb-insights-overview/failures.png)
 
-| 코드      |  설명       | 
+| 코드      |  Description       | 
 |-----------|:--------------------|
-| `200 OK`  | 다음 REST 작업 중 하나가 정상적으로 완료되었습니다. </br>- 자원에 GET. </br> - 자원에 넣어. </br> - 리소스에 게시합니다. </br> - 저장 프로시저 리소스에 게시하여 저장 프로시저를 실행합니다.|
+| `200 OK`  | 다음 REST 작업 중 하나가 정상적으로 완료되었습니다. </br>-리소스를 가져옵니다. </br> -리소스에 추가 합니다. </br> -리소스에 게시 합니다. </br> -저장 프로시저를 실행 하기 위해 저장 프로시저 리소스에 게시 합니다.|
 | `201 Created` | 리소스를 만들기 위한 POST 작업이 정상적으로 완료되었습니다. |
 | `404 Not Found` | 더 이상 없는 리소스에 대해 작업을 수행했습니다. 리소스가 이미 삭제된 경우를 예로 들 수 있습니다. |
 
-상태 코드의 전체 목록은 [Azure Cosmos DB HTTP 상태 코드 문서를](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb)참조하십시오.
+상태 코드의 전체 목록은 [AZURE COSMOS DB HTTP 상태 코드 문서](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb)를 참조 하세요.
 
 ### <a name="capacity"></a>용량
 
-페이지 상단에서 **용량을** 선택하고 통합 문서 템플릿의 **용량** 부분이 열립니다. 사용 가능한 문서 수, 시간에 따라 문서 증가, 데이터 사용량 및 남은 사용 가능한 저장소의 총 양을 보여 줍니다.  잠재적인 저장소 및 데이터 사용률 문제를 식별하는 데 사용할 수 있습니다.
+페이지 맨 위에 있는 **용량** 을 선택 하면 통합 문서 템플릿의 **용량** 부분이 열립니다. 사용자가 보유 한 문서 수, 시간에 따른 문서 증가, 데이터 사용, 남은 사용 가능한 저장소의 총 크기를 보여 줍니다.  이를 사용 하 여 잠재적 저장소 및 데이터 사용률 문제를 식별할 수 있습니다.
 
 ![용량 통합 문서](./media/cosmosdb-insights-overview/capacity.png) 
 
-개요 통합 문서와 마찬가지로 **구독** 열의 Azure Cosmos DB 리소스 옆의 드롭다운을 선택하면 데이터베이스를 구성하는 개별 컨테이너에 의한 분석 이 표시됩니다.
+개요 통합 문서와 마찬가지로 **구독** 열의 Azure Cosmos DB 리소스 옆에 있는 드롭다운을 선택 하면 데이터베이스를 구성 하는 개별 컨테이너의 분석 결과가 표시 됩니다.
 
 ### <a name="operations"></a>작업 
 
-페이지 상단에서 **작업을** 선택하고 통합 문서 템플릿의 **작업** 부분이 열립니다. 요청 유형별로 세분화된 요청을 볼 수 있습니다. 
+페이지 위쪽에서 **작업** 을 선택 하면 통합 문서 템플릿의 **작업** 부분이 열립니다. 요청 유형에 따라 세분화 된 요청을 볼 수 있는 기능을 제공 합니다. 
 
-따라서 아래 예제에서는 주로 `eastus-billingint` 읽기 요청을 수신하지만 소수의 upsert 및 생성 요청을 받는 것을 볼 수 있습니다. 요청 `westeurope-billingint` 관점에서 읽기 전용인 반면, 적어도 지난 4시간 동안 통합 문서의 시간 범위 매개 변수를 통해 현재 범위가 조정됩니다.
+따라서 아래 예제에서는 upsert 및 create 요청 `eastus-billingint` 수가 적은 읽기 요청을 수신 하는 것을 볼 수 있습니다. 는 `westeurope-billingint` 요청 관점에서 읽기 전용 이지만 이전 4 시간 이상, 통합 문서는 현재 시간 범위 매개 변수를 통해 범위를 지정 합니다.
 
 ![운영 통합 문서](./media/cosmosdb-insights-overview/operation.png) 
 
-## <a name="pin-export-and-expand"></a>핀, 내보내기 및 확장
+## <a name="pin-export-and-expand"></a>고정, 내보내기 및 확장
 
-섹션 오른쪽 상단에 있는 푸시핀 아이콘을 선택하여 메트릭 섹션 중 하나를 [Azure 대시보드에](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) 고정할 수 있습니다.
+섹션의 오른쪽 위에 있는 압정 아이콘을 선택 하 여 메트릭 섹션 중 하나를 [Azure 대시보드에](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) 고정할 수 있습니다.
 
-![대시보드 예제에 대한 메트릭 섹션 핀](./media/cosmosdb-insights-overview/pin.png)
+![대시보드 섹션 대시보드에 고정 예](./media/cosmosdb-insights-overview/pin.png)
 
-데이터를 Excel 형식으로 내보내려면 푸시핀 아이콘 왼쪽에 있는 아래쪽 화살표 아이콘을 선택합니다.
+데이터를 Excel 형식으로 내보내려면 압정 아이콘 왼쪽에 있는 아래쪽 화살표 아이콘을 선택 합니다.
 
-![통합 문서 아이콘 내보내기](./media/cosmosdb-insights-overview/export.png)
+![통합 문서 내보내기 아이콘](./media/cosmosdb-insights-overview/export.png)
 
-통합 문서의 모든 드롭다운 보기를 확장하거나 축소하려면 내보내기 아이콘의 왼쪽에 있는 확장 아이콘을 선택합니다.
+통합 문서의 모든 드롭다운 뷰를 확장 하거나 축소 하려면 내보내기 아이콘 왼쪽에 있는 확장 아이콘을 선택 합니다.
 
-![통합 문서 아이콘 확장](./media/cosmosdb-insights-overview/expand.png)
+![통합 문서 확장 아이콘](./media/cosmosdb-insights-overview/expand.png)
 
-## <a name="customize-azure-monitor-for-azure-cosmos-db-preview"></a>Azure 코스모스 DB에 대한 Azure 모니터 사용자 지정(미리 보기)
+## <a name="customize-azure-monitor-for-azure-cosmos-db-preview"></a>Azure Cosmos DB에 대 한 Azure Monitor 사용자 지정 (미리 보기)
 
-이 환경은 Azure Monitor 통합 문서 템플릿 위에 빌드되므로**편집을** **사용자 지정하고** > 수정된 버전의 복사본을 사용자 지정 통합 문서로 **저장할** 수 있습니다. 
+이 환경은 Azure Monitor 통합 문서 템플릿을 기반으로 > **하므로 사용자** **지정 하 여**수정 된 버전의 복사본을 사용자 지정 통합 문서에 **저장할** 수 있습니다. 
 
-![맞춤 설정 막대](./media/cosmosdb-insights-overview/customize.png)
+![사용자 지정 막대](./media/cosmosdb-insights-overview/customize.png)
 
-통합 문서는 개인 정보 **섹션또는** 리소스 그룹에 액세스할 수 있는 모든 사용자가 액세스할 수 있는 **공유 보고서** 섹션의 리소스 그룹 내에 저장됩니다. 사용자 지정 통합 문서를 저장한 후에는 통합 문서 갤러리로 이동하여 실행해야 합니다.
+통합 문서는 사용자가 개인적으로 사용 하는 **내 보고서** 섹션 또는 리소스 그룹에 액세스할 수 있는 모든 사용자가 액세스할 수 있는 **공유 보고서** 섹션에서 리소스 그룹 내에 저장 됩니다. 사용자 지정 통합 문서를 저장 한 후에는 통합 문서 갤러리로 이동 하 여 시작 해야 합니다.
 
 ![명령 모음에서 통합 문서 갤러리 시작](./media/cosmosdb-insights-overview/gallery.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [메트릭 경고](../platform/alerts-metric.md) 및 서비스 [상태 알림을](../../service-health/alerts-activity-log-service-notifications.md) 구성하여 문제 감지에 도움이 될 자동 경고를 설정합니다.
+* [메트릭 경고](../platform/alerts-metric.md) 및 [서비스 상태 알림을](../../service-health/alerts-activity-log-service-notifications.md) 구성 하 여 문제를 검색 하는 데 도움이 되는 자동화 된 경고를 설정 합니다.
 
-* Azure Monitor 통합 문서를 사용하여 [대화형 보고서 만들기를](../app/usage-workbooks.md)검토하여 통합 문서를 지원하도록 설계된 시나리오, 새 보고서를 작성하고 사용자 지정하는 방법 등을 알아봅니다.
+* 통합 문서가 지원 되도록 설계 된 시나리오, 새 보고서를 작성 하 고 기존 보고서를 사용자 지정 하는 방법 등에 대해 알아보고 [Azure Monitor 통합 문서를 사용 하 여 대화형 보고서 만들기](../app/usage-workbooks.md)를 검토 하세요.

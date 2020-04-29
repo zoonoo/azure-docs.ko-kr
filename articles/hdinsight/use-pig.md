@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: ea960a92aee1c9447bb12d27cffdc42de9fd907a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77672126"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용
@@ -32,9 +32,9 @@ Pig를 사용하면 원하는 출력을 생산하기 위해 데이터가 통과�
 
 * **로드**: 파일 시스템에서 조작할 데이터를 읽습니다.
 
-* **변환**: 데이터를 조작합니다.
+* **Transform**: 데이터를 조작 합니다.
 
-* **덤프 또는 저장**: 데이터를 화면에 출력하거나 처리를 위해 저장합니다.
+* **덤프 또는 저장**: 데이터를 화면에 출력 하거나 처리를 위해 저장 합니다.
 
 ### <a name="user-defined-functions"></a>사용자 정의 함수
 

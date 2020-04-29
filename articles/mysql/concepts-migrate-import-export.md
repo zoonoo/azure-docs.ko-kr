@@ -1,5 +1,5 @@
 ---
-title: 가져오기 및 내보내기 - MySQL용 Azure 데이터베이스
+title: 가져오기 및 내보내기-Azure Database for MySQL
 description: 이 문서에서는 MySQL Workbench와 같은 도구를 사용하여 Azure Database for MySQL에서 데이터베이스를 가져오고 내보내는 일반적인 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
 ms.openlocfilehash: 83b0a69e063e9427c726216ef873f5a1c97f9582
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78163729"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>가져오기 및 내보내기를 사용하여 MySQL 데이터베이스 마이그레이션
@@ -19,10 +19,10 @@ ms.locfileid: "78163729"
 ## <a name="before-you-begin"></a>시작하기 전에
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Portal을 사용하여 Azure Database for MySQL 서버 만들기](quickstart-create-mysql-server-database-using-azure-portal.md)를 따르는 Azure Database for MySQL 서버
-- MySQL 워크 벤치 [MySQL 워크 벤치 다운로드](https://dev.mysql.com/downloads/workbench/) 또는 가져 오기 / 내보내기를 할 수있는 다른 타사 MySQL 도구.
+- MySQL 워크 벤치 [Mysql 워크 벤치 다운로드](https://dev.mysql.com/downloads/workbench/) 또는 다른 타사 mysql 도구로 가져오기/내보내기를 수행할 수 있습니다.
 
 ## <a name="use-common-tools"></a>일반 도구 사용
-MySQL Workbench 또는 mysqldump과 같은 일반적인 유틸리티 및 도구를 사용하여 MySQL용 Azure 데이터베이스로 데이터를 원격으로 연결하고 가져오거나 내보낼 수 있습니다. 
+MySQL 워크 벤치 또는 mysqldump와 같은 일반적인 유틸리티와 도구를 사용 하 여 데이터를 원격으로 연결 하 고 Azure Database for MySQL에 가져오거나 내보냅니다. 
 
 인터넷에 연결된 클라이언트 컴퓨터에서 이러한 도구를 사용하여 Azure Database for MySQL에 연결합니다. [Azure Database for MySQL에서 SSL 연결 구성](concepts-ssl-connection-security.md)에 설명된 대로 최상의 보안을 위해 SSL 암호화 연결을 사용합니다.
 
@@ -96,7 +96,7 @@ MySQL Workbench에는 데이터 내보내기 및 가져오기 방법이 2가지 
 **데이터 내보내기** 탭을 사용하여 MySQL 데이터를 내보낼 수 있습니다. 
 1. 내보내려는 각 스키마를 선택하고, 필요에 따라 각 스키마에서 특정 스키마 개체/테이블을 선택하고, 내보내기를 생성합니다. 구성 옵션에는 프로젝트 폴더 또는 자체 포함된 SQL 파일로 내보내기가 포함되고, 저장된 루틴 및 이벤트를 덤프하거나 테이블 데이터를 건너뛰는 작업도 포함됩니다. 
  
-   또는 결과 **내보내기를** 사용하여 SQL 편집기의 특정 결과 집합을 CSV, JSON, HTML 및 XML과 같은 다른 형식으로 내보냅니다. 
+   또는 **결과 집합 내보내기** 를 사용 하 여 SQL 편집기에서 CSV, JSON, HTML 및 XML 등의 다른 형식으로 특정 결과 집합을 내보냅니다. 
 3. 내보낼 데이터베이스 개체를 선택하고 관련 옵션을 구성합니다.
 4. **새로 고침**을 클릭하여 현재 개체를 로드합니다.
 5. 필요에 따라 내보내기 작업을 미세 조정하는 **고급 옵션** 탭을 엽니다. 예를 들어 테이블 잠금을 추가하고, insert 문 대신 replace를 사용하고, 억음 부호로 식별자를 묶는 작업을 수행할 수 있습니다.

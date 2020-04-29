@@ -1,20 +1,20 @@
 ---
-title: DPM을 사용하여 Azure에 SharePoint 팜 백업
+title: DPM을 사용 하 여 Azure에 SharePoint 팜 백업
 description: 이 문서는 Azure에 대한 SharePoint 팜 DPM/Azure Backup 서버 보호에 관한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 0199495e3b0eb002e58c096ed9abf05d46f43f97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80054122"
 ---
-# <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>DPM을 사용하여 Azure에 SharePoint 팜 백업
+# <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>DPM을 사용 하 여 Azure에 SharePoint 팜 백업
 
 SharePoint 팜은 다른 데이터 원본을 백업하는 것과 같은 방법으로 System Center DPM(Data Protection Manager)을 사용하여 Microsoft Azure에 백업합니다. Azure Backup은 일간, 주간, 월간 혹은 연간 백업 지점을 생성하도록 백업 일정에 유연성을 제공하고 다양한 백업 지점에 관한 보존 정책 옵션을 제공합니다. DPM은 빠른 복구 시간 목표(RTO)를 위해 로컬 디스크 복사본을 저장하는 기능과 경제적인 장기 보존을 위해 Azure에 사본을 복사하는 기능을 제공합니다.
 
-공유점을 DPM으로 Azure에 백업하는 것은 SharePoint를 로컬로 DPM에 백업하는 것과 매우 유사한 프로세스입니다. Azure에 대한 특정 고려 사항은 이 문서에서 설명합니다.
+DPM을 사용 하 여 SharePoint를 Azure에 백업 하는 작업은 SharePoint를 로컬로 DPM에 백업 하는 것과 매우 유사 합니다. Azure에 대 한 특정 고려 사항은이 문서에 나와 있습니다.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint가 지원하는 버전 및 관련 보호 시나리오
 
@@ -28,19 +28,19 @@ SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니
 
 진행에 앞서, 워크로드를 보호하기 위해 [Microsoft Azure Backup 사용의 필수 조건](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 을 모두 충족해야 합니다. 필수 조건을 위한 작업에는 백업 자격 증명 모음 만들기, 보관 자격 증명 모음 다운로드, Azure Backup 에이전트 설치, 자격 증명 모음에 DPM/Azure Backup 서버 등록 등이 포함됩니다.
 
-추가 필수 구성 조건 및 제한 사항은 [DPM이 있는 SharePoint 백업](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#prerequisites-and-limitations) 문서에서 찾을 수 있습니다.
+추가 필수 구성 요소 및 제한 사항은 [DPM을 사용 하 여 SharePoint 백업](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#prerequisites-and-limitations) 문서를 참조 하세요.
 
 ## <a name="configure-backup"></a>백업 구성
 
-SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 SharePoint 보호를 구성한 다음 DPM에서 보호 그룹을 만듭니다. 지침은 DPM 설명서의 [백업 구성을](https://docs.microsoft.com//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) 참조하십시오.
+SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 SharePoint 보호를 구성한 다음 DPM에서 보호 그룹을 만듭니다. 지침은 DPM 설명서의 [백업 구성](https://docs.microsoft.com//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) 을 참조 하세요.
 
 ## <a name="monitoring"></a>모니터링
 
-백업 작업을 모니터링하려면 [DPM 백업 모니터링의](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#monitoring) 지침을 따르십시오.
+백업 작업을 모니터링 하려면 [DPM 백업 모니터링](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#monitoring) 의 지침을 따르세요.
 
 ## <a name="restore-sharepoint-data"></a>SharePoint 데이터 복원
 
-DPM이 있는 디스크에서 SharePoint 항목을 복원하는 방법을 알아보려면 [SharePoint 복원 데이터](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#restore-sharepoint-data)를 참조하십시오.
+DPM을 사용 하 여 디스크에서 SharePoint 항목을 복원 하는 방법에 대 한 자세한 내용은 [sharepoint 데이터 복원](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#restore-sharepoint-data)을 참조 하세요.
 
 ## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>DPM을 사용하여 Azure에서 SharePoint 데이터베이스 복원
 
@@ -71,9 +71,9 @@ DPM이 있는 디스크에서 SharePoint 항목을 복원하는 방법을 알아
 
 ## <a name="switching-the-front-end-web-server"></a>프런트 엔드 웹 서버 전환
 
-프런트 엔드 웹 서버가 두 개 이상 있고 DPM이 팜을 보호하는 데 사용하는 서버를 전환하려는 경우 [프런트 엔드 웹 서버 전환의](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#switching-the-front-end-web-server)지침을 따릅니다.
+프런트 엔드 웹 서버가 둘 이상 있고 DPM에서 팜을 보호 하기 위해 사용 하는 서버를 전환 하려면 [프런트 엔드 웹 서버 전환](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#switching-the-front-end-web-server)의 지침을 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 백업 서버 및 DPM - FAQ](backup-azure-dpm-azure-server-faq.md)
+* [Azure Backup Server 및 DPM-FAQ](backup-azure-dpm-azure-server-faq.md)
 * [System Center Data Protection Manager 문제 해결](backup-azure-scdpm-troubleshooting.md)

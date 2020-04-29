@@ -1,5 +1,5 @@
 ---
-title: 모니터링 - MySQL용 Azure 데이터베이스
+title: 모니터링-Azure Database for MySQL
 description: 이 문서에서는 CPU, 스토리지 및 연결 통계를 포함하여 Azure Database for MySQL을 모니터링하고 경고하는 메트릭을 설명합니다.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 2de04bbb1523151ac566b78bf99eba34c437fccd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79537094"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 모니터링
@@ -22,7 +22,7 @@ ms.locfileid: "79537094"
 ### <a name="list-of-metrics"></a>메트릭 목록
 Azure Database for MySQL에서는 다음 메트릭을 사용할 수 있습니다.
 
-|메트릭|메트릭 표시 이름|단위|설명|
+|메트릭|메트릭 표시 이름|단위|Description|
 |---|---|---|---|
 |cpu_percent|CPU 백분율|백분율|사용 중인 CPU의 비율|
 |memory_percent|메모리 백분율|백분율|사용 중인 메모리의 비율|
@@ -41,41 +41,41 @@ Azure Database for MySQL에서는 다음 메트릭을 사용할 수 있습니다
 |backup_storage_used|사용된 백업 스토리지|바이트|사용된 백업 스토리지 양.|
 
 ## <a name="server-logs"></a>서버 로그
-서버에서 느린 쿼리 및 감사 로깅을 사용하도록 설정할 수 있습니다. 이러한 로그는 Azure 모니터 로그, 이벤트 허브 및 저장소 계정의 Azure 진단 로그를 통해서도 사용할 수 있습니다. 로깅에 대해 자세히 알아보려면 [감사 로그와](concepts-audit-logs.md) 느린 쿼리 로그 문서를 [방문하십시오.](concepts-server-logs.md)
+서버에서 느리게 쿼리 및 감사 로깅을 사용 하도록 설정할 수 있습니다. 이러한 로그는 Azure Monitor 로그, Event Hubs 및 저장소 계정의 Azure 진단 로그를 통해 사용할 수도 있습니다. 로깅에 대 한 자세한 내용은 [감사 로그](concepts-audit-logs.md) 및 [쿼리 로그 느림](concepts-server-logs.md) 문서를 참조 하세요.
 
 ## <a name="query-store"></a>쿼리 저장소
-[쿼리 저장소는](concepts-query-store.md) 쿼리 런타임 통계 및 대기 이벤트를 포함하여 시간에 따라 쿼리 성능을 추적하는 기능입니다. 이 기능은 **mysql** 스키마에서 쿼리 런타임 성능 정보를 유지합니다. 데이터 수집 및 스토리지은 다양한 구성 노브를 통해 제어할 수 있습니다.
+[쿼리 저장소](concepts-query-store.md) 는 쿼리 런타임 통계 및 대기 이벤트를 포함 하 여 시간에 따른 쿼리 성능을 추적 하는 기능입니다. 기능은 **mysql** 스키마에서 쿼리 런타임 성능 정보를 유지 합니다. 데이터 수집 및 스토리지은 다양한 구성 노브를 통해 제어할 수 있습니다.
 
 ## <a name="query-performance-insight"></a>쿼리
-[Query Performance Insight](concepts-query-performance-insight.md)는 쿼리 저장소와 함께 작동하여 Azure Portal에서 액세스할 수 있는 시각화를 제공합니다. 이러한 차트를 사용하면 성능에 영향을 주는 주요 쿼리를 식별할 수 있습니다. 쿼리 성능 인사이트는 MySQL 서버의 포털 페이지에 대한 Azure 데이터베이스의 **지능형 성능** 섹션에서 액세스할 수 있습니다.
+[Query Performance Insight](concepts-query-performance-insight.md)는 쿼리 저장소와 함께 작동하여 Azure Portal에서 액세스할 수 있는 시각화를 제공합니다. 이러한 차트를 사용하면 성능에 영향을 주는 주요 쿼리를 식별할 수 있습니다. Query Performance Insight은 Azure Database for MySQL 서버의 포털 페이지의 **지능형 성능** 섹션에서 액세스할 수 있습니다.
 
 ## <a name="performance-recommendations"></a>성능 권장 사항
-[성능 권장 사항](concepts-performance-recommendations.md) 기능은 워크로드 성능을 향상시킬 수 있는 기회를 식별합니다. 성능 권장 사항은 워크로드의 성능을 향상시킬 수 있는 새 인덱스를 만들기 위한 권장 사항을 제공합니다. 이 기능은 인덱스 권장 사항을 생성하기 위해 쿼리 저장소에서 보고한 스키마와 워크로드를 포함하여 다양한 데이터베이스 특성을 고려하고 있습니다. 성능 권장 사항이 구현되면 고객이 성능을 테스트하여 변경에 따른 영향을 평가해야 합니다.
+[성능 권장 사항](concepts-performance-recommendations.md) 기능은 워크로드 성능을 향상시킬 수 있는 기회를 식별합니다. 성능 권장 사항은 워크 로드의 성능을 향상 시킬 수 있는 새 인덱스를 만들기 위한 권장 사항을 제공 합니다. 이 기능은 인덱스 권장 사항을 생성하기 위해 쿼리 저장소에서 보고한 스키마와 워크로드를 포함하여 다양한 데이터베이스 특성을 고려하고 있습니다. 성능 권장 사항이 구현되면 고객이 성능을 테스트하여 변경에 따른 영향을 평가해야 합니다.
 
-## <a name="planned-maintenance-notification"></a>계획된 유지 관리 알림
+## <a name="planned-maintenance-notification"></a>계획 된 유지 관리 알림
 
-**계획된 유지 관리 알림을** 사용하면 MySQL용 Azure 데이터베이스에 예정된 계획된 유지 관리에 대한 경고를 받을 수 있습니다. 이러한 알림은 [Service Health의](../service-health/overview.md) 계획된 유지 관리와 통합되며 구독에 대한 예약된 모든 유지 관리를 한 곳에서 볼 수 있습니다. 또한 서로 다른 리소스를 담당하는 연락처가 다를 수 있으므로 다른 리소스 그룹에 대해 적절한 대상그룹에 대한 알림을 확장하는 데도 도움이 됩니다. 이벤트 72시간 전에 예정된 유지 관리에 대한 알림을 받게 됩니다.
+**계획 된 유지 관리 알림을** 통해 예정 된 예정 된 유지 관리에 대 한 경고를 Azure Database for MySQL 받을 수 있습니다. 이러한 알림은 [Service Health의](../service-health/overview.md) 계획 된 유지 관리와 통합 되어 있으므로 구독에 대해 예약 된 유지 관리 작업을 한 곳에서 모두 볼 수 있습니다. 또한 다양 한 리소스를 담당 하는 여러 연락처가 있을 수 있으므로 다양 한 리소스 그룹에 대 한 올바른 대상으로 알림을 확장 하는 데 도움이 됩니다. 이벤트 전에 예정 된 유지 관리 72 시간에 대 한 알림을 받게 됩니다.
 
 > [!Note]
-> 우리는 모든 이벤트에 대한 **계획 유지 보수 알림을** 72 시간 통지를 제공하기 위해 모든 시도를 할 것입니다. 그러나 중요 하거나 보안 패치의 경우 알림 이벤트에 가까운 전송 되거나 생략 될 수 있습니다.
+> 모든 이벤트에 대해 **계획 된 유지 관리 알림** 72 시간 통지를 제공 하려고 합니다. 그러나 중요 또는 보안 패치의 경우 알림이 이벤트에 더 가까이 전송 되거나 생략 될 수 있습니다.
 
-### <a name="to-receive-planned-maintenance-notification"></a>계획된 유지 관리 알림을 받으려면
+### <a name="to-receive-planned-maintenance-notification"></a>계획 된 유지 관리 알림을 받으려면
 
 1. [포털](https://portal.azure.com)에서 **서비스 상태**를 선택합니다.
 2. **경고** 섹션에서 **상태 경고**를 선택합니다.
-3. **+ 서비스 상태 경고를 추가하고** 필드를 채웁니다.
-4. 필요한 필드를 채웁니다. 
-5. 이벤트 **유형을**선택하거나 **계획된 유지 관리를** 선택하거나 모두 **선택합니다.**
-6. **작업 그룹에서** 경고를 수신하는 방법을 정의합니다(이메일 받기, 논리 앱 트리거 등)  
-7. 생성 시 규칙 활성화가 예로 설정되어 있는지 확인합니다.
-8. **경고 규칙 만들기를** 선택하여 경고를 완료합니다.
+3. **+ 서비스 상태 경고 추가** 를 선택 하 고 필드를 입력 합니다.
+4. 필수 필드를 입력 합니다. 
+5. **이벤트 유형을**선택 하 고 **계획 된 유지 관리** 를 선택 하거나 **모두를 선택** 합니다.
+6. **작업 그룹** 에서 경고를 수신 하는 방법 (전자 메일 가져오기, 논리 앱 트리거 등)을 정의 합니다.  
+7. 규칙을 만들 때 규칙 사용이 예로 설정 되어 있는지 확인 합니다.
+8. 경고 **규칙 만들기** 를 선택 하 여 경고를 완료 합니다.
 
-서비스 상태 경고를 만드는 방법에 대한 자세한 **단계는** [서비스 알림에서 활동 로그 경고 만들기를](../service-health/alerts-activity-log-service-notifications.md)참조하십시오.
+**서비스 상태 경고**를 만드는 방법에 대 한 자세한 단계는 [서비스 알림에서 활동 로그 경고 만들기](../service-health/alerts-activity-log-service-notifications.md)를 참조 하세요.
 
 > [!IMPORTANT]
-> 계획된 유지 관리 알림이 현재 미리 보기 상태입니다.
+> 계획 된 유지 관리 알림이 현재 미리 보기 상태입니다.
 
 ## <a name="next-steps"></a>다음 단계
-- 메트릭에 대한 경고를 만드는 방법에 대한 지침은 [경고를 설정하는 방법을](howto-alert-on-metric.md) 참조하세요.
+- 메트릭에 대 한 경고를 만드는 방법에 대 한 지침은 [경고를 설정 하는 방법을](howto-alert-on-metric.md) 참조 하세요.
 - Azure Portal, REST API 또는 CLI를 사용하여 메트릭에 액세스하고 내보내는 방법에 대한 자세한 내용은 [Azure 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조하세요.
 - [서버 모니터링에 대한 모범 사례](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/)는 블로그를 참조하세요.

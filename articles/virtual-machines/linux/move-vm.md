@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용하여 VM 이동
-description: Azure CLI를 사용하여 VM을 다른 Azure 구독 또는 리소스 그룹으로 이동합니다.
+title: Azure CLI를 사용 하 여에서 VM 이동
+description: Azure CLI를 사용 하 여 다른 Azure 구독 또는 리소스 그룹으로 VM을 이동 합니다.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
 ms.openlocfilehash: ebcd5f166fd1876f67121787c23d23860c9fa4b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78944597"
 ---
-# <a name="move-a-vm-to-another-subscription-or-resource-group"></a>VM을 다른 구독 또는 리소스 그룹으로 이동
-이 문서에서는 리소스 그룹 또는 구독 간에 가상 시스템(VM)을 이동하는 방법을 안내합니다. 개인 구독에서 VM을 만들고 회사 구독으로 이동하려면 구독 간의 VM 이동이 편리할 수 있습니다.
+# <a name="move-a-vm-to-another-subscription-or-resource-group"></a>다른 구독 또는 리소스 그룹으로 VM 이동
+이 문서에서는 리소스 그룹 또는 구독 간에 VM (가상 머신)을 이동 하는 방법을 안내 합니다. 개인 구독에서 VM을 만들고 회사 구독으로 이동하려면 구독 간의 VM 이동이 편리할 수 있습니다.
 
 > [!IMPORTANT]
 >새 리소스 ID는 이동의 일부로 생성됩니다. VM을 이동한 후에는 새 리소스 ID를 사용하도록 도구와 스크립트를 업데이트해야 합니다.

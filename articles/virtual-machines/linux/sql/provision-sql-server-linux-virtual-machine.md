@@ -12,10 +12,10 @@ ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 43ba4eed4dcfd6d8e86c21f1ee5214108c44a8c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060243"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Linux SQL Server 가상 컴퓨터 프로비전
@@ -31,7 +31,7 @@ ms.locfileid: "80060243"
 * [갤러리에서 Linux SQL VM 만들기](#create)
 * [SSH를 사용하여 새로운 VM에 연결](#connect)
 * [SA 암호 변경](#password)
-* [원격 연결에 대한 구성](#remote)
+* [원격 연결에 대 한 구성](#remote)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-linux-vm-with-sql-server-installed"></a><a id="create"></a>SQL Server가 설치된 Linux VM 만들기
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. 왼쪽 창에서 **리소스 만들기**를 선택합니다.
 
@@ -49,13 +49,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ![모든 VM 이미지를 봅니다.](./media/provision-sql-server-linux-virtual-machine/azure-compute-blade.png)
 
-1. 검색 상자에서 **SQL Server 2019를**입력하고 **Enter를** 선택하여 검색을 시작합니다.
+1. 검색 상자에 **SQL Server 2019**를 입력 하 고 **Enter 키** 를 선택 하 여 검색을 시작 합니다.
 
-1. **운영 체제** > **Redhat을**선택하여 검색 결과를 제한합니다.
+1. **운영 체제** > **redhat**를 선택 하 여 검색 결과를 제한 합니다.
 
-    ![SQL Server 2019 VM 이미지 검색 필터](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
+    ![SQL Server 2019 VM 이미지에 대 한 검색 필터](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
 
-1. 검색 결과에서 SQL Server 2019 Linux 이미지를 선택합니다. 이 자습서에서는 **RHEL74에서 SQL Server 2019를**사용합니다.
+1. 검색 결과에서 SQL Server 2019 Linux 이미지를 선택 합니다. 이 자습서에서는 **RHEL74에서 SQL Server 2019를**사용 합니다.
 
    > [!TIP]
    > Developer 버전을 사용하면 SQL Server 라이선스의 비용 없이 Enterprise 버전의 기능을 사용하여 테스트하거나 개발할 수 있습니다. Linux VM을 실행하는 비용만을 지불합니다.
@@ -71,23 +71,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **가상 머신 이름**에서 새 Linux VM에 사용할 이름을 입력합니다.
 1. 그런 다음, 다음 값을 입력하거나 선택합니다.
-   * **지역**: 적합한 Azure 지역을 선택합니다.
-   * **가용성 옵션**: 앱 및 데이터에 가장 적합한 가용성 및 중복 옵션을 선택합니다.
-   * **크기 변경**: 이 옵션을 선택하여 기계 크기를 선택하고 완료되면 **선택을**선택합니다. VM 컴퓨터 크기에 대한 자세한 내용은 [Linux VM 크기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes)를 참조하세요.
+   * **지역**: 적합 한 Azure 지역을 선택 합니다.
+   * **가용성 옵션**: 앱 및 데이터에 가장 적합 한 가용성 및 중복성 옵션을 선택 합니다.
+   * **크기 변경**: 컴퓨터 크기를 선택 하려면이 옵션을 선택 하 고, 완료 되 면 **선택**을 선택 합니다. VM 컴퓨터 크기에 대한 자세한 내용은 [Linux VM 크기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes)를 참조하세요.
 
      ![VM 크기 선택](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
    > [!TIP]
    > 개발 및 기능 테스트의 경우 **DS2** 이상인 VM 크기를 사용합니다. 성능 테스트에 **DS13** 이상을 사용하는 것이 좋습니다.
 
-   * **인증 유형**: **SSH 공개 키를**선택합니다.
+   * **인증 유형**: **SSH 공개 키**를 선택 합니다.
 
      > [!Note]
      > 인증을 위해 SSH 공개 키를 사용할지 아니면 암호를 사용할지 선택할 수 있습니다. SSH는 더 안전합니다. SSH 키를 생성하는 방법에 대한 지침은 [Azure의 Linux VM용 Linux 및 Mac에서 SSH 키 만들기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys)를 참조하세요.
 
-   * **사용자 이름**: VM의 관리자 이름을 입력합니다.
-   * **SSH 공개 키**: RSA 공개 키를 입력합니다.
-   * **공용 인바운드 포트**: **선택한 포트 허용을** 선택하고 선택 공용 인바운드 포트 목록에서 **SSH(22)** **포트를 선택합니다.** 이 빠른 시작에서 SQL Server 구성을 연결하고 완료하려면 이 단계가 필요합니다. SQL Server에 원격으로 연결하려면 가상 컴퓨터를 만든 후 인터넷을 통해 연결을 위해 Microsoft SQL Server에서 사용하는 기본 포트(1433)에 대한 트래픽을 수동으로 허용해야 합니다.
+   * **사용자 이름**: VM에 대 한 관리자 이름을 입력 합니다.
+   * **SSH 공개 키**: RSA 공개 키를 입력 합니다.
+   * **공용 인바운드 포트**: **선택한 포트 허용** 을 선택 하 고 **공용 인바운드 포트 선택** 목록에서 **SSH (22)** 포트를 선택 합니다. 이 빠른 시작에서 SQL Server 구성을 연결하고 완료하려면 이 단계가 필요합니다. SQL Server에 원격으로 연결 하려면 가상 컴퓨터를 만든 후에 인터넷을 통한 연결에 대 한 Microsoft SQL Server에서 사용 하는 기본 포트 (1433)로의 트래픽을 수동으로 허용 해야 합니다.
 
      ![인바운드 포트](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
@@ -98,7 +98,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     * **게스트 구성**
     * **태그**
 
-1. **검토 + 만들기를**선택합니다.
+1. **검토 + 만들기**를 선택합니다.
 1. **검토 + 만들기** 창에서 **만들기**를 선택합니다.
 
 ## <a name="connect-to-the-linux-vm"></a><a id="connect"></a> Linux VM에 연결
@@ -153,7 +153,7 @@ Linux VM에 연결하는 방법에 대한 자세한 내용은 [포털을 사용�
 
 SQL Server 명령줄 도구 패키지를 포함하여 여러 SQL Server [패키지](sql-server-linux-virtual-machines-overview.md#packages)를 기본적으로 설치합니다. 도구 패키지에는 **sqlcmd** 및 **bcp** 도구가 포함됩니다. 편의 상 선택적으로 도구 경로인 `/opt/mssql-tools/bin/`을 **PATH** 환경 변수에 추가할 수 있습니다.
 
-1. 다음 명령을 실행하여 로그인 세션과 대화형/비로그인 세션 모두에 대한 **PATH를** 수정합니다.
+1. 다음 명령을 실행하여 로그인 세션과 대화형/비로그인 세션에 대한 **PATH**를 수정합니다.
 
    ```bash
    echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile

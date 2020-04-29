@@ -1,21 +1,21 @@
 ---
-title: Azure 모니터 응용 프로그램 인사이트 종속성 데이터 모델
+title: Azure Monitor Application Insights 종속성 데이터 모델
 description: 종속성 원격 분석을 위한 Azure Application Insights 데이터 모델
 ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: ba0d848904d1ba885dc53e2941953d8dfb4864cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671922"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>종속성 원격 분석: Application Insights 데이터 모델
 
 [Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 종속성 원격 분석은 모니터링되는 구성 요소와 원격 구성 요소(예: SQL 또는 HTTP 엔드포인트)의 상호 작용을 나타냅니다.
 
-## <a name="name"></a>이름
+## <a name="name"></a>속성
 
 이 종속성 호출을 사용하여 시작된 명령의 이름입니다. 낮은 카디널리티 값입니다. 예로는 저장 프로시저 이름 및 URL 경로 템플릿이 있습니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "77671922"
 
 종속성 호출의 결과 코드입니다. 예로 SQL 오류 코드 및 HTTP 상태 코드를 들 수 있습니다.
 
-## <a name="success"></a>Success
+## <a name="success"></a>성공
 
 성공 또는 실패한 호출을 나타냅니다.
 

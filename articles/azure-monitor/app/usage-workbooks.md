@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 15543f7f761c707e8eff8e0cc0a0e4532475ddf8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671004"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기
@@ -19,7 +19,7 @@ ms.locfileid: "77671004"
 
 통합 문서는 다음과 같은 시나리오에 유용합니다.
 
-* 관심 지표를 미리 모르는 경우 사용자 수, 보유율, 전환율 등을 알아보면 앱 사용법을 탐색할 수 있습니다. 다른 사용 현황 분석 도구와 달리 통합 문서를 사용하면 여러 종류의 시각화 및 분석을 결합할 수 있으므로 이러한 종류의 자유형 탐색에 적합합니다.
+* 관심 있는 메트릭을 미리 알지 못하는 경우 사용자 수, 보존 요금, 변환율 등의 앱 사용을 탐색 합니다. 다른 사용 현황 분석 도구와 달리 통합 문서를 사용 하면 여러 종류의 시각화 및 분석을 결합 하 여 이러한 종류의 자유 형식 탐색에 유용 하 게 사용할 수 있습니다.
 * 팀에 주요 상호 작용 및 다른 메트릭에 대한 사용자 수를 보여 주어 새로 릴리스된 기능이 수행되는 방법을 설명합니다.
 * 앱에서 A/B 실험의 결과를 팀의 다른 멤버와 공유합니다. 텍스트로 실험에 대한 목표를 설명한 다음 각 메트릭이 위 또는 아래-대상이었는지 여부에 대한 분명한 설명선과 함께 실험을 평가하는 데 사용되는 각 사용 현황 메트릭 및 분석 쿼리를 보여줄 수 있습니다.
 * 데이터, 텍스트 설명 및 차후의 중단을 방지하기 위한 다음 단계의 논의를 결합하여 앱의 사용 현황에 대한 중단의 영향을 보고합니다.
@@ -199,7 +199,7 @@ datatable( column1:string, column2:string )
 
 ![Application Insights 통합 문서 섹션 편집 컨트롤](./media/usage-workbooks/011-data-table.png)
 
-보다 적용 가능한 예는 드롭다운을 사용하여 이름으로 국가/지역 집합에서 선택하는 것입니다.
+더 적절 한 예는 드롭다운을 사용 하 여 국가/지역 집합에서 이름으로 선택 하는 것입니다.
 
 ```
 customEvents

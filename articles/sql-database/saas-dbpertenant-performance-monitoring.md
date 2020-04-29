@@ -1,5 +1,5 @@
 ---
-title: 'Saas 응용 프로그램 : 많은 데이터베이스의 성능을 모니터링'
+title: 'Saas 앱: 많은 데이터베이스의 성능 모니터링'
 description: 멀티 테넌트 SaaS 앱에서 Azure SQL 데이터베이스 및 풀의 성능 모니터링 및 관리
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 34c50795567615637e31446ad3dc51a5e1b355f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79214461"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>멀티 테넌트 SaaS 앱에서 Azure SQL 데이터베이스 및 풀의 성능 모니터링 및 관리
@@ -36,7 +36,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스 앱은 단일 테넌트 데
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* Wingtip Tickets SaaS Database Per Tenant 앱이 배포됩니다. 5분 이내에 배포하려면 [테넌트당 Wingtip 티켓 SaaS 데이터베이스 배포 및 탐색을](saas-dbpertenant-get-started-deploy.md) 참조하세요.
+* Wingtip Tickets SaaS Database Per Tenant 앱이 배포됩니다. 5 분 내에 배포 하려면 다음을 참조 하세요. [정문 Ticket SaaS 데이터베이스 테 넌 트 별 데이터베이스 응용 프로그램 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>SaaS 성능 관리 패턴 소개
@@ -52,15 +52,15 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스 앱은 단일 테넌트 데
 * 수동으로 성능을 모니터링할 필요가 없도록 하려면 **데이터베이스 또는 풀이 정상 범위를 벗어난 경우 트리거되는 경고를 설정**하는 것이 가장 효과적입니다.
 * 풀의 집계 컴퓨팅 크기의 단기적 변동에 대응하기 위해 **풀 eDTU 수준을 확장하거나 축소할 수 있습니다**. 이러한 변동이 정기적으로 또는 예측 가능한 단위로 발생하는 경우 **풀 크기 조정을 자동으로 일어나도록 예약**할 수 있습니다. 예를 들어 워크로드가 가볍다고 알고 있는 경우 야간 또는 주말 중으로 규모를 축소할 수 있습니다.
 * 더 장기적인 변동 또는 데이터베이스 수 변화에 대응하기 위해 **개별 데이터베이스를 다른 풀로 이동**할 수 있습니다.
-* *개별* 데이터베이스 부하의 단기적 증가에 대응하기 위해 **개별 데이터베이스를 풀에서 제외하고 개별 컴퓨팅 크기를 할당**할 수 있습니다. 부하가 감소한 후 데이터베이스를 풀에 반환할 수 있습니다. 이 방법을 미리 알 면 데이터베이스를 선제적으로 이동하여 데이터베이스에 항상 필요한 리소스가 있는지 확인하고 풀의 다른 데이터베이스에 영향을 미치지 않도록 할 수 있습니다. 이 요구 사항이 예측 가능하다면 인기 있는 이벤트에 대한 티켓 판매의 급격한 증가를 경험한 영역을 애플리케이션에 통합할 수 있습니다.
+* *개별* 데이터베이스 부하의 단기적 증가에 대응하기 위해 **개별 데이터베이스를 풀에서 제외하고 개별 컴퓨팅 크기를 할당**할 수 있습니다. 부하가 감소한 후 데이터베이스를 풀에 반환할 수 있습니다. 이를 미리 알 수 있는 경우 데이터베이스를 미리 이동 하 여 데이터베이스에 항상 필요한 리소스가 있는지 확인 하 고 풀의 다른 데이터베이스에 영향을 주지 않도록 할 수 있습니다. 이 요구 사항이 예측 가능하다면 인기 있는 이벤트에 대한 티켓 판매의 급격한 증가를 경험한 영역을 애플리케이션에 통합할 수 있습니다.
 
 [Azure Portal](https://portal.azure.com)은 대부분의 리소스에 대한 기본 제공 모니터링 및 경고를 제공합니다. SQL Database의 경우 데이터베이스 및 풀에 대한 모니터링 및 경고가 가능합니다. 이 기본 제공 모니터링 및 경고는 리소스별로 다르므로 소수의 리소스에 사용하면 편리하지만 많은 리소스를 가지고 작업하는 경우 그리 편리하지 않을 수 있습니다.
 
-많은 리소스로 작업하는 대용량 시나리오의 경우 [Azure Monitor 로그를](saas-dbpertenant-log-analytics.md) 사용할 수 있습니다. 이는 Log Analytics 작업 영역에 수집된 내보낸 로그에 대한 분석을 제공하는 별도의 Azure 서비스입니다. Azure Monitor 로그는 여러 서비스에서 원격 분석을 수집하고 경고를 쿼리하고 설정하는 데 사용할 수 있습니다.
+많은 리소스를 사용 하 여 작업 하는 고용량 시나리오의 경우 [Azure Monitor 로그](saas-dbpertenant-log-analytics.md) 를 사용할 수 있습니다. 이는 Log Analytics 작업 영역에 수집 된 내보낸 로그에 대 한 분석을 제공 하는 별도의 Azure 서비스입니다. Azure Monitor 로그는 여러 서비스에서 원격 분석을 수집 하 고 경고를 쿼리 및 설정 하는 데 사용할 수 있습니다.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS Database Per Tenant 애플리케이션 스크립트 가져오기
 
-윙팁 티켓 SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 사용할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
+정문 ticket SaaS 다중 테 넌 트 데이터베이스 스크립트와 응용 프로그램 소스 코드는 [wingtipticketssaas-dbpertenant-master-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 사용할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 
 ## <a name="provision-additional-tenants"></a>추가 테넌트 프로비전
 
@@ -69,8 +69,8 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스 앱은 단일 테넌트 데
 이미 이전 자습서에서 테넌트의 배치를 프로비전한 경우 [모든 테넌트 데이터베이스에 대한 사용량 시뮬레이션](#simulate-usage-on-all-tenant-databases) 섹션을 건너뛸 수 있습니다.
 
 1. **PowerShell ISE**에서 ...\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
-1. **설정 $DemoScenario** = **1**, **테넌터 일괄 처리 프로비전**
-1. 스크립트를 실행하려면 **F5를** 누릅니다.
+1. **$DemoScenario** = **1**을 설정 하 고 **테 넌 트 일괄 처리를 프로 비전 합니다** .
+1. **F5** 키를 눌러 스크립트를 실행 합니다.
 
 이 스크립트는 테넌트 17개를 5분 이내에 배포합니다.
 
@@ -82,16 +82,16 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스 앱은 단일 테넌트 데
 
 | 데모 | 시나리오 |
 |:--|:--|
-| 2 | 정상 강도 하중 생성(약 40DTU) |
+| 2 | 표준 강도 부하 (약 40 DTU) 생성 |
 | 3 | 데이터베이스별로 버스트가 더 길고 더 잦은 부하 생성|
-| 4 | 데이터베이스당 DTU 버스트(약 80DTU)로 부하 생성|
-| 5 | 단일 테넌트에서 일반 로드와 높은 부하를 생성합니다(약 95DTU).|
+| 4 | 데이터베이스당 DTU 버스트를 더 많이 사용 하 여 부하 생성 (약 80 DTU)|
+| 5 | 단일 테 넌 트에 대 한 일반 부하 및 높은 부하 생성 (약 95 DTU)|
 | 6 | 여러 풀에 걸쳐 불균형 부하 생성|
 
 부하 생성기는 *가상* CPU만의 부하를 모든 테넌트 데이터베이스에 적용합니다. 이 생성기는 각 테넌트 데이터베이스에 대해 작업을 시작하여 부하를 생성하는 저장 프로세서를 주기적으로 호출합니다. 부하 수준(eDTU 단위), 기간 및 간격은 모든 데이터베이스에 걸쳐 변화하여 예측 불가능한 테넌트 작업을 시뮬레이션합니다.
 
 1. **PowerShell ISE**에서 ...\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
-1. **$DemoScenario** = **설정 2**, 일반 강도 *하중 생성.*
+1. **$DemoScenario** = **2**를 설정 하 고, *일반 강도 부하를 생성*합니다.
 1. **F5**를 눌러 모든 테넌트 데이터베이스에 부하를 적용합니다.
 
 Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱상의 실제 부하는 일반적으로 간헐적이고 예측할 수 없습니다. 이를 시뮬레이션하기 위해 부하 생성기에서 모든 테넌트에 대해 분산된 임의의 부하를 생성합니다. 부하 패턴이 나타나기 위해서는 몇 분 정도 걸리므로, 다음 섹션의 부하 모니터링을 수행하기 전에 약 3~5분 동안 부하 생성기를 실행합니다.
@@ -129,7 +129,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 1. **높은 DTU** 등과 같은 이름을 제공
 1. 다음 값을 설정합니다.
    * **메트릭 = eDTU 백분율**
-   * **조건 = 보다 큰**
+   * **조건 = 보다 큼**
    * **임계값 = 75**.
    * **기간 = 지난 30분 동안**
 1. *추가 관리자 전자 메일* 상자에 메일 주소를 추가하고 **확인**을 클릭합니다.
@@ -147,7 +147,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 
 생성기에 의해 생성된 부하를 증가시켜 사용 중인 풀을 시뮬레이션할 수 있습니다. 데이터베이스가 더 자주 그리고 더 오래 버스트하도록 하면 개별 데이터베이스의 요구 사항을 변경하지 않고 풀에 대한 집계 부하가 증가합니다. 풀 확장은 포털 내에서 또는 PowerShell에서 쉽게 수행됩니다. 이 연습에서는 포털을 사용합니다.
 
-1. *$DemoScenario* = **설정 3**, 각 데이터베이스에 필요한 최대 부하를 변경하지 않고 풀에 대한 집계 로드의 강도를 높이기 위해 _데이터베이스당 더 길고 빈번한 버스트로 부하를 생성합니다._
+1. 각 데이터베이스에 필요한 최대 부하를 변경 하지 않고 풀에 대 한 집계 부하의 강도를 높이기 위해 *$DemoScenario* = **3**을 설정 하 _고, 데이터베이스 별로 더 오래 되 고 더 자주 버스트 하 여 부하를 생성_ 합니다.
 1. **F5**를 눌러 모든 테넌트 데이터베이스에 부하를 적용합니다.
 
 1. Azure Portal에서 **Pool1**로 이동합니다.
@@ -158,7 +158,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 1. **풀 eDTU** 설정을 **100**으로 조정합니다. 풀 eDTU를 변경해도 데이터베이스별 설정은 변경되지 않습니다(여전히 데이터베이스별로 최대 50 eDTU). **풀 구성** 페이지의 오른쪽에서 데이터베이스별 설정을 볼 수 있습니다.
 1. **저장**을 클릭하여 풀 크기 조정 요청을 제출합니다.
 
-모니터링 차트를 보려면 **Pool1** > **개요로** 돌아갑니다. 풀에 더 많은 리소스를 제공한 효과를 모니터링합니다(데이터베이스 수가 적고 임의 부하이지만 일정 시간 동안 실행할 때까지 최종적으로 보는 것이 언제나 쉽지는 않음). 차트를 보는 동안 하위 차트 100%가 여전히 50 eDTU이지만 데이터베이스별 최대값이 여전히 50 eDTU이므로 상위 차트의 100%가 이제 100 eDTU를 나타낸다는 것을 염두에 둡니다.
+**Pool1** > **개요** 로 돌아가 모니터링 차트를 확인 합니다. 풀에 더 많은 리소스를 제공한 효과를 모니터링합니다(데이터베이스 수가 적고 임의 부하이지만 일정 시간 동안 실행할 때까지 최종적으로 보는 것이 언제나 쉽지는 않음). 차트를 보는 동안 하위 차트 100%가 여전히 50 eDTU이지만 데이터베이스별 최대값이 여전히 50 eDTU이므로 상위 차트의 100%가 이제 100 eDTU를 나타낸다는 것을 염두에 둡니다.
 
 데이터베이스는 프로세스 전체에 걸쳐 온라인이고 완전하게 사용할 수 있도록 남아 있습니다. 마지막 순간에 각 데이터베이스가 새 풀 eDTU에 대해 사용할 수 있는 준비가 되어 있고 활성 연결은 끊어집니다. 애플리케이션 코드는 언제나 끊어진 연결을 재시도하도록 작성해야 하므로 확장된 풀의 데이터베이스에 다시 연결합니다.
 
@@ -195,7 +195,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 이 연습에서는 인기 있는 콘서트에 대한 티켓을 판매할 때 높은 부하를 경험하는 Contoso 콘서트 홀의 영향을 시뮬레이션합니다.
 
 1. **PowerShell ISE**에서 …\\*Demo-PerformanceMonitoringAndManagement.ps1* 스크립트를 엽니다.
-1. $DemoScenario = 5를 설정하고 **일반 로드와 단일 테넌트에 대한 높은 부하(약 95DTU)를 생성합니다.**
+1. **$DemoScenario = 5를 설정 하 고, 일반 부하를 생성 하 고 단일 테 넌 트 (약 95 DTU)에 높은 부하를 생성 합니다.**
 1. **$SingleTenantDatabaseName = contosoconcerthall** 설정
 1. **F5**를 사용하여 스크립트를 실행합니다.
 
@@ -218,7 +218,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 
 ## <a name="other-performance-management-patterns"></a>기타 성능 관리 패턴
 
-**선제적 크기 조정** 위 연습에서는 찾는 데이터베이스가 어느 것인지 알고 있는 격리된 데이터베이스를 크기 조정하는 방법을 탐색했습니다. Contoso 콘서트 홀의 경영진이 윙팁에게 티켓 판매가 임박했다는 사실을 알렸다면 데이터베이스가 선제적으로 풀 밖으로 옮겨졌을 수 있습니다. 그렇지 않으면 풀 또는 데이터베이스에 무슨 일이 일어나고 있는지 파악하라는 경고가 필요했을 가능성이 있습니다. 성능 저하에 대해 불평하는 풀에 있는 다른 테넌트에서 이에 관하여 알아보기를 원하지 않을 수 있습니다. 테넌트가 추가 리소스를 필요로 하는 기간을 예측할 수 있는 경우 Azure Automation Runbook을 설정하여 데이터베이스를 풀에서 밖으로 이동한 다음 정의된 일정에 다시 안으로 이동할 수 있습니다.
+**선제적 크기 조정** 위 연습에서는 찾는 데이터베이스가 어느 것인지 알고 있는 격리된 데이터베이스를 크기 조정하는 방법을 탐색했습니다. Contoso 콘서트 홀 관리에 Wingtips 된 티켓 판매에 대 한 정보가 있는 경우 데이터베이스가 풀 미리 외부로 이동 했을 수 있습니다. 그렇지 않으면 풀 또는 데이터베이스에 무슨 일이 일어나고 있는지 파악하라는 경고가 필요했을 가능성이 있습니다. 성능 저하에 대해 불평하는 풀에 있는 다른 테넌트에서 이에 관하여 알아보기를 원하지 않을 수 있습니다. 테넌트가 추가 리소스를 필요로 하는 기간을 예측할 수 있는 경우 Azure Automation Runbook을 설정하여 데이터베이스를 풀에서 밖으로 이동한 다음 정의된 일정에 다시 안으로 이동할 수 있습니다.
 
 **테넌트 셀프 서비스 크기 조정** 크기 조정은 관리 API가 통해 쉽게 호출되는 작업이므로 테넌트 데이터베이스를 테넌트가 마주치는 애플리케이션으로 크기 조정하는 기능을 쉽게 만들어 SaaS 서비스의 기능으로 제공할 수 있습니다. 예를 들어 테넌트가 확장과 축소를 직접 관리하게 할 수 있으며, 이는 아마도 테넌트의 대금 청구에 직접 연결될 것입니다!
 
@@ -246,4 +246,4 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 * [Wingtip Tickets SaaS 테넌트당 데이터베이스 애플리케이션 배포를 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [SQL 탄력적 풀](sql-database-elastic-pool.md)
 * [Azure 자동화](../automation/automation-intro.md)
-* [Azure 모니터 로그](saas-dbpertenant-log-analytics.md) - Azure 모니터 로그 자습서 설정 및 사용
+* [Azure Monitor 로그](saas-dbpertenant-log-analytics.md) -Azure Monitor 로그 설정 및 사용 자습서

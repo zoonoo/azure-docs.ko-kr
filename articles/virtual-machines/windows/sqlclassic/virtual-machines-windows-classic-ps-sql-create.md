@@ -1,5 +1,5 @@
 ---
-title: 클래식 SQL 서버 VM(PowerShell) 만들기
+title: 클래식 SQL Server VM 만들기 (PowerShell)
 description: SQL Server 가상 머신 갤러리 이미지를 사용하여 Azure VM을 만드는 단계 및 PowerShell 스크립트를 제공합니다. 이 항목에서는 클래식 배포 모드를 사용합니다.
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5bfdcfab37091a5f581ce147c0a6af5ccd8147a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77914792"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Azure PowerShell을 사용하여 SQL Server 가상 머신 프로비전(클래식)
@@ -29,7 +29,7 @@ ms.locfileid: "77914792"
 이 문서에서는 PowerShell cmdlet을 사용하여 Azure에서 SQL Server 가상 머신을 만드는 방법에 대한 단계를 제공합니다.
 
 > [!NOTE] 
-> Azure에는 리소스 를 만들고 작업하기 위한 두 가지 배포 모델( [리소스 관리자 및 클래식.](../../../azure-resource-manager/management/deployment-models.md) 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업 하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../../../azure-resource-manager/management/deployment-models.md)이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 이 항목의 Resource Manager 버전에 대해서는 [Azure PowerShell Resource Manager를 사용하여 SQL Server 가상 머신 프로비전](../sql/virtual-machines-windows-ps-sql-create.md)을 참조하세요.
 

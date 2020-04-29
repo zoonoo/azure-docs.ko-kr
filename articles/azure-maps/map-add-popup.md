@@ -1,6 +1,6 @@
 ---
-title: 지도의 한 점에 팝업 추가 | 마이크로소프트 Azure 지도
-description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용하여 한 지점에 팝업을 추가하는 방법을 알아봅니다.
+title: 맵의 점에 팝업 추가 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 지점에 팝업을 추가 하는 방법에 대해 설명 합니다.
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 02/27/2020
@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: cf6424d2a6cbcfb7c5052201b5a9190c81fddaff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80055944"
 ---
 # <a name="add-a-popup-to-the-map"></a>맵에 팝업 추가
@@ -22,7 +22,7 @@ ms.locfileid: "80055944"
 
 ## <a name="understand-the-code"></a>코드 이해
 
-다음 코드는 기호 레이어를 `name` 사용하여 `description` 맵에 속성과 점 기능을 추가합니다. [Popup 클래스의](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup) 인스턴스가 만들어지지만 표시되지 는 않습니다. 기호 레이어에 마우스 이벤트가 추가되어 팝업을 열고 닫습니다. 마커 기호를 가리키면 `position` 팝업의 속성이 마커의 위치로 업데이트되고 가리키고 `content` 있는 점 피처의 `description` 속성을 `name` 래핑하는 일부 HTML로 옵션이 업데이트됩니다. 그런 다음 해당 기능을 사용하여 맵에 팝업이 `open` 표시됩니다.
+다음 코드에서는 기호 계층을 사용 하 여 `name` 및 `description` 속성이 있는 point 기능을 맵에 추가 합니다. [Popup 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup) 의 인스턴스가 만들어졌지만 표시 되지 않습니다. 기호 계층에 마우스 이벤트를 추가 하 여 팝업을 열고 닫는 팝업을 트리거합니다. 표식 기호가 `position` 가리킴 이면 팝업의 속성이 표식의 위치로 업데이트 되 고 옵션은 `content` 가리키는 point 기능의 및 `name` `description` 속성을 래핑하는 일부 HTML로 업데이트 됩니다. 그런 다음 `open` 함수를 사용 하 여 맵에 팝업을 표시 합니다.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -76,7 +76,7 @@ map.events.add('mouseleave', symbolLayer, function (){
 });
 ```
 
-다음은 위의 기능의 전체 실행 코드 샘플입니다.
+다음은 위의 기능을 실행 하는 전체 코드 샘플입니다.
 
 <br/>
 
@@ -85,7 +85,7 @@ map.events.add('mouseleave', symbolLayer, function (){
 
 ## <a name="reusing-a-popup-with-multiple-points"></a>여러 점을 사용하여 팝업을 다시 사용
 
-가장 좋은 방법은 하나의 팝업을 만들고 다시 사용하는 경우가 있습니다. 예를 들어 많은 수의 포인트가 있고 한 번에 하나의 팝업만 표시하려고 할 수 있습니다. 팝업을 다시 사용하면 응용 프로그램에서 만든 DOM 요소 수가 크게 줄어들어 성능이 향상됩니다. 다음 샘플에서는 3점 피쳐를 만듭니다. 그 중 하나를 클릭하면 해당 점 기능에 대한 콘텐츠와 함께 팝업이 표시됩니다.
+가장 좋은 방법은 팝업 하나를 만들고 다시 사용 하는 것입니다. 예를 들어 많은 수의 점이 있고 한 번에 하나의 popup만 표시 하려는 경우가 있습니다. Popup을 다시 사용 하면 응용 프로그램에서 만든 DOM 요소의 수가 크게 줄어 성능이 향상 될 수 있습니다. 다음 샘플에서는 3 포인트 기능을 만듭니다. 그 중 하나를 클릭하면 해당 점 기능에 대한 콘텐츠와 함께 팝업이 표시됩니다.
 
 <br/>
 
@@ -94,34 +94,34 @@ map.events.add('mouseleave', symbolLayer, function (){
 
 ## <a name="customizing-a-popup"></a>팝업 사용자 지정
 
-기본적으로 팝업에는 흰색 배경, 아래쪽에 포인터 화살표, 오른쪽 상단 모서리에 닫기 버튼이 있습니다. 다음 샘플은 팝업 옵션을 사용하여 `fillColor` 배경색을 검은색으로 변경합니다. 옵션을 false로 설정하면 닫기 버튼이 `CloseButton` 제거됩니다. 팝업의 HTML 콘텐츠는 팝업 가장자리에서 10 픽셀의 패딩을 사용합니다. 텍스트가 흰색으로 표시되므로 검은색 배경에 잘 표시됩니다.  
+기본적으로 popup에는 흰색 배경, 아래쪽에는 포인터 화살표, 오른쪽 위 모서리에 닫기 단추가 있습니다. 다음 샘플에서는 팝업의 `fillColor` 옵션을 사용 하 여 배경색을 검은색으로 변경 합니다. `CloseButton` 옵션을 false로 설정 하 여 닫기 단추를 제거 합니다. 팝업의 HTML 콘텐츠는 팝업의 가장자리에서 10 픽셀의 안쪽 여백을 사용 합니다. 텍스트는 흰색 이므로 검은색 배경에 잘 표시 됩니다.  
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="사용자 정의 팝업" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen에서</a>Azure 지도 ()에<a href='https://codepen.io/azuremaps'>@azuremaps</a>의해 <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>펜 사용자 지정 팝업을</a> 참조 하십시오.
+<iframe height="500" style="width: 100%;" scrolling="no" title="사용자 지정 된 팝업" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>사용자 지정 팝업</a> 을 참조 하세요.
 </iframe>
 
 ## <a name="add-popup-templates-to-the-map"></a>맵에 팝업 템플릿 추가
 
-팝업 템플릿을 사용하면 팝업에 대한 데이터 기반 레이아웃을 쉽게 만들 수 있습니다. 아래 섹션에서는 다양한 팝업 템플릿을 사용하여 피처 속성을 사용하여 형식이 지정된 콘텐츠를 생성하는 방법을 보여 줍니다.
+팝업 템플릿을 사용 하면 팝업에 대 한 데이터 기반 레이아웃을 쉽게 만들 수 있습니다. 다음 섹션에서는 기능 속성을 사용 하 여 서식이 지정 된 콘텐츠를 생성 하는 다양 한 팝업 템플릿을 사용 하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> 기본적으로 팝업 템플릿을 사용하여 렌더링된 모든 콘텐츠는 보안 기능으로 iframe 내부에 샌드박스됩니다. 그러나 다음과 같은 제한 사항이 있습니다.
+> 기본적으로 렌더링 된 모든 콘텐츠는 팝업 템플릿을 사용 하 여 iframe 내에서 보안 기능으로 샌드 박싱 됩니다. 그러나 다음과 같은 제한 사항이 있습니다.
 >
-> - 모든 스크립트, 양식, 포인터 잠금 및 상위 탐색 기능은 사용할 수 없습니다. 링크를 클릭하면 새 탭에서 열 수 있습니다. 
-> - iframe에서 매개 변수를 `srcdoc` 지원하지 않는 이전 브라우저는 소량의 콘텐츠를 렌더링하는 것으로 제한됩니다.
+> - 모든 스크립트, 폼, 포인터 잠금 및 상위 탐색 기능을 사용할 수 없습니다. 링크를 클릭 하면 새 탭에서 링크를 열 수 있습니다. 
+> - Iframe에서 매개 변수를 `srcdoc` 지원 하지 않는 이전 브라우저는 적은 양의 콘텐츠를 렌더링 하도록 제한 됩니다.
 > 
-> 팝업에 로드되는 데이터를 신뢰하고 팝업에 로드된 이러한 스크립트가 응용 프로그램에 액세스할 수 있도록 하려면 팝업 템플릿 `sandboxContent` 옵션을 false로 설정하여 이 옵션을 비활성화할 수 있습니다. 
+> 팝업에 로드 되는 데이터를 신뢰 하 고 잠재적으로 popup에 로드 된 이러한 스크립트가 응용 프로그램에 액세스할 수 있도록 하려면 popup template `sandboxContent` 옵션을 false로 설정 하 여이 기능을 사용 하지 않도록 설정할 수 있습니다. 
 
 ### <a name="string-template"></a>문자열 템플릿
 
-String 템플릿은 자리 표시자를 피처 속성값으로 바꿉습니다. 기능의 속성에 문자열 형식의 값을 할당할 필요가 없습니다. 예를 들어 `value1` 정수보유. 그런 다음 이러한 값은 `popupTemplate`의 콘텐츠 속성에 전달됩니다. 
+문자열 템플릿은 자리 표시자를 기능 속성 값으로 바꿉니다. 기능의 속성에는 문자열 형식의 값을 할당할 필요가 없습니다. 예를 들어 `value1` 은 정수를 보유 합니다. 이러한 값은의 콘텐츠 속성에 전달 됩니다 `popupTemplate`. 
 
-이 `numberFormat` 옵션은 표시할 숫자의 형식을 지정합니다. 를 `numberFormat` 지정하지 않으면 코드에서 팝업 템플릿 날짜 형식을 사용합니다. 이 `numberFormat` 옵션은 [Number.toLocaleString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) 함수를 사용하여 숫자의 서식을 지정합니다. 많은 수의 포맷을 `numberFormat` 지정하려면 [NumberFormat.format.format의](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/format)함수와 함께 옵션을 사용하는 것이 좋습니다. 예를 들어 아래 코드 조각은 `maximumFractionDigits` 분수 숫자 수를 2개로 제한하는 데 사용합니다.
+옵션 `numberFormat` 은 표시할 숫자의 형식을 지정 합니다. 을 지정 `numberFormat` 하지 않으면 코드에서 popup 템플릿 날짜 형식을 사용 합니다. 옵션 `numberFormat` 은 [toLocaleString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) 함수를 사용 하 여 숫자의 형식을 지정 합니다. 숫자의 형식을 지정 하려면 [intl.numberformat](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/format)의 함수 `numberFormat` 에 옵션을 사용 하는 것이 좋습니다. 예를 들어 아래 코드 조각에서는를 `maximumFractionDigits` 사용 하 여 소수 자릿수를 2로 제한 합니다.
 
 > [!Note]
-> String 템플릿에서 이미지를 렌더링할 수 있는 방법은 하나뿐입니다. 먼저 String 템플릿에는 이미지 태그가 있어야 합니다. 이미지 태그에 전달되는 값은 이미지의 URL이어야 합니다. 그런 다음 문자열 템플릿은 `isImage` `HyperLinkFormatOptions`에서 true로 설정해야 합니다. 이 `isImage` 옵션은 하이퍼링크가 이미지용임을 지정하고 하이퍼링크가 이미지 태그에 로드되도록 지정합니다. 하이퍼링크를 클릭하면 이미지가 열립니다.
+> 문자열 템플릿에서 이미지를 렌더링할 수 있는 방법은 한 가지 뿐입니다. 먼저 문자열 템플릿에 이미지 태그가 있어야 합니다. 이미지 태그에 전달 되는 값은 이미지에 대 한 URL 이어야 합니다. 그런 다음에서 문자열 템플릿이 true로 `isImage` 설정 되어야 합니다. `HyperLinkFormatOptions` 옵션 `isImage` 은 이미지에 대 한 하이퍼링크를 지정 하 고, 하이퍼링크가 이미지 태그에 로드 되도록 지정 합니다. 하이퍼링크를 클릭 하면 이미지가 열립니다.
 
 ```javascript
 var templateOptions = {
@@ -146,11 +146,11 @@ var popup = new atlas.Popup({
 });
 ```
 
-### <a name="propertyinfo-template"></a>속성정보 템플릿
+### <a name="propertyinfo-template"></a>PropertyInfo 템플릿
 
-PropertyInfo 템플릿에는 피쳐의 사용 가능한 속성이 표시됩니다. 이 `label` 옵션은 사용자에게 표시할 텍스트를 지정합니다. 지정하지 않으면 `label` 하이퍼링크가 표시됩니다. 또한 하이퍼링크가 이미지인 경우 "alt" 태그에 할당된 값이 표시됩니다. 는 `dateFormat` 날짜 형식을 지정하고 날짜 형식을 지정하지 않으면 날짜가 문자열로 렌더링됩니다. 이 `hyperlinkFormat` 옵션은 클릭 가능한 링크를 렌더링하며, 마찬가지로 이 `email` 옵션을 사용하여 클릭 가능한 이메일 주소를 렌더링할 수 있습니다.
+PropertyInfo 템플릿은 기능의 사용 가능한 속성을 표시 합니다. 옵션 `label` 은 사용자에 게 표시할 텍스트를 지정 합니다. 을 `label` 지정 하지 않으면 하이퍼링크가 표시 됩니다. 하이퍼링크가 이미지인 경우에는 "alt" 태그에 할당 된 값이 표시 됩니다. 는 `dateFormat` 날짜의 형식을 지정 하 고, 날짜 형식이 지정 되지 않은 경우 날짜는 문자열로 렌더링 됩니다. 옵션 `hyperlinkFormat` 은 클릭 가능한 링크를 렌더링 합니다. `email` 옵션을 사용 하 여 클릭 가능한 메일 주소를 렌더링할 수도 있습니다.
 
-PropertyInfo 템플릿이 최종 사용자에게 속성을 표시하기 전에 해당 기능에 대해 속성이 실제로 정의되어 있는지 재귀적으로 확인합니다. 또한 스타일 및 제목 속성 표시를 무시합니다. 예를 들어 , `color`에 `size` `anchor` `strokeOpacity` `visibility`대해 " 따라서 백 엔드에서 속성 경로 검사가 완료되면 PropertyInfo 템플릿은 테이블 형식으로 콘텐츠를 표시합니다.
+PropertyInfo 템플릿이 최종 사용자에 게 속성을 표시 하기 전에 속성이 해당 기능에 대해 실제로 정의 되었는지 여부를 재귀적으로 검사 합니다. 또한 스타일 및 제목 속성 표시도 무시 합니다. 예를 들어,,, `color`및 `size` `visibility`는 `anchor`표시 `strokeOpacity`되지 않습니다. 따라서 백 엔드에서 속성 경로 확인이 완료 되 면 PropertyInfo 템플릿은 콘텐츠를 테이블 형식으로 표시 합니다.
 
 ```javascript
 var templateOptions = {
@@ -208,7 +208,7 @@ var popup = new atlas.Popup({
 
 ### <a name="multiple-content-templates"></a>여러 콘텐츠 템플릿
 
-기능은 문자열 템플릿과 PropertyInfo 템플릿의 조합을 사용하여 콘텐츠를 표시할 수도 있습니다. 이 경우 String 템플릿은 흰색 배경에 자리 표시자 값을 렌더링합니다.  또한 PropertyInfo 템플릿은 테이블 내부의 전체 너비 이미지를 렌더링합니다. 이 샘플의 속성은 이전 샘플에서 설명한 속성과 유사합니다.
+또한 문자열 템플릿과 PropertyInfo 템플릿 조합을 사용 하 여 콘텐츠를 표시할 수 있습니다. 이 경우 문자열 템플릿은 흰색 배경에 자리 표시자 값을 렌더링 합니다.  그리고 PropertyInfo 템플릿은 테이블 내에서 전체 너비 이미지를 렌더링 합니다. 이 샘플의 속성은 이전 샘플에서 설명한 속성과 유사 합니다.
 
 ```javascript
 var templateOptions = {
@@ -244,34 +244,34 @@ var popup = new atlas.Popup({
 });
 ```
 
-### <a name="points-without-a-defined-template"></a>정의된 템플릿이 없는 점
+### <a name="points-without-a-defined-template"></a>정의 된 템플릿이 없는 요소
 
-팝업 템플릿이 문자열 템플릿, PropertyInfo 템플릿 또는 둘 다의 조합으로 정의되지 않은 경우 기본 설정을 사용합니다. `title` 만 할당 `description` 된 속성 인 경우 팝업 템플릿은 흰색 배경, 오른쪽 상단 모서리에 닫기 버튼을 표시합니다. 그리고, 중소 화면에서, 그것은 하단에 화살표를 보여줍니다. 기본 설정은 `title` 및 `description`을 제외한 모든 속성에 대한 테이블 내부에 표시됩니다. 기본 설정으로 되돌아가는 경우에도 팝업 템플릿을 프로그래밍 방식으로 조작할 수 있습니다. 예를 들어 사용자는 하이퍼링크 검색을 해제할 수 있으며 기본 설정은 여전히 다른 속성에 적용됩니다.
+Popup 템플릿이 문자열 템플릿, PropertyInfo 템플릿 또는 둘의 조합으로 정의 되지 않은 경우 기본 설정을 사용 합니다. `title` 및 `description` 가 유일 하 게 할당 된 속성인 경우 팝업 템플릿은 흰색 배경, 오른쪽 위 모서리에 닫기 단추를 표시 합니다. 그리고 중소 화면에서 아래쪽에 화살표가 표시 됩니다. 기본 설정은 `title` 및 이외의 모든 속성에 대 한 테이블 내에 표시 `description`됩니다. 기본 설정으로 대체 하는 경우에도 팝업 템플릿이 프로그래밍 방식으로 계속 조작 될 수 있습니다. 예를 들어 사용자는 하이퍼링크 검색을 해제할 수 있으며 기본 설정은 다른 속성에도 적용 됩니다.
 
-CodePen에서 지도에서 포인트를 클릭합니다. 문자열 템플릿, PropertyInfo 템플릿 및 여러 콘텐츠 템플릿 : 다음 팝업 템플릿의 각각에 대한 지도에 포인트가있습니다. 기본 설정을 사용하여 템플릿이 렌더링되는 방식을 보여 줄 세 가지 포인트도 있습니다.
+CodePen 지도의 요소를 클릭 합니다. 지도에는 문자열 템플릿, PropertyInfo 템플릿 및 여러 콘텐츠 템플릿의 각 팝업 템플릿에 대 한 점이 있습니다. 또한 기본 설정을 사용 하 여 템플릿이 렌더링 되는 방식을 보여 주는 세 가지 점이 있습니다.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='팝업 템플릿' src='//codepen.io/azuremaps/embed/dyovrzL/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen에서</a>Azure 지도 ()별<a href='https://codepen.io/azuremaps'>@azuremaps</a>펜 <a href='https://codepen.io/azuremaps/pen/dyovrzL/'>팝업 템플릿을</a> 참조하십시오.
+<iframe height='500' scrolling='no' title='PopupTemplates' src='//codepen.io/azuremaps/embed/dyovrzL/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps ()로 Pen<a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io/azuremaps/pen/dyovrzL/'>PopupTemplates</a> ()를 참조 하세요.
 </iframe>
 
-## <a name="reuse-popup-template"></a>팝업 템플릿 재사용
+## <a name="reuse-popup-template"></a>팝업 템플릿 다시 사용
 
-팝업을 다시 사용하는 것과 마찬가지로 팝업 템플릿을 다시 사용할 수 있습니다. 이 방법은 여러 지점에 대해 한 번에 하나의 팝업 템플릿만 표시하려는 경우에 유용합니다. 팝업 템플릿을 다시 사용하면 응용 프로그램에서 만든 DOM 요소 수가 줄어들어 응용 프로그램 성능이 향상됩니다. 다음 샘플에서는 세 가지 점에 대해 동일한 팝업 템플릿을 사용합니다. 그 중 하나를 클릭하면 해당 점 기능에 대한 콘텐츠와 함께 팝업이 표시됩니다.
+팝업을 다시 사용 하는 것과 유사 하 게 팝업 템플릿을 다시 사용할 수 있습니다. 이 방법은 여러 점에 대해 한 번에 하나의 popup 템플릿만 표시 하려는 경우에 유용 합니다. Popup 템플릿을 다시 사용 하면 응용 프로그램에서 만든 DOM 요소 수가 줄어들어 응용 프로그램 성능이 향상 됩니다. 다음 샘플에서는 세 개의 점에 동일한 popup 템플릿을 사용 합니다. 그 중 하나를 클릭하면 해당 점 기능에 대한 콘텐츠와 함께 팝업이 표시됩니다.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='재사용팝업템플릿' src='//codepen.io/azuremaps/embed/WNvjxGw/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen에서</a>Azure 지도 ()별<a href='https://codepen.io/azuremaps'>@azuremaps</a>펜 <a href='https://codepen.io/azuremaps/pen/WNvjxGw/'>재사용PopupTemplate를</a> 참조하십시오.
+<iframe height='500' scrolling='no' title='ReusePopupTemplate' src='//codepen.io/azuremaps/embed/WNvjxGw/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 통해 Pen <a href='https://codepen.io/azuremaps/pen/WNvjxGw/'>Reusepopuptemplate</a> 을 참조 하세요.
 </iframe>
 
-## <a name="popup-events"></a>팝업 이벤트
+## <a name="popup-events"></a>Popup 이벤트
 
-팝업을 열고 닫고 끌 수 있습니다. 팝업 클래스는 개발자가 이러한 이벤트에 반응하는 데 도움이 되는 이벤트를 제공합니다. 다음 샘플은 사용자가 팝업을 열거나 닫거나 끌 때 이벤트가 발생하도록 강조 표시됩니다. 
+팝업은 열고, 닫고, 끌 수 있습니다. Popup 클래스는 개발자가 이러한 이벤트에 대응할 수 있도록 하는 이벤트를 제공 합니다. 다음 샘플에서는 사용자가 팝업을 열거나 닫거나 끌 때 발생 하는 이벤트를 강조 표시 합니다. 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="팝업 이벤트" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen에서</a>Azure 지도 ()에<a href='https://codepen.io/azuremaps'>@azuremaps</a>의한 펜 <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>팝업 이벤트를</a> 참조하십시오.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Popup 이벤트" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>팝업 이벤트</a> 를 참조 하세요.
 </iframe>
 
 ## <a name="next-steps"></a>다음 단계
@@ -285,12 +285,12 @@ CodePen에서 지도에서 포인트를 클릭합니다. 문자열 템플릿, Pr
 > [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions)
 
 > [!div class="nextstepaction"]
-> [팝업 템플릿](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popuptemplate)
+> [PopupTemplate](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popuptemplate)
 
 전체 코드 샘플에 대한 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [기호 레이어 추가](./map-add-pin.md)
+> [기호 계층 추가](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
 > [HTML 표식 추가](./map-add-custom-html.md)

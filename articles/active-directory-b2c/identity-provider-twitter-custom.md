@@ -1,5 +1,5 @@
 ---
-title: 맞춤 정책을 사용하여 트위터 계정으로 로그인 설정
+title: 사용자 지정 정책을 사용 하 여 Twitter 계정을 사용 하 여 로그인 설정
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 지정 정책을 사용하여 Twitter 계정으로 로그인을 설정합니다.
 services: active-directory-b2c
@@ -12,17 +12,17 @@ ms.date: 09/20/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5804ded875ef03d7ade4414eb8f08885634748dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80051605"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책을 사용하여 Twitter 계정으로 로그인을 설정합니다.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 Azure Active Directory B2C(Azure AD B2C)에서 [사용자 지정 정책을](custom-policy-overview.md) 사용하여 Twitter 계정 사용자에 대해 로그인을 활성화하는 방법을 보여 주며 있습니다.
+이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 지정 정책을](custom-policy-overview.md) 사용 하 여 Twitter 계정의 사용자에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -46,8 +46,8 @@ Azure AD B2C에서 ID 공급자로 Twitter를 사용하려면 Twitter 애플리�
 
 이전에 Azure AD B2C 테넌트에 기록한 비밀 키를 저장해야 합니다.
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
-2. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
 5. **정책 키**, **추가**를 차례로 선택합니다.
@@ -111,7 +111,7 @@ Azure AD B2C에서 ID 공급자로 Twitter를 사용하려면 Twitter 애플리�
 
 ### <a name="upload-the-extension-file-for-verification"></a>확인을 위한 확장 파일 업로드
 
-지금까지 Azure AD B2C가 트위터 계정과 통신하는 방법을 알 수 있도록 정책을 구성했습니다. 정책의 확장 파일을 업로드하여 지금까지 문제가 발생하지 않았는지 확인합니다.
+이제 Azure AD B2C Twitter 계정과 통신 하는 방법을 알 수 있도록 정책을 구성 했습니다. 정책의 확장 파일을 업로드하여 지금까지 문제가 발생하지 않았는지 확인합니다.
 
 1. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **업로드 정책**을 선택합니다.
 2. **정책이 있는 경우 덮어쓰기**를 사용하도록 설정하고 *TrustFrameworkExtensions.xml* 파일을 찾아서 선택합니다.
@@ -149,13 +149,13 @@ Azure AD B2C에서 ID 공급자로 Twitter를 사용하려면 Twitter 애플리�
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
     ```
 
-    앞에서 만든 기술 프로필의 ID로 **TechnicalProfileReferenceId** 의 값을 업데이트합니다. `Twitter-OAUTH1`)을 입력합니다.
+    **TechnicalProfileReferenceId** 의 값을 이전에 만든 기술 프로필의 ID로 업데이트 합니다. `Twitter-OAUTH1`)을 입력합니다.
 
 3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
-Azure AD B2C와의 통신은 B2C 테넌트에 등록하는 응용 프로그램을 통해 발생합니다. 이 섹션에는 아직 만들지 않은 경우 테스트 애플리케이션을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
+Azure AD B2C와의 통신은 B2C 테 넌 트에 등록 하는 응용 프로그램을 통해 발생 합니다. 이 섹션에는 아직 만들지 않은 경우 테스트 애플리케이션을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

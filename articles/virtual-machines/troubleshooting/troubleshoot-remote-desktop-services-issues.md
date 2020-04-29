@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 4b314fbdb9cbc0c0b797cbee8e92ee4702bbea81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77919467"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Azure VM에서 원격 데스크톱 서비스가 시작되지 않음
@@ -54,10 +54,10 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 이 문제는 원격 데스크톱 서비스가 VM에서 실행되지 않기 때문에 발생합니다. 원인은 다음 시나리오에 따라 달라질 수 있습니다. 
 
 - TermService 서비스가 **사용 안 함**으로 설정됩니다. 
-- TermService 서비스가 충돌하거나 응답하지 않습니다. 
-- 잘못 된 구성으로 인해 TermService 시작 되지 않습니다.
+- TermService 서비스가 충돌 하거나 응답 하지 않습니다. 
+- 잘못 된 구성으로 인해 TermService이 시작 되지 않습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 직렬 콘솔을 사용합니다. 또는 VM의 OS 디스크를 복구 VM에 연결하여 [오프라인으로 VM을 복구](#repair-the-vm-offline)합니다.
 
@@ -94,24 +94,24 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
    ```
 8. 서비스가 시작에 실패하는 경우 수신한 오류에 따라 솔루션을 수행합니다.
 
-    |  Error |  제안 |
+    |  오류 |  제안 |
     |---|---|
     |5- ACCESS DENIED |[액세스 거부 오류로 인해 TermService 서비스가 중지됨](#termservice-service-is-stopped-because-of-an-access-denied-problem)을 참조하세요. |
-    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |[용어 서비스 서비스가 비활성화되어 있습니다.](#termservice-service-is-disabled)  |  
+    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |[TermService 서비스를 사용 하지 않도록 설정을](#termservice-service-is-disabled)참조 하세요.  |  
     |1058 - ERROR_SERVICE_DISABLED  |[TermService 서비스가 충돌 또는 중단](#termservice-service-crashes-or-hangs)을 참조하세요.  |
-    |1059 - ERROR_CIRCULAR_DEPENDENCY |[지원팀에 문의하여](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 문제를 신속하게 해결하세요.|
+    |1059 - ERROR_CIRCULAR_DEPENDENCY |문제를 신속 하 게 해결 하려면 [지원 담당자에 게 문의 하세요](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .|
     |1067 - ERROR_PROCESS_ABORTED  |[TermService 서비스가 충돌 또는 중단](#termservice-service-crashes-or-hangs)을 참조하세요.  |
-    |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[지원팀에 문의하여](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 문제를 신속하게 해결하세요.|
+    |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|문제를 신속 하 게 해결 하려면 [지원 담당자에 게 문의 하세요](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .|
     |1069 - ERROR_SERVICE_LOGON_FAILED  |[TermService 서비스가 로그온 실패로 인해 실패](#termservice-service-fails-because-of-logon-failure)를 참조하세요. |
     |1070 - ERROR_SERVICE_START_HANG   | [TermService 서비스가 충돌 또는 중단](#termservice-service-crashes-or-hangs)을 참조하세요. |
-    |1077 - ERROR_SERVICE_NEVER_STARTED   | [용어 서비스 서비스가 비활성화되어 있습니다.](#termservice-service-is-disabled)  |
-    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[지원팀에 문의하여](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 문제를 신속하게 해결하세요. |
-    |1753   |[지원팀에 문의하여](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 문제를 신속하게 해결하세요.   |
+    |1077 - ERROR_SERVICE_NEVER_STARTED   | [TermService 서비스를 사용 하지 않도록 설정을](#termservice-service-is-disabled)참조 하세요.  |
+    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |문제를 신속 하 게 해결 하려면 [지원 담당자에 게 문의 하세요](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) . |
+    |1753   |문제를 신속 하 게 해결 하려면 [지원 담당자에 게 문의 하세요](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .   |
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>액세스 거부 문제로 인해 TermService 서비스가 중지됨
 
 1. [직렬 콘솔](serial-console-windows.md)에 연결하고 PowerShell 인스턴스를 엽니다.
-2. 다음 스크립트를 실행하여 프로세스 모니터 도구를 다운로드합니다.
+2. 다음 스크립트를 실행 하 여 프로세스 모니터 도구를 다운로드 합니다.
 
    ```
    remove-module psreadline  
@@ -121,7 +121,7 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
    $wc.DownloadFile($source,$destination) 
    ```
 
-3. 이제 **procmon** 추적을 시작합니다.
+3. 이제 **procmon** 추적을 시작 합니다.
 
    ```
    procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
@@ -139,16 +139,16 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
    procmon /Terminate 
    ```
 
-5. 파일 **c:\temp\ProcMonTrace.PML:**
+5. **C:\temp\ProcMonTrace.PML**파일을 수집 합니다.
 
     1. [VM에 데이터 디스크를 연결합니다](../windows/attach-managed-disk-portal.md
 ).
     2. 새 드라이브에 파일을 복사할 수 있는 직렬 콘솔을 사용합니다. `copy C:\temp\ProcMonTrace.PML F:\`)을 입력합니다. 이 명령에서 F는 연결된 데이터 디스크의 드라이브 문자입니다.
     3. 데이터 드라이브를 분리하고 프로세스 모니터 ubstakke가 설치되어 있는 작동 중인 VM에서 연결합니다.
 
-6. 작동 중인 VM에서 프로세스 모니터를 사용하여 **ProcMonTrace.PML**을 엽니다. 그런 다음 다음 스크린샷과 같이 **결과별 필터는 ACCESS 가 거부됩니다.**
+6. 작동 중인 VM에서 프로세스 모니터를 사용하여 **ProcMonTrace.PML**을 엽니다. 다음 스크린샷에 표시 된 것 처럼 **결과 필터링은 액세스 거부 됩니다**.
 
-    ![프로세스 모니터에서 결과별로 필터링](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
+    ![프로세스 모니터의 결과로 필터링](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
 6. 출력에 있는 레지스트리 키, 폴더 또는 파일을 수정합니다. 일반적으로 이 문제는 서비스에 사용된 로그인 계정에 이러한 개체에 액세스할 수 있는 ACL 권한이 없기 때문에 발생합니다. 로그인 계정에 대한 올바른 ACL 권한을 알아보려면 정상 VM에서 확인할 수 있습니다. 
@@ -201,9 +201,9 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>복구 VM에 OS 디스크 연결
 
-1. [복구 VM에 OS 디스크를 연결합니다.](../windows/troubleshoot-recovery-disks-portal.md)
+1. [OS 디스크를 복구 VM에 연결](../windows/troubleshoot-recovery-disks-portal.md)합니다.
 2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다. 디스크 관리 콘솔에서 연결된 디스크의 플래그가 **온라인**으로 지정되었는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
-3. 상승된 명령 프롬프트**인스턴스(관리자로 실행)를**엽니다. 그런 다음, 다음 스크립트를 실행합니다. 연결된 OS 디스크에 할당된 드라이브 문자가 **F라고**가정합니다. VM에서 적절한 값으로 바꿉습니다. 
+3. 관리자 권한 명령 프롬프트 인스턴스 (**관리자 권한으로 실행**)를 엽니다. 그런 다음, 다음 스크립트를 실행합니다. 연결 된 OS 디스크에 할당 된 드라이브 문자가 **F**인 것으로 가정 합니다. VM의 적절 한 값으로 대체 합니다. 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv

@@ -1,5 +1,5 @@
 ---
-title: 마이크로소프트 위협 모델링 도구 릴리스 9/12/2018
+title: Microsoft Threat Modeling Tool 릴리스 9/12/2018
 titleSuffix: Azure
 description: Threat Modeling Tool 릴리스 정보 문서화
 author: jegeib
@@ -9,15 +9,15 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
 ms.openlocfilehash: a921310f14f0d48922165a46d750366e170ee374
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78269907"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Threat Modeling Tool GA 릴리스 7.1.50911.2 - 9/12/2018
 
-이제 Microsoft Threat Modeling Tool을 지원되는 GA(일반 공급) 릴리스로 다운로드할 수 있습니다. 이 릴리스에는 버그 수정, 기능 업데이트 및 안정성 개선 사항과 함께 중요한 개인 정보 및 보안 업데이트가 포함되어 있습니다. 2017 Preview 버전의 기존 사용자에게는 클라이언트를 열 때 ClickOnce 기술을 통해 최신 릴리스로 업데이트하라는 메시지가 표시됩니다. 도구의 새 사용자의 경우 [클라이언트를 다운로드할](https://aka.ms/threatmodelingtool)수 있습니다.
+이제 Microsoft Threat Modeling Tool을 지원되는 GA(일반 공급) 릴리스로 다운로드할 수 있습니다. 이 릴리스에는 버그 수정, 기능 업데이트 및 안정성 개선 사항과 함께 중요한 개인 정보 및 보안 업데이트가 포함되어 있습니다. 2017 Preview 버전의 기존 사용자에게는 클라이언트를 열 때 ClickOnce 기술을 통해 최신 릴리스로 업데이트하라는 메시지가 표시됩니다. 도구의 새 사용자를 위해 [클라이언트를 다운로드할](https://aka.ms/threatmodelingtool)수 있습니다.
 
 이 릴리스와 더불어 2017 Preview에 대한 지원은 종료되며, Preview의 모든 사용자는 GA 릴리스로 업데이트하는 것이 좋습니다. 2018년 10월 15일 이후에는 Threat Modeling Tool에 대한 최소 필수 ClickOnce 버전이 설정되며, 모든 Preview 클라이언트를 업그레이드해야 합니다.
 
@@ -75,7 +75,7 @@ OneDrive 사용자는 Microsoft의 [Windows용 OneDrive](https://onedrive.live.c
 
 ### <a name="my-organization-uses-the-2016-version-of-the-tool-can-i-use-the-azure-stencil-set"></a>내 조직에서 도구의 2016 버전을 사용하는데, Azure 스텐실 집합을 사용할 수 있나요?
 
-예, 사용할 수 있습니다. [Azure 스텐실 집합은 GitHub에서 사용할 수](https://github.com/Microsoft/threat-modeling-templates/)있으며 도구의 2016 버전에서 로드할 수 있습니다. Azure 스텐실 집합을 사용하여 새 모델을 만들려면 기본 메뉴 화면에서 “새 모델의 템플릿” 대화 상자를 사용합니다. TMT 2016에서는 Azure 스텐실 집합의 “가능한 완화 방법” 필드에 있는 링크를 렌더링할 수 없으므로 링크가 HTML 태그로 표시될 수도 있습니다.
+예, 사용할 수 있습니다. [Azure 스텐실 집합은 GitHub에서 사용할](https://github.com/Microsoft/threat-modeling-templates/)수 있으며 도구의 2016 버전에서 로드할 수 있습니다. Azure 스텐실 집합을 사용하여 새 모델을 만들려면 기본 메뉴 화면에서 “새 모델의 템플릿” 대화 상자를 사용합니다. TMT 2016에서는 Azure 스텐실 집합의 “가능한 완화 방법” 필드에 있는 링크를 렌더링할 수 없으므로 링크가 HTML 태그로 표시될 수도 있습니다.
 
 ![2016 클라이언트의 Azure 스텐실 업데이트](./media/threat-modeling-tool-releases-71509112/tmt_azure_stencils-300x212.png)
 

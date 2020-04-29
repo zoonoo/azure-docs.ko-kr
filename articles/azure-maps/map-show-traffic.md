@@ -1,6 +1,6 @@
 ---
-title: 지도에 교통 표시 | 마이크로소프트 Azure 지도
-description: 이 문서에서는 Microsoft Azure Maps Web SDK를 사용하여 맵에 트래픽 데이터를 표시하는 방법을 알아봅니다.
+title: 지도에 트래픽 표시 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 지도에 트래픽 데이터를 표시 하는 방법에 대해 알아봅니다.
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -10,23 +10,23 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 9bd5ae462013924a46a3da8400719e83abae3424
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79534817"
 ---
 # <a name="show-traffic-on-the-map"></a>맵에 트래픽 표시
 
-Azure Maps에는 두 가지 유형의 트래픽 데이터를 사용할 수 있습니다.
+Azure Maps에서 사용할 수 있는 트래픽 데이터에는 두 가지 유형이 있습니다.
 
-- 사고 데이터 - 건설, 도로 폐쇄 및 사고와 같은 사물에 대한 포인트 및 라인 기반 데이터로 구성됩니다.
-- 흐름 데이터 - 도로의 교통 흐름에 대한 메트릭을 제공합니다. 종종 교통 흐름 데이터는 도로의 색상을 채색하는 데 사용됩니다. 색상은 속도 제한 또는 다른 메트릭을 기준으로 트래픽이 흐름을 느리게 하는 정도를 기반으로 합니다. Azure Maps의 트래픽 흐름 데이터에는 세 가지 측정 메트릭이 있습니다.
-    - `relative`- 도로의 자유 흐름 속도에 상대적입니다.
-    - `absolute`- 도로에있는 모든 차량의 절대 속도입니다.
-    - `relative-delay`- 평균 예상 지연보다 느린 영역을 표시합니다.
+- 인시던트 데이터-생성,도로 클로저 및 사고와 같은 사물에 대 한 점 및 선 기반 데이터로 구성 됩니다.
+- 흐름 데이터-도로의 트래픽 흐름에 대 한 메트릭을 제공 합니다. 트래픽 흐름 데이터를 사용 하 여도로 색을 조정 하는 경우가 많습니다. 이 색은 속도 제한을 기준으로 흐름을 저하 시키는 트래픽 양과 다른 메트릭을 기반으로 합니다. Azure Maps의 트래픽 흐름 데이터에는 세 가지 측정 메트릭이 있습니다.
+    - `relative`-이동의 자유 흐름 속도를 기준으로 합니다.
+    - `absolute`-도로의 모든 자동차의 절대 속도입니다.
+    - `relative-delay`-평균 예상 지연 시간 보다 느린 영역을 표시 합니다.
 
-다음 코드는 맵에 교통 데이터를 표시하는 방법을 보여 주었습니다.
+다음 코드에서는 지도에 트래픽 데이터를 표시 하는 방법을 보여 줍니다.
 
 ```javascript
 //Show traffic on the map using the traffic options.
@@ -36,7 +36,7 @@ map.setTraffic({
 });
 ```
 
-다음은 위의 기능의 전체 실행 코드 샘플입니다.
+다음은 위의 기능을 실행 하는 전체 코드 샘플입니다.
 
 <br/>
 
@@ -45,12 +45,12 @@ map.setTraffic({
 
 ## <a name="traffic-overlay-options"></a>트래픽 오버레이 옵션
 
-다음 도구를 사용하면 서로 다른 트래픽 오버레이 설정 간에 전환하여 렌더링이 어떻게 변경되는지 확인할 수 있습니다. 
+다음 도구를 사용 하면 다양 한 트래픽 오버레이 설정 간을 전환 하 여 렌더링이 어떻게 변경 되는지 확인할 수 있습니다. 
 
 <br/>
 
 <iframe height="700" style="width: 100%;" scrolling="no" title="트래픽 오버레이 옵션" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen에서</a>Azure 지도 ()<a href='https://codepen.io/azuremaps'>@azuremaps</a>별 펜 <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>트래픽 오버레이 옵션을</a> 참조하십시오.
+<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>트래픽 오버레이 옵션</a> 을 확인 하세요.
 </iframe>
 
 ## <a name="next-steps"></a>다음 단계
@@ -58,10 +58,10 @@ map.setTraffic({
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [지도](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [매핑할](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [트래픽 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.trafficoptions)
+> [TrafficOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.trafficoptions)
 
 다음 문서를 참조하여 사용자 환경을 개선할 수 있습니다.
 

@@ -1,16 +1,16 @@
 ---
-title: 쿼리 성능 문제 해결 - MariaDB용 Azure 데이터베이스
-description: 설명을 사용하여 MariaDB용 Azure 데이터베이스에서 쿼리 성능 문제를 해결하는 방법을 알아봅니다.
+title: 쿼리 성능 문제 해결-Azure Database for MariaDB
+description: 설명을 사용 하 여 Azure Database for MariaDB에서 쿼리 성능 문제를 해결 하는 방법에 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: b06fe37b63494eb4ee0ca680733a801c26415d67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79530056"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>EXPLAIN을 사용하여 Azure Database for MariaDB에서 쿼리 성능을 프로파일링하는 방법
@@ -163,7 +163,7 @@ possible_keys: NULL
  
 ## <a name="conclusion"></a>결론
  
-EXPLAIN과 다른 유형의 인덱스를 사용하면 성능이 크게 향상될 수 있습니다. 테이블에 인덱스가 있다고 해서 반드시 MariaDB가 쿼리에 인덱스를 사용할 수 있는 것은 아닙니다. 항상 EXPLAIN을 사용하여 가정을 검증하고 인덱스를 사용하여 쿼리를 최적화하십시오.
+EXPLAIN과 다른 유형의 인덱스를 사용하면 성능이 크게 향상될 수 있습니다. 테이블에 인덱스가 있는 경우에는 반드시이를 쿼리에 사용할 수 있다는 의미는 아닙니다. 항상 EXPLAIN을 사용하여 가정을 검증하고 인덱스를 사용하여 쿼리를 최적화하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 - 가장 궁금한 질문에 대한 동료의 답변을 찾아보거나 새로운 질문/답변을 게시하려면 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb)를 참조하세요.

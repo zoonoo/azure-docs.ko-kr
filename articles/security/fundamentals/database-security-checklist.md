@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
 ms.openlocfilehash: d9283a36d5f7ccb82b2cc211485487d5a3dcce7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79201028"
 ---
 # <a name="azure-database-security-checklist"></a>Azure 데이터베이스 보안 검사 목록
@@ -41,10 +41,10 @@ Azure 데이터베이스에는 보안을 향상시키기 위해 액세스를 제
 클라우드 컴퓨팅에는 다양한 애플리케이션 사용자, 데이터베이스 관리자 및 프로그래머에게 익숙하지 않은 새로운 보안 패러다임이 필요합니다. 그 결과로 일부 조직에서는 인식된 보안 위험으로 인해 데이터 관리를 위한 클라우드 인프라를 구현하는 것을 망설일 수 있습니다. 그러나 Microsoft Azure 및 Microsoft Azure SQL Database에 기본 제공된 보안 기능을 더 잘 이해하면 이러한 문제의 대부분을 완화할 수 있습니다.
 
 ## <a name="checklist"></a>검사 목록
-이 검사 목록을 검토하기 전에 [Azure 데이터베이스 보안 모범 사례](database-best-practices.md) 문서를 참조하는 것이 좋습니다. 모범 사례를 이해하면 이 검사 목록을 최대한 활용할 수 있습니다. 그런 다음 이 검사 목록을 사용하여 Azure 데이터베이스 보안에서 중요한 문제를 해결했는지 확인할 수 있습니다.
+이 검사 목록을 검토하기 전에 [Azure 데이터베이스 보안 모범 사례](database-best-practices.md) 문서를 참조하는 것이 좋습니다. 모범 사례를 이해하면 이 검사 목록을 최대한 활용할 수 있습니다. 그런 다음이 검사 목록을 사용 하 여 Azure database security의 중요 한 문제를 해결 했는지 확인할 수 있습니다.
 
 
-|검사 목록 범주| 설명|
+|검사 목록 범주| Description|
 | ------------ | -------- |
 |**데이터 보호**||
 | <br> 진행 중/전송 중 암호화| <ul><li>[전송 계층 보안](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol) - 데이터가 네트워크로 이동할 때의 데이터 암호화용</li><li>데이터베이스에는 TLS(전송 계층 보안)를 통한 [TDS(Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) 프로토콜에 기반한 클라이언트로부터의 보안 통신이 필요합니다.</li></ul> |
@@ -62,7 +62,7 @@ Azure 데이터베이스는 다양한 조직 및 규정 준수 요구 사항을 
 ## <a name="next-steps"></a>다음 단계
 몇 가지 간단한 단계만 거치면 악의적인 사용자 또는 무단 액세스로부터 데이터베이스를 보호하는 기능을 크게 향상시킬 수 있습니다. 이 자습서에서는 다음에 대해 알아봅니다.
 
-- 서버 및 데이터베이스에 대한 [방화벽 규칙을](../../sql-database/sql-database-firewall-configure.md) 설정합니다.
-- [암호화로](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption)데이터를 보호합니다.
-- SQL 데이터베이스 감사를 사용하도록 [설정합니다.](../../sql-database/sql-database-auditing.md)
+- 서버 및 또는 데이터베이스에 대 한 [방화벽 규칙](../../sql-database/sql-database-firewall-configure.md) 을 설정 합니다.
+- [암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption)를 사용 하 여 데이터를 보호 합니다.
+- [SQL Database 감사](../../sql-database/sql-database-auditing.md)를 사용 하도록 설정 합니다.
 

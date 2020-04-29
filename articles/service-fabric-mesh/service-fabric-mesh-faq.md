@@ -1,14 +1,14 @@
 ---
-title: Azure 서비스 패브릭 메시에 대한 일반적인 질문
+title: Azure Service Fabric 메시에 대 한 일반적인 질문
 description: Azure Service Fabric Mesh에 대한 일반적인 질문과 대답을 알아봅니다.
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78252500"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh에 대한 일반적인 질문
@@ -23,18 +23,18 @@ Azure Service Fabric Mesh는 개발자가 가상 머신, 스토리지 또는 네
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>미리 보기에 참여하는 비용은 얼마인가요?
 
-현재 메시 미리 보기에 응용 프로그램 또는 컨테이너를 배포하는 데는 요금이 부과되지 않습니다. 결제 활성화에 대 한 5 월에 업데이트를 보고 하시기 바랍니다. 그러나 배포하는 리소스를 삭제하고 적극적으로 테스트하지 않는 한 실행 상태로 두지 않는 것이 좋습니다.
+현재 메시 미리 보기에 응용 프로그램 또는 컨테이너를 배포 하는 데는 요금이 부과 되지 않습니다. 청구에 대 한 사용할 수 있는 경우의 업데이트를 시청 하세요. 그러나 배포 하는 리소스는 삭제 하 고 적극적으로 테스트 하는 경우에는 실행 하지 않는 것이 좋습니다.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>코어 수와 RAM의 할당량 제한이 있나요?
 
 예. 각 구독에 대한 할당량은 다음과 같습니다.
 
 - 응용 프로그램 수: 5
-- 응용 프로그램당 코어: 12
-- 응용 프로그램당 총 RAM: 48GB
-- 네트워크 및 인그레스 끝점: 5
+- 응용 프로그램당 코어 수: 12
+- 응용 프로그램당 총 RAM: 48 GB
+- 네트워크 및 수신 끝점: 5
 - 연결할 수 있는 Azure 볼륨: 10
-- 서비스 복제수: 3
+- 서비스 복제본 수: 3
 - 배포할 수 있는 최대 컨테이너는 4코어, 16GB RAM으로 제한됩니다.
 - 최대 6코어까지 0.5코어 증분으로 부분 코어를 컨테이너에 할당할 수 있습니다.
 
@@ -44,7 +44,7 @@ Azure Service Fabric Mesh는 개발자가 가상 머신, 스토리지 또는 네
 
 이 경우 Azure CLI에서 `az mesh app show` 명령을 실행하여 시스템에서 배포를 종료한 것인지 확인할 수 있습니다. `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."`가 반환되는지 확인합니다. 
 
-예를 들어: 
+다음은 그 예입니다. 
 
 ```azurecli
 az mesh app show --resource-group myResourceGroup --name helloWorldApp
@@ -77,7 +77,7 @@ az mesh app show --resource-group myResourceGroup --name helloWorldApp
 
 ## <a name="deployments"></a>배포
 
-### <a name="what-container-images-are-supported"></a>어떤 컨테이너 이미지가 지원됩니까?
+### <a name="what-container-images-are-supported"></a>어떤 컨테이너 이미지가 지원 되나요?
 
 Windows Fall Creators 업데이트(버전 1709) 머신에서 개발하는 경우 Windows 버전 1709 Docker 이미지만 사용할 수 있습니다.
 
@@ -87,17 +87,17 @@ Windows 10 2018년 4월 업데이트(버전 1803) 머신에서 개발하는 경�
 - Windows - windowsservercore 및 nanoserver
     - Windows Server 1709
     - Windows Server 1803
-    - 윈도우 서버 1809
-    - 윈도우 서버 2019 LTSC
+    - Windows Server 1809
+    - Windows Server 2019 LTSC
 - Linux
     - 알려진 제한 사항 없음
 
 > [!NOTE]
-> 메시용 Visual Studio 도구는 아직 Windows Server 2019 및 1809 컨테이너에 배포하는 것을 지원하지 않습니다.
+> Visual Studio tools for 메시는 아직 Windows Server 2019 및 1809 컨테이너에 배포 하는 기능을 지원 하지 않습니다.
 
-### <a name="what-types-of-applications-can-i-deploy"></a>어떤 유형의 응용 프로그램을 배포할 수 있습니까? 
+### <a name="what-types-of-applications-can-i-deploy"></a>어떤 종류의 응용 프로그램을 배포할 수 있나요? 
 
-응용 프로그램 리소스에 배치된 제한 사항에 맞는 컨테이너에서 실행되는 모든 것을 배포할 수 있습니다(할당량에 대한 자세한 내용은 위의 참조). 불법 워크로드를 실행하거나 시스템(예: 마이닝)을 남용하기 위해 Mesh를 사용하고 있음을 감지하면 배포를 종료하고 서비스에서 실행되지 않도록 구독을 차단할 수 있는 권리가 있습니다. 특정 워크로드 실행에 대한 질문이 있으시면 저희에게 연락하십시오. 
+응용 프로그램 리소스에 적용 되는 제한 사항에 맞는 컨테이너에서 실행 되는 모든 항목을 배포할 수 있습니다 (할당량에 대 한 자세한 내용은 위 참조). 사용자가 잘못 된 작업을 실행 하는 데 메시를 사용 하 고 있는 경우 (즉, 마이닝), 배포를 종료 하 고 서비스에서 구독이 실행 되지 않도록 하는 권한을 차단 목록 합니다. 특정 워크 로드 실행에 대 한 질문이 있으면 microsoft에 문의 하세요. 
 
 ## <a name="developer-experience-issues"></a>개발자 환경 문제
 
@@ -106,8 +106,8 @@ Windows 10 2018년 4월 업데이트(버전 1803) 머신에서 개발하는 경�
 컨테이너에서 Service Fabric DNS 서비스로 보내는 DNS 쿼리는 특정 상황에서 실패할 수 있습니다. 이 문제는 조사 중입니다. 문제를 완화하려면 다음을 수행합니다.
 
 - 기본 컨테이너 이미지로 Windows Fall Creators 업데이트(버전 1709) 이상을 사용합니다.
-- 서비스 이름만으로는 작동하지 않는 경우 정규화된 이름인 ServiceName.ApplicationName을 사용해 보십시오.
-- 서비스의 Docker 파일에 `EXPOSE <port>`를 추가합니다. 여기서 port는 서비스를 노출하는 포트입니다. 예를 들어:
+- 서비스 이름만 작동 하지 않는 경우 정규화 된 이름: ServiceName. ApplicationName을 시도 합니다.
+- 서비스의 Docker 파일에 `EXPOSE <port>`를 추가합니다. 여기서 port는 서비스를 노출하는 포트입니다. 다음은 그 예입니다.
 
 ```Dockerfile
 EXPOSE 80
@@ -121,7 +121,7 @@ EXPOSE 80
 
 Azure Mesh는 현재 애플리케이션 간의 DNS 확인을 지원하지 않습니다.
 
-Windows 10에서 서비스 패브릭 개발 클러스터를 실행하는 데 알려진 다른 DNS 문제는 [Windows 컨테이너 디버그](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) 및 [알려진 DNS 문제를](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues)참조하십시오.
+Windows 10에서 Service Fabric 개발 클러스터를 실행 하는 것과 관련 된 기타 알려진 DNS 문제는 [windows 컨테이너 디버그](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) 및 [알려진 dns 문제](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues)를 참조 하세요.
 
 ### <a name="networking"></a>네트워킹
 
@@ -141,9 +141,9 @@ CPU 가용성 및 한도가 모든 애플리케이션에서 고정될 수 있습
 - 로컬 클러스터에 여러 앱을 배포하는 경우 5노드 클러스터를 사용합니다.
 - 현재 테스트하지 않는 앱을 제거합니다.
 
-### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>VS 툴링은 Windows 컨테이너에 대한 지원이 제한되어 있습니다.
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>VS 도구는 Windows 컨테이너에 대해 제한 된 지원을 제공 합니다.
 
-Visual Studio 도구는 현재 Windows Server 1709 및 1803의 기본 OS 버전으로 Windows 컨테이너 배포만 지원합니다. 
+Visual Studio 도구는 현재 Windows Server 1709 및 1803의 기본 OS 버전을 사용 하는 Windows 컨테이너 배포만 지원 합니다. 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>기능 차이 및 기타 알려진 문제
 
@@ -169,4 +169,4 @@ IP 주소를 즉시 사용할 수 없는 알려진 문제가 있습니다. 관�
 
 ## <a name="next-steps"></a>다음 단계
 
-서비스 패브릭 메시에 대해 자세히 알아보려면 [개요를](service-fabric-mesh-overview.md)참조하십시오.
+Service Fabric 메시에 대해 자세히 알아보려면 [개요](service-fabric-mesh-overview.md)를 참조 하세요.

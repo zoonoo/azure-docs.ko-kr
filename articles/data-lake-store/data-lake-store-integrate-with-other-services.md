@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 43024b63a355646f607adbb6623cc6c349374ea8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79535598"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Azure Data Lake Storage Gen1을 다른 Azure 서비스와 통합
@@ -65,8 +65,8 @@ PolyBase를 사용하여 Data Lake Storage Gen1에서 SQL Data Warehouse로 데�
 ## <a name="use-data-lake-storage-gen1-with-azure-event-hubs"></a>Azure Event Hubs와 함께 Data Lake Storage Gen1 사용
 Azure Data Lake Storage Gen1을 사용하여 Azure Event Hubs에서 받은 데이터를 보관하고 캡처할 수 있습니다. 자세한 내용은 [Azure Event Hubs와 함께 Data Lake Storage Gen1 사용](data-lake-store-archive-eventhub-capture.md)을 참조하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [포털을 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)
-* [PowerShell을 사용하여 데이터 레이크 스토리지 Gen1시작](data-lake-store-get-started-powershell.md)  
+* [PowerShell을 사용 하 여 Data Lake Storage Gen1 시작](data-lake-store-get-started-powershell.md)  
 

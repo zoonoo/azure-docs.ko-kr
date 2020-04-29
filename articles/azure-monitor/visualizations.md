@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
 ms.openlocfilehash: 877616f6fd31bdfbe193bd8f03efb3f79317ad42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79535372"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure Monitor의 데이터 시각화
@@ -42,11 +42,11 @@ ms.locfileid: "79535372"
 ![대시보드](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>장점
-- Azure에 긴밀하게 통합됩니다. 시각화는 메트릭 탐색기, 로그 분석 및 응용 프로그램 인사이트를 비롯한 여러 Azure 페이지의 대시보드에 고정할 수 있습니다.
+- Azure에 긴밀하게 통합됩니다. 시각화는 메트릭 탐색기, Log Analytics 및 Application Insights를 비롯 한 여러 Azure 페이지에서 대시보드에 고정 될 수 있습니다.
 - 메트릭 및 로그를 둘 다 지원합니다.
 - [메트릭 탐색기](platform/metrics-charts.md), [로그 쿼리](log-query/log-query-overview.md), Application Insights의 [맵](app/app-map.md)과 가용성 출력을 비롯한 여러 출처의 데이터를 결합할 수 있습니다.
 - 개인 또는 공유 대시보드 옵션을 제공합니다. Azure [역할 기반 인증(RBAC)](../role-based-access-control/overview.md)과 통합됩니다.
-- 자동으로 새로 고침됩니다. 메트릭 새로 고침은 시간 범위에 따라 달라지며, 시간 범위는 최소 5분입니다. 지정된 시각화에서 "새로 고침" 아이콘을 클릭하거나 전체 대시보드를 새로 고쳐 요청 시 수동 새로 고침 옵션을 통해 매시간 로그 새로 고쳐집니다.
+- 자동으로 새로 고침됩니다. 메트릭 새로 고침은 시간 범위에 따라 달라지며, 시간 범위는 최소 5분입니다. 지정 된 시각화에서 "새로 고침" 아이콘을 클릭 하거나 전체 대시보드를 새로 고쳐 요청 시 수동 새로 고침 옵션을 사용 하 여 매시간 로그를 새로 고칩니다.
 - 타임스탬프 및 사용자 지정 매개 변수로 메트릭 대시보드가 매개 변수화됩니다.
 - 유연한 레이아웃 옵션을 제공합니다.
 - 전체 화면 모드를 제공합니다.
@@ -111,7 +111,7 @@ ms.locfileid: "79535372"
 ## <a name="azure-monitor-views"></a>Azure Monitor 뷰
 
 > [!IMPORTANT]
-> 뷰가 더 이상 사용되지 않는 중입니다. 뷰를 통합 문서로 변환하는 방법에 대한 지침은 [Azure Monitor 보기 디자이너에서 통합 문서 전환 가이드를](platform/view-designer-conversion-overview.md) 참조하세요.
+> 뷰가 더 이상 사용 되지 않습니다. 뷰를 통합 문서로 변환 하는 방법에 대 한 지침은 [Azure Monitor 뷰 디자이너에서 통합 문서 전환 가이드](platform/view-designer-conversion-overview.md) 를 참조 하세요.
 
 [Azure Monitor의 뷰](platform/view-designer.md)를 통해 로그 데이터로 사용자 지정 시각화를 만들 수 있습니다. [모니터링 솔루션](insights/solutions.md)에서 수집한 데이터를 표시하는 데 사용됩니다.
 
@@ -137,7 +137,7 @@ ms.locfileid: "79535372"
 - [Azure Monitor에서 수집하는 데이터](platform/data-platform.md)에 대해 알아봅니다.
 - [Azure 대시보드](../azure-portal/azure-portal-dashboards.md)에 대해 알아봅니다.
 - [Azure Monitor의 뷰](platform/view-designer.md)에 대해 알아봅니다.
-- 통합 [문서에](../azure-monitor/app/usage-workbooks.md)대해 자세히 알아봅니다.
+- [통합 문서](../azure-monitor/app/usage-workbooks.md)에 대해 알아봅니다.
 - [Power BI로 로그 데이터 가져오기](../azure-monitor/platform/powerbi.md)에 대해 알아봅니다.
 - [Grafana Azure Monitor 데이터 원본 플러그 인](../azure-monitor/platform/grafana-plugin.md)에 대해 알아봅니다.
 

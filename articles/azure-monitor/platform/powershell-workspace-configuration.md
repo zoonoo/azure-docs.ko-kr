@@ -1,21 +1,21 @@
 ---
-title: '& 로그 분석 구성 을 만들기'
-description: Azure Monitor의 로그 분석 작업 영역은 온-프레미스 또는 클라우드 인프라의 서버에서 데이터를 저장합니다. Azure 진단에 의해 생성된 경우에 Azure 스토리지에서 머신 데이터를 수집할 수 있습니다.
+title: PowerShell을 사용 하 여 Log Analytics 만들기 & 구성
+description: 에서 작업 영역을 Log Analytics 하 여 온-프레미스 또는 클라우드 인프라의 서버에서 데이터를 저장할 Azure Monitor. Azure 진단에 의해 생성된 경우에 Azure 스토리지에서 머신 데이터를 수집할 수 있습니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/19/2019
 ms.openlocfilehash: 2584cedceab1386cbab9c72bb4b510eebe2122bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80054704"
 ---
-# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>PowerShell을 사용하여 Azure 모니터에서 로그 분석 작업 영역 관리
+# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>PowerShell을 사용 하 여 Azure Monitor에서 Log Analytics 작업 영역 관리
 
-[로그 애널리틱스 PowerShell cmdlet을](https://docs.microsoft.com/powershell/module/az.operationalinsights/) 사용하여 명령줄에서 또는 스크립트의 일부로 Azure Monitor의 로그 분석 작업 영역에서 다양한 기능을 수행할 수 있습니다.  PowerShell을 사용하여 수행할 수 있는 작업의 예:
+[Log Analytics PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights/) 을 사용 하 여 명령줄에서 또는 스크립트의 일부로 Azure Monitor의 Log Analytics 작업 영역에서 다양 한 기능을 수행할 수 있습니다.  PowerShell을 사용하여 수행할 수 있는 작업의 예:
 
 * 작업 영역 만들기
 * 솔루션 추가 또는 제거
@@ -37,7 +37,7 @@ ms.locfileid: "80054704"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
-이 예제는 Az.OperationalInsights 모듈의 버전 1.0.0 이상에서 작동합니다.
+이러한 예제는 OperationalInsights 모듈의 버전 1.0.0 이상에서 작동 합니다.
 
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기 및 구성
@@ -178,7 +178,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> 사용자 지정 로그에 대한 구성을 정의하는 **CustomLogRawJson** 매개 변수의 형식은 복잡할 수 있습니다. [Get-Az운영인사이트데이터소스를](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) 사용하여 기존 사용자 지정 로그에 대한 구성을 검색합니다. **속성** 속성은 **CustomLogRawJson** 매개 변수에 필요한 구성입니다.
+> 사용자 지정 로그의 구성을 정의 하는 **CustomLogRawJson** 매개 변수의 형식은 복잡할 수 있습니다. [AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) 를 사용 하 여 기존 사용자 지정 로그의 구성을 검색 합니다. **Properties** 속성은 **CustomLogRawJson** 매개 변수에 필요한 구성입니다.
 
 위의 예에서 regexDelimiter는 줄 바꿈에 대한 “\\n”으로 정의되었습니다. 로그 구분 기호는 타임스탬프일 수도 있습니다.  지원되는 형식은 다음과 같습니다.
 
@@ -196,33 +196,33 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 | `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> 여기서 +는 + 또는 - <br> 여기서 zzzz 시간 오프셋 | `(([0-2][1-9]|[3][0-1])\\/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\/((19|20)[0-9][0-9]):([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\s[\\+|\\-][0-9]{4})` | | |
 | `yyyy-MM-ddTHH:mm:ss` <br> T는 리터럴 문자 T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
-## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Azure 진단을 보낼 로그 분석 구성
-에이전트 없이 Azure 리소스를 모니터링할 경우 리소스가 Azure 진단을 사용할 수 있어야 하며 Log Analytics 작업 영역에 쓰도록 구성되어야 합니다. 이 방법은 데이터를 작업 영역으로 직접 전송하며 저장소 계정에 데이터를 쓸 필요가 없습니다. 지원되는 리소스는 다음과 같습니다.
+## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Azure 진단을 보내도록 Log Analytics 구성
+에이전트 없이 Azure 리소스를 모니터링할 경우 리소스가 Azure 진단을 사용할 수 있어야 하며 Log Analytics 작업 영역에 쓰도록 구성되어야 합니다. 이 방법은 데이터를 작업 영역에 직접 보내고 저장소 계정에 데이터를 쓸 필요가 없습니다. 지원되는 리소스는 다음과 같습니다.
 
 | 리소스 종류 | 로그 | 메트릭 |
 | --- | --- | --- |
-| Application Gateway    | yes | yes |
-| Automation 계정     | yes | |
-| Batch 계정          | yes | yes |
-| Data Lake Analytics     | yes | |
-| Data Lake Store         | yes | |
-| 탄력적인 SQL 풀        |     | yes |
-| 이벤트 허브 네임스페이스     |     | yes |
-| IoT Hub                |     | yes |
-| Key Vault               | yes | |
-| 부하 분산 장치          | yes | |
-| Logic Apps              | yes | yes |
-| 네트워크 보안 그룹 | yes | |
-| Azure Cache for Redis             |     | yes |
-| Search 서비스         | yes | yes |
-| Service Bus 네임스페이스   |     | yes |
-| SQL(v12)               |     | yes |
-| 웹 사이트               |     | yes |
-| 웹 서버 팜        |     | yes |
+| Application Gateway    | 예 | 예 |
+| Automation 계정     | 예 | |
+| Batch 계정          | 예 | 예 |
+| Data Lake Analytics     | 예 | |
+| Data Lake Store         | 예 | |
+| 탄력적인 SQL 풀        |     | 예 |
+| 이벤트 허브 네임스페이스     |     | 예 |
+| IoT Hub                |     | 예 |
+| Key Vault               | 예 | |
+| 부하 분산 장치          | 예 | |
+| Logic Apps              | 예 | 예 |
+| 네트워크 보안 그룹 | 예 | |
+| Azure Cache for Redis             |     | 예 |
+| Search 서비스         | 예 | 예 |
+| Service Bus 네임스페이스   |     | 예 |
+| SQL(v12)               |     | 예 |
+| 웹 사이트               |     | 예 |
+| 웹 서버 팜        |     | 예 |
 
 사용 가능한 메트릭에 대한 자세한 내용은 [Azure Monitor에서 지원되는 메트릭](../../azure-monitor/platform/metrics-supported.md)을 참조하세요.
 
-사용 가능한 로그에 대한 자세한 내용은 [지원되는 서비스 및 리소스 로그에 대한 스키마를](../../azure-monitor/platform/diagnostic-logs-schema.md)참조하십시오.
+사용 가능한 로그에 대 한 자세한 내용은 [리소스 로그에 대해 지원 되는 서비스 및 스키마](../../azure-monitor/platform/diagnostic-logs-schema.md)를 참조 하세요.
 
 ```powershell
 $workspaceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -235,15 +235,15 @@ Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Ena
 위의 cmdlet을 사용하여 다른 구독에 있는 리소스에서 로그를 수집할 수도 있습니다. 로그를 만드는 리소스의 ID와 로그가 전송되는 작업 영역의 ID를 둘 다 제공하기 때문에 cmdlet이 구독 간에 작동할 수 있습니다.
 
 
-## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>저장소에서 Azure 진단을 수집하기 위해 로그 분석 작업 영역 구성
-클래식 클라우드 서비스 또는 Service Fabric 클러스터의 실행 중인 인스턴스 내에서 로그 데이터를 수집하려면 먼저 Azure Storage에 데이터를 써야 합니다. 그런 다음 저장소 계정에서 로그를 수집하도록 로그 분석 작업 영역이 구성됩니다. 지원되는 리소스는 다음과 같습니다.
+## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>저장소에서 Azure 진단을 수집 하도록 Log Analytics 작업 영역 구성
+클래식 클라우드 서비스 또는 Service Fabric 클러스터의 실행 중인 인스턴스 내에서 로그 데이터를 수집하려면 먼저 Azure Storage에 데이터를 써야 합니다. 그러면 Log Analytics 작업 영역이 저장소 계정에서 로그를 수집 하도록 구성 됩니다. 지원되는 리소스는 다음과 같습니다.
 
 * 기존 Cloud Services(웹 및 작업자 역할)
 * Service Fabric 클러스터
 
 아래 예제는 다음과 같은 작업의 방법을 보여 줍니다.
 
-1. 작업 영역에서 데이터를 인덱싱할 기존 저장소 계정 및 위치를 나열합니다.
+1. 작업 영역에서 데이터를 인덱싱하는 기존 저장소 계정 및 위치 나열
 2. 스토리지 계정에서 읽을 구성 만들기
 3. 새로 만든 구성을 추가 위치에서 오는 데이터를 인덱싱하도록 업데이트
 4. 새로 만든 구성 삭제

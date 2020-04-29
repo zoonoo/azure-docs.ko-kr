@@ -1,5 +1,5 @@
 ---
-title: Azure에서 파일 공유를 사용하여 WSFC의 클러스터 SAP ASCS/SCS | 마이크로 소프트 문서
+title: Azure에서 파일 공유를 사용 하 여 WSFC에서 SAP ASCS/SCS 클러스터링 | Microsoft Docs
 description: Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스를 클러스터링하는 방법을 알아봅니다.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 545bcd1fa521b945d822b7eb69945cf381bf480a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77918668"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -291,11 +291,11 @@ _**그림 4:** SAP 글로벌 호스트 파일을 보호하는 데 사용되는 �
 
 스토리지 공간 다이렉트는 스케일 아웃 파일 공유를 위한 공유 디스크로 사용됩니다. 스토리지 공간 다이렉트를 사용하여 로컬 스토리지가 있는 서버로 확장 가능한 고가용성 스토리지를 구축할 수 있습니다. SAP 글로벌 호스트 파일과 같이 스케일 아웃 파일 공유로 사용되는 공유 스토리지는 단일 장애 지점이 아닙니다.
 
-저장소 공간 직접을 선택할 때 다음 사용 사례를 고려하십시오.
+스토리지 공간 다이렉트 선택 하는 경우 다음과 같은 사용 사례를 고려 합니다.
 
-- 저장소 공간 직접 클러스터를 빌드하는 데 사용되는 가상 시스템은 Azure 가용성 집합에 배포해야 합니다.
-- 저장소 공간 직접 클러스터의 재해 복구를 위해 [Azure 사이트 복구 서비스를](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage)사용할 수 있습니다.
-- 다른 Azure 가용성 영역에서 저장소 공간 직접 클러스터를 확장하는 것은 지원되지 않습니다.
+- 스토리지 공간 다이렉트 클러스터를 구축 하는 데 사용 되는 가상 컴퓨터는 Azure 가용성 집합에 배포 해야 합니다.
+- 스토리지 공간 다이렉트 클러스터의 재해 복구를 위해 [Azure Site Recovery 서비스](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage)를 사용할 수 있습니다.
+- 다른 Azure 가용성 영역에서 저장소 공간 다이렉트 클러스터를 스트레치 하는 것은 지원 되지 않습니다.
 
 ### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>Azure의 스케일 아웃 파일 공유를 위한 SAP 필수 조건
 
@@ -338,7 +338,7 @@ _**그림 4:** SAP 글로벌 호스트 파일을 보호하는 데 사용되는 �
 _**그림 5:** 2개의 클러스터에 배포된 SAP ASCS/SCS 인스턴스와 스케일 아웃 파일 공유_
 
 > [!IMPORTANT]
-> Azure 클라우드에서 SAP 및 확장 파일 공유에 사용되는 각 클러스터는 자체 Azure 가용성 집합 또는 Azure 가용성 영역에 배포되어야 합니다. 이렇게 해야 기반이 되는 Azure 인프라 전체에 걸쳐 클러스터 VM을 분산하여 배치할 수 있습니다. 가용성 영역 배포는 이 기술로 지원됩니다.
+> Azure 클라우드에서 SAP 및 스케일 아웃 파일 공유에 사용 되는 각 클러스터는 자체 Azure 가용성 집합에 배포 하거나 Azure 가용성 영역 간에 배포 되어야 합니다. 이렇게 해야 기반이 되는 Azure 인프라 전체에 걸쳐 클러스터 VM을 분산하여 배치할 수 있습니다. 이 기술에서는 가용성 영역 배포가 지원 됩니다.
 >
 
 ## <a name="generic-file-share-with-sios-datakeeper-as-cluster-shared-disks"></a>SIOS DataKeeper를 클러스터 공유 디스크로 사용하는 일반 파일 공유
@@ -352,6 +352,6 @@ _**그림 5:** 2개의 클러스터에 배포된 SAP ASCS/SCS 인스턴스와 �
 
 * [Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP ASCS/SCS 인스턴스를 위한 SAP HA용 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-file-share]
 * [Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP ASCS/SCS 인스턴스용 SAP NetWeaver HA 설치][sap-high-availability-installation-wsfc-shared-disk]
-* [Azure에서 UPD 스토리지에 대해 2노드 스토리지 공간 다이렉트 스케일아웃 파일 서버 배포][deploy-sofs-s2d-in-azure]
+* [Azure에서 UPD 스토리지용 2-노드 직접 스토리지 공간 스케일 아웃 파일 서버 배포][deploy-sofs-s2d-in-azure]
 * [Windows Server 2016의 스토리지 공간 다이렉트][s2d-in-win-2016]
 * [심층 조사: 스토리지 공간 다이렉트의 볼륨][deep-dive-volumes-in-s2d]

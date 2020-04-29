@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.openlocfilehash: 4fd71a7f322cb2672eb485f17e4de2619a7c2d2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78270040"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Power BI를 사용하여 지식 저장소 연결
@@ -24,7 +24,7 @@ ms.locfileid: "78270040"
 
 + [Azure Portal에서 지식 저장소 만들기](knowledge-store-create-portal.md) 또는 [REST를 사용하여 Azure Cognitive Search 지식 저장소 만들기](knowledge-store-create-rest.md)의 단계에 따라 이 연습에서 사용되는 지식 저장소 샘플을 만듭니다. 또한 지식 저장소를 만들 때 사용한 Azure Storage 계정의 이름과 Azure Portal의 액세스 키가 필요합니다.
 
-+ [전원 BI 데스크톱 설치](https://powerbi.microsoft.com/downloads/)
++ [Power BI Desktop 설치](https://powerbi.microsoft.com/downloads/)
 
 ## <a name="sample-power-bi-template---azure-portal-only"></a>Power BI 템플릿 샘플 - Azure Portal만
 
@@ -55,7 +55,7 @@ ms.locfileid: "78270040"
    
    + REST 연습의 경우 테이블 이름은 *hotelReviewsDocument*, *hotelReviewsPages*, *hotelReviewsKeyPhrases* 및 *hotelReviewsSentiment*입니다.
 
-1. **로드를 클릭합니다.**
+1. **로드**를 클릭 합니다.
 
 1. 위쪽 리본에서 **쿼리** 편집을 클릭하여 **파워 쿼리 편집기**를 엽니다.
 
@@ -119,4 +119,4 @@ In the enrichment step of the wizard, attach a billable [Cognitive Services](htt
 Storage Explorer를 사용하여 이 지식 저장소를 검색하는 방법은 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Storage Explorer를 사용하여 보기](knowledge-store-view-storage-explorer.md)
+> [Storage Explorer로 보기](knowledge-store-view-storage-explorer.md)

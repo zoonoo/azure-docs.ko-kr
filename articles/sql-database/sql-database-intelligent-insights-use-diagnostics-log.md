@@ -1,5 +1,5 @@
 ---
-title: 지능형 인사이트 성능 진단 로그
+title: Intelligent Insights 성능 진단 로그
 description: Intelligent Insights는 Azure SQL Database 성능 문제의 진단 로그를 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,15 +12,15 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: bb62b087451140261aee7aaa2fab0de14ea36283
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79209457"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Intelligent Insights Azure SQL Database 성능 진단 로그 사용
 
-이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md)에서 생성된 Azure SQL Database 성능 진단 로그, 해당 형식 및 사용자 지정 개발 요구 사항을 위해 포함된 데이터를 사용하는 방법을 설명합니다. 이 진단 로그를 [Azure Monitor 로그,](../azure-monitor/insights/azure-sql.md) [Azure 이벤트 허브,](../azure-monitor/platform/resource-logs-stream-event-hubs.md) [Azure 저장소](sql-database-metrics-diag-logging.md#stream-into-azure-storage)또는 사용자 지정 DevOps 경고 및 보고 기능에 대한 타사 솔루션으로 보낼 수 있습니다.
+이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md)에서 생성된 Azure SQL Database 성능 진단 로그, 해당 형식 및 사용자 지정 개발 요구 사항을 위해 포함된 데이터를 사용하는 방법을 설명합니다. 사용자 지정 DevOps 경고 및 보고 기능을 위해이 진단 로그를 [Azure Monitor 로그](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-azure-storage)또는 타사 솔루션에 보낼 수 있습니다.
 
 ## <a name="log-header"></a>로그 헤더
 
@@ -134,7 +134,7 @@ Intelligent Insights 성능 로그의 마지막 부분은 식별된 성능 저�
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-[Azure Monitor 로그와]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) 함께 지능형 인사이트 성능 로그를 사용하거나 사용자 지정 DevOps 경고 및 보고 기능을 위한 타사 솔루션을 사용할 수 있습니다.
+사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Monitor 로그]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) 또는 타사 솔루션과 Intelligent Insights 성능 로그를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

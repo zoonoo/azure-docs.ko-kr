@@ -1,5 +1,5 @@
 ---
-title: VM에 대한 개인 IP 주소 구성 - Azure CLI
+title: Vm에 대 한 개인 IP 주소 구성-Azure CLI
 description: Azure CLI(명령줄 인터페이스)를 사용하여 가상 머신에 대한 개인 IP 주소를 구성하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: kumud
 ms.openlocfilehash: f4643aae0b28861f4ddb99d8dace749e62f930b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78199481"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신에 대한 개인 IP 주소 구성
@@ -30,7 +30,7 @@ ms.locfileid: "78199481"
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> 다음 샘플 Azure CLI 명령에는 기존 단순 환경이 필요합니다. 이 문서에 표시되는 대로 명령을 실행하려면 먼저 [vnet 만들기에](quick-create-cli.md)설명된 테스트 환경을 빌드합니다.
+> 다음 샘플 Azure CLI 명령에는 기존 단순 환경이 필요합니다. 이 문서에 표시 된 대로 명령을 실행 하려는 경우 먼저 [vnet 만들기](quick-create-cli.md)에 설명 된 테스트 환경을 구축 합니다.
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>VM을 만들 때 정적 개인 IP 주소 지정
 

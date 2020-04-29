@@ -1,5 +1,5 @@
 ---
-title: 애플리케이션 인사이트를 통해 라이브 Azure 서비스 패브릭 앱 프로필
+title: Application Insights를 사용 하 여 라이브 Azure Service Fabric 앱 프로 파일링
 description: Service Fabric 애플리케이션에 대해 Profiler 사용
 ms.topic: conceptual
 author: cweining
@@ -7,18 +7,18 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 664d6eb377185613a1a5670daf6747b482c79d9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671616"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Service Fabric 애플리케이션 프로파일링
 
 다음과 같은 서비스에 Application Insights Profiler를 배포할 수도 있습니다.
 * [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Azure 클라우드 서비스](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Azure 가상 시스템](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Virtual Machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 ## <a name="set-up-the-environment-deployment-definition"></a>환경 배포 정의 설정
 
@@ -26,7 +26,7 @@ Application Insights Profiler는 Azure Diagnostics에 포함되어 있습니다.
 
 환경을 설정하려면 다음 작업을 수행합니다.
 
-1. 프로파일러는 .NET 프레임워크 및 .Net 코어를 지원합니다. .NET Framework를 사용하는 경우 [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상을 사용하고 있는지 확인합니다. 배포된 OS가 이상인지 확인하는 `Windows Server 2012 R2` 것으로 충분합니다. 프로파일러는 .NET Core 2.1 및 최신 응용 프로그램을 지원합니다.
+1. 프로파일러는 .NET Framework 및 .NET Core를 지원 합니다. .NET Framework를 사용 하는 경우 [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상을 사용 하 고 있는지 확인 합니다. 배포 된 OS가 `Windows Server 2012 R2` 이상 인지 확인 하는 데에는 충분 합니다. 프로파일러는 .NET Core 2.1 및 최신 응용 프로그램을 지원 합니다.
 
 1. 배포 템플릿 파일에서 [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 확장을 검색합니다.
 
@@ -49,7 +49,7 @@ Application Insights Profiler는 Azure Diagnostics에 포함되어 있습니다.
   설정이 올바른 경우 Azure Diagnostics 확장이 설치될 때 Application Insights Profiler가 설치되고 사용하도록 설정됩니다. 
 
 1. Service Fabric 애플리케이션에 Application Insights를 추가합니다.  
-  프로파일러가 요청에 대한 프로필을 수집하려면 응용 프로그램이 응용 프로그램 인사이트를 사용하여 작업을 추적해야 합니다. 상태 비수기 API의 경우 [프로파일링 요청을 추적하기 위한](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json)지침을 참조할 수 있습니다. 다른 종류의 앱에서 사용자 지정 작업을 추적하는 자세한 내용은 [Application Insights .NET SDK를 사용하여 사용자 지정 작업을 추적합니다.](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json)
+  프로파일러에서 요청에 대 한 프로필을 수집 하려면 응용 프로그램이 Application Insights를 사용 하 여 작업을 추적 해야 합니다. 상태 비저장 Api의 경우 [프로 파일링에 대 한 요청을 추적](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json)하기 위한 지침을 참조할 수 있습니다. 다른 종류의 앱에서 사용자 지정 작업을 추적 하는 방법에 대 한 자세한 내용은 [Application Insights .NET SDK를 사용한 사용자 지정 작업 추적](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json)을 참조 하세요.
 
 1. 애플리케이션을 다시 배포합니다.
 
@@ -57,5 +57,5 @@ Application Insights Profiler는 Azure Diagnostics에 포함되어 있습니다.
 ## <a name="next-steps"></a>다음 단계
 
 * 애플리케이션에 대한 트래픽을 생성합니다(예: [가용성 테스트](monitor-web-app-availability.md) 시작). 그런 다음, 추적을 10~15분 동안 기다려서 Application Insights 인스턴스로 보내기 시작합니다.
-* Azure 포털에서 [프로파일러 추적을](profiler-overview.md?toc=/azure/azure-monitor/toc.json) 참조하십시오.
+* Azure Portal의 [Profiler 추적](profiler-overview.md?toc=/azure/azure-monitor/toc.json) 을 참조 하세요.
 * Profiler 문제 해결 지원을 받으려면 [Profiler 문제 해결](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)을 참조하세요.

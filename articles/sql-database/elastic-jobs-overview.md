@@ -1,6 +1,6 @@
 ---
 title: Elastic Database 작업(미리 보기)
-description: 하나 이상의 Azure SQL 데이터베이스 집합에서 T-SQL(Transact-SQL) 스크립트를 실행하도록 탄력적 데이터베이스 작업(미리 보기)을 구성합니다.
+description: 하나 이상의 Azure SQL 데이터베이스 집합에서 Transact-sql (T-sql) 스크립트를 실행 하도록 Elastic Database 작업 (미리 보기) 구성
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,10 +12,10 @@ ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: e5b07ac0e9421cbca034b17c573cab16641f49f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79214488"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>탄력적 작업 만들기, 구성 및 관리
@@ -27,19 +27,19 @@ ms.locfileid: "79214488"
 ## <a name="create-and-configure-the-agent"></a>에이전트 만들기 및 구성
 
 1. 빈 S0 이상의 SQL 데이터베이스를 만들거나 식별합니다. 이 데이터베이스는 탄력적 작업 에이전트를 만드는 동안 *작업 데이터베이스*로 사용됩니다.
-2. [포털](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) 또는 [PowerShell을](elastic-jobs-powershell.md#create-the-elastic-job-agent)사용하여 탄력적 작업 에이전트를 만듭니다.
+2. [포털](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) 또는 [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent)을 사용 하 여 탄력적 작업 에이전트를 만듭니다.
 
    ![탄력적 작업 에이전트 만들기](media/elastic-jobs-overview/create-elastic-job-agent.png)
 
 ## <a name="create-run-and-manage-jobs"></a>작업 만들기, 실행 및 관리
 
-1. [PowerShell](elastic-jobs-powershell.md) 또는 [T-SQL을](elastic-jobs-tsql.md#create-a-credential-for-job-execution)사용하여 *작업 데이터베이스에서* 작업 실행을 위한 자격 증명을 만듭니다.
-2. [PowerShell](elastic-jobs-powershell.md) 또는 [T-SQL을](elastic-jobs-tsql.md#create-a-target-group-servers)사용하여 대상 그룹(작업을 실행하려는 데이터베이스)을 정의합니다.
+1. [PowerShell](elastic-jobs-powershell.md) 또는 [t-sql](elastic-jobs-tsql.md#create-a-credential-for-job-execution)을 사용 하 여 *작업 데이터베이스* 에서 작업 실행을 위한 자격 증명을 만듭니다.
+2. [PowerShell](elastic-jobs-powershell.md) 또는 [t-sql](elastic-jobs-tsql.md#create-a-target-group-servers)을 사용 하 여 대상 그룹 (작업을 실행 하려는 데이터베이스)을 정의 합니다.
 3. 작업을 실행할 각 데이터베이스에서 작업 에이전트 자격 증명을 만듭니다[(그룹의 각 데이터베이스에서 사용자(또는 역할)를 추가합니다)](sql-database-manage-logins.md). 예를 들어 [PowerShell 자습서](elastic-jobs-powershell.md)를 참조합니다.
-4. [PowerShell](elastic-jobs-powershell.md) 또는 [T-SQL을](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases)사용하여 작업을 만듭니다.
+4. [PowerShell](elastic-jobs-powershell.md) 또는 [t-sql](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases)을 사용 하 여 작업을 만듭니다.
 5. [PowerShell](elastic-jobs-powershell.md) 또는 [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases)을 사용하여 작업 단계를 추가합니다.
-6. PowerShell 또는 [T-SQL을](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job)사용하여 작업을 [실행합니다.](elastic-jobs-powershell.md#run-the-job)
-7. 포털, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) 또는 [T-SQL을](elastic-jobs-tsql.md#monitor-job-execution-status)사용하여 작업 실행 상태를 모니터링합니다.
+6. [PowerShell](elastic-jobs-powershell.md#run-the-job) 또는 [t-sql](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job)을 사용 하 여 작업을 실행 합니다.
+7. Portal, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) 또는 [t-sql](elastic-jobs-tsql.md#monitor-job-execution-status)을 사용 하 여 작업 실행 상태를 모니터링 합니다.
 
    ![포털](media/elastic-jobs-overview/elastic-job-executions-overview.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "79214488"
 
 작업을 실행하기 위해 적절한 자격 증명을 설정하면 다소 혼동을 줄 수 있으므로 다음 사항을 염두에 두어야 합니다.
 
-- 데이터베이스 범위의 자격 증명은 *Job 데이터베이스에서*만들어야 합니다.
+- 데이터베이스 범위 자격 증명은 *작업 데이터베이스*에 만들어야 합니다.
 - **모든 대상 데이터베이스는 작업이 성공적으로 완료되게 하려면 [충분한 사용 권한](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)으로 로그인해야 합니다**(아래 다이어그램의 `jobuser`).
 - 자격 증명은 작업 간에 다시 사용할 수 있고, 자격 증명 암호는 암호화되어 작업 개체에 읽기 전용 액세스 권한이 있는 사용자로부터 보호됩니다.
 
@@ -77,7 +77,7 @@ ms.locfileid: "79214488"
 
 SQL 탄력적인 풀에서 데이터베이스에 대해 작업을 실행할 때 리소스에 작업 부하를 주지 않도록 하려면 작업이 동시에 실행될 수 있는 데이터베이스의 수를 제한하도록 작업을 구성할 수 있습니다.
 
-T-SQL 또는 `sp_add_jobstep` `@max_parallelism` `Add-AzSqlElasticJobStep -MaxParallelism` PowerShell에서 저장 프로시저의 매개 변수를 설정하여 작업이 실행되는 동시 데이터베이스 수를 설정합니다.
+T-sql 또는 `sp_add_jobstep` `Add-AzSqlElasticJobStep -MaxParallelism` PowerShell에서 저장 프로시저의 `@max_parallelism` 매개 변수를 설정 하 여 작업이 실행 되는 동시 데이터베이스의 수를 설정 합니다.
 
 ## <a name="best-practices-for-creating-jobs"></a>작업을 만들기 위한 모범 사례
 
@@ -99,5 +99,5 @@ IF NOT EXISTS (some_object)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PowerShell을 사용하여 탄력적 작업 만들기 및 관리](elastic-jobs-powershell.md)
+- [PowerShell을 사용 하 여 탄력적 작업 만들기 및 관리](elastic-jobs-powershell.md)
 - [T-SQL(Transact-SQL)을 사용하여 탄력적 작업 만들기 및 관리](elastic-jobs-tsql.md)

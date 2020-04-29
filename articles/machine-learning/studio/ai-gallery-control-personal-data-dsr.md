@@ -1,5 +1,5 @@
 ---
-title: Azure AI 갤러리 데이터 관리
+title: Azure AI Gallery 데이터 관리
 titleSuffix: ML Studio (classic) - Azure
 description: 인터페이스 또는 AI Gallery 카탈로그 API를 사용하여 Azure AI Gallery에서 제품 내 사용자 데이터를 내보내고 삭제할 수 있습니다. 이 문서는 방법을 안내합니다.
 services: machine-learning
@@ -12,10 +12,10 @@ ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
 ms.openlocfilehash: 03341b9e663398f2c42266dead0d2dd01e97c3f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79204548"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Azure AI Gallery에서 제품 내 사용자 데이터 보기 및 삭제
@@ -61,7 +61,7 @@ https://catalog.cortanaanalytics.com/entities에서 액세스할 수 있는 AI G
 2.    오른쪽 위 모서리에서 프로필 사진을 클릭한 다음, 계정 이름을 클릭하여 프로필 페이지를 로드합니다.
 3.    F12 키를 눌러 브라우저 [개발자 도구] 창을 열고, [네트워크] 탭을 선택한 다음, 페이지를 새로 고칩니다. 
 4. 필터 텍스트 상자에서 *catalog* 문자열을 입력하여 해당 문자열에 대한 요청을 필터링합니다.
-5.    URL에 `https://catalog.cortanaanalytics.com/entities`대한 요청에서 GET 요청을 찾아 *헤더 탭을 선택합니다.* *Request Headers*
+5.    URL `https://catalog.cortanaanalytics.com/entities`에 대 한 요청에서 GET 요청을 찾고 *헤더* 탭을 선택 합니다. *요청 헤더* 섹션까지 아래로 스크롤합니다.
 6.    `DataLabAccessToken` 헤더 아래에 영숫자 토큰이 있습니다. 데이터 보안을 유지하려면 이 토큰을 공유하지 마세요.
 
 ### <a name="view-user-information"></a>사용자 정보 보기
@@ -86,7 +86,7 @@ https://catalog.cortanaanalytics.com/entities에서 액세스할 수 있는 AI G
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
 
-예를 들어:
+다음은 그 예입니다.
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'
 

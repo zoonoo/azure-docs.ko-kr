@@ -1,5 +1,5 @@
 ---
-title: Azure 응용 프로그램 인사이트에서 사용자, 세션 및 이벤트 분석
+title: Azure 애플리케이션 Insights의 사용자, 세션 및 이벤트 분석
 description: 웹앱의 사용자 인구 통계 분석입니다.
 ms.topic: conceptual
 author: NumberByColors
@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 56059304026b060e2215ce73e0e94e3200573a14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670987"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Application Insights의 사용자, 세션 및 이벤트 분석
@@ -19,7 +19,7 @@ ms.locfileid: "77670987"
 
 ![Application Insights 사용자의 스크린샷](./media/usage-segmentation/0001-users.png)
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 Application Insights 포털에 사용자, 세션 또는 이벤트 블레이드에서 아직 데이터가 표시되지 않으면 [사용 도구 시작 방법을 알아봅니다](usage-overview.md).
 

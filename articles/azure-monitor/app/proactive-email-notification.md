@@ -1,16 +1,16 @@
 ---
-title: 스마트 검색 알림 변경 - Azure 응용 프로그램 인사이트
-description: 스마트 감지에서 기본 알림 수신자로 변경합니다. 스마트 검색을 사용하면 Azure 응용 프로그램 인사이트를 통해 추적 원격 분석에서 비정상적인 패턴을 모니터링할 수 있습니다.
+title: 스마트 검색 알림 변경-Azure 애플리케이션 정보
+description: 스마트 검색에서 기본 알림 받는 사람으로 변경 합니다. 스마트 검색을 통해 추적 원격 분석에서 비정상적인 패턴에 대 한 Azure 애플리케이션 정보로 응용 프로그램 추적을 모니터링할 수 있습니다.
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: f73e5bbdd8585b3367e529a8fa00630042e56cac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671786"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>스마트 검색 메일 알림 변경
@@ -31,7 +31,7 @@ ms.locfileid: "77671786"
 
 ## <a name="how-to-prepare-for-this-change"></a>이 변경을 준비하는 방법
 
-스마트 검색의 전자 메일 알림이 관련 사용자에게 전송되도록 하려면 해당 사용자를 [구독의 모니터링 리더](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 또는 [모니터링 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 역할에 할당해야 합니다.
+스마트 검색의 전자 메일 알림이 관련 사용자에 게 전송 되도록 하려면 해당 사용자가 구독의 [모니터링 독자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 또는 [모니터링 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 역할에 할당 되어야 합니다.
 
 Azure Portal을 통해 Monitoring Reader 또는 Monitoring Contributor 역할에 사용자를 할당하려면 [역할 할당 추가](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment) 문서에 설명된 단계를 수행합니다. 사용자가 할당되는 역할로 ‘Monitoring Reader’ 또는 ‘Monitoring Contributor’를 선택해야 합니다.____
 

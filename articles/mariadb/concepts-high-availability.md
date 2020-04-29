@@ -1,5 +1,5 @@
 ---
-title: 고가용성 - MariaDB용 Azure 데이터베이스
+title: 고가용성-Azure Database for MariaDB
 description: 이 항목에서는 Azure Database for MariaDB를 사용하는 경우 고가용성에 대한 정보를 제공합니다.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: a87646f6195a06cf0a5382cb248efa5516c953f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79531994"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 고가용성 개념

@@ -1,13 +1,13 @@
 ---
-title: 예외 볼륨의 비정상적인 증가 - Azure 응용 프로그램 인사이트
-description: Azure 응용 프로그램 인사이트에서 스마트 검색을 통해 예외 볼륨에서 비정상적인 패턴을 검사하여 응용 프로그램 예외를 모니터링합니다.
+title: 예외 볼륨의 비정상적인 증가-Azure 애플리케이션 정보
+description: 예외 볼륨의 특수 한 패턴에 대 한 Azure 애플리케이션 정보에서 스마트 검색을 사용 하 여 응용 프로그램 예외를 모니터링 합니다.
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.openlocfilehash: a08fae4774a8afb9959f55ea3196cd1a45c33439
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671769"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>예외 볼륨의 비정상적인 증가(미리 보기)
@@ -25,6 +25,6 @@ Machine Learning 알고리즘을 사용하여 예외 수의 증가를 검색하�
 
 ## <a name="how-do-i-fix-it"></a>이 문제를 어떻게 해결하나요?
 알림에는 진단 프로세스에서 도움이 되는 진단 정보가 포함되어 있습니다.
-1. **심사.** 이 알림은 영향을 받은 사용자 수 또는 요청의 수를 보여 줍니다. 문제에 우선 순위를 할당하는 데 도움이 될 수 있습니다.
+1. **문제.** 이 알림은 영향을 받은 사용자 수 또는 요청의 수를 보여 줍니다. 문제에 우선 순위를 할당하는 데 도움이 될 수 있습니다.
 2. **범위.** 이 문제가 모든 트래픽에 영향을 주나요? 아니면 일부 작업에만 영향을 주나요? 이 정보는 알림에서 얻을 수 있습니다.
 3. **진단.** 이 검색은 예외가 throw된 메서드뿐 아니라 예외 형식에 대한 정보를 포함합니다. 지원 정보에 연결된 관련 항목 및 보고서를 사용하면 문제를 추가로 진단할 수 있습니다.

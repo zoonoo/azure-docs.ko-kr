@@ -1,21 +1,21 @@
 ---
-title: 비즈니스 연속성 - MySQL용 Azure 데이터베이스
-description: MySQL 서비스에 대한 Azure Database를 사용할 때 비즈니스 연속성(시점 복원, 데이터 센터 중단, 지역 복원)에 대해 알아봅니다.
+title: 비즈니스 연속성-Azure Database for MySQL
+description: Azure Database for MySQL 서비스를 사용 하는 경우 비즈니스 연속성 (지정 시간 복원, 데이터 센터 중단, 지역 복원)에 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: af0069adc741cfc802c37c90c0c7ec3c3ba74bb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79537230"
 ---
-# <a name="understand-business-continuity-in-azure-database-for-mysql"></a>MySQL용 Azure 데이터베이스의 비즈니스 연속성 이해
+# <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Azure Database for MySQL의 비즈니스 연속성 이해
 
-이 문서에서는 MySQL용 Azure 데이터베이스가 비즈니스 연속성 및 재해 복구에 제공하는 기능에 대해 설명합니다. 데이터 손실을 유발하거나 데이터베이스 및 애플리케이션을 사용할 수 없게 될 수 있는 중단 이벤트로부터 복구하는 옵션에 대해 알아봅니다. 사용자 또는 애플리케이션 오류가 데이터 무결성에 영향을 주거나, Azure 지역에 가동 중단이 발생하거나, 애플리케이션에 유지 관리가 필요할 때 수행할 작업을 알아봅니다.
+이 문서에서는 비즈니스 연속성 및 재해 복구를 위해 Azure Database for MySQL에서 제공 하는 기능을 설명 합니다. 데이터 손실을 유발하거나 데이터베이스 및 애플리케이션을 사용할 수 없게 될 수 있는 중단 이벤트로부터 복구하는 옵션에 대해 알아봅니다. 사용자 또는 애플리케이션 오류가 데이터 무결성에 영향을 주거나, Azure 지역에 가동 중단이 발생하거나, 애플리케이션에 유지 관리가 필요할 때 수행할 작업을 알아봅니다.
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>비즈니스 연속성을 제공하는 데 사용할 수 있는 기능
 
@@ -23,7 +23,7 @@ Azure Database for MySQL에는 자동화된 백업 및 사용자가 지역 복�
 
 다음 표에서는 ERT와 RPO에서 사용 가능한 기능을 비교합니다.
 
-| **기능** | **Basic** | **범용** | **메모리 최적화** |
+| **기능** | **Basic** | **일반 용도** | **메모리에 최적화** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | 백업에서 특정 시점 복원 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 |
 | 지리적으로 복제된 백업에서 지역 복원 | 지원되지 않음 | ERT < 12시간<br/>RPO < 1시간 | ERT < 12시간<br/>RPO < 1시간 |
@@ -33,7 +33,7 @@ Azure Database for MySQL에는 자동화된 백업 및 사용자가 지역 복�
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>사용자 또는 애플리케이션 오류가 발생한 후 서버 복구
 
-서비스의 백업을 사용하여 다양한 중단 이벤트에서 서버를 복구할 수 있습니다. 사용자가 실수로 데이터를 삭제할 수도 있고, 의도치 않게 중요한 테이블을 삭제할 수도 있고, 전체 데이터베이스를 삭제할 수도 있습니다. 애플리케이션에서 결함으로 인해 양호한 데이터를 잘못된 데이터로 덮어쓸 수도 있습니다.
+서비스의 백업을 사용 하 여 다양 한 중단 이벤트에서 서버를 복구할 수 있습니다. 사용자가 실수로 데이터를 삭제할 수도 있고, 의도치 않게 중요한 테이블을 삭제할 수도 있고, 전체 데이터베이스를 삭제할 수도 있습니다. 애플리케이션에서 결함으로 인해 양호한 데이터를 잘못된 데이터로 덮어쓸 수도 있습니다.
 
 특정 시점 복원을 수행하면 알려진 특정 시점에서 서버의 복사본을 만들 수 있습니다. 이 특정 시점은 서버에 대해 구성한 백업 보존 기간 내에 있어야 합니다. 데이터가 새 서버로 복원된 후에는 원래 서버를 새로 복원된 서버로 바꾸거나 복원된 서버에서 원래 서버로 필요한 데이터를 복사할 수 있습니다.
 

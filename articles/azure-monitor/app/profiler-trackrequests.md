@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: c59cbe852a91a91c7b3adb4452328700ec718a82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671599"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Application Insights를 사용하여 요청을 추적하는 코드 작성
@@ -31,7 +31,7 @@ Azure 클라우드 서비스 작업자 역할 및 Service Fabric 상태 비저�
         ```
       이 전역 계측 키 구성에 대한 자세한 내용은 [Application Insights를 통해 Service Fabric 사용](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md)을 참조하세요.  
 
-  1. 계측하려는 코드 조각의 경우 다음 `StartOperation<RequestTelemetry>` 예제와 같이 **using** 문을 추가합니다.
+  1. 계측 하려는 코드의 모든 부분에 대해 다음 예제와 같이 `StartOperation<RequestTelemetry>` **using** 문을 추가 합니다.
 
         ```csharp
         using Microsoft.ApplicationInsights;
@@ -45,7 +45,7 @@ Azure 클라우드 서비스 작업자 역할 및 Service Fabric 상태 비저�
         }
         ```
 
-        다른 `StartOperation<RequestTelemetry>` 범위 내의 `StartOperation<RequestTelemetry>` 호출은 지원되지 않습니다. 대신, 중첩된 범위에서는 `StartOperation<DependencyTelemetry>`를 사용할 수 있습니다. 예를 들어:  
+        다른 `StartOperation<RequestTelemetry>` 범위 내의 `StartOperation<RequestTelemetry>` 호출은 지원되지 않습니다. 대신, 중첩된 범위에서는 `StartOperation<DependencyTelemetry>`를 사용할 수 있습니다. 다음은 그 예입니다.  
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))

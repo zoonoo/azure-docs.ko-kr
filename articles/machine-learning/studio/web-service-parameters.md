@@ -1,5 +1,5 @@
 ---
-title: 웹 서비스 매개 변수 - Azure 기계 학습 스튜디오 (클래식) | 마이크로 소프트 문서
+title: 웹 서비스 매개 변수-Azure Machine Learning Studio (클래식) | Microsoft Docs
 description: Azure Machine Learning 웹 서비스 매개 변수를 사용하여 웹 서비스에 액세스할 때 모델의 동작을 수정하는 방법입니다.
 services: machine-learning
 author: xiaoharper
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2017
 ms.openlocfilehash: d6ddd9603f22bd3820d18be020b9c620cf06aa42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79204412"
 ---
-# <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Azure 기계 학습 스튜디오(클래식) 웹 서비스 매개 변수 사용
+# <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Azure Machine Learning Studio (클래식) 웹 서비스 매개 변수 사용
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -41,14 +41,14 @@ Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈
 웹 서비스에 대한 API 설명서에는 웹 서비스에 액세스할 때 프로그래밍 방식으로 웹 서비스 매개 변수를 지정하는 방법과 관련해서 웹 서비스 사용자를 위한 정보가 포함됩니다.
 
 > [!NOTE]
-> 클래식 웹 서비스에 대한 API 설명서는 기계 학습 스튜디오의 웹 서비스 **대시보드의** **API 도움말 페이지** 링크를 통해 제공됩니다(클래식). 새 웹 서비스에 대한 API 설명서는 웹 서비스에 대한 **사용** 및 **Swagger API** 페이지의 [Azure Machine Learning 웹 서비스](https://services.azureml.net/Quickstart) 포털을 통해 제공됩니다.
+> 클래식 웹 서비스에 대 한 API 설명서는 Machine Learning Studio (클래식)의 웹 서비스 **대시보드에서** **api 도움말 페이지** 링크를 통해 제공 됩니다. 새 웹 서비스에 대한 API 설명서는 웹 서비스에 대한 **사용** 및 **Swagger API** 페이지의 [Azure Machine Learning 웹 서비스](https://services.azureml.net/Quickstart) 포털을 통해 제공됩니다.
 > 
 > 
 
 ## <a name="example"></a>예제
 예를 들어 Azure Blob Storage로 정보를 전송하는 [데이터 내보내기][writer] 모듈이 포함된 실험이 있다고 가정합니다. 고객이 새 데이터(PUT Blob, PUT 블록, PUT 페이지, PUT 파일 등)를 Blob 또는 File Storage에 기록할 경우 모든 기록 내용이 가장 강력한 블록 암호화 중 하나인 256비트 AES 암호화를 사용하여 암호화됩니다.
 
-1. 기계 학습 스튜디오(클래식)에서 [데이터 내보내기][writer] 모듈을 클릭하여 선택합니다. 실험 캔버스 오른쪽에 있는 속성 창에 해당 속성이 표시됩니다.
+1. Machine Learning Studio (클래식)에서 [데이터 내보내기][writer] 모듈을 클릭 하 여 선택 합니다. 실험 캔버스 오른쪽에 있는 속성 창에 해당 속성이 표시됩니다.
 2. 스토리지 형식을 지정합니다.
    
    * **데이터 대상 지정**에서 "Azure Blob Storage"를 선택합니다.
@@ -74,7 +74,7 @@ Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈
 
 이제 웹 서비스 사용자가 웹 서비스에 액세스할 때 [데이터 내보내기][writer] 모듈에 대한 새 대상을 지정할 수 있습니다.
 
-## <a name="more-information"></a>자세한 정보
+## <a name="more-information"></a>추가 정보
 자세한 예제는 [Machine Learning 블로그](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx)의 [웹 서비스 매개 변수](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) 항목을 참조하세요.
 
 Machine Learning 웹 서비스 액세스에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스를 사용하는 방법](consume-web-services.md)을 참조하세요.

@@ -1,7 +1,7 @@
 ---
-title: Net# 사용자 지정 신경망
+title: 네트워크 사용자 지정 신경망
 titleSuffix: ML Studio (classic) - Azure
-description: Net# 신경망 사양 언어를 위한 구문 가이드 Azure 기계 학습 스튜디오(클래식)에서 사용자 지정 신경망 모델을 만드는 방법에 대해 알아봅니다.
+description: Net# 신경망 사양 언어를 위한 구문 가이드 Azure Machine Learning Studio (클래식)에서 사용자 지정 신경망 모델을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,13 +11,13 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ms.openlocfilehash: c1912e670a9cf1c178b58cefbd33171f15be2483
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79218260"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Azure 기계 학습 스튜디오에 대한 Net# 신경망 사양 언어 가이드(클래식)
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에 대 한 Net # 신경망 사양 언어 가이드
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -25,8 +25,8 @@ Net#은 Microsoft가 개발한 언어로, 심층 신경망 네트워크나 임�
 
 Net# 아키텍처 사양은 다음 컨텍스트에서 사용할 수 있습니다.
 
-+ Microsoft Azure 기계 학습 스튜디오(클래식)의 모든 신경망 모듈: [다중 클래스 신경망,](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network) [2클래스 신경망](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network)및 [신경망 회귀](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ 마이크로소프트 ML 서버에서 신경망 기능: R 언어에 대 한 [신경망](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) 및 [rxNeuralNet,](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)그리고 파이썬에 대 한 [rx_neural_network.](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network)
++ Microsoft Azure Machine Learning Studio (클래식)의 모든 신경망 모듈: [다중 클래스 신경망](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [2 클래스 신경망](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network)및 [신경망 회귀](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
++ Microsoft ML Server의 신경망 기능: R 언어의 경우 [Neuralnet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) 및 [Rxneuralnet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)및 Python 용 [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) .
 
 
 이 문서에서는 Net#을 사용하여 사용자 지정 신경망을 개발하는 데 필요한 기본 개념과 구문을 설명합니다.
@@ -51,14 +51,14 @@ Net#에서는 입력이 숨겨진 계층 및 출력에 매핑되는 방법을 �
 
 + **필터링된 번들**. 사용자는 원본 계층 노드와 대상 계층 노드의 위치를 사용하여 조건자를 정의할 수 있습니다. 노드는 조건자가 True일 때마다 연결됩니다.
 
-+ **컨볼루션 번들.** 사용자는 원본 계층에서 작은 노드 환경을 정의할 수 있습니다. 대상 계층의 각 노드는 원본 계층의 노드 환경 하나에 연결됩니다.
++ **나선형 번들**입니다. 사용자는 원본 계층에서 작은 노드 환경을 정의할 수 있습니다. 대상 계층의 각 노드는 원본 계층의 노드 환경 하나에 연결됩니다.
 
 + **풀링 번들** 및 **응답 정규화 번들**. 이러한 번들은 사용자가 원본 계층에서 작은 노드 환경을 정의하는 나선형 번들과 비슷합니다. 차이점은 이러한 번들의 에지 가중치는 학습할 수 없다는 점입니다. 대신 미리 정의된 함수가 원본 노드 값에 적용되어 대상 노드 값을 결정합니다.
 
 
 ## <a name="supported-customizations"></a>지원되는 사용자 지정
 
-Azure 기계 학습 스튜디오(클래식)에서 만드는 신경망 모델의 아키텍처는 Net#을 사용하여 광범위하게 사용자 지정할 수 있습니다. 다음을 수행할 수 있습니다.
+Azure Machine Learning Studio (클래식)에서 만든 신경망 모델의 아키텍처는 Net #을 사용 하 여 광범위 하 게 사용자 지정할 수 있습니다. 다음과 같은 작업을 수행할 수 있습니다.
 
 + 숨겨진 계층을 만들고 각 계층의 노드 수를 제어합니다.
 + 계층이 서로 연결되는 방법을 지정합니다.
@@ -91,17 +91,17 @@ Azure 기계 학습 스튜디오(클래식)에서 만드는 신경망 모델의 
 
 `Const X = 28;`
 
-상수를 동시에 두 개 이상 정의하려면 식별자 이름과 값을 중괄호로 묶고 세미콜론으로 구분합니다. 예를 들어:
+상수를 동시에 두 개 이상 정의하려면 식별자 이름과 값을 중괄호로 묶고 세미콜론으로 구분합니다. 다음은 그 예입니다.
 
 `Const { X = 28; Y = 4; }`
 
-각 대입 식의 오른쪽은 정수, 실수, 부울 값(True/False) 또는 수치 연산 식일 수 있습니다. 예를 들어:
+각 대입 식의 오른쪽은 정수, 실수, 부울 값(True/False) 또는 수치 연산 식일 수 있습니다. 다음은 그 예입니다.
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>계층 선언
 
-계층 선언은 필수 사항입니다. 연결 번들 및 특성을 포함하여 계층의 크기와 원본을 정의합니다. 선언문은 계층 이름(input, hidden 또는 output)으로 시작하고 계층 차원(양의 정수 튜플)이 뒤따릅니다. 예를 들어:
+계층 선언은 필수 사항입니다. 연결 번들 및 특성을 포함하여 계층의 크기와 원본을 정의합니다. 선언문은 계층 이름(input, hidden 또는 output)으로 시작하고 계층 차원(양의 정수 튜플)이 뒤따릅니다. 다음은 그 예입니다.
 
 ```Net#
 input Data auto;
@@ -452,7 +452,7 @@ output Digit [10] from Hid3 all;
 + 키워드 `convolve`는 `Conv1` 및 `Conv2`라는 계층이 나선형 계층임을 나타냅니다. 이러한 각 계층 선언 뒤에는 나선 특성 목록이 나옵니다.
 + 네트워크에는 두 번째 숨겨진 계층인 `Conv2`에 완전히 연결된 세 번째 숨겨진 계층인 `Hid3`이 있습니다.
 + `Digit` 출력 계층은 세 번째 계층인 `Hid3`에만 연결됩니다. 키워드 `all`은 출력 계층이 `Hid3`에 완전히 연결되었음을 나타냅니다.
-+ 컨볼루션의 arity는 세 가지입니다: `InputShape`tuples의 `KernelShape` `Stride`길이, `Sharing`, 및 .
++ 컨볼루션의 인자 수는 3 `InputShape`입니다. 튜플의 `KernelShape` `Stride`길이는,, 및 `Sharing`입니다.
 + 커널당 가중치 수는 `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`입니다. 또는 `26 * 50 = 1300`입니다.
 + 다음과 같이 각 숨겨진 계층에서 노드를 계산할 수 있습니다.
 

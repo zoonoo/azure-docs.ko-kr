@@ -1,6 +1,6 @@
 ---
-title: HB 시리즈 VM 크기 성능 - Azure 가상 머신 | 마이크로 소프트 문서
-description: Azure의 HB 시리즈 VM 크기에 대한 성능 테스트 결과에 대해 알아봅니다.
+title: HB-시리즈 VM 크기 성능-Azure Virtual Machines | Microsoft Docs
+description: Azure에서 HB-시리즈 VM 크기에 대 한 성능 테스트 결과에 대해 알아봅니다.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -13,36 +13,36 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: e064db5f67e6f8a7e82093bdae9fac7eaa4b6a55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79534204"
 ---
-# <a name="hb-series-virtual-machine-sizes"></a>HB 시리즈 가상 머신 크기
+# <a name="hb-series-virtual-machine-sizes"></a>HB-시리즈 가상 머신 크기
 
-HB 시리즈 크기에서 여러 성능 테스트가 실행되었습니다. 다음은 이 성능 테스트의 결과 중 일부입니다.
+몇 가지 성능 테스트가 HB 시리즈 크기에서 실행 되었습니다. 다음은 이러한 성능 테스트의 결과 중 일부입니다.
 
 
 | 워크로드                                        | HB                    |
 |-------------------------------------------------|-----------------------|
-| 스트림 트라이어드                                    | ~ 260 GB / s (CCX 당 32-33 GB / s)  |
-| 고성능 린팩(HPL)                  | ~ 1,000 기가플롭스 (Rpeak), ~ 860 기가 플롭스 (Rmax) |
-| RDMA 대기 시간 & 대역폭                        | 2.35유스크, 96.5Gb/s   |
-| 현지 NVMe SSD에 FIO                           | ~ 1.7 GB / s 읽기, ~ 1.0 GB / s 쓰기      |  
-| IOR on 4 * Azure 프리미엄 SSD (P30 관리 디스크, RAID0)**  | ~ 725 MB / s 읽기, ~ 780 MB / 쓰기   |
+| 스트림 조로 묶어                                    | ~ 260 g b/초 (CCX 당 32-33 g b/초)  |
+| HPL (고성능 Linpack)                  | ~ 1000 GigaFLOPS (Rpeak), ~ 860 GigaFLOPS (Rpeak) |
+| RDMA 대기 시간 & 대역폭                        | 2.35 usec, 96.5 g b/초   |
+| 로컬 NVMe SSD의 FIO                           | ~ 1.7 m b/초 읽기, ~ 1.0 g b/초 쓰기      |  
+| IOR on 4 * Azure 프리미엄 SSD (P30 Managed Disks, RAID0) * *  | ~ 725 m b/초 읽기, ~ 780 m b/쓰기   |
 
 
 
-## <a name="infiniband-send-latency"></a>인피니밴드 전송 대기 시간
-멜라녹스 퍼프테스트.
+## <a name="infiniband-send-latency"></a>InfiniBand 전송 대기 시간
+Mellanox Perftest.
 
 ```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 
 
-|  #bytes         | #iterations     | t_min[마이크로초]     | t_max[마이크로초]     | t_typical[마이크로초] | t_avg[마이크로초]     | t_stdev[마이크로초]   |
+|  #bytes         | #iterations     | t_min [마이크로초]     | t_max [마이크로초]     | t_typical [마이크로초] | t_avg [마이크로초]     | t_stdev [마이크로초]   |
 |-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
 | 2               | 1000            | 2.35            | 12.63           | 2.38            | 2.42            | 0.33            |
 | 4               | 1000            | 2.35            | 18.53           | 2.38            | 2.4             | 0.21            |
@@ -60,14 +60,14 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 
 ## <a name="osu-mpi-latency-test"></a>OSU MPI 대기 시간 테스트
 
-OSU MPI 대기 시간 테스트 v5.4.3.
+OSU MPI 대기 시간 테스트 v 5.4.3.
 
 ```azure-cli
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
 ```
 
 
-| #bytes  | 대기 시간 [마이크로초] (MPICH 3.3 + CH4) | 대기 시간 [마이크로초] (OpenMPI 4.0.0) | 대기 시간[마이크로초] (MVAPICH2 2.3) | 대기 시간 [마이크로초] (인텔 MPI 2019) |
+| #bytes  | 대기 시간 [마이크로초] (MPICH 3.3 + CH4) | 대기 시간 [마이크로초] (OpenMPI 4.0.0) | 대기 시간 [마이크로초] (MVAPICH2 2.3) | 대기 시간 [마이크로초] (Intel MPI 2019) |
 |------|----------|----------|----------|----------|
 | 2    | 2.44     | 2.52     | 2.84     | 2.76     |
 | 4    | 2.44     | 2.53     | 2.84     | 2.76     |
@@ -85,13 +85,13 @@ OSU MPI 대기 시간 테스트 v5.4.3.
 
 ## <a name="mpi-bandwidth"></a>MPI 대역폭
 
-OSU MPI 대역폭 테스트 v5.4.3.
+OSU MPI 대역폭 테스트 v 5.4.3.
 
 ```azure-cli
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-| #Size            | 대역폭(MB/s) | 대역폭(Gb/s) |
+| #Size            | 대역폭 (MB/s) | 대역폭 (Gb/s) |
 |------------------|------------------|------------------|
 | 2                | 4.03             | 0.03             |
 | 4                | 8.2              | 0.07             |
@@ -119,7 +119,7 @@ OSU MPI 대역폭 테스트 v5.4.3.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure의 [고성능 컴퓨팅에](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) 대해 자세히 알아보세요.
+Azure에서 [고성능 컴퓨팅](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) 에 대해 자세히 알아보세요.
 
 
 

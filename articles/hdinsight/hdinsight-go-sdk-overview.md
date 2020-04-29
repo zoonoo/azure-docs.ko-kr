@@ -1,6 +1,6 @@
 ---
-title: 이동을위한 Azure HDInsight SDK
-description: 이동 및 아파치 하두롭 클러스터에 대한 Azure HDInsight SDK를 사용하기위한 참조 자료
+title: Go 용 Azure HDInsight SDK
+description: Go 및 Apache Hadoop 클러스터에 대해 Azure HDInsight SDK 사용에 대 한 참조 자료
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,26 +9,26 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 01/03/2020
 ms.openlocfilehash: 292496c4d458621213fe62105149ac845d78891e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79479589"
 ---
-# <a name="hdinsight-sdk-for-go-preview"></a>이동을위한 HDInsight SDK (미리보기)
+# <a name="hdinsight-sdk-for-go-preview"></a>Go 용 HDInsight SDK (미리 보기)
 
 ## <a name="overview"></a>개요
-GO용 HDInsight SDK는 HDInsight 클러스터를 관리할 수 있는 클래스와 기능을 제공합니다. 여기에는 HDInsight 클러스터의 속성 만들기, 삭제, 업데이트, 나열, 크기 조정, 스크립트 작업 실행, 모니터링, 가져오기 작업을 포함합니다.
+HDInsight SDK for Go는 HDInsight 클러스터를 관리 하는 데 사용할 수 있는 클래스와 함수를 제공 합니다. 여기에는 HDInsight 클러스터의 속성 만들기, 삭제, 업데이트, 나열, 크기 조정, 스크립트 작업 실행, 모니터링, 가져오기 작업을 포함합니다.
 
 > [!NOTE]  
 >이 SDK에 대한 GoDoc 참조 자료도 [여기](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight)서 사용할 수 있습니다.
 
-Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 만드세요.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [ `go get` 도구](https://github.com/golang/go/wiki/GoGetTools).
-* [이동합니다.](https://golang.org/dl/)
+* [ `go get` 도구](https://github.com/golang/go/wiki/GoGetTools)입니다.
+* [이동](https://golang.org/dl/).
 
 ## <a name="sdk-installation"></a>SDK 설치
 
@@ -36,14 +36,14 @@ GOPATH 위치에서 `go get github.com/Azure/azure-sdk-for-go/tree/master/servic
 
 ## <a name="authentication"></a>인증
 
-Azure 구독을 사용해서 SDK를 먼저 인증해야 합니다.  아래 예제에 따라 서비스 주체를 만들고 이를 인증에 사용합니다. 이 작업이 완료되면 관리 작업을 수행하는 데 `ClustersClient`사용할 수 있는 많은 함수(아래 섹션에 설명)가 포함된 의 인스턴스가 있습니다.
+Azure 구독을 사용해서 SDK를 먼저 인증해야 합니다.  아래 예제에 따라 서비스 주체를 만들고 이를 인증에 사용합니다. 이 작업을 완료 한 후에는 관리 작업을 수행 `ClustersClient`하는 데 사용할 수 있는 많은 함수 (아래 섹션에서 설명)를 포함 하는의 인스턴스를 갖게 됩니다.
 
 > [!NOTE]  
 > 아래 설명된 예제 외에도 사용자 요구에 더 적합할 수 있는 다른 인증 방법이 있습니다. 모든 함수는 [Go용 Azure SDK의 인증 함수](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)에 설명되어 있습니다.
 
 ### <a name="authentication-example-using-a-service-principal"></a>서비스 주체를 사용한 인증 예제
 
-먼저, [Azure Cloud Shell](https://shell.azure.com/bash)에 로그인합니다. 서비스 주체가 만들려는 구독을 현재 사용하고 있는지 확인합니다.
+먼저, [Azure Cloud Shell](https://shell.azure.com/bash)에 로그인합니다. 서비스 사용자를 만들 구독을 현재 사용 중인지 확인 합니다.
 
 ```azurecli-interactive
 az account show
@@ -73,7 +73,7 @@ az account set -s <name or ID of subscription>
 ```
 
 > [!IMPORTANT]  
-> 다른 기능(예: Azure 포털을 통해 HDInsight 클러스터을 만드는 경우)으로 HDInsight 리소스 공급자를 아직 등록하지 않은 경우 인증하기 전에 이 작업을 한 번 수행해야 합니다. 이 작업은 [Azure Cloud Shell](https://shell.azure.com/bash)에서 다음 명령을 실행하여 수행할 수 있습니다.
+> Azure Portal를 통해 HDInsight 클러스터를 만드는 등의 방법으로 HDInsight 리소스 공급자를 다른 기능에 등록 하지 않은 경우 인증을 받기 전에이 작업을 한 번 수행 해야 합니다. 이 작업은 [Azure Cloud Shell](https://shell.azure.com/bash)에서 다음 명령을 실행하여 수행할 수 있습니다.
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
 >```
@@ -144,7 +144,7 @@ func main() {
 
 #### <a name="example"></a>예제
 
-이 예제에서는 두 개의 헤드 노드와 하나의 작업자 노드가 있는 [Apache Spark](https://spark.apache.org/) 클러스터를 만드는 방법을 보여 줍니다.
+이 예제에서는 두 개의 헤드 노드와 하나의 작업자 노드를 사용 하 여 [Apache Spark](https://spark.apache.org/) 클러스터를 만드는 방법을 보여 줍니다.
 
 > [!NOTE]  
 > 먼저 아래 설명된 대로 리소스 그룹 및 스토리지 계정을 만들어야 합니다. 이미 만든 경우에는 이 단계를 건너뛸 수 있습니다.
@@ -165,14 +165,14 @@ az group create -l <Region Name (i.e. eastus)> --n <Resource Group Name>
 az storage account create -n <Storage Account Name> -g <Existing Resource Group Name> -l <Region Name (i.e. eastus)> --sku <SKU i.e. Standard_LRS>
 ```
 
-이제 다음 명령을 실행하여 저장소 계정의 키를 가져옵니다(클러스터를 만들려면 이 명령이 필요합니다).
+이제 다음 명령을 실행 하 여 저장소 계정에 대 한 키를 가져옵니다 (클러스터를 만드는 데 필요 함).
 
 ```azurecli-interactive
 az storage account keys list -n <Storage Account Name>
 ```
 
 ---
-아래 Go 스니펫은 두 개의 헤드 노드와 하나의 작업자 노드가 있는 Spark 클러스터를 만듭니다. 주석 설명에 따라 빈 변수를 채우고 특정 요구에 따라 다른 매개변수를 변경합니다.
+아래 Go 코드 조각은 헤드 노드 두 개와 작업자 노드가 하나씩 있는 Spark 클러스터를 만듭니다. 주석 설명에 따라 빈 변수를 채우고 특정 요구에 따라 다른 매개변수를 변경합니다.
 
 ```golang
 // The name for the cluster you are creating
@@ -263,7 +263,7 @@ client.Get(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 
 #### <a name="example"></a>예제
 
-클러스터를 `get` 성공적으로 만들었으며 확인합니다.
+를 사용 `get` 하 여 클러스터를 성공적으로 만들었는지 확인할 수 있습니다.
 
 ```golang
 cluster, err := client.Get(context.Background(), resourceGroupName, clusterName)
@@ -352,7 +352,7 @@ client.Resize(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 
 또한 HDInsight 관리 SDK를 사용하여 OMS(Operations Management Suite)를 통해 클러스터에서 모니터링을 관리할 수 있습니다.
 
-관리 작업에 사용할 `ClusterClient`를 만든 방법과 마찬가지로, 모니터링 작업에 사용할 `ExtensionClient`를 만들어야 합니다. 위의 인증 섹션을 완료한 후에는 `ExtensionClient` 다음과 같은 것을 만들 수 있습니다.
+관리 작업에 사용할 `ClusterClient`를 만든 방법과 마찬가지로, 모니터링 작업에 사용할 `ExtensionClient`를 만들어야 합니다. 위의 인증 섹션을 완료 한 후에는 `ExtensionClient` 다음과 같이 만들 수 있습니다.
 
 ```golang
 extClient := hdi.NewExtensionsClient(SUBSCRIPTION_ID)
@@ -405,7 +405,7 @@ var scriptAction1 = hdi.RuntimeScriptAction{Name: to.StringPtr("<Script Name>"),
 client.ExecuteScriptActions(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ExecuteScriptActionParameters{PersistOnSuccess: to.BoolPtr(true), ScriptActions: &[]hdi.RuntimeScriptAction{scriptAction1}}) //add more RuntimeScriptActions to the list to execute multiple scripts
 ```
 
-'스크립트 작업 삭제' 및 '지속형 스크립트 작업 나열' 작업의 경우 관리 작업에 사용할 `ClusterClient`를 만든 방법과 마찬가지로 `ScriptActionsClient`를 만들어야 합니다. 위의 인증 섹션을 완료한 후에는 `ScriptActionsClient` 다음과 같은 것을 만들 수 있습니다.
+'스크립트 작업 삭제' 및 '지속형 스크립트 작업 나열' 작업의 경우 관리 작업에 사용할 `ClusterClient`를 만든 방법과 마찬가지로 `ScriptActionsClient`를 만들어야 합니다. 위의 인증 섹션을 완료 한 후에는 `ScriptActionsClient` 다음과 같이 만들 수 있습니다.
 
 ```golang
 scriptActionsClient := hdi.NewScriptActionsClient(SUBSCRIPTION_ID)
@@ -453,7 +453,7 @@ for (page.NotDone()) {
 
 ### <a name="list-all-scripts-execution-history"></a>모든 스크립트 실행 기록 나열
 
-이 작업의 경우 관리 작업에 사용할 `ClusterClient`를 만든 방법과 마찬가지로, `ScriptExecutionHistoryClient`를 만들어야 합니다. 위의 인증 섹션을 완료한 후에는 `ScriptActionsClient` 다음과 같은 것을 만들 수 있습니다.
+이 작업의 경우 관리 작업에 사용할 `ClusterClient`를 만든 방법과 마찬가지로, `ScriptExecutionHistoryClient`를 만들어야 합니다. 위의 인증 섹션을 완료 한 후에는 `ScriptActionsClient` 다음과 같이 만들 수 있습니다.
 
 ```golang
 scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION_ID)

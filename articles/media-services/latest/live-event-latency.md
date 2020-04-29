@@ -1,6 +1,6 @@
 ---
-title: Azure 미디어 서비스의 LiveEvent 대기 시간 낮음 설정 | 마이크로 소프트 문서
-description: 이 항목에서는 LiveEvent 낮은 대기 시간 설정에 대한 개요를 제공하고 대기 시간을 줄이는 방법을 보여 줍니다.
+title: Azure Media Services에서 대기 시간이 짧은 라이브 설정 | Microsoft Docs
+description: 이 항목에서는 대기 시간이 짧은 라이브 설정에 대해 간략하게 설명 하 고 짧은 대기 시간을 설정 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,20 +14,20 @@ ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
 ms.openlocfilehash: a82a0644fac099b568ab86ea213b98cd8e7d5c22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78199651"
 ---
 # <a name="live-event-low-latency-settings"></a>라이브 이벤트 낮은 대기 시간 설정
 
 이 문서에서는 [라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)에서 짧은 대기 시간을 설정하는 방법을 보여줍니다. 또한 다양한 플레이어에서 짧은 대기 시간 설정을 사용하는 경우 표시되는 일반적인 결과에 대해 설명합니다. 그 결과는 CDN 및 네트워크 대기 시간에 따라 다릅니다.
 
-새로운 **LowLatency** 기능을 사용하려면 **LiveEvent**에서 **StreamOptionsFlag**를 **LowLatency**로 설정할 수 있습니다. HLS 재생에 대한 [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)을 만들 때 [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls)를 1로 설정합니다. 스트림이 실행되고 나면 [Azure Media Player(AMP](https://ampdemo.azureedge.net/) 데모 페이지)를 사용하고 재생 옵션을 설정하여 "대기 시간 지연 휴리스틱스 프로필"을 사용할 수 있습니다.
+새로운 **LowLatency** 기능을 사용하려면 **LiveEvent**에서 **StreamOptionsFlag**를 **LowLatency**로 설정할 수 있습니다. HLS 재생에 대한 [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)을 만들 때 [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls)를 1로 설정합니다. 스트림이 실행 되 면 [Azure Media Player](https://ampdemo.azureedge.net/) (AMP 데모 페이지)를 사용 하 고 재생 옵션을 "짧은 대기 시간 추론 프로필"을 사용 하도록 설정할 수 있습니다.
 
 > [!NOTE]
-> 현재 Azure 미디어 플레이어의 LowLatency 휴리스틱프로필은 CSF 또는 CMAF 형식(예: `format=mdp-time-csf` 또는)을 `format=mdp-time-cmaf`통해 MPEG-DASH 프로토콜에서 다시 스트림을 재생하도록 설계되었습니다. 
+> 현재 Azure Media Player의 LowLatency HeuristicProfile은 CSF 또는 CMAF 형식 (예: `format=mdp-time-csf` 또는 `format=mdp-time-cmaf`)을 사용 하 여 mpeg-2 프로토콜의 스트림을 재생 하기 위한 것입니다. 
 
 다음 .NET 예제에서는 **LiveEvent**에서 **LowLatency**를 설정하는 방법을 보여줍니다.
 

@@ -1,5 +1,5 @@
 ---
-title: REST API를 사용하여 Azure 가상 컴퓨터 사용 데이터 받기
+title: REST API를 사용 하 여 Azure 가상 머신 사용 현황 데이터 가져오기
 description: Azure REST API를 사용하여 가상 머신에 대한 사용률 메트릭을 수집합니다.
 author: rloutlaw
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 07e91f3d9fd32f01db91415bfd90746cd1aef403
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78944748"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>REST API를 사용하여 가상 머신 사용률 메트릭 가져오기
@@ -29,18 +29,18 @@ REST API에 대한 전체 참조 설명서 및 추가 샘플은 [Azure Monitor R
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
 ```
 
-### <a name="request-headers"></a>헤더 요청
+### <a name="request-headers"></a>요청 헤더
 
 다음과 같은 헤더가 필요합니다. 
 
-|요청 헤더|설명|  
+|요청 헤더|Description|  
 |--------------------|-----------------|  
-|*콘텐츠 유형:*|필수 사항입니다. `application/json`로 설정합니다.|  
-|*권한 부여:*|필수 사항입니다. 유효한 `Bearer` [액세스 토큰](/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |  
+|*Content-Type:*|필수 사항입니다. `application/json`로 설정합니다.|  
+|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [액세스 토큰](/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |  
 
 ### <a name="uri-parameters"></a>URI 매개 변수
 
-| 이름 | 설명 |
+| 속성 | Description |
 | :--- | :---------- |
 | subscriptionId | Azure 구독을 식별하는 구독 ID입니다. 구독이 여러 개인 경우 [여러 구독으로 작업](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)을 참조합니다. |
 | resourceGroupName | 리소스와 연결된 Azure 리소스 그룹의 이름입니다. Azure Resource Manager API, CLI 또는 포털에서 이 값을 가져올 수 있습니다. |

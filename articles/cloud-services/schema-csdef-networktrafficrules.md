@@ -1,6 +1,6 @@
 ---
-title: Azure 클라우드 서비스 Def. 네트워크트래픽규칙 스키마 | 마이크로 소프트 문서
-description: 역할의 내부 끝점에 액세스할 수 있는 역할을 제한하는 NetworkTrafficRules에 대해 알아봅니다. 서비스 정의 파일의 역할과 결합합니다.
+title: Azure Cloud Services NetworkTrafficRules 스키마 | Microsoft Docs
+description: 역할의 내부 끝점에 액세스할 수 있는 역할을 제한 하는 NetworkTrafficRules에 대해 알아봅니다. 서비스 정의 파일의 역할과 결합 됩니다.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -14,10 +14,10 @@ caps.latest.revision: 17
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79534731"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Azure Cloud Services 정의 NetworkTrafficRules 스키마
@@ -52,7 +52,7 @@ ms.locfileid: "79534731"
 
 [NetworkTrafficRules 요소](#NetworkTrafficRules)
 
-[허용트래픽토 요소만 허용](#OnlyAllowTrafficTo)
+[OnlyAllowTrafficTo 요소](#OnlyAllowTrafficTo)
 
 [대상 요소](#Destinations)
 
@@ -64,7 +64,7 @@ AllowAllTraffic 요소
 
 [FromRole 요소](#FromRole)
 
-##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a>네트워크 트래픽 규칙 요소
+##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a>NetworkTrafficRules 요소
 ph x="1" /&gt; 요소는 다른 역할의 엔드포인트와 통신할 수 있는 역할을 지정합니다. 서비스에는 하나의 `NetworkTrafficRules` 정의가 포함될 수 있습니다.
 
 ##  <a name="onlyallowtrafficto-element"></a><a name="OnlyAllowTrafficTo"></a> OnlyAllowTrafficTo 요소
@@ -73,10 +73,10 @@ ph x="1" /&gt; 요소는 대상 엔드포인트의 컬렉션 및 대상 엔드�
 ##  <a name="destinations-element"></a><a name="Destinations"></a> Destinations 요소
 `Destinations` 요소는 통신할 수 있는 RoleEndpoints의 컬렉션을 설명합니다.
 
-##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a>역할 끝점 요소
+##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a>RoleEndpoint 요소
 ph x="1" /&gt; 요소는 역할에서 통신을 허용하는 엔드포인트를 설명합니다. 역할에 둘 이상의 엔드포인트가 있는 경우 `RoleEndpoint` 요소를 여러 개 지정할 수 있습니다.
 
-| 특성      | Type     | Description |
+| attribute      | Type     | Description |
 | -------------- | -------- | ----------- |
 | `endpointName` | `string` | 필수 사항입니다. 트래픽을 허용하는 엔드포인트의 이름입니다.|
 | `roleName`     | `string` | 필수 사항입니다. 통신을 허용하는 웹 역할의 이름입니다.|
@@ -84,21 +84,21 @@ ph x="1" /&gt; 요소는 역할에서 통신을 허용하는 엔드포인트를 
 ## <a name="allowalltraffic-element"></a>AllowAllTraffic 요소
 ph x="1" /&gt; 요소는 모든 역할이 `Destinations` 노드에 정의된 엔드포인트와 통신하도록 허용하는 규칙입니다.
 
-##  <a name="whensource-element"></a><a name="WhenSource"></a>When소스 요소
+##  <a name="whensource-element"></a><a name="WhenSource"></a>... 원본 요소
 ph x="1" /&gt; 요소는 `Destinations` 노드에 정의된 엔드포인트와 통신할 수 있는 역할의 컬렉션을 설명합니다.
 
-| 특성 | Type     | Description |
+| attribute | Type     | Description |
 | --------- | -------- | ----------- |
 | `matches` | `string` | 필수 사항입니다. 통신을 허용할 때 적용할 규칙을 지정합니다. 현재 유효한 값은 `AnyRule`뿐입니다.|
   
 ##  <a name="fromrole-element"></a><a name="FromRole"></a>FromRole 요소
 ph x="1" /&gt; 요소는 `Destinations` 노드에 정의된 엔드포인트와 통신할 수 있는 역할을 지정합니다. 엔드포인트와 통신할 수 있는 역할이 둘 이상인 경우 `FromRole` 요소를 여러 개 지정할 수 있습니다.
 
-| 특성  | Type     | Description |
+| attribute  | Type     | Description |
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | 필수 사항입니다. 통신을 허용하는 역할에 대한 이름입니다.|
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [Cloud Service(클래식) 정의 스키마](schema-csdef-file.md)
 
 
