@@ -1,14 +1,14 @@
 ---
 title: Log Analytics 경고 REST API 사용
-description: 로그 분석 경고 REST API를 사용하면 로그 분석의 일부인 로그 애널리틱스에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
+description: Log Analytics 경고 REST API를 사용 하 여 Log Analytics의 일부인 Log Analytics에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
 ms.openlocfilehash: a85dad2ba638505233e5df769e55fa5bd7b8dafd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77665003"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>REST API로 Log Analytics에서 경고 규칙 만들기 및 관리 
@@ -16,7 +16,7 @@ ms.locfileid: "77665003"
 Log Analytics 경고 REST API를 사용하여 Log Analytics에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
 
 > [!IMPORTANT]
-> [앞서 발표된](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)바와 *같이, 2019년 6월 1일* 이후에 생성된 로그 분석 작업 영역 - **Azure** scheduledQueryRules [REST API,](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) [Azure 리소스 Mananger 템플릿](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) 및 [PowerShell cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell)을 사용하여 경고 규칙을 관리할 수 있습니다. 고객은 이전 작업 영역에 대해 선호하는 경고 규칙 관리 수단을 쉽게 [전환하여](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) Azure Monitor scheduledQueryRules를 기본값으로 활용하고 기본 PowerShell cmdlet 사용 기능, 규칙의 조회 기간 증가, 별도의 리소스 그룹 또는 구독에서 규칙 생성 등과 같은 많은 [새로운 이점을](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) 얻을 수 있습니다.
+> [앞서 발표](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)했 듯이 *2019 년 6 월 1 일* 이후에 생성 된 log Analytics 작업 영역은 azure ScheduledQueryRules [REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/), [azure Resource Mananger 템플릿](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) 및 [PowerShell cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell) **만** 사용 하 여 경고 규칙을 관리할 수 있습니다. 고객은 이전 작업 영역에 대 한 기본 [설정 된 경고 규칙 관리 수단](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) 을 쉽게 전환 하 여 Azure Monitor scheduledQueryRules를 기본값으로 활용할 수 있으며, 기본 PowerShell cmdlet을 사용 하는 기능, 규칙에서 lookback 기간 증가, 별도의 리소스 그룹 또는 구독에서 규칙 생성 등의 많은 [새로운 이점을](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) 누릴 수 있습니다.
 
 Log Analytics Search REST API는 RESTful이며 Azure Resource Manager REST API를 통해 액세스할 수 있습니다. 이 문서에서 API가 Azure Resource Manager API를 호출하여 단순화하는 공개 소스 명령줄 도구인 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용하여 PowerShell 명령줄에서 액세스하는 예제를 찾을 수 있습니다. ARMClient 및 PowerShell의 사용은 Log Analytics 검색 API에 액세스하는 다양한 옵션 중 하나입니다. 이러한 도구를 사용하면 RESTful Azure Resource Manager API를 활용하여 Log Analytics 작업 영역을 호출하고, 이 작업 영역 내에서 검색 명령을 수행할 수 있습니다. API은 JSON 형식으로 검색 결과를 출력하여 다양한 프로그래밍 방식으로 검색 결과를 사용하게 됩니다.
 
@@ -27,7 +27,7 @@ Log Analytics Search REST API는 RESTful이며 Azure Resource Manager REST API�
 저장된 검색은 하나 이상의 일정을 가질 수 있습니다. 일정은 검색이 실행되는 빈도 및 조건이 식별되는 기간을 정의합니다.
 일정은 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 간격 |검색이 실행되는 빈도입니다. 분 단위로 측정됩니다. |
 | QueryTimeSpan |조건이 평가되는 시간 간격입니다. 간격보다 크거나 같아야 합니다. 분 단위로 측정됩니다. |
@@ -61,7 +61,7 @@ Get 메서드를 사용하여 저장된 검색에 대한 모든 일정을 검색
 ```
 
 ### <a name="creating-a-schedule"></a>일정 만들기
-고유 일정 ID와 Put 메서드를 사용하여 새 일정을 만듭니다.  두 일정은 저장된 다른 검색과 연결되어 있더라도 동일한 ID를 가질 수 없습니다.  Log Analytics 콘솔에서 일정을 만드는 경우 일정 ID에 대해 GUID가 생성됩니다.
+고유 일정 ID와 Put 메서드를 사용하여 새 일정을 만듭니다.  서로 다른 저장 된 검색에 연결 된 경우에도 두 일정의 ID는 같을 수 없습니다.  Log Analytics 콘솔에서 일정을 만드는 경우 일정 ID에 대해 GUID가 생성됩니다.
 
 > [!NOTE]
 > Log Analytics API를 사용하여 만든 저장된 모든 검색, 일정 및 작업의 이름은 소문자여야 합니다.
@@ -70,7 +70,7 @@ Get 메서드를 사용하여 저장된 검색에 대한 모든 일정을 검색
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 ### <a name="editing-a-schedule"></a>일정 편집
-동일한 저장된 검색에 대해 기존 일정 ID와 Put 메서드를 사용하여 해당 일정을 수정합니다. 예를 들어 아래 일정을 사용할 수 없습니다. 요청 본문에는 일정의 *etag가* 포함되어야 합니다.
+동일한 저장된 검색에 대해 기존 일정 ID와 Put 메서드를 사용하여 해당 일정을 수정합니다. 예를 들어 아래 일정을 사용할 수 없습니다. 요청의 본문에는 일정의 *etag* 가 포함 되어야 합니다.
 
       $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Enabled':'false' } }"
       armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
@@ -82,12 +82,12 @@ Get 메서드를 사용하여 저장된 검색에 대한 모든 일정을 검색
     armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
 
 
-## <a name="actions"></a>동작
+## <a name="actions"></a>작업
 일정이 여러 작업을 가질 수 있습니다. 작업은 메일 보내기 또는 Runbook 시작과 같은 하나 이상의 수행할 프로세스를 정의하거나 검색 결과가 일부 조건과 일치하는 경우를 결정하는 임계값을 정의할 수 있습니다.  일부 작업은 임계값을 만족할 때 프로세스가 수행되도록 정의합니다.
 
 모든 작업은 다음 표의 속성을 가집니다.  서로 다른 유형의 경고는 아래에 설명하는 서로 다른 추가 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | `Type` |작업의 유형입니다.  현재 가능한 값은 경고 및 웹후크입니다. |
 | `Name` |경고에 대한 표시 이름입니다. |
@@ -122,7 +122,7 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 ### <a name="alert-actions"></a>경고 작업
 일정은 경고 작업을 한 개만 가져야 합니다.  경고 작업은 다음 표의 섹션 중 하나 이상을 가집니다.  아래에서 각 섹션을 자세히 설명합니다.
 
-| 섹션 | 설명 | 사용 |
+| 단원 | Description | 사용 |
 |:--- |:--- |:--- |
 | 임계값 |작업이 실행되기 위한 조건입니다.| Azure로 확장되기 이전 또는 이후에 모든 경고에 필요합니다. |
 | 심각도 |트리거되는 경우 경고를 분류하는 데 사용되는 레이블| Azure로 확장되기 이전 또는 이후에 모든 경고에 필요합니다. |
@@ -135,7 +135,7 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 
 임계값은 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | `Operator` |임계값 비교를 위한 연산자입니다. <br> gt = 보다 큰 <br>  lt = 보다 작은 |
 | `Value` |임계값에 대한 값입니다. |
@@ -337,6 +337,6 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 ## <a name="next-steps"></a>다음 단계
 
 * Log Analytics에서 [REST API를 사용하여 로그 검색을 수행](../../azure-monitor/log-query/log-query-overview.md) 합니다.
-* Azure [모니터에서 로그 경고에](../../azure-monitor/platform/alerts-unified-log.md) 대해 알아보기
-* Azure [모니터에서 로그 경고 규칙을 생성, 편집 또는 관리하는](../../azure-monitor/platform/alerts-log.md) 방법
+* [Azure monitor의 로그 경고](../../azure-monitor/platform/alerts-unified-log.md) 에 대해 알아보기
+* [Azure monitor에서 로그 경고 규칙을 생성, 편집 또는 관리](../../azure-monitor/platform/alerts-log.md) 하는 방법
 

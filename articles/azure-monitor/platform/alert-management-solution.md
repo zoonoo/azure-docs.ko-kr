@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
 ms.openlocfilehash: 48a825f31a1c5f2eab2fbb71b6f030b8acb5617d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77668386"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics의 경고 관리 솔루션
@@ -18,7 +18,7 @@ ms.locfileid: "77668386"
 ![경고 관리 아이콘](media/alert-management-solution/icon.png)
 
 > [!NOTE]
->  Azure Monitor는 이제 [시스템 센터 운영 관리자, Zabbix 또는 Nagios와 같은 모니터링 도구에서](https://aka.ms/managing-alerts-other-monitoring-services)생성된 경고를 포함하여 [대규모로 경고를 관리하기](https://aka.ms/azure-alerts-overview)위한 향상된 기능을 지원합니다.
+>  Azure Monitor는 [System Center Operations Manager, Zabbix 또는 Nagios와 같은 모니터링 도구](https://aka.ms/managing-alerts-other-monitoring-services)에서 생성 된 기능을 포함 하 여 [대규모 경고를 관리](https://aka.ms/azure-alerts-overview)하기 위한 향상 된 기능을 지원 합니다.
 >  
 
 
@@ -31,7 +31,7 @@ ms.locfileid: "77668386"
 - Nagios 및 Zabbix 경고의 경우 Log Analytics로 경고를 보내도록 [해당 서버를 구성](../../azure-monitor/learn/quick-collect-linux-computer.md)합니다.
 - System Center Operations Manager 경고의 경우 [Operations Manager 관리 그룹을 Log Analytics 작업 영역에 연결](../../azure-monitor/platform/om-agents.md)합니다.  그러면 System Center Operations Manager에서 생성된 모든 경고를 Log Analytics로 가져옵니다.  
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 [솔루션 추가](../../azure-monitor/insights/solutions.md)에서 설명하는 프로세스를 사용하여 경고 관리 솔루션을 Log Analytics 작업 영역에 추가합니다. 추가 구성은 필요 없습니다.
 
 ## <a name="management-packs"></a>관리 팩
@@ -45,11 +45,11 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 ### <a name="agents"></a>에이전트
 다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
 
-| 연결된 소스 | 고객 지원팀 | 설명 |
+| 연결된 소스 | Support(지원) | Description |
 |:--- |:--- |:--- |
-| [Windows 에이전트](agent-windows.md) | 예 |직접 Windows 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Windows 에이전트에서 성능 데이터를 수집할 수 있습니다. |
-| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 예 |직접 Linux 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Linux 에이전트에서 성능 데이터를 수집할 수 있습니다.  Linux 에이전트가 필요한 해당 서버에서 Nagios 및 Zabbix 경고를 수집합니다. |
-| [System Center Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md) |yes |Operations Manager 에이전트에 대해 생성된 경고는 관리 그룹에 전달된 다음 Log Analytics에 전달됩니다.<br><br>Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 경고 데이터는 관리 그룹에서 Log Analytics 리포지토리로 전달됩니다. |
+| [Windows 에이전트](agent-windows.md) | 아니요 |직접 Windows 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Windows 에이전트에서 성능 데이터를 수집할 수 있습니다. |
+| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요 |직접 Linux 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Linux 에이전트에서 성능 데이터를 수집할 수 있습니다.  Linux 에이전트가 필요한 해당 서버에서 Nagios 및 Zabbix 경고를 수집합니다. |
+| [System Center Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md) |예 |Operations Manager 에이전트에 대해 생성된 경고는 관리 그룹에 전달된 다음 Log Analytics에 전달됩니다.<br><br>Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 경고 데이터는 관리 그룹에서 Log Analytics 리포지토리로 전달됩니다. |
 
 
 ### <a name="collection-frequency"></a>수집 빈도
@@ -63,11 +63,11 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 **경고 관리** 타일을 클릭하여 **경고 관리** 대시보드를 엽니다.  대시보드는 다음 표의 열을 포함하고 있습니다.  각 열은 지정된 범위 및 시간 범위에 대한 열의 기준과 일치하는 카운트별로 상위 10개의 경고를 나열합니다.  열 아래쪽의 **모두 보기** 를 클릭하거나 열 제목을 클릭하여 전체 목록을 제공하는 로그 검색을 실행할 수 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |:--- |:--- |
 | 중요한 알림 |경고 이름별로 그룹화된 중요 심각도를 가진 모든 경고.  경고 이름을 클릭하여 해당 경고에 대한 모든 레코드를 반환하는 로그 검색을 실행합니다. |
 | 경고 알림 |경고 이름별로 그룹화된 경고의 심각도를 가진 모든 경고입니다.  경고 이름을 클릭하여 해당 경고에 대한 모든 레코드를 반환하는 로그 검색을 실행합니다. |
-| 액티브 시스템 센터 운영 관리자 경고 |경고를 생성한 원본별로 그룹화된 *닫힘* 이외의 상태인 Operations Manager에서 수집된 모든 경고입니다. |
+| 활성 System Center Operations Manager 경고 |경고를 생성한 원본별로 그룹화된 *닫힘* 이외의 상태인 Operations Manager에서 수집된 모든 경고입니다. |
 | 모든 활성 경고 |경고 이름별로 그룹화된 심각도를 가진 모든 경고입니다. *닫힘*이외의 상태를 가진 Operations Manager 경고만 포함합니다. |
 
 오른쪽으로 스크롤하면 대시보드는 일반 쿼리 여러 개를 나열하며, 이 쿼리를 클릭하면 경고 데이터에 대한 [로그 검색](../../azure-monitor/log-query/log-query-overview.md) 을 수행할 수 있습니다.
@@ -106,7 +106,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 ## <a name="sample-log-searches"></a>샘플 로그 검색
 다음 표는 이 솔루션에 의해 수집된 경고 레코드에 대한 샘플 로그 검색을 제공합니다. 
 
-| 쿼리 | 설명 |
+| 쿼리 | Description |
 |:---|:---|
 | Alert &#124; where SourceSystem == "OpsManager" and AlertSeverity == "error" and TimeRaised > ago(24h) |지난 24 시간 동안 발생한 중요한 알림 |
 | Alert &#124; where AlertSeverity == "warning" and TimeRaised > ago(24h) |지난 24 시간 동안 발생한 중요한 경고 |

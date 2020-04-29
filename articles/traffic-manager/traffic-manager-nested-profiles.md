@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: rohink
 ms.openlocfilehash: 282099cb274c1ea872a0df9c2753a939ef31421f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938580"
 ---
 # <a name="nested-traffic-manager-profiles"></a>중첩 Traffic Manager 프로필
@@ -95,7 +95,7 @@ Traffic Manager 프로필에서 모니터링 설정은 단일 프로필 내의 �
 
 ![엔드포인트 기준 설정을 사용하는 Traffic Manager 엔드포인트 모니터링][10]
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 * [중첩 프로필을 구성하려면 어떻게 해야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
 

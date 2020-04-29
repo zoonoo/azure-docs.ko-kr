@@ -1,6 +1,6 @@
 ---
 title: Azure(큰 인스턴스) 형식 II SKU에서 SAP HANA의 운영 체제 백업 및 복원| Microsoft Docs
-description: Azure에서 SAP HANA에 대한 운영 체제 백업 및 복원 수행(대규모 인스턴스) 유형 II SCOO
+description: Azure (대량 인스턴스) 형식 II Sku에서 SAP HANA에 대 한 운영 체제 백업 및 복원 수행
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -14,34 +14,34 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 100e1b974e54d8c0065194bc7beb18f458011434
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616877"
 ---
-# <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>개정 3 스탬프의 유형 II SUS에 대한 OS 백업 및 복원
+# <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>수정 버전 3 스탬프의 유형 II Sku에 대 한 OS 백업 및 복원
 
-이 문서에서는 HANA 대버전 3의 유형 II **SCO에** 대한 운영 체제 파일 수준 백업 및 복원 단계를 설명합니다. 
+이 문서에서는 수정 버전 3의 HANA Large 인스턴스의 **유형 II sku** 에 대 한 운영 체제 파일 수준 백업 및 복원을 수행 하는 단계를 설명 합니다. 
 
 >[!Important]
-> **이 문서는 개정 4 HANA 대형 인스턴스 스탬프의 유형 II SKU 배포에는 적용되지 않습니다.** 개정 4 HANA 대형 인스턴스 스탬프에 배포되는 유형 II HANA 대형 인스턴스 단위의 부팅 LUNS는 이미 개정 3 스탬프에 있는 타입 I SCO의 경우이기 때문에 스토리지 스냅샷으로 백업할 수 있습니다.
+> **이 문서는 수정 버전 4 HANA 대량 인스턴스 스탬프의 유형 II SKU 배포에는 적용 되지 않습니다.** 수정 버전 4 HANA 대량 인스턴스 스탬프에 배포 된 II HANA Large Instance unit 형식의 부팅 LUN은 저장소 스냅숏으로 백업 될 수 있습니다 .이는 유형 I Sku가 수정 3 스탬프에 이미 있는 경우입니다.
 
 
 >[!NOTE]
 >OS 백업 스크립트는 서버에 미리 설치되어 있는 ReaR 소프트웨어를 사용합니다.  
 
-Microsoft `Service Management` 팀에서 프로비저닝을 완료한 후 기본적으로 서버는 운영 체제의 파일 시스템 수준을 백업하기 위해 두 개의 백업 일정으로 구성됩니다. 다음 명령을 사용하여 백업 작업의 일정을 확인할 수 있습니다.
+Microsoft `Service Management` 팀에서 프로 비전을 완료 한 후에는 기본적으로 서버는 운영 체제의 파일 시스템 수준을 백업 하는 두 개의 백업 일정으로 구성 됩니다. 다음 명령을 사용 하 여 백업 작업의 일정을 확인할 수 있습니다.
 ```
 #crontab –l
 ```
-다음 명령을 사용하여 언제든지 백업 일정을 변경할 수 있습니다.
+다음 명령을 사용 하 여 언제 든 지 백업 일정을 변경할 수 있습니다.
 ```
 #crontab -e
 ```
 ## <a name="how-to-take-a-manual-backup"></a>수동 백업을 수행하는 방법
 
-OS 파일 시스템 백업은 이미 **cron 작업을** 사용하여 예약됩니다. 그러나 운영 체제 파일 수준 백업을 수동으로도 수행할 수 있습니다. 수동 백업을 수행하려면 다음 명령을 실행합니다.
+OS 파일 시스템 백업은 이미 **cron 작업** 을 사용 하 여 예약 됩니다. 그러나 운영 체제 파일 수준 백업을 수동으로도 수행할 수 있습니다. 수동 백업을 수행하려면 다음 명령을 실행합니다.
 
 ```
 #rear -v mkbackup
@@ -67,7 +67,7 @@ OS 파일 시스템 백업은 이미 **cron 작업을** 사용하여 예약됩�
 >[!NOTE] 
 >백업에서 복원된 후에 원하는 위치에 파일을 복사해야 합니다.
 
-다음 스크린샷은 전체 백업의 복원을 보여 주며,
+다음 스크린샷은 전체 백업의 복원을 보여 줍니다.
 
 ![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
@@ -99,4 +99,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-다음 스크린 샷은 전체 백업의 ![복원을 보여줍니다: RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+다음 스크린샷은 전체 백업 복원 ( ![RearToolConfiguration)을 보여 줍니다.](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

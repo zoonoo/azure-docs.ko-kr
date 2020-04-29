@@ -1,5 +1,5 @@
 ---
-title: '자습서: 링크드 인 상승에 대 한 사용자 프로비저닝 - Azure AD'
+title: '자습서: LinkedIn 권한 상승에 대 한 사용자 프로 비전-Azure AD'
 description: 사용자 계정을 LinkedIn Elevate로 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa0a26eaeac431ed2c78c5bd938bbbe7dff14e0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77057416"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 LinkedIn Elevate 구성
@@ -84,7 +84,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 5. **토큰 생성**을 클릭합니다. **액세스 토큰** 필드 아래에 액세스 토큰이 표시됩니다.
 
-6. 페이지를 떠나기 전에 액세스 토큰을 클립보드 또는 컴퓨터에 저장합니다.
+6. 페이지를 벗어나기 전에 클립보드 또는 컴퓨터에 액세스 토큰을 저장 합니다.
 
 7. 다음으로, [Azure Portal](https://portal.azure.com)에 로그인하고 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
 
@@ -92,7 +92,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 9. LinkedIn Elevate의 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
 
-10. **프로비저닝 모드를** **자동으로**설정합니다.
+10. **프로 비전 모드** 를 **자동**으로 설정 합니다.
 
     ![LinkedIn Elevate 프로비전](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
@@ -122,5 +122,5 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱용 사용자 계정 프로비저닝 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
+* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

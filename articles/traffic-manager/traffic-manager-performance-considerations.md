@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
 ms.openlocfilehash: 84367a00643c48e7fe2fb7f907bab64589193b2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938534"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager 성능 고려 사
@@ -58,7 +58,7 @@ Traffic Manager 프로필의 성능 및 동작을 이해하는 데 사용할 수
 
 * [CA 앱 가상 모니터](https://asm.ca.com/en/checkit.php)
 
-    이전에는 Watch-mouse 웹 사이트 확인 도구로 알려진 이 사이트는 여러 지역의 DNS 해결 시간을 동시에 표시합니다. DNS 확인 시간, 연결 시간 및 여러 지리적 위치에서의 속도를 보려면 URL을 입력하십시오. 이 테스트를 사용하면 어떤 호스티드 서비스가 전 세계의 서로 다른 위치에 대해 반환되는지 볼 수 있습니다.
+    이전에는 조사식-마우스 확인 웹 사이트 도구 라고 하는이 사이트에서는 여러 지리적 지역에서 동시에 DNS 확인 시간을 보여 줍니다. DNS 확인 시간, 연결 시간 및 여러 지리적 위치에서의 속도를 보려면 URL을 입력하십시오. 이 테스트를 사용하면 어떤 호스티드 서비스가 전 세계의 서로 다른 위치에 대해 반환되는지 볼 수 있습니다.
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 

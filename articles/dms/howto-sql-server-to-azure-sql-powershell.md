@@ -1,7 +1,7 @@
 ---
-title: '전원 셸: SQL 서버를 SQL 데이터베이스로 마이그레이션합니다.'
+title: 'Powershell: SQL Database로 SQL Server 마이그레이션'
 titleSuffix: Azure Database Migration Service
-description: Azure 데이터베이스 마이그레이션 서비스와 함께 Azure PowerShell을 사용하여 온-프레미스 SQL 서버에서 Azure SQL 데이터베이스로 마이그레이션하는 방법을 알아봅니다.
+description: Azure Database Migration Service에서 Azure PowerShell를 사용 하 여 온-프레미스 SQL Server에서 Azure SQL Database로 마이그레이션하는 방법에 대해 알아봅니다.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: f63f79402b457017257f1762c6ddc7e04c0ee1af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77650693"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Azure PowerShell을 사용하여 SQL Server 온-프레미스를 Azure SQL Database로 마이그레이션
@@ -40,12 +40,12 @@ ms.locfileid: "77650693"
 * [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성하려면
 * Azure SQL Database 인스턴스. [Azure Portal에서 Azure SQL 데이터베이스 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) 문서의 세부 지침을 수행하여 Azure SQL Database 인스턴스를 만들 수 있습니다.
 * [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 이상.
-* [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN을](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)사용하여 온-프레미스 소스 서버에 대한 사이트 간 연결을 Azure 데이터베이스 마이그레이션 서비스에 제공하는 Azure 리소스 관리자 배포 모델을 사용하여 Microsoft Azure 가상 네트워크를 만들려면
-* [SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) 마이그레이션 평가 수행 문서에 설명된 대로 데이터 마이그레이션 도우미를 사용하여 온-프레미스 데이터베이스 및 스키마 마이그레이션에 대한 평가를 완료하려면
-* [설치 모듈 PowerShell cmdlet을](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)사용하여 PowerShell 갤러리에서 Az.DataMigration 모듈을 다운로드하여 설치하려면; 관리자로 실행을 사용하여 powershell 명령 창을 열어야 합니다.
+* 는 [express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 경로 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용 하 여 온-프레미스 원본 서버에 대 한 사이트 간 연결을 제공 하는 Azure Database Migration Service를 제공 하는 Azure Resource Manager 배포 모델을 사용 하 여 Microsoft Azure Virtual Network를 만들었습니다.
+* [SQL Server 마이그레이션 평가를 수행](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) 하는 방법 문서에 설명 된 대로 Data Migration Assistant를 사용 하 여 온-프레미스 데이터베이스 및 스키마 마이그레이션의 평가를 완료 했습니다.
+* [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)을 사용 하 여 PowerShell 갤러리에서 microsoft.datamigration 모듈을 다운로드 하 고 설치 하려면 관리자 권한으로 실행을 사용 하 여 powershell 명령 창을 열어야 합니다.
 * 원본 SQL Server 인스턴스에 연결하는 데 사용되는 자격 증명에 [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql)(서버 제어) 권한이 있어야 합니다.
 * 대상 Azure SQL DB 인스턴스에 연결하는 데 사용되는 자격 증명에 대상 Azure SQL Database 데이터베이스에 대한 CONTROL DATABASE(데이터베이스 제어) 권한이 있어야 합니다.
-* Azure 구독 계정이 없는 경우 시작하기 전에 [무료](https://azure.microsoft.com/free/) 계정을 만드세요.
+* Azure 구독 계정이 없는 경우 시작 하기 전에 [무료](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Microsoft Azure 구독에 로그인
 
@@ -55,7 +55,7 @@ ms.locfileid: "77650693"
 
 Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신을 만들려면 먼저 리소스 그룹을 만듭니다.
 
-[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 리소스 그룹을 만듭니다.
+[AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 명령을 사용 하 여 리소스 그룹을 만듭니다.
 
 다음 예제에서는 *EastUS* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
@@ -67,11 +67,11 @@ New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 
 `New-AzDataMigrationService` cmdlet을 사용하여 새 Azure Database Migration Service 인스턴스를 만들 수 있습니다. 이 cmdlet에는 다음 매개 변수가 필요합니다.
 
-* *Azure 리소스 그룹 이름*. [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 이전에 표시된 대로 Azure Resource 그룹을 만들고 해당 이름을 매개 변수로 제공할 수 있습니다.
-* *서비스 이름*. Azure Database Migration Service의 원하는 고유 서비스 이름에 해당하는 문자열입니다. 
+* *Azure 리소스 그룹 이름*입니다. [AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 명령을 사용 하 여 이전에 표시 된 대로 Azure 리소스 그룹을 만들고 해당 이름을 매개 변수로 제공할 수 있습니다.
+* *서비스 이름*입니다. Azure Database Migration Service의 원하는 고유 서비스 이름에 해당하는 문자열입니다. 
 * *위치*. 서비스의 위치를 지정합니다. 미국 서부 또는 동남 아시아 등 Azure 데이터 센터 위치를 지정합니다.
-* *스쿠*. 이 매개 변수는 DMS Sku 이름에 해당합니다. 현재 지원되는 Sku 이름은 *GeneralPurpose_4vCores*입니다.
-* *가상 서브넷 식별자*. cmdlet [New-AzVirtualNetworkSubnetConfig를](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) 사용하여 서브넷을 만들 수 있습니다. 
+* *Sku*. 이 매개 변수는 DMS Sku 이름에 해당합니다. 현재 지원되는 Sku 이름은 *GeneralPurpose_4vCores*입니다.
+* *가상 서브넷 식별자*. [AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet을 사용 하 여 서브넷을 만들 수 있습니다. 
 
 다음 예제에서는 *MyVNET*이라는 가상 네트워크 및 *MySubnet*이라는 서브넷을 사용하여 *미국 동부* 지역에 있는 *MyDMSResourceGroup* 리소스 그룹에 *MyDMS*라는 서비스를 만듭니다.
 
@@ -95,9 +95,9 @@ Azure Database Migration Service 인스턴스를 만든 후 마이그레이션 �
 
 `New-AzDmsConnInfo` cmdlet을 사용하여 데이터베이스 연결 정보 개체를 만들 수 있습니다. 이 cmdlet에는 다음 매개 변수가 필요합니다.
 
-* *서버 유형*. SQL, Oracle 또는 MySQL 등 요청된 데이터베이스 연결 유형입니다. SQL Server 및 Azure SQL에 대해 SQL을 사용합니다.
-* *데이터 소스*. SQL Server 인스턴스 또는 Azure SQL 데이터베이스의 이름 또는 IP입니다.
-* *AuthType*. 연결에 대한 인증 유형이며 SqlAuthentication 또는 WindowsAuthentication일 수 있습니다.
+* *ServerType*. SQL, Oracle 또는 MySQL 등 요청된 데이터베이스 연결 유형입니다. SQL Server 및 Azure SQL에 대해 SQL을 사용합니다.
+* *DataSource*. SQL Server 인스턴스 또는 Azure SQL 데이터베이스의 이름 또는 IP입니다.
+* *Authtype*. 연결에 대한 인증 유형이며 SqlAuthentication 또는 WindowsAuthentication일 수 있습니다.
 * *TrustServerCertificate* 매개 변수는 인증서 체인 검사를 무시할 때 채널의 암호화 여부를 나타내는 값을 설정하여 신뢰의 유효성을 검사합니다. 값은 True 또는 False일 수 있습니다.
 
 다음 예제에서는 SQL 인증을 사용하여 MySourceSQLServer라는 원본 SQL Server에 대한 연결 정보 개체를 만듭니다.
@@ -120,7 +120,7 @@ $targetConnInfo = New-AzDmsConnInfo -ServerType SQL `
 
 ### <a name="provide-databases-for-the-migration-project"></a>마이그레이션 프로젝트에 대한 데이터베이스 제공
 
-프로젝트 만들기를 위한 매개 변수로 제공될 수 있는 Azure Database Migration 프로젝트의 일부로 데이터베이스를 지정하는 `AzDataMigrationDatabaseInfo` 개체의 목록을 만듭니다. Cmdlet을 `New-AzDataMigrationDatabaseInfo` 사용하여 AzDataMigrationDatabaseInfo를 만들 수 있습니다. 
+프로젝트 만들기를 위한 매개 변수로 제공될 수 있는 Azure Database Migration 프로젝트의 일부로 데이터베이스를 지정하는 `AzDataMigrationDatabaseInfo` 개체의 목록을 만듭니다. Cmdlet `New-AzDataMigrationDatabaseInfo` 을 사용 하 여 AzDataMigrationDatabaseInfo를 만들 수 있습니다. 
 
 다음 예제에서는 **AdventureWorks2016** 데이터베이스에 대한 `AzDataMigrationDatabaseInfo` 프로젝트를 만들고, 프로젝트 생성을 위한 매개 변수로 제공할 목록에 이를 추가합니다.
 
@@ -184,23 +184,23 @@ $selectedDbs = New-AzDmsSelectedDB -MigrateSqlServerSqlDb -Name AdventureWorks20
   -TableMap $tableMap
 ```
 
-### <a name="create-the-migration-task-and-start-it"></a>마이그레이션 작업을 만들고 시작
+### <a name="create-the-migration-task-and-start-it"></a>마이그레이션 작업을 만들고 시작 합니다.
 
 `New-AzDataMigrationTask` cmdlet을 사용하여 마이그레이션 작업을 만들고 시작합니다. 이 cmdlet에는 다음 매개 변수가 필요합니다.
 
 * *TaskType* SQL Server에서 Azure SQL Database로 마이그레이션 유형을 만드는 마이그레이션 작업 유형 *MigrateSqlServerSqlDb*가 필요합니다. 
-* *리소스 그룹 이름*. 작업을 만들 Azure 리소스 그룹의 이름입니다.
-* *서비스 이름*. 작업을 만들 Azure Database Migration Service 인스턴스입니다.
-* *프로젝트 이름*. 작업을 만들 Azure Database Migration Service 프로젝트의 이름입니다. 
-* *작업 이름*. 만들 작업의 이름입니다. 
-* *SourceConnection*. 소스 SQL 서버 연결을 나타내는 AzDmsConnInfo 개체입니다.
-* *TargetConnection*. 대상 Azure SQL 데이터베이스 연결을 나타내는 AzDmsConnInfo 개체입니다.
+* *리소스 그룹 이름*입니다. 작업을 만들 Azure 리소스 그룹의 이름입니다.
+* *ServiceName*. 작업을 만들 Azure Database Migration Service 인스턴스입니다.
+* *ProjectName*. 작업을 만들 Azure Database Migration Service 프로젝트의 이름입니다. 
+* *TaskName*. 만들 작업의 이름입니다. 
+* *SourceConnection*. 원본 SQL Server 연결을 나타내는 AzDmsConnInfo 개체입니다.
+* *TargetConnection*. 대상 Azure SQL Database 연결을 나타내는 AzDmsConnInfo 개체입니다.
 * *SourceCred*. 원본 서버에 연결할 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) 개체입니다.
 * *TargetCred*. 대상 서버에 연결할 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) 개체입니다.
-* *SelectedDatabase*. AzDataMigration소스 및 대상 데이터베이스 매핑을 나타내는 개체입니다.
-* *스키마 유효성 검사*. (옵션, 스위치 매개 변수) 마이그레이션 후 원본과 대상 간의 스키마 정보를 비교합니다.
-* *데이터 무결성 유효성 검사*. (옵션, 스위치 매개 변수) 마이그레이션 후 원본과 대상 간에 체크섬 기반 데이터 무결성 유효성 검사를 수행합니다.
-* *쿼리 분석 유효성 검사*. (옵션, 스위치 매개 변수) 마이그레이션 후 원본 데이터베이스에서 쿼리를 검색하여 빠르고 지능적인 쿼리 분석을 수행하고 대상에서 실행합니다.
+* *SelectedDatabase*. 원본 및 대상 데이터베이스 매핑을 나타내는 AzDataMigrationSelectedDB 개체입니다.
+* *Schemavalidation*. (선택 사항, 스위치 매개 변수) 마이그레이션 후는 원본과 대상 간의 스키마 정보를 비교 합니다.
+* *Data/Ityvalidation*. (선택 사항, 스위치 매개 변수) 마이그레이션 후는 원본 및 대상 간에 체크섬 기반 데이터 무결성 유효성 검사를 수행 합니다.
+* *QueryAnalysisValidation*. (선택 사항, 스위치 매개 변수) 마이그레이션 후는 원본 데이터베이스에서 쿼리를 검색 하 고 대상에서 쿼리를 실행 하 여 빠르고 지능적인 쿼리 분석을 수행 합니다.
 
 다음 예제에서는 myDMSTask라는 마이그레이션 작업을 만들고 시작합니다.
 
@@ -217,7 +217,7 @@ $migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDb `
   -SelectedDatabase  $selectedDbs `
 ```
 
-다음 예제는 위와 동일한 마이그레이션 작업을 만들고 시작하지만 세 가지 유효성 검사도 모두 수행합니다.
+다음 예에서는 위와 동일한 마이그레이션 작업을 만들고 시작 하지만 세 가지 유효성 검사를 모두 수행 합니다.
 
 ```powershell
 $migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDb `

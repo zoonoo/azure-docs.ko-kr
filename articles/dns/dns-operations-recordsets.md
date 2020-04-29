@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: rohink
 ms.openlocfilehash: b9244d9b2bdc9cb20195bbc103c0b1eb48a9de63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76932541"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리
@@ -27,7 +27,7 @@ ms.locfileid: "76932541"
 > * [Azure 포털](dns-operations-recordsets-portal.md)
 > * [Azure 클래식 CLI](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure CLI](dns-operations-recordsets-cli.md)
-> * [Powershell](dns-operations-recordsets.md)
+> * [PowerShell](dns-operations-recordsets.md)
 
 이 문서는 Azure PowerShell을 사용하여 DNS 영역에 대한 DNS 레코드를 관리하는 방법을 보여줍니다. 크로스 플랫폼인 [Azure CLI](dns-operations-recordsets-cli.md) 또는 [Azure Portal](dns-operations-recordsets-portal.md)을 사용하여 DNS 레코드를 관리할 수도 있습니다.
 
@@ -46,7 +46,7 @@ Azure DNS의 DNS 레코드에 대한 자세한 내용은 [DNS 영역 및 레코�
 
 ## <a name="create-a-new-dns-record"></a>새 DNS 레코드 만들기
 
-새 레코드의 이름과 형식이 기존 레코드와 동일한 경우 [기존 레코드 집합에 추가해야](#add-a-record-to-an-existing-record-set)합니다. 새 레코드가 기존 레코드와 이름 및 형식이 다른 경우 새 레코드 집합을 만들어야 합니다. 
+새 레코드의 이름과 형식이 기존 레코드와 동일한 경우 [기존 레코드 집합에 추가](#add-a-record-to-an-existing-record-set)해야 합니다. 새 레코드가 기존 레코드와 이름 및 형식이 다른 경우 새 레코드 집합을 만들어야 합니다. 
 
 ### <a name="create-a-records-in-a-new-record-set"></a>새 레코드 집합에서 ‘A’ 레코드 만들기
 

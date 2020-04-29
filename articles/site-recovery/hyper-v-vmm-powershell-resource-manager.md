@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구/PowerShell을 사용하여 보조 사이트에 하이퍼 V(VMM 사용) 재해 복구 설정
+title: Azure Site Recovery/PowerShell을 사용 하 여 Hyper-v (VMM 포함)에서 보조 사이트로 재해 복구를 설정 합니다.
 description: Azure Site Recovery 및 PowerShell을 사용하여 VMM 클라우드의 Hyper-V VM과 보조 VMM 사이트 간 재해 복구를 설정하는 방법을 설명합니다.
 services: site-recovery
 author: sujayt
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77048610"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>PowerShell을 사용하여 Hyper-V VM과 보조 사이트 간 재해 복구 설정(Resource Manager)
@@ -23,7 +23,7 @@ ms.locfileid: "77048610"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - [시나리오 아키텍처 및 구성 요소](hyper-v-vmm-architecture.md)를 검토합니다.
-- 모든 구성 요소에 대한 [지원 요구 사항을](site-recovery-support-matrix-to-sec-site.md) 검토합니다.
+- 모든 구성 요소에 대 한 [지원 요구 사항을](site-recovery-support-matrix-to-sec-site.md) 검토 합니다.
 - Virtual Machine Manager 서버 및 Hyper-V 호스트가 [지원 요구 사항](site-recovery-support-matrix-to-sec-site.md)을 준수하는지 확인합니다.
 - 복제하려는 VM에서 [복제된 컴퓨터 지원](site-recovery-support-matrix-to-sec-site.md)을 준수하는지 확인합니다.
 
@@ -89,7 +89,7 @@ Azure PowerShell을 사용할 준비가 되었는지 확인합니다.
    $vault = New-AzRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    ```
 
-   cmdlet을 사용하여 볼트 개체를 만든 `Get-AzRecoveryServicesVault` 후 볼트 개체를 검색할 수 있습니다.
+   Cmdlet을 `Get-AzRecoveryServicesVault` 사용 하 여 자격 증명 모음 개체를 만든 후 해당 개체를 검색할 수 있습니다.
 
 ## <a name="set-the-vault-context"></a>자격 증명 모음 컨텍스트 설정
 
@@ -210,7 +210,7 @@ Azure PowerShell을 사용할 준비가 되었는지 확인합니다.
 
 ##  <a name="configure-network-mapping"></a>네트워크 매핑 구성
 
-1. 이 명령을 사용하여 현재 자격 증명 모음에 대한 서버를 검색합니다. 명령은 어레이 변수에 사이트 `$Servers` 복구 서버를 저장합니다.
+1. 이 명령을 사용하여 현재 자격 증명 모음에 대한 서버를 검색합니다. 이 명령은 Site Recovery 서버를 `$Servers` 배열 변수에 저장 합니다.
 
    ```azurepowershell
    $Servers = Get-AzRecoveryServicesAsrFabric
@@ -227,7 +227,7 @@ Azure PowerShell을 사용할 준비가 되었는지 확인합니다.
    > [!NOTE]
    > 원본 Virtual Machine Manager 서버는 서버 배열의 첫 번째 또는 두 번째 서버일 수 있습니다. Virtual Machine Manager 서버 이름을 확인하고, 네트워크를 적절하게 검색합니다.
 
-1. 이 cmdlet는 기본 네트워크와 복구 네트워크 사이에 매핑을 만듭니다. 기본 네트워크를 `$PrimaryNetworks`의 첫 번째 요소로 지정합니다. 복구 네트워크를 의 `$RecoveryNetworks`첫 번째 요소로 지정합니다.
+1. 이 cmdlet는 기본 네트워크와 복구 네트워크 사이에 매핑을 만듭니다. 기본 네트워크를의 `$PrimaryNetworks`첫 번째 요소로 지정 합니다. 의 `$RecoveryNetworks`첫 번째 요소로 복구 네트워크를 지정 합니다.
 
    ```azurepowershell
    New-AzRecoveryServicesAsrNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
@@ -256,12 +256,12 @@ Azure PowerShell을 사용할 준비가 되었는지 확인합니다.
    ```
 
 > [!NOTE]
-> Azure에서 CMK 지원 관리 디스크로 복제하려면 Az PowerShell 3.3.0 이후를 사용하여 다음 단계를 수행합니다.
+> Azure에서 CMK를 사용 하는 관리 디스크에 복제 하려는 경우 Az PowerShell 3.3.0을 사용 하 여 다음 단계를 수행 합니다.
 >
-> 1. VM 속성을 업데이트하여 관리 디스크에 장애 조치 사용
-> 1. cmdlet을 `Get-AzRecoveryServicesAsrReplicationProtectedItem` 사용하여 보호된 항목의 각 디스크에 대한 디스크 ID를 가져옵니다.
-> 1. cmdlet을 `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` 사용하여 디스크 ID를 디스크 암호화 집합에 매핑하는 데 포함하는 사전 개체를 만듭니다. 이러한 디스크 암호화 집합은 대상 영역에서 미리 만들어야 합니다.
-> 1. `Set-AzRecoveryServicesAsrReplicationProtectedItem` **DiskIdToDisk암호화셋맵** 매개 변수에서 사전 개체를 전달하여 cmdlet을 사용하여 VM 속성을 업데이트합니다.
+> 1. VM 속성을 업데이트 하 여 관리 디스크에 대 한 장애 조치 (failover) 사용
+> 1. `Get-AzRecoveryServicesAsrReplicationProtectedItem` Cmdlet을 사용 하 여 보호 된 항목의 각 디스크에 대 한 디스크 ID를 인출 합니다.
+> 1. Cmdlet을 사용 하 여 `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` 디스크 ID를 디스크 암호화 집합으로 매핑하는 사전을 포함 하는 사전 개체를 만듭니다. 이러한 디스크 암호화 집합은 대상 지역에서 미리 생성 됩니다.
+> 1. `Set-AzRecoveryServicesAsrReplicationProtectedItem` **Diskidtodiskencryptionsetmap** 매개 변수에서 사전 개체를 전달 하 여 cmdlet을 사용 하 여 VM 속성을 업데이트 합니다.
 
 ## <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행
 

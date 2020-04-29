@@ -1,5 +1,5 @@
 ---
-title: VM 네트워크 라우팅 문제 진단 - Azure PowerShell
+title: VM 네트워크 라우팅 문제 진단-Azure PowerShell
 titleSuffix: Azure Network Watcher
 description: 이 문서에서는 Azure Network Watcher의 다음 홉 기능을 사용하여 가상 머신 네트워크 라우팅 문제를 진단하는 방법에 대해 알아봅니다.
 services: network-watcher
@@ -18,10 +18,10 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
 ms.openlocfilehash: b5a636471eab188dc8648761afedd81694331953
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76834708"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>가상 머신 네트워크 라우팅 문제 진단 - Azure PowerShell
@@ -34,13 +34,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-로컬에서 PowerShell을 설치하고 사용하도록 선택한 경우 이 문서에는 Azure PowerShell `Az` 모듈이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에 `Az` Azure PowerShell 모듈이 필요 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 
 
 ## <a name="create-a-vm"></a>VM 만들기
 
-VM을 만들려면 먼저 VM이 포함될 리소스 그룹을 만들어야 합니다. [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *동쪽* 위치에 *myResourceGroup이라는* 리소스 그룹을 만듭니다.
+VM을 만들려면 먼저 VM이 포함될 리소스 그룹을 만들어야 합니다. [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
@@ -82,7 +82,7 @@ $networkWatcher = New-AzNetworkWatcher `
 
 ### <a name="use-next-hop"></a>다음 홉 사용
 
-Azure에서는 기본 대상에 대한 경로를 자동으로 만듭니다. 기본 경로를 재정의하는 사용자 지정 경로를 만들 수 있습니다. 경우에 따라 사용자 지정 경로로 인해 통신이 실패할 수 있습니다. VM에서 라우팅을 테스트하려면 [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) 명령을 사용하여 트래픽이 특정 주소로 지정될 때 다음 라우팅 홉을 결정합니다.
+Azure에서는 기본 대상에 대한 경로를 자동으로 만듭니다. 기본 경로를 재정의하는 사용자 지정 경로를 만들 수 있습니다. 경우에 따라 사용자 지정 경로로 인해 통신이 실패할 수 있습니다. VM에서 라우팅을 테스트 하려면 [AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) 명령을 사용 하 여 트래픽이 특정 주소로 대상이 될 때 다음 라우팅 홉을 결정 합니다.
 
 VM에서 www.bing.com 에 대한 IP 주소 중 하나로 아웃바운드 통신을 테스트합니다.
 
@@ -106,11 +106,11 @@ Get-AzNetworkWatcherNextHop `
   -DestinationIPAddress 172.31.0.100
 ```
 
-반환된 출력은 **없음이** **NextHopType이며** **RouteTableId도** **시스템 경로임을**알려줍니다. 이 결과를 사용하면 대상에 대한 유효한 시스템 경로가 있지만, 대상에 트래픽을 라우팅하는 다음 홉이 없음을 알 수 있습니다.
+반환 된 출력에는 **NextHopType**가 없고 **RouteTableId** 도 **시스템 경로** **임을 알리는** 메시지가 표시 됩니다. 이 결과를 사용하면 대상에 대한 유효한 시스템 경로가 있지만, 대상에 트래픽을 라우팅하는 다음 홉이 없음을 알 수 있습니다.
 
 ## <a name="view-details-of-a-route"></a>경로의 세부 정보 보기
 
-라우팅을 추가로 분석하려면 [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) 명령을 사용하여 네트워크 인터페이스의 유효 경로를 검토합니다.
+라우팅을 추가로 분석 하려면 [AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) 명령을 사용 하 여 네트워크 인터페이스에 대 한 유효 경로를 검토 합니다.
 
 ```azurepowershell-interactive
 Get-AzEffectiveRouteTable `

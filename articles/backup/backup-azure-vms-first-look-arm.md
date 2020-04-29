@@ -1,21 +1,21 @@
 ---
 title: VM 설정에서 Azure VM 백업
-description: 이 문서에서는 단수 Azure VM 또는 Azure 백업 서비스를 사용하여 여러 Azure VM을 백업하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 단일 Azure VM 또는 여러 Azure vm을 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 72d6e5657add3e815bb0d77fadbdbc716712bee5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76705448"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>VM 설정에서 Azure VM 백업
 
 이 문서에서는 [Azure Backup](backup-overview.md) 서비스를 사용하여 Azure VM을 백업하는 방법을 설명합니다. 다음과 같은 몇 가지 방법을 사용하여 Azure VM을 백업할 수 있습니다.
 
-- 단일 Azure VM: 이 문서의 지침은 VM 설정에서 직접 Azure VM을 백업하는 방법을 설명합니다.
-- 여러 Azure VM: 복구 서비스 자격 증명 모음을 설정하고 여러 Azure VM에 대한 백업을 구성할 수 있습니다. 이 시나리오에 대해서는 [이 문서](backup-azure-arm-vms-prepare.md)의 지침을 따르세요.
+- 단일 Azure VM:이 문서의 지침은 VM 설정에서 직접 Azure VM을 백업 하는 방법을 설명 합니다.
+- 여러 Azure Vm: Recovery Services 자격 증명 모음을 설정 하 고 여러 Azure Vm에 대 한 백업을 구성할 수 있습니다. 이 시나리오에 대해서는 [이 문서](backup-azure-arm-vms-prepare.md)의 지침을 따르세요.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -31,7 +31,7 @@ Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 
 
 ## <a name="back-up-from-azure-vm-settings"></a>Azure VM 설정에서 백업
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **모든 서비스**를 클릭하고 필터에 **가상 머신**을 입력한 후 **가상 머신**을 클릭합니다.
 3. VM 목록에서 백업하려는 VM을 선택합니다.
 4. VM 메뉴에서 **백업**을 클릭합니다.
@@ -64,7 +64,7 @@ Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 
 
 ## <a name="run-a-backup-immediately"></a>백업 즉시 실행
 
-1. VM 메뉴에서 백업을 즉시 실행하려면 > **지금** **백업을**클릭합니다.
+1. 즉시 백업을 실행 하려면 VM 메뉴 **에서 backup** > **backup**을 클릭 합니다.
 
     ![백업 실행](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
@@ -79,11 +79,11 @@ Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 
 이 문서의 지침에 따라 Azure Backup Recovery Services 자격 증명 모음을 설정하고 자격 증명 모음에서 백업을 사용하도록 설정하여 Azure VM에 대해 백업을 설정합니다.
 
 >[!NOTE]
-> **Azure Backup은 이제 Azure 가상 시스템 백업 솔루션을 사용하여 선택적 디스크 백업 및 복원을 지원합니다.**
+> **이제 Azure Backup는 Azure 가상 컴퓨터 백업 솔루션을 사용 하 여 선택적 디스크 백업 및 복원을 지원 합니다.**
 >
->현재 Azure Backup은 가상 시스템 백업 솔루션을 사용하여 VM의 모든 디스크(운영 체제 및 데이터)를 함께 백업할 수 있도록 지원합니다. 제외 디스크 기능을 사용하면 VM의 여러 데이터 디스크에서 하나 또는 몇 개를 백업할 수 있는 옵션이 있습니다. 이를 통해 백업 및 복원 요구 사항에 대한 효율적이고 비용 효율적인 솔루션을 제공합니다. 각 복구 지점에는 백업 작업에 포함된 디스크 데이터가 포함되어 있으므로 복원 작업 중에 지정된 복구 지점에서 디스크 하위 집합을 복원할 수 있습니다. 이는 스냅샷과 볼트모두에서 복원하는 데 적용됩니다.
+>현재 Azure Backup에서는 가상 컴퓨터 백업 솔루션을 사용 하 여 VM의 모든 디스크 (운영 체제 및 데이터)를 백업 하는 작업을 지원 합니다. 디스크 제외 기능을 사용 하면 VM의 여러 데이터 디스크에서 하나 또는 몇 개를 백업 하는 옵션을 사용할 수 있습니다. 이는 백업 및 복원 요구에 효율적이 고 비용 효율적인 솔루션을 제공 합니다. 각 복구 지점에는 백업 작업에 포함 된 디스크의 데이터가 포함 되어 있으므로 복원 작업을 수행 하는 동안 지정 된 복구 지점에서 복원 된 디스크의 하위 집합을 사용할 수 있습니다. 이는 스냅숏과 자격 증명 모음 둘 다의 복원에 적용 됩니다.
 >
->**미리 보기에 등록하려면AskAzureBackupTeam@microsoft.com**
+>**미리 보기에 등록 하려면 다음에 작성 합니다.AskAzureBackupTeam@microsoft.com**
 
 ## <a name="next-steps"></a>다음 단계
 

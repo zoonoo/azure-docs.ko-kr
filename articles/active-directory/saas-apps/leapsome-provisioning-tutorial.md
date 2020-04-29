@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Active Directory를 사용 하 여 자동 사용자 프로비저닝에 대 한 도약 구성 | 마이크로 소프트 문서'
-description: Leapsome에 사용자 계정을 자동으로 프로비전 및 프로비저닝 해제하도록 Azure Active Directory를 구성하는 방법에 대해 알아봅니다.
+title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 Leapsome 구성 | Microsoft Docs'
+description: 사용자 계정을 Leapsome로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 06/28/2019
 ms.author: jeedes
 ms.openlocfilehash: e5837887325c06f9140a3f40eb183139782e2a50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77057467"
 ---
-# <a name="tutorial-configure-leapsome-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Leapsome 구성
+# <a name="tutorial-configure-leapsome-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Leapsome 구성
 
-이 자습서의 목적은 Leapsome 및 Azure Active Directory(Azure AD)에서 수행할 단계를 보여 주어 사용자 및/또는 그룹을 Leapsome에 자동으로 프로비전 및 프로비저닝 해제하도록 Azure AD를 구성하는 것입니다.
+이 자습서에서는 사용자 및/또는 그룹을 Leapsome로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure AD를 구성 하기 위해 Leapsome and Azure Active Directory (Azure AD)에서 수행 하는 단계를 보여 줍니다.
 
 > [!NOTE]
 >  이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
@@ -36,70 +36,70 @@ ms.locfileid: "77057467"
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
 * Azure AD 테넌트.
-* [도약하는](https://www.Leapsome.com/en/pricing) 테넌트입니다.
-* 관리자 권한이 있는 Leapsome의 사용자 계정입니다.
+* [Leapsome](https://www.Leapsome.com/en/pricing) 테 넌 트입니다.
+* 관리자 권한이 있는 Leapsome의 사용자 계정
 
-## <a name="assigning-users-to-leapsome"></a>사용자를 Leapsome에 할당
+## <a name="assigning-users-to-leapsome"></a>Leapsome에 사용자 할당
 
-Azure Active Directory는 *할당이라는* 개념을 사용하여 선택한 앱에 대한 액세스 권한을 받아야 하는 사용자를 결정합니다. 자동 사용자 프로비저닝의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당된 사용자 및/또는 그룹만 동기화됩니다.
+Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 앱에 대 한 액세스 권한을 받아야 하는 사용자를 결정 합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
 
-자동 사용자 프로비저닝을 구성하고 활성화하기 전에 Azure AD의 사용자 및/또는 그룹이 Leapsome에 액세스해야 하는지 결정해야 합니다. 일단 결정, 여기 지침에 따라 Leapsome에 이러한 사용자 및/또는 그룹을 할당할 수 있습니다.
+자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Leapsome에 액세스 해야 하는 Azure AD의 사용자 및/또는 그룹을 결정 해야 합니다. 일단 결정 되 면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 Leapsome에 할당할 수 있습니다.
 * [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
 
 
-## <a name="important-tips-for-assigning-users-to-leapsome"></a>Leapsome에 사용자를 할당하기 위한 중요한 팁
+## <a name="important-tips-for-assigning-users-to-leapsome"></a>Leapsome에 사용자를 할당 하기 위한 주요 팁
 
-* 단일 Azure AD 사용자가 Leapsome에 할당되어 자동 사용자 프로비저닝 구성을 테스트하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
+* 자동 사용자 프로 비전 구성을 테스트 하기 위해 단일 Azure AD 사용자를 Leapsome에 할당 하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 
-* Leapsome에 사용자를 할당할 때 할당 대화 상자에서 유효한 응용 프로그램 별 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비저닝에서 제외됩니다.
+* 사용자를 Leapsome에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할 (사용 가능한 경우)을 선택 해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로 비전에서 제외 됩니다.
 
 
-## <a name="setup-leapsome-for-provisioning"></a>프로비저닝을 위한 도약 설정
+## <a name="setup-leapsome-for-provisioning"></a>프로 비전을 위한 Leapsome 설정
 
-1. 도약 관리 [콘솔에](https://www.Leapsome.com/app/#/login)로그인합니다. 관리자 **설정 >** 로 이동합니다.
+1. [Leapsome 관리 콘솔](https://www.Leapsome.com/app/#/login)에 로그인 합니다. **설정 > 관리자 설정**으로 이동 합니다.
 
-    ![도약관리 콘솔](media/Leapsome-provisioning-tutorial/leapsome-admin-console.png)
+    ![Leapsome 관리 콘솔](media/Leapsome-provisioning-tutorial/leapsome-admin-console.png)
 
-2.  **SCIM 사용자 프로비저닝을 > 통합으로**이동합니다.
+2.  **통합 > SCIM 사용자 프로 비전**으로 이동 합니다.
 
-    ![Leapsome 추가 SCIM](media/Leapsome-provisioning-tutorial/leapsome-add-scim.png)
+    ![Leapsome SCIM 추가](media/Leapsome-provisioning-tutorial/leapsome-add-scim.png)
 
-3.  SCIM 인증 토큰 을 **복사합니다.** 이 값은 Azure 포털에서 Leapsome 응용 프로그램의 프로비저닝 탭의 비밀 토큰 필드에 입력됩니다.
+3.  **Scim 인증 토큰**을 복사 합니다. 이 값은 Azure Portal Leapsome 응용 프로그램의 프로 비전 탭에 있는 비밀 토큰 필드에 입력 됩니다.
 
-    ![도약토큰 만들기](media/Leapsome-provisioning-tutorial/leapsome-create-token.png)
+    ![Leapsome 토큰 만들기](media/Leapsome-provisioning-tutorial/leapsome-create-token.png)
 
-## <a name="add-leapsome-from-the-gallery"></a>갤러리에서 도약 추가
+## <a name="add-leapsome-from-the-gallery"></a>갤러리에서 Leapsome 추가
 
-Azure AD를 사용하여 자동 사용자 프로비전을 위해 Leapsome을 구성하기 전에 Azure AD 응용 프로그램 갤러리에서 Leapsome을 관리되는 SaaS 응용 프로그램 목록에 추가해야 합니다.
+Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 Leapsome를 구성 하기 전에 Azure AD 응용 프로그램 갤러리의 Leapsome를 관리 되는 SaaS 응용 프로그램 목록에 추가 해야 합니다.
 
-**Azure AD 응용 프로그램 갤러리에서 Leapsome을 추가하려면 다음 단계를 수행합니다.**
+**Azure AD 응용 프로그램 갤러리에서 Leapsome를 추가 하려면 다음 단계를 수행 합니다.**
 
-1. Azure **[포털에서](https://portal.azure.com)** 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택합니다.
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택 합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동한 다음 **모든 응용 프로그램**을 선택 합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-3. 새 응용 프로그램을 추가하려면 창 상단의 **새 응용 프로그램** 단추를 선택합니다.
+3. 새 응용 프로그램을 추가 하려면 창의 위쪽에 있는 **새 응용 프로그램** 단추를 선택 합니다.
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에서 **Leapsome을**입력하고 결과 패널에서 **Leapsome을** 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **Leapsome**를 입력 하 고, 결과 패널에서 **Leapsome** 를 선택한 다음, **추가** 단추를 클릭 하 여 응용 프로그램을 추가 합니다.
 
     ![결과 목록의 Leapsome](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-leapsome"></a>Leapsome에 자동 사용자 프로비전 구성 
+## <a name="configuring-automatic-user-provisioning-to-leapsome"></a>Leapsome에 자동 사용자 프로 비전 구성 
 
-이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당을 기반으로 Leapsome에서 사용자 및/또는 그룹을 생성, 업데이트 및 비활성화하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
+이 섹션에서는 azure ad의 사용자 및/또는 그룹 할당에 따라 Leapsome에서 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 사용 해제 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
 
 > [!TIP]
-> Leapsome에 대해 SAML 기반 단일 사인온을 사용하도록 선택할 수도 [있습니다.](Leapsome-tutorial.md) 단일 사인온은 자동 사용자 프로비저닝과 독립적으로 구성할 수 있지만 이 두 기능은 서로 보완합니다.
+> [Leapsome single sign-on 자습서](Leapsome-tutorial.md)에 제공 된 지침에 따라 Leapsome에 대해 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성 될 수 있지만,이 두 가지 기능은 서로 보완 됩니다.
 
-### <a name="to-configure-automatic-user-provisioning-for-leapsome-in-azure-ad"></a>Azure AD에서 Leapsome에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
+### <a name="to-configure-automatic-user-provisioning-for-leapsome-in-azure-ad"></a>Azure AD에서 Leapsome에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. **엔터프라이즈 응용 프로그램을**선택한 다음 모든 응용 프로그램을 **선택합니다.**
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -107,15 +107,15 @@ Azure AD를 사용하여 자동 사용자 프로비전을 위해 Leapsome을 구
 
     ![애플리케이션 목록의 Leapsome 링크](common/all-applications.png)
 
-3. **프로비저닝** 탭을 선택합니다.
+3. **프로 비전** 탭을 선택 합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 탭](common/provisioning.png)
 
-4. **프로비저닝 모드를** **자동으로**설정합니다.
+4. **프로 비전 모드** 를 **자동**으로 설정 합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![프로 비전 탭](common/provisioning-automatic.png)
 
-5. 관리자 **자격 증명** 섹션에서 `https://www.leapsome.com/api/scim` **테넌트 URL에**입력합니다. **비밀** **토큰의** 앞에서 검색한 SCIM 인증 토큰 값을 입력합니다. Azure AD가 Leapsome에 연결할 수 있는지 확인하려면 **테스트 연결을** 클릭합니다. 연결이 실패하면 Leapsome 계정에 관리자 권한이 있는지 확인하고 다시 시도하십시오.
+5. **관리자 자격 증명** 섹션 아래에 있는 `https://www.leapsome.com/api/scim` **테 넌 트 URL**에 입력 합니다. 이전에 **비밀 토큰**에서 검색 된 **Scim 인증 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Leapsome에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Leapsome 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
     ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -125,29 +125,29 @@ Azure AD를 사용하여 자동 사용자 프로비전을 위해 Leapsome을 구
 
 7. **저장**을 클릭합니다.
 
-8. **매핑** 섹션에서 **Azure Active Directory 사용자 동기화를 Leapsome 로**선택합니다.
+8. **매핑** 섹션 아래에서 **Leapsome에 사용자 Azure Active Directory 동기화를**선택 합니다.
 
-    ![도약사용자 매핑](media/Leapsome-provisioning-tutorial/Leapsome-user-mappings.png)
+    ![Leapsome 사용자 매핑](media/Leapsome-provisioning-tutorial/Leapsome-user-mappings.png)
 
-9. **속성 매핑** 섹션에서 Azure AD에서 Leapsome으로 동기화된 사용자 특성을 검토합니다. **일치** 속성으로 선택된 특성은 업데이트 작업에 Leapsome의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+9. **특성 매핑** 섹션에서 Azure AD에서 Leapsome로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Leapsome의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![도약사용자 속성](media/Leapsome-provisioning-tutorial/Leapsome-user-attributes.png)
+    ![Leapsome 사용자 특성](media/Leapsome-provisioning-tutorial/Leapsome-user-attributes.png)
 
-10. **매핑** 섹션에서 **Azure Active Directory 그룹 동기화를 Leapsome로**선택합니다.
+10. **매핑** 섹션 아래에서 **Leapsome에 Azure Active Directory 그룹 동기화를**선택 합니다.
 
-    ![도약 그룹 매핑](media/Leapsome-provisioning-tutorial/Leapsome-group-mappings.png)
+    ![Leapsome 그룹 매핑](media/Leapsome-provisioning-tutorial/Leapsome-group-mappings.png)
 
-11. **특성 매핑** 섹션에서 Azure AD에서 Leapsome으로 동기화된 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업에 Leapsome의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+11. **특성 매핑** 섹션에서 Azure AD에서 Leapsome로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Leapsome의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![도약 그룹 속성](media/Leapsome-provisioning-tutorial/Leapsome-group-attributes.png)
+    ![Leapsome Group 특성](media/Leapsome-provisioning-tutorial/Leapsome-group-attributes.png)
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
-13. Leapsome에 대한 Azure AD 프로비저닝 서비스를 사용하려면 **설정** 섹션에서 **프로비저닝 상태를** **켜기로** 변경합니다.
+13. Leapsome에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-14. **설정** 섹션의 **Scope에서** 원하는 값을 선택하여 Leapsome에 프로비전할 사용자 및/또는 그룹을 정의합니다.
+14. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 Leapsome에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
 
     ![프로비전 범위](common/provisioning-scope.png)
 
@@ -155,19 +155,19 @@ Azure AD를 사용하여 자동 사용자 프로비전을 위해 Leapsome을 구
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. 동기화 세부 **정보** 섹션을 사용하여 진행 상황을 모니터링하고 Leapsome의 Azure AD 프로비저닝 서비스에서 수행하는 모든 작업을 설명하는 프로비저닝 활동 보고서에 대한 링크를 따를 수 있습니다.
+이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 Leapsome의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="connector-limitations"></a>커넥터 제한 사항
 
-* Leapsome에는 **사용자 이름이** 고유해야 합니다.
-* Leapsome은 직장 이메일 주소만 저장할 수 있습니다.
+* Leapsome **사용자 이름은** 고유 해야 합니다.
+* Leapsome는 회사 메일 주소만 저장할 수 있습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱용 사용자 계정 프로비저닝 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
+* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 

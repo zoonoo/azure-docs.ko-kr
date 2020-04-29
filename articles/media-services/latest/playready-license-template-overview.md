@@ -1,5 +1,5 @@
 ---
-title: 마이크로소프트 플레이 레디 라이센스 템플릿을 가진 Azure 미디어 서비스 v3
+title: Microsoft PlayReady 라이선스 템플릿을 사용 하 여 v3 Azure Media Services
 description: 이 항목에서는 PlayReady 라이선스를 구성하는 데 사용되는 PlayReady 라이선스 템플릿에 대해 간략히 설명합니다.
 author: juliako
 manager: femila
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
 ms.openlocfilehash: 6b12dcee2303632c4ec2ccc3602348a4e17fcd05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76705890"
 ---
-# <a name="media-services-v3-with-playready-license-template"></a>PlayReady 라이센스 템플릿이 있는 미디어 서비스 v3 
+# <a name="media-services-v3-with-playready-license-template"></a>PlayReady 라이선스 템플릿을 사용 하 여 v3 Media Services 
 
 Azure Media Services를 사용하면 **Microsoft PlayReady**를 사용하여 콘텐츠를 암호화할 수 있습니다. Media Services는 PlayReady 라이선스를 배달하는 서비스도 제공합니다. Media Services API를 사용하여 PlayReady 라이선스를 구성할 수 있습니다. 플레이어가 PlayReady로 보호된 콘텐츠를 재생하려고 하면 라이선스 배달 서비스로 요청이 전송되어 라이선스를 얻습니다. 라이선스 서비스에서 요청을 승인하면 클라이언트로 전송하여 지정된 콘텐츠의 암호를 해독하고 재생하는 데 사용되는 라이선스가 발급됩니다.
 
@@ -31,7 +31,7 @@ PlayReady 라이선스에는 사용자가 보호된 콘텐츠를 재생하려고
 * 클라이언트의 영구 스토리지에 라이선스를 저장할지 여부. 일반적으로 영구 라이선스는 콘텐츠의 오프라인 재생을 허용하는 데 사용됩니다.
 * 플레이어에서 콘텐츠를 재생해야 하는 최소 보안 수준. 
 * 오디오/비디오 콘텐츠에 대한 출력 컨트롤의 출력 보호 수준. 
-* 자세한 내용은 [PlayReady 규정 준수 규칙](https://www.microsoft.com/playready/licensing/compliance/) 문서의 "출력 제어" 섹션(3.5)을 참조하십시오.
+* 자세한 내용은 [PlayReady 준수 규칙](https://www.microsoft.com/playready/licensing/compliance/) 문서에서 "출력 컨트롤" 섹션 (3.5)을 참조 하세요.
 
 > [!NOTE]
 > 현재 PlayReady 라이선스의 PlayRight만 구성할 수 있습니다. 이 권한은 필수입니다. PlayRight는 콘텐츠를 재생할 능력을 클라이언트에 제공합니다. PlayRight를 사용하여 재생과 관련된 제한 사항을 구성할 수도 있습니다. 

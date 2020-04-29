@@ -4,13 +4,13 @@ description: Docker 성능 카운터, 이벤트 및 예외는 컨테이너식 �
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 5ff3d6a2b31425a3fb6857c8c6aed45f7ef18d64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669610"
 ---
-# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>응용 프로그램 인사이트(더 이상 사용되지 않는)에서 Docker 응용 프로그램 모니터링
+# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Application Insights에서 Docker 응용 프로그램 모니터링 (사용 되지 않음)
 
 > [!NOTE]
 > 이 솔루션은 더 이상 사용되지 않습니다. 컨테이너 모니터링의 현재 투자에 대한 자세한 내용을 보려면 [컨테이너용 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)를 확인해보세요.
@@ -81,7 +81,7 @@ Docker 타일을 클릭합니다.
 ### <a name="docker-context-added-to-app-telemetry"></a>앱 원격 분석에 추가되는 Docker 컨텍스트
 AI SDK를 사용하여 계측되는 애플리케이션에서 보내는 요청 원격 분석은 Docker 컨텍스트 정보를 사용하여 보강됩니다.
 
-## <a name="q--a"></a>질문과 대답
+## <a name="q--a"></a>Q & A
 *Docker에서 얻을 수 없는 어떤 기능을 Application Insights가 제공하나요?*
 
 * 컨테이너 및 이미지별로 성능 카운터의 자세한 분석 결과를 제공합니다.

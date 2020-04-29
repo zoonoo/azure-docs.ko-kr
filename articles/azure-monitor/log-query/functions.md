@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
 ms.openlocfilehash: 7d94e53abbe8f4d2953729aa2363c3906ce94f74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670222"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 함수 사용
@@ -19,14 +19,14 @@ ms.locfileid: "77670222"
 
 ## <a name="create-a-function"></a>함수 만들기
 
-Azure 포털에서 로그 분석을 사용하여 **저장을** 클릭한 다음 다음 표의 정보를 제공하여 함수를 만듭니다.
+**저장** 을 클릭 하 고 다음 표의 정보를 제공 하 여 Azure Portal에서 Log Analytics를 사용 하 여 함수를 만듭니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |:---|:---|
-| 이름           | **쿼리 탐색기**에 나타나는 쿼리의 표시 이름입니다. |
+| 속성           | **쿼리 탐색기**에 나타나는 쿼리의 표시 이름입니다. |
 | 다른 이름으로 저장        | 함수 |
 | 함수 별칭 | 다른 쿼리에서 함수를 사용하기 위한 약식 이름입니다. 공백을 포함할 수 없으며 고유해야 합니다. |
-| Category       | **쿼리 탐색기**에서 저장된 쿼리 및 함수를 구성하는 범주입니다. |
+| 범주       | **쿼리 탐색기**에서 저장된 쿼리 및 함수를 구성하는 범주입니다. |
 
 > [!NOTE]
 > Azure Monitor의 함수는 다른 함수를 포함할 수 없습니다.

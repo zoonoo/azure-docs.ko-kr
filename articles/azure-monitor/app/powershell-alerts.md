@@ -4,10 +4,10 @@ description: Application Insights의 구성을 자동화하여 메트릭 변경 
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.openlocfilehash: c19cb43d08b44b55c786e750e64a83e6f0c67381
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669848"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>PowerShell을 사용하여 Application Insights에서 경고 설정
@@ -29,7 +29,7 @@ ms.locfileid: "77669848"
 * [Microsoft 웹 플랫폼 설치 관리자(v5 이상)](https://www.microsoft.com/web/downloads/platform.aspx)를 설치합니다.
 * 이를 사용하여 Microsoft Azure Powershell을 설치합니다.
 
-## <a name="connect-to-azure"></a>Azure에 연결
+## <a name="connect-to-azure"></a>Azure 연결
 Azure PowerShell을 시작하고 [구독에 연결](/powershell/azure/overview)합니다.
 
 ```powershell
@@ -89,7 +89,7 @@ GUID는 구독 ID입니다(애플리케이션의 계측 키 아님).
 TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개 변수](../../azure-monitor/app/api-custom-events-metrics.md#properties) 를 사용하여 보고된 메트릭에도 동일한 규칙을 사용할 수 있습니다.
 
 ## <a name="metric-names"></a>메트릭 이름
-| 메트릭 이름 | 화면 이름 | 설명 |
+| 메트릭 이름 | 화면 이름 | Description |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |브라우저 예외 |브라우저에서 발생한 확인할 수 없는 예외의 개수입니다. |
 | `basicExceptionServer.count` |서버 예외 |앱에서 발생한 처리되지 않은 예외의 개수입니다. |
@@ -126,7 +126,7 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 ## <a name="webhooks"></a>Webhook
 [경고에 대한 응답을 자동화](../../azure-monitor/platform/alerts-webhooks.md)할 수 있습니다. 경고가 발생한 경우 Azure에서 사용자가 선택한 웹 주소를 호출합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Application Insights를 구성하는 스크립트](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [서식 파일에서 Application Insights 및 웹 테스트 리소스 만들기](powershell.md)
 * [Application Insights에 Microsoft Azure Diagnostics 결합 자동화](powershell-azure-diagnostics.md)

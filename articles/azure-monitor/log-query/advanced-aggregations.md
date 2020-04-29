@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: e5dc290a40342e0797001dde6cab90e12dd5cf39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77662181"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 고급 집계
@@ -113,7 +113,7 @@ Heartbeat
 | ... | ... |
 
 ## <a name="handling-missing-bins"></a>누락된 bin 처리
-유용한 응용 `mvexpand` 프로그램은 누락된 저장소에 대한 기본값을 입력해야 하는 것입니다. 예를 들어 하트비트를 탐색하여 특정 컴퓨터의 가동 시간을 찾고 있다고 가정합니다. _범주_ 열에 있는 하드비트의 원본을 볼 수도 있습니다. 일반적으로 간단한 summerize 문을 다음과 같이 사용할 수 있습니다.
+의 `mvexpand` 유용한 응용 프로그램은 누락 된 bin에 대 한의 기본값을 채워야 한다는 것입니다. 예를 들어 하트 비트를 탐색 하 여 특정 컴퓨터의 작동 시간을 찾고 있다고 가정 합니다. _범주_ 열에 있는 하드비트의 원본을 볼 수도 있습니다. 일반적으로 간단한 summerize 문을 다음과 같이 사용할 수 있습니다.
 
 ```Kusto
 Heartbeat
@@ -121,7 +121,7 @@ Heartbeat
 | summarize count() by Category, bin(TimeGenerated, 1h)
 ```
 
-| Category | TimeGenerated | count_ |
+| 범주 | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | 직접 에이전트 | 2017-06-06T17:00:00Z | 15 |
 | 직접 에이전트 | 2017-06-06T18:00:00Z | 60 |
@@ -137,7 +137,7 @@ Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
 
-| Category | count_ | TimeGenerated |
+| 범주 | count_ | TimeGenerated |
 |---|---|---|
 | 직접 에이전트 | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
 | ... | ... | ... |
@@ -151,7 +151,7 @@ Heartbeat
 | project Category, TimeGenerated, count_
 ```
 
-| Category | TimeGenerated | count_ |
+| 범주 | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | 직접 에이전트 | 2017-06-06T17:00:00Z | 15 |
 | 직접 에이전트 | 2017-06-06T18:00:00Z | 60 |

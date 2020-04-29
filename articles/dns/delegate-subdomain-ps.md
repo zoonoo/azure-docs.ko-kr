@@ -1,6 +1,6 @@
 ---
-title: 하위 도메인 위임 - Azure PowerShell - Azure DNS
-description: 이 학습 경로를 사용하여 Azure PowerShell을 사용하여 Azure DNS 하위 도메인의 위임을 시작하십시오.
+title: 하위 도메인 위임-Azure PowerShell-Azure DNS
+description: 이 학습 경로를 사용 하 여 Azure PowerShell를 사용 하 여 Azure DNS 하위 도메인을 위임 하기 시작 합니다.
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rohink
 ms.openlocfilehash: 7e019afaae98422b8d5a3c8fa7a5f79e26c6a149
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76937701"
 ---
 # <a name="delegate-an-azure-dns-subdomain-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DNS 하위 도메인 위임
@@ -23,7 +23,7 @@ Azure PowerShell을 사용하여 DNS 하위 도메인을 위임할 수 있습니
 > [!NOTE]
 > Contoso.com은 이 문서 전체에서 예로 사용됩니다. Contoso.com을 고유한 도메인 이름으로 바꾸세요.
 
-Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 만드세요.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

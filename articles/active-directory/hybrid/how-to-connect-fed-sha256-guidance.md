@@ -1,5 +1,5 @@
 ---
-title: Office 365 신뢰 파티 신뢰에 대 한 서명 해시 알고리즘 변경 - Azure
+title: Office 365 신뢰 당사자 트러스트에 대 한 서명 해시 알고리즘 변경-Azure
 description: 이 페이지에서는 Office 365와의 페더레이션 트러스트에 대한 SHA 알고리즘을 변경하는 방법에 대한 지침을 제공합니다.
 keywords: SHA1,SHA256,O365,페더레이션,aadconnect,adfs,ad fs,sha 변경,페더레이션 트러스트,신뢰 당사자 트러스트
 services: active-directory
@@ -18,10 +18,10 @@ ms.date: 10/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2233b434fda628dcf812a62f06541fc4b0296aba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897343"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Office 365 신뢰 당사자 트러스트에 대한 서명 해시 알고리즘 변경

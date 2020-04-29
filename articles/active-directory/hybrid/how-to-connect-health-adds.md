@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e27287a414a2a4edef3e9090b7d91beb1c70f554
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897326"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>AD DS와 함께 Azure AD Connect Health 사용
@@ -40,7 +40,7 @@ AD DS용 Azure AD Connect Health 내의 경고 섹션은 도메인 컨트롤러�
 ## <a name="domain-controllers-dashboard"></a>도메인 컨트롤러 대시보드
 이 대시보드에서는 모니터링 도메인 컨트롤러 각각의 주요 작업 메트릭 및 상태와 함께 사용자 환경의 토폴로지 보기를 제공합니다. 표시된 메트릭은 추가 조사가 필요할 수 있는 모든 도메인 컨트롤러를 신속하게 식별하는 데 도움이 됩니다. 기본적으로 열의 하위 집합만 표시됩니다. 하지만, 열 명령을 두 번 클릭하면 사용 가능한 열 집합 전체를 찾을 수 있습니다. 가장 원하는 열을 선택하면 이 대시보드가 AD DS 환경의 상태를 한 곳에서 쉽게 볼 수 있는 곳으로 변환됩니다.
 
-![도메인 컨트롤러](./media/how-to-connect-health-adds/aadconnect-health-adds-domainsandsites-dashboard.png)
+![도메인 컨트롤러 하나 이상](./media/how-to-connect-health-adds/aadconnect-health-adds-domainsandsites-dashboard.png)
 
 해당하는 도메인 또는 사이트에서 도메인 컨트롤러를 그룹화할 수 있으며 환경 토폴로지를 이해하는 데 도움이 됩니다. 마지막으로 블레이드 헤더를 두 번 클릭하면 사용 가능한 화면을 활용하도록 대시보드가 최대화됩니다. 여러 열을 표시하는 경우 크게 볼수록 도움이 됩니다.
 
@@ -59,9 +59,9 @@ AD DS용 Azure AD Connect Health 내의 경고 섹션은 도메인 컨트롤러�
 ## <a name="related-links"></a>관련 링크
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Azure AD Connect Health Agent 설치](how-to-connect-health-agent-install.md)
-* [Azure AD 연결 상태 작업](how-to-connect-health-operations.md)
+* [Azure AD Connect Health 작업](how-to-connect-health-operations.md)
 * [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)
-* [동기화를 위해 Azure AD 연결 상태 사용](how-to-connect-health-sync.md)
+* [동기화에 Azure AD Connect Health 사용](how-to-connect-health-sync.md)
 * [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
-* [Azure AD 연결 상태 버전 기록](reference-connect-health-version-history.md)
+* [Azure AD Connect Health 버전 기록](reference-connect-health-version-history.md)
 

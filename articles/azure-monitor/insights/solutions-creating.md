@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f1605597c7716ba6a896c7ecdae968f07d66027b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77663218"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Azure에서 관리 솔루션 디자인 및 빌드(Preview)
@@ -52,7 +52,7 @@ ms.locfileid: "77663218"
 
 경고에 대한 응답으로 외부 기능이 솔루션에 필요한 경우 [웹후크 응답](../../azure-monitor/platform/alerts-metric.md)을 사용할 수 있습니다.  이렇게 하면 경고에서 정보를 보내는 외부 웹 서비스를 호출할 수 있습니다.
 
-### <a name="views"></a>뷰
+### <a name="views"></a>보기
 Log Analytics의 보기는 Log Analytics 리포지토리의 데이터를 시각화하는 데 사용됩니다.  각 솔루션에는 일반적으로 사용자의 주 대시보드에 표시되는 [타일](../../azure-monitor/platform/view-designer-tiles.md)이 있는 단일 보기가 포함됩니다.  보기에는 사용자에게 수집된 데이터의 다양한 시각화를 제공하기 위해 많은 [시각화 요소](../../azure-monitor/platform/view-designer-parts.md)가 포함될 수 있습니다.
 
 [뷰 디자이너를 사용하여 사용자 지정 보기를 만들면](../../azure-monitor/platform/view-designer.md) 나중에 솔루션 파일에 포함하여 내보낼 수 있습니다.  
@@ -68,8 +68,8 @@ Log Analytics의 보기는 Log Analytics 리포지토리의 데이터를 시각�
 ## <a name="publish-your-solution"></a>솔루션 게시
 솔루션을 완료하고 테스트한 후에는 다음 원본을 통해 고객이 솔루션을 사용할 수 있도록 할 수 있습니다.
 
-- **Azure 빠른 시작 템플릿 .**  [Azure 퀵 스타트 템플릿](https://azure.microsoft.com/resources/templates/)은 GitHub를 통해 커뮤니티에서 제공한 Resource Manager 템플릿 집합입니다.  [참여 가이드](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE)(영문)의 정보에 따라 솔루션을 사용할 수 있게 만들 수 있습니다.
-- **Azure 마켓플레이스**.  [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)를 사용하면 다른 개발자, ISV 및 IT 전문가에게 솔루션을 배포하고 판매할 수 있습니다.  [Azure Marketplace에 제품을 게시하고 관리하는 방법](../../marketplace/marketplace-publishers-guide.md)에서 솔루션을 Azure Marketplace에 게시하는 방법에 대해 자세히 알아볼 수 있습니다.
+- **Azure 빠른 시작 템플릿**.  [Azure 퀵 스타트 템플릿](https://azure.microsoft.com/resources/templates/)은 GitHub를 통해 커뮤니티에서 제공한 Resource Manager 템플릿 집합입니다.  [참여 가이드](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE)(영문)의 정보에 따라 솔루션을 사용할 수 있게 만들 수 있습니다.
+- **Azure Marketplace**.  [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)를 사용하면 다른 개발자, ISV 및 IT 전문가에게 솔루션을 배포하고 판매할 수 있습니다.  [Azure Marketplace에 제품을 게시하고 관리하는 방법](../../marketplace/marketplace-publishers-guide.md)에서 솔루션을 Azure Marketplace에 게시하는 방법에 대해 자세히 알아볼 수 있습니다.
 
 
 

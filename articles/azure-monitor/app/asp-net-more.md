@@ -4,16 +4,16 @@ description: Application Insights를 시작한 경우 다음 기능을 사용할
 ms.topic: conceptual
 ms.date: 02/03/2017
 ms.openlocfilehash: 3c4a9a736f34d4f7dbfeb004d0837f1f2efa55dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77666027"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Application Insights의 추가 원격 분석
 [ASP.NET 코드에 Application Insights를 추가](../../azure-monitor/app/asp-net.md)한 후 추가 원격 분석을 위해 수행할 수 있는 몇 가지 작업이 있습니다. 
 
-| 작업 | 결과|
+| 작업 | 수신 항목|
 |---|---|
 |(IIS 서버) 각 서버 컴퓨터에 [상태 모니터를 설치](https://go.microsoft.com/fwlink/?LinkId=506648)합니다.<br/>(Azure 웹앱) 웹앱의 Azure 제어판에서 Application Insights 블레이드를 엽니다.| [**성능 카운터**](../../azure-monitor/app/performance-counters.md)<br/>[**예외**](asp-net-exceptions.md) - 자세한 스택 추적<br/>[**종속성**](../../azure-monitor/app/asp-net-dependencies.md)|
 |[웹 페이지에 JavaScript 코드 조각 추가](../../azure-monitor/app/javascript.md)|[성능 페이지](../../azure-monitor/app/usage-overview.md), 브라우저 예외, AJAX 성능. 클라이언트쪽 사용자 지정 원격 분석.|

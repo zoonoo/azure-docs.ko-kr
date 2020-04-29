@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/6/2018
 ms.author: rohink
 ms.openlocfilehash: 4012b32eb2684126b8dc64b9e86bf35a016e9fba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76936835"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Azure 포털을 사용하여 DNS 레코드 및 레코드 집합 관리
@@ -70,7 +70,7 @@ Azure 포털에서 레코드 집합을 만들려면 [Azure 포털을 사용하�
 Azure 포털을 사용하여 레코드 집합에서 레코드를 제거할 수 있습니다. 레코드 집합에서 마지막 레코드를 제거해도 레코드 집합은 삭제되지 않습니다.
 
 1. 레코드 집합에 대한 **레코드 설정 속성** 블레이드에서 레코드를 검색합니다.
-2. 제거하려는 레코드를 클릭합니다. 그런 다음 **을 선택합니다.**
+2. 제거하려는 레코드를 클릭합니다. 그런 다음 **제거**를 선택 합니다.
 
     ![레코드 제거](./media/dns-operations-recordsets-portal/removerecord500.png)
 

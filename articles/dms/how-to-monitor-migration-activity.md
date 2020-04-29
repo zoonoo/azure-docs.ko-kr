@@ -1,5 +1,5 @@
 ---
-title: 마이그레이션 활동 모니터링 - Azure 데이터베이스 마이그레이션 서비스
+title: 마이그레이션 작업 모니터링-Azure Database Migration Service
 description: Azure Database Migration Service를 사용하여 마이그레이션 작업을 모니터링하는 방법을 알아봅니다.
 services: database-migration
 author: pochiraju
@@ -12,13 +12,13 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77648515"
 ---
-# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Azure 데이터베이스 마이그레이션 서비스를 사용하여 마이그레이션 활동 모니터링
+# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 마이그레이션 작업 모니터링
 이 문서에서는 데이터베이스 수준 및 테이블 수준 모두에서 마이그레이션의 진행률을 모니터링하는 방법을 알아봅니다.
 
 ## <a name="monitor-at-the-database-level"></a>데이터베이스 수준에서 모니터링
@@ -67,7 +67,7 @@ ms.locfileid: "77648515"
       <td>마이그레이션이 완료되었습니다.</td>
     </tr>
     <tr>
-      <td>실패</td>
+      <td>Failed</td>
       <td>마이그레이션이 실패했습니다. 마이그레이션 오류를 확인하려면 마이그레이션 세부 정보를 클릭합니다.</td>
     </tr>
     <tr>
@@ -92,7 +92,7 @@ ms.locfileid: "77648515"
       <td>오류 세부 정보를 표시하려면 링크를 클릭합니다.</td>
     </tr>
     <tr>
-      <td rowspan="1" class="duration"><strong>기간</strong></td>
+      <td rowspan="1" class="duration"><strong>Duration</strong></td>
       <td>해당 없음</td>
       <td>초기화 중인 마이그레이션 작업부터 완료된 마이그레이션 또는 오류가 발생한 마이그레이션까지의 총 시간입니다.</td>
     </tr>
@@ -108,7 +108,7 @@ ms.locfileid: "77648515"
 
 다음 테이블에서는 테이블 수준 세부 사항에 표시된 필드를 설명합니다.
 
-| 필드 이름        | 설명       |
+| 필드 이름        | Description       |
 | ------------- | ------------- |
 | **완료된 전체 부하**      | 전체 데이터 로드를 완료한 테이블의 수입니다. |
 | **전체 부하 큐 대기**      | 전체 부하에 대한 큐에 대기 중인 테이블 수입니다.      |
@@ -129,12 +129,12 @@ ms.locfileid: "77648515"
 
 다음 테이블은 테이블 수준 마이그레이션 진행률에 표시된 필드를 설명합니다.
 
-| 필드 이름        | 설명       |
+| 필드 이름        | Description       |
 | ------------- | ------------- |
 | **상태 - 동기화 중**      | 지속적인 동기화가 실행 중입니다. |
 | **삽입**      | 대상에 적용된 행의 CDC 삽입 수입니다.      |
 | **업데이트** | 대상에 적용된 행의 CDC 업데이트 수입니다.      |
-| **삭제**      | 대상에 적용된 행의 CDC 삭제 수입니다. |
+| **Delete**      | 대상에 적용된 행의 CDC 삭제 수입니다. |
 | **적용된 합계**      | 대상에 적용된 행의 전체 CDC 업데이트, 삽입 및 삭제 수입니다. |
 | **데이터 오류** | 이 테이블에서 발생한 데이터 오류의 수입니다. 오류의 예에는 *511: 최대 허용 행 크기 %d보다 큰 %d 크기의 행을 만들 수 없음, 8114: %ls에서 %ls로의 데이터 형식 변환 오류*가 있습니다.  고객은 오류 세부 정보를 보려면 Azure 대상의 dms_apply_exceptions 테이블에서 쿼리해야 합니다.    |
 

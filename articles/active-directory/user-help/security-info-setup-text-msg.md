@@ -1,6 +1,6 @@
 ---
-title: 문자 메시지를 확인 방법으로 설정 - Azure AD
-description: 확인 방법으로 문자 메시지를 사용하여 신원을 확인하기 위해 보안 정보(미리 보기) 페이지를 설정하는 방법.
+title: 확인 방법으로 문자 메시지 설정-Azure AD
+description: 확인 방법으로 문자 메시지를 사용 하 여 id를 확인 하는 보안 정보 (미리 보기) 페이지를 설정 하는 방법입니다.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 0525ee6d0ac5df61113e5a97c9812394323ffb3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77062356"
 ---
-# <a name="set-up-text-messaging-as-your-verification-method"></a>문자 메시지를 인증 방법으로 설정
+# <a name="set-up-text-messaging-as-your-verification-method"></a>확인 방법으로 문자 메시지를 설정 합니다.
 
 이 단계를 수행하여 2단계 확인 및 암호 재설정 방법을 추가할 수 있습니다. 이 정보를 처음 설정한 후 **보안 정보** 페이지로 돌아가서 보안 정보를 추가, 업데이트 또는 삭제할 수 있습니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "77062356"
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->전화 옵션이 표시되지 않으면 조직에서 확인에 이 옵션을 사용하도록 허용하지 않을 수 있습니다. 이 경우 다른 방법을 선택하거나 조직의 헬프 데스크에 문의하여 추가 지원을 받아야 합니다.
+>전화 옵션이 표시 되지 않으면 조직에서이 옵션을 사용 하 여 확인 하는 것을 허용 하지 않을 수 있습니다. 이 경우 다른 방법을 선택 하거나 조직의 지원 센터에 문의 하 여 추가 지원을 요청 해야 합니다.
 
 ## <a name="set-up-text-messages-from-the-security-info-page"></a>보안 정보 페이지에서 문자 메시지 설정
 
@@ -81,7 +81,7 @@ ms.locfileid: "77062356"
 
 ## <a name="change-your-default-security-info-method"></a>기본 보안 인증 방식 변경
 
-2단계 인증을 사용하거나 암호 재설정 요청을 사용하여 직장 또는 학교 계정에 로그인할 때 문자 메시지를 기본 방법으로 사용하려면 **보안 정보** 페이지에서 텍스트 메시지를 설정할 수 있습니다.
+2 단계 인증을 사용 하 여 회사 또는 학교 계정에 로그인 하거나 암호 재설정 요청을 수행할 때 문자 메시지를 기본 방법으로 사용 하려면 **보안 정보** 페이지에서 설정할 수 있습니다.
 
 ### <a name="to-change-your-default-security-info-method"></a>기본 보안 정보 방법을 변경하려면 다음을 수행합니다.
 
@@ -99,13 +99,13 @@ ms.locfileid: "77062356"
 
 수행하려는 작업에 따라, 조직이 본인 여부를 확인하기 위해 사용자에게 연락하는 방식에 대한 추가 옵션이 제공됩니다. 옵션에는 다음이 포함됩니다.
 
-- **인증자 응용 프로그램.** Authenticator 앱을 다운로드한 후 사용하여 2단계 인증 또는 암호 재설정을 위한 승인 알림 또는 임의로 생성된 승인 코드를 가져올 수 있습니다. Microsoft Authenticator 앱을 설치 및 사용하는 방법에 대한 단계별 지침은 [Authenticator 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md)을 참조하세요.
+- **Authenticator 앱.** Authenticator 앱을 다운로드한 후 사용하여 2단계 인증 또는 암호 재설정을 위한 승인 알림 또는 임의로 생성된 승인 코드를 가져올 수 있습니다. Microsoft Authenticator 앱을 설치 및 사용하는 방법에 대한 단계별 지침은 [Authenticator 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md)을 참조하세요.
 
 - **모바일 디바이스 또는 회사 전화 통화.** 모바일 디바이스 번호를 입력하면 2단계 인증 또는 암호 재설정을 위한 전화가 걸려옵니다. 전화 번호를 사용하여 본인 여부를 확인하는 방법에 대한 단계별 지침은 [전화 통화를 사용하도록 보안 정보 설정](security-info-setup-phone-number.md)을 참조하세요.
 
-- **보안 키.** Microsoft 호환 보안 키를 등록하고 2단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용합니다. 보안 키로 ID를 확인하는 방법에 대한 단계별 지침은 [보안 키를 사용하도록 보안 정보 설정을](security-info-setup-security-key.md)참조하세요.
+- **보안 키입니다.** Microsoft 호환 보안 키를 등록 하 고 2 단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용 합니다. 보안 키를 사용 하 여 id를 확인 하는 방법에 대 한 단계별 지침은 보안 [키를 사용 하도록 보안 정보 설정](security-info-setup-security-key.md)을 참조 하세요.
 
-- **이메일 주소입니다.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
+- **전자 메일 주소입니다.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
 
 - **보안 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
 

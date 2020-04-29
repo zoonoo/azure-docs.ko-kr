@@ -1,13 +1,13 @@
 ---
-title: Java 웹 앱에서 Azure 응용 프로그램 인사이트 원격 분석 필터링
+title: Java 웹 앱에서 Azure 애플리케이션 Insights 원격 분석 필터링
 description: 모니터링하지 않아도 되는 이벤트를 필터링하여 원격 분석 트래픽을 줄입니다.
 ms.topic: conceptual
 ms.date: 3/14/2019
 ms.openlocfilehash: 020e54132e0ca0a9f9ccf0236f94515877015637
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77659920"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Java 웹앱에서 원격 분석 필터링
@@ -188,7 +188,7 @@ SyntheticSource 속성에 값이 있는 모든 원격 분석을 필터링합니�
 
 ## <a name="custom-filters"></a>사용자 지정 필터
 
-### <a name="1-code-your-filter"></a>1. 필터 코드
+### <a name="1-code-your-filter"></a>1. 필터 코딩
 
 코드에서 `TelemetryProcessor`를 구현하는 클래스를 만듭니다.
 
@@ -227,7 +227,7 @@ SyntheticSource 속성에 값이 있는 모든 원격 분석을 필터링합니�
 ```
 
 
-### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. 구성 파일에서 필터 를 호출합니다.
+### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. 구성 파일에서 필터를 호출 합니다.
 
 ApplicationInsights.xml:
 
@@ -246,9 +246,9 @@ ApplicationInsights.xml:
 
 ```
 
-### <a name="3-invoke-your-filter-java-spring"></a>3. 필터 호출 (자바 스프링)
+### <a name="3-invoke-your-filter-java-spring"></a>3. 필터 호출 (Java 스프링)
 
-Spring 프레임워크를 기반으로 하는 응용 프로그램의 경우 사용자 지정 원격 분석 프로세서를 Bean으로 주 응용 프로그램 클래스에 등록해야 합니다. 그런 다음 응용 프로그램이 시작될 때 자동 배선됩니다.
+스프링 프레임 워크를 기반으로 하는 응용 프로그램의 경우 사용자 지정 원격 분석 프로세서를 주 응용 프로그램 클래스에 bean로 등록 해야 합니다. 그러면 응용 프로그램이 시작 될 때 자동으로 연결 됩니다.
 
 ```Java
 @Bean
@@ -257,7 +257,7 @@ public TelemetryProcessor successFilter() {
 }
 ```
 
-고유한 필터 매개 변수를 `application.properties` 만들고 Spring Boot의 외부 구성 프레임워크를 활용하여 이러한 매개 변수를 사용자 지정 필터로 전달해야 합니다. 
+에서 `application.properties` 고유한 필터 매개 변수를 만들고 스프링 부팅의 표면화 된 구성 프레임 워크를 활용 하 여 해당 매개 변수를 사용자 지정 필터에 전달 해야 합니다. 
 
 
 ## <a name="troubleshooting"></a>문제 해결

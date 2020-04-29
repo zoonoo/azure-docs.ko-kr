@@ -4,10 +4,10 @@ description: Azure Application Insights 및 개요 대시보드 기능을 사용
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: e5188972d9058b85a9765c7d33f6209b37245d7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669899"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights 개요 대시보드
@@ -20,7 +20,7 @@ Application Insights에는 애플리케이션의 상태 및 성능을 한 눈에
 
 ![개요 미리 보기 창](./media/overview-dashboard/overview.png)
 
-## <a name="better-performance"></a>향상된 성능
+## <a name="better-performance"></a>성능 향상
 
 시간 범위 선택이 간단한 한 번의 클릭 인터페이스로 간소화되었습니다.
 
@@ -53,7 +53,7 @@ Application Insights에는 애플리케이션의 상태 및 성능을 한 눈에
 
 ## <a name="troubleshooting"></a>문제 해결
 
-**타일 설정 구성을** 선택하고 31일을 초과하는 사용자 지정 시간 범위를 설정하면 기본 데이터 보존일인 90일이 있더라도 대시보드가 31일을 초과하여 표시되지 않습니다. 현재 이 동작에 대한 해결 방법은 없습니다.
+**타일 설정 구성** 을 선택 하 고 31 일을 초과 하 여 사용자 지정 시간 범위를 설정 하는 경우 기본 데이터 보존 90 일에도 불구 하 고, 대시보드는 31 일 이상 데이터를 표시 하지 않습니다. 현재이 동작에 대 한 해결 방법이 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

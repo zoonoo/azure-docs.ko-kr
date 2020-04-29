@@ -6,10 +6,10 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/01/2018
 ms.openlocfilehash: dd04087db32f0bbfa75dafa7e12c355e5ab7b515
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670069"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Azure Application Insights Java SDK에 Micrometer를 사용하는 방법
@@ -17,7 +17,7 @@ Micrometer 애플리케이션 모니터링은 JVM 기반 애플리케이션 코�
 
 ## <a name="using-spring-boot-15x"></a>Spring Boot 1.5x 사용
 pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다. 
-* [응용 프로그램 인사이트 스프링 부트 스타터](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) 2.5.0 이상
+* [Application Insights 스프링-부팅-스타터](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) 2.5.0 이상
 * Micrometer Azure Registry 1.1.0 이상
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 이상(Spring 프레임워크의 자동 구성 코드 지원)
 * [ApplicationInsights 리소스](../../azure-monitor/app/create-new-resource.md )
@@ -57,8 +57,8 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
 * Application Insights Spring-boot-starter 2.1.2 이상
-* Azure 스프링 부팅 메트릭 스타터 2.0.7 이상
-* [애플리케이션 인사이트 리소스](../../azure-monitor/app/create-new-resource.md )
+* Azure-스프링-부팅-메트릭-초보자 2.0.7 이상
+* [Application Insights 리소스](../../azure-monitor/app/create-new-resource.md )
 
 단계:
 
@@ -80,9 +80,9 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 기본 메트릭:
 
 *    Tomcat, JVM, Logback 메트릭, Log4J 메트릭, 가동 시간 메트릭, 프로세서 메트릭, FileDescriptorMetrics 메트릭에 대해 자동으로 구성된 메트릭입니다.
-*    예를 들어 Netflix Hystrix가 수업 경로에 있는 경우 해당 메트릭도 얻을 수 있습니다. 
+*    예를 들어 클래스 경로에 Netflix Hystrix가 있는 경우 해당 메트릭을 가져옵니다. 
 *    해당 bean을 추가하여 다음 메트릭을 사용할 수 있습니다. 
-        - 캐시메트릭 (카페인캐시, EhCache2, 구아바캐시, 헤이즐캐스트캐시, J캐시)     
+        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcastCache, JCache)     
         - DataBaseTableMetrics 
         - HibernateMetrics 
         - JettyMetrics 
@@ -115,9 +115,9 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
 pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
-* 애플리케이션 인사이트 웹 오토 2.5.0 이상
+* Application Insights Web Auto 2.5.0 이상
 * Micrometer Azure Registry 1.1.0 이상
-* [애플리케이션 인사이트 리소스](../../azure-monitor/app/create-new-resource.md )
+* [Application Insights 리소스](../../azure-monitor/app/create-new-resource.md )
 
 단계:
 
@@ -270,5 +270,5 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 마이크로미터에 대한 자세한 내용은 공식 [마이크로미터 문서를](https://micrometer.io/docs)참조하십시오.
-* Azure에서 봄에 대 한 자세한 내용은 Azure의 공식 [스프링 설명서를](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable)참조하십시오.
+* 마이크로 측정기에 대해 자세히 알아보려면 공식 [마이크로 측정기 설명서](https://micrometer.io/docs)를 참조 하세요.
+* Azure의 스프링에 대해 알아보려면 [azure의 공식 스프링 설명서](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable)를 참조 하세요.

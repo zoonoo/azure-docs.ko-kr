@@ -1,5 +1,5 @@
 ---
-title: '자습서: 여유 - Azure AD에 대한 사용자 프로비저닝'
+title: '자습서: 여유 시간에 대 한 사용자 프로 비전-Azure AD'
 description: 사용자 계정을 Slack으로 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc912c2df435f9b7e591d7c5475e126e6b0aeb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77062832"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Slack 구성
@@ -34,7 +34,7 @@ ms.locfileid: "77062832"
 * 사용 가능한 [추가 플랜](https://aadsyncfabric.slack.com/pricing) 또는 개선을 사용한 Slack 테넌트
 * 팀 관리자 권한이 있는 Slack의 사용자 계정
 
-참고: Azure AD 프로비저닝 통합은 [Slack SCIM API를](https://api.slack.com/scim)사용하며, 이 API는 Plus 플랜 이상의 슬랙 팀에서 사용할 수 있습니다.
+참고: Azure AD 프로 비전 통합은 추가 계획 이상의 여유 시간 팀에서 사용할 수 있는 [여유 SCIM API](https://api.slack.com/scim)를 사용 합니다.
 
 ## <a name="assigning-users-to-slack"></a>Slack에 사용자 할당
 
@@ -64,7 +64,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 3. Slack의 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
 
-4. **프로비저닝 모드를** **자동으로**설정합니다.
+4. **프로 비전 모드** 를 **자동**으로 설정 합니다.
 
    ![Slack 프로비전](./media/slack-provisioning-tutorial/slack1.png)
 
@@ -122,9 +122,9 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
   
 * Slack의 **userName** 특성은 21자 미만이어야 하며 고유한 값을 가져야 합니다.
 
-* 여유는 **사용자 이름** 및 **전자 메일**의 특성과 일치할 수만 허용합니다.  
+* 여유 시간에는 **사용자 이름** 및 **전자 메일과**특성만 사용할 수 있습니다.  
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱용 사용자 계정 프로비저닝 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
+* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

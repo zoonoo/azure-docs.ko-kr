@@ -1,5 +1,5 @@
 ---
-title: 서브넷 트래픽 라우팅 구성 - Azure 트래픽 관리자
+title: 서브넷 트래픽 라우팅 구성-Azure Traffic Manager
 description: 이 문서에서는 특정 서브넷의 트래픽을 라우팅하도록 Traffic Manager를 구성하는 방법을 설명합니다.
 services: traffic-manager
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: rohink
 ms.openlocfilehash: 60cddce610d223433d0ffe1f6b9234625aca9881
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938747"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Traffic Manager를 사용하여 사용자 서브넷을 기반으로 특정 엔드포인트로 트래픽 전송
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ### <a name="create-websites"></a>웹 사이트 만들기
 
@@ -47,12 +47,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 #### <a name="create-vms-for-running-websites"></a>웹 사이트 운영을 위한 VM 만들기
 이 섹션에서는 **미국 동부**와 **유럽 서부** Azure 지역에 *myEndpointVMEastUS* 및 *myEndpointVMWEurope*이라는 2개의 VM을 만듭니다.
 
-1. Azure 포털의 왼쪽 상단 모서리에서 **리소스** > **계산** > **Windows Server 2016 VM**을 선택합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스** > 만들기**계산** > **Windows Server 2016 VM**을 선택 합니다.
 2. **기본 사항**에 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
 
     |설정|값|
     |---|---|
-    |이름|myIISVMEastUS|
+    |속성|myIISVMEastUS|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |Resource group| **새로 만들기**를 선택한 다음, *myResourceGroupTM1*을 입력합니다.|
@@ -87,14 +87,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>IIS를 설치하고 기본 웹 페이지를 사용자 지정
 
-이 섹션에서는 두 VM에 IIS 서버를 *myIISVMEastUS*  & *myIISVMWEurope*설치합니다. 사용자 지정된 웹 사이트 페이지에는 웹 브라우저에서 웹 사이트를 방문할 때 연결하는 VM의 이름이 표시됩니다.
+이 섹션에서는 두 개의 vm ( *myIISVMEastUS*  & *myIISVMWEurope*)에 IIS 서버를 설치한 다음 기본 웹 사이트 페이지를 업데이트 합니다. 사용자 지정된 웹 사이트 페이지에는 웹 브라우저에서 웹 사이트를 방문할 때 연결하는 VM의 이름이 표시됩니다.
 
 1. 왼쪽 메뉴에서 **모든 리소스**를 선택한 다음, 리소스 목록에서 *myResourceGroupTM1* 리소스 그룹에 있는 *myIISVMEastUS*를 클릭합니다.
 2. **개요** 페이지에서 **연결**을 클릭한 다음, **가상 머신에 연결**에서 **RDP 파일 다운로드**를 선택합니다.
 3. 다운로드한 rdp 파일을 엽니다. 메시지가 표시되면 **연결**을 선택합니다. VM을 만들 때 지정한 사용자 이름과 암호를 입력합니다. **추가 선택 사항**, **다른 계정 사용**을 차례로 선택하여 VM을 만들 때 입력한 자격 증명을 지정해야 할 수도 있습니다.
 4. **확인**을 선택합니다.
 5. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 경고 메시지가 표시되면 **예** 또는 **계속**을 선택하여 연결을 계속합니다.
-6. 서버 데스크톱에서 Windows **관리 도구**>**서버 관리자로**이동합니다.
+6. 서버 바탕 화면에서 **Windows 관리 도구**>**서버 관리자**로 이동 합니다.
 7. *myIISVMEastUS*에서 Windows PowerShell을 실행하고, 다음 명령을 사용하여 IIS 서버를 설치하고 기본 htm 파일을 업데이트합니다.
     ```powershell-interactive
     # Install IIS
@@ -122,7 +122,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 #### <a name="configure-dns-names-for-the-vms-running-iis"></a>IIS를 실행하는 VM의 DNS 이름 구성
 
-Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사용자 트래픽을 라우팅합니다. 이 섹션에서는 IIS 서버인 *myIISVMEastUS* 및 *myIISVMWEurope에*대한 DNS 이름을 구성합니다.
+Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사용자 트래픽을 라우팅합니다. 이 섹션에서는 IIS 서버- *myIISVMEastUS* 및 *myIISVMWEurope*에 대 한 DNS 이름을 구성 합니다.
 
 1. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 *myResourceGroupTM1* 리소스 그룹에 있는 *myIISVMEastUS*를 선택합니다.
 2. **개요** 페이지의 **DNS 이름**에서 **구성**을 선택합니다.
@@ -133,12 +133,12 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
 
 이 섹션에서는 각 Azure 지역(**미국 동부** 및 **유럽 서부**)에 VM(*mVMEastUS* 및 *myVMWestEurope*)을 만듭니다. 이 VM을 사용하여 사용자가 웹 사이트를 탐색할 때 Traffic Manager가 가장 가까운 IIS 서버로 트래픽을 라우팅하는 방식을 테스트합니다.
 
-1. Azure 포털의 왼쪽 상단 모서리에서 **리소스** > **계산** > **Windows Server 2016 VM**을 선택합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스** > 만들기**계산** > **Windows Server 2016 VM**을 선택 합니다.
 2. **기본 사항**에 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
 
     |설정|값|
     |---|---|
-    |이름|myVMEastUS|
+    |속성|myVMEastUS|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |Resource group| **기존 항목 사용**을 선택한 다음, *myResourceGroupTM1*을 선택합니다.|
@@ -170,12 +170,12 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
 ## <a name="create-a-traffic-manager-profile"></a>Traffic Manager 프로필 만들기
 요청의 원본 IP를 기반으로 특정 엔드포인트를 반환할 수 있는 Traffic Manager 프로파일을 만듭니다.
 
-1. 화면 왼쪽 상단에서 **리소스** > **네트워킹** > **트래픽 관리자 만들기 프로필** > **만들기를**선택합니다.
+1. 화면 왼쪽 상단에서 **리소스** > **만들기 네트워킹** > **Traffic Manager 프로필** > **만들기**를 선택 합니다.
 2. **Traffic Manager 프로필 만들기**에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | 이름                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며 DNS 이름, trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.                                   |
+    | 속성                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며 DNS 이름, trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.                                   |
     | 라우팅 방법          | **서브넷** 라우팅 방법을 선택합니다.                                       |
     | Subscription            | 구독을 선택합니다.                          |
     | Resource group          | **기존**을 선택하고, *myResourceGroupTM1*을 입력합니다. |
@@ -186,7 +186,7 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
 
 ## <a name="add-traffic-manager-endpoints"></a>Traffic Manager 엔드포인트 추가
 
-IIS 서버를 실행하는 두 VM을 추가합니다- *myIISVMEastUS* & *myIISVMWEurope* 사용자 쿼리의 서브넷을 기반으로 사용자 트래픽을 라우팅합니다.
+IIS 서버 ( *myIISVMEastUS* & *myIISVMWEurope* )를 실행 하는 두 개의 vm을 추가 하 여 사용자 쿼리의 서브넷을 기반으로 사용자 트래픽을 라우팅합니다.
 
 1. 포털의 검색 창에서 이전 섹션에서 만든 Traffic Manager 프로필 이름을 검색하고, 표시되는 결과에서 해당 프로필을 선택합니다.
 2. **Traffic Manager 프로필**의 **설정** 섹션에서 **엔드포인트**를 클릭한 다음, **추가**를 클릭합니다.
@@ -195,9 +195,9 @@ IIS 서버를 실행하는 두 VM을 추가합니다- *myIISVMEastUS* & *myIISVM
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | Type                    | Azure 엔드포인트                                   |
-    | 이름           | myTestWebSiteEndpoint                                        |
+    | 속성           | myTestWebSiteEndpoint                                        |
     | 대상 리소스 종류           | 공용 IP 주소                          |
-    | 대상 리소스          | **공용 IP 주소를 선택하여** 동일한 구독에서 공용 IP 주소가 있는 리소스 목록을 표시합니다. **리소스**에서 *myIISVMEastUS-ip*라는 이름의 공용 IP 주소를 선택합니다. 이것은 미국 동부에 있는 IIS 서버 VM의 공용 IP 주소입니다.|
+    | 대상 리소스          | 공용 **ip 주소를 선택** 하 여 동일한 구독에서 공용 ip 주소를 사용 하는 리소스 목록을 표시 합니다. **리소스**에서 *myIISVMEastUS-ip*라는 이름의 공용 IP 주소를 선택합니다. 이것은 미국 동부에 있는 IIS 서버 VM의 공용 IP 주소입니다.|
     |  서브넷 라우팅 설정    |   *myVMEastUS* 테스트 VM의 IP 주소를 추가합니다. 이 VM에서 시작된 사용자 쿼리는 *myTestWebSiteEndpoint*로 전달됩니다.    |
 
 4. 2단계와 3단계를 반복하여 *myIISVMWEurope*이라는 이름의 IIS 서버 VM과 연결된 공용 IP 주소 *myIISVMWEurope-ip*에 대해 *myProductionEndpoint*라는 이름의 또 다른 엔드포인트를 추가합니다. **서브넷 라우팅 설정**에 대해 테스트 VM - *myVMWestEurope*의 IP 주소를 추가합니다. 이 테스트 VM의 모든 사용자 쿼리는 엔드포인트 - *myProductionWebsiteEndpoint*로 라우팅됩니다.
@@ -217,7 +217,7 @@ IIS 서버를 실행하는 두 VM을 추가합니다- *myIISVMEastUS* & *myIISVM
 
 Traffic Manager 프로필의 DNS 이름은 다음과 같이 확인할 수 있습니다.
 
-1. 포털의 검색 표시줄에서 이전 섹션에서 만든 **트래픽 관리자 프로필** 이름을 검색합니다. 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
+1. 포털의 검색 창에서 이전 섹션에서 만든 **Traffic Manager 프로필** 이름을 검색 합니다. 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
 1. **개요**를 클릭합니다.
 2. **Traffic Manager 프로필**에 새로 만든 Traffic Manager 프로필의 DNS 이름이 표시됩니다. 프로덕션 배포에서는 DNS CNAME 레코드를 사용하여 Traffic Manager 도메인 이름을 가리키도록 베니티 도메인 이름을 구성합니다.
 
@@ -231,11 +231,11 @@ Traffic Manager 프로필의 DNS 이름은 다음과 같이 확인할 수 있습
 3. 다운로드한 rdp 파일을 엽니다. 메시지가 표시되면 **연결**을 선택합니다. VM을 만들 때 지정한 사용자 이름과 암호를 입력합니다. **추가 선택 사항**, **다른 계정 사용**을 차례로 선택하여 VM을 만들 때 입력한 자격 증명을 지정해야 할 수도 있습니다.
 4. **확인**을 선택합니다.
 5. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 경고 메시지가 표시되면 **예** 또는 **계속**을 선택하여 연결을 계속합니다.
-1. VM *myVMEastUS*의 웹 브라우저에서 Traffic Manager 프로필의 DNS 이름을 입력하여 웹 사이트를 봅니다. VM *myVMEastUS* IP 주소는 엔드포인트 *myIISVMEastUS와*연결되어 있기 때문에 웹 브라우저는 테스트 웹 사이트 서버인 *myIISVMEastUS를*시작합니다.
+1. VM *myVMEastUS*의 웹 브라우저에서 Traffic Manager 프로필의 DNS 이름을 입력하여 웹 사이트를 봅니다. VM *myVMEastUS* IP 주소는 끝점 *myIISVMEastUS*연결 되므로 웹 브라우저는 테스트 웹 사이트 서버- *myIISVMEastUS*를 시작 합니다.
 
    ![Traffic Manager 프로필 테스트](./media/traffic-manager-subnet-routing-method/test-traffic-manager.png)
 
-2. 다음으로, 1~5단계를 사용하여 **유럽 서부**에 있는 VM *myVMWestEurope*에 연결하고 이 VM에서 Traffic Manager 프로필 도메인 이름을 찾아서 이동합니다. VM *myVMWestEurope* IP 주소는 엔드포인트 *myIISVMEastUS와*연결되어 있기 때문에 웹 브라우저는 테스트 웹 사이트 서버인 *myIISVMWEurope을*시작합니다.
+2. 다음으로, 1~5단계를 사용하여 **유럽 서부**에 있는 VM *myVMWestEurope*에 연결하고 이 VM에서 Traffic Manager 프로필 도메인 이름을 찾아서 이동합니다. VM *myVMWestEurope* IP 주소는 끝점 *myIISVMEastUS*연결 되므로 웹 브라우저는 테스트 웹 사이트 서버- *myIISVMWEurope*를 시작 합니다.
 
 ## <a name="delete-the-traffic-manager-profile"></a>Traffic Manager 프로필 삭제
 더 이상 필요하지 않으면 리소스 그룹(**ResourceGroupTM1** 및 **ResourceGroupTM2**)을 삭제합니다. 이렇게 하려면 리소스 그룹(**ResourceGroupTM1** 또는 **ResourceGroupTM2**)을 선택한 다음, **삭제**를 선택합니다.

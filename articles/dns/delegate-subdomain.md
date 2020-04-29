@@ -1,6 +1,6 @@
 ---
-title: 하위 도메인 위임 - Azure DNS
-description: 이 학습 경로를 통해 Azure DNS 하위 도메인 위임을 시작하십시오.
+title: 하위 도메인 위임-Azure DNS
+description: 이 학습 경로를 사용 하 여 Azure DNS 하위 도메인을 위임 하기 시작 합니다.
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rohink
 ms.openlocfilehash: cd1443a9ca8ccf7172072078734f21d789d36194
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76937428"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Azure DNS 하위 도메인 위임
@@ -31,7 +31,7 @@ Azure DNS 하위 도메인을 위임하려면 먼저 공용 도메인을 Azure D
 
 먼저 **engineering** 하위 도메인에 대한 영역을 만듭니다.
 
-1. Azure 포털에서 **리소스 만들기를 선택합니다.**
+1. Azure Portal에서 **리소스 만들기**를 선택 합니다.
 2. 검색 상자에서 **DNS**를 입력하고, **DNS 영역**을 선택합니다.
 3. **만들기**를 선택합니다.
 4. **DNS 영역 만들기** 창의 **이름** 텍스트 상자에서 **engineering.contoso.com**을 입력합니다.

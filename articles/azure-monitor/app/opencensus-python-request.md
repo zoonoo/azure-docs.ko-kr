@@ -1,28 +1,28 @@
 ---
-title: OpenCensus 파이썬을 사용하여 Azure 응용 프로그램 인사이트에서 들어오는 요청 추적 | 마이크로 소프트 문서
-description: OpenCensus 파이썬을 통해 파이썬 앱에 대한 요청 호출을 모니터링하십시오.
+title: OpenCensus Python을 사용 하 여 Azure 애플리케이션 정보에서 들어오는 요청 추적 | Microsoft Docs
+description: OpenCensus Python을 통해 Python 앱에 대 한 요청 호출을 모니터링 합니다.
 ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.openlocfilehash: 0396bd8d150c6145a39f36e7be9e6e2dcacef2c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669950"
 ---
-# <a name="track-incoming-requests-with-opencensus-python"></a>오픈인구파이썬으로 들어오는 요청을 추적
+# <a name="track-incoming-requests-with-opencensus-python"></a>OpenCensus Python을 사용 하 여 들어오는 요청 추적
 
-들어오는 요청 데이터는 OpenCensus 파이썬과 다양한 통합을 사용하여 수집됩니다. 인기 있는 웹 프레임워크 위에 구축된 웹 응용 프로그램으로 전송되는 `flask` `pyramid`수신 요청 데이터를 추적합니다. `django` 그런 다음 데이터는 Azure 모니터에서 원격 `requests` 분석으로 응용 프로그램 인사이트로 전송됩니다.
+들어오는 요청 데이터는 OpenCensus Python 및 다양 한 통합을 사용 하 여 수집 됩니다. 인기 있는 웹 프레임 워크 `django`를 `flask` 기반으로 하는 웹 응용 프로그램에 전송 된 들어오는 요청 데이터 `pyramid`를 추적 합니다. 그런 다음 데이터는 원격 분석으로 `requests` Azure Monitor Application Insights 전송 됩니다.
 
-첫째, 최신 [OpenCensus 파이썬 SDK와](../../azure-monitor/app/opencensus-python.md)파이썬 응용 프로그램을 계측 .
+먼저 최신 [OpenCensus PYTHON SDK](../../azure-monitor/app/opencensus-python.md)를 사용 하 여 python 응용 프로그램을 계측 합니다.
 
-## <a name="tracking-django-applications"></a>장고 응용 프로그램 추적
+## <a name="tracking-django-applications"></a>Django 응용 프로그램 추적
 
-1. [PyPI에서](https://pypi.org/project/opencensus-ext-django/) 다운로드 하여 설치하고 `django` `opencensus-ext-django` 미들웨어로 애플리케이션을 계측하십시오. `django` 응용 프로그램으로 전송되는 들어오는 요청이 추적됩니다.
+1. [Pypi](https://pypi.org/project/opencensus-ext-django/) 에서 다운로드 하 여 설치 `django` `opencensus-ext-django` 하 고 미들웨어를 사용 하 여 응용 프로그램을 계측 합니다. `django` 응용 프로그램에 전송 된 들어오는 요청이 추적 됩니다.
 
-2. 아래 `opencensus.ext.django.middleware.OpencensusMiddleware` 파일에 `settings.py` `MIDDLEWARE`포함합니다.
+2. 파일에를 포함 `opencensus.ext.django.middleware.OpencensusMiddleware` `MIDDLEWARE`합니다. `settings.py`
 
     ```python
     MIDDLEWARE = (
@@ -32,7 +32,7 @@ ms.locfileid: "77669950"
     )
     ```
 
-3. 아래 에서 Azure Exporter이 제대로 `settings.py` `OPENCENSUS`구성되었는지 확인합니다.
+3. 에서 AzureExporter 올바르게 구성 `settings.py` 되어 있는지 확인 `OPENCENSUS`합니다.
 
     ```python
     OPENCENSUS = {
@@ -45,7 +45,7 @@ ms.locfileid: "77669950"
     }
     ```
 
-4. 추적하지 않으려는 요청에 `settings.py` `BLACKLIST_PATHS` 대해 아래 URL을 추가할 수도 있습니다.
+4. 추적 하지 않으려는 요청에 대해 `settings.py` 아래 `BLACKLIST_PATHS` 에 url을 추가할 수도 있습니다.
 
     ```python
     OPENCENSUS = {
@@ -59,9 +59,9 @@ ms.locfileid: "77669950"
     }
     ```
 
-## <a name="tracking-flask-applications"></a>플라스크 애플리케이션 추적
+## <a name="tracking-flask-applications"></a>Flask 응용 프로그램 추적
 
-1. [PyPI에서](https://pypi.org/project/opencensus-ext-flask/) 다운로드 하여 설치하고 `flask` `opencensus-ext-flask` 미들웨어로 애플리케이션을 계측하십시오. `flask` 응용 프로그램으로 전송되는 들어오는 요청이 추적됩니다.
+1. [Pypi](https://pypi.org/project/opencensus-ext-flask/) 에서 다운로드 하 여 설치 `flask` `opencensus-ext-flask` 하 고 미들웨어를 사용 하 여 응용 프로그램을 계측 합니다. `flask` 응용 프로그램에 전송 된 들어오는 요청이 추적 됩니다.
 
     ```python
     
@@ -86,7 +86,7 @@ ms.locfileid: "77669950"
     
     ```
 
-2. 코드에서 직접 `flask` 미들웨어를 구성할 수 있습니다. 추적하지 않으려는 URL의 요청의 경우 에 `BLACKLIST_PATHS`추가합니다.
+2. 코드에서 미들웨어를 `flask` 직접 구성할 수 있습니다. 추적 하지 않으려는 url의 요청을에 추가 `BLACKLIST_PATHS`합니다.
 
     ```python
     app.config['OPENCENSUS'] = {
@@ -102,7 +102,7 @@ ms.locfileid: "77669950"
 
 ## <a name="tracking-pyramid-applications"></a>피라미드 응용 프로그램 추적
 
-1. [PyPI에서](https://pypi.org/project/opencensus-ext-pyramid/) 다운로드 하여 설치하고 `pyramid` `opencensus-ext-django` 핀으로 애플리케이션을 계측하십시오. `pyramid` 응용 프로그램으로 전송되는 들어오는 요청이 추적됩니다.
+1. [Pypi](https://pypi.org/project/opencensus-ext-pyramid/) 에서 다운로드 하 여 설치 `pyramid` `opencensus-ext-django` 하 고 트윈으로 응용 프로그램을 계측 합니다. `pyramid` 응용 프로그램에 전송 된 들어오는 요청이 추적 됩니다.
 
     ```python
     def main(global_config, **settings):
@@ -112,7 +112,7 @@ ms.locfileid: "77669950"
                          '.pyramid_middleware.OpenCensusTweenFactory')
     ```
 
-2. 코드에서 직접 `pyramid` 트위넨을 구성할 수 있습니다. 추적하지 않으려는 URL의 요청의 경우 에 `BLACKLIST_PATHS`추가합니다.
+2. 코드에서 직접 `pyramid` 트윈을 구성할 수 있습니다. 추적 하지 않으려는 url의 요청을에 추가 `BLACKLIST_PATHS`합니다.
 
     ```python
     settings = {
@@ -134,5 +134,5 @@ ms.locfileid: "77669950"
 * [애플리케이션 맵](../../azure-monitor/app/app-map.md)
 * [가용성](../../azure-monitor/app/monitor-web-app-availability.md)
 * [검색](../../azure-monitor/app/diagnostic-search.md)
-* [로그(분석) 쿼리](../../azure-monitor/log-query/log-query-overview.md)
+* [로그 (분석) 쿼리](../../azure-monitor/log-query/log-query-overview.md)
 * [트랜잭션 진단](../../azure-monitor/app/transaction-diagnostics.md)

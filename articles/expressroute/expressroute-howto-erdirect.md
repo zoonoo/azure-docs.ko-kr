@@ -1,6 +1,6 @@
 ---
-title: 'Azure 익스프레스라우팅: 익스프레스라우팅 직접 구성'
-description: 이 페이지에서는 ExpressRoute Direct를 구성하는 데 도움이 됩니다.
+title: 'Azure Express 경로: Express 경로 직접 구성'
+description: 이 페이지는 Express 경로 다이렉트를 구성 하는 데 도움이 됩니다.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: jaredro
 ms.openlocfilehash: 2722a852b1119ef619bc414bce5cb3a8ff6f8f00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77031615"
 ---
-# <a name="how-to-configure-expressroute-direct"></a>익스프레스루트 다이렉트를 구성하는 방법
+# <a name="how-to-configure-expressroute-direct"></a>Express 경로 다이렉트를 구성 하는 방법
 
 ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결하는 기능을 제공합니다. 자세한 내용은 [ExpressRoute Direct 정보](expressroute-erdirect-about.md)를 참조하세요.
 
@@ -28,7 +28,7 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
    
-2. Microsoft.Network에 구독을 다시 등록하여 익스프레스루트포트위치 및 익스프레스루트포트 API에 액세스합니다.
+2. Expressrouteportslocation 및 expressrouteport Api에 액세스 하려면 구독을 Microsoft. 네트워크에 다시 등록 합니다.
 
    ```powershell
    Register-AzResourceProvider -ProviderNameSpace "Microsoft.Network"
@@ -231,9 +231,9 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
 
 위에 설명된 시나리오를 지원에 한해 ExpressRoute Direct에서 사용할 수 있는 추가 회로 대역폭은 40Gbps 및 100Gbps입니다.
 
-**스쿠티에** 지역은 로컬, 스탠다드 또는 프리미엄일 수 있습니다.
+지역, 표준 또는 프리미엄 일 **수 있습니다.**
 
-**SkuFamily는** 무제한익스프레스루트 다이렉트에서 지원되지 않는 경우에만 미터데이터여야 합니다.
+Unlimiteddata는 Express 경로 직접 지원 되지 않으므로 무제한으로 사용할 **수 있어야 합니다** .
 
 ExpressRoute Direct 리소스에서 회로를 만듭니다.
 
@@ -277,4 +277,4 @@ ExpressRoute Direct 리소스에서 회로를 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-익스프레스루트 다이렉트에 대한 자세한 내용은 [개요를](expressroute-erdirect-about.md)참조하십시오.
+Express 경로 직접에 대 한 자세한 내용은 [개요](expressroute-erdirect-about.md)를 참조 하세요.

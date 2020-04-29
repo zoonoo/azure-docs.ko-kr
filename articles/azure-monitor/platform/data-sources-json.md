@@ -7,22 +7,22 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 49eb3fa22bc9afffb9e93f3152cdc00323b76d41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77662164"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Azure Monitor에서 Linux용 Log Analytics 에이전트를 사용하여 사용자 지정 JSON 데이터 원본 수집
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-Linux용 Log Analytics 에이전트를 사용하여 [Azure Monitor](data-platform.md)로 사용자 지정 JSON 데이터 원본을 수집할 수 있습니다.  이러한 사용자 지정 데이터 원본은 [컬](https://curl.haxx.se/) 또는 [FluentD의 300개 이상의 플러그인](https://www.fluentd.org/plugins/all)중 하나와 같은 JSON을 반환하는 간단한 스크립트일 수 있습니다. 이 문서에서는 이 데이터 수집에 필요한 구성을 설명합니다.
+Linux용 Log Analytics 에이전트를 사용하여 [Azure Monitor](data-platform.md)로 사용자 지정 JSON 데이터 원본을 수집할 수 있습니다.  이러한 사용자 지정 데이터 원본은 [FluentD의 300](https://www.fluentd.org/plugins/all)개 이상의 플러그인과 같은 [JSON을 반환](https://curl.haxx.se/) 하는 간단한 스크립트 일 수 있습니다. 이 문서에서는 이 데이터 수집에 필요한 구성을 설명합니다.
 
 
 > [!NOTE]
 > 사용자 지정 JSON 데이터에 Linux용 Log Analytics 에이전트 v1.1.0-217+가 필요합니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="configure-input-plugin"></a>입력 플러그 인 구성
 

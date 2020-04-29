@@ -1,13 +1,13 @@
 ---
-title: 리소스에서 오류를 찾을 수 없습니다.
-description: Azure 리소스 관리자 템플릿을 사용하여 배포할 때 리소스를 찾을 수 없는 경우 오류를 해결하는 방법을 설명합니다.
+title: 리소스를 찾을 수 없음 오류
+description: Azure Resource Manager 템플릿으로 배포할 때 리소스를 찾을 수 없을 때 발생 하는 오류를 해결 하는 방법을 설명 합니다.
 ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.openlocfilehash: b6f433118092e46f734d4b65040dd97c2fcb58d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773257"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Azure 리소스 찾을 수 없음 오류 해결
@@ -89,13 +89,13 @@ Resource Manager에서 리소스에 대한 속성을 검색해야 하지만 구�
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```
 
-## <a name="solution-4---get-managed-identity-from-resource"></a>솔루션 4 - 리소스에서 관리되는 ID 를 가져옵니다.
+## <a name="solution-4---get-managed-identity-from-resource"></a>해결 방법 4-리소스에서 관리 id 가져오기
 
-[암시적으로 관리되는 ID를](../../active-directory/managed-identities-azure-resources/overview.md)만드는 리소스를 배포하는 경우 관리되는 ID에서 값을 검색하기 전에 해당 리소스가 배포될 때까지 기다려야 합니다. 관리되는 ID 이름을 [참조](template-functions-resource.md#reference) 함수에 전달하는 경우 리소스 관리자는 리소스 및 ID가 배포되기 전에 참조를 확인하려고 시도합니다. 대신 ID가 적용되는 리소스의 이름을 전달합니다. 이 방법을 사용하면 Resource Manager가 참조 함수를 확인하기 전에 리소스와 관리되는 ID가 배포됩니다.
+[관리 id](../../active-directory/managed-identities-azure-resources/overview.md)를 암시적으로 만드는 리소스를 배포 하는 경우 관리 되는 id의 값을 검색 하기 전에 해당 리소스가 배포 될 때까지 기다려야 합니다. 관리 id 이름을 [참조](template-functions-resource.md#reference) 함수에 전달 하는 경우 리소스와 id를 배포 하기 전에 리소스 관리자에서 참조를 확인 하려고 시도 합니다. 대신 id가 적용 되는 리소스의 이름을 전달 합니다. 이 방법을 사용 하면 리소스 관리자에서 참조 함수를 확인 하기 전에 리소스와 관리 되는 id가 배포 됩니다.
 
-참조 함수에서 `Full` 관리되는 ID를 포함한 모든 속성을 가져옵니다.
+참조 함수에서를 사용 `Full` 하 여 관리 되는 id를 비롯 한 모든 속성을 가져옵니다.
 
-예를 들어 가상 시스템 규모 집합에 적용되는 관리되는 ID에 대한 테넌트 ID를 얻으려면 다음을 사용합니다.
+예를 들어 가상 머신 확장 집합에 적용 되는 관리 되는 id에 대 한 테 넌 트 ID를 가져오려면 다음을 사용 합니다.
 
 ```json
 "tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"

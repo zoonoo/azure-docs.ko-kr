@@ -1,6 +1,6 @@
 ---
 title: Azure Traffic Manager의 트래픽 보기
-description: 이 소개에서는 트래픽 관리자 트래픽 보기의 작동 방식을 알아봅니다.
+description: 이 소개에서는 Traffic manager 트래픽 보기의 작동 방식에 대해 알아봅니다.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: d5a03fde564b14baee97f50fa63fd58bf83694b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938351"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic Manager 트래픽 보기
@@ -36,7 +36,7 @@ Traffic Manager는 DNS 수준 라우팅을 제공하므로 최종 사용자가 �
 트래픽 보기는 Traffic Manager가 이 기능이 사용되도록 설정된 프로필을 기준으로 지난 7일 동안 수신된 들어오는 쿼리를 비교할 수 있도록 합니다. 들어오는 쿼리 정보를 통해 트래픽 보기는 사용자 위치를 나타내는 데 사용되는 DNS 확인자의 원본 IP 주소를 추출합니다. 이러한 항목은 DNS 확인자 수준 세분성에서 함께 그룹화되며, Traffic Manager가 유지 관리하는 IP 주소의 지리적 정보를 사용하여 사용자 기반 지역이 만들어집니다. 그런 후 Traffic Manager는 쿼리가 라우팅된 Azure 지역을 확인하고, 해당 지역으로부터 사용자에 대한 트래픽 흐름 맵을 생성합니다.  
 다음 단계에서 Traffic Manager는 사용자 기반 영역- Azure 지역 매핑과 여러 다른 최종 사용자 네트워크에 대해 유지 관리되는 네트워크 인텔리전스 대기 시간 표를 분석하고 상관 관계를 파악하여 Azure 지역에 연결될 때 해당 지역의 사용자가 겪게 되는 평균 대기 시간을 이해합니다. 그런 다음 이러한 모든 계산은 먼저 로컬 DNS 확인자별 IP 수준에서 결합된 후 사용자에게 제공됩니다. 다양한 방법으로 정보를 사용할 수 있습니다.
 
-트래픽 보기 데이터 업데이트 빈도는 여러 내부 서비스 변수에 따라 다릅니다. 그러나 데이터는 일반적으로 24시간마다 한 번씩 업데이트됩니다.
+트래픽 보기 데이터 업데이트의 빈도는 여러 내부 서비스 변수에 따라 달라 집니다. 그러나 일반적으로 데이터는 24 시간 마다 한 번씩 업데이트 됩니다.
 
 >[!NOTE]
 >트래픽 보기에 설명된 대기 시간은 최종 사용자와 연결된 Azure 지역 간의 대표적인 대기 시간이며 DNS 조회 대기 시간이 아닙니다. 트래픽 보기에서는 로컬 DNS 해결 프로그램과 쿼리가 라우팅된 Azure 지역 간의 대기 시간을 측정하기 위해 최선을 다합니다. 사용할 수 있는 데이터가 충분치 않은 경우 반환되는 대기 시간은 null이 됩니다. 
@@ -45,7 +45,7 @@ Traffic Manager는 DNS 수준 라우팅을 제공하므로 최종 사용자가 �
 
 Traffic Manager 페이지에서 **트래픽 보기** 섹션으로 이동하면 트래픽 보기 정보의 오버레이가 있는 지리적 맵이 제공됩니다. 맵에는 Traffic Manager 프로필의 사용자 기반 및 엔드포인트에 대한 정보가 제공됩니다.
 
-![트래픽 관리자 트래픽 보기 지리적 보기][1]
+![Traffic Manager 트래픽 보기 지리적 보기][1]
 
 ### <a name="user-base-information"></a>사용자 기반 정보
 
@@ -70,7 +70,7 @@ Azure Portal에서 테이블 형식으로 트래픽 보기 데이터를 볼 수 
 
 트래픽 보기를 사용할 경우 제공되는 정보를 생성하는 데 사용된 데이터 요소 수에 따라 요금이 청구됩니다. 현재 사용되는 유일한 데이터 요소 형식은 Traffic Manager 프로필에 대해 수신된 쿼리입니다. 가격 책정에 대한 자세한 내용은 [Traffic Manager 가격 책정 페이지](https://azure.microsoft.com/pricing/details/traffic-manager/)를 참조하세요.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 * [트래픽 보기의 기능은 무엇인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-does-traffic-view-do)
 

@@ -1,6 +1,6 @@
 ---
-title: 클라우드 단순 계정 관리 - Azure
-description: CloudSimple 계정 관리에 대해 자세히 알아보기
+title: CloudSimple 계정 관리-Azure
+description: CloudSimple 계정 관리에 대 한 자세한 정보
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
@@ -9,30 +9,30 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: a180e2ba6c1a610116271d5a9b6e3fdf562cecdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77025115"
 ---
 # <a name="account-management-overview"></a>계정 관리 개요
 
-CloudSimple 서비스를 만들 면 CloudSimple에 계정을 만듭니다.  계정이 서비스가 있는 Azure 구독과 연결됩니다.  구독에서 **소유자** 및 **기여자** 역할을 가진 모든 사용자는 CloudSimple 포털에 액세스할 수 있습니다.  CloudSimple 서비스와 연결된 Azure 구독 ID 및 테넌트 ID는 계정 페이지에서 찾을 [수 있습니다.](account.md)
+CloudSimple 서비스를 만들 때 CloudSimple에 계정을 만듭니다.  이 계정은 서비스가 있는 Azure 구독과 연결 됩니다.  구독에서 **소유자** 및 **참가자** 역할이 있는 모든 사용자는 cloudsimple 포털에 액세스할 수 있습니다.  CloudSimple 서비스와 연결 된 Azure 구독 ID 및 테 넌 트 ID는 [계정 페이지](account.md)에서 찾을 수 있습니다.
 
-## <a name="additional-alert-emails"></a>추가 알림 이메일
+## <a name="additional-alert-emails"></a>추가 경고 전자 메일
 
-CloudSimple에서 전자 메일 아이디를 구성하여 경고를 받을 수 있습니다.
+CloudSimple에서 전자 메일 Id를 구성 하 여 경고를 받을 수 있습니다.
 
-* 귀하의 서비스와 관련된
-* 자동 처리용
+* 서비스 관련
+* 자동 처리
 
-## <a name="cloudsimple-operator-access"></a>클라우드 단순 연산자 액세스
+## <a name="cloudsimple-operator-access"></a>CloudSimple operator access
 
-서비스 운영 담당자를 위해 CloudSimple 포털에 대한 액세스를 제어할 수 있습니다.  지원 티켓을 제출할 때 서비스 운영 담당자가 포털에 로그인합니다.  서비스 작업은 보고된 모든 문제를 해결하고 수행된 작업은 감사 로그에서 사용할 수 있습니다.
+서비스 운영 담당자를 위해 CloudSimple 포털에 대 한 액세스를 제어할 수 있습니다.  서비스 운영 직원은 지원 티켓을 제출할 때 포털에 로그인 합니다.  서비스 작업에서 보고 된 모든 문제를 해결 하 고 수행 된 작업을 감사 로그에서 사용할 수 있습니다.
 
 ## <a name="users"></a>사용자
 
-구독에서 **소유자** 및 **기여자** 역할을 가진 모든 사용자는 CloudSimple 포털에 액세스할 수 있습니다.  포털에 액세스하면 CloudSimple 계정에서 사용자가 만들어집니다.  계정 페이지에서 특정 사용자에 대해 CloudSimple 포털에 대한 액세스를 비활성화할 수 있습니다.
+구독에서 **소유자** 및 **참여자** 역할이 있는 모든 사용자는 cloudsimple 포털에 액세스할 수 있습니다.  포털에 액세스 하면 사용자가 CloudSimple 계정에 만들어집니다.  계정 페이지에서 특정 사용자에 대 한 CloudSimple 포털에 대 한 액세스를 사용 하지 않도록 설정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

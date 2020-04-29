@@ -1,5 +1,5 @@
 ---
-title: SAP HANA Azure VM 문제 해결에 SLES를 갖춘 HSR-Pacemaker 확장* 마이크로 소프트 문서
+title: Azure Vm의 SLES을 사용 하 여 Pacemaker HSR-확장을 확장 합니다. 문제 해결 | SAP HANA Microsoft Docs
 description: Azure 가상 머신에서 실행되는 SLES 12 SP3의 SAP HSR(HANA System Replication) 및 Pacemaker에 기반한 복잡한 SAP HANA 스케일 아웃 고가용성 구성 확인 및 문제 해결 가이드
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: e93b3412785817050ac53030be9ff2172a678c06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617133"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>SLES 12 SP3에서 SAP HANA 스케일 아웃 고가용성 설정 확인 및 문제 해결 
@@ -65,7 +65,7 @@ SUSE의 지원이 필요한 경우 [가이드][suse-pacemaker-support-log-files]
  SAP HANA 스케일 아웃 HA 확인 및 인증에 설정이 사용되었습니다. SAP HANA 노드 세 개(마스터 하나와 작업자 둘)와 시스템 두 개로 구성되었니다. 다음 테이블에는 VM 이름과 내부 IP 주소가 나열되어 있습니다. 뒤에 나오는 모든 확인 샘플은 이 VM에서 수행되었습니다. 명령 샘플에서 이러한 VM 이름과 IP 주소를 사용하면 명령과 해당 출력을 더 잘 이해할 수 있습니다.
 
 
-| 노드 유형 | VM 이름 | IP 주소 |
+| 노드 형식 | VM 이름 | IP 주소 |
 | --- | --- | --- |
 | 사이트 1의 마스터 노드 | hso-hana-vm-s1-0 | 10.0.0.30 |
 | 사이트 1의 작업자 노드 1 | hso-hana-vm-s1-1 | 10.0.0.31 |
@@ -119,7 +119,7 @@ inet addr:10.0.2.42  Bcast:10.0.2.255  Mask:255.255.255.0
 select * from "SYS"."M_SYSTEM_OVERVIEW"
 </code></pre>
 
-올바른 포트 번호를 찾으려면 구성 **아래의** HANA Studio 또는 SQL 문을 통해 볼 수 있습니다.
+올바른 포트 번호를 찾으려면 예를 들어 **구성** 아래의 HANA STUDIO 또는 SQL 문을 통해 확인할 수 있습니다.
 
 <pre><code>
 select * from M_INIFILE_CONTENTS WHERE KEY LIKE 'listen%'
@@ -457,7 +457,7 @@ node.startup = automatic
 5. 초기자 이름 위에 **Service Start**(서비스 시작) 값이 **When Booting**(부팅 시)로 설정되어 있는지 확인합니다.
 6. 그렇지 않은 경우 **Manually**(수동) 대신 **When Booting**(부팅 시)으로 설정합니다.
 7. 그런 다음, 위쪽 탭을 **Connected Targets**(연결된 대상)으로 전환합니다.
-8. 연결된 **대상** 화면에이 샘플과 같은 SBD 장치에 대한 항목이 표시됩니다: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**.
+8. 연결 된 **대상** 화면에 다음과 같은 SBD 장치에 대 한 항목이 표시 됩니다. **10.0.0.19:3260 iqn-04. dbha. local: dbha.**
 9. **Start-Up**(시작) 값이 **on boot**(부팅)로 설정되어 있는지 확인합니다.
 10. 그렇지 않은 경우 **Edit**(편집)을 선택하여 변경합니다.
 11. 변경 내용을 저장하고 YaST2를 종료합니다.
@@ -504,7 +504,7 @@ Pacemaker에서 구성된 모든 리소스를 보려면 다음 명령을 실행�
 crm status
 </code></pre>
 
-출력이 다음 샘플과 유사하게 표시됩니다. **cln** 및 **msl** 리소스는 주 결정자 VM, **hso-hana-dm**에서 stopped(중지됨)로 표시됩니다. 주 결정자 노드에는 SAP HANA가 설치되어 있지 않습니다. 따라서 **cln** 및 **msl** 리소스가 stopped(중지됨)로 표시됩니다. VM의 정확한 총 수, **7을**표시하는 것이 중요합니다. 클러스터의 일부인 모든 VM은 **Online**(온라인) 상태에서 나열되어야 합니다. 현재 주 마스터 노드를 올바르게 인식해야 합니다. 이 예제에서는 **hso-hana-vm-s1-0**입니다.
+출력이 다음 샘플과 유사하게 표시됩니다. **cln** 및 **msl** 리소스는 주 결정자 VM, **hso-hana-dm**에서 stopped(중지됨)로 표시됩니다. 주 결정자 노드에는 SAP HANA가 설치되어 있지 않습니다. 따라서 **cln** 및 **msl** 리소스가 stopped(중지됨)로 표시됩니다. 올바른 총 Vm 수 ( **7**)를 표시 하는 것이 중요 합니다. 클러스터의 일부인 모든 VM은 **Online**(온라인) 상태에서 나열되어야 합니다. 현재 주 마스터 노드를 올바르게 인식해야 합니다. 이 예제에서는 **hso-hana-vm-s1-0**입니다.
 
 <pre><code>
 Stack: corosync
@@ -682,7 +682,7 @@ SAP Python 스크립트에서 제공되는 SAP HANA 랜드스케이프 상태를
 
 불필요한 장애 조치를 방지하기 위해 몇 가지 재시도가 있습니다. 클러스터는 **Ok** 상태, 반환 값이 **4**가 **error** 및 반환 값 **1**로 변경되는 경우에만 반응합니다. 따라서 **SAPHanaSR-showAttr**의 출력에 **offline** 상태의 VM이 표시되면 맞습니다. 단, 주와 보조를 전환할 작업은 아직 없습니다. SAP HANA에서 오류를 반환하지 않는 한 클러스터 작업은 트리거되지 않습니다.
 
-다음과 같이 SAP 파이썬 스크립트를 호출하여 사용자 ** \<HANA SID\>adm으로** SAP HANA 가로 상태 상태를 모니터링할 수 있습니다. 경로를 조정해야 할 수도 있습니다.
+다음과 같이 SAP Python 스크립트를 호출 하 여 SAP HANA 가로 상태를 사용자 ** \<HANA SID\>adm** 으로 모니터링할 수 있습니다. 경로를 조정해야 할 수도 있습니다.
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
@@ -945,7 +945,7 @@ listeninterface = .internal
 ## <a name="hawk"></a>Hawk
 
 클러스터 솔루션은 메뉴와 그래픽에 셸 수준의 모든 명령이 있는 것을 선호하는 사용자를 위해 GUI를 제공하는 다음과 같은 브라우저 인터페이스를 제공합니다.
-브라우저 인터페이스를 사용하려면 ** \<\> 노드를** 다음 URL에서 실제 SAP HANA 노드로 바꿉습니다. 그런 다음, 클러스터의 자격 증명을 입력합니다(사용자 **클러스터**).
+Browser 인터페이스를 사용 하려면 ** \<node\> ** 를 다음 URL의 실제 SAP HANA 노드로 바꿉니다. 그런 다음, 클러스터의 자격 증명을 입력합니다(사용자 **클러스터**).
 
 <pre><code>
 https://&ltnode&gt:7630

@@ -1,6 +1,6 @@
 ---
 title: Azure Traffic Manager의 실제 사용자 측정
-description: 이 소개에서는 Azure 트래픽 관리자 실제 사용자 측정의 작동 방식을 알아봅니다.
+description: 이 소개에서는 Azure Traffic Manager 실제 사용자 측정 작동 하는 방법을 알아봅니다.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: e38e1255b1a84ab5d3fd37e16eb65c76001dbfa1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938445"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Traffic Manager 실제 사용자 측정 개요
@@ -35,7 +35,7 @@ ms.locfileid: "76938445"
 
 실제 사용자 측정을 사용하면 Traffic Manager로 전송되는 측정값 수에 따라 요금이 청구됩니다. 가격 책정에 대한 자세한 내용은 [Traffic Manager 가격 책정 페이지](https://azure.microsoft.com/pricing/details/traffic-manager/)를 참조하세요.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 * [실제 사용자 측정을 사용하는 장점은 무엇인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-benefits-of-using-real-user-measurements)
 

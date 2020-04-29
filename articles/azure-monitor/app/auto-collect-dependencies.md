@@ -7,10 +7,10 @@ ms.author: nimolnar
 ms.date: 04/29/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: eaafe19f5112b433d50a34aa551aa84d196726a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77665819"
 ---
 # <a name="dependency-auto-collection"></a>종속성 자동 수집
@@ -41,17 +41,17 @@ ms.locfileid: "77665819"
 | [Jetty](https://www.eclipse.org/jetty/) | 9 |
 | <b>앱 프레임워크 </b> |  |
 | [스프링](https://spring.io/) | 3.0 |
-| [Spring Boot](https://spring.io/projects/spring-boot) | 1.5.9 이상<sup>*</sup> |
+| [Spring Boot](https://spring.io/projects/spring-boot) | 1.5.9 +<sup>*</sup> |
 | Java Servlet | 3.1+ |
 | <b>통신 라이브러리</b> |  |
-| [Apache HTTP 클라이언트](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3+<sup>†</sup> |
+| [Apache HTTP 클라이언트](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3 +<sup>†</sup> |
 | <b>Storage 클라이언트</b> | |
-| [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1+<sup>•</sup> |
-| [포스트그레SQL (베타 지원)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
-| [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1+<sup>•</sup> |
-| [Mysql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>•</sup> |
+| [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1 +<sup>†</sup> |
+| [PostgreSQL (베타 지원)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
+| [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1 +<sup>†</sup> |
+| [MySql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1 +<sup>†</sup> |
 | <b>로깅 라이브러리</b> | |
-| [로그백](https://logback.qos.ch/) | 1+ |
+| [Logback](https://logback.qos.ch/) | 1+ |
 | [Log4j](https://logging.apache.org/log4j/) | 1.2+ |
 | <b>메트릭 라이브러리</b> |  |
 | JMX | 1.0+ |
@@ -67,14 +67,14 @@ ms.locfileid: "77665819"
 | [HTTP](https://nodejs.org/api/http.html), [HTTPS](https://nodejs.org/api/https.html) | 0.10+ |
 | <b>Storage 클라이언트</b> | |
 | [Redis](https://www.npmjs.com/package/redis) | 2.x |
-| [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2.x - 3.x |
-| [Mysql](https://www.npmjs.com/package/mysql) | 2.0.0 - 2.16.x |
-| [포스트그레Sql;](https://www.npmjs.com/package/pg) | 6.x - 7.x |
-| [pg-pool](https://www.npmjs.com/package/pg-pool) | 1.x - 2.x |
+| [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2.x-에서처럼 |
+| [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0-2.16 |
+| [PostgreSql](https://www.npmjs.com/package/pg); | 6gb-7.x |
+| [pg-pool](https://www.npmjs.com/package/pg-pool) | 1.x-2.x |
 | <b>로깅 라이브러리</b> | |
 | [콘솔](https://nodejs.org/api/console.html) | 0.10+ |
 | [Bunyan](https://www.npmjs.com/package/bunyan) | 1.x |
-| [윈스턴](https://www.npmjs.com/package/winston) | 2.x - 3.x |
+| [윈스턴](https://www.npmjs.com/package/winston) | 2.x-에서처럼 |
 
 ## <a name="javascript"></a>JavaScript
 
@@ -86,7 +86,7 @@ ms.locfileid: "77665819"
 
 - [.NET](../../azure-monitor/app/asp-net-dependencies.md)에 대한 사용자 지정 종속성 추적을 설정합니다.
 - [Java](../../azure-monitor/app/java-agent.md)에 대한 사용자 지정 종속성 추적을 설정합니다.
-- [OpenCensus 파이썬에](../../azure-monitor/app/opencensus-python-dependency.md)대한 사용자 지정 종속성 추적을 설정합니다.
+- [OpenCensus Python](../../azure-monitor/app/opencensus-python-dependency.md)에 대 한 사용자 지정 종속성 추적을 설정 합니다.
 - [사용자 지정 종속성 원격 분석을 작성합니다](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](../../azure-monitor/app/data-model.md)을 참조하세요.
 - Application Insights에서 지원되는 [플랫폼](../../azure-monitor/app/platforms.md)을 확인합니다.

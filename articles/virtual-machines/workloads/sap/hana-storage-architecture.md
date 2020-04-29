@@ -14,10 +14,10 @@ ms.date: 02/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a12c454906d6c6ff702b7f635a91361bbe3994c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616881"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>SAP HANA(대규모 인스턴스) 스토리지 아키텍처
@@ -36,8 +36,8 @@ Azure의 SAP HANA(대규모 인스턴스)의 스토리지 레이아웃은 SAP �
 | S192 | 4,608GB | 1,024GB | 1,536GB | 1,024GB |
 | S192m | 11,520 GB | 1,536GB | 1,792GB | 1,536GB |
 | S192xm |  11,520 GB |  1,536GB |  1,792GB |  1,536GB |
-| S224 |  4,224 GB |  512 GB |  1,024GB |  512 GB |
-| S224m |  8,448 GB |  512 GB |  1,024GB |  512 GB |
+| S224 |  4224 GB |  512 GB |  1,024GB |  512 GB |
+| S224m |  8448 GB |  512 GB |  1,024GB |  512 GB |
 | S384 | 11,520 GB | 1,536GB | 1,792GB | 1,536GB |
 | S384m | 12,000 GB | 2,050GB | 2,050GB | 2,040GB |
 | S384xm | 16,000 GB | 2,050GB | 2,050GB | 2,040GB |
@@ -75,8 +75,8 @@ HANA 대규모 인스턴스 SKU를 세분화하는 경우 가능한 분할 조�
 HANA 대규모 인스턴스 장치에 둘 이상의 활성 SAP HANA 인스턴스를 호스팅할 수 있습니다. 스토리지 스냅샷 및 재해 복구 기능을 제공하기 위해 이러한 구성에는 인스턴스당 볼륨 세트가 필요합니다. 현재 HANA 대규모 인스턴스 장치는 다음과 같이 세분화할 수 있습니다.
 
 - **S72, S72m, S96, S144, S192**: 최소 시작 단위는 256GB이며, 256GB씩 증분할 수 있습니다. 다른 증분 단위(예: 256GB, 512GB)는 장치의 메모리 최댓값과 결합할 수 있습니다.
-- **S144m 및 S192m**: 256GB 단위로 512GB가 가장 작은 장치입니다. 다른 증분 단위(예: 512GB, 768GB)는 장치의 메모리 최댓값과 결합할 수 있습니다.
-- **유형 II 클래스**: 512GB 단위로 2TB의 가장 작은 시작 단위입니다. 다른 증분 단위(예: 512GB, 1TB, 1.5TB)는 장치의 메모리 최댓값과 결합할 수 있습니다.
+- **S144m 및 S192m**: 256 gb 단위로, 512 gb의 가장 작은 단위입니다. 다른 증분 단위(예: 512GB, 768GB)는 장치의 메모리 최댓값과 결합할 수 있습니다.
+- **TYPE II class**: 512 GB 단위로, 가장 작은 시작 단위인 2tb를 사용 합니다. 다른 증분 단위(예: 512GB, 1TB, 1.5TB)는 장치의 메모리 최댓값과 결합할 수 있습니다.
 
 여러 SAP HANA 인스턴스를 실행하는 몇 가지 예는 다음과 같습니다.
 
@@ -84,27 +84,27 @@ HANA 대규모 인스턴스 장치에 둘 이상의 활성 SAP HANA 인스턴스
 | --- | --- | --- | --- |
 | S72 | 768 GB | 3 TB | 1 x 768GB HANA 인스턴스<br /> 또는 1 x 512GB 인스턴스 + 1 x 256GB 인스턴스<br /> 또는 3 x 256GB 인스턴스 | 
 | S72m | 1.5 TB | 6 TB | 3 x 512GB HANA 인스턴스<br />또는 1 x 512GB 인스턴스 + 1 x 1TB 인스턴스<br />또는 6 x 256GB 인스턴스<br />또는 1x1.5TB 인스턴스 | 
-| S192m | 4 TB | 16 TB | 8 x 512GB 인스턴스<br />또는 4 x 1TB 인스턴스<br />또는 4 x 512GB 인스턴스 + 2 x 1TB 인스턴스<br />또는 4 x 768GB 인스턴스 + 2 x 512GB 인스턴스<br />또는 1 x 4TB 인스턴스 |
+| S192m | 4 TB | 16TB | 8 x 512GB 인스턴스<br />또는 4 x 1TB 인스턴스<br />또는 4 x 512GB 인스턴스 + 2 x 1TB 인스턴스<br />또는 4 x 768GB 인스턴스 + 2 x 512GB 인스턴스<br />또는 1 x 4TB 인스턴스 |
 | S384xm | 8 TB | 22 TB | 4 x 2TB 인스턴스<br />또는 2 x 4TB 인스턴스<br />또는 2 x 3TB 인스턴스 + 1 x 2TB 인스턴스<br />또는 2 x 2.5TB 인스턴스 + 1 x 3TB 인스턴스<br />또는 1 x 8TB 인스턴스 |
 
 
 다른 변형도 있습니다. 
 
 ## <a name="encryption-of-data-at-rest"></a>미사용 데이터 암호화
-HANA Large 인스턴스에 사용되는 저장소는 2018년 말부터 디스크에 저장되므로 데이터에 대해 투명 암호화를 사용합니다. 이전 배포에서는 볼륨을 암호화하도록 선택할 수 있습니다. 이 옵션에 대해 결정한 경우 온라인으로 암호화된 볼륨을 요청하여 요청할 수 있습니다. 암호화되지 않은 볼륨에서 암호화된 볼륨으로 이동하는 경우 투명하게 수행되며 가동 중지 시간이 필요하지 않습니다. 
+HANA Large Instance에 사용 되는 저장소는 2018 년 이후 디스크에 저장 되는 데이터에 대해 투명 한 암호화를 사용 합니다. 이전 배포에서는 암호화 된 볼륨을 가져오도록 선택할 수 있습니다. 해당 옵션에 대해 결정 한 경우 온라인으로 암호화 된 볼륨을 가져오도록 요청할 수 있습니다. 암호화되지 않은 볼륨에서 암호화된 볼륨으로 이동하는 경우 투명하게 수행되며 가동 중지 시간이 필요하지 않습니다. 
 
-유형 I 클래스 SKU를 사용하면 부팅 LUN이 저장된 볼륨이 암호화됩니다. 개정 3 HANA 대형 인스턴스 스탬프에서는 HANA 대형 인스턴스의 SUS의 유형 II 클래스를 사용하여 OS 메서드를 사용하여 부팅 LUN을 암호화해야 합니다. 개정 4 HANA 대형 인스턴스 스탬프에서 Type II 단위를 사용하면 부팅 LUN이 저장되고 기본적으로 미사용 으로 암호화됩니다. 
+유형 I 클래스 SKU를 사용하면 부팅 LUN이 저장된 볼륨이 암호화됩니다. 수정 3 HANA large instance 스탬프에서 HANA Large Instance의 유형 II 클래스를 사용 하 여 OS 메서드를 사용 하 여 부팅 LUN을 암호화 해야 합니다. 수정 버전 4 HANA 대규모 인스턴스 스탬프에서 형식 II 단위를 사용 하 여 부팅 LUN이 저장 되 고 기본적으로 미사용 암호화 됩니다. 
 
-## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>HANA 대형 인스턴스에서 더 큰 HANA 인스턴스에 필요한 설정
-HANA 대형 인스턴스에 사용되는 저장소에는 파일 크기 제한이 있습니다. 크기 제한은 파일당 [16TB입니다.](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) EXT3 파일 시스템의 파일 크기 제한과 달리 HANA는 HANA 대형 인스턴스 저장소에 의해 시행되는 스토리지 제한을 암시적으로 인식하지 못합니다. 따라서 HANA는 파일 크기 제한16TB에 도달하면 새 데이터 파일을 자동으로 생성하지 않습니다. HANA가 16TB를 초과하여 파일을 늘리려고 하면 HANA는 오류를 보고하고 인덱스 서버가 끝날 때 충돌합니다.
+## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>HANA 큰 인스턴스의 큰 HANA 인스턴스에 대 한 필수 설정
+HANA 큰 인스턴스에 사용 되는 저장소에는 파일 크기 제한이 있습니다. [크기 제한은 파일당 16TB입니다](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) . EXT3 파일 시스템의 파일 크기 제한과 달리 HANA는 HANA 큰 인스턴스 저장소에서 적용 하는 저장소 제한을 암시적으로 인식 하지 못합니다. 결과적으로 파일 크기 제한인 16TB에 도달 하면 HANA는 새 데이터 파일을 자동으로 만들지 않습니다. HANA가 16gb를 초과 하 여 파일을 확장 하려고 하면 HANA에서 오류를 보고 하 고 인덱스 서버가 종료 될 때 충돌 합니다.
 
 > [!IMPORTANT]
-> HANA가 HANA 대형 인스턴스 스토리지의 16TB 파일 크기 제한을 초과하여 데이터 파일을 늘리려는 것을 방지하려면 HANA의 global.ini 구성 파일에 다음 매개 변수를 설정해야 합니다.
+> Hana 큰 인스턴스 저장소의 16TB 파일 크기 제한을 초과 하 여 데이터 파일을 확장 하려는 HANA를 방지 하려면 HANA의 global.asax 구성 파일에서 다음 매개 변수를 설정 해야 합니다.
 > 
-> - datavolume_striping=true
+> - datavolume_striping = true
 > - datavolume_striping_size_gb = 15000
-> - 또한 SAP 노트 [#2400005](https://launchpad.support.sap.com/#/notes/2400005) 참조
-> - #2631285 SAP [참고](https://launchpad.support.sap.com/#/notes/2631285) 사항
+> - SAP note를 참조 하세요 [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - SAP note에 유의 하십시오 [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 

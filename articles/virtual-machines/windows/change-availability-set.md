@@ -1,22 +1,22 @@
 ---
-title: VM 가용성 세트 변경
-description: Azure PowerShell을 사용하여 가상 컴퓨터의 가용성 집합을 변경하는 방법에 대해 알아봅니다.
+title: Vm 가용성 집합 변경
+description: Azure PowerShell를 사용 하 여 가상 머신에 대 한 가용성 집합을 변경 하는 방법을 알아봅니다.
 ms.service: virtual-machines
 author: cynthn
 ms.topic: article
 ms.date: 01/31/2020
 ms.author: cynthn
 ms.openlocfilehash: 092dafff6622d3402322eb96d0fe4215e52e16b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76964926"
 ---
 # <a name="change-the-availability-set-for-a-vm"></a>VM에 대한 가용성 집합 변경
 다음 단계에서는 Azure PowerShell을 사용하여 VM의 가용성 집합을 변경하는 방법을 설명합니다. VM은 생성될 때만 가용성 집합에 추가될 수 있습니다. 가용성 집합을 변경하려면 가상 머신을 삭제한 다음, 다시 만들어야 합니다. 
 
-이 문서는 리눅스와 윈도우 VM 모두에 적용됩니다.
+이 문서는 Linux 및 Windows Vm 모두에 적용 됩니다.
 
 이 문서는 2019/2/12에 [Azure Cloud Shell](https://shell.azure.com/powershell) 및 [Az PowerShell 모듈](https://docs.microsoft.com/powershell/azure/install-az-ps) 버전 1.2.0을 사용하여 마지막으로 테스트되었습니다.
 

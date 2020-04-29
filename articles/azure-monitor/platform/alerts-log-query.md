@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
 ms.openlocfilehash: fdf492b8f103e725046b9b1cbbd079c4d249664a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77667791"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Azure Monitor의 로그 경고 쿼리
 [Azure Monitor 로그를 기반으로 하는 경고 규칙](alerts-unified-log.md)은 일정한 간격으로 실행되므로 오버헤드와 대기 시간을 최소화할 수 있도록 규칙을 작성해야 합니다. 이 문서에서는 로그 경고용으로 효율적인 쿼리를 작성하는 방법과 관련된 권장 사항과 기존 쿼리를 변환하는 프로세스를 제공합니다. 
 
 ## <a name="types-of-log-queries"></a>로그 쿼리의 유형
-[Azure Monitor의 로그 쿼리는](../log-query/log-query-overview.md) 테이블 또는 [검색](/azure/kusto/query/searchoperator) 또는 [공용 구조조정자로](/azure/kusto/query/unionoperator) 시작합니다.
+[Azure Monitor의 로그 쿼리](../log-query/log-query-overview.md) 는 테이블이 나 [검색](/azure/kusto/query/searchoperator) 또는 [union](/azure/kusto/query/unionoperator) 연산자로 시작 합니다.
 
 예를 들어 범위가 _SecurityEvent_ 테이블로 지정된 다음 쿼리는 특정 이벤트 ID를 검색합니다. 쿼리는 이 테이블만 처리하면 됩니다.
 

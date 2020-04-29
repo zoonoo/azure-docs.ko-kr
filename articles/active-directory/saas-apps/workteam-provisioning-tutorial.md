@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Active Directory를 사용 하 고 자동 사용자 프로비저닝을 위한 작업 팀 구성 | 마이크로 소프트 문서'
-description: 사용자 계정을 Workteam에 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법에 대해 알아봅니다.
+title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 작업 팀 구성 | Microsoft Docs'
+description: 사용자 계정을 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 08/17/2019
 ms.author: Zhchia
 ms.openlocfilehash: e9b1e93cf543836b282525c53756752630d5e4f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77062799"
 ---
-# <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 작업팀 구성
+# <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 작업 팀 구성
 
-이 자습서의 목적은 사용자 및/또는 그룹을 Workteam에 자동으로 프로비전 및 프로비저닝 해제하도록 Azure AD를 구성하기 위해 Workteam 및 Azure Active Directory(Azure AD)에서 수행할 단계를 보여 주는 것입니다.
+이 자습서에서는 사용자 및/또는 그룹을 작업 팀에 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure AD를 구성 하기 위해 작업 팀 및 Azure Active Directory (Azure AD)에서 수행 하는 단계를 설명 합니다.
 
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
@@ -36,87 +36,87 @@ ms.locfileid: "77062799"
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
 * Azure AD 테넌트.
-* [작업팀 테넌트](https://workte.am/pricing.html)
-* 관리자 권한이 있는 워크팀의 사용자 계정입니다.
+* [근무 팀 테 넌 트](https://workte.am/pricing.html)
+* 관리자 권한이 있는 근무 팀의 사용자 계정
 
-## <a name="assigning-users-to-workteam"></a>사용자를 워크팀에 할당 
+## <a name="assigning-users-to-workteam"></a>사용자를 근무 팀에 할당 
 
-Azure Active Directory는 *할당이라는* 개념을 사용하여 선택한 앱에 대한 액세스 권한을 받아야 하는 사용자를 결정합니다. 자동 사용자 프로비저닝의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당된 사용자 및/또는 그룹만 동기화됩니다.
+Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 앱에 대 한 액세스 권한을 받아야 하는 사용자를 결정 합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
 
-자동 사용자 프로비저닝을 구성하고 활성화하기 전에 Azure AD의 사용자 및/또는 그룹이 Workteam에 액세스해야 하는지 결정해야 합니다. 결정되면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 Workteam에 할당할 수 있습니다.
+자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Azure AD의 사용자 및/또는 그룹에 대 한 액세스 권한이 있어야 합니다. 일단 결정 되 면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 작업 팀에 할당할 수 있습니다.
 * [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-workteam"></a>사용자를 워크팀에 할당하기 위한 중요한 팁 
+## <a name="important-tips-for-assigning-users-to-workteam"></a>회사 팀에 사용자를 할당 하기 위한 주요 팁 
 
-* 단일 Azure AD 사용자가 자동 사용자 프로비전 구성을 테스트하기 위해 Workteam에 할당되는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
+* 자동 사용자 프로 비전 구성을 테스트 하려면 단일 Azure AD 사용자를 근무 팀에 할당 하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 
-* 사용자를 Workteam에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램 별 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비저닝에서 제외됩니다.
+* 사용자를 회사 팀에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할 (사용 가능한 경우)을 선택 해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로 비전에서 제외 됩니다.
 
-## <a name="setup-workteam--for-provisioning"></a>프로비저닝을 위한 작업 팀 설정
+## <a name="setup-workteam--for-provisioning"></a>프로 비전을 위한 워크 팀 설정
 
-Azure AD를 사용하여 자동 사용자 프로비전을 위한 작업 팀을 구성하기 전에 Workteam에서 SCIM 프로비전을 사용하도록 설정해야 합니다.
+Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 회사 팀을 구성 하기 전에 근무 팀에서 SCIM 프로 비전을 사용 하도록 설정 해야 합니다.
 
-1. [작업 팀에](https://app.workte.am/account/signin)로그인합니다. **조직 설정** > **설정을**클릭합니다.
+1. [근무 팀](https://app.workte.am/account/signin)에 로그인 합니다. **조직 설정** > **설정**을 클릭 합니다.
 
     ![Workteam](media/workteam-provisioning-tutorial/settings.png)
 
-2. 맨 아래로 스크롤하여 Workteam의 프로비저닝 기능을 활성화합니다.
+2. 아래쪽으로 스크롤하고 근무 팀의 프로 비전 기능을 사용 하도록 설정 합니다.
 
     ![Workteam](media/workteam-provisioning-tutorial/icon.png)
 
-3. 기본 **URL** 및 **베어러 토큰을**복사합니다. 이러한 값은 Azure 포털에서 Workteam 응용 프로그램의 프로비저닝 탭에서 **테넌트 URL**및 **비밀 토큰** 필드에 입력됩니다.
+3. **기준 Url** 및 **전달자 토큰**을 복사 합니다. 이러한 값은 Azure Portal에서 근무 팀 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 URL**및 **비밀 토큰** 필드에 입력 됩니다.
 
     ![Workteam](media/workteam-provisioning-tutorial/scim.png)
 
 
-## <a name="add-workteam--from-the-gallery"></a>갤러리에서 작업팀 추가
+## <a name="add-workteam--from-the-gallery"></a>갤러리에서 근무 팀 추가
 
-Azure AD를 사용하여 자동 사용자 프로비전을 위한 작업팀을 구성하려면 Azure AD 응용 프로그램 갤러리에서 관리되는 SaaS 응용 프로그램 목록에 Workteam을 추가해야 합니다.
+Azure AD를 사용한 자동 사용자 프로 비전을 위해 회사 팀을 구성 하려면 Azure AD 응용 프로그램 갤러리의 회사 팀을 관리 되는 SaaS 응용 프로그램 목록에 추가 해야 합니다.
 
-**Azure AD 응용 프로그램 갤러리에서 Workteam을 추가하려면 다음 단계를 수행합니다.**
+**Azure AD 응용 프로그램 갤러리에서 작업 팀을 추가 하려면 다음 단계를 수행 합니다.**
 
-1. Azure **[포털에서](https://portal.azure.com)** 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택합니다.
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택 합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동한 다음 **모든 응용 프로그램**을 선택 합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-3. 새 응용 프로그램을 추가하려면 창 상단의 **새 응용 프로그램** 단추를 선택합니다.
+3. 새 응용 프로그램을 추가 하려면 창의 위쪽에 있는 **새 응용 프로그램** 단추를 선택 합니다.
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에서 **Workteam을**입력하고 결과 패널에서 **작업팀을** 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 회사 **팀**을 입력 하 고, 결과 패널에서 업무 **팀** 을 선택한 다음, **추가** 단추를 클릭 하 여 응용 프로그램을 추가 합니다.
 
-    ![결과 목록의 작업팀](common/search-new-app.png)
+    ![결과 목록의 근무 팀](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-workteam"></a>Workteam에 자동 사용자 프로비전 구성  
+## <a name="configuring-automatic-user-provisioning-to-workteam"></a>회사 팀에 자동 사용자 프로 비전 구성  
 
-이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당을 기반으로 Workteam에서 사용자 및/또는 그룹을 생성, 업데이트 및 비활성화하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
+이 섹션에서는 azure ad의 사용자 및/또는 그룹 할당을 기반으로 하 여 작업 팀의 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 비활성화 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
 
 > [!TIP]
-> Workteam [Single Sign-on 자습서에서](workteam-tutorial.md)제공된 지침에 따라 WORKTEAM에 대해 SAML 기반 단일 사인온을 사용하도록 선택할 수도 있습니다. 단일 사인온은 자동 사용자 프로비저닝과 독립적으로 구성할 수 있지만 이 두 기능은 서로 보완합니다.
+> 공동 [팀 single sign-on 자습서](workteam-tutorial.md)에 제공 된 지침에 따라 회사 팀에 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성 될 수 있지만,이 두 가지 기능은 서로 보완 됩니다.
 
-### <a name="to-configure-automatic-user-provisioning-for-workteam--in-azure-ad"></a>Azure AD에서 Workteam에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
+### <a name="to-configure-automatic-user-provisioning-for-workteam--in-azure-ad"></a>Azure AD에서 작업 팀에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. **엔터프라이즈 응용 프로그램을**선택한 다음 모든 응용 프로그램을 **선택합니다.**
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
 2. 애플리케이션 목록에서 **Workteam**을 선택합니다.
 
-    ![응용 프로그램 목록의 작업팀 링크](common/all-applications.png)
+    ![응용 프로그램 목록의 근무 팀 링크](common/all-applications.png)
 
-3. **프로비저닝** 탭을 선택합니다.
+3. **프로 비전** 탭을 선택 합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 탭](common/provisioning.png)
 
-4. **프로비저닝 모드를** **자동으로**설정합니다.
+4. **프로 비전 모드** 를 **자동**으로 설정 합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![프로 비전 탭](common/provisioning-automatic.png)
 
-5. 관리자 자격 증명 섹션에서 **테넌트** URL 및 **비밀** 토큰에서 각각 앞에서 검색된 **기본 URL** 및 **Bearer 토큰** 값을 입력합니다. Azure AD가 작업팀에 연결할 수 있도록 **테스트 연결을** 클릭합니다. 연결이 실패하면 Workteam 계정에 관리자 권한이 있는지 확인하고 다시 시도하십시오.
+5. 관리자 자격 증명 섹션 아래에서 **테 넌 트 url** 및 **암호 토큰** 에서 각각 검색 된 **기준 url** 및 **전달자 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 근무 팀에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 업무 팀 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
     ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -126,21 +126,21 @@ Azure AD를 사용하여 자동 사용자 프로비전을 위한 작업팀을 �
 
 7. **저장**을 클릭합니다.
 
-8. **매핑** 섹션에서 **Azure Active Directory 사용자를 작업팀에 동기화합니다.**
+8. **매핑** 섹션 아래에서 업무 **팀에 Azure Active Directory 사용자 동기화를**선택 합니다.
 
-    ![작업팀 사용자 매핑](media/workteam-provisioning-tutorial/usermapping.png)
+    ![근무 팀 사용자 매핑](media/workteam-provisioning-tutorial/usermapping.png)
 
-9. **속성 매핑** 섹션에서 Azure AD에서 Workteam으로 동기화된 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업에 대한 Workteam의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+9. **특성 매핑** 섹션에서 Azure AD에서 근무 팀으로 동기화 된 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 작업 팀의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![작업팀 사용자 속성](media/workteam-provisioning-tutorial/userattribute.png)
+    ![워크 팀 사용자 특성](media/workteam-provisioning-tutorial/userattribute.png)
 
 11. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
-12. 작업 팀에 대한 Azure AD 프로비전 서비스를 사용하려면 **설정** 섹션에서 **프로비저닝 상태를** **켜기로** 변경합니다.
+12. 회사 팀에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-13. **설정** 섹션의 **범위에서** 원하는 값을 선택하여 Workteam에 프로비전할 사용자 및/또는 그룹을 정의합니다.
+13. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 회사 팀에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
 
     ![프로비전 범위](common/provisioning-scope.png)
 
@@ -148,14 +148,14 @@ Azure AD를 사용하여 자동 사용자 프로비전을 위한 작업팀을 �
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 후속 동기화보다 수행하는 데 시간이 오래 걸립니다. 사용자 및/또는 그룹이 프로비전하는 데 걸리는 시간(자세한 [내용은) 을](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)참조하세요.
+이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 후속 동기화 보다 수행 하는 데 더 많은 시간이 걸립니다. 사용자 및/또는 그룹을 프로 비전 하는 데 소요 되는 시간에 대 한 자세한 내용은 [사용자를 프로 비전 하는 데 소요 되는 시간](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)을 참조 하세요.
 
-**현재 상태** 섹션을 사용하여 진행 상황을 모니터링하고 Workteam의 Azure AD 프로비저닝 서비스에서 수행하는 모든 작업을 설명하는 프로비저닝 활동 보고서에 대한 링크를 따를 수 있습니다. 자세한 내용은 [사용자 프로비저닝 의 상태 확인을](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)참조하십시오. Azure AD 프로비저닝 로그를 읽으려면 [자동 사용자 계정 프로비저닝에 대한 보고를](../app-provisioning/check-status-user-account-provisioning.md)참조하십시오.
+**현재 상태** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 작업 팀의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다. 자세한 내용은 [사용자 프로 비전 상태 확인](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조 하세요. Azure AD 프로 비전 로그를 읽으려면 [자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조 하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱용 사용자 계정 프로비저닝 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
+* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 

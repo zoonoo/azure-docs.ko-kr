@@ -1,6 +1,6 @@
 ---
-title: Microsoft 인증자 앱을 인증 방법으로 설정 - Azure AD
-description: Microsoft 인증자 앱을 확인 방법으로 사용하여 사용자의 신원을 확인하기 위해 보안 정보(미리 보기) 페이지를 설정하는 방법
+title: Microsoft Authenticator 앱을 확인 방법으로 설정-Azure AD
+description: Microsoft Authenticator 앱을 확인 방법으로 사용 하 여 id를 확인 하는 보안 정보 (미리 보기) 페이지를 설정 하는 방법입니다.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 16cb512d3f8f8afcc199cb52c13e09b12107576f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77062424"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>확인 방법으로 Microsoft Authenticator 앱 설정
@@ -27,9 +27,9 @@ ms.locfileid: "77062424"
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
-> 인증자 앱 옵션이 표시되지 않으면 조직에서 확인에 이 옵션을 사용하도록 허용하지 않을 수 있습니다. 이 경우 다른 방법을 선택하거나 조직의 헬프 데스크에 문의하여 추가 지원을 받아야 합니다.
+> Authenticator 앱 옵션이 표시 되지 않으면 조직에서이 옵션을 사용 하 여 확인할 수 없는 것입니다. 이 경우 다른 방법을 선택 하거나 조직의 지원 센터에 문의 하 여 추가 지원을 요청 해야 합니다.
 
-## <a name="security-vs-password-reset-verification"></a>보안 대 암호 재설정 확인
+## <a name="security-vs-password-reset-verification"></a>보안 vs 암호 재설정 확인
 
 보안 정보 방법은 2단계 보안 확인 및 암호 재설정에 모두 사용됩니다. 그러나 모든 보안 정보 방법을 둘 모두에 사용할 수 있는 것은 아닙니다.
 
@@ -147,9 +147,9 @@ ms.locfileid: "77062424"
 
 - **모바일 디바이스 또는 회사 전화 통화.** 모바일 디바이스 번호를 입력하면 2단계 인증 또는 암호 재설정을 위한 전화가 걸려옵니다. 전화 번호를 사용하여 본인 여부를 확인하는 방법에 대한 단계별 지침은 [전화 통화를 사용하도록 보안 정보 설정](security-info-setup-phone-number.md)을 참조하세요.
 
-- **보안 키.** Microsoft 호환 보안 키를 등록하고 2단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용합니다. 보안 키로 ID를 확인하는 방법에 대한 단계별 지침은 [보안 키를 사용하도록 보안 정보 설정을](security-info-setup-security-key.md)참조하세요.
+- **보안 키입니다.** Microsoft 호환 보안 키를 등록 하 고 2 단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용 합니다. 보안 키를 사용 하 여 id를 확인 하는 방법에 대 한 단계별 지침은 보안 [키를 사용 하도록 보안 정보 설정](security-info-setup-security-key.md)을 참조 하세요.
 
-- **이메일 주소입니다.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
+- **전자 메일 주소입니다.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
 
 - **보안 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
 
@@ -158,7 +158,7 @@ ms.locfileid: "77062424"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 2단계 확인 또는 보안 정보 문서를 사용하여 [로그인 로그인의](security-info-setup-signin.md) 단계를 따르는 Microsoft 인증자 앱을 사용하여 로그인합니다.
+- [2 단계 인증 또는 보안 정보를 사용 하 여 로그인](security-info-setup-signin.md) 문서의 단계를 수행 하 여 Microsoft Authenticator 앱을 사용 하 여 로그인 합니다.
 
 - 분실했거나 잊어버린 경우 [암호 재설정 포털](https://passwordreset.microsoftonline.com/)에서 암호를 다시 설정하거나 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md) 문서의 단계를 수행합니다.
 

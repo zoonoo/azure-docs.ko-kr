@@ -1,5 +1,5 @@
 ---
-title: 공유 VM 이미지를 사용하여 Azure에서 축척 집합 만들기
+title: 공유 VM 이미지를 사용 하 여 Azure에서 확장 집합 만들기
 description: Azure PowerShell을 사용하여 Azure에서 가상 머신 확장 세트 배포에 사용할 공유 VM 이미지를 만드는 방법을 알아봅니다.
 author: axayjo
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.openlocfilehash: 5f4eca88614a98f0caf87d04847029328042edd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77368726"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신 확장 세트용 공유 이미지 만들기 및 사용
@@ -25,14 +25,14 @@ ms.locfileid: "77368726"
 
 공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다. 이 문서에서는 이러한 리소스를 사용하거나 작성하게 됩니다.
 
-| 리소스 | 설명|
+| 리소스 | Description|
 |----------|------------|
-| **관리되는 이미지** | 이는 단독으로 사용하거나 이미지 갤러리에 **이미지 버전**을 만드는 데 사용할 수 있는 기본 이미지입니다. 관리되는 이미지는 일반화된 VM에서 생성됩니다. 관리되는 이미지는 여러 VM을 만드는 데 사용할 수 있는 특수한 유형의 VHD로, 이제 공유 이미지 버전을 만드는 데 사용할 수 있습니다. |
+| **관리 이미지** | 이는 단독으로 사용하거나 이미지 갤러리에 **이미지 버전**을 만드는 데 사용할 수 있는 기본 이미지입니다. 관리되는 이미지는 일반화된 VM에서 생성됩니다. 관리되는 이미지는 여러 VM을 만드는 데 사용할 수 있는 특수한 유형의 VHD로, 이제 공유 이미지 버전을 만드는 데 사용할 수 있습니다. |
 | **이미지 갤러리** | Azure Marketplace와 마찬가지로 **이미지 갤러리**는 이미지를 관리하고 공유하는 데 사용되는 리포지토리이지만 액세스할 수 있는 사람을 제어할 수 있습니다. |
 | **이미지 정의** | 이미지는 갤러리 내에 정의되고, 내부적으로 사용하기 위해 충족해야 할 요구 사항과 이미지에 대한 정보를 전달합니다. 여기에는 이미지가 Windows인지, Linux인지 여부, 릴리스 정보, 최소 및 최대 메모리 요구 사항이 포함됩니다. 이미지의 형식 정의입니다. |
 | **이미지 버전** | **이미지 버전**은 갤러리를 사용하는 경우 VM을 만들 때 사용합니다. 사용 환경에 필요한 만큼 여러 버전의 이미지를 가질 수 있습니다. 관리되는 이미지와 마찬가지로 **이미지 버전**을 사용하여 VM을 만들 때는 이미지 버전을 사용하여 VM의 새 디스크를 만듭니다. 이미지 버전은 여러 번 사용할 수 있습니다. |
 
-Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 만드세요.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -40,7 +40,7 @@ Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azu
 
 아래 단계에서는 기존 VM을 가져와서 새 VM 인스턴스를 만드는 데 사용할 수 있는 재사용 가능 사용자 지정 이미지로 변환하는 방법을 자세히 설명합니다.
 
-이 문서의 예제를 완료하려면 기존 관리 이미지가 있어야 합니다. 자습서: Azure [PowerShell을 사용하여 가상 시스템 크기 집합에 대한 사용자 지정 이미지를 만들고 사용하여](tutorial-use-custom-image-powershell.md) 필요한 경우 만들 수 있습니다. 관리되는 이미지에 데이터 디스크가 포함된 경우 데이터 디스크 크기는 1TB를 초과할 수 없습니다.
+이 문서의 예제를 완료하려면 기존 관리 이미지가 있어야 합니다. [Azure PowerShell를 사용 하 여 가상 머신 확장 집합에 대 한 사용자 지정 이미지 만들기 및 사용 자습서](tutorial-use-custom-image-powershell.md) 를 수행 하 여 필요한 경우 만들 수 있습니다. 관리 되는 이미지에 데이터 디스크가 포함 되어 있는 경우 데이터 디스크 크기는 1TB를 넘을 수 없습니다.
 
 이 문서를 진행할 때 필요한 경우 리소스 그룹 및 VM 이름을 바꿉니다.
 
@@ -49,7 +49,7 @@ Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azu
 
 ## <a name="create-a-scale-set-from-the-shared-image-version"></a>공유 이미지 버전에서 확장 집합 만들기
 
-[New-AzVmss](/powershell/module/az.compute/new-azvmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *미국 중남부* 데이터 센터의 새 이미지 버전에서 배율 집합을 만듭니다. 메시지가 표시되면 확장 집합에서 VM 인스턴스에 대해 사용자 고유의 관리 자격 증명을 설정합니다.
+[New-AzVmss](/powershell/module/az.compute/new-azvmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *미국 중 남부 중부* 데이터 센터의 새 이미지 버전에서 확장 집합을 만듭니다. 메시지가 표시되면 확장 집합에서 VM 인스턴스에 대해 사용자 고유의 관리 자격 증명을 설정합니다.
 
 
 ```azurepowershell-interactive

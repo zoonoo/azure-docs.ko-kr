@@ -1,21 +1,21 @@
 ---
-title: Azure 모니터 서비스 제한 | 마이크로 소프트 문서
-description: Azure 모니터의 다른 영역에서 제한을 나열합니다.
+title: Azure Monitor 서비스 제한 | Microsoft Docs
+description: Azure Monitor의 여러 영역에 대 한 제한을 나열 합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/10/2019
 ms.openlocfilehash: d2a2230613f9e4be3e0c9359a082843a4701b6f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77657914"
 ---
 # <a name="azure-monitor-service-limits"></a>Azure Monitor 서비스 제한
 
-이 문서에서는 Azure Monitor의 여러 영역에서 제한을 나열합니다.
+이 문서에서는 Azure Monitor의 여러 영역에 대 한 제한을 나열 합니다.
 
 ## <a name="alerts"></a>경고
 
@@ -33,12 +33,12 @@ ms.locfileid: "77657914"
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-workspaces.md)]
 
-## <a name="application-insights"></a>애플리케이션 정보
+## <a name="application-insights"></a>Application Insights
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-app-insights.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 모니터 가격](https://azure.microsoft.com/pricing/details/monitor/)
+- [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)
 - [Azure Monitor의 모니터링 사용량 및 예상 비용](platform/usage-estimated-costs.md)
 - [Application Insights의 사용량 및 비용 관리](app/pricing.md)

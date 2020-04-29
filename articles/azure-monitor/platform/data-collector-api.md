@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
 ms.openlocfilehash: f12e9e90b99a055945c34398ff5351334c344253
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77666755"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)
@@ -39,22 +39,22 @@ HTTP 데이터 수집기 API를 사용하려면 JSON(JavaScript Object Notation)
 |:--- |:--- |
 | 방법 |POST |
 | URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
-| 내용 유형 |application/json |
+| 콘텐츠 유형 |application/json |
 
 ### <a name="request-uri-parameters"></a>URI 매개 변수 요청
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |:--- |:--- |
 | CustomerID |Log Analytics 작업 영역에 대한 고유 식별자입니다. |
 | 리소스 |API 리소스 이름: /api/logs |
 | API 버전 |이 요청에 사용하는 API의 버전입니다. 현재 2016-04-01입니다. |
 
-### <a name="request-headers"></a>헤더 요청
-| 헤더 | 설명 |
+### <a name="request-headers"></a>요청 헤더
+| 헤더 | Description |
 |:--- |:--- |
 | 권한 부여 |권한 부여 서명입니다. 문서의 뒷부분에 HMAC-SHA256 헤더를 만드는 방법이 나와 있습니다. |
-| Log-Type |제출 중인 데이터의 레코드 종류를 지정합니다. 문자, 숫자 및 밑줄(_)만 포함할 수 있으며 100자를 초과할 수 없습니다. |
+| Log-Type |제출 중인 데이터의 레코드 종류를 지정합니다. 는 문자, 숫자 및 밑줄 (_)만 포함할 수 있으며 100 자를 초과할 수 없습니다. |
 | x-ms-date |RFC 1123 형식의 요청이 처리된 날짜입니다. |
-| x-ms-AzureResourceId | Azure 리소스의 리소스 ID로 데이터를 연결해야 합니다. 이렇게 하면 [_ResourceId](log-standard-properties.md#_resourceid) 속성이 채워지고 리소스 [컨텍스트](design-logs-deployment.md#access-mode) 쿼리에 데이터를 포함할 수 있습니다. 이 필드를 지정하지 않으면 리소스 컨텍스트 쿼리에 데이터가 포함되지 않습니다. |
+| AzureResourceId | 데이터가 연결 되어야 하는 Azure 리소스의 리소스 ID입니다. 그러면 [_ResourceId](log-standard-properties.md#_resourceid) 속성이 채워지고 [리소스 컨텍스트](design-logs-deployment.md#access-mode) 쿼리에 데이터가 포함 될 수 있습니다. 이 필드를 지정 하지 않으면 데이터는 리소스 컨텍스트 쿼리에 포함 되지 않습니다. |
 | time-generated-field | 데이터 항목의 타임스탬프가 포함된 데이터의 필드 이름입니다. 필드를 지정하면 그 내용이 **TimeGenerated**에 사용됩니다. 이 필드를 지정하지 않으면 **TimeGenerated**의 기본값은 메시지가 수집된 시간입니다. 메시지 필드의 내용은 ISO 8601 형식 YYYY-MM-DDThh:mm:ssZ를 따라야 합니다. |
 
 ## <a name="authorization"></a>권한 부여
@@ -93,7 +93,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 다음 섹션의 샘플은 권한 부여 헤더를 만드는 데 도움이 되는 예제 코드입니다.
 
 ## <a name="request-body"></a>요청 본문
-메시지의 본문은 JSON에 있어야 합니다. 속성 이름 및 값 쌍이 포함된 레코드를 다음 형식으로 포함해야 합니다. 속성 이름에는 문자, 숫자 및 밑줄(_)만 포함될 수 있습니다.
+메시지의 본문은 JSON에 있어야 합니다. 다음 형식의 속성 이름 및 값 쌍을 포함 하는 하나 이상의 레코드를 포함 해야 합니다. 속성 이름에는 문자, 숫자 및 밑줄 (_)만 사용할 수 있습니다.
 
 ```json
 [
@@ -134,11 +134,11 @@ Azure Monitor HTTP 데이터 수집기 API를 통해 데이터를 제출할 때 
 
 | 속성 데이터 형식 | 접미사 |
 |:--- |:--- |
-| String |_s |
+| 문자열 |_s |
 | 부울 |_b |
 | Double |_d |
 | 날짜/시간 |_t |
-| GUID(문자열로 저장) |_g |
+| GUID (문자열로 저장 됨) |_g |
 
 Azure Monitor가 각 속성에 사용하는 데이터 형식은 새 레코드의 레코드 종류가 이미 있는지 여부에 따라 달라집니다.
 
@@ -162,7 +162,7 @@ Azure Monitor가 각 속성에 사용하는 데이터 형식은 새 레코드의
 ![샘플 레코드 4](media/data-collector-api/record-04.png)
 
 ## <a name="reserved-properties"></a>예약된 속성
-다음 속성은 예약되어 있으며 사용자 지정 레코드 형식에 사용해서는 안 됩니다. 페이로드에 이러한 속성 이름이 포함된 경우 오류가 발생합니다.
+다음 속성은 예약 되어 있으며 사용자 지정 레코드 형식에 사용할 수 없습니다. 페이로드에 이러한 속성 이름이 포함 된 경우 오류가 표시 됩니다.
 
 - tenant
 
@@ -180,7 +180,7 @@ HTTP 상태 코드 200는 처리를 위한 요청을 받았다는 것을 의미�
 
 이 표는 서비스에서 반환할 수 있는 전체 상태 코드 집합을 보여 줍니다.
 
-| 코드 | 상태 | 오류 코드 | 설명 |
+| 코드 | 상태 | 오류 코드 | Description |
 |:--- |:--- |:--- |:--- |
 | 200 |확인 | |요청이 성공적으로 수락되었습니다. |
 | 400 |잘못된 요청 |InactiveCustomer |작업 영역이 닫혔습니다. |
@@ -465,13 +465,13 @@ def post_data(customer_id, shared_key, body, log_type):
 post_data(customer_id, shared_key, body, log_type)
 ```
 ## <a name="alternatives-and-considerations"></a>대안 및 고려 사항
-데이터 수집기 API는 Azure Log로 자유 형식 데이터를 수집하는 대부분의 요구 사항을 다루어야 하지만 API의 일부 제한 사항을 극복하기 위해 대안이 필요할 수 있는 경우가 있습니다. 모든 옵션은 다음과 같습니다.
+데이터 수집기 API는 Azure 로그에 자유 형식 데이터를 수집 하는 데 필요한 대부분의 요구를 충족 해야 하지만, API의 몇 가지 제한 사항을 해결 하기 위해 대안이 필요한 경우도 있습니다. 모든 옵션은 다음과 같은 주요 고려 사항을 포함 합니다.
 
-| 대체 | 설명 | 가장 적합한 |
+| 대체 | Description | 가장 적합 한 |
 |---|---|---|
-| [사용자 지정 이벤트](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): 애플리케이션 인사이트에서 네이티브 SDK 기반 의 섭취 | 일반적으로 응용 프로그램 내에서 SDK를 통해 계측되는 응용 프로그램 인사이트는 사용자 지정 이벤트를 통해 사용자 지정 데이터를 보낼 수 있는 기능을 제공합니다. | <ul><li> 응용 프로그램 내에서 생성되지만 기본 데이터 형식(요청, 종속성, 예외 등) 중 하나를 통해 SDK에서 선택하지 않은 데이터입니다.</li><li> 애플리케이션 인사이트내의 다른 애플리케이션 데이터와 가장 자주 상관관계가 있는 데이터 </li></ul> |
-| Azure 모니터 로그의 데이터 수집기 API | Azure 모니터 로그의 데이터 수집기 API는 데이터를 수집하는 완전히 개방형 방법입니다. JSON 개체에 서식이 지정된 모든 데이터는 여기에서 전송할 수 있습니다. 전송되면 로그에서 처리되고 로그에서 다른 데이터와 상호 연관되거나 다른 Application Insights 데이터와 상호 연관될 수 있습니다. <br/><br/> 이러한 파일이 처리되고 Log Analytics에 업로드되는 Azure Blob Blob에 파일로 데이터를 업로드하는 것은 매우 쉽습니다. 이러한 파이프라인의 샘플 구현은 [이](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) 문서를 참조하십시오. | <ul><li> 응용 프로그램 인사이트 내에서 계측된 응용 프로그램 내에서 반드시 생성되지 않는 데이터입니다.</li><li> 예를 들어 조회 및 팩트 테이블, 참조 데이터, 미리 집계된 통계 등이 있습니다. </li><li> 다른 Azure Monitor 데이터(응용 프로그램 인사이트, 다른 로그 데이터 형식, 보안 센터, 컨테이너/VM용 Azure 모니터 등)와 상호 참조되는 데이터를 위한 것입니다. </li></ul> |
-| [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Azure 데이터 탐색기(ADX)는 응용 프로그램 인사이트 분석 및 Azure 모니터 로그를 구동하는 데이터 플랫폼입니다. 이제 원시 형태로 데이터 플랫폼을 사용하여 일반적으로 사용할 수 있는("GA")는 클러스터에 대한 완전한 유연성(그러나 관리 오버헤드가 필요함)을 제공합니다(RBAC, 보존 율, 스키마 등). ADX는 [CSV, TSV 및 JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) 파일을 포함한 많은 [구성 옵션을](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) 제공합니다. | <ul><li> 응용 프로그램 인사이트 또는 로그 에서 다른 데이터와 상관관계가 없는 데이터입니다. </li><li> Azure Monitor Logs에서는 현재 사용할 수 없는 고급 수집 또는 처리 기능이 필요한 데이터입니다. </li></ul> |
+| [사용자 지정 이벤트](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Application Insights의 네이티브 SDK 기반 수집 | 일반적으로 응용 프로그램 내에서 SDK를 통해 계측 되는 Application Insights는 사용자 지정 이벤트를 통해 사용자 지정 데이터를 보낼 수 있는 기능을 제공 합니다. | <ul><li> 응용 프로그램 내에서 생성 되었지만 기본 데이터 형식 (요청, 종속성, 예외 등) 중 하나를 통해 SDK에서 선택 하지 않은 데이터입니다.</li><li> Application Insights의 다른 응용 프로그램 데이터와 가장 자주 상호 연결 되는 데이터 </li></ul> |
+| Azure Monitor 로그의 데이터 수집기 API | Azure Monitor 로그의 데이터 수집기 API는 완전히 열려 있는 방식으로 데이터를 수집 하는 방법입니다. JSON 개체에 형식이 지정 된 모든 데이터는 여기에서 보낼 수 있습니다. 전송 되 고 나면 로그의 다른 데이터와 상관 관계를 지정 하거나 다른 Application Insights 데이터와 상관 관계를 지정할 수 있습니다. <br/><br/> 이러한 파일을 처리 하 고 Log Analytics 업로드 하는 위치에서 Azure Blob blob에 파일로 데이터를 업로드 하는 것이 매우 쉽습니다. 이러한 파이프라인의 샘플 구현에 대해서는 [이](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) 문서를 참조 하세요. | <ul><li> Application Insights 내에 계측 된 응용 프로그램 내에서 생성 될 필요가 없는 데이터입니다.</li><li> 예를 들면 조회 및 팩트 테이블, 참조 데이터, 미리 집계 된 통계 등이 있습니다. </li><li> 다른 Azure Monitor 데이터 (Application Insights, 기타 로그 데이터 형식, Security Center Azure Monitor, 컨테이너/v m/Vm의 경우)에 대해 상호 참조 되는 데이터를 위한 것입니다. </li></ul> |
+| [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | ADX (Azure 데이터 탐색기)는 Application Insights 분석 및 Azure Monitor 로그를 지 원하는 데이터 플랫폼입니다. 이제 일반 공급 되는 ("GA"), 원시 형식으로 데이터 플랫폼을 사용 하면 클러스터 (RBAC, 보존 률, 스키마 등)를 통해 완전 한 유연성 (관리의 오버 헤드 필요)을 얻을 수 있습니다. ADX는 [CSV, TSV 및 JSON 파일을](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) 비롯 한 다양 한 수집 [옵션](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) 을 제공 합니다. | <ul><li> Application Insights 또는 로그의 다른 데이터와 상관 관계를 지정 하지 않을 데이터입니다. </li><li> 현재는 고급 수집 또는 처리 기능을 필요로 하는 데이터를 Azure Monitor 로그에서 사용할 수 없습니다. </li></ul> |
 
 
 ## <a name="next-steps"></a>다음 단계

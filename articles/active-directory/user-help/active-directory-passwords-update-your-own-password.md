@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: 3ed79be318319009aabb1b1ef0c42c4021bbbabe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77062662"
 ---
-# <a name="reset-your-work-or-school-password-using-security-info"></a>보안 정보를 사용하여 직장 또는 학교 비밀번호 재설정
+# <a name="reset-your-work-or-school-password-using-security-info"></a>보안 정보를 사용 하 여 회사 또는 학교 암호 재설정
 
-회사 또는 학교 암호가 생각 나지 않거나, 조직으로부터 암호를 받은 적이 없거나, 계정이 잠긴 경우 보안 정보 및 모바일 디바이스를 사용하여 회사 또는 학교 암호를 재설정할 수 있습니다. 정보를 설정하고 자신의 암호를 재설정하려면 관리자가 이 기능을 켜야 합니다.
+회사 또는 학교 암호가 생각 나지 않거나, 조직으로부터 암호를 받은 적이 없거나, 계정이 잠긴 경우 보안 정보 및 모바일 디바이스를 사용하여 회사 또는 학교 암호를 재설정할 수 있습니다. 관리자는 정보를 설정 하 고 자신의 암호를 다시 설정할 수 있도록이 기능을 설정 해야 합니다.
 
-암호를 알고 있지만 암호를 변경하려면 이 문서의 암호 변경 단계 섹션을 [참조하세요.](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password)
+암호를 알고 있지만 변경 하려는 경우이 문서의 [암호 단계 변경](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) 섹션을 참조 하세요.
 
 >[!Important]
->이 문서는 잊어버렸거나 알려지지 않은 직장 또는 학교 계정 암호 재설정을 사용하려는 사용자를 위한 것입니다. 직원 또는 다른 사용자에 대해 셀프 서비스 암호 재설정을 설정하는 방법에 대한 정보를 찾는 관리자인 경우 [Azure AD 셀프 서비스 암호 재설정 및 기타 문서를](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment)참조하십시오.
+>이 문서는 분실 하거나 알 수 없는 회사 또는 학교 계정 암호 재설정을 사용 하려는 사용자를 위해 작성 되었습니다. 직원 또는 기타 사용자에 대해 셀프 서비스 암호 재설정을 설정 하는 방법에 대 한 정보를 찾는 관리자 인 경우 [AZURE AD 셀프 서비스 암호 재설정 및 기타 문서 배포](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment)를 참조 하세요.
 
 ## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>회사 또는 학교 계정의 암호를 재설정 또는 잠금 해제하는 방법
 
@@ -117,7 +117,7 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
 
 2. 오른쪽 위에서 자신의 프로필을 선택한 다음 **계정 보기**를 선택합니다.
 
-3. **보안 & 개인 정보 암호** > 선택 **.**
+3. **보안 & 개인 정보** > **암호**를 선택 합니다.
 
 4. 이전 암호를 입력하고, 새 암호를 만들고 확인한 후 **제출**을 선택합니다.
 
@@ -155,15 +155,15 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
 
 다음은 일반적인 오류 사례 및 해결 방법입니다.
 
-|문제|설명|해결 방법|
+|문제점|Description|솔루션|
 | --- | --- | --- |
 |암호를 변경하려고 하면 오류가 발생합니다. |암호에 쉽게 추측할 수 있는 단어, 구 또는 패턴이 포함되어 있습니다.| 더 강력한 암호를 사용하여 다시 시도하세요.|
 |사용자 ID를 입력하면 "관리자에 문의하세요"라는 페이지로 이동됩니다.|Microsoft는 해당 사용자 계정 암호가 온-프레미스 환경의 관리자를 통해 관리되는 것을 확인했습니다. 따라서 "계정에 액세스할 수 없음" 링크에서 암호를 재설정할 수 없습니다. |관리자에게 문의하여 도움을 받으세요.|
 |사용자 ID를 입력하면 "암호 재설정을 위해 계정을 사용할 수 없습니다" 오류가 발생합니다.|사용자가 암호를 재설정할 수 있도록 관리자가 계정을 설정하지 않았습니다.|관리자가 "계정에 액세스할 수 없음" 링크에서 조직에 대해 암호 재설정을 활성화하지 않았거나 기능을 사용하도록 허가하지 않았기 때문입니다.<br><br> 암호를 재설정하려면 "관리자에게 문의" 링크를 선택하고 회사의 관리자에게 이메일을 보내서 암호를 재설정하려 한다고 알려야 합니다.|
-|사용자 ID를 입력한 후 "계정을 확인할 수 없습니다" 오류가 발생합니다.|로그인 프로세스에서 계정 정보를 확인할 수 없었습니다.|두 가지 이유로 이 메시지가 표시될 수 있습니다.<br><br>1. 관리자가 조직에 대한 암호 재설정을 사용 설정했지만 서비스를 사용하도록 등록하지 않았습니다. 암호 재설정을 등록하려면 인증 방법에 따라 [Authenticator 앱을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-auth-app.md), [전화 통화를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-phone-number.md), [문자 메시지를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-text-msg.md), [이메일을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-email.md) 또는 [보안 질문을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-questions.md) 문서 중에 하나를 살펴보세요.<br><br>2. 관리자가 조직의 암호 재설정을 설정하지 않았습니다. 이 경우 "관리자에게 문의" 링크를 선택하여 관리자에게 암호 재설정을 요청하는 이메일을 보내야 합니다.|
+|사용자 ID를 입력한 후 "계정을 확인할 수 없습니다" 오류가 발생합니다.|로그인 프로세스에서 계정 정보를 확인할 수 없었습니다.|두 가지 이유로 이 메시지가 표시될 수 있습니다.<br><br>1. 관리자가 조직에 대 한 암호 재설정을 사용 하도록 설정 했지만 서비스를 사용 하도록 등록 하지 않았습니다. 암호 재설정을 등록하려면 인증 방법에 따라 [Authenticator 앱을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-auth-app.md), [전화 통화를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-phone-number.md), [문자 메시지를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-text-msg.md), [이메일을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-email.md) 또는 [보안 질문을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-questions.md) 문서 중에 하나를 살펴보세요.<br><br>2. 관리자가 조직에 대 한 암호 재설정을 설정 하지 않았습니다. 이 경우 "관리자에게 문의" 링크를 선택하여 관리자에게 암호 재설정을 요청하는 이메일을 보내야 합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 
 - [보안 정보(미리 보기) 개요](user-help-security-info-overview.md) 문서에서 보안 정보에 대해 자세히 알아봅니다.
 
-- Xbox, hotmail.com 또는 outlook.com 같은 개인 계정으로 돌아가려는 경우 [Microsoft 계정 문서에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)에서 제안을 시도해 보십시오.
+- Xbox, hotmail.com 또는 outlook.com와 같은 개인 계정으로 다시 전환 하려는 경우 [Microsoft 계정에 로그인 할 수 없는 경우 문서](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)에서 제안 해 보세요.

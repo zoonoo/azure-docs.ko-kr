@@ -1,5 +1,5 @@
 ---
-title: REST API를 사용하여 Azure 모니터 메트릭 데이터베이스에 메트릭 보내기
+title: REST API를 사용 하 여 Azure Monitor 메트릭 데이터베이스로 메트릭 보내기
 description: REST API를 사용하여 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내기
 author: anirudhcavale
 services: azure-monitor
@@ -8,10 +8,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 84709c022631543101889f784231158ebb96b6f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77662267"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>REST API를 사용하여 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내기
@@ -79,7 +79,7 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
 1. 명령 프롬프트 창에서 메트릭 데이터를 게시합니다. 
    - **azureRegion**. 메트릭을 내보내는 리소스의 배포 지역과 일치해야 합니다. 
    - **resourceID**.  메트릭을 추적 중인 Azure 리소스의 리소스 ID입니다.  
-   - **액세스 토큰**. 이전에 확보한 토큰을 붙여넣습니다.
+   - **AccessToken**. 이전에 확보한 토큰을 붙여넣습니다.
 
      ```Shell 
      curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
@@ -93,7 +93,7 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
 1. 구독 또는 리소스 그룹에 대한 메트릭을 Azure 리소스로 실행할 수 없습니다. 
 1. 20분 이상 경과된 메트릭을 저장소에 저장할 수 없습니다. 메트릭 저장소는 경고 및 실시간 차트 작성에 최적화되어 있습니다. 
 2. 차원 이름 수는 값과 일치해야 하고, 그 반대의 경우도 마찬가지입니다. 값을 확인합니다. 
-2. 사용자 지정 메트릭을 지원하지 않는 지역에 대해 메트릭을 내보내는 경우가 발생할 수 있습니다. [지원되는 지역을](../../azure-monitor/platform/metrics-custom-overview.md#supported-regions)참조하십시오. 
+2. 사용자 지정 메트릭을 지원하지 않는 지역에 대해 메트릭을 내보내는 경우가 발생할 수 있습니다. [지원 되는 지역](../../azure-monitor/platform/metrics-custom-overview.md#supported-regions)을 참조 하세요. 
 
 
 

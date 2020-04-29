@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
 ms.openlocfilehash: b9ca8a703ed8a84148abd23e90114402d8806bd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77667196"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Azure Monitor를 사용하여 연속 모니터링
@@ -50,7 +50,7 @@ ms.locfileid: "77667196"
 ##  <a name="combine-resources-in-azure-resource-groups"></a>Azure 리소스 그룹의 리소스 결합
 현재 Azure의 일반적인 애플리케이션에는 VM 및 App Services나 Cloud Services, AKS 클러스터 또는 Service Fabric에 호스트된 마이크로서비스와 같은 다양한 리소스가 포함됩니다. 이러한 애플리케이션은 Event Hubs, Storage, SQL 및 Service Bus와 같은 종속성을 자주 사용합니다.
 
-- Azure 리소스 그룹의 리소스를 결합하여 다른 응용 프로그램을 구성하는 모든 리소스에서 전체 가시성을 얻습니다. [리소스 그룹용 Azure Monitor](../azure-monitor/insights/resource-group-insights.md)는 전체 스택 애플리케이션의 상태 및 성능을 추적하고 조사 또는 디버깅을 위해 개별 구성 요소로 드릴다운할 수 있는 간단한 방법을 제공합니다.
+- Azure 리소스 그룹의 리소스를 결합 하 여 다양 한 응용 프로그램을 구성 하는 모든 리소스에 대 한 완전 한 가시성을 얻을 수 있습니다. [리소스 그룹용 Azure Monitor](../azure-monitor/insights/resource-group-insights.md)는 전체 스택 애플리케이션의 상태 및 성능을 추적하고 조사 또는 디버깅을 위해 개별 구성 요소로 드릴다운할 수 있는 간단한 방법을 제공합니다.
 
 ## <a name="ensure-quality-through-continuous-deployment"></a>지속적인 배포를 통해 품질 보장
 연속 통합/지속적인 배포를 사용하면 자동화된 테스트의 결과에 따라 코드 변경 내용을 애플리케이션에 자동으로 통합하고 배포할 수 있습니다. 배포 프로세스를 간소화하고 프로덕션으로 이동하기 전에 변경 내용의 품질을 보장합니다.
@@ -58,13 +58,13 @@ ms.locfileid: "77667196"
 
 - [Azure Pipelines](/azure/devops/pipelines)를 사용하여 지속적인 배포를 구현하고 CI/CD 테스트를 기반으로 코드 커밋에서 프로덕션으로 전체 프로세스를 자동화합니다.
 - [품질 게이트](/azure/devops/pipelines/release/approvals/gates)를 사용하여 모니터링을 사전 배포 또는 사후 배포에 통합합니다. 이렇게 하면 애플리케이션이 개발 환경에서 프로덕션 환경으로 이동하고 인프라 환경 또는 규모의 차이가 KPI에 부정적인 영향을 주지 않으므로 핵심 상태/성과 지표(KPI)가 충족됩니다.
-- 개발, 테스트, 카나리아 및 Prod와 같은 서로 다른 배포 환경 간에 [별도의 모니터링 인스턴스를 유지 관리합니다.](../azure-monitor/app/separate-resources.md) 이렇게 하면 수집된 데이터가 관련 응용 프로그램 및 인프라 간에 관련이 있습니다. 환경 간에 데이터를 상호 연결해야 하면 [메트릭 탐색기에서 다중 리소스 차트](../azure-monitor/platform/metrics-charts.md)를 사용하거나 [Azure Monitor에서 리소스 간 쿼리](log-query/cross-workspace-query.md)를 만들 수 있습니다.
+- 개발, 테스트, 카나리아 및 Prod와 같은 서로 다른 배포 환경 간에 [별도의 모니터링 인스턴스를 유지](../azure-monitor/app/separate-resources.md) 합니다. 이렇게 하면 수집 된 데이터가 연결 된 응용 프로그램 및 인프라에서 관련 됩니다. 환경 간에 데이터를 상호 연결해야 하면 [메트릭 탐색기에서 다중 리소스 차트](../azure-monitor/platform/metrics-charts.md)를 사용하거나 [Azure Monitor에서 리소스 간 쿼리](log-query/cross-workspace-query.md)를 만들 수 있습니다.
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>작업을 사용하여 실행 가능한 경고 만들기
 모니터링의 중요한 측면은 관리자에게 현재 및 예상 문제를 적극적으로 알리는 것입니다. 
 
-- 로그 및 메트릭을 기반으로 [Azure Monitor에서 경고](../azure-monitor/platform/alerts-overview.md)를 만들어 예측 가능한 오류 상태를 식별합니다. 실제 위험 조건을 나타내고 가양성을 줄이고자 하는 모든 경고를 실행 가능하도록 설정해야 합니다. [동적 임계값을](platform/alerts-dynamic-thresholds.md) 사용하여 고유한 정적 임계값을 정의하는 대신 메트릭 데이터에 대한 기준을 자동으로 계산합니다. 
+- 로그 및 메트릭을 기반으로 [Azure Monitor에서 경고](../azure-monitor/platform/alerts-overview.md)를 만들어 예측 가능한 오류 상태를 식별합니다. 실제 위험 조건을 나타내고 가양성을 줄이고자 하는 모든 경고를 실행 가능하도록 설정해야 합니다. [동적 임계값](platform/alerts-dynamic-thresholds.md) 을 사용 하 여 고유한 정적 임계값을 정의 하는 대신 메트릭 데이터에 대 한 기준선을 자동으로 계산 합니다. 
 - 관리자에게 알리는 가장 효과적인 수단을 사용하도록 경고 작업을 정의합니다. 사용 가능한 [알림 작업](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal)은 SMS, 메일, 푸시 알림 또는 음성 통화입니다.
 - 고급 작업을 사용하여 [웹후크](platform/activity-log-alerts-webhook.md)를 통해 [ITSM 도구에 연결](platform/itsmc-overview.md)하거나 기타 경고 관리 시스템에 연결합니다.
 - 웹후크를 사용하여 경고에서 시작될 수 있는 [Azure Automation Runbook](../automation/automation-webhooks.md) 또는 [Logic Apps](/connectors/custom-connectors/create-webhook-trigger)와 함께 경고에서 식별된 상황도 수정합니다. 
@@ -86,4 +86,4 @@ ms.locfileid: "77667196"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Monitor](overview.md)의 차이 구성 요소에 대해 알아봅니다.
-- 릴리스 파이프라인에 [지속적인 모니터링을 추가합니다.](../azure-monitor/app/continuous-monitoring.md)
+- 릴리스 파이프라인에 [연속 모니터링을 추가](../azure-monitor/app/continuous-monitoring.md) 합니다.

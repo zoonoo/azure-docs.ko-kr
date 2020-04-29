@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/07/2018
 ms.openlocfilehash: 93180f088935531f83da785bb7a490f80909a6cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669203"
 ---
 # <a name="azure-management---monitoring"></a>Azure Government - 모니터링
@@ -35,10 +35,10 @@ Azure의 모니터링은 Azure 관리의 측면 중 하나입니다.  이 아티
 구성은 애플리케이션 및 리소스의 초기 배포 및 구성 그리고 패치 및 업데이트를 통한 지속적인 유지 관리를 참조합니다.  정책 및 스크립트를 통해 이러한 태스크의 Automation을 사용하면 중복을 제거하고 시간과 노력을 최소화하고 정확성과 효율성을 증가할 수 있습니다.  [Azure Automation](../automation/automation-intro.md)에서는 구성 작업을 자동화하는 일련의 서비스를 제공합니다.  프로세스 자동화를 위한 Runbook 외에도 구성과 업데이트 관리를 제공해 정책을 통해 구성을 관리하고 업데이트를 식별하고 배포하는 데 도움이 됩니다.
 
 ## <a name="govern"></a>거버넌스
-거버넌스는 Azure에서 애플리케이션 및 리소스에 대한 제어를 유지 관리하는 프로세스와 메커니즘을 제공합니다.  거버넌스에는 이니셔티브 계획과 전략적 우선 순위 설정이 필요합니다.  Azure에서 거버넌스는 주로 두 서비스를 통해 구현됩니다.  [Azure Policy](../governance/policy/overview.md)는 리소스에 대해 다양한 규칙과 작업을 적용하는 정책 정의를 만들고 할당하고 관리할 수 있어 이러한 리소스를 회사 표준 및 서비스 수준 계약을 준수하는 상태로 유지합니다. [Azure 비용 관리를](../cost-management-billing/cost-management-billing-overview.md) 사용하면 Azure 리소스 및 AWS 및 Google을 비롯한 기타 클라우드 공급자에 대한 클라우드 사용량 및 지출을 추적할 수 있습니다.
+거버넌스는 Azure에서 애플리케이션 및 리소스에 대한 제어를 유지 관리하는 프로세스와 메커니즘을 제공합니다.  거버넌스에는 이니셔티브 계획과 전략적 우선 순위 설정이 필요합니다.  Azure에서 거버넌스는 주로 두 서비스를 통해 구현됩니다.  [Azure Policy](../governance/policy/overview.md)는 리소스에 대해 다양한 규칙과 작업을 적용하는 정책 정의를 만들고 할당하고 관리할 수 있어 이러한 리소스를 회사 표준 및 서비스 수준 계약을 준수하는 상태로 유지합니다. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) 를 사용 하 여 Azure 리소스 및 AWS 및 Google을 포함 한 다른 클라우드 공급자에 대 한 클라우드 사용량 및 비용을 추적할 수 있습니다.
 
 ## <a name="secure"></a>보안
-애플리케이션, 리소스 및 데이터의 보안 관리에는 위협 평가하고 보안 데이터 수집 및 분석하고 애플리케이션과 리소스가 안전하게 구성 및 디자인되도록 보장하는 조합이 필요합니다.  [Azure Security Center는](../security-center/security-center-intro.md) 하이브리드 클라우드 워크로드 전반에 걸쳐 통합 보안 관리 및 고급 위협 보호를 포함하는 보안 모니터링 및 위협 분석을 제공합니다.  또한 Azure에서의 보안 및 안전한 Azure 리소스 구성에 대한 지침에 대한 종합 정보는 [Azure 보안 소개](../security/fundamentals/overview.md)를 참조하면 됩니다.
+애플리케이션, 리소스 및 데이터의 보안 관리에는 위협 평가하고 보안 데이터 수집 및 분석하고 애플리케이션과 리소스가 안전하게 구성 및 디자인되도록 보장하는 조합이 필요합니다.  보안 모니터링 및 위협 분석은 하이브리드 클라우드 워크 로드에서 통합 보안 관리 및 고급 위협 방지를 포함 하는 [Azure Security Center](../security-center/security-center-intro.md) 에 의해 제공 됩니다.  또한 Azure에서의 보안 및 안전한 Azure 리소스 구성에 대한 지침에 대한 종합 정보는 [Azure 보안 소개](../security/fundamentals/overview.md)를 참조하면 됩니다.
 
 
 ## <a name="protect"></a>보호

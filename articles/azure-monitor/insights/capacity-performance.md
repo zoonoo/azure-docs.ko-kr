@@ -1,26 +1,26 @@
 ---
-title: Azure 모니터의 용량 및 성능 솔루션 | 마이크로 소프트 문서
-description: 모니터의 용량 및 성능 솔루션을 사용하여 Hyper-V 서버의 용량을 파악할 수 있습니다.
+title: Azure Monitor에서 용량 및 성능 솔루션 Microsoft Docs
+description: 모니터의 용량 및 성능 솔루션을 사용 하 여 Hyper-v 서버의 용량을 이해 하는 데 도움을 줍니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
 ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77666946"
 ---
-# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>용량 및 성능 솔루션으로 Hyper-V 가상 시스템 용량 계획(더 이상 사용되지 않습니다).
+# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>용량 및 성능 솔루션을 사용 하 여 Hyper-v 가상 머신 용량 계획 (사용 되지 않음)
 
 ![용량 및 성능 기호](./media/capacity-performance/capacity-solution.png)
 
 > [!NOTE]
 > 용량 및 성능 솔루션은 더 이상 사용되지 않습니다.  솔루션을 이미 설치한 고객은 계속해서 솔루션을 사용할 수 있지만, 새 작업 영역에는 용량 및 성능 솔루션을 추가할 수 없습니다.
 
-모니터의 용량 및 성능 솔루션을 사용하여 Hyper-V 서버의 용량을 파악할 수 있습니다. 이 솔루션은 Hyper-V 호스트에서 실행 중인 호스트 및 VM의 전체 사용률(CPU, 메모리 및 디스크)을 보여 줌으로써 Hyper-V 환경에 대한 정보를 제공합니다. 모든 호스트와 해당 호스트에서 실행되는 VM의 CPU, 메모리 및 디스크에 대한 메트릭이 수집됩니다.
+모니터의 용량 및 성능 솔루션을 사용 하 여 Hyper-v 서버의 용량을 이해 하는 데 도움을 줍니다. 이 솔루션은 Hyper-V 호스트에서 실행 중인 호스트 및 VM의 전체 사용률(CPU, 메모리 및 디스크)을 보여 줌으로써 Hyper-V 환경에 대한 정보를 제공합니다. 모든 호스트와 해당 호스트에서 실행되는 VM의 CPU, 메모리 및 디스크에 대한 메트릭이 수집됩니다.
 
 솔루션:
 
@@ -39,19 +39,19 @@ ms.locfileid: "77666946"
 
 다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
 
-| 연결된 소스 | 고객 지원팀 | 설명 |
+| 연결된 소스 | Support(지원) | Description |
 |---|---|---|
-| [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | yes | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
-| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 예    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
-| [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | yes |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM에서 Log Analytics로 직접 연결은 필요하지 않습니다.|
-| [Azure 저장소 계정](../../azure-monitor/platform/collect-azure-metrics-logs.md) | 예 | Azure Storage는 용량 및 성능 데이터를 포함하지 않습니다.|
+| [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 예 | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
+| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
+| [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | 예 |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM에서 Log Analytics로 직접 연결은 필요하지 않습니다.|
+| [Azure storage 계정](../../azure-monitor/platform/collect-azure-metrics-logs.md) | 아니요 | Azure Storage는 용량 및 성능 데이터를 포함하지 않습니다.|
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Windows 또는 Operations Manager 에이전트는 가상 머신이 아닌 Windows Server 2012 이상의 Hyper-V 호스트에 설치해야 합니다.
 
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 다음 단계를 수행하여 용량 및 성능 솔루션을 작업 영역에 추가합니다.
 
@@ -85,7 +85,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 [용량 및 성능] 타일을 클릭하여 [용량 및 성능] 대시보드를 엽니다. 대시보드는 다음 표의 열을 포함하고 있습니다. 각 열은 지정된 범위 및 시간 범위에 대한 열의 기준과 일치하는 최대 열 개의 항목을 나열합니다. 열 아래쪽의 **모두 보기**를 클릭하거나 열 헤더를 클릭하여 모든 레코드를 반환하는 로그 검색을 실행할 수 있습니다.
 
-- **호스트**
+- **호스팅해야**
     - **호스트 CPU 사용률** 선택한 기간을 기준으로 호스트 컴퓨터 CPU 사용률과 호스트 목록의 그래픽 추세를 표시합니다. 특정 시점의 세부 정보를 보려면 마우스로 꺾은선형 차트 위를 가리킵니다. 자세한 로그 검색 정보를 보려면 차트를 클릭합니다. 로그 검색을 열어 호스팅된 VM의 CPU 카운터 세부 정보를 보려면 호스트 이름을 클릭합니다.
     - **호스트 메모리 사용률** 선택한 기간을 기준으로 호스트 컴퓨터 메모리 사용률과 호스트 목록의 그래픽 추세를 표시합니다. 특정 시점의 세부 정보를 보려면 마우스로 꺾은선형 차트 위를 가리킵니다. 자세한 로그 검색 정보를 보려면 차트를 클릭합니다. 로그 검색을 열어 호스팅된 VM의 메모리 카운터 세부 정보를 보려면 호스트 이름을 클릭합니다.
 - **Virtual Machines**
@@ -117,7 +117,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 다음 표는 이 솔루션에서 수집하고 계산한 용량 및 성능 데이터에 대한 샘플 로그 검색을 제공합니다.
 
 
-| 쿼리 | 설명 |
+| 쿼리 | Description |
 |:--- |:--- |
 | 모든 호스트 메모리 구성 | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "Host Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
 | 모든 VM 메모리 구성 | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "VM Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |

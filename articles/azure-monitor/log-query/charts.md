@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 8a515f01bfa9f8ec579c51b806c997d79b629250
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670324"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 차트 및 다이어그램 만들기
@@ -50,7 +50,7 @@ Perf
 | summarize avg(CounterValue), percentiles(CounterValue, 50, 95)  by bin(TimeGenerated, 1h)
 ```
 
-**선선** 차트 표시 옵션을 선택합니다.
+**꺾은선형** 차트 표시 옵션을 선택 합니다.
 
 ![꺾은선형 차트](media/charts/charts-and-diagrams-multiSeries.png)
 

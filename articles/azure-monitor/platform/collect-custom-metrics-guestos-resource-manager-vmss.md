@@ -1,5 +1,5 @@
 ---
-title: 템플릿을 사용하면 Azure 모니터에서 Windows 배율 설정 메트릭 수집
+title: 템플릿을 사용 하 여 Azure Monitor에서 Windows 확장 집합 메트릭 수집
 description: Windows 가상 머신 확장 집합에 대해 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 author: anirudhcavale
 services: azure-monitor
@@ -8,10 +8,10 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 24f83e4f6285d045e67bdaef431ebcff2345ef84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77663899"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Windows 가상 머신 확장 집합에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
@@ -22,23 +22,23 @@ Azure Monitor [WAD(Microsoft Azure Diagnostics) 확장](diagnostics-extension-ov
 
 이 문서에서는 Windows 가상 머신 확장 집합에 대한 게스트 OS 성능 메트릭을 Azure Monitor 데이터 저장소에 보내는 프로세스에 대해 설명합니다. Microsoft Azure Diagnostics 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다. 이 위치에 메트릭을 저장하면 플랫폼 메트릭에 사용할 수 있는 것과 동일한 작업에 액세스할 수 있습니다. 작업에는 실시간에 가까운 경고, 차트 작성, 라우팅, REST API에서 액세스 등이 포함됩니다. 과거에는 Microsoft Azure Diagnostics 확장이 Azure Monitor 데이터 저장소가 아니라 Azure Storage에 기록했습니다.  
 
-Resource Manager 템플릿을 새로 접하는 경우 [템플릿 배포및](../../azure-resource-manager/management/overview.md) 해당 구조 및 구문에 대해 알아봅니다.  
+리소스 관리자 템플릿을 처음 접하는 경우 [템플릿 배포](../../azure-resource-manager/management/overview.md) 와 해당 구조 및 구문에 대해 알아보세요.  
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 구독은 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록해야 합니다. 
+- 구독은 [Microsoft](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록 해야 합니다. 
 
 - [Azure PowerShell](/powershell/azure)이 설치되어 있어야 하거나, [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용할 수 있습니다. 
 
-- VM 리소스는 사용자 [지정 메트릭을 지원하는 리전에](metrics-custom-overview.md#supported-regions)있어야 합니다.
+- VM 리소스가 [사용자 지정 메트릭을 지 원하는 지역](metrics-custom-overview.md#supported-regions)에 있어야 합니다.
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Azure Monitor를 데이터 싱크로 설정 
-Azure 진단 확장은 데이터 **싱크라는** 기능을 사용하여 메트릭 및 로그를 다른 위치로 라우팅합니다. 다음 단계에서는 Resource Manager 템플릿과 PowerShell을 사용하여 새 Azure Monitor 데이터 싱크를 통해 VM을 배포하는 방법을 보여 줍니다. 
+Azure 진단 확장은 **데이터 싱크** 라는 기능을 사용 하 여 메트릭과 로그를 다른 위치로 라우팅합니다. 다음 단계에서는 Resource Manager 템플릿과 PowerShell을 사용하여 새 Azure Monitor 데이터 싱크를 통해 VM을 배포하는 방법을 보여 줍니다. 
 
 ## <a name="author-a-resource-manager-template"></a>Resource Manager 템플릿 작성 
-이 예제에서는 공개적으로 사용할 수 있는 [샘플 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale)사용할 수 있습니다.  
+이 예에서는 공개적으로 사용 가능한 [샘플 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale)사용할 수 있습니다.  
 
-- **Azuredeploy.json가상** 시스템 규모 집합의 배포를 위해 미리 구성된 리소스 관리자 템플릿입니다.
+- **Azuredeploy. json** 은 가상 머신 확장 집합을 배포 하기 위한 미리 구성 된 리소스 관리자 템플릿입니다.
 
 - **Azuredeploy.parameters.json**은 VM에 대해 설정하려는 사용자 이름 및 암호와 같은 정보를 저장하는 매개 변수 파일입니다. 배포하는 동안 Resource Manager 템플릿에서는 이 파일에 설정된 매개 변수를 사용합니다. 
 
@@ -55,7 +55,7 @@ Azure 진단 확장은 데이터 **싱크라는** 기능을 사용하여 메트�
 
 
 ###  <a name="modify-azuredeployjson"></a>Azuredeploy.json을 수정합니다.
-**azuredeploy.json** 파일을 엽니다. 
+**Azuredeploy. json** 파일을 엽니다. 
 
 Resource Manager 템플릿에서 스토리지 계정 정보를 보유하는 변수를 추가합니다. 진단 구성 파일에 지정된 모든 로그 또는 성능 카운터는 Azure Monitor 메트릭 스토리지와 여기서 지정한 스토리지 계정 둘 다에 기록됩니다. 
 
@@ -65,7 +65,7 @@ Resource Manager 템플릿에서 스토리지 계정 정보를 보유하는 변�
 "storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]", 
 ```
  
-리소스 섹션에서 가상 시스템 축척 집합 정의를 찾아 구성에 **ID** 섹션을 추가합니다. 이 섹션을 추가하면 Azure에서 시스템 ID를 할당합니다. 이 단계를 수행하면 확장 집합의 VM이 자체 게스트 메트릭을 Azure Monitor로 내보낼 수도 있습니다.  
+리소스 섹션에서 가상 머신 확장 집합 정의를 찾고 구성에 **id** 섹션을 추가 합니다. 이 섹션을 추가하면 Azure에서 시스템 ID를 할당합니다. 이 단계를 수행하면 확장 집합의 VM이 자체 게스트 메트릭을 Azure Monitor로 내보낼 수도 있습니다.  
 
 ```json
     { 
@@ -197,7 +197,7 @@ Resource Manager 템플릿에서 스토리지 계정 정보를 보유하는 변�
 ```
 
 
-추가 **depends저장소** 계정에 대 한 올바른 순서로 만들어집니다. 
+저장소 계정에 대 한 **dependsOn** 를 추가 하 여 올바른 순서로 만들어졌는지 확인 합니다. 
 
 ```json
 "dependsOn": [ 
@@ -232,7 +232,7 @@ Resource Manager 템플릿에서 스토리지 계정 정보를 보유하는 변�
 ## <a name="deploy-the-resource-manager-template"></a>Resource Manager 템플릿 배포 
 
 > [!NOTE]  
-> Azure 진단 확장 버전 1.5 **이상을** 실행 하 고 **autoUpgradeMinorVersion:** 리소스 관리자 템플릿에서 **true로** 설정 된 속성이 있어야 합니다. 그러면 Azure에서 VM을 시작할 때 적절한 확장을 로드합니다. 템플릿에 이러한 설정이 없는 경우 해당 설정을 변경하고 템플릿을 다시 배포합니다. 
+> Azure 진단 확장 버전 1.5 이상을 실행 **하 고** 리소스 관리자 템플릿에서 **autoUpgradeMinorVersion:** 속성을 **true** 로 설정 해야 합니다. 그러면 Azure에서 VM을 시작할 때 적절한 확장을 로드합니다. 템플릿에 이러한 설정이 없는 경우 해당 설정을 변경하고 템플릿을 다시 배포합니다. 
 
 
 Resource Manager 템플릿을 배포하려면 Azure PowerShell을 사용합니다.  
@@ -245,7 +245,7 @@ Resource Manager 템플릿을 배포하려면 Azure PowerShell을 사용합니�
    ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
-1. 배포 중인 VM에 대한 새 리소스 그룹을 만듭니다. 다음 명령 실행: 
+1. 배포 중인 VM에 대한 새 리소스 그룹을 만듭니다. 다음 명령을 실행합니다. 
 
    ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
@@ -283,7 +283,7 @@ Resource Manager 템플릿을 배포하려면 Azure PowerShell을 사용합니�
 
 1. 리소스 드롭다운 메뉴에서 직접 만든 가상 머신 확장 집합을 선택합니다.  
 
-1. 네임스페이스 드롭다운 메뉴에서 **azure.vm.windows.guest를**선택합니다. 
+1. 네임 스페이스 드롭다운 메뉴에서 **azure. v m. w i m**. 
 
 1. 메트릭 드롭다운 메뉴에서 **메모리\%사용 중인 커밋된 바이트**를 선택합니다.  
 

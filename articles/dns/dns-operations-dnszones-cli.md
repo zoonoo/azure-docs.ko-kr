@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rohink
 ms.openlocfilehash: 413c2ab3ee04249c2bb52bf42ca6a31a58fb9082
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76936920"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure DNS에서 DNS 영역을 관리하는 방법
 
 > [!div class="op_single_selector"]
 > * [포털](dns-operations-dnszones-portal.md)
-> * [Powershell](dns-operations-dnszones.md)
+> * [PowerShell](dns-operations-dnszones.md)
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 
 
@@ -48,7 +48,7 @@ ms.locfileid: "76936920"
 
 ### <a name="sign-in-to-your-azure-account"></a>Azure 계정에 로그인
 
-콘솔 창을 열고 자격 증명을 사용하여 인증합니다. 자세한 내용은 [Azure CLI에서 Azure에 로그인을](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) 참조하세요.
+콘솔 창을 열고 자격 증명을 사용하여 인증합니다. 자세한 내용은 [Azure CLI에서 Azure에 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) 을 참조 하세요.
 
 ```
 az login
@@ -68,8 +68,8 @@ az account list
 az account set --subscription "subscription name"
 ```
 
-### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>선택 사항: Azure DNS 개인 영역 기능을 설치/사용하려면
-Azure DNS 개인 영역 기능은 Azure CLI에 대한 확장을 통해 사용할 수 있습니다. “dns” Azure CLI 확장 설치 
+### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>선택 사항: Azure DNS Private Zones 기능을 설치/사용 하려면
+Azure CLI에 대 한 확장을 통해 Azure DNS 개인 영역 기능을 사용할 수 있습니다. “dns” Azure CLI 확장 설치 
 ```
 az extension add --name dns
 ``` 
@@ -86,7 +86,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>도움말 보기
 
-Azure DNS와 관련된 모든 Azure CLI 명령은 `az network dns`로 시작합니다. `--help` 옵션(약식 `-h`)을 사용하여 각 명령에 대한 도움말을 볼 수 있습니다.  예를 들어:
+Azure DNS와 관련된 모든 Azure CLI 명령은 `az network dns`로 시작합니다. `--help` 옵션(약식 `-h`)을 사용하여 각 명령에 대한 도움말을 볼 수 있습니다.  다음은 그 예입니다.
 
 ```azurecli
 az network dns --help
@@ -98,7 +98,7 @@ az network dns zone create --help
 
 `az network dns zone create` 명령을 사용하여 DNS 영역을 만듭니다. 도움말을 보려면 `az network dns zone create -h`을 참조하세요.
 
-다음 예제에서는 *MyResourceGroup이라는*리소스 그룹에 *contoso.com* 라는 DNS 영역을 만듭니다.
+다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에 *contoso.com* 이라는 DNS 영역을 만듭니다.
 
 ```azurecli
 az network dns zone create --resource-group MyResourceGroup --name contoso.com

@@ -1,19 +1,19 @@
 ---
-title: Azure 모니터로 SQL Server 환경 최적화 | 마이크로 소프트 문서
-description: Azure 모니터를 사용하면 SQL 상태 확인 솔루션을 사용하여 정기적으로 환경의 위험과 상태를 평가할 수 있습니다.
+title: Azure Monitor를 사용 하 여 SQL Server 환경 최적화 Microsoft Docs
+description: Azure Monitor를 사용 하면 SQL Health Check 솔루션을 사용 하 여 일정 한 간격으로 환경의 위험 및 상태를 평가할 수 있습니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/28/2019
 ms.openlocfilehash: ceaed0800df01bf2c44fee13d98b01b6e726200d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77662487"
 ---
-# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Azure 모니터의 SQL 서버 상태 확인 솔루션으로 SQL 환경 최적화
+# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Azure Monitor의 SQL Server Health Check 솔루션을 사용 하 여 SQL 환경을 최적화 합니다.
 
 ![SQL Health Check 기호](./media/sql-assessment/sql-assessment-symbol.png)
 
@@ -33,7 +33,7 @@ SQL Health Check 솔루션을 사용하여 일정한 간격으로 서버 환경�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* SQL 상태 확인 솔루션에는 MMA(Microsoft 모니터링 에이전트)가 설치된 각 컴퓨터에 설치된 .NET Framework 4.6.2의 지원되는 버전이 필요합니다.  MMA 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용됩니다.  
+* SQL Health Check 솔루션을 사용 하려면 MMA (Microsoft Monitoring Agent)가 설치 된 각 컴퓨터에 지원 되는 .NET Framework 4.6.2 버전이 설치 되어 있어야 합니다.  MMA 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용됩니다.  
 * 이 솔루션은 SQL Server 2012, 2014 및 2016 버전을 지원합니다.
 * Azure Marketplace로부터 SQL Health Check 솔루션을 추가하기 위한 Azure Portal의 Log Analytics 작업 영역.  솔루션을 설치하기 위해서는 사용자가 Azure 구독의 관리자 또는 참가자여야 합니다.
 
@@ -42,15 +42,15 @@ SQL Health Check 솔루션을 사용하여 일정한 간격으로 서버 환경�
   >
   >
 
-SQL Server 서버에 대한 상태 확인을 수행하려면 다음 지원되는 방법 중 하나를 사용하여 Azure Monitor에 대한 에이전트 및 연결이 필요합니다.
+SQL Server 서버에 대 한 상태 검사를 수행 하려면 다음 지원 되는 방법 중 하나를 사용 하 여 Azure Monitor에 대 한 에이전트 및 연결이 필요 합니다.
 
 1. 서버를 아직 System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2에서 모니터링하지 않는 경우 [MMA(Microsoft Monitoring Agent)](../../azure-monitor/platform/agent-windows.md)를 설치합니다.
-2. 시스템 센터 2016 - 운영 관리자 또는 운영 관리자 2012 R2로 모니터링되고 관리 그룹이 Azure Monitor와 통합되지 않은 경우 서버를 Log Analytics와 함께 다중 홈으로 사용하여 데이터를 수집하고 서비스로 전달할 수 있습니다. 운영 관리자에 의해 모니터링됩니다.  
+2. System Center 2016-Operations Manager 또는 Operations Manager 2012 r 2를 사용 하 여 모니터링 되 고 관리 그룹이 Azure Monitor와 통합 되지 않은 경우에는 서버에서 데이터를 수집 하 여 서비스로 전달 하 고 Operations Manager에서 계속 모니터링 하는 Log Analytics를 사용할 수 있습니다.  
 3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
 
-운영 관리자 관리 그룹에 보고하고, 데이터를 수집하고, 할당된 관리 서버로 전달한 다음 관리 서버에서 Azure Monitor로 직접 전송되는 SQL Server의 에이전트입니다.  이 데이터는 Operations Manager 데이터베이스에 기록되지 않습니다.  
+SQL Server의 에이전트가 Operations Manager 관리 그룹에 보고 하 고, 데이터를 수집 하 고, 할당 된 관리 서버로 전달한 다음 관리 서버에서 직접 전송 하 여 Azure Monitor 합니다.  이 데이터는 Operations Manager 데이터베이스에 기록되지 않습니다.  
 
-SQL Server를 Operations Manager에서 모니터링하는 경우 Operations Manager 실행 계정을 구성해야 합니다. 자세한 내용은 아래 [Azure Monitor의 운영 관리자 실행 계정을](#operations-manager-run-as-accounts-for-log-analytics) 참조하십시오.
+SQL Server를 Operations Manager에서 모니터링하는 경우 Operations Manager 실행 계정을 구성해야 합니다. 자세한 내용은 아래 [Azure Monitor에 대 한 Operations Manager 실행 계정](#operations-manager-run-as-accounts-for-log-analytics) 을 참조 하세요.
 
 ## <a name="sql-health-check-data-collection-details"></a>SQL Health Check 데이터 수집 세부 정보
 SQL Health Check는 사용자가 사용하도록 설정한 에이전트를 통해 다음과 같은 소스에서 데이터를 수집합니다.
@@ -150,14 +150,14 @@ PowerShell 창을 열고 사용자 정보로 업데이트 한 후 다음 스크�
 모든 권장 사항에는 중요한 이유에 대한 지침이 포함됩니다. IT 서비스의 특성 및 조직의 비즈니스 요구를 고려해 볼 때, 이 가이드를 사용하여 권장 사항 구현이 사용자에 적절한지 여부를 평가해야 합니다
 
 ## <a name="use-health-check-focus-area-recommendations"></a>상태 검사 사용 초점 영역 권장 사항
-Azure Monitor에서 평가 솔루션을 사용하려면 먼저 솔루션을 설치해야 합니다.  설치 한 후 Azure 포털에서 Azure Monitor에 대 한 **개요** 페이지에서 SQL 상태 확인 타일을 사용 하 여 권장 사항의 요약을 볼 수 있습니다.
+Azure Monitor에서 평가 솔루션을 사용 하려면 먼저 솔루션이 설치 되어 있어야 합니다.  설치 후에는 Azure Portal의 Azure Monitor에 대 한 **개요** 페이지에서 SQL Health Check 타일을 사용 하 여 권장 사항의 요약을 볼 수 있습니다.
 
 인프라에 대한 요약된 규정 준수 평가를 본 다음 세부 권장 사항을 확인합니다.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>주요 영역에 대한 권장 사항을 보고 수정 작업을 수행하려면
-1. 에서 [https://portal.azure.com](https://portal.azure.com)Azure 포털에 로그인합니다.
-2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에 **모니터**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **모니터를**선택합니다.
-3. 메뉴의 **인사이트** 섹션에서 **더 많은 을 선택합니다.**  
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에 **모니터**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **모니터**를 선택 합니다.
+3. 메뉴의 **Insights** 섹션에서 **자세히**를 선택 합니다.  
 4. **개요** 페이지에서 **SQL Health Check** 타일을 클릭합니다.
 5. **상태 검사** 페이지에서, 주요 영역 블레이드 중 하나에 있는 요약 정보를 검토한 다음 하나를 클릭하여 해당 주요 영역에 대한 권장 사항을 봅니다.
 6. 주요 영역 페이지에서 사용자 환경에 대해 우선순위가 지정된 권장 사항을 볼 수 있습니다. 권장하는 이유에 대한 세부 정보를 보려면 **영향을 받는 개체** 아래에서 해당 권장 사항을 클릭합니다.<br><br> ![SQL Health Check 권장 사항의 이미지](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
@@ -167,13 +167,13 @@ Azure Monitor에서 평가 솔루션을 사용하려면 먼저 솔루션을 설�
 무시하려는 권장 사항이 있는 경우 Azure Monitor에서 평가 결과에 권장 사항이 표시되는 것을 방지하는 데 사용할 텍스트 파일을 만들 수 있습니다.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>무시할 권장 사항을 식별하려면
-1. Azure 모니터 메뉴에서 **로그를 클릭합니다.**
+1. Azure Monitor 메뉴에서 **로그**를 클릭 합니다.
 2. 다음 쿼리를 사용하여 사용자 환경의 컴퓨터에 대해 실패한 권장 사항을 나열합니다.
 
     ```
     SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    로그 쿼리를 보여주는 스크린샷은 다음과 같습니다.<br><br> ![실패한 권장 사항](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
+    로그 쿼리를 보여 주는 스크린샷은 다음과 같습니다.<br><br> ![실패한 권장 사항](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
 
 3. 무시할 권장 사항을 선택합니다. RecommendationId 값은 다음 절차에서 사용됩니다.
 
@@ -182,7 +182,7 @@ Azure Monitor에서 평가 솔루션을 사용하려면 먼저 솔루션을 설�
 2. Azure Monitor에서 무시할 각 권장 사항에 대한 RecommendationId를 별도의 줄에 붙여넣거나 입력한 다음, 파일을 저장하고 닫습니다.
 3. Azure Monitor에서 권장 사항을 무시할 각 컴퓨터의 다음 폴더에 파일을 둡니다.
    * Microsoft Monitoring Agent(직접 또는 Operations Manager를 통해 연결됨)가 있는 컴퓨터 - *SystemDrive*:\Program Files\Microsoft Monitoring Agent\Agent
-   * 운영 관리자 관리 서버 - *SystemDrive*:\프로그램 파일\Microsoft 시스템 센터 2012 R2\운영 관리자\서버
+   * Operations Manager 관리 *서버-가*중: Files\Microsoft: 서버인 System Center 2012 R2\Operations Manager\Server
    * Operations Manager 2016 관리 서버 - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>권장 사항이 무시되었는지 확인하려면
@@ -196,7 +196,7 @@ Azure Monitor에서 평가 솔루션을 사용하려면 먼저 솔루션을 설�
 
 ## <a name="sql-health-check-solution-faq"></a>SQL Health Check 솔루션 FAQ
 
-*SQL 평가 솔루션에서 수행되는 검사는 무엇입니까?*
+*SQL 평가 솔루션에서 수행 하는 검사는 무엇입니까?*
 
 * 다음 쿼리는 현재 수행하는 모든 검사에 대한 설명을 보여 줍니다.
 
@@ -224,15 +224,15 @@ SQLAssessmentRecommendation
 
 * 3주 동안 서버가 데이터를 전송하지 않은 경우 제거 됩니다.
 
-*데이터 수집을 수행하는 프로세스의 이름은 무엇입니까?*
+*데이터 수집을 수행 하는 프로세스의 이름은 무엇 인가요?*
 
 * AdvisorAssessment.exe
 
-*데이터를 수집하는 데 얼마나 걸습니까?*
+*데이터를 수집 하는 데 얼마나 걸립니까?*
 
 * 서버에서의 실제 데이터 수집은 약 1시간이 걸립니다. SQL 인스턴스 또는 데이터베이스가 많은 서버에서는 더 오래 걸릴 수 있습니다.
 
-*어떤 유형의 데이터가 수집됩니까?*
+*수집 되는 데이터 형식은 무엇 인가요?*
 
 * 다음 유형의 데이터를 수집합니다.
   * WMI
@@ -240,7 +240,7 @@ SQLAssessmentRecommendation
   * 성능 카운터
   * SQL 동적 관리 뷰(DMV)
 
-*데이터가 수집될 때 구성할 수 있는 방법이 있습니까?*
+*데이터 수집 시기를 구성 하는 방법이 있나요?*
 
 * 지금은 없습니다.
 
@@ -257,4 +257,4 @@ SQLAssessmentRecommendation
 * 예, 위의 [권장 사항 무시](#ignore-recommendations) 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* 자세한 SQL 상태 확인 데이터 및 권장 사항을 분석하는 방법을 알아보려면 [쿼리를 기록합니다.](../log-query/log-query-overview.md)
+* 자세한 SQL Health Check 데이터 및 권장 사항을 분석 하는 방법을 알아보려면 [로그 쿼리](../log-query/log-query-overview.md) 를 참조 하세요.
