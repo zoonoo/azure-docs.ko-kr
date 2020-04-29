@@ -1,19 +1,19 @@
 ---
-title: REST API를 사용하여 Azure VM 백업
-description: 이 문서에서는 REST API를 사용하여 Azure VM 백업의 백업 작업을 구성, 시작 및 관리하는 방법을 알아봅니다.
+title: REST API를 사용 하 여 Azure Vm 백업
+description: 이 문서에서는 REST API를 사용 하 여 Azure VM 백업에 대 한 백업 작업을 구성, 시작 및 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79248165"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
 
-이 문서에서는 REST API를 통해 Azure Backup을 사용하여 Azure VM의 백업을 관리하는 방법을 설명합니다. 이전에 보호되지 않은 Azure VM에 대해 처음으로 보호를 구성하고, 보호된 Azure VM에 대한 온디맨드 백업을 트리거하고, 여기에 설명된 대로 REST API를 통해 백업된 VM의 백업 된 VM의 백업 속성을 수정합니다.
+이 문서에서는 REST API를 통해 Azure Backup을 사용하여 Azure VM의 백업을 관리하는 방법을 설명합니다. 이전에 보호 되지 않은 Azure VM에 대해 처음으로 보호를 구성 하 고, 보호 된 Azure VM에 대 한 주문형 백업을 트리거하고 여기에 설명 된 대로 REST API를 통해 백업 된 VM의 백업 속성을 수정 합니다.
 
 새 자격 증명 모음 및 정책 만들기는 [자격 증명 모음 만들기](backup-azure-arm-userestapi-createorupdatevault.md) 및 [정책 만들기](backup-azure-arm-userestapi-createorupdatepolicy.md) REST API 자습서를 참조하세요.
 
@@ -41,7 +41,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|이름  |Type  |Description  |
+|속성  |Type  |Description  |
 |---------|---------|---------|
 |204 콘텐츠 없음     |         |  반환된 콘텐츠가 없는 경우 정상      |
 |202 수락됨     |         |     수락됨    |
@@ -92,7 +92,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>관련 Azure VM 선택
 
- 구독에서 [모든 보호 가능한 항목 나열하기](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list)에서 "캐싱"을 수행했는지 확인하고 응답에서 원하는 VM을 찾을 수 있습니다. [이 작업의 응답은](#example-responses-1) 복구 서비스가 VM을 식별하는 방법에 대한 정보도 제공합니다.  패턴에 친숙해지면 이 단계를 건너뛰고 직접 [보호 활성화](#enabling-protection-for-the-azure-vm)를 진행할 수 있습니다.
+ 구독에서 [모든 보호 가능한 항목 나열하기](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list)에서 "캐싱"을 수행했는지 확인하고 응답에서 원하는 VM을 찾을 수 있습니다. [이 작업의 응답으로](#example-responses-1) VM Recovery Services 식별 하는 방법에 대 한 정보도 제공 됩니다.  패턴에 친숙해지면 이 단계를 건너뛰고 직접 [보호 활성화](#enabling-protection-for-the-azure-vm)를 진행할 수 있습니다.
 
 이 작업은 *GET* 작업입니다.
 
@@ -104,7 +104,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 #### <a name="responses"></a><a name="responses-1"></a>응답
 
-|이름  |Type  |Description  |
+|속성  |Type  |Description  |
 |---------|---------|---------|
 |200 정상     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       확인 |
 
@@ -180,7 +180,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 보호된 항목을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |Type  |Description  |
+|속성  |Type  |Description  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem 리소스 속성         |
 
@@ -208,7 +208,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|이름  |Type  |Description  |
+|속성  |Type  |Description  |
 |---------|---------|---------|
 |200 정상     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  확인       |
 |202 수락됨     |         |     수락됨    |
@@ -294,7 +294,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |Type  |Description  |
+|속성  |Type  |Description  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 속성         |
 
@@ -319,7 +319,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|이름  |Type  |Description  |
+|속성  |Type  |Description  |
 |---------|---------|---------|
 |202 수락됨     |         |     수락됨    |
 
@@ -387,7 +387,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="changing-the-policy-of-protection"></a>보호 정책 변경
 
-VM을 보호하는 정책을 변경하려면 [보호 사용](#enabling-protection-for-the-azure-vm)과 동일한 형식을 사용할 수 있습니다. [요청 본문](#example-request-body)의 새 정책 ID를 제공하고 요청을 제출합니다. 예: testVM 정책을 '기본 정책'에서 'ProdPolicy'로 변경하려면 요청 본문에 'ProdPolicy' ID를 제공합니다.
+VM을 보호하는 정책을 변경하려면 [보호 사용](#enabling-protection-for-the-azure-vm)과 동일한 형식을 사용할 수 있습니다. [요청 본문](#example-request-body)의 새 정책 ID를 제공하고 요청을 제출합니다. 예: testVM의 정책을 ' DefaultPolicy '에서 ' ProdPolicy '로 변경 하려면 요청 본문에 ' ProdPolicy ' ID를 제공 합니다.
 
 ```http
 {
@@ -439,19 +439,19 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 204(NoContent)의 두 응답을 반환합니다.
 
-|이름  |Type  |Description  |
+|속성  |Type  |Description  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 수락됨     |         |     수락됨    |
 
 > [!IMPORTANT]
-> 실수로 삭제 시나리오를 방지하려면 복구 서비스 자격 증명 모음에 [사용할 수 있는 소프트 삭제 기능이 있습니다.](use-restapi-update-vault-properties.md#soft-delete-state) 볼트의 소프트 삭제 상태가 사용하도록 설정된 경우 삭제 작업은 즉시 데이터를 삭제하지 않습니다. 그것은 14 일 동안 보관된 다음 영구적으로 제거됩니다. 고객은 이 14일 동안 보관 요금이 부과되지 않습니다. 삭제 작업을 취소하려면 [삭제 취소 섹션을](#undo-the-stop-protection-and-delete-data)참조하십시오.
+> 실수로 인 한 삭제 시나리오 로부터 보호 하기 위해 Recovery services 자격 증명 모음에 대해 [일시 삭제 기능을 사용할 수](use-restapi-update-vault-properties.md#soft-delete-state) 있습니다. 자격 증명 모음의 일시 삭제 상태가 사용으로 설정 된 경우 삭제 작업은 데이터를 즉시 삭제 하지 않습니다. 14 일 동안 보관 되 고 영구적으로 제거 됩니다. 이 14 일 동안에는 저장소 요금이 청구 되지 않습니다. 삭제 작업을 실행 취소 하려면 [실행 취소-삭제 섹션](#undo-the-stop-protection-and-delete-data)을 참조 하세요.
 
-### <a name="undo-the-stop-protection-and-delete-data"></a>중지 보호 를 취소하고 데이터를 삭제합니다.
+### <a name="undo-the-stop-protection-and-delete-data"></a>보호 중지 및 데이터 삭제 실행 취소
 
-실수로 삭제를 취소하는 것은 백업 항목을 만드는 것과 유사합니다. 삭제를 취소하면 항목이 유지되지만 향후 백업이 트리거되지 않습니다.
+실수로 삭제를 실행 취소 하는 것은 백업 항목을 만드는 것과 비슷합니다. 삭제를 취소 한 후에는 항목이 유지 되지만 이후의 백업은 트리거되지 않습니다.
 
-삭제 취소는 [정책을 변경하거나](#changing-the-policy-of-protection) 보호를 사용하도록 설정하는 것과 매우 유사한 *PUT* [작업입니다.](#enabling-protection-for-the-azure-vm) 변수가 삭제를 취소할 의도를 제공하면 [요청 본문에](#example-request-body) *수화물이* 다시 공급되고 요청을 제출합니다. 예: testVM에 대한 삭제를 취소하려면 다음 요청 본문을 사용해야 합니다.
+삭제 취소는 [정책을 변경](#changing-the-policy-of-protection) 하거나 [보호를 사용 하도록 설정](#enabling-protection-for-the-azure-vm)하는 것과 매우 유사한 *PUT* 작업입니다. [요청 본문](#example-request-body) 에서 *isRehydrate* 변수를 사용 하 여 삭제를 취소 하 고 요청을 제출 하는 의도를 제공 하기만 하면 됩니다. 예: testVM에 대 한 삭제를 실행 취소 하려면 다음 요청 본문을 사용 해야 합니다.
 
 ```http
 {

@@ -1,21 +1,21 @@
 ---
-title: Azure 블록 체인 워크 벤치에서 사용자 관리
+title: Azure Blockchain 워크 벤치에서 사용자 관리
 description: Azure Blockchain Workbench에서 사용자를 관리하는 방법.
 ms.date: 05/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 573ec477a3e75beb91f90da0545fb7d4c0f9bf39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79252182"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench의 사용자 관리
 
 Azure Blockchain Workbench에는 사용자 컨소시엄의 일부인 사용자 및 조직을 위한 사용자 관리가 포함됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 Blockchain Workbench 배포가 필요합니다. 배포에 대한 자세한 내용은 [Azure Blockchain Workbench 배포](deploy.md)를 참조하세요.
 
@@ -25,7 +25,7 @@ Azure Blockchain Workbench는 인증, 액세스 제어 및 역할에 Azure AD(Az
 
 Blockchain Workbench 사용자는 Azure AD 테넌트에 존재해야 애플리케이션 및 역할에 할당할 수 있습니다. Azure AD에 사용자를 추가하려면 다음 단계를 사용합니다.
 
-1.  [Azure 포털에](https://portal.azure.com)로그인합니다.
+1.  [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2.  오른쪽 위 모서리에서 사용자의 계정을 선택하고 Blockchain Workbench에 연결된 Azure AD 테넌트로 전환합니다.
 3.  **Azure Active Directory > 사용자**를 선택합니다. 디렉터리에 사용자의 목록이 표시됩니다.
 4.  디렉터리에 사용자를 추가하려면 **새 사용자**를 선택합니다. 외부 사용자의 경우 **새 게스트 사용자**를 선택합니다.
@@ -42,9 +42,9 @@ Blockchain Workbench 사용자는 Azure AD 테넌트에 존재해야 애플리�
 
 Azure AD 디렉터리에서 **관리자** 그룹에 사용자를 추가하려면 다음을 수행합니다.
 
-1.  [Azure 포털에](https://portal.azure.com)로그인합니다.
+1.  [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2.  오른쪽 위 모서리에서 사용자의 계정을 선택하여 사용자가 Blockchain Workbench에 연결된 Azure AD 테넌트에 있는지 확인합니다.
-3.  **Azure Active Directory > 엔터프라이즈 응용 프로그램을 선택합니다.**
+3.  **Azure Active Directory > 엔터프라이즈 응용 프로그램**을 선택 합니다.
 4.  Blockchain Workbench에 대한 Azure AD 클라이언트 애플리케이션 선택
     
     ![모든 엔터프라이즈 애플리케이션 등록](./media/manage-users/select-blockchain-client-app.png)
@@ -55,7 +55,7 @@ Azure AD 디렉터리에서 **관리자** 그룹에 사용자를 추가하려면
     ![할당 추가](./media/manage-users/add-user-assignment.png)
 
 9.  **역할**이 **관리자**로 설정되었는지 확인합니다.
-10. **을 선택합니다.** 추가된 사용자가 할당된 관리자 역할이 있는 목록에 표시됩니다.
+10. **할당**을 선택 합니다. 추가된 사용자가 할당된 관리자 역할이 있는 목록에 표시됩니다.
 
     ![Blockchain 클라이언트 응용 프로그램 사용자](./media/manage-users/blockchain-admin-list.png)
 

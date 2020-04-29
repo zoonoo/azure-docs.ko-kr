@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
 ms.openlocfilehash: f58bb534728660b85f7d16910dde7a37914fd571
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249764"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구
@@ -36,8 +36,8 @@ Microsoft Azure 가상 머신(VM)에 SQL Server를 설치하여 사용하면 고
 Azure에서 지원하는 SQL Server HADR 기술은 다음과 같습니다.
 
 * [Always On 가용성 그룹](https://technet.microsoft.com/library/hh510230.aspx)
-* [항상 장애 조치 클러스터 인스턴스](https://technet.microsoft.com/library/ms189134.aspx)
-* [로그 배송](https://technet.microsoft.com/library/ms187103.aspx)
+* [Always On 장애 조치(failover) 클러스터 인스턴스](https://technet.microsoft.com/library/ms189134.aspx)
+* [로그 전달](https://technet.microsoft.com/library/ms187103.aspx)
 * [Azure Blob Storage Service로 SQL Server 백업 및 복원](https://msdn.microsoft.com/library/jj919148.aspx)
 * [데이터베이스 미러링](https://technet.microsoft.com/library/ms189852.aspx) - SQL Server 2016에서에서 사용되지 않음
 
@@ -49,8 +49,8 @@ Azure에서 지원하는 SQL Server HADR 기술은 다음과 같습니다.
 
 | 기술 | 아키텍처의 예 |
 | --- | --- |
-| **가용성 그룹** |동일한 지역에 있는 Azure VM에서 실행되는 모든 가용성 복제본은 고가용성을 제공합니다.  Windows 장애 조치 클러스터링에 Active Directory 도메인이 필요하기 때문에 도메인 컨트롤러 VM을 구성해야 합니다.<br/><br/> 더 높은 중복성과 가용성을 위해 Azure VM은 [가용성 그룹 개요에](virtual-machines-windows-portal-sql-availability-group-overview.md)설명된 대로 다양한 [가용성 영역에](../../../availability-zones/az-overview.md) 배포할 수 있습니다. 가용성 그룹의 SQL Server VM이 가용성 영역에 배포된 경우 이러한 문서에 설명된 대로 수신기에 [대한 표준 로드 밸런서를](../../../load-balancer/load-balancer-standard-overview.md) [사용합니다.](virtual-machines-windows-sql-availability-group-cli.md) & [Azure Quickstart templates](virtual-machines-windows-sql-availability-group-quickstart-template.md)<br/> ![가용성 그룹](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-ha-always-on.png)<br/>자세한 내용은 [Azure에서 가용성 그룹 구성(GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)을 참조하세요. |
-| **장애 조치(Failover) 클러스터 인스턴스** |공유 저장소가 필요한 장애 조치 클러스터 인스턴스(FCI)는 4가지 방법으로 만들 수 있습니다.<br/><br/>1. [Windows Server \(2016 스토리지 스페이스 Direct S2D를\) ](virtual-machines-windows-portal-sql-create-failover-cluster.md) 사용하여 소프트웨어 기반 가상 SAN을 제공하는 연결된 저장소가 있는 Azure VM에서 실행되는 2노드 장애 조치 클러스터입니다.<br/><br/> 2. [프리미엄 파일 공유를](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md)사용하여 Azure VM에서 실행되는 2노드 장애 조치 클러스터. 프리미엄 파일 공유는 장애 조치 클러스터 인스턴스에서 사용하도록 완벽하게 지원되는 SSD 지원 일관되게 대기 시간이 짧은 파일 공유입니다.<br/><br/>3. 타사 클러스터링 솔루션에서 지원하는 저장소가 있는 Azure VM에서 실행되는 2노드 장애 조치 클러스터입니다. SIOS DataKeeper를 사용하는 특정 예제의 경우 [장애 조치 클러스터링 및 타사 소프트웨어 SIOS DataKeeper를 사용하여 파일 공유에 대한 고가용성을](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)참조하십시오.<br/><br/>4. 익스프레스루트를 통해 원격 iSCSI Target 공유 블록 저장소를 사용하여 Azure VM에서 실행되는 2노드 장애 조치 클러스터입니다. 예를 들어 NPS(NetApp 프라이빗 스토리지)는 Equinix와 함께 ExpressRoute를 사용하여 iSCSI 대상을 Azure VM에 공개합니다.<br/><br/>타사 공유 스토리지 및 데이터 복제 솔루션의 경우 장애 조치 시 데이터 액세스와 관련된 문제는 공급 업체에 문의해야 합니다.<br/><br/>|
+| **가용성 그룹** |동일한 지역에 있는 Azure VM에서 실행되는 모든 가용성 복제본은 고가용성을 제공합니다.  Windows 장애 조치 클러스터링에 Active Directory 도메인이 필요하기 때문에 도메인 컨트롤러 VM을 구성해야 합니다.<br/><br/> 더 높은 중복성 및 가용성을 위해 Azure Vm은 [가용성 그룹 개요](virtual-machines-windows-portal-sql-availability-group-overview.md)에 설명 된 대로 다른 [가용성 영역](../../../availability-zones/az-overview.md) 에 배포할 수 있습니다. 가용성 그룹의 SQL Server vm이 가용성 영역에 배포 된 경우 이러한 문서에 설명 된 대로 수신기 용 [표준 부하 분산 장치](../../../load-balancer/load-balancer-standard-overview.md) 를 사용 합니다 ( [azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) & [azure 빠른 시작 템플릿](virtual-machines-windows-sql-availability-group-quickstart-template.md)).<br/> ![가용성 그룹](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-ha-always-on.png)<br/>자세한 내용은 [Azure에서 가용성 그룹 구성(GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)을 참조하세요. |
+| **장애 조치(Failover) 클러스터 인스턴스** |공유 저장소가 필요한 FCI (장애 조치 (Failover) 클러스터 인스턴스)는 4 가지 방법으로 만들 수 있습니다.<br/><br/>1. [Windows Server 스토리지 공간 다이렉트 \(\) 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) 를 사용 하 여 연결 된 저장소로 Azure vm에서 실행 되는 2 노드 장애 조치 (failover) 클러스터를 사용 하 여 소프트웨어 기반 가상 SAN을 제공 합니다.<br/><br/> 2. [프리미엄 파일 공유](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md)를 사용 하 여 Azure vm에서 실행 되는 2 노드 장애 조치 (failover) 클러스터. 프리미엄 파일 공유는 장애 조치 (Failover) 클러스터 인스턴스와 함께 사용할 수 있도록 완전 하 게 지원 되는 SSD 지원-대기 시간이 짧은 파일 공유입니다.<br/><br/>3. 타사 클러스터링 솔루션에서 지 원하는 저장소를 사용 하 여 Azure Vm에서 실행 되는 2 노드 장애 조치 (failover) 클러스터. SIOS DataKeeper를 사용 하는 특정 예제는 [장애 조치 (failover) 클러스터링 및 타사 소프트웨어 SIOS DataKeeper를 사용 하는 파일 공유에 대 한 고가용성](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)을 참조 하세요.<br/><br/>4. Express 경로를 통한 원격 iSCSI 대상 공유 블록 저장소를 사용 하 여 Azure Vm에서 실행 되는 2 노드 장애 조치 (failover) 클러스터. 예를 들어 NPS(NetApp 프라이빗 스토리지)는 Equinix와 함께 ExpressRoute를 사용하여 iSCSI 대상을 Azure VM에 공개합니다.<br/><br/>타사 공유 스토리지 및 데이터 복제 솔루션의 경우 장애 조치 시 데이터 액세스와 관련된 문제는 공급 업체에 문의해야 합니다.<br/><br/>|
 
 ## <a name="azure-only-disaster-recovery-solutions"></a>Azure 전용: 재해 복구 솔루션
 가용성 그룹, 데이터베이스 미러링을 사용하여 Azure 내의 SQL Server 데이터베이스에 대한 재해 복구 솔루션을 구축하거나 스토리지 blob을 사용하여 백업 및 복원할 수 있습니다.
@@ -58,7 +58,7 @@ Azure에서 지원하는 SQL Server HADR 기술은 다음과 같습니다.
 | 기술 | 아키텍처의 예 |
 | --- | --- |
 | **가용성 그룹** |재해 복구를 위해 가용성 복제본을 Azure VM의 여러 데이터 센터에서 실행합니다. 이렇게 여러 영역에 나누어 실행되는 솔루션은 완전한 사이트 중단이 발생해도 데이터를 보호할 수 있습니다. <br/> ![가용성 그룹](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-dr-alwayson.png)<br/>한 영역 내의 모든 복제본은 동일한 클라우드 서비스 및 동일한 VNet 내에 있어야 합니다. 각 영역에 별도의 VNet이 있으므로, 이러한 솔루션은 VNet 사이의 연결이 필요합니다. 자세한 내용은 [Azure Portal에서 VNet-VNet 연결 구성](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)을 참조하세요. 자세한 지침은 [다른 지역의 Azure Virtual Machines에서 SQL Server 가용성 그룹 구성](virtual-machines-windows-portal-sql-availability-group-dr.md)을 참조하세요.|
-| **데이터베이스 미러링** |재해 복구를 위해 주 서버와 미러 서버를 다른 데이터 센터에서 실행합니다. 서버 인증서를 사용하여 배포해야 합니다. SQL Server 데이터베이스 미러링은 Azure VM에서 SQL Server 2008 또는 SQL Server 2008 R2에 대해 지원되지 않습니다. <br/>![데이터베이스 미러링](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-dr-dbmirroring.png) |
+| **데이터베이스 미러링** |재해 복구를 위해 주 서버와 미러 서버를 다른 데이터 센터에서 실행합니다. 서버 인증서를 사용 하 여 배포 해야 합니다. SQL Server 데이터베이스 미러링은 Azure VM의 SQL Server 2008 또는 SQL Server 2008 r 2에 대해 지원 되지 않습니다. <br/>![데이터베이스 미러링](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-dr-dbmirroring.png) |
 | **Azure Blob Storage 서비스로 백업 및 복원** |File Storage에서 파일 복사<br/>![Backup 및 복원](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-dr-backup-restore.png)<br/>자세한 내용은 [Azure Virtual Machines에서 SQL Server의 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md)을 참조하세요. |
 | **Azure Site Recovery를 사용하여 SQL Server를 Azure에 복제 및 장애 조치(Failover)** |재해 복구를 위해 한 Azure 데이터 센터의 프로덕션 SQL Server가 다른 Azure 데이터 센터의 Azure Storage에 직접 복제되었습니다.<br/>![Azure Site Recovery를 사용하여 복제](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-dr-standalone-sqlserver-asr.png)<br/>자세한 내용은 [SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호](../../../site-recovery/site-recovery-sql.md)를 참조하세요. |
 
@@ -69,23 +69,23 @@ Azure에서 지원하는 SQL Server HADR 기술은 다음과 같습니다.
 | 기술 | 아키텍처의 예 |
 | --- | --- |
 | **가용성 그룹** |사이트간 재해 복구를 위해 일부 가용성 복제본은 Azure VM에서 실행되고 다른 복제본은 온-프레미스에서 실행됩니다. 프로덕션 사이트는 온-프레미스와 Azure 데이터 센터 어디에도 있을 수 있습니다.<br/>![가용성 그룹](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-alwayson.png)<br/>모든 가용성 복제본이 동일한 장애 조치 클러스터에 있어야 하므로, 장애 조치 클러스터는 두 네트워크(다중 서브넷 장애 조치 클러스터)에 걸쳐 있어야 합니다. 이 구성은 Azure와 온-프레미스 네트워크 간의 VPN 연결이 필요합니다.<br/><br/>데이터베이스의 성공적인 재해 복구를 위해서는 재해 복구 사이트에 복제 도메인 컨트롤러도 설치해야 합니다.<br/><br/>SSMS에서 복제본 추가 마법사를 사용하여 Azure 복제본을 기존 Always On 가용성 그룹에 추가할 수도 있습니다. 자세한 내용은 자습서: Always On 가용성 그룹을 Azure로 확장을 참조하세요. |
-| **데이터베이스 미러링** |서버 인증서를 사용한 사이트 간 재해 복구를 위해 한 파트너는 Azure VM에서 실행하고 다른 파트너는 온-프레미스에서 실행합니다. 파트너는 동일한 Active Directory 도메인에 속할 필요가 없으며 VPN 연결도 필요하지 않습니다.<br/>![데이터베이스 미러링](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-dbmirroring.png)<br/>또 다른 데이터베이스 미러링 시나리오로는 사이트 간 재해 복구를 위해 한 파트너가 Azure VM에서 실행되고 다른 파트너가 동일한 Active Directory 도메인의 온-프레미스에서 실행되는 경우를 들 수 있습니다. [Azure 가상 네트워크와 온-프레미스 네트워크 간의 VPN 연결](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)이 필요합니다.<br/><br/>데이터베이스의 성공적인 재해 복구를 위해서는 재해 복구 사이트에 복제 도메인 컨트롤러도 설치해야 합니다. SQL Server 데이터베이스 미러링은 Azure VM에서 SQL Server 2008 또는 SQL Server 2008 R2에 대해 지원되지 않습니다. |
-| **로그 배송** |사이트 간 재해 복구를 위해 한 서버는 Azure VM에서 실행하고 다른 서버는 온-프레미스에서 실행합니다. 로그 전달은 Windows 파일 공유를 사용하므로 Azure 가상 네트워크와 온-프레미스 네트워크 간의 VPN 연결이 필요합니다.<br/>![로그 전달](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-log-shipping.png)<br/>데이터베이스의 성공적인 재해 복구를 위해서는 재해 복구 사이트에 복제 도메인 컨트롤러도 설치해야 합니다. |
+| **데이터베이스 미러링** |서버 인증서를 사용한 사이트 간 재해 복구를 위해 한 파트너는 Azure VM에서 실행하고 다른 파트너는 온-프레미스에서 실행합니다. 파트너는 동일한 Active Directory 도메인에 속할 필요가 없으며 VPN 연결도 필요하지 않습니다.<br/>![데이터베이스 미러링](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-dbmirroring.png)<br/>또 다른 데이터베이스 미러링 시나리오로는 사이트 간 재해 복구를 위해 한 파트너가 Azure VM에서 실행되고 다른 파트너가 동일한 Active Directory 도메인의 온-프레미스에서 실행되는 경우를 들 수 있습니다. [Azure 가상 네트워크와 온-프레미스 네트워크 간의 VPN 연결](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)이 필요합니다.<br/><br/>데이터베이스의 성공적인 재해 복구를 위해서는 재해 복구 사이트에 복제 도메인 컨트롤러도 설치해야 합니다. SQL Server 데이터베이스 미러링은 Azure VM의 SQL Server 2008 또는 SQL Server 2008 r 2에 대해 지원 되지 않습니다. |
+| **로그 전달** |사이트 간 재해 복구를 위해 한 서버는 Azure VM에서 실행하고 다른 서버는 온-프레미스에서 실행합니다. 로그 전달은 Windows 파일 공유를 사용하므로 Azure 가상 네트워크와 온-프레미스 네트워크 간의 VPN 연결이 필요합니다.<br/>![로그 전달](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-log-shipping.png)<br/>데이터베이스의 성공적인 재해 복구를 위해서는 재해 복구 사이트에 복제 도메인 컨트롤러도 설치해야 합니다. |
 | **Azure Blob Storage 서비스로 백업 및 복원** |Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 유지합니다.<br/>![Backup 및 복원](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-backup-restore.png)<br/>자세한 내용은 [Azure Virtual Machines에서 SQL Server의 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md)을 참조하세요. |
 | **Azure Site Recovery를 사용하여 SQL Server를 Azure에 복제 및 장애 조치(Failover)** |재해 복구를 위해 온-프레미스 프로덕션 SQL Server가 Azure Storage에 직접 복제되었습니다.<br/>![Azure Site Recovery를 사용하여 복제](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-standalone-sqlserver-asr.png)<br/>자세한 내용은 [SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호](../../../site-recovery/site-recovery-sql.md)를 참조하세요. |
 
 
 ## <a name="free-dr-replica-in-azure"></a>Azure에서 무료 DR 복제본
 
-[소프트웨어 보증이](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3)있는 경우 수동 DR 인스턴스에 대한 추가 라이선스 비용을 발생하지 않고 SQL Server를 통해 하이브리드 재해 복구(DR) 계획을 구현할 수 있습니다.
+[소프트웨어 보증이](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3)있는 경우 수동 dr 인스턴스에 대 한 추가 라이선스 비용 없이 SQL SERVER으로 DR (하이브리드 재해 복구) 계획을 구현할 수 있습니다.
 
-아래 이미지에서 설정은 12개의 코어를 사용하는 온-프레미스 SQL Server 배포를 위한 재해 복구 복제본으로 12코어를 사용하는 Azure 가상 머신에서 실행되는 SQL Server를 사용합니다. 과거에는 온-프레미스 및 Azure 가상 시스템 배포에 대해 SQL Server의 12코어에 라이선스를 부여해야 했습니다. 새로운 혜택은 Azure 가상 컴퓨터에서 실행되는 수동 복제본 이점을 제공합니다. 이제 Azure 가상 머신의 수동 복제본에 대한 재해 복구 기준이 충족되는 한 온-프레미스에서 실행 중인 SQL Server의 12개 코어만 라이선스를 부여해야 합니다.
+아래 이미지에서 설치 프로그램은 12 개 코어를 사용 하는 온-프레미스 SQL Server 배포에 대 한 재해 복구 복제본으로 12 개 코어를 사용 하 여 Azure 가상 머신에서 실행 되는 SQL Server을 사용 합니다. 과거에는 온-프레미스 및 Azure 가상 컴퓨터 배포에 대 한 SQL Server의 12 개 코어에 대 한 라이선스가 필요 합니다. 새 혜택은 Azure 가상 머신에서 실행 되는 수동 복제본 혜택을 제공 합니다. 이제 Azure 가상 컴퓨터의 수동 복제본에 대 한 재해 복구 기준이 충족 되는 경우 온-프레미스로 실행 되는 SQL Server의 12 개 코어만 라이선스 해야 합니다.
 
 ![Azure에서 무료 DR 복제본](media/virtual-machines-windows-sql-high-availability-dr/free-dr-replica-azure.png)
 
-자세한 내용은 제품 [라이선스 조건을](https://www.microsoft.com/licensing/product-licensing/products)참조하십시오. 
+자세한 내용은 [제품 라이선스 조건](https://www.microsoft.com/licensing/product-licensing/products)을 참조 하십시오. 
 
-이 이 혜택을 사용하려면 [SQL Server 가상 시스템 리소스로](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource)이동하여 설정에서 **구성을** 선택한 다음 **SQL Server License에서** **재해 복구** 옵션을 선택합니다. 이 SQL Server VM이 수동 복제본으로 사용되는지 확인란을 선택한 다음 **적용을** 선택하여 설정을 저장합니다. 
+이 혜택을 사용 하려면 [SQL Server 가상 컴퓨터 리소스로](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource)이동 하 고 설정 아래에서 **구성** 을 선택한 다음 **SQL Server 라이선스**에서 **재해 복구** 옵션을 선택 합니다. 확인란을 선택 하 여이 SQL Server VM이 수동 복제본으로 사용 됨을 확인 한 다음 **적용** 을 선택 하 여 설정을 저장 합니다. 
 
 ![Azure에서 DR 복제본 구성](media/virtual-machines-windows-sql-high-availability-dr/dr-replica-in-portal.png)
 
@@ -94,10 +94,10 @@ Azure에서 지원하는 SQL Server HADR 기술은 다음과 같습니다.
 Azure VM, 스토리지 및 네트워킹은 온-프레미스, 가상화되지 않은 IT 인프라에서는 작동 특성이 달라집니다. Azure에서 SQL Server HADR 솔루션을 성공적으로 구현하기 위해서는 이러한 차이점을 이해하고 그에 맞게 솔루션을 설계해야 합니다.
 
 ### <a name="high-availability-nodes-in-an-availability-set"></a>가용성 집합의 고가용성 노드
-Azure의 가용성 집합을 사용하면 고가용성 노드를 별도의 오류 도메인(FD)과 업데이트 도메인(UD)에 배치할 수 있습니다. 기본 Azure 플랫폼에서는 가용성 집합에 포함된 각각의 가상 머신을 업데이트 도메인 및 장애 도메인에 할당합니다. 데이터 센터 내의 이러한 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 컴퓨터를 사용할 수 있고 99.95% Azure SLA가 충족되도록 합니다. 고가용성 설정을 구성하려면 유지 관리 이벤트 중에 응용 프로그램이나 데이터 손실을 방지하기 위해 참여하는 모든 SQL Virtual Machines를 동일한 가용성 집합에 배치합니다. 같은 클라우드 서비스에 있는 노드만 같은 가용성 집합에 참여할 수 있습니다. 자세한 내용은 [가상 컴퓨터의 가용성 관리를](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)참조하십시오.
+Azure의 가용성 집합을 사용하면 고가용성 노드를 별도의 오류 도메인(FD)과 업데이트 도메인(UD)에 배치할 수 있습니다. 기본 Azure 플랫폼에서는 가용성 집합에 포함된 각각의 가상 머신을 업데이트 도메인 및 장애 도메인에 할당합니다. 데이터 센터 내의 이러한 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 컴퓨터를 사용할 수 있고 99.95% Azure SLA가 충족되도록 합니다. 고가용성 설정을 구성 하려면 유지 관리 이벤트 중에 응용 프로그램이 나 데이터 손실을 방지 하기 위해 모든 참여 하는 SQL Virtual Machines를 동일한 가용성 집합에 저장 합니다. 같은 클라우드 서비스에 있는 노드만 같은 가용성 집합에 참여할 수 있습니다. 자세한 내용은 [Virtual Machines의 가용성 관리](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조 하세요.
 
-### <a name="high-availability-nodes-in-an-availability-zone"></a>가용성 영역의 고가용성 노드
-가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 지역 내의 가용성 영역의 물리적 분리는 하나 이상의 가상 컴퓨터를 사용할 수 있고 99.99%의 Azure SLA를 충족하도록 하여 데이터 센터 오류로부터 응용 프로그램과 데이터를 보호합니다. 고가용성을 구성하려면 참여 SQL 가상 컴퓨터를 리전의 사용 가능한 가용성 영역에 분산합니다. 내부 가용성 영역 VM 대 VM 데이터 전송 요금이 추가됩니다. 자세한 내용은 [가용성 영역을](/azure/availability-zones/az-overview)참조하십시오. 
+### <a name="high-availability-nodes-in-an-availability-zone"></a>가용성 영역에서 고가용성 노드
+가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 지역 내에서 가용성 영역의 물리적인 분리는 하나 이상의 가상 머신을 사용할 수 있고 99.99% Azure SLA를 충족 하도록 하 여 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 합니다. 고가용성을 구성 하려면 참여 하는 SQL Virtual Machines를 해당 지역에서 사용 가능한 가용성 영역에 분산 시킵니다. 내부 가용성 영역 VM 대 VM 데이터 전송 요금이 추가됩니다. 자세한 내용은 [가용성 영역](/azure/availability-zones/az-overview)을 참조 하세요. 
 
 
 ### <a name="failover-cluster-behavior-in-azure-networking"></a>Azure 네트워킹에서 장애 조치 클러스터의 동작
@@ -114,7 +114,7 @@ Azure에 RFC 호환이 아닌 DHCP 서비스를 사용하면 특정한 장애 �
 
 169.254.1.1과 같은 링크 로컬 IP 주소 등의 사용되지 않는 정적 IP 주소를 클러스터 네트워크 이름으로 할당하여 클러스터 네트워크 이름을 온라인 상태로 만들면 이러한 상황을 방지할 수 있습니다. 이 절차를 간단히 수행하려면 [Azure에서 가용성 그룹에 Windows 장애 조치 클러스터 구성](https://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx)을 참조하세요.
 
-자세한 내용은 [AZURE(GUI)의 가용성 그룹 구성을](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)참조하십시오.
+자세한 내용은 [Azure에서 가용성 그룹 구성 (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)을 참조 하세요.
 
 ### <a name="availability-group-listener-support"></a>가용성 그룹 수신기 지원
 가용성 그룹 수신기는 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016에서 실행되는 Azure VM에서 지원됩니다. 가용성 그룹 노드인 Azure VM에서 부하 분산된 엔드포인트를 사용하도록 설정하면 이러한 지원이 가능해집니다. 수신기가 작동하도록 하려면 Azure에서 실행되는 클라이언트 애플리케이션과 온-프레미스 실행되는 클라이언트 애플리케이션 모두에 대해 특별한 구성 단계를 따라야 합니다.
@@ -141,7 +141,7 @@ ADO.NET 또는 SQL Server Native Client를 사용하여 데이터베이스 미�
 * [데이터베이스 미러링 세션에 클라이언트 연결(SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
 * [하이브리드 IT 환경에서 가용성 그룹 수신기에 연결](https://blogs.msdn.com/b/sqlalwayson/archive/2013/02/14/connecting-to-availability-group-listener-in-hybrid-it.aspx)
 * [가용성 그룹 수신기, 클라이언트 연결 및 애플리케이션 장애 조치(failover)(SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
-* [가용성 그룹과 데이터베이스 미러링 연결 문자열 사용](https://technet.microsoft.com/library/hh213417.aspx)
+* [가용성 그룹에 데이터베이스 미러링 연결 문자열 사용](https://technet.microsoft.com/library/hh213417.aspx)
 
 ### <a name="network-latency-in-hybrid-it"></a>하이브리드 IT 환경의 네트워크 대기 시간
 HADR 솔루션을 배포할 때는 온-프레미스 네트워크와 Azure 간에 긴 네트워크 대기 시간이 있을 수 있다는 가정을 해야 합니다. 복제본을 Azure에 배포할 때, 동기화 모드로 동기 커밋 대신 비동기 커밋을 사용해야 합니다. 온-프레미스와 Azure 모두에 데이터베이스 미러링 서버를 배포할 때는 보호 우선 모드 대신 성능 우선 모드를 사용합니다.

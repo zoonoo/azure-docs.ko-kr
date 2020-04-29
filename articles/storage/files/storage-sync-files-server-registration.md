@@ -8,10 +8,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 2656716560b981481273c3032fc0c7b1a06be8a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79255094"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Azure 파일 동기화에 등록된 서버 관리
@@ -22,7 +22,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>스토리지 동기화 서비스로 서버 등록/등록 취소
 Azure 파일 동기화를 사용하여 서버를 등록하면 Windows Server와 Azure 간에 트러스트 관계가 설정됩니다. 그런 다음 이 관계를 사용하여 Azure 파일 공유(*클라우드 엔드포인트*라고도 함)와 동기화해야 하는 특정 폴더를 나타내는 *서버 엔드포인트*를 서버에 만들 수 있습니다. 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 스토리지 동기화 서비스를 사용하여 서버를 등록하려면 먼저 필요한 필수 구성 요소를 갖춘 서버를 준비해야 합니다.
 
 * 서버에서 지원되는 Windows Server 버전을 실행해야 합니다. 자세한 내용은 [Azure 파일 동기화 시스템 요구 사항 및 상호 운용성](storage-sync-files-planning.md#windows-file-server-considerations)을 참조하세요.
@@ -146,7 +146,7 @@ Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName
 #### <a name="unregister-the-server"></a>서버 등록 취소
 이제 모든 데이터가 회수되고 서버가 모든 동기화 그룹에서 제거되었으므로 서버의 등록을 취소할 수 있습니다. 
 
-1. Azure 포털에서 저장소 동기화 서비스의 *등록된 서버* 섹션으로 이동합니다.
+1. Azure Portal에서 저장소 동기화 서비스의 *등록 된 서버* 섹션으로 이동 합니다.
 2. 등록 취소할 서버를 마우스 오른쪽 단추로 클릭하고 “서버 등록 취소”를 클릭합니다.
 
     ![서버 등록 취소](media/storage-sync-files-server-registration/unregister-server-1.png)
@@ -185,8 +185,8 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ### <a name="use-windows-server-storage-qos"></a>Windows Server 스토리지 QoS 사용 
 Azure 파일 동기화가 Windows Server 가상화 호스트에서 실행되는 가상 머신에 호스팅되는 경우 스토리지 QoS(스토리지 서비스 품질)를 사용하여 스토리지 IO 사용을 제어할 수 있습니다. 스토리지 QoS 정책은 최대(또는 위에서 StorageSyncNetwork 제한이 적용되는 방식과 같은 제한) 또는 최소(또는 예약) 중 하나로 설정할 수 있습니다. 최대 대신 최소를 설정하면 다른 워크로드에서 사용하지 않는 경우 Azure 파일 동기화에서 사용 가능한 스토리지 대역폭을 사용하도록 버스트할 수 있습니다. 자세한 내용은 [스토리지 서비스 품질](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview)을 참조하세요.
 
-## <a name="see-also"></a>참조
-- [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
+## <a name="see-also"></a>참고 항목
+- [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
 - [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)
 - [Azure 파일 동기화 모니터링](storage-sync-files-monitoring.md)
 - [Azure 파일 동기화 문제 해결](storage-sync-files-troubleshoot.md)

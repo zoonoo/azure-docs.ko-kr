@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: a8bd12d98b76d5848753987c4f7bcb76d4e2266d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250076"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Windows Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법 
@@ -32,7 +32,7 @@ ms.locfileid: "79250076"
 
 ### <a name="for-vms-deployed-in-resource-group-model"></a>리소스 그룹 모델에서 배포된 VM의 경우
 
-1.  [Azure 포털로](https://ms.portal.azure.com)이동합니다.
+1.  [Azure 포털](https://ms.portal.azure.com)로 이동합니다.
 2.  영향을 받는 Virtual Machine을 선택합니다.
 3.  **네트워킹**을 선택하고 VM의 네트워크 인터페이스를 선택합니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "79250076"
 
 #### <a name="use-azure-portal"></a>Azure Portal 사용
 
-1.  [Azure 포털로]( https://ms.portal.azure.com)이동합니다.
+1.  [Azure 포털]( https://ms.portal.azure.com)로 이동합니다.
 2.  **Virtual Machines(클래식)** 를 선택합니다.
 3.  영향을 받는 Virtual Machine을 선택합니다.
 4.  **IP 주소**를 선택합니다.
@@ -90,7 +90,7 @@ ms.locfileid: "79250076"
 
 #### <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
-1. [최신 Azure PowerShell이](https://docs.microsoft.com/powershell/azure/overview) 설치되어 있는지 확인합니다.
+1. [최신 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 설치 되어 있는지 확인 합니다.
 2. 관리자 권한 Azure PowerShell 세션(관리자 권한으로 실행)을 엽니다. 다음 명령을 실행합니다.
 
     ```powershell
@@ -117,10 +117,10 @@ ms.locfileid: "79250076"
 컴퓨터에 원격 데스크톱을 수행한 후 잠재적인 문제를 방지하기 위해 이전 NIC를 삭제해야 합니다.
 
 1.  디바이스 관리자를 엽니다.
-2.  **숨겨진 장치 표시** **보기** > 를 선택합니다.
+2.  **보기** > **숨김 장치 표시**를 선택 합니다.
 3.  **네트워크 어댑터**를 선택합니다. 
 4.  “Microsoft Hyper-V 네트워크 어댑터”로 명명된 어댑터를 확인합니다.
-5.  회색으로 표시되는 어댑터를 사용할 수 없는 경우 어댑터를 마우스 오른쪽 단추로 클릭한 다음 제거를 선택합니다.
+5.  사용할 수 없는 어댑터가 회색으로 표시 될 수 있습니다. 어댑터를 마우스 오른쪽 단추로 클릭 한 다음 제거를 선택 합니다.
 
     ![NIC 이미지](media/reset-network-interface/nicpage.png)
 

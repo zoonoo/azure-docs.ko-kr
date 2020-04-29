@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: a037ddc5a43b288349b17dc7d954991a2c634aa3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254691"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>StorSimple Snapshot Manager를 사용하여 StorSimple 디바이스 연결 및 관리
@@ -31,9 +31,9 @@ StorSimple Snapshot Manager의 **범위** 창에서 노드를 사용하여 가�
 
 **뷰** 선택 항목에 따라 **결과** 창에 각 장치에 대해 다음과 같은 정보를 표시합니다. (보기 구성에 대한 자세한 내용은 [보기 메뉴](storsimple-use-snapshot-manager.md#view-menu)를 참조하세요.)
 
-| 결과 열 | 설명 |
+| 결과 열 | Description |
 |:--- |:--- |
-| 이름 |디바이스의 이름은 Azure 클래식 포털에서 구성된 이름을 따릅니다. |
+| 속성 |디바이스의 이름은 Azure 클래식 포털에서 구성된 이름을 따릅니다. |
 | 모델 |디바이스의 모델 번호 |
 | 버전 |디바이스에 설치된 소프트웨어 버전 |
 | 상태 |디바이스를 사용할 수 있는지 여부 |
@@ -166,7 +166,7 @@ StorSimple Snapshot Manager의 **범위** 창에서 노드를 사용하여 가�
 
 #### <a name="to-change-the-expired-password"></a>만료된 암호를 변경하려면
 1. Azure 클래식 포털에서 StorSimple Manager 서비스를 시작합니다.
-2. **장치에** > 대해**장치 구성을** 클릭합니다.
+2. 장치에 대해 장치**구성** **을 클릭 합니다.** > 
 3. StorSimple 스냅샷 관리자 섹션으로 스크롤합니다. 14-15자로 암호를 입력합니다. 암호에는 대문자, 소문자, 숫자 및 특수 문자가 포함되어야 합니다.
 4. 확인을 위해 암호를 다시 입력합니다.
 5. 페이지 아래쪽에서 **저장**을 클릭합니다.

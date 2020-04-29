@@ -4,17 +4,17 @@ description: 다음 모범 사례에 따라 Azure Container Registry를 효과�
 ms.topic: article
 ms.date: 09/27/2018
 ms.openlocfilehash: 233d84b8bfa6f3d8c800e76032ef74a643db11ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247073"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry의 모범 사례
 
 다음 모범 사례를 따르면 Azure에서 프라이빗 Docker 레지스트리 사용의 성능 및 비용 효과적 측면을 극대화하는 데 도움이 될 수 있습니다.
 
-레지스트리에서 이미지에 태그를 지정하고 버전을 지정하는 전략에 대한 [컨테이너 이미지에 태그를 지정하고 버전 관리해야](container-registry-image-tag-version.md) 하는 권장 사항도 참조하세요. 
+레지스트리의 태그 및 버전 이미지에 대 한 전략의 컨테이너 이미지에 태그를 지정 하 고 버전을 지정 하기 [위한 권장](container-registry-image-tag-version.md) 사항도 참조 하세요. 
 
 ## <a name="network-close-deployment"></a>네트워크가 가까운 배포
 
@@ -33,7 +33,7 @@ ms.locfileid: "79247073"
 
 리포지토리 네임스페이스를 활용하여 조직 내의 여러 그룹에서 단일 레지스트리 공유를 허용할 수 있습니다. 레지스트리는 배포 및 팀 간에 공유할 수 있습니다. Azure Container Registry는 중첩된 네임스페이스를 지원하여 그룹 격리를 허용합니다.
 
-예를 들어 다음 컨테이너 이미지 태그를 고려해 보세요. 와 같이 `aspnetcore`회사 전체에서 사용되는 이미지는 루트 네임스페이스에 배치되고 제품 및 마케팅 그룹이 소유한 컨테이너 이미지는 각각 고유한 네임스페이스를 사용합니다.
+예를 들어 다음 컨테이너 이미지 태그를 고려해 보세요. 와 같이 `aspnetcore`회사 전체에 사용 되는 이미지는 루트 네임 스페이스에 배치 되는 반면, 제품 및 마케팅 그룹이 소유한 컨테이너 이미지는 각각 고유한 네임 스페이스를 사용 합니다.
 
 - *contoso.azurecr.io/aspnetcore:2.0*
 - *contoso.azurecr.io/products/widget/web:1*
@@ -52,8 +52,8 @@ Azure Container Registry에서 인증할 때 두 가지 기본 시나리오, 즉
 
 | Type | 예제 시나리오 | 권장 방법 |
 |---|---|---|
-| 개별 ID | 개발자가 개발 컴퓨터로 이미지를 끌어오거나 개발 컴퓨터에서 이미지를 푸시함 | [아즈 acr 로그인](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
-| 헤드리스/서비스 ID | 사용자가 직접 참여하지 않은 파이프라인 빌드 및 배포 | [서비스 주체](container-registry-authentication.md#service-principal) |
+| 개별 ID | 개발자가 개발 컴퓨터로 이미지를 끌어오거나 개발 컴퓨터에서 이미지를 푸시함 | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
+| 헤드리스/서비스 ID | 사용자가 직접 참여하지 않은 파이프라인 빌드 및 배포 | [서비스 사용자](container-registry-authentication.md#service-principal) |
 
 Azure Container Registry 인증에 대한 자세한 내용은 [Azure Container Registry로 인증](container-registry-authentication.md)을 참조하세요.
 
