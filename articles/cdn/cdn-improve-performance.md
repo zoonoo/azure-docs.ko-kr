@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: allensu
 ms.openlocfilehash: 7124dd40d4510674014afe012a8f40dcb5bb6153
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253767"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN에서 파일을 압축하여 성능 향상
@@ -27,7 +27,7 @@ ms.locfileid: "81253767"
 파일 압축을 사용하도록 설정하는 두 가지 방법이 있습니다.
 
 - 원본 서버에서 압축을 사용합니다. 이 경우 Azure CDN은 압축된 파일을 전달하고 이러한 파일을 요청하는 클라이언트에 배달합니다.
-- CDN POP 서버에서 직접 압축을*활성화합니다(즉석에서 압축).* 이 경우 원본 서버에서 압축되지 않더라도 CDN이 파일을 압축하여 최종 사용자에게 제공합니다.
+- CDN POP 서버에서 직접 압축을 사용 하도록 설정 합니다 (*즉시 압축*). 이 경우 원본 서버에서 압축되지 않더라도 CDN이 파일을 압축하여 최종 사용자에게 제공합니다.
 
 > [!IMPORTANT]
 > Azure CDN 구성 변경이 네트워크 통해 전파되려면 다소 시간이 걸릴 수 있습니다. 
@@ -101,9 +101,9 @@ ms.locfileid: "81253767"
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Microsoft의 Azure CDN 표준 프로필
 
 **Microsoft의 Azure CDN 표준** 프로필의 경우에는 적합한 파일만 압축됩니다. 압축이 가능하려면 파일이 다음 조건을 충족해야 합니다.
-- [압축을 위해 구성된](#enabling-compression)MIME 형식이어야 합니다.
-- 1KB보다 커야 합니다.
-- 8MB보다 작아지다
+- [압축을 위해 구성](#enabling-compression)된 MIME 형식 이어야 합니다.
+- 1kb 보다 커야 합니다.
+- 8mb 보다 작아야 합니다.
 
 이러한 프로필은 다음과 같은 압축 인코딩을 지원합니다.
 - gzip(GNU zip)
@@ -117,7 +117,7 @@ ms.locfileid: "81253767"
 
 **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필의 경우, 적합한 파일만 압축될 수 있습니다. 압축이 가능하려면 파일이 다음 조건을 충족해야 합니다.
 - 128바이트 초과.
-- 3MB보다 작아지다
+- 3mb 보다 작아야 합니다.
 
 이러한 프로필은 다음과 같은 압축 인코딩을 지원합니다.
 - gzip(GNU zip)
@@ -139,7 +139,7 @@ ms.locfileid: "81253767"
 다음 표는 모든 시나리오에 적용되는 Azure CDN 압축 동작을 설명합니다.
 
 ### <a name="compression-is-disabled-or-file-is-ineligible-for-compression"></a>압축이 비활성화되었거나 파일이 압축에 부적합
-| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 참고&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 사항&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | &nbsp; &nbsp; 참고&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed | |
 | Compressed |미압축 |미압축 | |

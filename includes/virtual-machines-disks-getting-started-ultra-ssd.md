@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: virtual-machines
 author: roygara
@@ -9,23 +9,23 @@ ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: dfb094bc9f84e7129a3e1c733a054c5f6cd96372
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81008644"
 ---
-Azure 울트라 디스크는 Azure IaaS 가상 시스템(VM)에 대해 높은 처리량, 높은 IOPS 및 일관된 낮은 대기 시간 디스크 저장소를 제공합니다. 이 새 제품은 Microsoft의 기존 디스크 제품과 동일한 가용성 수준에서 최상의 성능을 제공합니다. 울트라 디스크의 주요 이점 중 하나는 VM을 다시 시작할 필요 없이 워크로드와 함께 SSD의 성능을 동적으로 변경할 수 있다는 것입니다. Ultra disks는 SAP HANA, 최상위 계층 데이터베이스 및 트랜잭션 집약적 워크로드와 같은 데이터 집약적 워크로드에 적합합니다.
+Azure ultra disks는 Azure IaaS Vm (가상 머신)에 대 한 높은 처리량, 높은 IOPS 및 일관 된 짧은 대기 시간 디스크 저장소를 제공 합니다. 이 새 제품은 Microsoft의 기존 디스크 제품과 동일한 가용성 수준에서 최상의 성능을 제공합니다. 울트라 디스크의 주요 장점 중 하나는 Vm을 다시 시작할 필요 없이 워크 로드와 함께 SSD의 성능을 동적으로 변경 하는 기능입니다. Ultra disks는 SAP HANA, 최상위 계층 데이터베이스 및 트랜잭션 집약적 워크로드와 같은 데이터 집약적 워크로드에 적합합니다.
 
 ## <a name="ga-scope-and-limitations"></a>GA 범위 및 제한 사항
 
 [!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](managed-disks-ultra-disks-GA-scope-and-limitations.md)]
 
-## <a name="determine-vm-size-and-region-availability"></a>VM 크기 및 지역 가용성 결정
+## <a name="determine-vm-size-and-region-availability"></a>VM 크기 및 지역 가용성 확인
 
-### <a name="vms-using-availability-zones"></a>가용성 영역을 사용하는 VM
+### <a name="vms-using-availability-zones"></a>가용성 영역을 사용 하는 Vm
 
-울트라 디스크를 활용하려면 사용 중인 가용성 영역을 결정해야 합니다. 모든 리전이 울트라 디스크로 모든 VM 크기를 지원하는 것은 아닙니다. 지역, 영역 및 VM 크기가 울트라 디스크를 지원하는지 확인하려면 다음 명령 중 하나를 실행하려면 **먼저 지역,** **vmSize**및 **구독** 값을 바꿔야 합니다.
+Ultra disks를 활용 하려면 사용 중인 가용성 영역을 확인 해야 합니다. 모든 지역이 ultra disks를 사용 하는 모든 VM 크기를 지 원하는 것은 아닙니다. 영역, 영역 및 VM 크기가 ultra disks를 지원 하는지 확인 하려면 다음 명령 중 하나를 실행 하 여 **지역**, **vmsize**및 **구독** 값을 먼저 바꾸어야 합니다.
 
 #### <a name="cli"></a>CLI
 
@@ -47,22 +47,22 @@ $vmSize = "Standard_E64s_v3"
 (Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) -and $_.LocationInfo[0].ZoneDetails.Count -gt 0})[0].LocationInfo[0].ZoneDetails
 ```
 
-응답은 선택한 지역에 배포하는 데 사용할 영역인 아래 양식과 유사합니다. X는 1, 2 또는 3이 될 수 있습니다.
+응답은 아래와 유사 합니다. 여기서 X는 선택한 지역에서 배포 하는 데 사용 하는 영역입니다. X는 1, 2 또는 3이 될 수 있습니다.
 
-**영역** 값을 보존하면 가용성 영역을 나타내며 Ultra 디스크를 배포하려면 해당 영역이 필요합니다.
+**영역** 값을 유지 하 고, 가용성 영역을 나타내며, Ultra disk를 배포 하기 위해이 값이 필요 합니다.
 
-|ResourceType  |이름  |위치  |영역  |제한 사항  |기능  |값  |
+|ResourceType  |속성  |위치  |영역  |제한 사항  |기능  |값  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
 > [!NOTE]
-> 명령에서 응답이 없는 경우 선택한 VM 크기는 선택한 영역의 울트라 디스크에서 지원되지 않습니다.
+> 명령에서 응답이 없는 경우 선택한 VM 크기는 선택한 지역의 ultra disks에서 지원 되지 않습니다.
 
-배포할 영역을 알 수 있으므로 이 문서의 배포 단계를 따라 초디스크가 연결된 VM을 배포하거나 기존 VM에 울트라 디스크를 연결합니다.
+이제 배포할 영역을 알고 있으므로이 문서의 배포 단계에 따라 ultra 디스크가 연결 된 VM을 배포 하거나 기존 VM에 울트라 디스크를 연결 합니다.
 
-### <a name="vms-with-no-redundancy-options"></a>중복 성 옵션이 없는 VM
+### <a name="vms-with-no-redundancy-options"></a>중복 옵션이 없는 Vm
 
-미국 서부에 배포된 Ultra 디스크는 현재 중복 옵션 없이 배포해야 합니다. 그러나 울트라 디스크를 지원하는 모든 디스크 크기가 이 영역에 있는 것은 아닙니다. 미국 서부에서 울트라 디스크를 지원하는 디스크를 확인하려면 다음 코드 조각 중 하나를 사용할 수 있습니다. `vmSize` 먼저 및 `subscription` 값을 바꿔야 합니다.
+현재 미국 서 부에 배포 된 Ultra 디스크는 중복성 옵션 없이 배포 해야 합니다. 그러나 ultra disks를 지 원하는 모든 디스크 크기가이 영역에 있을 수는 없습니다. 미국 서 부에서 ultra disks를 지 원하는 항목을 확인 하기 위해 다음 코드 조각 중 하나를 사용할 수 있습니다. 먼저 및 `subscription` 값을 바꾸어야 `vmSize` 합니다.
 
 ```azurecli
 $subscription = "<yourSubID>"
@@ -79,7 +79,7 @@ $vmSize = "Standard_E64s_v3"
 (Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) })[0].Capabilities
 ```
 
-응답은 다음 양식과 유사하며 `UltraSSDAvailable   True` VM 크기가 이 영역에서 울트라 디스크를 지원하는지 여부를 나타냅니다.
+응답은 다음 양식과 유사 하며, `UltraSSDAvailable   True` VM 크기가이 지역에서 ultra disks를 지원 하는지 여부를 나타냅니다.
 
 ```
 Name                                         Value
@@ -109,104 +109,104 @@ MaxNetworkInterfaces                         8
 UltraSSDAvailable                            True
 ```
 
-## <a name="deploy-an-ultra-disk-using-azure-resource-manager"></a>Azure 리소스 관리자를 사용하여 울트라 디스크 배포
+## <a name="deploy-an-ultra-disk-using-azure-resource-manager"></a>Azure Resource Manager를 사용 하 여 ultra disk 배포
 
-먼저 배포할 VM 크기를 결정합니다. 지원되는 VM 크기 목록은 GA [범위 및 제한](#ga-scope-and-limitations) 섹션을 참조하십시오.
+먼저, 배포할 VM 크기를 결정 합니다. 지원 되는 VM 크기 목록은 [GA 범위 및 제한 사항](#ga-scope-and-limitations) 섹션을 참조 하세요.
 
-여러 개의 울트라 디스크가 있는 VM을 만들려면 여러 [개의 울트라 디스크가 있는 VM 만들기](https://aka.ms/ultradiskArmTemplate)샘플을 참조하십시오.
+여러 개의 ultra disks를 사용 하 여 VM을 만들려면 샘플 [단일 ultra disks를 사용 하 여 Vm 만들기](https://aka.ms/ultradiskArmTemplate)를 참조 하세요.
 
-사용자 고유의 템플릿을 사용하려는 경우 **해당 apiVersion에** 대해 `Microsoft.Compute/virtualMachines` `Microsoft.Compute/Disks` 설정하고 (또는 그 이상)으로 `2018-06-01` 설정되어 있는지 확인하십시오.
+사용자 고유의 템플릿을 사용 하려는 경우 및 `Microsoft.Compute/Disks` 에 대 한 `2018-06-01` `Microsoft.Compute/virtualMachines` **apiVersion** 이 (이상)로 설정 되어 있는지 확인 합니다.
 
-디스크 스쿠를 **UltraSSD_LRS**설정한 다음 MBps에서 디스크 용량, IOPS, 가용성 영역 및 처리량을 설정하여 울트라 디스크를 만듭니다.
+디스크 sku를 **UltraSSD_LRS**설정 하 고 디스크 용량, IOPS, 가용성 영역 및 처리량을 MBps 단위로 설정 하 여 울트라 디스크를 만듭니다.
 
 VM을 프로비전한 후 데이터 디스크를 분할 및 포맷하고 워크로드용 데이터 디스크를 구성할 수 있습니다.
 
 
-## <a name="deploy-an-ultra-disk-using-the-azure-portal"></a>Azure 포털을 사용하여 울트라 디스크 배포
+## <a name="deploy-an-ultra-disk-using-the-azure-portal"></a>Azure Portal를 사용 하 여 ultra disk 배포
 
-이 섹션에서는 데이터 디스크로 울트라 디스크가 장착된 가상 컴퓨터를 배포하는 것을 다룹니다. 가상 컴퓨터를 배포하는 데 익숙하지 않은 경우 [빠른 시작: Azure Portal에서 Windows 가상 컴퓨터 만들기를](../articles/virtual-machines/windows/quick-create-portal.md)참조하십시오.
+이 섹션에서는 데이터 디스크로 ultra 디스크를 사용 하는 가상 컴퓨터를 배포 하는 방법을 설명 합니다. 가상 컴퓨터를 배포 하는 방법을 잘 알고 있다고 가정 합니다. 그렇지 않은 경우 빠른 시작 [: Azure Portal에서 Windows 가상 컴퓨터 만들기](../articles/virtual-machines/windows/quick-create-portal.md)를 참조 하세요.
 
-- [Azure 포털에](https://portal.azure.com/) 로그인하고 탐색하여 VM(가상 시스템)을 배포합니다.
-- [지원되는 VM 크기 및 지역을](#ga-scope-and-limitations)선택해야 합니다.
-- **가용성 옵션에서** **가용성 영역을** 선택합니다.
-- 나머지 항목을 선택한 항목으로 채웁니다.
+- [Azure Portal](https://portal.azure.com/) 에 로그인 하 고 가상 머신 (VM) 배포로 이동 합니다.
+- [지원 되는 VM 크기 및 지역을](#ga-scope-and-limitations)선택 해야 합니다.
+- **가용성 옵션**에서 **가용성 영역** 을 선택 합니다.
+- 선택한 항목을 선택 하 여 나머지 항목을 입력 합니다.
 - **디스크**를 선택합니다.
 
-![생성 울트라 디스크 지원 vm.png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk-enabled-vm.png)
+![create-ultra-disk-enabled-vm](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk-enabled-vm.png)
 
-- 디스크 블레이드에서 Ultra Disk **호환성을 사용하려면** **예를** 선택합니다.
-- 지금 울트라 **디스크를 연결하려면 새 디스크 만들기를 선택하고 첨부합니다.**
+- 디스크 블레이드에서 **Ultra Disk 호환성 사용**에 대해 **예** 를 선택 합니다.
+- **새 디스크 만들기 및 연결** 을 선택 하 여 지금 울트라 디스크를 연결 합니다.
 
-![인에이블 및 어태치먼트 울트라 디스크.png](media/virtual-machines-disks-getting-started-ultra-ssd/enable-and-attach-ultra-disk.png)
+![enable-and-attach-ultra-disk](media/virtual-machines-disks-getting-started-ultra-ssd/enable-and-attach-ultra-disk.png)
 
-- 새 디스크 블레이드 **만들기에서** 이름을 입력한 다음 **크기 변경을**선택합니다.
-- 계정 유형을 **울트라 디스크로** **변경합니다.**
-- **GiB(사용자 지정 디스크 크기)** 값, **디스크 IOPS**및 **디스크 처리량값을** 선택한 값으로 변경합니다.
-- 두 블레이드에서 **확인을** 선택합니다.
-- VM 배포를 계속하면 다른 VM을 배포하는 것과 동일합니다.
+- **새 디스크 만들기** 블레이드에서 이름을 입력 하 고 **크기 변경**을 선택 합니다.
+- **계정 유형을** **Ultra Disk**로 변경 합니다.
+- **사용자 지정 디스크 크기 (GiB)**, **디스크 IOPS**및 **디스크 처리량** 을 원하는 값으로 변경 합니다.
+- 블레이드에서 **확인을** 선택 합니다.
+- VM 배포를 계속 하면 다른 VM을 배포할 때와 동일 하 게 유지 됩니다.
 
-![생성 울트라 디스크.png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk.png)
+![create-ultra-disk](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk.png)
 
-## <a name="attach-an-ultra-disk-using-the-azure-portal"></a>Azure 포털을 사용하여 울트라 디스크 연결
+## <a name="attach-an-ultra-disk-using-the-azure-portal"></a>Azure Portal를 사용 하 여 ultra disk 연결
 
-또는 기존 VM이 울트라 디스크를 사용할 수 있는 영역/가용성 영역에 있는 경우 새 VM을 만들지 않고도 울트라 디스크를 사용할 수 있습니다. 기존 VM에서 울트라 디스크를 사용하도록 설정한 다음 데이터 디스크로 연결합니다.
+또는 ultra disks를 사용할 수 있는 지역/가용성 영역에 기존 VM이 있는 경우 새 VM을 만들지 않고도 ultra disks를 사용할 수 있습니다. 기존 VM에서 ultra disks를 사용 하도록 설정 하 고 데이터 디스크에 연결 합니다.
 
-- VM으로 이동하여 **디스크를 선택합니다.**
+- VM으로 이동 하 여 **디스크**를 선택 합니다.
 - **편집**을 선택합니다.
 
-![옵션 선택기 울트라 디스크.png](media/virtual-machines-disks-getting-started-ultra-ssd/options-selector-ultra-disks.png)
+![options-selector-ultra-disks](media/virtual-machines-disks-getting-started-ultra-ssd/options-selector-ultra-disks.png)
 
-- **울트라 디스크 호환성을 사용하려면** **예를** 선택합니다.
+- **Ultra Disk 호환성 사용**에 대해 **예** 를 선택 합니다.
 
-![울트라 옵션 - 예 - 활성화.png](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
+![ultra-options-yes-enable](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
 
 - **저장**을 선택합니다.
-- **이름** 에 대한 드롭다운에서 **데이터 디스크 추가를** 선택합니다. **Create disk**
+- **데이터 디스크 추가** 를 선택한 다음 **이름** 드롭다운 목록에서 **디스크 만들기**를 선택 합니다.
 
-![새로 연결된 울트라 disk.png 생성](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
+![create-and-attach-new-ultra-disk](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
 
-- 새 디스크의 이름을 입력한 다음 **크기 변경을**선택합니다.
-- 계정 유형을 **울트라 디스크로** **변경합니다.**
-- **GiB(사용자 지정 디스크 크기)** 값, **디스크 IOPS**및 **디스크 처리량값을** 선택한 값으로 변경합니다.
-- **확인을** 선택한 다음 **을**선택합니다.
+- 새 디스크의 이름을 입력 한 다음 **크기 변경**을 선택 합니다.
+- **계정 유형을** **Ultra Disk**로 변경 합니다.
+- **사용자 지정 디스크 크기 (GiB)**, **디스크 IOPS**및 **디스크 처리량** 을 원하는 값으로 변경 합니다.
+- **확인을** 선택 하 고 **만들기**를 선택 합니다.
 
-![새로운 울트라 디스크 를 만들기.png](media/virtual-machines-disks-getting-started-ultra-ssd/making-a-new-ultra-disk.png)
+![making-a-new-ultra-disk](media/virtual-machines-disks-getting-started-ultra-ssd/making-a-new-ultra-disk.png)
 
-- 디스크 블레이드로 돌아온 후 **저장을**선택합니다.
+- 디스크의 블레이드에 반환 되 면 **저장**을 선택 합니다.
 
-![새로운 울트라 disk.png 를 절약하고 부착](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
+![saving-and-attaching-new-ultra-disk](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
 
-### <a name="adjust-the-performance-of-an-ultra-disk-using-the-azure-portal"></a>Azure 포털을 사용하여 울트라 디스크의 성능 조정
+### <a name="adjust-the-performance-of-an-ultra-disk-using-the-azure-portal"></a>Azure Portal를 사용 하 여 ultra disk 성능 조정
 
-울트라 디스크는 성능을 조정할 수 있는 고유한 기능을 제공합니다. 디스크 자체에서 Azure 포털에서 이러한 조정을 수행할 수 있습니다.
+Ultra disks는 성능을 조정할 수 있는 고유한 기능을 제공 합니다. 디스크 자체의 Azure Portal에서 이러한 조정을 수행할 수 있습니다.
 
-- VM으로 이동하여 **디스크를 선택합니다.**
-- 성능을 수정할 울트라 디스크를 선택합니다.
+- VM으로 이동 하 여 **디스크**를 선택 합니다.
+- 성능을 수정할 ultra disk를 선택 합니다.
 
-![울트라 디스크-수정.png 선택](media/virtual-machines-disks-getting-started-ultra-ssd/selecting-ultra-disk-to-modify.png)
+![selecting-ultra-disk-to-modify](media/virtual-machines-disks-getting-started-ultra-ssd/selecting-ultra-disk-to-modify.png)
 
-- **구성을** 선택한 다음 수정합니다.
+- **구성** 을 선택한 다음 수정 합니다.
 - **저장**을 선택합니다.
 
-![구성-울트라 디스크 성능 및 크기.png](media/virtual-machines-disks-getting-started-ultra-ssd/configuring-ultra-disk-performance-and-size.png)
+![configuring-ultra-disk-performance-and-size](media/virtual-machines-disks-getting-started-ultra-ssd/configuring-ultra-disk-performance-and-size.png)
 
-## <a name="deploy-an-ultra-disk-using-cli"></a>CLI를 사용하여 울트라 디스크 배포
+## <a name="deploy-an-ultra-disk-using-cli"></a>CLI를 사용 하 여 ultra disk 배포
 
-먼저 배포할 VM 크기를 결정합니다. 지원되는 VM 크기 목록은 [GA 범위 및 제한](#ga-scope-and-limitations) 섹션을 참조하십시오.
+먼저, 배포할 VM 크기를 결정 합니다. 지원 되는 VM 크기 목록은 [GA 범위 및 제한 사항](#ga-scope-and-limitations) 섹션을 참조 하세요.
 
-울트라 디스크를 연결하려면 울트라 디스크를 사용할 수 있는 VM을 만들어야 합니다.
+울트라 디스크를 연결 하기 위해 ultra disks를 사용할 수 있는 VM을 만들어야 합니다.
 
-**$vmname**, **$rgname**, **$diskname $location**, **$password,** **$user** 변수를 자신의 값으로 바꾸거나 설정합니다. **$password** **$zone** 이 문서의 시작 부터 얻은 가용성 [영역의](#determine-vm-size-and-region-availability)값으로 설정합니다. 그런 다음 다음 CLI 명령을 실행하여 울트라 사용 가능한 VM을 만듭니다.
+**$Vmname**, **$rgname**, **$diskname**, **$location**, **$password**, **$user** 변수를 고유한 값으로 바꾸거나 설정 합니다. [이 문서의 시작 부분](#determine-vm-size-and-region-availability)에서 가져온 가용성 영역 값으로 **$zone** 설정 합니다. 그런 다음, 다음 CLI 명령을 실행 하 여 ultra enabled VM을 만듭니다.
 
 ```azurecli-interactive
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location
 ```
 
-### <a name="enable-ultra-disk-compatibility-on-an-existing-vm"></a>기존 VM에서 울트라 디스크 호환성 지원
+### <a name="enable-ultra-disk-compatibility-on-an-existing-vm"></a>기존 VM에서 ultra disk 호환성 사용
 
-VM이 [GA 범위 및 제한 사항에](#ga-scope-and-limitations) 설명된 요구 사항을 충족하고 계정에 적합한 [영역에](#determine-vm-size-and-region-availability)있는 경우 VM에서 울트라 디스크 호환성을 활성화할 수 있습니다.
+VM이 [GA 범위 및 제한](#ga-scope-and-limitations) 사항에 설명 된 요구 사항을 충족 하 고 [해당 계정에 대 한 적절 한 영역](#determine-vm-size-and-region-availability)에 있는 경우 vm에서 ultra disk 호환성을 사용 하도록 설정할 수 있습니다.
 
-울트라 디스크 호환성을 사용하려면 VM을 중지해야 합니다. VM을 중지한 후 호환성을 활성화하고 울트라 디스크를 연결한 다음 VM을 다시 시작할 수 있습니다.
+Ultra disk 호환성을 사용 하려면 VM을 중지 해야 합니다. VM을 중지 한 후에는 호환성을 사용 하도록 설정 하 고, 울트라 디스크를 연결한 다음, VM을 다시 시작할 수 있습니다.
 
 ```azurecli
 az vm deallocate -n $vmName -g $rgName
@@ -214,9 +214,9 @@ az vm update -n $vmName -g $rgName --ultra-ssd-enabled true
 az vm start -n $vmName -g $rgName
 ```
 
-### <a name="create-an-ultra-disk-using-cli"></a>CLI를 사용하여 울트라 디스크 만들기
+### <a name="create-an-ultra-disk-using-cli"></a>CLI를 사용 하 여 ultra disk 만들기
 
-이제 울트라 디스크를 연결할 수 있는 VM을 통해 울트라 디스크를 만들고 연결할 수 있습니다.
+이제 ultra disks를 연결할 수 있는 VM이 있으므로 ultra 디스크를 만들어 연결할 수 있습니다.
 
 ```azurecli-interactive
 $location="eastus2"
@@ -239,9 +239,9 @@ az disk create `
 --disk-mbps-read-write 50
 ```
 
-## <a name="attach-an-ultra-disk-to-a-vm-using-cli"></a>CLI를 사용하여 VM에 울트라 디스크 연결
+## <a name="attach-an-ultra-disk-to-a-vm-using-cli"></a>CLI를 사용 하 여 VM에 ultra disk 연결
 
-또는 기존 VM이 울트라 디스크를 사용할 수 있는 영역/가용성 영역에 있는 경우 새 VM을 만들지 않고도 울트라 디스크를 사용할 수 있습니다.
+또는 ultra disks를 사용할 수 있는 지역/가용성 영역에 기존 VM이 있는 경우 새 VM을 만들지 않고도 ultra disks를 사용할 수 있습니다.
 
 ```azurecli
 $rgName = "<yourResourceGroupName>"
@@ -252,9 +252,9 @@ $subscriptionId = "<yourSubscriptionID>"
 az vm disk attach -g $rgName --vm-name $vmName --disk $diskName --subscription $subscriptionId
 ```
 
-### <a name="adjust-the-performance-of-an-ultra-disk-using-cli"></a>CLI를 사용하여 울트라 디스크의 성능 조정
+### <a name="adjust-the-performance-of-an-ultra-disk-using-cli"></a>CLI를 사용 하 여 ultra disk의 성능 조정
 
-울트라 디스크는 성능을 조정할 수있는 고유 한 기능을 제공하며 다음 명령은이 기능을 사용하는 방법을 설명합니다.
+울트라 디스크는 성능을 조정 하는 데 사용할 수 있는 고유한 기능을 제공 합니다. 다음 명령에서는이 기능을 사용 하는 방법을 보여 줍니다.
 
 ```azurecli-interactive
 az disk update `
@@ -265,11 +265,11 @@ az disk update `
 --set diskMbpsReadWrite=800
 ```
 
-## <a name="deploy-an-ultra-disk-using-powershell"></a>PowerShell을 사용하여 울트라 디스크 배포
+## <a name="deploy-an-ultra-disk-using-powershell"></a>PowerShell을 사용 하 여 ultra disk 배포
 
-먼저 배포할 VM 크기를 결정합니다. 지원되는 VM 크기 목록은 [GA 범위 및 제한](#ga-scope-and-limitations) 섹션을 참조하십시오.
+먼저, 배포할 VM 크기를 결정 합니다. 지원 되는 VM 크기 목록은 [GA 범위 및 제한 사항](#ga-scope-and-limitations) 섹션을 참조 하세요.
 
-울트라 디스크를 사용하려면 울트라 디스크를 사용할 수 있는 VM을 만들어야 합니다. **$resourcegroup** **변수를** 사용자 고유의 값으로 $vmName 바꾸거나 설정합니다. **$zone** 이 문서의 시작 부터 얻은 가용성 [영역의](#determine-vm-size-and-region-availability)값으로 설정합니다. 그런 다음 다음 [New-AzVm](/powershell/module/az.compute/new-azvm) 명령을 실행하여 울트라 사용 가능한 VM을 만듭니다.
+Ultra disks를 사용 하려면 ultra disks를 사용할 수 있는 VM을 만들어야 합니다. **$Resourcegroup** 및 **$vmName** 변수를 고유한 값으로 바꾸거나 설정 합니다. [이 문서의 시작 부분](#determine-vm-size-and-region-availability)에서 가져온 가용성 영역 값으로 **$zone** 설정 합니다. 그런 후에 다음 [new-azvm](/powershell/module/az.compute/new-azvm) 명령을 실행 하 여 ULTRA enabled VM을 만듭니다.
 
 ```powershell
 New-AzVm `
@@ -282,11 +282,11 @@ New-AzVm `
     -zone $zone
 ```
 
-### <a name="enable-ultra-disk-compatibility-on-an-existing-vm"></a>기존 VM에서 울트라 디스크 호환성 지원
+### <a name="enable-ultra-disk-compatibility-on-an-existing-vm"></a>기존 VM에서 ultra disk 호환성 사용
 
-VM이 [GA 범위 및 제한 사항에](#ga-scope-and-limitations) 설명된 요구 사항을 충족하고 계정에 적합한 [영역에](#determine-vm-size-and-region-availability)있는 경우 VM에서 울트라 디스크 호환성을 활성화할 수 있습니다.
+VM이 [GA 범위 및 제한](#ga-scope-and-limitations) 사항에 설명 된 요구 사항을 충족 하 고 [해당 계정에 대 한 적절 한 영역](#determine-vm-size-and-region-availability)에 있는 경우 vm에서 ultra disk 호환성을 사용 하도록 설정할 수 있습니다.
 
-울트라 디스크 호환성을 사용하려면 VM을 중지해야 합니다. VM을 중지한 후 호환성을 활성화하고 울트라 디스크를 연결한 다음 VM을 다시 시작할 수 있습니다.
+Ultra disk 호환성을 사용 하려면 VM을 중지 해야 합니다. VM을 중지 한 후에는 호환성을 사용 하도록 설정 하 고, 울트라 디스크를 연결한 다음, VM을 다시 시작할 수 있습니다.
 
 ```azurepowershell
 #stop the VM
@@ -295,9 +295,9 @@ Update-AzureRmVM -ResourceGroupName $rgName -VM $vm1 -UltraSSDEnabled 1
 #start the VM
 ```
 
-### <a name="create-an-ultra-disk-using-powershell"></a>PowerShell을 사용하여 울트라 디스크 만들기
+### <a name="create-an-ultra-disk-using-powershell"></a>PowerShell을 사용 하 여 ultra disk 만들기
 
-울트라 디스크를 사용할 수 있는 VM이 되었으므로 이제 울트라 디스크를 만들고 연결할 수 있습니다.
+이제 ultra disks를 사용할 수 있는 VM이 있으므로 ultra 디스크를 만들어 연결할 수 있습니다.
 
 ```powershell
 $diskconfig = New-AzDiskConfig `
@@ -315,9 +315,9 @@ New-AzDisk `
 -Disk $diskconfig;
 ```
 
-## <a name="attach-an-ultra-disk-to-a-vm-using-powershell"></a>PowerShell을 사용하여 VM에 울트라 디스크 연결
+## <a name="attach-an-ultra-disk-to-a-vm-using-powershell"></a>PowerShell을 사용 하 여 VM에 ultra disk 연결
 
-또는 기존 VM이 울트라 디스크를 사용할 수 있는 영역/가용성 영역에 있는 경우 새 VM을 만들지 않고도 울트라 디스크를 사용할 수 있습니다.
+또는 ultra disks를 사용할 수 있는 지역/가용성 영역에 기존 VM이 있는 경우 새 VM을 만들지 않고도 ultra disks를 사용할 수 있습니다.
 
 ```powershell
 # add disk to VM
@@ -333,9 +333,9 @@ $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDisk
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-### <a name="adjust-the-performance-of-an-ultra-disk-using-powershell"></a>PowerShell을 사용하여 울트라 디스크의 성능 조정
+### <a name="adjust-the-performance-of-an-ultra-disk-using-powershell"></a>PowerShell을 사용 하 여 ultra disk의 성능 조정
 
-울트라 디스크는 성능을 조정할 수있는 고유 한 기능을 가지고 있으며, 다음 명령은 디스크를 분리할 필요없이 성능을 조정하는 예입니다.
+Ultra disks에는 성능을 조정할 수 있는 고유한 기능이 있습니다. 다음 명령은 디스크를 분리 하지 않고도 성능을 조정 하는 예제입니다.
 
 ```powershell
 $diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000

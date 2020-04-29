@@ -1,5 +1,5 @@
 ---
-title: 동적으로 채워진 그룹 구성원 자격에 대한 규칙 - Azure AD | 마이크로 소프트 문서
+title: 동적으로 채워진 그룹 멤버 자격에 대 한 규칙-Azure AD | Microsoft Docs
 description: 그룹을 자동으로 채우는 멤버 자격 규칙과 규칙 참조를 만드는 방법입니다.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6f8237ac13744e56baa8551f8cced12b2785a48
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114731"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
@@ -32,27 +32,27 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 동적 멤버십을 사�
 
 > [!NOTE]
 > 이 기능을 사용하려면 하나 이상의 동적 그룹의 멤버인 고유한 각 사용자에 대해 Azure AD Premium P1 라이선스가 필요합니다. 사용자에게 동적 그룹의 멤버가 될 수 있는 라이선스를 지정할 필요는 없지만, 이러한 사용자를 모두 포함하려면 테넌트에 최소 개수의 라이선스는 있어야 합니다. 예를 들어, 테넌트의 모든 동적 그룹에 고유한 사용자가 총 1,000명 있는 경우, 라이선스 요구 사항을 충족하려면 Azure AD Premium P1에 대해 1,000개 이상의 라이선스가 필요합니다.
-> 동적 장치 그룹의 구성원인 장치에는 라이센스가 필요하지 않습니다.
+> 동적 장치 그룹의 구성원 인 장치에는 라이선스가 필요 하지 않습니다.
 
-## <a name="rule-builder-in-the-azure-portal"></a>Azure 포털의 규칙 작성기
+## <a name="rule-builder-in-the-azure-portal"></a>Azure Portal의 규칙 작성기
 
-Azure AD는 중요한 규칙을 더 빨리 만들고 업데이트할 수 있는 규칙 빌더를 제공합니다. 규칙 작성기는 최대 5개의 식을 구성을 지원합니다. 규칙 작성기를 사용하면 몇 가지 간단한 표현식으로 규칙을 쉽게 만들 수 있지만 모든 규칙을 재현하는 데 사용할 수는 없습니다. 규칙 작성기에서 만들려는 규칙을 지원하지 않는 경우 텍스트 상자를 사용할 수 있습니다.
+Azure AD는 중요 한 규칙을 더 신속 하 게 만들고 업데이트 하는 규칙 작성기를 제공 합니다. 규칙 작성기는 최대 5 개 식의 생성을 지원 합니다. 규칙 작성기를 사용 하면 몇 가지 간단한 식으로 규칙을 보다 쉽게 만들 수 있지만 모든 규칙을 재현 하는 데 사용할 수는 없습니다. 규칙 작성기에서 만들려는 규칙을 지원 하지 않는 경우 텍스트 상자를 사용할 수 있습니다.
 
-다음은 텍스트 상자를 사용하여 구성하는 것이 좋습니다 고급 규칙 또는 구문의 몇 가지 예입니다.
+텍스트 상자를 사용 하 여 구성 하는 데 권장 되는 고급 규칙 또는 구문의 예는 다음과 같습니다.
 
-- 식이 5개 이상인 규칙
-- 직접 보고서 규칙
+- 5 개 이상의 식이 있는 규칙
+- 부하 직원 규칙
 - [연산자 우선 순위](groups-dynamic-membership.md#operator-precedence) 설정
-- [복잡한 식이 있는 규칙;](groups-dynamic-membership.md#rules-with-complex-expressions) 예를 들어`(user.proxyAddresses -any (_ -contains "contoso"))`
+- [복잡 한 식이 포함 된 규칙](groups-dynamic-membership.md#rules-with-complex-expressions) 예를 들어`(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
-> 규칙 작성기는 텍스트 상자에 생성된 일부 규칙을 표시하지 못할 수 있습니다. 규칙 작성기에서 규칙을 표시할 수 없는 경우 메시지가 표시될 수 있습니다. 규칙 작성기는 지원되는 구문, 유효성 검사 또는 동적 그룹 규칙 처리를 어떤 식으로든 변경하지 않습니다.
+> 규칙 작성기가 텍스트 상자에 생성 된 일부 규칙을 표시 하지 못할 수 있습니다. 규칙 작성기에서 규칙을 표시할 수 없는 경우 메시지가 표시 될 수 있습니다. 규칙 빌더는 지원 되는 구문, 유효성 검사 또는 동적 그룹 규칙의 처리를 어떤 식으로든 변경 하지 않습니다.
 
-자세한 단계별 지침은 [동적 그룹 만들기 또는 업데이트](groups-create-rule.md)를 참조하십시오.
+자세한 단계별 지침은 [동적 그룹 만들기 또는 업데이트](groups-create-rule.md)를 참조 하세요.
 
-![동적 그룹에 대한 멤버 자격 규칙 추가](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
+![동적 그룹에 대 한 멤버 자격 규칙 추가](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
 
-### <a name="rule-syntax-for-a-single-expression"></a>단일 식에 대한 규칙 구문
+### <a name="rule-syntax-for-a-single-expression"></a>단일 식에 대 한 규칙 구문
 
 단일 식은 가장 간단한 형태의 멤버 자격 규칙이며 위에서 언급한 세 부분만 있습니다. 단일 식이 있는 규칙은 `Property Operator Value`과 비슷합니다. 여기서 속성에 대한 구문은 object.property의 이름입니다.
 
@@ -79,7 +79,7 @@ user.department -eq "Sales"
 멤버 자격 규칙을 구성하는 데 사용할 수 있는 세 가지 유형의 속성이 있습니다.
 
 - 부울
-- String
+- 문자열
 - 문자열 컬렉션
 
 단일 식을 만드는 데 사용할 수 있는 사용자 속성은 다음과 같습니다.
@@ -95,29 +95,29 @@ user.department -eq "Sales"
 
 | 속성 | 허용되는 값 | 사용 |
 | --- | --- | --- |
-| city |모든 문자열 값 또는 *null* |(user.city -eq "value") |
-| country |모든 문자열 값 또는 *null* |(user.country -eq "value") |
-| companyName | 모든 문자열 값 또는 *null* | (user.companyName -eq "value") |
-| department |모든 문자열 값 또는 *null* |(user.department -eq "value") |
+| city |임의의 문자열 값 또는 *null* |(user.city -eq "value") |
+| country |임의의 문자열 값 또는 *null* |(user.country -eq "value") |
+| companyName | 임의의 문자열 값 또는 *null* | (user.companyName -eq "value") |
+| department |임의의 문자열 값 또는 *null* |(user.department -eq "value") |
 | displayName |임의의 문자열 값 |(user.displayName -eq "value") |
-| employeeId |임의의 문자열 값 |(user.employeeId -eq "value")<br>(user.employeeId -ne *null)* |
-| facsimileTelephoneNumber |모든 문자열 값 또는 *null* |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |모든 문자열 값 또는 *null* |(user.givenName -eq "value") |
-| jobTitle |모든 문자열 값 또는 *null* |(user.jobTitle -eq "value") |
-| mail |모든 문자열 값 또는 *null(사용자의* SMTP 주소) |(user.mail -eq "value") |
+| employeeId |임의의 문자열 값 |(user.employeeId -eq "value")<br>(사용자. employeeId-ne *null*) |
+| facsimileTelephoneNumber |임의의 문자열 값 또는 *null* |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |임의의 문자열 값 또는 *null* |(user.givenName -eq "value") |
+| jobTitle |임의의 문자열 값 또는 *null* |(user.jobTitle -eq "value") |
+| mail |임의의 문자열 값 또는 *null* (사용자의 SMTP 주소)입니다. |(user.mail -eq "value") |
 | mailNickName |임의의 문자열 값(사용자의 메일 별칭) |(user.mailNickName -eq "value") |
-| mobile |모든 문자열 값 또는 *null* |(user.mobile -eq "value") |
+| mobile |임의의 문자열 값 또는 *null* |(user.mobile -eq "value") |
 | objectId |사용자 개체의 GUID입니다. |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | 온-프레미스에서 클라우드로 동기화된 사용자의 온-프레미스 SID(보안 식별자)입니다. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |모든 문자열 값 또는 *null* |(user.physicalDeliveryOfficeName -eq "value") |
-| postalCode |모든 문자열 값 또는 *null* |(user.postalCode -eq "value") |
+| physicalDeliveryOfficeName |임의의 문자열 값 또는 *null* |(user.physicalDeliveryOfficeName -eq "value") |
+| postalCode |임의의 문자열 값 또는 *null* |(user.postalCode -eq "value") |
 | preferredLanguage |ISO 639-1 코드 |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |모든 문자열 값 또는 *null* |(user.sipProxyAddress -eq "value") |
-| state |모든 문자열 값 또는 *null* |(user.state -eq "value") |
-| streetAddress |모든 문자열 값 또는 *null* |(user.streetAddress -eq "value") |
-| surname |모든 문자열 값 또는 *null* |(user.surname-eq "value") |
-| telephoneNumber |모든 문자열 값 또는 *null* |(user.telephoneNumber -eq "value") |
+| sipProxyAddress |임의의 문자열 값 또는 *null* |(user.sipProxyAddress -eq "value") |
+| state |임의의 문자열 값 또는 *null* |(user.state -eq "value") |
+| streetAddress |임의의 문자열 값 또는 *null* |(user.streetAddress -eq "value") |
+| surname |임의의 문자열 값 또는 *null* |(user.surname-eq "value") |
+| telephoneNumber |임의의 문자열 값 또는 *null* |(user.telephoneNumber -eq "value") |
 | usageLocation |두 자로 된 국가 코드 |(user.usageLocation -eq "US") |
 | userPrincipalName |임의의 문자열 값 |(user.userPrincipalName -eq "alias@domain") |
 | userType |멤버 게스트 *null* |(user.userType -eq "Member") |
@@ -131,7 +131,7 @@ user.department -eq "Sales"
 
 디바이스 규칙에 사용되는 속성은 [디바이스에 대한 규칙](#rules-for-devices)을 참조하세요.
 
-## <a name="supported-expression-operators"></a>지원되는 식 연산자
+## <a name="supported-expression-operators"></a>지원 되는 식 연산자
 
 다음 표에는 단일 식에 지원되는 모든 연산자와 해당 구문이 나와 있습니다. 연산자는 하이픈(-) 접두사를 사용하거나 사용하지 않을 수 있습니다.
 
@@ -160,7 +160,7 @@ user.department -eq "Sales"
 
 
 ### <a name="using-the--match-operator"></a>-match 연산자 사용 
-**-match** 연산자는 정규식 일치에 사용됩니다. 예제:
+**-match** 연산자는 정규식 일치에 사용됩니다. 예:
 
 ```
 user.displayName -match "Da.*"   
@@ -301,7 +301,7 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 Direct Reports for "{objectID_of_manager}"
 ```
 
-다음은 "62e19b97-8b3d-4d4a-a106-4ce66896a863"이 관리자의 objectID인 유효한 규칙의 예입니다.
+"62e19b97-8b3d-4d4a-a106-4ce66896a863"가 관리자의 objectID 인 유효한 규칙의 예는 다음과 같습니다.
 
 ```
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
@@ -318,22 +318,22 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 멤버 자격 규칙을 사용하여 테넌트 내의 모든 사용자가 포함된 그룹을 만들 수 있습니다. 나중에 테넌트에서 사용자를 추가하거나 제거하면 그룹의 멤버 자격이 자동으로 조정됩니다.
 
-"모든 사용자" 규칙은 -ne 연산자와 null 값을 사용하여 단일 식을 사용하여 생성됩니다. 이 규칙은 그룹에 멤버 사용자뿐만 아니라 B2B 게스트 사용자도 추가합니다.
+"모든 사용자" 규칙은-ne 연산자와 null 값을 사용 하 여 단일 식을 사용 하 여 생성 됩니다. 이 규칙은 그룹에 멤버 사용자뿐만 아니라 B2B 게스트 사용자도 추가합니다.
 
 ```
 user.objectId -ne null
 ```
-그룹이 게스트 사용자를 제외하고 테넌트의 구성원만 포함하도록 하려면 다음 구문을 사용할 수 있습니다.
+그룹에서 게스트 사용자를 제외 하 고 테 넌 트의 멤버만 포함 하려는 경우 다음 구문을 사용할 수 있습니다.
 
 ```
 (user.objectId -ne null) -and (user.userType -eq "Member")
 ```
 
-### <a name="create-an-all-devices-rule"></a>'모든 장치' 규칙 만들기
+### <a name="create-an-all-devices-rule"></a>"모든 장치" 규칙 만들기
 
 멤버 자격 규칙을 사용하여 테넌트 내의 모든 디바이스가 포함된 그룹을 만들 수 있습니다. 나중에 테넌트에서 디바이스를 추가하거나 제거하면 그룹의 멤버 자격이 자동으로 조정됩니다.
 
-"모든 장치" 규칙은 -ne 연산자와 null 값을 사용하여 단일 식을 사용하여 생성됩니다.
+"모든 장치" 규칙은-ne 연산자와 null 값을 사용 하 여 단일 식을 사용 하 여 생성 됩니다.
 
 ```
 device.objectId -ne null
@@ -341,13 +341,13 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>확장 속성 및 사용자 지정 확장 속성
 
-확장 특성 및 사용자 지정 확장 속성은 동적 멤버 자격 규칙에서 문자열 속성으로 지원됩니다. [확장 특성은](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) 온-프레미스 윈도우 서버 AD에서 동기화되며 X가 1 - 15인 "ExtensionAttributeX"의 형식을 취합니다. 확장 특성을 속성으로 사용하는 규칙의 예제는 다음과 같습니다.
+확장 특성 및 사용자 지정 확장 속성은 동적 멤버 관리 규칙에서 문자열 속성으로 지원 됩니다. [확장 특성](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) 은 온-프레미스 WINDOWS Server AD에서 동기화 되 고 "ExtensionAttributeX" 형식을 사용 합니다. 여기서 X는 1-15입니다. 확장 특성을 속성으로 사용하는 규칙의 예제는 다음과 같습니다.
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-[사용자 지정 확장 속성은](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) 온-프레미스 Windows Server AD 또는 연결된 SaaS `user.extension_[GUID]_[Attribute]`응용 프로그램에서 동기화되며 다음과 같은 형식입니다.
+[사용자 지정 확장 속성](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) 은 온-프레미스 WINDOWS Server AD 또는 연결 된 SaaS 응용 프로그램에서 동기화 되며 다음과 같은 형식 `user.extension_[GUID]_[Attribute]`입니다.
 
 * [GUID]는 Azure AD에서 속성을 만든 애플리케이션에 대한 Azure AD의 고유 식별자입니다.
 * [Attribute]는 Azure AD에서 만든 속성의 이름입니다.
@@ -368,29 +368,29 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 > **organizationalUnit** 특성은 더 이상 나열되지 않고 사용할 수 없습니다. 이 문자열은 특정 사례에서 Intune에 의해 설정되지만 Azure AD에서 인식되지 않습니다. 따라서 디바이스는 이 특성을 기반으로 하는 그룹에 추가됩니다.
 
 > [!NOTE]
-> systemlabels는 Intune으로 설정할 수 없는 읽기 전용 특성입니다.
+> systemlabels Intune으로 설정할 수 없는 읽기 전용 특성입니다.
 >
-> Windows 10의 경우 장치OSVersion 특성의 올바른 형식은 다음과 같습니다(device.deviceOsVersion -eq "10.0.17763"). 형식은 Get-MsolDevice PowerShell cmdlet을 통해 유효성을 검사할 수 있습니다.
+> Windows 10의 경우 deviceOSVersion 특성의 올바른 형식은 다음과 같습니다 (10.0.17763 "). Get-msoldevice PowerShell cmdlet을 사용 하 여 서식 지정의 유효성을 검사할 수 있습니다.
 
 다음과 같은 디바이스 특성을 사용할 수 있습니다.
 
  디바이스 특성  | 값 | 예제
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
- displayName | 임의의 문자열 값입니다. |(device.displayName -eq "롭 아이폰")
- deviceOSType | 임의의 문자열 값입니다. | (device.deviceOSType -eq "iPad") -또는 (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -포함 "안드로이드 엔터프라이즈")<br>(device.deviceOSType -eq "안드로이드포워크")
+ displayName | 임의의 문자열 값입니다. |(장치. displayName-eq "Rob iPhone")
+ deviceOSType | 임의의 문자열 값입니다. | (device.deviceOSType -eq "iPad") -또는 (device.deviceOSType -eq "iPhone")<br>(Device.deviceostype-"AndroidEnterprise" 포함)<br>(Device.deviceostype-eq "AndroidForWork")
  deviceOSVersion | 임의의 문자열 값입니다. | (device.deviceOSVersion -eq "9.1")
  deviceCategory | 유효한 디바이스 범주 이름 | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | 임의의 문자열 값입니다. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | 임의의 문자열 값입니다. | (device.deviceModel -eq "iPad Air")
  deviceOwnership | 개인, 회사, 알 수 없음 | (device.deviceOwnership -eq "Company")
- enrollmentProfileName | Apple 장치 등록 프로필, 장치 등록 - 회사 장치 식별자(Android - 키오스크) 또는 Windows 자동 조종 장치 프로필 이름 | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Apple 장치 등록 프로필, 장치 등록-회사 장치 식별자 (Android 키오스크) 또는 Windows Autopilot 프로필 이름 | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM(모바일 디바이스)<br>PC(Intune PC 에이전트에 의해 관리되는 컴퓨터) | (device.managementType -eq "MDM")
  deviceId | 유효한 Azure AD 디바이스 ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | 유효한 Azure AD 개체 ID |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
- devicePhysicalIds | 모든 자동 조종 장치, OrderID 또는 PurchaseOrderID와 같이 자동 조종 장치에서 사용하는 모든 문자열 값  | (device.devicePhysicalIDs -any _ -포함 "[ZTDId]") (device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881") (device.devicePhysicals -any _ -eq "[구매 주문입력]:76222342342")
- systemLabels | 최신 작업 공간 디바이스의 태그를 지정하는 Intune 디바이스 속성과 일치하는 문자열 | (device.systemLabels -포함 "M365관리")
+ devicePhysicalIds | Autopilot에서 사용 하는 모든 문자열 값 (예: 모든 Autopilot devices, OrderID 또는 PurchaseOrderID)  | (devicePhysicalIDs-any _-contains "[Zt\]") (devicePhysicalIds-any _-eq "[OrderID]: 179887111881") (devicePhysicalIds-any _-eq "[PurchaseOrderId]: 76222342342")
+ systemLabels | 최신 작업 공간 디바이스의 태그를 지정하는 Intune 디바이스 속성과 일치하는 문자열 | (장치간 레이블-"M365Managed" 포함)
 
 > [!Note]  
 > 디바이스용 동적 그룹을 만들 때 deviceOwnership의 경우 값을 “Company”로 설정해야 합니다. Intune에서 디바이스 소유권이 Corporate로 대신 표시됩니다. 자세한 내용은 [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes)를 참조하세요. 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
 ms.openlocfilehash: b9ced5d4a81effcd73e0243d09bb83ed0fe7667c
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253699"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진에 대한 HTTP 변수
@@ -38,7 +38,7 @@ HTTP 변수는 HTTP 요청 및 응답 메타데이터를 검색할 수 있는 �
 | ---- | -------- | ----------- | ------------ |
 | ASN(요청자) | %{geo_asnum} | 요청자의 AS 번호를 나타냅니다. <br /><br />**사용되지 않음:** %{virt_dst_asnum}. <br />이 변수는 %{geo_asnum}에 대해 사용되지 않습니다. 이 사용되지 않는 변수를 사용하는 규칙을 계속 사용할 수 있더라도, 새 변수를 사용하도록 업데이트해야 합니다. | AS15133 |
 | 도시(요청자) | %{geo_city} | 요청자의 도시를 나타냅니다. | Los Angeles |
-| 대륙(요청자) | %{geo_continent} | 해당 약어를 통해 요청자의 대륙을 나타냅니다. <br />유효한 값은 다음과 같습니다. <br />AF: 아프리카<br />AS: 아시아<br />EU: 유럽<br />NA: 북아메리카<br />OC: 오세아니아<br />SA: 남아메리카<br /><br />**사용되지 않음:** %{virt_dst_continent}. <br />이 변수는 %{geo_continent}에 대해 사용되지 않습니다. <br />이 사용되지 않는 변수를 사용하는 규칙을 계속 사용할 수 있더라도, 새 변수를 사용하도록 업데이트해야 합니다.| N/A |
+| 대륙(요청자) | %{geo_continent} | 해당 약어를 통해 요청자의 대륙을 나타냅니다. <br />유효한 값은 다음과 같습니다. <br />AF: 아프리카<br />AS: 아시아<br />EU: 유럽<br />NA: 북아메리카<br />OC: 오세아니아<br />SA: 남아메리카<br /><br />**사용되지 않음:** %{virt_dst_continent}. <br />이 변수는 %{geo_continent}에 대해 사용되지 않습니다. <br />이 사용되지 않는 변수를 사용하는 규칙을 계속 사용할 수 있더라도, 새 변수를 사용하도록 업데이트해야 합니다.| 해당 없음 |
 | 쿠키 값 | %{cookie_Cookie} | 쿠키 용어에 의해 식별된 쿠키 키에 해당하는 값을 반환합니다. | 사용법 예제: <br />%{cookie__utma}<br /><br />샘플 값:<br />111662281.2.10.1222100123 |
 | 국가(요청자) | %{geo_country} | 해당 국가 코드를 통해 요청자의 국가를 나타냅니다. <br />**사용되지 않음:** %{virt_dst_country}. <br /><br />이 변수는 %{geo_country}에 대해 사용되지 않습니다. 이 사용되지 않는 변수를 사용하는 규칙을 계속 사용할 수 있더라도, 새 변수를 사용하도록 업데이트해야 합니다. | US |
 | 지정된 시장 지역(요청자) | %{geo_dma_code} |해당 지역 코드를 통해 요청자의 미디어 시장을 나타냅니다. <br /><br />이 필드는 미국에서 발생하는 요청에만 적용됩니다.| 745 |
@@ -54,7 +54,7 @@ HTTP 변수는 HTTP 요청 및 응답 메타데이터를 검색할 수 있는 �
 | 쿼리 문자열 매개 변수 있음 | %{is_amp} | 이 변수에 대한 값은 요청에 최소한 하나의 쿼리 문자열 매개 변수가 포함되어 있는지 여부에 따라 달라집니다.<br /><br />- 매개 변수 있음: &<br />- 매개 변수 없음: NULL | & |
 | 쿼리 문자열 매개 변수 값 | %{arg_&lt;parameter&gt;} | &lt;매개 변수&gt; 용어에 의해 식별되는 쿼리 문자열 매개 변수에 해당하는 값을 반환합니다. | 사용법 예제: <br />%{arg_language}<br /><br />샘플 쿼리 문자열 매개 변수: <br />?language=en<br /><br />샘플 값: en |
 | 쿼리 문자열 값 | %{query_string} | 요청 URL에서 정의된 전체 쿼리 문자열 값을 나타냅니다. |key1=val1&key2=val2&key3=val3 |
-| 참조자 도메인 | %{referring_domain} | 리퍼러 요청 헤더에 정의된 도메인을 나타냅니다. | <www.google.com> |
+| 참조자 도메인 | %{referring_domain} | 참조 페이지 요청 헤더에 정의 된 도메인을 나타냅니다. | <www.google.com> |
 | 지역(요청자) | %{geo_region} | 영숫자의 약어를 통해 요청자의 지역(예: 시/도)을 나타냅니다. | CA |
 | 요청 헤더 값 | %{http_RequestHeader} | RequestHeader 용어에 의해 식별되는 요청 헤더에 해당하는 값을 반환합니다. <br /><br />요청 헤더의 이름에 대시가 포함되는 경우(예: User-Agent) 밑줄로 바꿉니다(예: User_Agent).| 사용법 예제: %{http_Connection}<br /><br />샘플 값: Keep-Alive | 
 | 요청 호스트 | %{host} | 요청 URL에 정의된 호스트를 나타냅니다. | <www.mydomain.com> |
@@ -62,7 +62,7 @@ HTTP 변수는 HTTP 요청 및 응답 메타데이터를 검색할 수 있는 �
 | 요청 스키마 | %{scheme} | 요청 스키마를 나타냅니다. |http |
 | 요청 URI(상대값) | %{request_uri} | 요청 URI에 정의된 쿼리 문자열을 포함하는 상대 경로를 나타냅니다. | /marketing/foo.js?loggedin=true |
 | 요청 URI(쿼리 문자열을 사용하지 않는 상대값) | %{uri} | 요청된 콘텐츠에 대한 상대 경로를 나타냅니다. <br /><br/>주요 정보:<br />- 이 상대 경로는 쿼리 문자열을 제외합니다.<br />- 이 상대 경로는 URL 다시 작성을 반영합니다. URL은 다음과 같은 조건에서 다시 작성됩니다.<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- URL 다시 쓰기 기능: 이 기능은 요청 URI에 정의된 상대 경로를 다시 작성합니다.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 에지 CNAME URL: 이 요청 유형은 해당 CDN URL로 다시 작성됩니다. |/800001/corigin/rewrittendir/foo.js |
-| 요청 URI | %{request} | 요청을 설명합니다. <br />구문: &lt;HTTP&gt; &lt;메서드&gt; &lt;상대 경로 HTTP 프로토콜&gt; | /marketing/foo.js?loggedin=true HTTP/1.1 가져오기 |
+| 요청 URI | %{request} | 요청을 설명합니다. <br />구문: &lt;http 메서드&gt; &lt;상대 경로&gt; &lt;http 프로토콜&gt; | /marketing/foo.js?loggedin=true HTTP/1.1 가져오기 |
 | 응답 헤더 값 | %{resp_&lt;ResponseHeader&gt;} | &lt;ResponseHeader&gt; 용어에 의해 식별되는 응답 헤더에 해당하는 값을 반환합니다. <br /><br />응답 헤더의 이름에 대시가 포함되는 경우(예: User-Agent) 밑줄로 바꿉니다(예: User_Agent). | 사용법 예제: %{resp_Content_Length}<br /><br />샘플 값: 100 |
 
 ## <a name="usage"></a>사용
@@ -113,7 +113,7 @@ HTTP 변수 이름은 영문자 및 밑줄만 지원합니다. 지원되지 않�
 | 조건 | Description | 예제 |
 | --------- | ----------- | --------|
 | % 기호 이스케이프 | 백슬래시를 사용하여 백분율 기호를 이스케이프할 수 있습니다. <br />오른쪽의 샘플 값은 HTTP 변수가 아닌 리터럴 값으로 처리됩니다.| \%{host} |
-| 알 수 없는 변수 | 빈 문자열은 항상 알 수 없는 변수에 대해 반환됩니다. | %{unknown_variable} |
+| 알 수 없는 변수 | 빈 문자열은 항상 알 수 없는 변수에 대해 반환됩니다. | % {unknown_variable} |
 | 잘못된 문자 또는 구문 | 잘못된 문자 또는 구문을 포함하는 변수는 리터럴 값으로 처리됩니다. <br /><br />예제 #1: 지정된 값에 잘못된 문자가 포함되어 있습니다(예: -). <br /><br />예제 #2: 지정된 값에 이중 중괄호가 포함되어 있습니다. <br /><br />예제 #3: 지정된 값에 닫는 중괄호가 누락되었습니다.<br /> | 예제 #1: %{resp_user-agent} <br /><br />예제 #2: %{{host}} <br /><br />예제 #3: %{host |
 | 변수 이름 누락 | 변수를 지정하지 않은 경우 항상 NULL 값이 반환됩니다. | %{} |
 | 후행 문자 | 변수를 추적하는 문자는 리터럴 값으로 처리됩니다. <br />오른쪽의 샘플 값에는 리터럴 값으로 처리되는 추적 중괄호가 포함되어 있습니다. | %{host}} |
@@ -127,9 +127,9 @@ HTTP 변수 이름은 영문자 및 밑줄만 지원합니다. 지원되지 않�
 
 | 조건 | 구문 | 예제 | Description |
 | --------- | ------ | --------| ----------- |
-| 다음 조건 중 하나라도 충족할 경우 헤더를 기본값으로 설정합니다. <br /><br />- 헤더 누락 <br /><br />- 헤더 값이 NULL로 설정됨.| %{Variable:=Value} | %{http_referrer:=지정되지 않음} | 참조자 헤더는 누락되거나 NULL로 설정된 경우에만 *지정되지 않음으로* 설정됩니다. 설정된 경우 아무 작업도 수행되지 않습니다. |
-| 누락된 경우 헤더를 기본값으로 설정합니다. | %{Variable=Value} | %{http_referrer=지정되지 않음} | 참조자 헤더는 누락된 경우에만 *지정되지 않음으로* 설정됩니다. 설정된 경우 아무 작업도 수행되지 않습니다. |
-| 다음 조건 중 하나라도 충족하지 않을 경우 헤더를 기본값으로 설정합니다. <br /><br />- 누락됨<br /><br /> - NULL로 설정됨. | %{Variable:+Value} | %{http_referrer:+지정되지 않음} | 참조자 헤더는 값이 할당된 경우에만 *지정되지 않음으로* 설정됩니다. 누락되거나 NULL로 설정되지 않은 경우 아무 작업도 수행되지 않습니다. |
+| 다음 조건 중 하나라도 충족할 경우 헤더를 기본값으로 설정합니다. <br /><br />- 헤더 누락 <br /><br />- 헤더 값이 NULL로 설정됨.| %{Variable:=Value} | % {http_referrer: = 지정 되지 않음} | 참조 페이지 헤더는 없거나 NULL로 설정 된 경우에만 *지정 되지 않음으로* 설정 됩니다. 설정된 경우 아무 작업도 수행되지 않습니다. |
+| 누락된 경우 헤더를 기본값으로 설정합니다. | %{Variable=Value} | % {http_referrer = 지정 되지 않음} | 참조 페이지 헤더는 없는 경우에만 *지정 되지 않음으로* 설정 됩니다. 설정된 경우 아무 작업도 수행되지 않습니다. |
+| 다음 조건 중 하나라도 충족하지 않을 경우 헤더를 기본값으로 설정합니다. <br /><br />- 누락됨<br /><br /> - NULL로 설정됨. | %{Variable:+Value} | % {http_referrer: + 지정 되지 않음} | 참조 페이지 헤더는 값이 할당 된 경우에만 *지정 되지 않음으로* 설정 됩니다. 누락되거나 NULL로 설정되지 않은 경우 아무 작업도 수행되지 않습니다. |
 
 ## <a name="manipulating-variables"></a>변수 조작
 변수는 다음과 같은 방법으로 조작할 수 있습니다.
@@ -156,7 +156,7 @@ HTTP 변수 이름은 영문자 및 밑줄만 지원합니다. 지원되지 않�
      - 양수: 시작 문자부터 오른쪽 방향으로 부분 문자열의 길이를 결정합니다.
      - 음수: 시작 문자부터 왼쪽 방향으로 부분 문자열의 길이를 결정합니다.
 
-#### <a name="example"></a>예:
+#### <a name="example"></a>예제:
 
 다음 예제에서는 다음 샘플 요청 URL를 사용합니다.
 
@@ -179,7 +179,7 @@ https:\//www.mydomain.com/mobile/marketing/proposal.htm
 | %{Variable#Pattern} | 변수 값의 시작 부분에서 지정된 패턴이 발견되면 텍스트를 제거합니다. |
 | %{Variable%Pattern} | 변수 값의 마지막 부분에서 지정된 패턴이 발견되면 텍스트를 제거합니다. |
 
-#### <a name="example"></a>예:
+#### <a name="example"></a>예제:
 
 이 샘플 시나리오에서 *request_uri* 변수는 다음으로 설정됩니다.
 

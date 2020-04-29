@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: allensu
 ms.openlocfilehash: 874ec75fb9173b6cee50bf8880510464fa13e9d2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81254243"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어
@@ -56,7 +56,7 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
 
 - **캐시 무시**: 캐시하지 않고 원본 제공 캐시 지시문 헤더를 무시합니다.
 
-- **재정의**: 오리진에서 제공한 캐시 지속 시간을 무시합니다. 대신 제공된 캐시 기간을 사용합니다. 캐시 제어: 캐시 없음을 재정의하지 않습니다.
+- **재정의**: 원본에서 제공 하는 캐시 기간을 무시 합니다. 제공 된 캐시 기간을 대신 사용 합니다. Cache-control: cache가 재정의 되지 않습니다.
 
 - **누락된 경우 설정**: 원본 제공 캐시 지시문 헤더가 존재하는 경우 해당 헤더를 사용하고 그렇지 않으면 제공된 캐시 기간을 사용합니다.
 
@@ -103,7 +103,7 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
    - 캐싱 동작: **누락된 경우 설정**
    - 캐시 만료 기간: 3일
 
-이러한 규칙이 설정되면 _ &lt;끝점 호스트 이름&gt;_.azureedge.net/home/index.html 대한 요청은 사용자 지정 캐싱 **Set if missing** 규칙 #2 트리거합니다. 따라서 *index.html* 파일에 `Cache-Control` 또는 `Expires` HTTP 헤더가 있으면 해당 헤더가 사용되고 그렇지 않고 이러한 헤더가 설정되어 있지 않으면 파일은 3일간 캐시됩니다.
+이러한 규칙이 설정 되 면 azureedge.net/home/index.html _ &lt;끝점&gt;_ 에 대 한 요청은 사용자 지정 캐싱 규칙 #2를 트리거합니다 .이 규칙은 **누락 된 경우 설정** , 3 일 경우 설정 됩니다. 따라서 *index.html* 파일에 `Cache-Control` 또는 `Expires` HTTP 헤더가 있으면 해당 헤더가 사용되고 그렇지 않고 이러한 헤더가 설정되어 있지 않으면 파일은 3일간 캐시됩니다.
 
 > [!NOTE] 
 > 규칙을 변경하기 전에 캐시된 파일은 원본 캐시 기간 설정을 유지합니다. 캐시 기간을 다시 설정하려면 [파일을 제거](cdn-purge-endpoint.md)해야 합니다. 

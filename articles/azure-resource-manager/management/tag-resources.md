@@ -1,41 +1,41 @@
 ---
-title: 논리적 조직에 대한 리소스, 리소스 그룹 및 구독에 태그
+title: 논리적 조직에 대 한 리소스, 리소스 그룹 및 구독 태그
 description: 태그를 적용하여 대금 청구 및 관리를 위해 Azure 리소스를 구성하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.openlocfilehash: 2f437682a2ac415ce8478b09a44bff044bd9511b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255127"
 ---
-# <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>태그를 사용하여 Azure 리소스 및 관리 계층 을 구성합니다.
+# <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>태그를 사용 하 여 Azure 리소스 및 관리 계층 구조 구성
 
-Azure 리소스, 리소스 그룹 및 구독에 태그를 적용하여 논리적으로 분류로 구성합니다. 각 태그는 이름과 값 쌍으로 이루어져 있습니다. 예를 들어 프로덕션의 모든 리소스에 "환경" 이름과 "프로덕션" 값을 적용할 수 있습니다.
+Azure 리소스, 리소스 그룹 및 구독에 태그를 적용 하 여 논리적으로 분류로 구성 합니다. 각 태그는 이름과 값 쌍으로 이루어져 있습니다. 예를 들어 프로덕션의 모든 리소스에 "환경" 이름과 "프로덕션" 값을 적용할 수 있습니다.
 
-태그 지정 전략을 구현하는 방법에 대한 권장 사항은 [리소스 이름 지정 및 태그 지정 결정 가이드를](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)참조하십시오.
+태깅 전략을 구현 하는 방법에 대 한 권장 사항은 [리소스 명명 및 태그 지정 결정 가이드](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)를 참조 하세요.
 
 > [!IMPORTANT]
-> 태그 이름은 대/소문자를 구분하지 않습니다. 태그 값은 대/소문자를 구분합니다.
+> 태그 이름은 대/소문자를 구분 하지 않습니다. 태그 값은 대/소문자를 구분 합니다.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="required-access"></a>필수 액세스
+## <a name="required-access"></a>필요한 액세스
 
-리소스에 태그를 적용하려면 **Microsoft.Resources/태그** 리소스 유형에 대한 쓰기 액세스 권한이 있어야 합니다. [태그 기여자](../../role-based-access-control/built-in-roles.md#tag-contributor) 역할을 사용하면 엔터티 자체에 액세스하지 않고도 엔터티에 태그를 적용할 수 있습니다. 현재 태그 기여자 역할은 포털을 통해 리소스 또는 리소스 그룹에 태그를 적용할 수 없습니다. 포털을 통해 구독에 태그를 적용할 수 있습니다. PowerShell 및 REST API를 통해 모든 태그 작업을 지원합니다.  
+리소스에 태그를 적용 하려면 **Microsoft .resources/tags** 리소스 유형에 대 한 쓰기 권한이 있어야 합니다. [태그 참여자](../../role-based-access-control/built-in-roles.md#tag-contributor) 역할을 사용 하면 엔터티 자체에 액세스 하지 않고도 엔터티에 태그를 적용할 수 있습니다. 현재 태그 참여자 역할은 포털을 통해 리소스 또는 리소스 그룹에 태그를 적용할 수 없습니다. 포털을 통해 구독에 태그를 적용할 수 있습니다. PowerShell 및 REST API를 통한 모든 태그 작업을 지원 합니다.  
 
-또한 [기여자](../../role-based-access-control/built-in-roles.md#contributor) 역할은 모든 엔터티에 태그를 적용하는 데 필요한 액세스 권한을 부여합니다. 하나의 리소스 형식에만 태그를 적용하려면 해당 리소스에 대한 기여자 역할을 사용합니다. 예를 들어, 가상 머신에 태그를 적용하려면 [가상 머신 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)를 사용합니다.
+또한 [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할은 모든 엔터티에 태그를 적용 하는 데 필요한 액세스 권한을 부여 합니다. 하나의 리소스 형식에만 태그를 적용하려면 해당 리소스에 대한 기여자 역할을 사용합니다. 예를 들어, 가상 머신에 태그를 적용하려면 [가상 머신 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)를 사용합니다.
 
 ## <a name="powershell"></a>PowerShell
 
 ### <a name="apply-tags"></a>태그 적용
 
-Azure PowerShell은 태그를 적용하기 위한 두 가지 [명령(새-AzTag](/powershell/module/az.resources/new-aztag) 및 [Update-AzTag)](/powershell/module/az.resources/update-aztag)명령을 제공합니다. Az.Resources 모듈 1.12.0 이상이어야 합니다. 을 통해 버전을 `Get-Module Az.Resources`확인할 수 있습니다. 해당 모듈을 설치하거나 [Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 이상을 설치할 수 있습니다.
+Azure PowerShell은 태그를 적용 하기 위한 두 가지 명령 ( [AzTag](/powershell/module/az.resources/new-aztag) 및 [AzTag](/powershell/module/az.resources/update-aztag))을 제공 합니다. Az. Resources 모듈이 1.12.0 이상 이어야 합니다. 을 사용 `Get-Module Az.Resources`하 여 버전을 확인할 수 있습니다. 해당 모듈을 설치 하거나 Azure PowerShell 3.6.1 이상을 [설치할](/powershell/azure/install-az-ps) 수 있습니다.
 
-**New-AzTag는** 리소스, 리소스 그룹 또는 구독의 모든 태그를 대체합니다. 명령을 호출할 때 태그하려는 엔터티의 리소스 ID를 전달합니다.
+**AzTag** 는 리소스, 리소스 그룹 또는 구독에 대 한 모든 태그를 대체 합니다. 명령을 호출할 때 태그를 추가할 엔터티의 리소스 ID를 전달 합니다.
 
-다음 예제는 저장소 계정에 태그 집합을 적용합니다.
+다음 예에서는 저장소 계정에 태그 집합을 적용 합니다.
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
@@ -43,7 +43,7 @@ $resource = Get-AzResource -Name demoStorage -ResourceGroup demoGroup
 New-AzTag -ResourceId $resource.id -Tag $tags
 ```
 
-명령이 완료되면 리소스에 두 개의 태그가 있습니다.
+명령이 완료 되 면 리소스에 두 개의 태그가 있습니다.
 
 ```output
 Properties :
@@ -53,7 +53,7 @@ Properties :
         Status  Normal
 ```
 
-이번에는 다른 태그를 가진 명령을 다시 실행하면 이전 태그가 제거됩니다.
+명령을 다시 실행 했지만이 시간이 다른 태그를 사용 하는 경우 이전 태그가 제거 됩니다.
 
 ```azurepowershell-interactive
 $tags = @{"Team"="Compliance"; "Environment"="Production"}
@@ -68,14 +68,14 @@ Properties :
         Team         Compliance
 ```
 
-이미 태그가 있는 리소스에 태그를 추가하려면 **Update-AzTag**을 사용합니다. **-operation** 매개 변수를 **병합으로 설정합니다.**
+태그가 이미 있는 리소스에 태그를 추가 하려면 **AzTag**를 사용 합니다. **-Operation** 매개 변수를 **Merge**로 설정 합니다.
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
 Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Merge
 ```
 
-두 개의 새 태그가 두 기존 태그에 추가되었습니다.
+두 개의 새 태그가 기존의 두 태그에 추가 되었습니다.
 
 ```output
 Properties :
@@ -87,7 +87,7 @@ Properties :
         Environment  Production
 ```
 
-각 태그 이름에는 하나의 값만 있을 수 있습니다. 태그에 새 값을 제공 하면 병합 작업을 사용 하는 경우에 이전 값이 대체 됩니다. 다음 예제에서 상태 태그를 법선에서 녹색으로 변경합니다.
+각 태그 이름에는 값이 하나만 있을 수 있습니다. 태그에 새 값을 제공 하면 병합 작업을 사용 하는 경우에도 이전 값이 바뀝니다. 다음 예에서는 상태 태그를 표준에서 녹색으로 변경 합니다.
 
 ```azurepowershell-interactive
 $tags = @{"Status"="Green"}
@@ -104,7 +104,7 @@ Properties :
         Environment  Production
 ```
 
-**-Operation** 매개 변수를 **바꾸기로**설정하면 기존 태그가 새 태그 집합으로 바뀝습니다.
+**-Operation** 매개 변수를 **Replace**로 설정 하면 기존 태그가 새 태그 집합으로 대체 됩니다.
 
 ```azurepowershell-interactive
 $tags = @{"Project"="ECommerce"; "CostCenter"="00123"; "Team"="Web"}
@@ -122,9 +122,9 @@ Properties :
         Project     ECommerce
 ```
 
-동일한 명령은 리소스 그룹 또는 구독에서도 작동합니다. 태그하려는 리소스 그룹 또는 구독의 식별자를 전달합니다.
+동일한 명령도 리소스 그룹 또는 구독에 사용할 수 있습니다. 태그를 지정할 리소스 그룹 또는 구독에 대 한 식별자를 전달 합니다.
 
-리소스 그룹에 새 태그 집합을 추가하려면 다음을 사용합니다.
+리소스 그룹에 새 태그 집합을 추가 하려면 다음을 사용 합니다.
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
@@ -132,7 +132,7 @@ $resourceGroup = Get-AzResourceGroup -Name demoGroup
 New-AzTag -ResourceId $resourceGroup.ResourceId -tag $tags
 ```
 
-리소스 그룹에 대한 태그를 업데이트하려면 다음을 사용합니다.
+리소스 그룹에 대 한 태그를 업데이트 하려면 다음을 사용 합니다.
 
 ```azurepowershell-interactive
 $tags = @{"CostCenter"="00123"; "Environment"="Production"}
@@ -140,7 +140,7 @@ $resourceGroup = Get-AzResourceGroup -Name demoGroup
 Update-AzTag -ResourceId $resourceGroup.ResourceId -Tag $tags -Operation Merge
 ```
 
-구독에 새 태그 집합을 추가하려면 다음을 사용합니다.
+구독에 새 태그 집합을 추가 하려면 다음을 사용 합니다.
 
 ```azurepowershell-interactive
 $tags = @{"CostCenter"="00123"; "Environment"="Dev"}
@@ -148,7 +148,7 @@ $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
 New-AzTag -ResourceId "/subscriptions/$subscription" -Tag $tags
 ```
 
-구독의 태그를 업데이트하려면 다음을 사용합니다.
+구독에 대 한 태그를 업데이트 하려면 다음을 사용 합니다.
 
 ```azurepowershell-interactive
 $tags = @{"Team"="Web Apps"}
@@ -156,7 +156,7 @@ $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
 Update-AzTag -ResourceId "/subscriptions/$subscription" -Tag $tags -Operation Merge
 ```
 
-리소스 그룹에 이름이 같은 리소스가 두 개 이상 있을 수 있습니다. 이 경우 다음 명령을 사용 하 여 각 리소스를 설정할 수 있습니다.
+리소스 그룹에 동일한 이름의 리소스가 둘 이상 있을 수 있습니다. 이 경우 다음 명령을 사용 하 여 각 리소스를 설정할 수 있습니다.
 
 ```azurepowershell-interactive
 $resource = Get-AzResource -ResourceName sqlDatabase1 -ResourceGroupName examplegroup
@@ -165,23 +165,23 @@ $resource | ForEach-Object { Update-AzTag -Tag @{ "Dept"="IT"; "Environment"="Te
 
 ### <a name="list-tags"></a>태그 나열
 
-리소스, 리소스 그룹 또는 구독에 대한 태그를 얻으려면 [Get-AzTag](/powershell/module/az.resources/get-aztag) 명령을 사용하고 엔터티에 대한 리소스 ID를 전달합니다.
+리소스, 리소스 그룹 또는 구독에 대 한 태그를 가져오려면 [AzTag](/powershell/module/az.resources/get-aztag) 명령을 사용 하 여 엔터티에 대 한 리소스 ID를 전달 합니다.
 
-리소스의 태그를 보려면 다음을 사용합니다.
+리소스에 대 한 태그를 보려면 다음을 사용 합니다.
 
 ```azurepowershell-interactive
 $resource = Get-AzResource -Name demoStorage -ResourceGroup demoGroup
 Get-AzTag -ResourceId $resource.id
 ```
 
-리소스 그룹에 대한 태그를 보려면 다음을 사용합니다.
+리소스 그룹에 대 한 태그를 보려면 다음을 사용 합니다.
 
 ```azurepowershell-interactive
 $resourceGroup = Get-AzResourceGroup -Name demoGroup
 Get-AzTag -ResourceId $resourceGroup.ResourceId
 ```
 
-구독의 태그를 보려면 다음을 사용합니다.
+구독에 대 한 태그를 보려면 다음을 사용 합니다.
 
 ```azurepowershell-interactive
 $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
@@ -190,19 +190,19 @@ Get-AzTag -ResourceId "/subscriptions/$subscription"
 
 ### <a name="list-by-tag"></a>태그별 목록
 
-특정 태그 이름과 값이 있는 리소스를 얻으려면 다음을 사용합니다.
+특정 태그 이름 및 값을 포함 하는 리소스를 가져오려면 다음을 사용 합니다.
 
 ```azurepowershell-interactive
 (Get-AzResource -Tag @{ "CostCenter"="00123"}).Name
 ```
 
-태그 값이 있는 특정 태그 이름이 있는 리소스를 얻으려면 다음을 사용하십시오.
+태그 값이 있는 특정 태그 이름을 가진 리소스를 가져오려면 다음을 사용 합니다.
 
 ```azurepowershell-interactive
 (Get-AzResource -TagName "Dept").Name
 ```
 
-특정 태그 이름과 값이 있는 리소스 그룹을 얻으려면 다음을 사용합니다.
+특정 태그 이름 및 값을 포함 하는 리소스 그룹을 가져오려면 다음을 사용 합니다.
 
 ```azurepowershell-interactive
 (Get-AzResourceGroup -Tag @{ "CostCenter"="00123" }).ResourceGroupName
@@ -210,14 +210,14 @@ Get-AzTag -ResourceId "/subscriptions/$subscription"
 
 ### <a name="remove-tags"></a>태그 제거
 
-특정 태그를 제거하려면 **Update-AzTag를** 사용하고 **-Operation을** **삭제하도록**설정합니다. 삭제하려는 태그를 전달합니다.
+특정 태그를 제거 하려면 **AzTag** 및 set **-Operation** 을 사용 하 여 **삭제**합니다. 삭제 하려는 태그를 전달 합니다.
 
 ```azurepowershell-interactive
 $removeTags = @{"Project"="ECommerce"; "Team"="Web"}
 Update-AzTag -ResourceId $resource.id -Tag $removeTags -Operation Delete
 ```
 
-지정된 태그가 제거됩니다.
+지정 된 태그가 제거 됩니다.
 
 ```output
 Properties :
@@ -226,7 +226,7 @@ Properties :
         CostCenter  00123
 ```
 
-모든 태그를 제거하려면 [AzTag 제거](/powershell/module/az.resources/remove-aztag) 명령을 사용합니다.
+모든 태그를 제거 하려면 [AzTag](/powershell/module/az.resources/remove-aztag) 명령을 사용 합니다.
 
 ```azurepowershell-interactive
 $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
@@ -237,37 +237,37 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 ### <a name="apply-tags"></a>태그 적용
 
-리소스 그룹 또는 리소스에 태그를 추가할 때 기존 태그를 덮어쓰거나 기존 태그에 새 태그를 추가할 수 있습니다.
+리소스 그룹 또는 리소스에 태그를 추가 하는 경우 기존 태그를 덮어쓰거나 기존 태그에 새 태그를 추가할 수 있습니다.
 
-리소스의 태그를 덮어쓰려면 다음을 사용합니다.
+리소스의 태그를 덮어쓰려면 다음을 사용 합니다.
 
 ```azurecli-interactive
 az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-리소스의 기존 태그에 태그를 더하려면 다음을 사용합니다.
+리소스의 기존 태그에 태그를 추가 하려면 다음을 사용 합니다.
 
 ```azurecli-interactive
 az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-리소스 그룹의 기존 태그를 덮어쓰려면 다음을 사용합니다.
+리소스 그룹의 기존 태그를 덮어쓰려면 다음을 사용 합니다.
 
 ```azurecli-interactive
 az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
 ```
 
-리소스 그룹의 기존 태그에 태그를 더하려면 다음을 사용합니다.
+리소스 그룹의 기존 태그에 태그를 추가 하려면 다음을 사용 합니다.
 
 ```azurecli-interactive
 az group update -n examplegroup --set tags.'Status'='Approved'
 ```
 
-현재 Azure CLI는 구독에 태그를 적용하는 것을 지원하지 않습니다.
+현재 Azure CLI는 태그를 구독에 적용 하는 것을 지원 하지 않습니다.
 
 ### <a name="list-tags"></a>태그 나열
 
-리소스에 대한 기존 태그를 보려면 다음을 사용합니다.
+리소스에 대 한 기존 태그를 보려면 다음을 사용 합니다.
 
 ```azurecli-interactive
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
@@ -302,9 +302,9 @@ az resource list --tag Dept=Finance
 az group list --tag Dept=IT
 ```
 
-### <a name="handling-spaces"></a>핸들링 공간
+### <a name="handling-spaces"></a>공백 처리
 
-태그 이름이나 값에 공백이 포함된 경우 몇 가지 추가 단계를 수행해야 합니다. 다음 예제는 태그에 공백이 포함될 수 있는 경우 리소스 그룹의 모든 태그를 리소스에 적용합니다.
+태그 이름 또는 값에 공백이 포함 된 경우 몇 가지 추가 단계를 수행 해야 합니다. 다음 예제에서는 태그에 공백이 포함 될 수 있는 경우 리소스 그룹의 모든 태그를 해당 리소스에 적용 합니다.
 
 ```azurecli-interactive
 jsontags=$(az group show --name examplegroup --query tags -o json)
@@ -322,11 +322,11 @@ IFS=$origIFS
 
 ## <a name="templates"></a>템플릿
 
-리소스 관리자 템플릿을 사용 하 여 배포 하는 동안 리소스, 리소스 그룹 및 구독에 태그를 붙일 수 있습니다.
+리소스 관리자 템플릿을 사용 하 여 배포 하는 동안 리소스, 리소스 그룹 및 구독에 태그를 지정할 수 있습니다.
 
 ### <a name="apply-values"></a>값 적용
 
-다음 예제는 세 개의 태그가 있는 저장소 계정을 배포합니다. 두 개의 태그(및)는`Dept` `Environment`리터럴 값으로 설정됩니다. 하나의 태그`LastDeployed`()는 현재 날짜를 기본값으로 하는 매개 변수로 설정됩니다.
+다음 예제에서는 세 개의 태그를 사용 하 여 저장소 계정을 배포 합니다. 태그 중 두 개 (`Dept` 및 `Environment`)는 리터럴 값으로 설정 됩니다. 한 태그 (`LastDeployed`)는 기본적으로 현재 날짜로 설정 된 매개 변수로 설정 됩니다.
 
 ```json
 {
@@ -365,7 +365,7 @@ IFS=$origIFS
 
 ### <a name="apply-an-object"></a>개체 적용
 
-여러 태그를 저장하는 개체 매개 변수를 정의하고 해당 개체를 태그 요소에 적용할 수 있습니다. 이 방법은 개체가 서로 다른 속성을 가질 수 있기 때문에 이전 예제보다 더 많은 유연성을 제공합니다. 개체의 각 속성은 리소스에 대한 별도의 태그가 됩니다. 다음 예제에는 태그 요소에 적용되는 `tagValues`라는 매개 변수가 있습니다.
+여러 태그를 저장하는 개체 매개 변수를 정의하고 해당 개체를 태그 요소에 적용할 수 있습니다. 이 방법은 개체가 다른 속성을 가질 수 있기 때문에 이전 예제 보다 더 많은 유연성을 제공 합니다. 개체의 각 속성은 리소스에 대한 별도의 태그가 됩니다. 다음 예제에는 태그 요소에 적용되는 `tagValues`라는 매개 변수가 있습니다.
 
 ```json
 {
@@ -403,7 +403,7 @@ IFS=$origIFS
 
 ### <a name="apply-a-json-string"></a>JSON 문자열 적용
 
-단일 태그에 여러 값을 저장하려면 값을 나타내는 JSON 문자열을 적용합니다. 전체 JSON 문자열은 256자를 초과할 수 없는 하나의 태그로 저장됩니다. 다음 예제에는 JSON 문자열의 여러 값을 포함하는 `CostCenter`라는 단일 태그를 포함합니다.  
+단일 태그에 여러 값을 저장하려면 값을 나타내는 JSON 문자열을 적용합니다. 전체 JSON 문자열은 256 자를 초과할 수 없는 하나의 태그로 저장 됩니다. 다음 예제에는 JSON 문자열의 여러 값을 포함하는 `CostCenter`라는 단일 태그를 포함합니다.  
 
 ```json
 {
@@ -434,9 +434,9 @@ IFS=$origIFS
 }
 ```
 
-### <a name="apply-tags-from-resource-group"></a>리소스 그룹의 태그 적용
+### <a name="apply-tags-from-resource-group"></a>리소스 그룹에서 태그 적용
 
-리소스 그룹의 태그를 리소스에 적용하려면 [resourceGroup](../templates/template-functions-resource.md#resourcegroup) 함수를 사용합니다. 태그 값을 가져오는 경우 `tags[tag-name]` 일부 문자가 `tags.tag-name` 점 표기법에서 올바르게 구문 분석되지 않으므로 구문 대신 구문을 사용합니다.
+리소스 그룹의 태그를 리소스에 적용 하려면 [resourceGroup](../templates/template-functions-resource.md#resourcegroup) 함수를 사용 합니다. 태그 값을 가져올 때 일부 문자는 `tags[tag-name]` 점 표기법에서 올바르게 `tags.tag-name` 구문 분석 되지 않으므로 구문 대신 구문을 사용 합니다.
 
 ```json
 {
@@ -470,7 +470,7 @@ IFS=$origIFS
 
 ### <a name="apply-tags-to-resource-groups-or-subscriptions"></a>리소스 그룹 또는 구독에 태그 적용
 
-**Microsoft.Resources/태그** 리소스 유형을 배포하여 리소스 그룹 또는 구독에 태그를 추가할 수 있습니다. 태그는 대상 리소스 그룹 또는 배포에 대한 구독에 적용됩니다. 템플릿을 배포할 때마다 이전에 적용된 태그를 대체합니다.
+**Microsoft .resources/tags** 리소스 종류를 배포 하 여 리소스 그룹 또는 구독에 태그를 추가할 수 있습니다. 태그는 배포에 대 한 대상 리소스 그룹 또는 구독에 적용 됩니다. 템플릿을 배포할 때마다 이전에 적용 된 태그를 바꿉니다.
 
 ```json
 {
@@ -503,7 +503,7 @@ IFS=$origIFS
 }
 ```
 
-리소스 그룹에 태그를 적용하려면 PowerShell 또는 Azure CLI를 사용합니다. 태그할 리소스 그룹에 배포합니다.
+리소스 그룹에 태그를 적용 하려면 PowerShell 또는 Azure CLI 중 하나를 사용 합니다. 태그를 지정할 리소스 그룹에 배포 합니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName exampleGroup -TemplateFile https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
@@ -513,7 +513,7 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleGroup -TemplateFile http
 az deployment group create --resource-group exampleGroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
-구독에 태그를 적용하려면 PowerShell 또는 Azure CLI를 사용합니다. 태그할 구독에 배포합니다.
+구독에 태그를 적용 하려면 PowerShell 또는 Azure CLI 중 하나를 사용 합니다. 태그를 지정할 구독에 배포 합니다.
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
@@ -523,7 +523,7 @@ New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateU
 az deployment sub create --name tagresourcegroup --location westus2 --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
-다음 템플릿은 개체의 태그를 리소스 그룹 또는 구독에 추가합니다.
+다음 템플릿은 개체의 태그를 리소스 그룹 또는 구독에 추가 합니다.
 
 ```json
 "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
@@ -559,16 +559,16 @@ az deployment sub create --name tagresourcegroup --location westus2 --template-u
 
 ## <a name="rest-api"></a>REST API
 
-Azure REST API를 통해 태그를 사용하려면 다음을 사용합니다.
+Azure REST API를 통해 태그 작업을 수행 하려면 다음을 사용 합니다.
 
-* [태그 - 범위에서 만들기 또는 업데이트(PUT](/rest/api/resources/tags/createorupdateatscope) 작업)
-* [태그 - 범위에서 업데이트(PATCH](/rest/api/resources/tags/updateatscope) 작업)
-* [태그 - 범위에서 받기(GET](/rest/api/resources/tags/getatscope) 작업)
-* [태그 - 범위에서 삭제(DELETE](/rest/api/resources/tags/deleteatscope) 작업)
+* [태그-범위에서 만들기 또는 업데이트](/rest/api/resources/tags/createorupdateatscope) (PUT 작업)
+* [태그-범위에서 업데이트](/rest/api/resources/tags/updateatscope) (패치 작업)
+* [태그-범위에서 가져오기](/rest/api/resources/tags/getatscope) (get 작업)
+* [태그-범위에서 삭제](/rest/api/resources/tags/deleteatscope) (삭제 작업)
 
 ## <a name="inherit-tags"></a>태그 상속
 
-리소스 그룹 또는 구독에 적용된 태그는 리소스에 의해 상속되지 않습니다. 구독 또는 리소스 그룹의 태그를 리소스에 적용하려면 [Azure 정책 - 태그 를](tag-policies.md)참조하십시오.
+리소스 그룹 또는 구독에 적용 되는 태그는 리소스에서 상속 되지 않습니다. 구독 또는 리소스 그룹의 태그를 리소스에 적용 하려면 [Azure 정책-태그](tag-policies.md)를 참조 하세요.
 
 ## <a name="tags-and-billing"></a>태그 및 청구
 
@@ -583,17 +583,17 @@ REST API 작업에 대한 내용은 [Azure 청구 REST API 참조](/rest/api/bil
 다음 제한 사항이 태그에 적용됩니다.
 
 * 일부 리소스 유형은 태그를 지원하지 않습니다. 리소스 유형에 태그를 적용할 수 있는지 확인하려면 [Azure 리소스에 대한 태그 지원](tag-support.md)을 참조하세요.
-* 관리 그룹은 현재 태그를 지원하지 않습니다.
-* 각 리소스, 리소스 그룹 및 구독에는 최대 50개의 태그 이름/값 쌍이 있을 수 있습니다. 허용되는 최대 개수보다 많은 태그를 적용해야 하는 경우 태그 값에 JSON 문자열을 사용합니다. JSON 문자열은 단일 태그 이름에 적용되는 여러 값을 포함할 수 있습니다. 리소스 그룹 또는 구독에는 각각 50개의 태그 이름/값 쌍이 있는 많은 리소스가 포함될 수 있습니다.
+* 관리 그룹은 현재 태그를 지원 하지 않습니다.
+* 각 리소스, 리소스 그룹 및 구독에는 최대 50 개의 태그 이름/값 쌍이 있을 수 있습니다. 허용 되는 최대 수보다 많은 태그를 적용 해야 하는 경우 태그 값에 JSON 문자열을 사용 합니다. JSON 문자열은 단일 태그 이름에 적용되는 여러 값을 포함할 수 있습니다. 리소스 그룹 또는 구독에는 각각 50 개의 태그 이름/값 쌍이 있는 많은 리소스가 포함 될 수 있습니다.
 * 태그 이름은 512자로 제한되며 태그 값은 256자로 제한됩니다. 스토리지 계정에서 태그 이름은 128자로 제한되며 태그 값은 256자로 제한됩니다.
-* 일반화된 VM은 태그를 지원하지 않습니다.
+* 일반화 된 Vm은 태그를 지원 하지 않습니다.
 * Cloud Services와 같은 클래식 리소스에는 태그를 적용할 수 없습니다.
 * 태그 이름에는 다음 문자를 포함할 수 없습니다: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
-   > 현재 Azure DNS 영역 및 트래픽 관리 서비스도 태그의 공백 사용을 허용하지 않습니다.
+   > Azure DNS 현재 영역 및 트래픽 관리자 서비스는 태그에서 공백 사용을 허용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * 일부 리소스 유형은 태그를 지원하지 않습니다. 리소스 유형에 태그를 적용할 수 있는지 확인하려면 [Azure 리소스에 대한 태그 지원](tag-support.md)을 참조하세요.
-* 태그 지정 전략을 구현하는 방법에 대한 권장 사항은 [리소스 이름 지정 및 태그 지정 결정 가이드를](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)참조하십시오.
+* 태깅 전략을 구현 하는 방법에 대 한 권장 사항은 [리소스 명명 및 태그 지정 결정 가이드](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)를 참조 하세요.

@@ -1,5 +1,5 @@
 ---
-title: Azure 클래식 CLI를 사용하여 Redis에 대한 Azure 캐시 관리
+title: Azure 클래식 CLI를 사용 하 여 Azure Cache for Redis 관리
 description: 모든 플랫폼에 Azure 클래식 CLI를 설치하고, 이를 사용하여 Azure 계정에 연결하고, 이 클래식 CLI에서 Cache for Redis를 만들고 관리하는 방법을 알아봅니다.
 author: yegu-ms
 ms.service: cache
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: f71476d7d41ae45d2f1014ed1b257870622487e6
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81010837"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 Azure Cache for Redis를 만들고 관리하는 방법
@@ -36,22 +36,22 @@ Azure 클래식 CLI를 사용하여 Azure Cache for Redis 인스턴스를 만들
 ## <a name="azure-cache-for-redis-properties"></a>Azure Cache for Redis 속성
 Azure Cache for Redis 인스턴스를 만들고 업데이트하는 경우 사용되는 속성은 다음과 같습니다.
 
-| 속성 | 스위치 | 설명 |
+| 속성 | 스위치 | Description |
 | --- | --- | --- |
 | name |-n, --name |Azure Cache for Redis의 이름입니다. |
 | 리소스 그룹 |-g, --resource-group |리소스 그룹의 이름입니다. |
 | 위치 |-l, --location |캐시를 만드는 위치입니다. |
 | 크기 |-z, --size |Azure Cache for Redis의 크기입니다. 유효한 값: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | sku |-x, --sku |Redis SKU입니다. 다음 중 하나여야 합니다. [기본, 표준, 프리미엄] |
-| EnableNonSslPort |-e, --enable-non-ssl-port |Azure Cache for Redis의 EnableNonSslPort 속성입니다. 캐시에 대해 TLS/SSL포트가 아닌 포트를 사용하도록 설정하려면 이 플래그를 추가합니다. |
+| EnableNonSslPort |-e, --enable-non-ssl-port |Azure Cache for Redis의 EnableNonSslPort 속성입니다. 캐시에 대해 비 TLS/SSL 포트를 사용 하도록 설정 하려는 경우이 플래그를 추가 합니다. |
 | Redis 구성 |-c, --redis-configuration |Redis 구성입니다. 구성 키 및 값의 JSON 형식 문자열을 여기에 입력합니다. 형식:"{"":"","":""}" |
 | Redis 구성 |-f, --redis-configuration-file |Redis 구성입니다. 구성 키 및 값이 있는 파일의 경로를 여기에 입력합니다. 파일 항목에 대한 형식: {"":"","":""} |
 | 분할된 데이터베이스 수 |-r, --shard-count |클러스터링을 사용하는 프리미엄 클러스터 캐시에서 만드는 분할된 데이터베이스 수입니다. |
 | Virtual Network |-v, --virtual-network |VNET에서 캐시를 호스팅하는 경우 Azure Cache for Redis를 배포하는 가상 네트워크의 정확한 ARM 리소스 ID를 지정합니다. 형식 예: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | 키 유형 |-t, --key-type |갱신하는 키의 유형입니다. 유효한 값: [주, 보조] |
-| StaticIP |-p, --정적 \<IP 정적 IP\> |VNET에서 캐시를 호스팅하는 경우 서브넷에서 캐시에 대한 고유 IP 주소를 지정합니다. 제공되지 않으면 하나의 IP 주소가 서브넷에서 자동으로 선택됩니다. |
-| 서브넷 |t, --서브넷 \<서브넷\> |VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 서브넷의 이름을 지정합니다. |
-| VirtualNetwork |-v, --가상 \<네트워크 가상 네트워크\> |VNET에서 캐시를 호스팅하는 경우 Azure Cache for Redis를 배포하는 가상 네트워크의 정확한 ARM 리소스 ID를 지정합니다. 형식 예: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| StaticIP |-p,--고정-ip \<정적-ip\> |VNET에서 캐시를 호스팅하는 경우 서브넷에서 캐시에 대한 고유 IP 주소를 지정합니다. 제공되지 않으면 하나의 IP 주소가 서브넷에서 자동으로 선택됩니다. |
+| 서브넷 |t,--서브넷 \<서브넷\> |VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 서브넷의 이름을 지정합니다. |
+| VirtualNetwork |-v,--virtual-네트워크 \<가상 네트워크\> |VNET에서 캐시를 호스팅하는 경우 Azure Cache for Redis를 배포하는 가상 네트워크의 정확한 ARM 리소스 ID를 지정합니다. 형식 예: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Subscription |-s, --subscription |구독 식별자입니다. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>모든 Azure Cache for Redis 명령 보기

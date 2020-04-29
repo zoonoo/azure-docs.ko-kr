@@ -1,5 +1,5 @@
 ---
-title: 리소스 관리자 템플릿 - 메트릭 경고 만들기
+title: 리소스 관리자 템플릿-메트릭 경고 만들기
 description: Resource Manager 템플릿을 사용하여 이메일 또는 Webhook으로 알림을 받는 클래식 메트릭 경고를 만드는 방법을 알아봅니다.
 author: rboucher
 ms.author: robb
@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
 ms.openlocfilehash: 5a868167f80aaa735e4fbeab32fd1d308dd6da1f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114426"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 클래식 메트릭 경고 만들기
 > [!WARNING]
 > 
-> 이 문서에서는 Resource Manager 템플릿을 사용하여 **클래식 메트릭 경고** 만들기를 설명합니다. 클래식 경고는 2019년 8월에 폐기되었고 2020년 6월에 완전히 사용되지 않을 예정입니다. 새 클래식 경고를 공용 Azure를 만들 수 없습니다. 일부 지역 버전의 Azure에는 여전히 옵션이 있을 수 있지만 가능한 경우 [템플릿을](../../azure-monitor/platform/alerts-metric-near-real-time.md) 사용하여 최신 메트릭 경고를 만드는 것이 좋습니다. [이 문서에서는](alerts-metric-create-templates.md) 세부 정보를 제공합니다.
+> 이 문서에서는 Resource Manager 템플릿을 사용하여 **클래식 메트릭 경고** 만들기를 설명합니다. 클래식 경고는 2019 년 8 월에 사용이 중지 되었으며 6 월 2020에 완전히 사용 되지 않도록 설정 되었습니다. 새 클래식 경고 공용 Azure를 만들 수 없습니다. 일부 지역 버전의 Azure는 여전히 옵션을 사용할 수 있지만 가능 하면 템플릿을 사용 하 여 [최신 메트릭 경고](../../azure-monitor/platform/alerts-metric-near-real-time.md) 를 만드는 것이 좋습니다. [이 문서](alerts-metric-create-templates.md) 에서는 세부 정보를 제공 합니다.
 >
 
-이 문서에서는 [Azure 리소스 관리자 템플릿을](../../azure-resource-manager/templates/template-syntax.md) 사용하여 Azure 클래식 메트릭 경고를 구성하는 방법을 보여 주며 있습니다. 이를 통해 만든 리소스에 대한 경고를 자동으로 설정하여 모든 리소스가 정확하게 모니터링되도록 할 수 있습니다.
+이 문서에서는 [Azure Resource Manager 템플릿을](../../azure-resource-manager/templates/template-syntax.md) 사용 하 여 Azure 클래식 메트릭 경고를 구성 하는 방법을 보여 줍니다. 이를 통해 만든 리소스에 대한 경고를 자동으로 설정하여 모든 리소스가 정확하게 모니터링되도록 할 수 있습니다.
 
 기본적인 단계는 다음과 같습니다.
 
 1. 경고를 만드는 방법을 설명하는 JSON 파일로 템플릿을 만듭니다.
-2. [배포 방법을 사용하여 템플릿을 배포합니다.](../../azure-resource-manager/templates/deploy-powershell.md)
+2. [모든 배포 방법을 사용 하 여 템플릿을 배포](../../azure-resource-manager/templates/deploy-powershell.md)합니다.
 
 아래에서는 먼저 경고만을 위한 Resource Manager 템플릿을 만들고 이후 다른 리소스를 만드는 동안 경고에 대한 템플릿을 만드는 방법을 설명합니다.
 

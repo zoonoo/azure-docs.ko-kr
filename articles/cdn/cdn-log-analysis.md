@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: allensu
 ms.openlocfilehash: c78dff9f5258023d90100c70bd244e8e0d016d6f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253614"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Azure CDN 사용 패턴 분석
@@ -27,15 +27,15 @@ ms.locfileid: "81253614"
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Azure 진단 로그를 통한 코어 분석
 
-핵심 분석은 모든 가격 책정 계층의 CDN 엔드포인트에 사용할 수 있습니다. Azure 진단 로그를 사용하면 핵심 분석을 Azure 저장소, 이벤트 허브 또는 Azure Monitor 로그로 내보낼 수 있습니다. Azure Monitor 로그는 사용자가 구성하고 사용자 지정할 수 있는 그래프가 있는 솔루션을 제공합니다. Azure 진단 로그에 대한 자세한 내용은 [Azure 진단 로그](cdn-azure-diagnostic-logs.md)를 참조하세요.
+핵심 분석은 모든 가격 책정 계층의 CDN 엔드포인트에 사용할 수 있습니다. Azure 진단 로그를 사용 하면 코어 분석을 Azure storage, event hubs 또는 Azure Monitor 로그로 내보낼 수 있습니다. Azure Monitor 로그는 사용자 구성 가능 하 고 사용자 지정이 가능한 그래프가 포함 된 솔루션을 제공 합니다. Azure 진단 로그에 대한 자세한 내용은 [Azure 진단 로그](cdn-azure-diagnostic-logs.md)를 참조하세요.
 
 ## <a name="verizon-core-reports"></a>Verizon 코어 보고서
 
-**Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** 프로필을 사용하는 Azure CDN 사용자는 Verizon 보조 포털에서 Verizon 코어 보고서를 볼 수 있습니다. Verizon 핵심 보고서는 Azure 포털의 **관리** 옵션을 통해 액세스할 수 있으며 다양한 그래프와 보기를 제공합니다. 자세한 내용은 [Verizon의 코어 보고서](cdn-analyze-usage-patterns.md)를 참조하세요.
+**Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** 프로필을 사용하는 Azure CDN 사용자는 Verizon 보조 포털에서 Verizon 코어 보고서를 볼 수 있습니다. Verizon 코어 보고서는 Azure Portal에서 **관리** 옵션을 통해 액세스할 수 있고 다양 한 그래프 및 보기를 제공 합니다. 자세한 내용은 [Verizon의 코어 보고서](cdn-analyze-usage-patterns.md)를 참조하세요.
 
 ## <a name="verizon-custom-reports"></a>Verizon 사용자 지정 보고서
 
-**Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** 프로필을 사용하는 Azure CDN 사용자는 Verizon 보조 포털에서 Verizon 사용자 지정 보고서를 볼 수 있습니다. Verizon 사용자 지정 보고서는 Azure 포털에서 **관리** 옵션을 통해 액세스할 수 있습니다. Verizon 사용자 지정 보고서 페이지는 Azure CDN 프로필에 속한 에지 CName 각각에 전송된 적중 또는 데이터의 수를 보여줍니다. 시간에 따라 데이터를 HTTP 응답 코드 또는 캐시 상태별로 그룹화할 수 있습니다. 자세한 내용은 [Verizon의 사용자 지정 보고서](cdn-verizon-custom-reports.md)를 참조하세요.
+**Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** 프로필을 사용하는 Azure CDN 사용자는 Verizon 보조 포털에서 Verizon 사용자 지정 보고서를 볼 수 있습니다. Verizon 사용자 지정 보고서는 Azure Portal에서 **관리** 옵션을 통해 액세스할 수 있습니다. Verizon 사용자 지정 보고서 페이지는 Azure CDN 프로필에 속한 에지 CName 각각에 전송된 적중 또는 데이터의 수를 보여줍니다. 시간에 따라 데이터를 HTTP 응답 코드 또는 캐시 상태별로 그룹화할 수 있습니다. 자세한 내용은 [Verizon의 사용자 지정 보고서](cdn-verizon-custom-reports.md)를 참조하세요.
 
 ## <a name="azure-cdn-premium-from-verizon-reports"></a>Verizon의 Azure CDN Premium 보고서
 

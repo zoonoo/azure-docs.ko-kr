@@ -1,16 +1,16 @@
 ---
 title: 캐시 ASP.NET 세션 상태 제공자
-description: Redis에 대한 Azure 캐시를 사용하여 세션 상태 ASP.NET 메모리에 저장하는 방법에 대해 알아봅니다.
+description: Redis 용 Azure Cache를 사용 하 여 메모리 내에 ASP.NET 세션 상태를 저장 하는 방법에 대해 알아봅니다.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.openlocfilehash: 8083efe833ec80290713fc14d9cb89acd8263fa2
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81010905"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 세션 상태 제공자
@@ -82,10 +82,10 @@ NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가
 Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성하고, 필요에 따라 다른 값을 구성합니다. 캐시 속성에 액세스하는 방법에 대한 지침은 [Azure Cache for Redis 설정 구성](cache-configure.md#configure-azure-cache-for-redis-settings)을 참조하세요.
 
 * **호스트** – 캐시 엔드포인트를 지정합니다.
-* **포트** – TLS 설정에 따라 비 TLS/SSL 포트 또는 TLS/SSL 포트를 사용합니다.
+* **포트** – tls 설정에 따라 TLS/ssl 포트 또는 TLS/ssl 포트 중 하나를 사용 합니다.
 * **선택키** – 캐시에 적합한 기본 또는 보조 키를 사용합니다.
-* **ssl** – TLS와 캐시/클라이언트 통신을 보호하려는 경우 마찬가지입니다. 그렇지 않으면 거짓. 올바른 포트를 지정해야 합니다.
-  * 새 캐시에 대해 TLS가 아닌 포트는 기본적으로 비활성화됩니다. TLS 포트를 사용 하려면이 설정에 대 한 true를 지정 합니다. 비 TLS 포트를 사용하도록 설정하는 것에 대한 자세한 내용은 [캐시 구성](cache-configure.md) 항목의 [액세스 포트](cache-configure.md#access-ports) 섹션을 참조하십시오.
+* **ssl** – TLS를 사용 하 여 캐시/클라이언트 통신을 보호 하려면 true로 설정 합니다. 그렇지 않으면 false입니다. 올바른 포트를 지정해야 합니다.
+  * TLS가 아닌 포트는 새 캐시에 대해 기본적으로 사용 하지 않도록 설정 됩니다. TLS 포트를 사용 하려면이 설정에 대해 true를 지정 합니다. TLS 포트가 아닌 포트를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [캐시 구성](cache-configure.md) 항목에서 [액세스 포트](cache-configure.md#access-ports) 섹션을 참조 하세요.
 * **throwOnError** – 오류가 있는 경우 예외를 throw하려면 true이고 작업을 자동으로 실패하게 하려면 false입니다. 정적 Microsoft.Web.Redis.RedisSessionStateProvider.LastException 속성을 확인하여 오류를 확인할 수 있습니다. 기본값은 true입니다.
 * **retryTimeoutInMilliseconds** – 이 간격 동안 실패한 작업이 다시 시도되며 밀리초 단위로 지정됩니다. 처음 다시 시도는 20밀리초 후에 발생하고 다시 시도는 retryTimeoutInMilliseconds 간격이 만료될 때까지 매초 마다 발생합니다. 이 간격 후에 즉시 최종적으로 한 번 작업을 다시 시도합니다. 작업이 계속 실패하면 throwOnError 설정에 따라 호출자에게 예외가 다시 throw됩니다. 기본값은 다시 시도하지 않는다는 의미의 0입니다.
 * **databaseId** – 캐시 출력 데이터에 사용할 데이터베이스를 지정합니다. 지정하지 않으면 기본값 0이 사용됩니다.
@@ -128,8 +128,8 @@ Web.config 파일에서 표준 InProc 세션 상태 제공자 섹션을 주석�
 
 ## <a name="third-party-session-state-providers"></a>타사 세션 상태 공급자
 
-* [N캐시 (주)](https://www.alachisoft.com/ncache/session-index.html)
-* [아파치 점화](https://apacheignite-net.readme.io/docs/aspnet-session-state-caching)
+* [NCache](https://www.alachisoft.com/ncache/session-index.html)
+* [Apache ignite](https://apacheignite-net.readme.io/docs/aspnet-session-state-caching)
 
 ## <a name="next-steps"></a>다음 단계
 

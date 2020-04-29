@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.openlocfilehash: 82bc5068be651b05eb24efa3b05e46c1e7c1e24d
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81115048"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric 호스팅 모델
@@ -111,7 +111,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 > [!NOTE]
 >- 공유 프로세스 호스팅 모델 아래의 지정된 노드에서 지정된 애플리케이션에 대해 *ServicePackage* 복사본 하나만 활성화됩니다. *빈 문자열*과 같은 **ServicePackageActivationId**가 있으며, 배포된 서비스 패키지와 관련된 작업을 수행할 때 지정할 필요가 없습니다. 
 >
-> - 단독 프로세스 호스팅 모델의 경우 지정된 노드에서 지정된 애플리케이션에 대해 하나 이상의 *ServicePackage* 복사본이 활성화될 수 있습니다. 각 활성화에는 *배포된* 서비스 패키지와 관련된 작업을 수행하는 동안 지정된 비어 없는 **ServicePackageActivationId가**있습니다. 
+> - 단독 프로세스 호스팅 모델의 경우 지정된 노드에서 지정된 애플리케이션에 대해 하나 이상의 *ServicePackage* 복사본이 활성화될 수 있습니다. 각 활성화에는 배포 된 서비스 패키지와 관련 된 작업을 수행 하는 동안 지정 된 *비어 있지 않은* **ServicePackageActivationId**있습니다. 
 >
 > - **ServicePackageActivationId**를 생략하면 기본적으로 *빈 문자열*로 설정됩니다. 공유 프로세스 모델 아래에 활성화된 배포된 서비스 패키지가 있으면 해당 패키지에서 작업이 수행됩니다. 그렇지 않으면 작업이 실패합니다.
 >
@@ -138,7 +138,7 @@ Service Fabric은 [게스트 실행 파일][a2] 및 [컨테이너][a3] 애플리
 특정한 경우에 Service Fabric은 *ServicePackage*당 둘 이상의 *ServiceType*을 허용하며 하나의 *CodePackage*는 둘 이상의 *ServiceType*을 등록할 수 있습니다. 다음은 이러한 구성이 유용할만한 몇 가지 시나리오입니다.
 
 - 더 적은 프로세스를 생성하고 프로세스당 더 높은 복제본 밀도를 사용하여 리소스 사용률을 최적화하려고 합니다.
-- 서로 다른 *ServiceType의* 복제본은 초기화 또는 메모리 비용이 높은 몇 가지 공통 데이터를 공유해야 합니다.
+- 다른 *Servicetypes* 의 복제본은 초기화 또는 메모리 비용이 높은 몇 가지 공통 데이터를 공유 해야 합니다.
 - 무료 서비스 제품이 있으며, 서비스의 모든 복제본을 동일한 프로세스에 배치하여 리소스 사용률에 제한을 적용하려고 합니다.
 
 단독 프로세스 호스팅 모델은 *ServicePackage*당 여러 *ServiceTypes*가 있는 애플리케이션 모델과 일치하지 않습니다. *ServicePackage*당 여러 *ServiceTypes*가 복제본 간의 리소스 공유를 높이도록 설계되었으며 프로세스당 복제본 고밀도를 지원하기 때문입니다. 단독 프로세스 모델은 이와 다른 결과를 달성하도록 설계되었습니다.
@@ -146,7 +146,7 @@ Service Fabric은 [게스트 실행 파일][a2] 및 [컨테이너][a3] 애플리
 다른 *CodePackage*가 각 *ServiceType*을 등록하는 *ServicePackage*당 여러 *ServiceTypes*의 경우를 고려해보세요. 가령, *CodePackages* 2개가 있는 *ServicePackage* 'MultiTypeServicePackage'가 있다고 가정합니다.
 
 - 'MyCodePackageA'는 *ServiceType* 'MyServiceTypeA'를 등록합니다.
-- *서비스 유형* 'MyServiceTypeB'를 등록하는 '마이코드패키지B'.
+- *ServiceType* ' MyServiceTypeB '를 등록 하는 ' MyCodePackageB '입니다.
 
 이제 **fabric:/SpecialApp**이라는 애플리케이션을 만든다고 가정하겠습니다. **fabric:/SpecialApp** 내에서 단독 프로세스 모델을 사용하여 다음 두 가지 서비스를 만듭니다.
 

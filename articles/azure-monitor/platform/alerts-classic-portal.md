@@ -1,15 +1,15 @@
 ---
-title: Azure 모니터를 사용하여 클래식 메트릭 경고 생성 및 관리
+title: Azure Monitor를 사용 하 여 클래식 메트릭 경고 만들기 및 관리
 description: Azure Portal, CLI 또는 Powershell을 사용하여 클래식 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 알아봅니다.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.openlocfilehash: e635c243a887690fb1f7a5dcd017c1130d74a747
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114575"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 클래식 메트릭 경고 만들기, 보기 및 관리
@@ -34,7 +34,7 @@ Azure Monitor의 클래식 메트릭 경고를 사용하면 메트릭 중 하나
 
 6. 경고가 발생하면 관리자 및 공동 관리자가 이메일 알림을 수신하게 하려면 **소유자에게 이메일 보내기...** 를 선택합니다.
 
-7. 경고가 발생하면 추가 이메일 주소에 알림을 보내려면 **추가 관리자 이메일** 필드에 해당 이메일 주소를 추가합니다. 다음 형식으로 세미콜론으로 여러 이메일을 분리하십시오: *\@이메일\@contoso.com;email2 contoso.com*
+7. 경고가 발생하면 추가 이메일 주소에 알림을 보내려면 **추가 관리자 이메일** 필드에 해당 이메일 주소를 추가합니다. 전자 메일을 세미콜론으로 구분 하 여 *전자 메일\@contoso.com\@; email2 contoso.com* 을 사용 합니다.
 
 8. 경고가 발생할 때 URI를 호출하려면 **Webhook** 필드에 유효한 URI를 입력합니다.
 
@@ -88,7 +88,7 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 이 섹션에서는 PowerShell 명령을 사용하여 클래식 메트릭 경고를 만들고, 보고, 관리하는 방법을 보여 줍니다. 문서의 예제에서는 클래식 메트릭 경고에 대해 Azure Monitor cmdlet을 사용하는 방법을 보여 줍니다.
 
-1. 아직 PowerShell이 컴퓨터에서 실행되도록 설정하지 않았으면 지금 설정합니다. 자세한 내용은 [PowerShell을 설치하고 구성하는 방법을](/powershell/azure/overview)참조하십시오. [Azure Monitor(Insights) Cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)에서 Azure Monitor PowerShell cmdlet의 전체 목록을 살펴볼 수도 있습니다.
+1. 아직 PowerShell이 컴퓨터에서 실행되도록 설정하지 않았으면 지금 설정합니다. 자세한 내용은 [PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조 하세요. [Azure Monitor(Insights) Cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)에서 Azure Monitor PowerShell cmdlet의 전체 목록을 살펴볼 수도 있습니다.
 
 2. 먼저 Azure 구독에 로그인합니다.
 
@@ -126,7 +126,7 @@ az monitor alert delete --name <alert name> --resource-group <group name>
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. 클래식 경고 규칙은 PowerShell을 통해 더 이상 만들 수 없습니다. 경고 규칙을 만들려면 새로운 ['Add-AzMetricAlertRule'](/powershell/module/az.monitor/add-azmetricalertrule) 명령을 사용해야 합니다.
+8. 클래식 경고 규칙은 PowerShell을 통해 더 이상 만들 수 없습니다. 경고 규칙을 만들려면 새 [' AzMetricAlertRule '](/powershell/module/az.monitor/add-azmetricalertrule) 명령을 사용 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

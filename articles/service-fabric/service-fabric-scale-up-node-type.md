@@ -1,13 +1,13 @@
 ---
-title: Azure 서비스 패브릭 노드 유형 확장
+title: Azure Service Fabric 노드 유형 강화
 description: Virtual Machine Scale Set을 추가하여 Service Fabric 클러스터를 확장하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 02/13/2019
 ms.openlocfilehash: 4dbb9e4fbfeb27c5b8b13f70207888cf37bbb0e0
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80998936"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Service Fabric 클러스터 주 노드 형식 강화
@@ -34,7 +34,7 @@ ms.locfileid: "80998936"
     템플릿에서 새 확장 집합을 찾으려면 *vmNodeType2Name* 매개 변수로 명명된 "Microsoft.Compute/virtualMachineScaleSets" 리소스를 검색합니다.  새 확장 집합은 속성 -> virtualMachineProfile -> extensionProfile -> 확장 -> 속성 -> 설정 -> nodeTypeRef 설정을 차례로 사용하여 주 노드 유형에 추가됩니다.
 4. 클러스터 상태를 확인하고 모든 노드가 정상인지 확인합니다.
 5. 노드를 제거하려는 의도로 주 노드 유형의 이전 확장 집합에 있는 노드를 사용하지 않도록 설정합니다. 한 번에 모두 사용하지 않도록 설정할 수 있으며 작업이 큐에서 대기합니다. 약간의 시간이 걸릴 수도 있지만 모든 노드가 사용되지 않도록 설정될 때까지 기다리세요.  노드 유형의 이전 노드가 사용되지 않도록 설정되면 시스템 서비스 및 시드 노드에서 주 노드 유형에 설정된 새 확장 집합의 VM으로 마이그레이션합니다.
-6. 주 노드 유형에서 이전 확장 집합을 제거합니다. 5단계에서와 같이 노드를 사용하지 않도록 설정한 후 Azure 포털의 가상 시스템 규모 집합 블레이드에서 노드를 이전 노드 유형에서 하나씩 할당 할당 합니다.
+6. 주 노드 유형에서 이전 확장 집합을 제거합니다. 5 단계에서와 같이 노드를 사용 하지 않도록 설정한 후에는 Azure Portal의 가상 머신 확장 집합 블레이드에서 노드를 하나씩 할당 취소 합니다.
 7. 이전의 확장 집합과 연결된 부하 분산 장치를 제거합니다. 새 확장 집합에 대한 새 공용 IP 주소 및 부하 분산 장치가 구성되는 동안에는 클러스터를 사용할 수 없습니다.  
 8. 변수에 설정된 이전의 주 노드 유형 확장 집합과 연결된 공용 IP 주소의 DNS 설정을 저장하고 해당 공용 IP 주소를 제거합니다.
 9. 새 주 노드 유형 확장 집합과 연결된 공용 IP 주소의 DNS 설정을 삭제된 공용 IP 주소의 DNS 설정으로 바꿉니다.  이제 클러스터에 다시 연결할 수 있습니다.

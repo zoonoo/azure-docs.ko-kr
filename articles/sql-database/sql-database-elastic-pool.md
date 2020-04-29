@@ -1,5 +1,5 @@
 ---
-title: 탄력적 풀로 여러 데이터베이스 관리
+title: 탄력적 풀을 사용 하 여 여러 데이터베이스 관리
 description: 탄력적 풀을 사용하여 수백 및 수천 개의 SQL Database를 관리하고 크기를 조정합니다. 필요한 경우 배포할 수는 리소스에 대한 단일 가격
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 04/09/2020
 ms.openlocfilehash: 3252ecb030234e4c5543c07dfb4fc702f850a73e
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80998981"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL 데이터베이스를 관리하고 크기를 조정하는 데 도움을 주는 방식
@@ -24,7 +24,7 @@ SQL Database 탄력적 풀은 사용 요구가 다양하고 예측하기 어려�
 
 ## <a name="what-are-sql-elastic-pools"></a>SQL 탄력적 풀이란?
 
-SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계층에 애플리케이션을 작성합니다. 일반적인 애플리케이션 패턴은 각 고객에 대해 단일 데이터베이스를 프로비전합니다. 그러나 고객마다 다양한 사용 패턴을 가지며 각 데이터베이스 사용자의 리소스 요구 사항을 예측하기가 어렵습니다. 일반적으로 두 가지 옵션이 있습니다.
+SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계층에 애플리케이션을 작성합니다. 일반적인 애플리케이션 패턴은 각 고객에 대해 단일 데이터베이스를 프로비전합니다. 그러나 다른 고객에 게는 다양 하 고 예측할 수 없는 사용 패턴이 있는 경우가 많으며 각 개별 데이터베이스 사용자의 리소스 요구 사항을 예측 하기 어렵습니다. 일반적으로 두 가지 옵션이 있습니다.
 
 - 최대 사용량에 따른 리소스 오버프로비저닝과 과다 지불 또는
 - 최대 사용 기간 동안 성능 및 고객 만족은 저하되지만 비용을 절감하는 언더프로비저닝
@@ -48,7 +48,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
 풀은 특정 사용 패턴을 사용하여 많은 수의 데이터베이스에 적합합니다. 주어진 데이터 베이스에 대해, 이 패턴은 상대적으로 사용률 급증이 드물고 평균 사용률이 낮음으로 규정됩니다.
 
-풀에 더 많은 데이터베이스를 추가할수록 절감이 커집니다. 응용 프로그램 사용률 패턴에 따라 S3 데이터베이스가 2개만 으로 절감될 수 있습니다.
+풀에 더 많은 데이터베이스를 추가할수록 절감이 커집니다. 응용 프로그램 사용 패턴에 따라 두 개의 S3 데이터베이스를 사용 하 여 절감 액을 볼 수 있습니다.
 
 다음 섹션에서는 데이터베이스의 특정 컬렉션이 풀에 있는 것이 이득이 될 수 있는지 평가하는 방법을 이해할 수 있습니다. 예제에서는 표준 풀을 사용하지만 기본 및 프리미엄 풀에도 동일한 원칙이 적용됩니다.
 
@@ -95,13 +95,13 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
  200 eDTU 풀에서 S3 데이터베이스 3개의 비용을 줄이려면 최대 2개의 데이터베이스가 동시에 최대 사용률에 도달할 수 있습니다. 이러한 S3 데이터베이스 4개 중 2개 이상이 동시에 최대 사용률에 도달하는 경우 200 eDTU 이상으로 풀 크기를 조정해야 합니다. 풀 크기가 200 eDTU보다 크게 조정될 경우 단일 데이터베이스용 컴퓨팅 크기보다 낮은 비용을 유지하려면 풀에 S3 데이터베이스를 더 많이 추가해야 합니다.
 
-이 예제에서는 풀의 다른 데이터베이스 사용률을 고려하지 않습니다. 모든 데이터베이스 시간에 특정된 시점에서 일부 사용률의 경우, 데이터베이스의 2/3(또는 67%) 보다 작은 사용률이 동시에 정점에 달할 수 있습니다.
+참고이 예에서는 풀에 있는 다른 데이터베이스의 사용률을 고려 하지 않습니다. 모든 데이터베이스 시간에 특정된 시점에서 일부 사용률의 경우, 데이터베이스의 2/3(또는 67%) 보다 작은 사용률이 동시에 정점에 달할 수 있습니다.
 
 ### <a name="resource-utilization-per-database"></a>데이터베이스당 리소스 사용률
 
 데이터 베이스 사용률의 최고와 평균 사이의 큰 차이는 장시간 동안 낮은 사용률 그리고 짧은 시간 동안 큰 사용률을 나타냅니다. 이 사용률 패턴은 데이터베이스에서 리소스를 공유 하기에 이상적입니다. 최고 사용률이 평균사용률의 1.5배 이상이 될 때 풀에 대한 데이터베이스를 고려해야 합니다.
 
-**DTU 기반 구매 모델 예제**: 100DTU로 정점에 도달하고 평균 67DTU 이하를 사용하는 S3 데이터베이스는 풀에서 eDTU를 공유하기에 좋은 후보입니다. 또는 S1 데이터베이스의 최고 사용률이 20 DTU이고 평균 사용률이 13 DTU 이하인 경우 풀에 적합합니다.
+**DTU 기반 구매 모델 예제**: 100 dtu까지 최대의 dtu를 사용 하 고 평균 67 dtu를 사용 하는 S3 데이터베이스는 풀에서 edtu를 공유 하는 데 적합 합니다. 또는 S1 데이터베이스의 최고 사용률이 20 DTU이고 평균 사용률이 13 DTU 이하인 경우 풀에 적합합니다.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>올바른 풀 크기를 선택하려면 어떻게 해야 하나요?
 
@@ -110,9 +110,9 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 - 풀의 모든 데이터베이스에서 사용되는 최대 리소스(선택한 리소스 모델에 따라 최대 DTU 또는 최대 vCore)입니다.
 - 풀에 있는 모든 데이터베이스의 최대 스토리지된 바이트 수입니다.
 
-각 리소스 모델에 대한 사용 가능한 서비스 계층 및 제한은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델을](sql-database-service-tiers-vcore.md)참조하십시오.
+각 리소스 모델에 대 한 사용 가능한 서비스 계층 및 제한은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vcore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조 하세요.
 
-다음 단계를 통해 풀이 단일 데이터베이스보다 비용 효율적인지 여부를 예측할 수 있습니다.
+다음 단계는 풀이 단일 데이터베이스 보다 비용 효율적인 지 여부를 예측 하는 데 도움이 될 수 있습니다.
 
 1. 다음 수식에 따라 풀에 필요한 eDTU 또는 vCore를 예측합니다.
 
@@ -128,7 +128,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 5. 5단계의 풀 가격을 적절한 단일 데이터베이스용 컴퓨팅 크기를 사용할 때의 가격과 비교해 보세요.
 
 > [!IMPORTANT]
-> 풀의 데이터베이스 수가 지원되는 최대값에 가까워지면 [조밀한 탄력적 풀에서 리소스 관리를](sql-database-elastic-pool-resource-management.md)고려해야 합니다.
+> 풀의 데이터베이스 수가 지원 되는 최대 크기에 도달 하는 경우에는 [조밀한 탄력적 풀에서 리소스 관리](sql-database-elastic-pool-resource-management.md)를 고려 해야 합니다.
 > 
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>탄력적 풀과 기타 SQL Database 기능 사용
@@ -143,15 +143,15 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
 풀링된 데이터베이스는 일반적으로 단일 데이터베이스에서 사용할 수 있는 동일한 [비즈니스 연속성 기능](sql-database-business-continuity.md)을 지원합니다.
 
-- **시점 복원**
+- **지정 시간 복원**
 
   지정 시간 복원은 자동 데이터베이스 백업을 사용하여 풀에 있는 데이터베이스를 지정 시간으로 복원합니다. [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-- **지오 복원**
+- **지역 복원**
 
   지역 복원은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다. [Azure SQL Database 복원 또는 보조 데이터베이스에 대한 장애 조치(failover)](sql-database-disaster-recovery.md)
 
-- **활성 지역 복제**
+- **활성 지리적 복제**
 
   지역 복원에서 제공하는 것보다 더 까다로운 복구 요구 사항이 있는 애플리케이션의 경우 [활성 지역 복제](sql-database-active-geo-replication.md) 또는 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md)을 구성합니다.
 
@@ -159,14 +159,14 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
 Azure Portal에서 두 가지 방법으로 탄력적 풀을 만들 수 있습니다.
 
-1. [Azure 포털로](https://portal.azure.com) 이동하여 탄력적 풀을 만듭니다. **Azure SQL을**검색하고 선택합니다.
-2. **+추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. 데이터베이스 타일의 **세부 정보 표시를** 선택하여 탄력적 풀에 대한 추가 정보를 볼 수 **있습니다.**
-3. **데이터베이스** 타일에서 **리소스 유형** 드롭다운에서 **탄력적 풀을** 선택한 다음 **만들기를**선택합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 탄력적 풀을 만듭니다. **AZURE SQL**을 검색 하 고 선택 합니다.
+2. **+추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **데이터베이스** 타일에 대 한 **자세한 정보 표시** 를 선택 하 여 탄력적 풀에 대 한 추가 정보를 볼 수 있습니다.
+3. **데이터베이스** 타일의 **리소스 종류** 드롭다운에서 **탄력적 풀** 을 선택 하 고 **만들기**를 선택 합니다.
 
    ![탄력적 풀 만들기](./media/sql-database-elastic-pool/create-elastic-pool.png)
 
 
-1. 또는 기존 Azure SQL 서버로 이동하여 + 새 **풀을** 클릭하여 해당 서버에 직접 풀을 만들어 탄력적 풀을 만들 수 있습니다.
+1. 또는 기존 Azure SQL server로 이동 하 고 **+ 새 풀** 을 클릭 하 여 해당 서버에 직접 풀을 만드는 방식으로 탄력적 풀을 만들 수 있습니다.
 
 > [!NOTE]
 > 서버에 풀을 여러 개 만들 수 있지만 다른 서버에 속하는 데이터베이스를 동일한 풀에 추가할 수 없습니다.
@@ -181,7 +181,7 @@ Azure Portal에서 두 가지 방법으로 탄력적 풀을 만들 수 있습니
 
 Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사용률을 모니터링할 수 있습니다. 탄력적 풀에 일련의 내용을 변경하는 동시에 모든 변경 내용을 전송할 수도 있습니다. 이러한 변경 내용에는 데이터베이스 추가 또는 제거, 탄력적 풀 설정 변경, 데이터베이스 설정 변경이 포함됩니다.
 
-탄력적 풀 모니터링을 시작하려면 포털에서 탄력적 풀을 찾아서 엽니다. 먼저 탄력적 풀의 상태에 대한 개요를 제공하는 화면이 표시됩니다. 다음 내용이 포함됩니다.
+탄력적 풀 모니터링을 시작하려면 포털에서 탄력적 풀을 찾아서 엽니다. 먼저 탄력적 풀의 상태에 대 한 개요를 제공 하는 화면이 표시 됩니다. 여기에는 다음 항목이 포함됩니다.
 
 - 탄력적 풀의 리소스 사용을 보여주는 모니터링 차트
 - 사용 가능한 경우 탄력적 풀에 대한 최근 경고 및 권장 사항
@@ -214,20 +214,20 @@ Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사
 
 - [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
 
-  SnelStart는 Azure SQL Database를 사용하여 매월 1,000개의 새 Azure SQL 데이터베이스 속도로 비즈니스 서비스를 빠르게 확장했습니다.
+  SnelStart는 Azure SQL Database에서 탄력적 풀을 사용 하 여 매월 1000 개의 새 Azure SQL Database의 속도로 비즈니스 서비스를 빠르게 확장 했습니다.
 
 - [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
 
-  Umbraco는 Azure SQL Database를 사용하여 탄력적 풀을 사용하여 클라우드에서 수천 개의 테넌테에 대한 서비스를 신속하게 프로비저닝하고 확장합니다.
+  Umbraco는 Azure SQL Database에서 탄력적 풀을 사용 하 여 클라우드에서 수천 개의 테 넌 트에 대해 서비스를 신속 하 게 프로 비전 하 고 확장 합니다.
 
-- [덱스코/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)    
+- [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)    
 
-   Daxko/CSI는 Azure SQL Database를 사용하여 탄력적 풀을 사용하여 개발 주기를 가속화하고 고객 서비스 및 성능을 향상시킵니다.    
+   Daxko/CSI는 Azure SQL Database에서 탄력적 풀을 사용 하 여 개발 주기를 가속화 하 고 고객 서비스 및 성능을 향상 시킵니다.    
 
 ## <a name="next-steps"></a>다음 단계
 
-- 가격 정보는 [탄력적 풀 가격 책정을](https://azure.microsoft.com/pricing/details/sql-database/elastic)참조하십시오.
+- 가격 책정 정보는 [탄력적 풀 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/elastic)을 참조 하세요.
 - 탄력적 풀의 크기를 조정하려면 [탄력적 풀 크기 조정](sql-database-elastic-pool-scale.md) 및 [탄력적 풀 크기 조정 - 샘플 코드](scripts/sql-database-monitor-and-scale-pool-powershell.md)를 참조하세요.
 - 탄력적 풀을 사용한 SaaS 애플리케이션의 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
 - 탄력적 풀을 사용하는 SaaS 자습서의 경우 [Wingtip SaaS 애플리케이션 소개](sql-database-wtp-overview.md)를 참조하세요.
-- 데이터베이스가 많은 탄력적 풀의 리소스 관리에 대해 알아보려면 [조밀한 탄력적 풀의 리소스 관리를](sql-database-elastic-pool-resource-management.md)참조하십시오.
+- 여러 데이터베이스가 포함 된 탄력적 풀의 리소스 관리에 대해 알아보려면 [조밀한 탄력적 풀의 리소스 관리](sql-database-elastic-pool-resource-management.md)를 참조 하세요.

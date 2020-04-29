@@ -1,7 +1,7 @@
 ---
-title: '자습서: Azure CLI를 통해 PostgreSQL을 온라인으로 PostgreSQL에 대 한 Azure 데이터베이스로 마이그레이션'
+title: '자습서: Azure CLI를 통해 Azure Database for PostgreSQL 온라인으로 PostgreSQL 마이그레이션'
 titleSuffix: Azure Database Migration Service
-description: CLI를 통해 Azure 데이터베이스 마이그레이션 서비스를 사용하여 PostgreSQL 온-프레미스에서 PostgreSQL용 Azure 데이터베이스로의 온라인 마이그레이션을 수행하는 방법을 알아봅니다.
+description: CLI를 통해 Azure Database Migration Service를 사용 하 여 PostgreSQL 온-프레미스에서 Azure Database for PostgreSQL로 온라인 마이그레이션을 수행 하는 방법을 알아봅니다.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -13,13 +13,13 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
 ms.openlocfilehash: e8f79512e132ff4632c067b23ad6e80a76b8d4cf
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81113881"
 ---
-# <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>자습서: Azure CLI를 통해 DMS를 사용 하 여 온라인 PostgreSQL에 대 한 Azure DB에 PostgreSQL 마이그레이션
+# <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>자습서: Azure CLI을 통해 DMS를 사용 하 여 PostgreSQL online 용 Azure DB로 PostgreSQL 마이그레이션
 
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 온-프레미스 PostgreSQL 인스턴스에서 [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/)로 데이터베이스를 마이그레이션할 수 있습니다. 즉, 애플리케이션의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service에서 온라인 마이그레이션 작업을 사용하여 **DVD 대여** 샘플 데이터베이스를 PostgreSQL 9.6의 온-프레미스 인스턴스에서 Azure Database for PostgreSQL로 마이그레이션합니다.
 
@@ -33,24 +33,24 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 > * 마이그레이션을 모니터링합니다.
 
 > [!NOTE]
-> Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄 가격 책정 계층에 따라 인스턴스를 만들어야 합니다. 마이그레이션 과정에서 데이터 도난을 방지하기 위해 디스크를 암호화합니다.
+> Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄 가격 책정 계층에 따라 인스턴스를 만들어야 합니다. 마이그레이션을 진행 하는 동안 데이터 도난을 방지 하기 위해 디스크를 암호화 합니다.
 
 > [!IMPORTANT]
 > 최적의 마이그레이션 환경을 위해 Microsoft는 대상 데이터베이스와 동일한 Azure 지역에서 Azure Database Migration Service의 인스턴스를 만드는 것을 권장합니다. 영역 또는 지역 간에 데이터를 이동하면 마이그레이션 프로세스 속도가 저하되고 오류가 발생할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * [PostgreSQL 커뮤니티 버전](https://www.postgresql.org/download/) 9.5, 9.6 또는 10을 다운로드하여 설치합니다. 원본 PostgreSQL 서버 버전은 9.5.11, 9.6.7, 10 이상이어야 합니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) 문서를 참조하세요.
 
-    또한 PostgreSQL 버전에 대한 대상 Azure 데이터베이스는 온-프레미스 PostgreSQL 버전과 같거나 작아야 합니다. 예를 들어 PostgreSQL 9.6은 PostgreSQL 9.6, 10 또는 11에 대해서만 Azure 데이터베이스로 마이그레이션할 수 있지만 PostgreSQL 9.5의 경우 Azure 데이터베이스로만 마이그레이션할 수 없습니다.
+    또한 대상 Azure Database for PostgreSQL 버전은 온-프레미스 PostgreSQL 버전과 같거나 그 이상 이어야 합니다. 예를 들어 PostgreSQL 9.6은 Azure Database for PostgreSQL 9.6, 10 또는 11로만 마이그레이션할 수 있지만 Azure Database for PostgreSQL 9.5으로는 마이그레이션할 수 없습니다.
 
-* [PostgreSQL에 대한 Azure 데이터베이스에서 인스턴스를 만들거나](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) [PostgreSQL - 하이퍼스케일(Citus) 서버에 대한 Azure 데이터베이스 만들기.](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)
-* [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN을](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)사용하여 온-프레미스 소스 서버에 대한 사이트 간 연결을 제공하는 Azure 리소스 관리자 배포 모델을 사용하여 Azure 데이터베이스 마이그레이션 서비스에 대한 Microsoft Azure 가상 네트워크를 만듭니다. 가상 네트워크 만들기에 대한 자세한 내용은 [가상 네트워크 설명서](https://docs.microsoft.com/azure/virtual-network/)및 특히 단계별 세부 정보가 있는 빠른 시작 문서를 참조하십시오.
+* [Azure Database for PostgreSQL에서 인스턴스를 만들거나](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) [Citus (Azure Database for PostgreSQL-hyperscale) 서버를 만듭니다](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
+* [Express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 경로 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용 하 여 온-프레미스 원본 서버에 대 한 사이트 간 연결을 제공 하는 Azure Resource Manager 배포 모델을 사용 하 여 Azure Database Migration Service에 대 한 Microsoft Azure Virtual Network를 만듭니다. 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/)와 특히 단계별 정보를 포함 하는 빠른 시작 문서를 참조 하세요.
 
     > [!NOTE]
-    > 가상 네트워크 설정 중에 Microsoft에 피어링하는 네트워크와 함께 ExpressRoute를 사용하는 경우 서비스를 프로비전할 서브넷에 다음 서비스 [끝점을](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 추가합니다.
+    > 가상 네트워크를 설정 하는 동안 Microsoft에 네트워크 피어 링을 사용 하는 Express 경로를 사용 하는 경우 서비스가 프로 비전 될 서브넷에 다음 서비스 [끝점](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 을 추가 합니다.
     >
     > * 대상 데이터베이스 엔드포인트(예: SQL 엔드포인트, Cosmos DB 엔드포인트 등)
     > * 스토리지 엔드포인트
@@ -58,11 +58,11 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     >
     > Azure Database Migration Service에는 인터넷 연결이 없으므로 이 구성이 필요합니다.
 
-* 가상 네트워크 네트워크 보안 그룹(NSG) 규칙이 Azure 데이터베이스 마이그레이션 서비스(443, 53, 9354, 445, 12000)에 대한 다음 인바운드 통신 포트를 차단하지 않도록 합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹과 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)문서를 참조하십시오.
+* 가상 네트워크 NSG (네트워크 보안 그룹) 규칙이 Azure Database Migration Service에 대해 443, 53, 9354, 445, 12000 인바운드 통신 포트를 차단 하지 않는지 확인 합니다. Virtual network NSG 트래픽 필터링에 대 한 자세한 내용은 [네트워크 보안 그룹을 사용 하 여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)문서를 참조 하세요.
 * [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 * Windows 방화벽을 열고 Azure Database Migration Service에서 기본적으로 5432 TCP 포트인 원본 PostgreSQL 서버에 액세스할 수 있도록 허용합니다.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service가 마이그레이션을 위해 원본 데이터베이스에 액세스할 수 있게 허용하는 방화벽 규칙을 추가해야 합니다.
-* Azure Database Migration Service에서 대상 데이터베이스에 액세스할 수 있도록 Azure Database for PostgreSQL에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure 데이터베이스 마이그레이션 서비스에 사용되는 가상 네트워크의 서브넷 범위를 제공합니다.
+* Azure Database Migration Service에서 대상 데이터베이스에 액세스할 수 있도록 Azure Database for PostgreSQL에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용 되는 가상 네트워크의 서브넷 범위를 제공 합니다.
 * CLI를 호출하는 방법은 두 가지가 있습니다.
 
   * Azure Portal의 오른쪽 위에서 Cloud Shell 단추를 선택합니다.
@@ -100,7 +100,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 2. Azure Database for PostgreSQL인 대상 환경에서 빈 데이터베이스를 만듭니다.
 
-    데이터베이스를 연결하고 만드는 방법에 대한 자세한 내용은 Azure [포털에서 PostgreSQL 서버를 위한 Azure 데이터베이스 만들기](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) 또는 Azure [포털에서 PostgreSQL - 하이퍼스케일(Citus) 서버를 위한 Azure 데이터베이스 만들기](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)문서를 참조하십시오.
+    데이터베이스를 연결 하 고 만드는 방법에 대 한 자세한 내용은 [Azure Portal에서 Azure Database for PostgreSQL 서버 만들기](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) 또는 [Azure Portal에서 Azure Database for PostgreSQL-Hyperscale (Citus) 서버 만들기](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)문서를 참조 하세요.
 
 3. 스키마 덤프 파일을 복원하여 만든 대상 데이터베이스에 스키마를 가져옵니다.
 
@@ -191,7 +191,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
        ```
 
       > [!IMPORTANT]
-      > 확장 버전이 0.11.0 이상인지 확인합니다.
+      > 확장 버전이 0.11.0 이상 인지 확인 합니다.
 
    * 언제든지 다음을 실행하여 DMS에서 지원되는 모든 명령을 봅니다.
 

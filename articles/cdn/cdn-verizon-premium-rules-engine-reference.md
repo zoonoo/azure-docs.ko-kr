@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: bda817712faf1f54287e880dc62ef2b08273ff42
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253393"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>버라이존 프리미엄 규칙 엔진 참조에서 Azure CDN
+# <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Verizon 프리미엄 규칙 엔진 참조의 Azure CDN
 
 이 아티클에서는 Azure CDN(Content Delivery Network) [규칙 엔진](cdn-verizon-premium-rules-engine.md)에 제공되는 일치 조건 및 기능에 대해 자세히 설명합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "81253393"
 특수 문자가 처리되는 방식은 일치 조건 또는 기능이 텍스트 값을 처리하는 방식에 따라 다릅니다. 일치 조건 또는 기능은 다음 방법 중 하나로 텍스트를 해석할 수 있습니다.
 
 1. [**리터럴 값**](#literal-values)
-2. [**와일드카드 값**](#wildcard-values)
+2. [**와일드 카드 값**](#wildcard-values)
 3. [**정규식**](#regular-expressions)
 
 ### <a name="literal-values"></a>리터럴 값
@@ -71,12 +71,12 @@ Space | 공백 문자는 지정된 값 또는 패턴에 의해 일치 조건이 
 Space | 공백 문자는 일반적으로 리터럴 문자로 취급됩니다.
 'value' | 작은따옴표는 리터럴 문자로 처리됩니다. 작은따옴표 쌍은 특별한 의미가 없습니다.
 
-정규식을 지원하는 조건 및 기능을 일치시키는 것은 Perl 호환 정규 식(PCRE)에 의해 정의된 패턴을 허용합니다.
+정규식을 지 원하는 일치 조건 및 기능은 Perl 호환 정규식 (PCRE)에서 정의한 패턴을 허용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [규칙 엔진 일치 조건](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
-- [규칙 엔진 조건식](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
+- [규칙 엔진 조건 식](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [규칙 엔진 기능](cdn-verizon-premium-rules-engine-reference-features.md)
 - [규칙 엔진을 사용하여 HTTP 동작 재정의](cdn-verizon-premium-rules-engine.md)
 - [Azure CDN 개요](cdn-overview.md)

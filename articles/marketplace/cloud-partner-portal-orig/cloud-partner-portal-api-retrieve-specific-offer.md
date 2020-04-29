@@ -1,5 +1,5 @@
 ---
-title: 특정 오퍼 API 검색 | Azure 마켓플레이스
+title: 특정 제품 API 검색 | Azure Marketplace
 description: API는 게시자 네임스페이스 내에서 지정된 제안을 검색합니다.
 author: dsindona
 ms.service: marketplace
@@ -8,17 +8,17 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: f2182ed2377a392f55af2c1f723be325bd518349
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255920"
 ---
 <a name="retrieve-a-specific-offer"></a>특정 제안 검색
 =========================
 
 > [!NOTE]
-> 클라우드 파트너 포털 API는 파트너 센터와 통합되며 오퍼가 파트너 센터로 마이그레이션된 후에도 계속 작동합니다. 통합은 작은 변화를 도입합니다. [Cloud 파트너 포털 API 참조에](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) 나열된 변경 내용을 검토하여 파트너 센터로 마이그레이션한 후에도 코드가 계속 작동하는지 확인합니다.
+> Cloud 파트너 포털 Api는 파트너 센터와 통합 되며 제품을 파트너 센터로 마이그레이션한 후에도 계속 작동 합니다. 통합에는 작은 변화가 도입 되었습니다. 파트너 센터로 마이그레이션한 후 코드가 계속 작동 하는지 확인 하려면 [CLOUD 파트너 포털 API 참조](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) 에 나열 된 변경 내용을 검토 합니다.
 
 게시자 네임스페이스 내에서 지정된 제안을 검색합니다.  
 
@@ -43,8 +43,8 @@ ms.locfileid: "81255920"
 
 | **이름**    | **설명**                                                                          | **데이터 형식** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId입니다. 예: Contoso                                                        | String        |
-| offerId     | 제안을 고유하게 식별하는 GUID입니다.                                                 | String        |
+| publisherId | publisherId입니다. 예: Contoso                                                        | 문자열        |
+| offerId     | 제안을 고유하게 식별하는 GUID입니다.                                                 | 문자열        |
 | 버전     | 검색 중인 제안의 버전입니다. 기본적으로 최신 제안 버전이 검색됩니다. | 정수       |
 | slotId      | 제안이 검색될 슬롯으로, 다음 중 하나일 수 있습니다.      <br/>  - `Draft`(기본값)는 현재 초안에 있는 제안 버전을 검색합니다.  <br/>  -  `Preview`는 현재 미리 보기에 있는 제안 버전을 검색합니다.     <br/>  -  `Production`은 현재 프로덕션 환경에 있는 제안 버전을 검색합니다.          |      enum |
 | api-version | 최신 버전 API                                                                    | Date          |
@@ -185,7 +185,7 @@ ms.locfileid: "81255920"
 
 ### <a name="response-status-codes"></a>응답 상태 코드
 
-| **코드**  | **설명**                                                                                                                 |
+| **Code**  | **설명**                                                                                                                 |
 |  ------   | ------------------------------------------------------------------------------------------------------------------------------- |
 |  200      | `OK` - 요청이 성공적으로 처리되었으며 해당 게시자의 모든 제안이 클라이언트에 반환되었습니다.               |
 |  400      | `Bad/Malformed request` - 오류 응답 본문에 자세한 정보가 들어 있을 수 있습니다.                                                 |
@@ -204,5 +204,5 @@ ms.locfileid: "81255920"
 |  실행 중                    | 제안 제출을 처리 중입니다.          |
 |  성공                  | 제안 제출 처리를 완료했습니다.    |
 |  취소됨                   | 제안 제출이 취소되었습니다.                |
-|  실패                     | 제안 제출에 실패했습니다.                      |
+|  Failed                     | 제안 제출에 실패했습니다.                      |
 |  |  |

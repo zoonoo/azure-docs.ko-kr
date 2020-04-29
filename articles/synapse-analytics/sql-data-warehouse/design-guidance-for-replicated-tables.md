@@ -1,6 +1,6 @@
 ---
-title: 복제된 테이블에 대한 디자인 지침
-description: Synapse SQL에서 복제된 테이블 디자인권장 사항
+title: 복제 된 테이블에 대 한 디자인 지침
+description: Synapse SQL에서 복제 된 테이블 디자인에 대 한 권장 사항
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,37 +12,37 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 654aeddbb305124ea00a883dbef9d8b5ad585a36
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80990789"
 ---
-# <a name="design-guidance-for-using-replicated-tables-in-sql-analytics"></a>SQL 분석에서 복제된 테이블을 사용하기 위한 설계 지침
+# <a name="design-guidance-for-using-replicated-tables-in-sql-analytics"></a>SQL Analytics에서 복제 된 테이블을 사용 하기 위한 디자인 지침
 
-이 문서에서는 SQL Analytics 스키마에서 복제된 테이블을 디자인하는 권장 사항을 제공합니다. 이러한 권장 사항을 사용하여 데이터 이동 및 쿼리 복잡성을 줄여서 쿼리 성능을 향상시킵니다.
+이 문서에서는 SQL 분석 스키마에서 복제 된 테이블을 디자인 하기 위한 권장 사항을 제공 합니다. 이러한 권장 사항을 사용하여 데이터 이동 및 쿼리 복잡성을 줄여서 쿼리 성능을 향상시킵니다.
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-이 문서에서는 SQL Analytics의 데이터 배포 및 데이터 이동 개념에 대해 잘 알고 있다고 가정합니다.자세한 내용은 [아키텍처](massively-parallel-processing-mpp-architecture.md) 문서를 참조하세요.
+이 문서에서는 SQL Analytics의 데이터 배포 및 데이터 이동 개념에 대해 잘 알고 있다고 가정 합니다.자세한 내용은 [아키텍처](massively-parallel-processing-mpp-architecture.md) 문서를 참조하세요.
 
 테이블 디자인의 일환으로 데이터 및 데이터가 쿼리되는 방식에 대해 최대한 많이 이해하는 것이 좋습니다.예를 들어 다음 질문을 고려합니다.
 
 - 테이블이 얼마나 큰가요?
 - 테이블을 얼마나 자주 새로 고치나요?
-- SQL Analytics 데이터베이스에 팩트 및 차원 테이블이 있습니까?
+- SQL Analytics 데이터베이스에 팩트 및 차원 테이블이 있나요?
 
 ## <a name="what-is-a-replicated-table"></a>복제 테이블이란?
 
-복제 테이블에는 각 Compute 노드에서 액세스할 수 있는 테이블의 전체 복사본이 있습니다. 테이블을 복제하면 조인 또는 집계 전에 Compute 노드 간에 데이터를 전송하지 않아도 됩니다. 테이블에 여러 복사본이 있으므로 복제 테이블은 테이블 크기가 2GB 미만으로 압축되어 있을 때 가장 효과적입니다.  2GB는 하드 제한이 아닙니다.  데이터가 정적이고 변경되지 않으면 더 큰 테이블을 복제할 수 있습니다.
+복제 테이블에는 각 Compute 노드에서 액세스할 수 있는 테이블의 전체 복사본이 있습니다. 테이블을 복제하면 조인 또는 집계 전에 Compute 노드 간에 데이터를 전송하지 않아도 됩니다. 테이블에 여러 복사본이 있으므로 복제 테이블은 테이블 크기가 2GB 미만으로 압축되어 있을 때 가장 효과적입니다.  2gb는 하드 제한이 아닙니다.  데이터가 정적이 고 변경 되지 않는 경우 더 큰 테이블을 복제할 수 있습니다.
 
-다음은 각 Compute 노드에서 액세스할 수 있는 복제 테이블을 보여주는 다이어그램입니다. SQL Analytics에서 복제된 테이블은 각 Compute 노드의 배포 데이터베이스에 완전히 복사됩니다.
+다음은 각 Compute 노드에서 액세스할 수 있는 복제 테이블을 보여주는 다이어그램입니다. SQL Analytics에서 복제 된 테이블은 각 계산 노드의 배포 데이터베이스로 완전히 복사 됩니다.
 
 ![복제 테이블](./media/design-guidance-for-replicated-tables/replicated-table.png "복제 테이블")  
 
-복제된 테이블은 스타 스키마의 차원 테이블에 적합합니다. 차원 테이블은 일반적으로 차원 테이블과 다르게 배포되는 팩트 테이블에 조인됩니다.  차원은 일반적으로 여러 복사본을 저장하고 유지 관리할 수 있는 크기의 크기입니다. 차원에는 고객 이름 및 주소, 제품 세부 정보와 같이 느리게 변하는 설명 데이터가 저장됩니다. 데이터의 특성이 느리게 변경되어 복제된 테이블의 유지 관리가 줄어듭니다.
+복제 된 테이블은 별모양 스키마의 차원 테이블에 대해 잘 작동 합니다. 일반적으로 차원 테이블은 차원 테이블과 다르게 배포 되는 팩트 테이블에 조인 됩니다.  차원은 일반적으로 여러 복사본을 저장 하 고 유지 관리할 수 있도록 하는 크기입니다. 차원에는 고객 이름 및 주소, 제품 세부 정보와 같이 느리게 변하는 설명 데이터가 저장됩니다. 데이터의 느린 변경 특성으로 인해 복제 된 테이블의 유지 관리가 줄어듭니다.
 
 복제 테이블 사용을 고려하는 것이 좋은 경우:
 
@@ -51,9 +51,9 @@ ms.locfileid: "80990789"
 
 복제 테이블이 최상의 쿼리 성능을 얻을 수 없는 경우:
 
-- 테이블에 삽입, 업데이트 및 삭제 작업이 빈번합니다.DML(데이터 조작 언어) 작업에는 복제된 테이블을 다시 빌드해야 합니다.다시 빌드가 빈번하면 성능을 저하시킬 수 있습니다.
-- SQL 분석 데이터베이스는 자주 확장됩니다. SQL Analytics 데이터베이스를 확장하면 계산 노드 수가 변경되어 복제된 테이블을 다시 작성할 수 있습니다.
-- 테이블에는 다수의 열이 있지만 데이터 작업은 대개 작은 수의 열에만 액세스합니다. 이 시나리오에서는 전체 테이블을 복제하는 대신 테이블을 분산한 다음, 자주 액세스하는 열의 인덱스를 만드는 것이 보다 효과적일 수 있습니다. 쿼리에 데이터 이동이 필요한 경우 SQL Analytics는 요청된 열에 대한 데이터만 이동합니다.
+- 테이블에 삽입, 업데이트 및 삭제 작업이 빈번합니다.DML (데이터 조작 언어) 작업을 수행 하려면 복제 된 테이블을 다시 빌드해야 합니다.다시 빌드가 빈번하면 성능을 저하시킬 수 있습니다.
+- SQL Analytics 데이터베이스는 자주 크기 조정 됩니다. SQL 분석 데이터베이스의 크기를 조정 하면 복제 된 테이블을 다시 작성 하는 계산 노드 수가 변경 됩니다.
+- 테이블에는 다수의 열이 있지만 데이터 작업은 대개 작은 수의 열에만 액세스합니다. 이 시나리오에서는 전체 테이블을 복제하는 대신 테이블을 분산한 다음, 자주 액세스하는 열의 인덱스를 만드는 것이 보다 효과적일 수 있습니다. 쿼리에 데이터 이동이 필요한 경우 SQL Analytics는 요청 된 열에 대 한 데이터만 이동 합니다.
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>단순 쿼리 조건자로 복제 테이블 사용
 
@@ -64,7 +64,7 @@ ms.locfileid: "80990789"
 
 CPU를 많이 사용하는 쿼리는 모든 Compute 노드에 작업이 분산되면 성능이 가장 좋아집니다. 예를 들어 테이블의 각 행에서 계산을 실행하는 쿼리는 복제 테이블에 비해 분산 테이블에서 성능이 더 높습니다. 복제 테이블은 각 Compute 노드에 전체가 저장되므로 복제 테이블에 대해 CPU를 많이 사용하는 쿼리는 각 Compute 노드의 전체 테이블에 대해 실행됩니다. 추가 계산은 쿼리 성능을 저하시킬 수 있습니다.
 
-예를 들어 이 쿼리에는 복잡한 조건자가 있습니다.  데이터가 복제된 테이블 대신 분산 테이블에 있을 때 더 빠르게 실행됩니다. 이 예제에서는 데이터가 라운드 로빈 분산될 수 있습니다.
+예를 들어 이 쿼리에는 복잡한 조건자가 있습니다.  데이터가 복제 된 테이블이 아닌 분산 된 테이블에 있는 경우 더 빨리 실행 됩니다. 이 예제에서는 데이터를 라운드 로빈 방식으로 분산할 수 있습니다.
 
 ```sql
 
@@ -76,7 +76,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>기존의 라운드 로빈 테이블을 복제 테이블로 변환
 
-이미 라운드 로빈 테이블이 있는 경우 이 문서에서 설명하는 기준을 충족하는 경우 복제된 테이블로 변환하는 것이 좋습니다. 복제 테이블은 데이터 이동의 필요성을 없애기 때문에 라운드 로빈 테이블보다 성능을 향상시킵니다.  라운드 로빈 테이블은 조인을 위해 데이터 이동이 항상 필요합니다.
+라운드 로빈 테이블이 이미 있는 경우이 문서에 설명 된 조건을 충족 하는 경우 복제 된 테이블로 변환 하는 것이 좋습니다. 복제 테이블은 데이터 이동의 필요성을 없애기 때문에 라운드 로빈 테이블보다 성능을 향상시킵니다.  라운드 로빈 테이블은 조인을 위해 데이터 이동이 항상 필요합니다.
 
 이 예제는 [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 DimSalesTerritory 테이블을 복제 테이블로 변경합니다. 이 예제는 DimSalesTerritory가 해시 분산이거나 라운드 로빈이거나 상관없이 작동합니다.
 
@@ -124,12 +124,12 @@ WHERE d.FiscalYear = 2004
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>복제 테이블 수정에 대한 성능 고려 사항
 
-SQL Analytics는 테이블의 마스터 버전을 유지 관리하여 복제된 테이블을 구현합니다. 마스터 버전을 각 Compute 노드의 첫 번째 배포 데이터베이스에 복사합니다. 변경 내용이 있는 경우 SQL Analytics는 먼저 마스터 버전을 업데이트한 다음 각 Compute 노드의 테이블을 다시 빌드합니다. 복제 테이블의 다시 빌드에는 각 Compute 노드로 테이블을 복사한 다음, 인덱스를 빌드하는 것이 포함됩니다.  예를 들어 DW2000c의 복제된 테이블에는 5개의 데이터 복사본이 있습니다.  각 Compute 노드의 마스터 복사본 및 전체 복사본입니다.  모든 데이터는 배포 데이터베이스에 저장됩니다. SQL Analytics는 이 모델을 사용하여 더 빠른 데이터 수정 문과 유연한 크기 조정 작업을 지원합니다.
+SQL Analytics는 테이블의 마스터 버전을 유지 관리 하 여 복제 된 테이블을 구현 합니다. 각 Compute 노드의 첫 번째 배포 데이터베이스에 마스터 버전을 복사 합니다. 변경 사항이 있는 경우 SQL Analytics는 먼저 마스터 버전을 업데이트 한 다음 각 계산 노드에서 테이블을 다시 빌드합니다. 복제 테이블의 다시 빌드에는 각 Compute 노드로 테이블을 복사한 다음, 인덱스를 빌드하는 것이 포함됩니다.  예를 들어 DW2000c의 복제 된 테이블에는 5 개의 데이터 복사본이 있습니다.  각 Compute 노드의 마스터 복사본 및 전체 복사본입니다.  모든 데이터는 배포 데이터베이스에 저장됩니다. SQL Analytics는이 모델을 사용 하 여 더 빠른 데이터 수정 문과 유연한 크기 조정 작업을 지원 합니다.
 
 다시 빌드가 필요한 경우:
 
 - 데이터가 로드되었거나 수정된 후
-- Synapse SQL 인스턴스가 다른 수준으로 확장됩니다.
+- Synapse SQL 인스턴스가 다른 수준으로 확장 됩니다.
 - 테이블 정의가 업데이트된 후
 
 다시 빌드가 필요하지 않은 경우:
@@ -141,9 +141,9 @@ SQL Analytics는 테이블의 마스터 버전을 유지 관리하여 복제된 
 
 ### <a name="use-indexes-conservatively"></a>신중하게 인덱스 사용
 
-표준 인덱싱 작업은 복제 테이블에 적용됩니다. SQL Analytics는 복제된 각 테이블 인덱스를 다시 빌드의 일부로 다시 빌드합니다. 인덱스는 해당 성능이 인덱스를 다시 빌드하는 비용보다 높은 경우에만 사용합니다.
+표준 인덱싱 작업은 복제 테이블에 적용됩니다. SQL Analytics는 다시 작성의 일부로 복제 된 각 테이블 인덱스를 다시 작성 합니다. 인덱스는 해당 성능이 인덱스를 다시 빌드하는 비용보다 높은 경우에만 사용합니다.
 
-### <a name="batch-data-load"></a>배치 데이터 로드
+### <a name="batch-data-load"></a>일괄 처리 데이터 로드
 
 복제 테이블로 데이터를 로드하는 경우 로드를 함께 일괄 처리하여 다시 빌드를 최소화하는 것이 좋습니다. select 문을 실행하기 전에 일괄 처리된 모든 로드를 수행합니다.
 
@@ -193,7 +193,7 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 
 복제 테이블을 만들려면 다음 문 중 하나를 사용합니다.
 
-- [테이블 만들기(SQL 분석)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [선택으로 테이블 만들기(SQL 분석)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (SQL 분석)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [SELECT AS CREATE TABLE (SQL Analytics)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 분산 테이블에 대한 개요는 [분산 테이블](sql-data-warehouse-tables-distribute.md)을 참조하세요.

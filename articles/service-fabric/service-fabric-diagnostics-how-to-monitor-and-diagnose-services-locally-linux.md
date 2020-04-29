@@ -1,16 +1,16 @@
 ---
-title: 리눅스에서 Azure 서비스 패브릭 앱 디버그
+title: Linux에서 Azure Service Fabric 앱 디버그
 description: 로컬 Linux 개발 컴퓨터에서 Service Fabric 서비스를 모니터링하고 진단하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: fa8c4053a348c539c2e9e7a87d002d0fcf4a4d52
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80991333"
 ---
-# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>로컬 Linux 컴퓨터 개발 설정에서 서비스 모니터링 및 진단
+# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>로컬 Linux 컴퓨터 개발 설치에서 서비스 모니터링 및 진단
 
 
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "80991333"
 
 ## <a name="debugging-service-fabric-java-applications"></a>Service Fabric Java 애플리케이션 디버깅
 
-Java 애플리케이션에 대해 [다중 로깅 프레임워크](https://en.wikipedia.org/wiki/Java_logging_framework)를 사용할 수 있습니다. JRE의 기본 옵션은 기본 옵션이므로 `java.util.logging` GitHub 의 코드 [예제에도 사용됩니다.](https://github.com/Azure-Samples/service-fabric-java-getting-started) 다음 논의에서는 `java.util.logging` 프레임워크를 구성하는 방법을 설명합니다.
+Java 애플리케이션에 대해 [다중 로깅 프레임워크](https://en.wikipedia.org/wiki/Java_logging_framework)를 사용할 수 있습니다. 는 `java.util.logging` JRE의 기본 옵션 이므로 [GitHub의 코드 예제](https://github.com/Azure-Samples/service-fabric-java-getting-started)에도 사용 됩니다. 다음 논의에서는 `java.util.logging` 프레임워크를 구성하는 방법을 설명합니다.
 
 java.util.logging을 사용하면 애플리케이션 로그를 메모리, 출력 스트림, 콘솔 파일 또는 소켓으로 리디렉션할 수 있습니다. 이들 옵션 각각에 대해 프레임워크에 이미 제공되어 있는 기본 핸들러가 있습니다. `app.properties` 파일을 만들어서 애플리케이션에 대한 파일 핸들러가 모든 로그를 로컬 파일로 리디렉션하도록 구성할 수 있습니다.
 
@@ -53,13 +53,13 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 
 기본적으로 핸들러가 명시적으로 구성되지 않으면 콘솔 핸들러가 등록됩니다. /var/log/syslog 아래 syslog에서 로그를 볼 수 있습니다.
 
-자세한 내용은 [GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started)의 코드 예제를 참조하십시오.
+자세한 내용은 [GitHub의 코드 예제](https://github.com/Azure-Samples/service-fabric-java-getting-started)를 참조 하세요.
 
 
 ## <a name="debugging-service-fabric-c-applications"></a>Service Fabric C# 애플리케이션 디버깅
 
 
-다수의 프레임워크는 Linux의 CoreCLR 애플리케이션 추적에 사용할 수 있습니다. 자세한 내용은 [로깅에 대한 .NET 확장 을](https://github.com/dotnet/extensions/tree/master/src/Logging)참조하십시오.  EventSource는 C# 개발자에게 친숙하기 때문에 이 문서에서는 Linux의 CoreCLR 샘플에서 추적용으로 EventSource를 사용합니다.
+다수의 프레임워크는 Linux의 CoreCLR 애플리케이션 추적에 사용할 수 있습니다. 자세한 내용은 [로깅을 위한 .Net Extensions](https://github.com/dotnet/extensions/tree/master/src/Logging)를 참조 하세요.  EventSource는 C# 개발자에게 친숙하기 때문에 이 문서에서는 Linux의 CoreCLR 샘플에서 추적용으로 EventSource를 사용합니다.
 
 첫 번째 단계는 메모리, 출력 스트림 또는 콘솔 파일 로그를 쓸 수 있도록 System.Diagnostics.Tracing를 포함하는 것입니다.  EventSource를 사용하여 기록하려면 project.json에 다음 프로젝트를 추가합니다.
 

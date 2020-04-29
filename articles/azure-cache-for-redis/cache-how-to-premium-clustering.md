@@ -1,5 +1,5 @@
 ---
-title: Redis 클러스터링 구성 - Redis에 대한 프리미엄 Azure 캐시
+title: Redis 클러스터링 구성-Redis에 대 한 Premium Azure Cache
 description: 프리미엄 계층 Azure Cache for Redis 인스턴스에 대한 Redis 클러스터링을 만들고 관리하는 방법을 알아봅니다.
 author: yegu-ms
 ms.author: yegu
@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
 ms.openlocfilehash: 4a0e5b0c18264e1f7a98e81bcdfd56a7159235da
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81010922"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Redis 클러스터링을 구성하는 방법
@@ -30,20 +30,20 @@ Azure Cache for Redis는 [Redis에서 구현된](https://redis.io/topics/cluster
 
 Azure에서 Redis 클러스터는 주/복제본 모델로 제공됩니다. 이 경우 각 분할에는 Azure Cache for Redis 서비스에서 관리하는 복제가 있는 주/복제 쌍이 있습니다. 
 
-## <a name="clustering"></a>Clustering
+## <a name="clustering"></a>클러스터링
 클러스터링은 캐시를 만드는 중에 **새 Azure Cache for Redis** 블레이드에서 사용하도록 설정합니다. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
 클러스터링은 **Redis 클러스터** 블레이드에 구성됩니다.
 
-![Clustering][redis-cache-clustering]
+![클러스터링][redis-cache-clustering]
 
 클러스터에서 최대 10개의 분할된 데이터베이스를 사용할 수 있습니다. **사용**을 클릭하고 슬라이더를 밀거나 **분할 개수**에 1에서 10 사이의 숫자를 입력하고 **확인**을 클릭합니다.
 
 각각의 분할된 데이터베이스는 Azure에서 관리하는 주/복제본 캐시 쌍이며, 캐시의 총 크기는 분할된 데이텁베이스 수에 가격 책정 계층에서 선택한 캐시 크기를 곱하여 산출합니다. 
 
-![Clustering][redis-cache-clustering-selected]
+![클러스터링][redis-cache-clustering-selected]
 
 일단 캐시가 생성되면 이 캐시에 연결하여 클러스터되지 않은 캐시처럼 사용할 수 있으며, Redis에서 캐시 분할 데이터베이스 전체에 데이터를 배포합니다. 진단이 [사용](cache-how-to-monitor.md#enable-cache-diagnostics)으로 설정되면 메트릭이 각 분할별로 개별적으로 캡처되며 Azure Cache for Redis 블레이드에 [표시](cache-how-to-monitor.md)됩니다. 
 
@@ -58,7 +58,7 @@ StackExchange.Redis 클라이언트를 통해 클러스터링으로 작업하는
 <a name="cluster-size"></a>
 
 ## <a name="change-the-cluster-size-on-a-running-premium-cache"></a>실행 중인 프리미엄 캐시의 클러스터 크기 변경
-클러스터링을 사용하도록 설정한 실행 중인 프리미엄 캐시에서 클러스터 크기를 변경하려면 **리소스 메뉴에서** **클러스터 크기를** 클릭합니다.
+클러스터링을 사용 하도록 설정 된 실행 중인 프리미엄 캐시에서 클러스터 크기를 변경 하려면 **리소스 메뉴**에서 **클러스터 크기** 를 클릭 합니다.
 
 ![Redis 클러스터 크기][redis-cache-redis-cluster-size]
 
@@ -108,12 +108,12 @@ Redis 단위당 [키 배포 모델](https://redis.io/topics/cluster-spec#keys-di
 StackExchange.Redis 클라이언트를 통해 동일한 분할된 데이터베이스에서 키를 클러스터링하고 찾아서 작업하는 샘플 코드의 경우 [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 샘플의 [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 부분을 참조하세요.
 
 ### <a name="what-is-the-largest-cache-size-i-can-create"></a>만들 수 있는 최대 캐시 크기는?
-가장 큰 프리미엄 캐시 크기는 120GB입니다. 최대 10개의 샤드를 만들어 최대 1.2TB GB의 크기를 제공할 수 있습니다. 더 큰 크기가 필요한 경우 [추가 요청](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)이 가능합니다. 자세한 내용은 [Redis 가격 책정에 대한 Azure 캐시를](https://azure.microsoft.com/pricing/details/cache/)참조하십시오.
+최대 프리미엄 캐시 크기는 120 GB입니다. 최대 10 개의 분할를 만들 수 있습니다. 최대 크기는 1.2 TB입니다. 더 큰 크기가 필요한 경우 [추가 요청](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)이 가능합니다. 자세한 내용은 [Redis 가격에 대 한 Azure Cache](https://azure.microsoft.com/pricing/details/cache/)를 참조 하세요.
 
 ### <a name="do-all-redis-clients-support-clustering"></a>모든 Redis 클라이언트가 클러스터링을 지원하나요?
-모든 클라이언트가 Redis 클러스터링을 지원하는 것은 아닙니다! 사용 중인 라이브러리에 대한 설명서를 확인하여 클러스터링을 지원하는 라이브러리 및 버전을 사용하고 있는지 확인하십시오. StackExchange.Redis는 최신 버전에서 클러스터링을 지원하는 라이브러리 입니다. 다른 클라이언트에 대한 자세한 내용은 [Redis 클러스터 자습서](https://redis.io/topics/cluster-tutorial)의 [클러스터 작업](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) 섹션을 참조하세요. 
+모든 클라이언트가 Redis 클러스터링을 지 원하는 것은 아닙니다. 사용 중인 라이브러리에 대 한 설명서를 확인 하 여 클러스터링을 지 원하는 라이브러리와 버전을 사용 하 고 있는지 확인 하세요. Redis는 최신 버전에서 클러스터링을 지 원하는 라이브러리 중 하나입니다. 다른 클라이언트에 대한 자세한 내용은 [Redis 클러스터 자습서](https://redis.io/topics/cluster-tutorial)의 [클러스터 작업](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) 섹션을 참조하세요. 
 
-Redis 클러스터링 프로토콜은 각 클라이언트가 클러스터링 모드에서 각 샤드에 직접 연결하도록 요구하며 'MOVED' na 'CROSSSLOTS'와 같은 새로운 오류 응답을 정의합니다. 클러스터 모드 캐시를 사용하여 클러스터링을 지원하지 않는 클라이언트를 사용하려고 하면 여러 번 의 개인 슬롯 다중 키 요청을 수행하는 경우 [많은 이동 리디렉션 예외가](https://redis.io/topics/cluster-spec#moved-redirection)발생하거나 응용 프로그램이 중단될 수 있습니다.
+Redis 클러스터링 프로토콜을 사용 하 여 각 클라이언트는 클러스터링 모드에서 각 분할 영역에 직접 연결 해야 하며 ' 이동 ' na ' 다른 슬롯 '과 같은 새 오류 응답을 정의 합니다. 클러스터 모드 캐시를 사용 하 여 클러스터링을 지원 하지 않는 클라이언트를 사용 하려고 하면 [이동 된 리디렉션 예외가](https://redis.io/topics/cluster-spec#moved-redirection)많이 발생 하거나, 크로스 슬롯 다중 키 요청을 수행 하는 경우에만 응용 프로그램을 중단할 수 있습니다.
 
 > [!NOTE]
 > StackExchange.Redis를 클라이언트로 사용하는 경우 클러스터링이 제대로 작동할 수 있게 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 이상의 최신 버전을 사용합니다. move 예외에 문제가 있을 경우 자세한 내용은 [move 예외](#move-exceptions) 를 참조하세요.
@@ -123,9 +123,9 @@ Redis 클러스터링 프로토콜은 각 클라이언트가 클러스터링 모
 클러스터링을 사용하지 않는 캐시에 연결할 때와 동일한 [엔드포인트](cache-configure.md#properties), [포트](cache-configure.md#properties) 및 [키](cache-configure.md#access-keys)를 사용하여 캐시에 연결할 수 있습니다. Redis가 백엔드에서 클러스터링을 관리하므로 클라이언트에서의 관리가 필요하지 않습니다.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>내 케시의 분할된 데이터베이스에 직접 연결할 수 있나요?
-클러스터링 프로토콜에 따르면 클라이언트는 올바른 분할된 데이터베이스 연결을 설정해야 합니다. 따라서 클라이언트는 이 작업을 올바르게 수행해야 합니다. 즉 각각의 분할된 데이터베이스는 캐시 인스턴스로 통칭되는 주/복제본 캐시로 구성됩니다. GitHub에서 Redis 리포지토리의 [불안정한](https://redis.io/download) 분기에서 redis-cli 유틸리티를 사용하여 이러한 캐시 인스턴스에 연결할 수 있습니다. 이 버전에는 `-c` 스위치로 시작한 경우 기본 지원을 구현합니다. 자세한 내용은 [Redis 클러스터](https://redis.io/topics/cluster-tutorial) [https://redis.io](https://redis.io) 자습서에서 [클러스터를 사용할 수 있는 재생을](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) 참조하십시오.
+클러스터링 프로토콜에 따르면 클라이언트는 올바른 분할된 데이터베이스 연결을 설정해야 합니다. 따라서 클라이언트는 이 작업을 올바르게 수행해야 합니다. 즉 각각의 분할된 데이터베이스는 캐시 인스턴스로 통칭되는 주/복제본 캐시로 구성됩니다. GitHub에서 Redis 리포지토리의 [불안정한](https://redis.io/download) 분기에서 redis-cli 유틸리티를 사용하여 이러한 캐시 인스턴스에 연결할 수 있습니다. 이 버전에는 `-c` 스위치로 시작한 경우 기본 지원을 구현합니다. 자세한 내용은 [Redis cluster 자습서](https://redis.io/topics/cluster-tutorial) [https://redis.io](https://redis.io) 에서 [클러스터를 사용 하 여 재생](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) 을 참조 하세요.
 
-TLS가 아닌 경우 다음 명령을 사용합니다.
+비 TLS의 경우 다음 명령을 사용 합니다.
 
     Redis-cli.exe –h <<cachename>> -p 13000 (to connect to instance 0)
     Redis-cli.exe –h <<cachename>> -p 13001 (to connect to instance 1)
@@ -133,20 +133,20 @@ TLS가 아닌 경우 다음 명령을 사용합니다.
     ...
     Redis-cli.exe –h <<cachename>> -p 1300N (to connect to instance N)
 
-TLS의 경우 `1300N` `1500N`을 로 바꿉
+TLS의 경우를 `1300N` 로 `1500N`바꿉니다.
 
 ### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>이전에 만든된 캐시에 대해 클러스터링을 구성할 수 있나요?
-예. 먼저 캐시가 프리미엄인지 확인합니다. 다음으로 클러스터를 사용하도록 설정하는 옵션을 포함하여 클러스터 구성 옵션을 볼 수 있습니다. 캐시를 만든 후 또는 처음으로 클러스터링을 사용하도록 설정한 후 클러스터 크기를 변경할 수 있습니다.
+예. 먼저가이 아닌 경우 크기를 조정 하 여 캐시가 프리미엄 인지 확인 합니다. 다음으로 클러스터를 사용 하도록 설정 하는 옵션을 포함 하 여 클러스터 구성 옵션을 확인할 수 있어야 합니다. 캐시를 만든 후 또는 처음으로 클러스터링을 사용 하도록 설정한 후 클러스터 크기를 변경할 수 있습니다.
 
    >[!IMPORTANT]
-   >클러스터링을 사용 설정 취소할 수 없습니다. 클러스터링이 활성화되고 하나의 샤드만 있는 캐시는 *클러스터링없이* 동일한 크기의 캐시와 *다르게* 행동합니다.
+   >클러스터링 사용을 실행 취소할 수 없습니다. 클러스터링을 사용 하도록 설정 하 고 하나의 분할 된 캐시는 클러스터링이 *없는* 동일한 크기의 캐시와 *다르게* 동작 합니다.
 
 ### <a name="can-i-configure-clustering-for-a-basic-or-standard-cache"></a>기본 또는 표준 캐시에 클러스터링을 구성할 수 있나요?
 클러스터링은 프리미엄 캐시에만 사용할 수 있습니다.
 
 ### <a name="can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers"></a>Redis ASP.NET 세션 상태 및 출력 캐싱 공급자와 함께 클러스터링을 사용할 수 있나요?
 * **Redis 출력 캐시 공급자** - 변경이 필요하지 않습니다.
-* **Redis 세션 상태 제공자** -클러스터링을 사용하기 위해 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 이상을 사용하지 않으면 예외가 발생합니다. 이것은 주요 변경 입니다. 자세한 내용은 [v2.0.0 주요 변경 세부 정보를](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)참조하십시오.
+* **Redis 세션 상태 제공자** -클러스터링을 사용하기 위해 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 이상을 사용하지 않으면 예외가 발생합니다. 이는 주요 변경 내용입니다. 자세한 내용은 [v 2.0.0 주요 변경 정보](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)를 참조 하세요.
 
 <a name="move-exceptions"></a>
 

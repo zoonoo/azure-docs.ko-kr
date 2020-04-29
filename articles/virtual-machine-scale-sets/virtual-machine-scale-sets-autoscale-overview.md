@@ -11,10 +11,10 @@ ms.date: 05/29/2018
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8b3af40de107fd9273ec50425c58afc9772ea426
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81010344"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요
@@ -136,7 +136,7 @@ App Insights에 대한 자세한 내용은 [Application Insights란?](../azure-m
 - [Azure CLI](tutorial-autoscale-cli.md)
 - [Azure 템플릿](tutorial-autoscale-template.md)
 
-이 개요에서는 자동 크기 조정 규칙을 사용하여 수평으로 크기를 조정하고, 확장 집합의 VM 인스턴스 *수*를 늘리거나 줄이는 방법에 대해 자세히 설명했습니다. 또한 수직으로 크기를 조정하여 VM 인스턴스의 *크기*를 늘리거나 줄일 수도 있습니다. 자세한 내용은 [가상 시스템 배율 집합이 있는 수직 자동 크기 조정을](virtual-machine-scale-sets-vertical-scale-reprovision.md)참조하십시오.
+이 개요에서는 자동 크기 조정 규칙을 사용하여 수평으로 크기를 조정하고, 확장 집합의 VM 인스턴스 *수*를 늘리거나 줄이는 방법에 대해 자세히 설명했습니다. 또한 수직으로 크기를 조정하여 VM 인스턴스의 *크기*를 늘리거나 줄일 수도 있습니다. 자세한 내용은 [가상 머신 확장 집합을 사용 하 여 수직 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)을 참조 하세요.
 
 VM 인스턴스 관리 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 가상 머신 확장 집합 관리](virtual-machine-scale-sets-windows-manage.md)를 참조하세요.
 

@@ -1,14 +1,14 @@
 ---
-title: Azure 모니터 메트릭 및 자동 크기 조정에 대한 배포 API 폐기
+title: Azure Monitor 메트릭 및 자동 크기 조정에 대 한 배포 Api 사용 중지
 description: ASM(Azure 서비스 관리) 또는 RDFE 배포 모델이라고도 하는 메트릭 및 크기 자동 조정 클래식 API의 사용이 중지됨
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.openlocfilehash: d9b6118bc165a9b0a78ae9c4da895719249b22b7
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114223"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor에서 메트릭 및 자동 크기 조정을 위한 클래식 배포 모델 API 사용 중지
@@ -58,7 +58,7 @@ Azure Portal 또는 다양한 [모니터링 파트너 서비스](../../azure-mon
 - 차원 지원
 - 모든 서비스에서 일관성 있는 1분 메트릭 세분성 적용 
 - 향상된 쿼리
-- 데이터 보존율 증가(93일 간의 지표 대 30일) 
+- 더 높은 데이터 보존 (93 일간의 메트릭 및 30 일) 
 
 전반적으로, Azure의 다른 모든 서비스처럼 Resource Manager 기반 Azure Monitor API는 성능, 확장성 및 안정성을 개선합니다. 
 
@@ -72,9 +72,9 @@ Azure 서비스나 해당 워크로드에 대한 직접적인 영향은 없습�
 
 앞에 나열된 클래식 API에 대한 모든 호출이 실패하고 다음과 유사한 오류 메시지가 반환됩니다.
 
-자동 크기 조정의 경우: *이 API가 더 이상 사용되지 않았습니다. Azure 포털, Azure 모니터 SDK, PowerShell, CLI 또는 리소스 관리자 템플릿을 사용하여 자동 크기 조정 설정을 관리합니다.*  
+자동 크기 조정의 경우: *이 API는 더 이상 사용 되지 않습니다. Azure Portal, Azure Monitor SDK, PowerShell, CLI 또는 리소스 관리자 템플릿을 사용 하 여 자동 크기 조정 설정을 관리*합니다.  
 
-메트릭의 경우: *이 API가 더 이상 사용되지 않았습니다. Azure 포털, Azure 모니터 SDK, PowerShell, CLI를 사용하여 메트릭을 쿼리합니다.*
+메트릭의 경우: *이 API는 더 이상 사용 되지 않습니다. Azure Portal, Azure Monitor SDK, PowerShell, CLI를 사용 하 여 메트릭을 쿼리*합니다.
 
 ## <a name="email-notifications"></a>이메일 알림
 
@@ -85,7 +85,7 @@ Azure 서비스나 해당 워크로드에 대한 직접적인 영향은 없습�
 
 질문이 있으면 MonitorClassicAPIhelp@microsoft.com으로 문의하세요.  
 
-## <a name="references"></a>참조 항목
+## <a name="references"></a>참조
 
 - [Azure Monitor용 최신 REST API](https://docs.microsoft.com/rest/api/monitor/) 
 - [최신 Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)
