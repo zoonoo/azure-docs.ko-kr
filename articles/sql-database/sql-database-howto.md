@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 11/14/2019
 ms.openlocfilehash: c3f7b33e4b42b08334cfb687024985c878dc3713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79209413"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Azure SQL Database를 사용하는 방법
@@ -89,7 +89,7 @@ ms.locfileid: "79209413"
 ### <a name="design-multi-tenant-saas-applications"></a>다중 테넌트 SaaS 애플리케이션 디자인
 
 - [SaaS 디자인 패턴](saas-tenancy-app-design-patterns.md)
-- [SaaS Video Indexer](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
+- [SaaS 비디오 사용](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [SaaS 앱 보안](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 ## <a name="next-steps"></a>다음 단계
