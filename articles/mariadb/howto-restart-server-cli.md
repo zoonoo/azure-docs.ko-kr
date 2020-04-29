@@ -1,19 +1,19 @@
 ---
-title: 서버 다시 시작 - Azure CLI - MariaDB용 Azure 데이터베이스
-description: 이 문서에서는 Azure CLI를 사용하여 MariaDB 서버에 대한 Azure 데이터베이스를 다시 시작하는 방법에 대해 설명합니다.
+title: 서버 다시 시작-Azure CLI-Azure Database for MariaDB
+description: 이 문서에서는 Azure CLI를 사용 하 여 Azure Database for MariaDB 서버를 다시 시작 하는 방법을 설명 합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: f5572611b99245fd62b4e0a9d73e6ed728e42f5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79530651"
 ---
-# <a name="restart-azure-database-for-mariadb-server-using-the-azure-cli"></a>Azure CLI를 사용하여 MariaDB 서버에 대한 Azure 데이터베이스 다시 시작
+# <a name="restart-azure-database-for-mariadb-server-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MariaDB 서버 다시 시작
 이 항목에서는 Azure Database for MariaDB 서버를 다시 시작하는 방법을 설명합니다. 유지 관리를 위해 서버를 다시 시작해야 할 수 있지만 이 경우 서버가 해당 작업을 수행할 때 잠깐 가동이 중단됩니다.
 
 서비스가 다른 작업 중이면 서버가 다시 시작되지 않습니다. 예를 들어, 서비스가 vCore 크기를 조정하는 것과 같이 이전에 요청된 작업을 처리할 수 있습니다.
@@ -22,7 +22,7 @@ ms.locfileid: "79530651"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 이 방법 가이드를 완료하려면 다음이 필요합니다.
-- [MariaDB 서버에 대한 Azure 데이터베이스](quickstart-create-mariadb-server-database-using-azure-cli.md)
+- [Azure Database for MariaDB 서버](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "79530651"
 
 ## <a name="restart-the-server"></a>서버 다시 시작
 
-다음 명령으로 서버를 다시 시작합니다.
+다음 명령을 사용 하 여 서버를 다시 시작 합니다.
 
 ```azurecli-interactive
 az mariadb server restart --name mydemoserver --resource-group myresourcegroup
@@ -40,4 +40,4 @@ az mariadb server restart --name mydemoserver --resource-group myresourcegroup
 
 ## <a name="next-steps"></a>다음 단계
 
-[MariaDB에 대한 Azure 데이터베이스에서 매개 변수를 설정하는 방법에 대해](howto-configure-server-parameters-cli.md) 알아봅니다.
+[Azure Database for MariaDB에서 매개 변수를 설정 하는 방법](howto-configure-server-parameters-cli.md) 에 대해 알아봅니다.

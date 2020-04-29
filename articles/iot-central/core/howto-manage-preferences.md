@@ -1,6 +1,6 @@
 ---
-title: IoT 센트럴에서 개인 취향 관리 | 마이크로 소프트 문서
-description: IoT Central 응용 프로그램에서 언어 및 테마 변경과 같은 개인 응용 프로그램 기본 설정을 관리하는 방법
+title: IoT Central |에서 개인 기본 설정 관리 Microsoft Docs
+description: IoT Central 응용 프로그램에서 언어와 테마를 변경 하는 등 개인 응용 프로그램 기본 설정을 관리 하는 방법입니다.
 author: lmasieri
 ms.author: lmasieri
 ms.date: 07/10/2019
@@ -9,13 +9,13 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: e2b0dbe8b7738a8c4c551eccca72897bbf1594b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80157894"
 ---
-# <a name="manage-your-personal-application-preferences"></a>개인 애플리케이션 기본 설정 관리
+# <a name="manage-your-personal-application-preferences"></a>개인 응용 프로그램 기본 설정 관리
 
 *이 문서는 운영자, 빌더 및 관리자에게 적용됩니다.*
 
@@ -23,11 +23,11 @@ IoT Central은 애플리케이션을 사용자 요구에 맞게 유연하게 사
 
 ## <a name="changing-language"></a>언어 변경
 
-IoT Central은 여러 언어로 지원됩니다. 상단 탐색 모음의 설정 아이콘에서 **언어 선택기를** 사용하여 기본 언어를 전환할 수 있습니다. 언어를 변경하면 IoT Central은 선택한 항목을 기억하고 모든 애플리케이션에 적용합니다. 이러한 대시보드 이미지는 응용 프로그램 내에서 사용자 지정이 지역화되지 않습니다.
+IoT Central는 여러 언어로 지원 됩니다. 위쪽 탐색 모음의 설정 아이콘에서 **언어 선택기** 를 사용 하 여 원하는 언어를 전환할 수 있습니다. 언어를 변경한 후에는 IoT Central 선택 항목을 기억 하 고 모든 응용 프로그램에 적용 합니다. 응용 프로그램 내에서 대시보드 이미지와 같은 사용자 지정은 지역화 되지 않습니다.
 
 ## <a name="changing-theme"></a>테마 변경
 
-밝은 테마와 어두운 테마가 모두 지원됩니다. 라이트 테마가 기본값이지만 상단 탐색 모음의 설정 아이콘을 선택하여 테마를 변경할 수 있습니다.
+밝은 테마와 어두운 테마가 모두 지원됩니다. 밝은 테마는 기본값 이지만 위쪽 탐색 모음에서 설정 아이콘을 선택 하 여 테마를 변경할 수 있습니다.
 
 ![IoT Central 테마 선택](media/howto-manage-preferences/settings.png)
 

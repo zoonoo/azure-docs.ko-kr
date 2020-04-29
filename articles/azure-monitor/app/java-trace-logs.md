@@ -1,26 +1,26 @@
 ---
-title: Azure 응용 프로그램 인사이트에서 Java 추적 로그 탐색
+title: Azure 애플리케이션 Insights에서 Java 추적 로그 살펴보기
 description: Application Insights에서 검색 Log4J 또는 Logback 추적 검색
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.openlocfilehash: da1b76d52ab93f4d1be7196d6eb7286579481119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77657217"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Application Insights에서 Java 추적 로그 탐색
 추적에 Logback 또는 Log4J(v1.2 또는 v2.0)를 사용하는 경우 추적 로그를 살펴보고 검색할 수 있는 Application Insights에 추적 로그를 자동으로 전송할 수 있습니다.
 
 > [!TIP]
-> 애플리케이션에 대해 애플리케이션 인사이트 계측 키를 한 번만 설정하면 됩니다. Java Spring과 같은 프레임워크를 사용하는 경우 앱 구성의 다른 위치에 이미 키를 등록했을 수 있습니다.
+> 응용 프로그램에 대해 Application Insights 계측 키를 한 번만 설정 하면 됩니다. Java 스프링과 같은 프레임 워크를 사용 하는 경우 앱 구성의 다른 위치에 키를 이미 등록 했을 수 있습니다.
 
-## <a name="using-the-application-insights-java-agent"></a>응용 프로그램 인사이트 Java 에이전트 사용
+## <a name="using-the-application-insights-java-agent"></a>Application Insights Java 에이전트 사용
 
-기본적으로 응용 프로그램 인사이트 Java 에이전트는 레벨 `WARN` 이상에서 수행된 로깅을 자동으로 캡처합니다.
+기본적으로 Application Insights Java 에이전트는 수준 이상에서 `WARN` 수행 된 로깅을 자동으로 캡처합니다.
 
-파일을 사용하여 캡처된 로깅 임계값을 `AI-Agent.xml` 변경할 수 있습니다.
+파일을 `AI-Agent.xml` 사용 하 여 캡처한 로깅 임계값을 변경할 수 있습니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -33,7 +33,7 @@ ms.locfileid: "77657217"
 </ApplicationInsightsAgent>
 ```
 
-파일을 사용하여 Java 에이전트의 로깅 `AI-Agent.xml` 캡처를 비활성화할 수 있습니다.
+다음 파일을 `AI-Agent.xml` 사용 하 여 Java 에이전트의 로깅 캡처를 사용 하지 않도록 설정할 수 있습니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -46,7 +46,7 @@ ms.locfileid: "77657217"
 </ApplicationInsightsAgent>
 ```
 
-## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>또는 (Java 에이전트를 사용하는 것과 는 달리) 아래 지침을 따를 수 있습니다.
+## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>또는 Java 에이전트를 사용 하는 것과는 달리 아래 지침을 따를 수 있습니다.
 
 ### <a name="install-the-java-sdk"></a>Java SDK 설치
 
@@ -60,7 +60,7 @@ ms.locfileid: "77657217"
 
 그런 다음 프로젝트 종속성을 새로 고쳐 다운로드한 이진을 가져옵니다.
 
-*로그백*
+*Logback*
 
 ```XML
 
@@ -104,7 +104,7 @@ ms.locfileid: "77657217"
 
 그런 다음 프로젝트 종속성을 새로 고쳐 다운로드한 이진을 가져옵니다.
 
-**로그백**
+**Logback**
 
 ```
 
@@ -136,7 +136,7 @@ ms.locfileid: "77657217"
 ### <a name="add-the-appender-to-your-logging-framework"></a>로깅 프레임워크에 어펜더 추가
 추적 가져오기를 시작하려면 관련 코드 조각을 Log4J 및 Logback 구성 파일과 병합합니다. 
 
-*로그백*
+*Logback*
 
 ```XML
 

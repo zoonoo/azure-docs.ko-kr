@@ -1,5 +1,5 @@
 ---
-title: Azure 모니터 메트릭 데이터베이스에 클래식 Windows VM 메트릭 보내기
+title: Azure Monitor 메트릭 데이터베이스로 클래식 Windows VM 메트릭 보내기
 description: Windows 가상 머신(클래식)용 Azure Monitor 데이터 저장소에 게스트 OS 메트릭 보내기
 author: anirudhcavale
 services: azure-monitor
@@ -8,19 +8,19 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
 ms.openlocfilehash: 65bb1a3915ece384974da12b4e7a1ad0c1e08133
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77655819"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Windows 가상 컴퓨터의 Azure Monitor 메트릭 데이터베이스로 게스트 OS 메트릭 보내기(클래식)
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Windows 가상 머신에 대 한 Azure Monitor 메트릭 데이터베이스에 게스트 OS 메트릭 보내기 (클래식)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure Monitor [진단 확장](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)(“WAD” 또는 “진단”이라고도 함)을 사용하면 가상 머신, 클라우드 서비스 또는 Service Fabric 클러스터의 일부로 실행되는 게스트 OS(게스트 운영 체제)에서 메트릭과 로그를 수집할 수 있습니다. 이 확장은 [여러 다른 위치](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)에 원격 분석을 보낼 수 있습니다.
 
-이 문서에서는 Windows 가상 컴퓨터(클래식)에 대한 게스트 OS 성능 메트릭을 Azure Monitor 메트릭 데이터베이스로 보내는 프로세스에 대해 설명합니다. 진단 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다. 
+이 문서에서는 Windows 가상 머신 (클래식)에 대 한 게스트 OS 성능 메트릭을 Azure Monitor 메트릭 데이터베이스로 전송 하는 프로세스를 설명 합니다. 진단 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다. 
 
 이 위치에 메트릭을 저장하면 플랫폼 메트릭의 경우와 동일한 작업에 액세스할 수 있습니다. 작업에는 실시간에 가까운 경고, 차트 작성, 라우팅, REST API에서 액세스 등이 포함됩니다. 과거에는 진단 확장을 Azure Monitor 데이터 저장소가 아니라 Azure Storage에 기록했습니다. 
 
@@ -30,11 +30,11 @@ Azure Monitor [진단 확장](https://docs.microsoft.com/azure/monitoring-and-di
 
 - Azure 구독의 [서비스 관리자 또는 공동 관리자](../../cost-management-billing/manage/add-change-subscription-administrator.md)여야 합니다. 
 
-- 구독은 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록해야 합니다. 
+- 구독은 [Microsoft](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록 해야 합니다. 
 
 - [Azure PowerShell](/powershell/azure) 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)이 설치되어 있어야 합니다.
 
-- VM 리소스는 사용자 [지정 메트릭을 지원하는 리전에](metrics-custom-overview.md#supported-regions)있어야 합니다.
+- VM 리소스가 [사용자 지정 메트릭을 지 원하는 지역](metrics-custom-overview.md#supported-regions)에 있어야 합니다.
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>클래식 가상 머신 및 스토리지 계정 만들기
 
@@ -188,7 +188,7 @@ Azure Monitor [진단 확장](https://docs.microsoft.com/azure/monitoring-and-di
 
 1.  Azure Portal로 이동합니다. 
 
-1.  왼쪽 메뉴에서 **모니터를 선택합니다.**
+1.  왼쪽 메뉴에서 모니터를 선택 **합니다.**
 
 1.  **모니터** 블레이드에서 **메트릭**을 선택합니다.
 
@@ -196,9 +196,9 @@ Azure Monitor [진단 확장](https://docs.microsoft.com/azure/monitoring-and-di
 
 1. 리소스 드롭다운 메뉴에서 클래식 VM을 선택합니다.
 
-1. 네임스페이스 드롭다운 메뉴에서 **azure.vm.windows.guest를**선택합니다.
+1. 네임 스페이스 드롭다운 메뉴에서 **azure. v m. w i m**.
 
-1. 메트릭 드롭다운 메뉴에서 사용 **중 메모리\커밋된 바이트를**선택합니다.
+1. 메트릭 드롭다운 메뉴에서 **Memory\committed Bytes In Use**를 선택 합니다.
    ![메트릭 플롯](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
 
 

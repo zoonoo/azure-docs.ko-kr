@@ -1,7 +1,7 @@
 ---
 title: 내부 기본 Load Balancer 만들기 - Azure CLI
 titleSuffix: Azure Load Balancer
-description: 이 문서에서는 Azure CLI를 사용하여 내부 로드 밸런서를 만드는 방법을 알아봅니다.
+description: 이 문서에서는 Azure CLI를 사용 하 여 내부 부하 분산 장치를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: allensu
 ms.openlocfilehash: 51df1936e5d8725b2243e7c0084973370139c540
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79457014"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Azure CLI를 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
@@ -26,7 +26,7 @@ ms.locfileid: "79457014"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하십시오.
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -62,7 +62,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-the-load-balancer"></a>부하 분산 장치 만들기
 
-[az 네트워크 lb가](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 있는 내부 로드 **밸런서 생성myLoadBalancer를** 생성하여 **개인**IP 주소 **10.0.7과 연결된 **myBackEndPool이라는** 이름의 프런트 엔드 IP 구성을 포함합니다.
+**Myloadbalancer**엔드 라는 프런트 엔드 IP 구성을 포함 하는 **myloadbalancer** 라는 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 를 사용 하 여 내부 Load Balancer를 만듭니다. 여기에는 개인 IP 주소 * * 10.0.0.7와 연결 된 **myBackEndPool** 라는 백 엔드 풀이 포함 됩니다.
 
 ```azurecli-interactive
   az network lb create \
@@ -131,7 +131,7 @@ done
 
 ### <a name="create-an-availability-set"></a>가용성 집합 만들기
 
-[az vm 가용성](/cli/azure/network/nic) 집합을 만드는 가용성 집합 만들기
+[Az vm 가용성 집합 create](/cli/azure/network/nic) 를 사용 하 여 가용성 집합 만들기
 
 ```azurecli-interactive
   az vm availability-set create \

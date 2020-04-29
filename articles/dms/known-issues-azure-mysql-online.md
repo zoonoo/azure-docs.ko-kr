@@ -1,7 +1,7 @@
 ---
-title: '알려진 문제: MySQL용 Azure 데이터베이스로의 온라인 마이그레이션'
+title: '알려진 문제: Azure Database for MySQL에 대 한 온라인 마이그레이션'
 titleSuffix: Azure Database Migration Service
-description: Azure 데이터베이스 마이그레이션 서비스를 사용할 때 MySQL용 Azure 데이터베이스로의 온라인 마이그레이션을 통해 알려진 문제 및 마이그레이션 제한 사항에 대해 알아봅니다.
+description: Azure Database Migration Service 사용 시 Azure Database for MySQL에 대 한 온라인 마이그레이션과의 알려진 문제 및 마이그레이션 제한 사항에 대해 알아봅니다.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -15,13 +15,13 @@ ms.custom:
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 8c3de28ea934302086a5b14e61482e6a4ab9a7ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80235287"
 ---
-# <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Azure 데이터베이스 마이그레이션 서비스를 사용하여 MySQL에 대한 Azure DB에 대한 제한 & 온라인 마이그레이션 문제
+# <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Azure Database Migration Service에서 MySQL 용 Azure DB에 대 한 제한 사항을 & 온라인 마이그레이션 문제
 
 MySQL에서 Azure Database for MySQL로의 온라인 마이그레이션과 관련된 알려진 문제 및 제한 사항은 다음 섹션에 설명되어 있습니다.
 
@@ -35,7 +35,7 @@ MySQL에서 Azure Database for MySQL로의 온라인 마이그레이션과 관�
 - 동일한 버전 마이그레이션. Azure Database for MySQL 5.7로의 MySQL 5.6 마이그레이션은 지원되지 않습니다.
 - my.ini(Windows) 또는 my.cnf(Unix)로 이진 로깅을 사용
   - Server_id를 1 이상의 숫자로 설정(예: Server_id=1(MySQL 5.6에만 해당))
-  - 로그 빈 \<설정 = 경로>(MySQL 5.6에만)
+  - Set log-bin = \<path> (MySQL 5.6에만 해당)
   - binlog_format = row로 설정
   - Expire_logs_days = 5(권장됨 - MySQL 5.6에만 해당)
 - 사용자에게 ReplicationAdmin 역할이 있어야 함.
@@ -76,7 +76,7 @@ MySQL에서 Azure Database for MySQL로의 온라인 마이그레이션과 관�
 
 ## <a name="lob-limitations"></a>LOB 제한 사항
 
-LOB(Large Object) 열은 크기가 커질 수 있는 열입니다. MySQL, 중간 텍스트, 긴 텍스트, Blob, 미디엄블롭, 롱블롭 등은 LOB의 데이터 유형 중 일부입니다.
+LOB(Large Object) 열은 크기가 커질 수 있는 열입니다. MySQL의 경우 중간 텍스트, Longtext, Blob, Mediumblob, 고도 Blob 등은 LOB의 일부 데이터 형식입니다.
 
 - **제한 사항**: LOB 데이터 형식이 기본 키로 사용되는 경우 마이그레이션이 실패합니다.
 
@@ -87,38 +87,38 @@ LOB(Large Object) 열은 크기가 커질 수 있는 열입니다. MySQL, 중간
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **해결:** 32KB보다 큰 LOB 개체가 있는 경우 Azure 데이터베이스 마이그레이션 요청의 엔지니어링 팀에 [문의하십시오.](mailto:AskAzureDatabaseMigrations@service.microsoft.com)
+    **해결 방법**: LOB 개체가 32 KB 보다 큰 경우 엔지니어링 팀에 문의 하 여 [Azure 데이터베이스 마이그레이션](mailto:AskAzureDatabaseMigrations@service.microsoft.com)에 문의 하세요.
 
-## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>AWS RDS MySQL에서 온라인으로 마이그레이션할 때의 제한 사항
+## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>AWS RDS MySQL에서 온라인으로 마이그레이션하는 경우의 제한 사항
 
-AWS RDS MySQL에서 MySQL용 Azure 데이터베이스로의 온라인 마이그레이션을 수행하려고 하면 다음과 같은 오류가 발생할 수 있습니다.
+AWS RDS MySQL에서 Azure Database for MySQL로 온라인 마이그레이션을 수행 하려고 할 때 다음과 같은 오류가 발생할 수 있습니다.
 
-- **오류:** 데이터베이스{0}' ' 대상에 외래 키가 있습니다. 대상을 수정하고 새로운 데이터 마이그레이션 작업을 시작하세요. 대상에 대한 스크립트 아래에서 실행하여 외래 키를 나열합니다.
+- **오류:** '{0}' 데이터베이스에 대상의 외래 키가 있습니다. 대상을 수정하고 새로운 데이터 마이그레이션 작업을 시작하세요. 대상에서 아래 스크립트를 실행 하 여 외래 키를 나열 합니다.
 
-  **제한**: 스키마에 외래 키가 있는 경우 마이그레이션의 초기 로드 및 연속 동기화가 실패합니다.
-  **해결:** MySQL 워크벤치에서 다음 스크립트를 실행하여 드롭 외래 키 스크립트를 추출하고 외래 키 스크립트를 추가합니다.
+  **제한**사항: 스키마에 외래 키가 있는 경우 마이그레이션의 초기 로드 및 연속 동기화가 실패 합니다.
+  **해결 방법**: MySQL 워크 벤치에서 다음 스크립트를 실행 하 여 drop foreign key 스크립트를 추출 하 고 외래 키 스크립트를 추가 합니다.
 
   ```
   SET group_concat_max_len = 8192; SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery FROM (SELECT KCU.REFERENCED_TABLE_SCHEMA as SchemaName, KCU.TABLE_NAME, KCU.COLUMN_NAME, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC WHERE KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries GROUP BY SchemaName;
   ```
 
-- **오류:** 서버에{0}데이터베이스 ' ' 가 없습니다. 제공된 MySQL 원본 서버는 대/소문자를 구분합니다. 데이터베이스 이름을 확인하세요.
+- **오류:** 데이터베이스 '{0}'이 (가) 서버에 없습니다. 제공된 MySQL 원본 서버는 대/소문자를 구분합니다. 데이터베이스 이름을 확인하세요.
 
-  **제한**: CLI(명령줄 인터페이스)를 사용하여 MySQL 데이터베이스를 Azure로 마이그레이션할 때 사용자가 이 오류가 발생할 수 있습니다. 서비스가 원본 서버에서 데이터베이스를 찾을 수 없습니다. 참고 데이터베이스 이름은 대/소문자를 구분합니다.
+  **제한**사항: CLI (명령줄 인터페이스)를 사용 하 여 MySQL 데이터베이스를 Azure로 마이그레이션하는 경우 사용자에 게이 오류가 발생할 수 있습니다. 서비스가 원본 서버에서 데이터베이스를 찾을 수 없습니다 .이는 잘못 된 데이터베이스 이름을 제공 했을 수도 있고 나열 된 서버에 데이터베이스가 존재 하지 않기 때문일 수 있습니다. 참고 데이터베이스 이름은 대/소문자를 구분 합니다.
 
-  **해결:** 정확한 데이터베이스 이름을 제공한 다음 다시 시도합니다.
+  **해결 방법**: 정확한 데이터베이스 이름을 입력 한 후 다시 시도 하십시오.
 
-- **오류:** 데이터베이스 '{데이터베이스}'에 이름이 같은 테이블이 있습니다. Azure Database for MySQL은 대/소문자 구분 테이블을 지원하지 않습니다.
+- **오류:** ' {Database} ' 데이터베이스에 이름이 같은 테이블이 있습니다. Azure Database for MySQL은 대/소문자 구분 테이블을 지원하지 않습니다.
 
-  **제한**: 이 오류는 원본 데이터베이스에 이름이 같은 두 테이블이 있는 경우 발생합니다. MySQL용 Azure 데이터베이스는 대/소문자를 구분하는 테이블을 지원하지 않습니다.
+  **제한**사항:이 오류는 원본 데이터베이스에 이름이 같은 테이블이 두 개 있을 때 발생 합니다. Azure Database for MySQL는 대/소문자를 구분 하는 테이블을 지원 하지 않습니다.
 
-  **해결:** 테이블 이름을 고유하게 업데이트한 다음 다시 시도합니다.
+  **해결 방법**: 테이블 이름을 고유한 이름으로 업데이트 한 후 다시 시도 하십시오.
 
-- **오류:** 대상 데이터베이스 {데이터베이스}가 비어 있습니다. 스키마를 마이그레이션하세요.
+- **오류:** 대상 데이터베이스 {database}이 (가) 비어 있습니다. 스키마를 마이그레이션하세요.
 
-  **제한**: 이 오류는 MySQL 데이터베이스에 대한 대상 Azure 데이터베이스에 필요한 스키마가 없을 때 발생합니다. 대상으로 데이터를 마이그레이션하려면 스키마 마이그레이션이 필요합니다.
+  **제한**사항:이 오류는 대상 Azure Database for MySQL 데이터베이스에 필요한 스키마가 없는 경우에 발생 합니다. 대상으로 데이터를 마이그레이션할 수 있도록 하려면 스키마 마이그레이션이 필요 합니다.
 
-  **해결 방법**: 원본 데이터베이스에서 대상 데이터베이스로 [스키마를 마이그레이션합니다.](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema)
+  **해결 방법**: 원본 데이터베이스에서 대상 데이터베이스로 [스키마를 마이그레이션합니다](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) .
 
 ## <a name="other-limitations"></a>기타 제한 사항
 
@@ -134,10 +134,10 @@ AWS RDS MySQL에서 MySQL용 Azure 데이터베이스로의 온라인 마이그�
     CREATE INDEX partial_name ON customer (name(10));
     ```
 
-- Azure 데이터베이스 마이그레이션 서비스에서 단일 마이그레이션 활동에서 마이그레이션하는 데이터베이스의 제한은 4개입니다.
+- Azure Database Migration Service 하나의 단일 마이그레이션 작업에서 마이그레이션할 데이터베이스의 제한은 4 개입니다.
 
-- **오류:** 행 크기가 너무 큽니다(> 8126). 일부 열을 TEXT 또는 BLOB로 변경하면 도움이 될 수 있습니다. 현재 행 형식에서는 0바이트의 BLOB 접두사가 인라인으로 저장됩니다.
+- **오류:** 행 크기가 너무 깁니다 (> 8126). 일부 열을 텍스트 또는 BLOB으로 변경 하면 도움이 될 수 있습니다. 현재 행 형식에서 0 바이트의 BLOB 접두사는 인라인으로 저장 됩니다.
 
-  **제한**: 이 오류는 InnoDB 저장소 엔진을 사용하여 MySQL용 Azure 데이터베이스로 마이그레이션할 때 발생하며 테이블 행 크기가 너무 큽니다(>8126바이트).
+  **제한**사항:이 오류는 InnoDB 저장소 엔진을 사용 하 여 Azure Database for MySQL로 마이그레이션할 때 테이블 행 크기가 너무 크면 (8126 바이트 >) 발생 합니다.
 
-  **해결:** 행 크기가 8126바이트보다 큰 테이블스키마를 업데이트합니다. 데이터가 잘리기 때문에 엄격 모드를 변경하지 않는 것이 좋습니다. page_size 변경은 지원되지 않습니다.
+  **해결 방법**: 행 크기가 8126 바이트 보다 큰 테이블의 스키마를 업데이트 합니다. 데이터가 잘릴 수 있으므로 strict 모드를 변경 하지 않는 것이 좋습니다. Page_size 변경은 지원 되지 않습니다.

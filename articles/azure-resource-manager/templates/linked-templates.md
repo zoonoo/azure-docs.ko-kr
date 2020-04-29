@@ -1,20 +1,20 @@
 ---
-title: 배포를 위한 링크 템플릿
+title: 배포용 링크 템플릿
 description: Azure Resource Manager 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 322797383ee865ceb66c44793387da827aeb8879
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80131922"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
-복잡한 솔루션을 배포하려면 템플릿을 여러 관련 템플릿으로 변환한 다음 주 템플릿을 통해 함께 배포할 수 있습니다. 관련 템플릿은 기본 템플릿 내에 포함된 별도의 파일 또는 템플릿 구문일 수 있습니다. 이 문서에서는 **링크된 템플릿이라는** 용어를 사용하여 기본 템플릿의 링크를 통해 참조되는 별도의 템플릿 파일을 참조합니다. **중첩 된 템플릿이라는** 용어를 사용하여 기본 템플릿 내에 포함된 템플릿 구문을 참조합니다.
+복잡 한 솔루션을 배포 하려면 템플릿을 여러 관련 템플릿으로 분할 한 다음 주 템플릿을 통해 함께 배포할 수 있습니다. 관련 템플릿은 기본 템플릿 내에 포함 된 별도의 파일 또는 템플릿 구문이 될 수 있습니다. 이 문서에서는 **연결 된 템플릿** 이라는 용어를 사용 하 여 주 템플릿의 링크를 통해 참조 되는 별도의 템플릿 파일을 참조 합니다. **중첩 된 템플릿** 이라는 용어를 사용 하 여 기본 템플릿 내에 포함 된 템플릿 구문을 참조 합니다.
 
-중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결된 템플릿을 사용하면 솔루션을 대상 구성 요소로 세분화할 수 있습니다. 다른 시나리오에 이러한 템플릿을 쉽게 다시 사용할 수 있습니다.
+중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결 된 템플릿을 사용 하 여 솔루션을 대상 구성 요소로 나눌 수 있습니다. 이러한 템플릿은 다른 시나리오에서 쉽게 다시 사용할 수 있습니다.
 
 자습서의 경우 [자습서: 연결된 Azure Resource Manager 템플릿 만들기](template-tutorial-create-linked-templates.md)를 참조하세요.
 
@@ -24,7 +24,7 @@ ms.locfileid: "80131922"
 
 ## <a name="nested-template"></a>중첩된 템플릿
 
-템플릿을 중첩하려면 기본 템플릿에 [배포 리소스를](/azure/templates/microsoft.resources/deployments) 추가합니다. **템플릿** 속성에서 템플릿 구문을 지정합니다.
+템플릿을 중첩 하려면 [배포 리소스](/azure/templates/microsoft.resources/deployments) 를 기본 템플릿에 추가 합니다. **템플릿** 속성에서 템플릿 구문을 지정 합니다.
 
 ```json
 {
@@ -50,7 +50,7 @@ ms.locfileid: "80131922"
 }
 ```
 
-다음 예제는 중첩된 템플릿을 통해 저장소 계정을 배포합니다.
+다음 예제에서는 중첩 된 템플릿을 통해 저장소 계정을 배포 합니다.
 
 ```json
 {
@@ -92,11 +92,11 @@ ms.locfileid: "80131922"
 }
 ```
 
-### <a name="expression-evaluation-scope-in-nested-templates"></a>중첩된 템플릿의 식 평가 범위
+### <a name="expression-evaluation-scope-in-nested-templates"></a>중첩 된 템플릿의 식 계산 범위
 
-중첩된 템플릿을 사용하는 경우 템플릿 식이 상위 템플릿 또는 중첩 된 템플릿의 범위 내에서 평가되는지 여부를 지정할 수 있습니다. 범위는 [resourceGroup](template-functions-resource.md#resourcegroup) 및 [구독과](template-functions-resource.md#subscription) 같은 매개 변수, 변수 및 함수가 해결되는 방법을 결정합니다.
+중첩 된 템플릿을 사용 하는 경우 템플릿 식이 부모 템플릿 또는 중첩 된 템플릿의 범위 내에서 계산 되는지 여부를 지정할 수 있습니다. 범위는 [resourceGroup](template-functions-resource.md#resourcegroup) 및 [subscription](template-functions-resource.md#subscription) 과 같은 매개 변수, 변수 및 함수를 확인 하는 방법을 결정 합니다.
 
-속성을 통해 범위를 `expressionEvaluationOptions` 설정 합니다. 기본적으로 `expressionEvaluationOptions` 속성은 `outer`부모 템플릿 범위를 사용 하 여 즉 .로 설정 됩니다. 중첩된 `inner` 템플릿의 범위 내에서 식을 평가할 수 있도록 값을 설정합니다.
+속성을 `expressionEvaluationOptions` 통해 범위를 설정 합니다. 기본적으로 `expressionEvaluationOptions` 속성은로 `outer`설정 됩니다. 즉, 부모 템플릿 범위를 사용 합니다. 식이 중첩 된 템플릿의 `inner` 범위 내에서 계산 되도록 하려면 값을로 설정 합니다.
 
 ```json
 {
@@ -110,7 +110,7 @@ ms.locfileid: "80131922"
   ...
 ```
 
-다음 템플릿은 범위에 따라 템플릿 식이 해결되는 방법을 보여 줍니다. 여기에는 상위 `exampleVar` 템플릿과 중첩된 템플릿 모두에 정의된 이름이 지정된 변수가 포함되어 있습니다. 변수의 값을 반환합니다.
+다음 템플릿에서는 범위에 따라 템플릿 식이 확인 되는 방법을 보여 줍니다. 부모 템플릿과 중첩 된 템플릿 `exampleVar` 모두에 정의 된 라는 변수를 포함 합니다. 변수의 값을 반환 합니다.
 
 ```json
 {
@@ -158,14 +158,14 @@ ms.locfileid: "80131922"
 }
 ```
 
-에서 `exampleVar` `scope` 속성값에 따라 변경 되는 `expressionEvaluationOptions`값입니다. 다음 표에서는 두 범위에 대한 결과를 보여 주십습니다.
+의 `exampleVar` `scope` 속성 값에 따라의 값이 변경 `expressionEvaluationOptions`됩니다. 다음 표에서는 두 범위에 대 한 결과를 보여 줍니다.
 
 | `expressionEvaluationOptions` `scope` | 출력 |
 | ----- | ------ |
-| inner | 중첩된 템플릿에서 |
-| 외부(또는 기본값) | 상위 템플릿에서 |
+| inner | 중첩 된 템플릿 |
+| 외부 (또는 기본값) | 부모 템플릿에서 |
 
-다음 예제는 SQL 서버를 배포 하 고 암호에 대 한 데 사용할 키 자격 증명 모음 비밀을 검색 합니다. 범위는 키 볼트 `inner` ID를 동적으로 만들고(외부 `adminPassword.reference.keyVault` 템플릿참조) 중첩된 템플릿에 매개 변수로 전달하기 때문에 설정됩니다. `parameters`
+다음 예에서는 SQL server를 배포 하 고 암호에 사용할 주요 자격 증명 모음 암호를 검색 합니다. 범위는 키 자격 증명 `inner` 모음 ID (외부 템플릿에서 `adminPassword.reference.keyVault` `parameters`참조)를 동적으로 만들고 중첩 된 템플릿에 매개 변수로 전달 하므로로 설정 됩니다.
 
 ```json
 {
@@ -277,11 +277,11 @@ ms.locfileid: "80131922"
 
 > [!NOTE]
 >
-> 범위를 `outer`로 설정하면 중첩된 템플릿에 배포한 리소스에 대해 중첩된 템플릿의 출력 섹션에서 `reference` 함수를 사용할 수 없습니다. 중첩된 템플릿에서 배포된 리소스에 대한 값을 `inner` 반환하려면 범위를 사용하거나 중첩된 템플릿을 연결된 템플릿으로 변환합니다.
+> Scope를로 `outer`설정 하면 중첩 된 템플릿에 배포한 리소스 `reference` 에 대해 중첩 된 템플릿의 출력 섹션에서 함수를 사용할 수 없습니다. 중첩 된 템플릿에서 배포 된 리소스에 대 한 값을 반환 하려면 범위를 `inner` 사용 하거나 중첩 된 템플릿을 연결 된 템플릿으로 변환 합니다.
 
 ## <a name="linked-template"></a>연결된 템플릿
 
-템플릿을 연결하려면 기본 템플릿에 [배포 리소스를](/azure/templates/microsoft.resources/deployments) 추가합니다. **템플릿Link** 속성에서 포함할 템플릿의 URI를 지정합니다. 다음 예제는 새 저장소 계정을 배포하는 템플릿에 연결합니다.
+템플릿을 연결 하려면 [배포 리소스](/azure/templates/microsoft.resources/deployments) 를 기본 템플릿에 추가 합니다. **Templatelink** 속성에서 포함할 템플릿의 URI를 지정 합니다. 다음 예에서는 새 저장소 계정을 배포 하는 템플릿에 연결 합니다.
 
 ```json
 {
@@ -308,19 +308,19 @@ ms.locfileid: "80131922"
 }
 ```
 
-연결된 템플릿을 참조할 때 값은 `uri` 로컬 파일또는 로컬 네트워크에서만 사용할 수 있는 파일이어야 합니다. **http** 또는 **https로**다운로드할 수 있는 URI 값을 제공해야 합니다. 
+연결 된 템플릿을 참조할 때의 `uri` 값은 로컬 네트워크에서 사용할 수 있는 로컬 파일이 나 파일이 아니어야 합니다. **Http** 또는 **https**로 다운로드 가능한 URI 값을 제공 해야 합니다. 
 
 > [!NOTE]
 >
-> 예를 들어 다음과 같이 **http** 또는 **https를**사용하는 매개 변수로 확인되는 `_artifactsLocation` 매개 변수를 사용하여 템플릿을 참조할 수 있습니다.`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+> 예를 들어 다음과 같이 매개 변수를 `_artifactsLocation` 사용 하 여 **http** 또는 **https**를 사용 하는 것으로 확인 되는 매개 변수를 사용 하 여 템플릿을 참조할 수 있습니다.`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
 
 
-리소스 관리자는 템플릿에 액세스할 수 있어야 합니다. 한 가지 옵션은 연결된 템플릿을 스토리지 계정에 배치하고 해당 항목의 URI를 사용하는 것입니다.
+Resource Manager에서 템플릿에 액세스할 수 있어야 합니다. 한 가지 옵션은 연결된 템플릿을 스토리지 계정에 배치하고 해당 항목의 URI를 사용하는 것입니다.
 
-### <a name="parameters-for-linked-template"></a>연결된 템플릿에 대한 매개 변수
+### <a name="parameters-for-linked-template"></a>연결 된 템플릿의 매개 변수
 
-연결된 템플릿에 대한 매개 변수를 외부 파일 또는 인라인으로 제공할 수 있습니다. 외부 매개 변수 파일을 제공할 때 **매개 변수Link** 속성을 사용합니다.
+외부 파일이 나 인라인에 연결 된 템플릿에 대 한 매개 변수를 제공할 수 있습니다. 외부 매개 변수 파일을 제공 하는 경우 **parametersLink** 속성을 사용 합니다.
 
 ```json
 "resources": [
@@ -343,7 +343,7 @@ ms.locfileid: "80131922"
 ]
 ```
 
-매개 변수 값을 인라인으로 전달하려면 **매개변수** 속성을 사용합니다.
+매개 변수 값을 인라인으로 전달 하려면 **parameters** 속성을 사용 합니다.
 
 ```json
 "resources": [
@@ -369,11 +369,11 @@ ms.locfileid: "80131922"
 
 ## `contentVersion`
 
-또는 속성에 대 한 `contentVersion` 속성을 제공할 필요가 없습니다. `parametersLink` `templateLink` `contentVersion`을 제공하지 않으면 템플릿의 현재 버전이 배포됩니다. 콘텐츠 버전 값을 제공하는 경우에는 연결된 템플릿의 버전과 일치해야 합니다. 그렇지 않으면 오류와 함께 배포에 실패합니다.
+또는 속성에 대 한 `contentVersion` 속성을 제공할 필요가 없습니다. `parametersLink` `templateLink` 를 제공 `contentVersion`하지 않으면 템플릿의 현재 버전이 배포 됩니다. 콘텐츠 버전 값을 제공하는 경우에는 연결된 템플릿의 버전과 일치해야 합니다. 그렇지 않으면 오류와 함께 배포에 실패합니다.
 
 ## <a name="using-variables-to-link-templates"></a>변수를 사용하여 템플릿 연결
 
-앞의 예제에서는 템플릿 링크에 대한 하드 코딩된 URL 값을 보여 주었습니다. 이 방법은 간단한 템플릿에서 작동할 수 있지만 대규모 모듈식 템플릿집합에서는 잘 작동하지 않습니다. 대신, 주 템플릿에 대한 기본 URL을 보관하는 정적 변수를 만든 다음 해당 기본 URL에서 연결된 템플릿에 대한 URL을 동적으로 만들 수 있습니다. 이 방법의 장점은 기본 템플릿의 정적 변수만 변경해야 하므로 템플릿을 쉽게 이동하거나 포크할 수 있다는 것입니다. 주 템플릿은 분해된 템플릿 전체에서 올바른 URI를 전달합니다.
+앞의 예제에서는 템플릿 링크에 대한 하드 코딩된 URL 값을 보여 주었습니다. 이 방법은 간단한 템플릿에는 적용 될 수 있지만, 많은 모듈식 템플릿 집합에 대해서는 제대로 작동 하지 않습니다. 대신, 주 템플릿에 대한 기본 URL을 보관하는 정적 변수를 만든 다음 해당 기본 URL에서 연결된 템플릿에 대한 URL을 동적으로 만들 수 있습니다. 이 방법의 장점으로는 주 템플릿에서 정적 변수만 변경 하면 되므로 템플릿을 쉽게 이동 하거나 분기할 수 있습니다. 주 템플릿은 분해된 템플릿 전체에서 올바른 URI를 전달합니다.
 
 다음 예제에서는 기본 URL을 사용하여 연결된 템플릿에 대한 두 개의 URL을 만드는 방법을 보여 줍니다(**sharedTemplateUrl** 및 **vmTemplate**).
 
@@ -393,7 +393,7 @@ ms.locfileid: "80131922"
 }
 ```
 
-궁극적으로 `templateLink` 속성의 속성에 변수를 `uri` 사용합니다.
+궁극적으로 `uri` `templateLink` 속성의 속성에서 변수를 사용 합니다.
 
 ```json
 "templateLink": {
@@ -402,11 +402,11 @@ ms.locfileid: "80131922"
 }
 ```
 
-## <a name="using-copy"></a>복사 사용
+## <a name="using-copy"></a>Copy 사용
 
-중첩된 템플릿을 사용하여 리소스의 여러 인스턴스를 만들려면 **Microsoft.Resources/배포** 리소스 수준에서 복사 요소를 추가합니다. 또는 범위가 내부인 경우 중첩된 템플릿 내에 복사본을 추가할 수 있습니다.
+중첩 된 템플릿을 사용 하 여 리소스의 여러 인스턴스를 만들려면 **Microsoft .resources/배포** 리소스 수준에 copy 요소를 추가 합니다. 범위가 inner 인 경우 중첩 된 템플릿 내에 복사본을 추가할 수 있습니다.
 
-다음 예제 템플릿에서는 중첩된 템플릿을 사용하여 복사본을 사용하는 방법을 보여 주며 있습니다.
+다음 예제 템플릿에서는 중첩 된 템플릿과 함께 copy를 사용 하는 방법을 보여 줍니다.
 
 ```json
 "resources": [
@@ -455,9 +455,9 @@ ms.locfileid: "80131922"
 
 연결된 템플릿에서 출력 값을 가져오려면 `"[reference('deploymentName').outputs.propertyName.value]"` 같은 구문으로 속성 값을 검색합니다.
 
-연결된 템플릿에서 출력 속성을 가져오는 경우 속성 이름에 대시가 포함되어서는 안 됩니다.
+연결 된 템플릿에서 출력 속성을 가져오는 경우 속성 이름에 대시를 포함 하면 안 됩니다.
 
-다음 예에서는 연결된 템플릿을 참조하고 출력 값을 가져오는 방법을 보여 줍니다. 연결된 템플릿이 간단한 메시지를 반환합니다.  첫째, 연결된 템플릿:
+다음 예에서는 연결된 템플릿을 참조하고 출력 값을 가져오는 방법을 보여 줍니다. 연결된 템플릿이 간단한 메시지를 반환합니다.  먼저 연결 된 템플릿:
 
 ```json
 {
@@ -506,9 +506,9 @@ ms.locfileid: "80131922"
 }
 ```
 
-다른 리소스 유형과 마찬가지로 연결된 템플릿과 다른 리소스 간에 종속성을 설정할 수 있습니다. 다른 리소스에 연결된 템플릿의 출력 값이 필요한 경우 연결된 템플릿이 그 앞에 배포되어 있는지 확인합니다. 또는 연결된 템플릿이 다른 리소스에 종속될 경우 연결된 템플릿 이전에 다른 리소스가 배포되었는지 확인해야 합니다.
+다른 리소스 형식과 마찬가지로 연결 된 템플릿과 다른 리소스 간에 종속성을 설정할 수 있습니다. 다른 리소스에 연결 된 템플릿의 출력 값이 필요한 경우 연결 된 템플릿이 이전에 배포 되었는지 확인 합니다. 또는 연결된 템플릿이 다른 리소스에 종속될 경우 연결된 템플릿 이전에 다른 리소스가 배포되었는지 확인해야 합니다.
 
-다음 예제에서는 공용 IP 주소를 배포하 고 해당 공용 IP에 대 한 Azure 리소스ID를 반환 하는 템플릿을 보여 준다:
+다음 예제에서는 공용 IP 주소를 배포 하 고 해당 공용 IP에 대 한 Azure 리소스의 리소스 ID를 반환 하는 템플릿을 보여 줍니다.
 
 ```json
 {
@@ -543,7 +543,7 @@ ms.locfileid: "80131922"
 }
 ```
 
-로드 밸런서를 배포할 때 이전 템플릿의 공용 IP 주소를 사용하려면 템플릿에 연결하고 `Microsoft.Resources/deployments` 리소스에 대한 종속성을 선언합니다. Load Balancer의 공개 IP 주소는 연결된 템플릿에서 값을 출력하도록 설정됩니다.
+부하 분산 장치를 배포할 때 위의 템플릿에서 공용 IP 주소를 사용 하려면 템플릿에 연결 하 고 `Microsoft.Resources/deployments` 리소스에 대 한 종속성을 선언 합니다. Load Balancer의 공개 IP 주소는 연결된 템플릿에서 값을 출력하도록 설정됩니다.
 
 ```json
 {
@@ -612,7 +612,7 @@ ms.locfileid: "80131922"
 
 ## <a name="deployment-history"></a>배포 기록
 
-Resource Manager는 각 템플릿을 배포 기록에서 별도 배포로 처리합니다. 세 개의 연결된 또는 중첩 된 템플릿이있는 기본 템플릿은 배포 기록에 다음과 같이 나타납니다.
+Resource Manager는 각 템플릿을 배포 기록에서 별도 배포로 처리합니다. 세 개의 연결 된 템플릿이나 중첩 된 템플릿이 있는 주 템플릿은 배포 기록에 다음과 같이 표시 됩니다.
 
 ![배포 기록](./media/linked-templates/deployment-history.png)
 
@@ -719,7 +719,7 @@ done
 
 매개 변수 파일은 SAS 토큰으로 액세스를 제한할 수 있습니다.
 
-현재 [Azure 저장소 방화벽](../../storage/common/storage-network-security.md)뒤에 있는 저장소 계정의 템플릿에 연결할 수 없습니다.
+현재 [Azure Storage 방화벽](../../storage/common/storage-network-security.md)뒤에 있는 저장소 계정의 템플릿에 연결할 수 없습니다.
 
 다음 예제에서는 템플릿에 연결할 때 SAS 토큰을 전달하는 방법을 보여 줍니다.
 
@@ -787,15 +787,15 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 다음 예제에서는 연결된 템플릿의 일반적인 사용 방법을 보여 줍니다.
 
-|기본 템플릿  |연결된 템플릿 |설명  |
+|기본 템플릿  |연결된 템플릿 |Description  |
 |---------|---------| ---------|
-|[전 세계 여러분 안녕하세요](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[링크된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | 연결된 템플릿에서 문자열을 반환합니다. |
-|[공용 IP 주소가 있는 Load Balancer](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[링크된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |연결된 템플릿에서 공용 IP 주소를 반환하고 부하 분산 장치에서 해당 값을 설정합니다. |
-|[여러 IP 주소](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [링크된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |연결된 템플릿에서 여러 공용 IP 주소를 만듭니다.  |
+|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[연결 된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | 연결된 템플릿에서 문자열을 반환합니다. |
+|[공용 IP 주소가 있는 Load Balancer](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[연결 된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |연결된 템플릿에서 공용 IP 주소를 반환하고 부하 분산 장치에서 해당 값을 설정합니다. |
+|[여러 IP 주소](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [연결 된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |연결된 템플릿에서 여러 공용 IP 주소를 만듭니다.  |
 
 ## <a name="next-steps"></a>다음 단계
 
 * 자습서를 진행하려면 [자습서: 연결된 Azure Resource Manager 템플릿 만들기](template-tutorial-create-linked-templates.md)를 참조하세요.
 * 리소스 배포 순서를 정의하는 방법을 알아보려면 [Azure Resource Manager 템플릿에서 종속성 정의](define-resource-dependency.md)를 참조하세요.
-* 하나의 리소스를 정의하지만 많은 인스턴스를 만드는 방법을 알아보려면 [Azure 리소스 관리자의 여러 리소스 인스턴스 만들기를](copy-resources.md)참조하십시오.
+* 한 리소스를 정의 하 되 여러 인스턴스를 만드는 방법을 알아보려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조 하세요.
 * 스토리지 계정에서 템플릿을 설정하고 SAS 토큰을 생성하는 절차는 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](deploy-powershell.md) 또는 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](deploy-cli.md)를 참조하세요.

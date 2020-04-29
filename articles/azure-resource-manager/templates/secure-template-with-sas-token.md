@@ -1,24 +1,24 @@
 ---
-title: SAS 토큰으로 템플릿을 안전하게 배포
-description: SAS 토큰으로 보호되는 Azure 리소스 관리자 템플릿을 사용하여 Azure에 리소스를 배포합니다. Azure PowerShell 및 Azure CLI를 표시합니다.
+title: SAS 토큰을 사용 하 여 템플릿을 안전 하 게 배포
+description: SAS 토큰으로 보호 되는 Azure Resource Manager 템플릿을 사용 하 여 Azure에 리소스를 배포 합니다. Azure PowerShell 및 Azure CLI를 표시 합니다.
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.openlocfilehash: 42eaae316d4fd0575102323933f849a3058228a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80156398"
 ---
-# <a name="deploy-private-arm-template-with-sas-token"></a>SAS 토큰으로 개인 ARM 템플릿 배포
+# <a name="deploy-private-arm-template-with-sas-token"></a>SAS 토큰을 사용 하 여 개인 ARM 템플릿 배포
 
-ARM(Azure Resource Manager) 템플릿이 저장소 계정에 있는 경우 템플릿에 대한 액세스를 제한하여 공개적으로 노출되지 않도록 할 수 있습니다. 템플릿에 대한 공유 액세스 서명(SAS) 토큰을 만들고 배포 하는 동안 해당 토큰을 제공하여 보안 템플릿에 액세스합니다. 이 문서에서는 Azure PowerShell 또는 Azure CLI를 사용하여 SAS 토큰을 사용하여 템플릿을 배포하는 방법을 설명합니다.
+ARM (Azure Resource Manager) 템플릿이 저장소 계정에 있는 경우, 공개적으로 노출 되지 않도록 템플릿에 대 한 액세스를 제한할 수 있습니다. 템플릿에 대 한 SAS (공유 액세스 서명) 토큰을 만들고 배포 하는 동안 해당 토큰을 제공 하 여 보안 템플릿에 액세스 합니다. 이 문서에서는 Azure PowerShell 또는 Azure CLI를 사용 하 여 SAS 토큰을 사용 하 여 템플릿을 배포 하는 방법을 설명 합니다.
 
-## <a name="create-storage-account-with-secured-container"></a>보안 컨테이너로 저장소 계정 만들기
+## <a name="create-storage-account-with-secured-container"></a>보안 컨테이너를 사용 하 여 저장소 계정 만들기
 
-다음 스크립트는 공용 액세스가 해제된 저장소 계정 및 컨테이너를 만듭니다.
+다음 스크립트는 공용 액세스를 해제 한 상태에서 저장소 계정 및 컨테이너를 만듭니다.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -63,9 +63,9 @@ az storage container create \
 
 ## <a name="upload-template-to-storage-account"></a>저장소 계정에 템플릿 업로드
 
-이제 템플릿을 저장소 계정에 업로드할 준비가 되었습니다. 사용하려는 템플릿에 대한 경로를 제공합니다.
+이제 저장소 계정에 템플릿을 업로드할 준비가 되었습니다. 사용 하려는 템플릿에 대 한 경로를 제공 합니다.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Set-AzStorageBlobContent `
@@ -90,10 +90,10 @@ az storage blob upload \
 스토리지 계정에 프라이빗 템플릿을 배포하려면 SAS 토큰을 생성하고 해당 템플릿의 URI에 포함합니다. 배포를 완료할 만큼 충분한 여유를 두고 만료 기간을 설정합니다.
 
 > [!IMPORTANT]
-> 템플릿이 포함된 Blob은 계정 소유자만 액세스할 수 있습니다. 그러나 blob용 SAS 토큰을 생성하면 해당 blob은 해당 URI를 가진 사람이면 누구나 액세스할 수 있습니다. 다른 사용자가 URI를 가로채는 경우, 그 사용자가 템플릿에 액세스할 수 있습니다. SAS 토큰은 템플릿에 대한 액세스를 제한하는 좋은 방법이지만 템플릿에 암호와 같은 중요한 데이터를 직접 포함해서는 안 됩니다.
+> 템플릿이 포함된 Blob은 계정 소유자만 액세스할 수 있습니다. 그러나 blob용 SAS 토큰을 생성하면 해당 blob은 해당 URI를 가진 사람이면 누구나 액세스할 수 있습니다. 다른 사용자가 URI를 가로채는 경우, 그 사용자가 템플릿에 액세스할 수 있습니다. SAS 토큰은 템플릿에 대한 액세스를 제한하는 좋은 방법이지만, 암호와 같은 중요한 데이터를 템플릿에 직접 포함하지 않아야 합니다.
 >
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 # get the URI with the SAS token
@@ -140,5 +140,5 @@ az deployment group create \
 
 
 ## <a name="next-steps"></a>다음 단계
-* 템플릿 배포에 대한 소개는 [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포를](deploy-powershell.md)참조합니다.
+* 템플릿 배포에 대 한 소개는 [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure PowerShell](deploy-powershell.md)을 참조 하세요.
 * 템플릿에서 매개 변수를 정의하려면 [템플릿 작성](template-syntax.md#parameters)을 참조하세요.

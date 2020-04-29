@@ -1,5 +1,5 @@
 ---
-title: 연결 문자열 - MariaDB용 Azure 데이터베이스
+title: 연결 문자열-Azure Database for MariaDB
 description: 이 문서에는 ADO.NET(C#), JDBC, Node.js, ODBC, PHP, Python, Ruby 등 애플리케이션을 Azure Database for MariaDB와 연결하려는 경우 현재 지원되는 연결 문자열이 나와 있습니다.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 74574fb905ae4ebd2552ef97cd0b5430eea6363a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79530226"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Azure Database for MariaDB에 애플리케이션을 연결하는 방법

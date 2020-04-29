@@ -1,6 +1,6 @@
 ---
-title: 역할 할당 생성 및 관리 - Azure 디지털 트윈 | 마이크로 소프트 문서
-description: Azure 디지털 Twins 내에서 역할 할당을 만들고 관리하는 방법에 대해 알아봅니다.
+title: 역할 할당 만들기 및 관리-Azure Digital Twins | Microsoft Docs
+description: Azure Digital Twins 내에서 역할 할당을 만들고 관리 하는 방법에 대해 알아봅니다.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1c83ca0abfd17db873bec62f0a0d052703862a45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77110413"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Azure Digital Twins에서 역할 할당 만들기 및 관리
@@ -36,13 +36,13 @@ Azure Digital Twins는 [RBAC](./security-role-based-access-control.md)(역할 �
 
 아래 표에서는 각 특성을 설명합니다.
 
-| 특성 | 이름 | 필수 | Type | Description |
+| 특성 | 속성 | 필수 | Type | Description |
 | --- | --- | --- | --- | --- |
-| roleId | 역할 정의 식별자 | yes | String | 원하는 역할 할당의 고유 ID입니다. 시스템 API를 쿼리하거나 아래 표를 검토하여 역할 정의와 해당 식별자를 찾습니다. |
-| objectId | 개체 식별자 | yes | String | Azure Active Directory ID, 서비스 주체 개체 ID 또는 도메인 이름입니다. 새로운 역할이 할당되는 대상 또는 사람입니다. 연결된 형식에 따라 역할 할당의 형식을 지정해야 합니다. `DomainName` objectIdType의 경우 objectId가 `“@”` 문자로 시작해야 합니다. |
-| objectIdType | 개체 식별자 유형 | yes | String | 사용되는 개체 식별자의 종류입니다. 아래의 **지원되는 ObjectIdTypes**를 참조하세요. |
-| 경로 | 공간 경로 | yes | String | `Space` 개체의 전체 액세스 경로입니다. 예제는 `/{Guid}/{Guid}`입니다. 식별자에 전체 그래프에 대한 역할 할당이 필요한 경우 `"/"`를 지정합니다. 이 문자는 루트를 지정하지만 사용하지 않는 것이 좋습니다. 항상 최소 권한 원칙을 준수합니다. |
-| tenantId | 테넌트 식별자 | 다양함 | String | 대부분의 경우 Azure Active Directory 테넌트 ID입니다. `DeviceId` 및 `TenantId` ObjectIdTypes에 허용되지 않습니다. `UserId` 및 `ServicePrincipalId` ObjectIdTypes에는 필수입니다. DomainName ObjectIdType에는 선택 사항입니다. |
+| roleId | 역할 정의 식별자 | 예 | String | 원하는 역할 할당의 고유 ID입니다. 시스템 API를 쿼리하거나 아래 표를 검토하여 역할 정의와 해당 식별자를 찾습니다. |
+| objectId | 개체 식별자 | 예 | String | Azure Active Directory ID, 서비스 주체 개체 ID 또는 도메인 이름입니다. 새로운 역할이 할당되는 대상 또는 사람입니다. 연결된 형식에 따라 역할 할당의 형식을 지정해야 합니다. `DomainName` objectIdType의 경우 objectId가 `“@”` 문자로 시작해야 합니다. |
+| objectIdType | 개체 식별자 유형 | 예 | String | 사용되는 개체 식별자의 종류입니다. 아래의 **지원되는 ObjectIdTypes**를 참조하세요. |
+| path | 공간 경로 | 예 | String | `Space` 개체의 전체 액세스 경로입니다. 예제는 `/{Guid}/{Guid}`입니다. 식별자에 전체 그래프에 대한 역할 할당이 필요한 경우 `"/"`를 지정합니다. 이 문자는 루트를 지정하지만 사용하지 않는 것이 좋습니다. 항상 최소 권한 원칙을 준수합니다. |
+| tenantId | 테넌트 식별자 | 다양함 | 문자열 | 대부분의 경우 Azure Active Directory 테넌트 ID입니다. `DeviceId` 및 `TenantId` ObjectIdTypes에 허용되지 않습니다. `UserId` 및 `ServicePrincipalId` ObjectIdTypes에는 필수입니다. DomainName ObjectIdType에는 선택 사항입니다. |
 
 ### <a name="supported-role-definition-identifiers"></a>지원되는 역할 정의 식별자
 
@@ -72,20 +72,20 @@ Azure Digital Twins는 역할 할당에 대해 모든 *CREATE*, *READ*, 및 *DEL
 
 서비스 주체에 대한 권한 부여는 종종 Azure Digital Twins를 사용할 때 수행하는 첫 번째 단계 중 하나입니다. 이 과정에서 다음이 수행됩니다.
 
-1. [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 또는 [PowerShell을](https://docs.microsoft.com/powershell/azure/)통해 Azure 인스턴스에 로그인합니다.
+1. [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 또는 [PowerShell](https://docs.microsoft.com/powershell/azure/)을 통해 Azure 인스턴스에 로그인 합니다.
 1. 서비스 주체 정보 획득
 1. 서비스 주체에 원하는 역할 할당
 
 애플리케이션 ID가 Azure Active Directory에서 사용자에게 제공됩니다. Active Directory의 Azure Digital Twins 구성 및 프로비전에 대한 자세한 내용은 [빠른 시작](./quickstart-view-occupancy-dotnet.md)을 읽어보세요.
 
-응용 프로그램 ID가 있으면 다음 명령 중 하나를 실행합니다. Azure CLI에서:
+응용 프로그램 ID가 있으면 다음 명령 중 하나를 실행 합니다. Azure CLI:
 
 ```azurecli
 az login
 az ad sp show --id <ApplicationId>
 ```
 
-파워셸에서:
+Powershell에서:
 
 ```powershell
 Login-AzAccount
@@ -161,12 +161,12 @@ YOUR_MANAGEMENT_API_URL/system/roles
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
-| **매개 변수 값** | **필수** |  **유형** |  **설명** |
+| **매개 변수 값** | **필수** |  **Type** |  **설명** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True | String |   UserId objectIdType의 objectId입니다. |
-| YOUR_PATH | True | String |   액세스를 확인할 선택한 경로입니다. |
-| YOUR_ACCESS_TYPE |  True | String |   *읽기*, *만들기*, *업데이트*, 또는 *삭제* |
-| YOUR_RESOURCE_TYPE | True | String |  *장치,* *DeviceBlobmetadata,* *deviceExtendedProperty,* *ExtendedPropertyKey*, *ExtendedPropertyKey*, ExtendedType , *끝점,* *키 스토어,* *매치,* *온톨로지,* *보고서,* *역할 정의,* *센서,* *센서확장 속성,* *공간,* *SpaceBlobmetadata,* *SpaceExtendedProperty,* *공간 자원,* *SpaceRoleAssignment,* *시스템,* * UerDefinedFunction*, *사용자*, *사용자Blob 메타 데이터,* 또는 *사용자ExtendedProperty* |
+| YOUR_USER_ID |  True | 문자열 |   UserId objectIdType의 objectId입니다. |
+| YOUR_PATH | True | 문자열 |   액세스를 확인할 선택한 경로입니다. |
+| YOUR_ACCESS_TYPE |  True | 문자열 |   *읽기*, *만들기*, *업데이트*또는 *삭제* |
+| YOUR_RESOURCE_TYPE | True | 문자열 |  *장치*, *deviceblobmetadata*, *deviceblobmetadata*, *extendedpropertykey*, *extendedtype*, *Endpoint*, *키 저장소*, *선택기*, *Ontology*, *Report*, *roledefinition*, *센서*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *System*, *UerDefinedFunction*, *User*, *userblobmetadata*또는 *userblobmetadata* |
 
 요청이 성공하면 지정된 경로 및 리소스의 사용자에게 액세스 형식이 할당되었는지 여부를 나타내기 위해 부울 `true` 또는 `false`가 반환됩니다.
 
@@ -198,7 +198,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 
 ### <a name="revoke-a-permission"></a>권한 해지
 
-받는 사람으로부터 권한을 취소하려면 인증된 HTTP DELETE 요청을 만들어 역할 할당을 삭제합니다.
+받는 사람 으로부터 사용 권한을 취소 하려면 인증 된 HTTP DELETE 요청을 만들어 역할 할당을 삭제 합니다.
 
 ```URL
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
@@ -240,7 +240,7 @@ JSON 본문이 다음 스키마를 준수하는지 확인합니다.
 
 다음 예제에서는 일반적으로 발생하는 몇 가지 역할 할당 시나리오에 JSON 본문을 구성하는 방법을 보여 줍니다.
 
-* **예:** 사용자는 테넌트 공간의 바닥에 대한 관리 액세스가 필요합니다.
+* **예**: 사용자에 게는 테 넌 트 공간에 대 한 관리자 액세스 권한이 필요 합니다.
 
    ```JSON
    {
@@ -252,7 +252,7 @@ JSON 본문이 다음 스키마를 준수하는지 확인합니다.
    }
    ```
 
-* **예:** 응용 프로그램이 장치 및 센서를 조롱하는 테스트 시나리오를 실행합니다.
+* **예**: 응용 프로그램에서 테스트 시나리오 모의 장치 및 센서를 실행 합니다.
 
    ```JSON
    {
@@ -264,7 +264,7 @@ JSON 본문이 다음 스키마를 준수하는지 확인합니다.
    }
     ```
 
-* **예:** 도메인에 속한 모든 사용자는 공간, 센서 및 사용자에 대한 읽기 액세스를 받습니다. 이 액세스는 해당 관련 개체를 포함합니다.
+* **예**: 도메인의 일부인 모든 사용자는 공백, 센서 및 사용자에 대 한 읽기 액세스 권한을 받습니다. 이 액세스는 해당 관련 개체를 포함합니다.
 
    ```JSON
    {

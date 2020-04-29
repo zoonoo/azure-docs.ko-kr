@@ -4,10 +4,10 @@ description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방�
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.openlocfilehash: 039666c4b54da6ac5444f5aa5acda5f1bb438782
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80156058"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
@@ -22,7 +22,7 @@ ms.locfileid: "80156058"
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>각 자격 증명 모음에 대해 등록할 수 있는 서버/컴퓨터 수에 제한이 있나요?
 
-자격 증명 모음당 최대 1000대의 Azure 가상 머신을 등록할 수 있습니다. Microsoft Azure 백업 에이전트를 사용하는 경우 볼트당 최대 50MARS 에이전트를 등록할 수 있습니다. 또한 50개의 MABS 서버/DPM 서버를 볼트에 등록할 수 있습니다.
+자격 증명 모음당 최대 1000대의 Azure 가상 머신을 등록할 수 있습니다. Microsoft Azure Backup 에이전트를 사용 하는 경우 자격 증명 모음 당 최대 50 MARS 에이전트를 등록할 수 있습니다. 그리고 자격 증명 모음에 50 MABS servers/DPM 서버를 등록할 수 있습니다.
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>자격 증명 모음에서 보호할 수 있는 데이터 원본/항목은 몇 개인가요?
 
@@ -75,14 +75,14 @@ ms.locfileid: "80156058"
 
 Azure Backup은 Azure Backup Server 및 DPM으로 보호되는 파일, 폴더 및 앱을 백업하기 위해 다음과 같은 운영 체제를 지원합니다.
 
-**Os** | **Sku** | **세부 정보**
+**OS** | **SKU** | **세부 정보**
 --- | --- | ---
 워크스테이션 | |
 Windows 10 64비트 | Enterprise, Pro, Home | 컴퓨터에서 최신 서비스 팩과 업데이트가 실행되어야 합니다.
 Windows 8.1 64비트 | Enterprise, Pro | 컴퓨터에서 최신 서비스 팩과 업데이트가 실행되어야 합니다.
 Windows 8 64비트 | Enterprise, Pro | 컴퓨터에서 최신 서비스 팩과 업데이트가 실행되어야 합니다.
 Windows 7 64비트 | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | 컴퓨터에서 최신 서비스 팩과 업데이트가 실행되어야 합니다.
-서버 | |
+Server (서버) | |
 Windows Server 2019 64비트 | Standard, Datacenter, Essentials | 최신 서비스 팩/업데이트를 포함합니다.
 Windows Server 2016 64비트 | Standard, Datacenter, Essentials | 최신 서비스 팩/업데이트를 포함합니다.
 Windows Server 2012 R2 64비트 | Standard, Datacenter, Foundation | 최신 서비스 팩/업데이트를 포함합니다.
@@ -123,7 +123,7 @@ BMR/시스템 상태 |백업되는 컴퓨터의 각 개별 BMR 복사본 또는 
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음을 사용하여 백업되는 데이터의 양에 제한이 있나요?
 
-복구 서비스 자격 증명 모음을 사용하여 백업할 수 있는 총 데이터 양에는 제한이 없습니다. Azure VM을 제외한 개별 데이터 원본의 크기는 최대 54,400GB입니다. 제한에 대한 자세한 내용은 [지원 행렬의 볼트 제한 섹션을](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support)참조하십시오.
+Recovery Services 자격 증명 모음을 사용 하 여 백업할 수 있는 총 데이터 양에는 제한이 없습니다. Azure Vm 이외에 개별 데이터 원본 크기는 최대 54400 GB입니다. 제한에 대 한 자세한 내용은 [support matrix의 vault 제한 섹션](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support)을 참조 하세요.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Recovery Services 자격 증명 모음에 전송된 데이터가 백업을 위해 선택한 데이터의 크기보다 작은 이유는 무엇인가요?
 
@@ -168,7 +168,7 @@ Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 �
 일반적인 장기 보존 지점 제품은 백업 데이터를 전체 지점으로 저장합니다.
 
 - 전체 지점은 스토리지를 *비효율적* 으로 사용하지만 복원은 쉽고 빠릅니다.
-- 증분 복사본은 스토리지 *효율적이지만* 데이터 체인을 복원해야 하므로 복구 시간에 영향을 미칩니다.
+- 증분 복사본은 저장소 *효율성이* 있지만 복구 시간에 영향을 주는 데이터 체인을 복원 해야 합니다.
 
 Azure Backup 스토리지 아키텍처는 데이터를 빠르게 복원할 수 있게 최적화하여 저장하고 스토리지 비용을 낮춰 두 가지 이점을 모두 제공합니다. 이 방법을 사용하면 수신 및 발신 대역폭이 효율적으로 사용됩니다. 데이터를 복구하는 데 필요한 데이터 스토리지와 시간의 양이 최소로 유지됩니다. [증분 백업](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/)에 대해 자세히 알아보세요.
 

@@ -1,5 +1,5 @@
 ---
-title: 시험 사용이란? | Azure 마켓플레이스
+title: 시험 사용이란? | Azure Marketplace
 description: Marketplace 시험 사용 기능에 대한 설명
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: bdfadf359195464c4024b28c5e597c571305481a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80278232"
 ---
 <a name="what-is-test-drive"></a>시험 사용이란?
@@ -63,7 +63,7 @@ ms.locfileid: "80278232"
 
 시험 사용이 어떤 의미인지 이해했으므로 게시하려는 특정 시험 사용 유형으로 이동한 후 필수 필드에 대한 모든 사항을 확인합니다.
 
-- **[Azure 리소스 관리자](./azure-resource-manager-test-drive.md)**
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)**
 - **[논리 앱](./logic-app-test-drive.md)**
 
 추가 문의 사항이 있거나 문제 해결 관련 자문을 받거나 시험 사용의 효율성을 개선하려는 경우 [FAQ, 문제 해결 및 모범 사례](./marketing-and-best-practices.md)를 참조하세요.

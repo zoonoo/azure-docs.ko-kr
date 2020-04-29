@@ -15,10 +15,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9cf5a9c81ca1d7a42a5a8e342dee55f335656c3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154426"
 ---
 # <a name="web-api"></a>Web API
@@ -41,36 +41,36 @@ Web API 앱은 웹 API에서 리소스를 가져와야 하는 웹 애플리케�
 ### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>OAuth 2.0 클라이언트 자격 증명 권한 부여를 사용하는 애플리케이션 ID
 
 1. 사용자가 웹 애플리케이션에서 Azure AD에 로그인합니다(자세한 내용은 **웹앱** 섹션 참조).
-1. 웹 애플리케이션이 웹 API에 인증하고 원하는 리소스를 검색할 수 있도록 액세스 토큰을 획득해야 합니다. 자격 증명, 응용 프로그램 ID 및 웹 API의 응용 프로그램 ID URI를 제공 하는 Azure AD의 토큰 끝점에 대 한 요청을 합니다.
+1. 웹 애플리케이션이 웹 API에 인증하고 원하는 리소스를 검색할 수 있도록 액세스 토큰을 획득해야 합니다. Azure AD의 토큰 끝점에 대 한 요청을 수행 하 여 자격 증명, 응용 프로그램 ID 및 web API의 응용 프로그램 ID URI를 제공 합니다.
 1. Azure AD가 애플리케이션을 인증하고 웹 API를 호출하는 데 사용되는 JWT 액세스 토큰을 반환합니다.
-1. HTTPS를 통해 웹 응용 프로그램은 반환된 JWT 액세스 토큰을 사용하여 요청의 권한 부여 헤더에 "Bearer" 지정이 있는 JWT 문자열을 웹 API에 추가합니다. 그러면 웹 API에서 JWT 토큰의 유효성을 검사하여 유효성 검사가 성공하면 원하는 리소스를 반환합니다.
+1. HTTPS를 통해 웹 응용 프로그램은 반환 된 JWT 액세스 토큰을 사용 하 여 웹 API에 대 한 요청의 권한 부여 헤더에 "전달자"로 지정 된 JWT 문자열을 추가 합니다. 그러면 웹 API에서 JWT 토큰의 유효성을 검사하여 유효성 검사가 성공하면 원하는 리소스를 반환합니다.
 
 ### <a name="delegated-user-identity-with-openid-connect"></a>OpenID Connect를 사용하는 위임된 사용자 ID
 
 1. 사용자가 Azure AD를 사용하여 웹 애플리케이션에 로그인합니다(위의 웹 브라우저-웹 애플리케이션 섹션 참조). 웹 애플리케이션 사용자가 웹 애플리케이션이 사용자를 대신하여 웹 API를 호출할 수 있도록 동의하지 않은 경우 동의해야 합니다. 애플리케이션에 필요한 권한이 표시됩니다. 이 권한 중 하나라도 관리자 수준 권한인 경우 디렉터리의 일반 사용자는 동의할 수 없습니다. 이러한 동의 프로세스는 단일 테넌트 애플리케이션이 아니라 다중 테넌트 애플리케이션에만 적용됩니다(애플리케이션에 필수 권한이 이미 있으므로). 사용자가 로그인할 때 웹 애플리케이션은 사용자에 대한 정보가 포함된 ID 토큰과 인증 코드를 수신했습니다.
-1. Azure AD에서 발급한 권한 부여 코드를 사용하여 웹 응용 프로그램은 권한 부여 코드, 클라이언트 응용 프로그램(응용 프로그램 ID 및 리디렉션 URI)에 대한 세부 정보 및 원하는 리소스(응용 프로그램 ID)를 포함하는 Azure AD의 토큰 끝점에 요청을 보냅니다. 웹 API에 대한 URI).
+1. Azure AD에서 발급 된 인증 코드를 사용 하 여 웹 응용 프로그램은 인증 코드, 클라이언트 응용 프로그램에 대 한 세부 정보 (응용 프로그램 ID 및 리디렉션 URI) 및 원하는 리소스 (web API의 응용 프로그램 ID URI)를 포함 하는 Azure AD의 토큰 끝점에 요청을 보냅니다.
 1. 웹 애플리케이션 및 웹 API에 대한 정보와 인증 코드는 Azure AD에서 유효성이 검사됩니다. 유효성 검사가 성공하면 Azure AD는 JWT 액세스 토큰과 JWT 새로 고침 토큰 등 두 가지 토큰을 반환합니다.
-1. HTTPS를 통해 웹 응용 프로그램은 반환된 JWT 액세스 토큰을 사용하여 요청의 권한 부여 헤더에 "Bearer" 지정이 있는 JWT 문자열을 웹 API에 추가합니다. 그러면 웹 API에서 JWT 토큰의 유효성을 검사하여 유효성 검사가 성공하면 원하는 리소스를 반환합니다.
+1. HTTPS를 통해 웹 응용 프로그램은 반환 된 JWT 액세스 토큰을 사용 하 여 웹 API에 대 한 요청의 권한 부여 헤더에 "전달자"로 지정 된 JWT 문자열을 추가 합니다. 그러면 웹 API에서 JWT 토큰의 유효성을 검사하여 유효성 검사가 성공하면 원하는 리소스를 반환합니다.
 
 ### <a name="delegated-user-identity-with-oauth-20-authorization-code-grant"></a>OAuth 2.0 인증 코드 권한 부여를 사용하는 위임된 사용자 ID
 
 1. 인증 메커니즘이 Azure AD와 독립적인 웹 애플리케이션에 사용자가 이미 로그인되어 있습니다.
-1. 웹 응용 프로그램에는 액세스 토큰을 획득하기 위해 권한 부여 코드가 필요하므로 브라우저를 통해 Azure AD의 권한 부여 끝점으로 요청을 발행하여 응용 프로그램 ID를 제공하고 성공적인 인증 후 웹 응용 프로그램에 대한 URI를 리디렉션합니다. 사용자가 Azure AD에 로그인합니다.
-1. 웹 애플리케이션 사용자가 웹 애플리케이션이 사용자를 대신하여 웹 API를 호출할 수 있도록 동의하지 않은 경우 동의해야 합니다. 애플리케이션에 필요한 권한이 표시됩니다. 이 권한 중 하나라도 관리자 수준 권한인 경우 디렉터리의 일반 사용자는 동의할 수 없습니다. 이 동의는 단일 및 다중 테넌트 애플리케이션 모두에 적용됩니다. 단일 테넌트의 경우 관리자가 사용자 대신 관리자 동의를 수행할 수 있습니다. 이 작업은 Azure `Grant Permissions` [포털의](https://portal.azure.com)단추를 사용하여 수행할 수 있습니다. 
+1. 웹 응용 프로그램은 액세스 토큰을 획득 하기 위해 인증 코드가 필요 하므로, 브라우저를 통해 Azure AD의 권한 부여 끝점에 대 한 요청을 발행 하 여 인증에 성공한 후에 웹 응용 프로그램에 대 한 응용 프로그램 ID 및 리디렉션 URI를 제공 합니다. 사용자가 Azure AD에 로그인합니다.
+1. 웹 애플리케이션 사용자가 웹 애플리케이션이 사용자를 대신하여 웹 API를 호출할 수 있도록 동의하지 않은 경우 동의해야 합니다. 애플리케이션에 필요한 권한이 표시됩니다. 이 권한 중 하나라도 관리자 수준 권한인 경우 디렉터리의 일반 사용자는 동의할 수 없습니다. 이 동의는 단일 및 다중 테넌트 애플리케이션 모두에 적용됩니다. 단일 테넌트의 경우 관리자가 사용자 대신 관리자 동의를 수행할 수 있습니다. `Grant Permissions` [Azure Portal](https://portal.azure.com)의 단추를 사용 하 여이 작업을 수행할 수 있습니다. 
 1. 사용자가 동의한 후에는 웹 애플리케이션이 액세스 토큰을 획득하는 데 필요한 인증 코드를 수신합니다.
-1. Azure AD에서 발급한 권한 부여 코드를 사용하여 웹 응용 프로그램은 권한 부여 코드, 클라이언트 응용 프로그램(응용 프로그램 ID 및 리디렉션 URI)에 대한 세부 정보 및 원하는 리소스(응용 프로그램 ID)를 포함하는 Azure AD의 토큰 끝점에 요청을 보냅니다. 웹 API에 대한 URI).
+1. Azure AD에서 발급 된 인증 코드를 사용 하 여 웹 응용 프로그램은 인증 코드, 클라이언트 응용 프로그램에 대 한 세부 정보 (응용 프로그램 ID 및 리디렉션 URI) 및 원하는 리소스 (web API의 응용 프로그램 ID URI)를 포함 하는 Azure AD의 토큰 끝점에 요청을 보냅니다.
 1. 웹 애플리케이션 및 웹 API에 대한 정보와 인증 코드는 Azure AD에서 유효성이 검사됩니다. 유효성 검사가 성공하면 Azure AD는 JWT 액세스 토큰과 JWT 새로 고침 토큰 등 두 가지 토큰을 반환합니다.
-1. HTTPS를 통해 웹 응용 프로그램은 반환된 JWT 액세스 토큰을 사용하여 요청의 권한 부여 헤더에 "Bearer" 지정이 있는 JWT 문자열을 웹 API에 추가합니다. 그러면 웹 API에서 JWT 토큰의 유효성을 검사하여 유효성 검사가 성공하면 원하는 리소스를 반환합니다.
+1. HTTPS를 통해 웹 응용 프로그램은 반환 된 JWT 액세스 토큰을 사용 하 여 웹 API에 대 한 요청의 권한 부여 헤더에 "전달자"로 지정 된 JWT 문자열을 추가 합니다. 그러면 웹 API에서 JWT 토큰의 유효성을 검사하여 유효성 검사가 성공하면 원하는 리소스를 반환합니다.
 
 ## <a name="code-samples"></a>코드 샘플
 
-웹 애플리케이션-Web API 시나리오에 대한 코드 샘플을 참조하세요. 그리고 새로운 샘플이 자주 추가되므로 자주 확인해 보세요. 웹 [API에 대한 웹 응용 프로그램](sample-v1-code.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
+웹 애플리케이션-Web API 시나리오에 대한 코드 샘플을 참조하세요. 그리고 새로운 샘플이 자주 추가되므로 자주 확인해 보세요. 웹 [응용 프로그램-WEB API](sample-v1-code.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
 
 ## <a name="app-registration"></a>앱 등록
 
-Azure AD v1.0 끝점에 응용 프로그램을 등록하려면 [앱 등록을](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)참조하십시오.
+응용 프로그램을 Azure AD v 1.0 끝점에 등록 하려면 [앱 등록](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)을 참조 하세요.
 
-* 단일 테넌트 - 애플리케이션 ID 및 위임된 사용자 ID의 경우 모두, 웹 애플리케이션과 웹 API를 Azure AD의 동일한 디렉터리에 등록해야 합니다. 웹 API는 웹 응용 프로그램의 리소스에 대한 액세스를 제한하는 데 사용되는 권한 집합을 노출하도록 구성할 수 있습니다. 위임된 사용자 ID 유형을 사용하는 경우 웹 응용 프로그램은 사용 권한에서 Azure 포털의 다른 응용 프로그램 드롭다운 **메뉴에 대한** 원하는 권한을 선택해야 합니다. 이 단계는 애플리케이션 ID 형식을 사용 중일 때는 필요 없습니다.
+* 단일 테넌트 - 애플리케이션 ID 및 위임된 사용자 ID의 경우 모두, 웹 애플리케이션과 웹 API를 Azure AD의 동일한 디렉터리에 등록해야 합니다. 웹 API는 해당 리소스에 대 한 웹 응용 프로그램의 액세스를 제한 하는 데 사용 되는 사용 권한 집합을 노출 하도록 구성할 수 있습니다. 위임 된 사용자 id 유형을 사용 하는 경우 웹 응용 프로그램은 Azure Portal의 **다른 응용 프로그램에 대 한 사용 권한** 드롭다운 메뉴에서 원하는 권한을 선택 해야 합니다. 이 단계는 애플리케이션 ID 형식을 사용 중일 때는 필요 없습니다.
 * 다중 테넌트 - 먼저, 웹 애플리케이션이 작동에 필요한 권한을 나타내도록 구성됩니다. 이러한 필수 권한 목록은 대상 디렉터리의 사용자나 관리자가 애플리케이션에 동의하여 애플리케이션을 조직에서 사용할 수 있도록 만들면 대화 상자에 표시됩니다. 일부 애플리케이션에는 조직의 모든 사용자가 동의할 수 있는 사용자 수준 권한만 필요합니다. 또 일부 애플리케이션에는 조직의 사용자가 동의할 수 없는 수준인 관리자 수준 권한이 필요합니다. 이 수준의 권한이 요구되는 애플리케이션에 동의할 수 있는 사람은 디렉터리 관리자뿐입니다. 사용자 또는 관리자가 동의하면 웹 애플리케이션과 웹 API가 모두 이들의 디렉터리에 등록됩니다.
 
 ## <a name="token-expiration"></a>토큰 만료
@@ -80,4 +80,4 @@ Azure AD v1.0 끝점에 응용 프로그램을 등록하려면 [앱 등록을](.
 ## <a name="next-steps"></a>다음 단계
 
 - 다른 [애플리케이션 유형 및 시나리오](app-types.md)에 대해 자세히 알아보기
-- Azure AD [인증 기본 사항에](v1-authentication-scenarios.md) 대해 알아보기
+- Azure AD [인증 기본 사항](v1-authentication-scenarios.md) 에 대해 알아보기

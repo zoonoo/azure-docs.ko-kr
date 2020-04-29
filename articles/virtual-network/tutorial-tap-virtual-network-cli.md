@@ -1,5 +1,5 @@
 ---
-title: VNet TAP - Azure CLI 생성, 변경 또는 삭제
+title: VNet 탭을 만들거나, 변경 하거나, 삭제 Azure CLI
 description: Azure CLI를 사용하여 가상 네트워크 TAP를 만들거나 변경하거나 삭제하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kaanan
 ms.openlocfilehash: 56288a65dc9e5b12a12393965b9670e394146181
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80234963"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 TAP 작업
 
-Azure 가상 네트워크 TAP(터미널 액세스 지점)을 사용하면 네트워크 패킷 수집기 또는 분석 도구로 가상 머신 네트워크 트래픽을 지속적으로 스트리밍할 수 있습니다. 수집기 또는 분석 도구는 [네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/) 파트너가 제공합니다. 가상 네트워크 TAP 사용의 유효성이 검사된 파트너 솔루션 목록은 [파트너 솔루션](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions)을 참조하세요. 
+Azure 가상 네트워크 TAP(터미널 액세스 지점)을 사용하면 네트워크 패킷 수집기 또는 분석 도구로 가상 머신 네트워크 트래픽을 지속적으로 스트리밍할 수 있습니다. 수집기 또는 분석 도구는 [네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/) 파트너에 의해 제공 됩니다. 가상 네트워크 TAP 사용의 유효성이 검사된 파트너 솔루션 목록은 [파트너 솔루션](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions)을 참조하세요. 
 
 ## <a name="create-a-virtual-network-tap-resource"></a>가상 네트워크 TAP 리소스 만들기
 
-가상 네트워크 TAP 리소스를 만들기 전에 [필수 구성 요소](virtual-network-tap-overview.md#prerequisites)를 확인하세요. 아래에 설명되어 있는 명령은 [Azure Cloud Shell](https://shell.azure.com/bash)에서 실행할 수도 있고, 컴퓨터에서 Azure CLI(명령줄 인터페이스)를 실행하여 실행할 수도 있습니다. Azure Cloud Shell은 컴퓨터에 Azure CLI를 설치하지 않아도 사용할 수 있는 무료 대화형 셸입니다. 적절한 [권한](virtual-network-tap-overview.md#permissions)이 있는 계정으로 Azure에 로그인해야 합니다. 이 문서에서 설명하는 단계를 수행하려면 Azure CLI 버전 2.0.46 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 가상 네트워크 TAP는 현재 확장으로 사용할 수 있습니다. 확장을 설치하려면 을 실행해야 `az extension add -n virtual-network-tap`합니다. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
+가상 네트워크 TAP 리소스를 만들기 전에 [필수 구성 요소](virtual-network-tap-overview.md#prerequisites)를 확인하세요. 아래에 설명되어 있는 명령은 [Azure Cloud Shell](https://shell.azure.com/bash)에서 실행할 수도 있고, 컴퓨터에서 Azure CLI(명령줄 인터페이스)를 실행하여 실행할 수도 있습니다. Azure Cloud Shell은 컴퓨터에 Azure CLI를 설치하지 않아도 사용할 수 있는 무료 대화형 셸입니다. 적절한 [권한](virtual-network-tap-overview.md#permissions)이 있는 계정으로 Azure에 로그인해야 합니다. 이 문서에서 설명하는 단계를 수행하려면 Azure CLI 버전 2.0.46 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 가상 네트워크 탭은 현재 확장으로 사용할 수 있습니다. 확장을 설치 하려면를 실행 `az extension add -n virtual-network-tap`해야 합니다. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
 
 1. 구독 ID를 이후 단계에서 사용되는 변수로 가져옵니다.
 

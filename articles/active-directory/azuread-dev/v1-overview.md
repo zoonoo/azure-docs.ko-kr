@@ -14,10 +14,10 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: ade350c91ebd2f3a68b52011e598f739a14c220f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154494"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>개발자용 Azure Active Directory(v1.0) 개요
@@ -35,7 +35,7 @@ Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 
 |[애플리케이션 유형](app-types.md) | Azure AD에서 지원하는 인증 시나리오에 대한 개요입니다. |
 | | |
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 v1.0 빠른 시작 및 자습서에서는 ADAL(Azure AD 인증 라이브러리) SDK를 사용하여 선호하는 플랫폼에서 앱을 빌드하는 과정을 안내합니다. 시작하려면 [Microsoft ID 플랫폼(개발자용 Azure Active Directory)](index.yml)에서 **v1.0 빠른 시작** 및 **v1.0 자습서**를 참조하세요.
 
@@ -54,8 +54,8 @@ Azure AD의 가장 일반적인 작업에 대한 자세한 내용 및 연습은 
 | [용어](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)                                      | 이 설명서에 사용된 용어 및 단어에 대한 정의입니다. |
 |  |  |
 
-## <a name="videos"></a>비디오
+## <a name="videos"></a>동영상
 
-새 Microsoft ID 플랫폼으로 마이그레이션하는 데 도움이 되는 [Azure Active Directory 개발자](videos.md) 플랫폼 비디오를 참조하십시오.
+새 Microsoft id 플랫폼으로 마이그레이션하는 데 도움이 필요한 경우 [개발자 플랫폼 비디오 Azure Active Directory](videos.md) 를 참조 하세요.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

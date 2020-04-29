@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: c290cbf36fd53d5afb5fd805cda896fb6879bb4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154953"
 ---
 # <a name="application-types-in-v10"></a>v1.0의 애플리케이션 유형
@@ -34,8 +34,8 @@ Azure AD(Azure Active Directory)는 모두 업계 표준 프로토콜 OAuth 2.0 
 
 - **[SPA(단일 페이지 애플리케이션)](single-page-application.md)**: 사용자가 Azure AD로 보호된 단일 페이지 애플리케이션에 로그인해야 합니다.
 - **[웹 브라우저-웹 애플리케이션](web-app.md)**: 사용자가 Azure AD로 보호된 웹 애플리케이션에 로그인해야 합니다.
-- **[웹 API에 대한 네이티브 응용 프로그램](native-app.md)**: 전화, 태블릿 또는 PC에서 실행되는 네이티브 응용 프로그램은 Azure AD에 의해 보호되는 웹 API에서 리소스를 가져오기 위해 사용자를 인증해야 합니다.
-- **[웹 API에 웹 응용 프로그램](web-api.md)**: 웹 응용 프로그램은 Azure AD에 의해 보호되는 웹 API에서 리소스를 얻어야 합니다.
+- **[네이티브 응용 프로그램-WEB api](native-app.md)**: 휴대폰, 태블릿 또는 PC에서 실행 되는 네이티브 응용 프로그램은 Azure AD로 보호 되는 웹 API에서 리소스를 가져오기 위해 사용자를 인증 해야 합니다.
+- 웹 **[응용 프로그램-WEB api](web-api.md)**: 웹 응용 프로그램은 Azure AD를 통해 보호 되는 web api에서 리소스를 가져와야 합니다.
 - **[디먼 또는 서버 애플리케이션-웹 API](service-to-service.md)**: 웹 사용자 인터페이스가 없는 서버 애플리케이션 또는 디먼 애플리케이션이 Azure AD로 보호된 웹 API에서 리소스를 가져와야 합니다.
 
 코드 작업을 시작하기 전에 링크를 따라 각 앱 유형에 대해 자세히 알아보고 대략적인 시나리오를 파악하세요. v1.0 엔드포인트 또는 v2.0 엔드포인트에서 작동하는 특정 앱을 작성할 때 알아야 할 차이점을 살펴볼 수도 있습니다.
@@ -51,7 +51,7 @@ Azure AD(Azure Active Directory)는 모두 업계 표준 프로토콜 OAuth 2.0 
 
 ### <a name="registering-an-app-that-uses-the-azure-ad-v10-endpoint"></a>Azure AD v1.0 엔드포인트를 사용하는 앱 등록
 
-Azure AD로 인증을 아웃소싱하는 애플리케이션을 디렉터리에 등록해야 합니다. 이 단계에서는 Azure AD에게 응용 프로그램이 있는 URL, 인증 후 회신을 보낼 URL, 응용 프로그램을 식별하는 URI 등을 포함하여 응용 프로그램에 대해 알리는 작업이 포함됩니다. 이러한 정보가 필요한 주된 이유는 다음과 같습니다.
+Azure AD로 인증을 아웃소싱하는 애플리케이션을 디렉터리에 등록해야 합니다. 이 단계에서는 응용 프로그램이 위치한 URL, 인증 후 회신을 보낼 URL, 응용 프로그램을 식별 하기 위한 URI 등을 비롯 하 여 응용 프로그램에 대해 Azure AD에 지시 합니다. 이러한 정보가 필요한 주된 이유는 다음과 같습니다.
 
 * Azure AD는 로그온을 처리하거나 토큰을 교환할 때 애플리케이션과 통신해야 합니다. Azure AD와 애플리케이션 간에 전달되는 정보에 포함되는 항목은 다음과 같습니다.
   
@@ -72,11 +72,11 @@ Azure AD를 사용하여 개발 및 통합할 수 있는 두 가지 범주의 �
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>단일 테넌트 또는 다중 테넌트 응용 프로그램 개발 시의 추가 고려 사항
 
-단일 테넌트 애플리케이션 대신 다중 테넌트 애플리케이션을 개발할 때 고려할 몇 가지 추가 사항이 있습니다. 예를 들어 여러 디렉터리의 사용자가 응용 프로그램을 사용할 수 있도록 하는 경우 응용 프로그램이 있는 테넌트를 확인하는 메커니즘이 필요합니다. 단일 테넌트 애플리케이션은 한 사용자에 대한 고유한 자체 디렉터리만 검토하면 되지만, 다중 테넌트 애플리케이션은 Azure AD의 모든 디렉터리에서 특정 사용자를 식별해야 합니다. 이 작업을 수행할 수 있도록, Azure AD는 테넌트 특정 엔드포인트를 제공하지 않고 다중 테넌트 애플리케이션이 로그인 요청을 디렉션할 수 있는 공통 인증 엔드포인트를 제공합니다. 이 엔드포인트는 Azure AD의 모든 디렉터리에 대해 `https://login.microsoftonline.com/common`이지만 테넌트 특정 엔드포인트는 `https://login.microsoftonline.com/contoso.onmicrosoft.com`일 수 있습니다. 로그인, 로그아웃 및 토큰 유효성 검사 중에 여러 테넌을 처리하는 데 필요한 논리가 필요하므로 응용 프로그램을 개발할 때 공통 끝점을 고려하는 것이 특히 중요합니다.
+단일 테넌트 애플리케이션 대신 다중 테넌트 애플리케이션을 개발할 때 고려할 몇 가지 추가 사항이 있습니다. 예를 들어 여러 디렉터리의 사용자가 응용 프로그램을 사용할 수 있도록 하려면 해당 테 넌 트를 결정 하는 메커니즘이 필요 합니다. 단일 테넌트 애플리케이션은 한 사용자에 대한 고유한 자체 디렉터리만 검토하면 되지만, 다중 테넌트 애플리케이션은 Azure AD의 모든 디렉터리에서 특정 사용자를 식별해야 합니다. 이 작업을 수행할 수 있도록, Azure AD는 테넌트 특정 엔드포인트를 제공하지 않고 다중 테넌트 애플리케이션이 로그인 요청을 디렉션할 수 있는 공통 인증 엔드포인트를 제공합니다. 이 엔드포인트는 Azure AD의 모든 디렉터리에 대해 `https://login.microsoftonline.com/common`이지만 테넌트 특정 엔드포인트는 `https://login.microsoftonline.com/contoso.onmicrosoft.com`일 수 있습니다. 공용 끝점은 로그인, 로그 아웃 및 토큰 유효성 검사 중에 여러 테 넌 트를 처리 하는 데 필요한 논리가 필요 하므로 응용 프로그램을 개발할 때 고려해 야 하는 경우 특히 중요 합니다.
 
 현재 단일 테넌트 애플리케이션을 개발 중이지만 이 애플리케이션을 다수의 조직에서 사용할 수 있도록 만들려는 경우 Azure AD에서 애플리케이션 및 해당 구성을 쉽게 변경하여 다중 테넌트를 지원하도록 만들 수 있습니다. 또한 단일 테넌트 애플리케이션의 인증을 제공하든 아니면 다중 테넌트 애플리케이션의 인증을 제공하든 상관없이, Azure AD는 모든 디렉터리의 모든 토큰에 동일한 서명 키를 사용합니다.
 
-이 문서에 나오는 각 시나리오에는 해당 프로비전 요구 사항을 설명하는 하위 섹션이 있습니다. Azure AD에서 응용 프로그램을 프로비전하고 단일 테넌트 응용 프로그램과 다중 테넌트 응용 프로그램 간의 차이점에 대한 자세한 내용은 [응용 프로그램을 Azure Active Directory와 통합하는](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 것을 참조하세요. 계속 읽으면서 Azure AD의 일반적인 애플리케이션 시나리오를 이해하시기 바랍니다.
+이 문서에 나오는 각 시나리오에는 해당 프로비전 요구 사항을 설명하는 하위 섹션이 있습니다. Azure AD에서 응용 프로그램을 프로 비전 하는 방법 및 단일 및 다중 테 넌 트 응용 프로그램 간의 차이점에 대 한 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 을 참조 하세요. 계속 읽으면서 Azure AD의 일반적인 애플리케이션 시나리오를 이해하시기 바랍니다.
 
 ## <a name="next-steps"></a>다음 단계
 

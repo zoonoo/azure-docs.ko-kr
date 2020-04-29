@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2910933e2c57a8bc80a220726462b02915c4a8eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80246520"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
@@ -30,26 +30,26 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 - **활동** 
     - **로그인** – 관리되는 애플리케이션 및 사용자 로그인 활동의 사용량에 대한 정보입니다.
-    - **감사 로그** - [감사 로그는](concept-audit-logs.md) 사용자 및 그룹 관리, 관리되는 응용 프로그램 및 디렉터리 활동에 대한 시스템 활동 정보를 제공합니다.
+    - **감사 로그** - [감사 로그](concept-audit-logs.md) 는 사용자 및 그룹 관리, 관리 되는 응용 프로그램 및 디렉터리 작업에 대 한 시스템 작업 정보를 제공 합니다.
 - **보안** 
-    - **위험한 로그인** - [위험한 로그인은](concept-risky-sign-ins.md) 사용자 계정의 합법적인 소유자가 아닌 사람이 로그인하려고 시도하는 지표입니다.
+    - **위험한 로그인** - [위험한 로그인](concept-risky-sign-ins.md) 은 사용자 계정의 합법적인 소유자가 아닌 사용자의 로그인 시도에 대 한 표시기입니다.
     - **위험 플래그가 지정된 사용자** - [위험한 사용자](concept-user-at-risk.md)는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
 
-이 문서에서는 로그인 보고서에 대한 개요를 제공합니다.
+이 문서에서는 로그인 보고서의 개요를 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 
-* 보안 관리자, 보안 리더, 글로벌 리더 및 보고서 리더 역할의 사용자
+* 보안 관리자, 보안 읽기 권한자, 전역 읽기 권한자 및 보고서 구독자 역할의 사용자
 * 글로벌 관리자
 * 모든 사용자(비관리자)가 자신의 로그인에 액세스할 수 있습니다. 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>로그인 작업에 액세스하는 데 필요한 Azure AD 라이선스는 무엇인가요?
 
-- 로그인 활동 보고서는 [Azure AD 의 모든 버전에서](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)사용할 수 있습니다.
+- 로그인 활동 보고서는 [모든 버전의 AZURE AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)에서 사용할 수 있습니다.
 
-- API를 사용하여 로그인 데이터에 액세스하려면 테넌트에 연결된 [Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 라이선스가 있어야 합니다.
+- API를 사용 하 여 로그인 데이터에 액세스 하려면 테 넌 트에 연결 된 [Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 라이선스가 있어야 합니다.
 
 
 
@@ -61,15 +61,15 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 * 한 주 동안 얼마나 많은 사용자가 로그인했나요?
 * 이러한 로그인의 상태란?
 
-Azure [포털](https://portal.azure.com) 메뉴에서 **Azure Active Directory를**선택하거나 모든 페이지에서 **Azure Active Directory를** 검색하고 선택합니다.
+[Azure Portal](https://portal.azure.com) 메뉴에서 **Azure Active Directory**를 선택 하거나 모든 페이지에서 **Azure Active Directory** 을 검색 하 여 선택 합니다.
 
 ![Azure Active Directory 선택](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
 
-**모니터링**에서 **로그인을** 선택하여 [로그인 보고서를 엽니다.](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
+**모니터링**에서 **로그인** 을 선택 하 여 [로그인 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)를 엽니다.
 
 ![로그인 작업](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "로그인 작업")
 
-일부 로그인 레코드가 포털에 표시되려면 최대 2시간이 걸릴 수 있습니다.
+일부 로그인 레코드가 포털에 표시 되는 데 최대 2 시간이 걸릴 수 있습니다.
 
 > [!IMPORTANT]
 > 로그인 보고서에는 **대화형** 로그인, 즉 사용자 이름과 암호를 사용하는 수동 로그인만 표시됩니다. 비대화형 로그인(서비스 간 인증)은 로그인 보고서에 표시되지 않습니다. 
@@ -78,18 +78,18 @@ Azure [포털](https://portal.azure.com) 메뉴에서 **Azure Active Directory�
 
 - 로그인 날짜
 - 관련된 사용자
-- 사용자가 로그인한 응용 프로그램은
+- 사용자가 로그인 한 응용 프로그램
 - 로그인 상태
 - 위험 검색 상태
 - MFA(Multi-Factor Authentication) 요구 사항 상태
 
 ![로그인 작업](./media/concept-sign-ins/sign-in-activity.png "로그인 작업")
 
-도구 모음에서 열을 클릭하여 목록 보기를 사용자 지정할 수 **있습니다.**
+도구 모음에서 **열** 을 클릭 하 여 목록 보기를 사용자 지정할 수 있습니다.
 
 ![로그인 작업](./media/concept-sign-ins/19.png "로그인 작업")
 
-**열** 대화 상자를 사용하면 선택한 특성에 액세스할 수 있습니다. 로그인 보고서에서 지정된 로그인 요청에 대해 두 개 이상의 값이 있는 필드는 열로 사용할 수 없습니다. 예를 들어 인증 세부 정보, 조건부 액세스 데이터 및 네트워크 위치에 대해 마찬가지입니다.   
+**열** 대화 상자를 사용 하 여 선택 가능한 특성에 액세스할 수 있습니다. 로그인 보고서에는 지정 된 로그인 요청에 대해 둘 이상의 값이 있는 필드를 열로 사용할 수 없습니다. 예를 들어 인증 정보, 조건부 액세스 데이터 및 네트워크 위치에 대해 true입니다.   
 
 ![로그인 작업](./media/concept-sign-ins/columns.png "로그인 작업")
 
@@ -98,93 +98,93 @@ Azure [포털](https://portal.azure.com) 메뉴에서 **Azure Active Directory�
 ![로그인 작업](./media/concept-sign-ins/basic-sign-in.png "로그인 작업")
 
 > [!NOTE]
-> 이제 고객은 모든 로그인 보고서를 통해 조건부 액세스 정책 문제를 해결할 수 있습니다. 로그인 레코드의 **조건부 액세스** 탭을 클릭하여 고객은 조건부 액세스 상태를 검토하고 로그인에 적용된 정책의 세부 정보와 각 정책에 대한 결과를 자세히 살펴볼 수 있습니다.
+> 이제 고객은 모든 로그인 보고서를 통해 조건부 액세스 정책의 문제를 해결할 수 있습니다. 고객은 로그인 레코드에 대 한 **조건부 액세스** 탭을 클릭 하 여 조건부 액세스 상태를 검토 하 고 로그인에 적용 된 정책과 각 정책에 대 한 결과에 대 한 세부 정보를 확인할 수 있습니다.
 > 자세한 내용은 [모든 로그인의 CA 정보에 대한 질문과 대답](reports-faq.md#conditional-access)을 참조하세요.
 
 
 
 ## <a name="filter-sign-in-activities"></a>로그인 활동 필터링
 
-먼저 보고된 데이터를 적합한 수준으로 좁힐 수 있습니다. 둘째, 기본 필터로 날짜 필드를 사용 하 여 로그인 데이터를 필터링 합니다. Azure AD는 설정할 수 있는 광범위한 추가 필터를 제공합니다.
+먼저 보고 된 데이터를 자신에 게 적합 한 수준으로 축소 합니다. 둘째, 날짜 필드를 기본 필터로 사용 하 여 로그인 데이터를 필터링 합니다. Azure AD는 설정할 수 있는 광범위 한 추가 필터를 제공 합니다.
 
 ![로그인 작업](./media/concept-sign-ins/04.png "로그인 작업")
 
-**요청 ID** - 관심 있는 요청의 ID입니다.
+**요청 id** -관심 있는 요청의 ID입니다.
 
-**사용자** - 관심 있는 사용자의 이름 또는 사용자 주체 이름(UPN)입니다.
+**사용자** -관심 있는 사용자의 이름 또는 UPN (사용자 계정 이름)입니다.
 
-**응용 프로그램** - 대상 응용 프로그램의 이름입니다.
+**응용 프로그램** -대상 응용 프로그램의 이름입니다.
  
-**상태** - 관심 있는 로그인 상태:
+**상태** -관심 있는 로그인 상태:
 
-- Success
+- 성공
 
 - 실패
 
-- 중단
+- 장애가
 
 
-**IP 주소** - 테넌트에 연결하는 데 사용되는 장치의 IP 주소입니다.
+**Ip 주소** -테 넌 트에 연결 하는 데 사용 되는 장치의 ip 주소입니다.
 
-**위치** - 연결이 시작된 위치:
+**위치** -연결이 시작 된 위치입니다.
 
 - City
 
-- 주/도
+- 시/도
 
 - 국가/지역
 
 
-**리소스** - 로그인에 사용되는 서비스의 이름입니다.
+**리소스** -로그인에 사용 되는 서비스의 이름입니다.
 
 
-**리소스 ID** - 로그인에 사용되는 서비스의 ID입니다.
+**리소스 id** -로그인에 사용 되는 서비스의 id입니다.
 
 
-**클라이언트 앱** - 테넌트에 연결하는 데 사용되는 클라이언트 앱의 유형입니다.
+**클라이언트 앱** -테 넌 트에 연결 하는 데 사용 되는 클라이언트 앱의 유형입니다.
 
 ![클라이언트 앱 필터](./media/concept-sign-ins/client-app-filter.png)
 
 
-|이름|최신 인증|설명|
+|속성|최신 인증|Description|
 |---|:-:|---|
-|인증된 SMTP| |POP 및 IMAP 클라이언트에서 전자 메일 메시지를 보내는 데 사용됩니다.|
-|Autodiscover| |Outlook 및 EAS 클라이언트에서 Exchange Online에서 사서함을 찾고 연결하는 데 사용됩니다.|
-|Exchange ActiveSync| |이 필터는 EAS 프로토콜이 시도된 모든 로그인 시도를 보여 주며, 이 필터는 모든 로그인 시도를 보여줍니다.|
-|브라우저|![확인](./media/concept-sign-ins/check.png)|웹 브라우저를 사용하는 사용자의 모든 로그인 시도 표시|
-|Exchange ActiveSync| | Exchange ActiceSync를 사용하여 Exchange Online에 연결하는 클라이언트 앱을 사용하는 사용자의 모든 로그인 시도를 표시합니다.|
-|Exchange Online PowerShell| |원격 PowerShell으로 Exchange Online에 연결하는 데 사용됩니다. Exchange 온라인 PowerShell에 대한 기본 인증을 차단하는 경우 Exchange 온라인 PowerShell 모듈을 사용하여 연결해야 합니다. 지침은 [다단계 인증을 사용하여 Exchange 온라인 PowerShell에 연결 을](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)참조하십시오.|
-|Exchange 웹 서비스| |Outlook, Mac용 Outlook 및 타사 앱에서 사용하는 프로그래밍 인터페이스입니다.|
-|IMAP4| |IMAP을 사용하여 전자 메일을 검색하는 레거시 메일 클라이언트입니다.|
-|HTTP를 통해 MAPI| |Outlook 2010 이상에서 사용됩니다.|
-|모바일 앱 및 데스크톱 클라이언트|![확인](./media/concept-sign-ins/check.png)|모바일 앱 및 데스크톱 클라이언트를 사용하는 사용자의 모든 로그인 시도를 표시합니다.|
-|오프라인 주소록| |Outlook에서 다운로드하여 사용하는 주소 목록 모음의 복사본입니다.|
-|어디서나 Outlook (HTTP를 통해 RPC)| |Outlook 2016 및 이전에서 사용됩니다.|
-|Outlook 서비스| |윈도우 10에 대한 메일 및 캘린더 응용 프로그램에서 사용됩니다.|
-|POP3| |POP3를 사용하여 전자 메일을 검색하는 레거시 메일 클라이언트입니다.|
-|웹 서비스 보고| |Exchange Online에서 보고서 데이터를 검색하는 데 사용됩니다.|
-|기타 클라이언트| |클라이언트 앱이 포함되지 않았거나 알 수 없는 사용자의 모든 로그인 시도를 표시합니다.|
+|인증 된 SMTP| |POP 및 IMAP 클라이언트에서 전자 메일 메시지를 보내는 데 사용 됩니다.|
+|자동 검색| |Outlook 및 EAS 클라이언트에서 Exchange Online의 사서함을 찾아 연결 하는 데 사용 됩니다.|
+|Exchange ActiveSync| |이 필터는 EAS 프로토콜이 시도 된 모든 로그인 시도를 표시 합니다.|
+|브라우저|![확인](./media/concept-sign-ins/check.png)|웹 브라우저를 사용 하 여 사용자의 모든 로그인 시도를 표시 합니다.|
+|Exchange ActiveSync| | Exchange ActiceSync를 사용 하 여 Exchange Online에 연결 하는 클라이언트 앱이 있는 사용자의 모든 로그인 시도를 표시 합니다.|
+|Exchange Online PowerShell| |원격 PowerShell을 사용 하 여 Exchange Online에 연결 하는 데 사용 됩니다. Exchange Online PowerShell에 대 한 기본 인증을 차단 하는 경우 Exchange Online PowerShell 모듈을 사용 하 여 연결 해야 합니다. 지침은 [multi-factor authentication을 사용 하 여 Exchange Online PowerShell에 연결](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)을 참조 하세요.|
+|Exchange 웹 서비스| |Outlook, Mac 용 Outlook 및 타사 앱에서 사용 하는 프로그래밍 인터페이스입니다.|
+|IMAP4| |전자 메일을 검색 하는 데 IMAP를 사용 하는 레거시 메일 클라이언트입니다.|
+|HTTP를 통한 MAPI| |Outlook 2010 이상에서 사용 됩니다.|
+|모바일 앱 및 데스크톱 클라이언트|![확인](./media/concept-sign-ins/check.png)|모바일 앱 및 데스크톱 클라이언트를 사용 하는 사용자의 로그인 시도를 모두 표시 합니다.|
+|오프 라인 주소록| |Outlook에서 다운로드 하 여 사용 하는 주소 목록 컬렉션의 복사본입니다.|
+|Outlook Anywhere (RPC over HTTP)| |Outlook 2016 이전 버전에서 사용 됩니다.|
+|Outlook 서비스| |Windows 10 용 메일 및 일정 앱에서 사용 됩니다.|
+|POP3| |POP3를 사용 하 여 전자 메일을 검색 하는 레거시 메일 클라이언트입니다.|
+|보고 웹 서비스| |Exchange Online에서 보고서 데이터를 검색 하는 데 사용 됩니다.|
+|기타 클라이언트| |클라이언트 앱이 포함 되어 있지 않거나 알 수 없는 사용자의 로그인 시도를 모두 표시 합니다.|
 
 
 
-**운영 체제** - 장치에서 실행 중인 운영 체제가 테넌트에 사인온을 사용했습니다. 
+**운영** 체제-테 넌 트에 로그온 하는 데 사용 되는 장치에서 실행 중인 운영 체제입니다. 
 
 
-**장치 브라우저** - 브라우저에서 연결을 시작한 경우 이 필드를 사용하면 브라우저 이름으로 필터링할 수 있습니다.
+**장치 브라우저** -브라우저에서 연결이 시작 된 경우이 필드를 사용 하 여 브라우저 이름을 기준으로 필터링 할 수 있습니다.
 
 
-**상관 관계 ID** - 활동의 상관 ID입니다.
+**상관 관계 id** -활동의 상관 관계 id입니다.
 
 
 
 
-**조건부 액세스** - 적용된 조건부 액세스 규칙의 상태
+**조건부 액세스** -적용 된 조건부 액세스 규칙의 상태
 
-- **적용되지 않음**: 로그인 하는 동안 사용자 및 응용 프로그램에 적용 된 정책이 없습니다.
+- **적용 되지 않음**: 로그인 하는 동안 사용자 및 응용 프로그램에 정책이 적용 되지 않습니다.
 
-- **성공:** 로그인 하는 동안 사용자 및 응용 프로그램에 적용 된 하나 이상의 조건부 액세스 정책 (반드시 다른 조건) 
+- **성공**: 로그인 하는 동안 사용자 및 응용 프로그램에 적용 되는 하나 이상의 조건부 액세스 정책 (반드시 다른 조건을 충족 하지는 않음)입니다. 
 
-- **오류**: 하나 이상의 조건부 액세스 정책이 적용되었으며 로그인 중에 충족되지 않았습니다.
+- **실패**: 하나 이상의 조건부 액세스 정책이 적용 되었으며 로그인 하는 동안 충족 되지 않았습니다.
 
 
 
@@ -196,7 +196,7 @@ Azure [포털](https://portal.azure.com) 메뉴에서 **Azure Active Directory�
 
 ## <a name="download-sign-in-activities"></a>로그인 활동 다운로드
 
-**다운로드** 옵션을 클릭하여 가장 최근 250,000개의 레코드의 CSV 또는 JSON 파일을 만듭니다. Azure 포털 외부에서 작업하려는 경우 [로그인 데이터를 다운로드하여](quickstart-download-sign-in-report.md) 시작합니다.  
+**다운로드** 옵션을 클릭 하 여 가장 최근 25만 레코드의 CSV 또는 JSON 파일을 만듭니다. Azure Portal 외부에서 작업 하려는 경우 [로그인 데이터 다운로드](quickstart-download-sign-in-report.md) 로 시작 합니다.  
 
 ![다운로드](./media/concept-sign-ins/71.png "다운로드")
 
@@ -206,7 +206,7 @@ Azure [포털](https://portal.azure.com) 메뉴에서 **Azure Active Directory�
 
 ## <a name="sign-ins-data-shortcuts"></a>로그인 데이터 바로 가기
 
-Azure AD와 Azure 포털은 모두 로그인 데이터에 대한 추가 진입점을 제공합니다.
+Azure AD와 Azure Portal는 모두 로그인 데이터를 위한 추가 진입점을 제공 합니다.
 
 - ID 보안 보호 개요
 - 사용자
@@ -215,7 +215,7 @@ Azure AD와 Azure 포털은 모두 로그인 데이터에 대한 추가 진입�
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>ID 보안 보호에서 사용자 로그인 데이터
 
-**ID 보안 보호** 개요 페이지의 사용자 로그인 그래프에는 로그인의 주간 집계가 표시됩니다. 기간의 기본값은 30일입니다.
+**Id 보안 보호** 개요 페이지의 사용자 로그인 그래프에는 로그인의 주간 집계가 표시 됩니다. 기간의 기본값은 30 일입니다.
 
 ![로그인 작업](./media/concept-sign-ins/06.png "로그인 작업")
 
@@ -254,20 +254,20 @@ Azure AD와 Azure 포털은 모두 로그인 데이터에 대한 추가 진입�
 로그인 데이터의 애플리케이션 중심 보기를 사용하여 다음과 같은 질문에 대답할 수 있습니다.
 
 * 누가 내 애플리케이션을 사용하나요?
-* 조직에서 상위 3개 응용 프로그램은 무엇입니까?
-* 최신 응용 프로그램은 어떻게 수행되고 있습니까?
+* 조직에서 상위 3 개의 응용 프로그램은 무엇 인가요?
+* 최신 응용 프로그램이 어떻게 작동 하나요?
 
-이 데이터의 진입점은 조직에서 상위 3개 응용 프로그램입니다. 데이터는 엔터프라이즈 응용 프로그램 아래의 **개요** 섹션의 마지막 30일 보고서 내에 **포함됩니다.**
+이 데이터에 대 한 진입점은 조직에서 상위 3 개의 응용 프로그램입니다. 데이터는 **엔터프라이즈 응용 프로그램**의 **개요** 섹션에 있는 지난 30 일 보고서 내에 포함 되어 있습니다.
 
 ![로그인 작업](./media/concept-sign-ins/10.png "로그인 작업")
 
-앱 사용 그래프는 지정된 기간 동안 상위 3개 응용 프로그램에 대한 로그인의 주간 집계를 그래프로 표시합니다. 시간에 대한 기본값은 30일입니다.
+앱 사용 그래프에는 지정 된 기간 동안 상위 3 개 응용 프로그램에 대 한 로그인의 주간 집계가 있습니다. 시간에 대한 기본값은 30일입니다.
 
 ![로그인 작업](./media/concept-sign-ins/graph-chart.png "로그인 작업")
 
 원하면 특정 애플리케이션에 포커스를 설정할 수 있습니다.
 
-![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "보고")
+![보고](./media/concept-sign-ins/single-app-usage-graph.png "보고")
 
 앱 사용량 그래프에서 날짜를 클릭하면 로그인 활동의 자세한 목록이 표시됩니다.
 
@@ -275,9 +275,9 @@ Azure AD와 Azure 포털은 모두 로그인 데이터에 대한 추가 진입�
 
 ## <a name="office-365-activity-logs"></a>Office 365 활동 로그
 
-Microsoft 365 관리 센터에서 Office [365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)활동 로그를 볼 수 있습니다. Office 365 활동 및 Azure AD 활동 로그 가 상당수의 디렉터리 리소스를 공유한다는 점을 고려하십시오. Microsoft 365 관리 센터만 Office 365 활동 로그의 전체 보기를 제공합니다. 
+[Microsoft 365 관리 센터](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)에서 Office 365 활동 로그를 볼 수 있습니다. Office 365 활동 및 Azure AD 활동 로그가 많은 디렉터리 리소스를 공유 한다는 점을 고려해 야 합니다. Microsoft 365 관리 센터 에서만 Office 365 활동 로그의 전체 보기를 제공 합니다. 
 
-Office 365 관리 API를 사용하여 프로그래밍 방식으로 Office [365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview)활동 로그에 액세스할 수도 있습니다.
+[Office 365 관리 api](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview)를 사용 하 여 프로그래밍 방식으로 office 365 활동 로그에 액세스할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

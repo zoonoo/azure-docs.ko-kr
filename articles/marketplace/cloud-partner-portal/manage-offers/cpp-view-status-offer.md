@@ -1,5 +1,5 @@
 ---
-title: 마켓플레이스 상품 현황 보기 | Azure 마켓플레이스
+title: Marketplace 제품의 상태 보기 | Azure Marketplace
 description: Cloud 파트너 포털을 사용하여 Azure 및 AppSource Marketplace에서 제품의 상태 보기
 author: dsindona
 ms.service: marketplace
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: dsindona
 ms.openlocfilehash: 0cbe6a45ba205f32a764bdadb021dc0dcf5bf0cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80275971"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Azure Marketplace 및 AppSource 제품의 게시 상태 보기
 
 제품을 만든 후, 특히 게시 프로세스 중에 Cloud 파트너 포털에서 제품 상태를 볼 수 있습니다.  전체 게시 상태는 포털의 [**모든 제품**](../portal-tour/cpp-all-offers-page.md) 및 [**승인**](../portal-tour/cpp-approvals-page.md) 페이지에서 확인할 수 있습니다.  각 제품에 대해 다음 상태 표시기 중 하나가 표시되어야 합니다.  
 
-|            상태              |   설명                                                           |
+|            상태              |   Description                                                           |
 |            ------              |   -----------                                                           |
 | **-**                          | 제품이 생성되었지만 게시 프로세스가 시작되지 않았습니다.            |
 | **게시 진행 중**        | 제품이 게시 프로세스의 단계를 진행 중입니다.   |
@@ -39,7 +39,7 @@ ms.locfileid: "80275971"
 
 ![오류를 표시하는 컨설팅 서비스의 상태 탭](./media/consulting-service-error.png)
 
-Azure 애플리케이션의 최종 예제 상태는 심각한 Microsoft 검토 문제를 보여 줍니다.  여기에는 이 검토 문제에 대한 자세한 정보가 포함된 Azure DevOps 항목에 대한 핫 링크가 포함되어 있습니다.  자세한 내용은 [Azure 애플리케이션 제품 게시](cpp-publish-offer.md)를 참조하세요.
+Azure 애플리케이션의 최종 예제 상태는 심각한 Microsoft 검토 문제를 보여 줍니다.  이 검토 문제에 대 한 자세한 정보를 포함 하는 Azure DevOps 항목에 대 한 핫 링크를 포함 합니다.  자세한 내용은 [Azure 애플리케이션 제품 게시](cpp-publish-offer.md)를 참조하세요.
 
 ![검토 문제를 보여 주는 Azure 앱의 상태 탭](../azure-applications/media/status-tab-ms-review.png)
 

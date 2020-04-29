@@ -1,13 +1,13 @@
 ---
-title: 한 번 실행 된 작업에 대 한 정책 다시 시작
+title: 한 번 실행 태스크에 대 한 정책 다시 시작
 description: Azure Container Instances를 사용하여 빌드, 테스트 또는 이미지 렌더링 작업에서처럼 완료될 때까지 실행되는 작업을 실행하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: 8ef4ef228038242f53abc8041470f7f596ab1157
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80131504"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>다시 시작 정책으로 컨테이너 작업 실행
@@ -22,7 +22,7 @@ Azure Container Instances에서는 컨테이너를 배포하는 것이 쉽고 �
 
 Azure Container Instances에서 [컨테이너 그룹](container-instances-container-groups.md)을 만들 때 세 가지 다시 시작 정책 설정 중 하나를 지정할 수 있습니다.
 
-| 다시 시작 정책   | 설명 |
+| 다시 시작 정책   | Description |
 | ---------------- | :---------- |
 | `Always` | 컨테이너 그룹의 컨테이너가 항상 다시 시작됩니다. 컨테이너를 만들 때 다시 시작 정책이 지정되지 않은 경우 적용되는 **기본** 설정입니다. |
 | `Never` | 컨테이너 그룹의 컨테이너가 절대로 다시 시작되지 않습니다. 컨테이너가 한 번만 실행됩니다. |
@@ -42,7 +42,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>완료될 때까지 실행 예제
 
-실행 중 정책을 보려면 Microsoft [aci-wordcount][aci-wordcount-image] 이미지에서 컨테이너 인스턴스를 만들고 `OnFailure` 다시 시작 정책을 지정합니다. 이 예제 컨테이너는 기본적으로 셰익스피어의 [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) 텍스트를 분석하고, 가장 많이 쓰이는 10개의 단어를 STDOUT에 쓰고 종료하는 Python 스크립트를 실행합니다.
+작업에서 다시 시작 정책을 보려면 Microsoft [aci-wordcount][aci-wordcount-image] 이미지에서 컨테이너 인스턴스를 만들고 `OnFailure` 다시 시작 정책을 지정 합니다. 이 예제 컨테이너는 기본적으로 셰익스피어의 [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) 텍스트를 분석하고, 가장 많이 쓰이는 10개의 단어를 STDOUT에 쓰고 종료하는 Python 스크립트를 실행합니다.
 
 다음 [az container create][az-container-create] 명령으로 예제 컨테이너를 실행합니다.
 
@@ -94,7 +94,7 @@ az container logs --resource-group myResourceGroup --name mycontainer
 
 ## <a name="next-steps"></a>다음 단계
 
-여러 컨테이너가 있는 대규모 데이터 집합을 일괄 처리하는 것과 같은 작업 기반 시나리오는 런타임시 사용자 지정 [환경 변수](container-instances-environment-variables.md) 또는 [명령줄을](container-instances-start-command.md) 활용할 수 있습니다.
+여러 컨테이너를 포함 하는 큰 데이터 집합을 일괄 처리 하는 등의 작업 기반 시나리오에서는 사용자 지정 [환경 변수](container-instances-environment-variables.md) 또는 [명령줄](container-instances-start-command.md) 을 런타임에 활용할 수 있습니다.
 
 완료될 때까지 실행되는 컨테이너 출력을 유지하는 방법에 대한 자세한 내용은 [Azure Container Instances를 사용하여 Azure 파일 공유 탑재](container-instances-mounting-azure-files-volume.md)를 참조하세요.
 

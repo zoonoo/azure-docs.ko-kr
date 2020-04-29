@@ -1,5 +1,5 @@
 ---
-title: 테스트 드라이브의 변형 예제 | Azure 마켓플레이스
+title: 시험 사용할 예제 변환 | Azure Marketplace
 description: 시험 사용을 구현하는 방법에 대한 예제 목록을 제공합니다.
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 60de5a54e608588873a9be966f5fb1b62065c73e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80278215"
 ---
 <a name="transforming-examples-for-test-drive"></a>시험 사용에 대한 변환 예제

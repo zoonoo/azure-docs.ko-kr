@@ -1,6 +1,6 @@
 ---
-title: Azure IoT 중앙 응용 프로그램 설정 변경 | 마이크로 소프트 문서
-description: 관리자로서 응용 프로그램 이름, URL, 업로드 이미지 및 응용 프로그램을 변경하여 Azure IoT Central 응용 프로그램을 관리하는 방법
+title: Azure IoT Central 응용 프로그램 설정 변경 | Microsoft Docs
+description: 관리자는 응용 프로그램 이름을 변경 하 고, URL을 변경 하 고, 이미지를 업로드 하 고, 응용 프로그램을 삭제 하 여 Azure IoT Central 응용 프로그램을 관리 하는 방법
 author: viv-liu
 ms.author: viviali
 ms.date: 11/27/2019
@@ -9,17 +9,17 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 7b77ea9e0e1f322cb5ef0bc63885c3ccce1b76f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80158687"
 ---
-# <a name="change-iot-central-application-settings"></a>IoT 중앙 애플리케이션 설정 변경
+# <a name="change-iot-central-application-settings"></a>IoT Central 응용 프로그램 설정 변경
 
 
 
-이 문서에서는 관리자로서 응용 프로그램 이름 및 URL을 변경하고 이미지를 업로드하고 Azure IoT Central 응용 프로그램에서 응용 프로그램을 삭제하여 응용 프로그램을 관리하는 방법을 설명합니다.
+이 문서에서는 관리자가 응용 프로그램 이름 및 URL을 변경 하 고, 이미지를 업로드 하 고, Azure IoT Central 응용 프로그램에서 응용 프로그램을 삭제 하 여 응용 프로그램을 관리 하는 방법을 설명 합니다.
 
 **관리** 섹션에 액세스하여 사용하려면 Azure IoT Central 애플리케이션에서 **관리자** 역할이어야 합니다. Azure IoT Central 애플리케이션을 만드는 사용자에게는 자동으로 해당 애플리케이션의 **관리자** 역할이 할당됩니다.
 
@@ -29,25 +29,25 @@ ms.locfileid: "80158687"
 
 ![애플리케이션 설정 페이지](media/howto-administer/image0-a.png)
 
-관리자가 응용 프로그램에 대한 사용자 지정 테마를 만드는 경우 이 페이지에는 UI에서 **응용 프로그램 이름을** 숨기는 옵션이 포함되어 있습니다. 이 옵션은 사용자 지정 테마의 응용 프로그램 로고에 응용 프로그램 이름이 포함된 경우에 유용합니다. 자세한 내용은 [Azure IoT 중앙 UI 사용자 지정을](./howto-customize-ui.md)참조하십시오.
+관리자가 응용 프로그램에 대 한 사용자 지정 테마를 만들 경우이 페이지에는 UI에서 **응용 프로그램 이름을** 숨기는 옵션이 포함 됩니다. 이 옵션은 사용자 지정 테마의 응용 프로그램 로고가 응용 프로그램 이름을 포함 하는 경우에 유용 합니다. 자세한 내용은 [Azure IOT CENTRAL UI 사용자 지정](./howto-customize-ui.md)을 참조 하세요.
 
 > [!Note]
 > URL을 변경하면 이전 URL을 다른 Azure IoT Central 고객이 사용할 수 있습니다. 이 경우 해당 URL을 더 이상 사용할 수 없습니다. URL을 변경하면 이전 URL이 더 이상 작동하지 않으며 사용자에게 새 URL을 사용하라고 알려야 합니다.
 
 ## <a name="delete-an-application"></a>애플리케이션 삭제
 
-IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단추를 사용합니다. 이 작업은 응용 프로그램과 연결된 모든 데이터를 영구적으로 삭제합니다.
+IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단추를 사용합니다. 이 작업을 수행 하면 응용 프로그램과 연결 된 모든 데이터가 영구적으로 삭제 됩니다.
 
 > [!Note]
 > 애플리케이션을 삭제하려면 애플리케이션을 만들 때 선택한 Azure 구독의 리소스를 삭제할 수 있는 권한도 필요합니다. 자세한 내용은 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)를 참조하세요.
 
 ## <a name="manage-programmatically"></a>프로그래밍 방식 관리
 
-IoT Central Azure Resource Manager SDK 패키지는 Node, Python, C#, Ruby, Java 및 Go에 사용할 수 있습니다. 이러한 패키지를 사용하여 IoT Central 응용 프로그램을 생성, 나열, 업데이트 또는 삭제할 수 있습니다. 패키지에는 인증 및 오류 처리를 관리하는 도우미가 포함되어 있습니다.
+IoT Central Azure Resource Manager SDK 패키지는 Node, Python, C#, Ruby, Java 및 Go에 사용할 수 있습니다. 이러한 패키지를 사용 하 여 IoT Central 응용 프로그램을 생성, 나열, 업데이트 또는 삭제할 수 있습니다. 패키지에는 인증 및 오류 처리를 관리 하는 도우미가 포함 되어 있습니다.
 
-에서 [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples)Azure 리소스 관리자 SDK를 사용하는 방법에 대한 예제를 찾을 수 있습니다.
+에서 [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples)Azure Resource Manager sdk를 사용 하는 방법에 대 한 예제를 찾을 수 있습니다.
 
-자세한 내용은 다음 GitHub 리포지토리 및 패키지를 참조하십시오.
+자세히 알아보려면 다음 GitHub 리포지토리 및 패키지를 참조 하세요.
 
 | 언어 | 리포지토리 | 패키지 |
 | ---------| ---------- | ------- |
@@ -60,4 +60,4 @@ IoT Central Azure Resource Manager SDK 패키지는 Node, Python, C#, Ruby, Java
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Central 응용 프로그램을 관리하는 방법에 대해 배웠으니 다음 단계는 Azure IoT Central에서 [사용자 및 역할 관리에](howto-manage-users-roles.md) 대해 알아보는 것입니다.
+이제 Azure IoT Central 응용 프로그램을 관리 하는 방법을 배웠으므로 제안 된 다음 단계는 Azure IoT Central에서 [사용자 및 역할 관리](howto-manage-users-roles.md) 에 대해 알아보는 것입니다.

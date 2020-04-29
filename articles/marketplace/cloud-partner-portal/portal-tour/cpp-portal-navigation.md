@@ -1,6 +1,6 @@
 ---
-title: Azure 마켓플레이스를 위한 클라우드 파트너 포털 탐색
-description: Azure 마켓플레이스용 클라우드 파트너 포털 내탐색에 대한 설명입니다.
+title: Azure Marketplace에 대 한 Cloud 파트너 포털 탐색
+description: Azure Marketplace에 대 한 Cloud 파트너 포털 내의 탐색 설명입니다.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dsindona
 ms.openlocfilehash: 2c1d0eafe96d6e1533bb980ae0e4fd3c43f0e56b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80278419"
 ---
 # <a name="cloud-partner-portal-navigation"></a>Cloud 파트너 포털 탐색
@@ -77,7 +77,7 @@ ms.locfileid: "80278419"
 | ![모든 게시자 항목](./media/left-navbar4.png) | [모든 게시자](./cpp-all-publishers-page.md) 페이지는 현재 등록된 모든 클라우드 파트너 게시자를 나열합니다. |
 | ![사용자 항목](./media/left-navbar5.png) | [사용자](./cpp-users-page.md) 페이지는 등록된 클라우드 파트너와 연결된 현재 모든 사용자 계정을 나열합니다. |
 | ![기록 항목](./media/left-navbar6.png) | [기록](./cpp-history-page.md) 페이지는 모든 게시자에 대한 제품 게시 및 수정 이벤트를 나열합니다. |
-| ![인사이트 항목](./media/left-navbar7.png) | [인사이트](./cpp-insights-page.md) 페이지에는 이 포털의 *판매자 인사이트* 기능을 구성하는 다양한 대시보드가 포함되어 있습니다. |
+| ![인사이트 항목](./media/left-navbar7.png) | [insights](./cpp-insights-page.md) 페이지에는이 포털의 *판매자 통찰력* 기능을 구성 하는 다양 한 대시보드가 포함 되어 있습니다. |
 | ![설명서 항목](./media/left-navbar8.png) | 새 탭이 시작되고 Cloud 파트너 포털에 대한 설명서 홈 페이지로 이동합니다(**도움말** 메뉴의 항목 중복). |
 | ![포럼 항목](./media/left-navbar9.png)  | 새 탭이 시작되고 AppSource 및 Azure Marketplace용 파트너 커뮤니티에 대한 설명서 홈 페이지로 이동합니다(**도움말** 메뉴의 항목 중복). |
 |  |  |

@@ -1,35 +1,35 @@
 ---
-title: Azure 함수에 대한 Azure 이벤트 그리드 출력 바인딩
-description: Azure 함수에서 이벤트 그리드 이벤트를 보내는 방법을 알아봅니다.
+title: Azure Functions에 대 한 Azure Event Grid 출력 바인딩
+description: Azure Functions에서 Event Grid 이벤트를 보내는 방법에 대해 알아봅니다.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
 ms.openlocfilehash: e7a2611312ffc33703dd5cc9d0a2d7142ddb0532
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77368949"
 ---
-# <a name="azure-event-grid-output-binding-for-azure-functions"></a>Azure 함수에 대한 Azure 이벤트 그리드 출력 바인딩
+# <a name="azure-event-grid-output-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Event Grid 출력 바인딩
 
-이벤트 그리드 출력 바인딩을 사용하여 사용자 지정 토픽에 이벤트를 작성합니다. [사용자 지정 항목에 대한](../event-grid/security-authentication.md#custom-topic-publishing)유효한 액세스 키가 있어야 합니다.
+Event Grid 출력 바인딩을 사용 하 여 사용자 지정 토픽에 이벤트를 씁니다. [사용자 지정 토픽에 대 한 유효한 액세스 키](../event-grid/security-authentication.md#custom-topic-publishing)가 있어야 합니다.
 
-설정 및 구성 세부 정보에 대한 자세한 내용은 [개요를](./functions-bindings-event-grid.md)참조하십시오.
+설정 및 구성 세부 정보에 대 한 자세한 내용은 [개요](./functions-bindings-event-grid.md)를 참조 하세요.
 
 > [!NOTE]
-> Event Grid 출력 바인딩은 공유 액세스 서명(SAS 토큰)을 지원하지 않습니다. 토픽의 액세스 키를 사용해야 합니다.
+> Event Grid 출력 바인딩은 SAS 토큰 (공유 액세스 서명)을 지원 하지 않습니다. 토픽의 선택 키를 사용 해야 합니다.
 
 > [!IMPORTANT]
-> 이벤트 그리드 출력 바인딩은 함수 2.x 이상에서만 사용할 수 있습니다.
+> Event Grid 출력 바인딩은 함수 2.x 이상 에서만 사용할 수 있습니다.
 
 ## <a name="example"></a>예제
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-다음 예제에서는 메서드 반환 값을 출력으로 사용 하 여 Event Grid 사용자 지정 토픽에 메시지를 작성 하는 [C# 함수를](functions-dotnet-class-library.md) 보여 주었습니다.
+다음 예제에서는 메서드 반환 값을 출력으로 사용 하 여 Event Grid 사용자 지정 항목에 메시지를 기록 하는 [c # 함수](functions-dotnet-class-library.md) 를 보여 줍니다.
 
 ```csharp
 [FunctionName("EventGridOutput")]
@@ -40,7 +40,7 @@ public static EventGridEvent Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTim
 }
 ```
 
-다음 예제에서는 인터페이스를 `IAsyncCollector` 사용하여 메시지 일괄 처리를 보내는 방법을 보여 줍니다.
+다음 예제에서는 `IAsyncCollector` 인터페이스를 사용 하 여 메시지 일괄 처리를 보내는 방법을 보여 줍니다.
 
 ```csharp
 [FunctionName("EventGridAsyncOutput")]
@@ -59,7 +59,7 @@ public static async Task Run(
 
 # <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
-다음 예제에서는 *function.json* 파일에서 이벤트 그리드 출력 바인딩 데이터를 보여 주다.
+다음 예제에서는 *함수 json* 파일의 Event Grid 출력 바인딩 데이터를 보여 줍니다.
 
 ```json
 {
@@ -71,7 +71,7 @@ public static async Task Run(
 }
 ```
 
-다음은 하나의 이벤트를 만드는 C# 스크립트 코드입니다.
+하나의 이벤트를 만드는 c # 스크립트 코드는 다음과 같습니다.
 
 ```cs
 #r "Microsoft.Azure.EventGrid"
@@ -85,7 +85,7 @@ public static void Run(TimerInfo myTimer, out EventGridEvent outputEvent, ILogge
 }
 ```
 
-다음은 여러 이벤트를 만드는 C# 스크립트 코드입니다.
+여러 이벤트를 만드는 c # 스크립트 코드는 다음과 같습니다.
 
 ```cs
 #r "Microsoft.Azure.EventGrid"
@@ -100,9 +100,9 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 }
 ```
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-다음 예제에서는 *function.json* 파일에서 이벤트 그리드 출력 바인딩 데이터를 보여 주다.
+다음 예제에서는 *함수 json* 파일의 Event Grid 출력 바인딩 데이터를 보여 줍니다.
 
 ```json
 {
@@ -162,21 +162,21 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-파이썬에는 이벤트 그리드 출력 바인딩을 사용할 수 없습니다.
+Python에는 Event Grid 출력 바인딩을 사용할 수 없습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Java에서 이벤트 그리드 출력 바인딩을 사용할 수 없습니다.
+Java에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
 
 ---
 
 ## <a name="attributes-and-annotations"></a>특성 및 주석
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-[C# 클래스 라이브러리의](functions-dotnet-class-library.md)경우 [EventGridAttribute](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs) 특성을 사용합니다.
+[C # 클래스 라이브러리](functions-dotnet-class-library.md)의 경우 [EventGridAttribute](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs) 특성을 사용 합니다.
 
-특성의 생성자는 사용자 지정 항목의 이름과 토픽 키가 포함된 앱 설정의 이름을 포함하는 앱 설정의 이름을 지정합니다. 이러한 설정에 대한 자세한 내용은 [출력 - 구성](#configuration)을 참조하세요. `EventGrid` 특성 예제는 다음과 같습니다.
+특성의 생성자는 사용자 지정 토픽의 이름과 토픽 키를 포함 하는 앱 설정의 이름을 포함 하는 앱 설정의 이름을 사용 합니다. 이러한 설정에 대한 자세한 내용은 [출력 - 구성](#configuration)을 참조하세요. `EventGrid` 특성 예제는 다음과 같습니다.
 
 ```csharp
 [FunctionName("EventGridOutput")]
@@ -187,67 +187,67 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-전체 예제를 보려면 [예제를](#example)참조하십시오.
+전체 예제는 [예제](#example)를 참조 하세요.
 
 # <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
-특성은 C# 스크립트에서 지원되지 않습니다.
+특성은 c # 스크립트에서 지원 되지 않습니다.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-속성은 자바 스크립트에서 지원되지 않습니다.
+JavaScript에서는 특성을 지원 하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-파이썬에는 이벤트 그리드 출력 바인딩을 사용할 수 없습니다.
+Python에는 Event Grid 출력 바인딩을 사용할 수 없습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Java에서 이벤트 그리드 출력 바인딩을 사용할 수 없습니다.
+Java에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
 
 ---
 
 ## <a name="configuration"></a>Configuration
 
-다음 표에서는 *function.json* 파일및 특성에서 설정한 바인딩 `EventGrid` 구성 속성에 대해 설명합니다.
+다음 표에서는 *함수. json* 파일 및 `EventGrid` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**종류** | 해당 없음 | "eventGrid"로 설정해야 합니다. |
-|**direction** | 해당 없음 | "out"으로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
-|**(이름)** | 해당 없음 | 이벤트를 나타내는 함수 코드에서 사용되는 변수 이름입니다. |
-|**토픽엔드포구리** |**토픽엔드포구리** | 와 같은 `MyTopicEndpointUri`사용자 지정 항목에 대한 URI를 포함하는 앱 설정의 이름입니다. |
-|**토픽키세팅** |**토픽키 세팅** | 사용자 지정 항목에 대한 액세스 키가 포함된 앱 설정의 이름입니다. |
+|**type** | 해당 없음 | "EventGrid"로 설정 해야 합니다. |
+|**방향도** | 해당 없음 | "out"으로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
+|**name** | 해당 없음 | 이벤트를 나타내는 함수 코드에서 사용되는 변수 이름입니다. |
+|**topicEndpointUri** |**TopicEndpointUri** | 과 `MyTopicEndpointUri`같은 사용자 지정 토픽에 대 한 URI를 포함 하는 앱 설정의 이름입니다. |
+|**topicKeySetting** |**TopicKeySetting** | 사용자 지정 항목에 대 한 액세스 키를 포함 하는 앱 설정의 이름입니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!IMPORTANT]
-> `TopicEndpointUri` 구성 속성의 값을 사용자 지정 항목의 URI가 포함된 앱 설정의 이름으로 설정해야 합니다. 이 속성에서 사용자 지정 항목의 URI를 직접 지정하지 마십시오.
+> `TopicEndpointUri` 구성 속성의 값을 사용자 지정 토픽의 URI가 포함 된 앱 설정의 이름으로 설정 했는지 확인 합니다. 이 속성에서 직접 사용자 지정 항목의 URI를 지정 하지 마십시오.
 
 ## <a name="usage"></a>사용
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-`out EventGridEvent paramName`와 같은 메서드 매개 변수를 사용하여 메시지를 보냅니다. 여러 메시지를 쓰려면 `out EventGridEvent` 대신 `ICollector<EventGridEvent>` 또는 `IAsyncCollector<EventGridEvent>`를 사용할 수 있습니다.
+와 `out EventGridEvent paramName`같은 메서드 매개 변수를 사용 하 여 메시지를 보냅니다. 여러 메시지를 쓰려면 `out EventGridEvent` 대신 `ICollector<EventGridEvent>` 또는 `IAsyncCollector<EventGridEvent>`를 사용할 수 있습니다.
 
 # <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
-`out EventGridEvent paramName`와 같은 메서드 매개 변수를 사용하여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out EventGridEvent` 대신 `ICollector<EventGridEvent>` 또는 `IAsyncCollector<EventGridEvent>`를 사용할 수 있습니다.
+와 `out EventGridEvent paramName`같은 메서드 매개 변수를 사용 하 여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out EventGridEvent` 대신 `ICollector<EventGridEvent>` 또는 `IAsyncCollector<EventGridEvent>`를 사용할 수 있습니다.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-*function.json*의 `context.bindings.<name>` `<name>` `name` 속성에 지정된 값을 사용하여 출력 이벤트에 액세스합니다.
+을 `context.bindings.<name>` 사용 하 여 출력 이벤트에 `<name>` 액세스 합니다. 여기서은 `name` *함수 json*의 속성에 지정 된 값입니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-파이썬에는 이벤트 그리드 출력 바인딩을 사용할 수 없습니다.
+Python에는 Event Grid 출력 바인딩을 사용할 수 없습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Java에서 이벤트 그리드 출력 바인딩을 사용할 수 없습니다.
+Java에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
 
 ---
 
 ## <a name="next-steps"></a>다음 단계
 
-* [이벤트 그리드 이벤트 디스패치](./functions-bindings-event-grid-trigger.md)
+* [Event Grid 이벤트 디스패치](./functions-bindings-event-grid-trigger.md)

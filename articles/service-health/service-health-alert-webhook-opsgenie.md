@@ -1,16 +1,16 @@
 ---
-title: 웹후크를 사용하여 OpsGenie를 사용하여 Azure 서비스 상태 경고 보내기
+title: 웹 후크를 사용 하 여 Azure 서비스 상태 경고를 OpsGenie로 보냅니다.
 description: 서비스 상태 이벤트에 대한 개인 설정 알림을 OpsGenie 인스턴스로 가져옵니다.
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: def12d5e7b1b93b8370cd7be61538fca53531ae1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77654140"
 ---
-# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>웹후크를 사용하여 OpsGenie를 사용하여 Azure 서비스 상태 경고 보내기
+# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>웹 후크를 사용 하 여 Azure 서비스 상태 경고를 OpsGenie로 보냅니다.
 
 이 문서에서는 웹후크를 사용하여 OpsGenie로 Azure 서비스 상태 경고를 설정하는 방법을 보여 줍니다. [OpsGenie](https://www.opsgenie.com/)의 Azure 서비스 상태 통합을 사용하여 OpsGenie에 Azure 서비스 상태 경고를 전달할 수 있습니다. OpsGenie는 경고를 승인하거나 닫을 때까지 통화 일정과 메일, SMS(문자 메시지), 전화 통화, iOS 및 Android 푸시 알림 사용 및 경고 에스컬레이션을 기반으로 적절한 통보 대상을 결정할 수 있습니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "77654140"
 1. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>HTTP POST 요청을 통해 웹후크 통합 테스트
-1. 보낼 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대한 Webhooks에서](../azure-monitor/platform/activity-log-alerts-webhook.md)서비스 상태 웹후크 페이로드예제를 찾을 수 있습니다.
+1. 보낼 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대 한 웹 후크에](../azure-monitor/platform/activity-log-alerts-webhook.md)service health webhook 페이로드 예제를 찾을 수 있습니다.
 
 1. 다음과 같이 HTTP POST 요청을 만듭니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "77654140"
 1. [OpsGenie](https://www.opsgenie.com/)로 이동하여 통합이 성공적으로 설정되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [기존 문제 관리 시스템에 대한 웹후크 알림을 구성하는](service-health-alert-webhook-guide.md)방법에 대해 알아봅니다.
-- 활동 [로그 경고 webhook 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)를 검토합니다. 
-- 서비스 [상태 알림에](../azure-monitor/platform/service-notifications.md)대해 자세히 알아봅니다.
-- [작업 그룹에](../azure-monitor/platform/action-groups.md)대해 자세히 알아보세요.
+- [기존 문제 관리 시스템에 대 한 webhook 알림을 구성](service-health-alert-webhook-guide.md)하는 방법을 알아봅니다.
+- [활동 로그 경고 webhook 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)를 검토 합니다. 
+- [서비스 상태 알림에](../azure-monitor/platform/service-notifications.md)대해 알아봅니다.
+- [작업 그룹](../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.

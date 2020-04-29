@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 0c619224201d6225d5e5c127b342f71f2f7fced9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79535355"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>스토리지 계정 장애 조치(failover)(미리 보기) 시작
@@ -27,11 +27,11 @@ ms.locfileid: "79535355"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-저장소 계정에서 계정 장애 조치를 수행하기 전에 다음 단계를 수행했는지 확인합니다.
+저장소 계정에서 계정 장애 조치 (failover)를 수행 하려면 먼저 다음 단계를 수행 했는지 확인 합니다.
 
-- 스토리지 계정이 GRS(지역 중복 스토리지) 또는 RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용하도록 구성되었는지 확인합니다. 지역 중복 저장소에 대한 자세한 내용은 [Azure 저장소 중복을](storage-redundancy.md)참조하십시오.
+- 스토리지 계정이 GRS(지역 중복 스토리지) 또는 RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용하도록 구성되었는지 확인합니다. 지역 중복 저장소에 대 한 자세한 내용은 [Azure Storage 중복성](storage-redundancy.md)을 참조 하세요.
 
 ## <a name="important-implications-of-account-failover"></a>계정 장애 조치(failover)의 중요한 의미
 
@@ -59,14 +59,14 @@ Azure Portal에서 계정 장애 조치(failover)를 시작하려면 다음 단�
 
     ![계정 장애 조치(failover)에 대한 확인 대화 상자가 표시된 스크린샷](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
-## <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용하여 계정 장애 조치(failover)를 시작하려면 먼저 6.0.1 미리 보기 모듈을 설치해야 합니다. 다음 단계에 따라 모듈을 설치합니다.
 
 1. 모든 이전 Azure PowerShell 설치를 제거합니다.
 
     - **설정**에 있는 **앱 및 기능** 설정을 사용하여 Windows에서 이전에 설치한 Azure PowerShell을 제거합니다.
-    - 에서 모든 Azure 모듈을 제거합니다. **Azure** `%Program Files%\WindowsPowerShell\Modules`
+    - 에서 모든 **Azure** 모듈을 `%Program Files%\WindowsPowerShell\Modules`제거 합니다.
 
 1. 최신 버전의 PowerShellGet이 설치되어 있는지 확인합니다. Windows PowerShell 창을 열고 다음 명령을 실행하여 최신 버전을 설치합니다.
 
@@ -82,7 +82,7 @@ PowerShell을 사용하여 계정 장애 조치(failover)를 시작하려면 먼
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. 계정 장애 조치(failover)를 지원하는 Azure 저장소 미리 보기 모듈을 설치합니다.
+1. 계정 장애 조치 (failover)를 지 원하는 Azure Storage 미리 보기 모듈을 설치 합니다.
 
     ```powershell
     Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force 
@@ -110,5 +110,5 @@ az storage account failover \ --name accountName
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Storage의 재해 복구 및 계정 장애 조치(failover)(미리 보기)](storage-disaster-recovery-guidance.md)
-- [RA-GRS를 사용하여 가용성이 높은 응용 프로그램 설계](storage-designing-ha-apps-with-ragrs.md)
-- [자습서: Blob 저장소를 사용 하 고 가용성이 높은 응용 프로그램을 빌드](../blobs/storage-create-geo-redundant-storage.md) 
+- [RA를 사용 하 여 항상 사용 가능한 응용 프로그램 디자인-GRS](storage-designing-ha-apps-with-ragrs.md)
+- [자습서: Blob storage를 사용 하 여 고가용성 응용 프로그램 빌드](../blobs/storage-create-geo-redundant-storage.md) 

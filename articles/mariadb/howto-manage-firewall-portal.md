@@ -1,5 +1,5 @@
 ---
-title: 방화벽 규칙 관리 - Azure 포털 - MariaDB용 Azure 데이터베이스
+title: 방화벽 규칙 관리-Azure Portal-Azure Database for MariaDB
 description: Azure Portal을 사용한 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리
 author: ajlam
 ms.author: andrela
@@ -7,16 +7,16 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 8be8e948595cfb93049c0d6c93f421e4902e771d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79530668"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리
-서버 수준 방화벽 규칙을 사용하여 지정된 IP 주소 또는 다양한 IP 주소에서 MariaDB Server용 Azure 데이터베이스에 대한 액세스를 관리할 수 있습니다.
+서버 수준 방화벽 규칙은 지정 된 IP 주소 또는 IP 주소 범위에서 Azure Database for MariaDB 서버에 대 한 액세스를 관리 하는 데 사용할 수 있습니다.
 
-VNet(가상 네트워크) 규칙을 사용하여 서버에 대한 액세스를 보호할 수도 있습니다. [Azure 포털을 사용하여 가상 네트워크 서비스 끝점 및 규칙을 만들고 관리하는](howto-manage-vnet-portal.md)방법에 대해 자세히 알아봅니다.
+VNet (Virtual Network) 규칙을 사용 하 여 서버에 대 한 액세스를 보호할 수도 있습니다. [Azure Portal를 사용 하 여 Virtual Network 서비스 끝점 및 규칙을 만들고 관리 하는](howto-manage-vnet-portal.md)방법에 대해 자세히 알아보세요.
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure Portal에서 서버 수준 방화벽 규칙 만들기
 
@@ -55,5 +55,5 @@ Azure의 애플리케이션에서 Azure Database for MariaDB 서버에 연결할
 * 기존 규칙을 삭제하려면 줄임표[...]를 클릭하고 **삭제**를 클릭합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
 
 ## <a name="next-steps"></a>다음 단계
- - 마찬가지로 Azure [CLI를 사용하여 MariaDB 방화벽 규칙에 대한 Azure 데이터베이스 만들기 및 관리를](howto-manage-firewall-cli.md)위해 스크립팅할 수 있습니다.
- - [Azure 포털을 사용하여 가상 네트워크 서비스 끝점 및 규칙을 만들고 관리하여](howto-manage-vnet-portal.md)서버에 대한 보안을 더욱 강화합니다.
+ - 마찬가지로 [Azure CLI를 사용 하 여 Azure Database for MariaDB 방화벽 규칙을 만들고 관리](howto-manage-firewall-cli.md)하는 스크립트를 사용할 수 있습니다.
+ - [Azure Portal를 사용 하 여 Virtual Network 서비스 끝점 및 규칙을 만들고 관리](howto-manage-vnet-portal.md)하 여 서버에 대 한 액세스를 강화 합니다.

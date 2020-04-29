@@ -1,86 +1,86 @@
 ---
-title: 다단계 웹 테스트로 모니터링 - Azure 응용 프로그램 인사이트
-description: Azure 응용 프로그램 인사이트를 사용하여 웹 응용 프로그램을 모니터링하는 다단계 웹 테스트 설정
+title: 다단계 웹 테스트를 사용 하 여 모니터링-Azure 애플리케이션 정보
+description: Azure 애플리케이션 Insights를 사용 하 여 웹 응용 프로그램을 모니터링 하도록 다단계 웹 테스트 설정
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 3b8baad127b16a1bd9d071d0c3d4df68da8c3304
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77655943"
 ---
 # <a name="multi-step-web-tests"></a>다중 단계 웹 테스트
 
-다단계 웹 테스트를 통해 기록된 URL 시퀀스 및 웹 사이트와의 상호 작용을 모니터링할 수 있습니다. 이 문서에서는 Visual Studio Enterprise를 통해 다단계 웹 테스트를 만드는 과정을 안내합니다.
+다단계 웹 테스트를 통해 웹 사이트와의 상호 작용 및 Url의 기록 된 시퀀스를 모니터링할 수 있습니다. 이 문서에서는 Visual Studio Enterprise를 사용 하 여 다단계 웹 테스트를 만드는 과정을 안내 합니다.
 
 > [!NOTE]
-> 다단계 웹 테스트는 Visual Studio 웹테스트 파일에 따라 다릅니다. 비주얼 스튜디오 2019 웹 테스트 기능을 가진 마지막 버전이 될 것이라고 [발표되었다.](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) 새로운 기능이 추가되지는 않지만 Visual Studio 2019의 웹테스트 기능은 현재 지원되고 있으며 제품의 지원 수명 주기 동안 계속 지원됩니다. Azure Monitor 제품 팀은 여기에서 다단계 가용성 테스트의 미래에 대한 질문을 [해결했습니다.](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101)  
+> 다단계 웹 테스트는 Visual Studio webtest 파일에 따라 달라 집니다. Visual Studio 2019은 웹 테스트 기능을 사용 하는 마지막 버전 이라고 [발표](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) 되었습니다. 새 기능이 추가 되는 것은 아니지만 Visual Studio 2019의 웹 테스트 기능은 현재 지원 되며 제품의 지원 수명 주기 동안 계속 지원 됩니다. Azure Monitor 제품 팀은 [여기](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101)에서 다중 단계 가용성 테스트의 미래와 관련 된 질문을 해결 했습니다.  
 
 ## <a name="pre-requisites"></a>필수 구성 요소
 
-* 비주얼 스튜디오 2017 엔터프라이즈 이상.
-* Visual Studio 웹 성능 및 로드 테스트 도구.
+* Visual Studio 2017 Enterprise 이상
+* Visual Studio 웹 성능 및 부하 테스트 도구.
 
-테스트 도구를 찾기 위한 필수 구성 조건입니다. Visual **Studio 설치 관리자** > **개별 구성 요소** > **디버깅 및 테스트** > **웹 성능 및 부하 테스트 도구를**시작합니다.
+테스트 도구 필수 구성 요소를 찾을 수 있습니다. **웹 성능 및 부하 테스트 도구**를**디버깅 하 고 테스트** > 하는 **Visual Studio 설치 관리자** > **개별 구성 요소** > 를 시작 합니다.
 
-![웹 성능 및 로드 테스트 도구에 대한 항목 옆에 있는 확인란으로 개별 구성 요소를 선택한 Visual Studio 설치 관리자 UI의 스크린샷](./media/availability-multistep/web-performance-load-testing.png)
+![웹 성능 및 부하 테스트 도구 항목 옆에 있는 확인란을 선택 하 여 개별 구성 요소가 선택 된 Visual Studio 설치 관리자 UI의 스크린샷](./media/availability-multistep/web-performance-load-testing.png)
 
 > [!NOTE]
-> 다단계 웹 테스트에는 관련 비용이 추가로 듭니다. 자세한 내용은 [공식 가격 가이드를](https://azure.microsoft.com/pricing/details/application-insights/)참조하십시오.
+> 다단계 웹 테스트에는 이와 관련 된 추가 비용이 있습니다. 자세히 알아보려면 [공식 가격 책정 가이드](https://azure.microsoft.com/pricing/details/application-insights/)를 참조 하세요.
 
 ## <a name="record-a-multi-step-web-test"></a>다단계 웹 테스트 기록 
 
 > [!WARNING]
-> 더 이상 다단계 레코더를 사용하지 않는 것이 좋습니다. 레코더는 기본적인 상호 작용을 가진 정적 HTML 페이지를 위해 개발되었으며 최신 웹 페이지에 대한 기능적 환경을 제공하지 않습니다.
+> 다중 단계 레코더를 사용 하는 것이 더 이상 권장 되지 않습니다. 이 레코더는 기본 상호 작용이 포함 된 정적 HTML 페이지에 대해 개발 되었으며 최신 웹 페이지에 대 한 기능 환경을 제공 하지 않습니다.
 
-Visual Studio 웹 테스트 생성에 대한 지침은 [공식 Visual Studio 2019 설명서를](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019)참조하십시오.
+Visual Studio 웹 테스트를 만드는 방법에 대 한 지침은 [공식 Visual studio 2019 설명서](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019)를 참조 하세요.
 
 ## <a name="upload-the-web-test"></a>웹 테스트 업로드
 
-1. 가용성 창의 응용 프로그램 인사이트 포털에서 테스트 > **테스트 유형** > **다중 단계 웹 테스트** **만들기를**선택합니다.
+1. 가용성 창의 Application Insights 포털에서 **테스트** > 테스트**형식** > **다단계 웹 테스트**만들기를 선택 합니다.
 
-2. 테스트 위치, 빈도 및 경고 매개 변수를 설정합니다.
+2. 테스트 위치, 빈도 및 경고 매개 변수를 설정 합니다.
 
-### <a name="frequency--location"></a>주파수 & 위치
+### <a name="frequency--location"></a>빈도 & 위치
 
 |설정| 설명
 |----|----|----|
 |**테스트 빈도**| 각 테스트 위치에서 테스트를 실행하는 빈도를 설정합니다. 5분에 5번의 테스트를 하는 기본 빈도로 사이트를 평균 1분마다 테스트합니다.|
-|**테스트 위치**| 당사 서버가 귀하의 URL로 웹 요청을 보내는 장소는 다음과 같습니다. 웹 사이트의 문제를 네트워크 문제와 구별할 수 있도록 **권장 테스트 위치의 최소 수는 5개입니다.** 최대 16 개의 위치를 선택할 수 있습니다.
+|**테스트 위치**| 서버가 URL로 웹 요청을 보내는 위치입니다. 웹 사이트의 문제를 네트워크 문제와 구별할 수 있도록 권장 되는 **테스트 위치의 최소 수는 5입니다** . 최대 16 개의 위치를 선택할 수 있습니다.
 
-### <a name="success-criteria"></a>성공 기준
+### <a name="success-criteria"></a>성공 조건
 
 |설정| 설명
 |----|----|----|
-| **테스트 시간 시간** |느린 응답에 대한 알림을 받으려면 이 값을 감소시킵니다. 해당 기간 내에 사이트에서 응답을 받지 못한 경우 테스트는 실패로 계산됩니다. **종속 요청 구문 분석**을 선택한 경우 모든 이미지, 스타일 파일, 스크립트 및 다른 종속된 리소스도 해당 기간 내에 받아야 합니다.|
+| **테스트 시간 제한** |느린 응답에 대한 알림을 받으려면 이 값을 감소시킵니다. 해당 기간 내에 사이트에서 응답을 받지 못한 경우 테스트는 실패로 계산됩니다. **종속 요청 구문 분석**을 선택한 경우 모든 이미지, 스타일 파일, 스크립트 및 다른 종속된 리소스도 해당 기간 내에 받아야 합니다.|
 | **HTTP 응답** | 성공으로 계산되어 반환된 상태 코드입니다. 200은 일반적인 웹 페이지의 반환을 나타내는 코드입니다.|
-| **콘텐츠 일치** | 문자열, 같은 "환영합니다!" 정확한 대/소문자 구분 일치가 모든 응답에서 발생하는지 테스트합니다. 와일드카드 없는 일반 문자열이어야 합니다. 페이지 내용이 변경되면 업데이트해야 할 수 있습니다. **콘텐츠 일치시 영어 문자만 지원됩니다.** |
+| **콘텐츠 일치** | 문자열 (예: "환영!") 정확한 대/소문자 구분 일치가 모든 응답에서 발생하는지 테스트합니다. 와일드카드 없는 일반 문자열이어야 합니다. 페이지 내용이 변경되면 업데이트해야 할 수 있습니다. **내용 일치에서는 영어 문자만 지원 됩니다.** |
 
 ### <a name="alerts"></a>경고
 
 |설정| 설명
 |----|----|----|
-|**거의 실시간(미리 보기)** | 실시간 에 가까운 경고를 사용하는 것이 좋습니다. 가용성 테스트를 만든 후 이러한 유형의 경고를 구성합니다.  |
-|**고전적인** | 더 이상 새 가용성 테스트에 클래식 경고를 사용하는 것이 좋습니다.|
-|**경고 위치 임계값**|최소 3/5 위치를 사용하는 것이 좋습니다. 경고 위치 임계값과 테스트 위치 수 간의 최적의 관계는 최소 5개의 테스트 위치가 있는 **경고 위치 테스트** = **위치 수-2입니다.**|
+|**거의 실시간 (미리 보기)** | 거의 실시간으로 경고를 사용 하는 것이 좋습니다. 이 유형의 경고 구성은 가용성 테스트를 만든 후에 수행 됩니다.  |
+|**기존** | 새 가용성 테스트에 대 한 클래식 경고를 사용 하는 것이 더 이상 권장 되지 않습니다.|
+|**경고 위치 임계값**|최소 3/5 위치를 사용하는 것이 좋습니다. 경고 위치 임계값과 테스트 위치 수 간의 최적 관계는**최소 5 개의 테스트 위치를 포함 하는 테스트 위치-2의** **경고 위치 임계값** = 번호입니다.|
 
 ## <a name="configuration"></a>Configuration
 
-### <a name="plugging-time-and-random-numbers-into-your-test"></a>테스트에 시간과 난수를 연결
+### <a name="plugging-time-and-random-numbers-into-your-test"></a>시간 및 난수를 테스트에 연결
 
 외부 피드에서 주식과 같이 시간에 따라 변하는 데이터를 가져오는 도구를 테스트한다고 가정합니다. 웹 테스트를 기록할 때 특정 시간을 사용해야 하지만 테스트 매개 변수로 StartTime 및 EndTime을 설정할 수 있습니다.
 
-![내 멋진 주식 응용 프로그램 스크린 샷](./media/availability-multistep/app-insights-72webtest-parameters.png)
+![내 놀라운 재고 앱 스크린샷](./media/availability-multistep/app-insights-72webtest-parameters.png)
 
 테스트를 실행하면 EndTime이 항상 현재 시간이 되고 StartTime은 15분이 됩니다.
 
-웹 테스트 날짜 시간 플러그인은 매개 변수화 시간을 처리하는 방법을 제공합니다.
+웹 테스트 날짜 시간 플러그 인은 매개 변수화 된 시간을 처리 하는 방법을 제공 합니다.
 
 1. 원하는 각 가변 매개 변수 값에 대한 웹 테스트 플러그 인을 추가합니다. 웹 테스트 도구 모음에서 **웹 테스트 플러그 인 추가**를 선택합니다.
     
-    ![웹 테스트 플러그인 추가](./media/availability-multistep/app-insights-72webtest-plugin-name.png)
+    ![웹 테스트 플러그 인 추가](./media/availability-multistep/app-insights-72webtest-plugin-name.png)
     
     이 예에서는 날짜 시간 플러그인의 두 인스턴스를 사용합니다. 한 인스턴스는 "15분 전"이고 다른 하나는 "지금"입니다.
 
@@ -100,22 +100,22 @@ Visual Studio 웹 테스트 생성에 대한 지침은 [공식 Visual Studio 201
 
 모든 경우에 테스트하기 위해 애플리케이션에 계정을 만들어야 합니다. 웹 테스트가 실제 사용자에 영향을 줄 가능성이 발생하지 않도록 가능하면 이 테스트 계정의 사용 권한을 제한합니다.
 
-**간단한 사용자 이름 및 암호** 일반적인 방법으로 웹 테스트를 기록합니다. 우선 쿠키를 삭제합니다.
+**간단한 사용자 이름 및 암호** 일반적인 방법으로 웹 테스트를 기록 합니다. 우선 쿠키를 삭제합니다.
 
 **SAML 인증**
 
-|속성 이름| 설명|
+|속성 이름| Description|
 |----|-----|
-| 청중 우리 | SAML 토큰의 잠재 고객 URI입니다.  ACS 네임스페이스 및 호스트 이름을 포함하여 ACS(액세스 제어 서비스)에 대한 URI입니다. |
-| 인증서 암호 | 포함된 개인 키에 대한 액세스 권한을 부여하는 클라이언트 인증서의 암호입니다. |
-| 클라이언트 인증서  | Base64 인코딩 된 형식의 개인 키가 있는 클라이언트 인증서 값입니다. |
-| 이름 식별자 | 토큰의 이름 식별자 |
-| 다음 날짜까지 | 토큰이 유효한 기간입니다.  기본값은 5분입니다. |
-| 이전이 아님 | 과거에 생성된 토큰의 기간은 유효합니다(시간 왜곡을 해결하기 위해).  기본값은 (음수) 5분입니다. |
-| 대상 컨텍스트 매개 변수 이름 | 생성된 어설션을 수신할 컨텍스트 매개 변수입니다. |
+| 대상 Uri | SAML 토큰에 대 한 대상 URI입니다.  Acs 네임 스페이스 및 호스트 이름을 포함 하 여 ACS (Access Control Service)에 대 한 URI입니다. |
+| 인증서 암호 | 포함 된 개인 키에 대 한 액세스 권한을 부여 하는 클라이언트 인증서의 암호입니다. |
+| 클라이언트 인증서  | Base64 인코딩 형식의 개인 키가 있는 클라이언트 인증서 값입니다. |
+| 이름 식별자 | 토큰에 대 한 이름 식별자입니다. |
+| 다음 날짜까지 | 토큰을 사용할 timespan입니다.  기본값은 5분입니다. |
+| 이전이 아님 | 이전에 만든 토큰이 유효 하 게 되는 시간 범위는 시간을 기울입니다.  기본값은 (음수) 5 분입니다. |
+| 대상 컨텍스트 매개 변수 이름 | 생성 된 어설션을 수신 하는 컨텍스트 매개 변수입니다. |
 
 
-**클라이언트 비밀** 앱에 클라이언트 보안 이 포함된 로그인 경로가 있는 경우 해당 경로를 사용합니다. AAD(Azure Active Directory)는 클라이언트 암호 로그인을 제공하는 서비스의 예입니다. AAD에서 클라이언트 암호는 앱 키입니다.
+**클라이언트 암호** 앱에 클라이언트 암호를 포함 하는 로그인 경로가 있는 경우 해당 경로를 사용 합니다. AAD(Azure Active Directory)는 클라이언트 암호 로그인을 제공하는 서비스의 예입니다. AAD에서 클라이언트 암호는 앱 키입니다.
 
 앱 키를 사용하는 Azure 웹앱의 샘플 웹 테스트는 다음과 같습니다.
 
@@ -124,7 +124,7 @@ Visual Studio 웹 테스트 생성에 대한 지침은 [공식 Visual Studio 201
 클라이언트 암호(AppKey)를 사용하여 AAD에서 토큰을 가져옵니다.
 응답에서 전달자 토큰을 추출합니다.
 인증 헤더에서 전달자 토큰을 사용하여 API를 호출합니다.
-웹 테스트가 실제 클라이언트인지 확인합니다( 즉, AAD에 자체 앱이 있는지) 및 clientId + 앱 키를 사용합니다. 테스트 대상 서비스는 AAD에 고유한 앱을 가집니다. 이 앱의 appID URI는 리소스 필드의 웹 테스트에 반영됩니다.
+웹 테스트가 실제 클라이언트 인지 확인 합니다. 즉, AAD에서 자체 앱을 포함 하 고 해당 clientId + 앱 키를 사용 합니다. 테스트 대상 서비스는 AAD에 고유한 앱을 가집니다. 이 앱의 appID URI는 리소스 필드의 웹 테스트에 반영됩니다.
 
 ### <a name="open-authentication"></a>공개 인증
 공개 인증의 예는 Microsoft 또는 Google 계정으로 로그인하는 것입니다. OAuth를 사용하는 많은 앱은 클라이언트 암호 대안을 제공하므로 첫 번째 방법으로 해당 가능성을 조사해야 합니다.
@@ -144,4 +144,4 @@ Visual Studio Online을 사용하여 웹 테스트 기록
 ## <a name="next-steps"></a>다음 단계
 
 * [가용성 경고](availability-alerts.md)
-* [Url 핑 웹 테스트](monitor-web-app-availability.md)
+* [Url ping 웹 테스트](monitor-web-app-availability.md)

@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.openlocfilehash: cffa5677c5531f3887639c049998523d7d07586a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79455565"
 ---
 # <a name="check-resource-usage-against-limits"></a>제한에 대해 리소스 사용량 확인
@@ -25,7 +25,7 @@ ms.locfileid: "79455565"
 
 ## <a name="azure-portal"></a>Azure Portal
 
-1. Azure [포털에](https://portal.azure.com)로그인합니다.
+1. Azure [portal](https://portal.azure.com)에 로그인 합니다.
 2. Azure Portal의 왼쪽 위 모서리에서 **모든 서비스**를 선택합니다.
 3. **필터** 상자에 *구독*을 입력합니다. 검색 결과에 **구독**이 나타나면 이를 선택합니다.
 4. 사용량 정보를 보려는 구독의 이름을 선택합니다.
@@ -38,7 +38,7 @@ ms.locfileid: "79455565"
 
      다음 그림의 예제에서는 미국 동부에 배포된 리소스가 하나 이상 있는 모든 네트워크 리소스를 보여 줍니다.
 
-       ![사용 데이터 보기](./media/check-usage-against-limits/view-usage.png)
+       ![사용 현황 데이터 보기](./media/check-usage-against-limits/view-usage.png)
 
      열 머리글을 선택하여 열을 정렬할 수 있습니다. 표시된 제한은 구독에 대한 제한입니다. 기본 제한을 늘려야 할 경우 **요청 증가**를 선택한 다음, 지원 요청을 완료하고 제출합니다. 모든 리소스에는 Azure [제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits)에 나열된 최대 한도가 있습니다. 현재 제한이 이미 최대 수인 경우에는 제한을 늘릴 수 없습니다.
 
@@ -46,9 +46,9 @@ ms.locfileid: "79455565"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행하는 경우 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행하는 경우 `Login-AzAccount`를 실행하여 Azure에 로그인해야 합니다.
+[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 하는 경우에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행하는 경우 `Login-AzAccount`를 실행하여 Azure에 로그인해야 합니다.
 
-[Get-AzNetworkUsage를](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage)통해 한도에 대한 사용량을 확인합니다. 다음 예제에서는 미국 동부 위치에 배포된 리소스가 하나 이상 있는 리소스에 대한 사용량을 가져옵니다.
+[AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage)를 사용 하 여 제한에 대 한 사용량을 확인 하세요. 다음 예제에서는 미국 동부 위치에 배포된 리소스가 하나 이상 있는 리소스에 대한 사용량을 가져옵니다.
 
 ```azurepowershell-interactive
 Get-AzNetworkUsage `

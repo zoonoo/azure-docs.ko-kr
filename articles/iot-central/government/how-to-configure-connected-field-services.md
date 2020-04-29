@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 7c708268eaeade1cfb625c73ff8758a1941ff5b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80157452"
 ---
 # <a name="build-end-to-end-solution-with-azure-iot-central-and-dynamics-365-field-service"></a>Azure IoT Central 및 Dynamics 365 Field Service를 사용하여 종단 간 솔루션 빌드 
@@ -21,7 +21,7 @@ ms.locfileid: "80157452"
 빌더는 Azure IoT Central 애플리케이션을 다른 비즈니스 시스템에 연결할 수 있습니다. 
 
 
-예를 들어, 연결된 폐기물 관리 솔루션에서 쓰레기 수집 트럭의 배차를 최적화할 수 있습니다. 최적화는 연결된 쓰레기통의 IoT 센서 데이터를 기반으로 수행할 수 있습니다. [IoT Central 에 연결된 폐기물 관리 응용 프로그램에서](./tutorial-connected-waste-management.md) 규칙 및 작업을 구성하고 Dynamics Field Service에서 경고 만들기를 트리거하도록 설정할 수 있습니다. 이 시나리오는 애플리케이션 및 서비스에서 워크플로를 자동화하기 위해 IoT Central에서 직접 구성할 수 있는 Microsoft Flow를 사용하여 수행됩니다. 또한 Field Service의 서비스 활동에 따라, 정보를 Azure IoT Central로 다시 보낼 수 있습니다. 
+예를 들어, 연결된 폐기물 관리 솔루션에서 쓰레기 수집 트럭의 배차를 최적화할 수 있습니다. 최적화는 연결 된 폐기물 계급의 IoT 센서 데이터를 기반으로 수행 될 수 있습니다. [IoT Central 연결 된 폐기물 관리 응용 프로그램](./tutorial-connected-waste-management.md) 에서 규칙 및 작업을 구성 하 고, Dynamics Field Service에서 경고 만들기 트리거로 설정할 수 있습니다. 이 시나리오는 애플리케이션 및 서비스에서 워크플로를 자동화하기 위해 IoT Central에서 직접 구성할 수 있는 Microsoft Flow를 사용하여 수행됩니다. 또한 Field Service의 서비스 활동에 따라, 정보를 Azure IoT Central로 다시 보낼 수 있습니다. 
 
 ## <a name="how-to-connect-your-azure-iot-central-application-with-dynamics-365-field-services"></a>Dynamics 365 Field Service에 Azure IoT Central 애플리케이션을 연결하는 방법 
 
