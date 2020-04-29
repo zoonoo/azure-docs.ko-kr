@@ -4,10 +4,10 @@ description: Azure 위임 리소스 관리를 사용하는 서비스 공급자�
 ms.date: 01/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 0d4b3187066754e8a549f029623762df539b30b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76543429"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>고객과 위임된 리소스 보기 및 관리
@@ -16,9 +16,9 @@ ms.locfileid: "76543429"
 
 Azure Portal의 **내 고객** 페이지에 액세스하려면 **모든 서비스**를 선택한 다음, **내 고객**을 검색하여 선택합니다. Azure Portal 맨 위에 있는 검색 상자에 "내 고객"을 입력하여 찾을 수도 있습니다.
 
-**내 고객** 페이지의 상위 **고객** 섹션에는 구독 또는 리소스 그룹을 위임한 고객에 대한 정보만 표시됩니다. 다른 고객과 작업하는 경우(예: [클라우드 솔루션 공급자 프로그램)](https://docs.microsoft.com/partner-center/csp-overview)Azure 위임 리소스 관리에 대한 리소스를 온보딩하지 않는 한 **고객** 섹션에서 해당 고객에 대한 정보가 표시되지 않습니다.
+**내 고객** 페이지의 상위 **고객** 섹션에는 위임 된 구독 또는 리소스 그룹이 있는 고객에 대 한 정보만 표시 됩니다. 다른 고객과 작업 하는 경우 (예: [클라우드 솔루션 공급자 프로그램](https://docs.microsoft.com/partner-center/csp-overview)을 통해) Azure 위임 된 리소스 관리에 대 한 리소스를 등록 하지 않는 한 **고객** 섹션에서 해당 고객에 대 한 정보를 볼 수 없습니다.
 
-페이지 아래쪽에 클라우드 솔루션 **공급자(미리 보기)라는** 별도의 섹션에는 [Microsoft 고객 계약(MCA)에 서명하고](https://docs.microsoft.com/partner-center/confirm-customer-agreement) Azure [계획하에](https://docs.microsoft.com/partner-center/azure-plan-get-started)있는 CSP 고객에 대한 청구 정보 및 리소스가 표시됩니다. 자세한 내용은 [Microsoft 파트너 계약 청구 계정 시작](../../billing/mpa-overview.md)을 참조하세요. 이러한 CSP 고객은 Azure 위임 리소스 관리를 위해 온보딩했는지 여부에 관계없이 이 섹션에 나타납니다. 마찬가지로 CSP 고객은 Azure 위임 리소스 관리를 위해 내 **고객의** **클라우드 솔루션 공급자(미리 보기)** 섹션에 나타나지 않아도 됩니다.
+페이지의 아래쪽에서 **클라우드 솔루션 공급자 (미리 보기)** 라는 별도의 섹션에는 [Microsoft MCA (고객 계약)에 서명](https://docs.microsoft.com/partner-center/confirm-customer-agreement) 하 고 [Azure 요금제](https://docs.microsoft.com/partner-center/azure-plan-get-started)에 있는 CSP 고객에 대 한 청구 정보 및 리소스가 표시 됩니다. 자세한 내용은 [Microsoft 파트너 계약 청구 계정 시작](../../billing/mpa-overview.md)을 참조하세요. 이러한 CSP 고객은 Azure 위임 된 리소스 관리를 위해 등록 여부에 관계 없이이 섹션에 표시 됩니다. 마찬가지로, CSP 고객은 Azure 위임 된 리소스 관리를 위해 등록 하기 위해 **고객** 의 **클라우드 솔루션 공급자 (미리 보기)** 섹션에 표시 하지 않아도 됩니다.
 
 > [!NOTE]
 > 고객은 Azure Portal의 **서비스 공급자**로 이동하여 서비스 공급자에 대한 정보를 볼 수 있습니다. 자세한 내용은 [서비스 공급자 보기 및 관리](view-manage-service-providers.md)를 참조하세요.
@@ -52,12 +52,12 @@ Azure Portal의 **내 고객** 페이지에 액세스하려면 **모든 서비�
 
 ### <a name="remove-delegations"></a>위임 제거
 
-Azure 위임리소스 관리를 위해 고객을 온보딩할 때 [관리되는 서비스 등록 할당 삭제 역할에](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) 사용자를 포함시킨 경우 해당 사용자는 해당 위임의 행에 나타나는 휴지통 수 아이콘을 선택하여 위임을 제거할 수 있습니다. 이렇게 하면 서비스 공급자의 테넌트의 사용자는 이전에 위임된 리소스에 액세스할 수 없습니다.
+Azure 위임 된 리소스 관리를 위해 고객을 온 보 딩 할 때 [관리 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) 을 가진 사용자를 포함 한 경우 해당 사용자는 해당 위임에 대 한 행에 표시 되는 휴지통 아이콘을 선택 하 여 위임을 제거할 수 있습니다. 이렇게 하면 서비스 공급자의 테 넌 트에 있는 사용자가 이전에 위임 된 리소스에 액세스할 수 없게 됩니다.
 
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>위임된 구독의 컨텍스트에서 작업
 
-작업 중인 디렉터리를 전환하지 않고 Azure Portal 내의 위임된 구독 컨텍스트에서 직접 작업할 수 있습니다. 이렇게 하려면 다음을 수행합니다.
+작업 중인 디렉터리를 전환하지 않고 Azure Portal 내의 위임된 구독 컨텍스트에서 직접 작업할 수 있습니다. 확인 방법은 다음과 같습니다.
 
 1. Azure Portal 위쪽에 있는 **디렉터리 + 구독** 아이콘을 선택합니다.
 2. **전역구독** 필터에서 위임된 구독에 대한 확인란만 선택되어 있는지 확인합니다. **현재 + 위임된 디렉터리** 드롭다운 상자를 사용하여 특정 디렉터리 내의 구독만 표시할 수 있습니다. (디렉터리가 로그인된 디렉터리로 변경되므로 **디렉터리 전환**을 사용하지 마세요.)

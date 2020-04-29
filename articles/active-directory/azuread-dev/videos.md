@@ -1,6 +1,6 @@
 ---
-title: Azure ADAL에서 MSAL 마이그레이션 비디오 | Azure
-description: Azure Active Directory 개발자 플랫폼에서 Microsoft ID 플랫폼으로 마이그레이션하는 데 도움이 되는 비디오
+title: Azure ADAL에서 MSAL 마이그레이션 비디오 | Microsoft
+description: Azure Active Directory developer platform에서 Microsoft id 플랫폼으로 마이그레이션하는 데 도움이 되는 비디오
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,23 +14,23 @@ ms.custom: aaddev
 ms.reviewer: celested
 titleSuffix: Microsoft identity platform
 ms.openlocfilehash: e71f555f7a9cefef3aeada79031db3a07e3db49a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77202061"
 ---
-# <a name="azure-active-directory-developer-platform-videos"></a>Azure Active Directory 개발자 플랫폼 비디오
+# <a name="azure-active-directory-developer-platform-videos"></a>Azure Active Directory developer platform 비디오
 
-새 Microsoft ID 플랫폼과 Azure Active Directory(Azure AD) 개발자 플랫폼에서 마이그레이션하는 방법에 대해 알아봅니다. 동영상은 일반적으로 1-2분 입니다.
+새 Microsoft id 플랫폼 및 Azure Active Directory (Azure AD) 개발자 플랫폼에서 해당 플랫폼으로 마이그레이션하는 방법에 대해 알아봅니다. 비디오는 일반적으로 1-2 분 길이입니다.
 
-## <a name="migrate-from-v10-to-v20"></a>v1.0에서 v2.0으로 마이그레이션
+## <a name="migrate-from-v10-to-v20"></a>V1.0에서 v 2.0으로 마이그레이션
 
-**Microsoft ID 플랫폼의 최신 버전으로 마이그레이션하는 방법에 대해 알아보기**
+**최신 버전의 Microsoft id 플랫폼으로 마이그레이션하는 방법에 대해 알아봅니다.**
 
 :::row:::
     :::column:::
-        새로운 Microsoft ID 플랫폼 개요
+        새 Microsoft id 플랫폼 개요
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
@@ -44,13 +44,13 @@ ms.locfileid: "77202061"
 :::row-end:::
 :::row:::
     :::column:::
-        끝점 및 v2.0으로 이동의 이점
+        V 2.0으로 전환 하는 경우의 이점 및 끝점
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
      :::column:::
-        ADAL 코드베이스를 MSAL로 마이그레이션
+        ADAL 코드 베이스를 MSAL으로 마이그레이션
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
@@ -58,13 +58,13 @@ ms.locfileid: "77202061"
 :::row-end:::
 :::row:::
     :::column:::
-        ADAL에서 MSAL로 마이그레이션하는 이유
+        ADAL에서 MSAL으로 마이그레이션하는 이유
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
     :::column:::
-        아달보다 MSAL의 장점
+        ADAL에 대 한 MSAL의 이점
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/q-TDszj2O-4]
@@ -73,4 +73,4 @@ ms.locfileid: "77202061"
 
 ## <a name="next-steps"></a>다음 단계
 
-새로운 Microsoft [ID 플랫폼에](https://docs.microsoft.com/azure/active-directory/develop) 대해 알아보기
+새 [Microsoft id 플랫폼](https://docs.microsoft.com/azure/active-directory/develop) 에 대 한 자세한 정보

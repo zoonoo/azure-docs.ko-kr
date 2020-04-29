@@ -1,6 +1,6 @@
 ---
 title: Azure DevTest Labs에서 랩의 할당량 및 한도 규모 조정 | Microsoft Docs
-description: 이 문서에서는 Azure DevTest 랩에서 랩을 확장하는 방법에 대해 설명합니다. 사용량 할당량 및 한도를 확인하고 증가를 요청합니다.
+description: 이 문서에서는 Azure DevTest Labs에서 랩을 규모를 조정 하는 방법을 설명 합니다. 사용 할당량 및 제한을 확인 하 고 증가를 요청 합니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: f3299c24bc751263ccd284a4fddb492fba5dd1e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76761188"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>DevTest Labs의 할당량 및 한도 규모 조정
@@ -35,10 +35,10 @@ DevTest Labs에서 작업할 때 일부 Azure 리소스에 대한 특정 기본 
 ## <a name="view-your-usage-and-quotas"></a>사용량 및 할당량 보기
 다음 단계에서는 특정 Azure 리소스에 대한 구독의 현재 할당량 그리고 사용한 각 할당량의 비율을 보는 방법을 보여 줍니다.
 
-1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. **추가 서비스**를 선택한 후 목록에서 **청구**를 선택합니다.
 1. 청구 블레이드에서 구독을 선택합니다.
-4. **사용 + 할당량을 선택합니다.**
+4. **사용량 + 할당량**을 선택 합니다.
 
    ![사용량 및 할당량 단추](./media/devtest-lab-scale-lab/devtestlab-usage-and-quotas.png)
 
@@ -67,4 +67,4 @@ Azure 지원에 할당량 증가를 요청하는 자세한 방법은 [Azure 한�
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### <a name="next-steps"></a>다음 단계
-* [DevTest 랩 Azure 리소스 관리자 빠른 시작 템플릿 갤러리를](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)탐색합니다.
+* [DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)를 탐색 합니다.

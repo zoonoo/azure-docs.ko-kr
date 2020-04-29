@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
 ms.openlocfilehash: 2c335168683212337876c963a7cfdb441d0ac69a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76845568"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor 자동 크기 조정 공용 메트릭
@@ -36,7 +36,7 @@ VM 규모 집합을 사용 중인데 특정 메트릭이 목록에 표시되지 
 - [Resource Manager 기반 Windows 및 Linux VM용 호스트 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
 - [Resource Manager 기반 Windows 및 Linux VM Scale Sets용 호스트 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
-### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>리소스 관리자 기반 Windows VM에 대한 게스트 OS 메트릭
+### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>리소스 관리자 기반 Windows Vm에 대 한 게스트 OS 메트릭
 Azure에서 VM을 만들 때 진단 확장을 사용하여 진단을 사용하도록 설정합니다. 진단 확장을 사용하여 VM 내에서 가져온 메트릭 집합을 내보냅니다. 즉, 기본적으로 내보내지 않도록 메트릭의 자동 크기 조정을 해제할 수 있습니다.
 
 PowerShell에서 다음 명령을 사용하여 메트릭 목록을 생성할 수 있습니다.
@@ -71,9 +71,9 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \PhysicalDisk(_Total)\Disk Bytes/sec |초당 바이트 수 |
 | \PhysicalDisk(_Total)\Disk Read Bytes/sec |초당 바이트 수 |
 | \PhysicalDisk(_Total)\Disk Write Bytes/sec |초당 바이트 수 |
-| \물리적 디스크(_Total)\평균 디스크 큐 길이 |개수 |
-| \PhysicalDisk(_Total)\평균. 디스크 읽기 큐 길이 |개수 |
-| \PhysicalDisk(_Total)\평균. 디스크 쓰기 큐 길이 |개수 |
+| \PhysicalDisk (_Total) \Avg. Disk Queue Length |개수 |
+| \PhysicalDisk (_Total) \Avg. Disk 읽기 큐 길이 |개수 |
+| \PhysicalDisk (_Total) \Avg. Disk Write Queue Length |개수 |
 | \LogicalDisk(_Total)\% 사용 가능한 공간 |백분율 |
 | \LogicalDisk(_Total)\Free Megabytes |개수 |
 
@@ -129,8 +129,8 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \NetworkInterface\TotalTxErrors |개수 |
 | \NetworkInterface\TotalCollisions |개수 |
 
-## <a name="commonly-used-app-service-server-farm-metrics"></a>일반적으로 사용되는 앱 서비스(서버 팜) 메트릭
-Http 큐 길이와 같이 공용 웹 서버 메트릭을 기반으로 자동 크기 조정을 수행할 수도 있습니다. 메트릭 이름은 **HttpQueueLength**입니다.  다음 섹션에서는 사용 가능한 서버 팜(App Service) 메트릭을 나열합니다.
+## <a name="commonly-used-app-service-server-farm-metrics"></a>일반적으로 사용 되는 App Service (서버 팜) 메트릭
+Http 큐 길이와 같이 공용 웹 서버 메트릭을 기반으로 자동 크기 조정을 수행할 수도 있습니다. 메트릭 이름은 **HttpQueueLength**입니다.  다음 섹션에서는 사용 가능한 App Service (서버 팜) 메트릭을 나열 합니다.
 
 ### <a name="web-apps-metrics"></a>Web Apps 메트릭
 PowerShell에서 다음 명령을 사용하여 Web Apps 메트릭 목록을 생성할 수 있습니다.

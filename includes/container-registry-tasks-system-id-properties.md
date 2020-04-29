@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: container-registry
 author: dlepow
@@ -9,13 +9,13 @@ ms.date: 07/12/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 700dbfde3be2f24eb57acbdeb9d2841ef2bdfe44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77112297"
 ---
-명령 출력에서 섹션은 태스크에 `identity` 설정된 `SystemAssigned` 형식의 ID를 보여 주십습니다. `principalId` 는 작업 ID의 주요 ID입니다.
+명령 출력에서 섹션은 `identity` 작업에 설정 된 형식의 `SystemAssigned` id를 보여 줍니다. 는 `principalId` 태스크 id의 보안 주체 id입니다.
 
 ```console
 [...]
@@ -28,7 +28,7 @@ ms.locfileid: "77112297"
   "location": "eastus",
 [...]
 ``` 
-az [acr 태스크 쇼][az-acr-task-show] 명령을 사용하여 principalId를 변수에 저장하고 이후 명령에서 사용합니다. 다음 명령에서 작업 및 레지스트리의 이름을 대체합니다.
+[Az acr task show][az-acr-task-show] 명령을 사용 하 여 나중에 명령에서 사용할 principalid를 변수에 저장 합니다. 다음 명령에서 작업 및 레지스트리 이름을 대체 합니다.
 
 ```azurecli
 principalID=$(az acr task show --name mytask --registry myregistry --query identity.principalId --output tsv)

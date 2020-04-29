@@ -5,10 +5,10 @@ ms.service: expressroute
 ms.topic: include
 ms.author: cherylmc
 ms.openlocfilehash: b6ab3e80c7a27263039de3d371adea3d49ddfcc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75437007"
 ---
 |  | **프라이빗 피어링** | **Microsoft 피어링** |  **공용 피어링**(새 회로에 사용되지 않음) |
@@ -18,4 +18,4 @@ ms.locfileid: "75437007"
 | **AS 번호 요구 사항** |프라이빗 및 공용 AS 번호. 공용 AS 번호를 사용하려는 경우 해당 번호를 소유하고 있어야 합니다. |프라이빗 및 공용 AS 번호. 하지만, 공용 IP 주소의 소유권을 증명해야 합니다. |프라이빗 및 공용 AS 번호. 하지만, 공용 IP 주소의 소유권을 증명해야 합니다. |
 | **지원되는 IP 프로토콜**| IPv4 |  IPv4, IPv6 | IPv4 |
 | **라우팅 인터페이스 IP 주소** |RFC1918 및 공용 IP 주소 |라우팅 레지스트리의 사용자에게 등록된 공용 IP 주소. |라우팅 레지스트리의 사용자에게 등록된 공용 IP 주소. |
-| **MD5 해시 지원** |yes |yes |yes |
+| **MD5 해시 지원** |예 |예 |예 |

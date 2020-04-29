@@ -1,6 +1,6 @@
 ---
 title: 개발자를 위한 Azure DevTest Labs 사용 | Microsoft Docs
-description: 개발자 요구 사항을 충족하는 데 사용할 수 있는 Azure DevTest Labs 기능및 랩을 설정하기 위해 수행할 수 있는 자세한 단계에 대해 알아봅니다.
+description: 개발자 요구 사항을 충족 하는 데 사용할 수 있는 Azure DevTest Labs 기능과 랩을 설정 하기 위해 수행할 수 있는 자세한 단계에 대해 알아봅니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: ae44696f62a085bf1e798f0915e2bd1e27c3a78f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76760150"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>개발자를 위한 Azure DevTest Labs 사용
@@ -41,7 +41,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | Task | 학습 내용 |
+   | 작업 | 학습 내용 |
    | --- | --- |
    | [Azure DevTest Labs에서 랩 만들기](devtest-lab-create-lab.md) |Azure Portal의 Azure DevTest Labs에서 랩을 만드는 방법을 알아봅니다. |
 2. **바로 사용할 수 있는 마켓플레이스 이미지 및 사용자 지정 이미지를 사용하여 몇 분 만에 VM 만들기** 
@@ -52,7 +52,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
   
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | Task | 학습 내용 |
+   | 작업 | 학습 내용 |
    | --- | --- |
    | [Azure Marketplace 이미지 구성](devtest-lab-configure-marketplace-images.md) |개발자용으로 원하는 이미지만 선택할 수 있도록 Azure Marketplace 이미지를 허용 목록에 추가할 수 있는 방법을 알아봅니다.|
    | [사용자 지정 이미지 만들기](devtest-lab-create-template.md) |개발자가 사용자 지정 이미지를 사용하여 신속하게 VM을 만들 수 있도록 필요한 소프트웨어를 미리 설치하여 사용자 지정 이미지를 만듭니다.|
@@ -64,7 +64,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | Task | 학습 내용 |
+   | 작업 | 학습 내용 |
    | --- | --- |
    | [VM을 만드는 DevTest Labs 수식 관리](devtest-lab-manage-formulas.md) |이미지, VM 크기(CPU와 RAM의 조합) 및 가상 네트워크를 선택하여 수식을 만들 수 있는 방법을 알아봅니다.|
 
@@ -80,7 +80,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
 
    다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | Task | 학습 내용 |
+   | 작업 | 학습 내용 |
    | --- | --- |
    | [DevTest Lab VM에 대한 사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md) |랩에서 가상 머신에 대한 사용자 고유의 사용자 지정 아티팩트를 만듭니다.|
    | [Azure DevTest Labs에서 사용하기 위한 사용자 지정 아티팩트 및 Azure Resource Manager 템플릿을 저장할 Git 리포지토리 추가](devtest-lab-add-artifact-repo.md) |사용자 지정 아티팩트를 자체의 프라이빗 Git 리포지토리에 저장하는 방법을 알아봅니다.|
@@ -95,7 +95,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | Task | 학습 내용 |
+   | 작업 | 학습 내용 |
    | --- | --- |
    | [랩 정책 정의](devtest-lab-set-lab-policy.md) |랩에 정책을 설정하여 비용을 제어합니다. |
    | [PowerShell 스크립트를 사용하여 모든 랩 VM 삭제](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |개발이 완료되면 한 번에 모든 랩을 삭제합니다.|
@@ -108,7 +108,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | Task | 학습 내용 |
+   | 작업 | 학습 내용 |
    | --- | --- |
    | [Azure DevTest Labs에서 가상 네트워크 구성](devtest-lab-configure-vnet.md) |Azure Portal을 사용하여 Azure DevTest Labs에서 가상 네트워크를 구성하는 방법을 알아봅니다.|
 
@@ -118,7 +118,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | Task | 학습 내용 |
+   | 작업 | 학습 내용 |
    | --- | --- |
    | [Azure DevTest Labs에서 랩에 개발자 추가](devtest-lab-add-devtest-user.md) |랩에 개발자를 추가하려면 Azure Portal을 사용합니다.|
    | [PowerShell 스크립트를 사용하여 랩에 개발자 추가](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |PowerShell을 사용하여 랩에 개발자를 자동으로 추가합니다. |
@@ -130,7 +130,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | Task | 학습 내용 |
+   | 작업 | 학습 내용 |
    | --- | --- |
    | [Resource Manager 템플릿을 사용하여 랩 만들기](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Resource Manager 템플릿을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. |
 

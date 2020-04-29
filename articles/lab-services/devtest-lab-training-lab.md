@@ -1,6 +1,6 @@
 ---
 title: 학습에 Azure DevTest Labs 사용 | Microsoft 문서
-description: 이 문서에서는 Azure DevTest Labs에서 학습을 위한 랩을 설정하기 위해 수행할 수 있는 자세한 단계를 제공합니다.
+description: 이 문서에서는 Azure DevTest Labs 학습을 위한 랩을 설정 하기 위해 수행할 수 있는 자세한 단계를 제공 합니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 8f0a930d6e3c04548ade71f6d4e3294114eb60a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76759980"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>학습에 Azure DevTest Labs 사용
@@ -43,7 +43,7 @@ Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필�
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | Task | 학습 내용 |
+   | 작업 | 학습 내용 |
    | --- | --- |
    | [Azure DevTest Labs에서 랩 만들기](devtest-lab-create-lab.md) |Azure Portal의 Azure DevTest Labs에서 랩을 만드는 방법을 알아봅니다. |
 2. **바로 사용할 수 있는 마켓플레이스 이미지 및 사용자 지정 이미지를 사용하여 몇 분 만에 학습 VM 만들기** 
@@ -52,7 +52,7 @@ Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필�
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | Task | 학습 내용 |
+   | 작업 | 학습 내용 |
    | --- | --- |
    | [Azure Marketplace 이미지 구성](devtest-lab-configure-marketplace-images.md) |학습에 필요한 이미지만 선택할 수 있도록 Azure Marketplace 이미지를 허용 목록에 추가할 수 있는 방법을 알아봅니다. |
    | [사용자 지정 이미지 만들기](devtest-lab-create-template.md) |실습생이 사용자 지정 이미지를 사용하여 신속하게 VM을 만들 수 있도록 학습에 필요한 소프트웨어를 미리 설치하여 사용자 지정 이미지를 만듭니다. |
@@ -62,7 +62,7 @@ Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필�
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | Task | 학습 내용 |
+   | 작업 | 학습 내용 |
    | --- | --- |
    | [VM을 만드는 DevTest Labs 수식 관리](devtest-lab-manage-formulas.md) |이미지, VM 크기(CPU와 RAM의 조합) 및 가상 네트워크를 선택하여 수식을 만들 수 있는 방법을 알아봅니다. |
 4. **비용 제어**
@@ -75,7 +75,7 @@ Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필�
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | Task | 학습 내용 |
+   | 작업 | 학습 내용 |
    | --- | --- |
    | [랩 정책 정의](devtest-lab-set-lab-policy.md) |랩에 정책을 설정하여 비용을 제어합니다. |
    | [PowerShell 스크립트를 사용하여 모든 랩 VM 삭제](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |학습이 완료되면 한 번에 모든 랩을 삭제합니다. |
@@ -85,7 +85,7 @@ Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필�
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | Task | 학습 내용 |
+   | 작업 | 학습 내용 |
    | --- | --- |
    | [Azure DevTest Labs에서 랩에 실습생 추가](devtest-lab-add-devtest-user.md) |Azure Portal을 사용하여 학습 랩에 실습생을 추가합니다. |
    | [PowerShell 스크립트를 사용하여 랩에 실습생 추가](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |PowerShell을 사용하여 학습 랩에 자동으로 실습생을 추가합니다. |
@@ -96,7 +96,7 @@ Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필�
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | Task | 학습 내용 |
+   | 작업 | 학습 내용 |
    | --- | --- |
    | [Resource Manager 템플릿을 사용하여 랩 만들기](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Resource Manager 템플릿을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. |
 

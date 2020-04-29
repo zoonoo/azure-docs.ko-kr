@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: c2ed33aea77b5478e8d17f6bd0213ef3e778b806
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67182540"
 ---
 ## <a name="transfer-local-files-to-cloud-shell"></a>Cloud Shell에 로컬 파일 전송
@@ -19,7 +19,7 @@ ms.locfileid: "67182540"
 ![로컬 파일 목록](../articles/cloud-shell/media/persisting-shell-storage/download.png)
 1. Azure Portal에서 마운트된 파일 공유로 이동합니다.
 2. 대상 파일을 선택합니다.
-3. **다운로드** 버튼을 선택합니다.
+3. **다운로드** 단추를 선택 합니다.
 
 ### <a name="upload-files"></a>파일 업로드
 
