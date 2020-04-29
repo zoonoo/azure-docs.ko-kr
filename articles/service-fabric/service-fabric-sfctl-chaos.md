@@ -1,27 +1,27 @@
 ---
-title: Azure 서비스 패브릭 CLI- sfctl 혼돈
-description: Azure 서비스 패브릭 명령줄 인터페이스인 sfctl에 대해 알아봅니다. 혼란을 관리하기 위한 명령 목록을 포함합니다.
+title: Azure Service Fabric CLI-sfctl 비정상
+description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 비정상 상황을 관리 하기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 6668446363361fbc6d24afc3d11a36a0b786667d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906171"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 비정상 상황 테스트 서비스를 시작하고, 중지하고 보고합니다.
 
 ## <a name="subgroups"></a>하위 그룹
-|하위 그룹|설명|
+|하위 그룹|Description|
 | --- | --- |
-| [schedule](service-fabric-sfctl-chaos-schedule.md) | chaos schedule을 가져오고 설정합니다. |
+| [일정과](service-fabric-sfctl-chaos-schedule.md) | chaos schedule을 가져오고 설정합니다. |
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
 | events | 연속 토큰 또는 시간 범위를 기반으로 Chaos 이벤트의 다음 세그먼트를 가져옵니다. |
 | Get | Chaos의 상태를 가져옵니다. |
@@ -35,17 +35,17 @@ Chaos 이벤트의 다음 세그먼트를 가져오기 위해 ContinuationToken�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
 | --end-time-utc | Chaos 보고서가 생성될 시간 범위의 종료 시간을 나타내는 Windows 파일 시간입니다. 자세한 내용은 [DateTime.ToFileTimeUtc 메서드](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx)를 참조하세요. |
 | --max-results | 페이징된 쿼리의 일부로 반환될 결과의 최대 수입니다. 이 매개 변수는 반환되는 결과 수에 상한값을 정의합니다. 반환되는 결과는 구성에 정의된 최대 메시지 크기 제한에 따라 메시지에 맞지 않는 경우 지정된 최대의 결과보다 작을 수 있습니다. 이 매개 변수가 0이거나 지정되지 않은 경우 페이징된 쿼리는 반환 메시지에 맞는 가능한 많은 결과를 포함합니다. |
 | --start-time-utc | Chaos 보고서가 생성될 시간 범위의 시작 시간을 나타내는 Windows 파일 시간입니다. 자세한 내용은 [DateTime.ToFileTimeUtc 메서드](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx)를 참조하세요. |
-| --timeout -t | 작업을 수행하는 서버 시간 시간이 몇 초 입니다. 이 시간 아웃은 클라이언트가 요청된 작업이 완료될 때까지 기다릴 수 있는 기간을 지정합니다. 이 매개 변수의 기본값은 60초입니다.  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -60,13 +60,13 @@ Chaos가 실행 중인지 여부, Chaos 매개 변수가 Chaos 실행에 사용�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --timeout -t | 작업을 수행하는 서버 시간 시간이 몇 초 입니다. 이 시간 아웃은 클라이언트가 요청된 작업이 완료될 때까지 기다릴 수 있는 기간을 지정합니다. 이 매개 변수의 기본값은 60초입니다.  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -77,11 +77,11 @@ Chaos가 실행 중인지 여부, Chaos 매개 변수가 Chaos 실행에 사용�
 ## <a name="sfctl-chaos-start"></a>sfctl chaos start
 클러스터의 Chaos가 시작됩니다.
 
-Chaos가 아직 클러스터에 실행되고 있지 않다면 Chaos 매개 변수에 전달된 값으로 Chaos를 시작합니다. 이 호출을 수행할 때 Chaos가 이미 실행 중이면 호출이 FABRIC_E_CHAOS_ALREADY_RUNNING 오류 코드로 실패합니다. 자세한 내용은 [서비스 패브릭 클러스터에서 제어된 혼돈 유도](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos) 문서를 참조하십시오.
+Chaos가 아직 클러스터에 실행되고 있지 않다면 Chaos 매개 변수에 전달된 값으로 Chaos를 시작합니다. 이 호출을 수행할 때 Chaos가 이미 실행 중이면 호출이 FABRIC_E_CHAOS_ALREADY_RUNNING 오류 코드로 실패합니다. 자세한 내용은 [Service Fabric 클러스터의 비정상 상황 제어 유도](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos) 문서를 참조 하세요.
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --app-type-health-policy-map | 특정 애플리케이션 형식에 대한 비정상 애플리케이션 최대 비율을 사용하여 JSON 인코딩된 목록입니다. 각 항목은 지정된 애플리케이션 형식의 애플리케이션을 평가하는 데 사용된 MaxPercentUnhealthyApplications 백분율을 나타내는 애플리케이션 형식 이름을 키로 그리고 정수를 값으로 지정합니다. <br><br> 특정 애플리케이션 유형에 대한 비정상 애플리케이션 최대 비율을 사용하여 맵을 정의합니다. 각 항목은 지정된 애플리케이션 유형의 애플리케이션을 평가하는 데 사용된 MaxPercentUnhealthyApplications 백분율을 나타내는 애플리케이션 유형 이름을 키로 그리고 정수를 값으로 지정합니다. 클러스터 상태를 평가하는 동안 애플리케이션 유형 상태 정책 맵을 사용하여 특수 애플리케이션 유형을 설명할 수 있습니다. 맵에 포함된 애플리케이션 유형은 클러스터 상태 정책에 정의된 전역 MaxPercentUnhealthyApplications가 아닌 맵에 지정된 백분율에 대해 평가됩니다. 맵에서 지정된 애플리케이션 유형의 애플리케이션은 애플리케이션의 전역 풀에 대해 계산되지 않습니다. 예를 들어 한 형식의 일부 애플리케이션이 중요한 경우, 클러스터 관리자는 항목을 해당 애플리케이션 유형에 대한 맵에 추가하고 0%의 값을 할당할 수 있습니다(즉, 오류를 허용하지 않음). 다른 모든 애플리케이션은 수천 개의 애플리케이션 인스턴스 중에 일부 오류를 허용하도록 20%로 설정된 MaxPercentUnhealthyApplications를 통해 평가될 수 있습니다. 애플리케이션 유형 상태 정책 맵은 클러스터 매니페스트가 HealthManager/EnableApplicationTypeHealthEvaluation에 대한 구성 항목을 사용하여 애플리케이션 유형 상태 평가를 활성화한 경우에만 사용됩니다. |
 | --chaos-target-filter | 두 개의 문자열 형식 키를 사용하여 JSON으로 인코딩된 사전입니다. 두 개의 키는 NodeTypeInclusionList 및 ApplicationInclusionList입니다. 이러한 키 모두에 대한 값은 문자열 목록입니다. chaos_target_filter는 특정 노드 유형에서만 오류가 발생하거나 특정 애플리케이션에서만 오류가 발생하는 것처럼 대상이 지정된 Chaos 오류에 대한 모든 필터를 정의합니다. <br><br> chaos_target_filter를 사용하지 않으면 Chaos로 인해 모든 클러스터 엔터티에 오류가 발생합니다. chaos_target_filter를 사용하면 Chaos로 인해 chaos_target_filter 사양을 충족하는 엔터티에만 오류가 발생합니다. NodeTypeInclusionList 및 ApplicationInclusionList는 합집합 의미 체계만 허용합니다. NodeTypeInclusionList 및 ApplicationInclusionList의 교집합은 지정할 수 없습니다. 예를 들어, "해당 노드 유형에 해당할 경우에만 이 애플리케이션에 오류가 있다"고 지정할 수 없습니다. 엔터티가 NodeTypeInclusionList 또는 ApplicationInclusionList 중 하나에 포함되면 해당 엔터티는 ChaosTargetFilter를 사용하여 제외할 수 없습니다. applicationX가 ApplicationInclusionList에 표시되지 않더라도 일부 비정상 상황 반복에서 applicationX가 NodeTypeInclusionList에 포함된 nodeTypeY 노드에 있을 수 있으므로 오류가 있는 것으로 지정될 수 있습니다. NodeTypeInclusionList 및 ApplicationInclusionList 모두 비어 있는 경우 ArgumentException이 throw됩니다. 모든 유형의 오류(노드 다시 시작, 코드 패키지 다시 시작, 복제본 제거, 복제본 다시 시작, 주 복제본 이동 및 보조 복제본 이동)가 이러한 노드 유형의 노드에 대해 사용 가능으로 설정됩니다. 노드 유형(NodeTypeX)이 NodeTypeInclusionList에 표시되지 않으면 NodeTypeX의 노드에 대해 노드 수준 오류(예: NodeRestart)가 사용 가능으로 설정되지 않지만, ApplicationInclusionList의 애플리케이션이 NodeTypeX의 노드에 상주하게 될 경우 코드 패키지 및 복제본 오류는 NodeTypeX에 대해 여전히 사용될 수 있습니다. 최대 100개의 노드 유형 이름을 이 목록에 포함할 수 있으며, 이 수를 늘리려면 MaxNumberOfNodeTypesInChaosEntityFilter 구성에 대해 구성 업그레이드가 필요합니다. 이러한 애플리케이션의 서비스에 속하는 모든 복제본은 비정상 상황에 의해 복제본 오류(복제본 다시 시작, 복제본 제거, 주 복제본 이동 및 보조 복제본 이동)로 수정될 수 있습니다. 비정상 상황은 코드 패키지가 이러한 애플리케이션의 복제본만 호스트하는 경우에만 코드 패키지를 다시 시작할 수 있습니다. 애플리케이션이 이 목록에 나타나지 않을 경우, 애플리케이션이 NodeTypeInclusionList에 포함된 노드 유형의 노드에 배치되면 일부 Chaos 반복에서 여전히 오류가 있는 것으로 지정될 수 있습니다. 그러나 applicationX가 배치 제약 조건을 통해 nodeTypeY에 연결되며 applicationX가 ApplicationInclusionList에 없고, nodeTypeY가 NodeTypeInclusionList에 없으면 applicationX는 절대 오류가 있는 것으로 지정되지 않습니다. 최대 1,000개의 애플리케이션 이름을 이 목록에 포함할 수 있으며, 이 수를 늘리려면 MaxNumberOfApplicationsInChaosEntityFilter 구성에 대해 구성 업그레이드가 필요합니다. |
@@ -99,7 +99,7 @@ Chaos가 아직 클러스터에 실행되고 있지 않다면 Chaos 매개 변�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -114,13 +114,13 @@ Chaos가 아직 클러스터에 실행되고 있지 않다면 Chaos 매개 변�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --timeout -t | 작업을 수행하는 서버 시간 시간이 몇 초 입니다. 이 시간 아웃은 클라이언트가 요청된 작업이 완료될 때까지 기다릴 수 있는 기간을 지정합니다. 이 매개 변수의 기본값은 60초입니다.  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |

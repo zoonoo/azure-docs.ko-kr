@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 9b9922602218280d58331a755ed0dfed7df96f40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67182239"
 ---
 #### <a name="to-cable-your-device-for-power"></a>디바이스에 전원 케이블을 연결하려면
@@ -37,7 +37,7 @@ ms.locfileid: "67182239"
     
     **전원 케이블 연결**
     
-    | 레이블 | 설명 |
+    | 레이블 | Description |
     |:--- |:--- |
     | 1 |기본 인클로저 |
     | 2 |PCM 0 |

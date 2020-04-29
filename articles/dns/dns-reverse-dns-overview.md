@@ -1,6 +1,6 @@
 ---
-title: Azure - Azure DNS의 역방향 DNS 개요
-description: 이 학습 경로에서 역방향 DNS의 작동 방식과 Azure에서 DNS를 사용하는 방법을 학습하기 시작하십시오.
+title: Azure의 역방향 DNS 개요-Azure DNS
+description: 이 학습 경로에서 역방향 DNS가 작동 하는 방법 및 Azure에서 사용 하는 방법에 대 한 학습을 시작 합니다.
 services: dns
 documentationcenter: na
 author: rohinkoul
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: bf3da62e989f0e029efdc8e9c70f5f45e0ddd765
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76932307"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Azure의 역방향 DNS 및 지원 개요
@@ -33,7 +33,7 @@ ms.locfileid: "76932307"
 
 역방향 DNS 레코드는 'ARPA' 영역이라는 특수한 DNS 영역에서 호스팅됩니다.  이러한 영역은 'contoso.com'과 같은 일반적인 계층 구조 호스팅 도메인과 병렬로 별도의 DNS 계층 구조를 형성합니다.
 
-예를 들어 DNS 레코드 'www.contoso.com'은 영역 'contoso.com'에 이름 'www'를 포함하는 DNS 'A' 레코드를 사용하여 구현됩니다.  이 A 레코드는 해당 IP 주소(이 경우 64.4.6.100)를 가리킵니다.  역방향 조회는 '6.4.64.in-addr.arpa' 영역에서 '100'이라는 이름의 'PTR' 레코드를 사용하여 별도로 구현됩니다(IP 주소는 ARPA 영역에서 반전됩니다.)  이 PTR 레코드가 올바르게 구성된 경우 'www.contoso.com'라는 이름을 가리킵니다.
+예를 들어 DNS 레코드 'www.contoso.com'은 영역 'contoso.com'에 이름 'www'를 포함하는 DNS 'A' 레코드를 사용하여 구현됩니다.  이 A 레코드는 해당 IP 주소(이 경우 64.4.6.100)를 가리킵니다.  역방향 조회는 ' 6.4.64.in-addr ' 영역에서 ' 100 ' 이라는 ' PTR ' 레코드를 사용 하 여 개별적으로 구현 됩니다 (IP 주소는 node.js 영역에서 반전 됨).  이 PTR 레코드는 올바르게 구성 된 경우 ' www.contoso.com ' 이름을 가리킵니다.
 
 조직에 IP 주소 블록이 할당되면 해당 ARPA 영역을 관리할 권한도 획득하게 됩니다. Azure에 사용되는 IP 주소 블록에 해당되는 ARPA 영역은 Microsoft에서 호스트 및 관리합니다. ISP는 사용자 고유의 IP 주소에 대한 ARPA 영역을 호스트하거나 사용자가 Azure DNS와 같은 선택한 DNS 서비스에서 ARPA 영역을 호스트하도록 할 수 있습니다.
 

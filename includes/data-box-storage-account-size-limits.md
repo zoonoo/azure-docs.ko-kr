@@ -6,15 +6,15 @@ ms.topic: include
 ms.date: 06/18/2019
 ms.author: alkohli
 ms.openlocfilehash: 6a9c31eb46a457433834d5940b3f7e190ebe1476
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75466768"
 ---
-스토리지 계정에 복사되는 데이터 크기에 대한 제한은 다음과 같습니다. 업로드한 데이터가 이러한 제한을 준수하는지 확인합니다. 이러한 제한에 대한 최신 정보는 Blob 저장소 및 [Azure Files 확장성 및 성능 목표에](../articles/storage/files/storage-files-scale-targets.md)대한 [확장성](../articles/storage/blobs/scalability-targets.md) 및 성능 목표를 참조하세요.
+스토리지 계정에 복사되는 데이터 크기에 대한 제한은 다음과 같습니다. 업로드한 데이터가 이러한 제한을 준수하는지 확인합니다. 이러한 제한에 대 한 최신 정보는 [Blob storage의 확장성 및 성능 목표](../articles/storage/blobs/scalability-targets.md) 및 [Azure Files 확장성 및 성능 목표](../articles/storage/files/storage-files-scale-targets.md)를 참조 하세요.
 
 | Azure Storage 계정에 복사되는 데이터의 크기                      | 기본 제한          |
 |---------------------------------------------------------------------|------------------------|
-| 블록 Blob 및 페이지 Blob                                            | 미국과 유럽의 경우 2PB.<br>영국을 포함한 다른 모든 지역의 경우 500TB.  <br> Data Box를 비롯한 모든 원본 데이터를 포함합니다.|
-| Azure 파일                                                          | 주당 5TB.<br> *StorageAccount_AzureFiles*의 모든 폴더는 이 제한을 따라야 합니다.       |
+| 블록 Blob 및 페이지 Blob                                            | 미국 및 유럽의 경우 2 PB<br>영국을 포함 하는 다른 모든 지역에 대해 500 TB  <br> Data Box를 비롯한 모든 원본 데이터를 포함합니다.|
+| Azure 파일                                                          | 공유 당 5TB<br> *StorageAccount_AzureFiles*의 모든 폴더는 이 제한을 따라야 합니다.       |

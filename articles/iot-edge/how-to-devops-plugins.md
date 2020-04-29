@@ -1,6 +1,6 @@
 ---
 title: Jenkins 플러그 인을 통해 CI/CD 사용 - Azure IoT Edge | Microsoft Docs
-description: Jenkins용 Azure IoT Edge 확장을 사용하면 기존 DevOps 솔루션에 IoT Edge 개발 및 배포 작업을 통합할 수 있습니다.
+description: Jenkins에 대 한 Azure IoT Edge 확장을 사용 하면 IoT Edge 개발 및 배포 작업을 기존 DevOps 솔루션에 통합할 수 있습니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 75ed5f5eda48f10776b854ce4de4d2f855a53634
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76510246"
 ---
 # <a name="integrate-azure-iot-edge-with-jenkins-pipelines"></a>Jenkins 파이프라인과 Azure IoT Edge 통합

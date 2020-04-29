@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 1cf5bbdad555c50c418851904f36a578522843b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67182265"
 ---
 #### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>클라우드 어플라이언스에 공용 엔드포인트를 만들려면
@@ -31,7 +31,7 @@ ms.locfileid: "67182265"
 
         인바운드 보안 규칙 추가 블레이드에서:
 
-        1. **이름의**경우 끝점에 대해 다음 이름을 입력합니다.
+        1. **이름**에 대해 WinRMHttps와 같은 끝점 이름을 입력 합니다.
         
         2. **우선 순위**로는 1000(기본 규칙에 대한 우선 순위임)보다 작은 숫자를 선택합니다. 값이 높을수록 우선 순위는 더 낮아집니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "67182265"
 
         4. **서비스**로는 **WinRM**을 선택합니다. **프로토콜**은 **TCP**로 자동으로 설정되고 **포트 범위**는 **5986**으로 설정됩니다.
 
-        5. **확인을** 클릭하여 규칙을 만듭니다.
+        5. **확인** 을 클릭 하 여 규칙을 만듭니다.
 
             ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt5.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "67182265"
         ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt7.png)
 
     3. 가상 네트워크를 선택하고 적절한 서브넷을 선택합니다.
-    4. **확인을** 클릭하여 규칙을 만듭니다.
+    4. **확인** 을 클릭 하 여 규칙을 만듭니다.
 
         ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt11.png)
 

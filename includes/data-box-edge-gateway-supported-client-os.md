@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 674ca630aa41d930ad7d7cfebccbe9b44351b68c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67182648"
 ---
-다음은 디바이스에 연결된 클라이언트 또는 호스트에 지원되는 운영 체제 목록입니다. 이러한 운영 체제 버전은 사내에서 테스트되었습니다.
+다음은 디바이스에 연결된 클라이언트 또는 호스트에 지원되는 운영 체제 목록입니다. 이러한 운영 체제 버전은 사내에서 테스트 되었습니다.
 
 | **운영 체제/플랫폼** | **버전** |
 | --- | --- |

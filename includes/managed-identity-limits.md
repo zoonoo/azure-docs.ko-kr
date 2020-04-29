@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: active-directory
 author: daveba
@@ -10,13 +10,13 @@ ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: 887646c7e0ae87cd5e290a68ccc43b80dfbb109c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67182612"
 ---
-| Category | 제한 |
+| 범주 | 제한 |
 | --- | --- |
-| 사용자 할당된 관리 ID | <ul><li>사용자가 할당한 관리 ID를 만들 때 영숫자 문자(0-9, a-z 및 A-Z)와 하이픈(-)만 지원됩니다. 가상 컴퓨터 또는 가상 컴퓨터 배율 집합에 할당이 제대로 작동하려면 이름이 24자로 제한됩니다.</li><li>관리되는 ID 가상 시스템 확장을 사용하는 경우 지원되는 제한은 32개의 사용자 할당된 관리 ID입니다. 관리되는 ID 가상 시스템 확장이 없으면 지원되는 제한은 512명의 사용자 할당 ID입니다.</li>|
+| 사용자 할당 관리 id | <ul><li>사용자 할당 관리 id를 만들 때 영숫자 문자 (0-9, a-z 및 a-z)와 하이픈 (-)만 지원 됩니다. 가상 머신 또는 가상 머신 확장 집합에 대 한 할당이 제대로 작동 하려면 이름은 24 자로 제한 됩니다.</li><li>관리 id 가상 머신 확장을 사용 하는 경우 지원 되는 한도는 32 사용자 할당 관리 id입니다. 관리 되는 id 가상 머신 확장을 사용 하지 않으면 지원 되는 한도는 512 사용자 할당 id입니다.</li>|
 

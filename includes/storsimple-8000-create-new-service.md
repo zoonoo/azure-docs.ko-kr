@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 980cbe17e982edb3aa72c3b58908f13a3d63a639
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76021050"
 ---
 #### <a name="to-create-a-new-service"></a>새 서비스를 만들려면
@@ -19,7 +19,7 @@ ms.locfileid: "76021050"
 
     ![StorSimple 디바이스 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman1.png)
 
-    _StorSimple 실제_를 검색합니다. **StorSimple 실제 디바이스 시리즈**를 선택하여 클릭한 후 **만들기**를 클릭합니다. 또는 Azure 포털에서 저장소 **+** 를 클릭한 다음 **저장**에서 **StorSimple 물리적 장치 시리즈를**클릭합니다.
+    _StorSimple 실제_를 검색합니다. **StorSimple 실제 디바이스 시리즈**를 선택하여 클릭한 후 **만들기**를 클릭합니다. 또는 Azure Portal 클릭 **+** 한 다음 **저장소**아래에서 **StorSimple 물리적 장치 시리즈**를 클릭 합니다.
 
     ![StorSimple 디바이스 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman11.png)
 

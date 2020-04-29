@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: genli
 ms.openlocfilehash: 3df4108907a4e1e65a444faf1049163966b7accf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67182125"
 ---
 ## <a name="scenario"></a>시나리오
@@ -23,4 +23,4 @@ ms.locfileid: "67182125"
 NIC를 만들 때 IP 구성이 NIC에 연결되고 VM을 만들 때 NIC가 VM에 연결됩니다. 시나리오에 사용되는 IP 주소 유형은 예시입니다. 필요한 모든 IP 주소 및 할당 유형을 지정할 수 있습니다.
 
 > [!NOTE]
-> 이 문서의 단계를 통해 모든 IP 구성을 단일 NIC에 할당하면 여러 IP 구성도 다중 NIC VM의 모든 NIC에 할당할 수 있습니다. 여러 NIC를 사용하여 VM을 만드는 방법을 알아보려면 [여러 NIC가 있는 VM 만들기](../articles/virtual-machines/windows/multiple-nics.md) 문서를 읽어보십시오.
+> 이 문서의 단계를 통해 모든 IP 구성을 단일 NIC에 할당하면 여러 IP 구성도 다중 NIC VM의 모든 NIC에 할당할 수 있습니다. 여러 Nic를 사용 하 여 VM을 만드는 방법을 알아보려면 [여러 nic를 사용 하 여 Vm 만들기](../articles/virtual-machines/windows/multiple-nics.md) 문서를 참조 하세요.

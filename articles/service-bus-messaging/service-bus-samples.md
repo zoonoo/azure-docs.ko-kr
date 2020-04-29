@@ -1,6 +1,6 @@
 ---
-title: Azure 서비스 버스 메시징 샘플 개요
-description: 서비스 버스 메시징 샘플은 Azure Service Bus 메시징의 주요 기능을 보여 줍니다. GitHub에서 샘플에 대한 링크를 제공합니다.
+title: Azure Service Bus 메시징 샘플 개요
+description: Service Bus 메시징 샘플은 Azure Service Bus 메시징의 주요 기능을 보여 줍니다. GitHub의 샘플에 대 한 링크를 제공 합니다.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -14,18 +14,18 @@ ms.workload: na
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: ccaca451ac4fb7b4301aca429a42baea91e5ed10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773454"
 ---
 # <a name="service-bus-messaging-samples"></a>Service Bus 메시징 샘플
-Service Bus 메시지 샘플은 [Service Bus 메시지](https://azure.microsoft.com/services/service-bus/)의 주요 기능을 보여 줍니다. 현재 다음과 같은 위치에서 샘플을 찾을 수 있습니다.
+Service Bus 메시지 샘플은 [Service Bus 메시지](https://azure.microsoft.com/services/service-bus/)의 주요 기능을 보여 줍니다. 현재 다음 위치에서 샘플을 찾을 수 있습니다.
 
 | 프로그래밍 언어 | SDK 또는 샘플 위치 |
 | -------------------- | ----------------------- |
-| .NET, 자바 및 관리 | https://github.com/Azure/azure-service-bus/ |
+| .NET, Java 및 관리 | https://github.com/Azure/azure-service-bus/ |
 | Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
 | Python | https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus |
 

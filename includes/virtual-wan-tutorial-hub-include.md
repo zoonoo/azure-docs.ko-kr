@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: virtual-wan
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0a81d8c97b916fd15e7be5fde05e9ea25ba1151d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67182105"
 ---
 허브는 게이트웨이를 포함합니다. 허브가 생성되면 사이트를 연결하지 않아도 허브 요금이 청구됩니다. 허브 및 게이트웨이를 만드는 데는 30분이 소요됩니다.
@@ -22,7 +22,7 @@ ms.locfileid: "67182105"
 3. **가상 허브 만들기** 페이지에서 다음 필드를 완료합니다.
 
    * 위치
-   * 이름
+   * 속성
    * 허브 프라이빗 주소 공간
 
-**확인**을 클릭하여 허브를 만듭니다. **새로 고침을** 클릭하여 허브 페이지에서 **허브를 봅니다.**
+**확인**을 클릭하여 허브를 만듭니다. **허브 페이지에서** 허브를 보려면 **새로 고침** 을 클릭 합니다.
