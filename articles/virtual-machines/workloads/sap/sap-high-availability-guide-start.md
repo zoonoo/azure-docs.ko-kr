@@ -1,5 +1,5 @@
 ---
-title: SAP 넷위버를 위한 Azure VM 고가용성 | 마이크로 소프트 문서
+title: SAP NetWeaver에 대 한 Azure Vm 고가용성 | Microsoft Docs
 description: Azure Virtual Machines의 SAP NetWeaver에 대한 고가용성 가이드입니다.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 25a0ac9ab349cfe8bef8e33d3f533bc5942e6323
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77623823"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
@@ -205,7 +205,7 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 **요약:** 이 문서에서는 Azure의 SAP 시스템에 대한 고가용성 아키텍처에 대해 알아봅니다. SAP SPOF(단일 실패 지점)의 고가용성과 Azure 인프라의 고가용성의 중복 구성 요소 및 사양을 해결하는 방법을 논의합니다. 또한 이러한 부분이 SAP 시스템 구성 요소와 어떻게 관련되어 있는지도 알아봅니다. 추가적으로 Windows 및 Linux 사양에 대한 논의도 진행됩니다. 다양한 SAP 고가용성 시나리오에 대해서도 설명됩니다.
 
-**업데이트 된 :** 2017년 10월
+**업데이트 됨:** 10 월 2017
 
 * [SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 아키텍처 및 시나리오][sap-high-availability-architecture-scenarios]
 
@@ -216,7 +216,7 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 **요약:** 여기에 나열된 문서에서는 SAP 설치 준비 단계에서 Azure 인프라를 배포하기 위해 수행할 수 있는 작업 단계를 살펴봅니다. Azure 인프라 배포를 단순화하기 위해 SAP Azure Resource Manager 템플릿을 사용하여 전체 프로세스를 자동화합니다.
 
-**업데이트 된 :** 2019년 3월
+**업데이트 됨:** 3 월 2019
 
 * ![Windows][Logo_Windows] [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 **공유 디스크**를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
 
@@ -224,17 +224,17 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 * ![Linux][Logo_Linux] [SAP ASCS/SCS 인스턴스에 대해 SUSE Linux Enterprise Server 클러스터 프레임워크를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비][sap-suse-ascs-ha-setting-ha-nfs]
 
-* ![Linux][Logo_Linux] Azure [NetApp 파일이 있는 SAP ASCS/SCS 인스턴스에 SUSE Linux 엔터프라이즈 서버 클러스터 프레임워크를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비][sap-suse-ascs-ha-setting-ha-anf]
+* ![Linux][Logo_Linux] [azure netapp 파일을 사용 하 여 sap ascs/SCS 인스턴스에 대 한 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 sap 고가용성을 위한 azure 인프라 준비][sap-suse-ascs-ha-setting-ha-anf]
 
-* ![RHEL][Logo_Linux] [SAP ASCS/SCS 고가용성을 위한 Azure 인프라 준비 - RHEL에 GlusterFS 설정][high-availability-guide-rhel-glusterfs]
+* ![][Logo_Linux] [SAP ascs/SCS 고가용성을 위한 Azure 인프라 준비 RHEL-RHEL에서 GlusterFS 설정][high-availability-guide-rhel-glusterfs]
 
-* ![RHEL][Logo_Linux] [SAP ASCS/SCS 고가용성을 위한 Azure 인프라 준비 - RHEL에 페이스메이커 설정][high-availability-guide-rhel-pacemaker]
+* ![][Logo_Linux] [SAP ascs/SCS 고가용성을 위한 Azure 인프라 준비 RHEL-RHEL에서 Pacemaker 설정][high-availability-guide-rhel-pacemaker]
 
 ## <a name="installation-of-an-sap-netweaver-high-availability-system-in-azure"></a>Azure에 SAP NetWeaver 고가용성 시스템 설치
 
 **요약:** 여기에 나열된 문서에서는 Azure의 Windows Server 장애 조치(failover) 클러스터링 클러스터 및 Linux 클러스터 프레임워크에서 고가용성 SAP 시스템을 설치하고 구성하는 단계별 예제를 보여줍니다.
 
-**업데이트 된 :** 2019년 3월
+**업데이트 됨:** 3 월 2019
 
 * ![Windows][Logo_Windows] [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 **공유 디스크**를 사용하여 SAP NetWeaver 고가용성 설치][sap-high-availability-installation-wsfc-shared-disk]
 
@@ -242,9 +242,9 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 * ![Linux][Logo_Linux] [SAP ASCS/SCS 인스턴스에 대해 SUSE Linux Enterprise Server 클러스터 프레임워크를 사용하여 SAP NetWeaver 고가용성 설치][sap-suse-ascs-ha-sap-installation]
 
-* ![리눅스][Logo_Linux] [설치 SAP 넷위버 Azure NetApp 파일과 SAP ASCS/SCS 인스턴스에 대 한 SUSE 리눅스 엔터프라이즈 서버 클러스터 프레임 워크를 사용 하 여 고가용성][sap-suse-ascs-ha-sap-installation-anf]
+* ![Linux][Logo_Linux] [sap ascs/SCS 인스턴스에 대 한 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 sap NetWeaver 고가용성 설치 Azure NetApp Files][sap-suse-ascs-ha-sap-installation-anf]
 
-* ![][Logo_Linux] [RHEL, RHEL에서 고가용성 구성으로 SAP 넷위버 ASCS/SCS 설치][sap-rhel-ascs-ha]
+* ![][Logo_Linux] [RHEL의 고가용성 구성에서 SAP NetWeaver ascs/SCS 설치][sap-rhel-ascs-ha] RHEL
 
-* ![RHEL][Logo_Linux] [Azure NetApp 파일을 사용 하 고 RHEL에 고가용성 구성에 SAP 넷 위버 ASCS/SCS 설치][sap-rhel-ascs-ha-sap-installation-anf]
+* ![RHEL][Logo_Linux] [를 사용 하 여 RHEL의 고가용성 구성에서 SAP NetWeaver ascs/SCS 설치 Azure NetApp Files][sap-rhel-ascs-ha-sap-installation-anf]
 

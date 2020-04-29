@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
 ms.openlocfilehash: 315974e4995630eb3af055ac0e1c44f7d8dd0737
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77918243"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>네트워크 인터페이스를 사용하지 않기 때문에 원격 데스크톱을 VM에 사용할 수 없음
@@ -28,7 +28,7 @@ ms.locfileid: "77918243"
 
 VM에서 네트워크 인터페이스를 사용하지 않기 때문에 Azure의 VM에 RDP 연결 또는 다른 포트에 대한 다른 형식의 연결을 수행할 수 없습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
@@ -37,7 +37,7 @@ VM에 인터페이스를 사용하도록 설정하려면 VM에 직렬 컨트롤�
 ### <a name="use-serial-control"></a>직렬 콘솔 사용
 
 1. [직렬 콘솔에 연결하고 CMD 인스턴스를 엽니다](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). VM에서 직렬 콘솔을 사용할 수 없는 경우 [네트워크 인터페이스 재설정](#reset-network-interface)을 참조하십시오.
+). VM에서 직렬 콘솔을 사용 하도록 설정 하지 않은 경우 [네트워크 인터페이스 다시 설정](#reset-network-interface)을 참조 하세요.
 2. 네트워크 인터페이스의 상태를 확인합니다.
 
         netsh interface show interface

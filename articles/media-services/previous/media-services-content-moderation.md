@@ -1,6 +1,6 @@
 ---
 title: Azure Media Content Moderator를 사용하여 가능한 성인/외설 콘텐츠 검색 | Microsoft Docs
-description: Azure 미디어 콘텐츠 중재자 미디어 프로세서는 동영상에서 잠재적인 성인 및 외설 콘텐츠를 검색하는 데 도움이 됩니다.
+description: Azure Media Content Moderator media 프로세서는 비디오에서 잠재적 성인 및 외설 콘텐츠를 검색 하는 데 도움이 됩니다.
 services: media-services
 documentationcenter: ''
 author: sanjeev3
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: 83fe7867a3128ac82597c028452863a1ad681ace
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77914333"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Azure Media Content Moderator를 사용하여 가능한 성인/외설 콘텐츠 검색 
 
 > [!NOTE]
-> **Azure 미디어 콘텐츠 중재자** 미디어 프로세서는 사용 중지됩니다. 사용 중지 날짜에 대 한 레거시 구성 요소 항목을 참조 [합니다.](legacy-components.md)
+> **Azure 미디어 Content Moderator** 미디어 프로세서는 사용 중지 됩니다. 사용 중지 날짜는 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요.
 
 ## <a name="overview"></a>개요
-**Azure 미디어 콘텐츠 중재자** 미디어 프로세서(MP)를 사용하면 비디오에 기계 지원 중재를 사용할 수 있습니다. 예를 들어 휴먼 조정 팀이 비디오에서 혹시라도 있을 수 있는 성인/외설 콘텐츠를 검색하고 플래그가 지정된 콘텐츠를 검토하게 하는 것이 좋습니다.
+**Azure media Content Moderator** media PROCESSOR (MP)를 사용 하 여 비디오에 대 한 기계 지원 조정을 사용할 수 있습니다. 예를 들어 휴먼 조정 팀이 비디오에서 혹시라도 있을 수 있는 성인/외설 콘텐츠를 검색하고 플래그가 지정된 콘텐츠를 검토하게 하는 것이 좋습니다.
 
 **Azure Media Content Moderator** MP는 현재 미리 보기 상태입니다.
 
@@ -47,7 +47,7 @@ JSON 형식의 조정된 출력에는 자동 검색된 스크린샷 및 키 프�
 
 ### <a name="root-json-elements"></a>루트 JSON 요소
 
-| 요소 | 설명 |
+| 요소 | Description |
 | --- | --- |
 | 버전 |Content Moderator 버전입니다. |
 | timescale |동영상의 초당 "틱"입니다. |
@@ -56,11 +56,11 @@ JSON 형식의 조정된 출력에는 자동 검색된 스크린샷 및 키 프�
 | width |출력 비디오 프레임의 너비(픽셀)입니다.|
 | height |출력 비디오 프레임의 높이(픽셀)입니다.|
 | totalDuration |입력 비디오의 기간(“틱”)입니다. |
-| [조각](#fragments-json-elements) |메타데이터는 조각이라고 하는 다른 세그먼트로 청크 분할됩니다. 각 조각은 시작, 기간, 간격 번호 및 이벤트가 포함된 자동 검색된 스크린샷입니다. |
+| [부분](#fragments-json-elements) |메타데이터는 조각이라고 하는 다른 세그먼트로 청크 분할됩니다. 각 조각은 시작, 기간, 간격 번호 및 이벤트가 포함된 자동 검색된 스크린샷입니다. |
 
 ### <a name="fragments-json-elements"></a>조각 JSON 요소
 
-|요소|설명|
+|요소|Description|
 |---|---|
 | start |“틱” 단위의 첫 이벤트 시작 시간입니다. |
 | duration |"틱" 단위의 조각 길이입니다. |
@@ -69,7 +69,7 @@ JSON 형식의 조정된 출력에는 자동 검색된 스크린샷 및 키 프�
 
 ### <a name="events-json-elements"></a>이벤트 JSON 요소
 
-|요소|설명|
+|요소|Description|
 |---|---|
 | reviewRecommended | **adultScore** 또는 **racyScore**가 내부 임계값을 초과하는지 여부에 따라 `true` 또는 `false`입니다. |
 | adultScore | 가능한 성인 콘텐츠에 대한 신뢰도 점수로, 0.00에서 0.99 사이입니다. |

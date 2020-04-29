@@ -1,5 +1,5 @@
 ---
-title: Azure에서 공유 디스크를 사용하는 WSFC의 클러스터 SAP ASCS/SCS 인스턴스 | 마이크로 소프트 문서
+title: Azure에서 공유 디스크를 사용 하 여 WSFC에서 SAP ASCS/SCS 인스턴스 클러스터링 | Microsoft Docs
 description: 클러스터 공유 디스크를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스를 클러스터링하는 방법을 알아봅니다.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8156f8706828afae30889b3250cf0b26252bf394
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77598479"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -191,7 +191,7 @@ Windows Server 장애 조치(Failover) 클러스터링은 Windows에서 고가�
 
 장애 조치(failover) 클러스터는 함께 작동하여 애플리케이션 및 서비스의 가용성을 높이는 1+n개 독립 서버(노드) 그룹입니다. 노드에 장애가 발생하는 경우 Windows Server 장애 조치(Failover) 클러스터링은 애플리케이션 및 서비스를 제공하기 위해 발생할 수 있으며 정상 클러스터를 유지 관리하는 장애 횟수를 계산합니다. 장애 조치 클러스터링을 달성하기 위해 여러 다른 쿼럼 모드 중에서 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이 문서의 작업을 시작하기 전에 다음 문서를 검토하세요.
 
 * [SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 아키텍처 및 시나리오][sap-high-availability-architecture-scenarios]
@@ -219,7 +219,7 @@ Windows에서 SAP ASCS/SCS 인스턴스에는 SAP 중앙 서비스, SAP 메시�
 SAP ASCS/SCS 인스턴스에는 다음과 같은 구성 요소가 있습니다.
 
 * SAP 중앙 서비스에는 다음이 포함됩니다.
-    * 메시지와 큐 서버의 두 프로세스와 \<ASCS/SCS 가상 호스트 이름이> 이 두 프로세스에 액세스하는 데 사용됩니다.
+    * 두 프로세스, 메시지 및 큐에 넣기 서버, \<ascs/SCS 가상 호스트 이름>, 이러한 두 프로세스에 액세스 하는 데 사용 됩니다.
     * 파일 구조: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<인스턴스 번호\>
 
 
@@ -227,7 +227,7 @@ SAP ASCS/SCS 인스턴스에는 다음과 같은 구성 요소가 있습니다.
   * 파일 구조: S:\usr\sap\\&lt;SID&gt;\SYS\..
   * 다음 UNC 경로를 사용하여 이러한 글로벌 S:\usr\sap\\&lt;SID&gt;\SYS\. 파일에 액세스할 수 있도록 하는 sapmnt 파일 공유
 
-    \\\\<ASCS /SCS\>가상 호스트 이름\\&lt;&gt;\sapmnt SID \SYS\...
+    \\\\Ascs/\>SCS 가상 호스트 이름 \sapmnt\\&lt;SID&gt;\sys\..를<합니다.
 
 
 ![그림 2: SAP ASCS/SCS 인스턴스의 프로세스, 파일 구조 및 글로벌 호스트 sapmnt 파일 공유][sap-ha-guide-figure-8001]
@@ -238,11 +238,11 @@ _**그림 2:** SAP ASCS/SCS 인스턴스의 프로세스, 파일 구조 및 글�
 
 ![그림 3: 공유 디스크를 사용하는 SAP ASCS/SCS HA 아키텍처][sap-ha-guide-figure-8002]
 
-_**그림 3:** 공유 디스크를 갖춘 SAP ASCS/SCS HA 아키텍처_
+_**그림 3:** 공유 디스크를 사용 하는 SAP ASCS/SCS HA 아키텍처_
 
 > [!IMPORTANT]
 > 이러한 두 구성 요소가 동일한 SAP ASCS/SCS 인스턴스에서 실행됩니다.
->* 동일한 \<ASCS/SCS 가상 호스트 이름> SAP 메시지 및 큐 서버 프로세스 및 sapmnt 파일 공유를 통해 SAP 전역 호스트 파일에 액세스하는 데 사용됩니다.
+>* Sapmnt 파일 \<공유를 통해 sap 메시지 및 큐에 넣기 서버 프로세스와 sap 글로벌 호스트 파일에 액세스 하는 데 사용 되는 ascs/SCS 가상 호스트 이름> 합니다.
 >* 동일한 클러스터 공유 디스크 S가 공유됩니다.
 >
 
@@ -275,6 +275,6 @@ _**그림 5:** SIOS DataKeeper를 사용하는 Azure의 Windows 장애 조치(Fa
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SAP ASCS/SCS 인스턴스에 Windows 장애 조치 클러스터 및 공유 디스크를 사용하여 SAP HA에 대한 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치 (failover) 클러스터 및 공유 디스크를 사용 하 여 SAP HA 용 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
 
 * [SAP ASCS/SCS 인스턴스에 대한 Windows 장애 조치(Failover) 클러스터 및 공유 디스크에 SAP NetWeaver HA 설치][sap-high-availability-installation-wsfc-shared-disk]

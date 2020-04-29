@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: d2b25fb93a1e35ffa82cf49c60d181b841b1692d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616187"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강에 대한 설명서 리소스
@@ -23,9 +23,9 @@ AI 보강은 텍스트가 아닌 원본 및 구분되지 않는 텍스트에서 
 
 ## <a name="getting-started"></a>시작
 + [Azure Cognitive Search의 AI 소개](cognitive-search-concept-intro.md)
-+ [빠른 시작: Azure 포털에서 인지 기술 집합 만들기](cognitive-search-quickstart-blob.md)
-+ [자습서: AI를 갖춘 풍부한 인덱싱](cognitive-search-tutorial-blob.md)
-+ [예: AI 강화를 위한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
++ [빠른 시작: Azure Portal에서 인지 기술 만들기](cognitive-search-quickstart-blob.md)
++ [자습서: AI를 사용 하 여 보강 인덱싱](cognitive-search-tutorial-blob.md)
++ [예: AI 보강에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>방법 가이드
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
@@ -36,7 +36,7 @@ AI 보강은 텍스트가 아닌 원본 및 구분되지 않는 텍스트에서 
 + [사용자 정의 기술 인터페이스를 정의하는 방법](cognitive-search-custom-skill-interface.md)
 + [문제 해결 팁](cognitive-search-concept-troubleshooting.md)
 
-## <a name="reference"></a>참고
+## <a name="reference"></a>참조
 
 + [기본 제공 기술](cognitive-search-predefined-skills.md)
   + [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)
@@ -59,11 +59,11 @@ AI 보강은 텍스트가 아닌 원본 및 구분되지 않는 텍스트에서 
 + [사용되지 않는 기술](cognitive-search-skill-deprecated.md)
   + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
 
-+ [나머지 API](https://docs.microsoft.com/rest/api/searchservice/)
++ [REST API](https://docs.microsoft.com/rest/api/searchservice/)
   + [기술 세트 만들기(api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
   + [인덱서 만들기(api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/)
 + [Azure Cognitive Search의 인덱서](search-indexer-overview.md)

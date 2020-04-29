@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.openlocfilehash: 4bb19d7da971a82aef9c0e1fc092cc648ac49c4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77595997"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 스토리지 옵션
@@ -30,14 +30,14 @@ AKS(Azure Kubernetes Service)에서 실행되는 애플리케이션은 데이터
 
 데이터를 저장하고 검색하는 기존 볼륨은 Azure Storage에서 지원하는 Kubernetes 리소스로 만들어집니다. 이러한 데이터 볼륨은 수동으로 만들어 Pod에 직접 할당하거나 Kubernetes에서 자동으로 만들 수 있습니다. 이러한 데이터 볼륨은 Azure Disks 또는 Azure Files를 사용할 수 있습니다.
 
-- *Azure Disks*를 사용하여 *DataDisk* Kubernetes 리소스를 만들 수 있습니다. 디스크는 고성능 SSD를 통해 지원되는 Azure Premium 스토리지 또는 일반 HDD를 통해 지원되는 Azure Standard 스토리지를 사용할 수 있습니다. 대부분의 프로덕션 및 개발 워크로드의 경우 Premium 스토리지를 사용합니다. Azure 디스크는 *ReadWriteOnce로*탑재되므로 단일 포드에서만 사용할 수 있습니다. 여러 포드에서 동시에 액세스할 수 있는 저장소 볼륨의 경우 Azure Files를 사용합니다.
-- *Azure Files*를 사용하여 Azure Storage 계정을 통해 지원되는 SMB 3.0 공유를 Pod에 탑재할 수 있습니다. Files를 사용하면 여러 노드 및 Pod 간에 데이터를 공유할 수 있습니다. 파일은 고성능 SSD가 지원하는 일반 HDD 또는 Azure Premium 저장소로 백업되는 Azure 표준 저장소를 사용할 수 있습니다.
+- *Azure Disks*를 사용하여 *DataDisk* Kubernetes 리소스를 만들 수 있습니다. 디스크는 고성능 SSD를 통해 지원되는 Azure Premium 스토리지 또는 일반 HDD를 통해 지원되는 Azure Standard 스토리지를 사용할 수 있습니다. 대부분의 프로덕션 및 개발 워크로드의 경우 Premium 스토리지를 사용합니다. Azure 디스크는 *Readwriteonce 번*탑재 되므로 단일 pod 에서만 사용할 수 있습니다. 여러 pod에서 동시에 액세스할 수 있는 저장소 볼륨의 경우 Azure Files를 사용 합니다.
+- *Azure Files*를 사용하여 Azure Storage 계정을 통해 지원되는 SMB 3.0 공유를 Pod에 탑재할 수 있습니다. Files를 사용하면 여러 노드 및 Pod 간에 데이터를 공유할 수 있습니다. 파일은 고성능 Ssd에서 지원 되는 regular Hdd 또는 Azure Premium storage에서 지 원하는 Azure Standard storage를 사용할 수 있습니다.
 > [!NOTE] 
-> Azure 파일은 Kubernetes 1.13 이상을 실행하는 AKS 클러스터에서 프리미엄 저장소를 지원합니다.
+> Azure Files Kubernetes 1.13 이상을 실행 하는 AKS 클러스터의 premium storage를 지원 합니다.
 
 Kubernetes에서 볼륨은 단순히 정보를 저장하고 검색할 수 있는 기존 디스크 이상의 것을 나타낼 수 있습니다. 또한 Kubernetes 볼륨은 컨테이너에서 사용할 수 있도록 데이터를 Pod에 삽입하는 방법으로도 사용할 수 있습니다. Kubernetes의 일반적인 추가 볼륨 유형은 다음과 같습니다.
 
-- *emptyDir* - 일반적으로 Pod용 사용 후 삭제 공간으로 사용됩니다. Pod 내의 모든 컨테이너에서 볼륨의 데이터에 액세스할 수 있습니다. 이 볼륨 유형에 기록된 데이터는 Pod의 수명 동안만 유지되며, Pod가 삭제되면 해당 볼륨도 삭제됩니다. 이 볼륨은 일반적으로 기본 로컬 노드 디스크 저장소를 사용하지만 노드의 메모리에도 존재할 수 있습니다.
+- *emptyDir* - 일반적으로 Pod용 사용 후 삭제 공간으로 사용됩니다. Pod 내의 모든 컨테이너에서 볼륨의 데이터에 액세스할 수 있습니다. 이 볼륨 유형에 기록된 데이터는 Pod의 수명 동안만 유지되며, Pod가 삭제되면 해당 볼륨도 삭제됩니다. 이 볼륨은 일반적으로 기본 로컬 노드 디스크 저장소를 사용 하지만 노드의 메모리에만 존재할 수 있습니다.
 - *비밀* - 암호와 같은 중요한 데이터를 Pod에 삽입하는 데 사용됩니다. 먼저 Kubernetes API를 사용하여 비밀을 만듭니다. Pod 또는 배포를 정의할 때 특정 비밀을 요청할 수 있습니다. 비밀은 예약된 Pod가 있고 비밀이 필요한 노드에만 제공되며, 디스크에 기록되지 않고 *tmpfs*에 저장됩니다. 비밀이 필요한 노드의 마지막 Pod가 삭제되면 노드의 tmpfs에서 비밀이 삭제됩니다. 비밀은 지정된 네임스페이스 내에 저장되며 동일한 네임스페이스 내의 Pod에서만 액세스할 수 있습니다.
 - *configMap* - 애플리케이션 구성 정보와 같은 키-값 쌍 속성을 Pod에 삽입하는 데 사용됩니다. 컨테이너 이미지 내에서 애플리케이션 구성 정보를 정의하는 대신, 배포할 때 Pod의 새 인스턴스에 쉽게 업데이트하고 적용할 수 있는 Kubernetes 리소스로 정의할 수 있습니다. Secret을 사용하는 것과 마찬가지로, 먼저 Kubernetes API를 사용하여 ConfigMap 개체를 만듭니다. 그러면 Pod 또는 배포를 정의할 때 이 ConfigMap을 요청할 수 있습니다. ConfigMap은 지정된 네임스페이스 내에 저장되며 동일한 네임스페이스 내의 Pod에서만 액세스할 수 있습니다.
 
@@ -57,8 +57,8 @@ Premium 및 Standard와 같은 다른 계층의 스토리지를 정의하기 위
 
 AKS에서 만드는 두 가지 초기 StorageClass는 다음과 같습니다.
 
-- *default* - Azure Standard Storage를 사용하여 Managed Disk를 만듭니다. 회수 정책은 기본 Azure Disk를 사용한 영구 볼륨이 삭제될 때 삭제됨을 나타냅니다.
-- *managed-premium* - Azure Premium 스토리지를 사용하여 Managed Disk를 만듭니다. 회수 정책은 다시 기본 Azure Disk를 사용한 영구 볼륨이 삭제될 때 삭제됨을 나타냅니다.
+- *default* - Azure Standard Storage를 사용하여 Managed Disk를 만듭니다. 회수 정책은 사용 중인 영구 볼륨이 삭제 될 때 기본 Azure 디스크가 삭제 됨을 나타냅니다.
+- *managed-premium* - Azure Premium 스토리지를 사용하여 Managed Disk를 만듭니다. 회수 정책은 다시 사용 하는 영구 볼륨이 삭제 될 때 기본 Azure 디스크가 삭제 됨을 나타냅니다.
 
 영구적 볼륨에 대해 지정된 StorageClass가 없는 경우 기본 StorageClass가 사용됩니다. 영구적 볼륨을 요청하는 경우 필요한 스토리지를 적절하게 사용하도록 주의해야 합니다. `kubectl`을 사용하여 추가로 필요한 StorageClass를 만들 수 있습니다. 다음 예제에서는 Premium Managed Disks를 사용하고, Pod가 삭제되면 기본 Azure Disk를 *유지*해야 한다고 지정합니다.
 
@@ -120,7 +120,7 @@ spec:
 
 ## <a name="next-steps"></a>다음 단계
 
-관련 모범 사례는 [AKS의 저장소 및 백업에 대한 모범 사례를][operator-best-practices-storage]참조하십시오.
+관련 모범 사례는 [AKS의 저장소 및 백업에 대 한 모범 사례][operator-best-practices-storage]를 참조 하세요.
 
 Azure Disks 또는 Azure Files를 사용하는 동적 및 정적 볼륨을 만드는 방법을 알아보려면 다음 방법 문서를 참조하세요.
 

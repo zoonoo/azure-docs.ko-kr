@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
 ms.openlocfilehash: 47d927f9f17580767526ec6683e819256fc5e994
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77619924"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG 흐름 로그 읽기
@@ -187,8 +187,8 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ## <a name="next-steps"></a>다음 단계
 
 
-NSG 흐름 로그를 보는 방법에 대해 자세히 알아보려면 [Elastic Stack 사용](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Grafana 사용](network-watcher-nsg-grafana.md) 및 [Graylog 사용](network-watcher-analyze-nsg-flow-logs-graylog.md)을 참조하세요. Blob을 직접 사용 하 고 다양 한 로그 분석 소비자에 게 내보내는 오픈 소스 Azure Function 접근 방식은 여기에서 찾을 수 있습니다: [Azure 네트워크 감시자 NSG 흐름 로그 커넥터.](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector)
+NSG 흐름 로그를 보는 방법에 대해 자세히 알아보려면 [Elastic Stack 사용](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Grafana 사용](network-watcher-nsg-grafana.md) 및 [Graylog 사용](network-watcher-analyze-nsg-flow-logs-graylog.md)을 참조하세요. Blob을 직접 사용 하 고 다양 한 log analytics 소비자를 내보내는 데 사용 되는 오픈 소스 Azure 함수 방법은 [Azure Network Watcher NSG 흐름 로그 커넥터](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector)에서 찾을 수 있습니다.
 
-[Azure 트래픽 분석을](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) 사용하여 트래픽 흐름에 대한 통찰력을 얻을 수 있습니다. 트래픽 분석은 [로그 애널리틱스를](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) 사용하여 트래픽 흐름을 쿼리가능하게 만듭니다.
+[Azure 트래픽 분석](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) 를 사용 하 여 트래픽 흐름에 대 한 통찰력을 얻을 수 있습니다. 트래픽 분석은 [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) 를 사용 하 여 트래픽 흐름을 쿼리할 수 있도록 합니다.
 
-저장소 Blob 방문에 대 한 자세한 내용은: [Azure Functions Blob 저장소 바인딩](../azure-functions/functions-bindings-storage-blob.md)
+저장소 blob에 대 한 자세한 내용은 [Azure Functions Blob storage 바인딩](../azure-functions/functions-bindings-storage-blob.md) 을 참조 하세요.

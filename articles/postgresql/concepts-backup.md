@@ -1,31 +1,31 @@
 ---
-title: 백업 및 복원 - PostgreSQL용 Azure 데이터베이스 - 단일 서버
-description: PostgreSQL 서버 - 단일 서버에 대한 자동 백업 및 Azure 데이터베이스 복원에 대해 알아봅니다.
+title: 백업 및 복원-Azure Database for PostgreSQL-단일 서버
+description: Azure Database for PostgreSQL 서버-단일 서버를 자동 백업 하 고 복원 하는 방법에 대해 알아봅니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: 3e6dfd5882e49ad903e8cff6f0ec7f3d6bd4a8b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77619620"
 ---
-# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>PostgreSQL에 대한 Azure 데이터베이스의 백업 및 복원 - 단일 서버
+# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에서 백업 및 복원-단일 서버
 
 Azure Database for PostgreSQL은 자동으로 서버 백업을 만들어 사용자가 로컬로 구성한 중복 스토리지 또는 지역 중복 스토리지에 저장합니다. 백업을 사용하여 특정 시점의 서버를 복원할 수 있습니다. 백업 및 복원은 실수로 인한 손상이나 삭제로부터 데이터를 보호하므로 비즈니스 연속성 전략의 필수적인 부분입니다.
 
 ## <a name="backups"></a>Backup
 
-PostgreSQL용 Azure 데이터베이스는 데이터 파일및 트랜잭션 로그의 백업을 수행합니다. 지원되는 최대 저장소 크기에 따라 전체 및 차등 백업(최대 4TB 저장소 서버) 또는 스냅샷 백업(최대 16TB 최대 저장소 서버)을 사용합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 따라 최대 35일까지 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
+Azure Database for PostgreSQL는 데이터 파일과 트랜잭션 로그의 백업을 수행 합니다. 지원 되는 최대 저장소 크기에 따라 전체 및 차등 백업 (4 TB의 최대 저장소 서버) 또는 스냅숏 백업 (최대 16tb, 최대 저장소 서버)을 수행 합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 따라 최대 35일까지 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
 
-이러한 백업 파일은 내보낼 수 없습니다. 백업은 PostgreSQL용 Azure 데이터베이스의 복원 작업에만 사용할 수 있습니다. [pg_dump](howto-migrate-using-dump-and-restore.md) 사용하여 데이터베이스를 복사할 수 있습니다.
+이러한 백업 파일은 내보낼 수 없습니다. 백업은 Azure Database for PostgreSQL의 복원 작업에만 사용할 수 있습니다. [Pg_dump](howto-migrate-using-dump-and-restore.md) 를 사용 하 여 데이터베이스를 복사할 수 있습니다.
 
 ### <a name="backup-frequency"></a>Backup 주기
 
-일반적으로 전체 백업은 매주 발생하며, 최대 지원 되는 스토리지가 4TB인 서버의 경우 차등 백업이 하루에 두 번 발생합니다. 스냅샷 백업은 최대 16TB의 스토리지를 지원하는 서버에서 하루에 한 번 이상 수행됩니다. 두 경우 모두 트랜잭션 로그 백업은 5분마다 수행됩니다. 전체 백업의 첫 번째 스냅숏은 서버를 만든 직후에 예약됩니다. 초기 전체 백업은 대규모 복원된 서버에서 더 오래 걸릴 수 있습니다. 새 서버를 복원할 수 있는 가장 빠른 시점은 초기 전체 백업이 완료되는 시점입니다. 스냅샷이 즉각적이기 때문에 최대 16TB의 저장소를 지원하는 서버를 생성 시간으로 되돌릴 수 있습니다.
+일반적으로 전체 백업은 매주 실행 되 고 차등 백업은 최대 4 TB의 저장소를 지 원하는 서버에 대해 매일 두 번 발생 합니다. 스냅샷 백업은 최대 16TB의 스토리지를 지원하는 서버에서 하루에 한 번 이상 수행됩니다. 두 경우 모두 트랜잭션 로그 백업은 5분마다 수행됩니다. 서버를 만든 후 즉시 전체 백업의 첫 번째 스냅숏이 예약 됩니다. 초기 전체 백업은 복원 된 대량 서버에서 더 오래 걸릴 수 있습니다. 새 서버를 복원할 수 있는 가장 빠른 시점은 초기 전체 백업이 완료되는 시점입니다. 스냅숏이 순간에는 최대 16TB의 저장소를 지 원하는 서버를 만든 시간으로 다시 복원할 수 있습니다.
 
 ### <a name="backup-redundancy-options"></a>백업 중복 옵션
 
@@ -64,7 +64,7 @@ Azure Database for PostgreSQL에서 복원을 수행하면 원래 서버의 백�
 
 ### <a name="geo-restore"></a>지리적 복원
 
-지역 중복 백업을 위해 서버를 구성한 경우 서비스를 사용할 수 있는 다른 Azure 지역으로 서버를 복원할 수 있습니다. 최대 4TB의 저장소를 지원하는 서버는 지리적 으로 쌍을 이루는 지역 또는 최대 16TB의 저장소를 지원하는 모든 지역으로 복원할 수 있습니다. 최대 16TB의 저장소를 지원하는 서버의 경우 16TB 서버를 지원하는 모든 지역에서 지리적 백업을 복원할 수 있습니다. 지원되는 지역 목록에 [대한 PostgeSQL 가격 책정 계층에](concepts-pricing-tiers.md) 대한 Azure 데이터베이스 검토
+지역 중복 백업을 위해 서버를 구성한 경우 서비스를 사용할 수 있는 다른 Azure 지역으로 서버를 복원할 수 있습니다. 최대 4tb의 저장소를 지 원하는 서버는 지리적으로 쌍을 이루는 지역 또는 최대 16TB의 저장소를 지 원하는 지역으로 복원할 수 있습니다. 최대 16tb의 저장소를 지 원하는 서버의 경우 16 TB 서버를 지 원하는 모든 지역에서 지역 백업을 복원할 수 있습니다. 지원 되는 지역 목록은 [PostgeSQL 가격 책정 계층에 대 한 Azure Database를](concepts-pricing-tiers.md) 검토 합니다.
 
 지역 복원은 서버가 호스팅되는 지역에 사고가 발생하여 서버를 사용할 수 없는 경우에 대비한 기본 복구 옵션입니다. 지역에서 발생한 대규모 사고로 인해 데이터베이스 애플리케이션을 사용할 수 없는 경우 지역 중복 백업에서 다른 지역에 있는 서버로 서버를 복원할 수 있습니다. 백업을 수행할 때와 다른 지역으로 복제할 때 사이에 지연이 있습니다. 재해가 발생한 경우 최대 1시간 동안의 데이터가 손실되므로 이 지연은 최대 1시간일 수 있습니다.
 
@@ -75,12 +75,12 @@ Azure Database for PostgreSQL에서 복원을 수행하면 원래 서버의 백�
 복구 메커니즘에서 복원한 후에 다음 작업을 수행하여 사용자 및 애플리케이션이 다시 백업 및 실행되도록 해야 합니다.
 
 - 새 서버가 원래 서버를 교체하기 위한 것이라면 클라이언트와 클라이언트 애플리케이션을 새 서버로 리디렉션합니다.
-- 사용자가 연결할 수 있도록 적절한 서버 수준 방화벽과 VNet 규칙이 마련되어 있는지 확인합니다. 이러한 규칙은 원래 서버에서 복사되지 않습니다.
+- 사용자가 연결할 수 있도록 적절 한 서버 수준 방화벽 및 VNet 규칙이 준비 되어 있는지 확인 합니다. 이러한 규칙은 원래 서버에서 복사 되지 않습니다.
 - 적절한 로그인 및 데이터베이스 수준 권한이 있는지 확인합니다.
 - 필요에 따라 경고를 구성합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
--  [Azure 포털을](howto-restore-server-portal.md)사용하여 복원하는 방법에 대해 알아봅니다.
--  [Azure CLI를](howto-restore-server-cli.md)사용하여 복원하는 방법에 대해 알아봅니다.
+-  [Azure Portal](howto-restore-server-portal.md)를 사용 하 여 복원 하는 방법을 알아봅니다.
+-  [Azure CLI](howto-restore-server-cli.md)를 사용 하 여 복원 하는 방법을 알아봅니다.
 - 비즈니스 연속성에 대한 자세한 내용은  [비즈니스 연속성 개요](concepts-business-continuity.md)를 참조하세요.

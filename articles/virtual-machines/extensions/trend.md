@@ -1,5 +1,5 @@
 ---
-title: VM에 트렌드 마이크로 심층 보안 설치
+title: VM에 추세 마이크로 심층 보안 설치
 description: 이 문서에서는 Azure에서 클래식 배포 모델을 사용하여 만든 VM에 Trend Micro 보안을 설치하고 구성하는 방법을 설명합니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
 ms.openlocfilehash: cffd2eab3a616b4d16d847d0f2e1a26655f40459
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77919926"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법
@@ -57,7 +57,7 @@ Azure Portal, Azure CLI 또는 PowerShell을 사용하여 만든 기존 VM에는
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>기존 VM에 Deep Security Agent 설치
 기존 VM에 에이전트를 설치하려면 다음 항목이 필요합니다.
 
-* Azure PowerShell 모듈 버전 0.8.2 이상이 로컬 컴퓨터에 설치되어 있어야 합니다. **Get-Module azure | format-table version** 명령을 사용하여 설치한 Azure PowerShell 버전을 확인할 수 있습니다. 최신 버전에 대한 지침 및 링크는 [Azure PowerShell을 설치하고 구성하는 방법을](/powershell/azure/overview)참조하세요. `Add-AzureAccount`를 사용하여 Azure 구독에 로그인합니다.
+* Azure PowerShell 모듈 버전 0.8.2 이상이 로컬 컴퓨터에 설치되어 있어야 합니다. **Get-Module azure | format-table version** 명령을 사용하여 설치한 Azure PowerShell 버전을 확인할 수 있습니다. 지침 및 최신 버전에 대 한 링크는 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/overview)을 참조 하세요. `Add-AzureAccount`를 사용하여 Azure 구독에 로그인합니다.
 * VM 에이전트가 대상 가상 머신에 설치되어 있어야 합니다.
 
 먼저 VM 에이전트가 이미 설치되어 있는지 확인합니다. 클라우드 서비스 이름과 가상 머신 이름을 입력하고 관리자 수준의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다. < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 바꿉니다.
@@ -85,7 +85,7 @@ VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 * [지침](https://go.microsoft.com/fwlink/?LinkId=404099)
 
 ## <a name="additional-resources"></a>추가 리소스
-[Windows 서버를 실행하는 가상 컴퓨터에 로그온하는 방법]
+[Windows Server를 실행 하는 가상 컴퓨터에 로그온 하는 방법]
 
 [Azure VM 확장 및 기능]
 
@@ -95,5 +95,5 @@ VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 [3]: ./media/trend/SecurityAgentDetails.png
 
 <!-- Link references -->
-[Windows 서버를 실행하는 가상 컴퓨터에 로그온하는 방법]:../windows/classic/connect-logon.md
+[Windows Server를 실행 하는 가상 컴퓨터에 로그온 하는 방법]:../windows/classic/connect-logon.md
 [Azure VM 확장 및 기능]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

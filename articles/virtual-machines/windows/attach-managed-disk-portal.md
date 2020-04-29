@@ -1,5 +1,5 @@
 ---
-title: 관리되는 데이터 디스크를 Windows VM - Azure에 연결
+title: Windows VM에 관리 되는 데이터 디스크 연결-Azure
 description: Azure Portal을 사용하여 Windows VM에 관리되는 데이터 디스크를 연결하는 방법입니다.
 author: roygara
 ms.service: virtual-machines-windows
@@ -8,20 +8,20 @@ ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 0fe04941821de2ac6e4e873e8d073c3e9b9d9508
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77919382"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Windows VM에 관리되는 데이터 디스크 연결
 
-이 문서에서는 Azure Portal을 사용하여 새롭게 관리되는 데이터 디스크를 Windows VM(가상 머신)에 연결하는 방법을 보여 줍니다. VM 크기에 따라 연결할 수 있는 데이터 디스크 개수가 결정됩니다. 자세한 내용은 [가상 시스템의 크기를](sizes.md)참조하십시오.
+이 문서에서는 Azure Portal을 사용하여 새롭게 관리되는 데이터 디스크를 Windows VM(가상 머신)에 연결하는 방법을 보여 줍니다. VM 크기에 따라 연결할 수 있는 데이터 디스크 개수가 결정됩니다. 자세한 내용은 [가상 컴퓨터의 크기](sizes.md)를 참조 하세요.
 
 
 ## <a name="add-a-data-disk"></a>데이터 디스크 추가
 
-1. [Azure 포털로](https://portal.azure.com) 이동하여 데이터 디스크를 추가합니다. **가상 컴퓨터를**검색하고 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 데이터 디스크를 추가 합니다. **가상 머신**을 검색하여 선택합니다.
 2. 목록에서 가상 머신을 선택합니다.
 3. **가상 머신** 페이지에서 **디스크**를 선택합니다.
 4. **디스크** 페이지에서 **데이터 디스크 추가**를 선택합니다.
@@ -48,4 +48,4 @@ ms.locfileid: "77919382"
 ## <a name="next-steps"></a>다음 단계
 
 - 또한 [PowerShell을 사용하여 데이터 디스크를 연결](attach-disk-ps.md)할 수 있습니다.
-- 응용 프로그램에서 *D:* 드라이브를 사용하여 데이터를 저장해야 하는 경우 [Windows 임시 디스크의 드라이브 문자를 변경할](change-drive-letter.md)수 있습니다.
+- 응용 프로그램에서 *D:* 드라이브를 사용 하 여 데이터를 저장 해야 하는 경우 [Windows 임시 디스크의 드라이브 문자를 변경할](change-drive-letter.md)수 있습니다.

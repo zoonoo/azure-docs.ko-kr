@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
 ms.openlocfilehash: 90034a56fcf5211059d37270e12391249f7a16b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77920164"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>강제 터널링 시나리오에서 Windows 정품 인증 실패
@@ -26,13 +26,13 @@ ms.locfileid: "77920164"
 
 ## <a name="symptom"></a>증상
 
-Azure Virtual Network 서브넷에서 [강제 터널링](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)을 사용하도록 설정하여 모든 인터넷 바인딩 트래픽을 온-프레미스 네트워크로 다시 전송합니다. 이 시나리오에서는 Windows를 실행 하는 Azure 가상 컴퓨터 (VM) Windows를 활성화 하지 못합니다.
+Azure Virtual Network 서브넷에서 [강제 터널링](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)을 사용하도록 설정하여 모든 인터넷 바인딩 트래픽을 온-프레미스 네트워크로 다시 전송합니다. 이 시나리오에서 Windows를 실행 하는 Azure virtual machines (Vm)는 Windows를 정품 인증 하지 못합니다.
 
 ## <a name="cause"></a>원인
 
 Azure Windows VM은 Windows 정품 인증을 위해 Azure KMS 서버에 연결해야 합니다. 이러한 정품 인증을 위해서는 Azure 공용 IP 주소에서 정품 인증 요청을 수행해야 합니다. 강제 터널링 시나리오에서는 정품 인증 요청이 Azure 공용 IP 주소가 아닌 온-프레미스 네트워크에서 수행되므로 정품 인증에 실패합니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 Azure 사용자 지정 경로를 사용하여 정품 인증 트래픽을 Azure KMS 서버로 보냅니다.
 
@@ -53,7 +53,7 @@ Azure 글로벌 클라우드용 KMS 서버의 IP 주소는 23.102.135.246입니�
  
 
 > [!NOTE] 
-> 정품 인증은 공용 IP 주소를 사용하며 표준 SKU 로드 밸런서 구성의 영향을 받습니다. [Azure의 아웃바운드 연결을](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 주의 깊게 검토하여 요구 사항에 대해 알아봅니다.
+> 활성화는 공용 IP 주소를 사용 하며 표준 SKU Load Balancer 구성의 영향을 받습니다. [Azure에서 아웃 바운드 연결](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 을 신중 하 게 검토 하 여 요구 사항에 대해 알아보세요.
 
 1. Azure PowerShell을 연 다음, [Azure 구독에 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)합니다.
 2. 다음 명령을 실행합니다.

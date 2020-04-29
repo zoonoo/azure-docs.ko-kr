@@ -17,10 +17,10 @@ ms.date: 12/09/2016
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8c7c6b797605da2884c6bffc47e593ffc9a3faca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77615129"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>SAP NetWeaver 다중 SID 구성 만들기
@@ -444,7 +444,7 @@ ms.locfileid: "77615129"
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 
 
-2016년 9월, Microsoft는 [Azure 내부 로드 밸런서를][load-balancer-multivip-overview]사용하여 여러 가상 IP 주소를 관리할 수 있는 기능을 출시했습니다. 이 기능은 Azure 외부 부하 분산 장치에 이미 있습니다.
+2016 년 9 월 Microsoft는 [Azure 내부 부하 분산 장치][load-balancer-multivip-overview]를 사용 하 여 여러 가상 IP 주소를 관리할 수 있는 기능을 출시 했습니다. 이 기능은 Azure 외부 부하 분산 장치에 이미 있습니다.
 
 SAP 배포가 있는 경우 [Windows VM에서 고가용성 SAP NetWeaver 가이드][sap-ha-guide]에 설명된 대로 내부 부하 분산 장치를 사용하여 SAP ASCS/SCS에 대한 Windows 클러스터 구성을 만들 수 있습니다.
 
@@ -455,7 +455,7 @@ SAP 배포가 있는 경우 [Windows VM에서 고가용성 SAP NetWeaver 가이�
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 [Windows VM에서 고가용성 SAP NetWeaver 가이드][sap-ha-guide]에서 설명되고 이 다이어그램에 표시된 대로 하나의 SAP ASCS/SCS 인스턴스에 사용되는 WSFC 클러스터를 구성했습니다.
 
 ![고가용성 SAP ASCS/SCS 인스턴스][sap-ha-guide-figure-6001]
@@ -641,31 +641,31 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 고급 절차는 다음과 같습니다.
 
-1. [SAP 첫 번째 클러스터 노드를 설치합니다.][sap-ha-guide-9.1.2]  
- 이 단계에서는 **기존 WSFC 클러스터 노드 1에**고가용성 ASCS/SCS 인스턴스가 있는 SAP를 설치합니다.
+1. [SAP 첫 번째 클러스터 노드를 설치][sap-ha-guide-9.1.2]합니다.  
+ 이 단계에서는 **기존 WSFC 클러스터 노드 1**에 고가용성 ascs/SCS 인스턴스를 사용 하 여 SAP를 설치 합니다.
 
 2. [ASCS/SCS 인스턴스의 SAP 프로필 수정][sap-ha-guide-9.1.3].
 
 3. [프로브 포트 구성][sap-ha-guide-9.1.4].  
  이 단계에서는 PowerShell을 사용하여 SAP 클러스터 리소스 SAP-SID2-IP 프로브 포트를 구성하고 있습니다. SAP ASCS/SCS 클러스터 노드 중 하나에서 이 구성을 실행합니다.
 
-4. [데이터베이스 인스턴스를 설치합니다.][sap-ha-guide-9.2]  
+4. [데이터베이스 인스턴스를 설치][sap-ha-guide-9.2]합니다.  
  이 단계에서는 전용 WSFC 클러스터에 DBMS를 설치하고 있습니다.
 
-5. [두 번째 클러스터 노드를 설치합니다.][sap-ha-guide-9.3]  
+5. [두 번째 클러스터 노드를 설치][sap-ha-guide-9.3]합니다.  
  이 단계에서는 기존 WSFC 클러스터 노드 2에 고가용성 ASCS/SCS 인스턴스를 포함한 SAP를 설치하고 있습니다.
 
 6. SAP ASCS /SCS 인스턴스 및 ProbePort의 Windows 방화벽 포트를 엽니다.  
  SAP ASCS/SCS 인스턴스에 사용되는 두 클러스터 노드에서 SAP ASCS/SCS에서 사용하는 모든 Windows 방화벽 포트를 열고 있습니다. 이러한 포트는 [Windows VM에서 고가용성 SAP NetWeaver 가이드][sap-ha-guide-8.8]에 나열되어 있습니다.  
  또한 62350 시나리오에서와 같이 Azure 내부 부하 분산 장치 프로브 포트를 엽니다.
 
-7. [SAP ERS Windows 서비스 인스턴스의 시작 유형을 변경합니다.][sap-ha-guide-9.4]
+7. [SAP ERS Windows 서비스 인스턴스의 시작 유형을 변경][sap-ha-guide-9.4]합니다.
 
 8. 새 전용 VM에서 [SAP 기본 애플리케이션 서버 설치][sap-ha-guide-9.5].
 
 9. 새 전용 VM에서 [SAP 추가 애플리케이션 서버 설치][sap-ha-guide-9.6].
 
-10. [SAP ASCS/SCS 인스턴스 장애 조치 및 SIOS 복제를 테스트합니다.][sap-ha-guide-10]
+10. [SAP ASCS/SCS 인스턴스 장애 조치 및 SIOS 복제를 테스트][sap-ha-guide-10]합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

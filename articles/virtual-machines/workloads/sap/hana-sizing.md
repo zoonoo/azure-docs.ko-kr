@@ -14,10 +14,10 @@ ms.date: 09/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 404f8318816edcc2cfd1c50ca42304ff6ec93039
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616905"
 ---
 # <a name="sizing"></a>크기 조정
@@ -26,9 +26,9 @@ HANA 대규모 인스턴스에 대한 크기 조정은 일반적으로 HANA에 �
 
 - [SAP Note #1793345 - HANA에서 SAP Suite에 대한 크기 조정](https://launchpad.support.sap.com/#/notes/1793345)
 - [SAP Note #1872170 - Suite on HANA 및 S/4 HANA 크기 조정 보고서](https://launchpad.support.sap.com/#/notes/1872170)
-- [SAP 노트 #2121330 - FAQ: HanA 크기 조정 보고서에 대한 SAP BW](https://launchpad.support.sap.com/#/notes/2121330)
-- [SAP 노트 #1736976 - HANA에 대한 BW에 대한 크기 조정 보고서](https://launchpad.support.sap.com/#/notes/1736976)
-- [SAP 노트 #2296290 - HANA에 BW에 대한 새로운 크기 조정 보고서](https://launchpad.support.sap.com/#/notes/2296290)
+- [SAP Note #2121330-FAQ: HANA 크기 조정 보고서에서 SAP BW](https://launchpad.support.sap.com/#/notes/2121330)
+- [SAP Note #1736976-BW on HANA에 대 한 크기 조정 보고서](https://launchpad.support.sap.com/#/notes/1736976)
+- [SAP Note #2296290-BW on HANA에 대 한 새 크기 조정 보고서](https://launchpad.support.sap.com/#/notes/2296290)
 
 녹색 필드 구현을 위해 SAP Quick Sizer를 사용하여 HANA 상단에서 SAP 소프트웨어 구현에 대한 메모리 요구 사항을 계산할 수 있습니다.
 

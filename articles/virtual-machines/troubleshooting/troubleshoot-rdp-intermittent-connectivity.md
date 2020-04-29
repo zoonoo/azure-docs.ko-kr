@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
 ms.openlocfilehash: c22a401a6b25f7bb2c27a10e52214fa42ac6089b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77918226"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Azure VM에에서 원격 데스크톱 연결이 자주 끊김
@@ -32,9 +32,9 @@ ms.locfileid: "77918226"
 
 RDP 수신기가 잘못 구성되면 이 문제가 발생할 수 있습니다. 일반적으로 이 문제는 사용자 지정 이미지를 사용하는 VM에서 발생합니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
-이 단계를 수행하기 전에 영향을 받는 [VM의 OS 디스크의 스냅숏을](../windows/snapshot-copy-managed-disk.md) 백업으로 수행합니다. 
+이러한 단계를 수행 하기 전에 영향을 받는 VM의 [OS 디스크에 대 한 스냅숏을](../windows/snapshot-copy-managed-disk.md) 백업으로 사용 합니다. 
 
 이 문제를 해결하려면 직렬 콘솔을 사용하거나 VM의 OS 디스크를 복구 VM에 연결하여 [오프라인으로 VM을 복구](#repair-the-vm-offline)합니다.
 
@@ -87,12 +87,12 @@ RDP 수신기가 잘못 구성되면 이 문제가 발생할 수 있습니다. �
 
 ### <a name="repair-the-vm-offline"></a>오프라인으로 VM 복구
 
-1. [복구 VM에 OS 디스크를 연결합니다.](../windows/troubleshoot-recovery-disks-portal.md)
+1. [OS 디스크를 복구 VM에 연결](../windows/troubleshoot-recovery-disks-portal.md)합니다.
 2. OS 디스크가 복구 VM에 연결되면 디스크 관리 콘솔에서 디스크의 플래그가 **온라인**으로 지정되어 있는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
 3. 연결한 OS 디스크에서 **\windows\system32\config** 폴더로 이동합니다. 롤백이 필요한 경우 이 폴더에 있는 모든 파일을 복사합니다.
 4. 레지스트리 편집기(regedit.exe)를 시작합니다.
-5. **HKEY_LOCAL_MACHINE** 키를 선택합니다. 메뉴에서 **파일** > **로드 하이브를 선택합니다.**
-6. 연결한 OS 디스크의 **\windows\system32\config\SYSTEM** 폴더를 찾아봅습니다. Hive 이름으로 **BROKENSYSTEM**을 입력합니다. 새 레지스트리 Hive는 **HKEY_LOCAL_MACHINE** 키 아래에 표시됩니다. 그런 후 소프트웨어 하이브 **\windows\system32\config\SOFTWARE**를 **HKEY_LOCAL_MACHINE** 키 아래에 로드합니다. Hive 소프트웨어 이름으로 **BROKENSOFTWARE**를 입력합니다. 
+5. **HKEY_LOCAL_MACHINE** 키를 선택합니다. 메뉴에서 **파일** > **로드 하이브**를 선택 합니다.
+6. 연결한 OS 디스크에서 **\windows\system32\config\SYSTEM** 폴더를 찾습니다. Hive 이름으로 **BROKENSYSTEM**을 입력합니다. 새 레지스트리 Hive는 **HKEY_LOCAL_MACHINE** 키 아래에 표시됩니다. 그런 후 소프트웨어 하이브 **\windows\system32\config\SOFTWARE**를 **HKEY_LOCAL_MACHINE** 키 아래에 로드합니다. Hive 소프트웨어 이름으로 **BROKENSOFTWARE**를 입력합니다. 
 7. 관리자 권한으로 명령 프롬프트 창을 열고(**관리자 권한으로 실행**), 나머지 단계의 명령을 실행하여 RDP 구성을 다시 설정합니다. 
 8. 서버와 클라이언트 간의 통신이 기본 RDP 암호화를 사용하도록 RDP 보안 계층을 0으로 낮춥니다.
 

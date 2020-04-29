@@ -14,16 +14,16 @@ ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4060dbe936af8ff1f9dd8c958f64834cb06525de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77615078"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>STONITH를 사용하여 SUSE에서 고가용성 설정
 이 문서는 STONITH 디바이스를 사용하여 SUSE 운영 체제에서 고가용성을 설정하는 자세한 단계별 지침을 제공합니다.
 
-**면책 조항:** *이 가이드는 성공적으로 작동하는 Microsoft HANA 대형 인스턴스 환경에서 설정을 테스트하여 파생됩니다. HANA 대형 인스턴스의 Microsoft 서비스 관리 팀은 운영 체제를 지원하지 않으므로 운영 체제 계층에서 추가 문제 해결 이나 설명을 위해 SUSE에 문의해야 할 수 있습니다. Microsoft 서비스 관리 팀은 STONITH 장치를 설정하고 완전히 지원하며 STONITH 장치 문제에 대한 문제 해결에 참여할 수 있습니다.*
+고 **지 사항:** *이 가이드는 성공적으로 작동 하는 Microsoft HANA Large Instances 환경에서 설정을 테스트 하 여 파생 되었습니다. HANA Large Instances에 대 한 Microsoft 서비스 관리 팀에서 운영 체제를 지원 하지 않으므로 운영 체제 계층에 대 한 추가 문제 해결 또는 설명이 필요한 경우 SUSE에 문의 해야 할 수 있습니다. Microsoft 서비스 관리 팀은 STONITH 장치를 설정 하 고 완벽 하 게 지원 되며 STONITH 장치 문제에 대 한 문제 해결에 관련 될 수 있습니다.*
 ## <a name="overview"></a>개요
 SUSE 클러스터링을 사용하여 고가용성을 설정하려면 다음 필수 구성 요소를 충족해야 합니다.
 ### <a name="pre-requisites"></a>필수 구성 요소
@@ -85,14 +85,14 @@ iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
 
 ![iSCSIadmDiscovery.png](media/HowToHLI/HASetupWithStonith/iSCSIadmDiscovery.png)
 
-1.4 iSCSI 디바이스에 로그인하는 명령을 실행하고 4개 세션을 표시합니다. **두** 노드에서 실행합니다.
+1.4 iSCSI 디바이스에 로그인하는 명령을 실행하고 4개 세션을 표시합니다. **두 노드에서 모두** 실행 합니다.
 
 ```
 iscsiadm -m node -l
 ```
 ![iSCSIadmLogin.png](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
 
-1.5 재검사 스크립트 실행: *rescan-scsi-bus.sh*.  이 스크립트는 생성된 새 디스크를 보여 주며, 이를 위해 만든 디스크를 보여 주십습니다.  이 작업은 두 노드에서 모두 실행합니다. 0보다 더 큰 LUN 번호(예: 1, 2 등)가 표시됩니다.
+1.5 다시 검사 스크립트를 실행 합니다. *rescan-scsi-bus.sh*.  이 스크립트는 생성 된 새 디스크를 표시 합니다.  이 작업은 두 노드에서 모두 실행합니다. 0보다 더 큰 LUN 번호(예: 1, 2 등)가 표시됩니다.
 
 ```
 rescan-scsi-bus.sh
@@ -143,10 +143,10 @@ halk2 패키지가 이미 설치되었으므로 **취소**를 클릭합니다.
 
 ![yast-hawk-continue.png](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
 
-**계속을 클릭합니다.**
+**계속** 을 클릭 합니다.
 
-예상 값= 배포된 노드 수(이 ![](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) 경우 2) yast-Cluster-Security.png **다음**
-![야스트-클러스터-구성-csync2.png](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) 노드 이름 추가를 클릭한 다음 "제안된 파일 추가"를 클릭합니다.
+예상 ![값 = 배포 된 노드 수 (이 경우 2) yast-Cluster-Security **다음**
+![yast-cluster-configure-csync2를](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) 클릭 합니다. 노드 이름](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) 추가를 클릭 한 다음 "제안 된 파일 추가"를 클릭 합니다.
 
 “csync2 켜기”를 클릭합니다.
 
@@ -161,12 +161,12 @@ IP 주소 및 Csync2의 미리 공유한 키를 사용하여 인증을 수행합
 ![yast-cluster-conntrackd.png](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
 
 **Next**
-다음![야스트 클러스터 서비스.png를 클릭합니다.](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
+다음![yast-cluster-service를 클릭 합니다.](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
 기본 옵션(부팅 꺼짐)에서 부팅할 때 Pacemaker가 시작되도록 “켜기”로 변경해야 합니다. 설정 요구 사항에 따라 선택할 수 있습니다.
 **다음**을 클릭하면 클러스터 구성이 완료됩니다.
 
-## <a name="4---setting-up-the-softdog-watchdog"></a>4. 소프트독 워치독 설정
+## <a name="4---setting-up-the-softdog-watchdog"></a>4. 소프트 Dog Watchdog 설정
 이 섹션에서는 Watchdog(softdog) 구성을 설명합니다.
 
 4.1 두 노드에서 **모두** 다음 줄을 */etc/init.d/boot.local*에 추가합니다.
@@ -257,7 +257,7 @@ systemctl start pacemaker
 ```
 crm_mon
 ```
-![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) 당신은 또한 노드 *IP\<*> https:// 클러스터 상태를 확인하기 위해 호크에 로그인 할 수 있습니다 . 기본 사용자는 hacluster이며 암호는 linux입니다. 필요한 경우 *passwd* 명령을 사용하여 암호를 변경할 수 있습니다.
+![](media/HowToHLI/HASetupWithStonith/crm-mon.png) crm-mon hawk에 로그인 하 여 클러스터 상태 *https://\<노드 IP>:7630*을 확인할 수도 있습니다. 기본 사용자는 hacluster이며 암호는 linux입니다. 필요한 경우 *passwd* 명령을 사용하여 암호를 변경할 수 있습니다.
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. 클러스터 속성 및 리소스 구성 
 이 섹션에서는 클러스터 리소스를 구성하는 단계를 설명합니다.
@@ -322,23 +322,23 @@ crm configure load update crm-vip.txt
 *crm_mon* 명령을 실행하면 다음 두 리소스를 확인할 수 있습니다.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-또한 *https://\<노드 IP 주소>:7630/cib/live/state에서* 상태를 볼 수 있습니다.
+*Https://\<노드의 IP 주소>:7630/cib/live/state* 에서 상태를 확인할 수도 있습니다.
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 
-## <a name="8-testing-the-failover-process"></a>8. 장애 조치 프로세스 테스트
+## <a name="8-testing-the-failover-process"></a>8. 장애 조치 (failover) 프로세스 테스트
 장애 조치 프로세스를 테스트하려면 노드 1에서 Pacemaker 서비스를 중단하고 리소스를 노드 2에 장애 조치합니다.
 ```
 Service pacemaker stop
 ```
 이제 **노드 2**에서 Pacemaker 서비스를 중단하고 리소스를 **노드 1**에 대해 장애 조치합니다.
 
-**장애 조치 전**  
-![장애 조치 전.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
+**장애 조치 (failover) 전**  
+![Before-failover](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
 
 **장애 조치(failover) 후**  
-![페일오버 후.png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
-![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
+![after-failover](media/HowToHLI/HASetupWithStonith/after-failover.png)  
+![crm-mon-after-failover](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
 ## <a name="9-troubleshooting"></a>9. 문제 해결
@@ -436,11 +436,11 @@ yast2 > 소프트웨어 > 소프트웨어 관리 사용
 ![yast-pattern1.png](media/HowToHLI/HASetupWithStonith/yast-pattern1.png)
 ![yast-pattern2.png](media/HowToHLI/HASetupWithStonith/yast-pattern2.png)
 
-**수락을 클릭합니다.**
+**수락** 클릭
 
 ![yast-changed-packages.png](media/HowToHLI/HASetupWithStonith/yast-changed-packages.png)
 
-**계속을 클릭합니다.**
+**계속** 을 클릭 합니다.
 
 ![yast2-performing-installation.png](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
 
@@ -533,7 +533,7 @@ cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 
 ![ha-cluster-join-fix.png](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
 
-## <a name="10-general-documentation"></a>10. 일반 문서
+## <a name="10-general-documentation"></a>10. 일반 설명서
 다음 문서에서 SUSE HA 설정에 관한 추가 정보를 찾을 수 있습니다. 
 
 - [SAP HANA SR 성능 최적화된 시나리오](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )

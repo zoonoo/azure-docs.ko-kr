@@ -1,6 +1,6 @@
 ---
-title: CLI를 사용하여 유지 관리 알림 받기
-description: Azure에서 실행 중인 가상 시스템에 대한 유지 관리 알림을 보고 Azure CLI를 사용하여 셀프 서비스 유지 관리를 시작합니다.
+title: CLI를 사용 하 여 유지 관리 알림 가져오기
+description: Azure CLI를 사용 하 여 Azure에서 실행 되는 가상 머신에 대 한 유지 관리 알림을 확인 하 고 셀프 서비스 유지 관리를 시작 합니다.
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
 ms.openlocfilehash: 4ad57c1c71a51f948bd405a5487a1e27e36bfff7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77920895"
 ---
-# <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Azure CLI를 사용하여 계획된 유지 관리 알림 처리
+# <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Azure CLI를 사용 하 여 계획 된 유지 관리 알림 처리
 
-**이 문서는 Linux와 Windows를 모두 실행하는 가상 컴퓨터에 적용됩니다.**
+**이 문서는 Linux 및 Windows를 실행 하는 가상 컴퓨터에 적용 됩니다.**
 
-CLI를 사용하여 VM이 [유지 관리를](maintenance-notifications.md)위해 예약된 시기를 확인할 수 있습니다. 계획된 유지 관리 정보는 [az vm get-instance-view에서](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-get-instance-view)확인할 수 있습니다.
+CLI를 사용 하 여 Vm이 [유지 관리](maintenance-notifications.md)되도록 예약 된 시기를 확인할 수 있습니다. 계획 된 유지 관리 정보는 [az vm get instance-view](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-get-instance-view)에서 사용할 수 있습니다.
  
 유지 관리 정보는 계획된 유지 관리가 있는 경우에만 반환됩니다. 
 
@@ -26,9 +26,9 @@ CLI를 사용하여 VM이 [유지 관리를](maintenance-notifications.md)위해
 az vm get-instance-view -n myVM -g myResourceGroup --query instanceView.maintenanceRedeployStatus
 ```
 
-## <a name="start-maintenance"></a>유지 보수 시작
+## <a name="start-maintenance"></a>유지 관리 시작
 
-true로 설정된 경우 `IsCustomerInitiatedMaintenanceAllowed` 다음 호출이 VM에서 유지 관리를 시작합니다.
+이 true로 설정 된 경우 `IsCustomerInitiatedMaintenanceAllowed` 다음 호출은 VM에 대 한 유지 관리를 시작 합니다.
 
 ```azurecli-interactive
 az vm perform-maintenance -g myResourceGroup -n myVM 
@@ -60,4 +60,4 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure PowerShell](maintenance-notifications-powershell.md) 또는 [포털을](maintenance-notifications-portal.md)사용하여 계획된 유지 관리를 처리할 수도 있습니다.
+[Azure PowerShell](maintenance-notifications-powershell.md) 또는 [포털](maintenance-notifications-portal.md)을 사용 하 여 계획 된 유지 관리를 처리할 수도 있습니다.

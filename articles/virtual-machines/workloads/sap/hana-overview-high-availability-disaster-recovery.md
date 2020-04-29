@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0585c1251ba18e1390f3eee28a989edee6eb8591
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616940"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Azure의 SAP HANA 큰 인스턴스 고가용성 및 재해 복구 
@@ -32,8 +32,8 @@ ms.locfileid: "77616940"
 
 Microsoft에서는 HANA 큰 인스턴스를 통해 일부 SAP HANA 고가용성 기능을 지원합니다. 이러한 기능은 다음과 같습니다.
 
-- **저장소 복제**: 모든 데이터를 다른 Azure 지역의 다른 HANA 대형 인스턴스 스탬프에 복제하는 저장소 시스템의 기능입니다. SAP HANA는 이 메서드와 독립적으로 작동합니다. 이 기능은 HANA 대규모 인스턴스에 대해 제공되는 기본 재해 복구 메커니즘입니다.
-- **HANA 시스템 복제**: [SAP HANA의 모든 데이터를](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) 별도의 SAP HANA 시스템으로 복제합니다. 복구 시간 목표는 정기적으로 데이터 복제를 통해 최소화됩니다. SAP HANA는 비동기 모드, 동기식 메모리 내 모드 및 동기 모드를 지원합니다. 동기 모드는 동일한 데이터 센터 내에 있거나 100km 미만의 거리에 있는 SAP HANA 시스템에만 사용됩니다. HANA 대규모 인스턴스 스탬프의 현재 디자인에서 HANA 시스템 복제는 한 지역 내의 고가용성을 위해서만 사용할 수 있습니다. HANA 시스템 복제에는 다른 Azure 지역으로 재해 복구를 구성하기 위해 타사 역방향 프록시 또는 라우팅 구성 요소가 필요합니다. 
+- **저장소 복제**: 다른 Azure 지역의 다른 HANA 대량 인스턴스 스탬프로 모든 데이터를 복제 하는 저장소 시스템의 기능입니다. SAP HANA는 이 메서드와 독립적으로 작동합니다. 이 기능은 HANA 대규모 인스턴스에 대해 제공되는 기본 재해 복구 메커니즘입니다.
+- **HANA 시스템 복제**: 별도의 SAP HANA 시스템에 [SAP HANA의 모든 데이터를 복제](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) 합니다. 복구 시간 목표는 정기적으로 데이터 복제를 통해 최소화됩니다. SAP HANA는 비동기 모드, 동기식 메모리 내 모드 및 동기 모드를 지원합니다. 동기 모드는 동일한 데이터 센터 내에 있거나 100km 미만의 거리에 있는 SAP HANA 시스템에만 사용됩니다. HANA 대규모 인스턴스 스탬프의 현재 디자인에서 HANA 시스템 복제는 한 지역 내의 고가용성을 위해서만 사용할 수 있습니다. HANA 시스템 복제에는 다른 Azure 지역으로 재해 복구를 구성하기 위해 타사 역방향 프록시 또는 라우팅 구성 요소가 필요합니다. 
 - **자동 장애 조치 호스트:** HANA 시스템 복제의 대안인 SAP HANA의 로컬 오류 복구 솔루션입니다. 마스터 노드를 사용할 수 없게 되면 확장 모드에서 하나 이상의 대기 SAP HANA 노드를 구성하고 SAP HANA를 자동으로 대기 노드에 장애 조치합니다.
 
 Azure의 SAP HANA(대규모 인스턴스)는 네 개의 지정학적 영역(미국, 오스트레일리아, 유럽 및 일본)에 있는 두 개의 Azure 지역에서 제공됩니다. HANA 대규모 인스턴스 스탬프를 호스팅하는 지정학적 영역 내의 두 지역을 별도의 전용 네트워크 회로에 연결합니다. 재해 복구 메서드를 제공하기 위해 스토리지 스냅샷을 복제하는 데 이 기능을 사용합니다. 복제는 기본적으로 설정되지 않지만 재해 복구 기능을 주문한 고객에 대해 설정됩니다. 스토리지 복제는 HANA 큰 인스턴스에 대한 스토리지 스냅샷 사용 여부에 따라 달라집니다. 또한 다른 지리적 영역에 있는 DR 영역으로 Azure 지역을 선택할 수 없습니다. 
@@ -69,7 +69,7 @@ Azure의 SAP HANA(대규모 인스턴스)는 네 개의 지정학적 영역(미�
 
 HANA 대규모 인스턴스의 재해 복구 기능을 활용하려면 두 개의 Azure 지역에 네트워크 연결을 설계해야 합니다. 기본 Azure 지역의 온-프레미스에서 Azure ExpressRoute 회로 연결이 필요하고 온-프레미스에서 재해 복구 지역에 또 다른 회로 연결이 필요합니다. 이러한 방법은 MSEE(Microsoft Enterprise Edge 라우터) 위치를 포함하는 Azure 지역에 문제가 있는 상황을 다룹니다.
 
-두 번째 방법으로 한 지역의 Azure(대규모 인스턴스)에서 SAP HANA에 연결된 모든 Azure 가상 네트워크를 다른 지역의 HANA 대규모 인스턴스를 연결하는 ExpressRoute 회로에 연결할 수 있습니다. 이 *교차 연결*을 사용하면 지역 1의 Azure 가상 네트워크에서 실행되는 서비스를 Region 2의 HANA 대형 인스턴스 단위에 연결할 수 있습니다. 이 조치는 Azure와 온-프레미스 위치를 연결하는 MSEE 위치 중 하나가 오프라인 상태가 되는 경우에 문제를 해결합니다.
+두 번째 방법으로 한 지역의 Azure(대규모 인스턴스)에서 SAP HANA에 연결된 모든 Azure 가상 네트워크를 다른 지역의 HANA 대규모 인스턴스를 연결하는 ExpressRoute 회로에 연결할 수 있습니다. 이 *교차 연결*을 사용 하는 경우 지역 1의 Azure virtual network에서 실행 되는 서비스는 지역 2의 HANA Large Instance 장치 및 그 밖의 다른 방법으로 연결할 수 있습니다. 이 조치는 Azure와 온-프레미스 위치를 연결하는 MSEE 위치 중 하나가 오프라인 상태가 되는 경우에 문제를 해결합니다.
 
 다음 그림은 재해 복구 사례에 대한 복원력 있는 구성을 보여줍니다.
 

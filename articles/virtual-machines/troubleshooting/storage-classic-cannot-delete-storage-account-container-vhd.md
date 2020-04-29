@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: 95c85309058911d6767eb44efd7b37ddac7a9119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77915040"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>클래식 스토리지 리소스 삭제 오류 문제 해결
@@ -65,7 +65,7 @@ Azure 디스크에 관한 자세한 내용은 [여기](../../virtual-machines/wi
 
 > <span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
 > 
-> <span style="color:red">제거 -AzureStorageAccount : BadRequest: 저장소 계정 myclassic계정에는 일부 활성 이미지 및/또는 디스크(들)가 있습니다.  
+> <span style="color:red">제거-AzureStorageAccount: BadRequest: Storage 계정 myclassicaccount에 일부 활성 이미지 및/또는 디스크가 있습니다 (예:).  
 > myclassicaccount)가 있습니다. 이 스토리지 계정을 삭제하려면 이러한 이미지 및/또는 디스크를 제거해야 합니다.</span>
 
 ## <a name="unable-to-delete-storage-container"></a>스토리지 컨테이너를 삭제할 수 없음
@@ -83,7 +83,7 @@ Azure Portal은 컨테이너의 *.vhd 페이지 blob 파일을 가리키는 "디
 
 > <span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
 > 
-> <span style="color:red">제거-AzureStorageContainer: 원격 서버 오류를 반환: (412) 현재 컨테이너에 임대가 있고 임대 ID가 요청에 지정 되지 않았습니다. HTTP 상태 코드: 412 - HTTP 오류 메시지: 현재 컨테이너에 임대가 있으며 요청에 임대 ID가 지정되지 않았습니다.</span>
+> <span style="color:red">New-azurestoragecontainer: 원격 서버에서 오류를 반환 했습니다. (412) 현재 컨테이너에 임대가 있으며 요청에 임대 ID가 지정 되지 않았습니다.. HTTP 상태 코드: 412-HTTP 오류 메시지: 현재 컨테이너에 임대가 있으며 요청에 임대 ID가 지정 되지 않았습니다.</span>
 
 ## <a name="unable-to-delete-a-vhd"></a>vhd를 삭제할 수 없음 
 
@@ -105,16 +105,16 @@ Azure Virtual Machine을 삭제한 후 vhd 파일(페이지 blob)을 삭제하�
 
 > <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
 > 
-> <span style="color:red">제거 -AzureStorageBlob 제거 : 원격 서버가 오류를 반환 : (412) Blob에 현재 임대가 있고 임대 ID가 요청에 지정되지 않았습니다. HTTP 상태 코드: 412 - HTTP 오류 메시지: 현재 Blob에 임대가 있으며 요청에 임대 ID가 지정되지 않았습니다.</span>
+> <span style="color:red">-AzureStorageBlob 제거: 원격 서버에서 오류를 반환 했습니다. (412) 현재 blob에 임대가 있으며 요청에 임대 ID가 지정 되지 않았습니다.. HTTP 상태 코드: 412-HTTP 오류 메시지: 현재 blob에 임대가 있으며 요청에 임대 ID가 지정 되지 않았습니다.</span>
 
 
 ## <a name="resolution-steps"></a>해결 단계:
 
 ### <a name="to-remove-classic-disks"></a>클래식 디스크를 제거하려면
 Azure Portal에서 다음 단계를 따릅니다.
-1.  [Azure 포털로](https://portal.azure.com)이동합니다.
+1.  [Azure Portal](https://portal.azure.com)로 이동 합니다.
 2.  디스크(클래식)로 이동합니다. 
-3.  디스크 탭을 클릭합니다. ![컨테이너 Blob "목록" 창이 열려 있는 포털의 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
+3.  디스크 탭을 클릭 합니다 ![. 컨테이너 blob "목록" 창이 열려 있는 포털의 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
  
 4.  데이터 디스크를 선택한 다음 디스크 삭제를 클릭합니다.
  ![컨테이너 blob "목록" 창이 열려 있는 포털 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)
@@ -124,7 +124,7 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 ### <a name="to-remove-classic-images"></a>클래식 이미지를 제거하려면   
 Azure Portal에서 다음 단계를 따릅니다.
-1.  [Azure 포털로](https://portal.azure.com)이동합니다.
+1.  [Azure Portal](https://portal.azure.com)로 이동 합니다.
 2.  OS 이미지(클래식)로 이동합니다.
 3.  이미지를 삭제합니다.
 4.  이전에 실패한 삭제 작업을 다시 시도하세요.
