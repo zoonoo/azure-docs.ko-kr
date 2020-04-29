@@ -1,6 +1,6 @@
 ---
-title: Azure CDN에 대한 현재 POP IP 목록 검색 | 마이크로 소프트 문서
-description: 현재 POP 목록을 검색하는 방법을 알아봅니다.
+title: Azure CDN에 대 한 현재 POP IP 목록을 검색 합니다. Microsoft Docs
+description: 현재 POP 목록을 검색 하는 방법에 대해 알아봅니다.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -16,30 +16,30 @@ ms.date: 08/22/2019
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: a58fd7c6f50cd46ac3c34cd7e5bd329c0007e5f6
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260193"
 ---
-# <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Azure CDN의 현재 POP IP 목록 검색
+# <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Azure CDN에 대 한 현재 POP IP 목록을 검색 합니다.
 
-## <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Azure CDN에 대한 현재 버라이존 POP IP 목록 검색
+## <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Azure CDN에 대 한 현재 Verizon POP IP 목록을 검색 합니다.
 
 Verizon의 POP(point of presence) 서버용 IP 집합을 검색하려면 REST API를 사용할 수 있습니다. 이러한 POP 서버는 Verizon 프로필에서 Azure CDN(Content Delivery Network) 엔드포인트(**Verizon에서 Azure CDN 표준** 또는 **Verizon에서 Azure CDN 프리미엄**)와 연결된 원본 서버에 요청합니다. 이 IP 집합은 Pop에 요청할 때 클라이언트가 볼 수 있는 IP와 다른지 확인합니다. 
 
 POP 목록을 검색하기 위한 REST API 작업의 구문은 [에지 노드 - 목록](https://docs.microsoft.com/rest/api/cdn/edgenodes/list)을 참조합니다.
 
-## <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Azure CDN에 대한 현재 Microsoft POP IP 목록 검색
+## <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Azure CDN에 대 한 현재 Microsoft POP IP 목록을 검색 합니다.
 
-Microsoft의 Azure CDN에서만 트래픽을 허용하도록 응용 프로그램을 잠그려면 백 엔드에 대한 IP ACL을 설정해야 합니다. Microsoft에서 Azure CDN에서 보낸 헤더 'X-Forwarded-Host'에 대해 허용되는 값 집합을 제한할 수도 있습니다. 이 단계는 다음과 같이 자세히 설명되어 있습니다.
+Microsoft에서 Azure CDN의 트래픽만 허용 하도록 응용 프로그램을 잠그려면 백 엔드에 대 한 IP Acl을 설정 해야 합니다. Microsoft에서 Azure CDN 보낸 헤더 ' X 전달-호스트 '에 대해 허용 되는 값 집합을 제한할 수도 있습니다. 이러한 단계는 아래에 자세히 설명 되어 있습니다.
 
-백 엔드가 Microsoft의 백 엔드 IP 주소 공간 및 Azure의 인프라 서비스에서만 Azure CDN의 트래픽을 허용하도록 IP ACLing을 구성합니다. 
+백 엔드에 대 한 IP ACLing를 구성 하 여 Microsoft의 백 엔드 IP 주소 공간 및 Azure 인프라 서비스에서 Azure CDN의 트래픽을 허용 합니다. 
 
-* 마이크로소프트의 IPv4 백 엔드 IP 공간에서 Azure CDN: 147.243.0.0/16
-* 마이크로소프트의 IPv6 백 엔드 IP 공간에서 Azure CDN: 2a01:111:2050:/44
+* Microsoft의 IPv4 백 엔드 IP 공간에서 Azure CDN: 147.243.0.0/16
+* Microsoft의 IPv6 백 엔드 IP 공간에서 Azure CDN: 2a01:111:::/44
 
-Microsoft 서비스에 대한 IP 범위 및 서비스 태그는 [여기에서](https://www.microsoft.com/download/details.aspx?id=56519) 찾을 수 있습니다.
+Microsoft 서비스에 대 한 IP 범위 및 서비스 태그는 [여기](https://www.microsoft.com/download/details.aspx?id=56519) 에서 찾을 수 있습니다.
 
 
 ## <a name="typical-use-case"></a>일반적인 사용 사례

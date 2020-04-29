@@ -1,13 +1,13 @@
 ---
-title: 인증서 공통 이름을 사용하도록 클러스터 업데이트
+title: 인증서 일반 이름을 사용 하도록 클러스터 업데이트
 description: 인증서 지문 대신 인증서 일반 이름을 사용하도록 Service Fabric 클러스터를 전환하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 1926b0501766eb0a5fe086ceada0c9bf45e3dcf6
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81272630"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>인증서 지문에서 일반 이름으로 클러스터 변경
@@ -91,7 +91,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 > 확장 집합 비밀에서는 두 개의 개별 비밀에 동일한 리소스 ID를 사용할 수 없습니다. 각 비밀은 버전이 관리되는 고유한 리소스이기 때문입니다. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>포털에서 템플릿을 다운로드하고 업데이트
-기본 확장 집합에 인증서가 설치되어 있지만, 해당 인증서 및 일반 이름을 사용하도록 Service Fabric 클러스터를 업데이트해야 합니다.  이제 클러스터 배포에 사용할 템플릿을 다운로드합니다.  [Azure 포털에](https://portal.azure.com) 로그인하고 클러스터를 호스팅하는 리소스 그룹으로 이동합니다.  **설정**에서 **배포**를 선택합니다.  가장 최근 배포를 선택하고 **템플릿 보기**를 클릭합니다.
+기본 확장 집합에 인증서가 설치되어 있지만, 해당 인증서 및 일반 이름을 사용하도록 Service Fabric 클러스터를 업데이트해야 합니다.  이제 클러스터 배포에 사용할 템플릿을 다운로드합니다.  [Azure Portal](https://portal.azure.com) 에 로그인 하 고 클러스터를 호스팅하는 리소스 그룹으로 이동 합니다.  **설정**에서 **배포**를 선택합니다.  가장 최근 배포를 선택하고 **템플릿 보기**를 클릭합니다.
 
 ![템플릿 보기][image1]
 
@@ -116,9 +116,9 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
     },
     ```
 
-    또한 인증서를 제거하는 것이 *좋습니다Thumbprint*, 그것은 더 이상 리소스 관리자 템플릿에서 참조 될 수 없습니다.
+    또한 *certificateThumbprint*를 제거 하는 것이 좋습니다. 리소스 관리자 템플릿에서 더 이상 참조 되지 않을 수도 있습니다.
 
-2. **Microsoft.Compute/virtualMachineScaleSets** 리소스에서 지문 대신 인증서 설정의 일반 이름을 사용하도록 가상 머신 확장을 업데이트합니다.  **가상머신프로파일**->**확장프로필**->**extensions**->**속성**->**설정**->**인증서,** 추가 `"thumbprint": "[parameters('certificateThumbprint')]",` `"commonNames": ["[parameters('certificateCommonName')]"],` 및 제거.
+2. **Microsoft.Compute/virtualMachineScaleSets** 리소스에서 지문 대신 인증서 설정의 일반 이름을 사용하도록 가상 머신 확장을 업데이트합니다.  **Virtualmachineprofile**->**extensionprofile**->**확장**->**속성**->**settings**설정->**인증서**에서을 추가 `"commonNames": ["[parameters('certificateCommonName')]"],` 하 고 `"thumbprint": "[parameters('certificateThumbprint')]",`제거 합니다.
     ```json
         "virtualMachineProfile": {
         "extensionProfile": {
@@ -179,7 +179,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
         ...
     ```
 
-자세한 내용은 [지문 대신 인증서 공통 이름을 사용하는 서비스 패브릭 클러스터 배포를 참조하십시오.](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn)
+자세한 내용은 [지문 대신 인증서 일반 이름을 사용 하는 Service Fabric 클러스터 배포를](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn) 참조 하세요.
 
 ## <a name="deploy-the-updated-template"></a>업데이트된 템플릿 배포
 변경 후 업데이트된 템플릿을 다시 배포합니다.
@@ -192,7 +192,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* 클러스터 [보안에](service-fabric-cluster-security.md)대해 자세히 알아봅니다.
+* [클러스터 보안](service-fabric-cluster-security.md)에 대해 알아봅니다.
 * [클러스터 인증서 롤오버](service-fabric-cluster-rollover-cert-cn.md) 방법 알아보기
 * [클러스터 인증서 업데이트 및 관리](service-fabric-cluster-security-update-certs-azure.md)
 

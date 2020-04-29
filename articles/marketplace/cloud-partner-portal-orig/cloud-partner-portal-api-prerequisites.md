@@ -1,5 +1,5 @@
 ---
-title: API 전제 조건 | Azure 마켓플레이스
+title: API 필수 구성 요소 | Azure Marketplace
 description: 클라우드 파트너 포털 API 사용을 위한 필수 구성 요소에 대해 설명합니다.
 author: dsindona
 ms.service: marketplace
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: df94cba1f77ae3ea8cf595e7c651af7a69108bb6
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255977"
 ---
 <a name="api-prerequisites"></a>API 필수 구성 요소
 ================
 
 > [!NOTE]
-> 클라우드 파트너 포털 API는 파트너 센터와 통합되며 오퍼가 파트너 센터로 마이그레이션된 후에도 계속 작동합니다. 통합은 작은 변화를 도입합니다. [Cloud 파트너 포털 API 참조에](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) 나열된 변경 내용을 검토하여 파트너 센터로 마이그레이션한 후에도 코드가 계속 작동하는지 확인합니다.
+> Cloud 파트너 포털 Api는 파트너 센터와 통합 되며 제품을 파트너 센터로 마이그레이션한 후에도 계속 작동 합니다. 통합에는 작은 변화가 도입 되었습니다. 파트너 센터로 마이그레이션한 후 코드가 계속 작동 하는지 확인 하려면 [CLOUD 파트너 포털 API 참조](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) 에 나열 된 변경 내용을 검토 합니다.
 
 클라우드 파트너 포털 API를 사용하려면 필요한 두 가지 필수 프로그래밍 자산은 서비스 주체와 Azure AD(Active Directory) 액세스 토큰입니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "81255977"
 3. **유형** 드롭다운에서 **서비스 주체**를 선택하고 다음 세부 정보를 추가합니다.
 
 -   서비스 주체의 **표시 이름**(예: `spAccount`)
--   **애플리케이션 ID**. 이 식별자를 찾으려면 [Azure 포털로](https://portal.azure.com)이동하여 **Azure Active Directory를**클릭하고 **앱 등록을**선택하고 앱을 클릭합니다.
+-   **애플리케이션 ID**. 이 식별자를 찾으려면 [Azure Portal](https://portal.azure.com)로 이동 하 여 **Azure Active Directory**를 클릭 하 고 **앱 등록**를 선택한 다음 앱을 클릭 합니다.
 -   Azure AD 테넌트의 **테넌트 ID**(**디렉터리 ID**)라고도 함. 이 식별자는 [Azure Portal](https://portal.azure.com)의 Azure Active Directory 페이지 내 **속성** 아래에서 확인할 수 있습니다.
 -   서비스 주체 개체의 **개체 ID**. Azure Portal에서 이 식별자를 가져올 수 있습니다. **Azure Active Directory**로 이동하여 **앱 등록**을 선택하고 앱을 클릭한 후에 **로컬 디렉터리의 관리되는 애플리케이션** 아래에서 앱 이름을 클릭합니다. 그런 다음 **속성** 페이지로 이동하여 개체 ID를 확인합니다. 앱에 표시되는 초기 개체 ID가 아니라 관리되는 애플리케이션의 개체 ID를 가져와야 합니다.
 -   계정과 연결된 **역할**(RBAC에 사용됨)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: allensu
 ms.openlocfilehash: a5f3f8dbb83b23fc16fd1225e5a9cbeab16b9576
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260244"
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Azure CDN POP 위치 약어
@@ -41,7 +41,7 @@ AMS | 암스테르담, 네덜란드 | 유럽
 ARN | 스톡홀름, 스웨덴 | 유럽
 ATL | 애틀랜타, 조지아, USA | 북아메리카: 미국 동부 해안
 BAQ | 바랑키야, 콜롬비아 | 라틴 아메리카
-BLR | 벵갈루루(방갈로르), 인도 | 아시아
+BLR | Bengaluru (Bangalore), 인도 | 아시아
 BNJ | 뉴어크, 뉴저지, 미국 | 북아메리카: 미국 동부 해안
 BOS | 보스턴, 매사추세츠, 미국 | 북아메리카: 미국 동부 해안
 BTH | 바탐, 인도네시아 | 아시아

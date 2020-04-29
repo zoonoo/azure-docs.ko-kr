@@ -9,33 +9,33 @@ ms.date: 04/13/2020
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 208f4f7b4c2d8562d5237a40f52e4774ea5c5606
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81272477"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Azure App Service에서 PHP 구성
 
 ## <a name="introduction"></a>소개
 
-이 가이드에서는 [Azure App Service에서](https://go.microsoft.com/fwlink/?LinkId=529714)웹 앱 및 API 앱에 대한 기본 제공 PHP 런타임을 구성하고, 사용자 지정 PHP 런타임을 제공하고, 확장을 사용하도록 설정하는 방법을 보여 주었습니다. App Service를 사용하려면 [무료 평가판]에 등록해야 합니다. 이 가이드를 최대한 활용하려면 먼저 App Service에서 PHP 앱을 만들어야 합니다.
+이 가이드에서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 웹 앱 및 API 앱에 대 한 기본 제공 php 런타임을 구성 하 고 사용자 지정 php 런타임을 제공 하며 확장을 사용 하도록 설정 하는 방법을 보여 줍니다. App Service를 사용하려면 [무료 평가판]에 등록해야 합니다. 이 가이드를 최대한 활용하려면 먼저 App Service에서 PHP 앱을 만들어야 합니다.
 
 ## <a name="how-to-change-the-built-in-php-version"></a>방법: 기본 제공 PHP 버전 변경
 
-웹 앱을 만들 때 구성할 PHP 버전을 선택할 수 있습니다. 현재 지원되는 버전에 대한 최신 정보는 [앱 서비스에서 PHP를](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md) 참조하십시오.
+웹 앱을 만들 때 구성 될 PHP 버전을 선택할 수 있습니다. 현재 지원 되는 버전에 대 한 최신 정보는 [App Service의 PHP](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md) 를 참조 하세요.
 
-앱의 기존 런타임 버전을 확인하려면 [phpinfo()] 함수를 호출하는 스크립트를 배포할 수 있습니다.
+응용 프로그램의 기존 런타임 버전을 확인 하려면 [phpinfo ()] 함수를 호출 하는 스크립트를 배포할 수 있습니다.
 
 PHP 버전을 업데이트하려면 다음 방법 중 하나를 따르세요.
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. [Azure 포털에서](https://portal.azure.com) 앱을 찾아 **구성** 페이지로 스크롤합니다.
+1. [Azure Portal](https://portal.azure.com) 에서 앱으로 이동 하 고 **구성** 페이지로 스크롤합니다.
 
-2. **구성에서** **일반 설정을** 선택하고 새 PHP 버전을 선택합니다.
+2. **구성**에서 **일반 설정** 을 선택 하 고 새 PHP 버전을 선택 합니다.
 
-3. **일반 설정** 블레이드 상단의 **저장** 버튼을 클릭합니다.
+3. **일반 설정** 블레이드의 위쪽에 있는 **저장** 단추를 클릭 합니다.
 
 ### <a name="azure-cli"></a>Azure CLI 
 
@@ -81,7 +81,7 @@ Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI를 �
 
 1. `PHP_INI_SCAN_DIR` 키 및 `d:\home\site\ini` 값으로 앱에 앱 설정을 추가합니다.
 1. Kudu Console(http://&lt;site-name&gt;.scm.azurewebsite.net)을 사용하여 `d:\home\site\ini` 디렉터리에 `settings.ini` 파일을 만듭니다.
-1. `php.ini` 파일에 사용한 것과 동일한 구문을 사용하여 구성 설정을 `settings.ini` 파일에 추가합니다. 예를 들어 `curl.cainfo` 설정을 `*.crt` 파일로 가리키고 'wincache.maxfilesize' 설정을 512K로 설정하려는 `settings.ini` 경우 파일에 이 텍스트가 포함됩니다.
+1. `php.ini` 파일에 사용한 것과 동일한 구문을 사용하여 구성 설정을 `settings.ini` 파일에 추가합니다. 예를 들어 `curl.cainfo` `*.crt` 파일에 대 한 설정을 가리키고 ' wincache. Maxfilesize ' 설정을 512 K로 설정 하려면 파일에 `settings.ini` 다음 텍스트가 포함 됩니다.
 
         ; Example Settings
         curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
@@ -110,10 +110,10 @@ Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI를 �
 1. `bin` 디렉터리를 루트 디렉터리에 추가합니다.
 2. `.dll` 확장 파일을 `bin` 디렉터리에 둡니다(예: `php_xdebug.dll`). 확장이 기본 버전의 PHP와 호환되며 VC9 및 nts(non-thread-safe)와 호환 가능해야 합니다.
 3. 앱을 배포합니다.
-4. Azure 포털에서 앱을 찾아보고 **설정** 섹션 아래에 있는 **구성을** 클릭합니다.
-5. **구성** 블레이드에서 **응용 프로그램 설정을**선택합니다.
-6. 응용 **프로그램 설정** 섹션에서 **+ 새 응용 프로그램 설정을** 클릭하고 **PHP_EXTENSIONS** 키를 만듭니다. 이 키의 값은 웹 사이트 루트 **bin\your-ext-file**에 상대적인 경로입니다.
-7. 하단의 **업데이트** 버튼을 클릭한 다음 **응용 프로그램 설정** 탭 위에 **저장을** 클릭합니다.
+4. Azure Portal에서 앱으로 이동 하 고 **설정** 섹션 아래에 있는 **구성** 을 클릭 합니다.
+5. **구성** 블레이드에서 **응용 프로그램 설정**을 선택 합니다.
+6. **응용 프로그램 설정** 섹션에서 **+ 새 응용 프로그램 설정** 을 클릭 하 고 **PHP_EXTENSIONS** 키를 만듭니다. 이 키의 값은 웹 사이트 루트 **bin\your-ext-file**에 상대적인 경로입니다.
+7. 아래쪽에 있는 **업데이트** 단추를 클릭 한 다음 **응용 프로그램 설정** 탭 위에 있는 **저장** 을 클릭 합니다.
 
 **PHP_ZENDEXTENSIONS** 키를 통해 Zend 확장도 지원됩니다. 여러 확장을 사용하려면 앱 설정 값에 `.dll` 파일의 쉼표로 구분된 목록을 포함합니다.
 
@@ -121,15 +121,15 @@ Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI를 �
 
 App Service는 기본 PHP 런타임 대신, 사용자가 PHP 스크립트를 실행하도록 제공한 PHP 런타임을 사용할 수 있습니다. 이러한 런타임은 사용자가 제공한 `php.ini` 파일로 구성될 수 있습니다. App Service에 사용자 지정 PHP 런타임을 사용하려면 다음 단계를 따르세요.
 
-1. 스레드로부터 안전하지 않은 VC9 또는 VC11과 호환되는 버전의 Windows용 PHP를 받아야 합니다. 윈도우용 PHP의 최근 릴리스는 [https://windows.php.net/download/]여기에서 찾을 수 있습니다. 이전 릴리스는 아카이브에서 찾을 [https://windows.php.net/downloads/releases/archives/]수 있습니다.
+1. 스레드로부터 안전하지 않은 VC9 또는 VC11과 호환되는 버전의 Windows용 PHP를 받아야 합니다. 최신 Windows 용 PHP 릴리스는에서 찾을 수 있습니다 [https://windows.php.net/download/]. 이전 릴리스는 다음 위치에서 찾을 수 있습니다 [https://windows.php.net/downloads/releases/archives/].
 2. 런타임에 맞게 `php.ini` 파일을 수정합니다. 시스템 수준 전용 지시문인 구성 설정은 App Service에서 무시됩니다. 시스템 수준 전용 지시문에 대한 자세한 내용은 [php.ini 지시문 목록](영문)을 참조하세요.
 3. 경우에 따라 확장을 PHP 런타임에 추가하고 `php.ini` 파일에서 확장을 사용하도록 설정합니다.
 4. 루트 디렉터리에 `bin` 디렉터리를 추가하고 PHP 런타임이 포함된 디렉터리(예: `bin\php`)를 배치합니다.
 5. 앱을 배포합니다.
-6. Azure 포털에서 앱을 찾아보고 **구성** 블레이드를 클릭합니다.
-8. **구성** 블레이드에서 **경로 매핑을 선택합니다.** 
-9. **+ 새 처리기를** 클릭하고 확장 필드에 `*.php` 추가하고 `php-cgi.exe` **스크립트 프로세서의**실행 에 경로를 추가합니다. PHP 런타임을 애플리케이션의 루트에 있는 `bin` 디렉터리에 배치하면 경로는 `D:\home\site\wwwroot\bin\php\php-cgi.exe`가 됩니다.
-10. 하단에서 **업데이트를** 클릭하여 처리기 매핑 추가를 완료합니다.
+6. Azure Portal에서 앱으로 이동 하 고 **구성** 블레이드를 클릭 합니다.
+8. **구성** 블레이드에서 **경로 매핑**을 선택 합니다. 
+9. **+ 새 처리기** 를 클릭 하 `*.php` 고 확장 필드에를 추가 하 고 `php-cgi.exe` **스크립트 프로세서**에서 실행 파일에 경로를 추가 합니다. PHP 런타임을 애플리케이션의 루트에 있는 `bin` 디렉터리에 배치하면 경로는 `D:\home\site\wwwroot\bin\php\php-cgi.exe`가 됩니다.
+10. 아래쪽에서 **업데이트** 를 클릭 하 여 처리기 매핑 추가를 완료 합니다.
 11. **저장** 을 클릭하여 변경 내용을 저장합니다.
 
 <a name="composer" />

@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: mjbrown
 ms.openlocfilehash: 3f86468bcafe3d7ce78827aba761bb4e1bf920fa
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273633"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos 리소스 관리
 
-이 문서에서는 Azure CLI를 사용하여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너 관리를 자동화하는 일반 명령에 대해 설명합니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 참조](https://docs.microsoft.com/cli/azure/cosmosdb)에서 사용할 수 있습니다. 더 많은 예제는 [Azure Cosmos DB에 대한 Azure CLI 샘플](cli-samples.md)에서 확인할 수 있습니다. 여기에는 MongoDB, Gremlin, Cassandra 및 Table API에 대한 Cosmos DB 계정, 데이터베이스 및 컨테이너 만들기 및 관리 방법이 포함되어 있습니다.
+이 문서에서는 Azure CLI를 사용하여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너 관리를 자동화하는 일반 명령에 대해 설명합니다. 모든 Azure Cosmos DB CLI 명령에 대 한 참조 페이지는 [Azure CLI 참조](https://docs.microsoft.com/cli/azure/cosmosdb)에서 사용할 수 있습니다. 더 많은 예제는 [Azure Cosmos DB에 대한 Azure CLI 샘플](cli-samples.md)에서 확인할 수 있습니다. 여기에는 MongoDB, Gremlin, Cassandra 및 Table API에 대한 Cosmos DB 계정, 데이터베이스 및 컨테이너 만들기 및 관리 방법이 포함되어 있습니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -23,10 +23,10 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정 만들기
 
-SQL API, 미국 서부 2 및 미국 동부 2 지역의 세션 일관성을 사용하여 Azure Cosmos DB 계정을 만듭니다.
+SQL API를 사용 하 여 Azure Cosmos DB 계정, 미국 서 부 2 및 미국 동부 2 지역에서 세션 일관성을 만듭니다.
 
 > [!IMPORTANT]
-> Azure Cosmos 계정 이름은 소문자여야 하며 31자 미만이어야 합니다.
+> Azure Cosmos 계정 이름은 소문자 여야 하 고 31 자 미만 이어야 합니다.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -42,12 +42,12 @@ az cosmosdb create \
 
 ## <a name="add-or-remove-regions"></a>영역 추가 또는 제거
 
-두 지역으로 Azure Cosmos 계정을 만들고, 지역을 추가하고, 지역을 제거합니다.
+두 개의 지역이 있는 Azure Cosmos 계정을 만들고 지역을 추가 하 고 지역을 제거 합니다.
 
 > [!NOTE]
 > `locations` 영역을 추가하거나 제거하면서 동시에 Azure Cosmos 계정에 대한 다른 속성을 변경할 수 없습니다. 지역 수정은 계정 리소스에 대한 다른 변경 사항보다 별도의 작업으로 수행해야 합니다.
 > [!NOTE]
-> 이 명령을 사용하면 지역을 추가 및 제거할 수 있지만 장애 조치(failover) 우선 순위를 수정하거나 수동 장애 조치(failover)를 트리거할 수 없습니다. [장애 조치 우선 순위 설정](#set-failover-priority) 및 수동 장애 조치 [트리거](#trigger-manual-failover)를 참조하십시오.
+> 이 명령을 사용하면 지역을 추가 및 제거할 수 있지만 장애 조치(failover) 우선 순위를 수정하거나 수동 장애 조치(failover)를 트리거할 수 없습니다. [장애 조치 우선 순위 설정](#set-failover-priority) 및 [수동 장애 조치 트리거](#trigger-manual-failover)를 참조 하세요.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -72,7 +72,7 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName \
 
 ## <a name="enable-multiple-write-regions"></a>여러 쓰기 영역 사용
 
-코스모스 계정에 멀티 마스터 사용
+Cosmos 계정에 다중 마스터 사용
 
 ```azurecli-interactive
 # Update an Azure Cosmos account from single to multi-master
@@ -87,7 +87,7 @@ az cosmosdb update --ids $accountId --enable-multiple-write-locations true
 
 ## <a name="set-failover-priority"></a>장애 조치 우선 순위 설정
 
-자동 장애 조치로 구성된 Azure Cosmos 계정에 대해 장애 조치 우선 순위 설정
+자동 장애 조치 (failover)를 위해 구성 된 Azure Cosmos 계정에 대 한 장애 조치 우선 순위 설정
 
 ```azurecli-interactive
 # Assume region order is initially 'West US 2'=0 'East US 2'=1 'South Central US'=2 for account
@@ -115,10 +115,10 @@ accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o
 az cosmosdb update --ids $accountId --enable-automatic-failover true
 ```
 
-## <a name="trigger-manual-failover"></a>트리거 수동 장애 조치
+## <a name="trigger-manual-failover"></a>수동 장애 조치 트리거
 
 > [!CAUTION]
-> 우선 순위 = 0으로 영역을 변경하면 Azure Cosmos 계정에 대한 수동 장애 조치(failover)가 트리거됩니다. 다른 우선 순위 변경은 장애 조치(failover)를 트리거하지 않습니다.
+> 우선 순위가 0 인 지역을 변경 하면 Azure Cosmos 계정에 대 한 수동 장애 조치 (failover)가 트리거됩니다. 다른 우선 순위 변경은 장애 조치(failover)를 트리거하지 않습니다.
 
 ```azurecli-interactive
 # Assume region order is initially 'West US 2'=0 'East US 2'=1 'South Central US'=2 for account
@@ -135,7 +135,7 @@ az cosmosdb failover-priority-change --ids $accountId \
 
 ## <a name="list-all-account-keys"></a><a id="list-account-keys"></a>모든 계정 키 나열
 
-코스모스 계정에 대한 모든 키를 가져옵니다.
+Cosmos 계정에 대 한 모든 키를 가져옵니다.
 
 ```azurecli-interactive
 # List all account keys
@@ -147,9 +147,9 @@ az cosmosdb keys list \
    -g $resourceGroupName
 ```
 
-## <a name="list-read-only-account-keys"></a>읽기 전용 계정 키 목록
+## <a name="list-read-only-account-keys"></a>읽기 전용 계정 키 나열
 
-코스모스 계정에 대한 읽기 전용 키를 가져옵니다.
+Cosmos 계정에 대 한 읽기 전용 키를 가져옵니다.
 
 ```azurecli-interactive
 # List read-only account keys
@@ -164,7 +164,7 @@ az cosmosdb keys list \
 
 ## <a name="list-connection-strings"></a>연결 문자열 나열
 
-코스모스 계정에 대한 연결 문자열을 가져옵니다.
+Cosmos 계정에 대 한 연결 문자열을 가져옵니다.
 
 ```azurecli-interactive
 # List connection strings
@@ -179,7 +179,7 @@ az cosmosdb keys list \
 
 ## <a name="regenerate-account-key"></a>계정 키 다시 생성
 
-코스모스 계정에 대한 새 키를 재생성합니다.
+Cosmos 계정에 대 한 새 키를 다시 생성 합니다.
 
 ```azurecli-interactive
 # Regenerate secondary account keys
@@ -192,7 +192,7 @@ az cosmosdb keys regenerate \
 
 ## <a name="create-a-database"></a>데이터베이스 만들기
 
-코스모스 데이터베이스를 만듭니다.
+Cosmos 데이터베이스를 만듭니다.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -207,7 +207,7 @@ az cosmosdb sql database create \
 
 ## <a name="create-a-database-with-shared-throughput"></a>공유 처리량이 있는 데이터베이스 만들기
 
-공유 처리량으로 Cosmos 데이터베이스를 만듭니다.
+공유 처리량이 있는 Cosmos 데이터베이스를 만듭니다.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -222,9 +222,9 @@ az cosmosdb sql database create \
     --throughput $throughput
 ```
 
-## <a name="change-the-throughput-of-a-database"></a>데이터베이스 처리량 변경
+## <a name="change-the-throughput-of-a-database"></a>데이터베이스의 처리량 변경
 
-Cosmos 데이터베이스의 처리량을 1000 RU/s로 늘립니다.
+Cosmos 데이터베이스의 처리량을 1000 o s/s로 늘립니다.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -250,7 +250,7 @@ az cosmosdb sql database throughput update \
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-기본 인덱스 정책, 파티션 키 및 RU/s가 400인 Cosmos 컨테이너를 만듭니다.
+기본 인덱스 정책, 파티션 키 및 Cosmos/s (400)를 사용 하 여 컨테이너를 만듭니다.
 
 ```azurecli-interactive
 # Create a SQL API container
@@ -267,9 +267,9 @@ az cosmosdb sql container create \
     -p $partitionKey --throughput $throughput
 ```
 
-## <a name="create-a-container-with-ttl"></a>TTL을 사용하여 컨테이너 만들기
+## <a name="create-a-container-with-ttl"></a>TTL을 사용 하 여 컨테이너 만들기
 
-TTL을 사용하도록 설정한 코스모스 컨테이너를 만듭니다.
+TTL을 사용 하는 Cosmos 컨테이너를 만듭니다.
 
 ```azurecli-interactive
 # Create an Azure Cosmos container with TTL of one day
@@ -286,9 +286,9 @@ az cosmosdb sql container update \
     --ttl=86400
 ```
 
-## <a name="create-a-container-with-a-custom-index-policy"></a>사용자 지정 인덱스 정책을 사용하여 컨테이너 만들기
+## <a name="create-a-container-with-a-custom-index-policy"></a>사용자 지정 인덱스 정책을 사용 하 여 컨테이너 만들기
 
-사용자 지정 인덱스 정책, 공간 인덱스, 복합 인덱스, 파티션 키 및 RU/s가 400인 Cosmos 컨테이너를 만듭니다.
+사용자 지정 인덱스 정책, 공간 인덱스, 복합 인덱스, 파티션 키 및 Cosmos/s (400)를 사용 하 여 컨테이너를 만듭니다.
 
 ```azurecli-interactive
 # Create a SQL API container
@@ -340,7 +340,7 @@ rm -f "idxpolicy-$uniqueId.json"
 
 ## <a name="change-the-throughput-of-a-container"></a>컨테이너 처리량 변경
 
-코스모스 컨테이너의 처리량을 1000 RU/s로 늘립니다.
+Cosmos 컨테이너의 처리량을 1000 o s/s로 늘립니다.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'

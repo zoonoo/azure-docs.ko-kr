@@ -1,5 +1,5 @@
 ---
-title: Azure IoT 허브 원격 모니터링에 MXChip IoT DevKit 연결
+title: MXChip IoT DevKit를 Azure IoT Hub 원격 모니터링에 연결
 description: 이 자습서에서는 IoT DevKit AZ3166의 센서 상태를 Azure IoT 원격 모니터링 솔루션 가속기로 보내는 방법을 알아봅니다.
 author: liydu
 manager: jeffya
@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
 ms.openlocfilehash: 598e361949b000724645c841910b1682a7bbb1a3
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81258459"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>MXChip IoT DevKit를 Azure IoT 원격 모니터링 솔루션 가속기에 연결
@@ -31,7 +31,7 @@ ms.locfileid: "81258459"
 
 활성화된 Azure 구독. 구독이 없으면 다음 두 가지 방법 중 하나를 통해 등록할 수 있습니다.
 
-* 무료 [30일 평가판 활성화 Microsoft Azure 계정](https://azure.microsoft.com/free/)
+* [30 일 무료 평가판 Microsoft Azure 계정](https://azure.microsoft.com/free/) 활성화
 
 * MSDN 또는 Visual Studio 구독자인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 신청합니다.
 

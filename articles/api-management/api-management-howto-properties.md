@@ -1,6 +1,6 @@
 ---
-title: Azure API 관리 정책에서 명명된 값을 사용하는 방법
-description: Azure API 관리 정책에서 명명된 값을 사용하는 방법을 알아봅니다.
+title: Azure API Management 정책에서 명명 된 값을 사용 하는 방법
+description: Azure API Management 정책에서 명명 된 값을 사용 하는 방법에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,72 +13,72 @@ ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
 ms.openlocfilehash: 4362d0875ac2c20fc6963d404f86898a12387dad
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260924"
 ---
-# <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Azure API 관리 정책에서 명명된 값을 사용하는 방법
+# <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Azure API Management 정책에서 명명 된 값을 사용 하는 방법
 
 API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변경하도록 하는 시스템의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 정책 설명은 리터럴 텍스트 값, 정책 식 및 명명된 값을 사용하여 생성할 수 있습니다.
 
-각 API 관리 서비스 인스턴스에는 서비스 인스턴스에 대한 전역인 명명된 값이라고 하는 키/값 쌍의 컬렉션이 있습니다. 컬렉션의 항목 수에는 제한이 없습니다. 명명된 값을 사용하여 모든 API 구성 및 정책에서 상수 문자열 값을 관리할 수 있습니다. 명명된 각 값에는 다음 특성이 있을 수 있습니다.
+각 API Management 서비스 인스턴스에는 서비스 인스턴스에 대 한 전역 인 키/값 쌍의 컬렉션 (명명 된 값 이라고 함)이 있습니다. 컬렉션의 항목 수에는 제한이 없습니다. 명명 된 값은 모든 API 구성 및 정책에서 상수 문자열 값을 관리 하는 데 사용할 수 있습니다. 각 명명 된 값에는 다음과 같은 특성이 있을 수 있습니다.
 
 | attribute      | Type            | Description                                                                                                                            |
 | -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `Display name` | 문자열          | 정책에서 명명된 값을 참조하는 데 사용됩니다. 1~256자 문자열입니다. 문자, 숫자, 점 및 대시만 허용됩니다. |
-| `Value`        | 문자열          | 실제 값입니다. 비어 있거나 공백으로만 구성되어서는 안 됩니다. 최대 4096자 까지.                                        |
+| `Display name` | 문자열          | 정책에서 명명 된 값을 참조 하는 데 사용 됩니다. 1 ~ 256 자의 문자열입니다. 문자, 숫자, 점 및 대시만 사용할 수 있습니다. |
+| `Value`        | string          | 실제 값입니다. 비어 있거나 공백으로만 구성 되지 않아야 합니다. 최대 4096 문자 길이입니다.                                        |
 | `Secret`       | boolean         | 값이 암호인지, 그리고 암호화해야 하는지 여부를 결정합니다.                                                               |
-| `Tags`         | 문자열의 배열 | 명명된 값 목록을 필터링하는 데 사용됩니다. 최대 32개의 태그.                                                                                    |
+| `Tags`         | 문자열의 배열 | 명명 된 값 목록을 필터링 하는 데 사용 됩니다. 최대 32 태그입니다.                                                                                    |
 
 ![명명된 값](./media/api-management-howto-properties/named-values.png)
 
-명명된 값에는 리터럴 문자열과 정책 식이 포함될 수 [있습니다.](/azure/api-management/api-management-policy-expressions) 예를 들어 `Expression` 값은 현재 날짜 및 시간이 포함된 문자열을 반환하는 정책 식입니다. 명명된 `Credential` 값은 비밀로 표시되므로 해당 값은 기본적으로 표시되지 않습니다.
+명명 된 값에는 리터럴 문자열과 [정책 식이](/azure/api-management/api-management-policy-expressions)포함 될 수 있습니다. 예를 들어 `Expression` 값은 현재 날짜 및 시간이 포함된 문자열을 반환하는 정책 식입니다. 명명 된 값 `Credential` 은 암호로 표시 되므로 해당 값은 기본적으로 표시 되지 않습니다.
 
-| 이름       | 값                      | 비밀 | 태그들          |
+| 속성       | 값                      | 비밀 | 태그들          |
 | ---------- | -------------------------- | ------ | ------------- |
 | 값      | 42                         | False  | 중요 번호 |
 | 자격 증명 | ••••••••••••••••••••••     | True   | security      |
 | 식 | @(DateTime.Now.ToString()) | False  |               |
 
 > [!NOTE]
-> API 관리 서비스에 저장된 명명된 값 대신 이 [예제에서](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml)설명한 대로 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 서비스에 저장된 값을 사용할 수 있습니다.
+> API Management 서비스 내에 저장 된 명명 된 값 대신이 [예제](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml)에서 보여 주는 것 처럼 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 서비스에 저장 된 값을 사용할 수 있습니다.
 
-## <a name="to-add-and-edit-a-named-value"></a>명명된 값을 추가하고 편집하려면
+## <a name="to-add-and-edit-a-named-value"></a>명명 된 값을 추가 하 고 편집 하려면
 
-![명명된 값 추가](./media/api-management-howto-properties/add-property.png)
+![명명 된 값 추가](./media/api-management-howto-properties/add-property.png)
 
 1. **API Management**에서 **API**를 선택합니다.
 2. **명명된 값**을 선택합니다.
-3. +Add 를 **누릅니다.**
+3. **+ 추가**를 누릅니다.
 
-    이름 및 값은 필수 값입니다. 값이 비밀인 경우 _비밀 확인란을_ 선택합니다. 명명된 값을 구성하는 데 도움이 되도록 하나 이상의 선택적 태그를 입력하고 저장을 클릭합니다.
+    이름 및 값은 필수 값입니다. Value가 secret 인 경우 _비밀입니다_ . 확인란을 선택 합니다. 명명된 값을 구성하는 데 도움이 되도록 하나 이상의 선택적 태그를 입력하고 저장을 클릭합니다.
 
 4. **만들기**를 클릭합니다.
 
-명명된 값이 만들어지면 클릭하여 편집할 수 있습니다. 명명된 값 이름을 변경하면 명명된 값을 참조하는 모든 정책이 새 이름을 사용하도록 자동으로 업데이트됩니다.
+명명 된 값을 만든 후에는 해당 값을 클릭 하 여 편집할 수 있습니다. 명명 된 값 이름을 변경 하면 해당 명명 된 값을 참조 하는 모든 정책이 새 이름을 사용 하도록 자동으로 업데이트 됩니다.
 
-REST API를 사용하여 명명된 값을 편집하는 방법에 대한 자세한 내용은 [REST API를 사용하여 명명된 값 편집을](/rest/api/apimanagement/2019-12-01/property?patch)참조하십시오.
+REST API 사용 하 여 명명 된 값을 편집 하는 방법에 대 한 자세한 내용은 [REST API를 사용 하 여 명명 된 값 편집](/rest/api/apimanagement/2019-12-01/property?patch)을 참조 하세요.
 
-## <a name="to-delete-a-named-value"></a>명명된 값을 삭제하려면
+## <a name="to-delete-a-named-value"></a>명명 된 값을 삭제 하려면
 
-명명된 값을 삭제하려면 지정한 값 옆에 **삭제를** 클릭하여 삭제합니다.
+명명 된 값을 삭제 하려면 명명 된 값 옆에 있는 **삭제** 를 클릭 하 여 삭제 합니다.
 
 > [!IMPORTANT]
-> 명명된 값이 모든 정책에서 참조되는 경우 해당 값을 사용하는 모든 정책에서 명명된 값을 제거할 때까지 해당 값을 성공적으로 삭제할 수 없습니다.
+> 명명 된 값을 정책에서 참조 하는 경우 해당 값을 사용 하는 모든 정책에서 명명 된 값을 제거할 때까지 해당 값을 삭제할 수 없습니다.
 
-REST API를 사용하여 명명된 값을 삭제하는 방법에 대한 자세한 내용은 [REST API를 사용하여 명명된 값 삭제를](/rest/api/apimanagement/2019-12-01/property/delete)참조하십시오.
+REST API 사용 하 여 명명 된 값을 삭제 하는 방법에 대 한 자세한 내용은 [REST API를 사용 하 여 명명 된 값 삭제](/rest/api/apimanagement/2019-12-01/property/delete)를 참조 하세요.
 
-## <a name="to-search-and-filter-named-values"></a>명명된 값을 검색하고 필터링하려면
+## <a name="to-search-and-filter-named-values"></a>명명 된 값을 검색 하 고 필터링 하려면
 
-**명명된 값** 탭에는 명명된 값을 관리하는 데 유용한 검색 및 필터링 기능이 있습니다. 명명된 값 목록을 이름으로 필터링하려면 **Search 속성** 텍스트 상자에 검색 어를 입력합니다. 모든 명명된 값을 표시하려면 **속성 검색** 텍스트 상자를 지우고 Enter 키를 누릅니다.
+**명명된 값** 탭에는 명명된 값을 관리하는 데 유용한 검색 및 필터링 기능이 있습니다. 이름으로 명명 된 값 목록을 필터링 하려면 **검색 속성** 텍스트 상자에 검색 용어를 입력 합니다. 모든 명명된 값을 표시하려면 **속성 검색** 텍스트 상자를 지우고 Enter 키를 누릅니다.
 
-태그를 통해 목록을 필터링하려면 텍스트 상자에 태그를 사용하여 필터에 하나 이상의 태그를 **입력합니다.** 모든 명명된 값을 표시하려면 **태그로 필터링** 텍스트 상자를 지우고 Enter 키를 누릅니다.
+태그를 기준으로 목록을 필터링 하려면 태그로 **필터링** 텍스트 상자에 태그를 하나 이상 입력 합니다. 모든 명명된 값을 표시하려면 **태그로 필터링** 텍스트 상자를 지우고 Enter 키를 누릅니다.
 
-## <a name="to-use-a-named-value"></a>명명된 값을 사용하려면
+## <a name="to-use-a-named-value"></a>명명 된 값을 사용 하려면
 
-정책에서 명명된 값을 사용하려면 다음 예제와 같이 다음과 `{{ContosoHeader}}`같은 이중 중괄호 쌍 안에 이름을 배치합니다.
+정책에 명명 된 값을 사용 하려면 다음 예제와 같이와 같이 `{{ContosoHeader}}`이중 중괄호 쌍 안에 이름을 지정 합니다.
 
 ```xml
 <set-header name="{{ContosoHeader}}" exists-action="override">
@@ -86,7 +86,7 @@ REST API를 사용하여 명명된 값을 삭제하는 방법에 대한 자세�
 </set-header>
 ```
 
-이 예제에서 `ContosoHeader`는 `set-header` 정책의 헤더 이름으로 사용되고, `ContosoHeaderValue`는 해당 헤더의 값으로 사용됩니다. 이 정책이 API 관리 게이트웨이에 대한 요청 또는 `{{ContosoHeader}}` `{{ContosoHeaderValue}}` 응답 중에 평가되고 해당 값으로 대체되는 경우
+이 예제에서 `ContosoHeader`는 `set-header` 정책의 헤더 이름으로 사용되고, `ContosoHeaderValue`는 해당 헤더의 값으로 사용됩니다. 이 정책이 API Management 게이트웨이에 대 한 요청 또는 응답 중에 평가 되는 경우 `{{ContosoHeader}}` 및 `{{ContosoHeaderValue}}` 은 해당 값으로 대체 됩니다.
 
 명명된 값은 위 예제에 표시된 대로 전체 특성 또는 요소 값으로 사용될 수 있지만 다음 예제와 같이 리터럴 텍스트 식의 일부로 삽입되거나 결합될 수도 있습니다. `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
 
@@ -104,11 +104,11 @@ REST API를 사용하여 명명된 값을 삭제하는 방법에 대한 자세�
 
 ![개발자 포털][api-management-send-results]
 
-명명된 값이 있는 두 개의 이전 샘플 정책을 포함하는 호출에 대한 [API 검사기 추적을](api-management-howto-api-inspector.md) 보면 명명된 값이 삽입된 두 `set-header` 정책과 정책 식을 포함하는 명명된 값에 대한 정책 식 평가를 볼 수 있습니다.
+명명 된 값을 사용 하 여 이전의 두 샘플 정책을 포함 하는 호출에 대 한 [API 검사기 추적](api-management-howto-api-inspector.md) 을 살펴보면 명명 된 값이 `set-header` 삽입 된 두 개의 정책과 정책 식을 포함 하는 명명 된 값에 대 한 정책 식 평가를 볼 수 있습니다.
 
 ![API 검사기 추적][api-management-api-inspector-trace]
 
-명명된 값에는 정책 식을 포함할 수 있지만 다른 명명된 값을 포함할 수는 없습니다. 명명된 값 참조가 포함된 텍스트가 에 있는 `Text: {{MyProperty}}`값에 사용되는 경우(예: 해당 참조는 확인되고 대체되지 않습니다).
+명명 된 값에는 정책 식이 포함 될 수 있지만 다른 명명 된 값은 포함할 수 없습니다. 와 `Text: {{MyProperty}}`같은 명명 된 값 참조를 포함 하는 텍스트가 값에 사용 되는 경우 해당 참조는 확인 되지 않고 대체 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

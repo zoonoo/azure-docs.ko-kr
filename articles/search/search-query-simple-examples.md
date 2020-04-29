@@ -1,7 +1,7 @@
 ---
 title: 간단한 쿼리 만들기
 titleSuffix: Azure Cognitive Search
-description: 전체 텍스트 검색, 필터 검색, 지역 검색, Azure Cognitive Search 인덱스에 대한 면면 검색에 대한 간단한 구문을 기반으로 쿼리를 실행하여 예제를 학습합니다.
+description: Azure Cognitive Search 인덱스에 대해 전체 텍스트 검색, 필터 검색, 지리적 검색, 패싯 검색에 대 한 간단한 구문을 기반으로 쿼리를 실행 하 여 예제로 알아보세요.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,25 +9,25 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3a801af7b97954510139a009a6d1344b281cf056
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261808"
 ---
-# <a name="create-a-simple-query-in-azure-cognitive-search"></a>Azure 인지 검색에서 간단한 쿼리 만들기
+# <a name="create-a-simple-query-in-azure-cognitive-search"></a>Azure Cognitive Search에서 간단한 쿼리 만들기
 
-Azure Cognitive Search에서 [간단한 쿼리 구문은](query-simple-syntax.md) 인덱스에 대해 전체 텍스트 검색 쿼리를 실행하기 위한 기본 쿼리 구문을 호출합니다. 이 파서는 빠르며 전체 텍스트 검색, 필터링 및 면처리된 검색 및 지역 검색을 비롯한 일반적인 시나리오를 처리합니다. 
+Azure Cognitive Search에서는 [단순 쿼리 구문이](query-simple-syntax.md) 인덱스에 대해 전체 텍스트 검색 쿼리를 실행 하기 위해 기본 쿼리 파서를 호출 합니다. 이 파서는 빠르게 수행할 수 있으며 전체 텍스트 검색, 필터링 된 패싯 검색 및 지역 검색을 포함 한 일반적인 시나리오를 처리 합니다. 
 
-이 문서에서는 예제를 사용하여 간단한 구문을 설명하고 검색 `search=` [문서](https://docs.microsoft.com/rest/api/searchservice/search-documents) 작업의 매개 변수를 채웁니다.
+이 문서에서는 예제를 사용 하 여 간단한 구문을 보여 주고 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) 작업 `search=` 의 매개 변수를 채웁니다.
 
-대체 쿼리 구문은 [Full Lucene으로](query-lucene-syntax.md)퍼지 및 와일드카드 검색과 같은 보다 복잡한 쿼리 구조를 지원하므로 처리하는 데 추가 시간이 걸릴 수 있습니다. 전체 구문을 보여 주는 자세한 정보 및 예제는 [전체 Lucene 구문 사용을](search-query-lucene-examples.md)참조하십시오.
+대체 쿼리 구문은 [전체 Lucene](query-lucene-syntax.md)이며 유사 항목 및 와일드 카드 검색과 같은 보다 복잡 한 쿼리 구조를 지원 합니다 .이를 처리 하는 데 시간이 더 걸릴 수 있습니다. 전체 구문에 대 한 자세한 내용 및 예제는 [Full Lucene 구문 사용](search-query-lucene-examples.md)을 참조 하세요.
 
 ## <a name="formulate-requests-in-postman"></a>Postman에서 요청 작성
 
-다음 예제는 [City of New York OpenData](https://nycopendata.socrata.com/) 이니셔티브에서 제공하는 데이터 세트에 기반하여 사용 가능한 작업으로 구성된 NYC Jobs 검색 인덱스를 활용합니다. 이 데이터는 최신 또는 완료로 간주되어서는 안 됩니다. 인덱스는 Microsoft에서 제공하는 샌드박스 서비스에 있으므로 이러한 쿼리를 시도하기 위해 Azure 구독 또는 Azure Cognitive Search가 필요하지 않습니다.
+다음 예제는 [City of New York OpenData](https://nycopendata.socrata.com/) 이니셔티브에서 제공하는 데이터 세트에 기반하여 사용 가능한 작업으로 구성된 NYC Jobs 검색 인덱스를 활용합니다. 이 데이터는 최신 또는 완료로 간주되어서는 안 됩니다. 인덱스는 Microsoft에서 제공 하는 샌드박스 서비스에 있습니다. 즉, 이러한 쿼리를 사용해 볼 수 있는 Azure 구독 또는 Azure Cognitive Search 필요 하지 않습니다.
 
-따라서 GET에서 HTTP 요청을 실행하기 위한 Postman 또는 동급의 도구만 있으면 됩니다. 자세한 내용은 [빠른 시작: Postman을 사용하여 Azure 인지 검색 REST API 탐색을](search-get-started-postman.md)참조하세요.
+따라서 GET에서 HTTP 요청을 실행하기 위한 Postman 또는 동급의 도구만 있으면 됩니다. 자세한 내용은 [빠른 시작: Postman을 사용 하 여 Azure Cognitive Search REST API 살펴보기](search-get-started-postman.md)를 참조 하세요.
 
 ### <a name="set-the-request-header"></a>요청 헤더 설정
 
@@ -41,31 +41,31 @@ Azure Cognitive Search에서 [간단한 쿼리 구문은](query-simple-syntax.md
 
 ### <a name="set-the-request-url"></a>요청 URL 설정
 
-요청은 Azure 인지 검색 끝점 및 검색 문자열을 포함하는 URL과 페어링된 GET 명령입니다.
+Request는 Azure Cognitive Search 끝점 및 검색 문자열을 포함 하는 URL과 쌍을 이루는 GET 명령입니다.
 
   ![Postman 요청 헤더](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 URL 구성에는 다음 요소가 있습니다.
 
-+ **`https://azs-playground.search.windows.net/`** 은 Azure 인지 검색 개발 팀에서 유지 관리하는 샌드박스 검색 서비스입니다. 
-+ **`indexes/nycjobs/`** 은 해당 서비스의 인덱스 컬렉션에 있는 NYC 작업 인덱스입니다. 요청에는 서비스 이름과 인덱스가 둘 다 필요합니다.
-+ **`docs`** 은 모든 검색 가능한 콘텐츠를 포함하는 문서 모음입니다. 요청 헤더에 제공되는 쿼리 api-key는 문서 컬렉션을 대상으로 하는 읽기 작업에만 작동합니다.
-+ **`api-version=2019-05-06`** 모든 요청에 필요한 매개 변수인 api 버전을 설정합니다.
-+ **`search=*`** 는 초기 쿼리에서 null인 쿼리 문자열로, 기본적으로 처음 50개의 결과를 반환합니다.
++ **`https://azs-playground.search.windows.net/`** 는 Azure Cognitive Search development 팀에서 유지 관리 하는 샌드박스 검색 서비스입니다. 
++ **`indexes/nycjobs/`** 는 해당 서비스의 인덱스 컬렉션에 있는 NYC Jobs 인덱스입니다. 요청에는 서비스 이름과 인덱스가 둘 다 필요합니다.
++ **`docs`** 검색 가능한 모든 콘텐츠를 포함 하는 documents 컬렉션입니다. 요청 헤더에 제공되는 쿼리 api-key는 문서 컬렉션을 대상으로 하는 읽기 작업에만 작동합니다.
++ **`api-version=2019-05-06`** 모든 요청에서 필수 매개 변수인 api-version을 설정 합니다.
++ **`search=*`** 초기 쿼리에서 null 인 쿼리 문자열이 며, 기본적으로 첫 번째 50 결과를 반환 합니다.
 
 ## <a name="send-your-first-query"></a>첫 번째 쿼리 전송
 
-확인 단계에서 다음 요청을 GET에 붙여넣고 **보내기**를 클릭합니다. 결과는 자세한 JSON 문서로 반환됩니다. 전체 문서가 반환되어 모든 필드와 모든 값을 볼 수 있습니다.
+확인 단계에서 다음 요청을 GET에 붙여넣고 **보내기**를 클릭합니다. 결과는 자세한 JSON 문서로 반환됩니다. 모든 필드와 모든 값을 볼 수 있는 전체 문서가 반환 됩니다.
 
-이 URL을 REST 클라이언트에 유효성 검사 단계로 붙여 넣고 문서 구조를 봅니다.
+이 URL을 REST 클라이언트에 유효성 검사 단계로 붙여넣고 문서 구조를 봅니다.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-쿼리 문자열은 **`search=*`** null 또는 빈 검색과 동일한 지정되지 않은 검색입니다. 이 검색은 그리 유용하지 않지만 할 수 있는 가장 간단한 검색입니다.
+쿼리 문자열 **`search=*`** 는 null 또는 빈 검색에 해당 하는 지정 되지 않은 검색입니다. 이 검색은 그리 유용하지 않지만 할 수 있는 가장 간단한 검색입니다.
 
-선택적으로 URL에 **`$count=true`** 추가하여 검색 조건과 일치하는 문서 수를 반환할 수 있습니다. 빈 검색 문자열에서는 인덱스(NYC 작업의 경우 2800)에 있는 모든 문서입니다.
+필요에 따라 URL에 **`$count=true`** 추가 하 여 검색 조건과 일치 하는 문서 수를 반환할 수 있습니다. 빈 검색 문자열에서는 인덱스(NYC 작업의 경우 2800)에 있는 모든 문서입니다.
 
 ## <a name="how-to-invoke-simple-query-parsing"></a>단순 쿼리 구문 분석을 호출하는 방법
 
@@ -83,7 +83,7 @@ URL 구성에는 다음 요소가 있습니다.
 searchFields=business_title&$select=business_title&search=*
 ```
 
-다음은 쉼표 구분 목록에 여러 필드가 있는 동일한 쿼리입니다.
+쉼표로 구분 된 목록에 여러 필드가 있는 동일한 쿼리는 다음과 같습니다.
 
 ```http
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
@@ -141,7 +141,7 @@ GET을 사용하여 Postman에서 이 필터링을 시도하려는 경우 이 �
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
 ```
 
-필터와 검색을 결합하는 또 **`search.ismatch*()`** 다른 강력한 방법은 필터 식을 통해 필터 내에서 검색 쿼리를 사용할 수 있습니다. 이 필터 식은 plan, planner, planning 등의 용어가 포함된 business_title을 선택하려면 *plan*에 대한 와일드 카드를 사용합니다.
+필터 및 검색을 결합 하는 또 다른 강력한 **`search.ismatch*()`** 방법은 필터 식에서를 사용 하는 것입니다. 여기서 필터는 필터 내에서 검색 쿼리를 사용할 수 있습니다. 이 필터 식은 plan, planner, planning 등의 용어가 포함된 business_title을 선택하려면 *plan*에 대한 와일드 카드를 사용합니다.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
@@ -151,9 +151,9 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 ## <a name="example-4-range-filters"></a>예제 4: 범위 필터
 
-범위 필터링은 모든 **`$filter`** 데이터 형식에 대한 식을 통해 지원됩니다. 다음 예제에서는 숫자 및 문자열 필드를 검색합니다. 
+범위 필터링은 모든 데이터 **`$filter`** 형식의 식을 통해 지원 됩니다. 다음 예제에서는 숫자 및 문자열 필드를 검색합니다. 
 
-데이터 형식은 범위 필터에서 중요하며, 숫자 데이터가 숫자 필드에 있고 문자열 데이터가 문자열 필드에 있으면 가장 잘 작동합니다. 숫자 문자열은 Azure Cognitive Search에서 숫자 문자열과 비교할 수 없으므로 문자열 필드의 숫자 데이터는 범위에 적합하지 않습니다. 
+데이터 형식은 범위 필터에서 중요하며, 숫자 데이터가 숫자 필드에 있고 문자열 데이터가 문자열 필드에 있으면 가장 잘 작동합니다. 문자열 필드의 숫자 데이터는 Azure Cognitive Search에서 숫자 문자열을 비교할 수 없기 때문에 범위에 적합 하지 않습니다. 
 
 다음 예제는 가독성(숫자 범위, 다음으로 텍스트 범위)에 대한 POST 형식으로 돼 있습니다.
 
@@ -211,7 +211,7 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
       "count": "true"
     }
 ```
-더 읽기 쉬운 결과의 경우 작업 ID, 직책 및 작업 위치를 포함하도록 검색 결과가 잘립니다. 인덱스(Staten 섬에 작업 위치가 있는 경우)의 임의 문서에서 시작 좌표를 가져왔습니다.
+보다 읽기 쉬운 결과를 위해 작업 ID, 직위 및 작업 위치를 포함 하도록 검색 결과가 잘립니다. 인덱스(Staten 섬에 작업 위치가 있는 경우)의 임의 문서에서 시작 좌표를 가져왔습니다.
 
 GET을 사용하여 Postman에서 이를 시도해 볼 수 있습니다.
 
@@ -223,19 +223,19 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 용어 쿼리는 단일 용어로, 대부분이 개별적으로 평가될 것입니다. 구 쿼리는 따옴표로 묶인 후 약어 문자열로 평가됩니다. 일치의 정확도는 연산자 및 searchMode로 제어됩니다.
 
-예제 1: **`&search=fire`** 모든 일치 항목에서 문서의 어딘가에 Fire라는 단어가 포함된 150개의 결과를 반환합니다.
+예제 1: **`&search=fire`** 모든 일치 항목은 문서의 어딘가에 발생 하는 단어를 포함 하는 150 결과를 반환 합니다.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=fire
 ```
 
-예제 2: **`&search=fire department`** 2002 결과를 반환합니다. fire 또는 department를 포함하는 문서가 일치하는 것으로 반환됩니다.
+예제 2: **`&search=fire department`** 2002 결과를 반환 합니다. fire 또는 department를 포함하는 문서가 일치하는 것으로 반환됩니다.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=fire department
 ```
 
-예 3: **`&search="fire department"`** 82개의 결과를 반환합니다. 문자열을 따옴표로 묶으면 두 용어에 대해 약어 검색이 수행되고, 인덱스에서 결합된 용어로 구성된 토큰화된 용어에 대해 일치 문서가 검색됩니다. 이 같은 **`search=+fire +department`** 검색이 동일하지 않은 이유를 설명합니다. 두 용어는 필수하지만 별도로 검색됩니다. 
+예제 3: **`&search="fire department"`** 82 결과를 반환 합니다. 문자열을 따옴표로 묶으면 두 용어에 대해 약어 검색이 수행되고, 인덱스에서 결합된 용어로 구성된 토큰화된 용어에 대해 일치 문서가 검색됩니다. 이는와 같은 **`search=+fire +department`** 검색이 동일 하지 않은 이유를 설명 합니다. 두 용어는 필수하지만 별도로 검색됩니다. 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search="fire department"
@@ -288,8 +288,8 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="next-steps"></a>다음 단계
 코드에서 쿼리를 지정합니다. 다음 링크에서는 기본 단순 구문을 사용하여 .NET와 REST API 모두에 대한 검색 쿼리를 설정하는 방법에 대해 설명합니다.
 
-* [.NET SDK를 사용하여 인덱스를 쿼리합니다.](search-query-dotnet.md)
-* [REST API를 사용하여 인덱스 쿼리](search-create-index-rest-api.md)
+* [.NET SDK를 사용 하 여 인덱스 쿼리](search-query-dotnet.md)
+* [REST API를 사용 하 여 인덱스 쿼리](search-create-index-rest-api.md)
 
 추가 구문 참조, 쿼리 아키텍처 및 예제는 다음 링크에서 찾을 수 있습니다.
 

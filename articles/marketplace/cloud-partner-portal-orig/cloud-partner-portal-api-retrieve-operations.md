@@ -1,5 +1,5 @@
 ---
-title: 운영 API 검색 | Azure 마켓플레이스
+title: 작업 API 검색 | Azure Marketplace
 description: 제품에 대한 모든 작업을 검색하거나 지정된 operationId의 특정 작업을 가져옵니다.
 author: dsindona
 ms.service: marketplace
@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 93b2ca700a987b86aedfdae55d58540c8ffe84ed
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255876"
 ---
 # <a name="retrieve-operations"></a>작업 검색
 
 > [!NOTE]
-> 클라우드 파트너 포털 API는 파트너 센터와 통합되며 오퍼가 파트너 센터로 마이그레이션된 후에도 계속 작동합니다. 통합은 작은 변화를 도입합니다. [Cloud 파트너 포털 API 참조에](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) 나열된 변경 내용을 검토하여 파트너 센터로 마이그레이션한 후에도 코드가 계속 작동하는지 확인합니다.
+> Cloud 파트너 포털 Api는 파트너 센터와 통합 되며 제품을 파트너 센터로 마이그레이션한 후에도 계속 작동 합니다. 통합에는 작은 변화가 도입 되었습니다. 파트너 센터로 마이그레이션한 후 코드가 계속 작동 하는지 확인 하려면 [CLOUD 파트너 포털 API 참조](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) 에 나열 된 변경 내용을 검토 합니다.
 
 제품에 대한 모든 작업을 검색하거나 지정된 operationId의 특정 작업을 가져옵니다. 클라이언트는 쿼리 매개 변수를 사용하여 실행 중인 작업을 필터링할 수 있습니다.
 
@@ -34,8 +34,8 @@ ms.locfileid: "81255876"
 
 |  **이름**          |      **설명**                                                                                           | **데이터 형식** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  게시자 식별자입니다(예: `Contoso`).                                                                   |  String       |
-|  offerId           |  제안 식별자입니다.                                                                                              |  String       |
+|  publisherId       |  게시자 식별자입니다(예: `Contoso`).                                                                   |  문자열       |
+|  offerId           |  제안 식별자입니다.                                                                                              |  문자열       |
 |  operationId       |  제품에 대한 작업을 고유하게 식별하는 GUID입니다. operationId는 이 API를 사용하여 검색할 수 있으며, [제품 게시](./cloud-partner-portal-api-publish-offer.md) API와 같은 장기 실행 작업에 대한 응답의 HTTP 헤더에도 반환됩니다.  |   Guid   |
 |  api-version       | 최신 버전 API |    Date      |
 |  |  |  |
@@ -178,7 +178,7 @@ ms.locfileid: "81255876"
 |  submissionType              | 제품에 대해 보고되는 작업 유형(예: `Publish/GoLive`)을 식별합니다.      |
 |  createdDateTime             | 작업이 만들어진 UTC 날짜/시간입니다.                                                       |
 |  lastActionDateTime          | 작업에 대한 마지막 업데이트가 수행된 UTC 날짜/시간입니다.                                       |
-|  상태                      | 작업 상태 중 `not started` \| `running` \| `failed` \| `completed`하나 한 번에 하나의 작업만 상태 `running`을 가질 수 있습니다. |
+|  상태                      | `not started` \| 작업 `running` `completed`의 상태 \| 입니다. \| `failed` 한 번에 하나의 작업만 상태 `running`을 가질 수 있습니다. |
 |  error                       | 실패한 작업에 대한 오류 메시지입니다.                                                               |
 |  |  |
 
@@ -186,18 +186,18 @@ ms.locfileid: "81255876"
 
 |  **이름**                    |  **설명**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
-| estimatedTimeFrame | 이 작업의 예상 기간 |
-| id | 단계 프로세스의 고유 식별자 |
+| estimatedTimeFrame | 이 작업의 예상 기간입니다. |
+| id | 단계 프로세스에 대 한 고유 식별자입니다. |
 | description | 단계에 대한 설명입니다. |
-| stepName | 스텝의 친숙한 이름 |
-| 상태 | 단계의 상태 중 `notStarted` \| `running` \| `failed` \| 하나`completed` |
-| messages | 단계 중에 발생하는 모든 알림 또는 경고입니다. 문자열 배열 |
-| 진행률 | 단계의 진행을 나타내는 정수 0에서 100까지 |
+| stepName | 단계의 이름입니다. |
+| 상태 | 단계의 `notStarted` \| `running` \| `failed` \| 상태 이며 다음 중 하나입니다.`completed` |
+| messages | 단계를 수행 하는 동안 발생 한 알림 또는 경고입니다. 문자열 배열 |
+| System.componentmodel.progresschangedeventargs.progresspercentage | 단계의 진행을 나타내는 0에서 100 사이의 정수입니다. |
 | | |
 
 ### <a name="response-status-codes"></a>응답 상태 코드
 
-| **코드**  |   **설명**                                                                                  |
+| **Code**  |   **설명**                                                                                  |
 |  -------- |   -------------------------------------------------------------------------------------------------|
 |  200      | `OK` - 요청이 성공적으로 처리되었으며 요청한 작업이 반환되었습니다.        |
 |  400      | `Bad/Malformed request` - 오류 응답 본문에 자세한 정보가 들어 있을 수 있습니다.                    |

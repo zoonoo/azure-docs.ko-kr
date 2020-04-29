@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: cfe450972acda3affbea6cbe3d262bc4b1956dc9
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81262862"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>보통-높은 네트워크 대역폭에서 대용량 데이터 세트의 데이터 전송
@@ -69,11 +69,11 @@ ms.locfileid: "81262862"
 |    폼 팩터                      |    주문당 5개 SSD             |    1 X 50lbs 주문당 데스크톱 크기 디바이스    |    1 X ~500lbs 주문당 대형 디바이스    |    주문당 최대 10개 HDD/SSD        |
 |    초기 설치 시간               |    낮음 <br>(15분)            |    낮음-보통 <br> (30분 미만)               |    보통<br>(1~2시간)               |    보통-어려움<br>(가변적) |
 |    Azure에 데이터 보내기               |    예                          |    예                                           |    예                                   |    예                                 |
-|    Azure에서 데이터 가져오기           |    예                           |    예                                            |    예                                    |    예                                 |
+|    Azure에서 데이터 가져오기           |    아니요                           |    아니요                                            |    예                                    |    예                                 |
 |    암호화                       |    AES 128비트                  |    AES 256비트                                   |    AES 256비트                           |    AES 128비트                         |
 |    하드웨어                         |     Microsoft 제공          |    Microsoft 제공                            |    Microsoft 제공                    |    고객 제공                   |
 |    Linux                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
-|    파트너 통합              |    일부                         |    [높은](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [높은](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    일부                                |
+|    파트너 통합              |    일부                         |    [최고](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [최고](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    일부                                |
 |    발송                         |    Microsoft 관리            |    Microsoft 관리                             |    Microsoft 관리                     |    고객 관리                    |
 | 데이터 이동 시 사용         |상거래 경계 이내|상거래 경계 이내|상거래 경계 이내|지리적 경계 간(예: 미국에서 EU로 이동)|
 |    가격 책정                          |    [가격 책정](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [가격 책정](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
@@ -83,13 +83,13 @@ ms.locfileid: "81262862"
 
 ### <a name="high-network-bandwidth"></a>높은 네트워크 대역폭
 
-|                                     |    도구 AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    Azure Storage REST API, SDK                   |    데이터 박스 게이트웨이 또는 데이터 박스 에지          |    Azure 데이터 팩터리                                            |
+|                                     |    도구 AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    Azure Storage REST API, SDK                   |    Data Box Gateway 또는 Data Box Edge          |    Azure 데이터 팩터리                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    데이터 형식                  |    Azure Blob, Azure Files, Azure 테이블    |    Azure Blob, Azure Files, Azure 테이블    |    Azure Blob, Azure Files                           |   데이터 저장소 및 형식을 위해 70개 이상의 데이터 커넥터 지원    |
 |    폼 팩터                |    명령줄 도구                        |    프로그래밍 인터페이스                    |    Microsoft에서 가상 <br>또는 물리적 디바이스 제공     |    Azure Portal의 서비스                                            |
 |    초기 일회성 설치     |    쉬움               |    보통                       |    쉬움(30분 미만)~보통(1~2시간)            |    광범위                                                          |
-|    데이터 사전 처리              |    예                                        |    예                                        |    예(Edge 컴퓨팅 사용)                               |    예                                                                |
-|    다른 클라우드에서 전송       |    예                                        |    예                                        |    예                                                    |    예                                                                |
+|    데이터 사전 처리              |    아니요                                        |    아니요                                        |    예(Edge 컴퓨팅 사용)                               |    예                                                                |
+|    다른 클라우드에서 전송       |    아니요                                        |    아니요                                        |    예                                                    |    예                                                                |
 |    사용자 유형                        |    IT 전문가 또는 개발자                                       |    개발                                       |    IT 전문가                                                |    IT 전문가                                                             |
 |    가격 책정                          |    무료, 데이터 송신 요금 적용         |    무료, 데이터 송신 요금 적용         |    [가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [가격 책정](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 
@@ -100,7 +100,7 @@ ms.locfileid: "81262862"
 
     - [Data Box Disk를 사용하여 데이터 전송](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal)
     - [Data Box를 사용하여 데이터 전송](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal)
-- [AzCopy .](/azure/storage/common/storage-use-azcopy-v10)
+- [AzCopy를 사용 하 여 데이터를 전송](/azure/storage/common/storage-use-azcopy-v10)합니다.
 - 다음 작업을 수행하는 방법을 이해합니다.
     - [Data Box Gateway를 통해 데이터 전송](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
     - [Azure로 보내기 전에 Data Box Edge를 사용하여 데이터 변환](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute)

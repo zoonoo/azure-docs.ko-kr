@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: allensu
 ms.openlocfilehash: c45d0a9195a719d830753a9614cfa7efb6f1c23d
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260278"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트에 자산 미리 로드
@@ -67,7 +67,7 @@ ms.locfileid: "81260278"
 > 
 
 ## <a name="see-also"></a>참고 항목
-* [Azure CDN 끝점 제거](cdn-purge-endpoint.md)
+* [Azure CDN 끝점을 제거 합니다.](cdn-purge-endpoint.md)
 * [Azure CDN REST API 참조: 엔드포인트에서 콘텐츠 미리 로드](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
 * [Azure CDN REST API 참조: 엔드포인트에서 콘텐츠 제거](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

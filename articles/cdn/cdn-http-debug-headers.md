@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
 ms.openlocfilehash: 52aae3bdd2fe82eea6cbd500723192c88c293a1e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260499"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진의 X-EC-Debug HTTP 헤더
@@ -151,7 +151,7 @@ UNKNOWN | 서버에서 요청된 자산을 캐시할 수 있는지 여부를 평
 
 - MATimePeriod: 최대 처리 기간 값(즉 MASeconds)을 더 큰 단위(예: 일)에 해당하는 근삿값으로 변환합니다. 
 
-- 유닉스타임: 유닉스 시간(POSIX 시간 또는 유닉스 시대라고도 함)에서 요청된 콘텐츠의 캐시 타임스탬프를 나타냅니다. 캐시 타임스탬프는 자산의 TTL이 계산되는 시작 날짜/시간을 나타냅니다. 
+- 총 Xtime: Unix 시간에 요청 된 콘텐츠의 캐시 타임 스탬프를 나타냅니다 (POSIX 시간 또는 Unix epoch 라고도 함). 캐시 타임스탬프는 자산의 TTL이 계산되는 시작 날짜/시간을 나타냅니다. 
 
     원본 서버에서 타사 HTTP 캐싱 서버를 활용하지 않거나 해당 서버에서 Age 응답 헤더를 반환하지 않는 경우, 캐시 타임스탬프는 항상 자산을 검색하거나 유효성을 다시 검사한 날짜/시간이 됩니다. 그렇지 않으면 POP 서버에서 Age 필드를 사용하여 Retrieval/RevalidateDateTime - Age 식으로 자산의 TTL을 계산합니다.
 

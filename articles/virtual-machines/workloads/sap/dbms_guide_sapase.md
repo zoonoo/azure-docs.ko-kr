@@ -16,162 +16,162 @@ ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 25d911869c95baba6ac9db3b893292e702e9c0e9
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273208"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포
 
-이 문서에서는 Azure IaaS에서 SAP ASE를 배포할 때 고려할 여러 가지 영역을 다룹니다. 이 문서의 사전 조건으로, [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md) 문서 및 [Azure의 SAP 워크로드 설명서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)의 다른 가이드를 읽어야 합니다. 이 문서에서는 Linux 및 Windows 운영 체제에서 실행되는 SAP ASE를 다룹니다. Azure에서 지원되는 최소 릴리스는 SAP ASE 16.0.02(릴리스 16 지원 팩 2)입니다. 최신 버전의 SAP 및 최신 패치 수준을 배포하는 것이 좋습니다.  최소 SAP ASE 16.0.03.07(릴리스 16 지원 팩 3 패치 레벨 7)을 권장합니다.  SAP의 최신 버전은 [대상 ASE 16.0 릴리스 일정 및 CR 목록 정보에서](https://wiki.scn.sap.com/wiki/display/SYBASE/Targeted+ASE+16.0+Release+Schedule+and+CR+list+Information)찾을 수 있습니다.
+이 문서에서는 Azure IaaS에서 SAP ASE를 배포할 때 고려할 여러 가지 영역을 다룹니다. 이 문서의 사전 조건으로, [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md) 문서 및 [Azure의 SAP 워크로드 설명서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)의 다른 가이드를 읽어야 합니다. 이 문서에서는 Linux 및 Windows 운영 체제에서 실행 되는 SAP ASE에 대해 설명 합니다. Azure에서 지원 되는 최소 릴리스는 SAP ASE 16.0.02 (릴리스 16 지원 팩 2)입니다. 최신 버전의 SAP 및 최신 패치 수준을 배포 하는 것이 좋습니다.  최소 SAP ASE 16.0.03.07 (릴리스 16 지원 팩 3 패치 수준 7)을 권장 합니다.  최신 버전의 SAP는 [대상 ASE 16.0 릴리스 일정 및 CR 목록 정보](https://wiki.scn.sap.com/wiki/display/SYBASE/Targeted+ASE+16.0+Release+Schedule+and+CR+list+Information)에서 찾을 수 있습니다.
 
-SAP 응용 프로그램 또는 설치 미디어 위치를 사용 하 여 릴리스 지원에 대 한 추가 정보는 다음 위치에 있는 SAP 제품 가용성 매트릭스에서 찾을 수 있습니다.
+Sap 응용 프로그램 또는 설치 미디어 위치를 사용 하는 릴리스 지원에 대 한 추가 정보는 다음 위치에 있는 SAP 제품 가용성 매트릭스에서 확인할 수 있습니다.
 
-- [SAP 지원 노트 #2134316](https://launchpad.support.sap.com/#/notes/2134316)
-- [SAP 지원 노트 #1941500](https://launchpad.support.sap.com/#/notes/1941500)
-- [SAP 지원 노트 #1590719](https://launchpad.support.sap.com/#/notes/1590719)
-- [SAP 지원 노트 #1973241](https://launchpad.support.sap.com/#/notes/1973241)
+- [SAP support note #2134316](https://launchpad.support.sap.com/#/notes/2134316)
+- [SAP support note #1941500](https://launchpad.support.sap.com/#/notes/1941500)
+- [SAP support note #1590719](https://launchpad.support.sap.com/#/notes/1590719)
+- [SAP support note #1973241](https://launchpad.support.sap.com/#/notes/1973241)
 
-비고: SAP 세계 내외의 문서 전체에서 제품 이름은 Sybase ASE 또는 SAP ASE 또는 경우에 따라 둘 다로 참조됩니다. 일관성을 유지하기 위해 이 설명서에서 **SAP ASE라는** 이름을 사용합니다.
+설명: SAP 세계 내부 및 외부의 문서 전체에서 제품 이름은 Sybase ASE 또는 SAP ASE로 참조 되거나 경우에 따라 두 가지 경우 모두에 해당 합니다. 일관성을 유지 하기 위해이 설명서의 **SAP ASE** 이름을 사용 합니다.
 
 ## <a name="operating-system-support"></a>운영 체제 지원
-SAP 제품 가용성 매트릭스에는 각 SAP 응용 프로그램에 대해 지원되는 운영 체제 및 SAP 커널 조합이 포함되어 있습니다.  리눅스 배포판 SUSE 12.x, SUSE 15.x, 레드 햇 7.x 는 완전히 지원됩니다.  SAP ASE용 운영 체제로 오라클 리눅스는 지원되지 않습니다.  사용 가능한 최신 Linux 릴리스를 사용하는 것이 좋습니다. Windows 고객은 Windows 서버 2016 또는 Windows 서버 2019 릴리스를 사용해야 합니다.  Windows 2012와 같은 이전 Windows 릴리스는 기술적으로 지원되지만 최신 Windows 버전은 항상 권장됩니다.
+SAP Product Availability 행렬에는 각 SAP 응용 프로그램에 대해 지원 되는 운영 체제 및 SAP 커널 조합이 포함 되어 있습니다.  Linux 배포판 SUSE 12. x, SUSE 4.x, Red Hat 4.x는 완전히 지원 됩니다.  Oracle Linux SAP ASE에 대 한 운영 체제는 지원 되지 않습니다.  사용 가능한 최신 Linux 릴리스를 사용 하는 것이 좋습니다. Windows 고객은 windows Server 2016 또는 Windows Server 2019 릴리스를 사용 해야 합니다.  Windows 2012와 같은 이전 버전의 Windows는 기술적으로 지원 되지만 항상 최신 Windows 버전을 권장 합니다.
 
 
 ## <a name="specifics-to-sap-ase-on-windows"></a>Windows의 SAP ASE에 대한 고유 정보
 Microsoft Azure부터 기존 SAP ASE 애플리케이션을 Azure Virtual Machines로 마이그레이션할 수 있습니다. Azure Virtual Machine에서 SAP ASE를 사용하면 이러한 애플리케이션을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 애플리케이션에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure Virtual Machine에서 SAP ASE를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
 
-Microsoft Azure는 가장 작은 SAP 시스템과 환경부터 수천 명의 사용자가 있는 대규모 SAP 시스템과 환경까지 실행할 수 있는 다양한 가상 머신 유형을 제공합니다. SAP 크기 조정 SAPS 번호는 다른 SAP 인증 VM SUS의 [#1928533 SAP 지원 노트에](https://launchpad.support.sap.com/#/notes/1928533)제공됩니다.
+Microsoft Azure는 가장 작은 SAP 시스템과 환경부터 수천 명의 사용자가 있는 대규모 SAP 시스템과 환경까지 실행할 수 있는 다양한 가상 머신 유형을 제공합니다. Sap [지원 참고 #1928533](https://launchpad.support.sap.com/#/notes/1928533)에서 SAP 인증 VM SKU의 sap 크기 조정 SAPS 번호를 제공 합니다.
 
-Windows에 SAP ASE를 설치하는 설명서는 [Windows용 SAP ASE 설치 가이드에서](https://help.sap.com/viewer/36031975851a4f82b1022a9df877280b/16.0.3.7/en-US/a660d3f1bc2b101487cbdbf10069c3ac.html) 찾을 수 있습니다.
+Windows에 대 한 sap ASE 설치 설명서는 [windows 용 SAP Ase 설치 가이드](https://help.sap.com/viewer/36031975851a4f82b1022a9df877280b/16.0.3.7/en-US/a660d3f1bc2b101487cbdbf10069c3ac.html) 에서 찾을 수 있습니다.
 
-메모리의 페이지 잠금은 SAP ASE 데이터베이스 버퍼가 페이징아웃되지 않도록 하는 설정입니다.  이 설정은 메모리가 많은 대규모 사용 중인 시스템에 유용합니다. 자세한 내용은 BC-DB-SYB에 문의하십시오. 
+메모리의 페이지 잠금은 SAP ASE 데이터베이스 버퍼의 페이징 해제를 방지 하는 설정입니다.  이 설정은 많은 메모리가 있는 사용량이 많은 시스템에 유용 합니다. 자세한 내용은 BC-DB-SYB에 문의 하세요. 
 
 
-## <a name="linux-operating-system-specific-settings"></a>리눅스 운영 체제 특정 설정
-리눅스 VM에서, 프로필 SAP-ASE 리눅스 거대한 페이지로 실행기본적으로 `saptune` 활성화되어야하고 명령으로 확인할 수 있습니다  
+## <a name="linux-operating-system-specific-settings"></a>Linux 운영 체제 관련 설정
+Linux Vm에서 프로필을 `saptune` 사용 하 여 실행 SAP-ASE Linux는 기본적으로 사용 하도록 설정 되 고 명령을 사용 하 여 확인할 수 있어야 합니다.  
 
 `cat /proc/meminfo` 
 
-페이지 크기는 일반적으로 2048KB입니다. 자세한 내용은 [리눅스에서 기사 거대한 페이지를](https://help.sap.com/viewer/ecbccd52e7024feaa12f4e780b43bc3b/16.0.3.7/en-US/a703d580bc2b10149695f7d838203fad.html) 참조하십시오 
+페이지 크기는 대개 2048 KB입니다. 자세한 내용은 [Linux의 큰 페이지](https://help.sap.com/viewer/ecbccd52e7024feaa12f4e780b43bc3b/16.0.3.7/en-US/a703d580bc2b10149695f7d838203fad.html) 문서를 참조 하세요. 
 
 
-## <a name="recommendations-on-vm-and-disk-structure-for-sap-ase-deployments"></a>SAP ASE 배포를 위한 VM 및 디스크 구조에 대한 권장 사항
+## <a name="recommendations-on-vm-and-disk-structure-for-sap-ase-deployments"></a>SAP ASE 배포를 위한 VM 및 디스크 구조에 대 한 권장 사항
 
-SAP NetWeaver 응용 프로그램에 대한 SAP ASE는 중간 크기의 SAP ASE 데이터베이스 서버에 사용되는 일반적인 VM 유형이 Esv3를 포함할 [#1928533 SAP 지원 노트에](https://launchpad.support.sap.com/#/notes/1928533) 나열된 모든 VM 유형에서 지원됩니다.  대규모 다중 테라바이트 데이터베이스는 M 시리즈 VM 유형을 활용할 수 있습니다. SAP ASE 트랜잭션 로그 디스크 쓰기 성능은 M 시리즈 쓰기 가속기를 사용하도록 설정하여 향상될 수 있습니다. 쓰기 가속기는 SAP ASE가 로그 쓰기를 수행하는 방식으로 인해 SAP ASE로 신중하게 테스트해야 합니다.  [#2816580 SAP 지원 노트를](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) 검토하고 성능 테스트를 실행하는 것이 좋습니다.  
-쓰기 액셀러레이터는 트랜잭션 로그 디스크전용으로 설계되었습니다. 디스크 수준 캐시는 NONE으로 설정해야 합니다. Azure 쓰기 가속기가 다른 DBMS와 유사한 개선 사항이 나타나지 않는 경우 놀라지 마십시오. SAP ASE가 트랜잭션 로그에 기록하는 방식에 따라 Azure Write 액셀러레이터가 가속화가 거의 또는 전혀 없을 수 있습니다.
-데이터 장치 및 로그 장치에는 별도의 디스크를 권장합니다.  시스템은 sybsecurity를 데이터베이스하고 `saptools` 전용 디스크를 필요로하지 않으며 SAP 데이터베이스 데이터 및 로그 장치를 포함하는 디스크에 배치 할 수 있습니다 
+Sap NetWeaver 응용 프로그램에 대 한 SAP ASE는 [sap support #1928533 note](https://launchpad.support.sap.com/#/notes/1928533) 에 나열 된 모든 vm 유형에 대해 지원 됩니다. 보통 크기의 sap ASE 데이터베이스 서버에 사용 되는 일반적인 Vm 유형은 Esv3를 포함 합니다.  초대형 다중 테라바이트 데이터베이스는 M 시리즈 VM 유형을 활용할 수 있습니다. M 시리즈 쓰기 가속기를 사용 하 여 SAP ASE 트랜잭션 로그 디스크 쓰기 성능을 향상 시킬 수 있습니다. Sap ase에서 로그 쓰기를 수행 하는 방식 때문에 SAP ASE를 사용 하 여 신중 하 게 테스트 해야 쓰기 가속기.  [SAP support note #2816580](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) 검토 하 고 성능 테스트를 실행 하는 것이 좋습니다.  
+쓰기 가속기은 트랜잭션 로그 디스크만을 위해 설계 되었습니다. 디스크 수준 캐시를 NONE으로 설정 해야 합니다. Azure 쓰기 가속기에 다른 DBMS와 유사한 향상 된 기능이 표시 되지 않는 경우에는 걱정할 필요가 없습니다. SAP ASE가 트랜잭션 로그에 기록 하는 방법에 따라 Azure 쓰기 가속기에서 가속이 거의 발생 하지 않을 수 있습니다.
+데이터 장치 및 로그 장치에는 별도의 디스크를 권장 합니다.  시스템 데이터베이스는 synonoa 이며 `saptools` 전용 디스크가 필요 하지 않으며 SAP 데이터베이스 데이터와 로그 장치를 포함 하는 디스크에 배치할 수 있습니다. 
 
-![SAP ASE용 스토리지 구성](./media/dbms-guide-sap-ase/sap-ase-disk-structure.png)
+![SAP ASE에 대 한 저장소 구성](./media/dbms-guide-sap-ase/sap-ase-disk-structure.png)
 
-### <a name="file-systems-stripe-size--io-balancing"></a>파일 시스템, 스트라이프 크기 & IO 밸런싱 
-SAP ASE는 달리 구성되지 않는 한 데이터를 디스크 저장 장치에 순차적으로 기록합니다. 즉, 4개의 장치가 있는 빈 SAP ASE 데이터베이스는 첫 번째 장치에만 데이터를 씁니다.  다른 디스크 장치는 첫 번째 장치가 가득 차있을 때만 기록됩니다.  각 SAP ASE 장치에 대한 읽기 및 쓰기 IO의 양은 다를 수 있습니다. 사용 가능한 모든 Azure 디스크에서 디스크 IO의 균형을 맞추려면 Windows 저장소 공간 또는 Linux LVM2를 사용해야 합니다. Linux에서는 XFS 파일 시스템을 사용하여 디스크를 포맷하는 것이 좋습니다. LVM 스트라이프 크기는 성능 테스트를 통해 테스트해야 합니다. 128 KB 스트라이프 사이즈가 좋은 출발점입니다. Windows에서는 NTFS 할당 단위 크기(AUS)를 테스트해야 합니다. 64 KB는 시작 값으로 사용할 수 있습니다. 
+### <a name="file-systems-stripe-size--io-balancing"></a>파일 시스템, 스트라이프 크기 & IO 분산 
+달리 구성 되지 않은 경우 SAP ASE는 데이터를 디스크 저장 장치에 순차적으로 기록 합니다. 즉, 4 개의 장치가 있는 빈 SAP ASE 데이터베이스에서 첫 번째 장치에만 데이터를 씁니다.  다른 디스크 장치는 첫 번째 장치가 꽉 찬 경우에만 기록 됩니다.  각 SAP ASE 장치에 대 한 읽기 및 쓰기 IO의 양은 다를 수 있습니다. 사용 가능한 모든 Azure 디스크에서 디스크 IO를 분산 하려면 Windows 저장소 공간 또는 Linux LVM2을 사용 해야 합니다. Linux에서는 XFS 파일 시스템을 사용 하 여 디스크를 포맷 하는 것이 좋습니다. LVM 스트라이프 크기는 성능 테스트를 사용 하 여 테스트 해야 합니다. 128 KB 스트라이프 크기가 좋은 시작점입니다. Windows에서는 NTFS 오스트레일리아 (할당 단위 크기)를 테스트 해야 합니다. 64 KB를 시작 값으로 사용할 수 있습니다. 
 
-[SAP 적응](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/) 형 서버 엔터프라이즈 및 [SAP 지원 참고 #1815695](https://launchpad.support.sap.com/#/notes/1815695)자동 데이터베이스 공간 확장 구성 문서에 설명 된 대로 자동 데이터베이스 확장을 구성 하는 것이 좋습니다. 
+[Sap 적응 서버 Enterprise에서 자동 데이터베이스 공간 확장 구성](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/) 및 [sap 지원 참고 #1815695](https://launchpad.support.sap.com/#/notes/1815695)문서에 설명 된 대로 자동 데이터베이스 확장을 구성 하는 것이 좋습니다. 
 
-### <a name="sample-sap-ase-on-azure-virtual-machine-disk-and-file-system-configurations"></a>Azure 가상 머신, 디스크 및 파일 시스템 구성에서 SAP ASE 샘플 
-아래 템플릿은 Linux및 Windows 모두에 대한 샘플 구성을 보여 준다. 가상 컴퓨터 및 디스크 구성을 확인하기 전에 개별 VM의 네트워크 및 스토리지 대역폭 할당량이 비즈니스 요구 사항을 충족하기에 충분한지 확인합니다. 또한 Azure VM 형식마다 VM에 연결할 수 있는 디스크의 최대 수가 다릅니다. 예를 들어 E4s_v3 VM에는 48MB/sec 스토리지 IO 처리량이 제한됩니다. 데이터베이스 백업 활동에 필요한 저장소 처리량이 초당 48MB 이상이 필요한 경우 더 많은 저장소 대역폭 처리량이 있는 더 큰 VM 유형은 피할 수 없습니다. Azure 저장소를 구성할 때 특히 [Azure Premium 저장소의](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance) 경우 용량GB당 처리량과 IOPS가 변경된다는 점에 유의해야 합니다. 이 항목에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형입니다.](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types) 특정 Azure VM 형식에 대한 할당량은 [메모리에 최적화된 가상 시스템 크기](https://docs.microsoft.com/azure/virtual-machines/sizes-memory) 및 연결된 아티클에 설명되어 있습니다. 
+### <a name="sample-sap-ase-on-azure-virtual-machine-disk-and-file-system-configurations"></a>Azure 가상 머신, 디스크 및 파일 시스템 구성에 대 한 샘플 SAP ASE 
+아래 템플릿에는 Linux 및 Windows에 대 한 샘플 구성이 나와 있습니다. 가상 컴퓨터 및 디스크 구성을 확인 하기 전에 개별 VM의 네트워크 및 저장소 대역폭 할당량이 비즈니스 요구 사항을 충족 하기에 충분 한지 확인 합니다. 또한 Azure VM 유형에 따라 VM에 연결할 수 있는 디스크의 최대 수가 서로 다르다는 점에 유의 하세요. 예를 들어 E4s_v3 VM에는 48 m b/초 저장소 IO 처리량이 제한 됩니다. 데이터베이스 백업 작업에 필요한 저장소 처리량이 48 m b/초를 초과 하는 경우 더 많은 저장소 대역폭 처리량을 가진 더 큰 VM 유형이 피할 수 있습니다. Azure storage를 구성 하는 경우 특히 [Azure Premium storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance) 를 사용 하 여 용량 GB 당 처리량 및 IOPS가 변경 됨을 염두에 두어야 합니다. [Azure에서 사용할 수 있는 디스크 형식](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types)에 대 한 문서에서이 항목을 참조 하세요. 특정 Azure VM 유형에 대 한 할당량은 메모리 액세스에 [최적화 된 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/sizes-memory) 및 여기에 연결 된 문서에 설명 되어 있습니다. 
 
 > [!NOTE]
->  DBMS 시스템이 온-프레미스에서 Azure로 이동하는 경우 VM에서 모니터링을 수행하고 CPU, 메모리, IOPS 및 저장소 처리량을 평가하는 것이 좋습니다. 위에서 언급한 문서에 설명된 VM 할당량 한도와 관찰된 피크 값을 비교합니다.
+>  DBMS 시스템을 온-프레미스에서 Azure로 이동 하는 경우 VM에 대 한 모니터링을 수행 하 고 CPU, 메모리, IOPS 및 저장소 처리량을 평가 하는 것이 좋습니다. 위에서 언급 한 문서에 설명 된 VM 할당량 제한과 관찰 된 최고 값을 비교 합니다.
 
-아래 제공된 예제는 설명적인 용도로 사용되며 개별 요구 사항에 따라 수정할 수 있습니다. SAP ASE의 설계로 인해 데이터 장치의 수는 다른 데이터베이스만큼 중요하지 않습니다. 이 문서에 자세히 설명된 데이터 장치 수는 가이드일 뿐입니다. 
+아래에서 설명 하는 예제는 설명을 위해 제공 되며 개별 요구 사항에 따라 수정할 수 있습니다. SAP ASE의 설계로 인해 데이터 장치 수는 다른 데이터베이스의 경우와 마찬가지로 중요 하지 않습니다. 이 문서에 설명 된 데이터 장치 수는 가이드 전용입니다. 
 
-SAP 솔루션 관리자와 같이 데이터베이스 크기가 50GB ~ 250GB인 소규모 SAP ASE DB 서버에 대한 구성의 예는 다음과 같습니다.
+SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사이인 작은 SAP ASE DB 서버에 대 한 구성의 예는 다음과 같을 수 있습니다.
 
-| 구성 | Windows | Linux | 주석 |
+| Configuration | Windows | Linux | 주석 |
 | --- | --- | --- | --- |
-| VM 유형 | E4s_v3 (4 vCPU / 32 GB RAM) | E4s_v3 (4 vCPU / 32 GB RAM) | --- |
-| 가속 네트워킹 | 사용 | 사용 | ---|
+| VM 유형 | E4s_v3 (4 개 vCPU/32gb RAM) | E4s_v3 (4 개 vCPU/32gb RAM) | --- |
+| 가속 네트워킹 | 사용 하도록 설정 | 사용 하도록 설정 | ---|
 | SAP ASE 버전 | 16.0.03.07 이상 | 16.0.03.07 이상 | --- |
-| 데이터 장치 번호 | 4 | 4 | ---|
-| 로그 장치 번호 | 1 | 1 | --- |
-| # 온도 장치 | 1 | 1 | SAP BW 워크로드에 대한 자세한 내용은 |
-| 운영 체제 | Windows Server 2019 | SUSE 12 SP4/ 15 SP1 또는 RHEL 7.6 | --- |
+| 데이터 장치 개수 | 4 | 4 | ---|
+| 로그 장치 개수 | 1 | 1 | --- |
+| 임시 장치 개수 | 1 | 1 | SAP BW 작업에 대 한 추가 정보 |
+| 운영 체제 | 시작 | SUSE 12 SP4/15 SP1 또는 RHEL 7.6 | --- |
 | 디스크 집계 | 스토리지 공간 | LVM2 | --- |
-| 파일 시스템 | NTFS | Xfs |
-| 블록 크기 형식 지정 | 워크로드 테스트 필요 | 워크로드 테스트 필요 | --- |
-| # 및 데이터 디스크의 유형 | 프리미엄 스토리지: 2 x P10 (RAID0) | 프리미엄 스토리지: 2 x P10 (RAID0)| 캐시 = 읽기 전용 |
-| # 및 로그 디스크의 유형 | 프리미엄 스토리지: 1 x P20  | 프리미엄 스토리지: 1 x P20 | 캐시 = 없음 |
-| ASE 맥스메모리 매개변수 | 실제 RAM의 90% | 실제 RAM의 90% | 단일 인스턴스를 가정 |
-| # 백업 장치 | 4 | 4| --- |
-| # 및 백업 디스크의 유형 | 1 | 1 | --- |
+| 파일 시스템 | NTFS | XFS |
+| 형식 블록 크기 | 워크 로드 테스트 필요 | 워크 로드 테스트 필요 | --- |
+| # 및 데이터 디스크 유형 | Premium storage: 2 x P10 (RAID0) | Premium storage: 2 x P10 (RAID0)| Cache = 읽기 전용 |
+| 로그 디스크의 유형 (#) | Premium storage: 1 x P20  | Premium storage: 1 x P20 | Cache = 없음 |
+| ASE MaxMemory 매개 변수 | 실제 RAM의 90% | 실제 RAM의 90% | 단일 인스턴스 가정 |
+| 백업 장치 개수 | 4 | 4| --- |
+| 백업 디스크의 유형 (#) | 1 | 1 | --- |
 
 
-데이터베이스 크기가 250GB ~ 750GB인 중형 SAP ASE DB 서버의 구성의 예는 소규모 SAP Business Suite 시스템과 같이 보일 수 있습니다.
+데이터베이스 크기가 250 GB – 750 GB (예: 작은 SAP Business Suite 시스템) 사이인 medium SAP ASE DB 서버에 대 한 구성의 예는 다음과 같을 수 있습니다.
 
-| 구성 | Windows | Linux | 주석 |
+| Configuration | Windows | Linux | 주석 |
 | --- | --- | --- | --- |
-| VM 유형 | E16s_v3 (16 vCPU / 128 GB RAM) | E16s_v3 (16 vCPU / 128 GB RAM) | --- |
-| 가속 네트워킹 | 사용 | 사용 | ---|
+| VM 유형 | E16s_v3 (16 vCPU/128gb RAM) | E16s_v3 (16 vCPU/128gb RAM) | --- |
+| 가속 네트워킹 | 사용 하도록 설정 | 사용 하도록 설정 | ---|
 | SAP ASE 버전 | 16.0.03.07 이상 | 16.0.03.07 이상 | --- |
-| 데이터 장치 번호 | 8 | 8 | ---|
-| 로그 장치 번호 | 1 | 1 | --- |
-| # 온도 장치 | 1 | 1 | SAP BW 워크로드에 대한 자세한 내용은 |
-| 운영 체제 | Windows Server 2019 | SUSE 12 SP4/ 15 SP1 또는 RHEL 7.6 | --- |
+| 데이터 장치 개수 | 8 | 8 | ---|
+| 로그 장치 개수 | 1 | 1 | --- |
+| 임시 장치 개수 | 1 | 1 | SAP BW 작업에 대 한 추가 정보 |
+| 운영 체제 | 시작 | SUSE 12 SP4/15 SP1 또는 RHEL 7.6 | --- |
 | 디스크 집계 | 스토리지 공간 | LVM2 | --- |
-| 파일 시스템 | NTFS | Xfs |
-| 블록 크기 형식 지정 | 워크로드 테스트 필요 | 워크로드 테스트 필요 | --- |
-| # 및 데이터 디스크의 유형 | 프리미엄 스토리지: 4 x P20 (RAID0) | 프리미엄 스토리지: 4 x P20 (RAID0)| 캐시 = 읽기 전용 |
-| # 및 로그 디스크의 유형 | 프리미엄 스토리지: 1 x P20  | 프리미엄 스토리지: 1 x P20 | 캐시 = 없음 |
-| ASE 맥스메모리 매개변수 | 실제 RAM의 90% | 실제 RAM의 90% | 단일 인스턴스를 가정 |
-| # 백업 장치 | 4 | 4| --- |
-| # 및 백업 디스크의 유형 | 1 | 1 | --- |
+| 파일 시스템 | NTFS | XFS |
+| 형식 블록 크기 | 워크 로드 테스트 필요 | 워크 로드 테스트 필요 | --- |
+| # 및 데이터 디스크 유형 | Premium storage: 4 x P20 (RAID0) | Premium storage: 4 x P20 (RAID0)| Cache = 읽기 전용 |
+| 로그 디스크의 유형 (#) | Premium storage: 1 x P20  | Premium storage: 1 x P20 | Cache = 없음 |
+| ASE MaxMemory 매개 변수 | 실제 RAM의 90% | 실제 RAM의 90% | 단일 인스턴스 가정 |
+| 백업 장치 개수 | 4 | 4| --- |
+| 백업 디스크의 유형 (#) | 1 | 1 | --- |
 
-데이터베이스 크기가 750GB ~ 2000GB인 소규모 SAP ASE DB 서버의 구성의 예는 더 큰 SAP Business Suite 시스템과 같이 보일 수 있습니다.
+데이터베이스 크기가 750 GB – 2000 GB (예: 대형 SAP Business Suite 시스템) 사이인 작은 SAP ASE DB 서버에 대 한 구성의 예는 다음과 같을 수 있습니다.
 
-| 구성 | Windows | Linux | 주석 |
+| Configuration | Windows | Linux | 주석 |
 | --- | --- | --- | --- |
-| VM 유형 | E64s_v3 (64 vCPU / 432 GB RAM) | E64s_v3 (64 vCPU / 432 GB RAM) | --- |
-| 가속 네트워킹 | 사용 | 사용 | ---|
+| VM 유형 | E64s_v3 (64 vCPU/432 GB RAM) | E64s_v3 (64 vCPU/432 GB RAM) | --- |
+| 가속 네트워킹 | 사용 하도록 설정 | 사용 하도록 설정 | ---|
 | SAP ASE 버전 | 16.0.03.07 이상 | 16.0.03.07 이상 | --- |
-| 데이터 장치 번호 | 16 | 16 | ---|
-| 로그 장치 번호 | 1 | 1 | --- |
-| # 온도 장치 | 1 | 1 | SAP BW 워크로드에 대한 자세한 내용은 |
-| 운영 체제 | Windows Server 2019 | SUSE 12 SP4/ 15 SP1 또는 RHEL 7.6 | --- |
+| 데이터 장치 개수 | 16 | 16 | ---|
+| 로그 장치 개수 | 1 | 1 | --- |
+| 임시 장치 개수 | 1 | 1 | SAP BW 작업에 대 한 추가 정보 |
+| 운영 체제 | 시작 | SUSE 12 SP4/15 SP1 또는 RHEL 7.6 | --- |
 | 디스크 집계 | 스토리지 공간 | LVM2 | --- |
-| 파일 시스템 | NTFS | Xfs |
-| 블록 크기 형식 지정 | 워크로드 테스트 필요 | 워크로드 테스트 필요 | --- |
-| # 및 데이터 디스크의 유형 | 프리미엄 스토리지: 4 x P30 (RAID0) | 프리미엄 스토리지: 4 x P30 (RAID0)| 캐시 = 읽기 전용 |
-| # 및 로그 디스크의 유형 | 프리미엄 스토리지: 1 x P20  | 프리미엄 스토리지: 1 x P20 | 캐시 = 없음 |
-| ASE 맥스메모리 매개변수 | 실제 RAM의 90% | 실제 RAM의 90% | 단일 인스턴스를 가정 |
-| # 백업 장치 | 4 | 4| --- |
-| # 및 백업 디스크의 유형 | 1 | 1 | --- |
+| 파일 시스템 | NTFS | XFS |
+| 형식 블록 크기 | 워크 로드 테스트 필요 | 워크 로드 테스트 필요 | --- |
+| # 및 데이터 디스크 유형 | Premium storage: 4 x P30 (RAID0) | Premium storage: 4 x P30 (RAID0)| Cache = 읽기 전용 |
+| 로그 디스크의 유형 (#) | Premium storage: 1 x P20  | Premium storage: 1 x P20 | Cache = 없음 |
+| ASE MaxMemory 매개 변수 | 실제 RAM의 90% | 실제 RAM의 90% | 단일 인스턴스 가정 |
+| 백업 장치 개수 | 4 | 4| --- |
+| 백업 디스크의 유형 (#) | 1 | 1 | --- |
 
 
-전 세계적으로 사용되는 대규모 SAP Business Suite 시스템과 같이 데이터베이스 크기가 2TB+인 소규모 SAP ASE DB 서버에 대한 구성의 예는 다음과 같습니다.
+전체적으로 사용 되는 더 큰 SAP Business Suite 시스템과 같이 데이터베이스 크기가 2tb 이상인 작은 SAP ASE DB 서버에 대 한 구성의 예는 다음과 같을 수 있습니다.
 
-| 구성 | Windows | Linux | 주석 |
+| Configuration | Windows | Linux | 주석 |
 | --- | --- | --- | --- |
-| VM 유형 | M 시리즈(1.0 ~ 4.0TB RAM)  | M 시리즈(1.0 ~ 4.0TB RAM) | --- |
-| 가속 네트워킹 | 사용 | 사용 | ---|
+| VM 유형 | M 시리즈 (1.0 ~ 4.0 TB RAM)  | M 시리즈 (1.0 ~ 4.0 TB RAM) | --- |
+| 가속 네트워킹 | 사용 하도록 설정 | 사용 하도록 설정 | ---|
 | SAP ASE 버전 | 16.0.03.07 이상 | 16.0.03.07 이상 | --- |
-| 데이터 장치 번호 | 32 | 32 | ---|
-| 로그 장치 번호 | 1 | 1 | --- |
-| # 온도 장치 | 1 | 1 | SAP BW 워크로드에 대한 자세한 내용은 |
-| 운영 체제 | Windows Server 2019 | SUSE 12 SP4/ 15 SP1 또는 RHEL 7.6 | --- |
+| 데이터 장치 개수 | 32 | 32 | ---|
+| 로그 장치 개수 | 1 | 1 | --- |
+| 임시 장치 개수 | 1 | 1 | SAP BW 작업에 대 한 추가 정보 |
+| 운영 체제 | 시작 | SUSE 12 SP4/15 SP1 또는 RHEL 7.6 | --- |
 | 디스크 집계 | 스토리지 공간 | LVM2 | --- |
-| 파일 시스템 | NTFS | Xfs |
-| 블록 크기 형식 지정 | 워크로드 테스트 필요 | 워크로드 테스트 필요 | --- |
-| # 및 데이터 디스크의 유형 | 프리미엄 스토리지: 4+ x P30 (RAID0) | 프리미엄 스토리지: 4+ x P30 (RAID0)| 캐시 = 읽기 전용, Azure 울트라 디스크 고려 |
-| # 및 로그 디스크의 유형 | 프리미엄 스토리지: 1 x P20  | 프리미엄 스토리지: 1 x P20 | 캐시 = 없음, Azure 울트라 디스크 고려 |
-| ASE 맥스메모리 매개변수 | 실제 RAM의 90% | 실제 RAM의 90% | 단일 인스턴스를 가정 |
-| # 백업 장치 | 16 | 16 | --- |
-| # 및 백업 디스크의 유형 | 4 | 4 | LVM2/스토리지 공간 사용 |
+| 파일 시스템 | NTFS | XFS |
+| 형식 블록 크기 | 워크 로드 테스트 필요 | 워크 로드 테스트 필요 | --- |
+| # 및 데이터 디스크 유형 | Premium storage: 4 + x P30 (RAID0) | Premium storage: 4 + x P30 (RAID0)| Cache = 읽기 전용, Azure Ultra disk 고려 |
+| 로그 디스크의 유형 (#) | Premium storage: 1 x P20  | Premium storage: 1 x P20 | 캐시 = 없음, Azure Ultra disk 고려 |
+| ASE MaxMemory 매개 변수 | 실제 RAM의 90% | 실제 RAM의 90% | 단일 인스턴스 가정 |
+| 백업 장치 개수 | 16 | 16 | --- |
+| 백업 디스크의 유형 (#) | 4 | 4 | LVM2/저장소 공간 사용 |
 
 
-### <a name="backup--restore-considerations-for-sap-ase-on-azure"></a>백업 & Azure에서 SAP ASE에 대한 고려 사항을 복원합니다.
-데이터 및 백업 장치의 수를 늘리면 백업 및 복원 성능이 향상됩니다. 앞에 표시된 표에 표시된 대로 SAP ASE 백업 장치를 호스팅하는 Azure 디스크를 스트라이프하는 것이 좋습니다. 백업 장치와 디스크 의 수와 균형을 맞추고 백업 처리량이 총 VM 처리량 할당량의 40%-50%를 초과하지 않도록 주의해야 합니다. SAP 백업 압축을 기본값으로 사용하는 것이 좋습니다. 자세한 내용은 문서에서 찾을 수 있습니다.
+### <a name="backup--restore-considerations-for-sap-ase-on-azure"></a>Azure의 SAP ASE에 대 한 백업 & 복원 고려 사항
+데이터 및 백업 장치의 수를 늘리는 경우 백업 및 복원 성능이 향상 됩니다. 위의 표에 표시 된 것 처럼 SAP ASE 백업 장치를 호스트 하는 Azure 디스크를 스트라이프 하는 것이 좋습니다. 백업 장치 및 디스크 수의 균형을 유지 하 고 백업 처리량이 총 VM 처리량 할당량의 40%-50%를 초과 하지 않도록 주의 해야 합니다. 기본적으로 SAP 백업 압축을 사용 하는 것이 좋습니다. 자세한 내용은 다음 문서에서 찾을 수 있습니다.
 
-- [SAP 지원 노트 #1588316](https://launchpad.support.sap.com/#/notes/1588316)
-- [SAP 지원 노트 #1801984](https://launchpad.support.sap.com/#/notes/1801984)
-- [SAP 지원 노트 #1585981](https://launchpad.support.sap.com/#/notes/1585981) 
+- [SAP support note #1588316](https://launchpad.support.sap.com/#/notes/1588316)
+- [SAP support note #1801984](https://launchpad.support.sap.com/#/notes/1801984)
+- [SAP support note #1585981](https://launchpad.support.sap.com/#/notes/1585981) 
 
-드라이브 D:\ 또는 /temp 공간을 데이터베이스 또는 로그 덤프 대상으로 합니다.
+D:\ 드라이브 사용 안 함 또는 데이터베이스 또는 로그 덤프 대상으로 임시 공간을 확보 합니다.
 
 ### <a name="impact-of-database-compression"></a>데이터베이스 압축의 영향
-I/O 대역폭이 제한 요소가 될 수 있는 구성에서 IOPS를 줄이는 조치는 Azure와 같은 IaaS 시나리오에서 실행할 수 있는 워크로드를 늘리는 데 도움이 될 수 있습니다. 따라서 기존 SAP 데이터베이스를 Azure에 업로드하기 전에 SAP ASE 압축이 사용되는지 확인하는 것이 좋습니다.
+I/o 대역폭이 제한 요인이 될 수 있는 구성에서 IOPS를 줄이면 Azure와 같은 IaaS 시나리오에서 실행할 수 있는 워크 로드를 스트레치 하는 데 도움이 될 수 있습니다. 따라서 기존 SAP 데이터베이스를 Azure에 업로드하기 전에 SAP ASE 압축이 사용되는지 확인하는 것이 좋습니다.
 
 Azure에 업로드하기 전에 압축을 적용하는 것이 좋은 이유는 다음과 같습니다.
 
@@ -179,49 +179,49 @@ Azure에 업로드하기 전에 압축을 적용하는 것이 좋은 이유는 �
 * 더 향상된 CPU가 있는 강력한 하드웨어 또는 더 높은 I/O 대역폭이나 낮은 I/O 대기 시간의 온-프레미스를 사용할 경우 압축 실행 시간이 짧아집니다.
 * 데이터베이스 크기가 작을수록 디스크 할당 비용이 줄어들 수 있습니다.
 
-데이터 및 LOB 압축은 Azure Virtual Machines에서 호스트되는 VM에서도 온-프레미스에서와 마찬가지로 작동합니다. 기존 SAP ASE 데이터베이스에서 압축이 이미 사용 중인지 확인하는 방법에 대한 자세한 내용은 [SAP 지원 참고 사항 1750510을](https://launchpad.support.sap.com/#/notes/1750510)확인하십시오. SAP ASE 데이터베이스 압축에 대한 자세한 내용은 [SAP 지원 참고 사항을 #2121797](https://launchpad.support.sap.com/#/notes/2121797)
+데이터 및 LOB 압축은 Azure Virtual Machines에서 호스트되는 VM에서도 온-프레미스에서와 마찬가지로 작동합니다. 기존 SAP ASE 데이터베이스에서 압축이 이미 사용 중인지 확인 하는 방법에 대 한 자세한 내용은 [sap support note 1750510](https://launchpad.support.sap.com/#/notes/1750510)을 참조 하세요. SAP ASE 데이터베이스 압축에 대 한 자세한 내용은 [sap 지원](https://launchpad.support.sap.com/#/notes/2121797) 정보를 참조 하세요 #2121797
 
 ## <a name="high-availability-of-sap-ase-on-azure"></a>Azure에서 SAP ASE의 고가용성 
-HADR 사용자 가이드는 2노드 SAP ASE "상시 켜기" 솔루션의 설정 및 구성에 대해 자세히 설명합니다.  또한 세 번째 재해 복구 노드도 지원됩니다. SAP ASE는 공유 디스크 및 기본 OS 클러스터링(부동 IP)을 비롯한 많은 높은 사용 가능한 구성을 지원합니다. Azure에서 지원되는 유일한 구성은 부동 IP 없이 오류 관리자를 사용하는 것입니다.  부동 IP 주소 메서드는 Azure에서 작동하지 않습니다.  SAP 커널은 "HA 인식" 응용 프로그램이며 기본 및 보조 SAP ASE 서버에 대해 알고 있습니다. SAP ASE와 Azure 간에 는 긴밀한 통합이 없으며 Azure 내부 로드 밸런서가 사용되지 않습니다. 따라서 표준 SAP ASE 문서 는 [SAP ASE HADR 사용자 가이드를](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.7/en-US/a6645e28bc2b1014b54b8815a64b87ba.html) 통해 수행해야 합니다. 
+HADR 사용자 가이드는 2 노드 SAP ASE "Always on" 솔루션의 설정 및 구성에 대해 자세히 설명 합니다.  또한 세 번째 재해 복구 노드도 지원 됩니다. SAP ASE는 공유 디스크 및 기본 OS 클러스터링 (부동 IP)을 비롯 하 여 사용 가능한 많은 구성을 지원 합니다. Azure에서 유일 하 게 지원 되는 구성은 부동 IP가 없는 오류 관리자를 사용 하는 것입니다.  부동 IP 주소 메서드는 Azure에서 작동 하지 않습니다.  SAP 커널은 "HA 인식" 응용 프로그램으로 기본 및 보조 SAP ASE 서버를 알고 있습니다. SAP ASE와 Azure 간에는 긴밀 하 게 통합 되지 않으므로 Azure 내부 부하 분산 장치는 사용 되지 않습니다. 따라서 표준 SAP ASE 설명서는 [SAP ASE HADR 사용자 가이드](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.7/en-US/a6645e28bc2b1014b54b8815a64b87ba.html) 에 따라 시작 해야 합니다. 
 
 > [!NOTE]
-> Azure에서 지원되는 유일한 구성은 부동 IP 없이 오류 관리자를 사용하는 것입니다.  부동 IP 주소 메서드는 Azure에서 작동하지 않습니다. 
+> Azure에서 유일 하 게 지원 되는 구성은 부동 IP가 없는 오류 관리자를 사용 하는 것입니다.  부동 IP 주소 메서드는 Azure에서 작동 하지 않습니다. 
 
 ### <a name="third-node-for-disaster-recovery"></a>재해 복구를 위한 세 번째 노드
-로컬 고가용성을 위해 SAP ASE Always-On을 사용하는 것 외에도 구성을 다른 Azure 리전에서 비동기적으로 복제된 노드로 확장할 수 있습니다. 이러한 시나리오에 대한 설명서는 [여기에서](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199)찾을 수 있습니다.
+로컬 고가용성을 위해 SAP ASE를 항상 사용 하는 것 외에도, 다른 Azure 지역의 비동기 복제 노드로 구성을 확장할 수 있습니다. 이러한 시나리오에 대 한 설명서는 [여기](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199)에서 찾을 수 있습니다.
 
-## <a name="sap-ase-database-encryption--ssl"></a>SSL에 & SAP ASE 데이터베이스 암호화 
-SAP 소프트웨어 프로비저닝 관리자(SWPM)는 설치 하는 동안 데이터베이스를 암호화 하는 옵션을 제공 합니다.  암호화를 사용하려면 SAP 전체 데이터베이스 암호화를 사용하는 것이 좋습니다.  자세한 내용은 다음 에 설명되어 있습니다.
+## <a name="sap-ase-database-encryption--ssl"></a>SAP ASE 데이터베이스 암호화 & SSL 
+SAP 소프트웨어 프로 비전 관리자 (SWPM)는 설치 중에 데이터베이스를 암호화 하는 옵션을 제공 합니다.  암호화를 사용 하려는 경우 SAP 전체 데이터베이스 암호화를 사용 하는 것이 좋습니다.  자세한 내용은 다음 항목에서 설명 합니다.
 
-- [SAP 지원 노트 #2556658](https://launchpad.support.sap.com/#/notes/2556658)
-- [SAP 지원 노트 #2224138](https://launchpad.support.sap.com/#/notes/2224138)
-- [SAP 지원 노트 #2401066](https://launchpad.support.sap.com/#/notes/2401066)
-- [SAP 지원 노트 #2593925](https://launchpad.support.sap.com/#/notes/2593925) 
+- [SAP support note #2556658](https://launchpad.support.sap.com/#/notes/2556658)
+- [SAP support note #2224138](https://launchpad.support.sap.com/#/notes/2224138)
+- [SAP support note #2401066](https://launchpad.support.sap.com/#/notes/2401066)
+- [SAP support note #2593925](https://launchpad.support.sap.com/#/notes/2593925) 
 
 > [!NOTE]
-> SAP ASE 데이터베이스가 암호화되면 백업 덤프 압축이 작동하지 않습니다. 또한 [SAP 지원 #2680905](https://launchpad.support.sap.com/#/notes/2680905) 참조 
+> SAP ASE 데이터베이스가 암호화 된 경우 백업 덤프 압축은 작동 하지 않습니다. [SAP support note](https://launchpad.support.sap.com/#/notes/2680905) 를 참조 하세요 #2680905 
 
-## <a name="sap-ase-on-azure-deployment-checklist"></a>Azure 배포 검사 목록에 있는 SAP ASE
+## <a name="sap-ase-on-azure-deployment-checklist"></a>Azure 배포 검사 목록의 SAP ASE
  
 - SAP ASE 16.0.03.07 이상 배포
-- 오류 관리자 및 SAPHostAgent의 최신 버전 및 패치로 업데이트
-- Windows 2019, Suse 15.1 또는 Redhat 7.6 이상과 같은 최신 인증 OS에 배포
-- SAP 인증 VM 사용 – Es_v3 또는 x-대형 시스템 M 시리즈 VM SUS와 같은 고메모리 Azure VM SUS 사용 권장
-- 디스크 IOPS 및 VM의 총 VM 집계 처리량 할당량을 디스크 설계와 일치시다.  충분한 수의 디스크 배포
-- 올바른 스트라이프 크기 및 파일 시스템으로 Windows 저장소 공간 또는 Linux LVM2를 사용하여 디스크 집계
-- 데이터, 로그, 임시 및 백업 을 위한 충분한 수의 장치 만들기
-- x-large 시스템에 UltraDisk 사용 고려 
-- 리눅스 OS에서 SAP-ASE를 실행 `saptune` 
-- DB 암호화로 데이터베이스 보호 – Azure 키 볼트에 키를 수동으로 저장 
-- Azure [검사 목록에서 SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist) 완료 
+- FaultManager 및 SAPHostAgent의 최신 버전 및 패치로 업데이트
+- Windows 2019, Suse 15.1 또는 Redhat 7.6 이상 등 사용 가능한 최신 인증 OS에 배포
+- SAP 인증 Vm 사용-메모리 부족 Azure VM Sku (예: Es_v3) 또는 x 대규모 systems M 시리즈 VM Sku 권장
+- 디스크 IOPS 및 VM의 총 VM 집계 처리량 할당량을 디스크 디자인과 일치 시킵니다.  충분 한 수의 디스크를 배포 합니다.
+- 올바른 스트라이프 크기 및 파일 시스템을 사용 하 여 Windows 저장소 공간 또는 Linux LVM2를 사용 하는 디스크 집계
+- 데이터, 로그, 임시 및 백업 목적으로 충분 한 수의 장치 만들기
+- X-대기업 시스템에 UltraDisk 사용 고려 
+- Linux `saptune` OS에서 SAP ASE 실행 
+- DB 암호화를 사용 하 여 데이터베이스 보호 – 수동으로 키 저장 Azure Key Vault 
+- [Azure의 SAP 검사 목록](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist) 완료 
 - 로그 백업 및 전체 백업 구성 
-- HA/DR 테스트, 백업 및 복원 및 스트레스 & 볼륨 테스트 수행 
-- 자동 데이터베이스 확장이 작동하는지 확인 
+- HA/DR 테스트, 백업/복원 및 스트레스 수행 & 볼륨 테스트 
+- 자동 데이터베이스 확장이 작동 하는지 확인 
 
-## <a name="using-dbacockpit-to-monitor-database-instances"></a>DBACockpit을 사용하여 데이터베이스 인스턴스 모니터링
-SAP ASE를 데이터베이스 플랫폼으로 사용하는 SAP 시스템의 경우 DBACockpit는 트랜잭션 DBACockpit에 포함된 브라우저 창 또는 Webdynpro로 액세스할 수 있습니다. 그러나 데이터베이스를 모니터링하고 관리하기 위한 모든 기능은 DBACockpit의 Webdynpro 구현에서만 사용할 수 있습니다.
+## <a name="using-dbacockpit-to-monitor-database-instances"></a>DBACockpit를 사용 하 여 데이터베이스 인스턴스 모니터링
+SAP ASE를 데이터베이스 플랫폼으로 사용하는 SAP 시스템의 경우 DBACockpit는 트랜잭션 DBACockpit에 포함된 브라우저 창 또는 Webdynpro로 액세스할 수 있습니다. 그러나 데이터베이스 모니터링 및 관리를 위한 전체 기능은 DBACockpit의 Webdynpro 구현 에서만 사용할 수 있습니다.
 
-DBACockpit의 Webdynpro 구현에 의해 사용되는 모든 SAP NetWeaver 기능을 사용하려면 온-프레미스 시스템처럼 여러 단계가 필요합니다. #1245200 [SAP 지원 노트를](https://launchpad.support.sap.com/#/notes/1245200) 따라 webdynpros의 사용을 활성화하고 필요한 것들을 생성합니다. 위의 참고 사항의 지침을 따르는 경우 http 및`ICM`https 연결에 사용할 포트와 함께 인터넷 통신 관리자 () 도 구성합니다. HTTP의 기본 설정은 다음과 같이 표시됩니다.
+DBACockpit의 Webdynpro 구현에 의해 사용되는 모든 SAP NetWeaver 기능을 사용하려면 온-프레미스 시스템처럼 여러 단계가 필요합니다. 경우 사용을 사용 하도록 설정 하 고 필요한 항목을 생성 하려면 [SAP support note #1245200](https://launchpad.support.sap.com/#/notes/1245200) 를 따르세요. 위의 메모의 지침을 따르는 경우 http 및 https 연결에 사용할 포트와 함께 인터넷`ICM`통신 관리자 ()도 구성 합니다. HTTP의 기본 설정은 다음과 같이 표시됩니다.
 
 > icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
 > 
@@ -231,21 +231,21 @@ DBACockpit의 Webdynpro 구현에 의해 사용되는 모든 SAP NetWeaver 기�
 
 그리고 트랜잭션 DBACockpit에서 생성된 링크는 다음과 같이 표시됩니다.
 
-> https:\//\<정규 화,>:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//\<fullyqualifiedhostname>:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http:\//\<정규화 호스트 이름>: 8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//\<fullyqualifiedhostname>:8000/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > 
 
-SAP 시스템을 호스트하는 Azure Virtual Machine이 AD 및 DNS에 연결된 방법에 따라 ICM이 DBACockpit를 여는 머신에서 확인할 수 있는 정규화된 호스트 이름을 사용하는지 확인해야 합니다. [ICM이](https://launchpad.support.sap.com/#/notes/773830) 프로파일 매개 변수를 기반으로 정규화된 호스트 이름을 결정하고 필요한 경우 매개 변수 icm/host_name_full 명시적으로 설정하는 방법을 보려면 SAP 지원 #773830 참조하세요.
+SAP 시스템을 호스트하는 Azure Virtual Machine이 AD 및 DNS에 연결된 방법에 따라 ICM이 DBACockpit를 여는 머신에서 확인할 수 있는 정규화된 호스트 이름을 사용하는지 확인해야 합니다. ICM에서 프로필 매개 변수에 따라 정규화 된 호스트 이름을 확인 하 고 필요한 경우 icm/host_name_full 매개 변수를 명시적으로 설정 하는 방법에 대 한 자세한 내용은 [SAP support note #773830](https://launchpad.support.sap.com/#/notes/773830) 를 참조 하세요.
 
-온-프레미스와 Azure 간의 상호 온-프레미스 연결 없이 클라우드 전용 시나리오에 VM을 배포한 `domainlabel`경우 공용 IP 주소와 를 정의해야 합니다. VM의 공용 DNS 이름 형식은 다음과 같이 표시됩니다.
+온-프레미스와 Azure 간의 크로스-프레미스 연결 없이 클라우드 전용 시나리오에서 VM을 배포한 경우 공용 IP 주소와를 `domainlabel`정의 해야 합니다. VM의 공용 DNS 이름 형식은 다음과 같이 표시됩니다.
 
 > `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
 > 
 > 
 
-DNS 이름과 관련된 자세한 내용은 [여기][가상 시스템-azurerm-azuresm]에서 찾을 수 있습니다.
+DNS 이름과 관련 된 자세한 내용은 [여기] [azurerm-azuresm]를 참조 하세요.
 
 SAP 프로필 매개 변수 icm/host_name_full을 Azure VM의 DNS 이름으로 설정할 경우 링크는 다음과 같습니다.
 
@@ -260,55 +260,55 @@ SAP 프로필 매개 변수 icm/host_name_full을 Azure VM의 DNS 이름으로 �
 
 사용 가능한 모든 수정 사항을 자동으로 가져오려면 SAP 버전에 적용할 수 있는 수정 사항 모음 SAP Note를 정기적으로 적용하는 것이 좋습니다.
 
-* [SAP 지원 노트 #1558958](https://launchpad.support.sap.com/#/notes/1558958)
-* [SAP 지원 노트 #1619967](https://launchpad.support.sap.com/#/notes/1619967)
-* [SAP 지원 노트 #1882376](https://launchpad.support.sap.com/#/notes/1882376)
+* [SAP support note #1558958](https://launchpad.support.sap.com/#/notes/1558958)
+* [SAP support note #1619967](https://launchpad.support.sap.com/#/notes/1619967)
+* [SAP support note #1882376](https://launchpad.support.sap.com/#/notes/1882376)
 
 SAP ASE의 DBA Cockpit에 대한 자세한 내용은 다음 SAP Note에서 확인할 수 있습니다.
 
-* [SAP 지원 노트 #1605680](https://launchpad.support.sap.com/#/notes/1605680)
-* [SAP 지원 노트 #1757924](https://launchpad.support.sap.com/#/notes/1757924)
-* [SAP 지원 노트 #1757928](https://launchpad.support.sap.com/#/notes/1757928)
-* [SAP 지원 노트 #1758182](https://launchpad.support.sap.com/#/notes/1758182)
-* [SAP 지원 노트 #1758496](https://launchpad.support.sap.com/#/notes/1758496)    
-* [SAP 지원 노트 #1814258](https://launchpad.support.sap.com/#/notes/1814258)
-* [SAP 지원 노트 #1922555](https://launchpad.support.sap.com/#/notes/1922555)
-* [SAP 지원 노트 #1956005](https://launchpad.support.sap.com/#/notes/1956005)
+* [SAP support note #1605680](https://launchpad.support.sap.com/#/notes/1605680)
+* [SAP support note #1757924](https://launchpad.support.sap.com/#/notes/1757924)
+* [SAP support note #1757928](https://launchpad.support.sap.com/#/notes/1757928)
+* [SAP support note #1758182](https://launchpad.support.sap.com/#/notes/1758182)
+* [SAP support note #1758496](https://launchpad.support.sap.com/#/notes/1758496)    
+* [SAP support note #1814258](https://launchpad.support.sap.com/#/notes/1814258)
+* [SAP support note #1922555](https://launchpad.support.sap.com/#/notes/1922555)
+* [SAP support note #1956005](https://launchpad.support.sap.com/#/notes/1956005)
 
 
-## <a name="useful-links-notes--whitepapers-for-sap-ase"></a>유용한 링크, SAP ASE에 대한 & 백서 참고 사항
-[SAP ASE 16.0.03.07 문서의](https://help.sap.com/viewer/product/SAP_ASE/16.0.3.7/en-US) 시작 페이지는 다음과 같은 문서의 다양한 문서에 대한 링크를 제공합니다.
+## <a name="useful-links-notes--whitepapers-for-sap-ase"></a>SAP ASE에 대 한 유용한 링크, 참고 & 백서
+[SAP ASE 16.0.03.07 설명서](https://help.sap.com/viewer/product/SAP_ASE/16.0.3.7/en-US) 의 시작 페이지에는 다음과 같은 문서를 사용 하는 다양 한 문서에 대 한 링크가 있습니다.
 
-- SAP ASE 학습 여정 - 관리 & 모니터링
-- SAP ASE 학습 여정 - 설치 & 업그레이드
+- SAP ASE 학습 교육-관리 & 모니터링
+- SAP ASE 학습 교육-설치 & 업그레이드
 
-도움이됩니다. 또 다른 유용한 문서는 [마이그레이션 및 런타임을 위한 SAP 적응형 서버 엔터프라이즈 모범 사례의 SAP 응용 프로그램입니다.](https://assets.cdn.sap.com/sapcom/docs/2016/06/26450353-767c-0010-82c7-eda71af511fa.pdf)
+유용 합니다. 또 다른 유용한 문서는 sap [적응 서버 엔터프라이즈 모범 사례의 마이그레이션 및 런타임에 대 한 Sap 응용 프로그램](https://assets.cdn.sap.com/sapcom/docs/2016/06/26450353-767c-0010-82c7-eda71af511fa.pdf)입니다.
 
-기타 유용한 SAP 지원 노트는 다음과 같습니다.
+기타 유용한 SAP 지원 정보는 다음과 같습니다.
 
-- [SAP 지원 노트 #2134316](https://launchpad.support.sap.com/#/notes/2134316) 
-- [SAP 지원 노트 #1748888](https://launchpad.support.sap.com/#/notes/1748888) 
-- [SAP 지원 노트 #2588660](https://launchpad.support.sap.com/#/notes/2588660) 
-- [SAP 지원 노트 #1680803](https://launchpad.support.sap.com/#/notes/1680803) 
-- [SAP 지원 노트 #1724091](https://launchpad.support.sap.com/#/notes/1724091) 
-- [SAP 지원 노트 #1775764](https://launchpad.support.sap.com/#/notes/1775764) 
-- [SAP 지원 노트 #2162183](https://launchpad.support.sap.com/#/notes/2162183) 
-- [SAP 지원 노트 #1928533](https://launchpad.support.sap.com/#/notes/1928533)
-- [SAP 지원 노트 #2015553](https://launchpad.support.sap.com/#/notes/2015553)
-- [SAP 지원 노트 #1750510](https://launchpad.support.sap.com/#/notes/1750510) 
-- [SAP 지원 노트 #1752266](https://launchpad.support.sap.com/#/notes/1752266) 
-- [SAP 지원 노트 #2162183](https://launchpad.support.sap.com/#/notes/2162183) 
-- [SAP 지원 노트 #1588316](https://launchpad.support.sap.com/#/notes/158831) 
+- [SAP support note #2134316](https://launchpad.support.sap.com/#/notes/2134316) 
+- [SAP support note #1748888](https://launchpad.support.sap.com/#/notes/1748888) 
+- [SAP support note #2588660](https://launchpad.support.sap.com/#/notes/2588660) 
+- [SAP support note #1680803](https://launchpad.support.sap.com/#/notes/1680803) 
+- [SAP support note #1724091](https://launchpad.support.sap.com/#/notes/1724091) 
+- [SAP support note #1775764](https://launchpad.support.sap.com/#/notes/1775764) 
+- [SAP support note #2162183](https://launchpad.support.sap.com/#/notes/2162183) 
+- [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
+- [SAP support note #2015553](https://launchpad.support.sap.com/#/notes/2015553)
+- [SAP support note #1750510](https://launchpad.support.sap.com/#/notes/1750510) 
+- [SAP support note #1752266](https://launchpad.support.sap.com/#/notes/1752266) 
+- [SAP support note #2162183](https://launchpad.support.sap.com/#/notes/2162183) 
+- [SAP support note #1588316](https://launchpad.support.sap.com/#/notes/158831) 
 
-기타 정보는 다음에 게시됩니다. 
+기타 정보는에 게시 됩니다. 
 
-- [SAP 어댑티브 서버 엔터프라이즈의 SAP 애플리케이션](https://community.sap.com/topics/applications-on-ase)
+- [SAP 적응 서버 엔터프라이즈의 SAP 응용 프로그램](https://community.sap.com/topics/applications-on-ase)
 - [SAP ASE 정보 센터](http://infocenter.sybase.com/help/index.jsp) 
-- [3번째 DR 노드 설정으로 SAP ASE 상시 켜짐](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199)
+- [SAP ASE Always on과 세 번째 DR 노드 설정](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199)
 
-월간 뉴스레터는 [#2381575 SAP 지원 노트를](https://launchpad.support.sap.com/#/notes/2381575) 통해 게시됩니다. 
+월간 뉴스레터는 [SAP 지원 정보](https://launchpad.support.sap.com/#/notes/2381575) 를 통해 게시 됩니다 #2381575 
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure에서 SAP 워크로드: 계획 및 배포 검사 목록](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist) 확인
+[Azure의 SAP 워크 로드 문서: 계획 및 배포 검사 목록](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist) 을 확인 합니다.
 

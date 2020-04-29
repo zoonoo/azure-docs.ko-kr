@@ -1,25 +1,25 @@
 ---
-title: Azure 코스모스 DB의 그룹 별 절
-description: Azure 코스모스 DB에 대한 그룹 BY 절에 대해 알아봅니다.
+title: Azure Cosmos DB의 GROUP BY 절
+description: Azure Cosmos DB에 대 한 GROUP BY 절에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: tisande
 ms.openlocfilehash: 8a3cbbafc066747b62f79934f2cd12301aa1ba17
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261604"
 ---
-# <a name="group-by-clause-in-azure-cosmos-db"></a>Azure 코스모스 DB의 그룹 별 절
+# <a name="group-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 GROUP BY 절
 
-GROUP BY 절은 하나 이상의 지정된 속성값에 따라 쿼리 결과를 나눕니다.
+GROUP BY 절은 하나 이상의 지정 된 속성 값에 따라 쿼리의 결과를 나눕니다.
 
 > [!NOTE]
-> Azure 코스모스 DB는 현재 .NET SDK 3.3 이상과 자바스크립트 SDK 3.4 이상에서 GROUP BY를 지원합니다.
-> 다른 언어 SDK에 대한 지원은 현재 사용할 수 없지만 계획중입니다.
+> Azure Cosmos DB 현재 .NET SDK 3.3 이상 및 JavaScript SDK 3.4 이상에서 GROUP BY를 지원 합니다.
+> 다른 언어 SDK의 지원은 현재 사용할 수 없지만 계획 되어 있습니다.
 
 ## <a name="syntax"></a>구문
 
@@ -35,25 +35,25 @@ GROUP BY 절은 하나 이상의 지정된 속성값에 따라 쿼리 결과를 
 
 - `<scalar_expression_list>`
 
-   쿼리 결과를 분할하는 데 사용할 식을 지정합니다.
+   쿼리 결과를 나누는 데 사용 되는 식을 지정 합니다.
 
 - `<scalar_expression>`
   
-   스칼라 하위 쿼리 및 스칼라 집계를 제외한 모든 스칼라 식은 허용됩니다. 각 스칼라 식에는 하나 이상의 속성 참조가 포함되어야 합니다. 개별 식의 수 또는 각 식의 카디널리티에는 제한이 없습니다.
+   스칼라 하위 쿼리 및 스칼라 집계를 제외한 모든 스칼라 식이 허용 됩니다. 각 스칼라 식에는 적어도 하나 이상의 속성 참조가 포함 되어야 합니다. 개별 식의 수 나 각 식의 카디널리티에는 제한이 없습니다.
 
 ## <a name="remarks"></a>설명
   
-  쿼리에서 GROUP BY 절을 사용하는 경우 SELECT 절은 GROUP BY 절에 포함된 속성 및 시스템 함수의 하위 집합만 포함할 수 있습니다. 한 가지 예외는 그룹 BY [절에](sql-query-aggregates.md)포함되지 않고 SELECT 절에 나타날 수 있는 집계 시스템 함수입니다. SELECT 절에 항상 리터럴 값을 포함할 수도 있습니다.
+  쿼리에서 GROUP BY 절을 사용 하는 경우 SELECT 절은 GROUP BY 절에 포함 된 속성 및 시스템 함수의 하위 집합만 포함할 수 있습니다. 한 가지 예외는 GROUP BY 절에 포함 되지 않고 SELECT 절에 나타날 수 있는 [집계 시스템 함수](sql-query-aggregates.md)입니다. SELECT 절에는 항상 리터럴 값을 포함할 수도 있습니다.
 
-  GROUP BY 절은 SELECT, FROM 및 WHERE 절 다음에 있고 오프셋 제한 절 앞에 있어야 합니다. 현재 ORDER BY 절을 사용하여 GROUP BY를 사용할 수 없지만 이 방법은 계획되어 있습니다.
+  GROUP BY 절은 SELECT, FROM 및 WHERE 절 뒤와 OFFSET LIMIT 절 앞에와 야 합니다. 현재 GROUP BY 절은 ORDER BY 절과 함께 사용할 수 없지만이는 계획 된 것입니다.
 
-  GROUP BY 절은 다음 중 어느 것도 허용하지 않습니다.
+  GROUP BY 절은 다음을 허용 하지 않습니다.
   
-- 속성 또는 별칭 시스템 함수 별칭(SELECT 절 내에서 앨리어싱이 계속 허용됨)
+- 별칭 속성 또는 별칭 시스템 함수 (별칭은 SELECT 절 내에서 계속 허용 됨)
 - 하위 쿼리
-- 집계 시스템 함수(SELECT 절에서만 허용됨)
+- 집계 시스템 함수 (SELECT 절 에서만 허용 됨)
 
-집계 시스템 함수와 하위 쿼리가 `GROUP BY` 있는 쿼리는 지원되지 않습니다. 예를 들어 다음 쿼리는 지원되지 않습니다.
+집계 시스템 함수 및의 하위 쿼리를 사용 하 `GROUP BY` 는 쿼리는 지원 되지 않습니다. 예를 들어 다음 쿼리는 지원 되지 않습니다.
 
 ```sql
 SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName) AS UniqueLastNames
@@ -61,9 +61,9 @@ SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName
 
 ## <a name="examples"></a>예
 
-다음 예제는 [Azure Cosmos DB 쿼리 놀이터를](https://www.documentdb.com/sql/demo)통해 사용할 수 있는 영양 데이터 집합을 사용합니다.
+이 예에서는 [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo)를 통해 사용할 수 있는 영양 데이터 집합을 사용 합니다.
 
-예를 들어 각 foodGroup의 총 항목 수를 반환하는 쿼리는 다음과 같습니다.
+예를 들어 각 foodGroup 항목의 총 개수를 반환 하는 쿼리는 다음과 같습니다.
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup
@@ -71,7 +71,7 @@ FROM Food f
 GROUP BY f.foodGroup
 ```
 
-일부 결과는 다음과 같습니다(TOP 키워드는 결과를 제한하는 데 사용됨)입니다.
+일부 결과는 (TOP 키워드를 사용 하 여 결과를 제한)입니다.
 
 ```json
 [{
@@ -92,7 +92,7 @@ GROUP BY f.foodGroup
 }]
 ```
 
-이 쿼리에는 결과를 분할하는 데 사용되는 두 가지 식이 있습니다.
+이 쿼리에는 결과를 나누는 데 사용 되는 두 개의 식이 있습니다.
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup, f.version
@@ -100,7 +100,7 @@ FROM Food f
 GROUP BY f.foodGroup, f.version
 ```
 
-몇 가지 결과는 다음과 같습니다.
+일부 결과는 다음과 같습니다.
 
 ```json
 [{
@@ -125,7 +125,7 @@ GROUP BY f.foodGroup, f.version
 }]
 ```
 
-이 쿼리에는 GROUP BY 절에 시스템 함수가 있습니다.
+이 쿼리는 GROUP BY 절의 시스템 함수를 포함 합니다.
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, UPPER(f.foodGroup) AS upperFoodGroup
@@ -133,7 +133,7 @@ FROM Food f
 GROUP BY UPPER(f.foodGroup)
 ```
 
-몇 가지 결과는 다음과 같습니다.
+일부 결과는 다음과 같습니다.
 
 ```json
 [{
@@ -154,7 +154,7 @@ GROUP BY UPPER(f.foodGroup)
 }]
 ```
 
-이 쿼리는 item 속성 식에서 키워드와 시스템 함수를 모두 사용합니다.
+이 쿼리는 item 속성 식에 키워드와 시스템 함수를 모두 사용 합니다.
 
 ```sql
 SELECT COUNT(1) AS foodGroupCount, ARRAY_CONTAINS(f.tags, {name: 'orange'}) AS containsOrangeTag,  f.version BETWEEN 0 AND 2 AS correctVersion
@@ -180,5 +180,5 @@ GROUP BY ARRAY_CONTAINS(f.tags, {name: 'orange'}), f.version BETWEEN 0 AND 2
 ## <a name="next-steps"></a>다음 단계
 
 - [시작](sql-query-getting-started.md)
-- [select 절](sql-query-select.md)
+- [SELECT 절](sql-query-select.md)
 - [집계 함수](sql-query-aggregates.md)

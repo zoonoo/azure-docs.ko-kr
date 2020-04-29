@@ -1,5 +1,5 @@
 ---
-title: 쿠폰 상태 검색 | Azure 마켓플레이스
+title: 제안 상태 검색 | Azure Marketplace
 description: API는 제안의 현재 상태를 검색합니다.
 author: dsindona
 ms.service: marketplace
@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 9cf6ca27101a08ff58f32dcd31413256762490a2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255919"
 ---
 # <a name="retrieve-offer-status"></a>제안 상태 검색
 
 > [!NOTE]
-> 클라우드 파트너 포털 API는 파트너 센터와 통합되며 오퍼가 파트너 센터로 마이그레이션된 후에도 계속 작동합니다. 통합은 작은 변화를 도입합니다. [Cloud 파트너 포털 API 참조에](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) 나열된 변경 내용을 검토하여 파트너 센터로 마이그레이션한 후에도 코드가 계속 작동하는지 확인합니다.
+> Cloud 파트너 포털 Api는 파트너 센터와 통합 되며 제품을 파트너 센터로 마이그레이션한 후에도 계속 작동 합니다. 통합에는 작은 변화가 도입 되었습니다. 파트너 센터로 마이그레이션한 후 코드가 계속 작동 하는지 확인 하려면 [CLOUD 파트너 포털 API 참조](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) 에 나열 된 변경 내용을 검토 합니다.
 
 제안의 현재 상태를 검색합니다.
 
@@ -27,8 +27,8 @@ ms.locfileid: "81255919"
 
 |  **이름**       |   **설명**                            |  **데이터 형식** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | 게시자 식별자입니다(예: `Contoso`).  |     String     |
-|  offerId        | 제안을 고유하게 식별하는 GUID입니다.      |     String     |
+|  publisherId    | 게시자 식별자입니다(예: `Contoso`).  |     문자열     |
+|  offerId        | 제안을 고유하게 식별하는 GUID입니다.      |     문자열     |
 |  api-version    | 최신 버전 API                        |     Date       |
 |  |  |
 
@@ -36,7 +36,7 @@ ms.locfileid: "81255919"
 ## <a name="header"></a>헤더
 
 
-|  이름           |  값               |
+|  속성           |  값               |
 |  -------------  | -------------------  |
 |  콘텐츠 형식   |  `application/json`  |
 |  권한 부여  | `Bearer YOUR_TOKEN`  |
@@ -135,12 +135,12 @@ ms.locfileid: "81255919"
 |  processPercentage    | 단계의 완료율입니다.                                                              |
 |  previewLinks         | *현재 구현되지 않음*                                                                    |
 |  liveLinks            | *현재 구현되지 않음*                                                                    |
-|  notificationEmails   | 파트너 센터로 마이그레이션된 오퍼에 대해 더 이상 사용되지 않습니다. 마이그레이션된 오퍼에 대한 알림 이메일은 계정 설정의 판매자 연락처 정보 아래에 지정된 이메일로 전송됩니다.<br><br>마이그레이션되지 않은 오퍼의 경우 작업 진행 상황을 알수 있도록 쉼표로 구분된 이메일 주소 목록        |
+|  notificationEmails   | 파트너 센터로 마이그레이션된 제안에는 사용 되지 않습니다. 마이그레이션된 제안에 대 한 알림 전자 메일은 계정 설정의 판매자 연락처 정보에 지정 된 메일에 전송 됩니다.<br><br>마이그레이션되지 않은 제품의 경우 작업 진행 상황에 대 한 알림이 표시 되는 쉼표로 구분 된 전자 메일 주소 목록입니다.        |
 |  |  |
 
 ### <a name="response-status-codes"></a>응답 상태 코드
 
-| **코드** |   **설명**                                                                                 |
+| **Code** |   **설명**                                                                                 |
 | -------  |   ----------------------------------------------------------------------------------------------- |
 |  200     |  `OK` - 요청이 성공적으로 처리되었으며 제안의 현재 상태가 반환되었습니다. |
 |  400     | `Bad/Malformed request` - 오류 응답 본문에 자세한 정보가 들어 있을 수 있습니다.                 |
@@ -157,7 +157,7 @@ ms.locfileid: "81255919"
 |  실행 중                     | 제안 제출을 처리 중입니다.                     |
 |  성공                   | 제안 제출 처리를 완료했습니다.               |
 |  취소됨                    | 제안 제출이 취소되었습니다.                           |
-|  실패                      | 제안 제출에 실패했습니다.                                 |
+|  Failed                      | 제안 제출에 실패했습니다.                                 |
 |  |  |
 
 ### <a name="step-status"></a>단계 상태

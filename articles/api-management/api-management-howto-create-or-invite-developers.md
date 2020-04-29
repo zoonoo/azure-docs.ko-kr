@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 672f145b638fa6b85f7139f2edb4fc41bb2855d9
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260975"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Azure API Management에서 사용자 계정을 관리하는 방법
@@ -25,7 +25,7 @@ API Management에서 개발자는 API Management 사용을 공개하는 API의 �
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md) 문서의 작업을 완료합니다.
 
@@ -36,7 +36,7 @@ API Management에서 개발자는 API Management 사용을 공개하는 API의 �
 새 사용자를 추가하려면 이 섹션의 단계를 수행합니다.
 
 1. 화면 왼쪽의 **사용자** 탭을 선택합니다.
-2. +Add 를 **누릅니다.**
+2. **+ 추가**를 누릅니다.
 3. 사용자에 대한 적절한 정보를 입력합니다.
 4. **추가**를 누릅니다.
 
@@ -68,10 +68,10 @@ API Management에서 개발자는 API Management 사용을 공개하는 API의 �
 
 ## <a name="reset-a-user-password"></a>사용자 암호 다시 설정
 
-사용자 계정으로 프로그래밍 방식으로 작업하려면 API 관리 [REST](/rest/api/apimanagement/) API 참조의 사용자 엔터티 설명서를 참조하십시오. 사용자 계정 암호를 특정 값으로 다시 설정하려면 [사용자 업데이트](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) 작업을 사용하여 원하는 암호를 지정할 수 있습니다.
+프로그래밍 방식으로 사용자 계정 작업을 수행 하려면 [API Management REST API](/rest/api/apimanagement/) 참조에서 사용자 엔터티 설명서를 참조 하세요. 사용자 계정 암호를 특정 값으로 다시 설정하려면 [사용자 업데이트](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) 작업을 사용하여 원하는 암호를 지정할 수 있습니다.
 
 ## <a name="next-steps"></a><a name="next-steps"> </a>다음 단계
-개발자 계정이 생성된 후에는 계정과 역할을 연결하고 해당 계정으로 제품 및 API를 구독할 수 있습니다. 자세한 내용은 [그룹을 만들고 사용하는 방법을][How to create and use groups]참조하십시오.
+개발자 계정이 생성된 후에는 계정과 역할을 연결하고 해당 계정으로 제품 및 API를 구독할 수 있습니다. 자세한 내용은 [그룹을 만들고 사용 하는 방법][How to create and use groups]을 참조 하세요.
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png
 [api-management-add-new-user]: ./media/api-management-howto-create-or-invite-developers/api-management-add-new-user.png

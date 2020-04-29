@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: 2931dffaaab2d06b2c06f03770a66d78d6466787
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260482"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Azure CDN을 통해 미디어 스트리밍 최적화 
@@ -79,7 +79,7 @@ Azure Portal을 통해 대용량 파일 배달을 최적화하도록 CDN(Content
 
 ### <a name="caching"></a>캐싱
 
-**Akamai의 Azure CDN 표준**에서 자산이 스트리밍 매니페스트 또는 조각임이 감지되면 일반 웹 배달과 다른 캐싱 만료 시간을 사용합니다. (다음 표의 전체 목록을 참조하십시오.) 항상 그렇듯이 원본에서 보낸 캐시 제어 또는 만료 헤더는 적용됩니다. 자산이 미디어 자산이 아닌 경우 일반 웹 배달에 대한 만료 시간을 사용하여 캐시합니다.
+**Akamai의 Azure CDN 표준**에서 자산이 스트리밍 매니페스트 또는 조각임이 감지되면 일반 웹 배달과 다른 캐싱 만료 시간을 사용합니다. 다음 표의 전체 목록을 참조 하십시오. 항상 원본에서 보낸 cache-control 또는 Expires 헤더가 적용 됩니다. 자산이 미디어 자산이 아닌 경우 일반 웹 배달에 대한 만료 시간을 사용하여 캐시합니다.
 
 많은 사용자가 아직 존재하지 않는 조각을 요청할 때는 짧은 부정 캐싱 시간이 원본 서버 오프로드에 유용합니다. 예를 들어 원본 서버에서 해당 시간(초) 동안 패킷을 사용할 수 없는 라이브 스트림이 있습니다. 또한 비디오 내용이 일반적으로 수정되지 않기 때문에 캐싱 간격은 길수록 원본 서버의 요청을 오프로드하는 데 도움이 됩니다.
  

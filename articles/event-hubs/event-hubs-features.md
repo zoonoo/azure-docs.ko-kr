@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: ea4bfadd55935712a292355dc25fb778b1523c75
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261910"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Azure Event Hubs의 기능 및 용어
@@ -33,7 +33,7 @@ Event Hubs 네임스페이스는 [정규화된 도메인 이름](https://en.wiki
 
 [이 기능](event-hubs-for-kafka-ecosystem-overview.md)은 고객이 Kafka 프로토콜을 사용하여 Event Hubs에 지시할 수 있는 엔드포인트를 제공합니다. 이 통합에서는 고객에게 Kafka 엔드포인트를 제공합니다. 이를 통해 Event Hubs에 지시하도록 기존 Kafka 애플리케이션을 구성하여 고유한 Kafka 클러스터를 실행하는 대안을 제공할 수 있습니다. Apache Kafka용 Event Hubs는 Kafka 프로토콜 1.0 이상을 지원합니다. 
 
-이 통합을 사용하면 Kafka 클러스터를 실행하거나 사육사와 함께 관리할 필요가 없습니다. 캡처, 자동 확장 및 지리적 재해 복구 등의 까다로운 Event Hubs 기능 중 일부를 사용할 수도 있습니다.
+이러한 통합을 통해 Kafka 클러스터를 실행 하거나 사육 아웃을 사용 하 여 관리할 필요가 없습니다. 캡처, 자동 확장 및 지리적 재해 복구 등의 까다로운 Event Hubs 기능 중 일부를 사용할 수도 있습니다.
 
 이 통합을 사용하면 Mirror Maker와 같은 애플리케이션 또는 Kafka Connect와 같은 프레임워크를 구성만 변경하여 클러스터 없이 작동시킬 수 있습니다. 
 
@@ -43,9 +43,9 @@ Event Hub로 데이터를 전송하는 모든 엔터티는 이벤트 생산자 �
 
 ### <a name="publishing-an-event"></a>이벤트 게시
 
-AMQP 1.0, Kafka 1.0 이상 또는 HTTPS를 통해 이벤트를 게시할 수 있습니다. Event Hubs는 .NET 클라이언트에서 Event Hub로 이벤트를 게시하기 위한 [클라이언트 라이브러리 및 클래스](event-hubs-dotnet-framework-api-overview.md)를 제공합니다. 다른 런타임 및 플랫폼의 경우, [Apache Qpid](https://qpid.apache.org/)와 같은 모든 AMQP 1.0 클라이언트를 사용할 수 있습니다. 이벤트를 개별적으로 게시하거나 일괄처리할 수 있습니다. 단일 게시(이벤트 데이터 인스턴스)는 단일 이벤트 또는 일괄 처리인지에 관계 없이 1MB로 제한됩니다. 이 임계값보다 큰 이벤트를 게시하면 오류가 발생합니다. 게시자가 이벤트 허브 내의 파티션을 인식하지 못하고 SAS 토큰을 통해 *파티션 키(다음* 섹션에 소개됨)만 지정하는 것이 좋습니다.
+AMQP 1.0, Kafka 1.0 이상 또는 HTTPS를 통해 이벤트를 게시할 수 있습니다. Event Hubs는 .NET 클라이언트에서 Event Hub로 이벤트를 게시하기 위한 [클라이언트 라이브러리 및 클래스](event-hubs-dotnet-framework-api-overview.md)를 제공합니다. 다른 런타임 및 플랫폼의 경우, [Apache Qpid](https://qpid.apache.org/)와 같은 모든 AMQP 1.0 클라이언트를 사용할 수 있습니다. 이벤트를 개별적으로 게시하거나 일괄처리할 수 있습니다. 단일 게시(이벤트 데이터 인스턴스)는 단일 이벤트 또는 일괄 처리인지에 관계 없이 1MB로 제한됩니다. 이 임계값보다 큰 이벤트를 게시하면 오류가 발생합니다. 게시자는 이벤트 허브 내에서 파티션을 인식 하지 못하고 *파티션 키* (다음 섹션에서 도입 된) 또는 해당 SAS 토큰을 통해 id를 지정 하는 것이 가장 좋습니다.
 
-AMQP 또는 HTTPS 사용 선택은 사용량 시나리오에 해당됩니다. 전송 수준 보안(TLS) 또는 SSL/TLS 외에 AMQP는 영구 양방향 소켓을 설정해야 합니다. AMQP는 세션을 초기화할 때 네트워크 비용이 더 높지만 HTTPS에는 모든 요청에 대해 추가 TLS 오버헤드가 필요합니다. AMQP는 빈번한 게시자에게 더 높은 성능을 제공합니다.
+AMQP 또는 HTTPS 사용 선택은 사용량 시나리오에 해당됩니다. 전송 수준 보안(TLS) 또는 SSL/TLS 외에 AMQP는 영구 양방향 소켓을 설정해야 합니다. AMQP는 세션을 초기화할 때 네트워크 비용이 더 많이 듭니다. 그러나 HTTPS를 사용 하려면 모든 요청에 대해 추가 TLS 오버 헤드가 필요 합니다. AMQP는 빈번한 게시자에게 더 높은 성능을 제공합니다.
 
 ![Event Hubs](./media/event-hubs-features/partition_keys.png)
 
@@ -71,11 +71,11 @@ Event Hubs는 *게시자 정책*을 통한 이벤트 게시자에 대한 세부�
 
 ## <a name="sas-tokens"></a>SAS 토큰
 
-이벤트 허브는 네임스페이스 및 이벤트 허브 수준에서 사용할 수 있는 *공유 액세스 서명을*사용합니다. SAS 토큰은 SAS 키에서 생성되고 특정 형식으로 인코딩된 URL의 SHA 해시입니다. 키(정책)와 토큰의 이름을 사용하는 경우 Event Hubs는 해시를 다시 생성하여 발신자를 인증할 수 있습니다. 일반적으로 이벤트 게시자를 위한 SAS 토큰은 특정 이벤트 허브에서 권한만 **전송하여** 만들어집니다. 이 SAS 토큰 URL 메커니즘은 게시자 정책에 도입된 게시자 ID에 대한 기반이 됩니다. SAS 작업에 대한 자세한 내용은 [Service Bus를 사용한 공유 액세스 서명 인증](../service-bus-messaging/service-bus-sas.md)을 참조하세요.
+Event Hubs는 네임 스페이스 및 이벤트 허브 수준에서 사용할 수 있는 *공유 액세스 서명을*사용 합니다. SAS 토큰은 SAS 키에서 생성되고 특정 형식으로 인코딩된 URL의 SHA 해시입니다. 키(정책)와 토큰의 이름을 사용하는 경우 Event Hubs는 해시를 다시 생성하여 발신자를 인증할 수 있습니다. 일반적으로 이벤트 게시자에 대 한 SAS 토큰은 특정 이벤트 허브에 대 한 **송신** 권한만으로 만들어집니다. 이 SAS 토큰 URL 메커니즘은 게시자 정책에 도입된 게시자 ID에 대한 기반이 됩니다. SAS 작업에 대한 자세한 내용은 [Service Bus를 사용한 공유 액세스 서명 인증](../service-bus-messaging/service-bus-sas.md)을 참조하세요.
 
 ## <a name="event-consumers"></a>이벤트 소비자
 
-이벤트 허브에서 이벤트 데이터를 읽는 모든 엔터티는 *이벤트 소비자입니다.* 모든 Event Hubs 소비자는 AMQP 1.0 세션을 통해 연결되며, 사용 가능한 상태가 되면 이 세션을 통해 이벤트가 전달됩니다. 클라이언트는 데이터 가용성에 대해 폴링할 필요가 없습니다.
+이벤트 허브에서 이벤트 데이터를 읽는 모든 엔터티는 *이벤트 소비자*입니다. 모든 Event Hubs 소비자는 AMQP 1.0 세션을 통해 연결되며, 사용 가능한 상태가 되면 이 세션을 통해 이벤트가 전달됩니다. 클라이언트는 데이터 가용성에 대해 폴링할 필요가 없습니다.
 
 ### <a name="consumer-groups"></a>소비자 그룹
 
@@ -110,10 +110,10 @@ Event Hubs는 *게시자 정책*을 통한 이벤트 게시자에 대한 세부�
 판독기가 파티션에서 연결을 끊은 경우 다시 연결하면 해당 소비자 그룹에서 해당 파티션의 마지막 판독기에서 이전에 제출한 검사점에서 읽기 시작합니다. 판독기가 연결하면, 오프셋을 이벤트 허브로 전달하여 읽기 시작할 위치를 지정합니다. 이러한 방식으로, 서로 다른 머신에서 실행되는 판독기 간의 장애 조치(failover)가 발생하는 경우 복원력을 제공하고 다운스트림 애플리케이션에서 이벤트를 "완료"로 표시하는 데 검사점을 사용할 수 있습니다. 이 검사점 프로세스에서 더 낮은 오프셋을 지정하면 이전 데이터로 돌아갈 수 있습니다. 이 메커니즘을 통해 검사점을 지정하면 장애 조치 복원력 및 제어된 이벤트 스트림 재생 모두를 사용할 수 있습니다.
 
 > [!NOTE]
-> Azure Blob Storage를 Azure에서 일반적으로 사용할 수 있는 버전보다 다른 버전의 저장소 Blob SDK를 지원하는 환경에서 검사점 저장소로 사용하는 경우 코드를 사용하여 저장소 서비스 API 버전을 해당 환경에서 지원하는 특정 버전으로 변경해야 합니다. 예를 들어 [Azure 스택 허브 버전 2002에서 이벤트 허브를](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)실행 하는 경우 저장소 서비스에 대 한 사용 가능한 가장 높은 버전은 버전 2017-11-09입니다. 이 경우 코드를 사용하여 저장소 서비스 API 버전을 2017-11-09로 지정해야 합니다. 특정 저장소 API 버전을 대상으로 지정하는 방법에 대한 예제는 GitHub에서 다음 샘플을 참조하십시오. 
-> - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
+> Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지 원하는 환경에서 검사점 저장소로 Azure Blob Storage을 사용 하는 경우, 코드를 사용 하 여 저장소 서비스 API 버전을 해당 환경에서 지 원하는 특정 버전으로 변경 해야 합니다. 예를 들어 [Azure Stack 허브 버전 2002에서 Event Hubs](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)를 실행 하는 경우 저장소 서비스에 사용할 수 있는 가장 높은 버전은 2017-11-09입니다. 이 경우에는 코드를 사용 하 여 저장소 서비스 API 버전을 2017-11-09로 대상으로 해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 GitHub의 다음 샘플을 참조 하세요. 
+> - [.Net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithOlderStorageVersion.java)
-> - [자바 스크립트](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.js) 또는 [타이프 스크립트](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.ts)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.js) 또는 [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.ts)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/event_processor_blob_storage_example_with_storage_api_version.py)
 
 ### <a name="common-consumer-tasks"></a>일반 소비자 작업

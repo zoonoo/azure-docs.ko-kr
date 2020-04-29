@@ -1,5 +1,5 @@
 ---
-title: 가상 머신 스케일 세트로 자동 크기 조정 문제 해결
+title: Virtual Machine Scale Sets를 사용 하 여 자동 크기 조정 문제 해결
 description: Virtual Machine Scale Sets를 사용하여 자동 크기 조정 문제 해결 일반적으로 발생하는 문제와 해결 방법에 대해 이해합니다.
 author: mimckitt
 tags: azure-resource-manager
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: mimckitt
 ms.openlocfilehash: 4bc5e66f5b0759bdb5fe34276369161200bd5442
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273378"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets를 사용하여 자동 크기 조정 문제 해결
@@ -64,7 +64,7 @@ ms.locfileid: "81273378"
     
     또한 직접 데이터를 살펴볼 수도 있습니다. 클라우드 탐색기를 사용하여 Azure Storage 계정을 찾습니다. 예를 들어, [Visual Studio 클라우드 탐색기](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2)를 사용하여 로그인한 후 사용 중인 Azure 구독을 선택합니다. 그 다음, 배포 템플릿의 진단 확장 정의에서 진단 스토리지 계정 이름을 확인합니다.
     
-    ![Cloud Explorer][explorer]
+    ![클라우드 탐색기][explorer]
     
     각 VM의 데이터가 저장되는 여러 테이블이 표시됩니다. 예를 들어 Linux 및 CPU 메트릭에서 가장 최근 행을 살펴봅니다. Visual Studio 클라우드 탐색기는 쿼리를 실행할 수 있도록 쿼리 언어를 지원합니다. 예를 들어, "Timestamp gt datetime'2016-02-02T21:20:00Z"에 대한 쿼리를 실행하여 가장 최근에 발생한 이벤트를 확인할 수 있습니다. 표준 시간대는 UTC에 해당합니다. 확인한 데이터가 설정한 크기 조정 규칙과 일치하나요? 아래 예제에서는 컴퓨터 20에 대한 CPU가 지난 5분 동안 100%로 증가하기 시작했습니다.
     

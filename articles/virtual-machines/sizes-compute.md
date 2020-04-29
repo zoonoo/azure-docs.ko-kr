@@ -1,6 +1,6 @@
 ---
-title: Azure VM 크기 - 컴퓨팅 최적화 | 마이크로 소프트 문서
-description: Azure의 가상 컴퓨터에 사용할 수 있는 다양한 계산 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 vCPU, 데이터 디스크 및 NIC 수와 스토리지 처리량 및 네트워크 대역폭에 대한 정보를 나열합니다.
+title: Azure VM 크기-계산에 최적화 됨 | Microsoft Docs
+description: Azure의 가상 컴퓨터에 사용할 수 있는 다양 한 계산 최적화 크기를 나열 합니다. 이 시리즈의 크기에 대 한 저장소 처리량 및 네트워크 대역폭 뿐만 아니라 vCPUs, 데이터 디스크 및 Nic의 수에 대 한 정보를 나열 합니다.
 services: virtual-machines
 documentationcenter: ''
 author: mimckitt
@@ -15,23 +15,23 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.openlocfilehash: e08d593f641c42f9ad605fda013206e70a34e52f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81269638"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>컴퓨팅 최적화 가상 머신 크기
 
-컴퓨팅 최적화된 VM 크기는 CPU 대 메모리 비율이 높습니다. 이러한 크기는 중간 트래픽 웹 서버, 네트워크 어플라이언스, 배치 프로세스 및 응용 프로그램 서버에 적합합니다. 이 문서에서는 vCPU, 데이터 디스크 및 NIC 수에 대한 정보를 제공합니다. 또한 이 그룹화의 각 크기에 대한 저장소 처리량 및 네트워크 대역폭에 대한 정보도 포함되어 있습니다.
+계산에 최적화 된 VM 크기는 CPU 대 메모리 비율이 높습니다. 이러한 크기는 보통 트래픽 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스 및 응용 프로그램 서버에 적합 합니다. 이 문서에서는 vCPUs, 데이터 디스크 및 Nic의 수에 대 한 정보를 제공 합니다. 또한이 그룹의 각 크기에 대 한 저장소 처리량 및 네트워크 대역폭에 대 한 정보도 포함 됩니다.
 
-[Fsv2 시리즈는](fsv2-series.md) 인텔® 제온® 플래티넘 8168 프로세서를 기반으로 합니다. 3.4GHz의 모든 코어 터보 클럭 속도와 3.7GHz의 최대 단일 코어 터보 주파수를 특징으로 합니다. 인텔® AVX-512 지침은 인텔 확장 형 프로세서에 새로운. 이 지침은 단일 및 이중 정밀 부동 점 작업 모두에서 벡터 처리 워크로드에 최대 2배의 성능 향상을 제공합니다. 즉, 모든 계산 워크로드에 대해 매우 빠릅니다.
+[Fsv2 시리즈](fsv2-series.md) 는 Intel® Xeon® 플래티넘 8168 프로세서를 기반으로 합니다. 3.4 g h z의 모든 코어 터보 클록 속도와 3.7 g h z의 최대 싱글 코어 터보 주파수를 제공 합니다. Intel® AVX-512 지침은 Intel 확장 가능한 프로세서에 새로 있습니다. 이러한 지침은 단일 및 배정밀도 부동 소수점 연산에 대 한 벡터 처리 워크 로드에 대해 최대 2 배의 성능 향상을 제공 합니다. 즉, 계산 워크 로드에 대해 매우 빠릅니다.
 
 시간당 가격이 더 낮은 Fsv2 시리즈는 vCPU당 ACU(Azure 컴퓨팅 단위)를 기준으로 하는 Azure 포트폴리오에서 가격 대비 성능이 가장 좋습니다.
 
 ## <a name="other-sizes"></a>기타 크기
 
-- [범용 가상 컴퓨터](sizes-general.md)
+- [범용](sizes-general.md)
 - [메모리에 최적화](sizes-memory.md)
 - [Storage에 최적화](sizes-storage.md)
 - [GPU에 최적화](sizes-gpu.md)

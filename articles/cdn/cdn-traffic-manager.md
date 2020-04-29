@@ -1,5 +1,5 @@
 ---
-title: 트래픽 관리자를 사용하여 여러 Azure CDN 끝점에서 장애 조치
+title: Traffic Manager를 사용 하 여 여러 Azure CDN 끝점 간 장애 조치 (Failover)
 description: Azure CDN 엔드포인트를 사용하여 Azure Traffic Manager를 설정하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: 3d4f77a0fb9b8005729a6e9d35f254eb522b690e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81259853"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 여러 Azure CDN 엔드포인트 간 장애 조치(failover) 설정
@@ -77,12 +77,12 @@ CDN 및 Traffic Manager 프로필을 설정한 후 이러한 단계를 수행하
     >
 
 
-2.  Azure CDN 프로필에서 첫 번째 CDN 엔드포인트(Akamai에)를 선택합니다. 사용자 지정 도메인 및 입력 *cdndemo101.dustydogpetcare.online* **추가를** 선택합니다. 사용자 지정 도메인의 유효성을 검사하는 확인 표시가 녹색인지 확인합니다. 
+2.  Azure CDN 프로필에서 첫 번째 CDN 엔드포인트(Akamai에)를 선택합니다. **사용자 지정 도메인 추가** 및 입력 *cdndemo101. dustydogpetcare*를 선택 합니다. 사용자 지정 도메인의 유효성을 검사하는 확인 표시가 녹색인지 확인합니다. 
 
     이 등록 프로세스를 완료하려면 Azure CDN은 *cdnverify* 하위 도메인을 사용하여 DNS 매핑의 유효성을 검사합니다. 자세한 내용은 [CNAME DNS 레코드 만들기](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record)를 참조하세요. 이 단계에서는 해당 요청에 응답할 수 있도록 Azure CDN이 사용자 지정 도메인을 인식할 수 있게 설정합니다.
     
     > [!NOTE]
-    > **Akamai 프로필에서 Azure CDN에서** TLS를 사용하려면 사용자 지정 도메인의 이름을 엔드포인트에 직접 지정해야 합니다. tLS를 사용하도록 설정하기 위한 cdnverify는 아직 지원되지 않습니다. 
+    > **Akamai 프로필의 Azure CDN** 에서 TLS를 사용 하도록 설정 하려면 사용자 지정 도메인을 끝점에 직접 cname 해야 합니다. TLS를 사용 하도록 설정 하기 위한 cdnverify는 아직 지원 되지 않습니다. 
     >
 
 3.  사용자 지정 도메인의 도메인 공급자에 대한 웹 사이트로 돌아가서 첫 번째 DNS 매핑을 업데이트하여 사용자 지정 도메인이 두 번째 CDN 엔드포인트에 매핑되게 합니다.
@@ -91,7 +91,7 @@ CDN 및 Traffic Manager 프로필을 설정한 후 이러한 단계를 수행하
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. Azure CDN 프로필에서 두 번째 CDN 엔드포인트(Verizon)를 선택하고 2단계를 반복합니다. **사용자 지정 도메인 추가**및 입력 *cdndemo101.dustydogpetcare.online을*선택합니다.
+4. Azure CDN 프로필에서 두 번째 CDN 엔드포인트(Verizon)를 선택하고 2단계를 반복합니다. **사용자 지정 도메인 추가**를 선택 하 고 *cdndemo101. dustydogpetcare*를 입력 합니다.
  
 이러한 단계를 완료한 후 장애 조치(failover) 기능이 포함된 다중 CDN 서비스는 Azure Traffic Manager를 사용하여 설정됩니다. 사용자 지정 도메인에서 테스트 URL에 액세스할 수 있습니다. 기능을 테스트하려면 기본 CDN 엔드포인트를 사용하지 않도록 설정하고 요청이 두 번째 CDN 엔드포인트에 올바르게 이동되는지 확인합니다. 
 
