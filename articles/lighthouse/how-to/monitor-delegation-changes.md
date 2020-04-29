@@ -1,53 +1,53 @@
 ---
-title: 관리 테넌트의 위임 변경 사항 모니터링
-description: 고객 테넌트에서 관리 테넌트에 이르는 위임 활동을 모니터링하는 방법을 알아봅니다.
+title: 관리 테 넌 트의 위임 변경 내용 모니터링
+description: 고객 테 넌 트의 위임 작업을 관리 하는 테 넌 트로 모니터링 하는 방법에 대해 알아봅니다.
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: a4593b34311eca34e4fb68926a3820899ab3f324
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458814"
 ---
-# <a name="monitor-delegation-changes-in-your-managing-tenant"></a>관리 테넌트의 위임 변경 사항 모니터링
+# <a name="monitor-delegation-changes-in-your-managing-tenant"></a>관리 테 넌 트의 위임 변경 내용 모니터링
 
-서비스 공급자는 [Azure 위임된](../concepts/azure-delegated-resource-management.md)리소스 관리를 통해 고객 구독 또는 리소스 그룹이 테넌트에 위임되거나 이전에 위임된 리소스가 제거되는 시기를 알고 있어야 할 수 있습니다.
+서비스 공급자는 사용자 구독 또는 리소스 그룹이 [Azure 위임 된 리소스 관리](../concepts/azure-delegated-resource-management.md)를 통해 테 넌 트에 위임 되거나 이전에 위임 된 리소스가 제거 되는 경우를 인식 하고자 할 수 있습니다.
 
-관리 테넌트에서 [Azure 활동 로그는](../../azure-monitor/platform/platform-logs-overview.md) 테넌트 수준에서 위임 활동을 추적합니다. 이 기록된 활동에는 모든 고객 테넌트에서 추가되거나 제거된 위임이 포함됩니다.
+테 넌 트 관리에서 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md) 는 테 넌 트 수준에서 위임 작업을 추적 합니다. 이 기록 된 활동에는 모든 고객 테 넌 트에서 추가 되거나 제거 된 위임이 포함 됩니다.
 
-이 항목에서는 모든 고객에 걸쳐 테넌트에 대한 위임 활동을 모니터링하는 데 필요한 권한과 이를 위한 모범 사례에 대해 설명합니다. 또한 이 데이터를 쿼리하고 보고하는 한 가지 방법을 보여 주는 샘플 스크립트도 포함되어 있습니다.
-
-> [!IMPORTANT]
-> 이러한 모든 단계는 고객 테넌트가 아닌 관리 테넌트에서 수행해야 합니다.
-
-## <a name="enable-access-to-tenant-level-data"></a>테넌트 수준 데이터에 대한 액세스 권한 설정
-
-테넌트 수준 활동 로그 데이터에 액세스하려면 루트 범위(/)에서 [모니터링 리더](../../role-based-access-control/built-in-roles.md#monitoring-reader) 기본 제공 역할을 할당해야 합니다. 이 할당은 추가 액세스 권한이 있는 전역 관리자 역할이 있는 사용자가 수행해야 합니다.
-
-### <a name="elevate-access-for-a-global-administrator-account"></a>글로벌 관리자 계정에 대한 액세스 권한 상승
-
-루트 범위(/)에서 역할을 할당하려면 높은 액세스 권한이 있는 전역 관리자 역할이 있어야 합니다. 이 높은 액세스는 역할 할당을 수행해야 하는 경우에만 추가된 다음 작업이 완료되면 제거되어야 합니다.
-
-권한 상승 추가 및 제거에 대한 자세한 지침은 [액세스 상승을 참조하여 모든 Azure 구독 및 관리 그룹을 관리합니다.](../../role-based-access-control/elevate-access-global-admin.md)
-
-액세스 권한을 상승하면 계정에 루트 범위에서 Azure의 사용자 액세스 관리자 역할이 표시됩니다. 이 역할 할당을 사용하면 디렉터리에서 모든 리소스를 보고 구독 또는 관리 그룹에서 액세스를 할당할 수 있을 뿐만 아니라 루트 범위에서 역할 할당을 수행할 수 있습니다. 
-
-### <a name="create-a-new-service-principal-account-to-access-tenant-level-data"></a>테넌트 수준 데이터에 액세스하기 위해 새 서비스 주체 계정 만들기
-
-액세스 권한을 높이면 테넌트 수준 활동 로그 데이터를 쿼리할 수 있도록 계정에 적절한 권한을 할당할 수 있습니다. 이 계정에는 모니터링 [리더](../../role-based-access-control/built-in-roles.md#monitoring-reader) 기본 제공 역할이 관리 테넌트의 루트 범위에 할당되어 있어야 합니다.
+이 항목에서는 모든 고객에 대 한 위임 작업을 테 넌 트에 모니터링 하는 데 필요한 사용 권한 및이를 위한 모범 사례에 대해 설명 합니다. 또한이 데이터를 쿼리하고 보고 하는 한 가지 방법을 보여 주는 예제 스크립트도 제공 합니다.
 
 > [!IMPORTANT]
-> 루트 범위에서 역할 할당을 부여하면 테넌트의 모든 리소스에 동일한 사용 권한이 적용됩니다.
+> 이러한 모든 단계는 고객 테 넌 트가 아닌 관리 테 넌 트에서 수행 해야 합니다.
 
-광범위한 액세스 수준이기 때문에 이 역할을 개별 사용자나 그룹에 할당하는 것이 아니라 서비스 주 체 계정에 할당하는 것이 좋습니다. 또한 다음과 같은 모범 사례를 권장합니다.
+## <a name="enable-access-to-tenant-level-data"></a>테 넌 트 수준 데이터에 대 한 액세스 사용
 
-- 이 역할을 다른 자동화에 사용되는 기존 서비스 주체에 할당하는 대신 이 함수에만 사용할 [새 서비스 주체 계정을 만듭니다.](../../active-directory/develop/howto-create-service-principal-portal.md)
-- 이 서비스 주체가 위임된 고객 리소스에 액세스할 수 없는지 확인합니다.
-- [인증서를 사용하여 Azure](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) [Key Vault에 인증서를 안전하게](../../key-vault/general/best-practices.md)인증하고 저장합니다.
-- 서비스 주체를 대신하여 조치를 사용할 수 있는 사용자를 제한합니다.
+테 넌 트 수준 활동 로그 데이터에 액세스 하려면 계정에 루트 범위 (/)의 [모니터링 판독기](../../role-based-access-control/built-in-roles.md#monitoring-reader) 기본 제공 역할을 할당 해야 합니다. 이 할당은 강화 된 추가 액세스 권한이 있는 전역 관리자 역할이 있는 사용자가 수행 해야 합니다.
 
-다음 방법 중 하나를 사용하여 루트 범위를 할당합니다.
+### <a name="elevate-access-for-a-global-administrator-account"></a>전역 관리자 계정에 대 한 액세스 권한 상승
+
+루트 범위 (/)에서 역할을 할당 하려면 관리자 권한으로 전역 관리자 역할이 있어야 합니다. 이 승격 된 액세스는 역할 할당을 수행 해야 하는 경우에만 추가 하 고 완료 되 면 제거 해야 합니다.
+
+권한 상승을 추가 및 제거 하는 방법에 대 한 자세한 내용은 [모든 Azure 구독 및 관리 그룹을 관리 하기 위해 액세스 권한 상승](../../role-based-access-control/elevate-access-global-admin.md)을 참조 하세요.
+
+액세스 권한을 상승 한 후에는 사용자 계정에 Azure의 루트 범위에 대 한 사용자 액세스 관리자 역할이 있습니다. 이 역할 할당을 통해 모든 리소스를 보고, 디렉터리의 모든 구독 또는 관리 그룹에 대 한 액세스 권한을 할당 하 고, 루트 범위에서 역할을 할당 하는 작업을 수행할 수 있습니다. 
+
+### <a name="create-a-new-service-principal-account-to-access-tenant-level-data"></a>새 서비스 사용자 계정을 만들어 테 넌 트 수준 데이터에 액세스
+
+액세스 권한을 상승 시킨 후에는 테 넌 트 수준 활동 로그 데이터를 쿼리할 수 있도록 계정에 적절 한 사용 권한을 할당할 수 있습니다. 이 계정에는 관리 테 넌 트의 루트 범위에서 할당 된 [모니터링 판독기](../../role-based-access-control/built-in-roles.md#monitoring-reader) 기본 제공 역할이 있어야 합니다.
+
+> [!IMPORTANT]
+> 루트 범위에서 역할 할당을 부여 하는 것은 테 넌 트의 모든 리소스에 동일한 권한이 적용 됨을 의미 합니다.
+
+이는 광범위 한 액세스 이기 때문에 개별 사용자나 그룹이 아닌 서비스 주체 계정에이 역할을 할당 하는 것이 좋습니다. 또한 다음과 같은 모범 사례를 따르는 것이 좋습니다.
+
+- 다른 자동화에 사용 되는 기존 서비스 사용자에 게이 역할을 할당 하는 대신이 기능에만 사용할 [새 서비스 사용자 계정을 만듭니다](../../active-directory/develop/howto-create-service-principal-portal.md) .
+- 이 서비스 주체에 게 위임 된 고객 리소스에 대 한 액세스 권한이 없어야 합니다.
+- [인증서를 사용 하 여 인증](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) 하 고 [Azure Key Vault에 안전](../../key-vault/general/best-practices.md)하 게 저장 합니다.
+- 서비스 사용자를 대신 하 여 작업할 수 있는 액세스 권한이 있는 사용자를 제한 합니다.
+
+다음 방법 중 하나를 사용 하 여 루트 범위를 할당 합니다.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -65,28 +65,28 @@ New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName 
 az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role "Monitoring Reader" --scope "/"
 ```
 
-### <a name="remove-elevated-access-for-the-global-administrator-account"></a>글로벌 관리자 계정에 대한 높은 액세스 제거
+### <a name="remove-elevated-access-for-the-global-administrator-account"></a>전역 관리자 계정에 대 한 관리자 권한 액세스 제거
 
-서비스 주 체 계정을 만들고 루트 범위에서 모니터링 리더 역할을 할당한 후에는 이 액세스 수준이 더 이상 필요하지 므로 전역 관리자 계정에 대한 높은 액세스 권한을 [제거해야](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) 합니다.
+서비스 주체 계정을 만들고 루트 범위에서 모니터링 독자 역할을 할당 한 후에는이 액세스 수준이 더 이상 필요 하지 않으므로 전역 관리자 계정에 대 한 [관리자 권한 액세스를 제거](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) 해야 합니다.
 
 ## <a name="query-the-activity-log"></a>활동 로그 쿼리
 
-모니터링 리더가 관리 테넌트의 루트 범위에 대한 액세스 권한을 가진 새 서비스 주체 계정을 만든 후에는 테넌트의 위임 활동을 쿼리하고 보고하는 데 사용할 수 있습니다. 
+관리 테 넌 트의 루트 범위에 대 한 액세스를 모니터링 하는 새 서비스 사용자 계정을 만든 후 테 넌 트의 위임 작업을 쿼리하고 보고 하는 데 사용할 수 있습니다. 
 
-[이 Azure PowerShell 스크립트는](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) 추가되거나 제거된 위임(또는 성공하지 않은 시도)에 대한 지난 1일 간의 활동 및 보고서를 쿼리하는 데 사용할 수 있습니다. [테넌트 활동 로그](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) 데이터를 쿼리한 다음 다음 값을 생성하여 추가되거나 제거된 위임에 대해 보고합니다.
+[이 Azure PowerShell 스크립트](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) 를 사용 하 여 추가 되거나 제거 된 위임 (또는 성공 하지 않은 시도)에 대해 지난 1 일간의 활동 및 보고서를 쿼리할 수 있습니다. [테 넌 트 활동 로그](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) 데이터를 쿼리 한 다음 추가 또는 제거 된 위임에 대해 보고 하는 다음 값을 생성 합니다.
 
-- **위임된 ResourceId**: 위임된 구독 또는 리소스 그룹의 ID
-- **고객테넌티드**: 고객 테넌트 ID
-- **CustomerSubscriptionId**: 위임되었지만 위임된 리소스 그룹을 포함하는 구독 ID
-- **CustomerDelegateStatus**: 위임된 리소스의 상태 변경(성공 또는 실패)
-- **이벤트타임스탬프**: 위임 변경이 기록된 날짜 및 시간
+- **DelegatedResourceId**: 위임 된 구독 또는 리소스 그룹의 ID입니다.
+- **Customertenantid**: 고객 테 넌 트 ID
+- **Customersubscriptionid**: 위임 된 구독 ID 이거나 위임 된 리소스 그룹을 포함 하는 구독 ID입니다.
+- **CustomerDelegationStatus**: 위임 된 리소스의 상태 변경 (성공 또는 실패)
+- **Eventtimestamp**: 위임 변경이 기록 된 날짜 및 시간입니다.
 
-이 데이터를 쿼리할 때 다음 사항을 염두에 두어야 합니다.
+이 데이터를 쿼리할 때는 다음 사항을 염두에 두어야 합니다.
 
-- 단일 배포에서 여러 리소스 그룹이 위임된 경우 각 리소스 그룹에 대해 별도의 항목이 반환됩니다.
-- 이전 위임에 대한 변경 내용(예: 권한 구조 업데이트)은 추가 위임으로 기록됩니다.
-- 위에서 설명한 것처럼 이 테넌트 수준 데이터에 액세스하려면 계정이 루트 범위(/)에 모니터링 리더 기본 제공 역할이 있어야 합니다.
-- 이 데이터를 사용자 고유의 워크플로 및 보고에 사용할 수 있습니다. 예를 들어 [HTTP 데이터 수집기 API(공개 미리 보기)를](../../azure-monitor/platform/data-collector-api.md) 사용하여 REST API 클라이언트에서 Azure Monitor에 데이터를 로그한 다음 [작업 그룹을](../../azure-monitor/platform/action-groups.md) 사용하여 알림 또는 경고를 만들 수 있습니다.
+- 단일 배포에서 여러 리소스 그룹을 위임 하는 경우 각 리소스 그룹에 대해 별도의 항목이 반환 됩니다.
+- 이전 위임에 대 한 변경 내용 (예: 권한 구조 업데이트)은 추가 된 위임으로 기록 됩니다.
+- 위에서 언급 한 것 처럼이 테 넌 트 수준 데이터에 액세스 하려면 계정에 루트 범위 (/)의 모니터링 판독기 기본 제공 역할이 있어야 합니다.
+- 사용자 고유의 워크플로 및 보고에서이 데이터를 사용할 수 있습니다. 예를 들어 [HTTP 데이터 수집기 API (공개 미리 보기)](../../azure-monitor/platform/data-collector-api.md) 를 사용 하 여 REST API 클라이언트에서 Azure Monitor 데이터를 로그 한 다음, [작업 그룹](../../azure-monitor/platform/action-groups.md) 을 사용 하 여 알림 또는 경고를 만들 수 있습니다.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -158,5 +158,5 @@ else
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 위임 리소스 관리에](../concepts/azure-delegated-resource-management.md)고객을 온보딩하는 방법에 대해 알아봅니다.
-- Azure [모니터](../../azure-monitor/index.yml) 및 [Azure 활동 로그에](../../azure-monitor/platform/platform-logs-overview.md)대해 자세히 알아보기.
+- [Azure에서 위임 된 리소스 관리](../concepts/azure-delegated-resource-management.md)에 고객을 등록 하는 방법에 대해 알아봅니다.
+- [Azure Monitor](../../azure-monitor/index.yml) 및 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md)에 대해 알아봅니다.

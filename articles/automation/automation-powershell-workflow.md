@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1b275239c19584bc11472711a32972aa3ebea1ab
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81457538"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Automation runbook에 대한 주요 Windows PowerShell 워크플로 개념 학습
@@ -21,11 +21,11 @@ Azure Automation의 Runbook은 Windows PowerShell 워크플로로 구현됩니�
 이 기사의 항목에 대한 자세한 내용은 [Windows PowerShell 워크플로 시작](https://technet.microsoft.com/library/jj134242.aspx)을 참조하세요.
 
 >[!NOTE]
->이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. 하이브리드 Runbook 작업자의 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치를](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)참조하십시오. 자동화 계정의 경우 Azure 자동화 에서 [Azure PowerShell 모듈을 업데이트하는 방법을](automation-update-azure-modules.md)사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
+>이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대한 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](automation-update-azure-modules.md)을 사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
 ## <a name="basic-structure-of-a-workflow"></a>워크플로의 기본 구조
 
-PowerShell 스크립트를 PowerShell 워크플로로 변환하는 첫 번째 단계는 `Workflow` 키워드와 함께 둘러싸는 것입니다.  워크플로는 `Workflow` 키워드다음으로 중괄호로 둘러싸인 스크립트 본문으로 시작합니다. 워크플로의 이름은 다음 `Workflow` 구문에 표시된 키워드를 따릅니다.
+Powershell 스크립트를 PowerShell 워크플로로 변환 하는 첫 번째 단계는 `Workflow` 키워드를 포함 하는 것입니다.  워크플로는 `Workflow` 키워드로 시작 하 고 뒤에 중괄호 안에 포함 된 스크립트의 본문으로 시작 합니다. 다음 구문과 같이 워크플로 이름은 `Workflow` 키워드 뒤에 나옵니다.
 
 ```powershell
 Workflow Test-Workflow
@@ -36,7 +36,7 @@ Workflow Test-Workflow
 
 워크플로 이름은 Automation Runbook의 이름과 일치해야 합니다. Runbook을 가져오려면 파일 이름이 워크플로 이름과 일치하고 *.ps1*으로 끝나야 합니다.
 
-워크플로에 매개 변수를 추가하려면 스크립트에서와 `Param` 마찬가지로 키워드를 사용합니다.
+워크플로에 매개 변수를 추가 하려면 스크립트와 마찬가지로 `Param` 키워드를 사용 합니다.
 
 ## <a name="code-changes"></a>코드 변경 내용
 
@@ -102,7 +102,7 @@ Workflow Stop-MyService
 
 ## <a name="inlinescript"></a>InlineScript
 
-이`InlineScript` 활동은 PowerShell 워크플로 대신 하나 이상의 명령을 기존 PowerShell 스크립트로 실행해야 하는 경우에 유용합니다.  워크플로의 명령은 처리를 위해 Windows Workflow Foundation으로 전송되지만 InlineScript 블록의 명령은 Windows PowerShell에 의해 처리됩니다.
+활동`InlineScript` 은 powershell 워크플로 대신 기존 powershell 스크립트로 하나 이상의 명령을 실행 해야 하는 경우에 유용 합니다.  워크플로의 명령은 처리를 위해 Windows Workflow Foundation으로 전송되지만 InlineScript 블록의 명령은 Windows PowerShell에 의해 처리됩니다.
 
 InlineScript에는 아래 표시된 구문이 사용됩니다.
 
@@ -157,7 +157,7 @@ InlineScript 사용에 대한 자세한 내용은 [워크플로에서 Windows Po
 
 Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립트처럼 명령 집합을 순차적으로 수행하지 않고 병렬로 수행할 수 있다는 점입니다.
 
-키워드를 `Parallel` 사용하여 동시에 실행되는 여러 명령이 있는 스크립트 블록을 만들 수 있습니다. 여기서는 아래 표시된 구문이 사용됩니다. 이 경우에는 Activity1과 Activity2가 동시에 시작됩니다. Activity3는 Activity1과 Activity2가 모두 완료된 후에만 시작됩니다.
+`Parallel` 키워드를 사용 하 여 동시에 실행 되는 여러 명령이 포함 된 스크립트 블록을 만들 수 있습니다. 여기서는 아래 표시된 구문이 사용됩니다. 이 경우에는 Activity1과 Activity2가 동시에 시작됩니다. Activity3는 Activity1과 Activity2가 모두 완료된 후에만 시작됩니다.
 
 ```powershell
 Parallel
@@ -225,7 +225,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>검사점
 
-*검사점* 은 워크플로의 현재 상태에 대한 스냅샷으로, 변수의 현재 값 및 해당 지점에 생성된 모든 출력을 포함합니다. 워크플로가 오류 때문에 종료되었거나 일시 중단한 다음 실행하면 워크플로의 처음부터 시작하는 게 아니라 마지막 검사점에서 시작됩니다.  활동이 있는 워크플로에서 검사점(검사점)을 `Checkpoint-Workflow` 설정할 수 있습니다. Azure Automation에는 3시간 동안 실행되는 모든 Runbook이 언로드되어 다른 Runbook을 실행할 수 있도록 하는 [공정 공유라는](automation-runbook-execution.md#fair-share)기능이 있습니다. 결국 언로드된 Runbook이 다시 로드되고 실행 이 완료되면 Runbook에서 가져온 마지막 검사에서 실행을 다시 시작합니다. Runbook이 결국 완료되도록 하려면 3시간 미만 동안 실행되는 간격으로 검사점을 추가해야 합니다. 각 실행 중에 새 검사점이 추가되고 오류로 인해 3시간 후에 Runbook이 제거되면 Runbook이 무기한 재개됩니다.
+*검사점* 은 워크플로의 현재 상태에 대한 스냅샷으로, 변수의 현재 값 및 해당 지점에 생성된 모든 출력을 포함합니다. 워크플로가 오류 때문에 종료되었거나 일시 중단한 다음 실행하면 워크플로의 처음부터 시작하는 게 아니라 마지막 검사점에서 시작됩니다.  `Checkpoint-Workflow` 활동을 사용 하 여 워크플로에서 검사점을 설정할 수 있습니다. Azure Automation에는 3 시간 동안 실행 되는 모든 runbook이 언로드되고 다른 runbook이 실행 될 수 있도록 하는 [공평 공유](automation-runbook-execution.md#fair-share)이라는 기능이 있습니다. 결국 언로드된 runbook이 다시 로드 되 고,이 runbook이 다시 로드 되 면 runbook에서 수행 된 마지막 검사점에서 실행을 다시 시작 합니다. Runbook이 최종적으로 완료 되도록 하려면 3 시간 미만 동안 실행 되는 간격에 검사점을 추가 해야 합니다. 각 실행 중에 새 검사점이 추가 되 고, 오류로 인해 3 시간 후에 runbook이 제거 되 면 runbook이 무기한 다시 시작 됩니다.
 
 다음 샘플 코드에서는 Activity2 이후에 예외가 발생하여 워크플로가 끝납니다. 설정된 마지막 검사점 직후이므로 워크플로를 다시 시작하면 Activity2를 실행하는 것으로 작업이 시작됩니다.
 
@@ -257,7 +257,7 @@ Workflow Copy-Files
 }
 ```
 
-사용자 이름 자격 증명은 일시 중단 [워크플로](https://technet.microsoft.com/library/jj733586.aspx) 활동을 호출한 후 또는 마지막 검사점 후에 유지되지 않으므로 자격 증명을 `Suspend-Workflow` null로 설정한 다음 호출된 후 자산 저장소에서 다시 검색해야 합니다.  그렇지 않으면 다음과 같은 오류 메시지가 나타날 수 있습니다.`The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
+사용자 이름 자격 증명은 [일시 중단 워크플로](https://technet.microsoft.com/library/jj733586.aspx) 작업을 호출한 후에도 유지 되지 않으므로 마지막 검사점 이후에는 자격 증명을 null로 설정 하 고 또는 검사점이 호출 된 후 `Suspend-Workflow` 에 자산 저장소에서 다시 검색 해야 합니다.  그렇지 않으면 다음과 같은 오류 메시지가 표시 될 수 있습니다.`The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
 
 다음과 같은 코드에서는 PowerShell 워크플로 runbook에서 이를 처리하는 방법을 보여 줍니다.
 
@@ -286,7 +286,7 @@ workflow CreateTestVms
 ```
 
 > [!NOTE]
-> 그래픽이 아닌 PowerShell `Add-AzAccount` 런북의 `Add-AzureRMAccount` 경우 [Connect-AzAccount에](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0)대한 별칭입니다. 이러한 cmdlet을 사용하거나 자동화 계정의 모듈을 최신 버전으로 [업데이트할](automation-update-azure-modules.md) 수 있습니다. 새 자동화 계정을 방금 만든 경우에도 모듈을 업데이트해야 할 수 있습니다.
+> 비그래픽 PowerShell runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount` 는 [AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0)에 대 한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다.
 
 
 서비스 주체로 구성된 실행 계정을 사용하여 인증하는 경우에는 필요하지 않습니다.
@@ -295,5 +295,5 @@ workflow CreateTestVms
 
 ## <a name="next-steps"></a>다음 단계
 
-* PowerShell 워크플로 런북을 시작하려면 [내 첫 번째 PowerShell 워크플로 런북을 참조하십시오.](automation-first-runbook-textual.md)
+* PowerShell 워크플로 runbook을 시작 하려면 [내 첫 번째 powershell 워크플로 runbook](automation-first-runbook-textual.md) 을 참조 하세요.
 

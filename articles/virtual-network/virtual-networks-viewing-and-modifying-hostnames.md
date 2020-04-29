@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 09c911838d34a083de8450145ce849fc966eb0e8
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81459154"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>호스트 이름 보기 및 수정
@@ -41,7 +41,7 @@ REST 클라이언트에서 다음 지침을 따릅니다.
 
 1. Azure 포털에 연결하기 위한 클라이언트 인증서가 있는지 확인합니다. 클라이언트 인증서를 가져오려면 [방법: 게시 설정과 구독 정보 다운로드 및 가져오기](https://msdn.microsoft.com/library/dn385850.aspx)를 참조하세요. 
 2. 값이 2013-11-01인 x-ms-version 헤더 항목을 설정합니다.
-3. 다음\/형식으로 요청을 보내기: https:\</management.core.windows.net/ 가입 id/서비스/호스팅\>서비스/서비스\<\>이름?포함-detail=true
+3. 다음 형식으로 요청을 보냅니다.\/https:/management.core.windows.net/\<subscrition-id-id\>/services/hostedservices/\<service-name\>? embed-detail = true
 4. 각 **RoleInstance** 요소에 대해 **HostName** 요소를 찾습니다.
 
 > [!WARNING]

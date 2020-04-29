@@ -1,13 +1,13 @@
 ---
-title: Azure 서비스 패브릭 클러스터 만들기
+title: Azure Service Fabric 클러스터 만들기
 description: Azure Resource Manager를 사용하여 Azure에 보안 Service Fabric 클러스터를 설정하는 방법에 대해 알아봅니다.  기본 템플릿을 사용하거나 사용자 고유의 클러스터 템플릿을 사용하여 클러스터를 만들 수 있습니다.
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: 24bc80a7ab3ce61b79466cdd943c60efd367ce01
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458303"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
@@ -19,14 +19,14 @@ ms.locfileid: "81458303"
 
 [Azure Service Fabric 클러스터](service-fabric-deploy-anywhere.md)는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 머신 집합입니다.  Azure에서 실행 중인 Service Fabric 클러스터는 Azure 리소스이며, Azure Resource Manager를 사용하여 배포됩니다. 이 문서에서는 Resource Manager를 사용하여 Azure에 보안 Service Fabric 클러스터를 설정하는 방법을 설명합니다. 기본 클러스터 템플릿 또는 사용자 지정 템플릿을 사용할 수 있습니다.  사용자 지정 템플릿이 아직 없는 경우 [템플릿 만드는 방법을 알아볼](service-fabric-cluster-creation-create-template.md) 수 있습니다.
 
-클러스터를 보호하기 위해 선택한 보안 유형(예: Windows ID, X509 등)은 클러스터를 처음 만들 때 지정해야 하며 그 이후에는 변경할 수 없습니다. 클러스터를 설정하기 전에 [Service Fabric 클러스터 보안 시나리오][service-fabric-cluster-security]를 읽어보세요. Azure에서 Service Fabric은 x509 인증서를 사용하여 클러스터 및 해당 엔드포인트를 보호하고, 클라이언트를 인증하고, 데이터를 암호화합니다. 관리 엔드포인트에 대한 액세스를 보호하려면 Azure Active Directory를 사용하는 것도 좋습니다. 자세한 내용은 [클라이언트를 인증하도록 Azure AD 설정](service-fabric-cluster-creation-setup-aad.md)을 읽어보세요.
+클러스터를 보호 하기 위해 선택한 보안 유형 (즉, Windows id, X509 등)은 클러스터를 처음 만들 때 지정 해야 하며 이후에는 변경할 수 없습니다. 클러스터를 설정하기 전에 [Service Fabric 클러스터 보안 시나리오][service-fabric-cluster-security]를 읽어보세요. Azure에서 Service Fabric은 x509 인증서를 사용하여 클러스터 및 해당 엔드포인트를 보호하고, 클라이언트를 인증하고, 데이터를 암호화합니다. 관리 엔드포인트에 대한 액세스를 보호하려면 Azure Active Directory를 사용하는 것도 좋습니다. 자세한 내용은 [클라이언트를 인증하도록 Azure AD 설정](service-fabric-cluster-creation-setup-aad.md)을 읽어보세요.
 
 프로덕션 워크로드를 실행할 프로덕션 클러스터를 만들려면 먼저 [프로덕션 준비 검사 목록](service-fabric-production-readiness-checklist.md)을 읽어보는 것이 좋습니다.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>전제 조건 
 이 문서에서는 Service Fabric RM Powershell 또는 Azure CLI 모듈을 사용하여 클러스터를 배포합니다.
 
 * [Azure PowerShell 4.1 이상][azure-powershell]
@@ -58,12 +58,12 @@ az account set --subscription $subscriptionId
 
 기본 템플릿을 사용하여 최소 매개 변수를 지정함으로써 다음 명령을 사용하여 클러스터를 신속하게 만듭니다.
 
-사용되는 템플릿은 Azure 서비스 [패브릭 템플릿 샘플: 창 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) 및 [우분투 템플릿에서](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure) 사용할 수 있습니다.
+사용 되는 템플릿은 [Azure Service Fabric 템플릿 샘플: windows 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) 및 [Ubuntu 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure) 에서 사용할 수 있습니다.
 
-다음 명령은 Windows 또는 Linux 클러스터를 만들 수 있으므로 적절하게 OS를 지정해야 합니다. PowerShell/CLI 명령은 지정된 *인증서OutputFolder에서*인증서를 출력합니다. 그러나 인증서 폴더가 이미 만들어졌는지 확인합니다. 이 명령은 VM SKU와 같은 다른 매개 변수를 사용합니다.
+다음 명령은 Windows 또는 Linux 클러스터를 만들 수 있으므로 적절하게 OS를 지정해야 합니다. PowerShell/CLI 명령은 지정 된 *Certificateoutputfolder*에도 인증서를 출력 합니다. 그러나 인증서 폴더가 이미 만들어졌는지 확인 합니다. 이 명령은 VM SKU와 같은 다른 매개 변수를 사용합니다.
 
 > [!NOTE]
-> 다음 PowerShell 명령은 Azure PowerShell `Az` 모듈에서만 작동합니다. Azure 리소스 관리자 PowerShell 버전의 현재 버전을 확인하려면 다음 PowerShell 명령 "모듈 Az 받기"를 실행합니다. Azure Resource Manager PowerShell 버전을 업그레이드하려면 [다음 링크](/powershell/azure/install-Az-ps)를 따릅니다. 
+> 다음 PowerShell 명령은 Azure PowerShell `Az` 모듈 에서만 작동 합니다. Azure Resource Manager PowerShell 버전의 현재 버전을 확인 하려면 다음 PowerShell 명령 "Import-module Az"를 실행 합니다. Azure Resource Manager PowerShell 버전을 업그레이드하려면 [다음 링크](/powershell/azure/install-Az-ps)를 따릅니다. 
 >
 >
 
@@ -162,7 +162,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 결국 다른 용도로 사용할 CA 서명 인증서인 경우 키 자격 증명 모음에 특별히 고유한 리소스 그룹을 제공하는 것이 좋습니다. Key Vault를 자체 리소스 그룹에 배치하는 것이 좋습니다. 이렇게 하면 키 및 비밀은 유실하지 않고 Service Fabric 클러스터가 있는 리소스 그룹과 같은 컴퓨팅 및 스토리지 리소스 그룹을 제거할 수 있습니다. **키 자격 증명 모음을 포함하는 리소스 그룹은 해당 그룹을 사용하는 클러스터와 *동일한 지역에 있어야* 합니다.**
 
 ### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>모듈에 제공되는 기본 5개 노드 1개 노드 형식 템플릿 사용
-사용되는 템플릿은 [Azure 샘플에서](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) 사용할 수 있습니다 : Windows 템플릿 및 [우분투 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+사용 되는 템플릿은 [Azure 샘플: Windows 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) 및 [Ubuntu 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure) 에서 사용할 수 있습니다.
 
 PowerShell을 사용하여 클러스터 배포
 
@@ -251,7 +251,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### <a name="use-a-pointer-to-a-secret-uploaded-into-a-key-vault"></a>키 자격 증명 모음에 업로드된 비밀에 대해 포인터 사용
 
-기존 키 자격 증명 모음을 사용하려면 컴퓨팅 리소스 공급자가 인증서를 가져와 클러스터 노드에 설치할 수 있도록 배포에 키 자격 증명 모음을 [사용하도록 설정해야](../key-vault/general/manage-with-cli2.md#bkmk_KVperCLI) 합니다.
+기존 키 자격 증명 모음을 사용 하려면 키 자격 증명 모음을 [배포에](../key-vault/general/manage-with-cli2.md#bkmk_KVperCLI) 사용할 수 있도록 설정 하 여 계산 리소스 공급자가 인증서를 가져와 클러스터 노드에 설치 하도록 합니다.
 
 PowerShell을 사용하여 클러스터 배포
 

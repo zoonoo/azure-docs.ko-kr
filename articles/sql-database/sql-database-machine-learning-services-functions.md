@@ -1,7 +1,7 @@
 ---
 title: 고급 R 함수 작성
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: 기계 학습 서비스(미리 보기)를 사용하여 Azure SQL Database에서 고급 통계 계산을 위한 R 함수를 작성하는 방법을 알아봅니다.
+description: Machine Learning Services (미리 보기)를 사용 하 여 Azure SQL Database에서 고급 통계 계산을 위해 R 함수를 작성 하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -15,29 +15,29 @@ manager: cgronlun
 ms.date: 04/11/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: ba78267b1c6dc8f0e1bd25bb8ecdb1d8d344d03e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81453117"
 ---
 # <a name="write-advanced-r-functions-in-azure-sql-database-using-machine-learning-services-preview"></a>Machine Learning Services(미리 보기)를 사용하여 Azure SQL Database에서 고급 R 함수 작성
 
-이 문서에서는 SQL 저장 프로시저에 R 수학 및 유틸리티 함수를 포함하는 방법을 설명합니다. T-SQL에서 구현하기에 복잡한 고급 통계 함수는 단일 줄의 코드만으로 R에서 수행할 수 있습니다.
+이 문서에서는 SQL 저장 프로시저에 R 수치 연산 및 유틸리티 함수를 포함 하는 방법을 설명 합니다. T-SQL에서 구현하기에 복잡한 고급 통계 함수는 단일 줄의 코드만으로 R에서 수행할 수 있습니다.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 
-- 이 연습에서 예제 코드를 실행하려면 먼저 R을 사용하는 [기계 학습 서비스를 사용하는 Azure SQL 데이터베이스가](sql-database-machine-learning-services-overview.md) 활성화되어 있어야 합니다.
+- 이러한 연습에서 예제 코드를 실행 하려면 먼저 [Machine Learning Services (R 사용)를](sql-database-machine-learning-services-overview.md) 사용 하도록 설정 된 Azure SQL Database 있어야 합니다.
 
 - 최신 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)를 설치했는지 확인합니다. 다른 데이터베이스 관리 또는 쿼리 도구를 사용하여 R 스크립트를 실행할 수 있지만, 이 빠른 시작에서는 SSMS를 사용합니다.
 
 ## <a name="create-a-stored-procedure-to-generate-random-numbers"></a>난수를 생성하는 저장 프로시저 만들기
 
-간단히 하기 위해 기계 `stats` 학습 서비스(미리 보기)를 사용하여 Azure SQL Database에서 기본적으로 설치 및 로드된 R 패키지를 사용해 보겠습니다. 패키지에는 일반적인 통계 작업에 대한 수백 개의 `rnorm` 함수가 포함되어 있습니다. 이 함수는 표준 편차 및 평균이 주어지면 정규 분포를 사용하여 지정된 수의 난수를 생성합니다.
+간단히 하기 위해 Machine Learning Services (미리 보기) `stats` 를 사용 하 Azure SQL Database와 함께 기본적으로 설치 및 로드 되는 R 패키지를 사용 하겠습니다. 패키지에는 `rnorm` 함수 중에 일반적인 통계 태스크에 대 한 수백 개의 함수가 포함 되어 있습니다. 이 함수는 표준 편차와 의미를 감안 하 여 정규 분포를 사용 하 여 지정 된 수의 난수를 생성 합니다.
 
 예를 들어 다음 R 코드는 표준 편차 3을 고려하여 평균 50에 대한 100개의 숫자를 반환합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "81453117"
 as.data.frame(rnorm(100, mean = 50, sd = 3));
 ```
 
-T-SQL에서 이 R 줄을 호출하려면 다음과 같이 R 스크립트 매개 변수에 R 함수를 실행하고 `sp_execute_external_script` 추가합니다.
+T-sql에서 R의이 줄을 호출 하려면를 실행 `sp_execute_external_script` 하 고 다음과 같이 r 스크립트 매개 변수에 r 함수를 추가 합니다.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -58,7 +58,7 @@ WITH RESULT SETS(([Density] FLOAT NOT NULL));
 
 다른 난수 집합을 더 쉽게 생성할 수 있다면 어떻게 될까요?
 
-SQL과 결합하면 간단합니다. 사용자로부터 인수를 가져오는 저장 프로시저를 정의한 다음, 해당 인수를 R 스크립트에 변수로 전달합니다.
+SQL과 함께 사용 하는 것이 쉽습니다. 사용자로부터 인수를 가져오는 저장 프로시저를 정의한 다음, 해당 인수를 R 스크립트에 변수로 전달합니다.
 
 ```sql
 CREATE PROCEDURE MyRNorm (
@@ -95,7 +95,7 @@ EXECUTE MyRNorm @param1 = 100
 
 ## <a name="use-r-utility-functions-for-troubleshooting"></a>문제 해결에 R 유틸리티 함수 사용
 
-기본적으로 `utils` 설치된 패키지는 현재 R 환경을 조사하기 위한 다양한 유틸리티 기능을 제공합니다. 이러한 함수는 SQL 및 외부 환경에서 R 코드가 수행하는 방식에서 불일치를 찾는 경우에 유용할 수 있습니다. 예를 들어 R `memory.limit()` 함수를 사용하여 현재 R 환경에 사용할 메모리를 가져올 수 있습니다.
+기본적 `utils` 으로 설치 되는 패키지는 현재 R 환경을 조사 하기 위한 다양 한 유틸리티 함수를 제공 합니다. 이러한 함수는 R 코드가 SQL 및 외부 환경에서 수행 하는 방식에서 불일치를 발견 하는 경우에 유용할 수 있습니다. 예를 들어 R `memory.limit()` 함수를 사용하여 현재 R 환경에 사용할 메모리를 가져올 수 있습니다.
 
 `utils` 패키지는 설치되지만 기본적으로 로드되지 않으므로 먼저 `library()` 함수를 사용하여 로드해야 합니다.
 
@@ -111,4 +111,4 @@ WITH RESULT SETS(([Col1] INT NOT NULL));
 ```
 
 > [!TIP]
-> 많은 사용자가 R 프로세스에서 사용되는 시간을 캡처하고 `system.time` `proc.time`성능 문제를 분석하기 위해 와 같은 R의 시스템 타이밍 함수를 사용하는 것을 좋아합니다.
+> 대부분의 사용자는 r에서 시스템 타이밍 함수 (예: `system.time` 및 `proc.time`)를 사용 하 여 r 프로세스에 사용 되는 시간을 캡처하고 성능 문제를 분석 하는 것입니다.

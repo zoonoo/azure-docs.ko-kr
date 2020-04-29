@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
 ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81454648"
 ---
 # <a name="azure-encryption-overview"></a>Azure 암호화 개요
@@ -105,7 +105,7 @@ CLE에는 대칭 또는 비대칭 키를 사용하고 인증서의 공개 키 �
 
 ### <a name="cosmos-db-database-encryption"></a>Cosmos DB 데이터베이스 암호화
 
-[Azure 코스모스 DB는](../../cosmos-db/database-encryption-at-rest.md) Microsoft의 전 세계에 분산된 다중 모델 데이터베이스입니다. 비휘발성 스토리지(반도체 드라이브)의 Cosmos DB에 저장된 사용자 데이터는 기본적으로 암호화됩니다. 이를 설정하거나 해제하는 컨트롤은 없습니다. 저장 데이터 암호화는 보안 키 스토리지 시스템, 암호화된 네트워크 및 암호화 API를 비롯한 수많은 보안 기술을 사용하여 구현되었습니다. 암호화 키는 Microsoft에서 관리하며 Microsoft 내부 지침에 따라 순환됩니다.
+[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) 은 Microsoft의 전 세계적으로 분산 된 다중 모델 데이터베이스입니다. 비휘발성 스토리지(반도체 드라이브)의 Cosmos DB에 저장된 사용자 데이터는 기본적으로 암호화됩니다. 이를 설정하거나 해제하는 컨트롤은 없습니다. 저장 데이터 암호화는 보안 키 스토리지 시스템, 암호화된 네트워크 및 암호화 API를 비롯한 수많은 보안 기술을 사용하여 구현되었습니다. 암호화 키는 Microsoft에서 관리하며 Microsoft 내부 지침에 따라 순환됩니다.
 
 ### <a name="at-rest-encryption-in-data-lake"></a>Data Lake의 미사용 암호화
 
@@ -207,5 +207,5 @@ Key Vault는 조직이 HSM(하드웨어 보안 모듈) 및 키 관리 소프트�
 - [Azure 네트워크 보안 개요](network-overview.md)
 - [Azure 데이터베이스 보안 개요](database-security-overview.md)
 - [Azure 가상 머신 보안 개요](virtual-machines-overview.md)
-- [미사용 데이터 암호화](encryption-atrest.md)
+- [휴지 상태의 데이터 암호화](encryption-atrest.md)
 - [데이터 보안 및 암호화 모범 사례](data-encryption-best-practices.md)

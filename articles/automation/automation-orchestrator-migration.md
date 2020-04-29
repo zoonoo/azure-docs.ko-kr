@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: c7df6e31cd021fc61129131f9bd02acc7b96e2ad
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81457555"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Orchestrator에서 Azure Automation으로 마이그레이션(Beta)
@@ -29,7 +29,7 @@ ms.locfileid: "81457555"
 7. 로컬 리소스에 액세스하는 변환된 Runbook을 실행하도록 로컬 데이터 센터에서 [Hybrid Runbook Worker](#hybrid-runbook-worker) 를 구성합니다.
 
 >[!NOTE]
->이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. 하이브리드 Runbook 작업자의 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치를](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)참조하십시오. 자동화 계정의 경우 Azure 자동화 에서 [Azure PowerShell 모듈을 업데이트하는 방법을](automation-update-azure-modules.md)사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
+>이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대한 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](automation-update-azure-modules.md)을 사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
 ## <a name="service-management-automation"></a>Service Management Automation
 
@@ -73,7 +73,7 @@ Microsoft에서는 System Center 구성 요소 및 기타 제품을 자동화하
 
 Runbook Converter는 Orchestrator Runbook을 Azure Automation으로 가져올 수 있는 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks) 으로 변환합니다.  
 
-Runbook 변환기는 변환을 수행하는 cmdlet이 `ConvertFrom-SCORunbook` 있는 PowerShell 모듈로 구현됩니다.  이 도구를 설치하면 cmdlet을 로드하는 PowerShell 세션에 바로 가기를 만듭니다.   
+Runbook Converter는 변환을 수행 하는 이라는 `ConvertFrom-SCORunbook` cmdlet을 사용 하 여 PowerShell 모듈로 구현 됩니다.  이 도구를 설치하면 cmdlet을 로드하는 PowerShell 세션에 바로 가기를 만듭니다.   
 
 다음은 Orchestrator Runbook을 변환하고 Azure Automation으로 가져오는 기본 프로세스입니다.  다음 섹션에서는 변환된 Runbook을 사용하여 도구를 사용하는 데 대한 자세한 세부 사항을 제공합니다.
 
@@ -122,11 +122,11 @@ Orchestrator에서 runbook을 내보내려면 Runbook Designer에서 runbook의 
 
 Runbook Converter는 Azure Automation에서 Orchestrator runbook의 각 작업을 해당하는 작업으로 변환합니다.  변환할 수 없는 해당 작업의 경우 자리 표시자 작업은 경고 텍스트를 사용하여 runbook에서 만들어집니다.  Azure Automation에 변환된 runbook을 가져온 후에 이러한 작업을 필요한 기능을 수행하는 유효한 작업으로 대체해야 합니다.
 
-[표준 활동 모듈](#standard-activities-module) 의 Orchestrator 작업은 변환됩니다.  이 모듈에 없지만 변환되지 않는 일부 표준 Orchestrator 작업이 있습니다.  예를 들어 `Send Platform Event` 이벤트가 Orchestrator에만 해당되므로 Azure 자동화와 동등한 Azure 자동화가 없습니다.
+[표준 활동 모듈](#standard-activities-module) 의 Orchestrator 작업은 변환됩니다.  이 모듈에 없지만 변환되지 않는 일부 표준 Orchestrator 작업이 있습니다.  예를 들어 `Send Platform Event` , 이벤트는 Orchestrator와 관련 되어 있으므로에 해당 하는 Azure Automation 없습니다.
 
 [작업 모니터링](https://technet.microsoft.com/library/hh403827.aspx) 은 Azure Automation에서 동등한 기능이 없기 때문에 변환되지 않습니다.  예외는 자리 표시자 활동으로 변환되는 [변환된 통합 팩](#integration-pack-converter) 의 작업을 모니터링합니다.
 
-매개 변수와 통합 모듈에 대한 경로를 제공하는 경우 [변환된 통합 팩의](#integration-pack-converter) 모든 활동이 변환됩니다. `modules` System Center 통합 팩의 경우 [System Center Orchestrator 통합 모듈](#system-center-orchestrator-integration-modules)을 사용할 수 있습니다.
+매개 변수와 함께 통합 모듈의 경로를 제공 하는 경우 [변환 된 통합 팩](#integration-pack-converter) 의 모든 활동이 변환 됩니다. `modules` System Center 통합 팩의 경우 [System Center Orchestrator 통합 모듈](#system-center-orchestrator-integration-modules)을 사용할 수 있습니다.
 
 ### <a name="orchestrator-resources"></a>Orchestrator 리소스
 
@@ -136,15 +136,15 @@ Runbook Converter는 카운터, 변수, 연결 등 다른 Orchestrator 리소스
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-오케스트레이터의 Runbook은 활동과 함께 입력 매개 변수를 허용합니다. `Initialize Data`  변환 중인 runbook이 이 활동을 포함하는 경우 Azure Automation runbook에서 [입력 매개 변수](automation-graphical-authoring-intro.md#runbook-input-and-output) 는 작업에서 각 매개 변수에 대해 만들어집니다.  [워크플로 스크립트 제어](automation-graphical-authoring-intro.md#activities) 활동은 각 매개 변수를 검색하고 반환하는 변환된 runbook에 만들어집니다.  입력 매개 변수를 사용하는 Runbook의 활동은 이 활동에서 출력을 참조합니다.
+Orchestrator의 runbook은 활동에 대 한 `Initialize Data` 입력 매개 변수를 허용 합니다.  변환 중인 runbook이 이 활동을 포함하는 경우 Azure Automation runbook에서 [입력 매개 변수](automation-graphical-authoring-intro.md#runbook-input-and-output) 는 작업에서 각 매개 변수에 대해 만들어집니다.  [워크플로 스크립트 제어](automation-graphical-authoring-intro.md#activities) 활동은 각 매개 변수를 검색하고 반환하는 변환된 runbook에 만들어집니다.  입력 매개 변수를 사용하는 Runbook의 활동은 이 활동에서 출력을 참조합니다.
 
 이 전략을 사용하는 이유는 Orchestrator runbook의 기능을 가장 잘 미러링하기 때문입니다.  새 그래픽 runbook의 작업은 Runbook 입력 데이터 원본을 사용하여 입력 매개 변수를 직접 참조해야 합니다.
 
 ### <a name="invoke-runbook-activity"></a>Runbook 작업 호출
 
-오케스트레이터의 Runbook은 활동으로 다른 Runbook을 `Invoke Runbook` 시작합니다. 변환중인 Runbook에 이 활동이 포함되어 `Wait for completion` 있고 옵션이 설정된 경우 변환된 Runbook에서 Runbook 활동에 대한 런북 활동이 만들어집니다.  `Wait for completion` 옵션이 설정되지 않은 경우 [시작-AzAutomationRunbook을](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) 사용하여 Runbook을 시작하는 워크플로 스크립트 활동이 만들어집니다. Azure Automation에 변환된 runbook을 가져온 후에 작업에 지정한 정보를 사용하여 이 작업을 수정해야 합니다.
+Orchestrator의 runbook은 `Invoke Runbook` 활동을 사용 하 여 다른 runbook을 시작 합니다. 변환 중인 runbook이이 활동을 포함 하 고 `Wait for completion` 옵션이 설정 된 경우 변환 된 runbook에서 runbook 활동이 만들어집니다.  이 `Wait for completion` 옵션을 설정 하지 않으면 [AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) 를 사용 하 여 runbook을 시작 하는 워크플로 스크립트 작업이 생성 됩니다. Azure Automation에 변환된 runbook을 가져온 후에 작업에 지정한 정보를 사용하여 이 작업을 수정해야 합니다.
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 
 * [System Center 2012 - Orchestrator](https://technet.microsoft.com/library/hh237242.aspx)
 * [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx)
