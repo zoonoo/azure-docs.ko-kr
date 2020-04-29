@@ -7,17 +7,17 @@ author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
 ms.openlocfilehash: 2fd148dbb85a4fd60fe63d4fb73128bf92dea1d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670562"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Azure Monitor에서 Linux 애플리케이션에 대한 성능 카운터 수집 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 이 문서에서는 특정 애플리케이션에 대한 성능 카운터를 Azure Monitor로 수집하도록 [Linux용 Log Analytics 에이전트](https://github.com/Microsoft/OMS-Agent-for-Linux)를 구성하는 방법에 대한 세부 정보를 제공합니다.  이 문서에 포함된 애플리케이션은 다음과 같습니다.  
 
-- [Mysql](#mysql)
+- [MySQL](#mysql)
 - [Apache HTTP 서버](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
@@ -41,11 +41,11 @@ MySQL 인증 파일은 `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-aut
 
 인증 파일의 항목은 다음 테이블에 설명되어 있습니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 | 포트 | MySQL 인스턴스가 수신 대기 중인 현재 포트를 나타냅니다. 포트 0은 뒤에 나오는 속성이 기본 인스턴스에 사용된다는 것을 지정합니다. |
 | 바인딩 주소| 현재 MySQL 바인딩-주소입니다. |
-| 사용자 이름| MySQL 서버 인스턴스를 모니터링하는 데 사용되는 MySQL 사용자입니다. |
+| username| MySQL 서버 인스턴스를 모니터링하는 데 사용되는 MySQL 사용자입니다. |
 | Base64로 인코딩된 암호| Base64로 인코딩된 MySQL 모니터링 사용자의 암호입니다. |
 | AutoUpdate| MySQL OMI 공급자가 업그레이드되면 my.cnf 파일에서 변경 내용을 검색하고 MySQL OMI 인증 파일을 덮어쓸지 여부를 지정합니다. |
 
@@ -54,7 +54,7 @@ MySQL OMI 인증 파일은 하나의 Linux 호스트에서 여러 MySQL 인스�
 
 다음 테이블에는 예제 인스턴스 설정이 있습니다. 
 
-| 설명 | 파일 |
+| Description | 파일 |
 |:--|:--|
 | 기본 인스턴스 및 포트 3308의 인스턴스입니다. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=, ,`<br>`AutoUpdate=true` |
 | 기본 인스턴스 및 포트 3308의 인스턴스, 다른 사용자 이름 및 암호입니다. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=127.0.1.1, myuser2,cGluaGVhZA==`<br>`AutoUpdate=true` |
@@ -75,7 +75,7 @@ MySQL OMI 공급자의 설치에 포함된 것은 MySQL OMI 인증 파일 편집
 | autoupdate *false or true* | mycimprovauth autoupdate false | 다시 시작 또는 업데이트 시 인증 파일이 자동으로 업데이트될지 여부를 설정합니다. |
 | default *bind-address username password* | mycimprovauth default 127.0.0.1 root pwd | MySQL OMI 인증 파일에서 기본 인스턴스를 설정합니다.<br>암호 필드는 일반 텍스트로 입력되어야 하며 MySQL OMI 인증 파일의 암호는 Base 64로 인코딩됩니다. |
 | delete *default or port_num* | mycimprovauth 3308 | 기본값 또는 포트 번호로 지정된 인스턴스를 삭제합니다. |
-| help | mycimprov help | 사용할 명령 목록을 인쇄합니다. |
+| 도움말 | mycimprov help | 사용할 명령 목록을 인쇄합니다. |
 | print | mycimprov print | 읽기 쉬운 MySQL OMI 인증 파일을 인쇄합니다. |
 | update port_num *bind-address username password* | mycimprov update 3307 127.0.0.1 root pwd | 지정된 인스턴스를 업데이트하거나 존재하지 않는 경우 인스턴스를 추가합니다. |
 

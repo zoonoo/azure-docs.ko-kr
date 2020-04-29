@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670579"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Azure Monitor에서 IIS 로그 수집
@@ -27,13 +27,13 @@ Azure Monitor는 W3C 형식으로 저장된 IIS 로그 파일만 지원하며 �
 
 
 ## <a name="data-collection"></a>데이터 수집
-Azure Monitor는 로그 타임스탬프가 변경될 때마다 각 에이전트에서 IIS 로그 항목을 수집합니다. 로그는 **5분마다**읽습니다. 어떤 이유로든 IIS가 새 파일을 만들 때 롤오버 시간 전에 타임스탬프를 업데이트하지 않으면 새 파일을 만든 후 항목이 수집됩니다. 새 파일 생성 빈도는 기본적으로 하루에 한 번인 IIS 사이트의 **로그 파일 롤오버 일정** 설정에 의해 제어됩니다. 설정이 **시간별**인 경우 Azure 모니터는 매시간 로그를 수집합니다. **[일별]** 설정이 일별인 경우 Azure 모니터는 24시간마다 로그를 수집합니다.
+Azure Monitor는 로그 타임 스탬프가 변경 될 때마다 각 에이전트에서 IIS 로그 항목을 수집 합니다. **5 분**마다 로그를 읽습니다. 어떤 이유로 든 새 파일이 생성 될 때 IIS가 롤오버 시간 전에 타임 스탬프를 업데이트 하지 않으면 새 파일 생성 후에 항목이 수집 됩니다. 새 파일 생성 빈도는 IIS 사이트에 대 한 **로그 파일 롤오버 일정** 설정에 의해 제어 되며, 기본적으로 하루에 한 번입니다. 설정이 **매시간**인 경우 Azure Monitor는 매시간 로그를 수집 합니다. 설정이 **매일**이면 Azure Monitor 24 시간 마다 로그를 수집 합니다.
 
 
 ## <a name="iis-log-record-properties"></a>IIS 로그 레코드 속성
 IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있습니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | Computer |이벤트가 수집된 컴퓨터의 이름입니다. |
 | cIP |클라이언트의 IP 주소입니다. |
@@ -44,7 +44,7 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 | csUriStem |웹 페이지와 같은 요청의 대상입니다. |
 | csUriQuery |클라이언트가 수행하려고 한 쿼리입니다(있는 경우). |
 | ManagementGroupName |Operations Manager 에이전트의 관리 그룹 이름.  다른 에이전트의 경우 AOI-\<작업 영역 ID\>입니다. |
-| RemoteIPCountry |클라이언트의 IP 주소의 국가/지역입니다. |
+| RemoteIPCountry |클라이언트의 IP 주소에 대 한 국가/지역입니다. |
 | RemoteIPLatitude |클라이언트 IP 주소의 위도입니다. |
 | RemoteIPLongitude |클라이언트 IP 주소의 경도입니다. |
 | scStatus |HTTP 상태 코드입니다. |
@@ -60,12 +60,12 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 ## <a name="log-queries-with-iis-logs"></a>IIS 로그를 사용한 로그 쿼리
 다음 표에는 IIS 로그 레코드를 검색하는 로그 쿼리의 여러 예제가 나와 있습니다.
 
-| 쿼리 | 설명 |
+| 쿼리 | Description |
 |:--- |:--- |
 | W3CIISLog |모든 IIS 로그 레코드 |
 | W3CIISLog &#124; where scStatus==500 |반환 상태가 500인 모든 IIS 로그 레코드입니다. |
 | W3CIISLog &#124; summarize count() by cIP |클라이언트 IP 주소별 IIS 로그 항목 수 |
-| W3CIISLog &#124; 여기서 csHost=="www\.contoso.com"&#124; csUriStem에 의해 카운트()를 요약합니다. |호스트 www contoso.com\.대한 URL별 IIS 로그 항목 수입니다. |
+| W3CIISLog &#124; where csHost = = "www\.contoso.com" &#124; count () by csUriStem를 요약 합니다. |호스트 www\.contoso.com에 대 한 URL 별 IIS 로그 항목 수입니다. |
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |각 IIS 컴퓨터에서 받은 총 바이트 수 |
 
 ## <a name="next-steps"></a>다음 단계

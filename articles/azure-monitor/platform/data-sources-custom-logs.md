@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
 ms.openlocfilehash: 1e889aaef7cd01cd743e8063a8a1dd5138ba9d0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670596"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure Monitor의 사용자 지정 로그
@@ -41,7 +41,7 @@ Azure Monitor의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 >
 
 >[!IMPORTANT]
->사용자 지정 로그 컬렉션에서는 로그 파일을 작성하는 응용 프로그램이 주기적으로 로그 콘텐츠를 디스크에 플러시해야 합니다. 사용자 지정 로그 컬렉션은 추적 중인 로그 파일에 대한 파일 시스템 변경 알림을 기반으로 하기 때문입니다.
+>사용자 지정 로그를 수집 하려면 로그 파일을 작성 하는 응용 프로그램에서 로그 콘텐츠를 주기적으로 디스크에 플러시합니다. 이는 사용자 지정 로그 수집이 추적 중인 로그 파일에 대 한 파일 시스템 변경 알림을 사용 하기 때문입니다.
 
 ## <a name="defining-a-custom-log"></a>사용자 지정 로그 정의
 다음 절차에 따라 사용자 지정 로그 파일을 정의합니다.  사용자 지정 로그를 추가하는 샘플에 대한 연습을 보려면 이 문서의 끝으로 스크롤합니다.
@@ -50,7 +50,7 @@ Azure Monitor의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 사용자 지정 로그 마법사는 Azure Portal에서 실행되며 수집할 새 사용자 지정 로그를 정의할 수 있습니다.
 
 1. Azure Portal에서 **Log Analytics 작업 영역** > 작업 영역 > **고급 설정**을 선택합니다.
-2. **데이터** > **사용자 지정 로그를 클릭합니다.**
+2. **데이터** > **사용자 지정 로그**를 클릭 합니다.
 3. 기본적으로, 모든 구성 변경은 모든 에이전트로 자동 푸시됩니다. Linux 에이전트에서, 구성 파일은 Fluentd 데이터 수집기로 전송됩니다.
 4. **추가+** 를 클릭하여 Custom Log Wizard(사용자 지정 로그 마법사)를 엽니다.
 
@@ -67,14 +67,14 @@ Azure Monitor의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 4. 새 레코드 식별에 사용된 구분 기호를 변경하고 로그 파일의 레코드를 가장 잘 식별하는 구분 기호를 선택합니다.
 5. **다음**을 클릭합니다.
 
-### <a name="step-3-add-log-collection-paths"></a>3단계. 로그 수집 경로 추가
+### <a name="step-3-add-log-collection-paths"></a>3단계: 로그 수집 경로 추가
 사용자 지정 로그를 찾을 수 있는 에이전트의 경로를 하나 이상의 지정해야 합니다.  로그 파일의 특정 경로 및 이름을 제공하거나 이름의 와일드카드를 포함하는 경로를 지정할 수 있습니다. 이렇게 하면 매일 새 파일을 만드는 애플리케이션을 지원하거나 하나의 파일이 일정한 크기에 도달하는 경우를 지원합니다. 하나의 로그 파일에 여러 경로를 제공할 수도 있습니다.
 
 예를 들어, 애플리케이션이 이름에 날짜가 포함된 로그 파일(예: log20100316.txt)을 매일 만들 수 있습니다. 이런 로그의 패턴으로 *log\*.txt*를 사용할 수 있으며, 이것은 애플리케이션의 명명 체계에 따르는 모든 로그 파일에 적용할 수 있습니다.
 
 다음 테이블은 다른 로그 파일을 지정하는 데 유효한 패턴의 예를 제공합니다.
 
-| 설명 | 경로 |
+| Description | 경로 |
 |:--- |:--- |
 | Windows 에이전트에서 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\\\*.txt |
 | Windows 에이전트에서 이름이 log로 시작되고 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\log\*.txt |
@@ -82,13 +82,13 @@ Azure Monitor의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 | Linux 에이전트에서 이름이 log로 시작되고 확장명이 .txt인 */var/log/audit* 내 모든 파일 |/var/log/audit/log\*.txt |
 
 1. Windows 또는 Linux를 선택하여 추가하는 경로 형식을 지정합니다.
-2. 패스를 입력하고 단추를 **+** 클릭합니다.
+2. 경로를 입력 하 고 단추를 **+** 클릭 합니다.
 3. 경로가 더 있으면 이 프로세스를 반복합니다.
 
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>4단계. 로그의 이름과 설명을 제공합니다.
 지정한 이름은 위의 설명처럼 로그 유형에 사용됩니다.  파일을 사용자 지정 로그로 구분하기 위해 항상_CL로 끝납니다.
 
-1. 로그의 이름을 입력합니다.  CL 접미사가 자동으로 제공됩니다. ** \_**
+1. 로그의 이름을 입력합니다.  CL 접미사가 자동으로 제공 됩니다. ** \_**
 2. 선택적인 **설명**을 추가합니다.
 3. **다음**을 클릭하여 사용자 지정 로그 정의를 저장합니다.
 
@@ -117,7 +117,7 @@ Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 ## <a name="custom-log-record-properties"></a>사용자 지정 로그 레코드 속성
 사용자 지정 로그 레코드에는 사용자가 제공하는 로그 이름의 유형과 다음 테이블의 속성이 있습니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | TimeGenerated |Azure Monitor에서 레코드를 수집한 날짜와 시간입니다.  로그에 시간 기반 구분 기호가 사용되는 경우, 항목에서 수집한 시간이 여기에 해당됩니다. |
 | SourceSystem |레코드가 수집된 에이전트의 유형입니다. <br> OpsManager – Windows 에이전트, 직접 연결 또는 System Center Operations Manager <br> Linux – 모든 Linux 에이전트 |
@@ -140,7 +140,7 @@ Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 ![샘플 로그 업로드 및 구문 분석](media/data-sources-custom-logs/delimiter.png)
 
 ### <a name="add-log-collection-paths"></a>로그 수집 경로 추가
-로그 파일은 *C:\MyApp\Logs*에 배치됩니다.  *appYYYYMMDD.log*패턴의 날짜를 포함하는 이름으로 매일 새 파일이 생성됩니다.  이 로그에 대한 충분한 패턴은 *\\\*C:\MyApp\Logs .log .*
+로그 파일은 *C:\MyApp\Logs*에 배치됩니다.  *appYYYYMMDD.log*패턴의 날짜를 포함하는 이름으로 매일 새 파일이 생성됩니다.  이 로그에 대 한 충분 한 패턴은 *\\\*c:\myapp\logs .log*입니다.
 
 ![로그 수집 경로](media/data-sources-custom-logs/collection-path.png)
 
@@ -150,7 +150,7 @@ Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 ![로그 이름](media/data-sources-custom-logs/log-name.png)
 
 ### <a name="validate-that-the-custom-logs-are-being-collected"></a>사용자 지정 로그를 수집 중인지 유효성을 검사합니다.
-*MyApp_CL* 간단한 쿼리를 사용하여 수집된 로그의 모든 레코드를 반환합니다.
+*MyApp_CL* 에 대 한 간단한 쿼리를 사용 하 여 수집 된 로그의 모든 레코드를 반환 합니다.
 
 ![사용자 지정 필드가 없는 로그 쿼리](media/data-sources-custom-logs/query-01.png)
 
