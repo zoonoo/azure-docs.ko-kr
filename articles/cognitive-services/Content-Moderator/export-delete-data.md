@@ -1,7 +1,7 @@
 ---
-title: 사용자 데이터 내보내기 또는 삭제 - 콘텐츠 중재자
+title: 사용자 데이터 내보내기 또는 삭제-Content Moderator
 titleSuffix: Azure Cognitive Services
-description: 데이터를 완전히 제어할 수 있습니다. 콘텐츠 운영자에서 데이터를 보거나 내보내거나 삭제하는 방법을 알아보세요.
+description: 데이터를 완전히 제어할 수 있습니다. Content Moderator에서 데이터를 보거나, 내보내거나, 삭제 하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: pafarley
 ms.openlocfilehash: 81713bf8d424b9f272f6b1bccf3657810160d4cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73744798"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>Content Moderator에서 사용자 데이터 내보내기 또는 삭제

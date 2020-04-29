@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: e7f5af42d0bb0079746cc9e64b621adfebd565d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74072661"
 ---
 # <a name="bing-entity-search-api-endpoint"></a>Bing Entity Search API 엔드포인트
@@ -35,6 +35,6 @@ Bing Entity Search API는 쿼리를 기반으로 웹의 엔터티를 반환하�
 > [!div class="nextstepaction"]
 > [Bing Entity Search API란?](overview.md)
 
-## <a name="see-also"></a>참조 
+## <a name="see-also"></a>참고 항목 
 
 헤더, 매개 변수, 시장 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Entity Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) 참조 문서를 확인하세요.

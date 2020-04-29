@@ -1,24 +1,24 @@
 ---
-title: 지식 자료 관리 - QnA 메이커
-description: QnA Maker를 사용하면 기술 자료 설정 및 콘텐츠에 대한 액세스를 제공하여 기술 기반을 관리할 수 있습니다.
+title: 기술 자료 관리-QnA Maker
+description: QnA Maker를 사용 하면 기술 자료 설정 및 콘텐츠에 대 한 액세스를 제공 하 여 기술 자료를 관리할 수 있습니다.
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 4eb07b30b10826c361f4f9b805b517e372fc5ea1
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80756809"
 ---
-# <a name="create-knowledge-base-and-manage-settings"></a>기술 자료 생성 및 설정 관리
+# <a name="create-knowledge-base-and-manage-settings"></a>기술 자료 만들기 및 설정 관리
 
-QnA Maker를 사용하면 기술 자료 설정 및 데이터 원본에 대한 액세스를 제공하여 기술 자료를 관리할 수 있습니다.
+QnA Maker를 사용 하면 기술 자료 설정 및 데이터 원본에 대 한 액세스를 제공 하 여 기술 자료를 관리할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 > [!div class="checklist"]
 > * Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 계정을 만듭니다.
-> * Azure 포털에서 만든 [QnA 작성기 리소스입니다.](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, QnA 리소스 이름을 기억하세요.
+> * Azure Portal에서 만든 [QnA Maker 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) 입니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, QnA 리소스 이름을 기억하세요.
 
 ## <a name="create-a-knowledge-base"></a>기술 자료 만들기
 
@@ -36,7 +36,7 @@ QnA Maker를 사용하면 기술 자료 설정 및 데이터 원본에 대한 �
 
    ![QnA Maker 서비스 기술 자료를 선택하는 스크린샷](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-1. **3단계에서는**기술 자료의 `My Sample QnA KB`이름을 지정합니다.
+1. **3 단계**에서 기술 자료의 이름을로 `My Sample QnA KB`합니다.
 
 1. **4단계**에서는 다음 표를 사용하여 설정을 구성합니다.
 
@@ -47,7 +47,7 @@ QnA Maker를 사용하면 기술 자료 설정 및 데이터 원본에 대한 �
     |**+ URL 추가**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**잡담**|**Professional** 선택|
 
-1. **5단계**에서는 **KB 만들기**를 선택합니다.
+1. **5 단계**에서 **KB 만들기**를 선택 합니다.
 
     추출 프로세스는 문서를 읽고 질문과 답변을 확인하는 데 몇 분 정도가 걸립니다.
 
@@ -63,18 +63,18 @@ QnA Maker를 사용하면 기술 자료 설정 및 데이터 원본에 대한 �
 
 1. 특정 기술 자료를 선택하여 편집합니다.
 
-1.  **설정**을 선택합니다. 다음 목록에는 변경할 수 있는 필드가 포함되어 있습니다.
+1.  **설정**을 선택합니다. 다음 목록에는 변경할 수 있는 필드가 나와 있습니다.
 
        |목표|작업|
        |--|--|
        |URL 추가|**기술 자료 관리 -> '+ URL 추가'** 링크를 클릭하여 기술 자료에 새 FAQ 콘텐츠를 추가할 새 URL을 추가할 수 있습니다.|
        |URL 삭제|삭제 아이콘, 휴지통을 선택하여 기존 URL을 삭제할 수 있습니다.|
-       |콘텐츠 새로 고침|기술 자료에서 기존 URL의 최신 콘텐츠를 탐색하도록 하려면 **새로 고침** 확인란을 선택합니다. 이렇게 하면 최신 URL 콘텐츠로 기술 자료가 한 번 업데이트됩니다. 이는 정기적인 업데이트 일정을 설정하지 않습니다.|
+       |콘텐츠 새로 고침|기술 자료에서 기존 URL의 최신 콘텐츠를 탐색하도록 하려면 **새로 고침** 확인란을 선택합니다. 이렇게 하면 기술 자료가 최신 URL 내용으로 한 번 업데이트 됩니다. 이는 정기적인 업데이트 일정을 설정 하지 않습니다.|
        |파일 추가|**기술 자료 관리**를 선택한 다음, **+ 파일 추가**를 선택하여 기술 자료의 일부가 되도록 지원되는 파일 문서를 추가할 수 있습니다.|
-    |가져오기|**지식** 기본 가져오기 단추를 선택하여 기존 기술 자료를 가져올 수도 있습니다. |
-    |업데이트|기술 자료의 업데이트는 기술 자료와 관련된 QnA Maker 서비스를 만드는 동안 사용되는 **관리 가격 책정 계층**에 따라 달라집니다. 필요한 경우 Azure 포털에서 관리 계층을 업데이트할 수도 있습니다.
+    |가져오기|**기술 자료 가져오기** 단추를 선택 하 여 기존 기술 자료를 가져올 수도 있습니다. |
+    |업데이트|기술 자료의 업데이트는 기술 자료와 관련된 QnA Maker 서비스를 만드는 동안 사용되는 **관리 가격 책정 계층**에 따라 달라집니다. 필요한 경우 Azure Portal에서 관리 계층을 업데이트할 수도 있습니다.
 
-  1. 기술 자료가 변경되면 변경 내용을 유지하려면 페이지의 오른쪽 상단 모서리에 **저장 및 학습을** 선택합니다.
+  1. 기술 자료를 변경한 후 변경 내용을 유지 하기 위해 페이지의 오른쪽 위 모서리에서 **저장 및 학습** 을 선택 합니다.
 
        ![저장 후 학습](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
@@ -85,15 +85,15 @@ QnA Maker를 사용하면 기술 자료 설정 및 데이터 원본에 대한 �
 
 ## <a name="manage-large-knowledge-bases"></a>큰 기술 자료 관리
 
-* **데이터 원본 그룹**: QnA는 추출된 데이터 원본별로 그룹화됩니다. 데이터 원본을 확장하거나 축소할 수 있습니다.
+* **데이터 원본 그룹**: qnas는 추출 된 데이터 원본에 따라 그룹화 됩니다. 데이터 원본을 확장하거나 축소할 수 있습니다.
 
     ![QnA Maker 데이터 원본 막대를 사용하여 데이터 원본 질문과 답변을 축소 및 확장합니다.](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
 
-* **기술 자료 검색**: 기술 자료 테이블 상단의 텍스트 상자에 입력하여 기술 자료를 검색할 수 있습니다. 질문, 답변 또는 메타데이터 콘텐츠를 검색하려면 Enter 키를 클릭합니다. 검색 필터를 제거하려면 X 아이콘을 클릭합니다.
+* 기술 자료 **검색**: 기술 자료 테이블의 맨 위에 있는 입력란에를 입력 하 여 기술 자료를 검색할 수 있습니다. 질문, 답변 또는 메타데이터 콘텐츠를 검색하려면 Enter 키를 클릭합니다. 검색 필터를 제거하려면 X 아이콘을 클릭합니다.
 
     ![질문과 답변 위의 QnA Maker 검색 상자를 사용하여 필터 일치 항목으로만 뷰를 줄입니다.](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
 
-* **페이지네이션**: 데이터 원본을 빠르게 이동하여 대규모 기술 기반을 관리
+* **페이지 매김**: 데이터 원본을 빠르게 이동 하 여 방대한 기술 자료 관리
 
     ![질문과 답변 위의 QnA Maker 페이지 매김 기능을 사용하여 질문과 답변 페이지를 이동합니다.](../media/qnamaker-how-to-edit-kb/pagination.png)
 
@@ -101,11 +101,11 @@ QnA Maker를 사용하면 기술 자료 설정 및 데이터 원본에 대한 �
 
 KB(기술 자료)를 삭제하는 것은 영구 작업입니다. 실행을 취소할 수 없습니다. 기술 자료를 삭제하기 전에 QnA Maker 포털의 **설정** 페이지에서 기술 자료를 내보내야 합니다.
 
-공동 작업자와 기술 기반을 공유하는 경우[공동 작업-지식-base.md)을 삭제하면 모든 사용자가 KB에 액세스할 수 없게 됩니다.
+기술 자료를 공동 작업자와 공유 하는 경우] (base.md), 삭제 하면 모든 사용자가 KB에 액세스할 수 없게 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-리소스의 모든 기술 자료의 [언어 관리에](language-knowledge-base.md) 대해 알아봅니다.
+리소스에서 모든 기술 자료의 [언어를 관리 하는](language-knowledge-base.md) 방법에 대해 알아봅니다.
 
 * QnA 쌍 편집
-* QnA 메이커에서 사용하는 Azure 리소스 관리
+* QnA Maker에서 사용 하는 Azure 리소스 관리

@@ -1,7 +1,7 @@
 ---
 title: 시작하기 - Translator Text API
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Azure Cognitive 서비스 번역기 텍스트 API에 등록하고 구독 키를 얻는 방법을 보여 주며 이 문서에서는
+description: 이 문서에서는 Azure Cognitive Services Translator Text API에 등록 하 고 구독 키를 가져오는 방법을 보여 줍니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -12,10 +12,10 @@ ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
 ms.openlocfilehash: cfae5318213e8af164c8d0cc9ed378705a5644b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73835700"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Translator Text API에 등록하는 방법
@@ -29,7 +29,7 @@ ms.locfileid: "73835700"
 
 포털에 로그인한 후 다음과 같이 Translator Text API 구독을 만들 수 있습니다.
 
-1. + 리소스 만들기 를 **선택합니다.**
+1. **+ 리소스 만들기를**선택 합니다.
 1. **마켓플레이스 검색** 검색 상자에 **Translator Text**를 입력한 다음, 결과에서 선택합니다.
 1. **만들기**를 선택하여 구독 세부 정보를 정의합니다.
 1. **가격 책정 계층** 목록에서 요구 사항에 가장 적합한 가격 책정 계층을 선택합니다.
@@ -58,7 +58,7 @@ Translator Text에 등록하면 구독에 고유한 개인 설정 액세스 키�
 
 ## <a name="customization"></a>사용자 지정
 
-사용자 지정 번역기를 사용하여 번역을 사용자 지정하고, 일반적인 Microsoft Translator 신경 기계 번역 시스템부터 시작해서 고유한 용어와 스타일에 맞게 조정된 번역 시스템을 만듭니다. [자세히 알아보기](customization.md)
+사용자 지정 번역기를 사용하여 번역을 사용자 지정하고, 일반적인 Microsoft Translator 신경 기계 번역 시스템부터 시작해서 고유한 용어와 스타일에 맞게 조정된 번역 시스템을 만듭니다. [자세한 정보](customization.md)
 
 ## <a name="additional-resources"></a>추가 리소스
 

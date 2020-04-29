@@ -1,5 +1,5 @@
 ---
-title: 이미지 분류 - 컴퓨터 비전
+title: 이미지 분류-Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API의 이미지 범주화 기능과 관련된 개념에 대해 알아봅니다.
 services: cognitive-services
@@ -12,19 +12,19 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 477349f1addf71a30e8ecb179266d8eac5510887
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80244753"
 ---
-# <a name="categorize-images-by-subject-matter"></a>주제별로 이미지 분류
+# <a name="categorize-images-by-subject-matter"></a>주제별 이미지 분류
 
 Computer Vision은 태그 지정 및 설명 외에도 이미지에서 감지된 분류 기반 범주를 반환합니다. 태그와 달리, 범주는 부모/자식 계층으로 구성되고 개수가 더 적습니다(태그는 수천 개인 반면 86개). 모든 범주 이름은 영어입니다. 범주는 단독으로 또는 최신 태그 모델과 함께 수행될 수 있습니다.
 
 ## <a name="the-86-category-concept"></a>86개 범주 개념
 
-컴퓨터 비전은 다음 다이어그램의 86개 범주 목록을 사용하여 이미지를 광범위하게 또는 구체적으로 분류할 수 있습니다. 전체 분류를 텍스트 형식으로 보려면 [범주 분류](category-taxonomy.md)를 참조하세요.
+컴퓨터 비전은 다음 다이어그램에서 86 범주의 목록을 사용 하 여 이미지를 광범위 하거나 구체적으로 분류할 수 있습니다. 전체 분류를 텍스트 형식으로 보려면 [범주 분류](category-taxonomy.md)를 참조하세요.
 
 ![범주 분류에 있는 모든 범주의 그룹화된 목록](./Images/analyze_categories-v2.png)
 
@@ -62,11 +62,11 @@ Computer Vision은 태그 지정 및 설명 외에도 이미지에서 감지된 
 
 ## <a name="use-the-api"></a>API 사용
 
-분류 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `Categories` **visual기능** 쿼리 매개 변수에 포함합니다. 그런 다음 전체 JSON 응답을 받으면 `"categories"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
+분류 기능은 [분석 이미지](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `Categories` **Visualfeatures** 쿼리 매개 변수에를 포함 합니다. 그런 다음 전체 JSON 응답을 가져오는 경우 `"categories"` 섹션의 내용에 대 한 문자열을 구문 분석 하면 됩니다.
 
-* [빠른 시작: 컴퓨터 비전 .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [빠른 시작: 이미지 분석(REST API)](./quickstarts/csharp-analyze.md)
+* [빠른 시작: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [빠른 시작: 이미지 분석 (REST API)](./quickstarts/csharp-analyze.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-[이미지에 태그를 지정하고](concept-tagging-images.md) 이미지를 설명하는 관련 [개념에](concept-describing-images.md)대해 알아봅니다.
+[이미지에 태그](concept-tagging-images.md) 를 지정 하 고 [이미지를 설명](concept-describing-images.md)하는 관련 개념을 알아봅니다.

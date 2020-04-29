@@ -1,15 +1,15 @@
 ---
-title: '빠른 시작: 기술 자료, REST, C# 게시 - QnA 메이커'
+title: '빠른 시작: 기술 자료, REST, c # QnA Maker 게시'
 description: 이 C# REST 기반 빠른 시작은 기술 자료를 게시하고 애플리케이션 또는 채팅 봇에서 호출할 수 있는 엔드포인트를 만듭니다.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 0a2f64795d82928e33a10c7e9d162f2333cdf7bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78851966"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>빠른 시작: C#를 사용하여 QnA Maker 기술 자료 게시
@@ -30,12 +30,12 @@ ms.locfileid: "78851966"
     아직 기술 자료가 없는 경우 샘플을 만들어서 빠른 시작: [새 기술 자료 만들기](create-new-kb-csharp.md)에서 사용하면 됩니다.
 
 > [!NOTE]
-> 전체 솔루션 파일은 [ **Azure-샘플/인지 서비스-qnamaker-csharp** GitHub 리포지토리에서](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base)사용할 수 있습니다.
+> 전체 솔루션 파일은 [ **Azure-Samples/qnamaker-csharp** GitHub 리포지토리에서](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base)사용할 수 있습니다.
 
 ## <a name="create-knowledge-base-project"></a>기술 자료 프로젝트 만들기
 
 1. Visual Studio 2019 Community 버전을 엽니다.
-1. 새 **콘솔 앱(.NET Core)** 프로젝트를 만들고 `QnaMakerQuickstart`프로젝트의 이름을 지정합니다. 나머지 설정에 대해 기본값을 수락합니다.
+1. 새 **콘솔 앱 (.Net Core)** 프로젝트를 만들고 프로젝트 `QnaMakerQuickstart`의 이름을로 합니다. 나머지 설정에 대해 기본값을 수락합니다.
 
 ## <a name="add-required-dependencies"></a>필요한 종속성 추가
 

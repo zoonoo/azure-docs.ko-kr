@@ -1,7 +1,7 @@
 ---
 title: 문자 수 - Translator Text API
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Azure Cognitive Services 번역기 텍스트 API가 문자를 계산하는 방법을 설명하여 콘텐츠를 이해하는 방법을 이해할 수 있습니다.
+description: 이 문서에서는 Azure Cognitive Services Translator Text API에서 문자 수를 계산 하 여 콘텐츠를 수집 방법을 이해할 수 있도록 하는 방법을 설명 합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.openlocfilehash: cb70b8624ac0d909511032622948f14f8764b153
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73888152"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Translator Text API에서 문자 수를 계산하는 방법
@@ -33,7 +33,7 @@ Translator Text API는 입력된 텍스트의 모든 유니코드 코드 포인�
 * 유니코드에 정의된 모든 코드 포인트
 * 이전에 동일한 텍스트를 번역한 경우라도 반복되는 번역
 
-중국어 및 일본어 간지와 같은 표의 문자를 기반으로 하는 스크립트의 경우 Translator Text API는 유니코드 코드 포인트의 수를 표의 문자당 한 자로 계산합니다. 예외: 유니코드 서로게이트는 두 문자로 계산됩니다.
+중국어 및 일본어 간지와 같은 표의 문자를 기반으로 하는 스크립트의 경우 Translator Text API는 유니코드 코드 포인트의 수를 표의 문자당 한 자로 계산합니다. 예외: 유니코드 서로게이트 수는 두 문자로 계산 됩니다.
 
 요청, 단어, 바이트 또는 문장의 수는 문자 수와 관련이 없습니다.
 

@@ -1,77 +1,77 @@
 ---
-title: 공유점 파일 - QnA 메이커
-description: 기술 자료에 보안 SharePoint 데이터 원본을 추가하여 Active Directory로 보호할 수 있는 질문과 답변으로 기술 자료를 보강합니다.
+title: SharePoint 파일-QnA Maker
+description: 기술 자료에 보안 된 SharePoint 데이터 원본을 추가 하 여 Active Directory로 보호할 수 있는 질문과 대답으로 기술 자료를 보강 합니다.
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 6f05079e39c8afb001bd4ba09d68f435c18efad5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80294872"
 ---
-# <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>기술 자료에 보안 SharePoint 데이터 원본 추가
+# <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>기술 자료에 보안 된 SharePoint 데이터 원본 추가
 
-보안 클라우드 기반 SharePoint 데이터 원본을 기술 자료에 추가하여 Active Directory로 보호할 수 있는 질문과 답변으로 기술 기반을 보강합니다.
+보호 된 클라우드 기반 SharePoint 데이터 원본을 기술 자료에 추가 하 여 Active Directory로 보호할 수 있는 질문과 대답으로 기술 자료를 보강 합니다.
 
-QnA Maker 관리자로서 기술 자료에 보안 SharePoint 문서를 추가할 때 QnA Maker에 대한 Active Directory 권한을 요청해야 합니다. 이 권한이 활성 디렉터리 관리자에서 SharePoint에 액세스하기 위해 QnA Maker에 제공되면 다시 부여할 필요가 없습니다. 기술 자료에 추가된 각 후속 문서는 동일한 SharePoint 리소스에 있는 경우 권한 부여가 필요하지 않습니다.
+기술 자료에 보안 SharePoint 문서를 추가 하는 경우 QnA Maker 관리자는 QnA Maker에 대 한 Active Directory 권한을 요청 해야 합니다. 이 권한이 Active Directory manager에서 SharePoint에 대 한 액세스를 QnA Maker 하는 경우에는 다시 제공 하지 않아도 됩니다. 동일한 SharePoint 리소스에 있는 경우 기술 자료에 대 한 각 후속 문서 추가는 권한 부여가 필요 하지 않습니다.
 
-QnA Maker 기술 자료 관리자가 Active Directory 관리자가 아닌 경우 이 프로세스를 완료하려면 Active Directory 관리자와 통신해야 합니다.
+QnA Maker 기술 자료 관리자가 Active Directory 관리자가 아닌 경우에는 Active Directory manager와 통신 하 여이 프로세스를 완료 해야 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 클라우드 기반 SharePoint - QnA Maker는 사용 권한에 Microsoft 그래프를 사용합니다. SharePoint가 온-프레미스인 경우 Microsoft 그래프에서 권한을 확인할 수 없으므로 SharePoint에서 추출할 수 없습니다.
-* URL 형식 - QnA Maker는 공유를 위해 생성되고 형식이 지정된 SharePoint URL만 지원합니다.`https://\*.sharepoint.com`
+* 클라우드 기반 SharePoint QnA Maker는 사용 권한에 대해 Microsoft Graph를 사용 합니다. SharePoint가 온-프레미스에 있는 경우 Microsoft Graph에서 권한을 확인할 수 없기 때문에 SharePoint에서 추출할 수 없습니다.
+* URL 형식-QnA Maker 공유를 위해 생성 되 고 형식이 인 SharePoint url만 지원 합니다.`https://\*.sharepoint.com`
 
-## <a name="add-supported-file-types-to-knowledge-base"></a>지원되는 파일 형식을 기술 자료에 추가
+## <a name="add-supported-file-types-to-knowledge-base"></a>기술 자료에 지원 되는 파일 형식 추가
 
-SharePoint 사이트에서 기술 자료에 QnA Maker지원 [파일 형식을](../Concepts/content-types.md) 모두 추가할 수 있습니다. 파일 [리소스가](#permissions) 보호된 경우 사용 권한을 부여해야 할 수 있습니다.
+SharePoint 사이트에서 QnA Maker 지원 되는 모든 [파일 형식을](../Concepts/content-types.md) 기술 자료에 추가할 수 있습니다. 파일 리소스를 안전 하 게 보호 하는 경우 [사용 권한을](#permissions) 부여 해야 할 수 있습니다.
 
-1. SharePoint 사이트가 있는 라이브러리에서 파일의 타원 메뉴를 `...`선택합니다.
-1. 파일의 URL을 복사합니다.
+1. SharePoint 사이트를 사용 하는 라이브러리에서 파일의 줄임표 메뉴를 `...`선택 합니다.
+1. 파일의 URL을 복사 합니다.
 
-   ![파일의 타원 메뉴를 선택한 다음 URL을 복사하여 SharePoint 파일 URL을 가져옵니다.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
+   ![파일의 줄임표 메뉴를 선택 하 고 URL을 복사 하 여 SharePoint 파일 URL을 가져옵니다.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. QnA Maker 포털에서 **설정** 페이지에서 기술 자료에 [URL을 추가합니다.](manage-knowledge-bases.md#edit-knowledge-base)
+1. QnA Maker 포털의 **설정** 페이지에서 기술 자료에 [URL을 추가](manage-knowledge-bases.md#edit-knowledge-base) 합니다.
 
-### <a name="images-with-sharepoint-files"></a>공유점 파일이 있는 이미지
+### <a name="images-with-sharepoint-files"></a>SharePoint 파일이 있는 이미지
 
-파일에 이미지가 포함된 경우 해당 파일은 추출되지 않습니다. 파일이 QnA 쌍으로 추출된 후 QnA Maker 포털에서 이미지를 추가할 수 있습니다.
+파일이 이미지를 포함 하는 경우 추출 되지 않습니다. 파일이 QnA 쌍으로 추출 된 후 QnA Maker 포털에서 이미지를 추가할 수 있습니다.
 
-다음 마크다운 구문으로 이미지를 추가합니다.
+다음 markdown 구문을 사용 하 여 이미지를 추가 합니다.
 
 ```markdown
 ![Explanation or description of image](URL of public image)
 ```
 
-대괄호에 있는 텍스트는 `[]`이미지를 설명합니다. 괄호 의 URL은 `()`이미지에 대한 직접 링크입니다.
+대괄호 `[]`안의 텍스트는 이미지에 대해 설명 합니다. 괄호 `()`안의 URL은 이미지에 대 한 직접 링크입니다.
 
-대화형 테스트 패널에서 QnA 쌍을 테스트하면 QnA Maker 포털에서 마크다운 텍스트 대신 이미지가 표시됩니다. 이렇게 하면 클라이언트 응용 프로그램에서 이미지를 공개적으로 검색할 수 있습니다.
+대화형 테스트 패널에서 QnA 쌍을 테스트 하면 QnA Maker 포털에서 markdown 텍스트가 아닌 이미지가 표시 됩니다. 이렇게 하면 클라이언트 응용 프로그램에서 이미지를 공개적으로 검색할 수 있는지 유효성을 검사 합니다.
 
 ## <a name="permissions"></a>사용 권한
 
-권한 부여는 SharePoint 서버의 보안 파일이 기술 자료에 추가될 때 발생합니다. SharePoint를 설정하는 방법과 파일을 추가하는 사람의 권한에 따라 다음이 필요할 수 있습니다.
+권한 부여는 SharePoint 서버의 보안 파일이 기술 자료에 추가 된 경우에 발생 합니다. SharePoint를 설정 하는 방법 및 파일을 추가 하는 사용자의 사용 권한에 따라 다음과 같은 작업이 필요할 수 있습니다.
 
-* 추가 단계 없음 - 파일을 추가하는 사람에게 필요한 모든 권한이 있습니다.
-* [기술 자료 관리자와](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) [Active Directory 관리자모두의](#active-directory-manager-grant-file-read-access-to-qna-maker)단계입니다.
+* 추가 단계가 없습니다. 파일을 추가 하는 사용자에 게 필요한 모든 권한이 있습니다.
+* [기술 자료 관리자](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) 와 [Active Directory 관리자](#active-directory-manager-grant-file-read-access-to-qna-maker)의 단계를 모두 수행 합니다.
 
-아래 단계를 참조하십시오.
+아래 나열 된 단계를 참조 하세요.
 
-### <a name="knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal"></a>기술 자료 관리자: QnA Maker 포털에 SharePoint 데이터 원본 추가
+### <a name="knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal"></a>기술 자료 관리자: QnA Maker 포털에서 SharePoint 데이터 원본 추가
 
-**QnA Maker 관리자가** 기술 자료에 보안 SharePoint 문서를 추가하면 기술 자료 관리자는 Active Directory 관리자가 완료해야 하는 권한 요청을 시작합니다.
+**QnA Maker 관리자** 가 기술 자료에 보안 된 SharePoint 문서를 추가 하면 기술 자료 관리자는 Active Directory 관리자가 완료 해야 하는 사용 권한에 대 한 요청을 시작 합니다.
 
-요청은 Active Directory 계정에 인증하는 팝업으로 시작됩니다.
+요청은 Active Directory 계정에 인증 하기 위해 팝업으로 시작 합니다.
 
 ![사용자 계정 인증](../media/add-sharepoint-datasources/authenticate-user-account.png)
 
-QnA Maker 관리자가 계정을 선택하면 Azure Active Directory 관리자는 QnA Maker 앱(QnA Maker 관리자가 아님)이 SharePoint 리소스에 액세스할 수 있도록 허용해야 한다는 알림을 받게 됩니다. Azure Active Directory 관리자는 모든 SharePoint 리소스에 대해 이 작업을 수행해야 하지만 해당 리소스의 모든 문서는 수행할 수 없습니다.
+QnA Maker 관리자가 계정을 선택 하면 Azure Active Directory 관리자는 SharePoint 리소스에 대 한 QnA Maker 앱 (QnA Maker 관리자가 아님)에 대 한 액세스를 허용 해야 한다는 알림을 받게 됩니다. Azure Active Directory 관리자는 모든 SharePoint 리소스에 대해이 작업을 수행 해야 하지만 해당 리소스의 모든 문서는 그렇지 않습니다.
 
-### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>활성 디렉터리 관리자: QnA Maker에 대한 파일 읽기 액세스 권한 부여
+### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Active directory 관리자: QnA Maker에 파일 읽기 액세스 권한을 부여 합니다.
 
-QnA Maker 관리자가 아닌 Active Directory 관리자)는 [이 링크를](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) 선택하여 QnA Maker에 액세스하여 파일 읽기 권한을 부여해야 합니다.
+Active Directory 관리자 (QnA Maker 관리자가 아님)는 [이 QnA Maker 링크](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) 를 선택 하 여 sharepoint 리소스에 액세스할 QnA Maker에 대 한 액세스 권한을 부여 해야 합니다.
 
-![Azure Active Directory 관리자가 대화식으로 권한을 부여합니다.](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
+![Azure Active Directory manager는 대화형으로 사용 권한을 부여 합니다.](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 
 <!--
 The Active Directory manager must grant QnA Maker access either by application name, `QnAMakerPortalSharePoint`, or by application ID, `c2c11949-e9bb-4035-bda8-59542eb907a6`.
@@ -111,17 +111,17 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 -->
 ### <a name="grant-access-from-the-azure-active-directory-admin-center"></a>Azure Active Directory 관리 센터에서 액세스 권한 부여
 
-1. Active Directory 관리자는 Azure 포털에 로그인하고 **[엔터프라이즈 응용 프로그램을 엽니다.](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**
+1. Active Directory manager는 Azure Portal에 로그인 하 고 **[엔터프라이즈 응용 프로그램](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)** 을 엽니다.
 
-1. `QnAMakerPortalSharePoint` QnA 메이커 앱을 선택하여 검색합니다.
+1. `QnAMakerPortalSharePoint` QnA Maker 앱 선택을 검색 합니다.
 
-    [![엔터프라이즈 앱 목록에서 QnAMakerPortalSharePoint 검색](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
+    [![Enterprise apps 목록에서 QnAMakerPortalSharePoint를 검색 합니다.](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 
-1. **보안에서** **권한으로 이동합니다.** **조직에 대한 관리자 동의를**선택합니다.
+1. **보안**에서 **사용 권한**으로 이동 합니다. **조직에 대해 관리자 동의 부여를**선택 합니다.
 
-    [![활성 디렉터리 관리자에 대해 인증된 사용자 선택](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
+    [![Active Directory 관리자에 대해 인증 된 사용자를 선택 합니다.](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
 
-1. Active Directory에 대한 권한을 부여할 수 있는 권한이 있는 사인온 계정을 선택합니다.
+1. Active Directory에 대 한 권한을 부여할 수 있는 권한이 있는 로그온 계정을 선택 합니다.
 
 
 

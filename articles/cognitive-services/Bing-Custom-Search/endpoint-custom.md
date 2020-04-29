@@ -1,7 +1,7 @@
 ---
 title: Bing Custom Search 엔드포인트
 titleSuffix: Azure Cognitive Services
-description: 관심 있는 주제에 대한 맞춤형 검색 환경을 만듭니다. 사용자는 관심 있는 콘텐츠에 맞게 조정된 검색 결과를 볼 수 있습니다.
+description: 관심이 있는 항목에 대 한 맞춤형 검색 환경을 만듭니다. 사용자는 관심 있는 콘텐츠에 맞게 조정 된 검색 결과를 볼 수 있습니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 03ec22caedd4e317b9e1fe781dc3d983febc7a6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74072780"
 ---
 # <a name="custom-search"></a>사용자 지정 검색
