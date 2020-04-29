@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구를 통해 재해 복구를 위한 구성 서버 관리
+title: Azure Site Recovery를 사용 하 여 재해 복구를 위한 구성 서버 관리
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80672762"
 ---
-# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>VMware VM/물리적 서버 재해 복구를 위한 구성 서버 관리
+# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>VMware v m/물리적 서버 재해 복구를 위한 구성 서버 관리
 
 Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Site Recovery](site-recovery-overview.md)를 사용할 경우 온-프레미스 구성 서버를 설정합니다. 구성 서버는 온-프레미스 VMware 및 Azure 간의 통신을 조정하고 데이터 복제를 관리합니다. 이 문서에서는 배포된 후에 구성 서버를 관리하기 위한 일반 태스크를 요약합니다.
 
@@ -22,14 +22,14 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 ## <a name="update-windows-license"></a>Windows 라이선스 업데이트
 
-OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라이선스입니다. 중단 없이 사용하려면 제공된 라이선스를 사용하여 Windows를 정품 인증해야 합니다. 라이센스 업데이트는 독립 실행형 키 또는 KMS 표준 키를 통해 수행할 수 있습니다. [지침은 OS를 실행하기 위한 DISM Windows 명령줄에서](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options)사용할 수 있습니다. 키를 얻으려면 [KMS 클라이언트 설정을](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys)참조하십시오.
+OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라이선스입니다. 중단 없이 사용하려면 제공된 라이선스를 사용하여 Windows를 정품 인증해야 합니다. 라이선스 업데이트는 독립 실행형 키 또는 KMS 표준 키를 통해 수행할 수 있습니다. 지침은 [DISM Windows 명령줄에서 OS를 실행](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options)하는 데 사용할 수 있습니다. 키를 가져오려면 [KMS 클라이언트 설정](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys)을 참조 하세요.
 
 ## <a name="access-configuration-server"></a>구성 서버 액세스
 
 다음과 같이 구성 서버에 액세스할 수 있습니다.
 
-* 배포된 VM에 로그인하고 데스크톱 바로 가기에서 **Azure 사이트 복구 구성 관리자를** 시작합니다.
-* 또는*ConfigurationServerName*/:44315/에서 구성 서버에 원격으로 액세스할 수 https://. 관리자 자격 증명을 사용하여 로그인합니다.
+* 배포 된 VM에 로그인 하 고 바탕 화면 바로 가기에서 **Azure Site Recovery Configuration Manager** 를 시작 합니다.
+* 또는 https://*Configurationservername*/: 44315/에서 원격으로 구성 서버에 액세스할 수 있습니다. 관리자 자격 증명을 사용하여 로그인합니다.
 
 ## <a name="modify-vmware-server-settings"></a>VMware 서버 설정 수정
 
@@ -45,7 +45,7 @@ OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라
 
 CSPSConfigtool.exe를 통해 자격 증명을 수정할 수도 있습니다.
 
-1. 구성 서버에 로그인하고 CSPSConfigtool.exe를 시작합니다.
+1. 구성 서버에 로그인 하 고 CSPSConfigtool .exe를 실행 합니다.
 2. 수정할 계정을 선택하고 **편집**을 클릭합니다.
 3. 수정된 자격 증명을 입력하고 **확인**을 클릭하세요.
 
@@ -53,49 +53,49 @@ CSPSConfigtool.exe를 통해 자격 증명을 수정할 수도 있습니다.
 
 복제에 대해 사용되는 VMware VM에 Mobility Service를 자동으로 설치하는 데 사용되는 자격 증명을 수정합니다.
 
-1. [로그인](#access-configuration-server)후 가상 **시스템 자격 증명 관리를 선택합니다.**
-2. 수정할 계정을 선택하고 **편집을** 클릭합니다.
+1. [로그인](#access-configuration-server)한 후 **가상 머신 자격 증명 관리** 를 선택 합니다.
+2. 수정 하려는 계정을 선택 하 고 **편집** 을 클릭 합니다.
 3. 새 자격 증명을 입력하고 **확인**을 선택합니다.
 
     ![Mobility Service 자격 증명 수정](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
 
 CSPSConfigtool.exe를 통해 자격 증명을 수정할 수도 있습니다.
 
-1. 구성 서버에 로그인하고 CSPSConfigtool.exe를 시작합니다.
-2. 수정할 계정을 선택하고 **편집을** 클릭합니다.
+1. 구성 서버에 로그인 하 고 CSPSConfigtool .exe를 실행 합니다.
+2. 수정 하려는 계정을 선택 하 고 **편집** 을 클릭 합니다.
 3. 새 자격 증명을 입력하고 **확인**을 클릭합니다.
 
 ## <a name="add-credentials-for-mobility-service-installation"></a>Mobility 서비스 설치를 위해 자격 증명 추가
 
 구성 서버의 OVF 배치 중 자격 증명을 누락한 경우에는 다음을 수행하세요.
 
-1. [로그인](#access-configuration-server)한 후 **가상 시스템 자격 증명 관리를 선택합니다.**
+1. [로그인](#access-configuration-server)한 후 **가상 머신 자격 증명 관리**를 선택 합니다.
 2. **가상 머신 자격 증명 추가**를 클릭하세요.
     ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. 새 자격 증명을 입력하고 **추가**를 클릭하세요.
 
 CSPSConfigtool.exe를 통해 자격 증명을 추가할 수도 있습니다.
 
-1. 구성 서버에 로그인하고 CSPSConfigtool.exe를 시작합니다.
+1. 구성 서버에 로그인 하 고 CSPSConfigtool .exe를 실행 합니다.
 2. **추가**를 클릭하고 새 자격 증명을 입력한 다음, **확인**을 클릭하세요.
 
 ## <a name="modify-proxy-settings"></a>프록시 설정 수정
 
 Azure에 대한 인터넷 액세스를 위해 구성 서버 컴퓨터에서 사용하는 프록시 설정을 수정합니다. 구성 서버 컴퓨터에서 실행 중인 기본 프로세스 서버 외에도, 프로세스 서버 컴퓨터가 있는 경우 두 컴퓨터의 설정을 수정합니다.
 
-1. 구성 서버에 [로그인한](#access-configuration-server) 후 **연결 관리를**선택합니다.
+1. 구성 서버에 [로그인](#access-configuration-server) 한 후 **연결 관리**를 선택 합니다.
 2. 프록시 값을 업데이트합니다. 그런 후 **저장**을 선택하여 설정을 업데이트합니다.
 
 ## <a name="add-a-network-adapter"></a>네트워크 어댑터 추가
 
 OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 사용하여 구성 서버 VM을 배포합니다.
 
-- [VM에 어댑터를 추가할](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter)수 있지만 볼트에 구성 서버를 등록하기 전에 어댑터를 추가해야 합니다.
-- 구성 서버를 자격 증명 모음에 등록한 후 어댑터를 추가하려면 VM 속성에서 어댑터를 추가합니다. 그런 다음 볼트에 서버를 [다시 등록해야](#reregister-a-configuration-server-in-the-same-vault) 합니다.
+- [VM에 추가 어댑터를 추가할](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter)수 있지만 구성 서버를 자격 증명 모음에 등록 하기 전에 추가 해야 합니다.
+- 구성 서버를 자격 증명 모음에 등록한 후 어댑터를 추가하려면 VM 속성에서 어댑터를 추가합니다. 그런 다음 자격 증명 모음에서 서버를 [다시 등록](#reregister-a-configuration-server-in-the-same-vault) 해야 합니다.
 
-## <a name="how-to-renew-ssl-certificates"></a>SSL 인증서를 갱신하는 방법
+## <a name="how-to-renew-ssl-certificates"></a>SSL 인증서를 갱신 하는 방법
 
-구성 서버에는 보호된 모든 컴퓨터에서 Mobility 에이전트의 활동을 오케스트레이션하는 붙박이 웹 서버, 붙박/확장 프로세스 서버 및 연결된 마스터 대상 서버가 있습니다. 웹 서버는 SSL 인증서를 사용하여 클라이언트를 인증합니다. 인증서는 3년 후에 만료되며 언제든지 갱신할 수 있습니다.
+구성 서버에는 기본 제공 웹 서버가 있습니다 .이 서버에는 모든 보호 된 컴퓨터에 대 한 모바일 에이전트의 활동, 오케스트레이션/스케일 아웃 프로세스 서버 및 연결 된 마스터 대상 서버가 포함 됩니다. 웹 서버는 SSL 인증서를 사용하여 클라이언트를 인증합니다. 인증서는 3년 후에 만료되며 언제든지 갱신할 수 있습니다.
 
 ### <a name="check-expiry"></a>만료 확인
 
@@ -105,32 +105,32 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 - 알림 배너가 자격 증명 모음 리소스 페이지에 나타납니다. 자세한 내용은 배너를 선택합니다.
 - **지금 업그레이드** 단추가 표시되면 작업 환경의 일부 구성 요소가 아직 9.4.xxxx.x 이상 버전으로 업그레이드되지 않았음을 의미합니다. 인증서를 갱신하기 전에 구성 요소를 업그레이드합니다. 이전 버전에서는 갱신할 수 없습니다.
 
-### <a name="if-certificates-are-yet-to-expire"></a>인증서가 아직 만료되지 않은 경우
+### <a name="if-certificates-are-yet-to-expire"></a>인증서가 아직 만료 되지 않은 경우
 
-1. 볼트에서 사이트 복구 인프라**구성 서버를**열려면 **갱신합니다.** >  원하는 구성 서버를 선택합니다.
-2. 보호된 모든 컴퓨터에서 모든 구성 요소 확장 프로세스 서버, 마스터 대상 서버 및 모빌리티 에이전트가 최신 버전에 있고 연결된 상태인지 확인합니다.
-3. 이제 **인증서 갱신을 선택합니다.**
-4. 이 페이지의 지침을 주의 깊게 따르고 확인을 클릭하여 선택한 구성 서버및 관련 구성 요소에서 인증서를 갱신합니다.
+1. 갱신 하려면 자격 증명 모음에서 **Site Recovery 인프라** > **구성 서버**를 엽니다. 원하는 구성 서버를 선택합니다.
+2. 모든 보호 된 컴퓨터의 모든 구성 요소 스케일 아웃 프로세스 서버, 마스터 대상 서버 및 모바일 에이전트가 최신 버전에 있고 연결 된 상태 인지 확인 합니다.
+3. 이제 **인증서 갱신**을 선택 합니다.
+4. 이 페이지의 지침을 주의 하 여 확인 하 고 확인을 클릭 하 여 선택한 구성 서버 및 연결 된 구성 요소에서 인증서를 갱신 합니다.
 
-### <a name="if-certificates-have-already-expired"></a>인증서가 이미 만료된 경우
+### <a name="if-certificates-have-already-expired"></a>인증서가 이미 만료 된 경우
 
-1. 만료 후 Azure 포털에서 인증서를 **갱신할 수 없습니다.** 계속하기 전에 보호된 모든 컴퓨터의 모든 구성 요소 확장 프로세스 서버, 마스터 대상 서버 및 모빌리티 에이전트가 최신 버전에 있고 연결된 상태인지 확인합니다.
-2. **인증서가 이미 만료된 경우에만 이 절차를 따르십시오.** 구성 서버에 로그인, C 드라이브 >로 이동 프로그램 데이터 > 사이트 복구 > 홈 > svsystems > 저장소및 "RenewCerts" 실행기 도구를 실행 관리자로 실행 합니다.
-3. PowerShell 실행 창이 팝업되고 인증서 갱신을 트리거합니다. 이 작업은 최대 15분까지 걸릴 수 있습니다. 갱신이 완료될 때까지 창을 닫지 마십시오.
+1. 만료 후 **Azure Portal에서 인증서를 갱신할 수 없습니다**. 계속 하기 전에 모든 구성 요소 스케일 아웃 프로세스 서버, 마스터 대상 서버 및 모든 보호 된 컴퓨터의 모바일 에이전트가 최신 버전에 있고 연결 된 상태에 있는지 확인 하세요.
+2. **인증서가 이미 만료 된 경우에만 다음 절차를 따르세요.** 구성 서버에 로그인 하 고, C 드라이브 > 프로그램 데이터 > Site Recovery > home > svsystems > bin으로 이동 하 고, "Renewcerts.exe" executor 도구를 관리자 권한으로 실행 합니다.
+3. PowerShell 실행 창이 팝업 되 고 인증서 갱신이 트리거됩니다. 이 작업은 최대 15분까지 걸릴 수 있습니다. 갱신이 완료 될 때까지 창을 닫지 마십시오.
 
-:::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="인증서 갱신":::
+:::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="RenewCertificates":::
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>동일한 자격 증명 모음에 구성 서버 다시 등록
 
 필요한 경우 동일한 자격 증명 모음에 구성 서버를 다시 등록할 수 있습니다. 구성 서버 컴퓨터에서 실행 중인 기본 프로세스 서버 외에도, 추가 프로세스 서버 컴퓨터가 있는 경우 두 컴퓨터를 다시 등록합니다.
 
 
-1. 볼트에서 사이트 **Manage** > **복구 인프라** > 구성 서버 관리를**엽니다.**
+1. 자격 증명 모음에서 **관리** > **Site Recovery 인프라** > **구성 서버**를 엽니다.
 2. **서버**에서 **등록 키 다운로드**를 선택하여 자격 증명 모음 자격 증명 파일을 다운로드합니다.
 3. 구성 서버 컴퓨터에 로그인합니다.
 4. **%ProgramData%\ASR\home\svsystems\bin**에서 **cspsconfigtool.exe**를 엽니다.
 5. **자격 증명 모음 등록** 탭에서 **찾아보기**를 선택하고 다운로드한 자격 증명 모음 자격 증명 파일을 찾습니다.
-6. 필요한 경우 프록시 서버 세부 정보를 제공합니다. 그런 다음 **등록을**선택합니다.
+6. 필요한 경우 프록시 서버 세부 정보를 제공합니다. 그런 다음 **등록**을 선택 합니다.
 7. 관리자 PowerShell 명령 창을 열고 다음 명령을 실행합니다.
    ```
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -138,7 +138,7 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
    ```
 
     >[!NOTE]
-    >구성 서버에서 확장 프로세스 서버로 **최신 인증서를 가져오려면** *\<"설치 드라이브\Microsoft Azure 사이트 복구\에이전트\cdpcli.exe>"--registermt*
+    >구성 서버에서 스케일 아웃 프로세스 서버로 **최신 인증서를 풀** 하려면 *"\<설치 Drive\Microsoft Azure Site recovery\server\cdpclipclipclipclipclipcli.exe>"--registermt* 를 실행 합니다.
 
 8. 마지막으로 다음 명령을 실행하여 obengine을 다시 시작합니다.
    ```
@@ -178,7 +178,7 @@ Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [�
 
 다음과 같이 서버를 업그레이드합니다.
 
-1. 볼트에서**사이트 복구 인프라** > 구성 서버 **관리로** > **이동합니다.**
+1. 자격 증명 모음에서 **관리** > **Site Recovery 인프라** > **구성 서버**로 이동 합니다.
 2. 업데이트를 사용할 수 있는 경우 **에이전트 버전** > 열에 링크가 표시됩니다.
     ![Update](./media/vmware-azure-manage-configuration-server/update2.png)
 3. 업데이트 설치 관리자 파일을 구성 서버에 다운로드합니다.
@@ -212,7 +212,7 @@ Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [�
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수 이름| Type | Description| 값|
+|매개 변수 이름| Type | 설명| 값|
 |-|-|-|-|
 | /ServerMode|필수|구성 서버와 프로세스 서버를 모두 설치할지 또는 프로세스 서버만 설치할지 여부를 지정합니다.|CS<br>PS|
 |/InstallLocation|필수|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|
@@ -256,7 +256,7 @@ ProxyPassword="Password"
 1. 구성 서버의 모든 VM에 대해 [보호를 사용하지 않습니다](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
 2. 구성 서버에서 모든 복제 정책을 [연결 해제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) 및 [삭제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy)합니다.
 3. 구성 서버에 연결된 모든 vCenter 서버/vSphere 호스트를 [삭제](vmware-azure-manage-vcenter.md#delete-a-vcenter-server)합니다.
-4. 볼트에서 사이트 **복구 인프라** > **구성 서버를 엽니다.**
+4. 자격 증명 모음에서 **Site Recovery 인프라** > **구성 서버**를 엽니다.
 5. 제거하려는 구성 서버를 선택합니다. 그런 다음, **세부 정보** 페이지에서 **삭제**를 선택합니다.
 
     ![구성 서버 삭제](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
@@ -287,7 +287,7 @@ ProxyPassword="Password"
     `Remove-AzSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
-> 구성 서버를 강제로 삭제하려면 제거-AzSiteRecoveryFabric에서 **-Force** 옵션을 사용할 수 있습니다.
+> AzSiteRecoveryFabric에서 **-Force** 옵션을 사용 하 여 구성 서버를 강제로 삭제할 수 있습니다.
 
 ## <a name="generate-configuration-server-passphrase"></a>구성 서버 암호 생성
 
@@ -298,10 +298,10 @@ ProxyPassword="Password"
 
 ## <a name="refresh-configuration-server"></a>구성 서버 새로 고침
 
-1. Azure 포털에서**VMware & 물리적 컴퓨터** > 구성 서버에 대한 **복구 서비스 볼트** > **관리** > **사이트 복구 인프라로** > **이동합니다.**
+1. Azure Portal에서 > **VMware & 물리적 컴퓨터****구성 서버** 에 대 한**Site Recovery 인프라** > **관리** >  **Recovery Services 자격 증명 모음** > 으로 이동 합니다.
 2. 새로 고치려는 구성 서버를 클릭합니다.
-3. 선택한 구성 서버의 세부 정보가 있는 블레이드에서 서버 새로**고침** **을 클릭합니다.** > 
-4. **복구 서비스 볼트** > **모니터링** > **사이트 복구 작업에서**작업의 진행 상황을 모니터링합니다.
+3. 선택한 구성 서버에 대 한 세부 정보가 있는 블레이드에서 **추가** > **서버 새로 고침**을 클릭 합니다.
+4. **Recovery Services 자격 증명 모음** > **모니터링** > **Site Recovery 작업**에서 작업의 진행률을 모니터링 합니다.
 
 ## <a name="failback-requirements"></a>장애 복구 요구 사항
 

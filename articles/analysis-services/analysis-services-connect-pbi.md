@@ -1,6 +1,6 @@
 ---
 title: Power BI를 사용하여 Azure Analysis Services에 연결 | Microsoft Docs
-description: Power BI를 사용하여 Azure Analysis Services 서버에 연결하는 방법에 대해 알아봅니다. 연결되면 사용자는 모델 데이터를 탐색할 수 있습니다.
+description: Power BI를 사용하여 Azure Analysis Services 서버에 연결하는 방법에 대해 알아봅니다. 연결 되 면 사용자가 모델 데이터를 탐색할 수 있습니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 6205c4189abfefc2ee9c4a273ebfd6773ea609b6
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411370"
 ---
 # <a name="connect-with-power-bi"></a>Power BI로 연결
@@ -25,7 +25,7 @@ Azure에서 서버를 만들고 테이블 형식 모델을 배포하면 조직�
   
 ## <a name="connect-in-power-bi-desktop"></a>Power BI Desktop에서 연결
 
-1. Power BI 데스크톱에서**Azure** > 데이터 > Azure**Azure 분석 서비스 데이터베이스** **가져옵니다.**
+1. Power BI Desktop에서 **데이터** > 가져오기**Azure** > **Azure Analysis Services 데이터베이스**를 클릭 합니다.
 
 2. **서버**에 서버 이름을 입력합니다. 전체 URL을 포함하려면 예를 들어 asazure://westcentralus.asazure.windows.net/advworks 같이 입력합니다.
 
@@ -46,7 +46,7 @@ Azure에서 서버를 만들고 테이블 형식 모델을 배포하면 조직�
 1. 서버의 모델에 대한 라이브 연결을 포함하는 Power BI Desktop 파일을 만듭니다.
 2. [Power BI](https://powerbi.microsoft.com)에서 **데이터 가져오기** > **파일**을 클릭한 다음, .pbix 파일을 찾아서 선택합니다.
 
-## <a name="see-also"></a>참조
-[Azure 분석 서비스에 연결](analysis-services-connect.md)   
+## <a name="see-also"></a>참고 항목
+[Azure Analysis Services에 연결](analysis-services-connect.md)   
 [클라이언트 라이브러리](analysis-services-data-providers.md)
 

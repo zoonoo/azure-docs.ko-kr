@@ -1,5 +1,5 @@
 ---
-title: 가용성 그룹 & 로드 밸러블러(PowerShell) 구성
+title: 부하 분산 장치 & 가용성 그룹 수신기 구성 (PowerShell)
 description: 하나 이상의 IP 주소를 갖는 내부 부하 분산 장치를 사용하여 Azure Resource Manager 모델에서 가용성 그룹 수신기를 구성합니다.
 services: virtual-machines
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.date: 02/06/2019
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: cabfc84d2bc0c9d08a457e67c0182d7550f04ceb
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668897"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager
@@ -58,12 +58,12 @@ Azure 네트워크 보안 그룹을 사용하여 액세스를 제한하는 경�
 
 ## <a name="determine-the-load-balancer-sku-required"></a>필요한 부하 분산 장치 SKU 확인
 
-[Azure 로드 밸러블러는](../../../load-balancer/load-balancer-overview.md) 2개의 SCO: 기본 & 표준에서 사용할 수 있습니다. 표준 부하 분산 장치를 사용하는 것이 좋습니다. 가상 머신이 가용성 세트에 있는 경우 기본 부하 분산 장치가 허용됩니다. 가상 시스템이 가용성 영역에 있는 경우 표준 로드 밸런서가 필요합니다. 표준 부하 분산 장치에는 표준 IP 주소를 사용하는 모든 VM IP 주소가 필요합니다.
+[Azure 부하 분산 장치](../../../load-balancer/load-balancer-overview.md) 는 2 개 Sku: Basic & Standard에서 사용할 수 있습니다. 표준 부하 분산 장치를 사용하는 것이 좋습니다. 가상 머신이 가용성 세트에 있는 경우 기본 부하 분산 장치가 허용됩니다. 가상 컴퓨터가 가용성 영역에 있는 경우 표준 부하 분산 장치가 필요 합니다. 표준 부하 분산 장치에는 표준 IP 주소를 사용하는 모든 VM IP 주소가 필요합니다.
 
 현재 가용성 그룹을 위한 [Microsoft 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)은 기본 IP 주소를 사용하는 기본 부하 분산 장치를 사용합니다.
 
    > [!NOTE]
-   > 클라우드 감시에 표준 로드 밸러버 및 Azure 저장소를 사용하는 경우 [서비스 끝점을](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) 구성해야 합니다. 
+   > 표준 부하 분산 장치를 사용 하 고 클라우드 감시에 대 한 Azure Storage 하는 경우 [서비스 끝점](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) 을 구성 해야 합니다. 
 
 
 이 문서의 예제에서는 표준 부하 분산 장치를 지정합니다. 예제에서 스크립트는 `-sku Standard`를 포함합니다.
@@ -133,7 +133,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a><a name="Add-IP"></a>예제 스크립트: PowerShell을 사용하여 기존 로드 밸런서에 IP 주소를 추가합니다.
+## <a name="example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a><a name="Add-IP"></a>예제 스크립트: PowerShell을 사용 하 여 기존 부하 분산 장치에 IP 주소 추가
 둘 이상의 가용성 그룹을 사용하려면 추가 IP 주소를 부하 분산 장치에 추가합니다. 각 IP 주소에는 자체 부하 분산 규칙, 프로브 포트 및 프런트 엔드 포트가 필요합니다.
 
 프런트 엔드 포트는 애플리케이션이 SQL Server 인스턴스에 연결하는 데 사용하는 포트입니다. 다른 가용성 그룹에 대한 IP 주소는 동일한 프런트 엔드 포트를 사용할 수 있습니다.
@@ -141,7 +141,7 @@ foreach($VMName in $VMNames)
 > [!NOTE]
 > SQL Server 가용성 그룹의 경우 각 IP 주소에 특정 프로브 포트가 필요합니다. 예를 들어 부하 분산 장치에 있는 하나의 IP 주소가 프로브 포트 59999를 사용하는 경우 해당 부하 분산 장치의 다른 IP 주소는 프로브 포트 59999를 사용할 수 없습니다.
 
-* 로드 밸러서 제한에 대한 자세한 내용은 [네트워킹 제한 - Azure 리소스 관리자에서](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)로드 **밸러터당 개인 프런트 엔드 IP를** 참조하십시오.
+* 부하 분산 장치 제한에 대 한 자세한 내용은 [네트워킹 제한-Azure Resource Manager](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)에서 **부하 분산 장치당 개인 프런트 엔드 IP** 를 참조 하세요.
 * 가용성 그룹 제한에 대한 자세한 내용은 [제한 사항(가용성 그룹)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG)을 참조하세요.
 
 다음 스크립트는 기존 부하 분산 장치에 새 IP 주소를 추가합니다. ILB는 부하 분산 프런트 엔드 포트에 대해 수신기 포트를 사용합니다. 이 포트는 SQL Server에서 수신 대기 중인 포트일 수 있습니다. SQL Server의 기본 인스턴스의 경우 포트는 1433입니다. 가용성 그룹에 대한 부하 분산 규칙에는 부동 IP(Direct Server Return)가 필요하므로 백 엔드 포트는 프런트 엔드 포트와 동일합니다. 사용자 환경에 맞게 변수를 업데이트합니다. 
@@ -193,11 +193,11 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. SQL Server Management Studio를 시작하고 주 복제본에 연결합니다.
 
-1. 항상 **켜기로** | 이동 고가용성**그룹** | **가용성 그룹 수신기**. 
+1. **AlwaysOn 고가용성** | **가용성 그룹** | **가용성 그룹 수신기**로 이동 합니다. 
 
 1. 이제 장애 조치(Failover) 클러스터 관리자에서 만든 수신기 이름이 표시됩니다. 수신기 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 
-1. **포트** 상자에서 이전에 사용한 $EndpointPort 사용하여 가용성 그룹 리스너에 대한 포트 번호를 지정한 다음 **확인을**클릭합니다.
+1. **포트** 상자에서 이전에 사용한 $EndpointPort (1433)를 사용 하 여 가용성 그룹 수신기에 대 한 포트 번호를 지정한 다음 **확인**을 클릭 합니다.
 
 ## <a name="test-the-connection-to-the-listener"></a>수신기에 대한 연결 테스트
 
@@ -205,7 +205,7 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. 동일한 가상 네트워크에 있지만 복제본을 소유하지 않는 SQL Server로 RDP합니다. 클러스터의 다른 SQL Server가 될 수 있습니다.
 
-1. **sqlcmd** 유틸리티를 사용하여 연결을 테스트합니다. 예를 들어 다음 스크립트는 Windows 인증을 사용하여 수신기를 통해 기본 복제본에 대한 **sqlcmd** 연결을 설정합니다.
+1. **Sqlcmd** 유틸리티를 사용 하 여 연결을 테스트 합니다. 예를 들어 다음 스크립트는 Windows 인증을 사용 하는 수신기를 통해 주 복제본에 대 한 **sqlcmd** 연결을 설정 합니다.
    
     ```
     sqlcmd -S <listenerName> -E
@@ -231,7 +231,7 @@ SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자
 
 * Azure 네트워크 보안 그룹을 사용하여 액세스를 제한하는 경우 허용 규칙에 백 엔드 SQL Server VM IP 주소, AG 수신기에 대한 Load Balancer 부동 IP 주소 및 클러스터 코어 IP 주소가 포함되는지 확인합니다.
 
-* 클라우드 감시에 대한 Azure Storage에서 표준 로드 밸러커를 사용할 때 서비스 끝점을 만듭니다. 자세한 내용은 [가상 네트워크에서 권한 부여 액세스](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)권한을 참조하십시오.
+* 클라우드 감시에 대 한 Azure Storage를 사용 하는 표준 부하 분산 장치를 사용 하는 경우 서비스 끝점을 만듭니다. 자세한 내용은 [가상 네트워크에서 액세스 권한 부여](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)를 참조 하세요.
 
 ## <a name="for-more-information"></a>참조 항목
 자세한 내용은 [수동으로 Azure VM의 Always On 가용성 그룹 구성](virtual-machines-windows-portal-sql-availability-group-tutorial.md)을 참조하세요.

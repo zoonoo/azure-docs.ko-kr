@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
 ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250999"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용
@@ -331,7 +331,7 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 
 ![비디오 데이터 형식 업데이터 및 형식 변환기](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter.png)
 
-*비디오 데이터 형식 업데이터 및 포맷 컨버터*
+*비디오 데이터 형식 업데이트 프로그램 및 형식 변환기*
 
 ![레이아웃 형식 = 구성 가능한 평면](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter2.png)
 
@@ -466,11 +466,11 @@ public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string conf
 
 * 인코딩된 자산은 다중 언어 오디오 트랙을 포함하며 이러한 트랙을 Azure Media Player에서 선택할 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Azure Media Services의 프리미엄 Encoding 소개](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-* [Azure 미디어 서비스에서 프리미엄 인코딩을 사용하는 방법](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-* [Azure 미디어 서비스를 통해 주문형 콘텐츠 인코딩](media-services-encode-asset.md#media-encoder-premium-workflow)
-* [미디어 인코더 프리미엄 워크플로 형식 및 코덱](media-services-premium-workflow-encoder-formats.md)
+* [Azure Media Services에서 프리미엄 인코딩을 사용 하는 방법](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+* [Azure Media Services로 주문형 콘텐츠 인코딩](media-services-encode-asset.md#media-encoder-premium-workflow)
+* [Media Encoder Premium Workflow 형식 및 코덱](media-services-premium-workflow-encoder-formats.md)
 * [샘플 워크플로 파일](https://github.com/Azure/azure-media-services-samples)
 * [Azure Media Services 탐색기 도구](https://aka.ms/amse)
 

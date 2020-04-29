@@ -1,6 +1,6 @@
 ---
-title: 2023년 3월 1일에 Azure 클래식 VM을 폐기합니다.
-description: 아티클은 클래식 VM 사용 중지에 대한 개요를 제공합니다.
+title: 2023 년 3 월 1 일에 Azure 클래식 Vm을 사용 중지 하 고 있습니다.
+description: 문서는 클래식 VM 사용 중지에 대 한 개략적인 개요를 제공 합니다.
 services: virtual-machines
 author: tanmaygore
 manager: vashan
@@ -11,40 +11,40 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: tagore
 ms.openlocfilehash: e56aa5ec073aadc2a16d53c266d33255a34077cb
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668800"
 ---
-# <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>2023년 3월 1일까지 IaaS 리소스를 Azure 리소스 관리자로 마이그레이션합니다. 
+# <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>2023 년 3 월 1 일 Azure Resource Manager IaaS 리소스 마이그레이션 
 
-2014년에는 Azure 리소스 관리자에서 IaaS를 출시했으며 그 이후로 기능을 향상시켜 왔습니다. [Azure 리소스 관리자에는](https://azure.microsoft.com/features/resource-manager/) 이제 전체 IaaS 기능 및 기타 발전 이 있으므로 2020년 2월 28일에 Azure 서비스 관리자를 통해 IaaS VM 관리를 더 이상 사용할 수 없으며 이 기능은 2023년 3월 1일에 완전히 사용 중지됩니다. 
+2014에서는 Azure Resource Manager에서 IaaS를 실행 했으며 이후 기능을 개선 했습니다. [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) 이제 전체 iaas 기능 및 기타 고급 기능을 제공 하기 때문에 2020 년 2 월 28 일에 Azure Service Manager를 통해 iaas vm의 관리를 사용 하지 않으며,이 기능은 2023 년 3 월 1 일에 완전히 사용 중지 됩니다. 
 
-현재 IaaS VM의 약 90%가 Azure 리소스 관리자를 사용하고 있습니다. ASM(Azure Service Manager)을 통해 IaaS 리소스를 사용하는 경우 지금 마이그레이션 계획을 시작하고 2023년 3월 1일까지 완료하여 [Azure 리소스 관리자를](https://docs.microsoft.com/azure/azure-resource-manager/management/)활용합니다.
+현재 IaaS Vm의 약 90%가 Azure Resource Manager를 사용 하 고 있습니다. ASM (Azure Service Manager)을 통해 IaaS 리소스를 사용 하는 경우 지금 마이그레이션 계획을 시작 하 고 2023 년 3 월 1 일까 지 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/)를 활용 하 여 완료 합니다.
 
-클래식 VM은 은퇴를 위한 [최신 수명 주기 정책을](https://support.microsoft.com/help/30881/modern-lifecycle-policy) 따르게 됩니다.
+클래식 Vm은 [최신 수명 주기 정책](https://support.microsoft.com/help/30881/modern-lifecycle-policy) 에 따라 만료 됩니다.
 
 ## <a name="how-does-this-affect-me"></a>이 변경 사항은 어떤 영향을 미치나요? 
 
-1) 2020년 2월 28일부터 2020년 2월에 ASM(Azure Service Manager)을 통해 IaaS VM을 사용하지 않은 고객은 더 이상 클래식 VM을 만들 수 없습니다. 
-2) 2023년 3월 1일에 고객은 더 이상 Azure 서비스 관리자를 사용하여 IaaS VM을 시작할 수 없으며, 아직 실행 중이거나 할당된 모든 VM은 중지되고 할당됩니다. 
-2) 2023년 3월 1일에 Azure 리소스 관리자로 마이그레이션하지 않은 구독은 나머지 클래식 VM을 삭제하는 일정에 대해 알림을 받게 됩니다.  
+1) 2020 년 2 월 28 일부 터 Azure Service Manager (ASM 2020)를 통해 IaaS Vm을 사용 하지 않는 고객은 더 이상 클래식 Vm을 만들 수 없습니다. 
+2) 2023 년 3 월 1 일부 터 고객은 더 이상 Azure Service Manager를 사용 하 여 IaaS Vm을 시작할 수 없으며 계속 실행 중이거나 할당 된이 중지 되 고 할당이 취소 됩니다. 
+2) 2023 년 3 월 1 일부 터 Azure Resource Manager로 마이그레이션되지 않은 구독은 남은 클래식 Vm을 삭제 하는 일정에 대 한 알림을 받습니다.  
 
-다음 Azure 서비스 및 기능은 이 사용 중지의 영향을 **받지 않습니다.** 
+다음 Azure 서비스 및 기능은이 사용 중지에 영향을 **받지 않습니다** . 
 - Cloud Services 
-- 클래식 VM에서 사용하지 **않는** 저장소 계정 
-- 가상 네트워크(VNet)는 클래식 VM에서 사용하지 **않습니다.** 
+- 클래식 Vm에서 사용 **하지 않는** 저장소 계정 
+- Vnet (가상 네트워크)는 클래식 Vm에서 사용 **되지 않습니다** . 
 - 기타 클래식 리소스
 
-## <a name="what-actions-should-i-take"></a>어떤 조치를 취해야 하나요? 
+## <a name="what-actions-should-i-take"></a>어떤 작업을 수행 해야 하나요? 
 
-- 지금 Azure 리소스 관리자로 마이그레이션계획을 세우십시오. 
+- 현재 Azure Resource Manager로의 마이그레이션 계획을 시작 합니다. 
 
-- 클래식 [Linux](./linux/migration-classic-resource-manager-plan.md) 및 [Windows](./windows/migration-classic-resource-manager-plan.md) VM을 Azure 리소스 관리자로 마이그레이션하는 방법에 대해 [자세히 알아봅니다.](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview)
+- 클래식 [Linux](./linux/migration-classic-resource-manager-plan.md) 및 [Windows](./windows/migration-classic-resource-manager-plan.md) vm을 Azure Resource Manager로 마이그레이션하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview) .
 
-- 자세한 내용은 [Azure 리소스 관리자 마이그레이션에 대한 자주 묻는 질문을 참조하십시오.](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq)
+- 자세한 내용은 [클래식에서 Azure Resource Manager로 마이그레이션에 대 한 질문과 대답](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq) 을 참조 하세요.
 
-- 기술적 질문, 문제 및 구독 허용 목록 [지원.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+- 기술 관련 질문, 문제 및 구독 허용 목록 [지원 담당자에 게 문의 하세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-- FAQ 및 피드백의 일부가 아닌 다른 질문은 아래의 의견에 따라 다하십시오.
+- FAQ 및 피드백의 일부가 아닌 다른 질문은 아래에 설명 되어 있습니다.

@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 02/12/2020
 ms.author: shvija
 ms.openlocfilehash: 0b20c73ed0590f3afc19db43b4b55dd3ff6bde8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79453873"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>이벤트 허브가 있는 네임스페이스를 만들고 템플릿을 사용하여 캡처를 사용하도록 설정
 
-이 문서에서는 하나의 이벤트 허브 인스턴스를 사용하여 [이벤트 허브](event-hubs-what-is-event-hubs.md) 네임스페이스를 만들고 이벤트 허브에서 캡처 [기능을](event-hubs-capture-overview.md) 사용하도록 하는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 또한 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
+이 문서에서는 하나의 이벤트 허브 인스턴스를 사용 하 여 [Event Hubs](event-hubs-what-is-event-hubs.md) 네임 스페이스를 만들고 이벤트 허브에서 [캡처 기능](event-hubs-capture-overview.md) 을 사용 하도록 설정 하는 Azure Resource Manager 템플릿을 사용 하는 방법을 보여 줍니다. 또한 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
 이 문서에는 선택한 대상에 따라 이벤트가 Azure Storage Blobs에 캡처되는지, 아니면 Azure Data Lake Store에 캡쳐되는지를 지정하는 방법을 보여줍니다.
 
@@ -235,7 +235,7 @@ Azure Storage를 대상으로 선택한 경우 다음 매개 변수를 사용합
 }
 ```
 
-Azure Data Lake Store Gen 1을 대상으로 선택한 경우 다음 매개 변수를 사용합니다. 이벤트를 캡처하려는 Data Lake Store 경로에서 사용 권한을 설정해야 합니다. 사용 권한을 설정하려면 [Azure 데이터 레이크 저장소 세대 1에 대한 데이터 캡처를](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1)참조하십시오.
+Azure Data Lake Store Gen 1을 대상으로 선택 하는 경우 다음 매개 변수를 사용 합니다. 이벤트를 캡처하려는 Data Lake Store 경로에서 사용 권한을 설정해야 합니다. 권한을 설정 하려면 [Azure Data Lake Storage Gen 1로 데이터 캡처](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1)를 참조 하세요.
 
 ### <a name="subscriptionid"></a>subscriptionId
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1dac90053797caf66af79e458b9dbb95b682cd17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249582"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Azure API Management의 문제 템플릿
@@ -94,7 +94,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="controls"></a>컨트롤  
  `Issue list` 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
--   [페이징 제어](api-management-page-controls.md#paging-control)  
+-   [페이징-컨트롤](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>데이터 모델  
   
@@ -104,7 +104,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 |`Paging`|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티입니다.|애플리케이션 컬렉션에 대한 페이징 정보입니다.|  
 |`IsAuthenticated`|boolean|현재 사용자가 개발자 포털에 로그인했는지 여부입니다.|  
 |`CanReportIssues`|boolean|현재 사용자에게 문제를 접수할 권한이 있는지 여부입니다.|  
-|`Search`|문자열|이 속성은 사용되지 않으며 사용할 수 없습니다.|  
+|`Search`|string|이 속성은 사용되지 않으며 사용할 수 없습니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
   

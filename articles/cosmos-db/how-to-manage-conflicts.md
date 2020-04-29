@@ -1,16 +1,16 @@
 ---
-title: Azure 코스모스 DB의 지역 간 충돌 관리
-description: Azure Cosmos DB에서 마지막 기록기-wins 또는 사용자 지정 충돌 해결 정책을 만들어 충돌을 관리하는 방법을 알아봅니다.
+title: Azure Cosmos DB에서 지역 간의 충돌 관리
+description: 마지막-쓰기-wins 또는 사용자 지정 충돌 해결 정책을 만들어 Azure Cosmos DB에서 충돌을 관리 하는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: mjbrown
 ms.openlocfilehash: 6d364f1a9974d6d638bb0f824e88ed3866644c15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247411"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 충돌 해결 정책 관리
@@ -107,10 +107,10 @@ udp_collection = self.try_create_document_collection(
 
 사용자 지정 충돌 해결 저장 프로시저는 아래에 표시된 함수 시그니처를 사용하여 구현해야 합니다. 함수 이름은 저장 프로시저를 컨테이너에 등록할 때 사용한 이름과 일치하지 않아도 되지만, 이 방법이 간단합니다. 다음은 이 저장 프로시저에 대해 구현해야 하는 매개 변수에 대한 설명입니다.
 
-- **incomingItem**: 충돌을 생성하는 커밋에서 삽입되거나 업데이트되는 항목입니다. 삭제 작업에 대해 Null입니다.
-- **기존 항목**: 현재 커밋된 항목입니다. 이 값은 업데이트에서는 null이 아니고, 삽입 또는 삭제에서는 null입니다.
-- **isTombstone**: 부울은 들어오는항목이 이전에 삭제된 항목과 충돌하는지 나타냅니다. true이면 existingItem도 Null입니다.
-- **충돌항목**: IN의 IncomingItem 또는 기타 고유 인덱스 속성과 충돌하는 컨테이너의 모든 항목의 커밋된 버전의 배열입니다.
+- **incomingItem**: 충돌을 생성 하는 커밋에서 삽입 또는 업데이트 되는 항목입니다. 삭제 작업에 대해 Null입니다.
+- **existingitem**: 현재 커밋된 항목입니다. 이 값은 업데이트에서는 null이 아니고, 삽입 또는 삭제에서는 null입니다.
+- **Istombstone**: incomingItem가 이전에 삭제 한 항목과 충돌 하는지 여부를 나타내는 부울입니다. true이면 existingItem도 Null입니다.
+- **conflictingItems**: 컨테이너에서 incomingItem에 대 한 ID 또는 기타 고유 인덱스 속성과 충돌 하는 모든 항목의 커밋된 버전 배열입니다.
 
 > [!IMPORTANT]
 > 저장 프로시저와 마찬가지로, 사용자 지정 충돌 해결 프로시저는 파티션 키가 동일한 모든 데이터에 액세스하여 충돌 해결을 위한 삽입, 업데이트 또는 삭제 작업을 수행할 수 있습니다.
@@ -427,8 +427,8 @@ while conflict:
 다음 Azure Cosmos DB 개념에 대해 자세히 알아봅니다.
 
 - [글로벌 배포 - 내부 살펴보기](global-dist-under-the-hood.md)
-- [응용 프로그램에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)
-- [멀티호밍을 위한 클라이언트 구성](how-to-manage-database-account.md#configure-multiple-write-regions)
+- [응용 프로그램에서 다중 마스터를 구성 하는 방법](how-to-multi-master.md)
+- [멀티 호 밍에 대 한 클라이언트 구성](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Azure Cosmos DB 계정에서 지역 추가 또는 제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 - [애플리케이션에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)
 - [분할 및 데이터 배포](partition-data.md)

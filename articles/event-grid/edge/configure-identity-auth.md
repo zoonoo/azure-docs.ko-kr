@@ -1,6 +1,6 @@
 ---
-title: ID 구성 - Azure 이벤트 그리드 IoT 에지 | 마이크로 소프트 문서
-description: 이벤트 그리드 모듈의 ID 구성
+title: Id Azure Event Grid IoT Edge 구성 | Microsoft Docs
+description: Event Grid 모듈의 id 구성
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,20 +10,20 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 0aedeea2a6ad08e1627c2d1a6ebde6c91a4d02d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76841768"
 ---
-# <a name="configure-identity-for-the-event-grid-module"></a>이벤트 그리드 모듈에 대한 ID 구성
+# <a name="configure-identity-for-the-event-grid-module"></a>Event Grid 모듈의 id 구성
 
-이 문서에서는 에지에서 Grid에 대한 ID를 구성하는 방법을 보여 줍니다. 기본적으로 Event Grid 모듈은 IoT 보안 데몬이 구성한 ID 인증서를 제공합니다. 이벤트 그리드 온 에지는 이벤트를 제공할 때 나가는 호출과 함께 ID 인증서를 제공합니다. 그러면 구독자는 수락하기 전에 이벤트를 보낸 이벤트 그리드 모듈의 유효성을 검사할 수 있습니다.
+이 문서에서는 Edge에서 그리드에 대 한 id를 구성 하는 방법을 보여 줍니다. 기본적으로 Event Grid 모듈은 IoT 보안 데몬에 의해 구성 된 대로 해당 id 인증서를 제공 합니다. Edge에서 Event Grid는 이벤트를 전달할 때 해당 id 인증서를 나가는 호출에 표시 합니다. 그런 다음 구독자는를 허용 하기 전에 이벤트를 보낸 Event Grid 모듈 인지 확인할 수 있습니다.
 
-가능한 모든 구성은 [보안 및 인증](security-authentication.md) 가이드를 참조하십시오.
+모든 가능한 구성에 대 한 [보안 및 인증](security-authentication.md) 가이드를 참조 하세요.
 
-## <a name="always-present-identity-certificate"></a>항상 ID 인증서를 제시합니다.
-다음은 나가는 호출에 항상 ID 인증서를 표시하는 예제 구성입니다. 
+## <a name="always-present-identity-certificate"></a>항상 id 인증서 제공
+보내는 호출에 항상 id 인증서를 표시 하는 구성 예제는 다음과 같습니다. 
 
 ```json
  {
@@ -34,8 +34,8 @@ ms.locfileid: "76841768"
 }
  ```
 
-## <a name="dont-present-identity-certificate"></a>ID 인증서를 제시하지 마십시오.
-다음은 나가는 호출에 ID 인증서를 표시하지 않는 예제 구성입니다. 
+## <a name="dont-present-identity-certificate"></a>Id 인증서를 제공 하지 않음
+나가는 호출에 id 인증서를 제공 하지 않는 구성의 예는 다음과 같습니다. 
 
 ```json
  {

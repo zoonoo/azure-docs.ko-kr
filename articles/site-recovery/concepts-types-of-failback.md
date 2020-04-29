@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
 ms.openlocfilehash: c0eaf28f9aeb4050fd35a6036a53e3e91d00f3eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281835"
 ---
 # <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Azure로 재해 복구 후 VMware VM 장애 복구(failback)
@@ -24,7 +24,7 @@ ms.locfileid: "79281835"
 VMware 가상 머신을 장애 조치했는데 원본 온-프레미스 가상 머신이 여전히 남아 있는 경우 동일한 원본 온-프레미스 가상 머신으로 장애 복구할 수 있습니다. 이 시나리오에서는 변경 내용만 다시 복제됩니다. 이 시나리오를 **원래 위치 복구**라고 합니다. 온-프레미스 가상 머신이 없는 경우에는 **대체 위치 복구** 시나리오라고 합니다.
 
 > [!NOTE]
-> 원래 vCenter 및 구성 서버로만 장애 조치할 수 있습니다. 새 구성 서버를 배포한 후 이 서버를 사용하여 장애 복구(failback)할 수 없습니다. 기존 구성 서버에 새 vCenter를 추가한 후 새 vCenter로 장애 복구(failback)할 수도 없습니다.
+> 원래 vCenter 및 구성 서버로만 장애 복구 (failback) 할 수 있습니다. 새 구성 서버를 배포한 후 이 서버를 사용하여 장애 복구(failback)할 수 없습니다. 기존 구성 서버에 새 vCenter를 추가한 후 새 vCenter로 장애 복구(failback)할 수도 없습니다.
 
 ## <a name="original-location-recovery-olr"></a>OLR(원래 위치 복구)
 원래 가상 머신으로 장애 복구(failback)하도록 선택하는 경우 다음 조건을 충족해야 합니다.

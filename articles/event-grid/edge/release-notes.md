@@ -1,6 +1,6 @@
 ---
-title: 릴리스 정보 - Azure 이벤트 그리드 IoT 에지 | 마이크로 소프트 문서
-description: IoT 에지 릴리스 노트의 Azure 이벤트 그리드
+title: 릴리스 정보-Azure Event Grid IoT Edge | Microsoft Docs
+description: IoT Edge 릴리스 정보에 대 한 Azure Event Grid
 author: banisadr
 ms.author: babanisa
 ms.reviewer: spelluru
@@ -9,42 +9,42 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 18a4fb9a979841bbf6cd0090fc67a77327c61596
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76849709"
 ---
-# <a name="release-notes-azure-event-grid-on-iot-edge"></a>릴리스 정보: IoT 에지의 Azure 이벤트 그리드
+# <a name="release-notes-azure-event-grid-on-iot-edge"></a>릴리스 정보: IoT Edge에서 Azure Event Grid
 
-## <a name="100-preview1"></a>1.0.0-미리 보기1
+## <a name="100-preview1"></a>1.0.0-tooling
 
-IoT 에지에서 Azure 이벤트 그리드의 초기 릴리스입니다. 포함 된 기능 :
+IoT Edge Azure Event Grid의 초기 릴리스입니다. 포함 된 기능:
 
-* 주제 만들기
-* 이벤트 구독 생성
+* 토픽 만들기
+* 이벤트 구독 만들기
 * 고급 필터
 * 출력 일괄 처리
 * 재시도 정책
-* 모듈에서 모듈로 게시
-* 대상으로 웹후크에 게시
-* IoT 에지 허브에 목적지로 게시
-* Azure 이벤트 그리드 클라우드 서비스에 대상으로 게시
-* 메타데이터에 대한 지속 상태
-* Blob 스토리지 모듈 통합
+* 모듈 간 게시
+* 대상으로 WebHook에 게시
+* IoT Edge 허브에 대상으로 게시
+* Azure Event Grid 클라우드 서비스에 대상으로 게시
+* 메타 데이터의 지속형 상태
+* Blob storage 모듈 통합
 
-태그:`1.0.0-preview1`
+사이`1.0.0-preview1`
 
-## <a name="100-preview2"></a>1.0.0-미리 보기2
+## <a name="100-preview2"></a>1.0.0-미리 보기 2
 
-IoT 에지에서 Azure 이벤트 그리드의 미리 보기 2추가:
+Azure Event Grid의 미리 보기 2 IoT Edge 추가 됨:
 
-* 디스크에 대한 구성 가능한 지속 이벤트
-* 주제 메트릭
+* 디스크에 구성 가능한 지속 이벤트
+* 토픽 메트릭
 * 이벤트 구독 메트릭
-* 이벤트 허브에 대상으로 게시
-* 서비스 버스 큐에 대상으로 게시
-* 서비스 버스 토픽을 대상으로 게시
+* Event Hubs에 대상으로 게시
+* Service Bus 큐에 대상으로 게시
+* 대상으로 Service Bus 토픽에 게시
 * 저장소 큐에 대상으로 게시
 
-태그: `1.0.0-preview2`, `1.0``latest`
+태그: `1.0.0-preview2`, `1.0`,`latest`

@@ -1,6 +1,6 @@
 ---
-title: 이벤트 처리기 및 대상 - Azure 이벤트 그리드 IoT 에지 | 마이크로 소프트 문서
-description: 에지의 이벤트 그리드에서 이벤트 처리기 및 대상
+title: 이벤트 처리기 및 대상-Azure Event Grid IoT Edge | Microsoft Docs
+description: Edge의 Event Grid에 있는 이벤트 처리기 및 대상
 author: banisadr
 ms.author: babanisa
 ms.reviewer: spelluru
@@ -9,23 +9,23 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 35bf5af90aa5f0456aa8d68f0e4e8aaacc6cf84f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76849748"
 ---
-# <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>에지의 이벤트 그리드에서 이벤트 처리기 및 대상
+# <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Edge의 Event Grid에 있는 이벤트 처리기 및 대상
 
-이벤트 처리기는 추가 작업을 수행하거나 이벤트를 처리하기 위한 이벤트가 있는 위치입니다. 이벤트 그리드 온 에지 모듈을 사용하면 이벤트 처리기가 동일한 에지 장치, 다른 장치 또는 클라우드에 있을 수 있습니다. WebHook을 사용하여 이벤트를 처리하거나 Azure Event Grid와 같은 네이티브 처리기 중 하나에 이벤트를 보낼 수 있습니다.
+이벤트 처리기는 추가 작업에 대 한 이벤트가 발생 하거나 이벤트를 처리 하는 위치입니다. Edge 모듈의 Event Grid을 사용 하 여 이벤트 처리기는 동일한 Edge 장치, 다른 장치 또는 클라우드에 있을 수 있습니다. 모든 WebHook를 사용 하 여 이벤트를 처리 하거나 Azure Event Grid 같은 기본 처리기 중 하나로 이벤트를 보낼 수 있습니다.
 
-이 문서에서는 각각을 구성하는 방법에 대한 정보를 제공합니다.
+이 문서에서는 각를 구성 하는 방법에 대 한 정보를 제공 합니다.
 
-## <a name="webhook"></a>웹 후크
+## <a name="webhook"></a>WebHook
 
-WebHook 끝점에 게시하려면 `endpointType` 다음을 `WebHook` 설정하고 다음을 제공합니다.
+WebHook 끝점에 게시 하려면를로 `endpointType` `WebHook` 설정 하 고 다음을 제공 합니다.
 
-* 끝점Url: 웹후크 끝점 URL
+* endpointUrl: WebHook 끝점 URL
 
     ```json
         {
@@ -42,11 +42,11 @@ WebHook 끝점에 게시하려면 `endpointType` 다음을 `WebHook` 설정하�
 
 ## <a name="azure-event-grid"></a>Azure Event Grid
 
-Azure Event Grid 클라우드 끝점에 게시하려면 `endpointType` `eventGrid` 다음을 설정하고 다음을 제공합니다.
+Azure Event Grid 클라우드 끝점에 게시 하려면를로 `endpointType` `eventGrid` 설정 하 고 다음을 제공 합니다.
 
-* endpointUrl: 클라우드의 이벤트 그리드 토픽 URL
-* sasKey: 이벤트 그리드 토픽의 SAS 키
-* topicName: 모든 발후 된 이벤트를 이벤트 그리드에 스탬프할 이름입니다. 주제 이름은 이벤트 그리드 도메인 토픽에 게시할 때 유용합니다.
+* endpointUrl: 클라우드의 Event Grid 토픽 URL
+* sasKey: Event Grid 토픽의 SAS 키
+* topicName: Event Grid로 나가는 모든 이벤트를 스탬프 하는 이름입니다. 항목 이름은 Event Grid 도메인 항목에 게시 하는 경우에 유용 합니다.
 
    ```json
         {
@@ -63,11 +63,11 @@ Azure Event Grid 클라우드 끝점에 게시하려면 `endpointType` `eventGri
     }
    ```
 
-## <a name="iot-edge-hub"></a>IoT 에지 허브
+## <a name="iot-edge-hub"></a>IoT Edge 허브
 
-Edge Hub 모듈에 게시하려면 `endpointType` 다음을 `edgeHub` 설정하고 다음을 제공합니다.
+Edge 허브 모듈에 게시 하려면를로 `endpointType` `edgeHub` 설정 하 고 다음을 제공 합니다.
 
-* outputName: 이벤트 그리드 모듈이 이 구독과 일치하는 이벤트를 edgeHub로 라우팅하는 출력입니다. 예를 들어 아래 구독과 일치하는 이벤트는 /messages/module/eventgridmodule/출력/샘플Sub4에 기록됩니다.
+* outputName: Event Grid 모듈이이 구독과 일치 하는 이벤트를 edgeHub로 라우팅하는 출력입니다. 예를 들어 아래 구독과 일치 하는 이벤트는/messages/modules/eventgridmodule/outputs/sampleSub4.에 기록 됩니다.
 
     ```json
         {
@@ -84,12 +84,12 @@ Edge Hub 모듈에 게시하려면 `endpointType` 다음을 `edgeHub` 설정하�
 
 ## <a name="event-hubs"></a>Event Hubs
 
-이벤트 허브에 게시하려면 `endpointType` 다음을 `eventHub` 설정하고 다음을 제공합니다.
+이벤트 허브에 게시 하려면를로 `endpointType` `eventHub` 설정 하 고 다음을 제공 합니다.
 
-* connectionString: 공유 액세스 정책을 통해 생성된 타겟팅하는 특정 이벤트 허브에 대한 연결 문자열입니다.
+* connectionString: 공유 액세스 정책을 통해 대상으로 생성 되는 특정 이벤트 허브에 대 한 연결 문자열입니다.
 
     >[!NOTE]
-    > 연결 문자열은 엔터티별이어야 합니다. 네임스페이스 연결 문자열을 사용하면 작동하지 않습니다. Azure Portal에서 게시할 특정 이벤트 허브로 이동하여 엔터티 별 연결 문자열을 생성하고 **공유 액세스 정책을** 클릭하여 새 엔터티 특정 연결 문자열을 생성할 수 있습니다.
+    > 연결 문자열은 특정 엔터티 여야 합니다. 네임 스페이스 연결 문자열 사용은 작동 하지 않습니다. Azure Portal에서 게시 하려는 특정 이벤트 허브로 이동 하 고 **공유 액세스 정책** 을 클릭 하 여 새 엔터티 관련 connecection 문자열을 생성 하 여 엔터티 관련 연결 문자열을 생성할 수 있습니다.
 
     ```json
         {
@@ -106,12 +106,12 @@ Edge Hub 모듈에 게시하려면 `endpointType` 다음을 `edgeHub` 설정하�
 
 ## <a name="service-bus-queues"></a>Service Bus 큐
 
-서비스 버스 큐에 게시하려면 `endpointType` 다음을 `serviceBusQueue` 설정하고 다음을 제공합니다.
+Service Bus 큐에 게시 하려면를로 `endpointType` `serviceBusQueue` 설정 하 고 다음을 제공 합니다.
 
-* connectionString: 공유 액세스 정책을 통해 생성된 대상으로 하는 특정 서비스 버스 큐에 대한 연결 문자열입니다.
+* connectionString: 공유 액세스 정책을 통해 대상으로 생성 되는 특정 Service Bus 큐에 대 한 연결 문자열입니다.
 
     >[!NOTE]
-    > 연결 문자열은 엔터티별이어야 합니다. 네임스페이스 연결 문자열을 사용하면 작동하지 않습니다. Azure Portal에서 게시할 특정 서비스 버스 큐로 이동하여 엔터티 별 연결 문자열을 생성하고 **공유 액세스 정책을** 클릭하여 새 엔터티 특정 connecection 문자열을 생성합니다.
+    > 연결 문자열은 특정 엔터티 여야 합니다. 네임 스페이스 연결 문자열 사용은 작동 하지 않습니다. Azure Portal에서 게시 하려는 특정 Service Bus 큐로 이동 하 고 **공유 액세스 정책** 을 클릭 하 여 새 엔터티 관련 connecection 문자열을 생성 하 여 엔터티 관련 연결 문자열을 생성 합니다.
 
     ```json
         {
@@ -128,12 +128,12 @@ Edge Hub 모듈에 게시하려면 `endpointType` 다음을 `edgeHub` 설정하�
 
 ## <a name="service-bus-topics"></a>Service Bus 토픽
 
-서비스 버스 토픽에 게시하려면 `endpointType` `serviceBusTopic` 다음을 설정하고 다음을 제공합니다.
+Service Bus 항목에 게시 하려면를로 `endpointType` `serviceBusTopic` 설정 하 고 다음을 제공 합니다.
 
-* connectionString: 공유 액세스 정책을 통해 생성된 대상으로 하는 특정 서비스 버스 토픽에 대한 연결 문자열입니다.
+* connectionString: 공유 액세스 정책을 통해 생성 되는 대상으로 지정 된 특정 Service Bus 항목에 대 한 연결 문자열입니다.
 
     >[!NOTE]
-    > 연결 문자열은 엔터티별이어야 합니다. 네임스페이스 연결 문자열을 사용하면 작동하지 않습니다. Azure Portal에서 게시할 특정 Service Bus 토픽으로 이동하여 엔터티 별 연결 문자열을 생성하고 **공유 액세스 정책을** 클릭하여 새 엔터티 특정 connecection 문자열을 생성합니다.
+    > 연결 문자열은 특정 엔터티 여야 합니다. 네임 스페이스 연결 문자열 사용은 작동 하지 않습니다. Azure Portal에서 게시 하려는 특정 Service Bus 토픽으로 이동 하 여 엔터티 관련 연결 문자열을 생성 하 고 **공유 액세스 정책** 을 클릭 하 여 새 엔터티 관련 connecection 문자열을 생성 합니다.
 
     ```json
         {
@@ -150,13 +150,13 @@ Edge Hub 모듈에 게시하려면 `endpointType` 다음을 `edgeHub` 설정하�
 
 ## <a name="storage-queues"></a>Storage 큐
 
-저장소 큐에 게시하려면 `endpointType` 다음을 `storageQueue` 설정하고 다음을 제공합니다.
+저장소 큐에 게시 하려면를로 설정 하 `endpointType` 고 `storageQueue` 다음을 제공 합니다.
 
-* queueName: 게시할 저장소 큐의 이름입니다.
-* 연결문자열: 저장소 큐에 있는 저장소 계정에 대한 연결 문자열입니다.
+* queueName: 게시 하는 저장소 큐의 이름입니다.
+* connectionString: 저장소 큐가 있는 저장소 계정에 대 한 연결 문자열입니다.
 
     >[!NOTE]
-    > Unline 이벤트 허브, 서비스 버스 큐 및 서비스 버스 항목, 저장소 큐에 사용되는 연결 문자열은 엔터티에 특정되지 않습니다. 대신 저장소 계정에 대한 연결 문자열을 사용해야 합니다.
+    > 줄 Event Hubs, Service Bus 큐 및 Service Bus 항목은 저장소 큐에 사용 되는 연결 문자열은 엔터티만 관련 되지 않습니다. 대신 저장소 계정에 대 한 연결 문자열 이어야 합니다.
 
     ```json
         {

@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 시리즈 장치에 대한 장애 조치 및 재해 복구
+title: StorSimple 8000 시리즈 장치에 대 한 장애 조치 및 재해 복구
 description: 자체적으로, 다른 실제 디바이스 또는 클라우드 어플라이언스로 StorSimple 디바이스의 장애를 조치하는 방법을 알아봅니다.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 179bc5cdf982792f41e0dec209341f346959a31a
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80397519"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에 대한 장애 조치 및 재해 복구
@@ -83,8 +83,8 @@ StorSimple 8000 시리즈에서 백업 정책을 백업에 연결합니다. 동�
 
 재해가 발생할 경우 다음과 같이 StorSimple 디바이스에 장애 조치를 선택할 수 있습니다.
 
-* [물리적 장치에](storsimple-8000-device-failover-physical-device.md).
-* [그 자체로](storsimple-8000-device-failover-same-device.md).
+* [물리적 장치로](storsimple-8000-device-failover-physical-device.md)
+* [직접](storsimple-8000-device-failover-same-device.md).
 * [클라우드 어플라이언스로](storsimple-8000-device-failover-cloud-appliance.md)
 
 이전의 문서는 위의 장애 조치 사례 각각에 대한 자세한 단계를 제공합니다.
@@ -104,7 +104,7 @@ StorSimple 8000 시리즈에서 백업 정책을 백업에 연결합니다. 동�
 
 테스트 장애 조치 또는 테스트 장애 복구를 계획 중인 경우 적은 양의 데이터(Gbs)가 있는 볼륨 컨테이너를 테스트하는 것이 좋습니다. 일반적으로 장애 조치가 완료되고 24시간 후에 장애 복구를 시작할 수 있습니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 17. **DR이 실패하거나 부분적으로 성공한 경우 어떻게 되나요?**
 

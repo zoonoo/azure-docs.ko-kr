@@ -1,5 +1,5 @@
 ---
-title: VNet 피어링과 가상 네트워크 연결 - Azure PowerShell
+title: VNet 피어 링을 사용 하 여 가상 네트워크 연결-Azure PowerShell
 description: 이 문서에서는 Azure PowerShell을 사용하여 가상 네트워크 피어링으로 가상 네트워크를 연결하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
@@ -16,10 +16,10 @@ ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: caa620c2389bb6e2387636bc262ceb2de99d8e34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77201308"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>PowerShell을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
@@ -41,7 +41,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 �
 
 ## <a name="create-virtual-networks"></a>가상 네트워크 만들기
 
-가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *동쪽* 위치에 *myResourceGroup이라는* 리소스 그룹을 만듭니다.
+가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
@@ -57,7 +57,7 @@ $virtualNetwork1 = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-[New-Az가상 네트워크SubnetConfig를](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)사용하여 서브넷 구성을 만듭니다. 다음 예제에서는 10.0.0.0/24 주소 접두사가 포함된 서브넷 구성을 만듭니다.
+[AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용 하 여 서브넷 구성을 만듭니다. 다음 예제에서는 10.0.0.0/24 주소 접두사가 포함된 서브넷 구성을 만듭니다.
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -66,7 +66,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork1
 ```
 
-서브넷을 만드는 [Set-AzVirtualNetwork를](/powershell/module/az.network/Set-azVirtualNetwork)사용하여 서브넷 구성을 가상 네트워크에 작성합니다.
+서브넷을 만드는 [AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork)를 사용 하 여 가상 네트워크에 서브넷 구성을 씁니다.
 
 ```azurepowershell-interactive
 $virtualNetwork1 | Set-AzVirtualNetwork
@@ -94,7 +94,7 @@ $virtualNetwork2 | Set-AzVirtualNetwork
 
 ## <a name="peer-virtual-networks"></a>가상 네트워크 피어링
 
-[Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering)을 사용하여 피어링을 만듭니다. 다음 예제에서는 *myVirtualNetwork1*을 *myVirtualNetwork2*에 피어링합니다.
+[AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering)를 사용 하 여 피어 링을 만듭니다. 다음 예제에서는 *myVirtualNetwork1*을 *myVirtualNetwork2*에 피어링합니다.
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkPeering `
@@ -112,7 +112,7 @@ Add-AzVirtualNetworkPeering `
   -RemoteVirtualNetworkId $virtualNetwork1.Id
 ```
 
-이전 명령 실행 후 반환된 출력에서 **PeeringState**는 *Connected*로 표시됩니다. 또한 Azure에서 *myVirtualNetwork1-myVirtualNetwork2* 피어링의 피어링 상태가 *Connected*로 변경되었습니다. *myVirtualNetwork1-myVirtualNetwork2* 피어링에 대한 피어링 상태가 [Get-AzVirtualNetworkPeering으로](/powershell/module/az.network/get-azvirtualnetworkpeering) *연결됨으로* 변경된지 확인합니다.
+이전 명령 실행 후 반환된 출력에서 **PeeringState**는 *Connected*로 표시됩니다. 또한 Azure에서 *myVirtualNetwork1-myVirtualNetwork2* 피어링의 피어링 상태가 *Connected*로 변경되었습니다. *MyVirtualNetwork1-myVirtualNetwork2* 피어 링의 피어 링 상태가 [AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering)와 *연결* 됨으로 변경 되었는지 확인 합니다.
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkPeering `
@@ -198,7 +198,7 @@ ping 10.0.0.4
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [제거-AzResourcegroup을](/powershell/module/az.resources/remove-azresourcegroup) 사용하여 리소스 그룹과 포함된 모든 리소스를 제거합니다.
+더 이상 필요 하지 않은 경우 [AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) 를 사용 하 여 리소스 그룹 및 포함 된 모든 리소스를 제거 합니다.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

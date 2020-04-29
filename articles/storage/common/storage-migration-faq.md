@@ -10,10 +10,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
 ms.openlocfilehash: 39f1137638f9cd4926b712bdd18e681d90adcdc4
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668543"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
@@ -82,9 +82,9 @@ AzCopy를 사용하여 Azure Storage의 Azure 파일 공유 간에 데이터를 
 
 AzCopy를 사용하여 큰 .csv 파일을 Azure Storage에 업로드합니다. 자세한 내용은 [Windows에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy.md) 및 [Linux에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy-linux.md)을 참조하세요.
 
-**매일 드라이브 D에서 Azure 저장소 계정으로 로그를 이동해야 합니다. 이 작업을 자동화하려면 어떻게 해야 합니까?**
+**매일 D 드라이브에서 Azure storage 계정으로 로그를 이동 해야 합니다. 어떻게 할까요? 자동화**
 
-AzCopy를 사용하고 작업 스케줄러에서 작업을 만들 수 있습니다. AzCopy 배치 스크립트를 사용하여 Azure Storage 계정에 파일을 업로드합니다. 자세한 내용은 [클라우드 서비스에 대한 시작 작업을 구성하고 실행하는 방법을](../../cloud-services/cloud-services-startup-tasks.md)참조하십시오.
+AzCopy를 사용하고 작업 스케줄러에서 작업을 만들 수 있습니다. AzCopy 배치 스크립트를 사용하여 Azure Storage 계정에 파일을 업로드합니다. 자세한 내용은 [클라우드 서비스에 대 한 시작 작업을 구성 및 실행 하는 방법](../../cloud-services/cloud-services-startup-tasks.md)을 참조 하세요.
 
 **구독 간에 내 스토리지 계정을 이동하려면 어떻게 할까요?**
 
@@ -215,7 +215,7 @@ AzCopy를 사용하여 데이터를 다운로드합니다. 자세한 내용은 [
 - 공유에서 스토리지 계정 내의 Blob 컨테이너나 다른 스토리지 계정으로 복사
 
 자세한 내용은 [Windows에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy.md)을 참조하세요.
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 **스토리지 계정에 대한 보조 지역을 유럽 지역으로 변경하려면 어떻게 할까요?**
 
@@ -227,7 +227,7 @@ AzCopy를 사용하여 데이터를 다운로드합니다. 자세한 내용은 [
 
 -  [Azure Storage 보안 가이드](../blobs/security-recommendations.md)
 
--  [미사용 데이터에 대한 Azure 저장소 서비스 암호화](storage-service-encryption.md)
+-  [휴지 상태의 데이터에 대 한 서비스 암호화 Azure Storage](storage-service-encryption.md)
 
 **스토리지 계정의 데이터를 암호화하려면 어떻게 할까요?**
 
@@ -243,7 +243,7 @@ AzCopy를 사용하여 다른 스토리지 계정으로 데이터를 복사한 �
 
 Premium Storage는 Azure 파일 공유에서 허용되지 않습니다.
 
-**표준 저장소 계정에서 프리미엄 저장소 계정으로 업그레이드하려면 어떻게 해야 합니까? 프리미엄 저장소 계정에서 표준 저장소 계정으로 다운그레이드하려면 어떻게 해야 합니까?**
+**Standard storage 계정에서 premium storage 계정으로 업그레이드할 어떻게 할까요? 있나요? Premium storage 계정에서 표준 저장소 계정으로 다운 그레이드를 어떻게 할까요? 하 시겠습니까?**
 
 대상 스토리지 계정을 만들고, 원본 계정에서 대상 계정으로 데이터를 복사한 다음, 원본 계정을 삭제해야 합니다. AzCopy와 같은 도구를 사용하여 데이터를 복사할 수 있습니다.
 
@@ -267,12 +267,12 @@ Premium Storage는 Azure 파일 공유에서 허용되지 않습니다.
 
 -   64비트 버전을 설치한 경우 **%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**에 있습니다.
 
-**내 저장소 계정에서 HTTPS 사용자 지정 도메인을 사용하려면 어떻게 해야 합니까? 예를 들어 "https: /mystorageaccountname.blob.core.windows.net/images/image.gif"을 "https:\/\//www.contoso.com/images/image.gif"으로 표시하려면 어떻게 해야 합니까?**
+**내 저장소 계정으로 HTTPS 사용자 지정 도메인을 사용 어떻게 할까요?? 예를 들어 "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif"를 "https:\//www.contoso.com/images/image.gif"로 표시 하려면 어떻게 해야 하나요?**
 
-TLS/SSL은 현재 사용자 지정 도메인이 있는 저장소 계정에서 지원되지 않습니다.
-하지만 HTTPS가 아닌 사용자 지정 도메인은 사용할 수 있습니다. 자세한 내용은 [Blob 저장소 끝점에 대한 사용자 지정 도메인 이름 구성을](../blobs/storage-custom-domain-name.md)참조하십시오.
+TLS/SSL은 현재 사용자 지정 도메인이 있는 저장소 계정에서 지원 되지 않습니다.
+하지만 HTTPS가 아닌 사용자 지정 도메인은 사용할 수 있습니다. 자세한 내용은 [Blob storage 끝점에 대 한 사용자 지정 도메인 이름 구성](../blobs/storage-custom-domain-name.md)을 참조 하세요.
 
-## <a name="access-to-storage"></a>스토리지에 대한 액세스
+## <a name="access-to-storage"></a>저장소에 대 한 액세스
 
 **가상 머신에서 컨테이너 폴더를 매핑하려면 어떻게 할까요?**
 

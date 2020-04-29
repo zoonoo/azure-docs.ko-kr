@@ -4,10 +4,10 @@ description: 함수 앱의 인바운드 및 아웃바운드 IP 주소를 찾는 
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656778"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions의 IP 주소
@@ -86,9 +86,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 - 함수 앱을 삭제하고 다른 리소스 그룹에서 다시 만듭니다.
 - 리소스 그룹 및 지역 조합에서 마지막 함수 앱을 삭제하고 다시 만듭니다.
-- 인증서 갱신 중과 같은 TLS 바인딩을 [삭제합니다.](../app-service/configure-ssl-certificate.md#renew-certificate)
+- [인증서 갱신](../app-service/configure-ssl-certificate.md#renew-certificate)중과 같은 TLS 바인딩을 삭제 합니다.
 
-함수 앱이 소비 [계획에서](functions-scale.md#consumption-plan)실행되는 경우 [위에 나열된](#inbound-ip-address-changes)것과 같은 작업을 수행하지 않은 경우에도 인바운드 IP 주소가 변경될 수 있습니다.
+함수 앱이 [소비 계획](functions-scale.md#consumption-plan)에서 실행 되는 경우 [위에 나열](#inbound-ip-address-changes)된 것과 같은 작업을 수행 하지 않은 경우에도 인바운드 IP 주소가 변경 될 수도 있습니다.
 
 ## <a name="outbound-ip-address-changes"></a>아웃바운드 IP 주소 변경
 
@@ -97,7 +97,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 * 인바운드 IP 주소를 변경할 수 있는 작업을 수행합니다.
 * App Service 계획의 가격 책정 계층을 변경합니다. 모든 가격 책정 계층에 대해 앱에서 사용할 수 있는 모든 가능한 아웃바운드 IP 주소 목록은 `possibleOutboundIPAddresses` 속성에 있습니다. [아웃바운드 IP 찾기](#find-outbound-ip-addresses)를 참조하세요.
 
-함수 앱이 소비 [계획에서](functions-scale.md#consumption-plan)실행되는 경우 [위에 나열된](#inbound-ip-address-changes)것과 같은 작업을 수행하지 않은 경우에도 아웃바운드 IP 주소가 변경될 수 있습니다.
+함수 앱이 [소비 계획](functions-scale.md#consumption-plan)에서 실행 되는 경우 [위에 나열](#inbound-ip-address-changes)된 것과 같은 작업을 수행 하지 않은 경우에도 아웃 바운드 IP 주소가 변경 될 수도 있습니다.
 
 의도적으로 아웃바운드 IP 주소를 강제로 변경하려면 다음을 수행합니다.
 

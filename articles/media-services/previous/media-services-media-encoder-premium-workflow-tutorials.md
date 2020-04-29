@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
 ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251012"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>고급 미디어 인코더 Premium 워크플로 자습서
@@ -27,7 +27,7 @@ ms.locfileid: "79251012"
 이 문서는 **워크플로 디자이너**를 사용하여 워크플로를 사용자 지정하는 방법을 보여주는 연습을 포함하고 있습니다. [여기](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples)서 실제 워크플로 파일을 찾을 수 있습니다.  
 
 ## <a name="toc"></a>목차
-다음과 같은 주제를 다룹니다.
+이 섹션에서 다루는 항목은 다음과 같습니다.
 
 * [단일 비트 전송률 MP4로 MXF Encoding](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
   * [새 워크플로 시작](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new)
@@ -36,37 +36,37 @@ ms.locfileid: "79251012"
   * [MP4 파일 생성을 위해 비디오 인코더 추가](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_file_generation)
   * [오디오 스트림 인코딩](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_audio)
   * [MP4 컨테이너에 오디오 및 비디오 스트림 멀티플렉싱](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_audio_and_fideo)
-  * [MP4 파일 쓰기](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_writing_mp4)
+  * [MP4 파일 작성](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_writing_mp4)
   * [출력 파일에서 Media Services 자산 만들기](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_asset_from_output)
-  * [완성된 워크플로를 로컬로 테스트합니다.](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_test)
+  * [완료 된 워크플로를 로컬로 테스트](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_test)
 * [다중 비트 전송률 MP4로 MXF Encoding - 동적 패키징 사용](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging)
   * [하나 이상의 추가 MP4 출력 추가](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_more_outputs)
   * [파일 출력 이름 구성](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_conf_output_names)
-  * [별도의 오디오 트랙 추가](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
+  * [별도 오디오 트랙 추가](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
   * ["ISM" SMIL 파일 추가](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
 * [다중 비트 전송률 MP4로 MXF Encoding - 향상된 청사진](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
   * 강화할 워크플로 개요
   * [파일 명명 규칙](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_file_naming)
   * [워크플로 루트에 구성 요소 속성 게시](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
   * [게시된 속성 값을 사용하는 출력 파일 이름 생성](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_output_files)
-* [멀티 비트 MP4 출력에 썸네일 추가](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
+* [다중 비트 전송률 MP4 출력에 미리 보기 추가](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
   * 미리 보기를 추가하는 워크플로 개요
   * [JPG Encoding 추가](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4__with_jpg)
   * [색 공간 변환 처리](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_color_space)
   * [미리 보기 작성](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_writing_thumbnails)
-  * [워크플로우의 오류 감지](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_errors)
+  * [워크플로에서 오류 감지](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_errors)
   * [완료된 워크플로](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_finish)
-* [다중 비트 레이트 MP4 출력의 시간 기반 트리밍](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim)
+* [다중 비트 전송률 MP4 출력의 시간 기반 트리밍](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim)
   * [트리밍을 추가하기 시작하려는 워크플로 개요](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_start)
-  * [스트림 트리머 사용](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_use_stream_trimmer)
+  * [스트림가는 사용](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_use_stream_trimmer)
   * [완료된 워크플로](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_finish)
-* [스크립팅한 구성 요소 소개](media-services-media-encoder-premium-workflow-tutorials.md#scripting)
-  * [워크플로 내 스크립팅: 안녕하세요 세계](media-services-media-encoder-premium-workflow-tutorials.md#scripting_hello_world)
+* [스크립팅된 구성 요소 소개](media-services-media-encoder-premium-workflow-tutorials.md#scripting)
+  * [워크플로 내 스크립팅: hello 세계](media-services-media-encoder-premium-workflow-tutorials.md#scripting_hello_world)
 * [다중 비트 전송률 MP4 출력의 프레임 기반 트리밍](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim)
-  * [트리밍을 추가하기 위한 청사진 개요](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_start)
+  * [트리밍을 추가 하기 시작 하는 청사진 개요](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_start)
   * [클립 목록 XML 사용](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clip_list)
   * [스크립팅된 구성 요소에서 클립 목록 수정](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_modify_clip_list)
-  * [클리핑지원 편의 속성 추가](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clippingenabled_prop)
+  * [ClippingEnabled 편의 속성 추가](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clippingenabled_prop)
 
 ## <a name="encoding-mxf-into-a-single-bitrate-mp4"></a><a id="MXF_to_MP4"></a>단일 비트 전송률 MP4로 MXF Encoding
 이 섹션에서는 .MXF 입력 파일에서 AAC-HE 인코딩 오디오를 사용하여 단일 비트 전송률 MP4 파일을 만드는 방법을 보여줍니다.
@@ -145,7 +145,7 @@ AVC 인코더를 공급하려면 미디어 파일 입력 구성 요소에서 AVC
 
 *연결되지 않은 AAC 인코더*
 
-비호환성: 미디어 파일 입력에서 두 개의 압축되지 않은 오디오 스트림(왼쪽 오디오 채널 및 오른쪽 오디오 채널에 각각 하나)을 사용할 수 있는 반면 AAC 인코더에 압축되지 않은 단일 오디오 입력 핀이 있습니다. (서라운드 사운드를 다루는 경우, 그건 여섯 채널입니다.) 따라서 미디어 파일 입력 소스의 오디오를 AAC 오디오 인코더에 직접 연결할 수 없습니다. AAC 구성 요소는 소위 "인터리브" 오디오 스트림이 필요합니다: 서로 인터리브된 왼쪽 및 오른쪽 채널이 있는 단일 스트림입니다. 어떤 오디오 트랙이 원본에서 어떤 위치에 있는지 원본 미디어 파일에서 알게 되면 왼쪽 및 오른쪽에 올바르게 할당된 스피커 위치로 이러한 인터리브 오디오 스트림을 생성할 수 있습니다.
+비호환성: 미디어 파일 입력에서 두 개의 압축되지 않은 오디오 스트림(왼쪽 오디오 채널 및 오른쪽 오디오 채널에 각각 하나)을 사용할 수 있는 반면 AAC 인코더에 압축되지 않은 단일 오디오 입력 핀이 있습니다. (서라운드 사운드를 처리 하는 경우 6 개 채널입니다.) 따라서 미디어 파일 입력 원본에서 오디오를 AAC 오디오 인코더에 직접 연결할 수 없습니다. AAC 구성 요소는 소위 "인터리브" 오디오 스트림이 필요합니다: 서로 인터리브된 왼쪽 및 오른쪽 채널이 있는 단일 스트림입니다. 어떤 오디오 트랙이 원본에서 어떤 위치에 있는지 원본 미디어 파일에서 알게 되면 왼쪽 및 오른쪽에 올바르게 할당된 스피커 위치로 이러한 인터리브 오디오 스트림을 생성할 수 있습니다.
 
 먼저 필요한 원본 오디오 채널에서 인터리브 스트림을 생성하려고 합니다. 오디오 스트림 인터리버 구성 요소가 이를 처리합니다. 워크플로에 추가하고 미디어 파일 입력에서 오디오 출력을 여기에 연결합니다.
 
@@ -293,7 +293,7 @@ Azure Media Services 동적 패키징과 호환성을 위해 멀티플렉서의 
 
 *파일 출력을 생성하는 오디오 Muxer*
 
-### <a name="adding-the-ism-smil-file"></a><a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>을 추가합니다. ISM SMIL 파일
+### <a name="adding-the-ism-smil-file"></a><a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>추가. ISM SMIL 파일
 또한 Media Services 자산에서 MP4 파일 모두(및 오디오 전용 MP4)와 함께 작업하는 동적 패키징의 경우 매니페스트 파일이 필요합니다(또는 "SMIL"(동기화 멀티미디어 통합 언어) 파일이라고도 함). 이 파일은 동적 패키징에 사용 가능하고 오디오 스트리밍에 고려하는 MP4 파일을 Azure Media Services에 나타냅니다. 단일 오디오 스트림이 있는 MP4의 집합에 대한 일반적인 매니페스트 파일은 다음과 같습니다.
 
 ```xml
@@ -513,7 +513,7 @@ MP4 비디오와 다르게 JPG 인코더 구성 요소는 여러 개의 파일�
 *트리밍에 추가할 워크플로 시작*
 
 ### <a name="using-the-stream-trimmer"></a><a id="time_based_trim_use_stream_trimmer"></a>스트림 트리머 사용
-스트림 트리머 구성 요소를 사용하면 타이밍 정보(초, 분, ...)에 대한 입력 스트림 기반의 시작과 끝을 트리밍할 수 있습니다. 트리머는 프레임 기반 트리밍을 지원하지 않습니다.
+스트림 표시 구성 요소를 사용 하면 타이밍 정보 (초, 분, ...)에 대 한 입력 스트림 기반의 시작과 끝을 잘라낼 수 있습니다. 이는 프레임 기반 트리밍을 지원 하지 않습니다.
 
 ![스트림 트리머](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-stream-trimmer.png)
 
@@ -599,9 +599,9 @@ realizeScript의 컨텍스트에서 간단한 Hello World Groovy 스크립트를
 
 *Hello World 로그 출력*
 
-로그 메서드를 호출하는 노드 개체는 현재 "노드" 또는 스크립트하는 구성 요소를 나타냅니다. 이와 같은 모든 구성 요소는 시스템 탭을 통해 사용할 수 있는 로깅 데이터를 출력할 수 있습니다. 이 경우 문자열 리터럴 "hello world"를 출력합니다. 중요한 것은 스크립트가 실제로 수행하는 작업에 대한 통찰력을 제공하는 중요한 디버깅 도구라는 것을 증명할 수 있어야 합니다.
+로그 메서드를 호출하는 노드 개체는 현재 "노드" 또는 스크립트하는 구성 요소를 나타냅니다. 이러한 모든 구성 요소에는 로깅 데이터를 출력 하는 기능이 있으며 시스템 탭을 통해 사용할 수 있습니다. 이 경우 문자열 리터럴 "hello 세계"를 출력 합니다. 중요한 것은 스크립트가 실제로 수행하는 작업에 대한 통찰력을 제공하는 중요한 디버깅 도구라는 것을 증명할 수 있어야 합니다.
 
-또한 스크립트 환경 내에서 다른 구성 요소의 속성에 액세스합니다. 다음을 실행해보세요.
+또한 스크립트 환경 내에서 다른 구성 요소의 속성에 액세스합니다. 다음과 같이 해보세요.
 
 ```java
     //inspect current node:
@@ -761,7 +761,7 @@ xml을 더 자세히 알아보려면 다음과 같습니다.
 
 *결과 클립 목록 로깅*
 
-비디오 및 오디오 스트림을 자르는 방법을 보려면 테스트 실행을 수행합니다. 하지만 트리밍 지점에 대한 값이 서로 다른 둘 이상의 테스트를 실행하면 고려하지 않은 점인 있음을 알 수 있습니다! 이유는 Azure 런타임과 달리 디자이너가 실행할 때 마다 cliplist xml을 재정의하지 않기 때문입니다. 즉, 처음 에 및 종료 지점을 설정했을 때만 xml이 변환되고 다른 모든 시간 동안 가드`clipListXML.indexOf("<trim>") == -1`절(if()))이 이미 존재하는 경우 워크플로가 다른 트림 요소를 추가하지 못하게 됩니다.
+비디오 및 오디오 스트림을 자르는 방법을 보려면 테스트 실행을 수행합니다. 하지만 트리밍 지점에 대한 값이 서로 다른 둘 이상의 테스트를 실행하면 고려하지 않은 점인 있음을 알 수 있습니다! 이유는 Azure 런타임과 달리 디자이너가 실행할 때 마다 cliplist xml을 재정의하지 않기 때문입니다. 즉, in 및 out 지점만 처음 설정 하는 경우에만 xml이 변환 되 고, 다른 모든 경우에는 guard 절 (if (`clipListXML.indexOf("<trim>") == -1`))이 이미 있는 경우 다른 trim 요소를 추가 하지 못하게 됩니다.
 
 워크플로를 편리하게 로컬로 테스트하려는 가장 좋은 방법은 자르기 요소가 이미 있는지 조사하는 정리 코드를 추가하는 것입니다. 그렇다면 새 값으로 xml을 수정하여 계속하기 전에 제거할 수 있습니다. 일반 문자열 조작을 사용하지 않고 구문 분석하는 실제 xml 개체 모델을 통해이 작업을 수행하는 것이 안전합니다.
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: 5821c72ae1be4759cf5aa76ff1f5af43337749c0
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668590"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
@@ -30,30 +30,30 @@ ms.locfileid: "80668590"
 
 **인증서**
 
-- [클라우드 서비스 TLS/SSL 인증서의 인증서 체인이 불완전한 이유는 무엇입니까?](#why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete)
+- [내 클라우드 서비스 TLS/SSL 인증서의 인증서 체인이 불완전 한 이유는 무엇 인가요?](#why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete)
 - ["확장을 위한 Windows Azure Tools 암호화 인증서"의 목적은 무엇인가요?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
 - ["RDP"하지 않고 인스턴스에서 CSR(인증서 서명 요청)을 생성하려면 어떻게 할까요?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
-- [클라우드 서비스 관리 인증서가 만료되었습니다. 그것을 갱신 하는 방법?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
-- [주 TLS/SSL 인증서(.pfx) 및 중간 인증서(.p7b)의 설치를 자동화하는 방법은 무엇입니까?](#how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b)
+- [내 클라우드 서비스 관리 인증서가 만료 됩니다. 갱신 하는 방법](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
+- [기본 TLS/SSL 인증서 (.pfx) 및 중간 인증서 (.p7b) 설치를 자동화 하는 방법](#how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b)
 - ["MachineKey용 Microsoft Azure 서비스 관리" 인증서의 목적은 무엇인가요?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **모니터링 및 로깅**
 
-- [응용 프로그램을 관리하고 모니터링하는 데 도움이 될 Azure 포털에서 예정된 클라우드 서비스 기능은 무엇입니까?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
+- [응용 프로그램을 관리 하 고 모니터링 하는 데 도움이 될 수 있는 Azure Portal의 예정 된 클라우드 서비스 기능은 무엇 인가요?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
 - [IIS에서 로그 디렉터리에 작성을 중지하는 이유는 무엇인가요?](#why-does-iis-stop-writing-to-the-log-directory)
 - [Cloud Services에 대해 WAD 로깅을 활성화하려면 어떻게 할까요?](#how-do-i-enable-wad-logging-for-cloud-services)
 
 **네트워크 구성**
 
 - [Azure Load Balancer에 유휴 시간 제한을 설정하려면 어떻게 할까요?](#how-do-i-set-the-idle-timeout-for-azure-load-balancer)
-- [정적 IP 주소를 클라우드 서비스에 연결하려면 어떻게 해야 합니까?](#how-do-i-associate-a-static-ip-address-to-my-cloud-service)
+- [내 클라우드 서비스에 고정 IP 주소를 연결할 어떻게 할까요? 있나요?](#how-do-i-associate-a-static-ip-address-to-my-cloud-service)
 - [Azure 기본 IPS/IDS와 DDoS에서 제공하는 기능이란?](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 - [Cloud Services VM에서 HTTP/2를 사용하려면 어떻게 해야 하나요?](#how-to-enable-http2-on-cloud-services-vm)
 
-**사용 권한**
+**권한**
 
 - [Microsoft 내부 엔지니어는 권한이 없어도 클라우드 서비스 인스턴스에 RDP가 가능한가요?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
-- [RDP 파일을 사용하여 클라우드 서비스 VM에 원격 데스크톱을 사용할 수 없습니다. 다음과 같은 오류가 발생합니다: 인증 오류가 발생했습니다(코드: 0x80004005).](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
+- [RDP 파일을 사용 하 여 클라우드 서비스 VM에 대 한 원격 데스크톱을 만들 수 없습니다. 다음 오류가 발생 했습니다. 인증 오류가 발생 했습니다 (코드: 0x80004005).](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
 **확장**
 
@@ -64,18 +64,18 @@ ms.locfileid: "80668590"
 
 - ["nosniff"를 내 웹 사이트에 추가하려면 어떻게 할까요?](#how-do-i-add-nosniff-to-my-website)
 - [웹 역할에 IIS를 사용자 지정하려면 어떻게 할까요?](#how-do-i-customize-iis-for-a-web-role)
-- [클라우드 서비스에 대한 할당량 제한은 무엇입니까?](#what-is-the-quota-limit-for-my-cloud-service)
-- [클라우드 서비스 VM의 드라이브에 여유 디스크 공간이 거의 표시되지 않는 이유는 무엇입니까?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space)
+- [클라우드 서비스에 대 한 할당량 제한은 무엇 인가요?](#what-is-the-quota-limit-for-my-cloud-service)
+- [클라우드 서비스 VM의 드라이브에 사용 가능한 디스크 공간이 거의 표시 되지 않는 이유는 무엇 인가요?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space)
 - [내 Cloud Services에 대한 맬웨어 방지 확장을 자동화된 방식으로 추가하려면 어떻게 해야 하나요?](#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
 - [Cloud Services에 대한 SNI(서버 이름 표시)를 사용하도록 설정하려면 어떻게 해야 하나요?](#how-to-enable-server-name-indication-sni-for-cloud-services)
 - [내 Azure Cloud Service에 태그를 추가하려면 어떻게 해야 하나요?](#how-can-i-add-tags-to-my-azure-cloud-service)
-- [Azure 포털내 클라우드 서비스의 SDK 버전을 표시 하지 않습니다. 어떻게 얻을 수 있습니까?](#the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that)
-- [몇 달 동안 클라우드 서비스를 종료하고 싶습니다. IP 주소를 잃지 않고 클라우드 서비스의 청구 비용을 줄이는 방법은 무엇입니까?](#i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address)
+- [Azure Portal에는 클라우드 서비스의 SDK 버전이 표시 되지 않습니다. 어떻게 받을 수 있나요?](#the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that)
+- [클라우드 서비스를 몇 달 동안 종료 하려고 합니다. IP 주소를 잃지 않고 클라우드 서비스의 청구 비용을 줄이는 방법](#i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address)
 
 
 ## <a name="certificates"></a>인증서
 
-### <a name="why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete"></a>클라우드 서비스 TLS/SSL 인증서의 인증서 체인이 불완전한 이유는 무엇입니까?
+### <a name="why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete"></a>내 클라우드 서비스 TLS/SSL 인증서의 인증서 체인이 불완전 한 이유는 무엇 인가요?
     
 고객은 리프 인증서가 아닌 전체 인증서 체인(리프 인증서, 중간 인증서 및 루트 인증서)을 설치하는 것이 좋습니다. 방금 리프 인증서를 설치한 경우 Windows CTL을 탐색하여 인증서 체인을 빌드하기 위해 Windows를 사용합니다. Windows가 인증서의 유효성을 검사할 때 Azure 또는 Windows 업데이트에서 일시적인 네트워크 또는 DNS 문제가 발생하는 경우 인증서는 잘못된 것으로 간주될 수 있습니다. 전체 인증서 체인을 설치하여 이 문제를 방지할 수 있습니다. [체인된 SSL 인증서를 설치하는 방법](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/)의 블로그는 이 작업을 수행하는 방법을 보여줍니다.
 
@@ -103,16 +103,16 @@ CSR은 텍스트 파일일 뿐입니다. 인증서를 궁극적으로 사용하�
 
 **Get-AzurePublishSettingsFile**은 Azure Portal의 **구독** > **관리 인증서**에 새 관리 인증서를 만듭니다. 새 인증서의 이름은 "구독이름]-[현재날짜]-자격증명" 형식입니다.
 
-### <a name="how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b"></a>주 TLS/SSL 인증서(.pfx) 및 중간 인증서(.p7b)의 설치를 자동화하는 방법은 무엇입니까?
+### <a name="how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b"></a>기본 TLS/SSL 인증서 (.pfx) 및 중간 인증서 (.p7b) 설치를 자동화 하는 방법
 
 시작 스크립트(일괄 처리/cmd/PowerShell)를 사용하여 이 작업을 자동화하고 서비스 정의 파일에 해당 시작 스크립트를 등록할 수 있습니다. 시작 스크립트의 동일한 디렉터리에 있는 프로젝트 폴더에 시작 스크립트와 인증서(.p7b 파일)를 모두 추가합니다.
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>"MachineKey용 Microsoft Azure 서비스 관리" 인증서의 목적은 무엇인가요?
 
-이 인증서는 Azure Web Roles에서 컴퓨터 키를 암호화하기 위해 사용됩니다. 자세한 내용은 이 [권고를](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731)확인하십시오.
+이 인증서는 Azure Web Roles에서 컴퓨터 키를 암호화하기 위해 사용됩니다. 자세히 알아보려면 [이 권고](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731)를 확인 하세요.
 
-자세한 내용은 다음 문서를 참조하세요.
-- [클라우드 서비스에 대한 시작 작업을 구성하고 실행하는 방법](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
+자세한 내용은 다음 아티클을 참조하세요.
+- [클라우드 서비스에 대 한 시작 작업을 구성 하 고 실행 하는 방법](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [일반적인 클라우드 서비스 시작 작업](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
 ## <a name="monitoring-and-logging"></a>모니터링 및 로깅
@@ -137,7 +137,7 @@ Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있�
 * 로컬 리소스에 대한 할당량 제한을 늘립니다.
 
 자세한 내용은 다음 문서를 참조하세요.
-* [Azure 저장소에 진단 데이터 저장 및 보기](/azure/storage/common/storage-introduction)
+* [Azure Storage에서 진단 데이터 저장 및 보기](/azure/storage/common/storage-introduction)
 * [클라우드 서비스에서 IIS 로그 작성 중지](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Cloud Services에 대해 WAD 로깅을 활성화하려면 어떻게 할까요?
@@ -176,9 +176,9 @@ Cloud Services의 현재 WAD 설정을 가져오기 위해 [Get-AzureServiceDiag
 고정 IP 주소를 설정하려면 예약된 IP 만들어야 합니다. 이 예약된 IP는 새 클라우드 서비스 또는 기존 배포에 연결할 수 있습니다. 자세한 내용은 다음과 같은 문서를 참조하세요.
 * [예약된 IP 주소를 만드는 방법](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#manage-reserved-vips)
 * [기존 클라우드 서비스의 IP 주소 예약](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
-* [예약된 IP를 새 클라우드 서비스에 연결](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-new-cloud-service)
+* [새 클라우드 서비스에 예약 된 IP 연결](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-new-cloud-service)
 * [실행 중인 배포에 예약된 IP 연결](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-running-deployment)
-* [서비스 구성 파일을 사용하여 예약된 IP를 클라우드 서비스에 연결](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+* [서비스 구성 파일을 사용 하 여 클라우드 서비스에 예약 된 IP 연결](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Azure 기본 IPS/IDS와 DDoS에서 제공하는 기능이란?
 Azure에는 위협으로부터 보호하기 위해 데이터 센터 실제 서버에 있는 IP/ID가 있습니다. 또한 고객은 웹 애플리케이션 방화벽, 네트워크 방화벽, 맬웨어 방지 프로그램, 침입 감지 및 방지 시스템(IDS/IPS) 등과 같은 타사 보안 솔루션을 배포할 수 있습니다. 자세한 내용은 [데이터 및 자산 보호 및 글로벌 보안 표준 준수](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity)를 참조하세요.
@@ -198,7 +198,7 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 
 자세한 내용은 다음을 참조하세요.
 
-- [IIS에서 HTTP/2](https://blogs.iis.net/davidso/http2)
+- [IIS의 HTTP/2](https://blogs.iis.net/davidso/http2)
 - [동영상: Windows 10에서 HTTP/2: 브라우저, 앱 및 웹 서버](https://channel9.msdn.com/Events/Build/2015/3-88)
          
 
@@ -208,7 +208,7 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 이 작업이 끝난 후에 다음 방법 중 하나를 사용하여 HTTP/2가 사용하도록 설정되어 있는지 여부를 확인할 수 있습니다.
 
 - IIS 로그의 프로토콜 버전을 사용하도록 설정하고 IIS 로그를 확인합니다. 로그에 HTTP/2가 표시됩니다. 
-- 인터넷 익스플로러 또는 Microsoft Edge에서 F12 개발자 도구를 사용하도록 설정하고 네트워크 탭으로 전환하여 프로토콜을 확인합니다. 
+- Internet Explorer 또는 Microsoft Edge에서 F12 개발자 도구를 사용 하도록 설정 하 고 네트워크 탭으로 전환 하 여 프로토콜을 확인 합니다. 
 
 자세한 내용은 [IIS에서 HTTP/2](https://blogs.iis.net/davidso/http2)를 참조하세요.
 
@@ -282,7 +282,7 @@ IIS에서 설정으로도 추가할 수 있습니다. [일반적인 시작 작�
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>클라우드 서비스 VM의 드라이브에 사용 가능한 디스크 공간이 거의 표시되지 않는 이유는 무엇인가요?
 이 동작은 정상적이며 애플리케이션에 문제가 발생하지 않아야 합니다. 저널은 Azure PaaS VM에서 %approot% 드라이브에 설정되며 이 기능은 기본적으로 파일이 차지하는 공간의 두 배를 사용합니다. 그러나 이를 사소하게 만드는 몇 가지 사항이 있습니다.
 
-%approot% 드라이브 크기는 \<.cspkg + 최대 저널 크기 + 여유 공간> 또는 1.5GB 중 더 큰 크기로 계산됩니다. VM의 크기는 이 계산과 관련이 없습니다. (VM 크기는 임시 C: 드라이브의 크기에 영향을 줍니다.) 
+% Approot% 드라이브 크기는 .cspkg \<+ 최대 저널 크기 + 여유 공간> 또는 1.5 GB 중 더 큰 값의 크기로 계산 됩니다. VM의 크기는 이 계산과 관련이 없습니다. (VM 크기는 임시 C: 드라이브의 크기에 영향을 줍니다.) 
 
 %approot% 드라이브에 작성하도록 지원되지 않습니다. Azure VM에 작성하는 경우 임시 LocalStorage 리소스에서 수행해야 합니다(또는 Blob Storage, Azure Files 등과 같은 다른 옵션). 따라서 %approot% 폴더에서 사용 가능한 공간의 크기는 의미가 없습니다. 애플리케이션을 %approot% 드라이브에 작성하는지 확실하지 않은 경우 몇 일 동안 서비스를 실행한 다음, "이전" 및 "이후" 크기를 비교할 수 있습니다. 
 
@@ -305,7 +305,7 @@ Azure에서는 %approot% 드라이브에 아무 것도 작성하지 않습니다
 
 **방법 1: PowerShell 사용**
 
-SNI 바인딩은 다음과 같이 클라우드 서비스 역할 인스턴스에 대한 시작 작업에서 PowerShell cmdlet **New-WebBinding을** 사용하여 구성할 수 있습니다.
+다음과 같이 클라우드 서비스 역할 인스턴스에 대 한 시작 작업에서 PowerShell cmdlet **새 WebBinding** 을 사용 하 여 SNI 바인딩을 구성할 수 있습니다.
     
     New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
     

@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
 ms.openlocfilehash: 4edeea749ba22bef173c15f3a0855679b784ce33
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668569"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>백 엔드 서버 인증서는 App Service Environment와 함께 내부 Load Balancer를 사용하는 애플리케이션 게이트웨이에 대한 허용 목록에 없습니다.
 
-이 문서에서는 다음과 같은 문제를 해결합니다: Azure에서 종단 간 TLS를 사용할 때 백 엔드에서 AE(앱 서비스 환경)와 함께 ILB(내부 로드 밸런서)를 사용하여 응용 프로그램 게이트웨이를 만들 때 인증서가 화이트리스트에 추가되지 않습니다.
+이 문서에서는 다음 문제를 해결 합니다. Azure에서 종단 간 TLS를 사용 하는 경우 백 엔드에서 App Service Environment (ASE)와 함께 ILB (내부 Load Balancer)를 사용 하 여 응용 프로그램 게이트웨이를 만들 때 인증서가 허용 목록 되지 않습니다.
 
 ## <a name="symptoms"></a>증상
 
@@ -52,9 +52,9 @@ ms.locfileid: "80668569"
 
 애플리케이션 게이트웨이에 액세스하는 경우 백 엔드 서버가 비정상이므로 다음과 같은 오류 메시지를 받습니다.
 
-**502 - 게이트웨이 또는 프록시 서버 역할을 하는 동안 웹 서버가 잘못된 응답을 받았습니다.**
+**502 – 웹 서버에서 게이트웨이 또는 프록시 서버 역할을 하는 동안 잘못 된 응답을 받았습니다.**
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 HTTPS 웹 사이트에 액세스하는 데 호스트 이름을 사용하지 않으면 SNI를 사용하지 않는 경우 백 엔드 서버는 기본 웹 사이트에서 구성된 인증서를 반환합니다. ILB ASE의 경우 기본 인증서는 ILB 인증서에서 제공됩니다. ILB에 대해 구성된 인증서가 없는 경우 인증서는 ASE 앱 인증서에서 제공됩니다.
 
@@ -68,7 +68,7 @@ FQDN(정규화된 도메인 이름)을 사용하여 ILB에 액세스하는 경�
 
 - ILB의 IP 주소를 사용하는 경우 애플리케이션 게이트웨이에 대해 **App Service에 사용** 옵션을 선택 취소합니다.
 
-오버헤드를 줄이기 위해 HTTP 설정에 ILB 인증서를 업로드하여 프로브 경로 작업을 만들 수 있습니다. (이 단계는 허용 목록에 대한 것입니다. TLS 통신에는 사용되지 않습니다. HTTPS의 브라우저에서 IP 주소로 ILB에 액세스한 다음 기본 64 인코딩된 CER 형식으로 TLS/SSL 인증서를 내보내고 해당 HTTP 설정에서 인증서를 업로드하여 ILB 인증서를 검색할 수 있습니다.
+오버헤드를 줄이기 위해 HTTP 설정에 ILB 인증서를 업로드하여 프로브 경로 작업을 만들 수 있습니다. (이 단계는 허용 목록에 대한 것입니다. TLS 통신에는 사용 되지 않습니다.) HTTPS의 브라우저에서 해당 IP 주소를 사용 하 여 ILB에 액세스 한 다음, 기본-64 인코딩된 CER 형식으로 TLS/SSL 인증서를 내보내고, 해당 HTTP 설정에 인증서를 업로드 하 여 ILB 인증서를 검색할 수 있습니다.
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 

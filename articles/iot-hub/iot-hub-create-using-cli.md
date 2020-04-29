@@ -1,6 +1,6 @@
 ---
 title: Azure CLI를 사용하여 IoT Hub 만들기 | Microsoft 문서
-description: Azure CLI 명령을 사용하여 리소스 그룹을 만든 다음 리소스 그룹에 IoT 허브를 만드는 방법을 알아봅니다. 허브를 제거하는 방법도 알아봅니다.
+description: Azure CLI 명령을 사용 하 여 리소스 그룹을 만든 다음 리소스 그룹에서 IoT hub를 만드는 방법에 대해 알아봅니다. 허브를 제거 하는 방법에 대해서도 알아봅니다.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
 ms.openlocfilehash: e7253747d95917e34725cc7c6c034b1306f65e50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79284721"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Azure CLI를 사용하여 IoT Hub 만들기
@@ -20,7 +20,7 @@ ms.locfileid: "79284721"
 
 이 문서는 Azure CLI를 사용하여 IoT Hub를 만드는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 방법 문서를 완료하려면 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -66,7 +66,7 @@ Azure CLI를 사용하여 리소스 그룹을 만든 다음 IoT Hub를 추가합
    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 
-이전 명령은 청구 대상인 S1 가격 책정 계층에 IoT Hub를 만듭니다. 자세한 내용은 [Azure IoT Hub 가격 책정을](https://azure.microsoft.com/pricing/details/iot-hub/)참조하십시오.
+이전 명령은 청구 대상인 S1 가격 책정 계층에 IoT Hub를 만듭니다. 자세한 내용은 [Azure IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
 
 ## <a name="remove-an-iot-hub"></a>IoT Hub 제거
 

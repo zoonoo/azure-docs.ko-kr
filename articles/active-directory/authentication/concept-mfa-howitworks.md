@@ -1,6 +1,6 @@
 ---
-title: Azure 다단계 인증 개요
-description: Azure 다단계 인증을 통해 간단한 로그인 프로세스에 대한 사용자 요구를 충족하면서 데이터 및 응용 프로그램에 대한 액세스를 보호하는 방법을 알아봅니다.
+title: Azure Multi-Factor Authentication 개요
+description: 간단한 로그인 프로세스에 대 한 사용자의 요구를 충족 하는 동시에 Azure Multi-Factor Authentication 데이터 및 응용 프로그램에 대 한 액세스를 보호 하는 방법을 알아봅니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c50232abd12c8c0390409bd7bf72833b4f153e02
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80667354"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>작동 방법: Azure Multi-Factor Authentication
@@ -36,34 +36,34 @@ Azure Multi-Factor Authentication은 다음 인증 방법 중 둘 이상을 요�
 
 ![로그인 화면에서 사용하는 인증 방법](media/concept-authentication-methods/overview-login.png)
 
-Azure 다단계 인증을 사용하면 사용자의 단순성 유지를 유지하면서 데이터 및 응용 프로그램에 대한 액세스를 보호할 수 있습니다. 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 사용하기 쉬운 다양한 [인증 방법](concept-authentication-methods.md)을 통해 강력한 인증을 제공합니다. 관리자가 결정한 구성에 따라 사용자에게 MFA 챌린지가 표시될 수도 있고 그렇지 않을 수도 있습니다.
+Azure Multi-Factor Authentication는 사용자의 편의를 유지 하면서 데이터와 응용 프로그램에 대 한 액세스를 보호 합니다. 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 사용하기 쉬운 다양한 [인증 방법](concept-authentication-methods.md)을 통해 강력한 인증을 제공합니다. 관리자가 결정한 구성에 따라 사용자에게 MFA 챌린지가 표시될 수도 있고 그렇지 않을 수도 있습니다.
 
-응용 프로그램 또는 서비스는 Azure 다단계 인증을 사용하기 위해 변경할 필요가 없습니다. 확인 프롬프트는 필요한 경우 MFA 챌린지를 자동으로 요청하고 처리하는 Azure AD 로그인 이벤트의 일부입니다.
+응용 프로그램 또는 서비스에서 Azure Multi-Factor Authentication를 사용 하기 위해 변경할 필요가 없습니다. 확인 메시지는 필요한 경우 MFA 챌린지를 자동으로 요청 하 고 처리 하는 Azure AD 로그인 이벤트의 일부입니다.
 
-## <a name="available-verification-methods"></a>사용 가능한 검증 방법
+## <a name="available-verification-methods"></a>사용 가능한 확인 방법
 
-사용자가 응용 프로그램 또는 서비스에 로그인하고 MFA 프롬프트를 받으면 등록된 추가 확인 양식 중 하나를 선택할 수 있습니다. 관리자는 이러한 Azure 다단계 인증 인증 방법을 등록해야 하거나 사용자가 자신의 [내 프로필에](https://myprofile.microsoft.com) 액세스하여 확인 방법을 편집하거나 추가할 수 있습니다.
+사용자가 응용 프로그램 또는 서비스에 로그인 하 고 MFA 프롬프트를 수신 하면 등록 된 형태의 추가 확인 중 하나를 선택할 수 있습니다. 관리자는 이러한 Azure Multi-Factor Authentication 인증 방법을 등록 해야 하거나 사용자가 자신의 자신의 [프로필](https://myprofile.microsoft.com) 에 액세스 하 여 인증 방법을 편집 하거나 추가할 수 있습니다.
 
-Azure 다단계 인증과 함께 다음과 같은 추가 확인 양식을 사용할 수 있습니다.
+다음과 같은 추가 형태의 인증을 Azure Multi-Factor Authentication와 함께 사용할 수 있습니다.
 
 * Microsoft Authenticator 앱
 * OATH 하드웨어 토큰
-* sms
+* SMS
 * 음성 통화
 
-## <a name="how-to-enable-and-use-azure-multi-factor-authentication"></a>Azure 다단계 인증을 활성화하고 사용하는 방법
+## <a name="how-to-enable-and-use-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication을 사용 하도록 설정 하 고 사용 하는 방법
 
-Azure 다단계 인증에 대해 사용자 및 그룹을 활성화하여 로그인 이벤트 중에 추가 확인을 요청받을 수 있습니다. 모든 Azure AD 테넌트에서 모든 사용자에 대해 Microsoft 인증자 앱을 빠르게 사용할 수 있도록 [보안 기본값을](../fundamentals/concept-fundamentals-security-defaults.md) 사용할 수 있습니다.
+로그인 이벤트 중에 추가 확인 메시지를 표시 하도록 Azure Multi-Factor Authentication에 대해 사용자 및 그룹을 사용 하도록 설정할 수 있습니다. 모든 Azure AD 테 넌 트에서 [보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md) 을 사용 하 여 모든 사용자에 게 Microsoft Authenticator 앱을 신속 하 게 사용할 수 있습니다.
 
-보다 세부적인 컨트롤의 경우 [조건부 액세스](../conditional-access/overview.md) 정책을 사용하여 MFA가 필요한 이벤트 또는 응용 프로그램을 정의할 수 있습니다. 이러한 정책은 사용자가 회사 네트워크 또는 등록된 장치에 있을 때 정기적인 로그인 이벤트를 허용할 수 있지만 원격 또는 개인 장치에서 추가 확인 요소를 묻는 메시지가 표시됩니다.
+더 세부적인 제어를 위해 [조건부 액세스](../conditional-access/overview.md) 정책을 사용 하 여 MFA를 요구 하는 이벤트 또는 응용 프로그램을 정의할 수 있습니다. 이러한 정책은 사용자가 회사 네트워크 또는 등록 된 장치에 있는 경우 일반 로그인 이벤트를 허용할 수 있지만, 원격 또는 개인 장치에서 추가 확인 요인을 확인 하는 메시지를 표시 합니다.
 
 ![조건부 액세스를 적용하여 로그인 프로세스를 보호하는 방법에 대한 개략적인 다이어그램](media/tutorial-enable-azure-mfa/conditional-access-overview.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-라이선스에 대한 자세한 내용은 [Azure 다단계 인증에 대한 기능 및 라이선스를](concept-mfa-licensing.md)참조하십시오.
+라이선스에 대해 알아보려면 [Azure Multi-Factor Authentication의 기능 및 라이선스](concept-mfa-licensing.md)를 참조 하세요.
 
-MFA가 실행 중이면 다음 자습서에서 테스트 사용자 집합에 대해 Azure 다단계 인증을 사용하도록 설정합니다.
+작동 중인 MFA를 보려면 다음 자습서에서 테스트 사용자 집합에 대해 Azure Multi-Factor Authentication를 사용 하도록 설정 합니다.
 
 > [!div class="nextstepaction"]
 > [Azure Multi-Factor Authentication 사용](tutorial-mfa-applications.md)

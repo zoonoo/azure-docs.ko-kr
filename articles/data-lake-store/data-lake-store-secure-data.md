@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260307"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 저장된 데이터 보호
@@ -29,11 +29,11 @@ Azure Data Lake Storage Gen1의 데이터 보호는 3단계로 이루어집니�
 
 이 문서에서는 Azure 포털을 사용하여 위의 작업을 수행하는 방법에 대한 지침을 제공합니다. Data Lake Storage Gen1이 계정 및 데이터 수준에서 보안을 구현하는 방법에 대한 자세한 내용은 [Azure Data Lake Storage Gen1의 보안](data-lake-store-security-overview.md)을 참조하세요. Data Lake Storage Gen1에서 ACL의 구현 방식에 대한 자세한 내용은 [Data Lake Storage Gen1의 액세스 제어 개요](data-lake-store-access-control.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Data Lake Storage Gen1 계정**. 하나를 만드는 방법에 대 한 지침은 [참조 Azure 데이터 호수 저장소 Gen1시작](data-lake-store-get-started-portal.md)
+* **Data Lake Storage Gen1 계정**. 만드는 방법에 대 한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md) 을 참조 하세요.
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Azure Active Directory의 보안 그룹 만들기
 AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 방법에 대한 지침은 [Azure Active Directory의 보안 그룹 관리](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
@@ -57,7 +57,7 @@ AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 �
 
 2. Data Lake Storage Gen1 계정 블레이드에서 **액세스 제어(IAM)** 를 클릭합니다. 기본적으로 블레이드에 구독 소유자가 소유자로 나열됩니다.
    
-    ![Azure 데이터 레이크 저장소 Gen1 계정에 보안 그룹 할당](./media/data-lake-store-secure-data/adl.select.user.icon1.png "Azure 데이터 레이크 저장소 Gen1 계정에 보안 그룹 할당")
+    ![Azure Data Lake Storage Gen1 계정에 보안 그룹 할당](./media/data-lake-store-secure-data/adl.select.user.icon1.png "Azure Data Lake Storage Gen1 계정에 보안 그룹 할당")
 
 3. **액세스 제어(IAM)** 블레이드에서 **추가**를 클릭하여 **권한 추가** 블레이드를 엽니다. **권한 추가** 블레이드에서 사용자/그룹에 대한 **역할**을 선택합니다. Azure Active Directory에서 이전에 만든 보안 그룹을 찾아서 선택합니다. 검색할 사용자와 그룹이 많을 경우 **선택** 텍스트 상자를 사용하여 그룹 이름을 필터링합니다. 
    
@@ -88,7 +88,7 @@ AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 �
     ![데이터 탐색기를 통해 데이터 보기](./media/data-lake-store-secure-data/adl.start.data.explorer.png "데이터 탐색기를 통해 데이터 보기")
 2. **데이터 탐색기** 블레이드에서 ACL을 구성할 폴더를 클릭한 다음, **액세스**를 클릭합니다. 파일에 ACL을 지정하려면 먼저 파일을 클릭하여 미리 본 다음, **파일 미리 보기** 블레이드에서 **액세스**를 클릭해야 합니다.
    
-    ![데이터 레이크 스토리지 Gen1 파일 시스템에 ACL 설정](./media/data-lake-store-secure-data/adl.acl.1.png "데이터 레이크 스토리지 Gen1 파일 시스템에 ACL 설정")
+    ![Data Lake Storage Gen1 파일 시스템에 대 한 Acl 설정](./media/data-lake-store-secure-data/adl.acl.1.png "Data Lake Storage Gen1 파일 시스템에 대 한 Acl 설정")
 3. 루트에 이미 할당된 소유자 및 할당된 사용 권한이 **액세스** 블레이드에 나열됩니다. 액세스 ACL을 추가하려면 **추가** 아이콘을 클릭합니다.
     > [!IMPORTANT]
     > 단일 파일에 액세스 권한을 설정한다고 해서 해당 파일에 대한 사용자/그룹 액세스가 반드시 허용되는 것은 아닙니다. 할당된 사용자/그룹이 파일 경로에 액세스할 수 있어야 합니다. 자세한 내용과 예제는 [사용 권한과 관련된 일반적인 시나리오](data-lake-store-access-control.md#common-scenarios-related-to-permissions)를 참조하세요.
@@ -129,7 +129,7 @@ Data Lake Storage Gen1 계정에서 보안 그룹을 제거하는 경우 Azure P
 
 1. Data Lake Storage Gen1 계정 블레이드에서 **액세스 제어(IAM)** 를 클릭합니다. 
    
-    ![데이터 레이크 스토리지 Gen1 계정에 보안 그룹 할당](./media/data-lake-store-secure-data/adl.select.user.icon.png "데이터 레이크 스토리지 Gen1 계정에 보안 그룹 할당")
+    ![Data Lake Storage Gen1 계정에 보안 그룹 할당](./media/data-lake-store-secure-data/adl.select.user.icon.png "Data Lake Storage Gen1 계정에 보안 그룹 할당")
 2. **액세스 제어(IAM)** 블레이드에서 제거하려는 보안 그룹을 클릭합니다. **제거**를 클릭합니다.
    
     ![제거된 보안 그룹](./media/data-lake-store-secure-data/adl.remove.group.png "제거된 보안 그룹")
@@ -139,15 +139,15 @@ Data Lake Storage Gen1 파일 시스템에서 보안 그룹 ACL을 제거하면 
 
 1. Data Lake Storage Gen1 계정 블레이드에서 **데이터 탐색기**를 클릭합니다.
    
-    ![데이터 레이크 스토리지 Gen1 계정에서 디렉터리 만들기](./media/data-lake-store-secure-data/adl.start.data.explorer.png "데이터 레이크 스토리지 Gen1 계정에서 디렉터리 만들기")
+    ![Data Lake Storage Gen1 계정에서 디렉터리 만들기](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Data Lake Storage Gen1 계정에서 디렉터리 만들기")
 2. **데이터 탐색기** 블레이드에서 ACL을 제거할 폴더를 클릭한 다음, **액세스**를 클릭합니다. 파일에 대한 ACL을 제거하려면 먼저 파일을 클릭하여 미리 본 다음, **파일 미리 보기** 블레이드에서 **액세스**를 클릭해야 합니다. 
    
-    ![데이터 레이크 스토리지 Gen1 파일 시스템에 ACL 설정](./media/data-lake-store-secure-data/adl.acl.1.png "데이터 레이크 스토리지 Gen1 파일 시스템에 ACL 설정")
+    ![Data Lake Storage Gen1 파일 시스템에 대 한 Acl 설정](./media/data-lake-store-secure-data/adl.acl.1.png "Data Lake Storage Gen1 파일 시스템에 대 한 Acl 설정")
 3. **액세스** 블레이드에서 제거하려는 보안 그룹을 클릭합니다. **액세스 세부 정보** 블레이드에서 **제거**를 클릭합니다.
    
     ![그룹에 권한 할당](./media/data-lake-store-secure-data/adl.remove.acl.png "그룹에 권한 할당")
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Azure Storage Blob에서 Data Lake Storage Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
 * [Data Lake Storage Gen1에서 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure 클라우드 셸에서 테라폼으로 배포 | 마이크로 소프트 문서
-description: Azure 클라우드 셸에서 테라폼으로 배포
+title: Azure Cloud Shell에서 Terraform을 사용 하 여 배포 Microsoft Docs
+description: Azure Cloud Shell에서 Terraform을 사용 하 여 배포
 services: Azure
 documentationcenter: ''
 author: tomarchermsft
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
 ms.openlocfilehash: 8bacadd8941131f608411e61cc15c120c1b2bc60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79458157"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Azure Cloud Shell에서 Bash의 Terraform을 사용하여 배포

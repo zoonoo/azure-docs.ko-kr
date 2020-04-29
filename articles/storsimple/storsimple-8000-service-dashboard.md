@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 시리즈 장치에 서비스 요약 블레이드 사용
+title: StorSimple 8000 시리즈 장치에 대 한 서비스 요약 블레이드 사용
 description: StorSimple 서비스 요약 블레이드 및 이 블레이드를 사용하여 StorSimple 솔루션의 상태를 모니터링하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 14c37227a7e8598ee6f8f3adc62acd69dd274475
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80396498"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에 대한 서비스 요약 블레이드 사용
