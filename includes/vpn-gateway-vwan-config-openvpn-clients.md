@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -9,20 +9,20 @@ ms.date: 03/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 55fa01d100c60c6411774373428ff4bbd9a56822
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80986703"
 ---
 ## <a name="windows-clients"></a><a name="windows"></a>Windows 클라이언트
 
-1. 공식 [OpenVPN 웹 사이트에서 OpenVPN](https://openvpn.net/index.php/open-source/downloads.html)클라이언트(버전 2.4 이상)를 다운로드하여 설치하십시오.
+1. 공식 [openvpn 웹 사이트](https://openvpn.net/index.php/open-source/downloads.html)에서 openvpn 클라이언트 (버전 2.4 이상)를 다운로드 하 여 설치 합니다.
 2. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 ‘New-AzVpnClientConfiguration’에서 이 작업을 수행할 수 있습니다.
 3. 프로필의 압축을 풉니다. 다음으로 메모장을 사용하여 OpenVPN 폴더의 *vpnconfig.ovpn* 구성 파일을 엽니다.
-4. 생성하여 게이트웨이의 P2S 구성에 업로드한 지점 간 클라이언트 인증서를 내보냅니다. 다음 문서 링크를 사용합니다.
+4. 만든 지점 및 사이트 간 클라이언트 인증서를 게이트웨이에서 P2S 구성으로 내보냅니다. 다음 문서 링크를 사용 합니다.
 
-   * [VPN 게이트웨이](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) 지침
+   * [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) 지침
    
    * [가상 WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport) 지침
 5. *.pfx*에서 프라이빗 키 및 base64 지문을 추출합니다. 여러 가지 방법으로 이 작업을 수행할 수 있습니다. 머신에서 OpenSSL을 사용하는 것이 하나의 방법입니다. *profileinfo.txt* 파일은 CA 및 클라이언트 인증서에 대한 프라이빗 키 및 지문을 포함합니다. 클라이언트 인증서의 지문을 사용해야 합니다.
@@ -40,7 +40,7 @@ ms.locfileid: "80986703"
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. 메모장에서 *profileinfo.txt*를 엽니다. 개인 키를 얻으려면 "개인 키 를 시작----- 및 사이) "개인 키 를 시작---------- 및 ----- "개인 키 를 종료----------및 사이를 선택하고 복사합니다.
+8. 메모장에서 *profileinfo.txt*를 엽니다. 개인 키를 가져오려면 "-----시작 개인 키-----" 및 "-----END PRIVATE KEY-----"와 같은 텍스트를 선택 하 고 복사 합니다.
 9. 메모장의 vpnconfig.ovpn 파일로 돌아가서 이 섹션을 찾습니다. "key" 및 "/key" 사이의 모든 항목을 바꾸는 프라이빗 키를 붙여넣습니다.
 
    ```
@@ -56,57 +56,57 @@ ms.locfileid: "80986703"
 
 ## <a name="mac-clients"></a><a name="mac"></a>Mac 클라이언트
 
-1. 다운로드 및 [터널 블릭과](https://tunnelblick.net/downloads.html)같은 OpenVPN 클라이언트를 설치합니다. 
+1. [TunnelBlick](https://tunnelblick.net/downloads.html)와 같은 openvpn 클라이언트를 다운로드 하 여 설치 합니다. 
 2. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 ‘New-AzVpnClientConfiguration’에서 이 작업을 수행할 수 있습니다.
-3. 프로필의 압축을 풉니다. 텍스트 편집기에서 OpenVPN 폴더에서 vpnconfig.ovpn 구성 파일을 엽니다.
-4. base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 인코딩된 공개 키를 가져오기 위해 인증서를 내보내는 방법에 대한 자세한 내용은 다음 문서 링크를 사용합니다.
+3. 프로필의 압축을 풉니다. 텍스트 편집기의 OpenVPN 폴더에서 vpnconfig 구성 파일을 엽니다.
+4. base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 인코딩된 공개 키를 가져오는 인증서를 내보내는 방법에 대 한 정보는 다음 문서 링크를 참조 하세요.
 
-   * [VPN 게이트웨이](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) 지침 
+   * [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) 지침 
    
    * [가상 WAN](../articles/virtual-wan/certificates-point-to-site.md#cer) 지침
-5. base64에서 P2S 클라이언트 인증서 프라이빗 키를 사용하여 프라이빗 키 섹션을 채웁니다. 개인 키를 추출하는 방법에 대한 자세한 내용은 OpenVPN 사이트에서 [개인 키 내보내기를](https://openvpn.net/community-resources/how-to/#pki) 참조하십시오.
+5. base64에서 P2S 클라이언트 인증서 프라이빗 키를 사용하여 프라이빗 키 섹션을 채웁니다. 개인 키를 추출 하는 방법에 대 한 자세한 내용은 OpenVPN 사이트의 [개인 키 내보내기](https://openvpn.net/community-resources/how-to/#pki) 를 참조 하세요.
 6. 다른 필드는 변경하지 마세요. 클라이언트 입력에 채워진 구성을 사용하여 VPN에 연결합니다.
-7. 프로파일 파일을 두 번 클릭하여 Tunnelblick에서 프로파일을 작성합니다.
-8. 응용 프로그램 폴더에서 터널블릭을 시작합니다.
-9. 시스템 트레이의 Tunnelblick 아이콘을 클릭하고 연결을 선택합니다.
+7. 프로필 파일을 두 번 클릭 하 여 Tunnelblick에서 프로필을 만듭니다.
+8. 응용 프로그램 폴더에서 Tunnelblick를 시작 합니다.
+9. 시스템 트레이에 있는 Tunnelblick 아이콘을 클릭 하 고 연결을 선택 합니다.
 
 > [!IMPORTANT]
 >OpenVPN 프로토콜에서는 IOS 11.0 이상 및 MacOS 10.13 이상만 지원됩니다.
 >
 ## <a name="ios-clients"></a><a name="iOS"></a>iOS 클라이언트
 
-1. 앱 스토어에서 OpenVPN 클라이언트(버전 2.4 이상)를 설치합니다.
+1. 앱 스토어에서 OpenVPN 클라이언트 (버전 2.4 이상)를 설치 합니다.
 2. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 ‘New-AzVpnClientConfiguration’에서 이 작업을 수행할 수 있습니다.
-3. 프로필의 압축을 풉니다. 텍스트 편집기에서 OpenVPN 폴더에서 vpnconfig.ovpn 구성 파일을 엽니다.
-4. base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 인코딩된 공개 키를 가져오기 위해 인증서를 내보내는 방법에 대한 자세한 내용은 다음 문서 링크를 사용합니다.
+3. 프로필의 압축을 풉니다. 텍스트 편집기의 OpenVPN 폴더에서 vpnconfig 구성 파일을 엽니다.
+4. base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 인코딩된 공개 키를 가져오는 인증서를 내보내는 방법에 대 한 정보는 다음 문서 링크를 참조 하세요.
 
-   * [VPN 게이트웨이](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) 지침 
+   * [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) 지침 
    
    * [가상 WAN](../articles/virtual-wan/certificates-point-to-site.md#cer) 지침
-5. base64에서 P2S 클라이언트 인증서 프라이빗 키를 사용하여 프라이빗 키 섹션을 채웁니다. 개인 키를 추출하는 방법에 대한 자세한 내용은 OpenVPN 사이트에서 [개인 키 내보내기를](https://openvpn.net/community-resources/how-to/#pki) 참조하십시오.
+5. base64에서 P2S 클라이언트 인증서 프라이빗 키를 사용하여 프라이빗 키 섹션을 채웁니다. 개인 키를 추출 하는 방법에 대 한 자세한 내용은 OpenVPN 사이트에서 [개인 키 내보내기](https://openvpn.net/community-resources/how-to/#pki) 를 참조 하세요.
 6. 다른 필드는 변경하지 마세요.
-7. 프로필 파일(.ovpn)을 iPhone의 메일 앱에서 구성된 이메일 계정으로 전자 메일로 전자 우편으로 보송합니다. 
-8. iPhone의 메일 앱에서 전자 메일을 열고 첨부된 파일을 탭합니다.
+7. IPhone의 메일 앱에 구성 된 전자 메일 계정에 프로필 파일 (ovpn)을 전자 메일로 보냅니다. 
+8. IPhone의 메일 앱에서 전자 메일을 열고 첨부 된 파일을 탭 합니다.
 
-    ![이메일 열기](./media/vpn-gateway-vwan-config-openvpn-clients/ios2.png)
+    ![전자 메일 열기](./media/vpn-gateway-vwan-config-openvpn-clients/ios2.png)
 
-9. **OpenVPN으로 복사** 옵션이 표시되지 않으면 **자세히** 누릅니다.
+9. **OpenVPN에 복사** 옵션이 표시 되지 않으면 **자세히** 를 누릅니다.
 
     ![추가](./media/vpn-gateway-vwan-config-openvpn-clients/ios3.png)
 
-10. **OpenVPN에 복사를** 누릅니다 
+10. **OpenVPN에 복사를 탭 합니다** . 
 
-    ![오픈VPN으로 복사](./media/vpn-gateway-vwan-config-openvpn-clients/ios4.png)
+    ![OpenVPN에 복사](./media/vpn-gateway-vwan-config-openvpn-clients/ios4.png)
 
-11. 가져오기 프로필 페이지에서 **추가를** **누릅니다.**
+11. **프로필 가져오기** 페이지에서 **추가** 를 탭 합니다.
 
     ![추가](./media/vpn-gateway-vwan-config-openvpn-clients/ios5.png)
 
-12. **가져온 프로필** 페이지에서 **추가를** 누릅니다.
+12. **가져온 프로필** 페이지에서 **추가** 를 탭 합니다.
 
-    ![추가 를 누릅니다.](./media/vpn-gateway-vwan-config-openvpn-clients/ios6.png)
+    ![추가 탭](./media/vpn-gateway-vwan-config-openvpn-clients/ios6.png)
 
-13. OpenVPN 앱을 실행하고 **프로필** 페이지에서 스위치를 오른쪽으로 밀어 연결
+13. OpenVPN 앱을 시작 하 고 **프로필** 페이지에서 스위치를 연결 하 여 연결 합니다.
 
     ![연결](./media/vpn-gateway-vwan-config-openvpn-clients/ios8.png)
 
@@ -122,9 +122,9 @@ ms.locfileid: "80986703"
    sudo service network-manager restart
    ```
 3. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭에서 이 작업을 수행할 수 있습니다.
-4. 만들고 게이트웨이의 P2S 구성에 업로드한 P2S 클라이언트 인증서를 내보냅니다. 다음 문서 링크를 사용합니다.
+4. 만들고 게이트웨이의 P2S 구성에 업로드한 P2S 클라이언트 인증서를 내보냅니다. 다음 문서 링크를 사용 합니다.
 
-   * [VPN 게이트웨이](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) 지침 
+   * [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) 지침 
    
    * [가상 WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport) 지침
 5. .pfx에서 프라이빗 키 및 base64 지문을 추출합니다. 여러 가지 방법으로 이 작업을 수행할 수 있습니다. 컴퓨터에서 OpenSSL을 사용하는 것이 하나의 방법입니다.
@@ -145,7 +145,7 @@ ms.locfileid: "80986703"
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. 텍스트 편집기에서 profileinfo.txt를 엽니다. 개인 키를 얻으려면 "개인 키 시작-----과 "개인---------- 키 끝----- 을 포함하여 텍스트를 선택하고 복사합니다.
+8. 텍스트 편집기에서 profileinfo.txt를 엽니다. 개인 키를 가져오려면 "-----BEGIN PRIVATE KEY-----" 및 "-----END PRIVATE KEY-----"를 포함 하 여 텍스트를 선택 하 고 복사 합니다.
 
 9. 텍스트 편집기에서 vpnconfig.ovpn 파일을 열고 이 섹션을 찾습니다. "key" 및 "/key" 사이의 모든 항목을 바꾸는 프라이빗 키를 붙여넣습니다.
 
@@ -164,7 +164,7 @@ ms.locfileid: "80986703"
     sudo openvpn --config <name and path of your VPN profile file>&
     ```
 12. GUI를 사용하여 연결하려면 시스템 설정으로 이동합니다.
-13. 새 **+** VPN 연결을 추가하려면 클릭합니다.
+13. 새 **+** VPN 연결을 추가 하려면 클릭 합니다.
 14. **VPN 추가**에서 **파일에서 가져오기...** 를 선택합니다.
 15. 프로필 파일을 찾아보고 **열기**를 두 번 클릭하거나 선택합니다.
 16. **VPN 추가** 창에서 **추가**를 클릭합니다.

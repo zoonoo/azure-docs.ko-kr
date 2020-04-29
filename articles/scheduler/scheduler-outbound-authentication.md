@@ -9,18 +9,18 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878972"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Azure Scheduler에 대한 아웃바운드 인증
 
 > [!IMPORTANT]
-> [Azure 논리 앱이](../logic-apps/logic-apps-overview.md) [사용 중지되는](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)Azure 스케줄러를 대체합니다. 스케줄러에서 설정한 작업을 계속 작업하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션하십시오.](../scheduler/migrate-from-scheduler-to-logic-apps.md) 
+> 사용이 [중지](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)되는 Azure Scheduler를 교체 하는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) . 스케줄러에 설정 된 작업을 계속 하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션](../scheduler/migrate-from-scheduler-to-logic-apps.md) 하세요. 
 >
-> 스케줄러는 Azure 포털에서 더 이상 사용할 수 없지만 작업 및 작업 컬렉션을 관리할 수 있도록 [현재 REST API](/rest/api/scheduler) 및 Azure [스케줄러 PowerShell cmdlet을](scheduler-powershell-reference.md) 사용할 수 있습니다.
+> 스케줄러는 Azure Portal에서 더 이상 사용할 수 없지만,이 시점에서 [REST API](/rest/api/scheduler) 및 [Azure scheduler PowerShell cmdlet](scheduler-powershell-reference.md) 을 계속 사용할 수 있으므로 작업 및 작업 컬렉션을 관리할 수 있습니다.
 
 Azure Scheduler 작업은 다른 Azure 서비스, Salesforce.com, Facebook, 보안 사용자 지정 웹 사이트 등과 같이 인증이 필요한 서비스를 호출해야 하는 경우가 있습니다. 호출된 서비스에 따라 Scheduler 작업이 요청된 리소스에 액세스할 수 있는지 여부가 결정될 수 있습니다. 
 
@@ -47,10 +47,10 @@ Scheduler는 다음과 같은 인증 모델을 지원합니다.
 
 | 요소 | 필수 | Description |
 |---------|----------|-------------|
-| **인증(상위** 요소) | SSL/TLS 클라이언트 인증서를 사용하기 위한 인증 개체 |
-| **종류** | 예 | 인증 유형입니다. SSL/TLS 클라이언트 인증서의 경우 `ClientCertificate`값은 입니다. |
+| **인증** (부모 요소) | SSL/TLS 클라이언트 인증서를 사용 하기 위한 인증 개체입니다. |
+| **type** | 예 | 인증 유형입니다. SSL/TLS 클라이언트 인증서의 경우 값은 `ClientCertificate`입니다. |
 | **pfx** | 예 | PFX 파일의 Base64 인코딩 콘텐츠 |
-| **다시 설정** | 예 | PFX 파일에 액세스하기 위한 암호 |
+| **password** | 예 | PFX 파일에 액세스하기 위한 암호 |
 ||| 
 
 ### <a name="response-body---client-certificate"></a>응답 본문 - 클라이언트 인증서 
@@ -59,9 +59,9 @@ Scheduler는 다음과 같은 인증 모델을 지원합니다.
 
 | 요소 | Description | 
 |---------|-------------| 
-| **인증(상위** 요소) | SSL/TLS 클라이언트 인증서를 사용하기 위한 인증 개체 |
-| **종류** | 인증 유형입니다. SSL/TLS 클라이언트 인증서의 경우 `ClientCertificate`값은 입니다. |
-| **인증서지문** |인증서의 지문 |
+| **인증** (부모 요소) | SSL/TLS 클라이언트 인증서를 사용 하기 위한 인증 개체입니다. |
+| **type** | 인증 유형입니다. SSL/TLS 클라이언트 인증서의 경우 값은 `ClientCertificate`입니다. |
+| **certificateThumbprint** |인증서의 지문 |
 | **certificateSubjectName** |인증서의 고유한 주체 이름 |
 | **certificateExpiration** | 인증서 만료 날짜 |
 ||| 
@@ -167,10 +167,10 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 | 요소 | 필수 | Description |
 |---------|----------|-------------|
-| **인증(상위** 요소) | 기본 인증을 사용하기 위한 인증 개체 | 
-| **종류** | 예 | 인증 유형입니다. 기본 인증의 경우 이 값은 `Basic`입니다. | 
-| **사용자** | 예 | 인증하기 위한 사용자 이름 | 
-| **다시 설정** | 예 | 인증하기 위한 암호 |
+| **인증** (부모 요소) | 기본 인증을 사용하기 위한 인증 개체 | 
+| **type** | 예 | 인증 유형입니다. 기본 인증의 경우 이 값은 `Basic`입니다. | 
+| **이름** | 예 | 인증하기 위한 사용자 이름 | 
+| **password** | 예 | 인증하기 위한 암호 |
 |||| 
 
 ### <a name="response-body---basic"></a>응답 본문 - 기본
@@ -179,9 +179,9 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 | 요소 | Description | 
 |---------|-------------|
-| **인증(상위** 요소) | 기본 인증을 사용하기 위한 인증 개체 |
-| **종류** | 인증 유형입니다. 기본 인증의 경우 이 값은 `Basic`입니다. |
-| **사용자** | 인증된 사용자 이름 |
+| **인증** (부모 요소) | 기본 인증을 사용하기 위한 인증 개체 |
+| **type** | 인증 유형입니다. 기본 인증의 경우 이 값은 `Basic`입니다. |
+| **이름** | 인증된 사용자 이름 |
 ||| 
 
 ### <a name="sample-rest-request---basic"></a>샘플 REST 요청 - 기본
@@ -285,12 +285,12 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 | 요소 | 필수 | Description |
 |---------|----------|-------------|
-| **인증(상위** 요소) | 예 | ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체 |
-| **종류** | 예 | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. |
-| **테 넌 트** | 예 | Azure AD 테넌트의 테넌트 식별자입니다. Azure AD 테넌트의 테넌트 식별자를 찾으려면 Azure PowerShell에서 `Get-AzureAccount` 명령을 실행하세요. |
-| **관객** | 예 | 이 값은 `https://management.core.windows.net/`으로 설정됩니다. | 
-| **Clientid** | 예 | Azure AD 애플리케이션의 클라이언트 ID | 
-| **비밀** | 예 | 토큰을 요청하는 클라이언트의 비밀 | 
+| **인증** (부모 요소) | 예 | ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체 |
+| **type** | 예 | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. |
+| **넌** | 예 | Azure AD 테넌트의 테넌트 식별자입니다. Azure AD 테넌트의 테넌트 식별자를 찾으려면 Azure PowerShell에서 `Get-AzureAccount` 명령을 실행하세요. |
+| **그룹** | 예 | 이 값은 `https://management.core.windows.net/`으로 설정됩니다. | 
+| **clientId** | 예 | Azure AD 애플리케이션의 클라이언트 ID | 
+| **기밀** | 예 | 토큰을 요청하는 클라이언트의 비밀 | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>응답 본문 - Active Directory OAuth
@@ -299,11 +299,11 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 | 요소 | Description |
 |---------|-------------|
-| **인증(상위** 요소) | ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체 |
-| **종류** | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
-| **테 넌 트** | Azure AD 테넌트의 테넌트 식별자 |
-| **관객** | 이 값은 `https://management.core.windows.net/`으로 설정됩니다. |
-| **Clientid** | Azure AD 애플리케이션의 클라이언트 ID |
+| **인증** (부모 요소) | ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체 |
+| **type** | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
+| **넌** | Azure AD 테넌트의 테넌트 식별자 |
+| **그룹** | 이 값은 `https://management.core.windows.net/`으로 설정됩니다. |
+| **clientId** | Azure AD 애플리케이션의 클라이언트 ID |
 ||| 
 
 ### <a name="sample-rest-request---active-directory-oauth"></a>샘플 REST 요청 - Active Directory OAuth

@@ -1,55 +1,55 @@
 ---
 title: 자산 변환 REST API
-description: REST API를 통해 자산을 변환하는 방법에 대해 설명합니다.
+description: REST API를 통해 자산을 변환 하는 방법을 설명 합니다.
 author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: 38116efc9e87eca8e2514a0a84045a69b8d42326
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887047"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>모델 변환 REST API 사용
 
-[모델 변환](model-conversion.md) 서비스는 REST [API를](https://en.wikipedia.org/wiki/Representational_state_transfer)통해 제어됩니다. 이 문서에서는 변환 서비스 API 세부 정보를 설명합니다.
+[모델 변환](model-conversion.md) 서비스는 [REST API](https://en.wikipedia.org/wiki/Representational_state_transfer)을 통해 제어 됩니다. 이 문서에서는 변환 서비스 API 세부 정보에 대해 설명 합니다.
 
 ## <a name="regions"></a>영역
 
-요청을 보낼 기본 [URL에](../../reference/regions.md) 사용할 수 있는 지역 목록을 참조하세요.
+요청을 보낼 기본 Url에 대 한 [사용 가능한 지역 목록을](../../reference/regions.md) 참조 하세요.
 
-## <a name="common-headers"></a>공통 헤더
+## <a name="common-headers"></a>공용 헤더
 
-### <a name="common-request-headers"></a>공통 요청 헤더
+### <a name="common-request-headers"></a>일반 요청 헤더
 
-이러한 헤더는 모든 요청에 대해 지정해야 합니다.
+모든 요청에 대해 다음 헤더를 지정 해야 합니다.
 
-- **권한 부여** 헤더는 [TOKEN]이 [서비스 액세스 토큰인](../tokens.md)"Bearer *[TOKEN]"의*값을 가져야 합니다.*TOKEN*
+- **권한 부여** 헤더의 값은 "전달자 [*token*]" 이어야 합니다. 여기서 [*token*]은 [서비스 액세스 토큰](../tokens.md)입니다.
 
-### <a name="common-response-headers"></a>공통 응답 헤더
+### <a name="common-response-headers"></a>일반적인 응답 헤더
 
-모든 응답에는 다음 헤더가 포함됩니다.
+모든 응답에는 다음 헤더가 포함 됩니다.
 
-- **MS-CV** 헤더에는 서비스 내에서 호출을 추적하는 데 사용할 수 있는 고유한 문자열이 포함되어 있습니다.
+- **MS CV** 헤더에는 서비스 내에서 호출을 추적 하는 데 사용할 수 있는 고유한 문자열이 포함 되어 있습니다.
 
 ## <a name="endpoints"></a>엔드포인트
 
-변환 서비스는 세 가지 REST API 끝점을 제공합니다.
+변환 서비스는 다음의 세 가지 REST API 끝점을 제공 합니다.
 
-- Azure 원격 렌더링 계정과 연결된 저장소 계정을 사용하여 모델 변환을 시작합니다. 
-- 제공된 *SAS(공유 액세스 서명)를*사용하여 모델 변환을 시작합니다.
+- Azure 원격 렌더링 계정으로 연결 된 저장소 계정을 사용 하 여 모델 변환을 시작 합니다. 
+- 제공 된 *SAS (공유 액세스 서명)* 를 사용 하 여 모델 변환을 시작 합니다.
 - 변환 상태 쿼리
 
-### <a name="start-conversion-using-a-linked-storage-account"></a>연결된 저장소 계정을 사용하여 전환 시작
-Azure 원격 렌더링 계정은 저장소 계정을 연결하는 방법에 대한 단계를 수행하여 제공된 [저장소 계정에](../create-an-account.md#link-storage-accounts)액세스할 수 있어야 합니다.
+### <a name="start-conversion-using-a-linked-storage-account"></a>연결 된 저장소 계정을 사용 하 여 변환 시작
+Azure 원격 렌더링 계정에는 [저장소 계정을 연결](../create-an-account.md#link-storage-accounts)하는 방법에 대 한 단계를 수행 하 여 제공 된 저장소 계정에 대 한 액세스 권한이 있어야 합니다.
 
 | 엔드포인트 | 방법 |
 |-----------|:-----------|
-| /v1/계정/계정 ID/변환/생성**accountID** | POST |
+| /v1/accounts/**accountID**/conversions/create | POST |
 
-JSON 문서에 래핑된 진행 중인 변환의 ID를 반환합니다. 필드 이름은 "변환 Id"입니다.
+JSON 문서에 래핑된 진행 중인 변환의 ID를 반환 합니다. 필드 이름은 "conversionId"입니다.
 
 #### <a name="request-body"></a>요청 본문
 
@@ -72,21 +72,21 @@ JSON 문서에 래핑된 진행 중인 변환의 ID를 반환합니다. 필드 �
     }
 }
 ```
-### <a name="start-conversion-using-provided-shared-access-signatures"></a>제공된 공유 액세스 서명을 사용하여 변환 시작
-ARR 계정이 저장소 계정에 연결되어 있지 않은 경우 이 REST 인터페이스를 사용하면 *SAS(공유 액세스 서명)를*사용하여 액세스를 제공할 수 있습니다.
+### <a name="start-conversion-using-provided-shared-access-signatures"></a>제공 된 공유 액세스 서명을 사용 하 여 변환 시작
+ARR 계정이 저장소 계정에 연결 되지 않은 경우이 REST 인터페이스를 사용 하 여 *SAS (공유 액세스 서명)* 를 사용 하 여 액세스를 제공할 수 있습니다.
 
 | 엔드포인트 | 방법 |
 |-----------|:-----------|
-| /v1/계정/계정 ID/변환/createWithSharedAccess서명**accountID** | POST |
+| /v1/accounts/**accountID**/conversions/createWithSharedAccessSignature | POST |
 
-JSON 문서에 래핑된 진행 중인 변환의 ID를 반환합니다. 필드 이름은 "변환 Id"입니다.
+JSON 문서에 래핑된 진행 중인 변환의 ID를 반환 합니다. 필드 이름은 "conversionId"입니다.
 
 #### <a name="request-body"></a>요청 본문
 
-요청 본문에는 위의 REST 호출 만들기와 동일하지만 입력 및 출력에는 *SAS(공유 액세스 서명) 토큰이*포함되어 있습니다. 이러한 토큰은 입력을 읽고 변환 결과를 작성하기 위한 저장소 계정에 대한 액세스를 제공합니다.
+요청 본문은 위의 create REST 호출에서와 동일 하지만 입력 및 출력에는 *SAS (공유 액세스 서명) 토큰이*포함 되어 있습니다. 이러한 토큰은 입력을 읽고 변환 결과를 쓸 수 있도록 저장소 계정에 대 한 액세스를 제공 합니다.
 
 > [!NOTE]
-> 이러한 SAS URI 토큰은 전체 URI가 아닌 쿼리 문자열입니다. 
+> 이러한 SAS URI 토큰은 쿼리 문자열이 며 전체 URI가 아닙니다. 
 
 
 ```json
@@ -110,21 +110,21 @@ JSON 문서에 래핑된 진행 중인 변환의 ID를 반환합니다. 필드 �
 }
 ```
 
-### <a name="poll-conversion-status"></a>폴링 전환 상태
-위의 REST 호출 중 하나로 시작된 진행 중인 변환의 상태는 다음 인터페이스를 사용하여 쿼리할 수 있습니다.
+### <a name="poll-conversion-status"></a>폴링 변환 상태
+위의 REST 호출 중 하나로 시작 하는 진행 중인 변환의 상태는 다음 인터페이스를 사용 하 여 쿼리할 수 있습니다.
 
 
 | 엔드포인트 | 방법 |
 |-----------|:-----------|
-| /v1/계정/계정**accountID**ID/변환/변환ID**conversionId** | GET |
+| /v1/accounts/**accountID**/conversions/**conversionId** | GET |
 
-다음 값을 가질 수 있는 "상태" 필드가 있는 JSON 문서를 반환합니다.
+다음 값을 가질 수 있는 "status" 필드가 포함 된 JSON 문서를 반환 합니다.
 
-- "달리기"
+- 이상을
 - "Success"
-- "고장"
+- 실패로
 
-상태가 "실패"인 경우 오류 정보가 포함된 "메시지" 하위 필드가 있는 추가 "오류" 필드가 있습니다. 추가 로그가 출력 컨테이너에 업로드됩니다.
+상태가 "오류" 인 경우 오류 정보를 포함 하는 "message" 하위 필드가 있는 추가 "오류" 필드가 나타납니다. 추가 로그가 출력 컨테이너에 업로드 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 코스모스 DB 그렘린 API를 사용하여 그래프 대량 실행기 .NET 라이브러리 사용
+title: Azure Cosmos DB Gremlin API를 사용 하 여 그래프 대량 실행자 .NET 라이브러리 사용
 description: Bulk Executor 라이브러리를 사용하여 그래프 데이터를 대량으로 Azure Cosmos DB Gremlin API 컨테이너로 가져오는 방법을 알아봅니다.
 author: luisbosquez
 ms.service: cosmos-db
@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
 ms.openlocfilehash: adf512fc521ef553f0bbd6ef6dd8ee19e398b37b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982706"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Graph Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB Gremlin API에서 대량 작업 수행
@@ -77,7 +77,7 @@ Bulk Executor 라이브러리의 매개 변수에 대한 자세한 내용은 [Az
 
 페이로드를 `GremlinVertex` 및 `GremlinEdge` 개체로 인스턴스화해야 합니다. 이러한 개체를 만드는 방법은 다음과 같습니다.
 
-**정점**:
+**꼭 짓 점**:
 ```csharp
 // Creating a vertex
 GremlinVertex v = new GremlinVertex(
@@ -113,9 +113,9 @@ e.AddProperty("customProperty", "value");
 
 ## <a name="sample-application"></a>샘플 애플리케이션
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 * Azure 개발 워크로드를 사용하는 Visual Studio 2019. [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/)을 무료로 시작할 수 있습니다.
-* Azure 구독 여기에서 무료 Azure 계정을 만들 수 [있습니다.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db) 또는 Azure 구독 없이 [Azure Cosmos DB 평가판 사용해보기](https://azure.microsoft.com/try/cosmosdb/)로 Cosmos 데이터베이스 계정을 만들 수 있습니다.
+* Azure 구독 [여기에서 무료 Azure 계정을](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db)만들 수 있습니다. 또는 Azure 구독 없이 [Azure Cosmos DB 평가판 사용해보기](https://azure.microsoft.com/try/cosmosdb/)로 Cosmos 데이터베이스 계정을 만들 수 있습니다.
 * **무제한 컬렉션**을 사용하는 Azure Cosmos DB Gremlin API 데이터베이스. 이 가이드에서는 [.NET의 Azure Cosmos DB Gremlin API](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet)를 시작하는 방법을 보여줍니다.
 * Git. 자세한 내용은 [Git 다운로드 페이지](https://git-scm.com/downloads)를 참조하세요.
 

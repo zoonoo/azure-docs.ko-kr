@@ -1,6 +1,6 @@
 ---
-title: IPv6 - Azure 로드 밸러커 개요
-description: 이 학습 경로를 통해 Azure 로드 밸런서 및 로드 균형 VM에 대한 IPv6 지원을 시작하십시오.
+title: IPv6 Azure Load Balancer 개요
+description: 이 학습 경로를 사용 하 여 Azure Load Balancer 및 부하가 분산 된 Vm에 대 한 IPv6 지원을 시작 하세요.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,22 +14,22 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
 ms.openlocfilehash: d2966f32fcf7f8be2a93d1639f0a63f49768c306
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80981854"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure Load Balancer의 IPv6에 대한 개요
 
 
 >[!NOTE] 
->이 콘텐츠는 [Azure VNet 개요에 대한 IPv6에 의해](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)대체되었습니다. Azure는 새 IPv6 배포에서 Azure 가상 네트워크 기능에 대해 새 IPv6기능을 사용할 것을 권장합니다.
+>이 콘텐츠는 [Azure VNet 개요에 대해 IPv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)로 대체 되었습니다. Azure는 새로운 IPv6 배포에 새 IPv6 가상 네트워크 기능을 사용 하는 것을 권장 합니다.
 
 >[!NOTE]
 >Azure Load Balancer는 기본 및 표준이라는 두 가지 형식을 지원합니다. 이 문서는 기본 Load Balancer에 대해 설명합니다. 표준 Load Balancer에 대한 자세한 내용은 [표준 Load Balancer 개요](load-balancer-standard-overview.md)를 참조하세요.
 
-기본 SKU 인터넷 연결 로드 밸런서는 IPv6 주소로 배포할 수 있습니다. IPv4 연결 외에도 다음과 같은 기능을 사용할 수 있습니다.
+기본 SKU 인터넷 연결 부하 분산 장치는 IPv6 주소를 사용 하 여 배포할 수 있습니다. IPv4 연결 외에도 다음과 같은 기능을 사용할 수 있습니다.
 
 * 부하 분산 장치를 통한 공용 인터넷 클라이언트와 Azure Virtual Machines(VM) 사이의 네이티브 엔드투엔드 IPv6 연결.
 * VM과 공용 인터넷 IPv6 사용 가능 클라이언트 사이의 네이티브 엔드투엔드 IPv6 아웃바운드 연결.
@@ -81,7 +81,7 @@ Azure Resource Manager를 통해 배포된 VM에 대한 네이티브 IPv6 지원
 * IPv6에 대한 loadDistributionMethod 매개 변수 변경은 **현재 지원되지 않습니다**.
 * 예약된 IPv6 IP(여기서 IPAllocationMethod = static)는 **현재 지원되지 않습니다**.
 * NAT64(IPv4로의 IPv6 변환)가 지원되지 않습니다.
-* IPv6 서브넷을 참조하는 보조 NIC를 백 엔드 풀에 연결하는 것은 **현재 지원되지 않습니다.**
+* IPv6 서브넷을 참조 하는 보조 NIC를 백 엔드 풀에 연결 하는 것은 **현재 지원 되지 않습니다**.
 
 ## <a name="next-steps"></a>다음 단계
 

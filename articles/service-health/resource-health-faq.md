@@ -4,10 +4,10 @@ description: Azure Resource Health 개요
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: 7459a29dca01dc186d75b4545f89068569975607
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985034"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health FAQ
@@ -37,7 +37,7 @@ Resource Health에서 특정 리소스에 대한 정보 수신을 중지하면 �
 ## <a name="how-can-i-get-help-for-a-resource-that-is-unavailable"></a>사용할 수 없는 리소스에 대한 도움을 받으려면 어떻게 하나요?
 Resource Health 블레이드에서 지원 요청을 제출할 수 있습니다. 플랫폼 이벤트로 인해 리소스를 사용할 수 없는 경우 요청을 열기 위해 Microsoft와 지원 계약이 필요하지 않습니다.
 
-## <a name="does-resource-health-differentiate-between-unavailability-caused-by-platform-problems-versus-something-i-did"></a>리소스 상태는 플랫폼 문제로 인한 가용성과 내가 한 일을 구별합니까?
+## <a name="does-resource-health-differentiate-between-unavailability-caused-by-platform-problems-versus-something-i-did"></a>플랫폼 문제로 인해 발생 한 비활성과 그에 대 한 차이점을 구분 Resource Health
 예, 리소스를 사용할 수 없는 경우 Resource Health는 다음과 같은 범주 중 하나에서 근본 원인을 식별합니다. 
 -   사용자가 시작한 작업
 -   계획된 이벤트 
@@ -46,12 +46,12 @@ Resource Health 블레이드에서 지원 요청을 제출할 수 있습니다. 
 포털에서는 사용자가 시작한 작업이 파란색 알림 아이콘을 사용하여 표시되지만 계획 및 계획되지 않은 이벤트는 빨간색 경고 아이콘을 사용하여 표시됩니다. 자세한 내용은 [Resource Health 개요](Resource-health-overview.md)에 제공됩니다.  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Resource Health를 내 모니터링 도구에 통합할 수 있나요?
-리소스 상태는 활동 로그 기반 경고에 대한 [미리 보기 지원을](resource-health-alert-arm-template-guide.md) 합니다. 활동 로그 경고는 [작업 그룹을](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 작업 그룹은 전자 메일, SMS, 웹후크 및 ITSM 작업과 같은 다양한 알림 채널을 지원합니다.
+리소스 상태는 활동 로그 기반 경고에 대 한 [미리 보기를 지원](resource-health-alert-arm-template-guide.md) 합니다. 활동 로그 경고는 [작업 그룹](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) 을 사용 하 여 경고가 트리거 되었음을 사용자에 게 알립니다. 작업 그룹은 전자 메일, SMS, 웹 후크, ITSM 작업 등의 다양 한 알림 채널을 지원 합니다.
 
 ## <a name="where-do-i-find-resource-health"></a>Resource Health는 어디서 찾을 수 있나요?
 Azure Portal에 로그인하면 여러 가지 방법으로 Resource Health에 액세스할 수 있습니다.
 - 리소스로 이동합니다. 왼쪽 탐색에서 **Resource Health**를 선택합니다.
-- Azure Service Health 블레이드로 이동합니다.  왼쪽 탐색에서 **리소스 상태를 선택합니다.**
+- Azure Service Health 블레이드로 이동합니다.  왼쪽 탐색에서 **Resource health**를 선택 합니다.
 - 포털 오른쪽 위 모서리에서 물음표를 선택하고 **도움말 + 지원**을 선택하여 **도움말 + 지원** 블레이드를 엽니다. 블레이드가 열리면 **Resource Health**를 선택합니다.
 
 Resource Health API를 사용하여 리소스 상태에 대한 정보를 얻을 수도 있습니다.
@@ -63,7 +63,7 @@ Resource Health를 통해 지원되는 상태 검사 및 리소스 유형 목록
 리소스 상태를 검사할 때는 상태 오른쪽 아래에서 **Report incorrect health status(잘못된 상태 보고)** 를 클릭하면 됩니다. 보고서를 제출하기 전에 현재 상태가 잘못되었다고 생각하는 이유에 대해 자세히 입력하는 옵션이 제공됩니다.
 
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>모든 Azure 지역에서 Resource Health가 제공되나요? 
-리소스 상태는 모든 Azure 지오에서 사용할 수 있습니다.
+리소스 상태는 모든 Azure geos에서 사용할 수 있습니다.
 
 ## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Resource Health는 Azure 상태 또는 Service Health 대시보드와 어떻게 다른가요?
 Resource Health에서 제공하는 정보는 Azure 상태 또는 Service Health 대시보드에서 제공하는 정보보다 더 구체적입니다.
@@ -88,4 +88,4 @@ Resource Health는 상태에 따라 문제 해결에 소요되는 시간을 줄�
 
 Resource Health에 대해 알아봅니다.
 -  [Azure Resource Health 개요](Resource-health-overview.md)
--  [Azure 리소스 상태를 통해 사용할 수 있는 리소스 유형 및 상태 확인](resource-health-checks-resource-types.md)
+-  [Azure Resource Health를 통해 사용할 수 있는 리소스 유형 및 상태 검사](resource-health-checks-resource-types.md)

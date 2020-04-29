@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.openlocfilehash: 9356ab0aec375a046a8f200838df296b2cf74bce
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80984983"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: 다운로드 및 릴리스 정보
@@ -26,7 +26,7 @@ ms.locfileid: "80984983"
 
 |   |   |
 |---|---|
-|**SDK 다운로드**|[Nuget](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
+|**SDK 다운로드**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
 |**빠른 시작**|[Azure Cosmos DB: .NET 및 Table API를 사용하여 앱 빌드](create-table-dotnet.md)|
 |**자습서**|[Azure Cosmos DB: .NET의 Table API를 사용하여 개발](tutorial-develop-table-dotnet.md)|
 |**현재 지원되는 프레임워크**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
@@ -80,9 +80,9 @@ ms.locfileid: "80984983"
 
 Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK 사용 중지 최소 **12개월** 전에 알림을 제공합니다.
 
-라이브러리는 `Microsoft.Azure.CosmosDB.Table` 현재 .NET Framework에서만 사용할 수 있으며 유지 관리 모드에 있으며 곧 더 이상 사용되지 않습니다. 새로운 기능과 기능 및 최적화는 .NET 표준 라이브러리 [Microsoft.Azure.Cosmos.Table에만](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)추가되며, 따라서 [Microsoft.Azure.Cosmos.Table로](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)업그레이드하는 것이 좋습니다.
+라이브러리 `Microsoft.Azure.CosmosDB.Table` 는 현재 .NET Framework에만 사용할 수 있으며 유지 관리 모드 이며 곧 사용 되지 않습니다. 새 기능 및 최적화는 .NET Standard 라이브러리 [Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)에만 추가 됩니다. 따라서 [Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)로 업그레이드 하는 것이 좋습니다 (예:).
 
-[WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) 미리 보기 패키지가 더 이상 사용되지 않았습니다. WindowsAzure.Storage-PremiumTable SDK는 2018년 11월 15일부터 사용이 중지되고 사용 중지된 SDK에 대한 요청도 허용되지 않습니다. 
+[Windowsazure.servicebus-windowsazure.storage-premiumtable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) 미리 보기 패키지는 더 이상 사용 되지 않습니다. WindowsAzure.Storage-PremiumTable SDK는 2018년 11월 15일부터 사용이 중지되고 사용 중지된 SDK에 대한 요청도 허용되지 않습니다. 
 
 사용 중지된 SDK를 사용하는 Azure Cosmos DB에 대한 요청은 서비스에서 거부됩니다.
 <br/>
@@ -90,13 +90,13 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 | 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
 | [2.1.2](#2.1.2) |2019년 9월 16일| |
-| [2.1.0](#2.1.0) |2019년 1월 22일|2020년 4월 01일 |
-| [2.0.0](#2.0.0) |2018년 9월 26일|2020년 3월 01일 |
-| [1.1.3](#1.1.3) |2018년 7월 17일|2019년 12월 01일 |
-| [1.1.1](#1.1.1) |2018년 3월 26일|2019년 12월 01일 |
-| [1.1.0](#1.1.0) |2018년 2월 21일|2019년 12월 01일 |
+| [2.1.0](#2.1.0) |2019년 1월 22일|2020 년 4 월 01 일 |
+| [2.0.0](#2.0.0) |2018년 9월 26일|3 월 01 일, 2020 |
+| [1.1.3](#1.1.3) |2018년 7월 17일|2019 년 12 월 01 일 |
+| [1.1.1](#1.1.1) |2018년 3월 26일|2019 년 12 월 01 일 |
+| [1.1.0](#1.1.0) |2018년 2월 21일|2019 년 12 월 01 일 |
 | [1.0.0](#1.0.0) |2017년 11월 15일|2019년 11월 15일 |
-| 0.9.0-preview |2017년 11월 11일 |2019년 11월 11일 |
+| 0.9.0-preview |2017년 11월 11일 |2019 년 11 월 11 일 |
 
 ## <a name="troubleshooting"></a>문제 해결
 

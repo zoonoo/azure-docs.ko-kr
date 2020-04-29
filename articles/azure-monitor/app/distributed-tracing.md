@@ -1,25 +1,25 @@
 ---
 title: Azure Application Insights의 분산 추적 | Microsoft Docs
-description: OpenCensus 프로젝트에서 파트너십을 통해 분산 추적에 대한 Microsoft의 지원에 대한 정보를 제공합니다.
+description: OpenCensus 프로젝트의 파트너 관계를 통해 Microsoft의 분산 추적 지원에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80892260"
 ---
 # <a name="what-is-distributed-tracing"></a>분산 추적이란?
 
-최신 클라우드 및 [마이크로 서비스](https://azure.com/microservices) 아키텍처의 등장으로 가용성과 처리량을 늘리면서 비용을 절감할 수 있는 간단하고 독립적으로 배포가능한 서비스가 생겨나고 있습니다. 그러나 이러한 움직임으로 인해 개별 서비스를 전체적으로 이해하기 가 더 쉬워졌지만 전체 시스템을 추론하고 디버깅하기가 더 어려워졌습니다.
+최신 클라우드 및 [마이크로 서비스](https://azure.com/microservices) 아키텍처의 출현은 독립적이 고 독립적으로 배포 가능한 서비스를 제공 하 여 가용성과 처리량을 높이는 동시에 비용을 절감할 수 있도록 합니다. 그러나 이러한 이동으로 인해 개별 서비스를 전반적으로 보다 쉽게 이해 하는 동안에는 전체 시스템을 이해 하 고 디버깅 하기가 더 어려워집니다.
 
-모놀리식 아키텍처에서는 호출 스택으로 디버깅하는 데 익숙해졌습니다. 호출 스택은 각 호출에 대한 세부 정보 및 매개 변수와 함께 실행 흐름(메서드 A가 메서드 B를 호출하고 이로 인해 메서드 C가 호출됨)을 표시하기에 훌륭한 도구입니다. 이런 방식은 단일 프로세스에서 실행되는 단일 조직이나 서비스에는 적합하지만 호출이 로컬 스택의 참조가 아닌 프로세스 경계를 넘어서는 경우에는 어떻게 디버그해야 할까요? 
+모놀리식 아키텍처에서 호출 스택을 사용 하 여 디버깅 하는 데 사용 되었습니다. 호출 스택은 각 호출에 대한 세부 정보 및 매개 변수와 함께 실행 흐름(메서드 A가 메서드 B를 호출하고 이로 인해 메서드 C가 호출됨)을 표시하기에 훌륭한 도구입니다. 이런 방식은 단일 프로세스에서 실행되는 단일 조직이나 서비스에는 적합하지만 호출이 로컬 스택의 참조가 아닌 프로세스 경계를 넘어서는 경우에는 어떻게 디버그해야 할까요? 
 
-분산 추적이 들어오는 곳입니다.  
+분산 추적이 제공 되는 위치입니다.  
 
 분산 추적은 최신 클라우드 및 마이크로 서비스 아키텍처의 호출 스택과 동일하며 단순한 성능 프로파일러가 추가되었습니다. Azure Monitor에는 분산 추적 데이터를 사용하는 두 가지 환경이 제공됩니다. 첫째는 [트랜잭션 진단](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) 보기입니다. 이것은 호출 스택에 시간 차원이 추가된 것과 동일합니다. 트랜잭션 진단 보기는 단일 트랜잭션/요청에 대한 가시성을 제공하며 요청 단위를 기준으로 안정성 문제와 성능 병목 현상의 근본 원인을 찾는 데 유용합니다.
 
@@ -27,11 +27,11 @@ Azure Monitor에는 [애플리케이션 맵](https://docs.microsoft.com/azure/ap
 
 ## <a name="how-to-enable-distributed-tracing"></a>분산 추적을 사용하는 방법
 
-응용 프로그램의 서비스 간에 분산 추적을 사용하도록 설정하는 것은 서비스가 구현된 언어에 따라 각 서비스에 적절한 에이전트, SDK 또는 라이브러리를 추가하는 것만큼 간단합니다.
+응용 프로그램의 서비스에서 분산 추적을 사용 하도록 설정 하는 것은 서비스가 구현 된 언어에 따라 적절 한 에이전트, SDK 또는 라이브러리를 각 서비스에 추가 하는 것 만큼 간단 합니다.
 
-## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>자동 계측 또는 SDK를 통한 애플리케이션 인사이트를 통해 지원
+## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>자동 계측 또는 Sdk를 통해 Application Insights를 통해 사용 하도록 설정
 
-.NET, .NET 코어, Java, Node.js 및 JavaScript에 대한 응용 프로그램 인사이트 에이전트 및/또는 SDK는 모두 기본적으로 분산된 추적을 지원합니다. 각 Application Insights SDK를 설치 및 구성하는 지침이 다음과 같이 제공됩니다.
+.NET, .NET Core, Java, node.js 및 JavaScript에 대 한 Application Insights 에이전트 및/또는 Sdk는 기본적으로 분산 추적을 지원 합니다. 각 Application Insights SDK를 설치 및 구성하는 지침이 다음과 같이 제공됩니다.
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
@@ -55,5 +55,5 @@ OpenCensus 웹 사이트에는 [Python](https://opencensus.io/api/python/trace/u
 ## <a name="next-steps"></a>다음 단계
 
 * [OpenCensus Python 사용 가이드](https://opencensus.io/api/python/trace/usage.html)
-* [신청 지도](./../../azure-monitor/app/app-map.md)
+* [응용 프로그램 맵](./../../azure-monitor/app/app-map.md)
 * [엔드투엔드 성능 모니터링](./../../azure-monitor/learn/tutorial-performance.md)

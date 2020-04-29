@@ -1,30 +1,30 @@
 ---
-title: 리소스 로그 분석 & 수집
-description: Azure 컨테이너 인스턴스의 컨테이너 그룹에서 Azure Monitor 로그로 리소스 로그 및 이벤트 데이터를 보내는 방법에 대해 알아봅니다.
+title: 리소스 로그 수집 & 분석
+description: Azure Container Instances의 컨테이너 그룹에서 리소스 로그 및 이벤트 데이터를 Azure Monitor 로그에 보내는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: danlep
 ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80892396"
 ---
-# <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Azure 모니터 로그를 가진 컨테이너 그룹 및 인스턴스 로깅
+# <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Azure Monitor 로그가 포함 된 컨테이너 그룹 및 인스턴스 로깅
 
-Log Analytics 작업 영역은 Azure 리소스뿐만 아니라 다른 클라우드의 온-프레미스 리소스 및 리소스에서도 로그 데이터를 저장하고 쿼리하기 위한 중앙 집중식 위치를 제공합니다. Azure Container Instances는 Azure Monitor 로그로 로그 및 이벤트 데이터를 전송할 수 있는 기능을 기본 제공합니다.
+Log Analytics 작업 영역은 Azure 리소스 뿐만 아니라 다른 클라우드의 온-프레미스 리소스와 리소스에 대 한 로그 데이터를 저장 하 고 쿼리 하는 중앙 위치를 제공 합니다. Azure Container Instances는 Azure Monitor 로그로 로그 및 이벤트 데이터를 전송할 수 있는 기능을 기본 제공합니다.
 
-컨테이너 그룹 로그 및 이벤트 데이터를 Azure Monitor 로그로 보내려면 컨테이너 그룹을 구성할 때 기존 로그 분석 작업 영역 ID 및 작업 영역 키를 지정합니다. 
+컨테이너 그룹 로그 및 이벤트 데이터를 Azure Monitor 로그에 보내려면 컨테이너 그룹을 구성할 때 기존 Log Analytics 작업 영역 ID 및 작업 영역 키를 지정 합니다. 
 
-다음 섹션에서는 로깅 이 가능한 컨테이너 그룹을 만드는 방법과 로그를 쿼리하는 방법을 설명합니다. 작업 영역 ID 및 작업 영역 키를 사용하여 [컨테이너 그룹을 업데이트하여](container-instances-update.md) 로깅을 활성화할 수도 있습니다.
+다음 섹션에서는 로깅 사용 컨테이너 그룹을 만드는 방법과 로그를 쿼리 하는 방법에 대해 설명 합니다. 작업 영역 ID 및 작업 영역 키를 사용 하 여 [컨테이너 그룹을 업데이트](container-instances-update.md) 하 여 로깅을 사용 하도록 설정할 수도 있습니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 > [!NOTE]
 > 현재는 Linux 컨테이너 인스턴스에서 Log Analytics로만 이벤트 데이터를 보낼 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 컨테이너 인스턴스에 로그인을 사용하도록 설정하려면 다음이 필요합니다.
 
@@ -39,16 +39,16 @@ Azure Container Instances에 Log Analytics 작업 영역에 데이터를 전송�
 
 1. Azure Portal에서 Log Analytics 작업 영역으로 이동
 1. **설정** 아래에서 **고급 설정** 선택
-1. **연결된 소스** > **윈도우 서버(또는** **Linux 서버--ID와**키는 둘 다동일함)를 선택합니다.
+1. **연결 된 원본** > **Windows 서버** (또는 **Linux 서버**)를 선택 합니다. ID와 키는 둘 다에 대해 동일 합니다.
 1. 다음을 기록해 둡니다.
    * **작업 영역 ID**
-   * **기본 키**
+   * **PRIMARY KEY**
 
 ## <a name="create-container-group"></a>컨테이너 그룹 만들기
 
 로그 분석 작업 영역 ID와 기본 키를 알고 있으므로 로깅을 사용하도록 설정된 컨테이너 그룹을 만들 수 있습니다.
 
-다음 예제에서는 단일 [유창한][fluentd] 컨테이너(Azure CLI) 및 YAML 템플릿이 있는 Azure CLI로 구성된 컨테이너 그룹을 만드는 두 가지 방법을 보여 줍니다. 유창한 컨테이너는 기본 구성에서 여러 줄의 출력을 생성합니다. 이 출력은 Log Analytics 작업 영역으로 전송되므로 로그를 보고 쿼리하는 방법을 보여주기에 효과적입니다.
+다음 예제는 단일 [fluentd][fluentd] 컨테이너로 구성 된 컨테이너 그룹을 만드는 두 가지 방법, 즉 Azure CLI 및 yaml 템플릿이 있는 Azure CLI를 보여 줍니다. Fluentd 컨테이너는 기본 구성에서 여러 줄의 출력을 생성 합니다. 이 출력은 Log Analytics 작업 영역으로 전송되므로 로그를 보고 쿼리하는 방법을 보여주기에 효과적입니다.
 
 ### <a name="deploy-with-azure-cli"></a>Azure CLI를 사용하여 배포
 
@@ -107,7 +107,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 1. Azure Portal에서 Log Analytics 작업 영역으로 이동
 1. **일반** 아래에서 **로그** 선택  
 1. 다음 쿼리 입력: `ContainerInstanceLog_CL | limit 50`
-1. **실행**을 선택합니다.
+1. **실행** 선택
 
 쿼리에서 몇 가지 결과를 표시해야 합니다. 처음에 아무 결과도 표시되지 않으면 몇 분 정도 기다린 다음, **실행** 단추를 선택하여 쿼리를 다시 실행합니다. 기본적으로 로그 항목이 **테이블** 형식으로 표시됩니다. 그런 다음, 행을 확장하여 개별 로그 항목의 내용을 볼 수 있습니다.
 
@@ -120,7 +120,7 @@ Azure Portal에서 컨테이너 인스턴스에 대한 이벤트를 볼 수도 �
 1. Azure Portal에서 Log Analytics 작업 영역으로 이동
 1. **일반** 아래에서 **로그** 선택  
 1. 다음 쿼리 입력: `ContainerEvent_CL | limit 50`
-1. **실행**을 선택합니다.
+1. **실행** 선택
 
 쿼리에서 몇 가지 결과를 표시해야 합니다. 처음에 아무 결과도 표시되지 않으면 몇 분 정도 기다린 다음, **실행** 단추를 선택하여 쿼리를 다시 실행합니다. 기본적으로 항목이 **테이블** 형식으로 표시됩니다. 그런 다음, 행을 확장하여 개별 항목의 콘텐츠를 볼 수 있습니다.
 
@@ -132,7 +132,7 @@ Azure Monitor 로그에는 약 수천 줄의 로그 출력에서 정보를 가�
 
 쿼리의 기본 구조는 원본 테이블(이 문서에서는 `ContainerInstanceLog_CL` 또는 `ContainerEvent_CL`)이며 그 뒤에 파이프 문자(`|`)로 구분된 일련의 연산자가 있습니다. 여러 연산자를 묶어 결과를 구체화하고 고급 기능을 수행할 수 있습니다.
 
-예제 쿼리 결과를 보려면 다음 쿼리를 쿼리 텍스트 상자에 붙여넣고 **실행** 단추를 선택하여 쿼리를 실행합니다. 이 쿼리는 "메시지" 필드에 "warn"이라는 단어가 포함된 모든 로그 항목을 표시합니다.
+쿼리 결과 예를 보려면 쿼리 텍스트 상자에 다음 쿼리를 붙여넣고 **실행** 단추를 선택 하 여 쿼리를 실행 합니다. 이 쿼리는 "메시지" 필드에 "warn"이라는 단어가 포함된 모든 로그 항목을 표시합니다.
 
 ```query
 ContainerInstanceLog_CL

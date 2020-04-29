@@ -1,5 +1,5 @@
 ---
-title: 'Azure 코스모스 DB: SQL 파이썬 API, SDK & 리소스'
+title: 'Azure Cosmos DB: SQL Python API, SDK & 리소스'
 description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB Python SDK의 각 버전 간 변경 내용을 포함하여 SQL Python API 및 SDK에 대한 모든 것을 알아봅니다.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
 ms.openlocfilehash: b81a3921ec11d589dadbdebd698ab9ad67d7649c
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982908"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK for SQL API: 릴리스 정보 및 리소스
@@ -27,13 +27,13 @@ ms.locfileid: "80982908"
 > * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [대량 실행기 - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [대량 실행기 - 자바](sql-api-sdk-bulk-executor-java.md)
+> * [대량 실행자-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [대량 실행자-Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 |**SDK 다운로드**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API 문서**|[Python API 참조 설명서](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**API 설명서**|[Python API 참조 설명서](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
 |**SDK 설치 지침**|[Python SDK 설치 지침](https://github.com/Azure/azure-cosmos-python)|
 |**SDK에 참여**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
 |**시작**|[Python SDK 시작](sql-api-python-application.md)|
@@ -71,7 +71,7 @@ ms.locfileid: "80982908"
 * Azure DocumentDB 대신 Azure Cosmos DB를 참조하도록 업데이트된 설명서입니다.
 
 ### <a name="230"></a><a name="2.3.0"/>2.3.0
-* 이 SDK 버전에는 [Azure 코스모스 DB 에뮬레이터의](https://aka.ms/cosmosdb-emulator)최신 버전이 필요합니다.
+* 이 SDK 버전을 사용 하려면 최신 버전의 [Azure Cosmos DB 에뮬레이터가](https://aka.ms/cosmosdb-emulator)필요 합니다.
 
 ### <a name="221"></a><a name="2.2.1"/>2.2.1
 * 집계 사전에 대한 버그 수정입니다.
@@ -84,7 +84,7 @@ ms.locfileid: "80982908"
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
 * 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다.
-* 코스모스 DB 에뮬레이터를 상대로 실행할 때 TLS 확인을 비활성화하는 옵션이 추가되었습니다.
+* Cosmos DB 에뮬레이터에 대해 실행 하는 경우 TLS 확인을 사용 하지 않도록 설정 하는 옵션이 추가 되었습니다.
 * 종속 요청 모듈이 정확히 2.10.0이어야 하는 제한을 제거했습니다.
 * 분할된 컬렉션에 대한 최소 처리량이 10,100RU/s에서 2500RU/s로 감소됩니다.
 * 저장된 프로시저가 실행되는 동안 스크립트 로깅을 사용할 수 있도록 지원이 추가되었습니다.
@@ -100,7 +100,7 @@ ms.locfileid: "80982908"
 * 분할된 컬렉션의 TOP/ORDERBY 쿼리에 대한 지원이 추가되었습니다.
 
 ### <a name="190"></a><a name="1.9.0"/>1.9.0
-* 제한된 요청에 대한 재시도 정책 지원이 추가되었습니다. (제한 요청은 너무 큰 예외, 오류 코드 429를 요청 비율을 받습니다.) 기본적으로 Azure Cosmos DB는 오류 코드(429)가 발생할 때 각 요청에 대해 9번 다시 시도하여 응답 헤더에서 다시 시도후 시간을 지정합니다. 이제 다시 시도 간의 서버에서 반환한 retryAfter 시간을 무시하려는 경우 고정된 다시 시도 간격 시간은 ConnectionPolicy 개체에서 RetryOptions 속성의 일부로 설정될 수 있습니다. Azure Cosmos DB는 제한된 요청 각각에 대해 30초 동안 대기하고(다시 시도 횟수와 관계 없이) 오류 코드 429를 포함하는 응답을 반환합니다. 이 시간도 ConnectionPolicy 개체에 있는 RetryOptions 속성에서 재정의할 수 있습니다.
+* 제한된 요청에 대한 재시도 정책 지원이 추가되었습니다. (제한 된 요청은 너무 크지 않은 예외를 수신 합니다. 오류 코드 429.) 기본적으로 Azure Cosmos DB는 오류 코드 429가 발생 하는 경우 각 요청에 대해 9 번 다시 시도 하 여 응답 헤더의 retryAfter 시간을 다시 시도 합니다. 이제 다시 시도 간의 서버에서 반환한 retryAfter 시간을 무시하려는 경우 고정된 다시 시도 간격 시간은 ConnectionPolicy 개체에서 RetryOptions 속성의 일부로 설정될 수 있습니다. Azure Cosmos DB는 제한된 요청 각각에 대해 30초 동안 대기하고(다시 시도 횟수와 관계 없이) 오류 코드 429를 포함하는 응답을 반환합니다. 이 시간도 ConnectionPolicy 개체에 있는 RetryOptions 속성에서 재정의할 수 있습니다.
 * 이제 Cosmos DB는 x-ms-throttle-retry-count 및 x-ms-throttle-retry-wait-time-ms를 다시 시도 사이에 요청이 대기한 제한 다시 시도 수 및 누적 시간을 표시하는 모든 요청의 응답 헤더로 반환합니다.
 * document_client 클래스에 노출된 RetryPolicy 클래스 및 해당 속성(retry_policy)을 제거하고 대신 일부 기본 다시 시도 옵션을 재정의하는 데 사용할 수 있는 ConnectionPolicy 클래스의 RetryOptions 속성을 노출하는 RetryOptions 클래스를 지정했습니다.
 
@@ -145,12 +145,12 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 사용 중지된 SDK를 사용하는 Cosmos DB에 대한 요청은 서비스에서 거부됩니다.
 
 > [!WARNING]
-> 버전 **1.0.0** 이전의 SQL API용 Python SDK의 모든 버전은 **2016년 2월 29일에**사용 중지되었습니다. 
+> **1.0.0** 이전 버전의 모든 SQL API 용 Python SDK 버전은 **2016 년 2 월 29 일**에 사용이 중지 되었습니다. 
 > 
 > 
 
 > [!WARNING]
-> SQL API용 Python SDK의 모든 버전 1.x 및 2.x는 **2020년 8월 30일에**사용 중지됩니다. 
+> SQL API 용 Python SDK의 모든 버전 1.x 및 2.x는 **2020 년 8 월 30**일에 사용 중지 됩니다. 
 > 
 > 
 
@@ -160,27 +160,27 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 | --- | --- | --- |
 | [3.0.2](#3.0.2) |2018년 11월 15일 |--- |
 | [3.0.1](#3.0.1) |2018년 10월 4일 |--- |
-| [2.3.3](#2.3.3) |2018년 9월 8일 |2020년 8월 30일 |
-| [2.3.2](#2.3.2) |2018년 5월 8일 |2020년 8월 30일 |
-| [2.3.1](#2.3.1) |2017년 12월 21일 |2020년 8월 30일 |
-| [2.3.0](#2.3.0) |2017년 11월 10일 |2020년 8월 30일 |
-| [2.2.1](#2.2.1) |2017년 9월 29일 |2020년 8월 30일 |
-| [2.2.0](#2.2.0) |2017년 5월 10일 |2020년 8월 30일 |
-| [2.1.0](#2.1.0) |2017년 5월 1일 |2020년 8월 30일 |
-| [2.0.1](#2.0.1) |2016년 10월 30일 |2020년 8월 30일 |
-| [2.0.0](#2.0.0) |2016년 9월 29일 |2020년 8월 30일 |
-| [1.9.0](#1.9.0) |2016년 7월 7일 |2020년 8월 30일 |
-| [1.8.0](#1.8.0) |2016년 6월 14일 |2020년 8월 30일 |
-| [1.7.0](#1.7.0) |2016년 4월 26일 |2020년 8월 30일 |
-| [1.6.1](#1.6.1) |2016년 4월 8일 |2020년 8월 30일 |
-| [1.6.0](#1.6.0) |2016년 3월 29일 |2020년 8월 30일 |
-| [1.5.0](#1.5.0) |2016년 1월 3일 |2020년 8월 30일 |
-| [1.4.2](#1.4.2) |2015년 10월 6일 |2020년 8월 30일 |
-| 1.4.1 |2015년 10월 6일 |2020년 8월 30일 |
-| [1.2.0](#1.2.0) |2015년 8월 6일 |2020년 8월 30일 |
-| [1.1.0](#1.1.0) |2015년 7월 9일 |2020년 8월 30일 |
-| [1.0.1](#1.0.1) |2015년 5월 25일 |2020년 8월 30일 |
-| [1.0.0](#1.0.0) |2015년 4월 7일 |2020년 8월 30일 |
+| [2.3.3](#2.3.3) |2018년 9월 8일 |2020 년 8 월 30 일 |
+| [2.3.2](#2.3.2) |2018년 5월 8일 |2020 년 8 월 30 일 |
+| [2.3.1](#2.3.1) |2017년 12월 21일 |2020 년 8 월 30 일 |
+| [2.3.0](#2.3.0) |2017년 11월 10일 |2020 년 8 월 30 일 |
+| [2.2.1](#2.2.1) |2017년 9월 29일 |2020 년 8 월 30 일 |
+| [2.2.0](#2.2.0) |2017년 5월 10일 |2020 년 8 월 30 일 |
+| [2.1.0](#2.1.0) |2017년 5월 1일 |2020 년 8 월 30 일 |
+| [2.0.1](#2.0.1) |2016년 10월 30일 |2020 년 8 월 30 일 |
+| [2.0.0](#2.0.0) |2016년 9월 29일 |2020 년 8 월 30 일 |
+| [1.9.0](#1.9.0) |2016년 7월 7일 |2020 년 8 월 30 일 |
+| [1.8.0](#1.8.0) |2016년 6월 14일 |2020 년 8 월 30 일 |
+| [1.7.0](#1.7.0) |2016년 4월 26일 |2020 년 8 월 30 일 |
+| [1.6.1](#1.6.1) |2016년 4월 8일 |2020 년 8 월 30 일 |
+| [1.6.0](#1.6.0) |2016년 3월 29일 |2020 년 8 월 30 일 |
+| [1.5.0](#1.5.0) |2016년 1월 3일 |2020 년 8 월 30 일 |
+| [1.4.2](#1.4.2) |2015년 10월 6일 |2020 년 8 월 30 일 |
+| 1.4.1 |2015년 10월 6일 |2020 년 8 월 30 일 |
+| [1.2.0](#1.2.0) |2015년 8월 6일 |2020 년 8 월 30 일 |
+| [1.1.0](#1.1.0) |2015년 7월 9일 |2020 년 8 월 30 일 |
+| [1.0.1](#1.0.1) |2015년 5월 25일 |2020 년 8 월 30 일 |
+| [1.0.0](#1.0.0) |2015년 4월 7일 |2020 년 8 월 30 일 |
 | 0.9.4-prelease |2015년 1월 14일 |2016년 2월 29일 |
 | 0.9.3-prelease |2014년 12월 9일 |2016년 2월 29일 |
 | 0.9.2-prelease |2014년 11월 25일 |2016년 2월 29일 |
