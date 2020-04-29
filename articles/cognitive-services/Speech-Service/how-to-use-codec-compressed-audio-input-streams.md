@@ -1,7 +1,7 @@
 ---
-title: 음성 SDK - 음성 서비스로 코드화 압축 오디오 스트리밍
+title: 음성 SDK-음성 서비스를 사용 하 여 코덱 압축 오디오 스트리밍
 titleSuffix: Azure Cognitive Services
-description: '음성 SDK를 사용하여 압축된 오디오를 음성 서비스로 스트리밍하는 방법을 알아봅니다. C ++, C #, 리눅스에 대 한 자바에 사용할 수, 안 드 로이드와 iOS에서 목표-C에서 자바.'
+description: '음성 SDK를 사용 하 여 음성 서비스에 압축 된 오디오를 스트리밍하는 방법에 대해 알아봅니다. C + +, c # 및 Linux 용 Java, Android의 Java 및 iOS의 목적-C에 사용할 수 있습니다.'
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -12,19 +12,19 @@ ms.date: 03/30/2020
 ms.author: amishu
 zone_pivot_groups: programming-languages-set-twelve
 ms.openlocfilehash: bd6b500a823bde654da4442704b75451806d6a46
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80637292"
 ---
-# <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>음성 SDK와 코덱 압축 오디오 입력 사용
+# <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>음성 SDK를 사용 하 여 코덱 압축 오디오 입력 사용
 
-음성 서비스 SDK **압축 오디오 입력 스트림** API는 `PullStream` 또는 을 `PushStream`사용하여 압축된 오디오를 음성 서비스로 스트리밍하는 방법을 제공합니다.
+음성 서비스 SDK **압축 오디오 입력 스트림** API는 또는 `PullStream` `PushStream`을 사용 하 여 음성 서비스에 압축 오디오를 스트리밍하는 방법을 제공 합니다.
 
-스트리밍 압축 입력 오디오는 현재 C #에 대 한 지원, C ++, 윈도우에서 자바 (UWP 응용 프로그램 지원 되지 않습니다) 그리고 리눅스 (우분투 16.04, 우분투 18.04, 데비안 9, RHEL 8, CentOS 8). 또한 안드로이드에서 자바와 iOS 플랫폼에서 목표-C에 대한 지원됩니다.
-* RHEL 8 및 CentOS 8의 경우 음성 SDK 버전 1.10.0 이상이 필요합니다.
-* Windows의 경우 음성 SDK 버전 1.11.0 이상이 필요합니다.
+스트리밍 압축 입력 오디오는 현재 c #, c + +, Windows의 Java (UWP 응용 프로그램은 지원 되지 않음) 및 Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)에서 지원 됩니다. Android의 Java 및 iOS 플랫폼의 목적-C 에서도 지원 됩니다.
+* RHEL 8 및 CentOS 8에는 Speech SDK 버전 1.10.0 이상이 필요 합니다.
+* Windows의 경우 Speech SDK 버전 1.11.0 이상이 필요 합니다.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
@@ -46,7 +46,7 @@ ms.locfileid: "80637292"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/objectivec/prerequisites.md)]
 ::: zone-end
 
-## <a name="example-code-using-codec-compressed-audio-input"></a>코덱 압축 오디오 입력을 사용한 예제 코드
+## <a name="example-code-using-codec-compressed-audio-input"></a>코덱 압축 오디오 입력을 사용 하는 예제 코드
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/examples.md)]

@@ -1,5 +1,5 @@
 ---
-title: 데이터 저장 - LUIS
+title: 데이터 저장소-LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS는 키를 통해 지정된 지역에 해당하는 Azure 데이터 저장소에 암호화된 데이터를 저장합니다.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
 ms.openlocfilehash: e3028a9f046edb4013d8a2d6ec88d8c3cb2ca489
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79221334"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Language Understanding(LUIS) Cognitive Services의 데이터 스토리지 및 제거
@@ -26,27 +26,27 @@ LUIS는 키를 통해 지정된 지역에 해당하는 Azure 데이터 저장소
 
 ## <a name="utterances"></a>발언
 
-발언은 두 개의 서로 다른 위치에 저장할 수 있습니다. 
+길이 발언는 서로 다른 두 위치에 저장할 수 있습니다. 
 
-* **작성 프로세스**중에 발언이 만들어지고 의도에 저장됩니다. 성공적인 LUIS 앱에 대한 의도의 발광이 필요합니다. 앱이 게시되고 끝점에서 쿼리를 수신하면 끝점 요청의 쿼리 `log=false`문자열이 종료점 발언이 저장되는지 여부를 결정합니다. 끝점이 저장되면 포털의 **빌드** 섹션에서 **끝점 발언 검토** 섹션에서 활성 학습 발언의 일부가 됩니다. 
-* **끝점 발언을 검토하고**의도에 발언을 추가하면 발언은 검토할 끝점 발언의 일부로 더 이상 저장되지 않습니다. 앱의 의도에 추가됩니다. 
+* **제작 프로세스**중에 길이 발언가 생성 되 고 의도에 저장 됩니다. 길이 발언는 성공적인 LUIS 앱에 필요 합니다. 앱이 게시 되 고 끝점에서 쿼리를 수신 하면 끝점 요청의 querystring `log=false`은 끝점이 utterance 저장 되었는지 여부를 확인 합니다. 끝점이 저장 되 면 endpoint **길이 발언 검토** 섹션에서 포털의 **빌드** 섹션에 있는 활성 학습 길이 발언의 일부가 됩니다. 
+* **길이 발언 끝점을 검토**하 고 utterance를 의도에 추가 하면 utterance가 더 이상 검토할 끝점 길이 발언의 일부로 저장 되지 않습니다. 앱의 의도에 추가 됩니다. 
 
 <a name="utterances-in-an-intent"></a>
 
-### <a name="delete-example-utterances-from-an-intent"></a>의도에서 예제 발언 삭제
+### <a name="delete-example-utterances-from-an-intent"></a>의도에서 예제 길이 발언 삭제
 
 [LUIS](luis-reference-regions.md) 학습에 사용되는 예제 발언을 삭제합니다. LUIS 앱에서 예제 발화를 삭제하면 예제 발화는 LUIS 웹 서비스에서 제거되고 내보낼 수 없습니다.
 
 <a name="utterances-in-review"></a>
 
-### <a name="delete-utterances-in-review-from-active-learning"></a>활성 학습에서 검토 중인 발언 삭제
+### <a name="delete-utterances-in-review-from-active-learning"></a>활성 학습에서 검토의 길이 발언 삭제
 
 **[엔드포인트 발화 검토 페이지](luis-how-to-review-endpoint-utterances.md)** 에서 LUIS가 제안하는 사용자 발화 목록에 있는 발화를 삭제할 수 있습니다. 이 목록에서 발화를 삭제하면 제안되지 않지만 로그에서 삭제되지는 않습니다.
 
-활성 학습 발언을 원하지 않는 경우 활성 [학습을 비활성화할](luis-how-to-review-endpoint-utterances.md#disable-active-learning)수 있습니다. 활성 학습을 사용하지 않도록 설정하면 로깅도 비활성화됩니다.
+활성 학습 길이 발언을 원하지 않는 경우 [활성 학습을 사용 하지 않도록 설정할](luis-how-to-review-endpoint-utterances.md#disable-active-learning)수 있습니다. 활성 학습을 사용 하지 않도록 설정 하면 로깅이 사용 하지 않도록 설정 됩니다.
 
-### <a name="disable-logging-utterances"></a>로깅 발언 사용 안 함
-[활성 학습을 사용하지 않도록 설정하면](luis-how-to-review-endpoint-utterances.md#disable-active-learning) 로깅이 비활성화됩니다.
+### <a name="disable-logging-utterances"></a>로깅 사용 안 함 길이 발언
+[활성 학습을 사용 하지 않도록 설정](luis-how-to-review-endpoint-utterances.md#disable-active-learning) 하면 로깅이 사용 되지 않습니다.
 
 
 <a name="accounts"></a>

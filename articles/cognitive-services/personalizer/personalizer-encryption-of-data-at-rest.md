@@ -1,7 +1,7 @@
 ---
-title: 미사용 데이터의 개인화 서비스 암호화
+title: 휴지 상태의 데이터에 대 한 Personalizer 서비스 암호화
 titleSuffix: Azure Cognitive Services
-description: 미사용 데이터의 개인화 서비스 암호화.
+description: 휴지 상태의 데이터에 대 한 서비스 암호화를 Personalizer 합니다.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: egeaney
 ms.openlocfilehash: 63526454bb366b214c27bddce24ed9ebc09556b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80071224"
 ---
-# <a name="personalizer-service-encryption-of-data-at-rest"></a>미사용 데이터의 개인화 서비스 암호화
+# <a name="personalizer-service-encryption-of-data-at-rest"></a>휴지 상태의 데이터에 대 한 Personalizer 서비스 암호화
 
-Personalizer 서비스는 데이터를 클라우드에 유지하면 자동으로 암호화합니다. Personalizer 서비스 암호화는 데이터를 보호하고 조직의 보안 및 규정 준수 약정을 충족하는 데 도움이 됩니다.
+Personalizer 서비스는 데이터를 클라우드에 보관할 때 데이터를 자동으로 암호화 합니다. Personalizer 서비스 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움을 줍니다.
 
 [!INCLUDE [cognitive-services-about-encryption](../../../includes/cognitive-services-about-encryption.md)]
 
 > [!IMPORTANT]
-> 고객 관리 키는 E0 가격 책정 계층에서만 사용할 수 있습니다. 고객 관리 키를 사용할 수 있는 기능을 요청하려면 [개인 설정 서비스 고객 관리 키 요청 양식을](https://aka.ms/cogsvc-cmk)작성하고 제출합니다. 요청 상태를 다시 듣는 데 는 영업일 기준으로 약 3~5일이 소요됩니다. 필요에 따라 대기열에 배치되고 공간이 사용 가능해지면 승인될 수 있습니다. 개인 설정 서비스와 함께 CMK 사용이 승인되면 새 개인 설정 리소스를 만들고 E0을 가격 책정 계층으로 선택해야 합니다. E0 가격 책정 계층을 사용하는 개인 설정 자 리소스가 만들어지면 Azure Key Vault를 사용하여 관리되는 ID를 설정할 수 있습니다.
+> 고객 관리 키는 E0 가격 책정 계층 에서만 사용할 수 있습니다. 고객 관리 키를 사용 하는 기능을 요청 하려면 [Personalizer Service 고객이 관리 하는 키 요청 양식을](https://aka.ms/cogsvc-cmk)작성 하 고 제출 합니다. 요청 상태를 다시 들으려면 영업일 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. Personalizer 서비스에서 CMK를 사용 하도록 승인한 후에는 새 Personalizer 리소스를 만들고이를 가격 책정 계층으로 선택 해야 합니다. E0 가격 책정 계층을 사용 하 여 Personalizer 리소스를 만든 후 Azure Key Vault를 사용 하 여 관리 되는 id를 설정할 수 있습니다.
 
 [!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
 
@@ -31,5 +31,5 @@ Personalizer 서비스는 데이터를 클라우드에 유지하면 자동으로
 
 ## <a name="next-steps"></a>다음 단계
 
-* [개인 설정 서비스 고객 관리 키 요청 양식](https://aka.ms/cogsvc-cmk)
-* [Azure 키 볼트에 대해 자세히 알아보기](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Personalizer Service 고객이 관리 하는 키 요청 양식](https://aka.ms/cogsvc-cmk)
+* [Azure Key Vault에 대 한 자세한 정보](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

@@ -1,5 +1,5 @@
 ---
-title: 이미지 유형 감지 - 컴퓨터 비전
+title: 이미지 형식 검색-Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API의 이미지 형식 검색 기능과 관련된 개념입니다.
 services: cognitive-services
@@ -12,21 +12,21 @@ ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4e6c2db5333962d7ae43534998ffc1c48b0dba45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80244565"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Computer Vision으로 이미지 형식 검색
 
-컴퓨터 비전은 [이미지 분석](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API를 통해 이미지의 콘텐츠 유형을 분석하여 이미지가 클립 아트인지 라인 드로잉인지를 나타낼 수 있습니다.
+[이미지 분석](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API를 사용 하면 이미지가 클립 아트 인지 또는 선 그리기 인지를 나타내는 이미지의 콘텐츠 형식을 분석할 수 Computer Vision.
 
 ## <a name="detecting-clip-art"></a>클립 아트 검색
 
 Computer Vision은 다음 표에 설명된 대로 이미지를 분석하고, 이미지가 클립 아트인 가능성을 0부터 3까지로 평가합니다.
 
-| 값 | 의미 |
+| Value | 의미 |
 |-------|---------|
 | 0 | 클립 아트 아님 |
 | 1 | 모호함 |
@@ -115,7 +115,7 @@ Computer Vision는 이미지를 분석하고 이미지가 선 그리기인지 �
 
 ## <a name="use-the-api"></a>API 사용
 
-이미지 유형 검색 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `ImageType` **visual기능** 쿼리 매개 변수에 포함합니다. 그런 다음 전체 JSON 응답을 받으면 `"imageType"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
+이미지 유형 검색 기능은 [분석 이미지](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `ImageType` **Visualfeatures** 쿼리 매개 변수에를 포함 합니다. 그런 다음 전체 JSON 응답을 가져오는 경우 `"imageType"` 섹션의 내용에 대 한 문자열을 구문 분석 하면 됩니다.
 
-* [빠른 시작: 컴퓨터 비전 .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [빠른 시작: 이미지 분석(REST API)](./quickstarts/csharp-analyze.md)
+* [빠른 시작: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [빠른 시작: 이미지 분석 (REST API)](./quickstarts/csharp-analyze.md)

@@ -1,7 +1,7 @@
 ---
-title: RHEL / CentOS 7 - 음성 서비스를 구성하는 방법
+title: RHEL/CentOS 7-Speech service를 구성 하는 방법
 titleSuffix: Azure Cognitive Services
-description: 음성 SDK를 사용할 수 있도록 RHEL/CentOS 7을 구성하는 방법에 대해 알아봅니다.
+description: Speech SDK를 사용할 수 있도록 RHEL/CentOS 7을 구성 하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: pankopon
 manager: jhakulin
@@ -11,45 +11,45 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: pankopon
 ms.openlocfilehash: dc09d517d95b5a3f2a88504a14f1451d1de5ffc9
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80639181"
 ---
-# <a name="configure-rhelcentos-7-for-speech-sdk"></a>음성 SDK에 대해 RHEL/CentOS 7 구성
+# <a name="configure-rhelcentos-7-for-speech-sdk"></a>Speech SDK 용 RHEL/CentOS 7 구성
 
-레드 햇 엔터프라이즈 리눅스 (RHEL) 8 x64 및 CentOS 8 x64 는 공식적으로 음성 SDK 버전 1.10.0 이상에 의해 지원됩니다. RHEL/CentOS 7 x64에서 음성 SDK를 사용할 수도 있지만 C++ 개발의 경우 C++ 컴파일러와 시스템의 공유 C++ 런타임 라이브러리를 업데이트해야 합니다.
+Red Hat Enterprise Linux (RHEL) 8 x64 및 CentOS 8 x 64는 Speech SDK 버전 1.10.0 이상에서 공식적으로 지원 됩니다. RHEL/CentOS 7 x 64에서 Speech SDK를 사용할 수도 있지만이 경우에는 시스템에서 c + + 컴파일러 (c + + 개발용) 및 공유 c + + 런타임 라이브러리를 업데이트 해야 합니다.
 
-C++ 컴파일러 버전을 확인하려면 다음을 실행하십시오.
+C + + 컴파일러 버전을 확인 하려면 다음을 실행 합니다.
 
 ```bash
 g++ --version
 ```
 
-컴파일러가 설치된 경우 출력은 다음과 같아야 합니다.
+컴파일러가 설치 된 경우 출력은 다음과 같습니다.
 
 ```bash
 g++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-39)
 ```
 
-이 메시지를 통해 GCC 주 버전 4가 설치되어 있음을 알 수 있습니다. 이 버전은 음성 SDK에서 사용하는 C++ 11 표준에 대한 완전한 지원이 없습니다. 이 GCC 버전과 음성 SDK 헤더로 C++ 프로그램을 컴파일하려고 하면 컴파일 오류가 발생합니다.
+이 메시지를 통해 GCC 주 버전 4가 설치 되어 있다는 것을 알 수 있습니다. 이 버전은 Speech SDK에서 사용 하는 c + + 11 표준을 완벽 하 게 지원 하지 않습니다. 이 GCC 버전 및 Speech SDK 헤더를 사용 하 여 c + + 프로그램을 컴파일하려고 하면 컴파일 오류가 발생 합니다.
 
-공유 C++ 런타임 라이브러리(libstdc++)의 버전을 확인하는 것도 중요합니다. 대부분의 음성 SDK는 네이티브 C++ 라이브러리로 구현되므로 응용 프로그램을 개발하는 데 사용하는 언어에 관계없이 libstdc++에 따라 다릅니다.
+또한 공유 c + + 런타임 라이브러리 (libstdc + +)의 버전을 확인 하는 것이 중요 합니다. 대부분의 Speech SDK는 네이티브 c + + 라이브러리로 구현 됩니다. 즉, 응용 프로그램을 개발 하는 데 사용 하는 언어에 관계 없이 libstdc + +에 따라 달라 집니다.
 
-시스템에서 libstdc++의 위치를 찾으려면 다음을 실행하십시오.
+시스템에서 libstdc + +의 위치를 찾으려면 다음을 실행 합니다.
 
 ```bash
 ldconfig -p | grep libstdc++
 ```
 
-바닐라 RHEL/CentOS 7(x64)의 출력은 다음과 동일합니다.
+바닐라 RHEL/CentOS 7 (x64)의 출력은 다음과 같습니다.
 
 ```
 libstdc++.so.6 (libc6,x86-64) => /lib64/libstdc++.so.6
 ```
 
-이 메시지에 따라 다음 명령을 사용하여 버전 정의를 확인하는 것이 좋습니다.
+이 메시지에 따라 다음 명령을 사용 하 여 버전 정의를 확인 합니다.
 
 ```bash
 strings /lib64/libstdc++.so.6 | egrep "GLIBCXX_|CXXABI_"
@@ -65,14 +65,14 @@ CXXABI_1.3.7
 ...
 ```
 
-음성 SDK는 **CXXABI_1.3.9** 및 **GLIBCXX_3.4.21이**필요합니다. Linux 패키지의 음성 `ldd libMicrosoft.CognitiveServices.Speech.core.so` SDK 라이브러리에서 실행하여 이 정보를 찾을 수 있습니다.
+음성 SDK를 사용 하려면 **CXXABI_1.3.9** 및 **GLIBCXX_3**가 필요 합니다. Linux 패키지에서 음성 SDK 라이브러리를 `ldd libMicrosoft.CognitiveServices.Speech.core.so` 실행 하 여이 정보를 찾을 수 있습니다.
 
 > [!NOTE]
-> 시스템에 설치된 GCC 버전은 일치하는 런타임 라이브러리와 함께 **5.4.0**이상인 것이 좋습니다.
+> 시스템에 설치 된 GCC 버전은 일치 하는 런타임 라이브러리와 함께 **5.4.0**이상으로 설정 하는 것이 좋습니다.
 
 ## <a name="example"></a>예제
 
-이 샘플 명령은 SDK 1.10.0 이상을 사용하여 개발용 RHEL/CentOS 7 x64(C++, C#, Java, 파이썬)를 구성하는 방법을 보여 주는 샘플 명령입니다.
+다음은 Speech SDK 1.10.0 이상에서 개발 (c + +, c #, Java, Python)에 RHEL/CentOS 7 x64를 구성 하는 방법을 보여 주는 샘플 명령입니다.
 
 ```bash
 # Only run ONE of the following two commands

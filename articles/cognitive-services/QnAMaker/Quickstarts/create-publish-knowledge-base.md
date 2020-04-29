@@ -1,16 +1,16 @@
 ---
-title: '빠른 시작: 기술 자료 작성, 학습 및 게시 - QnA Maker'
+title: '빠른 시작: 기술 자료 만들기, 학습 및 게시-QnA Maker'
 description: FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker 기술 자료(KB)를 만들 수 있습니다. 이 문서에는 간단한 FAQ 웹 페이지에서 QnA Maker 기술 자료를 만들어 QnA Maker 질문에 답변하는 예가 포함되어 있습니다.
 ms.topic: conceptual
 ms.date: 02/08/2020
 ms.openlocfilehash: 5a3cd4a66ae3a7148b517050c3d1a8c6c8e7a712
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80756816"
 ---
-# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>빠른 시작: QnA Maker 기술 자료 생성, 학습 및 게시
+# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>빠른 시작: QnA Maker 기술 자료 만들기, 학습 및 게시
 
 FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker 기술 자료(KB)를 만들 수 있습니다. 이 문서에는 간단한 FAQ 웹 페이지에서 QnA Maker 기술 자료를 만들어 QnA Maker 질문에 답변하는 예가 포함되어 있습니다.
 
@@ -47,7 +47,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
     |**+ URL 추가**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**잡담**|**Professional** 선택|
 
-1. **5단계**에서는 **KB 만들기**를 선택합니다.
+1. **5 단계**에서 **KB 만들기**를 선택 합니다.
 
     추출 프로세스는 문서를 읽고 질문과 답변을 확인하는 데 몇 분 정도가 걸립니다.
 
@@ -114,7 +114,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
 1. 새 브라우저 탭에서 Azure Portal의 Azure Bot Service 만들기 페이지가 열립니다. Azure Bot Service를 구성합니다. 봇과 QnA Maker는 웹앱 서비스 플랜을 공유할 수 있지만, 웹앱을 공유할 수는 없습니다. 즉, 봇의 **앱 이름**이 QnA Maker 서비스의 앱 이름과 달라야 합니다.
 
-    * **할 일**
+    * **시겠습니까**
         * 고유하지 않은 경우 봇 핸들을 변경합니다.
         * SDK 언어를 선택합니다. 봇이 만들어지면 로컬 개발 환경에 코드를 다운로드하고 개발 프로세스를 계속할 수 있습니다.
     * **하지 말아야 할 일**
@@ -124,7 +124,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
 
 1. 봇을 만든 후 **봇 서비스** 리소스를 엽니다.
-1. **봇 관리에서** **웹 채팅에서 테스트를 선택합니다.**
+1. **Bot Management**에서 **웹 채팅에서 테스트**를 선택 합니다.
 1. **메시지 입력**의 채팅 프롬프트에서 다음을 입력합니다.
 
     `Azure services?`
@@ -135,7 +135,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
 ## <a name="what-did-you-accomplish"></a>수행했던 작업은 무엇인가요?
 
-새 기술 자료생성, 기술 자료에 공개 URL 추가, 사용자 고유의 QnA 쌍 추가, 학습, 테스트 및 기술 자료 게시.
+새 기술 자료를 만들고 기술 자료에 공용 URL을 추가 하 고, 사용자 고유의 QnA 쌍을 추가 하 고, 학습 하 고, 테스트 하 고, 게시 했습니다.
 
 기술 자료를 게시한 후 봇을 만들고, 봇을 테스트했습니다.
 
@@ -150,7 +150,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 > [!div class="nextstepaction"]
 > [메타데이터를 사용하여 질문 추가](add-question-metadata-portal.md)
 
-자세한 내용은 다음을 참조하세요.
+추가 정보는 다음 항목을 참조하세요.
 
 * [답변의 Markdown 형식](../reference-markdown-format.md)
 * QnA Maker [ 데이터 원본](../concepts/knowledge-base.md).

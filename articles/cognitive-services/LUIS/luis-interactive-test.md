@@ -4,10 +4,10 @@ description: Language Understanding(LUIS)을 사용하여 애플리케이션을 
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: ba7e23a72cd308dd4393bf9a581571e2bc9f5fa0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79221298"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS 포털에서 LUIS 앱 테스트
@@ -22,20 +22,20 @@ ms.locfileid: "79221298"
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
 
-## <a name="train-before-testing"></a>테스트 전 교육
+## <a name="train-before-testing"></a>테스트 전 학습
 
-활성 앱의 최신 버전에 대해 테스트하려면 테스트하기 전에 상단 메뉴에서 **Train을** 선택합니다.
+최신 버전의 활성 앱에 대해 테스트 하려면 테스트 하기 전에 상단 메뉴에서 **학습** 을 선택 합니다.
 
 ## <a name="test-an-utterance"></a>발화 테스트
 
-테스트 발언은 앱의 예제 발언과 정확히 같아서는 안 됩니다. 테스트 발언에는 사용자에게 예상되는 단어 선택, 구 길이 및 엔터티 사용이 포함되어야 합니다.
+테스트 utterance는 응용 프로그램의 예제 길이 발언와 정확 하 게 일치 하면 안 됩니다. 테스트 utterance에는 사용자에 게 필요한 단어 선택, 구 길이 및 엔터티 사용이 포함 되어야 합니다.
 
 1. **내 앱** 페이지에서 해당 이름을 선택하여 앱에 액세스합니다.
 
-1. **테스트** 슬라이드 아웃 패널에 액세스하려면 응용 프로그램의 상단 패널에서 **테스트를** 선택합니다.
+1. **테스트** 슬라이드 외부 패널에 액세스 하려면 응용 프로그램의 위쪽 패널에서 **테스트** 를 선택 합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![테스트 앱 & 교육](./media/luis-how-to-interactive-test/test.png)
+    > ![& 테스트 앱 페이지 학습](./media/luis-how-to-interactive-test/test.png)
 
 1. 텍스트 상자에 발화를 입력하고 Enter 키를 선택합니다. **테스트**에서 원하는 만큼 테스트 발화를 입력할 수 있지만 한 번에 하나의 발화만 입력할 수 있습니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "79221298"
 
 ## <a name="inspect-score"></a>점수 검사
 
-**검사** 패널에서 테스트 결과의 세부 정보를 검사합니다.
+**검사** 패널에서 테스트 결과의 세부 정보를 검사 합니다.
 
 1. **테스트** 슬라이드 아웃 패널이 열려 있을 때 비교할 발화에 **검사**를 선택합니다.
 

@@ -11,23 +11,23 @@ ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
 ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79221432"
 ---
-# <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>QnA Maker 리소스 및 기술 자료에 대한 언어 지원
+# <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>QnA Maker 리소스 및 기술 자료에 대 한 언어 지원
 
-리소스에서 첫 번째 기술 자료만 만들 때 서비스에 대한 언어가 선택됩니다. 리소스의 모든 추가 기술 자료는 동일한 언어여야 합니다. 
+리소스의 첫 번째 기술 자료를 만들 때 서비스에 대 한 언어가 선택 됩니다. 리소스의 모든 추가 기술 자료가 동일한 언어로 되어 있어야 합니다. 
 
-언어는 QnA Maker가 사용자 쿼리에 대한 응답으로 제공하는 결과의 관련성을 결정합니다.
+언어는 사용자 쿼리에 대 한 응답으로 제공 QnA Maker 결과의 관련성을 결정 합니다.
 
-언어 선택의 [영향에](../how-to/language-knowledge-base.md)대해 자세히 알아보십시오.
+[언어 선택의 영향](../how-to/language-knowledge-base.md)에 대해 자세히 알아보세요.
 
 ## <a name="languages-supported"></a>지원되는 언어
 
-다음 목록에는 QnA Maker 리소스에 지원되는 언어가 포함되어 있습니다. 
+다음 목록에는 QnA Maker 리소스에 대해 지원 되는 언어가 나와 있습니다. 
 
 |언어|
 |--|

@@ -1,187 +1,187 @@
 ---
-title: 멀티 턴 대화 - QnA 메이커
-description: 프롬프트와 컨텍스트를 사용하여 봇이 한 질문에서 다른 질문으로 이동하기 위해 다중 턴(다중 턴)을 관리합니다. 멀티 턴은 이전 질문의 맥락이 다음 질문과 대답에 영향을 미치는 앞뒤로 대화를 나눌 수 있는 기능입니다.
+title: 다중 전환 대화-QnA Maker
+description: 프롬프트와 컨텍스트를 사용 하 여 한 질문에서 다른 질문으로의 봇에 대해 다중 턴 이라고 하는 여러 턴을 관리 합니다. 멀티 턴은 이전 질문의 컨텍스트가 다음 질문 및 답변에 영향을 주는 앞뒤로 대화를 수행할 수 있는 기능입니다.
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.openlocfilehash: 8ef244e1b6baf480189bb90ea5ff53138a6f377a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81261468"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>추가 작업 프롬프트를 사용하여 여러 대화 설정 만들기
 
-후속 프롬프트와 컨텍스트를 사용하여 봇이 한 질문에서 다른 질문으로 _멀티턴으로_알려진 여러 턴을 관리합니다.
+후속 프롬프트와 컨텍스트를 사용 하 여 한 질문에서 다른 질문으로의 봇에 대해 _다중 턴_이라고 하는 여러 턴을 관리 합니다.
 
-멀티턴의 작동 방식을 보려면 다음 데모 비디오를 참조하십시오.
+다중 턴이 작동 하는 방식을 확인 하려면 다음 데모 비디오를 확인 하세요.
 
-[![QnA 메이커의 멀티 턴 대화](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
+[![QnA Maker의 다중 전환 대화](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
 
-## <a name="what-is-a-multi-turn-conversation"></a>멀티 턴 대화란 무엇입니까?
+## <a name="what-is-a-multi-turn-conversation"></a>다중 전환 대화 란?
 
-일부 질문은 한 턴에 대답할 수 없습니다. 클라이언트 응용 프로그램(챗봇) 대화를 디자인할 때 사용자는 정답을 결정하기 위해 필터링하거나 구체화해야 하는 질문을 할 수 있습니다. *사용자에게 후속 프롬프트를*표시하여 질문을 통해 이러한 흐름을 가능하게 합니다.
+일부 질문은 단일 턴으로 대답할 수 없습니다. 클라이언트 응용 프로그램 (chat bot) 대화를 디자인할 때 사용자는 필터링 또는 구체화 해야 하는 질문을 하 여 올바른 답을 확인할 수 있습니다. 사용자에 게 *추가 작업 프롬프트를 제공*하 여 가능한 질문을 통해이 흐름을 만들 수 있습니다.
 
-사용자가 질문을 하면 QnA Maker는 _답변과_ 후속 프롬프트를 반환합니다. 이 응답을 통해 후속 질문을 선택 항목으로 제시할 수 있습니다.
+사용자가 질문을 하면 QnA Maker는 대답 _및_ 추가 작업 프롬프트를 반환 합니다. 이 응답을 통해 추가 질문을 선택 사항으로 표시할 수 있습니다.
 
 > [!CAUTION]
-> 다중 회전 프롬프트는 FAQ 문서에서 추출되지 않습니다. 다중 회전 추출이 필요한 경우 QnA 쌍을 FAQ로 지정하는 물음표를 제거합니다.
+> 다중 전환 프롬프트는 FAQ 문서에서 추출 되지 않습니다. 다중 전환 추출을 수행 해야 하는 경우 QnA 쌍을 Faq로 지정 하는 물음표를 제거 합니다.
 
-## <a name="example-multi-turn-conversation-with-chat-bot"></a>채팅 봇으로 멀티 턴 대화 예
+## <a name="example-multi-turn-conversation-with-chat-bot"></a>채팅 봇을 사용 하는 다중 전환 예제
 
-멀티 턴을 사용하면 챗봇은 사용자와의 대화를 관리하여 다음 이미지와 같이 최종 답변을 결정합니다.
+여러 턴에서 채팅 봇은 다음 이미지에 표시 된 것 처럼 최종 답변을 확인 하기 위해 사용자와 대화를 관리 합니다.
 
-![대화를 통해 사용자를 안내하는 프롬프트가 있는 다중 턴 대화 상자](../media/conversational-context/conversation-in-bot.png)
+![대화를 통해 사용자에 게 안내 하는 메시지가 표시 된 다중 전환 대화 상자](../media/conversational-context/conversation-in-bot.png)
 
-앞의 이미지에서 사용자가 **내 계정을**입력하여 대화를 시작했습니다. 기술 자료에는 세 개의 연결된 질문 및 답변 쌍이 있습니다. 답변을 구체화하기 위해 사용자는 기술 자료의 세 가지 선택 사항 중 하나를 선택합니다. 질문 (#1)에는 세 가지 후속 프롬프트가 있으며 채팅 봇에는 세 가지 옵션 (#2)으로 표시됩니다.
+이전 이미지에서 사용자는 **내 계정을**입력 하 여 대화를 시작 했습니다. 기술 자료에는 세 개의 연결 된 질문 및 답변 쌍이 있습니다. 답변을 구체화 하기 위해 사용자는 기술 자료에서 세 가지 옵션 중 하나를 선택 합니다. 질문 (#1)에는 세 가지 옵션 (#2)으로 채팅 봇에 표시 되는 세 가지 추가 프롬프트가 있습니다.
 
-사용자가 옵션(#3)을 선택하면 다음 구체화 옵션 목록(#4)이 표시됩니다. 이 순서는 사용자가 정답(#6)을 결정할 때까지(#5) 계속됩니다.
+사용자가 옵션 (#3)을 선택 하면 다음의 구체화 옵션 (#4) 목록이 표시 됩니다. 사용자가 올바른 최종 응답 (#6)을 결정할 때까지이 시퀀스는 계속 (#5) 합니다.
 
 
 ### <a name="use-multi-turn-in-a-bot"></a>봇에서 멀티 턴 사용
 
-KB를 게시한 후 **봇 만들기** 단추를 선택하여 QnA Maker 봇을 Azure 봇 서비스에 배포할 수 있습니다. 봇에 대해 활성화한 채팅 클라이언트에 프롬프트가 표시됩니다.
+KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 봇을 Azure bot service에 배포할 수 있습니다. 사용자의 봇에 대해 사용 하도록 설정한 채팅 클라이언트에 프롬프트가 표시 됩니다.
 
 ## <a name="create-a-multi-turn-conversation-from-a-documents-structure"></a>문서 구조에서 다중 전환 대화 만들기
 
-기술 자료작성을 하면 **KB 채우기** 섹션에 **URL, .pdf 또는 .docx 파일에서 다중 턴 추출 활성화 확인란이** 표시됩니다.
+기술 자료를 만들 때 **KB** 입력 섹션에는 **url에서 멀티 턴 추출 사용, .pdf 또는 .docx 파일** 확인란이 표시 됩니다.
 
-![멀티 턴 추출을 활성화하기 위한 확인란](../media/conversational-context/enable-multi-turn.png)
+![다중 전환 추출을 사용 하는 확인란](../media/conversational-context/enable-multi-turn.png)
 
-이 옵션을 선택하면 QnA Maker가 문서 구조에 있는 계층 구조를 추출합니다. 계층 구조는 후속 프롬프트로 변환되고 계층의 루트는 부모 QnA 역할을 합니다. 일부 문서에서는 계층 구조의 루트에 답변으로 사용할 수 있는 콘텐츠가 없는 경우 이러한 계층 구조를 추출하기 위해 대체 답변 텍스트로 사용할 '기본 답변 텍스트'를 제공할 수 있습니다.
+이 옵션을 선택 하면 QnA Maker 문서 구조에 있는 계층을 추출 합니다. 계층 구조는 후속 프롬프트에 표시 되 고 계층의 루트는 부모 QnA 사용 됩니다. 일부 문서에서 계층의 루트에 답변으로 사용할 수 있는 콘텐츠가 없는 경우 ' 기본 대답 텍스트 '를 제공 하 여 해당 계층을 추출 하는 대체 대답 텍스트로 사용할 수 있습니다.
 
-멀티 턴 구조는 URL, PDF 파일 또는 DOCX 파일에서만 유추할 수 있습니다. 구조의 예를 들어 Microsoft Surface [사용자 매뉴얼 PDF 파일의](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf)이미지를 봅니다.
+다중 턴 구조는 Url, PDF 파일 또는 .DOCX 파일 에서만 유추할 수 있습니다. 구조체의 예제를 보려면 [Microsoft Surface 사용자 수동 PDF 파일](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf)의 이미지를 확인 하세요.
 
-![! [사용자 설명서의 구조 예] (.. /media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+![! [사용자 설명서 구조의 예] (.. /media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
-### <a name="building-your-own-multi-turn-document"></a>나만의 멀티턴 문서 작성
+### <a name="building-your-own-multi-turn-document"></a>사용자 고유의 다중 턴 문서 빌드
 
-다중 턴 문서를 작성하는 경우 다음 지침을 염두에 두십시오.
+다중 턴 문서를 만드는 경우 다음 지침을 염두에 두어야 합니다.
 
-* 머리글과 하위 머리글을 사용하여 계층구조를 나타냅니다. 예를 들어 h1은 부모 QnA와 h2를 나타내기 위해 프롬프트로 취해야 하는 QnA를 나타내기 위해 할 수 있습니다. 작은 제목 크기를 사용하여 후속 계층을 나타냅니다. 문서의 구조를 암시하는 스타일, 색상 또는 기타 메커니즘을 사용하지 마십시오.
+* 머리글 및 하위 머리글을 사용 하 여 계층을 나타냅니다. 예를 들어, 부모 QnA 및 h2를 표시 하 여 프롬프트로 사용 해야 하는 QnA를 나타낼 수 있습니다. 작은 머리글 크기를 사용 하 여 후속 계층을 나타냅니다. 문서에서 구조를 의미 하는 스타일, 색 또는 기타 메커니즘을 사용 하지 않습니다. QnA Maker는 다중 전환 프롬프트를 추출 하지 않습니다.
 
-* 제목의 첫 번째 문자는 대문자로 만들어야 합니다.
+* 제목의 첫 번째 문자는 대문자 여야 합니다.
 
-* 물음표로 제목을 끝내지 `?`마십시오.
+* 물음표, `?`로 제목을 끝에 표시 하지 않습니다.
 
-* [샘플 문서를](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx) 예로 사용하여 고유한 다중 회전 문서를 만들 수 있습니다.
+* 예제로 [샘플 문서](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx) 를 사용 하 여 고유한 다중 턴 문서를 만들 수 있습니다.
 
 ### <a name="adding-files-to-a-multi-turn-kb"></a>멀티 턴 KB에 파일 추가
 
-계층적 문서를 추가할 때 QnA Maker는 구조에서 후속 프롬프트를 결정하여 대화 흐름을 만듭니다.
+계층 문서를 추가 하는 경우 QnA Maker는 구조에서 추가 메시지를 확인 하 여 대화형 흐름을 만듭니다.
 
-1. QnA Maker에서 **URL, .pdf 또는 .docx 파일에서 다중 턴 추출을 사용하도록 설정하여** 만든 기존 기술 기반을 선택합니다. 사용.
-1. **설정** 페이지로 이동하여 추가할 파일 또는 URL을 선택합니다.
-1. 기술 기반을 **저장하고 교육합니다.**
+1. QnA Maker에서 **url, .pdf 또는 .docx 파일에서 다중 전환 추출을 사용** 하 여 만든 기존 기술 자료를 선택 합니다. 사용.
+1. **설정** 페이지로 이동 하 여 추가할 파일 또는 URL을 선택 합니다.
+1. 기술 자료를 **저장 하 고 학습** 합니다.
 
 > [!Caution]
-> 내보낸 TSV 또는 XLS 다중 턴 기술 자료 파일을 새 기술 또는 빈 기술 자료에 대한 데이터 원본으로 사용하는 지원은 지원되지 않습니다. 내보낸 다중 턴 프롬프트를 기술 자료에 추가하려면 QnA Maker 포털의 **설정** 페이지에서 해당 파일 형식을 **가져와야** 합니다.
+> 새 기술 자료 또는 비어 있는 기술 자료에 대 한 데이터 원본으로 내보낸 TSV 또는 XLS 멀티 턴 기술 자료 파일 사용에 대 한 지원은 지원 되지 않습니다. 내보낸 다중 턴 프롬프트를 기술 자료에 추가 하려면 QnA Maker 포털의 **설정** 페이지에서 해당 파일 형식을 **가져와야** 합니다.
 
 
-## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>API 만들기를 사용하여 다중 턴 프롬프트를 사용하여 기술 자료 만들기
+## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>API 만들기를 사용 하 여 다중 전환 프롬프트에서 기술 자료 만들기
 
-[QnA Maker Create API를](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)사용하여 다중 턴 프롬프트가 있는 지식 사례를 만들 수 있습니다. 프롬프트가 `context` 속성의 `prompts` 배열에 추가됩니다.
+[QNA MAKER API 만들기](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)를 사용 하 여 다중 전환 프롬프트가 포함 된 기술 자료를 만들 수 있습니다. 프롬프트는 `context` 속성의 `prompts` 배열에 추가 됩니다.
 
-## <a name="show-questions-and-answers-with-context"></a>문맥으로 질문과 답변 표시
+## <a name="show-questions-and-answers-with-context"></a>컨텍스트를 사용 하 여 질문 및 답변 표시
 
-표시된 질문과 대답 쌍을 상황에 맞는 대화만 으로 줄입니다.
+표시 되는 질문 및 답변 쌍을 컨텍스트 대화가 포함 된 쌍 으로만 줄입니다.
 
-**옵션 보기를**선택한 다음 **컨텍스트 표시를**선택합니다. 목록에는 후속 프롬프트가 포함된 질문 및 답변 쌍이 표시됩니다.
+**보기 옵션**을 선택한 다음 **컨텍스트 표시**를 선택 합니다. 이 목록에는 추가 작업 프롬프트가 포함 된 질문 및 답변 쌍이 표시 됩니다.
 
-![문맥 대화별로 질문과 답변 쌍을 필터링](../media/conversational-context/filter-question-and-answers-by-context.png)
+![상황별 대화 별로 질문 및 답변 쌍 필터링](../media/conversational-context/filter-question-and-answers-by-context.png)
 
-다중 회전 컨텍스트가 첫 번째 열에 표시됩니다.
+다중 턴 컨텍스트는 첫 번째 열에 표시 됩니다.
 
-![! ["컨텍스트(미리 보기)" 열] (.. /media/conversational-context/Surface-manual-pdf-후속 프롬프트.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+![! ["Context (PREVIEW)" 열] (.. /media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-앞의 이미지에서 **#1** 현재 질문을 나타내는 열에 굵은 텍스트를 나타냅니다. 상위 질문은 행의 맨 위 항목입니다. 그 아래에 있는 질문은 연결된 질문과 대답 쌍입니다. 이러한 항목은 선택할 수 있으므로 다른 컨텍스트 항목으로 즉시 이동하여 이동할 수 있습니다.
+위의 그림에서 **#1** 는 현재 질문을 의미 하는 열의 굵은 텍스트를 나타냅니다. 부모 질문은 행의 맨 위 항목입니다. 아래 질문은 연결 된 질문 및 답변 쌍입니다. 이러한 항목은 선택할 수 있으므로 다른 컨텍스트 항목으로 바로 이동할 수 있습니다.
 
-## <a name="add-an-existing-question-and-answer-pair-as-a-follow-up-prompt"></a>후속 프롬프트로 기존 질문 및 답변 쌍을 추가
+## <a name="add-an-existing-question-and-answer-pair-as-a-follow-up-prompt"></a>기존 질문 및 답변 쌍을 추가 작업 프롬프트로 추가
 
-원래 질문인 **내 계정에는** **계정 및 로그인과**같은 후속 메시지가 표시됩니다.
+원래 질문 **내 계정**에는 **계정, 로그인**등의 추가 작업이 표시 됩니다.
 
-!["계정 및 로그인" 답변 및 후속 조치 프롬프트](../media/conversational-context/detected-and-linked-follow-up-prompts.png)
+!["계정 및 로그인" 답변 및 추가 작업 프롬프트](../media/conversational-context/detected-and-linked-follow-up-prompts.png)
 
-현재 연결되지 않은 기존 질문 및 답변 쌍에 후속 프롬프트를 추가합니다. 질문이 질문 및 답변 쌍에 연결되어 있지 않으므로 현재 보기 설정을 변경해야 합니다.
+현재 연결 되어 있지 않은 기존 질문 및 답변 쌍에 추가 작업 프롬프트를 추가 합니다. 질문 및 답변 쌍에 연결 되지 않기 때문에 현재 보기 설정을 변경 해야 합니다.
 
-1. 기존 질문 및 답변 쌍을 후속 프롬프트로 연결하려면 질문 및 답변 쌍의 행을 선택합니다. Surface 설명서의 경우 **로그아웃을** 검색하여 목록을 줄입니다.
-1. **[표고]** 행에서 **답** 열에서 **후속 추가 프롬프트를**선택합니다.
-1. **후속 프롬프트** 팝업 창의 필드에 다음 값을 입력합니다.
+1. 기존 질문 및 답변 쌍을 추가 작업 프롬프트로 연결 하려면 질문 및 답변 쌍에 대 한 행을 선택 합니다. Surface 설명서의 경우 **로그 아웃** 을 검색 하 여 목록을 줄입니다.
+1. **Signout**에 대 한 행의 **응답** 열에서 **추가 작업 프롬프트 추가**를 선택 합니다.
+1. **추가 작업 프롬프트** 팝업 창의 필드에 다음 값을 입력 합니다.
 
     |필드|값|
     |--|--|
-    |표시 텍스트|**장치를 끕니다.** 후속 프롬프트에 표시할 사용자 지정 텍스트입니다.|
-    |컨텍스트 전용| 이 확인란을 선택합니다. 질문이 컨텍스트를 지정하는 경우에만 답변이 반환됩니다.|
-    |답변 링크|**로그인 화면 사용을 입력하여** 기존 질문 및 답변 쌍을 찾습니다.|
+    |표시 텍스트|**장치 끄기를**입력 합니다. 추가 작업 프롬프트에 표시할 사용자 지정 텍스트입니다.|
+    |컨텍스트 전용| 이 확인란을 선택합니다. 질문이 컨텍스트를 지정 하는 경우에만 대답이 반환 됩니다.|
+    |답변에 대 한 링크|**로그인 화면 사용** 을 입력 하 여 기존 질문 및 답변 쌍을 찾습니다.|
 
 
-1.  한 경기가 반환됩니다. 이 답변을 후속 으로 선택한 다음 **저장을**선택합니다.
+1.  일치 항목 하나가 반환 됩니다. 이 답변을 추가 작업으로 선택한 다음, **저장**을 선택 합니다.
 
-    !["후속 조치 프롬프트(미리 보기)" 페이지](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
+    !["추가 작업 프롬프트 (미리 보기)" 페이지](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
 
-1. 후속 프롬프트를 추가한 후 상단 탐색에서 **저장 및 학습을** 선택합니다.
+1. 추가 작업 프롬프트를 추가한 후에는 상단 탐색에서 **저장 및 학습** 을 선택 합니다.
 
 ### <a name="edit-the-display-text"></a>표시 텍스트 편집
 
-후속 프롬프트가 만들어지고 기존 질문 및 답변 쌍이 **답변 링크로**입력되면 새 **[표시 텍스트]를**입력할 수 있습니다. 이 텍스트는 기존 질문을 대체하지 않으며 새 대체 질문을 추가하지 않습니다. 이러한 값과 는 별개입니다.
+추가 작업 프롬프트가 만들어지고 기존 질문 및 답변 쌍이 **답변할 링크로**입력 되 면 새 **표시 텍스트**를 입력할 수 있습니다. 이 텍스트는 기존 질문을 대체 하지 않으며 새로운 대체 질문을 추가 하지 않습니다. 이러한 값은 해당 값과는 별개입니다.
 
-1. 표시 텍스트를 편집하려면 **컨텍스트** 필드에서 질문을 검색하고 선택합니다.
-1. 해당 질문의 행에서 답변 열에서 후속 메시지를 선택합니다.
-1. 편집할 텍스트 표시를 선택한 다음 **편집을**선택합니다.
+1. 표시 텍스트를 편집 하려면 **컨텍스트** 필드에서 질문을 검색 하 여 선택 합니다.
+1. 해당 질문에 대 한 행에서 대답 열의 추가 작업 프롬프트를 선택 합니다.
+1. 편집 하려는 표시 텍스트를 선택한 다음 **편집**을 선택 합니다.
 
-    ![표시 텍스트에 대한 편집 명령](../media/conversational-context/edit-existing-display-text.png)
+    ![표시 텍스트에 대 한 편집 명령](../media/conversational-context/edit-existing-display-text.png)
 
-1. 후속 **프롬프트** 팝업 창에서 기존 표시 텍스트를 변경합니다.
-1. 표시 텍스트 편집이 완료되면 **저장을**선택합니다.
-1. 상단 탐색 모음에서 **저장 및 기차.**
+1. **추가 작업 프롬프트** 팝업 창에서 기존 표시 텍스트를 변경 합니다.
+1. 표시 텍스트 편집이 완료 되 면 **저장**을 선택 합니다.
+1. 위쪽 탐색 모음에서를 **저장 하 고 학습**합니다.
 
 
-## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>후속 프롬프트로 새 질문 및 답변 쌍 추가
+## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>새 질문 및 답변 쌍을 추가 작업 프롬프트로 추가 합니다.
 
-기술 자료에 새 질문 및 답변 쌍을 추가할 때 각 쌍은 후속 프롬프트로 기존 질문에 연결되어야 합니다.
+새 질문 및 답변 쌍을 기술 자료에 추가 하는 경우 각 쌍을 추가 작업 프롬프트로 기존 질문에 연결 해야 합니다.
 
-1. 기술 자료 도구 모음에서 계정 및 로그인에 대한 기존 질문 및 답변 쌍을 검색하고 **선택합니다.**
+1. 기술 자료 도구 모음에서 **계정 및 로그인**에 대 한 기존 질문 및 답변 쌍을 검색 하 고 선택 합니다.
 
-1. 이 질문에 대한 **답변** 열에서 **후속 조치 추가 프롬프트를**선택합니다.
-1. **후속 프롬프트(PREVIEW)에서**다음 값을 입력하여 새 후속 프롬프트를 만듭니다.
+1. 이 질문에 대 한 **응답** 열에서 **추가 작업 프롬프트 추가**를 선택 합니다.
+1. **추가 작업 프롬프트 (미리 보기)** 에서 다음 값을 입력 하 여 새 추가 작업 프롬프트를 만듭니다.
 
     |필드|값|
     |--|--|
-    |표시 텍스트|*Windows 계정 만들기*. 후속 프롬프트에 표시할 사용자 지정 텍스트입니다.|
-    |컨텍스트 전용|이 확인란을 선택합니다. 이 대답은 질문이 컨텍스트를 지정하는 경우에만 반환됩니다.|
-    |답변 링크|다음 텍스트를 답으로 입력합니다.<br>*새 전자 메일 또는 기존 전자 메일 계정으로 Windows 계정을 [만듭니다.](https://account.microsoft.com/) *<br>데이터베이스를 저장하고 학습하면 이 텍스트가 변환됩니다. |
+    |표시 텍스트|*Windows 계정을 만듭니다*. 추가 작업 프롬프트에 표시할 사용자 지정 텍스트입니다.|
+    |컨텍스트 전용|이 확인란을 선택합니다. 이 대답은 질문이 컨텍스트를 지정 하는 경우에만 반환 됩니다.|
+    |답변에 대 한 링크|답변으로 다음 텍스트를 입력 합니다.<br>*신규 또는 기존 전자 메일 계정을 사용 하 여 Windows 계정을 [만듭니다](https://account.microsoft.com/) *.<br>데이터베이스를 저장 하 고 학습 하면이 텍스트가 변환 됩니다. |
     |||
 
     ![새 프롬프트 질문 및 답변 만들기](../media/conversational-context/create-child-prompt-from-parent.png)
 
 
-1. **새 수만들기를**선택한 다음 **에 저장을**선택합니다.
+1. **새로 만들기**를 선택한 다음, **저장**을 선택 합니다.
 
-    이 작업은 새 질문 및 답변 쌍을 만들고 선택한 질문을 후속 프롬프트로 연결합니다. 두 질문에 대한 **컨텍스트** 열은 후속 프롬프트 관계를 나타냅니다.
+    이 작업은 새 질문 및 답변 쌍을 만들고 선택한 질문을 추가 작업 프롬프트로 연결 합니다. 두 질문에 대 한 **컨텍스트** 열은 후속 프롬프트 관계를 나타냅니다.
 
-1. **옵션 보기를**선택한 다음 [**컨텍스트 표시(미리 보기)를**](#show-questions-and-answers-with-context)선택합니다.
+1. **보기 옵션**을 선택한 다음 [**컨텍스트 표시 (미리 보기)**](#show-questions-and-answers-with-context)를 선택 합니다.
 
-    새 질문은 어떻게 연결되는지 보여줍니다.
+    새 질문에는 연결 된 방법이 나와 있습니다.
 
-    ![새 후속 조치 프롬프트 만들기](../media/conversational-context/new-qna-follow-up-prompt.png)
+    ![새 추가 작업 프롬프트 만들기](../media/conversational-context/new-qna-follow-up-prompt.png)
 
-    상위 질문은 새 질문을 선택 항목 중 하나로 표시합니다.
+    부모 질문은 선택 항목 중 하나로 새 질문을 표시 합니다.
 
-    ![! [두 질문에 대한 컨텍스트 열은 후속 프롬프트 관계를 나타냅니다.] (.. /media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    ![! [두 질문에 대 한 컨텍스트 열은 후속 프롬프트 관계를 나타냄] (.. /media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
-1. 후속 프롬프트를 추가한 후 상단 탐색 모음에서 **저장 및 학습을** 선택합니다.
+1. 추가 작업 프롬프트를 추가한 후 위쪽 탐색 모음에서 **저장 및 학습** 을 선택 합니다.
 
 <a name="enable-multi-turn-during-testing-of-follow-up-prompts"></a>
 
-## <a name="view-multi-turn-during-testing-of-follow-up-prompts"></a>후속 프롬프트 테스트 중 멀티 턴 보기
+## <a name="view-multi-turn-during-testing-of-follow-up-prompts"></a>추가 작업 프롬프트를 테스트 하는 동안 다중 전환 보기
 
-**테스트** 창에서 후속 프롬프트로 문제를 테스트할 때 응답에는 후속 프롬프트가 포함됩니다.
+**테스트** 창에서 후속 작업 프롬프트를 사용 하 여 질문을 테스트 하면 응답에 추가 작업이 표시 됩니다.
 
-![응답에는 후속 프롬프트가 포함됩니다.](../media/conversational-context/test-pane-with-question-having-follow-up-prompts.png)
+![응답에는 추가 메시지가 포함 됩니다.](../media/conversational-context/test-pane-with-question-having-follow-up-prompts.png)
 
-## <a name="a-json-request-to-return-an-initial-answer-and-follow-up-prompts"></a>초기 답변 및 후속 메시지를 반환하는 JSON 요청
+## <a name="a-json-request-to-return-an-initial-answer-and-follow-up-prompts"></a>초기 응답 및 추가 작업 프롬프트를 반환 하는 JSON 요청
 
-빈 `context` 개체를 사용하여 사용자의 질문에 대한 답변을 요청하고 후속 프롬프트를 포함합니다.
+빈 `context` 개체를 사용 하 여 사용자 질문에 대 한 답변을 요청 하 고 추가 작업 프롬프트를 포함 합니다.
 
 ```JSON
 {
@@ -193,9 +193,9 @@ KB를 게시한 후 **봇 만들기** 단추를 선택하여 QnA Maker 봇을 Az
 }
 ```
 
-## <a name="a-json-response-to-return-an-initial-answer-and-follow-up-prompts"></a>초기 답변 및 후속 프롬프트를 반환하는 JSON 응답
+## <a name="a-json-response-to-return-an-initial-answer-and-follow-up-prompts"></a>초기 응답 및 추가 작업 프롬프트를 반환 하는 JSON 응답
 
-앞의 섹션에서는 에 대한 답변 및 후속 **메시지(에 로그인)를**요청했습니다. 응답에는 *응답[0].context에*있는 프롬프트 정보와 사용자에게 표시할 텍스트가 포함됩니다.
+이전 섹션에서는 대답을 요청 하 고 추가 작업 프롬프트에 **계정 및 로그인**을 요청 합니다. 응답에는 *[0] 컨텍스트*및 사용자에 게 표시할 텍스트에 대 한 프롬프트 정보가 포함 됩니다.
 
 ```JSON
 {
@@ -260,7 +260,7 @@ KB를 게시한 후 **봇 만들기** 단추를 선택하여 QnA Maker 봇을 Az
 }
 ```
 
-배열은 `prompts` `displayText` 속성및 `qnaId` 값에 텍스트를 제공합니다. 이러한 답변을 대화 흐름에서 다음에 표시된 선택 항목으로 표시한 다음 다음 요청에서 선택한 `qnaId` 답변을 QnA Maker로 다시 보낼 수 있습니다.
+`prompts` 배열은 `displayText` 속성 및 `qnaId` 값에 텍스트를 제공 합니다. 이러한 답변은 대화 흐름에서 다음에 표시 되는 선택 항목으로 표시 한 다음, 다음 `qnaId` 요청에서 QnA Maker으로 다시 보낼 수 있습니다.
 
 <!--
 
@@ -268,11 +268,11 @@ The `promptsToDelete` array provides the ...
 
 -->
 
-## <a name="a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts"></a>초기 응답이 아닌 응답 및 후속 메시지를 반환하는 JSON 요청
+## <a name="a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts"></a>초기이 아닌 응답을 반환 하는 JSON 요청 및 추가 작업 프롬프트
 
-이전 `context` 컨텍스트를 포함하도록 개체를 채웁니다.
+이전 컨텍스트 `context` 를 포함 하도록 개체를 채웁니다.
 
-다음 JSON 요청에서 현재 질문은 *Windows Hello를 사용하여 로그인하고* 이전 질문은 *계정 및 로그인입니다.*
+다음 JSON 요청에서 현재 질문은 *Windows Hello를 사용 하 여 로그인 하* 고 이전 질문은 *계정 및 로그인*이었습니다.
 
 ```JSON
 {
@@ -288,9 +288,9 @@ The `promptsToDelete` array provides the ...
 }
 ```
 
-##  <a name="a-json-response-to-return-a-non-initial-answer-and-follow-up-prompts"></a>초기응답이 아닌 응답 및 후속 프롬프트를 반환하는 JSON 응답
+##  <a name="a-json-response-to-return-a-non-initial-answer-and-follow-up-prompts"></a>초기이 아닌 응답을 반환 하는 JSON 응답 및 추가 작업 프롬프트
 
-QnA Maker _생성 응답_ JSON 응답에는 개체의 `context` 첫 번째 항목의 `answers` 속성에 대한 후속 프롬프트가 포함됩니다.
+QnA Maker _Generateanswer_ JSON 응답에는 `context` `answers` 개체의 첫 번째 항목에 대 한 속성에서 추가 작업 프롬프트가 포함 됩니다.
 
 ```JSON
 {
@@ -348,26 +348,26 @@ QnA Maker _생성 응답_ JSON 응답에는 개체의 `context` 첫 번째 항�
 }
 ```
 
-## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>QnA Maker ID로 기술 자료 쿼리
+## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>QnA Maker ID를 사용 하 여 기술 자료 쿼리
 
-멀티 턴 기능을 사용하여 사용자 지정 응용 프로그램을 빌드하는 경우 초기 질문의 응답에서 후속 프롬프트와 관련 `qnaId` 메시지가 반환됩니다. 이제 ID가 있으므로 후속 프롬프트의 요청 본문에 전달할 수 있습니다. 요청 본문에 `qnaId`는 의 문을 포함 하는 경우 (이전 QnA Maker 속성을 포함 하는 컨텍스트 개체), 생성 Answer 는 질문 텍스트에 의해 답을 찾기 위해 순위 알고리즘을 사용 하는 대신 ID로 정확한 질문을 반환 합니다.
+다중 턴 기능을 사용 하 여 사용자 지정 응용 프로그램을 빌드하는 경우 초기 질문의 응답에서 추가 작업 프롬프트와 연결 `qnaId` 된이 반환 됩니다. 이제 ID가 있으므로 추가 작업 프롬프트의 요청 본문에서이 ID를 전달할 수 있습니다. 요청 본문에 `qnaId`이 포함 되어 있고 이전 QnA Maker 속성을 포함 하는 컨텍스트 개체를 포함 하는 경우, generateanswer는 순위 알고리즘을 사용 하 여 질문 텍스트에서 답변을 찾는 대신 ID를 사용 하 여 정확한 질문을 반환 합니다.
 
 
-## <a name="display-order-is-supported-in-the-update-api"></a>디스플레이 순서는 업데이트 API에서 지원됩니다.
+## <a name="display-order-is-supported-in-the-update-api"></a>표시 순서는 업데이트 API에서 지원 됩니다.
 
-JSON 응답에서 반환되는 [표시 텍스트 및 표시 순서는](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto) [Update API에서](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update)편집할 수 있도록 지원됩니다.
+JSON 응답에서 반환 되는 [표시 텍스트와 표시 순서](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto)는 [업데이트 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update)에서 편집할 수 있도록 지원 됩니다.
 
-## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>업데이트 API를 사용하면 다중 턴 프롬프트 추가 또는 삭제
+## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>업데이트 API를 사용 하 여 다중 전환 프롬프트 추가 또는 삭제
 
-[QnA 메이커 업데이트 API를](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update)사용하여 다중 턴 프롬프트를 추가하거나 삭제할 수 있습니다.  프롬프트는 `context` 속성의 `promptsToAdd` 배열과 배열에 `promptsToDelete` 추가됩니다.
+[QnA Maker 업데이트 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update)를 사용 하 여 다중 전환 프롬프트를 추가 하거나 삭제할 수 있습니다.  프롬프트는 `context` 속성의 `promptsToAdd` 배열 및 `promptsToDelete` 배열에 추가 됩니다.
 
-## <a name="export-knowledge-base-for-version-control"></a>버전 제어를 위한 내보내기 기술 자료
+## <a name="export-knowledge-base-for-version-control"></a>버전 제어를 위한 기술 자료 내보내기
 
-QnA Maker는 내보낸 파일에 다중 회전 대화 단계를 포함하여 버전 제어를 지원합니다.
+QnA Maker은 내보낸 파일에 다중 전환 대화 단계를 포함 하 여 버전 제어를 지원 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 [대화 상자 샘플에서](https://aka.ms/qnamakermultiturnsample) 컨텍스트 대화에 대해 자세히 알아보거나 [다중 턴 대화를 위한 개념식 봇 디자인에](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0)대해 자세히 알아보십시오.
+이 [대화 상자의](https://aka.ms/qnamakermultiturnsample) 상황별 대화에 대 한 자세한 내용을 보거나, [다중 전환 대화를 위한 개념 봇 디자인](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0)에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [기술 자료 마이그레이션](../Tutorials/migrate-knowledge-base.md)

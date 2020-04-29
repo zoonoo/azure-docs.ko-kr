@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: swmachan
 ms.openlocfilehash: c7be4a0ea1a9d24a8b262132632a0bbb63ae1b96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80052480"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Translator Text API를 사용하여 콘텐츠 번역을 방지하는 방법
@@ -23,7 +23,7 @@ ms.locfileid: "80052480"
 
 ## <a name="methods-for-preventing-translation"></a>번역을 방지하는 메서드
 
-1. 콘텐츠에 `notranslate`를 태그로 지정합니다. 입력 텍스트Type이 HTML로 설정된 경우에만 작동하도록 설계되어 있습니다.
+1. 콘텐츠에 `notranslate`를 태그로 지정합니다. 이는 입력 textType이 HTML로 설정 된 경우에만 작동 하도록 설계 된 것입니다.
 
    예제:
 
@@ -41,7 +41,7 @@ ms.locfileid: "80052480"
 
 3. 문자열을 Translator Text API로 보내 번역하지 마세요.
 
-4. 사용자 지정 번역기: [사용자 지정 번역기에서 사전을](custom-translator/what-is-dictionary.md) 사용하여 100% 확률로 구의 번역을 규정합니다.
+4. 사용자 지정 변환기: [사용자 지정 변환기에서 사전을](custom-translator/what-is-dictionary.md) 사용 하 여 100% 확률의 구에 대 한 변환을 규정 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

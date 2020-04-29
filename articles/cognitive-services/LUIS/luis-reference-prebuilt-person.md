@@ -1,5 +1,5 @@
 ---
-title: PersonName 미리 빌드된 엔터티 - LUIS
+title: PersonName 미리 작성 한 엔터티-LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 문서에는 Language Understanding(LUIS)의 personName 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 768c719211e8a8f2133d3798343d076e795a3da0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273429"
 ---
 # <a name="personname-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 PersonName 미리 빌드된 엔터티
@@ -23,7 +23,7 @@ ms.locfileid: "78273429"
 
 ## <a name="resolution-for-personname-entity"></a>personName 엔터티의 해결
 
-다음 엔터티 개체는 쿼리에 대해 반환됩니다.
+쿼리에 대해 반환 되는 엔터티 개체는 다음과 같습니다.
 
 `Is Jill Jones in Cairo?`
 
@@ -31,7 +31,7 @@ ms.locfileid: "78273429"
 #### <a name="v3-response"></a>[V3 응답](#tab/V3)
 
 
-다음 JSON은 매개 `verbose` 변수를 `false`다음과 같은 것으로 설정합니다.
+다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
 
 ```json
 "entities": {
@@ -40,8 +40,8 @@ ms.locfileid: "78273429"
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3 자세한 응답](#tab/V3-verbose)
-다음 JSON은 매개 `verbose` 변수를 `true`다음과 같은 것으로 설정합니다.
+#### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/V3-verbose)
+다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
 
 ```json
 "entities": {

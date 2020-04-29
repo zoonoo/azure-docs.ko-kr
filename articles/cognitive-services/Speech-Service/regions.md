@@ -1,7 +1,7 @@
 ---
-title: 지역 - 음성 서비스
+title: 지역-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 음성 간, 텍스트 음성 변환 및 음성 번역을 포함하여 음성 서비스에 사용할 수 있는 영역 및 끝점 목록입니다.
+description: 음성 텍스트, 텍스트 음성 변환, 음성 번역을 비롯 하 여 음성 서비스에 사용할 수 있는 지역 및 끝점의 목록입니다.
 services: cognitive-services
 author: mahilleb-msft
 manager: nitinme
@@ -12,39 +12,39 @@ ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
 ms.openlocfilehash: 560575ca7f51218e472abecb4319f4a3db69b1ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79221416"
 ---
 # <a name="speech-service-supported-regions"></a>음성 서비스 지원 지역
 
 음성 서비스를 통해 애플리케이션에서 오디오를 텍스트로 변환하고, 음성 번역을 수행하고, 텍스트를 음성으로 변환할 수 있습니다. 음성 SDK 및 REST API에 대한 고유한 엔드포인트를 사용하여 여러 지역에서 서비스를 사용할 수 있습니다.
 
-모든 지역에 대한 음성 경험에 대한 사용자 지정 구성을 수행하는 음성 포털은 여기에서 확인할 수 있습니다.https://speech.microsoft.com
+모든 지역의 음성 환경에 대 한 사용자 지정 구성을 수행 하는 음성 포털은 다음 위치에서 제공 됩니다.https://speech.microsoft.com
 
-Speech 서비스를 호출하는 경우 호출이 구독의 지역과 일치하는지 확인합니다.
+음성 서비스 호출에 대 한 호출이 구독의 지역과 일치 하는지 확인 합니다.
 
 ## <a name="speech-sdk"></a>음성 SDK
 
 [음성 SDK](speech-sdk.md)에서 지역을 문자열로 지정합니다(예를 들어, C#용 Speech SDK에서 `SpeechConfig.FromSubscription`에 대한 매개 변수로 지정).
 
-### <a name="speech-to-text-text-to-speech-and-translation"></a>음성-텍스트, 텍스트 음성 변환 및 번역
+### <a name="speech-to-text-text-to-speech-and-translation"></a>음성 텍스트, 텍스트 음성 변환 및 번역
 
-음성 사용자 지정 포털은 여기에서 확인할 수 있습니다.https://speech.microsoft.com
+음성 사용자 지정 포털은 다음 위치에서 제공 됩니다.https://speech.microsoft.com
 
-음성 서비스는 **음성 인식,** **텍스트 음성**변환 및 **번역을**위해 이러한 지역에서 사용할 수 있습니다.
+음성 **인식**, **텍스트 음성**변환 및 **번역**을 위해 음성 서비스를 이러한 지역에서 사용할 수 있습니다.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
-[Speech SDK를](speech-sdk.md)사용하는 경우 영역은 **지역 식별자(예:** 매개 변수로)에 의해 지정됩니다. `SpeechConfig.FromSubscription` 지역이 구독의 리전과 일치하는지 확인합니다.
+[SPEECH SDK](speech-sdk.md)를 사용 하는 경우 **지역 식별자** (예:에 대 `SpeechConfig.FromSubscription`한 매개 변수로)가 영역을 지정 합니다. 지역이 구독의 지역과 일치 하는지 확인 합니다.
 
 ### <a name="intent-recognition"></a>의도 인식
 
 Speech SDK를 통해 **의도 인식**을 사용할 수 있는 지역은 다음과 같습니다.
 
-| 글로벌 지역 | 지역           | 지역 식별자 |
+| 글로벌 지역 | 지역           | 영역 식별자 |
 | ------------- | ---------------- | -------------------- |
 | 아시아          | 동아시아        | `eastasia`           |
 | 아시아          | 동남아시아   | `southeastasia`      |
@@ -63,9 +63,9 @@ Speech SDK를 통해 **의도 인식**을 사용할 수 있는 지역은 다음�
 
 ### <a name="voice-assistants"></a>음성 도우미
 
-[음성 SDK는](speech-sdk.md) 다음 리전에서 **음성 도우미** 기능을 지원합니다.
+[음성 SDK](speech-sdk.md) 는 이러한 지역에서 **음성 도우미** 기능을 지원 합니다.
 
-| 지역         | 지역 식별자 |
+| 지역         | 영역 식별자 |
 | -------------- | -------------------- |
 | 미국 서부        | `westus`             |
 | 미국 서부 2      | `westus2`            |
@@ -81,15 +81,15 @@ Speech SDK를 통해 **의도 인식**을 사용할 수 있는 지역은 다음�
 
 ### <a name="speech-to-text"></a>음성 텍스트 변환
 
-음성-텍스트 참조 설명서의 경우 [음성-텍스트 REST API를](rest-speech-to-text.md)참조하십시오.
+음성 텍스트 참조 설명서는 [음성 텍스트 REST API](rest-speech-to-text.md)를 참조 하세요.
 
-REST API의 끝점에는 다음 형식이 있습니다.
+REST API 끝점에는 다음과 같은 형식이 있습니다.
 
 ```
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
 ```
 
-이 `<REGION_IDENTIFIER>` 표에서 구독 지역과 일치하는 식별자로 바꿉습니다.
+이 `<REGION_IDENTIFIER>` 테이블에서 구독의 지역과 일치 하는 식별자로 대체 합니다.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
@@ -98,6 +98,6 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 ### <a name="text-to-speech"></a>텍스트 음성 변환
 
-텍스트 음성 변환 참조 설명서의 경우 [텍스트 음성 변환 REST API를](rest-text-to-speech.md)참조하십시오.
+텍스트 음성 변환 참조 설명서는 [텍스트 음성 변환 REST API](rest-text-to-speech.md)을 참조 하세요.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

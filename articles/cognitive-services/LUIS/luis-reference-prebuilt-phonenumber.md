@@ -1,5 +1,5 @@
 ---
-title: 전화 번호 미리 빌드 된 엔터티 - LUIS
+title: 전화 번호 미리 작성 한 엔터티-LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 문서에는 LUIS(Language Understanding)의 phone number 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
@@ -12,27 +12,27 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 4e2c8e27c6d4195252c6a5b423fa98b2a4247182
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78270464"
 ---
-# <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>LUIS 앱에 대한 전화 번호 미리 빌드된 엔터티
+# <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>LUIS 앱에 대 한 전화 번호 미리 작성 된 엔터티
 `phonenumber` 엔터티는 국가 코드를 포함하는 다양한 전화 번호를 추출합니다. 이 엔터티를 이미 학습했기 때문에 애플리케이션에 예제 발언을 추가할 필요가 없습니다. `phonenumber` 엔터티는 `en-us` 문화권에서만 지원됩니다.
 
-## <a name="types-of-a-phone-number"></a>전화 번호 유형
-`Phonenumber`[인식기 텍스트](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) GitHub 리포지토리에서 관리됩니다.
+## <a name="types-of-a-phone-number"></a>전화 번호 형식
+`Phonenumber`인식기에서 관리 됨 [-텍스트](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) GitHub 리포지토리
 
-## <a name="resolution-for-this-prebuilt-entity"></a>이 미리 빌드된 엔터티에 대한 해결 방법
+## <a name="resolution-for-this-prebuilt-entity"></a>이 미리 작성 한 엔터티에 대 한 해결 방법
 
-다음 엔터티 개체는 쿼리에 대해 반환됩니다.
+쿼리에 대해 반환 되는 엔터티 개체는 다음과 같습니다.
 
 `my mobile is 1 (800) 642-7676`
 
 #### <a name="v3-response"></a>[V3 응답](#tab/V3)
 
-다음 JSON은 매개 `verbose` 변수를 `false`다음과 같은 것으로 설정합니다.
+다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
 
 ```json
 "entities": {
@@ -41,8 +41,8 @@ ms.locfileid: "78270464"
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3 자세한 응답](#tab/V3-verbose)
-다음 JSON은 매개 `verbose` 변수를 `true`다음과 같은 것으로 설정합니다.
+#### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/V3-verbose)
+다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
 
 ```json
 "entities": {

@@ -1,5 +1,5 @@
 ---
-title: 통화 사전 빌드 엔터티 - LUIS
+title: 미리 작성 한 통화 엔터티-LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 문서에는 LUIS(Language Understanding)의 currency 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
@@ -12,14 +12,14 @@ ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: 56d264fa976967ae4772f50b4aa6f58b30355d6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78270775"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 미리 빌드된 Currency 엔터티
-미리 빌드된 통화 엔터티는 LUIS 앱 문화권에 관계없이 많은 교단 및 국가/지역에서 통화를 검색합니다. 이 엔터티를 이미 학습했기 때문에 currency를 포함하는 예제 발언을 애플리케이션 의도에 추가할 필요가 없습니다. Currency 엔터티는 [여러 문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다.
+미리 작성 된 통화 엔터티는 LUIS 앱 문화권과 관계 없이 많은 denominations 및 국가/지역에서 통화를 검색 합니다. 이 엔터티를 이미 학습했기 때문에 currency를 포함하는 예제 발언을 애플리케이션 의도에 추가할 필요가 없습니다. Currency 엔터티는 [여러 문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다.
 
 ## <a name="types-of-currency"></a>Currency 유형
 Currency는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26) GitHub 리포지토리에서 관리됩니다.
@@ -28,7 +28,7 @@ Currency는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blo
 
 #### <a name="v3-response"></a>[V3 응답](#tab/V3)
 
-다음 JSON은 매개 `verbose` 변수를 `false`다음과 같은 것으로 설정합니다.
+다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
 
 ```json
 "entities": {
@@ -40,8 +40,8 @@ Currency는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blo
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3 자세한 응답](#tab/V3-verbose)
-다음 JSON은 매개 `verbose` 변수를 `true`다음과 같은 것으로 설정합니다.
+#### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/V3-verbose)
+다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
 
 ```json
 "entities": {

@@ -1,7 +1,7 @@
 ---
-title: Azure 컨테이너 인스턴스에서 양식 인식기 컨테이너 실행
+title: Azure Container Instances에서 폼 인식기 컨테이너 실행
 titleSuffix: Azure Cognitive Services
-description: 양식 인식기 컨테이너를 Azure 컨테이너 인스턴스에 배포하고 웹 브라우저에서 테스트합니다.
+description: 양식 인식기 컨테이너를 Azure Container Instance에 배포 하 고 웹 브라우저에서 테스트 합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: acba4d9fab784181fda5728c30831c8c1838b91f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80879533"
 ---
-# <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Azure 컨테이너 인스턴스에 양식 인식기 컨테이너 배포
+# <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Azure Container Instances에 폼 인식기 컨테이너를 배포 합니다.
 
-Azure 컨테이너 [인스턴스에](https://docs.microsoft.com/azure/container-instances/)인지 서비스 [양식 인식기](form-recognizer-container-howto.md) 컨테이너를 배포 하는 방법에 대해 알아봅니다. 이 절차에서는 Azure 양식 인식기 리소스를 만드는 것을 보여 줍니다. 그런 다음 연결된 컨테이너 이미지를 가져오는 것에 대해 설명합니다. 마지막으로 브라우저에서 두 오케스트레이션을 연습하는 기능을 강조 표시합니다. 컨테이너를 사용하면 개발자의 관심을 인프라 관리에서 응용 프로그램 개발에 집중하는 것으로 전환할 수 있습니다.
+Cognitive Services [양식 인식기](form-recognizer-container-howto.md) 컨테이너를 Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/)에 배포 하는 방법에 대해 알아봅니다. 이 절차에서는 Azure 양식 인식기 리소스를 만드는 방법을 보여 줍니다. 그런 다음 연결 된 컨테이너 이미지를 풀링 하는 방법을 설명 합니다. 마지막으로 브라우저에서 두 오케스트레이션의 오케스트레이션을 실행 하는 기능을 강조 표시 합니다. 컨테이너를 사용 하면 개발자가 인프라를 관리 하지 않고 응용 프로그램 개발에 집중 하는 것으로 전환할 수 있습니다.
 
 > [!IMPORTANT]
-> 양식 인식기 컨테이너는 현재 양식 인식기 API의 버전 1.0을 사용합니다. 대신 관리되는 서비스를 사용하여 최신 버전의 API에 액세스할 수 있습니다.
+> 양식 인식기 컨테이너는 현재 양식 인식기 API의 버전 1.0을 사용 합니다. 대신 관리 되는 서비스를 사용 하 여 최신 버전의 API에 액세스할 수 있습니다.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 
 ## <a name="request-access-to-the-container-registry"></a>컨테이너 레지스트리에 대한 액세스 요청
 
-먼저 [인지 서비스 양식 인식기 컨테이너 액세스 요청 양식을](https://aka.ms/FormRecognizerContainerRequestAccess) 작성하여 제출하여 컨테이너에 대한 액세스를 요청해야 합니다. 이렇게 하면 컴퓨터 비전에 대한 서명도 표시됩니다. 컴퓨터 비전 요청 양식에 별도로 등록할 필요가 없습니다. 
+컨테이너에 대 한 액세스를 요청 하려면 먼저 [Cognitive Services 양식 인식기 컨테이너 액세스 요청 폼](https://aka.ms/FormRecognizerContainerRequestAccess) 을 완료 하 고 제출 해야 합니다. 이렇게 하면 Computer Vision에 등록 됩니다. Computer Vision 요청 양식에 별도로 등록할 필요가 없습니다. 
 
 [!INCLUDE [Request access](../../../includes/cognitive-services-containers-request-access-only.md)]
 

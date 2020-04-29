@@ -3,16 +3,16 @@ title: 컨테이너 전제 조건
 services: cognitive-services
 author: aahill
 manager: nitinme
-description: 컨테이너의 일반적인 전제 조건
+description: 컨테이너에 대 한 일반적인 필수 구성 요소
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 6ed5892090dbcb77a0fefba28e044780c019a7f7
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80879214"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항

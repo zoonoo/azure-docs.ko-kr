@@ -12,29 +12,29 @@ ms.date: 04/01/2020
 ms.author: aahi
 ms.custom: seodec18
 ms.openlocfilehash: 5f36c429041a8182551d1f077f0a1229f520e8c1
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80879346"
 ---
-# <a name="install-and-run-read-containers-preview"></a>읽기 컨테이너 설치 및 실행(미리 보기)
+# <a name="install-and-run-read-containers-preview"></a>컨테이너 읽기 (미리 보기)를 설치 하 고 실행 합니다.
 
-컨테이너를 사용하면 사용자 고유의 환경에서 컴퓨터 비전 API를 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 컴퓨터 비전 컨테이너를 다운로드, 설치 및 실행하는 방법을 배웁니다.
+컨테이너를 사용 하면 사용자 환경에서 Computer Vision Api를 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 관리 요구 사항에 적합 합니다. 이 문서에서는 Computer Vision 컨테이너를 다운로드, 설치 및 실행 하는 방법에 대해 알아봅니다.
 
-단일 Docker 컨테이너인 *Read는*컴퓨터 비전에 사용할 수 있습니다. *읽기* 컨테이너를 사용하면 영수증, 포스터 및 명함과 같이 표면과 배경이 다른 다양한 개체의 이미지에서 *인쇄된 텍스트를* 감지하고 추출할 수 있습니다. 또한 *Read* 컨테이너는 이미지에서 *필기 텍스트를* 감지하고 PDF, TIFF 및 다중 페이지 파일 지원을 제공합니다. 자세한 내용은 API [읽기](concept-recognizing-text.md#read-api) 설명서를 참조하십시오.
+단일 Docker 컨테이너 *읽기*는 Computer Vision 사용할 수 있습니다. *읽기* 컨테이너를 사용 하면 다른 표면 및 배경 (예: 수신, 포스터 및 비즈니스 카드)을 사용 하 여 다양 한 개체의 이미지에서 *인쇄 된 텍스트* 를 검색 하 고 추출할 수 있습니다. 또한 *읽기* 컨테이너는 이미지에서 *필기 텍스트* 를 검색 하 고 PDF, TIFF 및 다중 페이지 파일 지원을 제공 합니다. 자세한 내용은 [Read](concept-recognizing-text.md#read-api) API 설명서를 참조 하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-컨테이너를 사용하기 전에 다음 필수 구성 조건을 충족해야 합니다.
+컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
 |필수|목적|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
-|컴퓨터 비전 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>Azure **컴퓨터 비전** 리소스 및 관련 API는 끝점 URI를 키합니다. 두 값 모두 리소스의 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작해야 합니다.<br><br>**{API_KEY}**: **키** 페이지에서 사용 가능한 두 리소스 키 중 하나<br><br>**{ENDPOINT_URI}**: **개요** 페이지에 제공된 끝점|
+|Computer Vision 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>Azure **Computer Vision** 리소스 및 연결 된 API 키 끝점 URI입니다. 두 값은 모두 리소스의 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요 합니다.<br><br>**{API_KEY}**: **키** 페이지에서 사용 가능한 두 리소스 키 중 하나<br><br>**{ENDPOINT_URI}**: **개요** 페이지에 제공 된 끝점입니다.|
 
 ## <a name="request-access-to-the-private-container-registry"></a>프라이빗 컨테이너 레지스트리에 대한 액세스 요청
 
@@ -48,13 +48,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="advanced-vector-extension-support"></a>고급 벡터 확장 지원
 
-**호스트** 컴퓨터는 docker 컨테이너를 실행하는 컴퓨터입니다. 호스트는 [고급 벡터 확장(AVX2)을](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) *지원해야 합니다.* 다음 명령을 통해 Linux 호스트에서 AVX2 지원을 확인할 수 있습니다.
+**호스트** 컴퓨터는 docker 컨테이너를 실행 하는 컴퓨터입니다. 호스트는 AVX2 ( [고급 벡터 확장](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) )를 *지원 해야* 합니다. 다음 명령을 사용 하 여 Linux 호스트에서 AVX2 지원을 확인할 수 있습니다.
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
 > [!WARNING]
-> AVX2를 지원하려면 호스트 컴퓨터가 *필요합니다.* AVX2 지원 없이 컨테이너가 제대로 작동하지 *않습니다.*
+> AVX2을 지원 하려면 호스트 컴퓨터가 *필요* 합니다. 컨테이너가 AVX2을 지원 하지 않으면 제대로 작동 *하지* 않습니다.
 
 ### <a name="container-requirements-and-recommendations"></a>컨테이너 요구 사항 및 추천
 
@@ -62,15 +62,15 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
 
-읽기를 위한 컨테이너 이미지를 사용할 수 있습니다.
+읽을 컨테이너 이미지를 사용할 수 있습니다.
 
-| 컨테이너 | 컨테이너 레지스트리 / 리포지토리 / 이미지 이름 |
+| 컨테이너 | Container Registry/리포지토리/이미지 이름 |
 |-----------|------------|
 | 읽기 | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
 
-[`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 컨테이너 이미지를 다운로드합니다.
+[`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용 하 여 컨테이너 이미지를 다운로드 합니다.
 
-### <a name="docker-pull-for-the-read-container"></a>읽기 컨테이너에 대한 도커 풀
+### <a name="docker-pull-for-the-read-container"></a>읽기 컨테이너의 Docker pull
 
 ```bash
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
@@ -83,7 +83,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
 컨테이너가 [호스트 컴퓨터](#the-host-computer)에 있으면 다음 프로세스를 사용하여 컨테이너 작업을 수행합니다.
 
 1. 필수 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예제](computer-vision-resource-container-config.md)를 사용할 수 있습니다. 
-1. [컨테이너의 예측 끝점을 쿼리합니다.](#query-the-containers-prediction-endpoint) 
+1. [컨테이너의 예측 끝점을 쿼리](#query-the-containers-prediction-endpoint)합니다. 
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
@@ -101,9 +101,9 @@ ApiKey={API_KEY}
 
 이 명령은 다음을 수행합니다.
 
-* 컨테이너 이미지에서 Read 컨테이너를 실행합니다.
-* 8개의 CPU 코어와 16기가바이트(GB)의 메모리를 할당합니다.
-* TCP 포트(5000)를 노출하고 컨테이너에 의사 TTY를 할당합니다.
+* 컨테이너 이미지에서 읽기 컨테이너를 실행 합니다.
+* 8 CPU 코어와 16gb (GB)의 메모리를 할당 합니다.
+* 는 TCP 포트 5000를 노출 하 고 컨테이너에 대 한 의사 TTY를 할당 합니다.
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다.
 
 `docker run` 명령의 자세한 [예제](./computer-vision-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다. 
@@ -125,13 +125,13 @@ ApiKey={API_KEY}
 
 ### <a name="asynchronous-read"></a>비동기 읽기
 
-`POST /vision/v2.0/read/core/asyncBatchAnalyze` 컴퓨터 비전 서비스에서 `GET /vision/v2.0/read/operations/{operationId}` 해당 REST 작업을 사용하는 방법과 유사하게 동기화하여 이미지를 읽기 위해 함께 및 작업을 사용할 수 있습니다. 비동기 POST 메서드는 HTTP `operationId` GET 요청에 식별자로 사용되는 을 반환합니다.
+`POST /vision/v2.0/read/core/asyncBatchAnalyze` 및 `GET /vision/v2.0/read/operations/{operationId}` 작업을 함께 사용 하 여 COMPUTER VISION 서비스에서 해당 REST 작업을 사용 하는 방법과 유사한 방식으로 이미지를 비동기적으로 읽을 수 있습니다. 비동기 POST 메서드는 HTTP GET 요청 `operationId` 에 대 한 식별자로 사용 되는를 반환 합니다.
 
-swagger UI에서 브라우저에서 `asyncBatchAnalyze` 확장할 을 선택합니다. 그런 다음**파일 선택을** **선택합니다.** >  이 예제에서는 다음 이미지를 사용합니다.
+Swagger UI에서을 선택 `asyncBatchAnalyze` 하 여 브라우저에서 확장 합니다. 그런 다음 > **파일 선택** **을 선택 합니다**. 이 예제에서는 다음 이미지를 사용 합니다.
 
-![탭 대 공백](media/tabs-vs-spaces.png)
+![탭 및 공백](media/tabs-vs-spaces.png)
 
-비동기 POST가 성공적으로 실행되면 **HTTP 202** 상태 코드를 반환합니다. 응답의 일부로 요청에 대한 `operation-location` 결과 끝점을 보유하는 헤더가 있습니다.
+비동기 게시물이 성공적으로 실행 되 면 **HTTP 202** 상태 코드를 반환 합니다. 응답의 일부로 요청에 대 한 결과 끝점 `operation-location` 을 포함 하는 헤더가 있습니다.
 
 ```http
  content-length: 0
@@ -140,7 +140,7 @@ swagger UI에서 브라우저에서 `asyncBatchAnalyze` 확장할 을 선택합�
  server: Kestrel
 ```
 
-는 `operation-location` 정규화된 URL이며 HTTP GET을 통해 액세스됩니다. 다음은 이전 이미지에서 `operation-location` URL을 실행한 JSON 응답입니다.
+는 `operation-location` 정규화 된 URL 이며 HTTP GET을 통해 액세스 됩니다. 이전 이미지에서 URL을 `operation-location` 실행 하 여 받은 JSON 응답은 다음과 같습니다.
 
 ```json
 {
@@ -186,7 +186,7 @@ swagger UI에서 브라우저에서 `asyncBatchAnalyze` 확장할 을 선택합�
 
 ### <a name="synchronous-read"></a>동기 읽기
 
-이 `POST /vision/v2.0/read/core/Analyze` 작업을 사용하여 이미지를 동기적으로 읽을 수 있습니다. 이미지가 전체를 읽을 때 API는 JSON 응답을 반환합니다. 이에 대한 유일한 예외는 오류가 발생하는 경우입니다. 오류가 발생하면 다음 JSON이 반환됩니다.
+`POST /vision/v2.0/read/core/Analyze` 작업을 사용 하 여 이미지를 동기적으로 읽을 수 있습니다. 전체적으로 이미지를 읽으면 API는 JSON 응답을 반환 합니다. 단, 오류가 발생 하는 경우는 예외입니다. 오류가 발생 하면 다음 JSON이 반환 됩니다.
 
 ```json
 {
@@ -194,7 +194,7 @@ swagger UI에서 브라우저에서 `asyncBatchAnalyze` 확장할 을 선택합�
 }
 ```
 
-JSON 응답 개체는 비동기 버전과 동일한 개체 그래프를 가짐입니다. JavaScript 사용자이고 형식 안전을 원하는 경우 다음 형식을 사용하여 JSON 응답을 개체로 `AnalyzeResult` 캐스팅할 수 있습니다.
+JSON 응답 개체에는 비동기 버전과 동일한 개체 그래프가 있습니다. JavaScript 사용자 이며 형식 안전성을 원하는 경우 다음 형식을 사용 하 여 JSON 응답을 `AnalyzeResult` 개체로 캐스팅할 수 있습니다.
 
 ```typescript
 export interface AnalyzeResult {
@@ -241,7 +241,7 @@ export interface Word {
 }
 ```
 
-예를 들어 사용 사례는 <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">여기에서 <span class="docon docon-navigate-external x-hidden-focus"></span> TypeScript 샌드박스를</a> 참조하고 **실행을** 선택하여 사용 편의성을 시각화합니다.
+예제 사용 사례는 <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">여기 <span class="docon docon-navigate-external x-hidden-focus"></span> 에서 TypeScript 샌드박스</a> 를 참조 하 고 **실행** 을 선택 하 여 사용 편의성을 시각화 합니다.
 
 ## <a name="stop-the-container"></a>컨테이너 중지
 
@@ -255,7 +255,7 @@ export interface Word {
 
 ## <a name="billing"></a>결제
 
-코그너티브 서비스 컨테이너는 Azure 계정의 해당 리소스를 사용하여 Azure에 청구 정보를 보냅니다.
+Cognitive Services 컨테이너는 Azure 계정의 해당 리소스를 사용 하 여 Azure로 청구 정보를 보냅니다.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -269,10 +269,10 @@ export interface Word {
 
 이 문서에서는 Computer Vision 컨테이너를 다운로드, 설치 및 실행하기 위한 개념과 워크플로를 알아보았습니다. 요약하면 다음과 같습니다.
 
-* 컴퓨터 비전은 읽기를 캡슐화하는 Docker용 Linux 컨테이너를 제공합니다.
-* 컨테이너 이미지는 Azure의 "컨테이너 미리 보기" 컨테이너 레지스트리에서 다운로드됩니다.
+* Computer Vision는 Docker에 대 한 Linux 컨테이너를 제공 하며 읽기를 캡슐화 합니다.
+* 컨테이너 이미지는 Azure의 "컨테이너 미리 보기" 컨테이너 레지스트리에서 다운로드 됩니다.
 * 컨테이너 이미지는 Docker에서 실행됩니다.
-* REST API 또는 SDK를 사용하여 컨테이너의 호스트 URI를 지정하여 Read 컨테이너에서 작업을 호출할 수 있습니다.
+* 컨테이너의 호스트 URI를 지정 하 여 REST API 또는 SDK를 사용 하 여 읽기 컨테이너에서 작업을 호출할 수 있습니다.
 * 컨테이너를 인스턴스화할 때 청구 정보를 지정해야 합니다.
 
 > [!IMPORTANT]

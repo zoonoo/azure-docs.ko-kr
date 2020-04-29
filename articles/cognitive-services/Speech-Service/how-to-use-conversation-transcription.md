@@ -1,7 +1,7 @@
 ---
-title: 실시간 대화 녹음 (미리보기) - 음성 서비스
+title: 실시간 대화 기록 (미리 보기)-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 음성 SDK를 사용하여 실시간 대화 기록을 사용하는 방법에 대해 알아봅니다. C ++, C#및 Java에서 사용할 수 있습니다.
+description: '음성 SDK를 사용 하 여 실시간 대화 기록을 사용 하는 방법을 알아봅니다. C + +, c # 및 Java에서 사용할 수 있습니다.'
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -11,46 +11,46 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
 ms.openlocfilehash: e2c9c0aadc8e443f07f60f3ccddb4a1b6dd661b1
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80520904"
 ---
-# <a name="real-time-conversation-transcription-preview"></a>실시간 대화 녹음(미리 보기)
+# <a name="real-time-conversation-transcription-preview"></a>실시간 대화 기록 (미리 보기)
 
-Speech SDK의 **ConversationTranscriber** API를 사용하면 을 `PullStream` `PushStream`사용하여 음성 서비스에 오디오를 스트리밍하여 여러 참가자를 추가, 제거 및 식별할 수 있는 기능으로 회의 및 기타 대화를 전사할 수 있습니다. 이 항목에서는 음성 SDK(버전 1.8.0 이상)에서 음성-텍스트 사용 방법을 알아야 합니다. 자세한 내용은 [음성 서비스 입니다.](overview.md)
+Speech SDK의 **ConversationTranscriber** API를 사용 하면 또는 `PullStream` `PushStream`를 사용 하 여 음성 서비스에 오디오를 스트리밍하 여 여러 참가자를 추가, 제거 및 식별 하는 기능을 통해 모임 및 기타 대화를 높여줄 수 있습니다. 이 항목에서는 Speech SDK (버전 1.8.0 이상)에서 음성 텍스트를 사용 하는 방법을 알고 있어야 합니다. 자세한 내용은 [Speech Services 란?](overview.md)을 참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
 
-- 대화전사 API는 윈도우, 리눅스, 안드로이드에서 C ++, C #, 자바에 지원됩니다.
-- 현재 "en-US" 및 "zh-CN" 언어로 다음 지역에서 사용할 수 있습니다: _중앙 및_ _동아시아._
-- 재생 참조 스트림이 있는 7마이크 원형 멀티 마이크 어레이가 필요합니다. 마이크 어레이는 [당사사양을](https://aka.ms/sdsdk-microphone)충족해야 합니다.
-- [음성 장치 SDK는](speech-devices-sdk.md) 적절한 장치와 대화 녹음을 보여주는 샘플 응용 프로그램을 제공합니다.
+- ConversationTranscriber API는 Windows, Linux 및 Android에서 c + +, c # 및 Java에 대해 지원 됩니다.
+- 현재는 다음과 같은 지역의 "en-us" 및 "zh-cn" 언어에서 사용할 수 있습니다. _centralus_ 및 _eastasia_.
+- 재생 참조 스트림이 있는 7-mic 원형 다중 마이크 배열이 필요 합니다. 마이크 배열은 [사양을](https://aka.ms/sdsdk-microphone)충족 해야 합니다.
+- [음성 장치 SDK](speech-devices-sdk.md) 는 적절 한 장치 및 대화 기록을 보여 주는 샘플 앱을 제공 합니다.
 
-## <a name="optional-sample-code-resources"></a>샘플 코드 리소스 옵션
+## <a name="optional-sample-code-resources"></a>선택적 샘플 코드 리소스
 
-음성 장치 SDK는 8채널을 사용하여 실시간 오디오 캡처를 위해 Java의 샘플 코드를 제공합니다.
+음성 장치 SDK는 8 개의 채널을 사용 하 여 실시간 오디오 캡처를 위한 Java의 샘플 코드를 제공 합니다.
 
 - [ROOBO 장치 샘플 코드](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/ConversationTranscription.java)
-- [Azure Kinect 개발자 키트 샘플 코드](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
+- [Azure Kinect Dev Kit 샘플 코드](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-음성 서비스 구독입니다. [스피치 평가판 구독이](https://azure.microsoft.com/try/cognitive-services/) 없는 경우 음성 평가판 구독을 받을 수 있습니다.
+음성 서비스 구독입니다. 아직 없는 경우 [음성 평가판 구독을 얻을](https://azure.microsoft.com/try/cognitive-services/) 수 있습니다.
 
 ## <a name="create-voice-signatures"></a>음성 서명 만들기
 
-첫 번째 단계는 효율적인 스피커 식별을 위해 대화 참가자를 위한 음성 서명을 만드는 것입니다.
+첫 번째 단계는 효율적인 스피커 식별을 위해 대화 참가자에 대 한 음성 서명을 만드는 것입니다.
 
 ### <a name="audio-input-requirements"></a>오디오 입력 요구 사항
 
-- 음성 서명을 만들기 위한 입력 오디오 웨이브 파일은 16비트 샘플, 16kHz 샘플 속도 및 단일 채널(모노) 형식이어야 합니다.
-- 각 오디오 샘플의 권장 길이는 30초에서 2분 사이입니다.
+- 음성 서명을 만들기 위한 입력 오디오 웨이브 파일은 16 비트 샘플, 16Khz 샘플 요금 및 단일 채널 (mono) 형식 이어야 합니다.
+- 각 오디오 샘플의 권장 길이는 30 초에서 2 분 사이입니다.
 
 ### <a name="sample-code"></a>예제 코드
 
-다음 예제에서는 C#에서 [REST API를 사용하여](https://aka.ms/cts/signaturegenservice) 음성 서명을 만드는 두 가지 방법을 보여 주십습니다. "YourSubscriptionKey", "speakerVoice.wav"의 웨이브 파일 이름 및 "YourServiceRegion"(중앙 또는 `{region}` _동아시아)에_대한_centralus_ 실제 정보를 대체해야 합니다.
+다음 예제에서는 c #에서 [REST API를 사용](https://aka.ms/cts/signaturegenservice) 하 여 음성 서명을 만드는 두 가지 방법을 보여 줍니다. "SpeakerVoice"에 대 한 실제 정보, ""에 대 한 웨이브 파일 이름, 및 "YourServiceRegion" (_centralus_ 또는 _eastasia_)의 `{region}` 지역으로 대체 해야 합니다.
 
 ```csharp
 class Program
@@ -102,20 +102,20 @@ class Program
 }
 ```
 
-## <a name="transcribe-conversations"></a>대화 전사
+## <a name="transcribe-conversations"></a>높여줄 대화
 
-다음 샘플 코드에서는 세 명의 스피커에 대해 실시간으로 대화를 전사하는 방법을 보여 줍니다. 위와 같이 각 스피커에 대해 음성 서명을 이미 만들었다고 가정합니다. SpeechConfig 개체를 만들 때 "YourSubscriptionKey" 및 "YourServiceRegion"에 대한 실제 정보를 대체합니다.
+다음 샘플 코드는 세 개의 스피커로 대화를 실시간으로 높여줄 하는 방법을 보여 줍니다. 위에서 설명한 것 처럼 각 스피커에 대해 음성 서명을 이미 만들었다고 가정 합니다. SpeechConfig 개체를 만들 때 "YourServiceRegion" 및 ""에 대 한 실제 정보를 대체 합니다.
 
 샘플 코드 하이라이트는 다음과 같습니다.
 
-- 다음을 `Conversation` 사용하여 `SpeechConfig` 생성된 모임 식별자를 사용하여 개체에서 개체 만들기`Guid.NewGuid()`
-- 개체 `ConversationTranscriber` 만들기 및 대화에 `JoinConversationAsync()` 참여하여 전사 시작
-- 관심 이벤트 등록
-- 대화 개체를 사용하여 대화에 참가자 추가 또는 제거
+- 을 사용 `Conversation` 하 여 생성 `SpeechConfig` 된 회의 식별자를 사용 하 여 개체에서 개체 만들기`Guid.NewGuid()`
+- 개체를 `ConversationTranscriber` 만들고와 `JoinConversationAsync()` 대화를 조인 하 여 기록을 시작 합니다.
+- 관심 있는 이벤트 등록
+- 대화 개체를 사용 하 여 대화에 참가자 추가 또는 제거
 - 오디오 스트리밍
-- 음성 SDK 버전 1.9.0 및 `int` 이후 `string` 및 이후 의 값 형식은 음성 서명 버전 필드에서 지원됩니다.
+- Speech SDK 버전 1.9.0 및 `int` `string` 값 형식은 모두 음성 서명 버전 필드에서 지원 됩니다.
 
-전사 및 스피커 식별자는 등록된 이벤트에서 다시 돌아옵니다.
+기록 및 스피커 식별자가 등록 된 이벤트로 돌아옵니다.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -218,4 +218,4 @@ public class MyConversationTranscriber
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [비동기 대화 전사](how-to-async-conversation-transcription.md)
+> [비동기 대화 기록](how-to-async-conversation-transcription.md)

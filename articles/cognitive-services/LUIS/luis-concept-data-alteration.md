@@ -1,26 +1,26 @@
 ---
-title: 데이터 변경 - LUIS
+title: 데이터 변경-LUIS
 description: Language Understanding(LUIS)에서 예측 전에 데이터를 변경하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: b3b36351a64a4e1a0bd13d5785a4e0609a80901d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80292076"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>예측 이전 또는 도중에 발언 데이터 변경
-LUIS는 예측 전이나 예측 중에 발화를 조작할 수 있는 방법을 제공합니다. 여기에는 [맞춤법 수정](luis-tutorial-bing-spellcheck.md)및 미리 빌드된 [datetimeV2에](luis-reference-prebuilt-datetimev2.md)대한 표준 시간대 문제 수정이 포함됩니다.
+LUIS는 예측 전이나 예측 중에 발화를 조작할 수 있는 방법을 제공합니다. 여기에는 미리 작성 한 [datetimeV2](luis-reference-prebuilt-datetimev2.md)에 대 한 [맞춤법 수정](luis-tutorial-bing-spellcheck.md), 표준 시간대 문제 해결 등이 포함 됩니다.
 
 ## <a name="correct-spelling-errors-in-utterance"></a>발화에서 맞춤법 오류 수정
 
 
 ### <a name="v3-runtime"></a>V3 런타임
 
-발언을 LUIS로 보내기 전에 맞춤법 수정을 위한 텍스트를 사전 처리합니다. 올바른 철자가 있는 예제 발언을 사용하여 올바른 예측을 얻을 수 있습니다.
+Utterance을 LUIS로 보내기 전에 맞춤법 수정 텍스트를 전처리 합니다. 올바른 예측을 얻을 수 있도록 올바른 철자를 사용 하는 예제 길이 발언를 사용 합니다.
 
-[BING 맞춤법 검사를](../bing-spell-check/overview.md) 사용하여 텍스트를 LUIS로 보내기 전에 텍스트를 수정합니다.
+LUIS에 보내기 전에 [Bing Spell Check](../bing-spell-check/overview.md) 을 사용 하 여 텍스트를 수정 합니다.
 
 ### <a name="prior-to-v3-runtime"></a>V3 런타임 이전
 
@@ -28,7 +28,7 @@ LUIS는 [Bing Spell Check API V7](../Bing-Spell-Check/overview.md)을 사용하�
 
 엔드포인트에서 맞춤법 수정이 작동하려면 두 개의 매개 변수가 필요합니다.
 
-|매개 변수|값|
+|매개 변수|Value|
 |--|--|
 |`spellCheck`|boolean|
 |`bing-spell-check-subscription-key`|[Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 엔드포인트 키|
@@ -69,16 +69,16 @@ LUIS는 [Bing Spell Check API V7](../Bing-Spell-Check/overview.md)을 사용하�
 
 * * *
 
-### <a name="list-of-allowed-words"></a>허용되는 단어 목록
-LUIS에 사용되는 Bing 맞춤법 검사 API는 맞춤법 검사 를 변경하는 동안 무시할 단어 목록을 지원하지 않습니다. 단어 또는 머리글자어 목록을 허용해야 하는 경우 의도 예측을 위해 발사를 LUIS로 보내기 전에 클라이언트 응용 프로그램에서 발언을 처리합니다.
+### <a name="list-of-allowed-words"></a>허용 되는 단어 목록
+LUIS에서 사용 되는 Bing 맞춤법 검사 API는 맞춤법 검사를 변경 하는 동안 무시할 단어 목록을 지원 하지 않습니다. 단어 또는 머리글자어 목록을 허용 해야 하는 경우에는 utterance를 LUIS로 보내기 전에 클라이언트 응용 프로그램에서 utterance를 처리 합니다.
 
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>미리 빌드된 datetimeV2 엔터티의 표준 시간대 변경
-LUIS 앱이 미리 빌드된 [datetimeV2](luis-reference-prebuilt-datetimev2.md) 엔터티를 사용하는 경우 예측 응답에서 날짜 시간 값을 반환할 수 있습니다. 요청의 표준 시간대는 반환할 올바른 datetime을 확인하는 데 사용됩니다. LUIS에 연결하기 전에 봇이나 다른 중앙 집중식 애플리케이션에서 요청을 가져오는 경우, LUIS에서 사용하는 표준 시간대를 수정하세요.
+LUIS 앱이 미리 작성 된 [datetimeV2](luis-reference-prebuilt-datetimev2.md) 엔터티를 사용 하는 경우 예측 응답에서 datetime 값을 반환할 수 있습니다. 요청의 표준 시간대는 반환할 올바른 datetime을 확인하는 데 사용됩니다. LUIS에 연결하기 전에 봇이나 다른 중앙 집중식 애플리케이션에서 요청을 가져오는 경우, LUIS에서 사용하는 표준 시간대를 수정하세요.
 
 ### <a name="endpoint-querystring-parameter"></a>엔드포인트 쿼리 문자열 매개 변수
 표준 시간대는 `timezoneOffset` 매개 변수를 사용하여 사용자의 표준 시간대를 [엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356)에 추가하여 수정합니다. 시간을 변경하려면 `timezoneOffset` 값이 분 단위의 양수 또는 음수여야 합니다.
 
-|매개 변수|값|
+|매개 변수|Value|
 |--|--|
 |`timezoneOffset`|분 단위의 양수 또는 음수|
 
