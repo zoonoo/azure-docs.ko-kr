@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: aff2dadee365fcdc7e14070714aa1d2cbba901ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476426"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>CDN 파일 압축 문제 해결
@@ -42,7 +42,7 @@ ms.locfileid: "79476426"
 * 요청된 콘텐츠에 압축을 사용할 수 없습니다.
 * 압축은 요청된 파일 형식에 대해 활성화되지 않습니다.
 * HTTP 요청에 유효한 압축 형식을 요청하는 헤더가 포함되지 않았습니다.
-* Origin에서 청크 콘텐츠를 전송합니다.
+* 원본에서 청크 분할 된 콘텐츠를 보내는 중입니다.
 
 ## <a name="troubleshooting-steps"></a>문제 해결 단계
 > [!TIP]

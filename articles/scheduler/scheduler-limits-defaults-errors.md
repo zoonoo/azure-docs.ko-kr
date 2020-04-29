@@ -9,18 +9,18 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: 610232dab776648bb3dcc7c301ec292e9acad9fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898517"
 ---
 # <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Azure Scheduler의 한도, 할당량 및 제한 임계값
 
 > [!IMPORTANT]
-> [Azure 논리 앱이](../logic-apps/logic-apps-overview.md) [사용 중지되는](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)Azure 스케줄러를 대체합니다. 스케줄러에서 설정한 작업을 계속 작업하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션하십시오.](../scheduler/migrate-from-scheduler-to-logic-apps.md) 
+> 사용이 [중지](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)되는 Azure Scheduler를 교체 하는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) . 스케줄러에 설정 된 작업을 계속 하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션](../scheduler/migrate-from-scheduler-to-logic-apps.md) 하세요. 
 >
-> 스케줄러는 Azure 포털에서 더 이상 사용할 수 없지만 작업 및 작업 컬렉션을 관리할 수 있도록 [현재 REST API](/rest/api/scheduler) 및 Azure [스케줄러 PowerShell cmdlet을](scheduler-powershell-reference.md) 사용할 수 있습니다.
+> 스케줄러는 Azure Portal에서 더 이상 사용할 수 없지만,이 시점에서 [REST API](/rest/api/scheduler) 및 [Azure scheduler PowerShell cmdlet](scheduler-powershell-reference.md) 을 계속 사용할 수 있으므로 작업 및 작업 컬렉션을 관리할 수 있습니다.
 
 ## <a name="limits-quotas-and-thresholds"></a>한도, 할당량 및 임계값
 
@@ -28,7 +28,7 @@ ms.locfileid: "78898517"
 
 ## <a name="x-ms-request-id-header"></a>x-ms-request-id 헤더
 
-스케줄러 서비스에 대해 이루어진 모든 요청은 **x-ms-request-id라는**응답 헤더를 반환합니다. 이 헤더에는 요청을 고유하게 식별하는 불투명 값이 포함되어 있습니다. 따라서 요청의 형식이 제대로 지정되었음을 확인했는데 요청이 지속적으로 실패하면 **x-ms-request-id** 응답 헤더 값을 제공하고 다음 세부 정보를 Microsoft에 오류를 보고할 수 있습니다. 
+스케줄러 서비스에 대해 수행 된 모든 요청은 이름이 **x-y**인 응답 헤더를 반환 합니다. 이 헤더에는 요청을 고유 하 게 식별 하는 불투명 값이 포함 됩니다. 따라서 요청의 형식이 제대로 지정되었음을 확인했는데 요청이 지속적으로 실패하면 **x-ms-request-id** 응답 헤더 값을 제공하고 다음 세부 정보를 Microsoft에 오류를 보고할 수 있습니다. 
 
 * **x-ms-request-id** 값
 * 요청이 작성된 대략적인 시간 

@@ -1,5 +1,5 @@
 ---
-title: 데이터 보안 및 암호화 모범 사례 - Microsoft Azure
+title: 데이터 보안 및 암호화 모범 사례-Microsoft Azure
 description: 이 문서에서는 기본 제공 Azure 기능을 사용한 데이터 보안 및 암호화 모범 사례를 제공합니다.
 services: security
 documentationcenter: na
@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: c5bf62f434b2095f7200b5562c38c252a0195c5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79243498"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 데이터 보안 및 암호화 모범 사례
-이 문서에서는 데이터 보안 및 암호화에 대한 모범 사례를 설명합니다.
+이 문서에서는 데이터 보안 및 암호화에 대 한 모범 사례를 설명 합니다.
 
-모범 사례는 의견의 일치를 기반으로 하며 현재 Azure 플랫폼 기능 및 기능 집합과 함께 작동합니다. 의견과 기술은 시간이 지남에 따라 변경되며 이 문서는 이러한 변경 사항을 반영하기 위해 정기적으로 업데이트됩니다.
+모범 사례는 의견의 일치를 기반으로 하며 현재 Azure 플랫폼 기능 및 기능 집합과 함께 작동합니다. 의견 및 기술은 시간이 지남에 따라 변경 되며이 문서는 이러한 변경 내용을 반영 하기 위해 정기적으로 업데이트 됩니다.
 
 ## <a name="protect-data"></a>데이터 보호
 클라우드에서 데이터를 보호하려면 데이터에서 발생 가능한 상태 및 해당 상태에 사용 가능한 컨트롤을 고려해야 합니다. Azure 데이터 보안 및 암호화의 모범 사례는 다음과 같은 데이터 상태와 관련이 있습니다.
@@ -37,7 +37,7 @@ ms.locfileid: "79243498"
 
 키를 보호하는 것은 클라우드에서 데이터를 보호하는 데 필수적입니다.
 
-[Azure Key Vault는](/azure/key-vault/key-vault-overview) 클라우드 응용 프로그램 및 서비스가 사용하는 암호화 키 및 비밀을 보호하는 데 도움이 됩니다. 키 자격 증명 모음은 키 관리 프로세스를 간소화하고 데이터를 액세스하고 암호화 하는 키의 제어를 유지할 수 있습니다. 개발자는 개발 및 테스트(분)을 위한 키를 만든 다음, 프로덕션 키로 마이그레이션할 수 있습니다. 보안 관리자는 필요한 경우 권한을 키로 부여(및 해지)할 수 있습니다.
+[Azure Key Vault](/azure/key-vault/key-vault-overview) 는 클라우드 응용 프로그램 및 서비스에서 사용 하는 암호화 키 및 암호를 보호 하는 데 도움이 됩니다. 키 자격 증명 모음은 키 관리 프로세스를 간소화하고 데이터를 액세스하고 암호화 하는 키의 제어를 유지할 수 있습니다. 개발자는 개발 및 테스트(분)을 위한 키를 만든 다음, 프로덕션 키로 마이그레이션할 수 있습니다. 보안 관리자는 필요한 경우 권한을 키로 부여(및 해지)할 수 있습니다.
 
 Key Vault를 사용하여 자격 증명 모음이라는 보안 컨테이너를 여러 개 만들 수 있습니다. 이러한 자격 증명 모음은 HSM에서 지원됩니다. 자격 증명 모음은 애플리케이션 비밀을 중앙 집중식으로 스토리지하여 보안 정보의 우발적인 손실 가능성을 줄이는 데 도움이 됩니다. 또한 키 자격 증명 모음은 저장된 모든 항목에 대한 액세스를 제어하고 기록합니다. Azure Key Vault는 TLS(전송 계층 보안) 인증서를 요청하고 갱신하는 작업을 처리할 수 있습니다. 인증서 수명 주기 관리를 위한 강력한 솔루션 기능을 제공합니다.
 
@@ -111,7 +111,7 @@ Azure VPN Gateway, SSL/TLS 및 HTTPS를 사용하는 데 관련된 모범 사례
 **세부 정보**: [ExpressRoute](/azure/expressroute/expressroute-introduction)를 사용합니다. ExpressRoute를 사용하도록 선택한 경우 SSL/TLS 또는 기타 프로토콜을 사용하여 애플리케이션 수준에서 데이터를 암호화하면 보안 수준을 더욱 높일 수 있습니다.
 
 **모범 사례**: Azure Portal을 통해 Azure Storage와 상호 작용   
-**세부 정보**: 모든 트랜잭션은 HTTPS를 통해 발생합니다. 또한 HTTPS를 통해 [저장소 REST API를](https://msdn.microsoft.com/library/azure/dd179355.aspx) 사용하여 [Azure 저장소.](https://azure.microsoft.com/services/storage/)
+**세부 정보**: 모든 트랜잭션은 HTTPS를 통해 발생합니다. HTTPS를 통해 [저장소 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) 을 사용 하 여 [Azure Storage](https://azure.microsoft.com/services/storage/)와 상호 작용할 수도 있습니다.
 
 전송 중인 데이터 보호에 실패하는 조직은 [가로채기(man-in-the-middle) 공격](https://technet.microsoft.com/library/gg195821.aspx), [도청](https://technet.microsoft.com/library/gg195641.aspx) 및 세션 하이재킹에 대해 더 취약합니다. 이러한 공격은 기밀 데이터에 대한 액세스 권한을 획득하기 위한 첫 번째 단계일 수 있습니다.
 
@@ -125,7 +125,7 @@ Azure VPN Gateway, SSL/TLS 및 HTTPS를 사용하는 데 관련된 모범 사례
 
 이 정보 보호 솔루션을 통해 데이터를 다른 사용자와 공유하는 경우에도 제어를 유지합니다. 이러한 애플리케이션 및 솔루션이 온-프레미스 또는 클라우드에 위치하는지와 상관 없이 고유한 기간 업무 애플리케이션 및 소프트웨어 공급 업체의 정보 보호 솔루션에서 Azure RMS를 사용할 수도 있습니다.
 
-다음을 수행하는 것이 좋습니다.
+다음을 권장합니다.
 
 - 조직에 대해 [Azure Information Protection 배포](/azure/information-protection/deployment-roadmap)
 - 비즈니스 요구 사항을 반영하는 레이블 적용 예를 들어, 이 데이터를 분류하고 보호하기 위해 일급 비밀 데이터가 포함된 모든 문서 및 이메일에 이름이 "극비"로 지정된 레이블을 적용합니다. 그런 다음, 지정한 제한 사항으로 인해 권한이 있는 사용자만 이 데이터를 액세스할 수 있습니다.

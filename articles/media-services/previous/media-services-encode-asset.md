@@ -1,6 +1,6 @@
 ---
-title: Azure 온디맨드 미디어 인코더 개요 | 마이크로 소프트 문서
-description: Azure Media Services는 클라우드에서 미디어의 인코딩에 대한 여러 옵션을 제공합니다. 이 문서에서는 Azure 주문형 미디어 인코더에 대한 개요를 제공합니다.
+title: Azure 주문형 미디어 인코더 개요 | Microsoft Docs
+description: Azure Media Services는 클라우드에서 미디어의 인코딩에 대한 여러 옵션을 제공합니다. 이 문서에서는 Azure 주문형 미디어 인코더에 대 한 개요를 제공 합니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
 ms.openlocfilehash: d5d5b8a7328ee82e94d494795617832cb0258667
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251103"
 ---
-# <a name="overview-of-azure-on-demand-media-encoders"></a>Azure 온디맨드 미디어 인코더 개요 
+# <a name="overview-of-azure-on-demand-media-encoders"></a>Azure 주문형 미디어 인코더 개요 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전, [미디어 서비스 v3을](https://docs.microsoft.com/azure/media-services/latest/)확인하십시오. 또한 [v2에서 v3로의 마이그레이션 지침을](../latest/migrate-from-v2-to-v3.md) 참조하십시오.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 Azure Media Services는 클라우드에서 미디어의 인코딩에 대한 여러 옵션을 제공합니다.
 
@@ -32,7 +32,7 @@ Media Services로 시작하는 경우 코덱과 파일 형식 간의 차이점�
 
 Media Services는 적응 비트 전송률 MP4 또는 부드러운 스트리밍 인코딩 콘텐츠를 Media Services에서 지원되는 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)으로 다시 패키지하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다.
 
-Media Services 계정이 생성되면 **기본** 스트리밍 끝점이 **중지됨** 상태의 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행 중** 상태여야 합니다. 스트리밍 끝점에 대한 청구는 끝점이 **실행 중** 상태에 있는 때마다 발생합니다.
+Media Services 계정이 만들어지면 **기본** 스트리밍 끝점이 **중지** 됨 상태에서 계정에 추가 됩니다. 콘텐츠 스트리밍을 시작 하 고 동적 패키징 및 동적 암호화를 활용 하려면 콘텐츠를 스트리밍 하려는 스트리밍 끝점이 **실행** 상태에 있어야 합니다. 스트리밍 끝점에 대 한 요금은 끝점이 **실행 중** 상태일 때마다 발생 합니다.
 
 Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 지원합니다.
 
@@ -68,7 +68,7 @@ Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 �
 ### <a name="create-overlays"></a>오버레이 만들기
 자세한 내용은 [미디어 인코더 표준을 사용하여 오버레이를 만드는 방법](media-services-advanced-encoding-with-mes.md#overlay)을 참조하세요.
 
-### <a name="see-also"></a>참조
+### <a name="see-also"></a>참고 항목
 [Media Services 블로그](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>미디어 인코더 Premium 워크플로
@@ -89,7 +89,7 @@ Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 �
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 * [미디어 인코더 표준 사전 설정을 사용자 지정하여 고급 인코딩 작업 수행](media-services-custom-mes-presets-with-dotnet.md)
 * [할당량 및 제한 사항](media-services-quotas-and-limitations.md)
 

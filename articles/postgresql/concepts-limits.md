@@ -1,6 +1,6 @@
 ---
-title: 제한 - PostgreSQL용 Azure 데이터베이스 - 단일 서버
-description: '이 문서에서는 PostgreSQL - 단일 서버(예: 연결 및 저장소 엔진 옵션)에 대한 Azure 데이터베이스의 제한에 대해 설명합니다.'
+title: 한도 Azure Database for PostgreSQL-단일 서버
+description: 이 문서에서는 연결 수 및 저장소 엔진 옵션과 같은 Azure Database for PostgreSQL 단일 서버에 대 한 제한을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 047e722a0e0ade60d1eb93a48e37333fffafd674
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76836459"
 ---
-# <a name="limits-in-azure-database-for-postgresql---single-server"></a>PostgreSQL - 단일 서버에 대한 Azure 데이터베이스의 제한
-다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다. 리소스(계산, 메모리, 저장소) 계층에 대해 알아보려면 가격 책정 계층 문서를 [참조하세요.](concepts-pricing-tiers.md)
+# <a name="limits-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 제한-단일 서버
+다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다. 리소스 (계산, 메모리, 저장소) 계층에 대해 알아보려면 [가격 책정 계층](concepts-pricing-tiers.md) 문서를 참조 하세요.
 
 
 ## <a name="maximum-connections"></a>최대 연결 수
-가격 책정 계층 및 vCore당 최대 연결 수는 다음과 같습니다. Azure 시스템에는 Azure Database for PostgreSQL 서버를 모니터링하기 위해 5개의 연결이 필요합니다. 
+가격 책정 계층 및 vCores 당 최대 연결 수는 다음과 같습니다. Azure 시스템에는 Azure Database for PostgreSQL 서버를 모니터링하기 위해 5개의 연결이 필요합니다. 
 
 |**가격 책정 계층**| **vCore**| **최대 연결** | **최대 사용자 연결** |
 |---|---|---|---|
@@ -41,9 +41,9 @@ ms.locfileid: "76836459"
 > 오류: 너무 많은 클라이언트가 이미 연결되어 있습니다.
 
 > [!IMPORTANT]
-> 최상의 환경을 위해 pgBouncer와 같은 연결 풀러를 사용하여 연결을 효율적으로 관리하는 것이 좋습니다.
+> 최상의 환경을 위해 pgBouncer와 같은 연결 풀을 사용 하 여 효율적으로 연결을 관리 하는 것이 좋습니다.
 
-PostgreSQL 연결, 심지어 유휴, 메모리의 약 10 MB를 차지할 수 있습니다. 또한 새 연결을 만드는 데는 시간이 걸립니다. 대부분의 응용 프로그램은 이 상황을 복잡하게 하는 많은 단기 연결을 요청합니다. 그 결과 실제 워크로드에 사용할 수 있는 리소스가 줄어들어 성능이 저하됩니다. 유휴 연결을 줄이고 기존 연결을 다시 사용하는 연결 풀러는 이를 방지하는 데 도움이 됩니다. 자세한 내용은 블로그 [게시물을](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717)방문하십시오.
+유휴 상태 에서도 PostgreSQL 연결은 10MB의 메모리를 차지할 수 있습니다. 또한 새 연결을 만드는 데 시간이 걸립니다. 대부분의 응용 프로그램은이 상황을 복합어 하는 많은 단기 연결을 요청 합니다. 결과적으로 실제 워크 로드에 사용할 수 있는 리소스의 성능이 저하 될 수 있습니다. 유휴 연결을 줄이고 기존 연결을 다시 사용 하는 연결 풀러는 이러한 문제를 방지 하는 데 도움이 됩니다. 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717)을 참조 하세요.
 
 ## <a name="functional-limitations"></a>기능 제한 사항
 ### <a name="scale-operations"></a>크기 조정 작업
@@ -53,8 +53,8 @@ PostgreSQL 연결, 심지어 유휴, 메모리의 약 10 MB를 차지할 수 있
 ### <a name="server-version-upgrades"></a>서버 버전 업그레이드
 - 주 데이터베이스 엔진 버전 간에 자동화된 마이그레이션은 현재 지원되지 않습니다. 다음의 주 버전으로 업그레이드하려는 경우 새 엔진 버전을 사용하여 만든 서버에 주 버전을 [덤프 및 복원](./howto-migrate-using-dump-and-restore.md)합니다.
 
-> PostgreSQL 버전 10 [이전에PostgreSQL 버전 지정 정책은](https://www.postgresql.org/support/versioning/) _주 버전_ 업그레이드를 첫 번째 _또는_ 두 번째 숫자의 증가로 간주했습니다(예: 9.5 ~ 9.6은 _주_ 버전 업그레이드로 간주).
-> 버전 10에서는 첫 번째 숫자의 변경만 주 버전 업그레이드로 간주됩니다(예: 10.0 ~ 10.1은 _마이너_ 버전 업그레이드, 10~11번째는 _주_ 버전 업그레이드).
+> PostgreSQL 버전 10 이전에는 [PostgreSQL 버전 관리 정책](https://www.postgresql.org/support/versioning/) 에서 첫 번째 _또는_ 두 번째 숫자 (예: 9.5 ~ 9.6)가 주 버전 업그레이드로 간주 되는 _주 버전_ 업그레이드로 간주 _major_ 됩니다.
+> 버전 10부터 첫 번째 번호의 변경 내용만 주 버전 업그레이드로 간주 됩니다. 예를 들어 10.0에서 10.1은 _부_ 버전 업그레이드이 고 10 ~ 11은 _주_ 버전 업그레이드입니다.
 
 ### <a name="vnet-service-endpoints"></a>VNet 서비스 엔드포인트
 - VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.

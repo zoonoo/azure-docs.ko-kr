@@ -9,18 +9,18 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: e821036ff4ddb5a9786bc4f4537bb81539ab2c87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898468"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Azure Scheduler의 플랜 및 청구 방식
 
 > [!IMPORTANT]
-> [Azure 논리 앱이](../logic-apps/logic-apps-overview.md) [사용 중지되는](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)Azure 스케줄러를 대체합니다. 스케줄러에서 설정한 작업을 계속 작업하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션하십시오.](../scheduler/migrate-from-scheduler-to-logic-apps.md) 
+> 사용이 [중지](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)되는 Azure Scheduler를 교체 하는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) . 스케줄러에 설정 된 작업을 계속 하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션](../scheduler/migrate-from-scheduler-to-logic-apps.md) 하세요. 
 >
-> 스케줄러는 Azure 포털에서 더 이상 사용할 수 없지만 작업 및 작업 컬렉션을 관리할 수 있도록 [현재 REST API](/rest/api/scheduler) 및 Azure [스케줄러 PowerShell cmdlet을](scheduler-powershell-reference.md) 사용할 수 있습니다.
+> 스케줄러는 Azure Portal에서 더 이상 사용할 수 없지만,이 시점에서 [REST API](/rest/api/scheduler) 및 [Azure scheduler PowerShell cmdlet](scheduler-powershell-reference.md) 을 계속 사용할 수 있으므로 작업 및 작업 컬렉션을 관리할 수 있습니다.
 
 ## <a name="job-collection-plans"></a>작업 컬렉션 플랜
 

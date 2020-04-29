@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mialdrid
 ms.openlocfilehash: 58e75e4efecf390c4c1449b7ec59684554fa7516
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281419"
 ---
-# <a name="about-expressroute-virtual-network-gateways"></a>ExpressRoute 가상 네트워크 게이트웨이 정보
+# <a name="about-expressroute-virtual-network-gateways"></a>Express 경로 가상 네트워크 게이트웨이 정보
 
-ExpressRoute를 통해 Azure 가상 네트워크와 온-프레미스 네트워크를 연결하려면 먼저 가상 네트워크 게이트웨이를 만들어야 합니다. 가상 네트워크 게이트웨이는 네트워크 간 IP 경로를 교환하고 네트워크 트래픽을 라우팅하는 두 가지 용도로 사용됩니다. 이 문서에서는 게이트웨이 유형, 게이트웨이 SKU 및 SKU의 예상 성능에 대해 설명합니다. 이 문서에서는 또한 ExpressRoute [FastPath,](#fastpath)성능을 향상 시키기 위해 가상 네트워크 게이트웨이를 우회 하는 온-프레미스 네트워크에서 네트워크 트래픽을 수 있도록 하는 기능 설명 합니다.
+Express 경로를 통해 Azure 가상 네트워크와 온-프레미스 네트워크를 연결 하려면 먼저 가상 네트워크 게이트웨이를 만들어야 합니다. 가상 네트워크 게이트웨이는 네트워크 간 exchange IP 경로와 네트워크 트래픽 라우팅의 두 가지 용도로 사용 됩니다. 이 문서에서는 SKU의 게이트웨이 유형, 게이트웨이 Sku 및 예상 성능에 대해 설명 합니다. 또한이 문서에서는 온-프레미스 네트워크의 네트워크 트래픽이 가상 네트워크 게이트웨이를 우회 하 여 성능을 향상 시킬 수 있도록 해 주는 기능인 Express [경로 fastpath](#fastpath)에 대해 설명 합니다.
 
 ## <a name="gateway-types"></a>게이트웨이 유형
 
@@ -31,7 +31,7 @@ ExpressRoute를 통해 Azure 가상 네트워크와 온-프레미스 네트워�
 ## <a name="gateway-skus"></a><a name="gwsku"></a>게이트웨이 SKU
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-게이트웨이를 보다 강력한 게이트웨이 SKU로 업그레이드하려면 대부분의 경우 '크기 조정-AzVirtualNetworkGateway' PowerShell cmdlet을 사용할 수 있습니다. 표준 및 고성능 SKU로 업그레이드하는 경우에 가능합니다. 하지만 초고성능 SKU로 업그레이드하려면 게이트웨이를 다시 만들어야 합니다. 게이트웨이를 다시 만들면 가동 중지 시간이 발생합니다.
+게이트웨이를 보다 강력한 게이트웨이 SKU로 업그레이드 하려는 경우 대부분의 경우 ' AzVirtualNetworkGateway ' PowerShell cmdlet을 사용할 수 있습니다. 표준 및 고성능 SKU로 업그레이드하는 경우에 가능합니다. 하지만 초고성능 SKU로 업그레이드하려면 게이트웨이를 다시 만들어야 합니다. 게이트웨이를 다시 만들면 가동 중지 시간이 발생합니다.
 
 ### <a name="estimated-performances-by-gateway-sku"></a><a name="aggthroughput"></a>게이트웨이 SKU에서 예상된 성능
 다음 표에서는 게이트웨이 형식과 예상된 성능을 보여줍니다. 이 표는 리소스 관리자 배포 모델과 클래식 배포 모델 모두에 적용됩니다.
@@ -45,7 +45,7 @@ ExpressRoute를 통해 Azure 가상 네트워크와 온-프레미스 네트워�
 
 ## <a name="gateway-subnet"></a><a name="gwsub"></a>게이트웨이 서브넷
 
-ExpressRoute 게이트웨이를 만들기 전에 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷은 가상 네트워크 게이트웨이 VM 및 서비스에서 사용하는 IP 주소를 포함합니다. 가상 네트워크 게이트웨이를 만들 면 게이트웨이 VM이 게이트웨이 서브넷에 배포되고 필요한 ExpressRoute 게이트웨이 설정으로 구성됩니다. 게이트웨이 서브넷에 다른 어떤 것도 배포하지 마십시오(예: 추가 VM). 게이트웨이 서브넷이 제대로 작동하려면 이름을 'GatewaySubnet'으로 지정해야 합니다. 게이트웨이 서브넷 이름을 'GatewaySubnet'으로 지정하면 Azure에서 해당 서브넷이 가상 네트워크 게이트웨이 VM 및 서비스를 배포할 서브넷임을 알 수 있습니다.
+Express 경로 게이트웨이를 만들려면 먼저 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷은 가상 네트워크 게이트웨이 VM 및 서비스에서 사용하는 IP 주소를 포함합니다. 가상 네트워크 게이트웨이를 만들 때 게이트웨이 Vm은 게이트웨이 서브넷에 배포 되 고 필요한 Express 경로 게이트웨이 설정으로 구성 됩니다. 다른 Vm (예: 추가 Vm)을 게이트웨이 서브넷에 배포 하지 마십시오. 게이트웨이 서브넷이 제대로 작동하려면 이름을 'GatewaySubnet'으로 지정해야 합니다. 게이트웨이 서브넷 이름을 'GatewaySubnet'으로 지정하면 Azure에서 해당 서브넷이 가상 네트워크 게이트웨이 VM 및 서비스를 배포할 서브넷임을 알 수 있습니다.
 
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
@@ -53,7 +53,7 @@ ExpressRoute 게이트웨이를 만들기 전에 게이트웨이 서브넷을 �
 
 게이트웨이 서브넷을 만드는 경우 서브넷이 포함하는 IP 주소의 수를 지정합니다. 게이트웨이 서브넷의 IP 주소는 게이트웨이 VM 및 게이트웨이 서비스에 할당됩니다. 일부 구성에는 다른 구성보다 더 많은 IP 주소가 필요합니다. 
 
-게이트웨이 서브넷 크기를 계획할 때는 만들 려는 구성에 대 한 설명서를 참조 하십시오. 예를 들어 ExpressRoute/VPN 게이트웨이 공존 구성에는 대부분의 다른 구성보다 더 큰 게이트웨이 서브넷이 필요합니다. 또한 이후 추가 구성이 추가될 가능성에 대비하여 게이트웨이 서브넷에 IP 주소가 충분히 포함되어 있는지 확인하려고 할 수 있습니다. 게이트웨이 서브넷은 /29만큼 작지만 사용 가능한 주소 공간이 있는 경우 /27 이상(/27, /26 등)의 게이트웨이 서브넷을 만드는 것이 좋습니다. 이것은 대부분의 구성을 수용할 것입니다.
+게이트웨이 서브넷 크기를 계획할 때 만들려는 구성에 대 한 설명서를 참조 하세요. 예를 들어 Express 경로/VPN Gateway 공존 구성에는 대부분의 다른 구성 보다 더 큰 게이트웨이 서브넷이 필요 합니다. 또한 이후 추가 구성이 추가될 가능성에 대비하여 게이트웨이 서브넷에 IP 주소가 충분히 포함되어 있는지 확인하려고 할 수 있습니다. 게이트웨이 서브넷을/29만 큼 작게 만들 수 있지만, 사용 가능한 주소 공간이 있는 경우/27 이상의 게이트웨이 서브넷을 만드는 것이 좋습니다 (/27,/26 등). 이렇게 하면 대부분의 구성이 적용 됩니다.
 
 다음 Resource Manager PowerShell 예제에서는 이름이 GatewaySubnet인 게이트웨이 서브넷을 보여 줍니다. CIDR 표기법이 /27을 지정하는 것을 확인할 수 있으며 이는 이번에 존재하는 대부분의 구성에 대한 충분한 IP 주소를 허용합니다.
 
@@ -79,24 +79,24 @@ Azure Availability Zones에 ExpressRoute 게이트웨이를 배포할 수도 있
 
 ## <a name="fastpath"></a><a name="fastpath"></a>FastPath
 
-ExpressRoute 가상 네트워크 게이트웨이는 네트워크 경로를 교환하고 네트워크 트래픽을 라우팅하도록 설계되었습니다. FastPath는 온-프레미스 네트워크와 가상 네트워크 간의 데이터 경로 성능을 향상시내도록 설계되었습니다. 이 옵션을 사용하면 FastPath는 게이트웨이를 우회하여 가상 네트워크의 가상 컴퓨터로 네트워크 트래픽을 직접 보냅니다.
+Express 경로 가상 네트워크 게이트웨이는 네트워크 경로를 교환 하 고 네트워크 트래픽을 라우팅하는 데 적합 합니다. FastPath는 온-프레미스 네트워크와 가상 네트워크 간의 데이터 경로 성능을 향상 시 키도 록 설계 되었습니다. 사용 하도록 설정 하면 FastPath는 게이트웨이를 우회 하 여 가상 네트워크의 가상 머신으로 네트워크 트래픽을 직접 보냅니다.
 
-제한 및 요구 사항을 포함하여 [FastPath에](about-fastpath.md)대한 자세한 내용은 FastPath 정보를 참조하십시오.
+제한 사항 및 요구 사항을 포함 하 여 FastPath에 대 한 자세한 내용은 [Fastpath 정보](about-fastpath.md)를 참조 하세요.
 
 ## <a name="rest-apis-and-powershell-cmdlets"></a><a name="resources"></a>REST API 및 PowerShell cmdlet
 가상 네트워크 게이트웨이 구성을 위해 REST API와 PowerShell cmdlet을 사용할 경우 추가 기술 리소스 및 특정 구문 요구 사항에 대해서는 다음 페이지를 참조하세요.
 
-| **고전적인** | **리소스 관리자** |
+| **기존** | **리소스 관리자** |
 | --- | --- |
-| [Powershell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[Powershell](https://docs.microsoft.com/powershell/module/az.network#networking) |
-| [나머지 API](https://msdn.microsoft.com/library/jj154113.aspx) |[나머지 API](https://msdn.microsoft.com/library/mt163859.aspx) |
+| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
+| [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## <a name="next-steps"></a>다음 단계
 
-사용 가능한 연결 구성에 대한 자세한 내용은 [ExpressRoute 개요를](expressroute-introduction.md)참조하십시오.
+사용 가능한 연결 구성에 대 한 자세한 내용은 [express 경로 개요](expressroute-introduction.md)를 참조 하세요.
 
-ExpressRoute 게이트웨이를 만드는 데 대한 자세한 내용은 ExpressRoute 에 [대한 가상 네트워크 게이트웨이 만들기를](expressroute-howto-add-gateway-resource-manager.md)참조하십시오.
+Express 경로 게이트웨이를 만드는 방법에 대 한 자세한 내용은 [express 경로에 대 한 가상 네트워크 게이트웨이 만들기](expressroute-howto-add-gateway-resource-manager.md)를 참조 하세요.
 
-영역 중복 게이트웨이 구성에 대한 자세한 내용은 [영역 중복 가상 네트워크 게이트웨이 만들기를](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md)참조하십시오.
+영역 중복 게이트웨이를 구성 하는 방법에 대 한 자세한 내용은 [영역 중복 가상 네트워크 게이트웨이 만들기](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md)를 참조 하세요.
 
-FastPath에 대한 자세한 내용은 [FastPath](about-fastpath.md)정보를 참조하십시오.
+FastPath에 대 한 자세한 내용은 [FastPath 정보](about-fastpath.md)를 참조 하세요.

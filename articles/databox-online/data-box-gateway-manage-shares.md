@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: e5463a32e299d9d4d151049ab5afffd4975d5182
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265442"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Azure Portal을 사용하여 Azure Data Box Gateway에서 공유 관리 
@@ -50,7 +50,7 @@ Azure에 데이터를 전송하려면 Azure Data Box Gateway에 공유를 만들
 5. **스토리지 서비스**는 블록 Blob, 페이지 Blob 또는 파일 중에서 선택합니다. 선택하는 서비스 유형은 데이터를 Azure에 저장할 형식에 따라 달라집니다. 예를 들어, 이 인스턴스에서는 Azure에서 데이터가 Blob 블록으로 존재하기를 원하므로 **블록 Blob**을 선택합니다. **페이지 Blob**을 선택하는 경우 데이터가 512바이트로 정렬되었는지 확인해야 합니다. 예를 들어 VHDX는 항상 512바이트로 정렬됩니다.
 
    > [!IMPORTANT]
-   > 사용하는 Azure Storage 계정에 Azure 스택 가장자리 또는 데이터 상자 게이트웨이 장치와 함께 사용 하는 경우 변경 가능성 정책이 설정 되어 있지 않은지 확인 합니다. 자세한 내용은 [Blob 저장소에 대한 불변성 정책 설정 및 관리를](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage)참조하십시오.
+   > Azure Stack Edge 또는 Data Box Gateway 장치에서 사용 하는 경우 사용 하는 Azure Storage 계정에 불변성 정책을 설정 하지 않았는지 확인 합니다. 자세한 내용은 [blob 저장소에 대 한 불변성 정책 설정 및 관리](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage)를 참조 하세요.
 
 6. 이 단계는 SMB 공유 또는 NFS 공유 중에서 어느 것을 만드는지에 따라 달라집니다.
     - **SMB 공유를 만드는 경우** - **모든 권한 로컬 사용자** 필드에서 **새로 만들기** 또는 **기존 항목 사용**을 선택합니다. 새 로컬 사용자를 만드는 경우 **사용자 이름**, **암호**를 입력한 다음, 암호를 확인합니다. 이렇게 하면 로컬 사용자에게 해당 권한이 할당됩니다. 여기에서 권한을 할당한 후에 파일 탐색기를 사용하여 해당 권한을 수정할 수 있습니다.
@@ -96,7 +96,7 @@ Azure에 데이터를 전송하려면 Azure Data Box Gateway에 공유를 만들
 
     ![공유 선택](media/data-box-gateway-manage-shares/refresh-1.png)
 
-2.   **새로 고침을 클릭합니다.** 
+2.   **새로 고침**을 클릭 합니다. 
 
     ![새로 고침 클릭](media/data-box-gateway-manage-shares/refresh-2.png)
  
@@ -122,7 +122,7 @@ Azure에 데이터를 전송하려면 Azure Data Box Gateway에 공유를 만들
 스토리지 액세스 키를 동기화하려면 Azure Portal에서 다음 단계를 수행합니다.
 
 1. 리소스에서 **개요**로 이동합니다. 
-2. 공유 목록에서 동기화해야 하는 저장소 계정과 연결된 공유를 선택하고 클릭합니다. **저장 장치 동기화 키를 클릭합니다.** 
+2. 공유 목록에서 동기화 해야 하는 저장소 계정과 연결 된 공유를 선택 하 고 클릭 합니다. **저장소 키 동기화**를 클릭 합니다. 
 
      ![스토리지 키 동기화 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 
