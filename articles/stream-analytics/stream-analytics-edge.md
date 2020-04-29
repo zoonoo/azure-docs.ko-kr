@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.custom: seodec18
 ms.openlocfilehash: 8bb1bd018866bda9270b78507f0462b6c4d4ea17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79475895"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge의 Azure Stream Analytics
@@ -47,7 +47,7 @@ ASA는 IoT Hub를 사용하여 디바이스에 Edge 작업을 배포합니다. [
 |      |단계   | 메모   |
 | ---   | ---   |  ---      |
 | 1   | **스토리지 컨테이너 만들기**   | 스토리지 컨테이너는 작업 정의를 저장하는 데 사용되며 IoT 디바이스에서 액세스할 수 있습니다. <br>  모든 기존 스토리지 컨테이너를 다시 사용할 수 있습니다.     |
-| 2   | **ASA 에지 작업 만들기**   |  새 작업을 선택하고 **Edge**를 **호스팅 환경**으로 선택합니다. <br> 이러한 작업은 클라우드에서 생성/관리되며 사용자 고유의 IoT Edge 디바이스에서 실행됩니다.     |
+| 2   | **GLOBAL.ASA에 지 작업 만들기**   |  새 작업을 선택하고 **Edge**를 **호스팅 환경**으로 선택합니다. <br> 이러한 작업은 클라우드에서 생성/관리되며 사용자 고유의 IoT Edge 디바이스에서 실행됩니다.     |
 | 3   | **디바이스에서 IoT Edge 환경 설정**   | [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 또는 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)에 대한 지침          |
 | 4   | **IoT Edge 디바이스에 ASA 배포**   |  ASA 작업 정의는 이전에 만든 스토리지 컨테이너로 내보내집니다.       |
 
@@ -76,7 +76,7 @@ ASA 컴파일된 쿼리 및 작업 구성을 내보내려면 스토리지 컨테
     1. **입력 스트림 정의**. 작업에 대해 하나 또는 여러 개의 입력 스트림을 정의합니다.
     2. 참조 데이터를 정의합니다(선택 사항).
     3. **출력 스트림 정의**. 작업에 대해 하나 또는 여러 개의 출력 스트림을 정의합니다. 
-    4. **쿼리를 정의합니다.** 인라인 편집기를 사용하여 클라우드에서 ASA 쿼리를 정의합니다. 컴파일러는 ASA Edge에 대해 사용되도록 설정된 구문을 자동으로 확인합니다. 샘플 데이터를 업로드하여 쿼리를 테스트할 수도 있습니다. 
+    4. **쿼리를 정의**합니다. 인라인 편집기를 사용하여 클라우드에서 ASA 쿼리를 정의합니다. 컴파일러는 ASA Edge에 대해 사용되도록 설정된 구문을 자동으로 확인합니다. 샘플 데이터를 업로드하여 쿼리를 테스트할 수도 있습니다. 
 
 4. **IoT Edge 설정** 메뉴에서 스토리지 컨테이너 정보를 설정합니다.
 
@@ -110,7 +110,7 @@ Edge 작업은 Azure IoT Edge를 실행하는 디바이스에 배포할 수 있�
 
 > [!Note]
 > 이 단계 동안 ASA는 스토리지 컨테이너에서 “EdgeJobs”라는 폴더를 만듭니다(아직 존재하지 않은 경우). 각 배포에 대해 "EdgeJobs" 폴더에 새 하위 폴더가 만들어집니다.
-> IoT Edge 장치에 작업을 배포할 때 ASA는 작업 정의 파일에 대한 공유 액세스 서명(SAS)을 만듭니다. SAS 키는 디바이스 쌍을 사용하여 IoT Edge 디바이스에 안전하게 전송됩니다. 이 키의 만료 기간은 만든 날로부터 3년입니다. IoT Edge 작업을 업데이트하면 SAS가 변경되지만 이미지 버전은 변경되지 않습니다. **업데이트되면**배포 워크플로를 따르고 업데이트 알림이 장치에 기록됩니다.
+> 작업을 IoT Edge 장치에 배포 하는 경우, 사용자는 작업 정의 파일에 대 한 SAS (공유 액세스 서명)를 만듭니다. SAS 키는 디바이스 쌍을 사용하여 IoT Edge 디바이스에 안전하게 전송됩니다. 이 키의 만료 기간은 만든 날로부터 3년입니다. IoT Edge 작업을 업데이트 하면 SAS가 변경 되지만 이미지 버전은 변경 되지 않습니다. **업데이트**한 후에는 배포 워크플로를 따르고 장치에 업데이트 알림이 기록 됩니다.
 
 
 IoT Edge 배포에 대한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring)를 참조하세요.
@@ -143,7 +143,7 @@ ASA 작업에서 만든 입/출력의 이름은 라우팅을 위한 엔드포인
 
 ## <a name="technical-information"></a>기술 정보
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>클라우드 작업 대비 IoT Edge 작업의 현재 제한 사항
-목표는 IoT Edge 작업과 클라우드 작업 간에 패리티를 유지하는 것입니다. 대부분의 SQL 쿼리 언어 기능이 지원되므로 클라우드와 IoT Edge 모두에서 동일한 논리를 실행할 수 있습니다.
+목표는 IoT Edge 작업과 클라우드 작업 간에 패리티를 유지하는 것입니다. 대부분의 SQL 쿼리 언어 기능을 지원 하며,이 기능을 사용 하면 클라우드와 IoT Edge 모두 동일한 논리를 실행할 수 있습니다.
 그러나 다음 기능이 Edge 작업에서는 아직 지원되지 않습니다.
 * JavaScript의 UDF(사용자 정의 함수). UDF는 [IoT Edge 작업용 C#](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf)(미리 보기)에서 사용할 수 있습니다.
 * UDA(사용자 정의 집계).
@@ -153,7 +153,7 @@ ASA 작업에서 만든 입/출력의 이름은 라우팅을 위한 엔드포인
 * 다음 SQL 연산자:
     * PARTITION BY
     * GetMetadataPropertyValue
-* 늦은 도착 정책
+* 지연 도착 정책
 
 ### <a name="runtime-and-hardware-requirements"></a>런타임 및 하드웨어 요구 사항
 IoT Edge에서 ASA를 실행하려면 [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/)를 실행할 수 있는 디바이스가 필요합니다. 
@@ -176,7 +176,7 @@ ASA 작업에서 생성한 각 입/출력 스트림에 해당하는 엔드포인
 
 
 ##### <a name="reference-data"></a>참조 데이터
-참조 데이터(조회 테이블이라고도 함)는 정적이거나 느리게 변경되는 특성을 지닌 한정된 데이터 집합으로, 데이터 스트림을 조회하거나 상관 관계를 지정하는 데 사용됩니다. Azure Stream Analytics 작업에서 참조 데이터를 사용하려면 일반적으로 쿼리에서 [참조 데이터 JOIN을](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) 사용합니다. 자세한 내용은 [Stream Analytics에서 조회에 대한 참조 데이터 사용](stream-analytics-use-reference-data.md)을 참조하세요.
+참조 데이터(조회 테이블이라고도 함)는 정적이거나 느리게 변경되는 특성을 지닌 한정된 데이터 집합으로, 데이터 스트림을 조회하거나 상관 관계를 지정하는 데 사용됩니다. Azure Stream Analytics 작업에서 참조 데이터를 사용 하기 위해 일반적으로 쿼리에서 [참조 데이터 조인을](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) 사용 합니다. 자세한 내용은 [Stream Analytics에서 조회에 대한 참조 데이터 사용](stream-analytics-use-reference-data.md)을 참조하세요.
 
 로컬 참조 데이터만 지원됩니다. 작업이 IoT Edge 디바이스에 배포되면 사용자 정의 파일 경로에서 참조 데이터를 로드합니다.
 
@@ -202,35 +202,35 @@ IoT Edge 업데이트에 대한 참조 데이터는 배포에 의해 트리거�
 * [IoT Edge의 Azure Stream Analytics 라이선스](https://go.microsoft.com/fwlink/?linkid=862827) 
 * [IoT Edge의 Azure Stream Analytics에 대한 타사 알림](https://go.microsoft.com/fwlink/?linkid=862828)
 
-## <a name="azure-stream-analytics-module-image-information"></a>Azure 스트림 분석 모듈 이미지 정보 
+## <a name="azure-stream-analytics-module-image-information"></a>Azure Stream Analytics 모듈 이미지 정보 
 
-이 버전 정보는 2019-06-27에 마지막으로 업데이트되었습니다.
+이 버전 정보는 2019-06-27에서 마지막으로 업데이트 되었습니다.
 
 - 이미지: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-amd64`
-   - 기본 이미지: 마이크로소프트/도트넷:2.1.6-런타임-알파인3.7
-   - 플랫폼:
+   - 기본 이미지: microsoft/dotnet: 2.1.6-알파인 3.7
+   - platform.string
       - 아키텍처: amd64
-      - OS : 리눅스
+      - os: linux
   
 - 이미지: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-arm32v7`
-   - 기본 이미지: 마이크로소프트/도트넷:2.1.6-런타임-바이오닉-arm32v7
-   - 플랫폼:
-      - 아키텍처: 팔
-      - OS : 리눅스
+   - 기본 이미지: microsoft/dotnet: 2.1.6-bionic-arm32v7
+   - platform.string
+      - 아키텍처: arm
+      - os: linux
   
 - 이미지: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-windows-amd64`
-   - 기본 이미지: 마이크로소프트/도트넷:2.1.6-런타임 나노서버-1809
-   - 플랫폼:
+   - 기본 이미지: microsoft/dotnet: 2.1.6-nanoserver-1809
+   - platform.string
       - 아키텍처: amd64
-      - OS: 창
+      - os: windows
       
       
 ## <a name="get-help"></a>도움말 보기
-추가 지원은 [Azure 스트림 분석 포럼을](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)참조하십시오.
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 사용해 보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Iot Edge에 대한 자세한 정보](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
+* [Azure Iot Edge에 대 한 자세한 정보](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [IoT Edge의 ASA 자습서](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Visual Studio 도구를 사용하여 Stream Analytics Edge 작업 개발](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 * [API를 사용하여 Stream Analytics를 위한 CI/CD 구현](stream-analytics-cicd-api.md)

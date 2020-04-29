@@ -1,5 +1,5 @@
 ---
-title: 'Azure 익스프레스 라우팅: 피어링 구성: CLI'
+title: 'Azure Express 경로: 피어 링 구성: CLI'
 description: 이 문서는 ExpressRoute 회로의 프라이빗, 공용 및 Microsoft 피어링을 만들고 프로비저닝하는 데 도움이 됩니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다.
 services: expressroute
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 91a1b6cc877b31fbcef638e34d3147d3377ce85c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476120"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 ExpressRoute 회로의 피어링 만들기 및 수정
@@ -20,13 +20,13 @@ ms.locfileid: "79476120"
 이 문서는 CLI를 사용하여 Resource Manager 배포 모델에서 ExpressRoute 회로에 라우팅 구성/피어링을 만들고 관리하는 데 도움이 됩니다. ExpressRoute 회로에 대한 피어링의 상태를 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행할 수도 있습니다. 회로를 사용하는 다른 메서드를 사용하려는 경우 다음 목록에서 문서를 선택합니다.
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](expressroute-howto-routing-portal-resource-manager.md)
-> * [Powershell](expressroute-howto-routing-arm.md)
+> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
 > * [공용 피어링](about-public-peering.md)
 > * [비디오 - 프라이빗 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [비디오 - Microsoft 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
-> * [파워 쉘 (클래식)](expressroute-howto-routing-classic.md)
+> * [PowerShell (클래식)](expressroute-howto-routing-classic.md)
 > 
 
 ## <a name="configuration-prerequisites"></a>필수 구성 요소
@@ -37,9 +37,9 @@ ms.locfileid: "79476120"
 
 이 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 MPLS와 같은 IPVPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다.
 
-ExpressRoute 회로에 대해 개인 피어링 및 Microsoft 피어링을 구성할 수 있습니다(새 회로에 대해 Azure 공용 피어링이 더 이상 사용되지 않습니다). 피어링은 원하는 순서로 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 라우팅 도메인 및 피어링에 대한 자세한 내용은 [ExpressRoute 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요. 공용 피어링에 대한 자세한 내용은 [ExpressRoute 공용 피어링을](about-public-peering.md)참조하십시오.
+Express 경로 회로에 대해 개인 피어 링 및 Microsoft 피어 링을 구성할 수 있습니다 (Azure 공용 피어 링은 새 회로에서 사용 되지 않음). 피어 링은 선택 하는 순서에 관계 없이 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 라우팅 도메인 및 피어링에 대한 자세한 내용은 [ExpressRoute 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요. 공용 피어 링에 대 한 자세한 내용은 [express 경로 공용 피어 링](about-public-peering.md)을 참조 하세요.
 
-## <a name="microsoft-peering"></a><a name="msft"></a>마이크로소프트 피어링
+## <a name="microsoft-peering"></a><a name="msft"></a>Microsoft 피어 링
 
 이 섹션은 ExpressRoute 회로에 Microsoft 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
 
@@ -50,7 +50,7 @@ ExpressRoute 회로에 대해 개인 피어링 및 Microsoft 피어링을 구성
 
 ### <a name="to-create-microsoft-peering"></a>Microsoft 피어링을 만들려면
 
-1. Azure CLI 최신 버전 설치 최신 버전의 Azure 명령줄 인터페이스(CLI)를 사용합니다. 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
+1. Azure CLI 최신 버전 설치 최신 버전의 Azure CLI (명령줄 인터페이스)를 사용 합니다. 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 
    ```azurecli
    az login
@@ -125,9 +125,9 @@ ExpressRoute 회로에 대해 개인 피어링 및 Microsoft 피어링을 구성
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzureMicrosoftPeering
 ```
 > [!IMPORTANT]
-> Microsoft는 지정된 '광고된 공용 접두사' 및 '피어 ASN'(또는 '고객 ASN')이 인터넷 라우팅 레지스트리에 사용자에게 할당되어 있는지 확인합니다. 다른 엔터티에서 공용 접두사를 가져오는 경우 할당이 라우팅 레지스트리에 기록되지 않으면 자동 유효성 검사가 완료되지 않고 수동 유효성 검사가 필요합니다. 자동 유효성 검사가 실패하면 위의 명령의 출력에 '광고된PublicPrefixsState'가 '유효성 검사 필요'로 표시됩니다. 
+> Microsoft는 지정 된 ' 보급 된 공용 접두사 ' 및 ' 피어 ASN ' (또는 ' Customer ASN ')이 인터넷 라우팅 레지스트리에서 할당 되었는지 확인 합니다. 다른 엔터티에서 공용 접두사를 가져오는 경우 및 라우팅이 라우팅 레지스트리를 사용 하 여 기록 되지 않으면 자동 유효성 검사가 완료 되지 않으며 수동 유효성 검사를 요구 합니다. 자동 유효성 검사에 실패 하면 위의 명령 출력에 ' AdvertisedPublicPrefixesState '이 ' 유효성 검사 필요 '로 표시 됩니다. 
 > 
-> '유효성 검사가 필요'라는 메시지가 표시되면 라우팅 레지스트리의 접두사 소유자로 나열된 엔터티에서 공용 접두사가 조직에 할당됨을 표시하는 문서를 수집하고 이러한 문서를 제출하여 수동 유효성 검사를 위해 아래와 같이 지원 티켓을 여는 경우. 
+> ' 유효성 검사 필요 ' 메시지가 표시 되 면 라우팅 레지스트리에서 접두사의 소유자로 표시 된 엔터티가 조직에 할당 된 공용 접두사를 표시 하는 문서를 수집 하 고 아래와 같이 지원 티켓을 열어 수동 유효성 검사를 위해 이러한 문서를 제출 합니다. 
 > 
 >
 
@@ -187,7 +187,7 @@ az network express-route peering update -g ExpressRouteResourceGroup --circuit-n
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name MicrosoftPeering
 ```
 
-## <a name="azure-private-peering"></a><a name="private"></a>Azure 개인 피어링
+## <a name="azure-private-peering"></a><a name="private"></a>Azure 개인 피어 링
 
 이 섹션은 ExpressRoute 회로에 Azure 프라이빗 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
 
