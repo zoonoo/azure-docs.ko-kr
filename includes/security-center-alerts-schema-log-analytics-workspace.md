@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: data-factory
 author: memildin
@@ -9,43 +9,43 @@ ms.date: 03/17/2020
 ms.author: memildin
 ms.custom: include file
 ms.openlocfilehash: 7d81799f7fbdb2b41db421daa1a85ec8cde511eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79538832"
 ---
 ### <a name="the-data-model-of-the-schema"></a>스키마의 데이터 모델
 
-|필드|설명|
+|필드|Description|
 |----|----|
 |**AlertName**|경고 표시 이름|
-|**AlertType**|고유 경고 식별자|
-|**신뢰 수준**|(선택 사항) 이 경고의 신뢰 수준(높음/낮음)|
-|**신뢰도 점수**|(선택 사항) 보안 경고의 숫자 신뢰도 표시기|
-|**설명**|경고에 대한 설명 텍스트|
-|**DisplayName**|경고의 표시 이름|
-|**Endtime**|경고의 영향 종료 시간(경고에 기여하는 마지막 이벤트의 시간)|
-|**Entities**|경고와 관련된 엔터티 목록입니다. 이 목록에는 다양한 유형의 엔티티가 혼합된 것으로 만들 수 있습니다.|
-|**확장 링크**|(선택 사항) 경고와 관련된 모든 링크에 대한 가방입니다. 이 가방은 다양한 유형에 대한 링크의 혼합물을 보유 할 수 있습니다|
-|**확장 속성**|경고와 관련된 추가 필드 가방|
-|**이스인시내**|경고가 인시던트 인지 일반 경고인지 확인합니다. 인시던트는 여러 경고를 하나의 보안 인시던트에 집계하는 보안 경고입니다.|
-|**ProcessingEndTime**|경고가 생성된 UTC 타임스탬프|
-|**제품 구성 요소 이름**|(선택 사항) 경고를 생성한 제품 내부의 구성 요소 이름입니다.|
-|**ProductName**|상수('Azure 보안 센터')|
+|**AlertType**|고유한 경고 식별자|
+|**ConfidenceLevel**|필드 이 경고의 신뢰도 수준 (높음/낮음)입니다.|
+|**ConfidenceScore**|필드 보안 경고의 숫자 신뢰도 표시기|
+|**설명**|경고에 대 한 설명 텍스트|
+|**DisplayName**|경고의 표시 이름입니다.|
+|**EndTime**|경고의 영향 종료 시간 (경고에 영향을 주는 마지막 이벤트의 시간)|
+|**Entities**|경고와 관련 된 엔터티의 목록입니다. 이 목록은 다양 한 형식의 여러 엔터티를 포함할 수 있습니다.|
+|**ExtendedLinks 링크**|필드 경고와 관련 된 모든 링크에 대 한 모음입니다. 이 모음에는 다양 한 형식에 대 한 링크 조합이 포함 될 수 있습니다.|
+|**ExtendedProperties**|경고와 관련 된 추가 필드 모음|
+|**IsIncident**|경고가 인시던트 인지 아니면 정기 경고 인지를 결정 합니다. 인시던트는 여러 경고를 하나의 보안 인시던트에 집계 하는 보안 경고입니다.|
+|**ProcessingEndTime**|경고가 생성 된 UTC 타임 스탬프|
+|**ProductComponentName**|필드 경고를 생성 한 제품 내의 구성 요소 이름입니다.|
+|**ProductName**|상수 (' Azure Security Center ')|
 |**ProviderName**|unused|
-|**수정 단계**|보안 위협을 시정하기 위해 취할 수동 작업 항목|
-|**Resourceid**|영향을 받는 리소스의 전체 식별자|
-|**심각도**|경고 심각도(높음/중간/낮음/정보)|
-|**SourceComputerId**|영향을 받는 서버에 대한 고유한 GUID(서버에서 경고가 생성되는 경우)|
+|**RemediationSteps**|보안 위협을 수정 하기 위해 수행할 수동 작업 항목|
+|**ResourceId**|영향을 받는 리소스의 전체 식별자|
+|**심각도**|경고 심각도 (높음/보통/낮음/정보)|
+|**SourceComputerId**|영향을 받는 서버의 고유 GUID (경고가 서버에서 생성 된 경우)|
 |**SourceSystem**|unused|
-|**Starttime**|경고의 영향 시작 시간(경고에 기여하는 첫 번째 이벤트의 시간)|
-|**시스템 경고ID**|이 보안 경고 인스턴스의 고유 식별자|
-|**테넌트 ID**|검색된 리소스가 상주하는 구독의 상위 Azure Active 디렉터리 테넌트의 식별자|
-|**TimeGenerated**|평가가 진행된 UTC 타임스탬프(보안 센터의 스캔 시간) (발견된 시간UTC와 동일)|
-|**유형**|상수('보안 경고')|
-|**공급업체 이름**|경고를 제공한 공급업체의 이름(예: 'Microsoft')|
-|**벤더 오리지널아이드**|unused|
-|**작업 공간리소스 그룹**|작업 영역에 보고하는 VM, 서버, 가상 시스템 규모 집합 또는 앱 서비스 인스턴스에서 경고가 생성되는 경우 해당 작업 영역 리소스 그룹 이름이 포함됩니다.|
-|**작업 영역 구독ID**|작업 영역에 보고하는 VM, 서버, 가상 시스템 규모 집합 또는 앱 서비스 인스턴스에서 경고가 생성되는 경우 해당 작업 영역 구독Id를 포함합니다.|
+|**StartTime**|경고의 영향 시작 시간 (경고에 영향을 주는 첫 번째 이벤트의 시간)|
+|**SystemAlertId**|이 보안 경고 인스턴스의 고유 식별자|
+|**TenantId**|검색 된 리소스가 있는 구독의 부모 Azure Active directory 테 넌 트 식별자입니다.|
+|**TimeGenerated**|평가가 발생 한 UTC 타임 스탬프 (Security Center의 검색 시간) (DiscoveredTimeUTC와 동일)|
+|**Type**|상수 (' SecurityAlert ')|
+|**이름의**|경고를 제공한 공급 업체의 이름 (예: ' Microsoft ')|
+|**VendorOriginalId**|unused|
+|**WorkspaceResourceGroup**|VM, 서버, 가상 머신 확장 집합 또는 작업 영역에 보고 하는 App Service 인스턴스에서 경고가 생성 되는 경우 해당 작업 영역 리소스 그룹 이름이 포함 됩니다.|
+|**WorkspaceSubscriptionId**|VM, 서버, 가상 머신 확장 집합 또는 작업 영역에 보고 하는 App Service 인스턴스에서 경고가 생성 되는 경우 해당 작업 영역 subscriptionId가 포함 됩니다.|
 |||

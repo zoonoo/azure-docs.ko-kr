@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
 ms.openlocfilehash: fc328c34c1543a75fdc885087d44b28e24c0850a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268679"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>중요 비즈니스용 계층 - Azure SQL Database
@@ -46,20 +46,20 @@ SQL 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SSD 스�
 
 중요 비즈니스용 서비스 계층은 기본 SSD 스토리지에서 짧은 대기 시간 응답(평균1 ~ 2밀리초), 기본 인프라가 실패하는 경우 빠른 복구, 보고서와 분석은 물론, 읽기 전용 쿼리를 무료로 읽을 수 있는 주 데이터베이스의 보조 복제본으로 오프로드할 필요성이 필요한 애플리케이션용으로 설계되었습니다.
 
-범용 계층 대신 비즈니스 크리티컬 서비스 계층을 선택해야 하는 주요 이유는 다음과 같습니다.
--   낮은 IO 대기 시간 요구 사항 – 스토리지 계층에서 빠른 응답이 필요한 워크로드(평균 1-2밀리초)는 비즈니스 크리티컬 계층을 사용해야 합니다. 
--   응용 프로그램과 데이터베이스 간의 빈번한 통신. 응용 프로그램 계층 캐싱을 활용하거나 [일괄 처리를 요청할](sql-database-use-batching-to-improve-performance.md) 수 없고 신속하게 처리해야 하는 많은 SQL 쿼리를 보내야 하는 응용 프로그램은 비즈니스 중요 계층에 적합한 후보입니다.
--   많은 수의 업데이트 - 작업 삽입, 업데이트 및 삭제 작업은 `CHECKPOINT` 작업중인 데이터 파일에 저장해야 하는 메모리(더티 페이지)의 데이터 페이지를 수정합니다. 데이터베이스 엔진 프로세스 충돌 또는 많은 수의 더티 페이지가 있는 데이터베이스의 장애 조치(failover)는 범용 계층에서 복구 시간을 늘릴 수 있습니다. 많은 메모리 내 변경을 일으키는 워크로드가 있는 경우 비즈니스 중요 계층을 사용합니다. 
--   데이터를 수정하는 장기 실행 트랜잭션입니다. 더 긴 시간 동안 열리는 트랜잭션은 로그 크기와 [VLF(가상 로그 파일)의](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch)수를 증가시킬 수 있는 로그 파일의 잘림을 방지합니다. VLF 수가 많면 장애 조치 후 데이터베이스 복구 속도가 느려질 수 있습니다.
--   무료 보조 읽기 전용 복제본으로 리디렉션할 수 있는 보고 및 분석 쿼리가 있는 워크로드입니다.
-- 더 높은 복원력과 오류로부터의 빠른 복구. 시스템 오류가 발생하는 경우 기본 인스턴스의 데이터베이스가 비활성화되고 보조 복제본 중 하나가 즉시 쿼리를 처리할 준비가 된 새 읽기-쓰기 기본 데이터베이스가 됩니다. 데이터베이스 엔진은 로그 파일에서 트랜잭션을 분석하고 다시 시작하고 메모리 버퍼의 모든 데이터를 로드할 필요가 없습니다.
-- 고급 데이터 손상 보호 - 비즈니스 크리티컬 계층은 비즈니스 연속성을 위해 데이터베이스 복제본을 사용하므로 서비스는 SQL Server 데이터베이스 [미러링 및 가용성 그룹에](https://docs.microsoft.com/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring)사용되는 것과 동일한 기술인 자동 페이지 복구를 활용합니다. 데이터 무결성 문제로 인해 복제본이 페이지를 읽을 수 없는 경우 다른 복제본에서 페이지의 새 복사본이 검색되어 데이터 손실이나 고객 가동 중지 시간 없이 읽을 수 없는 페이지를 대체합니다. 이 기능은 데이터베이스에 지리적 보조 복제본이 있는 경우 범용 계층에 적용할 수 있습니다.
-- 높은 가용성 - Multi-AZ 구성의 비즈니스 크리티컬 계층은 범용 계층의 99.99%에 비해 99.995%의 가용성을 보장합니다.
-- 빠른 지역 복구 - 지리적 복제로 구성된 비즈니스 중요 계층은 배포된 시간의 100%에 대해 5초의 RPO 및 복구 시간 목표(RTO)를 30초로 보장합니다.
+일반적인 용도 계층 대신 중요 비즈니스용 서비스 계층을 선택 해야 하는 주요 이유는 다음과 같습니다.
+-   낮은 IO 대기 시간 요구 사항 – 저장소 계층에서 fast 응답이 필요한 워크 로드 (평균 1-2 밀리초)는 중요 비즈니스용 계층을 사용 해야 합니다. 
+-   응용 프로그램과 데이터베이스 간의 빈번한 통신. 응용 프로그램 계층 캐싱 또는 [요청 일괄](sql-database-use-batching-to-improve-performance.md) 처리를 사용할 수 없으며 신속 하 게 처리 해야 하는 많은 SQL 쿼리를 전송 해야 하는 응용 프로그램은 중요 비즈니스용 계층에 적합 합니다.
+-   많은 수의 업데이트 – 삽입, 업데이트 및 삭제 작업을 사용 하 여 `CHECKPOINT` 데이터 파일에 저장 해야 하는 메모리 (더티 페이지)의 데이터 페이지를 수정 합니다. 잠재적인 데이터베이스 엔진 프로세스 충돌 또는 많은 수의 더티 페이지가 있는 데이터베이스의 장애 조치 (failover)로 인해 일반 용도의 계층에서 복구 시간이 늘어날 수 있습니다. 많은 메모리 내 변경을 유발 하는 작업이 있는 경우 중요 비즈니스용 계층을 사용 합니다. 
+-   데이터를 수정 하는 장기 실행 트랜잭션입니다. 더 오랜 시간 동안 열리는 트랜잭션은 로그 크기와 [가상 로그 파일 (VLF)](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch)수를 늘릴 수 있는 로그 파일의 잘림을 방지 합니다. VLF 수가 높으면 장애 조치 (failover) 후 데이터베이스 복구 속도가 느려질 수 있습니다.
+-   무료 보조 읽기 전용 복제본으로 리디렉션될 수 있는 보고 및 분석 쿼리가 포함 된 작업입니다.
+- 복원 력이 향상 되 고 오류에서 복구 속도가 빨라집니다. 시스템 오류가 발생 하는 경우 주 인스턴스의 데이터베이스를 사용할 수 없게 되 고 보조 복제본 중 하나는 즉시 쿼리를 처리할 준비가 된 새로운 읽기/쓰기 주 데이터베이스가 됩니다. 데이터베이스 엔진은 로그 파일에서 트랜잭션을 분석 하 고 다시 실행 하 고 메모리 버퍼의 모든 데이터를 로드할 필요가 없습니다.
+- 고급 데이터 손상 방지-중요 비즈니스용 계층은 비즈니스 연속성을 위해 백그라운드에서 사용 되는 데이터베이스 복제본을 활용 하므로 서비스는 SQL Server 데이터베이스 [미러링 및 가용성 그룹](https://docs.microsoft.com/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring)에 사용 되는 것과 동일한 기술인 자동 페이지 복구도 활용 합니다. 복제본이 데이터 무결성 문제로 인해 페이지를 읽을 수 없는 경우 다른 복제본에서 페이지의 새 복사본을 검색 하 여 데이터 손실 또는 고객의 가동 중지 시간 없이 읽을 수 없는 페이지를 대체 합니다. 이 기능은 데이터베이스에 지역 보조 복제본이 있는 경우 일반적인 용도 계층에서 적용할 수 있습니다.
+- Multi-factor configuration의 고가용성-중요 비즈니스용 계층은 일반적인 용도의 계층의 99.99%에 비해 99.995%의 가용성을 보장 합니다.
+- 지역 복제를 사용 하 여 구성 된 빠른 지역 복구-중요 비즈니스용 계층에는 배포 된 시간 100%에 대 한 보장 된 RPO (복구 지점 목표)가 5 초이 고 복구 시간 목표 (RTO)가 30 초입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [관리되는 인스턴스에서](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)비즈니스 중요 계층의 리소스 특성(코어, IO, 메모리 수), [vCore 모델](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) 또는 [DTU 모델의](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)단일 데이터베이스 또는 [vCore 모델](sql-database-vcore-resource-limits-elastic-pools.md#business-critical---provisioned-compute---gen4) 및 [DTU 모델의](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits)탄력적 풀을 찾습니다.
+- [Managed Instance](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)에서 중요 비즈니스용 계층의 리소스 특성 (코어 수, IO, 메모리), [vcore 모델](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) 또는 [dtu 모델](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)의 단일 데이터베이스 또는 [Vcore 모델](sql-database-vcore-resource-limits-elastic-pools.md#business-critical---provisioned-compute---gen4) 및 [dtu 모델](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits)의 탄력적 풀을 찾습니다.
 - [범용](sql-database-service-tier-general-purpose.md) 및 [하이퍼스케일](sql-database-service-tier-hyperscale.md) 계층에 대해 알아봅니다.
-- 서비스 [패브릭에](../service-fabric/service-fabric-overview.md)대해 자세히 알아봅니다.
-- 고가용성 및 재해 복구에 대한 자세한 옵션은 [비즈니스 연속성을](sql-database-business-continuity.md)참조하십시오.
+- [Service Fabric](../service-fabric/service-fabric-overview.md)에 대해 알아봅니다.
+- 고가용성 및 재해 복구에 대 한 추가 옵션은 [비즈니스 연속성](sql-database-business-continuity.md)을 참조 하세요.

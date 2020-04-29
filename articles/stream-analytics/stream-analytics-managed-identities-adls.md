@@ -1,5 +1,5 @@
 ---
-title: Azure 스트림 분석을 Azure 데이터 레이크 저장소 Gen1에 인증
+title: Azure Data Lake Storage Gen1에 대 한 Azure Stream Analytics 인증
 description: 이 문서에서는 관리 ID를 사용하여 Azure Data Lake Storage Gen1 출력에 대해 Azure Stream Analytics 작업을 인증하는 방법을 설명합니다.
 author: mamccrea
 ms.author: mamccrea
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: 01741ea56b9e6f55c1393e88fc7991d410c33119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254379"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>관리되는 ID를 사용하여 Azure 데이터 레이크 스토리지 Gen1에 스트림 분석 인증
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>관리 id를 사용 하 여 Azure Data Lake Storage Gen1에 대 한 Stream Analytics 인증
 
 Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하여 관리 ID 인증을 지원합니다. 관리 ID는 지정된 Stream Analytics 작업을 나타내는 Azure Active Directory에 등록된 관리되는 애플리케이션이며, 대상 리소스를 인증하는 데 사용될 수 있습니다. 관리 ID는 암호 변경 또는 90일마다 발생하는 사용자 토큰 만료로 인해 다시 인증해야 하는 것과 마찬가지로 사용자 기반 인증 방법의 제한을 제거합니다. 또한 관리 ID는 Azure Data Lake Storage Gen1을 출력되는 Stream Analytics 작업 배포의 자동화에 도움이 됩니다.
 
@@ -24,11 +24,11 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
 
 ## <a name="azure-portal"></a>Azure portal
 
-1. 새 Stream Analytics 작업을 만들거나 Azure Portal에서 기존 작업을 열어 시작합니다. 화면 왼쪽에 있는 메뉴 모음에서 **구성**아래에 있는 **관리되는 ID를** 선택합니다.
+1. 새 Stream Analytics 작업을 만들거나 Azure Portal에서 기존 작업을 열어 시작합니다. 화면 왼쪽에 있는 메뉴 모음에서 **구성**아래에 있는 **관리 되는 id** 를 선택 합니다.
 
-   ![스트림 분석 관리 ID 구성](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
+   ![관리 id Stream Analytics 구성](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. 오른쪽에 나타나는 창에서 **시스템 할당관리 ID 사용을** 선택합니다. Azure Active Directory에서 스트림 분석 작업의 ID에 대한 서비스 주체에 **저장을** 클릭합니다. 새로 만든 ID의 수명 주기는 Azure에서 관리합니다. Stream Analytics 작업을 삭제하면 연결된 ID(즉, 서비스 주체)는 Azure에서 자동으로 삭제합니다.
+2. 오른쪽에 표시 되는 창에서 **시스템 할당 관리 Id 사용** 을 선택 합니다. Azure Active Directory에서 Stream Analytics 작업의 id를 확인 하려면 서비스 사용자에 게 **저장** 을 클릭 합니다. 새로 만든 ID의 수명 주기는 Azure에서 관리합니다. Stream Analytics 작업을 삭제하면 연결된 ID(즉, 서비스 주체)는 Azure에서 자동으로 삭제합니다.
 
    구성이 저장되는 경우 서비스 주체의 OID(개체 ID)는 아래와 같이 보안 주체 ID로 나열됩니다.
 
@@ -36,7 +36,7 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
  
    서비스 주체에는 Stream Analytics 작업과 동일한 이름이 사용됩니다. 예를 들어 작업 이름이 **MyASAJob**인 경우 만든 서비스 주체 이름도 **MyASAJob**이 됩니다.
 
-3. ADLS Gen1 출력 싱크의 출력 속성 창에서 인증 모드 드롭다운을 클릭하고 **관리되는 ID **를 선택합니다.
+3. ADLS Gen1 출력 싱크의 출력 속성 창에서 인증 모드 드롭다운을 클릭 하 고 * * 관리 Id * *를 선택 합니다.
 
 4. 나머지 속성을 입력합니다. ADLS 출력을 만드는 방법에 대한 자세한 내용은 [Stream Analytics를 사용하여 Data Lake Store 출력 만들기](../data-lake-store/data-lake-store-stream-analytics.md)를 참조하세요. 작업을 마쳤으면 **저장**을 클릭합니다.
 
@@ -54,7 +54,7 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
 
    ![서비스 주체 이름 선택](./media/stream-analytics-managed-identities-adls/stream-analytics-service-principal-name.png)
  
-8. **사용 권한** 창에서 **쓰기** 및 **실행** 권한을 확인하고 **이 폴더 및 모든 하위 폴더**에 할당합니다. 그런 다음 **확인을**클릭합니다.
+8. **사용 권한** 창에서 **쓰기** 및 **실행** 권한을 확인하고 **이 폴더 및 모든 하위 폴더**에 할당합니다. 그런 다음 **확인을**클릭 합니다.
 
    ![쓰기 선택 및 권한 실행](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
  
@@ -70,7 +70,7 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
 
    ![Stream Analytics 작업 구성 관리 ID](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. ADLS Gen1 출력 싱크의 출력 속성 창에서 인증 모드 드롭다운을 클릭하고 **관리되는 ID **를 선택합니다.
+2. ADLS Gen1 출력 싱크의 출력 속성 창에서 인증 모드 드롭다운을 클릭 하 고 * * 관리 Id * *를 선택 합니다.
 
    ![ADLS 출력 관리 ID](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 
@@ -173,14 +173,14 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   위의 PowerShell 명령에 대한 자세한 내용은 [Set-AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) 문서를 참조하십시오.
+   위의 PowerShell 명령에 대 한 자세한 내용은 [AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) 설명서를 참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
-이 기능은 다음을 지원하지 않습니다.
+이 기능은 다음을 지원 하지 않습니다.
 
-1. **다중 테넌트 액세스**: 지정된 Stream Analytics 작업에 대해 생성된 서비스 주체는 작업이 생성된 Azure Active Directory 테넌트에 상주하며 다른 Azure Active Directory 테넌트에 있는 리소스에 대해 사용할 수 없습니다. 따라서 Azure Stream Analytics 작업과 동일한 Azure Active Directory 테넌트 내에 있는 ADLS Gen 1 리소스에서만 MSI를 사용할 수 있습니다. 
+1. **다중 테 넌 트 액세스**: 지정 된 Stream Analytics 작업에 대해 만든 서비스 주체는 작업이 만들어진 Azure Active Directory 테 넌 트에 상주할 수 있으며 다른 Azure Active Directory 테 넌 트에 있는 리소스에 대해 사용할 수 없습니다. 따라서 Azure Stream Analytics 작업과 동일한 Azure Active Directory 테 넌 트 내에 있는 ADLS Gen 1 리소스 에서만 MSI를 사용할 수 있습니다. 
 
-2. **[사용자 할당된 ID](../active-directory/managed-identities-azure-resources/overview.md)**: 지원되지 않습니다. 즉, 사용자는 스트림 분석 작업에서 사용할 자신의 서비스 주체를 입력할 수 없습니다. 서비스 주체는 Azure 스트림 분석에서 생성됩니다.
+2. **[사용자 할당 id](../active-directory/managed-identities-azure-resources/overview.md)**:은 지원 되지 않습니다. 즉, 사용자는 자신의 Stream Analytics 작업에서 사용할 자신의 서비스 사용자를 입력할 수 없습니다. 서비스 사용자는 Azure Stream Analytics에서 생성 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

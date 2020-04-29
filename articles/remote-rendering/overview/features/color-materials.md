@@ -1,58 +1,58 @@
 ---
-title: 색상 재료
-description: 색상 재질 유형을 설명합니다.
+title: 색 재질
+description: 색 재질 유형을 설명 합니다.
 author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 7cbcaefcc087c9f1c7c09668a27fbdef9a4802d3
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681078"
 ---
-# <a name="color-materials"></a>색상 재료
+# <a name="color-materials"></a>색 재질
 
-*색상 재질은* Azure 원격 렌더링에서 지원되는 [재질 유형](../../concepts/materials.md) 중 하나입니다. 그들은 조명의 어떤 종류를수신하지 말아야 [하는 메시에](../../concepts/meshes.md) 사용되며, 오히려 항상 전체 밝기가 될 수 있습니다. 자동차 대시보드, 전구 와 같은 '빛나는' 재질또는 [사진 측정을](https://en.wikipedia.org/wiki/Photogrammetry)통해 얻은 모델과 같이 정적 조명을 이미 통합한 데이터의 경우일 수 있습니다.
+*색 자료* 는 Azure 원격 렌더링에서 지원 되는 [재질 유형](../../concepts/materials.md) 중 하나입니다. 모든 종류의 조명을 받지 않아야 하는 [메시](../../concepts/meshes.md) 에 사용 되며 항상 전체 밝기가 됩니다. 자동차 대시보드, 광원 전구 등의 ' 반짝이 ' 자료 또는 [photogrammetry](https://en.wikipedia.org/wiki/Photogrammetry)을 통해 얻은 모델과 같이 고정 조명을 이미 포함 하는 데이터의 경우이 경우를 들 수 있습니다.
 
-색상 재질은 더 간단한 색상 모델 때문에 [PBR 재질보다](pbr-materials.md) 렌더링하는 것이 더 효율적입니다. 또한 다른 투명도 모드를 지원합니다.
+색 자료는 더 간단한 음영 [모델 때문에](pbr-materials.md) ,이를 통해 더 효율적으로 사용할 수 있습니다. 다른 투명도 모드도 지원 합니다.
 
-## <a name="common-material-properties"></a>공통 재료 특성
+## <a name="common-material-properties"></a>공통 재질 속성
 
-이러한 특성은 모든 재질에 공통적입니다.
+이러한 속성은 모든 자료에 공통적입니다.
 
-* **알베도컬러:** 이 색상은 *albedoMap* 또는 정점 색상과 같은 다른 색상과 *곱해지됩니다.* 재질에서 *투명도가* 활성화된 경우 알파 채널은 불투명도를 `1` 조정하는 데 `0` 사용되며, 이는 완전히 불투명하고 완전히 투명한 의미를 의미합니다. 기본값은 흰색입니다.
+* **Albedocolor:** 이 색을 *Albedomap* 또는 *vertex 색*과 같은 다른 색과 곱합니다. 재질에서 *투명도* 를 사용 하는 경우 알파 채널을 사용 하 여 불투명도를 `1` 조정 하 고 완전히 불투명 하며 `0` 의미를 완전히 투명 하 게 나타냅니다. 기본값은 흰색입니다.
 
   > [!NOTE]
-  > 색상 재질은 환경을 반영하지 않으므로 완전히 투명한 색상 재질이 보이지 않게 됩니다. 이것은 [PBR 재료에](pbr-materials.md)대해 다릅니다.
+  > 색 자료는 환경을 반영 하지 않으므로 완전히 투명 한 색 재질은 보이지 않게 됩니다. 이는 [.pbr 자료](pbr-materials.md)에서 다릅니다.
 
-* **알베도맵:** 픽셀당 알베도 값에 대한 [2D 텍스처입니다.](../../concepts/textures.md)
+* **Albedomap:** 픽셀 별 albedo 값에 대 한 [2d 질감](../../concepts/textures.md) 입니다.
 
-* **alphaClipEnabled** 및 **alphaClipThreshold:** *alphaClipEnabledtrue인* 경우 알파클립임계값보다 알파클립값보다 *alphaClipThreshold* 낮은 모든 픽셀은 그려지지 않습니다. 알파 클리핑은 투명도를 설정하지 않고도 사용할 수 있으며 렌더링 속도가 훨씬 빠릅니다. 그러나 알파 클리핑된 재질은 완전히 불투명한 재질보다 렌더링 속도가 느립니다. 기본적으로 알파 클리핑은 사용할 수 없습니다.
+* **alphaClipEnabled** 및 **alphaClipThreshold:** *alphaClipEnabled* 가 true 이면 Albedo 알파 값이 *alphaClipThreshold* 보다 낮은 모든 픽셀은 그려지지 않습니다. 알파 클리핑을 투명도를 사용 하지 않고도 사용할 수 있으며 렌더링 속도가 훨씬 빠릅니다. 그러나 알파 클리핑 재질은 완전히 불투명 한 재질 보다 렌더링 하는 속도가 느립니다. 기본적으로 알파 클리핑을 사용 하지 않도록 설정 됩니다.
 
-* **텍스처코디네이터스케일** 및 **텍스처코디오프셋:** 배율이 UV 텍스처 좌표에 곱해지고 오프셋이 추가됩니다. 텍스처를 스트레칭하고 이동하는 데 사용할 수 있습니다. 기본 축척은 (1, 1) 및 간격띄우기 (0, 0)입니다.
+* **textureCoordinateScale** 및 **textureCoordinateOffset:** 눈금은 UV 질감 좌표에 곱하고이에 오프셋을 추가 합니다. 질감을 늘이거나 이동 하는 데 사용할 수 있습니다. 기본 소수 자릿수는 (1, 1)이 고 offset은 (0, 0)입니다.
 
-* **사용버텍스색상:** 메시에 정점 색상이 포함되어 있고 이 옵션이 활성화된 경우 메시의 정점 색상이 *albedoColor* 및 *albedoMap에*곱해지됩니다. 기본적으로 정점 색상은 비활성화됩니다.
+* **useVertexColor:** 메시에 꼭 짓 점 색이 포함 되어 있고이 옵션을 사용 하는 경우 메시의 꼭 짓 점 색을 *Albedocolor* 및 *Albedocolor*에 곱합니다. 기본적으로 꼭 짓 점 색은 사용 하지 않도록 설정 됩니다.
 
-* **는양쪽:** 양면이 true로 설정된 경우 카메라가 뒷면을 보고 있더라도 이 재질의 삼각형이 렌더링됩니다. 기본적으로 이 옵션은 사용할 수 없습니다. [단면 렌더링도](single-sided-rendering.md)참조하십시오.
+* **isDoubleSided:** 이중 sidedness가 true로 설정 된 경우 카메라가 뒷면 얼굴을 보는 경우에도이 재질의 삼각형이 렌더링 됩니다. 기본적으로이 옵션은 사용할 수 없습니다. [단면 렌더링](single-sided-rendering.md)도 참조 하세요.
 
-## <a name="color-material-properties"></a>색상 재료 특성
+## <a name="color-material-properties"></a>색 재질 속성
 
-다음 속성은 색상 재질에 따라 다릅니다.
+다음 속성은 색 재질에만 적용 됩니다.
 
-* **버텍스믹스:** 이 `0` 값은 `1` [메시의](../../concepts/meshes.md) 정점 색상이 최종 색상에 얼마나 강하게 기여하는지를 지정합니다. 기본값 1에서 정점 색상은 알베도 색상에 완전히 곱해지됩니다. 값이 0이면 정점 색상은 완전히 무시됩니다.
+* **vertexMix:** 과 `0` `1` 사이의이 값은 [망상](../../concepts/meshes.md) 의 꼭 짓 점 색이 최종 색에 기여 하는 정도를 지정 합니다. 기본값 1에서 꼭 짓 점 색은 albedo 색에 완전히 곱합니다. 값이 0 인 경우 꼭 짓 점 색은 완전히 무시 됩니다.
 
-* **투명도모드:** [PBR 재료와는](pbr-materials.md)달리 색상 재료는 서로 다른 투명도 모드를 구별합니다.
+* **transparencyMode:** 다른 투명도 [모드를 구분 하는 경우](pbr-materials.md), 즉,
 
-  1. **불투명:** 기본 모드는 투명도를 비활성화합니다. 알파 클리핑은 여전히 가능하지만, 충분하다면 선호되어야 합니다.
+  1. **불투명:** 기본 모드에서는 투명도를 사용 하지 않습니다. 그러나 알파 캡처는 여전히 가능 하지만 충분 한 경우에는 선호 해야 합니다.
   
-  1. **알파블렌드:** 이 모드는 PBR 재질의 투명도와 유사합니다. 유리와 같은 시스루 재료에 사용해야 합니다.
+  1. **AlphaBlended:** 이 모드는 .PBR 재질의 투명도 모드와 비슷합니다. 유리와 같은 보기 자료에 사용 해야 합니다.
 
-  1. **첨가제:** 이 모드는 가장 간단하고 효율적인 투명도 모드입니다. 재질의 기여도가 렌더링된 이미지에 추가됩니다. 이 모드는 중요한 오브젝트를 강조 표시하는 데 사용되는 마커와 같이 빛나는(그러나 여전히 투명한) 오브젝트를 시뮬레이션하는 데 사용할 수 있습니다.
+  1. **덧셈:** 이 모드는 가장 간단 하 고 가장 효율적인 투명도 모드입니다. 재질의 기여는 렌더링 된 이미지에 추가 됩니다. 이 모드는 중요 한 개체를 강조 표시 하는 데 사용 되는 표식과 같이 투명 한 개체 (투명 한 개체)를 시뮬레이트하는 데 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [PBR 재료](pbr-materials.md)
+* [PBR 재질](pbr-materials.md)
 * [질감](../../concepts/textures.md)
 * [메시](../../concepts/meshes.md)

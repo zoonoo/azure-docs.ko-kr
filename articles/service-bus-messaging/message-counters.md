@@ -1,6 +1,6 @@
 ---
-title: Azure 서비스 버스 - 메시지 수
-description: Azure 리소스 관리자 및 Azure 서비스 버스 NamespaceManager API를 사용하여 큐 및 구독에 보유된 메시지 수를 검색합니다.
+title: Azure Service Bus-메시지 수
+description: Azure Resource Manager 및 Azure Service Bus NamespaceManager Api를 사용 하 여 큐 및 구독에 저장 된 메시지 수를 검색 합니다.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/08/2020
 ms.author: aschhab
 ms.openlocfilehash: 8020b12ca892fbf7dec6fed6259526d958fb110f
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80891767"
 ---
 # <a name="message-counters"></a>메시지 카운터
@@ -45,9 +45,9 @@ PowerShell로 다음과 같이 수를 얻을 수 있습니다.
 애플리케이션이 큐의 길이에 따라 리소스 크기를 조정하려는 경우 정교한 속도로 조정해야 합니다. 메시지 카운터를 확보하는 작업은 메시지 broker 내부에 비용이 많이 소요되며 빈번하게 직접 실행하면 엔터티 성능에 부정적인 영향을 줍니다.
 
 > [!NOTE]
-> Service Bus 토픽으로 전송되는 메시지는 해당 토픽의 구독으로 전달됩니다. 따라서 해당 메시지가 구독으로 성공적으로 전달되므로 토픽 자체의 활성 메시지 수는 0입니다. 구독에서 메시지 수를 확인하고 메시지 수가 0보다 큰지 확인합니다. 구독에서 메시지가 표시되더라도 실제로 는 토픽이 소유한 저장소에 저장됩니다. 
+> Service Bus 토픽으로 전송 되는 메시지는 해당 항목에 대 한 구독으로 전달 됩니다. 따라서 항목 자체의 활성 메시지 수는 해당 메시지가 구독에 성공적으로 전달 되었으므로 0입니다. 구독에서 메시지 수를 가져오고 0 보다 큰지 확인 합니다. 구독에서 메시지가 표시 되는 경우에도 실제로는 토픽 소유의 저장소에 저장 됩니다. 
 
-구독을 살펴보면 메시지 수가 0이 아닌 메시지 수가 됩니다(이 전체 엔터티에 대해 최대 323MB의 공간이 추가됩니다).
+구독을 확인 하는 경우에는 0이 아닌 메시지 수 (이 전체 엔터티에 대해 최대 323MB의 공간을 추가)가 있을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: Azure DevTest 랩에서 청구 가능한 VM 생성 및 관리 | 마이크로 소프트 문서
+title: Azure DevTest Labs에서 클레임 할 수 있는 Vm 만들기 및 관리 Microsoft Docs
 description: Azure DevTest Labs에서 랩에 클레임할 수 있는 가상 머신을 추가하는 방법 알아보기
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 13d642597fdf5d0eae6c6fd4f0cab16181f033c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79270798"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Azure DevTest Labs에서 클레임할 수 있는 VM 생성 및 관리
 클레임할 수 있는 VM은 [표준 VM을 추가](devtest-lab-add-vm.md)하는 것과 유사한 방식으로([사용자 지정 이미지](devtest-lab-create-template.md), [수식](devtest-lab-manage-formulas.md) 또는 [Marketplace 이미지](devtest-lab-configure-marketplace-images.md)를 *기반*으로) 랩에 추가합니다. 이 자습서에서는 Azure Portal을 사용하여 클레임할 수 있는 VM을 DevTest Labs의 랩에 추가하는 단계를 안내하고 VM을 클레임 및 클레임 취소하기 위해 따라야 하는 프로세스를 보여줍니다.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 클레임할 수 있는 VM을 추가하는 단계
-1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. **모든 서비스**를 선택한 다음, **DEVOPS** 섹션에서 **DevTest Labs**를 선택합니다. **DEVOPS** 섹션에서 **DevTest Labs** 옆에 있는 *(별표)를 선택하는 경우입니다. 이 작업을 수행하면 다음에 쉽게 액세스할 수 있도록 **DevTest Labs**가 왼쪽 탐색 메뉴에 추가됩니다. 그러면 왼쪽 탐색 메뉴에서 **DevTest Labs**를 선택할 수 있습니다.
 
     ![모든 서비스 - DevTest Labs 선택](./media/devtest-lab-create-lab/all-services-select.png)
@@ -72,7 +72,7 @@ ms.locfileid: "79270798"
   ![클레임할 수 있는 임의의 VM을 요청합니다.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
-사용자가 VM을 클레임하면 DevTest Labs에서 컴퓨터를 시작하여 랩 사용자의 "내 가상 컴퓨터" 목록으로 이동합니다. 즉, 랩 사용자는 이제 이 컴퓨터에 대한 소유자 권한을 갖게 됩니다. 이 단계에 필요한 시간은 시작 시간 및 클레임 이벤트 중에 수행되는 다른 사용자 지정 작업에 따라 달라질 수 있습니다. 클레임이 발생하면 클레임 가능한 풀에서 더 이상 컴퓨터를 사용할 수 없습니다.  
+사용자가 VM을 클레임 한 후 DevTest Labs는 컴퓨터를 시작 하 고 랩 사용자의 "내 가상 머신" 목록으로 이동 합니다. 즉, 랩 사용자는 이제이 컴퓨터에 대 한 소유자 권한을 갖게 됩니다. 이 단계에 필요한 시간은 시작 시간 및 클레임 이벤트 중 수행 되는 다른 사용자 지정 작업에 따라 달라질 수 있습니다. 요청 된 후에는 더 이상 클레임 할 수 있는 풀에서 컴퓨터를 사용할 수 없습니다.  
 
 ## <a name="unclaim-a-vm"></a>VM 클레임 취소
 
@@ -86,7 +86,7 @@ ms.locfileid: "79270798"
 
   ![VM의 관리 창에서 VM 클레임을 취소합니다.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM.png)
 
-사용자가 VM을 클레임 해제하면 해당 특정 랩 VM에 대한 소유자 권한이 더 이상 없으며 풀로 리포닝된 상태의 다른 랩 사용자가 클레임할 수 있습니다. 
+사용자가 VM에 대 한 클레임을 해제 하면 해당 랩 VM에 대 한 소유자 권한이 더 이상 없으며, 풀에 retured 된 상태에서 다른 랩 사용자가이를 요구할 수 있습니다. 
 
 ### <a name="transferring-the-data-disk"></a>데이터 디스크 전송
 클레임할 수 있는 VM에 연결된 데이터 디스크가 있고 사용자가 그에 대한 클레임을 취소하면 데이터 디스크기 VM에 유지됩니다. 그런 다음 또 다른 사용자가 해당 VM을 클레임하면 이 새로운 사용자가 VM은 물론 데이터 디스크를 클레임합니다.
@@ -99,4 +99,4 @@ ms.locfileid: "79270798"
 
 ## <a name="next-steps"></a>다음 단계
 * 생성된 후 해당 관리 창에서 **연결**을 선택하여 VM에 연결할 수 있습니다.
-* [DevTest 랩 Azure 리소스 관리자 퀵스타트 템플릿 갤러리를](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)탐색합니다.
+* [DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)를 탐색 합니다.

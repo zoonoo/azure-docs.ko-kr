@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267925"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>StorSimple 디바이스의 컨트롤러 모듈 교체
@@ -62,7 +62,7 @@ ms.locfileid: "79267925"
 Microsoft Azure StorSimple 디바이스의 두 컨트롤러 중 하나에서 오류가 발생했거나 오작동하거나 없는 경우 단일 컨트롤러를 교체해야 합니다.
 
 ### <a name="single-controller-replacement-logic"></a>단일 컨트롤러 교체 논리
-단일 컨트롤러 교체에서는 오류가 발생한 컨트롤러를 먼저 제거해야 합니다. (장치의 나머지 컨트롤러는 활성 컨트롤러입니다.) 교체 컨트롤러를 삽입하면 다음과 같은 작업이 발생합니다.
+단일 컨트롤러 교체에서는 오류가 발생한 컨트롤러를 먼저 제거해야 합니다. (장치의 나머지 컨트롤러는 활성 컨트롤러입니다.) 교체 컨트롤러를 삽입 하면 다음 작업이 수행 됩니다.
 
 1. 교체 컨트롤러가 즉시 StorSimple 디바이스와 통신을 시작합니다.
 2. 활성 컨트롤러에 대한 VHD(가상 하드 디스크)의 스냅샷이 교체 컨트롤러에 복사됩니다.
@@ -90,7 +90,7 @@ Microsoft Azure StorSimple 디바이스의 컨트롤러 중 하나에서 오류�
    
     **그림 1** StorSimple 디바이스 뒷면
    
-   | 레이블 | 설명 |
+   | 레이블 | Description |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -195,7 +195,7 @@ StorSimple 디바이스에서 결함이 있는 모듈을 꺼낸 후 팩터리 �
    > [!NOTE]
    > 컨트롤러 및 LED가 활성화되는 데 최대 5분 정도 걸릴 수 있습니다.
   
-5. 교체가 성공했는지 확인하려면 Azure 포털에서 장치로 이동한 다음**하드웨어 상태** **모니터링으로** > 이동한 다음 컨트롤러 0과 컨트롤러 1이 모두 정상인지(상태가 녹색인지).
+5. 교체에 성공 했는지 확인 하려면 Azure Portal에서 장치로 이동한 다음**하드웨어 상태** **모니터링** > 으로 이동 하 고 컨트롤러 0과 컨트롤러 1이 모두 정상 상태 인지 확인 합니다 (상태는 녹색).
 
 ## <a name="identify-the-active-controller-on-your-device"></a>디바이스의 활성 컨트롤러 식별
 처음 디바이스를 등록하거나 컨트롤러를 교체하는 경우와 같이 StorSimple 디바이스에서 활성 컨트롤러를 찾아야 하는 경우가 많습니다. 활성 컨트롤러는 모든 디스크 펌웨어 및 네트워킹 작업을 처리합니다. 다음 방법 중 하나를 사용하여 활성 컨트롤러를 식별할 수 있습니다.
@@ -207,7 +207,7 @@ StorSimple 디바이스에서 결함이 있는 모듈을 꺼낸 후 팩터리 �
 아래에서는 이러한 각 절차에 대해 설명합니다.
 
 ### <a name="use-the-azure-portal-to-identify-the-active-controller"></a>Azure Portal을 사용하여 활성 컨트롤러 식별
-Azure 포털에서 장치로 이동한 다음**하드웨어 상태를** **모니터링한** > 다음 컨트롤러 섹션으로 **스크롤합니다.** 여기서 활성 컨트롤러를 확인할 수 있습니다.
+Azure Portal에서 장치로 이동한 다음**하드웨어 상태**를 **모니터링** > 하 고 **컨트롤러** 섹션으로 스크롤합니다. 여기서 활성 컨트롤러를 확인할 수 있습니다.
 
 ![Azure Portal에서 활성 컨트롤러 식별](./media/storsimple-controller-replacement/IC752072.png)
 
@@ -231,7 +231,7 @@ Azure 포털에서 장치로 이동한 다음**하드웨어 상태를** **모니
 
 **그림 8** 데이터 포트와 모니터링 LED가 있는 기본 엔클로저 뒷면
 
-| 레이블 | 설명 |
+| 레이블 | Description |
 |:--- |:--- |
 | 1-6 |DATA 0 - 5 네트워크 포트 |
 | 7 |파란색 LED |

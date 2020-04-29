@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -9,21 +9,21 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79500192"
 ---
-1. 이 지점 간 VPN 클라이언트 아티클에 표시된 대로 Windows 10 클라이언트에 클라이언트 [인증서를 설치합니다.](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) 인증서는 현재 사용자 저장소에 있어야 합니다.
+1. 이 [지점 및 사이트 간 VPN 클라이언트](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) 문서에 표시 된 대로 Windows 10 클라이언트에 클라이언트 인증서를 설치 합니다. 인증서가 현재 사용자 저장소에 있어야 합니다.
 
-1. [Windows 10 클라이언트 항상 VPN 연결](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections)구성의 지침에 따라 PowerShell, 구성 관리자 또는 Intune을 통해 항상 VPN 클라이언트를 구성합니다.
+1. [Windows 10 클라이언트 ALWAYS ON vpn 연결 구성](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections)의 지침에 따라 PowerShell, Configuration Manager 또는 Intune을 통해 Always On vpn 클라이언트를 구성 합니다.
 
-### <a name="example-configuration-for-the-user-tunnel"></a>사용자 터널의 예제 구성
+### <a name="example-configuration-for-the-user-tunnel"></a>사용자 터널에 대 한 구성 예
 
-가상 네트워크 게이트웨이를 구성하고 Windows 10 클라이언트의 로컬 컴퓨터 저장소에 클라이언트 인증서를 설치한 후 다음 예제를 사용하여 클라이언트 장치 터널을 구성합니다.
+가상 네트워크 게이트웨이를 구성 하 고 Windows 10 클라이언트의 로컬 컴퓨터 저장소에 클라이언트 인증서를 설치한 후 다음 예제를 사용 하 여 클라이언트 장치 터널을 구성 합니다.
 
-1. 다음 텍스트를 복사하여 *usercert.ps1로*저장합니다.
+1. 다음 텍스트를 복사 하 고 usercert로 저장 *합니다*.
 
    ```
    Param(
@@ -75,7 +75,7 @@ ms.locfileid: "79500192"
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. 다음 텍스트를 복사하여 *usercert.ps1과*동일한 폴더에 *VPNProfile.xml로* 저장합니다. 환경에 맞게 다음 텍스트를 편집합니다.
+1. 다음 텍스트를 복사 하 고 *usercert*와 동일한 폴더에 *VPNProfile* 로 저장 합니다. 사용자 환경에 맞게 다음 텍스트를 편집 합니다.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`
@@ -121,13 +121,13 @@ ms.locfileid: "79500192"
    ```
 1. PowerShell을 관리자 권한으로 실행합니다.
 
-1. PowerShell에서 *usercert.ps1* 및 *VPNProfile.xml이* 있는 폴더로 전환하고 다음 명령을 실행합니다.
+1. PowerShell에서 *usercert* 및 *VPNProfile* 가 있는 폴더로 전환 하 고 다음 명령을 실행 합니다.
 
    ```powershell
    C:\> .\usercert.ps1 .\VPNProfile.xml UserTest
    ```
    
-   ![기계 테스트](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
-1. **VPN 설정에서** **UserTest** 항목을 찾은 다음 **연결을**선택합니다.
+   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
+1. **VPN 설정**에서 **usertest** 항목을 찾은 다음 **연결**을 선택 합니다.
 
-1. 연결이 성공하면 Always On 사용자 터널을 성공적으로 구성한 것입니다.
+1. 연결에 성공 하면 Always On 사용자 터널이 성공적으로 구성 된 것입니다.

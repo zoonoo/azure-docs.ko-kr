@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: d2dba0f657b418267db90c07014dc8996ed12a10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80059908"
 ---
 자체 서명된 루트 인증서를 만든 후에는 프라이빗 키가 아닌 루트 인증서 공개 키 .cer 파일을 내보냅니다. 이 파일은 나중에 Azure에 업로드합니다. 다음 단계는 자체 서명된 루트 인증서에 대한 .cer 파일을 내보내는 데 도움이 됩니다.
@@ -29,7 +29,7 @@ ms.locfileid: "80059908"
 4. **내보내기 파일 형식** 페이지에서 **Base 64로 인코딩된 X.509(.CER)** 를 선택한 후 **다음**을 클릭합니다.
 
    ![Base-64로 인코딩됨](./media/vpn-gateway-certificates-export-public-key-include/base64.png)
-5. **내보낼 파일**에서 인증서를 내보내려는 위치를 **찾습니다**. **파일 이름**에는 인증서 파일의 이름을 입력합니다. **다음**을 클릭합니다.
+5. **내보낼 파일**에서 인증서를 내보내려는 위치를 **찾습니다**. **파일 이름**에는 인증서 파일의 이름을 입력합니다. 그런 후 **다음**을 클릭합니다.
 
    ![찾아보기](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
 6. **마침**을 클릭하여 인증서를 내보냅니다.
@@ -37,7 +37,7 @@ ms.locfileid: "80059908"
    ![Finish](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
 7. 인증서가 성공적으로 내보내졌습니다.
 
-   ![Success](./media/vpn-gateway-certificates-export-public-key-include/success.png)
+   ![성공](./media/vpn-gateway-certificates-export-public-key-include/success.png)
 8. 내보낸 인증서는 다음과 비슷합니다.
 
    ![내보냄](./media/vpn-gateway-certificates-export-public-key-include/exported.png)

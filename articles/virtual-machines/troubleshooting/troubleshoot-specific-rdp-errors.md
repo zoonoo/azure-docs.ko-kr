@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266872"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Azure에서 Windows VM에 대한 특정 RDP 오류 메시지 문제 해결
@@ -27,15 +27,15 @@ Azure에서 Windows 가상 머신(VM)에 원격 데스크톱 연결을 사용할
 
 특정 오류 메시지에 대한 자세한 내용은 다음을 참조하세요.
 
-* 라이센스를 제공할 수 있는 [원격 데스크톱 라이센스 서버가 없기 때문에 원격 세션의 연결이 끊어졌습니다.](#rdplicense)
-* [원격 데스크톱에서 컴퓨터 "이름"을 찾을 수 없습니다.](#rdpname)
+* [라이선스를 제공 하는 데 사용할 수 있는 원격 데스크톱 라이선스 서버가 없으므로 원격 세션의 연결을 끊었습니다](#rdplicense).
+* [원격 데스크톱이 컴퓨터 "name"을 찾을 수 없습니다](#rdpname).
 * [인증 오류가 발생했습니다. 로컬 보안 기관에 연결할 수 없습니다.](#rdpauth)
-* [Windows 보안 오류: 자격 증명이 작동하지 않습니다.](#wincred)
-* [이 컴퓨터는 원격 컴퓨터에 연결할 수 없습니다.](#rdpconnect)
+* [Windows 보안 오류: 자격 증명이 작동 하지 않습니다](#wincred).
+* [이 컴퓨터는 원격 컴퓨터에 연결할 수 없습니다](#rdpconnect).
 
 <a id="rdplicense"></a>
 
-## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>라이선스를 제공할 수 있는 원격 데스크톱 라이선스 서버가 없으므로 원격 세션이 끊겼습니다.
+## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>라이선스를 제공하는 데 사용할 수 있는 원격 데스크톱 라이선스 서버가 없어서 원격 세션이 끊겼습니다.
 원인: 원격 데스크톱 서버 역할에 대한 120일 라이선스 유예 기간이 만료되었고 라이선스를 설치해야 합니다.
 
 대안으로 포털에서 RDP 파일의 로컬 복사본을 저장하고 PowerShell 명령 프롬프트에서 이 명령을 실행하여 연결합니다. 이 단계를 따르면 해당 연결에만 라이선스를 사용할 수 없게 됩니다.
@@ -69,7 +69,7 @@ VM에 실제로 두 개 이상의 동시 원격 데스크톱 연결이 필요하
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>인증 오류가 발생했습니다. 로컬 보안 기관에 연결할 수 없습니다.
 원인: 대상 VM이 사용자의 자격 증명의 사용자 이름 부분에서 보안 기관을 찾지 못했습니다.
 
-사용자 이름이 *SecurityAuthority*\\*사용자 이름(예:* CORP\User1) 형식인 경우 *SecurityAuthority* 부분은 VM의 컴퓨터 이름(로컬 보안 기관의 경우) 또는 Active Directory 도메인 이름입니다.
+사용자 이름이 *securityauthority*\\*사용자 이름* 형식 (예: CORP\User1)에 있는 경우 *securityauthority* 부분은 VM의 컴퓨터 이름 (로컬 보안 기관) 또는 Active Directory 도메인 이름 중 하나입니다.
 
 가능한 해결 방법:
 
@@ -84,8 +84,8 @@ VM에 실제로 두 개 이상의 동시 원격 데스크톱 연결이 필요하
 
 Windows 기반 컴퓨터는 로컬 계정 또는 도메인 계정 자격 증명의 유효성을 검사할 수 있습니다.
 
-* 로컬 계정의 경우 *컴퓨터 이름*\\*사용자 이름* 구문(예: SQL1\Admin4798)을 사용합니다.
-* 도메인 계정의 경우 *도메인 이름*\\*사용자 이름* 구문(예: CONTOSO\peterodman)을 사용합니다.
+* 로컬 계정의 경우 *ComputerName*\\*UserName* 구문을 사용 합니다 (예: SQL1\Admin4798).
+* 도메인 계정의 경우 *DomainName*\\*UserName* 구문을 사용 합니다 (예: CONTOSO\peterodman).
 
 VM을 새 Active Directory 포리스트의 도메인 컨트롤러로 승격한 경우 사용자가 로그인할 때 사용한 로컬 관리자 계정이 새 포리스트 및 도메인과 같은 암호를 가진 동일한 계정으로 변환됩니다. 그러면 로컬 계정이 삭제됩니다.
 

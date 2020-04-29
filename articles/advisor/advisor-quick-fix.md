@@ -1,44 +1,44 @@
 ---
-title: 어드바이저 권장 사항에 대한 빠른 수정 수정
-description: 어드바이저에서 빠른 수정을 사용하여 대량 수정 수행
+title: Advisor 권장 사항에 대 한 빠른 수정 재구성
+description: Advisor에서 빠른 수정을 사용 하 여 대량 업데이트를 수행 합니다.
 ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
 ms.openlocfilehash: 3c3ac27f04aa516fbef1bfff30e3392659b58919
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79502491"
 ---
-# <a name="quick-fix-remediation-for-advisor"></a>어드바이저에 대한 빠른 수정 수정
-**빠른 수정을** 사용하면 여러 리소스에 대한 권장 사항을 보다 빠르고 쉽게 수정할 수 있습니다. 리소스에 대한 대량 업데이트 에 대한 기능을 제공하고 리소스에 대한 대규모 수정을 통해 구독을 더 빠르게 최적화하는 데 도움이 됩니다.
-이 기능은 Azure 포털을 통해서만 특정 권장 사항에 사용할 수 있습니다.
+# <a name="quick-fix-remediation-for-advisor"></a>Advisor에 대 한 빠른 수정 재구성
+**빠른 픽스** 를 사용 하면 여러 리소스에 대 한 권장 사항을 보다 빠르고 쉽게 수정할 수 있습니다. 리소스를 대량으로 재구성 하는 기능을 제공 하 고, 리소스에 맞게 대규모로 수정 하 여 구독을 더 빠르게 최적화 합니다.
+이 기능은 Azure Portal를 통해 특정 권장 사항에 대해서만 사용할 수 있습니다.
 
 
-## <a name="steps-to-use-quick-fix"></a>'빠른 수정' 사용 단계
+## <a name="steps-to-use-quick-fix"></a>' 빠른 수정 '을 사용 하는 단계
 
-1. **빠른 수정** 레이블이 있는 권장 사항 목록에서 권장 사항을 클릭합니다.
+1. **빠른 수정** 레이블이 있는 권장 사항 목록에서 권장 사항을 클릭 합니다.
 
-   ![고문 빠른 수정](./media/quick-fix-1.png)
+   ![Advisor 빠른 수정](./media/quick-fix-1.png)
    
-   *이미지의 가격은 예를 들어 목적에 불과합니다.*
+   *이미지의 가격은 예를 들어 목적 으로만 사용 됩니다.*
 
-2. 추천 세부 정보 페이지에이 권장 사항이 있는 리소스 목록이 표시됩니다. 권장 사항을 위해 수정할 모든 리소스를 선택합니다.
+2. 권장 사항 세부 정보 페이지에이 권장 사항이 있는 리소스 목록이 표시 됩니다. 권장 사항에 대해 재구성 하려는 모든 리소스를 선택 합니다.
 
-   ![고문 빠른 수정](./media/quick-fix-2.png)
+   ![Advisor 빠른 수정](./media/quick-fix-2.png)
    
-   *이미지의 가격은 예를 들어 목적에 불과합니다.*
+   *이미지의 가격은 예를 들어 목적 으로만 사용 됩니다.*
 
-3. 리소스를 선택한 후 **빠른 수정** 단추를 클릭하여 대량 수정합니다.
+3. 리소스를 선택한 후에는 **빠른 수정** 단추를 클릭 하 여 대량 재구성 합니다.
 
    > [!NOTE]
-   > 나열된 리소스 중 일부를 수정할 수 있는 적절한 권한이 없으므로 사용하지 않도록 설정될 수 있습니다.
+   > 나열 된 리소스 중 일부를 수정할 수 있는 적절 한 권한이 없기 때문에 일부 리소스를 사용 하지 못할 수 있습니다.
    
    > [!NOTE]
-   > 다른 의미가 있는 경우 Advisor에 언급된 혜택 외에도 경험에 전달되어 정보에 입각한 수정 결정을 내릴 수 있습니다.
+   > 다른 영향을 줄 수 있는 경우 관리자에 게 제공 되는 혜택 외에도, 의사 결정에 대 한 의사 결정을 내리는 데 도움이 되는 환경에 전달 됩니다.
    
-4. 수정 완료에 대한 알림을 받게 됩니다. 수정되지 않은 리소스와 리소스 목록 보기에서 선택한 모드에 리소스가 있는 경우 오류가 표시됩니다.  
+4. 재구성 완료에 대 한 알림을 받게 됩니다. 리소스 목록 보기에서 수정 되지 않은 리소스와 선택한 모드의 리소스가 있으면 오류가 표시 됩니다.  
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -49,5 +49,5 @@ Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Advisor 비용 권장 사항](advisor-cost-recommendations.md)
 * [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
 * [Advisor 보안 권장 사항](advisor-security-recommendations.md)
-* [고문 운영 우수성 권장 사항](advisor-operational-excellence-recommendations.md)
-* [어드바이저 레스트 API](https://docs.microsoft.com/rest/api/advisor/)
+* [Advisor 작동의 뛰어난 권장 사항](advisor-operational-excellence-recommendations.md)
+* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)

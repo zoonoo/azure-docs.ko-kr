@@ -1,15 +1,15 @@
 ---
-title: Azure 서비스 패브릭 행위자 수명 주기 개요
+title: Azure Service Fabric 행위자 수명 주기 개요
 description: 서비스 패브릭 Reliable Actor 수명 주기, 가비지 수집 및 행위자와 해당 상태 수동 삭제에 대해 설명합니다.
 author: amanbha
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: b05da78091260297d94062c06cba100d01ce7e2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258318"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>행위자 수명 주기, 자동 가비지 수집 및 수동 삭제
@@ -50,7 +50,7 @@ ms.locfileid: "79258318"
 비활성화에 대한 세부 정보를 살펴보기 전에 다음과 같은 용어를 정의하는 것이 중요합니다.
 
 * *스캔 간격*. 행위자 런타임이 비활성화 및 가비지 수집될 수 있는 행위자에 대해 해당 활성 행위자 테이블을 스캔하는 간격입니다. 기본값은 1분입니다.
-* *유휴 시간 입니다.* 행위자가 비활성화 및 가비지 수집되기 전에 미사용(유휴) 상태를 유지해야 하는 시간입니다. 기본값은 60분입니다.
+* *유휴 시간 제한*입니다. 행위자가 비활성화 및 가비지 수집되기 전에 미사용(유휴) 상태를 유지해야 하는 시간입니다. 기본값은 60분입니다.
 
 일반적으로 이 기본값은 변경할 필요가 없습니다. 그러나 [행위자 서비스](service-fabric-reliable-actors-platform.md)를 등록할 때 필요한 경우 `ActorServiceSettings`를 통해 이러한 간격을 변경할 수 있습니다.
 
@@ -85,7 +85,7 @@ public class Program
     }
 }
 ```
-각 활성 행위자에 대해 행위자 런타임은 유휴 상태였던 시간(사용되지 않은 시간)을 기록합니다. 행위자 런타임은 각 액터를 `ScanIntervalInSeconds` 검사하여 가비지 수집이 될 수 있는지 `IdleTimeoutInSeconds`확인하고 에 대해 유휴 상태인 경우 표시합니다.
+각 활성 행위자에 대해 행위자 런타임은 유휴 상태였던 시간(사용되지 않은 시간)을 기록합니다. 행위자 런타임은 모든 `ScanIntervalInSeconds` 행위자를 검사 하 여 가비지 수집 될 수 있는지 확인 하 고 유휴 상태 였던 경우 표시 `IdleTimeoutInSeconds`합니다.
 
 행위자를 사용할 때마다 유휴 시간이 0으로 다시 설정됩니다. 이후부터는 `IdleTimeoutInSeconds`동안 다시 유휴 상태인 경우에만 행위자가 가비지 수집됩니다. 행위자 인터페이스 메서드 또는 행위자 미리 알림 콜백이 실행되는 경우, 행위자가 사용된 것으로 간주됩니다. 타이머 콜백이 실행되는 경우 해당 행위자는 사용된 것으로 간주되지 **않습니다** .
 
@@ -109,12 +109,12 @@ public class Program
 
 ## <a name="next-steps"></a>다음 단계
 * [행위자 타이머 및 미리 알림](service-fabric-reliable-actors-timers-reminders.md)
-* [액터 이벤트](service-fabric-reliable-actors-events.md)
-* [배우 재응신](service-fabric-reliable-actors-reentrancy.md)
+* [행위자 이벤트](service-fabric-reliable-actors-events.md)
+* [행위자 재입력](service-fabric-reliable-actors-reentrancy.md)
 * [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 * [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [자바 샘플 코드](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [C # 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Java 샘플 코드](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

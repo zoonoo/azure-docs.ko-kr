@@ -1,6 +1,6 @@
 ---
-title: 권한 있는 ID 관리(PIM)에서 Azure AD 역할 관리 | 마이크로 소프트 문서
-description: 할당에 대 한 Azure AD 역할을 관리 하는 방법 권한 있는 ID 관리 (PIM)
+title: Privileged Identity Management (PIM)에서 Azure AD 역할 관리 | Microsoft Docs
+description: PIM (할당 Privileged Identity Management)에 대 한 Azure AD 역할을 관리 하는 방법
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -17,52 +17,52 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f5d63577cbdbdf18cb17618bdb5c9e3b5de0e44a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79245981"
 ---
-# <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>권한 있는 ID 관리에서 Azure AD 역할에 대한 관리 기능
+# <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 관리 기능
 
-권한 있는 Id 관리에서 Azure AD 역할에 대한 관리 환경이 업데이트되어 Azure AD 역할 및 Azure 리소스 역할이 관리되는 방법을 통합합니다. 이전에는 Azure 리소스 역할에 대한 권한 있는 ID 관리에 Azure AD 역할에 사용할 수 없었던 몇 가지 주요 기능이 있었습니다.
+Privileged Identity Management에서 Azure AD 역할에 대 한 관리 환경은 Azure AD 역할 및 Azure 리소스 역할을 관리 하는 방법을 통합 하도록 업데이트 되었습니다. 이전에는 Azure 리소스 역할에 대 한 Privileged Identity Management Azure AD 역할에 사용할 수 없는 몇 가지 주요 기능을가지고 있습니다.
 
-현재 업데이트가 롤아웃되고 있으므로 두 가지를 단일 관리 환경으로 병합하고 Azure 리소스 역할과 동일한 Azure AD 역할에 대한 기능을 얻습니다. 이 문서에서는 업데이트된 기능 및 요구 사항을 알려줍니다.
+현재 출시 되는 업데이트의 경우 두 가지를 단일 관리 환경으로 병합 하 고 azure 리소스 역할과 마찬가지로 Azure AD 역할에 대해 동일한 기능을 제공 합니다. 이 문서에서는 업데이트 된 기능 및 요구 사항을 알려 줍니다.
 
 
-## <a name="time-bound-assignments"></a>시간 바인딩된 할당
+## <a name="time-bound-assignments"></a>시간 범위 할당
 
-이전에 Azure AD 역할에 대한 권한 있는 ID 관리에서 *자격* 및 *영구*상태인 두 가지 가능한 상태인 역할 할당에 익숙했습니다. 이제 각 과제 유형에 대해 시작 및 종료 시간을 설정할 수 있습니다. 이 추가는 할당을 배치할 수 있는 네 가지 가능한 상태를 제공합니다.
+이전에는 Azure AD 역할에 대 한 Privileged Identity Management에서 사용할 수 있는 두 가지 상태 ( *적격* 및 *영구*)의 역할 할당에 익숙합니다. 이제 각 할당 형식에 대 한 시작 및 종료 시간을 설정할 수 있습니다. 이러한 추가 기능을 통해 할당을 저장할 수 있는 네 가지 상태를 확인할 수 있습니다.
 
-- 영구적으로 적격
-- 영구적으로 활성 상태
-- 지정된 시작/종료 날짜가 지정된 적격
-- 할당에 대해 지정된 시작/종료 날짜가 있는 활성
+- 영구적으로 사용할 수 있음
+- 영구적으로 활성
+- 지정 된 시작/종료 날짜가 할당 된 적격
+- 지정 된 시작/종료 날짜가 할당 된 활성
 
-대부분의 경우 사용자가 매번 적격 할당을 수행하고 역할을 활성화하지 않도록 하지 않더라도 할당 만료 시간을 설정하여 Azure AD 조직을 보호할 수 있습니다. 예를 들어 자격이 있는 임시 사용자가 있는 경우 작업이 완료되면 역할 할당에서 자동으로 제거하도록 만료를 설정하는 것이 좋습니다.
+대부분의 경우에는 사용자에 게 적격 할당을 설정 하 고 매번 역할을 활성화 하는 것을 원하지 않는 경우에도 할당에 대 한 만료 시간을 설정 하 여 Azure AD 조직을 보호할 수 있습니다. 예를 들어 적격 한 임시 사용자가 있는 경우 작업이 완료 될 때 역할 할당에서 자동으로 제거 되도록 만료를 설정 하는 것이 좋습니다.
 
 ## <a name="new-role-settings"></a>새 역할 설정
 
-Azure AD 역할에 대한 새 설정도 추가됩니다. 이전에는 역할별로만 활성화 설정을 구성할 수 있었습니다. 즉, 다단계 인증 요구 사항 및 인시던트/요청 티켓 요구 사항과 같은 활성화 설정이 지정된 역할을 받을 수 있는 모든 사용자에게 적용되었습니다. 이제 개별 사용자가 역할을 활성화하기 전에 다단계 인증을 수행해야 하는지 여부를 구성할 수 있습니다. 또한 특정 역할과 관련된 권한 있는 ID 관리 전자 메일을 고급으로 제어할 수 있습니다.
+또한 Azure AD 역할에 대 한 새로운 설정을 추가 합니다. 이전에는 역할 별로 활성화 설정만 구성할 수 있었습니다. 즉, 다단계 인증 요구 사항 및 인시던트/요청 티켓 요구 사항과 같은 정품 인증 설정이 지정 된 역할에 적합 한 모든 사용자에 게 적용 되었습니다. 이제 개별 사용자가 multi-factor authentication을 수행 해야 역할을 활성화할 수 있는지 여부를 구성할 수 있습니다. 또한 특정 역할과 관련 된 Privileged Identity Management 전자 메일을 고급 제어할 수 있습니다.
 
-## <a name="extend-and-renew-assignments"></a>과제 확장 및 갱신
+## <a name="extend-and-renew-assignments"></a>할당 확장 및 갱신
 
-시간 바인딩된 할당을 파악하는 즉시 첫 번째 질문은 역할이 만료되면 어떻게 됩니까? 이 새 버전에서는 이 시나리오에 대한 두 가지 옵션을 제공합니다.
+시간 제한 할당을 확인 하는 즉시, 역할이 만료 된 경우에는 무엇을 해야 하나요? 이 새 버전에서는이 시나리오에 대 한 두 가지 옵션을 제공 합니다.
 
-- 확장 – 역할 할당이 만료에 가까워지면 사용자는 권한 있는 ID 관리를 사용하여 해당 역할 할당에 대한 확장을 요청할 수 있습니다.
-- 갱신 - 역할 할당이 만료되면 사용자는 권한 있는 ID 관리를 사용하여 해당 역할 할당에 대한 갱신을 요청할 수 있습니다.
+- Extend – 역할 할당이 만료 된 경우 사용자가 Privileged Identity Management를 사용 하 여 해당 역할 할당에 대 한 확장을 요청할 수 있습니다.
+- 갱신-역할 할당이 만료 된 경우 사용자가 Privileged Identity Management를 사용 하 여 해당 역할 할당에 대 한 갱신을 요청할 수 있습니다.
 
-사용자가 시작한 두 작업 모두 글로벌 관리자 또는 권한 있는 역할 관리자의 승인이 필요합니다. 관리자는 더 이상 이러한 만료를 관리하는 업무에 있을 필요가 없습니다. 확장 또는 갱신 요청을 기다렸다가 요청이 유효한지 승인하기만 하면 됩니다.
+사용자가 시작한 작업에는 전역 관리자 또는 권한 있는 역할 관리자의 승인이 필요 합니다. 관리자는 이러한 만료를 관리 하는 데 더 이상 필요 하지 않습니다. 확장 또는 갱신 요청을 기다리고 요청이 유효한 경우 해당 요청을 승인 하기만 하면 됩니다.
 
-## <a name="api-changes"></a>API 변경
+## <a name="api-changes"></a>API 변경 내용
 
-고객이 Azure AD 조직에 업데이트된 버전을 롤아웃하면 기존 그래프 API가 작동하지 않습니다. Azure 리소스 역할에 [대한 그래프 API를](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta)사용하려면 전환해야 합니다. 해당 API를 사용하여 Azure AD `/azureResources` `/aadroles` 역할을 관리하려면 서명에서 교환하고 `resourceId`에 대한 디렉터리 ID를 사용합니다.
+고객이 Azure AD 조직에 업데이트 된 버전을 롤아웃할 때 기존 graph API의 작동이 중지 됩니다. [Azure 리소스 역할에 대 한 Graph API](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta)를 사용 하려면로 전환 해야 합니다. 해당 API를 사용 하 여 Azure AD 역할을 `/azureResources` 관리 `/aadroles` 하려면 서명에서로 바꾸고의 `resourceId`디렉터리 ID를 사용 합니다.
 
-이전 API를 사용하는 모든 고객에게 이러한 변경 에 대해 미리 알리기 위해 최선을 다했습니다. Azure AD 조직이 새 버전으로 이동되었지만 이전 API에 계속 의존하는 경우 에서 pim_preview@microsoft.com팀에 문의하십시오.
+이전 API를 사용 하는 모든 고객에 게 연락 하 여 이러한 변경 사항을 미리 파악 하는 것이 가장 좋습니다. Azure AD 조직이 새 버전으로 이동 했 고 여전히 이전 API에 의존 하는 경우의 팀에 문의 pim_preview@microsoft.com하세요.
 
-## <a name="powershell-change"></a>파워쉘 변경
+## <a name="powershell-change"></a>PowerShell 변경
 
-Azure AD 역할에 대해 권한 있는 ID 관리 PowerShell 모듈을 사용하는 고객의 경우 PowerShell은 업데이트 작업을 중지합니다. 이전 cmdlet 대신 Azure AD 미리 보기 PowerShell 모듈 내에서 권한 있는 ID 관리 cmdlet을 사용해야 합니다. [PowerShell 갤러리에서](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17)Azure AD PowerShell 모듈을 설치합니다. 이제 [이 PowerShell 모듈에서 PIM 작업에 대한 설명서 및 샘플을 읽을](powershell-for-azure-ad-roles.md)수 있습니다.
+Azure AD 역할에 Privileged Identity Management PowerShell 모듈을 사용 하는 고객의 경우 PowerShell에서 업데이트 작업을 중지 합니다. 이전 cmdlet 대신 Azure AD Preview PowerShell 모듈 내에서 Privileged Identity Management cmdlet을 사용 해야 합니다. [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17)에서 Azure AD PowerShell 모듈을 설치 합니다. 이제 [이 PowerShell 모듈에서 PIM 작업에 대 한 설명서와 샘플을 읽을](powershell-for-azure-ad-roles.md)수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

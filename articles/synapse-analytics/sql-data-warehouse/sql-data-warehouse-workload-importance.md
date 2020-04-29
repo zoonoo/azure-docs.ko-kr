@@ -1,6 +1,6 @@
 ---
 title: 워크로드 중요도
-description: Azure Synapse 분석에서 Synapse SQL 풀 쿼리에 대한 중요도 설정에 대한 지침입니다.
+description: Azure Synapse Analytics에서 Synapse SQL 풀 쿼리의 중요도를 설정 하는 방법에 대 한 지침입니다.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,58 +12,58 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 43ee14784b6049e9b5c1a78e733e72bbc45f915d
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80744046"
 ---
-# <a name="azure-synapse-analytics-workload-importance"></a>Azure 시냅스 분석 워크로드 중요도
+# <a name="azure-synapse-analytics-workload-importance"></a>Azure Synapse Analytics 워크 로드 중요도
 
-이 문서에서는 워크로드 중요도가 Azure Synapse의 Synapse SQL 풀 요청의 실행 순서에 미치는 영향을 설명합니다.
+이 문서에서는 워크 로드 중요도가 Azure Synapse의 Synapse SQL 풀 요청에 대 한 실행 순서에 어떤 영향을 미치는지 설명 합니다.
 
 ## <a name="importance"></a>중요도
 
 > [!Video https://www.youtube.com/embed/_2rLMljOjw8]
 
-비즈니스 요구 사항으로 인해 데이터 웨어하우징 워크로드가 다른 워크로드보다 더 중요해질 수 있습니다.  회계 기간이 끝나기 전에 미션 크리티컬 판매 데이터가 로드되는 시나리오를 생각해 보십시오.  날씨 데이터와 같은 다른 소스에 대한 데이터 로드에는 엄격한 SLA가 없습니다. 판매 데이터를 로드하기 위한 요청에 대한 중요도가 높고 날씨 데이터 로드 요청에 대한 중요도가 낮으면 판매 데이터 로드가 리소스에 먼저 액세스하고 더 빨리 완료됩니다.
+비즈니스 요구 사항에 따라 데이터 웨어하우징 작업이 다른 작업 보다 더 중요 해야 할 수 있습니다.  회계 기간이 종료 되기 전에 중요 한 판매 데이터가 로드 되는 시나리오를 고려해 보세요.  날씨 데이터와 같은 다른 원본에 대 한 데이터 로드에는 엄격한 Sla가 없습니다. 판매 데이터를 로드 하는 요청에 대해 높은 중요도를 설정 하 고 날씨 데이터를 로드 하는 요청에 중요도를 설정 하면 판매 데이터 로드에서 리소스에 처음으로 액세스 하 여 더 빨리 완료할 수 있습니다.
 
 ## <a name="importance-levels"></a>중요도 수준
 
-중요도의 다섯 가지 수준이 있습니다: 낮음, below_normal, 정상, above_normal, 및 높음.  중요도를 설정하지 않은 요청은 기본 정상 수준으로 할당됩니다. 중요도수준이 같은 요청은 현재 존재하는 동일한 일정 동작을 갖습니다.
+중요도는 low, below_normal, normal, above_normal 및 high의 5 가지입니다.  중요도를 설정 하지 않은 요청에는 normal의 기본 수준이 할당 됩니다. 중요도 수준이 같은 요청은 현재 존재 하는 일정 동작이 동일 합니다.
 
 ## <a name="importance-scenarios"></a>중요도 시나리오
 
-영업 및 날씨 데이터와 함께 위에서 설명한 기본 중요도 시나리오 외에도 워크로드 중요도가 데이터 처리 및 쿼리 요구 사항을 충족하는 데 도움이 되는 다른 시나리오가 있습니다.
+판매 및 날씨 데이터와 관련 하 여 위에서 설명한 기본 중요도 시나리오 외에도 워크 로드 중요도가 데이터 처리 및 쿼리 요구를 충족 하는 데 도움이 되는 다른 시나리오가 있습니다.
 
 ### <a name="locking"></a>잠금
 
-읽기 및 쓰기 활동에 대한 잠금에 대한 액세스는 자연스러운 경합의 한 영역입니다. [파티션 전환](sql-data-warehouse-tables-partition.md) 또는 [OBJECT 이름 바꾸기와](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 같은 활동에는 상승된 잠금이 필요합니다.  워크로드가 중요하지 않으면 Azure Synapse의 Synapse SQL 풀이 처리량에 맞게 최적화됩니다. 처리량에 대한 최적화는 실행 및 큐에 대기 중인 요청이 동일한 잠금 요구 사항이 있고 리소스를 사용할 수 있는 경우 큐에 대기중인 요청이 이전에 요청 큐에 도착한 더 높은 잠금 요구가 있는 요청을 우회할 수 있음을 의미합니다. 잠금 요구가 높은 요청에 워크로드 중요도가 적용되면 중요도가 높은 요청은 요청 전에 실행되며 중요도가 낮습니다.
+읽기 및 쓰기 작업의 잠금에 대 한 액세스는 자연 경합의 한 영역입니다. [파티션 전환](sql-data-warehouse-tables-partition.md) 또는 [개체 이름 바꾸기](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 와 같은 활동에는 상승 된 잠금이 필요 합니다.  워크 로드가 중요 하지 않은 경우 Azure Synapse의 Synapse SQL 풀은 처리량을 최적화 합니다. 처리량을 최적화 하는 것은 실행 중이 고 대기 중인 요청이 동일한 잠금 요구와 리소스를 사용할 수 있는 경우 지연 된 요청은 이전에 요청 큐에 도착 한 더 높은 잠금 요구가 있는 요청을 무시할 수 있음을 의미 합니다. 잠금 요구 사항이 높은 요청에 워크 로드 중요도가 적용 되 면 중요도가 더 높은 요청은 중요도가 낮은 요청 보다 먼저 실행 됩니다.
 
-다음과 같은 예제를 참조하세요.
+다음 예제를 참조하세요.
 
-- Q1은 SalesFact에서 데이터를 적극적으로 실행하고 선택하고 있습니다.
-- Q2는 Q1이 완료되기를 기다리는 대기 중입니다.  오전 9시에 제출되었으며 새 데이터를 SalesFact로 분할하려고 합니다.
-- Q3는 오전 9:01에 제출되며 SalesFact에서 데이터를 선택하려고 합니다.
+- Q1이 적극적으로 실행 중이 고 SalesFact에서 데이터를 선택 합니다.
+- Q2가 Q1이 완료 될 때까지 대기 하는 중입니다.  오전 9 시에서 전송 되었으며 새 데이터를 SalesFact로 분할 하려고 합니다.
+- Q3은 오전 9 시 오전 9 시에 제출 되며 SalesFact에서 데이터를 선택 하려고 합니다.
 
-2분기와 3분기의 중요성이 같고 1분기가 계속 실행 중이면 3분기실행이 시작됩니다. Q2는 SalesFact에서 독점적인 잠금을 계속 기다릴 것입니다.  2분기의 중요성이 3분기보다 높으면 3분기가 종료될 때까지 기다렸다가 실행을 시작할 수 있습니다.
+Q2와 Q3의 중요도가 같고 Q1이 여전히 실행 중이면 Q3은 실행을 시작 합니다. Q2는 SalesFact의 배타적 잠금을 계속 대기 합니다.  Q2의 중요성이 Q3 보다 높은 경우 Q3은 실행을 시작 하기 전에 Q2가 완료 될 때까지 기다립니다.
 
-### <a name="non-uniform-requests"></a>균일하지 않은 요청
+### <a name="non-uniform-requests"></a>균일 하지 않은 요청
 
-중요도가 쿼리 요구를 충족하는 데 도움이 될 수 있는 또 다른 시나리오는 다른 리소스 클래스의 요청이 제출되는 경우입니다.  앞에서 설명한 것처럼 Azure Synapse의 Synapse SQL 풀은 처리량을 최적화합니다. 혼합 크기 요청(예: smallrc 또는 mediumrc)이 큐에 대기되는 경우 Synapse SQL 풀은 사용 가능한 리소스 에 맞는 가장 빠른 도착 요청을 선택합니다. 워크로드 중요도가 적용되면 중요도가 가장 높은 요청이 다음에 예약됩니다.
+쿼리가 요청을 충족 하는 데 도움이 되는 또 다른 시나리오는 다른 리소스 클래스를 사용 하는 요청이 제출 되는 경우입니다.  앞에서 설명한 것 처럼 동일한 중요도에서 Azure Synapse의 Synapse SQL 풀은 처리량을 최적화 합니다. Smallrc 또는 mediumrc와 같은 혼합 크기 요청을 큐에 대기 하는 경우 Synapse SQL 풀은 사용 가능한 리소스에 맞는 가장 이른 도착 요청을 선택 합니다. 작업 중요도가 적용 되 면 가장 높은 중요도 요청이 다음에 예약 됩니다.
   
-DW500c의 다음 예제를 고려하십시오.
+DW500c에 대 한 다음 예제를 살펴보십시오.
 
-- Q1, Q2, Q3 및 Q4는 작은 쿼리를 실행하고 있습니다.
-- Q5는 오전 9시에 중간 rc 리소스 클래스와 함께 제출됩니다.
-- Q6은 오전 9:01에 smallrc 리소스 클래스로 제출됩니다.
+- Q1, Q2, Q3 및 Q4는 smallrc 쿼리를 실행 합니다.
+- Q5는 오전 9 시에서 mediumrc 리소스 클래스를 사용 하 여 제출 됩니다.
+- Q6는 smallrc 리소스 클래스를 사용 하 여 오전 9 시에 전송 됩니다.
 
-Q5는 mediumrc이기 때문에 두 개의 동시성 슬롯이 필요합니다. Q5는 실행 중인 쿼리 중 두 개가 완료될 때까지 기다려야 합니다.  그러나 실행 중인 쿼리(Q1-Q4) 중 하나가 완료되면 쿼리를 실행하기 위한 리소스가 존재하기 때문에 Q6가 즉시 예약됩니다.  Q5의 중요성이 Q6보다 높으면 Q6이 실행될 때까지 기다렸다가 실행을 시작할 수 있습니다.
+Q5는 mediumrc 이므로 두 개의 동시성 슬롯이 필요 합니다. Q5는 실행 중인 두 쿼리가 완료 될 때까지 대기 해야 합니다.  그러나 실행 중인 쿼리 (Q1-Q4) 중 하나가 완료 되 면 리소스는 쿼리를 실행 하기 때문에 Q6이 즉시 예약 됩니다.  Q5가 Q6 보다 중요도가 높은 경우 Q6는 실행을 시작할 수 있을 때까지 Q5가 실행 될 때까지 대기 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 분류자 만들기에 대한 자세한 내용은 [워크로드 분류자 만들기(Transact-SQL)를](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)참조하십시오.  
-- 워크로드 분류에 대한 자세한 내용은 [워크로드 분류](sql-data-warehouse-workload-classification.md)를 참조하십시오.  
-- 워크로드 분류기를 만드는 방법에 대한 빠른 시작 [워크로드 분류자 만들기를](quickstart-create-a-workload-classifier-tsql.md) 참조하십시오.
+- 분류자를 만드는 방법에 대 한 자세한 내용은 [워크 로드 분류자 만들기 (transact-sql)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조 하세요.  
+- 작업 분류에 대 한 자세한 내용은 [작업 분류](sql-data-warehouse-workload-classification.md)를 참조 하세요.  
+- 작업 분류자를 만드는 방법에 대 한 빠른 시작 [작업 분류자 만들기](quickstart-create-a-workload-classifier-tsql.md) 를 참조 하세요.
 - [워크로드 중요도 구성](sql-data-warehouse-how-to-configure-workload-importance.md) 및 [워크로드 관리 모니터링 및 관리](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md) 방법에 대한 문서를 참조하세요.
 - 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 88b903d68e4398b4e30b0b7435279c29bee6cd6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254483"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에 업데이트 1.1을 설치합니다.
@@ -58,7 +58,7 @@ StorSimple 가상 배열을 최신 상태로 유지하려면 소프트웨어 업
 * 업데이트 또는 핫픽스 설치
 
 > [!IMPORTANT] 
-> **업데이트 1(10.0.10296.0)을 실행하는 경우에만 이 업데이트를 진행합니다. 0.6 업데이트를 실행 중인 경우 먼저 장치에 [업데이트 1을 설치한](storsimple-virtual-array-install-update-1.md) 다음 업데이트 1.1을 적용합니다.**
+> **업데이트 1 (10.0.10296.0)을 실행 하는 경우에만이 업데이트를 진행 합니다. 업데이트 0.6을 실행 중인 경우 먼저 장치에 [업데이트 1을 설치한](storsimple-virtual-array-install-update-1.md) 다음 업데이트 1.1을 적용 합니다.**
 
 ### <a name="download-the-update-or-the-hotfix"></a>업데이트 또는 핫픽스 다운로드
 
@@ -66,7 +66,7 @@ StorSimple 가상 배열을 최신 상태로 유지하려면 소프트웨어 업
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>업데이트 또는 핫픽스를 다운로드하려면
 
-1. 인터넷 익스플로러를 시작하고 로 이동합니다. [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)
+1. Internet Explorer를 시작 하 고 [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)로 이동 합니다.
 
 2. 이 컴퓨터에서 Microsoft 업데이트 카탈로그를 처음 사용하는 경우 Microsoft 업데이트 카탈로그 추가 기능을 설치하라는 메시지가 나타나면 **설치**를 클릭합니다.
 
@@ -76,7 +76,7 @@ StorSimple 가상 배열을 최신 상태로 유지하려면 소프트웨어 업
    
     ![카탈로그 검색](./media/storsimple-virtual-array-install-update-11/download1.png)
 
-4. **다운로드**를
+4. **다운로드**를 클릭합니다.
 
 5. 폴더에 두 개의 파일을 다운로드합니다. 디바이스에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
 
@@ -99,7 +99,7 @@ StorSimple 가상 배열을 최신 상태로 유지하려면 소프트웨어 업
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>업데이트 또는 핫픽스를 설치하려면
 
-1. 로컬 웹 UI에서 **유지 관리** > **소프트웨어 업데이트로**이동합니다. 실행 중인 소프트웨어 버전을 기록해 둡니다. **업데이트 1(10.0.10296.0)을 실행하는 경우에만 이 업데이트를 진행합니다. 0.6 업데이트를 실행 중인 경우 먼저 장치에 [업데이트 1을 설치한](storsimple-virtual-array-install-update-1.md) 다음 업데이트 1.1을 적용합니다.**
+1. 로컬 웹 UI에서 **유지 관리** > **소프트웨어 업데이트**로 이동 합니다. 실행 중인 소프트웨어 버전을 기록해 둡니다. **업데이트 1 (10.0.10296.0)을 실행 하는 경우에만이 업데이트를 진행 합니다. 업데이트 0.6을 실행 중인 경우 먼저 장치에 [업데이트 1을 설치한](storsimple-virtual-array-install-update-1.md) 다음 업데이트 1.1을 적용 합니다.**
    
     ![디바이스 업데이트](./media/storsimple-virtual-array-install-update-11/update1m.png)
 
@@ -115,7 +115,7 @@ StorSimple 가상 배열을 최신 상태로 유지하려면 소프트웨어 업
    
     ![디바이스 업데이트](./media/storsimple-virtual-array-install-update-11/update5m.png)
 
-5. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 장치 소프트웨어가 업데이트되었는지 확인하려면 로컬 웹 UI에서 **유지 관리** > **소프트웨어 업데이트로**이동하십시오. 표시된 소프트웨어 버전은 업데이트 1.1의 경우 **10.0.0.0.0.10307**이어야 합니다.
+5. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 장치 소프트웨어가 업데이트 되었는지 확인 하려면 로컬 웹 UI에서 **유지 관리** > **소프트웨어 업데이트**로 이동 합니다. 표시된 소프트웨어 버전은 업데이트 1.1의 경우 **10.0.0.0.0.10307**이어야 합니다.
    
    > [!NOTE]
    > 로컬 웹 UI 및 Azure Portal에서 약간 다른 방법으로 소프트웨어 버전을 보고합니다. 예를 들어 같은 버전에 대해 로컬 웹 UI는 **10.0.0.0.0.10307**을, Azure Portal은 **10.0.10307.0**을 보고합니다.

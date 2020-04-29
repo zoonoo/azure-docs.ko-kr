@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 462f8dafdffa7ee01e6ccf7945a1abfdff90db42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254873"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>StorSimple 디바이스 관리자 서비스를 사용하여 작업 보기 및 관리(업데이트 3 이상)
@@ -41,7 +41,7 @@ ms.locfileid: "79254873"
 * **상태** – 실행 중, 완료, 취소, 실패, 취소 중 또는 완료되었으나 오류 발생입니다.
 * **엔터티** – 작업은 볼륨, 백업 정책 또는 디바이스에 연관될 수 있습니다. 예를 들어 복제 작업은 볼륨과 연관되는 반면, 예약된 백업 작업은 백업 정책과 연관됩니다. 디바이스 작업은 DR(재해 복구) 또는 복원 작업의 결과로 만들어집니다.
 * **디바이스** – 작업이 시작된 디바이스의 이름입니다.
-* **시작** - 작업이 시작된 시간입니다.
+* **시작** 시간 – 작업이 시작 된 시간입니다.
 * **기간** – 작업을 완료하는 데 필요한 시간입니다.
 
 작업 목록은 30초마다 새로 고쳐집니다.

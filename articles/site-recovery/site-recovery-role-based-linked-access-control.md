@@ -1,5 +1,5 @@
 ---
-title: Azure 사이트 복구에서 Azure 역할 기반 액세스 제어 관리
+title: Azure Site Recovery에서 Azure 역할 기반 액세스 제어 관리
 description: 이 문서에서는 RBAC(역할 기반 액세스 제어)를 적용하여 Azure Site Recovery 액세스를 관리하는 방법을 설명합니다.
 ms.service: site-recovery
 ms.date: 04/08/2019
@@ -7,15 +7,15 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257577"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)를 사용하여 Site Recovery 액세스 관리
 
-AZURE 역할 기반 액세스 제어(RBAC)를 사용하면 Azure에 대해 세분화된 액세스 관리가 가능합니다. RBAC를 사용하여 팀 내 책임을 구분하고, 특정 작업을 수행하는 데 필요한 사용자에게 특정 액세스 권한만 부여할 수 있습니다.
+Azure 역할 기반 access Control (RBAC)은 Azure에 대 한 세밀 한 액세스 관리를 가능 하 게 합니다. RBAC를 사용하여 팀 내 책임을 구분하고, 특정 작업을 수행하는 데 필요한 사용자에게 특정 액세스 권한만 부여할 수 있습니다.
 
 Azure Site Recovery는 Site Recovery 관리 작업을 제어하는 3가지 기본 제공 역할을 제공합니다. [Azure RBAC 기본 제공 역할](../role-based-access-control/built-in-roles.md)에 대해 알아보기
 
@@ -39,9 +39,9 @@ Azure Site Recovery를 사용하여 새 Virtual Machine을 Azure에 복제할 �
 >리소스 배포에 사용되는 배포 모델(Resource Manager/클래식)마다 적절한 권한이 추가되는지 확인합니다.
 
 > [!NOTE]
-> Azure VM에 대한 복제를 사용하도록 설정하고 사이트 복구에서 업데이트를 관리하도록 허용하려는 경우 복제를 사용하도록 설정하는 동안 새 자동화 계정을 만들 수도 있습니다. 볼트로 가입할 수도 있습니다.
+> Azure VM에 대 한 복제를 사용 하도록 설정 하 고 업데이트를 관리 하는 Site Recovery를 허용 하려면 복제를 사용 하도록 설정 하는 동안 새 Automation 계정을 만들 수도 있습니다 .이 경우 자격 증명 모음과 동일한 구독에 automation 계정을 만들 수 있는 권한도 필요 합니다.
 
-| **리소스 유형** | **배포 모델** | **사용 권한** |
+| **리소스 종류** | **배포 모델** | **사용 권한** |
 | --- | --- | --- |
 | 컴퓨팅 | 리소스 관리자 | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
@@ -74,7 +74,7 @@ Resource Manager 및 클래식 배포 모델에 대해 각각 'Virtual Machine �
 ## <a name="next-steps"></a>다음 단계
 * [역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md): Azure Portal에서 RBAC를 통해 시작합니다.
 * 다음을 사용하여 액세스를 관리하는 방법에 대해 알아봅니다.
-  * [Powershell](../role-based-access-control/role-assignments-powershell.md)
+  * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
-  * [나머지 API](../role-based-access-control/role-assignments-rest.md)
+  * [REST API](../role-based-access-control/role-assignments-rest.md)
 * [역할 기반 Access Control 문제 해결](../role-based-access-control/troubleshooting.md): 일반적인 문제를 수정하기 위한 제안 사항을 봅니다.

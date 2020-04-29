@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 201d0c0a545c5ba7ae1bb0b5e119f7acb1ae362f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268302"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export 서비스를 사용하여 Azure Files로 데이터 가져오기
@@ -21,7 +21,7 @@ ms.locfileid: "79268302"
 
 Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 지원합니다. Azure Files의 내보내기는 지원되지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 가져오기 작업을 만들어 Azure Files로 데이터를 전송하기 전에 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다. 다음이 필요합니다.
 
@@ -30,7 +30,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 - [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다.
 - [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템이 있어야 합니다.
 - Windows 시스템에서 [WAImportExport 버전 2를 다운로드](https://aka.ms/waiev2)합니다. `waimportexport` 기본 폴더에 압축을 풉니다. `C:\WaImportExport`)을 입력합니다.
-- FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 이동통신사를 사용하려면 Azure `adbops@microsoft.com`데이터 상자 운영 팀에 문의하십시오.  
+- FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우에 `adbops@microsoft.com`는 Azure Data Box 운영 팀에 문의 하세요.  
     - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
     - 내보내기 작업의 추적 번호를 생성합니다.
     - 모든 작업에는 별도의 추적 번호가 있어야 합니다. 추적 번호가 동일한 여러 작업은 지원되지 않습니다.
@@ -50,7 +50,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 2. 각 드라이브에 단일 NTFS 볼륨을 만듭니다. 볼륨에 드라이브 문자를 할당합니다. 탑재 지점은 사용하지 마세요.
 3. 도구가 있는 루트 폴더에서 *dataset.csv* 파일을 수정합니다. 파일 또는 폴더 중 하나 또는 둘 다를 가져올지에 따라 다음 예제와 비슷한 *dataset.csv* 파일에 항목을 추가합니다.  
 
-   - **파일을 가져오려면**: 다음 예제에서는 복사할 데이터가 F: 드라이브에 있습니다. *MyFile1.txt* 파일을 *MyAzureFileshare1*의 루트에 복사합니다. *MyAzureFileshare1*이 존재하지 않는 경우 Azure Storage 계정에 생성됩니다. 폴더 구조는 유지됩니다.
+   - **파일을 가져오려면**다음 예제에서 복사할 데이터가 F: 드라이브에 있습니다. *MyFile1.txt* 파일을 *MyAzureFileshare1*의 루트에 복사합니다. *MyAzureFileshare1*이 존재하지 않는 경우 Azure Storage 계정에 생성됩니다. 폴더 구조는 유지됩니다.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -120,7 +120,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 
     ![가져오기/내보내기로 이동](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. **가져오기/내보내기 작업 만들기를**클릭합니다.
+3. **가져오기/내보내기 작업 만들기**를 클릭 합니다.
 
     ![작업 가져오기/내보내기 클릭](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
@@ -145,7 +145,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 
 4. **반송 정보**에서:
 
-    - 드롭다운 목록에서 운송업체를 선택합니다. FedEx/DHL 이외의 이동통신사를 사용하려면 드롭다운에서 기존 옵션을 선택합니다. 사용할 이동통신사에 대한 `adbops@microsoft.com` 정보를 Azure 데이터 상자 운영 팀에 문의하십시오.
+    - 드롭다운 목록에서 운송업체를 선택합니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우 드롭다운에서 기존 옵션을 선택 합니다. 에서 `adbops@microsoft.com` 사용 하려는 운송 업체와 관련 된 정보를 사용 하 여 Azure Data Box 운영 팀에 문의 하세요.
     - 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. 가져오기 작업이 완료되면 Microsoft는 이 계정을 사용하여 사용자에게 드라이브를 배송합니다.
     - 완전하고 유효한 연락처 이름, 전화 번호, 이메일, 주소, 구/군/시, 우편 번호, 시/도 및 국가/지역을 제공합니다.
 

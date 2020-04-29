@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260333"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 액세스 제어
@@ -47,7 +47,7 @@ Azure Data Lake Storage Gen1은 HDFS에서 파생된 액세스 제어 모델을 
 
 |            |    파일     |   폴더 |
 |------------|-------------|----------|
-| **읽기(R)** | 파일의 내용을 읽을 수 있습니다. | 폴더의 내용을 나열하려면 **읽기** 및 **실행이** 필요합니다.|
+| **읽기(R)** | 파일의 내용을 읽을 수 있습니다. | 폴더의 내용을 나열 하려면 **읽기** 및 **실행** 이 필요 합니다.|
 | **쓰기(W)** | 쓰거나 파일에 추가할 수 있습니다. | 폴더에 자식 항목을 만들려면 **쓰기** 및 **실행**이 필요합니다. |
 | **실행(X)** | Data Lake Storage Gen1의 컨텍스트에서 아무것도 의미하지 않습니다. | 폴더의 자식 항목을 트래버스하는 데 필요합니다. |
 
@@ -75,8 +75,8 @@ Data Lake Storage Gen1 계정에서 특정 작업을 수행하는 데 필요한 
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | 읽기      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | 추가 | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| DELETE    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| 생성    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| 삭제    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| 만들기    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | 목록      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | 목록      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | 목록      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
@@ -216,9 +216,9 @@ def access_check( user, desired_perms, path ) :
 
 ### <a name="umask"></a>umask
 
-파일이나 폴더를 만들 때는 umask를 사용하여 자식 항목에서 기본 ACL이 설정되는 방식을 수정합니다. umask는 **사용자 소유,** 소유 그룹 및 **기타**에 대한 RWX 값을 포함하는 상위 폴더의 9비트 **값입니다.**
+파일이나 폴더를 만들 때는 umask를 사용하여 자식 항목에서 기본 ACL이 설정되는 방식을 수정합니다. umask는 **소유 사용자**, **소유 그룹**및 **기타**에 대 한 RWX 값을 포함 하는 부모 폴더의 9 비트 값입니다.
 
-Azure 데이터 레이크 저장소 Gen1의 umask는 007로 설정된 상수 값입니다. 이 값은 다음 표와 같이 변환됩니다.
+Azure Data Lake Storage Gen1에 대 한 umask는 007로 설정 된 상수 값입니다. 이 값은 다음 표와 같이 변환됩니다.
 
 | umask 구성 요소     | 숫자 형식 | 짧은 형식 | 의미 |
 |---------------------|--------------|------------|---------|
@@ -258,7 +258,7 @@ def set_default_acls_for_new_child(parent, child):
 * 삭제할 폴더와 그 안의 모든 폴더에는 **읽기 + 쓰기 + 실행** 권한이 필요합니다.
 
 > [!NOTE]
-> 폴더의 파일을 삭제하는 데에는 쓰기 권한이 필요하지 않습니다. 또한 루트 폴더 "/"는 삭제할 수 **없습니다.**
+> 폴더의 파일을 삭제하는 데에는 쓰기 권한이 필요하지 않습니다. 또한 "/" 루트 폴더는 **삭제할 수 없습니다** .
 >
 >
 
@@ -295,8 +295,8 @@ ACL의 항목은 Azure AD의 사용자에 해당하는 GUID로 저장됩니다. 
 * [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 * [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [리눅스에서 액세스 제어 목록을 사용 하 여 ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
+* [Linux에서 액세스 제어 목록을 사용 하는 ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)

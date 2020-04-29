@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 3c09a95309e001def306698bbba4f6d0a1a2804d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79255536"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 간에 데이터 복사
@@ -21,7 +21,7 @@ ms.locfileid: "79255536"
 
 DistCp는 다양한 명령줄 매개 변수를 제공하며, 이 도구의 사용을 최적화하기 위해 이 문서를 참조하는 것이 좋습니다. 이 문서에서는 데이터를 계층 구조 네임스페이스 사용 계정에 복사하는 데 집중하면서 기본적인 기능을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Data Lake Storage Gen2 기능(계층 구조 네임스페이스)을 사용하도록 설정되지 않은 기존 Azure Storage 계정**.
@@ -41,7 +41,7 @@ HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 �
 
     출력에서 컨테이너의 콘텐츠 목록을 제공해야 합니다.
 
-3. 마찬가지로 클러스터에서 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정에 액세스할 수 있는지 확인합니다. 다음 명령 실행:
+3. 마찬가지로 클러스터에서 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정에 액세스할 수 있는지 확인합니다. 다음 명령을 실행합니다.
 
         hdfs dfs -ls abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/
 
@@ -71,9 +71,9 @@ DistCp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 
 다음은 사용할 수 있는 몇 가지 지침입니다.
 
-* **1단계: '기본' YARN 앱 큐에서 사용할 수 있는 총 메모리 를 결정합니다** - 첫 번째 단계는 '기본' YARN 앱 큐에 사용할 수 있는 메모리를 확인하는 것입니다. 이 정보는 클러스터와 연결된 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동하여 Configs(구성) 탭을 보고 '기본' 앱 큐에서 사용할 수 있는 YARN 메모리 양을 확인합니다. 이는 DistCp 작업(실제로 MapReduce 작업임)에 사용할 수 있는 총 메모리 양입니다.
+* **1 단계: ' default ' YARN app queue에 사용할 수 있는 총 메모리를 확인** 합니다. 첫 번째 단계는 ' 기본 ' YARN app queue에 사용할 수 있는 메모리를 확인 하는 것입니다. 이 정보는 클러스터와 연결된 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동하여 Configs(구성) 탭을 보고 '기본' 앱 큐에서 사용할 수 있는 YARN 메모리 양을 확인합니다. 이는 DistCp 작업(실제로 MapReduce 작업임)에 사용할 수 있는 총 메모리 양입니다.
 
-* **2단계: 매퍼 수 계산** - **m** 값은 전체 YARN 메모리를 YARN 컨테이너 크기로 나눈 몫과 같습니다. YARN 컨테이너 크기 정보도 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동하여 구성 설정 탭을 봅니다. YARN 컨테이너 크기가 이 창에 표시됩니다. 매퍼 수(**m**)를 구하는 수식은 다음과 같습니다.
+* **2단계: 매퍼 수 계산** - **m** 값은 전체 YARN 메모리를 YARN 컨테이너 크기로 나눈 몫과 같습니다. YARN 컨테이너 크기 정보도 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동 하 여 Configs 탭을 확인 합니다. YARN 컨테이너 크기가이 창에 표시 됩니다. 매퍼 수(**m**)를 구하는 수식은 다음과 같습니다.
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 
@@ -85,7 +85,7 @@ DistCp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 
         YARN memory = 4 * 96GB = 384GB
 
-* **매퍼 수**: Ambari 포털에서 D14 클러스터 노드의 YARN 컨테이너 크기가 3,072MB임을 확인합니다. 따라서 매퍼 수는 다음과 같습니다.
+* **매퍼 수**: Ambari 포털에서 YARN 컨테이너 크기가 D14 클러스터 노드에 대해 3072 MB 임을 확인 합니다. 따라서 매퍼 수는 다음과 같습니다.
 
         m = (4 nodes * 96GB) / 3072MB = 128 mappers
 

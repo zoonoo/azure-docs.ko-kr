@@ -1,5 +1,5 @@
 ---
-title: 네트워크 성능 모니터 솔루션 서비스 연결 - Azure 로그 분석
+title: 네트워크 성능 모니터 솔루션 서비스 연결-Azure Log Analytics
 description: 네트워크 성능 모니터에서 서비스 연결 모니터 기능을 사용하여 열린 TCP 포트가 있는 모든 엔드포인트에 대한 네트워크 연결을 모니터링합니다.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
 ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249244"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
@@ -52,17 +52,17 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 서비스 엔드포인트에 대한 네트워크 연결을 모니터링하기 위한 테스트를 만들기 시작합니다.
 
 1. **서비스 연결 모니터** 탭을 선택합니다.
-2. **테스트 추가**를 선택하고 테스트 이름 및 설명을 입력합니다. 작업 영역당 최대 450개의 테스트를 만들 수 있습니다. 
+2. **테스트 추가**를 선택하고 테스트 이름 및 설명을 입력합니다. 작업 영역 당 최대 450 테스트를 만들 수 있습니다. 
 3. 테스트 유형을 선택합니다.<br>
 
     * **웹**을 선택하여 HTTP/S 요청에 응답하는 서비스(예: outlook.office365.com 또는 bing.com)에 대한 연결을 모니터링합니다.<br>
     * **네트워크**를 선택하여 TCP 요청에 응답하지만 HTTP/S 요청에 응답하지 않는 서비스(예: SQL Server, FTP 서버 Ehsms SSH 포트)에 대한 연결을 모니터링합니다. 
-    * 예를 들어 Blob 저장소 계정에 웹 테스트를 만들려면 **웹을** 선택하고 저장소 계정 .blob.core.windows.net 대상으로 *입력합니다.* 마찬가지로 이 링크를 사용하여 다른 테이블 저장소, 큐 저장소 및 Azure 파일에 대한 테스트를 만들 수 [있습니다.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * 예: blob 저장소 계정에 대 한 웹 테스트를 만들려면 **웹** 을 선택 하 고 대상을 blob.core.windows.net *로 입력 합니다.* 마찬가지로 [이 링크](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints) 를 사용 하 여 다른 테이블 저장소, 큐 저장소 및 Azure Files에 대 한 테스트를 만들 수 있습니다.
 4. 네트워크 대기 시간, 패킷 손실 및 토폴로지 검색과 같은 네트워크 측정을 수행하지 않으려는 경우 **네트워크 측정 수행** 확인란의 선택을 취소합니다. 이 기능을 최대한 활용하기 위해 이 옵션을 선택해 둡니다. 
 5. **대상**에서 네트워크 연결을 모니터링하려는 URL/FQDN/IP 주소를 입력합니다.
 6. **포트 번호**에서 대상 서비스의 포트 번호를 입력합니다. 
 7. **테스트 빈도**에서 테스트를 실행하려는 빈도에 대한 값을 입력합니다. 
-8. 서비스에 대한 네트워크 연결을 모니터링하려는 노드를 선택합니다. 테스트당 추가된 에이전트 수가 150개 미만인지 확인합니다. 모든 에이전트는 최대 150개의 끝점/에이전트를 테스트할 수 있습니다.
+8. 서비스에 대한 네트워크 연결을 모니터링하려는 노드를 선택합니다. 테스트 별로 추가 된 에이전트 수가 150 미만 인지 확인 합니다. 모든 에이전트는 최대 150 끝점/에이전트를 테스트할 수 있습니다.
 
     >[!NOTE]
     > Windows 서버 기반 노드의 경우 이 기능은 TCP 기반 요청을 사용하여 네트워크 측정을 수행합니다. Windows 클라이언트 기반 노드의 경우 이 기능은 ICMP 기반 요청을 사용하여 네트워크 측정을 수행합니다. 경우에 따라 노드가 Windows 클라이언트에 기반하는 경우 대상 애플리케이션은 들어오는 ICMP 기반 요청을 차단합니다. 솔루션은 네트워크 측정을 수행할 수 없습니다. 이러한 경우에 Windows Server 기반 노드를 사용하는 것이 좋습니다. 
@@ -121,14 +121,14 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 * 애플리케이션이 느리게 실행되는 경우 애플리케이션 성능 저하가 네트워크 때문인지 또는 애플리케이션 공급자 끝의 문제 때문인지 확인합니다.
 
-## <a name="gcc-office-urls-for-us-government-customers"></a>미국 정부 고객을 위한 GCC 오피스 URL
-미국 정부 버지니아 지역의 경우 DOD URL만 NPM이 내장되어 있습니다. GCC URL을 사용하는 고객은 사용자 지정 테스트를 만들고 각 URL을 개별적으로 추가해야 합니다.
+## <a name="gcc-office-urls-for-us-government-customers"></a>미국 정부 고객용 GCC Office Url
+미국 정부 버지니아 지역에서는 DOD Url만 기본 제공 NPM 합니다. GCC Url을 사용 하는 고객은 사용자 지정 테스트를 만들고 각 URL을 개별적으로 추가 해야 합니다.
 
 | 필드 | GCC |
 |:---   |:--- |
 | Office 365 포털 및 공유 | portal.apps.mil |
-| 사무실 365 인증 및 ID | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
-| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www.office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
+| Office 365 인증 및 id | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
+| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
 | Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
 | MS 팀 | gov.teams.microsoft.us | 
 
