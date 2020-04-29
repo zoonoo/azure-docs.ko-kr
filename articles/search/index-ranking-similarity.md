@@ -1,34 +1,36 @@
 ---
-title: 유사성 순위 알고리즘
+title: 유사성 알고리즘 순위 지정
 titleSuffix: Azure Cognitive Search
-description: 순위에 대한 새로운 유사성 알고리즘을 시도하기 위해 유사성 알고리즘을 설정하는 방법
+description: 유사성 알고리즘을 설정 하 여 순위를 지정 하는 새로운 유사성 알고리즘을 시도 하는 방법
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.openlocfilehash: c327440649300533c94c2a1956e3c45f433c9780
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1975c13162316b4132bae34659b1c5af8e416573
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409974"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231614"
 ---
-# <a name="ranking-algorithm-in-azure-cognitive-search"></a>Azure 인지 검색의 순위 알고리즘
+# <a name="ranking-algorithm-in-azure-cognitive-search"></a>Azure Cognitive Search의 순위 알고리즘
 
 > [!IMPORTANT]
-> 2020년 7월 15일부터 새로 생성된 검색 서비스는 BM25 순위 함수를 사용하며, 대부분의 경우 현재 기본 순위보다 사용자 기대치에 더 잘 부합하는 검색 순위를 제공합니다.  BM25는 우수한 순위 외에도 문서 크기와 같은 요인에 따라 결과를 조정하기 위한 구성 옵션을 사용할 수 있습니다.  
+> 2020 년 7 월 15 일부 터 새로 생성 된 검색 서비스는 자동으로 BM25 순위 함수를 사용 합니다 .이 함수는 대부분의 경우에는 현재 기본 순위 보다 사용자 기대치에 맞게 더 잘 맞춘 검색 순위를 제공 합니다. BM25는 상위 순위를 넘어 문서 크기와 같은 요소에 따라 결과를 조정 하는 구성 옵션도 가능 합니다.  
 >
-> 이 변경 사항으로 검색 결과 순서에 약간의 변경 사항이 표시 될 가능성이 높습니다.   이러한 변경의 영향을 테스트하려는 사람들을 위해 2019-05-06-Preview API에서 BM25가 새 인덱스에 대해 점수를 매길 수 있도록 했습니다.  
+> 이러한 변경으로 인해 검색 결과의 순서가 약간 변경 될 수 있습니다. 이러한 변경의 영향을 테스트 하려는 사용자의 경우 BM25 알고리즘은 api 버전 2019-05-06-미리 보기에서 사용할 수 있습니다.  
 
-이 문서에서는 2020년 7월 15일 이전에 만든 서비스를 업데이트하여 새 BM25 순위 알고리즘을 사용하는 방법에 대해 설명합니다.
+이 문서에서는 미리 보기 API를 사용 하 여 만들고 쿼리 하는 새 인덱스에 대해 기존 검색 서비스에서 새로운 BM25 순위 알고리즘을 사용 하는 방법을 설명 합니다.
 
-Azure 인지 검색은 이전에 사용된 *ClassicSimilarity* 구현을 대체할 Okapi BM25 알고리즘 *BM25유사성의*공식 Lucene 구현을 사용합니다. 이전 ClassicSimilarity 알고리즘과 마찬가지로 BM25Similarity는 TF(주파수)와 역문서 빈도(IDF)를 변수로 사용하여 각 문서 쿼리 쌍에 대한 관련성 점수를 계산하는 TF-IDF와 유사한 검색 함수입니다. 순위에 사용됩니다. BM25는 이전 Classic 유사성 알고리즘과 개념적으로 유사하지만 확률적 정보 검색의 루트를 사용하여 이를 개선합니다. 또한 BM25는 사용자가 관련성 점수가 일치하는 용어의 빈도로 어떻게 확장되는지 결정할 수 있도록 하는 고급 사용자 지정 옵션을 제공합니다.
+Azure Cognitive Search은 이전에 사용 된 *ClassicSimilarity* 구현을 대체 하는 OKAPI BM25 algorithm *BM25Similarity*의 공식 Lucene 구현을 채택 하는 과정에 있습니다. 이전 ClassicSimilarity 알고리즘과 마찬가지로 BM25Similarity는 용어 빈도 (TF) 및 역 문서 주기 (IDF)를 변수로 사용 하 여 각 문서-쿼리 쌍의 관련성 점수를 계산 하는 데 사용 하는 TF-IDF와 유사한 검색 함수 이며 순위에 사용 됩니다. 
 
-## <a name="how-to-test-bm25-today"></a>오늘 BM25를 테스트하는 방법
+이전 클래식 유사성 알고리즘과 개념적으로 유사 하지만 BM25는 확률 정보 검색에서 루트를 사용 하 여이를 개선 합니다. 또한 BM25는 사용자가 관련성 점수가 일치 조건에 따라 확장 되는 방식을 결정할 수 있도록 허용 하는 고급 사용자 지정 옵션을 제공 합니다.
 
-새 인덱스를 만들 때 "유사성" 속성을 설정할 수 있습니다. 아래와 같이 *2019-05-06-Preview* 버전을 사용해야 합니다.
+## <a name="how-to-test-bm25-today"></a>지금 BM25을 테스트 하는 방법
+
+새 인덱스를 만들 때 **유사성** 속성을 설정 하 여 알고리즘을 지정할 수 있습니다. 아래와 같이 `api-version=2019-05-06-Preview`를 사용 해야 합니다.
 
 ```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview
@@ -57,32 +59,35 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 }
 ```
 
-2020년 7월 15일 이전에 만든 서비스의 경우: 유사성을 생략하거나 null로 설정된 경우 인덱스는 이전 클래식 유사성 알고리즘을 사용합니다.
+**유사성** 속성은이 중간 기간 동안 기존 서비스 에서만 두 알고리즘을 모두 사용할 수 있는 경우에 유용 합니다. 
 
-2020년 7월 15일 이후에 만든 서비스의 경우: 유사성을 생략하거나 null로 설정된 경우 인덱스는 새 BM25 유사성 알고리즘을 사용합니다.
+| 속성 | 설명 |
+|----------|-------------|
+| 유사성 | 선택 사항입니다. 유효한 값에는 *#Microsoft "ClassicSimilarity"* 또는 *#Microsoft "BM25Similarity"* 가 포함 됩니다. <br/> 2020 `api-version=2019-05-06-Preview` 년 7 월 15 일 이전에 생성 된 검색 서비스에서 이상을 사용 해야 합니다. |
 
-또한 유사성 값을 *"#Microsoft.Azure.Search.ClassicSimilarity"* 또는 *"#Microsoft.Azure.Search.BM25유사성"* 중 하나로 명시적으로 설정할 수 있습니다.
+2020 년 7 월 15 일 이후에 만들어진 새 서비스의 경우 BM25이 자동으로 사용 되며 유일한 유사성 알고리즘입니다. 새 서비스에서 **유사성** 을로 `ClassicSimilarity` 설정 하려고 하면 새 서비스에서 해당 알고리즘이 지원 되지 않기 때문에 400 오류가 반환 됩니다.
 
+2020 년 7 월 15 일 이전에 만든 기존 서비스의 경우 클래식 유사성은 기본 알고리즘으로 유지 됩니다. **유사성** 속성이 생략 되거나 null로 설정 된 경우 인덱스는 클래식 알고리즘을 사용 합니다. 새 알고리즘을 사용 하려는 경우 위에 설명 된 대로 **유사성** 을 설정 해야 합니다.
 
 ## <a name="bm25-similarity-parameters"></a>BM25 유사성 매개 변수
 
-BM25 유사성은 계산된 관련성 점수를 제어하기 위해 두 개의 사용자 사용자 지정 가능한 매개 변수를 추가합니다.
+BM25 유사성은 계산 된 관련성 점수를 제어 하기 위해 두 개의 사용자 지정 가능 매개 변수를 추가 합니다.
 
 ### <a name="k1"></a>k1
 
-*k1* 매개 변수는 각 일치 하는 용어의 용어 주파수 문서 쿼리 쌍의 최종 관련성 점수 사이의 크기 조정 함수를 제어 합니다.
+*K1* 매개 변수는 각 일치 조건의 용어 빈도와 문서 쿼리 쌍의 최종 관련성 점수 간의 크기 조정 함수를 제어 합니다.
 
-값이 0이면 "이진 모델"을 나타내며, 단일 일치 기간의 기여도는 텍스트에 표시되는 횟수에 관계없이 모든 일치하는 문서에 대해 동일하며, k1 값이 클수록 점수가 계속 증가할 수 있습니다. 동일한 용어의 인스턴스가 문서에서 찾을 수 있습니다. 기본적으로 Azure Cognitive Search는 k1 매개 변수에 대해 1.2 값을 사용합니다. 더 높은 k1 값을 사용하는 것은 여러 용어가 검색 쿼리의 일부가 될 것으로 예상되는 경우에 중요할 수 있습니다. 이러한 경우 단일 쿼리와 여러 번 일치하는 문서에서 검색되는 많은 다른 쿼리 용어와 일치하는 문서를 선호할 수 있습니다. 예를 들어, "아폴로 우주 비행"이라는 용어가 포함된 문서에 대한 인덱스를 쿼리할 때 "우주 비행"에 비해 "아폴로"라는 용어가 포함된 그리스 신화에 대한 기사의 점수를 수십 번 낮출 수 있습니다. 명시적으로 "아폴로"와 "우주 비행"시간의 소수를 모두 언급 하는 또 다른 기사. 
+값이 0 인 "이진 모델"은 해당 용어가 텍스트에 표시 되는 횟수에 관계 없이 일치 하는 모든 문서에 대해 동일 하지만, 더 큰 k1 값을 사용 하면 동일한 용어의 인스턴스가 문서에 모두 있는 경우 점수를 계속 증가 시킬 수 있습니다. 기본적으로 Azure Cognitive Search는 k1 매개 변수에 1.2 값을 사용 합니다. 여러 용어가 검색 쿼리의 일부가 될 것으로 생각 되는 경우 더 높은 k1 값을 사용 하는 것이 중요할 수 있습니다. 이러한 경우에는 여러 다른 쿼리 용어와 일치 하는 문서를 한 번만 일치 하는 문서를 여러 번 검색 하는 것이 좋습니다. 예를 들어 "아폴로 Spaceflight" 라는 용어를 포함 하는 문서에 대 한 인덱스를 쿼리할 때 "아폴로" 및 "Spaceflight"를 모두 명확 하 게 설명 하는 다른 문서와 비교 하 여 "Spaceflight" 라는 용어를 포함 하지 않고 "아폴로" 라는 용어를 몇 번만 포함 하는 문서의 점수를 낮출 수 있습니다. 
  
 ### <a name="b"></a>b
 
-*b* 매개변수는 문서 길이가 관련성 점수에 미치는 영향을 제어합니다.
+*B* 매개 변수는 문서의 길이가 관련성 점수에 미치는 영향을 제어 합니다.
 
-값이 0.0이면 문서 길이가 점수에 영향을 미치지 않고 값이 1.0이면 관련성 점수에 대한 용어 빈도의 영향이 문서 길이에 따라 정규화됨을 의미합니다. b 매개 변수에 대한 Azure 인지 검색에 사용되는 기본값은 0.75입니다. 문서 길이에 따라 빈도라는 용어를 정규화하면 더 긴 문서를 처벌하려는 경우에 유용합니다. 경우에 따라 더 긴 문서(예: 전체 소설)는 훨씬 짧은 문서에 비해 관련이 없는 용어가 많이 포함될 가능성이 높습니다.
+0.0 값은 문서의 길이가 점수에 영향을 주지 않음을 의미 하는 반면, 1.0 값은 문서 길이로 관련성 점수에 대 한 용어 빈도의 영향을 정규화 함을 의미 합니다. B 매개 변수에 대 한 Azure Cognitive Search에 사용 되는 기본값은 0.75입니다. 문서 길이의 용어 빈도를 정규화 하는 것은 긴 문서를 penalize 하는 경우에 유용 합니다. 경우에 따라 긴 문서에 비해 긴 문서 (예: 전체 novel)에 관련성이 많은 용어가 포함 될 가능성이 높습니다.
 
-### <a name="setting-k1-and-b-parameters"></a>k1 및 b 매개변수 설정
+### <a name="setting-k1-and-b-parameters"></a>K1 및 b 매개 변수 설정
 
-b 또는 k1 값을 사용자 지정하려면 BM25를 사용할 때 유사성 개체에 속성으로 추가하기만 하면 됩니다.
+B 또는 k1 값을 사용자 지정 하려면 BM25를 사용할 때 유사성 개체에 속성으로 추가 하면 됩니다.
 
 ```json
     "similarity": {
@@ -92,16 +97,15 @@ b 또는 k1 값을 사용자 지정하려면 BM25를 사용할 때 유사성 개
     }
 ```
 
-유사성 알고리즘은 인덱스 생성 시에만 설정할 수 있습니다. 즉, 사용 중인 유사성 알고리즘은 기존 인덱스에 대해 변경할 수 없습니다. BM25를 사용하는 기존 인덱스 정의를 업데이트할 때 *"b"* 및 *"k1"* 매개변수를 수정할 수 있습니다. 기존 인덱스에서 이러한 값을 변경하면 인덱스가 몇 초 이상 오프라인 상태가 되어 인덱싱 및 쿼리 요청이 실패합니다. 따라서 업데이트 요청의 쿼리 문자열에서 "allowIndexDowntime=true" 매개 변수를 설정해야 합니다.
+유사성 알고리즘은 인덱스를 만들 때에만 설정할 수 있습니다. 이는 기존 인덱스에 대해 사용 중인 유사성 알고리즘을 변경할 수 없음을 의미 합니다. *"B"* 및 *"k1"* 매개 변수는 BM25를 사용 하는 기존 인덱스 정의를 업데이트할 때 수정할 수 있습니다. 기존 인덱스에서 해당 값을 변경 하면 최소한 몇 초 동안 인덱스를 오프 라인 상태로 전환 하므로 인덱싱 및 쿼리 요청이 실패 합니다. 따라서 업데이트 요청의 쿼리 문자열에서 "allowIndexDowntime 중지 시간 = true" 매개 변수를 설정 해야 합니다.
 
 ```http
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
 ```
 
-
 ## <a name="see-also"></a>참조  
 
- [Azure 인지 검색 REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [인덱스에 점수 매기기 프로필 추가](index-add-scoring-profiles.md)    
- [Azure 인지 검색 REST API&#41;&#40;인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)   
-  [Azure 인지 검색 .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
++ [REST API 참조](https://docs.microsoft.com/rest/api/searchservice/)   
++ [인덱스에 점수 매기기 프로필 추가](index-add-scoring-profiles.md)    
++ [인덱스 API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)   
++ [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/10/2020
+ms.date: 04/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c35f85b9ec5d86d1cd61f165b891c576c06a03db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f7beccde92030d1e01633f4e4044849d7e91d05
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "78967262"
+ms.locfileid: "82229955"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 SAML 토큰 발급자의 기술 프로필을 정의 합니다.
 
@@ -33,7 +33,7 @@ Azure AD B2C(Azure Active Directory B2C)는 각 인증 흐름을 처리할 때 �
 ```XML
 <TechnicalProfile Id="Saml2AssertionIssuer">
   <DisplayName>Token Issuer</DisplayName>
-  <Protocol Name="None"/>
+  <Protocol Name="SAML2"/>
   <OutputTokenFormat>SAML2</OutputTokenFormat>
   <Metadata>
     <Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>
@@ -44,7 +44,7 @@ Azure AD B2C(Azure Active Directory B2C)는 각 인증 흐름을 처리할 때 �
   </CryptographicKeys>
   <InputClaims/>
   <OutputClaims/>
-  <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-sp"/>
+  <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-issuer"/>
 </TechnicalProfile>
 ```
 
@@ -54,7 +54,7 @@ Azure AD B2C(Azure Active Directory B2C)는 각 인증 흐름을 처리할 때 �
 
 ## <a name="metadata"></a>메타데이터
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | IssuerUri | 아니요 | SAML 응답에 표시 되는 발급자 이름입니다. 값은 신뢰 당사자 응용 프로그램에 구성 된 이름과 같아야 합니다. |
 
@@ -62,7 +62,7 @@ Azure AD B2C(Azure Active Directory B2C)는 각 인증 흐름을 처리할 때 �
 
 CryptographicKeys 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | MetadataSigning | 예 | SAML 메타데이터에 서명을 하는 데 사용할 X509 인증서(RSA 키 집합)입니다. Azure AD B2C는 이 키를 사용하여 메타데이터에 서명을 합니다. |
 | SamlMessageSigning| 예| SAML 메시지에 서명 하는 데 사용할 X509 인증서 (RSA 키 집합)를 지정 합니다. Azure AD B2C는이 키를 사용 하 여 `<samlp:Response>` 신뢰 당사자에 게 보내기 응답을 서명 합니다.|

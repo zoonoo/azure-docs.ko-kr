@@ -6,21 +6,22 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: f386530ffb3a074a5c1db1d9f28535d28c8b1284
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seoapr2020
+ms.date: 04/28/2020
+ms.openlocfilehash: 77623a89e52a5e15fbb4159ff49d9377e53e7d4c
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78252417"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509536"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Hive Warehouse 커넥터를 사용하여 Apache Spark 및 Apache Hive 통합
 
-HWC (Apache Hive 웨어하우스 커넥터)는 Spark 데이터 프레임와 Hive 테이블 간에 데이터를 이동 하는 등의 작업을 지원 하 고 Spark 스트리밍 데이터를 Hive 테이블로 전송 하는 등의 작업을 지원 하 여 Apache Spark 및 Apache Hive을 보다 쉽게 사용할 수 있도록 하는 라이브러리입니다. Hive 웨어하우스 커넥터는 Spark와 Hive 간의 브리지 처럼 작동 합니다. 개발을 위한 Scala, Java 및 Python을 지원 합니다.
+HWC (Apache Hive 웨어하우스 커넥터)는 Apache Spark 및 Apache Hive에서 보다 쉽게 작업할 수 있도록 하는 라이브러리입니다. Spark 데이터 프레임와 Hive 테이블 간에 데이터를 이동 하는 등의 작업을 더 쉽게 지원할 수 있습니다. 그리고 Spark 스트리밍 데이터를 Hive 테이블로 전송 합니다. Hive 웨어하우스 커넥터는 Spark와 Hive 간의 브리지 처럼 작동 합니다. 개발을 위한 Scala, Java 및 Python을 지원 합니다.
 
-Hive 웨어하우스 커넥터를 사용 하면 Hive 및 Spark의 고유한 기능을 활용 하 여 강력한 빅 데이터 응용 프로그램을 빌드할 수 있습니다. Apache Hive는 ACID (원자성, 일관성, 격리성 및 내구성) 인 데이터베이스 트랜잭션에 대 한 지원을 제공 합니다. Hive의 ACID 및 트랜잭션에 대 한 자세한 내용은 [Hive 트랜잭션](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions)을 참조 하세요. 또한 Hive는 Apache Spark에서 사용할 수 없는 Apache 레인저 및 짧은 대기 시간 분석 처리를 통해 자세한 보안 제어를 제공 합니다.
+Hive 웨어하우스 커넥터를 사용 하면 Hive 및 Spark 고유의 기능을 활용할 수 있습니다. 강력한 빅 데이터 응용 프로그램을 빌드하는 데 사용 되는 기능입니다. Apache Hive는 ACID (원자성, 일관성, 격리성 및 내구성) 인 데이터베이스 트랜잭션에 대 한 지원을 제공 합니다. Hive의 ACID 및 트랜잭션에 대 한 자세한 내용은 [Hive 트랜잭션](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions)을 참조 하세요. 또한 Hive는 Apache Spark에서 사용할 수 없는 Apache 레인저 및 짧은 대기 시간 분석 처리를 통해 자세한 보안 제어를 제공 합니다.
 
-Apache Spark에는 Apache Hive에서 사용할 수 없는 스트리밍 기능을 제공 하는 구조적 스트리밍 API가 있습니다. HDInsight 4.0부터 Apache Spark 2.3.1 및 Apache Hive 3.1.0에는 별도의 metastore 있으므로 상호 운용성이 어려워질 수 있습니다. Hive Warehouse Connector를 통해 보다 쉽게 Spark 및 Hive를 함께 사용할 수 있습니다. HWC 라이브러리는 LLAP 디먼에서 Spark 실행 기에 병렬로 데이터를 로드 하 여 Spark에서 Hive로 표준 JDBC 연결을 사용 하는 것 보다 효율적이 고 확장 가능 합니다.
+Apache Spark에는 Apache Hive에서 사용할 수 없는 스트리밍 기능을 제공 하는 구조적 스트리밍 API가 있습니다. HDInsight 4.0부터 Apache Spark 2.3.1 및 Apache Hive 3.1.0에는 별도의 metastore가 있습니다. 이러한 개별 metastore는 상호 운용성을 어렵게 만들 수 있습니다. Hive Warehouse Connector를 통해 보다 쉽게 Spark 및 Hive를 함께 사용할 수 있습니다. HWC 라이브러리는 LLAP (낮은 대기 시간 분석 처리)의 데이터를 Spark 실행자와 병렬로 로드 합니다. 이 작업을 통해 Spark에서 Hive로 표준 JDBC 연결을 사용 하는 것 보다 효율적이 고 편리 합니다.
 
 ![hive 웨어하우스 커넥터 아키텍처](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
@@ -72,9 +73,9 @@ Spark Ambari 웹 UI에서 **Spark2** > **CONFIGS** > **Custom Spark2-defaults**�
 
 ![Apache Ambari Spark2 구성](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-다음을 추가/업데이트 하기 위해 필요에 따라 **속성 추가** ...를 선택 합니다.
+다음 값을 추가/업데이트 하려면 필요에 따라 **속성 추가** ...를 선택 합니다.
 
-| 키 | 값 |
+| Key | 값 |
 |----|----|
 |`spark.hadoop.hive.llap.daemon.service.hosts`|이전에 **hive**.. a l a.|
 |`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`. 대화형 쿼리 클러스터의 Hiveserver2에 연결 하는 JDBC 연결 문자열로 설정 합니다. 을 `LLAPCLUSTERNAME` 대화형 쿼리 클러스터의 이름으로 바꿉니다. 실제 `PWD` 암호로 대체 합니다.|
@@ -122,9 +123,9 @@ Spark 셸 세션을 시작 하려면 다음 단계를 수행 합니다.
 
 ### <a name="connecting-and-running-queries-on-enterprise-security-package-esp-clusters"></a>Enterprise Security Package (ESP) 클러스터에서 쿼리 연결 및 실행
 
-Enterprise Security Package (ESP)는 Active Directory 기반 인증, 다중 사용자 지원 및 Azure HDInsight의 Apache Hadoop 클러스터에 대 한 역할 기반 액세스 제어와 같은 엔터프라이즈급 기능을 제공 합니다. ESP에 대 한 자세한 내용은 [HDInsight에서 Enterprise Security Package 사용](../domain-joined/apache-domain-joined-architecture.md)을 참조 하세요.
+Enterprise Security Package (ESP)는 Active Directory 기반 인증과 같은 엔터프라이즈급 기능을 제공 합니다. 및 다중 사용자 지원 및 Azure HDInsight의 Apache Hadoop 클러스터에 대 한 역할 기반 액세스 제어. ESP에 대 한 자세한 내용은 [HDInsight에서 Enterprise Security Package 사용](../domain-joined/apache-domain-joined-architecture.md)을 참조 하세요.
 
-1. Apache Spark 클러스터의 헤드 노드로 SSH를 합니다. SSH를 사용 하 여 클러스터에 연결 하는 방법에 대 한 자세한 내용은 [ssh를 사용 하 여 HDInsight에 연결 (Apache Hadoop)](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조 하세요.
+1. Apache Spark 클러스터의 헤드 노드로 SSH를 합니다.
 
 1. 을 `kinit` 입력 하 고 도메인 사용자로 로그인 합니다.
 
@@ -181,7 +182,7 @@ Spark는 기본적으로 Hive의 관리 되는 ACID 테이블에 쓰기를 지�
 
 Hive 웨어하우스 커넥터를 사용 하 여 Spark 스트리밍을 사용 하 여 데이터를 Hive 테이블에 쓸 수 있습니다.
 
-다음 단계를 수행 하 여 localhost 포트 9999의 Spark 스트림에서 데이터를 수집 하는 Hive 웨어하우스 커넥터 예제를 Hive 테이블에 만듭니다.
+다음 단계를 수행 하 여 Hive 웨어하우스 커넥터를 만듭니다. 이 예에서는 localhost 포트 9999의 Spark 스트림에서 데이터를 Hive 테이블로 수집 합니다.
 
 1. [쿼리 연결 및 실행](#connecting-and-running-queries)의 단계를 따릅니다.
 
@@ -193,7 +194,7 @@ Hive 웨어하우스 커넥터를 사용 하 여 Spark 스트리밍을 사용 �
 
 1. 다음 단계를 수행 하 여 만든 Spark 스트림에 대 한 데이터를 생성 합니다.
     1. 동일한 Spark 클러스터에서 두 번째 SSH 세션을 엽니다.
-    1. 명령 프롬프트에서 `nc -lk 9999`를 입력합니다. 이 명령은 netcat 유틸리티를 사용 하 여 명령줄에서 지정 된 포트로 데이터를 보냅니다.
+    1. 명령 프롬프트에서 `nc -lk 9999`를 입력합니다. 이 명령은 `netcat` 유틸리티를 사용 하 여 명령줄에서 지정 된 포트로 데이터를 보냅니다.
 
 1. 첫 번째 SSH 세션으로 돌아가서 스트리밍 데이터를 보관할 새 Hive 테이블을 만듭니다. Spark-셸에서 다음 명령을 입력 합니다.
 
@@ -224,7 +225,7 @@ Hive 웨어하우스 커넥터를 사용 하 여 Spark 스트리밍을 사용 �
     hive.table("stream_table").show()
     ```
 
-**Ctrl + C** 를 사용 하 여 두 번째 SSH 세션에서 netcat을 중지 합니다. 를 `:q` 사용 하 여 첫 번째 SSH 세션에서 spark-셸을 종료 합니다.
+**Ctrl + C** 를 사용 하 `netcat` 여 두 번째 SSH 세션에서 중지 합니다. 를 `:q` 사용 하 여 첫 번째 SSH 세션에서 spark-셸을 종료 합니다.
 
 ### <a name="securing-data-on-spark-esp-clusters"></a>Spark ESP 클러스터에서 데이터 보호
 
@@ -253,7 +254,7 @@ Hive 웨어하우스 커넥터를 사용 하 여 Spark 스트리밍을 사용 �
 
         ![hive 웨어하우스 커넥터 레인저 hive 정책 목록](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
 
-    a. 원하는 정책 이름을 제공 합니다. **마스킹 옵션 선택** 메뉴에서 데이터베이스: **기본값**, hive 테이블: **데모**, hive 열: **이름**, 사용자: **rsadmin2**, 액세스 형식: **선택**및 **부분 마스크: 마지막 4 표시** 를 선택 합니다. **추가**를 클릭합니다.
+    a. 정책 이름을 제공 합니다. **마스킹 옵션 선택** 메뉴에서 데이터베이스: **기본값**, hive 테이블: **데모**, hive 열: **이름**, 사용자: **rsadmin2**, 액세스 형식: **선택**및 **부분 마스크: 마지막 4 표시** 를 선택 합니다. **추가**를 클릭합니다.
                 ![정책 만들기](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. 테이블의 내용을 다시 봅니다. 레인저 정책을 적용 한 후에는 열의 마지막 4 자만 볼 수 있습니다.
 

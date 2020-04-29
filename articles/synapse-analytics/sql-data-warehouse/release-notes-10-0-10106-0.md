@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: fce60a10818943a9c6d420044d97c0c5b803de32
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 813baba37684525c336bc34a49e496f54a19288d
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82133327"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509740"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Azure Synapse Analytics 릴리스 정보
 
@@ -25,9 +25,10 @@ ms.locfileid: "82133327"
 
 ## <a name="check-your-azure-synapse-version"></a>Azure Synapse 버전 확인
 
-새 기능이 모든 지역에 롤아웃 됨에 따라 인스턴스에 배포 된 버전과 기능 가용성에 대 한 최신 릴리스 정보를 확인 합니다. 버전을 확인 하려면 SSMS (SQL Server Management Studio)를 통해 SQL 풀에 연결 하 고를 `SELECT @@VERSION;` 실행 하 여 현재 버전을 반환 합니다.
+새 기능이 모든 지역에 롤아웃 됨에 따라 인스턴스에 배포 된 버전과 기능 가용성에 대 한 최신 릴리스 정보를 확인 합니다. 버전을 확인 하려면 SSMS (SQL Server Management Studio)를 통해 SQL 풀에 연결 하 고를 `SELECT @@VERSION;` 실행 하 여 현재 버전을 반환 합니다. 이 버전을 사용 하 여 SQL 풀에 적용 된 릴리스를 확인 합니다. 출력의 날짜는 SQL 풀에 적용 된 릴리스의 월을 식별 합니다. 이는 서비스 수준의 향상 된 기능에만 적용 됩니다. 
 
-식별 된 버전을 사용 하 여 SQL 풀에 적용 된 릴리스를 확인 합니다. 출력의 날짜는 SQL 풀에 적용 된 릴리스의 월을 식별 합니다.
+도구 개선을 위해 릴리스 정보에 올바른 버전을 설치 했는지 확인 합니다. 
+
 
 > [!NOTE]
 > SELECT @@VERSION 에서 반환 된 제품 이름은 Microsoft Azure SQL Data Warehouse에서 Azure Synapse Analytics로 변경 됩니다. 변경을 수행 하기 전에 고급 공지를 보냅니다. 이 변경은 응용 프로그램 코드의 SELECT @@VERSION 결과에서 제품 이름을 구문 분석 하는 고객과 관련이 있습니다. 제품 재 브랜딩으로 인 한 응용 프로그램 코드 변경을 방지 하려면 다음 명령을 사용 하 여 데이터베이스 제품 이름 및 버전에 대 한 SERVERPROPERTY을 쿼리하여 버전 번호 XX를 반환 합니다. XXXXX. X (제품 이름 없음) 다음 명령을 사용 합니다.
@@ -40,13 +41,20 @@ ms.locfileid: "82133327"
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
+
+
 ## <a name="april-2020"></a>2020년 4월
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
 |**데이터베이스 호환성 수준 (미리 보기)**| 이 릴리스에서는 이제 사용자가 데이터베이스의 호환성 수준을 설정 하 여 특정 버전의 Synapse SQL 엔진에 대 한 Transact-sql 언어 및 쿼리 처리 동작을 얻을 수 있습니다. 자세한 내용은 database_scoped_configurations 및 [Alter Database 범위 구성](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조 하세요 [.](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
 |**Sp_describe_undeclared_parameters**| 사용자가 Transact-sql 일괄 처리에서 선언 되지 않은 매개 변수에 대 한 메타 데이터를 볼 수 있도록 허용 합니다. 자세한 내용은 [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조 하세요.|
-|**[Visual Studio 16.6 Preview 2](/visualstudio/releases/2019/release-notes-preview) -SQL SERVER DATA TOOLS (SSDT)** | 이 릴리스에는 SSDT에 대 한 다음과 같은 향상 된 기능 및 수정 사항이 포함 되어 있습니다. </br> </br> -구체화 된 뷰 (MV)에서 참조 하는 테이블을 변경 하면 MVs에서 지원 되지 않는 Alter View 문이 생성 되는 문제 해결<br/><br/> -데이터베이스 또는 프로젝트에 행 수준 보안 개체가 있을 때 스키마 비교 작업이 실패 하지 않도록 하기 위해 변경 내용을 구현 했습니다. 행 수준 보안 개체는 현재 SSDT에 대해 지원 되지 않습니다.  <br/><br/> -데이터베이스에 많은 수의 개체를 나열할 때 시간 제한이 발생 하지 않도록 SQL Server 개체 탐색기 시간 제한 임계값이 증가 했습니다.<br/><br/> -개체 탐색기를 채울 때 불안정성을 줄이고 성능을 향상 시키기 위해 데이터베이스 개체 목록을 SQL Server 개체 탐색기 검색 하는 방법 최적화 |
+
+## <a name="march-2020"></a>2020년 3월
+
+| 도구 개선                                         | 세부 정보                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **[Visual Studio 16.6 Preview 2](/visualstudio/releases/2019/release-notes-preview) -SQL SERVER DATA TOOLS (SSDT)** | 이 릴리스에는 SSDT에 대 한 다음과 같은 향상 된 기능 및 수정 사항이 포함 되어 있습니다. </br> </br> -구체화 된 뷰 (MV)에서 참조 하는 테이블을 변경 하면 MVs에서 지원 되지 않는 Alter View 문이 생성 되는 문제 해결<br/><br/> -데이터베이스 또는 프로젝트에 행 수준 보안 개체가 있을 때 스키마 비교 작업이 실패 하지 않도록 하기 위해 변경 내용을 구현 했습니다. 행 수준 보안 개체는 현재 SSDT에 대해 지원 되지 않습니다.  <br/><br/> -데이터베이스에 많은 수의 개체를 나열할 때 시간 제한이 발생 하지 않도록 SQL Server 개체 탐색기 시간 제한 임계값이 증가 했습니다.<br/><br/> -개체 탐색기를 채울 때 불안정성을 줄이고 성능을 향상 시키기 위해 데이터베이스 개체 목록을 SQL Server 개체 탐색기 검색 하는 방법 최적화 |
 
 ## <a name="january-2020"></a>2020년 1월
 
@@ -169,7 +177,7 @@ ms.locfileid: "82133327"
 
 - [SQL 풀 만들기](create-data-warehouse-portal.md)
 
-## <a name="more-information"></a>자세한 정보
+## <a name="more-information"></a>추가 정보
 
 - [블로그-Azure Synapse 분석](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - [고객 자문 팀 블로그](https://docs.microsoft.com/archive/blogs/sqlcat/)

@@ -4,14 +4,14 @@ description: Azure Cosmos DB의 자동 인덱싱 및 성능 향상을 위해 기
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: 930f156ebec76be860e7af02d41540ce67982f92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f010ec46c41c2302cc9c99a631fd18b1af9661eb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80292049"
+ms.locfileid: "82232073"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 
@@ -97,6 +97,26 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 
 경로를 포함 하 고 제외 하는 인덱싱 정책 예제는 [이 섹션](how-to-manage-indexing-policy.md#indexing-policy-examples) 을 참조 하세요.
 
+## <a name="includeexclude-precedence"></a>포함/제외 우선 순위
+
+포함 된 경로와 제외 된 경로에 충돌이 있는 경우 보다 정확한 경로가 우선 적용 됩니다.
+
+아래 예를 살펴보세요.
+
+**포함 된 경로**:`/food/ingredients/nutrition/*`
+
+**제외 된 경로**:`/food/ingredients/*`
+
+이 경우 포함 된 경로는 보다 정확 하기 때문에 제외 된 경로 보다 우선 적용 됩니다. 이러한 경로를 기반으로 하는 `food/ingredients` 경로 또는 중첩 된 내의 모든 데이터는 인덱스에서 제외 됩니다. 예외는 포함 된 경로 () 내의 데이터입니다 `/food/ingredients/nutrition/*`.이는 인덱싱됩니다.
+
+다음은 Azure Cosmos DB의 포함 및 제외 경로 우선 순위에 대 한 몇 가지 규칙입니다.
+
+- 더 깊은 경로는 보다 정밀한 경로 보다 더 정확 합니다. 예를 들어 `/a/b/?` 는 보다 `/a/?`정확 합니다.
+
+- 는 `/?` 보다 `/*`정확 합니다. 예를 `/a/?` 들어 보다 `/a/*` 정확 하 게 `/a/?` 를 사용 하는 것이 우선 합니다.
+
+- 경로 `/*` 는 포함 된 경로 또는 제외 된 경로 여야 합니다.
+
 ## <a name="spatial-indexes"></a>공간 인덱스
 
 인덱싱 정책에 공간 경로를 정의 하는 경우 해당 경로에 적용 해야 하 ```type``` 는 인덱스를 정의 해야 합니다. 공간 인덱스에 사용할 수 있는 형식은 다음과 같습니다.
@@ -114,6 +134,8 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 ## <a name="composite-indexes"></a>복합 인덱스
 
 두 개 이상의 속성이 `ORDER BY` 있는 절이 있는 쿼리에는 복합 인덱스가 필요 합니다. 복합 인덱스를 정의 하 여 여러 개의 같음 및 범위 쿼리의 성능을 향상 시킬 수도 있습니다. 기본적으로 복합 인덱스는 정의 되지 않으므로 필요에 따라 [복합 인덱스를 추가](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) 해야 합니다.
+
+포함 되거나 제외 된 경로와 달리 `/*` 와일드 카드를 사용 하 여 경로를 만들 수 없습니다. 모든 복합 경로에는 지정할 `/?` 필요가 없는 경로 끝에 암시적이 있습니다. 복합 경로에는 스칼라 값이 포함 되 고이 값은 복합 인덱스에 포함 됩니다.
 
 복합 인덱스를 정의 하는 경우 다음을 지정 합니다.
 

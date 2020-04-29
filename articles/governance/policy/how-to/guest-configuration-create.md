@@ -3,12 +3,12 @@ title: Windows에 대 한 게스트 구성 정책을 만드는 방법
 description: Windows에 대 한 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f09bb543f73e37bd211a55e2238808f57585bb18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a75525b25945dd9548d7c293d5965cc67eb463dc
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024900"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509621"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Windows에 대 한 게스트 구성 정책을 만드는 방법
 
@@ -16,7 +16,7 @@ ms.locfileid: "82024900"
  
 Linux에 대 한 게스트 구성 정책을 만드는 방법에 대 한 자세한 내용은 [linux 용 게스트 구성 정책을 만드는 방법](./guest-configuration-create-linux.md) 페이지를 참조 하세요.
 
-Windows를 감사할 때는 게스트 구성에서 DSC ( [필요한 상태 구성](/powershell/scripting/dsc/overview/overview) ) 리소스 모듈과 구성 파일을 사용 합니다. DSC 구성은 컴퓨터가 속해야 하는 조건을 정의 합니다.
+Windows를 감사할 때 게스트 구성은 DSC ( [필요한 상태 구성](/powershell/scripting/dsc/overview/overview) ) 리소스 모듈을 사용 하 여 구성 파일을 만듭니다. DSC 구성은 컴퓨터가 속해야 하는 조건을 정의 합니다.
 구성 평가에 실패 하는 경우 정책 효과 **auditIfNotExists** 가 트리거되고 컴퓨터가 **비준수**로 간주 됩니다.
 
 [Azure Policy 게스트 구성은](../concepts/guest-configuration.md) 컴퓨터 내의 설정을 감사 하는 데만 사용할 수 있습니다. 컴퓨터 내에서 설정의 재구성은 아직 사용할 수 없습니다.

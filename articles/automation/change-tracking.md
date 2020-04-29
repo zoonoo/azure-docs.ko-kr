@@ -1,59 +1,65 @@
 ---
-title: Azure Automation으로 변경 내용 추적
-description: 변경 내용 추적 솔루션을 사용하면 사용자 환경에서 발생하는 소프트웨어 및 Windows 서비스의 변경 내용을 식별할 수 있습니다.
+title: 변경 내용 추적 및 인벤토리 개요 Azure Automation
+description: 변경 내용 추적 및 인벤토리를 사용 하면 사용자 환경에서 발생 하는 소프트웨어 및 Microsoft 서비스 변경 내용을 식별할 수 있습니다.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: d84566c7680081561f60d4825f25a9ce19e02b24
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 1208e08f7b85e893ba754bdbdf71a2da4f68c90a
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682986"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509071"
 ---
-# <a name="track-environment-changes-with-change-tracking"></a>변경 내용 추적을 통해 환경 변경 사항 추적
+# <a name="overview-of-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 개요
 
-이 문서에서는 변경 내용 추적 솔루션을 사용하여 사용자 환경의 변경 내용을 쉽게 식별할 수 있습니다. 이 솔루션은 운영 문제를 정확히 파악하는 데 도움이 되는 다음 구성 변경 사항을 추적합니다.
+이 문서에서는 Azure Automation의 변경 내용 추적 및 인벤토리를 소개 합니다. 이 기능은 배포 패키지 관리자에서 관리 하는 소프트웨어의 운영 및 환경 문제를 쉽게 파악할 수 있도록 가상 컴퓨터 및 서버 인프라의 변경 내용을 추적 합니다. 변경 내용 추적 및 인벤토리에 의해 추적 되는 항목은 다음과 같습니다. 
 
 - Windows 소프트웨어
-- 리눅스 소프트웨어 (패키지)
-    >[!NOTE]
-    >변경 추적은 배포 패키지 관리자와 함께 관리되는 소프트웨어만 추적합니다.
-
-- 윈도우 및 리눅스 파일
-- 윈도우 레지스트리 키
-- Windows 서비스
+- Linux 소프트웨어 (패키지)
+- Windows 및 Linux 파일
+- Windows 레지스트리 키
+- Microsoft 서비스
 - Linux 데몬
 
-솔루션을 사용하도록 설정한 후에는 자동화 계정의 **구성 관리에서 변경** **내용 추적을** 선택하여 모니터링되는 컴퓨터에 대한 변경 요약을 볼 수 있습니다.
+변경 내용 추적 및 인벤토리는 클라우드의 Azure Monitor 서비스에서 데이터를 가져옵니다. Azure는 모니터링 되는 서버에서 설치 된 소프트웨어, Microsoft 서비스, Windows 레지스트리 및 파일 및 Linux 디먼에 대 한 변경 내용을 처리를 위해 Azure Monitor 보냅니다. 클라우드 서비스는 수신 된 데이터에 논리를 적용 하 고 기록 하 여 사용할 수 있도록 합니다. 
 
 > [!NOTE]
-> Azure 자동화 변경 내용 추적은 가상 시스템의 변경 내용을 추적합니다. Azure 리소스 관리자 속성 변경 내용을 추적하려면 Azure 리소스 그래프의 [변경 기록을](../governance/resource-graph/how-to/get-resource-changes.md)참조하십시오.
+> Azure Resource Manager 속성 변경 내용을 추적 하려면 Azure 리소스 그래프 [변경 기록](../governance/resource-graph/how-to/get-resource-changes.md)을 참조 하세요.
 
-컴퓨터에 대한 변경 내용을 확인한 다음, 각 이벤트에 대한 세부 정보를 살펴볼 수 있습니다. 차트 위쪽의 드롭다운을 사용하여 변경 유형 및 시간 범위에 따라 차트 및 세부 정보를 제한할 수 있습니다. 또한 차트를 클릭하고 끌어서 사용자 지정 시간 범위를 선택할 수도 있습니다. **변경 유형은** **이벤트,** **데몬,** **파일,** **레지스트리,** **소프트웨어,** **Windows 서비스**중 하나가 될 것입니다 . 범주는 변경 유형을 표시하며 **추가,** **수정**또는 제거할 수 **있습니다.**
+현재 변경 내용 추적 및 인벤토리는 다음 항목을 지원 하지 않습니다.
 
-![변경 내용 추적 대시보드의 이미지](./media/change-tracking/change-tracking-dash01.png)
+* Windows 레지스트리 추적을 위한 재귀
+* 네트워크 파일 시스템
+* 다른 설치 방법
+* *Windows 용 **.exe** 파일
 
-변경 내용 또는 이벤트를 클릭하면 해당 변경 내용에 대한 자세한 정보가 표시됩니다. 예제에서 알 수 있듯이 서비스의 시작 유형은 수동에서 자동으로 변경되었습니다.
+기타 제한 사항은 다음과 같습니다.
 
-![변경 내용 추적 세부 정보의 이미지](./media/change-tracking/change-tracking-details.png)
+* **최대 파일 크기** 열과 값은 현재 구현에서 사용되지 않습니다.
+* 30 분 컬렉션 주기에서 2500 개 이상의 파일을 수집 하는 경우 솔루션 성능이 저하 될 수 있습니다.
+* 네트워크 트래픽이 높으면 변경 레코드를 표시 하는 데 최대 6 시간이 걸릴 수 있습니다.
+* 컴퓨터를 종료 하는 동안 구성을 수정 하는 경우 컴퓨터에서 이전 구성에 속하는 변경 내용을 게시할 수 있습니다.
 
-설치된 소프트웨어, Windows 서비스, Windows 레지스트리 및 파일 및 모니터링되는 서버의 Linux 데몬에 대한 변경 사항은 처리를 위해 클라우드의 Azure Monitor 서비스로 전송됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다. 변경 내용 추적 대시보드의 정보를 사용하여 서버 인프라에서 수행한 변경 내용을 쉽게 확인할 수 있습니다.
+현재 변경 내용 추적 및 인벤토리에는 다음과 같은 문제가 발생 합니다.
+
+* Windows Server 2016 Core RS3 컴퓨터에서 핫픽스 업데이트가 수집되지 않습니다.
+* 변경이 발생 하지 않았더라도 Linux 디먼에서 변경 된 상태를 표시할 수 있습니다. 이 문제는 Azure Monitor [Configurationchange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) 로그의 `SvcRunLevels` 데이터를 캡처하는 방법 때문에 발생 합니다.
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-### <a name="windows-operating-systems"></a>윈도우 운영 체제
+변경 내용 추적 및 인벤토리 및 Azure Monitor Log Analytics 에이전트는 Windows 및 Linux 운영 체제에서 지원 됩니다.
 
-Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식적으로 지원됩니다.
+### <a name="windows-operating-systems"></a>Windows 운영 체제
 
-* Windows Server 2008 R2 이상
+공식적으로 지원 되는 Windows 운영 체제 버전은 Windows Server 2008 R2 이상 버전입니다.
 
 ### <a name="linux-operating-systems"></a>Linux 운영 체제
 
-다음 Linux 배포판이 공식적으로 지원됩니다. 하지만 Linux 에이전트는 나열되지 않은 그 밖의 배포에서 실행이 가능할 수 있습니다. 다른 설명이 없는 한, 나열된 각 주 버전의 모든 부 버전이 지원됩니다.
+아래에서 설명 하는 Linux 배포판은 Linux 용 Log Analytics 에이전트에 공식적으로 지원 됩니다. 하지만 Linux 에이전트는 나열되지 않은 그 밖의 배포에서 실행이 가능할 수 있습니다. 다른 설명이 없는 한, 나열된 각 주 버전의 모든 부 버전이 지원됩니다.
 
-#### <a name="64-bit"></a>64비트
+#### <a name="64-bit-linux-operating-systems"></a>64 비트 Linux 운영 체제
 
 * CentOS 6 및 7
 * Amazon Linux 2017.09
@@ -63,7 +69,7 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 * Ubuntu Linux 14.04 LTS, 16.04 LTS, 18.04 LTS
 * SUSE Linux Enterprise Server 12
 
-#### <a name="32-bit"></a>32비트
+#### <a name="32-bit-linux-operating-systems"></a>32 비트 Linux 운영 체제
 
 * CentOS 6
 * Oracle Linux 6
@@ -71,32 +77,9 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 * Debian GNU/Linux 8 및 9
 * Ubuntu Linux 14.04 LTS 및 16.04 LTS
 
-## <a name="limitations"></a>제한 사항
-
-현재 변경 내용 추적 솔루션은 다음 항목을 지원하지 않습니다.
-
-* Windows 레지스트리 추적을 위한 재귀
-* 네트워크 파일 시스템
-* 다른 설치 방법
-* *윈도우용 **.exe** 파일
-
-기타 제한 사항은 다음과 같습니다.
-
-* **최대 파일 크기** 열과 값은 현재 구현에서 사용되지 않습니다.
-* 30분 간의 수집 주기에서 2,500개 이상의 파일을 수집하는 경우 솔루션 성능이 저하될 수 있습니다.
-* 네트워크 트래픽이 많은 경우 변경 레코드를 표시하는 데 최대 6시간이 걸릴 수 있습니다.
-* 컴퓨터를 종료하는 동안 구성을 수정하면 컴퓨터가 이전 구성에 속한 변경 내용을 게시할 수 있습니다.
-
-## <a name="known-issues"></a>알려진 문제
-
-변경 내용 추적 솔루션에 현재 다음과 같은 문제가 있습니다.
-
-* Windows Server 2016 Core RS3 컴퓨터에서 핫픽스 업데이트가 수집되지 않습니다.
-* Linux 데몬은 변경이 없더라도 변경된 상태를 표시할 수 있습니다. 이는 필드가 `SvcRunLevels` 캡처되는 방식 때문입니다.
-
 ## <a name="network-requirements"></a>네트워크 요구 사항
 
-변경 사항 추적에는 특히 다음 주소가 필요합니다. 이러한 주소에 대한 통신은 포트 443을 사용합니다.
+특히 변경 내용 추적 및 인벤토리에는 다음 표에 나열 된 네트워크 주소가 필요 합니다. 이러한 주소에 대 한 통신은 포트 443를 사용 합니다.
 
 |Azure 공용  |Azure Government  |
 |---------|---------|
@@ -105,221 +88,134 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 |\*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |* .azure-automation.net|*.azure-automation.us|
 
-## <a name="wildcard-recursion-and-environment-settings"></a>와일드 카드, 재귀 및 환경 설정
+## <a name="change-tracking-and-inventory-user-interface"></a>변경 내용 추적 및 인벤토리 사용자 인터페이스
 
-재귀를 사용하면 와일드 카드를 지정하여 디렉터리 추적을 간소화할 수 있고, 환경 변수를 사용하면 여러 또는 동적 드라이브 이름이 있는 환경에서 파일을 추적할 수 있습니다. 다음 목록에는 재귀를 구성할 때 알고 있어야 하는 일반적인 정보가 나와 있습니다.
+Azure Portal에서 변경 내용 추적 및 인벤토리를 사용 하 여 모니터링 되는 컴퓨터의 변경 내용에 대 한 요약을 볼 수 있습니다. Automation 계정의 **구성 관리** 아래에서 **변경 내용 추적** 을 선택 하 여이 기능을 사용할 수 있습니다. 
+
+![변경 내용 추적 대시보드](./media/change-tracking/change-tracking-dash01.png)
+
+드롭다운은 변경 유형 및 시간 범위에 따라 변경 내용 추적 차트 및 자세한 정보를 제한 하기 위해 대시보드의 맨 위에서 사용할 수 있습니다. 또한 차트를 클릭하고 끌어서 사용자 지정 시간 범위를 선택할 수도 있습니다. 
+
+변경 또는 이벤트를 클릭 하 여 세부 정보를 표시할 수 있습니다. 사용 가능한 변경 유형은 다음과 같습니다.
+
+* 이벤트
+* 디먼
+* 파일
+* 레지스트리
+* 소프트웨어
+* Microsoft 서비스
+
+각 변경 내용을 추가, 수정 또는 제거할 수 있습니다. 아래 예제에서는 서비스의 시작 유형이 수동에서 자동으로 변경 되는 것을 볼 수 있습니다.
+
+![변경 내용 추적 세부 정보](./media/change-tracking/change-tracking-details.png)
+
+## <a name="tracking-of-file-changes"></a>파일 변경 내용 추적
+
+Windows와 Linux 모두에서 파일의 변경 내용을 추적 하기 위해 변경 내용 추적 및 인벤토리는 파일의 MD5 해시를 사용 합니다. 이 기능은 해시를 사용 하 여 마지막 인벤토리 이후 변경 된 내용을 검색 합니다.
+
+## <a name="tracking-of-file-content-changes"></a>파일 콘텐츠 변경 내용 추적
+
+변경 내용 추적 및 인벤토리를 사용 하면 파일 변경 전후에 Windows 또는 Linux 파일의 내용을 볼 수 있습니다. 파일에 대 한 각 변경 내용에 대해 변경 내용 추적 및 인벤토리는 [Azure Storage 계정](../storage/common/storage-create-storage-account.md)에 파일 내용을 저장 합니다. 파일을 추적 하는 경우 변경 전후에 해당 내용을 볼 수 있습니다. 인라인 또는 side-by-side로 콘텐츠를 볼 수 있습니다. 
+
+![파일의 변경 내용 보기](./media/change-tracking/view-file-changes.png)
+
+## <a name="tracking-of-registry-keys"></a>레지스트리 키 추적
+
+변경 내용 추적 및 인벤토리를 사용 하 여 레지스트리 키에 대 한 변경 내용을 모니터링할 수 있습니다. 모니터링을 통해 타사 코드와 맬웨어가 활성화 될 수 있는 확장성 지점을 파악할 수 있습니다. 다음 표에서는 미리 구성 되어 있지만 사용할 수 없는 레지스트리 키를 나열 합니다. 이러한 키를 추적 하려면 각 키를 사용 하도록 설정 해야 합니다.
+
+> [!div class="mx-tdBreakAll"]
+> |레지스트리 키 | 목적 |
+> | --- | --- |
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Windows 탐색기에 직접 연결 되 고 일반적 **으로 explorer.exe를 사용 하**여 in-process로 실행 되는 일반적인 자동 시작 항목을 모니터링 합니다.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup` | 시작 시 실행되는 스크립트를 모니터링합니다.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | 종료 시 실행되는 스크립트를 모니터링합니다.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | 사용자가 Windows 계정에 로그인 하기 전에 로드 되는 키를 모니터링 합니다. 키는 64 비트 컴퓨터에서 실행 되는 32 비트 응용 프로그램에 사용 됩니다.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | 애플리케이션 설정의 변경 내용을 모니터링합니다.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Windows 탐색기에 직접 연결 되 고 일반적 **으로 explorer.exe를 사용 하**여 in-process로 실행 되는 일반적인 자동 시작 항목을 모니터링 합니다.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Windows 탐색기에 직접 연결 되 고 일반적 **으로 explorer.exe를 사용 하**여 in-process로 실행 되는 일반적인 자동 시작 항목을 모니터링 합니다.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | 아이콘 오버레이 처리기 등록을 모니터링합니다.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | 64 비트 컴퓨터에서 실행 되는 32 비트 응용 프로그램에 대 한 아이콘 오버레이 처리기 등록을 모니터링 합니다.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Internet Explorer에 대한 새 브라우저 도우미 개체 플러그 인을 모니터링합니다. 현재 페이지의 DOM(문서 개체 모델)에 액세스하고 탐색을 제어하는 데 사용됩니다.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Internet Explorer에 대한 새 브라우저 도우미 개체 플러그 인을 모니터링합니다. 현재 페이지의 DOM (문서 개체 모델)에 액세스 하 고 64 비트 컴퓨터에서 실행 되는 32 비트 응용 프로그램에 대 한 탐색을 제어 하는 데 사용 됩니다.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Internet Explorer\Extensions` | 사용자 지정 도구 메뉴 및 사용자 지정 도구 모음 단추와 같은 새로운 Internet Explorer 확장을 모니터링합니다.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | 64 비트 컴퓨터에서 실행 되는 32 비트 응용 프로그램에 대 한 사용자 지정 도구 메뉴 및 사용자 지정 도구 모음 단추와 같은 새 Internet Explorer 확장을 모니터링 합니다.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Wavemapper, wave1 및 wave2, msacm.imaadpcm, msgsm610 및 vidc와 연결 된 32 비트 드라이버를 모니터링 합니다. **System.ini** 파일의 [drivers] 섹션과 유사 합니다.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | 64 비트 컴퓨터에서 실행 되는 32 비트 응용 프로그램에 대 한 wavemapper, wave1 및 wave2, msacm.imaadpcm, msgsm610 및 vidc와 연결 된 32 비트 드라이버를 모니터링 합니다. **System.ini** 파일의 [drivers] 섹션과 유사 합니다.
+> |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | 알려진 또는 일반적으로 사용 되는 시스템 Dll 목록을 모니터링 합니다. 이 시스템은 사용자가 트로이 목마 버전의 시스템 Dll을 삭제 하 여 취약 한 응용 프로그램 디렉터리 권한을 악용 하지 못하게 합니다.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Windows에 대 한 대화형 로그온 지원 모델인 **winlogon**에서 이벤트 알림을 받을 수 있는 패키지 목록을 모니터링 합니다.
+
+## <a name="support-for-file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링 지원
+
+변경 내용 추적 및 인벤토리는 [AZURE SECURITY CENTER FIM (파일 무결성 모니터링)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)을 사용 합니다. FIM은 파일 및 레지스트리만 모니터링 하지만 전체 변경 내용 추적 및 인벤토리 기능에는 다음에 대 한 추적도 포함 됩니다.
+
+- 소프트웨어 변경
+- Microsoft 서비스
+- Linux 데몬
+
+## <a name="recursion-support"></a>재귀 지원
+
+변경 내용 추적 및 인벤토리는 재귀를 지원 하 여 디렉터리에서 추적을 간소화 하는 와일드 카드를 지정할 수 있습니다. 또한 재귀는 여러 또는 동적 드라이브 이름이 있는 환경에서 파일을 추적할 수 있는 환경 변수를 제공 합니다. 다음 목록에는 재귀를 구성할 때 알아야 하는 일반적인 정보가 포함 되어 있습니다.
 
 * 와일드 카드는 여러 파일을 추적하는 데 필요합니다.
-* 와일드카드는 경로의 마지막 세그먼트(예: c:\폴더\\파일* 또는 /etc/*.conf)에서만 사용할 수 있습니다.
-* 환경 변수에 잘못된 경로가 있는 경우 유효성 검사가 성공하지만 인벤토리가 실행될 때 해당 경로가 실패합니다.
-* 이 설정 유형으로 인해 너무 많은 폴더가 트래버스될 수 있으므로 경로를 설정할 때 일반적인 경로를 사용하지 마십시오.
+* 와일드 카드는 경로의 마지막 세그먼트 (예: **: c:\folder\\file*** 또는 **/etc/*.**) 에서만 사용할 수 있습니다.
+* 환경 변수에 잘못 된 경로가 있는 경우 유효성 검사가 성공 하지만 실행 중에 경로가 실패 합니다.
+* 경로를 설정할 때 일반 경로 이름을 사용 하지 마십시오 .이 설정으로 인해 너무 많은 폴더가 트래버스 될 수 있습니다.
 
-## <a name="change-tracking-data-collection-details"></a>변경 내용 추적 데이터 수집 정보
+## <a name="change-tracking-and-inventory-data-collection"></a>변경 내용 추적 및 인벤토리 데이터 수집
 
-다음 테이블에서는 변경 형식에 대한 데이터 컬렉션 빈도를 보여 줍니다. 모든 유형에 대해 현재 상태의 데이터 스냅샷은 최소한 24시간마다 새로 고쳐집니다.
+다음 표에서는 변경 내용 추적 및 인벤토리에 의해 지원 되는 변경 유형에 대 한 데이터 수집 빈도를 보여 줍니다. 모든 형식에 대해 적어도 24 시간 마다 현재 상태의 데이터 스냅숏이 새로 고쳐집니다.
 
-| **변경 유형** | **빈도** |
+| **형식 변경** | **빈도** |
 | --- | --- |
 | Windows 레지스트리 | 50분 |
 | Windows 파일 | 30분 |
 | Linux 파일 | 15분 |
-| Windows 서비스 | 10초에서 30분</br> 기본값: 30분 |
+| Microsoft 서비스 | 10초에서 30분</br> 기본값: 30분 |
 | Linux 데몬 | 5분 |
 | Windows 소프트웨어 | 30분 |
 | Linux 소프트웨어 | 5분 |
 
-다음 표는 변경 내용 추적에 대한 머신당 추적된 항목 한도를 보여 줍니다.
+다음 표에서는 변경 내용 추적 및 인벤토리의 컴퓨터 당 추적 된 항목 제한을 보여 줍니다.
 
-| **리소스** | **제한**| **참고 사항** |
+| **리소스** | **제한** |
 |---|---|---|
-|파일|500||
-|레지스트리|250||
-|Windows 소프트웨어|250|소프트웨어 핫픽스가 포함되어 있지 않습니다.|
-|Linux 패키지|1250||
-|Services|250||
-|데몬|250||
+|파일|500|
+|레지스트리|250|
+|Windows 소프트웨어 (핫픽스 포함 안 함) |250|
+|Linux 패키지|1250|
+|Services|250|
+|디먼|250|
 
-변경 추적을 사용하는 컴퓨터의 평균 로그 분석 데이터 사용량은 매월 약 40MB입니다. 이 값은 근사값이며, 사용자 환경에 따라 변경될 수 있습니다. 사용자 환경을 모니터링하여 정확한 사용량을 확인하는 것이 좋습니다.
+변경 내용 추적 및 인벤토리를 사용 하는 컴퓨터의 평균 Log Analytics 데이터 사용량은 매월 약 40 MB입니다. 이 값은 근사값이며, 사용자 환경에 따라 변경될 수 있습니다. 사용자 환경을 모니터링하여 정확한 사용량을 확인하는 것이 좋습니다.
 
-### <a name="windows-service-tracking"></a>Windows 서비스 추적
+### <a name="microsoft-service-data"></a>Microsoft 서비스 데이터
 
-Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를 구성하려면 **변경 내용 추적**으로 이동합니다. **Windows 서비스** 탭의 **설정 편집**에는 Windows 서비스의 컬렉션 빈도를 10초에서 30분 사이로 변경할 수 있는 슬라이더가 있습니다. 원하는 빈도에 슬라이더 막대를 이동하면 자동으로 저장됩니다.
+Microsoft 서비스의 기본 수집 빈도는 30 분입니다. **설정 편집**의 **Microsoft 서비스** 탭에서 슬라이더를 사용 하 여 빈도를 구성할 수 있습니다. 
 
-![Windows 서비스 슬라이더](./media/change-tracking/windowservices.png)
+![Microsoft 서비스 슬라이더](./media/change-tracking/windowservices.png)
 
-에이전트는 변경 내용을 추적하고, 에이전트의 성능을 최적화합니다. 임계값을 너무 높게 설정하여 서비스가 원래 상태로 돌아가면 변경 내용이 누락될 수 있습니다. 빈도를 더 작은 값으로 설정하면 누락될 수 있는 변경 내용을 파악할 수 있습니다.
-
-> [!NOTE]
-> 에이전트가 10초 간격으로 변경 내용을 추적하는 동안 데이터를 포털에 표시하는 데 몇 분 정도가 걸립니다. 포털에 표시하는 시간 동안 변경 내용이 추적되고 기록됩니다.
-
-### <a name="registry-key-change-tracking"></a>레지스트리 키 변경 내용 추적
-
-레지스트리 키의 변경 내용을 모니터링하는 목적은 타사 코드 및 맬웨어가 활성화될 수 있는 확장성 지점을 정확하게 찾기 위한 것입니다. 다음 목록에서는 미리 구성된 레지스트리 키의 목록을 보여 줍니다. 이러한 키는 구성되어 있지만 사용할 수 없습니다. 이러한 레지스트리 키를 추적하려면 각 레지스트리 키를 사용하도록 설정해야 합니다.
-
-> [!div class="mx-tdBreakAll"]
-> |레지스트리 키 | 목적 |
-> |---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Windows 탐색기에 직접 연결되고 일반적으로 Explorer.exe를 사용하여 In Process에서 실행되는 일반적인 자동 시작 항목을 모니터링합니다.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup` | 시작 시 실행되는 스크립트를 모니터링합니다.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | 종료 시 실행되는 스크립트를 모니터링합니다.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | 사용자가 Windows 계정에 로그인하기 전에 로드되는 키를 모니터링합니다. 키는 64비트 컴퓨터에서 실행되는 32비트 프로그램에 사용됩니다.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | 애플리케이션 설정의 변경 내용을 모니터링합니다.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Windows 탐색기에 직접 연결되고 일반적으로 Explorer.exe를 사용하여 In Process에서 실행되는 일반적인 자동 시작 항목을 모니터링합니다.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Windows 탐색기에 직접 연결되고 일반적으로 Explorer.exe를 사용하여 In Process에서 실행되는 일반적인 자동 시작 항목을 모니터링합니다.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | 아이콘 오버레이 처리기 등록을 모니터링합니다.
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | 64비트 컴퓨터에서 실행되는 32비트 프로그램에 대한 아이콘 오버레이 처리기 등록을 모니터링합니다.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Internet Explorer에 대한 새 브라우저 도우미 개체 플러그 인을 모니터링합니다. 현재 페이지의 DOM(문서 개체 모델)에 액세스하고 탐색을 제어하는 데 사용됩니다.
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Internet Explorer에 대한 새 브라우저 도우미 개체 플러그 인을 모니터링합니다. 64비트 컴퓨터에서 실행되는 32비트 프로그램에 대해 현재 페이지의 DOM(문서 개체 모델)에 액세스하고 탐색을 제어하는 데 사용됩니다.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Internet Explorer\Extensions` | 사용자 지정 도구 메뉴 및 사용자 지정 도구 모음 단추와 같은 새로운 Internet Explorer 확장을 모니터링합니다.
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | 64비트 컴퓨터에서 실행되는 32비트 프로그램에 대해 사용자 지정 도구 메뉴 및 사용자 지정 도구 모음 단추와 같은 새로운 Internet Explorer 확장을 모니터링합니다.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Wavemapper, wave1 및 wave2, msacm.imaadpcm, .msadpcm, .msgsm610 및 vidc와 관련된 32비트 드라이버를 모니터링합니다. SYSTEM.INI 파일의 [drivers] 섹션과 유사합니다.
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | 64비트 컴퓨터에서 실행되는 32비트 프로그램에 대해 Wavemapper, wave1 및 wave2, msacm.imaadpcm, .msadpcm, .msgsm610 및 vidc와 관련된 32비트 드라이버를 모니터링합니다. SYSTEM.INI 파일의 [drivers] 섹션과 유사합니다.
-> |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | 알려졌거나 자주 사용되는 시스템 DLL 목록을 모니터링합니다. 트로이 목마 버전의 시스템 DLL을 삭제하여 사용자들이 약한 애플리케이션 디렉터리 권한을 악용하지 못하게 합니다.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Windows 운영 체제에 대한 대화형 로그온 지원 모델인 Winlogon에서 이벤트 알림을 수신할 수 있는 패키지 목록을 모니터링합니다.
-
-## <a name="enable-change-tracking"></a><a name="onboard"></a>변경 추적 사용
-
-변경 내용 추적을 시작하려면 변경 내용 추적 솔루션을 사용하도록 설정해야 합니다. 변경 추적을 위해 컴퓨터를 온보보드하는 방법에는 여러 가지가 있습니다. 아래에는 권장/지원되는 솔루션 등록 방법이 나와 있습니다.
-
-* [가상 머신에서 등록](automation-onboard-solutions-from-vm.md)
-* [여러 컴퓨터에서 찾아보기](automation-onboard-solutions-from-browse.md)
-* [Automation 계정에서 등록](automation-onboard-solutions-from-automation-account.md)
-* [Azure Automation Runbook 사용](automation-onboard-solutions.md)
-
-## <a name="configure-change-tracking"></a>변경 변경 추적 구성
-
-솔루션에 컴퓨터를 온보딩하는 방법에 대해 알아보려면 [온보딩 자동화 솔루션을](automation-onboard-solutions-from-automation-account.md)참조하십시오. 변경 사항 추적 솔루션으로 컴퓨터를 온보딩한 후에는 추적할 항목을 구성할 수 있습니다. 새 파일 또는 레지스트리 키를 추적하도록 설정하면 변경 추적에 모두 사용할 수 있습니다.
-
-Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일의 MD5 해시를 사용합니다. 그런 다음, 이 해시를 사용하여 마지막 인벤토리 이후 변경이 있는지 검색합니다.
-
-## <a name="enable-file-integrity-monitoring-in-azure-security-center"></a>Azure 보안 센터에서 파일 무결성 모니터링 사용
-
-Azure 보안 센터에서 Azure 변경 변경 추적을 기반으로 구축된 FIM(파일 무결성 모니터링)을 추가했습니다. FIM은 파일 및 레지스트리만 모니터링하지만 전체 변경 내용 추적 솔루션에는 다음도 포함됩니다.
-
-- 소프트웨어 변경
-- Windows 서비스
-- 리눅스 데몬스
-
-FIM을 이미 활성화하고 전체 변경 사항 추적 솔루션을 사용해 보고 싶다면 다음 단계를 수행해야 합니다. 이 프로세스에서 설정이 제거되지 않습니다.
+성능을 최적화 하기 위해 Log Analytics 에이전트는 변경 내용만 추적 합니다. 서비스를 원래 상태로 되돌리는 경우 높은 임계값을 설정 하면 변경 내용이 누락 될 수 있습니다. 빈도를 더 작은 값으로 설정 하면 누락 될 수 있는 변경 내용을 catch 할 수 있습니다.
 
 > [!NOTE]
-> 전체 변경 사항 추적 솔루션을 사용하도록 설정하면 추가 요금이 발생할 수 있으며 자세한 내용은 [자동화 가격](https://azure.microsoft.com/pricing/details/automation/)을 참조하십시오.
+> 에이전트가 10 초 간격으로 변경 내용을 추적 하는 동안에도 데이터를 Azure Portal 표시 하는 데 몇 분 정도 걸립니다. 포털에 표시 되는 시간 동안 발생 하는 변경 내용은 계속 추적 되 고 기록 됩니다.
 
-1. 작업 영역으로 이동하여 [설치된 모니터링 솔루션 목록에서](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions)모니터링 솔루션을 찾아 모니터링 솔루션을 제거합니다.
-2. 솔루션 이름을 클릭하여 요약 페이지를 연 다음 [모니터링 솔루션 제거에](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution)설명된 대로 삭제를 클릭합니다.
-3. 자동화 계정으로 이동하여 **구성 관리에서** **변경 추적을** 선택하여 솔루션을 다시 활성화합니다.
-4. 작업 영역 설정 세부 정보를 확인하고 **에서 를**클릭합니다.
+## <a name="support-for-alerts-on-configuration-state"></a>구성 상태에 대 한 경고 지원
 
-## <a name="configure-file-content-change-tracking"></a>파일 콘텐츠 변경 내용 추적 구성
+하이브리드 환경의 구성 상태에 대 한 변경 내용에 대 한 경고를 변경 내용 추적 및 인벤토리의 핵심 기능입니다. 경고에 대 한 응답으로 (예: Azure 함수, 자동화 runbook, 웹 후크 등에 대 한 작업) 여러 가지 유용한 작업을 트리거할 수 있습니다. 컴퓨터에 대 한 **C:\windows\system32\drivers\etc\hosts** 파일 변경에 대 한 경고는 변경 내용 추적 및 인벤토리 데이터에 대 한 경고의 좋은 적용입니다. 다음 표에 정의 된 쿼리 시나리오를 비롯 하 여 경고에 대 한 더 많은 시나리오가 있습니다. 
 
-파일 콘텐츠 변경 내용 추적을 통해 파일 변경 전후의 내용을 볼 수 있습니다. 이 기능은 윈도우와 리눅스 파일에 사용할 수 있습니다. 파일을 변경할 때마다 파일의 내용이 저장소 계정에 저장됩니다. 파일은 변경 전후에 인라인 또는 나란히 표시됩니다. 자세한 내용은 [추적된 파일의 콘텐츠 보기](change-tracking-file-contents.md)를 참조하세요.
-
-![파일의 변경 내용 보기](./media/change-tracking-file-contents/view-file-changes.png)
-
-## <a name="configure-windows-registry-keys-to-track"></a>추적할 Windows 레지스트리 키 구성
-
-다음 단계를 사용하여 Windows 컴퓨터에서 추적할 레지스트리 키를 구성합니다.
-
-1. 자동화 계정에서 구성 관리 에서 **변경 추적을** **선택합니다.** **설정 편집**(기어 기호)을 클릭합니다.
-2. 변경 내용 추적 페이지에서 **Windows 레지스트리**를 선택한 다음, **+ 추가**를 클릭하여 추적할 새 레지스트리 키를 추가합니다.
-3. 변경 **내용을 추적할 수 있는 Windows 레지스트리 추가에서**추적할 키에 대한 정보를 입력하고 **저장을**클릭합니다.
-
-|속성  |설명  |
+|쿼리  |Description  |
 |---------|---------|
-|사용     | 설정이 적용되는지 여부를 결정합니다.        |
-|Item Name     | 추적할 레지스트리 키의 식별 이름입니다.        |
-|그룹     | 논리적으로 레지스트리 키를 그룹화하는 그룹 이름입니다.        |
-|Windows 레지스트리 키   | 레지스트리 키를 확인할 경로입니다. 예: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
-
-## <a name="configure-file-tracking-on-windows"></a>Windows에서 파일 추적 구성
-
-다음 단계를 사용하여 Windows 컴퓨터에서 파일 추적을 구성합니다.
-
-1. 자동화 계정에서 구성 관리 에서 **변경 추적을** **선택합니다.** **설정 편집**(기어 기호)을 클릭합니다.
-2. 변경 내용 추적 페이지에서 **Windows 파일**을 선택한 다음, **+ 추가**를 클릭하여 추적할 새 파일을 추가합니다.
-3. **변경 내용 추적에 대해 Windows 파일 추가**에서 추적할 파일에 대한 정보를 입력하고, **저장**을 클릭합니다.
-
-|속성  |설명  |
-|---------|---------|
-|사용     | 설정이 적용된 경우 true이고 False는 그렇지 않습니다.        |
-|Item Name     | 추적할 파일의 이름입니다.        |
-|그룹     | 논리적으로 파일을 그룹화하는 그룹 이름입니다.        |
-|경로 입력     | 파일을 확인하는 경로(예: **c:\temp\\\*.txt)**<br>환경 변수(예: )를 `%winDir%\System32\\\*.*`사용할 수도 있습니다.       |
-|재귀     | 추적할 항목을 검색할 때 재귀가 사용되는 경우 True이고 그렇지 않으면 False입니다.        |
-|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 파일 콘텐츠를 업로드하는 것이 참이며 그렇지 않으면 False입니다.|
-
-## <a name="configure-file-tracking-on-linux"></a>리눅스에서 파일 추적 구성
-
-다음 단계를 사용하여 Linux 컴퓨터에서 추적할 파일을 구성합니다.
-
-1. 자동화 계정에서 구성 관리 에서 **변경 추적을** **선택합니다.** **설정 편집**(기어 기호)을 클릭합니다.
-2. 변경 내용 추적 페이지에서 **Linux 파일**을 선택한 다음, **+ 추가**를 클릭하여 추적할 새 파일을 추가합니다.
-3. 변경 **추적을 위한 Linux 파일 추가에서**파일 또는 디렉터리 정보를 입력하여 추적하고 **저장을**클릭합니다.
-
-|속성  |설명  |
-|---------|---------|
-|사용     | 설정이 적용되는지 여부를 결정합니다.        |
-|Item Name     | 추적할 파일의 이름입니다.        |
-|그룹     | 논리적으로 파일을 그룹화하는 그룹 이름입니다.        |
-|경로 입력     | 파일을 확인할 경로입니다. 예: "/etc/* .conf"       |
-|경로 유형     | 추적할 항목 유형이며, 가능한 값은 File 및 Directory입니다.        |
-|재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
-|sudo 사용     | 항목을 확인할 때 sudo가 사용되는지 여부를 결정합니다.         |
-|링크     | 디렉터리를 트래버스할 때 기호화된 링크에서 처리하는 방법을 결정합니다.<br> **무시** - 바로 가기 링크가 무시되고 참조된 파일/디렉터리가 포함되지 않습니다.<br>**다음** - 재지정 중에 기호 링크를 따르며 참조된 파일/디렉터리도 포함합니다.<br>**관리** - 기호화된 링크를 따르고 반환된 콘텐츠를 변경할 수 있도록 허용합니다.     |
-|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**입니다.|
-
-> [!NOTE]
-> "Manage" 링크 옵션은 권장되지 않습니다. 파일 콘텐츠 검색은 지원되지 않습니다.
-
-## <a name="search-logs"></a>로그 검색
-
-변경 레코드에 대한 로그에 대해 다양한 검색을 수행할 수 있습니다. 변경 추적 페이지가 열리면 **로그 분석을**클릭하면 로그 페이지가 열립니다. 다음 표에서는 이 솔루션에서 수집된 변경 레코드에 대한 로그 검색 샘플을 제공합니다.
-
-|쿼리  |설명  |
-|---------|---------|
-|ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "자동"<br>&#124; where SvcState == "중지됨"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Auto로 설정되었지만 Stopped로 보고된 Windows 서비스에 대한 최근의 인벤토리 레코드를 표시합니다.<br>결과는 해당 SoftwareName 및 Computer에 대한 최근의 레코드로 제한됩니다.      |
-|ConfigurationChange<br>&#124; where ConfigChangeType == "소프트웨어" and ChangeCategory == "제거됨"<br>&#124; order by TimeGenerated desc|제거된 소프트웨어에 대한 변경 레코드를 표시합니다.|
-
-## <a name="alert-on-changes"></a>변경 시 경고 표시
-
-변경 내용 추적의 주요 기능은 하이브리드 환경의 구성 상태와 변경 사항에 대해 경고하는 것입니다. 다음 예제에서는 **C:\windows\system32\드라이버\etc\호스트파일이** 컴퓨터에서 수정되었음을 보여 주시킵니다. 이 파일은 Windows에서 호스트 이름을 IP 주소로 확인 하는 데 사용 하기 때문에 중요 합니다. 이 작업은 DNS보다 우선하며 연결 문제 또는 악의적이거나 위험한 웹 사이트로의 트래픽 리디렉션이 발생할 수 있습니다.
-
-![호스트 파일 변경 내용을 보여 주는 차트](./media/change-tracking/changes.png)
-
-이 변경 내용을 자세히 분석하려면 **Log Analytics**를 클릭하여 로그 검색으로 이동합니다. 로그 검색이 표시되면 `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"` 쿼리를 사용하여 호스트 파일의 콘텐츠 변경 내용을 검색합니다. 이 쿼리는 정규화된 경로에 "hosts"라는 단어가 포함된 파일의 파일 콘텐츠 변경 내용을 포함하는 변경 내용을 찾습니다. 경로 부분을 정규화된 형식(예: `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`)으로 변경하여 특정 파일을 요청할 수도 있습니다.
-
-쿼리가 원하는 결과를 반환한 후 로그 검색에서 **새 경고 규칙을** 클릭하여 경고 만들기 페이지를 엽니다. Azure Portal에서 **Azure Monitor**를 통해 이 환경으로 이동할 수도 있습니다. 
-
-쿼리를 다시 확인하고 경고 논리를 수정합니다. 여기서는 환경의 모든 컴퓨터에서 변경 내용이 여러 개 검색되면 경고를 트리거할 수 있습니다.
-
-![호스트 파일의 변경 내용 추적을 위한 변경 쿼리를 보여 주는 이미지](./media/change-tracking/change-query.png)
-
-조건 논리를 설정한 후에는 트리거되는 경고에 대응하여 작업을 수행할 작업 그룹을 할당합니다. 여기서는 전송할 이메일과 생성할 ITSM 티켓을 설정했습니다.  Azure Function, Automation Runbook, webhook, Logic App 등을 트리거하는 것처럼 기타 여러 유용한 작업을 수행할 수도 있습니다.
-
-![변경 시 경고를 생성하도록 작업 그룹을 구성하는 방법을 보여 주는 이미지](./media/change-tracking/action-groups.png)
-
-모든 매개 변수와 논리를 설정하고 나면 환경에 경고를 적용할 수 있습니다.
-
-### <a name="alert-suggestions"></a>경고 제안
-
-호스트 파일에 대한 변경 내용을 경고하는 것은 변경 내용 추적 또는 인벤토리 데이터에 대한 경고를 잘 하는 응용 프로그램 중 하나이지만 아래 섹션의 예제 쿼리와 함께 정의된 사례를 포함하여 경고를 위한 더 많은 시나리오가 있습니다.
-
-|쿼리  |설명  |
-|---------|---------|
-|ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|중요한 파일 시스템의 변경 내용을 추적하는 데 유용 합니다.|
-|ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|주요 구성 파일의 수정 내용을 추적하는 데 유용합니다.|
-|ConfigurationChange <br>&#124; where ConfigChangeType == "WindowsServices" and SvcName contains "w3svc" and SvcState == "Stopped"|시스템에 중요한 서비스의 변경 내용을 추적하는 데 유용합니다.|
-|ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState != "Running"|시스템에 중요한 서비스의 변경 내용을 추적하는 데 유용합니다.|
-|ConfigurationChange <br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Added"|잠긴 소프트웨어 구성이 필요한 환경에 유용합니다.|
-|ConfigurationData <br>&#124; where SoftwareName contains "Monitoring Agent" and CurrentVersion != "8.0.11081.0"|오래되었거나 규정을 준수하지 않는 소프트웨어 버전이 설치된 컴퓨터를 확인하는 데 유용합니다. 변경 내용이 아닌 마지막으로 보고된 구성 상태를 보고합니다.|
-|ConfigurationChange <br>\\레지스트리키 == @"HKEY_LOCAL_MACHINE 소프트웨어\\\\마이크로\\소프트\\윈도우 전류 버전 품질 Compat"&#124;| 중요한 바이러스 백신 키의 변경 내용을 추적하는 데 유용합니다.|
-|ConfigurationChange <br>레지스트리키에 @"HKEY_LOCAL_MACHINE\\\\SYSTEM CurrentControlSet\\\\서비스\\공유\\액세스 매개 변수 방화벽정책"이 포함된 &#124;| 방화벽 설정의 변경 내용을 추적하는 데 유용합니다.|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|시스템에 중요 한 파일에 대 한 변경 내용을 추적 하는 데 유용 합니다.|
+|ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|키 구성 파일에 대 한 수정 내용을 추적 하는 데 유용 합니다.|
+|ConfigurationChange <br>ConfigChangeType = = "Microsoft services" 및 SvcName에 "w3svc" 및 = = "중지 됨"이 포함 된 &#124;|시스템에 중요 한 서비스에 대 한 변경 내용을 추적 하는 데 유용 합니다.|
+|ConfigurationChange <br>ConfigChangeType = = "" 및 SvcName에 "ssh" 및 SvcState! = "Running"이 포함 되어 있는 &#124;|시스템에 중요 한 서비스에 대 한 변경 내용을 추적 하는 데 유용 합니다.|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Added"|잠긴 소프트웨어 구성이 필요한 환경에 유용 합니다.|
+|ConfigurationData <br>SoftwareName에 "Monitoring Agent" 및 CurrentVersion! = "8.0.11081.0"가 포함 된 &#124;|이전 또는 비규격 소프트웨어 버전이 설치 된 컴퓨터를 보는 데 유용 합니다. 이 쿼리는 마지막으로 보고 된 구성 상태를 보고 하지만 변경 내용을 보고 하지 않습니다.|
+|ConfigurationChange <br>&#124;에서 RegistryKey = = @ "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| 중요 한 바이러스 백신 키의 변경 내용을 추적 하는 데 유용 합니다.|
+|ConfigurationChange <br>&#124;에서 RegistryKey에 @ "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"가 포함 되어 있습니다.| 방화벽 설정에 대 한 변경 내용을 추적 하는 데 유용 합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 
-솔루션 사용에 대한 자세한 내용은 변경 내용 추적에 대한 자습서를 참조하세요.
-
-> [!div class="nextstepaction"]
-> [환경 변경 문제 해결](automation-tutorial-troubleshoot-changes.md)
-
-* [Azure Monitor 로그에서 로그 검색을](../log-analytics/log-analytics-log-searches.md) 사용하여 자세한 변경 변경 추적 데이터를 볼 수 있습니다.
+* Runbook에서 변경 내용 추적 및 인벤토리를 사용 하려면 [변경 내용 추적 및 인벤토리 관리](change-tracking-file-contents.md)를 참조 하세요.
+* 변경 내용 추적 및 인벤토리를 사용 하 여 오류를 해결 하려면 [변경 내용 추적 및 인벤토리 문제 해결](automation-tutorial-troubleshoot-changes.md)을 참조 하세요.
+* [Azure Monitor 로그의 로그 검색](../log-analytics/log-analytics-log-searches.md) 을 사용 하 여 자세한 변경 내용 추적 데이터를 볼 수 있습니다.

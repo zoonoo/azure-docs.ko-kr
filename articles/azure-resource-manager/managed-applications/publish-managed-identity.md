@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: dbf75262440474c5cb50a6d733ac7cba212b5f3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 277faa2d47df9fddd1762d90d9aa2fb5bf00d4df
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75651658"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508135"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>관리 Id를 사용 하는 Azure 관리 되는 응용 프로그램
 
@@ -54,7 +54,7 @@ ms.locfileid: "75651658"
 
 ```json
 "outputs": {
-    "managedIdentity": "[parse('{\"Type\":\"SystemAssigned\"}')]"
+    "managedIdentity": { "Type": "SystemAssigned" }
 }
 ```
 
@@ -66,71 +66,65 @@ ms.locfileid: "75651658"
 - 관리 되는 Id에는 복잡 한 소비자 입력이 필요 합니다.
 - 관리 되는 응용 프로그램을 만들려면 관리 되는 Id가 필요 합니다.
 
-#### <a name="systemassigned-createuidefinition"></a>SystemAssigned 된 CreateUIDefinition
+#### <a name="managed-identity-createuidefinition-control"></a>관리 Id CreateUIDefinition 컨트롤
 
-관리 되는 응용 프로그램에 대해 SystemAssigned id를 사용 하도록 설정 하는 기본 CreateUIDefinition입니다.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-  "handler": "Microsoft.Azure.CreateUIDef",
-  "version": "0.1.2-preview",
-    "parameters": {
-        "basics": [
-            {}
-        ],
-        "steps": [
-        ],
-        "outputs": {
-            "managedIdentity": "[parse('{\"Type\":\"SystemAssigned\"}')]"
-        }
-    }
-}
-```
-
-#### <a name="userassigned-createuidefinition"></a>UserAssigned 된 CreateUIDefinition
-
-**사용자 할당 id** 리소스를 입력으로 사용 하 고 관리 되는 응용 프로그램에 대해 userassigned 된 id를 사용 하도록 설정 하는 기본 CreateUIDefinition입니다.
+CreateUIDefinition은 관리 되는 기본 제공 [id 컨트롤](./microsoft-managedidentity-identityselector.md)을 지원 합니다.
 
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
   "handler": "Microsoft.Azure.CreateUIDef",
-  "version": "0.1.2-preview",
-    "parameters": {
-        "basics": [
-            {}
-        ],
-        "steps": [
-            {
-                "name": "manageIdentity",
-                "label": "Identity",
-                "subLabel": {
-                    "preValidation": "Manage Identities",
-                    "postValidation": "Done"
-                },
-                "bladeTitle": "Identity",
-                "elements": [
-                    {
-                        "name": "userAssignedText",
-                        "type": "Microsoft.Common.TextBox",
-                        "label": "User assigned managed identity",
-                        "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity",
-                        "visible": true
-                    }
-                ]
-            }
-        ],
-        "outputs": {
-            "managedIdentity": "[parse(concat('{\"Type\":\"UserAssigned\",\"UserAssignedIdentities\":{',string(steps('manageIdentity').userAssignedText),':{}}}'))]"
-        }
+  "version": "0.0.1-preview",
+  "parameters": {
+    "basics": [],
+    "steps": [
+      {
+        "name": "applicationSettings",
+        "label": "Application Settings",
+        "subLabel": {
+          "preValidation": "Configure your application settings",
+          "postValidation": "Done"
+        },
+        "bladeTitle": "Application Settings",
+        "elements": [
+          {
+            "name": "appName",
+            "type": "Microsoft.Common.TextBox",
+            "label": "Managed application Name",
+            "toolTip": "Managed application instance name",
+            "visible": true
+          },
+          {
+            "name": "appIdentity",
+            "type": "Microsoft.ManagedIdentity.IdentitySelector",
+            "label": "Managed Identity Configuration",
+            "toolTip": {
+              "systemAssignedIdentity": "Enable system assigned identity to grant the managed application access to additional existing resources.",
+              "userAssignedIdentity": "Add user assigned identities to grant the managed application access to additional existing resources."
+            },
+            "defaultValue": {
+              "systemAssignedIdentity": "Off"
+            },
+            "options": {
+              "hideSystemAssignedIdentity": false,
+              "hideUserAssignedIdentity": false,
+              "readOnlySystemAssignedIdentity": false
+            },
+            "visible": true
+          }
+        ]
+      }
+    ],
+    "outputs": {
+      "applicationResourceName": "[steps('applicationSettings').appName]",
+      "location": "[location()]",
+      "managedIdentity": "[steps('applicationSettings').appIdentity]"
     }
+  }
 }
 ```
 
-위의 CreateUIDefinition. json은 소비자가 **사용자에 게 할당 된 id** AZURE 리소스 id를 입력할 수 있는 입력란을 포함 하는 만들기 사용자 환경을 생성 합니다. 생성 된 환경은 다음과 같습니다.
-
-![사용자 할당 id CreateUIDefinition 샘플](./media/publish-managed-identity/user-assigned-identity.png)
+![관리 Id CreateUIDefinition](./media/publish-managed-identity/msi-cuid.png)
 
 ### <a name="using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
 
@@ -203,7 +197,7 @@ Azure Resource Manager 템플릿을 통해 관리 Id를 사용 하도록 설정�
 
 ## <a name="granting-access-to-azure-resources"></a>Azure 리소스에 대 한 액세스 권한 부여
 
-관리 되는 응용 프로그램에 id가 부여 되 면 기존 azure 리소스에 대 한 액세스 권한을 부여할 수 있습니다. 이 프로세스는 Azure Portal의 액세스 제어 (IAM) 인터페이스를 통해 수행할 수 있습니다. 관리 되는 응용 프로그램 또는 **사용자 할당 id** 의 이름을 검색 하 여 역할 할당을 추가할 수 있습니다.
+관리 되는 응용 프로그램에 id가 부여 되 면 기존 Azure 리소스에 대 한 액세스 권한을 부여할 수 있습니다. 이 프로세스는 Azure Portal의 액세스 제어 (IAM) 인터페이스를 통해 수행할 수 있습니다. 관리 되는 응용 프로그램 또는 **사용자 할당 id** 의 이름을 검색 하 여 역할 할당을 추가할 수 있습니다.
 
 ![관리 되는 응용 프로그램에 대 한 역할 할당 추가](./media/publish-managed-identity/identity-role-assignment.png)
 
@@ -218,7 +212,7 @@ Azure Resource Manager 템플릿을 통해 관리 Id를 사용 하도록 설정�
 
 관리 되는 응용 프로그램의 배포를 기존 리소스에 연결할 때 기존 Azure 리소스 및 해당 리소스에 대 한 해당 역할 할당을 가진 **사용자 할당 id** 를 모두 제공 해야 합니다.
 
- 네트워크 인터페이스 리소스 ID와 사용자 할당 id 리소스 id의 두 입력이 필요한 샘플 CreateUIDefinition입니다.
+ 네트워크 인터페이스 리소스 ID와 사용자 할당 id 리소스 ID의 두 입력이 필요한 샘플 CreateUIDefinition입니다.
 
 ```json
 {

@@ -11,26 +11,26 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e69a03cd142fdbcc5864ee38a4843e1c2e44a124
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477156"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>데이터 과학 작업 실행: 탐색, 모델링 및 배포
 
-일반적인 데이터 과학 작업으로 데이터 탐색, 모델링 및 배포가 있습니다. 이 문서에서는 **IDEAR(대화형 데이터 탐색, 분석 및 보고)** 및 **AMAR(자동 모델링 및 보고)** 유틸리티를 사용하여 대화형 데이터 탐색, 데이터 분석, 보고 및 모델 생성 등과 같은 여러 가지 일반적인 데이터 과학 작업을 완료하는 방법을 보여 줍니다. 모델을 프로덕션 환경에 배포하는 옵션에는 다음이 포함될 수 있습니다.
+일반적인 데이터 과학 작업으로 데이터 탐색, 모델링 및 배포가 있습니다. 이 문서에서는 **IDEAR(대화형 데이터 탐색, 분석 및 보고)** 및 **AMAR(자동 모델링 및 보고)** 유틸리티를 사용하여 대화형 데이터 탐색, 데이터 분석, 보고 및 모델 생성 등과 같은 여러 가지 일반적인 데이터 과학 작업을 완료하는 방법을 보여 줍니다. 프로덕션 환경에 모델을 배포 하기 위한 옵션에는 다음이 포함 될 수 있습니다.
 
-- [Azure 기계 학습](../index.yml)
+- [Azure Machine Learning](../index.yml)
 - [ML 서비스 포함 SQL-Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
-- [마이크로소프트 기계 학습 서버](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
-## <a name="1--exploration"></a>1. <a name='DataQualityReportUtility-1'></a> 탐험 
+## <a name="1--exploration"></a>1. <a name='DataQualityReportUtility-1'></a> 탐색 
 
 데이터 과학자는 다양한 방법으로, 예를 들어 Python(예: matplotlib) 또는 R(예: ggplot 또는 lattice)과 함께 사용할 수 있는 라이브러리 및 패키지를 사용하여 탐색 및 보고를 수행할 수 있습니다. 데이터 과학자는 해당 코드를 사용자 지정하여 특정 시나리오의 데이터 탐색 요구에 맞출 수 있습니다. 구조화된 데이터를 다루기 위한 요구는 텍스트나 이미지 등 구조화되지 않은 데이터의 경우와 다릅니다. 
 
-Azure 기계 학습과 같은 제품은 기능 생성을 포함하여 데이터 랭글링 및 탐색을 위한 [고급 데이터 준비도](../how-to-create-register-datasets.md) 제공합니다. 사용자는 자신의 요구에 가장 맞는 도구, 라이브러리 및 패키지에 대해 결정해야 합니다. 
+Azure Machine Learning 등의 제품은 기능 생성을 포함 하 여 데이터 랭 글 링 및 탐색을 위한 [고급 데이터 준비](../how-to-create-register-datasets.md) 도 제공 합니다. 사용자는 자신의 요구에 가장 맞는 도구, 라이브러리 및 패키지에 대해 결정해야 합니다. 
 
 이 단계가 종료할 때의 결과물은 데이터 탐색 보고서입니다. 보고서는 모델링 및 데이터가 모델링 단계로 진행하는 데 적합한지 여부를 평가에 사용할 데이터의 매우 포괄적인 뷰를 제공해야 합니다. 반자동화 탐색, 모델링 및 보고에 대해 다음 섹션에서 설명하는 TDSP(팀 데이터 과학 프로세스) 유틸리티도 표준화된 데이터 탐색 및 모델링 보고서를 제공합니다. 
 
@@ -76,7 +76,7 @@ YAML 파일은 다음을 지정하는 데 사용됩니다.
 1. [Azure Machine Learning 모델 관리 서비스](../index.yml)
 2. [MIT의 ModelDB](http://modeldb.csail.mit.edu:3000/projects) 
 3. [모델 관리 시스템으로 SQL Server 사용](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
-4. [마이크로소프트 기계 학습 서버](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 ## <a name="3--deployment"></a>3. <a name='Deployment-3'></a> 배포
 
@@ -88,7 +88,7 @@ YAML 파일은 다음을 지정하는 데 사용됩니다.
 
 - [Azure Machine Learning에서 배포 모델링](../how-to-deploy-and-where.md)
 - [SQL-Server의 모델 배포](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [마이크로소프트 기계 학습 서버](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 > [!NOTE]
 > 배포 전에 모델 스코어링의 대기 시간이 프로덕션에 사용할 만큼 충분히 낮은지 확인해야 합니다.

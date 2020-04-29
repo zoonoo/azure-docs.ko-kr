@@ -4,12 +4,12 @@ description: 클러스터 자동 크기 조정기를 사용하여 AKS(Azure Kube
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 732c405cad20aef3485b521fa245cb504a809c40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ebbeab82031ddc037c7885e7453e603a8f440a1
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129070"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509247"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞게 자동으로 클러스터 크기 조정
 
@@ -44,7 +44,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞추려면 �
 
 클러스터 자동 크기 조정기가 규모를 축소하지 못할 수 있는 경우에 대한 자세한 내용은 [클러스터 자동 크기 조정기가 노드를 제거할 수 없도록 하는 Pod 유형은 무엇인가요?][autoscaler-scaledown]를 참조하세요.
 
-클러스터 자동 크기 조정기는 크기 조정 이벤트와 리소스 임계값 사이의 시간 간격 같은 항목에 시작 매개 변수를 사용합니다. 이러한 매개 변수는 Azure 플랫폼에 의해 정의되며 현재는 사용자가 조정하도록 표시되지 않습니다. 클러스터 자동 크기 조정기가 사용하는 매개 변수에 대한 자세한 내용은 [클러스터 자동 크기 조정기 매개 변수란?][autoscaler-parameters]을 참조하세요.
+클러스터 자동 크기 조정기는 크기 조정 이벤트와 리소스 임계값 사이의 시간 간격 같은 항목에 시작 매개 변수를 사용합니다. 클러스터 자동 크기 조정기가 사용하는 매개 변수에 대한 자세한 내용은 [클러스터 자동 크기 조정기 매개 변수란?][autoscaler-parameters]을 참조하세요.
 
 Cluster 및 수평 pod autoscalers는 함께 작동할 수 있으며, 클러스터에 배포 되는 경우가 많습니다. 결합된 경우 Horizontal Pod Autoscaler는 애플리케이션 수요를 충족하는 데 필요한 개수의 Pod를 실행하는 데 중점을 둡니다. 클러스터 자동 크기 조정기는 예약된 Pod를 지원하는 데 필요한 개수의 노드를 실행하는 데 중점을 둡니다.
 

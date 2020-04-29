@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 7e1e0d488844a94bd0be2b91398678e620295729
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73a878d791997169b0823bb949e78bdced77cae6
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77913585"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509689"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 최적화 가상 머신 크기
 
@@ -35,11 +35,13 @@ GPU 최적화 VM 크기는 단일 또는 여러 NVIDIA GPU에서 사용 가능�
 
 ## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
 
-Azure N 시리즈 Vm의 GPU 기능을 활용 하려면 NVIDIA GPU 드라이버를 설치 해야 합니다.
+Azure N 시리즈 Vm의 GPU 기능을 활용 하려면 NVIDIA 또는 AMD GPU 드라이버가 설치 되어 있어야 합니다.
 
 [NVIDIA GPU 드라이버 확장](/azure/virtual-machines/extensions/hpccompute-gpu-windows)은 N 시리즈 VM에 적절한 NVIDIA CUDA 또는 GRID 드라이버를 설치합니다. Azure PowerShell 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 운영 체제 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](/azure/virtual-machines/extensions/hpccompute-gpu-windows)를 참조하세요. VM 확장에 대한 일반적인 내용은 [Azure 가상 머신 확장 및 기능](/azure/virtual-machines/extensions/overview)을 참조하세요.
 
 NVIDIA GPU 드라이버를 수동으로 설치 하도록 선택 하는 경우 지원 되는 운영 체제, 드라이버, 설치 및 확인 단계에 대 한 [n 시리즈 gpu driver setup For Windows](/azure/virtual-machines/windows/n-series-driver-setup) 또는 [n 시리즈 gpu Driver setup for Linux](/azure/virtual-machines/linux/n-series-driver-setup) 를 참조 하세요.
+
+AMD GPU 드라이버를 수동으로 설치 하려면 지원 되는 운영 체제, 드라이버, 설치 및 확인 단계에 대해 [Windows 용 N 시리즈 AMD GPU 드라이버 설치](/azure/virtual-machines/windows/n-series-amd-driver-setup) 를 참조 하세요.
 
 ## <a name="deployment-considerations"></a>배포 고려 사항
 

@@ -4,12 +4,12 @@ description: Azure Batch에서 다중 인스턴스 작업 유형을 사용하여
 ms.topic: article
 ms.date: 03/13/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aad2b649c92716a807d577bb4f112d47d447545e
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 39c7aff0618daafc2c02efaea229de3741804c7a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115978"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231699"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>다중 인스턴스 작업을 사용하여 Batch에서 MPI(메시지 전달 인터페이스) 애플리케이션 실행
 
@@ -181,9 +181,7 @@ cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIAp
 해당 내용 및 가시성을 포함한 해당 환경 변수 및 다른 Batch 컴퓨팅 노드 환경 변수에 대한 자세한 내용은 [Compute 노드 환경 변수][msdn_env_var]를 참조하세요.
 
 > [!TIP]
-> Batch Linux MPI 코드 샘플은 이러한 다양한 환경 변수 사용 방법의 예를 포함합니다. [coordination-cmd][coord_cmd_example] Bash 스크립트는 Azure Storage에서 일반적인 애플리케이션 및 입력 파일을 다운로드하고 마스터 노드에서 NFS(네트워크 파일 시스템) 공유를 활성화하고 NFS 클라이언트로 다중 인스턴스 작업에 할당된 다른 노드를 구성합니다.
->
->
+> Batch Linux MPI 코드 샘플은 이러한 다양한 환경 변수 사용 방법의 예를 포함합니다.
 
 ## <a name="resource-files"></a>리소스 파일
 다중 인스턴스 작업에 대해 고려해야 할 리소스 파일의 두 집합: *모든* 작업(주 및 하위 작업)이 다운로드하는 **공용 리소스 파일** 및 *주 작업에서만* 다운로드하는 다중 인스턴스 작업 자체에 지정된 **리소스 파일**입니다.

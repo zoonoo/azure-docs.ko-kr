@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2019
+ms.date: 04/28/2020
 ms.author: spelluru
-ms.openlocfilehash: ce1bb3760ae73a9eaeee3cde957cc94841ebdf29
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: ab5dd716253875e4a992b94a4e143cb3e806a4b0
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81731950"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509655"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Event Grid 구독에 대한 이벤트 필터링 이해
 
@@ -43,7 +43,7 @@ ms.locfileid: "81731950"
 
 사용자 지정 항목에 이벤트를 게시할 때 구독자가 이벤트에 관심이 있는지 더 쉽게 알 수 있도록 사용자 이벤트에 대한 제목을 만듭니다. 구독자는 제목 속성을 사용하여 이벤트를 필터링 및 라우팅합니다. 구독자가 해당 경로의 세그먼트를 기준으로 필터링할 수 있도록 이벤트가 발생하는 경로를 추가하는 것을 고려합니다. 구독자는 경로를 통해 이벤트를 제한적이거나 광범위하게 필터링할 수 있습니다. 제목에 `/A/B/C`와 같은 3개의 세그먼트 경로를 제공하는 경우 구독자는 첫 번째 세그먼트 `/A`를 기준으로 필터링하여 광범위한 이벤트 집합을 가져올 수 있습니다. 구독자는 `/A/B/C` 또는 `/A/D/E`와 같은 제목이 있는 이벤트를 가져옵니다. 다른 구독자는 `/A/B`를 기준으로 필터링하여 제한된 이벤트 집합을 얻을 수 있습니다.
 
-주제별로 필터링하기 위한 JSON 구문은 다음과 다 있습니다.
+제목별로 필터링 하기 위한 JSON 구문은 다음과 같습니다.
 
 ```json
 "filter": {
@@ -59,9 +59,9 @@ ms.locfileid: "81731950"
 
 * 연산자 형식 - 비교의 형식입니다.
 * 키 - 필터링에 사용하는 이벤트 데이터의 필드입니다. 숫자, 부울 또는 문자열일 수 있습니다.
-* 값 - 키와 비교할 값 또는 값입니다.
+* values-키와 비교할 값입니다.
 
-여러 값을 가진 단일 필터를 지정하는 경우 **OR** 작업이 수행되므로 키 필드의 값이 이러한 값 중 하나여야 합니다. 다음은 예제입니다.
+여러 값이 있는 단일 필터를 지정 하는 경우 **또는** 작업이 수행 되므로 키 필드의 값은 다음 값 중 하나 여야 합니다. 다음은 예제입니다.
 
 ```json
 "advancedFilters": [
@@ -76,7 +76,7 @@ ms.locfileid: "81731950"
 ]
 ```
 
-여러 개의 다른 필터를 지정하는 경우 **AND** 작업이 수행되므로 각 필터 조건이 충족되어야 합니다. 다음은 예제입니다. 
+여러 필터를 지정 하는 경우 **및** 작업이 수행 되므로 각 필터 조건이 충족 되어야 합니다. 다음은 예제입니다. 
 
 ```json
 "advancedFilters": [
@@ -97,9 +97,9 @@ ms.locfileid: "81731950"
 ]
 ```
 
-### <a name="operator"></a>연산자
+### <a name="operators"></a>연산자
 
-숫자에 사용 가능한 연산자는 다음과 같습니다.
+**숫자** 에 사용할 수 있는 연산자는 다음과 같습니다.
 
 * NumberGreaterThan
 * NumberGreaterThanOrEquals
@@ -108,9 +108,10 @@ ms.locfileid: "81731950"
 * NumberIn
 * NumberNotIn
 
-부울에 사용 가능한 연산자는 BoolEquals입니다.
+**부울** 에 사용할 수 있는 연산자는 다음과 같습니다. 
+- BoolEquals
 
-문자열에 사용 가능한 연산자는 다음과 같습니다.
+**문자열** 에 사용할 수 있는 연산자는 다음과 같습니다.
 
 * StringContains
 * StringBeginsWith
@@ -118,7 +119,7 @@ ms.locfileid: "81731950"
 * StringIn
 * StringNotIn
 
-모든 문자열 비교는 대/소문자를 구분하지 않습니다.
+모든 문자열 비교는 대/소문자를 구분 **하지 않습니다** .
 
 ### <a name="key"></a>Key
 
@@ -146,7 +147,7 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 값은 다음이 될 수 있습니다.
 
 * number
-* 문자열
+* string
 * boolean
 * array
 
@@ -159,6 +160,155 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 * **in** 및 **not in** 연산자에 대한 5개의 값
 
 둘 이상의 필터에 동일한 키를 사용할 수 있습니다.
+
+### <a name="examples"></a>예
+
+### <a name="stringcontains"></a>StringContains
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringContains",
+    "key": "data.key1",
+    "values": [
+        "microsoft", 
+        "azure"
+    ]
+}]
+```
+
+### <a name="stringbeginswith"></a>StringBeginsWith
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringBeginsWith",
+    "key": "data.key1",
+    "values": [
+        "event", 
+        "grid"
+    ]
+}]
+```
+
+### <a name="stringendswith"></a>StringEndsWith
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringEndsWith",
+    "key": "data.key1",
+    "values": [
+        "jpg", 
+        "jpeg", 
+        "png"
+    ]
+}]
+```
+
+### <a name="stringin"></a>StringIn
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringIn",
+    "key": "data.key1",
+    "values": [
+        "exact", 
+        "string", 
+        "matches"
+    ]
+}]
+```
+
+### <a name="stringnotin"></a>StringNotIn
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringNotIn",
+    "key": "data.key1",
+    "values": [
+        "aws", 
+        "bridge"
+    ]
+}]
+```
+
+### <a name="numberin"></a>NumberIn
+
+```json
+
+"advancedFilters": [{
+    "operatorType": "NumberIn",
+    "key": "data.counter",
+    "values": [
+        5,
+        1
+    ]
+}]
+
+```
+
+### <a name="numbernotin"></a>NumberNotIn
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberNotIn",
+    "key": "data.counter",
+    "values": [
+        41,
+        0,
+        0
+    ]
+}]
+```
+
+### <a name="numberlessthan"></a>NumberLessThan
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberLessThan",
+    "key": "data.counter",
+    "value": 100
+}]
+```
+
+### <a name="numbergreaterthan"></a>NumberGreaterThan
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberGreaterThan",
+    "key": "data.counter",
+    "value": 20
+}]
+```
+
+### <a name="numberlessthanorequals"></a>NumberLessThanOrEquals
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberLessThanOrEquals",
+    "key": "data.counter",
+    "value": 100
+}]
+```
+
+### <a name="numbergreaterthanorequals"></a>NumberGreaterThanOrEquals
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberGreaterThanOrEquals",
+    "key": "data.counter",
+    "value": 30
+}]
+```
+
+### <a name="boolequals"></a>BoolEquals
+
+```json
+"advancedFilters": [{
+    "operatorType": "BoolEquals",
+    "key": "data.isEnabled",
+    "value": true
+}]
+```
+
 
 ## <a name="next-steps"></a>다음 단계
 

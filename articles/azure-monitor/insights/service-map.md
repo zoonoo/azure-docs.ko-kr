@@ -7,35 +7,35 @@ author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
 ms.openlocfilehash: f2f3e84462307f43ffe432fe878476d979f489f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79480915"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
 
 서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식 즉 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스, 인바운드/아웃바운드 연결 대기 시간 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
 
-이 문서에서는 서비스 맵 사용 및 온보딩에 대한 세부 정보를 설명합니다. 이 솔루션의 필수 구성 요소 구성에 대한 자세한 내용은 [VM에 대한 Azure 모니터 사용 개요를](vminsights-enable-overview.md#prerequisites)참조하십시오. 요약하면 다음이 필요합니다.
+이 문서에서는 서비스 맵 사용 및 온보딩에 대한 세부 정보를 설명합니다. 이 솔루션에 대 한 필수 구성 요소를 구성 하는 방법에 대 한 자세한 내용은 [VM용 Azure Monitor 개요 사용](vminsights-enable-overview.md#prerequisites)을 참조 하세요. 요약 하자면, 다음이 필요 합니다.
 
-* 이 솔루션을 사용하도록 설정하는 로그 분석 작업 영역입니다.
+* 이 솔루션을 사용 하도록 설정 하는 Log Analytics 작업 영역입니다.
 
-* Windows 컴퓨터 또는 Linux 서버에 설치된 Log Analytics 에이전트는 솔루션을 사용하도록 설정한 것과 동일한 작업 영역을 보고하도록 구성되었습니다.
+* 솔루션을 사용 하도록 설정한 것과 동일한 작업 영역을 보고 하도록 구성 된 Windows 컴퓨터 또는 Linux 서버에 설치 된 Log Analytics 에이전트입니다.
 
-* Windows 컴퓨터 또는 Linux 서버에 설치된 종속성 에이전트입니다.
+* Windows 컴퓨터 또는 Linux 서버에 설치 된 종속성 에이전트입니다.
 
 >[!NOTE]
->서비스 맵을 이미 배포한 경우에는 VM 상태 및 성능을 모니터링하는 추가 기능이 포함된 VM용 Azure Monitor에서 맵을 볼 수 있습니다. 자세한 내용은 [VM용 Azure Monitor 개요](../../azure-monitor/insights/vminsights-overview.md)를 참조하세요. 서비스 맵 솔루션과 VM 맵에 대한 Azure 모니터 기능간의 차이점에 대해 알아보려면 다음 [FAQ를](../faq.md#azure-monitor-for-vms)참조하십시오.
+>서비스 맵을 이미 배포한 경우에는 VM 상태 및 성능을 모니터링하는 추가 기능이 포함된 VM용 Azure Monitor에서 맵을 볼 수 있습니다. 자세한 내용은 [VM용 Azure Monitor 개요](../../azure-monitor/insights/vminsights-overview.md)를 참조하세요. 서비스 맵 솔루션과 VM용 Azure Monitor 맵 기능 간의 차이점에 대 한 자세한 내용은 다음 [FAQ](../faq.md#azure-monitor-for-vms)를 참조 하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-에서 [https://portal.azure.com](https://portal.azure.com)Azure 포털에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="enable-service-map"></a>서비스 맵 사용
 
-1. [Azure 마켓플레이스에서](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) 또는 [솔루션 갤러리의 모니터링 솔루션 추가에](solutions.md)설명된 프로세스를 사용하여 서비스 맵 솔루션을 활성화합니다.
-1. [Windows에 종속성 에이전트를 설치하거나](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) 데이터를 얻을 각 컴퓨터에 [Linux에 종속성 에이전트를 설치합니다.](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) 종속성 에이전트는 모든 컴퓨터에서 에이전트를 필요로 하지 않도록 바로 인접한 연결을 모니터링할 수 있습니다.
+1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) 에서 또는 [솔루션 갤러리의 모니터링 솔루션 추가](solutions.md)에 설명 된 프로세스를 사용 하 여 서비스 맵 솔루션을 사용 하도록 설정 합니다.
+1. [Windows에 종속성 에이전트를 설치](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) 하거나 데이터를 가져오려는 각 컴퓨터에 [Linux에 종속성 에이전트를 설치](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) 합니다. 종속성 에이전트는 모든 컴퓨터에서 에이전트를 필요로 하지 않도록 바로 인접한 연결을 모니터링할 수 있습니다.
 
 Log Analytics 작업 영역의 Azure Portal에서 서비스 맵에 액세스하고 왼쪽 창에서 **솔루션** 옵션을 선택합니다.<br><br> ![작업 영역에서 솔루션 옵션을 선택합니다](./media/service-map/select-solution-from-workspace.png).<br> 솔루션의 목록에서 **ServiceMap(workspaceName)** 을 선택하고 서비스 맵 솔루션 개요 페이지에서 서비스 맵 요약 타일을 클릭합니다.<br><br> ![서비스 맵 요약 타일](./media/service-map/service-map-summary-tile.png).
 
@@ -55,7 +55,7 @@ Log Analytics 작업 영역의 Azure Portal에서 서비스 맵에 액세스하�
 
 ### <a name="business-continuity"></a>비즈니스 연속성
 
-Azure Site Recovery를 사용 중이고 애플리케이션 환경에 대한 복구 시퀀스를 정의하는 데 도움이 필요한 경우 서비스 맵은 시스템이 서로 어떻게 의존하여 복구 계획의 안정성을 보장하는지를 자동으로 보여 줄 수 있습니다. 중요한 서버나 그룹을 선택하고 클라이언트를 보면 서버가 복원되어 사용 가능할 때 복구할 프런트 엔드 시스템을 식별할 수 있습니다. 반대로 중요한 서버의 백 엔드 종속성을 살펴보면 포커스 시스템을 복원하기 전에 복구할 시스템을 식별할 수 있습니다.
+Azure Site Recovery를 사용 중이고 애플리케이션 환경에 대한 복구 시퀀스를 정의하는 데 도움이 필요한 경우 서비스 맵은 시스템이 서로 어떻게 의존하여 복구 계획의 안정성을 보장하는지를 자동으로 보여 줄 수 있습니다. 중요한 서버나 그룹을 선택하고 클라이언트를 보면 서버가 복원되어 사용 가능할 때 복구할 프런트 엔드 시스템을 식별할 수 있습니다. 반대로 중요 한 서버의 백 엔드 종속성을 살펴보면 포커스 시스템이 복원 되기 전에 복구할 시스템을 식별할 수 있습니다.
 
 ### <a name="patch-management"></a>패치 관리
 
@@ -63,7 +63,7 @@ Azure Site Recovery를 사용 중이고 애플리케이션 환경에 대한 복�
 
 ## <a name="mapping-overview"></a>매핑 개요
 
-서비스 맵 에이전트는 설치된 서버의 모든 TCP 연결 프로세스에 대한 정보와 각 프로세스의 인바운드 및 아웃바운드 연결에 대한 세부 정보를 수집합니다.
+서비스 맵 에이전트는 설치 된 서버에서 모든 TCP 연결 프로세스에 대 한 정보를 수집 하 고 각 프로세스에 대 한 인바운드 및 아웃 바운드 연결에 대 한 정보를 수집 합니다.
 
 왼쪽 창의 목록에서 서비스 맵 에이전트가 있는 시스템이나 그룹을 선택하여 지정된 시간 범위에 대한 종속성을 시각화할 수 있습니다. 컴퓨터 종속성 맵은 특정 컴퓨터에 집중하고 해당 컴퓨터의 직접 TCP 클라이언트 또는 서버인 모든 컴퓨터를 보여 줍니다.  컴퓨터 그룹 맵은 일련의 서버 및 서버 종속성을 보여줍니다.
 
@@ -108,7 +108,7 @@ Azure Site Recovery를 사용 중이고 애플리케이션 환경에 대한 복�
 
 ### <a name="viewing-a-group"></a>그룹 보기
 
-일부 그룹을 만든 후에는 그룹 탭을 선택하여 그룹을 볼 수 있습니다.
+그룹을 만든 후에는 그룹 탭을 선택 하 여 그룹을 볼 수 있습니다.
 
 ![그룹 탭](media/service-map/machine-groups-tab.png)
 
@@ -154,7 +154,7 @@ Azure Site Recovery를 사용 중이고 애플리케이션 환경에 대한 복�
 
 특정 프로세스는 컴퓨터에서 웹 서버, 애플리케이션 서버, 데이터베이스 등과 같은 특정 역할을 담당합니다. 서비스 맵은 역할 아이콘이 있는 프로세스 및 컴퓨터 상자에 주석을 달아서 한 눈에 프로세스나 서버가 맡은 역할을 식별할 수 있습니다.
 
-| 역할 아이콘 | 설명 |
+| 역할 아이콘 | Description |
 |:--|:--|
 | ![웹 서버](media/service-map/role-web-server.png) | 웹 서버 |
 | ![앱 서버](media/service-map/role-application-server.png) | 애플리케이션 서버 |
@@ -219,7 +219,7 @@ Azure Site Recovery를 사용 중이고 애플리케이션 환경에 대한 복�
 
 ![프로세스 속성 창](media/service-map/process-properties.png)
 
-**프로세스 요약** 창은 바인딩된 포트, 인바운드 및 아웃바운드 연결, 실패한 연결을 포함하여 프로세스의 연결에 대한 추가 정보를 제공합니다.
+**프로세스 요약** 창은 바인딩된 포트, 인바운드 및 아웃 바운드 연결, 실패 한 연결을 포함 하 여 프로세스의 연결에 대 한 추가 정보를 제공 합니다.
 
 ![프로세스 요약 창](media/service-map/process-summary.png)
 
@@ -320,13 +320,13 @@ Linux:
 
 ### <a name="connections"></a>Connections
 
-연결 메트릭은 Log Analytics - VMConnection에서 새 테이블에 작성됩니다. 이 테이블은 머신에 대한 연결 관련 정보를 제공합니다(인바운드 및 아웃바운드). 또한 연결 메트릭은 해당 기간 동안 특정 메트릭을 가져올 수 있는 방법을 제공하는 API를 사용하여 노출됩니다.  수신 대기 소켓에서 수락하여 발생하는 TCP 연결은 인바운드이며 지정된 IP 및 포트에 연결하여 만든 연결은 아웃바운드입니다. 연결의 방향은 **인바운드** 또는 **아웃바운드** 중 하나로 설정할 수 있는 Direction 속성으로 표현됩니다. 
+연결 메트릭은 Log Analytics - VMConnection에서 새 테이블에 작성됩니다. 이 테이블은 머신에 대한 연결 관련 정보를 제공합니다(인바운드 및 아웃바운드). 또한 연결 메트릭은 해당 기간 동안 특정 메트릭을 가져올 수 있는 방법을 제공하는 API를 사용하여 노출됩니다.  수신 소켓에서 받아들이는 TCP 연결은 인바운드 이며 지정 된 IP 및 포트에 연결 하 여 만든 TCP 연결은 아웃 바운드입니다. 연결의 방향은 **인바운드** 또는 **아웃바운드** 중 하나로 설정할 수 있는 Direction 속성으로 표현됩니다. 
 
 이러한 테이블의 레코드는 종속성 에이전트에서 보고된 데이터에서 생성됩니다. 모든 레코드는 1분 간격의 관찰을 나타냅니다. TimeGenerated 속성은 시간 간격의 시작을 나타냅니다. 각 레코드에는 각 엔터티를 식별하는 정보가 있습니다. 즉, 해당 엔터티에 연결된 메트릭과 함께 연결 또는 포트를 포함합니다. 현재 IPv4를 통해 TCP를 사용하여 발생하는 네트워크 활동만 보고됩니다.
 
 비용 및 복잡성을 관리하기 위해 연결 레코드는 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다. 그런 다음, 각 테이블에 반영됩니다.  즉, *VMConnection* 테이블의 레코드는 관찰되는 개별 물리적 연결이 아닌 논리적 그룹화를 나타냅니다. 지정된 1분 간격 동안 다음 특성에 대해 동일한 값을 공유하는 물리적 네트워크 연결이 *VMConnection*의 단일 논리적 레코드에 집계됩니다. 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 | `Direction` |연결 방향으로 값은 *인바운드* 또는 *아웃바운드*입니다. |
 | `Machine` |컴퓨터 FQDN |
@@ -338,7 +338,7 @@ Linux:
 
 그룹화의 영향을 고려하기 위해 그룹화된 물리적 연결 수에 대한 정보가 다음과 같은 레코드 속성에서 제공됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 | `LinksEstablished` |보고 기간 동안 설정된 물리적 네트워크 연결의 수 |
 | `LinksTerminated` |보고 기간 동안 종료된 물리적 네트워크 연결의 수 |
@@ -349,7 +349,7 @@ Linux:
 
 연결 수 메트릭 외에도 지정된 논리적 연결 또는 네트워크 포트에 전송 및 수신된 데이터의 볼륨에 대한 정보도 다음과 같은 레코드 속성에 포함됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 | `BytesSent` |보고 기간 동안 전송된 총 바이트 수 |
 | `BytesReceived` |보고 기간 동안 수신된 총 바이트 수 |
@@ -377,9 +377,9 @@ Linux:
 
 또한 *VMConnection*은 다음과 같은 레코드 속성에서 각 연결 레코드의 원격 끝에 대한 지리적 위치 정보를 포함합니다. 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
-| `RemoteCountry` |RemoteIp를 호스팅하는 국가/지역의 이름입니다.  예를 들어, *미국* |
+| `RemoteCountry` |RemoteIp를 호스트 하는 국가/지역의 이름입니다.  예: *미국* |
 | `RemoteLatitude` |지리적 위치 위도입니다.  예: *47.68* |
 | `RemoteLongitude` |지리적 위치 경도입니다.  예: *-122.12* |
 
@@ -387,7 +387,7 @@ Linux:
 
 *VMConnection* 테이블의 모든 RemoteIp 속성을 알려진 악의적인 활동의 IP 집합에 대해 검사합니다. RemoteIp가 악성으로 식별되면 다음과 같은 속성이 다음과 같은 레코드 속성에서 채워집니다(IP가 악성으로 간주되지 않으면 비어 있음).
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 | `MaliciousIp` |RemoteIp 주소 |
 | `IndicatorThreadType` |검색된 위협 표시기가 *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist* 값 중 하나입니다.   |
@@ -405,7 +405,7 @@ Linux:
 
 *ServiceMapComputer_CL* 형식의 레코드는 서비스 맵 에이전트가 있는 서버에 대한 인벤토리 데이터를 포함합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 | `Type` | *ServiceMapComputer_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -431,7 +431,7 @@ Linux:
 
 *ServiceMapProcess_CL* 형식의 레코드는 서비스 맵 에이전트가 있는 서버에서 TCP 연결 프로세스에 대한 인벤토리 데이터를 포함합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -559,46 +559,46 @@ Log Analytics의 [로그 검색](../../azure-monitor/log-query/log-query-overvie
 ### <a name="dependency-agent-installation-problems"></a>Dependency Agent 설치 문제
 
 #### <a name="installer-prompts-for-a-reboot"></a>재부팅용 설치 관리자 프롬프트
-종속성 에이전트는 *일반적으로* 설치 또는 제거 시 재부팅이 필요하지 않습니다. 그러나 드문 경우이지만 설치를 계속하기 위해 Windows Server를 다시 부팅해야 합니다. 이 문제는 일반적으로 Microsoft Visual C++ 재배포 가능 라이브러리가 잠긴 파일로 인해 재부팅해야 하는 종속성에서 발생합니다.
+종속성 에이전트는 *일반적으로* 설치 또는 제거 시 다시 부팅할 필요가 없습니다. 그러나 드문 경우이지만 설치를 계속하기 위해 Windows Server를 다시 부팅해야 합니다. 이는 일반적으로 잠겨 있는 파일 때문에 Microsoft Visual C++ 재배포 가능 라이브러리를 다시 부팅 해야 하는 종속성을 사용할 때 발생 합니다.
 
 #### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>“Dependency Agent를 설치할 수 없습니다: Visual Studio 런타임 라이브러리를 설치하지 못했습니다(코드 = [코드 번호])” 메시지가 표시됩니다.
 
 Microsoft Dependency Agent는 Microsoft Visual Studio 런타임 라이브러리를 기반으로 합니다. 라이브러리를 설치하는 동안 문제가 발생하면 메시지가 표시됩니다. 
 
-런타임 라이브러리 설치 관리자는 %LOCALAPPDATA%\temp 폴더에 로그를 만듭니다. 파일은 `dd_vcredist_arch_yyyymmddhhmmss.log` *아치가* `x86` 있거나 `amd64` *yyyymmddhhmmss가* 로그가 생성된 날짜와 시간(24시간 시계)입니다. 로그는 설치를 방해하는 문제에 대한 세부 내용을 제공합니다.
+런타임 라이브러리 설치 관리자는 %LOCALAPPDATA%\temp 폴더에 로그를 만듭니다. 이 파일은 `dd_vcredist_arch_yyyymmddhhmmss.log`입니다. *arch* 여기서 아치 `x86` 는 `amd64` 또는이 고 *yyyymmddhhmmss* 는 로그가 생성 된 날짜 및 시간 (24 시간제)입니다. 로그는 설치를 방해하는 문제에 대한 세부 내용을 제공합니다.
 
-[최신 런타임 라이브러리를](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) 먼저 설치하는 것이 유용할 수 있습니다.
+[최신 런타임 라이브러리](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) 를 먼저 설치 하는 것이 유용할 수 있습니다.
 
 다음 테이블에는 코드 번호 및 제안된 해결 방법이 나와 있습니다.
 
-| 코드 | 설명 | 해결 방법 |
+| 코드 | Description | 해결 방법 |
 |:--|:--|:--|
-| 0x17 | 라이브러리 설치 관리자에는 설치하지 않은 Windows 업데이트가 필요합니다. | 가장 최근의 라이브러리 설치 관리자 로그를 확인합니다.<br><br>참조 `Windows8.1-KB2999226-x64.msu` 다음에 줄이 `Error 0x80240017: Failed to execute MSU package,` 있는 경우 KB2999226을 설치하기 위한 전제 조건이 없습니다. Windows 문서의 [유니버설 C 런타임의](https://support.microsoft.com/kb/2999226) 필수 구성 조건 섹션의 지침을 따릅니다. 필수 구성 요소를 설치하려면 Windows Update를 실행하고 여러 번 다시 부팅해야 할 수 있습니다.<br><br>Microsoft 종속성 에이전트 설치 관리자를 다시 실행합니다. |
+| 0x17 | 라이브러리 설치 관리자에는 설치하지 않은 Windows 업데이트가 필요합니다. | 가장 최근의 라이브러리 설치 관리자 로그를 확인합니다.<br><br>에 대 `Windows8.1-KB2999226-x64.msu` 한 참조 다음에 줄 `Error 0x80240017: Failed to execute MSU package,` 이 나오면 k b 2999226를 설치 하기 위한 필수 구성 요소가 없습니다. [Windows의 유니버설 C 런타임](https://support.microsoft.com/kb/2999226) 문서에 있는 필수 구성 요소 섹션의 지침을 따르세요. 필수 구성 요소를 설치하려면 Windows Update를 실행하고 여러 번 다시 부팅해야 할 수 있습니다.<br><br>Microsoft 종속성 에이전트 설치 관리자를 다시 실행합니다. |
 
 ### <a name="post-installation-issues"></a>사후 설치 문제
 
 #### <a name="server-doesnt-appear-in-service-map"></a>서버가 서비스 맵에 표시되지 않습니다.
 
-종속성 에이전트 설치가 성공했지만 서비스 맵 솔루션에 컴퓨터가 표시되지 않는 경우:
+종속성 에이전트를 설치 했지만 서비스 맵 솔루션에 컴퓨터가 표시 되지 않는 경우:
 * 종속성 에이전트가 성공적으로 설치되었나요? 서비스가 설치되어 실행 중인지 확인하여 성공적인 설치 여부를 검사할 수 있습니다.<br><br>
-**윈도우**: **마이크로 소프트 종속성 에이전트라는**서비스를 찾습니다.
-**Linux**: 실행 중인 **프로세스microsoft-종속성 에이전트를**찾습니다.
+**Windows**: **Microsoft 종속성 에이전트**라는 서비스를 찾습니다.
+**Linux**: 실행 중인 프로세스 **(microsoft-종속성-에이전트)** 를 찾습니다.
 
-* [로그 분석 프리 티어에](https://azure.microsoft.com/pricing/details/monitor/)있습니까? 무료 요금제는 최대 5대의 고유한 서비스 맵 머신을 허용합니다. 이전 5개가 더 이상 데이터를 보내지 않더라도 후속 컴퓨터는 서비스 맵에 나타나지 않습니다.
+* [Log Analytics 무료 계층](https://azure.microsoft.com/pricing/details/monitor/)에 있나요? 무료 요금제는 최대 5 개의 고유 서비스 맵 컴퓨터를 허용 합니다. 이전 5 개에서 더 이상 데이터를 전송 하지 않는 경우에도 모든 후속 컴퓨터는 서비스 맵에 표시 되지 않습니다.
 
-* 서버가 Azure 모니터 로그에 로그 및 퍼프 데이터를 보내고 있습니까? Azure 모니터\Logs로 이동하여 컴퓨터에 대한 다음 쿼리를 실행합니다. 
+* 서버에서 로그 및 성능 데이터를 Azure Monitor 로그에 보내고 있나요? Azure Monitor\Logs로 이동 하 여 컴퓨터에 대해 다음 쿼리를 실행 합니다. 
 
     ```kusto
     Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-결과에서 다양한 이벤트를 얻었나요? 최근 데이터인가요? 이 경우 Log Analytics 에이전트가 올바르게 작동하고 작업 영역과 통신하고 있습니다. 그렇지 않은 경우 컴퓨터에서 에이전트를 확인합니다: [Windows 문제 해결을 위한 로그 분석 에이전트](../platform/agent-windows-troubleshoot.md) 또는 Linux 문제 [해결을 위한 로그 분석 에이전트.](../platform/agent-linux-troubleshoot.md)
+결과에서 다양한 이벤트를 얻었나요? 최근 데이터인가요? 이 경우 Log Analytics 에이전트가 제대로 작동 하 고 작업 영역과 통신 하 고 있는 것입니다. 그렇지 않은 경우 컴퓨터의 에이전트: [Windows 문제 해결을 위한 Log Analytics 에이전트](../platform/agent-windows-troubleshoot.md) 또는 [Linux 용 Log Analytics 에이전트 문제 해결](../platform/agent-linux-troubleshoot.md)을 확인 합니다.
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>서버가 서비스 맵에 표시되지만 프로세스가 없습니다.
 
-서비스 맵에 컴퓨터가 표시되지만 프로세스 또는 연결 데이터가 없는 경우 종속성 에이전트가 설치되고 실행 중이지만 커널 드라이버가 로드되지 않았음을 나타냅니다. 
+서비스 맵에 컴퓨터가 표시 되지만 프로세스 또는 연결 데이터가 없는 경우 종속성 에이전트가 설치 되어 실행 중이지만 커널 드라이버가 로드 되지 않았음을 나타냅니다. 
 
-`C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (윈도우) 또는 `/var/opt/microsoft/dependency-agent/log/service.log file` (리눅스)를 확인합니다. 파일의 마지막 줄에 커널이 로드되지 않은 이유가 표시되어야 합니다. 예를 들어, 커널을 업데이트 한 경우 Linux에서 커널이 지원되지 않을 수 있습니다.
+(Windows `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` ) 또는 `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux)를 확인 합니다. 파일의 마지막 줄에 커널이 로드되지 않은 이유가 표시되어야 합니다. 예를 들어, 커널을 업데이트 한 경우 Linux에서 커널이 지원되지 않을 수 있습니다.
 
 ## <a name="feedback"></a>사용자 의견
 

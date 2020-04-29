@@ -1,17 +1,17 @@
 ---
 title: VNet 끝점 관리-Azure Portal-Azure Database for MySQL
 description: Azure Portal을 사용한 Azure Database for MySQL VNet 서비스 엔드포인트 만들기 및 관리
-author: bolzmj
-ms.author: mbolz
+author: kummanish
+ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: fec85f7d87bbfe0039744b9ea63239083ff1c8a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba63c65c2b0d7abda089c3dfd315bfe499632cc0
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063527"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509230"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL VNet 서비스 엔드포인트 및 VNet 규칙 만들기 및 관리
 VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트워크의 프라이빗 주소 공간을 Azure Database for MySQL 서버로 확장합니다. 제한을 포함하여 Azure Database for MySQL VNet 서비스 엔드포인트에 대한 개요는 [Azure Database for MySQL 서버 VNet 서비스 엔드포인트](concepts-data-access-and-security-vnet.md)를 참조하세요. VNet 서비스 엔드포인트는 Azure Database for MySQL에 대한 지원되는 모든 지역에서 사용할 수 있습니다.

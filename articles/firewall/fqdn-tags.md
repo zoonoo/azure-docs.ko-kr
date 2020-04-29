@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 04/24/2020
 ms.author: victorh
-ms.openlocfilehash: 6396f8292a4c54f7fce237439f37c3e8156d59e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4fcadb6d930f7863c733dad105432a64127b59b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "74169045"
+ms.locfileid: "82232652"
 ---
 # <a name="fqdn-tags-overview"></a>FQDN 태그 개요
 
@@ -28,7 +28,7 @@ FQDN 태그는 잘 알려진 Microsoft 서비스와 연결된 FQDN(정규화된 
 
 ## <a name="current-fqdn-tags"></a>현재 FQDN 태그
 
-|FQDN 태그  |Description  |
+|FQDN 태그  |설명  |
 |---------|---------|
 |Windows 업데이트     |[소프트웨어 업데이트에 대한 방화벽 구성 방법](https://technet.microsoft.com/library/bb693717.aspx)에 설명된 대로 Microsoft 업데이트에 대한 아웃바운드 액세스를 허용합니다.|
 |Windows 진단|모든 [Windows 진단 엔드포인트](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints)에 대한 아웃바운드 액세스를 허용합니다.|
@@ -36,6 +36,7 @@ FQDN 태그는 잘 알려진 Microsoft 서비스와 연결된 FQDN(정규화된 
 |ASE(App Service Environment)|ASE 플랫폼 트래픽에 대한 아웃바운드 액세스를 허용합니다. 이 태그는 ASE에서 만든 고객별 Storage 및 SQL 엔드포인트을 다루지 않습니다. [서비스 엔드포인트](../virtual-network/tutorial-restrict-network-access-to-resources.md)을 통해 사용하도록 설정되거나 수동으로 추가되어야 합니다.<br><br>Azure Firewall을 ASE와 통합하는 방법에 대한 자세한 내용은 [App Service Environment 잠금](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase)을 참조하세요.|
 |Azure Backup|Azure Backup 서비스에 대한 아웃바운드 액세스를 허용합니다.|
 |Azure HDInsight|HDInsight 플랫폼 트래픽에 대 한 아웃 바운드 액세스를 허용 합니다. 이 태그는 HDInsight의 고객 관련 저장소 또는 SQL 트래픽을 포함 하지 않습니다. [서비스 끝점](../virtual-network/tutorial-restrict-network-access-to-resources.md) 을 사용 하 여 이러한 기능을 사용 하도록 설정 하거나 수동으로 추가 합니다.|
+|WindowsVirtualDesktop (WVD)|아웃 바운드 Windows 가상 데스크톱 플랫폼 트래픽을 허용 합니다. 이 태그는 배포 별 저장소 및 WVD에서 만든 Service Bus 끝점을 포함 하지 않습니다. 또한 DNS 및 KMS 네트워크 규칙이 필요 합니다. Azure 방화벽을 WVD와 통합 하는 방법에 대 한 자세한 내용은 [Azure 방화벽을 사용 하 여 Windows 가상 데스크톱 배포 보호를](protect-windows-virtual-desktop.md)참조 하세요. 
 
 > [!NOTE]
 > 애플리케이션 규칙에서 FQDN 태그를 선택하는 경우 protocol:port 필드는 **https**로 설정되어야 합니다.
