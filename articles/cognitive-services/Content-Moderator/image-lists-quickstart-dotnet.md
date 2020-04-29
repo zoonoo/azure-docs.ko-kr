@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: e650529f3adb998ce683354565acdeb3928b50c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72931766"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>C#에서 사용자 지정 이미지 목록을 사용하여 조정
@@ -32,7 +32,7 @@ ms.locfileid: "72931766"
 > [!NOTE]
 > 최대 **5개 이미지 목록**으로 제한되고, 각 목록은 **10,000개 이미지를 초과하지 않아야** 합니다.
 
-이 가이드의 콘솔 응용 프로그램은 이미지 목록 API로 수행할 수 있는 몇 가지 작업을 시뮬레이션합니다.
+이 가이드의 콘솔 응용 프로그램에서는 이미지 목록 API를 사용 하 여 수행할 수 있는 작업 중 일부를 시뮬레이션 합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
@@ -72,7 +72,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Content Moderator 클라이언트 만들기
 
-다음 코드를 추가하여 구독에 대한 Content Moderator 클라이언트를 만듭니다. 끝점 `AzureEndpoint` `CMSubscriptionKey` URL 및 구독 키의 값으로 및 필드를 업데이트합니다. Azure 포털에서 리소스의 **빠른 시작** 탭에서 찾을 수 있습니다.
+다음 코드를 추가하여 구독에 대한 Content Moderator 클라이언트를 만듭니다. 및 `CMSubscriptionKey` 필드 `AzureEndpoint` 를 끝점 URL 및 구독 키의 값으로 업데이트 합니다. Azure Portal에서 리소스의 **빠른 시작** 탭에서 찾을 수 있습니다.
 
 ```csharp
 /// <summary>
@@ -242,7 +242,7 @@ private static Body listDetails;
 
 ## <a name="create-a-method-to-write-messages-to-the-log-file"></a>로그 파일에 메시지를 작성하는 메서드 만들기
 
-**프로그램** 클래스에 다음 메서드를 추가합니다. 
+**Program** 클래스에 다음 메서드를 추가합니다. 
 
 ```csharp
 /// <summary>
@@ -263,7 +263,7 @@ private static void WriteLine(string message = null, bool echo = false)
 
 ## <a name="create-a-method-to-create-the-custom-list"></a>사용자 지정 목록을 만드는 메서드 만들기
 
-**프로그램** 클래스에 다음 메서드를 추가합니다. 
+**Program** 클래스에 다음 메서드를 추가합니다. 
 
 ```csharp
 /// <summary>
@@ -292,7 +292,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>목록에 이미지의 컬렉션을 추가하는 메서드 만들기
 
-**프로그램** 클래스에 다음 메서드를 추가합니다. 이 가이드에서는 목록의 이미지에 태그를 적용하는 방법을 보여 줍니다. 
+**Program** 클래스에 다음 메서드를 추가합니다. 이 가이드에서는 목록의 이미지에 태그를 적용 하는 방법을 보여 주지 않습니다. 
 
 ```csharp
 /// <summary>
@@ -336,7 +336,7 @@ IEnumerable<string> imagesToAdd, string label)
 
 ## <a name="create-a-method-to-remove-images-from-the-list"></a>목록에서 이미지를 제거하는 메서드 만들기
 
-**프로그램** 클래스에 다음 메서드를 추가합니다. 
+**Program** 클래스에 다음 메서드를 추가합니다. 
 
 ```csharp
 /// <summary>
@@ -373,7 +373,7 @@ private static void RemoveImages(
 
 ## <a name="create-a-method-to-get-all-of-the-content-ids-for-images-in-the-list"></a>목록의 이미지에 대한 모든 콘텐츠 ID를 가져오는 메서드 만들기
 
-**프로그램** 클래스에 다음 메서드를 추가합니다. 
+**Program** 클래스에 다음 메서드를 추가합니다. 
 
 ```csharp
 /// <summary>
@@ -400,7 +400,7 @@ private static ImageIds GetAllImageIds(
 
 ## <a name="create-a-method-to-update-the-details-of-the-list"></a>목록의 세부 정보를 업데이트하는 메서드 만들기
 
-**프로그램** 클래스에 다음 메서드를 추가합니다. 
+**Program** 클래스에 다음 메서드를 추가합니다. 
 
 ```csharp
 /// <summary>
@@ -430,7 +430,7 @@ private static ImageList UpdateListDetails(
 
 ## <a name="create-a-method-to-retrieve-the-details-of-the-list"></a>목록의 세부 정보를 검색하는 메서드 만들기
 
-**프로그램** 클래스에 다음 메서드를 추가합니다.
+**Program** 클래스에 다음 메서드를 추가합니다.
 
 ```csharp
 /// <summary>
@@ -457,7 +457,7 @@ private static ImageList GetListDetails(
 
 ## <a name="create-a-method-to-refresh-the-search-index-of-the-list"></a>목록의 검색 인덱스를 새로 고치는 메서드 만들기
 
-**프로그램** 클래스에 다음 메서드를 추가합니다. 목록을 업데이트할 때마다 이미지를 차단하는 데 목록을 사용하기 전에 검색 인덱스를 새로 고쳐야 합니다.
+**Program** 클래스에 다음 메서드를 추가합니다. 목록을 업데이트할 때마다 이미지를 차단하는 데 목록을 사용하기 전에 검색 인덱스를 새로 고쳐야 합니다.
 
 ```csharp
 /// <summary>
@@ -484,7 +484,7 @@ private static RefreshIndex RefreshSearchIndex(
 
 ## <a name="create-a-method-to-match-images-against-the-list"></a>목록에 대해 이미지가 일치하는 메서드 만들기
 
-**프로그램** 클래스에 다음 메서드를 추가합니다. 
+**Program** 클래스에 다음 메서드를 추가합니다. 
 
 ```csharp
 /// <summary>
@@ -514,7 +514,7 @@ private static void MatchImages(
 
 ## <a name="create-a-method-to-delete-all-images-from-the-list"></a>목록에서 모든 이미지를 삭제하는 메서드 만들기
 
-**프로그램** 클래스에 다음 메서드를 추가합니다. 
+**Program** 클래스에 다음 메서드를 추가합니다. 
 
 ```csharp
 /// <summary>
@@ -538,7 +538,7 @@ private static void DeleteAllImages(
 
 ## <a name="create-a-method-to-delete-the-list"></a>목록을 삭제하는 메서드 만들기
 
-**프로그램** 클래스에 다음 메서드를 추가합니다. 
+**Program** 클래스에 다음 메서드를 추가합니다. 
 
 ```csharp
 /// <summary>
@@ -562,7 +562,7 @@ private static void DeleteCustomList(
 
 ## <a name="create-a-method-to-retrieve-ids-for-all-image-lists"></a>모든 이미지 목록에 대한 ID를 검색하는 메서드 만들기
 
-**프로그램** 클래스에 다음 메서드를 추가합니다. 
+**Program** 클래스에 다음 메서드를 추가합니다. 
 
 ```csharp
 /// <summary>
@@ -587,7 +587,7 @@ private static IList<ImageList> GetAllListIds(ContentModeratorClient client)
 
 ## <a name="add-code-to-simulate-the-use-of-an-image-list"></a>코드를 추가하여 이미지 목록의 사용 시뮬레이션
 
-**Main** 메서드에 다음 코드를 추가합니다. 이 코드는 목록을 정의 및 관리하고 이미지를 차단하도록 목록을 사용하는 데 수행하는 많은 작업을 시뮬레이션합니다. 로깅 기능을 통해 Content Moderator 서비스에 대한 SDK 호출에 의해 생성된 응답 개체를 볼 수 있습니다.
+**Main** 메서드에 다음 코드를 추가 합니다. 이 코드는 목록을 정의 및 관리하고 이미지를 차단하도록 목록을 사용하는 데 수행하는 많은 작업을 시뮬레이션합니다. 로깅 기능을 통해 Content Moderator 서비스에 대한 SDK 호출에 의해 생성된 응답 개체를 볼 수 있습니다.
 
 ```csharp
 // Create the text writer to use for logging, and cache a static reference to it.

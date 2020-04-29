@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
 ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74072797"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Custom Autosuggest 환경 구성
@@ -36,7 +36,7 @@ Bing 제안을 사용하려면 **자동 Bing 제안** 슬라이더를 켬 위치
 
 ## <a name="add-your-own-suggestions"></a>자신의 제안 추가
 
-나만의 쿼리 문자열 제안을 추가하려면 **사용자 정의 제안** 아래 목록에 해당 항목을 추가합니다. 목록에 제안을 추가한 후 enter 키를 누르거나 아이콘을 클릭합니다. **+** 제안은 어떠한 언어로든 지정할 수 있습니다. 쿼리 문자열 제안은 최대 5,000개까지 추가할 수 있습니다.
+나만의 쿼리 문자열 제안을 추가하려면 **사용자 정의 제안** 아래 목록에 해당 항목을 추가합니다. 목록에서 제안을 추가한 후 enter 키를 누르거나 **+** 아이콘을 클릭 합니다. 제안은 어떠한 언어로든 지정할 수 있습니다. 쿼리 문자열 제안은 최대 5,000개까지 추가할 수 있습니다.
 
 ## <a name="upload-suggestions"></a>제안 업로드
 
@@ -48,7 +48,7 @@ Bing 제안을 사용하려면 **자동 Bing 제안** 슬라이더를 켬 위치
 
 ## <a name="block-suggestions"></a>제안 차단
 
-Bing 제안을 포함시키면 Bing에서 반환하지 않을 검색 쿼리 문자열 목록을 추가할 수 있습니다. 차단된 쿼리 문자열을 추가하려면 **Show blocked suggestions**(차단된 제안 표시)를 클릭합니다. 목록에 쿼리 문자열을 추가하고 enter 키를 누르거나 아이콘을 클릭합니다. **+** 차단된 쿼리 문자열은 최대 50개까지 추가할 수 있습니다.
+Bing 제안을 포함시키면 Bing에서 반환하지 않을 검색 쿼리 문자열 목록을 추가할 수 있습니다. 차단된 쿼리 문자열을 추가하려면 **Show blocked suggestions**(차단된 제안 표시)를 클릭합니다. 목록에 쿼리 문자열을 추가 하 고 enter 키를 누르거나 아이콘을 **+** 클릭 합니다. 차단된 쿼리 문자열은 최대 50개까지 추가할 수 있습니다.
 
 
 

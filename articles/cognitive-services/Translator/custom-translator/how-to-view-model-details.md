@@ -10,17 +10,17 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 64f446c3b331c1aa6ddaae9081b7f61943f74ab2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595571"
 ---
 # <a name="view-model-details"></a>모델 세부 정보 보기
 
 프로젝트의 모델 탭에 해당 프로젝트의 모든 모델이 표시됩니다. 해당 프로젝트에 대해 학습된 모든 모델이 이 탭에는 나열됩니다.
 
-프로젝트의 각 모델에 대해 이러한 세부 정보가 표시됩니다.
+프로젝트의 각 모델에 대해 이러한 세부 정보가 표시 됩니다.
 
 1.  모델 이름: 지정된 모델의 모델 이름을 표시합니다.
 

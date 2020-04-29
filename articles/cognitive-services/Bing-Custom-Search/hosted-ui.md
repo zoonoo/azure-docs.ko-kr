@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: 2cc89bf57167db75404c044f58d18ab48edfaf38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68854079"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>호스트된 UI 환경 구성
@@ -104,7 +104,7 @@ Bing Custom Search는 JavaScript 코드 조각으로 웹 페이지 및 웹 애�
 |이미지 캡션   | 이미지가 검색 결과와 함께 표시되는지 여부를 결정합니다.|
 
 
-고급 구성 표시를 클릭하면 다음 **구성이 표시됩니다.**
+**고급 구성 표시**를 클릭 하면 다음과 같은 구성이 표시 됩니다.
 
 
 |  | |

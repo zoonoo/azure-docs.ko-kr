@@ -1,7 +1,7 @@
 ---
-title: 프로젝트를 만드는 방법 - 사용자 지정 번역기
+title: 프로젝트 사용자 지정 번역기를 만드는 방법
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Azure 인지 서비스 사용자 지정 변환기에서 프로젝트를 만들고 관리하는 방법을 설명합니다.
+description: 이 문서에서는 Azure Cognitive Services 사용자 지정 변환기에서 프로젝트를 만들고 관리 하는 방법을 설명 합니다.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 5b3a6f2e903d8178554b7a076ae1277633569353
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73836558"
 ---
 # <a name="create-a-project"></a>프로젝트 만들기

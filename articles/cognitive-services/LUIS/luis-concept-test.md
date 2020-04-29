@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
 ms.openlocfilehash: 25b360f90a0920aad2ea5e68cda31a68be5d37a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73486689"
 ---
 # <a name="testing-example-utterances-in-luis"></a>LUIS에서 예제 발화 테스트
 
 테스트는 LUIS에 샘플 발화를 제공하고 LUIS에서 인식한 의도 및 엔터티의 응답을 가져오는 프로세스입니다. 
 
-LUIS를 대화식으로 테스트하거나 한 번에 하나의 발언을 테스트하거나 발언을 제공할 수 있습니다. 테스트하는 동안 현재 활성 모델의 예측 응답을 게시된 모델의 예측 응답과 비교할 수 있습니다. 
+LUIS를 대화형으로 테스트 하거나, 한 번에 한 utterance 길이 발언를 제공할 수 있습니다. 테스트 하는 동안 현재 활성 모델의 예측 응답을 게시 된 모델의 예측 응답과 비교할 수 있습니다. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -32,7 +32,7 @@ LUIS를 대화식으로 테스트하거나 한 번에 하나의 발언을 테스
 예측 점수에 대해 자세히 알아보려면 [예측 점수](luis-concept-prediction-score.md) 개념을 참조하세요.
 
 ## <a name="interactive-testing"></a>대화형 테스트
-대화형 테스트는 LUIS 포털의 **테스트** 패널에서 수행됩니다. 발화를 입력하여 의도 및 엔터티를 식별하고 점수를 매기는 방법을 확인할 수 있습니다. LUIS가 테스트 패널의 발언에 예상대로 의도 및 엔터티를 예측하지 않는 경우 **의도** 페이지에 새 발화로 복사합니다. 그런 다음 엔터티에 대해 해당 발언의 부분에 레이블을 지정하고 LUIS를 학습합니다. 
+대화형 테스트는 LUIS 포털의 **테스트** 패널에서 수행 됩니다. 발화를 입력하여 의도 및 엔터티를 식별하고 점수를 매기는 방법을 확인할 수 있습니다. LUIS가 테스트 패널의 utterance에서 예상 하는 의도 및 엔터티를 예측 하지 않는 경우이를 **의도** 페이지에 새 utterance 복사 합니다. 그런 다음 해당 utterance의 파트에 엔터티에 레이블을 붙이고 LUIS를 학습 합니다. 
 
 ## <a name="batch-testing"></a>일괄 테스트
 한 번에 둘 이상의 발화를 테스트하는 경우, [일괄 테스트](luis-concept-batch-test.md)를 참조하세요.
@@ -46,7 +46,7 @@ LUIS를 대화식으로 테스트하거나 한 번에 하나의 발언을 테스
 엔드포인트에서 테스트할 때 발화를 기록하지 않으려면 `logging=false` 쿼리 문자열 구성을 사용해야 합니다.
 
 ## <a name="where-to-find-utterances"></a>발화를 찾을 수 있는 위치
-LUIS는 **앱** 목록 페이지에서 LUIS 포털에서 다운로드할 수 있는 쿼리 로그에 기록된 모든 발언을 저장하고 LUIS [작성 API를](https://go.microsoft.com/fwlink/?linkid=2092087)저장합니다. 
+LUIS는 모든 로그 된 길이 발언을 쿼리 로그에 저장 하 고, **앱** 목록 페이지의 LUIS 포털에서 다운로드할 수 있으며, LUIS [authoring api](https://go.microsoft.com/fwlink/?linkid=2092087)에도 저장 합니다. 
 
 LUIS가 확신하지 않는 모든 발언은 [LUIS](luis-reference-regions.md) 웹 사이트의 **[엔드포인트 발언 검토](luis-how-to-review-endpoint-utterances.md)** 페이지에 나열됩니다. 
 

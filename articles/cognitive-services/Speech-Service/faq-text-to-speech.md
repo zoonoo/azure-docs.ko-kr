@@ -1,7 +1,7 @@
 ---
 title: Text to Speech에 대한 FAQ(질문과 대답)
 titleSuffix: Azure Cognitive Services
-description: 텍스트 음성 변환 서비스에 대한 자주 묻는 질문에 대한 답변을 얻을 수 있습니다.
+description: Text to Speech 서비스에 대해 자주 묻는 질문에 대 한 답변을 가져옵니다.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
 ms.openlocfilehash: 19b8be83a3678164197ec0650b07091e941a04d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74110499"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Text to Speech에 대한 FAQ(질문과 대답)

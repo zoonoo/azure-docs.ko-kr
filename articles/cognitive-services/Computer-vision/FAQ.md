@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: e8ab205a43e5cb1e8e2b96dbd9600e1fceb29403
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68564596"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Computer Vision API 질문과 대답
@@ -25,7 +25,7 @@ ms.locfileid: "68564596"
 
 ---
 
-**질문**: *사용자 지정 태그를 사용하도록 컴퓨터 비전 API를 교육할 수 있습니까?  예를 들어, 고양이 품종의 사진을 먹이서 AI를 '훈련'한 다음 AI 요청에 따라 품종 값을 받고 싶습니다.*
+**질문**: *사용자 지정 태그를 사용 하 Computer Vision API를 학습 시킬 수 있나요?  예를 들어 AI를 ' 교육 ' 하는 cat breeds의 그림에 피드를 제공 하 고 AI 요청에서 최고 가치를 받고 싶습니다.*
 
 **대답**: 이 기능은 현재 이용할 수 없습니다. 하지만 Computer Vision에 이 기능을 도입하기 위해 엔지니어들이 열심히 작업 중입니다.
 

@@ -1,7 +1,7 @@
 ---
 title: Microsoft Translator Hub 작업 영역 및 프로젝트를 마이그레이션하려면? - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 허브 작업 영역 및 프로젝트를 Azure Cognitive Services 사용자 지정 변환기로 마이그레이션하는 방법을 설명합니다.
+description: 이 문서에서는 Azure Cognitive Services 사용자 지정 변환기로 허브 작업 영역 및 프로젝트를 마이그레이션하는 방법을 설명 합니다.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75446775"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>허브 작업 영역 및 프로젝트를 Custom Translator로 마이그레이션
@@ -27,7 +27,7 @@ ms.locfileid: "75446775"
 * 허브 학습에서 마이그레이션된 BLEU 점수는 언제든 "MT 허브의 Bleu 점수" 제목의 모델의 TrainingDetails 페이지에서 찾을 수 있습니다.
 
 > [!Note] 
-> 교육을 성공하려면 사용자 지정 번역기는 최소 10,000개의 고유 추출된 문장이 필요합니다. 사용자 지정 번역기는 [제안된 최소](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences)값보다 적은 수의 교육을 수행할 수 없습니다.
+> 학습에 성공 하려면 사용자 지정 변환기에 1만의 고유 하 고 압축을 푼 문장이 필요 합니다. 사용자 지정 번역기는 [제안 된 최소값](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences)보다 작은 학습을 수행할 수 없습니다.
 
 ## <a name="find-custom-translator-workspace-id"></a>Custom Translator 작업 영역 ID 찾기
 
@@ -119,10 +119,10 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 프로젝트, 학습 및 문서에 대한 더 자세한 마이그레이션 보고서를 보려면 CSV로 세부 정보 내보내기 옵션이 있습니다.
 
 ## <a name="implementation-notes"></a>구현 참고 사항
-* 사용자 지정 번역기에서 아직 사용할 수 없는 언어 쌍이 있는 시스템은 사용자 지정 번역기를 통해 데이터에 액세스하거나 배포 취소할 수 있습니다. 이러한 프로젝트는 프로젝트 페이지에서 "사용할 수 없음"으로 표시됩니다. 사용자 지정 번역기와 새 언어 쌍을 사용하도록 설정하면 프로젝트가 활성화되어 학습 및 배포가 활성화됩니다. 
+* 사용자 지정 변환기에서 언어 쌍을 사용할 수 없는 시스템은 데이터에 액세스 하거나 사용자 지정 번역기를 통해 배포 취소할 수만 있습니다. 이러한 프로젝트는 프로젝트 페이지에서 "사용할 수 없음"으로 표시 됩니다. 사용자 지정 번역기를 사용 하 여 새 언어 쌍을 사용 하도록 설정 하면 프로젝트를 학습 하 고 배포할 수 있습니다. 
 * 허브에서 Custom Translator로 프로젝트를 마이그레이션하면 허브 학습 또는 프로젝트에 아무런 영향도 주지 않습니다. 마이그레이션하는 중에는 허브에서 프로젝트 또는 문서를 삭제하지 않으며 모델 배포를 취소하지 않습니다.
 * 프로젝트당 한 번만 마이그레이션할 수 있습니다. 프로젝트에서 마이그레이션을 반복해야 하는 경우 당사에 연락하세요.
-* 사용자 지정 번역기는 영어로 NMT 언어 쌍을 지원합니다. [지원되는 언어의 전체 목록을 봅니다.](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization) 허브는 기준 모델이 필요하지 않으므로 수천 개의 언어를 지원합니다. 지원되지 않는 언어 쌍을 마이그레이션할 수 있지만 문서 및 프로젝트 정의만 마이그레이션합니다. 새 모델을 학습할 수 없습니다. 또한 이러한 문서와 프로젝트를 지금은 사용할 수 없는 것으로 나타내려면 해당 문서와 프로젝트를 비활성으로 표시합니다. 이러한 프로젝트 및/또는 문서에 대한 지원이 추가되면 활성화되고 학습이 가능해집니다.
+* 사용자 지정 변환기는 영어에서 NMT 언어 쌍을 지원 합니다. [지원 되는 언어의 전체 목록을 봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). 허브는 기준 모델이 필요하지 않으므로 수천 개의 언어를 지원합니다. 지원되지 않는 언어 쌍을 마이그레이션할 수 있지만 문서 및 프로젝트 정의만 마이그레이션합니다. 새 모델을 학습할 수 없습니다. 또한 이러한 문서와 프로젝트를 지금은 사용할 수 없는 것으로 나타내려면 해당 문서와 프로젝트를 비활성으로 표시합니다. 이러한 프로젝트 및/또는 문서에 대한 지원이 추가되면 활성화되고 학습이 가능해집니다.
 * Custom Translator는 현재 단일어 학습 데이터를 지원하지 않습니다. 지원되지 않는 언어 쌍처럼 단일어 문서를 마이그레이션할 수 있지만 단일어 데이터가 지원될 때까지는 비활성으로 표시합니다.
 * 학습하려면 Custom Translator에는 10,000개의 병렬 문장이 필요합니다. Microsoft Hub는 더 작은 데이터 세트에 대해 학습할 수 있습니다. 이 요구 사항을 충족하지 않는 학습이 마이그레이션되는 경우 해당 요구 사항은 학습되지 않습니다.
 
@@ -134,16 +134,16 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 |:-----|:----:|:----:|
 |사용자 지정 기능 상태   | 일반 공급  | 일반 공급 |
 | Text API 버전  | V2    | V3  |
-| SMT 사용자 지정 | yes   | 예 |
-| NMT 사용자 지정 | 예    | yes |
-| 새로운 통합 Speech Service 사용자 지정 | 예    | yes |
-| 추적 없음 | yes | yes |
+| SMT 사용자 지정 | 예   | 예 |
+| NMT 사용자 지정 | 예    | 예 |
+| 새로운 통합 Speech Service 사용자 지정 | 예    | 예 |
+| 추적 없음 | 예 | 예 |
 
-## <a name="new-languages"></a>새로운 언어
+## <a name="new-languages"></a>새 언어
 
-Microsoft 번역기를 위한 새 언어 시스템을 만드는 커뮤니티 또는 조직인 [custommt@microsoft.com](mailto:custommt@microsoft.com) 경우 자세한 내용은 연락하십시오.
+Microsoft Translator [custommt@microsoft.com](mailto:custommt@microsoft.com) 에 대 한 새 언어 시스템을 만드는 데 사용 하는 커뮤니티 또는 조직인 경우 자세한 내용을 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [모델 을 훈련.](how-to-train-model.md)
+- [모델을 학습](how-to-train-model.md)합니다.
 - 배포된 사용자 지정 번역 모델을 [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)를 통해 사용합니다.

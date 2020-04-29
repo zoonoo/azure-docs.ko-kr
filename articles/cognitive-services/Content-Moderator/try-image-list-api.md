@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 27d9b12d9e1a0237050243c2b5f07edaa8d8857a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72757184"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>API 콘솔에서 사용자 지정 이미지 목록을 사용하여 조정
 
-Azure 콘텐츠 운영자의 [목록 관리 API를](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) 사용하여 사용자 지정 이미지 목록을 만듭니다. 이미지 조정 API와 함께 사용자 지정 이미지 목록을 사용합니다. 이미지 조정 작업이 이미지를 평가합니다. 사용자 지정 목록을 만드는 경우 작업은 사용자 지정 목록의 이미지와 비교합니다. 사용자 지정 목록을 사용하여 이미지를 차단하거나 허용할 수 있습니다.
+Azure Content Moderator의 [목록 관리 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) 를 사용 하 여 사용자 지정 이미지 목록을 만듭니다. 이미지 조정 API와 함께 사용자 지정 이미지 목록을 사용합니다. 이미지 조정 작업이 이미지를 평가합니다. 사용자 지정 목록을 만드는 경우 작업은 사용자 지정 목록의 이미지와 비교합니다. 사용자 지정 목록을 사용하여 이미지를 차단하거나 허용할 수 있습니다.
 
 > [!NOTE]
 > 최대 **5개 이미지 목록**으로 제한되고, 각 목록은 **10,000개 이미지를 초과하지 않아야** 합니다.
@@ -89,7 +89,7 @@ Azure 콘텐츠 운영자의 [목록 관리 API를](https://westus.dev.cognitive
 
    키-값 쌍으로 실제 이미지가 아닌 목록 메타데이터를 추가합니다.
  
-7. **전송을 선택합니다.** 목록이 생성됩니다. 새 목록과 연결된 **ID**입니다. 다른 이미지 목록 관리 기능에 이 ID가 필요합니다.
+7. **보내기**를 선택 합니다. 목록이 생성됩니다. 새 목록과 연결된 **ID**입니다. 다른 이미지 목록 관리 기능에 이 ID가 필요합니다.
 
    ![이미지 목록 - 만들기 콘솔 응답 콘텐츠 상자는 목록 ID를 표시합니다.](images/try-terms-list-create-2.png)
  
@@ -109,7 +109,7 @@ Azure 콘텐츠 운영자의 [목록 관리 API를](https://westus.dev.cognitive
 
     **이미지 - 모든 이미지 ID 가져오기** API 콘솔이 열립니다.
   
-12. **listId** 상자에 목록 ID를 입력한 다음, 등록 키를 입력합니다. **전송을 선택합니다.**
+12. **listId** 상자에 목록 ID를 입력한 다음, 등록 키를 입력합니다. **보내기**를 선택 합니다.
 
     ![이미지 - 모든 이미지 ID 가져오기 콘솔 응답 콘텐츠 상자는 입력한 이미지를 나열합니다.](images/try-image-list-create-11.png)
  

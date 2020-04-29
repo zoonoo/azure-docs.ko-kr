@@ -1,7 +1,7 @@
 ---
 title: 언어 지원 - Content Moderator API
 titleSuffix: Azure Cognitive Services
-description: Azure 인지 서비스 콘텐츠 운영자 API가 지원하는 자연어 목록입니다.
+description: Azure Cognitive Services Content Moderator API에서 지 원하는 자연어 목록입니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 9574af31c881589668c462099cae46d9e83b454b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73744372"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Content Moderator API를 위한 언어 지원
@@ -40,7 +40,7 @@ ms.locfileid: "73744372"
 | 체코어 |  벨라루스어 | 그리스어(현대)         | 폴란드어 |
 | 디베히어 | 보스니아어 - 키릴 자모 | 헝가리어      | 포르투갈어 |
 | 네덜란드어 | 보스니아어 - 라틴 문자 | 이탈리아어             | 루마니아어 |
-| 영어(크리올어) | 브르타뉴어[비 GeoPol] | 일본어  | 러시아어 |
+| 영어 (크리올) | 브르타뉴어[비 GeoPol] | 일본어  | 러시아어 |
 | 페르시아어 | 불가리아어 | 한국어                        | 슬로바키아어 |
 | 프랑스어 | 카탈로니아어 | 노르웨이어                        | 스페인어 |
 | 독일어 | 소라니 쿠르드어 | 폴란드어        | 터키어 |

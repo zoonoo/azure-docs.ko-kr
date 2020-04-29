@@ -1,7 +1,7 @@
 ---
-title: 잉크 인식기 API에 대한 언어 및 지역 지원
+title: 잉크 인식기 API에 대 한 언어 및 지역 지원
 titleSuffix: Azure Cognitive Services
-description: 잉크 인식기 API에서 지원하는 자연어 목록입니다.
+description: 잉크 인식기 API에서 지원 되는 일반 언어 목록입니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
 ms.openlocfilehash: 36f2fa65f47f824ccc3544f5c13b5f5ee9afd21a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67721746"
 ---
-# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>잉크 인식기 API에 대한 언어 및 지역 지원
+# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>잉크 인식기 API에 대 한 언어 및 지역 지원
 
-이 문서에서는 잉크 인식기 API에 대해 지원되는 언어를 설명합니다. 다음 언어로 작성된 디지털 잉크 콘텐츠는 API를 통해 해석및 처리될 수 있습니다.
+이 문서에서는 잉크 인식기 API에 대해 지원 되는 언어에 대해 설명 합니다. 다음 언어로 작성 된 디지털 잉크 콘텐츠는 API를 통해 해석 되 고 처리 될 수 있습니다.
 
 ## <a name="supported-languages"></a>지원되는 언어
 
@@ -45,7 +45,7 @@ ms.locfileid: "67721746"
 | 핀란드어                                    |     `fi-FI`     |
 | 프랑스어(프랑스)                            |     `fr-FR`     |
 | 갈리시아어                                   |     `gl-ES`     |
-| 독일어(스위스)                      |     `de-CH`     |
+| 독일어 (스위스)                      |     `de-CH`     |
 | 독일어(독일)                           |     `de-DE`     |
 | 그리스어                                      |     `el-GR`     |
 | 힌디어                                      |     `hi-IN`     |
@@ -54,7 +54,7 @@ ms.locfileid: "67721746"
 | 이탈리아어(이탈리아)                            |     `it-IT`     |
 | 일본어                                   |     `ja-JP`     |
 | 키냐르완다어                                |     `rw-RW`     |
-| 키스와힐리 (케냐)                          |     `sw-KE`     |
+| 스와힐리어 (케냐)                          |     `sw-KE`     |
 | 한국어                                     |     `ko-KR`     |
 | 룩셈부르크어                              |     `lb-LU`     |
 | 말레이어(브루나이)                  |     `ms-BN`     |
@@ -65,18 +65,18 @@ ms.locfileid: "67721746"
 | 폴란드어                                     |     `pl-PL`     |
 | 포르투갈어(브라질)                        |     `pt-BR`     |
 | 포르투갈어(포르투갈)                      |     `pt-PT`     |
-| 로만시 (주)                                    |     `rm-CH`     |
+| 로망슈어                                    |     `rm-CH`     |
 | 루마니아어                                   |     `ro-RO`     |
 | 러시아어                                    |     `ru-RU`     |
 | 스코틀랜드 게일어                            |     `gd-GB`     |
 | 북부 소토어                           |    `nso-ZA`     |
 | 세르비아어(키릴 자모, 보스니아 헤르체고비나) |  `sr-Cyrl-BA`   |
-| 세르비아어(키릴 문자, 몬테네그로)             |  `sr-Cyrl-ME`   |
+| 세르비아어 (키릴 자모, 몬테네그로)             |  `sr-Cyrl-ME`   |
 | 세르비아어(키릴 자모, 세르비아)                 |  `sr-Cyrl-RS`   |
-| 세르비아어(라틴어, 보스니아, 헤르체고비나)    |  `sr-Latn-BA`   |
-| 세르비아어(라틴어, 몬테네그로)                |  `sr-Latn-ME`   |
+| 세르비아어 (라틴 문자, 보스니아 헤르체고비나)    |  `sr-Latn-BA`   |
+| 세르비아어 (라틴 문자, 몬테네그로)                |  `sr-Latn-ME`   |
 | 세르비아어(라틴 문자, 세르비아)                    |  `sr-Latn-RS`   |
-| 세츠와나(남아프리카 공화국)                    |     `tn-ZA`     |
+| 세츠와나어 (남아프리카 공화국)                    |     `tn-ZA`     |
 | 슬로바키아어                                     |     `sk-SK`     |
 | 슬로베니아어                                  |     `sl-SI`     |
 | 스페인어(아르헨티나)                        |     `es-AR`     |
@@ -89,7 +89,7 @@ ms.locfileid: "67721746"
 | 코사어                                      |     `xh-ZA`     |
 | 줄루어                                       |     `zu-ZA`     |
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Ink Recognizer API란?](overview.md)
-* [디지털 잉크 스트로크를 잉크 인식기 API로 보내기](concepts/send-ink-data.md)
+* [잉크 인식기 API에 디지털 잉크 스트로크 보내기](concepts/send-ink-data.md)

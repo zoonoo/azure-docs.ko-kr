@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 6841e573446103466e2719797da9e4161b70b5a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68881692"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Bing Image Search API에 관한 FAQ(질문과 대답)
@@ -63,6 +63,6 @@ Bing Image Search API의 응답에 다음 헤더가 발생할 수 있습니다.
 
 없는 기능 또는 특징에 대해 질문이 있으면 [사용자 의견 웹 사이트](https://cognitive.uservoice.com/forums/555907-bing-search)에서 요청하거나 투표하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
  [Stack Overflow: Cognitive Services](https://stackoverflow.com/questions/tagged/bing-api)

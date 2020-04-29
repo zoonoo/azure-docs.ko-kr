@@ -1,7 +1,7 @@
 ---
 title: HTML 콘텐츠를 사용하여 몰입형 판독기 시작
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 HTML 콘텐츠가 있는 몰입형 리더를 시작하는 방법을 설명합니다.
+description: 이 문서에서는 HTML 콘텐츠가 있는 몰입 형 판독기를 시작 하는 방법을 보여 줍니다.
 author: metanMSFT
 manager: guillasi
 ms.service: cognitive-services
@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: bc7ab46113e1b819fc71a9f6e8a18400f8acfbef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75946307"
 ---
-# <a name="how-to-launch-the-immersive-reader-with-html-content"></a>HTML 콘텐츠와 몰입 리더를 시작 하는 방법
+# <a name="how-to-launch-the-immersive-reader-with-html-content"></a>HTML 콘텐츠를 사용 하 여 몰입 형 판독기를 시작 하는 방법
 
-이 문서에서는 HTML 콘텐츠로 몰입형 Reader를 시작하는 방법을 보여 줍니다.
+이 문서에서는 HTML 콘텐츠가 있는 몰입 형 판독기를 시작 하는 방법을 보여 줍니다.
 
 ## <a name="prepare-the-html-content"></a>HTML 콘텐츠 준비
 
-컨테이너 요소 내부에 몰입형 판독기에서 렌더링할 콘텐츠를 배치합니다. 컨테이너 요소에 고유한 `id`이 항목이 있는지 확인합니다. 몰입형 리더는 기본 HTML 요소에 대한 지원을 제공하며 자세한 내용은 [참조를](./reference.md#html-support) 참조하십시오.
+컨테이너 요소 내에서 몰입 형 판독기에 렌더링 하려는 콘텐츠를 저장 합니다. Container 요소에 고유한 `id`가 있어야 합니다. 몰입 형 판독기는 기본 HTML 요소에 대 한 지원을 제공 합니다. 자세한 내용은 [참조](./reference.md#html-support) 를 참조 하세요.
 
 ```html
 <div id='immersive-reader-content'>
@@ -38,17 +38,17 @@ ms.locfileid: "75946307"
 </div>
 ```
 
-## <a name="get-the-html-content-in-javascript"></a>자바 스크립트에서 HTML 콘텐츠 받기
+## <a name="get-the-html-content-in-javascript"></a>JavaScript에서 HTML 콘텐츠 가져오기
 
-`id` 컨테이너 요소를 사용하여 JavaScript 코드에서 HTML 콘텐츠를 가져옵니다.
+컨테이너 요소의 `id` 를 사용 하 여 JavaScript 코드에서 HTML 콘텐츠를 가져옵니다.
 
 ```javascript
 const htmlContent = document.getElementById('immersive-reader-content').innerHTML;
 ```
 
-## <a name="launch-the-immersive-reader-with-your-html-content"></a>HTML 콘텐츠로 몰입형 리더 시작
+## <a name="launch-the-immersive-reader-with-your-html-content"></a>HTML 콘텐츠를 사용 하 여 몰입 형 판독기 시작
 
-호출 `ImmersiveReader.launchAsync`할 때 DC `mimeType` 렌더링을 `text/html` 사용하도록 청크의 속성을 설정합니다.
+를 호출 `ImmersiveReader.launchAsync`하는 경우 청크의 `mimeType` 속성을로 `text/html` 설정 하 여 HTML 렌더링을 사용 하도록 설정 합니다.
 
 ```javascript
 const data = {

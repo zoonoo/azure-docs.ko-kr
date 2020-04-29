@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 36071cdee25cfa99fc54b0e5c0c0aa822cb5fe2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68662829"
 ---
 # <a name="what-is-reinforcement-learning"></a>보충 학습이란?
@@ -64,7 +64,7 @@ John은 이전에도 Joint Prediction(ICML 2015), Contextual Bandit Theory(NIPS 
 * [기술적인 문제가 적도록 상황에 맞는 결정 내리기](https://arxiv.org/abs/1606.03966)
 * [공정 분류에 대한 축소 접근 방식](https://arxiv.org/abs/1803.02453)
 * [움직이는 세계에서 효율적인 Contextual Bandits](https://arxiv.org/abs/1708.01799)
-* [잔여 손실 예측: 보강: 증분 피드백 없이 학습](https://openreview.net/pdf?id=HJNMYceCW)
+* [잔여 손실 예측: 보충: 증분 피드백 없이 학습](https://openreview.net/pdf?id=HJNMYceCW)
 * [보충 학습을 사용하여 지침 및 시각적 관찰 결과를 작업에 매핑](https://arxiv.org/abs/1704.08795)
 * [선생님보다 검색을 더 잘하는 방법 배우기](https://arxiv.org/abs/1502.02206)
 

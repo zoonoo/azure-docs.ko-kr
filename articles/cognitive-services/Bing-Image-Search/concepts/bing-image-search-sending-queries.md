@@ -1,5 +1,5 @@
 ---
-title: 이미지 검색 쿼리 사용자 지정 및 제안 - Bing 이미지 검색 API
+title: 이미지 검색 쿼리 사용자 지정 및 제안-Bing Image Search API
 titleSuffix: Azure Cognitive Services
 description: Bing Image Search API에 보낸 검색 쿼리를 사용자 지정하는 것에 대해 알아봅니다.
 services: cognitive-services
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
 ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67542751"
 ---
 # <a name="customize-and-suggest-image-search-queries"></a>이미지 검색 쿼리 사용자 지정 및 제안
 
-이 문서를 사용하여 쿼리를 사용자 지정하고 Bing 이미지 검색 API로 보낼 검색어를 제안하는 방법을 알아봅니다.
+이 문서를 사용 하 여 쿼리를 사용자 지정 하 고 Bing Image Search API에 보낼 검색어를 제안 하는 방법을 알아보세요.
 
 ## <a name="suggest-search-terms"></a>검색어 제안
 

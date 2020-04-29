@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595607"
 ---
 # <a name="view-system-test-results"></a>시스템 테스트 결과 보기
@@ -26,7 +26,7 @@ ms.locfileid: "68595607"
 
 [테스트] 탭에는 다음과 같은 항목이 표시됩니다.
 
-1.  **시스템 테스트 결과:** 교육에서 테스트 프로세스의 결과입니다. 테스트 프로세스는 BLEU 점수를 생성합니다.
+1.  **시스템 테스트 결과:** 학습에 있는 테스트 프로세스의 결과입니다. 테스트 프로세스는 BLEU 점수를 생성합니다.
 
     **문장 개수:** 테스트 세트에 사용된 병렬 문장의 개수입니다.
 
@@ -54,11 +54,11 @@ ms.locfileid: "68595607"
 
 다운로드한 zip 아카이브에는 파일 3개가 들어 있습니다.
 
-1.  **사용자 지정.mt.txt:** 이 파일에는 사용자 데이터로 학습된 모델에서 수행한 대상 언어로 원본 언어 문장의 컴퓨터 번역이 포함되어 있습니다.
+1.  **사용자 지정 mt.exe:** 이 파일에는 사용자 데이터를 사용 하 여 학습 한 모델에서 수행 하는 대상 언어로 원본 언어 문장의 기계 번역이 포함 됩니다.
 
-2.  **ref.txt:** 이 파일에는 사용자가 제공한 대상 언어로 된 소스 언어 문장의 번역이 포함되어 있습니다.
+2.  **참조 txt:** 이 파일에는 대상 언어로 된 소스 언어 문장의 번역이 사용자에 게 포함 되어 있습니다.
 
-3.  **소스.txt:** 이 파일에는 원본 언어로 된 문장이 포함되어 있습니다.
+3.  **원본 .txt:** 이 파일은 소스 언어의 문장을 포함 합니다.
 
     ![다운로드한 시스템 테스트 결과](media/how-to/how-to-download-system-test.png)
 
@@ -80,7 +80,7 @@ ms.locfileid: "68595607"
 5.  “상태” 열에서 모델의 상태를 확인할 수 있습니다.
 
 >[!Note]
->사용자 지정 변환기는 언제든지 작업 영역 내에서 배포된 10개의 모델을 지원합니다.
+>사용자 지정 변환기는 언제 든 지 작업 영역 내에서 10 개의 배포 된 모델을 지원 합니다.
 
 ## <a name="update-deployment-settings"></a>배포 설정 업데이트
 
@@ -92,7 +92,7 @@ ms.locfileid: "68595607"
 
     ![모델 배포](media/how-to/how-to-update-undeploy-model.png)
 
-3.  **업데이트를**선택합니다.
+3.  **업데이트**를 선택합니다.
 4.  모델을 배포 또는 배포 취소할 지역에 대해 **배포됨** 또는 **배포 취소됨**을 선택하고 **저장**을 클릭합니다.
 
     ![모델 배포](media/how-to/how-to-undeploy-model.png)

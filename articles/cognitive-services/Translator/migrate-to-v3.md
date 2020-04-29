@@ -1,7 +1,7 @@
 ---
 title: V3으로 마이그레이션 - Translator Text API
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Azure 인지 서비스 번역기 텍스트 API의 V2에서 V3로 마이그레이션하는 데 도움이 되는 단계를 제공합니다.
+description: 이 문서에서는 Azure Cognitive Services Translator Text API의 V2에서 v 2로 마이그레이션하는 데 도움이 되는 단계를 제공 합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: eb43d549d3e0cd449c865d533fc8701c4c3912fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73837319"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2에서 V3으로 마이그레이션
 
 > [!NOTE]
-> V2는 2018년 4월 30일에 더 이상 사용되지 않았습니다. V3에서만 사용할 수 있는 새로운 기능을 활용하려면 응용 프로그램을 V3로 마이그레이션하십시오.
+> V2는 2018 년 4 월 30 일부 터 더 이상 사용 되지 않습니다. V3에 독점적으로 제공 되는 새로운 기능을 활용 하려면 응용 프로그램을 V3로 마이그레이션 하세요.
 > 
-> Microsoft 번역기 허브는 2019년 5월 17일에 사용 중지됩니다. [중요한 마이그레이션 정보 및 날짜 보기.](https://www.microsoft.com/translator/business/hub/)  
+> Microsoft Translator 허브는 2019 년 5 월 17 일에 사용 중지 됩니다. [중요 한 마이그레이션 정보 및 날짜를 확인](https://www.microsoft.com/translator/business/hub/)합니다.  
 
 Microsoft Translator 팀은 Translator Text API의 버전 3(V3)을 릴리스했습니다. 이 릴리스에는 새로운 기능, 사용되지 않는 메서드 및 Microsoft Translator Service 간에 데이터를 보내고 받는 새 형식이 포함되어 있습니다. 이 문서에서는 V3을 사용할 애플리케이션을 변경하는 정보를 제공합니다. 
 
@@ -49,11 +49,11 @@ Microsoft Translator 팀은 Translator Text API의 버전 3(V3)을 릴리스했�
 | `GetLanguagesForTranslate`     | [언어](reference/v3-0-languages.md)       |
 | `GetLanguagesForSpeak`      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
 | `Speak`     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| `Detect`     | [검색](reference/v3-0-detect.md)         |
-| `DetectArray`     | [검색](reference/v3-0-detect.md)         |
+| `Detect`     | [Detect](reference/v3-0-detect.md)         |
+| `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
 | `AddTranslation`     | 기능은 더 이상 지원되지 않습니다.       |
 | `AddTranslationArray`    | 기능은 더 이상 지원되지 않습니다.          |
-| `BreakSentences`      | [브레이크 문장](reference/v3-0-break-sentence.md)       |
+| `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | `GetTranslations`      | 기능은 더 이상 지원되지 않습니다.         |
 | `GetTranslationsArray`      | 기능은 더 이상 지원되지 않습니다.         |
 
@@ -65,7 +65,7 @@ Microsoft Translator Text 번역 V2는 XML 형식으로 데이터를 허용하�
 
 언어 메서드에는 인증이 필요하지 않습니다. 다음 링크를 클릭하여 JSON에서 V3에 대한 모든 언어 정보를 확인할 수 있습니다.
 
-[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,사전, 음역](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
+[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation, 사전, 음](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
 
 ## <a name="authentication-key"></a>인증 키
 
@@ -110,7 +110,7 @@ Global
 
 > [!NOTE]
 > 
-> Microsoft 번역기 허브는 2019년 5월 17일에 사용 중지됩니다. [중요한 마이그레이션 정보 및 날짜 보기.](https://www.microsoft.com/translator/business/hub/)   
+> Microsoft Translator 허브는 2019 년 5 월 17 일에 사용 중지 됩니다. [중요 한 마이그레이션 정보 및 날짜를 확인](https://www.microsoft.com/translator/business/hub/)합니다.   
 
 Microsoft Translator V3는 기본적으로 신경망 기계 번역을 사용합니다. 따라서 Microsoft Translator Hub로 사용할 수 없습니다. Translator Hub만 기존의 통계 기계 번역을 지원합니다. 이제 신경망 번역에 대한 사용자 지정은 사용자 지정 변환기를 사용하여 사용할 수 있습니다. [신경망 기계 번역을 사용자 지정하는 방법에 대한 자세한 정보](custom-translator/overview.md)
 
@@ -118,8 +118,8 @@ V3 텍스트 API를 포함한 신경망 번역은 표준 범주(SMT, 음성, 텍
 
 | |엔드포인트|    GDPR 프로세서 규정 준수|  Translator Hub 사용| Custom Translator(미리 보기) 사용|
 |:-----|:-----|:-----|:-----|:-----|
-|Translator Text API 버전 2| api.microsofttranslator.com|    예  |yes    |예|
-|Translator Text API 버전 3| api.cognitive.microsofttranslator.com|  yes|    예| yes|
+|Translator Text API 버전 2| api.microsofttranslator.com|    예  |예    |예|
+|Translator Text API 버전 3| api.cognitive.microsofttranslator.com|  예|    예| 예|
 
 **Translator Text API 버전 3**
 * 일반적으로 사용할 수 있으며 완전히 지원됩니다.

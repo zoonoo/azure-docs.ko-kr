@@ -1,7 +1,7 @@
 ---
 title: 문서를 업로드하는 방법 - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: 문서 업로드 기능은 병렬 문서(하나는 원본이고 다른 하나는 번역인 두 개의 문서)를 서비스에 업로드합니다.
+description: 문서 업로드 기능은 병렬 문서 (하나는 원본인 문서이 고 다른 하나는 변환)를 서비스에 업로드 합니다.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: b2a249a40d8c782d54a12df43d33655f3409753c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73647380"
 ---
 # <a name="upload-a-document"></a>문서 업로드

@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 1028443eaaf6c483cd7cd57289b0dcf2a9f11902
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595912"
 ---
 # <a name="data-filtering"></a>데이터 필터링
@@ -23,7 +23,7 @@ ms.locfileid: "68595912"
 ## <a name="sentence-alignment"></a>문장 맞춤
 문서가 XLIFF, TMX 또는 ALIGN 형식이 아닌 경우 Custom Translator는 원본 및 대상 문서의 문장을 서로 문장 단위로 정렬합니다. Translator는 문서 정렬을 수행하지 않으며 다른 언어의 일치하는 문서를 찾기 위해 문서의 이름 지정을 따릅니다. 문서 내에서 Custom Translator는 다른 언어로 해당 문장 찾기를 시도합니다. 포함된 HTML 태그와 같은 문서 태그를 사용하여 정렬을 지원합니다.  
 
-원본 의 문장 수와 대상 측 문서의 문장 수가 크게 일치하지 않으면 문서가 처음에 병렬되지 않았거나 다른 이유로 정렬할 수 없습니다. 각각에서 문장 수 차이가 10%를 초과하는 문서 쌍은 반드시 재차 확인하여 실제로 병행되었는지 확인합니다. Custom Translator는 문장 수가 다른 것으로 의심되는 경우 문서 옆에 경고를 표시합니다.  
+원본 및 대상 쪽 문서에 있는 문장 수의 차이가 크게 표시 되는 경우 문서를 처음부터 병렬 처리 하지 못할 수도 있고 다른 이유 때문에 정렬 하지 못할 수도 있습니다. 각각에서 문장 수 차이가 10%를 초과하는 문서 쌍은 반드시 재차 확인하여 실제로 병행되었는지 확인합니다. Custom Translator는 문장 수가 다른 것으로 의심되는 경우 문서 옆에 경고를 표시합니다.  
 
 
 ## <a name="deduplication"></a>중복 제거
@@ -45,13 +45,13 @@ Custom Translator는 학습 데이터에서 테스트 및 튜닝 문서에 제�
 여러 문장 종료 부호 문자를 단일 항목으로 바꿉니다.  
 
 ## <a name="japanese-character-normalization"></a>일본어 문자 정규화
-전체 너비 문자와 숫자를 절반 너비 문자로 변환합니다.
+전자 문자와 숫자를 반자 문자로 변환 합니다.
 
 ## <a name="unescaped-xml-tags"></a>이스케이프되지 않은 XML 태그
 필터링은 이스케이프되지 않은 태그를 이스케이프된 태그로 변환합니다.
-* `&lt;`는 `&amp;lt;`가 됩니다.
-* `&gt;`는 `&amp;gt;`가 됩니다.
-* `&amp;`는 `&amp;amp;`가 됩니다.
+* `&lt;`은 `&amp;lt;`가 됩니다.
+* `&gt;`은 `&amp;gt;`가 됩니다.
+* `&amp;`은 `&amp;amp;`가 됩니다.
 
 ## <a name="invalid-characters"></a>잘못된 문자
 Custom Translator는 유니코드 문자 U+FFFD가 포함된 문장을 제거합니다. 문자 U+FFFD는 실패한 인코딩 변환을 나타냅니다.

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 309bbca762149f8804742d9ef02d4c3e8dfcdc6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67542772"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Bing Image Search API를 사용하여 웹에서 이미지 가져오기
@@ -31,7 +31,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-url 인코딩검색어에 [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) 쿼리 매개변수를 사용합니다. 예를 들어 사용자가 *sailing dinghies(소형 범선)* 을 입력한 경우 `q`를 `sailing+dinghies` 또는 `sailing%20dinghies`로 설정합니다.
+Url로 인코딩된 검색 용어에 대해 [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) 쿼리 매개 변수를 사용 합니다. 예를 들어 사용자가 *sailing dinghies(소형 범선)* 을 입력한 경우 `q`를 `sailing+dinghies` 또는 `sailing%20dinghies`로 설정합니다.
 
 > [!IMPORTANT]
 > * 모든 요청은 클라이언트가 아닌 서버에서 이뤄져야 합니다.

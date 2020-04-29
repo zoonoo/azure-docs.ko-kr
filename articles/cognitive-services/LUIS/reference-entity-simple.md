@@ -1,7 +1,7 @@
 ---
-title: 단순 엔터티 유형 - LUIS
+title: 단순 엔터티 형식-LUIS
 titleSuffix: Azure Cognitive Services
-description: 간단한 엔터티는 기계 학습 컨텍스트에서 단일 개념을 설명합니다. 결과를 개선하기 위해 간단한 엔터티를 사용할 때 구 목록을 추가합니다.
+description: 간단한 엔터티는 컴퓨터에서 학습 한 컨텍스트의 단일 개념을 설명 합니다. 간단한 엔터티를 사용 하 여 결과를 개선할 때 구 목록을 추가 합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: 8b92aa6057c81ec9442372c5b85918cb92196d61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74894752"
 ---
 # <a name="simple-entity"></a>단순 엔터티
@@ -51,7 +51,7 @@ ms.locfileid: "74894752"
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
-쿼리 문자열에 설정된 `verbose=false` 경우 JSON입니다.
+이는 쿼리 문자열에 `verbose=false` 가 설정 된 경우 JSON입니다.
 
 ```json
 "entities": {
@@ -88,11 +88,11 @@ This is the JSON if `verbose=true` is set in the query string:
 
 * * *
 
-|데이터 개체|엔터티 이름|값|
+|데이터 개체|엔터티 이름|Value|
 |--|--|--|
 |단순 엔터티|`Customer`|`bob jones`|
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [패턴 구문 알아보기](reference-pattern-syntax.md)
+> [패턴 구문 배우기](reference-pattern-syntax.md)

@@ -1,5 +1,5 @@
 ---
-title: 스마트 크롭 썸네일 - 컴퓨터 비전
+title: 스마트 잘린 축소판 그림-Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API를 사용하여 이미지의 썸네일을 생성하는 데 관련된 개념입니다.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68945224"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Computer Vision을 사용하여 스마트하게 자른 썸네일 생성
@@ -24,7 +24,7 @@ ms.locfileid: "68945224"
 
 Computer Vision 썸네일 생성 알고리즘은 다음과 같이 작동합니다.
 
-1. 이미지에서 산만한 요소를 제거하고 주 오브젝트가 나타나는 이미지 영역의 _관심_&mdash;영역을 식별합니다.
+1. 이미지에서 불필요 한 요소를 제거 하 고 주 개체가 표시 되는 이미지 영역의 _관심_&mdash;영역을 식별 합니다.
 1. 식별된 _관심 영역_에 따라 이미지를 자릅니다.
 1. 대상 썸네일 크기에 맞게 가로 세로 비율을 변경합니다.
 
@@ -38,15 +38,15 @@ Computer Vision 썸네일 생성 알고리즘은 다음과 같이 작동합니�
 
 생성된 썸네일은 다음 이미지에 나와 있는 대로 높이, 너비 및 스마트 자르기에 지정한 내용에 따라 크게 달라질 수 있습니다.
 
-![다양한 자르기 구성 옆의 산악 이미지](./Images/thumbnail-demo.png)
+![다양 한 자르기 구성 옆의 산 이미지](./Images/thumbnail-demo.png)
 
 다음 표에서는 예제 이미지로 Computer Vision에서 생성된 일반적인 썸네일을 보여줍니다. 썸네일은 스마트 자르기를 사용하여 50픽셀이라는 지정된 대상 높이 및 너비로 생성되었습니다.
 
 | 이미지 | 미리 보기 |
 |-------|-----------|
-|![석양을 바라보며 사람의 실루엣이 있는 아웃도어 마운틴](./Images/mountain_vista.png) | ![일몰 야외 산의 축소판, 사람의 실루엣](./Images/mountain_vista_thumbnail.png) |
+|![사용자의 실루엣을 사용한 일몰 전 실외 산](./Images/mountain_vista.png) | ![사용자의 실루엣을 사용 하 여 일몰 시 실외 산의 미리 보기](./Images/mountain_vista_thumbnail.png) |
 |![녹색 배경의 흰색 꽃](./Images/flower.png) | ![비전 분석 꽃 썸네일](./Images/flower_thumbnail.png) |
-|![아파트 건물 옥상 위의 여자](./Images/woman_roof.png) | ![아파트 건물의 지붕에 여자의 축소판](./Images/woman_roof_thumbnail.png) |
+|![아파트 건물 옥상 위의 여자](./Images/woman_roof.png) | ![아파트 빌딩의 지붕 여자 미리 보기](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>다음 단계
 

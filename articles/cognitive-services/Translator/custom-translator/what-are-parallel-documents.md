@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: d7c38a44e3111a319e4146b3c9b71a22b0d31bfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72675477"
 ---
 # <a name="what-are-parallel-documents"></a>병렬 문서란?
@@ -23,7 +23,7 @@ ms.locfileid: "72675477"
 
 ## <a name="requirements"></a>요구 사항
 
-시스템을 훈련하려면 최소 10,000개의 고유한 정렬된 병렬 문장이 필요합니다. 이 제한은 병렬 문장이 번역 모델을 성공적으로 학습하기에 충분한 고유 어휘를 포함하도록 보장하는 안전망입니다. 모범 사례로, 병렬 콘텐츠를 지속적으로 추가하고 다시 학습하여 번역 시스템의 품질을 향상시킵니다. [문장 정렬을](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment)참조하십시오.
+시스템을 학습 하려면 최소 1만의 고유한 맞춤 병렬 문장이 필요 합니다. 이러한 제한 사항은 병렬 문장에 번역 모델을 성공적으로 학습할 수 있는 충분 한 고유 어휘가 포함 되어 있는지 확인 하는 보안 네트워크입니다. 변환 시스템의 품질을 향상 시키기 위해 지속적으로 더 많은 병렬 콘텐츠와 다시 학습를 추가 하는 것이 가장 좋습니다. [문장 맞춤](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment)을 참조 하십시오.
 
 Microsoft에서는 Custom Translator에 업로드된 문서가 타사의 저작권 또는 지적 재산권을 위반하지 말 것을 요구합니다. 자세한 내용은 [사용 약관](https://azure.microsoft.com/support/legal/cognitive-services-terms/)을 참조하세요.
 포털을 사용하여 문서를 업로드하면 문서 자체의 지적 재산 소유권은 변경되지 않습니다.

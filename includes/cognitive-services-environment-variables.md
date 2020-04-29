@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 06/24/2019
 ms.author: aahi
 ms.openlocfilehash: 367ae27a6afec803d2e3f98f54bdcf852330ddc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "70274629"
 ---
 ## <a name="configure-an-environment-variable-for-authentication"></a>인증을 위한 환경 변수 구성
 
-응용 프로그램은 사용하는 코그너티브 서비스에 대한 액세스를 인증해야 합니다. 인증하려면 Azure 리소스의 키를 저장하는 환경 변수를 만드는 것이 좋습니다. 
+응용 프로그램은 사용 하는 Cognitive Services에 대 한 액세스를 인증 해야 합니다. 인증 하려면 Azure 리소스에 대 한 키를 저장 하는 환경 변수를 만드는 것이 좋습니다. 
 
-키가 있으면 응용 프로그램을 실행하는 로컬 컴퓨터에서 새 환경 변수에 기록합니다. 환경 변수를 설정하려면 콘솔 창을 열고 사용 중인 운영 체제의 지침을 따릅니다. 리소스의 키 중 하나로 바꿉습니다. `your-key`
+키가 있으면 응용 프로그램을 실행 하는 로컬 컴퓨터의 새 환경 변수에 씁니다. 환경 변수를 설정하려면 콘솔 창을 열고 사용 중인 운영 체제의 지침을 따릅니다. 리소스 `your-key` 의 키 중 하나로 대체 합니다.
 
 #### <a name="windows"></a>[Windows](#tab/windows)
 

@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.openlocfilehash: 3039276a49e7bb41660d114e78ca047a3f77f279
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74109944"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>음성 SDK 오디오 입력 스트림 API 정보
 
-음성 SDK의 **오디오 입력 스트림** API는 마이크 또는 입력 파일 API를 사용하는 대신 오디오를 인식기로 스트리밍하는 방법을 제공합니다.
+음성 SDK의 **오디오 입력 스트림** API는 마이크나 입력 파일 api를 사용 하는 대신 인식기로 오디오를 스트리밍하는 방법을 제공 합니다.
 
 다음 단계는 오디오 입력 스트림을 사용할 때 필요합니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "74109944"
    };
   ```
 
-- 오디오 형식 및 입력 스트림을 기반으로 오디오 구성을 만듭니다. 인식기를 만들 때 일반 음성 구성과 오디오 입력 구성을 둘 다 전달합니다. 예를 들어:
+- 오디오 형식 및 입력 스트림을 기반으로 오디오 구성을 만듭니다. 인식기를 만들 때 일반 음성 구성과 오디오 입력 구성을 둘 다 전달합니다. 다음은 그 예입니다.
 
   ```csharp
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);

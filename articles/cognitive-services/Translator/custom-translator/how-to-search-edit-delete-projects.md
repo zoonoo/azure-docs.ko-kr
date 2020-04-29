@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 9432ac390b7677b3dea5aebc84cf23ef6e45db92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595722"
 ---
 # <a name="search-edit-and-delete-projects"></a>프로젝트 검색, 편집, 삭제
@@ -39,7 +39,7 @@ Custom Translator는 프로젝트를 효율적으로 관리하는 다양한 방�
 
 ## <a name="edit-a-project"></a>프로젝트 편집
 
-사용자 지정 번역기를 사용하면 프로젝트의 이름과 설명을 편집할 수 있습니다. 범주, 소스 언어 및 대상 언어와 같은 다른 프로젝트 메타데이터는 편집할 수 없습니다. 아래 단계는 프로젝트를 편집하는 방법을 설명합니다.
+사용자 지정 번역기는 프로젝트의 이름 및 설명을 편집 하는 기능을 제공 합니다. 범주, 소스 언어 및 대상 언어와 같은 다른 프로젝트 메타 데이터는 편집할 수 없습니다. 아래 단계에서는 프로젝트를 편집 하는 방법을 설명 합니다.
 
 1.  프로젝트에 커서를 두면 나타나는 연필 아이콘을 클릭합니다.
 

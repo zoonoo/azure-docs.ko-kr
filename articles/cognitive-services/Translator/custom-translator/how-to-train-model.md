@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: a875cc8f5e69be8b940f9d177d3b915bfaa2c973
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595691"
 ---
 # <a name="train-a-model"></a>모델 학습
@@ -34,9 +34,9 @@ ms.locfileid: "68595691"
 
     -  언어 쌍: 프로젝트의 원본 언어와 대상 언어를 보여 줍니다.
 
-    -  원본 문장: 소스 파일에서 추출된 문장 수를 표시합니다.
+    -  원본 문장: 원본 파일에서 추출 된 문장의 수를 표시 합니다.
 
-    -  대상 문장: 대상 파일에서 추출된 문장 수를 표시합니다.
+    -  대상 문장: 대상 파일에서 추출 된 문장의 수를 표시 합니다.
 
     ![모델 학습](media/how-to/how-to-train-model.png)
 
@@ -53,7 +53,7 @@ ms.locfileid: "68595691"
     ![모델 훈련 페이지](media/how-to/how-to-train-model-3.png)
 
 >[!Note]
->사용자 지정 변환기는 언제든지 작업 영역 내에서 10개의 동시 교육을 지원합니다.
+>사용자 지정 변환기는 언제 든 지 작업 영역 내에서 10 개의 동시 학습 지원 합니다.
 
 
 ## <a name="edit-a-model"></a>모델 편집

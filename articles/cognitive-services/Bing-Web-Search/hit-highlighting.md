@@ -12,46 +12,46 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
 ms.openlocfilehash: a6d394fec6e7cf0a230f61ad05c236a1f84dad9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68854046"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>장식 표식을 사용하여 텍스트를 강조 표시
 
-Bing은 일부 답변의 표시 문자열에서 쿼리 용어(또는 Bing이 관련성이 있다고 판단하는 다른 용어)를 표시하는 히트 강조 표시를 지원합니다. 예를 들어 웹 페이지 결과의 `name` `displayUrl`및 `snippet` 필드에 표시된 쿼리 용어가 포함될 수 있습니다. 
+Bing은 몇 가지 답변의 표시 문자열에서 쿼리 용어 (또는 Bing에서 관련 된 다른 용어)를 표시 하는 적중 항목 강조 표시를 지원 합니다. 예를 들어, 웹 페이지 결과 `name`의 `displayUrl`, 및 `snippet` 필드에는 표시 된 쿼리 용어가 포함 될 수 있습니다. 
 
-기본적으로 Bing은 표시 문자열에 강조 표시 마커를 포함하지 않습니다. 마커를 사용하려면 요청에 `textDecorations` 쿼리 매개 변수를 `true`포함하고 로 설정합니다.
+기본적으로 Bing은 표시 문자열에 강조 표시 마커를 포함하지 않습니다. 표식을 사용 하도록 설정 하려면 요청에 `textDecorations` 쿼리 매개 변수를 포함 하 고로 `true`설정 합니다.
 
-## <a name="hit-highlighting-example"></a>히트 하이라이트 예제
+## <a name="hit-highlighting-example"></a>적중 항목 강조 표시 예제
 
-다음 예제에서는 에 대한 `Sailing Dinghy`웹 결과를 보여 주며 있습니다. Bing은 E000 및 E001 유니코드 문자를 사용하여 쿼리 용어의 시작과 끝을 표시했습니다.
+다음 예제에서는에 대 한 `Sailing Dinghy`웹 결과를 보여 줍니다. Bing은 E000 및 E001 유니코드 문자를 사용 하 여 쿼리 용어의 시작과 끝을 표시 합니다.
   
 ![적중 항목 강조 표시](./media/cognitive-services-bing-web-api/bing-hit-highlighting.png) 
 
-사용자 인터페이스에 결과를 표시하기 전에 유니코드 문자를 표시 형식에 적합한 문자로 바꿉니다.
+사용자 인터페이스에 결과를 표시 하기 전에 유니코드 문자를 표시 형식에 적합 한 문자로 바꿉니다.
 
-## <a name="marker-formatting"></a>마커 서식 지정
+## <a name="marker-formatting"></a>표식 서식 지정
 
-Bing은 유니코드 문자 또는 HTML 태그를 마커로 사용하는 옵션을 제공합니다. 사용할 마커를 지정하려면 [textFormat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) 쿼리 매개 변수를 포함합니다. 
+Bing에서는 유니코드 문자 또는 HTML 태그를 표식으로 사용할 수 있는 옵션을 제공 합니다. 사용할 표식을 지정 하려면 [textFormat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) 쿼리 매개 변수를 포함 합니다. 
 
-| 값             | 표식                       |
+| Value             | 표식                       |
 |-------------------|------------------------------|
-| `textFormat=Raw`  | 유니코드 문자(기본값) |
+| `textFormat=Raw`  | 유니코드 문자 (기본값) |
 | `textFormat=HTML` | HTML 문자              |
 
 ## <a name="additional-text-decorations"></a>추가 텍스트 장식
 
-Bing은 여러 가지 텍스트 장식을 반환할 수 있습니다. 예를 들어 `Computation` 응답필드에 쿼리 용어에 `log(2)` 대한 하위 스크립트 `expression` 마커가 포함될 수 있습니다.
+Bing은 여러 다른 텍스트 장식을 반환할 수 있습니다. 예를 들어 대답 `Computation` 에는 `log(2)` `expression` 필드의 쿼리 용어에 대 한 아래 첨자 표식이 포함 될 수 있습니다.
 
 ![계산 마커](./media/cognitive-services-bing-web-api/bing-markers-computation.png) 
 
-요청이 장식을 지정하지 않은 `expression` 경우 `log10(2)`필드에 는 .가 포함됩니다. 
+요청에서 장식을 지정 하지 않은 경우 필드에 `expression` 는가 포함 `log10(2)`됩니다. 
 
-있는 `textDecorations` `true`경우 Bing은 응답의 표시 문자열에 다음 마커를 포함할 수 있습니다. 동등한 HTML 태그가 없는 경우 테이블 셀이 비어 있습니다.
+`textDecorations` 가 `true`이면 Bing은 응답 표시 문자열에 다음 표식을 포함할 수 있습니다. 해당 하는 HTML 태그가 없는 경우 테이블 셀은 비어 있습니다.
 
-|유니코드(Unicode)|HTML|설명
+|유니코드(Unicode)|HTML|Description
 |-|-|-
 |U+E000|\<b>|쿼리 용어의 시작을 표시(적중 항목 강조 표시)
 |U+E001|\</b>|쿼리 용어의 끝을 표시

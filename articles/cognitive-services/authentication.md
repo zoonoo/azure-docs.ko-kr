@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
 ms.openlocfilehash: 1c13c2cc4d4e562d3512de90338d874091dfeef6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74423935"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Cognitive Services에 대한 요청 인증
@@ -23,19 +23,19 @@ Azure Cognitive Service에 대한 각 요청은 인증 헤더를 포함해야 �
 * [단일 서비스 구독 키로 인증](#authenticate-with-a-single-service-subscription-key)
 * [다중 서비스 구독 키로 인증](#authenticate-with-a-multi-service-subscription-key)
 * [토큰으로 인증](#authenticate-with-an-authentication-token)
-* [Azure Active 디렉터리(AAD)로 인증](#authenticate-with-azure-active-directory)
+* [AAD (Azure Active Directory를 사용 하 여 인증](#authenticate-with-azure-active-directory)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-요청을 수행하기 전에 Azure 계정과 Azure Cognitive Services 구독이 필요합니다. 계정이 이미 있는 경우 다음 섹션으로 건너뜁니다. 계정이 없는 경우 몇 분 안에 설정하기 위한 [가이드가](cognitive-services-apis-create-account.md)있습니다.
+요청을 수행하기 전에 Azure 계정과 Azure Cognitive Services 구독이 필요합니다. 계정이 이미 있는 경우 다음 섹션으로 건너뜁니다. 계정이 없는 경우 몇 분 내에 [Azure에 대 한 Cognitive Services 계정 만들기](cognitive-services-apis-create-account.md)를 설정 하는 방법을 안내 합니다.
 
-계정을 만들거나 [무료 평가판을](https://azure.microsoft.com/try/cognitive-services/my-apis)활성화한 후 [Azure 포털에서](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) 구독 키를 얻을 수 있습니다.
+계정을 만들거나 [무료 평가판](https://azure.microsoft.com/try/cognitive-services/my-apis)을 활성화 한 후 [Azure Portal](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) 에서 구독 키를 가져올 수 있습니다.
 
 ## <a name="authentication-headers"></a>인증 헤더
 
 Azure Cognitive Services에서 사용할 수 있는 인증 헤더를 빠르게 살펴보겠습니다.
 
-| 헤더 | 설명 |
+| 헤더 | Description |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | 특정 서비스에 대한 구독 키 또는 다중 서비스 구독 키를 사용하여 인증하려면 이 헤더를 사용합니다. |
 | Ocp-Apim-Subscription-Region | 이 헤더는 [Translator Text API](./Translator/reference/v3-0-reference.md)에서 다중 서비스 구독 키를 사용하는 경우에만 필요합니다. 이 헤더를 사용하여 구독 지역을 지정합니다. |
@@ -66,13 +66,13 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>다중 서비스 구독 키로 인증
 
 >[!WARNING]
-> 현재 이러한 서비스는 QnA 메이커, 음성 서비스, 사용자 지정 비전 및 변칙 탐지기와 같은 다중 서비스 키를 지원하지 **않습니다.**
+> 현재 이러한 서비스는 다중 서비스 키 QnA Maker, Speech Services, Custom Vision 및 변칙 탐지기를 지원 **하지 않습니다** .
 
 또한 이 옵션은 구독 키를 사용하여 요청을 인증합니다. 주요 차이점은 구독 키가 특정 서비스에 연결되지 않고, 오히려 단일 키를 사용하여 여러 Cognitive Services에 대한 요청을 인증할 수 있다는 것입니다. 지역별 가용성, 지원되는 기능 및 가격 책정에 대한 자세한 내용은 [Cognitive Services 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)을 참조하세요.
 
 구독 키는 각 요청에서 `Ocp-Apim-Subscription-Key` 헤더로 제공됩니다.
 
-[![코그너티브 서비스를 위한 멀티 서비스 구독 키 데모](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
+[![Cognitive Services에 대 한 다중 서비스 구독 키 데모](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
 
 ### <a name="supported-regions"></a>지원되는 지역
 
@@ -115,11 +115,11 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 일부 Azure Cognativity Services는 인증 토큰을 수락하며, 경우에 따라 인증 토큰을 요구합니다. 현재 인증 토큰을 지원하는 서비스는 다음과 같습니다.
 
 * Text Translation API
-* 음성 서비스: 음성-텍스트 REST API
+* Speech Services: 음성 텍스트 REST API
 * 음성 서비스: 텍스트 음성 변환 REST API
 
 >[!NOTE]
-> QnA Maker도 인증 헤더를 사용하지만 엔드포인트 키가 필요합니다. 자세한 내용은 [QnA 메이커: 기술 자료에서 답변을 얻을 수](./qnamaker/quickstarts/get-answer-from-knowledge-base-using-url-tool.md)있습니다.
+> QnA Maker도 인증 헤더를 사용하지만 엔드포인트 키가 필요합니다. 자세한 내용은 [QnA Maker: 기술 자료에서 답변 가져오기](./qnamaker/quickstarts/get-answer-from-knowledge-base-using-url-tool.md)를 참조 하세요.
 
 >[!WARNING]
 > 시간이 지남에 따라 인증 토큰을 지원하는 서비스가 변경될 수 있으므로 이 인증 방법을 사용하기 전에 먼저 서비스에 대한 API 참조를 확인하세요.
@@ -161,7 +161,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 [!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Cognitive Services란?](welcome.md)
 * [Cognitive Services 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)
