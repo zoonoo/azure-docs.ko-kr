@@ -1,5 +1,5 @@
 ---
-title: Azure 정문 서비스에 대한 도메인의 지리적 필터링
+title: Azure Front 도어 서비스에 대 한 도메인에서 지역 필터링
 description: 이 문서에서는 Azure Front Door Service에 대한 지역 필터링 정책에 대해 알아봅니다.
 services: web-application-firewall
 author: vhorne
@@ -9,10 +9,10 @@ ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
 ms.openlocfilehash: e287da94a71fccabddb90f3f5a3699f4c4cf22a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79472608"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Azure Front Door용 도메인의 지역 필터링이란?
@@ -35,7 +35,7 @@ WAF 정책에는 일반적으로 사용자 지정 규칙 집합이 포함됩니�
 | AM | 아르메니아|
 | AO | 앙골라|
 | AR | 아르헨티나|
-| AS | 아메리칸 사모아|
+| AS | 미국령 사모아|
 | AT | 오스트리아|
 | AU | 오스트레일리아|
 | AZ | 아제르바이잔|
@@ -48,7 +48,7 @@ WAF 정책에는 일반적으로 사용자 지정 규칙 집합이 포함됩니�
 | BH | 바레인|
 | BI | 부룬디|
 | BJ | 베냉|
-| BL | 생바르텔레미|
+| BL | 세인트 바르텔레미|
 | BN | 브루나이|
 | BO | 볼리비아|
 | BR | 브라질|
