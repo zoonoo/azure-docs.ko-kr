@@ -1,5 +1,5 @@
 ---
-title: '경로 기반 Azure VPN 게이트웨이 만들기: CLI'
+title: '경로 기반 Azure VPN Gateway 만들기: CLI'
 description: CLI를 사용하여 VPN 게이트웨이를 만드는 방법을 신속하게 알아보기
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/04/2018
 ms.author: cherylmc
 ms.openlocfilehash: 121790fce220874babedf67cd72471caa7e92ae6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241098"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>CLI를 사용하여 경로 기반 VPN 게이트웨이 만들기

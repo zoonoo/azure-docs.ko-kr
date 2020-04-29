@@ -1,6 +1,6 @@
 ---
 title: Azure Cloud Services 역할 스키마 | Microsoft Docs
-description: 서비스 구성 파일의 역할 요소는 각 역할, 구성 값 및 인증서 지문에 대해 배포할 역할 인스턴스 수를 지정합니다.
+description: 서비스 구성 파일의 Role 요소는 각 역할, 구성 값 및 인증서 지문에 대해 배포할 역할 인스턴스 수를 지정 합니다.
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
@@ -10,10 +10,10 @@ caps.latest.revision: 12
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: b64f9d27e382a39b132593502fed32c565af473a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79528424"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Azure Cloud Services 역할 구성 스키마
@@ -41,18 +41,18 @@ Azure Service 구성 스키마에 대한 자세한 내용은 [Cloud Service(클�
 
 다음 표에서는 `Role` 요소의 특성을 설명합니다.
 
-| 특성 | 설명 |
+| 특성 | Description |
 | --------- | ----------- |
 | name   | 필수 사항입니다. 역할 이름을 지정합니다. 이름은 서비스 정의 파일에서 역할에 대해 제공된 이름과 일치해야 합니다.|
-| vmName | (선택 사항) Virtual Machine에 대한 DNS 이름을 지정합니다. 이름은 10자 이하여야 합니다.|
+| vmName | 선택 사항입니다. Virtual Machine에 대한 DNS 이름을 지정합니다. 이름은 10자 이하여야 합니다.|
 
 다음 테이블에서는 `Role` 요소의 자식 요소에 대해 설명합니다.
 
-| 요소 | 설명 |
+| 요소 | Description |
 | ------- | ----------- |
 | 인스턴스 | 필수 사항입니다. 역할에 대해 배포할 인스턴스 수를 지정합니다. 인스턴스의 수는 `count` 특성에 대한 정수로 정의됩니다.|
-| 설정   | (선택 사항) 역할에 대한 설정의 컬렉션에서 설정 이름 및 값을 지정합니다. 설정 이름은 `name` 특성에 대한 문자열로 정의되며, 설정 값은 `value` 특성에 대한 문자열로 정의됩니다.|
-| 인증서 | (선택 사항) 역할에 연결될 서비스 인증서의 이름, 지문 및 알고리즘을 지정합니다. 인증서 이름은 `name` 특성에 대한 문자열로 정의됩니다. 인증서 지문은 공백을 포함하지 않고 `thumbprint` 특성에 대한 16진수 숫자의 문자열로 정의됩니다. 16진수 숫자는 숫자 및 알파벳 대문자를 사용해야 합니다. 인증서 알고리즘은 `thumbprintAlgorithm` 특성에 대한 문자열로 정의됩니다.|
+| 설정   | 선택 사항입니다. 역할에 대한 설정의 컬렉션에서 설정 이름 및 값을 지정합니다. 설정 이름은 `name` 특성에 대한 문자열로 정의되며, 설정 값은 `value` 특성에 대한 문자열로 정의됩니다.|
+| 인증서 | 선택 사항입니다. 역할에 연결될 서비스 인증서의 이름, 지문 및 알고리즘을 지정합니다. 인증서 이름은 `name` 특성에 대한 문자열로 정의됩니다. 인증서 지문은 공백을 포함하지 않고 `thumbprint` 특성에 대한 16진수 숫자의 문자열로 정의됩니다. 16진수 숫자는 숫자 및 알파벳 대문자를 사용해야 합니다. 인증서 알고리즘은 `thumbprintAlgorithm` 특성에 대한 문자열로 정의됩니다.|
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [Cloud Service(클래식) 구성 스키마](schema-cscfg-file.md)

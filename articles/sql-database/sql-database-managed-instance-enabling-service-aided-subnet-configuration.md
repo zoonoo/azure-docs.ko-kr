@@ -1,6 +1,6 @@
 ---
-title: Azure SQL 데이터베이스 관리 형 인스턴스에 대한 서비스 지원 서브넷 구성 사용
-description: Azure SQL 데이터베이스 관리 형 인스턴스에 대한 서비스 지원 서브넷 구성 사용
+title: Azure SQL Database Managed Instance에 대 한 서비스-사용 서브넷 구성 사용
+description: Azure SQL Database Managed Instance에 대 한 서비스-사용 서브넷 구성 사용
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,35 +11,35 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
 ms.openlocfilehash: efc2b8578651f68d052f227694f85348853e191f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79533269"
 ---
-# <a name="enabling-service-aided-subnet-configuration-for-azure-sql-database-managed-instance"></a>Azure SQL 데이터베이스 관리 형 인스턴스에 대한 서비스 지원 서브넷 구성 사용
-서비스 지원 서브넷 구성은 관리되는 인스턴스를 호스팅하는 서브넷에 대해 자동화된 네트워크 구성 관리를 제공합니다. 서비스 지원 서브넷 구성을 통해 사용자는 TDS 트래픽 흐름에 대한 액세스를 완전히 제어할 수 있으며 관리되는 인스턴스는 SLA를 충족하기 위해 관리 트래픽의 중단 없는 흐름을 보장할 책임이 있습니다.
+# <a name="enabling-service-aided-subnet-configuration-for-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에 대 한 서비스-사용 서브넷 구성 사용
+서비스 제공 서브넷 구성은 관리 되는 인스턴스를 호스트 하는 서브넷에 대해 자동화 된 네트워크 구성 관리를 제공 합니다. 서비스와 관련 된 서브넷 구성 사용자는 관리 되는 인스턴스가 SLA를 충족 하기 위해 지속적으로 관리 트래픽의 흐름을 유지 하는 동안 데이터 (TDS 트래픽 흐름)에 대 한 모든 액세스 권한을 유지 합니다.
 
-자동으로 구성된 네트워크 보안 그룹 및 경로 테이블 규칙은 고객에게 표시되며 _Microsoft.Sql-managedInstances_UseOnly__접두사로 추가됩니다.
+자동으로 구성 된 네트워크 보안 그룹 및 경로 테이블 규칙은 고객에 게 표시 되 고 접두사 _Microsoft. .sql-managedInstances_UseOnly__로 주석이 추가 됩니다.
 
-리소스 공급자에 대한 `Microsoft.Sql/managedInstances` [서브넷 위임을](../virtual-network/subnet-delegation-overview.md) 켜면 서비스 지원 구성이 자동으로 활성화됩니다.
+리소스 공급자에 대 한 `Microsoft.Sql/managedInstances` [서브넷 위임을](../virtual-network/subnet-delegation-overview.md) 켜면 서비스 사용자 구성이 자동으로 활성화 됩니다.
 
 > [!IMPORTANT] 
-> 서브넷 위임이 켜지면 서브넷에서 마지막 가상 클러스터를 제거할 때까지 이 것을 끌 수 없습니다. 가상 클러스터를 삭제하는 방법에 대한 자세한 내용은 다음 [문서를](sql-database-managed-instance-delete-virtual-cluster.md#delete-virtual-cluster-from-the-azure-portal)참조하십시오.
+> 서브넷 위임이 설정 된 후에는 서브넷에서 마지막 가상 클러스터를 제거할 때까지이 기능을 해제할 수 없습니다. 가상 클러스터를 삭제 하는 방법에 대 한 자세한 내용은 다음 [문서](sql-database-managed-instance-delete-virtual-cluster.md#delete-virtual-cluster-from-the-azure-portal)를 참조 하세요.
 
 > [!NOTE] 
-> 2020년 5월 1일부터 SLA를 유지하는 데 서비스 지원 서브넷 구성이 필수적이기 때문에 관리되는 인스턴스 리소스 공급자에게 위임되지 않은 서브넷에 관리되는 인스턴스를 배포할 수 없습니다. 2020년 7월 1일에 관리되는 인스턴스를 포함하는 모든 서브넷이 관리되는 인스턴스 리소스 공급자에게 자동으로 위임됩니다. 
+> 서비스 제공 서브넷 구성은 SLA를 유지 관리 하기 위한 필수 기능이 며, 2020 년 5 월 1 일부 터 관리 되는 인스턴스 리소스 공급자에 게 위임 되지 않은 서브넷에 관리 되는 인스턴스를 배포할 수 없습니다. 2020 7 월 1 일에 관리 되는 인스턴스를 포함 하는 모든 서브넷은 관리 되는 인스턴스 리소스 공급자에 자동으로 위임 됩니다. 
 
-## <a name="enabling-subnet-delegation-for-new-deployments"></a>새 배포를 위한 서브넷 위임 사용
-관리되는 인스턴스를 빈 서브넷에 배포하려면 `Microsoft.Sql/managedInstances` 다음 [문서에](../virtual-network/manage-subnet-delegation.md)설명된 대로 리소스 공급자에게 위임해야 합니다. _참조된 문서는 예를 `Microsoft.DBforPostgreSQL/serversv2` 들어 리소스 공급자를 사용합니다. 대신 리소스 공급자를 `Microsoft.Sql/managedInstances` 사용해야 합니다._
+## <a name="enabling-subnet-delegation-for-new-deployments"></a>새 배포에 대 한 서브넷 위임 사용
+에서 관리 되는 인스턴스를 빈 서브넷에 배포 하려면 다음 [문서](../virtual-network/manage-subnet-delegation.md)에 `Microsoft.Sql/managedInstances` 설명 된 대로 리소스 공급자에 위임 해야 합니다. _참조 된 문서에서는 리소스 공급자 `Microsoft.DBforPostgreSQL/serversv2` 를 사용 합니다 (예:). 대신 리소스 공급자를 사용 `Microsoft.Sql/managedInstances` 해야 합니다._
 
-## <a name="enabling-subnet-delegation-for-existing-deployments"></a>기존 배포에 대한 서브넷 위임 사용
+## <a name="enabling-subnet-delegation-for-existing-deployments"></a>기존 배포에 대 한 서브넷 위임 사용
 
-기존 관리되는 인스턴스 배포에 대한 서브넷 위임을 사용하려면 가상 네트워크 서브넷이 배치된 위치를 찾아야 합니다. 
+기존 관리 되는 인스턴스 배포에 대 한 서브넷 위임을 사용 하도록 설정 하려면 가상 네트워크 서브넷이 배치 되는 위치를 확인 해야 합니다. 
 
-이를 알아보려면 관리되는 `Virtual network/subnet` `Overview` 인스턴스의 포털 블레이드에서 확인할 수 있습니다.
+이에 대 한 자세한 내용은 `Virtual network/subnet` 관리 되 `Overview` 는 인스턴스의 포털 블레이드에서 확인할 수 있습니다.
 
-또는 다음 PowerShell 명령을 실행하여 이를 알아볼 수 있습니다. **구독 ID를 구독 ID로** 바꿉습니다. 또한 **rg 이름을** 관리되는 인스턴스의 리소스 그룹으로 바꾸고 **mi 이름을** 관리되는 인스턴스의 이름으로 바꿉니다.
+또는 다음 PowerShell 명령을 실행 하 여이를 배울 수 있습니다. **구독 id** 를 구독 id로 바꿉니다. 또한 **rg 이름** 을 관리 되는 인스턴스의 리소스 그룹으로 바꾸고 **mi 이름** 을 관리 되는 인스턴스의 이름으로 바꿉니다.
 
 ```powershell
 Install-Module -Name Az
@@ -60,8 +60,8 @@ $mi = Get-AzSqlInstance -ResourceGroupName {rg-name} -Name {mi-name}
 $mi.SubnetId
 ```
 
-관리되는 인스턴스 서브넷을 찾으면 다음 `Microsoft.Sql/managedInstances` [문서에](../virtual-network/manage-subnet-delegation.md)설명된 대로 리소스 공급자에게 위임해야 합니다. _참조된 문서는 예를 `Microsoft.DBforPostgreSQL/serversv2` 들어 리소스 공급자를 사용합니다. 대신 리소스 공급자를 `Microsoft.Sql/managedInstances` 사용해야 합니다._
+관리 되는 인스턴스 서브넷을 찾은 후에는 다음 `Microsoft.Sql/managedInstances` [문서](../virtual-network/manage-subnet-delegation.md)에 설명 된 대로 리소스 공급자에 위임 해야 합니다. _참조 된 문서에서는 리소스 공급자 `Microsoft.DBforPostgreSQL/serversv2` 를 사용 합니다 (예:). 대신 리소스 공급자를 사용 `Microsoft.Sql/managedInstances` 해야 합니다._
 
 
 > [!IMPORTANT]
-> 서비스 지원 구성을 사용하도록 설정해도 서브넷에 이미 있는 관리되는 인스턴스에 대한 장애 조치 또는 연결 중단이 발생하지 않습니다.
+> 서비스 사용 구성을 사용 하도록 설정 하면 서브넷에 이미 있는 관리 되는 인스턴스에 대해 장애 조치 (failover) 또는 연결이 중단 되지 않습니다.
