@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: e23c23196f096b6181291b24645590f61e029349
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67182769"
 ---
-| 항목 | 설명 | 링크 |
+| 항목 | Description | 링크 |
 | --- | --- | --- |
 | 런타임 |스크립트 호스트, 트리거 및 바인딩, 언어 지원 |[문제 보관](https://github.com/Azure/azure-webjobs-sdk-script/issues) |
 | 템플릿 |생성 템플에 대한 코드 문제 |[문제 보관](https://github.com/Azure/azure-webjobs-sdk-templates/issues) |

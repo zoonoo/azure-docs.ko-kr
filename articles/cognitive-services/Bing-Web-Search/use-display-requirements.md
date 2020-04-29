@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60499888"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Bing Search API 사용 및 표시 요구 사항
@@ -34,7 +34,7 @@ ms.locfileid: "60499888"
 ## <a name="definitions"></a>정의
 
 
-|용어  |설명  |
+|용어  |Description  |
 |---------|---------|
 |Answer     | 응답에서 반환된 결과의 범주를 나타냅니다. 예를 들어 Bing Web Search API의 응답에는 웹 페이지 결과, 이미지, 비디오, 시각적 개체 및 뉴스 범주의 답변이 포함될 수 있습니다. |
 |응답     | Search API에 대한 단일 호출에 대응하여 받은 모든 대답 및 관련 데이터를 나타냅니다. |
@@ -134,7 +134,7 @@ Search API 응답의 데이터는 복사, 저장 또는 캐시하면 안 됩니�
 - 사용자가 해당 디바이스의 해당 사용자에게 이전에 반환된 결과에 액세스할 수 있도록 합니다(예: 서비스 중단의 경우).
 - 해당 사용자의 신호(예: 예상되는 서비스 중단의 경우)에 따라 사용자의 요구 사항을 예상하여 개인 설정된 자동 관리 쿼리에 대해 반환된 결과를 저장합니다.
 
-#### <a name="server"></a>서버
+#### <a name="server"></a>Server (서버)
 
 다음과 같은 목적에 한하여 한 명의 사용자에게 해당하는 결과를 고객이 제어하는 서버에 안전하게 보관하고 이 보관된 결과를 표시할 수 있습니다.
 

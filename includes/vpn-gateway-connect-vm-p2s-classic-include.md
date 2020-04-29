@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 6d0737a7300b2a6025f776c1ed65a05cacf2141a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67182069"
 ---
 원격 데스크톱 연결을 만들어 VNet에 배포된 VM에 연결합니다. VM에 연결할 수 있는지 확인하는 가장 좋은 방법은 컴퓨터 이름이 아닌 개인 IP 주소를 사용하여 연결하는 것입니다. 이렇게 하면 연결할 수 있는지, 아니면 이름 확인이 제대로 구성되었는지를 테스트할 수 있습니다. 
@@ -20,7 +20,7 @@ ms.locfileid: "67182069"
 1. VM의 개인 IP 주소를 찾습니다. VM의 개인 IP 주소를 찾으려면 Azure Portal에서 VM의 속성을 보거나 PowerShell을 사용합니다.
 2. 지점 및 사이트 간 VPN 연결을 사용하여 VNet에 연결되어 있는지 확인합니다. 
 3. 원격 데스크톱 연결을 열려면 작업 표시줄의 검색 상자에서 *RDP* 또는 *원격 데스크톱 연결*을 입력한 다음, **원격 데스크톱 연결**을 선택합니다. 또한 PowerShell에서 **mstsc** 명령을 사용하여 원격 데스크톱 연결을 열 수도 있습니다. 
-3. **원격 데스크톱 연결에서**VM의 개인 IP 주소를 입력합니다. 필요한 경우 **옵션 표시**를 선택하여 추가 설정을 조정한 다음, 연결합니다.
+3. **원격 데스크톱 연결**에서 VM의 개인 IP 주소를 입력 합니다. 필요한 경우 **옵션 표시**를 선택하여 추가 설정을 조정한 다음, 연결합니다.
 
 ### <a name="to-troubleshoot-an-rdp-connection-to-a-vm"></a>VM에 대한 RDP 연결 문제를 해결하려면
 
