@@ -1,6 +1,6 @@
 ---
-title: WebJobs를 통해 백그라운드 작업 실행
-description: WebJobs를 사용하여 Azure 앱 서비스에서 백그라운드 작업을 실행하는 방법에 대해 알아봅니다. 다양한 스크립트 형식 중에서 선택하고 CRON 식으로 실행합니다.
+title: WebJobs를 사용 하 여 백그라운드 작업 실행
+description: WebJobs를 사용 하 여 Azure App Service에서 백그라운드 작업을 실행 하는 방법에 대해 알아봅니다. 다양 한 스크립트 형식 중에서 선택 하 고 CRON 식을 사용 하 여 실행 합니다.
 author: ggailey777
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
@@ -9,18 +9,18 @@ ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 ms.openlocfilehash: 028551f04b2e44e9456e2f7343159ad9b52fd25f
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085147"
 ---
-# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure 앱 서비스에서 WebJobs를 통해 백그라운드 작업 실행
+# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs를 사용 하 여 백그라운드 작업 실행
 
 이 문서에서는 실행 파일 또는 스크립트를 업로드하기 위해 [Azure Portal](https://portal.azure.com)을 사용하여 WebJobs를 배포하는 방법을 보여줍니다. Visual Studio를 사용하여 WebJobs를 개발하고 배포하는 방법에 대한 정보는 [Visual Studio를 사용하여 WebJobs 배포](webjobs-dotnet-deploy-vs.md)를 참조하세요.
 
 ## <a name="overview"></a>개요
-WebJobs는 웹 [앱,](index.yml) API 앱 또는 모바일 앱과 동일한 인스턴스에서 프로그램 또는 스크립트를 실행할 수 있는 Azure 앱 서비스의 기능입니다. 웹 작업을 사용하는 데 추가 비용은 없습니다.
+WebJobs는 웹 앱, API 앱 또는 모바일 앱과 동일한 인스턴스에서 프로그램 또는 스크립트를 실행할 수 있도록 하는 [Azure App Service](index.yml) 기능입니다. 웹 작업을 사용하는 데 추가 비용은 없습니다.
 
 > [!IMPORTANT]
 > WebJobs는 Linux의 App Service에 대해서는 아직 지원되지 않습니다.
@@ -75,11 +75,11 @@ when making changes in one don't forget the other two.
 
    ![WebJob 페이지 추가](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | 설정      | 샘플 값   | 설명  |
+   | 설정      | 샘플 값   | Description  |
    | ------------ | ----------------- | ------------ |
    | **이름** | myContinuousWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다. |
    | **파일 업로드** | ConsoleApp.zip | 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다. 지원되는 실행 파일 또는 스크립트 파일 형식은 [지원되는 파일 형식](#acceptablefiles) 섹션에 나열됩니다. |
-   | **형식** | 연속 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
+   | **Type** | 연속 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
    | **규모** | 다중 인스턴스 | 연속 WebJobs에 대해서만 사용할 수 있습니다. 프로그램 또는 스크립트가 모든 인스턴스 또는 하나의 인스턴스에서 실행되는지를 결정합니다. 여러 인스턴스에서 실행하는 옵션은 무료 또는 공유 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)에 적용되지 않습니다. | 
 
 4. **확인**을 클릭합니다.
@@ -113,12 +113,12 @@ when making changes in one don't forget the other two.
 
    ![WebJob 페이지 추가](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | 설정      | 샘플 값   | 설명  |
+   | 설정      | 샘플 값   | Description  |
    | ------------ | ----------------- | ------------ |
    | **이름** | myTriggeredWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다.|
    | **파일 업로드** | ConsoleApp.zip | 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다. 지원되는 실행 파일 또는 스크립트 파일 형식은 [지원되는 파일 형식](#acceptablefiles) 섹션에 나열됩니다. |
-   | **형식** | 트리거 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
-   | **트리거** | 설명서 | |
+   | **Type** | 트리거 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
+   | **트리거** | Manual | |
 
 4. **확인**을 클릭합니다.
 
@@ -151,12 +151,12 @@ when making changes in one don't forget the other two.
 
    ![WebJob 페이지 추가](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | 설정      | 샘플 값   | 설명  |
+   | 설정      | 샘플 값   | Description  |
    | ------------ | ----------------- | ------------ |
    | **이름** | myScheduledWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다. |
    | **파일 업로드** | ConsoleApp.zip | 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다. 지원되는 실행 파일 또는 스크립트 파일 형식은 [지원되는 파일 형식](#acceptablefiles) 섹션에 나열됩니다. |
-   | **형식** | 트리거 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
-   | **트리거** | 예약됨 | 안정적으로 실행되도록 예약하기 위해 Always On 기능을 사용하도록 설정합니다. Always On은 기본, 표준 및 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.|
+   | **Type** | 트리거 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
+   | **트리거** | 예약 | 안정적으로 실행되도록 예약하기 위해 Always On 기능을 사용하도록 설정합니다. Always On은 기본, 표준 및 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.|
    | **CRON 식** | 0 0/20 * * * * | [CRON 식](#ncrontab-expressions)이 다음 섹션에 설명되어 있습니다. |
 
 4. **확인**을 클릭합니다.
@@ -165,9 +165,9 @@ when making changes in one don't forget the other two.
 
    ![WebJobs 목록](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-## <a name="ncrontab-expressions"></a>NCRONTAB 표현식
+## <a name="ncrontab-expressions"></a>NCRONTAB 식
 
-포털에 [NCRONTAB 식을](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) 입력하거나 다음 `settings.job` 예제와 같이 WebJob *.zip* 파일의 루트에 파일을 포함할 수 있습니다.
+다음 예제와 같이 포털에 [NCRONTAB 식을](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) 입력 하거나 WebJob `settings.job` *.zip* 파일의 루트에 파일을 포함할 수 있습니다.
 
 ```json
 {
@@ -175,7 +175,7 @@ when making changes in one don't forget the other two.
 }
 ```
 
-자세한 내용은 [트리거된 WebJob 예약을](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob)참조하십시오.
+자세히 알아보려면 [트리거된 WebJob 예약](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob)을 참조 하세요.
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 

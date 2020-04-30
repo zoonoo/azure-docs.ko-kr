@@ -1,6 +1,6 @@
 ---
-title: Azure NetApp 파일을 사용하는 솔루션 아키텍처 | 마이크로 소프트 문서
-description: Azure NetApp 파일을 사용하는 솔루션 아키텍처에 대한 모범 사례에 대한 참조를 제공합니다.
+title: Azure NetApp Files를 사용 하는 솔루션 아키텍처 | Microsoft Docs
+description: Azure NetApp Files를 사용 하는 솔루션 아키텍처에 대 한 모범 사례에 대 한 참조를 제공 합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,52 +15,52 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: b-juche
 ms.openlocfilehash: a26e403671a2f69eeb785d92fa0c1d37a19e3ac5
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085079"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
-이 문서에서는 Azure NetApp 파일 사용에 대한 솔루션 아키텍처를 이해하는 데 도움이 되는 모범 사례에 대한 참조를 제공합니다.  
+이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해 하는 데 도움이 되는 모범 사례에 대 한 참조를 제공 합니다.  
 
-## <a name="azure-high-performance-computing-hpc-solutions"></a>Azure 고성능 컴퓨팅(HPC) 솔루션
+## <a name="azure-high-performance-computing-hpc-solutions"></a>Azure HPC (고성능 컴퓨팅) 솔루션
 
-* [Azure에서 저장소 시뮬레이션 소프트웨어 실행](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/reservoir-simulation)
-* [Azure 일괄 처리 및 Azure NetApp 파일로 MPI 워크로드 실행](https://azure.microsoft.com/resources/run-mpi-workloads-with-azure-batch-and-azure-netapp-files/)
+* [Azure에서 저수지 시뮬레이션 소프트웨어 실행](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/reservoir-simulation)
+* [Azure Batch 및 Azure NetApp Files를 사용 하 여 MPI 작업 실행](https://azure.microsoft.com/resources/run-mpi-workloads-with-azure-batch-and-azure-netapp-files/)
 
-## <a name="azure-kubernetes-service-aks-solutions"></a>Azure Kubernetes 서비스(AKS) 솔루션
+## <a name="azure-kubernetes-service-aks-solutions"></a>AKS (Azure Kubernetes Service) 솔루션
 
-* [AKS와 Azure 넷앱 파일 통합](https://github.com/andyzhangx/demo/tree/master/linux/nfs)
-* [Azure NetApp 파일을 Azure Kubernetes 서비스와 통합](https://docs.microsoft.com/azure/aks/azure-netapp-files)
+* [AKS와 Azure NetApp Files 통합](https://github.com/andyzhangx/demo/tree/master/linux/nfs)
+* [Azure Kubernetes Service와 Azure NetApp Files 통합](https://docs.microsoft.com/azure/aks/azure-netapp-files)
 
-## <a name="oracle-database-solutions"></a>오라클 데이터베이스 솔루션
+## <a name="oracle-database-solutions"></a>Oracle 데이터베이스 솔루션
 
-* [Azure NetApp 파일을 사용하는 Azure 배포 모범 사례 가이드에 대한 오라클](https://www.netapp.com/us/media/tr-4780.pdf)
-* [오라클 VM 이미지 및 Microsoft Azure에 대한 배포: 공유 저장소 구성 옵션](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
+* [Azure 배포 모범 사례 가이드의 Oracle Azure NetApp Files 사용](https://www.netapp.com/us/media/tr-4780.pdf)
+* [Oracle VM 이미지 및 Microsoft Azure에 대 한 배포: 공유 저장소 구성 옵션](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
 * [Oracle Database에서 Azure NetApp Files를 사용할 경우의 이점](https://docs.microsoft.com/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-oracle-database)
 
-## <a name="sap-application-solutions"></a>SAP 애플리케이션 솔루션 
+## <a name="sap-application-solutions"></a>SAP 응용 프로그램 솔루션 
 
-* [Azure NetApp 파일을 사용하여 Microsoft Azure의 SAP 응용 프로그램](https://www.netapp.com/us/media/tr-4746.pdf)
+* [Azure NetApp Files를 사용 하는 Microsoft Azure의 SAP 응용 프로그램](https://www.netapp.com/us/media/tr-4746.pdf)
 * [SAP HANA Azure 가상 머신 스토리지 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
-* [SAP 응용 프로그램에 대 한 Azure NetApp 파일 사용 SUSE 리눅스 엔터프라이즈 서버에서 Azure VM에 SAP NetWeaver에 대 한 높은 가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
-* [SAP 응용 프로그램에 대한 Azure NetApp 파일이 있는 Red Hat 엔터프라이즈 Linux의 Azure VM에서 SAP NetWeaver용 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
-* [SAP 응용 프로그램 다중 SID 가이드에 대한 레드 햇 엔터프라이즈 리눅스에서 Azure VM에 SAP NetWeaver에 대한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
-* [SAP 응용 프로그램에 대한 Azure NetApp 파일(SMB)이 있는 Windows의 Azure VM에서 SAP NetWeaver용 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)
-* [SAP HANA SUSE Linux 엔터프라이즈 서버의 Azure NetApp 파일이 있는 Azure VM에서 대기 노드로 확장](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
-* [레드햇 엔터프라이즈 리눅스에서 Azure NetApp 파일이 있는 Azure VM에서 대기 노드를 사용하는 SAP HANA 확장](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
-* [Azure NetApp 파일 - 몇 초 만에 SAP HANA 백업](https://blog.netapp.com/azure-netapp-files-sap-hana-backup-in-seconds/)
-* [Azure NetApp 파일 - 스냅샷 백업에서 HANA 데이터베이스 복원](https://blog.netapp.com/azure-netapp-files-backup-sap-hana/)
-* [Azure NetApp 파일 - SAP HANA클라우드 동기화로 백업 오프로딩](https://blog.netapp.com/azure-netapp-files-sap-hana)
-* [Azure NetApp 파일을 사용하여 SAP HANA 시스템 복사 속도 향상](https://blog.netapp.com/sap-hana-faster-using-azure-netapp-files/)
-* [클라우드 볼륨 ONTAP 및 Azure NetApp 파일: SAP HANA 시스템 마이그레이션이 간편해졌습니다.](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/) 
+* [SAP 응용 프로그램용 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
+* [SAP 응용 프로그램용 Azure NetApp Files를 사용 하 Red Hat Enterprise Linux의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
+* [SAP 응용 프로그램에 대 한 Red Hat Enterprise Linux Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+* [SAP 응용 프로그램용 SMB (Azure NetApp Files)를 사용 하는 Windows의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)
+* [SUSE Linux Enterprise Server Azure NetApp Files를 사용 하 여 Azure Vm에서 대기 노드로 확장 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
+* [RedHat Enterprise Linux에서 Azure NetApp Files를 사용 하 여 Azure Vm의 대기 노드를 확장 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
+* [Azure NetApp Files – SAP HANA 백업 (초)](https://blog.netapp.com/azure-netapp-files-sap-hana-backup-in-seconds/)
+* [Azure NetApp Files – 스냅숏 백업에서 HANA 데이터베이스 복원](https://blog.netapp.com/azure-netapp-files-backup-sap-hana/)
+* [Azure NetApp Files – 클라우드 동기화를 사용 하 여 백업 오프 로드 SAP HANA](https://blog.netapp.com/azure-netapp-files-sap-hana)
+* [Azure NetApp Files를 사용 하 여 SAP HANA 시스템 복사본 속도 향상](https://blog.netapp.com/sap-hana-faster-using-azure-netapp-files/)
+* [클라우드 볼륨 ONTAP 및 Azure NetApp Files: SAP HANA 시스템 마이그레이션을 손쉽게 수행할 수 있습니다.](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/) 
 
-## <a name="global-file-caching-solutions"></a>글로벌 파일 캐싱 솔루션
+## <a name="global-file-caching-solutions"></a>전역 파일 캐싱 솔루션
 
-* [Azure NetApp 파일 및 Talon FAST를 통해 전 세계적으로 분산된 엔터프라이즈 파일 공유™](https://www.talonstorage.com/products/azure-netapp-files)
+* [Azure NetApp Files 및 Talon FAST™를 사용 하 여 전역적으로 분산 된 엔터프라이즈 파일 공유](https://www.talonstorage.com/products/azure-netapp-files)
 
-## <a name="windows-virtual-desktopvdi-solutions"></a>윈도우 가상 데스크톱/VDI 솔루션
+## <a name="windows-virtual-desktopvdi-solutions"></a>Windows 가상 데스크톱/VDI 솔루션
 
-* [Azure NetApp 파일을 사용하여 호스트 풀에 대한 FSLogix 프로필 컨테이너 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
+* [Azure NetApp Files를 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
 
