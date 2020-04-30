@@ -1,40 +1,33 @@
 ---
 title: 자습서 - Azure Red Hat OpenShift 클러스터 삭제
 description: 이 자습서에서는 Azure CLI를 사용하여 Azure Red Hat OpenShift 클러스터를 삭제하는 방법 알아보기
-author: jimzim
-ms.author: jzim
+author: sakthi-vetrivel
+ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
-ms.date: 05/06/2019
-ms.openlocfilehash: c335236a2b0b05f03bef1ebef37f1129a5d0352b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+ms.date: 04/24/2020
+ms.openlocfilehash: 2de60b90eb6fb75ef013a2fd8785f1b8b616fba6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76278766"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232141"
 ---
-# <a name="tutorial-delete-an-azure-red-hat-openshift-cluster"></a>자습서: Azure Red Hat OpenShift 클러스터 삭제
+# <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>자습서: Azure Red Hat OpenShift 4 클러스터 삭제
 
-이 자습서의 마지막 부분입니다. 샘플 클러스터의 테스트를 완료한 경우 사용하지 않는 항목에 대해 요금이 부과되지 않도록 해당 클러스터 및 연결된 리소스를 삭제하는 방법입니다.
-
-시리즈 3부에서는 다음 방법에 대해 알아봅니다.
+이 자습서의 3 부에서는 OpenShift 4를 실행 하는 Azure Red Hat OpenShift 클러스터가 삭제 됩니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * Azure Red Hat OpenShift 클러스터 삭제
 
-이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
-> [!div class="checklist"]
-> * [Azure Red Hat OpenShift 클러스터 만들기](tutorial-create-cluster.md)
-> * [Azure Red Hat OpenShift 클러스터 크기 조정](tutorial-scale-cluster.md)
-> * Azure Red Hat OpenShift 클러스터 삭제
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
-이 자습서를 시작하기 전에:
+이전 자습서에서는 Azure Red Hat OpenShift 클러스터가 만들어지고 OpenShift 웹 콘솔을 사용 하 여 연결 되었습니다. 이러한 단계를 수행 하지 않고 팔 로우를 수행 하려는 경우 [자습서 1-Azure Red Hat Openshift 4 클러스터 만들기](tutorial-create-cluster.md) 로 시작 합니다.
 
-* [Azure Red Hat OpenShift 클러스터 만들기](tutorial-create-cluster.md) 자습서를 따라 클러스터를 만듭니다.
+CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 자습서에서는 Azure CLI 버전 2.0.75 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
-## <a name="step-1-sign-in-to-azure"></a>1단계: Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 Azure CLI를 로컬로 실행하는 경우 `az login`을 실행하여 Azure에 로그인합니다.
 
@@ -44,36 +37,27 @@ az login
 
 여러 구독에 액세스할 수 있으면 `az account set -s {subscription ID}`에서 `{subscription ID}`를 사용하려는 구독으로 바꿔서 실행합니다.
 
-## <a name="step-2-delete-the-cluster"></a>2단계: 클러스터 삭제
+## <a name="delete-the-cluster"></a>클러스터 삭제
 
-Bash 터미널을 열고 변수 CLUSTER_NAME을 클러스터의 이름으로 설정합니다.
-
-```bash
-CLUSTER_NAME=yourclustername
-```
-
-이제 클러스터를 삭제합니다.
+이전 자습서에서는 다음 변수가 설정 되었습니다. 
 
 ```bash
-az openshift delete --resource-group $CLUSTER_NAME --name $CLUSTER_NAME
+CLUSTER=yourclustername
+RESOURCE_GROUP=yourresourcegroup
 ```
 
-클러스터를 삭제하려는지 묻는 메시지가 표시됩니다. `y`로 확인한 후에 클러스터를 삭제하는 데 몇 분 정도 걸립니다. 명령이 완료되면 전체 리소스 그룹 및 클러스터를 포함한 내부의 모든 리소스가 삭제됩니다.
+이러한 값을 사용 하 여 클러스터를 삭제 합니다.
 
-## <a name="deleting-a-cluster-using-the-azure-portal"></a>Azure Portal을 사용하여 클러스터 삭제
+```bash
+az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
+```
 
-또는 온라인 Azure Portal을 통해 클러스터의 연결된 리소스 그룹을 삭제할 수 있습니다. 리소스 그룹의 이름은 사용자의 클러스터 이름과 동일합니다.
-
-현재 클러스터를 만들 때 생성된 `Microsoft.ContainerService/openShiftManagedClusters` 리소스는 Azure Portal에서 숨겨져 있습니다. `Resource group` 보기에서 `Show hidden types`를 선택하여 리소스 그룹을 봅니다.
-
-![숨겨진 형식 확인란의 스크린샷](./media/aro-portal-hidden-type.png)
-
-리소스 그룹을 삭제하면 Azure Red Hat OpenShift 클러스터를 빌드할 때 생성되는 관련 리소스가 모두 삭제됩니다.
+그런 다음 클러스터를 삭제할지 여부를 확인 하는 메시지가 표시 됩니다. `y`로 확인한 후에 클러스터를 삭제하는 데 몇 분 정도 걸립니다. 명령이 완료 되 면 전체 리소스 그룹과 그 안에 포함 된 모든 리소스 (클러스터 포함)가 삭제 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 자습서의 이 부분에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * Azure Red Hat OpenShift 클러스터 삭제
+> * Azure Red Hat OpenShift 4 클러스터 삭제
 
-공식 [Red Hat OpenShift 설명서](https://docs.openshift.com/aro/welcome/index.html)를 통해 OpenShift 사용에 관해 자세히 알아봅니다.
+공식 [Red Hat OpenShift 설명서](https://www.openshift.com/try)를 통해 OpenShift 사용에 관해 자세히 알아봅니다.

@@ -4,12 +4,12 @@ description: .NET 용 Azure Batch 파일 규칙 라이브러리를 사용 하 �
 ms.topic: article
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e835b4e4ace344de65bc5d037b99afdf811ed4bb
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 2d7988ef4339280bd729cc1acaa1b7fb2c33b6b9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116437"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232703"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>.NET용 Batch 파일 규칙 라이브러리를 사용하여 Azure Storage에 작업 및 태스크 데이터 유지
 
@@ -182,7 +182,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>Azure Portal에서 출력 파일 보기
 
-Azure Portal에서는 [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)(영문)을 사용하여 연결된 Azure Storage 계정에 유지되는 태스크 출력 파일과 로그를 표시합니다. 이러한 규칙을 선택한 언어로 직접 구현하거나, .NET 애플리케이션의 파일 규칙 라이브러리를 사용할 수 있습니다.
+Azure Portal에서는 [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files)(영문)을 사용하여 연결된 Azure Storage 계정에 유지되는 태스크 출력 파일과 로그를 표시합니다. 이러한 규칙을 선택한 언어로 직접 구현하거나, .NET 애플리케이션의 파일 규칙 라이브러리를 사용할 수 있습니다.
 
 포털에서 출력 파일을 표시하려면 다음 요구 사항을 충족해야 합니다.
 

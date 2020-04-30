@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2020
+ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fa241a261b8dcb21dd39b5dacacac9aa4889304
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 99a6c0153105627e272d05af5514a030577431f7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80519661"
+ms.locfileid: "82233995"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 PowerShell
 
@@ -45,16 +45,16 @@ ms.locfileid: "80519661"
         $AzureAdCred = Get-Credential  
         Connect-AzureAD -Credential $AzureAdCred
 
-1. **Azure Active Directory** > **Properties**속성 > **디렉터리 id**로 이동 하 여 테 넌 트 ID를 찾습니다. Cmdlet 섹션에서 resourceId를 제공 해야 할 때마다이 ID를 사용 합니다.
+1. **Azure Active Directory** > **Properties**속성 > **디렉터리 id**로 이동 하 여 Azure AD 조직에 대 한 테 넌 트 ID를 찾습니다. Cmdlet 섹션에서 resourceId를 제공 해야 할 때마다이 ID를 사용 합니다.
 
-    ![Azure AD 조직에 대 한 속성에서 테 넌 트 ID 찾기](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
+    ![Azure AD 조직의 속성에서 조직 ID 찾기](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> 다음 섹션에서는를 시작 하 고 실행 하는 데 도움이 되는 간단한 예제를 제공 합니다. 에서 https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management다음 cmdlet에 대 한 자세한 설명서를 찾을 수 있습니다. 그러나 providerID 매개 변수에서 "azureResources"를 "aadRoles"로 바꾸어야 합니다. 또한 Azure AD 조직에 대 한 테 넌 트 ID를 resourceId 매개 변수로 사용 해야 합니다.
+> 다음 섹션에서는를 시작 하 고 실행 하는 데 도움이 되는 간단한 예제를 제공 합니다. 에서 https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management다음 cmdlet에 대 한 자세한 설명서를 찾을 수 있습니다. 그러나 providerID 매개 변수에서 "azureResources"를 "aadRoles"로 바꾸어야 합니다. 또한 Azure AD 조직에 대 한 조직 ID를 resourceId 매개 변수로 사용 해야 합니다.
 
 ## <a name="retrieving-role-definitions"></a>역할 정의 검색
 
-다음 cmdlet을 사용 하 여 Azure AD 조직 (테 넌 트)에서 모든 기본 제공 및 사용자 지정 Azure AD 역할을 가져옵니다. 이 중요 단계는 역할 이름과 roleDefinitionId 간의 매핑을 제공 합니다. RoleDefinitionId은 특정 역할을 참조 하기 위해 이러한 cmdlet 전체에서 사용 됩니다.
+다음 cmdlet을 사용 하 여 Azure AD 조직에서 모든 기본 제공 및 사용자 지정 Azure AD 역할을 가져옵니다. 이 중요 단계는 역할 이름과 roleDefinitionId 간의 매핑을 제공 합니다. RoleDefinitionId은 특정 역할을 참조 하기 위해 이러한 cmdlet 전체에서 사용 됩니다.
 
 RoleDefinitionId는 Azure AD 조직과 관련이 있으며 역할 관리 API에서 반환 하는 roleDefinitionId와 다릅니다.
 

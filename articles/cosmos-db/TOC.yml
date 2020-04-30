@@ -136,10 +136,10 @@
         - name: 컨테이너 및 데이터베이스에 대한 처리량 프로비전
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
-        - name: 처리량 프로비전 - autopilot 모드
-          href: provision-throughput-autopilot.md
-        - name: Autopilot FAQ
-          href: autopilot-faq.md
+        - name: 처리량 프로비전 - 자동 스케일링 모드
+          href: provision-throughput-autoscale.md
+        - name: 자동 스케일링 FAQ
+          href: autoscale-faq.md
     - name: SQL 쿼리(SQL query)
       items:
         - name: 시작
@@ -518,6 +518,7 @@
         - name: TCO(총 소유 비용)
           href: total-cost-ownership.md
         - name: 요금 청구 방식
+          displayName: free tier
           href: understand-your-bill.md
         - name: 프로비전된 처리량 비용 최적화
           displayName: 'request units, RUs, RU'
@@ -531,6 +532,7 @@
         - name: 다중 지역 비용 최적화
           href: optimize-cost-regions.md
         - name: 개발/테스트 비용 최적화
+          displayName: free tier
           href: optimize-dev-test.md
         - name: 예약 용량으로 비용 최적화
           href: cosmos-db-reserved-capacity.md

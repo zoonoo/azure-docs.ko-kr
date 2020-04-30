@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 58fd9225298b4322567f4feb02629e3ad4e0f00d
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 2760033cd66e99a7a7f6d331e03c6f98c486d286
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82127562"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231971"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>알려진 문제 및 문제 해결 Azure Machine Learning
 
@@ -56,7 +56,23 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
         pip install azure-ml-datadrift
         pip install azureml-train-automl 
      ```
-     
+
+* **Panda 오류: 일반적으로 AutoML 실험을 수행 하는 동안 표시 됩니다.**
+   
+   Pip를 사용 하 여 environmnet를 수동으로 설정 하는 경우 지원 되지 않는 패키지 버전이 설치 되기 때문에 특성 오류 (특히 pandas)를 알 수 있습니다. 이러한 오류를 방지 하려면 automl_setup을 [사용 하 여 AutoML SDK를 설치 하세요](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md).
+   
+    1. Anaconda 프롬프트를 열고 샘플 노트북 집합에 대 한 GitHub 리포지토리를 복제 합니다.
+
+    ```bash
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+    
+    2. 샘플 노트북이 추출 된 후 실행 되는 사용 방법-azureml/자동-기계 학습 폴더로 이동 합니다.
+    
+    ```bash
+    automl_setup
+    ```
+  
 * **오류 메시지: ‘PyYAML’을 제거할 수 없습니다.**
 
     Python 용 Azure Machine Learning SDK: PyYAML는 `distutils` 설치 된 프로젝트입니다. 따라서 부분 제거가 있는 경우 속해 있는 파일을 정확히 확인할 수 없습니다. 이 오류를 무시하면서 SDK를 게속 설치하려면 다음을 사용합니다.
@@ -198,7 +214,7 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
 
 다음 오류에 대해이 작업을 수행 합니다.
 
-|Error  | 해결 방법  |
+|오류  | 해결 방법  |
 |---------|---------|
 |웹 서비스 배포 시 이미지 작성 오류     |  이미지 구성을 위해 "pConda acl = = 1.2.1"을 파일에 대 한 pip 종속성으로 추가 합니다.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   배포에 사용 되는 Vm의 SKU를 메모리를 더 많이 포함 하는 Vm으로 변경 합니다. |
