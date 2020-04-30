@@ -8,10 +8,10 @@ ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: f195a5c05c6c95dac898b2d471747952a3446d52
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81681724"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(사용되지 않음) CoScale을 사용하여 Azure Container Service Kubernetes 클러스터 모니터링
@@ -59,7 +59,7 @@ az acs kubernetes install-cli
 ```
 
 ## <a name="installing-the-coscale-agent-with-a-daemonset"></a>DaemonSet에 CoScale 에이전트 설치
-[DaemonSet은](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) Kubernetes에서 클러스터의 각 호스트에서 컨테이너의 단일 인스턴스를 실행하는 데 사용됩니다.
+[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) 는 Kubernetes에서 클러스터의 각 호스트에 대해 컨테이너의 단일 인스턴스를 실행 하는 데 사용 됩니다.
 CoScale 에이전트와 같은 모니터링 에이전트를 실행하는 데 완벽합니다.
 
 CoScale에 로그인한 후 [에이전트 페이지](https://developer.newrelic.com/)로 이동한 다음 DaemonSet을 사용하여 클러스터에 CoScale 에이전트를 설치합니다. CoScale UI는 에이전트를 만들고 전체 Kubernetes 클러스터 모니터링을 시작하기 위한 단계별 구성 과정을 제공합니다.
@@ -70,7 +70,7 @@ CoScale에 로그인한 후 [에이전트 페이지](https://developer.newrelic.
 
 ![CoScale 에이전트 시작](./media/container-service-kubernetes-coscale/agent_script.png)
 
-정말 간단하죠. 에이전트가 작동 및 실행되면 몇 분 내에 콘솔에 데이터가 표시됩니다. [에이전트 페이지](https://developer.newrelic.com/)를 방문하여 클러스터에 대한 요약을 확인하고, 추가 구성 단계를 수행하고, **Kubernetes 클러스터 개요**와 같은 대시보드를 참조합니다.
+간단하죠. 에이전트가 작동 및 실행되면 몇 분 내에 콘솔에 데이터가 표시됩니다. [에이전트 페이지](https://developer.newrelic.com/)를 방문하여 클러스터에 대한 요약을 확인하고, 추가 구성 단계를 수행하고, **Kubernetes 클러스터 개요**와 같은 대시보드를 참조합니다.
 
 ![Kubernetes 클러스터 개요](./media/container-service-kubernetes-coscale/dashboard_clusteroverview.png)
 

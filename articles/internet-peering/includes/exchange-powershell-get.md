@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 titleSuffix: Azure
 description: 포함 파일
 services: internet-peering
@@ -9,19 +9,19 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 34a23ce76ed0e9285a686073e1cbeb95347f7b7d
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678642"
 ---
-피어링 목록을 얻으려면 **Get-AzPeering** 명령을 실행합니다.
+피어 링 목록을 가져오려면 **AzPeering** 명령을 실행 합니다.
 
 ```powershell
 Get-AzPeering ResourceGroupName "PeeringResourceGroup" -Name "SeattleExchangePeering"
 ```
 
-이 예제 응답은 종단 간 프로비저닝이 성공적으로 완료된 시기를 보여 주며,
+이 예제 응답에서는 종단 간 프로 비전이 성공적으로 완료 된 경우를 보여 줍니다.
 
 ```powershell
     Name                     : SeattleExchangePeering

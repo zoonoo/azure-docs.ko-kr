@@ -1,7 +1,7 @@
 ---
 title: 언어 지원 - Translator Text API
 titleSuffix: Azure Cognitive Services
-description: 번역기 텍스트 API는 NMT(신경망 시스템 번역)를 사용하여 텍스트에서 텍스트로 변환하는 다음 언어를 지원합니다.
+description: Translator Text API는 NMT (신경망 변환)를 사용 하 여 텍스트를 텍스트로 변환 하기 위한 다음 언어를 지원 합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
 ms.openlocfilehash: 0ecde5acb7dc57ed9e5802c1589d5813a9206643
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81684838"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator Text API에 대한 언어 및 지역 지원
@@ -28,17 +28,17 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 **V2 Translator API**
 
 > [!NOTE]
-> V2는 2018년 4월 30일에 더 이상 사용되지 않았습니다. V3에서만 사용할 수 있는 새로운 기능을 활용하려면 응용 프로그램을 V3로 마이그레이션하십시오.
+> V2는 2018 년 4 월 30 일부 터 더 이상 사용 되지 않습니다. V3에 독점적으로 제공 되는 새로운 기능을 활용 하려면 응용 프로그램을 V3로 마이그레이션 하세요.
 
-* 통계 전용: 이 언어에는 신경 시스템을 사용할 수 없습니다.
-* 사용 가능한 신경: 신경 시스템을 사용할 수 있습니다. `category=generalnn` 매개 변수를 사용하여 인공신경망 시스템에 액세스합니다.
-* 신경망 기본값: 신경신경은 기본 번역 시스템입니다. `category=smt` 매개 변수를 사용하여 Microsoft Translator Hub를 통해 통계 시스템에 액세스할 수 있습니다.
-* 신경전용: 신경 번역만 사용할 수 있습니다.
+* 통계 전용:이 언어에 사용할 수 있는 신경망이 없습니다.
+* 사용 가능한 신경망: 신경망을 사용할 수 있습니다. `category=generalnn` 매개 변수를 사용하여 인공신경망 시스템에 액세스합니다.
+* 신경망: 신경망은 기본 변환 시스템입니다. `category=smt` 매개 변수를 사용하여 Microsoft Translator Hub를 통해 통계 시스템에 액세스할 수 있습니다.
+* 신경망: 신경망만 사용할 수 있습니다.
 
 **V3 Translator API** V3 Translator API는 기본적으로 인공신경망 기반이며, 통계 시스템은 인공신경망 시스템이 없는 경우에만 사용할 수 있습니다.
 
 > [!NOTE]
-> 현재, 신경 언어의 하위 집합은 사용자 지정 번역기에서 사용할 수 있으며 점차적으로 추가 됩니다. [사용자 지정 번역기에서 현재 사용할 수 있는 언어 보기.](#customization)
+> 현재 사용자 지정 변환기에서 신경망의 하위 집합을 사용할 수 있으며,이를 점차적으로 추가 하는 중입니다. [사용자 지정 번역기에서 현재 사용할 수 있는 보기 언어](#customization)입니다.
 
 |언어|  언어 코드|  V3 API|
 |:-----|:-----:|:-----|
@@ -116,7 +116,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 |유카텍 마야어|  `yua`   |   통계|
 
 > [!NOTE]
-> 언어 `pt` 코드는 `pt-br`기본적으로 포르투갈어(브라질)로 설정됩니다.
+> 언어 코드 `pt` 는 기본적으로 `pt-br`포르투갈어 (브라질)로 바뀝니다.
 
 ## <a name="transliteration"></a>음역
 
@@ -204,7 +204,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 
 ## <a name="detect"></a>Detect
 
-번역기 텍스트 API는 번역 및 음역에 사용할 수 있는 모든 언어를 검색합니다.
+Translator Text API는 번역 및 음에 사용할 수 있는 모든 언어를 검색 합니다.
 
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>Translator Text API 언어 목록에 프로그래밍 방식으로 액세스
@@ -215,7 +215,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 
 ## <a name="customization"></a>사용자 지정
 
-다음 언어는 사용자 지정 [번역기를](https://aka.ms/CustomTranslator)사용하여 영어로 사용자 지정할 수 있습니다.
+[사용자 지정 변환기](https://aka.ms/CustomTranslator)를 사용 하 여 영어로 사용자 지정 하는 데 사용할 수 있는 언어는 다음과 같습니다.
 
 | 언어    | 언어 코드 |
 |:----------- |:-------------:|

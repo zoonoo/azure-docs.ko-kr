@@ -1,5 +1,5 @@
 ---
-title: Azure 응용 프로그램 인사이트 프로파일러문제 해결
+title: Azure 애플리케이션 Insights Profiler를 사용 하 여 문제 해결
 description: 이 문서에는 Application Insights Profiler를 사용하도록 설정하거나 사용하는 데 문제가 있는 개발자에게 도움이 되는 문제 해결 단계 및 정보가 나와 있습니다.
 ms.topic: conceptual
 author: cweining
@@ -7,17 +7,17 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 55bc4ff05b650884ef17e0de10d7156cbf458a9c
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81640957"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
 
 ## <a name="active-issues"></a>활성 문제
 
-* ASP.NET 코어 3.x 응용 프로그램에 대한 프로파일링은 이제 Azure 앱 서비스에서 지원됩니다.
+* ASP.NET Core 3.x 응용 프로그램에 대 한 프로 파일링은 이제 Azure 앱 서비스에서 지원 됩니다.
 
 ## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>일반적인 문제 해결
 
@@ -49,7 +49,7 @@ Profiler는 Application Insights 리소스에 추적 메시지 및 사용자 지
 * 웹앱이 ASP.NET Core 애플리케이션인 경우 ASP.NET Core 2.0 이상을 실행해야 합니다.
 * 확인하려는 데이터가 생성된 지 2주 이상 지난 경우에는 시간 필터의 범위를 제한한 후에 다시 시도해 봅니다. 추적은 7일 후에 삭제됩니다.
 * 프록시 또는 방화벽이 https://gateway.azureserviceprofiler.net에 대한 액세스를 차단하지 않았는지 확인합니다.
-* 프로파일러는 무료 또는 공유 앱 서비스 계획에서 지원되지 않습니다. 이러한 계획 중 하나를 사용하는 경우 기본 계획 중 하나로 확장해 보고 프로파일러가 작업을 시작해야 합니다.
+* 프로파일러는 무료 또는 공유 app service 계획에서 지원 되지 않습니다. 이러한 계획 중 하나를 사용 하는 경우 기본 계획 중 하나로 확장을 시도 하 고 프로파일러가 작업을 시작 해야 합니다.
 
 ### <a name="double-counting-in-parallel-threads"></a><a id="double-counting"></a>병렬 스레드에서 이중 계산
 
@@ -70,9 +70,9 @@ Profiler가 제대로 작동하도록 하려면 다음 조건을 충족해야 �
 
     |앱 설정    | 값    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | 애플리케이션 인사이트 리소스에 대한 iKey    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 리소스의 iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-    |DiagnosticServices_EXTENSION_VERSION | ~3 |
+    |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
 
 
 * **ApplicationInsightsProfiler3** 웹 작업이 실행되고 있어야 합니다. 웹 작업을 확인하려면 다음 단계를 수행합니다.
@@ -82,29 +82,29 @@ Profiler가 제대로 작동하도록 하려면 다음 조건을 충족해야 �
    
       ![profiler-webjob]   
    
-   1. 로그를 포함하여 웹 작업의 세부 정보를 보려면 **ApplicationInsightsProfiler3** 링크를 선택합니다.  
+   1. 로그를 포함 하 여 webjob의 세부 정보를 보려면 **ApplicationInsightsProfiler3** 링크를 선택 합니다.  
      **지속적인 웹 작업 세부 정보** 창이 열립니다.
 
       ![profiler-webjob-log]
 
-프로파일러가 작동하지 않는 이유를 알 수 없는 경우 로그를 다운로드하여 팀에 보내 도움을 받을 serviceprofilerhelp@microsoft.com수 있습니다. 
+프로파일러가 작동 하지 않는 이유를 알 수 없는 경우 로그를 다운로드 하 여 팀에 보내 도움을 serviceprofilerhelp@microsoft.com받을 수 있습니다. 
     
 ### <a name="manual-installation"></a>수동 설치
 
-Profiler를 구성하면 웹앱의 설정에 업데이트가 이루어집니다. 사용 중인 환경에 필요한 경우 수동으로 업데이트를 적용할 수 있습니다. 예제에서 애플리케이션이 PowerApps의 Web Apps 환경에서 실행될 수 있습니다. 업데이트를 수동으로 적용하려면 다음을 수행하십시오.
+Profiler를 구성하면 웹앱의 설정에 업데이트가 이루어집니다. 사용 중인 환경에 필요한 경우 수동으로 업데이트를 적용할 수 있습니다. 예제에서 애플리케이션이 PowerApps의 Web Apps 환경에서 실행될 수 있습니다. 수동으로 업데이트를 적용 하려면:
 
-1. 웹 앱 제어 창에서 **설정을** **엽니다.**
+1. **웹 앱 제어** 창에서 **설정**을 엽니다.
 
-1. **.NET 프레임워크 버전을** **v4.6로**설정합니다.
+1. **.NET Framework 버전** 을 **v 4.6**으로 설정 합니다.
 
 1. **무중단**을 **사용**으로 설정합니다.
 1. 다음 앱 설정을 만듭니다.
 
     |앱 설정    | 값    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | 애플리케이션 인사이트 리소스에 대한 iKey    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 리소스의 iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-    |DiagnosticServices_EXTENSION_VERSION | ~3 |
+    |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
 
 ### <a name="too-many-active-profiling-sessions"></a>너무 많은 활성 프로파일링 세션
 
@@ -114,7 +114,7 @@ Profiler를 구성하면 웹앱의 설정에 업데이트가 이루어집니다.
 
 Profiler를 사용하는 Web Apps 리소스에 웹앱을 다시 배포하는 경우 다음과 같은 메시지가 표시될 수 있습니다.
 
-*디렉토리 비어 있지\\\\'D:\\\\홈 사이트\\wwwroot App_Data 작업'*
+*디렉터리가 비어 있지 않음 '\\d\\:\\home\\site\\wwwroot App_Data job '*
 
 스크립트 또는 Azure DevOps 배포 파이프라인에서 웹 배포를 실행하는 경우 이 오류가 발생합니다. 솔루션은 웹 배포 작업에 다음과 같은 배포 매개 변수를 더 추가합니다.
 
@@ -126,11 +126,11 @@ Profiler를 사용하는 Web Apps 리소스에 웹앱을 다시 배포하는 경
 
 ### <a name="how-do-i-determine-whether-application-insights-profiler-is-running"></a>Application Insights Profiler가 실행되고 있는지 어떻게 알 수 있나요?
 
-Profiler는 웹앱에서 지속적인 웹 작업으로 실행됩니다. [Azure 포털에서](https://portal.azure.com)웹 앱 리소스를 열 수 있습니다. **WebJobs** 창에서 **ApplicationInsightsProfiler**의 상태를 확인합니다. 실행되지 않는 경우 **로그**를 열어 자세한 정보를 찾습니다.
+Profiler는 웹앱에서 지속적인 웹 작업으로 실행됩니다. [Azure Portal](https://portal.azure.com)에서 웹 앱 리소스를 열 수 있습니다. **WebJobs** 창에서 **ApplicationInsightsProfiler**의 상태를 확인합니다. 실행되지 않는 경우 **로그**를 열어 자세한 정보를 찾습니다.
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Profiler 및 Azure Diagnostics 문제 해결
 
->**클라우드 서비스에 대한 WAD에서 제공되는 프로파일러의 버그가 수정되었습니다.** 클라우드 서비스에 대한 WAD (1.12.2.0)의 최신 버전은 앱 인사이트 SDK의 모든 최신 버전과 함께 작동합니다. 클라우드 서비스 호스트는 WAD를 자동으로 업그레이드하지만 즉각적인 것은 아닙니다. 업그레이드를 강제하려면 서비스를 다시 배포하거나 노드를 다시 부팅할 수 있습니다.
+>**Cloud Services에 대 한 WAD에서 제공 되는 프로파일러의 버그가 수정 되었습니다.** Cloud Services에 대 한 최신 버전의 WAD (1.12.2.0)는 최신 버전의 App Insights SDK와 함께 작동 합니다. 클라우드 서비스 호스트는 WAD를 자동으로 업그레이드 하지만 즉시 실행 되지 않습니다. 강제로 업그레이드 하려면 서비스를 다시 배포 하거나 노드를 다시 부팅 하면 됩니다.
 
 Azure Diagnostics를 통해 Profiler가 올바르게 구성되어 있는지 여부를 확인하려면 다음의 세 가지 작업을 수행합니다. 
 1. 먼저 배포된 Azure Diagnostics 구성의 내용이 필요한 구성인지를 확인합니다. 
@@ -141,7 +141,7 @@ Azure Diagnostics를 통해 Profiler가 올바르게 구성되어 있는지 여�
 
 Azure Diagnostics를 구성하는 데 사용된 설정을 확인하려면 다음 단계를 수행합니다.
 
-1. VM(가상 시스템)에 로그인한 다음 이 위치에서 로그 파일을 엽니다. (드라이브는 c: 또는 d: 그리고 플러그인 버전이 다를 수 있습니다.)
+1. VM (가상 컴퓨터)에 로그인 한 다음이 위치에서 로그 파일을 엽니다. 드라이브는 c: 또는 d: 이며 플러그 인 버전은 다를 수 있습니다.
 
     ```
     c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
@@ -153,7 +153,7 @@ Azure Diagnostics를 구성하는 데 사용된 설정을 확인하려면 다음
 
 1. 해당 파일에서 **WadCfg** 문자열을 검색하면 Azure Diagnostics를 구성하기 위해 VM에 전달된 설정을 확인할 수 있습니다. Profiler 싱크에서 사용하는 iKey가 올바른지 확인할 수 있습니다.
 
-1. Profiler를 시작하는 데 사용되는 명령줄을 확인합니다. 프로파일러를 시작하는 데 사용되는 인수는 다음 파일에 있습니다. (드라이브는 c: 또는 d:)
+1. Profiler를 시작하는 데 사용되는 명령줄을 확인합니다. 프로파일러를 시작 하는 데 사용 되는 인수는 다음 파일에 있습니다. (C: 또는 d: 드라이브를 사용할 수 있습니다.
 
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json
@@ -163,14 +163,14 @@ Azure Diagnostics를 구성하는 데 사용된 설정을 확인하려면 다음
 
 1. 위의 *config.json* 파일에 있는 경로를 사용하여 Profiler 로그 파일을 확인합니다. 이 파일에는 Profiler가 사용하는 설정을 나타내는 디버그 정보가 표시됩니다. 또한 Profiler의 상태 및 오류 메시지도 표시됩니다.  
 
-    응용 프로그램이 요청을 받는 동안 프로파일러가 실행 중이면 *iKey에서 검색된 활동이라는*메시지가 표시됩니다. 
+    응용 프로그램에서 요청을 수신 하는 동안 프로파일러가 실행 중인 경우 *iKey에서 검색 된 작업*인 다음 메시지가 표시 됩니다. 
 
-    추적이 업로드될 때 다음과 같은 메시지가 *표시됩니다.* 
+    추적을 업로드 하는 동안 다음 메시지가 표시 됩니다. *추적 업로드를 시작*합니다. 
 
 
 ## <a name="edit-network-proxy-or-firewall-rules"></a>네트워크 프록시 또는 방화벽 규칙 편집
 
-응용 프로그램이 프록시 또는 방화벽을 통해 인터넷에 연결하는 경우 응용 프로그램이 응용 프로그램 인사이트 프로파일러 서비스와 통신할 수 있도록 규칙을 편집해야 할 수 있습니다. 응용 프로그램 인사이트 프로파일러에서 사용하는 IP는 Azure Monitor 서비스 태그에 포함됩니다.
+응용 프로그램이 프록시 또는 방화벽을 통해 인터넷에 연결 하는 경우 응용 프로그램이 Application Insights Profiler 서비스와 통신할 수 있도록 규칙을 편집 해야 할 수 있습니다. Application Insights Profiler에서 사용 하는 Ip는 Azure Monitor 서비스 태그에 포함 됩니다.
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png

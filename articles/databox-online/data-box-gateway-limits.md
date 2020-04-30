@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
 ms.openlocfilehash: 641d7410e414be2adae2a83840c90a680aedd2fc
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683348"
 ---
-# <a name="azure-data-box-gateway-limits"></a>Azure 데이터 박스 게이트웨이 제한
+# <a name="azure-data-box-gateway-limits"></a>Azure Data Box Gateway 제한
 
 Microsoft Azure Data Box Gateway 솔루션을 배포 및 운영할 때 이러한 제한을 고려합니다. 
 
@@ -29,7 +29,7 @@ Microsoft Azure Data Box Gateway 솔루션을 배포 및 운영할 때 이러한
 
 | Description | 값 |
 |---|---|
-|아니요. 디바이스당 파일 수 |1억 <br> 추가되는 2,500만 개의 파일에 대해 최대 한도가 1억 개에 달하는 경우 2TB의 디스크 공간, 8GB의 RAM 및 4개의 CPU 코어를 추가해야 합니다. |
+|아니요. 디바이스당 파일 수 |1억 <br> 추가 되는 모든 2500만 파일 (1억의 최대 제한)에 대해 2tb의 디스크 공간, 8gb의 RAM 및 4 개의 CPU 코어를 추가 해야 합니다. |
 |아니요. 디바이스당 공유 수 |24 |
 |아니요. Azure Storage 컨테이너당 공유 수 |1 |
 |공유에 기록되는 최대 파일 크기|2TB 가상 디바이스의 경우 최대 파일 크기는 500GB입니다. <br> 최대 파일 크기는 최대 5TB에 도달할 때까지 이전 비율의 데이터 디스크 크기에 따라 증가합니다. |
@@ -52,4 +52,4 @@ Microsoft Azure Data Box Gateway 솔루션을 배포 및 운영할 때 이러한
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 데이터 박스 게이트웨이 배포 준비](data-box-gateway-deploy-prep.md)
+- [Azure Data Box Gateway 배포 준비](data-box-gateway-deploy-prep.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure 데이터 팩터리의 JSON 형식
-description: 이 항목에서는 Azure 데이터 팩터리에서 JSON 형식을 처리하는 방법에 대해 설명합니다.
+title: Azure Data Factory JSON 형식
+description: 이 항목에서는 Azure Data Factory에서 JSON 형식을 처리 하는 방법에 대해 설명 합니다.
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
@@ -10,33 +10,33 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: jingwang
 ms.openlocfilehash: 7b554ea5c2868559574979c58697fd31f8d2a2c4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686276"
 ---
-# <a name="json-format-in-azure-data-factory"></a>Azure 데이터 팩터리의 JSON 형식
+# <a name="json-format-in-azure-data-factory"></a>Azure Data Factory JSON 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-**JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면**이 문서를 따르십시오. 
+Json **파일을 구문 분석 하거나 json 형식으로 데이터를 쓰려면**이 문서를 따르세요. 
 
-JSON 형식은 다음과 같은 커넥터에 대 한 지원 됩니다: [아마존 S3,](connector-amazon-simple-storage-service.md) [Azure Blob,](connector-azure-blob-storage.md) [Azure 데이터 호수 스토리지 Gen1,](connector-azure-data-lake-store.md)Azure 데이터 호수 스토리지 [Gen2,](connector-azure-data-lake-storage.md) [Azure 파일 스토리지,](connector-azure-file-storage.md)파일 [시스템,](connector-file-system.md) [FTP,](connector-ftp.md) [구글 클라우드 스토리지,](connector-google-cloud-storage.md) [HDFS,](connector-hdfs.md) [HTTP,](connector-http.md)및 [SFTP.](connector-sftp.md)
+다음 커넥터에 대해 JSON 형식이 지원 됩니다. [Amazon S3](connector-amazon-simple-storage-service.md), [azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [파일 시스템](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 JSON 데이터 집합에서 지원하는 속성 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 JSON 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
-| 속성         | 설명                                                  | 필수 |
+| 속성         | Description                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | 데이터 집합의 형식 속성은 **Json으로**설정해야 합니다. | 예      |
-| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 고유한 위치 유형과 `location`지원되는 속성이 있습니다. **커넥터 문서 -> 데이터 집합 속성 섹션의 세부 정보를 참조하십시오.** | 예      |
-| encodingName     | 테스트 파일을 읽고 쓰는 데 사용되는 인코딩 유형입니다. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "윈도우-874", "윈도우-1250", "윈도우-1251", "윈도우-1252", "윈도우-1253", "윈도우-1254", "윈도우-1255", "윈도우-1256", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "윈도우-1257", "| 예       |
-| 압축 | 파일 압축을 구성하는 속성 그룹입니다. 활동 실행 중에 압축/압축 해제를 수행하려는 경우 이 섹션을 구성합니다. | 예 |
-| type | JSON 파일을 읽고 쓰는 데 사용되는 압축 코덱입니다. <br>허용된 값은 **bzip2,** **gzip,** **deflate,** **ZipDeflate,** **snappy,** 또는 **lz4입니다.** 파일을 저장할 때 사용할 수 있습니다. 기본값은 압축되지 않습니다.<br>**참고 현재** 복사 활동은 "스냅" & "lz4"를 지원하지 않으며 매핑 데이터 흐름은 "ZipDeflate"를 지원하지 않습니다.<br>**복사** 활동을 사용하여 ZipDeflate 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓸 때 `<path specified in dataset>/<folder named as source zip file>/`파일이 폴더로 추출됩니다. | 아니요.  |
-| level | 압축 비율입니다. <br>허용된 값은 **최적** 또는 **가장 빠릅니다.**<br>- **가장 빠른 속도:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업이 가능한 한 빨리 완료되어야 합니다.<br>- **최적**: 작업을 완료하는 데 시간이 오래 걸리더라도 압축 작업을 최적으로 압축해야 합니다. 자세한 내용은 [압축 수준](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) 항목을 참조하세요. | 예       |
+| type             | 데이터 집합의 type 속성은 **Json**으로 설정 해야 합니다. | 예      |
+| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는의 고유한 위치 유형 및 지원 되는 `location`속성이 있습니다. **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | 예      |
+| encodingName     | 테스트 파일을 읽고 쓰는 데 사용 되는 인코딩 형식입니다. <br>허용 되는 값은 다음과 같습니다. "UTF-8", "UTF-16", "UTF-16 be", "32 UTF-8", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "조합", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| 아니요       |
+| 압축 | 파일 압축을 구성 하는 속성의 그룹입니다. 작업 실행 중 압축/압축 해제를 수행 하려는 경우이 섹션을 구성 합니다. | 아니요 |
+| type | JSON 파일을 읽고 쓰는 데 사용 되는 압축 코덱입니다. <br>허용 되는 값은 **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**또는 **lz4**입니다. 를 사용 하 여 파일을 저장할 수 있습니다. 기본값은 압축 되지 않습니다.<br>**참고** 현재 복사 작업은 "snappy" & "lz4"을 지원 하지 않으며 매핑 데이터 흐름은 "ZipDeflate"를 지원 하지 않습니다.<br>**참고** 복사 작업을 사용 하 여 ZipDeflate 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓰려면 파일이 폴더로 추출 됩니다 `<path specified in dataset>/<folder named as source zip file>/`. | 아니요.  |
+| level | 압축 비율입니다. <br>허용 되는 값은 **최적** 또는 **가장 빠릅니다**.<br>- **가장 빠름:** 압축 작업은 결과 파일이 최적으로 압축 되지 않은 경우에도 최대한 빨리 완료 되어야 합니다.<br>- **최적**: 작업을 완료 하는 데 시간이 더 오래 걸리는 경우에도 압축 작업을 최적으로 압축 해야 합니다. 자세한 내용은 [압축 수준](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) 항목을 참조하세요. | 아니요       |
 
-다음은 Azure Blob 저장소의 JSON 데이터 집합의 예입니다.
+다음은 Azure Blob Storage에서 JSON 데이터 집합의 예입니다.
 
 ```json
 {
@@ -64,42 +64,42 @@ JSON 형식은 다음과 같은 커넥터에 대 한 지원 됩니다: [아마�
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
-작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md) 문서를 참조하세요. 이 섹션에서는 JSON 소스 및 싱크에서 지원하는 속성 목록을 제공합니다.
+작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md) 문서를 참조하세요. 이 섹션에서는 JSON 원본 및 싱크에서 지 원하는 속성의 목록을 제공 합니다.
 
-### <a name="json-as-source"></a>JSON 소스
+### <a name="json-as-source"></a>JSON을 소스로
 
-다음 속성은 복사 활동 *** \*소스\* *** 섹션에서 지원됩니다.
+복사 작업 *** \*원본\* *** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 활동 소스의 형식 속성은 **JSONSource**로 설정해야 합니다. | 예      |
-| 매장 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대한 속성 그룹입니다. 각 파일 기반 커넥터에는 에서 `storeSettings`자체 지원되는 읽기 설정이 있습니다. **커넥터 문서 -> 복사 활동 속성 섹션의 세부 정보를 참조하십시오.** | 예       |
+| type          | 복사 작업 원본의 type 속성은 **JSONSource**로 설정 해야 합니다. | 예      |
+| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 읽기 설정이 `storeSettings`있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
 
-### <a name="json-as-sink"></a>JSON AS 싱크대
+### <a name="json-as-sink"></a>JSON을 싱크로
 
-다음 속성은 복사 활동 *** \*싱크\* *** 섹션에서 지원됩니다.
+복사 작업 *** \*싱크\* *** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 활동 소스의 형식 속성은 **JSONSink로**설정해야 합니다. | 예      |
-| 형식설정 | 속성 그룹입니다. 아래의 **JSON 쓰기 설정** 표를 참조하십시오. | 예       |
-| 매장 설정 | 데이터 저장소에 데이터를 작성하는 방법에 대한 속성 그룹입니다. 각 파일 기반 커넥터에는 에서 `storeSettings`자체 지원되는 쓰기 설정이 있습니다. **커넥터 문서 -> 복사 활동 속성 섹션의 세부 정보를 참조하십시오.** | 예       |
+| type          | 복사 작업 원본의 type 속성은 **JSONSink**로 설정 해야 합니다. | 예      |
+| formatSettings | 속성 그룹입니다. 아래의 **JSON 쓰기 설정** 표를 참조 하세요. | 아니요       |
+| 나이 설정 | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 쓰기 설정이 `storeSettings`있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
 
-**지원JSON 쓰기** `formatSettings`설정 아래에서 :
+다음에서 `formatSettings`지원 되는 **JSON 쓰기 설정** :
 
-| 속성      | 설명                                                  | 필수                                              |
+| 속성      | Description                                                  | 필수                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| type          | 형식설정의 형식은 **JsonWriteSettings로**설정해야 합니다. | 예                                                   |
-| filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 사용 가능한 값은 **setOfObjects** 및 **arrayOfObjects**이고 **기본값은** **setOfObjects**. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |예 |
+| type          | FormatSettings의 형식은 **JsonWriteSettings**로 설정 해야 합니다. | 예                                                   |
+| filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 사용 가능한 값은 **setOfObjects** 및 **arrayOfObjects**이고 **기본값** 은 **Setofobjects**입니다. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |아니요 |
 
 ### <a name="json-file-patterns"></a>JSON 파일 패턴
 
-복사 활동은 JSON 파일의 다음 패턴을 자동으로 감지하고 구문 분석할 수 있습니다. 
+복사 작업은 다음과 같은 JSON 파일 패턴을 자동으로 검색 하 고 구문 분석할 수 있습니다. 
 
 - **유형 I: setOfObjects**
 
     각 파일에 단일 개체 또는 줄로 구분된/연결된 여러 개체가 포함되어 있습니다. 
-    복사 활동 싱크에서 이 옵션을 선택하면 복사 활동은 줄당 각 개체가 있는 단일 JSON 파일을 생성합니다(줄 구분).
+    복사 작업 싱크에서이 옵션을 선택 하면 복사 작업에서 각 개체 (줄로 구분)를 사용 하 여 단일 JSON 파일을 생성 합니다.
 
     * **단일 개체 JSON 예제**
 
@@ -186,25 +186,25 @@ JSON 형식은 다음과 같은 커넥터에 대 한 지원 됩니다: [아마�
 
 ## <a name="mapping-data-flow-properties"></a>데이터 흐름 속성 매핑
 
-JSON 파일 형식은 데이터 흐름 매핑에서 싱크 및 소스로 모두 사용할 수 있습니다.
+JSON 파일 형식은 매핑 데이터 흐름에서 싱크와 원본으로 사용할 수 있습니다.
 
-### <a name="creating-json-structures-in-a-derived-column"></a>파생 된 열에 JSON 구조 만들기
+### <a name="creating-json-structures-in-a-derived-column"></a>파생 열에 JSON 구조 만들기
 
-파생 된 열 식 빌더를 통해 데이터 흐름에 복잡한 열을 추가할 수 있습니다. 파생 된 열 변환에서 새 열을 추가하고 파란색 상자를 클릭하여 식 작성기의 열기를 엽니다. 열을 복잡하게 만들려면 JSON 구조를 수동으로 입력하거나 UX를 사용하여 하위 열을 대화식으로 추가할 수 있습니다.
+파생 열 식 작성기를 통해 데이터 흐름에 복잡 한 열을 추가할 수 있습니다. 파생 열 변환에서 새 열을 추가 하 고 파란색 상자를 클릭 하 여 식 작성기를 엽니다. 열을 복잡 하 게 만들려면 JSON 구조를 수동으로 입력 하거나 UX를 사용 하 여 하위 열을 대화형으로 추가할 수 있습니다.
 
 #### <a name="using-the-expression-builder-ux"></a>식 작성기 UX 사용
 
-출력 스키마 측면 창에서 열 위로 마우스를 가져가면 더하기 아이콘을 클릭합니다. 열을 복잡한 유형으로 만들려면 **하위 열 추가를** 선택합니다.
+출력 스키마 쪽 창에서 열 위로 마우스를 이동 하 고 더하기 아이콘을 클릭 합니다. 열을 복합 형식으로 만들려면 하위 **열 추가** 를 선택 합니다.
 
 ![하위 열 추가](media/data-flow/addsubcolumn.png "하위 열 추가")
 
-같은 방법으로 열과 하위 열을 추가할 수 있습니다. 복잡하지 않은 각 필드에 대해 오른쪽의 식 편집기에서 식을 추가할 수 있습니다.
+동일한 방식으로 열 및 하위 열을 더 추가할 수 있습니다. 복합 필드가 아닌 각 필드에 대해 식 편집기의 오른쪽에 식을 추가할 수 있습니다.
 
-![복잡한 열](media/data-flow/complexcolumn.png "복잡한 열")
+![복합 열](media/data-flow/complexcolumn.png "복합 열")
 
-#### <a name="entering-the-json-structure-manually"></a>JSON 구조에 수동으로 진입
+#### <a name="entering-the-json-structure-manually"></a>수동으로 JSON 구조 입력
 
-JSON 구조를 수동으로 추가하려면 새 열을 추가하고 편집기에서 식을 입력합니다. 식은 다음과 같은 일반적인 형식을 따릅니다.
+JSON 구조를 수동으로 추가 하려면 새 열을 추가 하 고 편집기에 식을 입력 합니다. 식의 일반적인 형식은 다음과 같습니다.
 
 ```
 @(
@@ -215,7 +215,7 @@ JSON 구조를 수동으로 추가하려면 새 열을 추가하고 편집기에
 )
 ```
 
-"complexColumn"이라는 열에 대해 이 식을 입력한 경우 다음 JSON으로 싱크에 기록됩니다.
+"ComplexColumn" 이라는 열에 대해이 식을 입력 한 경우 다음 JSON으로 싱크에 기록 됩니다.
 
 ```
 {
@@ -228,7 +228,7 @@ JSON 구조를 수동으로 추가하려면 새 열을 추가하고 편집기에
 }
 ```
 
-#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>완벽한 계층적 정의를 위한 수동 스크립트 샘플
+#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>전체 계층 정의에 대 한 예제 수동 스크립트
 ```
 @(
     title=Title,
@@ -254,15 +254,15 @@ JSON 구조를 수동으로 추가하려면 새 열을 추가하고 편집기에
 )
 ```
 
-### <a name="source-format-options"></a>소스 형식 옵션
+### <a name="source-format-options"></a>원본 형식 옵션
 
-JSON 데이터 집합을 데이터 흐름의 원본으로 사용하면 5개의 추가 설정을 설정할 수 있습니다. 이러한 설정은 **소스 옵션** 탭의 **JSON 설정** 아코디언에서 찾을 수 있습니다.  
+데이터 흐름에서 JSON 데이터 집합을 원본으로 사용 하면 5 개의 추가 설정을 지정할 수 있습니다. 이러한 설정은 **원본 옵션** 탭의 **JSON 설정** 아코디언 아래에서 찾을 수 있습니다.  
 
 ![JSON 설정](media/data-flow/json-settings.png "JSON 설정")
 
-#### <a name="default"></a>기본
+#### <a name="default"></a>기본값
 
-기본적으로 JSON 데이터는 다음과 같은 형식으로 읽습니다.
+기본적으로 JSON 데이터는 다음 형식으로 읽습니다.
 
 ```
 { "json": "record 1" }
@@ -272,7 +272,7 @@ JSON 데이터 집합을 데이터 흐름의 원본으로 사용하면 5개의 �
 
 #### <a name="single-document"></a>단일 문서
 
-**단일 문서를** 선택하면 매핑 데이터 흐름이 각 파일에서 하나의 JSON 문서를 읽습니다. 
+**단일 문서** 를 선택 하는 경우 데이터 흐름 매핑은 각 파일에서 하나의 JSON 문서를 읽습니다. 
 
 ``` json
 File1.json
@@ -289,11 +289,11 @@ File3.json
 }
 ```
 > [!NOTE]
-> 데이터 흐름이 JSON 데이터를 미리 볼 때 "corrupt_record"라는 오류가 발생하면 데이터에 JSON 파일에 단일 문서가 포함되어 있을 수 있습니다. "단일 문서"를 설정하면 해당 오류가 지워져야 합니다.
+> JSON 데이터를 미리 볼 때 데이터 흐름에서 "corrupt_record" 라는 오류를 throw 하는 경우 데이터에 JSON 파일의 단일 문서가 포함 될 수 있습니다. "단일 문서"를 설정 하면 해당 오류를 지워야 합니다.
 
-#### <a name="unquoted-column-names"></a>인용되지 않은 열 이름
+#### <a name="unquoted-column-names"></a>따옴표 붙지 않은 열 이름
 
-**따옴표가 지정되지 않은 열 이름을** 선택하면 데이터 흐름 매핑은 따옴표로 둘러싸여 있지 않은 JSON 열을 읽습니다. 
+따옴표 **붙지 않은 열 이름을** 선택 하는 경우 데이터 흐름 매핑이 따옴표로 묶여 있지 않은 JSON 열을 읽습니다. 
 
 ```
 { json: "record 1" }
@@ -301,9 +301,9 @@ File3.json
 { json: "record 3" }
 ```
 
-#### <a name="has-comments"></a>댓글이 있습니다.
+#### <a name="has-comments"></a>설명 있음
 
-JSON 데이터에 C 또는 C++ 스타일 주석이 있는 경우 **주석 을 선택합니다.**
+JSON 데이터에 C 또는 c + + 스타일 주석이 있으면 **주석 포함** 을 선택 합니다.
 
 ``` json
 { "json": /** comment **/ "record 1" }
@@ -311,9 +311,9 @@ JSON 데이터에 C 또는 C++ 스타일 주석이 있는 경우 **주석 을 �
 { /** comment **/ "json": "record 3" }
 ```
 
-#### <a name="single-quoted"></a>단일 견적
+#### <a name="single-quoted"></a>작은따옴표
 
-JSON 필드와 값이 큰따옴표 대신 따옴표를 사용하는 **경우** 따옴표로 된 Single을 선택합니다.
+JSON 필드와 값에 큰따옴표 대신 작은따옴표를 사용 하는 경우 **작은따옴표** 를 선택 합니다.
 
 ```
 { 'json': 'record 1' }
@@ -321,9 +321,9 @@ JSON 필드와 값이 큰따옴표 대신 따옴표를 사용하는 **경우** �
 { 'json': 'record 3' }
 ```
 
-#### <a name="backslash-escaped"></a>백슬래시 탈출
+#### <a name="backslash-escaped"></a>백슬래시가 이스케이프 되었습니다.
 
-JSON 데이터에서 문자를 이스케이프하는 데 백슬래시가 사용되는 경우 **따옴표로 인용된 Single을** 선택합니다.
+JSON 데이터에서 문자를 이스케이프 하는 데 백슬래시를 사용 하는 경우 **작은따옴표** 를 선택 합니다.
 
 ```
 { "json": "record 1" }
@@ -333,7 +333,7 @@ JSON 데이터에서 문자를 이스케이프하는 데 백슬래시가 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [활동 개요 복사](copy-activity-overview.md)
+- [복사 작업 개요](copy-activity-overview.md)
 - [데이터 흐름 매핑](concepts-data-flow-overview.md)
-- [조회 활동](control-flow-lookup-activity.md)
+- [조회 작업](control-flow-lookup-activity.md)
 - [GetMetadata 작업](control-flow-get-metadata-activity.md)

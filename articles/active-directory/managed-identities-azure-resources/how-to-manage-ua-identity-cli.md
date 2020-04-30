@@ -1,5 +1,5 @@
 ---
-title: 사용자 할당된 관리 ID 관리 - Azure CLI - Azure AD
+title: 사용자 할당 관리 id 관리-Azure CLI-Azure AD
 description: Azure CLI를 사용하여 사용자 할당 관리 ID를 만들고 나열하고 삭제하는 방법에 대한 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 04/17/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be5defb85547e8750dea9ceaa481217aa40a004e
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81639771"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Azure CLI를 사용하여 사용자 할당 관리 ID 생성, 나열 또는 삭제
@@ -29,7 +29,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 관리 ID를
 
 이 문서에서는 Azure CLI를 사용하여 사용자 할당 관리 ID 만들고 나열하고 삭제하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#how-does-the-managed-identities-for-azure-resources-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
@@ -40,7 +40,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 관리 ID를
 
 
 > [!NOTE]
-> CLI를 사용하여 앱 servivce 주체를 사용할 때 사용자 권한을 수정하려면 CLI의 일부로 Azure AD Graph API에서 서비스 주체 추가 권한을 제공해야 합니다. 그렇지 않으면 '작업을 완료하기에 부족한 권한' 메시지가 나타날 수 있습니다. 이렇게 하려면 Azure Active Directory의 앱 등록으로 이동하여 앱을 선택하고 API 권한을 클릭하고 아래로 스크롤한 다음 Azure Active Directory 그래프를 선택해야 합니다. 거기에서 응용 프로그램 권한을 선택한 다음 적절한 권한을 추가합니다. 
+> CLI를 사용 하 여 앱 servivce 보안 주체를 사용 하는 경우 사용자 권한을 수정 하려면 CLI의 일부에서 Graph API에 대해 GET 요청을 수행 하는 서비스 사용자에 게 Azure Graph API AD의 추가 권한을 제공 해야 합니다. 그렇지 않으면 ' 작업을 완료할 수 있는 권한이 없습니다. ' 메시지가 표시 될 수 있습니다. 이렇게 하려면 Azure Active Directory에서 앱 등록으로 이동 하 고, 앱을 선택 하 고, API 권한을 클릭 하 고, 아래로 스크롤하여 Azure Active Directory Graph를 선택 해야 합니다. 여기에서 응용 프로그램 사용 권한을 선택 하 고 적절 한 사용 권한을 추가 합니다. 
 
 
 

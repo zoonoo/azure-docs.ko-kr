@@ -1,6 +1,6 @@
 ---
-title: 라이센스&reg; 마이크로 소프트 부드러운 스트리밍 클라이언트 포팅 키트
-description: Microsoft&reg; 소프트 스트리밍 클라이언트 포팅 키트에 라이선스를 부여하는 방법에 대해 알아봅니다.
+title: Microsoft&reg; 부드러운 스트리밍 클라이언트 포팅 키트 라이선스
+description: Microsoft&reg; 부드러운 스트리밍 클라이언트 포팅 키트에 라이선스를 부여 하는 방법에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
 ms.openlocfilehash: bd77c53a195a9549f6aaad9ee2928206f5324b0c
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686908"
 ---
-# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>라이센스&reg; 마이크로 소프트 부드러운 스트리밍 클라이언트 포팅 키트 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Microsoft&reg; 부드러운 스트리밍 클라이언트 포팅 키트 라이선스 
 ## <a name="overview"></a>개요
 Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서**SSPK**)는 포함된 디바이스 제조업체, 케이블 및 모바일 운영자, 콘텐츠 서비스 공급자, 송수화기 제조업체, ISV(독립 소프트웨어 공급업체) 및 솔루션 공급자가 적응 콘텐츠를 부드러운 스트리밍 형식으로 스트리밍하는 제품 및 서비스를 만들 수 있도록 최적화된 부드러운 스트리밍 클라이언트 구현입니다. SSPK는 정식 사용자가 어떠한 디바이스 및 플랫폼에도 이식할 수 있는 부드러운 스트리밍 클라이언트의 디바이스 및 플랫폼 독립적인 구현입니다. 
 
@@ -29,7 +29,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서**SSP
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>설명
+## <a name="description"></a>Description
 SSPK는 뛰어난 비즈니스 가치를 제공하는 조건으로 사용 허가됩니다. SSPK 라이선스는 업계에 다음을 제공합니다.
 
 * C++의 부드러운 스트리밍 이식 키트 소스 
@@ -71,11 +71,11 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * 각 연도의 최초 10,000대의 디바이스 구현에 대해서는 사용료 없음 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>라이선스 절차 및 SSPK 액세스
-모든 [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) 라이선스 쿼리에 대한 전자 메일입니다.
+모든 [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) 라이선스 쿼리에 대해 전자 메일을 보냅니다.
 
 SSPK 배포 포털 은 등록된 중간 정식 사용자가 액세스할 수 있습니다.
 
-임시 및 최종 SSPK 사용권자에 기술 질문을 제출할 수 [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)있습니다.
+중간 및 최종 SSPK 정식 라이선스는에 기술 질문 [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)을 제출할 수 있습니다.
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Microsoft 부드러운 스트리밍 클라이언트 중간 제품 계약 정식 사용자
 
@@ -91,7 +91,7 @@ SSPK 배포 포털 은 등록된 중간 정식 사용자가 액세스할 수 있
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
 * Fluendo S.A.
-* 광저우 시쿤 전자 주식회사
+* Guangzhou Shikun
 * HANDAN BroadInfoCom Co., Ltd.
 * Infomir GMBH
 * Irdeto USA Inc.
@@ -125,9 +125,9 @@ SSPK 배포 포털 은 등록된 중간 정식 사용자가 액세스할 수 있
 * Dongguan Digital AV Technology Corp., Ltd.
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
-* 필름플렉스 영화 제한
+* FilmFlex 영화가 제한 됨
 * Fluendo S.A.
-* (주)푸나이일렉트릭
+* FUNAI 전기 CO., L T D
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
@@ -141,7 +141,7 @@ SSPK 배포 포털 은 등록된 중간 정식 사용자가 액세스할 수 있
 * Orange SA
 * Saffron Digital Limited
 * Sagemcom Broadband SAS
-* 심천 추앙웨이 -RGB 전자 유한 공사
+* Shenzhen Chuangwei-RGB 전자 제품
 * Shenzhen Coship Electronics CO., LTD
 * Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd

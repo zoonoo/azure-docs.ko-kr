@@ -15,17 +15,17 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: c5f02117d3af7fb411c75d783df82f6008d8104e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687012"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Azure Linux Virtual Machine에서 Oracle Database 12c 데이터베이스 백업 및 복구
 
 Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용하여 Azure 리소스를 만들고 관리할 수 있습니다. 이 문서에서는 Azure Marketplace 갤러리 이미지에서 Oracle Database 12c 데이터베이스를 배포하는 데 Azure CLI의 스크립트를 사용합니다.
 
-시작하기 전에 Azure CLI가 설치되어 있는지 확인합니다. 자세한 내용은 Azure [CLI 설치 가이드를](https://docs.microsoft.com/cli/azure/install-azure-cli)참조하십시오.
+시작하기 전에 Azure CLI가 설치되어 있는지 확인합니다. 자세한 내용은 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
 
 ## <a name="prepare-the-environment"></a>환경 준비
 
@@ -172,7 +172,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
 4. JSON 파일을 편집합니다.
 
-    `PreScriptLocation` 및 `PostScriptlocation` 매개 변수를 포함하도록 VMSnapshotScriptPluginConfig.json 파일을 편집합니다. 예를 들어:
+    `PreScriptLocation` 및 `PostScriptlocation` 매개 변수를 포함하도록 VMSnapshotScriptPluginConfig.json 파일을 편집합니다. 다음은 그 예입니다.
 
     ```output
     {
@@ -508,7 +508,7 @@ VM을 복원한 후에 공용 IP 주소를 설정합니다.
 
     ![공용 IP 주소의 목록](./media/oracle-backup-recovery/create_ip_00.png)
 
-2.  **공용 IP 주소** 블레이드에서 **추가**를 클릭합니다. **공용 IP 주소 만들기** 블레이드에서 **이름**에 공용 IP 이름을 선택합니다. **리소스 그룹**에 **기존 항목 사용**을 선택합니다. 그런 다음 을 **만들기를 클릭합니다.**
+2.  **공용 IP 주소** 블레이드에서 **추가**를 클릭합니다. **공용 IP 주소 만들기** 블레이드에서 **이름**에 공용 IP 이름을 선택합니다. **리소스 그룹**에 **기존 항목 사용**을 선택합니다. 그런 다음 **만들기**를 클릭 합니다.
 
     ![IP 주소 만들기](./media/oracle-backup-recovery/create_ip_01.png)
 

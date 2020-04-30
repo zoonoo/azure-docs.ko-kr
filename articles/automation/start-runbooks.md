@@ -6,17 +6,17 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 7f2c0dda952959db3bffba6016f48b986016c19e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81679461"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Azure Automation에서 Runbook 시작
 
 다음 표를 통해 특정 시나리오에 가장 적합하게 Azure Automation에서 Runbook을 시작하는 방법을 결정할 수 있습니다. 이 문서에서는 Azure Portal 및 Windows PowerShell을 사용하여 Runbook을 시작하는 방법에 대해 자세히 설명합니다. 다른 방법에 대한 자세한 내용은 아래 링크에서 액세스할 수 있는 다른 설명서에 제공됩니다.
 
-| **메서드** | **특징** |
+| **방법** | **특징** |
 | --- | --- |
 | [Azure Portal](#start-a-runbook-with-the-azure-portal) |<li>대화형 사용자 인터페이스를 사용하는 간단한 방법<br> <li>단순한 매개 변수 값을 제공하는 양식<br> <li>작업 상태를 쉽게 추적<br> <li>Azure 로그인을 사용하여 액세스 인증 |
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Windows PowerShell cmdlet을 사용하여 명령줄에서 호출<br> <li>여러 단계로 구성된 자동화된 솔루션에 포함할 수 있음<br> <li>인증서 또는 OAuth 사용자 계정/서비스 보안 주체를 사용하여 요청 인증<br> <li>단순한 매개 변수 값 및 복잡한 매개 변수 값 제공<br> <li>작업 상태 추적<br> <li>클라이언트에서 PowerShell cmdlet을 지원해야 함 |
@@ -26,12 +26,12 @@ ms.locfileid: "81679461"
 | [일정](automation-schedules.md) |<li>매시간, 매일, 매주 또는 매월 일정에 따라 Runbook을 자동으로 시작<br> <li>Azure Portal, PowerShell cmdlet 또는 Azure API를 통해 일정 조작<br> <li>일정에서 사용할 매개 변수 값 제공 |
 | [다른 Runbook에서](automation-child-runbooks.md) |<li>Runbook을 다른 Runbook의 활동으로 사용<br> <li>여러 Runbook에서 사용하는 기능에 유용<br> <li>자식 Runbook에 매개 변수 값을 제공하고 부모 Runbook에서 출력 사용 |
 
-다음 이미지는 Runbook의 수명 주기에서 자세한 단계별 프로세스를 보여 줍니다. Runbook이 Azure Automation에서 시작하는 다양한 방법, Hybrid Runbook Worker에서 Azure Automation Runbook을 실행하는 데 필요한 구성 요소 및 여러 구성 요소 간의 상호 작용을 포함합니다. 데이터 센터에서 자동화 런북 실행에 대해 알아보려면 [하이브리드 Runbook 작업자를](automation-hybrid-runbook-worker.md) 참조하십시오.
+다음 이미지는 Runbook의 수명 주기에서 자세한 단계별 프로세스를 보여 줍니다. Runbook이 Azure Automation에서 시작하는 다양한 방법, Hybrid Runbook Worker에서 Azure Automation Runbook을 실행하는 데 필요한 구성 요소 및 여러 구성 요소 간의 상호 작용을 포함합니다. 데이터 센터에서 Automation runbook을 실행 하는 방법에 대 한 자세한 내용은 [hybrid runbook worker](automation-hybrid-runbook-worker.md) 를 참조 하세요.
 
 ![Runbook 아키텍처](media/automation-starting-runbook/runbooks-architecture.png)
 
 >[!NOTE]
->이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. 하이브리드 Runbook 작업자의 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치를](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)참조하십시오. 자동화 계정의 경우 Azure 자동화 에서 [Azure PowerShell 모듈을 업데이트하는 방법을](automation-update-azure-modules.md)사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
+>이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대한 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](automation-update-azure-modules.md)을 사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
 ## <a name="runbook-parameters"></a>Runbook 매개 변수
 
@@ -114,7 +114,7 @@ Smith
 
 ### <a name="credentials"></a>자격 증명
 
-매개 변수가 데이터 `PSCredential`형식인 경우 Azure Automation [자격 증명 자산의](automation-credentials.md)이름을 제공할 수 있습니다. Runbook에서 지정한 이름의 자격 증명을 검색합니다. 다음 테스트 Runbook은 라는 `credential`매개 변수를 허용합니다.
+매개 변수가 데이터 형식인 `PSCredential`경우 Azure Automation [자격 증명 자산의](automation-credentials.md)이름을 제공할 수 있습니다. Runbook에서 지정한 이름의 자격 증명을 검색합니다. 다음 테스트 runbook은 라는 `credential`매개 변수를 허용 합니다.
 
 ```powershell
 Workflow Test-Parameters
@@ -126,13 +126,13 @@ Workflow Test-Parameters
 }
 ```
 
-다음 텍스트는 라는 자격 증명 자산이 있다고 가정하여 `My Credential`사용자 매개 변수에 사용할 수 있습니다.
+다음 텍스트는 이라는 `My Credential`자격 증명 자산이 있다고 가정할 때 user 매개 변수에 사용할 수 있습니다.
 
 ```input
 My Credential
 ```
 
-자격 증명의 사용자 이름이 `jsmith`다음과 같은 출력이 표시됩니다.
+자격 증명의 사용자 이름이 인 것 `jsmith`으로 가정 하면 다음과 같은 출력이 표시 됩니다.
 
 ```output
 jsmith
@@ -140,21 +140,21 @@ jsmith
 
 ## <a name="start-a-runbook-with-the-azure-portal"></a>Azure Portal을 사용하여 Runbook 시작
 
-1. Azure 포털에서 **자동화를** 선택한 다음 자동화 계정의 이름을 클릭합니다.
+1. Azure Portal에서 **automation** 을 선택한 다음 automation 계정의 이름을 클릭 합니다.
 2. 허브 메뉴에서 **Runbook**을 선택합니다.
 3. Runbook 창에서 Runbook을 선택하고 **시작**을 클릭합니다.
 4. Runbook에 매개 변수가 있는 경우 각 매개 변수에 대한 텍스트 상자와 함께 값을 제공하라는 메시지가 표시됩니다. 매개 변수에 대한 자세한 내용은 [Runbook 매개 변수](#runbook-parameters)를 참조하세요.
-5. 작업 창에서 Runbook 작업의 상태를 볼 수 있습니다.
+5. 작업 창에서 runbook 작업의 상태를 볼 수 있습니다.
 
 ## <a name="start-a-runbook-with-powershell"></a>PowerShell을 사용하여 Runbook 시작
 
-[시작-AzAutomationRunbook을](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) 사용하여 Windows PowerShell으로 Runbook을 시작할 수 있습니다. 다음 샘플 코드는 **테스트-Runbook이라는 Runbook을**시작합니다.
+Windows PowerShell을 사용 하 여 runbook을 시작 하려면 [AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) 를 사용할 수 있습니다. 다음 샘플 코드에서는 **runbook runbook 이라는**runbook을 시작 합니다.
 
 ```azurepowershell-interactive
 Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
-`Start-AzAutomationRunbook`은 Runbook이 시작되면 상태를 추적하는 데 사용할 수 있는 작업 개체를 반환합니다. 그런 다음 [Get-AzAutomationJob을](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) 사용하여 이 작업 개체를 사용하여 작업 상태를 확인하고 [Get-AzAutomationJobOutput을](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationjoboutput?view=azps-3.7.0) 사용하여 출력을 검색할 수 있습니다. 다음 예제에서는 **Test-Runbook이라는**Runbook을 시작하고 완료될 때까지 기다린 다음 출력을 표시합니다.
+`Start-AzAutomationRunbook`runbook이 시작 되 면 상태를 추적 하는 데 사용할 수 있는 작업 개체를 반환 합니다. 그런 다음이 작업 개체를 [AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) 와 함께 사용 하 여 작업 상태를 확인 하 고 [AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationjoboutput?view=azps-3.7.0) 를 사용 하 여 해당 출력을 검색할 수 있습니다. 다음 예제에서는 runbook **runbook 이라는 runbook을 시작**하 고 완료 될 때까지 기다린 다음 해당 출력을 표시 합니다.
 
 ```azurepowershell-interactive
 $runbookName = "Test-Runbook"
@@ -184,4 +184,4 @@ Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" �
 
 * 데이터 센터에서 Automation Runbook의 실행에 대해 알아보려면 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)를 참조하세요.
 * 특정 또는 일반 함수에 대해 다른 Runbook에서 사용될 모듈식 Runbook 만들기에 대한 자세한 내용은 [자식 Runbook](automation-child-runbooks.md)을 참조하세요.
-* 언어 참조 및 학습 모듈을 포함한 [PowerShell에](https://docs.microsoft.com/powershell/scripting/overview)대한 자세한 내용은 PowerShell 문서를 참조하십시오.
+* 언어 참조 및 학습 모듈을 포함하여 PowerShell에 대한 자세한 내용은 [PowerShell 문서](https://docs.microsoft.com/powershell/scripting/overview)를 참조하세요.

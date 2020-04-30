@@ -1,6 +1,6 @@
 ---
-title: 관리되는 인스턴스에 대한 연결 아키텍처
-description: Azure SQL Database 관리 인스턴스 통신 및 연결 아키텍처에 대해 알아보고 구성 요소가 관리되는 인스턴스로 트래픽을 전달하는 방법에 대해 알아봅니다.
+title: 관리 되는 인스턴스의 연결 아키텍처
+description: 구성 요소가 관리 되는 인스턴스로 트래픽을 전달 하는 방법 뿐만 아니라 관리 되는 인스턴스 통신 및 연결 아키텍처 Azure SQL Database에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,116 +12,116 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
 ms.openlocfilehash: e4d6098b7b4de76461e924fc7d42d039046d7ce5
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81677164"
 ---
-# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL 데이터베이스에서 관리되는 인스턴스에 대한 연결 아키텍처
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database에서 관리 되는 인스턴스의 연결 아키텍처
 
-이 문서에서는 Azure SQL Database 관리 인스턴스에서 통신에 대해 설명합니다. 또한 연결 아키텍처와 구성 요소가 관리되는 인스턴스로 트래픽을 전달하는 방법에 대해서도 설명합니다.  
+이 문서에서는 Azure SQL Database 관리 되는 인스턴스의 통신을 설명 합니다. 또한 연결 아키텍처 및 구성 요소가 관리 되는 인스턴스에 트래픽을 전달 하는 방법을 설명 합니다.  
 
-SQL Database 관리 인스턴스는 Azure 가상 네트워크 및 관리되는 인스턴스전용 서브넷 내에 배치됩니다. 이 배포는 다음을 제공합니다.
+SQL Database 관리 되는 인스턴스는 Azure 가상 네트워크 및 관리 되는 인스턴스에 전용으로 적용 되는 서브넷 내에 배치 됩니다. 이 배포는 다음을 제공 합니다.
 
-- 안전한 개인 IP 주소입니다.
-- 온-프레미스 네트워크를 관리되는 인스턴스에 연결하는 기능입니다.
-- 관리되는 인스턴스를 연결된 서버 또는 다른 온-프레미스 데이터 저장소에 연결하는 기능입니다.
-- 관리되는 인스턴스를 Azure 리소스에 연결하는 기능입니다.
+- 보안 개인 IP 주소입니다.
+- 온-프레미스 네트워크를 관리 되는 인스턴스에 연결할 수 있습니다.
+- 관리 되는 인스턴스를 연결 된 서버 또는 다른 온-프레미스 데이터 저장소에 연결할 수 있습니다.
+- Azure 리소스에 관리 되는 인스턴스를 연결 하는 기능입니다.
 
 ## <a name="communication-overview"></a>통신 개요
 
-다음 다이어그램은 관리되는 인스턴스에 연결하는 엔터티를 보여 주며, 또한 관리되는 인스턴스와 통신해야 하는 리소스도 표시됩니다. 다이어그램 맨 아래에 있는 통신 프로세스는 관리되는 인스턴스에 데이터 원본으로 연결하는 고객 응용 프로그램 및 도구를 나타냅니다.  
+다음 다이어그램은 관리 되는 인스턴스에 연결 하는 엔터티를 보여 줍니다. 또한 관리 되는 인스턴스와 통신 해야 하는 리소스도 보여 줍니다. 다이어그램 아래쪽의 통신 프로세스는 관리 되는 인스턴스에 데이터 원본으로 연결 하는 고객 응용 프로그램 및 도구를 나타냅니다.  
 
 ![연결 아키텍처의 엔터티](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
 
-관리되는 인스턴스는 PaaS(서비스) 서비스로서의 플랫폼입니다. Microsoft는 자동화된 에이전트(관리, 배포 및 유지 관리)를 사용하여 원격 분석 데이터 스트림을 기반으로 이 서비스를 관리합니다. Microsoft는 관리를 담당하므로 고객은 RDP(원격 데스크톱 프로토콜)를 통해 관리되는 인스턴스 가상 클러스터 컴퓨터에 액세스할 수 없습니다.
+관리 되는 인스턴스는 PaaS (platform as a service) 제품입니다. Microsoft는 자동화 된 에이전트 (관리, 배포 및 유지 관리)를 사용 하 여 원격 분석 데이터 스트림에 기반 하 여이 서비스를 관리 합니다. Microsoft는 관리를 담당 하기 때문에 고객이 RDP (원격 데스크톱 프로토콜)를 통해 관리 되는 인스턴스 가상 클러스터 컴퓨터에 액세스할 수 없습니다.
 
-최종 사용자 또는 응용 프로그램에서 시작한 일부 SQL Server 작업은 관리되는 인스턴스가 플랫폼과 상호 작용해야 할 수 있습니다. 한 가지 경우는 관리되는 인스턴스 데이터베이스를 만드는 것입니다. 이 리소스는 Azure 포털, PowerShell, Azure CLI 및 REST API를 통해 노출됩니다.
+최종 사용자 또는 응용 프로그램에 의해 시작 된 일부 SQL Server 작업에는 플랫폼과 상호 작용 하기 위해 관리 되는 인스턴스가 필요할 수 있습니다. 한 가지 사례는 관리 되는 인스턴스 데이터베이스를 만드는 것입니다. 이 리소스는 Azure Portal, PowerShell Azure CLI 및 REST API를 통해 노출 됩니다.
 
-관리되는 인스턴스는 백업용 Azure 저장소, 원격 분석을 위한 Azure 이벤트 허브, 인증을 위한 Azure Active Directory, TDE(투명 데이터 암호화를 위한 Azure 키 자격 증명) 및 보안 및 지원 기능을 제공하는 몇 가지 Azure 플랫폼 서비스와 같은 Azure 서비스에 의존합니다. 관리되는 인스턴스는 이러한 서비스에 연결합니다.
+관리 되는 인스턴스는 백업에 대 한 Azure Storage, 원격 분석에 대 한 Azure Event Hubs, 투명한 데이터 암호화 Azure Key Vault 인증 Azure Active Directory (TDE) 및 보안 및 지원 가능성 기능을 제공 하는 몇 가지 Azure platform services와 같은 Azure 서비스에 따라 달라 집니다. 관리 되는 인스턴스는 이러한 서비스에 대 한 연결을 만듭니다.
 
-모든 통신은 암호화되고 인증서를 사용하여 서명됩니다. 통신 당사자의 신뢰성을 확인하기 위해 관리되는 인스턴스는 인증서 해지 목록을 통해 이러한 인증서를 지속적으로 확인합니다. 인증서가 해지되면 관리되는 인스턴스가 연결을 닫아 데이터를 보호합니다.
+모든 통신은 인증서를 사용 하 여 암호화 되 고 서명 됩니다. 통신 당사자를 신뢰할 수 있는지 확인 하기 위해 관리 되는 인스턴스는 인증서 해지 목록을 통해 이러한 인증서를 지속적으로 확인 합니다. 인증서가 해지 되 면 관리 되는 인스턴스는 데이터를 보호 하기 위해 연결을 닫습니다.
 
 ## <a name="high-level-connectivity-architecture"></a>고급 연결 아키텍처
 
-상위 수준에서 관리되는 인스턴스는 서비스 구성 요소 집합입니다. 이러한 구성 요소는 고객의 가상 네트워크 서브넷 내에서 실행되는 격리된 전용 가상 시스템 집합에서 호스팅됩니다. 이러한 컴퓨터는 가상 클러스터를 형성합니다.
+상위 수준에서 관리 되는 인스턴스는 서비스 구성 요소 집합입니다. 이러한 구성 요소는 고객의 가상 네트워크 서브넷 내에서 실행 되는 격리 된 전용 가상 머신의 전용 집합에서 호스팅됩니다. 이러한 컴퓨터는 가상 클러스터를 형성 합니다.
 
-가상 클러스터는 여러 관리되는 인스턴스를 호스트할 수 있습니다. 필요한 경우 고객이 서브넷에서 프로비저닝된 인스턴스 수를 변경하면 클러스터가 자동으로 확장되거나 계약이 이루어집니다.
+가상 클러스터는 여러 관리 되는 인스턴스를 호스트할 수 있습니다. 필요한 경우 고객이 서브넷에서 프로 비전 된 인스턴스 수를 변경할 때 클러스터가 자동으로 확장 되거나 축소 됩니다.
 
-고객 애플리케이션은 관리되는 인스턴스에 연결할 수 있으며 가상 네트워크, 피어가상 네트워크 또는 VPN 또는 Azure ExpressRoute로 연결된 네트워크 내에서 데이터베이스를 쿼리하고 업데이트할 수 있습니다. 이 네트워크는 끝점과 개인 IP 주소를 사용해야 합니다.  
+고객 응용 프로그램은 관리 되는 인스턴스에 연결 하 고 가상 네트워크, 피어 링 가상 네트워크 또는 VPN 또는 Azure Express 경로를 통해 연결 된 네트워크 내에서 데이터베이스를 쿼리 및 업데이트할 수 있습니다. 이 네트워크는 끝점과 개인 IP 주소를 사용 해야 합니다.  
 
 ![연결 아키텍처 다이어그램](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
 
-Microsoft 관리 및 배포 서비스는 가상 네트워크 외부에서 실행됩니다. 관리되는 인스턴스와 Microsoft 서비스는 공용 IP 주소가 있는 끝점을 통해 연결됩니다. 관리되는 인스턴스가 아웃바운드 연결을 만들면 NAT(최종 네트워크 주소 변환)를 수신할 때 연결이 이 공용 IP 주소에서 오는 것처럼 보입니다.
+Microsoft management and deployment services는 가상 네트워크 외부에서 실행 됩니다. 관리 되는 인스턴스 및 Microsoft 서비스는 공용 IP 주소가 있는 끝점을 통해 연결 됩니다. 관리 되는 인스턴스는 아웃 바운드 연결을 만들 때 NAT (최종 네트워크 주소 변환)를 받으면이 공용 IP 주소에서 오는 것 처럼 연결 됩니다.
 
-관리 트래픽은 고객의 가상 네트워크를 통해 흐릅니다. 즉, 가상 네트워크 인프라의 요소는 인스턴스가 실패하고 사용할 수 없게 되어 관리 트래픽에 해를 끼칠 수 있습니다.
+관리 트래픽은 고객의 가상 네트워크를 통해 흐릅니다. 즉, 가상 네트워크 인프라의 요소는 인스턴스를 장애 조치 (failover) 하 고 사용할 수 없게 만들어서 관리 트래픽을 손상 시킬 수 있습니다.
 
 > [!IMPORTANT]
-> 고객 환경 및 서비스 가용성을 개선하기 위해 Microsoft는 Azure 가상 네트워크 인프라 요소에 네트워크 의도 정책을 적용합니다. 정책은 관리되는 인스턴스의 작동 방식에 영향을 줄 수 있습니다. 이 플랫폼 메커니즘은 네트워킹 요구 사항을 사용자에게 투명하게 전달합니다. 이 정책의 주요 목표는 네트워크 잘못된 구성을 방지하고 정상적인 관리형 인스턴스 작업을 보장하는 것입니다. 관리되는 인스턴스를 삭제하면 네트워크 의도 정책도 제거됩니다.
+> 사용자 환경 및 서비스 가용성을 개선 하기 위해 Microsoft는 Azure virtual network 인프라 요소에 네트워크 의도 정책을 적용 합니다. 정책은 관리 되는 인스턴스의 작동 방식에 영향을 줄 수 있습니다. 이 플랫폼 메커니즘은 네트워킹 요구 사항을 투명 하 게 사용자에 게 전달 합니다. 정책의 주요 목표는 네트워크 구성 오류를 방지 하 고 정상적인 관리 되는 인스턴스 작업을 보장 하는 것입니다. 관리 되는 인스턴스를 삭제 하는 경우에도 네트워크 의도 정책이 제거 됩니다.
 
 ## <a name="virtual-cluster-connectivity-architecture"></a>가상 클러스터 연결 아키텍처
 
-관리되는 인스턴스에 대한 연결 아키텍처에 대해 자세히 살펴보겠습니다. 다음 다이어그램은 가상 클러스터의 개념적 레이아웃을 보여 줍니다.
+관리 되는 인스턴스의 연결 아키텍처를 좀 더 자세히 살펴보겠습니다. 다음 다이어그램은 가상 클러스터의 개념적 레이아웃을 보여 줍니다.
 
 ![가상 클러스터의 연결 아키텍처](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-클라이언트는 양식이 `<mi_name>.<dns_zone>.database.windows.net`있는 호스트 이름을 사용하여 관리되는 인스턴스에 연결합니다. 이 호스트 이름은 DNS(공용 도메인 이름 시스템) 영역에 등록되어 있으며 공개적으로 해결할 수 있지만 개인 IP 주소로 확인됩니다. `zone-id` 클러스터를 만들 때 자동으로 생성됩니다. 새로 생성된 클러스터가 보조 관리 인스턴스를 호스팅하는 경우 해당 영역 ID를 기본 클러스터와 공유합니다. 자세한 내용은 [여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용하도록 자동 장애 조치 그룹 사용을](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets)참조하십시오.
+클라이언트는 형식이 `<mi_name>.<dns_zone>.database.windows.net`인 호스트 이름을 사용 하 여 관리 되는 인스턴스에 연결 합니다. 이 호스트 이름은 공용 DNS (Domain Name System) 영역에 등록 되어 있지만 공개적으로 확인할 수 있는 개인 IP 주소로 확인 됩니다. 는 `zone-id` 클러스터를 만들 때 자동으로 생성 됩니다. 새로 만든 클러스터가 보조 관리 되는 인스턴스를 호스트 하는 경우 주 클러스터와 해당 영역 ID를 공유 합니다. 자세한 내용은 [자동 장애 조치 그룹을 사용 하 여 여러 데이터베이스의 투명 한 장애 조치 (failover)를](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets)사용 하도록 설정을 참조 하세요.
 
-이 개인 IP 주소는 관리되는 인스턴스의 내부 로드 밸러버에 속합니다. 로드 밸러버는 트래픽을 관리되는 인스턴스의 게이트웨이로 안내합니다. 여러 관리되는 인스턴스가 동일한 클러스터 내에서 실행할 수 있으므로 게이트웨이는 관리되는 인스턴스의 호스트 이름을 사용하여 트래픽을 올바른 SQL 엔진 서비스로 리디렉션합니다.
+이 개인 IP 주소는 관리 되는 인스턴스의 내부 부하 분산 장치에 속합니다. 부하 분산 장치는 트래픽을 관리 되는 인스턴스의 게이트웨이로 보냅니다. 여러 관리 되는 인스턴스는 동일한 클러스터 내에서 실행 될 수 있기 때문에 게이트웨이는 관리 되는 인스턴스의 호스트 이름을 사용 하 여 트래픽을 올바른 SQL 엔진 서비스로 리디렉션합니다.
 
-관리 및 배포 서비스는 외부 로드 밸런서에 매핑되는 [관리 끝점을](#management-endpoint) 사용하여 관리되는 인스턴스에 연결합니다. 트래픽은 관리되는 인스턴스의 관리 구성 요소만 사용하는 미리 정의된 포트 집합에서 수신된 경우에만 노드로 라우팅됩니다. 노드에 내장된 방화벽은 Microsoft IP 범위의 트래픽만 허용하도록 설정되어 있습니다. 인증서는 관리 구성 요소와 관리 평면 간의 모든 통신을 상호 인증합니다.
+관리 및 배포 서비스는 외부 부하 분산 장치에 매핑되는 [관리 끝점](#management-endpoint) 을 사용 하 여 관리 되는 인스턴스에 연결 합니다. 트래픽은 관리 되는 인스턴스의 관리 구성 요소만 사용 하는 미리 정의 된 포트 집합에서 수신 된 경우에만 노드에 라우팅됩니다. 노드의 기본 제공 방화벽은 Microsoft IP 범위의 트래픽만 허용 하도록 설정 됩니다. 인증서는 관리 구성 요소와 관리 평면 간의 모든 통신을 상호 인증 합니다.
 
 ## <a name="management-endpoint"></a>관리 엔드포인트
 
-Microsoft는 관리 끝점을 사용하여 관리되는 인스턴스를 관리합니다. 이 끝점은 인스턴스의 가상 클러스터 내에 있습니다. 관리 끝점은 네트워크 수준에 내장된 방화벽에 의해 보호됩니다. 응용 프로그램 수준에서 상호 인증서 확인에 의해 보호됩니다. 끝점의 IP 주소를 찾으려면 [관리 끝점의 IP 주소 확인을](sql-database-managed-instance-find-management-endpoint-ip-address.md)참조하십시오.
+Microsoft는 관리 끝점을 사용 하 여 관리 되는 인스턴스를 관리 합니다. 이 끝점은 인스턴스의 가상 클러스터 내부에 있습니다. 관리 끝점은 네트워크 수준에서 기본 제공 방화벽으로 보호 됩니다. 응용 프로그램 수준에서 상호 인증서 확인으로 보호 됩니다. 끝점의 IP 주소를 찾으려면 [관리 끝점의 ip 주소 확인](sql-database-managed-instance-find-management-endpoint-ip-address.md)을 참조 하세요.
 
-백업 및 감사 로그와 마찬가지로 관리되는 인스턴스 내에서 연결이 시작되면 관리 끝점의 공용 IP 주소에서 트래픽이 시작되는 것처럼 보입니다. 관리되는 인스턴스의 IP 주소만 허용하도록 방화벽 규칙을 설정하여 관리되는 인스턴스에서 공용 서비스에 대한 액세스를 제한할 수 있습니다. 자세한 내용은 [관리되는 인스턴스의 기본 제공 방화벽 확인을](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)참조하십시오.
+연결이 관리 되는 인스턴스 내에서 시작 되는 경우 (백업 및 감사 로그와 마찬가지로) 관리 끝점의 공용 IP 주소에서 시작 하는 것으로 트래픽이 표시 됩니다. 관리 되는 인스턴스의 IP 주소만 허용 하도록 방화벽 규칙을 설정 하 여 관리 되는 인스턴스에서 공용 서비스에 대 한 액세스를 제한할 수 있습니다. 자세한 내용은 [관리 되는 인스턴스의 기본 제공 방화벽 확인](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)을 참조 하세요.
 
 > [!NOTE]
-> 관리되는 인스턴스의 리전 내에 있는 Azure 서비스로 이동하는 트래픽이 최적화되고 이러한 이유로 관리되는 인스턴스 관리 끝점 공용 IP 주소로 NATed가 지정되지 않습니다. 따라서 저장소의 경우 IP 기반 방화벽 규칙을 사용해야 하는 경우 서비스가 관리되는 인스턴스와 다른 지역에 있어야 합니다.
+> 관리 되는 인스턴스의 지역 내에 있는 Azure 서비스로 이동 하는 트래픽은 최적화 되며 해당 이유는 관리 되는 인스턴스 관리 끝점 공용 IP 주소에는 해당 되지 않습니다. 이러한 이유로 IP 기반 방화벽 규칙을 사용 해야 하는 경우 가장 일반적으로 저장소, 서비스가 관리 되는 인스턴스의 다른 지역에 있어야 합니다.
 
 ## <a name="service-aided-subnet-configuration"></a>서비스 지원 서브넷 구성
 
-고객 보안 및 관리 용이성 요구 사항을 해결하기 위해 관리 인스턴스는 수동에서 서비스 지원 서브넷 구성으로 전환하고 있습니다.
+고객 보안 및 관리 효율성 요구 사항을 해결 하기 위해 Managed Instance 수동에서 서비스 간 서브넷 구성으로 전환 됩니다.
 
-서비스 지원 서브넷 구성 을 통해 사용자는 TDS(데이터) 트래픽을 완전히 제어할 수 있으며 관리 인스턴스는 SLA를 충족하기 위해 관리 트래픽의 중단 없는 흐름을 보장할 책임이 있습니다.
+서비스와 관련 된 서브넷 구성 사용자는 데이터 (TDS) 트래픽을 완전히 제어 하는 반면, Managed Instance SLA를 달성 하기 위해 중단 된 관리 트래픽 흐름을 보장 하는 책임이 있습니다.
 
-서비스 지원 서브넷 구성은 가상 네트워크 [서브넷 위임](../virtual-network/subnet-delegation-overview.md) 기능 위에 구축되어 자동 네트워크 구성 관리를 제공하고 서비스 엔드포인트를 활성화합니다. 서비스 끝점은 백업/감사 로그를 유지하는 저장소 계정에 가상 네트워크 방화벽 규칙을 구성하는 데 사용할 수 있습니다.
+서비스-자동 네트워크 구성 관리를 제공 하 고 서비스 끝점을 사용 하도록 설정 하기 위해 가상 네트워크 [서브넷 위임](../virtual-network/subnet-delegation-overview.md) 기능을 기반으로 구성 됩니다. 서비스 끝점은 백업/감사 로그를 보관 하는 저장소 계정에서 가상 네트워크 방화벽 규칙을 구성 하는 데 사용할 수 있습니다.
 
 ### <a name="network-requirements"></a>네트워크 요구 사항 
 
-가상 네트워크 내부의 전용 서브넷에 관리되는 인스턴스를 배포합니다. 서브넷에는 다음과 같은 특성이 있어야 합니다.
+가상 네트워크 내의 전용 서브넷에 관리 되는 인스턴스를 배포 합니다. 서브넷에는 다음과 같은 특징이 있어야 합니다.
 
-- **전용 서브넷:** 관리되는 인스턴스의 서브넷은 연결된 다른 클라우드 서비스를 포함할 수 없으며 게이트웨이 서브넷이 될 수 없습니다. 서브넷은 관리되는 인스턴스를 제외한 모든 리소스를 포함할 수 없으며 나중에 서브넷에 다른 유형의 리소스를 추가할 수 없습니다.
-- **서브넷 위임:** 관리되는 인스턴스의 서브넷을 리소스 공급자에 `Microsoft.Sql/managedInstances` 위임해야 합니다.
-- **NSG(네트워크 보안 그룹):** NSG는 관리되는 인스턴스의 서브넷과 연결되어야 합니다. 리디렉션 연결을 위해 관리되는 인스턴스가 구성된 경우 포트 1433 및 포트 11000-11999에서 트래픽을 필터링하여 NSG를 사용하여 관리되는 인스턴스의 데이터 끝점에 대한 액세스를 제어할 수 있습니다. 서비스는 관리 트래픽의 중단 없는 흐름을 허용하는 데 필요한 최신 [규칙을](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) 자동으로 프로비전하고 유지합니다.
-- **사용자 정의 경로(UDR) 테이블:** UDR 테이블은 관리되는 인스턴스의 서브넷과 연결되어야 합니다. 경로 테이블에 항목을 추가하여 NVA(가상 네트워크 게이트웨이 또는 가상 네트워크 어플라이언스)를 통해 온-프레미스 개인 IP 범위가 있는 트래픽을 대상으로 라우팅할 수 있습니다. 서비스는 관리 트래픽의 중단 없는 흐름을 허용하는 데 필요한 현재 [항목을](#user-defined-routes-with-service-aided-subnet-configuration) 자동으로 프로비전하고 유지합니다.
-- **충분한 IP 주소:** 관리되는 인스턴스 서브넷에는 16개 이상의 IP 주소가 있어야 합니다. 권장되는 최소 IP 주소는 32개입니다. 자세한 내용은 [관리되는 인스턴스의 서브넷 크기 확인을](sql-database-managed-instance-determine-size-vnet-subnet.md)참조하십시오. 관리되는 [인스턴스에](sql-database-managed-instance-configure-vnet-subnet.md) 대한 네트워킹 요구 사항을 충족하도록 구성한 후 기존 네트워크에서 [관리되는 인스턴스를 배포할](#network-requirements)수 있습니다. 그렇지 않으면 [새 네트워크 및 서브넷을](sql-database-managed-instance-create-vnet-subnet.md)만듭니다.
+- **전용 서브넷:** 관리 되는 인스턴스의 서브넷은 연결 된 다른 클라우드 서비스를 포함할 수 없으며 게이트웨이 서브넷이 될 수 없습니다. 서브넷에는 리소스와 관리 되는 인스턴스가 포함 될 수 없으며 나중에 서브넷에 다른 유형의 리소스를 추가할 수 없습니다.
+- **서브넷 위임:** 관리 되는 인스턴스의 서브넷을 리소스 공급자에 `Microsoft.Sql/managedInstances` 위임 해야 합니다.
+- **NSG (네트워크 보안 그룹):** NSG를 관리 되는 인스턴스의 서브넷과 연결 해야 합니다. NSG를 사용 하 여 관리 되는 인스턴스가 리디렉션 연결에 대해 구성 된 경우 포트 1433 및 포트 11000-11999에서 트래픽을 필터링 하 여 관리 되는 인스턴스의 데이터 끝점에 대 한 액세스를 제어할 수 있습니다. 서비스는 중단 된 관리 트래픽 흐름을 허용 하는 데 필요한 현재 [규칙](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) 을 자동으로 프로 비전 하 고 유지 합니다.
+- **UDR (사용자 정의 경로) 테이블:** UDR 테이블은 관리 되는 인스턴스의 서브넷과 연결 해야 합니다. 경로 테이블에 항목을 추가 하 여 가상 네트워크 게이트웨이 또는 NVA (가상 네트워크 어플라이언스)를 통해 온-프레미스 개인 IP 범위를 대상으로 하는 트래픽을 라우팅할 수 있습니다. 서비스는 중단 된 관리 트래픽 흐름을 허용 하는 데 필요한 현재 [항목](#user-defined-routes-with-service-aided-subnet-configuration) 을 자동으로 프로 비전 하 고 유지 합니다.
+- **충분 한 IP 주소:** 관리 되는 인스턴스 서브넷에는 최소 16 개의 IP 주소가 있어야 합니다. 권장 되는 최소값은 32 IP 주소입니다. 자세한 내용은 [관리 되는 인스턴스의 서브넷 크기 확인](sql-database-managed-instance-determine-size-vnet-subnet.md)을 참조 하세요. 관리 되는 인스턴스의 [네트워킹 요구 사항을](#network-requirements)충족 하도록 구성한 후 [기존 네트워크](sql-database-managed-instance-configure-vnet-subnet.md) 에서 관리 되는 인스턴스를 배포할 수 있습니다. 그렇지 않으면 [새 네트워크 및 서브넷](sql-database-managed-instance-create-vnet-subnet.md)을 만듭니다.
 
 > [!IMPORTANT]
-> 관리되는 인스턴스를 만들 때 네트워크 설정에 대한 비준수 변경을 방지하기 위해 서브넷에 네트워크 의도 정책이 적용됩니다. 마지막 인스턴스가 서브넷에서 제거된 후 네트워크 의도 정책도 제거됩니다.
+> 관리 되는 인스턴스를 만들 때 네트워킹 설정에 대 한 비규격 변경을 방지 하기 위해 서브넷에 네트워크 의도 정책이 적용 됩니다. 서브넷에서 마지막 인스턴스를 제거한 후에도 네트워크 의도 정책이 제거 됩니다.
 
-### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>서비스 지원 서브넷 구성을 갖춘 필수 인바운드 보안 규칙 
+### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>서비스 관련 서브넷 구성을 사용 하는 필수 인바운드 보안 규칙 
 
-| 이름       |포트                        |프로토콜|원본           |대상|작업|
+| 속성       |포트                        |프로토콜|원본           |대상|작업|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|관리  |9000, 9003, 1438, 1440, 1452|TCP     |Sql관리    |MI SUBNET  |Allow |
-|            |9000, 9003                  |TCP     |코프넷소       |MI SUBNET  |Allow |
-|            |9000, 9003                  |TCP     |코넷퍼블릭    |MI SUBNET  |Allow |
+|관리  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |MI SUBNET  |Allow |
+|            |9000, 9003                  |TCP     |CorpnetSaw       |MI SUBNET  |Allow |
+|            |9000, 9003                  |TCP     |CorpnetPublic    |MI SUBNET  |Allow |
 |mi_subnet   |모두                         |모두     |MI SUBNET        |MI SUBNET  |Allow |
 |health_probe|모두                         |모두     |AzureLoadBalancer|MI SUBNET  |Allow |
 
-### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>서비스 지원 서브넷 구성을 갖춘 필수 아웃바운드 보안 규칙 
+### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>서비스 관련 서브넷 구성을 사용 하는 필수 아웃 바운드 보안 규칙 
 
-| 이름       |포트          |프로토콜|원본           |대상|작업|
+| 속성       |포트          |프로토콜|원본           |대상|작업|
 |------------|--------------|--------|-----------------|-----------|------|
 |관리  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Allow |
 |mi_subnet   |모두           |모두     |MI SUBNET        |MI SUBNET  |Allow |
 
-### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>서비스 지원 서브넷 구성을 갖춘 사용자 정의 경로 
+### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>서비스 관련 서브넷 구성을 사용 하 여 사용자 정의 경로 
 
-|이름|주소 접두사|다음 홉|
+|속성|주소 접두사|다음 홉|
 |----|--------------|-------|
 |서브넷-vnetlocal|MI SUBNET|가상 네트워크|
 |mi-13-64-11-nexthop-인터넷|13.64.0.0/11|인터넷|
@@ -292,38 +292,38 @@ Microsoft는 관리 끝점을 사용하여 관리되는 인스턴스를 관리�
 |mi-204-79-180-24-nexthop-인터넷|204.79.180.0/24|인터넷|
 ||||
 
-\*MI SUBNET은 x.x.x.x/y 형식의 서브넷에 대한 IP 주소 범위를 나타냅니다. 이 정보는 Azure 포털의 서브넷 속성에서 찾을 수 있습니다.
+\*MI 서브넷은 x. x. x/y 형식으로 된 서브넷의 IP 주소 범위를 참조 합니다. 이 정보는 Azure Portal의 서브넷 속성에서 찾을 수 있습니다.
 
-또한 경로 테이블에 항목을 추가하여 NVA(가상 네트워크 게이트웨이 또는 가상 네트워크 어플라이언스)를 통해 온-프레미스 개인 IP 범위가 있는 트래픽을 대상으로 라우팅할 수 있습니다.
+또한 경로 테이블에 항목을 추가 하 여 가상 네트워크 게이트웨이 또는 NVA (가상 네트워크 어플라이언스)를 통해 온-프레미스 개인 IP 범위를 대상으로 하는 트래픽을 라우팅할 수 있습니다.
 
-가상 네트워크에 사용자 지정 DNS가 포함된 경우 사용자 지정 DNS 서버는 공용 dns 레코드를 확인할 수 있어야 합니다. Azure AD 인증과 같은 추가 기능을 사용하려면 추가 FQDN을 해결해야 할 수 있습니다. 자세한 내용은 [사용자 지정 DNS 설정을](sql-database-managed-instance-custom-dns.md)참조하십시오.
+가상 네트워크에 사용자 지정 DNS가 포함 된 경우 사용자 지정 DNS 서버에서 공용 dns 레코드를 확인할 수 있어야 합니다. Azure AD 인증와 같은 추가 기능을 사용 하는 경우 추가 Fqdn을 확인 해야 할 수 있습니다. 자세한 내용은 [사용자 지정 DNS 설정](sql-database-managed-instance-custom-dns.md)을 참조 하세요.
 
 ### <a name="networking-constraints"></a>네트워킹 제약 조건
 
-**TLS 1.2는 아웃바운드 연결에 적용됩니다:** 2020년 1월 Microsoft는 모든 Azure 서비스에서 서비스 내 트래픽에 대해 TLS 1.2를 적용했습니다. Azure SQL Database 관리 인스턴스의 경우 복제에 사용되는 아웃바운드 연결에 TLS 1.2가 적용되고 SQL Server에 대한 서버 연결이 연결되었습니다. 관리되는 인스턴스를 사용하여 이전 SQL Server 버전을 사용하는 경우 [TLS 1.2 특정 업데이트가](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) 적용되었는지 확인하십시오.
+**Tls 1.2는 아웃 바운드 연결에 적용 됩니다**. Microsoft는 모든 Azure 서비스의 서비스 간 트래픽에 대해 Microsoft 2020에서 tls 1.2를 적용 했습니다. Azure SQL Database 관리 되는 인스턴스의 경우에는 SQL Server에 대 한 복제 및 연결 된 서버 연결에 사용 되는 아웃 바운드 연결에 TLS 1.2이 적용 되었습니다. Managed Instance에서 2016 이전 버전의 SQL Server을 사용 하는 경우 [TLS 1.2 특정 업데이트가](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) 적용 되었는지 확인 하세요.
 
-다음 가상 네트워크 기능은 현재 관리되는 인스턴스에서 지원되지 않습니다.
-- **Microsoft 피어링:** 관리형 인스턴스가 상주하는 가상 네트워크에서 직접 또는 전이적으로 피어링된 고속 경로 회로에서 [Microsoft 피어링을](../expressroute/expressroute-faqs.md#microsoft-peering) 사용하도록 설정하면 가상 네트워크 내의 관리되는 인스턴스 구성 요소와 서비스 간의 트래픽 흐름에 영향을 미치므로 가용성 문제가 발생하는 데 따라 달라집니다. Microsoft 피어링을 이미 사용하도록 설정한 가상 네트워크에 대한 관리형 인스턴스 배포는 실패할 것으로 예상됩니다.
-- **글로벌 가상 네트워크 피어링**: [문서화된 로드 밸러서 제약 조건으로](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)인해 Azure 리전 전반에 걸친 [가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md) 연결이 관리되는 인스턴스에서 작동하지 않습니다.
-- **AzurePlatformDNS**: AzurePlatformDNS [서비스 태그를](../virtual-network/service-tags-overview.md) 사용하여 플랫폼 DNS 확인을 차단하면 관리되는 인스턴스를 사용할 수 없게 됩니다. 관리되는 인스턴스는 엔진 내부의 DNS 해결을 위해 고객이 정의한 DNS를 지원하지만 플랫폼 운영을 위한 플랫폼 DNS에 대한 종속성이 있습니다.
-- **NAT 게이트웨이**: [가상 네트워크 NAT를](../virtual-network/nat-overview.md) 사용하여 특정 공용 IP 주소와의 아웃바운드 연결을 제어하면 관리되는 인스턴스를 사용할 수 없게 됩니다. 관리되는 인스턴스 서비스는 현재 가상 네트워크 NAT와 인바운드 및 아웃바운드 흐름의 공존을 제공하지 않는 기본 로드 밸런서의 사용으로 제한됩니다.
+다음 가상 네트워크 기능은 현재 Managed Instance에서 지원 되지 않습니다.
+- **Microsoft 피어 링**: express 경로 회로에서 [microsoft 피어 링](../expressroute/expressroute-faqs.md#microsoft-peering) 을 사용 하도록 설정 하는 것이 가상 네트워크에서 Managed Instance 구성 요소 간의 트래픽 흐름에 영향을 피어 링 하 Managed Instance는 가상 네트워크를 사용 하 여 직접 또는 전이적으로 사용 가능 합니다. Microsoft 피어 링을 사용 하도록 설정 된 가상 네트워크에 대 한 Managed Instance 배포가 실패할 것으로 예상 됩니다.
+- **글로벌 가상 네트워크 피어 링**: Azure 지역 간에 [가상 네트워크 피어 링](../virtual-network/virtual-network-peering-overview.md) 연결은 [문서화 된 부하 분산 장치 제약 조건](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)으로 인해 Managed Instance에 대해 작동 하지 않습니다.
+- **AzurePlatformDNS**: AzurePlatformDNS [service 태그](../virtual-network/service-tags-overview.md) 를 사용 하 여 플랫폼 DNS 확인을 차단 하면 Managed Instance 사용할 수 없게 렌더링 됩니다. Managed Instance는 엔진 내에서 DNS 확인을 위해 고객이 정의한 DNS를 지원 하지만 플랫폼 작업을 위한 플랫폼 DNS에는 종속성이 있습니다.
+- **Nat 게이트웨이**: [nat Virtual Network](../virtual-network/nat-overview.md) 사용 하 여 특정 공용 IP 주소와의 아웃 바운드 연결을 제어 하는 Managed Instance 사용할 수 없게 렌더링 됩니다. Managed Instance 서비스는 현재 Virtual Network NAT를 사용 하 여 인바운드 및 아웃 바운드 흐름을 coexistance 제공 하지 않는 기본 부하 분산 장치를 사용 하는 것으로 제한 됩니다.
 
-### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[더 이상 사용되지 않습니다] 서비스 지원 서브넷 구성이 없는 네트워크 요구 사항
+### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>Mapi 서비스 관련 서브넷 구성이 없는 네트워크 요구 사항
 
-가상 네트워크 내부의 전용 서브넷에 관리되는 인스턴스를 배포합니다. 서브넷에는 다음과 같은 특성이 있어야 합니다.
+가상 네트워크 내의 전용 서브넷에 관리 되는 인스턴스를 배포 합니다. 서브넷에는 다음과 같은 특징이 있어야 합니다.
 
-- **전용 서브넷:** 관리되는 인스턴스의 서브넷은 연결된 다른 클라우드 서비스를 포함할 수 없으며 게이트웨이 서브넷이 될 수 없습니다. 서브넷은 관리되는 인스턴스를 제외한 모든 리소스를 포함할 수 없으며 나중에 서브넷에 다른 유형의 리소스를 추가할 수 없습니다.
-- **NSG(네트워크 보안 그룹):** 가상 네트워크와 연결된 NSG는 다른 [규칙보다 먼저 인바운드 보안 규칙과](#mandatory-inbound-security-rules) [아웃바운드 보안 규칙을](#mandatory-outbound-security-rules) 정의해야 합니다. 리디렉션 연결을 위해 관리되는 인스턴스가 구성된 경우 포트 1433 및 포트 11000-11999에서 트래픽을 필터링하여 NSG를 사용하여 관리되는 인스턴스의 데이터 끝점에 대한 액세스를 제어할 수 있습니다.
-- **사용자 정의 경로(UDR) 테이블:** 가상 네트워크와 연결된 UDR 테이블에는 특정 [항목이](#user-defined-routes)포함되어야 합니다.
-- **서비스 끝점 없음:** 관리되는 인스턴스의 서브넷과 연결된 서비스 끝점이 없어야 합니다. 가상 네트워크를 만들 때 서비스 끝점 옵션이 비활성화되어 있는지 확인합니다.
-- **충분한 IP 주소:** 관리되는 인스턴스 서브넷에는 16개 이상의 IP 주소가 있어야 합니다. 권장되는 최소 IP 주소는 32개입니다. 자세한 내용은 [관리되는 인스턴스의 서브넷 크기 확인을](sql-database-managed-instance-determine-size-vnet-subnet.md)참조하십시오. 관리되는 [인스턴스에](sql-database-managed-instance-configure-vnet-subnet.md) 대한 네트워킹 요구 사항을 충족하도록 구성한 후 기존 네트워크에서 [관리되는 인스턴스를 배포할](#network-requirements)수 있습니다. 그렇지 않으면 [새 네트워크 및 서브넷을](sql-database-managed-instance-create-vnet-subnet.md)만듭니다.
+- **전용 서브넷:** 관리 되는 인스턴스의 서브넷은 연결 된 다른 클라우드 서비스를 포함할 수 없으며 게이트웨이 서브넷이 될 수 없습니다. 서브넷에는 리소스와 관리 되는 인스턴스가 포함 될 수 없으며 나중에 서브넷에 다른 유형의 리소스를 추가할 수 없습니다.
+- **NSG (네트워크 보안 그룹):** 가상 네트워크와 연결 된 NSG는 [인바운드 보안 규칙](#mandatory-inbound-security-rules) 및 [아웃 바운드 보안 규칙](#mandatory-outbound-security-rules) 을 다른 규칙 보다 먼저 정의 해야 합니다. NSG를 사용 하 여 관리 되는 인스턴스가 리디렉션 연결에 대해 구성 된 경우 포트 1433 및 포트 11000-11999에서 트래픽을 필터링 하 여 관리 되는 인스턴스의 데이터 끝점에 대 한 액세스를 제어할 수 있습니다.
+- **UDR (사용자 정의 경로) 테이블:** 가상 네트워크와 연결 된 UDR 테이블은 특정 [항목](#user-defined-routes)을 포함 해야 합니다.
+- **서비스 끝점 없음:** 관리 되는 인스턴스의 서브넷과 연결 된 서비스 끝점이 없습니다. 가상 네트워크를 만들 때 서비스 끝점 옵션이 사용 하지 않도록 설정 되어 있는지 확인 합니다.
+- **충분 한 IP 주소:** 관리 되는 인스턴스 서브넷에는 최소 16 개의 IP 주소가 있어야 합니다. 권장 되는 최소값은 32 IP 주소입니다. 자세한 내용은 [관리 되는 인스턴스의 서브넷 크기 확인](sql-database-managed-instance-determine-size-vnet-subnet.md)을 참조 하세요. 관리 되는 인스턴스의 [네트워킹 요구 사항을](#network-requirements)충족 하도록 구성한 후 [기존 네트워크](sql-database-managed-instance-configure-vnet-subnet.md) 에서 관리 되는 인스턴스를 배포할 수 있습니다. 그렇지 않으면 [새 네트워크 및 서브넷](sql-database-managed-instance-create-vnet-subnet.md)을 만듭니다.
 
 > [!IMPORTANT]
-> 대상 서브넷에 이러한 특성이 없는 경우 새 관리되는 인스턴스를 배포할 수 없습니다. 관리되는 인스턴스를 만들 때 네트워크 설정에 대한 비준수 변경을 방지하기 위해 서브넷에 네트워크 의도 정책이 적용됩니다. 마지막 인스턴스가 서브넷에서 제거된 후 네트워크 의도 정책도 제거됩니다.
+> 대상 서브넷에 이러한 특성이 없는 경우 새 관리 되는 인스턴스를 배포할 수 없습니다. 관리 되는 인스턴스를 만들 때 네트워킹 설정에 대 한 비규격 변경을 방지 하기 위해 서브넷에 네트워크 의도 정책이 적용 됩니다. 서브넷에서 마지막 인스턴스를 제거한 후에도 네트워크 의도 정책이 제거 됩니다.
 
 ### <a name="mandatory-inbound-security-rules"></a>필수 인바운드 보안 규칙
 
-| 이름       |포트                        |프로토콜|원본           |대상|작업|
+| 속성       |포트                        |프로토콜|원본           |대상|작업|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |관리  |9000, 9003, 1438, 1440, 1452|TCP     |모두              |MI SUBNET  |Allow |
 |mi_subnet   |모두                         |모두     |MI SUBNET        |MI SUBNET  |Allow |
@@ -331,25 +331,25 @@ Microsoft는 관리 끝점을 사용하여 관리되는 인스턴스를 관리�
 
 ### <a name="mandatory-outbound-security-rules"></a>필수 아웃바운드 보안 규칙
 
-| 이름       |포트          |프로토콜|원본           |대상|작업|
+| 속성       |포트          |프로토콜|원본           |대상|작업|
 |------------|--------------|--------|-----------------|-----------|------|
 |관리  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Allow |
 |mi_subnet   |모두           |모두     |MI SUBNET        |MI SUBNET  |Allow |
 
 > [!IMPORTANT]
-> 포트 9000, 9003, 1438, 1440, 1452 및 포트 443, 12000에 대한 하나의 아웃바운드 규칙에 대해 하나의 인바운드 규칙만 있는지 확인합니다. 각 포트에 대해 인바운드 및 아웃바운드 규칙이 별도로 구성되면 Azure 리소스 관리자 배포를 통한 관리되는 인스턴스 프로비저닝이 실패합니다. 이러한 포트가 별도의 규칙에 있는 경우 오류 코드로 배포가 실패합니다.`VnetSubnetConflictWithIntendedPolicy`
+> 포트 9000, 9003, 1438, 1440, 1452 및 포트 443, 12000에 대해 아웃 바운드 규칙 1 개에 대 한 인바운드 규칙이 하나만 있는지 확인 합니다. 각 포트에 대해 인바운드 및 아웃 바운드 규칙을 개별적으로 구성 하는 경우 Azure Resource Manager 배포를 통한 Managed Instance 프로비저닝이 실패 합니다. 이러한 포트가 별도의 규칙에 있는 경우 배포는 오류 코드와 함께 실패 합니다.`VnetSubnetConflictWithIntendedPolicy`
 
-\*MI SUBNET은 x.x.x.x/y 형식의 서브넷에 대한 IP 주소 범위를 나타냅니다. 이 정보는 Azure 포털의 서브넷 속성에서 찾을 수 있습니다.
+\*MI 서브넷은 x. x. x/y 형식으로 된 서브넷의 IP 주소 범위를 참조 합니다. 이 정보는 Azure Portal의 서브넷 속성에서 찾을 수 있습니다.
 
 > [!IMPORTANT]
-> 필수 인바운드 보안 규칙은 포트 9000, 9003, 1438, 1440 및 1452의 _모든_ 소스에서 트래픽을 허용하지만 이러한 포트는 기본 제공 방화벽으로 보호됩니다. 자세한 내용은 [관리 끝점 주소 확인을](sql-database-managed-instance-find-management-endpoint-ip-address.md)참조하십시오.
+> 필요한 인바운드 보안 규칙이 포트 9000, 9003, 1438, 1440 및 1452에 있는 _모든_ 원본의 트래픽을 허용 하지만 이러한 포트는 기본 제공 방화벽으로 보호 됩니다. 자세한 내용은 [관리 끝점 주소 확인](sql-database-managed-instance-find-management-endpoint-ip-address.md)을 참조 하세요.
 
 > [!NOTE]
-> 관리되는 인스턴스에서 트랜잭션 복제를 사용하고 인스턴스 데이터베이스를 게시자 또는 배포자로 사용하는 경우 서브넷의 보안 규칙에서 포트 445(TCP 아웃바운드)를 엽니다. 이 포트를 통해 Azure 파일 공유에 액세스할 수 있습니다.
+> 관리 되는 인스턴스에서 트랜잭션 복제를 사용 하 고 인스턴스 데이터베이스를 게시자 또는 배포자로 사용 하는 경우 서브넷의 보안 규칙에서 포트 445 (TCP 아웃 바운드)을 엽니다. 이 포트는 Azure 파일 공유에 대 한 액세스를 허용 합니다.
 
 ### <a name="user-defined-routes"></a>사용자 정의 경로
 
-|이름|주소 접두사|다음 홉|
+|속성|주소 접두사|다음 홉|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI SUBNET|가상 네트워크|
 |mi-13-64-11-nexthop-인터넷|13.64.0.0/11|인터넷|
@@ -522,11 +522,11 @@ Microsoft는 관리 끝점을 사용하여 관리되는 인스턴스를 관리�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 개요는 [SQL Database 고급 데이터 보안을](sql-database-managed-instance.md)참조하십시오.
-- [관리되는 인스턴스를](sql-database-managed-instance-create-vnet-subnet.md) 배포할 수 있는 새 Azure 가상 네트워크 또는 [기존 Azure 가상 네트워크를](sql-database-managed-instance-configure-vnet-subnet.md) 설정하는 방법에 대해 알아봅니다.
-- 관리되는 인스턴스를 배포할 [서브넷의 크기를 계산합니다.](sql-database-managed-instance-determine-size-vnet-subnet.md)
-- 관리되는 인스턴스를 만드는 방법에 대해 알아봅니다.
-  - Azure [포털에서](sql-database-managed-instance-get-started.md).
-  - 파워 [쉘을](scripts/sql-database-create-configure-managed-instance-powershell.md)사용하여 .
-  - Azure [리소스 관리자 템플릿을](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/)사용 하 여 .
-  - Azure [리소스 관리자 템플릿(SSMS포함)](https://azure.microsoft.com/resources/templates/201-sqlmi-new-vnet-w-jumpbox/) 
+- 개요는 [SQL Database 고급 데이터 보안](sql-database-managed-instance.md)을 참조 하세요.
+- 관리 되는 인스턴스를 배포할 수 있는 [새 azure 가상 네트워크](sql-database-managed-instance-create-vnet-subnet.md) 또는 [기존 azure 가상 네트워크](sql-database-managed-instance-configure-vnet-subnet.md) 를 설정 하는 방법에 대해 알아봅니다.
+- 관리 되는 인스턴스를 배포 하려는 [서브넷의 크기를 계산](sql-database-managed-instance-determine-size-vnet-subnet.md) 합니다.
+- 관리 되는 인스턴스를 만드는 방법에 대해 알아봅니다.
+  - [Azure Portal](sql-database-managed-instance-get-started.md)합니다.
+  - [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)사용.
+  - [Azure Resource Manager 템플릿을](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/)사용 합니다.
+  - [Azure Resource Manager 템플릿을 사용 합니다 (SSMS 포함 된 JumpBox 사용)](https://azure.microsoft.com/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 

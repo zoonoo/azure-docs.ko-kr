@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 10/20/2019
 ms.custom: mqtt
 ms.openlocfilehash: 9e0b4a3c22c1e6008bdce7fecc1d122fe317dd58
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81686220"
 ---
 # <a name="architecture-of-iot-central-smart-inventory-management-application-template"></a>IoT Central 스마트 재고 관리 애플리케이션 템플릿의 아키텍처
