@@ -1,6 +1,6 @@
 ---
 title: 환경 만들기 - Azure Time Series Insights | Microsoft Docs
-description: Azure 포털을 사용하여 새 열렬 인사이트 환경을 만드는 방법을 알아봅니다.
+description: Azure Portal를 사용 하 여 새 Time Series Insights 환경을 만드는 방법에 대해 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: seodec18
 ms.openlocfilehash: 7459c6afc775aa0df43d6f9285191c4c7e1b8cb8
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81602369"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Azure Portal에서 Time Series Insights 환경 만들기
@@ -30,7 +30,7 @@ Time Series Insights를 사용하여 Azure IoT Hub 및 Event Hubs로 이동하�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. + **리소스 만들기 단추를 선택합니다.**
+1. **+ 리소스 만들기** 단추를 선택 합니다.
 
 1. **사물 인터넷** 범주를 선택하고 **Time Series Insights**를 선택합니다.
 
@@ -45,7 +45,7 @@ Time Series Insights를 사용하여 Azure IoT Hub 및 Event Hubs로 이동하�
    설정|제안 값|Description
    ---|---|---
    환경 이름 | 고유한 이름 | 이 이름은 [Time Series 탐색기](https://insights.timeseries.azure.com)에서 해당 환경을 나타내는 데 사용됩니다.
-   Subscription | 사용자의 구독 | 구독이 여러 개인 경우 이벤트 원본을 포함하는 구독을 선택합니다. Time Series Insights는 동일한 구독에 있는 Azure IoT 허브 및 이벤트 허브 리소스를 자동으로 검색할 수 있습니다.
+   Subscription | 사용자의 구독 | 구독이 여러 개인 경우 이벤트 원본을 포함하는 구독을 선택합니다. Time Series Insights는 동일한 구독의 기존 Azure IoT Hub 및 이벤트 허브 리소스를 자동으로 검색할 수 있습니다.
    Resource group | 새로 만들기 또는 기존 항목 사용 | 리소스 그룹은 함께 사용되는 Azure 리소스 컬렉션입니다. 예를 들어 이벤트 허브 또는 IoT Hub를 포함하는 기존 리소스 그룹을 선택할 수 있습니다. 또는 이 리소스가 다른 리소스와 관련이 없는 경우에는 새로 만들 수 있습니다.
    위치 | 이벤트 원본에 가장 가까운 위치 | 지역 외부로 데이터를 이동할 때 지역 간 및 영역 간 대역폭 비용이 추가되고 대기 시간이 늘어나지 않도록 하기 위해 이벤트 원본 데이터를 포함하는 동일한 데이터 센터 위치를 선택하는 것이 좋습니다.
    가격 책정 계층 | S1 | 필요한 처리량을 선택합니다. 최저 비용의 시작 용량을 사용하려면 S1을 선택합니다.
@@ -57,11 +57,11 @@ Time Series Insights를 사용하여 Azure IoT Hub 및 Event Hubs로 이동하�
 
    [![알림 보기](media/time-series-insights-get-started/tsi-deploy-notifications.png)](media/time-series-insights-get-started/tsi-deploy-notifications.png#lightbox)
 
-1. 리소스 **개요에서**배포 구성 설정을 확인합니다.
+1. 리소스 **개요**에서 배포 구성 설정을 확인 합니다.
 
    [![Time Series Insights를 만들고 대시보드에 고정](media/time-series-insights-get-started/tsi-verify-deployment.png)](media/time-series-insights-get-started/tsi-verify-deployment.png#lightbox)
 
-1. **(선택 사항)** 오른쪽 상단 모서리에 있는 **핀 아이콘을** 선택하여 향후 타임시리즈 인사이트 환경에 쉽게 액세스할 수 있습니다.
+1. **(선택 사항)** 오른쪽 위 모서리에 있는 **고정 아이콘** 을 선택 하 여 나중에 Time Series Insights 환경에 쉽게 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -69,6 +69,6 @@ Time Series Insights를 사용하여 Azure IoT Hub 및 Event Hubs로 이동하�
 
 * Azure Time Series Insights 환경에 [이벤트 허브 이벤트 원본 추가](time-series-insights-how-to-add-an-event-source-eventhub.md)
 
-* 이벤트 원본에 [이벤트를 보냅니다.](time-series-insights-send-events.md)
+* 이벤트 원본으로 [이벤트를 보냅니다](time-series-insights-send-events.md) .
 
-* [타임시리즈 인사이트 탐색기에서](https://insights.timeseries.azure.com)환경을 봅니다.
+* [Time Series Insights 탐색기](https://insights.timeseries.azure.com)에서 환경을 봅니다.

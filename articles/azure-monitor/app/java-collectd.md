@@ -4,10 +4,10 @@ description: Application Insights용 CollectD 플러그 인을 통해 Java 웹 �
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 62a723dad7e9f6c2bfdabde159968d507d2d5d41
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537528"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Application Insights에서 Linux 성능 메트릭
@@ -82,7 +82,7 @@ Linux 서버 컴퓨터에서:
 Collectd를 해당 [설명서](https://collectd.org/wiki/index.php/First_steps)에 따라서 다시 시작합니다.
 
 ## <a name="view-the-data-in-application-insights"></a>Application Insights에서 데이터 보기
-Application Insights 리소스에서 [메트릭을][metrics]열고 차트를 추가하여 맞춤 범주에서 보려는 메트릭을 선택합니다.
+Application Insights 리소스에서 메트릭을 열고 [차트를 추가][metrics]하 여 사용자 지정 범주에서 보려는 메트릭을 선택 합니다.
 
 기본적으로 메트릭을 수집한 모든 호트스 컴퓨터의 메트릭이 집계됩니다. 차트 세부 정보 블레이드에서 호스트마다 메트릭을 보려면 그룹화를 설정하고 CollectD 호스트별로 그룹화를 선택합니다.
 
@@ -115,7 +115,7 @@ Application Insights 리소스에서 [메트릭을][metrics]열고 차트를 추
 
 Application Insights 쓰기 플러그 인이 특정 읽기 플러그 인과 호환되지 않습니다. 경우에 따라 일부 플러그 인은 Application Insights 플러그 인에서 부동 소수점 숫자를 예상하는 위치로 “NaN”를 전송합니다.
 
-증상: 수집된 로그에 "AI: ... 구문오류: 예기치 않은 토큰 N".
+증상: collectd 로그에 "AI: ... SyntaxError: 예기치 않은 토큰 N ".
 
 해결 방법: 문제 쓰기 플러그 인에 의해 수집된 데이터를 제외합니다. 
 

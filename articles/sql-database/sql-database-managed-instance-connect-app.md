@@ -1,5 +1,5 @@
 ---
-title: 관리형 인스턴스 연결 응용 프로그램
+title: 관리 되는 인스턴스 연결 응용 프로그램
 description: 이 아티클에서는 Azure SQL Database Managed Instance에 애플리케이션을 연결하는 방법을 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
 ms.openlocfilehash: 8d920fb7815e5a9fe30d8f3b4e40f36133d83222
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81538089"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>애플리케이션을 Azure SQL Database 관리형 인스턴스에 연결
@@ -44,7 +44,7 @@ VNet을 연결하는 두 가지 옵션이 있습니다.
 피어링이 Microsoft 백본 네트워크를 사용하기 때문에 피어링 옵션은 적합한 기능입니다. 따라서 연결성 관점에서 피어링된 VNet 및 동일한 VNet에 있는 가상 머신 간에 대기 시간이 눈에 띄는 차이점은 없습니다. VNet 피어링은 동일한 지역의 네트워크로 제한됩니다.  
 
 > [!IMPORTANT]
-> Managed Instance에 대한 VNet 피어링 시나리오는 [전역 가상 네트워크 피어 링 제약 조건](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 동일한 지역의 네트워크로 제한됩니다. 자세한 내용은 [Azure 가상 네트워크 자주 묻는 질문](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 문서의 관련 섹션을 참조하십시오. 
+> Managed Instance에 대한 VNet 피어링 시나리오는 [전역 가상 네트워크 피어 링 제약 조건](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 동일한 지역의 네트워크로 제한됩니다. 자세한 내용은 [Azure Virtual Network faq](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) (질문과 대답) 문서의 관련 단원을 참조 하세요. 
 
 ## <a name="connect-an-on-premises-application"></a>온-프레미스 애플리케이션 연결
 
@@ -55,7 +55,7 @@ Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니�
 - 사이트 간 VPN 연결([Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - [ExpressRoute](../expressroute/expressroute-introduction.md) 연결  
 
-Azure 연결에 온-프레미스 연결을 성공적으로 설정하였고 관리되는 인스턴스에 대한 연결을 설정할 수 없는 경우 방화벽이 SQL 포트 1433에서 아웃바운드 연결이 열려 있는지, 리디렉션을 위해 11000-11999 범위의 포트가 열려 있는지 확인합니다.
+온-프레미스에서 Azure로 연결을 성공적으로 설정 하 고 Managed Instance에 대 한 연결을 설정할 수 없는 경우 방화벽에서 SQL 포트 1433에 대해 열려 있는 아웃 바운드 연결을 설정 하 고 리디렉션 포트의 범위를 11000-11999으로 설정 했는지 확인 합니다.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>개발자 상자에서 애플리케이션 연결
 
@@ -95,7 +95,7 @@ Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니�
 
 연결 문제를 해결하려면 다음을 검토합니다.
 
-- 동일한 VNet 하지만 다른 서브넷 내에서 Azure 가상 컴퓨터에서 관리되는 인스턴스에 연결할 수 없는 경우 액세스를 차단할 수 있는 VM 서브넷에 네트워크 보안 그룹이 설정되어 있는지 확인합니다. 또한 Azure 경계 내부의 리디렉션을 통해 연결하는 데 필요한 경우 SQL 포트 1433및 범위 11000-11999의 포트에서 아웃바운드 연결을 열어야 합니다.
+- 동일한 VNet 내에서 다른 서브넷에 있는 Azure 가상 머신에서 Managed Instance에 연결할 수 없는 경우 액세스를 차단할 수 있는 네트워크 보안 그룹이 VM 서브넷에 설정 되어 있는지 확인 합니다. 또한 Azure 경계 내에서 리디렉션을 통해 연결 하는 데 필요 하므로 11000-11999 범위의 포트 뿐만 아니라 SQL 포트 1433에 대 한 아웃 바운드 연결을 열어야 합니다.
 - VNet과 연결된 라우트 테이블에 대해 BGP 전파를 **사용**으로 설정해야 합니다.
 - P2S VPN을 사용할 경우 Azure Portal에서 구성을 확인하여 **수신/송신** 숫자가 보이는지 확인합니다. 0이 아닌 숫자는 Azure가 온-프레미스에서 트래픽을 라우팅하는 것을 나타냅니다.
 
@@ -133,7 +133,7 @@ Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니�
 
 - VNet 피어링을 사용하는 경우 [게이트웨이 전송 허용 및 원격 게이트웨이 사용](#connect-from-on-premises-with-vnet-peering) 설정을 위한 지침을 따랐는지 확인합니다.
 
-- VNet 피어링을 사용하여 Azure App Service 호스팅 응용 프로그램을 연결하고 관리되는 인스턴스 VNet에 공용 IP 주소 범위가 있는 경우 호스팅된 응용 프로그램 설정을 통해 아웃바운드 트래픽을 공용 IP 네트워크로 라우팅할 수 있도록 해야 합니다. [지역 VNet 통합의](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)지침을 따릅니다.
+- VNet 피어 링을 사용 하 여 Azure App Service 호스팅된 응용 프로그램을 연결 하 고 Managed Instance VNet에 공용 IP 주소 범위가 있는 경우 호스팅된 응용 프로그램 설정에서 아웃 바운드 트래픽을 공용 IP 네트워크로 라우팅할 수 있도록 해야 합니다. [지역별 VNet 통합](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)의 지침을 따릅니다.
 
 ## <a name="required-versions-of-drivers-and-tools"></a>드라이버 및 도구의 필요한 버전
 
@@ -147,7 +147,7 @@ Managed Instance에 연결하려면 다음과 같은 버전 이상의 도구와 
 |JDBC 드라이버| 6.4.0 |
 |Node.js 드라이버| 2.1.1 |
 |OLEDB 드라이버| 18.0.2.0 |
-|SSMS| 18.0 [이상](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|SSMS| 18.0 이상 [higher](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 |[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) 이상 |
 
 ## <a name="next-steps"></a>다음 단계

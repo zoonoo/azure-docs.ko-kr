@@ -12,10 +12,10 @@ ms.date: 02/10/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: b302180257ec6624ebd6144a7680755a2856899e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400955"
 ---
 # <a name="quickstart-recognize-speech-stored-in-blob-storage"></a>빠른 시작: Blob 스토리지에 저장된 음성 인식

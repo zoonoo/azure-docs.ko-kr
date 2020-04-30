@@ -6,10 +6,10 @@ ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
 ms.openlocfilehash: f5f18e9365b09f06c1bd4f25a8efe909cc308dad
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537018"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>여러 VM에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 사용
@@ -24,7 +24,7 @@ https://portal.azure.com 에서 Azure에 로그인
 
 Azure Portal에서 **가상 머신**으로 이동합니다.
 
-확인란을 사용하여 변경 내용 추적 및 인벤토리 또는 업데이트 관리를 등록할 가상 머신을 선택합니다. 한 번에 최대 3개의 리소스 그룹을 등록할 수 있습니다. Azure VM은 자동화 계정의 위치에 관계없이 모든 지역에 존재할 수 있습니다.
+확인란을 사용하여 변경 내용 추적 및 인벤토리 또는 업데이트 관리를 등록할 가상 머신을 선택합니다. 한 번에 최대 3개의 리소스 그룹을 등록할 수 있습니다. Azure Vm은 Automation 계정의 위치와 상관 없이 모든 지역에 있을 수 있습니다.
 
 ![VM 목록](media/automation-onboard-solutions-from-browse/vmlist.png)
 > [!TIP]
@@ -33,23 +33,23 @@ Azure Portal에서 **가상 머신**으로 이동합니다.
 명령 모음에서 **서비스**를 클릭하고 **변경 내용 추적**, **인벤토리** 또는 **업데이트 관리**를 선택합니다.
 
 > [!NOTE]
-> 변경 추적 및 인벤토리는 동일한 솔루션을 사용합니다. 하나는 활성화되어 있으면 다른 것도 활성화됩니다.
+> 변경 내용 추적 및 인벤토리는 동일한 솔루션을 사용 합니다. 하나를 사용 하도록 설정 하면 다른도 사용할 수 있습니다.
 
-다음 이미지는 업데이트 관리에 대한 것입니다. 변경 추적 및 인벤토리에 레이아웃과 동작이 동일합니다.
+다음 이미지는 업데이트 관리에 대한 것입니다. 변경 내용 추적 및 인벤토리는 동일한 레이아웃과 동작을 포함 합니다.
 
 가상 머신 목록은 동일한 구독 및 위치에 있는 가상 머신만 표시하도록 필터링됩니다. 가상 머신이 3개 초과 리소스 그룹에 있는 경우 처음 3개 리소스 그룹이 선택됩니다.
 
 ### <a name="onboarding-limitations"></a><a name="resource-group-limit"></a> 온보딩 제한 사항
 
-온보딩에 사용할 수 있는 리소스 그룹 수는 [Resource Manager 배포 제한](../azure-resource-manager/templates/cross-resource-group-deployment.md)으로 제한됩니다. 업데이트 배포와 혼동되지 않는 리소스 관리자 배포는 배포당 5개의 리소스 그룹으로 제한됩니다. 온보딩의 무결성을 보장하기 위해 이러한 리소스 그룹 중 2개는 Log Analytics 작업 영역, Automation 계정 및 관련 리소스를 구성하기 위해 예약되어 있습니다. 그러면 배포를 위해 선택할 리소스 그룹이 3개 남습니다. 이 제한은 자동화 솔루션에서 관리할 수 있는 리소스 그룹 수가 아닌 동시 온보딩에만 적용됩니다.
+온보딩에 사용할 수 있는 리소스 그룹 수는 [Resource Manager 배포 제한](../azure-resource-manager/templates/cross-resource-group-deployment.md)으로 제한됩니다. 업데이트 배포와 혼동 하지 않는 리소스 관리자 배포는 배포 당 리소스 그룹 5 개로 제한 됩니다. 온보딩의 무결성을 보장하기 위해 이러한 리소스 그룹 중 2개는 Log Analytics 작업 영역, Automation 계정 및 관련 리소스를 구성하기 위해 예약되어 있습니다. 그러면 배포를 위해 선택할 리소스 그룹이 3개 남습니다. 이 제한은 자동화 솔루션에서 관리할 수 있는 리소스 그룹의 수가 아니라 동시 온 보 딩에만 적용 됩니다.
 
-또한 온보딩을 위해 Runbook을 사용할 수 있으며, 자세한 내용은 [Onboard 업데이트 및 Azure Automation에 대한 변경 추적 솔루션을](automation-onboard-solutions.md)참조하십시오.
+Runbook을 온 보 딩에 사용할 수도 있습니다. 자세한 내용은 [Azure Automation에 대 한 업데이트 및 변경 내용 추적 솔루션](automation-onboard-solutions.md)등록을 참조 하세요.
 
 필터 컨트롤을 사용하여 다른 구독, 위치 및 리소스 그룹의 가상 머신을 선택할 수 있습니다.
 
 ![업데이트 관리 솔루션 등록](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-로그 분석 작업 영역 및 자동화 계정에 대한 선택 사항을 검토합니다. 기존 작업 영역 및 Automation 계정은 기본적으로 선택됩니다. 서로 다른 Log Analytics 작업 영역 및 Automation 계정을 사용하려면 **사용자 지정 구성** 페이지에서 **사용자 지정**을 클릭하여 선택하면 됩니다. Log Analytics 작업 영역을 선택하는 경우 Automation 계정에 연결되는지 확인이 이루어집니다. 연결된 Automation 계정에 있으면 다음과 같은 화면이 표시됩니다. 완료하면 **확인**을 클릭합니다.
+Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 사항을 검토 합니다. 기존 작업 영역 및 Automation 계정은 기본적으로 선택됩니다. 서로 다른 Log Analytics 작업 영역 및 Automation 계정을 사용하려면 **사용자 지정 구성** 페이지에서 **사용자 지정**을 클릭하여 선택하면 됩니다. Log Analytics 작업 영역을 선택하는 경우 Automation 계정에 연결되는지 확인이 이루어집니다. 연결된 Automation 계정에 있으면 다음과 같은 화면이 표시됩니다. 완료하면 **확인**을 클릭합니다.
 
 ![작업 영역 및 계정 선택](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -60,7 +60,7 @@ Azure Portal에서 **가상 머신**으로 이동합니다.
 > [!NOTE]
 > 솔루션을 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다.
 >
-> 지원되는 매핑 쌍 목록은 자동화 [계정 및 로그 분석 작업 영역에 대한 지역 매핑을](how-to/region-mappings.md)참조하십시오.
+> 지원 되는 매핑 쌍 목록은 [Automation 계정 및 Log Analytics 작업 영역에 대 한 지역 매핑](how-to/region-mappings.md)을 참조 하세요.
 
 사용하지 않을 가상 머신 옆에 있는 확인란을 선택 취소합니다. 사용할 수 없는 가상 머신은 이미 선택이 취소되어 있습니다.
 
@@ -72,9 +72,9 @@ Azure Portal에서 **가상 머신**으로 이동합니다.
 
 * [업데이트 관리](automation-update-management.md)
 * [변경 내용 추적](automation-change-tracking.md)
-* [근무 외 시간 동안 VM 시작/중지](automation-solution-vm-management.md)
+* [작업이 없는 동안 VM 시작/중지](automation-solution-vm-management.md)
 
-자동화 계정을 Log Analytics 작업 영역과 더 이상 통합하지 않으려면 Azure 포털에서 직접 계정을 연결 해제할 수 있습니다. 계속하기 전에 앞에서 언급한 솔루션을 제거해야 합니다. 그러지 않으면 이 프로세스가 계속 진행되지 않습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거에 필요한 단계를 이해하세요.
+Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않기로 결정 한 경우 Azure Portal에서 직접 계정 연결을 해제할 수 있습니다. 계속하기 전에 앞에서 언급한 솔루션을 제거해야 합니다. 그러지 않으면 이 프로세스가 계속 진행되지 않습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거에 필요한 단계를 이해하세요.
 
 이러한 솔루션을 제거한 후에 다음 단계에 따라 Automation 계정 연결을 해제할 수 있습니다.
 
@@ -101,19 +101,19 @@ Azure Portal에서 **가상 머신**으로 이동합니다.
 
 * VM runbook 시작 및 중지 일정
 * VM runbook 시작 및 중지
-* variables
+* 변수
 
-또는 Log Analytics 작업 영역에서 자동화 계정에서 작업 영역의 연결을 해제할 수도 있습니다. 작업 영역에서 **관련 리소스**에서 **자동화 계정을** 선택합니다. 자동화 계정 페이지에서 **계정 연결 해제를 선택합니다.**
+또는 Log Analytics 작업 영역에서 Automation 계정에서 작업 영역의 연결을 끊을 수도 있습니다. 작업 영역에서 **관련 리소스**아래에 있는 **Automation 계정** 을 선택 합니다. Automation 계정 페이지에서 **계정 연결 해제**를 선택 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
-여러 컴퓨터를 온보딩할 때 로 `Cannot enable`표시되는 컴퓨터가 있을 수 있습니다. 일부 컴퓨터를 사용할 수 없는 여러 가지 이유가 있습니다. 다음 섹션에서는 온보로 `Cannot enable` 전송하려고 할 때 VM의 상태에 대한 가능한 이유를 보여 준다.
+여러 컴퓨터를 온 보 딩 하는 경우로 `Cannot enable`표시 되는 컴퓨터가 있을 수 있습니다. 일부 컴퓨터를 사용할 수 없는 여러 가지 이유가 있습니다. 다음 섹션에서는를 등록 하려고 할 때 `Cannot enable` VM에서 상태의 가능한 원인을 보여 줍니다.
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>VM이 다른 작업 영역('\<workspaceName\>')에 보고합니다.  활성화에 사용하도록 구성 변경
 
 **원인**: 이 오류는 등록하려는 VM이 다른 작업 영역에 보고함을 나타냅니다.
 
-**해결 방법:** **구성으로 사용을** 클릭하여 대상 자동화 계정 및 로그 분석 작업 영역을 변경합니다.
+**해결**방법: **구성으로 사용** 을 클릭 하 여 대상 Automation 계정 및 Log Analytics 작업 영역을 변경 합니다.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>VM이 이 구독에서 사용할 수 있는 작업 영역에 보고
 
@@ -135,7 +135,7 @@ Azure Portal에서 **가상 머신**으로 이동합니다.
 
 **원인**: 클래식 배포 모델을 사용하는 VM이 지원되지 않습니다.
 
-**해결:** 가상 컴퓨터를 리소스 관리자 배포 모델로 마이그레이션합니다. 작업 방법은 [클래식 배포 모델 리소스 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
+**해결**방법: 가상 컴퓨터를 리소스 관리자 배포 모델로 마이그레이션합니다. 작업 방법은 [클래식 배포 모델 리소스 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
 
 ### <a name="vm-is-stopped-deallocated"></a>VM이 중지되었습니다. (할당 취소됨)
 
@@ -148,14 +148,14 @@ Azure Portal에서 **가상 머신**으로 이동합니다.
 업데이트 관리에서 VM을 제거하려면:
 
 * Log Analytics 작업 영역에서, 범위 구성 `MicrosoftDefaultScopeConfig-Updates`에 대한 저장된 검색에서 VM을 제거합니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
-* [Windows용 로그 분석 에이전트](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) 또는 [Linux용 로그 분석 에이전트를](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)제거합니다.
+* [Windows용 Log Analytics 에이전트](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) 또는 [Linux용 Log Analytics 에이전트](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)를 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 가상 시스템에 대해 솔루션을 사용하도록 설정되었으므로 업데이트 관리 개요 문서를 방문하여 컴퓨터에 대한 **업데이트 배포를** 만드는 방법을 알아봅니다.
+이제 가상 머신에 대 한 솔루션을 사용 하도록 설정 했으므로 업데이트 관리 개요 문서를 방문 하 여 컴퓨터에 대 한 **업데이트 배포** 를 만드는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [업데이트 관리 - Azure VM에 대한 업데이트 및 패치 관리](./automation-tutorial-update-management.md)
+> [업데이트 관리-Azure Vm에 대 한 업데이트 및 패치 관리](./automation-tutorial-update-management.md)
 
 솔루션 및 솔루션 사용 방법에 대한 추가 자습서:
 

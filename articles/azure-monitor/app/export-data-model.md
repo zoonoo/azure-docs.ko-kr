@@ -4,10 +4,10 @@ description: JSON의 연속 내보내기에서 내보내고 필터로 사용하�
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 9891bea1d52c61197fa32fa5c0764df5450b563c
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536848"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 데이터 모델 내보내기
@@ -105,187 +105,187 @@ ms.locfileid: "81536848"
 ## <a name="context"></a>Context
 모든 유형의 원격 분석에는 컨텍스트 섹션이 함께 제공됩니다. 이러한 모든 필드가 모든 데이터 요소와 함께 전송되는 것은 아닙니다.
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
 | context.custom.dimensions [0] |object [ ] |사용자 지정 속성 매개 변수에 의해 설정되는 키-값 문자열 쌍입니다. 키 최대 길이가 100이고, 값 최대 길이가 1024입니다. 100개 이상의 고유 값, 속성을 검색할 수 있지만 구분에 사용할 수 없습니다. ikey당 최대 키는 200개입니다. |
 | context.custom.metrics [0] |object [ ] |사용자 지정 측정 매개 변수 및 TrackMetrics에 의해 설정된 키-값 쌍입니다. 키 최대 길이가 100이고, 값은 숫자가 될 수 있습니다. |
-| context.data.eventTime |문자열 |UTC |
+| context.data.eventTime |string |UTC |
 | context.data.isSynthetic |boolean |요청이 봇 또는 웹 테스트에서 들어오는 것 같습니다. |
 | context.data.samplingRate |number |포털에 전송되는 SDK에 의해 생성된 원격 분석의 비율입니다. 범위는 0.0-100.0입니다. |
-| context.device |object |클라이언트 디바이스 |
-| context.device.browser |문자열 |IE, Chrome, ... |
-| context.device.browserVersion |문자열 |Chrome 48.0, ... |
-| context.device.deviceModel |문자열 | |
-| context.device.deviceName |문자열 | |
-| context.device.id |문자열 | |
-| context.device.locale |문자열 |en-GB, de-DE, ... |
-| context.device.network |문자열 | |
-| context.device.oemName |문자열 | |
-| context.device.os |문자열 | |
-| context.device.osVersion |문자열 |호스트 OS |
-| context.device.roleInstance |문자열 |서버 호스트의 ID |
-| context.device.roleName |문자열 | |
-| context.device.screenResolution |문자열 | |
-| context.device.type |문자열 |PC, 브라우저... |
-| context.location |object |`clientip`에서 파생됩니다. |
-| context.location.city |문자열 |에서 `clientip`파생된 경우 |
-| context.location.clientip |문자열 |마지막 팔각형이 0으로 익명 처리됩니다. |
-| context.location.continent |문자열 | |
-| context.location.country |문자열 | |
-| context.location.province |문자열 |시/도 |
-| context.operation.id |문자열 |동일한 `operation id` 항목이 포털의 관련 항목으로 표시됩니다. 일반적으로 `request id`. |
-| context.operation.name |문자열 |URL 또는 요청 이름 |
-| context.operation.parentId |문자열 |중첩된 관련 항목을 허용합니다. |
-| context.session.id |문자열 |`Id`동일한 소스의 작업 그룹입니다. 30분 동안 작업이 없으면 세션이 끝난 것입니다. |
+| context.device |개체 |클라이언트 디바이스 |
+| context.device.browser |string |IE, Chrome, ... |
+| context.device.browserVersion |string |Chrome 48.0, ... |
+| context.device.deviceModel |string | |
+| context.device.deviceName |string | |
+| context.device.id |string | |
+| context.device.locale |string |en-GB, de-DE, ... |
+| context.device.network |string | |
+| context.device.oemName |string | |
+| context.device.os |string | |
+| context.device.osVersion |string |호스트 OS |
+| context.device.roleInstance |string |서버 호스트의 ID |
+| context.device.roleName |string | |
+| context.device.screenResolution |string | |
+| context.device.type |string |PC, 브라우저... |
+| context.location |개체 |`clientip`에서 파생됩니다. |
+| context.location.city |string |알려진 경우 `clientip`에서 파생 됩니다. |
+| context.location.clientip |string |마지막 팔각형이 0으로 익명 처리됩니다. |
+| context.location.continent |string | |
+| context.location.country |string | |
+| context.location.province |string |시/도 |
+| context.operation.id |string |항목이 동일한 `operation id` 항목은 포털에서 관련 항목으로 표시 됩니다. 일반적으로 `request id`입니다. |
+| context.operation.name |string |URL 또는 요청 이름 |
+| context.operation.parentId |string |중첩된 관련 항목을 허용합니다. |
+| context.session.id |string |`Id`동일한 원본의 작업 그룹입니다. 30분 동안 작업이 없으면 세션이 끝난 것입니다. |
 | context.session.isFirst |boolean | |
-| context.user.accountAcquisitionDate |문자열 | |
-| context.user.accountId |문자열 | |
-| context.user.anonAcquisitionDate |문자열 | |
-| context.user.anonId |문자열 | |
-| context.user.authAcquisitionDate |문자열 |[인증된 사용자](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
-| context.user.authId |문자열 | |
+| context.user.accountAcquisitionDate |string | |
+| context.user.accountId |string | |
+| context.user.anonAcquisitionDate |string | |
+| context.user.anonId |string | |
+| context.user.authAcquisitionDate |string |[인증된 사용자](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authId |string | |
 | context.user.isAuthenticated |boolean | |
-| context.user.storeRegion |문자열 | |
-| internal.data.documentVersion |문자열 | |
-| internal.data.id |문자열 | `Unique id`항목이 응용 프로그램 인사이트로 인과될 때 할당됩니다. |
+| context.user.storeRegion |string | |
+| internal.data.documentVersion |string | |
+| internal.data.id |string | `Unique id`항목이 수집 될 때 할당 됩니다 Application Insights |
 
 ## <a name="events"></a>이벤트
 [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)에 의해 생성된 사용자 지정 이벤트입니다.
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
 | event [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
-| event [0] name |문자열 |이벤트 이름입니다.  최대 길이 250 |
-| event [0] url |문자열 | |
-| event [0] urlData.base |문자열 | |
-| event [0] urlData.host |문자열 | |
+| event [0] name |string |이벤트 이름입니다.  최대 길이 250 |
+| event [0] url |string | |
+| event [0] urlData.base |string | |
+| event [0] urlData.host |string | |
 
 ## <a name="exceptions"></a>예외
 서버 및 브라우저의 [예외](../../azure-monitor/app/asp-net-exceptions.md) 를 보고합니다.
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
-| basicException [0] assembly |문자열 | |
+| basicException [0] assembly |string | |
 | basicException [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
-| basicException [0] exceptionGroup |문자열 | |
-| basicException [0] exceptionType |문자열 | |
-| basicException [0] failedUserCodeMethod |문자열 | |
-| basicException [0] failedUserCodeAssembly |문자열 | |
-| basicException [0] handledAt |문자열 | |
+| basicException [0] exceptionGroup |string | |
+| basicException [0] exceptionType |string | |
+| basicException [0] failedUserCodeMethod |string | |
+| basicException [0] failedUserCodeAssembly |string | |
+| basicException [0] handledAt |string | |
 | basicException [0] hasFullStack |boolean | |
-| 기본예외 [0]`id` |문자열 | |
-| basicException [0] method |문자열 | |
-| basicException [0] message |문자열 |예외 메시지입니다. 최대 길이 10000 |
-| basicException [0] outerExceptionMessage |문자열 | |
-| basicException [0] outerExceptionThrownAtAssembly |문자열 | |
-| basicException [0] outerExceptionThrownAtMethod |문자열 | |
-| basicException [0] outerExceptionType |문자열 | |
-| basicException [0] outerId |문자열 | |
-| basicException [0] parsedStack [0] assembly |문자열 | |
-| basicException [0] parsedStack [0] fileName |문자열 | |
+| basicException [0]`id` |string | |
+| basicException [0] method |string | |
+| basicException [0] message |string |예외 메시지입니다. 최대 길이 10000 |
+| basicException [0] outerExceptionMessage |string | |
+| basicException [0] outerExceptionThrownAtAssembly |string | |
+| basicException [0] outerExceptionThrownAtMethod |string | |
+| basicException [0] outerExceptionType |string | |
+| basicException [0] outerId |string | |
+| basicException [0] parsedStack [0] assembly |string | |
+| basicException [0] parsedStack [0] fileName |string | |
 | basicException [0] parsedStack [0] level |integer | |
 | basicException [0] parsedStack [0] line |integer | |
-| basicException [0] parsedStack [0] method |문자열 | |
-| basicException [0] stack |문자열 |최대 길이 10000 |
-| basicException [0] typeName |문자열 | |
+| basicException [0] parsedStack [0] method |string | |
+| basicException [0] stack |string |최대 길이 10000 |
+| basicException [0] typeName |string | |
 
 ## <a name="trace-messages"></a>추적 메시지
 [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) 및 [로깅 어댑터](../../azure-monitor/app/asp-net-trace-logs.md)에서 전송합니다.
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
-| message [0] loggerName |문자열 | |
-| message [0] parameters |문자열 | |
-| message [0] raw |문자열 |로그 메시지입니다(최대 길이 10k). |
-| message [0] severityLevel |문자열 | |
+| message [0] loggerName |string | |
+| message [0] parameters |string | |
+| message [0] raw |string |로그 메시지입니다(최대 길이 10k). |
+| message [0] severityLevel |string | |
 
 ## <a name="remote-dependency"></a>원격 종속성
 TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](../../azure-monitor/app/asp-net-dependencies.md) 과 브라우저의 AJAX 호출 성능 및 사용을 보고하는 데 사용됩니다.
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
 | remoteDependency [0] async |boolean | |
-| remoteDependency [0] baseName |문자열 | |
-| remoteDependency [0] commandName |문자열 |예를 들어 "홈/인덱스" |
+| remoteDependency [0] baseName |string | |
+| remoteDependency [0] commandName |string |예를 들어 "홈/인덱스" |
 | remoteDependency [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
-| remoteDependency [0] dependencyTypeName |문자열 |HTTP, SQL, ... |
+| remoteDependency [0] dependencyTypeName |string |HTTP, SQL, ... |
 | remoteDependency [0] durationMetric.value |number |호출부터 종속성의 응답 완료까지 걸리는 시간 |
-| 원격 의존성 [0]`id` |문자열 | |
-| remoteDependency [0] name |문자열 |Url. 최대 길이 250 |
-| remoteDependency [0] resultCode |문자열 |HTTP 종속성에서 |
+| remoteDependency [0]`id` |string | |
+| remoteDependency [0] name |string |Url. 최대 길이 250 |
+| remoteDependency [0] resultCode |string |HTTP 종속성에서 |
 | remoteDependency [0] success |boolean | |
-| remoteDependency [0] type |문자열 |Http, Sql,... |
-| remoteDependency [0] url |문자열 |최대 길이 2000 |
-| remoteDependency [0] urlData.base |문자열 |최대 길이 2000 |
-| remoteDependency [0] urlData.hashTag |문자열 | |
-| remoteDependency [0] urlData.host |문자열 |최대 길이 200 |
+| remoteDependency [0] type |string |Http, Sql,... |
+| remoteDependency [0] url |string |최대 길이 2000 |
+| remoteDependency [0] urlData.base |string |최대 길이 2000 |
+| remoteDependency [0] urlData.hashTag |string | |
+| remoteDependency [0] urlData.host |string |최대 길이 200 |
 
 ## <a name="requests"></a>요청
 [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)에서 전송합니다. 표준 모듈이 서버에서 측정된 서버 응답 시간을 보고하는 데 사용됩니다.
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
 | request [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
 | request [0] durationMetric.value |number |요청부터 응답까지 걸리는 시간입니다. 1e7 == 1s |
-| 요청 [0]`id` |문자열 |`Operation id` |
-| request [0] name |문자열 |GET/POST + url 기본입니다.  최대 길이 250 |
+| 요청 [0]`id` |string |`Operation id` |
+| request [0] name |string |GET/POST + url 기본입니다.  최대 길이 250 |
 | request [0] responseCode |integer |클라이언트에 보낸 HTTP 응답 |
 | request [0] success |boolean |기본값 == (responseCode &lt; 400) |
-| request [0] url |문자열 |호스트를 포함하지 않음 |
-| request [0] urlData.base |문자열 | |
-| request [0] urlData.hashTag |문자열 | |
-| request [0] urlData.host |문자열 | |
+| request [0] url |string |호스트를 포함하지 않음 |
+| request [0] urlData.base |string | |
+| request [0] urlData.hashTag |string | |
+| request [0] urlData.host |string | |
 
 ## <a name="page-view-performance"></a>페이지 보기 성능
 브라우저에서 전송합니다. 사용자가 요청을 시작할 때부터 표시가 완료될 때까지 페이지 처리 시간을 측정합니다(비동기 AJAX 호출 제외).
 
 컨텍스트 값은 클라이언트 OS 및 브라우저 버전을 표시합니다.
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |integer |HTML 수신 완료부터 페이지 표시까지 걸리는 시간입니다. |
-| clientPerformance [0] name |문자열 | |
+| clientPerformance [0] name |string | |
 | clientPerformance [0] networkConnection.value |integer |네트워크 연결을 설정하는 데 걸리는 시간입니다. |
 | clientPerformance [0] receiveRequest.value |integer |요청 전송 완료부터 HTML 응답 수신까지 걸리는 시간입니다. |
 | clientPerformance [0] sendRequest.value |integer |HTTP 요청을 전송하는 데 걸리는 시간입니다. |
 | clientPerformance [0] total.value |integer |요청 전송 시작부터 페이지 표시까지 걸리는 시간입니다. |
-| clientPerformance [0] url |문자열 |이 요청의 URL |
-| clientPerformance [0] urlData.base |문자열 | |
-| clientPerformance [0] urlData.hashTag |문자열 | |
-| clientPerformance [0] urlData.host |문자열 | |
-| clientPerformance [0] urlData.protocol |문자열 | |
+| clientPerformance [0] url |string |이 요청의 URL |
+| clientPerformance [0] urlData.base |string | |
+| clientPerformance [0] urlData.hashTag |string | |
+| clientPerformance [0] urlData.host |string | |
+| clientPerformance [0] urlData.protocol |string | |
 
 ## <a name="page-views"></a>페이지 보기
 trackPageView() 또는 [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)에서 전송
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
 | view [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
 | view [0] durationMetric.value |integer |필요에 따라 trackPageView()에서 또는 startTrackPage() - stopTrackPage()에 의해 설정한 값입니다. clientPerformance 값과 다릅니다. |
-| view [0] name |문자열 |페이지 제목입니다.  최대 길이 250 |
-| view [0] url |문자열 | |
-| view [0] urlData.base |문자열 | |
-| view [0] urlData.hashTag |문자열 | |
-| view [0] urlData.host |문자열 | |
+| view [0] name |string |페이지 제목입니다.  최대 길이 250 |
+| view [0] url |string | |
+| view [0] urlData.base |string | |
+| view [0] urlData.hashTag |string | |
+| view [0] urlData.host |string | |
 
 ## <a name="availability"></a>가용성
 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 보고합니다.
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
-| availability [0] availabilityMetric.name |문자열 |availability |
+| availability [0] availabilityMetric.name |string |availability |
 | availability [0] availabilityMetric.value |number |1.0 또는 0.0 |
 | availability [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
-| availability [0] dataSizeMetric.name |문자열 | |
+| availability [0] dataSizeMetric.name |string | |
 | availability [0] dataSizeMetric.value |integer | |
-| availability [0] durationMetric.name |문자열 | |
+| availability [0] durationMetric.name |string | |
 | availability [0] durationMetric.value |number |테스트 기간 1e7==1s |
-| availability [0] message |문자열 |오류 진단 |
-| availability [0] result |문자열 |성공/실패 |
-| availability [0] runLocation |문자열 |Http 요청의 지역 소스 |
-| availability [0] testName |문자열 | |
-| availability [0] testRunId |문자열 | |
-| availability [0] testTimestamp |문자열 | |
+| availability [0] message |string |오류 진단 |
+| availability [0] result |string |성공/실패 |
+| availability [0] runLocation |string |Http 요청의 지역 소스 |
+| availability [0] testName |string | |
+| availability [0] testRunId |string | |
+| availability [0] testTimestamp |string | |
 
 ## <a name="metrics"></a>메트릭
 TrackMetric()에서 생성합니다.

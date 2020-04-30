@@ -1,26 +1,26 @@
 ---
-title: 물리적 서버에 대한 Azure 마이그레이션 어플라이언스 설정
-description: 물리적 서버 평가를 위해 Azure 마이그레이션 어플라이언스를 설정하는 방법에 대해 알아봅니다.
+title: 물리적 서버에 대 한 Azure Migrate 어플라이언스 설정
+description: 물리적 서버 평가를 위해 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다.
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
 ms.openlocfilehash: ddc70ee9430d3a767ce01191824c150a4dbd5e6f
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81538276"
 ---
-# <a name="set-up-an-appliance-for-physical-servers"></a>물리적 서버에 대한 어플라이언스 설정
+# <a name="set-up-an-appliance-for-physical-servers"></a>물리적 서버용 어플라이언스 설정
 
-이 문서에서는 Azure 마이그레이션: 서버 평가 도구를 사용하여 실제 서버를 평가하는 경우 Azure 마이그레이션 어플라이언스를 설정하는 방법에 대해 설명합니다.
+이 문서에서는 Azure Migrate: 서버 평가 도구를 사용 하 여 물리적 서버를 평가 하는 경우 Azure Migrate 어플라이언스를 설정 하는 방법을 설명 합니다.
 
-Azure 마이그레이션 어플라이언스는 Azure 마이그레이션 서버 평가에서 다음을 수행하는 데 사용되는 경량 어플라이언스입니다.
+Azure Migrate 어플라이언스는 Azure Migrate Server 평가에서 다음을 수행 하는 데 사용 하는 경량 어플라이언스입니다.
 
-- 온-프레미스 서버를 검색합니다.
-- 검색된 서버에 대한 메타데이터 및 성능 데이터를 Azure 마이그레이션 서버 평가로 보냅니다.
+- 온-프레미스 서버를 검색 합니다.
+- 검색 된 서버에 대 한 메타 데이터 및 성능 데이터를 Azure Migrate 서버 평가로 보냅니다.
 
-Azure 마이그레이션 어플라이언스에 대해 [자세히 알아보세요.](migrate-appliance.md)
+Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-appliance.md) .
 
 
 ## <a name="appliance-deployment-steps"></a>어플라이언스 배포 단계
@@ -47,10 +47,10 @@ Azure 마이그레이션 어플라이언스에 대해 [자세히 알아보세요
 배포하기 전에 압축된 파일이 안전한지 확인합니다.
 
 1. 파일을 다운로드한 컴퓨터에서 관리자 명령 창을 엽니다.
-2. 다음 명령을 실행하여 압축된 파일에 대한 해시를 생성합니다.
+2. 다음 명령을 실행하여 압축된 파일의 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 퍼블릭 클라우드의 예:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-    - 정부 클라우드의 예:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+    - 퍼블릭 클라우드의 사용 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+    - 정부 클라우드의 사용 예: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
 3.  해시 값 확인:
  
     - 퍼블릭 클라우드의 경우(최신 어플라이언스 버전의 경우):
@@ -60,7 +60,7 @@ Azure 마이그레이션 어플라이언스에 대해 [자세히 알아보세요
           MD5 | 1e92ede3e87c03bd148e56a708cdd33f
           SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
-    - Azure 정부(최신 어플라이언스 버전의 경우):
+    - Azure 정부의 경우(최신 어플라이언스 버전의 경우):
 
         **알고리즘** | **해시 값**
           --- | ---
@@ -80,23 +80,23 @@ Azure 마이그레이션 어플라이언스에 대해 [자세히 알아보세요
 
 스크립트를 다음과 같이 실행합니다.
 
-1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.  기존 Azure 마이그레이션 어플라이언스에서 컴퓨터에서 스크립트를 실행하지 않도록 합니다.
+1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.  기존 Azure Migrate 어플라이언스의 머신에서 스크립트를 실행하지 않아야 합니다.
 2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
 3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
 4. 다음 명령을 실행하여 **AzureMigrateInstaller.ps1**이라는 스크립트를 실행합니다.
 
-    - 퍼블릭 클라우드의 경우:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
-    - Azure 정부의 경우:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
+    - 퍼블릭 클라우드의 경우: ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
+    - Azure Government의 경우: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 
     스크립트가 성공적으로 완료되면 어플라이언스 웹 애플리케이션이 시작됩니다.
 
-문제가 발생하면 C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>타임스탬프</em>.log에서 스크립트 로그에 액세스하여 문제 해결을 수행할 수 있습니다.
+문제가 발생하는 경우 문제 해결을 위해 C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그에 액세스할 수 있습니다.
 
 
 
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
-어플라이언스 VM이 [공용](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드에 대한 Azure URL에 연결할 수 있는지 확인합니다.
+어플라이언스 VM에서 [퍼블릭](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드의 Azure URL에 연결할 수 있는지 확인합니다.
 
 ## <a name="configure-the-appliance"></a>어플라이언스 구성
 
@@ -128,10 +128,10 @@ Azure 마이그레이션 어플라이언스에 대해 [자세히 알아보세요
 
 ## <a name="start-continuous-discovery"></a>연속 검색 시작
 
-어플라이언스에서 실제 서버에 연결하고 검색을 시작합니다.
+어플라이언스에서 물리적 서버로 연결 하 고 검색을 시작 합니다.
 
 1. **자격 증명 추가**를 클릭하여 어플라이언스가 서버를 검색하는 데 사용할 계정 자격 증명을 지정합니다.  
-2. 운영 **체제,** 자격 증명에 대한 친숙한 이름 및 사용자 이름 및 암호를 지정합니다. **추가**를 클릭합니다.
+2. **운영 체제**, 자격 증명의 친숙한 이름, 사용자 이름 및 암호를 지정합니다. 그런 다음, **추가**를 클릭합니다.
 Windows 및 Linux 서버에 대해 각각 자격 증명 집합 하나를 추가할 수 있습니다.
 4. **서버 추가**를 클릭하고 서버에 연결하기 위한 서버 세부 정보(FQDN/IP 주소 및 자격 증명의 식별 이름)를 지정합니다(한 행에 한 항목).
 3. **유효성 검사**를 클릭합니다. 유효성 검사 후 검색 가능한 서버 목록이 표시됩니다.
@@ -143,7 +143,7 @@ Windows 및 Linux 서버에 대해 각각 자격 증명 집합 하나를 추가�
 
 ## <a name="verify-servers-in-the-portal"></a>포털에서 서버 확인
 
-검색이 완료되면 서버가 포털에 나타나는지 확인할 수 있습니다.
+검색이 완료 되 면 서버가 포털에 표시 되는지 확인할 수 있습니다.
 
 1. Azure Migrate 대시보드를 엽니다.
 2. **Azure Migrate - 서버** > **Azure Migrate: 서버 평가** 페이지에서 **검색된 서버**의 수를 표시하는 아이콘을 클릭합니다.
@@ -151,4 +151,4 @@ Windows 및 Linux 서버에 대해 각각 자격 증명 집합 하나를 추가�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 마이그레이션 서버 평가를 사용 하 고 [실제 서버의 평가를](tutorial-assess-physical.md) 사용 해 보십시오.
+Azure Migrate 서버 평가를 사용 하 여 [물리적 서버 평가](tutorial-assess-physical.md) 를 시험해 보세요.

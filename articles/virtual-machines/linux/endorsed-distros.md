@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: guybo
 ms.openlocfilehash: ed7755251feb04a5f811d6ed96b00a347fba8994
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81605916"
 ---
-# <a name="endorsed-linux-distributions-on-azure"></a>Azure에서 승인된 Linux 배포판
+# <a name="endorsed-linux-distributions-on-azure"></a>Azure에서 Linux 배포판 보증
 파트너는 Azure Marketplace에서 Linux 이미지를 제공합니다. 다양한 Linux 커뮤니티와 작업하여 보증 배포 목록에 다양한 옵션을 추가합니다. Marketplace에서 사용할 수 없는 배포판의 경우 [Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)의 지침에 따라 항상 고유한 Linux를 가져올 수 있습니다.
 
 ## <a name="supported-distributions-and-versions"></a>지원되는 배포판 및 버전
-다음 표에서 Linux 배포판 및 Azure에서 지원 되는 버전을 나열합니다. Azure에서 Linux 및 오픈 소스 기술에 대한 지원에 대한 자세한 내용은 [Microsoft Azure의 Linux 이미지 지원을](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) 참조하십시오.
+다음 표에서 Linux 배포판 및 Azure에서 지원 되는 버전을 나열합니다. Azure의 Linux 및 오픈 소스 기술 지원에 대 한 자세한 내용은 [Microsoft Azure의 linux 이미지에](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) 대 한 지원을 참조 하세요.
 
 Hyper-V 및 Azure용 LIS(Linux 통합 서비스) 드라이버는 Microsoft가 업스트림 Linux 커널로 직접 제공되는 커널 모듈입니다.  일부 LIS 드라이버는 기본적으로 배포 커널에 빌드됩니다. RHEL(Red Hat Enterprise)/CentOS를 기반으로 둔 이전 배포는 [Hyper-V 및 Azure용 Linux Integration Services 버전 4.2](https://www.microsoft.com/download/details.aspx?id=55106)에서 별도의 다운로드로 제공됩니다. LIS 드라이버에 대한 자세한 내용은 [Linux 커널 요구 사항](create-upload-generic.md#linux-kernel-requirements)을 참조하세요.
 
@@ -33,34 +33,34 @@ Azure Linux 에이전트는 Azure Marketplace 이미지에 이미 사전 설치�
 
 | 배포 | 버전 | 드라이버 | 에이전트 |
 | --- | --- | --- | --- |
-| CentOS |센트OS 6.3+, 7.0+, 8.0+ |센트로스 6.3: [LIS 다운로드](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+: 커널에 있음 |패키지: "WALinuxAgent"에서 [리포지토리에서](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| CentOS |CentOS 6.3 이상, 7.0 이상, 8.0 이상 |CentOS 6.3: [LIS 다운로드](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+: 커널에 있음 |패키지: "WALinuxAgent"의 [리포지토리](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0 이상 |커널에 있음 |소스 코드: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
-| Debian |데비안 7.9+, 8.2+, 9, 10 |커널에 있음 |패키지: "waagent"에서 리포지토리의 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Debian |Debian 7.9 +, 8.2 +, 9, 10 |커널에 있음 |패키지: "waagent"에서 리포지토리의 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6.4 이상, 7.0 이상 |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음 <br/>소스 코드: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| Red Hat Enterprise Linux |RHEL 7.1+, 8.0+ |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Red Hat Enterprise Linux |RHEL 7.1 이상, 8.0 이상 |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise |SLES/SAP용 SLES<br>11 SP4<br>12 SP1+<br>15|커널에 있음 |패키지:<p> 11의 경우 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음<br>12의 경우 "python-azure-agent" 아래의 "퍼블릭 클라우드" 모듈에 포함됨<br/>소스 코드: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE |openSUSE Leap 42.2+ |커널에 있음 |패키지: "python-azure-agent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04 이상 **<sup>1</sup>** |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
-  - **<sup>1</sup>** 우분투 12.04 및 14.04에 대한 확장 지원에 대한 정보는 여기에서 찾을 수 있습니다: [우분투 확장 보안 유지 보수](https://www.ubuntu.com/esm).
+  - **<sup>1</sup>** ubuntu 12.04 및 14.04에 대 한 확장 지원에 대 한 정보는 [Ubuntu 확장 보안 유지 관리](https://www.ubuntu.com/esm)에서 찾을 수 있습니다.
 
 
-## <a name="image-update-cadence"></a>이미지 업데이트 케이던스
-Azure는 승인된 Linux 배포판의 게시자가 분기별 또는 더 빠른 주기로 Azure 마켓플레이스에서 최신 패치 및 보안 수정을 통해 이미지를 정기적으로 업데이트하도록 요구합니다. Azure 마켓플레이스에서 업데이트된 이미지는 고객에게 이미지 SKU의 새 버전으로 자동으로 사용할 수 있습니다. 리눅스 이미지를 찾는 방법에 대 한 자세한 내용은: [Azure 마켓 플레이스에서 리눅스 VM 이미지 찾기.](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage)
+## <a name="image-update-cadence"></a>이미지 업데이트 흐름
+Azure를 사용 하려면 보증 Linux 배포판의 게시자가 분기별 또는 더 빠른 흐름에서 최신 패치와 보안 픽스를 사용 하 여 Azure Marketplace의 이미지를 정기적으로 업데이트 해야 합니다. Azure Marketplace의 업데이트 된 이미지는 이미지 SKU의 새 버전으로 고객에 게 자동으로 제공 됩니다. Linux 이미지를 찾는 방법에 대 한 자세한 정보: [Azure Marketplace에서 LINUX VM 이미지를 찾습니다](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage).
 
 ### <a name="additional-links"></a>추가 링크
- - [SUSE 퍼블릭 클라우드 이미지 수명 주기](https://www.suse.com/c/suse-public-cloud-image-life-cycle/)
+ - [SUSE 공용 클라우드 이미지 수명 주기](https://www.suse.com/c/suse-public-cloud-image-life-cycle/)
 
 ## <a name="azure-tuned-kernels"></a>Azure 조정 커널
 
-Azure는 Azure Marketplace에 게시한 이미지를 최적화하기 위해 승인된 다양한 Linux 배포판과 긴밀하게 협력합니다. 이 공동 작업의 한 측면은 Azure 플랫폼에 최적화되어 Linux 배포판의 완전히 지원되는 구성 요소로 제공되는 "조정된" Linux 커널의 개발입니다. Azure 조정 커널에는 새로운 기능 및 성능 향상이 통합되며 배포에서 사용할 수 있는 기본 또는 일반 커널에 비해 더 빠른(일반적으로 분기별) 케이던스가 포함됩니다.
+Azure는 다양 한 보증 Linux 배포판과 긴밀 하 게 협력 하 여 Azure Marketplace에 게시 된 이미지를 최적화 합니다. 이 공동 작업의 한 가지 측면은 Azure 플랫폼에 최적화 되 고 Linux 배포판의 완전히 지원 되는 구성 요소로 제공 되는 "조정 된" Linux 커널을 개발 하는 것입니다. Azure에 의해 조정 되는 커널에는 배포에서 사용할 수 있는 기본 또는 일반 커널을 비교 하 여 새로운 기능과 성능이 개선 되 고 더 빠르게 (일반적으로 분기별) 주기가 통합 됩니다.
 
-대부분의 경우 Azure Marketplace의 기본 이미지에 이러한 커널이 미리 설치되어 있으므로 Azure 고객은 이러한 최적화된 커널의 이점을 즉시 얻을 수 있습니다. 이러한 Azure 조정 커널에 대한 자세한 내용은 다음 링크에서 확인할 수 있습니다.
+대부분의 경우 Azure Marketplace의 기본 이미지에 미리 설치 된 이러한 커널을 확인할 수 있으므로 Azure 고객은 이러한 최적화 된 커널의 이점을 즉시 얻을 수 있습니다. 이러한 Azure 조정 커널에 대 한 자세한 내용은 다음 링크에서 찾을 수 있습니다.
 
- - CentOS Azure 조정 커널 - CentOS 가상화 SIG를 통해 사용 가능 - [추가 정보](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
- - 데비안 클라우드 커널 - 데비안 10 및 데비안 9 "백포트" 이미지에서 Azure에서 사용할 수 있음 - [추가 정보](https://wiki.debian.org/Cloud/MicrosoftAzure)
- - SLES Azure 조정 커널 - [추가 정보](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
- - 우분투 Azure 조정 커널 - [더 많은 정보](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+ - CentOS Azure 튜닝 된 커널-CentOS 가상화 SIG를 통해 사용 가능- [추가 정보](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
+ - Debian Cloud Kernel-Azure의 Debian 10 및 Debian 9 "backports" 이미지에서 사용할 수 있음- [추가 정보](https://wiki.debian.org/Cloud/MicrosoftAzure)
+ - SLES Azure 튜닝 커널- [추가 정보](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
+ - Ubuntu Azure 조정 커널- [추가 정보](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
 
 
 ## <a name="partners"></a>파트너
@@ -80,7 +80,7 @@ Credativ는 독립적인 컨설팅 및 서비스 회사로, 주요 사업 분야
 ### <a name="oracle"></a>Oracle
 [https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)
 
-오라클의 전략은 퍼블릭 및 프라이빗 클라우드를 위한 광범위한 솔루션 포트폴리오를 제공하는 것입니다. 이 전략을 통해 고객은 Oracle 클라우드 및 다른 클라우드에 Oracle 소프트웨어를 배포하는 방법을 유연하게 선택할 수 있습니다. 오라클은 Microsoft와의 파트너십을 통해 오라클의 인증 및 지원을 통해 Microsoft 퍼블릭 및 프라이빗 클라우드에 오라클 소프트웨어를 배포할 수 있습니다.  오라클 퍼블릭 및 프라이빗 클라우드 솔루션에 대한 오라클의 헌신과 투자는 변함이 없습니다.
+Oracle의 전략은 공용 및 사설 클라우드에 대 한 광범위 한 솔루션 포트폴리오를 제공 하는 것입니다. 이 전략을 통해 고객은 Oracle 클라우드 및 다른 클라우드에 Oracle 소프트웨어를 배포하는 방법을 유연하게 선택할 수 있습니다. Oracle의 Microsoft와의 파트너 관계를 통해 고객은 Oracle의 인증과 지원으로 Microsoft 공용 및 사설 클라우드에서 Oracle 소프트웨어를 배포할 수 있습니다.  Oracle 공용 및 사설 클라우드 솔루션에 대 한 oracle의 약정 및 투자는 변경 되지 않습니다.
 
 ### <a name="red-hat"></a>Red Hat
 [https://www.redhat.com/en/partners/strategic-alliance/microsoft](https://www.redhat.com/en/partners/strategic-alliance/microsoft)
