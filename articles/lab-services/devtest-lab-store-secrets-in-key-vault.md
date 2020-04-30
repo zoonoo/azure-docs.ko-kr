@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 0ca36a7081aaf70ee2045ee7586184c89591df16
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461517"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Azure DevTest Labs의 키 자격 증명 모음에서 비밀 저장
@@ -26,7 +26,7 @@ Azure DevTest Labs를 사용하는 경우 복잡한 비밀을 입력해야 할 �
 
 이 문제를 해결하고 비밀을 안전한 장소에 보관하기 위해 DevTest Labs가 [Azure 키 자격 증명 모음](../key-vault/general/overview.md)에서 비밀 저장을 지원합니다. 사용자가 처음으로 비밀을 저장하는 경우 DevTest Labs 서비스는 랩을 포함하고 키 자격 증명 모음에 비밀을 저장하는 동일한 리소스 그룹에서 키 자격 증명 모음을 자동으로 만듭니다. DevTest Labs에서는 각 사용자에 대한 별도 키 자격 증명 모음을 만듭니다. 
 
-랩 사용자는 키 자격 증명 모음에서 비밀을 만들려면 먼저 랩 가상 컴퓨터를 만들어야 합니다. 이는 DevTest Lab 서비스가 랩 사용자를 유효한 사용자 문서와 연결해야 키 자격 증명 모음에 비밀을 만들고 저장할 수 있기 때문입니다. 
+랩 사용자는 먼저 랩 가상 머신을 만든 후에 키 자격 증명 모음에 비밀을 만들 수 있습니다. 이는 DevTest Lab service가 키 자격 증명 모음에 암호를 만들고 저장 하는 것을 허용 하기 전에 랩 사용자를 유효한 사용자 문서와 연결 해야 하기 때문입니다. 
 
 
 ## <a name="save-a-secret-in-azure-key-vault"></a>Azure Key Vault에 비밀 저장
