@@ -4,10 +4,10 @@ description: 이 문서에는 Azure Cognitive Services Language Understanding(LU
 ms.topic: reference
 ms.date: 04/02/2020
 ms.openlocfilehash: 0a734091ad2c9812f079d77c97c22872717aa7c9
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82103695"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>LUIS 모델 및 키에 대 한 제한
@@ -110,7 +110,7 @@ Azure Portal에서 _kind_리소스를 `LUIS`필터링 할 때 종류를 사용 �
 
 ## <a name="keyboard-controls"></a>키보드 제어
 
-|키보드 입력 | 설명 |
+|키보드 입력 | Description |
 |--|--|
 |Control+E|발화 목록에서 토큰과 엔터티 간 전환|
 

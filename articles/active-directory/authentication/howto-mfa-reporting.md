@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2df562d65ad064efb1be337e0b68cb8638536981
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82112765"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 보고서
@@ -152,7 +152,7 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 
 다음 표는 다운로드 된 버전의 multi-factor authentication 활동 보고서를 사용 하 여 다단계 인증 문제를 해결 하는 데 사용할 수 있습니다. Azure Portal에 직접 표시 되지 않습니다.
 
-| 호출 결과 | 설명 | 광범위 한 설명 |
+| 호출 결과 | Description | 광범위 한 설명 |
 | --- | --- | --- |
 | SUCCESS_WITH_PIN | PIN이 입력됨 | 사용자가 PIN을 입력했습니다.  인증이 성공하면 사용자가 올바른 PIN을 입력한 것이며, 인증이 거부 된 경우 잘못 된 PIN을 입력 하거나 사용자가 표준 모드로 설정 됩니다. |
 | SUCCESS_NO_PIN | #만 입력 됨 | PIN 모드로 설정된 사용자의 인증이 거부되는 경우 사용자가 PIN을 입력하지 않고 #만 입력했음을 의미합니다.   표준 모드로 설정된 사용자가 인증에 성공하면 사용자가 표준 모드에서는 올바른 동작인 #만 입력했음을 의미합니다. |

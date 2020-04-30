@@ -4,10 +4,10 @@ description: Azure Batch를 위한 Azure 모니터링 서비스, 메트릭, 진�
 ms.topic: article
 ms.date: 04/05/2018
 ms.openlocfilehash: c8b11d0b7187d6c4b5b3ccff1e19eb533ff3f0da
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82113894"
 ---
 # <a name="monitor-batch-solutions"></a>Batch 솔루션 모니터링
@@ -33,7 +33,7 @@ Batch 계정을 포함하는 구독 수준에서, [Azure 활동 로그](../azure
 
 ## <a name="batch-resource-monitoring"></a>Batch 리소스 모니터링
 
-Batch 애플리케이션에서 Batch API를 사용하여 작업, 태스크, 노드, 풀을 포함한 리소스 상태를 모니터링하거나 쿼리할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+Batch 애플리케이션에서 Batch API를 사용하여 작업, 태스크, 노드, 풀을 포함한 리소스 상태를 모니터링하거나 쿼리할 수 있습니다. 다음은 그 예입니다.
 
 * [상태별 태스크 및 컴퓨팅 노드 카운팅](batch-get-resource-counts.md)
 * [Batch 리소스를 효율적으로 나열하는 쿼리 만들기](batch-efficient-list-queries.md)

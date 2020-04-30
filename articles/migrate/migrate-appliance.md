@@ -4,10 +4,10 @@ description: 서버 평가 및 마이그레이션에 사용 되는 Azure Migrate
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.openlocfilehash: 71a17211a530b4cb55764f3b3ab84ff5a4d5f3e6
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82106381"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
@@ -18,7 +18,7 @@ ms.locfileid: "82106381"
 
 Azure Migrate 어플라이언스는 다음과 같은 시나리오에서 사용 됩니다.
 
-**시나리오** | **도구** | **사용 대상** 
+**시나리오** | **도구** | **사용 목적** 
 --- | --- | ---
 **VMware VM 평가** | Azure Migrate: 서버 평가 | VMware Vm 검색<br/><br/> 컴퓨터 앱 및 종속성 검색<br/><br/> 평가에 대 한 컴퓨터 메타 데이터 및 성능 메타 데이터를 수집 합니다.
 **VMware VM 에이전트 없는 마이그레이션** | Azure Migrate: 서버 마이그레이션 | VMware Vm 검색 <br/><br/> 에이전트 없는 마이그레이션을 사용 하 여 VMware Vm을 복제 합니다.

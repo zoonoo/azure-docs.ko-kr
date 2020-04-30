@@ -1,14 +1,14 @@
 ---
-title: 질문과 대답
+title: 자주 묻는 질문
 description: Azure Container Instances 서비스와 관련 된 faq (질문과 대답)
 author: dkkapur
 ms.topic: article
 ms.date: 04/10/2020
 ms.openlocfilehash: 4fca198356c8db006c4190e0f16b20f78dc1d477
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115230"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Azure Container Instances에 대 한 질문과 대답
@@ -88,7 +88,7 @@ Azure Container Instances는 서버를 사용 하지 않는 컨테이너 주문�
 
 선택한 [azure virtual network에 컨테이너 그룹을 배포](container-instances-vnet.md) 하 고, 개인 ip를 컨테이너 그룹에 위임 하 여 azure 리소스를 통해 VNet 내에서 트래픽을 라우팅할 수 있습니다. 컨테이너 그룹을 가상 네트워크에 배포 하는 작업은 현재 Azure 지역 하위 집합의 프로덕션 작업에 사용할 수 있습니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 ### <a name="when-does-the-meter-start-running"></a>측정기가 실행을 시작 하는 시기는 언제 입니까?
 

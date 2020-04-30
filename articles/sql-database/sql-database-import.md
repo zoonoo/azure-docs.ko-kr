@@ -12,13 +12,13 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
 ms.openlocfilehash: 4fe8eb0b363fc95ac5913e66884a2ed8f3d225a6
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086490"
 ---
-# <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>빠른 시작: Azure SQL 데이터베이스의 데이터베이스에 BACPAC 파일을 가져오기
+# <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>빠른 시작: Azure SQL Database에서 BACPAC 파일을 데이터베이스로 가져오기
 
 [BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) 파일을 사용하여 Azure SQL Database의 데이터베이스로 SQL Server 데이터베이스를 가져올 수 있습니다. Azure Blob 스토리지(표준 스토리지만 해당)에 저장된 `BACPAC` 파일에서 또는 온-프레미스 위치의 로컬 스토리지에서 데이터를 가져올 수 있습니다. 더 빠른 리소스를 더 많이 제공하여 가져오기 속도를 높이려면 가져오기 프로세스 중에 데이터베이스를 더 높은 서비스 계층 및 컴퓨팅 크기로 확장합니다. 그런 다음, 가져오기가 성공하면 크기를 축소할 수 있습니다.
 
@@ -30,16 +30,16 @@ ms.locfileid: "82086490"
 
 ## <a name="using-azure-portal"></a>Azure Portal 사용
 
-이 비디오를 시청하여 Azure 포털의 BACPAC 파일에서 가져오거나 아래를 계속 읽는 방법을 확인하십시오.
+이 비디오를 시청 하 여 Azure Portal에서 BACPAC 파일을 가져오는 방법을 확인 하거나 아래에서 계속 읽어 보세요.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Its-just-SQL-Restoring-a-database-to-Azure-SQL-DB-from-backup/player?WT.mc_id=dataexposed-c9-niner]
 
 [Azure Portal은 Azure SQL Database에서 Azure Blob Storage에 저장된 BACPAC 파일을 통해 단일 데이터베이스를 만드는 기능*만* 지원합니다.](https://portal.azure.com) **
 
-Azure PowerShell을 사용하여 BACPAC 파일에서 [관리되는 인스턴스로](sql-database-managed-instance.md) 데이터베이스를 마이그레이션하는 것은 현재 지원되지 않습니다. 대신 SQL 서버 관리 스튜디오 또는 SQLPackage를 사용합니다.
+Azure PowerShell를 사용 하 여 BACPAC 파일에서 관리 되는 [인스턴스로](sql-database-managed-instance.md) 데이터베이스를 마이그레이션하는 것은 현재 지원 되지 않습니다. 대신 SQL Server Management Studio 또는 SQLPackage를 사용 해야 합니다.
 
 > [!NOTE]
-> Azure 포털 또는 PowerShell을 통해 제출된 가져오기/내보내기 요청을 처리하는 컴퓨터는 데이터 계층 응용 프로그램 프레임워크(DacFX)에서 생성된 임시 파일뿐만 아니라 BACPAC 파일을 저장해야 합니다. 필요한 디스크 공간은 크기가 같은 데이터베이스에 따라 크게 다르며 데이터베이스 크기의 최대 3배까지 디스크 공간이 필요할 수 있습니다. 가져오기/내보내기 요청을 실행하는 컴퓨터에는 450GB 로컬 디스크 공간만 있습니다. 따라서 일부 요청은 오류와 `There is not enough space on the disk`함께 실패할 수 있습니다. 이 경우 해결 방법은 로컬 디스크 공간이 충분한 컴퓨터에서 sqlpackage.exe를 실행하는 것입니다. 이 문제를 방지하려면 SqlPackage를 사용하여 150GB보다 큰 데이터베이스를 가져오고 내보내는 것이 좋습니다.
+> Azure Portal 또는 PowerShell을 통해 제출 된 가져오기/내보내기 요청을 처리 하는 컴퓨터는 BACPAC 파일 뿐만 아니라 데이터 계층 응용 프로그램 프레임 워크 (DacFX)에서 생성 된 임시 파일을 저장 해야 합니다. 필요한 디스크 공간은 크기가 같은 데이터베이스에 따라 크게 달라 지 며, 데이터베이스 크기의 최대 3 배까지 디스크 공간이 필요할 수 있습니다. Import/export 요청을 실행 하는 컴퓨터에는 450GB 로컬 디스크 공간만 있습니다. 따라서 일부 요청은 오류 `There is not enough space on the disk`와 함께 실패할 수 있습니다. 이 경우 해결 방법은 충분 한 로컬 디스크 공간이 있는 컴퓨터에서 sqlpackage를 실행 하는 것입니다. 이 문제를 방지 하기 위해 SqlPackage를 사용 하 여 150GB 보다 큰 데이터베이스를 가져오거나 내보내는 것이 좋습니다.
 
 1. Azure Portal을 사용하여 BACPAC 파일에서 새 단일 데이터베이스로 가져오려면 적절한 데이터베이스 서버 페이지를 연 다음, 도구 모음에서 **데이터베이스 가져오기**를 선택합니다.  
 
@@ -61,7 +61,7 @@ Azure PowerShell을 사용하여 BACPAC 파일에서 [관리되는 인스턴스�
 
 ## <a name="using-sqlpackage"></a>SqlPackage 사용
 
-[SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) 명령줄 유틸리티를 사용하여 SQL Server 데이터베이스를 가져오려면 [매개 변수 및 속성 가져오기](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties)를 참조하세요. [시각적 스튜디오용 SQL 서버 관리 스튜디오](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 및 SQL 서버 데이터 도구에는 SqlPackage가 포함됩니다. [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx) Microsoft 다운로드 센터에서 최신 [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876)를 다운로드할 수도 있습니다.
+[SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) 명령줄 유틸리티를 사용하여 SQL Server 데이터베이스를 가져오려면 [매개 변수 및 속성 가져오기](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties)를 참조하세요. [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) [Visual Studio에 대 한 SQL Server Management Studio 및 SQL Server Data Tools에](https://msdn.microsoft.com/library/mt204009.aspx) 는 SqlPackage이 포함 됩니다. Microsoft 다운로드 센터에서 최신 [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876)를 다운로드할 수도 있습니다.
 
 규모 및 성능과 관련하여 대부분의 프로덕션 환경에서는 Azure Portal보다 SqlPackage를 사용하는 것이 좋습니다. `BACPAC` 파일을 사용하는 마이그레이션에 대한 SQL Server 고객 자문 팀 블로그는 [BACPAC 파일을 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)을 참조하세요.
 
@@ -83,17 +83,17 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 ## <a name="using-powershell"></a>PowerShell 사용
 
 > [!NOTE]
-> [관리되는 인스턴스는](sql-database-managed-instance.md) 현재 Azure PowerShell을 사용하여 BACPAC 파일에서 인스턴스 데이터베이스로 데이터베이스를 마이그레이션하는 것을 지원하지 않습니다. 관리되는 인스턴스로 가져오려면 SQL Server Management Studio 또는 SQLPackage를 사용합니다.
+> [관리 되는 인스턴스는](sql-database-managed-instance.md) 현재 Azure PowerShell를 사용 하 여 데이터베이스를 BACPAC 파일에서 인스턴스 데이터베이스로 마이그레이션하는 것을 지원 하지 않습니다. 관리되는 인스턴스로 가져오려면 SQL Server Management Studio 또는 SQLPackage를 사용합니다.
 
 > [!NOTE]
-> 포털 또는 Powershell을 통해 제출된 가져오기/내보내기 요청을 처리하는 컴퓨터는 데이터 계층 응용 프로그램 프레임워크(DacFX)에서 생성된 임시 파일뿐만 아니라 bacpac 파일을 저장해야 합니다. 필요한 디스크 공간은 크기가 같은 DB에 따라 크게 달라지며 데이터베이스 크기의 최대 3배를 차지할 수 있습니다. 가져오기/내보내기 요청을 실행하는 컴퓨터에는 450GB 로컬 디스크 공간만 있습니다. 따라서 일부 요청은 "디스크에 공간이 부족합니다" 오류로 인해 실패할 수 있습니다. 이 경우 해결 방법은 로컬 디스크 공간이 충분한 컴퓨터에서 sqlpackage.exe를 실행하는 것입니다. 150GB보다 큰 데이터베이스를 가져오고 내보낼 때는 SqlPackage를 사용하여 이 문제를 방지합니다.
+> 포털 또는 Powershell을 통해 제출 된 가져오기/내보내기 요청을 처리 하는 컴퓨터는 DacFX (데이터 계층 응용 프로그램 프레임 워크)에서 생성 된 임시 파일 뿐만 아니라 bacpac 파일을 저장 해야 합니다. 필요한 디스크 공간은 크기가 동일한 Db에 따라 크게 달라 지 며 데이터베이스 크기는 최대 3 배까지 걸릴 수 있습니다. Import/export 요청을 실행 하는 컴퓨터에는 450GB 로컬 디스크 공간만 있습니다. 따라서 일부 요청은 "디스크 공간이 부족 합니다." 오류와 함께 실패할 수 있습니다. 이 경우 해결 방법은 충분 한 로컬 디스크 공간이 있는 컴퓨터에서 sqlpackage를 실행 하는 것입니다. 150GB 보다 큰 데이터베이스를 가져오거나 내보낼 때 SqlPackage를 사용 하 여이 문제를 방지 합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
-> PowerShell Azure 리소스 관리자(RM) 모듈은 Azure SQL Database에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈용입니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 계속 받을 것입니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 거의 동일합니다. 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개를](/powershell/azure/new-azureps-module-az)참조하십시오.
+> Azure SQL Database에서 RM (PowerShell Azure Resource Manager) 모듈을 계속 사용할 수 있지만 향후의 모든 개발은 Az. Sql 모듈에 대 한 것입니다. AzureRM 모듈은 12 월 2020 일까 때까지 버그 수정을 계속 받습니다.  Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다. 호환성에 대 한 자세한 내용은 [새 Azure PowerShell Az Module 소개](/powershell/azure/new-azureps-module-az)를 참조 하세요.
 
-[New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet을 사용하여 Azure SQL Database 서비스에 가져오기 데이터베이스 요청을 제출합니다. 데이터베이스 크기에 따라 가져오기를 완료하는 데 다소 시간이 걸릴 수 있습니다.
+[AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet을 사용 하 여 Azure SQL Database 서비스에 데이터베이스 가져오기 요청을 제출 합니다. 데이터베이스 크기에 따라 가져오기를 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
 ```powershell
 $importRequest = New-AzSqlDatabaseImport -ResourceGroupName "<resourceGroupName>" `
@@ -107,7 +107,7 @@ $importRequest = New-AzSqlDatabaseImport -ResourceGroupName "<resourceGroupName>
         -AdministratorLoginPassword $(ConvertTo-SecureString -String "<password>" -AsPlainText -Force)
 ```
 
-가져오기의 진행률을 확인 하려면 [Get-AzSqlDatabaseExportExportExport상태](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet을 사용할 수 있습니다. 요청 직후cmdlet을 실행하면 `Status: InProgress`일반적으로 반환됩니다. 가져오기가 표시되면 완료됩니다. `Status: Succeeded`
+[AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet을 사용 하 여 가져오기 진행 상태를 확인할 수 있습니다. 요청 직후에 cmdlet을 실행 하면이 반환 `Status: InProgress`됩니다. 가져오기가 완료 되 면이 표시 `Status: Succeeded`됩니다.
 
 ```powershell
 $importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
@@ -125,7 +125,7 @@ $importStatus
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) 명령을 사용하여 Azure SQL Database 서비스에 가져오기 데이터베이스 요청을 제출합니다. 데이터베이스 크기에 따라 가져오기를 완료하는 데 다소 시간이 걸릴 수 있습니다.
+[Az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) 명령을 사용 하 여 Azure SQL Database 서비스에 데이터베이스 가져오기 요청을 제출 합니다. 데이터베이스 크기에 따라 가져오기를 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
 ```azurecli
 # get the storage account key
@@ -145,18 +145,18 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 ## <a name="limitations"></a>제한 사항
 
 - 탄력적 풀의 데이터베이스로 가져오기는 지원되지 않습니다. 단일 데이터베이스로 데이터를 가져온 다음, 해당 데이터베이스를 탄력적 풀로 이동할 수 있습니다.
-- Azure 서비스에 대한 액세스 허용이 꺼짐으로 설정되어 있으면 내보내기 서비스 가져오기가 작동하지 않습니다. 그러나 Azure VM에서 sqlpackage.exe를 수동으로 실행하거나 DACFx API를 사용하여 코드에서 직접 내보내기를 수행하여 문제를 해결할 수 있습니다.
+- Azure 서비스에 대 한 액세스 허용이 OFF로 설정 되어 있으면 가져오기 내보내기 서비스가 작동 하지 않습니다. 그러나 Azure VM에서 sqlpackage를 수동으로 실행 하거나 DACFx API를 사용 하 여 코드에서 직접 내보내기를 수행 하 여 문제를 해결할 수 있습니다.
 
 ## <a name="import-using-wizards"></a>마법사를 사용하여 가져오기
 
 다음 마법사를 사용할 수도 있습니다.
 
 - [SQL Server Management Studio의 데이터 계층 애플리케이션 가져오기 마법사](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database#using-the-import-data-tier-application-wizard)
-- [SQL 서버 가져오기 및 내보내기 마법사](https://docs.microsoft.com/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard).
+- [가져오기 및 내보내기 마법사를 SQL Server](https://docs.microsoft.com/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 가져온 SQL 데이터베이스에 연결하고 쿼리하는 방법을 알아보려면 [빠른 시작: Azure SQL Database: SQL Server 관리 스튜디오를 사용하여 데이터를 연결하고 쿼리합니다.](sql-database-connect-query-ssms.md)
+- 가져온 SQL Database에 연결 하 고 쿼리 하는 방법에 대 한 자세한 내용은 [빠른 시작: Azure SQL Database: SQL Server Management Studio를 사용 하 여 연결 및 데이터 쿼리](sql-database-connect-query-ssms.md)를 참조 하세요.
 - BACPAC 파일을 사용한 마이그레이션에 관한 SQL Server 고객 자문 팀 블로그는 [BACPAC 파일을 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션](https://techcommunity.microsoft.com/t5/DataCAT/Migrating-from-SQL-Server-to-Azure-SQL-Database-using-Bacpac/ba-p/305407)을 참조하세요.
 - 성능 권장 사항을 비롯한 전체 SQL Server 데이터베이스 마이그레이션 프로세스에 대한 설명은 [Azure SQL Database로 SQL Server 데이터베이스 마이그레이션](sql-database-single-database-migrate.md)을 참조하세요.
 - 스토리지 키 및 공유 액세스 서명을 안전하게 관리하고 공유하는 방법을 알아보려면 [Azure Storage 보안 가이드](https://docs.microsoft.com/azure/storage/common/storage-security-guide)를 참조하세요.

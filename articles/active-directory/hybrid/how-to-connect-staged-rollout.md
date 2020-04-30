@@ -11,10 +11,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 80b7536704d68e96429d715705a0518410db399a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82112323"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>스테이징 된 롤아웃 (미리 보기)을 사용 하 여 클라우드 인증으로 마이그레이션
@@ -221,7 +221,7 @@ PowerShell을 사용 하 여 Active Directory 포리스트에서 *원활한 SSO
 
 그룹에서 사용자를 제거 하면 해당 사용자에 대해 준비 된 롤아웃이 해제 됩니다. 준비 된 롤아웃 기능을 사용 하지 않도록 설정 하려면 컨트롤을 다시 **Off**로 밉니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 **Q: 프로덕션 환경에서이 기능을 사용할 수 있나요?**
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b3cd4ed280529efbde32fb89e6bac20640940fff
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a50f203b8057dd4ea51eff1cf09fc97fb598cb3e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419877"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82096438"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool"></a>빠른 시작: Synapse SQL 풀 만들기
 
@@ -81,5 +81,5 @@ SQL 풀이 만들어지면 작업 영역에서 데이터를 로드하고, 스트
 
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른 시작: 웹 도구를 사용하여 Synapse Studio에서 Apache Spark 풀 만들기](spark/apache-spark-notebook-create-spark-use-sql.md)를 참조하세요.
+- [빠른 시작: 웹 도구를 사용하여 Synapse Studio에서 Apache Spark 풀 만들기](quickstart-apache-spark-notebook.md)를 참조하세요.
 - [빠른 시작: Azure Portal을 사용하여 Apache Spark 풀 만들기](quickstart-create-apache-spark-pool.md)를 참조하세요.

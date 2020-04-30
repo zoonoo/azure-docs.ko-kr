@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: diberry
 ms.openlocfilehash: 679073715588a4a81e69e3e7ba2d18341b1bab4b
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82096625"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Azure 리소스 제작 키로 마이그레이션
@@ -82,7 +82,7 @@ _LUIS 포털_의 **관리-> Azure 리소스** 페이지에서 더 많은 제작 
 
 _Azure Portal_, 해당 리소스에 대 한 **Access Control (IAM)** 페이지에서 제작 리소스에 참가자를 추가할 수 있습니다. 자세한 내용은 [참가자 액세스 추가](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource)를 참조 하세요.
 
-|포털|용도|
+|포털|목적|
 |--|--|
 |[Azure](https://azure.microsoft.com/free/)|* 예측 및 제작 리소스를 만듭니다.<br>* 참가자를 할당 합니다.|
 |[LUIS](https://www.luis.ai)|* 새 제작 리소스로 마이그레이션<br>* **관리-> Azure 리소스** 페이지에서 예측을 할당 하거나 할당을 취소 하 고 앱에 리소스를 제작 합니다.|

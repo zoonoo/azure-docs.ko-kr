@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2020
 ms.openlocfilehash: 545c1720ef379ec74bd2e7c0bc68f6a2fcbba789
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115502"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 AS2 메시지 교환
@@ -81,14 +81,14 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 �
 
 1. 이제 이러한 속성에 대 한 정보를 제공 합니다.
 
-   | 속성 | 설명 |
+   | 속성 | Description |
    |----------|-------------|
    | **인코딩할 메시지** | 메시지 페이로드 |
    | **AS2 원본** | AS2 규약에서 지정한 메시지 보낸 사람의 식별자입니다. |
    | **AS2 to** | AS2 규약에서 지정한 메시지 수신기의 식별자입니다. |
    |||
 
-   예를 들어 다음과 같은 가치를 제공해야 합니다.
+   다음은 그 예입니다.
 
    ![메시지 인코딩 속성](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 

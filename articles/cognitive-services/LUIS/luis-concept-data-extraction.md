@@ -5,10 +5,10 @@ author: diberry
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 3cea4a46564210ad8c37fdeda68e24337091d0bb
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82100297"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>의도 및 엔터티를 사용 하 여 utterance 텍스트에서 데이터 추출
@@ -75,7 +75,7 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 
 |데이터 개체|데이터 형식|데이터 위치|Value|
 |--|--|--|--|
-|Intent|String|topScoringIntent.intent|“GetStoreInfo”|
+|Intent|문자열|topScoringIntent.intent|“GetStoreInfo”|
 
 두 개 이상의 의도 점수에 따라 의사 결정 봇 또는 LUIS 호출 앱이 결정 되 면 모든 의도의 점수를 반환 합니다.
 
@@ -137,8 +137,8 @@ Querystring 매개 변수를 `show-all-intents=true`설정 합니다. 엔드포�
 
 |데이터 개체|데이터 형식|데이터 위치|Value|점수 매기기|
 |--|--|--|--|:--|
-|Intent|String|intents[0].intent|“GetStoreInfo”|0.984749258|
-|Intent|String|intents[1].intent|“None”|0.0168218873|
+|Intent|문자열|intents[0].intent|“GetStoreInfo”|0.984749258|
+|Intent|문자열|intents[1].intent|“None”|0.0168218873|
 
 미리 빌드된 도메인을 추가하는 경우, 의도 이름은 의도뿐 아니라 `Utilties` 또는 `Communication`와 같은 도메인을 나타냅니다.
 
@@ -198,9 +198,9 @@ Querystring 매개 변수를 `show-all-intents=true`설정 합니다. 엔드포�
 
 |도메인|데이터 개체|데이터 형식|데이터 위치|Value|
 |--|--|--|--|--|
-|공공 시설|Intent|String|intents[0].intent|“<b>Utilities</b>.ShowNext”|
-|통신|Intent|String|intents[1].intent|<b>Communication</b>.StartOver”|
-||Intent|String|intents[2].intent|“None”|
+|공공 시설|Intent|문자열|intents[0].intent|“<b>Utilities</b>.ShowNext”|
+|통신|Intent|문자열|intents[1].intent|<b>Communication</b>.StartOver”|
+||Intent|문자열|intents[2].intent|“None”|
 
 
 ## <a name="data-from-entities"></a>엔터티의 데이터

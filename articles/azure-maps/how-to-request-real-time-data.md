@@ -1,6 +1,6 @@
 ---
-title: 실시간 대중 교통 데이터 요청 | 마이크로소프트 Azure 지도
-description: Microsoft Azure 지도 이동성 서비스를 사용하여 실시간 대중 교통 데이터를 요청합니다.
+title: 실시간 공용 전송 데이터 요청 | Microsoft Azure 맵
+description: Microsoft Azure Maps 모바일 서비스를 사용 하 여 실시간 공용 전송 데이터를 요청 합니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/06/2019
@@ -10,43 +10,43 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 4743fbe84f5d41b4659e13d96868d2f64a473e4b
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086080"
 ---
-# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Azure Maps 모빌리티 서비스를 사용하여 실시간 대중 교통 데이터 요청
+# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Azure Maps 모바일 서비스를 사용 하 여 실시간 공용 전송 데이터 요청
 
-이 문서에서는 Azure Maps [모빌리티 서비스를](https://aka.ms/AzureMapsMobilityService) 사용하여 실시간 대중 교통 데이터를 요청하는 방법을 보여 주며 있습니다.
+이 문서에서는 Azure Maps [모바일 서비스](https://aka.ms/AzureMapsMobilityService) 를 사용 하 여 실시간 공용 전송 데이터를 요청 하는 방법을 보여 줍니다.
 
-이 기사에서는 지정된 정류장에 도착하는 모든 노선에 대해 다음 실시간 도착을 요청하는 방법을 배웁니다.
+이 문서에서는 지정 된 중지 시간에 도착 하는 모든 줄에 대해 다음 실시간 도착 한를 요청 하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-먼저 Azure Maps 공용 이동 API를 호출하려면 Azure Maps 계정과 구독 키가 있어야 합니다. 자세한 내용은 계정 [만들기의](quick-demo-map-app.md#create-an-account-with-azure-maps) 지침에 따라 Azure Maps 계정을 만듭니다. 기본 [키를 가져오는](quick-demo-map-app.md#get-the-primary-key-for-your-account) 단계를 수행하여 계정의 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
+Azure Maps 공용 전송 Api에 대 한 호출을 수행 하려면 먼저 Azure Maps 계정 및 구독 키가 있어야 합니다. 자세한 내용은 [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps) 의 지침에 따라 Azure Maps 계정을 만드세요. [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account) 의 단계에 따라 계정에 대 한 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 
 이 문서에서는 [우체부 앱](https://www.getpostman.com/apps)을 사용하여 REST 호출을 빌드합니다. 선호하는 모든 API 개발 환경을 사용할 수 있습니다.
 
-## <a name="request-real-time-arrivals-for-a-stop"></a>실시간 도착 요청
+## <a name="request-real-time-arrivals-for-a-stop"></a>중지에 대 한 실시간 도착 한 요청
 
-특정 대중 교통 정류장의 실시간 도착 데이터를 요청하려면 Azure Maps [모빌리티 서비스의](https://aka.ms/AzureMapsMobilityService) [실시간 도착 API에](https://aka.ms/AzureMapsMobilityRealTimeArrivals) 요청해야 합니다. 요청을 완료하려면 **metroID** 및 **stopID가** 필요합니다. 이러한 매개 변수를 요청하는 방법에 대한 자세한 내용은 [대중 교통 경로를 요청하는](https://aka.ms/AMapsHowToGuidePublicTransitRouting)방법에 대한 가이드를 참조하십시오.
+특정 공용 전송 중지의 실시간 도착 한 데이터를 요청 하려면 Azure Maps [모바일 서비스](https://aka.ms/AzureMapsMobilityService)의 [실시간 도착 한 API](https://aka.ms/AzureMapsMobilityRealTimeArrivals) 를 요청 해야 합니다. 요청을 완료 하려면 **metroID** 및 **stopid** 가 필요 합니다. 이러한 매개 변수를 요청 하는 방법에 대해 자세히 알아보려면 [공용 전송 경로를 요청](https://aka.ms/AMapsHowToGuidePublicTransitRouting)하는 방법에 대 한 가이드를 참조 하세요.
 
-"시애틀-타코마-벨뷰, 워싱턴 주" 지역의 메트로 ID인 메트로 ID로 "522"를 사용해 보겠습니다. "522---2060603"을 정류장 ID로 사용하여이 버스 정류장은 "Ne 24th St & 162 th Ave Ne, Bellevue WA"에 있습니다. 다음 5개의 실시간 도착 데이터를 요청하려면 이 정류장의 모든 다음 실시간 도착에 대해 다음 단계를 완료하십시오.
+"시애틀 – Tacoma – Bellevue, WA" 영역에 대 한 metro ID 인 metro ID로 "522"을 사용 하겠습니다. "522---2060603"를 중지 ID로 사용 합니다 .이 버스 중지는 "Ne 24 일 St & 162nd 평균 Ne, Bellevue WA"에 있습니다. 다음 5 개의 실시간 도착 한 데이터를 요청 하려면이 중지의 모든 다음 라이브 도착 한에 대해 다음 단계를 완료 합니다.
 
-1. Postman 앱을 열고 요청을 저장할 컬렉션을 만들어 보겠습니다. 우체부 앱 의 상단 근처에서 **새**를 선택합니다. 새 **만들기** 창에서 **컬렉션**을 선택합니다.  컬렉션의 이름을 지정하고 **만들기** 단추를 선택합니다.
+1. Postman 앱을 열고 요청을 저장할 컬렉션을 만들어 보겠습니다. Postman 앱의 맨 위 근처에서 **새로 만들기**를 선택 합니다. **새로 만들기** 창에서 **컬렉션**을 선택 합니다.  컬렉션 이름을로 하 고 **만들기** 단추를 선택 합니다.
 
-2. 요청을 만들려면 **새로 만들기를** 다시 선택합니다. 새 **만들기** 창에서 **요청을**선택합니다. 요청에 대한 **요청 이름을** 입력합니다. 요청을 저장할 위치로 이전 단계에서 만든 컬렉션을 선택합니다. 그런 다음 **저장을**선택합니다.
+2. 요청을 만들려면 **새로 만들기** 를 다시 선택 합니다. **새로 만들기** 창에서 **요청**을 선택 합니다. 요청에 대 한 **요청 이름을** 입력 합니다. 이전 단계에서 만든 컬렉션을 요청을 저장할 위치로 선택 합니다. 그런 다음, **저장**을 선택 합니다.
 
-    ![우체부에서 요청 만들기](./media/how-to-request-transit-data/postman-new.png)
+    ![Postman에서 요청 만들기](./media/how-to-request-transit-data/postman-new.png)
 
-3. 빌더 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력하여 GET 요청을 만듭니다. 을 `{subscription-key}`Azure Maps 기본 키로 바꿉습니다.
+3. 작성기 탭에서 **get** HTTP 메서드를 선택 하 고 다음 URL을 입력 하 여 get 요청을 만듭니다. 을 `{subscription-key}`Azure Maps 기본 키로 바꿉니다.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/realtime/arrivals/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=522---2060603&transitType=bus
     ```
 
-4. 요청이 성공하면 다음 응답을 받게 됩니다.  매개 변수 'scheduleType'은 예상 도착 시간이 실시간 또는 정적 데이터를 기반으로 하는지 여부를 정의합니다.
+4. 요청이 성공적으로 완료 되 면 다음 응답을 받게 됩니다.  ' ScheduleType ' 매개 변수는 예상 도착 시간이 실시간 또는 정적 데이터를 기반으로 하는지 여부를 정의 합니다.
 
     ```JSON
     {
@@ -113,12 +113,12 @@ ms.locfileid: "82086080"
 
 ## <a name="next-steps"></a>다음 단계
 
-모빌리티 서비스를 사용하여 대중교통 데이터를 요청하는 방법에 대해 알아보십시오.
+모바일 서비스를 사용 하 여 전송 데이터를 요청 하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [대중 교통 데이터를 요청하는 방법](how-to-request-transit-data.md)
+> [전송 데이터를 요청 하는 방법](how-to-request-transit-data.md)
 
-Azure Maps 모빌리티 서비스 API 설명서를 살펴보십시오.
+Azure Maps 모바일 서비스 API 설명서를 탐색 합니다.
 
 > [!div class="nextstepaction"]
-> [모빌리티 서비스 API 문서](https://aka.ms/AzureMapsMobilityService)
+> [모바일 서비스 API 설명서](https://aka.ms/AzureMapsMobilityService)

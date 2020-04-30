@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: f764b0d42e08e68b45d49a5aae8542f05707ccde
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82099362"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
@@ -61,7 +61,7 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 [LUIS 엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356) URL은 [LUIS 앱](#luis-app)이 작성되고 게시된 후 LUIS 쿼리를 제출하는 위치입니다. 엔드포인트 URL에는 앱 ID와 게시된 앱의 지역이 포함됩니다. 앱의 **[키 및 엔드포인트](luis-how-to-azure-subscription.md)** 페이지에 있는 엔드포인트를 찾거나 [앱 정보 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API에서 엔드포인트 URL을 가져올 수 있습니다.
 
-## <a name="entity"></a><a name="entity"></a>엔터티와의
+## <a name="entity"></a><a name="entity"></a>엔터티
 
 [엔터티](luis-concept-entity-types.md)는 [의도](luis-concept-intent.md)에 관련된 정보를 설명하는 [발화](luis-concept-utterance.md)의 중요한 단어이고 때때로 의도에 필수적입니다. 엔터티는 기본적으로 LUIS의 데이터 형식입니다.
 
@@ -93,7 +93,7 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 LUIS 앱은 [의도](#intent), [엔터티](#entity)및 레이블이 지정 된 [길이 발언](#utterance)를 포함 하 여 자연어 처리를 위한 언어 모델의 컬렉션입니다.
 
-## <a name="owner"></a><a name="owner"></a>소유자
+## <a name="owner"></a><a name="owner"></a>소유자도
 
 각 앱에는 앱을 만든 사용자인 하나의 소유자가 있습니다. 소유자는 [협력자](#collaborator)를 추가할 수 있습니다.
 
@@ -185,6 +185,6 @@ LUIS 앱 [테스트](luis-interactive-test.md#test-your-app)는 LUIS에 발화�
 
 발화는 “다음 주 화요일 시애틀행 티켓 2매 예약”과 같은 자연어 구문입니다. 예제 발화는 의도에 추가됩니다.
 
-## <a name="version"></a><a name="version"></a>Version
+## <a name="version"></a><a name="version"></a>버전
 
 LUIS [버전](luis-how-to-manage-versions.md)은 LUIS 앱 ID 및 게시된 엔드포인트와 연결된 특정 데이터 모델입니다. 모든 LUIS 앱에는 하나 이상의 버전이 있습니다.

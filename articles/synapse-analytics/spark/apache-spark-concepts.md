@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 3cf654e77bf68c5194a0213d4452242b5c44e234
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b1db306ffdb1c05c880e5fc639de2cc1db130d8e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419537"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82096285"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Azure Synapse Analytics의 Apache Spark 핵심 개념
 
@@ -30,7 +30,7 @@ Spark 풀을 만들 때 비용 또는 리소스가 들지 않으므로 원하는
 
 가장 좋은 방법은 개발 및 디버깅에 사용할 소규모 Spark 풀을 만든 다음, 프로덕션 워크로드를 실행하기 위한 더 큰 Spark 풀을 만드는 것입니다.
 
-[Synapse Analytics에서 Spark 풀 시작](apache-spark-notebook-create-spark-use-sql.md#create-an-apache-spark-pool)에서 Spark 풀을 만드는 방법과 모든 속성을 확인할 수 있습니다.
+[Synapse Analytics에서 Spark 풀 시작](../quickstart-create-apache-spark-pool.md)에서 Spark 풀을 만드는 방법과 모든 속성을 확인할 수 있습니다.
 
 ## <a name="spark-instances"></a>Spark 인스턴스
 

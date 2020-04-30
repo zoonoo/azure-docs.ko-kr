@@ -6,10 +6,10 @@ ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
 ms.openlocfilehash: b790ee286d9edd8cee04ef1db719be6395509be2
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82113564"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 계산 노드의 크기를 조정 하기 위한 자동 수식 만들기
@@ -80,7 +80,7 @@ $NodeDeallocationOption = taskcompletion;
 
 이 예에서는 우선 순위가 낮은 25 개 노드로 시작 하는 풀을 만듭니다. 낮은 우선 순위의 노드가 선점 될 때마다 전용 노드로 대체 됩니다. 첫 번째 예제와 같이 변수는 `maxNumberofVMs` 풀이 25 개의 vm을 초과 하지 않도록 합니다. 이 예제는 우선 순위가 낮은 Vm을 활용 하는 동시에 풀의 수명 동안 고정 된 수의 preemptions 발생 하도록 보장 하는 데 유용 합니다.
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>변수
 
 자동 크기 조정 수식에는 **서비스 정의** 및 **사용자 정의** 변수를 모두 사용할 수 있습니다. 서비스 정의 변수는 Batch 서비스에 기본 제공되어 있습니다. 서비스 정의 변수 일부는 읽기-쓰기이고, 일부는 읽기 전용입니다. 사용자 정의 변수는 사용자가 정의한 변수입니다. 이전 섹션에 나온 예제 수식에서 `$TargetDedicatedNodes` 및 `$PendingTasks`는 서비스 정의 변수입니다. 변수 `startingNumberOfVMs` 및 `maxNumberofVMs`는 사용자 정의 변수입니다.
 
@@ -93,7 +93,7 @@ $NodeDeallocationOption = taskcompletion;
 
 다음과 같은 서비스 정의 변수의 값을 가져오고 설정하여 풀의 컴퓨팅 노드 수를 관리할 수 있습니다.
 
-| 읽기-쓰기 서비스 정의 변수 | 설명 |
+| 읽기-쓰기 서비스 정의 변수 | Description |
 | --- | --- |
 | $TargetDedicatedNodes |풀에 대한 전용 컴퓨팅 노드의 대상 수입니다. 풀에서 항상 원하는 수의 노드에 도달할 수 없으므로 전용 노드의 수가 목표 수로 지정됩니다. 예를 들어 풀에서 최초 목표에 도달하기 전에 자동 크기 조정 평가에 따라 전용 노드의 목표 수가 수정되는 경우 풀에서 목표에 도달하지 못할 수 있습니다. <br /><br /> 목표가 배치 계정 노드 또는 코어 할당량을 초과하는 경우 Batch 서비스 구성으로 만든 계정의 풀에서 해당 목표에 도달하지 못할 수 있습니다. 목표가 구독의 공유 코어 할당량을 초과하는 경우 사용자 구독 구성으로 만든 계정의 풀에서 해당 목표에 도달하지 못할 수 있습니다.|
 | $TargetLowPriorityNodes |풀에 대한 우선 순위가 낮은 컴퓨팅 노드의 목표 수입니다. 풀에서 항상 원하는 수의 노드에 도달할 수 없으므로 우선 순위가 낮은 노드의 수가 목표 수로 지정됩니다. 예를 들어 풀에서 최초 목표에 도달하기 전에 자동 크기 조정 평가에 따라 우선 순위가 낮은 노드의 목표 수가 수정되는 경우 풀에서 목표에 도달하지 못할 수 있습니다. 목표가 Batch 계정 노드 또는 코어 할당량을 초과하는 경우 풀에서 해당 목표에 도달하지 못할 수도 있습니다. <br /><br /> 우선 순위가 낮은 계산 노드에 대 한 자세한 내용은 Batch를 [사용 하 여 우선 순위가 낮은 Vm 사용](batch-low-pri-vms.md)을 참조 하세요. |
@@ -106,7 +106,7 @@ $NodeDeallocationOption = taskcompletion;
 
 이러한 서비스 정의 변수의 값을 가져와서 Batch 서비스의 메트릭을 기반으로 하여 조정할 수 있습니다.
 
-| 읽기 전용 서비스 정의 변수 | 설명 |
+| 읽기 전용 서비스 정의 변수 | Description |
 | --- | --- |
 | $CPUPercent |평균 CPU 사용량 비율. |
 | $WallClockSeconds |사용된 시간(초) 수. |
@@ -140,7 +140,7 @@ $NodeDeallocationOption = taskcompletion;
 * double
 * doubleVec
 * doubleVecList
-* 문자열
+* string
 * timestamp--타임스탬프는 다음의 멤버를 포함하는 복합 구조입니다.
 
   * year
@@ -188,10 +188,10 @@ $NodeDeallocationOption = taskcompletion;
 
 3항 연산자(`double ? statement1 : statement2`)가 있는 이중 연산자를 테스트할 경우 0이 아님이 **true**이고 0은 **false**입니다.
 
-## <a name="functions"></a>함수
+## <a name="functions"></a>Functions
 이러한 미리 정의된 **함수** 는 자동 크기 조정 수식을 정의하는 데 사용할 수 있습니다.
 
-| 함수 | 반환 형식 | 설명 |
+| 함수 | 반환 형식 | Description |
 | --- | --- | --- |
 | avg(doubleVecList) |double |doubleVecList에 있는 모든 값의 평균 값을 반환합니다. |
 | len(doubleVecList) |double |doubleVecList에서 만든 벡터의 길이를 반환합니다. |
@@ -213,7 +213,7 @@ $NodeDeallocationOption = taskcompletion;
 | time(string dateTime="") |timestamp |매개 변수가 전달되지 않는 경우 현재 시간의 타임스탬프 또는 매개 변수가 전달되는 경우 dateTime 문자열의 타임스탬프를 반환합니다. 지원되는 dateTime 형식은 W3C-DTF 및 RFC 1123입니다. |
 | val(doubleVec v, double i) |double |시작 인덱스가 0인 벡터 v의 위치 i 요소 값을 반환합니다. |
 
-앞의 표에서 설명하는 함수 중 일부는 목록을 인수로 허용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+앞의 표에서 설명하는 함수 중 일부는 목록을 인수로 허용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 다음은 그 예입니다.
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -233,7 +233,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 | GetSamplePeriod() |기록 샘플 데이터 집합에서 가져온 샘플의 기간을 반환합니다. |
 | Count() |메트릭 기록에 있는 총 샘플 수를 반환합니다. |
 | HistoryBeginTime() |메트릭에 대해 사용 가능한 가장 오래된 데이터 샘플의 타임스탬프를 반환합니다. |
-| GetSamplePercent() |지정된 시간 간격에 사용할 수 있는 샘플의 백분율을 반환합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>반환된 샘플의 백분율이 지정한 `samplePercent`보다 작은 경우 `GetSample` 메서드가 실패하기 때문에 `GetSamplePercent` 메서드를 사용하여 먼저 확인할 수 있습니다. 그런 다음 비효율적인 샘플이 존재하는 경우 자동 크기 조정 평가를 중단하지 않고 대체 작업을 수행할 수 있습니다. |
+| GetSamplePercent() |지정된 시간 간격에 사용할 수 있는 샘플의 백분율을 반환합니다. 다음은 그 예입니다.<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>반환된 샘플의 백분율이 지정한 `samplePercent`보다 작은 경우 `GetSample` 메서드가 실패하기 때문에 `GetSamplePercent` 메서드를 사용하여 먼저 확인할 수 있습니다. 그런 다음 비효율적인 샘플이 존재하는 경우 자동 크기 조정 평가를 중단하지 않고 대체 작업을 수행할 수 있습니다. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>샘플, 샘플 비율 및 *GetSample()* 메서드
 자동 크기 조정 수식의 핵심 작업은 작업 및 리소스 메트릭 데이터를 가져오고 데이터를 기반으로 풀 크기를 조정하는 것입니다. 따라서 자동 크기 조정 수식이 메트릭 데이터(샘플)과 상호 작용하는 방식을 명확히 이해해야 합니다.
@@ -258,7 +258,7 @@ Batch 서비스는 정기적으로 작업 및 리소스 메트릭의 샘플을 �
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-위의 줄이 Batch에 의해 확인된 경우 다양한 샘플을 값의 벡터로 반환합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+위의 줄이 Batch에 의해 확인된 경우 다양한 샘플을 값의 벡터로 반환합니다. 다음은 그 예입니다.
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -286,7 +286,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 <table>
   <tr>
     <th>메트릭</th>
-    <th>설명</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td><b>리소스</b></td>
@@ -463,7 +463,7 @@ response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formu
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>기존 풀에서 자동 크기 조정 사용
 
-Batch SDK마다 자동 크기 조정을 사용하도록 설정하는 방법을 제공합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+Batch SDK마다 자동 크기 조정을 사용하도록 설정하는 방법을 제공합니다. 다음은 그 예입니다.
 
 * [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync](Batch .NET)
 * [풀에서 자동 크기 조정 사용][rest_enableautoscale] (REST API)

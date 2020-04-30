@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 2df36d80aea34da1693cecde524d239abd2bb04a
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82100246"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 LUIS 컨테이너를 실행 하려면 다음 필수 구성 요소를 확인 합니다.
 
-|필수|용도|
+|필수|목적|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.|
@@ -252,9 +252,9 @@ API의 V2 및 [V3](luis-migration-api-v3.md) 버전은 모두 컨테이너에서
 
 쿼리 매개 변수는 쿼리 응답에 반환되는 방법 및 내용을 구성합니다.
 
-|쿼리 매개 변수|Type|용도|
+|쿼리 매개 변수|Type|목적|
 |--|--|--|
-|`query`|문자열|사용자의 발화입니다.|
+|`query`|string|사용자의 발화입니다.|
 |`verbose`|boolean|예측 된 모델에 대 한 모든 메타 데이터를 반환할지 여부를 나타내는 부울 값입니다. 기본값은 false입니다.|
 |`log`|boolean|[활성 학습](luis-how-to-review-endpoint-utterances.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 false입니다.|
 |`show-all-intents`|boolean|모든 의도를 반환할지 아니면 상위 점수 매기기 의도만 반환할지를 나타내는 부울 값입니다. 기본값은 false입니다.|
@@ -268,9 +268,9 @@ API의 V2 및 [V3](luis-migration-api-v3.md) 버전은 모두 컨테이너에서
 
 쿼리 매개 변수는 쿼리 응답에 반환되는 방법 및 내용을 구성합니다.
 
-|쿼리 매개 변수|Type|용도|
+|쿼리 매개 변수|Type|목적|
 |--|--|--|
-|`q`|문자열|사용자의 발화입니다.|
+|`q`|string|사용자의 발화입니다.|
 |`timezoneOffset`|number|timezoneOffset으로 미리 작성된 엔터티 datetimeV2에서 사용하는 [표준 시간대를 변경](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)할 수 있습니다.|
 |`verbose`|boolean|True로 설정하는 경우 모든 의도 및 점수를 반환합니다. 기본값은 False이며, 최상위 의도만 반환합니다.|
 |`staging`|boolean|True로 설정하면 스테이징 환경 결과에서 쿼리를 반환합니다. |
@@ -361,7 +361,7 @@ LUIS 포털에서 앱을 선택한 다음, **엔드포인트 로그 가져오기
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
-## <a name="billing"></a>청구
+## <a name="billing"></a>결제
 
 LUIS 컨테이너는 Azure 계정의 _Cognitive Services_ 리소스를 사용 하 여 azure로 청구 정보를 보냅니다.
 

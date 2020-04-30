@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3713901dd3dd5d17c4e1ddcef529c663b68f5b43
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82112578"
 ---
-# <a name="continuous-access-evaluation"></a>연속 액세스 평가
+# <a name="continuous-access-evaluation"></a>지속적인 액세스 평가
 
 Azure Active Directory (Azure AD) 및 Office 365와 같은 Microsoft 서비스는 오픈 표준 및 프로토콜을 사용 하 여 상호 운용성을 최대화 합니다. 가장 중요 한 항목 중 하나는 OIDC (Open ID Connect)입니다. Outlook과 같은 클라이언트 응용 프로그램이 Exchange Online과 같은 서비스에 연결 하는 경우 API 요청은 OAuth 2.0 액세스 토큰을 사용 하 여 인증 됩니다. 기본적으로 해당 액세스 토큰은 1 시간 동안 유효 합니다. 만료 되 면 클라이언트는 새로 고침을 위해 Azure AD로 다시 리디렉션됩니다. 또한 사용자 액세스를 위한 정책을 다시 평가 하는 기회를 제공 합니다. 조건부 액세스 정책 때문에 토큰을 새로 고치지 않거나 사용자가 디렉터리에서 사용 하지 않도록 설정 되었기 때문에 토큰을 새로 고치지 않도록 선택할 수 있습니다. 
 
@@ -77,7 +77,7 @@ CAE 세션에서 액세스 토큰 수명이 24 시간으로 증가 합니다. �
 1. 이 경우 리소스 공급자는 액세스를 거부 하 고 401 + 클레임 챌린지를 다시 클라이언트에 보냅니다.
 1. CAE 지원 클라이언트는 401 + 클레임 챌린지를 이해 합니다. 캐시를 우회 하 고 1 단계로 돌아가서 클레임 챌린지와 함께 새로 고침 토큰을 Azure AD로 다시 보냅니다. 그러면 Azure AD는 모든 조건을 다시 평가 하 고이 경우 사용자에 게 다시 인증 하 라는 메시지를 표시 합니다.
  
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 ### <a name="what-is-the-lifetime-of-my-access-token"></a>내 액세스 토큰의 수명은 무엇 인가요?
 

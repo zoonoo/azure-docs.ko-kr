@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: 954e7a22ae6b242c6221119c688259e4ce629a2a
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82101062"
 ---
 # <a name="authoring-and-runtime-keys"></a>작성 및 런타임 키
@@ -44,7 +44,7 @@ LUIS 사용을 처음으로 시작 하면 시작 **키** 가 생성 됩니다. �
 
 LUIS는 다음과 같은 세 가지 유형의 Azure 리소스를 허용 합니다.
 
-|키|용도|인식 서비스`kind`|인식 서비스`type`|
+|Key|목적|인식 서비스`kind`|인식 서비스`type`|
 |--|--|--|--|
 |[작성 키](#programmatic-key)|작성, 학습, 게시 및 테스트를 사용 하 여 응용 프로그램의 데이터에 액세스 하 고 관리 합니다. LUIS apps를 프로그래밍 방식으로 작성 하려는 경우 LUIS authoring key를 만듭니다.<br><br>`LUIS.Authoring` 키의 용도는 다음을 허용 하는 것입니다.<br>* 교육 및 게시를 포함 하 여 프로그래밍 방식으로 Language Understanding 앱 및 모델 관리<br> * [참가자 역할](#contributions-from-other-authors)에 사용자를 할당 하 여 제작 리소스에 대 한 사용 권한을 제어 합니다.|`LUIS.Authoring`|`Cognitive Services`|
 |[예측 키](#prediction-endpoint-runtime-key)| 예측 끝점 요청을 쿼리 합니다. 클라이언트 앱이 스타터 리소스에서 제공 하는 1000 요청 보다 많은 예측을 요청 하기 전에 LUIS 예측 키를 만듭니다. |`LUIS`|`Cognitive Services`|

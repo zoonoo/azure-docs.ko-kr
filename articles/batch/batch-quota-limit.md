@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
 ms.openlocfilehash: a901d54ea584ec67bfa679e9cdc716ab27d45eca
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115825"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
@@ -87,7 +87,7 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
    
     b. 구독을 선택합니다.
    
-    c. **할당량 유형** > **일괄 처리**
+    다. **할당량 유형** > **일괄 처리**
       
     **다음**을 선택합니다.
     

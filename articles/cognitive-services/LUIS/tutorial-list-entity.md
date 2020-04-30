@@ -3,12 +3,12 @@ title: '자습서: 목록 엔터티 - LUIS'
 description: 미리 정의된 항목 목록과 일치하는 데이터를 가져옵니다. 목록의 각 항목과 정확하게 일치하는 동의어가 있을 수 있음
 ms.topic: tutorial
 ms.date: 03/12/2020
-ms.openlocfilehash: 1cfeccbd54e8ef8ec315d53fc7a766760c92a0d1
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 9530719c43260751d64d7ccf446bc7941078d6e9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79297410"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82101130"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>자습서: 목록 엔터티를 사용하여 발화에서 텍스트가 정확히 일치하는 데이터 가져오기
 
@@ -33,7 +33,7 @@ ms.locfileid: "79297410"
 다음과 같은 경우 목록 엔터티는 이러한 종류의 데이터에 적합합니다.
 
 * 데이터 값이 알려진 집합입니다.
-* 집합이 이 엔터티 형식의 최대 LUIS [경계](luis-boundaries.md)를 초과하지 않습니다.
+* 집합이 이 엔터티 형식의 최대 LUIS [경계](luis-limits.md)를 초과하지 않습니다.
 * 발화의 텍스트는 대/소문자를 구분하지 않고 동의어 또는 정식 이름과 일치합니다. LUIS는 일치를 벗어나는 목록을 사용하지 않습니다. 형태소 분석, 복수형 및 기타 변형은 목록 엔터티만으로는 확인되지 않습니다. 변형을 관리하려면 선택적인 텍스트 구문이 포함된 [패턴](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance)을 사용하는 것이 좋습니다.
 
 > [!CAUTION]

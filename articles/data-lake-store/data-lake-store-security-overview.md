@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
 ms.openlocfilehash: 7e987c56c3a125a03e3a90540313ace1f8adf47a
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086575"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 보안
@@ -66,7 +66,7 @@ Data Lake Storage Gen1은 HDFS(Hadoop 분산 파일 시스템)와 같은 계층�
 
 [보안 그룹](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)을 사용하여 여러 사용자에 대한 ACL을 정의하는 것이 좋습니다. 사용자를 보안 그룹에 추가한 다음 파일 또는 폴더에 대한 ACL을 해당 보안 그룹에 할당합니다. 할당된 권한에 대해 최대 28개 항목으로 제한하기 때문에 할당된 사용 권한을 제공하려는 경우에 유용합니다. Azure Active Directory 보안 그룹을 사용하여 Data Lake Storage Gen1에 저장된 데이터의 보안을 강화하는 방법에 대한 자세한 내용은 [ACL인 사용자 또는 보안 그룹을 Azure Data Lake Storage Gen1 파일 시스템에 할당](data-lake-store-secure-data.md#filepermissions)을 참조하세요.
 
-![액세스 권한 목록](./media/data-lake-store-security-overview/adl.acl.2.png "액세스 권한 목록")
+![액세스 권한 나열](./media/data-lake-store-security-overview/adl.acl.2.png "액세스 권한 나열")
 
 ## <a name="network-isolation"></a>네트워크 격리
 
@@ -74,13 +74,13 @@ Data Lake Storage Gen1은 HDFS(Hadoop 분산 파일 시스템)와 같은 계층�
 
 ![방화벽 설정 및 IP 액세스](./media/data-lake-store-security-overview/firewall-ip-access.png "방화벽 설정 및 IP 주소")
 
-Azure 가상 네트워크(VNet)는 데이터 레이크 세대 1에 대한 서비스 태그를 지원합니다. 서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그로 둘러싸인 주소 접두사를 관리하고 주소가 변경될 때 서비스 태그를 자동으로 업데이트합니다. 자세한 내용은 [Azure 서비스 태그 개요를](../virtual-network/service-tags-overview.md)참조하십시오.
+Azure VNet (가상 네트워크)은 Data Lake Gen 1에 대 한 서비스 태그를 지원 합니다. 서비스 태그는 지정 된 Azure 서비스에서 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그가 들어 있는 주소 접두사를 관리 하 고 주소가 변경 되 면 서비스 태그를 자동으로 업데이트 합니다. 자세한 내용은 [Azure 서비스 태그 개요](../virtual-network/service-tags-overview.md)를 참조 하세요.
 
 ## <a name="data-protection"></a>데이터 보호
 
 Data Lake Storage Gen1은 수명 주기 전체에 걸쳐 데이터를 보호합니다. 전송 중인 데이터의 경우 Data Lake Storage Gen1은 업계 표준 TLS(전송 계층 보안) 1.2 프로토콜을 사용하여 네트워크에서 데이터를 보호합니다.
 
-![데이터 레이크 스토리지 Gen1의 암호화](./media/data-lake-store-security-overview/adls-encryption.png "데이터 레이크 스토리지 Gen1의 암호화")
+![Data Lake Storage Gen1 암호화](./media/data-lake-store-security-overview/adls-encryption.png "Data Lake Storage Gen1 암호화")
 
 또한 Data Lake Storage Gen1은 계정에 저장된 데이터에 대한 암호화를 제공합니다. 암호화된 데이터 또는 암호화 없음을 선택할 수 있습니다. 암호화를 선택하면 Data Lake Storage Gen1에 저장된 데이터가 영구 미디어에 저장되기 전에 암호화됩니다. 이 경우 Data Lake Storage Gen1은 자동으로 데이터를 영구 저장하기 전에 데이터를 암호화하고, 검색하기 전에 데이터를 해독하므로 데이터에 액세스하는 클라이언트는 완전히 투명합니다. 데이터를 암호화/해독하기 위해 클라이언트 쪽에서 코드를 변경할 필요가 없습니다.
 
@@ -105,7 +105,7 @@ Data Lake Storage Gen1은 수명 주기 전체에 걸쳐 데이터를 보호합�
 
 ### <a name="diagnostics-logs"></a>진단 로그
 
-Azure 포털에서 데이터 액세스 감사 및 진단 로깅을 활성화하고 Azure Blob 저장소 계정, 이벤트 허브 또는 Azure Monitor 로그로 로그를 보낼 수 있습니다.
+Azure Portal에서 데이터 액세스 감사 및 진단 로깅을 사용 하도록 설정 하 고 Azure Blob storage 계정, 이벤트 허브 또는 Azure Monitor 로그에 로그를 보낼 수 있습니다.
 
 ![진단 로그](./media/data-lake-store-security-overview/diagnostic-logs.png "진단 로그")
 
@@ -117,7 +117,7 @@ Data Lake Storage Gen1과 함께 진단 로그를 사용하는 방법에 대한 
 
 Data Lake Storage Gen1의 새로운 기능을 참조하려는 경우 [Data Lake Storage Gen1 UserVoice 포럼](https://feedback.azure.com/forums/327234-data-lake)에 사용자 의견을 보내주세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)

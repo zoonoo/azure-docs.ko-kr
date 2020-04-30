@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: labrenne
 ms.openlocfilehash: 4268c9d840aa9dfadd785d74811e9d12ac32ec31
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115893"
 ---
 # <a name="pool-resize-complete-event"></a>풀 크기 조정 완료 이벤트
@@ -36,8 +36,8 @@ ms.locfileid: "82115893"
 
 |요소|Type|메모|
 |-------------|----------|-----------|
-|`id`|String|풀의 ID입니다.|
-|`nodeDeallocationOption`|String|풀 크기가 감소하는 경우 풀에서 노드를 제거할 수 있는 시기를 지정합니다.<br /><br /> 가능한 값은 다음과 같습니다.<br /><br /> **requeue** – 실행 중인 태스크를 종료하고 해당 태스크를 다시 대기열에 추가합니다. 작업이 활성화되면 태스크가 다시 실행됩니다. 태스크가 종료되는 즉시 노드를 제거합니다.<br /><br /> **terminate** – 실행 중인 태스크를 종료합니다. 태스크가 다시 실행되지 않습니다. 태스크가 종료되는 즉시 노드를 제거합니다.<br /><br /> **taskcompletion** – 현재 실행 중인 태스크가 완료될 때까지 기다립니다. 대기하는 동안 새 태스크를 예약하지 않습니다. 모든 태스크가 완료되면 노드를 제거합니다.<br /><br /> **Retaineddata** -현재 실행 중인 태스크가 완료될 때까지 기다린 후 모든 태스크 데이터 보존 기간이 만료될 때까지 기다립니다. 대기하는 동안 새 태스크를 예약하지 않습니다. 모든 태스크 보존 기간이 만료되면 노드를 제거합니다.<br /><br /> 기본값은 requeue입니다.<br /><br /> 풀 크기가 증가하는 경우 값이 **invalid**로 설정됩니다.|
+|`id`|문자열|풀의 ID입니다.|
+|`nodeDeallocationOption`|문자열|풀 크기가 감소하는 경우 풀에서 노드를 제거할 수 있는 시기를 지정합니다.<br /><br /> 가능한 값은 다음과 같습니다.<br /><br /> **requeue** – 실행 중인 태스크를 종료하고 해당 태스크를 다시 대기열에 추가합니다. 작업이 활성화되면 태스크가 다시 실행됩니다. 태스크가 종료되는 즉시 노드를 제거합니다.<br /><br /> **terminate** – 실행 중인 태스크를 종료합니다. 태스크가 다시 실행되지 않습니다. 태스크가 종료되는 즉시 노드를 제거합니다.<br /><br /> **taskcompletion** – 현재 실행 중인 태스크가 완료될 때까지 기다립니다. 대기하는 동안 새 태스크를 예약하지 않습니다. 모든 태스크가 완료되면 노드를 제거합니다.<br /><br /> **Retaineddata** -현재 실행 중인 태스크가 완료될 때까지 기다린 후 모든 태스크 데이터 보존 기간이 만료될 때까지 기다립니다. 대기하는 동안 새 태스크를 예약하지 않습니다. 모든 태스크 보존 기간이 만료되면 노드를 제거합니다.<br /><br /> 기본값은 requeue입니다.<br /><br /> 풀 크기가 증가하는 경우 값이 **invalid**로 설정됩니다.|
 |`currentDedicatedNodes`|Int32|현재 풀에 할당 된 전용 계산 노드 수입니다.|
 |`targetDedicatedNodes`|Int32|풀에 대해 요청 되는 전용 계산 노드 수입니다.|
 |`currentLowPriorityNodes`|Int32|현재 풀에 할당 된 우선 순위가 낮은 계산 노드 수입니다.|
@@ -46,5 +46,5 @@ ms.locfileid: "82115893"
 |`isAutoPool`|Bool|풀이 작업의 자동 풀 메커니즘을 통해 만들어졌는지 여부를 지정합니다.|
 |`startTime`|DateTime|풀 크기 조정이 시작된 시간입니다.|
 |`endTime`|DateTime|풀 크기 조정이 완료된 시간입니다.|
-|`resultCode`|String|크기 조정의 결과입니다.|
-|`resultMessage`|String| 결과에 대 한 자세한 메시지입니다.<br /><br /> 크기 조정이 성공적으로 완료되면 작업에 성공했다고 표시됩니다.|
+|`resultCode`|문자열|크기 조정의 결과입니다.|
+|`resultMessage`|문자열| 결과에 대 한 자세한 메시지입니다.<br /><br /> 크기 조정이 성공적으로 완료되면 작업에 성공했다고 표시됩니다.|

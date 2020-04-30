@@ -4,10 +4,10 @@ description: 응용 프로그램 및 데이터를 풀 노드에 복사 하는 �
 ms.topic: article
 ms.date: 02/17/2020
 ms.openlocfilehash: 700e9b80f8420266c0300b47bdd30bc271f8421c
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115587"
 ---
 # <a name="copying-applications-and-data-to-pool-nodes"></a>풀 노드에 애플리케이션 및 데이터 복사
@@ -16,7 +16,7 @@ Azure Batch는 데이터 및 응용 프로그램을 태스크에서 사용할 �
 
 - **풀 시작 태스크 리소스 파일**: 풀의 모든 노드에 설치 해야 하는 응용 프로그램 또는 데이터의 경우 설치 명령을 수행 하기 위해 응용 프로그램 패키지 또는 시작 작업의 리소스 파일 컬렉션과 함께이 메서드를 사용 합니다.  
 
-예제: 
+예: 
 - 시작 태스크 명령줄을 사용 하 여 응용 프로그램 이동 또는 설치
 
 - Azure storage 계정의 특정 파일 또는 컨테이너 목록을 지정 합니다. 자세한 내용은 [REST 설명서에서 # resourcefile 추가](https://docs.microsoft.com/rest/api/batchservice/pool/add#resourcefile) 를 참조 하세요.
@@ -41,7 +41,7 @@ Azure Batch는 데이터 및 응용 프로그램을 태스크에서 사용할 �
 - 다른 웹 서비스/사용자 지정 위치에서 데이터 다운로드
 - 네트워크 공유 매핑
 
-### <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Azure 스토리지
 
 Blob storage에서 확장성 목표를 다운로드 합니다. Azure storage 파일 공유 확장성 목표는 단일 blob의 경우와 동일 합니다. 크기는 필요한 노드 및 풀의 수에 영향을 줍니다.
 

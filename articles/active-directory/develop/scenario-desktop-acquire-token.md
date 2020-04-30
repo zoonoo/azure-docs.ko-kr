@@ -13,10 +13,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 24567461ee8a87fc9dbd1c5fb4eba5e34d458f7b
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82097764"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>웹 Api를 호출 하는 데스크톱 앱: 토큰 획득
@@ -217,7 +217,7 @@ WithParentActivityOrWindow(object parent).
 
 클래스는 다음 상수를 정의 합니다.
 
-- ``SelectAccount``STS가 사용자에 게 세션을 보유 하는 계정을 포함 하는 계정 선택 대화 상자에 표시 되도록 합니다. 이 옵션은 응용 프로그램 개발자가 다양 한 id 중에서 선택할 수 있도록 하려는 경우에 유용 합니다. 이 옵션은 id 공급자에 게 ``prompt=select_account`` 보낼 msal을 구동 합니다. 이 옵션이 기본값입니다. 사용자에 대 한 세션의 현재 상태와 같은 사용 가능한 정보에 따라 최상의 환경을 제공 하는 것이 좋습니다. 이 작업을 수행 해야 하는 경우를 제외 하 고는 변경 하지 마십시오.
+- ``SelectAccount``STS가 사용자에 게 세션을 보유 하는 계정을 포함 하는 계정 선택 대화 상자에 표시 되도록 합니다. 이 옵션은 응용 프로그램 개발자가 다양 한 id 중에서 선택할 수 있도록 하려는 경우에 유용 합니다. 이 옵션은 id 공급자에 게 ``prompt=select_account`` 보낼 msal을 구동 합니다. 이 옵션은 기본값입니다. 사용자에 대 한 세션의 현재 상태와 같은 사용 가능한 정보에 따라 최상의 환경을 제공 하는 것이 좋습니다. 이 작업을 수행 해야 하는 경우를 제외 하 고는 변경 하지 마십시오.
 - ``Consent``이전에 동의가 부여 된 경우에도 응용 프로그램 개발자가 사용자에 게 동의 여부를 묻는 메시지를 표시 하도록 합니다. 이 경우 MSAL은 id 공급자 `prompt=consent` 에 게 보냅니다. 이 옵션은 조직에서 응용 프로그램이 사용 될 때마다 사용자에 게 동의 대화 상자가 표시 되는 것을 요구 하는 일부 보안 중심 응용 프로그램에서 사용할 수 있습니다.
 - ``ForceLogin``응용 프로그램 개발자가 사용자에 게 서비스에 대 한 자격 증명을 묻는 메시지를 표시 하도록 허용 합니다 .이 사용자 프롬프트가 필요 하지 않을 수 있습니다. 이 옵션은 토큰을 획득 하는 데 실패 하는 경우 사용자가 다시 로그인 하도록 하는 데 유용할 수 있습니다. 이 경우 MSAL은 id 공급자 `prompt=login` 에 게 보냅니다. 조직에서 사용자가 응용 프로그램의 특정 부분에 액세스할 때마다 다시 로그인 하도록 요구 하는 보안 중심 응용 프로그램에서 사용 되는 경우가 있습니다.
 - ``Never``(.NET 4.5 및 WinRT에만 해당)는 사용자에 게 메시지를 표시 하지 않고, 대신 숨겨진 포함 웹 보기에 저장 된 쿠키를 사용 하려고 합니다. 자세한 내용은 MSAL.NET의 웹 보기를 참조 하십시오. 이 옵션을 사용 하면 실패할 수 있습니다. 이 경우에서 `AcquireTokenInteractive` UI 조작이 필요 하다는 알림을 발생 시킵니다. 다른 `Prompt` 매개 변수를 사용 해야 합니다.

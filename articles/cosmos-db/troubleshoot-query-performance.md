@@ -9,10 +9,10 @@ ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
 ms.openlocfilehash: b3c6926f17e8378fd3b53bfd59a7c5ea8141adb4
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82097237"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하는 경우 쿼리 문제 해결
@@ -142,7 +142,7 @@ Client Side Metrics
 
 [영양](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) 데이터 집합에 대해 다음과 같은 간단한 쿼리를 실행 하는 경우 `WHERE` 절의 속성이 인덱싱되는 경우 매우 낮은 요금이 발생 합니다.
 
-#### <a name="original"></a>Original
+#### <a name="original"></a>원래 이름
 
 쿼리:
 
@@ -277,7 +277,7 @@ GROUP BY c.description
 
 필터 및 `ORDER BY` 절이 있는 쿼리는 일반적으로 범위 인덱스를 사용 하지만 복합 인덱스에서 제공 될 수 있는 경우 더 효율적입니다. 인덱싱 정책을 수정 하는 것 외에도 복합 인덱스의 모든 속성을 `ORDER BY` 절에 추가 해야 합니다. 이러한 쿼리에 대 한 변경 내용은 복합 인덱스를 사용 하도록 합니다.  [영양](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) 데이터 집합에 대해 쿼리를 실행 하 여 영향을 관찰할 수 있습니다.
 
-#### <a name="original"></a>Original
+#### <a name="original"></a>원래 이름
 
 쿼리:
 

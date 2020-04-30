@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
 ms.openlocfilehash: 0b6fea381bd6b4aa8ad3e7061e6f632176c41033
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82113836"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>음성 서비스에 대 한 언어 및 음성 지원
@@ -34,14 +34,14 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Locale  | 언어                          | 지원 여부 | 사용자 지정                                    |
+| Locale  | 언어                          | 지원됨 | 사용자 지정                                    |
 |---------|-----------------------------------|-----------|---------------------------------------------------|
-| `ar-AE` | 아랍어 (아랍에미리트)                      | 예       | 아니요                                                |
+| `ar-AE` | 아랍어 (아랍에미리트)                      | 예       | 예                                                |
 | `ar-BH` | 아랍어 (바레인), 최신 표준 | 예       | 언어 모델                                    |
 | `ar-EG` | 아랍어(이집트)                    | 예       | 언어 모델                                    |
-| `ar-KW` | 아랍어(쿠웨이트)                   | 예       | 아니요                                                |
-| `ar-QA` | 아랍어(카타르)                    | 예       | 아니요                                                |
-| `ar-SA` | 아랍어(사우디아라비아)             | 예       | 아니요                                                |
+| `ar-KW` | 아랍어(쿠웨이트)                   | 예       | 예                                                |
+| `ar-QA` | 아랍어(카타르)                    | 예       | 예                                                |
+| `ar-SA` | 아랍어(사우디아라비아)             | 예       | 예                                                |
 | `ar-SY` | 아랍어(시리아)                    | 예       | 언어 모델                                    |
 | `ca-ES` | 카탈로니아어                           | 예       | 언어 모델                                    |
 | `da-DK` | 덴마크어(덴마크)                  | 예       | 언어 모델                                    |
@@ -71,9 +71,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ru-RU` | 러시아어(러시아)                  | 예       | 음향 모델<br>언어 모델                  |
 | `sv-SE` | 스웨덴어(스웨덴)                  | 예       | 언어 모델                                    |
 | `ta-IN` | 타밀어(인도)                     | 예       | 언어 모델                                    |
-| `te-IN` | 텔루구어(인도)                    | 예       | 아니요                                                |
-| `th-TH` | 태국어(태국)                   | 예       | 아니요                                                |
-| `tr-TR` | 터키어(터키)                  | 예       | 아니요                                                |
+| `te-IN` | 텔루구어(인도)                    | 예       | 예                                                |
+| `th-TH` | 태국어(태국)                   | 예       | 예                                                |
+| `tr-TR` | 터키어(터키)                  | 예       | 예                                                |
 | `zh-CN` | 중국어(북경어, 간체)    | 예       | 음향 모델<br>언어 모델                  |
 | `zh-HK` | 중국어 (광둥어, 번체)  | 예       | 언어 모델                                    |
 | `zh-TW` | 중국어(대만어)      | 예       | 언어 모델                                    |

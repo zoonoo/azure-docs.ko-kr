@@ -1,6 +1,6 @@
 ---
 title: Azure Disk Encryption 샘플 스크립트
-description: 이 문서는 Windows VM용 Microsoft Azure 디스크 암호화의 부록입니다.
+description: 이 문서는 Windows Vm에 대 한 Microsoft Azure 디스크 암호화에 대 한 부록입니다.
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
@@ -9,39 +9,39 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: e5e0a970df680df43a7bd303636b3d81bda3e141
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085708"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption 샘플 스크립트 
 
-이 문서에서는 미리 암호화된 VHD 및 기타 작업을 준비하기 위한 샘플 스크립트를 제공합니다.
+이 문서에서는 미리 암호화 된 Vhd 및 기타 작업을 준비 하기 위한 샘플 스크립트를 제공 합니다.
 
  
 
-## <a name="list-vms-and-secrets"></a>VM 및 비밀 목록
+## <a name="list-vms-and-secrets"></a>Vm 및 암호 나열
 
-구독에 암호화된 모든 VM을 나열합니다.
+구독의 모든 암호화 된 Vm 나열:
 
 ```azurepowershell-interactive
 $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
 $dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
 Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
 ```
-키 자격 증명 모음에서 VM을 암호화하는 데 사용되는 모든 디스크 암호화 암호를 나열합니다.
+키 자격 증명 모음에서 Vm을 암호화 하는 데 사용 되는 모든 디스크 암호화 암호를 나열 합니다.
 
 ```azurepowershell-interactive
 Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
 ```
 
-## <a name="the-azure-disk-encryption-prerequisites-scripts"></a>Azure 디스크 암호화 필수 구성 조건 스크립트
+## <a name="the-azure-disk-encryption-prerequisites-scripts"></a>Azure Disk Encryption 필수 구성 요소 스크립트
 Azure Disk Encryption에 대한 필수 구성 요소에 이미 익숙한 경우 [Azure Disk Encryption 필수 구성 요소 PowerShell 스크립트](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 )를 사용할 수 있습니다. 이 PowerShell 스크립트 사용의 예는 [VM 암호화 빠른 시작](disk-encryption-powershell-quickstart.md)를 참조하세요. 줄 211에서 시작하는 스크립트의 섹션에서 주석을 제거하여 기존 리소스 그룹의 기존 VM에 대한 모든 디스크를 암호화할 수 있습니다. 
 
 다음 표는 PowerShell 스크립트에서 사용할 수 있는 매개 변수를 보여줍니다. 
 
-|매개 변수|설명|필수?|
+|매개 변수|Description|필수?|
 |------|------|------|
 |$resourceGroupName| KeyVault가 속해 있는 리소스 그룹의 이름입니다.  이 이름을 가진 새 리소스 그룹이 없는 경우 생성됩니다.| True|
 |$keyVaultName|암호화 키가 배치된 KeyVault의 이름입니다. 이 이름을 가진 새 자격 증명 모음이 없는 경우 생성됩니다.| True|
@@ -55,13 +55,13 @@ Azure Disk Encryption에 대한 필수 구성 요소에 이미 익숙한 경우 
 
 ### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Azure AD 앱 없이 VM을 암호화 또는 암호 해독
 
-- [기존 또는 실행 중인 Windows VM에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)  
-- [실행 중인 Windows VM에서 암호화 를 사용하지 않도록 설정](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad) 
+- [기존 또는 실행 중인 Windows VM에서 디스크 암호화를 사용 하도록 설정](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)  
+- [실행 중인 Windows VM에서 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad) 
 
 ### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Azure AD 앱으로 VM을 암호화 또는 암호 해독(이전 릴리스) 
  
-- [기존 또는 실행 중인 Windows VM에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)    
-- [실행 중인 Windows VM에서 암호화 를 사용하지 않도록 설정](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 
+- [기존 또는 실행 중인 Windows VM에서 디스크 암호화를 사용 하도록 설정](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)    
+- [실행 중인 Windows VM에서 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 
 - [미리 암호화된 VHD/스토리지 Blob에서 새로운 암호화된 관리 디스크 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
     - 미리 암호화된 VHD 및 해당 암호화 설정을 제공하는 새로운 암호화된 관리 디스크 만들기
 
@@ -69,7 +69,7 @@ Azure Disk Encryption에 대한 필수 구성 요소에 이미 익숙한 경우 
 Azure IaaS에서 암호화된 VHD로 배포용으로 사전에 암호화된 Windows VHD를 준비하려면 이어지는 섹션이 필요합니다. 이 정보를 사용하여 Azure Site Recovery 또는 Azure에서 최신 Windows VM(VHD)을 준비 및 부팅합니다. VHD를 준비하고 업로드하는 방법에 대한 자세한 내용은 [일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기](upload-generalized-managed.md)를 참조하세요.
 
 ### <a name="update-group-policy-to-allow-non-tpm-for-os-protection"></a>OS 보호를 위해 비-TPM을 허용하도록 그룹 정책 업데이트
-**BitLocker 드라이브 암호화**라는 BitLocker 그룹 정책 설정을 구성하는데, **로컬 컴퓨터 정책** > **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소** 아래에 있습니다. 이 설정을 **운영 체제 드라이브로** > 변경하려면 다음 그림과 같이 > **호환되는 TPM 없이 BitLocker를 허용하기****시작 시 추가 인증이 필요합니다.**
+**BitLocker 드라이브 암호화**라는 BitLocker 그룹 정책 설정을 구성하는데, **로컬 컴퓨터 정책** > **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소** 아래에 있습니다. 다음 그림에 표시 된 것 처럼이 설정을 **운영 체제 드라이브** > **시작** > 시 추가 인증 필요와**호환 되는 TPM 없이 BitLocker 허용**으로 변경 합니다.
 
 ![Azure의 Microsoft 맬웨어 방지](../media/disk-encryption/disk-encryption-fig8.png)
 
@@ -88,7 +88,7 @@ OS 파티션을 압축하고 BitLocker용 머신을 준비하려면 필요한 �
     bdehdcfg -target c: shrink -quiet 
 
 ### <a name="protect-the-os-volume-by-using-bitlocker"></a>BitLocker를 사용하여 OS 볼륨 보호
-[`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) 이 명령을 사용하여 외부 키 프로텍터를 사용하여 부팅 볼륨에서 암호화를 사용하도록 설정합니다. 도한 외부 드라이브 또는 볼륨에 외부 키(.bek 파일)를 배치합니다. 암호화는 다음 재부팅 후 시스템/부팅 볼륨에 사용하도록 설정됩니다.
+[`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) 명령을 사용 하 여 외부 키 보호기를 사용 하 여 부팅 볼륨에서 암호화를 사용 하도록 설정 합니다. 도한 외부 드라이브 또는 볼륨에 외부 키(.bek 파일)를 배치합니다. 암호화는 다음 재부팅 후 시스템/부팅 볼륨에 사용하도록 설정됩니다.
 
     manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
     reboot
@@ -97,13 +97,13 @@ OS 파티션을 압축하고 BitLocker용 머신을 준비하려면 필요한 �
 > BitLocker를 사용하여 외부 키를 가져오기 위해서는 별도의 데이터/리소스 VHD로 VM을 준비합니다.
 
 ## <a name="upload-encrypted-vhd-to-an-azure-storage-account"></a>Azure Storage 계정에 암호화된 VHD 업로드
-DM-Crypt 암호화를 사용하도록 설정한 후 로컬 암호화된 VHD를 저장소 계정에 업로드해야 합니다.
+DM 암호화를 사용 하도록 설정한 후에는 로컬 암호화 된 VHD를 저장소 계정에 업로드 해야 합니다.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
 
 ## <a name="upload-the-secret-for-the-pre-encrypted-vm-to-your-key-vault"></a> 미리 암호화된 VM에 대한 비밀을 키 자격 증명 모음에 업로드
-이전에 얻은 디스크 암호화 암호는 키 자격 증명 모음에 비밀로 업로드해야 합니다.  이렇게 하려면 비밀 을 업로드할 계정에 설정된 비밀 권한 과 wrapkey 권한을 부여해야 합니다.
+이전에 얻은 디스크 암호화 암호를 키 자격 증명 모음에 암호로 업로드 해야 합니다.  이렇게 하려면 암호를 업로드할 계정에 대 한 wrapkey 권한 및 set secret 권한을 부여 해야 합니다.
 
 ```powershell 
 # Typically, account Id is the user principal name (in user@domain.com format)
@@ -122,7 +122,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $kvname -UserPrincipalName $acctid -Permis
 ```
 
 ### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>KEK로 암호화되지 않은 디스크 암호화 암호
-키 볼트의 비밀을 설정하려면 [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret)를 사용합니다. 암호는 base64 문자열로 인코딩된 다음 키 자격 증명 모음에 업로드됩니다. 또한 Key Vault에서 비밀을 만들 때 다음 태그가 설정되었는지 확인합니다.
+키 자격 증명 모음에서 비밀을 설정 하려면 [AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret)를 사용 합니다. 암호는 base64 문자열로 인코딩된 다음 키 자격 증명 모음에 업로드 됩니다. 또한 Key Vault에서 비밀을 만들 때 다음 태그가 설정되었는지 확인합니다.
 
 ```powershell
 
@@ -142,7 +142,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $kvname -UserPrincipalName $acctid -Permis
 [KEK를 사용하지 않고 OS 디스크를 연결](#without-using-a-kek)하기 위해 다음 단계에서 `$secretUrl`을 사용합니다.
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>KEK로 암호화된 디스크 암호화 암호
-비밀을 Key Vault에 업로드하기 전에 주요 암호화 키를 사용하여 선택적으로 암호화할 수 있습니다. 먼저 래핑 [API](https://msdn.microsoft.com/library/azure/dn878066.aspx)를 사용하여 주요 암호화 키로 비밀을 암호화합니다. 이 랩 작업의 출력은 [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) base64 URL 인코딩 된 문자열이며 cmdlet을 사용하여 암호로 업로드 할 수 있습니다.
+비밀을 Key Vault에 업로드하기 전에 주요 암호화 키를 사용하여 선택적으로 암호화할 수 있습니다. 먼저 래핑 [API](https://msdn.microsoft.com/library/azure/dn878066.aspx)를 사용하여 주요 암호화 키로 비밀을 암호화합니다. 이 wrap 작업의 출력은 base64 URL 인코딩 문자열로, [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet을 사용 하 여 암호로 업로드할 수 있습니다.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

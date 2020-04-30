@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/31/2017
 ms.openlocfilehash: 12a1cd3c170fd7444362d1eabba1541cefb37d1a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115553"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 X12 메시지 교환
@@ -34,7 +34,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ## <a name="create-an-x12-agreement"></a>X12 규약 만들기
 
-1. [Azure Portal](https://portal.azure.com "Azure Portal")에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com "Azure portal")에 로그인합니다. 
 
 2. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 
    검색 상자에 "통합"을 입력한 다음, **통합 계정**을 선택합니다.  
@@ -64,7 +64,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
     ![규약 세부 정보 제공](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
-    | 속성 | 설명 |
+    | 속성 | Description |
     | --- | --- |
     | 속성 |규약 이름 |
     | 규약 유형 | X12여야 합니다. |
@@ -95,7 +95,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ![식별자 속성 설정](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | ISA1(인증 한정자) |드롭다운 목록에서 권한 부여 한정자 값을 선택합니다. |
 | ISA2 |선택 사항입니다. 권한 부여 정보 값을 입력합니다. ISA1에 대해 입력한 값이 00이 아니면 영숫자 문자를 1~10개 사이로 입력합니다. |
@@ -106,7 +106,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ![승인 속성 설정](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | TA1이 예상됨 |교환 보낸 사람에게 기술 승인을 반환합니다. |
 | FA가 예상됨 |교환 보낸 사람에게 기능 확인을 반환합니다. 그런 다음 스키마 버전에 따라 원하는 승인(997 또는 999)을 선택합니다. |
@@ -132,7 +132,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ![트랜잭션 집합의 구분 기호를 지정합니다. 표준 식별자 또는 반복 구분 기호 선택](./media/logic-apps-enterprise-integration-x12/x12-34.png)
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | ISA11 사용 |트랜잭션 집합에서 사용할 구분 기호를 지정합니다. <p>EDI 수신 파이프라인에서 들어오는 문서의 소수 표기법 대신 **표준 식별자**를 선택하여 소수 표기법에 마침표(.)를 사용합니다. <p>단순 데이터 요소 또는 반복 되는 데이터 구조의 반복 발생에 대 한 구분 기호를 지정 하려면 **반복 구분 기호** 를 선택 합니다. 예를 들어 일반적으로 캐럿(^)을 반복 구분 기호로 사용합니다. HIPAA 스키마의 경우 캐럿만 사용할 수 있습니다. |
 
@@ -140,7 +140,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ![컨트롤 번호 중복을 처리하는 방법 선택](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | 교환 컨트롤 번호 중복 허용 안 함 |중복 교환을 차단합니다. 받은 교환 컨트롤 번호의 교환 컨트롤 번호(ISA13)를 확인합니다. 일치하는 항목이 발견되면 수신 파이프라인은 교환을 처리하지 않습니다. *매일 중복 ISA13 확인*에 적절한 값을 지정하여 확인이 수행되는 일 수를 지정할 수 있습니다. |
 | 그룹 컨트롤 번호 중복 허용 안 함 |중복된 그룹 컨트롤 번호가 있는 교환을 차단합니다. |
@@ -152,7 +152,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 각 유효성 검사 행을 완료하면 다른 행이 자동으로 추가됩니다. 모든 규칙을 지정하지 않으면 유효성 검사에서는 "기본" 행을 사용합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | 메시지 유형 |EDI 메시지 유형을 선택합니다. |
 | EDI 유효성 검사 |스키마의 EDI 속성, 길이 제한, 빈 데이터 요소 및 후행 구분 기호로 정의되는 데이터 형식에 대해 EDI 유효성 검사를 수행합니다. |
@@ -165,7 +165,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ![내부 설정 선택](./media/logic-apps-enterprise-integration-x12/x12-37.png) 
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | 10진수 형식 "Nn"을 밑수 10 숫자 값으로 변환 |"Nn" 형식으로 지정된 EDI 번호를 밑수가 10인 숫자 값으로 변환합니다. |
 | 후행 구분 기호가 허용되는 경우 빈 XML 태그 만들기 |교환 발신자가 후행 구분 기호에 대해 빈 XML 태그를 포함하도록 하려면 이 확인란을 선택합니다. |
@@ -191,7 +191,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ![식별자 속성 설정](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | 권한 부여 한정자(ISA1) |드롭다운 목록에서 권한 부여 한정자 값을 선택합니다. |
 | ISA2 |권한 부여 정보 값을 입력합니다. 이 값이 00이 아니면 영숫자 문자를 1~10개 사이로 입력합니다. |
@@ -202,7 +202,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ![승인 속성 설정](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | TA1이 예상됨 |교환 보낸 사람에게 기술 승인(TA1)을 반환합니다. 이 설정은 메시지를 보내는 호스트 파트너가 규약의 게스트 파트너로부터 승인을 요청하도록 지정합니다. 규약의 수신 설정에 따라 호스트 파트너는 이러한 승인을 확인해야 합니다. |
 | FA가 예상됨 |교환 보낸 사람에게 기능 승인(FA)을 반환합니다. 사용 중인 스키마 버전에 따라 원하는 승인의 종류(997 또는 999)를 선택합니다. 규약의 수신 설정에 따라 호스트 파트너는 이러한 승인을 확인해야 합니다. |
@@ -225,7 +225,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ![트랜잭션 집합의 구분 기호를 지정합니다. 표준 식별자 또는 반복 구분 기호 선택](./media/logic-apps-enterprise-integration-x12/x12-6.png) 
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | ISA11 사용 |트랜잭션 집합에서 사용할 구분 기호를 지정합니다. <p>EDI 수신 파이프라인에서 들어오는 문서의 소수 표기법 대신 **표준 식별자**를 선택하여 소수 표기법에 마침표(.)를 사용합니다. <p>단순 데이터 요소 또는 반복 되는 데이터 구조의 반복 발생에 대 한 구분 기호를 지정 하려면 **반복 구분 기호** 를 선택 합니다. 예를 들어 일반적으로 캐럿(^)을 반복 구분 기호로 사용합니다. HIPAA 스키마의 경우 캐럿만 사용할 수 있습니다. |
 
@@ -233,7 +233,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ![컨트롤 번호 지정 속성](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | 컨트롤 버전 번호(ISA12) |X12 표준 버전을 선택합니다. |
 | 사용 표시기(ISA15) |교환의 컨텍스트를 선택합니다.  값은 정보, 프로덕션 데이터 또는 테스트 데이터입니다. |
@@ -257,7 +257,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ![메시지 유형의 구분 기호 지정](./media/logic-apps-enterprise-integration-x12/x12-9.png) 
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | 사용할 문자 집합 |속성의 유효성을 검사하려면 X12 문자 집합을 선택합니다. 옵션은 기본, 확장 및 UTF8입니다. |
 | 스키마 |드롭다운 목록에서 스키마를 선택합니다. 각 행을 완료한 후에 새 행이 자동으로 추가됩니다. 선택한 스키마의 경우 아래의 구분 기호 설명에 따라 사용하려는 구분 기호 집합을 선택합니다. |
@@ -277,7 +277,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 각 유효성 검사 행을 완료하면 다른 행이 자동으로 추가됩니다. 모든 규칙을 지정하지 않으면 유효성 검사에서는 "기본" 행을 사용합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | 메시지 유형 |EDI 메시지 유형을 선택합니다. |
 | EDI 유효성 검사 |스키마의 EDI 속성, 길이 제한, 빈 데이터 요소 및 후행 구분 기호로 정의되는 데이터 형식에 대해 EDI 유효성 검사를 수행합니다. |

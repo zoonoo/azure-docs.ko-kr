@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/22/2020
 ms.author: juliako
 ms.openlocfilehash: 89360f062f0198a6b0c857395b4956caa1109e82
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82097184"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
@@ -59,7 +59,7 @@ Video Indexer 계정을 만들 때 무료 평가판 계정 (특정 개수의 무
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="connect-to-azure"></a>Azure에 연결
+## <a name="connect-to-azure"></a>Azure 연결
 
 > [!NOTE]
 > Azure 구독에서 인증서 기반 multi-factor authentication을 사용 하는 경우 필수 인증서가 설치 된 장치에서 다음 단계를 수행 하는 것이 중요 합니다.

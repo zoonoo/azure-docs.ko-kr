@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
 ms.openlocfilehash: 515ac034158b821968e2d7b2be9514a3f7c20866
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82099090"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>방법: Azure AD 앱에 선택적 클레임 제공
@@ -37,7 +37,7 @@ ms.locfileid: "82099090"
 
 | 계정 유형               | v1.0 토큰 | v2.0 토큰 |
 |----------------------------|-------------|-------------|
-| 개인 Microsoft 계정 | 해당 없음         | 지원됨   |
+| 개인 Microsoft 계정 | 해당 없음         | 지원 여부   |
 | Azure AD 계정           | 지원됨   | 지원됨   |
 
 ## <a name="v10-and-v20-optional-claims-set"></a>v1.0 및 v2.0 옵션 클레임 집합
@@ -78,7 +78,7 @@ ms.locfileid: "82099090"
 
 **표 3: v2.0 전용 선택적 클레임**
 
-| JWT 클레임     | 속성                            | Description                                | 메모 |
+| JWT 클레임     | Name                            | Description                                | 메모 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |
@@ -367,7 +367,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 - **매니페스트** 를 사용할 수 있습니다 (아래 예제 참조). 먼저 매니페스트를 소개하는 [Azure AD 애플리케이션 매니페스트 이해 문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)를 읽으세요.
 - 또한 [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) 를 사용 하 여 응용 프로그램을 업데이트 하는 응용 프로그램을 작성할 수 있습니다. Microsoft Graph API 참조 가이드의 [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) 유형은 선택적 클레임을 구성 하는 데 도움이 될 수 있습니다.
 
-**예 들어**
+**예제:**
 
 아래 예제에서는 **토큰 구성** UI 및 **매니페스트** 를 사용 하 여 응용 프로그램에 적합 한 액세스, ID 및 SAML 토큰에 선택적 클레임을 추가 합니다. 응용 프로그램에서 받을 수 있는 각 토큰 유형에는 다음과 같은 다양 한 선택적 클레임이 추가 됩니다.
 

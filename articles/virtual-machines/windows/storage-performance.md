@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
 ms.openlocfilehash: cd15df2a7074463789bcf4a2d4de3c41bd012bbb
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82100552"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Lsv2 시리즈 가상 머신에서 성능 최적화
@@ -77,7 +77,7 @@ Lsv2 시리즈 Vm은 Zen 마이크로 아키텍처를 기반으로 하는 AMD EY
 
 로컬 저장소에서 데이터를 백업 하는 옵션에 대 한 자세한 내용은 [Azure IaaS 디스크에 대 한 백업 및 재해 복구](backup-and-disaster-recovery-for-azure-iaas-disks.md)를 참조 하세요.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 * **Lsv2 시리즈 Vm 배포를 시작할 어떻게 할까요? 있나요?**  
    다른 VM과 마찬가지로 [포털](quick-create-portal.md), [Azure CLI](quick-create-cli.md)또는 [POWERSHELL](quick-create-powershell.md) 을 사용 하 여 vm을 만듭니다.

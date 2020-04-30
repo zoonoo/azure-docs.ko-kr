@@ -1,6 +1,6 @@
 ---
-title: Azure에서 관리되는 이미지에서 VM 만들기
-description: Azure PowerShell 또는 포털을 사용하여 일반화된 관리형 이미지에서 Windows 가상 컴퓨터를 만듭니다.
+title: Azure의 관리 되는 이미지에서 VM 만들기
+description: Azure PowerShell 또는 포털을 사용 하 여 일반화 된 관리 되는 이미지에서 Windows 가상 머신을 만듭니다.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: b0c6689b66037067a4c5174738945b7c6fabd5b5
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086320"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>관리되는 이미지에서 VM 만들기
 
 Azure Portal 또는 PowerShell을 사용하여 Azure 관리되는 VM 이미지로 여러 VM(가상 머신)을 만들 수 있습니다. 관리 VM 이미지는 OS 및 데이터 디스크를 비롯하여 VM을 만드는 데 필요한 정보를 포함하고 있습니다. OS 디스크와 데이터 디스크를 포함하여 이미지를 구성하는 VHD(가상 하드 디스크)는 관리 디스크로 저장됩니다. 
 
-새 VM을 만들기 전에 원본 [이미지로 사용할 관리되는 VM 이미지를 만들고](capture-image-resource.md) 이미지에 액세스할 수 있어야 하는 모든 사용자에게 이미지에 대한 읽기 액세스 권한을 부여해야 합니다. 
+새 VM을 만들기 전에 원본 이미지로 사용 하 고 이미지에 대 한 액세스 권한이 있어야 하는 사용자에 게 이미지에 대 한 읽기 권한을 부여 해야 하는 [관리 되는 vm 이미지를 만들어야](capture-image-resource.md) 합니다. 
 
 
 ## <a name="use-the-portal"></a>포털 사용
 
-1. [Azure 포털로](https://portal.azure.com) 이동하여 관리되는 이미지를 찾습니다. **이미지를**검색하고 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 관리 되는 이미지를 찾습니다. **이미지**를 검색 하 고 선택 합니다.
 3. 목록에서 사용할 이미지를 선택합니다. 이미지 **개요** 페이지가 열립니다.
 4. 메뉴에서 **VM 만들기**를 선택합니다.
 5. 가상 머신 정보를 입력합니다. 여기에서 입력한 이사용자 이름과 암호는 가상 머신에 로그인하는 데 사용됩니다. 완료되면 **확인**을 선택합니다. 기존 리소스 그룹에서 새 VM을 만들거나 **새로 만들기**를 선택하여 VM을 저장할 새 리소스 그룹을 만들 수 있습니다.
