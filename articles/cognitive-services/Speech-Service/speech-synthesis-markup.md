@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: dc11d26c73c52b5e6c4d8e05cc27dd6ebce0c5d8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eb3db23189cbfd07362b1bd5be9aaa181064a2d6
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399830"
+ms.locfileid: "82583212"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>SSML (음성 합성 마크업) 언어를 사용 하 여 합성 향상
 
@@ -274,7 +274,7 @@ speechConfig!.setPropertyTo(
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-AriaNeural">
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
@@ -469,7 +469,7 @@ Could you help leave a message to Robert Benigni for me?
 | 특성 | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `pitch` | 텍스트의 기준선 피치를 나타냅니다. 다음과 같이 피치를 표현할 수 있습니다.<ul><li>숫자로 표시 되 고 그 뒤에 "Hz" (Hz)가 표시 되는 절대값입니다. 예: 600 Hz.</li><li>간격을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예: + 80 Hz 또는-2st. "St"는 변경 단위가 표준 diatonic 크기에 대 한 반음 (절반 단계의 절반) 임을 나타냅니다.</li><li>상수 값:<ul><li>x-낮음</li><li>low</li><li>중간</li><li>high</li><li>x-높음</li><li>기본값</li></ul></li></ul>. | Optional |
-| `contour` | 외형선은 신경망에 대해 지원 되지 않습니다. 컨투어는 피치의 변화를 나타냅니다. 이러한 변경 내용은 음성 출력에서 지정 된 시간 위치의 대상 배열로 표시 됩니다. 각 대상은 매개 변수 쌍 집합으로 정의 됩니다. 다음은 그 예입니다. <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 집합의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정 합니다. 두 번째 값은 피치에 대 한 열거형 값 또는 상대 값을 사용 하 여 피치를 발생 시키거나 낮출 크기를 지정 `pitch`합니다 (참조). | Optional |
+| `contour` |이제 컨투어는 신경망 및 표준 음성을 모두 지원 합니다. 컨투어는 피치의 변화를 나타냅니다. 이러한 변경 내용은 음성 출력에서 지정 된 시간 위치의 대상 배열로 표시 됩니다. 각 대상은 매개 변수 쌍 집합으로 정의 됩니다. 다음은 그 예입니다. <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 집합의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정 합니다. 두 번째 값은 피치에 대 한 열거형 값 또는 상대 값을 사용 하 여 피치를 발생 시키거나 낮출 크기를 지정 `pitch`합니다 (참조). | Optional |
 | `range` | 텍스트의 피치 범위를 나타내는 값입니다. 설명 `pitch`하는 `range` 데 사용 되는 것과 동일한 절대값, 상대 값 또는 열거형 값을 사용 하 여 나타낼 수 있습니다. | Optional |
 | `rate` | 텍스트의 읽어주기 율을 나타냅니다. 다음과 같이 나타낼 `rate` 수 있습니다.<ul><li>기본값의 승수 역할을 하는 숫자로 표시 되는 상대 값입니다. 예를 들어 값이 *1* 이면 비율이 변경 되지 않습니다. 값이 *0.5* 이면 나누어이 발생 합니다. 값이 *3* 이면 tripling이 발생 합니다.</li><li>상수 값:<ul><li>x-느림</li><li>slow</li><li>중간</li><li>빠르지</li><li>x-빠름</li><li>기본값</li></ul></li></ul> | Optional |
 | `duration` | TTS (음성 합성) 서비스가 텍스트를 읽는 동안 경과 해야 하는 기간 (초 또는 밀리초)입니다. 예를 들면 *2 s* 또는 *18ms*입니다. | Optional |
@@ -477,13 +477,13 @@ Could you help leave a message to Robert Benigni for me?
 
 ### <a name="change-speaking-rate"></a>말하기 속도 변경
 
-말하기 속도는 단어 또는 문장 수준에서 표준 음성에 적용 될 수 있습니다. 말하는 속도는 문장 수준에서 신경망에만 적용할 수 있습니다.
+말하는 속도는 신경망 또는 문장 수준에서 신경망 및 표준 음성에 적용 될 수 있습니다. 
 
 **예제**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-Guy24kRUS">
+    <voice name="en-US-GuyNeural">
         <prosody rate="+30.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -524,15 +524,15 @@ Could you help leave a message to Robert Benigni for me?
 ### <a name="change-pitch-contour"></a>피치 곡선 변경
 
 > [!IMPORTANT]
-> 피치 컨투어 변경은 신경망에서 지원 되지 않습니다.
+> 이제 신경망에서 피치 컨투어 변경이 지원 됩니다.
 
 **예제**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
-        <prosody contour="(80%,+20%) (90%,+30%)" >
-            Good morning.
+    <voice name="en-US-AriaNeural">
+        <prosody contour="(60%,-60%) (100%,+80%)" >
+            Were you the only person in the room? 
         </prosody>
     </voice>
 </speak>

@@ -14,10 +14,10 @@ ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
 ms.openlocfilehash: 7f0f18e523368e85d9cea0206e98bb7b1a0e6165
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81419377"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 데이터 팩터리 및 파이프라인 만들기

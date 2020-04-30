@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
 ms.openlocfilehash: c3bc542ffaabdb307ebcecdb02ce29a5d8acfbdc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68562431"
 ---
 **파일** > **빌드 설정**을 선택하여 **빌드 설정**을 엽니다.

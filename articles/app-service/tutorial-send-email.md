@@ -4,12 +4,12 @@ description: App Service 앱에서 비즈니스 프로세스를 호출하는 방
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 4073b49a134356943bd7da8d54bf574f2e0d5eea
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: a8b94d626916b00d75eea3fea0567fa33df3382c
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604843"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562307"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>자습서: App Service에서 이메일 보내기 및 다른 비즈니스 프로세스 호출
 
@@ -26,27 +26,27 @@ ms.locfileid: "81604843"
 
 선택한 언어 프레임워크가 포함된 앱을 App Service에 배포합니다. 자습서에 따라 샘플 앱을 배포하려면 아래를 참조하세요.
 
-# <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
+### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
 [자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)
 
-# <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
+### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
 [자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드](app-service-web-tutorial-dotnetcore-sqldb.md)
 
-# <a name="nodejs"></a>[Node.JS](#tab/node)
+### <a name="nodejs"></a>[Node.JS](#tab/node)
 
 [자습서: Azure에서 Node.js 및 MongoDB 앱 빌드](app-service-web-tutorial-nodejs-mongodb-app.md)
 
-# <a name="php"></a>[PHP](#tab/php)
+### <a name="php"></a>[PHP](#tab/php)
 
 [자습서: Azure에서 PHP 및 MySQL 앱 빌드](app-service-web-tutorial-php-mysql.md)
 
-# <a name="python"></a>[Python](#tab/python)
+### <a name="python"></a>[Python](#tab/python)
 
 [자습서: Azure App Service에서 PostgreSQL을 사용하여 Python(Django) 웹앱 실행](containers/tutorial-python-postgresql-app.md)
 
-# <a name="ruby"></a>[Ruby](#tab/ruby)
+### <a name="ruby"></a>[Ruby](#tab/ruby)
 
 [Azure App Service on Linux에서 Ruby 및 Postgres 앱 빌드](containers/tutorial-ruby-postgres-app.md)
 
@@ -150,7 +150,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 아래에서 기본 설정 언어/프레임워크 탭을 클릭하여 예제를 살펴보세요.
 
-# <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
+### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
 ASP.NET에서는 [System.Net.Http.HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) 클래스를 사용하여 HTTP post를 보낼 수 있습니다. 다음은 그 예입니다.
 
@@ -175,7 +175,7 @@ var statusCode = result.StatusCode.ToString();
 
 [자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)의 샘플 앱에서 테스트하는 경우 `Todo` 항목이 추가된 후 [Create 작업](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/blob/master/DotNetAppSqlDb/Controllers/TodosController.cs#L52-L63)에서 이메일 확인을 보내는 데 이 코드를 사용할 수 있습니다. 위의 비동기 코드를 사용하려면 Create 작업을 비동기로 변환합니다.
 
-# <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
+### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
 ASP.NET Core에서는 [System.Net.Http.HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) 클래스를 사용하여 HTTP post를 보낼 수 있습니다. 다음은 그 예입니다.
 
@@ -203,7 +203,7 @@ var statusCode = result.StatusCode.ToString();
 
 [자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드](app-service-web-tutorial-dotnetcore-sqldb.md)의 샘플 앱에서 테스트하는 경우 `Todo` 항목이 추가된 후 [Create 작업](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65)에서 이메일 확인을 보내는 데 이 코드를 사용할 수 있습니다.
 
-# <a name="nodejs"></a>[Node.JS](#tab/node)
+### <a name="nodejs"></a>[Node.JS](#tab/node)
 
 Node.js에서는 [axios](https://www.npmjs.com/package/axios)와 같은 npm 패키지를 사용하여 HTTP post를 쉽게 보낼 수 있습니다. 다음은 그 예입니다.
 
@@ -230,7 +230,7 @@ var jsonData = {
 
 [자습서: Azure에서 Node.js 및 MongoDB 앱 빌드](app-service-web-tutorial-nodejs-mongodb-app.md)의 샘플 앱에서 테스트하는 경우 [문서가 성공적으로 저장](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24)된 후 [create 함수](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27)에서 이메일 확인을 보내는 데 이 코드를 사용할 수 있습니다.
 
-# <a name="php"></a>[PHP](#tab/php)
+### <a name="php"></a>[PHP](#tab/php)
 
 PHP에서는 [Guzzle](http://docs.guzzlephp.org/en/stable/index.html)을 사용하여 HTTP post를 쉽게 보낼 수 있습니다. 다음은 그 예입니다.
 
@@ -262,7 +262,7 @@ Log::info(print_r($response, TRUE));
 
 [자습서: Azure에서 PHP 및 MySQL 앱 빌드](app-service-web-tutorial-php-mysql.md)의 샘플 앱에서 테스트하는 경우 return 문 바로 앞의 [Route::post 함수](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48)에서 이메일 확인을 보내는 데 이 코드를 사용할 수 있습니다.
 
-# <a name="python"></a>[Python](#tab/python)
+### <a name="python"></a>[Python](#tab/python)
 
 Python에서는 [requests](https://pypi.org/project/requests/)를 사용하여 HTTP post를 쉽게 보낼 수 있습니다. 다음은 그 예입니다.
 
@@ -293,7 +293,7 @@ async with aiohttp.post('http://httpbin.org/post', data=json.dump(payload)) as r
 
 [자습서: Azure App Service에서 PostgreSQL을 사용하여 Python(Django) 웹앱 실행](containers/tutorial-python-postgresql-app.md)의 샘플 앱에서 테스트하는 경우 return 문 바로 앞의 [Route::post 함수](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48)에서 이메일 확인을 보내는 데 이 코드를 사용할 수 있습니다.
 
-# <a name="ruby"></a>[Ruby](#tab/ruby)
+### <a name="ruby"></a>[Ruby](#tab/ruby)
 
 Ruby에서는 [JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient)를 사용하여 HTTP post를 쉽게 보낼 수 있습니다. 다음은 그 예입니다.
 
@@ -312,7 +312,7 @@ connection = clnt.post_async(ENV['LOGIC_APP_URL'], body)
 
 ---
 
-# <a name="more-resources"></a>추가 리소스
+## <a name="more-resources"></a>추가 리소스
 
 [자습서: Azure App Service에서 CORS를 통해 RESTful API 호스팅](app-service-web-tutorial-rest-api.md)  
 [Logic Apps에 대한 HTTP 요청/응답 참조](../connectors/connectors-native-reqres.md)  

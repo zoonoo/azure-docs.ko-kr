@@ -5,12 +5,12 @@ author: gvashishtha
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
-ms.openlocfilehash: 17acb7e351d5f1c009a6a8a14717e987fae3e895
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2dd911eff1ba98341451ef9826b8053bc8059047
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78376909"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82581514"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>자습서: PyTorch를 사용하여 Azure Functions에 미리 학습된 이미지 분류 모델 배포
 
@@ -166,14 +166,9 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
     ```txt
     azure-functions
     requests
-    numpy==1.15.4
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp36-cp36m-win_amd64.whl; sys_platform == 'win32' and python_version == '3.6'
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp36-cp36m-linux_x86_64.whl; sys_platform == 'linux' and python_version == '3.6'
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp37-cp37m-win_amd64.whl; sys_platform == 'win32' and python_version == '3.7'
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp37-cp37m-linux_x86_64.whl; sys_platform == 'linux' and python_version == '3.7'
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp38-cp38-win_amd64.whl; sys_platform == 'win32' and python_version == '3.8'
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp38-cp38-linux_x86_64.whl; sys_platform == 'linux' and python_version == '3.8'
-    torchvision==0.5.0
+    -f https://download.pytorch.org/whl/torch_stable.html
+    torch==1.5.0+cpu
+    torchvision==0.6.0+cpu
     ```
 
 1. *requirements.txt*를 저장한 다음, *start* 폴더에서 다음 명령을 실행하여 종속성을 설치합니다.

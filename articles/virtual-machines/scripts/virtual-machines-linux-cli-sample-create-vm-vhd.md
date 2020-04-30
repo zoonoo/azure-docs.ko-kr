@@ -16,10 +16,10 @@ ms.date: 03/09/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: c7260730ccf94e909238c116cb77572463550ed9
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81458559"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>가상 하드 디스크를 사용하여 VM 만들기

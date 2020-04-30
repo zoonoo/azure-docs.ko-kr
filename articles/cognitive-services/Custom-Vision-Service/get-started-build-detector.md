@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: ba121400368f37c4a562a9c34e209c59d15b173c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81404104"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>빠른 시작: Custom Vision을 사용하여 개체 탐지기를 빌드하는 방법

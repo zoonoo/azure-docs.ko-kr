@@ -12,10 +12,10 @@ ms.date: 03/13/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 514d1197c5e6d0f4c0f38faf24c6c2522d489820
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400996"
 ---
 이 빠른 시작에서는 REST API를 사용하여 일괄 처리 프로세스에서 파일의 음성을 인식합니다. 일괄 처리 프로세스는 사용자 상호 작용 없이 음성 전사를 실행합니다. 동시성, 사용자 지정 음성 모델 또는 기타 세부 정보를 관리할 필요 없이 간단한 프로그래밍 모델을 제공합니다. Azure 음성 서비스 리소스를 효율적으로 사용하는 동시에 고급 제어 옵션이 수반됩니다.
