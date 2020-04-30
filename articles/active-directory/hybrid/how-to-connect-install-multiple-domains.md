@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b5f19e3e994aa05fa99caf360d0c1be69ec7a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0775e717c0610e122bb31f752beecd2c97599053
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80049781"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201043"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Azure AD로 페더레이션에 대한 여러 도메인 지원
 다음 설명서에서는 Office 365 또는 Azure AD 도메인으로 페더레이션하는 경우 여러 최상위 도메인 및 하위 도메인을 사용하는 방법에 대한 지침을 제공합니다.
@@ -137,7 +137,7 @@ PowerShell 명령을 사용하여 `Get-MsolDomainFederationSettings -DomainName 
 ## <a name="support-for-subdomains"></a>하위 도메인에 대한 지원
 하위 도메인을 추가할 때 Azure AD가 도메인을 처리하는 방식으로 인해 부모의 설정을 상속합니다.  따라서 IssuerUri가 부모와 일치해야 합니다.
 
-따라서 예를 들어 bmcontoso.com이 있고 corp.bmcontoso.com을 추가한다고 가정합니다.  corp.bmcontoso.com 사용자에 대한 issuerUri가 ** http://bmcontoso.com/adfs/services/trust필요합니다.**  그러나 Azure AD에 대해 위에서 구현한 표준 규칙은 발급자가 있는 토큰을 ** http://corp.bmcontoso.com/adfs/services/trust.로 생성합니다.** 로 발급자를 사용하여 토큰을 생성하고 인증에 실패합니다.
+따라서 예를 들어 bmcontoso.com이 있고 corp.bmcontoso.com을 추가한다고 가정합니다.  Corp.bmcontoso.com의 사용자에 대 한 IssuerUri은 이어야 **`http://bmcontoso.com/adfs/services/trust`** 합니다.  그러나 Azure AD에 대해 위에서 구현 되는 표준 규칙은 발급자가 인 토큰을 생성 **`http://corp.bmcontoso.com/adfs/services/trust`** 합니다. 로 발급자를 사용하여 토큰을 생성하고 인증에 실패합니다.
 
 ### <a name="how-to-enable-support-for-subdomains"></a>하위 도메인에 대한 지원을 활성화하는 방법
 이 동작을 해결하기 위해 Microsoft 온라인에 대한 AD FS 신뢰 당사자 트러스트를 업데이트해야 합니다.  이를 위해 사용자 지정 클레임 규칙이 사용자 지정 발급자 값을 생성할 때 사용자의 UPN 접미사에서 모든 하위 도메인을 제거하도록 구성해야 합니다.

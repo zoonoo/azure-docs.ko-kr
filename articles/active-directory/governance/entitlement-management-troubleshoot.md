@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c38e1a61827da547bb39a699a0e92043e63466c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ddd8e1c64f4db8221937abc54e88d9a884acf3e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128469"
+ms.locfileid: "82207247"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Azure AD 자격 관리 문제 해결
 
@@ -87,13 +87,19 @@ ms.locfileid: "80128469"
 
     요청에 배달 오류가 있으면 요청 **상태가 배달 되지 않거나** **부분적으로 전달**됩니다.
 
-    배달 오류가 있으면 요청 세부 정보 창에 배달 오류가 발생 한 것입니다.
+    배달 오류가 있으면 요청 세부 정보 창에 배달 오류 수가 표시 됩니다.
 
 1. 개수를 클릭 하면 요청의 모든 배달 오류가 표시 됩니다.
 
 ### <a name="reprocess-a-request"></a>요청 다시 처리
 
-요청에 오류가 발생 하는 경우 요청을 다시 처리 하 여 다시 시도할 수 있습니다. **배달 실패** 또는 **부분적으로 배달** 된 상태와 1 주일 미만의 완료 된 날짜를 포함 하는 요청을 다시 처리할 수 있습니다.
+액세스 패키지 다시 처리 요청을 트리거한 후에 오류가 발생 하는 경우 시스템에서 요청을 다시 처리 하는 동안 기다려야 합니다. 시스템이 여러 시간 동안 다시 처리 되도록 시도 하므로이 시간 동안 다시 처리를 강제할 수 없습니다. 
+
+**배달 실패** 또는 **부분적으로 배달** 된 상태와 1 주일 미만의 완료 된 날짜를 포함 하는 요청을 다시 처리할 수 있습니다.
+
+- 평가판 기간 동안 오류가 해결 되 면 요청 상태가 **배달**중으로 변경 됩니다. 이 요청은 사용자의 추가 작업 없이 다시 처리 됩니다.
+
+- 평가판 기간 동안 오류가 수정 되지 않은 경우 요청이 **배달** 되지 않거나 **부분적으로 배달**될 수 있습니다. 그런 다음 다시 **처리** 단추를 사용할 수 있습니다. 요청을 다시 처리 하는 데 7 일이 있습니다.
 
 **필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 

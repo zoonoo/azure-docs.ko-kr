@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 zone_pivot_groups: URL-test-interface
 ms.topic: quickstart
-ms.date: 02/08/2020
+ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 09337ce599b0044ab38bb0ad0b0383ee90bfcbd8
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 1f19337aea8b39bbc8c7dc11fba683bee3c2955a
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77109623"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203970"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base"></a>빠른 시작: 기술 자료에서 답변 가져오기
 

@@ -3,12 +3,12 @@ title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: Azure Kubernetes 서비스 (AKS)에 대 한 일반적인 질문에 대 한 답변을 찾습니다.
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: f91fe1c63430a0eac23cf9cbc184babb6dd5f7a4
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: a58c3510d8937b209bf6c73d33237785ecab161d
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106087"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82206613"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -50,7 +50,7 @@ kured 사용에 대한 자세한 내용은 [AKS에서 노드에 보안 및 커�
 
 ### <a name="windows-server-nodes"></a>Windows Server 노드
 
-Windows Server 노드 (현재 AKS의 미리 보기 상태)의 경우 Windows 업데이트가 자동으로 실행 되 고 최신 업데이트를 적용 하지 않습니다. Windows 업데이트 릴리스 주기와 사용자 고유의 유효성 검사 프로세스를 정기적으로 수행 하는 일정에 따라 클러스터에서 업그레이드를 수행 하 고 AKS 클러스터에서 Windows Server 노드 풀을 업그레이드 해야 합니다. 이 업그레이드 프로세스는 최신 Windows Server 이미지 및 패치를 실행 하는 노드를 만든 다음 이전 노드를 제거 합니다. 이 프로세스에 대 한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
+Windows Server 노드의 경우 Windows 업데이트는 자동으로 실행 되 고 최신 업데이트를 적용 하지 않습니다. Windows 업데이트 릴리스 주기와 사용자 고유의 유효성 검사 프로세스를 정기적으로 수행 하는 일정에 따라 클러스터에서 업그레이드를 수행 하 고 AKS 클러스터에서 Windows Server 노드 풀을 업그레이드 해야 합니다. 이 업그레이드 프로세스는 최신 Windows Server 이미지 및 패치를 실행 하는 노드를 만든 다음 이전 노드를 제거 합니다. 이 프로세스에 대 한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>AKS를 통해 2개의 리소스 그룹이 생성되는 이유는 무엇인가요?
 
@@ -122,7 +122,7 @@ AKS는 현재 기본적으로 Azure Key Vault와 통합 되지 않습니다. 그
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Windows Server 컨테이너를 AKS에서 실행할 수 있습니까?
 
-예, Windows Server 컨테이너는 미리 보기에서 사용할 수 있습니다. AKS에서 Windows Server 컨테이너를 실행 하려면 게스트 OS로 Windows Server를 실행 하는 노드 풀을 만듭니다. Windows Server 컨테이너는 Windows Server 2019만 사용할 수 있습니다. 시작 하려면 [Windows Server 노드 풀을 사용 하 여 AKS 클러스터 만들기][aks-windows-cli]를 참조 하세요.
+예, Windows Server 컨테이너는 AKS에서 사용할 수 있습니다. AKS에서 Windows Server 컨테이너를 실행 하려면 게스트 OS로 Windows Server를 실행 하는 노드 풀을 만듭니다. Windows Server 컨테이너는 Windows Server 2019만 사용할 수 있습니다. 시작 하려면 [Windows Server 노드 풀을 사용 하 여 AKS 클러스터 만들기][aks-windows-cli]를 참조 하세요.
 
 노드 풀에 대 한 Windows Server 지원에는 Kubernetes 프로젝트의 업스트림 Windows Server에 포함 되는 몇 가지 제한 사항이 포함 되어 있습니다. 이러한 제한 사항에 대 한 자세한 내용은 [Windows Server 컨테이너의 AKS 제한 사항][aks-windows-limitations]을 참조 하세요.
 

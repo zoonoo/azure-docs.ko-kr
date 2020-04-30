@@ -1,31 +1,26 @@
 ---
-title: SCIM, Microsoft Graph 및 Azure AD 프로 비전 서비스를 사용 하 여 사용자를 프로 비전 하 고 필요한 데이터를 사용 하 여 응용 프로그램 보강 | Microsoft Docs
+title: SCIM, Microsoft Graph 및 Azure AD를 사용 하 여 사용자를 프로 비전 하 고 데이터를 사용 하 여 앱 보강
 description: SCIM과 Microsoft Graph를 함께 사용 하 여 사용자를 프로 비전 하 고 필요한 데이터를 사용 하 여 응용 프로그램을 보강 합니다.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 04/26/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ffe0474fcfeb28b49f5c2504ede86cd38459d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ceba22e9289e0a10211ee26a7758238a8b1f06c7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181837"
+ms.locfileid: "82201689"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>SCIM 및 Microsoft Graph를 함께 사용 하 여 사용자를 프로 비전 하 고 필요한 데이터를 사용 하 여 응용 프로그램 보강
 
-**대상 사용자:** 이 문서는 Azure AD와 통합 될 응용 프로그램을 빌드하는 개발자를 대상으로 합니다. Zoom, ServiceNow, DropBox 등의 Azure AD와 이미 통합 된 응용 프로그램을 사용 하려는 다른 사용자의 경우이를 건너뛰고 응용 프로그램별 [자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 를 검토 하거나 [프로 비전 서비스의 작동 방식을](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works)검토할 수 있습니다.
+**대상 사용자:** 이 문서는 Azure Active Directory (Azure AD)와 통합할 응용 프로그램을 빌드하는 개발자를 대상으로 합니다. Zoom, ServiceNow 및 DropBox와 같은 Azure AD와 이미 통합 된 응용 프로그램을 사용 하려는 경우이 문서를 건너뛰고 응용 프로그램별 [자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 를 검토 하거나 [프로 비전 서비스의 작동 방식을](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works)검토할 수 있습니다.
 
 **일반적인 시나리오**
 
@@ -46,7 +41,6 @@ Azure AD는 프로 비전에 사용할 수 있는 기본 제공 서비스와 응
 **권장 사항**: 
 * 고객이 다양 한 IdPs를 사용 하 고 서로 통합 될 동기화 엔진을 유지 관리 하지 않으려는 경우 SCIM 규격 [/사용자](https://aka.ms/scimreferencecode) 끝점을 지원 합니다. 고객은이 끝점을 사용 하 여 Azure AD 프로 비전 서비스와 통합 하 고 액세스 해야 할 때 자동으로 사용자 계정을 만들 수 있습니다. 끝점은 한 번에 빌드할 수 있으며 모든 IdPs와 호환 됩니다. SCIM을 사용 하 여 사용자를 만드는 방법에 대 한 아래의 예제 요청을 확인 하세요.
 * Azure AD의 사용자 개체와 Microsoft의 다른 데이터에서 사용자 데이터를 찾은 경우 사용자 프로 비전을 위한 SCIM 끝점을 빌드하고 Microsoft Graph를 호출 하 여 나머지 데이터를 가져오는 것이 좋습니다. 
-
 
 ```json
 POST /Users

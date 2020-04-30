@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat Ope
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 3 이상에서 호스트 되 Azure Monitor를 사용 하 여 Kubernetes 클러스터의 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 98ac5752e047c4f5f6db63d228bec7c47271aa00
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: HT
+ms.openlocfilehash: c39eda03fc5fb7521bcf08c52eaabc28d4cb1256
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166296"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204137"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v3 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "82166296"
 - 라이브 데이터 (미리 보기)
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - 컨테이너에 대 한 Azure Monitor의 기능을 사용 하도록 설정 하 고 액세스 하려면 최소한 Azure 구독에서 Azure *참가자* 역할의 멤버 여야 하 고 컨테이너에 대 한 Azure Monitor로 구성 된 Log Analytics 작업 영역의 구성원 인 [*Log Analytics 참가자*](../platform/manage-access.md#manage-access-using-azure-permissions) 역할의 구성원 이어야 합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "82166296"
 
 ## <a name="enable-for-a-new-cluster-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 새 클러스터에서 사용
 
-모니터링이 사용 하도록 설정 된 Azure Red Hat OpenShift 클러스터를 배포 하려면 다음 단계를 수행 합니다. 계속 하기 전에 [Azure Red Hat OpenShift 클러스터 만들기](../../openshift/tutorial-create-cluster.md#prerequisites) 자습서를 검토 하 여 환경이 올바르게 설정 되도록 구성 해야 하는 종속성을 이해 하세요.
+모니터링이 사용 하도록 설정 된 Azure Red Hat OpenShift 클러스터를 배포 하려면 다음 단계를 수행 합니다. 계속 하기 전에 [Azure Red Hat OpenShift 클러스터 만들기](../../openshift/tutorial-create-cluster.md) 자습서를 검토 하 여 환경이 올바르게 설정 되도록 구성 해야 하는 종속성을 이해 하세요.
 
 이 메서드는 두 가지 JSON 템플릿을 포함합니다. 하나는 모니터링을 사용 하도록 설정 된 클러스터를 배포 하는 구성을 지정 하 고 다른 하나는 다음을 지정 하기 위해 구성 하는 매개 변수 값을 포함 합니다.
 

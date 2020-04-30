@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a816f2235fa5356f2300255ec9d2fb2b315acf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 0fa43eae906c918cad940b8f5efafeea07020098
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190319"
+ms.locfileid: "82201638"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Workday 구성
 
@@ -93,7 +93,7 @@ Workday 통합을 시작하기 전에 다음과 같은 필수 조건을 확인�
 * [여러 Active Directory 도메인과 통합](#integrating-with-multiple-active-directory-domains)
 * [Workday-Active Directory 사용자 특성 매핑 및 변환 계획](#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -445,7 +445,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
    
 1. 에이전트 설치를 확인하고 “서비스” 스냅인을 열고 “Microsoft Azure AD Connect Provisioning Agent”라는 서비스를 찾아 해당 에이전트가 실행 중인지 확인합니다.
   
-   ![서비스](./media/workday-inbound-tutorial/services.png)
+   ![Services](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>3 부: 프로 비전 앱에서 Workday 및 Active Directory에 대 한 연결 구성
 이 단계에서는 Azure Portal에서 Workday 및 Active Directory와의 연결을 설정 합니다. 
@@ -458,11 +458,11 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
    * **Workday 암호 –** Workday 통합 시스템 계정의 암호를 입력 합니다.
 
-   * **Workday 웹 서비스 API URL –** 테 넌 트의 Workday 웹 서비스 끝점에 대 한 URL을 입력 합니다. 이 값은와 같아야 합니다 https://wd3-impl-services1.workday.com/ccx/service/contoso4. 여기서 *형태 여야 하며* 은 올바른 테 넌 트 이름으로 바뀌고 *wd3-impl* 은 올바른 환경 문자열로 바뀝니다.
+   * **Workday 웹 서비스 API URL –** 테 넌 트의 Workday 웹 서비스 끝점에 대 한 URL을 입력 합니다. 이 값은와 같아야 합니다 `https://wd3-impl-services1.workday.com/ccx/service/contoso4`. 여기서 *형태 여야 하며* 은 올바른 테 넌 트 이름으로 바뀌고 *wd3-impl* 은 올바른 환경 문자열로 바뀝니다.
 
      > [!NOTE]
      > 기본적으로 앱은 URL에 버전 정보가 지정 되지 않은 경우 WWS (Workday 웹 서비스) v 21.1를 사용 합니다. 특정 WWS API 버전을 사용 하려면 URL 형식을 사용 하세요.https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > 예: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0 <br>
+     > 예: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0` <br>
      
      > [!NOTE]
      > WWS API v 30.0 이상을 사용 하는 경우 프로 비전 작업을 설정 하기 전에 **특성 매핑-> 고급 옵션-** 구성 및 [Workday 특성 참조](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30) [관리](#managing-your-configuration) 섹션을 참조 하는 workday에 대 한 > 특성 목록에서 **XPATH API 식을** 업데이트 하세요.  
@@ -621,11 +621,11 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
    * **Workday 암호 –** Workday 통합 시스템 계정의 암호를 입력 합니다.
 
-   * **Workday 웹 서비스 API URL –** 테 넌 트의 Workday 웹 서비스 끝점에 대 한 URL을 입력 합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다. 이 URL을 알 수 없는 경우 Workday 통합 파트너와 협력하거나 지원 담당자에게 문의하여 사용할 올바른 URL을 확인하세요.
+   * **Workday 웹 서비스 API URL –** 테 넌 트의 Workday 웹 서비스 끝점에 대 한 URL을 입력 합니다. 이 값은 `https://wd3-impl-services1.workday.com/ccx/service/contoso4`와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다. 이 URL을 알 수 없는 경우 Workday 통합 파트너와 협력하거나 지원 담당자에게 문의하여 사용할 올바른 URL을 확인하세요.
 
      > [!NOTE]
      > 기본적으로 앱은 URL에 버전 정보가 지정 되지 않은 경우 Workday 웹 서비스 v 21.1를 사용 합니다. 특정 Workday 웹 서비스 API 버전을 사용 하려면 URL 형식을 사용 하세요.https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > 예: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
+     > 예: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0`
 
 
    * **알림 전자 메일-** 전자 메일 주소를 입력 하 고 "오류가 발생 하는 경우 전자 메일 보내기" 확인란을 선택 합니다.
@@ -723,7 +723,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
-   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다(필요한 경우).
+   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다(필요한 경우).
 
    * **알림 전자 메일-** 전자 메일 주소를 입력 하 고 "오류가 발생 하는 경우 전자 메일 보내기" 확인란을 선택 합니다.
 

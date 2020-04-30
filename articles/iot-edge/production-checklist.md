@@ -4,19 +4,19 @@ description: 적절 한 인증서를 사용 하 여 장치를 설정 하 고 향
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/24/2020
+ms.date: 4/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6ec196408c047682be527ee21735ce809f5916e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 173e663b66eeca676e8120dd46e8eca8b0126a17
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191841"
+ms.locfileid: "82204205"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -174,12 +174,22 @@ timeToLiveSecs 매개 변수의 기본값은 7200초로, 2시간입니다.
 
 개인 Azure 레지스트리에 사용자 지정 코드 모듈의 컨테이너 이미지를 저장 하는 방법을 알고 있지만,이를 사용 하 여 edgeAgent 및 Ed홍보 Ub 런타임 모듈 등의 공용 컨테이너 이미지를 저장할 수도 있습니다. 이러한 런타임 컨테이너가 Microsoft Container Registry (MCR)에 저장 되므로 방화벽 제한이 매우 많은 경우에는이 작업을 수행 해야 할 수 있습니다.
 
-Docker pull 명령이 있는 이미지를 가져와 레지스트리에 저장 합니다. IoT Edge 런타임의 새 릴리스로 이미지를 업데이트 해야 합니다.
+Docker pull 명령이 포함 된 이미지를 가져와 개인 레지스트리에 저장 합니다. IoT Edge 런타임의 새 릴리스로 이미지를 업데이트 해야 합니다.
 
 | IoT Edge 런타임 컨테이너 | Docker pull 명령 |
 | --- | --- |
 | [Azure IoT Edge 에이전트](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
 | [Azure IoT Edge 허브](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+
+그런 다음 edgeAgent 및 edgeHub 시스템 모듈에 대 한 배포. template 파일의 이미지 참조를 업데이트 해야 합니다. 을 `mcr.microsoft.com` 두 모듈의 레지스트리 이름 및 서버로 바꿉니다.
+
+* EdgeAgent
+
+    `"image": "<registry name and server>/azureiotedge-agent:1.0",`
+
+* EdgeHub
+
+    `"image": "<registry name and server>/azureiotedge-hub:1.0",`
 
 ## <a name="networking"></a>네트워킹
 

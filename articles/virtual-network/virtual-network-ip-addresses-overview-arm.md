@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2019
+ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: 64940ee6451ef1a9e153ef4d699bdaed32d4030e
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: a698d0cc4653a7a9f938b8f013352d9b51e2e18c
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146350"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203729"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP 주소 유형 및 Azure에서 할당 메서드
 
@@ -59,6 +59,22 @@ Azure 리소스 관리자에서 [공용 IP](virtual-network-public-ip-address.md
 >[!IMPORTANT]
 > SKU 일치는 Load Balancer 및 공용 IP 리소스에 대해 사용되어야 합니다. 기본 SKU 리소스와 표준 SKU 리소스를 함께 사용할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.  새 디자인에서는 표준 SKU 리소스를 사용하도록 고려해야 합니다.  자세한 내용은 [표준 Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 검토하세요.
 
+#### <a name="standard"></a>Standard
+
+표준 SKU 공용 IP 주소는 다음과 같습니다.
+
+- 항상 고정 할당 메서드를 사용합니다.
+- 조정 가능한 인바운드 발생 흐름 유휴 시간 제한은 4-30분(기본값은 4분)으로, 고정 아웃바운드 발생 흐름 유휴 시간 제한은 4분으로 정합니다.
+- 기본적으로 보호되고 인바운드 트래픽에 닫혀 있습니다. [네트워크 보안 그룹](security-overview.md#network-security-groups)을 사용하여 허용된 인바운드 트래픽을 명시적으로 허용해야 합니다.
+- 네트워크 인터페이스, 표준 공용 부하 분산 장치 또는 응용 프로그램 게이트웨이에 할당 됩니다. 표준 Load Balancer에 대한 자세한 내용은 [Azure 표준 Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+- 영역 중복 또는 영역 일 수 있습니다 (특정 가용성 영역에서 영역 및 보증을 만들 수 있음). 사용 가능한 영역에 대해 자세히 알아보려면 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [표준 부하 분산 장치 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
+ 
+> [!NOTE]
+> [네트워크 보안 그룹](security-overview.md#network-security-groups)을 만들어 연결하고 원하는 인바운드 트래픽을 명시적으로 허용해야 표준 SKU 리소스와 인바운드 통신할 수 있습니다.
+
+> [!NOTE]
+> [인스턴스 메타 데이터 서비스 IMDS](../virtual-machines/windows/instance-metadata-service.md)를 사용 하는 경우 기본 SKU를 사용 하는 공용 IP 주소만 사용할 수 있습니다. 표준 SKU는 지원 되지 않습니다.
+
 #### <a name="basic"></a>Basic
 
 SKU 도입 전에 생성된 모든 공용 IP 주소는 기본 SKU 공용 IP 주소입니다. SKU의 도입으로 공용 IP 주소로 선택하려는 SKU를 지정하는 옵션이 만들어집니다. 기본 SKU 주소는 다음과 같습니다.
@@ -68,22 +84,6 @@ SKU 도입 전에 생성된 모든 공용 IP 주소는 기본 SKU 공용 IP 주�
 - 기본적으로 열려 있습니다.  네트워크 보안 그룹을 사용하는 것이 좋지만 인바운드 또는 아웃바운드 트래픽을 제한하는 것은 선택 사항입니다.
 - 네트워크 인터페이스, VPN Gateway, Application Gateway 및 인터넷 연결 부하 분산 장치 등 공용 IP 주소를 할당할 수 있는 모든 Azure 리소스에 할당됩니다.
 - 가용성 영역 시나리오를 지원하지 않습니다.  가용성 영역 시나리오에 대한 표준 SKU 공용 IP를 사용해야 합니다. 사용 가능한 영역에 대해 자세히 알아보려면 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [표준 부하 분산 장치 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
-
-#### <a name="standard"></a>Standard
-
-표준 SKU 공용 IP 주소는 다음과 같습니다.
-
-- 항상 고정 할당 메서드를 사용합니다.
-- 조정 가능한 인바운드 발생 흐름 유휴 시간 제한은 4-30분(기본값은 4분)으로, 고정 아웃바운드 발생 흐름 유휴 시간 제한은 4분으로 정합니다.
-- 기본적으로 보호되고 인바운드 트래픽에 닫혀 있습니다. [네트워크 보안 그룹](security-overview.md#network-security-groups)을 사용하여 허용된 인바운드 트래픽을 명시적으로 허용해야 합니다.
-- 네트워크 인터페이스, 표준 공용 부하 분산 장치 또는 응용 프로그램 게이트웨이에 할당 됩니다. 표준 Load Balancer에 대한 자세한 내용은 [Azure 표준 Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
-- 기본적으로 영역 중복되며 필요에 따라 영역별로 지정할 수 있습니다(영역별로 생성할 수 있으며 특정 가용성 영역에서 보장 가능). 사용 가능한 영역에 대해 자세히 알아보려면 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [표준 부하 분산 장치 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
- 
-> [!NOTE]
-> [네트워크 보안 그룹](security-overview.md#network-security-groups)을 만들어 연결하고 원하는 인바운드 트래픽을 명시적으로 허용해야 표준 SKU 리소스와 인바운드 통신할 수 있습니다.
-
-> [!NOTE]
-> [인스턴스 메타 데이터 서비스 IMDS](../virtual-machines/windows/instance-metadata-service.md)를 사용 하는 경우 기본 SKU를 사용 하는 공용 IP 주소만 사용할 수 있습니다. 표준 SKU는 지원 되지 않습니다.
 
 ### <a name="allocation-method"></a>할당 방법
 

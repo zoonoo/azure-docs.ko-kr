@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/28/2020
 ms.author: sstein
-ms.openlocfilehash: 27a62223970b0f697465ce9aa050f3fccbcae464
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: c3dc5b26435f6d876e5eaea943e359055018913b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106426"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201315"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 릴리스 정보
 
@@ -49,7 +49,7 @@ ms.locfileid: "82106426"
 | <a href="https://aka.ms/managed-instance-aadlogins">인스턴스 수준 Azure AD 서버 보안 주체 (로그인)</a> | <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> 문을 사용 하 여 서버 수준 로그인을 만듭니다. |
 | [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) | 테이블의 변경 내용을 관리 되는 인스턴스, 단일 데이터베이스 또는 SQL Server 인스턴스에 배치 된 다른 데이터베이스로 복제 하거나 다른 관리 되는 인스턴스 또는 SQL Server 인스턴스에서 일부 행이 변경 될 때 테이블을 업데이트 합니다. 자세한 내용은 [Azure SQL Database 관리 되는 인스턴스 데이터베이스에서 복제 구성](replication-with-sql-database-managed-instance.md)을 참조 하세요. |
 | 위협 감지 |자세한 내용은 [Azure SQL Database 관리 되는 인스턴스에서 위협 감지 구성](sql-database-managed-instance-threat-detection.md)을 참조 하세요.|
-| 장기 백업 보존 | 자세한 내용은 [Azure SQL Database 관리 되는 인스턴스에서 장기 백업 보존 구성](sql-database-managed-instance-long-term-backup-retention-configure.md)을 참조 하세요. | 
+| 장기 백업 보존 | 자세한 내용은 현재 제한 된 공개 미리 보기로 제공 되는 [Azure SQL Database 관리 되는 인스턴스에서 장기 백업 보존 구성](sql-database-managed-instance-long-term-backup-retention-configure.md)을 참조 하세요. | 
 
 ---
 
@@ -69,19 +69,19 @@ ms.locfileid: "82106426"
   - <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019">SharePoint 2016 및 SharePoint 2019</a>와 <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">Dynamics 365 Business Central</a> 지원
   - <a href="https://aka.ms/managed-instance-collation">서버 수준 데이터 정렬</a> 및 원하는 <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">표준 시간대</a> 를 사용 하 여 인스턴스를 만듭니다.
   - 이제 관리 되는 인스턴스가 <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">기본 제공 방화벽</a>으로 보호 됩니다.
-  - [공용 끝점](sql-database-managed-instance-public-endpoint-configure.md)을 사용 하 여 프록시를 구성 하 고, [프록시를 재정의](sql-database-connectivity-architecture.md#connection-policy) 하 여 네트워크 성능을 향상 하거나, <a href="https://aka.ms/four-cores-sql-mi-update">Gen5 하드웨어 세대에서 4 개의 vcores</a> 를 사용 하거나, 지정 시간 복원의 경우 <a href="https://aka.ms/managed-instance-configurable-backup-retention">최대 35 일 동안 백업 보존을 구성</a> 합니다. 장기 백업 보존 (최대 10 년)은 아직 사용 되지 않으므로 <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">복사 전용 백업을</a> 대체 방법으로 사용할 수 있습니다.
+  - [공용 끝점](sql-database-managed-instance-public-endpoint-configure.md)을 사용 하 여 프록시를 구성 하 고, [프록시를 재정의](sql-database-connectivity-architecture.md#connection-policy) 하 여 네트워크 성능을 향상 하거나, <a href="https://aka.ms/four-cores-sql-mi-update">Gen5 하드웨어 세대에서 4 개의 vcores</a> 를 사용 하거나, 지정 시간 복원의 경우 <a href="https://aka.ms/managed-instance-configurable-backup-retention">최대 35 일 동안 백업 보존을 구성</a> 합니다. [장기 백업 보존](sql-database-long-term-retention.md#managed-instance-support) (최대 10 년)은 현재 제한 된 공개 미리 보기로 제공 됩니다.  
   - 새 기능을 통해 <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">PowerShell을 사용 하 여 데이터베이스를 다른 데이터 센터로 지역 복원</a>하 고, [데이터베이스 이름을 바꾸고](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [가상 클러스터를 삭제할](sql-database-managed-instance-delete-virtual-cluster.md)수 있습니다.
   - 새로운 기본 제공 [인스턴스 기여자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) 을 사용 하면 보안 원칙 및 엔터프라이즈 표준 준수와 관련 하 여 의무 (안 함) 규정 준수를 구분할 수 있습니다.
   - 관리 되는 인스턴스는 다음 Azure Government 지역에서 GA (US Gov 텍사스, US Gov 애리조나) 및 중국 북부 2와 중국 동부 2에서 사용할 수 있습니다. 또한 오스트레일리아 중부, 오스트레일리아 중부 2, 브라질 남부, 프랑스 남부, 아랍에미리트 중부, 아랍에미리트 북부, 남아프리카 공화국 북부, 남아프리카 공화국에서 사용할 수 있습니다.
 
 ### <a name="known-issues"></a>알려진 문제
 
-|문제  |검색 된 날짜  |Status  |해결 된 날짜  |
+|문제  |검색 된 날짜  |상태  |해결 된 날짜  |
 |---------|---------|---------|---------|
 |[리소스 그룹에 대 한 사용 권한이 Managed Instance에 적용 되지 않음](#permissions-on-resource-group-not-applied-to-managed-instance)|2 월 2020|해결 방법||
 |[장애 조치 (failover) 그룹용 포털을 통한 수동 장애 조치의 제한 사항](#limitation-of-manual-failover-via-portal-for-failover-groups)|1 월 2020|해결 방법||
 |[SQL 에이전트 역할에는 sysadmin이 아닌 로그인에 대 한 명시적 실행 권한이 필요 합니다.](#in-memory-oltp-memory-limits-are-not-applied)|12 월 2019|해결 방법||
-|[에이전트 프로세스를 다시 시작 하 여 SQL 에이전트 작업을 중단할 수 있습니다.](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|12 월 2019|해결 방법 없음|3 월 2020|
+|[에이전트 프로세스를 다시 시작 하 여 SQL 에이전트 작업을 중단할 수 있습니다.](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|12 월 2019|해결됨|3 월 2020|
 |[AAD 로그인 및 사용자는 SSDT에서 지원 되지 않습니다.](#aad-logins-and-users-are-not-supported-in-ssdt)|11 월 2019|해결 방법 없음||
 |[메모리 내 OLTP 메모리 제한이 적용 되지 않습니다.](#in-memory-oltp-memory-limits-are-not-applied)|10 월 2019|해결 방법||
 |[비어 있지 않은 파일을 제거 하는 동안 잘못 된 오류가 반환 되었습니다.](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|10 월 2019|해결 방법||
@@ -96,7 +96,7 @@ ms.locfileid: "82106426"
 |[작은 데이터베이스 파일이 포함된 스토리지 공간 초과](#exceeding-storage-space-with-small-database-files)||해결 방법||
 |[데이터베이스 이름 대신 표시 되는 GUID 값](#guid-values-shown-instead-of-database-names)||해결 방법||
 |[오류 로그는 지속 되지 않습니다.](#error-logs-arent-persisted)||해결 방법 없음||
-|[동일한 인스턴스 내에 있는 두 데이터베이스의 트랜잭션 범위는 지원 되지 않습니다.](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||해결 방법|2020년 3월|
+|[동일한 인스턴스 내에 있는 두 데이터베이스의 트랜잭션 범위는 지원 되지 않습니다.](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||해결 방법|3 월 2020|
 |[CLR 모듈 및 연결 된 서버는 때때로 로컬 IP 주소를 참조할 수 없습니다.](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||해결 방법||
 |Azure Blob Storage에서 데이터베이스를 복원한 후 DBCC CHECKDB를 사용 하 여 데이터베이스 일관성을 확인 하지 않았습니다.||해결됨|11 월 2019|
 |원본 데이터베이스에 메모리 내 OLTP 개체가 포함 되어 있는 경우 중요 비즈니스용 계층에서 일반 용도의 계층으로의 지정 시간 데이터베이스 복원에 실패 합니다.||해결됨|10 월 2019|
@@ -133,7 +133,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 ### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>에이전트 프로세스를 다시 시작 하 여 SQL 에이전트 작업을 중단할 수 있습니다.
 
-SQL 에이전트는 작업이 시작 될 때마다 새 세션을 만들고 메모리 소비량을 점차적으로 늘립니다. 예약 된 작업의 실행을 차단 하는 내부 메모리 제한에 도달 하지 않도록 하기 위해 메모리 소비가 임계값에 도달 하면 에이전트 프로세스가 다시 시작 됩니다. 이로 인해 다시 시작 될 때 실행 중인 작업의 실행이 중단 될 수 있습니다.
+**(3 월 2020 일에 해결 됨)** SQL 에이전트는 작업이 시작 될 때마다 새 세션을 만들고 메모리 소비량을 점차적으로 늘립니다. 예약 된 작업의 실행을 차단 하는 내부 메모리 제한에 도달 하지 않도록 하기 위해 메모리 소비가 임계값에 도달 하면 에이전트 프로세스가 다시 시작 됩니다. 이로 인해 다시 시작 될 때 실행 중인 작업의 실행이 중단 될 수 있습니다.
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>메모리 내 OLTP 메모리 제한이 적용 되지 않습니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 45224625cfc828227708247d082a1aab1aef8469
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 1e41eb02f4b02078dbf4d42c46cab574cf8d0701
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82142636"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204069"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage 분석 로깅
 
@@ -86,15 +86,15 @@ ms.locfileid: "82142636"
 
  다음 표에서는 로그 이름의 각 특성에 대해 설명합니다.
 
-|attribute|설명|
+|특성|Description|
 |---------------|-----------------|
 |`<service-name>`|스토리지 서비스의 이름입니다. 예: `blob`, `table`또는`queue`|
-|`YYYY`|로그의 4자리 숫자 연도입니다. 예를 들면 다음과 같습니다. `2011`|
-|`MM`|로그의 2자리 숫자 월입니다. 예를 들면 다음과 같습니다. `07`|
-|`DD`|로그의 2자리 숫자 일입니다. 예를 들면 다음과 같습니다. `31`|
-|`hh`|24시간 UTC 형식으로 된 로그의 시작 시간을 나타내는 2자리 숫자 시간입니다. 예를 들면 다음과 같습니다. `18`|
+|`YYYY`|로그의 4자리 숫자 연도입니다. `2011`|
+|`MM`|로그의 2자리 숫자 월입니다. `07`|
+|`DD`|로그의 2자리 숫자 일입니다. `31`|
+|`hh`|24시간 UTC 형식으로 된 로그의 시작 시간을 나타내는 2자리 숫자 시간입니다. `18`|
 |`mm`|로그의 시작 분을 나타내는 2자리 숫자입니다. **참고:**  이 값은 현재 버전의 스토리지 분석에서 지원 되지 않으며 해당 값은 항상 `00`입니다.|
-|`<counter>`|1시간 동안 스토리지 서비스에 대해 생성되는 로그 Blob의 수를 나타내는 0부터 시작되는 6자리 카운터입니다. 이 카운터는 `000000`에서 시작합니다. 예를 들면 다음과 같습니다. `000001`|
+|`<counter>`|1시간 동안 스토리지 서비스에 대해 생성되는 로그 Blob의 수를 나타내는 0부터 시작되는 6자리 카운터입니다. 이 카운터는 `000000`에서 시작합니다. `000001`|
 
  다음은 위 예를 결합한 완전한 예제 로그 이름입니다.
 
@@ -110,11 +110,11 @@ ms.locfileid: "82142636"
 
  모든 로그 Blob는 해당 Blob에 포함된 로깅 데이터를 식별하는 데 사용할 수 있는 메타데이터와 함께 저장됩니다. 다음 표에서는 각 메타데이터 특성에 대해 설명합니다.
 
-|attribute|설명|
+|특성|Description|
 |---------------|-----------------|
 |`LogType`|로그에 읽기, 쓰기 또는 삭제 작업과 관련된 정보가 포함되는지 여부를 설명합니다. 이 값에는 한 가지 형식이 포함될 수도 있고 3개 형식이 모두 조합(쉼표로 구분)되어 포함될 수도 있습니다.<br /><br /> 예 1: `write`<br /><br /> 예 2: `read,write`<br /><br /> 예 3:`read,write,delete`|
-|`StartTime`|`YYYY-MM-DDThh:mm:ssZ` 형식을 사용해서 표시되는 로그 항목의 초기 시간입니다. 예를 들면 다음과 같습니다. `2011-07-31T18:21:46Z`|
-|`EndTime`|`YYYY-MM-DDThh:mm:ssZ` 형식을 사용해서 표시되는 로그 항목의 마지막 시간입니다. 예를 들면 다음과 같습니다. `2011-07-31T18:22:09Z`|
+|`StartTime`|`YYYY-MM-DDThh:mm:ssZ` 형식을 사용해서 표시되는 로그 항목의 초기 시간입니다. `2011-07-31T18:21:46Z`|
+|`EndTime`|`YYYY-MM-DDThh:mm:ssZ` 형식을 사용해서 표시되는 로그 항목의 마지막 시간입니다. `2011-07-31T18:22:09Z`|
 |`LogVersion`|로그 형식의 버전입니다.|
 
  다음 목록에서는 위 예제를 사용한 전체 예제 메타데이터를 보여줍니다.
@@ -160,7 +160,7 @@ Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations non
 
 # <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
 
-:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/diagnostic-logs-classic.cs" id="snippet_EnableDiagnosticLogs":::
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
 
 # <a name="net-v11-sdk"></a>[\.NET v11 SDK](#tab/dotnet11)
 

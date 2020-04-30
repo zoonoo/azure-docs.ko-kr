@@ -2,21 +2,21 @@
 title: Azure Monitor의 사용자 지정 메트릭
 description: Azure Monitor의 사용자 지정 메트릭 및 모델링하는 방법을 알아봅니다.
 author: ancav
+ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 09/09/2019
-ms.author: ancav
+ms.date: 04/23/2020
 ms.subservice: metrics
-ms.openlocfilehash: 099ab150cde763551c2ad10a4e9159909ccff4dd
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 4286910c926cd6bd3b21acfd145e4e69548319ce
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270709"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204307"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure Monitor의 사용자 지정 메트릭
 
-Azure에서 리소스 및 애플리케이션을 배포하는 동안 성능 및 상태에 대한 정보를 얻기 위해 원격 분석 수집을 시작할 수 있습니다. Azure는 몇 가지 메트릭을 기본적으로 제공합니다. 이러한 메트릭을 [표준 또는 플랫폼이라고](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)합니다. 그러나 메트릭은 본질적으로 제한되어 있습니다. 더욱 심층적인 인사이트를 제공하려면 일부 사용자 지정 성능 지표 또는 비즈니스 관련 메트릭을 수집하는 것이 좋습니다.
+Azure에서 리소스 및 애플리케이션을 배포하는 동안 성능 및 상태에 대한 정보를 얻기 위해 원격 분석 수집을 시작할 수 있습니다. Azure는 몇 가지 메트릭을 기본적으로 제공합니다. 이러한 메트릭은 [표준 또는 플랫폼](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)이라고 합니다. 그러나 메트릭은 본질적으로 제한되어 있습니다. 더욱 심층적인 인사이트를 제공하려면 일부 사용자 지정 성능 지표 또는 비즈니스 관련 메트릭을 수집하는 것이 좋습니다.
 이러한 **사용자 지정** 메트릭은 애플리케이션 원격 분석, Azure 리소스에서 실행되는 에이전트 또는 외부 모니터링 시스템을 통해서도 수집되어 Azure Monitor로 직접 전송될 수 있습니다. Azure Monitor에 게시된 후에는 Azure에서 내보낸 표준 메트릭과 나란히, Azure 리소스 및 애플리케이션에 대한 사용자 지정 메트릭을 찾아보고 쿼리 및 경고할 수 있습니다.
 
 ## <a name="methods-to-send-custom-metrics"></a>사용자 지정 메트릭을 보내는 방법
@@ -25,29 +25,29 @@ Azure에서 리소스 및 애플리케이션을 배포하는 동안 성능 및 �
 - Azure Application Insights SDK를 사용하여 애플리케이션을 계측하고 사용자 지정 원격 분석을 Azure Monitor로 보냅니다. 
 - [Azure VM](collect-custom-metrics-guestos-resource-manager-vm.md), [가상 머신 확장 집합](collect-custom-metrics-guestos-resource-manager-vmss.md), [클래식 VM](collect-custom-metrics-guestos-vm-classic.md) 또는 [클래식 Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md)에 WAD(Microsoft Azure Diagnostics) 확장을 설치하고 성능 카운터를 Azure Monitor로 보냅니다. 
 - Azure Linux VM에 [InfluxData Telegraf 에이전트](collect-custom-metrics-linux-telegraf.md)를 설치하고 Azure Monitor 출력 플러그 인을 사용하여 메트릭을 보냅니다.
-- 사용자 지정 메트릭을 Azure 모니터 REST `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` [API로 직접](../../azure-monitor/platform/metrics-store-custom-rest-api.md)보냅니다.
+- 사용자 지정 메트릭을 [Azure Monitor REST API에 직접](../../azure-monitor/platform/metrics-store-custom-rest-api.md)보냅니다 `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
 ## <a name="pricing-model"></a>가격 책정 모델
 
-Azure Monitor 메트릭 저장소에 표준 메트릭(플랫폼 메트릭)을 입력하는 데 드는 비용은 없습니다. Azure Monitor 메트릭 저장소에 수집된 사용자 지정 메트릭은 크기가 8바이트로 간주되는 각 사용자 지정 메트릭 데이터 포인트와 함께 MByte당 청구됩니다. 모든 섭취메트릭은 90일 동안 유지됩니다.
+표준 메트릭 (플랫폼 메트릭)을 Azure Monitor 메트릭 저장소에 수집 하는 데는 비용이 없습니다. Azure Monitor 메트릭 저장소에 수집 된 사용자 지정 메트릭은 크기가 8 바이트로 간주 되는 각 사용자 지정 메트릭 데이터가 포함 된 mb 당 요금이 청구 됩니다. 모든 수집 메트릭은 90 일 동안 유지 됩니다.
 
-메트릭 쿼리는 표준 API 호출 수에 따라 요금이 부과됩니다. 표준 API 호출은 1,440개의 데이터 포인트를 분석하는 호출입니다(1,440은 일일 메트릭당 저장할 수 있는 총 데이터 포인트 수)입니다. API 호출이 1,440개 이상의 데이터 포인트를 분석하는 경우 여러 표준 API 호출로 계산됩니다. API 호출이 1,440개 미만의 데이터 포인트를 분석하는 경우 1개 미만의 API 호출로 계산됩니다. 표준 API 호출 수는 하루에 분석된 총 데이터 포인트 수를 1,440으로 나눈 값으로 매일 계산됩니다.
+메트릭 쿼리는 표준 API 호출 수에 따라 요금이 청구 됩니다. 표준 API 호출은 1440 데이터 요소를 분석 하는 호출입니다 (1440은 일별 메트릭 당 저장할 수 있는 총 데이터 요소 수 이기도). 1440 개 보다 많은 데이터 요소를 분석 하는 API 호출은 여러 표준 API 호출로 계산 됩니다. 1440 개 미만의 데이터 요소를 분석 하는 API 호출은 API 호출을 한 개 미만으로 계산 합니다. 표준 API 호출 수는 매일 분석 된 총 데이터 요소 수를 1440으로 나눈 값으로 매일 계산 됩니다.
 
-사용자 지정 메트릭 및 메트릭 쿼리에 대한 특정 가격 세부 정보는 [Azure Monitor 가격 책정 페이지에서](https://azure.microsoft.com/pricing/details/monitor/)확인할 수 있습니다.
-
-> [!NOTE]  
-> 응용 프로그램 인사이트 SDK를 통해 Azure Monitor로 전송된 메트릭은 수집된 로그 데이터로 청구되며, [사용자 지정 메트릭 차원에 대한 알림 활성화를](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) 선택한 경우에만 추가 메트릭 요금이 부과됩니다. [해당 지역의](https://azure.microsoft.com/pricing/details/monitor/) [애플리케이션 인사이트 가격 책정 모델](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) 및 가격에 대해 자세히 알아보십시오.
+사용자 지정 메트릭 및 메트릭 쿼리에 대 한 특정 가격 정보는 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에서 확인할 수 있습니다.
 
 > [!NOTE]  
-> 사용자 지정 메트릭 및 메트릭 쿼리에 대해 청구가 활성화되는 시기에 대한 자세한 내용은 [Azure Monitor 가격 책정 페이지를](https://azure.microsoft.com/pricing/details/monitor/) 확인합니다. 
+> Application Insights SDK를 통해 Azure Monitor로 전송 되는 메트릭은 수집 로그 데이터로 청구 되 고, [사용자 지정 메트릭 차원에 대 한 경고를 사용 하도록 설정](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) 된 Application Insights 기능이 선택 된 경우에만 추가 메트릭 요금이 발생 합니다. [지역에서](https://azure.microsoft.com/pricing/details/monitor/) [Application Insights 가격 책정 모델](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) 및 가격에 대해 자세히 알아보세요.
 
-## <a name="how-to-send-custom-metrics"></a>맞춤 측정항목을 보내는 방법
+> [!NOTE]  
+> 사용자 지정 메트릭 및 메트릭 쿼리에 대 한 대금 청구를 사용 하도록 설정 하는 경우에 대 한 자세한 내용은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 를 확인 하세요. 
+
+## <a name="how-to-send-custom-metrics"></a>사용자 지정 메트릭을 보내는 방법
 
 Azure Monitor에 사용자 지정 메트릭을 보낼 때 보고되는 각 데이터 요소 또는 값은 다음 정보를 포함해야 합니다.
 
 ### <a name="authentication"></a>인증
 사용자 지정 메트릭을 Azure Monitor로 전송하려면 메트릭을 전송하는 엔터티에 유효한 Azure AD(Azure Active Directory) 토큰이 요청의 **전달자** 헤더에 있어야 합니다. 유효한 전달자 토큰을 획득하기 위한 지원되는 몇 가지 방법이 있습니다.
-1. [Azure 리소스에 대한 관리되는 ID.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) Azure 리소스 자체(예: VM)에 ID를 제공합니다. MSI(관리 서비스 ID)는 특정 작업을 수행할 수 있는 권한을 리소스에 제공하도록 설계되었습니다. 예를 들어, 리소스가 해당 지표를 내보낼 수 있도록 허용합니다. 리소스 또는 해당 MSI에 다른 리소스에 대한 **모니터링 메트릭 게시자** 권한을 부여할 수 있습니다. 이 권한을 사용하면 MSI가 다른 리소스에 대한 지표도 내보낼 수 있습니다.
+1. [Azure 리소스에 대 한 관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)입니다. Azure 리소스 자체(예: VM)에 ID를 제공합니다. MSI(관리 서비스 ID)는 특정 작업을 수행할 수 있는 권한을 리소스에 제공하도록 설계되었습니다. 예를 들어, 리소스가 해당 지표를 내보낼 수 있도록 허용합니다. 리소스 또는 해당 MSI에 다른 리소스에 대한 **모니터링 메트릭 게시자** 권한을 부여할 수 있습니다. 이 권한을 사용하면 MSI가 다른 리소스에 대한 지표도 내보낼 수 있습니다.
 2. [Azure AD 서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). 이 시나리오에서는 Azure 리소스에 대한 메트릭을 내보내는 권한을 Azure AD 애플리케이션 또는 서비스에 할당할 수 있습니다.
 요청을 인증하기 위해 Azure Monitor는 Azure AD 공개 키를 사용하여 애플리케이션 토큰의 유효성을 검사합니다. 기존 **모니터링 메트릭 게시자** 역할에는 이 사용 권한이 이미 있으며, Azure Portal에서 사용할 수 있습니다. 서비스 주체는 사용자 지정 메트릭을 내보낼 리소스에 따라 필요한 범위에서 **모니터링 메트릭 게시자** 역할을 부여받을 수 있습니다. 범위의 예로 구독, 리소스 그룹 또는 특정 리소스가 있습니다.
 
@@ -70,17 +70,17 @@ Azure Monitor에 사용자 지정 메트릭을 보낼 때 보고되는 각 데�
 >
 
 ### <a name="timestamp"></a>타임스탬프
-Azure Monitor에 전송되는 각 데이터 요소는 타임스탬프를 사용하여 표시되어야 합니다. 이 타임스탬프는 메트릭 값이 측정 또는 수집된 날짜/시간을 캡처합니다. Azure Monitor는 과거 20분 및 미래 5분까지의 타임스탬프가 지정된 메트릭 데이터를 허용합니다. 타임스탬프는 ISO 8601 형식이어야 합니다.
+Azure Monitor에 전송되는 각 데이터 요소는 타임스탬프를 사용하여 표시되어야 합니다. 이 타임스탬프는 메트릭 값이 측정 또는 수집된 날짜/시간을 캡처합니다. Azure Monitor는 과거 20분 및 미래 5분까지의 타임스탬프가 지정된 메트릭 데이터를 허용합니다. 타임 스탬프는 ISO 8601 형식 이어야 합니다.
 
 ### <a name="namespace"></a>네임스페이스
-네임스페이스는 유사한 메트릭을 함께 분류 또는 그룹화하는 방법입니다. 네임스페이스를 사용하면 각기 다른 인사이트 또는 성능 지표를 수집할 수 있는 메트릭 그룹을 격리할 수 있습니다. 예를 들어 앱을 프로파일러볼 메모리 사용 메트릭을 추적하는 **contosomemorymetrics라는** 네임스페이스가 있을 수 있습니다. **contosoapptransaction이라는** 또 다른 네임스페이스는 응용 프로그램의 사용자 트랜잭션에 대한 모든 메트릭을 추적할 수 있습니다.
+네임스페이스는 유사한 메트릭을 함께 분류 또는 그룹화하는 방법입니다. 네임스페이스를 사용하면 각기 다른 인사이트 또는 성능 지표를 수집할 수 있는 메트릭 그룹을 격리할 수 있습니다. 예를 들어 앱을 프로 파일링 하는 메모리 사용 메트릭을 추적 하는 **contosomemorymetrics** 라는 네임 스페이스가 있을 수 있습니다. **Contosoapptransaction** 라는 다른 네임 스페이스는 응용 프로그램의 사용자 트랜잭션에 대 한 모든 메트릭을 추적할 수 있습니다.
 
 ### <a name="name"></a>속성
 **이름**은 보고되는 메트릭의 이름입니다. 일반적으로 이름은 측정 대상을 식별하기에 충분한 정보를 제공합니다. 예를 들어, 지정된 VM에서 사용된 메모리 바이트 수를 측정하는 메트릭이 있습니다. 메트릭 이름은 **사용 중인 메모리 바이트**일 수 있습니다.
 
 ### <a name="dimension-keys"></a>차원 키
 차원은 수집하는 메트릭에 관한 추가적인 특성을 설명하는 데 유용한 키 또는 값 쌍입니다. 추가적인 특성을 사용하면 메트릭에 대한 자세한 정보를 수집하여 더욱 심층적인 인사이트를 얻을 수 있습니다. 예를 들어, **사용 중인 메모리 바이트** 메트릭에는 VM의 각 프로세스에서 사용 중인 메모리 바이트 수를 캡처하는 **프로세스**라는 차원 키가 있을 수 있습니다. 이 키를 사용하여 메트릭을 필터링하면 특정 프로세스에서 사용하는 메모리 양을 확인하거나 메모리 사용량에 따른 상위 5개 프로세스를 식별할 수 있습니다.
-측정기준은 선택 사항이며 모든 측정항목에 측정기준이 있을 수 있는 것은 아닙니다. 사용자 지정 측정항목에는 최대 10개의 측정기준이 있을 수 있습니다.
+차원은 선택 사항이 며 모든 메트릭에 차원이 포함 되지 않을 수 있습니다. 사용자 지정 메트릭은 차원을 최대 10 개까지 포함할 수 있습니다.
 
 ### <a name="dimension-values"></a>차원 값
 메트릭 데이터 요소를 보고하는 경우 보고되는 메트릭의 각 차원 키에 해당하는 차원 값이 있습니다. 예를 들어, VM의 ContosoApp에서 사용하는 메모리를 보고하려는 경우
@@ -90,7 +90,7 @@ Azure Monitor에 전송되는 각 데이터 요소는 타임스탬프를 사용�
 * 차원 값은 **ContosoApp.exe**가 됩니다.
 
 메트릭 값을 게시하는 경우 차원 키당 단일 차원 값만 지정할 수 있습니다. VM의 여러 프로세스에 대해 수집한 메모리 사용률이 동일한 경우 해당 타임스탬프에 여러 개의 메트릭 값을 보고할 수 있습니다. 각 메트릭 값은 **프로세스** 차원 키에 대해 다른 차원 값을 지정합니다.
-측정기준은 선택 사항이며 모든 측정항목에 측정기준이 있을 수 있는 것은 아닙니다. 메트릭 게시물이 차원 키를 정의하는 경우 해당 차원 값이 필수입니다.
+차원은 선택 사항이 며 모든 메트릭에 차원이 포함 되지 않을 수 있습니다. 메트릭 게시에서 차원 키를 정의 하는 경우 해당 차원 값은 필수입니다.
 
 ### <a name="metric-values"></a>메트릭 값
 Azure Monitor는 1분 단위 간격으로 모든 메트릭을 저장합니다. 지정된 1분 동안 메트릭을 여러 번 샘플링해야 하는 경우도 있습니다. CPU 사용률을 예로 들 수 있습니다. 또는 많은 불연속 이벤트에 대해 측정해야 할 수도 있습니다. 로그인 트랜잭션 대기 시간을 예로 들 수 있습니다. 내보내야 하는 원시 값의 수를 제한하고 Azure Monitor에 대한 요금을 지불하려면 다음과 같은 값을 로컬로 미리 집계하고 내보낼 수 있습니다.
@@ -100,7 +100,7 @@ Azure Monitor는 1분 단위 간격으로 모든 메트릭을 저장합니다. �
 * **합계**: 1분 동안 모든 샘플 및 측정값에서 관찰된 모든 값의 합계입니다.
 * **개수**: 1분 동안 수행된 샘플 및 측정값 수입니다.
 
-예를 들어 지정된 1분 동안 앱에 대한 로그인 트랜잭션이 4개 인 경우 각 앱에 대해 측정된 대기 시간까지 다음과 같습니다.
+예를 들어 지정 된 시간 동안 앱에 4 개의 로그인 트랜잭션이 있는 경우 각각에 대해 측정 된 대기 시간을 다음과 같이 지정할 수 있습니다.
 
 |트랜잭션 1|트랜잭션 2|트랜잭션 3|트랜잭션 4|
 |---|---|---|---|
@@ -168,18 +168,18 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 내보내기 전에 사용자 지정 메트릭을 Azure Monitor에서 미리 정의할 필요가 없습니다. 게시된 각 메트릭 데이터 요소에는 네임스페이스, 이름 및 차원 정보가 포함되어 있습니다. 따라서 사용자 지정 메트릭을 Azure Monitor에 처음 내보낼 때 메트릭 정의가 자동으로 생성됩니다. 그런 다음, 메트릭 정의를 통해 메트릭을 내보낸 모든 리소스에서 이 메트릭 정의를 검색할 수 있습니다.
 
 > [!NOTE]  
-> Azure Monitor는 아직 사용자 지정 메트릭에 대한 **단위** 정의를 지원하지 않습니다.
+> Azure Monitor는 사용자 지정 메트릭에 대 한 **단위** 정의를 아직 지원 하지 않습니다.
 
 ## <a name="using-custom-metrics"></a>사용자 지정 메트릭 사용
 사용자 지정 메트릭을 Azure Monitor에 전송한 후 Azure Portal을 통해 검색하고 Azure Monitor REST API를 통해 쿼리할 수 있습니다. 특정 조건이 충족되면 알리도록 메트릭에 대한 경고를 만들 수도 있습니다.
 
 > [!NOTE]
-> 사용자 지정 메트릭을 보려면 판독기 또는 기여자 역할이어야 합니다.
+> 사용자 지정 메트릭을 보려면 독자 또는 참가자 역할을 수행 해야 합니다.
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Azure Portal을 통해 사용자 지정 메트릭 찾아보기
 1.    [Azure 포털](https://portal.azure.com)로 이동합니다.
 2.    **모니터** 창을 선택합니다.
-3.    **메트릭을 선택합니다.**
+3.    **메트릭**을 선택 합니다.
 4.    사용자 지정 메트릭을 내보낸 리소스를 선택합니다.
 5.    사용자 지정 메트릭에 대한 메트릭 네임스페이스를 선택합니다.
 6.    사용자 지정 메트릭을 선택합니다.
@@ -189,7 +189,7 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 
 |Azure 지역 |지역별 엔드포인트 접두사|
 |---|---|
-| **미국 및 캐나다** | |
+| **미국과 캐나다** | |
 |미국 중서부 | https:\//westcentralus.monitoring.azure.com/ |
 |미국 서부 2       | https:\//westus2.monitoring.azure.com/ |
 |미국 중북부 | https:\//northcentralus.monitoring.azure.com
@@ -212,6 +212,11 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 |동아시아 | https:\//eastasia.monitoring.azure.com
 |한국 중부   | https:\//koreacentral.monitoring.azure.com
 
+## <a name="latency-and-storage-retention"></a>대기 시간 및 저장소 보존
+
+새 메트릭 또는 메트릭에 추가 되는 새 차원을 추가 하는 것이 표시 되는 데 최대 2 ~ 3 분이 소요 될 수 있습니다. 시스템에서 데이터는 30 초 99%의 시간 이내에 apear 야 합니다. 
+
+메트릭을 삭제 하거나 차원을 제거 하는 경우 변경 내용은 시스템에서 삭제 되는 데 1 ~ 1 일 걸릴 수 있습니다.
 
 ## <a name="quotas-and-limits"></a>할당량 및 제한
 Azure Monitor는 사용자 지정 메트릭에 대해 다음과 같은 사용량 한도를 적용합니다.
@@ -228,8 +233,8 @@ Azure Monitor는 사용자 지정 메트릭에 대해 다음과 같은 사용량
 다음과 같은 다양한 서비스의 사용자 지정 메트릭을 사용합니다. 
  - [Virtual Machines](collect-custom-metrics-guestos-resource-manager-vm.md)
  - [가상 머신 크기 집합](collect-custom-metrics-guestos-resource-manager-vmss.md)
- - [Azure 가상 컴퓨터(클래식)](collect-custom-metrics-guestos-vm-classic.md)
+ - [Azure Virtual Machines (클래식)](collect-custom-metrics-guestos-vm-classic.md)
  - [Telegraf 에이전트를 사용하는 Linux 가상 머신](collect-custom-metrics-linux-telegraf.md)
  - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
- - [클래식 클라우드 서비스](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
+ - [클래식 Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  

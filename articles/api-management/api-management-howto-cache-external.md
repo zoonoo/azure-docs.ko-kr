@@ -8,28 +8,27 @@ manager: erikre
 editor: ''
 ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 2e8863eed774884a99de8643c9e497378368d166
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f8ca0caedd438c4ce707a044bc7fa7dd035e8983
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70072498"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203236"
 ---
-# <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Azure API Management에서 외부 Azure Cache for Redis 사용
+# <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Azure API Management에서 외부 Redis 호환 캐시 사용
 
-Azure API Management는 기본 제공 캐시를 활용하는 것 외에도 외부 Azure Cache for Redis에서 응답을 캐시할 수 있습니다.
+Azure API Management는 기본 제공 캐시를 활용 하는 것 외에도 외부 Redis 호환 캐시 (예: Redis 용 Azure Cache)에서 응답을 캐시할 수 있습니다.
 
-외부 캐시를 사용하면 기본 제공 캐시의 몇 가지 제한 사항을 극복할 수 있습니다. 특히 유용한 경우는 다음과 같습니다.
+외부 캐시를 사용 하면에서 기본 제공 캐시에 대 한 몇 가지 제한 사항을 극복할 수 있습니다.
 
 * API Management 업데이트 중에 캐시를 주기적으로 지우지 않도록 방지
 * 캐시 구성에 대한 더 자세한 제어
 * API Management 계층보다 더 많은 데이터 캐시 허용
 * API Management의 소비 계층에서 캐싱 사용
+* [API Management 자체 호스팅 게이트웨이에서](self-hosted-gateway-overview.md) 캐싱을 사용 하도록 설정
 
 캐싱에 대한 자세한 내용은 [API Management 캐싱 정책](api-management-caching-policies.md)과 [Azure API Management의 사용자 지정 캐싱](api-management-sample-cache-by-key.md)을 참조하세요.
 
@@ -40,7 +39,7 @@ Azure API Management는 기본 제공 캐시를 활용하는 것 외에도 외�
 > [!div class="checklist"]
 > * API Management에서 외부 캐시 추가
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -53,6 +52,10 @@ Azure API Management는 기본 제공 캐시를 활용하는 것 외에도 외�
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
+## <a name="deploy-redis-cache-to-kubernetes"></a><a name="create-cache"> </a> Kubernetes에 Redis 캐시 배포
+
+캐싱을 위해 자체 호스팅 게이트웨이는 외부 캐시에만 의존 합니다. 캐시를 효과적으로 자체 호스팅 게이트웨이로 사용 하는 경우 조회 및 저장소 대기 시간을 최소화 하려면 서로 가까이에 배치 해야 합니다. Redis cache를 동일한 Kubernetes 클러스터 또는 근처의 별도 클러스터에 배포 하는 것이 가장 좋은 방법입니다. Redis cache를 Kubernetes 클러스터에 배포 하는 방법에 대 한 자세한 내용은 다음 [링크](https://github.com/kubernetes/examples/tree/master/guestbook) 를 참조 하세요.
+
 ## <a name="add-an-external-cache"></a><a name="add-external-cache"> </a>외부 캐시 추가
 
 다음 단계에 따라 Azure API Management에서 외부 Azure Cache for Redis를 추가합니다.
@@ -60,7 +63,7 @@ Azure API Management는 기본 제공 캐시를 활용하는 것 외에도 외�
 ![APIM에 사용자 고유의 캐시 가져오기](media/api-management-howto-cache-external/add-external-cache.png)
 
 > [!NOTE]
-> **에서 사용** 설정은 API Management 다중 지역 구성의 경우에 구성 된 캐시와 통신할 API Management 지역 배포를 지정 합니다. **기본값**으로 지정된 캐시는 지역 값이 있는 캐시로 재정의됩니다.
+> **사용 설정에서** 구성 된 캐시를 사용 하는 Azure 지역 또는 자체 호스팅 게이트웨이 위치를 지정 합니다. **기본값으로** 구성 된 캐시는 특정 일치 지역 또는 위치 값이 있는 캐시로 재정의 됩니다.
 >
 > 예를 들어 API Management가 미국 동부, 동남 아시아 및 서유럽 지역에서 호스팅되고 2개의 캐시(**기본값** 및 **동남 아시아**에 대해 각각 하나씩)가 구성되어 있는 경우, **동남 아시아**에 대한 API Management는 자체 캐시를 사용하지만 다른 두 지역은 **기본값** 캐시 항목을 사용합니다.
 
@@ -81,6 +84,16 @@ Azure API Management는 기본 제공 캐시를 활용하는 것 외에도 외�
 4. **캐시 인스턴스** 드롭다운 필드에서 **사용자 지정**을 선택합니다.
 5. **기본값** 을 선택 하거나 **사용** 드롭다운 필드에서 원하는 지역을 지정 합니다.
 6. **연결 문자열** 필드에서 Azure Cache for Redis 연결 문자열을 제공합니다.
+7. **저장**을 클릭합니다.
+
+### <a name="add-a-redis-cache-to-a-self-hosted-gateway"></a>자체 호스팅 게이트웨이에 Redis cache 추가
+
+1. Azure Portal에서 API Management 인스턴스로 이동합니다.
+2. 왼쪽 메뉴에서 **외부 캐시** 탭을 선택합니다.
+3. **+추가** 단추를 클릭합니다.
+4. **캐시 인스턴스** 드롭다운 필드에서 **사용자 지정**을 선택합니다.
+5. 원하는 자체 호스팅 게이트웨이 위치를 지정 하거나, **사용** 드롭다운 필드에서 **기본값** 을 지정 합니다.
+6. **연결 문자열** 필드에서 Redis 캐시 연결 문자열을 제공합니다.
 7. **저장**을 클릭합니다.
 
 ## <a name="use-the-external-cache"></a>외부 캐시 사용

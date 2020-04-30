@@ -1,35 +1,29 @@
 ---
-title: Azure Red Hat 오픈시프트 3.11 | 마이크로 소프트 문서
-description: Azure Red Hat OpenShift 3.11을 사용하여 개인 클러스터 만들기
+title: Azure Red Hat OpenShift 3.11를 사용 하 여 개인 클러스터 만들기 Microsoft Docs
+description: Azure Red Hat OpenShift 3.11를 사용 하 여 개인 클러스터 만들기
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/02/2020
-keywords: aro, 오픈 시프트, 개인 클러스터, 빨간 모자
-ms.openlocfilehash: b34b5d622527742447847102526eba9ee6ca220d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+keywords: aro, openshift, 개인 클러스터, red hat
+ms.openlocfilehash: f4ce6c79fa9fe6d05fdea4b877a8aa7faf404a9b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399420"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204171"
 ---
-# <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Azure Red Hat OpenShift 3.11을 사용하여 개인 클러스터 만들기
+# <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Azure Red Hat OpenShift 3.11를 사용 하 여 개인 클러스터 만들기
 
-> [!IMPORTANT]
-> Azure Red Hat OpenShift(ARO) 개인 클러스터는 현재 미국 동부 2의 비공개 미리 보기에서만 사용할 수 있습니다. 비공개 미리 보기 수락은 초대에 의해서만 가능합니다. 이 기능을 활성화하기 전에 구독을 등록하십시오.
+개인 클러스터는 다음과 같은 이점을 제공 합니다.
 
-개인 클러스터는 다음과 같은 이점을 제공합니다.
-
-* 개인 클러스터는 공용 IP 주소에 API 서버와 같은 클러스터 제어 평면 구성 요소를 노출하지 않습니다.
-* 개인 클러스터의 가상 네트워크는 고객이 구성할 수 있으므로 ExpressRoute 환경을 비롯한 다른 가상 네트워크와 피어링을 허용할 수 있도록 네트워킹을 설정할 수 있습니다. 가상 네트워크에서 사용자 지정 DNS를 구성하여 내부 서비스와 통합할 수도 있습니다.
+* 개인 클러스터는 공용 IP 주소에서 클러스터 제어 평면 구성 요소 (예: API 서버)를 노출 하지 않습니다.
+* 개인 클러스터의 가상 네트워크는 고객이 구성할 수 있으며,이를 통해 네트워킹을 설정 하 여 Express 경로 환경을 비롯 한 다른 가상 네트워크와 피어 링을 허용할 수 있습니다. 내부 서비스와 통합 하도록 가상 네트워크에서 사용자 지정 DNS를 구성할 수도 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-> [!NOTE]
-> 이 기능에는 ARO HTTP API의 버전 2019-10-27 미리 보기가 필요합니다. Azure CLI에서 아직 지원되지 않습니다.
-
-다음 구성 코드 조각의 필드는 새 필드이며 클러스터 구성에 포함되어야 합니다. `managementSubnetCidr`클러스터 가상 네트워크 내에 있어야 하며 Azure에서 클러스터를 관리하는 데 사용됩니다.
+다음 구성 코드 조각의 필드는 새로운 것 이며 클러스터 구성에 포함 되어야 합니다. `managementSubnetCidr`클러스터 가상 네트워크 내에 있어야 하며 Azure에서 클러스터를 관리 하는 데 사용 됩니다.
 
 ```json
 properties:
@@ -40,22 +34,22 @@ properties:
      privateApiServer: true
 ```
 
-아래에 제공된 샘플 스크립트를 사용하여 개인 클러스터를 배포할 수 있습니다. 클러스터가 배포되면 `cluster get` 명령을 실행하고 `properties.FQDN` 속성을 보고 OpenShift API 서버의 개인 IP 주소를 확인합니다.
+개인 클러스터는 아래에 제공 된 샘플 스크립트를 사용 하 여 배포할 수 있습니다. 클러스터가 배포 되 면 `cluster get` 명령을 실행 하 고 `properties.FQDN` 속성을 확인 하 여 openshift API 서버의 개인 IP 주소를 확인 합니다.
 
-클러스터 가상 네트워크는 수정할 수 있도록 사용 권한으로 만들어졌습니다. 그런 다음 필요에 따라 필요에 따라 가상 네트워크(ExpressRoute, VPN, 가상 네트워크 피어링)에 액세스하도록 네트워킹을 설정할 수 있습니다.
+클러스터 가상 네트워크는 사용 권한으로 생성 되어 수정할 수 있습니다. 그런 다음 필요에 따라 네트워킹을 설정 하 여 가상 네트워크 (Express 경로, VPN, 가상 네트워크 피어 링)에 액세스할 수 있습니다.
 
-클러스터 가상 네트워크의 DNS 네임 서버를 변경하는 경우 VM을 다시 이미지화할 `properties.RefreshCluster` 수 `true` 있도록 속성이 설정된 클러스터에 업데이트를 발행해야 합니다. 이 업데이트를 통해 새 네임 서버를 선택할 수 있습니다.
+클러스터 가상 네트워크에서 DNS 이름 서버를 변경 하는 경우 Vm을 이미지로 다시 설치 수 있도록 `properties.RefreshCluster` 속성이로 `true` 설정 된 클러스터에서 업데이트를 실행 해야 합니다. 이 업데이트를 통해 새 이름 서버을 선택할 수 있습니다.
 
 ## <a name="sample-configuration-scripts"></a>샘플 구성 스크립트
 
-이 섹션의 샘플 스크립트를 사용하여 개인 클러스터를 설정하고 배포합니다.
+이 섹션의 샘플 스크립트를 사용 하 여 개인 클러스터를 설정 하 고 배포 합니다.
 
-### <a name="environment"></a>Environment
+### <a name="environment"></a>환경
 
-사용자 고유의 값을 사용하여 아래 환경 변수를 입력합니다.
+사용자 고유의 값을 사용 하 여 아래 환경 변수를 입력 합니다.
 
 > [!NOTE]
-> 현재 개인 클러스터에 `eastus2` 대해 지원되는 유일한 위치이기 때문에 위치를 설정해야 합니다.
+> 이 위치는 현재 개인 클러스터 `eastus2` 에 대해 지원 되는 유일한 위치 이므로로 설정 되어야 합니다.
 
 ``` bash
 export CLUSTER_NAME=
@@ -68,9 +62,9 @@ export CLIENT_ID=
 export SECRET=
 ```
 
-### <a name="private-clusterjson"></a>프라이빗 클러스터.json
+### <a name="private-clusterjson"></a>private-cluster. json
 
-위에 정의된 환경 변수를 사용하여 개인 클러스터가 활성화된 샘플 클러스터 구성은 다음과 같습니다.
+위에서 정의한 환경 변수를 사용 하 여 다음은 개인 클러스터가 사용 하도록 설정 된 샘플 클러스터 구성입니다.
 
 ```json
 {
@@ -135,7 +129,7 @@ export SECRET=
 
 ## <a name="deploy-a-private-cluster"></a>개인 클러스터 배포
 
-위의 샘플 스크립트로 개인 클러스터를 구성한 후 다음 명령을 실행하여 개인 클러스터를 배포합니다.
+위의 샘플 스크립트를 사용 하 여 개인 클러스터를 구성한 후 다음 명령을 실행 하 여 개인 클러스터를 배포 합니다.
 
 ``` bash
 az group create --name $CLUSTER_NAME --location $LOCATION
@@ -147,4 +141,4 @@ cat private-cluster.json | envsubst | curl -v -X PUT \
 
 ## <a name="next-steps"></a>다음 단계
 
-OpenShift 콘솔에 액세스하는 방법에 대한 자세한 내용은 [웹 콘솔 연습](https://docs.openshift.com/container-platform/3.11/getting_started/developers_console.html)을 참조하십시오.
+OpenShift 콘솔에 액세스 하는 방법에 대 한 자세한 내용은 [웹 콘솔 연습](https://docs.openshift.com/container-platform/3.11/getting_started/developers_console.html)을 참조 하세요.

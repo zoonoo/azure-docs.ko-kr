@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88b19257a6a7d335e6a928a9eaf7526fbfd5b02e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 1827d44f4d4ac812a33aee4791c2103a10328ba7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "75942748"
+ms.locfileid: "82204602"
 ---
 ## <a name="application-performance-indicators"></a>애플리케이션 성과 지표
 
@@ -232,7 +232,7 @@ Premium Storage 디스크에는 Standard Storage 디스크에 비해 더 높은 
 
 ## <a name="disk-caching"></a>디스크 캐싱
 
-Azure Premium Storage를 활용하는 높은 확장성의 VM에는 BlobCache 라는 다중 계층 캐싱 기술이 있습니다. BlobCache는 캐싱에 대해 Virtual Machine RAM 및 로컬 SSD의 조합을 사용합니다. 이 캐시는 Premium Storage 영구 디스크 및 VM 로컬 디스크에 사용할 수 있습니다. 기본적으로 이 캐시 설정은 OS 디스크에 대해 읽기/쓰기로 Premium Storage에서 호스팅되는 데이터 디스크에 대해 읽기 전용으로 설정됩니다. Premium Storage 디스크에서 디스크 캐싱을 사용하면 높은 확장성의 VM은 기본 디스크 성능을 초과하는 매우 높은 수준의 성능을 얻을 수 있습니다.
+Azure Premium Storage를 활용하는 높은 확장성의 VM에는 BlobCache 라는 다중 계층 캐싱 기술이 있습니다. BlobCache는 캐싱에 호스트 RAM과 로컬 SSD를 조합 하 여 사용 합니다. 이 캐시는 Premium Storage 영구 디스크 및 VM 로컬 디스크에 사용할 수 있습니다. 기본적으로 이 캐시 설정은 OS 디스크에 대해 읽기/쓰기로 Premium Storage에서 호스팅되는 데이터 디스크에 대해 읽기 전용으로 설정됩니다. Premium Storage 디스크에서 디스크 캐싱을 사용하면 높은 확장성의 VM은 기본 디스크 성능을 초과하는 매우 높은 수준의 성능을 얻을 수 있습니다.
 
 > [!WARNING]
 > 디스크 캐싱은 디스크 4 TiB 이상에서 지원 되지 않습니다. 여러 디스크가 VM에 연결 되어 있는 경우 4 TiB 보다 작은 각 디스크는 캐싱을 지원 합니다.

@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 02/08/2020
+ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 4bd483e40e3a85a2934e58abdf46d09b17a33ed4
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 9b1ee467abcbfb6d91a64abf4e9ad74d7b23e881
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80758716"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203971"
 ---
 이 cURL 기반 빠른 시작에서는 기술 자료에서 답변을 가져오는 과정을 안내합니다.
 
@@ -296,120 +296,7 @@ JSON 응답은 게시된 기술 자료 쿼리와 동일한 스키마를 사용�
 
     `Thank you`의 질문은 잡담 질문과 정확히 일치하므로 QnA Maker는 신뢰도 점수 100으로, 완전히 신뢰할 수 있습니다. QnA Maker는 또한 모든 관련 질문과 잡담 메타데이터 태그 정보를 포함한 메타데이터 속성도 반환했습니다.
 
-## <a name="use-curl-with-threshold-and-default-answer"></a>임계값 및 기본 대답으로 cURL 사용
-
-대답에 대한 최소 임계값을 요청할 수 있습니다. 임계값이 충족되지 않으면 기본 대답이 반환됩니다.
-
-1. 사용자 고유의 리소스 이름, 기술 자료 ID 및 엔드포인트 키로 대체한 다음 cURL 명령을 사용하여 임계값이 80% 이상이 되는 `size`에 대한 대답을 요청합니다. 질문의 점수가 71%이므로 기술 자료는 답변을 찾지 않고, 기술 자료를 만들 때 사용자가 제공한 기본 대답을 반환해야 합니다.
-
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
-    ```
-
-1. cURL 명령을 실행하고 점수와 답변이 포함된 JSON 응답을 수신합니다.
-
-    ```json
-    {
-        "answers": [
-            {
-                "questions": [],
-                "answer": "No good match found in KB.",
-                "score": 0.0,
-                "id": -1,
-                "source": null,
-                "metadata": []
-            }
-        ],
-        "debugInfo": null,
-        "activeLearningEnabled": true
-    }
-    ```
-
-    QnA Maker가 신뢰가 없음을 의미하는 `0`의 점수를 반환했으며, 기본 응답도 반환했습니다.
-
-    ```json
-    {
-      "answers": [
-          {
-              "questions": [
-                  "I thank you",
-                  "Oh, thank you",
-                  "My sincere thanks",
-                  "My humblest thanks to you",
-                  "Marvelous, thanks",
-                  "Marvelous, thank you kindly",
-                  "Marvelous, thank you",
-                  "Many thanks to you",
-                  "Many thanks",
-                  "Kthx",
-                  "I'm grateful, thanks",
-                  "Ahh, thanks",
-                  "I'm grateful for that, thank you",
-                  "Perfecto, thanks",
-                  "I appreciate you",
-                  "I appreciate that",
-                  "I appreciate it",
-                  "I am very thankful for that",
-                  "How kind, thank you",
-                  "Great, thanks",
-                  "Great, thank you",
-                  "Gracias",
-                  "Gotcha, thanks",
-                  "Gotcha, thank you",
-                  "Awesome thanks!",
-                  "I'm grateful for that, thank you kindly",
-                  "thank you pal",
-                  "Wonderful, thank you!",
-                  "Wonderful, thank you very much",
-                  "Why thank you",
-                  "Thx",
-                  "Thnx",
-                  "That's very kind",
-                  "That's great, thanks",
-                  "That is lovely, thanks",
-                  "That is awesome, thanks!",
-                  "Thanks bot",
-                  "Thanks a lot",
-                  "Okay, thanks!",
-                  "Thank you so much",
-                  "Perfect, thanks",
-                  "Thank you my friend",
-                  "Thank you kindly",
-                  "Thank you for that",
-                  "Thank you bot",
-                  "Thank you",
-                  "Right on, thanks very much",
-                  "Right on, thanks a lot",
-                  "Radical, thanks",
-                  "Rad, thanks",
-                  "Rad thank you",
-                  "Wonderful, thanks!",
-                  "Thanks"
-              ],
-              "answer": "You're welcome.",
-              "score": 100.0,
-              "id": 75,
-              "source": "qna_chitchat_Professional.tsv",
-              "metadata": [
-                  {
-                      "name": "editorial",
-                      "value": "chitchat"
-                  }
-              ],
-              "context": {
-                  "isContextOnly": false,
-                  "prompts": []
-              }
-          }
-      ],
-      "debugInfo": null,
-      "activeLearningEnabled": true
-    }
-    ```
-
-    `Thank you`의 질문은 잡담 질문과 정확히 일치하므로 QnA Maker는 신뢰도 점수 100으로, 완전히 신뢰할 수 있습니다. QnA Maker는 또한 모든 관련 질문과 잡담 메타데이터 태그 정보를 포함한 메타데이터 속성도 반환했습니다.
-
-## <a name="use-curl-with-threshold-and-default-answer"></a>임계값 및 기본 대답으로 cURL 사용
+## <a name="use-threshold-and-default-answer"></a>임계값 및 기본 대답 사용
 
 대답에 대한 최소 임계값을 요청할 수 있습니다. 임계값이 충족되지 않으면 기본 대답이 반환됩니다.
 

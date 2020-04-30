@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 02/08/2020
+ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: dd44d9cb01ff072d89afeb4efc4a59071c621315
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 97dfe175a609ab336206098948b4e3fcc401d8bc
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80758680"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203972"
 ---
 이 Postman 기반 빠른 시작에서는 기술 자료에서 답변을 가져오는 과정을 안내합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "80758680"
     |속성|설정|용도 및 값|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|이는 URL에 대한 HTTP 메서드 및 경로입니다.|
-    |`Host`|`https://diberry-qna-s0-s.azurewebsites.net/qnamaker`|이는 URL의 호스트입니다. 호스트 및 게시 값을 연결하여 전체 generateAnswer URL을 가져옵니다.|
+    |`Host`|`https://YOUR-RESOURCE_NAME.azurewebsites.net/qnamaker`|이는 URL의 호스트입니다. 호스트 및 게시 값을 연결하여 전체 generateAnswer URL을 가져옵니다.|
     |`Authorization`|`EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|Azure에 대한 요청에 권한을 부여하기 위한 헤더 값입니다. |
     |`Content-type`|`application/json`|콘텐츠에 대한 헤더 값입니다.|
     ||`{"question":"<Your question>"}`|JSON 개체인 POST 요청의 본문입니다. 이 값은 쿼리의 용도에 따라 다음 각 섹션에서 변경됩니다.|

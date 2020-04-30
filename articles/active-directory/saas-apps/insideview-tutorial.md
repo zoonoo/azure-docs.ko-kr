@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 2149b8410104b39652b176895a31b42e094265f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4278f00b1026fe4d1b95634540d6d035d43ca5ab
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67100099"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202386"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>자습서: InsideView와 Azure Active Directory 통합
 
@@ -143,13 +143,13 @@ InsideView에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     1. Azure Portal에서 다운로드한 원시 인증서를 메모장에서 엽니다. 인증서의 내용을 클립보드에 복사한 다음, **STS Certificate**(STS 인증서) 상자에 붙여넣습니다.
 
-    1. **Crm User Id Mapping**(Crm 사용자 ID 매핑) 상자에서 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** 를 입력합니다.
+    1. **Crm User Id Mapping**(Crm 사용자 ID 매핑) 상자에서 **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** 를 입력합니다.
 
-    1. **Crm Email Mapping**(Crm 이메일 매핑) 상자에서 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** 를 입력합니다.
+    1. **Crm Email Mapping**(Crm 이메일 매핑) 상자에서 **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** 를 입력합니다.
 
-    1. **Crm First Name Mapping**(Crm 이름 매핑) 상자에서 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname** 을 입력합니다.
+    1. **Crm First Name Mapping**(Crm 이름 매핑) 상자에서 **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** 을 입력합니다.
 
-    1. **Crm lastName Mapping**(Crm 성 매핑) 상자에서 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** 을 입력합니다.  
+    1. **Crm lastName Mapping**(Crm 성 매핑) 상자에서 **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** 을 입력합니다.  
 
     1. **저장**을 선택합니다.
 

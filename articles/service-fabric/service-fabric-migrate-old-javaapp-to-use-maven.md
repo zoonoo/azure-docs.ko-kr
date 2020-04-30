@@ -5,36 +5,40 @@ author: rapatchi
 ms.topic: conceptual
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: b5e126ebdf3b89470472391c59d378c7a6d39b86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e8154039dde3de571e7960b244ab1d43cc764c7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "75609811"
+ms.locfileid: "82204290"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>이전 Java Service Fabric 애플리케이션을 업데이트하여 Maven에서 Java 라이브러리 페치
-최근에 Service Fabric Java 이진 파일을 Service Fabric Java SDK에서 Maven 호스트로 이동했습니다. 이제 **mavencentral**을 사용하여 최신 Service Fabric Java 종속성을 페치할 수 있습니다. 이 빠른 시작을 통해 Yeoman 템플릿이나 Eclipse 중 하나를 사용하여 Maven 기반 빌드와 호환하도록 Service Fabric Java SDK에서 사용하기 위해 이전에 만들어진 기존 Java 애플리케이션을 업데이트할 수 있습니다.
+Service Fabric Java 이진 파일이 Service Fabric Java SDK에서 Maven 호스팅으로 이동 되었습니다. **Mavencentral** 를 사용 하 여 최신 Service Fabric Java 종속성을 가져올 수 있습니다. 이 가이드는 Service Fabric Java SDK 용으로 만든 기존 Java 응용 프로그램을 업데이트 하는 데 도움이 됩니다.
 
 ## <a name="prerequisites"></a>전제 조건
-1. 먼저 기존 Java SDK를 제거해야 합니다.
+
+1. 먼저 기존 Java SDK를 제거 합니다.
 
    ```bash
    sudo dpkg -r servicefabricsdkjava
    ```
+
 2. [여기](service-fabric-cli.md)에서 언급한 단계에 따라 최신 Service Fabric CLI를 설치합니다.
 
-3. Service Fabric Java 애플리케이션을 빌드하고 사용하려면 JDK 1.8 및 Gradle이 설치되어 있는지 확인해야 합니다. 설치하지 않은 경우 다음을 실행하여 JDK 1.8(openjdk-8-jdk) 및 Gradle을 설치할 수 있습니다.
+3. Service Fabric Java 응용 프로그램을 빌드하고 작업 하려면 JDK 1.8 및 Gradle이 설치 되어 있는지 확인 합니다. 설치하지 않은 경우 다음을 실행하여 JDK 1.8(openjdk-8-jdk) 및 Gradle을 설치할 수 있습니다.
 
    ```bash
    sudo apt-get install openjdk-8-jdk-headless
    sudo apt-get install gradle
    ```
+
 4. 애플리케이션의 스크립트를 설치/제거하도록 업데이트하여 [여기](service-fabric-application-lifecycle-sfctl.md)에서 언급한 단계를 수행하는 새 Service Fabric CLI를 사용합니다. 시작한 [예제](https://github.com/Azure-Samples/service-fabric-java-getting-started)를 참조할 수 있습니다.
 
 >[!TIP]
 > Service Fabric Java SDK를 제거한 후에 Yeoman이 작동하지 않습니다. [여기](service-fabric-create-your-first-linux-application-with-java.md)에서 언급한 필수 구성 요소에 따라 Service Fabric Yeoman Java 템플릿 생성기를 작동시킵니다.
 
 ## <a name="service-fabric-java-libraries-on-maven"></a>Maven의 Service Fabric Java 라이브러리
+
 Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프로젝트의 ``pom.xml`` 또는 ``build.gradle``에서 종속성을 추가하고 **mavenCentral**에서 Service Fabric Java 라이브러리를 사용할 수 있습니다.
 
 ### <a name="actors"></a>행위자
@@ -58,7 +62,7 @@ Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프
   }
   ```
 
-### <a name="services"></a>서비스
+### <a name="services"></a>Services
 
 애플리케이션에 대한 Service Fabric 상태 비저장 서비스 지원입니다.
 
@@ -80,6 +84,7 @@ Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프
   ```
 
 ### <a name="others"></a>기타
+
 #### <a name="transport"></a>전송
 
 Service Fabric Java 애플리케이션에 대한 전송 계층 지원입니다. 전송 계층에서 프로그래밍하지 않으면 Reliable Actor 또는 Service 애플리케이션에 이 종속성을 명시적으로 추가할 필요가 없습니다.
@@ -122,11 +127,11 @@ Service Fabric에 대한 시스템 수준 지원이며 네이티브 Service Fabr
   }
   ```
 
-
 ## <a name="migrating-service-fabric-stateless-service"></a>Service Fabric 상태 비저장 서비스 마이그레이션
 
 Maven에서 페치되는 Service Fabric 종속성을 사용하여 기존 Service Fabric 상태 비저장 Java 서비스를 빌드하려면 서비스 내에서 ``build.gradle`` 파일을 업데이트해야 합니다. 이전에는 다음과 같이 사용했습니다.
-```
+
+```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
     compile project(':Interface')
@@ -158,8 +163,10 @@ task copyDeps <<{
     }
 }
 ```
+
 이제 Maven에서 종속성을 페치하기 위해 **업데이트** ``build.gradle``에는 다음과 같은 내용에 해당하는 부분이 있습니다.
-```
+
+```gradle
 repositories {
         mavenCentral()
 }
@@ -211,11 +218,13 @@ task copyDeps <<{
     }
 }
 ```
+
 일반적으로 Service Fabric 상태 비저장 Java 서비스에서 빌드 스크립트의 모양에 대한 전반적인 관념을 가져오려면 시작 예제의 샘플을 참조하면 됩니다. EchoServer 샘플의 [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/reliable-services-actor-sample/build.gradle)을 다음과 같습니다.
 
 ## <a name="migrating-service-fabric-actor-service"></a>Service Fabric 행위자 서비스 마이그레이션
 
 Maven에서 페치되는 Service Fabric 종속성을 사용하여 기존 Service Fabric 행위자 Java 애플리케이션을 빌드하려면 인터페이스 패키지 및 서비스 패키지 내에서 ``build.gradle`` 파일을 업데이트해야 합니다. TestClient 패키지를 사용하는 경우에도 해당 항목을 업데이트해야 합니다. 따라서 ``Myactor`` 작업자의 경우 업데이트해야 하는 위치는 다음과 같습니다.
+
 ```
 ./Myactor/build.gradle
 ./MyactorInterface/build.gradle
@@ -225,15 +234,18 @@ Maven에서 페치되는 Service Fabric 종속성을 사용하여 기존 Service
 #### <a name="updating-build-script-for-the-interface-project"></a>인터페이스 프로젝트의 빌드 스크립트 업데이트
 
 이전에는 다음과 같이 사용했습니다.
-```
+
+```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
 }
 .
 .
 ```
+
 이제 Maven에서 종속성을 페치하기 위해 **업데이트** ``build.gradle``에는 다음과 같은 내용에 해당하는 부분이 있습니다.
-```
+
+```gradle
 repositories {
     mavenCentral()
 }
@@ -266,7 +278,8 @@ compileJava.dependsOn(explodeDeps)
 #### <a name="updating-build-script-for-the-actor-project"></a>작업자 프로젝트의 빌드 스크립트 업데이트
 
 이전에는 다음과 같이 사용했습니다.
-```
+
+```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
     compile project(':MyactorInterface')
@@ -304,8 +317,10 @@ task copyDeps<< {
     }
 }
 ```
+
 이제 Maven에서 종속성을 페치하기 위해 **업데이트** ``build.gradle``에는 다음과 같은 내용에 해당하는 부분이 있습니다.
-```
+
+```gradle
 repositories {
     mavenCentral()
 }
@@ -365,7 +380,8 @@ task copyDeps<< {
 #### <a name="updating-build-script-for-the-test-client-project"></a>테스트 클라이언트 프로젝트의 빌드 스크립트 업데이트
 
 여기에서 변경 내용은 이전 섹션에서 설명한 변경 내용, 즉, 작업자 프로젝트와 유사합니다. 이전에 Gradle 스크립트는 다음과 같이 사용되었습니다.
-```
+
+```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
       compile project(':MyactorInterface')
@@ -404,8 +420,10 @@ task copyDeps<< {
         }
 }
 ```
+
 이제 Maven에서 종속성을 페치하기 위해 **업데이트** ``build.gradle``에는 다음과 같은 내용에 해당하는 부분이 있습니다.
-```
+
+```gradle
 repositories {
     mavenCentral()
 }

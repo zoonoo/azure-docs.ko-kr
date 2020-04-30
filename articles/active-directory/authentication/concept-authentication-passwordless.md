@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe602972cb16bf24b1c35b2aadfe25c499bce69f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: f4de359f60b556390b8271b728580ef66ae53ffa
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181854"
+ms.locfileid: "82201723"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 
@@ -119,7 +119,7 @@ FIDO 동맹에 의해 FIDO2 인증 되는 많은 키가 있지만 Microsoft는 �
 | eWBM | [https://www.ewbm.com/support](https://www.ewbm.com/support) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 | Gemalto (Thales Group) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
-| OneSpan i n c. | [https://www.onespan.com/sites/default/files/2019-01/OneSpan-FIDO-Authentication.pdf](https://www.onespan.com/sites/default/files/2019-01/OneSpan-FIDO-Authentication.pdf) |
+| OneSpan i n c. | [https://www.onespan.com/products/fido](https://www.onespan.com/products/fido) |
 | IDmelon 기술 Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) | 
 
 > [!NOTE]

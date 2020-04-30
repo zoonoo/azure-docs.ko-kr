@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 04/01/2020
 ms.author: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e104fa26d6657c06a0df31bad8c773fb444a1105
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 30b777cce9b704be558460edf20cf243258c160b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82100875"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82202301"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Active Directory Federation Services에서 Azure Active Directory로 응용 프로그램 인증 이동
 
@@ -140,7 +140,7 @@ SaaS 앱을 등록 하는 데 문제가 있는 경우 [Saas 응용 프로그램 
 
 * 사용자 계정 이름
 
-* 메일 주소
+* 전자 메일 주소
 
 * 이름
 
@@ -199,7 +199,7 @@ Azure AD가 응용 프로그램에서 미리 구성 된 끝점에만 토큰을 �
 | 구성 설정| AD FS| Azure AD에서을 구성 하는 방법| SAML 토큰 |
 | - | - | - | - |
 | **앱 로그온 URL** <p>SP (서비스 공급자)가 시작한 SAML 흐름에서 앱에 로그인 하는 데 사용할 수 있는 URL입니다.| 해당 없음| SAML 기반 로그온에서 기본 SAML 구성 열기| 해당 없음 |
-| **앱 회신 URL** <p>Id 공급자 (IdP)의 관점에서 앱의 URL입니다. IdP 사용자가 IdP에 로그인 한 후 사용자 및 토큰을 여기에 보냅니다.  이를 **SAML assertion consumer 엔드포인트**라고도 합니다.| **끝점** 탭을 선택 합니다.| SAML 기반 로그온에서 기본 SAML 구성 열기| SAML 토큰의 Destination 요소입니다. 값 예:[https://contoso.my.salesforce.com](https://contoso.my.salesforce.com/) |
+| **앱 회신 URL** <p>Id 공급자 (IdP)의 관점에서 앱의 URL입니다. IdP 사용자가 IdP에 로그인 한 후 사용자 및 토큰을 여기에 보냅니다.  이를 **SAML assertion consumer 엔드포인트**라고도 합니다.| **끝점** 탭을 선택 합니다.| SAML 기반 로그온에서 기본 SAML 구성 열기| SAML 토큰의 Destination 요소입니다. 예제 값: `https://contoso.my.salesforce.com` |
 | **앱 로그아웃 URL** <p>사용자가 앱에서 로그 아웃할 때 "로그 아웃 정리" 요청을 전송 하는 URL입니다. IdP는 다른 모든 앱에서 사용자를 로그 아웃 하는 요청을 보냅니다.| **끝점** 탭을 선택 합니다.| SAML 기반 로그온에서 기본 SAML 구성 열기| 해당 없음 |
 | **앱 식별자** <p>IdP의 관점에서 가져온 앱 식별자입니다. 로그인 URL 값은 종종 식별자에 사용 되지만 항상 그렇지는 않습니다.  앱에서 "엔터티 ID"를 호출 하는 경우도 있습니다.| **식별자** 탭 선택|SAML 기반 로그온에서 기본 SAML 구성 열기| SAML 토큰의 **대상** 요소에 매핑됩니다. |
 | **앱 페더레이션 메타 데이터** <p>앱의 페더레이션 메타 데이터의 위치입니다. IdP에서 엔드포인트 또는 암호화 인증서와 같은 특정 구성 설정을 자동으로 업데이트하는 데 사용합니다.| **모니터링** 탭을 선택 합니다.| 해당 없음. Azure AD는 응용 프로그램 페더레이션 메타 데이터를 직접 사용 하도록 지원 하지 않습니다. 페더레이션 메타 데이터를 수동으로 가져올 수 있습니다.| 해당 없음 |
@@ -236,11 +236,11 @@ SaaS 앱은 인증 요청을 보내는 위치와 받은 토큰의 유효성을 �
 
 | 구성 설정| AD FS| Azure AD에서을 구성 하는 방법 |
 | - | - | - |
-| **IdP Sign-on URL** <p>앱의 관점에서 IdP의 로그인 URL입니다 (사용자가 로그인을 위해 리디렉션 됨).| AD FS sign-on URL은 AD FS 페더레이션 서비스 이름 뒤에 "/adfs/ls/."가 옵니다. <p>예를 들어:[https://fs.contoso.com/adfs/ls/](https://fs.contoso.com/adfs/ls/)| {Tenant-id}를 테 넌 트 ID로 바꿉니다. <p> SAML-P 프로토콜을 사용 하는 앱의 경우:[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>WS-FEDERATION 프로토콜을 사용 하는 앱의 경우:[https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
-| **IdP 로그 아웃 URL**<p>앱의 관점에서 IdP의 로그 아웃 URL (사용자가 앱에서 로그 아웃 하도록 선택할 때 리디렉션되는 위치)입니다.| 로그 아웃 URL은 로그온 URL과 동일 하거나 "wa = wsignout1.0 1.0"이 추가 된 URL과 동일 합니다. 예를 들어:[https://fs.contoso.com/adfs/ls/?wa=wsignout1.0](https://fs.contoso.com/adfs/ls/?wa=wsignout1.0)| {Tenant-id}를 테 넌 트 ID로 바꿉니다.<p>SAML-P 프로토콜을 사용 하는 앱의 경우:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> WS-FEDERATION 프로토콜을 사용 하는 앱의 경우:[https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
+| **IdP Sign-on URL** <p>앱의 관점에서 IdP의 로그인 URL입니다 (사용자가 로그인을 위해 리디렉션 됨).| AD FS sign-on URL은 AD FS 페더레이션 서비스 이름 뒤에 "/adfs/ls/."가 옵니다. <p>`https://fs.contoso.com/adfs/ls/`| {Tenant-id}를 테 넌 트 ID로 바꿉니다. <p> SAML-P 프로토콜을 사용 하는 앱의 경우:[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>WS-FEDERATION 프로토콜을 사용 하는 앱의 경우:[https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
+| **IdP 로그 아웃 URL**<p>앱의 관점에서 IdP의 로그 아웃 URL (사용자가 앱에서 로그 아웃 하도록 선택할 때 리디렉션되는 위치)입니다.| 로그 아웃 URL은 로그온 URL과 동일 하거나 "wa = wsignout1.0 1.0"이 추가 된 URL과 동일 합니다. `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| {Tenant-id}를 테 넌 트 ID로 바꿉니다.<p>SAML-P 프로토콜을 사용 하는 앱의 경우:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> WS-FEDERATION 프로토콜을 사용 하는 앱의 경우:[https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
 | **토큰 서명 인증서**<p>IdP는 인증서의 개인 키를 사용 하 여 발급 된 토큰에 서명 합니다. 앱이 신뢰하도록 구성된 것과 동일한 IdP에서 토큰이 제공되었는지 확인합니다.| AD FS 토큰 서명 인증서는 AD FS 관리의 **인증서** 아래에 있습니다.| **SAML 서명 인증서**헤더의 응용 프로그램 **Single sign-on 속성** 에 있는 Azure Portal에서 찾습니다. 여기서는 앱에 업로드할 인증서를 다운로드할 수 있습니다.  <p>응용 프로그램에 둘 이상의 인증서가 있는 경우 페더레이션 메타 데이터 XML 파일에서 모든 인증서를 찾을 수 있습니다. |
-| **식별자/"issuer"**<p>앱의 관점에서 IdP의 식별자입니다 ("발급자 ID" 라고도 함).<p>SAML 토큰에서 값은 Issuer 요소로 표시 됩니다.| AD FS에 대 한 식별자는 일반적으로 AD FS 관리에서 **서비스 > 편집 페더레이션 서비스 속성**에 있는 페더레이션 서비스 식별자입니다. 예를 들어:[http://fs.contoso.com/adfs/services/trust](http://fs.contoso.com/adfs/services/trust)| {Tenant-id}를 테 넌 트 ID로 바꿉니다.<p>https:\//sts.windows.net/{tenant-id}/ |
-| **IdP 페더레이션 메타 데이터**<p>IdP의 공개적으로 사용할 수 있는 페더레이션 메타 데이터의 위치입니다. (일부 앱은 URL, 식별자 및 토큰 서명 인증서를 개별적으로 구성하는 관리자 대신 연합 메타데이터를 사용합니다.)| **서비스 > > > 끝점**아래의 AD FS 관리에서 페더레이션 메타 데이터 URL AD FS 찾습니다. 예를 들어:[https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml](https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml)| Azure AD에 대 한 해당 값은 패턴 [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml)을 따릅니다. {TenantDomainName}을 "contoso.onmicrosoft.com" 형식의 테 넌 트 이름으로 바꿉니다.   <p>자세한 내용은 [페더레이션 메타데이터](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata)를 참조하세요. |
+| **식별자/"issuer"**<p>앱의 관점에서 IdP의 식별자입니다 ("발급자 ID" 라고도 함).<p>SAML 토큰에서 값은 Issuer 요소로 표시 됩니다.| AD FS에 대 한 식별자는 일반적으로 AD FS 관리에서 **서비스 > 편집 페더레이션 서비스 속성**에 있는 페더레이션 서비스 식별자입니다. `http://fs.contoso.com/adfs/services/trust`| {Tenant-id}를 테 넌 트 ID로 바꿉니다.<p>https:\//sts.windows.net/{tenant-id}/ |
+| **IdP 페더레이션 메타 데이터**<p>IdP의 공개적으로 사용할 수 있는 페더레이션 메타 데이터의 위치입니다. (일부 앱은 URL, 식별자 및 토큰 서명 인증서를 개별적으로 구성하는 관리자 대신 연합 메타데이터를 사용합니다.)| **서비스 > > > 끝점**아래의 AD FS 관리에서 페더레이션 메타 데이터 URL AD FS 찾습니다. `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| Azure AD에 대 한 해당 값은 패턴 [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml)을 따릅니다. {TenantDomainName}을 "contoso.onmicrosoft.com" 형식의 테 넌 트 이름으로 바꿉니다.   <p>자세한 내용은 [페더레이션 메타데이터](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata)를 참조하세요. |
 
 
 ## <a name="represent-ad-fs-security-policies-in-azure-ad"></a>Azure AD에서 AD FS 보안 정책을 나타냅니다.
@@ -322,7 +322,7 @@ Azure AD에서 사용자 또는 그룹에 대 한 MFA 규칙 지정:
 
 1. [새 조건부 액세스 정책을](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json)만듭니다.
 
-2. **할당**을 선택 합니다. MFA를 적용 하려는 사용자 또는 그룹을 추가 합니다.
+2. **할당**을 선택합니다. MFA를 적용 하려는 사용자 또는 그룹을 추가 합니다.
 
 3. 아래와 같이 **액세스 제어** 옵션을 구성 합니다.  
 ‎

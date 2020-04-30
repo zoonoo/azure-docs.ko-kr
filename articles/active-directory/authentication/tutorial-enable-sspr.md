@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b9052f364dfbae205dd324ba69de9578ccc225
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c84aa99608a4fc2ac1842c617cca54e2afc3cdbe
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77026316"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201995"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>자습서: 사용자가 Azure Active Directory 셀프 서비스 암호 재설정을 사용하여 계정의 잠금을 해제하거나 암호를 다시 설정할 수 있도록 설정
 
@@ -104,7 +104,7 @@ Azure AD를 사용하면 SSPR을 *없음*, *선택된* 사용자 또는 *모든*
 SSPR 프로세스에 대한 추가 지원이 필요한 경우 "관리자에게 문의" 링크를 사용자 지정할 수 있습니다. 이 링크는 SSPR 등록 프로세스에서 사용되거나 사용자가 계정의 잠금을 해제하거나 암호를 다시 설정할 때 사용됩니다. 사용자가 필요한 지원을 받도록 하려면 사용자 지정 기술 지원팀 이메일 또는 URL을 제공하는 것이 좋습니다.
 
 1. 왼쪽 메뉴의 **사용자 지정** 페이지에서 *기술 지원팀 링크 사용자 지정*을 **예**로 사용자 지정합니다.
-1. **사용자 지정 기술 지원팀 이메일 또는 URL** 필드에서 사용자가 조직으로부터 추가 지원을 받을 수 있는 이메일 주소 또는 웹 페이지 URL(예: *https://support.contoso.com/* )을 제공합니다.
+1. **사용자 지정 기술 지원팀 이메일 또는 URL** 필드에서 사용자가 조직으로부터 추가 지원을 받을 수 있는 이메일 주소 또는 웹 페이지 URL(예: *`https://support.contoso.com/`* )을 제공합니다.
 1. 사용자 지정 링크를 적용하려면 **저장**을 선택합니다.
 
 ## <a name="test-self-service-password-reset"></a>셀프 서비스 암호 재설정 테스트

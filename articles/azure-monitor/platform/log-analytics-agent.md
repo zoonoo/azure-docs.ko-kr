@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: d52d8e6d0f6e3325b5c5cdc9a2e21654e6a2b621
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 08c80b0a37e21d53fc974bd878501b9326c9449b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80520731"
+ms.locfileid: "82207227"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 Azure Log Analytics 에이전트는 모든 클라우드, 온-프레미스 컴퓨터 및 [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/)에서 모니터링 하는 가상 컴퓨터에서 종합적인 관리를 위해 개발 되었습니다. Windows 및 Linux 에이전트는 다양 한 원본에서 수집 된 데이터를 Azure Monitor의 Log Analytics 작업 영역으로 보내고, 모니터링 솔루션에 정의 된 대로 고유한 로그 나 메트릭을 전송 합니다. 또한 Log Analytics 에이전트는 Azure Monitor에서 [VM용 Azure Monitor](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/), [Azure Automation](../../automation/automation-intro.md)등의 기타 서비스와 정보를 지원 합니다.
@@ -88,8 +88,12 @@ Log Analytics 에이전트를 설치 하 고 사용자의 요구 사항에 따�
 Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식적으로 지원됩니다.
 
 * 시작
-* Windows Server 2008 SP2 (x64), 2008 R2, 2012, 2012 R2, 2016, 버전 1709 및 1803
-* Windows 7 SP1, Windows 8 Enterprise 및 Pro, Windows 10 Enterprise 및 Pro
+* Windows Server 2016, 버전 1709 및 1803
+* Windows Server 2012, 2012 R2
+* Windows Server 2008 SP2 (x64), 2008 R2
+* Windows 10 Enterprise 및 Pro
+* Windows 8 Enterprise 및 Pro 
+* Windows 7 SP1
 
 >[!NOTE]
 >Windows 용 Log Analytics 에이전트가 서버 모니터링 시나리오를 지원 하도록 설계 되었지만 서버 운영 체제에 대해 구성 되 고 최적화 된 작업을 지원 하기 위해 Windows 클라이언트를 실행할 수 있습니다. 에이전트는 Windows 클라이언트를 지원 하지만 명시적으로 지정 하지 않는 한 모니터링 솔루션은 클라이언트 모니터링 시나리오에 중점을 두지 않습니다.

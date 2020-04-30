@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b28390dba009226d493f5bfc6a5270b067f5bba0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 731ed4664d10d3957be160bf9e8001d5470a6f38
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73570519"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82201349"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>자습서: Azure Active Directory와 Sage Intacct 통합
 
@@ -94,7 +94,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | ---------------| --------------- |
     | 회사 이름 | **Sage Intacct 회사 ID** |
     | name | 이 값은 **Sage Intacct 테스트 사용자 만들기 섹션**에서 입력하는 Sage Intacct **사용자 ID**와 동일해야 합니다. 이 내용은 자습서의 뒷부분에서 설명합니다. |
-    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier | 이 값은 **Sage Intacct 테스트 사용자 만들기 섹션**에서 입력하는 Sage Intacct **페더레이션된 SSO 사용자 ID**와 동일해야 합니다. 이 내용은 자습서의 뒷부분에서 설명합니다. |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | 이 값은 **Sage Intacct 테스트 사용자 만들기 섹션**에서 입력하는 Sage Intacct **페더레이션된 SSO 사용자 ID**와 동일해야 합니다. 이 내용은 자습서의 뒷부분에서 설명합니다. |
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 

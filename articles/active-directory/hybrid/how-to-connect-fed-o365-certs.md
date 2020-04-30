@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89de1495dc6bb411d5d43986177f11abb016cf15
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "60244801"
+ms.locfileid: "82200890"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 및 Azure Active Directory에 대한 페더레이션 인증서 갱신
 ## <a name="overview"></a>개요
@@ -120,7 +120,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 여기서 `(your_FS_name)` 는 조직에서 사용 하는 페더레이션 서비스 호스트 이름 (예: fs.contoso.com)으로 대체 됩니다.  두 설정을 모두 확인할 수 있는 경우 그 밖에 다른 작업을 수행할 필요는 없습니다.  
 
-예: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
+예: `https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`
 ## <a name="renew-the-token-signing-certificate-manually"></a>수동으로 토큰 서명 인증서 갱신 <a name="manualrenew"></a>
 토큰 서명 인증서를 수동으로 갱신하도록 선택할 수 있습니다. 예를 들어, 다음과 같은 경우 수동 갱신에 대 한 더 적합할 수 있습니다.
 
