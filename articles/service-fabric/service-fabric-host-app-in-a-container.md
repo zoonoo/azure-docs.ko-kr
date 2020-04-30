@@ -3,12 +3,12 @@ title: Azure Service Fabric에 컨테이너의 .NET 앱 배포
 description: Visual Studio를 사용하여 기존.NET 애플리케이션을 컨테이너화하고 Service Fabric에서 로컬로 컨테이너를 디버그하는 방법에 대해 알아봅니다. 컨테이너화된 애플리케이션을 Azure 컨테이너 레지스트리에 푸시하고 Service Fabric 클러스터에 배포합니다. Azure에 배포하는 경우 애플리케이션은 Azure SQL DB를 사용하여 데이터를 유지합니다.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: d1602d292af24d8c0bc9139debb3967aa7183a06
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 08bbab2d92e9631f75c46be2e3f822532b62718a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75463054"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82136643"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너로 .NET 애플리케이션 배포
 
@@ -93,7 +93,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName $dbresourcegroupname `
     -ServerName $servername `
     -FirewallRuleName "AllowClient" -StartIpAddress $clientIP -EndIpAddress $clientIP
 
-# Creeate the database in the server.
+# Create the database in the server.
 New-AzSqlDatabase  -ResourceGroupName $dbresourcegroupname `
     -ServerName $servername `
     -DatabaseName $databasename `

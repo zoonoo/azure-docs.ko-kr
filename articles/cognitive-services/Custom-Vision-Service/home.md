@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: bdb2b31ee3abb30e6e7339f641b778ff5dc522b0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 79ecb801e1b4d0fa96ca7ae06223fc231cbf12e6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81403801"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82129882"
 ---
 # <a name="what-is-custom-vision"></a>Custom Vision이란?
 
@@ -49,4 +49,4 @@ Custom Vision Service는 네이티브 SDK 집합뿐 아니라 [Custom Vision 홈
 
 ## <a name="next-steps"></a>다음 단계
 
-[분류자 빌드](getting-started-build-a-classifier.md) 가이드에 따라 웹에서 Custom Vision 사용을 시작하거나, [이미지 분류 자습서](csharp-tutorial.md)를 수행하여 코드에서 기본 시나리오를 구현합니다.
+[분류자 빌드](getting-started-build-a-classifier.md) 가이드에 따라 웹에서 Custom Vision 사용을 시작하거나, [이미지 분류 자습서](quickstarts/image-classification.md)를 수행하여 코드에서 기본 시나리오를 구현합니다.

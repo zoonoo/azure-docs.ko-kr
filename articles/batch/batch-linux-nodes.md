@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7abdab248a6f19ec4d57018d65f883fdc838da21
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116794"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch 풀에서 Linux 컴퓨팅 노드 프로비전
@@ -38,7 +38,7 @@ Batch 서비스는 [가상 머신 확장 집합](../virtual-machine-scale-sets/v
 | 게시자 |Canonical |
 | 제품 |UbuntuServer |
 | SKU |18.04-LTS |
-| Version |최신 |
+| 버전 |최신 |
 
 > [!TIP]
 > 이러한 속성 및 Marketplace 이미지를 나열하는 방법에 대한 자세한 내용은 [CLI 또는 PowerShell로 Azure의 Linux 가상 머신 이미지 이동 및 선택](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 알아볼 수 있습니다. 일부 Marketplace 이미지가 현재 Batch와 호환되지 않습니다. 자세한 내용은 [노드 에이전트 SKU](#node-agent-sku)를 참조하세요.
@@ -275,7 +275,7 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 
 노드에 사용자를 만들 때 암호 대신 SSH 공개 키를 지정할 수 있습니다. Python SDK에서는 [ComputeNodeUser][py_computenodeuser]에 **ssh_public_key** 매개 변수를 사용합니다. .NET에서는 [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key] 속성을 사용합니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 Azure Batch는 Azure Cloud Services 및 Azure Virtual Machines 기술을 기반으로 빌드됩니다. Batch 서비스 자체는 무료로 제공 됩니다. 즉, Batch 솔루션에서 사용 하는 계산 리소스 (및 관련 비용)에 대해서만 요금이 부과 됩니다. **Cloud Services 구성**을 선택하는 경우 [Cloud Services 가격][cloud_services_pricing] 구조에 따라 요금이 청구됩니다. **Virtual Machine 구성**을 선택하는 경우 [Virtual Machines 가격][vm_pricing] 구조에 따라 요금이 청구됩니다.
 
 [애플리케이션 패키지](batch-application-packages.md)를 사용하여 Batch 노드에 애플리케이션을 배포하는 경우에도 애플리케이션 패키지에서 사용하는 Azure Storage 리소스에 대한 요금이 청구됩니다.

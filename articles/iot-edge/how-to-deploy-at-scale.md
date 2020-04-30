@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: e55d3f704c76d2783c3e442a90c829448129a4d0
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82134417"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Azure Portal를 사용 하 여 규모에 IoT Edge 모듈 배포
@@ -139,7 +139,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 1. **메트릭 조건**에 대한 쿼리를 입력합니다. 쿼리는 IoT Edge 허브 모듈 쌍의 [보고된 속성](module-edgeagent-edgehub.md#edgehub-reported-properties)을 기반으로 합니다. 메트릭은 쿼리에 의해 반환되는 행 수를 나타냅니다.
 
-   예를 들어:
+   다음은 그 예입니다.
 
    ```sql
    SELECT deviceId FROM devices
@@ -176,7 +176,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 * 대상 조건
 * 사용자 지정 메트릭
 * 레이블
-* 태그
+* 태그들
 * Desired 속성
 
 ### <a name="modify-target-conditions-custom-metrics-and-labels"></a>대상 조건, 사용자 지정 메트릭 및 레이블 수정

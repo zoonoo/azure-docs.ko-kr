@@ -4,10 +4,10 @@ description: Batch 태스크 완료 이벤트에 대한 참조입니다. 이 이
 ms.topic: article
 ms.date: 04/20/2017
 ms.openlocfilehash: 9e11eac04009def2bce4476ba2d77c798f25ca15
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116505"
 ---
 # <a name="task-complete-event"></a>태스크 완료 이벤트
@@ -45,9 +45,9 @@ ms.locfileid: "82116505"
 
 |요소 이름|Type|메모|
 |------------------|----------|-----------|
-|`jobId`|String|태스크가 포함 된 작업의 ID입니다.|
-|`id`|String|태스크의 ID입니다.|
-|`taskType`|String|태스크의 유형입니다. 이는 작업 관리자 태스크를 나타내는 'JobManager' 또는 작업 관리자 태스크가 아님을 나타내는 'User'가 될 수 있습니다. 작업 준비 태스크, 작업 릴리스 태스크 또는 시작 태스크의 경우 이 이벤트가 내보내지지 않습니다.|
+|`jobId`|문자열|태스크가 포함 된 작업의 ID입니다.|
+|`id`|문자열|태스크의 ID입니다.|
+|`taskType`|문자열|태스크의 유형입니다. 이는 작업 관리자 태스크를 나타내는 'JobManager' 또는 작업 관리자 태스크가 아님을 나타내는 'User'가 될 수 있습니다. 작업 준비 태스크, 작업 릴리스 태스크 또는 시작 태스크의 경우 이 이벤트가 내보내지지 않습니다.|
 |`systemTaskVersion`|Int32|태스크에 대한 내부 재시도 카운터입니다. 내부적으로 Batch 서비스는 일시적인 문제를 해결하기 위해 태스크를 다시 시도할 수 있습니다. 이러한 문제에는 내부 일정 오류 또는 불량 상태의 컴퓨팅 노드 복구를 위한 시도가 포함될 수 있습니다.|
 |[`nodeInfo`](#nodeInfo)|복합 형식|태스크가 실행된 컴퓨팅 노드에 대한 정보를 포함합니다.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|복합 형식|여러 컴퓨팅 노드가 필요한 다중 인스턴스 태스크임을 지정합니다.  자세한 [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) 내용은을 참조 하세요.|
@@ -58,8 +58,8 @@ ms.locfileid: "82116505"
 
 |요소 이름|Type|메모|
 |------------------|----------|-----------|
-|`poolId`|String|태스크가 실행 된 풀의 ID입니다.|
-|`nodeId`|String|태스크가 실행 된 노드의 ID입니다.|
+|`poolId`|문자열|태스크가 실행 된 풀의 ID입니다.|
+|`nodeId`|문자열|태스크가 실행 된 노드의 ID입니다.|
 
 ###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a> multiInstanceSettings
 

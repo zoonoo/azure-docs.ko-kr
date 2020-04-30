@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f03b146331069371106c1857f2acc68b566d3c5d
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82129241"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Azure Monitor를 사용하여 ArcSight와 Azure Active Directory 로그 통합
@@ -30,7 +30,7 @@ ms.locfileid: "82129241"
 
 이 문서에서는 Azure Monitor를 사용하여 ArcSight로 Azure AD 로그를 라우팅하는 방법을 배웁니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능을 사용하려면 다음이 필요합니다.
 * Azure AD 활동 로그를 포함하는 Azure 이벤트 허브입니다. [활동 로그를 이벤트 허브로 스트림](quickstart-azure-monitor-stream-logs-to-event-hub.md)하는 방법을 알아봅니다. 

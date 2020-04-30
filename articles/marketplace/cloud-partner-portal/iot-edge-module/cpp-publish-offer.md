@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: ef73956b1b0d3e7bed6e91cde0b92bcc3e432795
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82141837"
 ---
 # <a name="publish-iot-edge-module-offer"></a>IoT Edge 모듈 제안 게시
@@ -31,7 +31,7 @@ ms.locfileid: "82141837"
 <!-- P2: we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
-|  **게시 단계**           | **시간**    | **설명**                                                            |
+|  **게시 단계**           | **런타임**    | **설명**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | 필수 구성 요소 유효성 검사         | 15분   | 제안 정보 및 제안 설정의 유효성이 검사됩니다.                        |
 | 인증                  | 2주 | Azure 인증 팀에서 제안을 분석합니다. 이 단계에서는 바이러스, 맬웨어, 안전 규정 준수 및 보안 문제에 대한 검사를 수행합니다. 또한 이 IoT Edge 모듈 제안이 모든 자격 조건을 충족 하는지 확인합니다([필수 구성 요소](./cpp-prerequisites.md) 및 [기술 자산 준비](./cpp-create-technical-assets.md) 참조). 문제가 발견되면 피드백이 제공됩니다. |

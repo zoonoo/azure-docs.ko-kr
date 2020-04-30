@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: d44d5a8eeba749572980f79a90bcf5893a9c1fbf
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82144348"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Azure Logic Apps에서 메시지 보내기, 받기 및 일괄 처리
@@ -57,7 +57,7 @@ ms.locfileid: "82144348"
 
 3. 일괄 처리 수신자에 대해 다음 속성을 설정합니다. 
 
-   | 속성 | 설명 | 
+   | 속성 | Description | 
    |----------|-------------|
    | **일괄 처리 모드** | - **인라인**: 일괄 처리 트리거 내부에 해제 조건을 정의하는 경우 <br>- **통합 계정**: [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)을 통해 다중 해제 조건 구성을 정의하는 경우. 통합 계정을 사용하면 별도의 논리 앱이 아닌 한 곳에서 이러한 구성을 모두 유지 관리할 수 있습니다. | 
    | **일괄 처리 이름** | 일괄 처리에 대한 이름이며(이 예의 경우 "TestBatch"), **인라인** 일괄 처리 모드에만 적용됩니다. |  
@@ -89,7 +89,7 @@ ms.locfileid: "82144348"
 
    3. **이메일 보내기 - <*이메일 공급자*>** 작업을 선택합니다.
 
-      예를 들어:
+      다음은 그 예입니다.
 
       ![전자 메일 공급자에 대한 “전자 메일 보내기” 작업을 선택합니다.](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 
@@ -168,7 +168,7 @@ ms.locfileid: "82144348"
 
 3. 일괄 처리 발신자의 속성을 설정합니다.
 
-   | 속성 | 설명 | 
+   | 속성 | Description | 
    |----------|-------------| 
    | **일괄 처리 이름** | 수신자 논리 앱에서 정의된 일괄 처리 이름입니다(이 예의 경우 "TestBatch"). <p>**중요**: 일괄 처리 이름은 런타임에 유효성이 검사되고 수신자 논리 앱에서 지정된 이름과 일치해야 합니다. 일괄 처리 이름을 변경하면 일괄 처리 발신자가 실패하게 됩니다. | 
    | **메시지 콘텐츠** | 보내려는 메시지에 대한 콘텐츠입니다. | 
@@ -186,7 +186,7 @@ ms.locfileid: "82144348"
 
 4. 이제 일괄 처리에 대한 파티션을 설정합니다. "BatchReceiver" 작업에서 **고급 옵션 표시**를 선택하고 다음 속성을 설정합니다.
 
-   | 속성 | 설명 | 
+   | 속성 | Description | 
    |----------|-------------| 
    | **파티션 이름** | 대상 일괄 처리를 논리적 하위 집합으로 나누고 해당 키에 따라 메시지를 수집하는 데 사용하는 선택적 고유 파티션 키입니다. | 
    | **메시지 Id** | 비어 있을 때 생성된 GUID(Globally Unique Identifier)라는 선택적 메시지 식별자입니다. | 

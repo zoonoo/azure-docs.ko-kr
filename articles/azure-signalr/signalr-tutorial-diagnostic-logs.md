@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
 ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131005"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Azure SignalR Service에 대 한 리소스 로그
 
 이 자습서에서는 Azure SignalR Service에 대 한 리소스 로그, 설정 방법 및 문제 해결 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 리소스 로그를 사용 하도록 설정 하려면 로그 데이터를 저장 하는 위치에 있어야 합니다. 이 자습서에서는 Azure Storage와 Log Analytics를 사용 합니다.
 
 * [Azure storage](../azure-monitor/platform/resource-logs-collect-storage.md) -정책 감사, 정적 분석 또는 백업에 대 한 리소스 로그를 유지 합니다.
@@ -66,7 +66,7 @@ Azure SignalR Service는 한 범주에서 리소스 로그를 캡처합니다.
 
 보관 로그 JSON 문자열에는 다음 표에 나열 된 요소가 포함 됩니다.
 
-**형식과**
+**형식**
 
 속성 | Description
 ------- | -------
@@ -162,7 +162,7 @@ Azure SignalR 서비스에 대 한 문제를 해결 하기 위해 서버/클라�
 
 중단 이유는 다음 표에 나와 있습니다.
 
-이유 | 설명
+이유 | Description
 ------- | ------- 
 연결 수가 제한에 도달 합니다. | 연결 수는 현재 가격 책정 계층의 제한에 도달 합니다. 서비스 단위 확장 고려
 응용 프로그램 서버에서 연결을 닫았습니다. | 앱 서버는 abortion를 트리거합니다. 예상 된 abortion 간주 될 수 있습니다.

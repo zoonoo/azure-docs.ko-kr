@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 8278d9f2129ab8b213cf1b561f4b82b56dffc8da
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131030"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Windows에서 가상 TPM을 사용 하 여 시뮬레이트된 IoT Edge 장치 만들기 및 프로 비전
@@ -31,7 +31,7 @@ DPS는 개별 등록 및 그룹 등록 모두에서 IoT Edge 장치에 대 한 �
 > [!TIP]
 > 이 문서에서는 가상 장치에서 TPM 증명을 사용 하 여 자동 프로 비전 테스트에 대해 설명 하지만, 실제 TPM 하드웨어를 사용 하는 경우에도 대부분 적용 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Windows 개발 컴퓨터. 이 문서에서는 Windows 10을 사용합니다.
 * 활성 IoT Hub

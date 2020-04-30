@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
 ms.openlocfilehash: 95c55242baf2ceb3620ed71026af2bad0195c22d
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82127973"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>VPN Gateway에서 리소스 로그 이벤트에 대 한 경고 설정
@@ -35,7 +35,7 @@ Azure에서 사용할 수 있는 리소스 로그는 다음과 같습니다.
 
 1. Azure Portal에서 **모든 서비스** 아래 **Log Analytics** 를 검색 하 고 **Log Analytics 작업 영역**을 선택 합니다.
 
-   ![Log Analytics 작업 영역으로 이동 하기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "생성")
+   ![Log Analytics 작업 영역으로 이동 하기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "만들기")
 
 2. **Log Analytics** 페이지에서 **만들기** 를 선택 합니다.
 

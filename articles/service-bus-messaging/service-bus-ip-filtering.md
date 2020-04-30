@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: 9601689bbce9566b52664058911e9c45647152d6
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116821"
 ---
 # <a name="configure-ip-firewall-rules-for-azure-service-bus"></a>Azure Service Bus에 대 한 IP 방화벽 규칙 구성

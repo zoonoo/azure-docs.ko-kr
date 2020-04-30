@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 5f7bf75598c09c5c8c0654f7db863068f9e7be7d
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82128854"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Azure Portal에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
@@ -17,7 +17,7 @@ ms.locfileid: "82128854"
 
 이 문서에서는 가상 노드를 사용하도록 설정된 가상 네트워크 리소스 및 AKS 클러스터를 만들고 구성하는 방법을 보여줍니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 가상 노드는 Azure Container Instances (ACI)에서 실행 되는 pod와 AKS 클러스터 간의 네트워크 통신을 가능 하 게 합니다. 이 통신을 제공하기 위해 가상 네트워크 서브넷이 만들어지고 위임된 사용 권한이 할당됩니다. 가상 노드는 *고급* 네트워킹을 사용하여 만든 AKS 클러스터에만 작동합니다. 기본적으로 AKS 클러스터는 *기본* 네트워킹을 사용하여 만듭니다. 이 문서에서는 가상 네트워크 및 서브넷을 만든 다음, 고급 네트워킹을 사용하는 AKS 클러스터에 배포하는 방법을 보여 줍니다.
 

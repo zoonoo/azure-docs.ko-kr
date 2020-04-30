@@ -6,10 +6,10 @@ ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
 ms.openlocfilehash: 5051b9c536ded50e77fb75515c16daba884d5d24
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115910"
 ---
 # <a name="check-for-pool-and-node-errors"></a>풀 및 노드 오류 확인
@@ -54,7 +54,7 @@ Azure Batch 풀을 만들고 관리할 때 일부 작업은 즉시 수행됩니�
 
 [풀 크기 조정 완료 이벤트](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event)는 모든 평가 정보를 캡처합니다.
 
-### <a name="delete"></a>DELETE
+### <a name="delete"></a>삭제
 
 노드를 포함하는 풀을 삭제하면 Batch는 먼저 노드를 삭제합니다. 그런 다음, 풀 개체 자체를 삭제합니다. 풀 노드가 삭제되려면 몇 분 정도 걸릴 수 있습니다.
 

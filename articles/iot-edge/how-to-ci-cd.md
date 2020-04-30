@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 9a653d13137a3067bfaf51c64c09454a08783e31
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131407"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Azure IoT Edge 연속 통합 및 지속적인 배포
@@ -28,7 +28,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 * **Azure IoT Edge-배포 매니페스트 생성** 은 배포 템플릿. json 파일 및 변수를 사용 하 여 최종 IoT Edge 배포 매니페스트 파일을 생성 합니다.
 * **Azure IoT Edge-IoT Edge 장치에 배포** 하면 단일/다중 IoT Edge 장치에 대 한 IoT Edge 배포를 만들 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Repos 리포지토리. 이 리포지토리가 없는 경우 [프로젝트에서 새 Git 리포지토리를 만들](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav) 수 있습니다.
 * 리포지토리에 커밋되고 푸시된 IoT Edge 솔루션. 이 문서를 테스트하기 위한 새 샘플 솔루션을 만들려면 [Visual Studio Code에서 모듈 개발 및 디버그](how-to-vs-code-develop-module.md) 또는 [Visual Studio에서 C# 모듈 개발 및 디버그](how-to-visual-studio-develop-csharp-module.md)의 단계를 따릅니다.

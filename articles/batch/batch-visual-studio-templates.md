@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.custom: seodec18
 ms.openlocfilehash: 8e8d5be4a9f0fb5482ba6c86a8766a25e5713c09
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82117525"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Visual Studio 프로젝트 템플릿을 사용하여 Batch 솔루션 빠르게 시작
@@ -180,7 +180,7 @@ Split() 구현에서는 다음에 액세스할 수 있습니다.
 
 작업 관리자 템플릿으로 구현된 작업 관리자 태스크는 세 가지 가능한 종료 코드를 반환할 수 있습니다.
 
-| 코드 | 설명 |
+| 코드 | Description |
 | --- | --- |
 | 0 |작업 관리자가 성공적으로 완료되었습니다. 작업 분할자 코드가 완료될 때까지 실행되고 모든 태스크가 작업에 추가되었습니다. |
 | 1 |작업 관리자 태스크가 프로그램의 '예상된' 부분에서 예외로 인해 실패했습니다. 예외는 진단 정보 및 가능한 경우, 오류를 해결하기 위한 제안과 함께 JobManagerException으로 해석됩니다. |
@@ -358,7 +358,7 @@ Run() 구현에서는 다음에 액세스할 수 있습니다.
 
 태스크 프로세서 템플릿으로 구현된 태스크 프로세서 태스크는 세 가지 가능한 종료 코드를 반환할 수 있습니다.
 
-| 코드 | 설명 |
+| 코드 | Description |
 | --- | --- |
 | [Process.ExitCode][process_exitcode] |태스크 프로세서가 완료될 때까지 실행됩니다. 사용자가 호출한 프로그램이 성공했음을 의미하는 것은 아니며 태스크 프로세서가 이를 성공적으로 호출했고 예외 없이 후처리를 수행했음만 의미합니다. 종료 코드의 의미는 호출한 프로그램에 따라 다르며 일반적으로 종료 코드 0은 프로그램이 성공했음을 의미하고 그 외의 종료 코드는 프로그램이 실패했음을 의미합니다. |
 | 1 |태스크 프로세서가 프로그램의 '예상된' 부분에서 예외로 인해 실패했습니다. 예외는 진단 정보 및 가능한 경우, 오류를 해결하기 위한 제안과 함께 `TaskProcessorException` 으로 해석됩니다. |

@@ -4,10 +4,10 @@ description: 응용 프로그램에 필요한 소프트웨어와 데이터를 �
 ms.topic: article
 ms.date: 08/28/2019
 ms.openlocfilehash: 45f721dbdf11e0a6f58da71c644acf687dfadd49
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116522"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>공유 이미지 갤러리를 사용 하 여 사용자 지정 풀 만들기

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 92540c57179ae0198f78b588681167fe48097362
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82134365"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Visual Studio Code를 사용 하 여 규모에 IoT Edge 모듈 배포
@@ -24,7 +24,7 @@ Visual Studio Code를 사용 하 여 여러 장치에 대 한 지속적인 배�
 
 이 문서에서는 Visual Studio Code 및 IoT 확장을 설정 합니다. 그런 다음 IoT Edge 장치 집합에 모듈을 배포 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독의 [IoT hub](../iot-hub/iot-hub-create-through-portal.md)
 * IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device.md#register-with-visual-studio-code)
@@ -220,7 +220,7 @@ Visual Studio Code에서 장치 쌍을 편집 하 여 태그를 구성할 수 �
 
    다음 매개 변수에 대 한 값을 지정 합니다.
 
-  | 매개 변수 | 설명 |
+  | 매개 변수 | Description |
   | --- | --- |
   | 배포 ID | IoT hub에서 생성 될 배포의 이름입니다. 배포에 최대 128자의 소문자로 된 고유한 이름을 지정합니다. 공백과 잘못된 문자(`& ^ [ ] { } \ | " < > /`)는 사용하지 않도록 합니다. |
   | 대상 조건 | 대상 조건을 입력 하 여이 배포의 대상으로 지정할 장치를 결정 합니다.조건은 디바이스 쌍 태그 또는 보고되는 디바이스 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다.예를 `tags.environment='test' and properties.reported.devicemodel='4000x'`들면입니다. |

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: da7a47bf61453c30f5c735b1282ae93d2442598c
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82127687"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리 요청 모니터링
@@ -36,7 +36,7 @@ ms.locfileid: "82127687"
 
 쿼리가 실행 되는 데 일반적으로 밀리초 단위로 계산 되므로 시간 (초)으로 측정 되는 쿼리만 메트릭에 표시 됩니다.
 
-| 집계 형식 | 설명 |
+| 집계 형식 | Description |
 |------------------|-------------|
 | 평균 | 쿼리가 실행 된 후 1 분 내에 발생 한 평균 시간 (초)입니다.|
 | 개수 | 1 분 간격 내에 로그에 내보내는 메트릭 수입니다. |

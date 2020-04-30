@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133788"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>핵심 Azure Storage 서비스 소개
@@ -22,7 +22,7 @@ Azure Storage 플랫폼은 최신 데이터 저장소 시나리오를 위한 Mic
 - **내구성 및 고가용성** 중복성을 통해 일시적인 하드웨어 오류가 발생할 경우 데이터를 안전하게 보호합니다. 또한 로컬 재해 또는 자연 재해로부터 추가 보호를 위해 데이터 센터 또는 지리적 영역에서 데이터를 복제하도록 선택할 수도 있습니다. 이러한 방식으로 복제된 데이터는 예기치 않은 중단이 발생할 경우 항상 사용 가능한 상태로 유지됩니다.
 - **보안.** Azure 저장소 계정에 기록 된 모든 데이터는 서비스에 의해 암호화 됩니다. Azure Storage는 데이터에 액세스할 수 있는 사용자에 대한 세분화된 제어를 제공합니다.
 - **크기.** Azure Storage는 오늘날의 애플리케이션의 데이터 스토리지 및 성능 요구 사항을 충족하기 위해 확장성이 매우 뛰어나도록 설계되었습니다.
-- **관리** Azure는 하드웨어 유지 관리, 업데이트 및 중요 한 문제를 처리 합니다.
+- **Managed.** Azure는 하드웨어 유지 관리, 업데이트 및 중요 한 문제를 처리 합니다.
 - **액세스 가능** Azure Storage의 데이터는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. Microsoft는 .NET, Java, node.js, Python, PHP, Ruby, Go 등을 비롯 한 다양 한 언어로 Azure Storage 용 클라이언트 라이브러리를 제공 하 고 완성 된 REST API를 제공 합니다. Azure Storage는 Azure PowerShell 또는 Azure CLI에서 스크립트를 지원합니다. 또한 Azure Portal 및 Azure Storage Explorer는 데이터 작업을 위한 쉬운 시각적 솔루션을 제공합니다.  
 
 ## <a name="core-storage-services"></a>핵심 저장소 서비스

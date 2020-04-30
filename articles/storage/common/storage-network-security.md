@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
 ms.openlocfilehash: 6f0e7c514835227fafd439803107531fbc62285c
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133846"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
@@ -377,7 +377,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 | Azure DevTest Labs       | Microsoft.DevTestLab       | 사용자 지정 이미지 만들기 및 아티팩트 설치. [자세히 알아보기](/azure/devtest-lab/devtest-lab-overview). |
 | Azure Event Grid         | Microsoft.EventGrid        | Blob Storage 이벤트 게시를 사용하도록 설정하고 Event Grid가 스토리지 큐에 게시하도록 허용합니다. [Blob Storage 이벤트](/azure/event-grid/event-sources)와 [큐에 게시](/azure/event-grid/event-handlers)에 대해 알아봅니다. |
 | Azure Event Hubs         | Microsoft.EventHub         | Event Hubs 캡처로 데이터를 보관합니다. [자세히 알아보세요](/azure/event-hubs/event-hubs-capture-overview). |
-| Azure 파일 동기화          | Microsoft.StorageSync      | Azure 파일 공유를 위해 온-프레미스 파일 서버를 캐시로 변환할 수 있습니다. 다중 사이트 동기화, 빠른 재해 복구 및 클라우드 쪽 백업을 허용 합니다. [자세한 내용](../files/storage-sync-files-planning.md) |
+| Azure 파일 동기화          | Microsoft.StorageSync      | Azure 파일 공유를 위해 온-프레미스 파일 서버를 캐시로 변환할 수 있습니다. 다중 사이트 동기화, 빠른 재해 복구 및 클라우드 쪽 백업을 허용 합니다. [자세한 정보](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | 새 HDInsight 클러스터에 대 한 기본 파일 시스템의 초기 콘텐츠를 프로 비전 합니다. [자세히 알아보기](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
 | Azure 가져오기 내보내기      | Microsoft.ImportExport     | 가져오기/내보내기 서비스를 사용 하 여 azure로 데이터를 가져오고 Azure에서 데이터를 내보낼 수 있습니다. [자세히 알아보기](/azure/storage/common/storage-import-export-service).  |
 | Azure Monitor            | Microsoft.Insights         | 리소스 로그 Azure Active Directory, 로그인 및 감사 로그 및 Microsoft Intune 로그를 포함 하 여 보안 저장소 계정에 모니터링 데이터를 쓸 수 있습니다. [자세히 알아보기](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
@@ -386,7 +386,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 
 신뢰할 수 있는 **Microsoft 서비스 허용** ... 설정을 사용 하면 해당 리소스 인스턴스에 대 한 [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 에 [RBAC 역할](storage-auth-aad.md#assign-rbac-roles-for-access-rights) 을 명시적으로 할당 하는 경우 아래 서비스의 특정 인스턴스에서 저장소 계정에 액세스할 수도 있습니다. 이 경우 인스턴스에 대 한 액세스 범위는 관리 id에 할당 된 RBAC 역할에 해당 합니다.
 
-| 서비스                        | 리소스 공급자 이름                 | 용도            |
+| 서비스                        | 리소스 공급자 이름                 | 목적            |
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Cognitive Search 서비스에서 인덱싱, 처리 및 쿼리를 위해 저장소 계정에 액세스할 수 있도록 합니다. |
 | Azure Container Registry 작업 | Microsoft.ContainerRegistry/registries | ACR 작업은 컨테이너 이미지를 빌드할 때 저장소 계정에 액세스할 수 있습니다. |

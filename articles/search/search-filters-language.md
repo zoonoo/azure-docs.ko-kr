@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.openlocfilehash: b0ebbbb64e173e1501f08f8385b14c365759a804
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116284"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Azure Cognitive Search에서 언어를 기준으로 필터링 하는 방법 
@@ -21,7 +21,7 @@ ms.locfileid: "82116284"
 
 요청에 대한 쿼리 매개 변수는 검색 작업 범위를 지정하고 전달하려는 검색 환경과 호환되는 콘텐츠를 제공하지 않는 필드의 결과를 잘라내는 데 사용됩니다.
 
-| 매개 변수 | 용도 |
+| 매개 변수 | 목적 |
 |-----------|--------------|
 | **searchFields** | 전체 텍스트 검색을 명명된 필드 목록으로 제한합니다. |
 | **$select** | 지정하는 필드만 포함하도록 응답을 잘라냅니다. 기본적으로 검색 가능한 모든 필드가 반환됩니다. **$select** 매개 변수를 통해 반환할 필드를 선택할 수 있습니다. |

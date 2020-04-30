@@ -5,10 +5,10 @@ ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
 ms.openlocfilehash: 7183c0b268342d08fe7c0ed79c7fa589e3e28afe
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82128463"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Azure 리소스 로그에 대해 지원 되는 서비스, 스키마 및 범주
@@ -22,24 +22,24 @@ ms.locfileid: "82128463"
 
 ## <a name="top-level-resource-logs-schema"></a>최상위 리소스 로그 스키마
 
-| 이름 | 필수/선택 | 설명 |
+| 속성 | 필수/선택 | 설명 |
 |---|---|---|
 | time | 필수 | 이벤트의 타임스탬프(UTC)입니다. |
 | resourceId | 필수 | 이벤트를 내보낸 리소스의 리소스 ID입니다. 테넌트 서비스의 경우 /tenants/tenant-id/providers/provider-name의 형태입니다. |
 | tenantId | 테넌트 로그에 필요 | 이 이벤트가 연결된 Active Directory 테넌트의 테넌트 ID입니다. 이 속성은 테넌트 수준 로그에만 사용되며 리소스 수준 로그에는 나타나지 않습니다. |
 | operationName | 필수 | 이 이벤트가 나타내는 작업의 이름입니다. 이벤트가 RBAC 작업을 나타내는 경우, RBAC 작업 이름입니다(예: Microsoft.Storage/storageAccounts/blobServices/blobs/Read). 실제로 문서화된 리소스 관리자 작업은 아니지만, 일반적으로 리소스 관리자 작업 형태로 모델링됩니다(`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`). |
-| operationVersion | 선택 | operationName이 API를 사용하여 수행된 경우, 작업과 연결된 api-version입니다(예: `http://myservice.windowsazure.net/object?api-version=2016-06-01`). 이 작업에 해당하는 API가 없으면, 버전은 작업과 연결된 속성이 나중에 변경될 경우, 해당 작업의 버전을 나타냅니다. |
+| operationVersion | Optional | operationName이 API를 사용하여 수행된 경우, 작업과 연결된 api-version입니다(예: `http://myservice.windowsazure.net/object?api-version=2016-06-01`). 이 작업에 해당하는 API가 없으면, 버전은 작업과 연결된 속성이 나중에 변경될 경우, 해당 작업의 버전을 나타냅니다. |
 | category | 필수 | 이벤트의 로그 범주입니다. 범주는 특정 리소스에 대해 로그를 사용하거나 사용하지 않도록 설정할 수 있는 세분성입니다. 이벤트의 속성 Blob에 표시되는 속성은 특정 로그 범주 및 리소스 종류 내에서 동일합니다. 일반적인 로그 범주는 "감사" "작동" "실행" 및 "요청"입니다. |
-| resultType | 선택 | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
-| resultSignature | 선택 | 이벤트의 하위 상태입니다. 이 작업이 REST API 호출에 해당하는 경우, 해당 REST 호출의 HTTP 상태 코드입니다. |
-| resultDescription | 선택 | 이 작업에 대한 정적 텍스트 설명입니다(예: "저장소 파일 가져오기" |
-| durationMS | 선택 | 밀리초 단위의 작업 기간입니다. |
-| callerIpAddress | 선택 | 작업이 공개적으로 사용 가능한 IP 주소가 있는 엔터티에서 시작된 API 호출에 해당하는 경우, 호출자 IP 주소입니다. |
-| correlationId | 선택 | 관련 이벤트 집합을 그룹화하는 데 사용되는 GUID입니다. 일반적으로, 두 이벤트의 operationName이 같고 상태가 다른(예: "Started" 및 "Succeeded"는 동일한 상관 관계 ID를 공유 합니다. 이벤트 간의 다른 관계를 나타낼 수도 있습니다. |
-| ID | 선택 | 작업을 수행한 사용자 또는 애플리케이션의 ID를 설명하는 JSON Blob입니다. 일반적으로 활성 디렉터리의 클레임/JWT 토큰 및 권한 부여가 포함됩니다. |
-| Level | 선택 | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
-| 위치 | 선택 | 이벤트를 내보내는 리소스의 지역입니다(예: "미국 동부" 또는 "프랑스 남부" |
-| properties | 선택 | 이 특정 범주의 이벤트와 관련된 확장 속성입니다. 모든 custom/unique 속성은 스키마의이 "파트 B" 안에 배치 해야 합니다. |
+| resultType | Optional | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
+| resultSignature | Optional | 이벤트의 하위 상태입니다. 이 작업이 REST API 호출에 해당하는 경우, 해당 REST 호출의 HTTP 상태 코드입니다. |
+| resultDescription | Optional | 이 작업에 대한 정적 텍스트 설명입니다(예: "저장소 파일 가져오기" |
+| durationMS | Optional | 밀리초 단위의 작업 기간입니다. |
+| callerIpAddress | Optional | 작업이 공개적으로 사용 가능한 IP 주소가 있는 엔터티에서 시작된 API 호출에 해당하는 경우, 호출자 IP 주소입니다. |
+| correlationId | Optional | 관련 이벤트 집합을 그룹화하는 데 사용되는 GUID입니다. 일반적으로, 두 이벤트의 operationName이 같고 상태가 다른(예: "Started" 및 "Succeeded"는 동일한 상관 관계 ID를 공유 합니다. 이벤트 간의 다른 관계를 나타낼 수도 있습니다. |
+| ID | Optional | 작업을 수행한 사용자 또는 애플리케이션의 ID를 설명하는 JSON Blob입니다. 일반적으로 활성 디렉터리의 클레임/JWT 토큰 및 권한 부여가 포함됩니다. |
+| Level | Optional | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| 위치 | Optional | 이벤트를 내보내는 리소스의 지역입니다(예: "미국 동부" 또는 "프랑스 남부" |
+| properties | Optional | 이 특정 범주의 이벤트와 관련된 확장 속성입니다. 모든 custom/unique 속성은 스키마의이 "파트 B" 안에 배치 해야 합니다. |
 
 ## <a name="service-specific-schemas-for-resource-logs"></a>리소스 로그의 서비스별 스키마
 리소스 진단 로그의 스키마는 리소스 및 로그 범주에 따라 달라집니다. 이 목록에는 사용 가능한 리소스 로그와 서비스 및 범주 관련 스키마 (사용 가능한 경우)에 대 한 링크를 만드는 모든 서비스가 표시 됩니다.
@@ -75,7 +75,7 @@ ms.locfileid: "82128463"
 | Power BI 전용 | [Azure의 Power BI Embedded에 대 한 로깅](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Azure Backup에 대 한 데이터 모델](../../backup/backup-azure-reports-data-model.md)|
 | 검색 |[검색 트래픽 분석 설정 및 사용](../../search/search-traffic-analytics.md) |
-| 서비스 버스 |[Azure Service Bus 로그](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
+| Service Bus |[Azure Service Bus 로그](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database 로깅](../../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[작업 로그](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Traffic Manager | [Traffic Manager 로그 스키마](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
@@ -86,7 +86,7 @@ ms.locfileid: "82128463"
 
 일부 범주는 특정 유형의 리소스에 대해서만 지원 될 수 있습니다. 일부 형식으로 제공 되는 모든 목록입니다.  예를 들어, 모든 유형의 데이터베이스에는 Microsoft .Sql/servers/databases 범주를 사용할 수 없습니다. 자세한 내용은 [SQL Database 진단 로깅에 대 한 정보](../../sql-database/sql-database-metrics-diag-logging.md)를 참조 하세요. 
 
-|리소스 종류|Category|범주 표시 이름|
+|리소스 종류|범주|범주 표시 이름|
 |---|---|---|
 |Microsoft AAD/domainServices|SystemSecurity|SystemSecurity|
 |Microsoft AAD/domainServices|AccountManagement|AccountManagement|
@@ -110,7 +110,7 @@ ms.locfileid: "82128463"
 |Microsoft BatchAI/workspace|BaiClusterNodeEvent|BaiClusterNodeEvent|
 |Microsoft BatchAI/workspace|BaiJobEvent|BaiJobEvent|
 |Microsoft Blockchain/blockchainMembers|BlockchainApplication|블록 체인 응용 프로그램|
-|Microsoft Blockchain/blockchainMembers|Proxy (프록시)|Proxy (프록시)|
+|Microsoft Blockchain/blockchainMembers|프록시|프록시|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|엔드포인트의 메트릭(예: 대역폭, 송신 등)을 가져옵니다.|
 |Microsoft.ClassicNetwork/networksecuritygroups|네트워크 보안 그룹 규칙 흐름 이벤트|네트워크 보안 그룹 규칙 흐름 이벤트|
 |Microsoft.CognitiveServices/accounts|감사|감사 로그|
@@ -198,8 +198,8 @@ ms.locfileid: "82128463"
 |HealthcareApis/서비스|AuditLogs|감사 로그|
 |Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|자동 크기 조정 평가|
 |Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|자동 크기 조정 크기 조정 작업|
-|Microsoft.IoTSpaces/Graph|Trace|Trace|
-|Microsoft.IoTSpaces/Graph|작동|작동|
+|Microsoft.IoTSpaces/Graph|추적|추적|
+|Microsoft.IoTSpaces/Graph|운영|운영|
 |Microsoft.IoTSpaces/Graph|감사|감사|
 |Microsoft.IoTSpaces/Graph|UserDefinedFunction|UserDefinedFunction|
 |Microsoft.IoTSpaces/Graph|수신|수신|

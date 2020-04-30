@@ -10,10 +10,10 @@ ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.openlocfilehash: 207b8f7467753a8693bbabe6dd3f7a890307cf21
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82120705"
 ---
 # <a name="azure-desired-state-configuration-extension-version-history"></a>Azure 필요한 상태 구성 확장 버전 기록

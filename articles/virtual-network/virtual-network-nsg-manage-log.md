@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
 ms.openlocfilehash: cfc1b933abbbc3736145ff3c6a600f48260538d2
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133816"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>네트워크 보안 그룹에 대 한 리소스 로깅
@@ -36,7 +36,7 @@ NSG에 대 한 로깅을 사용 하도록 설정 하면 다음과 같은 유형�
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. [포털](https://portal.azure.com)에 로그인 합니다.
+1. [포털](https://portal.azure.com)에 로그인합니다.
 2. **모든 서비스**를 선택한 다음, *네트워크 보안 그룹*을 입력합니다. 검색 결과에 **네트워크 보안 그룹**이 표시되면 선택합니다.
 3. 로깅을 활성화하려는 NSG를 선택합니다.
 4. **모니터링** 아래에서 **진단 로그**를 선택한 다음, 다음 그림에 표시된 것처럼 **진단 켜기**를 선택합니다.

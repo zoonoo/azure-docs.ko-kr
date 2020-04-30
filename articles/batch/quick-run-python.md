@@ -1,23 +1,17 @@
 ---
 title: Python API를 사용하여 Azure Batch 작업 실행
 description: Batch Python 클라이언트 라이브러리를 사용하여 Azure Batch 샘플 작업 및 태스크를 빠르게 실행합니다. Batch 서비스의 주요 개념에 대해 알아봅니다.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/27/2018
-ms.author: labrenne
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: 140ae0fc9f9a8daba193aa05e0800d83b7b6b963
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 07ad9115f6cb602b4df5adbe9a7acdc0425bbf86
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77086050"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82117202"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>빠른 시작: Python API를 사용하여 Azure Batch 작업 실행
 

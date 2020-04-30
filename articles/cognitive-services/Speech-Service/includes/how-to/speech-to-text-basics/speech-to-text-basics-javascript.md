@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
-ms.openlocfilehash: b11194640c4d049c90f85974022908dce6b4fd79
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2d6e53f8a69a3e214d7d4621e899fd2e5394c7f2
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399760"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82132133"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -102,14 +102,14 @@ const recognizer = new SpeechRecognizer(speechConfig);
 
 ```javascript
 const audioConfig = AudioConfig.fromDefaultMicrophoneInput();
-const speechConfig = SpeechConfig.fromSubscription(speechConfig, audioConfig);
+const recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 ```
 
 마이크를 사용하는 대신 오디오 파일을 제공하려는 경우에도 `audioConfig`를 제공해야 합니다. 그러나 이 작업은 **Node.js**를 대상으로 지정하는 경우에만 수행할 수 있으며 `fromDefaultMicrophoneInput`을 호출하는 대신 [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest)를 만들면 `fromWavFileOutput`을 호출하여 `filename` 매개 변수를 전달합니다.
 
 ```javascript
 const audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
-const speechConfig = SpeechConfig.fromSubscription(speechConfig, audioConfig);
+const recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 ```
 
 ## <a name="recognize-speech"></a>음성 인식

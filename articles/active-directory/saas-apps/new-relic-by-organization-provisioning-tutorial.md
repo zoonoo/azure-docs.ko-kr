@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/14/2020
 ms.author: Zhchia
 ms.openlocfilehash: 3197ac3033c6550b72bdfdf39fd23c55dda20d90
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82134235"
 ---
 # <a name="tutorial-configure-new-relic-by-organization-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 조직별 새 유물 구성
@@ -35,7 +35,7 @@ ms.locfileid: "82134235"
 > * 조직별 새 유물에 그룹 및 그룹 멤버 자격 프로 비전
 > * 조직별 새 유물에 [Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/new-relic-limited-release-tutorial) (권장)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "82134235"
 
 SCIM 전달자 토큰을 사용 하 여 새 유물에서 사용자를 프로 비전 할 수 있으므로 보안 값을 유지 하세요. 계정 담당자는 SCIM 전달자 토큰을 안전한 방식으로 사용자에 게 전송 합니다.
 
-## <a name="step-3-add-new-relic-by-organization-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 조직별 새 유물 추가
+## <a name="step-3-add-new-relic-by-organization-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 조직별 새 유물 추가
 
 Azure AD 응용 프로그램 갤러리의 조직별로 새 유물을 추가 하 여 조직별 새 유물에 대 한 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 조직에서 새 유물을 설정 했다면 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음에 통합을 테스트할 때 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)에서 갤러리에서 응용 프로그램을 추가 하는 방법에 대해 자세히 알아보세요. 
 
@@ -115,13 +115,13 @@ Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한
 
    |attribute|Type|
    |---|---|
-   |userName|String|
-   |externalId|String|
+   |userName|문자열|
+   |externalId|문자열|
    |활성|부울|
-   |emails[type eq "work"].value|String|
-   |name.givenName|String|
-   |이름 형식|String|
-   |timezone|String|
+   |emails[type eq "work"].value|문자열|
+   |name.givenName|문자열|
+   |이름 형식|문자열|
+   |timezone|문자열|
 
 10. **매핑** 섹션에서 **조직의 새 유물에 Azure Active Directory 그룹 동기화를**선택 합니다.
 
@@ -129,8 +129,8 @@ Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한
 
       |attribute|Type|
       |---|---|
-      |displayName|String|
-      |externalId|String|
+      |displayName|문자열|
+      |externalId|문자열|
       |members|참조|
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.

@@ -6,10 +6,10 @@ ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: conceptual
 ms.openlocfilehash: 79c4e74086acc0f74bcc43f6b4543afe12916364
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82117389"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Azure Pipelines를 사용 하 여 HPC 솔루션 빌드 및 배포
@@ -24,7 +24,7 @@ Azure Pipelines은 소프트웨어 빌드, 배포, 테스트 및 모니터링을
 
 ![파이프라인의 배포 흐름을 보여 주는 다이어그램](media/batch-ci-cd/DeploymentFlow.png)
 
-### <a name="setup"></a>설정
+### <a name="setup"></a>설치 프로그램
 
 이 문서의 단계를 수행 하려면 Azure DevOps 조직과 팀 프로젝트가 필요 합니다.
 

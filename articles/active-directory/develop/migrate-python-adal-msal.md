@@ -15,10 +15,10 @@ ms.author: rayluo
 ms.reviewer: rayluo, nacanuma, twhitney
 ms.custom: aaddev
 ms.openlocfilehash: a3f95383979fd47b3baaec946f724533461729b8
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82128038"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Python에 대 한 ADAL에서 MSAL 마이그레이션 가이드
@@ -52,7 +52,7 @@ ADAL Python은 리소스에 대 한 토큰을 가져오지만 MSAL Python은 범
 
 Python 용 ADAL (Azure Active Directory 인증 라이브러리)은 예외 `AdalError` 를 사용 하 여 문제가 있음을 표시 합니다. Python 용 MSAL은 일반적으로 오류 코드를 대신 사용 합니다. 자세한 내용은 [Msal For Python error 처리](https://docs.microsoft.com/azure/active-directory/develop/msal-handling-exceptions?tabs=python)를 참조 하세요.
 
-### <a name="api-changes"></a>API 변경
+### <a name="api-changes"></a>API 변경 내용
 
 다음 표에서는 Python 용 ADAL의 API와 Python 용 MSAL에서 사용할 API를 나열 합니다.
 

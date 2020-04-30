@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
 ms.openlocfilehash: 4bc2aa055c40fb33edade8f7815311e392633885
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133874"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 리소스 로그
@@ -87,7 +87,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 
 이전 단계에서 설명한 대로 액세스 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. Application Gateway에 대 한 각 액세스는 v1에 대 한 다음 예제와 같이 JSON 형식으로 기록 됩니다.
 
-|Value  |설명  |
+|값  |Description  |
 |---------|---------|
 |instanceId     | 요청을 처리한 Application Gateway 인스턴스        |
 |clientIP     | 요청에 대한 원래 IP        |
@@ -131,7 +131,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 ```
 Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 표시 됩니다.
 
-|Value  |설명  |
+|값  |Description  |
 |---------|---------|
 |instanceId     | 요청을 처리한 Application Gateway 인스턴스        |
 |clientIP     | 요청에 대한 원래 IP        |
@@ -185,7 +185,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 이전 단계에서 설명한 대로 성능 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 성능 로그 데이터는 1분 간격으로 생성됩니다. V1 SKU에 대해서만 사용할 수 있습니다. V2 SKU의 경우 성능 데이터에 대 한 [메트릭을](../../application-gateway/application-gateway-metrics.md) 사용 합니다. 다음 데이터가 로깅됩니다.
 
 
-|Value  |설명  |
+|값  |Description  |
 |---------|---------|
 |instanceId     |  성능 데이터가 생성되는 Application Gateway 인스턴스입니다. 다중 인스턴스 애플리케이션 게이트웨이의 경우 인스턴스마다 하나의 행이 있습니다.        |
 |healthyHostCount     | 백 엔드 풀의 정상 호스트 수        |
@@ -222,7 +222,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 이전 단계에서 설명한 대로 방화벽 로그는 각 애플리케이션 게이트웨이에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 또한 이 로그를 사용하려면 애플리케이션 게이트웨이에서 웹 애플리케이션 방화벽을 구성해야 합니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 다음 데이터가 로깅됩니다.
 
 
-|Value  |설명  |
+|값  |Description  |
 |---------|---------|
 |instanceId     | 방화벽 데이터가 생성되는 Application Gateway 인스턴스입니다. 다중 인스턴스 애플리케이션 게이트웨이의 경우 인스턴스마다 하나의 행이 있습니다.         |
 |clientIp     |   요청에 대한 원래 IP      |

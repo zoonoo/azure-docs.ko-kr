@@ -10,10 +10,10 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: cc7c1fd1dff85908c96e2fd7b2276df3d833e37f
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82134313"
 ---
 # <a name="monitor-iot-edge-deployments"></a>IoT Edge 배포 모니터링
@@ -24,7 +24,7 @@ Azure IoT Edge은 IoT Edge 장치에 배포 된 모듈에 대 한 실시간 정�
 
 IoT Hub 서비스는 장치 및 모듈 쌍에서 보고 하는 데이터를 수집 하 고 장치에 포함 될 수 있는 다양 한 상태의 수를 제공 합니다. IoT Hub 서비스는이 데이터를 4 개의 메트릭 그룹으로 구성 합니다.
 
-| 유형 | 설명 |
+| Type | 설명 |
 | --- | ---|
 | 대상 | 배포 대상 조건과 일치 하는 IoT Edge 장치를 표시 합니다. |
 | 적용됨 | 높은 우선 순위의 다른 배포에서 대상으로 지정 되지 않은 대상 IoT Edge 장치를 표시 합니다. |
@@ -45,7 +45,7 @@ IoT Hub 서비스를 사용 하면이 데이터를 Azure Portal 및 Azure CLI에
     | 열 | Description |
     | --- | --- |
     | ID | 배포의 이름입니다. |
-    | 유형 | 배포의 유형 ( **배포** 또는 계층화 된 **배포**)입니다. |
+    | Type | 배포의 유형 ( **배포** 또는 계층화 된 **배포**)입니다. |
     | 대상 조건 | 대상 장치를 정의 하는 데 사용 되는 태그입니다. |
     | 우선 순위 | 배포에 할당 된 우선 순위 번호입니다. |
     | 시스템 메트릭 | IoT Hub 대상 조건과 일치 하는 장치 쌍의 수입니다. **적용** 됨 IoT Hub의 해당 모듈 쌍에 배포 콘텐츠가 적용 된 장치의 수를 지정 합니다. |

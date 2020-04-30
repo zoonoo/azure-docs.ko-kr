@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: labrenne
 ms.openlocfilehash: dd30444585cb1adaaf2b42cebdfa04683b12ecfc
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82117338"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Azure Batch 런타임 환경 변수
@@ -37,7 +37,7 @@ Batch에 환경 변수를 사용 하는 방법에 대 한 자세한 내용은 [�
 
 ## <a name="environment-variables"></a>환경 변수
 
-| 변수 이름                     | 설명                                                              | 가용성 | 예제 |
+| 변수 이름                     | Description                                                              | 가용성 | 예제 |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | 태스크가 속한 Batch 계정의 이름입니다.                  | 모든 태스크입니다.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | 배치 계정의 URL입니다. | 모든 태스크입니다. | `https://myaccount.westus.batch.azure.com` |

@@ -12,15 +12,15 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
 ms.openlocfilehash: 64f3f3c1a4fa656edc7163f6c8ee0ad60f117be6
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116573"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell을 사용하여 TDE(Transparent Data Encryption) 보호기 제거
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 및 해당 구독에 대한 관리자 권한이 있어야 합니다.
 - Azure PowerShell 설치 되 고 실행 중 이어야 합니다.

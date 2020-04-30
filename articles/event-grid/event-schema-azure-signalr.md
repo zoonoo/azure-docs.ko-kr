@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: babanisa
 ms.openlocfilehash: e4ebae9597d750cea6f292655e9f03dd65ccc3f5
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133713"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>SignalR Service에 대 한 Azure Event Grid 이벤트 스키마
@@ -76,20 +76,20 @@ SignalR Service는 다음과 같은 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | 설명 |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
 | eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | string | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | object | SignalR Service 이벤트 데이터입니다. |
+| 데이터 | 개체 | SignalR Service 이벤트 데이터입니다. |
 | dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
 | metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | 설명 |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | timestamp | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | hubName | string | 클라이언트 연결이 속한 허브입니다. |

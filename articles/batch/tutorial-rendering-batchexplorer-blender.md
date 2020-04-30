@@ -1,18 +1,16 @@
 ---
 title: Azure Batch 및 Batch 탐색기를 사용하여 Blender 장면 렌더링
 description: 자습서 - Azure Batch 및 Batch 탐색기 클라이언트 애플리케이션을 사용하여 Blender 장면에서 여러 프레임을 렌더링하는 방법
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 8a512676ab0e56f51c0fb9c59f2e530cfcf73333
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ca23bbc2b53eaaaf1848a7a98228be23c9ffed0c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "60617628"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82117083"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>자습서: Batch 탐색기를 사용하여 Blender 장면 렌더링
 

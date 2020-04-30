@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: ccd8d383db265826d8644ee89d7300128fc3a350
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131302"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>X.509 인증서를 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
@@ -28,7 +28,7 @@ ms.locfileid: "82131302"
 
 X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기를 조정하고 디바이스 프로비전을 간소화할 수 있습니다. 일반적으로 x.509 인증서는 신뢰의 인증서 체인에 정렬 됩니다. 자체 서명 되거나 신뢰할 수 있는 루트 인증서로 시작 하는 체인의 각 인증서는 다음으로 낮은 인증서에 서명 합니다. 이 패턴은 루트 인증서에서 각 중간 인증서를 통해 장치에 설치 된 최종 "리프" 인증서로 위임 된 신뢰 체인을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 IoT Hub
 * IoT Edge 장치에 대 한 실제 또는 가상 장치입니다.
@@ -100,7 +100,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    * **이 장치를 할당할 수 있는 iot Hub 선택**: 장치를 연결 하려는 연결 된 iot hub를 선택 합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 장치 중 하나에 장치가 할당 됩니다.
 
-   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 예를 들어:
+   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 다음은 그 예입니다.
 
       ```json
       {
@@ -185,7 +185,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    * **이 장치를 할당할 수 있는 iot Hub 선택**: 장치를 연결 하려는 연결 된 iot hub를 선택 합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 장치 중 하나에 장치가 할당 됩니다.
 
-   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 예를 들어:
+   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 다음은 그 예입니다.
 
       ```json
       {
@@ -221,7 +221,7 @@ X.509를 DPS로 프로 비전 하는 것은 IoT Edge 버전 1.0.9 이상 에서�
 
 [Linux에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md)
 
-X.509 인증서 및 키 정보를 config.xml 파일에 추가 하는 경우 경로를 파일 Uri로 제공 해야 합니다. 예를 들어:
+X.509 인증서 및 키 정보를 config.xml 파일에 추가 하는 경우 경로를 파일 Uri로 제공 해야 합니다. 다음은 그 예입니다.
 
 * `file:///<path>/identity_certificate_chain.pem`
 * `file:///<path>/identity_key.pem`

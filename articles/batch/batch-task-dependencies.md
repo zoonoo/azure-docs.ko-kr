@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9b3bc37a3d004f077e2e780d096b7bb2a8e5f773
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116488"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>작업 의존 관계를 만들어 다른 작업에 종속된 작업 실행
@@ -200,7 +200,7 @@ new CloudTask("B", "cmd.exe /c echo B")
 - 컴퓨팅 노드의 풀에서 해당 태스크를 실행하는 방법.
 
 ## <a name="next-steps"></a>다음 단계
-### <a name="application-deployment"></a>애플리케이션 개발
+### <a name="application-deployment"></a>애플리케이션 배포
 Batch의 [애플리케이션 패키지](batch-application-packages.md) 기능은 컴퓨팅 노드에서 태스크를 실행하는 애플리케이션을 배포하고 버전을 관리하는 쉬운 방법을 제공합니다.
 
 ### <a name="installing-applications-and-staging-data"></a>애플리케이션 설치 및 데이터 준비

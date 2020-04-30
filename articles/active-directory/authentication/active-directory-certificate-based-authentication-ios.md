@@ -11,10 +11,10 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ede7ddb81bae69d92983e787e779ee9d410bd87
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82144076"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>iOS에서 Azure Active Directory 인증서 기반 인증
@@ -30,7 +30,7 @@ ms.locfileid: "82144076"
 
 ## <a name="microsoft-mobile-applications-support"></a>Microsoft 모바일 애플리케이션 지원
 
-| 앱 | 지원 |
+| 앱 | Support(지원) |
 | --- | --- |
 | Azure Information Protection 앱 |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
 | Intune 회사 포털 |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |

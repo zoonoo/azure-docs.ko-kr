@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: 99c8d4e7e5263b8a7caf30833a899976d3cc829b
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133696"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 모니터링 및 튜닝 - Single Server
@@ -22,7 +22,7 @@ Azure Database for PostgreSQL은 PostgreSQL 서버를 지원하는 리소스의 
 ### <a name="list-of-metrics"></a>메트릭 목록
 Azure Database for PostgreSQL에서는 다음 메트릭을 사용할 수 있습니다.
 
-|메트릭|메트릭 표시 이름|단위|설명|
+|메트릭|메트릭 표시 이름|단위|Description|
 |---|---|---|---|
 |cpu_percent|CPU 백분율|백분율|사용 중인 CPU의 비율|
 |memory_percent|메모리 백분율|백분율|사용 중인 메모리의 비율|
