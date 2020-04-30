@@ -10,10 +10,10 @@ author: dphansen
 ms.author: davidph
 ms.date: 04/23/2020
 ms.openlocfilehash: aa2bf5473bf5bd76cfdad39310ce793ab3921652
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82129286"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-sql-database-edge-preview"></a>SQL Database Edge 미리 보기에서 ONNX 모델을 사용 하 여 배포 및 예측을 수행 합니다.
@@ -22,7 +22,7 @@ ms.locfileid: "82129286"
 
 이 빠른 시작은 **scikit** 를 기반으로 [합니다.](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 * Azure SQL Database Edge 모듈을 배포 하지 않은 경우 [Azure Portal를 사용 하 여 SQL Database Edge 미리 보기 배포](deploy-portal.md)의 단계를 따르세요.
 

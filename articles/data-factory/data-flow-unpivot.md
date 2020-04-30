@@ -1,6 +1,6 @@
 ---
-title: 데이터 흐름 피벗 변환 해제 매핑
-description: Azure 데이터 팩터리 매핑 데이터 흐름 언피벗 변환
+title: 데이터 흐름 피벗 해제 변환 매핑
+description: 데이터 흐름 피벗 해제 변환 Azure Data Factory 매핑
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ms.openlocfilehash: c3e769334beb6a5739eebb8d7e8dc370533c2dc6
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606239"
 ---
-# <a name="azure-data-factory-unpivot-transformation"></a>Azure 데이터 팩터리 언피벗 변환
+# <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory 피벗 해제 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-ADF 매핑 데이터 흐름에서 Unpivot를 사용하면 단일 레코드의 여러 열에서 단일 열의 여러 열에서 동일한 값을 가진 여러 레코드로 확장하여 비정규화된 데이터 집합을 보다 정규화된 버전으로 변환할 수 있습니다.
+단일 레코드의 여러 열 값을 단일 열에서 동일한 값을 가진 여러 레코드로 확장 하 여 정규화 되지 않은 데이터 집합을 보다 정규화 된 버전으로 전환 하 여 정규화 되지 않은 데이터 집합을 보다 정규화 된 버전으로 전환 하는 방법으로 ADF 매핑 데이터 흐름에서 Unpivot
 
 ![피벗 해제 변환](media/data-flow/unpivot1.png "피벗 해제 옵션 1")
 
@@ -43,7 +43,7 @@ ADF 매핑 데이터 흐름에서 Unpivot를 사용하면 단일 레코드의 �
 
 (선택 사항) 행 값에서 검색된 각 새 열 이름에 추가할 접두사, 중간 및 접미사를 사용한 이름 지정 패턴을 설정할 수 있습니다.
 
-예를 들어 “Sales”를 “Region”으로 피벗하는 경우 단순히 각 판매 값에서 새 열 값이 제공됩니다. 예를 들어 : "25", "50", "1000", ... 그러나 "Sales"의 접두사 값을 설정하면 "Sales"가 값에 접두사가 됩니다.
+예를 들어 “Sales”를 “Region”으로 피벗하는 경우 단순히 각 판매 값에서 새 열 값이 제공됩니다. 예: "25", "50", "1000", ... 그러나 접두사 값을 "Sales"로 설정 하면 "Sales"가 값 앞에 붙습니다.
 
 <img src="media/data-flow/unpivot3.png" width="400">
 
@@ -55,4 +55,4 @@ ADF 매핑 데이터 흐름에서 Unpivot를 사용하면 단일 레코드의 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[피벗 변환을](data-flow-pivot.md) 사용하여 행을 열로 피벗합니다.
+[피벗 변환을](data-flow-pivot.md) 사용 하 여 행을 열로 피벗 합니다.

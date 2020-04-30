@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: c664d4859a306387b4eafa2f19ab5877ccf6eb1b
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686953"
 ---
 # <a name="run-opc-publisher"></a>OPC 게시자 실행
@@ -372,7 +372,7 @@ OPC 게시자는 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge) 모
 OPC 게시자를 모듈로 IoT Edge 배포에 추가하려면 Azure Portal에서 IoT Hub 설정으로 이동하여 다음 단계를 완료합니다.
 
 1. **IoT Edge**로 이동하여 IoT Edge 디바이스를 만들거나 선택합니다.
-1. **모듈 설정**선택 .
+1. **모듈 설정**을 선택 합니다.
 1. **배포 모듈** 아래에서 **추가**를 선택한 다음, **IoT Edge 모듈**을 선택합니다.
 1. **이름** 필드에서 **publisher**를 입력합니다.
 1. **이미지 URI** 필드에서 `mcr.microsoft.com/iotedge/opc-publisher:<tag>`를 입력합니다.

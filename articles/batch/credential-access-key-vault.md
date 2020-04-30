@@ -4,10 +4,10 @@ description: Azure Batch를 사용 하 여 Key Vault에서 프로그래밍 방�
 ms.topic: article
 ms.date: 02/13/2020
 ms.openlocfilehash: d24904c3a539431e8aff420e9fbd8291cddde78a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82117457"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Batch를 사용하여 Key Vault에 안전하게 액세스

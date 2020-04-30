@@ -4,10 +4,10 @@ description: Azure Policy의 기본 제공 정책을 할당 하 여 Azure contai
 ms.topic: article
 ms.date: 02/26/2020
 ms.openlocfilehash: a2bfdc18f4bbf16fe8fa6bcbcba7bab18aedabf1
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82144990"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Azure Policy를 사용 하 여 Azure container registry의 준수 감사

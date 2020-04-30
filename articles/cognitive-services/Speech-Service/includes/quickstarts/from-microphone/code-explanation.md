@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/02/2020
 ms.author: trbye
 ms.openlocfilehash: fdcb5bb57afe145b57cb1223242d4d5625a2dfb7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400717"
 ---
 음성 구성 개체를 만들려면 음성 리소스 구독 키와 지역이 필요합니다. 음성 인식기 개체를 인스턴스화하려면 구성 개체가 필요합니다.

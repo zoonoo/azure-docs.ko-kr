@@ -4,10 +4,10 @@ description: 지역 가동 중단에 대 한 Batch 응용 프로그램을 디자
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: da46753906e27a94e3c76fcaf9c4a26861bba6c8
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82117440"
 ---
 # <a name="design-your-application-for-high-availability"></a>고가용성을 위해 애플리케이션 디자인

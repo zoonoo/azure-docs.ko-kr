@@ -11,10 +11,10 @@ ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: dc283d1845926b79fb541d8ccb011fe853f50484
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870291"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>AWS(Amazon Web Services) 및 기타 플랫폼에서 Azure의 Managed Disks로 마이그레이션
@@ -26,12 +26,12 @@ AWS 또는 온-프레미스 가상화 솔루션에서 Azure로 VHD 파일을 업
 - **특수한 VHD** - 사용자 계정, 애플리케이션 및 원본 VM의 다른 상태 데이터를 유지 관리합니다. 
 
 > [!IMPORTANT]
-> Azure에 VHD를 업로드하기 전에 [Windows VHD 또는 VHDX 준비를 따라 Azure에 업로드해야](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 합니다.
+> Azure에 VHD를 업로드 하기 전에 [azure에 업로드할 WINDOWS vhd 또는 VHDX 준비](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 수행 해야 합니다.
 >
 >
 
 
-| 시나리오                                                                                                                         | 설명서                                                                                                                       |
+| 시나리오                                                                                                                         | 문서화                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | 기존 AWS EC2 인스턴스를 관리되는 디스크를 사용하여 Azure VM에 마이그레이션하려고 합니다.                              | [AWS(Amazon Web Services)에서 Azure로 VM 이동](aws-to-azure.md)                           |
 | 사용하려는 다른 가상화 플랫폼의 VM이 있어서 여러 Azure VM을 만들기 위해 이미지로 사용합니다. | [일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기](upload-generalized-managed.md) |
@@ -84,7 +84,7 @@ VM에서 사용할 수 있는 표준 관리 디스크에는 7가지 형식이 �
 
 **프리미엄 Managed Disks**
 
-기본적으로 디스크 캐싱 정책은 모든 프리미엄 데이터 디스크에 대해 *읽기 전용이고* VM에 연결된 프리미엄 운영 체제 디스크에 대한 *읽기-쓰기입니다.* 애플리케이션의 IO에 대한 최적의 성능을 얻으려면 이 구성 설정이 좋습니다. 쓰기가 많거나 쓰기 전용인 디스크의 경우(예: SQL Server 로그 파일) 더 나은 애플리케이션 성능을 얻기 위해 디스크 캐싱을 사용하지 않도록 설정합니다.
+기본적으로 디스크 캐싱 정책은 모든 프리미엄 데이터 디스크에 대해 *읽기 전용* 이며 VM에 연결 된 프리미엄 운영 체제 디스크에 대 한 *읽기/쓰기* 입니다. 애플리케이션의 IO에 대한 최적의 성능을 얻으려면 이 구성 설정이 좋습니다. 쓰기가 많거나 쓰기 전용인 디스크의 경우(예: SQL Server 로그 파일) 더 나은 애플리케이션 성능을 얻기 위해 디스크 캐싱을 사용하지 않도록 설정합니다.
 
 ### <a name="pricing"></a>가격 책정
 
@@ -93,4 +93,4 @@ VM에서 사용할 수 있는 표준 관리 디스크에는 7가지 형식이 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure에 VHD를 업로드하기 전에 [Windows VHD 또는 VHDX 준비를 따라 Azure에 업로드해야](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 합니다.
+- Azure에 VHD를 업로드 하기 전에 [azure에 업로드할 WINDOWS vhd 또는 VHDX 준비](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 수행 해야 합니다.

@@ -11,10 +11,10 @@ ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.openlocfilehash: 724c250b56107cb68da387bdd531602e8d239e1c
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82127542"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Azure Storage에 대 한 advanced threat protection 구성
@@ -60,7 +60,7 @@ Azure Security Center 표준 계층을 구독할 때 advanced threat protection�
 1. **리소스 유형별 가격 책정 계층 선택** 섹션의 **저장소 계정** 행에서 **사용** 또는 **사용 안 함**을 클릭 합니다.
 
     ![Security Center에서 ATP 사용](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
-1. **Save**을 클릭합니다.
+1. **저장**을 클릭합니다.
 
 ### <a name="template"></a>[템플릿](#tab/template)
 

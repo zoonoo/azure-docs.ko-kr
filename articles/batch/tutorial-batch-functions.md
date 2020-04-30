@@ -1,19 +1,17 @@
 ---
 title: Azure Functions를 사용한 Batch 작업 트리거
 description: 자습서 - 스캔한 문서가 Storage Blob에 추가되면 OCR 적용
-author: LauraBrenner
-ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: a967fdc14b85f294ee11cbcc57a8d2280dba38e8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 01c3ab167239affa4d7ae94f5649d60072c3c270
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77017193"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82117168"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>자습서: Azure Functions를 사용한 Batch 작업 트리거
 

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d7c9713f27643e792ea381e1a2419cbc4b67a99
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82129192"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Azure Monitor에서 Azure AD 로그인 로그 스키마 해석
@@ -149,7 +149,7 @@ ms.locfileid: "82129192"
 | ResourceId | 이 값이 매핑 해제되며 이 필드를 안전하게 무시할 수 있습니다.  |
 | OperationName | 로그인의 경우 이 값은 항상 *로그인 활동*입니다. |
 | OperationVersion | 클라이언트에서 요청한 REST API 버전입니다. |
-| Category | 로그인의 경우 이 값은 항상 *SignIn*입니다. | 
+| 범주 | 로그인의 경우 이 값은 항상 *SignIn*입니다. | 
 | TenantId | 로그와 연결된 테넌트 GUID입니다. |
 | ResultType | 로그인 작업의 결과는 *성공* 또는 *실패*일 수 있습니다. | 
 | ResultSignature | 로그인 작업에 대한 오류 코드(있는 경우)를 포함합니다. |

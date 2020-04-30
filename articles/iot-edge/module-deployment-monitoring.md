@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 7540c5a82220eef61b8f1cf470697315496cd6bf
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82127594"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>단일 디바이스 또는 대규모 IoT Edge 자동 배포 이해
@@ -46,8 +46,8 @@ IoT Edge 디바이스만 배포를 사용하여 구성할 수 있습니다. 배�
 
 각 모듈의 구성 메타데이터에는 다음 항목이 포함됩니다.
 
-* Version
-* 유형
+* 버전
+* Type
 * 상태(예: 실행 중 또는 중지됨)
 * 다시 시작 정책
 * 이미지 및 컨테이너 레지스트리
@@ -98,7 +98,7 @@ IoT Edge 디바이스만 배포를 사용하여 구성할 수 있습니다. 배�
 
 또한 배포를 모니터링 하 고 관리 하는 데 도움이 되는 사용자 지정 메트릭을 직접 정의할 수 있습니다.
 
-메트릭은 배포 구성 적용의 결과로 장치가 다시 보고할 수 있는 다양 한 상태의 요약 개수를 제공 합니다. 메트릭은 *lastDesiredStatus* 또는 *lastconnecttime*과 같은 [보고 된 edgeHub 모듈 쌍 속성](module-edgeagent-edgehub.md#edgehub-reported-properties)을 쿼리할 수 있습니다. 예를 들어:
+메트릭은 배포 구성 적용의 결과로 장치가 다시 보고할 수 있는 다양 한 상태의 요약 개수를 제공 합니다. 메트릭은 *lastDesiredStatus* 또는 *lastconnecttime*과 같은 [보고 된 edgeHub 모듈 쌍 속성](module-edgeagent-edgehub.md#edgehub-reported-properties)을 쿼리할 수 있습니다. 다음은 그 예입니다.
 
 ```sql
 SELECT deviceId FROM devices

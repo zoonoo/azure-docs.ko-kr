@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 12/05/2018
 ms.custom: seodec18
 ms.openlocfilehash: 7f75a8302c8ba368138e6c8edee6c6069c5031d8
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82117304"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
@@ -100,7 +100,7 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 
     스토리지 계정을 선택하는 경우 필요에 따라 보존 정책을 설정합니다. 보존 일 수를 지정하지 않으면 데이터는 스토리지 계정의 수명 동안 보존됩니다.
 
-4. **Save**을 클릭합니다.
+4. **저장**을 클릭합니다.
 
     ![일괄 처리 진단](media/batch-diagnostics/diagnostics-portal.png)
 

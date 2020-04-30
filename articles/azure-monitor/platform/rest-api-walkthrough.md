@@ -5,10 +5,10 @@ ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.openlocfilehash: 6b0e321747e0f84be5a75ab96749311ff0071e8d
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687409"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
@@ -84,7 +84,7 @@ $authHeader = @{
 2. 메트릭 값 검색
 
 > [!NOTE]
-> Azure REST API를 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure REST API 참조를](https://docs.microsoft.com/rest/api/azure/)참조하십시오.
+> Azure REST API을 사용 하 여 인증 하는 방법에 대 한 자세한 내용은 [azure REST API 참조](https://docs.microsoft.com/rest/api/azure/)를 참조 하세요.
 >
 >
 
@@ -94,7 +94,7 @@ $authHeader = @{
 
 **메서드**: GET
 
-**요청 URI**:\/\/https :*management.azure.com/subscriptions/ {subscriptionId}*/ 리소스 그룹 /*{resourceGroupName} / {resourceGroupName}*/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName} {resourceName}*/공급자/microsoft.insights/metricDefinitions?api-version=*{api-version}*
+**요청 URI**: https:\/\/management.azure.com/subscriptions/*{subscriptionId}*/wsourceg/*{resourceGroupName}*/providers/*{resourceprovidernamespace}*/*{resourceType}*/*{context.resourcename}*/providers/microsoft.insights/metricdefinitions? api-version? api-version =*{apiVersion}*
 
 예를 들어 Azure Storage 계정의 메트릭 정의를 검색하기 위해 요청이 다음과 같이 표시됩니다.
 
@@ -238,7 +238,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**\:: https //management.azure.com/subscriptions/*{구독 id}*/resourceGroups/{resource-group-name} /provider/{resource-provider-namespace}*{resource-group-name}**{apiVersion}* /*{리소스-이름}*/*{리소스-이름} {리소스-이름}{리소스 이름} {리소스 이름}*/공급자/microsoft.insights/메트릭?메트릭이름=*{메트릭}*&시간 범위=*{시작 시간/종료 시간}*&$filter = {필터}&결과 *&=api* api *{resource-provider-namespace}*
+**요청 URI**: https\://management.azure.com/subscriptions/*{subscription-id}*/stgg/*{**/providers/*/*{resource-type}*/}*{resource-* name}/providers/microsoft.insights/metrics? metricnames =*{metric}*&timespan = {*starttime/endtime}*&$filter = {*filter}*&resultType = 메타 데이터&api-version =*{apiVersion}*
 
 예를 들어 지정된 시간 범위 동안 GeoType dimension = 'Primary'인 'API Name dimension'에 대해 내보내진 차원의 값 목록을 검색하기 위해 요청은 다음과 같을 수 있습니다.
 
@@ -311,7 +311,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**:\/https : https : https : https : /management.azure.com/subscriptions/*{구독 -id}*/ 자원 그룹 /*{자원 - 그룹 이름 }*/ 공급자 /*{자원 - 공급자 - 네임 스페이스 }*/*{자원 -*/*이름} {자원 이름} {자원 이름}*/공급자 /microsoft.insights/메트릭?메트릭이름 =*{메트릭}*&시간 범위 =*{시작 시간/ 종료 시간}*&$filter =*{필터&}* {agg *&* *&aggation.* *{apiVersion}*
+**요청 URI**: https:\//management.azure.com/subscriptions/*{subscription-id}*/stgg/*{/providers/}*{resource-*namespace}*/{resource-*type}*/*{* resource-name}/providers/microsoft.insights/metrics? metricnames =*{metric}*&timespan =*{starttime/endtime}*&$filter =*{filter}*&interval =*{timeGrain}*&집계 = {*aggreation}*&api-version =*{apiVersion}*
 
 예를 들어 GeotType이 'Primary'였던 5분 범위 동안 'Transactions' 수에 의한 내림차순 값에서 상위 3개의 API를 검색하기 위해 요청은 다음과 같습니다.
 
@@ -390,7 +390,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**:\/\/https :*management.azure.com/subscriptions/ {subscriptionId}*/ 리소스 그룹 /*{resourceGroupName} / {resourceGroupName}*/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName} {resourceName}*/공급자/microsoft.insights/metricDefinitions?api-version=*{api-version}*
+**요청 URI**: https:\/\/management.azure.com/subscriptions/*{subscriptionId}*/wsourceg/*{resourceGroupName}*/providers/*{resourceprovidernamespace}*/*{resourceType}*/*{context.resourcename}*/providers/microsoft.insights/metricdefinitions? api-version? api-version =*{apiVersion}*
 
 예를 들어 Azure Logic App의 메트릭 정의를 검색하기 위해 요청이 다음과 같이 표시됩니다.
 
@@ -653,7 +653,7 @@ Version        : 08586982649483762729
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI를 사용하여 Azure Storage 계정에 대한 리소스 `az storage account show` ID를 검색하려면 다음 예제와 같이 명령을 실행합니다.
+Azure CLI를 사용 하 여 Azure Storage 계정에 대 한 리소스 ID를 검색 하려면 `az storage account show` 다음 예제와 같이 명령을 실행 합니다.
 
 ```azurecli
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017

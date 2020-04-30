@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 27afbafcadb4c482e97e1d003706e7d2712e63c9
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82117270"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 배포
@@ -37,7 +37,7 @@ ms.locfileid: "82117270"
 * [Azure Portal 사용](#azure-portal)
 * [Azure CLI 사용](#azure-cli)
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal를 사용 하 여 새 리소스를 만들려면 다음 단계를 수행 합니다. 
 

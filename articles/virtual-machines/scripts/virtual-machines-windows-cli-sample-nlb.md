@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.openlocfilehash: 765794076c389f199fba0d6078754c82e7280c69
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81459409"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>고가용성 가상 머신 간에 트래픽 부하 분산

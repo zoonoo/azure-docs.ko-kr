@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 192591dedb0b5519fdcecde8c8683be87237c828
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82127824"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 로그 데이터 수집 및 분석
@@ -23,7 +23,7 @@ ms.locfileid: "82127824"
 
 다음 표에서는 데이터를 수집 하 고 유지 하기 위한 옵션을 열거 합니다.
 
-| 리소스 | 사용 대상 |
+| 리소스 | 사용 목적 |
 |----------|----------|
 | [Log Analytics 작업 영역으로 보내기](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | 이벤트 및 메트릭은 자세한 정보를 반환 하기 위해 포털에서 쿼리할 수 있는 Log Analytics 작업 영역으로 전송 됩니다. 소개는 [Azure Monitor 로그 시작](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) 을 참조 하세요. |
 | [Blob storage를 사용 하 여 보관](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | 이벤트 및 메트릭은 Blob 컨테이너에 보관 되어 JSON 파일에 저장 됩니다. 로그는 특정 인시던트를 조사 하는 데 유용 하지만 열기 종료 조사에는 유용 하지 않을 수 있습니다 (시간/분). JSON 편집기를 사용 하 여 로그 데이터를 집계 하 고 시각화 하는 원시 로그 파일 또는 Power BI을 볼 수 있습니다.|
@@ -31,7 +31,7 @@ ms.locfileid: "82127824"
 
 Azure Monitor 로그와 Blob 저장소는 모두 무료 서비스로 제공 되므로 Azure 구독의 수명 동안 무료로 사용해 볼 수 있습니다. 애플리케이션 데이터 크기가 특정 제한을 초과하지 않으면 Application Insights 평가판을 등록하여 사용할 수 있습니다(자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/monitor/) 참조).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Log Analytics 또는 Azure Storage를 사용 하는 경우 리소스를 미리 만들 수 있습니다.
 
@@ -99,7 +99,7 @@ Blob 저장소의 경우 각 blob에는 로그 개체의 배열을 포함 하는
 
 다음 표는 리소스 로깅에 공통적인 필드의 일부 목록입니다.
 
-| 이름 | 유형 | 예제 | 메모 |
+| 속성 | Type | 예제 | 메모 |
 | --- | --- | --- | --- |
 | timeGenerated |Datetime |"2018-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
@@ -109,13 +109,13 @@ Blob 저장소의 경우 각 blob에는 로그 개체의 배열을 포함 하는
 | resultType |string |"Success" |가능한 값: Success 또는 Failure |
 | resultSignature |int |200 |HTTP 결과 코드 |
 | durationMS |int |50 |밀리초 단위의 작업 기간 |
-| properties |object |다음 테이블 참조 |데이터별 작업을 포함하는 개체 |
+| properties |개체 |다음 테이블 참조 |데이터별 작업을 포함하는 개체 |
 
 ### <a name="properties-schema"></a>속성 스키마
 
 아래 속성은 Azure Cognitive Search에만 적용 됩니다.
 
-| 이름 | 유형 | 예제 | 메모 |
+| 속성 | Type | 예제 | 메모 |
 | --- | --- | --- | --- |
 | Description_s |string |"GET /indexes('content')/docs" |작업의 엔드포인트 |
 | Documents_d |int |42 |처리된 문서 수 |
@@ -126,7 +126,7 @@ Blob 저장소의 경우 각 blob에는 로그 개체의 배열을 포함 하는
 
 메트릭은 쿼리 요청에 대해 캡처되고 1 분 간격으로 측정 됩니다. 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다. 자세한 내용은 [쿼리 요청 모니터링](search-monitor-queries.md)을 참조 하세요.
 
-| 이름 | 유형 | 예제 | 메모 |
+| 속성 | Type | 예제 | 메모 |
 | --- | --- | --- | --- |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |사용자의 리소스 ID |
 | metricName |string |"Latency" |메트릭 이름 |
@@ -135,7 +135,7 @@ Blob 저장소의 경우 각 blob에는 로그 개체의 배열을 포함 하는
 | minimum |int |37 |메트릭 시간 간격에서 원시 샘플의 최소값 (초 단위)입니다. |
 | maximum |int |78 |메트릭 시간 간격에서 원시 샘플의 최대값 (초 단위)입니다.  |
 | total |int |258 |메트릭 시간 간격에서 원시 샘플의 합계 값 (초 단위)입니다.  |
-| count |int |4 |1 분 간격 내에 노드에서 로그로 내보낸 메트릭 수입니다.  |
+| 개수 |int |4 |1 분 간격 내에 노드에서 로그로 내보낸 메트릭 수입니다.  |
 | timegrain |string |"PT1M" |ISO 8601에 있는 메트릭의 시간 수준입니다. |
 
 쿼리가 실행 되는 데 일반적으로 밀리초 단위로 계산 되므로 초 단위로 측정 되는 쿼리만 QPS와 같은 메트릭에 표시 됩니다.

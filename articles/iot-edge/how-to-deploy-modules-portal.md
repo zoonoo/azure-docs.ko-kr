@@ -10,10 +10,10 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 754c106db42f3f0695ad023e736993bee82e9757
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133930"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure Portal에서 Azure IoT Edge 모듈 배포
@@ -22,7 +22,7 @@ ms.locfileid: "82133930"
 
 이 아티클에서는 배포 매니페스트를 만들고 IoT Edge 디바이스에 배포를 푸시하는 방법을 Azure Portal에서 어떻게 설명하는지를 보여줍니다. 공유 태그를 기준으로 여러 장치를 대상으로 하는 배포를 만드는 방법에 대 한 자세한 내용은 [대규모로 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-at-scale.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독의 [IoT hub](../iot-hub/iot-hub-create-through-portal.md)
 * IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device.md#register-in-the-azure-portal)

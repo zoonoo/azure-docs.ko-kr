@@ -1,21 +1,15 @@
 ---
 title: Azure 빠른 시작 - Batch 작업 실행 - .NET
 description: Batch .NET 클라이언트 라이브러리를 사용하여 C# 애플리케이션에서 Azure Batch 샘플 작업 및 태스크를 빠르게 실행합니다.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 809ca9d9aafa813e05dea81eb05616eefcc65472
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1163d63f8cbd6afedfb6e5323fa469059fa8021c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77017210"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82117219"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>빠른 시작: .NET API를 사용하여 첫 번째 Azure Batch 작업 실행
 

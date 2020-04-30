@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: b012ac012c7de3c6428ecbe2d2b922a2a9aa0523
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82141768"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Power BI 앱 기술 정보 탭
@@ -28,7 +28,7 @@ ms.locfileid: "82141768"
 
 **기술 정보** 탭에서 다음 표에 설명 된 필드를 완료 합니다. 필드 레이블의 끝에 별표 (*)가 있으면 해당 필드가 필요 합니다.
 
-|        필드          |  설명                                                                 |
+|        필드          |  Description                                                                 |
 |    ---------------    |  ----------------------------------------------------------------------------|
 | **설치 관리자 URL\***     | 앱을 게시 하 고 프로덕션으로 승격할 때 Power BI에서이 URL을 생성 합니다.  자세한 내용은 [Power BI에서 대시보드 및 보고서를 사용 하 여 앱 게시](https://docs.microsoft.com/power-bi/service-create-distribute-apps)를 참조 하세요.  |
 |  **유효성 검사 지침**  |  원하는 경우 Microsoft 유효성 검사 팀이 앱을 구성, 연결 및 테스트 하는 데 도움이 되는 지침 (최대 3000 자)을 추가 합니다. 데이터 연결 옵션을 테스트 하는 데 사용할 수 있는 일반적인 구성 설정, 계정, 매개 변수 또는 기타 정보를 포함 합니다. 이 정보는 유효성 검사 팀에만 표시 되 고 유효성 검사 목적 으로만 사용 됩니다.  |

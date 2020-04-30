@@ -1,19 +1,19 @@
 ---
 title: 앱 백업
-description: Azure App Service에서 앱의 백업을 만드는 방법에 대해 알아봅니다. 수동 또는 예약된 백업을 실행합니다. 연결된 데이터베이스를 포함하여 백업을 사용자 지정합니다.
+description: Azure App Service에서 앱의 백업을 만드는 방법에 대해 알아봅니다. 수동 또는 예약 된 백업을 실행 합니다. 연결 된 데이터베이스를 포함 하 여 백업을 사용자 지정 합니다.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
 ms.openlocfilehash: b812ae10b3462dbeff05c8a67e7ebb725281e7e8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535760"
 ---
 # <a name="back-up-your-app-in-azure"></a>Azure에서 앱 백업
-[Azure App Service](overview.md)의 백업 및 복원 기능을 사용하여 수동으로 또는 일정에 따라 앱 백업을 쉽게 만들 수 있습니다. 백업을 무기한 유지하도록 구성할 수 있습니다. 기존 앱을 덮어쓰거나 다른 앱으로 복원하여 앱을 이전 상태의 스냅샷으로 복원할 수 있습니다.
+[Azure App Service](overview.md)의 백업 및 복원 기능을 사용하여 수동으로 또는 일정에 따라 앱 백업을 쉽게 만들 수 있습니다. 백업이 무기한 보존 되도록 구성할 수 있습니다. 기존 앱을 덮어쓰거나 다른 앱으로 복원하여 앱을 이전 상태의 스냅샷으로 복원할 수 있습니다.
 
 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 [Azure에서 앱 복원](web-sites-restore.md)을 참조하세요.
 
@@ -44,8 +44,8 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 * 백업 및 복원 기능을 사용하려면 App Service 계획이 **표준** 계층 또는 **프리미엄** 계층에 있어야 합니다. 더 높은 계층을 사용하도록 App Service 계획을 확장하는 방법에 대한 자세한 내용은 [Azure에서 앱 확장](manage-scale-up.md)을 참조하세요. **프리미엄** 계층을 사용하면 **표준** 계층보다 더 많은 매일 백업을 수행할 수 있습니다.
 * 백업하려는 앱과 동일한 구독에 Azure Storage 계정 및 컨테이너가 필요합니다. Azure Storage 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview)를 참조하세요.
 * 최대 10GB의 앱 및 데이터베이스 콘텐츠를 백업할 수 있습니다. 백업 크기가 이 제한을 초과하면 오류가 발생합니다.
-* MySQL에 대 한 TLS 사용 Azure 데이터베이스의 백업지원 되지 않습니다. 백업이 구성된 경우, 실패한 백업이 표시됩니다.
-* PostgreSQL에 대해 TLS를 사용하도록 설정한 Azure 데이터베이스의 백업은 지원되지 않습니다. 백업이 구성된 경우, 실패한 백업이 표시됩니다.
+* TLS 사용 Azure Database for MySQL 백업은 지원 되지 않습니다. 백업이 구성된 경우, 실패한 백업이 표시됩니다.
+* TLS 사용 Azure Database for PostgreSQL 백업은 지원 되지 않습니다. 백업이 구성된 경우, 실패한 백업이 표시됩니다.
 * 인앱 MySQL 데이터베이스는 구성 없이도 자동으로 백업됩니다. 연결 문자열 추가 등의 인앱 MySQL 데이터베이스에 대한 설정을 수동으로 수행하는 경우 백업이 제대로 작동하지 않을 수 있습니다.
 * 방화벽 지원 스토리지 계정을 백업 대상으로 사용하는 기능은 지원되지 않습니다. 백업이 구성된 경우, 실패한 백업이 표시됩니다.
 
@@ -64,11 +64,11 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
     > 
     > 
 
-2. **백업** 페이지에서 **백업을 선택하지 않습니다. 앱에 대한 백업을 구성하려면 여기를 클릭하십시오.**
+2. **백업** 페이지에서 **백업이 구성 되지 않음을 선택 합니다. 앱에 대 한 백업을 구성 하려면 여기를 클릭**하세요.
 
     ![구성을 클릭합니다.](./media/manage-backup/configure-start.png)
 
-3. 백업 **구성** 페이지에서 저장소 계정을 구성하도록 **구성되지 않은 저장소를** 클릭합니다.
+3. **백업 구성** 페이지에서 저장소 **구성 되지 않음** 을 클릭 하 여 저장소 계정을 구성 합니다.
 
     ![스토리지 계정 선택](./media/manage-backup/configure-storage.png)
 
@@ -86,7 +86,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
     > 
 
 6. **백업 구성** 페이지에서 **저장**을 클릭합니다.
-7. 백업 페이지에서 **백업**을 **클릭합니다.**
+7. **백업 페이지에서** **백업**을 클릭 합니다.
 
     ![BackUpNow 단추](./media/manage-backup/manual-backup.png)
 
@@ -101,7 +101,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 
     ![자동 백업 사용](./media/manage-backup/scheduled-backup.png)
 
-2. 원하는 대로 백업 일정을 구성하고 **확인을**선택합니다.
+2. 원하는 대로 백업 일정을 구성 하 고 **확인을**선택 합니다.
 
 <a name="partialbackups"></a>
 
@@ -115,12 +115,12 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 부분 백업을 사용하면 백업할 파일을 정확히 선택할 수 있습니다.
 
 > [!NOTE]
-> 백업의 개별 데이터베이스는 최대 4GB일 수 있지만 백업의 총 최대 크기는 10GB입니다.
+> 백업의 개별 데이터베이스는 4GB까지 가능 하지만 백업의 총 최대 크기는 10GB입니다.
 
 ### <a name="exclude-files-from-your-backup"></a>백업에서 파일 제외
 한 번 백업되었고 변경하지 않을 로그 파일과 정적 이미지가 포함된 앱이 있다고 가정해 보겠습니다. 이러한 경우 해당 폴더와 파일을 이후의 백업에서 저장하지 않도록 제외할 수 있습니다. 백업에서 파일과 폴더를 제외하려면 앱의 `D:\home\site\wwwroot` 폴더에 `_backup.filter` 파일을 만듭니다. 이 파일에서 제외할 파일과 폴더의 목록을 지정합니다. 
 
-`https://<app-name>.scm.azurewebsites.net/DebugConsole`로 이동하여 파일에 액세스할 수 있습니다. 메시지가 표시되면 Azure 계정에 로그인합니다.
+로 `https://<app-name>.scm.azurewebsites.net/DebugConsole`이동 하 여 파일에 액세스할 수 있습니다. 메시지가 표시되면 Azure 계정에 로그인합니다.
 
 백업에서 제외하려는 폴더를 식별합니다. 예를 들어 강조 표시된 폴더와 파일을 필터링하려고 합니다.
 
@@ -134,7 +134,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 \site\wwwroot\Images\2013
 ```
 
-[ftp](deploy-ftp.md) 또는 다른 방법을 사용하여 해당 사이트의 `D:\home\site\wwwroot\` 디렉터리에 `_backup.filter` 파일을 업로드합니다. 원하는 경우 Kudu를 `DebugConsole` 사용하여 직접 파일을 만들고 거기에 콘텐츠를 삽입 할 수 있습니다.
+[ftp](deploy-ftp.md) 또는 다른 방법을 사용하여 해당 사이트의 `D:\home\site\wwwroot\` 디렉터리에 `_backup.filter` 파일을 업로드합니다. 원하는 경우 Kudu `DebugConsole` 를 사용 하 여 직접 파일을 만들고 여기에 콘텐츠를 삽입할 수 있습니다.
 
 이제 평소와 같이 [수동](#create-a-manual-backup) 또는 [자동](#configure-automated-backups)으로 백업을 실행합니다. 이제 `_backup.filter`에 지정된 파일과 폴더가 이후에 예약되거나 수동으로 시작되는 백업에서 제외됩니다. 
 

@@ -4,10 +4,10 @@ description: 단일 Azure Batch 작업에서 매우 많은 수의 작업을 효�
 ms.topic: article
 ms.date: 08/24/2018
 ms.openlocfilehash: 0be30e1a413a224d566db535d369a0b285b1f668
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82117406"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Batch 작업으로 많은 수의 작업 제출
@@ -53,7 +53,7 @@ Batch API는 한 번에 하나 외에도 *컬렉션*으로 작업(job)에 작업
 
 다음 C# 코드 조각은 Batch .NET API를 사용하여 많은 수의 작업을 추가하는 경우에 구성하는 설정을 보여줍니다.
 
-작업 처리량을 늘리려면 [Batchclient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet)의 [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 속성 값을 늘립니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+작업 처리량을 늘리려면 [Batchclient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet)의 [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 속성 값을 늘립니다. 다음은 그 예입니다.
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -63,7 +63,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) 또는 [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
-) 메서드의 적절한 오버로드를 사용하여 작업(job)에 작업(task) 컬렉션을 추가합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+) 메서드의 적절한 오버로드를 사용하여 작업(job)에 작업(task) 컬렉션을 추가합니다. 다음은 그 예입니다.
 
 ```csharp
 // Add a list of tasks as a collection
@@ -134,7 +134,7 @@ client = batch.BatchExtensionsClient(
 ...
 ```
 
-작업(task)의 컬렉션을 만들어 작업(job)에 추가합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+작업(task)의 컬렉션을 만들어 작업(job)에 추가합니다. 다음은 그 예입니다.
 
 
 ```python
