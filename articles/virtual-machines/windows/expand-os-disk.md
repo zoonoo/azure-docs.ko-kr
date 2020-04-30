@@ -10,10 +10,10 @@ ms.date: 07/05/2018
 ms.author: mimckitt
 ms.subservice: disks
 ms.openlocfilehash: e69b041a2e4c8a0715adb6ab126a3aede42f7dde
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869683"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>가상 머신의 OS 드라이브 확장 방법
@@ -25,7 +25,7 @@ ms.locfileid: "81869683"
 
 
 > [!IMPORTANT]
-> Azure 가상 시스템의 OS 디스크 크기를 조정하려면 가상 컴퓨터를 할당 지정해야 합니다.
+> Azure 가상 컴퓨터의 OS 디스크 크기를 조정 하려면 가상 컴퓨터의 할당을 취소 해야 합니다.
 >
 > 디스크를 확장한 후 더 큰 디스크를 활용하려면 [OS 내에서 볼륨](#expand-the-volume-within-the-os)을 확장해야 합니다.
 > 
@@ -129,7 +129,7 @@ ms.locfileid: "81869683"
 관리 디스크 및 관리되지 않는 디스크에 대한 참조용 전체 스크립트는 다음과 같습니다.
 
 
-**관리되는 디스크**
+**관리 디스크**
 
 ```Powershell
 Connect-AzAccount
@@ -170,7 +170,7 @@ $disk.DiskSizeGB = 1023
 ```
 
 
-**관리되지 않는 디스크**
+**관리 되지 않는 디스크**
 
 ```powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
@@ -187,7 +187,7 @@ $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 (Get-AzDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
 ```
 
-**관리되지 않는 디스크**
+**관리 되지 않는 디스크**
 
 ```powershell
 ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
@@ -201,11 +201,11 @@ VM의 디스크를 확장한 후에는 OS로 이동하고 볼륨을 확장하여
 
 2.  명령 프롬프트를 열고 **diskpart**를 입력합니다.
 
-2.  **DISKPART** 프롬프트에 `list volume`를 입력합니다. 확장할 볼륨을 기록해 둡니다.
+2.  **DISKPART** 프롬프트에서 `list volume`을(를) 입력합니다. 확장할 볼륨을 기록해 둡니다.
 
-3.  **DISKPART** 프롬프트에 `select volume <volumenumber>`를 입력합니다. 동일한 디스크의 인접한 빈 공간으로 확장하려는 볼륨 *volumenumber*가 선택됩니다.
+3.  **DISKPART** 프롬프트에서 `select volume <volumenumber>`을(를) 입력합니다. 동일한 디스크의 인접한 빈 공간으로 확장하려는 볼륨 *volumenumber*가 선택됩니다.
 
-4.  **DISKPART** 프롬프트에 `extend [size=<size>]`를 입력합니다. 선택된 볼륨이 *size*(MB)만큼 확장됩니다.
+4.  **DISKPART** 프롬프트에서 `extend [size=<size>]`을(를) 입력합니다. 선택된 볼륨이 *size*(MB)만큼 확장됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

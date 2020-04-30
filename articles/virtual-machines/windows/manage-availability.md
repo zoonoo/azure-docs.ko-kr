@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Windows VM의 가용성 관리
+title: Azure에서 Windows Vm의 가용성 관리
 description: Azure에서 여러 가상 머신을 사용하여 Windows 애플리케이션의 고가용성을 유지하는 방법에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,10 +9,10 @@ ms.date: 11/27/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 354cd8d291f8ad5c842d33b5ac63b0deb58b7d41
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870051"
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Azure에서 Windows 가상 머신의 가용성 관리 
@@ -24,7 +24,7 @@ Azure에서 여러 가상 머신을 설정하고 관리하여 Windows 애플리�
 ## <a name="next-steps"></a>다음 단계
 가상 머신 부하 분산에 대한 자세한 내용은 [가상 머신 부하 분산](tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
-IaaS의 SQL Server에서 N 계층 응용 프로그램을 실행하기 위한 참조 아키텍처 보기
+IaaS의 SQL Server에서 N 계층 응용 프로그램을 실행 하기 위한 참조 아키텍처 보기
 
 * [SQL Server를 사용한 Azure의 Windows N계층 애플리케이션](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
 * [여러 Azure 지역에서 N 계층 애플리케이션을 실행하여 고가용성 구현](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

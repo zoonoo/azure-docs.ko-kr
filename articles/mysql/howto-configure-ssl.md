@@ -1,5 +1,5 @@
 ---
-title: SSL 구성 - MySQL용 Azure 데이터베이스
+title: SSL 구성-Azure Database for MySQL
 description: SSL 연결을 올바르게 사용하기 위해 MySQL용 Azure Database 및 연결된 애플리케이션을 올바르게 구성하는 방법에 대한 지침
 author: ajlam
 ms.author: andrela
@@ -7,35 +7,35 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/21/2020
 ms.openlocfilehash: a68b63fa190aa67125b2bf8c09ae7f31aedc3905
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81770260"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>MySQL용 Azure Database에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성
 MySQL용 Azure Database는 SSL(Secure Sockets Layer)을 사용한 MySQL용 Azure Database 서버와 클라이언트 애플리케이션 간 연결을 지원합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
 
 ## <a name="step-1-obtain-ssl-certificate"></a>1단계: SSL 인증서 받기
-MySQL 서버용 Azure 데이터베이스와 SSL을 통해 통신하는 데 필요한 인증서를 [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) 다운로드하고 인증서 파일을 로컬 드라이브에 저장합니다(예: c:\ssl 사용).
+에서 [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) Azure Database for MySQL 서버와 SSL을 통해 통신 하는 데 필요한 인증서를 다운로드 하 고 인증서 파일을 로컬 드라이브에 저장 합니다 (이 자습서에서는 c:\ssal을 사용 하는 경우).
 **Microsoft Internet Explorer 및 Microsoft Edge:** 다운로드가 완료된 후 인증서 이름을 BaltimoreCyberTrustRoot.crt.pem으로 변경합니다.
 
 ## <a name="step-2-bind-ssl"></a>2단계: SSL 바인딩
 
-특정 프로그래밍 언어 연결 문자열은 아래 [샘플 코드를](howto-configure-ssl.md#sample-code) 참조하십시오.
+특정 프로그래밍 언어 연결 문자열은 아래 [샘플 코드](howto-configure-ssl.md#sample-code) 를 참조 하세요.
 
-### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>SSL을 통해 MySQL 워크벤치를 사용하여 서버에 연결
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>SSL을 통해 MySQL 워크 벤치를 사용 하 여 서버에 연결
 SSL을 통해 안전하게 연결하도록 MySQL Workbench를 구성합니다. 
 
 1. 새 연결 설정 대화 상자에서 **SSL** 탭으로 이동합니다. 
 
-1. **SSL 사용** 필드를 "필요"로 업데이트합니다.
+1. **SSL 사용** 필드를 "필수"로 업데이트 합니다.
 
 1. **SSL CA 파일:** 필드에 **BaltimoreCyberTrustRoot.crt.pem**의 파일 위치를 입력합니다. 
     
     ![SSL 구성 저장](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
-기존 연결의 경우 연결 아이콘을 마우스 오른쪽 단추로 클릭하여 SSL을 바인딩하고 편집을 선택할 수 있습니다. 그런 다음 **SSL** 탭으로 이동하고 인증서 파일을 바인딩합니다.
+기존 연결의 경우 연결 아이콘을 마우스 오른쪽 단추로 클릭 하 여 SSL을 바인딩하고 편집을 선택할 수 있습니다. 그런 다음 **SSL** 탭으로 이동하고 인증서 파일을 바인딩합니다.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>SSL로 MySQL CLI를 사용하는 서버에 연결
 SSL 인증서를 바인딩하는 또 다른 방법은 다음 명령을 실행하여 MySQL 명령줄 인터페이스를 사용하는 것입니다. 
@@ -68,7 +68,7 @@ mysql> status
 ## <a name="sample-code"></a>예제 코드
 애플리케이션에서 SSL을 통해 Azure Database for MySQL에 대한 안전한 연결을 설정하려면 다음 코드 샘플을 참조하세요.
 
-MySQL 서비스에 대 한 Azure 데이터베이스에서 지원 되는 [호환 되는 드라이버](concepts-compatibility.md) 의 목록을 참조 합니다.
+Azure Database for MySQL 서비스에서 지 원하는 [호환 가능한 드라이버](concepts-compatibility.md) 목록을 참조 하십시오.
 
 ### <a name="php"></a>PHP
 ```php
@@ -79,7 +79,7 @@ if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
-### <a name="php-using-pdo"></a>PHP(PDO 사용)
+### <a name="php-using-pdo"></a>PHP (PDO 사용)
 ```phppdo
 $options = array(
     PDO::MYSQL_ATTR_SSL_CA => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
@@ -107,7 +107,7 @@ conn = pymysql.connect(user='myadmin@mydemoserver',
                        ssl={'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
 ```
 
-### <a name="django-pymysql"></a>장고 (피미SQL)
+### <a name="django-pymysql"></a>Django (PyMySQL)
 ```python
 DATABASES = {
     'default': {
@@ -147,7 +147,7 @@ var connectionString string
 connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mysql.database.azure.com', 'quickstartdb')   
 db, _ := sql.Open("mysql", connectionString)
 ```
-### <a name="java-mysql-connector-for-java"></a>자바 (자바에 대한 MySQL 커넥터)
+### <a name="java-mysql-connector-for-java"></a>Java (Java 용 MySQL 커넥터)
 ```java
 # generate truststore and keystore in code
 String importCert = " -import "+
@@ -174,7 +174,7 @@ properties.setProperty("user", 'myadmin@mydemoserver');
 properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
-### <a name="java-mariadb-connector-for-java"></a>자바 (자바 마리아DB 커넥터)
+### <a name="java-mariadb-connector-for-java"></a>Java (Java 용 MariaDB 커넥터)
 ```java
 # generate truststore and keystore in code
 String importCert = " -import "+
@@ -202,7 +202,7 @@ properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
 
-### <a name="net-mysqlconnector"></a>.NET(마이Sql커넥터)
+### <a name="net-mysqlconnector"></a>.NET (MySqlConnector)
 ```csharp
 var builder = new MySqlConnectionStringBuilder
 {

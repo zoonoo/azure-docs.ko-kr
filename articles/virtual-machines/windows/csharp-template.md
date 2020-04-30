@@ -1,5 +1,5 @@
 ---
-title: C# 및 리소스 관리자 템플릿을 사용하여 VM 배포
+title: 'C # 및 리소스 관리자 템플릿을 사용 하 여 VM 배포'
 description: C# 및 Resource Manager 템플릿을 사용하여 Azure VM을 배포하는 방법에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
 ms.openlocfilehash: dfcc0c550af9df6c884c8cd864ed90daf5f78e2f
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82082920"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# 및 Resource Manager 템플릿을 사용하여 Azure Virtual Machine 배포
@@ -28,14 +28,14 @@ ms.locfileid: "82082920"
 이 단계에서는 Visual Studio가 설치되어 있는지 확인하고 템플릿을 배포하는 데 사용하는 콘솔 애플리케이션을 만듭니다.
 
 1. [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)를 아직 설치하지 않았으면 설치합니다. 작업 페이지에서 **.NET 데스크톱 개발**을 선택한 다음 **설치**를 클릭합니다. 요약에서 **.NET Framework 4 - 4.6 개발 도구**가 자동으로 선택되는 것을 볼 수 있습니다. Visual Studio를 이미 설치한 경우 Visual Studio 시작 관리자를 사용하여 .NET 작업을 추가할 수 있습니다.
-2. 비주얼 스튜디오에서 새**프로젝트** **파일** > 을**클릭합니다.** > 
-3. **템플릿** > **시각적 C #** 에서 콘솔 앱 **(.NET 프레임 워크)을**선택하고 프로젝트 이름에 *myDotnetProject를* 입력하고 프로젝트의 위치를 선택한 다음 **확인을**클릭합니다.
+2. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 클릭 합니다.
+3. **템플릿** > **Visual c #** 에서 **콘솔 앱 (.NET Framework)** 을 선택 하 고 프로젝트 이름으로 *myDotnetProject* 를 입력 한 다음 프로젝트의 위치를 선택 하 고 **확인**을 클릭 합니다.
 
 ## <a name="install-the-packages"></a>패키지 설치
 
 NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리를 설치하는 가장 쉬운 방법입니다. Visual Studio에서 필요한 라이브러리를 가져오려면 다음 단계를 수행합니다.
 
-1. **도구** > **Nuget 패키지 관리자를**클릭한 다음 **패키지 관리자 콘솔을**클릭합니다.
+1. **도구** > **Nuget 패키지 관리자**를 클릭 한 다음 **패키지 관리자 콘솔**을 클릭 합니다.
 2. 콘솔에서 다음이 명령을 입력합니다.
 
     ```powershell
@@ -49,7 +49,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ### <a name="create-the-template-file"></a>템플릿 파일 만들기
 
-1. 솔루션 탐색기에서 *myDotnetProject* > **새 항목****추가를** > 마우스 오른쪽 단추로 클릭한 다음 *시각적 C# 항목에서* **텍스트 파일을** 선택합니다. 파일 이름을 *CreateVMTemplate.json*으로 지정하고 **추가**를 클릭합니다.
+1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭 하 고 *Visual c # 항목*에서 **텍스트 파일** 을 선택 합니다. 파일 이름을 *CreateVMTemplate.json*으로 지정하고 **추가**를 클릭합니다.
 2. 만든 파일에 이 JSON 코드를 추가합니다.
 
     ```json
@@ -159,9 +159,9 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ### <a name="create-the-parameters-file"></a>매개 변수 파일 만들기
 
-템플릿에서 리소스 매개 변수에 대한 값을 지정하려면 값을 포함하는 매개 변수 파일을 만듭니다.
+템플릿에서 리소스 매개 변수의 값을 지정 하려면 값을 포함 하는 매개 변수 파일을 만듭니다.
 
-1. 솔루션 탐색기에서 *myDotnetProject* > **새 항목****추가를** > 마우스 오른쪽 단추로 클릭한 다음 *시각적 C# 항목에서* **텍스트 파일을** 선택합니다. 파일 이름을 *Parameters.json*으로 지정하고 **추가**를 클릭합니다.
+1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭 하 고 *Visual c # 항목*에서 **텍스트 파일** 을 선택 합니다. 파일 이름을 *Parameters.json*으로 지정하고 **추가**를 클릭합니다.
 2. 만든 파일에 이 JSON 코드를 추가합니다.
 
     ```json
@@ -181,7 +181,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 템플릿을 배포하기 전에 [Active Directory 서비스 사용자](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)에 액세스할 수 있는지 확인합니다. 서비스 주체에서 Azure Resource Manager에서 요청을 인증받기 위한 토큰을 얻을 수 있습니다. 또한 권한 부여 파일에서 필요한 애플리케이션 ID, 인증 키 및 테넌트 ID를 기록해 두어야 합니다.
 
-1. 솔루션 탐색기에서 *myDotnetProject* > **새 항목****추가를** > 마우스 오른쪽 단추로 클릭한 다음 *시각적 C# 항목에서* **텍스트 파일을** 선택합니다. 파일 이름을 *azureauth.properties*로 지정하고 **추가**를 클릭합니다.
+1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭 하 고 *Visual c # 항목*에서 **텍스트 파일** 을 선택 합니다. 파일 이름을 *azureauth.properties*로 지정하고 **추가**를 클릭합니다.
 2. 다음과 같은 권한 부여 속성을 추가합니다.
 
     ```
@@ -195,10 +195,10 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
     graphURL=https://graph.microsoft.com/
     ```
 
-    ** &lt;구독 ID를&gt; ** 구독 식별자로 바꾸고, ** &lt;&gt; 응용 프로그램 ID를** Active Directory 응용 프로그램 식별자로 바꾸고, ** &lt;인증 키를&gt; ** 응용 프로그램 키로, ** &lt;테넌트 식별자를&gt; ** 사용합니다.
+    ** &lt;구독 id&gt; ** 를 구독 식별자로, ** &lt;응용 프로그램&gt; id** 를 Active Directory 응용 프로그램 식별자로, ** &lt;인증 키&gt; ** 를 응용 프로그램 키로, ** &lt;테 넌 트 id&gt; ** 를 테 넌 트 식별자로 바꿉니다.
 
 3. azureauth.properties 파일을 저장합니다.
-4. 예를 들어 다음 PowerShell 명령을 사용할 수 있습니다. AZURE_AUTH_LOCATION
+4. 사용자가 만든 권한 부여 파일의 전체 경로를 사용 하 여 AZURE_AUTH_LOCATION 라는 Windows의 환경 변수를 설정 합니다. 예를 들어 다음 PowerShell 명령을 사용할 수 있습니다.
 
     ```powershell
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
@@ -208,7 +208,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ## <a name="create-the-management-client"></a>관리 클라이언트 만들기
 
-1. 만든 프로젝트에 대한 Program.cs 파일을 엽니다. 그런 다음 파일 맨 위에 있는 기존 문에 문을 사용하여 이러한 문을 추가합니다.
+1. 만든 프로젝트에 대 한 Program.cs 파일을 엽니다. 그런 다음 using 문을 파일 맨 위에 있는 기존 문에 추가 합니다.
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -325,5 +325,5 @@ azure.ResourceGroups.DeleteByName(groupName);
 
 ## <a name="next-steps"></a>다음 단계
 
-* 배포에 문제가 있는 경우 다음 단계는 Azure [리소스 관리자를](../../resource-manager-common-deployment-errors.md)사용하여 일반적인 Azure 배포 오류를 해결하는 것입니다.
+* 배포에 문제가 있는 경우 다음 단계는 [Azure Resource Manager 관련 된 일반적인 Azure 배포 오류 해결](../../resource-manager-common-deployment-errors.md)을 확인 하는 것입니다.
 * [C#를 사용하여 Azure Virtual Machine 배포](csharp.md)를 검토하여 가상 머신 및 지원 리소스 배포 방법에 대해 알아 봅니다.

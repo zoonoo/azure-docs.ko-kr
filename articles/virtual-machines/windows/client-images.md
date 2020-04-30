@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: 51e4862fe55428f112841ef7176cdb916653de0b
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82083277"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>개발/테스트 시나리오용으로 Azure에서 Windows 클라이언트 사용
@@ -21,8 +21,8 @@ ms.locfileid: "82083277"
 ![Azure Portal의 이미지 세부 정보](./media/client-images/windows-client-msdn-images.png) 
 
 > [!NOTE]
-> Windows에 대 한 10 프로 및 윈도우 10 프로 N 이미지 Azure 갤러리에서, Windows를 배포 하는 방법을 참조 하십시오 [10 Azure포털에서 다중 테넌트 호스팅 권한](windows-desktop-multitenant-hosting-deployment.md)
->![프로 이미지 세부 정보와 Azure에](./media/client-images/windows-client-pro-images.png) 
+> Azure 갤러리의 windows 10 pro 및 windows 10 pro N 이미지는
+>![ [다중 테 넌 트 호스팅 권한으로 azure에서 windows 10을 배포 하는 방법](windows-desktop-multitenant-hosting-deployment.md)을 참조 하세요. Azure Portal에서 Pro 이미지 세부 정보](./media/client-images/windows-client-pro-images.png) 
 >
 
 ## <a name="subscription-eligibility"></a>구독 적격성

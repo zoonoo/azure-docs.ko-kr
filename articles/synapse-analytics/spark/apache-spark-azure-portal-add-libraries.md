@@ -1,6 +1,6 @@
 ---
-title: Azure 시냅스 분석에서 아파치 스파크용 라이브러리 추가 및 관리
-description: Azure 시냅스 분석에서 아파치 스파크에서 사용하는 라이브러리를 추가하고 관리하는 방법을 알아봅니다.
+title: Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 추가 및 관리
+description: Azure Synapse Analytics에서 Apache Spark에 사용 되는 라이브러리를 추가 하 고 관리 하는 방법을 알아봅니다.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -10,33 +10,33 @@ ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 80414ccd6d5797614dd15bd61af8f37b3d2be05c
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870373"
 ---
-# <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure 시냅스 분석에서 아파치 스파크용 라이브러리 추가 및 관리
+# <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 추가 및 관리
 
-아파치 스파크는 기능을 제공하기 위해 많은 라이브러리에 따라 달라집니다. 이러한 라이브러리는 추가 라이브러리 또는 업데이트된 버전의 이전 라이브러리로 보강하거나 대체할 수 있습니다.
+Apache Spark는 기능을 제공 하기 위해 많은 라이브러리에 의존 합니다. 이러한 라이브러리는 추가 라이브러리나 이전 버전의 업데이트 된 버전으로 확대 하거나 대체할 수 있습니다.
 
-파이썬 패키지는 스파크 풀(미리 보기) 수준에서 추가할 수 있으며 .jar 기반 패키지는 Spark 작업 정의 수준에서 추가할 수 있습니다.
+Python 패키지는 Spark 풀 (미리 보기) 수준에서 추가할 수 있으며 jar 기반 패키지는 Spark 작업 정의 수준에서 추가할 수 있습니다.
 
-## <a name="adding-or-updating-python-libraries"></a>파이썬 라이브러리 추가 또는 업데이트
+## <a name="adding-or-updating-python-libraries"></a>Python 라이브러리 추가 또는 업데이트
 
-Azure 시냅스 애널리틱스의 아파치 스파크에는 아나콘다 설치와 추가 라이브러리가 있습니다. 전체 라이브러리 목록은 [아파치 스파크 버전 지원에서](apache-spark-version-support.md)찾을 수 있습니다.
+Azure Synapse Analytics의 Apache Spark에는 완전 한 Anacondas 설치와 추가 라이브러리가 있습니다. 전체 라이브러리 목록은 [Apache Spark 버전 지원](apache-spark-version-support.md)에서 찾을 수 있습니다.
 
-Spark 인스턴스가 시작되면 이 설치를 기반으로 새 가상 환경이 만들어집니다. 또한 *요구 사항.txt* 파일(명령에서 `pip freeze` 출력)을 사용하여 가상 환경을 업그레이드할 수 있습니다. 설치 또는 업그레이드를 위해 이 파일에 나열된 패키지는 클러스터 시작 시 PyPi에서 다운로드됩니다. 이 요구 사항 파일은 해당 Spark 풀에서 Spark 인스턴스를 만들 때마다 사용됩니다.
+Spark 인스턴스가 시작 되 면이 설치를 기본으로 사용 하 여 새 가상 환경이 만들어집니다. 또한 *요구 사항 .txt* 파일 ( `pip freeze` 명령의 출력)을 사용 하 여 가상 환경을 업그레이드할 수 있습니다. 설치 또는 업그레이드를 위해이 파일에 나열 된 패키지는 클러스터 시작 시 PyPi에서 다운로드 됩니다. 이 요구 사항 파일은 spark 인스턴스를 Spark 풀에서 만들 때마다 사용 됩니다.
 
 > [!IMPORTANT]
 >
-> - 설치하는 패키지가 크거나 설치하는 데 시간이 오래 걸리는 경우 이는 Spark 인스턴스 시작 시간에 영향을 줍니다.
-> - 설치 시 컴파일러 지원이 필요한 패키지(예: GCC)는 지원되지 않습니다.
-> - 패키지를 다운그레이드하거나 추가하거나 업그레이드할 수 없습니다.
+> - 설치 하는 패키지가 크거나 설치 하는 데 시간이 오래 걸리는 경우 Spark 인스턴스 시작 시간에 영향을 줍니다.
+> - 설치 시 GCC와 같이 컴파일러 지원이 필요한 패키지는 지원 되지 않습니다.
+> - 패키지를 다운 그레이드할 수 없습니다. 추가 하거나 업그레이드할 수 있습니다.
 
 ### <a name="requirements-format"></a>요구 사항 형식
 
-다음 코드 조각에는 요구 사항 파일의 형식이 표시됩니다. PyPi 패키지 이름은 정확한 버전과 함께 나열됩니다. 이 파일은 [pip 동결](https://pip.pypa.io/en/stable/reference/pip_freeze/) 참조 설명서에 설명된 형식을 따릅니다. 이 예제는 특정 버전을 고정합니다. 이 파일에서 "보다 크지 않은" 및 "보다 작다"버전을 지정할 수도 있습니다.
+다음 코드 조각에서는 요구 사항 파일의 형식을 보여 줍니다. PyPi 패키지 이름은 정확한 버전과 함께 나열 됩니다. 이 파일은 [pip 고정](https://pip.pypa.io/en/stable/reference/pip_freeze/) 참조 설명서에 설명 된 형식을 따릅니다. 이 예제에서는 특정 버전을 고정 합니다. 이 파일에서 "보다 큼" 및 "보다 작음" 버전을 지정할 수도 있습니다.
 
 ```
 absl-py==0.7.0
@@ -46,17 +46,17 @@ adal==1.2.1
 alabaster==0.7.10
 ```
 
-### <a name="python-library-user-interface"></a>파이썬 라이브러리 사용자 인터페이스
+### <a name="python-library-user-interface"></a>Python 라이브러리 사용자 인터페이스
 
-라이브러리를 추가하기 위한 UI는 Azure 포털의 **아파치 스파크 풀 만들기** 페이지의 **추가 설정** 탭에 있습니다.
+라이브러리를 추가 하는 UI는 Azure Portal에서 **Apache Spark 풀 만들기** 페이지의 **추가 설정** 탭에 있습니다.
 
-페이지의 패키지 섹션에서 파일 선택기에서 환경 구성 파일을 **업로드합니다.**
+페이지의 **패키지** 섹션에서 파일 선택기를 사용 하 여 환경 구성 파일을 업로드 합니다.
 
-![파이썬 라이브러리 추가](./media/apache-spark-azure-portal-add-libraries/add-python-libraries.png "파이썬 라이브러리 추가")
+![Python 라이브러리 추가](./media/apache-spark-azure-portal-add-libraries/add-python-libraries.png "Python 라이브러리 추가")
 
-### <a name="verifying-installed-libraries"></a>설치된 라이브러리 확인
+### <a name="verifying-installed-libraries"></a>설치 된 라이브러리 확인
 
-올바른 라이브러리의 올바른 버전이 설치되어 있는지 확인하려면 다음 코드를 실행합니다.
+올바른 라이브러리의 올바른 버전이 설치 되어 있는지 확인 하려면 다음 코드를 실행 합니다.
 
 ```python
 import pip #needed to use the pip functions

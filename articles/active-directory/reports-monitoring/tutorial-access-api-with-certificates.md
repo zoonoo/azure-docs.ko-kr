@@ -1,5 +1,5 @@
 ---
-title: 인증서가 있는 AD 보고 API에 대한 자습서 | 마이크로 소프트 문서
+title: 인증서를 사용 하는 AD Reporting API에 대 한 자습서 | Microsoft Docs
 description: 이 자습서에서는 인증서 자격 증명과 함께 Azure AD Reporting API를 사용하여 사용자 작업 없이 디렉터리에서 데이터를 가져오는 방법에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2808c8431a6b98b162920fb58a6e2ac0498d2055
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82081713"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>자습서: 인증서와 함께 Azure Active Directory Reporting API를 사용하여 데이터 가져오기
@@ -44,9 +44,9 @@ ms.locfileid: "82081713"
     - ADAL을 사용하는 사용자, 애플리케이션 키 및 인증서의 액세스 토큰
     - Graph API를 처리하는 페이지 단위의 결과
 
-6. 모듈을 처음 사용하는 경우 **설치-MSCloudIdUtilsModule을**실행하여 가져오기 **모듈** PowerShell 명령을 사용하여 가져온다. 세션이 이 화면과 유사해야 합니다: ![Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. 처음으로 **MSCloudIdUtilsModule**모듈을 사용 하는 경우에는 **import-module** PowerShell 명령을 사용 하 여 가져옵니다. 세션은 다음 화면과 유사 하 게 표시 됩니다 ![. Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-7. 새로 **서명된 인증서** PowerShell 명령어를 사용하여 테스트 인증서를 만듭니다.
+7. New-selfsignedcertificate PowerShell **기능** 을 사용 하 여 테스트 인증서를 만듭니다.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
@@ -63,13 +63,13 @@ ms.locfileid: "82081713"
 
 1. [Azure Portal](https://portal.azure.com)로 이동하여 **Azure Active Directory**, **앱 등록**을 차례로 선택하고 목록에서 애플리케이션을 선택합니다. 
 
-2. 응용 프로그램 등록 **블레이드의** **관리** 섹션에서 인증서 & 비밀을 선택하고 **인증서 업로드를**선택합니다.
+2. 응용 프로그램 등록 블레이드의 **관리** 섹션에서 **인증서 & 암호** 를 선택 하 고 **인증서 업로드**를 선택 합니다.
 
-3. 이전 단계에서 인증서 파일을 선택하고 **추가 를**선택합니다. 
+3. 이전 단계에서 인증서 파일을 선택 하 고 **추가**를 선택 합니다. 
 
-4. 방금 애플리케이션에 등록한 인증서의 지문 및 애플리케이션 ID를 적어 둡니다. 포털의 응용 프로그램 페이지에서 지문을 찾으려면 **관리** 섹션의 **인증서 & 비밀로** 이동합니다. 지문은 **인증서** 목록 아래에 있습니다.
+4. 방금 애플리케이션에 등록한 인증서의 지문 및 애플리케이션 ID를 적어 둡니다. 지문을 찾으려면 포털의 응용 프로그램 페이지에서 **관리** 섹션 아래에 있는 **인증서 & 암호** 로 이동 합니다. 지문이 **인증서** 목록 아래에 표시 됩니다.
 
-5. 인라인 매니페스트 편집기에서 응용 프로그램 매니페스트를 열고 *keyCredentials* 속성이 아래와 같이 새 인증서 정보로 업데이트되는지 확인합니다. 
+5. 인라인 매니페스트 편집기에서 응용 프로그램 매니페스트를 열고 아래와 같이 *Keycredentials* 속성이 새 인증서 정보로 업데이트 되었는지 확인 합니다. 
 
    ```
    "keyCredentials": [
@@ -86,7 +86,7 @@ ms.locfileid: "82081713"
 
    ![Azure portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-7. PowerShell 스크립트의 액세스 토큰을 사용하여 그래프 API를 쿼리합니다. MSCloudIDUtils에서 **Invoke-MSCloudIdMSGraphQuery** cmdlet을 사용하여 signins 및 directoryAudits 엔드포인트를 열거합니다. 이 cmdlet은 여러 페이지 단위의 결과를 처리한 다음 PowerShell 파이프라인에 해당 결과를 보냅니다.
+7. PowerShell 스크립트의 액세스 토큰을 사용 하 여 Graph API를 쿼리 합니다. MSCloudIDUtils에서 **Invoke-MSCloudIdMSGraphQuery** cmdlet을 사용하여 signins 및 directoryAudits 엔드포인트를 열거합니다. 이 cmdlet은 여러 페이지 단위의 결과를 처리한 다음 PowerShell 파이프라인에 해당 결과를 보냅니다.
 
 8. directoryAudits 엔드포인트를 쿼리하여 감사 로그를 검색합니다. 
    ![Azure Portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)

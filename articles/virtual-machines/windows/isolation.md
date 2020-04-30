@@ -1,6 +1,6 @@
 ---
-title: Azure의 Windows VM에 대한 격리
-description: Azure에서 VM 격리 작동에 대해 자세히 알아보세요.
+title: Azure에서 Windows Vm에 대 한 격리
+description: Azure에서 VM 격리 작동에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.workload: infrastructure-services
 ms.date: 08/01/2019
 ms.author: cynthn
 ms.openlocfilehash: e03f31d8a78a0d327278768c3f0b66d2119f8dc8
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870064"
 ---
-# <a name="virtual-machine-isolation-in-azure"></a>Azure의 가상 시스템 격리
+# <a name="virtual-machine-isolation-in-azure"></a>Azure의 가상 머신 격리
 
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "81870064"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure PowerShell,](dedicated-hosts-powershell.md) [포털](dedicated-hosts-portal.md)및 [Azure CLI를](../linux/dedicated-hosts-cli.md)사용하여 전용 호스트를 배포할 수 있습니다. 자세한 내용은 전용 [호스트](dedicated-hosts.md) 개요를 참조하세요.
+- [Azure PowerShell](dedicated-hosts-powershell.md), [포털](dedicated-hosts-portal.md)및 [Azure CLI](../linux/dedicated-hosts-cli.md)를 사용 하 여 전용 호스트를 배포할 수 있습니다. 자세한 내용은 [전용 호스트](dedicated-hosts.md) 개요를 참조 하세요.
 
 
 

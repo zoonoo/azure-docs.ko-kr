@@ -1,5 +1,5 @@
 ---
-title: 'C를 사용하여 Azure 가상 컴퓨터 만들기 및 관리 #'
+title: 'C를 사용 하 여 Azure 가상 머신 만들기 및 관리 #'
 description: C# 및 Azure Resource Manager를 사용하여 가상 머신 및 모든 지원 리소스를 배포합니다.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 07c66b2955f3df1ffae1a0cb0c2b0888bdc790e9
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82082886"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>C#을 사용하여 Azure에서 Windows VM 생성 및 관리 #
 
-[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 C#을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음 방법을 알아봅니다.
+[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 C#을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * Visual Studio 프로젝트 만들기
@@ -32,14 +32,14 @@ ms.locfileid: "82082886"
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
 1. [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)를 아직 설치하지 않았으면 설치합니다. 작업 페이지에서 **.NET 데스크톱 개발**을 선택한 다음 **설치**를 클릭합니다. 요약에서 **.NET Framework 4 - 4.6 개발 도구**가 자동으로 선택되는 것을 볼 수 있습니다. Visual Studio를 이미 설치한 경우 Visual Studio 시작 관리자를 사용하여 .NET 작업을 추가할 수 있습니다.
-2. 비주얼 스튜디오에서 새**프로젝트** **파일** > 을**클릭합니다.** > 
-3. **템플릿** > **시각적 C #** 에서 콘솔 앱 **(.NET 프레임 워크)을**선택하고 프로젝트 이름에 *myDotnetProject를* 입력하고 프로젝트의 위치를 선택한 다음 **확인을**클릭합니다.
+2. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 클릭 합니다.
+3. **템플릿** > **Visual c #** 에서 **콘솔 앱 (.NET Framework)** 을 선택 하 고 프로젝트 이름으로 *myDotnetProject* 를 입력 한 다음 프로젝트의 위치를 선택 하 고 **확인**을 클릭 합니다.
 
 ## <a name="install-the-package"></a>패키지 설치
 
 NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리를 설치하는 가장 쉬운 방법입니다. Visual Studio에서 필요한 라이브러리를 가져오려면 다음 단계를 수행합니다.
 
-1. **도구** > **Nuget 패키지 관리자를**클릭한 다음 **패키지 관리자 콘솔을**클릭합니다.
+1. **도구** > **Nuget 패키지 관리자**를 클릭 한 다음 **패키지 관리자 콘솔**을 클릭 합니다.
 2. 콘솔에 다음 명령을 입력합니다.
 
     ```
@@ -52,7 +52,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ### <a name="create-the-authorization-file"></a>권한 부여 파일 만들기
 
-1. 솔루션 탐색기에서 *myDotnetProject* > **새 항목****추가를** > 마우스 오른쪽 단추로 클릭한 다음 *시각적 C# 항목에서* **텍스트 파일을** 선택합니다. 파일 이름을 *azureauth.properties*로 지정하고 **추가**를 클릭합니다.
+1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭 하 고 *Visual c # 항목*에서 **텍스트 파일** 을 선택 합니다. 파일 이름을 *azureauth.properties*로 지정하고 **추가**를 클릭합니다.
 2. 다음과 같은 권한 부여 속성을 추가합니다.
 
     ```
@@ -66,7 +66,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
     graphURL=https://graph.microsoft.com/
     ```
 
-    ** &lt;구독 ID를&gt; ** 구독 식별자로 바꾸고, ** &lt;&gt; 응용 프로그램 ID를** Active Directory 응용 프로그램 식별자로 바꾸고, ** &lt;인증 키를&gt; ** 응용 프로그램 키로, ** &lt;테넌트 식별자를&gt; ** 사용합니다.
+    ** &lt;구독 id&gt; ** 를 구독 식별자로, ** &lt;응용 프로그램&gt; id** 를 Active Directory 응용 프로그램 식별자로, ** &lt;인증 키&gt; ** 를 응용 프로그램 키로, ** &lt;테 넌 트 id&gt; ** 를 테 넌 트 식별자로 바꿉니다.
 
 3. azureauth.properties 파일을 저장합니다. 
 4. AZURE_AUTH_LOCATION이라는 Windows 환경 변수를 만든 권한 부여 파일의 전체 경로로 설정합니다. 예를 들어 다음과 같은 PowerShell 명령을 사용할 수 있습니다.
@@ -77,7 +77,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ### <a name="create-the-management-client"></a>관리 클라이언트 만들기
 
-1. 만든 프로젝트에 대한 Program.cs 파일을 엽니다. 그런 다음 파일 맨 위에 있는 기존 문에 문을 사용하여 이러한 문을 추가합니다.
+1. 만든 프로젝트에 대 한 Program.cs 파일을 엽니다. 그런 다음 using 문을 파일 맨 위에 있는 기존 문에 추가 합니다.
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -104,7 +104,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ### <a name="create-the-resource-group"></a>리소스 그룹 만들기
 
-모든 리소스는 리소스 [그룹에](../../azure-resource-manager/management/overview.md)포함되어야 합니다.
+모든 리소스는 [리소스 그룹](../../azure-resource-manager/management/overview.md)에 포함 되어야 합니다.
 
 애플리케이션의 값을 지정하고 리소스 그룹을 만들려면 Main 메서드에 다음 코드를 추가합니다.
 
@@ -357,7 +357,7 @@ Console.ReadLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>VM에 데이터 디스크 추가
 
-가상 시스템에 데이터 디스크를 추가하려면 이 코드를 Main 메서드에 추가합니다. 이 예제에서는 크기가 2GB인 데이터 디스크를 추가하고 LUN을 0으로, 캐싱 유형의 ReadWrite를 추가합니다.
+가상 컴퓨터에 데이터 디스크를 추가 하려면 Main 메서드에이 코드를 추가 합니다. 이 예에서는 크기가 2gb이 고, 두 개의 LUN이 0이 고, 캐싱 유형이 ReadWrite 인 데이터 디스크를 추가 합니다.
 
 ```csharp
 Console.WriteLine("Adding data disk to vm...");

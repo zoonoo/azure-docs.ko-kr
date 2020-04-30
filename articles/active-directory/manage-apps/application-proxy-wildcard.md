@@ -1,5 +1,5 @@
 ---
-title: Azure AD 응용 프로그램 프록시의 와일드카드 응용 프로그램
+title: Azure AD 응용 프로그램 프록시의 와일드 카드 응용 프로그램
 description: Azure Active Directory 애플리케이션 프록시에서 와일드카드 애플리케이션을 사용하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e5861e802f39adecb5661bc17c22b432f137d59
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81770294"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시의 와일드카드 애플리케이션
@@ -53,14 +53,14 @@ Azure AD(Azure Active Directory)에서 다수의 온-프레미스 애플리케�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하려면 이러한 요구 사항을 충족하는지 확인합니다.
+시작 하려면 이러한 요구 사항을 충족 하는지 확인 합니다.
 
 ### <a name="custom-domains"></a>사용자 지정 도메인
 
 [사용자 지정 도메인](application-proxy-configure-custom-domain.md)은 다른 모든 애플리케이션에서 선택 사항이지만 와일드카드 애플리케이션의 경우 필수 조건입니다. 사용자 지정 도메인을 만들려면 다음을 수행해야 합니다.
 
-1. Azure 내에서 확인된 도메인을 만듭니다.
-1. 응용 프로그램 프록시에 PFX 형식으로 TLS/SSL 인증서를 업로드합니다.
+1. Azure 내에서 확인 된 도메인을 만듭니다.
+1. 응용 프로그램 프록시에 PFX 형식의 TLS/SSL 인증서를 업로드 합니다.
 
 만들려는 애플리케이션에 대응할 와일드카드 인증서를 사용하는 것이 좋습니다. 또는 특정 애플리케이션만 나열하는 인증서를 사용할 수도 있습니다. 이 경우 인증서에 나열된 애플리케이션만 이 와일드카드 애플리케이션을 통해 액세스할 수 있습니다.
 
@@ -76,17 +76,17 @@ CNAME을 제대로 구성했는지 확인하려면 대상 엔드포인트 중 �
 
 ## <a name="considerations"></a>고려 사항
 
-다음은 와일드카드 응용 프로그램에 대해 고려해야 할 몇 가지 고려 사항입니다.
+와일드 카드 응용 프로그램을 고려해 야 하는 몇 가지 고려 사항은 다음과 같습니다.
 
 ### <a name="accepted-formats"></a>허용되는 형식
 
 와일드카드 애플리케이션의 경우 **내부 URL**은 `http(s)://*.<domain>` 형식이어야 합니다.
 
-![내부 URL의 경우 http://*형식을 사용합니다. \<도메인>](./media/application-proxy-wildcard/22.png)
+![내부 URL의 경우 http (s)://* 형식을 사용 합니다. \<도메인>](./media/application-proxy-wildcard/22.png)
 
 **외부 URL**을 구성하는 경우 `https://*.<custom domain>` 형식을 사용해야 합니다.
 
-![외부 URL의 경우 https://*형식을 사용합니다. \<사용자 지정 도메인>](./media/application-proxy-wildcard/21.png)
+![외부 URL에는 https://* 형식을 사용 합니다. \<사용자 지정 도메인>](./media/application-proxy-wildcard/21.png)
 
 다른 와일드카드 위치, 다중 와일드카드 또는 기타 정규식 문자열은 지원되지 않으며 오류가 발생합니다.
 
@@ -140,25 +140,25 @@ DNS 관리를 통해 와일드카드를 특정 애플리케이션에 대해서�
 
 - 내부 URL:
 
-    ![예: 내부 URL의 와일드카드](./media/application-proxy-wildcard/42.png)
+    ![예: 내부 URL의 와일드 카드](./media/application-proxy-wildcard/42.png)
 
 - 외부 URL:
 
-    ![예: 외부 URL의 와일드카드](./media/application-proxy-wildcard/43.png)
+    ![예: 외부 URL의 와일드 카드](./media/application-proxy-wildcard/43.png)
 
 - 내부 애플리케이션 SPN:
 
-    ![예: SPN 구성의 와일드카드](./media/application-proxy-wildcard/44.png)
+    ![예: SPN 구성의 와일드 카드](./media/application-proxy-wildcard/44.png)
 
 와일드카드 애플리케이션을 게시하면 이제 친숙한 URL(예: `travel.adventure-works.com`)로 이동하여 세 애플리케이션에 액세스할 수 있습니다.
 
 구성은 다음 구조를 구현합니다.
 
-![예제 구성에 의해 구현된 구조를 표시합니다.](./media/application-proxy-wildcard/05.png)
+![예제 구성에 의해 구현 된 구조를 보여 줍니다.](./media/application-proxy-wildcard/05.png)
 
-| 색 | 설명 |
+| 색상 | Description |
 | ---   | ---         |
-| 파랑  | Azure 포털에 명시적으로 게시되고 표시되는 응용 프로그램입니다. |
+| 파랑  | 응용 프로그램을 명시적으로 게시 하 고 Azure Portal에 표시 합니다. |
 | 회색  | 부모 애플리케이션을 통해 액세스할 수 있는 애플리케이션입니다. |
 
 ## <a name="scenario-2-general-wildcard-application-with-exception"></a>시나리오 2: 예외가 있는 일반 와일드카드 애플리케이션
@@ -171,19 +171,19 @@ DNS 관리를 통해 와일드카드를 특정 애플리케이션에 대해서�
 
 - **내부 URL**에 와일드카드 대신 **재무**를 설정합니다.
 
-    ![예: 내부 URL에서 와일드카드 대신 재무 설정](./media/application-proxy-wildcard/52.png)
+    ![예: 내부 URL에 와일드 카드 대신 재무를 설정 합니다.](./media/application-proxy-wildcard/52.png)
 
 - **외부 URL**에 와일드카드 대신 **재무**를 설정합니다.
 
-    ![예: 외부 URL에서 와일드카드 대신 재무 설정](./media/application-proxy-wildcard/53.png)
+    ![예제: 외부 URL에 와일드 카드 대신 재무를 설정 합니다.](./media/application-proxy-wildcard/53.png)
 
 - 내부 애플리케이션 SPN에 와일드카드 대신 **재무**를 설정합니다.
 
-    ![예: SPN 구성에서 와일드카드 대신 금융 설정](./media/application-proxy-wildcard/54.png)
+    ![예: SPN 구성에서 와일드 카드 대신 재무를 설정 합니다.](./media/application-proxy-wildcard/54.png)
 
 이 구성은 다음 시나리오를 구현합니다.
 
-![샘플 시나리오에서 구현한 구성 표시](./media/application-proxy-wildcard/09.png)
+![샘플 시나리오에서 구현 된 구성을 보여 줍니다.](./media/application-proxy-wildcard/09.png)
 
 `finance.adventure-works.com`이 `*.adventure-works.com`보다 더 구체적인 URL이므로 우선 적용됩니다. `finance.adventure-works.com`으로 이동하는 사용자는 Finance Resources 애플리케이션에 지정된 환경을 사용합니다. 이 경우 재무 직원만 `finance.adventure-works.com`에 액세스할 수 있습니다.
 
@@ -191,5 +191,5 @@ DNS 관리를 통해 와일드카드를 특정 애플리케이션에 대해서�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 사용자 지정 **도메인에**대한 자세한 내용은 [Azure AD 응용 프로그램 프록시의 사용자 지정 도메인 작업을](application-proxy-configure-custom-domain.md)참조하십시오.
-- 게시 응용 프로그램에 대한 자세한 내용은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시를](application-proxy-add-on-premises-application.md) **참조합니다.**
+- **사용자 지정 도메인**에 대 한 자세한 내용은 [Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업](application-proxy-configure-custom-domain.md)을 참조 하세요.
+- **응용 프로그램 게시**에 대 한 자세한 내용은 [Azure AD 응용 프로그램 프록시를 사용 하 여 응용 프로그램 게시](application-proxy-add-on-premises-application.md) 를 참조 하세요.
