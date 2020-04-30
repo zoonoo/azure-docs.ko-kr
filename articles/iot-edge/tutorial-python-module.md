@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: f474ec121f444f5f0c41272f5d87a7f8abfadb8d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80657046"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스를 위한 Python IoT Edge 모듈 개발 및 배포
@@ -131,7 +131,7 @@ VS 코드를 사용하여 빌드할 수 있는 Python 솔루션 템플릿을 만
 
     ```python
         # Define behavior for receiving an input message on input1
-        # Because this is a filter module, we forward this message to the "outputs" queue.
+        # Because this is a filter module, we forward this message to the "output1" queue.
         async def input1_listener(module_client):
             global RECEIVED_MESSAGES
             global TEMPERATURE_THRESHOLD
