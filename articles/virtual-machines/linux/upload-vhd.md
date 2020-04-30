@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 통해 사용자 지정 Linux VM 업로드 또는 복사
+title: Azure CLI를 사용 하 여 사용자 지정 Linux VM 업로드 또는 복사
 description: Resource Manager 배포 모델 및 Azure CLI를 사용하여 사용자 지정 가상 머신을 업로드하거나 복사합니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: 3306647078c46a7c66b3d7b257b213c7a48e690d
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460429"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 디스크에서 Linux VM 만들기
@@ -50,7 +50,7 @@ ms.locfileid: "81460429"
 
 - 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
-다음 예제에서 예제 매개 변수 이름을 `myResourceGroup`에서 `mystorageaccount`와 같은 고유한 `mydisks`값으로 바꿉니다.
+다음 예제에서 예제 매개 변수 이름을 사용자 고유의 값으로 바꿉니다 (예: `myResourceGroup`, `mystorageaccount`및 `mydisks`).
 
 <a id="prepimage"> </a>
 
@@ -75,15 +75,15 @@ Azure에서는 다양한 Linux 배포를 지원합니다( [보증 배포판](end
 
 ## <a name="option-1-upload-a-vhd"></a>옵션 1: VHD 업로드
 
-이제 VHD를 관리 디스크에 바로 업로드할 수 있습니다. 지침은 Azure [CLI를 사용하여 Azure에 VHD 업로드를](disks-upload-vhd-to-managed-disk-cli.md)참조하십시오.
+이제 VHD를 관리 디스크로 직접 업로드할 수 있습니다. 지침은 [Azure CLI를 사용 하 여 Azure에 VHD 업로드](disks-upload-vhd-to-managed-disk-cli.md)를 참조 하세요.
 
 ## <a name="option-2-copy-an-existing-vm"></a>옵션 2: 기존 VM 복사
 
 Azure에서 사용자 지정 VM을 만든 다음, OS 디스크를 복사하고 새 VM에 연결하여 다른 복사본을 만들 수도 있습니다. 테스트에는 적합하지만, 기존 Azure VM을 여러 개의 새 VM에 대한 모델로 사용하려는 경우 *이미지*를 대신 만듭니다. 기존 Azure VM에서 이미지를 만드는 방법에 대한 자세한 내용은 [CLI를 사용하여 Azure VM의 사용자 지정 이미지 만들기](tutorial-custom-images.md)를 참조하세요.
 
-기존 VM을 다른 지역으로 복사하려면 azcopy를 사용하여 다른 [지역의 디스크 복사본을 creat하는](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk)것이 좋습니다. 
+기존 VM을 다른 지역에 복사 하려는 경우 azcopy를 사용 하 여 [다른 지역에 디스크의 복사본](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk)을 만들어야 할 수 있습니다. 
 
-그렇지 않으면 VM의 스냅숏을 만든 다음 스냅샷에서 새 OS VHD를 만들어야 합니다.
+그렇지 않으면 VM의 스냅숏을 만든 다음 스냅숏에서 새 OS VHD를 만들어야 합니다.
 
 ### <a name="create-a-snapshot"></a>스냅샷 만들기
 
