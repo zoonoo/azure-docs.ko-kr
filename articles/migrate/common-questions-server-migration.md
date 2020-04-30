@@ -4,10 +4,10 @@ description: Azure Migrate Server 마이그레이션을 사용 하 여 컴퓨터
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 8d4d83791366e153f0fa8b81ae120ca3fd33be2d
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146046"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate 서버 마이그레이션: 일반적인 질문
@@ -81,7 +81,7 @@ VCenter Server 5.5 및 vSphere ESXi 호스트 버전 5.5 이상이 있어야 합
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>에이전트 없는 VMware 복제에 Azure Migrate 어플라이언스를 사용 하 여에서 복제를 어떻게 할까요? 제한 하 시겠습니까?  
 
-NetQosPolicy를 사용 하 여 제한할 수 있습니다. 예를 들어:
+NetQosPolicy를 사용 하 여 제한할 수 있습니다. 다음은 그 예입니다.
 
 NetQosPolicy에서 사용할 AppNamePrefix는 "GatewayWindowsService .exe"입니다. Azure Migrate 어플라이언스에서 정책을 만들어 다음과 같은 정책을 만들어 어플라이언스에서 복제 트래픽을 제한할 수 있습니다.
  

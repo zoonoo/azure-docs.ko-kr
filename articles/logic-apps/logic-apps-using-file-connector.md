@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
 ms.openlocfilehash: b1f4feab9587fb77089be265801c71f5b23b26ab
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146788"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 온-프레미스 파일 시스템에 연결
@@ -68,10 +68,10 @@ Azure Logic Apps 및 파일 시스템 커넥터를 사용 하 여 온-프레미�
 
    ![연결 만들기](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | 속성 | 필수 | Value | 설명 |
+   | 속성 | 필수 | 값 | Description |
    | -------- | -------- | ----- | ----------- |
    | **연결 이름** | 예 | <*연결-이름*> | 연결에 사용하려는 이름 |
-   | **루트 폴더** | 예 | <*루트 폴더-이름*> | 온-프레미스 데이터 게이트웨이가 설치된 컴퓨터의 로컬 폴더나 컴퓨터가 액세스할 수 있는 네트워크 공유용 폴더 등의 위치에 온-프레미스 데이터 게이트웨이를 설치한 경우 파일 시스템용 루트 폴더입니다. <p>예를 들면 다음과 같습니다. `\\PublicShare\\DropboxFiles` <p>루트 폴더는 모든 파일 관련 작업의 상대 경로에 사용되는 기본 상위 폴더입니다. |
+   | **루트 폴더** | 예 | <*루트 폴더-이름*> | 온-프레미스 데이터 게이트웨이가 설치된 컴퓨터의 로컬 폴더나 컴퓨터가 액세스할 수 있는 네트워크 공유용 폴더 등의 위치에 온-프레미스 데이터 게이트웨이를 설치한 경우 파일 시스템용 루트 폴더입니다. <p>`\\PublicShare\\DropboxFiles` <p>루트 폴더는 모든 파일 관련 작업의 상대 경로에 사용되는 기본 상위 폴더입니다. |
    | **인증 유형** | 아니요 | <*인증 유형*> | 파일 시스템에서 사용 하는 인증 유형: **Windows** |
    | **사용자 이름** | 예 | <*domain*>도메인\\*username* 사용자<이름> | 파일 시스템이 있는 컴퓨터의 사용자 이름 |
    | **암호** | 예 | <*암호*> | 파일 시스템이 있는 컴퓨터의 암호 |

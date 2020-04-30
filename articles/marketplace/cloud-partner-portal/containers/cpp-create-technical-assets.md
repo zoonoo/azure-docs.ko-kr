@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
 ms.openlocfilehash: 68db606c9a01c4b1122f9b0cce620762485ca40a
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82148271"
 ---
 # <a name="prepare-your-container-technical-assets"></a>컨테이너 기술 자산 준비
@@ -21,7 +21,7 @@ ms.locfileid: "82148271"
 
 이 문서에서는 Azure Marketplace에서 컨테이너 제품을 구성하기 위한 단계 및 요구 사항을 설명합니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 빠른 시작, 자습서 및 샘플을 제공하는 [Azure Container Instances](https://docs.microsoft.com/azure/container-instances) 설명서를 검토하세요.
 

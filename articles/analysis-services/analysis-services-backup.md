@@ -8,10 +8,10 @@ ms.date: 04/24/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2866ec860cbc9037aa6b57389b35f17ec71a7c9d
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82145445"
 ---
 # <a name="backup-and-restore"></a>백업 및 복원
@@ -40,7 +40,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
 2.  **사용**을 클릭한 다음 **스토리지 설정**을 클릭합니다.
 
-    ![사용](./media/analysis-services-backup/aas-backup-enable.png)
+    ![사용 하도록 설정](./media/analysis-services-backup/aas-backup-enable.png)
 
 3. 스토리지 계정을 선택하거나 새로 만듭니다.
 
@@ -52,7 +52,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
     ![백업 설정 저장](./media/analysis-services-backup/aas-backup-save.png)
 
-## <a name="backup"></a>백업
+## <a name="backup"></a>Backup
 
 ### <a name="to-backup-by-using-ssms"></a>SSMS를 사용하여 백업하려면
 

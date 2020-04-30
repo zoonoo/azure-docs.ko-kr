@@ -4,10 +4,10 @@ description: Azure 또는 온-프레미스에 호스트되는 ASP.NET 웹 사이
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.openlocfilehash: d3181c3d43f07c7cb920b9fe265a8420c1417a56
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82145273"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 설정
@@ -141,6 +141,6 @@ ApplicationInsights.config에 대한 사용자 지정을 수행한 경우, 업�
 * [스마트 진단](../../azure-monitor/app/proactive-diagnostics.md): 이 테스트는 자동으로 실행되므로 아무것도 설정할 필요가 없습니다. 앱이 실패한 요청으로 비정상적인 속도를 보일 경우 알려줍니다.
 * [메트릭 경고](../../azure-monitor/app/alerts.md): 메트릭이 임계값을 초과 하는 경우 경고를 표시 하도록 경고를 설정 합니다. 앱에 코딩하는 사용자 지정 메트릭에 이러한 경고를 설정할 수 있습니다.
 
-### <a name="automation"></a>자동화
+### <a name="automation"></a>Automation
 
 * [Application Insights 리소스 만들기 자동화](../../azure-monitor/app/powershell.md)

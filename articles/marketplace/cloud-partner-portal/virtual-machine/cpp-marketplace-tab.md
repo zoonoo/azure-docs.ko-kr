@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
 ms.openlocfilehash: 2c3d316d0d2810cb2a25ffd3bc4e34cf3454c10d
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146853"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>가상 머신 Marketplace 탭
@@ -34,9 +34,9 @@ ms.locfileid: "82146853"
 | **제목\***                 | 제안의 제목이며. 종종 긴 정식 이름입니다. 이 제목은 마켓플레이스에서 눈에 띄게 표시됩니다.  최대 길이는 50자입니다. |
 | **요약\***               | 솔루션에 대한 간략한 목적 또는 기능입니다.  최대 길이는 100자입니다. |
 | **긴 요약\***          | 솔루션에 대한 목적 또는 기능입니다.  최대 길이는 256자입니다. |
-| **설명\***           | 솔루션에 대한 설명입니다.  최대 길이는 3,000자이며, 단순 HTML 형식을 지원합니다. |
+| **Description\***           | 솔루션에 대한 설명입니다.  최대 길이는 3,000자이며, 단순 HTML 형식을 지원합니다. |
 | **Microsoft CSP 재판매인 채널\*** | 이제 CSP (클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다.  Microsoft CSP 파트너 채널을 통한 제품 마케팅에 대 한 자세한 내용은 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) 를 참조 하세요. |
-| **마케팅 식별자\***  | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다.  예를 들어: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **마케팅 식별자\***  | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다.  다음은 그 예입니다. <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **구독 Id 미리 보기\*** | 1-100개의 미리 보기 구독 식별자를 추가합니다. 제안이 게시된 후 라이브 상태가 되기 전에 이러한 허용 목록에 추가된 구독에서 해당 제안에 액세스할 수 있습니다. |
 | **유용한 링크**          | 설명서, 릴리스 정보, FAQ 등에 URL을 추가합니다. |
 | **제안 된 범주\*** | 기본 및 보조 범주 (선택 사항)를 포함 하 여 최대 2 개의 범주를 선택 합니다. 각 주 및/또는 보조 범주에 대해 최대 2 개의 하위 범주를 선택 합니다. 하위 범주를 선택 하지 않은 경우에는 선택한 범주 에서만 계속 검색할 수 있습니다. |
@@ -125,7 +125,7 @@ Cloud 파트너 포털에 업로드되는 모든 로고는 다음 지침을 따�
 |  ---------                    |     ---------------                                        |
 | **개인정보처리방침 URL\***      | 게시된 개인정보처리방침에 대한 URL                          |
 | **표준 계약을 사용 하나요?\***  |   |
-| **사용 약관\***            | 일반 텍스트 또는 단순 HTML 형식으로 작성된 정책입니다.                       |
+| **사용 조건\***            | 일반 텍스트 또는 단순 HTML 형식으로 작성된 정책입니다.                       |
 |  |  |
 
 

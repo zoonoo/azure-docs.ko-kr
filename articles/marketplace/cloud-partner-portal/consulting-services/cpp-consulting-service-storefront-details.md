@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: 9fd1330e0ca0a49556e79044570173adaf458e13
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82148159"
 ---
 # <a name="storefront-details-tab"></a>상점 세부 정보 탭
@@ -172,7 +172,7 @@ Microsoft는 고정 범위, 고정 기간, 예상/고정 가격 또는 무료 �
 
 컨설팅 서비스 제품과 가장 관련성이 높은 산업을 선택합니다.
 
-**작업**
+**Duration**
 
 **기간** 아래에서 3, 4 등의 숫자를 선택한 다음, **시간**, **일** 또는 **주**를 선택합니다.
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
 ms.openlocfilehash: 68480f5b3b52d2347369f878802c71672213940a
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146872"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce 간에 데이터 복사
@@ -67,9 +67,9 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| 형식 |형식 속성은 **Salesforce**로 설정되어야 합니다. |예 |
+| type |형식 속성은 **Salesforce**로 설정되어야 합니다. |예 |
 | environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br> - 기본값은 `"https://login.salesforce.com"`입니다. <br> - 샌드박스에서 데이터를 복사하려면 `"https://test.salesforce.com"`을 지정합니다. <br> - 사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 `"https://[domain].my.salesforce.com"`을 지정합니다. |아니요 |
 | username |사용자 계정의 사용자 이름을 지정합니다. |예 |
 | password |사용자 계정으로 password를 지정합니다.<br/><br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
@@ -146,9 +146,9 @@ Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 
 Salesforce 간에 데이터를 복사하려면 데이터 세트의 형식 속성을 **SalesforceObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **SalesforceObject**로 설정되어야 합니다.  | 예 |
+| type | 형식 속성은 **SalesforceObject**로 설정되어야 합니다.  | 예 |
 | objectApiName | 데이터를 검색할 Salesforce 개체 이름입니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 > [!IMPORTANT]
@@ -178,9 +178,9 @@ Salesforce 간에 데이터를 복사하려면 데이터 세트의 형식 속성
 >[!NOTE]
 >이전 버전과의 호환성을 위해, Salesforce에서 데이터를 복사할 때 이전 "RelationalTable" 형식 데이터 세트를 사용할 경우 이 형식도 그대로 작동하지만 "SalesforceObject" 형식으로 전환하는 것이 좋습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 type 속성을 **RelationalTable**로 설정해야 합니다. | 예 |
+| type | 데이터 세트의 type 속성을 **RelationalTable**로 설정해야 합니다. | 예 |
 | tableName | Salesforce에 있는 테이블의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
@@ -191,9 +191,9 @@ Salesforce 간에 데이터를 복사하려면 데이터 세트의 형식 속성
 
 Salesforce에서 데이터를 복사하려면 복사 작업의 원본 형식을 **SalesforceSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 형식 속성을 **SalesforceSource**로 설정해야 합니다. | 예 |
+| type | 복사 작업 원본의 형식 속성을 **SalesforceSource**로 설정해야 합니다. | 예 |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리 또는 SQL-92 쿼리를 사용할 수 있습니다. [쿼리 팁](#query-tips) 섹션에서 더 많은 팁을 참조하세요. 쿼리를 지정하지 않으면 데이터 세트의 “objectApiName”에 지정된 Salesforce 개체의 모든 데이터가 검색됩니다. | 아니요(데이터 세트의 “objectApiName”이 지정된 경우) |
 | readBehavior | 기존 레코드를 쿼리할지, 아니면 삭제된 항목을 포함하여 모든 레코드를 쿼리할지 여부를 나타냅니다. 지정하지 않으면 기본 동작은 전자입니다. <br>허용되는 값: **query**(기본값), **queryAll**입니다.  | 아니요 |
 
@@ -241,9 +241,9 @@ Salesforce에서 데이터를 복사하려면 복사 작업의 원본 형식을 
 
 Salesforce에 데이터를 복사하려면 복사 작업의 싱크 형식을 **SalesforceSink**로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 싱크의 형식 속성은 **SalesforceSink**로 설정해야 합니다. | 예 |
+| type | 복사 작업 싱크의 형식 속성은 **SalesforceSink**로 설정해야 합니다. | 예 |
 | writeBehavior | 작업의 쓰기 동작입니다.<br/>허용되는 값은 **Insert** 및 **Upsert**입니다. | 아니요(기본값: 삽입) |
 | externalIdFieldName | Upsert 작업의 외부 ID 필드 이름입니다. 지정된 필드는 Salesforce 개체에서 "외부 ID필드"로 정의되어야 합니다. 해당하는 입력 데이터에서 NULL 값을 가질 수 없습니다. | "Upsert"에서 예 |
 | writeBatchSize | 각 일괄 처리에서 Salesforce에 작성된 데이터의 행 수입니다. | 아니요(기본값: 5,000) |
@@ -304,12 +304,12 @@ Salesforce에서 데이터를 복사할 때 SOQL 쿼리 또는 SQL 쿼리를 사
 | 따옴표 | 필드/개체 이름은 따옴표로 묶을 수 없습니다. | 필드/개체 이름은 따옴표로 묶을 수 있습니다. 예: `SELECT "id" FROM "Account"` |
 | 날짜/시간 형식 |  자세한 내용은 [여기](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) 및 다음 섹션의 샘플을 참조하세요. | 자세한 내용은 [여기](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) 및 다음 섹션의 샘플을 참조하세요. |
 | 부울 값 | `False` 및 `True`로 표시됩니다. 예: `SELECT … WHERE IsDeleted=True` | 0 또는 1로 표시됩니다. 예: `SELECT … WHERE IsDeleted=1` |
-| 열 이름 바꾸기 | 지원되지 않습니다. | 지원됨. 예: `SELECT a AS b FROM …` |
-| 관계 | 지원됨. 예: `Account_vod__r.nvs_Country__c` | 지원되지 않습니다. |
+| 열 이름 바꾸기 | 지원 안 됨 | 지원됨. 예: `SELECT a AS b FROM …` |
+| 관계 | 지원됨. 예: `Account_vod__r.nvs_Country__c` | 지원 안 됨 |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>DateTime 열에서 Where 문을 사용하여 데이터를 검색합니다.
 
-SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 합니다. 예를 들어:
+SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 합니다. 다음은 그 예입니다.
 
 * **SOQL 샘플**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL 샘플**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
@@ -324,25 +324,25 @@ Salesforce에서 데이터를 복사할 경우 Salesforce 데이터 형식에서
 
 | Salesforce 데이터 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
-| 자동 번호 |String |
+| 자동 번호 |문자열 |
 | 확인란 |부울 |
 | Currency |Decimal |
-| 날짜 |DateTime |
+| Date |DateTime |
 | 날짜/시간 |DateTime |
-| 메일 |String |
-| Id |String |
-| 관계 조회 |String |
-| 다중 선택 선택 목록 |String |
-| 번호 |Decimal |
+| 메일 |문자열 |
+| Id |문자열 |
+| 관계 조회 |문자열 |
+| 다중 선택 선택 목록 |문자열 |
+| 숫자 |Decimal |
 | 백분율 |Decimal |
-| Phone |String |
-| 선택 목록 |String |
-| 텍스트 |String |
-| 텍스트 영역 |String |
-| 텍스트 영역(Long) |String |
-| 텍스트 영역(Rich) |String |
-| 텍스트(암호화됨) |String |
-| URL |String |
+| Phone |문자열 |
+| 선택 목록 |문자열 |
+| Text |문자열 |
+| 텍스트 영역 |문자열 |
+| 텍스트 영역(Long) |문자열 |
+| 텍스트 영역(Rich) |문자열 |
+| 텍스트(암호화됨) |문자열 |
+| URL |문자열 |
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 

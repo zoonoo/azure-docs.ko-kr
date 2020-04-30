@@ -4,10 +4,10 @@ description: 고객이 Azure 위임 된 리소스 관리에 대 한 관리 서�
 ms.date: 04/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: 19c4d1a4bd0ffd7c0162cbf7f20c49a5b219b9bc
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146735"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Azure Marketplace에 관리 서비스 제품 게시
@@ -45,7 +45,7 @@ MPN(Microsoft 파트너 네트워크) ID는 게시하는 제품에 [자동으로
 
 **제품 설정** 섹션에서 다음을 제공합니다.
 
-|필드  |설명  |
+|필드  |Description  |
 |---------|---------|
 |**제품 ID**     | 게시자 프로필에 있는 제품의 고유 식별자입니다. 이 ID에는 소문자 영숫자, 대시 및 밑줄만 사용할 수 있으며 최대 50자로 제한됩니다. 제품 ID는 제품 URL 및 청구 보고서 등에 표시될 수 있습니다. 제품을 게시한 후에는 이 값을 변경할 수 없습니다.        |
 |**게시자 ID**     | 제품에 연결될 게시자 ID입니다. 게시자 ID가 둘 이상인 경우 이 제품에 사용할 ID를 선택할 수 있습니다.       |
@@ -63,7 +63,7 @@ MPN(Microsoft 파트너 네트워크) ID는 게시하는 제품에 [자동으로
 
 **플랜 세부 정보** 섹션에서 다음 섹션을 완료합니다.
 
-|필드  |설명  |
+|필드  |Description  |
 |---------|---------|
 |**제목**     | 표시할 플랜의 이름입니다. 최대 길이는 50자입니다.        |
 |**요약**     | 제목 아래에 표시할 플랜에 대한 간결한 설명입니다. 최대 길이는 100자입니다.        |
@@ -110,7 +110,7 @@ MPN(Microsoft 파트너 네트워크) ID는 게시하는 제품에 [자동으로
 
 **개요** 섹션에서 다음 필드를 완료합니다.
 
-|필드  |설명  |
+|필드  |Description  |
 |---------|---------|
 |**제목**     |  제안의 제목이며. 종종 긴 정식 이름입니다. 이 제목은 마켓플레이스에서 눈에 띄게 표시됩니다. 최대 길이는 50자입니다. 대부분의 경우 이 이름은 **제품 설정** 섹션에 입력한 **이름**과 동일해야 합니다.       |
 |**요약**     | 제품의 간략한 용도 또는 기능입니다. 일반적으로 제목 아래에 표시됩니다. 최대 길이는 100자입니다.        |

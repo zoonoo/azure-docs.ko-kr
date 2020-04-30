@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 34583ef49b2f919391af3fe5700a558b2dc40700
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 191a2246afdc60953d8c353f9ccdc2339130f910
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77187237"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82159338"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Python(azure-eventhub 버전 5)을 사용하여 Azure Storage에서 Event Hubs 데이터 캡처
 
@@ -46,7 +46,7 @@ ms.locfileid: "77187237"
 - Azure 스토리지 계정, 스토리지 계정의 BLOB 컨테이너, 스토리지 계정에 대한 연결 문자열. 이러한 항목이 없으면 다음을 수행합니다.  
     1. [Azure 스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal)  
     1. [스토리지 계정에서 BLOB 컨테이너 만들기](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
-    1. [스토리지 계정에 대한 연결 문자열 가져오기](../storage/common/storage-configure-connection-string.md#view-and-copy-a-connection-string)
+    1. [스토리지 계정에 대한 연결 문자열 가져오기](../storage/common/storage-configure-connection-string.md)
 
     이 빠른 시작의 뒷부분에서 사용할 수 있도록 연결 문자열과 컨테이너 이름을 기록해 두어야 합니다.  
 - 이벤트 허브에 캡처 기능을 사용하도록 설정합니다. 이렇게 하려면 [Azure Portal을 사용하여 Event Hubs 캡처를 사용하도록 설정](event-hubs-capture-enable-through-portal.md)의 지침을 따릅니다. 이전 단계에서 만든 스토리지 계정과 BLOB 컨테이너를 선택합니다. 이벤트 허브를 만들 때 이 기능을 사용하도록 설정할 수도 있습니다.  
