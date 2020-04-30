@@ -4,12 +4,12 @@ description: Azure Migrate를 사용하여 VMware VM의 에이전트 없는 마�
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 4612c9b0ea2ef8d53b0c04f47628f3789705d833
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 86f24b7fdfee30c182419023e4ed33f6228b3711
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535318"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509315"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음)
 
@@ -57,7 +57,7 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 
 Azure Migrate:Server Migration 도구를 추가합니다.
 
-- 두 번째 자습서에 따라 [VMware VM 평가](/tutorial-assess-vmware.md)를 수행하는 경우 계속 진행하여 도구를 추가할 수 있습니다.
+- 두 번째 자습서에 따라 [VMware VM 평가](tutorial-assess-vmware.md)를 수행하는 경우 계속 진행하여 도구를 추가할 수 있습니다.
 - 두 번째 자습서를 따르지 않은 경우 [이러한 지침에 따라](how-to-add-tool-first-time.md) Azure Migrate 프로젝트를 설정합니다.  프로젝트를 만들 때 Azure Migrate:Server Migration 도구를 추가합니다.
 
 프로젝트를 설정한 경우 다음과 같이 도구를 추가합니다.

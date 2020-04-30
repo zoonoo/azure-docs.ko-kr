@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
-ms.openlocfilehash: 5e5034e99d37d3681192c2ad066f28acd1c4aeeb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 979535b1f9a237f6975908178fb1e5ed819181b0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "77672534"
+ms.locfileid: "82233468"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Microsoft Azure 진단 확장에서 Azure Event Hubs로 데이터 전송
 Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 수집 하 고 Azure virtual machines 및 기타 계산 리소스의 작업 부하를 수집 하는 Azure Monitor의 에이전트입니다. 이 문서에서는 Azure WAD (Microsoft Azure 진단 확장)에서 azure [Event Hubs](https://azure.microsoft.com/services/event-hubs/) 로 데이터를 전송 하 여 azure 외부의 위치로 전달 하는 방법을 설명 합니다.
@@ -25,7 +25,7 @@ Event Hubs로 전송할 수 있는 게스트 운영 체제에서 수집 된 데�
 * Windows 이벤트 로그 (Windows 이벤트 로그의 응용 프로그램 로그 포함)
 * Azure Diagnostics 인프라 로그
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Windows 진단 확장 1.6 이상. 지원 되는 리소스에 대 한 [Azure 진단 확장 구성 스키마 버전 및 기록](diagnostics-extension-versions.md) 에 대 한 자세한 내용 및 [Azure 진단 확장 개요](diagnostics-extension-overview.md) 를 참조 하세요.
 * Event Hubs 네임 스페이스는 항상 프로 비전 되어야 합니다. 자세한 내용은 [Event Hubs 시작을](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) 참조 하세요.
@@ -51,26 +51,26 @@ Azure 진단는 항상 로그 및 메트릭을 Azure Storage 계정으로 보냅
 {
     "WadCfg": {
         "DiagnosticMonitorConfiguration": {
-            "overallQuotaInMB": 5120
-        },
-        "PerformanceCounters": {
-            "scheduledTransferPeriod": "PT1M",
-            "sinks": "myEventHub",
-            "PerformanceCounterConfiguration": [
-                {
-                    "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                    "sampleRate": "PT3M"
-                }
-            ]
-        },
-        "WindowsEventLog": {
-            "scheduledTransferPeriod": "PT1M",
-            "sinks": "myEventHub",
-                "DataSource": [
-                {
-                    "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
-                }
-            ]
+            "overallQuotaInMB": 5120,
+            "PerformanceCounters": {
+                "scheduledTransferPeriod": "PT1M",
+                "sinks": "myEventHub",
+                "PerformanceCounterConfiguration": [
+                    {
+                        "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                        "sampleRate": "PT3M"
+                    }
+                ]
+            },
+            "WindowsEventLog": {
+                "scheduledTransferPeriod": "PT1M",
+                "sinks": "myEventHub",
+                    "DataSource": [
+                    {
+                        "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
+                    }
+                ]
+            }
         },
         "SinksConfig": {
             "Sink": [

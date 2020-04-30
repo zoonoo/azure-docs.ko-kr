@@ -1,22 +1,22 @@
 ---
-title: Azure HDInsight에 대 한 모범 사례 Apache Spark
-description: Azure HDInsight에서 Apache Spark 사용에 대 한 모범 사례를 알아봅니다.
+title: Azure HDInsight에 대 한 Apache Spark 지침
+description: Azure HDInsight에서 Apache Spark 사용에 대 한 지침을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.openlocfilehash: 20033e52e862f086d1491c06d38cdf4f2c57ba8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 04/28/2020
+ms.openlocfilehash: 424a0cfd02cfce9fb87bc3e21d7b067740df8218
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71106126"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509417"
 ---
-# <a name="apache-spark-best-practices"></a>Apache Spark 모범 사례
+# <a name="apache-spark-guidelines"></a>Apache Spark 지침
 
-이 문서에서는 Azure HDInsight에서 Apache Spark를 사용 하기 위한 다양 한 모범 사례를 제공 합니다.
+이 문서에서는 Azure HDInsight에서 Apache Spark를 사용 하기 위한 다양 한 지침을 제공 합니다.
 
 ## <a name="how-do-i-run-or-submit-spark-jobs"></a>Spark 작업을 실행 하거나 제출할 어떻게 할까요? 있나요?
 
@@ -28,6 +28,10 @@ ms.locfileid: "71106126"
 | IntelliJ | [자습서: IntelliJ를 사용하여 HDInsight의 Apache Spark용 Scala Maven 애플리케이션 만들기](./apache-spark-create-standalone-application.md) |
 | Zeppelin Notebooks | [Azure HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](./apache-spark-zeppelin-notebook.md) |
 | Livy를 사용 하 여 원격 작업 제출 | [Apache Spark REST API를 사용하여 HDInsight Spark 클러스터에 원격 작업 제출](./apache-spark-livy-rest-interface.md) |
+|[Apache Oozie](../hdinsight-use-oozie-linux-mac.md)|Oozie는 Hadoop 작업을 관리하는 워크플로 및 코디네이션 시스템입니다.|
+|[Apache Livy](./apache-spark-livy-rest-interface.md)|Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행되도록 배치 작업을 제출할 수 있습니다.|
+|[Apache Spark에 대 한 Azure Data Factory](/../data-factory/transform-data-using-spark.md)|Data Factory 파이프라인의 Spark 작업은 사용자 고유의 또는 [주문형 HDInsight 클러스터에서 Spark 프로그램을 실행 합니다.|
+|[Apache Hive에 대 한 Azure Data Factory](/../data-factory/transform-data-using-hadoop-hive.md)|Data Factory 파이프라인의 HDInsight Hive 작업은 사용자 고유 또는 주문형 HDInsight 클러스터에서 Hive 쿼리를 실행 합니다.|
 
 ## <a name="how-do-i-monitor-and-debug-spark-jobs"></a>Spark 작업을 모니터링 하 고 디버그할 어떻게 할까요? 있나요?
 

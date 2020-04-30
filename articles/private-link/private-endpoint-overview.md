@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
 ms.openlocfilehash: a4117acb2fada5c4422e177e9e6b84d7a0a51b69
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82129311"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 개인 끝점 이란?
@@ -52,7 +52,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
  
 |개인 링크 리소스 이름  |리소스 유형   |하위 리소스  |
 |---------|---------|---------|
-|**개인 링크 서비스** (사용자 고유의 서비스)   |  Microsoft. Network/privateLinkServices       | empty |
+|**개인 링크 서비스** (사용자 고유의 서비스)   |  Microsoft. Network/privateLinkServices       | 비어 있음 |
 |**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        | 
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> 테이블 (테이블, table_secondary)<BR> 큐 (큐, queue_secondary)<BR> 파일 (파일, file_secondary)<BR> 웹 (웹, web_secondary)        |

@@ -4,12 +4,12 @@ description: 개발자의 관점에서 Batch 서비스와 해당 API에 대한 �
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: fdc04c49521c9d91ef836c4d1dba76091db8f16a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 590ce6d6804c25ea9a3c1104f8fea2ea00c66356
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115383"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509196"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 컴퓨팅 솔루션 개발
 
@@ -429,7 +429,7 @@ VNet에서 Batch 풀 설정에 대한 자세한 내용은 [가상 네트워크�
 * **리소스 메트릭**은 CPU 사용량, 대역폭 사용량, 메모리 사용량 및 노드 수를 기반으로 합니다.
 * **태스크 메트릭**은 *활성*(큐에 대기), *실행* 또는 *완료* 등 태스크 상태에 따라 다릅니다.
 
-자동 크기 조정이 풀에서 컴퓨팅 노드 수를 감소시키면 감소 작업 시에 실행 중인 태스크를 처리하는 방법을 고려해야 합니다. 이를 제공하기 위해 Batch가 수식에 포함할 수 있는 *노드 할당 취소 옵션* 을 제공합니다. 예를 들어 실행 중인 태스크를 즉시 중지한 다음 다른 노드에서 실행하기 위해 큐에 다시 넣거나 풀에서 노드를 제거하기 전에 완료하도록 지정할 수 있습니다.
+자동 크기 조정이 풀에서 컴퓨팅 노드 수를 감소시키면 감소 작업 시에 실행 중인 태스크를 처리하는 방법을 고려해야 합니다. 이를 수용 하기 위해 Batch는 수식에 포함할 수 있는 [*노드 할당 취소 옵션*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) 을 제공 합니다. 예를 들어 실행 중인 태스크를 즉시 중지한 다음 다른 노드에서 실행하기 위해 큐에 다시 넣거나 풀에서 노드를 제거하기 전에 완료하도록 지정할 수 있습니다. 노드 할당 취소 옵션을 or `taskcompletion` `retaineddata` 로 설정 하면 모든 작업이 완료 되거나 모든 작업 보존 기간이 만료 될 때까지 풀 크기 조정 작업을 수행할 수 없습니다.
 
 자동으로 애플리케이션 크기를 조정하는 방법에 대한 자세한 내용은 [Azure Batch 풀에서 자동으로 컴퓨팅 노드 크기 조정](batch-automatic-scaling.md)을 참조하세요.
 

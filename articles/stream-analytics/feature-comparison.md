@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: b169a067f05de422b714e18a4d7ebb9c9e7f0428
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133493"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Azure Stream Analytics 기능 비교
@@ -18,7 +18,7 @@ ms.locfileid: "82133493"
 Azure Stream Analytics를 사용 하 여 클라우드 및 IoT Edge [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)및 [Visual Studio Code](quick-create-vs-code.md)를 사용 하 여 스트리밍 솔루션을 만들 수 있습니다. 이 문서의 표에서는 두 작업 유형에 대해 각 플랫폼에서 지원 되는 기능을 보여 줍니다.
 
 > [!NOTE]
-> Visual Studio 및 Visual Studio Code 도구는 중국 동부, 중국 북부, 독일 중부 및 독일 북동쪽 지역의 작업을 지원 하지 않습니다.
+> Visual Studio 및 Visual Studio Code 도구는 중국 동부, 중국 북부, 독일 중부 및 독일 북동부 지역의 작업을 지원하지 않습니다.
 
 ## <a name="cloud-job-features"></a>클라우드 작업 기능
 

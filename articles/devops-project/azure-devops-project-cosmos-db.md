@@ -1,26 +1,25 @@
 ---
-title: '자습서: Azure DevOps Projects를 사용하여 Azure Cosmos DB에서 제공되는 Node.js 앱 배포'
-description: Azure DevOps Projects를 사용하면 Azure를 쉽게 시작할 수 있습니다. DevOps Projects를 사용하면 몇 가지 빠른 단계를 통해 Azure Cosmos DB로 구동되는 Node.js 앱을 Windows 웹앱에 배포할 수 있습니다.
+title: '자습서: Azure DevOps 스타터를 사용 하 여 Azure Cosmos DB으로 구동 되는 node.js 앱 배포'
+description: Azure DevOps 스타터를 사용 하면 Azure에서 쉽게 시작할 수 있습니다. DevOps 스타터를 사용 하면 몇 가지 빠른 단계를 통해 Windows 웹 앱에 Azure Cosmos DB으로 구동 되는 node.js 앱을 배포할 수 있습니다.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 03/24/2020
 author: mlearned
-monikerRange: vsts
-ms.openlocfilehash: 229b4b9f53ea3866dce1169645f6d6da20827271
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+ms.openlocfilehash: 07579cf22738e195e3e4ae7a2aa18ffeb885bbe2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73888897"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233261"
 ---
-# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>DevOps Projects를 사용하여 Azure Cosmos DB에서 제공되는 Node.js 앱 배포
+# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>DevOps 스타터를 사용 하 여 Azure Cosmos DB으로 구동 되는 node.js 앱 배포
 
-Azure DevOps Projects는 CI(지속적인 통합) 및 CD(지속적인 배포) 파이프라인을 Azure에 만들 수 있는 간소화된 환경을 제공합니다. 이 작업은 기존 코드와 Git 리포지토리(repo)를 사용하거나 샘플 애플리케이션을 선택하여 수행합니다.
+Azure DevOps 스타터는 Azure에 대 한 CI (지속적인 통합) 및 CD (지속적인 배포) 파이프라인을 만들 수 있는 간소화 된 환경을 제공 합니다. 이 작업은 기존 코드와 Git 리포지토리(repo)를 사용하거나 샘플 애플리케이션을 선택하여 수행합니다.
 
-또한 DevOps Projects는 다음을 수행합니다.
+DevOps 스타터도:
 
 * 자동으로 Azure 리소스(예: Azure Cosmos DB, Azure Application Insights, Azure App Service 및 App Service 계획) 만들기
 
@@ -29,7 +28,7 @@ Azure DevOps Projects는 CI(지속적인 통합) 및 CD(지속적인 배포) 파
 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
-> * DevOps Projects를 사용하여 Azure Cosmos DB에서 제공되는 Node.js 앱 배포
+> * DevOps 스타터를 사용 하 여 Azure Cosmos DB에서 구동 하는 node.js 앱을 배포 합니다.
 > * Azure DevOps 및 Azure 구독 구성
 > * Azure Cosmos DB 검토
 > * CI 파이프라인 검토
@@ -41,17 +40,15 @@ Azure DevOps Projects는 CI(지속적인 통합) 및 CD(지속적인 배포) 파
 
 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)를 체험할 수 있는 Azure 구독이 필요합니다.
 
-## <a name="use-devops-projects-to-deploy-nodejs-app"></a>DevOps Projects를 사용하여 Node.js 앱 배포
+## <a name="use-devops-starter-to-deploy-nodejs-app"></a>DevOps 스타터를 사용 하 여 node.js 앱 배포
 
-DevOps Projects는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. 또한 DevOps Projects는 선택한 Azure 구독에서 Azure Cosmos DB, Application Insights, App Service 및 App Service 계획과 같은 Azure 리소스를 만들 수 있습니다.
+DevOps 스타터는 Azure Pipelines에서 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. 또한 DevOps 스타터는 선택한 Azure 구독에서 Azure Cosmos DB, Application Insights, App Service 및 App Service 계획과 같은 Azure 리소스를 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 왼쪽 창에서 **리소스 만들기**를 선택합니다.
+1. 검색 상자에 **Devops 스타터**를 입력 한 다음를 선택 합니다. 새 항목을 만들려면 **추가** 를 클릭 합니다.
 
-1. 검색 상자에서 **DevOps Projects**를 입력한 다음, **추가**를 선택합니다.
-
-   ![DevOps Projects 창](_img/azure-devops-project-cosmos-db/devops-project.png)
+    ![DevOps 스타터 대시보드](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 1. 런타임으로 **Node.js**를 선택하고 **다음**을 선택합니다. **애플리케이션 프레임워크 선택**에서 **Express.js**를 선택합니다.
 
@@ -59,7 +56,7 @@ DevOps Projects는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새
 
     ![데이터베이스 추가](_img/azure-devops-project-cosmos-db/add-database.png)
 
-    Azure DevOps Projects는 **Express.js**, **Sample Node.js 앱** 및 **Sail.js**와 같은 다양한 애플리케이션 프레임워크를 지원합니다. 이 자습서에서는**Express.js**를 사용합니다.
+    Azure DevOps 스타터는 **Express .js**, **샘플 Node.js 앱**및 **Sail**와 같은 다양 한 응용 프로그램 프레임 워크를 지원 합니다. 이 자습서에서는**Express.js**를 사용합니다.
 
 1. 애플리케이션을 배포할 Azure 서비스를 선택하고, **다음**을 선택합니다. 옵션으로 Windows 웹앱, Azure Kubernetes Service 및 Azure Web App for Containers가 있습니다. 이 자습서에서는 **Windows 웹앱**을 사용합니다.
 
@@ -77,17 +74,17 @@ DevOps Projects는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새
 
 1. 몇 분 후에 프로세스가 완료됩니다. Node.js 앱 샘플은 Azure DevOps 조직의 Git 리포지토리에 설정됩니다. 다음으로, CI/CD 파이프라인뿐만 아니라 Azure Cosmos DB, App Service, App Service 계획 및 Application Insights 리소스도 만들어집니다. 그런 다음, 앱이 Azure에 배포됩니다.
 
-   모든 프로세스가 완료되면 Azure DevOps Projects 대시보드가 Azure Portal에 표시됩니다. Azure Portal의 **모든 리소스**에서 직접 DevOps Projects 대시보드로 이동할 수도 있습니다.
+   이러한 모든 프로세스가 완료 되 면 Azure DevOps 스타터 대시보드가 Azure Portal에 표시 됩니다. Azure Portal의 **모든 리소스** 에서 직접 Devops 스타터 대시보드로 이동할 수도 있습니다.
 
    이 대시보드는 Azure DevOps 코드 리포지토리, CI/CD 파이프라인 및 Azure Cosmos DB 데이터베이스에 대한 가시성을 제공합니다. Azure DevOps 파이프라인에서 추가 CI/CD 옵션을 구성할 수 있습니다. 대시보드의 오른쪽에서 **Cosmos DB**를 선택하여 이러한 옵션을 확인합니다.
 
 ## <a name="examine-azure-cosmos-db"></a>Azure Cosmos DB 검토
 
-DevOps Projects는 검색하고 사용자 지정할 수 있는 Azure Cosmos DB를 자동으로 구성합니다. Azure Cosmos DB에 익숙해지려면 다음을 수행합니다.
+DevOps 스타터는 탐색 하 고 사용자 지정할 수 있는 Azure Cosmos DB를 자동으로 구성 합니다. Azure Cosmos DB에 익숙해지려면 다음을 수행합니다.
 
-1. DevOps Projects 대시보드로 이동합니다.
+1. DevOps 스타터 대시보드로 이동 합니다.
 
-    ![DevOps Projects 대시보드](_img/azure-devops-project-cosmos-db/devops-project-dashboard.png)
+    ![DevOps Projects 대시보드](_img/azure-devops-project-cosmos-db/devops-starter-dashboard.png)
 
 1. 오른쪽에서 Azure Cosmos DB를 선택합니다. Azure Cosmos DB에 대한 창이 열립니다. 이 보기에서 작업 모니터링 및 로그 검색과 같은 다양한 작업을 수행할 수 있습니다.
 
@@ -95,9 +92,9 @@ DevOps Projects는 검색하고 사용자 지정할 수 있는 Azure Cosmos DB�
 
 ## <a name="examine-the-ci-pipeline"></a>CI 파이프라인 검토
 
-DevOps Projects는 Azure DevOps 조직에서 CI/CD 파이프라인을 자동으로 구성합니다. 파이프라인을 탐색하고 사용자 지정할 수 있습니다. 이 작업에 익숙해지려면 다음을 수행합니다.
+DevOps 스타터는 Azure DevOps 조직에서 CI/CD 파이프라인을 자동으로 구성 합니다. 파이프라인을 탐색하고 사용자 지정할 수 있습니다. 이 작업에 익숙해지려면 다음을 수행합니다.
 
-1. DevOps Projects 대시보드로 이동합니다.
+1. DevOps 스타터 대시보드로 이동 합니다.
 
 1. **빌드** 아래의 하이퍼링크를 선택합니다. 브라우저 탭에 새 프로젝트에 대한 빌드 파이프라인이 표시됩니다.
 
@@ -105,7 +102,7 @@ DevOps Projects는 Azure DevOps 조직에서 CI/CD 파이프라인을 자동으�
 
 1. **편집**을 선택합니다. 이 창에서 빌드 파이프라인의 다양한 작업을 검사할 수 있습니다. 빌드는 Git 리포지토리에서 소스 코드 가져오기, 애플리케이션 빌드, 단위 테스트 실행 및 배포에 사용된 출력 게시 등 다양한 작업을 수행합니다.
 
-1. **트리거**를 선택합니다. DevOps Projects는 CI 트리거를 자동으로 생성하며, 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다. CI 프로세스에서 분기를 포함하거나 제외하도록 선택할 수 있습니다.
+1. **트리거**를 선택합니다. DevOps 스타터는 CI 트리거를 자동으로 만들며 리포지토리에 대 한 모든 커밋을 새 빌드를 시작 합니다. CI 프로세스에서 분기를 포함하거나 제외하도록 선택할 수 있습니다.
 
 1. **보존**을 선택합니다. 시나리오에 따라 특정 수의 빌드를 유지하거나 제거하는 정책을 지정할 수 있습니다.
 
@@ -117,7 +114,7 @@ DevOps Projects는 Azure DevOps 조직에서 CI/CD 파이프라인을 자동으�
 
 ## <a name="examine-the-cd-release-pipeline"></a>CD 릴리스 파이프라인 검토
 
-DevOps Projects는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 필요한 단계를 자동으로 만들고 구성합니다. 이러한 단계에는 Azure 구독에 Azure DevOps를 인증하기 위한 Azure 서비스 연결 구성이 포함됩니다. 또한 자동화 기능은 Azure에 CD를 제공하는 릴리스 파이프라인도 만듭니다. 릴리스 파이프라인에 대한 자세한 내용을 보려면 다음을 수행하세요.
+DevOps 스타터는 Azure DevOps 조직에서 Azure 구독으로 배포 하는 데 필요한 단계를 자동으로 만들고 구성 합니다. 이러한 단계에는 Azure 구독에 Azure DevOps를 인증하기 위한 Azure 서비스 연결 구성이 포함됩니다. 또한 자동화 기능은 Azure에 CD를 제공하는 릴리스 파이프라인도 만듭니다. 릴리스 파이프라인에 대한 자세한 내용을 보려면 다음을 수행하세요.
 
 1. **파이프라인**으로 이동하여 **릴리스**를 선택합니다.
 
@@ -150,18 +147,18 @@ DevOps Projects는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 �
 
 1. 오른쪽 위 모서리에서 **커밋**을 선택한 다음, **커밋**을 다시 선택하여 변경 내용을 푸시합니다.
 
-     몇 초 후에 Azure DevOps에서 빌드가 시작되고, 릴리스가 실행되어 변경 내용을 배포합니다. Azure DevOps 조직이 있는 브라우저에서 또는 DevOps Projects 대시보드를 사용하여 빌드 상태를 모니터링합니다.
+     몇 초 후에 Azure DevOps에서 빌드가 시작되고, 릴리스가 실행되어 변경 내용을 배포합니다. DevOps 스타터 대시보드 또는 브라우저에서 Azure DevOps 조직의 빌드 상태를 모니터링 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 만든 관련 리소스를 삭제합니다. DevOps Projects 대시보드에서 **삭제** 기능을 사용합니다.
+더 이상 필요하지 않은 경우 만든 관련 리소스를 삭제합니다. DevOps 스타터 대시보드에서 **삭제** 기능을 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 팀의 요구를 충족하려면 이러한 빌드 및 릴리스 파이프라인을 수정할 수 있습니다. 또한 다른 파이프라인에 대한 템플릿으로 이 CI/CD 패턴을 사용할 수 있습니다. 이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
-> * DevOps Projects를 사용하여 Azure Cosmos DB에서 제공되는 Node.js 앱 배포
+> * DevOps 스타터를 사용 하 여 Azure Cosmos DB에서 구동 하는 node.js 앱을 배포 합니다.
 > * Azure DevOps 및 Azure 구독 구성 
 > * Azure Cosmos DB 검토
 > * CI 파이프라인 검토

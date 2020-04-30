@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/04/2020
+ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8c77b3454026aa309d979bd938674e7c3ae7b6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 51a60d307ca7dac139db0097283fc08e9e41624c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "77025999"
+ms.locfileid: "82233536"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD PIM(Privileged Identity Management) 배포
 
@@ -325,7 +325,7 @@ Privileged Identity Management 솔루션을 구현 하기 전에 조직에서 �
 
 ### <a name="communicate-privileged-identity-management-to-affected-stakeholders"></a>영향을 받는 관련자와 Privileged Identity Management 통신
 
-Privileged Identity Management를 배포 하면 권한 있는 역할의 사용자에 게 추가 단계가 도입 됩니다. Privileged Identity Management는 권한 있는 id와 관련 된 보안 문제를 크게 줄일 수 있지만 변경 내용은 테 넌 트 전체 배포 전에 효과적으로 통신 해야 합니다. 영향을 받는 관리자 수에 따라 조직은 흔히 변경 내용에 관한 내부 문서, 비디오 또는 이메일을 만듭니다. 이러한 통신에 자주 포함되는 사항:
+Privileged Identity Management를 배포 하면 권한 있는 역할의 사용자에 게 추가 단계가 도입 됩니다. Privileged Identity Management는 권한 있는 id와 관련 된 보안 문제를 크게 줄일 수 있지만 변경 내용은 조직 전체 배포 전에 효율적으로 통신 해야 합니다. 영향을 받는 관리자 수에 따라 조직은 흔히 변경 내용에 관한 내부 문서, 비디오 또는 이메일을 만듭니다. 이러한 통신에 자주 포함되는 사항:
 
 - PIM 정의
 - 조직에 대한 혜택
@@ -371,7 +371,7 @@ Privileged Identity Management 프로덕션 환경에서 원하는 대로 작동
 
 ### <a name="use-privileged-identity-management-alerts-to-safeguard-your-privileged-access"></a>Privileged Identity Management 경고를 사용 하 여 권한 있는 액세스 보호
 
-테 넌 트를 보다 잘 보호 하기 위해 Privileged Identity Management의 기본 제공 경고 기능을 활용 해야 합니다. 자세한 내용은 [보안 경고](pim-how-to-configure-security-alerts.md#security-alerts)를 참조하세요. 이러한 경고는 관리자가 권한 있는 역할을 사용 하지 않거나, 역할이 Privileged Identity Management 외부에서 할당 되 고, 역할이 너무 자주 활성화 되는 경우 등에 발생 합니다. 조직을 완전하게 보호하기 위해 정기적으로 경고 목록을 검토하고 문제를 해결하는 것이 좋습니다. 다음 방법으로 경고를 확인하고 해결할 수 있습니다.
+조직의 보호를 강화 하려면 Privileged Identity Management의 기본 제공 경고 기능을 활용 해야 합니다. 자세한 내용은 [보안 경고](pim-how-to-configure-security-alerts.md#security-alerts)를 참조하세요. 이러한 경고는 관리자가 권한 있는 역할을 사용 하지 않거나, 역할이 Privileged Identity Management 외부에서 할당 되 고, 역할이 너무 자주 활성화 되는 경우 등에 발생 합니다. 조직을 완전하게 보호하기 위해 정기적으로 경고 목록을 검토하고 문제를 해결하는 것이 좋습니다. 다음 방법으로 경고를 확인하고 해결할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **Azure AD Privileged Identity Management**를 엽니다.

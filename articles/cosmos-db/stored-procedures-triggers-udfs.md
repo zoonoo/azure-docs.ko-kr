@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 13256377b8a8aaebf59196df57eef67d3b960cb8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010548"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509672"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>저장 프로시저, 트리거 및 사용자 정의 함수
 
@@ -64,6 +64,9 @@ Azure Cosmos DB에서 JavaScript 런타임의 호스트는 데이터베이스 �
 ### <a name="data-consistency"></a>데이터 일관성
 
 저장 프로시저와 트리거는 항상 Azure Cosmos 컨테이너의 주 복제본에서 실행됩니다. 이 기능은 저장 프로시저의 읽기에서 [강력한 일관성](consistency-levels-tradeoffs.md)을 제공합니다. 사용자 정의 함수를 사용하는 쿼리는 주 또는 보조 복제본에서 실행할 수 있습니다. 저장 프로시저 및 트리거는 트랜잭션 쓰기를 지원하기 위한 것이지만, [Azure Cosmos DB SQL API SDK](sql-api-dotnet-samples.md)를 사용하는 애플리케이션 쪽 논리 및 쿼리가 데이터베이스 처리량의 범위를 제한하는 데 도움이 되므로 읽기 전용 논리가 가장 잘 구현됩니다. 
+
+> [!TIP]
+> 저장 프로시저 또는 트리거 내에서 실행 되는 쿼리에는 동일한 스크립트 트랜잭션에서 수행한 항목에 대 한 변경 내용이 표시 되지 않을 수 있습니다. 이 문은와 같은 SQL 쿼리와 `getContent().getCollection.queryDocuments()`통합 언어 쿼리 (예:)를 모두 적용 `getContext().getCollection().filter()`합니다.
 
 ## <a name="bounded-execution"></a>제한된 예외
 

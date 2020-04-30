@@ -12,19 +12,19 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/14/2020
-ms.openlocfilehash: 2564fd0ffd980dae4ca1835f4211fee0a0cf040c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 1fedf889fa8d39a926067eb227b895d4fe1e3c39
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380928"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509349"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 
 Azure SQL Database에서 [장기 백업 보존](sql-database-long-term-retention.md) 정책 (LTR)이 포함 된 단일 또는 풀링된 데이터베이스를 구성 하 여 최대 10 년 동안 별도의 Azure Blob storage 컨테이너에 데이터베이스 백업을 자동으로 유지할 수 있습니다. 그런 다음, Azure Portal이나 PowerShell에서 이러한 백업을 사용하여 데이터베이스를 복구할 수 있습니다.
 
 > [!IMPORTANT]
-> [AZURE SQL database 관리 되는 인스턴스](sql-database-managed-instance.md) 는 현재 장기 백업 보존을 지원 하지 않습니다.
+> Azure SQL database 관리 되는 인스턴스의 경우에 [는 관리 되는 인스턴스에 대해 LTR 지원](sql-database-long-term-retention.md#managed-instance-support)을 참조 하세요.
 
 ## <a name="using-azure-portal"></a>Azure Portal 사용
 

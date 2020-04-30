@@ -3,12 +3,12 @@ title: 모든 환경에서 실행 중인 Java 응용 프로그램 모니터링-A
 description: 앱을 계측 하지 않고 Java 독립 실행형 에이전트가 있는 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 응용 프로그램 맵
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 08a83fbc05276808b62a0391a5c4217cc09f6d00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 527f1eaf04be7b5e8c89c12912a06d2f5d50321f
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641876"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508040"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Azure Monitor Application Insights에 대 한 JVM args Java 독립 실행형 에이전트 구성
 
@@ -20,15 +20,25 @@ ms.locfileid: "81641876"
 
 ## <a name="spring-boot"></a>Spring Boot
 
-이전 `-jar <myapp.jar>`어딘가에 JVM 인수 `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` 를 추가 합니다. 예를 들면 다음과 같습니다.
+이전 `-jar`어딘가에 JVM 인수 `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` 를 추가 합니다. 예를 들면 다음과 같습니다.
 
 ```
 java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.jar>
 ```
 
-> [!NOTE]
-> 뒤 `-jar <myapp.jar>` 에 배치 된 인수는 program 인수로 앱에 전달 됩니다.
+## <a name="spring-boot-via-docker-entry-point"></a>Docker 진입점을 통한 스프링 부팅
 
+*Exec* 폼을 사용 하는 경우 매개 변수 앞 `"-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar"` `"-jar"` 의 매개 변수 목록에 매개 변수를 추가 합니다. 예를 들면 다음과 같습니다.
+
+```
+ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar", "-jar", "<myapp.jar>"]
+```
+
+*Shell* 형식을 사용 하는 경우 앞 `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` `-jar`에 JVM 인수를 추가 합니다. 예를 들면 다음과 같습니다.
+
+```
+ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.jar>
+```
 
 ## <a name="tomcat-8-linux"></a>Tomcat 8 (Linux)
 

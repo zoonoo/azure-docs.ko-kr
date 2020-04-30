@@ -8,12 +8,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c8d22e63be880c0cef0c4072e99ab85bf3250a1c
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: d036733c023417af3ef038bb9abc278ec91e665c
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114277"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508958"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈 관리
 
@@ -21,8 +21,9 @@ Azure Automation를 사용 하면 PowerShell 모듈을 가져와서 DSC 구성�
 
 * [Azure PowerShell Az. Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)
 * [Azure PowerShell AzureRM](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-6.13.0)
-* Windows `Orchestrator.AssetManagement.Cmdlets` 용 Log Analytics 에이전트에 대 한 내부 모듈
 * 기타 PowerShell 모듈
+* 내부 `Orchestrator.AssetManagement.Cmdlets` 모듈
+* Python 2 모듈
 * 사용자가 만든 사용자 지정 모듈 
 
 Automation 계정을 만들 때 Azure Automation는 기본적으로 일부 모듈을 가져옵니다. [기본 모듈](#default-modules)을 참조 하세요.
@@ -33,7 +34,7 @@ Azure Automation runbook 및 DSC 컴파일 작업을 실행할 때 runbook을 �
 >Runbook 및 DSC 구성에 실제로 필요한 모듈만 가져와야 합니다. 루트 Az module은 필요 하지 않을 수 있는 다양 한 모듈을 포함 하 고 있으므로 성능 문제를 일으킬 수 있으므로 권장 하지 않습니다. 대신 Az. Compute 등의 개별 모듈을 가져옵니다.
 
 >[!NOTE]
->이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대 한 Az module 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조 하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법을](../automation-update-azure-modules.md)사용 하 여 모듈을 최신 버전으로 업데이트할 수 있습니다.
+>이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대한 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](../automation-update-azure-modules.md)을 사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
 ## <a name="default-modules"></a>기본 모듈
 
@@ -44,7 +45,7 @@ Azure Automation은 루트 Az module을 신규 또는 기존 Automation 계정�
 > [!NOTE]
 > [Azure Automation에서 작업 시간 외 VM 시작/중지 솔루션](../automation-solution-vm-management.md)을 포함 하는 Automation 계정에서 모듈 및 runbook을 변경 하지 않는 것이 좋습니다.
 
-|모듈 이름|Version|
+|모듈 이름|버전|
 |---|---|
 | AuditPolicyDsc | 1.1.0.0 |
 | Azure | 1.0.3 |
@@ -96,9 +97,13 @@ Az. Automation의 경우 대부분의 cmdlet은 AzureRM 모듈과 동일한 이�
 
 Runbook의 컨텍스트 외부에서 Azure Automation 리소스를 조작 하는 데 Az 또는 AzureRM cmdlet을 사용 하는 것이 좋습니다. 
 
-## <a name="module-supporting-get-automationpscredential"></a>Get AutomationPSCredential을 지 원하는 모듈
+## <a name="orchestratorassetmanagementcmdlets-module"></a>Orchestrator. Cmdlet 모듈
 
-Cmdlet `Get-AutomationPSCredential` 은 모듈 `Orchestrator.AssetManagement.Cmdlets`의 일부입니다. 이 cmdlet은 자격 `PSCredential` 증명을 사용 하는 대부분의 PowerShell cmdlet에 필요한 개체를 반환 합니다. Azure Automation 자격 증명 사용에 대 한 자세한 내용은 [Azure Automation의 자격 증명 자산](credentials.md)을 참조 하세요.
+Azure Automation은 기본적으로 `Orchestrator.AssetManagement.Cmdlets` 설치 되는 Windows 용 Log Analytics 에이전트의 내부 모듈을 지원 합니다. 이 `Get-AutomationPSCredential` 모듈의 cmdlet은 주로 자격 증명을 사용 하는 대부분 `PSCredential` 의 PowerShell cmdlet에 필요한 개체를 검색 하기 위해 runbook에서 사용 됩니다. Azure Automation 자격 증명 사용에 대 한 자세한 내용은 [Azure Automation의 자격 증명 자산](credentials.md)을 참조 하세요.
+
+## <a name="python-modules"></a>Python 모듈
+
+Azure Automation에서 Python 2 runbook을 만들 수 있습니다. Python 모듈 정보는 [Azure Automation에서 python 2 패키지 관리](../python-packages.md)를 참조 하세요.
 
 ## <a name="migrating-to-az-modules"></a>Az 모듈로 마이그레이션
 
@@ -117,7 +122,7 @@ Az module을 Automation 계정으로 가져오면 runbook에서 사용 하는 Po
 * Runbook이 모듈에서 cmdlet을 호출 하는 경우
 * Runbook이 import-module cmdlet을 사용 하 여 모듈을 명시적 [으로 가져오는 경우](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7)
 * Runbook이 다른 종속 모듈을 가져오는 경우
-    
+
 #### <a name="testing-for-your-runbooks-and-dsc-configurations-prior-to-module-migration"></a>모듈 마이그레이션 전에 runbook 및 DSC 구성에 대 한 테스트
 
 Az 모듈로 마이그레이션하기 전에 별도 Automation 계정에서 모든 runbook 및 DSC 구성을 신중 하 게 테스트 해야 합니다. 
@@ -334,7 +339,7 @@ PowerShell 갤러리에서 직접 모듈을 가져오려면 다음을 수행 합
 
 1. 로 https://www.powershellgallery.com 이동 하 여 가져올 모듈을 검색 합니다.
 2. **배포를 클릭 하** 여 **설치 옵션**아래의 **Azure Automation** 탭에서 Azure Automation 합니다. 이 작업을 수행 하면 Azure Portal 열립니다. 
-3. 가져오기 페이지에서 Automation 계정을 선택 하 고 **확인**을 클릭 합니다.
+3. 가져오기 페이지에서 Automation 계정을 선택하고 **확인**을 클릭합니다.
 
 ![가져오기 모듈 PowerShell 갤러리](../media/modules/powershell-gallery.png)
 

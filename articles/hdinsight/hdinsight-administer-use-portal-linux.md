@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/23/2020
-ms.openlocfilehash: 8380cfcbf267b117108d46794153bd5a61b8ec6a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 8170a0190e2d322c07f8f4978a77a8171579cbfb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116233"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232890"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
@@ -46,7 +46,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 | 항목| 설명 |
 |---|---|
 |이동|클러스터를 다른 리소스 그룹 또는 다른 구독으로 이동시킵니다.|
-|DELETE|클러스터를 삭제합니다. |
+|삭제|클러스터를 삭제합니다. |
 |새로 고침|뷰를 새로 고칩니다.|
 
 **왼쪽 메뉴:**  
@@ -58,7 +58,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
     |개요|클러스터에 대한 일반 정보를 제공합니다.|
     |활동 로그|활동 로그를 표시하고 쿼리합니다.|
     |액세스 제어(IAM)|역할 할당을 사용합니다.  [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.|
-    |태그|태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 **project**라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.|
+    |태그들|태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 **project**라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.|
     |문제 진단 및 해결|문제 해결 정보를 표시합니다.|
     |빠른 시작|HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.|
     |도구|HDInsight 관련 도구에 대한 도움말 정보입니다.|
@@ -69,7 +69,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
     |---|---|
     |클러스터 크기|클러스터 작업자 노드의 수를 확인하고, 늘리거나 줄입니다. [클러스터 크기 조정](hdinsight-administer-use-portal-linux.md#scale-clusters)을 참조하세요.|
     |할당량 한도|구독에 사용된 코어 및 사용 가능한 코어를 표시합니다.|
-    |SSH + 클러스터 로그인|SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여줍니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조 하세요.|
+    |SSH + 클러스터 로그인|SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여줍니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.|
     |Data Lake Storage Gen1|Data Lake Storage Gen1에 대한 액세스를 구성합니다.  [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.|
     |Storage 계정|스토리지 계정 및 키를 봅니다. 스토리지 계정은 클러스터를 만드는 과정에서 구성됩니다.|
     |애플리케이션|HDInsight 애플리케이션을 추가/제거합니다.  [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.|
@@ -111,7 +111,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 |만든 날짜|클러스터가 배포된 날짜입니다.|
 |운영 체제|**Windows** 또는 **Linux**입니다.|
 |TYPE|Hadoop, HBase, Storm, Spark입니다.|
-|Version|[HDInsight 버전](hdinsight-component-versioning.md) 참조|
+|버전|[HDInsight 버전](hdinsight-component-versioning.md) 참조|
 |최소 TLS 버전|TLS 버전입니다.|
 |구독|구독 이름입니다.|
 |기본 데이터 원본|기본 클러스터 파일 시스템입니다.|
@@ -200,9 +200,9 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
 
 암호는 클러스터의 모든 노드에 대해 변경됩니다.
 
-### <a name="change-the-ssh-user-password"></a>SSH 사용자 암호 변경
+### <a name="change-the-ssh-user-password-or-public-key"></a>SSH 사용자 암호 또는 공개 키 변경
 
-1. 텍스트 편집기를 사용하여 다음 텍스트를 **changepassword.sh**라는 파일로 저장합니다.
+1. 텍스트 편집기를 사용 하 여 다음 텍스트를 **changecredentials.sh**라는 파일로 저장 합니다.
 
     > [!IMPORTANT]  
     > 줄 끝으로 LF를 사용하는 편집기를 사용해야 합니다. 편집기에서 CRLF를 사용하는 경우 스크립트가 작동하지 않습니다.
@@ -222,13 +222,13 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
    | 필드 | 값 |
    | --- | --- |
    | 스크립트 유형 | 드롭다운 목록에서 **- 사용자 지정**을 선택합니다.|
-   | 이름 |“SSH 암호 변경” |
-   | Bash 스크립트 URI |Changepassword.sh 파일에 대한 URI |
+   | 속성 |"Ssh 자격 증명 변경" |
+   | Bash 스크립트 URI |Changecredentials.sh 파일에 대 한 URI입니다. |
    | 노드 유형: (헤드, 작업자, Nimbus, 감독자 또는 사육 사) |나열된 모든 노드 형식에 대한 ✓ |
    | 매개 변수 |SSH 사용자 이름 및 새 암호를 입력합니다. 사용자 이름과 암호 사이에 공백이 하나 있어야 합니다. Ssh 암호에는 다음 문자가 지원 되지 않습니다. "' '/\ <% ~ | $ &
    | 이 스크립트 작업을 유지... |이 필드는 선택 취소로 둡니다. |
 
-6. **만들기**를 선택하여 스크립트를 적용합니다. 스크립트가 완료 되 면 새 암호와 함께 SSH를 사용 하 여 클러스터에 연결할 수 있습니다.
+6. **만들기**를 선택하여 스크립트를 적용합니다. 스크립트가 완료 되 면 새 자격 증명을 사용 하 여 SSH를 사용 하 여 클러스터에 연결할 수 있습니다.
 
 ## <a name="find-the-subscription-id"></a>구독 ID 찾기
 

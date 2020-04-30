@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.openlocfilehash: 40b57af95f9ea4d4212756634c721ddd55f85d7b
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82127760"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>리소스 로그를 사용 하 여 Azure Stream Analytics 문제 해결
@@ -63,7 +63,7 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 
     ![리소스 로그에 대 한 블레이드 탐색](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  **진단 설정**에서 **이름**을 만들고 **Log Analytics에 보내기** 옆에 있는 상자를 선택합니다. 그런 다음, 기존 **Log Analytics 작업 영역**을 추가하거나 새 작업 영역을 만듭니다. **로그** 아래에서 **실행** 및 **작성** 상자를 선택하고 **메트릭** 아래에서 **AllMetrics** 상자를 선택합니다. **Save**을 클릭합니다. 추가 비용을 방지 하기 위해 Stream Analytics 작업과 동일한 Azure 지역에서 Log Analytics 작업 영역을 사용 하는 것이 좋습니다.
+2.  **진단 설정**에서 **이름**을 만들고 **Log Analytics에 보내기** 옆에 있는 상자를 선택합니다. 그런 다음, 기존 **Log Analytics 작업 영역**을 추가하거나 새 작업 영역을 만듭니다. **로그** 아래에서 **실행** 및 **작성** 상자를 선택하고 **메트릭** 아래에서 **AllMetrics** 상자를 선택합니다. **저장**을 클릭합니다. 추가 비용을 방지 하기 위해 Stream Analytics 작업과 동일한 Azure 지역에서 Log Analytics 작업 영역을 사용 하는 것이 좋습니다.
 
     ![리소스 로그 설정](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
@@ -116,7 +116,7 @@ properties | 로그 항목별 세부 정보로, JSON 문자열로 직렬화됩�
 ------- | -------
 원본 | 오류가 발생한 작업 입력 또는 출력의 이름입니다.
 메시지 | 오류와 연결된 메시지
-유형 | 오류 유형입니다. 예: **DataConversionError**, **CsvParserError** 또는 **ServiceBusPropertyColumnMissingError**.
+Type | 오류 유형입니다. 예: **DataConversionError**, **CsvParserError** 또는 **ServiceBusPropertyColumnMissingError**.
 데이터 | 오류 출처를 정확히 찾는 데 도움이 되는 데이터를 포함합니다. 크기에 따라 잘릴 수 있습니다.
 
 **operationName** 값에 따라 데이터 오류의 스키마는 다음과 같습니다.
@@ -135,9 +135,9 @@ properties | 로그 항목별 세부 정보로, JSON 문자열로 직렬화됩�
 
 속성 | Description
 -------- | --------
-Error | (선택 사항) 오류 정보입니다. 일반적으로 예외 정보입니다(사용 가능한 경우).
+오류 | (선택 사항) 오류 정보입니다. 일반적으로 예외 정보입니다(사용 가능한 경우).
 메시지| 로그 메시지
-유형 | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: **JobValidationError** 또는 **BlobOutputAdapterInitializationFailure**.
+Type | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: **JobValidationError** 또는 **BlobOutputAdapterInitializationFailure**.
 상관관계 ID | 작업 실행을 고유하게 식별하는 [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). 작업 시작 시간부터 작업이 중지될 때까지 모든 실행 로그 항목에는 동일한 **상관 관계 ID** 값이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
