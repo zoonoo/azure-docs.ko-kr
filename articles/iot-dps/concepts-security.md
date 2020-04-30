@@ -1,6 +1,6 @@
 ---
-title: Azure IoT 허브 장치 프로비저닝 서비스 - 보안 개념
-description: DPS(장치 프로비저닝 서비스) 및 IoT Hub를 사용하여 장치에 특정한 보안 프로비저닝 개념에 대해 설명합니다.
+title: Azure IoT Hub 장치 프로 비전 서비스-보안 개념
+description: DPS (장치 프로 비전 서비스) 및 IoT Hub를 사용 하는 장치에 특정 한 보안 프로 비전 개념을 설명 합니다.
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 3191e9886604af9b2a26b71a89cee699197585c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271565"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub Device Provisioning Service 보안 개념 
@@ -78,7 +78,7 @@ X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기
 
 리프 인증서 또는 최종 엔터티 인증서는 인증서 보유자를 식별합니다. 인증서 체인에는 루트 인증서와 0개 이상의 중간 인증서가 있습니다. 리프 인증서는 다른 인증서에 서명하는 데 사용되지 않습니다. 디바이스를 프로비전 서비스에 고유하게 식별하며, 때로는 디바이스 인증서라고도 합니다. 인증하는 동안 디바이스는 이 인증서와 관련된 프라이빗 키를 사용하여 서비스의 소유 챌린지 증명에 응답합니다.
 
-[개별 등록](./concepts-service.md#individual-enrollment) 항목과 함께 사용되는 리프 인증서에는 **주체 이름을** 개별 등록 항목의 등록 ID로 설정해야 합니다. [등록 그룹](./concepts-service.md#enrollment-group) 항목과 함께 사용되는 리프 인증서에는 등록 그룹의 인증된 장치에 대한 **등록 레코드에** 표시되는 원하는 장치 ID로 **제목 이름이** 설정되어야 합니다.
+[개별 등록](./concepts-service.md#individual-enrollment) 항목에 사용 되는 리프 인증서에는 **주체 이름을** 개별 등록 항목의 등록 ID로 설정 해야 한다는 요구 사항이 있습니다. [등록 그룹](./concepts-service.md#enrollment-group) 항목에 사용 되는 리프 인증서의 **주체 이름은** 원하는 장치 ID로 설정 되어야 하며, 등록 그룹의 인증 된 장치에 대 한 **등록 레코드** 에 표시 됩니다.
 
 자세한 내용은 [X.509 CA 인증서로 서명된 디바이스 인증](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates)을 참조하세요.
 

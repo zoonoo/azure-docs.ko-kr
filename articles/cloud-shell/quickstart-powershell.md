@@ -1,6 +1,6 @@
 ---
-title: Azure 클라우드 셸 빠른 시작 - 파워쉘
-description: Azure 클라우드 셸을 사용하여 브라우저에서 PowerShell을 사용하는 방법에 대해 알아봅니다.
+title: Azure Cloud Shell 빠른 시작-PowerShell
+description: Azure Cloud Shell를 사용 하 여 브라우저에서 PowerShell을 사용 하는 방법을 알아봅니다.
 author: maertendmsft
 ms.author: damaerte
 tags: azure-resource-manager
@@ -10,10 +10,10 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/18/2018
 ms.openlocfilehash: 72261989b7cee9d2251eb18b36431ec807b0e874
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273008"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작
@@ -261,7 +261,7 @@ SSH를 사용하여 서버 또는 VM을 인증하려면 Cloud Shell에서 공개
 
 ### <a name="using-ssh"></a>SSH 사용
 
-Azure PowerShell cmdlet을 사용하여 새 VM 구성을 만들려면 [여기의](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) 지침을 따르십시오.
+Azure PowerShell cmdlet을 사용 하 여 새 VM 구성을 만들려면 [여기](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) 의 지침을 따르세요.
 `New-AzVM`을 호출하여 배포를 시작하기 전에 SSH 공개 키를 VM 구성에 추가합니다.
 새로 만든 VM에는 공개 키가 `~\.ssh\authorized_keys` 위치에 포함되므로 자격 증명이 없는 SSH 세션을 VM에 사용할 수 있습니다.
 
@@ -332,7 +332,7 @@ PowerShell 프로필 `profile.ps1`(또는 `Microsoft.PowerShell_profile.ps1`)을
 
 ## <a name="use-git"></a>Git 사용
 
-클라우드 셸에서 Git 리포지토리를 복제하려면 [개인 액세스 토큰을][githubtoken] 만들어 사용자 이름으로 사용해야 합니다. 토큰이 있다면 다음과 같이 리포지토리를 복제합니다.
+Cloud Shell에서 Git 리포지토리를 복제 하려면 [개인용 액세스 토큰][githubtoken] 을 만들고 사용자 이름으로 사용 해야 합니다. 토큰이 있다면 다음과 같이 리포지토리를 복제합니다.
 
 ```azurepowershell-interactive
   git clone https://<your-access-token>@github.com/username/repo.git

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79276479"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
@@ -34,7 +34,7 @@ Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정�
 [Office 365 계정을 사용하여 Azure 구독에 등록](cost-management-billing/manage/office-365-account-for-azure-subscription.md) 및 [로그인하는 데 사용할 수 있는 계정](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)을 참조하세요.
 
 ## <a name="api-app"></a>API 앱
-[앱 서비스 앱의](#app-service-app)또 다른 이름입니다.
+[App Service 앱](#app-service-app)에 대 한 다른 이름입니다.
 
 ## <a name="app-service-app"></a>App Service 앱
 [Azure App Service](app-service/overview.md)에서 웹 사이트 또는 웹 애플리케이션, 웹 API 또는 [모바일 앱 백 엔드](app-service-mobile/app-service-mobile-value-prop.md)를 호스팅하기 위해 제공하는 컴퓨팅 리소스입니다. App Service 앱은 *App Services*, *웹앱*, *API 앱* 및 *모바일 앱*이라고도 합니다.
@@ -46,14 +46,14 @@ Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정�
 ## <a name="azure-classic-deployment-model"></a><a name="classic-model"></a>Azure 클래식 배포 모델
 Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델](resource-manager-deployment-model.md) 중 하나입니다(새 모델은 Azure Resource Manager임). 일부 Azure 서비스는 Resource Manager 배포 모델만 지원하고 일부는 클래식 배포 모델만 지원하며 일부는 둘 모두를 지원합니다. 각 Azure 서비스에 대한 설명서에는 지원되는 모델이 지정되어 있습니다.
 
-## <a name="azure-command-line-interface-cli"></a><a name="cli"></a>Azure CLI(명령줄 인터페이스)
+## <a name="azure-command-line-interface-cli"></a><a name="cli"></a>Azure CLI (명령줄 인터페이스)
 Windows, macOS 및 Linux에서 Azure 서비스를 관리하는 데 사용할 수 있는 명령줄 인터페이스입니다.  일부 서비스 또는 서비스 기능은 PowerShell 또는 CLI를 통해서만 관리할 수 있습니다. [Azure CLI](/cli/azure)를 참조하세요.
 
-## <a name="azure-powershell"></a><a name="powershell"></a>Azure 파워쉘
+## <a name="azure-powershell"></a><a name="powershell"></a>Azure PowerShell
 Windows PC에서 명령줄을 통해 Azure 서비스를 관리하는 명령줄 인터페이스입니다. 일부 서비스 또는 서비스 기능은 PowerShell 또는 CLI를 통해서만 관리할 수 있습니다.
-[Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 참조
+[Azure PowerShell 설치 및 구성 하는 방법을](/powershell/azure/overview) 참조 하세요.
 
-## <a name="azure-resource-manager-deployment-model"></a><a name="arm-model"></a>Azure 리소스 관리자 배포 모델
+## <a name="azure-resource-manager-deployment-model"></a><a name="arm-model"></a>Azure Resource Manager 배포 모델
 Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델](resource-manager-deployment-model.md) 중 하나입니다(다른 모델은 클래식 배포 모델임). 일부 Azure 서비스는 Resource Manager 배포 모델만 지원하고 일부는 클래식 배포 모델만 지원하며 일부는 둘 모두를 지원합니다. 각 Azure 서비스에 대한 설명서에는 지원되는 모델이 지정되어 있습니다.
 
 ## <a name="fault-domain"></a>장애 도메인
@@ -75,7 +75,7 @@ Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델
 
 ## <a name="limits"></a>제한
 만들 수 있는 리소스 수 또는 도달할 수 있는 성능 벤치마크입니다. 제한은 일반적으로 구독, 서비스 및 제안에 연결됩니다.  
-[Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-resource-manager/management/azure-subscription-service-limits.md) 참조
+[Azure 구독 및 서비스 제한, 할당량 및 제약 조건을](azure-resource-manager/management/azure-subscription-service-limits.md) 참조 하세요.
 
 ## <a name="load-balancer"></a>부하 분산 장치
 들어오는 트래픽을 네트워크의 컴퓨터 간에 분산시키는 리소스입니다. Azure에서 부하 분산 장치는 부하 분산 장치 집합에 정의된 가상 머신에 트래픽을 분산시킵니다. [부하 분산 장치](load-balancer/load-balancer-overview.md) 는 인터넷에 연결되거나 내부에 있을 수 있습니다.  
@@ -94,7 +94,7 @@ Azure 서비스를 배포하고 관리하는 데 사용하는 보안 웹 포털�
 국경을 넘지 않으면서 하나 이상의 데이터 센터를 포함하는 지역 내의 영역입니다. 가격 책정, 지역 서비스 및 제공 사항 유형은 지역 수준에서 노출됩니다. 지역은 일반적으로 최대 수백 킬로미터까지도 떨어질 수 있는 다른 지역과 쌍으로 연결되어 있습니다. 지역 쌍은 재해 복구 및 고가용성 시나리오에 대한 메커니즘으로 사용할 수 있습니다. *위치*라고도 합니다.  
 [Azure 지역](best-practices-availability-paired-regions.md)을 참조하세요.
 
-## <a name="resource"></a>resource
+## <a name="resource"></a>리소스
 Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 데이터베이스 또는 가상 머신과 같은 다양한 유형의 리소스를 배포할 수 있습니다.   
 [Azure Resource Manager 개요](azure-resource-manager/management/overview.md)를 참조하세요.
 
@@ -114,11 +114,11 @@ Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 �
 사용자, 그룹 및 서비스에 할당할 수 있는 액세스를 제어하는 방법입니다. 역할은 Azure 리소스에서 만들기, 관리 및 읽기와 같은 작업을 수행할 수 있습니다.  
 [RBAC: 기본 제공 역할](role-based-access-control/built-in-roles.md)을 참조하세요.
 
-## <a name="service-level-agreement-sla"></a><a name="sla"></a>서비스 수준 계약(SLA)
+## <a name="service-level-agreement-sla"></a><a name="sla"></a>SLA (서비스 수준 계약)
 작동 시간 및 연결에 대한 Microsoft의 정책을 설명하는 계약입니다. 각 Azure 서비스에는 특정 SLA가 있습니다.  
 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
-## <a name="shared-access-signature-sas"></a><a name="sas"></a>공유 액세스 서명(SAS)
+## <a name="shared-access-signature-sas"></a><a name="sas"></a>공유 액세스 서명 (SAS)
 계정 키를 노출하지 않고 리소스에 대한 제한된 액세스 권한을 부여할 수 있는 서명입니다. 예를 들어 [Azure Storage는 SAS를 사용하여](storage/common/storage-dotnet-shared-access-signature-part-1.md) BLOB과 같은 개체에 대한 클라이언트 액세스 권한을 부여합니다. [IoT Hub는 SAS를 사용하여](iot-hub/iot-hub-devguide-security.md#security-tokens) 원격 분석을 보낼 수 있는 권한을 디바이스에 부여합니다.
 
 ## <a name="storage-account"></a>스토리지 계정 만들기
@@ -147,13 +147,13 @@ Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약
 [가상 머신 확장 및 기능 정보(Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [가상 머신 확장 및 기능 정보(Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 ## <a name="virtual-network"></a><a name="vnet"></a>가상 네트워크
-다른 모든 Azure 테넌트에서 격리된 Azure 리소스 간의 연결을 제공하는 네트워크입니다. [Azure VPN 게이트웨이를](vpn-gateway/vpn-gateway-about-vpngateways.md) 사용하면 가상 네트워크와 가상 네트워크와 온-프레미스 네트워크 간의 연결을 설정할 수 있습니다. 사용자는 가상 네트워크 내부의 IP 주소 블록, DNS 설정, 보안 정책 및 경로 테이블을 완벽하게 제어할 수 있습니다.  
+다른 모든 Azure 테넌트에서 격리된 Azure 리소스 간의 연결을 제공하는 네트워크입니다. [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) 을 사용 하면 가상 네트워크와 가상 네트워크와 온-프레미스 네트워크 간에 연결을 설정할 수 있습니다. 사용자는 가상 네트워크 내부의 IP 주소 블록, DNS 설정, 보안 정책 및 경로 테이블을 완벽하게 제어할 수 있습니다.  
 [Virtual Network 개요](virtual-network/virtual-networks-overview.md)를 참조하세요.  
 
 ## <a name="web-app"></a>웹앱
 [App Service 앱](#app-service-app)의 다른 이름입니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Azure 시작](https://azure.microsoft.com/get-started/)
 * [클라우드 리소스 센터](https://azure.microsoft.com/resources/)  
