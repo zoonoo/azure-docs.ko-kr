@@ -16,10 +16,10 @@ ms.date: 02/26/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
 ms.openlocfilehash: 175c5a36c873d16d50d5192a489133a01018e335
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80474607"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 VM 부하를 분산하는 Load Balancer 만들기
