@@ -1,13 +1,13 @@
 ---
-title: Azure 서비스 패브릭 응용 프로그램 보안에 대해 알아보기
+title: Azure Service Fabric 응용 프로그램 보안에 대 한 자세한 정보
 description: Service Fabric에서 마이크로 서비스 애플리케이션을 안전하게 실행하는 방법의 개요 다른 보안 계정에서 서비스 및 시작 스크립트를 실행하고, 사용자를 인증하고 권한을 부여하고, 애플리케이션 암호를 관리하고, 서비스 통신의 보안을 유지하고, API 게이트웨이를 사용하고, 미사용 애플리케이션 데이터의 보안을 유지하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.openlocfilehash: c97c5345a1a18cce8c44508542f12d3642d2b8f9
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461432"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 애플리케이션 및 서비스 보안
@@ -25,7 +25,7 @@ API 수준 신뢰를 결정하는 첫 번째 단계는 인증입니다. 인증�
 
 서비스에 직접 액세스할 수 있는 경우 Azure Active Directory 또는 STS(보안 토큰 서비스)로 작동하는 전용 인증 마이크로 서비스와 같은 인증 서비스를 사용하여 사용자를 인증할 수 있습니다. 신뢰 결정은 보안 토큰 또는 쿠키를 통해 서비스 간에 공유됩니다. 
 
-ASP.NET Core의 경우 [사용자를 인증](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/)하는 기본 메커니즘이 ASP.NET Core ID 멤버 자격 시스템입니다. ASP.NET ID는 사용자 정보(로그인 정보, 역할 및 클레임 포함)를 개발자가 구성한 데이터 저장소에 저장합니다. ASP.NET Core ID는 2단계 인증을 지원합니다.  외부 인증 공급자도 지원되므로 사용자는 Microsoft, Google, Facebook 또는 Twitter와 같은 공급자의 기존 인증 프로세스를 사용하여 로그인할 수 있습니다.
+ASP.NET Core의 경우 [사용자를 인증](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/)하는 기본 메커니즘이 ASP.NET Core ID 멤버 자격 시스템입니다. ASP.NET ID는 사용자 정보(로그인 정보, 역할 및 클레임 포함)를 개발자가 구성한 데이터 저장소에 저장합니다. ASP.NET Core ID는 2단계 인증을 지원합니다.  외부 인증 공급자도 지원 되므로 사용자는 Microsoft, Google, Facebook 또는 Twitter와 같은 공급자의 기존 인증 프로세스를 사용 하 여 로그인 할 수 있습니다.
 
 ### <a name="authorization"></a>권한 부여
 인증 후에, 서비스는 사용자 액세스를 허가하거나 사용자가 수행할 수 있는 작업을 결정해야 합니다. 이 프로세스를 사용하면 서비스에서 일부 인증된 사용자는 API를 사용할 수 있지만, 모든 사용자가 사용할 수는 없습니다. 권한 부여는 인증과 일치하는 부분도 있고 독립된 부분도 있으며, 사용자가 누군지 확인하는 프로세스입니다. 인증으로 현재 사용자에 대해 하나 이상의 ID가 만들어질 수 있습니다.
@@ -33,7 +33,7 @@ ASP.NET Core의 경우 [사용자를 인증](/dotnet/standard/microservices-arch
 [ASP.NET Core 권한 부여](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications)는 사용자의 역할 또는 사용자 지정 정책을 기준으로 수행될 수 있으며, 클레임 또는 기타 추론 검사가 포함될 수 있습니다.
 
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>API 게이트웨이를 사용하여 액세스 제한 및 보안 유지
-일반적으로 클라우드 애플리케이션에는 사용자, 디바이스 또는 기타 애플리케이션 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. [API 게이트웨이](/azure/architecture/microservices/gateway)는 클라이언트와 서비스 간에 위치하며, 애플리케이션이 제공하는 모든 서비스에 대한 진입점이 됩니다. 역방향 프록시로 작동하면서 클라이언트에서 서비스로 요청을 라우팅합니다. 또한 인증 및 권한 부여, TLS 종료 및 속도 제한과 같은 다양한 교차 절단 작업을 수행할 수도 있습니다. 게이트웨이를 배포하지 않으면 클라이언트는 프런트 엔드 서비스로 직접 요청을 보내야 합니다.
+일반적으로 클라우드 애플리케이션에는 사용자, 디바이스 또는 기타 애플리케이션 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. [API 게이트웨이](/azure/architecture/microservices/gateway)는 클라이언트와 서비스 간에 위치하며, 애플리케이션이 제공하는 모든 서비스에 대한 진입점이 됩니다. 역방향 프록시로 작동하면서 클라이언트에서 서비스로 요청을 라우팅합니다. 또한 인증 및 권한 부여, TLS 종료 및 요율 제한과 같은 다양 한 교차 절삭 작업을 수행할 수 있습니다. 게이트웨이를 배포하지 않으면 클라이언트는 프런트 엔드 서비스로 직접 요청을 보내야 합니다.
 
 Service Fabric에서 게이트웨이는 상태 비저장 서비스(예: [ASP.NET Core 애플리케이션](service-fabric-reliable-services-communication-aspnetcore.md)) 또는 트래픽을 수신하도록 설계된 다른 서비스(예: [Traefik](https://docs.traefik.io/), [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 또는 [Azure API Management](https://docs.microsoft.com/azure/api-management))일 수 있습니다.
 
@@ -95,7 +95,7 @@ TO DO: Encrypt disks on Linux clusters?-->
 ## <a name="next-steps"></a>다음 단계
 * [서비스 시작 시 설치 스크립트 실행](service-fabric-run-script-at-service-startup.md)
 * [서비스 매니페스트에서 리소스 지정](service-fabric-service-manifest-resources.md)
-* [애플리케이션 배포](service-fabric-deploy-remove-applications.md)
+* [응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
 * [클러스터 보안에 대해 알아보기](service-fabric-cluster-security.md)
 
 <!-- Links -->

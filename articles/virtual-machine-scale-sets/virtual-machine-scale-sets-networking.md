@@ -1,6 +1,6 @@
 ---
 title: Azure 가상 머신 확장 집합에 대한 네트워킹
-description: Azure 가상 시스템 규모 집합에 대한 고급 네트워킹 속성 중 일부를 구성하는 방법
+description: Azure 가상 머신 확장 집합에 대 한 고급 네트워킹 속성 중 일부를 구성 하는 방법입니다.
 author: mimckitt
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: mimckitt
 ms.openlocfilehash: efe3a39008361fdf76d80a0c8e7e2e30b061117d
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461357"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 네트워킹
@@ -41,27 +41,27 @@ Azure 가속 네트워킹은 가상 머신에서 SR-IOV(단일 루트 I/O 가상
 }
 ```
 
-## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Azure 로드 밸러서를 가진 Azure 가상 시스템 규모 집합
+## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Azure Load Balancer를 사용 하는 Azure 가상 머신 확장 집합
 
-가상 시스템 스케일 세트 및 로드 밸러블러로 작업할 때는 다음을 고려해야 합니다.
+가상 머신 확장 집합 및 부하 분산 장치를 사용 하는 경우 다음 사항을 고려해 야 합니다.
 
-* **여러 가상 시스템 스케일 집합은 동일한 로드 밸러워를 사용할 수 없습니다.**
-* **포트 포워딩 및 인바운드 NAT 규칙**:
-  * 각 가상 시스템 규모 집합에는 인바운드 NAT 규칙이 있어야 합니다.
-  * 축척 세트를 만든 후에는 로드 밸런서의 상태 프로브에서 사용하는 부하 분산 규칙에 대해 백 엔드 포트를 수정할 수 없습니다. 포트를 변경하려면 Azure 가상 시스템 크기 집합을 업데이트하여 상태 프로브를 제거하고 포트를 업데이트한 다음 상태 프로브를 다시 구성할 수 있습니다.
-  * 로드 밸러블러의 백 엔드 풀에 설정된 가상 시스템 스케일을 사용하는 경우 기본 인바운드 NAT 규칙이 자동으로 만들어집니다.
+* **여러 가상 머신 확장 집합은 동일한 부하 분산 장치를 사용할 수 없습니다**.
+* **포트 전달 및 인바운드 NAT 규칙**:
+  * 각 가상 머신 확장 집합에는 인바운드 NAT 규칙이 있어야 합니다.
+  * 확장 집합을 만든 후에는 부하 분산 장치의 상태 프로브에서 사용 하는 부하 분산 규칙에 대해 백 엔드 포트를 수정할 수 없습니다. 포트를 변경 하려면 Azure 가상 머신 확장 집합을 업데이트 하 고, 포트를 업데이트 한 후 상태 프로브를 다시 구성 하 여 상태 프로브를 제거할 수 있습니다.
+  * 부하 분산 장치의 백 엔드 풀에 있는 가상 머신 확장 집합을 사용 하는 경우 기본 인바운드 NAT 규칙이 자동으로 만들어집니다.
 * **부하 분산 규칙**:
-  * 로드 밸런서의 백 엔드 풀에서 설정된 가상 시스템 스케일을 사용하는 경우 기본 로드 분산 규칙이 자동으로 만들어집니다.
-* **아웃바운드 규칙**:
-  *  로드 분산 규칙에서 이미 참조된 백 엔드 풀에 대한 아웃바운드 규칙을 만들려면 먼저 인바운드 로드 분산 규칙이 만들어지면 포털에서 **"암시적 아웃바운드 규칙 만들기"를** **No로** 표시해야 합니다.
+  * 부하 분산 장치의 백 엔드 풀에 있는 가상 머신 확장 집합을 사용 하는 경우 기본 부하 분산 규칙이 자동으로 만들어집니다.
+* **아웃 바운드 규칙**:
+  *  부하 분산 규칙에서 이미 참조 하는 백 엔드 풀에 대 한 아웃 바운드 규칙을 만들려면 인바운드 부하 분산 규칙을 만들 때 먼저 포털에서 **"암시적 아웃 바운드 규칙 만들기"** 를 **아니요** 로 표시 해야 합니다.
 
-  :::image type="content" source="./media/vmsslb.png" alt-text="로드 밸런싱 규칙 생성" border="true":::
+  :::image type="content" source="./media/vmsslb.png" alt-text="부하 분산 규칙 만들기" border="true":::
 
-다음 방법을 사용하여 기존 Azure 로드 밸런서가 있는 가상 시스템 규모 집합을 배포할 수 있습니다.
+다음 메서드는 기존 Azure 부하 분산 장치를 사용 하 여 가상 머신 확장 집합을 배포 하는 데 사용할 수 있습니다.
 
-* [Azure 포털을 사용하여 기존 Azure 로드 밸런서를 사용하여 가상 시스템 확장 집합을 구성합니다.](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal)
-* [Azure PowerShell을 사용하여 기존 Azure 로드 밸런서를 사용하여 가상 시스템 확장 집합을 구성합니다.](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell)
-* [Azure CLI를 사용하여 기존 Azure 로드 밸런서를 사용하여 가상 시스템 확장 집합을 구성합니다.](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli)
+* [Azure Portal를 사용 하 여 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합을 구성](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal)합니다.
+* [Azure PowerShell를 사용 하 여 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합을 구성](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell)합니다.
+* [Azure CLI를 사용 하 여 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합을 구성](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli)합니다.
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Application Gateway를 참조하는 확장 집합 만들기
 애플리케이션 게이트웨이를 사용하는 확장 집합을 만들려면 이 ARM 템플릿 구성과 같이 설정된 확장의 ipConfigurations 섹션에서 애플리케이션 게이트웨이의 백 엔드 주소 풀을 참조합니다.

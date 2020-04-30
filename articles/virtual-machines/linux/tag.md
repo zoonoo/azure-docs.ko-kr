@@ -1,5 +1,5 @@
 ---
-title: Azure Linux 가상 컴퓨터에 태그를 붙이는 방법
+title: Azure Linux 가상 머신에 태그를 만드는 방법
 description: Resource Manager 배포 모델을 사용하여 만든 Azure Linux 가상 머신에 태그를 지정하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
 ms.openlocfilehash: fd4a93f4c0b2f052fe5c9890bee01e5da0dcead2
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460956"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Azure에서 Linux 가상 머신에 태그를 지정하는 방법
-이 문서에서는 리소스 관리자 배포 모델을 통해 Azure의 Linux 가상 머신에 태그를 지정하는 다양한 방법에 대해 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 50개의 태그를 지원합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다. 태그는 리소스 관리자 배포 모델을 통해 만든 리소스에 대해서만 지원됩니다.
+이 문서에서는 리소스 관리자 배포 모델을 통해 Azure의 Linux 가상 머신에 태그를 지정하는 다양한 방법에 대해 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 50 개의 태그를 지원 합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다. 태그는 리소스 관리자 배포 모델을 통해 만든 리소스에 대해서만 지원됩니다.
 
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 

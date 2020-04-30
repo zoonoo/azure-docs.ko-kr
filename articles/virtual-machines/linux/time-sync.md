@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 7c93c1f525713a90abd71c30a21401b9d1cfcb9f
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460905"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure에서 Linux VM의 시간 동기화
@@ -26,7 +26,7 @@ ms.locfileid: "81460905"
 Azure는 Windows Server 2016을 실행하는 인프라의 지원을 받습니다. Windows Server 2016은 시간을 수정하고 로컬 시계에 영향을 미치는 데 사용된 알고리즘을 개선하여 UTC와 동기화했습니다.  Windows Server 2016의 정확한 시간 기능은 정확한 시간을 위해 VMICTimeSync 서비스가 호스트를 통해 VM을 제어하는 방법을 크게 개선했습니다. 이러한 개선은 VM 시작 또는 VM 복원 시 시작 시간의 정확도 향상을 포함하며 대기 시간 수정을 중단합니다. 
 
 >[!NOTE]
->Windows Time 서비스에 대한 빠른 개요는 이 [고급 개요 비디오](https://aka.ms/WS2016TimeVideo)를 참조하세요.
+>Windows 시간 서비스에 대한 간략한 개요는 이 [고급 개요 비디오](https://aka.ms/WS2016TimeVideo)를 살펴보세요.
 >
 > 자세한 내용은 [Windows Server 2016의 정확한 시간](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)을 참조하세요. 
 
@@ -70,7 +70,7 @@ NTP가 올바르게 동기화하고 있는지 확인하려면 `ntpq -p` 명령�
 
 ### <a name="host-only"></a>호스트 전용 
 
-time.windows.com 및 ntp.ubuntu.com과 같은 NTP 서버는 공용이므로 NTP 서버와 시간을 동기화하려면 인터넷을 통해 트래픽을 보내야 합니다. 패킷 지연이 다양하면 시간 동기화 품질에 부정적인 영향을 줄 수 있습니다. 호스트 전용 동기화로 전환하여 NTP를 제거하면 시간 동기화 결과가 향상될 수 있습니다.
+time.windows.com 및 ntp.ubuntu.com과 같은 NTP 서버는 공용이므로 NTP 서버와 시간을 동기화하려면 인터넷을 통해 트래픽을 보내야 합니다. 패킷 지연의 변화는 시간 동기화의 품질에 부정적인 영향을 줄 수 있습니다. 호스트 전용 동기화로 전환 하 여 NTP를 제거 하면 시간 동기화 결과를 향상 시킬 수 있습니다.
 
 기본 구성을 사용하는 시간 동기화 문제를 겪는 경우 호스트 전용 시간 동기화로 전환하는 것이 합리적입니다. 이 방법이 VM에서 시간 동기화를 향상시키는지 확인하려면 호스트 전용 동기화를 사용해 보세요. 
 
@@ -132,27 +132,27 @@ cat /sys/class/ptp/ptp0/clock_name
 
 ### <a name="chrony"></a>chrony
 
-우분투 19.10 이상 버전에서, 레드 햇 엔터프라이즈 리눅스, 그리고 CentOS 7.x, [chrony](https://chrony.tuxfamily.org/) PTP 소스 클럭을 사용 하도록 구성 됩니다. 대신 chrony, 이전 리눅스 릴리스는 PTP 소스를 지원하지 않는 네트워크 시간 프로토콜 데몬 (ntpd)를 사용합니다. 이러한 릴리스에서 PTP를 사용하려면 다음 코드를 사용하여 크로니를 수동으로 설치하고 구성해야 합니다(chrony.conf)
+Ubuntu 19.10 이상 버전, Red Hat Enterprise Linux 및 CentOS 8.x에서 [chrony](https://chrony.tuxfamily.org/) 는 PTP 원본 클록을 사용 하도록 구성 됩니다. Chrony 대신 이전 버전의 Linux 릴리스에서는 PTP (Network Time Protocol daemon)를 사용 합니다 .이 디먼은 PTP 원본을 지원 하지 않습니다. 이러한 릴리스에서 PTP를 사용 하도록 설정 하려면 다음 코드를 사용 하 여 chrony를 수동으로 설치 하 고 구성 해야 합니다 (chrony).
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
 
-우분투 및 NTP에 대 한 자세한 내용은 [시간 동기화를](https://help.ubuntu.com/lts/serverguide/NTP.html)참조 하십시오.
+Ubuntu 및 NTP에 대 한 자세한 내용은 [시간 동기화](https://help.ubuntu.com/lts/serverguide/NTP.html)를 참조 하세요.
 
-Red Hat 및 NTP에 대한 자세한 내용은 [NTP 구성을](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp)참조하십시오. 
+Red Hat 및 NTP에 대 한 자세한 내용은 [Ntp 구성](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp)을 참조 하세요. 
 
-크로니에 대한 자세한 내용은 [크로니 사용을](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony)참조하십시오.
+Chrony에 대 한 자세한 내용은 [Chrony 사용](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony)을 참조 하세요.
 
-크로니 소스와 TimeSync 원본이 동시에 활성화된 경우 하나를 **기본으로**표시하여 다른 소스를 백업으로 설정할 수 있습니다. NTP 서비스는 오랜 기간이 지난 후에만 시계의 큰 불일치(skew)를 업데이트하므로 VMICTimeSync는 일시 중지된 VM 이벤트에서 NTP 기반 도구만 사용하는 경우보다 훨씬 더 빠르게 시계를 복구합니다.
+Chrony 및 TimeSync 원본을 동시에 사용 하도록 설정 하는 경우 다른 원본을 백업으로 설정 하는 것을 **선호**하는 것으로 표시할 수 있습니다. NTP 서비스는 오랜 기간이 지난 후에만 시계의 큰 불일치(skew)를 업데이트하므로 VMICTimeSync는 일시 중지된 VM 이벤트에서 NTP 기반 도구만 사용하는 경우보다 훨씬 더 빠르게 시계를 복구합니다.
 
-기본적으로 chronyd는 시스템 클럭을 가속하거나 느리게 하여 언제든지 드리프트를 수정합니다. 드리프트가 너무 커지면 크로니가 드리프트를 수정하지 못합니다. 이를 극복하기 위해 `makestep` 드리프트가 지정된 임계값을 초과하는 경우 **/etc/chrony.conf의** 매개 변수를 강제로 시간 동기화로 변경할 수 있습니다.
+기본적으로 chronyd는 시스템 클록을 가속화 하거나 느리게 하 여 시간 드리프트를 수정 합니다. 드리프트가 너무 커지면 chrony는 드리프트를 수정 하지 못합니다. 이를 해결 하기 위해 `makestep` **/etc/chrony.conf** 의 매개 변수를 변경 하 여 드리프트가 지정 된 임계값을 초과 하는 경우 timesync를 강제로 적용할 수 있습니다.
 
  ```bash
 makestep 1.0 -1
 ```
 
-여기서, 크로니드드가 1초보다 크면 시간 업데이트를 강제합니다. 변경 사항을 적용하려면 chronyd 서비스를 다시 시작하십시오.
+여기서 chrony는 드리프트가 1 초 보다 큰 경우 시간 업데이트를 강제로 수행 합니다. 변경 내용을 적용 하려면 chronyd 서비스를 다시 시작 합니다.
 
 ```bash
 systemctl restart chronyd
@@ -160,7 +160,7 @@ systemctl restart chronyd
 
 ### <a name="systemd"></a>systemd 
 
-19.10 이전에 SUSE 및 우분투 릴리스에서 시간 동기화는 [systemd를](https://www.freedesktop.org/wiki/Software/systemd/)사용하여 구성됩니다. 우분투에 대한 자세한 내용은 [시간 동기화](https://help.ubuntu.com/lts/serverguide/NTP.html)를 참조하십시오. SUSE에 대한 자세한 내용은 [SUSE Linux 엔터프라이즈 서버 12 SP3 릴리스 노트의](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement)섹션 4.5.8을 참조하십시오.
+19.10 이전 SUSE 및 Ubuntu 릴리스에서는 [systemd](https://www.freedesktop.org/wiki/Software/systemd/)를 사용 하 여 시간 동기화를 구성 합니다. Ubuntu에 대 한 자세한 내용은 [시간 동기화](https://help.ubuntu.com/lts/serverguide/NTP.html)를 참조 하세요. SUSE에 대 한 자세한 내용은 [SUSE Linux Enterprise Server 12 SP3 릴리스](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement)정보의 4.5.8 섹션을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
