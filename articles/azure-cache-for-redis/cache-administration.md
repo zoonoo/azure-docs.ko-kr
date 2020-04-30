@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
 ms.openlocfilehash: 69686cad20bc4ce70bff2a92a216c9430522c301
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79278845"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Azure Cache for Redis를 관리하는 방법
@@ -58,7 +58,7 @@ ms.locfileid: "79278845"
 > 
 
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>다시 부팅하는 경우 캐시의 데이터가 손실되나요?
-**마스터** 노드와 **슬레이브** 노드를 모두 재부팅하면 클러스터링을 사용하도록 설정한 프리미엄 캐시를 사용하는 경우 캐시의 모든 데이터(또는 클러스터링을 사용하도록 설정한 경우 해당 샤드의 모든 데이터가 손실될 수 있음)가 손실될 수 있지만 이 중 어느 것도 보장되지 않습니다. [데이터 지속성](cache-how-to-premium-persistence.md)을 구성한 경우 캐시가 다시 온라인 상태가 되면 가장 최근의 백업을 복원하지만 수행된 백업이 손실된 후에 발생한 캐시가 작성됩니다.
+**마스터** 및 **슬레이브** 노드를 둘 다 다시 부팅 하는 경우 캐시의 모든 데이터 (또는 클러스터링이 설정 된 프리미엄 캐시를 사용 하는 경우 해당 분할 된 데이터)는 손실 될 수 있지만이는 보장 되지 않습니다. [데이터 지속성](cache-how-to-premium-persistence.md)을 구성한 경우 캐시가 다시 온라인 상태가 되면 가장 최근의 백업을 복원하지만 수행된 백업이 손실된 후에 발생한 캐시가 작성됩니다.
 
 노드 중 하나만 다시 부팅하는 경우 일반적으로는 데이터가 손실되지 않지만 여전히 손실될 가능성이 있습니다. 예를 들어 캐시 쓰기가 진행 중일 때 마스터 노드를 다시 부팅하면 캐시 쓰기의 데이터가 손실됩니다. 데이터 손실이 발생할 수 있는 또 다른 시나리오는 노드 하나를 다시 부팅하는 동시에 오류로 인해 다른 노드가 작동 중단되는 경우입니다. 데이터 손실의 가능한 원인에 대한 자세한 내용은 [내 Redis 데이터에서 무엇이 변경되었나요?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)를 참조하세요.
 
@@ -66,7 +66,7 @@ ms.locfileid: "79278845"
 예, PowerShell 명령은 [Azure Cache for Redis를 다시 부팅하려면](cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis)을 참조하세요.
 
 ## <a name="schedule-updates"></a>업데이트를 예약
-**일정 업데이트** 블레이드를 사용하면 캐시 인스턴스의 유지 관리 기간을 지정할 수 있습니다. 유지 관리 기간이 지정되면 이 기간 동안 Redis 서버 업데이트가 진행됩니다. 
+**업데이트 예약** 블레이드를 사용 하 여 캐시 인스턴스에 대 한 유지 관리 기간을 지정할 수 있습니다. 유지 관리 기간이 지정되면 이 기간 동안 Redis 서버 업데이트가 진행됩니다. 
 
 > [!NOTE] 
 > 유지 관리 기간은 Redis 서버 업데이트에만 적용되며 Azure 업데이트나 캐시를 호스트하는 VM의 운영 체제에 대한 업데이트에는 적용되지 않습니다.

@@ -1,7 +1,7 @@
 ---
-title: 전체 텍스트 쿼리 및 인덱싱 엔진 아키텍처(Lucene)
+title: 전체 텍스트 쿼리 및 Lucene (인덱싱 엔진 아키텍처)
 titleSuffix: Azure Cognitive Search
-description: Azure 인지 검색과 관련된 전체 텍스트 검색에 대한 Lucene 쿼리 처리 및 문서 검색 개념을 검사합니다.
+description: Azure Cognitive Search와 관련 된 전체 텍스트 검색에 대 한 Lucene 쿼리 처리 및 문서 검색 개념을 검토 합니다.
 manager: nitinme
 author: yahnoosh
 ms.author: jlembicz
@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282940"
 ---
 # <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Azure Cognitive Search의 전체 텍스트 검색 작동 방식
 
-이 문서는 Lucene 전체 텍스트 검색이 Azure 인지 검색에서 작동하는 방식을 심층적으로 이해해야 하는 개발자를 위한 것입니다. 텍스트 쿼리의 경우 Azure Cognitive Search는 대부분의 시나리오에서 예상된 결과를 원활하게 제공하지만, 가끔은 "예상과 다른" 결과를 얻기도 합니다. 이러한 상황에서는 Lucene 쿼리 실행의 네 단계(쿼리 구문 분석, 어휘 분석, 문서 일치, 점수 매기기)에 대한 배경 지식을 갖고 있으면 쿼리 매개 변수의 특정 변경 내용 또는 원하는 결과를 제공하는 인덱스 구성을 식별하는 데 도움이 될 수 있습니다. 
+이 문서는 Azure Cognitive Search에서 Lucene 전체 텍스트 검색이 작동 하는 방식을 심층적으로 이해 해야 하는 개발자를 위한 것입니다. 텍스트 쿼리의 경우 Azure Cognitive Search는 대부분의 시나리오에서 예상된 결과를 원활하게 제공하지만, 가끔은 "예상과 다른" 결과를 얻기도 합니다. 이러한 상황에서는 Lucene 쿼리 실행의 네 단계(쿼리 구문 분석, 어휘 분석, 문서 일치, 점수 매기기)에 대한 배경 지식을 갖고 있으면 쿼리 매개 변수의 특정 변경 내용 또는 원하는 결과를 제공하는 인덱스 구성을 식별하는 데 도움이 될 수 있습니다. 
 
 > [!Note] 
-> Azure 인지 검색 전체 텍스트 검색에 루센을 사용 하지만 루 센 통합 완전 하지 않습니다. Azure Cognitive Search에 중요한 시나리오를 사용하도록 Lucene 기능을 선택적으로 노출하고 확장합니다. 
+> Azure Cognitive Search는 전체 텍스트 검색에 Lucene를 사용 하지만 Lucene 통합은 완전 하지 않습니다. Azure Cognitive Search에 중요 한 시나리오를 사용할 수 있도록 Lucene 기능을 선택적으로 노출 하 고 확장 합니다. 
 
 ## <a name="architecture-overview-and-diagram"></a>아키텍처 개요 및 다이어그램
 
@@ -35,7 +35,7 @@ ms.locfileid: "79282940"
 
 아래 다이어그램은 검색 요청을 처리하는 데 사용되는 구성 요소를 보여 줍니다. 
 
- ![Azure 인지 검색의 Lucene 쿼리 아키텍처 다이어그램][1]
+ ![Azure Cognitive Search의 Lucene 쿼리 아키텍처 다이어그램][1]
 
 
 | 핵심 구성 요소 | 기능 설명 | 
@@ -49,7 +49,7 @@ ms.locfileid: "79282940"
 
 검색 요청은 결과 집합에 반환할 완전한 규격입니다. 가장 간단한 형태는 어떠한 조건도 없는 빈 쿼리입니다. 보다 현실적인 예로는 매개 변수 및 몇몇 쿼리 용어가 있습니다. 경우에 따라 검색 범위가 특정 필드로 지정되거나 필터 식과 정렬 규칙을 사용할 수도 있습니다.  
 
-다음 예제는 [REST API를](https://docs.microsoft.com/rest/api/searchservice/search-documents)사용하여 Azure Cognitive Search로 보낼 수 있는 검색 요청입니다.  
+다음 예제는 [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)를 사용 하 여 Azure Cognitive Search에 보낼 수 있는 검색 요청입니다.  
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2019-05-06
@@ -69,7 +69,7 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 2. 쿼리를 실행합니다. 이 예제의 검색 쿼리는 다음과 같은 구와 용어로 구성되어 있습니다. `"Spacious, air-condition* +\"Ocean view\""`(일반적으로는 사용자가 문장 부호를 입력하지 않지만, 이 예에서는 분석기가 문장 부호를 어떻게 처리하는지 설명하기 위해 문장 부호를 포함함). 이 쿼리에서 검색 엔진은 "Ocean view"가 포함된 문서를 찾기 위해 `searchFields`에 지정된 설명 및 제목 필드를 검색하고, 추가적으로 "spacious" 용어 또는 접두사 "air-condition"으로 시작하는 용어를 검색합니다. `searchMode` 매개 변수는 용어가 명시적으로 필요하지 않은 경우(`+`)에 일부 일치(기본값) 또는 전체 일치에 사용됩니다.
 3. 호텔 검색 결과 집합을 특정 지리적 위치에 가까운 순서대로 정렬한 후 호출 애플리케이션으로 반환합니다. 
 
-이 문서의 대부분은 *검색 쿼리*처리에 `"Spacious, air-condition* +\"Ocean view\""`관한 것입니다. 필터링 및 정렬은 본 문서에서 다루지 않습니다. 자세한 내용은 [검색 API 참조 문서](https://docs.microsoft.com/rest/api/searchservice/search-documents)를 참조하세요.
+이 문서의 대부분은 *검색 쿼리*를 처리 하는 방법에 대 `"Spacious, air-condition* +\"Ocean view\""`한 것입니다. 필터링 및 정렬은 본 문서에서 다루지 않습니다. 자세한 내용은 [검색 API 참조 문서](https://docs.microsoft.com/rest/api/searchservice/search-documents)를 참조하세요.
 
 <a name="stage1"></a>
 ## <a name="stage-1-query-parsing"></a>1단계: 쿼리 구문 분석 
@@ -96,7 +96,7 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 
 ### <a name="supported-parsers-simple-and-full-lucene"></a>지원되는 파서: 단순(simple) 및 전체(full) Lucene 
 
- Azure Cognitive Search는 두 개의 `simple` 서로 다른 `full`쿼리 언어(기본값) 및 를 노출합니다. 사용자는 검색 요청에서 `queryType` 매개 변수를 설정함으로써 쿼리 파서에 어떤 쿼리 언어를 사용하여 연산자와 구문을 해석해야 하는지 알려줍니다. [단순 쿼리 언어](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)는 직관적이고 견고하며, 종종 클라이언트 측 처리 없이 사용자 입력을 있는 그대로 해석하는 데 적합합니다. 웹 검색 엔진과 비슷한 쿼리 연산자를 지원합니다. `queryType=full`로 설정하면 사용할 수 있는 [전체 Lucene 쿼리 언어](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)는 와일드카드, 퍼지, regex, 필드 범위가 지정된 쿼리 등의 추가 연산자 및 쿼리 유형에 대한 지원을 추가하여 기본값인 단순 쿼리 언어를 확장합니다. 예를 들어 단순 쿼리 구문에서 전송되는 정규식은 식이 아닌 쿼리 문자열로 해석됩니다. 이 문서의 요청 예제에서는 전체 Lucene 쿼리 언어를 사용합니다.
+ Azure Cognitive Search는 (기본값) 및 `simple` `full`의 두 가지 쿼리 언어를 노출 합니다. 사용자는 검색 요청에서 `queryType` 매개 변수를 설정함으로써 쿼리 파서에 어떤 쿼리 언어를 사용하여 연산자와 구문을 해석해야 하는지 알려줍니다. [단순 쿼리 언어](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)는 직관적이고 견고하며, 종종 클라이언트 측 처리 없이 사용자 입력을 있는 그대로 해석하는 데 적합합니다. 웹 검색 엔진과 비슷한 쿼리 연산자를 지원합니다. `queryType=full`로 설정하면 사용할 수 있는 [전체 Lucene 쿼리 언어](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)는 와일드카드, 퍼지, regex, 필드 범위가 지정된 쿼리 등의 추가 연산자 및 쿼리 유형에 대한 지원을 추가하여 기본값인 단순 쿼리 언어를 확장합니다. 예를 들어 단순 쿼리 구문에서 전송되는 정규식은 식이 아닌 쿼리 문자열로 해석됩니다. 이 문서의 요청 예제에서는 전체 Lucene 쿼리 언어를 사용합니다.
 
 ### <a name="impact-of-searchmode-on-the-parser"></a>searchMode가 파서에 미치는 영향 
 
@@ -137,7 +137,7 @@ Spacious,||air-condition*+"Ocean view"
 * 복합 단어를 구성 요소 부분으로 분리 
 * 대문자 단어를 소문자로 변환 
 
-이 모든 작업은 사용자가 제공한 텍스트 입력과 인덱스에 저장된 용어 사이의 차이점을 없애는 경향이 있습니다. 이러한 작업은 텍스트 처리에서 그치지 않으며 언어 자체에 대한 심도 있는 지식을 필요로 합니다. 언어 인식의 이 계층을 추가하기 위해 Azure Cognitive Search는 Lucene및 Microsoft의 긴 [언어 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support) 목록을 지원합니다.
+이 모든 작업은 사용자가 제공한 텍스트 입력과 인덱스에 저장된 용어 사이의 차이점을 없애는 경향이 있습니다. 이러한 작업은 텍스트 처리에서 그치지 않으며 언어 자체에 대한 심도 있는 지식을 필요로 합니다. 이 언어 인식 계층을 추가 하기 위해 Azure Cognitive Search는 Lucene 및 Microsoft의 긴 [언어 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support) 목록을 지원 합니다.
 
 > [!Note]
 > 분석 요구 사항은 시나리오에 따라 최소한의 수준부터 복잡한 수준까지 달라질 수 있습니다. 미리 정의된 분석기 중 하나를 선택하거나 [사용자 지정 분석기](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search)를 직접 만들어서 어휘 분석의 복잡성을 제어할 수 있습니다. 분석기는 필드 정의의 일부로 지정되며 분석기의 범위는 검색 가능한 필드입니다. 따라서 필드별로 어휘 분석을 다르게 할 수 있습니다. 분석기를 지정하지 않으면 *표준* Lucene 분석기가 사용됩니다.
@@ -245,7 +245,7 @@ Spacious,||air-condition*+"Ocean view"
 쿼리 용어가 인덱스 내 용어와 좀 더 비슷하게 보이도록 검색 작업과 인덱싱 작업에 같은 분석기를 사용하는 것이 일반적이지만 필수는 아닙니다.
 
 > [!Note]
-> Azure Cognitive Search를 사용하면 추가 `indexAnalyzer` 및 `searchAnalyzer` 필드 매개 변수를 통해 인덱싱 및 검색을 위해 다른 분석기를 지정할 수 있습니다. 분석기를 지정하지 않으면 `analyzer` 속성을 통해 설정된 분석기가 인덱싱과 검색에 모두 사용됩니다.  
+> Azure Cognitive Search를 사용 하면 추가 `indexAnalyzer` 및 `searchAnalyzer` 필드 매개 변수를 통해 인덱싱 및 검색에 대해 다른 분석기를 지정할 수 있습니다. 분석기를 지정하지 않으면 `analyzer` 속성을 통해 설정된 분석기가 인덱싱과 검색에 모두 사용됩니다.  
 
 **예제 문서의 반전된 인덱스**
 
@@ -309,7 +309,7 @@ Spacious,||air-condition*+"Ocean view"
 + PhraseQuery "ocean view"는 용어 "ocean"과 "view"를 조회하며 원래 문서에서 용어의 근접도를 확인합니다. 문서 1, 2, 3은 설명 필드가 이 쿼리와 일치합니다. 문서 4는 제목에 용어 ocean이 있지만 일치 항목으로 간주되지 않습니다. 쿼리에서 찾는 것이 개별 단어가 아닌 "ocean view"라는 구이기 때문입니다. 
 
 > [!Note]
-> 검색 쿼리는 예제 검색 요청에 설명된 대로 `searchFields` 매개 변수로 설정된 필드를 제한하지 않는 한 Azure Cognitive Search 인덱스의 모든 검색 가능한 필드에 대해 독립적으로 실행됩니다. 선택한 필드 중 아무 필드와 일치하는 문서가 반환됩니다. 
+> 검색 쿼리는 예제 검색 요청에 설명 된 대로 `searchFields` 매개 변수를 사용 하 여 설정 된 필드를 제한 하지 않는 한 Azure Cognitive Search 인덱스의 모든 검색 가능 필드에 대해 독립적으로 실행 됩니다. 선택한 필드 중 아무 필드와 일치하는 문서가 반환됩니다. 
 
 전체적으로 볼 때, 예제의 쿼리와 일치하는 문서는 1, 2, 3입니다. 
 
@@ -357,15 +357,15 @@ search=Spacious, air-condition* +"Ocean view"
 
 ### <a name="score-tuning"></a>점수 조정
 
-Azure 인지 검색에서 관련성 점수를 조정하는 방법에는 두 가지가 있습니다.
+Azure Cognitive Search에서 관련성 점수를 조정 하는 방법에는 두 가지가 있습니다.
 
 1. **점수 매기기 프로필**은 규칙 집합을 기준으로 순위가 지정된 결과 목록에서 문서를 승격합니다. 이 문서의 예제에서는 제목 필드와 일치하는 문서가 설명 필드와 일치하는 문서보다 관련성이 높은 것으로 간주할 수 있습니다. 뿐만 아니라 만약 인덱스에 각 호텔의 가격 필드가 있다면 가격이 낮은 문서를 승격할 수 있습니다. [검색 인덱스에 점수 매기기 프로필 추가](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)에 대해 자세히 알아보세요.
-2. **용어 상승**(전체 Lucene 쿼리 구문에만 사용 가능)은 쿼리 트리의 어떤 부분에도 적용할 수 있는 `^` 상승 연산자를 제공합니다. 이 예제에서는 접두사 *에어컨을*\*검색하는 대신 정확한 용어 인 *에어컨* 또는 접두사를 검색 할 수 있지만 정확한 용어와 일치하는 문서는 용어 쿼리에 부스트를 적용하여 순위가 더 높습니다. 에어컨**. [용어 상승](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost)에 대해 자세히 알아보세요.
+2. **용어 상승**(전체 Lucene 쿼리 구문에만 사용 가능)은 쿼리 트리의 어떤 부분에도 적용할 수 있는 `^` 상승 연산자를 제공합니다. 이 예제에서는 접두사 *공기 조건을*\*검색 하는 대신 정확한 용어 *공기 조건* 또는 접두사를 검색할 수 있지만, 정확한 용어에서 일치 하는 문서는 쿼리 라는 용어에 상승 (* 공기 조건 ^ 2 | |)을 적용 하 여 더 높은 순위를 갖습니다. 공기 조건 * *. [용어 상승](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost)에 대해 자세히 알아보세요.
 
 
 ### <a name="scoring-in-a-distributed-index"></a>분산된 인덱스에 점수 매기기
 
-Azure Cognitive Search의 모든 인덱스는 자동으로 여러 샤드로 분할되므로 서비스 확장 또는 축소 중에 여러 노드 간에 인덱스를 신속하게 배포할 수 있습니다. 검색 요청이 실행될 때 검색 요청은 각 분할 영역에 대해 독립적으로 실행됩니다. 그런 다음 각 분할 영역의 결과가 점수를 기준으로(다른 정렬 기준이 정의되지 않은 경우) 병합되고 정렬됩니다. 점수 매기기 함수는 분할 영역 전체가 아닌 해당 분할 영역 내부의 모든 문서에서 반전 문서 빈도보다 쿼리 용어 빈도에 가중치를 부여한다는 것을 기억해야 합니다.
+Azure Cognitive Search의 모든 인덱스는 자동으로 여러 분할 분할 되므로 서비스 규모를 확장 하거나 축소 하는 동안 여러 노드 간에 인덱스를 신속 하 게 배포할 수 있습니다. 검색 요청이 실행될 때 검색 요청은 각 분할 영역에 대해 독립적으로 실행됩니다. 그런 다음 각 분할 영역의 결과가 점수를 기준으로(다른 정렬 기준이 정의되지 않은 경우) 병합되고 정렬됩니다. 점수 매기기 함수는 분할 영역 전체가 아닌 해당 분할 영역 내부의 모든 문서에서 반전 문서 빈도보다 쿼리 용어 빈도에 가중치를 부여한다는 것을 기억해야 합니다.
 
 즉, 같은 문서라도 서로 다른 분할 영역에 상주할 경우 관련성 점수가 *다를 수 있습니다*. 다행스럽게도 이러한 차이는 인덱스의 문서 수가 증가하면 용어가 보다 균등하게 배포되기 때문에 사라지는 경향이 있습니다. 특정 문서가 어떤 분할 영역에 배치되는지 추정하는 것은 불가능합니다. 그러나 문서 키가 변경되지 않는다고 가정할 때 항상 같은 분할 영역에 할당됩니다.
 
@@ -377,7 +377,7 @@ Azure Cognitive Search의 모든 인덱스는 자동으로 여러 샤드로 분�
 
 기술적인 측면에서 전체 텍스트 검색은 매우 복잡합니다. 쿼리 용어를 제거하고, 확장하고, 변환하여 관련 결과를 제공하는 정교한 언어 분석과 체계적인 처리 방법이 필요합니다. 내재된 복잡성을 고려할 때 쿼리 결과에 영향을 줄 수 있는 수많은 요소가 있습니다. 이러한 이유로 전체 텍스트 검색의 역학을 이해하는 데 시간을 투자하면 예상치 않은 결과를 작업할 때 확실한 이점이 있습니다.  
 
-이 문서에서는 Azure 인지 검색의 컨텍스트에서 전체 텍스트 검색을 탐색했습니다. 일반적인 쿼리 문제의 잠재적 원인과 해결책을 찾는 데 충분한 배경 지식을 익히셨기를 바랍니다. 
+이 문서에서는 Azure Cognitive Search 컨텍스트에서 전체 텍스트 검색을 탐색 했습니다. 일반적인 쿼리 문제의 잠재적 원인과 해결책을 찾는 데 충분한 배경 지식을 익히셨기를 바랍니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -391,9 +391,9 @@ Azure Cognitive Search의 모든 인덱스는 자동으로 여러 샤드로 분�
 
 + 특정 필드에 대해 최소한의 처리 또는 특수한 처리를 수행하려면 [사용자 지정 분석기를 구성](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-[문서 나머지 API 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+[문서 검색 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 
 [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 

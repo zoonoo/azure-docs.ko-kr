@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
 ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280054"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 앱 문제 해결
@@ -28,17 +28,17 @@ ms.locfileid: "79280054"
 
 Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](/visualstudio/debugger/intellitrace) 를 사용할 수도 있습니다. IntelliTrace는 이 자습서에서 다루지 않습니다.
 
-## <a name="prerequisites"></a><a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a><a name="prerequisites"></a>필수 조건
 이 자습서에서는 [Azure App Service에서 ASP.NET 앱 만들기](app-service-web-get-started-dotnet-framework.md)에서 설정한 개발 환경, 웹 프로젝트 및 App Service 앱을 사용합니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 애플리케이션이 필요합니다.
 
 이 사용설명서에 제시된 코드 샘플은 C# MVC 웹 애플리케이션용이지만 문제 해결 절차는 Visual Basic 및 Web Forms 애플리케이션에도 동일하게 적용됩니다.
 
-이 자습서에서는 Visual Studio 2019를 사용하고 있다고 가정합니다. 
+이 자습서에서는 Visual Studio 2019을 사용 하 고 있다고 가정 합니다. 
 
 로그 스트리밍 기능은 .NET Framework 4 이상을 대상으로 하는 애플리케이션에 대해서만 작동합니다.
 
 ## <a name="app-configuration-and-management"></a><a name="sitemanagement"></a>앱 구성 및 관리
-Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?LinkId=529715)에서 사용할 수 있는 앱 관리 기능 및 구성 설정의 일부에 액세스할 수 있습니다. 이 섹션에서는 **서버 탐색기를**사용하여 사용할 수 있는 내용을 확인할 수 있습니다. 최신 Azure 통합 기능을 확인하려면 **클라우드 탐색기** 도 사용해 보십시오. **보기** 메뉴에서 두 창을 모두 열 수 있습니다.
+Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?LinkId=529715)에서 사용할 수 있는 앱 관리 기능 및 구성 설정의 일부에 액세스할 수 있습니다. 이 섹션에서는 **서버 탐색기**를 사용 하 여 사용할 수 있는 기능을 확인 합니다. 최신 Azure 통합 기능을 확인하려면 **클라우드 탐색기** 도 사용해 보십시오. **보기** 메뉴에서 두 창을 모두 열 수 있습니다.
 
 1. Visual Studio에서 Azure에 아직 로그인하지 않은 경우 **Azure**를 마우스 오른쪽 단추로 클릭하고 **서버 탐색기**에서 **Microsoft Azure 구독에 연결**을 선택합니다.
 
@@ -61,14 +61,14 @@ Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?Li
 
     이 사용설명서에서는 로깅 및 추적 드롭다운을 사용합니다. 원격 디버깅도 사용하지만 다른 방법을 사용하여 이를 사용하도록 설정합니다.
 
-    이 창의 앱 설정 및 연결 문자열 상자에 대한 자세한 내용은 [Azure 앱 서비스: 응용 프로그램 문자열 및 연결 문자열의 작동 방식을](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)참조하십시오.
+    이 창의 앱 설정 및 연결 문자열 상자에 대 한 자세한 내용은 [Azure App Service: 응용 프로그램 문자열 및 연결 문자열 작동 방식](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)을 참조 하세요.
 
     이 창에서 지원하지 않는 앱 관리 작업을 수행하려는 경우 **관리 포털에서 열기**를 클릭하여 브라우저 창에서 Azure Portal을 엽니다.
 
 ## <a name="access-app-files-in-server-explorer"></a><a name="remoteview"></a>서버 탐색기에서 앱 파일 액세스
 일반적으로 Web.config 파일에서 `customErrors` 플래그를 `On` 또는 `RemoteOnly`로 설정한 상태로 웹 프로젝트가 배포되기 때문에 문제가 발생한 경우 유용한 오류 메시지를 받지 못합니다. 받을 수 있는 대부분의 오류는 다음 중 하나와 유사합니다.
 
-**'/' 응용 프로그램의 서버 오류:**
+**'/' 응용 프로그램에 서버 오류가 있습니다.**
 
 ![도움이 되지 않는 오류 메시지](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
 
@@ -127,7 +127,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 1. `ViewBag.Message` 줄에 [중단점을 설정](https://docs.microsoft.com/visualstudio/debugger/)합니다.
 
-1. **솔루션 탐색기에서**프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시 를**클릭합니다.
+1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**를 클릭 합니다.
 
 1. **프로필** 드롭다운 목록에서 [Azure App Service에서 ASP.NET 앱 만들기](app-service-web-get-started-dotnet-framework.md)에서 사용한 것과 동일한 프로필을 선택합니다. 그런 후 설정을 클릭합니다.
 
@@ -271,7 +271,7 @@ App Service 앱에서 실행하는 ASP.NET 애플리케이션은 다음과 같�
 WebJob에서 애플리케이션을 만드는 방법에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure Queue Storage 작업을 하는 방법 - 로그를 쓰는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)을 참조하세요. 로그를 보고 Azure에 저장하는 방법을 제어하기 위한 다음 지침은 WebJob에서 만들어진 애플리케이션 로그에도 적용됩니다.
 
 ### <a name="add-tracing-statements-to-the-application"></a>애플리케이션에 추적 문 추가
-1. *Controllers\HomeController.cs를*열고 `Index`에 `About`대한 `Contact` 명령문 및 `using` 문을 `System.Diagnostics`추가하기 `Trace` 위해 에서 및 메서드를 다음 코드로 바꿉니다.
+1. *Controllers\ homecontroller.cs* `Index`를 열고, `About`및 `Contact` 메서드를에 대 한 `Trace` `using` `System.Diagnostics`문과 문을 추가 하기 위해 다음 코드로 바꿉니다.
 
     ```csharp
     public ActionResult Index()
@@ -337,7 +337,7 @@ WebJob에서 애플리케이션을 만드는 방법에 대한 자세한 내용�
     ```
 
 1. Ctrl+F5를 눌러 애플리케이션을 실행합니다.
-1. 브라우저 창의 주소 표시줄에서 *url에 trace.axd를* 추가한 다음 Enter(URL이 `http://localhost:53370/trace.axd`비슷합니다)를 누릅니다.
+1. 브라우저 창의 주소 표시줄에서 *trace.axd* 를 url에 추가한 후 enter 키를 누릅니다. url은와 유사 `http://localhost:53370/trace.axd`합니다.
 1. **애플리케이션 추적** 페이지에서 BrowserLink 줄이 아니라 첫 번째 줄의 **세부 정보 보기**를 클릭합니다.
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -577,7 +577,7 @@ Visual Studio를 사용하여 실패한 요청 추적을 사용하도록 설정�
 
 5. 새 브라우저 창에서 앱의 **개요** 페이지의 **FTP 호스트 이름** 또는 **FTPS 호스트 이름** 아래에 표시된 URL로 이동합니다.
 
-6. 이전에 만든 FTP 자격 증명(사용자 이름에 대한 앱 이름 접두사 포함)을 사용하여 로그인합니다.
+6. 이전에 만든 FTP 자격 증명을 사용 하 여 로그인 합니다 (사용자 이름에 대 한 앱 이름 접두사 포함).
 
     브라우저에 앱의 루트 폴더가 표시됩니다.
 
@@ -620,7 +620,7 @@ Azure App Service에서 앱 문제 해결에 대한 자세한 내용은 다음 �
 특정 문제 해결 질문과 관련하여 도움이 필요한 경우 다음 포럼 중 하나에서 게시물을 작성하십시오.
 
 * [ASP.NET 사이트의 Azure 포럼](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET)(영문)
-* [마이크로소프트 Q&A에 Azure 포럼](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+* [Microsoft Q의 Azure 포럼은 A를&](https://docs.microsoft.com/answers/topics/azure-webapps.html)합니다.
 * [StackOverflow.com](https://www.stackoverflow.com)(영문)
 
 ### <a name="debugging-in-visual-studio"></a>Visual Studio의 디버깅
@@ -676,13 +676,13 @@ App Service 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   웹 서버 로그(*.log* 파일)의 데이터를 보는 데 사용하는 도구입니다.
-* [LogParser를 사용하여 IIS 성능 문제 또는 응용 프로그램 오류 문제 해결](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [LogParser를 사용 하 여 IIS 성능 문제 또는 응용 프로그램 오류 문제 해결](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
    웹 서버 로그를 분석하는 데 사용할 수 있는 로그 파서 도구를 소개합니다.
 * [Robert McMurray의 LogParser 사용 관련 블로그 게시물](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [IIS 7.0, IIS 7.5 및 IIS 8.0의 HTTP 상태 코드](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>실패한 요청 로그 분석
-Microsoft TechNet 웹 사이트에는 [실패한 요청 추적 사용](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) 섹션이 포함되어 있으며 이러한 로그를 사용하는 방법을 이해하는 데 도움이 될 수 있습니다. 하지만 이 설명서에서는 IIS에서 실패한 요청 추적을 구성하는 방법을 중점적으로 다루며, 이는 Azure App Service에서 수행할 수 없습니다.
+Microsoft TechNet 웹 사이트에는 이러한 로그를 사용 하는 방법을 이해 하는 데 도움이 될 수 있는 [실패 한 요청 추적 사용](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) 섹션이 포함 되어 있습니다. 하지만 이 설명서에서는 IIS에서 실패한 요청 추적을 구성하는 방법을 중점적으로 다루며, 이는 Azure App Service에서 수행할 수 없습니다.
 
 [GetStarted]: app-service-web-get-started-dotnet.md
 [GetStartedWJ]: https://github.com/Azure/azure-webjobs-sdk/wiki

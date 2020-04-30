@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: a385d3ed7ef46389f96de72c98ffc29cebf60ec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79278533"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cache for Redis 관리
 > [!div class="op_single_selector"]
-> * [Powershell](cache-how-to-manage-redis-cache-powershell.md)
+> * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
 > * [Azure CLI](cache-manage-cli.md)
 > 
 > 
@@ -28,7 +28,7 @@ ms.locfileid: "79278533"
 
 두 배포 모델에 대한 자세한 내용은 [Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해](../azure-resource-manager/management/deployment-models.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 Azure PowerShell을 이미 설치한 경우 Azure PowerShell 버전 1.0.0 이상이 있어야 합니다. Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다.
 
     Get-Module Az | format-table version
@@ -117,12 +117,12 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 ### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>Azure Cache for Redis PowerShell에 사용되는 속성
 다음 표에서는 Azure PowerShell을 사용하여 Azure Cache for Redis 인스턴스를 만들고 관리할 때 자주 사용되는 매개 변수에 대한 속성 및 설명을 포함합니다.
 
-| 매개 변수 | 설명 | 기본값 |
+| 매개 변수 | Description | 기본값 |
 | --- | --- | --- |
-| 이름 |캐시의 이름 | |
+| 속성 |캐시의 이름 | |
 | 위치 |캐시의 위치 | |
 | ResourceGroupName |캐시를 만들 리소스 그룹 이름 | |
-| 크기 |캐시의 크기. 유효한 값: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
+| Size |캐시의 크기. 유효한 값: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
 | ShardCount |클러스터링을 사용하는 프리미엄 캐시를 만들 때 만들 분할된 데이터베이스 수. 유효한 값: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |캐시의 SKU를 지정합니다. 유효한 값: 기본, 표준, 프리미엄 |Standard |
 | RedisConfiguration |Redis 구성 설정을 지정합니다. 각 설정에 대한 자세한 내용은 다음 [RedisConfiguration 속성](#redisconfiguration-properties) 테이블을 참조하세요. | |
