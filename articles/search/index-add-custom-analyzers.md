@@ -7,7 +7,7 @@ author: Yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/27/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9bf0fb1a33a98031a78155a3956ac6d6abe33029
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f0d9576f5275bcfc061ce29740f8d85aff4ccfff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74113620"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231087"
 ---
 # <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스의 문자열 필드에 사용자 지정 분석기 추가
 
@@ -214,7 +214,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |||  
 |-|-|  
 |속성|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
-|유형|지원되는 분석기 목록에 포함된 분석기 형식입니다. 아래의 [분석기](#AnalyzerTable) 표에서 **analyzer_type** 열을 참조하세요.|  
+|Type|지원되는 분석기 목록에 포함된 분석기 형식입니다. 아래의 [분석기](#AnalyzerTable) 표에서 **analyzer_type** 열을 참조하세요.|  
 |옵션|아래의 [분석기](#AnalyzerTable) 표에 나열된 미리 정의된 분석기의 유효한 옵션이어야 합니다.|  
 
 #### <a name="custom-analyzers"></a>사용자 지정 분석기
@@ -222,7 +222,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |||  
 |-|-|  
 |속성|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
-|유형|"#Microsoft.Azure.Search.CustomAnalyzer"여야 합니다.|  
+|Type|"#Microsoft.Azure.Search.CustomAnalyzer"여야 합니다.|  
 |CharFilters|[문자 필터](#char-filters-reference) 표에 나열된 미리 정의된 문자 필터 중 하나 또는 인덱스 정의에 지정된 사용자 지정 문자 필터로 설정합니다.|  
 |토크나이저|필수 사항입니다. 아래의 [토크나이저](#Tokenizers) 표에 나열된 미리 정의된 토크나이저 중 하나 또는 인덱스 정의에 지정된 사용자 지정 토크나이저로 설정합니다.|  
 |TokenFilters|[토큰 필터](#TokenFilters) 표에 나열된 미리 정의된 토큰 필터 중 하나 또는 인덱스 정의에 지정된 사용자 지정 토큰 필터로 설정합니다.|  
@@ -239,7 +239,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |||  
 |-|-|  
 |속성|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
-|유형|지원되는 문자 필터 목록의 문자 필터 형식입니다. [문자 필터](#char-filters-reference) 표의 **char_filter_type** 열을 참조하세요.|  
+|Type|지원되는 문자 필터 목록의 문자 필터 형식입니다. [문자 필터](#char-filters-reference) 표의 **char_filter_type** 열을 참조하세요.|  
 |옵션|지정된 [문자 필터](#char-filters-reference) 형식의 유효한 옵션이어야 합니다.|  
 
 ### <a name="tokenizers"></a>토크나이저
@@ -252,7 +252,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |||  
 |-|-|  
 |속성|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
-|유형|지원되는 토크나이저 목록의 토크나이저 이름입니다. [토크나이저](#Tokenizers) 표의 **tokenizer_type** 열을 참조하세요.|  
+|Type|지원되는 토크나이저 목록의 토크나이저 이름입니다. [토크나이저](#Tokenizers) 표의 **tokenizer_type** 열을 참조하세요.|  
 |옵션|아래의 [토크나이저](#Tokenizers) 표에 나열된 지정된 토크나이저 형식의 유효한 옵션이어야 합니다.|  
 
 ### <a name="token-filters"></a>토큰 필터
@@ -263,7 +263,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |||  
 |-|-|  
 |속성|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
-|유형|지원되는 토큰 필터 목록의 토큰 필터 이름입니다. [토큰 필터](#TokenFilters) 표의 **token_filter_type** 열을 참조하세요.|  
+|Type|지원되는 토큰 필터 목록의 토큰 필터 이름입니다. [토큰 필터](#TokenFilters) 표의 **token_filter_type** 열을 참조하세요.|  
 |옵션|지정된 토큰 필터 형식의 [토큰 필터](#TokenFilters)여야 합니다.|  
 
 <a name="PropertyReference"></a>  
@@ -279,7 +279,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |**analyzer_name**|**analyzer_type**  <sup>1</sup>|**설명 및 옵션**|  
 |-|-|-|  
 |[키워드로](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)| (형식은 옵션이 사용 가능할 때만 적용됨) |필드의 전체 콘텐츠를 단일 토큰으로 처리합니다. 우편 번호, ID 및 일부 제품 이름과 같은 데이터에 유용합니다.|  
-|[pattern](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|정규식 패턴을 통해 텍스트를 용어로 유연하게 구분합니다.<br /><br /> **옵션**<br /><br /> lowercase (type: bool) - 용어를 소문자로 처리할지를 결정합니다. 기본값은 true입니다.<br /><br /> [pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (type: string) - 일치하는 토큰 구분 기호를 검색하기 위한 정규식 패턴입니다. 기본값은 \w+입니다.<br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - 정규식 플래그입니다. 기본값은 빈 문자열입니다. 허용 되는 값: CANON_EQ, CASE_INSENSITIVE, 주석, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> stopwords (type: string array) - 중지 단어 목록입니다. 기본값은 빈 목록입니다.|  
+|[pattern](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|정규식 패턴을 통해 텍스트를 용어로 유연하게 구분합니다.<br /><br /> **옵션**<br /><br /> lowercase (type: bool) - 용어를 소문자로 처리할지를 결정합니다. 기본값은 true입니다.<br /><br /> [pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (type: string) - 일치하는 토큰 구분 기호를 검색하기 위한 정규식 패턴입니다. 기본값은입니다 `\W+`.이는 단어가 아닌 문자를 찾습니다.<br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - 정규식 플래그입니다. 기본값은 빈 문자열입니다. 허용 되는 값: CANON_EQ, CASE_INSENSITIVE, 주석, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> stopwords (type: string array) - 중지 단어 목록입니다. 기본값은 빈 목록입니다.|  
 |[쉽게](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/SimpleAnalyzer.html)|(형식은 옵션이 사용 가능할 때만 적용됨) |비문자에서 텍스트를 나눈 후 소문자로 변환합니다. |  
 |[표준](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) <br />(standard.lucene라고도 함)|StandardAnalyzer|표준 토크나이저, 소문자 필터 및 중지 필터로 구성된 표준 Lucene 분석기입니다.<br /><br /> **옵션**<br /><br /> maxTokenLength (type: int) - 최대 토큰 길이입니다. 기본값은 255입니다. 최대 길이보다 긴 토큰은 분할됩니다. 사용할 수 있는 최대 토큰 길이는 300자입니다.<br /><br /> stopwords (type: string array) - 중지 단어 목록입니다. 기본값은 빈 목록입니다.|  
 |standardasciifolding.lucene|(형식은 옵션이 사용 가능할 때만 적용됨) |ASCII 접기 필터가 있는 표준 분석기입니다. |  
@@ -322,7 +322,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 | microsoft_language_stemming_tokenizer | MicrosoftLanguageStemmingTokenizer| 언어별 규칙을 사용하여 텍스트를 구분하고, 단어를 기본 형식으로 줄입니다.<br /><br /> **옵션**<br /><br />maxTokenLength (type: int)-최대 토큰 길이 이며 기본값: 255, 최대: 300. 최대 길이보다 긴 토큰은 분할됩니다. 300자보다 긴 토큰은 먼저 300자 길이의 토큰으로 분할된 후 각 토큰은 설정된 maxTokenLength를 기준으로 분할됩니다.<br /><br /> isSearchTokenizer (type: bool) - 검색 토크나이저로 사용될 경우 true로 설정되고, 인덱싱 토크나이저로 사용될 경우 false로 설정됩니다.<br /><br /> language (type: string) - 사용할 언어로, 기본값은 "english"입니다. 허용되는 값은 다음과 같습니다.<br />"arabic", "bangla", "bulgarian", "catalan", "croatian", "czech", "danish", "dutch", "english", "estonian", "finnish", "french", "german", "greek", "gujarati", "hebrew", "hindi", "hungarian", "icelandic", "indonesian", "italian", "kannada", "latvian", "lithuanian", "malay", "malayalam", "marathi", "norwegianBokmaal", "polish", "portuguese", "portugueseBrazilian", "punjabi", "romanian", "russian", "serbianCyrillic", "serbianLatin", "slovak", "slovenian", "spanish", "swedish", "tamil", "telugu", "turkish", "ukrainian", "urdu" |
 |[nGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenizer.html)|NGramTokenizer|입력을 지정된 크기의 n-gram으로 토큰화합니다.<br /><br /> **옵션**<br /><br /> minGram (유형: int)-기본값: 1, 최대값: 300.<br /><br /> maxGram (유형: int)-기본값: 2, 최대값: 300. minGram보다 커야 합니다. <br /><br /> tokenChars (type: string array) - 토큰에 유지할 문자 클래스입니다. 허용되는 값: "letter", "digit", "whitespace", "punctuation", "symbol". 기본값은 빈 배열로, 모든 문자를 유지합니다. |  
 |[path_hierarchy_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html)|PathHierarchyTokenizerV2|경로와 같은 계층 구조의 토크나이저입니다.<br /><br /> **옵션**<br /><br /> delimiter (type: string) - 기본값: '/.<br /><br /> replacement (type: string) - 설정하면 구분 기호 문자를 바꿉니다. 기본값은 구분 기호 값과 동일합니다.<br /><br /> maxTokenLength (type: int) - 최대 토큰 길이입니다. 기본값: 300, 최대값: 300. maxTokenLength보다 긴 경로는 무시됩니다.<br /><br /> reverse (type: bool) - true인 경우 역순으로 토큰을 생성합니다. 기본값: false입니다.<br /><br /> skip (type: bool) - 건너뛸 초기 토큰입니다. 기본값은 0입니다.|  
-|[pattern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|이 토크나이저는 정규식 패턴 일치를 사용하여 고유 토큰을 생성합니다.<br /><br /> **옵션**<br /><br /> [패턴](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) (형식: 문자열)-정규식 패턴입니다. 기본값은 \W +입니다. <br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - 정규식 플래그입니다. 기본값은 빈 문자열입니다. 허용 되는 값: CANON_EQ, CASE_INSENSITIVE, 주석, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> group (type: int) - 토큰으로 추출할 그룹입니다. 기본값은 -1(분할)입니다.|
+|[pattern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|이 토크나이저는 정규식 패턴 일치를 사용하여 고유 토큰을 생성합니다.<br /><br /> **옵션**<br /><br /> [패턴](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) (형식: 문자열)-토큰 구분 기호와 일치 하는 정규식 패턴입니다. 기본값은입니다 `\W+`.이는 단어가 아닌 문자를 찾습니다. <br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - 정규식 플래그입니다. 기본값은 빈 문자열입니다. 허용 되는 값: CANON_EQ, CASE_INSENSITIVE, 주석, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> group (type: int) - 토큰으로 추출할 그룹입니다. 기본값은 -1(분할)입니다.|
 |[standard_v2](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|[유니코드 텍스트 구분 규칙](https://unicode.org/reports/tr29/)에 따라 텍스트를 구분합니다.<br /><br /> **옵션**<br /><br /> maxTokenLength (type: int) - 최대 토큰 길이입니다. 기본값: 255, 최대값: 300. 최대 길이보다 긴 토큰은 분할됩니다.|  
 |[uax_url_email](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|URL과 이메일을 하나의 토큰으로 토큰화합니다.<br /><br /> **옵션**<br /><br /> maxTokenLength (type: int) - 최대 토큰 길이입니다. 기본값: 255, 최대값: 300. 최대 길이보다 긴 토큰은 분할됩니다.|  
 |[공백](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(형식은 옵션이 사용 가능할 때만 적용됨) |공백에서 텍스트를 나눕니다. 255자보다 긴 토큰은 분할됩니다.|  
@@ -382,7 +382,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
  <sup>1</sup> 토큰 필터 형식은 코드에서 항상 접두사로 "#Microsoft.Azure.Search"가 붙습니다. 따라서 "ArabicNormalizationTokenFilter"는 실제로 "#Microsoft.Azure.Search.ArabicNormalizationTokenFilter"로 지정됩니다.  테이블 너비를 줄이기 위해 이 접두사를 제거했지만 코드에는 포함해야 합니다.  
 
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참조  
  [Azure Cognitive Search REST Api](https://docs.microsoft.com/rest/api/searchservice/)   
  [Azure Cognitive Search > 예제에서 분석기](search-analyzers.md#examples)    
  [Azure Cognitive Search REST API &#40;인덱스 만들기&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  

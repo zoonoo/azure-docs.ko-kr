@@ -1,28 +1,28 @@
 ---
 title: 지원 및 교육 받기
 titleSuffix: ML Studio (classic) - Azure
-description: Azure 기계 학습 스튜디오(클래식)에 대한 지원 및 교육 및 피드백 제공
+description: 지원 및 교육을 받고 Azure Machine Learning Studio (클래식)에 대 한 피드백 제공
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: peterclu
-ms.author: amlstudiodocs
+ms.author: peterlu
 ms.date: 01/18/2019
-ms.openlocfilehash: d330235815b746a5bbdc7682622c0e238a3ab0ea
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: cd48e97f642402d1c7ff2ff71e7cee67be17f91d
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411920"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209437"
 ---
-# <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Azure 기계 학습 스튜디오에 대한 지원 및 교육 받기(클래식)
+# <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에 대 한 지원 및 교육 받기
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-이 문서에서는 Azure 기계 학습 스튜디오(클래식)에 대해 자세히 알아보고 문제 및 질문에 대한 지원을 받는 방법에 대한 정보를 제공합니다.
+이 문서에서는 Azure Machine Learning Studio (클래식)에 대해 자세히 알아보고 문제 및 질문에 대 한 지원을 받는 방법에 대 한 정보를 제공 합니다.
 
-## <a name="learn-more-about-studio-classic"></a>스튜디오(클래식)에 대해 자세히 알아보기
+## <a name="learn-more-about-studio-classic"></a>Studio (클래식)에 대 한 자세한 정보
 
 다음 학습 리소스를 참조하세요.
 + [자습서 및 방법 문서](../studio/index.yml) 
@@ -36,9 +36,9 @@ ms.locfileid: "81411920"
 
 다음 지원 리소스를 확인하세요.
 
-+ **Azure 고객에 대한 기술 지원**: Azure 포털을 통해 [지원 요청을 제출하고 관리합니다.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
++ **Azure 고객에 대 한 기술 지원**: Azure Portal을 통해 [지원 요청을 제출 하 고 관리](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) 합니다.
 
-+ **사용자 포럼**: [MSDN의 Azure 기계 학습 스튜디오(클래식) 지원 포럼에서](https://aka.ms/aml-forum-studio)질문을 하고, 질문에 답하고, 다른 사용자와 연결합니다.
++ **사용자 포럼**: [MSDN의 Azure Machine Learning Studio (클래식) 지원 포럼](https://aka.ms/aml-forum-studio)에서 질문을 하 고 질문에 대답 하 고 다른 사용자와 연결 하세요.
 
 + **Stack Overflow**: "Azure-Machine-Learning" 태그가 지정되어 있는 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning)의 Azure Machine Learning 커뮤니티를 방문합니다.
 

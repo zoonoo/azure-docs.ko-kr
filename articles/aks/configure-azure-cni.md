@@ -4,12 +4,12 @@ description: AKS 클러스터를 기존 가상 네트워크와 서브넷에 배�
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 6f194cb97850fcb24e4789ac0ba39b6f03d99e6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 17778c367eb731a7e41f5017c3ae630dc152454e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80617392"
+ms.locfileid: "82207499"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
@@ -19,7 +19,7 @@ ms.locfileid: "80617392"
 
 이 문서에서는 *Azure CNI* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크 서브넷을 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * AKS 클러스터는 Kubernetes 서비스 `169.254.0.0/16`주소 `172.30.0.0/16`범위 `172.31.0.0/16`에 대해 `192.0.2.0/24` ,, 또는를 사용할 수 없습니다.
@@ -39,7 +39,7 @@ Pod 및 클러스터 노드의 IP 주소는 가상 네트워크 내의 지정된
 > 필요한 IP 주소 수에는 업그레이드 및 크기 조정 작업에 대한 고려가 반영되어야 합니다. 고정 노드 수만 지원하는 IP 주소 범위를 설정할 경우 클러스터의 업그레이드나 크기 조정이 불가능합니다.
 >
 > - AKS 클러스터를 **업그레이드**할 경우 새 노드가 클러스터에 배포됩니다. 서비스 및 워크로드가 새 노드에서 실행되기 시작하고 기존 노드가 클러스터에서 제거됩니다. 이 업그레이드 배포 프로세스를 위해서는 최소 하나의 추가 IP 주소 블록을 사용할 수 있어야 합니다. 그러면 노드 수가 `n + 1`입니다.
->   - 이러한 고려 사항은 Windows Server 노드 풀을 사용할 때 특히 중요 합니다 (현재 AKS에서 미리 보기 상태). AKS의 windows Server 노드는 Windows 업데이트를 자동으로 적용 하지 않으며, 대신 노드 풀에서 업그레이드를 수행 합니다. 이 업그레이드는 최신 Windows Server 2019 기본 노드 이미지 및 보안 패치를 사용 하 여 새 노드를 배포 합니다. Windows Server 노드 풀을 업그레이드 하는 방법에 대 한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
+>   - 이러한 고려 사항은 Windows Server 노드 풀을 사용할 때 특히 중요 합니다. AKS의 windows Server 노드는 Windows 업데이트를 자동으로 적용 하지 않으며, 대신 노드 풀에서 업그레이드를 수행 합니다. 이 업그레이드는 최신 Windows Server 2019 기본 노드 이미지 및 보안 패치를 사용 하 여 새 노드를 배포 합니다. Windows Server 노드 풀을 업그레이드 하는 방법에 대 한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
 >
 > - AKS 클러스터를 **확장**할 경우 새 노드가 클러스터에 배포됩니다. 서비스 및 워크로드가 새 노드에서 실행되기 시작합니다. IP 주소 범위에서는 클러스터가 지원할 수 있는 노드 및 Pod 수를 조정하려는 방법을 고려해야 합니다. 업그레이드 작업에 대한 추가 노드 하나도 포함되어야 합니다. 그러면 노드 수가 `n + number-of-additional-scaled-nodes-you-anticipate + 1`입니다.
 
@@ -143,7 +143,7 @@ Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이�
 
 ![Azure Portal의 고급 네트워킹 구성][portal-01-networking-advanced]
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 다음과 같은 질문과 대답은 **Azure CNI** 네트워킹 구성에 적용됩니다.
 

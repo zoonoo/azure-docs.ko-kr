@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 04/28/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563c049bf3d1606e87db54e3b003dac987594610
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0355bb1c4255e6de4ed17d55097b7b22d6b37db6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154630"
+ms.locfileid: "82229904"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>격리 상태의 응용 프로그램 프로 비전
 
@@ -33,7 +33,7 @@ Azure AD 프로 비전 서비스는 구성의 상태를 모니터링 하 고 비
 
 응용 프로그램이 격리 되어 있는지 여부를 확인 하는 방법에는 다음 세 가지가 있습니다.
   
-- Azure Portal에서 **Azure Active Directory** > **Enterprise 응용** > &lt;프로그램*응용 프로그램 이름*&gt; > **프로 비전** 으로 이동 하 고 맨 아래에 있는 진행률 표시줄로 스크롤합니다.  
+- Azure Portal에서 **Azure Active Directory** > **Enterprise 응용** > &lt;프로그램*응용 프로그램 이름*&gt; > **프로 비전** 으로 이동 하 고, 격리 메시지의 진행률 표시줄을 검토 합니다.   
 
   ![격리 상태를 보여 주는 프로 비전 상태 표시줄](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
@@ -51,7 +51,13 @@ Azure AD 프로 비전 서비스는 구성의 상태를 모니터링 하 고 비
 
 ## <a name="why-is-my-application-in-quarantine"></a>응용 프로그램이 격리 된 이유는 무엇 인가요?
 
-프로 비전 작업 상태를 가져오는 Microsoft Graph 요청은 다음과 같은 격리 이유를 표시 합니다.
+|설명|권장 작업|
+|---|---|
+|**Scim 준수 문제:** Http/404 찾을 수 없음 응답이 예상 된 HTTP/200 OK 응답 대신 반환 되었습니다. 이 경우 Azure AD 프로 비전 서비스는 대상 응용 프로그램에 요청을 수행 하 고 예기치 않은 응답을 받았습니다.|관리자 자격 증명 섹션을 확인 하 여 응용 프로그램에서 테 넌 트 URL을 지정 해야 하는지 확인 하 고 URL이 올바른지 확인 합니다. 문제가 표시 되지 않으면 응용 프로그램 개발자에 게 문의 하 여 서비스가 SCIM 규격 인지 확인 하세요. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
+|**잘못 된 자격 증명:** 대상 응용 프로그램에 대 한 액세스 권한을 부여 하려고 할 때 제공 된 자격 증명이 잘못 되었음을 나타내는 대상 응용 프로그램의 응답을 받았습니다.|프로 비전 구성 UI의 관리자 자격 증명 섹션으로 이동 하 고 유효한 자격 증명을 사용 하 여 액세스 권한을 다시 부여 하십시오. 응용 프로그램이 갤러리에 있는 경우 응용 프로그램 구성 자습서에서 필요한 추가 단계를 검토 합니다.|
+|**중복 역할:** Salesforce 및 Zendesk와 같은 특정 응용 프로그램에서 가져온 역할은 고유 해야 합니다. |Azure Portal에서 응용 프로그램 [매니페스트로](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) 이동 하 여 중복 역할을 제거 합니다.|
+
+ 프로 비전 작업 상태를 가져오는 Microsoft Graph 요청은 다음과 같은 격리 이유를 표시 합니다.
 
 - `EncounteredQuarantineException`잘못 된 자격 증명이 제공 되었음을 나타냅니다. 프로 비전 서비스가 원본 시스템과 대상 시스템 간에 연결을 설정할 수 없습니다.
 

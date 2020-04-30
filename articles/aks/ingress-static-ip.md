@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에서 고정 공용 IP �
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 27b80b1f0b6728b5ad69edae51f0d42bfac351d0
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.openlocfilehash: f0a8f1f1e1b724745e69aef30e2e6404ff6a5484
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82145492"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207363"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 고정 공용 IP 주소를 사용하여 수신 컨트롤러 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "82145492"
 - [사용자 고유의 TLS 인증서를 사용하는 수신 컨트롤러 만들기][aks-ingress-own-tls]
 - [동적 공용 IP를 사용하여 TLS 인증서를 자동으로 생성하도록 Let’s Encrypt를 사용하는 수신 컨트롤러 만들기][aks-ingress-tls]
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
@@ -56,7 +56,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 1. 매개 변수 `--set controller.service.loadBalancerIP` 를 추가 합니다. 이전 단계에서 만든 사용자 고유의 공용 IP 주소를 지정 합니다.
 1. 매개 변수 `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` 를 추가 합니다. 이전 단계에서 만든 공용 IP 주소에 적용할 DNS 이름 레이블을 지정 합니다.
 
-수신 컨트롤러도 Linux 노드에서 예약해야 합니다. Windows Server 노드 (현재 AKS에서 미리 보기 상태)는 수신 컨트롤러를 실행 해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
+수신 컨트롤러도 Linux 노드에서 예약해야 합니다. Windows Server 노드가 수신 컨트롤러를 실행해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
 
 > [!TIP]
 > 다음 예에서는 수신 *-기본*이라는 수신 리소스에 대 한 Kubernetes 네임 스페이스를 만듭니다. 필요에 따라 사용자 환경에 대 한 네임 스페이스를 지정 합니다. AKS 클러스터가 RBAC를 사용 하도록 설정 되지 않은 경우 `--set rbac.create=false` 투구 명령에를 추가 합니다.
@@ -285,7 +285,7 @@ certificate.cert-manager.io/tls-secret created
 
 ## <a name="test-the-ingress-configuration"></a>수신 구성 테스트
 
-Kubernetes 수신 컨트롤러의 FQDN (예:)에 대 한 웹 브라우저를 *https://demo-aks-ingress.eastus.cloudapp.azure.com*엽니다.
+Kubernetes 수신 컨트롤러의 FQDN (예:)에 대 한 웹 브라우저를 *`https://demo-aks-ingress.eastus.cloudapp.azure.com`* 엽니다.
 
 이러한 예제에서를 `letsencrypt-staging`사용 하는 경우 발급 된 TLS/SSL 인증서가 브라우저에서 신뢰 되지 않습니다. 경고 프롬프트를 수락하여 애플리케이션에서 계속 진행합니다. 인증서 정보에 이 *Fake LE Intermediate X1* 인증서가 Let's Encrypt에서 발급되었다고 표시됩니다. 이 가짜 인증서는 `cert-manager`에서 요청을 올바르게 처리했으며 공급자로부터 인증서를 받았음을 나타냅니다.
 
@@ -299,7 +299,7 @@ Kubernetes 수신 컨트롤러의 FQDN (예:)에 대 한 웹 브라우저를 *ht
 
 ![애플리케이션 예제 1](media/ingress/app-one.png)
 
-이제 FQDN에 */hello-world-two* 경로를 추가합니다(예: *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*). 사용자 지정 제목이 있는 두 번째 데모 애플리케이션이 표시됩니다.
+이제 FQDN에 */hello-world-two* 경로를 추가합니다(예: *`https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two`*). 사용자 지정 제목이 있는 두 번째 데모 애플리케이션이 표시됩니다.
 
 ![애플리케이션 예제 2](media/ingress/app-two.png)
 

@@ -1,29 +1,29 @@
 ---
-title: 클래식 웹 서비스 재교육
+title: 기존 웹 서비스 다시 학습
 titleSuffix: ML Studio (classic) - Azure
-description: Azure 기계 학습 스튜디오(클래식)에서 새로 학습된 모델을 사용하도록 모델을 다시 학습하고 클래식 웹 서비스를 업데이트하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning Studio (클래식)에서 새로 학습 된 모델을 사용 하도록 모델을 다시 학습 하 고 기존 웹 서비스를 업데이트 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: peterclu
-ms.author: amlstudiodocs
+ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 8094d64eab1a4b25a76554bf9eb6848c2e4d3493
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0639a525384e751ac4441da5d2c03532618b801a
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204242"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209454"
 ---
-# <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>클래식 스튜디오(클래식) 웹 서비스 재교육 및 배포
+# <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>클래식 Studio (클래식) 웹 서비스 다시 학습 및 배포
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-기계 학습 모델 다시 학습은 사용 가능한 가장 관련성 있는 데이터를 기반으로 계속 정확성을 유지하는 한 가지 방법입니다. 이 문서에서는 클래식 스튜디오(클래식) 웹 서비스를 다시 학습하는 방법을 설명합니다. 새 Studio(클래식) 웹 서비스를 다시 학습하는 방법에 대한 가이드는 [이 방법 문서를 참조하세요.](retrain-machine-learning-model.md)
+기계 학습 모델 다시 학습은 사용 가능한 가장 관련성 있는 데이터를 기반으로 계속 정확성을 유지하는 한 가지 방법입니다. 이 문서에서는 클래식 Studio (클래식) 웹 서비스를 다시 학습 하는 방법을 보여 줍니다. 새 Studio (클래식) 웹 서비스를 다시 학습 하는 방법에 대 한 지침은 [이 방법 문서를 참조 하세요.](retrain-machine-learning-model.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에서는 이미 다시 학습 실험과 예측 실험이 둘 다 있다고 가정합니다. 이 단계는 [기계 학습 모델 다시 학습 및 배포](/azure/machine-learning/studio/retrain-machine-learning-model)에서 설명합니다. 그러나 기계 학습 모델을 새로운 웹 서비스로 배포하는 대신, 예측 실험을 클래식 웹 서비스로 배포하겠습니다.
      
@@ -46,12 +46,12 @@ ms.locfileid: "79204242"
 
 ### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Azure 웹 서비스 포털을 사용하여 엔드포인트 추가
 
-1. 기계 학습 스튜디오(클래식)에서 왼쪽 탐색 열에서 웹 서비스를 클릭합니다.
-1. 웹 서비스 대시보드 하단에서 **끝점 미리 보기를**클릭합니다.
+1. Machine Learning Studio (클래식)의 왼쪽 탐색 열에서 웹 서비스를 클릭 합니다.
+1. 웹 서비스 대시보드 아래쪽에서 **끝점 관리 미리 보기**를 클릭 합니다.
 1. **추가**를 클릭합니다.
-1. 새 엔드포인트에 대한 이름 및 설명을 입력합니다. 로깅 수준 및 예제 데이터 사용 여부를 선택합니다. 로깅에 대한 자세한 내용은 [기계 학습 웹 서비스에 대한 로깅 사용 을](web-services-logging.md)참조하십시오.
+1. 새 엔드포인트에 대한 이름 및 설명을 입력합니다. 로깅 수준 및 예제 데이터 사용 여부를 선택합니다. 로깅에 대 한 자세한 내용은 [Machine Learning 웹 서비스에 대 한 로깅 사용](web-services-logging.md)을 참조 하세요.
 
-## <a name="update-the-added-endpoints-trained-model"></a>추가된 엔드포인트의 학습된 모델 업데이트
+## <a name="update-the-added-endpoints-trained-model"></a>추가 된 끝점의 학습 된 모델 업데이트
 
 ### <a name="retrieve-patch-url"></a>패치 URL 검색
 
@@ -65,7 +65,7 @@ ms.locfileid: "79204242"
 1. **패치** URL 아래의 **API 도움말**을클 릭하여 패치 도움말 페이지를 엽니다.
 
 > [!NOTE]
-> 예측 웹 서비스 대신 교육 웹 서비스에 끝점을 추가한 경우 **리소스 업데이트** 링크를 클릭할 때 다음과 같은 오류가 발생합니다. 이 웹 서비스에 업데이트할 수 있는 리소스가 없습니다. 불편을 끼쳐 드려 죄송합니다. 이 워크플로를 개선하도록 작업 중입니다.”
+> 예측 웹 서비스 대신 학습 웹 서비스에 끝점을 추가한 경우 **업데이트 리소스** 링크를 클릭 하면 다음과 같은 오류가 표시 됩니다. "죄송 합니다 .이 기능은 지원 되지 않거나이 컨텍스트에서 사용할 수 없습니다. 이 웹 서비스에 업데이트할 수 있는 리소스가 없습니다. 불편을 끼쳐 드려 죄송합니다. 이 워크플로를 개선하도록 작업 중입니다.”
 >
 
 PATCH 도움말 페이지에는 사용해야 하는 PATCH URL이 들어 있으며 호출하는 데 사용할 수 있는 샘플 코드가 제공됩니다.
@@ -118,12 +118,12 @@ PATCH 도움말 페이지에는 사용해야 하는 PATCH URL이 들어 있으�
 
 호출에 대한 *apiKey* 및 *endpointUrl*은 엔드포인트 대시보드에서 가져올 수 있습니다.
 
-*리소스의* *Name* 매개 변수 값은 예측 실험에서 저장된 학습된 모델의 리소스 이름과 일치해야 합니다. 리소스 이름을 가져오려면:
+*리소스* 의 *Name* 매개 변수 값은 예측 실험에서 저장 된 학습 된 모델의 리소스 이름과 일치 해야 합니다. 리소스 이름을 가져오려면:
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
-1. 왼쪽 메뉴에서 **기계 학습**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 왼쪽 메뉴에서 **Machine Learning**를 클릭 합니다.
 1. 이름 아래에서 작업 영역을 클릭한 다음 **웹 서비스**를 클릭합니다.
-1. 이름 아래에서 **인구 조사 모델 [예측 exp.]를**클릭합니다.
+1. 이름에서 **인구 조사 Model [예측 exp.]** 을 클릭 합니다.
 1. 추가한 새 엔드포인트를 클릭합니다.
 1. 엔드포인트 대시보드에서 **업데이트 리소스**를 클릭합니다.
 1. 웹 서비스에 대한 업데이트 리소스 API 설명서 페이지에서 **업데이트할 수 있는 리소스** 아래에 **리소스 이름**이 있습니다.

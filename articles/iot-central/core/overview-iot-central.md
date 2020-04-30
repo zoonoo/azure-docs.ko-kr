@@ -8,13 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: timlt
-ms.openlocfilehash: 38152889ad43b41aeb345f59963cbfb869964b98
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: 05d73ae09d95879c37e86f5f3e73e35ed4607296
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82025240"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82560961"
 ---
 # <a name="what-is-azure-iot-central"></a>Azure IoT Central이란?
 
@@ -157,11 +156,11 @@ IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트하므�
 
 기본 제공 [대시보드](./howto-set-up-template.md#generate-default-views)는 디바이스 상태 및 원격 분석을 모니터링하는 사용자 지정 가능한 UI를 제공합니다. [애플리케이션 템플릿](howto-use-app-templates.md)의 미리 작성된 대시보드로 시작하거나, 운영자의 요구 사항에 맞는 맞춤형 대시보드를 만들어 보세요. 애플리케이션의 모든 사용자와 대시보드를 공유할 수도 있고, 대시보드를 비공개로 유지할 수도 있습니다.
 
-### <a name="rules-and-actions"></a>규칙 및 동작 
+### <a name="rules-and-actions"></a>규칙 및 동작
 
 디바이스 상태 및 원격 분석을 기반으로 [사용자 지정 규칙](tutorial-create-telemetry-rules.md)을 만들어 주의가 필요한 디바이스를 식별합니다. 적절한 사람에게 사실을 알리고 적시에 수정 조치를 수행하도록 작업을 구성합니다.
 
-### <a name="jobs"></a>작업 
+### <a name="jobs"></a>작업
 
 [작업](howto-run-a-job.md)을 사용하면 속성을 설정하거나 명령을 호출하여 디바이스에 단일 또는 대량 업데이트를 적용할 수 있습니다. 
 

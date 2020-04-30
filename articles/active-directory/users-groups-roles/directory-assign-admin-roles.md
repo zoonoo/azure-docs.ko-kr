@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2403faf23294afbba539c7240e842f928fed83dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8033122601077945790005e23ec728911c3a4e1f
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181293"
+ms.locfileid: "82207533"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -1823,12 +1823,12 @@ CRM 서비스 관리자 | Dynamics 365 관리자 | 44367163-eba1-44c3-98af-f5787
 고객 LockBox 액세스 승인자 | 고객 Lockbox 액세스 승인자 | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 데스크톱 분석 관리자 | 데스크톱 분석 관리자 | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 디바이스 관리자 | 장치 관리자 | 9f06204d-73c1-4d4c-880a-6edb90606fd8
-디바이스 연결 | 장치 조인 | 9c094953-4995-41c8-84c8-3ebb9b32c93f
-디바이스 관리 | 장치 관리자 | 2b499bcd-da44-4968-8aec-78e1674fa64d
-디바이스 사용자 | 디바이스 사용자 | d405c6df-0af8-4e3b-95e4-4d06e542189e
+디바이스 연결 | 사용되지 않음 | 9c094953-4995-41c8-84c8-3ebb9b32c93f
+디바이스 관리 | 사용되지 않음 | 2b499bcd-da44-4968-8aec-78e1674fa64d
+디바이스 사용자 | 사용되지 않음 | d405c6df-0af8-4e3b-95e4-4d06e542189e
 디렉터리 읽기 권한자 | 디렉터리 읽기 권한자 | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
-디렉터리 동기화 계정 | 디렉터리 동기화 계정 | d29b2b05-8046-44ba-8758-1e26182fcf32
-디렉터리 작성자 | 디렉터리 작성자 | 9360feb5-f418-4baa-8175-e2a00bac4301
+디렉터리 동기화 계정 | 사용 되지 않기 때문에 표시 되지 않습니다. | d29b2b05-8046-44ba-8758-1e26182fcf32
+디렉터리 작성자 | 사용 되지 않기 때문에 표시 되지 않습니다. | 9360feb5-f418-4baa-8175-e2a00bac4301
 Exchange 서비스 관리자 | Exchange 관리자 | 29232cdf-9323-42fd-ade2-1d097af3e4de
 외부 Id 공급자 관리자 | 외부 Id 공급자 관리자 | be2f45a1-457d-42af-a067-6ec1fa63bc45
 전역 Reader | 전역 판독기 | f2ef992c-3afb-46b9-b7cf-a126ee74c451
@@ -1844,8 +1844,8 @@ Lync 서비스 관리자 | 비즈니스용 Skype 관리자 | 75941009-4869-abe7-
 메시지 센터 읽기 권한자 | 메시지 센터 판독기 | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 네트워크 관리자 | 네트워크 관리자 | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Office 앱 관리자 | Office 앱 관리자 | 2b745bdf-0803-4d80-aa65-822c4493daac
-파트너 계층1 지원 | 파트너 계층1 지원 | 4ba39ca4-527c-499a-b93d-d9b492c50246
-파트너 계층2 지원 | 파트너 계층2 지원 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
+파트너 계층1 지원 | 사용 되지 않기 때문에 표시 되지 않습니다. | 4ba39ca4-527c-499a-b93d-d9b492c50246
+파트너 계층2 지원 | 사용 되지 않기 때문에 표시 되지 않습니다. | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 암호 관리자 | 암호 관리자 | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Power BI 서비스 관리자 | Power BI 관리자 | a9ea8996-122f-4c74-9520-8edcd192826c
 전원 플랫폼 관리자 | Power 플랫폼 관리자 | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
@@ -1865,9 +1865,9 @@ Teams 통신 관리자 | Teams 통신 관리자 | baf37b3a-610e-45da-9e62-d9d1e5
 Teams 통신 지원 엔지니어 | Teams 통신 지원 엔지니어 | f70938a0-fc10-4177-9e90-2178f8765737
 Teams 통신 지원 전문가 | Teams 통신 지원 전문가 | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Teams 서비스 관리자 | Teams 서비스 관리자 | 69091246-20e8-4a56-aa4d-066075b2a7a8
-사용자 | 사용자 | a0b1b346-4d3e-4e8b-98f8-753987be4970
+사용자 | 사용할 수 없으므로 표시 되지 않습니다. | a0b1b346-4d3e-4e8b-98f8-753987be4970
 사용자 계정 관리자 | 사용자 관리자 | fe930be7-5e62-47db-91af-98c3a49a38b1
-작업 공간 디바이스 연결 | 작업 공간 장치 연결 | c34f683f-4d5a-4403-affd-6615e00e3a7f
+작업 공간 디바이스 연결 | 사용되지 않음 | c34f683f-4d5a-4403-affd-6615e00e3a7f
 
 ## <a name="deprecated-roles"></a>사용되지 않는 역할
 

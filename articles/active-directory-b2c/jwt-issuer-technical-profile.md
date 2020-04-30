@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/06/2020
+ms.date: 04/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c23648d70192607b2a5b977dcdd445931e995154
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 676b54e1d22712ac41534b67206e6d6931bcc9b9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "78671797"
+ms.locfileid: "82229700"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 JWT 토큰 발급자의 기술 프로필 정의
 
@@ -35,7 +35,16 @@ Azure AD B2C(Azure Active Directory B2C)는 각 인증 흐름을 처리할 때 �
   <DisplayName>JWT Issuer</DisplayName>
   <Protocol Name="None" />
   <OutputTokenFormat>JWT</OutputTokenFormat>
-  ...
+  <Metadata>
+    <Item Key="client_id">{service:te}</Item>
+    <Item Key="issuer_refresh_token_user_identity_claim_type">objectId</Item>
+    <Item Key="SendTokenResponseBodyWithJsonNumbers">true</Item>
+  </Metadata>
+  <CryptographicKeys>
+    <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
+    <Key Id="issuer_refresh_token_key" StorageReferenceId="B2C_1A_TokenEncryptionKeyContainer" />
+  </CryptographicKeys>
+  <UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />
 </TechnicalProfile>
 ```
 
@@ -45,7 +54,7 @@ Azure AD B2C(Azure Active Directory B2C)는 각 인증 흐름을 처리할 때 �
 
 ## <a name="metadata"></a>메타데이터
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | issuer_refresh_token_user_identity_claim_type | 예 | OAuth2 인증 코드 및 새로 고침 토큰 내에서 사용자 ID 클레임으로 사용해야 하는 클레임입니다. 기본적으로 다른 SubjectNamingInfo 클레임 형식을 지정하지 않는 한 `objectId`로 설정해야 합니다. |
 | SendTokenResponseBodyWithJsonNumbers | 아니요 | 항상 `true`로 설정합니다. 숫자 값이 JSON 번호 대신 문자열로 제공되는 레거시 형식의 경우 `false`로 설정합니다. 이 특성은 해당 속성을 문자열로 반환한 이전 구현에서 종속성을 사용한 클라이언트에 필요합니다. |
@@ -62,10 +71,14 @@ Azure AD B2C(Azure Active Directory B2C)는 각 인증 흐름을 처리할 때 �
 
 CryptographicKeys 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| issuer_secret | 예 | JWT 토큰에 서명하는 데 사용할 X509 인증서(RSA 키 집합)입니다. [사용자 지정 정책 시작`B2C_1A_TokenSigningKeyContainer`에서 구성한 ](custom-policy-get-started.md) 키입니다. |
+| issuer_secret | 예 | JWT 토큰에 서명하는 데 사용할 X509 인증서(RSA 키 집합)입니다. `B2C_1A_TokenSigningKeyContainer` [사용자 지정 정책을 시작](custom-policy-get-started.md)하기에서 구성 하는 키입니다. |
 | issuer_refresh_token_key | 예 | 새로 고침 토큰을 암호화하는 데 사용할 X509 인증서(RSA 키 집합)입니다. [사용자 지정 정책 시작`B2C_1A_TokenEncryptionKeyContainer`에서 ](custom-policy-get-started.md) 키를 구성했습니다. |
+
+## <a name="session-management"></a>세션 관리
+
+Azure AD B2C와 신뢰 당사자 응용 프로그램 간의 Azure AD B2C 세션을 구성 하려면 `UseTechnicalProfileForSessionManagement` 요소의 특성에서 [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider) SSO 세션에 대 한 참조를 추가 합니다.
 
 
 

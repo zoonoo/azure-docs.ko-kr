@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업에 대 한 지원 매트릭스
 description: Azure 파일 공유를 백업할 때 지원 설정 및 제한 사항에 대 한 요약을 제공 합니다.
 ms.topic: conceptual
 ms.date: 1/26/2020
-ms.openlocfilehash: 03190c6b83fceec88442583a57ff46756cfe6221
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3f154f92d8d094654301bc319003adc22299017b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195692"
+ms.locfileid: "82207992"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Azure 파일 공유 백업에 대 한 지원 매트릭스
 
@@ -20,13 +20,13 @@ Azure 파일 공유에 대 한 백업은 다음 지역에서 제공 됩니다.
 
 | GA 지역 | 지원 되는 지역 이지만 GA는 아님                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 오스트레일리아 남부 동부 (ASE), 캐나다 중부 (CNC), 미국 서 부 중부 (WCUS), 미국 서 부 2 (WUS 2), 인도 남부 (INS), 미국 중 북부 (NCUS), 일본 동부 (JPE), 브라질 남부 (BRS), 남부 동아시아 (바다)                                                     |오스트레일리아 동부 (AE), 캐나다 동부 (CE), 동아시아 (EA), 미국 동부 (EUS), 미국 동부 2 (EUS2), 일본 서 부 (JPW), 인도 중부 (INC.), 대한민국 중부 (KRC), 한국 남부 (KRC), 북아메리카 (미국 서 부), UKW (미국 서 부), 영국 남부 (UKS), 영국 서부 (), 유럽 서부 (MICROSOFT), 미국 서 부 (WUS), US Gov 애리조나 (UKS), US Gov 텍사스 (UGT), US Gov 버지니아 (UGV), 오스트레일리아 중부 (ACL) , 인도 서 부 (INW), 남아프리카 북부 (SAN), 아랍에미리트 (UAN), 프랑스 중부 (FRC), 독일 북부 (GN), 독일 중서부 (GWC), 남아프리카 공화국 서 부 (본), 아랍에미리트 Central (UAC), 노르웨이 동부 (NI), 노르웨이 서 부 (NWE), 스위스 북부 (SZN), 미국 중부 (미국)           |
+| 오스트레일리아 남부 동부 (ASE), 캐나다 중부 (CNC), 미국 서 부 중부 (WCUS), 미국 서 부 2 (WUS 2), 인도 남부 (INS), 미국 중 북부 (NCUS), 일본 동부 (JPE), 브라질 남부 (BRS), 남부 동아시아 (바다), 스위스 서부 (SZW), 아랍에미리트 Central (UAC), 노르웨이 동부 (NI), 인도 서 부 (INW), 오스트레일리아 중부                                                  |오스트레일리아 동부 (AE), 캐나다 동부 (CE), 동아시아 (EA), 미국 동부 (EUS), 미국 동부 2 (EUS2), 일본 서 부 (JPW), 미국 동부 중부 (INC.), 한국 중부 (KRC), 대한민국 남부 (KRC), 서유럽 (NE), 미국 중 북부 (SCUS), 영국 남부 (UKS), 영국 서부 (UKW), 유럽 서부 (MICROSOFT), 미국 서 부 (WUS), US Gov 애리조나 (UKS), US Gov 텍사스 (UGT), US Gov 버지니아 (UGV), 남아프리카 공화국 북부 (SAN) , 아랍에미리트 북부 (UAN), 프랑스 중부 (FRC), 독일 북부 (GN), 독일 중서부 (GWC), 남아프리카 공화국 서 부 (톱), 노르웨이 서 부 (NWW), 스위스 북부 (SZN), 미국 중부 (CUS)           |
 
 ## <a name="supported-storage-accounts"></a>지원되는 스토리지 계정
 
 | 저장소 계정 세부 정보 | Support(지원)                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| 계정 종류            | Azure Backup는 범용 v1, 범용 v2 및 파일 공유 유형 저장소 계정에 있는 Azure 파일 공유를 지원 합니다. |
+| 계정 종류            | Azure Backup는 범용 v1, 범용 v2 및 파일 저장소 유형 저장소 계정에 있는 Azure 파일 공유를 지원 합니다. |
 | 성능              | Azure Backup는 standard 및 Premium Storage 계정 모두에서 파일 공유를 지원 합니다. |
 | 복제              | 모든 복제 유형을 사용 하는 저장소 계정의 Azure files 공유는 지원 됩니다. |
 

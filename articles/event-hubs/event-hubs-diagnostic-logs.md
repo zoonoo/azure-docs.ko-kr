@@ -14,60 +14,59 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: 68aa62ad34f8db531d439a581ef024862da0f90c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 3010ee7b996c9d3e96082edeb9447c960da321bd
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162313"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509787"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
 
 Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
 
-* **[활동 로그](../azure-monitor/platform/platform-logs-overview.md)**: 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
+* **[활동 로그](../azure-monitor/platform/platform-logs-overview.md)**: 이러한 로그에는 작업에 대해 수행 된 작업에 대 한 정보가 포함 됩니다. 로그는 항상 켜져 있습니다. Azure Portal에서 이벤트 허브 네임 스페이스의 왼쪽 창에서 **활동 로그** 를 선택 하 여 활동 로그 항목을 볼 수 있습니다. 예: "네임 스페이스 만들기 또는 업데이트", "이벤트 허브 만들기 또는 업데이트"
+
+    ![Event Hubs 네임 스페이스에 대 한 활동 로그](./media/event-hubs-diagnostic-logs/activity-log.png)
 * **[진단 로그](../azure-monitor/platform/platform-logs-overview.md)**: 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
 
-## <a name="enable-diagnostic-logs"></a>진단 로그 활성화
+    다음 섹션에서는 Event Hubs 네임 스페이스에 대 한 진단 로그를 사용 하도록 설정 하는 방법을 보여 줍니다.
 
+## <a name="enable-diagnostic-logs"></a>진단 로그 활성화
 진단 로그는 기본적으로 해제되어 있습니다. 진단 로그를 활성화하려면 다음 단계를 수행합니다.
 
-1.  [Azure Portal](https://portal.azure.com)의 **모니터링 + 관리**에서 **진단 로그**를 클릭합니다.
+1.  [Azure Portal](https://portal.azure.com)에서 Event Hubs 네임 스페이스로 이동 합니다. 
+2. 왼쪽 창의 **모니터링** 아래에서 **진단 설정** 을 선택 하 고 **+ 진단 설정 추가**를 선택 합니다. 
 
-    ![진단 로그에 대한 창 탐색](./media/event-hubs-diagnostic-logs/image1.png)
+    ![진단 설정 페이지-진단 설정 추가](./media/event-hubs-diagnostic-logs/diagnostic-settings-page.png)
+4. **범주 세부 정보** 섹션에서 사용 하도록 설정할 **진단 로그 유형을** 선택 합니다. 이러한 범주에 대 한 자세한 내용은이 문서의 뒷부분에서 찾을 수 있습니다. 
+5. **대상 세부 정보** 섹션에서 원하는 보관 대상 (대상)을 설정 합니다. 예를 들어 저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역입니다.
 
-2.  모니터링하려는 리소스를 클릭합니다.
+    ![진단 설정 추가 페이지](./media/event-hubs-diagnostic-logs/aDD-diagnostic-settings-page.png)
+6.  진단 설정을 저장 하려면 도구 모음에서 **저장** 을 선택 합니다.
 
-3.  **진단 켜기**를 클릭합니다.
+    새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 로그** 창에 로그가 나타납니다.
 
-    ![진단 로그 설정](./media/event-hubs-diagnostic-logs/image2.png)
-
-4.  **상태**에서 **켜기**를 클릭합니다.
-
-    ![진단 로그의 상태 변경](./media/event-hubs-diagnostic-logs/image3.png)
-
-5.  원하는 보관 대상을 설정 합니다. 예를 들어 저장소 계정, 이벤트 허브 또는 Azure Monitor 로그가 있습니다.
-
-6.  새 진단 설정을 저장합니다.
-
-새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 로그** 창에 로그가 나타납니다.
-
-진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/platform-logs-overview.md)를 참조하세요.
+    진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/platform-logs-overview.md)를 참조하세요.
 
 ## <a name="diagnostic-logs-categories"></a>진단 로그 범주
 
-Event Hubs는 다음 두 가지 범주에 대한 진단 로그를 캡처합니다.
+Event Hubs는 다음 범주에 대 한 진단 로그를 캡처합니다.
 
-* **보관 로그:** Event Hubs 보관, 특히 보관 오류와 관련된 로그입니다.
-* **작업 로그:** Event Hubs 작업 중에 발생하는 정보, 특히 이벤트 허브 만들기, 사용된 리소스 및 작업 상태와 같은 작업 유형입니다.
+- **보관 로그:** Event Hubs 보관, 특히 보관 오류와 관련된 로그입니다.
+- **작업 로그:** Event Hubs 작업 중에 발생하는 정보, 특히 이벤트 허브 만들기, 사용된 리소스 및 작업 상태와 같은 작업 유형입니다.
+- **자동 크기 조정 로그**: Event Hubs 네임 스페이스에서 수행 되는 자동 크기 조정 작업에 대 한 정보입니다. 
+- **Kafka 코디네이터 로그** -Event Hubs와 관련 된 kafka 코디네이터 작업에 대 한 정보입니다. 
+- **Kafka 사용자 로그**: Event Hubs와 관련 된 kafka 사용자 작업에 대 한 정보입니다. 
+- **Event Hubs 가상 네트워크 (VNet) 연결 이벤트**: Event Hubs 가상 네트워크 연결 이벤트에 대 한 정보입니다. 
+- **고객 관리 키 사용자 로그**: 고객이 관리 하는 키와 관련 된 작업에 대 한 정보입니다. 
 
-## <a name="diagnostic-logs-schema"></a>진단 로그 스키마
 
-모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 섹션에 설명된 형식을 사용하는 문자열 필드가 있습니다.
+    모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 섹션에 설명된 형식을 사용하는 문자열 필드가 있습니다.
 
-### <a name="archive-logs-schema"></a>보관 로그 스키마
+## <a name="archive-logs-schema"></a>보관 로그 스키마
 
 보관 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
@@ -105,7 +104,7 @@ category | ArchiveLogs
 }
 ```
 
-### <a name="operational-logs-schema"></a>작업 로그 스키마
+## <a name="operational-logs-schema"></a>작업 로그 스키마
 
 작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
@@ -137,6 +136,72 @@ Example:
    "category": "OperationalLogs"
 }
 ```
+
+## <a name="autoscale-logs-schema"></a>자동 크기 조정 로그 스키마
+자동 크기 조정 로그 JSON에는 다음 표에 나열 된 요소가 포함 되어 있습니다.
+
+| 속성 | Description |
+| ---- | ----------- | 
+| trackingId | 추적 목적으로 사용 되는 내부 ID |
+| resourceId | Azure 구독 ID 및 네임 스페이스 이름을 포함 하는 내부 ID |
+| message | 자동 팽창 동작에 대 한 세부 정보를 제공 하는 정보 메시지입니다. 이 메시지에는 지정 된 네임 스페이스에 대 한 이전 및 현재 처리량 단위 값과 TU의 확장을 트리거한 항목이 포함 되어 있습니다. |
+
+## <a name="kafka-coordinator-logs-schema"></a>Kafka 코디네이터 로그 스키마
+Kafka 코디네이터 로그 JSON에는 다음 표에 나열 된 요소가 포함 되어 있습니다.
+
+| 속성 | Description |
+| ---- | ----------- | 
+| requestId | 추적 목적으로 사용 되는 요청 ID |
+| resourceId | Azure 구독 ID 및 네임 스페이스 이름을 포함 하는 내부 ID |
+| operationName | 그룹 조정을 수행 하는 동안 수행 되는 작업의 이름입니다. |
+| clientId | 클라이언트 ID |
+| namespaceName | 네임스페이스 이름 | 
+| subscriptionId | Azure 구독 ID |
+| message | 소비자 그룹 조정을 수행 하는 동안 수행 된 작업에 대 한 세부 정보를 제공 하는 정보 메시지입니다. |
+
+## <a name="kafka-user-error-logs-schema"></a>Kafka 사용자 오류 로그 스키마
+Kafka 사용자 오류 로그 JSON에는 다음 표에 나열 된 요소가 포함 되어 있습니다.
+
+| 속성 | Description |
+| ---- | ----------- |
+| trackingId | 추적에 사용 되는 추적 ID입니다. |
+| namespaceName | 네임스페이스 이름 |
+| eventhub | 이벤트 허브 이름 |
+| partitionId | Partition ID |
+| groupId | 그룹 ID |
+| clientid | 클라이언트 ID |
+| resourceId | Azure 구독 ID 및 네임 스페이스 이름을 포함 하는 내부 ID |
+| message | 오류에 대 한 세부 정보를 제공 하는 정보 메시지 |
+
+## <a name="event-hubs-virtual-network-connection-event-schema"></a>Event Hubs 가상 네트워크 연결 이벤트 스키마
+
+VNet (가상 네트워크) 연결 이벤트 JSON에는 다음 표에 나열 된 요소가 포함 되어 Event Hubs.
+
+| 속성 | Description |
+| ---  | ----------- | 
+| subscriptionId | Azure 구독 ID |
+| namespaceName | 네임스페이스 이름 |
+| ipAddress | Event Hubs 서비스에 연결 하는 클라이언트의 IP 주소 |
+| action | 연결 요청을 평가할 때 Event Hubs 서비스에서 수행 하는 작업입니다. 지원 되는 작업은 **Acceptconnection** 및 **RejectConnection**입니다. |
+| reason | 작업이 완료 된 이유를 제공 합니다. |
+| 개수 | 지정 된 동작의 발생 횟수 |
+| resourceId | 구독 ID 및 네임 스페이스 이름을 포함 하는 내부 리소스 ID입니다. |
+
+## <a name="customer-managed-key-user-logs"></a>고객 관리 키 사용자 로그
+고객 관리 키 사용자 로그 JSON에는 다음 표에 나열 된 요소가 포함 되어 있습니다.
+
+| 속성 | Description |
+| ---- | ----------- | 
+| category | 메시지의 범주 유형입니다. 다음 값 중 하나입니다. **오류** 및 **정보** |
+| resourceId | Azure 구독 ID 및 네임 스페이스 이름을 포함 하는 내부 리소스 ID |
+| keyVault | Key Vault 리소스의 이름입니다. |
+| key | Key Vault 키의 이름입니다. |
+| 버전 | Key Vault 키의 버전 |
+| operation(작업) | 요청을 처리 하기 위해 수행 된 작업의 이름입니다. |
+| code | 상태 코드 |
+| message | 메시지-오류 또는 정보 메시지에 대 한 세부 정보를 제공 합니다. |
+
+
 
 ## <a name="next-steps"></a>다음 단계
 - [Event Hubs 소개](event-hubs-what-is-event-hubs.md)

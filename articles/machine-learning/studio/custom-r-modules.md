@@ -1,7 +1,7 @@
 ---
-title: 사용자 지정 R 모듈 정의
+title: 사용자 지정 R 모듈 만들기 & 배포
 titleSuffix: ML Studio (classic) - Azure
-description: 이 항목에서는 사용자 지정 R Studio(클래식)를 작성하고 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다.
+description: ML Studio (클래식)에서 사용자 지정 R 모듈을 작성 하 고 배포 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,25 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 5b8dab14a9416795eccef1f71988a048c8bedb48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fb628b1730f0811debf0ff8a6cd517b96f8ef53
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218173"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208434"
 ---
-# <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Azure 기계 학습 스튜디오에 대한 사용자 지정 R 모듈 정의(클래식)
+# <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에 대 한 사용자 지정 R 모듈 정의 (클래식)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+이 항목에서는 사용자 지정 R Studio (클래식)를 작성 하 고 배포 하는 방법에 대해 설명 합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 Machine Learning 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여 줍니다. 그런 다음 사용자 지정 모듈의 정의에 사용되는 요소 및 특성에 대해 자세히 설명합니다. 보조 기능과 파일 및 여러 출력을 사용하는 방법도 소개합니다. 
 
-이 항목에서는 사용자 지정 R Studio(클래식)를 작성하고 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 Machine Learning 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여 줍니다. 그런 다음 사용자 지정 모듈의 정의에 사용되는 요소 및 특성에 대해 자세히 설명합니다. 보조 기능과 파일 및 여러 출력을 사용하는 방법도 소개합니다. 
+**사용자 지정 모듈** 은 작업 영역에 업로드 하 고 Azure Machine Learning Studio (클래식) 실험의 일부로 실행할 수 있는 사용자 정의 모듈입니다. 사용자 지정 R 모듈은 사용자 정의 R 함수를 실행하는 **사용자 지정 모듈** 입니다. **R** 은 통계학자 및 데이터 과학자가 알고리즘을 구현하는 데 널리 사용되는 통계 컴퓨팅 및 그래픽용 프로그래밍 언어입니다. 현재, R은 사용자 지정 모듈에서 지원되는 유일한 언어이지만 향후 릴리스에서는 추가 언어에 대한 지원이 예정되어 있습니다.
 
-
-
-## <a name="what-is-a-custom-r-module"></a>사용자 지정 R 모듈이란?
-**사용자 지정 모듈은** 작업 영역에 업로드하고 Azure 기계 학습 Studio(클래식) 실험의 일부로 실행할 수 있는 사용자 정의 모듈입니다. 사용자 지정 R 모듈은 사용자 정의 R 함수를 실행하는 **사용자 지정 모듈** 입니다. **R** 은 통계학자 및 데이터 과학자가 알고리즘을 구현하는 데 널리 사용되는 통계 컴퓨팅 및 그래픽용 프로그래밍 언어입니다. 현재, R은 사용자 지정 모듈에서 지원되는 유일한 언어이지만 향후 릴리스에서는 추가 언어에 대한 지원이 예정되어 있습니다.
-
-사용자 지정 모듈은 다른 모듈과 마찬가지로 사용할 수 있다는 점에서 Azure 기계 학습 스튜디오(클래식)에서 **일류 상태를** 갖습니다. 다른 모듈과 함께 실행하거나, 게시된 실험이나 시각화에 포함할 수 있습니다. 사용자는 모듈에 의해 구현되는 알고리즘, 사용할 입력 및 출력 포트, 모델링 매개 변수 및 기타 여러 런타임 동작을 제어할 수 있습니다. 사용자 지정 모듈을 포함한 실험을 공유하기 쉽도록 Azure AI 갤러리에 게시할 수도 있습니다.
+사용자 지정 모듈은 다른 모듈 처럼 사용할 수 있다는 점에서 Azure Machine Learning Studio (클래식)의 최고 **수준의 상태** 를 가집니다. 다른 모듈과 함께 실행하거나, 게시된 실험이나 시각화에 포함할 수 있습니다. 사용자는 모듈에 의해 구현되는 알고리즘, 사용할 입력 및 출력 포트, 모델링 매개 변수 및 기타 여러 런타임 동작을 제어할 수 있습니다. 사용자 지정 모듈을 포함한 실험을 공유하기 쉽도록 Azure AI 갤러리에 게시할 수도 있습니다.
 
 ## <a name="files-in-a-custom-r-module"></a>사용자 지정 R 모듈의 파일
 사용자 지정 R 모듈은 최소한 다음 두 개의 파일을 포함하는 .zip 파일로 정의됩니다.
@@ -57,7 +52,7 @@ ms.locfileid: "79218173"
     } 
 
 ### <a name="the-xml-definition-file"></a>XML 정의 파일
-이 `CustomAddRows` 함수를 Azure 기계 학습 스튜디오(클래식) 모듈로 노출하려면 **XML** 정의 파일을 만들어 사용자 지정 행 추가 모듈의 모양과 동작 방식을 지정해야 합니다. 
+이 `CustomAddRows` 함수를 Azure Machine Learning Studio (클래식) 모듈로 노출 하려면 XML 정의 파일을 만들어 **사용자 지정 행 추가** 모듈의 모양과 동작을 지정 해야 합니다. 
 
     <!-- Defined a module using an R Script -->
     <Module name="Custom Add Rows">
@@ -99,7 +94,7 @@ XML 파일의 **Input** 및 **Arg** 요소에 대한 **id** 특성 값은 Custom
 ### <a name="package-and-register-the-module"></a>모듈 패키지 및 등록
 이 두 파일을 *CustomAddRows.R*과 *CustomAddRows.xml*로 저장한 다음 두 파일을 *CustomAddRows.zip* 파일로 함께 압축합니다.
 
-기계 학습 작업 영역에 등록하려면 Azure 기계 학습 스튜디오(클래식)의 작업 영역으로 이동하여 하단의 **+NEW** 버튼을 클릭하고 **ZIP 패키지에서 모듈 ->** 선택하여 새 **사용자 지정 행 추가** 모듈을 업로드합니다.
+Machine Learning 작업 영역에 등록 하려면 Azure Machine Learning Studio (클래식)의 작업 영역으로 이동한 후 아래쪽에서 **+ 새로 만들기** 단추를 클릭 하 고 **ZIP 패키지에서 모듈->** 을 선택 하 여 새 **사용자 지정 행 추가** 모듈을 업로드 합니다.
 
 ![Zip 업로드](./media/custom-r-modules/upload-from-zip-package.png)
 
@@ -107,7 +102,7 @@ XML 파일의 **Input** 및 **Arg** 요소에 대한 **id** 특성 값은 Custom
 
 ## <a name="elements-in-the-xml-definition-file"></a>인수
 ### <a name="module-elements"></a>Module 요소
-**Module** 요소는 XML 파일에서 사용자 지정 모듈을 정의하는 데 사용됩니다. 여러 **module** 요소를 사용하여 여러 모듈을 하나의 XML 파일에 정의할 수 있습니다. 작업 영역의 각 모듈은 이름이 고유해야 합니다. 기존 사용자 지정 모듈과 동일한 이름으로 사용자 지정 모듈을 등록하면 기존 모듈이 새 모듈로 바뀝니다. 그러나 사용자 지정 모듈은 기존 Azure 기계 학습 스튜디오(클래식) 모듈과 동일한 이름으로 등록할 수 있습니다. 이 경우 모듈 팔레트의 **사용자 지정** 범주에 표시됩니다.
+**Module** 요소는 XML 파일에서 사용자 지정 모듈을 정의하는 데 사용됩니다. 여러 **module** 요소를 사용하여 여러 모듈을 하나의 XML 파일에 정의할 수 있습니다. 작업 영역의 각 모듈은 이름이 고유해야 합니다. 기존 사용자 지정 모듈과 동일한 이름으로 사용자 지정 모듈을 등록하면 기존 모듈이 새 모듈로 바뀝니다. 그러나 사용자 지정 모듈은 기존 Azure Machine Learning Studio (클래식) 모듈과 동일한 이름으로 등록할 수 있습니다. 이 경우 모듈 팔레트의 **사용자 지정** 범주에 표시됩니다.
 
     <Module name="Custom Add Rows" isDeterministic="false"> 
         <Owner>Microsoft Corporation</Owner>
@@ -125,7 +120,7 @@ Module 요소의 문자 제한에 대한 규칙:
 * **Description** 요소의 내용은 128자를 초과할 수 없습니다.
 * **Owner** 요소의 내용은 32자를 초과할 수 없습니다.
 
-모듈의 결과는 결정적이거나 비결정적일 수 있습니다.** 기본적으로 모든 모듈은 결정적인 것으로 간주됩니다. 즉, 변하지 않는 입력 매개 변수 및 데이터 집합이 주어지면 모듈은 eacRAND 또는 실행되는 기능 시간을 동일한 결과를 반환해야 합니다. 이 동작을 감안할 때 Azure 기계 학습 Studio(클래식)는 매개 변수 또는 입력 데이터가 변경된 경우 결정성으로 표시된 모듈만 다시 실행합니다. 캐시된 결과 반환은 훨씬 더 빠른 실험의 실행도 제공합니다.
+모듈의 결과는 결정적이거나 비결정적일 수 있습니다.** 기본적으로 모든 모듈은 결정적인 것으로 간주됩니다. 즉, 변경 되지 않은 입력 매개 변수 및 데이터 집합을 지정 하는 경우 모듈은 실행 되는 함수 또는 동일한 결과를 반환 해야 합니다. 이 동작을 제공 하는 경우 Azure Machine Learning Studio (클래식)는 매개 변수 또는 입력 데이터가 변경 된 경우 결정적으로 표시 된 모듈만 다시 작동 합니다. 캐시된 결과 반환은 훨씬 더 빠른 실험의 실행도 제공합니다.
 
 현재 날짜 또는 시간을 반환하는 RAND 또는 함수와 같은 비결정적인 함수도 있습니다. 모듈이 비결정적 함수를 사용하는 경우 옵션 **isDeterministic** 특성을 **FALSE**로 설정하여 모듈을 비결정적으로 지정할 수 있습니다. 이는 모듈이 모듈 입력 및 매개 변수가 변경되지 않은 경우에도 실험이 실행될 때마다 다시 실행되는 것을 보장합니다. 
 
@@ -161,7 +156,7 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
             <Description>Zip files to be extracted to the R working directory.</Description>
            </Input>
 
-사용자 지정 R 모듈의 경우 Zip 포트의 ID가 R 함수의 매개 변수와 일치할 필요는 없습니다. zip 파일은 R 작업 디렉터리에 자동으로 추출되기 때문입니다.
+사용자 지정 R 모듈의 경우 Zip 포트의 ID는 R 함수의 매개 변수와 일치할 필요가 없습니다. zip 파일은 R 작업 디렉터리에 자동으로 추출되기 때문입니다.
 
 **입력 규칙:**
 
@@ -173,7 +168,7 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
 * **Input** 요소의 **isOptional** 특성 값은 필수가 아니지만(지정하지 않을 경우 기본적으로 *false*) 지정한 경우 *true* 또는 *false*여야 합니다.
 
 ### <a name="output-elements"></a>Output 요소
-**표준 출력 포트:** 출력 포트는 R 함수의 반환 값에 매핑되어 후속 모듈에 사용됩니다. *DataTable* 은 현재 지원되는 유일한 표준 출력 포트 형식입니다. *(학습자* 및 *변환에* 대한 지원이 곧 출시됩니다.) *DataTable* 출력은 다음과 같이 정의됩니다.
+**표준 출력 포트:** 출력 포트는 R 함수의 반환 값에 매핑되어 후속 모듈에 사용됩니다. *DataTable* 은 현재 지원되는 유일한 표준 출력 포트 형식입니다. ( *학습자* 및 *변환* 에 대 한 지원이 곧 제공 될 예정입니다.) *DataTable* 출력은 다음과 같이 정의 됩니다.
 
     <Output id="dataset" name="Dataset" type="DataTable">
         <Description>Combined dataset</Description>
@@ -202,7 +197,7 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
     </Ports> 
 
 
-그리고 'CustomAddRows.R'의 올바른 순서로 목록의 개체 목록을 반환합니다.
+및는 ' CustomAddRows. R '에서 올바른 순서로 목록의 개체 목록을 반환 합니다.
 
     CustomAddRows <- function(dataset1, dataset2, swap=FALSE) { 
         if (swap) { dataset <- rbind(dataset2, dataset1)) } 
@@ -227,7 +222,7 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
 ### <a name="arguments"></a>인수
 **Arguments** 요소에 정의된 모듈 매개 변수를 통해 R 함수에 추가 데이터를 전달할 수 있습니다. 이러한 매개 변수는 모듈을 선택한 경우 Machine Learning UI의 맨 오른쪽 속성 창에 표시됩니다. 인수는 지원되는 형식 중 하나이거나, 필요한 경우 사용자 지정 열거형을 만들 수 있습니다. **Ports** 요소와 마찬가지로, **Arguments** 요소에는 매개 변수 이름 위에 마우스를 놓으면 표시되는 텍스트를 지정하는 선택적 **Description** 요소가 있을 수 있습니다.
 defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Properties** 요소의 특성으로 인수에 추가할 수 있습니다. **Properties** 요소의 유효한 속성은 인수 형식에 따라 다르며, 아래 섹션의 지원되는 인수 형식에 설명되어 있습니다. **"true"** 로 설정된 **isOptional** 속성을 가진 인수는 사용자가 값을 입력하지 않아도 됩니다. 인수에 값을 입력하지 않으면 진입점 함수에 전달되지 않습니다. 예: 선택적인 진입점 함수의 인수는 함수에 의해 명시적으로 처리되어야 합니다(예: 진입점 함수 정에서 할당된 NULL의 기본값). 선택적 인수는 사용자가 값을 제공하는 경우 다른 인수 제약 조건(즉, min 또는 max)을 적용합니다.
-입력 및 출력과 마찬가지로 각 매개 변수에 연관된 고유 ID 값이 있어야 합니다. 빠른 시작 예제에서 연결된 ID/매개 변수가 *스왑되었습니다.*
+입력 및 출력과 마찬가지로 각 매개 변수에는 고유한 ID 값이 연결 되어 있어야 합니다. 이 빠른 시작 예제에서 연결 된 i d/매개 변수는 *swap*이었습니다.
 
 ### <a name="arg-element"></a>Arg 요소
 모듈 매개 변수는 XML 정의 파일에서 **Arguments** 섹션의 **Arg** 자식 요소를 사용하여 정의됩니다. **Ports** 섹션의 하위 요소와 마찬가지로 **Arguments** 섹션의 매개 변수 순서는 UX 레이아웃을 정의합니다. 매개 변수는 XML 파일에 정의된 순서대로 위에서 아래로 UI에 표시됩니다. Machine Learning에서 지원하는 매개 변수 형식은 다음과 같습니다. 
@@ -272,7 +267,7 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
 
 * *선택적 속성*: **default** 및 **isOptional**
 
-**ColumnPicker**: 열 선택 매개 변수입니다. 이 형식은 UX에서 열 선택기로 렌더링됩니다. **속성** 요소는 여기서 열이 선택된 포트의 ID를 지정하는 데 사용되며, 대상 포트 형식은 *DataTable입니다.* 열 선택의 결과는 선택한 열 이름이 포함된 문자열 목록으로 R 함수에 전달됩니다. 
+**ColumnPicker**: 열 선택 매개 변수입니다. 이 형식은 UX에서 열 선택기로 렌더링됩니다. **속성** 요소는 열이 선택 된 포트의 ID를 지정 하는 데 사용 됩니다. 여기서 대상 포트 유형은 *DataTable*이어야 합니다. 열 선택의 결과는 선택한 열 이름이 포함된 문자열 목록으로 R 함수에 전달됩니다. 
 
         <Arg id="colset" name="Column set" type="ColumnPicker">      
           <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -280,7 +275,7 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
         </Arg>
 
 
-* *필수 속성*: **portId** - 입력 요소의 ID를 *DataTable*형식과 일치시다.
+* *필수 속성*: **portId** - *DATATABLE*형식이 있는 Input 요소의 ID와 일치 합니다.
 * *선택적 속성*:
   
   * **allowedTypes** - 선택할 수 있는 열 형식을 필터링합니다. 유효한 값은 다음과 같습니다. 
@@ -288,14 +283,14 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
     * 숫자
     * 부울
     * 범주
-    * String
+    * 문자열
     * 레이블
     * 기능
-    * 점수
+    * 점수 매기기
     * 모두
   * **default** -열 선택의 유효한 기본 선택 항목은 다음과 같습니다. 
     
-    * None
+    * 없음
     * NumericFeature
     * NumericLabel
     * NumericScore
@@ -329,17 +324,17 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
     </Arg>    
 
 * *선택적 속성*:
-  * **default** - 기본 속성의 값은 **Item** 요소 중 하나의 ID 값과 일치해야 합니다.
+  * **기본값** -기본 속성의 값은 **항목** 요소 중 하나의 ID 값과 일치 해야 합니다.
 
 ### <a name="auxiliary-files"></a>보조 파일
-사용자 지정 모듈 ZIP 파일에 있는 모든 파일은 실행 시간 동안 사용할 수 있습니다. 모든 디렉터리 구조는 있는 그대로 유지됩니다. 즉, 파일 소싱은 로컬 및 Azure 기계 학습 스튜디오(클래식) 실행에서 동일하게 작동합니다. 
+사용자 지정 모듈 ZIP 파일에 있는 모든 파일은 실행 시간 동안 사용할 수 있습니다. 모든 디렉터리 구조는 있는 그대로 유지됩니다. 즉, 파일 소싱은 로컬 및 Azure Machine Learning Studio (클래식) 실행에서 동일 하 게 작동 합니다. 
 
 > [!NOTE]
-> 모든 파일이 'src' 디렉토리로 추출되므로 모든 경로에 'src/' 접두사가 있어야 합니다.
+> 모든 파일은 ' src ' 디렉터리로 추출 되므로 모든 경로에 ' src/' 접두사가 있어야 합니다.
 > 
 > 
 
-예를 들어 데이터 집합에서 NA가 있는 행을 제거하고 중복 행을 사용자 지정 AddRows로 프로듀스하기 전에 제거하고 파일 RemoveDupNARows.R에서 이를 수행하는 R 함수를 이미 작성했다고 가정해 보겠습니다.
+예를 들어 데이터 집합에서 NAs를 사용 하는 모든 행을 제거 하 고, CustomAddRows에 출력 하기 전에 중복 행을 제거 하 고 Removedupnarows.r 파일에서이를 수행 하는 R 함수를 이미 작성 했다고 가정 합니다.
 
     RemoveDupNARows <- function(dataFrame) {
         #Remove Duplicate Rows:
@@ -361,7 +356,7 @@ CustomAddRows 함수에서 보조 파일 RemoveDupNARows.R을 소싱할 수 있�
         return (dataset)
     }
 
-다음으로, 'CustomAddRows.R', 'CustomAddRows.xml', 'RemoveDupNARows.R'이 포함된 zip 파일을 사용자 지정 R 모듈로 업로드합니다.
+그런 다음 ' CustomAddRows. R ', ' CustomAddRows .xml ' 및 ' Removedupnarows.r '를 포함 하는 zip 파일을 사용자 지정 R 모듈로 업로드 합니다.
 
 ## <a name="execution-environment"></a>실행 환경
 R 스크립트의 실행 환경에서는 **R 스크립트 실행** 모듈과 동일한 버전의 R을 사용하며, 동일한 기본 패키지를 사용할 수 있습니다. 사용자 지정 모듈 zip 패키지에 포함하여 사용자 지정 모듈에 추가 R 패키지를 추가할 수 있습니다. 사용자 고유의 R 환경과 마찬가지로 R 스크립트에서 로드합니다. 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 403ca480bcf0743d81e375c122c888db96bbf543
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 471c2d45e28e634adde78c2d96d407ec219be68c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80408710"
+ms.locfileid: "82229666"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책에 대 한 개발자 정보
 
@@ -62,7 +62,7 @@ Azure Active Directory B2C의 사용자 지정 정책 구성이 이제 일반 �
 
 ### <a name="protocols-and-authorization-flows"></a>프로토콜 및 권한 부여 흐름
 
-| 기능 | 개발 | 미리 보기 | GA | 참고 |
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OAuth2 인증 코드](authorization-code-flow.md) |  |  | X |  |
 | PKCE를 사용 하 여 OAuth2 권한 부여 코드 |  |  | X | 모바일 응용 프로그램에만 해당  |
@@ -75,18 +75,18 @@ Azure Active Directory B2C의 사용자 지정 정책 구성이 이제 일반 �
 
 ### <a name="identify-providers-federation"></a>공급자 페더레이션 식별 
 
-| 기능 | 개발 | 미리 보기 | GA | 참고 |
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | 예: Google +.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | 예: Facebook.  |
 | [OAuth1](oauth1-technical-profile.md) |  | X |  | 예: Twitter. |
-| [SAML2](saml-technical-profile.md) |  |   | X | 예: Salesforce, ADFS. |
+| [SAML2](saml-identity-provider-technical-profile.md) |  |   | X | 예: Salesforce, ADFS. |
 | WSFED| X |  |  |  |
 
 
 ### <a name="rest-api-integration"></a>REST API 통합
 
-| 기능 | 개발 | 미리 보기 | GA | 참고 |
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [기본 인증을 사용 하는 REST API](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
 | [클라이언트 인증서 인증을 사용 하는 REST API](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
@@ -94,7 +94,7 @@ Azure Active Directory B2C의 사용자 지정 정책 구성이 이제 일반 �
 
 ### <a name="component-support"></a>구성 요소 지원
 
-| 기능 | 개발 | 미리 보기 | GA | 참고 |
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [전화 요소 인증](phone-factor-technical-profile.md) |  |  | X |  |
 | [Azure MFA 인증](multi-factor-auth-technical-profile.md) |  | X |  |  |
@@ -109,7 +109,7 @@ Azure Active Directory B2C의 사용자 지정 정책 구성이 이제 일반 �
 
 ### <a name="page-layout-versions"></a>페이지 레이아웃 버전
 
-| 기능 | 개발 | 미리 보기 | GA | 참고 |
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [2.0.0](page-layout.md#200) |  | X |  |  |
 | [1.2.0](page-layout.md#120) |  | X |  |  |
@@ -119,7 +119,7 @@ Azure Active Directory B2C의 사용자 지정 정책 구성이 이제 일반 �
 
 ### <a name="app-ief-integration"></a>App-IEF 통합
 
-| 기능 | 개발 | 미리 보기 | GA | 참고 |
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | 쿼리 문자열 매개 변수`domain_hint` |  |  | X | 클레임으로 사용할 수 있으며 IDP에 전달 될 수 있습니다. |
 | 쿼리 문자열 매개 변수`login_hint` |  |  | X | 클레임으로 사용할 수 있으며 IDP에 전달 될 수 있습니다. |
@@ -129,16 +129,17 @@ Azure Active Directory B2C의 사용자 지정 정책 구성이 이제 일반 �
 
 ### <a name="session-management"></a>세션 관리
 
-| 기능 | 개발 | 미리 보기 | GA | 참고 |
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [기본 SSO 세션 공급자](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
 | [외부 로그인 세션 공급자](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
 | [SAML SSO 세션 공급자](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
-
+| [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
+| [Single Sign-Out](session-overview.md#sign-out)  |  | X |  |  |
 
 ### <a name="security"></a>보안
 
-| 기능 | 개발 | 미리 보기 | GA | 참고 |
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | 정책 키 - 생성, 수동, 업로드 |  |  | X |  |
 | 정책 키 - RSA/Cert, 비밀 |  |  | X |  |
@@ -146,7 +147,7 @@ Azure Active Directory B2C의 사용자 지정 정책 구성이 이제 일반 �
 
 ### <a name="developer-interface"></a>개발자 인터페이스
 
-| 기능 | 개발 | 미리 보기 | GA | 참고 |
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Portal-IEF UX |  |  | X |  |
 | 정책 업로드 |  |  | X |  |

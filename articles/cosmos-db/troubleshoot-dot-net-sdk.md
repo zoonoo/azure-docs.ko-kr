@@ -8,18 +8,18 @@ ms.author: jawilley
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5f92d98630c6fb875babeb907f92732b0c24bb52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e015c1ee335cbdfed7964d63b1f4600bc6a4cb77
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137957"
+ms.locfileid: "82208740"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Azure Cosmos DB .NET SDK를 사용하는 경우 문제 진단 및 해결
 이 문서에서는 [.NET SDK](sql-api-sdk-dotnet.md) 를 사용 하 여 SQL API 계정을 Azure Cosmos DB 하는 일반적인 문제, 해결 방법, 진단 단계 및 도구에 대해 설명 합니다.
 .NET SDK는 Azure Cosmos DB SQL API에 액세스 하는 클라이언트 쪽 논리적 표현을 제공 합니다. 이 문서에서는 문제가 발생하는 경우 사용자에게 도움이 되는 도구 및 방법을 설명합니다.
 
-## <a name="checklist-for-troubleshooting-issues"></a>문제 해결을 위한 검사 목록:
+## <a name="checklist-for-troubleshooting-issues"></a>문제 해결을 위한 검사 목록
 응용 프로그램을 프로덕션 환경으로 이동 하기 전에 다음 검사 목록을 고려 하십시오. 검사 목록을 사용 하면 표시 되는 몇 가지 일반적인 문제를 방지할 수 있습니다. 문제가 발생 하는 경우 신속 하 게 진단할 수도 있습니다.
 
 *    최신 [SDK](sql-api-sdk-dotnet-standard.md)를 사용 합니다. Preview Sdk는 프로덕션 환경에서 사용 하면 안 됩니다. 이렇게 하면 이미 수정 된 알려진 문제를 해결할 수 있습니다.
@@ -101,6 +101,30 @@ HTTP 프록시를 사용하는 경우 SDK `ConnectionPolicy`에서 구성된 연
 * 백 엔드 쿼리가 신속 하 게 반환 하 고 클라이언트에서 많은 시간을 소비 하는 경우 컴퓨터의 부하를 확인 합니다. 리소스가 부족 하 여 SDK에서 응답을 처리 하는 데 리소스를 사용할 수 있을 때까지 대기 하 고 있을 수 있습니다.
 * 백 엔드 쿼리가 느려지는 경우 [쿼리를 최적화](optimize-cost-queries.md) 하 고 현재 [인덱싱 정책을](index-overview.md) 확인 하십시오. 
 
+### <a name="http-401-the-mac-signature-found-in-the-http-request-is-not-the-same-as-the-computed-signature"></a>HTTP 401: HTTP 요청에서 찾은 MAC 서명이 계산 된 시그니처와 동일 하지 않습니다.
+다음 401 오류 메시지가 표시 되 면 "HTTP 요청에서 찾은 MAC 서명이 계산 된 시그니처와 동일 하지 않습니다" 라는 오류 메시지가 표시 됩니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
+
+1. 키가 회전 되었으며 [모범 사례](secure-access-to-data.md#key-rotation)를 따르지 않았습니다. 일반적으로이 경우에 해당 합니다. 계정 키 회전 Cosmos DB Cosmos DB 계정 크기에 따라 몇 초에서 며칠까지 걸릴 수 있습니다.
+   1. 401 MAC 서명은 키 회전 직후에 표시 되며 결국에는 변경 하지 않고 중지 됩니다. 
+2. 키가 계정과 일치 하지 않도록 응용 프로그램에서 키가 잘못 구성 되었습니다.
+   1. 401 MAC 서명 문제가 일관적이 고 모든 호출에 대해 발생 합니다.
+3. 컨테이너를 만드는 경합 조건이 있습니다. 컨테이너 만들기가 완료 되기 전에 응용 프로그램 인스턴스가 컨테이너에 액세스 하려고 합니다. 응용 프로그램을 실행 하는 경우이에 대 한 가장 일반적인 시나리오 이며, 응용 프로그램이 실행 되는 동안 컨테이너를 삭제 하 고 같은 이름으로 다시 만듭니다. SDK는 새 컨테이너를 사용 하려고 하지만 컨테이너 만들기는 아직 진행 중 이므로 키를 포함 하지 않습니다.
+   1. 401 MAC 서명 문제는 컨테이너를 만든 직후에 표시 되며 컨테이너 만들기가 완료 될 때 까지만 발생 합니다.
+ 
+ ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>HTTP 오류 400. 요청 헤더의 크기가 너무 깁니다.
+ 헤더 크기가 크게 커지고 최대 허용 크기를 초과 합니다. 항상 최신 SDK를 사용 하는 것이 좋습니다. 예외 메시지에 헤더 크기 추적을 추가 하는 버전 [3(sp3)](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) 또는 2.x를 사용 해야 [합니다.](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)
+
+컨트롤이
+ 1. 세션 토큰이 너무 크게 증가 했습니다. 세션 토큰은 컨테이너의 파티션 수가 증가 함에 따라 증가 합니다.
+ 2. 연속 토큰이 크게 증가 했습니다. 쿼리가 서로 다른 연속 토큰 크기를 갖습니다.
+ 3. 세션 토큰과 연속 토큰의 조합으로 인해 발생 합니다.
+
+해결 방법:
+   1. [성능 팁](performance-tips.md) 을 따르고 응용 프로그램을 직접 + TCP 연결 모드로 변환 합니다. Direct + TCP에는이 문제를 방지 하는 HTTP와 같은 헤더 크기 제한이 없습니다.
+   2. 세션 토큰이 원인인 경우에는 응용 프로그램을 다시 시작 하는 것이 일시적입니다. 응용 프로그램 인스턴스를 다시 시작 하면 세션 토큰이 다시 설정 됩니다. 다시 시작한 후에도 예외가 중지 되 면 세션 토큰이 원인 임을 확인 합니다. 결국에는 예외를 발생 시키는 크기로 다시 증가 하 게 됩니다.
+   3. 응용 프로그램을 Direct + TCP로 변환할 수 없고 세션 토큰이 원인인 경우 클라이언트 [일관성 수준을](consistency-levels.md)변경 하 여 완화 작업을 수행할 수 있습니다. 세션 토큰은 Cosmos DB의 기본값인 세션 일관성에만 사용 됩니다. 다른 모든 일관성 수준은 세션 토큰을 사용 하지 않습니다. 
+   4. 응용 프로그램을 Direct + TCP로 변환할 수 없고 연속 토큰이 원인인 경우에는 ResponseContinuationTokenLimitInKb 옵션을 설정 해 보십시오. 옵션은 v 2의 경우 FeedOptions 또는 v3의 QueryRequestOptions에서 찾을 수 있습니다.
+
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #logging
@@ -108,5 +132,3 @@ HTTP 프록시를 사용하는 경우 SDK `ConnectionPolicy`에서 구성된 연
 [Request Timeouts]: #request-timeouts
 [Azure SNAT (PAT) port exhaustion]: #snat
 [Production check list]: #production-check-list
-
-

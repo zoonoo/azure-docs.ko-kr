@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Services)의 가상 네트워크 리소스 및
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: d887f084ae329be30579b3400b4dc6cfb22c64ca
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 560a832821f5e5ff2fbbc2d66252945951d69511
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82145453"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208060"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 네트워크 연결 및 보안에 대한 모범 사례
 
@@ -45,7 +45,7 @@ Azure CNI 네트워킹을 사용하면 가상 네트워크 리소스가 AKS 클�
 
 AKS 서비스 주체 위임에 대한 자세한 내용은 [다른 Azure 리소스에 대한 액세스 권한 위임][sp-delegation]을 참조하세요. 서비스 주체 대신 사용 권한에 대해 시스템 할당 관리 id를 사용할 수도 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
 
-각 노드 및 pod가 자체 IP 주소를 수신하는 경우 AKS 서브넷의 주소 범위를 계획하세요. 서브넷은 배포하는 모든 노드, pod 및 네트워크 리소스에 대해 IP 주소를 제공할 만큼 충분히 커야 합니다. 각 AKS 클러스터는 자체 서브넷에 배치해야 합니다. Azure에서 온-프레미스 또는 피어링된 네트워크에 대한 연결을 허용하려면 기존 네트워크 리소스와 겹치는 IP 주소 범위를 사용하지 마세요. Kubenet 및 Azure CNI 네트워킹을 사용하여 각 노드에서 실행되는 pod 수는 기본적으로 제한되어 있습니다. 규모 확장 이벤트 또는 클러스터 업그레이드를 처리 하려면 할당 된 서브넷에 사용할 수 있는 추가 IP 주소도 필요 합니다. 이러한 추가 주소 공간은 Windows Server 컨테이너를 사용 하는 경우 특히 중요 합니다 (현재 AKS에서 미리 보기 상태). 이러한 노드 풀에는 최신 보안 패치를 적용 하기 위해 업그레이드가 필요 하기 때문입니다. Windows Server 노드에 대 한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
+각 노드 및 pod가 자체 IP 주소를 수신하는 경우 AKS 서브넷의 주소 범위를 계획하세요. 서브넷은 배포하는 모든 노드, pod 및 네트워크 리소스에 대해 IP 주소를 제공할 만큼 충분히 커야 합니다. 각 AKS 클러스터는 자체 서브넷에 배치해야 합니다. Azure에서 온-프레미스 또는 피어링된 네트워크에 대한 연결을 허용하려면 기존 네트워크 리소스와 겹치는 IP 주소 범위를 사용하지 마세요. Kubenet 및 Azure CNI 네트워킹을 사용하여 각 노드에서 실행되는 pod 수는 기본적으로 제한되어 있습니다. 규모 확장 이벤트 또는 클러스터 업그레이드를 처리 하려면 할당 된 서브넷에 사용할 수 있는 추가 IP 주소도 필요 합니다. 이러한 추가 주소 공간은 Windows Server 컨테이너를 사용 하는 경우 특히 중요 합니다. 이러한 노드 풀에는 최신 보안 패치를 적용 하기 위해 업그레이드가 필요 하기 때문입니다. Windows Server 노드에 대 한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
 
 필요한 IP 주소를 계산하려면 [AKS에서 Azure CNI 네트워킹 구성][advanced-networking]을 참조하세요.
 
@@ -99,7 +99,7 @@ spec:
 
 수신 컨트롤러는 AKS 노드에 실행되며 수신 요청을 감시하는 디먼입니다. 그런 후에 트래픽은 수신 리소스에 정의된 규칙을 기준으로 분산됩니다. 가장 일반적인 수신 컨트롤러는 [NGINX]를 기준으로 합니다. AKS는 사용자를 특정 컨트롤러로 제한하지 않으므로 [Contour][contour], [HAProxy][haproxy] 또는 [Traefik][traefik] 등의 다른 컨트롤러를 사용할 수 있습니다.
 
-수신 컨트롤러는 Linux 노드에서 예약 되어야 합니다. Windows Server 노드 (현재 AKS에서 미리 보기 상태)는 수신 컨트롤러를 실행 해서는 안 됩니다. YAML 매니페스트 또는 투구 차트 배포에서 노드 선택기를 사용 하 여 리소스를 Linux 기반 노드에서 실행 해야 함을 나타낼 수 있습니다. 자세한 내용은 [노드 선택기를 사용 하 여 AKS에서 pod이 예약 된 위치 제어를][concepts-node-selectors]참조 하세요.
+수신 컨트롤러는 Linux 노드에서 예약 되어야 합니다. Windows Server 노드가 수신 컨트롤러를 실행해서는 안 됩니다. YAML 매니페스트 또는 투구 차트 배포에서 노드 선택기를 사용 하 여 리소스를 Linux 기반 노드에서 실행 해야 함을 나타낼 수 있습니다. 자세한 내용은 [노드 선택기를 사용 하 여 AKS에서 pod이 예약 된 위치 제어를][concepts-node-selectors]참조 하세요.
 
 다음 방법 가이드를 포함하여 수신에 대한 다양한 시나리오가 있습니다.
 

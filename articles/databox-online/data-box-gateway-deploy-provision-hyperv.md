@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 63d88f1b9903eaad7ed4f57f59ca2a49445e3d40
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3616a338666dbb10fe7500bad8c1e8239fd2c92
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77365313"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561625"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>자습서: Hyper-V에서 Azure Data Box Gateway 프로비저닝
 
@@ -21,7 +21,7 @@ ms.locfileid: "77365313"
 
 이 자습서에서는 Windows Server 2016, Windows Server 2012 R2 또는 Windows Server 2012에서 Hyper-V를 실행하는 호스트 시스템에 Data Box Gateway를 프로비전하는 방법을 설명합니다.
 
-가상 디바이스를 프로비전하고 구성하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
+가상 디바이스를 프로비전하고 구성하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다. 
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 

@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 5c71f37741de06b8633e7eafaae2f29823214f74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0f8d9d7d90e88b4e43721dac274833a3b0df275e
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "75442660"
+ms.locfileid: "82203151"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법
 
@@ -31,36 +31,23 @@ Azure API Management는 여러 지역 배포를 지원 하므로 API 게시자�
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="deploy-an-api-management-service-instance-to-a-new-region"></a><a name="add-region"> </a>새 지역에 API Management 서비스 인스턴스 배포
+## <a name="deploy-api-management-service-to-a-new-region"></a><a name="add-region"> </a>새 지역에 API Management 서비스 배포
 
 > [!NOTE]
 > 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [API Management 서비스 인스턴스 만들기][create an api management service instance]를 참조하세요.
 
-Azure Portal에서 API Management 서비스 인스턴스에 대한 **규모 및 가격 책정** 탭으로 이동합니다.
+1. Azure Portal에서 API Management 서비스로 이동 하 고 메뉴에서 **위치** 항목을 클릭 합니다.
+2. 위쪽 막대에서 **+ 추가** 를 클릭 합니다.
+3. 드롭다운 목록에서 위치를 선택 하 고 슬라이더를 사용 하 여 단위 수를 설정 합니다.
+4. **추가** 단추를 클릭 하 여 확인 합니다.
+5. 모든 위치를 구성할 때까지이 프로세스를 반복 합니다.
+6. 위쪽 막대에서 **저장** 을 클릭 하 여 배포 프로세스를 시작 합니다.
 
-![크기 조정 탭][api-management-scale-service]
+## <a name="delete-an-api-management-service-location"></a><a name="remove-region"> </a>API Management 서비스 위치 삭제
 
-새 지역에 배포하려면 도구 모음에서 **+ 지역 추가**를 클릭합니다.
-
-![지역 추가][api-management-add-region]
-
-드롭다운 목록에서 위치를 선택하고 슬라이더를 사용하여 단위 수를 설정합니다.
-
-![단위 지정][api-management-select-location-units]
-
-**추가**를 클릭하여 위치 테이블에 선택 항목을 배치합니다.
-
-모든 위치를 구성할 때까지 이 프로세스를 반복한 후 도구 모음에서 **저장**을 클릭하여 배포 프로세스를 시작합니다.
-
-## <a name="delete-an-api-management-service-instance-from-a-location"></a><a name="remove-region"> </a>위치에 API Management 서비스 인스턴스 삭제
-
-Azure Portal에서 API Management 서비스 인스턴스에 대한 **규모 및 가격 책정** 탭으로 이동합니다.
-
-![크기 조정 탭][api-management-scale-service]
-
-제거할 위치에 대해 테이블의 오른쪽 끝에 있는 **...** 단추를 사용하여 상황에 맞는 메뉴를 엽니다. **삭제** 옵션을 선택합니다.
-
-삭제를 확인하고 **저장**을 클릭하여 변경 내용을 적용합니다.
+1. Azure Portal에서 API Management 서비스로 이동 하 고 메뉴에서 **위치** 항목을 클릭 합니다.
+2. 제거할 위치에 대해 테이블의 오른쪽 끝에 있는 **...** 단추를 사용하여 상황에 맞는 메뉴를 엽니다. **삭제** 옵션을 선택합니다.
+3. 삭제를 확인하고 **저장**을 클릭하여 변경 내용을 적용합니다.
 
 ## <a name="route-api-calls-to-regional-backend-services"></a><a name="route-backend"> </a>지역 백 엔드 서비스로 API 호출 라우팅
 
@@ -119,11 +106,6 @@ API Management는 [가장 짧은 대기 시간](../traffic-manager/traffic-manag
 1. [Traffic Manager에서 API Management 지역별 상태 끝점을 구성](../traffic-manager/traffic-manager-monitoring.md)합니다. 지역별 상태 끝점은의 `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`URL 패턴 (예: `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`)을 따릅니다.
 1. Traffic Manager의 [라우팅 메서드를](../traffic-manager/traffic-manager-routing-methods.md) 지정 합니다.
 
-[api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
-[api-management-scale-service]: ./media/api-management-howto-deploy-multi-region/api-management-scale-service.png
-[api-management-add-region]: ./media/api-management-howto-deploy-multi-region/api-management-add-region.png
-[api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
-[api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 [create an api management service instance]: get-started-create-service-instance.md
 [get started with azure api management]: get-started-create-service-instance.md
 [deploy an api management service instance to a new region]: #add-region

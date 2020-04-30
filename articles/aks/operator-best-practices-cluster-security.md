@@ -1,32 +1,32 @@
 ---
-title: 클러스터 보안을 위한 모범 사례
+title: 클러스터 보안에 대 한 모범 사례
 titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Services)에서 클러스터 보안 및 업그레이드를 관리하는 방법에 대한 클러스터 운영자 모범 사례 알아보기
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 3d4e8577116ba1d78aaa881887f64e71c04af4f2
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 305d4c15aaf72a47549497902e3027064fbfd608
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668323"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208094"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 보안 및 업그레이드 모범 사례
 
 AKS(Azure Kubernetes Service)에서 클러스터를 관리할 때 워크로드 및 데이터의 보안은 주요 고려 사항입니다. 논리적 격리를 사용하여 다중 테넌트 클러스터를 실행하는 경우에 특히, 리소스 및 워크로드에 대한 액세스를 보호해야 합니다. 공격 위험을 최소화하려면 최신 Kubernetes 및 노드 OS 보안 업데이트를 적용하는지도 확인해야 합니다.
 
-이 문서에서는 AKS 클러스터의 보안을 유지하는 방법을 중점적으로 설명합니다. 다음 방법을 알아봅니다.
+이 문서에서는 AKS 클러스터의 보안을 유지하는 방법을 중점적으로 설명합니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * Azure Active Directory 및 역할 기반 액세스 제어를 사용하여 API 서버 액세스 보안 유지
 > * 노드 리소스에 대한 컨테이너 액세스 보안 유지
 > * AKS 클러스터를 최신 Kubernetes 버전으로 업그레이드
-> * 노드를 최신 상태로 유지하고 보안 패치를 자동으로 적용
+> * 노드를 최신 상태로 유지 하 고 보안 패치를 자동으로 적용
 
 [컨테이너 이미지 관리][best-practices-container-image-management] 및 [Pod 보안][best-practices-pod-security]에 대한 모범 사례를 참조할 수도 있습니다.
 
-또한 보안 [센터와의 Azure Kubernetes 서비스 통합을][security-center-aks] 사용하여 위협을 탐지하고 AKS 클러스터 보안에 대한 권장 사항을 볼 수 있습니다.
+또한 [Security Center와의 Azure Kubernetes Services 통합][security-center-aks] 을 사용 하 여 위협을 감지 하 고 AKS 클러스터를 보호 하기 위한 권장 사항을 확인할 수 있습니다.
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>API 서버 및 클러스터 노드에 대한 액세스 보안 유지
 
@@ -50,7 +50,7 @@ Azure AD 통합 및 RBAC에 대한 자세한 내용은 [AKS의 인증 및 권한
 
 사용자 또는 그룹에 필요한 최소 개수의 권한을 부여하는 것과 같은 방식으로, 컨테이너도 필요한 작업 및 프로세스로 제한해야 합니다. 공격 위험을 최소화하기 위해서는 에스컬레이션된 권한 또는 루트 액세스를 요구하는 애플리케이션 및 컨테이너를 구성하지 마세요. 예를 들어 pod 매니페스트에서 `allowPrivilegeEscalation: false`를 설정합니다. 이러한 *pod 보안 컨텍스트*가 Kubernetes에 빌드되며, 추가 권한(예: 사용자 또는 그룹으로 실행)을 정의하거나 노출할 Linux 기능을 정의할 수 있습니다. 추가 모범 사례에 대해서는 [리소스에 대한 pod 액세스 보안 유지][pod-security-contexts]를 참조하세요.
 
-컨테이너 작업을 보다 미세하게 제어하기 위해 *AppArmor* 및 *seccomp*와 같은 기본 제공 Linux 보안 기능을 사용할 수도 있습니다. 이러한 기능은 노드 수준에서 정의되며 pod 매니페스트를 통해 구현됩니다. 내장 된 리눅스 보안 기능은 리눅스 노드와 포드에서만 사용할 수 있습니다.
+컨테이너 작업을 보다 미세하게 제어하기 위해 *AppArmor* 및 *seccomp*와 같은 기본 제공 Linux 보안 기능을 사용할 수도 있습니다. 이러한 기능은 노드 수준에서 정의되며 pod 매니페스트를 통해 구현됩니다. Linux 노드 및 pod 기본 제공 Linux 보안 기능을 사용할 수 있습니다.
 
 > [!NOTE]
 > AKS 또는 다른 곳의 Kubernetes 환경은 악의적인 다중 테넌트 사용에 대해 완전히 안전하지 않습니다. *AppArmor*, *seccomp*, *Pod 보안 정책*과 같은 추가 보안 기능 또는 노드에 대해 보다 세분화된 RBAC(역할 기반 액세스 제어)를 사용하면 악용이 더 어려워집니다. 그러나 악의적인 다중 테넌트 워크로드를 실행할 때 진정한 보안을 위해서는 하이퍼바이저가 신뢰할 수 있는 유일한 보안 수준입니다. Kubernetes의 보안 도메인은 개별 노드가 아닌 전체 클러스터가 됩니다. 이러한 유형의 악의적인 다중 테넌트 워크로드의 경우 물리적으로 격리된 클러스터를 사용해야 합니다.
@@ -193,13 +193,13 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 AKS의 업그레이드에 대한 자세한 내용은 [AKS의 지원되는 Kubernetes 버전][aks-supported-versions] 및 [AKS 클러스터 업그레이드][aks-upgrade]를 참조하세요.
 
-## <a name="process-linux-node-updates-and-reboots-using-kured"></a>kured를 사용하여 Linux 노드 업데이트 및 재부팅 처리
+## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Kured를 사용 하 여 Linux 노드 업데이트 및 재부팅 프로세스
 
-**모범 사례 지침** - AKS는 각 Linux 노드에서 보안 수정 프로그램을 자동으로 다운로드하고 설치하지만 필요한 경우 자동으로 재부팅되지는 않습니다. `kured`를 사용하여 보류 중인 다시 부팅을 감시하고, 노드를 안전하게 차단했다가 드레이닝하여 다시 부팅되도록 하고, 업데이트를 적용한 후 OS와 관련해서 최대한 안전하게 유지합니다. Windows Server 노드(현재 AKS에서 미리 보기)의 경우 정기적으로 AKS 업그레이드 작업을 수행하여 안전하게 코돈 및 드레인 포드를 드레인하고 업데이트된 노드를 배포합니다.
+**모범 사례 지침** -AKS에서 각 Linux 노드에 보안 픽스를 자동으로 다운로드 하 여 설치 하지만, 필요한 경우 자동으로 다시 부팅 되지 않습니다. `kured`를 사용하여 보류 중인 다시 부팅을 감시하고, 노드를 안전하게 차단했다가 드레이닝하여 다시 부팅되도록 하고, 업데이트를 적용한 후 OS와 관련해서 최대한 안전하게 유지합니다. Windows Server 노드의 경우 AKS 업그레이드 작업을 정기적으로 수행 하 여 pod를 안전 하 게 무시 하 고 업데이트 된 노드를 배포 합니다.
 
-매일 저녁, AKS의 리눅스 노드는 배포판 업데이트 채널을 통해 사용할 수있는 보안 패치를 얻을. 이 동작은 노드가 AKS 클러스터에 배포되면 자동으로 구성됩니다. 실행 중인 워크로드 중단 및 잠재적인 영향을 최소화하기 위해 보안 패치 또는 커널 업데이트에 필요한 경우에도 노드가 자동으로 다시 부팅되지 않습니다.
+AKS의 각 야간, Linux 노드는 배포판 업데이트 채널을 통해 사용할 수 있는 보안 패치를 가져옵니다. 이 동작은 노드가 AKS 클러스터에 배포되면 자동으로 구성됩니다. 실행 중인 워크로드 중단 및 잠재적인 영향을 최소화하기 위해 보안 패치 또는 커널 업데이트에 필요한 경우에도 노드가 자동으로 다시 부팅되지 않습니다.
 
-Weaveworks의 오픈 소스 [kured(KUbernetes REboot Daemon)][kured] 프로젝트는 보류 중인 노드 다시 부팅을 감시합니다. Linux 노드가 재부팅이 필요한 업데이트를 적용하면 노드가 안전하게 코드화되고 드레인되어 클러스터의 다른 노드에서 포드를 이동하고 예약합니다. 노드는 일단 다시 부팅되면 클러스터에 다시 추가되고, Kubernetes는 해당 포드 예약을 다시 시작합니다. 중단을 최소화하기 위해 한 번에 하나의 노드만 `kured`에서 다시 부팅되도록 허용됩니다.
+Weaveworks의 오픈 소스 [kured(KUbernetes REboot Daemon)][kured] 프로젝트는 보류 중인 노드 다시 부팅을 감시합니다. Linux 노드가 다시 부팅 해야 하는 업데이트를 적용 하는 경우 노드를 안전 하 게 통제 하 여 클러스터의 다른 노드에서 pod을 이동 하 고 예약할 수 있습니다. 노드는 일단 다시 부팅되면 클러스터에 다시 추가되고, Kubernetes는 해당 포드 예약을 다시 시작합니다. 중단을 최소화하기 위해 한 번에 하나의 노드만 `kured`에서 다시 부팅되도록 허용됩니다.
 
 ![kured를 사용하는 AKS 노드 다시 부팅 프로세스](media/operator-best-practices-cluster-security/node-reboot-process.png)
 

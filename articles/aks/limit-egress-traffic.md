@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 송신 트래픽을 제어 �
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: daf17ee4d6518de63dc642fd64acd6b4c5be7d2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d723f7b1e7331e65d17dca5873b891ec46d76c0e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183928"
+ms.locfileid: "82207176"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 클러스터 노드에 대 한 송신 트래픽 제어
 
@@ -165,19 +165,15 @@ Azure Policy 사용 하도록 설정 된 AKS 클러스터에는 다음 FQDN/appl
 | * .gk. \<azmk8s.io\> | HTTPS: 443    | 감사 결과를 얻기 위해 마스터 서버에서 실행 되는 게이트 키퍼 감사 끝점과 통신 하는 추가 기능을 Azure Policy 합니다. |
 | dc.services.visualstudio.com | HTTPS: 443 | 원격 분석 데이터를 application insights 끝점으로 전송 하는 추가 기능을 Azure Policy 합니다. |
 
-## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Windows Server 기반 노드 (공개 미리 보기) 사용에 필요 합니다.
+## <a name="required-by-windows-server-based-nodes-enabled"></a>사용 하도록 설정 된 Windows Server 기반 노드에 필요 합니다.
 
-> [!CAUTION]
-> 아래 기능 중 일부는 미리 보기 상태입니다.  이 문서의 제안 사항은 기능이 공개 미리 보기 및 향후 릴리스 단계로 이동 됨에 따라 변경 될 수 있습니다.
-
-Windows Server 기반 AKS 클러스터에는 다음과 같은 FQDN/응용 프로그램 규칙이 필요 합니다.
+Windows Server 기반 노드 풀을 사용 하려면 다음 FQDN/응용 프로그램 규칙이 필요 합니다.
 
 | FQDN                                    | 포트      | 사용      |
 |-----------------------------------------|-----------|----------|
 | onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS: 443 | Windows 관련 이진 파일을 설치 하려면 |
 | mp.microsoft.com,<span></span>msftconnecttest.com, ctldl.windowsupdate.com | HTTP: 80 | Windows 관련 이진 파일을 설치 하려면 |
 | kms.core.windows.net | TCP: 1688 | Windows 관련 이진 파일을 설치 하려면 |
-
 
 ## <a name="next-steps"></a>다음 단계
 

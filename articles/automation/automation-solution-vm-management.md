@@ -3,14 +3,14 @@ title: 업무 시간 외 Vm 시작/중지 솔루션
 description: 이 VM 관리 솔루션은 일정에 따라 Azure virtual machines를 시작 및 중지 하 고 Azure Monitor 로그를 사전에 모니터링 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/01/2020
+ms.date: 04/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 631c9b37cf1fec0d39c3c362c6bc303a576d6b7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7e30fd0d53af7ee61d919b56e9ffcd1f1b6bd36
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187333"
+ms.locfileid: "82207601"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure Automation에서 작업 시간 외 Vm 시작/중지 솔루션
 
@@ -19,7 +19,7 @@ ms.locfileid: "82187333"
 이 솔루션은 [new-azurermvm](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) cmdlet을 사용 하 여 vm을 시작 합니다. Vm을 중지 하는 데 [new-azurermvm](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) 를 사용 합니다.
 
 > [!NOTE]
-> **작업 시간 외 Vm 시작/중지** 솔루션은 사용 가능한 최신 버전의 Azure 모듈을 지원 하도록 업데이트 되었습니다.
+> **작업 시간 외 Vm 시작/중지** 솔루션은 사용 가능한 최신 버전의 Azure 모듈을 지원 하도록 업데이트 되었습니다. Marketplace에서 제공 되는이 솔루션의 업데이트 된 버전은 AzureRM에서 Az modules로 마이그레이션 했기 때문에 AzureRM 모듈을 지원 하지 않습니다.
 
 이 솔루션은 VM 비용을 최적화 하려는 사용자를 위해 분산 된 저렴 한 자동화 옵션을 제공 합니다. 이 솔루션을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 

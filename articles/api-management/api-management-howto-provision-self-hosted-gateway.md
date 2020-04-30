@@ -10,23 +10,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: d33c5f75234ad7165a9062ecc3bb2a00d502f8c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2870a654faad4e760a9d022488cb2c4c406cbeab
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "74075280"
+ms.locfileid: "82203134"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Azure API Management에서 자체 호스팅 게이트웨이 프로 비전
 
 Azure API Management 인스턴스에서 게이트웨이 리소스를 프로 비전 하는 것은 자체 호스팅 게이트웨이를 배포 하기 위한 필수 구성 요소입니다. 이 문서에서는 API Management에서 게이트웨이 리소스를 프로 비전 하는 단계를 안내 합니다.
 
-> [!NOTE]
-> 자체 호스팅 게이트웨이 기능은 미리 보기 상태입니다. 미리 보기 중에 자체 호스팅 게이트웨이는 개발자 및 프리미엄 계층 에서만 추가 비용 없이 사용할 수 있습니다. 개발자 계층은 단일 자체 호스팅 게이트웨이 배포로 제한 됩니다.
-
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 다음 빠른 시작: [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md) 를 완료 합니다.
 
@@ -42,9 +39,6 @@ Azure API Management 인스턴스에서 게이트웨이 리소스를 프로 비�
 
 4. 필요에 따라 게이트웨이 리소스에 대 한 **설명을** 입력 합니다.
 5. 필요에 따라 **+** **api** 를 선택 하 여 하나 이상의 api를이 게이트웨이 리소스와 연결 합니다.
-> [!TIP]
-> Api의 **설정** 탭에 있는 게이트웨이에서 api를 연결 하 고 제거할 수 있습니다.
-
 > [!IMPORTANT]
 > 기본적으로 기존 Api는 새 게이트웨이 리소스와 연결 되지 않습니다. 따라서 새 게이트웨이를 통해 호출 하려고 하면 `404 Resource Not Found` 응답이 발생 합니다.
 
@@ -55,5 +49,5 @@ Azure API Management 인스턴스에서 게이트웨이 리소스를 프로 비�
 ## <a name="next-steps"></a>다음 단계
 
 * 자체 호스팅 게이트웨이에 대해 자세히 알아보려면 [Azure API Management 자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md) 를 참조 하세요.
-* [Kubernetes에 자체 호스팅 게이트웨이를 배포](api-management-howto-deploy-self-hosted-gateway-to-k8s.md) 하는 방법에 대 한 자세한 정보
-* [자체 호스팅 게이트웨이를 Docker에 배포](api-management-howto-deploy-self-hosted-gateway-to-docker.md) 하는 방법에 대 한 자세한 정보
+* [Kubernetes에 자체 호스팅 게이트웨이를 배포](how-to-deploy-self-hosted-gateway-kubernetes.md) 하는 방법에 대 한 자세한 정보
+* [자체 호스팅 게이트웨이를 Docker에 배포](how-to-deploy-self-hosted-gateway-docker.md) 하는 방법에 대 한 자세한 정보

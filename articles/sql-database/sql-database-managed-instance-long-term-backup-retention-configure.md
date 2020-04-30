@@ -11,21 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/19/2020
-ms.openlocfilehash: 24eacb555704593fe44bc2d949de44de163345bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 04/29/2020
+ms.openlocfilehash: fba1dcdb8c4e5cfaa8071ae58ad75432b526c887
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677113"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509706"
 ---
 # <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>관리 되는 인스턴스 장기 백업 보존 Azure SQL Database 관리 (PowerShell)
 
 Azure SQL Database 관리 되는 인스턴스에서는 [장기 백업 보존](sql-database-long-term-retention.md#managed-instance-support) 정책 (LTR)을 제한 된 공개 미리 보기 기능으로 구성할 수 있습니다. 이를 통해 최대 10 년 동안 별도의 Azure Blob storage 컨테이너에 데이터베이스 백업을 자동으로 유지할 수 있습니다. 그런 다음 PowerShell을 사용 하 여 이러한 백업을 사용 하 여 데이터베이스를 복구할 수 있습니다.
 
    > [!IMPORTANT]
-   > 관리 되는 인스턴스의 경우 LTR은 현재 제한 된 미리 보기로 제공 되며 소문자를 기준으로 EA 및 CSP 구독에 사용할 수 있습니다. 등록을 요청 하려면 지원 토픽 **백업, 복원 및 비즈니스 연속성/장기 백업 보존**에서 [Azure 지원 티켓](https://azure.microsoft.com/support/create-ticket/) 을 만드세요. 
-
+   > 관리 되는 인스턴스의 경우 LTR은 현재 제한 된 미리 보기로 제공 되며 소문자를 기준으로 EA 및 CSP 구독에 사용할 수 있습니다. 등록을 요청 하려면 [Azure 지원 티켓](https://azure.microsoft.com/support/create-ticket/)을 만드세요. 문제 유형에서 기술 문제를 선택 하 고, 서비스에 대해 SQL Database Managed Instance를 선택 하 고, 문제 유형에 대해 **백업, 복원 및 비즈니스 연속성/장기 백업 보존**을 선택 합니다. 요청에서 관리 되는 인스턴스의 제한 된 공개 미리 보기에 등록 하려는 상태를 선택 하십시오.
 
 다음 섹션에서는 PowerShell을 사용하여 장기 백업 보존을 구성하고 Azure SQL 스토리지에서 백업을 확인하고 Azure SQL 스토리지의 백업에서 복원하는 방법을 보여줍니다.
 

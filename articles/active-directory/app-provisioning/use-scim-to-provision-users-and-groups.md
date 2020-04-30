@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0507989ec25db595a85b89f15d8ff7d056a970f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a54bc3cfa67330fb0056ccd1898d9ab3de2b0ab2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297672"
+ms.locfileid: "82229921"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM 끝점을 빌드하고 Azure Active Directory (Azure AD)를 사용 하 여 사용자 프로 비전 구성
 
@@ -810,7 +810,7 @@ Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합�
 
 토큰에서 발급자는와 같은 `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`iss 클레임으로 식별 됩니다. 이 예에서 클레임 값 `https://sts.windows.net`의 기준 주소는 발급자로 Azure Active Directory를 식별 하는 반면, 상대 주소 세그먼트 _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_은 토큰이 발급 된 Azure Active Directory 테 넌 트의 고유 식별자입니다.
 
-토큰의 대상 그룹은 갤러리의 응용 프로그램에 대 한 응용 프로그램 템플릿 ID가 됩니다. 단일 테 넌 트에 등록 된 각 응용 프로그램은 SCIM 요청과 동일한 `iss` 클레임을 받을 수 있습니다. 갤러리의 각 응용 프로그램에 대 한 응용 프로그램 템플릿 ID는 다양 [ProvisioningFeedback@microsoft.com](mailto:ProvisioningFeedback@microsoft.com) 합니다. 갤러리 응용 프로그램의 응용 프로그램 템플릿 id에 대 한 질문에 대해 문의 하세요. 모든 사용자 지정 앱의 응용 프로그램 템플릿 ID는 _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_입니다.
+토큰의 대상 그룹은 갤러리의 응용 프로그램에 대 한 응용 프로그램 템플릿 ID가 됩니다. 단일 테 넌 트에 등록 된 각 응용 프로그램은 SCIM 요청과 동일한 `iss` 클레임을 받을 수 있습니다. 모든 사용자 지정 앱의 응용 프로그램 템플릿 ID는 _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_입니다. Azure AD 프로 비전 서비스에 의해 생성 된 토큰은 테스트에만 사용 해야 합니다. 프로덕션 환경에서는 사용 하면 안 됩니다.
 
 샘플 코드에서 요청은 AspNetCore. JwtBearer 패키지를 사용 하 여 인증 됩니다. 다음 코드는 지정 된 테 넌 트에 대해 Azure Active Directory에서 발급 한 전달자 토큰을 사용 하 여 서비스의 끝점에 대 한 요청이 인증 됨을 적용 합니다.
 
@@ -1124,7 +1124,7 @@ ResourceIdentifier 인수의 값으로 제공 되는 개체에는 사용자 프�
 > [!IMPORTANT]
 > Azure ad SCIM 구현은 azure ad와 대상 응용 프로그램 간에 지속적으로 사용자의 동기화를 유지 하도록 설계 된 Azure AD 사용자 프로 비전 서비스를 기반으로 하며, 매우 구체적인 표준 작업 집합을 구현 합니다. 이러한 동작을 이해 하 여 Azure AD SCIM 클라이언트의 동작을 이해 하는 것이 중요 합니다. 자세한 내용은 프로 비전 [주기: 초기 및 증분](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) 프로 [비전 작동 방법](how-provisioning-works.md)섹션을 참조 하세요.
 
-### <a name="getting-started"></a>시작하기
+### <a name="getting-started"></a>시작
 
 Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이션" 기능을 사용하여 이 문서에서 설명한 SCIM 프로필을 지원하는 애플리케이션을 Azure Active Directory에 연결할 수 있습니다. 일단 연결되면 Azure AD는 할당된 사용자 및 그룹에 대해 애플리케이션의 SCIM 엔드포인트를 쿼리하고, 할당 세부 정보에 따라 이러한 사용자 및 그룹을 만들거나 수정하는 동기화 프로세스를 40분마다 실행합니다.
 

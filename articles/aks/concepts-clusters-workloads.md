@@ -4,12 +4,12 @@ description: Kubernetes의 기본 클러스터 및 워크로드 구성 요소와
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 019c886aba1c8fe34211e73e4d960b14e79303b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 13169628aff2fe4bff64fed36db54d18d4f830b8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80617431"
+ms.locfileid: "82208162"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
@@ -88,7 +88,7 @@ kubectl describe node [NODE_NAME]
 
 - **Cpu** 예약 cpu는 추가 기능 실행으로 인해 할당 가능한 cpu를 줄일 수 있는 노드 형식 및 클러스터 구성에 따라 달라 집니다.
 
-| 호스트의 CPU 코어 | 1 | 2 | 4 | 8 | 16 | 32|64|
+| 호스트의 CPU 코어 | 1    | 2    | 4    | 8    | 16 | 32|64|
 |---|---|---|---|---|---|---|---|
 |Kube-예약 (millicores)|60|100|140|180|260|420|740|
 
@@ -126,7 +126,7 @@ AKS에서 여러 노드 풀을 사용 하는 방법에 대 한 자세한 내용�
 
 ### <a name="node-selectors"></a>노드 선택기
 
-여러 노드 풀을 포함 하는 AKS 클러스터에서 지정 된 리소스에 사용할 노드 풀을 Kubernetes Scheduler에 알려야 할 수 있습니다. 예를 들어 수신 컨트롤러는 Windows Server 노드에서 실행 되지 않습니다 (현재 AKS의 미리 보기 상태). 노드 선택기를 사용 하 여 pod가 예약 되어야 하는 위치를 제어 하기 위해 노드 OS와 같은 다양 한 매개 변수를 정의할 수 있습니다.
+여러 노드 풀을 포함 하는 AKS 클러스터에서 지정 된 리소스에 사용할 노드 풀을 Kubernetes Scheduler에 알려야 할 수 있습니다. 예를 들어 수신 컨트롤러는 Windows Server 노드에서 실행 되지 않습니다. 노드 선택기를 사용 하 여 pod가 예약 되어야 하는 위치를 제어 하기 위해 노드 OS와 같은 다양 한 매개 변수를 정의할 수 있습니다.
 
 다음 기본 예제에서는 노드 선택기 *"beta.kubernetes.io/os": linux*를 사용 하 여 LINUX 노드에서 NGINX 인스턴스를 예약 합니다.
 
