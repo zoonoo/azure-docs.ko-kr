@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 5d0d1541600f4c10b021d5d7f7f435f1aa5ae589
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e6fa490285582c827b8704496fb7a20a7eb9cfbc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80239714"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82166022"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>빠른 시작: Kubernetes에서 디버그 및 반복: Visual Studio 및 .NET Core - Azure Dev Spaces
 
@@ -89,12 +89,12 @@ Built container image in 39s
 Waiting for container...
 36s
 
-Service 'webfrontend' port 'http' is available at http://default.webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 'http' is available at `http://default.webfrontend.1234567890abcdef1234.eus.azds.io/`
 Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-위의 예제에서 공용 URL은 http://default.webfrontend.1234567890abcdef1234.eus.azds.io/ 입니다. 
+위의 예제에서 공용 URL은 `http://default.webfrontend.1234567890abcdef1234.eus.azds.io/` 입니다. 
 
 **디버그**를 선택한 다음, **디버깅 시작**을 선택합니다. 몇 초 후에 서비스가 시작되고 Visual Studio에서 서비스의 공용 URL이 있는 브라우저를 엽니다. 브라우저가 자동으로 열리지 않으면 브라우저에서 서비스의 공용 URL로 이동하여 개발 공간에서 실행 중인 서비스와 상호 작용합니다.
 

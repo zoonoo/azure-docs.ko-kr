@@ -2,15 +2,15 @@
 title: 템플릿을 사용하여 VM 확장 배포
 description: Azure Resource Manager 템플릿을 사용하여 가상 머신 확장을 배포하는 방법 알아보기
 author: mumian
-ms.date: 04/16/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 280b4a9775346c719e82d1fef4162fa6ea666798
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 06d948b44064f029e00a2ef089077e9b55246545
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81616875"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184965"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 가상 머신 확장 배포
 

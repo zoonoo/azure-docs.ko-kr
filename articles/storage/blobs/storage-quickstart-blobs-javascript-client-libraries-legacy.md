@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 01/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 5219af0ec343a6e7f87a07e4a7280ac5f4e85cd3
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 920d3d6c1cfc928efa5daa2d6c0aa3a6b4e81375
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619121"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82161128"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -28,7 +28,7 @@ ms.locfileid: "80619121"
 - Azure Storage 계정. [스토리지 계정 만들기](../common/storage-account-create.md)
 - 로컬 웹 서버입니다. 이 문서에서는 [Node.js](https://nodejs.org)를 사용하여 기본 서버를 엽니다.
 - [Visual Studio Code](https://code.visualstudio.com)
-- 브라우저 디버깅을 위한 VS Code 코드 확장(예: [Chrome용 디버거](vscode:extension/msjsdiag.debugger-for-chrome) 또는 [Microsoft Edge용 디버거](vscode:extension/msjsdiag.debugger-for-edge)).
+- 브라우저 디버깅을 위한 VS Code 코드 확장(예: [Chrome용 디버거](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) 또는 [Microsoft Edge용 디버거](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)).
 
 ## <a name="setting-up-storage-account-cors-rules"></a>스토리지 계정 CORS 규칙 설정
 
@@ -94,7 +94,7 @@ az storage account generate-sas \
 
 ## <a name="implement-the-html-page"></a>HTML 페이지 구현
 
-이 섹션에서는 기본 웹 페이지를 만들고, 페이지를 시작하고 디버그하도록 VS Code를 구성합니다. 그러나 시작하기 전에 Node.js를 사용하여 로컬 웹 서버를 시작하고 브라우저에서 요청할 때 해당 페이지를 제공해야 합니다. 다음으로, 다양한 Blob 스토리지 API를 호출하고 그 결과를 페이지에 표시하는 JavaScript 코드를 추가합니다. 또한 이러한 호출의 결과는 [Azure Portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) 및 VS Code용 [Azure Storage 확장](vscode:extension/ms-azuretools.vscode-azurestorage)에서 확인할 수 있습니다.
+이 섹션에서는 기본 웹 페이지를 만들고, 페이지를 시작하고 디버그하도록 VS Code를 구성합니다. 그러나 시작하기 전에 Node.js를 사용하여 로컬 웹 서버를 시작하고 브라우저에서 요청할 때 해당 페이지를 제공해야 합니다. 다음으로, 다양한 Blob 스토리지 API를 호출하고 그 결과를 페이지에 표시하는 JavaScript 코드를 추가합니다. 또한 이러한 호출의 결과는 [Azure Portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) 및 VS Code용 [Azure Storage 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)에서 확인할 수 있습니다.
 
 ### <a name="set-up-the-web-application"></a>웹 애플리케이션 설정
 

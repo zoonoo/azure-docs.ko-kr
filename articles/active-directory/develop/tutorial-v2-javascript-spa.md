@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 52b7c582848dd24f6d9963a9d37c8f12c5db6149
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 6f0253490d39e69d491dd5fd3ab0d0d0a32d47bb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81678020"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181565"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>JavaScript SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -32,14 +32,10 @@ ms.locfileid: "81678020"
 
 ![이 자습서에서 생성된 샘플 앱의 작동 방식 표시](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-<!--start-collapse-->
 ### <a name="more-information"></a>자세한 정보
 
 이 가이드에서 만든 샘플 애플리케이션을 사용하면 JavaScript SPA에서 Microsoft ID 플랫폼 엔드포인트의 토큰을 수락하는 Microsoft Graph API 또는 웹 API를 쿼리할 수 있습니다. 이 시나리오에서는 사용자가 로그인하면 권한 부여 헤더를 통해 액세스 토큰이 요청되고 HTTP 요청에 추가됩니다. 이 토큰은 **MS Graph API**를 통해 사용자의 프로필과 메일을 가져오는 데 사용됩니다. 토큰 획득 및 갱신은 **JavaScript용 MSAL(Microsoft 인증 라이브러리)** 에서 처리합니다.
 
-<!--end-collapse-->
-
-<!--start-collapse-->
 ### <a name="libraries"></a>라이브러리
 
 이 가이드에서는 다음 라이브러리를 사용합니다.
@@ -47,8 +43,6 @@ ms.locfileid: "81678020"
 |라이브러리|Description|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|JavaScript용 Microsoft 인증 라이브러리|
-
-<!--end-collapse-->
 
 ## <a name="set-up-your-web-server-or-project"></a>웹 서버 또는 프로젝트 설정
 
@@ -400,7 +394,6 @@ ms.locfileid: "81678020"
    }
    ```
 
-<!--start-collapse-->
 ### <a name="more-information"></a>자세한 정보
 
 사용자가 **로그인** 단추를 처음 선택하면 `signIn` 메서드에서 `loginPopup`을 호출하여 사용자를 로그인합니다. 이 메서드는 *Microsoft ID 플랫폼 엔드포인트*가 있는 팝업 창을 열어 사용자의 자격 증명을 묻고 유효성을 검사합니다. 성공적으로 로그인하면 사용자가 원래 *index.html* 페이지로 다시 리디렉션됩니다. `msal.js`에서 토큰을 받고 처리하며, 토큰에 포함된 정보가 캐시됩니다. 이 토큰은 *ID 토큰*이라고 하며 사용자 표시 이름과 같은 사용자에 대한 기본 정보를 포함합니다. 이 토큰에서 제공하는 데이터를 어떤 용도로든 사용할 계획이면 백 엔드 서버에서 이 토큰의 유효성을 검사하여 토큰이 애플리케이션의 유효한 사용자에게 발급되었음을 보장하는지 확인해야 합니다.
@@ -427,7 +420,6 @@ ms.locfileid: "81678020"
 
 > [!NOTE]
 > 이 빠른 시작에서는 기본적으로 `loginPopup` 및 `acquireTokenPopup` 메서드를 사용합니다. Internet Explorer를 브라우저로 사용하는 경우 Internet Explorer에서 팝업 창을 처리하는 방법과 관련된 [알려진 문제](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues)로 인해 `loginRedirect` 및 `acquireTokenRedirect` 메서드를 사용하는 것이 좋습니다. `Redirect methods`를 사용하여 동일한 결과를 얻는 방법을 알아보려면 [여기를 참조하세요](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js).
-<!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-acquired"></a>방금 획득한 토큰을 사용하여 Microsoft Graph API 호출
 
@@ -466,13 +458,9 @@ ms.locfileid: "81678020"
    }
    ```
 
-<!--start-collapse-->
-
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>보호되는 API에 대한 REST 호출에 관한 추가 정보
 
 이 가이드에서 만든 샘플 애플리케이션에서 `callMSGraph()` 메서드는 토큰을 요구하는 보호된 리소스에 대한 HTTP `GET` 요청을 수행하는 데 사용됩니다. 그러면 요청에서 콘텐츠를 호출자에 반환합니다. 이 메서드는 *HTTP 인증 헤더*에 획득된 토큰을 추가합니다. 이 가이드에서 만든 샘플 애플리케이션의 경우 리소스는 사용자의 프로필 정보를 표시하는 Microsoft Graph API *me* 엔드포인트입니다.
-
-<!--end-collapse-->
 
 ## <a name="test-your-code"></a>코드 테스트
 
@@ -502,7 +490,6 @@ ms.locfileid: "81678020"
 
 ![Microsoft Graph API 호출의 결과](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
 
-<!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>범위 및 위임된 권한에 대한 자세한 내용
 
 Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을 읽을 수 있습니다. 기본적으로 이 범위는 등록 포털에서 등록된 모든 애플리케이션에 자동으로 추가됩니다. 다른 Microsoft Graph용 API와 백 엔드 서버용 사용자 지정 API에는 추가 범위가 필요할 수 있습니다. 예를 들어 Microsoft Graph API에는 사용자의 메일을 나열하기 위해 *Mail.Read* 범위가 필요합니다.
@@ -511,7 +498,5 @@ Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을
 > 범위 수를 늘리면 사용자에게 추가 동의를 요청하는 메시지가 표시될 수 있습니다.
 
 백 엔드 API에 범위가 필요하지 않은 경우(추천되지 않음) 토큰을 획득하기 위한 호출에서 *clientId*를 범위로 사용할 수 있습니다.
-
-<!--end-collapse-->
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

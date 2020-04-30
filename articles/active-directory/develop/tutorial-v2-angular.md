@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c3c12f78118734c31641b90e6fcb8469ddda30b0
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: c645ab45711698e4a6f582678e2a850e15dea62a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81678001"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181599"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>자습서: Angular 단일 페이지 애플리케이션에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -36,16 +36,12 @@ ms.locfileid: "81678001"
 
 ![이 자습서에서 생성된 샘플 앱의 작동 방식을 보여주는 다이어그램](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-<!--start-collapse-->
 ### <a name="more-information"></a>자세한 정보
 
 이 자습서에서 만드는 샘플 애플리케이션을 사용하면 Angular SPA에서 Microsoft ID 플랫폼 엔드포인트의 토큰을 수락하는 Microsoft Graph API 또는 웹 API를 쿼리할 수 있습니다. Angular용 MSAL 라이브러리는 핵심 MSAL.js 라이브러리의 래퍼입니다. 이 라이브러리를 사용하면 Angular(6+) 애플리케이션에서 Microsoft Azure Active Directory, Microsoft 계정 사용자 및 소셜 ID 사용자(Facebook, Google, LinkedIn 등)를 사용하여 엔터프라이즈 사용자를 인증할 수 있습니다. 또한 이 라이브러리를 사용하면 애플리케이션에서 Microsoft 클라우드 서비스 또는 Microsoft Graph에 액세스할 수 있습니다.
 
 이 시나리오에서는 사용자가 로그인하면 권한 부여 헤더를 통해 액세스 토큰이 요청되고 HTTP 요청에 추가됩니다. 토큰 획득 및 갱신은 MSAL에서 처리합니다.
 
-<!--end-collapse-->
-
-<!--start-collapse-->
 ### <a name="libraries"></a>라이브러리
 
 이 자습서에서는 다음 라이브러리를 사용합니다.
@@ -55,9 +51,6 @@ ms.locfileid: "81678001"
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|JavaScript Angular 래퍼용 Microsoft 인증 라이브러리|
 
 GitHub의 [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) 리포지토리에서 MSAL 라이브러리의 소스 코드를 찾을 수 있습니다.
-
-<!--end-collapse-->
-
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -335,10 +328,7 @@ Angular 재질 구성 요소 라이브러리를 사용하여 UI를 추가하는 
 
 !["사용 권한 요청됨" 창](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
-
-
-<!--start-collapse-->
-### <a name="add-scopes-and-delegated-permissions"></a>범위 및 위임된 권한 추가
+## <a name="add-scopes-and-delegated-permissions"></a>범위 및 위임된 권한 추가
 
 Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을 읽을 수 있습니다. 기본적으로 이 범위는 등록 포털에서 등록된 모든 애플리케이션에 자동으로 추가됩니다. 다른 Microsoft Graph용 API와 백 엔드 서버용 사용자 지정 API에는 추가 범위가 필요할 수 있습니다. 예를 들어 Microsoft Graph API에는 사용자 일정을 나열하기 위해 *Calendars.Read* 범위가 필요합니다.
 
@@ -348,8 +338,6 @@ Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을
 >범위 수를 늘리면 사용자에게 추가 동의를 요청하는 메시지가 표시될 수 있습니다.
 
 백 엔드 API에 범위가 필요하지 않은 경우(추천되지 않음) 토큰을 획득하기 위한 호출에서 *clientId*를 범위로 사용할 수 있습니다.
-
-<!--end-collapse-->
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 29f5a48feaaafee64a20745b3cdf09726a6372ac
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 4b9dac92f0cff213622f0087b281814251f06ffd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533840"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181616"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Microsoft에 로그인을 ASP.NET 웹앱에 추가
 
@@ -70,10 +70,8 @@ ms.locfileid: "81533840"
     Install-Package Microsoft.Owin.Host.SystemWeb
     ```
 
-<!--start-collapse-->
-> ### <a name="about-these-libraries"></a>이러한 라이브러리 정보
-> 이러한 라이브러리는 쿠키 기반 인증을 통해 OpenID Connect를 사용하여 SSO(Single Sign-On)를 사용하도록 설정합니다. 인증이 완료되고 사용자를 나타내는 토큰이 애플리케이션으로 전송되면 OWIN 미들웨어가 세션 쿠키를 생성합니다. 그러면 브라우저가 이후 요청에서 이 쿠키를 사용하므로 사용자가 암호를 다시 입력할 필요가 없으며 추가 확인이 필요하지 않습니다.
-<!--end-collapse-->
+### <a name="about-these-libraries"></a>이러한 라이브러리 정보
+이러한 라이브러리는 쿠키 기반 인증을 통해 OpenID Connect를 사용하여 SSO(Single Sign-On)를 사용하도록 설정합니다. 인증이 완료되고 사용자를 나타내는 토큰이 애플리케이션으로 전송되면 OWIN 미들웨어가 세션 쿠키를 생성합니다. 그러면 브라우저가 이후 요청에서 이 쿠키를 사용하므로 사용자가 암호를 다시 입력할 필요가 없으며 추가 확인이 필요하지 않습니다.
 
 ## <a name="configure-the-authentication-pipeline"></a>인증 파이프라인 구성
 
@@ -171,10 +169,9 @@ ms.locfileid: "81533840"
 > 이 빠른 시작을 간단하게 수행할 수 있도록 `ValidateIssuer = false`로 설정했습니다. 실제 애플리케이션에서는 발급자의 유효성을 검사해야 합니다.
 > 이 작업을 수행하는 방법을 알아보려면 샘플을 참조하세요.
 
-<!--start-collapse-->
-> ### <a name="more-information"></a>자세한 정보
-> *OpenIDConnectAuthenticationOptions*에 제공하는 매개 변수는 애플리케이션이 Microsoft ID 플랫폼과 통신하기 위한 좌표로 사용됩니다. OpenID Connect 미들웨어는 백그라운드에서 쿠키를 사용하므로 이전 코드와 같이 쿠키 인증도 설정해야 합니다. *ValidateIssuer* 값은 OpenIdConnect에서 특정 조직에 대한 액세스를 제한하지 않도록 지시합니다.
-<!--end-collapse-->
+### <a name="more-information"></a>자세한 정보
+
+*OpenIDConnectAuthenticationOptions*에 제공하는 매개 변수는 애플리케이션이 Microsoft ID 플랫폼과 통신하기 위한 좌표로 사용됩니다. OpenID Connect 미들웨어는 백그라운드에서 쿠키를 사용하므로 이전 코드와 같이 쿠키 인증도 설정해야 합니다. *ValidateIssuer* 값은 OpenIdConnect에서 특정 조직에 대한 액세스를 제한하지 않도록 지시합니다.
 
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>로그인 및 로그아웃 요청을 처리하는 컨트롤러 추가
 
@@ -266,10 +263,8 @@ Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보
     </html>
     ```
 
-<!--start-collapse-->
-> ### <a name="more-information"></a>자세한 정보
-> 이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> 추가 로그인 단추는 [브랜딩 지침](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "브랜딩 지침")으로 이동하세요.
-<!--end-collapse-->
+### <a name="more-information"></a>자세한 정보
+이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> 추가 로그인 단추는 [브랜딩 지침](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "브랜딩 지침")으로 이동하세요.
 
 ## <a name="add-a-controller-to-display-users-claims"></a>사용자의 클레임을 표시하는 컨트롤러 추가
 이 컨트롤러는 컨트롤러를 보호하는 `[Authorize]` 특성의 사용을 보여 줍니다. 이 특성은 인증된 사용자만 허용하여 컨트롤러에 대한 액세스를 제한합니다. 다음 코드에서는 특성을 사용하여 로그인의 일부로 검색된 사용자 클레임을 표시합니다.
@@ -309,10 +304,8 @@ Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보
     }
     ```
 
-<!--start-collapse-->
-> ### <a name="more-information"></a>자세한 정보
-> `[Authorize]` 특성을 사용하므로 이 컨트롤러의 모든 메서드는 사용자가 인증된 경우에만 실행할 수 있습니다. 인증되지 않은 사용자가 컨트롤러에 액세스하려고 하면 OWIN에서 인증 질문을 시작하고 사용자에게 인증하도록 강제합니다. 위의 코드는 사용자의 ID 토큰에 포함된 특정 사용자 특성에 대한 클레임 목록을 살펴봅니다. 이러한 특성에는 사용자의 전체 이름과 사용자 이름 및 전역 사용자 식별자 주체가 포함됩니다. 사용자의 조직에 대한 ID를 나타내는 *테넌트 ID*도 포함됩니다.
-<!--end-collapse-->
+### <a name="more-information"></a>자세한 정보
+`[Authorize]` 특성을 사용하므로 이 컨트롤러의 모든 메서드는 사용자가 인증된 경우에만 실행할 수 있습니다. 인증되지 않은 사용자가 컨트롤러에 액세스하려고 하면 OWIN에서 인증 질문을 시작하고 사용자에게 인증하도록 강제합니다. 위의 코드는 사용자의 ID 토큰에 포함된 특정 사용자 특성에 대한 클레임 목록을 살펴봅니다. 이러한 특성에는 사용자의 전체 이름과 사용자 이름 및 전역 사용자 식별자 주체가 포함됩니다. 사용자의 조직에 대한 ID를 나타내는 *테넌트 ID*도 포함됩니다.
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>사용자의 클레임을 표시하는 보기 만들기
 
@@ -403,16 +396,16 @@ Visual Studio에서 애플리케이션을 테스트하려면 F5 키를 눌러 �
 <br/><br/>
 ![Microsoft 계정으로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
-<!--start-collapse-->
-> ###  <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
->  Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리자가 데이터 액세스 방법을 제어할 수 있는 권한 부여 모델을 따릅니다. 사용자가 이 애플리케이션에 액세스하기 위해 Microsoft ID 플랫폼을 사용하여 인증하면 애플리케이션에서 요청한 권한("기본 프로필 보기" 및 "사용자가 액세스 권한을 부여한 데이터에 대한 액세스 유지")에 동의하라는 메시지가 표시됩니다. 이러한 권한에 동의한 사용자는 애플리케이션 결과를 계속 진행할 수 있습니다. 그러나 다음 중 하나가 발생하면 사용자에게 **관리자 동의 필요** 페이지가 대신 표시될 수 있습니다.
->  > - 애플리케이션 개발자가 **관리자 동의**가 필요한 추가 권한을 추가합니다.
->  > - 또는 사용자가 자신을 대신하여 회사 데이터에 액세스하는 앱에 동의할 수 없는 테넌트가 **엔터프라이즈 애플리케이션 -> 사용자 설정**에 구성되어 있습니다.
->
-> 자세한 내용은 [Microsoft ID 플랫폼 엔드포인트의 권한 및 동의](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)를 참조하세요.
-<!--end-collapse-->
+#### <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
-#### <a name="view-application-results"></a>애플리케이션 결과 보기
+Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리자가 데이터 액세스 방법을 제어할 수 있는 권한 부여 모델을 따릅니다. 사용자가 이 애플리케이션에 액세스하기 위해 Microsoft ID 플랫폼을 사용하여 인증하면 애플리케이션에서 요청한 권한("기본 프로필 보기" 및 "사용자가 액세스 권한을 부여한 데이터에 대한 액세스 유지")에 동의하라는 메시지가 표시됩니다. 이러한 권한에 동의한 사용자는 애플리케이션 결과를 계속 진행할 수 있습니다. 그러나 다음 중 하나가 발생하면 사용자에게 **관리자 동의 필요** 페이지가 대신 표시될 수 있습니다.
+
+- 애플리케이션 개발자가 **관리자 동의**가 필요한 추가 권한을 추가합니다.
+- 또는 사용자가 자신을 대신하여 회사 데이터에 액세스하는 앱에 동의할 수 없는 테넌트가 **엔터프라이즈 애플리케이션 -> 사용자 설정**에 구성되어 있습니다.
+
+자세한 내용은 [Microsoft ID 플랫폼 엔드포인트의 권한 및 동의](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)를 참조하세요.
+
+### <a name="view-application-results"></a>애플리케이션 결과 보기
 
 로그인한 후 사용자는 웹 사이트의 홈 페이지로 리디렉션됩니다. 홈페이지는 Microsoft 애플리케이션 등록 포털의 애플리케이션 등록 정보에 지정된 HTTPS URL입니다. 홈페이지에는 *"Hello \<사용자>"* 시작 메시지, 로그아웃하기 위한 링크 및 사용자의 클레임을 보기 위한 링크가 포함되어 있습니다. 사용자의 클레임에 대한 링크는 앞에서 만든 Claims 컨트롤러에 연결됩니다.
 
@@ -446,14 +439,13 @@ Visual Studio에서 애플리케이션을 테스트하려면 F5 키를 눌러 �
 
 ## <a name="advanced-options"></a>고급 옵션
 
-<!--start-collapse-->
 ### <a name="protect-your-entire-website"></a>전체 웹 사이트 보호
+
 전체 웹 사이트를 보호하려면 **Global.asax** 파일에서 `Application_Start` 메서드의 `GlobalFilters` 필터에 `AuthorizeAttribute` 특성을 추가합니다.
 
 ```csharp
 GlobalFilters.Filters.Add(new AuthorizeAttribute());
 ```
-<!--end-collapse-->
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>애플리케이션에 로그인할 수 있는 사용자 제한
 

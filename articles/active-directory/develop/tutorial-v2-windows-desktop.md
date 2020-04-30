@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ba4afa31a1ed7b6e2ddf43787ca32a06e97455ce
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: a865bab690c79288bdffcd7cebe424d1bb1969c0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533771"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181542"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Windows 데스크톱 앱에서 Microsoft Graph API 호출
 
@@ -253,7 +253,6 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
         }
     ```
 
-<!--start-collapse-->
 ### <a name="more-information"></a>자세한 정보
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
@@ -273,7 +272,6 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
 * 샘플의 코드는 `AcquireTokenInteractive`를 호출하여 예외를 처리합니다. 그러면 사용자에게 로그인하라는 메시지가 표시됩니다.
 
 * 로그인에 적절한 시기를 선택할 수 있도록 대화형 로그인이 필요하다는 시각적 표시를 사용자에게 표시할 수 있습니다. 또는 애플리케이션이 나중에 `AcquireTokenSilent`를 다시 시도할 수 있습니다. 이 패턴은 사용자가 중지하지 않고 다른 애플리케이션 기능을 사용할 수 있는 경우에 자주 사용됩니다(예: 오프라인 콘텐츠를 애플리케이션에서 사용할 수 있는 경우). 이 경우에 사용자는 보호된 리소스에 액세스하거나, 오래된 정보를 새로 고치기 위해 로그인하는 시점을 결정할 수 있습니다. 또는 네트워크가 일시적으로 사용할 수 없게 된 후에 복원된 경우 애플리케이션이 `AcquireTokenSilent`를 다시 시도하도록 결정할 수 있습니다.
-<!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>방금 가져온 토큰을 사용하여 Microsoft Graph API를 호출합니다.
 
@@ -306,11 +304,9 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 }
 ```
 
-<!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>보호되는 API에 대한 REST 호출에 관한 추가 정보
 
 이 애플리케이션 예제에서는 토큰이 필요한 보호되는 리소스에 대한 HTTP `GET` 요청을 실행한 다음, 호출자에게 콘텐츠를 반환하는 데 `GetHttpContentWithToken` 메서드를 사용합니다. 이 메서드는 HTTP 인증 헤더에 획득된 토큰을 추가합니다. 이 샘플에서 리소스는 사용자 프로필 정보를 표시하는 Microsoft Graph API *me* 엔드포인트입니다.
-<!--end-collapse-->
 
 ## <a name="add-a-method-to-sign-out-a-user"></a>사용자를 로그아웃하는 메서드 추가
 
@@ -341,13 +337,11 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-<!--start-collapse-->
 ### <a name="more-information-about-user-sign-out"></a>사용자 로그아웃에 대한 자세한 내용
 
 `SignOutButton_Click` 메서드는 MSAL 사용자 캐시에서 사용자를 제거합니다. 그러면 대화식으로 수행되는 경우에만 토큰을 획득하는 이후 요청에 성공하도록 MSAL에서 현재 사용자를 효율적으로 삭제하게 됩니다.
 
 이 샘플의 애플리케이션이 단일 사용자를 지원하더라도 MSAL은 동시에 여러 계정에 로그인할 수 있는 시나리오를 지원합니다. 사용자 한 명이 여러 계정을 가질 수 있는 전자 메일 애플리케이션을 예로 듭니다.
-<!--end-collapse-->
 
 ## <a name="display-basic-token-information"></a>기본 토큰 정보 표시
 
@@ -368,10 +362,8 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 }
 ```
 
-<!--start-collapse-->
 ### <a name="more-information"></a>자세한 정보
 
 또한 MSAL에서는 사용자가 로그인한 후에 Microsoft Graph API를 호출하는 데 사용되는 액세스 토큰을 외에도 ID 토큰을 가져옵니다. 이 토큰에는 사용자에게 관련된 정보의 작은 하위 집합이 포함됩니다. `DisplayBasicTokenInfo` 메서드는 토큰에 포함된 기본 정보를 표시합니다. 예를 들어, 토큰 만료 날짜 및 액세스 토큰 자체를 나타내는 문자열뿐만 아니라 사용자 표시 이름 및 ID을 표시합니다. *Microsoft Graph API 호출* (Call Microsoft Graph API) 단추를 여러 번 선택하면 동일한 토큰이 후속 요청에 다시 사용된 것을 볼 수 있습니다. MSAL이 토큰 갱신 시점이라고 판단한 경우에는 만료 날짜가 연장된 것도 확인할 수 있습니다.
-<!--end-collapse-->
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
