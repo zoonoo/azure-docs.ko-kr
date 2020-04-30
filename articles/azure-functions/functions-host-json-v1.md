@@ -4,22 +4,22 @@ description: v1 런타임을 사용하는 Azure Functions host.json 파일에 �
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81757525"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x에 대한 host.json 참조
 
-> [!div class="op_single_selector" title1="사용 중인 Azure Functions 런타임 버전을 선택합니다. "]
+> [!div class="op_single_selector" title1="사용 중인 Azure Functions 런타임 버전을 선택 합니다. "]
 > * [버전 1](functions-host-json-v1.md)
 > * [버전 2](functions-host-json.md)
 
 *host.json* 메타데이터 파일에는 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션이 포함됩니다. 이 문서에는 v1 런타임에 사용 가능한 설정이 나열되어 있습니다. JSON 스키마는 http://json.schemastore.org/host 에 있습니다.
 
 > [!NOTE]
-> 이 문서는 Azure Functions 1.x에 대한 것입니다.  함수 2.x 이상에서 host.json에 대한 참조는 [Azure Functions 2.x에 대한 host.json 참조를](functions-host-json.md)참조하십시오.
+> 이 문서는 Azure Functions 1.x에 대한 것입니다.  함수 2.x의 호스트나에 대 한 참조는 [Azure Functions 2.x에 대 한 호스트 json 참조](functions-host-json.md)를 참조 하세요.
 
 기타 함수 앱 구성 옵션은 [앱 설정](functions-app-settings.md)에서 관리합니다.
 
@@ -122,7 +122,7 @@ ms.locfileid: "81757525"
 
 ## <a name="documentdb"></a>DocumentDB
 
-[Azure Cosmos DB 트리거 및 바인딩에](functions-bindings-cosmosdb.md)대한 구성 설정입니다.
+[Azure Cosmos DB 트리거 및 바인딩에](functions-bindings-cosmosdb.md)대 한 구성 설정입니다.
 
 ```json
 {
@@ -162,7 +162,7 @@ ms.locfileid: "81757525"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-모든 함수에 대한 시간 제한 기간을 나타냅니다. 서버리스 사용 계획에서 유효한 범위는 1초에서 10분 사이이고 기본값은 5분입니다. 앱 서비스 계획에는 전체 제한이 없으며 기본값은 _null이며_시간 제한이 없음을 나타냅니다.
+모든 함수에 대한 시간 제한 기간을 나타냅니다. 서버리스 사용 계획에서 유효한 범위는 1초에서 10분 사이이고 기본값은 5분입니다. App Service 계획에서는 전체 제한이 없으며 기본값은 _null_이며 시간 제한이 없음을 나타냅니다.
 
 ```json
 {
@@ -212,8 +212,8 @@ ms.locfileid: "81757525"
 |속성  |기본값 | Description |
 |---------|---------|---------| 
 |dynamicThrottlesEnabled|false|사용 설정되면, 이 설정은 요청 처리 파이프라인에서 주기적으로 시스템 성능 카운터(연결/스레드/프로세스/메모리/cpu/등)를 확인하고 해당 카운터 중 하나가 기본 제공 임계값(80%)을 초과하는 경우, 요청은 카운터가 일반 수준으로 반환될 때까지 429 "작업 초과" 응답을 표시하여 거부됩니다.|
-|maxConcurrentRequests|언바운드 ()`-1`|병렬로 실행될 최대 HTTP 함수 수입니다. 그러면 리소스 사용률을 관리하는 데 도움이 되는 동시성을 제어할 수 있습니다. 예를 들어 동시성보다 높을 때 문제가 발생되도록 많은 시스템 리소스(메모리/CPU/소켓)를 사용하는 HTTP 함수가 있을 수 있습니다. 또는 타사 서비스에 아웃바운드 요청을 하는 함수가 있는 경우 해당 호출의 속도가 제한되어야 합니다. 이러한 경우 여기에서 제한을 적용하는 것이 좋습니다.|
-|maxOutstandingRequests|언바운드 ()`-1`|지정된 시간에 보유할 미해결 요청의 최대 수입니다. 이 제한에는 대기 중이지만 실행이 시작되지 않은 요청과 진행 중인 모든 실행이 포함됩니다. 이 한도를 초과하여 들어오는 요청이 있으면 429 "Too Busy" 응답으로 거부됩니다. 그러면 호출자가 시간 기반 다시 시도 전략을 사용할 수 있고 최대 요청 대기 시간을 제어할 수 있습니다. 이 옵션은 스크립트 호스트 실행 경로 내에서 발생하는 큐만을 제어합니다. ASP.NET 요청 큐와 같은 다른 큐는 여전히 적용되며 이 설정의 영향을 받지 않습니다.|
+|maxConcurrentRequests|바인딩되지 않음`-1`()|병렬로 실행 될 HTTP 함수의 최대 수입니다. 그러면 리소스 사용률을 관리하는 데 도움이 되는 동시성을 제어할 수 있습니다. 예를 들어 많은 시스템 리소스 (메모리/c p u/소켓)를 사용 하는 HTTP 함수를 사용 하 여 동시성이 너무 높을 때 문제를 발생 시킬 수 있습니다. 또는 타사 서비스에 아웃바운드 요청을 하는 함수가 있는 경우 해당 호출의 속도가 제한되어야 합니다. 이러한 경우 여기에서 제한을 적용하는 것이 좋습니다.|
+|maxOutstandingRequests|바인딩되지 않음`-1`()|지정된 시간에 보유할 미해결 요청의 최대 수입니다. 이 제한에는 대기 중이지만 실행이 시작되지 않은 요청과 진행 중인 모든 실행이 포함됩니다. 이 한도를 초과하여 들어오는 요청이 있으면 429 "Too Busy" 응답으로 거부됩니다. 그러면 호출자가 시간 기반 다시 시도 전략을 사용할 수 있고 최대 요청 대기 시간을 제어할 수 있습니다. 이 옵션은 스크립트 호스트 실행 경로 내에서 발생하는 큐만을 제어합니다. ASP.NET 요청 큐와 같은 다른 큐는 여전히 적용되며 이 설정의 영향을 받지 않습니다.|
 |routePrefix|api|모든 경로에 적용되는 경로 접두사입니다. 기본 접두사를 제거하려면 빈 문자열을 사용하십시오. |
 
 ## <a name="id"></a>id
@@ -279,7 +279,7 @@ ms.locfileid: "81757525"
 
 ## <a name="sendgrid"></a>SendGrid
 
-[SendGrind 출력 바인딩에](functions-bindings-sendgrid.md) 대한 구성 설정
+[SendGrind 출력 바인딩에](functions-bindings-sendgrid.md) 대 한 구성 설정
 
 ```json
 {

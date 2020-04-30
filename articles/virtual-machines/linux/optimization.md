@@ -9,32 +9,32 @@ ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
 ms.openlocfilehash: 87776c14e45ff4bb3cce6661323d74a1315c8ab2
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81757094"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure에서 Linux VM 최적화
 Linux 가상 머신(VM) 만들기는 명령줄 또는 포털에서 수행하는 것이 쉽습니다. 이 자습서에서는 Microsoft Azure Platform에서 해당 성능을 최적화하도록 설정하는 방법을 보여줍니다. 이 항목에서는 Ubuntu Server VM을 사용 하지만 [템플릿으로 사용자 고유의 이미지](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 Linux 가상 머신을 만들 수도 있습니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이 항목에서는 사용하는 Azure 구독([무료 평가판 등록](https://azure.microsoft.com/pricing/free-trial/))이 이미 있으며 Azure 구독에 VM을 이미 프로비전했다고 가정합니다. [VM을 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 전에 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 구독에 로그인했는지 확인합니다.
 
 ## <a name="azure-os-disk"></a>Azure OS 디스크
-Azure에서 Linux VM을 만들면 이에 연결된 두 개의 디스크가 있습니다. **/dev/sda는** OS **디스크이며/dev/sdb는** 임시 디스크입니다.  빠른 VM 부팅 시간에 최적화되어 워크로드에 대한 좋은 성능을 제공하지 않으므로 운영 체제를 제외한 모든 것에 대해 기본 OS**디스크(/dev/sda)를**사용하지 마십시오. 데이터에 대한 영구적이고 최적화된 스토리지를 얻기 위해 VM에 하나 이상의 디스크를 연결하려고 합니다. 
+Azure에서 Linux VM을 만들면 이에 연결된 두 개의 디스크가 있습니다. **/sv/sva는** OS 디스크이 고, **/sv/sdis** 는 임시 디스크입니다.  운영 체제가 빠른 VM 부팅 시간에 최적화 되 고 워크 로드에 좋은 성능을 제공 하지 않으므로 운영 체제를 제외한 모든 항목에는 주 OS 디스크 (**/sv/sva**)를 사용 하지 마세요. 데이터에 대한 영구적이고 최적화된 스토리지를 얻기 위해 VM에 하나 이상의 디스크를 연결하려고 합니다. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>크기 및 성능 대상에 디스크 추가
-VM 크기에 따라 A-시리즈에 최대 16개의 추가 디스크, D 시리즈의 디스크 32개, G 시리즈 컴퓨터의 디스크 64개(각각 최대 32TB 크기)를 연결할 수 있습니다. 공간 및 IOps 요구 사항에 따라 필요한 만큼 디스크를 더 추가합니다. 각 디스크에는 표준 스토리지용 IOps 500IOps, 프리미엄 스토리지용 디스크당 최대 20,000개의 IOps의 성능 목표가 있습니다.
+VM 크기에 따라 A 시리즈의 A 시리즈, 32 디스크, G 시리즈 컴퓨터의 64 디스크 (최대 32 TB)에 최대 16 개의 추가 디스크를 연결할 수 있습니다. 공간 및 IOps 요구 사항에 따라 필요한 만큼 디스크를 더 추가합니다. 각 디스크에는 표준 저장소에 500 IOps의 성능 목표와 Premium Storage에 대 한 디스크당 최대 2만 IOps가 있습니다.
 
-캐시 설정이 **ReadOnly** 또는 **없음으로**설정된 프리미엄 저장소 디스크에서 가장 높은 IOps를 얻으려면 Linux에서 파일 시스템을 설치하는 동안 **장벽을** 비활성화해야 합니다. Premium Storage 백업 디스크에 쓰기는 이러한 캐시 설정에 대해 내구성이 있기 때문에 장벽이 필요하지 않습니다.
+캐시 설정이 **ReadOnly** 또는 **None**으로 설정 된 Premium Storage 디스크에서 가장 높은 IOps를 얻으려면 Linux에서 파일 시스템을 탑재 하는 동안 **장벽을** 사용 하지 않도록 설정 해야 합니다. Premium Storage 백업 디스크에 쓰기는 이러한 캐시 설정에 대해 내구성이 있기 때문에 장벽이 필요하지 않습니다.
 
 * **reiserFS**를 사용하는 경우 탑재 옵션 `barrier=none`을 사용하여 장벽을 사용하지 않도록 설정합니다(장벽 사용의 경우 `barrier=flush` 사용).
 * **ext3/ext4**를 사용하는 경우 탑재 옵션 `barrier=0`을 사용하여 장벽을 사용하지 않도록 설정합니다(장벽 사용의 경우 `barrier=1` 사용).
 * **XFS**를 사용하는 경우 탑재 옵션 `nobarrier`을 사용하여 장벽을 사용하지 않도록 설정합니다(장벽 사용의 경우 `barrier` 옵션 사용).
 
 ## <a name="unmanaged-storage-account-considerations"></a>관리되지 않는 스토리지 계정 고려 사항
-Azure CLI를 사용하여 VM을 만들 때 기본 작업은 Azure Managed Disks를 사용하는 것입니다.  이들 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다.  관리되지 않는 디스크는 스토리지 계정이 필요하며 추가 성능 고려 사항이 있습니다.  관리 디스크에 대한 자세한 내용은 [Azure 관리 디스크 개요를](../windows/managed-disks-overview.md)참조하십시오.  다음 섹션에서는 관리되지 않는 디스크를 사용하는 경우에만 성능 고려 사항을 설명합니다.  권장되는 기본 스토리지 솔루션은 Managed Disks를 사용하는 것입니다.
+Azure CLI를 사용하여 VM을 만들 때 기본 작업은 Azure Managed Disks를 사용하는 것입니다.  이들 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다.  관리되지 않는 디스크는 스토리지 계정이 필요하며 추가 성능 고려 사항이 있습니다.  관리 디스크에 대 한 자세한 내용은 [Azure Managed Disks 개요](../windows/managed-disks-overview.md)를 참조 하세요.  다음 섹션에서는 관리되지 않는 디스크를 사용하는 경우에만 성능 고려 사항을 설명합니다.  권장되는 기본 스토리지 솔루션은 Managed Disks를 사용하는 것입니다.
 
 관리되지 않는 디스크를 사용하여 VM을 만들 경우 가까운 근접성을 제공하고 네트워크 대기 시간을 최소화하기 위해 VM과 동일한 지역에 위치한 스토리지 계정에서 디스크를 연결해야 합니다.  각 표준 스토리지 계정에는 최대 20,000IOps 및 500TB 크기의 용량이 포함됩니다.  이러한 제한은 만든 OS 디스크 및 데이터 디스크를 비롯한 약 40개의 많이 사용되는 디스크에 적용됩니다. Premium Storage 계정의 경우 최대 IOps 제한이 없지만 크기는 32TB로 제한됩니다. 
 
@@ -42,18 +42,18 @@ Azure CLI를 사용하여 VM을 만들 때 기본 작업은 Azure Managed Disks�
  
 
 ## <a name="your-vm-temporary-drive"></a>VM 임시 드라이브
-기본적으로 VM을 만들 때 Azure는 OS 디스크(**/dev/sda**)와 임시 디스크(**/dev/sdb**)를 제공합니다.  추가한 모든 추가 디스크는 **/dev/sdc,** **/dev/sdd,** **/dev/sde** 등으로 표시됩니다. 임시**디스크(/dev/sdb)의**모든 데이터는 내구성이 없으며 VM 크기 조정, 재배포 또는 유지 관리와 같은 특정 이벤트가 VM을 다시 시작해야 하는 경우 손실될 수 있습니다.  임시 디스크의 크기 및 유형은 배포 시에 선택한 VM 크기와 관련이 있습니다. 모든 프리미엄 크기 VM(DS, G 및 DS_V2 시리즈)의 경우 임시 드라이브는 최대 48,000IOps의 추가 성능을 가진 로컬 SSD에서 지원됩니다. 
+기본적으로 VM을 만들 때 Azure는 OS 디스크(**/dev/sda**)와 임시 디스크(**/dev/sdb**)를 제공합니다.  추가 하는 모든 추가 디스크는 **/sv/svc**, **/sv/sdd**, **/dv/sd** 등으로 표시 됩니다. 임시 디스크의 모든 데이터 (**/sv/sv/ps**)는 내구성이 없으며 Vm 크기 조정, 재배포 또는 유지 관리와 같은 특정 이벤트에서 강제로 vm을 다시 시작 하는 경우 손실 될 수 있습니다.  임시 디스크의 크기 및 유형은 배포 시에 선택한 VM 크기와 관련이 있습니다. 모든 프리미엄 크기 VM(DS, G 및 DS_V2 시리즈)의 경우 임시 드라이브는 최대 48,000IOps의 추가 성능을 가진 로컬 SSD에서 지원됩니다. 
 
-## <a name="linux-swap-partition"></a>리눅스 스왑 파티션
+## <a name="linux-swap-partition"></a>Linux 스왑 파티션
 Azure VM을 Ubuntu 또는 CoreOS 이미지에서 가져온 경우 CustomData를 사용하여 cloud-config를 cloud-init으로 보낼 수 있습니다. cloud-init를 사용하는 [사용자 지정 Linux 이미지를 업로드](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)한 경우에도 cloud-init를 사용하여 스왑 파티션을 구성할 수 있습니다.
 
 Ubuntu Cloud Images에서는 cloud-init를 사용하여 스왑 파티션을 구성하해야 합니다. 자세한 내용은 [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions)을 참조하세요.
 
 cloud-init를 지원하지 않는 이미지의 경우 Azure Marketplace에서 배포된 VM 이미지에는 OS와 통합된 VM Linux 에이전트가 있습니다. 이 에이전트를 사용하면 VM에서 다양한 Azure 서비스와 상호 작용할 수 있습니다. Azure Marketplace에서 표준 이미지를 배포한 경우 다음을 수행하여 Linux 스왑 파일 설정을 올바르게 구성해야 합니다.
 
-**/etc/waagent.conf** 파일에서 두 개의 항목을 찾아 수정합니다. 전용 스왑 파일의 존재 여부 및 스왑 파일의 크기를 제어합니다. 확인해야 하는 매개 변수는 `ResourceDisk.EnableSwap``ResourceDisk.SwapSizeMB` 
+**/etc/waagent.conf** 파일에서 두 개의 항목을 찾아 수정합니다. 전용 스왑 파일의 존재 여부 및 스왑 파일의 크기를 제어합니다. 확인 해야 하는 매개 변수는 `ResourceDisk.EnableSwap` 및입니다.`ResourceDisk.SwapSizeMB` 
 
-제대로 활성화된 디스크 및 마운트된 스왑 파일을 사용하려면 매개 변수에 다음 설정이 있는지 확인합니다.
+제대로 설정 된 디스크 및 탑재 된 스왑 파일을 사용 하도록 설정 하려면 매개 변수의 설정이 다음과 같이 설정 되어 있는지 확인 합니다.
 
 * ResourceDisk.EnableSwap=Y
 * ResourceDisk.SwapSizeMB={필요에 맞는 크기(MB)} 
@@ -97,7 +97,7 @@ root@myVM:~# update-grub
 > [!NOTE]
 > **/dev/sda**에 대해서만 이 설정 적용하는 것은 유용하지 않습니다. 순차 I/O가 I/O 패턴의 우위를 차지한 모든 데이터 디스크에 설정합니다.  
 
-**grub.cfg가** 성공적으로 다시 빌드되었으며 기본 스케줄러가 NOOP로 업데이트되었음을 나타내는 다음 출력이 표시됩니다.  
+다음 출력이 표시 됩니다. 여기에는 **grub. cfg** 가 성공적으로 다시 작성 되었으며 기본 스케줄러가 NOOP로 업데이트 되었음을 나타냅니다.  
 
 ```bash
 Generating grub configuration file ...
@@ -119,7 +119,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>소프트웨어 RAID를 사용하여 높은 I/Ops 달성
 워크로드가 단일 디스크에서 제공하는 것보다 많은 IOps를 필요로 하는 경우 여러 디스크의 소프트웨어 RAID 구성을 사용해야 합니다. Azure는 이미 로컬 패브릭 계층에서 디스크 복구를 수행하기 때문에 가장 높은 수준의 성능 RAID-0 스트라이프 구성을 얻게 됩니다.  Azure 환경에서 디스크를 프로비전하고 만들며 드라이브를 분할하고 서식을 지정하며 탑재하기 전에 Linux VM에 연결합니다.  Azure에서 Linux VM의 소프트웨어 RAID 설정을 구성하는 방법에 대한 자세한 내용은 **[Linux에서 소프트웨어 RAID 구성](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** 문서에서 찾을 수 있습니다.
 
-기존 RAID 구성대신 LVM(논리 볼륨 관리자)을 설치하여 여러 개의 물리적 디스크를 단일 스트라이프 논리 저장소 볼륨으로 구성할 수도 있습니다. 이 구성에서 읽기 및 쓰기는 볼륨 그룹에 포함된 여러 디스크에 배포됩니다(RAID0과 유사). 성능상의 이유로 논리 볼륨을 스트라이프하여 읽기 및 쓰기가 연결된 모든 데이터 디스크를 사용하는 것이 좋습니다.  Azure의 Linux VM에서 스트라이프 논리 볼륨 구성에 대한 자세한 내용은 Azure 문서의 **[Linux VM의 LVM 구성에서](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** 확인할 수 있습니다.
+기존 RAID 구성 대신 단일 스트라이프 논리적 저장소 볼륨에 여러 개의 실제 디스크를 구성 하기 위해 LVM (논리 볼륨 관리자)을 설치 하도록 선택할 수도 있습니다. 이 구성에서는 읽기 및 쓰기가 볼륨 그룹에 포함 된 여러 디스크에 배포 됩니다 (RAID0와 유사). 성능상의 이유로 논리 볼륨을 스트라이프하여 읽기 및 쓰기가 연결된 모든 데이터 디스크를 사용하는 것이 좋습니다.  Azure의 Linux VM에서 스트라이프 논리 볼륨을 구성 하는 방법에 대 한 자세한 내용은 **[azure에서 LINUX vm에 Lvm 구성](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** 문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 모든 최적화에 관련된 토론 대로 변경 사항이 가져올 영향을 측정하기 위해 각 변경 사항의 전후에 테스트를 수행해야 합니다.  최적화는 환경에서 여러 컴퓨터에 다른 결과를 발생시키는 단계별 프로세스입니다.  하나의 구성에 작동한 최적화가 다른 사용자에게는 작동하지 않을 수 있습니다.

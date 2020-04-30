@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.custom: mqtt
 ms.openlocfilehash: 35337a99706f25d62964e08a5b16cd8e81f315c6
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81730291"
 ---
 # <a name="upload-files-with-iot-hub"></a>IoT Hub를 사용하여 파일 업로드
@@ -34,7 +34,7 @@ reported 속성, 디바이스-클라우드 메시지 또는 파일 업로드 사
 
 ## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Azure Storage 계정을 IoT Hub와 연결
 
-파일 업로드 기능을 사용하려면 먼저 Azure Storage 계정을 IoT Hub에 연결해야 합니다. Azure 포털을 통해 또는 [IoT Hub 리소스 공급자 REST API를](/rest/api/iothub/iothubresource)통해 프로그래밍 방식으로 이 작업을 완료할 수 있습니다. Azure Storage 계정을 IoT Hub와 연결하면 디바이스에서 파일 업로드 요청을 시작할 때 서비스에서 SAS URI를 디바이스에 반환합니다.
+파일 업로드 기능을 사용하려면 먼저 Azure Storage 계정을 IoT Hub에 연결해야 합니다. Azure Portal를 통해 또는 [IoT Hub 리소스 공급자 REST api](/rest/api/iothub/iothubresource)를 통해 프로그래밍 방식으로이 작업을 완료할 수 있습니다. Azure Storage 계정을 IoT Hub와 연결하면 디바이스에서 파일 업로드 요청을 시작할 때 서비스에서 SAS URI를 디바이스에 반환합니다.
 
 [IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드](iot-hub-csharp-csharp-file-upload.md) 사용 방법 가이드는 파일 업로드 프로세스의 전체 연습을 제공합니다. 이러한 방법 가이드에서는 Azure Portal을 사용하여 스토리지 계정을 IoT Hub와 연결하는 방법을 보여 줍니다.
 
@@ -96,18 +96,18 @@ IoT Hub는 파일 업로드를 지원하는 두 개의 REST 엔드포인트를 �
 
 필요에 따라 디바이스에서 업로드가 완료되었음을 IoT Hub에 알리면 IoT Hub에서 알림 메시지를 생성합니다. 이 메시지에는 파일의 이름과 스토리지 위치가 포함되어 있습니다.
 
-[엔드포인트](iot-hub-devguide-endpoints.md)에 설명된 대로 IoT Hub는 서비스 연결 엔드포인트(**/messages/servicebound/fileuploadnotifications**)를 통해 파일 업로드 알림을 메시지로 전달합니다. 파일 업로드 알림에 대한 수신 의미 체계는 클라우드-장치 메시지와 동일하며 [메시지 수명 주기가](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle)동일합니다. 파일 업로드 알림 엔드포인트에서 검색된 각 메시지는 다음 속성을 가진 JSON 레코드입니다.
+[엔드포인트](iot-hub-devguide-endpoints.md)에 설명된 대로 IoT Hub는 서비스 연결 엔드포인트(**/messages/servicebound/fileuploadnotifications**)를 통해 파일 업로드 알림을 메시지로 전달합니다. 파일 업로드 알림에 대 한 수신 의미 체계는 클라우드-장치 메시지의 경우와 같으며 동일한 [메시지 수명 주기](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle)를 가집니다. 파일 업로드 알림 엔드포인트에서 검색된 각 메시지는 다음 속성을 가진 JSON 레코드입니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | EnqueuedTimeUtc |알림을 만든 시간을 나타내는 타임스탬프입니다. |
-| deviceId |**DeviceId**입니다. |
+| DeviceId |**DeviceId**입니다. |
 | BlobUri |업로드된 파일의 URI입니다. |
 | BlobName |업로드된 파일의 이름입니다. |
 | LastUpdatedTime |파일이 마지막으로 업데이트된 시간을 나타내는 타임스탬프입니다. |
 | BlobSizeInBytes |업로드된 파일의 크기입니다. |
 
-**예제**. 이 예제는 파일 업로드 알림 메시지의 본문을 보여 줍니다.
+**예:** 이 예제는 파일 업로드 알림 메시지의 본문을 보여 줍니다.
 
 ```json
 {
@@ -124,14 +124,14 @@ IoT Hub는 파일 업로드를 지원하는 두 개의 REST 엔드포인트를 �
 
 각 IoT 허브에는 파일 업로드 알림에 대한 다음과 같은 구성 옵션이 있습니다.
 
-| 속성 | 설명 | 범위 및 기본값 |
+| 속성 | Description | 범위 및 기본값 |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |파일 업로드 알림이 파일 알림 엔드포인트에 작성되는지를 제어합니다. |Bool. 기본값은 True입니다. |
 | **fileNotifications.ttlAsIso8601** |파일 업로드 알림에 대한 기본 TTL입니다. |최대 48H(최소 1 분)까지 ISO_8601 간격입니다. 기본값은 1시간입니다. |
 | **fileNotifications.lockDuration** |파일 업로드 알림 큐에 대한 잠금 기간입니다. |5에서 300초(최소 5초)입니다. 기본값은 60초입니다. |
 | **fileNotifications.maxDeliveryCount** |파일 업로드 알림 큐에 대한 최대 배달 횟수입니다. |1에서 100까지입니다. 기본값은 100입니다. |
 
-Azure 포털, Azure CLI 또는 PowerShell을 사용하여 IoT 허브에서 이러한 속성을 설정할 수 있습니다. 방법을 알아보려면 [파일 업로드 구성](iot-hub-configure-file-upload.md)아래의 항목을 참조하십시오.
+Azure Portal, Azure CLI 또는 PowerShell을 사용 하 여 IoT hub에서 이러한 속성을 설정할 수 있습니다. 방법을 알아보려면 [파일 업로드 구성](iot-hub-configure-file-upload.md)에서 항목을 참조 하세요.
 
 ## <a name="additional-reference-material"></a>추가 참조 자료
 

@@ -1,6 +1,6 @@
 ---
-title: Azure에서 OpenShift 컨테이너 플랫폼 4.x 배포
-description: Azure에서 OpenShift 컨테이너 플랫폼 4.x를 배포합니다.
+title: Azure에서 OpenShift Container Platform 4.x 배포
+description: Azure에서 OpenShift Container Platform 4.x를 배포 합니다.
 author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
@@ -10,30 +10,30 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 14af110b5cf50f167d0c4961e26454bc33c6ed7d
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759482"
 ---
-# <a name="deploy-openshift-container-platform-4x-in-azure"></a>Azure에서 OpenShift 컨테이너 플랫폼 4.x 배포
+# <a name="deploy-openshift-container-platform-4x-in-azure"></a>Azure에서 OpenShift Container Platform 4.x 배포
 
-이제 설치 관리자 프로비저닝된 인프라(IPI) 모델을 통해 Azure에서 OPENShift 컨테이너 플랫폼(OCP) 4.2 배포를 지원합니다.  OpenShift 4를 시도하기 위한 방문 페이지는 [try.openshift.com.](https://try.openshift.com/) Azure에 OCP 4.2를 설치하려면 [Red Hat OpenShift 클러스터 관리자](https://cloud.redhat.com/openshift/install/azure/installer-provisioned) 페이지를 방문하십시오.  이 사이트에 액세스하려면 Red Hat 자격 증명이 필요합니다.
+이제 IPI (Installer 프로 비전 된 인프라) 모델을 통해 Azure에서 OCP (OpenShift Container Platform) 4.2 배포가 지원 됩니다.  OpenShift 4를 시도 하기 위한 방문 페이지는 [try.openshift.com](https://try.openshift.com/)입니다. Azure에서 OCP 4.2을 설치 하려면 [Red Hat OpenShift 클러스터 관리자](https://cloud.redhat.com/openshift/install/azure/installer-provisioned) 페이지를 방문 하세요.  이 사이트에 액세스 하려면 red Hat 자격 증명이 필요 합니다.
 
 
 ## <a name="notes"></a>메모 
 
- - Azure에서 OCP 4.x를 설치하고 실행하려면 Azure AAD(AAD) 서비스 보안 주체(SP)가 필요합니다.
-     - SP는 응용 프로그램의 API 권한을 부여해야 **합니다.ReadWrite.OwnedBy** Azure 활성 디렉터리 그래프
-     - AAD 테넌트 관리자는 이 API 권한을 적용하려면 관리자 동의를 부여해야 합니다.
-     - SP는 구독에 **기여자** 및 **사용자 액세스 관리자** 역할을 부여해야 합니다.
- - OCP 4.x의 설치 모델은 3.x와 다르며 Azure에서 OCP 4.x를 배포하는 데 사용할 수 있는 Azure 리소스 관리자 템플릿이 없습니다.
- - 설치 과정에서 문제가 발생하면 해당 회사(Microsoft 또는 Red Hat)에 문의하십시오.
+ - Azure에서 OCP 4.x를 설치 하 고 실행 하려면 AAD (Azure Active Directory) SP (서비스 사용자)가 필요 합니다.
+     - SP는 Azure Active Directory Graph에 대해 OwnedBy의 API 권한을 부여 받아야 합니다 **.**
+     - AAD 테넌트 관리자이 API 권한을 적용 하려면 관리자 동의를 부여 해야 합니다.
+     - SP에 게 구독에 대 한 **참가자** 및 **사용자 액세스 관리자** 역할을 부여 해야 합니다.
+ - OCP 4.x의 설치 모델은 3(sp3)과 다르며, Azure에서 OCP 4.x를 배포 하는 데 사용할 수 있는 Azure Resource Manager 템플릿이 없습니다.
+ - 설치 프로세스 중에 문제가 발생 하는 경우 해당 회사 (Microsoft 또는 Red Hat)에 문의 하십시오.
 
 | 문제 설명 | 접점 |
 |-------------------|---------------|
-| Azure 특정 문제(AAD, SP, Azure 구독 등)                              | Microsoft |
-| OpenShift 관련 문제(설치 오류/오류, Red Hat 구독 등) |  Red Hat  |
+| Azure 관련 문제 (AAD, SP, Azure 구독 등)                              | Microsoft |
+| OpenShift 관련 문제 (설치 오류/오류, Red Hat 구독 등) |  Red Hat  |
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure IoT 허브 장치 프로비저닝 서비스 클라이언트 SDK에서 다른 증명 메커니즘 사용
-description: Azure 방법 - Azure에서 DPS(장치 프로비저닝 서비스) 클라이언트 SDK에서 다른 증명 메커니즘을 사용하는 방법
+title: Azure IoT Hub 장치 프로 비전 서비스 클라이언트 SDK와 함께 다른 증명 메커니즘 사용
+description: Azure 방법-Azure에서 DPS (장치 프로 비전 서비스) 클라이언트 SDK를 사용 하는 다양 한 증명 메커니즘을 사용 하는 방법
 author: robinsh
 ms.author: robinsh
 ms.date: 03/30/2018
@@ -11,10 +11,10 @@ ms.custom:
 - mvc
 - amqp
 ms.openlocfilehash: c110e90f26f595bcbf181b72e13f12a6de2fa8ce
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687218"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Azure에서 C용 Device Provisioning 서비스 클라이언트 SDK와 함께 다른 증명 메커니즘을 사용하는 방법
@@ -41,7 +41,7 @@ Azure Portal에서 SDK 인증 모드(X.509 또는 TPM)를 등록하려면 먼저
 
 ### <a name="use-x509-with-simulator"></a>시뮬레이터를 통해 X.509 사용
 
-프로비저닝 서비스는 장치를 인증하기 위한 **X.509** 인증서를 생성하는 장치 ID 구성 엔진(DICE) 에뮬레이터와 함께 제공됩니다. **X.509** 인증을 사용하려면 다음 명령을 실행합니다. 
+프로 비전 서비스는 장치를 인증 하기 위해 **x.509** 인증서를 생성 하는 장치 생성 (Id 컴퍼지션 엔진) 에뮬레이터와 함께 제공 됩니다. **X.509** 인증을 사용 하도록 설정 하려면 다음 명령을 실행 합니다. 
 
 ```
 cmake -Ddps_auth_type=x509 ..
@@ -51,7 +51,7 @@ DICE가 포함된 하드웨어에 대한 자세한 내용은 [여기](https://az
 
 ### <a name="use-x509-with-hardware"></a>하드웨어를 통해 X.509 사용
 
-프로비저닝 서비스는 다른 하드웨어에서 **X.509와** 함께 사용할 수 있습니다. 하드웨어와 SDK 간의 인터페이스는 연결을 설정하는 데 필요합니다. 인터페이스에 대한 정보는 HSM 제조업체에 문의하세요.
+프로 비전 서비스는 다른 하드웨어에서 **X. x.509** 와 함께 사용할 수 있습니다. 하드웨어와 SDK 간의 인터페이스는 연결을 설정하는 데 필요합니다. 인터페이스에 대한 정보는 HSM 제조업체에 문의하세요.
 
 ### <a name="use-tpm"></a>TPM 사용
 
@@ -86,7 +86,7 @@ cmake -Ddps_auth_type=tpm_simulator ..
     cmake -DCMAKE_BUILD_TYPE=Debug ..
     ```
 
-- SDK를 빌드하는 데 사용할 수 있는 많은 [CMake 구성 옵션이](https://cmake.org/cmake/help/v3.6/manual/cmake.1.html) 있습니다. 예를 들어 CMake 프로젝트 생성 명령에 인수를 추가하여 사용 가능한 프로토콜 스택 중 하나를 해제할 수 있습니다.
+- SDK를 빌드하는 데 사용할 수 있는 여러 가지 [Cmake 구성 옵션이](https://cmake.org/cmake/help/v3.6/manual/cmake.1.html) 있습니다. 예를 들어 CMake 프로젝트 생성 명령에 인수를 추가하여 사용 가능한 프로토콜 스택 중 하나를 해제할 수 있습니다.
     ```
     cmake -Duse_amqp=OFF ..
     ```
@@ -150,8 +150,8 @@ TPM을 사용하는 경우 ["Azure IoT Hub Device Provisioning Service를 사용
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
 2. Azure Portal에 로그인하고, 왼쪽 메뉴에서 **모든 리소스** 단추를 클릭하고, Device Provisioning Service를 엽니다.
-   - **X.509 개별 등록**: 프로비저닝 서비스 요약 블레이드에서 **등록 관리를 선택합니다.** 개별 등록 탭을 선택하고 상단의 **추가** 단추를 **클릭합니다.** Id 증명 *메커니즘으로* **X.509를** 선택하고 블레이드에서 요구하는 리프 인증서를 업로드합니다. 완료되면 **저장** 단추를 클릭합니다. 
-   - **X.509 그룹 등록**: 프로비저닝 서비스 요약 블레이드에서 **등록 관리를 선택합니다.** **그룹 등록** 탭을 선택하고, 위쪽에 있는 **추가** 단추를 클릭합니다. Id 증명 *메커니즘으로* **X.509를** 선택하고 그룹 이름과 인증 이름을 입력하고 블레이드에서 요구하는 CA/중간 인증서를 업로드합니다. 완료되면 **저장** 단추를 클릭합니다. 
+   - **X.509 개별 등록**: 프로 비전 서비스 요약 블레이드에서 **등록 관리**를 선택 합니다. **개별 등록** 탭을 선택 하 고 위쪽의 **추가** 단추를 클릭 합니다. Id 증명 *메커니즘*으로 **x.509** 을 선택 하 고, 블레이드에서 요구 하는 대로 리프 인증서를 업로드 합니다. 완료되면 **저장** 단추를 클릭합니다. 
+   - **X.509 그룹 등록**: 프로 비전 서비스 요약 블레이드에서 **등록 관리**를 선택 합니다. **그룹 등록** 탭을 선택하고, 위쪽에 있는 **추가** 단추를 클릭합니다. Id 증명 *메커니즘*으로 **x.509** 을 선택 하 고, 그룹 이름과 인증 이름을 입력 하 고, 블레이드에서 요구 하는 대로 CA/중간 인증서를 업로드 합니다. 완료되면 **저장** 단추를 클릭합니다. 
 
 ## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>사용자 지정 증명 메커니즘을 사용하여 디바이스에 대한 인증을 사용하도록 설정(선택 사항)
 
@@ -183,7 +183,7 @@ TPM을 사용하는 경우 ["Azure IoT Hub Device Provisioning Service를 사용
 
 ## <a name="connecting-to-iot-hub-after-provisioning"></a>프로비전 후 IoT Hub에 연결
 
-장치가 프로비저닝 서비스와 함께 프로비전되면 이 API는 지정된 인증**모드(X.509** 또는 TPM)를 사용하여 IoT Hub에 연결합니다. 
+프로 비전 서비스를 사용 하 여 장치를 프로 비전 하면이 API는 지정 된 인증 모드 (**x.509** 또는 TPM)를 사용 하 여 IoT Hub에 연결 합니다. 
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```

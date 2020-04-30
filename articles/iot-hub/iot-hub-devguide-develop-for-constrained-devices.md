@@ -1,5 +1,5 @@
 ---
-title: IoT 허브 C SDK를 사용하여 제한된 장치를 위한 Azure IoT 허브 개발
+title: IoT Hub C SDK를 사용 하 여 제한 된 장치에 대 한 Azure IoT Hub 개발
 description: 개발자 가이드 - 제한된 디바이스에 Azure IoT SDK를 사용하여 개발하는 방법에 대한 지침입니다.
 author: robinsh
 ms.service: iot-hub
@@ -11,17 +11,17 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 9010ff582f05e81e17e280e20f180ceccf0e746f
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733198"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Azure IoT C SDK를 사용하여 제한된 디바이스 개발
 
 Azure IoT Hub C SDK는 ANSI C(C99)로 작성되었으며, 작은 디스크 및 메모리 공간으로 다양한 플랫폼을 작동하는 데 적합합니다. 권장되는 RAM은 64KB 이상이지만, 정확한 메모리 공간은 사용되는 프로토콜, 열린 연결 수 및 대상 플랫폼에 따라 다릅니다.
 > [!NOTE]
-> * Azure IoT C SDK는 개발에 도움이 되는 리소스 소비 정보를 정기적으로 게시합니다.  [GitHub 리포지토리를](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) 방문하여 최신 벤치마크를 검토하십시오.
+> * Azure IoT C SDK는 개발에 도움이 되는 리소스 소비 정보를 정기적으로 게시 합니다.  [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) 를 방문 하 여 최신 벤치 마크를 검토 하세요.
 >
 
 C SDK는 apt-get, NuGet 및 MBED의 패키지 형태로 사용할 수 있습니다. 제한된 디바이스를 대상으로 지정하려면 대상 플랫폼에 맞게 SDK를 로컬로 빌드하는 것이 좋습니다. 이 설명서에서는 C SDK의 공간을 줄이기 위해 [cmake](https://cmake.org/)를 사용하여 특정 기능을 제거하는 방법을 보여 줍니다. 또한 제한된 디바이스를 사용하기 위한 최적의 프로그래밍 모델에 대해 설명합니다.
@@ -74,7 +74,7 @@ strip -s <Path_to_executable>
 
 ### <a name="avoid-using-the-serializer"></a>직렬 변환기 사용 방지
 
-C SDK에는 선언적 매핑 테이블을 사용하여 메서드 및 디바이스 쌍 속성을 정의할 수 있는 선택적 [C SDK 직렬 변환기](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer)가 있습니다. 직렬 변환기는 개발을 간소화하기 위해 설계되었지만 오버헤드가 추가되므로 제한된 디바이스에 적합하지 않습니다. 이 경우 [parson과](https://github.com/kgabis/parson)같은 경량 파서를 사용하여 기본 클라이언트 API및 JSON구문 분석하는 것이 좋습니다.
+C SDK에는 선언적 매핑 테이블을 사용하여 메서드 및 디바이스 쌍 속성을 정의할 수 있는 선택적 [C SDK 직렬 변환기](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer)가 있습니다. 직렬 변환기는 개발을 간소화하기 위해 설계되었지만 오버헤드가 추가되므로 제한된 디바이스에 적합하지 않습니다. 이 경우 기본 클라이언트 Api를 사용 하 고 [parson](https://github.com/kgabis/parson)과 같은 간단한 파서를 사용 하 여 JSON을 구문 분석 하는 것이 좋습니다.
 
 ### <a name="use-the-lower-layer-_ll_"></a>_LL_(하위 계층) 사용
 

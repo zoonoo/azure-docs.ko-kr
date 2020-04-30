@@ -1,5 +1,5 @@
 ---
-title: Azure에 배포된 SSIS 패키지로 파일 열기 및 저장
+title: Azure에 배포 된 SSIS 패키지를 사용 하 여 파일 열기 및 저장
 description: 로컬 파일 시스템을 사용하는 SSIS 패키지를 Azure의 SSIS로 리프트하고 이동하는 경우 온-프레미스 및 Azure에서 파일을 열고 저장하는 방법 알아보기
 ms.date: 06/27/2018
 ms.topic: conceptual
@@ -9,10 +9,10 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
 ms.openlocfilehash: 630a8ead409ad60b9146838f062210a3301b43b5
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81760200"
 ---
 # <a name="open-and-save-files-on-premises-and-in-azure-with-ssis-packages-deployed-in-azure"></a>Azure에 배포된 SSIS 패키지로 온-프레미스 및 Azure에서 파일 열기 및 저장
@@ -51,4 +51,4 @@ ms.locfileid: "81760200"
 
 - 패키지를 배포합니다. 자세한 내용은 [SSMS를 사용하여 Azure에 SSIS 프로젝트 배포](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-deploy-ssms)를 참조합니다.
 - 패키지를 실행합니다. 자세한 내용은 [SSMS를 사용하여 Azure에서 SSIS 패키지 실행](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-run-ssms)을 참조합니다.
-- 패키지를 예약합니다. 자세한 내용은 [Azure의 SSIS 패키지 예약 을](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15)참조하십시오.
+- 패키지를 예약합니다. 자세한 내용은 [Azure에서 SSIS 패키지 예약](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15)을 참조 하세요.

@@ -1,13 +1,13 @@
 ---
-title: 리소스 상태 경고를 만드는 템플릿
+title: Resource Health 경고를 만들기 위한 템플릿
 description: Azure 리소스를 사용할 수 없게 되면 알려주는 경고를 프로그래밍 방식으로 작성합니다.
 ms.topic: conceptual
 ms.date: 9/4/2018
 ms.openlocfilehash: 60ff5bdf2f4f0dab94c18fd7c751869c1893ad65
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759006"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성
@@ -17,7 +17,7 @@ ms.locfileid: "81759006"
 Azure Resource Health는 Azure 리소스의 현재 및 과거 상태에 대한 정보를 알려줍니다. Azure Resource Health 경고는 이러한 리소스의 상태가 변경되면 거의 실시간으로 알려줍니다. Resource Health 경고를 프로그래밍 방식으로 만들면 사용자가 경고를 대량으로 생성하고 사용자 지정할 수 있습니다.
 
 > [!NOTE]
-> 리소스 상태 경고는 현재 미리 보기 상태입니다.
+> Resource Health 경고는 현재 미리 보기 상태입니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -25,7 +25,7 @@ Azure Resource Health는 Azure 리소스의 현재 및 과거 상태에 대한 �
 
 이 페이지의 지침을 따르려면 미리 몇 가지 사항을 설정해야 합니다.
 
-1. [Azure PowerShell 모듈을](https://docs.microsoft.com/powershell/azure/install-Az-ps) 설치해야 합니다.
+1. [Azure PowerShell 모듈](https://docs.microsoft.com/powershell/azure/install-Az-ps) 을 설치 해야 합니다.
 2. 내게 알려주도록 구성된 [작업 그룹을 만들거나 재사용](../azure-monitor/platform/action-groups.md)해야 합니다.
 
 ## <a name="instructions"></a>Instructions
@@ -73,7 +73,7 @@ Azure Resource Health는 Azure 리소스의 현재 및 과거 상태에 대한 �
 
 이 프로세스를 완전히 자동화하려면 5단계에서 값을 묻지 않도록 Resource Manager 템플릿을 편집하기만 하면 됩니다.
 
-## <a name="resource-manager-template-options-for-resource-health-alerts"></a>리소스 상태 경고에 대한 리소스 관리자 템플릿 옵션
+## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Resource Health 경고에 대 한 리소스 관리자 템플릿 옵션
 
 이러한 기본 템플릿을 Resource Health 경고를 작성하는 시작점으로 사용할 수 있습니다. 이 템플릿은 작성한대로 작동하며 구독의 모든 리소스에서 새로 활성화 된 모든 리소스 상태 이벤트에 대한 경고를 수신하도록 등록을 수행합니다.
 
@@ -161,7 +161,7 @@ Resource Health 경고는 세 가지 다른 범위에서 이벤트를 모니터�
 ],
 ```
 
-예: `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
+`"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
 > Azure Portal로 이동하여 Azure 리소스를 볼 때 URL을 살펴보면 이 문자열을 얻을 수 있습니다.
 
@@ -230,7 +230,7 @@ Resource Health 경고는 세 가지 다른 범위에서 이벤트를 모니터�
 상태 이벤트의 네 가지 단계 모두에 대해 알림을 받으려면 이 조건을 모두 제거합니다. 그러면 `status` 속성에 관계없이 경고가 표시됩니다.
 
 > [!NOTE]
-> 각 "anyOf" 섹션에는 하나의 필드 유형 값만 포함되어야 합니다.
+> 각 "anyOf" 섹션에는 하나의 필드 형식 값만 포함 되어야 합니다.
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>"알 수 없음" 이벤트를 방지하기 위해 Resource Health 경고 조정
 
@@ -286,11 +286,11 @@ Azure Resource Health는 Test Runner를 사용하여 리소스를 지속적으�
 
 이 예제에서는 현재 및 이전 상태가 "알 수 없음"이 아닌 이벤트에 대해서만 알림이 표시됩니다. 이 변경 사항은 경고가 휴대폰이나 이메일로 직접 전송되는 경우 유용할 수 있습니다. 
 
-현재 HealthStatus 및 이전 HealthStatus 속성은 일부 이벤트에서 null일 수 있습니다. 예를 들어 업데이트된 이벤트가 발생하면 마지막 보고서 이후 리소스의 상태 상태가 변경되지 않았을 수 있으며 추가 이벤트 정보(예: 원인)만 사용할 수 있습니다. 따라서 위의 절을 사용 하 여 일부 경고가 트리거 되지 않을 수 있습니다.currentHealthStatus 및 properties.previousHealthStatus 값 null로 설정 됩니다.
+일부 이벤트에서 currentHealthStatus 및 previousHealthStatus 속성은 null 일 수 있습니다. 예를 들어 업데이트 된 이벤트가 발생 하는 경우 마지막 보고서 이후에 리소스의 상태가 변경 되지 않은 것일 수 있습니다 (예: 원인). 따라서 위의 절을 사용 하면 currentHealthStatus 및 previousHealthStatus 값이 null로 설정 되기 때문에 일부 경고가 트리거되지 않을 수 있습니다.
 
 ### <a name="adjusting-the-alert-to-avoid-user-initiated-events"></a>사용자가 시작한 이벤트를 방지하기 위한 경고 조정
 
-리소스 상태 이벤트는 플랫폼에서 시작하고 사용자가 시작한 이벤트에 의해 트리거될 수 있습니다. 상태 이벤트가 Azure 플랫폼에서 발생한 경우에만 알림을 보내는 것이 합리적일 수 있습니다.
+플랫폼에서 시작 된 이벤트와 사용자가 시작한 이벤트를 사용 하 여 Resource Health 이벤트를 트리거할 수 있습니다. 상태 이벤트가 Azure 플랫폼에서 발생한 경우에만 알림을 보내는 것이 합리적일 수 있습니다.
 
 이러한 종류의 이벤트만 필터링하도록 경고를 구성하기는 쉽습니다.
 
@@ -306,11 +306,11 @@ Azure Resource Health는 Test Runner를 사용하여 리소스를 지속적으�
     ]
 }
 ```
-일부 이벤트에서는 원인 필드가 null일 수 있습니다. 즉, 상태 전환(예: 사용할 수 없음)이 발생하며 알림 지연을 방지하기 위해 이벤트가 즉시 기록됩니다. 따라서 위의 절을 사용 하 여 alert가 트리거 되지 않을 수 있습니다.속성 값 null로 설정 됩니다.
+일부 이벤트에서 원인 필드가 null 일 수 있습니다. 즉, 상태 전환 (예: 사용할 수 없음)이 발생 하며 알림이 지연 되지 않도록 이벤트가 즉시 기록 됩니다. 따라서 위의 절을 사용 하면 속성. 절 속성 값이 null로 설정 되기 때문에 경고가 트리거되지 않을 수 있습니다.
 
-## <a name="complete-resource-health-alert-template"></a>전체 리소스 상태 경고 템플릿
+## <a name="complete-resource-health-alert-template"></a>Resource Health 경고 템플릿 완료
 
-전단에 설명된 다양한 조정을 사용하여 신호 대 잡음 비를 최대화하도록 구성된 샘플 템플릿이 있습니다. 위에서 언급한 주의 사항 중 현재상태, 이전 상태 및 원인 속성 값은 일부 이벤트에서 null일 수 있습니다.
+이전 섹션에 설명 된 다양 한 조정을 사용 하 여 신호를 노이즈 비율로 최대화 하도록 구성 된 샘플 템플릿은 다음과 같습니다. 위에서 설명한 주의 사항에 대해서는 currentHealthStatus, previousHealthStatus 및 원인 속성 값이 일부 이벤트에서 null 일 수 있습니다.
 
 ```json
 {
@@ -440,7 +440,7 @@ Azure Resource Health는 Test Runner를 사용하여 리소스를 지속적으�
 
 Resource Health에 대해 알아봅니다.
 -  [Azure Resource Health 개요](Resource-health-overview.md)
--  [Azure 리소스 상태를 통해 사용할 수 있는 리소스 유형 및 상태 확인](resource-health-checks-resource-types.md)
+-  [Azure Resource Health를 통해 사용할 수 있는 리소스 유형 및 상태 검사](resource-health-checks-resource-types.md)
 
 
 Service Health 경고 만들기:

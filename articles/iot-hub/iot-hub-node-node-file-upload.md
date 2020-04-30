@@ -11,28 +11,28 @@ ms.topic: conceptual
 ms.date: 06/28/2017
 ms.custom: mqtt
 ms.openlocfilehash: af9743233a61e8e6d816b362d35e6a38735df35b
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732243"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>IoT 허브(Node.js)를 사용하여 장치에서 클라우드로 파일 업로드
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>IoT Hub (node.js)를 사용 하 여 장치에서 클라우드로 파일 업로드
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-이 자습서에서는 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기](iot-hub-node-node-c2d.md) 자습서의 코드를 기반으로 [하여 IoT Hub의 파일 업로드 기능을](iot-hub-devguide-file-upload.md) 사용하여 Azure [Blob 저장소에](../storage/index.yml)파일을 업로드하는 방법을 보여 주시습니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
+이 자습서에서는 [IoT Hub를 사용 하 여 클라우드-장치 메시지 보내기](iot-hub-node-node-c2d.md) 자습서의 코드를 기반으로 하 여 [IoT Hub의 파일 업로드 기능](iot-hub-devguide-file-upload.md) 을 사용 하 여 [Azure blob storage](../storage/index.yml)에 파일을 업로드 하는 방법을 보여 줍니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 * 파일을 업로드하기 위한 Azure blob URI를 디바이스에 안전하게 제공합니다.
 
 * IoT Hub 파일 업로드 알림을 사용하여 앱 백 엔드에서 파일 처리를 트리거합니다.
 
-[장치에서 IoT 허브로 원격 분석 보내기](quickstart-send-telemetry-node.md) 퀵스타트는 IoT Hub의 기본 장치-클라우드 메시징 기능을 보여 줍니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예를 들어:
+[장치에서 IoT hub로 원격 분석 전송 빠른 시작](quickstart-send-telemetry-node.md) 은 IoT Hub의 기본적인 장치-클라우드 메시징 기능을 보여 줍니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 다음은 그 예입니다.
 
 * 이미지가 포함된 대형 파일
-* 비디오
+* 동영상
 * 자주 샘플링되는 진동 데이터
-* 일부 형태의 사전 처리된 데이터입니다.
+* 일부 형태의 미리 처리 된 데이터입니다.
 
 이러한 파일은 일반적으로 [Azure Data Factory](../data-factory/introduction.md) 또는 [Hadoop](../hdinsight/index.yml) 스택과 같은 도구를 사용하여 클라우드에서 배치 방식으로 처리됩니다. 디바이스에서 파일을 업로드해야 할 때 IoT Hub의 보안 및 안정성을 여전히 사용할 수 있습니다.
 
@@ -43,15 +43,15 @@ ms.locfileid: "81732243"
 * **ReadFileUploadNotification** - IoT Hub에서 파일 업로드 알림을 받습니다.
 
 > [!NOTE]
-> IoT Hub는 Azure IoT 디바이스 SDK를 통해 많은 디바이스 플랫폼 및 언어(C, .NET, Javascript, Python 및 Java 포함)를 지원합니다. 장치를 Azure IoT Hub에 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터]를 참조하십시오.
+> IoT Hub는 Azure IoT 디바이스 SDK를 통해 많은 디바이스 플랫폼 및 언어(C, .NET, Javascript, Python 및 Java 포함)를 지원합니다. 장치를 Azure IoT Hub에 연결 하는 방법에 대 한 단계별 지침은 [Azure IoT 개발자 센터]를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Node.js 버전 10.0.x 이상. Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)에서 설명합니다.
+* Node.js 버전 10.0. x 이상 Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)에서 설명합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
-* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 장치 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
+* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 device 샘플에서는 포트 8883을 통해 통신 하는 MQTT 프로토콜을 사용 합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
@@ -120,9 +120,9 @@ ms.locfileid: "81732243"
 
 9. 이미지 파일을 `simulateddevice` 폴더에 복사하고 파일 이름을 `myimage.png`로 바꿉니다.
 
-## <a name="get-the-iot-hub-connection-string"></a>IoT 허브 연결 문자열 받기
+## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
 
-이 문서에서는 장치에서 IoT 허브로 [원격 분석 보내기에서](quickstart-send-telemetry-node.md)만든 IoT 허브에서 파일 업로드 알림 메시지를 수신하는 백 엔드 서비스를 만듭니다. 파일 업로드 알림 메시지를 받으려면 서비스에 **서비스 연결** 권한이 필요합니다. 기본적으로 모든 IoT 허브는 이 권한을 부여하는 **서비스라는** 공유 액세스 정책으로 만들어집니다.
+이 문서에서는 [장치에서 iot hub로 원격 분석 전송](quickstart-send-telemetry-node.md)에서 만든 iot hub에서 파일 업로드 알림 메시지를 수신 하는 백 엔드 서비스를 만듭니다. 파일 업로드 알림 메시지를 수신 하려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub은이 사용 권한을 부여 하는 **서비스** 라는 공유 액세스 정책으로 만들어집니다.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
@@ -154,7 +154,7 @@ ms.locfileid: "81732243"
     var Client = require('azure-iothub').Client;
     ```
 
-5. `iothubconnectionstring` 변수를 추가하고 이 변수를 사용하여 **클라이언트** 인스턴스를 만듭니다.  `{iothubconnectionstring}` 자리 표시자 값을 IoT 허브 연결 문자열에서 이전에 복사한 [IoT 허브 연결 문자열로](#get-the-iot-hub-connection-string)바꿉습니다.
+5. `iothubconnectionstring` 변수를 추가하고 이 변수를 사용하여 **클라이언트** 인스턴스를 만듭니다.  자리 표시자 `{iothubconnectionstring}` 값을 이전에 [iot Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 iot hub 연결 문자열로 바꿉니다.
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';
@@ -209,7 +209,7 @@ node FileUploadNotification.js
 node SimulatedDevice.js
 ```
 
-다음 스크린샷은 시뮬레이션장치 앱의 **출력을** 보여 주며 다음과 같은 것입니다.
+다음 스크린샷은 **SimulatedDevice** 앱의 출력을 보여 줍니다.
 
 ![simulated-device 앱의 출력](./media/iot-hub-node-node-file-upload/simulated-device.png)
 

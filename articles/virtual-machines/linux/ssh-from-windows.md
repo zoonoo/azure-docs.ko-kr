@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.openlocfilehash: cdf901ca56c150cfed6ba3d462ce493d40bd2488
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758000"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
@@ -24,24 +24,24 @@ ms.locfileid: "81758000"
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
 ## <a name="windows-packages-and-ssh-clients"></a>Windows 패키지 및 SSH 클라이언트
-*SSH 클라이언트를*사용하여 Azure에서 Linux VM에 연결하고 관리합니다. Linux 또는 macOS를 실행하는 컴퓨터에는 일반적으로 SSH 연결을 만들고 SSH 키를 생성 및 관리하는 SSH 명령 모음이 있습니다. 
+*SSH 클라이언트*를 사용 하 여 Azure에서 Linux vm에 연결 하 고 관리 합니다. Linux 또는 macOS를 실행하는 컴퓨터에는 일반적으로 SSH 연결을 만들고 SSH 키를 생성 및 관리하는 SSH 명령 모음이 있습니다. 
 
-Windows 컴퓨터는 항상 비교 가능한 SSH 명령을 설치하지는 않습니다. Windows 10의 최신 버전은 SSH 키를 만들고 관리하고 명령 프롬프트에서 SSH 연결을 만들기 위한 [OpenSSH 클라이언트 명령을](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) 제공합니다. 또한 최신 Windows 10 버전은 Bash 셸 내에 기본적으로 포함된 SSH 클라이언트와 같은 유틸리티를 실행하고 액세스하는 [Linux용 Windows 하위 시스템](https://docs.microsoft.com/windows/wsl/about)을 포함합니다. 
+Windows 컴퓨터는 항상 비교 가능한 SSH 명령을 설치하지는 않습니다. 최신 버전의 Windows 10은 SSH 키를 만들고 관리 하 고 명령 프롬프트에서 SSH 연결을 설정 하는 [OpenSSH client 명령을](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) 제공 합니다. 또한 최신 Windows 10 버전은 Bash 셸 내에 기본적으로 포함된 SSH 클라이언트와 같은 유틸리티를 실행하고 액세스하는 [Linux용 Windows 하위 시스템](https://docs.microsoft.com/windows/wsl/about)을 포함합니다. 
 
 로컬로 설치할 수 있는 다른 공용 Windows SSH 클라이언트는 다음과 같은 패키지에 포함되어 있습니다.
 
-* [퍼 티](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
-* [윈도우를위한 Git](https://git-for-windows.github.io/)
+* [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
+* [Windows 용 Git](https://git-for-windows.github.io/)
 * [MobaXterm](https://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
 [Azure Cloud Shell](../../cloud-shell/overview.md)의 Bash에서 사용할 수 있는 SSH 유틸리티를 사용할 수도 있습니다. 
 
-* Azure 포털 [https://shell.azure.com](https://shell.azure.com) 또는 [웹](https://portal.azure.com)브라우저에서 클라우드 셸에 액세스합니다. 
+* [https://shell.azure.com](https://shell.azure.com) 또는 [Azure Portal](https://portal.azure.com)의 웹 브라우저에서 Cloud Shell에 액세스 합니다. 
 * 이제 [Azure 계정 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)을 설치하여 Visual Studio Code 내에서 터미널로 Cloud Shell에 액세스합니다.
 
 ## <a name="create-an-ssh-key-pair"></a>SSH 키 쌍 만들기
-다음 섹션에서는 Windows에서 SSH 키 쌍을 만드는 두 가지 옵션을 설명합니다. 셸 명령(`ssh-keygen`) 또는 GUI 도구(PuTTYgen)를 사용할 수 있습니다. 또한 Powershell을 사용하여 키를 만들 때 공개 키를 ssh.com(SECSH) 형식으로 업로드합니다. CLI를 사용하는 경우 업로드하기 전에 키를 OpenSSH 형식으로 변환합니다. 
+다음 섹션에서는 Windows에서 SSH 키 쌍을 만드는 두 가지 옵션을 설명합니다. 셸 명령(`ssh-keygen`) 또는 GUI 도구(PuTTYgen)를 사용할 수 있습니다. 또한 Powershell을 사용 하 여 키를 만들 때 공개 키를 ssh .com (SECSH) 형식으로 업로드 합니다. CLI를 사용 하는 경우 업로드 하기 전에 키를 OpenSSH 형식으로 변환 합니다. 
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>ssh-keygen을 사용하여 SSH 키 만들기
 
@@ -75,7 +75,7 @@ PuTTYgen을 사용하여 SSH RSA 키 쌍을 만들려면:
 
     ![PuTTY 프라이빗 키 파일 저장](./media/ssh-from-windows/save-ppk-file.png)
 
-    많은 SSH 클라이언트에서 사용하는 개인 키 형식인 OpenSSH 형식으로 개인 키를 저장하려면 변환**내보내기 OpenSSH 키를** **선택합니다.** > 
+    여러 SSH 클라이언트에서 사용 하는 개인 키 형식인 OpenSSH 형식으로 개인 키를 저장 하려는 경우 **변환** > **내보내기 OpenSSH 키**를 선택 합니다.
 
 ## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>VM을 배포하는 경우 SSH 공개 키 제공
 
@@ -111,7 +111,7 @@ VM이 Just-In-Time 액세스 정책을 사용하는 경우에는 액세스 권�
 
     ![새 PuTTY 연결 열기](./media/ssh-from-windows/putty-new-connection.png)
 
-3. **연결** > **SSH** > **인증** 범주를 선택합니다. PuTTY 프라이빗 키(.ppk file) 찾기 및 선택:
+3. **연결** > **SSH**SSH > **인증** 범주를 선택 합니다. PuTTY 프라이빗 키(.ppk file) 찾기 및 선택:
 
     ![인증용 PuTTY 프라이빗 키 선택](./media/ssh-from-windows/putty-auth-dialog.png)
 
@@ -119,7 +119,7 @@ VM이 Just-In-Time 액세스 정책을 사용하는 경우에는 액세스 권�
 
 ## <a name="next-steps"></a>다음 단계
 
-* SSH 키 작업에 대한 자세한 단계, 옵션 및 고급 예제는 [SSH 키 쌍을 만드는 자세한 단계를](create-ssh-keys-detailed.md)참조하십시오.
+* SSH 키를 사용 하는 자세한 단계, 옵션 및 고급 예제는 [ssh 키 쌍을 만드는 자세한 단계](create-ssh-keys-detailed.md)를 참조 하세요.
 
 * Azure Cloud Shell에서 PowerShell을 사용하여 Linux VM에 SSH 연결을 만들고 SSH 키를 생성할 수 있습니다. [PowerShell 빠른 시작](../../cloud-shell/quickstart-powershell.md#ssh)을 참조합니다.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt
 ms.openlocfilehash: 3ea2f0eec12d756a898f1761f6b22fd034c1bc3e
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732448"
 ---
 # <a name="get-started-with-device-twins-java"></a>디바이스 쌍 시작(Java)
@@ -31,13 +31,13 @@ ms.locfileid: "81732448"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [자바 SE 개발 키트 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). JDK 8용 다운로드를 가져오려면 **장기 지원**에서 **Java 8**을 선택해야 합니다.
+* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)입니다. JDK 8용 다운로드를 가져오려면 **장기 지원**에서 **Java 8**을 선택해야 합니다.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
-* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 장치 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
+* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 device 샘플에서는 포트 8883을 통해 통신 하는 MQTT 프로토콜을 사용 합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -47,7 +47,7 @@ ms.locfileid: "81732448"
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>IoT 허브 연결 문자열 받기
+## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
 
 [!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
 
@@ -57,17 +57,17 @@ ms.locfileid: "81732448"
 
 이 섹션에서는 **myDeviceId**와 연결된 IoT Hub의 디바이스 쌍에 태그로 위치 메타데이터를 추가하는 Java 앱을 만듭니다. 먼저 앱은 미국에 있는 디바이스에 대한 IoT 허브를 쿼리한 다음 셀룰러 네트워크 연결을 보고하는 디바이스에 대한 IoT 허브를 쿼리합니다.
 
-1. 개발 컴퓨터에서 **iot-java-twin-getstarted라는**빈 폴더를 만듭니다.
+1. 개발 컴퓨터에서 **iot-$-** m a t-t-t i m 시작 이라는 빈 폴더를 만듭니다.
 
-2. **iot-java-twin-getstarted** 폴더에서 명령 프롬프트에서 다음 명령을 사용하여 **add-tags-query라는** Maven 프로젝트를 만듭니다.
+2. Iot-Maven **-getstarted** 폴더에서 명령 프롬프트에 다음 명령을 사용 하 여 **add tags-query** 라는 이름의 프로젝트를 만듭니다.
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=add-tags-query -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-3. 명령 프롬프트에서 **추가 태그-쿼리** 폴더로 이동합니다.
+3. 명령 프롬프트에서 **추가 태그-쿼리** 폴더로 이동 합니다.
 
-4. 텍스트 편집기를 사용하여 **add-tags-query** 폴더에서 **pom.xml** 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 이러한 종속성을 사용하면 앱에서 **iot 서비스-클라이언트** 패키지를 사용하여 IoT 허브와 통신할 수 있습니다.
+4. 텍스트 편집기를 사용 하 여 **추가 태그-쿼리** 폴더에서 **pom .xml** 파일을 열고 **종속성** 노드에 다음 종속성을 추가 합니다. 이러한 종속성을 통해 앱의 **iot 서비스 클라이언트** 패키지를 사용 하 여 iot hub와 통신할 수 있습니다.
 
     ```xml
     <dependency>
@@ -81,7 +81,7 @@ ms.locfileid: "81732448"
     > [!NOTE]
     > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-service-client**의 최신 버전을 확인할 수 있습니다.
 
-5. **종속성** 노드 뒤에 다음 **빌드** 노드를 추가합니다. 이 구성은 Maven에게 Java 1.8을 사용하여 앱을 빌드하도록 지시합니다.
+5. **종속성** 노드 뒤에 다음 **빌드** 노드를 추가합니다. 이 구성은 Maven에서 Java 1.8를 사용 하 여 앱을 빌드하도록 지시 합니다.
 
     ```xml
     <build>
@@ -101,7 +101,7 @@ ms.locfileid: "81732448"
 
 6. **pom.xml** 파일을 저장하고 닫습니다.
 
-7. 텍스트 편집기에서 **추가 태그 쿼리\src\main\java\com\mycompany\App.java** 파일을 엽니다.
+7. 텍스트 편집기를 사용 하 여 **add-tags-query\src\main\java\com\mycompany\app\App.java** 파일을 엽니다.
 
 8. 파일에 다음 **import** 문을 추가합니다.
 
@@ -114,7 +114,7 @@ ms.locfileid: "81732448"
     import java.util.Set;
     ```
 
-9. **App** 클래스에 다음 클래스 수준 변수를 추가합니다. IoT 허브 연결 문자열 Get에서 복사한 `{youriothubconnectionstring}` [IoT 허브 연결 문자열로](#get-the-iot-hub-connection-string)바꿉입니다.
+9. 다음 클래스 수준 변수를 **App** 클래스에 추가 합니다. 을 `{youriothubconnectionstring}` (를) [iot Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 iot hub 연결 문자열로 바꿉니다.
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -130,7 +130,7 @@ ms.locfileid: "81732448"
     public static void main( String[] args ) throws IOException
     ```
 
-11. **Main** 메서드의 코드를 다음 코드로 바꿔 **DeviceTwin** 및 **DeviceTwinDevice** 개체를 만듭니다. **DeviceTwin** 개체는 IoT 허브와의 통신을 처리합니다. **DeviceTwinDevice** 개체는 해당 속성 및 태그로 디바이스 쌍을 나타냅니다.
+11. **Devicetwin** 및 **Devicetwindevice** 개체를 만들려면 **main** 메서드의 코드를 다음 코드로 바꿉니다. **DeviceTwin** 개체는 IoT 허브와의 통신을 처리합니다. **DeviceTwinDevice** 개체는 해당 속성 및 태그로 디바이스 쌍을 나타냅니다.
 
     ```java
     // Get the DeviceTwin and DeviceTwinDevice objects
@@ -179,7 +179,7 @@ ms.locfileid: "81732448"
     System.out.println(device);
     ```
 
-14. IoT 허브에서 디바이스 쌍을 쿼리하려면 이전 단계에서 추가한 코드 뒤의 `try` 블록에 다음 코드를 추가합니다. 코드는 두 개의 쿼리를 실행합니다. 각 쿼리는 최대 100개의 장치를 반환합니다.
+14. IoT 허브에서 디바이스 쌍을 쿼리하려면 이전 단계에서 추가한 코드 뒤의 `try` 블록에 다음 코드를 추가합니다. 코드는 두 개의 쿼리를 실행합니다. 각 쿼리는 최대 100의 장치를 반환 합니다.
 
     ```java
     // Query the device twins in IoT Hub
@@ -208,9 +208,9 @@ ms.locfileid: "81732448"
     }
     ```
 
-15. 추가 태그 **쿼리\src\main\java\com\mycompany\App.java** 파일을 저장하고 닫습니다.
+15. **Add-tags-query\src\main\java\com\mycompany\app\App.java** 파일을 저장 하 고 닫습니다.
 
-16. **add-tags-query** 앱을 빌드하고 오류를 수정합니다. 명령 프롬프트에서 추가 태그 쿼리 폴더로 이동하여 다음 명령을 **실행합니다.**
+16. **add-tags-query** 앱을 빌드하고 오류를 수정합니다. 명령 프롬프트에서 **태그-쿼리** 폴더로 이동한 후 다음 명령을 실행 합니다.
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -220,15 +220,15 @@ ms.locfileid: "81732448"
 
 이 섹션에서는 IoT Hub로 전송되는 reported 속성 값을 설정하는 Java 콘솔 앱을 만듭니다.
 
-1. **iot-java-twin-getstarted** 폴더에서 명령 프롬프트에서 다음 명령을 사용하여 **시뮬레이션 된 장치라는** Maven 프로젝트를 만듭니다.
+1. Iot-Maven **-getstarted** 폴더에서 명령 프롬프트에 다음 명령을 사용 하 여 **시뮬레이션 된 장치** 라는 프로젝트를 만듭니다.
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-2. 명령 프롬프트에서 **시뮬레이션된 장치** 폴더로 이동합니다.
+2. 명령 프롬프트에서 **시뮬레이션 된 장치** 폴더로 이동 합니다.
 
-3. 텍스트 편집기를 사용하여 **시뮬레이션된 장치** 폴더에서 **pom.xml** 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 이러한 종속성을 사용하면 앱에서 **iot-device-client** 패키지를 사용하여 IoT 허브와 통신할 수 있습니다.
+3. 텍스트 편집기를 사용 하 여 **시뮬레이션 된 장치** 폴더에서 **pom .xml** 파일을 열고 **종속성** 노드에 다음 종속성을 추가 합니다. 이러한 종속성을 통해 앱의 **iot-장치 클라이언트** 패키지를 사용 하 여 iot hub와 통신할 수 있습니다.
 
     ```xml
     <dependency>
@@ -241,7 +241,7 @@ ms.locfileid: "81732448"
     > [!NOTE]
     > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-device-client**의 최신 버전을 확인할 수 있습니다.
 
-4. **종속성** 노드에 다음 종속성을 추가합니다. 이 종속성은 장치 클라이언트 SDK에서 로깅을 구현하는 데 사용되는 아파치 [SLF4J](https://www.slf4j.org/) 로깅 외관에 대한 NOP를 구성합니다. 이 구성은 선택 사항이지만 생략하면 앱을 실행할 때 콘솔에 경고가 표시될 수 있습니다. 장치 클라이언트 SDK에서 로깅에 대한 자세한 내용은 Java readme 파일에 *대한 Azure IoT 장치 SDK의* [샘플로깅을](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging) 참조하십시오.
+4. **종속성** 노드에 다음 종속성을 추가 합니다. 이 종속성은 장치 클라이언트 SDK에서 로깅을 구현 하는 데 사용 되는 Apache [SLF4J](https://www.slf4j.org/) 로깅 외관에 대해 NOP를 구성 합니다. 이 구성은 선택 사항 이지만, 생략 하면 앱을 실행할 때 콘솔에 경고가 표시 될 수 있습니다. 장치 클라이언트 SDK의 로그인에 대 한 자세한 내용은 *Java 용 Azure IoT 장치 SDK* 추가 정보 파일에 대 한 샘플의 [로깅](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging) 을 참조 하세요.
 
     ```xml
     <dependency>
@@ -271,7 +271,7 @@ ms.locfileid: "81732448"
 
 6. **pom.xml** 파일을 저장하고 닫습니다.
 
-7. 텍스트 편집기에서 **시뮬레이션된 장치\src\main\java\com\mycompany\App.java** 파일을 엽니다.
+7. 텍스트 편집기를 사용 하 여 **simulated-device\src\main\java\com\mycompany\app\App.java** 파일을 엽니다.
 
 8. 파일에 다음 **import** 문을 추가합니다.
 
@@ -284,7 +284,7 @@ ms.locfileid: "81732448"
     import java.util.Scanner;
     ```
 
-9. **App** 클래스에 다음 클래스 수준 변수를 추가합니다. `{yourdeviceconnectionstring}` [IoT 허브에서 새 장치 등록에서](#register-a-new-device-in-the-iot-hub)복사한 장치 연결 문자열로 바꿉습니다.
+9. 다음 클래스 수준 변수를 **App** 클래스에 추가 합니다. 을 `{yourdeviceconnectionstring}` [IoT hub에서 새 장치를 등록](#register-a-new-device-in-the-iot-hub)하는에서 복사한 장치 연결 문자열로 바꿉니다.
 
     ```java
     private static String connString = "{yourdeviceconnectionstring}";
@@ -305,7 +305,7 @@ ms.locfileid: "81732448"
       }
     ```
 
-11. **기본** 메서드의 코드를 다음 코드로 바꿉니다.
+11. **Main** 메서드의 코드를 다음 코드로 바꿉니다.
 
     * IoT Hub와 통신하는 디바이스 클라이언트를 만듭니다.
 
@@ -344,7 +344,7 @@ ms.locfileid: "81732448"
     }
     ```
 
-13. **기본** 메서드의 끝에 다음 코드를 추가합니다. **Enter** 키를 기다리면 IoT Hub가 장치 쌍 작업의 상태를 보고할 수 있습니다.
+13. **Main** 메서드의 끝에 다음 코드를 추가 합니다. **Enter** 키를 대기 하면 장치 쌍 작업의 상태를 보고 하 IoT Hub 시간을 사용할 수 있습니다.
 
     ```java
     System.out.println("Press any key to exit...");
@@ -362,9 +362,9 @@ ms.locfileid: "81732448"
      public static void main(String[] args) throws URISyntaxException, IOException
      ```
 
-15. 시뮬레이션 된 **장치 \src\main\java\com\mycompany\App\App.java** 파일을 저장하고 닫습니다.
+15. **Simulated-device\src\main\java\com\mycompany\app\App.java** 파일을 저장 하 고 닫습니다.
 
-16. **simulated-device** 앱을 빌드하고 오류를 수정합니다. 명령 프롬프트에서 **시뮬레이션된 장치** 폴더로 이동하여 다음 명령을 실행합니다.
+16. **simulated-device** 앱을 빌드하고 오류를 수정합니다. 명령 프롬프트에서 **시뮬레이션 된 장치** 폴더로 이동 하 고 다음 명령을 실행 합니다.
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -374,7 +374,7 @@ ms.locfileid: "81732448"
 
 이제 콘솔 앱을 실행할 준비가 되었습니다.
 
-1. **추가 태그-쿼리** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 추가 태그 쿼리 서비스 앱을 **실행합니다.**
+1. **추가 태그-쿼리** 폴더의 명령 프롬프트에서 다음 명령을 실행 하 여 **태그 추가 쿼리** 서비스 앱을 실행 합니다.
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -384,7 +384,7 @@ ms.locfileid: "81732448"
 
     디바이스 쌍에 추가된 **plant** 및 **region** 태그를 볼 수 있습니다. 첫 번째 쿼리에서 디바이스를 반환하지만 두 번째는 그렇지 않습니다.
 
-2. **시뮬레이션된 장치** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **연결Type** 보고 속성을 장치 쌍에 추가합니다.
+2. **시뮬레이션 된 장치** 폴더의 명령 프롬프트에서 다음 명령을 실행 하 여 **connectivityType** 보고 된 속성을 장치 쌍에 추가 합니다.
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -392,7 +392,7 @@ ms.locfileid: "81732448"
 
     ![디바이스 클라이언트는 **connectivityType** reported 속성을 추가합니다.](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
-3. **추가 태그-쿼리** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 추가 태그 쿼리 서비스 앱을 두 번째로 **실행합니다.**
+3. **추가 태그-쿼리** 폴더의 명령 프롬프트에서 다음 명령을 실행 하 여 두 번째로 **추가 태그 쿼리** 서비스 앱을 실행 합니다.
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -400,7 +400,7 @@ ms.locfileid: "81732448"
 
     ![태그 값을 업데이트하고 디바이스 쿼리를 실행하는 Java IoT Hub 서비스 앱](./media/iot-hub-java-java-twin-getstarted/service-app-2.png)
 
-    장치가 **연결 유형** 속성을 IoT Hub로 보냈으니 두 번째 쿼리는 장치를 반환합니다.
+    이제 장치가 **connectivityType** 속성을 IoT Hub로 보냈지만 두 번째 쿼리는 장치를 반환 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -408,6 +408,6 @@ ms.locfileid: "81732448"
 
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
 
-* [IoT Hub 자습서를 시작으로](quickstart-send-telemetry-java.md) 장치에서 원격 분석을 보냅니다.
+* [IoT Hub 시작](quickstart-send-telemetry-java.md) 자습서를 사용 하 여 장치에서 원격 분석을 보냅니다.
 
-* [직접 메서드 사용](quickstart-control-device-java.md) 자습서를 사용하여 대화형으로 장치를 제어합니다(예: 사용자 제어 앱에서 팬을 켜기).
+* [직접 메서드 사용](quickstart-control-device-java.md) 자습서를 사용 하 여 대화형으로 (예: 사용자 제어 앱에서 팬 켜기) 장치를 제어 합니다.

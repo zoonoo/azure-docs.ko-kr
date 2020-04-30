@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 통해 사용자 지정 Linux 디스크 업로드
+title: Azure CLI를 사용 하 여 사용자 지정 Linux 디스크 업로드
 description: Resource Manager 배포 모델 및 Azure CLI를 사용하여 Azure에 VHD(가상 하드 디스크) 만들기 및 업로드
 author: cynthn
 ms.service: virtual-machines-linux
@@ -9,10 +9,10 @@ ms.date: 07/10/2017
 ms.author: cynthn
 ms.custom: storage accounts
 ms.openlocfilehash: 7ec9b670f8b2eb1731511deb1d01cfc7db55054f
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758566"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 디스크에서 Linux VM 업로드 및 만들기
@@ -72,7 +72,7 @@ az vm create --resource-group myResourceGroup --location westus \
     --use-unmanaged-disk
 ```
 
-대상 스토리지 계정은 가상 디스크를 업로드한 곳과 같아야 합니다. 또한 가상 네트워크, 공용 IP 주소, 사용자 이름 및 SSH 키와 같은 **az vm create** 명령이 필요로 하는 모든 추가 매개 변수를 지정하거나 프롬프트에 응답할 수 있습니다. 사용 가능한 클래식 [CLI 리소스 관리자 매개 변수에](../azure-cli-arm-commands.md#virtual-machines)대해 자세히 확인할 수 있습니다.
+대상 스토리지 계정은 가상 디스크를 업로드한 곳과 같아야 합니다. 또한 가상 네트워크, 공용 IP 주소, 사용자 이름 및 SSH 키와 같은 **az vm create** 명령이 필요로 하는 모든 추가 매개 변수를 지정하거나 프롬프트에 응답할 수 있습니다. [사용 가능한 클래식 CLI 리소스 관리자 매개 변수에](../azure-cli-arm-commands.md#virtual-machines)대 한 자세한 내용을 확인할 수 있습니다.
 
 ## <a name="requirements"></a>요구 사항
 다음 단계를 완료하려면 다음이 필요합니다.
@@ -82,7 +82,7 @@ az vm create --resource-group myResourceGroup --location westus \
   * 또한 [Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) 또는 [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx)에서 Hyper-V를 사용할 수 있습니다.
 
 > [!NOTE]
-> 새 VHDX 형식은 Azure에서 지원되지 않습니다. VM을 만들 때 VHD를 형식으로 지정합니다. 필요한 경우 VHDX 디스크를 사용하여 [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) VHD 또는 [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet으로 변환할 수 있습니다. 그뿐 아니라 Azure는 동적 VHD 업로드를 지원하지 않으므로 업로드하기 전에 이러한 디스크를 정적 VHD로 변환해야 합니다. Azure로 업로딩하는 과정 중에 [GO용 Azure VHD 유틸리티](https://github.com/Microsoft/azure-vhd-utils-for-go) 와 같은 도구를 사용하여 동적 디스크를 변환할 수 있습니다.
+> 새 VHDX 형식은 Azure에서 지원되지 않습니다. VM을 만들 때 VHD를 형식으로 지정합니다. 필요한 경우 또는 [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet을 사용 하 여 VHDX 디스크를 VHD로 변환할 수 있습니다. 그뿐 아니라 Azure는 동적 VHD 업로드를 지원하지 않으므로 업로드하기 전에 이러한 디스크를 정적 VHD로 변환해야 합니다. Azure로 업로딩하는 과정 중에 [GO용 Azure VHD 유틸리티](https://github.com/Microsoft/azure-vhd-utils-for-go) 와 같은 도구를 사용하여 동적 디스크를 변환할 수 있습니다.
 > 
 > 
 
@@ -99,18 +99,18 @@ az vm create --resource-group myResourceGroup --location westus \
 ## <a name="prepare-the-disk-to-be-uploaded"></a>업로드할 디스크 준비
 Azure에서는 다양한 Linux 배포를 지원합니다( [보증 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)참조). 다음 문서에서는 Azure에서 지원되는 다양한 Linux 배포를 준비하는 방법을 안내합니다.
 
-* **[센트로스 기반 배포판](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[데비안 리눅스](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[CentOS 기반 배포](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[SLES & 오픈수즈](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[SLES & openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[기타 - 승인되지 않은 배포](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[기타-보증 되지 않는 배포](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
 또한 Azure용 Linux 이미지를 준비하는 방법에 대한 일반적인 추가 팁은 **[Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)** 을 참조하세요.
 
 > [!NOTE]
-> [Azure 플랫폼 SLA는](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 승인된 배포판 중 하나가 Azure 승인 배포판의 Linux에서 Linux의 '지원되는 버전'에 지정된 구성 세부 정보와 함께 사용되는 경우에만 [Linux를](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)실행하는 VM에 적용됩니다.
+> 보증 배포판 중 하나가 [azure-보증 배포의 linux](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 ' 지원 되는 버전 '에 지정 된 대로 구성 세부 정보와 함께 사용 되는 경우에만 [azure Platform SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 가 linux를 실행 하는 vm에 적용 됩니다.
 > 
 > 
 
@@ -135,7 +135,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 ```
 
 ## <a name="list-storage-account-keys"></a>스토리지 계정 키 나열
-Azure는 각 스토리지 계정에 대해 두 개의 512 비트 선택키를 생성합니다. 이러한 선택키는 쓰기 작업을 수행할 때와 같이 스토리지 계정에 인증할 때에 사용됩니다. 저장소 계정 액세스 키에 대한 자세한 내용은 [저장소 계정 액세스 키 관리를](../../storage/common/storage-account-keys-manage.md)참조하십시오. [az storage account keys list](/cli/azure/storage/account/keys)를 사용하여 액세스 키를 확인합니다.
+Azure는 각 스토리지 계정에 대해 두 개의 512 비트 선택키를 생성합니다. 이러한 선택키는 쓰기 작업을 수행할 때와 같이 스토리지 계정에 인증할 때에 사용됩니다. 저장소 계정 액세스 키에 대 한 자세한 내용은 [저장소 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조 하세요. [az storage account keys list](/cli/azure/storage/account/keys)를 사용하여 액세스 키를 확인합니다.
 
 만든 스토리지 계정에 대한 선택키를 봅니다.
 

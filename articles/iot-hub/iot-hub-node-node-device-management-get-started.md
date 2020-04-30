@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt
 ms.openlocfilehash: a7814970d4ffb051ab54c965d27394f925d79e59
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732335"
 ---
-# <a name="get-started-with-device-management-nodejs"></a>장치 관리 시작(Node.js)
+# <a name="get-started-with-device-management-nodejs"></a>장치 관리 시작 (node.js)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
-이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
+이 자습서에서는 다음을 수행하는 방법을 보여 줍니다.
 
-* Azure [포털을](https://portal.azure.com) 사용하여 IoT Hub를 만들고 IoT 허브에서 장치 ID를 만듭니다.
+* [Azure Portal](https://portal.azure.com) 를 사용 하 여 IoT Hub을 만들고 IoT Hub에 장치 id를 만듭니다.
 
 * 디바이스를 다시 시작하는 직접 메서드가 포함된 시뮬레이트된 디바이스 앱을 만듭니다. 직접 메서드는 클라우드에서 호출됩니다.
 
@@ -36,11 +36,11 @@ ms.locfileid: "81732335"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Node.js 버전 10.0.x 이상. Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)에서 설명합니다.
+* Node.js 버전 10.0. x 이상 Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)에서 설명합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
-* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 장치 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
+* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 device 샘플에서는 포트 8883을 통해 통신 하는 MQTT 프로토콜을 사용 합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -83,7 +83,7 @@ ms.locfileid: "81732335"
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. **connectionString** 변수를 추가하고 이 변수를 사용하여 **클라이언트** 인스턴스를 만듭니다.  자리 `{yourdeviceconnectionstring}` 표시자 값을 [IoT 허브에서 새 장치 등록에서](#register-a-new-device-in-the-iot-hub)이전에 복사한 장치 연결 문자열로 바꿉습니다.  
+5. **connectionString** 변수를 추가하고 이 변수를 사용하여 **클라이언트** 인스턴스를 만듭니다.  자리 표시자 `{yourdeviceconnectionstring}` 값을 [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에서 이전에 복사한 장치 연결 문자열로 바꿉니다.  
 
     ```javascript
     var connectionString = '{yourdeviceconnectionstring}';
@@ -150,7 +150,7 @@ ms.locfileid: "81732335"
 > [!NOTE]
 > 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 문서 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
-## <a name="get-the-iot-hub-connection-string"></a>IoT 허브 연결 문자열 받기
+## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
 
 [!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
 
@@ -183,7 +183,7 @@ ms.locfileid: "81732335"
     var Client = require('azure-iothub').Client;
     ```
 
-5. 다음 변수 선언을 추가하고 `{iothubconnectionstring}` 자리 표시자 값을 IoT 허브 연결 문자열에서 이전에 복사한 [IoT 허브 연결 문자열로](#get-the-iot-hub-connection-string)바꿉꿉습니다.
+5. 다음 변수 선언을 추가 하 고 자리 표시자 `{iothubconnectionstring}` 값을 이전에 [iot Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 iot hub 연결 문자열로 바꿉니다.
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';
@@ -261,14 +261,14 @@ ms.locfileid: "81732335"
     node dmpatterns_getstarted_service.js
     ```
 
-3. 재부팅 직접 메서드에 대한 장치 응답과 콘솔에서 재부팅 상태가 표시됩니다.
+3. 콘솔에서 다시 부팅 직접 방법 및 재부팅 상태에 대 한 장치 응답이 표시 됩니다.
 
-   다음은 서비스에서 보낸 재부팅 직접 메서드에 대한 장치 응답을 보여 주며 있습니다.
+   다음은 서비스에서 보낸 다시 부팅 직접 메서드에 대 한 장치 응답을 보여 줍니다.
 
-   ![관리 장치 앱 출력](./media/iot-hub-node-node-device-management-get-started/device.png)
+   ![manageddevice 앱 출력](./media/iot-hub-node-node-device-management-get-started/device.png)
 
-   다음은 재부팅을 트리거하고 마지막 재부팅 시간에 대한 장치 쌍 폴링 서비스를 보여 주며 있습니다.
+   다음은 다시 부팅을 트리거하는 서비스와 마지막 다시 부팅 시간에 대 한 장치 쌍을 폴링하는 것을 보여 줍니다.
 
-   ![트리거리부팅장치 앱 출력](./media/iot-hub-node-node-device-management-get-started/service.png)
+   ![triggerrebootondevice 앱 출력](./media/iot-hub-node-node-device-management-get-started/service.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

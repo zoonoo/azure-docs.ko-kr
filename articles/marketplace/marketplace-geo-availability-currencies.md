@@ -1,6 +1,6 @@
 ---
-title: 상업 시장에 대한 지리적 가용성 및 통화 지원 | Azure 마켓플레이스
-description: 상용 시장의 지리적 가용성
+title: 상업적 marketplace에 대 한 지리적 가용성 및 통화 지원 | Azure Marketplace
+description: 상업적 marketplace의 지리적 가용성
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
 ms.openlocfilehash: 83906e6270ed41c2ea8f489c5a5312d32a565a29
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687579"
 ---
-# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>상용 시장에 대한 지리적 가용성 및 통화 지원
+# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>상업적 marketplace에 대 한 지리적 가용성 및 통화 지원
 
-상업용 마켓플레이스 오퍼링은 고객의 청구 주소에 정의된 대로 141개 지역에서 구매할 수 있으며 거래는 17개 통화로 완료할 수 있습니다. 아래 표에는 지원되는 각 지리적 위치, [ISO 3166 두 자리 알파 코드](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)및 할당된 통화가 나열되어 있습니다.
+상용 marketplace 제품은 고객의 청구 주소에서 정의한 대로 141 지역에서 구매할 수 있으며, 트랜잭션은 17 통화로 완료할 수 있습니다. 아래 표에는 지원 되는 각 지리적 위치, [ISO 3166 2 자리의 알파 코드](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)및 할당 된 통화가 나열 되어 있습니다.
 
-|   국가/지역 이름               |   ISO-2   |   통화   |
+|   국가/지역 이름               |   ISO-2   |   Currency   |
 |-------------------------------------|-----------|--------------|
 | 아프가니스탄                         | AF        | USD          |
 | 알바니아                             | AL        | USD          |
@@ -53,7 +53,7 @@ ms.locfileid: "81687579"
 | 코스타리카                          | CR        | USD          |
 | 코트디부아르                       | CI        | USD          |
 | 크로아티아                             | HR        | EUR          |
-| 퀴라소                             | Cw        | USD          |
+| 퀴라소                             | °        | USD          |
 | 키프로스                              | CY        | EUR          |
 | 체코                      | CZ        | EUR          |
 | 덴마크                             | DK        | DKK          |
@@ -87,7 +87,7 @@ ms.locfileid: "81687579"
 | 요르단                              | JO        | USD          |
 | 카자흐스탄                          | KZ        | USD          |
 | 케냐                               | KE        | USD          |
-| 대한민국 (대한민국)                       | KR        | KRW          |
+| 대한민국 (남부)                       | KR        | KRW          |
 | 쿠웨이트                              | KW        | USD          |
 | 키르기스스탄                          | KG        | USD          |
 | 라트비아                              | LV        | EUR          |
@@ -148,7 +148,7 @@ ms.locfileid: "81687579"
 | 튀니지                             | TN        | USD          |
 | 터키                              | TR        | USD          |
 | 투르크메니스탄                        | TM        | USD          |
-| 바티칸 시국 (거룩한 참조)             | VA        | EUR          |
+| 바티칸 시티 (성 참조)             | VA        | EUR          |
 | 미국령 버진 아일랜드 | VI        | USD          |
 | 우간다                              | UG        | USD          |
 | 우크라이나                             | UA        | USD          |
@@ -164,6 +164,6 @@ ms.locfileid: "81687579"
 | 짐바브웨                            | ZW        | USD          |
 |   |   |   |
 
-\*브라질 고객의 경우 CSP(클라우드 솔루션 공급자)를 통한 마켓플레이스에서 USD를 사용합니다.
+\*브라질 고객의 경우, CSP (클라우드 솔루션 공급자)를 통한 Marketplace에서는 USD를 사용 합니다.
 
-\** 무료 및 BYOL VM 이미지만.
+\** Free 및 BYOL VM 이미지만 해당 합니다.

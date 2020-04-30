@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Linux VM에 대한 정책으로 보안 적용
+title: Azure에서 Linux Vm에 대 한 정책으로 보안 적용
 description: Azure Resource Manager Linux Virtual Machine에 정책을 적용하는 방법
 author: mimckitt
 ms.service: virtual-machines-linux
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
 ms.openlocfilehash: 6eb571ccc8c996a06d3bdf2dda25860df4dc930f
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759371"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Linux VM에 정책 적용

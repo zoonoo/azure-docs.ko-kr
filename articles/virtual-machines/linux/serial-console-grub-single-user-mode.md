@@ -1,5 +1,5 @@
 ---
-title: GRUB 및 단일 사용자 모드를 위한 Azure 직렬 콘솔
+title: GRUB 및 단일 사용자 모드용 Azure 직렬 콘솔
 description: Azure 가상 머신에서 Grub에 직렬 콘솔 사용
 services: virtual-machines-linux
 author: asinn826
@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 2aa7110ab4e52fdc5c3804bd27be5f41081fb435
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758496"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스
@@ -178,7 +178,7 @@ Oracle Linux에는 기본적으로 GRUB이 활성화되어 있습니다. GRUB으
 위의 RHEL에 대한 지침에 따라 Oracle Linux에서 단일 사용자 모드를 사용하도록 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 기본 직렬 콘솔 Linux 문서 페이지는 [여기에](serial-console.md)있습니다.
+* 주 직렬 콘솔 Linux 설명서 페이지는 [여기](serial-console.md)에 있습니다.
 * [NMI 및 SysRq 호출](serial-console-nmi-sysrq.md)에 직렬 콘솔 사용
-* 직렬 콘솔은 [Windows](../windows/serial-console.md) VM에서도 사용할 수 있습니다.
-* [부팅 진단에](boot-diagnostics.md) 대해 자세히 알아보기
+* 직렬 콘솔은 [Windows](../windows/serial-console.md) vm 에서도 사용할 수 있습니다.
+* [부트 진단](boot-diagnostics.md) 에 대 한 자세한 정보

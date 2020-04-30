@@ -1,6 +1,6 @@
 ---
-title: 아파치 카프카 레스트 프록시 - Azure HDInsight
-description: Azure HDInsight에서 카프카 REST 프록시를 사용하여 아파치 카프카 작업을 수행하는 방법에 대해 알아봅니다.
+title: Apache Kafka REST 프록시-Azure HDInsight
+description: Azure HDInsight에서 Kafka REST 프록시를 사용 하 여 작업을 Apache Kafka 하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
@@ -8,90 +8,90 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.openlocfilehash: 265e15713f8159e370ef22a197ffe931200a88f7
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758990"
 ---
-# <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>REST 프록시를 사용하여 Azure HDInsight에서 아파치 카프카 클러스터와 상호 작용
+# <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>REST 프록시를 사용 하 여 Azure HDInsight에서 Apache Kafka 클러스터와 상호 작용
 
-카프카 REST 프록시는 HTTP를 통해 REST API를 통해 카프카 클러스터와 상호 작용할 수 있습니다. 이 작업은 Kafka 클라이언트가 가상 네트워크 외부에 있을 수 있음을 의미합니다. 클라이언트는 Kafka 라이브러리에 의존하는 대신 Kafka 클러스터에 대한 간단한 HTTP 호출을 할 수 있습니다. 이 문서에서는 REST 프록시 를 만드는 방법을 보여 드리며 Kafka 클러스터를 사용 했습니다. 또한 REST 프록시를 호출하는 방법을 보여 주는 샘플 코드를 제공합니다.
+Kafka REST 프록시를 사용 하면 HTTP를 통해 REST API를 통해 Kafka 클러스터와 상호 작용할 수 있습니다. 이 작업을 통해 Kafka 클라이언트는 가상 네트워크 외부에 있을 수 있습니다. 클라이언트는 kafka 라이브러리를 사용 하는 대신 Kafka 클러스터에 대 한 간단한 HTTP 호출을 만들 수 있습니다. 이 문서에서는 REST 프록시 사용 Kafka 클러스터를 만드는 방법을 보여 줍니다. 또한 REST 프록시를 호출 하는 방법을 보여 주는 샘플 코드를 제공 합니다.
 
 ## <a name="rest-api-reference"></a>REST API 참조
 
-카프카 REST API에서 지원하는 작업에 대해서는 [HDInsight 카프카 REST 프록시 API 참조를](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy)참조하십시오.
+Kafka REST API에서 지 원하는 작업의 경우 [HDInsight KAFKA REST 프록시 API 참조](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy)를 참조 하세요.
 
 ## <a name="background"></a>배경
 
-![카프카 레스트 프록시 디자인](./media/rest-proxy/rest-proxy-architecture.png)
+![Kafka REST 프록시 디자인](./media/rest-proxy/rest-proxy-architecture.png)
 
-API에서 지원하는 작업의 전체 사양은 [아파치 카프카 REST 프록시 API를](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy)참조하십시오.
+API에서 지원 되는 작업의 전체 사양은 [APACHE KAFKA REST 프록시 API](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy)를 참조 하세요.
 
 ### <a name="rest-proxy-endpoint"></a>REST 프록시 끝점
 
-REST 프록시를 사용 하 여 HDInsight Kafka 클러스터를 만들면 Azure 포털의 HDInsight 클러스터 **속성에서** 찾을 수 있는 클러스터에 대 한 새 공용 끝점이 만들어집니다.
+REST 프록시를 사용 하 여 HDInsight Kafka 클러스터를 만들면 클러스터에 대 한 새 공용 끝점을 만듭니다 .이 끝점은 Azure Portal의 HDInsight 클러스터 **속성** 에서 찾을 수 있습니다.
 
 ### <a name="security"></a>보안
 
-Kafka REST 프록시에 대한 액세스는 Azure Active Directory 보안 그룹으로 관리됩니다. Kafka 클러스터를 만들 때 Azure AD 보안 그룹에 REST 끝점 액세스를 제공합니다. REST 프록시에 액세스해야 하는 Kafka 클라이언트는 그룹 소유자가 이 그룹에 등록해야 합니다. 그룹 소유자는 포털또는 PowerShell을 통해 등록할 수 있습니다.
+Kafka REST 프록시에 대 한 액세스는 Azure Active Directory 보안 그룹을 사용 하 여 관리 됩니다. Kafka 클러스터를 만들 때 REST 끝점 액세스를 사용 하 여 Azure AD 보안 그룹을 제공 합니다. REST 프록시에 대 한 액세스가 필요한 kafka 클라이언트는 그룹 소유자가이 그룹에 등록 해야 합니다. 그룹 소유자는 포털을 통해 또는 PowerShell을 통해 등록할 수 있습니다.
 
-REST 프록시 끝점 요청의 경우 클라이언트 응용 프로그램은 OAuth 토큰을 받아야 합니다. 토큰은 보안 그룹 구성원 자격을 확인하는 데 사용됩니다. OAuth 토큰을 얻는 방법을 보여 주는 클라이언트 [응용 프로그램 샘플을](#client-application-sample) 아래에서 찾습니다. 클라이언트 응용 프로그램은 HTTP 요청에서 OAuth 토큰을 REST 프록시에 전달합니다.
+REST 프록시 끝점 요청의 경우 클라이언트 응용 프로그램은 OAuth 토큰을 가져와야 합니다. 토큰은 보안 그룹 구성원 자격을 확인 하는 데 사용 됩니다. OAuth 토큰을 가져오는 방법을 보여 주는 아래 [클라이언트 응용 프로그램 샘플](#client-application-sample) 찾기 클라이언트 응용 프로그램은 HTTP 요청의 OAuth 토큰을 REST 프록시로 전달 합니다.
 
 > [!NOTE]  
-> [Azure Active Directory 그룹을 사용하여 앱 및 리소스 액세스 관리를](../../active-directory/fundamentals/active-directory-manage-groups.md)참조하여 AAD 보안 그룹에 대해 자세히 알아봅니다. OAuth 토큰의 작동 방식에 대한 자세한 내용은 [OAuth 2.0 코드 권한 부여 흐름을 사용하여 Azure Active Directory 웹 응용 프로그램에 대한 액세스 권한 부여를](../../active-directory/develop/v1-protocols-oauth-code.md)참조하십시오.
+> AAD 보안 그룹에 대해 자세히 알아보려면 [Azure Active Directory 그룹을 사용 하 여 앱 및 리소스 액세스 관리](../../active-directory/fundamentals/active-directory-manage-groups.md)를 참조 하세요. OAuth 토큰의 작동 방식에 대 한 자세한 내용은 [oauth 2.0 코드 부여 흐름을 사용 하 여 Azure Active Directory 웹 응용 프로그램에 대 한 액세스 권한 부여](../../active-directory/develop/v1-protocols-oauth-code.md)를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-1. Azure AD에 애플리케이션을 등록합니다. Kafka REST 프록시와 상호 작용하기 위해 작성하는 클라이언트 응용 프로그램은 이 응용 프로그램의 ID와 비밀을 사용하여 Azure를 인증합니다.
+1. Azure AD에 애플리케이션을 등록합니다. Kafka REST 프록시와 상호 작용 하기 위해 작성 하는 클라이언트 응용 프로그램은이 응용 프로그램의 ID와 암호를 사용 하 여 Azure에 인증 합니다.
 
-1. Azure AD 보안 그룹을 만듭니다. Azure AD에 등록한 응용 프로그램을 그룹의 **구성원으로** 보안 그룹에 추가합니다. 이 보안 그룹은 REST 프록시와 상호 작용할 수 있는 응용 프로그램을 제어하는 데 사용됩니다. Azure AD 그룹 만들기에 대한 자세한 내용은 [Azure Active Directory를 사용하여 기본 그룹 만들기 및 구성원 추가를](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)참조합니다.
+1. Azure AD 보안 그룹을 만듭니다. Azure AD에 등록 한 응용 프로그램을 그룹의 **구성원** 으로 보안 그룹에 추가 합니다. 이 보안 그룹은 REST 프록시와 상호 작용할 수 있는 응용 프로그램을 제어 하는 데 사용 됩니다. Azure AD 그룹을 만드는 방법에 대 한 자세한 내용은 [기본 그룹 만들기 및 Azure Active Directory를 사용 하 여 구성원 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조 하세요.
 
-    그룹이 **보안**형식임을 확인합니다.
+    그룹이 **보안**형식 인지 확인 합니다.
     ![보안 그룹](./media/rest-proxy/rest-proxy-group.png)
 
-    응용 프로그램이 그룹의 구성원임을 확인합니다.
-    ![멤버십 확인](./media/rest-proxy/rest-proxy-membergroup.png)
+    응용 프로그램이 그룹의 구성원 인지 확인 합니다.
+    ![멤버 자격 확인](./media/rest-proxy/rest-proxy-membergroup.png)
 
-## <a name="create-a-kafka-cluster-with-rest-proxy-enabled"></a>REST 프록시를 사용하도록 설정한 Kafka 클러스터 만들기
+## <a name="create-a-kafka-cluster-with-rest-proxy-enabled"></a>REST 프록시를 사용 하는 Kafka 클러스터 만들기
 
-1. Kafka 클러스터 생성 워크플로 동안 **보안 + 네트워킹** 탭에서 **Kafka REST 프록시 사용** 옵션을 확인합니다.
+1. Kafka 클러스터 만들기 워크플로 중 **보안 + 네트워킹** 탭에서 **KAFKA REST 프록시 사용** 옵션을 선택 합니다.
 
-     ![카프카 REST 프록시 활성화 및 보안 그룹 선택](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
+     ![Kafka REST 프록시를 사용 하도록 설정 하 고 보안 그룹을 선택 합니다.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
 
-1. **보안 그룹 선택을 클릭합니다.** 보안 그룹 목록에서 REST 프록시에 액세스할 보안 그룹을 선택합니다. 검색 상자를 사용하여 적절한 보안 그룹을 찾을 수 있습니다. 하단의 **선택** 버튼을 클릭합니다.
+1. **보안 그룹 선택**을 클릭 합니다. 보안 그룹 목록에서 REST 프록시에 액세스 하려는 보안 그룹을 선택 합니다. 검색 상자를 사용 하 여 적절 한 보안 그룹을 찾을 수 있습니다. 맨 아래에 있는 **선택** 단추를 클릭 합니다.
 
-     ![카프카 REST 프록시 활성화 및 보안 그룹 선택](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
+     ![Kafka REST 프록시를 사용 하도록 설정 하 고 보안 그룹을 선택 합니다.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
 
-1. Azure [포털을 사용하여 Azure HDInsight의 아파치 카프카 클러스터 만들기에](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)설명된 대로 클러스터를 만드는 데 남은 단계를 완료합니다.
+1. [Azure Portal를 사용 하 여 Azure HDInsight에서 Apache Kafka 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)에 설명 된 대로 클러스터를 만드는 나머지 단계를 완료 합니다.
 
-1. 클러스터가 만들어지면 클러스터 속성으로 이동하여 Kafka REST 프록시 URL을 기록합니다.
+1. 클러스터가 만들어지면 클러스터 속성으로 이동 하 여 Kafka REST 프록시 URL을 기록 합니다.
 
-     ![나머지 프록시 URL 보기](./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png)
+     ![REST 프록시 URL 보기](./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png)
 
 ## <a name="client-application-sample"></a>클라이언트 응용 프로그램 샘플
 
-아래의 파이썬 코드를 사용하여 Kafka 클러스터의 REST 프록시와 상호 작용할 수 있습니다. 코드 샘플을 사용하려면 다음 단계를 따르십시오.
+아래 python 코드를 사용 하 여 Kafka 클러스터에서 REST 프록시와 상호 작용할 수 있습니다. 코드 샘플을 사용 하려면 다음 단계를 수행 합니다.
 
-1. 파이썬이 설치된 컴퓨터에서 샘플 코드를 저장합니다.
-1. 실행하여 필요한 파이썬 종속성을 설치합니다. `pip3 install msal`
-1. 코드 수정 섹션 **이러한 속성을 구성하고** 환경에 대한 다음 속성을 업데이트합니다.
+1. Python이 설치 된 컴퓨터에 샘플 코드를 저장 합니다.
+1. 을 실행 `pip3 install msal`하 여 필요한 python 종속성을 설치 합니다.
+1. **이러한 속성을 구성** 하는 코드 섹션을 수정 하 고 사용자 환경에 대 한 다음 속성을 업데이트 합니다.
 
-    |속성 |설명 |
+    |속성 |Description |
     |---|---|
-    |테넌트 ID|구독이 있는 Azure 테넌트입니다.|
-    |클라이언트 ID|보안 그룹에 등록한 응용 프로그램의 ID입니다.|
-    |클라이언트 암호|보안 그룹에 등록한 응용 프로그램의 비밀입니다.|
-    |Kafkarest_endpoint|[배포 섹션에](#create-a-kafka-cluster-with-rest-proxy-enabled)설명된 대로 클러스터 개요의 **속성** 탭에서 이 값을 가져옵니다. 다음 형식이어야 합니다.`https://<clustername>-kafkarest.azurehdinsight.net`|
+    |테넌트 ID|구독이 인 Azure 테 넌 트.|
+    |클라이언트 ID|보안 그룹에 등록 한 응용 프로그램의 ID입니다.|
+    |클라이언트 암호|보안 그룹에 등록 한 응용 프로그램에 대 한 암호입니다.|
+    |Kafkarest_endpoint|[배포 섹션](#create-a-kafka-cluster-with-rest-proxy-enabled)에 설명 된 대로 클러스터 개요의 **속성** 탭에서이 값을 가져옵니다. 다음 형식 이어야 합니다.`https://<clustername>-kafkarest.azurehdinsight.net`|
 
-1. 명령줄에서 실행하여 파이썬 파일을 실행합니다.`sudo python3 <filename.py>`
+1. 명령줄에서 다음을 실행 하 여 python 파일을 실행 합니다.`sudo python3 <filename.py>`
 
-이 코드는 다음과 같은 작업을 수행합니다.
+이 코드는 다음 작업을 수행 합니다.
 
-1. Azure AD에서 OAuth 토큰을 가져옵니다.
-1. Kafka REST 프록시에 요청하는 방법을 보여 둡습니다.
+1. Azure AD에서 OAuth 토큰을 인출 합니다.
+1. Kafka REST 프록시에 대 한 요청을 수행 하는 방법을 보여 줍니다.
 
-파이썬에서 OAuth 토큰을 얻는 방법에 대한 자세한 내용은 [파이썬 인증 컨텍스트 클래스를](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python)참조하십시오. Kafka REST `topics` 프록시를 통해 생성되거나 삭제되지 않은 경우 지연이 표시될 수 있습니다. 이 지연은 캐시 새로 고침으로 인해 시작됩니다.
+Python에서 OAuth 토큰을 가져오는 방법에 대 한 자세한 내용은 [Python AuthenticationContext 클래스](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python)를 참조 하세요. Kafka REST 프록시를 `topics` 통해 생성 되거나 삭제 되지 않는 지연 시간이 표시 될 수 있습니다. 이 지연은 캐시 새로 고침으로 인해 발생 합니다.
 
 ```python
 #Required python packages
@@ -138,7 +138,7 @@ response = requests.get(request_url, headers={'Authorization': accessToken})
 print(response.content)
 ```
 
-curl 명령을 사용하여 Azure for REST 프록시에서 토큰을 얻는 방법에 대한 다른 샘플을 아래에서 찾아보십시오. **토큰을 `scope=https://hib.azurehdinsight.net/.default` 받는 동안 지정된 것이 필요합니다.**
+Azure REST 프록시에서 토큰을 가져오는 방법에 대 한 다른 샘플은 말아 넘기기 명령을 사용 합니다. **토큰을 가져오는 동안 지정 `scope=https://hib.azurehdinsight.net/.default` 된가 필요 합니다.**
 
 ```cmd
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&scope=https://hib.azurehdinsight.net/.default' 'https://login.microsoftonline.com/<tenantid>/oauth2/v2.0/token'
@@ -146,4 +146,4 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 ## <a name="next-steps"></a>다음 단계
 
-* [카프카 REST 프록시 API 참조 문서](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/)
+* [Kafka REST 프록시 API 참조 문서](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/)

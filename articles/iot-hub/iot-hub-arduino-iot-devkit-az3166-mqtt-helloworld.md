@@ -1,6 +1,6 @@
 ---
-title: Azure MQTT 클라이언트 라이브러리를 사용하여 MQTT 서버에 메시지 보내기
-description: MQTT 클라이언트 라이브러리를 사용하여 MQTT 브로커에 메시지를 보내는 방법을 알아봅니다. mXChip IoT DevKit을 MQTT 클라이언트로 구성하는 방법도 알아봅니다.
+title: Azure MQTT 클라이언트 라이브러리를 사용 하 여 MQTT 서버에 메시지 보내기
+description: MQTT 클라이언트 라이브러리를 사용 하 여 MQTT broker에 메시지를 보내는 방법에 대해 알아봅니다. 또한 mXChip IoT DevKit를 MQTT 클라이언트로 구성 하는 방법에 대해 알아봅니다.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -11,10 +11,10 @@ ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
 ms.openlocfilehash: 600e64ef5bc3329f0116359066bdcdaf42c13e2e
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733484"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>MQTT 서버에 메시지 보내기
@@ -81,7 +81,7 @@ VS Code에서 다음 절차에 따라 직렬 모니터를 열고 설정합니다
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [스택 오버플로](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [클라우드의 Azure IoT Hub에 IoT DevKit AZ3166 연결](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 * [흔들기, 흔들어서 트윗 찾기](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)

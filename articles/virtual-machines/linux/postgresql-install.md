@@ -1,5 +1,5 @@
 ---
-title: 리눅스 VM에 포스트그레SQL 설정
+title: Linux VM에서 PostgreSQL 설정
 description: Azure Linux 가상 머신에 PostgreSQL을 설치하고 구성하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
 ms.openlocfilehash: d86e42dcc16d108cc82c9d245c7919145cef365f
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759338"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Azure에서 PostgreSQL 설치 및 구성
@@ -58,7 +58,7 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. 문서(HTML 및 맨 페이지) 및 추가 모듈()을`contrib`포함하여 빌드할 수 있는 모든 것을 빌드하려면 다음 명령을 대신 실행합니다.
+5. 설명서 (HTML 및 man 페이지) 및 추가 모듈 (`contrib`)을 비롯 하 여 빌드할 수 있는 모든 항목을 빌드 하려는 경우에는 다음 명령을 대신 실행 합니다.
    
         # gmake install-world
    
@@ -225,7 +225,7 @@ Postgres 데이터베이스를 만듭니다.
 ![이미지](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>테이블의 데이터 업데이트
-테이블의 데이터를 업데이트하려면 다음 명령을 사용합니다. 이 하나에 대 한, 샌디는 참석 확인, 그래서 우리는 "N"에서 "Y"로 RSVP를 변경 합니다.
+테이블의 데이터를 업데이트하려면 다음 명령을 사용합니다. 이 작업의 경우에는 샌에서 참석 하는 것을 확인 했으므로 RSVP를 "N"에서 "Y"로 변경 합니다.
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 

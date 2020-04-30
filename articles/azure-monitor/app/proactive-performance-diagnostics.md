@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.openlocfilehash: 6c5b19c7e03993ef973cd708ed7a6fe89feb01a5
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687685"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
@@ -34,7 +34,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 
 ## <a name="how-do-i-fix-it"></a>이 문제를 어떻게 해결하나요?
 
-알림에는 진단 정보가 포함되어 있습니다. 예를 들면 다음과 같습니다.
+알림에는 진단 정보가 포함되어 있습니다. 아래 예를 살펴보세요.
 
 
 ![다음은 서버 응답 시간 성능 저하 검색의 예입니다.](media/proactive-performance-diagnostics/server_response_time_degradation.png)
@@ -49,7 +49,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 
 ## <a name="configure-email-notifications"></a>전자 메일 알림 구성
 
-스마트 검색 알림은 기본적으로 활성화되어 있으며 애플리케이션 인사이트 리소스가 있는 구독에 [대한 모니터링 리더](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 및 모니터링 [기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 액세스 권한이 있는 사람에게 전송됩니다. 이를 변경하려면 전자 메일 알림에서 **구성**을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
+스마트 검색 알림은 기본적으로 사용 하도록 설정 되며, Application Insights 리소스가 있는 구독에 대 한 [모니터링 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 및 [모니터링 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 액세스 권한이 있는 사용자에 게 전송 됩니다. 이를 변경하려면 전자 메일 알림에서 **구성**을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
   
   ![스마트 검색 설정](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -70,12 +70,12 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 * *나만의 이상 감지 규칙을 만들거나 기존 규칙을 사용자 지정할 수 있나요?*
 
   * 아직은 가능하지 않지만 다음 작업은 가능합니다.
-    * [메트릭이 임계값을](../../azure-monitor/app/alerts.md) 초과할 때를 알려주는 경고를 설정합니다.
-    * 원격 분석을 [데이터베이스또는](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) 직접 분석할 수 있는 [Power BI로](../../azure-monitor/app/export-power-bi.md ) [내보냅니다.](../../azure-monitor/app/export-telemetry.md)
+    * 메트릭이 임계값을 초과할 때이를 알리는 [경고를 설정](../../azure-monitor/app/alerts.md) 합니다.
+    * [원격](../../azure-monitor/app/export-telemetry.md) 분석을 사용자가 직접 분석할 수 있는 [데이터베이스](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) 또는 [Power BI](../../azure-monitor/app/export-power-bi.md )로 내보냅니다.
 * *얼마나 자주 분석합니까?*
 
   * 원격 분석 데이터에 대한 분석은 전날부터 매일 실행됩니다(UTC 표준 시간대로 하루 종일).
-* *그래서이 [메트릭 경고를 대체합니까?](../../azure-monitor/app/alerts.md)*
+* *[메트릭 경고](../../azure-monitor/app/alerts.md)를 대체 하나요?*
   * 아니요.  비정상이라고 간주할만한 동작을 모두 감지한다고 커밋할 수 없습니다.
 
 
@@ -125,11 +125,11 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
   * 작업 시간이 소요된 위치를 파악하는 데 도움이 되는 프로파일러 추적(검색 기간 동안 이 작업에 대해 프로파일러 추적 예제가 수집된 경우 해당 링크를 사용할 수 있음) 
   * 이 작업에 대한 시간 범위/필터를 분석 및 분할할 수 있는 메트릭 탐색기의 성능 보고서
   * 이 호출을 검색하여 특정 호출 속성을 확인합니다.
-  * 오류 보고서 - 카운트 > 1인 경우 이 작업에 성능 저하로 인해 오류가 발생했습니다.
+  * 오류 보고서-count > 1 인 경우이 작업에서 성능 저하에 기여 했을 수 있는 오류가 발생 했음을 의미 합니다.
 
 ## <a name="dependency-duration-degradation"></a>종속성 기간 저하
 
-최신 애플리케이션은 점점 더 마이크로 서비스 설계 접근 방식을 채택하고 있으며, 이는 대부분의 경우 외부 서비스에 대한 강력한 신뢰성으로 이어집니다. 예를 들어 애플리케이션이 일부 데이터 플랫폼에 의존하거나 직접 bot 서비스를 구축하는 경우에도, 일부 Cognitive Services 공급자에 릴레이하여 bot이 좀 더 인간적인 방식으로 상호 작용하도록 설정하고, 일부 데이터 저장소 서비스에 릴레이하여 bot이 답변을 끌어오도록 할 수 있습니다.  
+최신 응용 프로그램은 대부분의 경우 외부 서비스의 안정성을 향상 시키는 마이크로 서비스 디자인 방법을 채택 합니다. 예를 들어 애플리케이션이 일부 데이터 플랫폼에 의존하거나 직접 bot 서비스를 구축하는 경우에도, 일부 Cognitive Services 공급자에 릴레이하여 bot이 좀 더 인간적인 방식으로 상호 작용하도록 설정하고, 일부 데이터 저장소 서비스에 릴레이하여 bot이 답변을 끌어오도록 할 수 있습니다.  
 
 예제 종속성 성능 저하 알림:
 
@@ -160,7 +160,7 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 ![Azure에서 전자 메일 경고의 진단 보고서를 열려면 해당 링크를 클릭합니다.](./media/proactive-performance-diagnostics/03.png)
 
 * **When(시간)** 에는 문제가 감지된 시간이 표시됩니다.
-* **설명하는 내용:**
+* 설명 하는 **내용** :
 
   * 감지된 문제
   * 문제가 되는 동작을 표시하는 이벤트의 특징
@@ -174,7 +174,7 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 이러한 진단 도구를 사용하면 앱에서 원격 분석을 검사할 수 있습니다.
 
 * [프로파일러](profiler.md) 
-* [스냅샷 디버거](../../azure-monitor/app/snapshot-debugger.md)
+* [스냅숏 디버거](../../azure-monitor/app/snapshot-debugger.md)
 * [분석](../../azure-monitor/log-query/get-started-portal.md)
 * [분석 스마트 진단](../../azure-monitor/app/analytics.md)
 

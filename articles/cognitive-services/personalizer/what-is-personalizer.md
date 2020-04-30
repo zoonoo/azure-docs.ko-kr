@@ -4,10 +4,10 @@ description: Personalizer는 사용자에게 표시할 최상의 환경을 선�
 ms.topic: overview
 ms.date: 04/20/2020
 ms.openlocfilehash: 3ae425479d764c0a6bf6c63bdd54a964c48af8b6
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687254"
 ---
 # <a name="what-is-personalizer"></a>Personalizer란?

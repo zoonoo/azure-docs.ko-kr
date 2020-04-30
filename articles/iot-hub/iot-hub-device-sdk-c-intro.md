@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: b9b27bb142cb729536a3b7a561ed8b8ff5e0ccf5
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81731316"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C용 Azure IoT 디바이스 SDK
@@ -24,7 +24,7 @@ ms.locfileid: "81731316"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-C용 Azure IoT 디바이스 SDK는 이식성을 최대화하기 위해 ANSI C(C99)로 작성됩니다. 이 기능을 사용하면 라이브러리가 여러 플랫폼 및 장치에서 작동하기에 적합하며, 특히 디스크 및 메모리 공간을 최소화하는 것이 우선 순위인 경우 유용합니다.
+C용 Azure IoT 디바이스 SDK는 이식성을 최대화하기 위해 ANSI C(C99)로 작성됩니다. 이 기능을 사용 하면 라이브러리는 여러 플랫폼과 장치에서 작동 하는 데 적합 합니다. 특히 디스크 및 메모리 사용 공간을 최소화 하는 것이 우선 순위입니다.
 
 이 SDK는 광범위한 플랫폼에서 테스트되었습니다(자세한 내용은 [IoT용 Azure Certified 디바이스 카탈로그](https://catalog.azureiotsolutions.com/) 참조). 이 문서에는 Windows 플랫폼에서 실행되는 샘플 코드 연습이 포함되어 있지만, 여기서 설명하는 코드는 지원되는 플랫폼 범위 전반에 걸쳐 정확히 동일합니다.
 
@@ -44,9 +44,9 @@ GitHub 리포지토리에서 [**C용 Azure IoT 디바이스 SDK**](https://githu
 
 * SDK의 핵심 구현은 SDK의 최하위 API 계층인 **IoTHubClient** 라이브러리의 구현을 포함하고 있는 **iothub\_client** 폴더에 있습니다. **IoTHubClient** 라이브러리에는 IoT Hub와 메시지를 보내고 받기 위한 원시 메시징을 구현하는 API가 포함되어 있습니다. 이 라이브러리를 사용할 때 메시지 직렬화를 구현해야 하며 IoT Hub와 통신하기 위한 기타 세부 사항도 직접 처리해야 합니다.
 
-* **serializer** 폴더에는 클라이언트 라이브러리를 사용하여 데이터를 Azure IoT Hub로 보내기 전에 직렬화하는 방법을 보여 주는 도우미 함수와 샘플이 있습니다. serializer(직렬 변환기)는 반드시 사용할 필요가 없으며, 편의상 제공되는 것입니다. **serializer** 라이브러리를 사용하려면 IoT Hub로 보낼 데이터와 IoT Hub에서 받으려는 메시지를 지정하는 모델을 정의합니다. 모델이 정의되면 SDK에서 API 표면을 제공하므로 직렬화 세부 정보에 대해 고민하지 않고도 디바이스-클라우드 및 클라우드-디바이스 메시지 작업을 쉽게 수행할 수 있습니다. 라이브러리는 MQTT 및 AMQP와 같은 프로토콜을 사용하여 전송을 구현하는 다른 오픈 소스 라이브러리에 따라 달라집니다.
+* **serializer** 폴더에는 클라이언트 라이브러리를 사용하여 데이터를 Azure IoT Hub로 보내기 전에 직렬화하는 방법을 보여 주는 도우미 함수와 샘플이 있습니다. serializer(직렬 변환기)는 반드시 사용할 필요가 없으며, 편의상 제공되는 것입니다. **serializer** 라이브러리를 사용하려면 IoT Hub로 보낼 데이터와 IoT Hub에서 받으려는 메시지를 지정하는 모델을 정의합니다. 모델이 정의되면 SDK에서 API 표면을 제공하므로 직렬화 세부 정보에 대해 고민하지 않고도 디바이스-클라우드 및 클라우드-디바이스 메시지 작업을 쉽게 수행할 수 있습니다. 라이브러리는 MQTT 및 AMQP와 같은 프로토콜을 사용 하 여 전송을 구현 하는 다른 오픈 소스 라이브러리에 의존 합니다.
 
-* **IoTHubClient** 라이브러리는 다른 오픈 소스 라이브러리에 따라 달라집니다.
+* **IoTHubClient** 라이브러리는 다른 오픈 소스 라이브러리에 종속 됩니다.
 
   * [Azure C 공유 유틸리티](https://github.com/Azure/azure-c-shared-utility) 라이브러리 - 여러 Azure 관련 C SDK에서 필요한 기본 작업(예: 문자열, 목록 조작, IO 등)에 공통 기능을 제공합니다.
 
@@ -74,15 +74,15 @@ C 용 Azure IoT 디바이스 SDK에서 샘플을 실행하려면 먼저 Azure �
 
 이제 샘플 원본 코드가 있으므로 다음으로 수행할 작업은 디바이스 자격 증명 집합을 가져오는 것입니다. IoT Hub에 액세스할 수 있는 디바이스의 경우 디바이스를 IoT Hub ID 레지스트리에 먼저 추가해야 합니다. 디바이스를 추가하면 디바이스를 IoT Hub에 연결하는 데 필요한 디바이스 자격 증명 집합을 얻게 됩니다. 다음 섹션에서 살펴볼 샘플 애플리케이션에서는 이러한 자격 증명에 대해 **디바이스 연결 문자열** 형식을 필요로 합니다.
 
-IoT 허브를 관리하는 데 도움이 되는 몇 가지 오픈 소스 도구가 있습니다.
+IoT hub를 관리 하는 데 도움이 되는 몇 가지 오픈 소스 도구가 있습니다.
 
-* [Azure IoT 탐색기라는](https://github.com/Azure/azure-iot-explorer)Windows 응용 프로그램입니다.
+* [Azure IoT 탐색기](https://github.com/Azure/azure-iot-explorer)라는 Windows 응용 프로그램입니다.
 
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)라는 플랫폼 간 Visual Studio Code 확장
 
 * [Azure CLI에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)이라고 하는 플랫폼 간 Python CLI 도구
 
-이 자습서에서는 그래픽 *디바이스 탐색기* 도구를 사용합니다. VS Code에서 개발하는 경우 *Azure IoT Tools for VS Code*를 사용할 수 있습니다. CLI 도구를 사용하려는 경우 *Azure CLI 2.0* 도구에 IoT 확장을 사용할 수도 있습니다.
+이 자습서에서는 그래픽 *디바이스 탐색기* 도구를 사용합니다. VS Code에서 개발하는 경우 *Azure IoT Tools for VS Code*를 사용할 수 있습니다. CLI 도구를 사용 하려는 경우 *Azure CLI 2.0 도구에 대 한 IoT 확장* 을 사용할 수도 있습니다.
 
 디바이스 탐색기 도구는 Azure IoT 서비스 라이브러리를 사용하여 IoT Hub에서 디바이스 추가를 포함하여 다양한 기능을 수행합니다. 디바이스 탐색기 도구를 사용하여 디바이스를 추가하면 디바이스에 대한 연결 문자열을 얻습니다. 이 연결 문자열은 샘플 애플리케이션을 실행하는 데 필요합니다.
 
@@ -114,7 +114,7 @@ IoT 허브를 관리하는 데 도움이 되는 몇 가지 오픈 소스 도구�
 
 1. **선택한 디바이스에 대한 연결 문자열 복사**를 선택하면 디바이스 연결 문자열이 클립보드에 복사됩니다. 디바이스 연결 문자열의 복사본을 보관하세요. 다음 섹션에서 설명하는 샘플 애플리케이션을 실행할 때 필요합니다.
 
-위 단계를 완료하면 일부 코드를 실행할 준비가 된 것입니다. 대부분의 샘플에는 주요 원본 파일의 맨 위에 연결 문자열을 입력할 수 있는 상수가 포함되어 있습니다. 예를 들어 **iothub_client\_샘플\_iothub_convenience_sample** 응용 프로그램에서 해당 줄은 다음과 같이 나타납니다.
+위 단계를 완료하면 일부 코드를 실행할 준비가 된 것입니다. 대부분의 샘플에는 주요 원본 파일의 맨 위에 연결 문자열을 입력할 수 있는 상수가 포함되어 있습니다. 예를 들어 **\_iothub_client 샘플\_iothub_convenience_sample** 응용 프로그램의 해당 줄은 다음과 같이 표시 됩니다.
 
 ```c
 static const char* connectionString = "[device connection string]";
@@ -124,12 +124,12 @@ static const char* connectionString = "[device connection string]";
 
 [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) 리포지토리의 **iothub\_client** 폴더 내에는 **iothub\_client\_sample\_mqtt**라는 애플리케이션이 포함된 **samples** 폴더가 있습니다.
 
-응용 프로그램에 **\_iothub_convenience_sample\_iothub_client 샘플의** Windows 버전에는 다음과 같은 Visual Studio 솔루션이 포함되어 있습니다.
+**\_Iothub_client 샘플\_iothub_convenience_sample** 응용 프로그램의 Windows 버전에는 다음과 같은 Visual Studio 솔루션이 포함 되어 있습니다.
 
   ![Visual Studio 솔루션 탐색기](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
 > [!NOTE]
-> Visual Studio에서 프로젝트를 최신 버전으로 리타게팅하도록 요청하는 경우 프롬프트를 수락합니다.
+> Visual Studio에서 프로젝트 대상을 최신 버전으로 변경 하도록 요청 하는 경우 메시지를 수락 합니다.
 
 이 솔루션에는 다음의 단일 프로젝트가 포함됩니다. 이 솔루션에 설치되어 있는 4개의 NuGet 패키지는 다음과 같습니다.
 
@@ -140,14 +140,14 @@ static const char* connectionString = "[device connection string]";
 
 SDK를 사용하여 작업하는 경우 항상 **Microsoft.Azure.C.SharedUtility** 패키지가 필요합니다. 이 샘플은 MQTT 프로토콜을 사용하므로 **Microsoft.Azure.umqtt** 및 **Microsoft.Azure.IoTHub.MqttTransport** 패키지(AMQP 및 HTTPS에 해당하는 패키지가 있음)도 포함해야 합니다. 이 샘플에서는 **IoTHubClient** 라이브러리를 사용하므로 솔루션에 **Microsoft.Azure.IoTHub.IoTHubClient** 패키지도 포함해야 합니다.
 
-iothub_client 샘플 iothub_convenience_sample 소스 파일에서 샘플 응용 프로그램에 대한 **구현을\_\_** 찾을 수 있습니다.
+**\_Iothub_client 샘플\_iothub_convenience_sample** 소스 파일에서 샘플 응용 프로그램에 대 한 구현을 찾을 수 있습니다.
 
 다음 단계에서는 이 샘플 애플리케이션을 사용하여 **IoTHubClient** 라이브러리를 사용하는 데 필요한 내용을 안내합니다.
 
 ### <a name="initialize-the-library"></a>라이브러리 초기화
 
 > [!NOTE]
-> 라이브러리 작업을 시작하기 전에 일부 플랫폼별 초기화를 수행해야 할 수도 있습니다. 예를 들어 Linux에서 AMQP를 사용할 계획인 경우 OpenSSL 라이브러리를 초기화해야 합니다. [GitHub 리포지토리의](https://github.com/Azure/azure-iot-sdk-c) 샘플은 클라이언트가 시작될 때 유틸리티 함수 **플랫폼\_초기화를** 호출하고 종료하기 전에 **플랫폼\_deinit** 함수를 호출합니다. 이러한 함수는 "platform.h" 헤더 파일에 선언되어 있습니다. [리포지토리](https://github.com/Azure/azure-iot-sdk-c)에서 대상 플랫폼에 대해 이러한 함수의 정의를 확인하여 클라이언트에 플랫폼별 초기화 코드를 포함해야 하는지 여부를 결정합니다.
+> 라이브러리 작업을 시작하기 전에 일부 플랫폼별 초기화를 수행해야 할 수도 있습니다. 예를 들어 Linux에서 AMQP를 사용할 계획인 경우 OpenSSL 라이브러리를 초기화해야 합니다. [GitHub 리포지토리의](https://github.com/Azure/azure-iot-sdk-c) 샘플은 클라이언트가 시작 될 때 유틸리티 함수 **플랫폼\_init** 를 호출 하 고, 종료 하기 **전에\_platform deinit** 함수를 호출 합니다. 이러한 함수는 "platform.h" 헤더 파일에 선언되어 있습니다. [리포지토리](https://github.com/Azure/azure-iot-sdk-c)에서 대상 플랫폼에 대해 이러한 함수의 정의를 확인하여 클라이언트에 플랫폼별 초기화 코드를 포함해야 하는지 여부를 결정합니다.
 
 라이브러리 작업을 시작하려면 먼저 IoT Hub 클라이언트 핸들을 할당합니다.
 
@@ -227,7 +227,7 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, v
 }
 ```
 
-메시지를 완료하면 **IoTHubMessage\_Destroy** 함수에 대한 호출에 유의하십시오. 이 함수는 메시지를 만들 때 할당된 리소스를 해제합니다.
+메시지를 사용 하 여 작업을 완료 하면 **IoTHubMessage\_제거** 함수에 대 한 호출을 확인 합니다. 이 함수는 메시지를 만들 때 할당된 리소스를 해제합니다.
 
 ### <a name="receive-messages"></a>메시지 받기
 
@@ -342,7 +342,7 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
   ![mqtt 샘플용 Visual Studio 솔루션](./media/iot-hub-device-sdk-c-intro/simplesample_mqtt.png)
 
 > [!NOTE]
-> Visual Studio에서 프로젝트를 최신 버전으로 리타게팅하도록 요청하는 경우 프롬프트를 수락합니다.
+> Visual Studio에서 프로젝트 대상을 최신 버전으로 변경 하도록 요청 하는 경우 메시지를 수락 합니다.
 
 이전 샘플과 마찬가지로 이 하나에는 여러 NuGet 패키지가 포함됩니다.
 
@@ -354,7 +354,7 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
 
 이전 샘플에서 대부분의 패키지를 살펴보았지만 **Microsoft.Azure.IoTHub.Serializer**는 새로운 패키지입니다. 이 패키지는 **serializer** 라이브러리를 사용할 때 필요합니다.
 
-iothub_client **\_샘플 iothub_convenience_sample\_** 파일에서 샘플 응용 프로그램의 구현을 찾을 수 있습니다.
+**\_Iothub_client 샘플\_iothub_convenience_sample** 파일에서 샘플 응용 프로그램의 구현을 찾을 수 있습니다.
 
 다음 섹션에서는 이 샘플의 주요 부분을 안내합니다.
 
@@ -395,7 +395,7 @@ else
 
 ### <a name="define-the-model"></a>모델 정의
 
-**serializer** 라이브러리의 모델은 디바이스에서 IoT Hub로 보낼 수 있는 이벤트와 모델링 언어로 *작업*(action)이라고 하는 받을 수 있는 메시지를 정의합니다. 샘플 응용 프로그램에서 **iothub_client\_샘플 iothub_convenience_sample\_** C 매크로 집합을 사용하여 모델을 정의합니다.
+**serializer** 라이브러리의 모델은 디바이스에서 IoT Hub로 보낼 수 있는 이벤트와 모델링 언어로 *작업*(action)이라고 하는 받을 수 있는 메시지를 정의합니다. **\_Iothub_client 샘플\_iothub_convenience_sample** 샘플 응용 프로그램에서와 같이 C 매크로 집합을 사용 하 여 모델을 정의 합니다.
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);
@@ -579,7 +579,7 @@ serializer_deinit();
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 **Azure IoT 장치 SDK에서 C에**대한 라이브러리를 사용하는 기본 사항에 대해 다루었습니다. SDK, 아키텍처 및 Windows 샘플 작업을 시작하는 방법을 이해할 수 있는 충분한 정보를 제공했습니다. 다음 문서에서는 [IoTHubClient 라이브러리에 대한 자세한 정보](iot-hub-device-sdk-c-iothubclient.md)를 설명하여 SDK를 계속 설명합니다.
+이 문서에서는 **C 용 Azure IoT 장치 SDK**에서 라이브러리를 사용 하는 기본 사항에 대해 설명 했습니다. SDK에 포함 된 내용, 아키텍처 및 Windows 샘플 작업을 시작 하는 방법을 이해 하는 데 충분 한 정보를 제공 합니다. 다음 문서에서는 [IoTHubClient 라이브러리에 대한 자세한 정보](iot-hub-device-sdk-c-iothubclient.md)를 설명하여 SDK를 계속 설명합니다.
 
 IoT Hub를 개발하는 방법에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 

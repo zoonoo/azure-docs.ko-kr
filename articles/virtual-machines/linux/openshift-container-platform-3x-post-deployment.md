@@ -1,6 +1,6 @@
 ---
-title: Azure 배포 후 작업에서 OpenShift 컨테이너 플랫폼 3.11
-description: OpenShift 컨테이너 플랫폼 3.11 클러스터가 배포된 후의 추가 작업이 배포되었습니다.
+title: Azure 배포 후 작업의 OpenShift 컨테이너 플랫폼 3.11
+description: OpenShift Container Platform 3.11 클러스터가 배포 된 후에 대 한 추가 작업
 author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 8d76588ae9124d34902659cc0149063400b6e766
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759526"
 ---
 # <a name="post-deployment-tasks"></a>배포 후 작업
@@ -21,7 +21,7 @@ ms.locfileid: "81759526"
 OpenShift 클러스터를 배포한 후에는 추가 항목을 구성할 수 있습니다. 이 문서에서는 다음 내용을 설명합니다.
 
 - Azure AD(Azure Active Directory)를 사용하여 Single Sign-On을 구성하는 방법
-- OpenShift를 모니터링하도록 Azure 모니터 로그를 구성하는 방법
+- OpenShift를 모니터링 하도록 Azure Monitor 로그를 구성 하는 방법
 - 메트릭 및 로깅을 구성하는 방법
 - OSBA(Open Service Broker for Azure)를 설치하는 방법
 
@@ -34,9 +34,9 @@ Azure Active Directory를 인증에 사용하려면 먼저 Azure AD 앱 등록�
 이 단계에서는 Azure CLI를 사용하여 앱 등록을 만들고 GUI(포털)를 사용하여 권한을 설정합니다. 앱 등록을 만들려면 다음 5가지 정보가 필요합니다.
 
 - 표시 이름: 앱 등록 이름(예: OCPAzureAD)
-- 홈 페이지: OpenShift 콘솔 URL(예: `https://masterdns343khhde.westus.cloudapp.azure.com/console`)
-- 식별자 URI: OpenShift 콘솔 URL(예: `https://masterdns343khhde.westus.cloudapp.azure.com/console`)
-- 답장 URL: 마스터 공개 URL 및 앱 `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD`등록 이름(예:)
+- 홈페이지: OpenShift 콘솔 URL (예: `https://masterdns343khhde.westus.cloudapp.azure.com/console`)
+- 식별자 URI: OpenShift 콘솔 URL (예: `https://masterdns343khhde.westus.cloudapp.azure.com/console`)
+- 회신 URL: 마스터 공용 URL 및 앱 등록 이름 (예: `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD`)
 - 암호: 보안 암호(강력한 암호 사용)
 
 다음 예에서는 위 정보를 사용하여 앱 등록을 만듭니다.
@@ -69,7 +69,7 @@ az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.
 
 Azure Portal에서 다음을 수행합니다.
 
-1. **Azure Active 디렉터리** > **앱 등록을**선택합니다.
+1. **Azure Active Directory** > **앱 등록**을 선택 합니다.
 2. 앱 등록(예: OCPAzureAD)을 검색합니다.
 3. 결과에서 앱 등록을 클릭합니다.
 4. **설정**에서 **필요한 권한**을 선택합니다.
@@ -85,7 +85,7 @@ Azure Portal에서 다음을 수행합니다.
 
    ![앱 등록 액세스](media/openshift-post-deployment/app-registration-access.png)
 
-8. **완료** 를 선택합니다.
+8. **완료**를 선택합니다.
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Azure AD 인증을 위한 OpenShift 구성
 
@@ -152,14 +152,14 @@ sudo /usr/local/bin/master-restart controllers
 
 OpenShift 콘솔에 htpasswd_auth 및 [앱 등록]이라는 두 가지 인증 옵션이 표시됩니다.
 
-## <a name="monitor-openshift-with-azure-monitor-logs"></a>Azure 모니터 로그를 통해 OpenShift 모니터링
+## <a name="monitor-openshift-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 OpenShift 모니터링
 
 OpenShift에 Log Analytics 에이전트를 추가하는 방법에는 세 가지가 있습니다.
 - 각 OpenShift 노드에 직접 Linux용 Log Analytics 에이전트 설치
-- 각 오픈시프트 노드에서 Azure 모니터 VM 확장 사용
-- 로그 분석 에이전트를 OpenShift 데몬 세트로 설치
+- 각 OpenShift 노드에서 Azure Monitor VM 확장을 사용 하도록 설정
+- Log Analytics 에이전트를 OpenShift 디먼 집합으로 설치 합니다.
 
-자세한 내용은 전체 [지침을](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift) 참조하십시오.
+자세한 내용은 전체 [지침](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift) 을 읽어 보세요.
 
 ## <a name="configure-metrics-and-logging"></a>메트릭 및 로깅 구성
 
@@ -199,7 +199,7 @@ Open Service Broker for Azure 또는 OSBA를 사용하여 OpenShift에서 직접
 
 OpenShift에 OSBA를 설치하려면 https://github.com/Azure/open-service-broker-azure#openshift-project-template의 지침을 따르세요. 
 > [!NOTE]
-> 전체 설치 섹션이 아닌 OpenShift 프로젝트 템플릿 섹션의 단계만 완료합니다.
+> OpenShift 프로젝트 템플릿 섹션의 단계를 완료 하 고 전체 설치 섹션은 완료 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

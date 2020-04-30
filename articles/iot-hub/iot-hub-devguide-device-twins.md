@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/01/2020
 ms.custom: mqtt
 ms.openlocfilehash: 3bec3d19ed68b7eb8bb50baa8f6c11135ef778cc
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81731462"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 디바이스 쌍 이해 및 사용
@@ -55,11 +55,11 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 * **태그**. 솔루션 백 엔드에서 읽고 쓸 수 있는 JSON 문서의 섹션입니다. 태그는 디바이스 앱에 표시되지 않습니다.
 
-* **원하는 속성**. reported 속성과 함께 디바이스 구성 또는 상황을 동기화하는 데 사용됩니다. 솔루션 백 엔드는 원하는 속성을 설정할 수 있으며 디바이스 앱에서 이를 읽을 수 있습니다. 디바이스 앱에서도 desired 속성의 변경 내용 알림을 수신할 수 있습니다.
+* **Desired 속성**. reported 속성과 함께 디바이스 구성 또는 상황을 동기화하는 데 사용됩니다. 솔루션 백 엔드는 원하는 속성을 설정할 수 있으며 디바이스 앱에서 이를 읽을 수 있습니다. 디바이스 앱에서도 desired 속성의 변경 내용 알림을 수신할 수 있습니다.
 
 * **reported 속성**. desired 속성과 함께 디바이스 구성 또는 상황을 동기화하는 데 사용됩니다. 디바이스 앱은 reported 속성을 설정할 수 있으며 솔루션 백 엔드는 이를 읽고 쿼리할 수 있습니다.
 
-* **디바이스 ID 속성**. 디바이스 쌍 JSON 문서의 루트에는 [ID 레지스트리](iot-hub-devguide-identity-registry.md)에 포함된 해당 디바이스 ID의 읽기 전용 속성이 포함됩니다. 속성및는 `connectionStateUpdatedTime` `generationId` 포함되지 않습니다.
+* **디바이스 ID 속성**. 디바이스 쌍 JSON 문서의 루트에는 [ID 레지스트리](iot-hub-devguide-identity-registry.md)에 포함된 해당 디바이스 ID의 읽기 전용 속성이 포함됩니다. 및 `connectionStateUpdatedTime` `generationId` 속성은 포함 되지 않습니다.
 
 ![디바이스 쌍 속성의 스크린샷](./media/iot-hub-devguide-device-twins/twin.png)
 
@@ -120,7 +120,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 ### <a name="desired-property-example"></a>desired 속성 예제
 
-이전 예제에서 `telemetryConfig` 디바이스 쌍 desired 및 reported 속성은 솔루션 백 엔드 및 디바이스 앱에서 이 디바이스의 원격 분석 구성을 동기화하는 데 사용됩니다. 예를 들어:
+이전 예제에서 `telemetryConfig` 디바이스 쌍 desired 및 reported 속성은 솔루션 백 엔드 및 디바이스 앱에서 이 디바이스의 원격 분석 구성을 동기화하는 데 사용됩니다. 다음은 그 예입니다.
 
 1. 솔루션 백 엔드는 desired 구성 값으로 desired 속성을 설정합니다. 다음은 desired 속성 집합이 포함된 문서의 일부분입니다.
 
@@ -183,7 +183,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
   - 속성
 
-    | 이름 | 값 |
+    | 속성 | 값 |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -192,14 +192,14 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
     deviceId | 디바이스의 ID |
     hubName | IoT Hub의 이름 |
     operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 작업의 타임스탬프 |
-    iothub-message-schema | 트윈 변경 알림 |
+    iothub-message-schema | twinChangeNotification |
     opType | "replaceTwin" 또는 "updateTwin" |
 
     메시지 시스템 속성 앞에 `$` 기호를 붙입니다.
 
   - 본문
         
-    이 섹션은 JSON 형식으로 모든 쌍 변경 내용을 포함합니다. 태그, properties.reported, properties.desired, 그리고 "$metadata" 요소를 포함 하는 모든 두 개의 섹션을 포함할 수 있는 차이 와 함께 패치와 동일한 형식을 사용 합니다. 예를 들면 다음과 같습니다.
+    이 섹션은 JSON 형식으로 모든 쌍 변경 내용을 포함합니다. 패치와 동일한 형식을 사용 합니다. 여기에는 모든 쌍 섹션 (태그, 속성 보고 됨, 속성)이 포함 되 고 "$metadata" 요소가 포함 되어 있다는 차이점이 있습니다. 예를 들면 다음과 같습니다.
 
     ```json
     {
@@ -232,7 +232,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 디바이스 앱은 다음과 같은 원자성 작업을 사용하여 디바이스 쌍에서 작동합니다.
 
-* **디바이스 쌍 검색** 이 작업은 현재 연결된 장치에 대한 장치 쌍 문서(원하는 및 보고된 시스템 속성 포함)를 반환합니다. (태그는 장치 앱에 표시되지 않습니다.)
+* **디바이스 쌍 검색** 이 작업은 현재 연결 된 장치에 대 한 장치 쌍 문서 (desired 및 보고 된 시스템 속성 포함)를 반환 합니다. 태그는 장치 앱에 표시 되지 않습니다.
 
 * **reported 속성 부분 업데이트**. 현재 연결된 디바이스의 reported 속성을 부분적으로 업데이트할 수 있는 작업입니다. 이 작업은 desired 속성의 부분 업데이트를 사용하는 솔루션 백 엔드와 동일한 JSON 업데이트 형식을 사용합니다.
 
@@ -246,15 +246,15 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 태그, desired 속성 및 reported 속성은 JSON 개체이며 다음과 같은 제한 사항이 있습니다.
 
-* **키**: JSON 개체의 모든 키는 UTF-8 인코딩, 대/소문자 구분 및 최대 1KB 길이입니다. 허용되는 문자에서 유니코드 제어 문자(세그먼트 C0 및 C1) 및 `.`, `$` 및 SP는 제외됩니다.
+* **키**: JSON 개체의 모든 키는 u t f-8로 인코드 되 고 대/소문자를 구분 하며 길이가 최대 1kb입니다. 허용되는 문자에서 유니코드 제어 문자(세그먼트 C0 및 C1) 및 `.`, `$` 및 SP는 제외됩니다.
 
-* **값**: JSON 개체의 모든 값은 부울, 숫자, 문자열, 개체와 같은 JSON 형식일 수 있습니다. 배열은 허용되지 않습니다.
+* **값**: json 개체의 모든 값은 부울, 숫자, 문자열, 개체 등의 json 형식일 수 있습니다. 배열은 허용되지 않습니다.
 
-    * 정수는 최소 값 -450359962770496및 최대 값 4503596627370495를 가질 수 있습니다.
+    * 정수 값은-4503599627370496이 고 최대값은 4503599627370495이 될 수 있습니다.
 
-    * 문자열 값은 UTF-8 인코딩되며 최대 길이는 4KB입니다.
+    * 문자열 값은 u t f-8로 인코딩되어 최대 4gb의 길이를 가질 수 있습니다.
 
-* **깊이**: 태그, 원하는 속성 및 보고된 속성에 있는 JSON 개체의 최대 깊이는 10입니다. 예를 들어 다음 개체는 유효합니다.
+* **깊이**: 태그, desired 속성 및 보고 된 속성에서 JSON 개체의 최대 깊이는 10입니다. 예를 들어 다음 개체는 유효 합니다.
 
    ```json
    {
@@ -288,27 +288,27 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 ## <a name="device-twin-size"></a>디바이스 쌍 크기
 
-IoT Hub는 값에 대해 8KB `tags`크기 제한을 적용하고 및 `properties/reported`의 값에 `properties/desired` 각각 32KB 크기 제한을 적용합니다. 이러한 합계는 " `$etag` `$version`및 `$metadata/$lastUpdated`및 와 같은 읽기 전용 요소를 제외합니다.
+IoT Hub는의 `tags`값에 8kb 크기 제한을 적용 하 고 및 `properties/desired` `properties/reported`의 값에 32 kb 크기 제한을 적용 합니다. 이러한 합계는 `$etag`, `$version`, 등의 읽기 전용 요소를 제외 하 `$metadata/$lastUpdated`고,
 
-트윈 크기는 다음과 같이 계산됩니다.
+쌍 크기는 다음과 같이 계산 됩니다.
 
-* JSON 문서의 각 속성에 대해 IoT Hub는 속성의 키와 값의 길이를 누적 계산하고 추가합니다.
+* JSON 문서의 각 속성에 대해 IoT Hub는 누적 계산을 통해 속성의 키와 값의 길이를 추가 합니다.
 
-* 속성 키는 UTF8 인코딩된 문자열로 간주됩니다.
+* 속성 키는 UTF8로 인코딩된 문자열로 간주 됩니다.
 
-* 단순 속성 값은 UTF8 인코딩된 문자열, 숫자 값(8바이트) 또는 부울 값(4바이트)으로 간주됩니다.
+* 단순 속성 값은 UTF8로 인코딩된 문자열, 숫자 값 (8 바이트) 또는 부울 값 (4 바이트)으로 간주 됩니다.
 
-* UTF8 인코딩된 문자열의 크기는 UNICODE 제어 문자(세그먼트 C0 및 C1)를 제외한 모든 문자를 계산하여 계산됩니다.
+* UTF8로 인코딩된 문자열의 크기는 유니코드 제어 문자 (세그먼트 C0 및 C1)를 제외한 모든 문자를 계산 하 여 계산 됩니다.
 
-* 복합 속성 값(중첩된 개체)은 포함된 속성 키 및 속성 값의 집계 크기를 기반으로 계산됩니다.
+* 복합 속성 값 (중첩 된 개체)은 속성 키 및 속성 값이 포함 된 속성 값의 집계 크기를 기준으로 계산 됩니다.
 
-IoT Hub는 `tags`에러로 거부하여 의 `properties/desired`크기를 늘리거나 `properties/reported` 문서의 크기를 제한 이상으로 늘리는 모든 작업을 거부합니다.
+IoT Hub는 `tags`, `properties/desired`또는 `properties/reported` 문서 크기를 제한 보다 크게 증가 시키는 모든 작업을 오류와 함께 거부 합니다.
 
 ## <a name="device-twin-metadata"></a>디바이스 쌍 메타데이터
 
 IoT Hub는 디바이스 쌍 desired 또는 reported 속성의 각 JSON 개체에 대한 마지막 업데이트의 타임스탬프를 유지합니다. 타임스탬프는 UTC 형식이며 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 형식 `YYYY-MM-DDTHH:MM:SS.mmmZ`로 인코딩됩니다.
 
-예를 들어:
+다음은 그 예입니다.
 
 ```json
 {
@@ -360,7 +360,7 @@ IoT Hub는 디바이스 쌍 desired 또는 reported 속성의 각 JSON 개체에
 ## <a name="optimistic-concurrency"></a>낙관적 동시성
 
 태그, desired 및 reported 속성은 모두 낙관적 동시성을 지원합니다.
-태그에는 태그의 JSON 표현을 나타내는 [RFC7232에](https://tools.ietf.org/html/rfc7232)따라 ETag가 있습니다. 일관성을 보장하기 위해 솔루션 백 엔드에서 조건부 업데이트 작업에 ETag를 사용할 수 있습니다.
+태그에는 태그의 JSON 표현을 나타내는 ETag ( [RFC7232](https://tools.ietf.org/html/rfc7232))가 있습니다. 일관성을 보장하기 위해 솔루션 백 엔드에서 조건부 업데이트 작업에 ETag를 사용할 수 있습니다.
 
 디바이스 쌍 desired 및 reported 속성에는 ETag가 없지만 증분될 수 있는 `$version` 값이 있습니다. ETag와 마찬가지로 버전은 업데이트의 일관성을 유지하는 파티를 업데이트하여 사용할 수 있습니다. 예를 들어 reported 속성에 대한 디바이스 앱이나 desired 속성에 대한 솔루션 백 엔드입니다.
 
@@ -405,5 +405,5 @@ IoT Hub는 연결되지 않은 디바이스에 대한 desired 속성 업데이�
 이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 참조하세요.
 
 * [디바이스 쌍을 사용하는 방법](iot-hub-node-node-twin-getstarted.md)
-* [장치 쌍 속성 사용 방법](tutorial-device-twins.md)
+* [장치 쌍 속성을 사용 하는 방법](tutorial-device-twins.md)
 * [VS Code용 Azure IoT Tools를 사용하여 디바이스 관리](iot-hub-device-management-iot-toolkit.md)

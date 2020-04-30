@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 3e7f31371a0582a6f4941efbfa0087119278d2d1
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81729126"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>참조 - 통신 프로토콜 선택
@@ -42,7 +42,7 @@ IoT Hub를 사용하면 디바이스가 디바이스 쪽 통신에 다음 프로
 
 * **클라우드-디바이스 패턴**. HTTPS에는 서버 푸시를 구현하는 효율적인 방법이 없습니다. 이와 같이 HTTPS를 사용하는 경우 디바이스는 클라우드-디바이스 메시지에 IoT Hub를 폴링합니다. 이 방법은 디바이스와 IoT Hub 모두에 비효율적입니다. 현재 HTTPS 지침에 따르면 각 디바이스는 25분 이상 간격으로 메시지를 폴링해야 합니다. MQTT 및 AMQP는 클라우드-디바이스 메시지를 받을 때 서버 푸시를 지원합니다. 따라서 IoT Hub의 메시지가 디바이스에 즉시 푸시될 수 있습니다. 전달 대기 시간이 중요한 경우 MQTT 또는 AMQP는 가장 사용하기 적합한 프로토콜입니다. 드물게 연결되는 디바이스의 경우 HTTPS도 작동합니다.
 
-* **필드 게이트웨이**. MQTT 및 HTTPS는 TLS 연결당 단일 장치 ID(장치 ID 및 자격 증명)만 지원합니다. 이러한 이유로 이러한 프로토콜은 단일 또는 IoT Hub에 대한 업스트림 연결 풀에서 여러 장치 ID를 사용하여 다중 메시지를 필요로 하는 [필드 게이트웨이 시나리오에서는](iot-hub-devguide-endpoints.md#field-gateways) 지원되지 않습니다. 이러한 게이트웨이는 업스트림 트래픽에 대해 AMQP와 같은 연결당 여러 장치 ID를 지원하는 프로토콜을 사용할 수 있습니다.
+* **필드 게이트웨이**. MQTT 및 HTTPS는 TLS 연결당 단일 장치 id (장치 ID 및 자격 증명)만 지원 합니다. 이러한 이유로 이러한 프로토콜은 단일 또는 업스트림 연결의 풀에서 여러 장치 id를 사용 하 여 IoT Hub에 대 한 멀티플렉싱 메시지가 필요한 [필드 게이트웨이 시나리오](iot-hub-devguide-endpoints.md#field-gateways) 에 대해 지원 되지 않습니다. 이러한 게이트웨이는 업스트림 트래픽에 대해 AMQP와 같은 연결 당 여러 장치 id를 지 원하는 프로토콜을 사용할 수 있습니다.
 
 * **낮은 리소스 디바이스**. MQTT 및 HTTPS 라이브러리는 AMQP 라이브러리보다 적은 공간을 차지합니다. 이와 같이 디바이스에 리소스가 제한되어 있으면(예: 1MB RAM보다 작음) 이러한 프로토콜은 사용할 수 있는 유일한 프로토콜 구현일 수도 있습니다.
 
@@ -51,7 +51,7 @@ IoT Hub를 사용하면 디바이스가 디바이스 쪽 통신에 다음 프로
 * **페이로드 크기**. MQTT 및 AMQP는 바이너리 프로토콜로, HTTPS보다 더 많이 압축된 페이로드를 발생합니다.
 
 > [!WARNING]
-> HTTPS를 사용하는 경우 각 장치는 25분마다 한 번만 클라우드-장치 메시지에 대해 폴링해야 합니다. 개발 에서 각 장치는 원하는 경우 더 자주 폴링할 수 있습니다.
+> HTTPS를 사용 하는 경우 각 장치는 25 분 마다 한 번만 클라우드-장치 메시지를 폴링합니다. 개발 시, 원하는 경우 각 장치에서 더 자주 폴링할 수 있습니다.
 
 ## <a name="port-numbers"></a>포트 번호
 

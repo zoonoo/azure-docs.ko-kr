@@ -1,5 +1,5 @@
 ---
-title: T-SQL(T-SQL)을 사용하여 탄력적 데이터베이스 작업 생성 및 관리
+title: Transact-sql을 사용 하 여 Elastic Database 작업 만들기 및 관리 (T-sql)
 description: T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 에이전트가 있는 여러 데이터베이스에서 스크립트를 실행합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
 ms.openlocfilehash: 740a42dc94cdfa8d5c5a91b32b58cbff4c1bcda0
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687780"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 만들기 및 관리
@@ -189,13 +189,13 @@ CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
 
 다음 예제에서는 새 데이터베이스를 만들어 여러 데이터베이스에서 성능 데이터를 수집합니다.
 
-기본적으로 작업 에이전트는 반환된 결과를 저장하는 출력 테이블을 만듭니다. 따라서 출력 자격 증명과 연결된 데이터베이스 주체는 `CREATE TABLE` 최소한 데이터베이스, `ALTER`, 의 `SELECT` `INSERT` `DELETE` , 출력 테이블 또는 스키마 및 `SELECT` [sys.indexes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql) 카탈로그 보기에 대한 사용 권한이 있어야 합니다.
+기본적으로 작업 에이전트는 반환 된 결과를 저장할 출력 테이블을 만듭니다. 따라서 출력 자격 증명과 연결 된 데이터베이스 보안 주체에는 최소한 다음 사용 권한이 있어야 합니다. `CREATE TABLE` 데이터베이스, `ALTER` `SELECT`,, `INSERT`, `DELETE` 출력 테이블 또는 해당 스키마, 그리고 `SELECT` [sys. indexes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql) 카탈로그 뷰에 있습니다.
 
 테이블을 미리 수동으로 만들려는 경우 다음 속성이 있어야 합니다.
 1. 결과 집합에 대한 데이터 형식 및 올바른 이름을 사용하는 열입니다.
 2. 고유 식별자의 데이터 형식을 사용하는 internal_execution_id에 대한 추가 열입니다.
-3. internal_execution_id 열에 명명된 `IX_<TableName>_Internal_Execution_ID` 클러스터되지 않은 인덱스입니다.
-4. 데이터베이스에 대한 `CREATE TABLE` 사용 권한을 제외한 위에 나열된 모든 권한입니다.
+3. Internal_execution_id 열에 명명 `IX_<TableName>_Internal_Execution_ID` 된 비클러스터형 인덱스입니다.
+4. 데이터베이스에 대 한 `CREATE TABLE` 사용 권한을 제외한 위에 나열 된 모든 권한
 
 [*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
@@ -286,7 +286,7 @@ select * from jobs.jobsteps
 ```
 
 
-## <a name="begin-ad-hoc-execution-of-a-job"></a>작업의 임시 실행 시작
+## <a name="begin-ad-hoc-execution-of-a-job"></a>작업의 임시 실행을 시작 합니다.
 
 다음 예제에서는 작업을 즉시 시작하는 방법을 보여 줍니다.  
 [*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
@@ -408,7 +408,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 
 
-|저장 프로시저  |설명  |
+|저장 프로시저  |Description  |
 |---------|---------|
 |[sp_add_job](#sp_add_job)     |     새 작업을 추가합니다.    |
 |[sp_update_job](#sp_update_job)    |      기존 작업을 업데이트합니다.   |
@@ -449,13 +449,13 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
   
 #### <a name="arguments"></a>인수  
 
-[ ** \@job_name =** ] 'job_name'  
+[ ** \@job_name =** ] ' job_name '  
 작업의 이름입니다. 이름은 고유해야 하며, 퍼센트(%) 문자는 포함할 수 없습니다. job_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ ** \@설명 =** ] '설명'  
+[ ** \@설명 =** ] 한  
 작업에 대한 설명입니다. description은 nvarchar(512) 형식이며, 기본값은 NULL입니다. description이 생략되면 빈 문자열이 사용됩니다.
 
-[ ** \@사용 =** ] 사용] 사용  
+[ ** \@enabled =** ] 사용  
 작업 일정이 사용되는지 여부입니다. enabled는 bit 형식이며, 기본값은 0(사용 안 함)입니다. 0인 경우 작업이 사용되지 않으며 일정에 따라 실행되지 않습니다. 그러나 수동으로는 실행할 수 있습니다. 1인 경우 작업이 일정에 따라 실행되며, 수동으로 실행할 수도 있습니다.
 
 [ ** \@schedule_interval_type =**] schedule_interval_type  
@@ -512,16 +512,16 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 ```
 
 #### <a name="arguments"></a>인수
-[ ** \@job_name =** ] 'job_name'  
+[ ** \@job_name =** ] ' job_name '  
 업데이트할 작업의 이름입니다. job_name은 nvarchar(128) 형식입니다.
 
-[ ** \@new_name =** ] 'new_name'  
+[ ** \@new_name =** ] ' new_name '  
 작업의 새 이름입니다. new_name은 nvarchar(128) 형식입니다.
 
-[ ** \@설명 =** ] '설명'  
+[ ** \@설명 =** ] 한  
 작업에 대한 설명입니다. description은 nvarchar(512) 형식입니다.
 
-[ ** \@사용 =** ] 사용] 사용  
+[ ** \@enabled =** ] 사용  
 작업 일정이 사용되는지(1), 아니면 사용되지 않는지(0) 여부를 지정합니다. enabled는 bit 형식입니다.
 
 [ ** \@schedule_interval_type =** ] schedule_interval_type  
@@ -569,10 +569,10 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 ```
 
 #### <a name="arguments"></a>인수
-[ ** \@job_name =** ] 'job_name'  
+[ ** \@job_name =** ] ' job_name '  
 삭제할 작업의 이름입니다. job_name은 nvarchar(128) 형식입니다.
 
-[ ** \@힘 =** ] 힘  
+[ ** \@force =** ] force  
 작업 실행이 진행 중인 경우 해당 작업을 삭제할지 여부를 지정하고, 진행 중인 모든 실행을 취소할지(1), 아니면 작업 실행이 진행 중인 경우 실패할지(0) 여부를 지정합니다. force는 bit 형식입니다.
 
 #### <a name="return-code-values"></a>반환 코드 값
@@ -624,7 +624,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 #### <a name="arguments"></a>인수
 
-[ ** \@job_name =** ] 'job_name'  
+[ ** \@job_name =** ] ' job_name '  
 단계를 추가할 작업의 이름입니다. job_name은 nvarchar(128) 형식입니다.
 
 [ ** \@step_id =** ] step_id  
@@ -633,23 +633,23 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 [ ** \@step_name =** ] step_name  
 단계의 이름입니다. 편의상 기본 이름이 'JobStep'인 작업의 첫 번째 단계를 제외하고는 반드시 지정해야 합니다. step_name은 nvarchar(128) 형식입니다.
 
-[ ** \@command_type =** ] 'command_type'  
+[ ** \@command_type =** ] ' command_type '  
 이 jobstep에서 실행되는 명령의 유형입니다. command_type은 nvarchar(50) 형식이며, 기본값은 TSql(@command_type 매개 변수의 값이 T-SQL 스크립트임을 의미함)입니다.
 
 지정되는 경우 이 값은 TSql이어야 합니다.
 
-[ ** \@command_source =** ] 'command_source'  
+[ ** \@command_source =** ] ' command_source '  
 명령이 저장된 위치의 유형입니다. command_source는 nvarchar(50) 형식이며, 기본값은 Inline(@command_source 매개 변수의 값이 명령의 리터럴 텍스트임을 의미함)입니다.
 
 지정되는 경우 이 값은 Inline이어야 합니다.
 
-[ ** \@명령 =** ] '명령'  
+[ ** \@명령 =** ] 명령  
 명령은 유효한 T-SQL 스크립트여야 하며, 이 작업 단계에서 실행됩니다. 명령은 nvarchar(max) 형식이며, 기본값은 NULL입니다.
 
-[ ** \@credential_name =** ] 'credential_name'  
+[ ** \@credential_name =** ] ' credential_name '  
 이 단계를 실행할 때 대상 그룹 내의 각 대상 데이터베이스에 연결하는 데 사용되는 이 작업 제어 데이터베이스에 저장된 데이터베이스 범위 자격 증명의 이름입니다. credential_name은 nvarchar(128) 형식입니다.
 
-[ ** \@target_group_name =** ] '대상 group_name'  
+[ ** \@target_group_name =** ] ' 대상-group_name '  
 작업 단계를 실행할 대상 데이터베이스가 포함된 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식입니다.
 
 [ ** \@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
@@ -667,30 +667,30 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 [ ** \@step_timeout_seconds =** ] step_timeout_seconds  
 단계를 실행하는 데 허용되는 최대 시간입니다. 이 시간을 초과하면 lifecycle이 TimedOut(시간이 초과됨)인 채로 작업 실행이 종료됩니다. step_timeout_seconds는 int 형식이며, 기본값은 43,200초(12시간)입니다.
 
-[ ** \@output_type =** ] 'output_type'  
+[ ** \@output_type =** ] ' output_type '  
 null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 대상의 유형입니다. output_type은 nvarchar(50) 형식이며, 기본값은 NULL입니다.
 
 지정되는 경우 값은 SqlDatabase여야 합니다.
 
-[ ** \@output_credential_name =** ] 'output_credential_name'  
+[ ** \@output_credential_name =** ] ' output_credential_name '  
 null이 아닌 경우 출력 대상 데이터베이스에 연결하는 데 사용되는 데이터베이스 범위 자격 증명의 이름입니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_credential_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다.
 
-[ ** \@output_subscription_id =** ] 'output_subscription_id'  
+[ ** \@output_subscription_id =** ] ' output_subscription_id '  
 설명이 필요합니다.
 
-[ ** \@output_resource_group_name =** ] 'output_resource_group_name'  
+[ ** \@output_resource_group_name =** ] ' output_resource_group_name '  
 설명이 필요합니다.
 
-[ ** \@output_server_name =** ] 'output_server_name'  
+[ ** \@output_server_name =** ] ' output_server_name '  
 null이 아닌 경우 출력 대상 데이터베이스가 포함된 서버의 정규화된 DNS 이름입니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_server_name은 nvarchar(256) 형식이며, 기본값은 NULL입니다.
 
-[ ** \@output_database_name =** ] 'output_database_name'  
+[ ** \@output_database_name =** ] ' output_database_name '  
 null이 아닌 경우 출력 대상 테이블이 포함된 데이터베이스의 이름입니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_database_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다.
 
-[ ** \@output_schema_name =** ] 'output_schema_name'  
+[ ** \@output_schema_name =** ] ' output_schema_name '  
 null이 아닌 경우 출력 대상 테이블이 포함된 SQL 스키마의 이름입니다. output_type이 SqlDatabase와 같으면 기본값은 dbo입니다. output_schema_name은 nvarchar(128) 형식입니다.
 
-[ ** \@output_table_name =** ] 'output_table_name'  
+[ ** \@output_table_name =** ] ' output_table_name '  
 null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 테이블의 이름입니다. 테이블이 아직 없으면 반환되는 결과 집합의 스키마를 기반으로 하여 만들어집니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_table_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다.
 
 [ ** \@job_version =** ] job_version 출력  
@@ -748,38 +748,38 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 ```
 
 #### <a name="arguments"></a>인수
-[ ** \@job_name =** ] 'job_name'  
+[ ** \@job_name =** ] ' job_name '  
 단계가 속한 작업의 이름입니다. job_name은 nvarchar(128) 형식입니다.
 
 [ ** \@step_id =** ] step_id  
 수정할 작업 단계의 ID입니다. step_id 또는 step_name을 지정해야 합니다. step_id는 int 형식입니다.
 
-[ ** \@step_name =** ] 'step_name'  
+[ ** \@step_name =** ] ' step_name '  
 수정할 단계의 이름입니다. step_id 또는 step_name을 지정해야 합니다. step_name은 nvarchar(128) 형식입니다.
 
 [ ** \@new_id =** ] new_id  
 작업 단계에 대한 새 시퀀스 ID 번호입니다. 단계 ID 번호는 1에서 시작하여 간격 없이 증가합니다. 단계의 번호가 변경되면 다른 단계의 번호가 자동으로 다시 매겨집니다.
 
-[ ** \@new_name =** ] 'new_name'  
+[ ** \@new_name =** ] ' new_name '  
 단계의 새 이름입니다. new_name은 nvarchar(128) 형식입니다.
 
-[ ** \@command_type =** ] 'command_type'  
+[ ** \@command_type =** ] ' command_type '  
 이 jobstep에서 실행되는 명령의 유형입니다. command_type은 nvarchar(50) 형식이며, 기본값은 TSql(@command_type 매개 변수의 값이 T-SQL 스크립트임을 의미함)입니다.
 
 지정되는 경우 이 값은 TSql이어야 합니다.
 
-[ ** \@command_source =** ] 'command_source'  
+[ ** \@command_source =** ] ' command_source '  
 명령이 저장된 위치의 유형입니다. command_source는 nvarchar(50) 형식이며, 기본값은 Inline(@command_source 매개 변수의 값이 명령의 리터럴 텍스트임을 의미함)입니다.
 
 지정되는 경우 이 값은 Inline이어야 합니다.
 
-[ ** \@명령 =** ] '명령'  
+[ ** \@명령 =** ] 명령  
 명령은 유효한 T-SQL 스크립트여야 하며, 이 작업 단계에서 실행됩니다. 명령은 nvarchar(max) 형식이며, 기본값은 NULL입니다.
 
-[ ** \@credential_name =** ] 'credential_name'  
+[ ** \@credential_name =** ] ' credential_name '  
 이 단계를 실행할 때 대상 그룹 내의 각 대상 데이터베이스에 연결하는 데 사용되는 이 작업 제어 데이터베이스에 저장된 데이터베이스 범위 자격 증명의 이름입니다. credential_name은 nvarchar(128) 형식입니다.
 
-[ ** \@target_group_name =** ] '대상 group_name'  
+[ ** \@target_group_name =** ] ' 대상-group_name '  
 작업 단계를 실행할 대상 데이터베이스가 포함된 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식입니다.
 
 [ ** \@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
@@ -797,24 +797,24 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 [ ** \@step_timeout_seconds =** ] step_timeout_seconds  
 단계를 실행하는 데 허용되는 최대 시간입니다. 이 시간을 초과하면 lifecycle이 TimedOut(시간이 초과됨)인 채로 작업 실행이 종료됩니다. step_timeout_seconds는 int 형식이며, 기본값은 43,200초(12시간)입니다.
 
-[ ** \@output_type =** ] 'output_type'  
+[ ** \@output_type =** ] ' output_type '  
 null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 대상의 유형입니다. output_type의 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_type은 nvarchar(50) 형식이며, 기본값은 NULL입니다.
 
 지정되는 경우 값은 SqlDatabase여야 합니다.
 
-[ ** \@output_credential_name =** ] 'output_credential_name'  
+[ ** \@output_credential_name =** ] ' output_credential_name '  
 null이 아닌 경우 출력 대상 데이터베이스에 연결하는 데 사용되는 데이터베이스 범위 자격 증명의 이름입니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_credential_name 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_credential_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다.
 
-[ ** \@output_server_name =** ] 'output_server_name'  
+[ ** \@output_server_name =** ] ' output_server_name '  
 null이 아닌 경우 출력 대상 데이터베이스가 포함된 서버의 정규화된 DNS 이름입니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_server_name 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_server_name은 nvarchar(256) 형식이며, 기본값은 NULL입니다.
 
-[ ** \@output_database_name =** ] 'output_database_name'  
+[ ** \@output_database_name =** ] ' output_database_name '  
 null이 아닌 경우 출력 대상 테이블이 포함된 데이터베이스의 이름입니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_database_name의 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_database_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다.
 
-[ ** \@output_schema_name =** ] 'output_schema_name'  
+[ ** \@output_schema_name =** ] ' output_schema_name '  
 null이 아닌 경우 출력 대상 테이블이 포함된 SQL 스키마의 이름입니다. output_type이 SqlDatabase와 같으면 기본값은 dbo입니다. output_schema_name의 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_schema_name은 nvarchar(128) 형식입니다.
 
-[ ** \@output_table_name =** ] 'output_table_name'  
+[ ** \@output_table_name =** ] ' output_table_name '  
 null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 테이블의 이름입니다. 테이블이 아직 없으면 반환되는 결과 집합의 스키마를 기반으로 하여 만들어집니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_server_name 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_table_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다.
 
 [ ** \@job_version =** ] job_version 출력  
@@ -855,13 +855,13 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 ```
 
 #### <a name="arguments"></a>인수
-[ ** \@job_name =** ] 'job_name'  
+[ ** \@job_name =** ] ' job_name '  
 단계를 제거할 작업의 이름입니다. job_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ ** \@step_id =** ] step_id  
 삭제할 작업 단계에 대한 ID 번호입니다. step_id 또는 step_name을 지정해야 합니다. step_id는 int 형식입니다.
 
-[ ** \@step_name =** ] 'step_name'  
+[ ** \@step_name =** ] ' step_name '  
 삭제할 단계의 이름입니다. step_id 또는 step_name을 지정해야 합니다. step_name은 nvarchar(128) 형식입니다.
 
 [ ** \@job_version =** ] job_version 출력  
@@ -899,7 +899,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 ```
 
 #### <a name="arguments"></a>인수
-[ ** \@job_name =** ] 'job_name'  
+[ ** \@job_name =** ] ' job_name '  
 단계를 제거할 작업의 이름입니다. job_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ ** \@job_execution_id =** ] job_execution_id 출력  
@@ -960,10 +960,10 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 
 #### <a name="arguments"></a>인수
-[ ** \@target_group_name =** ] 'target_group_name'  
+[ ** \@target_group_name =** ] ' target_group_name '  
 만들 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-** \@[target_group_id =** ] target_group_id OUTPUT 성공적으로 생성된 경우 작업에 할당된 대상 그룹 식별 번호입니다. target_group_id는 uniqueidentifier 형식의 출력 변수이며, 기본값은 NULL입니다.
+[ ** \@target_group_id =** ] target_group_id 성공적으로 만들어진 경우 작업에 할당 된 대상 그룹 id 번호를 출력 합니다. target_group_id는 uniqueidentifier 형식의 출력 변수이며, 기본값은 NULL입니다.
 
 #### <a name="return-code-values"></a>반환 코드 값
 0(성공) 또는 1(실패)
@@ -990,7 +990,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 
 #### <a name="arguments"></a>인수
-[ ** \@target_group_name =** ] 'target_group_name'  
+[ ** \@target_group_name =** ] ' target_group_name '  
 삭제할 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 #### <a name="return-code-values"></a>반환 코드 값
@@ -1024,28 +1024,28 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 ```
 
 #### <a name="arguments"></a>인수
-[ ** \@target_group_name =** ] 'target_group_name'  
+[ ** \@target_group_name =** ] ' target_group_name '  
 멤버를 추가할 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ ** \@membership_type =** ] 'membership_type'  
+[ ** \@membership_type =** ] ' membership_type '  
 대상 그룹 멤버가 포함되거나 제외되는지 여부를 지정합니다. target_group_name은 nvarchar(128) 형식이며, 기본값은 'Include'입니다. target_group_name에 대해 유효한 값은 'Include' 또는 'Exclude'입니다.
 
-[ ** \@target_type =** ] 'target_type'  
+[ ** \@target_type =** ] ' target_type '  
 서버의 모든 데이터베이스, 탄력적 풀의 모든 데이터베이스, 분할된 맵의 모든 데이터베이스 또는 개별 데이터베이스가 포함된 대상 데이터베이스 또는 데이터베이스 컬렉션의 유형입니다. target_type은 nvarchar(128) 형식이며, 기본값은 없습니다. target_type에 대해 유효한 값은 'SqlServer', 'SqlElasticPool', 'SqlDatabase' 또는 'SqlShardMap'입니다. 
 
-[ ** \@refresh_credential_name =** ] 'refresh_credential_name'  
+[ ** \@refresh_credential_name =** ] ' refresh_credential_name '  
 SQL Database 서버의 이름입니다. refresh_credential_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ ** \@server_name =** ] 'server_name'  
+[ ** \@server_name =** ] ' server_name '  
 지정된 대상 그룹에 추가해야 하는 SQL Database 서버의 이름입니다. target_type이 'SqlServer'이면 server_name을 지정해야 합니다. server_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ ** \@database_name =** ] 'database_name'  
+[ ** \@database_name =** ] ' database_name '  
 지정된 대상 그룹에 추가해야 하는 데이터베이스의 이름입니다. target_type이 'SqlDatabase'이면 database_name을 지정해야 합니다. database_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ ** \@elastic_pool_name =** ] 'elastic_pool_name'  
+[ ** \@elastic_pool_name =** ] ' elastic_pool_name '  
 지정된 대상 그룹에 추가해야 하는 탄력적 풀의 이름입니다. target_type이 'SqlElasticPool'이면 elastic_pool_name을 지정해야 합니다. elastic_pool_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ ** \@shard_map_name =** ] 'shard_map_name'  
+[ ** \@shard_map_name =** ] ' shard_map_name '  
 지정된 대상 그룹에 추가해야 하는 분할된 맵 풀의 이름입니다. target_type이 'SqlSqlShardMap'이면 elastic_pool_name을 지정해야 합니다. shard_map_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ ** \@target_id =** ] target_group_id 출력  
@@ -1159,7 +1159,7 @@ GO
 ```
 
 #### <a name="arguments"></a>인수
-[ ** \@job_name =** ] 'job_name'  
+[ ** \@job_name =** ] ' job_name '  
 기록 레코드를 삭제할 작업의 이름입니다. job_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다. job_id 또는 job_name을 지정해야 하지만, 둘 다는 지정할 수 없습니다.
 
 [ ** \@job_id =** ] job_id  
@@ -1195,33 +1195,33 @@ GO
 [작업 데이터베이스](sql-database-job-automation-overview.md#job-database)에서 사용할 수 있는 보기는 다음과 같습니다.
 
 
-|보기  |설명  |
+|보기  |Description  |
 |---------|---------|
 |[job_executions](#job_executions-view)     |  작업 실행 기록을 표시합니다.      |
-|[작업](#jobs-view)     |   모든 작업을 표시합니다.      |
+|[직업](#jobs-view)     |   모든 작업을 표시합니다.      |
 |[job_versions](#job_versions-view)     |   모든 작업 버전을 표시합니다.      |
-|[작업 단계](#jobsteps-view)     |     각 작업의 현재 버전에 있는 모든 단계를 표시합니다.    |
+|[jobsteps](#jobsteps-view)     |     각 작업의 현재 버전에 있는 모든 단계를 표시합니다.    |
 |[jobstep_versions](#jobstep_versions-view)     |     각 작업의 모든 버전에 있는 모든 단계를 표시합니다.    |
 |[target_groups](#target_groups-view)     |      모든 대상 그룹을 표시합니다.   |
 |[target_group_members](#target_group_members-view)     |   모든 대상 그룹의 모든 멤버를 표시합니다.      |
 
 
-### <a name="job_executions-view"></a><a name="job_executions-view"></a>job_executions 보기
+### <a name="job_executions-view"></a><a name="job_executions-view"></a>job_executions 뷰
 
-[작업]. 【job_executions】
+[작업]. [job_executions]
 
 작업 실행 기록을 표시합니다.
 
 
-|열 이름|   데이터 형식   |설명|
+|열 이름|   데이터 형식   |Description|
 |---------|---------|---------|
 |**job_execution_id**   |uniqueidentifier|  작업 실행 인스턴스의 고유 ID입니다.
-|**Job_name**   |nvarchar(128)  |작업의 이름입니다.
-|**Job_id** |uniqueidentifier|  작업의 고유 ID입니다.
+|**job_name**   |nvarchar(128)  |작업의 이름입니다.
+|**job_id** |uniqueidentifier|  작업의 고유 ID입니다.
 |**job_version**    |int    |작업의 버전입니다. 작업이 수정될 때마다 자동으로 업데이트됩니다.
 |**step_id**    |int|   해당 작업에 관한 단계의 고유 ID입니다. NULL은 부모 작업 실행임을 나타냅니다.
 |**is_active**| bit |정보가 활성 또는 비활성 상태인지 여부를 나타냅니다. 1은 활성 작업을 나타내고, 0은 비활성 작업을 나타냅니다.
-|**수명 주기**| nvarchar(50)|작업 상태를 나타내는 값: ‘Created’, ‘In Progress’, ‘Failed’, ‘Succeeded’, ‘Skipped’, ‘SucceededWithSkipped’|
+|**주기**| nvarchar(50)|작업 상태를 나타내는 값: ‘Created’, ‘In Progress’, ‘Failed’, ‘Succeeded’, ‘Skipped’, ‘SucceededWithSkipped’|
 |**create_time**|   datetime2(7)|   작업을 만든 날짜 및 시간입니다.
 |**start_time** |datetime2(7)|  작업 실행을 시작한 날짜 및 시간입니다. 작업이 아직 실행되지 않은 경우 NULL입니다.
 |**end_time**|  datetime2(7)    |작업 실행을 완료한 날짜 및 시간입니다. 작업이 아직 실행되지 않았거나 실행이 아직 완료되지 않은 경우 NULL입니다.
@@ -1241,12 +1241,12 @@ GO
 
 모든 작업을 표시합니다.
 
-|열 이름|   데이터 형식|  설명|
+|열 이름|   데이터 형식|  Description|
 |------|------|-------|
-|**Job_name**|  nvarchar(128)   |작업의 이름입니다.|
-|**Job_id**|    uniqueidentifier    |작업의 고유 ID입니다.|
+|**job_name**|  nvarchar(128)   |작업의 이름입니다.|
+|**job_id**|    uniqueidentifier    |작업의 고유 ID입니다.|
 |**job_version**    |int    |작업의 버전입니다. 작업이 수정될 때마다 자동으로 업데이트됩니다.|
-|**설명**    |nvarchar(512)| 작업 설명입니다. bit 형식으로 사용됩니다. 작업의 사용 여부를 나타냅니다. 1은 사용되는 작업을 나타내고, 0은 사용되지 않는 작업을 나타냅니다.|
+|**한**    |nvarchar(512)| 작업 설명입니다. bit 형식으로 사용됩니다. 작업의 사용 여부를 나타냅니다. 1은 사용되는 작업을 나타내고, 0은 사용되지 않는 작업을 나타냅니다.|
 |**schedule_interval_type** |nvarchar(50)   |작업을 실행할 시기를 나타내는 값: 'Once', 'Minutes', 'Hours', 'Days', 'Weeks', 'Months'
 |**schedule_interval_count**|   int|    각 작업 실행 간에 발생할 schedule_interval_type 기간의 수입니다.|
 |**schedule_start_time**    |datetime2(7)|  작업 실행을 마지막으로 시작한 날짜 및 시간입니다.|
@@ -1259,10 +1259,10 @@ GO
 
 모든 작업 버전을 표시합니다.
 
-|열 이름|   데이터 형식|  설명|
+|열 이름|   데이터 형식|  Description|
 |------|------|-------|
-|**Job_name**|  nvarchar(128)   |작업의 이름입니다.|
-|**Job_id**|    uniqueidentifier    |작업의 고유 ID입니다.|
+|**job_name**|  nvarchar(128)   |작업의 이름입니다.|
+|**job_id**|    uniqueidentifier    |작업의 고유 ID입니다.|
 |**job_version**    |int    |작업의 버전입니다. 작업이 수정될 때마다 자동으로 업데이트됩니다.|
 
 
@@ -1272,10 +1272,10 @@ GO
 
 각 작업의 현재 버전에 있는 모든 단계를 표시합니다.
 
-|열 이름    |데이터 형식| 설명|
+|열 이름    |데이터 형식| Description|
 |------|------|-------|
-|**Job_name**   |nvarchar(128)| 작업의 이름입니다.|
-|**Job_id** |uniqueidentifier   |작업의 고유 ID입니다.|
+|**job_name**   |nvarchar(128)| 작업의 이름입니다.|
+|**job_id** |uniqueidentifier   |작업의 고유 ID입니다.|
 |**job_version**|   int|    작업의 버전입니다. 작업이 수정될 때마다 자동으로 업데이트됩니다.|
 |**step_id**    |int    |해당 작업에 관한 단계의 고유 ID입니다.|
 |**step_name**  |nvarchar(128)  |이 작업의 단계에 대한 고유 이름입니다.|
@@ -1313,18 +1313,18 @@ GO
 
 모든 대상 그룹을 나열합니다.
 
-|열 이름|데이터 형식| 설명|
+|열 이름|데이터 형식| Description|
 |-----|-----|-----|
 |**target_group_name**| nvarchar(128)   |데이터베이스 컬렉션인 대상 그룹의 이름입니다. 
 |**target_group_id**    |uniqueidentifier   |대상 그룹의 고유 ID입니다.
 
-### <a name="target_group_members-view"></a><a name="target_group_members-view"></a>target_group_members 보기
+### <a name="target_group_members-view"></a><a name="target_group_members-view"></a>target_group_members 뷰
 
-[작업]. 【target_group_members】
+[작업]. [target_group_members]
 
 모든 대상 그룹의 모든 멤버를 표시합니다.
 
-|열 이름|데이터 형식| 설명|
+|열 이름|데이터 형식| Description|
 |-----|-----|-----|
 |**target_group_name**  |nvarchar(128)|데이터베이스 컬렉션인 대상 그룹의 이름입니다. |
 |**target_group_id**    |uniqueidentifier   |대상 그룹의 고유 ID입니다.|
@@ -1347,5 +1347,5 @@ GO
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PowerShell을 사용하여 탄력적 작업 만들기 및 관리](elastic-jobs-powershell.md)
+- [PowerShell을 사용 하 여 탄력적 작업 만들기 및 관리](elastic-jobs-powershell.md)
 - [SQL Server 권한 부여 및 권한](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI에서 VM 이름 확인에 내부 DNS 사용
-description: Azure CLI를 사용하여 Azure에서 가상 네트워크 인터페이스 카드를 만들고 내부 DNS를 사용하여 Azure에서 VM 이름 확인을 수행하는 방법을 설명합니다.
+title: Azure CLI에서 VM 이름 확인을 위해 내부 DNS 사용
+description: 가상 네트워크 인터페이스 카드를 만들고 Azure CLI를 사용 하 여 Azure에서 VM 이름 확인을 위해 내부 DNS를 사용 하는 방법입니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: networking
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: cynthn
 ms.openlocfilehash: 07a78e4987a844627824ac5034046cf6a393ad8d
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81757834"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>가상 네트워크 인터페이스 카드 만들기 및 Azure에서 VM 이름 확인을 위해 내부 DNS 사용
@@ -25,7 +25,7 @@ ms.locfileid: "81757834"
 * [SSH 공용 및 프라이빗 키 파일](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>빠른 명령
-태스크를 빠르게 완료해야 하는 경우 다음 섹션에서 필요한 명령에 대해 자세히 알아보세요. 각 단계에 대한 자세한 정보와 컨텍스트는 [여기에서 시작하여](#detailed-walkthrough)문서의 나머지 부분에서 찾을 수 있습니다. 이러한 단계를 수행하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다.
+태스크를 빠르게 완료해야 하는 경우 다음 섹션에서 필요한 명령에 대해 자세히 알아보세요. 각 단계에 대 한 자세한 내용 및 컨텍스트는 [여기에서 시작](#detailed-walkthrough)하 여 문서의 나머지 부분에서 찾을 수 있습니다. 이러한 단계를 수행하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다.
 
 사전 요구 사항: 리소스 그룹, 가상 네트워크 및 서브넷, SSH 인바운드가 있는 네트워크 보안 그룹.
 
@@ -158,4 +158,4 @@ az vm create \
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure CLI 명령을 직접 사용하여 Linux VM에 대한 고유한 사용자 지정 환경 만들기](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [템플릿을 사용하여 Azure에서 Linux VM 만들기](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [템플릿을 사용 하 여 Azure에서 Linux VM 만들기](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

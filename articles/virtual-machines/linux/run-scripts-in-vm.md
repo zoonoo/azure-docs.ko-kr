@@ -8,10 +8,10 @@ ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: article
 ms.openlocfilehash: 9dbfb3e76fe1c0e80dd8020b79f4edd6d32a24a3
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758590"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Linux VM에서 스크립트 실행
@@ -70,4 +70,4 @@ VM 내에서 스크립트 및 명령을 실행할 수 있는 다양한 기능에
 * [사용자 지정 스크립트 확장](../extensions/custom-script-linux.md)
 * [명령 실행](run-command.md)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)
-* [시리얼 콘솔](serial-console.md)
+* [직렬 콘솔](serial-console.md)

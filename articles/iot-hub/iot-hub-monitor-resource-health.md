@@ -10,22 +10,22 @@ ms.date: 11/11/2019
 ms.author: kgremban
 ms.custom: amqp
 ms.openlocfilehash: a1d74085090a3e20764d7b6fee84ffca52d5cb74
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732437"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IoT Hub 상태 모니터링 및 신속한 문제 진단
 
-Azure IoT Hub를 구현하는 기업은 리소스에서 안정적인 성능을 기대합니다. 고객이 계속해서 작업을 면밀하게 검토할 수 있도록 IoT Hub는 [Azure Monitor](../azure-monitor/index.yml) 및 [Azure Resource Health](../service-health/resource-health-overview.md)와 완벽하게 통합되어 있습니다. 이 두 서비스는 IoT 솔루션을 정상 상태로 유지하는 데 필요한 데이터를 제공하기 위해 작동합니다.
+Azure IoT Hub를 구현하는 기업은 리소스에서 안정적인 성능을 기대합니다. 고객이 계속해서 작업을 면밀하게 검토할 수 있도록 IoT Hub는 [Azure Monitor](../azure-monitor/index.yml) 및 [Azure Resource Health](../service-health/resource-health-overview.md)와 완벽하게 통합되어 있습니다. 이러한 두 서비스는 IoT 솔루션을 정상 상태로 유지 하는 데 필요한 데이터를 제공 하기 위해 작동 합니다.
 
-Azure Monitor는 모든 Azure 서비스를 모니터링하고 로깅하는 단일 원본입니다. Azure Monitor가 생성하는 진단 로그를 사용자 지정 처리를 위해 Azure Monitor 로그, 이벤트 허브 또는 Azure 저장소로 보낼 수 있습니다. Azure Monitor의 메트릭 및 진단 설정은 리소스 성능에 대한 가시성을 제공합니다. 이 문서를 계속 읽고 IoT Hub에 [Azure Monitor를 사용](#use-azure-monitor)하는 방법에 대해 알아보세요. 
+Azure Monitor는 모든 Azure 서비스를 모니터링하고 로깅하는 단일 원본입니다. 사용자 지정 처리를 위해 Azure Monitor 생성 하는 진단 로그를 Azure Monitor 로그, Event Hubs 또는 Azure Storage에 보낼 수 있습니다. Azure Monitor의 메트릭 및 진단 설정은 리소스 성능에 대한 가시성을 제공합니다. 이 문서를 계속 읽고 IoT Hub에 [Azure Monitor를 사용](#use-azure-monitor)하는 방법에 대해 알아보세요. 
 
 > [!IMPORTANT]
 > Azure Monitor 진단 로그를 사용하여 IoT Hub 서비스에서 내보내는 이벤트는 안정적이거나 정렬되도록 보장되지 않습니다. 일부 이벤트는 손실되거나 순서 없이 제공될 수 있습니다. 또한 진단 로그는 실시간으로 제공되지 않으며, 사용자가 선택한 대상에 이벤트를 기록하기까지 몇 분 정도 걸릴 수 있습니다.
 
-Azure Resource Health는 Azure 문제가 리소스에 영향을 줄 때 문제를 진단하고 지원을 받는 데 도움이 됩니다. 대시보드는 각 IoT 허브에 대한 현재 및 과거의 상태 상태를 제공합니다. IoT 허브에서 [Azure 리소스 상태를 사용하는](#use-azure-resource-health) 방법을 알아보려면 이 문서의 맨 아래에 있는 섹션을 계속 설명합니다. 
+Azure Resource Health는 Azure 문제가 리소스에 영향을 줄 때 문제를 진단하고 지원을 받는 데 도움이 됩니다. 대시보드는 각 IoT hub에 대 한 현재 상태와 과거 상태를 제공 합니다. IoT hub에서 [Azure Resource Health를 사용](#use-azure-resource-health) 하는 방법을 알아보려면이 문서의 맨 아래에 있는 섹션을 계속 진행 합니다. 
 
 IoT Hub는 IoT 리소스의 상태를 이해하는 데 사용할 수 있는 자체적인 메트릭을 제공합니다. 자세한 내용은 [IoT Hub 메트릭 이해](iot-hub-metrics.md)를 참조하세요.
 
@@ -313,9 +313,9 @@ Azure Monitor는 IoT Hub에서 발생하는 여러 작업을 추적합니다. �
 
 #### <a name="distributed-tracing-preview"></a>분산 추적(미리 보기)
 
-분산 추적 범주는 추적 컨텍스트 헤더를 전달하는 메시지의 상관 관계 ID를 추적합니다. 이러한 로그를 완전히 활성화하려면 [IoT Hub 분산 추적(미리 보기)을 사용하여 IoT 응용 프로그램을 종단](iot-hub-distributed-tracing.md)간 분석 및 진단하여 클라이언트 측 코드를 업데이트해야 합니다.
+분산 추적 범주는 추적 컨텍스트 헤더를 전달하는 메시지의 상관 관계 ID를 추적합니다. 이러한 로그를 완전히 사용 하도록 설정 하려면 [IoT Hub 분산 추적 (미리 보기)을 사용 하 여 종단 간 IoT 응용 프로그램 분석 및 진단을](iot-hub-distributed-tracing.md)수행 하 여 클라이언트 쪽 코드를 업데이트 해야 합니다.
 
-`correlationId` [W3C 추적 컨텍스트](https://github.com/w3c/trace-context) 제안서를 준수합니다. `trace-id` `span-id`
+는 `correlationId` [W3C 추적 컨텍스트](https://github.com/w3c/trace-context) 제안서를 준수 `span-id`합니다. 여기에는 및가 `trace-id` 포함 됩니다.
 
 ##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>IoT Hub D2C(디바이스-클라우드) 로그
 
@@ -347,7 +347,7 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 IoT Hub에 도착�
 | 속성 | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | 정수 | 디바이스-클라우드 메시지의 크기(바이트) |
-| **장치 ID** | ASCII 7비트 영숫자 문자의 문자열 | 디바이스의 ID |
+| **deviceId** | ASCII 7비트 영숫자 문자의 문자열 | 디바이스의 ID |
 | **callerLocalTimeUtc** | UTC 타임스탬프 | 디바이스 로컬 시계에서 보고한 메시지 생성 시간 |
 | **calleeLocalTimeUtc** | UTC 타임스탬프 | IoT Hub 서비스 쪽 시계에서 메시지가 IoT Hub의 게이트웨이에 도착했다고 보고한 시간 |
 
@@ -376,12 +376,12 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 내부 또는 기�
 }
 ```
 
-이 `properties` 섹션에는 메시지 수집에 대한 추가 정보가 포함되어 있습니다.
+섹션에서 `properties` 이 로그에는 메시지 수신에 대 한 추가 정보가 포함 되어 있습니다.
 
 | 속성 | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | String | true 또는 false이며, IoT Hub에서 메시지 라우팅이 사용되는지 여부를 나타냅니다. |
-| **parentSpanId** | String | 부모 메시지(이 경우 D2C 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
+| **isRoutingEnabled** | 문자열 | true 또는 false이며, IoT Hub에서 메시지 라우팅이 사용되는지 여부를 나타냅니다. |
+| **parentSpanId** | 문자열 | 부모 메시지(이 경우 D2C 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
 
 ##### <a name="iot-hub-egress-logs"></a>IoT Hub 송신 로그
 
@@ -408,17 +408,17 @@ IoT Hub는 [라우팅](iot-hub-devguide-messages-d2c.md)이 사용되고 메시�
 }
 ```
 
-이 `properties` 섹션에는 메시지 수집에 대한 추가 정보가 포함되어 있습니다.
+섹션에서 `properties` 이 로그에는 메시지 수신에 대 한 추가 정보가 포함 되어 있습니다.
 
 | 속성 | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **끝점 이름** | String | 라우팅 엔드포인트의 이름입니다. |
-| **끝점 유형** | String | 라우팅 엔드포인트의 유형입니다. |
-| **parentSpanId** | String | 부모 메시지(이 경우 IoT Hub 수신 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
+| **endpointName** | 문자열 | 라우팅 엔드포인트의 이름입니다. |
+| **endpointType** | 문자열 | 라우팅 엔드포인트의 유형입니다. |
+| **parentSpanId** | 문자열 | 부모 메시지(이 경우 IoT Hub 수신 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
 
 #### <a name="configurations"></a>구성
 
-IoT Hub 구성은 자동 장치 관리 기능 집합의 이벤트 및 오류를 추적합니다.
+IoT Hub 구성 로그는 자동 장치 관리 기능 집합에 대 한 이벤트 및 오류를 추적 합니다.
 
 ```json
 {
@@ -440,9 +440,9 @@ IoT Hub 구성은 자동 장치 관리 기능 집합의 이벤트 및 오류를 
 }
 ```
 
-### <a name="device-streams-preview"></a>장치 스트림(미리 보기)
+### <a name="device-streams-preview"></a>장치 스트림 (미리 보기)
 
-장치 스트림 범주는 개별 장치로 전송된 요청-응답 상호 작용을 추적합니다.
+장치 스트림 범주는 개별 장치로 전송 된 요청-응답 상호 작용을 추적 합니다.
 
 ```json
 {
@@ -543,11 +543,11 @@ IoT Hub의 상태를 확인하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. 서비스 **상태** > **리소스 상태로**이동합니다.
+2. **Service Health** > **리소스 상태**로 이동 합니다.
 
-3. 드롭다운 상자에서 구독을 선택한 다음 **IoT Hub를** 리소스 유형으로 선택합니다.
+3. 드롭다운 상자에서 구독을 선택한 다음 리소스 유형으로 **IoT Hub** 를 선택 합니다.
 
-상태 데이터를 해석하는 방법에 대한 자세한 내용은 [Azure 리소스 상태 개요를](../service-health/resource-health-overview.md)참조하십시오.
+상태 데이터를 해석 하는 방법에 대해 자세히 알아보려면 [Azure 리소스 상태 개요](../service-health/resource-health-overview.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
