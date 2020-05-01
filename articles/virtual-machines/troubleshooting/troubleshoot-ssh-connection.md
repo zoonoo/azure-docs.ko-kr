@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
 ms.openlocfilehash: f221a0bdf579dbbf42ecf64e18803decfb718456
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060656"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>실패하거나 오류가 발생하거나 거부되는 Azure Linux VM에 대한 SSH 연결 문제 해결
@@ -29,16 +29,16 @@ ms.locfileid: "80060656"
 ## <a name="quick-troubleshooting-steps"></a>빠른 문제 해결 단계
 각 문제 해결 단계 후 VM에 다시 연결을 시도합니다.
 
-1. [SSH 구성을 재설정합니다.](#reset-config)
-2. 사용자의 [자격 증명을 다시 설정합니다.](#reset-credentials)
+1. [SSH 구성을 다시 설정](#reset-config)합니다.
+2. 사용자에 대 한 [자격 증명을 다시 설정](#reset-credentials) 합니다.
 3. [네트워크 보안 그룹](../../virtual-network/security-overview.md) 규칙이 SSH 트래픽을 허용하는지 확인합니다.
-   * SSH 트래픽을 허용하도록 [네트워크 보안 그룹 규칙이](#security-rules) 있는지 확인합니다(기본적으로 TCP 포트 22).
+   * SSH 트래픽을 허용 하는 [네트워크 보안 그룹 규칙이](#security-rules) 있는지 확인 합니다 (기본적으로 TCP 포트 22).
    * Azure Load Balancer를 사용하지 않고 포트 리디렉션/매핑을 사용할 수 없습니다.
-4. [VM 리소스 상태를](../../resource-health/resource-health-overview.md)확인합니다.
+4. [VM 리소스 상태](../../resource-health/resource-health-overview.md)를 확인 합니다.
    * VM이 정상으로 보고하는지 확인합니다.
    * [부팅 진단을 사용하도록 설정](boot-diagnostics.md)하는 경우 VM이 로그에서 부팅 오류를 보고하지 않는지 확인합니다.
-5. [VM을 다시 시작합니다.](#restart-vm)
-6. [VM 을 다시 배포합니다.](#redeploy-vm)
+5. [VM을 다시 시작](#restart-vm)합니다.
+6. [VM을 다시 배포](#redeploy-vm)합니다.
 
 자세한 문제 해결 단계와 설명이 필요한 경우 계속 읽어보세요.
 
@@ -46,7 +46,7 @@ ms.locfileid: "80060656"
 다음 방법 중 하나를 사용하여 자격 증명 또는 SSH 구성을 다시 설정할 수 있습니다.
 
 * [Azure Portal](#use-the-azure-portal) - SSH 구성 또는 SSH 키를 신속하게 다시 설정해야 하는데 Azure 도구가 설치되지 않은 경우에 매우 유용합니다.
-* [Azure VM 직렬 콘솔](https://aka.ms/serialconsolelinux) - VM 시리얼 콘솔은 SSH 구성에 관계없이 작동하며 VM에 대화형 콘솔을 제공합니다. 실제로 "SSH를 할 수 없습니다" 상황은 특히 직렬 콘솔이 해결을 돕기 위해 고안된 것입니다. 아래 세부 정보를 참조하세요.
+* [AZURE Vm 직렬 콘솔](https://aka.ms/serialconsolelinux) -vm 직렬 콘솔은 SSH 구성에 관계 없이 작동 하며 vm에 대 한 대화형 콘솔을 제공 합니다. 실제로 "SSH 불가능" 상황은 특히 해결을 돕기 위해 직렬 콘솔이 설계 된 것입니다. 아래 세부 정보를 참조하세요.
 * [Azure CLI](#use-the-azure-cli) - 명령줄에 이미 도달한 경우 SSH 구성 또는 자격 증명을 신속하게 다시 설정합니다. 클래식 VM을 사용하는 경우 [Azure 클래식 CLI](#use-the-azure-classic-cli)를 사용할 수 있습니다.
 * [Azure VMAccessForLinux 확장](#use-the-vmaccess-extension) - json 정의 파일을 만들고 다시 사용하여 SSH 구성 또는 사용자 자격 증명을 다시 설정합니다.
 
@@ -75,27 +75,27 @@ SSH 구성을 다시 설정하려면 이전 스크린샷과 같이 **모드** �
 
 Network Watcher의 [다음 홉](../../network-watcher/network-watcher-check-next-hop-portal.md) 기능을 사용하여 트래픽이 가상 머신으로 들어가거나 나가도록 라우팅하는 데 경로가 방해가 되지 않는지 확인합니다. 네트워크 인터페이스의 유효 경로를 모두 볼 수 있도록 유효 경로를 검토할 수도 있습니다. 자세한 내용은 [유효 경로를 사용하여 VM 트래픽 흐름 문제 해결](../../virtual-network/diagnose-network-routing-problem.md)을 참조하세요.
 
-## <a name="use-the-azure-vm-serial-console"></a>Azure VM 시리얼 콘솔 사용
-[Azure VM 시리얼 콘솔은](./serial-console-linux.md) Linux 가상 컴퓨터를 위한 텍스트 기반 콘솔에 대한 액세스를 제공합니다. 콘솔을 사용하여 대화형 셸에서 SSH 연결 문제를 해결할 수 있습니다. 직렬 콘솔을 사용하기 위한 [필수 구성 조건을](./serial-console-linux.md#prerequisites) 충족하고 아래 명령을 시도하여 SSH 연결 문제를 추가로 해결하십시오.
+## <a name="use-the-azure-vm-serial-console"></a>Azure VM 직렬 콘솔 사용
+[AZURE VM 직렬 콘솔](./serial-console-linux.md) 은 Linux 가상 머신에 대 한 텍스트 기반 콘솔에 대 한 액세스를 제공 합니다. 콘솔을 사용 하 여 대화형 셸에서 SSH 연결 문제를 해결할 수 있습니다. 직렬 콘솔을 사용 하기 위한 [필수 구성 요소](./serial-console-linux.md#prerequisites) 를 충족 하는지 확인 하 고 아래 명령을 사용 하 여 SSH 연결 문제를 추가로 해결 하세요.
 
-### <a name="check-that-ssh-is-running"></a>SSH가 실행 중이면 확인
-다음 명령을 사용하여 SSH가 VM에서 실행되고 있는지 확인할 수 있습니다.
+### <a name="check-that-ssh-is-running"></a>SSH가 실행 중인지 확인
+다음 명령을 사용 하 여 VM에서 SSH가 실행 중인지 여부를 확인할 수 있습니다.
 
 ```console
 ps -aux | grep ssh
 ```
 
-출력이 있으면 SSH가 실행되고 있습니다.
+출력이 있으면 SSH가 실행 중이 고 실행 됩니다.
 
-### <a name="check-which-port-ssh-is-running-on"></a>SSH가 실행 중인 포트 확인
+### <a name="check-which-port-ssh-is-running-on"></a>SSH를 실행 하는 포트 확인
 
-다음 명령을 사용하여 SSH가 실행 중인 포트를 확인할 수 있습니다.
+다음 명령을 사용 하 여 SSH를 실행 하는 포트를 확인할 수 있습니다.
 
 ```console
 sudo grep Port /etc/ssh/sshd_config
 ```
 
-출력은 다음과 같습니다.
+출력은 다음과 같이 표시 됩니다.
 
 ```output
 Port 22
@@ -130,7 +130,7 @@ az vm user update --resource-group myResourceGroup --name myVM \
 ```
 
 ## <a name="use-the-vmaccess-extension"></a>VMAccess 확장 사용
-Linux용 VM 액세스 확장은 수행할 작업을 정의하는 json 파일에서 읽습니다. 이러한 작업에는 SSHD 재설정, SSH 키 재설정 또는 사용자 추가가 포함됩니다. Azure CLI를 사용하여 VMAccess 확장을 호출할 수 있지만 원하는 경우 여러 VM에 걸쳐 json 파일을 재사용할 수 있습니다. 이 방법을 통해 주어진 시나리오에 대해 호출될 수 있는 json 파일의 레포지토리를 만들 수 있습니다.
+Linux 용 VM 액세스 확장은 수행할 작업을 정의 하는 json 파일에서 읽습니다. 이러한 작업에는 SSHD 다시 설정, SSH 키 다시 설정, 사용자 추가 등이 포함 됩니다. Azure CLI를 사용하여 VMAccess 확장을 호출할 수 있지만 원하는 경우 여러 VM에 걸쳐 json 파일을 재사용할 수 있습니다. 이 방법을 통해 주어진 시나리오에 대해 호출될 수 있는 json 파일의 레포지토리를 만들 수 있습니다.
 
 ### <a name="reset-sshd"></a>SSHD 재설정
 다음과 같은 내용으로 `settings.json`라는 파일을 만듭니다.
@@ -277,7 +277,7 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
   * 새 *sudo* 사용자 계정을 만듭니다.
   * SSH 구성을 재설정합니다.
 * VM 리소스 상태에 플랫폼 문제가 있는지 확인합니다.<br>
-     VM을 선택하고 **설정** > **확인 상태를**아래로 스크롤합니다.
+     VM을 선택 하 고 **설정** > **상태 확인**을 아래로 스크롤합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 * 후속 단계를 수행한 후에도 VM에 대해 SSH를 사용할 수 없는 경우 [자세한 문제 해결 단계](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하여 단계를 검토하고 문제를 해결할 수 있습니다.
