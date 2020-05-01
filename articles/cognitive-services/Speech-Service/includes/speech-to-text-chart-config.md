@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 08/22/2019
+ms.date: 04/15/2020
 ms.author: trbye
-ms.openlocfilehash: f7ca8fdaddab9757292939c4f7e658179d6e517c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 267c2fb72b38053429019746a573c740d812c38c
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81421795"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608383"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>음성 텍스트 (하위 차트: 차트/speechToText)
 
@@ -40,3 +40,30 @@ ms.locfileid: "81421795"
 | `service.annotations` | 서비스 메타 데이터에 대 한 **음성 텍스트** 주석입니다. 주석은 키 값 쌍입니다. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
 | `service.autoScaler.enabled` | [수평 Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) 사용 되는지 여부를 나타냅니다. 인 `true`경우 Kubernetes `speech-to-text-autoscaler` 클러스터에가 배포 됩니다. | `true` |
 | `service.podDisruption.enabled` | [Pod 중단 예산이](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) 사용 되는지 여부를 나타냅니다. 인 `true`경우 Kubernetes `speech-to-text-poddisruptionbudget` 클러스터에가 배포 됩니다. | `true` |
+
+#### <a name="sentiment-analysis-sub-chart-chartsspeechtotext"></a>감정 분석 (하위 차트: 차트/speechToText)
+
+2.2.0 컨테이너의 v부터 다음 매개 변수는 텍스트 분석 API을 사용 하 여 감정 분석에 사용 됩니다.
+
+|매개 변수|설명|값|기본값|
+| --- | --- | --- | --- |
+|`textanalytics.enabled`| **텍스트 분석** 서비스의 설정 여부| true/false| `false`|
+|`textanalytics.image.registry`| **텍스트 분석** docker 이미지 레지스트리| 유효한 docker 이미지 레지스트리| |
+|`textanalytics.image.repository`| **텍스트 분석** docker 이미지 리포지토리| 유효한 docker 이미지 리포지토리| |
+|`textanalytics.image.tag`| **텍스트-분석** docker 이미지 태그| 유효한 docker 이미지 태그| |
+|`textanalytics.image.pullSecrets`| **텍스트 분석** docker 이미지를 가져오기 위한 이미지 암호| 유효한 비밀 이름| |
+|`textanalytics.image.pullByHash`| 해시로 docker 이미지를 끌어오는 지 여부를 지정 합니다.  인 `yes`경우 `image.hash` 에도이 있어야 합니다. 인 `no`경우 ' f a l s e '로 설정 합니다. 기본값은 `false`입니다.| true/false| `false`|
+|`textanalytics.image.hash`| **텍스트 분석** docker 이미지 해시입니다. 에서만 사용 `image.pullByHash:true`합니다.| 유효한 docker 이미지 해시 | |
+|`textanalytics.image.args.eula`| **텍스트 분석** 컨테이너의 필수 인수 중 하나로, 라이선스를 수락한 상태임을 나타냅니다. 이 옵션 `accept`의 값은 이어야 합니다.| `accept`컨테이너를 사용 하려는 경우 | |
+|`textanalytics.image.args.billing`| 청구 끝점 URI를 지정 하는 **텍스트 분석** 컨테이너의 필수 인수 중 하나입니다. 청구 끝점 URI 값은 Azure Portal의 음성 개요 페이지에서 사용할 수 있습니다.|유효한 청구 끝점 URI||
+|`textanalytics.image.args.apikey`| 청구 정보를 추적 하는 데 사용 되는 **텍스트 분석** 컨테이너의 필수 인수 중 하나입니다.| 올바른 apikey||
+|`textanalytics.cpuRequest`| **텍스트 분석** 컨테이너에 대해 요청 된 CPU| int| `3000m`|
+|`textanalytics.cpuLimit`| **텍스트 분석** 컨테이너에 대해 제한 된 CPU| | `8000m`|
+|`textanalytics.memoryRequest`| **텍스트 분석** 컨테이너에 대해 요청 된 메모리| | `3Gi`|
+|`textanalytics.memoryLimit`| **텍스트 분석** 컨테이너에 대해 제한 된 메모리| | `8Gi`|
+|`textanalytics.service.sentimentURISuffix`| 감정 분석 URI 접미사, 전체 URI는 "`<service>`http://:`<port>`/`<sentimentURISuffix>`" 형식입니다. | | `text/analytics/v3.0-preview/sentiment`|
+|`textanalytics.service.type`| Kubernetes의 **텍스트 분석** 서비스 유형입니다. [Kubernetes 서비스 형식](https://kubernetes.io/docs/concepts/services-networking/service/) 을 참조 하세요. | 유효한 Kubernetes 서비스 유형 | `LoadBalancer` |
+|`textanalytics.service.port`| **텍스트 분석** 서비스의 포트입니다.| int| `50085`|
+|`textanalytics.service.annotations`| 사용자가 **텍스트 분석** 서비스 메타 데이터에 추가할 수 있는 주석입니다. 예:<br/> **달**<br/>`   `**some/annotation1: value1**<br/>`  `**일부/annotation2: value2** | 각 줄 마다 하나씩 주석| |
+|`textanalytics.serivce.autoScaler.enabled`| [수평 Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) 사용 여부를 지정 합니다. 사용 하도록 설정 `text-analytics-autoscaler` 하면 Kubernetes 클러스터에 배포 됩니다. | true/false| `true`|
+|`textanalytics.service.podDisruption.enabled`| [Pod 중단 예산을](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) 사용 하는지 여부를 나타냅니다. 사용 하도록 설정 `text-analytics-poddisruptionbudget` 하면 Kubernetes 클러스터에 배포 됩니다.| true/false| `true`|
