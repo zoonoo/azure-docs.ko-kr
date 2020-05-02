@@ -786,22 +786,6 @@
               href: ../data-factory/how-to-create-tumbling-window-trigger.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 연속 창 트리거 종속성 만들기
               href: ../data-factory/tumbling-window-trigger-dependency.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: 템플릿
-          items:
-            - name: 템플릿 개요
-              href: ../data-factory/solution-templates-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: 여러 컨테이너의 파일 복사
-              href: ../data-factory/solution-template-copy-files-multiple-containers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: LastModifiedDate로 새 파일 복사
-              href: ../data-factory/solution-template-copy-new-files-lastmodifieddate.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: 데이터베이스에서 대량 복사
-              href: ../data-factory/solution-template-bulk-copy-with-control-table.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: 데이터베이스에서 델타 복사
-              href: ../data-factory/solution-template-delta-copy-with-control-table.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: 파일 이동
-              href: ../data-factory/solution-template-move-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Databricks를 사용하여 데이터 변환
-              href: ../data-factory/solution-template-databricks-notebook.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: 문제 해결 가이드
           items:
             - name: 작업 문제 해결

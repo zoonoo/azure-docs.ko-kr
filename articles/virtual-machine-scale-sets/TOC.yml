@@ -109,7 +109,7 @@
           href: ../virtual-machines/windows/sizes-gpu.md
           maintainContext: true
           items:
-            - name: GPU 드라이버 설정
+            - name: NVIDIA GPU 드라이버 설정
               href: ../virtual-machines/windows/n-series-driver-setup.md
               maintainContext: true
         - name: 고성능 컴퓨팅
@@ -315,5 +315,5 @@
           href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-vm-scale-set'
