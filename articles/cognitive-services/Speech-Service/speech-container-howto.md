@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: d5283051de50b84ea87c0f02a391652854067168
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 53110875596830f63a946c1263bdbff3711366bf
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610747"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82653149"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>음성 서비스 컨테이너 설치 및 실행 (미리 보기)
 
 컨테이너를 사용 하면 사용자 환경에서 음성 서비스 Api의 일부를 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 관리 요구 사항에 적합 합니다. 이 문서에서는 음성 컨테이너를 다운로드, 설치 및 실행 하는 방법에 대해 알아봅니다.
 
-음성 컨테이너는 고객이 강력한 클라우드 기능 및에 지 위치에 대해 최적화 된 음성 응용 프로그램 아키텍처를 구축할 수 있도록 합니다. 사용할 수 있는 4 가지 컨테이너가 있습니다. 두 표준 컨테이너는 **음성에서 텍스트** 이며 **텍스트를 음성으로 변환**합니다. 두 사용자 지정 컨테이너는 **Custom Speech 텍스트** 및 **사용자 지정 텍스트 음성 변환**입니다.
+음성 컨테이너는 고객이 강력한 클라우드 기능 및에 지 위치에 대해 최적화 된 음성 응용 프로그램 아키텍처를 구축할 수 있도록 합니다. 사용할 수 있는 4 가지 컨테이너가 있습니다. 두 표준 컨테이너는 **음성에서 텍스트** 이며 **텍스트를 음성으로 변환**합니다. 두 사용자 지정 컨테이너는 **Custom Speech 텍스트** 및 **사용자 지정 텍스트 음성 변환**입니다. 음성 컨테이너는 클라우드 기반 Azure Speech Services와 동일한 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) 을 갖습니다.
 
 > [!IMPORTANT]
 > 모든 음성 컨테이너는 현재 [공용 "제어 된" 미리 보기](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio)의 일부로 제공 됩니다. 음성 컨테이너가 GA (일반 공급)로 진행 될 때 알림이 생성 됩니다.

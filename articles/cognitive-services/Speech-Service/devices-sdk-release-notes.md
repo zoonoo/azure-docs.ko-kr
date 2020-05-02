@@ -10,16 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 29dcb3c0e74482fd6670d1a0983e751043379d6e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5dbbbbb18bf81d70ed7955530db7c603594c16d0
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80371612"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652732"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>릴리스 정보: 음성 장치 SDK
 
 다음 섹션에는 최신 릴리스의 변경 내용이 나와 있습니다.
+
+## <a name="speech-devices-sdk-1110"></a>음성 장치 SDK 1.11.0:
+
+- [URBETTER](http://www.urbetter.com/products_56/278.html)지원.
+- [음성 도우미 샘플](https://aka.ms/sdsdk-speaker)에서 사용 되는 [GGEC 스피커](https://aka.ms/sdsdk-download-speaker) 에 대 한 이진 파일을 릴리스 했습니다.
+- Raspberry Pi 및 유사한 장치에 대해 [LINUX ARM32](https://aka.ms/sdsdk-download-linux-arm32) 및 [linux ARM 64](https://aka.ms/sdsdk-download-linux-arm64) 에 대 한 이진 파일을 릴리스 했습니다.
+- [SPEECH SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 구성 요소가 1.11.0 버전으로 업데이트 되었습니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요.
 
 ## <a name="speech-devices-sdk-190"></a>음성 장치 SDK 1.9.0:
 
