@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 8aae650065e8de11ccdc55a8a056c379a219fcb4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: faae149cc6cfe9140f7e6908f5eb92d3031ef6d8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876509"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690832"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Azure Cognitive Services 컨테이너 FAQ (질문과 대답)
 
@@ -76,7 +76,11 @@ ms.locfileid: "80876509"
 
 **Q: IoT 장치에서 Cognitive Services 컨테이너를 실행 하려면 어떻게 해야 하나요?**
 
-인터넷 연결이 안정적이 지 않거나 대역폭 비용을 절약 하려고 합니다. 또는에서 대기 시간이 짧은 요구 사항이 있거나 현장에서 분석 되어야 하는 중요 한 데이터를 처리 하는 경우 [Cognitive Services 컨테이너를 사용 하 Azure IoT Edge](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) 는 클라우드와의 일관성을 제공 합니다.
+**A:** 인터넷 연결이 안정적이 지 않거나 대역폭 비용을 절약 하려고 합니다. 또는에서 대기 시간이 짧은 요구 사항이 있거나 현장에서 분석 되어야 하는 중요 한 데이터를 처리 하는 경우 [Cognitive Services 컨테이너를 사용 하 Azure IoT Edge](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) 는 클라우드와의 일관성을 제공 합니다.
+
+**Q: 이러한 컨테이너는 OpenShift와 호환 되나요?** 
+
+OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반적으로 Cognitive Services 컨테이너는 Docker 이미지를 지 원하는 모든 플랫폼에서 실행 되어야 합니다. OpenShift를 사용 하는 경우으로 `root-user`컨테이너를 실행 하는 것이 좋습니다.
 
 **Q: 제품 사용자 의견 및 기능 권장 사항을 제공 어떻게 할까요??**
 

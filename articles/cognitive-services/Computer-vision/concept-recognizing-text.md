@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a4c90ed12c8023e0b9ebc509b20d8d9224b49f1b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c829579f3ad9922c8c621b6dbfa966b69a2497d1
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221360"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690808"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>인쇄되고 필기된 텍스트 인식
 
@@ -26,10 +26,10 @@ Computer Vision는 이미지에 표시 되는 인쇄 또는 필기 텍스트를 
 
 읽기 API는 최신 인식 모델을 사용 하 여 이미지의 텍스트 콘텐츠를 검색 하 고 식별 된 텍스트를 컴퓨터에서 읽을 수 있는 문자 스트림으로 변환 합니다. 텍스트를 많이 사용 하는 이미지 (예: 디지털 스캔 한 문서) 및 시각적 노이즈가 많은 이미지에 최적화 되어 있습니다. 각 텍스트 줄에 사용할 인식 모델을 결정 하 고 인쇄 된 텍스트 및 필기 텍스트를 모두 포함 하는 이미지를 지원 합니다. 큰 문서에서 결과를 반환 하는 데 몇 분 정도 걸릴 수 있으므로 읽기 API는 비동기적으로 실행 됩니다.
 
-읽기 작업은 인식 된 단어의 원래 줄 그룹화를 출력에 유지 합니다. 각 줄에는 경계 상자 좌표가 제공 되며 줄 내의 각 단어에도 고유한 좌표가 있습니다. 낮은 신뢰도로 단어를 인식 하는 경우에도 해당 정보를 전달 합니다. 자세히 알아보려면 [api 참조 문서 읽기](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) 및 [api 미리 보기 참조 읽기 문서](https://go.microsoft.com/fwlink/?linkid=2118322) 를 참조 하세요.
+읽기 작업은 인식 된 단어의 원래 줄 그룹화를 출력에 유지 합니다. 각 줄에는 경계 상자 좌표가 제공 되며 줄 내의 각 단어에도 고유한 좌표가 있습니다. 낮은 신뢰도로 단어를 인식 하는 경우에도 해당 정보를 전달 합니다. 자세히 알아보려면 [api v2.0 참조 문서 읽기](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) 또는 [api v 3.0 미리 보기 참조 문서](https://go.microsoft.com/fwlink/?linkid=2118322) 를 참조 하세요.
 
 > [!NOTE]
-> 이 기능은 영어 및 스페인어 (미리 보기) 텍스트에만 사용할 수 있습니다.
+> 이 기능은 영어 및 스페인어 (v 3.0 preview) 텍스트에만 사용할 수 있습니다.
 
 ### <a name="image-requirements"></a>이미지 요구 사항
 
