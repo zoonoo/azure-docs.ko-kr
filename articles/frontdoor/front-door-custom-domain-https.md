@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: efe2c96c619aaf92efc5b4abf76b6b89c96ebd37
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 56a2246b4f1da51d9b18a34279eff04264530ef5
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878037"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82160088"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 
 이 자습서에서는 프런트 엔드 호스트 섹션의 Front Door에 연결된 사용자 지정 도메인에 HTTPS 프로토콜을 사용하도록 설정하는 방법을 보여줍니다. 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하면(예: https:\//www.contoso.com) 인터넷을 통해 중요한 데이터를 보낼 때 TLS/SSL 암호화를 통해 안전하게 보호됩니다. 웹 브라우저가 HTTPS를 통해 웹 사이트에 연결되면 웹 사이트 보안 인증서의 유효성을 검사하고 합법적인 인증 기관에서 발급되었는지를 확인합니다. 이 프로세스는 보안을 제공하며 공격으로부터 웹 애플리케이션을 보호합니다.
 
-Azure Front Door는 기본적으로 Front Door 기본 호스트 이름에 HTTPS를 지원합니다. 예를 들어 Front Door(예: https:\//contoso.azurefd.net)를 만들면 https://contoso.azurefd.net 에 수행되는 요청에 HTTPS가 자동으로 활성화됩니다. 그러나 사용자 지정 도메인 'www.contoso.com'을 등록하고 나면 이 프런트 엔드 호스트에 HTTPS를 별도로 활성화해야 합니다.   
+Azure Front Door는 기본적으로 Front Door 기본 호스트 이름에 HTTPS를 지원합니다. 예를 들어 Front Door(예: `https://contoso.azurefd.net`)를 만들면 `https://contoso.azurefd.net`에 수행되는 요청에 대해 HTTPS가 자동으로 활성화됩니다. 그러나 사용자 지정 도메인 'www.contoso.com'을 등록하고 나면 이 프런트 엔드 호스트에 HTTPS를 별도로 활성화해야 합니다.   
 
 사용자 지정 HTTPS 기능의 몇 가지 주요 특성은 다음과 같습니다.
 

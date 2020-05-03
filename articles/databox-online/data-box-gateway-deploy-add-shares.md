@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 32466cc0a1ab9b86fc2fb8eb791c232ae13f1c01
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4817db0ce9723f46ceac4f4720915a9bfddcf915
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79213567"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561730"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>자습서: Azure Data Box Gateway를 통해 데이터 전송
 
@@ -115,7 +115,7 @@ Data Box Gateway 디바이스에 연결된 Windows Server 클라이언트에서 
 
 ### <a name="connect-to-an-nfs-share"></a>NFS 공유에 연결
 
-Data Box Edge 디바이스에 연결된 Linux 클라이언트에서 다음 절차를 수행합니다.
+Azure Stack Edge 디바이스에 연결된 Linux 클라이언트에서 다음 절차를 수행합니다.
 
 1. 클라이언트에 NFSv4 클라이언트가 설치되어 있는지 확인합니다. NFS 클라이언트를 설치하려면 다음 명령을 사용합니다.
 

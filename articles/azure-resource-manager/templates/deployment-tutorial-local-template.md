@@ -4,12 +4,12 @@ description: 로컬 컴퓨터에서 Azure Resource Manager 템플릿을 배포�
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c8e3eb62fa52caeaa63808b6b9ea199bdff5c4da
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7f134bb836d05d006ef2e474ea48382a671957fe
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80081822"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82188827"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>자습서: 로컬 Azure Resource Manager 템플릿 배포
 
@@ -37,9 +37,7 @@ Azure PowerShell 또는 Azure CLI가 설치되면 처음으로 로그인해야 �
 
 ## <a name="review-template"></a>템플릿 검토
 
-이 자습서에 사용된 템플릿은 [빠른 시작 템플릿에 대한 자습서](template-tutorial-quickstart-template.md)에 사용된 템플릿과 유사합니다. 템플릿을 만드는 데 관심이 있으면 이 자습서를 진행하면 됩니다. 단, 이 자습서를 완료하는 데는 필요하지 않습니다.
-
-템플릿은 스토리지 계정, App Service 계획 및 웹앱을 배포합니다.
+템플릿은 스토리지 계정, App Service 계획 및 웹앱을 배포합니다. 템플릿을 만드는 데 관심이 있으면 [빠른 시작 템플릿에 대한 자습서](template-tutorial-quickstart-template.md)를 진행하면 됩니다. 단, 이 자습서를 완료하는 데는 필요하지 않습니다.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 

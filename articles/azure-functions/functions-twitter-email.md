@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 7d121e9aeb897897322f1253c332e7a1baabdc9e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6698bcc8125cd00dcb1cd6c86a8d69153242b35
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75768965"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190302"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps와 통합하는 함수 만들기
 
@@ -36,7 +36,11 @@ Azure Functions는 논리 앱 디자이너에서 Azure Logic Apps와 통합합�
 
 + 활성 [Twitter](https://twitter.com/) 계정. 
 + [Outlook.com](https://outlook.com/) 계정(알림 전송용).
-+ 이 문서에서는 [Azure Portal에서 첫 번째 함수 만들기](functions-create-first-azure-function.md)에서 만든 리소스를 시작점으로 사용합니다.  
+
+> [!NOTE]
+> Gmail 커넥터를 사용하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이 이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우 특정 Google 승인 앱과 서비스에서만 Gmail 커넥터를 사용하거나 [Gmail 커넥터에서 인증에 사용할 Google 클라이언트 앱을 만들](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
+
++ 이 문서에서는 [Azure Portal에서 첫 번째 함수 만들기](functions-create-first-azure-function.md)에서 만든 리소스를 시작점으로 사용합니다.
 아직 만들지 않았다면 지금 이러한 단계를 수행하여 함수 앱을 만듭니다.
 
 ## <a name="create-a-cognitive-services-resource"></a>Cognitive Services 리소스 만들기

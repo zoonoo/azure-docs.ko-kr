@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/06/2019
+ms.date: 04/24/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 72b6c1f86b18df172994827ec78eb109fe82454e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0eaac5aac94c536fda58d7d004a54df51219f7cd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75913776"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82147753"
 ---
 ## <a name="benefits-of-managed-disks"></a>관리 디스크의 이점
 
@@ -37,7 +37,7 @@ ms.locfileid: "75913776"
 
 ### <a name="azure-backup-support"></a>Azure Backup 지원
 
-지역적 재해로부터 보호하기 위해 시간 기반 백업 및 백업 보존 정책에 따라 백업 작업을 만드는 데 [Azure Backup](../articles/backup/backup-overview.md)을 사용할 수 있습니다. 이를 통해 VM 복원을 원하는 대로 쉽게 수행할 수 있습니다. 현재, Azure Backup은 최대 4TiB(테비바이트)의 디스크 크기를 지원합니다.  Azure Backup은 관리 디스크의 백업 및 복원을 지원합니다. Azure VM 백업 지원에 대해 [자세히 알아보세요](../articles/backup/backup-support-matrix-iaas.md).
+지역적 재해로부터 보호하기 위해 시간 기반 백업 및 백업 보존 정책에 따라 백업 작업을 만드는 데 [Azure Backup](../articles/backup/backup-overview.md)을 사용할 수 있습니다. 이를 통해 VM 또는 관리 디스크 복원을 원하는 대로 수행할 수 있습니다. 현재 Azure Backup은 최대 32TiB(테비바이트)의 디스크 크기를 지원합니다. Azure VM 백업 지원에 대해 [자세히 알아보세요](../articles/backup/backup-support-matrix-iaas.md).
 
 ### <a name="granular-access-control"></a>세부적인 액세스 제어
 
@@ -67,7 +67,7 @@ Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지
 
 ![실제 디스크 역할](media/virtual-machines-managed-disks-overview/disk-types.png)
 
-### <a name="data-disk"></a>데이터 디스크
+### <a name="data-disk"></a>데이터 디스크 
 
 데이터 디스크는 애플리케이션 데이터 또는 사용자가 보존해야 하는 기타 데이터를 저장하기 위해 가상 머신에 연결된 관리 디스크입니다. 데이터 디스크는 SCSI 드라이브로 등록되며 사용자가 선택한 문자로 레이블이 지정됩니다. 각 데이터 디스크의 최대 용량은 32,767GiB(기비바이트)입니다. 가상 머신의 크기에 따라 사용자가 해당 가상 머신에 연결할 수 있는 데이터의 디스크의 용량과 디스크를 호스트하기 위해 사용할 수 있는 스토리지 유형이 결정됩니다.
 

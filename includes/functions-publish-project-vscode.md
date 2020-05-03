@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: d8665b4cec3357baee5d6c1b77b5719645575419
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 41dfb809cdab00f4f9bee335d92522f37a438c68
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81112882"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82109536"
 ---
 ## <a name="publish-the-project-to-azure"></a>Azure에 프로젝트 게시
 
@@ -24,6 +24,8 @@ ms.locfileid: "81112882"
     ![Azure에 프로젝트 게시](media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. 프롬프트에서 다음 정보를 제공합니다.
+
+    + **폴더 선택**: 작업 영역에서 폴더를 선택하거나 함수 앱을 포함하는 폴더를 찾습니다. 유효한 함수 앱이 이미 열려 있는 경우에는 이 메시지가 표시되지 않습니다.
 
     + **구독 선택**: 사용할 구독을 선택합니다. 구독이 한 개만 있으면 이 메시지가 표시되지 않습니다.
 

@@ -1,20 +1,15 @@
 ---
-title: 클라우드에서 장면 렌더링 - Azure Batch
+title: 클라우드에서 장면 렌더링
 description: 자습서 - Batch Rendering Service 및 Azure 명령줄 인터페이스를 사용하여 Arnold에서 Autodesk 3ds Max 장면을 렌더링하는 방법을 알아봅니다.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: a415a74af654ef9cf56a37c1fca5ac6632ba4418
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e78580cc2f95f14be53c0432df4eb4bd38450832
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78672988"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82117134"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>자습서: Azure Batch를 사용하여 장면 렌더링 
 
@@ -96,7 +91,7 @@ az storage container create \
     --name scenefiles
 ```
 
-[GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max)의 `MotionBlur-Dragon-Flying.max` 장면을 로컬 작업 디렉터리로 다운로드합니다. 다음은 그 예입니다.
+[GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max)의 `MotionBlur-Dragon-Flying.max` 장면을 로컬 작업 디렉터리로 다운로드합니다. 다음은 그 예입니다. 
 
 ```azurecli-interactive
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
@@ -301,7 +296,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>태스크 출력 보기
 
-태스크를 실행하는 데 몇 분이 걸립니다. [az batch task list](/cli/azure/batch/task#az-batch-task-list) 명령을 사용하여 태스크의 상태를 봅니다. 다음은 그 예입니다.
+태스크를 실행하는 데 몇 분이 걸립니다. [az batch task list](/cli/azure/batch/task#az-batch-task-list) 명령을 사용하여 태스크의 상태를 봅니다. 다음은 그 예입니다. 
 
 ```azurecli-interactive
 az batch task list \
@@ -309,7 +304,7 @@ az batch task list \
     --output table
 ```
 
-[az batch task show](/cli/azure/batch/task#az-batch-task-show) 명령을 사용하여 개별 태스크에 대한 세부 정보를 봅니다. 다음은 그 예입니다.
+[az batch task show](/cli/azure/batch/task#az-batch-task-show) 명령을 사용하여 개별 태스크에 대한 세부 정보를 봅니다. 다음은 그 예입니다. 
 
 ```azurecli-interactive
 az batch task show \
@@ -317,7 +312,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-태스크는 컴퓨팅 노드에서 *dragon0002.jpg* - *dragon0007.jpg*라는 출력 파일을 생성하고, 스토리지 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download-batch](/cli/azure/storage/blob) 명령을 사용하여 파일을 로컬 컴퓨터의 폴더로 다운로드합니다. 다음은 그 예입니다.
+태스크는 컴퓨팅 노드에서 *dragon0002.jpg* - *dragon0007.jpg*라는 출력 파일을 생성하고, 스토리지 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download-batch](/cli/azure/storage/blob) 명령을 사용하여 파일을 로컬 컴퓨터의 폴더로 다운로드합니다. 다음은 그 예입니다. 
 
 ```azurecli-interactive
 az storage blob download-batch \

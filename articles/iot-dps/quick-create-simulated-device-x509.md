@@ -3,17 +3,17 @@ title: C를 사용하여 Azure IoT Hub에 시뮬레이트된 X.509 디바이스 
 description: 이 빠른 시작에서는 개별 등록을 사용합니다. 이 빠른 시작에서는 Azure IoT Hub DPS(Device Provisioning Service)용 C 디바이스 SDK를 사용하여 시뮬레이션된 X.509 디바이스를 만들고 프로비저닝합니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 04/26/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f0c95e495e222cc72f0a6fc432404fcbaa47df65
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 882d62c088fa51153ca496231beccd4bfd5af0cb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79216351"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82190363"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>빠른 시작: Azure IoT C SDK를 사용하여 X.509 시뮬레이션된 디바이스 프로비전
 
@@ -172,7 +172,7 @@ Azure IoT C SDK의 샘플 코드를 사용하여 시뮬레이션된 디바이스
 
 7. 포털에서 프로비저닝 서비스와 연결된 IoT 허브로 이동하여 **IoT 디바이스** 탭을 선택합니다. 시뮬레이션된 X.509 디바이스가 허브에 성공적으로 프로비저닝되면 *상태*가 **사용**인 디바이스 ID가 **IoT 디바이스** 블레이드에 표시됩니다. 위쪽에서 **새로 고침** 단추를 눌러야 할 수도 있습니다. 
 
-    ![디바이스가 IoT Hub에 등록됨](./media/quick-create-simulated-device/hub-registration.png) 
+    ![디바이스가 IoT Hub에 등록됨](./media/quick-create-simulated-device-x509/hub-registration.png) 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

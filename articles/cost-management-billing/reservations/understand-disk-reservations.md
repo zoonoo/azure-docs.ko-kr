@@ -1,20 +1,17 @@
 ---
-title: 예약 할인이 Azure 디스크 스토리지에 적용되는 방법 이해
+title: Azure 디스크 스토리지에 대한 예약 할인 이해
 description: Azure 예약된 디스크 할인이 Azure 프리미엄 SSD 관리 디스크에 적용되는 방법을 알아봅니다.
 author: roygara
-ms.service: cost-management-billing
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2020
 ms.author: rogarana
-ms.openlocfilehash: 18fdda3e28761fcf912b716f51b5e270a9b224d0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.service: cost-management-billing
+ms.topic: conceptual
+ms.date: 01/30/2020
+ms.openlocfilehash: 3541e3f12a6d0b1beecdd67821d31f71b47f6c68
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77586651"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509468"
 ---
 # <a name="understand-how-your-reservation-discount-is-applied-to-azure-disk-storage"></a>예약 할인이 Azure 디스크 스토리지에 적용되는 방법 이해
 

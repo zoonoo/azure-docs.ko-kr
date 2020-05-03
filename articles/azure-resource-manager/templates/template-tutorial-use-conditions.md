@@ -2,15 +2,15 @@
 title: 템플릿에서 조건 사용
 description: 조건에 따라 Azure 리소스를 배포하는 방법을 알아봅니다. 새 리소스를 배포하거나 기존 리소스를 사용하는 방법을 보여줍니다.
 author: mumian
-ms.date: 05/21/2019
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8f51c65489efeed1fa18e70bd75e7370a9e59903
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b73598da2b34847a38485db9952302f7c5b33c98
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260649"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82185033"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>자습서: ARM 템플릿에서 조건 사용
 
@@ -134,37 +134,45 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-[템플릿 배포](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)의 지침에 따라 Cloud Shell을 열고 수정된 템플릿을 업로드한 후, 다음 PowerShell 스크립트를 실행하여 템플릿을 배포합니다.
+1. [Azure Cloud Shell](https://shell.azure.com)에 로그인
 
-> [!IMPORTANT]
-> 스토리지 계정 이름은 Azure 내에서 고유해야 합니다. 이름에는 소문자 또는 숫자만 사용할 수 있습니다. 24자 이하여야 합니다. 스토리지 계정 이름은 "store"가 추가된 프로젝트 이름입니다. 프로젝트 이름과 생성된 스토리지 계정 이름이 스토리지 계정 이름 요구 사항을 충족하는지 확인합니다.
+1. 왼쪽 위 모서리에서 **PowerShell** 또는 **Bash**(CLI용)를 선택하여 기본 환경을 선택합니다.  전환하는 경우 셸을 다시 시작해야 합니다.
 
-```azurepowershell
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
-$newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
-$location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
-$vmAdmin = Read-Host -Prompt "Enter the admin username"
-$vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
-$dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
+    ![Azure Portal Cloud Shell 업로드 파일](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-$resourceGroupName = "${projectName}rg"
-$storageAccountName = "${projectName}store"
+1. **파일 업로드/다운로드**를 선택한 다음, **업로드**를 선택합니다. 이전 스크린샷을 참조하세요. 이전 섹션에서 저장한 파일을 선택합니다. 파일을 업로드한 후 **ls** 명령 및 **cat** 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다.
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -adminUsername $vmAdmin `
-    -adminPassword $vmPassword `
-    -dnsLabelPrefix $dnsLabelPrefix `
-    -storageAccountName $storageAccountName `
-    -newOrExisting $newOrExisting `
-    -TemplateFile "$HOME/azuredeploy.json"
+1. 다음 PowerShell 스크립트를 실행하여 템플릿을 배포합니다.
 
-Write-Host "Press [ENTER] to continue ..."
-```
+    > [!IMPORTANT]
+    > 스토리지 계정 이름은 Azure 내에서 고유해야 합니다. 이름에는 소문자 또는 숫자만 사용할 수 있습니다. 24자 이하여야 합니다. 스토리지 계정 이름은 "store"가 추가된 프로젝트 이름입니다. 프로젝트 이름과 생성된 스토리지 계정 이름이 스토리지 계정 이름 요구 사항을 충족하는지 확인합니다.
 
-> [!NOTE]
-> **newOrExisting**이 **new**이지만 지정된 스토리지 계정 이름의 스토리지 계정이 이미 있는 경우 배포가 실패합니다.
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
+    $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
+    $location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
+    $vmAdmin = Read-Host -Prompt "Enter the admin username"
+    $vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+    $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
+
+    $resourceGroupName = "${projectName}rg"
+    $storageAccountName = "${projectName}store"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment `
+        -ResourceGroupName $resourceGroupName `
+        -adminUsername $vmAdmin `
+        -adminPassword $vmPassword `
+        -dnsLabelPrefix $dnsLabelPrefix `
+        -storageAccountName $storageAccountName `
+        -newOrExisting $newOrExisting `
+        -TemplateFile "$HOME/azuredeploy.json"
+
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    > [!NOTE]
+    > **newOrExisting**이 **new**이지만 지정된 스토리지 계정 이름의 스토리지 계정이 이미 있는 경우 배포가 실패합니다.
 
 **newOrExisting**이 "existing"으로 설정된 다른 배포를 시도하고 기존 스토리지 계정을 지정해 보세요. 스토리지 계정을 미리 들려면 [스토리지 계정 만들기](../../storage/common/storage-account-create.md)를 참조하세요.
 

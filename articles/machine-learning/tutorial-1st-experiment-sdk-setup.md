@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: 820332b0692c0c863ed23912fe9913c419769155
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 75ae07de9d5c80245a6e75dcb2c12be9128ff4fe
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273004"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184591"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>자습서: Python SDK로 첫 번째 ML 실험 만들기 시작
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -90,7 +90,13 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 1. VM을 찾을 수 없는 경우 **+ 추가**를 선택하여 컴퓨팅 인스턴스 VM을 만듭니다. 
 
-    1. VM을 만들 때 이름을 입력합니다.  이름은 2~16자 사이여야 합니다. 유효한 문자는 문자, 숫자 및 문자이며 Azure 구독에서 고유해야 합니다.
+    1. VM을 만들 경우 다음 규칙을 따릅니다.  
+        + 이름은 필수이며 비워 둘 수 없습니다.
+        + 작업 영역/컴퓨팅 인스턴스의 Azure 지역에 있는 모든 기존 컴퓨팅 인스턴스에서 고유한 이름(대/소문자 구분 안 함)이어야 합니다. 선택한 이름이 고유하지 않으면 경고를 받게 됩니다.
+        + 유효한 문자는 대/소문자, 숫자(0~9) 및 대시 문자(-)입니다.
+        + 이름은 3~24자 사이여야 합니다.
+        + 이름은 문자(숫자 또는 대시 문자 아님)로 시작해야 합니다.
+        + 대시 문자를 사용하는 경우 대시 뒤에 문자가 하나 이상 있어야 합니다. 예제: Test-, test-0, test-01은 유효하지 않지만 test-a0, test-0a는 유효한 인스턴스입니다.
 
     1.  사용 가능한 선택 항목에서 Virtual Machine 크기를 선택합니다.
 

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 23fa1a2a0b035d04334c51c02411de6de70f2cad
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 484dfd7834a206dce6805dc38b0eabeae2ee352a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79453649"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82114567"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>가져온 데이터를 사용하여 서버 평가
 
@@ -68,7 +68,7 @@ Azure 계정에는 Azure Migrate 프로젝트를 만들 수 있는 권한이 있
 5. **프로젝트 마이그레이션**에서 Azure 구독을 선택하고, 아직 없는 경우 리소스 그룹을 만듭니다.
 6. **프로젝트 세부 정보**에서 프로젝트 이름과 이 프로젝트를 만들려는 지역을 지정합니다. 자세한 내용은 다음을 참조하세요.
 
-    - [지원되는 지역](migrate-support-matrix.md#supported-geographies)을 검토합니다. 프로젝트 지역은 온-프레미스 VM에서 수집된 메타데이터를 저장하는 데만 사용됩니다.
+    - [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
     - 대상 지역은 마이그레이션을 실행할 때 선택할 수 있습니다.
 
     ![Azure Migrate 프로젝트 만들기](./media/tutorial-assess-import/migrate-project.png)
@@ -126,22 +126,8 @@ CSV 템플릿을 다운로드하고, 여기에 서버 정보를 추가합니다.
 **네트워크 입력 처리량** | 예 | 서버에서 받은 데이터(MB/초)
 **네트워크 출력 처리량** | 예 | 서버에서 전송한 데이터(MB/초)
 **펌웨어 유형** | 예 | 서버 펌웨어 값은 "BIOS" 또는 "UEFI"일 수 있습니다.
-**서버 유형** | 예 | 값은 "물리적" 또는 "가상"일 수 있습니다.
-**하이퍼바이저** | 예 | 컴퓨터가 실행 중인 하이퍼바이저입니다. <br/> 값은 "VMware", "Hyper-V", "Xen", "AWS", "GCP" 또는 "기타"일 수 있습니다.
-**하이퍼바이저 버전 번호** | 예 | 하이퍼바이저 버전
-**가상 머신 ID** | 예 | VM 식별자. VMware vCenter VM의 경우 **InstanceUUid** 값이고, Hyper-V의 경우 **Hyper-V VM ID**입니다.
-**Virtual Machine Manager ID** | 예 | VMWare vCenter의 경우 **InstanceUUid** 값입니다. Hyper-V에는 필요하지 않습니다.
 **MAC 주소**| 예 | 서버 MAC 주소
-**BIOS ID** | 예 | 서버 BIOS ID
-**사용자 지정 서버 ID** | 예 | 온-프레미스의 고유한 로컬 서버 ID. <br/> 가져온 서버를 로컬 ID로 추적하는 데 유용합니다.
-**애플리케이션 1 이름** | 예 | 서버에서 실행되는 워크로드의 이름.<br/>템플릿에 [열을 추가](#add-multiple-applications)하여 추가 앱에 대한 세부 정보를 추가할 수 있습니다. 최대 5개의 애플리케이션을 추가할 수 있습니다.
-**애플리케이션 1 유형** | 예 | 서버에서 실행되는 워크로드의 유형
-**애플리케이션 1 버전** | 예 | 서버에서 실행 중인 워크로드의 버전
-**애플리케이션 1 라이선스 만료** | 예 | 워크로드의 라이선스 만료(해당하는 경우)
-**사업부** | 예 | 서버가 속한 사업부
-**비즈니스 소유자** | 예 | 사업부 소유자
-**비즈니스 애플리케이션 이름** | 예 | 앱이 속한 애플리케이션의 이름
-**위치** | 예 | 서버가 있는 데이터 센터
+
 
 ### <a name="add-operating-systems"></a>운영 체제 추가
 
@@ -159,19 +145,6 @@ CSV 템플릿을 다운로드하고, 여기에 서버 정보를 추가합니다.
 - 디스크 2 읽기 처리량
 - 디스크 2 쓰기 처리량
 
-### <a name="add-multiple-applications"></a>여러 애플리케이션 추가
-
-템플릿은 단일 애플리케이션에 대한 필드를 제공합니다. 최대 5개 앱에 대해 비슷한 열을 추가할 수 있습니다.  
-
-예를 들어 두 번째 앱의 모든 필드를 지정하려면 다음 열을 추가합니다.
-
-- 애플리케이션 2 이름
-- 애플리케이션 2 유형
-- 애플리케이션 2 버전
-- 애플리케이션 2 라이선스 만료
-
-> [!NOTE]
-> 앱 정보는 마이그레이션할 온-프레미스 환경을 평가하는 데 유용합니다. 그러나 Azure Migrate 서버 평가는 현재 평가를 만들 때 앱 수준 평가를 수행하거나 앱을 고려하지 않습니다.
 
 ## <a name="import-the-server-information"></a>서버 정보 가져오기
 
@@ -242,7 +215,7 @@ CSV 템플릿을 다운로드하고, 여기에 서버 정보를 추가합니다.
 
 ### <a name="view-an-assessment"></a>평가 보기
 
-1. **마이그레이션 목표** > **서버**의 **Azure Migrate: 서버 평가**에서 평가를 클릭합니다.
+1. **마이그레이션 목표** > **서버**의 **Azure Migrate: 서버 평가**에서 **평가**를 클릭합니다.
 2. **평가**에서 평가를 선택하여 엽니다.
 
     ![평가 요약](./media/tutorial-assess-physical/assessment-summary.png)
@@ -275,6 +248,8 @@ CSV 템플릿을 다운로드하고, 여기에 서버 정보를 추가합니다.
 > CSV를 사용하여 서버 평가로 가져온 서버의 평가에는 신뢰 등급이 할당되지 않습니다.
 
 ## <a name="supported-operating-system-names"></a>지원되는 운영 체제 이름
+
+CSV에 제공된 운영 체제 이름은 이 목록에 있는 이름과 일치하거나 이 이름을 포함해야 합니다. 이는 지정된 이름이 평가에 유효한 것으로 인식되도록 하는 데 필요합니다.
 
 <!-- BEGIN A - H -->
 

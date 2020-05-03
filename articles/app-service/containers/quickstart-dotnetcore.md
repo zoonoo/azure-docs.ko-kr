@@ -7,12 +7,12 @@ ms.tgt_pltfrm: linux
 ms.topic: quickstart
 ms.date: 04/22/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 349aa4652ae9f52641b5865e48dcd4c113ca7f9d
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 1eeb5bbd4b10ef660a50f40d6c1300b0ca214561
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086296"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82206676"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Linux의 App Service에서 ASP.NET Core 앱 만들기
 
@@ -33,7 +33,7 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 이 문서의 단계를 수�
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
 * <a href="https://git-scm.com/" target="_blank">Git 설치</a>
-* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">최신 .NET Core SDK 3.1 설치</a>
+* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">최신 .NET Core 3.1 SDK 설치</a>
 
 ## <a name="create-the-app-locally"></a>로컬로 앱 만들기
 

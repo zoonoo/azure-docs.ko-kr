@@ -8,16 +8,16 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 26e5386f1c9730f1600e59a002ea7845b82ffe06
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3b34b45cba805d748dcc8a0c31340cd8116e1c80
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76937126"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82160769"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure DNS 영역 및 레코드 만들기
 
-공용 도메인에서 호스트 이름을 확인하기 위한 Azure DNS를 구성할 수 있습니다. 예를 들어 도메인 이름 등록 기관에서 *contoso.xyz* 도메인 이름을 구입한 경우, Azure DNS에서 *contoso.xyz* 도메인을 호스팅하고 *www.contoso.xyz* 를 웹 서버 또는 웹앱의 IP 주소로 확인하도록 구성할 수 있습니다.
+공용 도메인에서 호스트 이름을 확인하기 위한 Azure DNS를 구성할 수 있습니다. 예를 들어 도메인 이름 등록 기관에서 *contoso.xyz* 도메인 이름을 구입한 경우, *contoso.xyz* 도메인을 호스팅하고 *`www.contoso.xyz`* 를 웹 서버 또는 웹앱의 IP 주소로 확인하도록 Azure DNS를 구성할 수 있습니다.
 
 이 빠른 시작에서는 테스트 도메인을 만든 다음, *www*를 *10.10.10.10* IP 주소로 확인하는 주소 레코드를 만듭니다.
 
@@ -89,7 +89,7 @@ DNS 영역 내에서 도메인에 대한 DNS 항목 또는 레코드를 만듭�
    nslookup www.contoso.xyz <name server name>
    ```
 
-   다음은 그 예입니다.
+   다음은 그 예입니다. 
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

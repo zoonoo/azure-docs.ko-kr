@@ -1,20 +1,17 @@
 ---
-title: Azure Database for MySQL에 예약 할인이 적용되는 방법
-description: Azure Database for MySQL에 예약 할인이 적용되는 방법
+title: 예약 할인 이해 - Azure Database for MySQL
+description: Azure Database for MySQL 서버에 예약 할인이 적용되는 방법에 대해 알아봅니다.
 author: kummanish
 ms.author: manishku
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/13/2020
-ms.openlocfilehash: ed067e4bbde737cb08afe7c9429854e54e2ef3d9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e47153b24234480ee52847f07e723c02fabb3113
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199316"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509434"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mysql"></a>Azure Database for MySQL에 예약 할인이 적용되는 방법
 
@@ -44,5 +41,6 @@ Azure Database for MySQL 예약된 용량 할인은 시간 단위로 MySQL 서�
 
 청구 사용량 보고서에서 Azure 예약의 애플리케이션을 이해하고 보려면 [Azure 예약 사용량 이해](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)를 참조하세요.
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의처
+## <a name="next-steps"></a>다음 단계
+
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 1d22f66ad5f7adf5bb8196c3e72a2a343f4558b0
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: aad830ba7c7198077fe6073d6351c72ac9a8e662
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536100"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82144387"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>빠른 시작: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기
 
@@ -25,7 +25,7 @@ ms.locfileid: "81536100"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Azure 구독 - [체험용 Azure 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.JS](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download)(프로젝트 파일 편집)
 
@@ -165,7 +165,7 @@ ms.locfileid: "81536100"
 
 ### <a name="how-the-sample-works"></a>샘플 작동 방법
 
-![이 빠른 시작에서 샘플 앱의 작동 방식](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![샘플 JavaScript SPA 작동 방법: 1. SPA가 로그인을 시작합니다. 2. SPA는 Microsoft ID 플랫폼에서 ID 토큰을 획득합니다. 3. SPA는 획득 토큰을 호출합니다. 4. Microsoft ID 플랫폼은 SPA에 액세스 토큰을 반환합니다. 5. SPA는 Microsoft Graph API에 대한 액세스 토큰을 사용하여 HTTP GET 요청을 수행합니다. 6. Graph API는 SPA에 HTTP 응답을 반환합니다.](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
 ### <a name="msaljs"></a>msal.js
 
@@ -268,7 +268,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-상황에 따라 사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용해야 하는 경우도 있습니다. 다음은 그 예입니다.
+상황에 따라 사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용해야 하는 경우도 있습니다. 다음은 그 예입니다. 
 * 암호가 만료되었으므로 사용자가 자격 증명을 다시 입력해야 할 수도 있습니다.
 * 애플리케이션이 사용자 동의가 필요한 추가 리소스 범위에 대한 액세스를 요청하고 있습니다.
 * 2단계 인증이 필요합니다.

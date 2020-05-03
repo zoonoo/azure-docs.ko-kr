@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 30b66414e87f642bc72b8723ebff57f2e9009f17
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 737e8a247a232278db73de716647fc5bb890fe39
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239246"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184999"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>자습서: ARM 템플릿 배포 문제 해결
 
@@ -26,20 +26,18 @@ ARM (Azure Resource Manager) 템플릿 배포 오류 문제를 해결하는 방�
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 문제가 있는 템플릿 만들기
-> * 유효성 검사 오류 문제 해결
-> * 배포 오류 문제 해결
-> * 리소스 정리
+> - 문제가 있는 템플릿 만들기
+> - 유효성 검사 오류 문제 해결
+> - 배포 오류 문제 해결
+> - 리소스 정리
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* Resource Manager 도구 확장이 포함된 Visual Studio Code. [Visual Studio Code를 사용하여 ARM 템플릿 만들기](use-vs-code-to-create-template.md)를 참조하세요.
+- Resource Manager 도구 확장이 포함된 Visual Studio Code. [Visual Studio Code를 사용하여 ARM 템플릿 만들기](use-vs-code-to-create-template.md)를 참조하세요.
 
 ## <a name="create-a-problematic-template"></a>문제가 있는 템플릿 만들기
 
@@ -51,12 +49,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. **열기**를 선택하여 파일을 엽니다.
 4. **apiVersion** 줄을 다음 줄로 변경합니다.
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
+
     - **apiVersion1**은 잘못된 요소 이름입니다. 유효성 검사 오류입니다.
     - API 버전은 "2018-07-01"이어야 합니다.  배포 오류입니다.
 
@@ -64,7 +64,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="troubleshoot-the-validation-error"></a>유효성 검사 오류 문제 해결
 
-템플릿을 배포하려면 [템플릿 배포](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) 섹션을 참조하세요.
+템플릿을 배포하려면 [템플릿 배포](template-tutorial-create-multiple-instances.md#deploy-the-template) 섹션을 참조하세요.
 
 셸에서 다음과 유사한 오류가 발생합니다.
 
@@ -78,7 +78,7 @@ Visual Studio Code를 사용하여 **apiVersion1**을 **apiVersion**으로 변�
 
 ## <a name="troubleshoot-the-deployment-error"></a>배포 오류 문제 해결
 
-템플릿을 배포하려면 [템플릿 배포](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) 섹션을 참조하세요.
+템플릿을 배포하려면 [템플릿 배포](template-tutorial-create-multiple-instances.md#deploy-the-template) 섹션을 참조하세요.
 
 셸에서 다음과 유사한 오류가 발생합니다.
 

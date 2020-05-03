@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 3c50e82647b22a18edee92f47abc1d136670cacc
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 18af9b395aac24608c0a1383b5abdfeb062f58c1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80519662"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184880"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB의 SQL API 계정을 관리하는 Node.js 웹앱 빌드 
 
@@ -437,7 +437,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 애플리케이션을 빌드했으므로 다음 단계를 사용하여 로컬로 실행할 수 있습니다.  
 
-1. 로컬 머신에서 애플리케이션을 테스트하려면 터미널에서 `npm start`를 실행하여 애플리케이션을 시작한 다음, [http://localhost:3000](http://localhost:3000) 브라우저 페이지를 새로 고칩니다. 이제 페이지가 다음 스크린샷과 비슷하게 표시됩니다.
+1. 로컬 머신에서 애플리케이션을 테스트하려면 터미널에서 `npm start`를 실행하여 애플리케이션을 시작한 다음, `http://localhost:3000` 브라우저 페이지를 새로 고칩니다. 이제 페이지가 다음 스크린샷과 비슷하게 표시됩니다.
    
     ![브라우저 창에 표시된 MyTodo List 애플리케이션의 스크린샷](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 

@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Resource Manager 템플릿을 사용하�
 ms.date: 03/16/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: ae6b2d151baaa904215639276c7fb74766810c6a
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 646e2e064618e70fd9e9e747926f0886d85fde26
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606608"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82187786"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -70,7 +70,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 페이지 왼쪽에서 **준수**를 선택합니다. 그런 다음, 앞에서 만든 **관리 디스크를 사용하지 않는 감사 VM** 정책 할당을 찾습니다.
 
-![정책 규정 준수 개요 페이지](./media/assign-policy-template/policy-compliance.png)
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="정책 규정 준수 개요 페이지" border="false":::
 
 이 새로운 할당을 준수하지 않는 기존 리소스가 있는 경우 **비준수 리소스** 아래에 표시됩니다.
 
@@ -84,7 +84,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **관리 디스크를 사용하지 않는 VM 감사** 정책 할당을 마우스 오른쪽 단추로 클릭하고 **할당 삭제**를 선택합니다.
 
-   ![규정 준수 요약 페이지에서 할당 삭제](./media/assign-policy-template/delete-assignment.png)
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="규정 준수 요약 페이지에서 할당 삭제" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 

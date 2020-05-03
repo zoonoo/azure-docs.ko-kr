@@ -4,14 +4,14 @@ description: Azure App Service에서 CORS 지원을 통해 RESTful API를 호스
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 02/11/2020
+ms.date: 04/28/2020
 ms.custom: mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18
-ms.openlocfilehash: 79aff0b90ad62af221102311d3123f93af30ad08
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: c59ff344cc3e24387c764ba2f23bc3fe0065b371
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085657"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559794"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>자습서: Azure App Service에서 CORS를 통해 RESTful API 호스팅
 
@@ -32,8 +32,8 @@ ms.locfileid: "82085657"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Git를 설치](https://git-scm.com/)합니다.
-* [.NET Core를 설치](https://www.microsoft.com/net/core/)합니다.
+* <a href="https://git-scm.com/" target="_blank">Git 설치</a>
+ * <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">최신 .NET Core 3.1 SDK 설치</a>
 
 ## <a name="create-local-aspnet-core-app"></a>로컬 ASP.NET Core 앱 만들기
 
@@ -98,27 +98,28 @@ dotnet run
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 <pre>
-Counting objects: 98, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (92/92), done.
-Writing objects: 100% (98/98), 524.98 KiB | 5.58 MiB/s, done.
-Total 98 (delta 8), reused 0 (delta 0)
+Enumerating objects: 83, done.
+Counting objects: 100% (83/83), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (78/78), done.
+Writing objects: 100% (83/83), 22.15 KiB | 3.69 MiB/s, done.
+Total 83 (delta 26), reused 0 (delta 0)
 remote: Updating branch 'master'.
-remote: .
 remote: Updating submodules.
-remote: Preparing deployment for commit id '0c497633b8'.
+remote: Preparing deployment for commit id '509236e13d'.
 remote: Generating deployment script.
-remote: Project file path: ./DotNetCoreSqlDb.csproj
+remote: Project file path: .\TodoApi.csproj
+remote: Generating deployment script for ASP.NET MSBuild16 App
 remote: Generated deployment script files
 remote: Running deployment command...
-remote: Handling ASP.NET Core Web Application deployment.
+remote: Handling ASP.NET Core Web Application deployment with MSBuild16.
 remote: .
 remote: .
 remote: .
 remote: Finished successfully.
 remote: Running post deployment command(s)...
+remote: Triggering recycle (preview mode disabled).
 remote: Deployment successful.
-remote: App container will begin restart within 10 seconds.
 To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
  * [new branch]      master -> master
 </pre>
@@ -159,10 +160,10 @@ dotnet run
 
 ### <a name="enable-cors"></a>CORS를 사용하도록 설정 
 
-Cloud Shell에서 [`az resource update`](/cli/azure/resource#az-resource-update) 명령을 사용하여 CORS를 클라이언트 URL로 사용하도록 설정합니다. _&lt;appname>_ 자리 표시자를 바꿉니다.
+Cloud Shell에서 [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add) 명령을 사용하여 CORS를 클라이언트 URL로 사용하도록 설정합니다. _&lt;app-name>_ 자리 표시자를 바꿉니다.
 
 ```azurecli-interactive
-az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01
+az webapp cors add --resource-group myResourceGroup --name <app-name> --allowed-origins 'http://localhost:5000'
 ```
 
 `properties.cors.allowedOrigins`에 둘 이상의 클라이언트 URL(`"['URL1','URL2',...]"`)을 설정할 수 있습니다. `"['*']"`를 사용하여 모든 클라이언트 URL을 사용하도록 설정할 수도 있습니다.

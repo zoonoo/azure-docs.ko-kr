@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 70eb2449c5c54750831c30ff7d5c948173a38594
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8f9c0dca29d173eb2c7893a20b2ab41dd31522e1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426352"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183214"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-single-usersingle-password-authentication"></a>단일 사용자/단일 암호 인증을 사용하는 리소스의 비밀 순환 자동화
 
@@ -25,7 +25,7 @@ Azure 서비스를 인증하는 가장 좋은 방법은 [관리 ID](../general/m
 
 ![순환 솔루션 다이어그램](../media/rotate1.png)
 
-1. 비밀 만료 30일 전에 Key Vault는 "곧 만료" 이벤트를 Event Grid에 게시합니다.
+1. 비밀 만료 30일 전에 Key Vault는 "만료 임박" 이벤트를 Event Grid에 게시합니다.
 1. Event Grid는 이벤트 구독을 확인하고 HTTP POST를 사용하여 이벤트를 구독하는 함수 앱 엔드포인트를 호출합니다.
 1. 함수 앱에서는 비밀 정보를 수신하고, 임의의 새 암호를 생성하고, Key Vault의 새 암호를 사용하여 새 버전의 비밀을 만듭니다.
 1. 함수 앱에서는 SQL Server를 새 암호로 업데이트합니다.
@@ -263,7 +263,7 @@ SQL 자격 증명을 확인하려면 웹앱을 만듭니다. 이 웹앱은 Key V
  
 ![URL 선택](../media/rotate10.png)
 
-데이터베이스 연결 값이 true인 생성된 비밀 값이 표시됩니다.
+애플리케이션이 브라우저에서 열리면 **생성된 비밀 값** 및 **데이터베이스 연결** 값이 *true*로 표시됩니다.
 
 ## <a name="learn-more"></a>자세한 정보
 

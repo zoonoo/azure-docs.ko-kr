@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: e5dcb39430158db1ee9a18524d0214335a2bbbba
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b65e8f470b36ab1642e9144e081253a577dabc3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80045370"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202505"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>자습서: Linux 및 Azure Cosmos DB에서 Azure App Service를 사용하여 Java Spring Boot Java 웹앱 빌드
 
@@ -165,7 +165,7 @@ bash-3.2$ mvn package spring-boot:run
 [INFO] TodoApplication - Started TodoApplication in 45.573 seconds (JVM running for 76.534)
 ```
 
-앱이 시작되면 다음 링크를 사용하여 로컬로 Spring 할 일 앱에 액세스할 수 있습니다. [http://localhost:8080/](http://localhost:8080/)
+앱이 시작되면 `http://localhost:8080/` 링크를 사용하여 로컬로 Spring TODO 앱에 액세스할 수 있습니다.
 
  ![로컬에서 Spring TODO 앱 액세스](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 

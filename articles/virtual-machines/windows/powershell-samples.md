@@ -1,25 +1,19 @@
 ---
 title: Azure Virtual Machine PowerShell 샘플
 description: Azure Virtual Machine PowerShell 샘플
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: sample
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 434cf3f9342ad10bab39030e65cdd4bc4d0edc27
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
-ms.translationtype: MT
+ms.openlocfilehash: 03d27e1e72eaa5f5dee8cfa9062a56c6dd45007a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458865"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82100025"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure Virtual Machine PowerShell 샘플
 
@@ -30,7 +24,7 @@ ms.locfileid: "81458865"
 |**가상 머신 만들기**||
 | [가상 머신 빠르게 만들기](./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 최소한의 프롬프트를 사용하여 리소스 그룹, 가상 머신 및 모든 관련 리소스를 만듭니다.|
 | [완벽히 구성된 가상 머신 만들기](./../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 리소스 그룹, 가상 머신 및 모든 관련 리소스를 만듭니다.|
-| [고가용성 가상 컴퓨터 만들기](./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 여러 가상 머신을 부하 분산된 고가용성 구성으로 만듭니다.|
+| [고가용성 가상 머신 만들기](./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 여러 가상 머신을 부하 분산된 고가용성 구성으로 만듭니다.|
 | [VM 만들기 및 구성 스크립트 실행](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 가상 머신을 만들고 Azure 사용자 지정 스크립트 확장을 사용하여 IIS를 설치합니다. |
 | [VM 만들기 및 DSC 구성 실행](./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 가상 머신을 만들고 Azure DSC(필요한 상태 구성) 확장을 사용하여 IIS를 설치합니다. |
 | [VHD 업로드 및 VM 만들기](./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md) | 로컬 VHD 파일을 Azure에 업로드하고, VHD에서 이미지 만든 다음, 해당 이미지에서 VM을 만듭니다. |
@@ -40,13 +34,13 @@ ms.locfileid: "81458865"
 | [동일하거나 다른 구독에 VHD의 관리 디스크 만들기](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 동일하거나 다른 구독에 특수화된 VHD의 관리 디스크를 OS 디스크로 만들거나 데이터 VHD의 관리 디스크를 데이터 디스크로 만듭니다.  |
 | [스냅샷에서 관리 디스크 만들기](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 스냅샷에서 관리 디스크를 만듭니다. |
 | [동일하거나 다른 구독에 관리 디스크 복사](../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json) | 부모 관리 디스크와 동일한 지역에 있는 동일하거나 다른 구독에 관리 디스크를 복사합니다.
-| [스냅샷을 VHD로 스토리지 계정에 내보내기](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 다른 지역의 스토리지 계정에 관리 스냅샷을 VHD로 내보냅니다. |
-| [관리 디스크의 VHD를 스토리지 계정에 내보내기](../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 관리 디스크의 기본 VHD를 다른 지역의 스토리지 계정으로 내보냅니다. |
+| [스토리지 계정에 스냅샷을 VHD로 내보내기](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 다른 지역의 스토리지 계정에 관리 스냅샷을 VHD로 내보냅니다. |
+| [관리 디스크의 VHD를 스토리지 계정으로 내보내기](../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 관리 디스크의 기본 VHD를 다른 지역의 스토리지 계정으로 내보냅니다. |
 | [VHD에서 스냅샷 만들기](../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | VHD에서 스냅샷을 만든 다음, 해당 스냅샷을 사용하여 동일한 여러 관리 디스크를 빠르게 만듭니다.  |
 | [동일하거나 다른 구독에 스냅샷 복사](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 부모 스냅샷과 동일한 지역에 있는 동일하거나 다른 구독에 스냅샷을 복사합니다. |
 |**가상 머신 보호**||
 | [VM 및 해당 데이터 디스크 암호화](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Azure 키 자격 증명 모음, 암호화 키 및 서비스 주체를 만든 다음, VM을 암호화합니다. |
 |**가상 머신 모니터링**||
 | [Azure Monitor를 사용하여 VM 모니터링](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 가상 머신을 만들고, Azure Log Analytics 에이전트를 설치하고, VM을 Log Analytics 작업 영역에 등록합니다.  |
-| [PowerShell을 통해 구독의 모든 VM에 대한 세부 정보 수집](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 제공된 구독에서 VM 이름, 리소스 그룹 이름, 지역, 가상 네트워크, 서브넷, 개인 IP 주소, OS 유형 및 공용 IP 주소가 포함된 csv를 만듭니다.
+| [PowerShell을 사용하여 구독의 모든 VM에 대한 세부 정보 수집](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 제공된 구독에서 VM 이름, 리소스 그룹 이름, 지역, Virtual Network, 서브넷, 개인 IP 주소, OS 유형 및 VM의 공용 IP 주소가 포함된 csv를 만듭니다.
 | | |

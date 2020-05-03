@@ -6,12 +6,12 @@ ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
 ms.devlang: javascript
-ms.openlocfilehash: 08a246b07effb8d5f3e2473a4d7959882cf43235
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 24b93e9722ff399330b6843f065f183a3b1f5181
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687946"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202562"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Azure에서 Node.js 앱 만들기
 
@@ -23,7 +23,7 @@ Azure 계정이 없는 경우 지금 200달러의 Azure 크레딧으로 체험 �
 
 Node.js 패키지 관리자인 [Node.js 및 npm](https://nodejs.org/en/download)과 함께 [Visual Studio Code](https://code.visualstudio.com/)를 설치해야 합니다.
 
-또한 Azure PaaS(Platform as a Service)에서 Linux Web Apps를 만들고, 관리하고, 배포하는 데 사용할 수 있는 [Azure App Service 확장](vscode:extension/ms-azuretools.vscode-azureappservice)도 설치해야 합니다.
+또한 Azure PaaS(Platform as a Service)에서 Linux Web Apps를 만들고, 관리하고, 배포하는 데 사용할 수 있는 [Azure App Service 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)도 설치해야 합니다.
 
 ### <a name="sign-in"></a>로그인
 
@@ -83,7 +83,7 @@ npm install
 npm start
 ```
 
-이제 브라우저를 열고, 다음과 같이 표시되는 [http://localhost:3000](http://localhost:3000)으로 이동합니다.
+이제 브라우저를 열고, 다음과 같이 표시되는 `http://localhost:3000`으로 이동합니다.
 
 ![Express 애플리케이션 실행](./media/quickstart-nodejs/express.png)
 
@@ -107,7 +107,7 @@ code .
 ![웹앱에 배포](./media/quickstart-nodejs/deploy.png)
 
 > [!TIP]
-> '웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포** 명령을 실행하여 명령 팔레트(Ctrl+Shift+P)에서 배포할 수도 있습니다.
+> '웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포** 명령을 실행하여 **명령 팔레트**(Ctrl+Shift+P)에서 배포할 수도 있습니다.
 
 1. 현재 열려 있는 `myExpressApp` 디렉터리를 선택합니다.
 

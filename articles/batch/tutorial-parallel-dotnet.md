@@ -1,22 +1,16 @@
 ---
-title: 병렬 워크로드 실행 - Azure Batch .NET
+title: 병렬 워크로드 실행
 description: 자습서 - Batch .NET 클라이언트 라이브러리를 사용하여 Azure Batch의 ffmpeg로 미디어 파일 트랜스코딩
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 8734f748da07b36497ce143646e614ef82056d37
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 24f68ee1d2650a5f3e77b61fb30b5c0185cd82b1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81254601"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82117151"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>자습서: .NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -71,7 +65,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 `BatchDotNetFfmpegTutorial.sln`(Visual Studio 솔루션 파일)이 있는 디렉터리로 이동합니다.
 
-Visual Studio에서 솔루션 파일을 열고 `Program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 다음은 그 예입니다.
+Visual Studio에서 솔루션 파일을 열고 `Program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 다음은 그 예입니다. 
 
 ```csharp
 // Batch account credentials

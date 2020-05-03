@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 350fd9c7057df96a4ad1abc0d9c8b5ec3871ef38
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: b1c755176a62b7e362707da093a899ae96cfe69a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271661"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82128879"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -230,7 +230,7 @@ Power BI, Excel, Reporting Services 및 타사 도구와 같은 최신 데이터
 
 ## <a name="monitoring-and-diagnostics"></a>모니터링 및 진단
 
-Azure Analysis Services는 Azure 메트릭과 통합되어 서버의 성능 및 상태를 모니터링할 수 있도록 리소스 특정 메트릭의 확장된 수를 제공합니다. 자세한 내용은 [서버 메트릭 모니터링](analysis-services-monitor.md)을 참조하세요. [Azure 리소스 진단 로그란?](../azure-monitor/platform/platform-logs-overview.md)에서 메트릭을 기록합니다. 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 보내고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트림하고, [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite)의 서비스인 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/)로 내보낼 수 있습니다. 자세한 내용은 [진단 로깅 설정](analysis-services-logging.md)을 참조하세요.
+Azure Analysis Services는 Azure Monitor 메트릭과 통합되어 서버의 성능 및 상태를 모니터링하는 데 도움이 되는 광범위한 리소스별 메트릭을 제공합니다. 자세한 내용은 [서버 메트릭 모니터링](analysis-services-monitor.md)을 참조하세요. [리소스 플랫폼 로그](../azure-monitor/platform/platform-logs-overview.md)를 사용하여 메트릭을 기록합니다. 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 보내고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트림하고, [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite)의 서비스인 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/)로 내보낼 수 있습니다. 자세한 내용은 [진단 로깅 설정](analysis-services-logging.md)을 참조하세요.
 
 Azure Analysis Services는 [DMV(동적 관리 뷰)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)도 사용하도록 지원합니다. SQL 구문에 따라 서버 인스턴스에 대한 메타데이터 및 모니터링 정보를 반환하는 DMV 인터페이스 스키마 행 집합입니다.
 

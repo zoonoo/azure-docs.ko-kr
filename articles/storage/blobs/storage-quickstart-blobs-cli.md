@@ -7,14 +7,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 02/26/2020
+ms.date: 04/23/2020
 ms.author: tamram
-ms.openlocfilehash: 2e1b1ac2ea315759b18dc882b98837bca0a84d46
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 333d9f12ff817a5264183666cd1b858075a93077
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061450"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82176688"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Blob 생성, 다운로드 및 나열
 
@@ -72,7 +72,7 @@ az storage account create \
     --resource-group <resource-group> \
     --location <location> \
     --sku Standard_ZRS \
-    --encryption blob
+    --encryption-services blob
 ```
 
 ## <a name="create-a-container"></a>컨테이너 만들기
@@ -163,7 +163,7 @@ az group delete \
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 로컬 파일 시스템과 Azure Blob 스토리지의 컨테이너 간에 파일을 전송하는 방법을 알아보았습니다. Azure Storage에서 Blob을 사용하는 방법을 자세히 알아보려면 계속해서 Azure Blob Storage 사용에 대한 자습서를 진행하세요.
+이 빠른 시작에서는 로컬 파일 시스템과 Azure Blob 스토리지의 컨테이너 간에 파일을 전송하는 방법을 알아보았습니다. Azure CLI를 통해 Blob 스토리지를 사용하는 방법에 대해 자세히 알아보려면 Blob 스토리지용 Azure CLI 샘플을 살펴보세요.
 
 > [!div class="nextstepaction"]
-> [방법: Azure CLI를 사용한 Blob Storage 작업](storage-how-to-use-blobs-cli.md)
+> [Blob 스토리지용 Azure CLI 샘플](/azure/storage/blobs/storage-samples-blobs-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

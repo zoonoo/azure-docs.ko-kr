@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 11/21/2019
 ms.author: robinsh
-ms.openlocfilehash: 334b7b2c59b328e8eff3c7c2b9c3ed46bffc3442
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 889c5e68759a94682150ac88970b7123ad0fc412
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74706429"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82201740"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>자습서: Event Grid 및 Logic Apps를 사용하여 Azure IoT Hub 이벤트에 대한 이메일 알림 보내기
 
@@ -22,9 +22,14 @@ Azure Event Grid를 사용하면 다운스트림 비즈니스 애플리케이션
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure Logic Apps에서 지원하는 이메일 공급자(예: Office 365 Outlook, Outlook.com 또는 Gmail)가 제공한 이메일 계정. 이 이메일 계정은 이벤트 알림을 보내는 데 사용됩니다. 지원되는 Logic App 커넥터의 전체 목록은 [커넥터 개요](https://docs.microsoft.com/connectors/)를 참조하세요.
-* 활성 Azure 계정. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 만들 수 있습니다.
-* Azure에 있는 IoT Hub입니다. 아직 만들지 않았다면, 연습으로 [IoT Hub 시작](../iot-hub/iot-hub-csharp-csharp-getstarted.md)을 참조하세요. 
+* 활성화된 Azure 구독. 구독이 없는 경우 [체험 Azure 계정을 만들](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
+
+* Office 365 Outlook, Outlook.com 또는 Gmail과 같은 Azure Logic Apps에서 지원하는 이메일 공급자의 이메일 계정입니다. 이 이메일 계정은 이벤트 알림을 보내는 데 사용됩니다. 지원되는 Logic App 커넥터의 전체 목록은 [커넥터 개요](https://docs.microsoft.com/connectors/)를 참조하세요.
+
+  > [!IMPORTANT]
+  > Gmail을 사용하기 전에 G Suite 비즈니스 계정(사용자 지정 도메인이 있는 이메일 주소) 또는 Gmail 소비자 계정(@gmail.com 또는 @googlemail.com이 있는 이메일 주소)이 있는지 확인합니다. G Suite 비즈니스 계정만 논리 앱에서 제한 없이 다른 커넥터와 함께 Gmail 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 Gmail 커넥터를 사용하거나 [인증에 사용할 Google 클라이언트 앱을 만들](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
+
+* Azure에 있는 IoT Hub입니다. 아직 만들지 않았다면, 연습으로 [IoT Hub 시작](../iot-hub/iot-hub-csharp-csharp-getstarted.md)을 참조하세요.
 
 ## <a name="create-a-logic-app"></a>논리 앱 만들기
 

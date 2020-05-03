@@ -2,16 +2,16 @@
 title: 템플릿 참조 사용
 description: Azure Resource Manager 템플릿 참조를 사용하여 템플릿을 만듭니다.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: b713d508a5e28291778d3727c15e12972eea3a77
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 12990238455046d837b175318225bb4f3d317706
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878509"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82185050"
 ---
 # <a name="tutorial-utilize-the-resource-manager-template-reference"></a>자습서: Resource Manager 템플릿 참조 활용
 
@@ -102,21 +102,42 @@ Visual Studio Code에서 다음 스크린샷에 표시된 대로 추가 스토�
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-배포 절차는 Visual Studio Code 빠른 시작의 [템플릿 배포](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) 섹션을 참조하세요. 템플릿을 배포할 때 새로 추가된 값을 사용하여 **storageAccountType** 매개 변수를 지정합니다(예: **Premium_ZRS**). **Premium_ZRS**가 허용되는 값이 아니므로 원래 빠른 시작 템플릿을 사용하면 배포가 실패합니다.  매개 변수 값을 전달하려면 배포 명령에 다음 스위치를 추가합니다.
+1. [Azure Cloud Shell](https://shell.azure.com)에 로그인
 
-# <a name="cli"></a>[CLI](#tab/CLI)
+1. 왼쪽 위 모서리에서 **PowerShell** 또는 **Bash**(CLI용)를 선택하여 기본 환경을 선택합니다.  전환하는 경우 셸을 다시 시작해야 합니다.
 
-```azurecli
---parameters storageAccountType='Premium_ZRS'
-```
+    ![Azure Portal Cloud Shell 업로드 파일](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+1. **파일 업로드/다운로드**를 선택한 다음, **업로드**를 선택합니다. 이전 스크린샷을 참조하세요. 이전 섹션에서 저장한 파일을 선택합니다. 파일을 업로드한 후 **ls** 명령 및 **cat** 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다.
 
-```azurepowershell
--storageAccountType "Premium_ZRS"
-```
+1. Cloud Shell에서 다음 명령을 실행합니다. 탭을 선택하여 PowerShell 코드 또는 CLI 코드를 표시합니다.
 
----
+    # <a name="cli"></a>[CLI](#tab/CLI)
+
+    ```azurecli
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location "$location" &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" --parameters storageAccountType='Standard_RAGRS'
+    ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $resourceGroupName = "${projectName}rg"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -storageAccountType "Standard_RAGRS"
+    ```
+
+    ---
+
+ 템플릿을 배포할 때 새로 추가된 값을 사용하여 **storageAccountType** 매개 변수를 지정합니다(예: **Standard_RAGRS**). **Standard_RAGRS**가 허용되는 값이 아니므로 원래 빠른 시작 템플릿을 사용하면 배포가 실패합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

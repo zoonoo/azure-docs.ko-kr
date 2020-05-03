@@ -3,12 +3,12 @@ title: '자습서: 규정 준수를 적용하는 정책 빌드'
 description: 이 자습서에서는 정책을 사용하여 표준을 적용하고, 비용을 제어하고, 보안을 유지하고, 엔터프라이즈 수준의 디자인 원칙을 적용합니다.
 ms.date: 03/24/2020
 ms.topic: tutorial
-ms.openlocfilehash: 15a6c3df26938332d42ecbcfff43f958577062c4
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: dcebbbfcc2f86ace7ea4400a2fdb6f1392f4efe6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239954"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82190829"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>자습서: 규정 준수를 적용하는 정책 만들기 및 관리
 
@@ -126,7 +126,7 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
    정책 규칙의 _field_ 속성은 지원되는 값이어야 합니다. 전체 값 목록은 [정책 정의 구조 필드](../concepts/definition-structure.md#fields)에서 찾을 수 있습니다. 별칭의 예로 `"Microsoft.Compute/VirtualMachines/Size"`를 들 수 있습니다.
 
-   더 많은 Azure 정책 샘플을 보려면 [Azure Policy 샘플](../samples/index.md)을 참조하세요.
+   더 많은 Azure Policy 샘플을 보려면 [Azure Policy 샘플](../samples/index.md)을 참조하세요.
 
 1. **저장**을 선택합니다.
 

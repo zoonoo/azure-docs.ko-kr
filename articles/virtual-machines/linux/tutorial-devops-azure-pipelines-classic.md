@@ -1,7 +1,7 @@
 ---
-title: 자습서 - Azure의 IaaS 및 PaaS를 위한 통합 DevOps
-description: 이 자습서에서는 Azure Pipelines를 사용하여 앱의 CI(지속적인 통합) 및 CD(지속적인 배포)를 Azure VM에 설정하는 방법을 알아봅니다.
-author: ushan
+title: 자습서 - Azure Linux Virtual Machines에 대한 롤링 배포 구성
+description: 이 자습서에서는 롤링 배포 전략을 사용하여 Azure Linux Virtual Machines 그룹을 증분 업데이트하는 CD(연속 배포) 파이프라인을 설정하는 방법을 알아봅니다.
+author: moala
 manager: jpconnock
 tags: azure-devops-pipelines
 ms.assetid: ''
@@ -9,41 +9,33 @@ ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
-ms.date: 1/16/2020
-ms.author: ushan
+ms.date: 4/10/2020
+ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 4159bf27c39087926d982552c49c606f3484de77
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 75888b1ebbda33891296fe0b54c5d204955e32a3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885908"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82113489"
 ---
-# <a name="tutorial-integrated-devops-for-iaas-and-paas-on-azure"></a>자습서: Azure의 IaaS 및 PaaS를 위한 통합 DevOps
-
-Azure에서 엔드투엔드 솔루션을 사용하는 경우 팀은 각 애플리케이션 수명 주기 단계(계획, 개발, 제공 및 운영)에서 DevOps 사례를 구현할 수 있습니다. 
-
-다음은 클라우드 워크로드를 간소화하고 놀랍도록 강력한 시나리오를 지원하기 위해 결합할 수 있는 몇 가지 Azure 서비스입니다.
-이러한 기술을 사용자 및 프로세스와 결합하여 팀에서 고객에게 가치를 지속적으로 제공할 수 있습니다. 
-
-- Azure: https://portal.azure.com - 클라우드 워크로드를 빌드하기 위한 포털입니다. 간단한 웹앱에서 복잡한 클라우드 애플리케이션까지 모든 항목을 관리하고 모니터링합니다. 
-- Azure DevOps: https://dev.azure.com - 최신 개발 서비스 세트를 사용하여 더 스마트하게 계획하고, 더 효율적으로 협업하며, 더 빠르게 제공합니다. 
-- Azure Machine Learning studio: https://ml.azure.com - 데이터를 준비하고, 기계 학습 모델을 학습시키고 배포합니다. 
- 
+# <a name="tutorial---configure-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>자습서 - Azure Linux Virtual Machines에 대한 롤링 배포 전략 구성
 
 Azure DevOps는 모든 Azure 리소스에 대한 지속적인 통합과 지속적인 업데이트를 사용하여 DevOps 프로세스의 각 부분을 자동화하는 기본 제공 Azure 서비스입니다.
-앱에서 가상 머신, 웹앱, Kubernetes 또는 기타 리소스를 사용하는지 여부에 관계없이 Azure와 Azure DevOps를 사용하여 코드 기반 인프라, 지속적인 통합, 지속적인 테스트, 지속적인 업데이트 및 지속적인 모니터링을 구현할 수 있습니다.  
+앱에서 가상 머신, 웹앱, Kubernetes 또는 기타 리소스를 사용하는지 여부에 관계없이 Azure와 Azure DevOps를 사용하여 코드 기반 인프라, 연속 통합, 지속적인 테스트, 지속적인 업데이트 및 지속적인 모니터링을 구현할 수 있습니다.  
+
 ![AzDevOps_portalView](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png) 
- 
- 
+
+
 ## <a name="iaas---configure-cicd"></a>IaaS- CI/CD 구성 
-Azure Pipelines는 가상 머신에 배포하는 데 사용할 수 있는 완전한 기능을 갖춘 CI/CD 자동화 도구 세트를 제공합니다. Azure Portal에서 Azure VM에 대한 지속적인 업데이트 파이프라인을 직접 구성할 수 있습니다. 이 문서에는 Azure Portal에서 다중 머신을 배포하기 위한 CI/CD 파이프라인 설정과 관련된 단계가 포함되어 있습니다. 
+Azure Pipelines는 가상 머신에 배포하는 데 사용할 수 있는 완전한 기능을 갖춘 CI/CD 자동화 도구 세트를 제공합니다. Azure Portal에서 Azure VM에 대한 지속적인 업데이트 파이프라인을 직접 구성할 수 있습니다. 이 문서에는 Azure Portal에서 다중 머신 배포를 롤링하기 위한 CI/CD 파이프라인 설정과 관련된 단계가 포함되어 있습니다. Azure Portal에서 기본적으로 지원되는 [카나리아](https://aka.ms/AA7jdrz) 및 [청녹색](https://aka.ms/AA83fwu)과 같은 다른 전략을 살펴볼 수도 있습니다. 
 
 
 **Virtual Machines에서 CI/CD 구성**
 
-가상 머신을 [배포 그룹](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups)에 대상으로 추가하고 다중 머신 업데이트를 대상으로 지정할 수 있습니다. 요구 사항에 따라 기본 배포 전략인 _롤링_, _카나리아_, _파란색-녹색_ 배포 중 하나를 선택해도 되고, 추가로 사용자 지정해도 됩니다. 배포가 완료되면 배포 그룹 내의 배포 기록 보기는 VM, 파이프라인, 커밋의 순서로 추적할 수 있는 기능을 제공합니다. 
+가상 머신을 [배포 그룹](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups)에 대상으로 추가하고 다중 머신 업데이트를 대상으로 지정할 수 있습니다. 배포가 완료되면 배포 그룹 내의 **배포 기록**은 VM, 파이프라인, 커밋의 순서로 추적할 수 있는 기능을 제공합니다. 
  
+
 **롤링 배포**: 롤링 배포는 이전 버전의 애플리케이션 인스턴스를 각 반복에서 고정된 머신 세트(롤링 세트)에 있는 새 버전의 애플리케이션 인스턴스로 바꿉니다. 가상 머신에 대한 롤링 업데이트를 구성하는 방법을 연습해 보겠습니다.  
 지속적인 업데이트 옵션을 사용하여 Azure Portal 내에서 "**가상 머신**"에 대한 롤링 업데이트를 구성할 수 있습니다. 
 
@@ -57,7 +49,7 @@ Azure Pipelines는 가상 머신에 배포하는 데 사용할 수 있는 완전
 
    ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png) 
 4. 배포 그룹은 물리적 환경을 나타내는 배포 대상 머신의 논리적 세트입니다(예: "Dev", "Test", "UAT" 및 "Production"). 새 배포 그룹을 만들거나 기존 배포 그룹을 선택할 수 있습니다. 
-5. 가상 머신에 배포할 패키지를 게시하는 빌드 파이프라인을 선택합니다. 게시된 패키지는 패키지 루트의 _deployscripts_ 폴더에 _deploy.ps1_ 또는 _deploy.sh_ 배포 스크립트가 있어야 합니다. 이 배포 스크립트는 런타임에 Azure DevOps 파이프라인에서 실행됩니다.
+5. 가상 머신에 배포할 패키지를 게시하는 빌드 파이프라인을 선택합니다. 게시된 패키지는 패키지 루트의 `deployscripts` 폴더에 _deploy.ps1_ 또는 _deploy.sh_ 배포 스크립트가 있어야 합니다. 이 배포 스크립트는 런타임 시 Azure DevOps 파이프라인에서 실행됩니다.
 6. 원하는 배포 전략을 선택합니다. 여기서는 '롤링'을 선택하겠습니다.
 7. 필요에 따라 머신에 역할을 태그로 지정할 수 있습니다. 예를 들어 'web', 'db' 등이 있습니다. 이렇게 하면 특정 역할만 있는 VM을 대상으로 지정할 수 있습니다.
 8. 대화 상자에서 **확인**을 클릭하여 지속적인 업데이트 파이프라인을 구성합니다. 
@@ -73,42 +65,13 @@ Azure Pipelines는 가상 머신에 배포하는 데 사용할 수 있는 완전
    ![AzDevOps_deploymentGroup](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline-tasks.png)
 14. 오른쪽의 구성 창에서 각 반복에 병렬로 배포할 머신 수를 지정할 수 있습니다. 한 번에 여러 머신에 배포하려는 경우 슬라이더를 사용하여 백분율로 지정할 수 있습니다.  
 
-15. 배포 스크립트 실행 작업은 기본적으로 게시된 패키지의 루트 디렉터리에 있는 _deployscripts_ 폴더의 _deploy.ps1_ 또는 _deploy.sh_ 배포 스크립트를 실행합니다.
-  
-**카나리아 배포**: 카나리아 배포는 소규모 사용자 하위 세트에 대한 변경 내용을 천천히 롤아웃하여 위험을 줄입니다. 새 버전을 더 신뢰할 수 있으므로 이 버전을 인프라의 더 많은 서버에 릴리스하고 더 많은 사용자를 해당 버전으로 라우팅할 수 있습니다. 지속적인 업데이트 옵션을 사용하여 Azure Portal 내에서 "**가상 머신**"에 대한 카나리아 배포를 구성할 수 있습니다. 단계별 연습은 다음과 같습니다. 
-1. Azure Portal에 로그인하고, 가상 머신으로 이동합니다. 
-2. **롤링 배포** 섹션의 2-7단계에 따라 여러 VM을 배포 그룹에 추가합니다. 배포 전략 드롭다운에서 '카나리아'를 선택합니다.
-![AzDevOps_configure_canary](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure-canary.png)
+15. 배포 스크립트 실행 작업은 기본적으로 게시된 패키지의 루트 디렉터리에 있는 'deployscripts' 폴더의 _deploy.ps1_ 또는 _deploy.sh_ 배포 스크립트를 실행합니다.  
+![AzDevOps_publish_package](media/tutorial-deployment-strategy/package.png)
 
-3. 카나리아 배포에 포함할 VM에 '카나리아' 태그를 추가하고, 카나리아 배포가 성공한 후 배포에 포함된 VM에 'prod' 태그를 추가합니다.
-4. 완료되면 가상 머신에 배포하도록 지속적인 업데이트 파이프라인이 구성됩니다.
-![AzDevOps_canary_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-pipeline.png)
+## <a name="other-deployment-strategies"></a>기타 배포 전략
 
-
-5. **롤링 배포** 섹션과 마찬가지로, Azure DevOps에서 릴리스 파이프라인 **편집**을 클릭하여 파이프라인 구성을 볼 수 있습니다. 파이프라인은 3단계로 구성되며, 첫 번째 단계는 _카나리아_ 태그가 지정된 VM에 배포하는 DG 단계입니다. 두 번째 단계에서는 파이프라인을 일시 중지하고 수동 개입을 통해 실행이 다시 시작될 때까지 대기합니다. 사용자는 카나리아 배포가 만족할 정도로 안정적이면 파이프라인 실행을 다시 시작할 수 있습니다. 그러면 _prod_ 태그가 지정된 VM에 배포하는 세 번째 단계가 실행됩니다. ![AzDevOps_canary_task](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-task.png)
-
-
-
-**파란색-녹색 배포**: 파란색-녹색 배포는 동일한 대기 환경을 사용하여 가동 중지 시간을 줄입니다. 언제든지 환경 중 하나가 라이브입니다. 새 릴리스를 준비할 때 녹색 환경에서 최종 테스트 단계를 수행합니다. 소프트웨어가 녹색 환경에서 작동하면 들어오는 모든 요청이 녹색 환경으로 이동하도록 트래픽을 전환합니다. 이제 파란색 환경은 유휴 상태입니다.
-지속적인 업데이트 옵션을 사용하여 Azure Portal에서 "**가상 머신**"에 대한 파란색-녹색 배포를 구성할 수 있습니다. 
-
-단계별 연습은 다음과 같습니다.
-
-1. Azure Portal에 로그인하고, Virtual Machine으로 이동합니다. 
-2. **롤링 배포** 섹션의 2-7단계에 따라 여러 VM을 배포 그룹에 추가합니다. 파란색-녹색 배포에 포함할 VM에 "파란색" 또는 "녹색" 태그를 추가합니다. VM이 대기 역할인 경우 "녹색" 태그를 지정해야 합니다.
-![AzDevOps_bluegreen_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
-
-4. 완료되면 가상 머신에 배포하도록 지속적인 업데이트 파이프라인이 구성됩니다.
-![AzDevOps_bluegreen_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-pipeline.png)
-
-5. **롤링 배포**와 마찬가지로, Azure DevOps에서 릴리스 파이프라인 **편집**을 클릭하여 파이프라인 구성을 볼 수 있습니다. 파이프라인은 3단계로 구성되며, 첫 번째 단계는 _녹색_ 태그가 지정된 VM(대기 VM)에 배포하는 DG 단계입니다. 두 번째 단계에서는 파이프라인을 일시 중지하고 수동 개입을 통해 실행이 다시 시작될 때까지 대기합니다. 사용자는 배포가 만족할 정도로 안정적이면 트래픽을 _녹색_ VM으로 리디렉션하고 파이프라인 실행을 다시 시작할 수 있습니다. 그러면 VM에서 _파란색_ 및 _녹색_ 태그를 교환할 수 있습니다. 이렇게 하면 이전 애플리케이션 버전을 사용하는 VM에 _녹색_ 태그가 지정되고 다음 파이프라인 실행 시에 배포됩니다.
-![AzDevOps_bluegreen_task](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
-
-6. 이 배포 전략을 사용하려면 파란색 및 녹색 태그가 지정된 VM이 각각 하나 이상 있어야 합니다. 수동 개입 단계에서 파이프라인 실행을 다시 시작하기 전에 _파란색_ 태그가 지정된 VM이 하나 이상 있는지 확인해야 합니다.
-
-
-
-
+- [카나리아 배포 전략 구성](https://aka.ms/AA7jdrz)
+- [청록색 배포 전략 구성](https://aka.ms/AA83fwu)
 
  
 ## <a name="azure-devops-project"></a>Azure DevOps 프로젝트 

@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
-ms.openlocfilehash: 3912d55b13f3977818e8d898efa651ffeb1a798a
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: f68112095bc8a8fd9bcc1bd67ff77827d6d00fd7
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76046489"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195624"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>자습서: 여러 몰입형 판독기 리소스 통합
 
@@ -258,7 +258,7 @@ module.exports = router;
     npm start
     ```
 
-4. 브라우저를 열고, [http://localhost:3000](http://localhost:3000)으로 이동합니다. 위 콘텐츠가 페이지에 표시됩니다. **EastUS 몰입형 판독기** 단추나 **WestUS 몰입형 판독기** 단추를 클릭하여 해당 리소스를 사용하여 몰입형 판독기를 시작합니다.
+4. 브라우저를 열고 `http://localhost:3000`으로 이동합니다. 위 콘텐츠가 페이지에 표시됩니다. **EastUS 몰입형 판독기** 단추나 **WestUS 몰입형 판독기** 단추를 클릭하여 해당 리소스를 사용하여 몰입형 판독기를 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

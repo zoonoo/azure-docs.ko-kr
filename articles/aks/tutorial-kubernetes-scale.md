@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 5c1cbebd671568d200321615ad34f52cb636c6c8
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: f830d42ef09a60b1f9ced43250b24a68003d1e87
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878088"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82128994"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정
 
@@ -74,11 +74,11 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> AKS 클러스터가 *1.10*보다 작으면 메트릭 서버가 자동으로 설치되지 않습니다. 설치하려면 `metrics-server` GitHub 리포지토리를 복제하고 예제 리소스 정의를 설치합니다. 이러한 YAML 정의의 콘텐츠를 참조하려면 [Kuberenetes 1.8+에 대한 메트릭 서버][metrics-server-github]를 참조하세요.
+> AKS 클러스터가 *1.10*보다 작으면 메트릭 서버가 자동으로 설치되지 않습니다. 메트릭 서버 설치 매니페스트는 메트릭 서버 릴리스에서 `components.yaml` 자산으로 사용할 수 있으므로 URL을 통해 설치할 수 있습니다. 이러한 YAML 정의에 대해 자세히 알아보려면 추가 정보의 [배포][metrics-server-github] 섹션을 참조하세요.
 > 
+> 설치 예제:
 > ```console
-> git clone https://github.com/kubernetes-incubator/metrics-server.git
-> kubectl create -f metrics-server/deploy/1.8+/
+> kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 > ```
 
 자동 크기 조정기를 사용하려면 Pod와 Pod의 모든 컨테이너에 CPU 요청 및 제한이 정의되어 있어야 합니다. `azure-vote-front` 배포에서 프런트 엔드 컨테이너는 0.25 CPU를 요청하며 제한은 0.5 CPU입니다. 다음 예제 코드 조각에 나와 있는 것처럼 이러한 리소스 요청 및 제한이 정의됩니다.
@@ -192,7 +192,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
 [kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
-[metrics-server-github]: https://github.com/kubernetes-incubator/metrics-server/tree/master/deploy/1.8%2B
+[metrics-server-github]: https://github.com/kubernetes-sigs/metrics-server/blob/master/README.md#deployment
 [metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server
 
 <!-- LINKS - internal -->

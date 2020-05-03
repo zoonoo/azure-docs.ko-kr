@@ -10,18 +10,18 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: laobri
 ms.date: 03/11/2020
-ms.openlocfilehash: 1ccd7a7f33c6ee5cab8b7173d8eb93365b6cb587
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 41d68c58c43262b36b93af0008e7d35de13dff4d
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79472223"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562273"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>자습서: 일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Azure Machine Learning에서 파이프라인을 빌드하여 일괄 처리 채점 작업을 실행하는 방법을 알아봅니다. 기계 학습 파이프라인은 속도, 이식성 및 재사용을 통해 워크플로를 최적화하므로 인프라 및 자동화 대신 기계 학습에 집중할 수 있습니다. 파이프라인이 빌드되어 게시되면 모든 플랫폼의 모든 HTTP 라이브러리에서 해당 파이프라인을 트리거하는 데 사용할 수 있는 REST 엔드포인트를 구성합니다. 
+이 고급 자습서에서는 Azure Machine Learning에서 파이프라인을 빌드하여 일괄 처리 채점 작업을 실행하는 방법을 알아봅니다. 기계 학습 파이프라인은 속도, 이식성 및 재사용을 통해 워크플로를 최적화하므로 인프라 및 자동화 대신 기계 학습에 집중할 수 있습니다. 파이프라인이 빌드되어 게시되면 모든 플랫폼의 모든 HTTP 라이브러리에서 해당 파이프라인을 트리거하는 데 사용할 수 있는 REST 엔드포인트를 구성합니다. 
 
 이 예제에서는 Tensorflow에 구현된 미리 학습된 [Inception-V3](https://arxiv.org/abs/1512.00567) 나선형 신경망 모델을 사용하여 레이블이 지정되지 않은 이미지를 분류합니다. [기계 학습 파이프라인에 대해 자세히 알아보세요](concept-ml-pipelines.md).
 

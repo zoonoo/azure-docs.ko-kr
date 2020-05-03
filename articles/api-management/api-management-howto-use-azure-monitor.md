@@ -2,23 +2,20 @@
 title: Azure API Management에서 게시된 API 모니터링 | Microsoft Docs
 description: 이 자습서의 단계에 따라 Azure API Management에서 API를 모니터링하는 방법을 알아봅니다.
 services: api-management
-documentationcenter: ''
 author: vladvino
 manager: cfowler
-editor: ''
 ms.service: api-management
 ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bee93cf84f4beda0684127102942447630219881
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79221930"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82128835"
 ---
 # <a name="monitor-published-apis"></a>게시된 API 모니터링
 
@@ -28,7 +25,7 @@ Azure Monitor를 통해 Azure 리소스의 메트릭 또는 로그에 대해 시
 
 > [!div class="checklist"]
 > * 활동 로그 보기
-> * 진단 로그 보기
+> * 리소스 로그 보기
 > * API의 메트릭 보기 
 > * API가 무단 호출을 받을 경우의 경고 규칙 설정
 
@@ -39,8 +36,8 @@ Azure Monitor를 통해 Azure 리소스의 메트릭 또는 로그에 대해 시
 ## <a name="prerequisites"></a>사전 요구 사항
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
-+ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
-+ 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
++ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
++ 또한 [첫 번째 API 가져오기 및 게시](import-and-publish.md) 자습서를 완료합니다.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -120,20 +117,20 @@ API Management 서비스에서 활동 로그에 액세스하거나 Azure Monitor
 
 3. 원하는 필터링 범위를 선택하고 **적용**을 클릭합니다.
 
-## <a name="diagnostic-logs"></a>진단 로그
+## <a name="resource-logs"></a>리소스 로그
 
-진단 로그는 감사 뿐만 아니라 문제 해결에 중요한 작업 및 오류에 대한 풍부한 정보를 제공합니다. 진단 로그는 활동 로그와 다릅니다. 활동 로그는 Azure 리소스에서 수행된 작업에 대한 정보를 제공합니다. 진단 로그는 리소스에서 수행하는 작업에 대한 정보를 제공합니다.
+리소스 로그는 문제 해결뿐만 아니라 감사에 중요한 작업 및 오류에 대한 풍부한 정보를 제공합니다. 리소스 로그는 활동 로그와 다릅니다. 활동 로그는 Azure 리소스에서 수행된 작업에 대한 인사이트를 제공합니다. 리소스 로그는 리소스에서 수행하는 작업에 대한 인사이트를 제공합니다.
 
-진단 로그를 구성하려면:
+리소스 로그를 구성하려면 다음을 수행합니다.
 
 1. APIM 서비스 인스턴스를 선택합니다.
 2. **진단 설정**을 클릭합니다.
 
-    ![진단 로그](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+    ![리소스 로그](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. **진단 켜기**를 클릭합니다. 진단 로그를 메트릭과 함께 스토리지 계정에 보관하고, Event Hub로 스트림하고, Azure Monitor 로그로 보낼 수 있습니다. 
+3. **진단 켜기**를 클릭합니다. 리소스 로그를 메트릭과 함께 스토리지 계정에 보관하고, Event Hub로 스트림하고, Azure Monitor 로그로 보낼 수 있습니다. 
 
-API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 요청에 대한 진단 로그(시간 단위로 일괄 처리됨)를 제공합니다.
+API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 요청에 대한 리소스 로그(시간 단위로 일괄 처리됨)를 제공합니다.
 
 ```json
 {  
@@ -190,7 +187,7 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 | callerIpAddress | 문자열 | 즉각적인 게이트웨이 호출자의 IP 주소(중간자 가능) |
 | correlationId | 문자열 | API Management에서 할당하는 고유의 http 요청 식별자 |
 | 위치 | 문자열 | 요청을 처리한 게이트웨이가 있었던 Azure 지역의 이름 |
-| httpStatusCodeCategory | 문자열 | http 응답 상태 코드의 범주: 성공(301 이하 또는 304 또는 307), 권한 없음(401, 403, 429) 권한이 없음, 잘못됨(400, 500 및 600 사이), 기타 |
+| httpStatusCodeCategory | 문자열 | http 응답 상태 코드의 범주: 성공(301 이하, 304 또는 307), 권한이 없음(401, 403, 429), 오류가 있음(400, 500~600), 기타 |
 | resourceId | 문자열 | API Management 리소스의 ID /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | 현재 요청의 속성 |
 | method | 문자열 | 들어오는 요청의 HTTP 메서드 |
@@ -227,7 +224,7 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 
 > [!div class="checklist"]
 > * 활동 로그 보기
-> * 진단 로그 보기
+> * 리소스 로그 보기
 > * API의 메트릭 보기
 > * API가 무단 호출을 받을 경우의 경고 규칙 설정
 

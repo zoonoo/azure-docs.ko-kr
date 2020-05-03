@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 04/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd218c61114c1e15009ace5a9a9bd7a536996e86
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b58abede48c0e096f3f54989d783b1e455f8e4d4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72968657"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82169645"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contentful"></a>자습서: Contentful과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -46,6 +46,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * Contentful은 **SP 및 IDP** 시작 SSO를 지원합니다.
 * Contentful은 **Just In Time** 사용자 프로비저닝을 지원합니다.
+* Contentful을 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값입니다. 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
@@ -94,6 +95,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. Contentful의 SSO 설정 페이지에서 ACS(Assertion Consumer Service) URL을 복사하여 실제 회신 URL 및 로그온 URL로 이러한 값을 업데이트합니다.
+
+1. Contentful 애플리케이션에는 특정 서식의 SAML 어설션이 필요하므로 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
+
+    ![이미지](common/default-attributes.png)
+
+1. 위에서 언급한 특성 외에도 Contentful 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
+    
+    | 속성 |  원본 특성|
+    | --------------- | --------- |
+    | 이메일 | user.userprincipalname |
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 

@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 80881d96d713f3dc4127c94fd324e925e3c68792
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: fee4e16bd77664e541eeb36cb807a77d13191899
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382940"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82165725"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
@@ -150,7 +150,7 @@ mvn clean package
 mvn azure-functions:run
 ```
 ::: zone-end
-출력에 `HttpExample` 엔드포인트가 표시되면 [`http://localhost:7071/api/HttpExample?name=Functions`](http://localhost:7071/api/HttpExample?name=Functions)로 이동합니다. 브라우저에서 `name` 쿼리 매개 변수에 제공된 값인 `Functions`를 다시 에코하는 "hello" 메시지를 표시해야 합니다.
+출력에 `HttpExample` 엔드포인트가 표시되면 `http://localhost:7071/api/HttpExample?name=Functions`로 이동합니다. 브라우저에서 `name` 쿼리 매개 변수에 제공된 값인 `Functions`를 다시 에코하는 "hello" 메시지를 표시해야 합니다.
 
 **Ctrl**-**C**를 사용하여 호스트를 중지합니다.
 
@@ -179,7 +179,7 @@ docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-로컬 컨테이너에서 이미지가 실행되면 [`http://localhost:8080/api/HttpExample?name=Functions`](http://localhost:8080/api/HttpExample?name=Functions)로 이동합니다. 이 경우 이전과 동일한 "hello" 메시지를 표시해야 합니다. Maven 원형는 익명 권한 부여를 사용하는 HTTP 트리거 함수를 생성하므로 컨테이너에서 실행되고 있어도 함수를 호출할 수 있습니다. 
+로컬 컨테이너에서 이미지가 실행되면 `http://localhost:8080/api/HttpExample?name=Functions`로 이동합니다. 이 경우 이전과 동일한 "hello" 메시지가 표시되어야 합니다. Maven 원형는 익명 권한 부여를 사용하는 HTTP 트리거 함수를 생성하므로 컨테이너에서 실행되고 있어도 함수를 호출할 수 있습니다. 
 ::: zone-end  
 
 컨테이너에서 함수 앱이 확인되면 **Ctrl**+**C**를 사용하여 docker를 중지합니다.

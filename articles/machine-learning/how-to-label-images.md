@@ -6,13 +6,13 @@ author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 371b99c794feb4a64eb3e9af389020e25d14eedb
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.date: 04/09/2020
+ms.openlocfilehash: 2c21a8770209871be4d871a08e6355e4ca7ed169
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879431"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82204324"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>레이블 지정 프로젝트에서 이미지에 태그 지정
 
@@ -25,21 +25,24 @@ ms.locfileid: "80879431"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 실행 중인 데이터 레이블 지정 프로젝트의 레이블 지정 포털 URL
 * 조직 및 프로젝트에 대한 [Microsoft 계정](https://account.microsoft.com/account) 또는 Azure Active Directory 계정
+* 레이블 지정 프로젝트가 포함된 작업 영역에 대한 기여자 수준 액세스입니다.
 
-> [!NOTE]
-> 프로젝트 관리자는 **프로젝트 세부 정보** 페이지의 **세부 정보** 탭에서 레이블 지정 포털 URL을 찾을 수 있습니다.
+## <a name="sign-in-to-the-workspace"></a>작업 영역에 로그인
 
-## <a name="sign-in-to-the-projects-labeling-portal"></a>프로젝트의 레이블 지정 포털에 로그인
+1. [Azure Machine Learning Studio](https://ml.azure.com)에 로그인합니다.
 
-프로젝트 관리자가 제공한 레이블 지정 포털 URL로 이동합니다. 관리자가 사용자를 팀에 추가할 때 사용한 이메일 계정을 사용하여 로그인합니다. 대부분의 사용자에게 이 계정은 Microsoft 계정입니다. 레이블 지정 프로젝트에서 Azure Active Directory를 사용하는 경우 이는 로그인하는 방법이 됩니다.
+1. 레이블 지정 프로젝트가 포함된 구독 및 작업 영역을 선택합니다.  프로젝트 관리자로부터 이 정보를 가져옵니다.
+
+1. 왼쪽에 있는 **데이터 레이블 지정**을 선택하여 프로젝트를 찾습니다.  
+
+1. 목록에서 프로젝트 이름을 선택합니다.
 
 ## <a name="understand-the-labeling-task"></a>레이블 지정 작업 이해
 
-로그인하면 프로젝트의 개요 페이지가 표시됩니다.
+프로젝트를 선택한 후 페이지 맨 위에 있는 **레이블 데이터**를 선택합니다.
 
-**자세한 지침 보기**로 이동합니다. 이러한 지침은 프로젝트에 따라 다르며, 직면하고 있는 데이터 형식, 의사 결정 방법 및 기타 관련 정보를 설명합니다. 이 정보를 참조한 후에 프로젝트 페이지로 돌아가서 **레이블 지정 시작**을 선택합니다.
+프로젝트와 관련된 지침이 표시됩니다. 직면하고 있는 데이터 형식, 의사 결정 방법 및 기타 관련 정보를 설명합니다. 이 정보를 읽은 후 페이지 맨 위에서 **작업**을 선택합니다.  또는 페이지 하단에서 **레이블 지정 시작**을 선택합니다.
 
 ## <a name="common-features-of-the-labeling-task"></a>레이블 지정 작업의 일반적인 기능
 

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2020
+ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: 4095b0b48e86b0aafcc86d74ca1fa25bacddf0ec
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 6bb53539c105cda99c842b6b0fa236f0e18a85ea
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011721"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82182483"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>NAT 게이트웨이 리소스를 사용하여 가상 네트워크 설계
 
-NAT 게이트웨이 리소스는 [Virtual Network NAT](nat-overview.md)의 일부이며, 가상 네트워크에 있는 하나 이상의 서브넷에 대한 아웃바운드 인터넷 연결을 제공합니다. 가상 네트워크의 서브넷에는 사용할 NAT 게이트웨이가 명시됩니다. NAT는 서브넷에 대한 SNAT(Source Network Address Translation)를 제공합니다.  NAT 게이트웨이 리소스는 아웃바운드 흐름을 만들 때 가상 머신에서 사용하는 고정 IP 주소를 지정합니다. 고정 IP 주소는 공용 IP 주소 리소스, 공용 IP 접두사 리소스 또는 둘 다에서 제공됩니다. NAT 게이트웨이 리소스는 둘 중 하나에서 최대 16개의 고정 IP 주소를 사용할 수 있습니다.
+NAT 게이트웨이 리소스는 [Virtual Network NAT](nat-overview.md)의 일부이며, 가상 네트워크에 있는 하나 이상의 서브넷에 대한 아웃바운드 인터넷 연결을 제공합니다. 가상 네트워크의 서브넷에는 사용할 NAT 게이트웨이가 명시됩니다. NAT는 서브넷에 대한 SNAT(Source Network Address Translation)를 제공합니다.  NAT 게이트웨이 리소스는 아웃바운드 흐름을 만들 때 가상 머신에서 사용하는 고정 IP 주소를 지정합니다. 고정 IP 주소는 공용 IP 주소 리소스, 공용 IP 접두사 리소스 또는 둘 다에서 제공됩니다. 공용 IP 접두사 리소스를 사용하는 경우 전체 공용 IP 접두사 리소스의 모든 IP 주소는 NAT 게이트웨이 리소스에서 사용됩니다. NAT 게이트웨이 리소스는 둘 중 하나에서 최대 16개의 고정 IP 주소를 사용할 수 있습니다.
 
 
 <p align="center">
@@ -60,7 +60,8 @@ NAT 게이트웨이 리소스:
 
 [풀 기반 Load Balancer 아웃바운드 연결](../load-balancer/load-balancer-outbound-connections.md)에 대한 특정 종속성이 없는 경우 NAT를 대부분의 워크로드에 사용하는 것이 좋습니다.  
 
-[아웃바운드 규칙](../load-balancer/load-balancer-outbound-rules-overview.md)을 포함한 표준 부하 분산 장치 시나리오에서 NAT 게이트웨이로 마이그레이션할 수 있습니다. 마이그레이션하려면 공용 IP 및 공용 IP 접두사 리소스를 부하 분산 장치 프런트 엔드에서 NAT 게이트웨이로 이동합니다. NAT 게이트웨이에는 새 IP 주소가 필요하지 않습니다. 표준 공용 IP 및 접두사는 모두 16개의 IP 주소를 초과하지 않는 한 다시 사용할 수 있습니다. 전환 중에 서비스 중단을 고려하여 마이그레이션을 계획합니다.  프로세스를 자동화하여 중단을 최소화할 수 있습니다. 먼저 스테이징 환경에서 마이그레이션을 테스트합니다.  전환 중에는 인바운드에서 시작된 흐름이 영향을 받지 않습니다.
+[아웃바운드 규칙](../load-balancer/load-balancer-outbound-rules-overview.md)을 포함한 표준 부하 분산 장치 시나리오에서 NAT 게이트웨이로 마이그레이션할 수 있습니다. 마이그레이션하려면 공용 IP 및 공용 IP 접두사 리소스를 부하 분산 장치 프런트 엔드에서 NAT 게이트웨이로 이동합니다. NAT 게이트웨이에는 새 IP 주소가 필요하지 않습니다. 표준 공용 IP 주소 리소스 및 공용 IP 접두사 리소스는 합계가 16개의 IP 주소를 초과하지 않는 한 다시 사용할 수 있습니다. 전환 중에 서비스 중단을 고려하여 마이그레이션을 계획합니다.  프로세스를 자동화하여 중단을 최소화할 수 있습니다. 먼저 스테이징 환경에서 마이그레이션을 테스트합니다.  전환 중에는 인바운드에서 시작된 흐름이 영향을 받지 않습니다.
+
 
 다음 예제는 Azure Resource Manager 템플릿의 코드 조각입니다.  이 템플릿은 NAT 게이트웨이를 비롯한 여러 리소스를 배포합니다.  이 예제에서 템플릿의 매개 변수는 다음과 같습니다.
 
@@ -225,6 +226,12 @@ NAT 게이트웨이 리소스를 사용하는 가상 머신 인스턴스가 NAT 
 >[!NOTE] 
 >영역이 지정되지 않은 경우 IP 주소 자체는 영역 중복이 아닙니다.  IP 주소를 특정 영역에 만들지 않은 경우 [표준 Load Balancer의 프런트 엔드는 영역 중복](../load-balancer/load-balancer-standard-availability-zones.md#frontend)입니다.  이는 NAT에 적용되지 않습니다.  지역 또는 영역 격리만 지원됩니다.
 
+## <a name="performance"></a>성능
+
+각 NAT 게이트웨이 리소스는 최대 50Gbps의 처리량을 제공할 수 있습니다. 배포를 여러 서브넷으로 분할하고 각 서브넷 또는 서브넷 그룹에 NAT 게이트웨이를 할당하여 스케일 아웃할 수 있습니다.
+
+각 NAT 게이트웨이는 할당된 아웃바운드 IP 주소당 64,000개의 연결을 지원할 수 있습니다.  자세한 내용은 SNAT(Source Network Address Translation)에서 다음 섹션을 검토하고 특정 문제 해결 지침은 [문제 해결 문서](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat)를 검토합니다.
+
 ## <a name="source-network-address-translation"></a>SNAT(Source Network Address Translation)
 
 SNAT는 다른 IP 주소에서 시작하도록 흐름의 원본을 다시 작성합니다.  NAT 게이트웨이 리소스는 일반적으로 PAT(Port Address Translation)라고 하는 SNAT 변형을 사용합니다. PAT는 원본 주소와 원본 포트를 다시 작성합니다. SNAT를 사용하는 경우 개인 주소 수와 변환된 해당 공용 주소 간에 고정된 관계가 없습니다.  
@@ -277,7 +284,10 @@ SNAT 포트가 해제되면 NAT로 구성된 서브넷의 모든 가상 머신�
 
 ### <a name="scaling"></a>확장
 
-NAT 크기 조정은 주로 사용 가능한 공유 SNAT 포트 인벤토리를 관리하는 기능입니다. NAT는 NAT 게이트웨이 리소스에 연결된 모든 서브넷의 예상 최대 아웃바운드 흐름을 처리하기에 충분한 SNAT 포트 인벤토리가 필요합니다.  공용 IP 주소 리소스, 공용 IP 접두사 리소스 또는 둘 다 사용하여 SNAT 포트 인벤토리를 만들 수 있습니다.
+NAT 크기 조정은 주로 사용 가능한 공유 SNAT 포트 인벤토리를 관리하는 기능입니다. NAT는 NAT 게이트웨이 리소스에 연결된 모든 서브넷의 예상 최대 아웃바운드 흐름을 처리하기에 충분한 SNAT 포트 인벤토리가 필요합니다.  공용 IP 주소 리소스, 공용 IP 접두사 리소스 또는 둘 다 사용하여 SNAT 포트 인벤토리를 만들 수 있습니다.  
+
+>[!NOTE]
+>공용 IP 접두사 리소스를 할당하는 경우 전체 공용 IP 접두사가 사용됩니다.  공용 IP 접두사 리소스를 할당한 다음, 개별 IP 주소를 분리하여 다른 리소스에 할당할 수 없습니다.  공용 IP 접두사에서 여러 리소스로 개별 IP 주소를 할당하려면 공용 IP 접두사 리소스에서 개별 공용 IP 주소를 만들고, 필요에 따라 공용 IP 접두사 리소스 자체 대신 해당 주소를 할당해야 합니다.
 
 SNAT는 개인 주소를 하나 이상의 공용 IP 주소에 매핑하고, 프로세스의 원본 주소와 원본 포트를 다시 작성합니다. NAT 게이트웨이 리소스는 이 변환에 구성된 공용 IP 주소마다 64,000개의 포트(SNAT 포트)를 사용합니다. NAT 게이트웨이 리소스는 최대 16개의 IP 주소와 1,000,000개의 SNAT 포트로 확장할 수 있습니다. 공용 IP 접두사 리소스가 제공되는 경우 접두사 내의 각 IP 주소는 SNAT 포트 인벤토리를 제공합니다. 그리고 더 많은 공용 IP 주소를 추가하면 사용 가능한 인벤토리 SNAT 포트도 증가합니다. TCP와 UDP는 서로 관련이 없는 별도의 SNAT 포트 인벤토리입니다.
 

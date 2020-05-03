@@ -3,17 +3,17 @@ title: 자습서 - Azure 예산 만들기 및 관리
 description: 이 자습서는 사용자가 소비하는 Azure 서비스 비용을 계획하고 설명하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/03/2020
+ms.date: 04/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 655194a1335ae258e27dff2c75a370578253794a
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: e8afa19b6d79ce915ca41f7b0e6b4a203d7daa1b
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605863"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101759"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -156,7 +156,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 EA 고객은 Azure PowerShell 모듈을 사용하여 프로그래밍 방식으로 예산을 만들고 편집할 수 있습니다.  최신 버전의 Azure PowerShell을 다운로드하려면 다음 명령을 실행합니다.
 
 ```azurepowershell-interactive
-install-module -name AzureRm
+install-module -name Az
 ```
 
 다음 예제 명령은 예산을 만듭니다.
@@ -164,31 +164,24 @@ install-module -name AzureRm
 ```azurepowershell-interactive
 #Sign into Azure Powershell with your account
 
-Connect-AzureRmAccount
+Connect-AzAccount
 
 #Select a subscription to to monitor with a budget
 
-select-AzureRmSubscription -Subscription "Your Subscription"
+select-AzSubscription -Subscription "Your Subscription"
 
 #Create an action group email receiver and corresponding action group
 
-$email1 = New-AzureRmActionGroupReceiver -EmailAddress test@test.com -Name EmailReceiver1
-$ActionGroupId = (Set-AzureRmActionGroup -ResourceGroupName YourResourceGroup -Name TestAG -ShortName TestAG -Receiver $email1).Id
+$email1 = New-AzActionGroupReceiver -EmailAddress test@test.com -Name EmailReceiver1
+$ActionGroupId = (Set-AzActionGroup -ResourceGroupName YourResourceGroup -Name TestAG -ShortName TestAG -Receiver $email1).Id
 
 #Create a monthly budget that sends an email and triggers an Action Group to send a second email. Make sure the StartDate for your monthly budget is set to the first day of the current month. Note that Action Groups can also be used to trigger automation such as Azure Functions or Webhooks.
 
-New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
+New-AzConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
 ## <a name="create-a-budget-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 예산 만들기
 
-Azure Resource Manager 템플릿을 사용하여 예산을 만들 수 있습니다. 이 템플릿은 리소스 그룹에 속한 예산을 만드는 데 도움이 되며, 
-
-다음 이미지를 선택하고 Azure Portal에 로그인하여 템플릿을 엽니다.
-
-[![Azure에 예산 만들기 템플릿 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fcreate-budget%2fazuredeploy.json)
-
-모든 템플릿 매개 변수와 해당 설명의 목록을 보려면 [예산 만들기](https://azure.microsoft.com/resources/templates/create-budget/) 템플릿을 참조하세요.
-
+Azure Resource Manager 템플릿을 사용하여 예산을 만들 수 있습니다. 템플릿을 사용하려면 [Azure Resource Manager 템플릿을 사용하여 예산 만들기](quick-create-budget-template.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

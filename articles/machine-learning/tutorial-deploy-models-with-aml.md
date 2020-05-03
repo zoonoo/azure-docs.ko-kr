@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 02/10/2020
+ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 81e02492f7e79b87e1513a910afe4719908adbbb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 87ce101910a94cbddf0af4df7b04fc000928845f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80159084"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82111864"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>자습서: Azure Container Instance에서 이미지 분류 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,14 +27,13 @@ ms.locfileid: "80159084"
 > [!div class="checklist"]
 > * 테스트 환경 설정
 > * 작업 영역에서 모델 검색
-> * 로컬에서 모델 테스트
 > * Container Instances에 모델 배포
 > * 배포된 모델 테스트
 
 Container Instances는 워크플로를 테스트 및 이해하기 위한 훌륭한 솔루션입니다. 확장성 있는 프로덕션 배포에는 Azure Kubernetes Service를 사용하는 것이 좋습니다. 자세한 내용은 [배포 방법 및 위치](how-to-deploy-and-where.md)를 참조하세요.
 
 >[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.41에서 테스트 되었습니다.
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.83으로 테스트되었습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -56,76 +55,175 @@ Notebook을 실행하려면 먼저 [자습서(1부): 이미지 분류 모델 학
 
 이 자습서에 필요한 Python 패키지를 가져옵니다.
 
+
 ```python
 %matplotlib inline
 import numpy as np
-import matplotlib
 import matplotlib.pyplot as plt
  
-import azureml
-from azureml.core import Workspace, Run
+import azureml.core
 
 # Display the core SDK version number
 print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```
 
-### <a name="retrieve-the-model"></a>모델 검색
+## <a name="deploy-as-web-service"></a>웹 서비스로 배포
 
-이전 자습서에서 작업 영역에 모델을 등록했습니다. 이제 이 작업 영역을 로드하고 로컬 디렉터리에 모델을 다운로드합니다.
+모델을 ACI에서 호스팅되는 웹 서비스로 배포합니다. 
+
+올바른 ACI용 환경을 빌드하기 위해서 다음을 제공합니다.
+* 모델 사용 방법을 보여 주는 채점 스크립트
+* ACI를 빌드하기 위한 구성 파일
+* 이전에 학습을 진행한 모델
+
+### <a name="create-scoring-script"></a>채점 스크립트 만들기
+
+모델 사용법을 보여줄 수 있는 웹 서비스 호출에 사용되는 채점 스크립트(score.py)를 만듭니다.
+
+다음 두 개의 필수 함수를 채점 스크립트에 포함해야 합니다.
+* `init()` 함수는 일반적으로 모델을 전역 개체에 로드합니다. 이 함수는 Docker 컨테이너를 시작할 때 한 번만 실행됩니다. 
+
+* `run(input_data)` 함수는 모델을 사용하여 입력 데이터를 기반으로 값을 예측합니다. 실행에 대한 입력 및 출력은 일반적으로 serialization 및 deserialization용으로 JSON을 사용하지만 다른 형식도 지원됩니다.
+
+```python
+%%writefile score.py
+import json
+import numpy as np
+import os
+import pickle
+import joblib
+
+def init():
+    global model
+    # AZUREML_MODEL_DIR is an environment variable created during deployment.
+    # It is the path to the model folder (./azureml-models/$MODEL_NAME/$VERSION)
+    # For multiple models, it points to the folder containing all deployed models (./azureml-models)
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
+    model = joblib.load(model_path)
+
+def run(raw_data):
+    data = np.array(json.loads(raw_data)['data'])
+    # make prediction
+    y_hat = model.predict(data)
+    # you can return any data type as long as it is JSON-serializable
+    return y_hat.tolist()
+```
+
+### <a name="create-configuration-file"></a>구성 파일 만들기
+
+배포 구성 파일을 만들고 ACI 컨테이너에 필요한 RAM 기가바이트 및 CPU 개수를 지정합니다. 모델에 따라 다르긴 하지만 대개 다수의 모델에서 기본적으로 1기가바이트의 RAM 및 1개 코어면 충분합니다. 나중에 더 필요할 것 같면, 이미지를 다시 만들고 서비스를 다시 배포해야 합니다.
 
 
 ```python
+from azureml.core.webservice import AciWebservice
+
+aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, 
+                                               memory_gb=1, 
+                                               tags={"data": "MNIST",  "method" : "sklearn"}, 
+                                               description='Predict MNIST with sklearn')
+```
+
+### <a name="deploy-in-aci"></a>ACI에서 배포
+예상 완료 시간: **약 2~5분**
+
+이미지를 구성하고 배포합니다. 다음 코드는 다음과 같은 단계를 거칩니다.
+
+1. 학습 중에 저장된 환경(`tutorial-env`)을 사용하여 모델에 필요한 종속성이 포함된 환경 개체를 만듭니다.
+1. 다음을 사용하여 모델을 웹 서비스로 배포하는 데 필요한 유추 구성을 만듭니다.
+   * 채점 파일(`score.py`)
+   * 이전 단계에서 만든 환경 개체
+1. 모델을 ACI 컨테이너에 배포합니다.
+1. 웹 서비스 HTTP 엔드포인트를 가져옵니다.
+
+
+```python
+%%time
+from azureml.core.webservice import Webservice
+from azureml.core.model import InferenceConfig
+from azureml.core.environment import Environment
 from azureml.core import Workspace
 from azureml.core.model import Model
-import os
+
 ws = Workspace.from_config()
 model = Model(ws, 'sklearn_mnist')
 
-model.download(target_dir=os.getcwd(), exist_ok=True)
 
-# verify the downloaded model file
-file_path = os.path.join(os.getcwd(), "sklearn_mnist_model.pkl")
+myenv = Environment.get(workspace=ws, name="tutorial-env", version="1")
+inference_config = InferenceConfig(entry_script="score.py", environment=tutorial-env)
 
-os.stat(file_path)
+service = Model.deploy(workspace=ws, 
+                       name='sklearn-mnist-svc3', 
+                       models=[model], 
+                       inference_config=inference_config, 
+                       deployment_config=aciconfig)
+
+service.wait_for_deployment(show_output=True)
 ```
 
-## <a name="test-the-model-locally"></a>로컬에서 모델 테스트
+REST 클라이언트 호출을 수락하는 채점 웹 서비스의 HTTP 엔드포인트를 가져옵니다. 이 엔드포인트는 웹 서비스를 테스트하거나 애플리케이션에 통합하려는 모든 사용자와 공유할 수 있습니다.
 
-배포 전에 모델이 로컬에서 작동하는지 확인합니다.
-* 테스트 데이터 로드
-* 테스트 데이터 예측
-* 혼동 행렬 검사
+
+```python
+print(service.scoring_uri)
+```
+
+## <a name="test-the-model"></a>모델 테스트
+
+
+### <a name="download-test-data"></a>테스트 데이터 다운로드
+테스트 데이터를 **./data/** 디렉터리에 다운로드합니다.
+
+
+```python
+import os
+from azureml.core import Dataset
+from azureml.opendatasets import MNIST
+
+data_folder = os.path.join(os.getcwd(), 'data')
+os.makedirs(data_folder, exist_ok=True)
+
+mnist_file_dataset = MNIST.get_file_dataset()
+mnist_file_dataset.download(data_folder, overwrite=True)
+```
 
 ### <a name="load-test-data"></a>테스트 데이터 로드
 
-학습 자습서 중에 만든 **./data/** 디렉터리에서 테스트 데이터를 로드합니다.
+자습서 학습 중에 만들어진 **./data/** 에서 테스트 데이터를 로드합니다.
+
 
 ```python
 from utils import load_data
 import os
+import glob
 
 data_folder = os.path.join(os.getcwd(), 'data')
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the neural network converge faster
-X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
-y_test = load_data(os.path.join(
-    data_folder, 'test-labels.gz'), True).reshape(-1)
+X_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-images-idx3-ubyte.gz"), recursive=True)[0], False) / 255.0
+y_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-labels-idx1-ubyte.gz"), recursive=True)[0], True).reshape(-1)
 ```
 
 ### <a name="predict-test-data"></a>테스트 데이터 예측
 
 예측을 가져오기 위해 모델에 테스트 데이터 세트를 제공합니다.
 
-```python
-import pickle
-from sklearn.externals import joblib
 
-clf = joblib.load(os.path.join(os.getcwd(), 'sklearn_mnist_model.pkl'))
-y_hat = clf.predict(X_test)
+다음 코드는 다음과 같은 단계를 거칩니다.
+1. 데이터를 JSON 배열로 ACI에서 호스팅되는 웹 서비스에 보냅니다. 
+
+1. SDK의 `run` API를 사용하여 서비스를 호출합니다. Curl과 같은 HTTP 도구를 사용하여 원시 호출을 수행할 수도 있습니다.
+
+
+```python
+import json
+test = json.dumps({"data": X_test.tolist()})
+test = bytes(test, encoding='utf8')
+y_hat = service.run(input_data=test)
 ```
 
 ###  <a name="examine-the-confusion-matrix"></a>혼동 행렬을 검사합니다
 
-테스트 집합에서 얼마나 많은 샘플 올바르게 분류되었는지를 확인하기 위해 혼동 행렬을 생성합니다. 잘못된 예측에 대해 잘못 분류된 값을 확인합니다. 
+테스트 집합에서 얼마나 많은 샘플 올바르게 분류되었는지를 확인하기 위해 혼동 행렬을 생성합니다. 잘못된 예측에 대해 잘못 분류된 값을 확인합니다.
+
 
 ```python
 from sklearn.metrics import confusion_matrix
@@ -150,7 +248,7 @@ print('Overall accuracy:', np.average(y_hat == y_test))
     Overall accuracy: 0.9204
    
 
-`matplotlib` 사용하여 혼동 행렬을 그래프로 표시합니다. 이 그래프에서 x-축은 실제 값을 나타내고 y-축은 예측된 값을 나타냅니다. 각 눈금의 색은 오류 비율을 나타냅니다. 색이 밝을수록 오류 비율이 높습니다. 예를 들어 여러 개의 5가 3으로 잘못 분류되어 있습니다. 따라서 (5,3)에서 밝은 눈금이 표시됩니다.
+`matplotlib` 사용하여 혼동 행렬을 그래프로 표시합니다. 이 그래프에서 X축은 실제 값을 나타내고 Y축은 예측된 값을 나타냅니다. 각 눈금의 색은 오류 비율을 나타냅니다. 색이 밝을수록 오류 비율이 높습니다. 예를 들어 다수의 5가 3으로 잘못 분류되어 있습니다. 따라서 (5,3)에서 밝은 눈금이 표시됩니다.
 
 ```python
 # normalize the diagonal cells so that they don't overpower the rest of the cells when visualized
@@ -175,141 +273,17 @@ plt.show()
 
 ![혼동 행렬을 보여 주는 차트](./media/tutorial-deploy-models-with-aml/confusion.png)
 
-## <a name="deploy-as-a-web-service"></a>웹 서비스로 배포
 
-모델을 테스트하고 결과에 만족하면 모델을 Container Instances에서 호스팅되는 웹 서비스로 배포합니다. 
+## <a name="show-predictions"></a>예측 표시
 
-Container Instances에 대한 올바른 환경을 빌드하려면 다음과 같은 구성 요소를 제공합니다.
-* 모델을 사용하는 방법을 보여주는 채점 스크립트
-* 설치해야 할 패키지가 무엇인지를 보여주는 환경 파일
-* 컨테이너 인스턴스를 빌드하는 구성 파일
-* 이전에 학습한 모델
+테스트 데이터에서 무작위로 샘플링한 30개 이미지를 사용하여 배포된 모델을 테스트할 수 있습니다.  
 
-<a name="make-script"></a>
-
-### <a name="create-scoring-script"></a>채점 스크립트 만들기
-
-**score.py**라는 채점 스크립트를 만듭니다. 웹 서비스 호출은 이 스크립트를 사용하여 모델을 사용하는 방법을 보여줍니다.
-
-다음 두 개의 필수 함수를 채점 스크립트에 포함합니다.
-* `init()` 함수는 일반적으로 모델을 전역 개체에 로드합니다. 이 함수는 Docker 컨테이너를 시작할 때 한 번만 실행됩니다. 
-
-* `run(input_data)` 함수는 모델을 사용하여 입력 데이터를 기반으로 값을 예측합니다. 실행에 대한 입력 및 출력은 일반적으로 serialization 및 deserialization용으로 JSON을 사용하지만 다른 형식도 지원됩니다.
-
-```python
-%%writefile score.py
-import json
-import numpy as np
-import os
-import pickle
-from sklearn.externals import joblib
-from sklearn.linear_model import LogisticRegression
-
-from azureml.core.model import Model
-
-def init():
-    global model
-    # retrieve the path to the model file using the model name
-    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
-    model = joblib.load(model_path)
-
-def run(raw_data):
-    data = np.array(json.loads(raw_data)['data'])
-    # make prediction
-    y_hat = model.predict(data)
-    # you can return any data type as long as it is JSON-serializable
-    return y_hat.tolist()
-```
-
-<a name="make-myenv"></a>
-
-### <a name="create-environment-file"></a>환경 파일 만들기
-
-다음으로, 스크립트의 패키지 종속성을 모두 지정하는 **myenv.yml**이라는 환경 파일을 만듭니다. 이 파일은 해당 종속성 모두가 Docker 이미지에 설치되도록 하는 데 사용됩니다. 이 모델에는 `scikit-learn` 및 `azureml-sdk`가 필요합니다. 모든 사용자 지정 환경 파일은 pip 종속성으로 버전이 1.0.45 이상인 azureml-defaults를 나열해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다.
-
-```python
-from azureml.core.conda_dependencies import CondaDependencies
-
-myenv = CondaDependencies()
-myenv.add_conda_package("scikit-learn")
-myenv.add_pip_package("azureml-defaults")
-
-with open("myenv.yml", "w") as f:
-    f.write(myenv.serialize_to_string())
-```
-`myenv.yml` 파일의 콘텐츠를 검토합니다.
-
-```python
-with open("myenv.yml", "r") as f:
-    print(f.read())
-```
-
-### <a name="create-a-configuration-file"></a>구성 파일 만들기
-
-배포 구성 파일을 만듭니다. Container Instances 컨테이너에 필요한 CPU 수와 RAM 크기(기가바이트 단위)를 지정합니다. 모델에 따라 다르긴 하지만 대개 다수의 모델에서 기본적으로 1기가바이트의 RAM 및 1개 코어면 충분합니다. 나중에 더 필요한 경우 이미지를 다시 만들고 서비스를 다시 배포합니다.
-
-```python
-from azureml.core.webservice import AciWebservice
-
-aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, 
-                                               memory_gb=1, 
-                                               tags={"data": "MNIST",  
-                                                     "method": "sklearn"},
-                                               description='Predict MNIST with sklearn')
-```
-
-### <a name="deploy-in-container-instances"></a>Container Instances에 배포
-배포가 완료되는 예상 시간은 **약 7 ~ 8분**입니다.
-
-이미지를 구성하고 배포합니다. 다음 코드는 다음과 같은 단계를 거칩니다.
-
-1. 다음 파일을 사용하여 이미지를 빌드합니다.
-   * 점수 매기기 파일(`score.py`)
-   * 환경 파일(`myenv.yml`)
-   * 모델 파일
-1. 작업 영역에서 해당 이미지를 등록합니다. 
-1. 이미지를 Container Instances 컨테이너로 보냅니다.
-1. 이미지를 사용하여 Container Instances에서 컨테이너를 시작합니다.
-1. 웹 서비스 HTTP 엔드포인트를 가져옵니다.
-
-사용자 고유의 환경 파일을 정의하는 경우 pip 종속성으로 버전이 1.0.45 이상인 azureml-defaults를 나열해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다.
-
-```python
-%%time
-from azureml.core.webservice import Webservice
-from azureml.core.model import InferenceConfig
-from azureml.core.environment import Environment
-
-myenv = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
-inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-
-service = Model.deploy(workspace=ws,
-                       name='sklearn-mnist-svc',
-                       models=[model], 
-                       inference_config=inference_config,
-                       deployment_config=aciconfig)
-
-service.wait_for_deployment(show_output=True)
-```
-
-REST 클라이언트 호출을 수락하는 채점 웹 서비스의 HTTP 엔드포인트를 가져옵니다. 이 엔드포인트는 웹 서비스를 테스트하거나 애플리케이션에 통합하려는 모든 사용자와 공유할 수 있습니다. 
-
-```python
-print(service.scoring_uri)
-```
-
-## <a name="test-the-deployed-service"></a>배포된 서비스 테스트
-
-이전에 로컬 버전의 모델을 사용하여 모든 테스트 데이터에 대한 점수를 매겼습니다. 이제 테스트 데이터 중 무작위로 샘플링한 30개 이미지를 사용하여 배포된 모델을 테스트할 수 있습니다.  
-
-다음 코드는 다음과 같은 단계를 거칩니다.
-1. 데이터를 JSON 배열로 Container Instances에서 호스팅되는 웹 서비스에 보냅니다. 
-
-1. SDK의 `run` API를 사용하여 서비스를 호출합니다. 또한 **curl**과 같은 HTTP 도구를 사용하여 원시 호출을 수행할 수도 있습니다.
 
 1. 반환된 예측을 인쇄하고 입력 이미지와 함께 그립니다. 빨강 글꼴 및 역방향 이미지(검정 바탕에 흰색)는 오분류된 샘플을 강조 표시하는 데 사용됩니다. 
 
-모델 정확도가 높으므로 오분류된 샘플을 보려면 다음 코드를 몇 번 실행해야 할 수 있습니다.
+ 모델 정확도가 높으므로 다음 코드를 몇 번 실행해야 오분류된 샘플을 볼 수 있을 수 있습니다.
+
+
 
 ```python
 import json
@@ -326,7 +300,7 @@ result = service.run(input_data=test_samples)
 
 # compare actual value vs. the predicted values:
 i = 0
-plt.figure(figsize=(20, 1))
+plt.figure(figsize = (20, 1))
 
 for s in sample_indices:
     plt.subplot(1, n, i + 1)
@@ -344,11 +318,8 @@ for s in sample_indices:
 plt.show()
 ```
 
-테스트 이미지 중 임의의 한 샘플에 대한 결과는 다음과 같습니다.
-
-![결과를 보여주는 그래픽](./media/tutorial-deploy-models-with-aml/results.png)
-
 원시 HTTP 요청을 보내 웹 서비스를 테스트할 수도 있습니다.
+
 
 ```python
 import requests

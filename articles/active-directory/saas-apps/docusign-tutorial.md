@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01f969c3bc6f546025b3bbe5826181efdfa69be0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b827c2e949502ad8bd19378a84ea89947929459d
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76983642"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509366"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>자습서: DocuSign과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -45,7 +45,7 @@ Azure AD와 SaaS(Software as a Service) 앱 연결에 대해 자세히 알아보
 
 * DocuSign에서 SP(서비스 공급자) 시작 SSO를 지원합니다.
 
-* DocuSign에서 *Just-In-Time* 사용자 프로비저닝을 지원합니다.
+* DocuSign에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
 
 * DocuSign에서 [자동 사용자 프로비저닝](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial)을 지원합니다.
 * DocuSign을 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
@@ -87,12 +87,20 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **로그온 URL** 상자에서 `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 다음 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 상자에서 `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2` 패턴을 사용하는 URL을 입력합니다.
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
+
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 다음 패턴을 사용하는 URL을 입력합니다.
+
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
+
+    다. **회신 URL** 텍스트 상자에서 다음 패턴을 사용하는 URL을 입력합니다.
+    
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login`
 
     > [!NOTE]
-    > 대괄호로 묶은 이러한 값은 자리 표시자입니다. 이러한 자리 표시자를 실제 로그온 URL 및 식별자의 값으로 바꿉니다. 이러한 세부 정보는 이 자습서의 뒷부분에 나오는 "SAML 2.0 엔드포인트 보기" 섹션에 설명되어 있습니다.
+    > 대괄호로 묶은 이러한 값은 자리 표시자입니다. 실제 로그온 URL, 식별자 및 회신 URL의 값으로 바꿉니다. 이러한 세부 정보는 이 자습서의 뒷부분에 나오는 "SAML 2.0 엔드포인트 보기" 섹션에 설명되어 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾습니다. **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -206,20 +214,23 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
        ![Identity Providers/Endpoints][59]
 
     l. DocuSign 관리 포털의 **View SAML 2.0 Endpoints**(SAML 2.0 엔드포인트 보기) 섹션에서 다음 단계를 수행합니다.
-       1. **Service Provider Issuer URL**(서비스 공급자 발급자 URL)을 복사한 다음, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자** 상자에 붙여넣습니다.
-
-       1. **Service Provider Login URL**(서비스 공급자 발급자 URL)을 복사한 다음, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **로그온 URL** 상자에 붙여넣습니다.
-
-       1. **닫기**를 선택합니다.
 
        ![SAML 2.0 엔드포인트 보기][60]
+       
+       1. **Service Provider Issuer URL**(서비스 공급자 발급자 URL)을 복사한 다음, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자** 상자에 붙여넣습니다.
+       
+       1. **Service Provider Assertion Consumer Service URL**을 복사한 다음, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **회신 URL** 상자에 붙여넣습니다.
+       
+       1. **Service Provider Login URL**(서비스 공급자 발급자 URL)을 복사한 다음, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **로그온 URL** 상자에 붙여넣습니다. **서비스 공급자 로그인 URL**의 끝에 IDPID 값을 가져옵니다.
+
+       1. **닫기**를 선택합니다.
 
 ### <a name="create-docusign-test-user"></a>DocuSign 테스트 사용자 만들기
 
 이 섹션에서는 DocuSign에서 B.Simon이라는 사용자를 만듭니다. DocuSign은 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. DocuSign에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
->[!Note]
->사용자를 수동으로 만들어야 하는 경우 [DocuSign 지원 팀](https://support.docusign.com/)에 문의하세요.
+> [!Note]
+> 사용자를 수동으로 만들어야 하는 경우 [DocuSign 지원 팀](https://support.docusign.com/)에 문의하세요.
 
 ## <a name="test-sso"></a>SSO 테스트 
 

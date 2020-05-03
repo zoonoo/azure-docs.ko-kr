@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/30/2020
+ms.date: 04/28/2020
 ms.author: allensu
-ms.openlocfilehash: c012a8d83761b88cc59b62d11fd3d5542ca7f7a1
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: c9b5aaefeb8ab21eed850f5bf291d38981239aab
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396083"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508431"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Azure Virtual Network NAT 연결 문제 해결
 
@@ -101,6 +101,7 @@ _**해결 방법:**_ 대신 TCP 연결 테스트(예: "TCP ping") 및 UDP별 애
 
 [Virtual Network NAT](nat-overview.md)의 연결 문제는 다음과 같은 여러 가지 이슈로 인해 발생할 수 있습니다.
 
+* 구성 실수로 인한 영구 오류입니다.
 * NAT 게이트웨이의 일시적 또는 영구적 [SNAT 소모](#snat-exhaustion)
 * Azure 인프라의 일시적 실패 
 * Azure 및 퍼블릭 인터넷 대상 간 경로의 일시적 실패 
@@ -112,6 +113,13 @@ _**해결 방법:**_ 대신 TCP 연결 테스트(예: "TCP ping") 및 UDP별 애
 |---|---|---|---|
 | Linux | nc(제네릭 연결 테스트) | curl(TCP 애플리케이션 계층 테스트) | 애플리케이션별 |
 | Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | 애플리케이션별 |
+
+#### <a name="configuration"></a>구성
+
+다음 항목을 확인합니다.
+1. NAT 게이트웨이 리소스에 하나 이상의 공용 IP 리소스 또는 하나의 공용 IP 접두사 리소스가 있나요? 아웃바운드 연결을 제공할 수 있으려면 NAT 게이트웨이와 연결된 IP 주소가 하나 이상 있어야 합니다.
+2. 가상 네트워크의 서브넷이 NAT 게이트웨이를 사용하도록 구성되어 있나요?
+3. UDR(사용자 정의 경로)을 사용하고 있으며 대상을 재정의하고 있나요?  NAT 게이트웨이 리소스는 구성된 서브넷에서 기본 경로(0/0)가 됩니다.
 
 #### <a name="snat-exhaustion"></a>SNAT 소모
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: fe15c02286223ec0829b31664811b7f589cf16aa
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1dd20d94737df3e799876323d2aeb555dcb9a381
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74774835"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82146803"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>빠른 시작: Azure CLI 명령인 az postgres up(미리 보기)을 사용하여 Azure Database for PostgreSQL - 단일 서버 만들기
 
@@ -63,7 +63,7 @@ sku-name | GP_Gen5_2 | SKU의 이름입니다. {가격 책정 계층}\_{계산 �
 backup-retention | 7 | 장기 백업이 보존되는 방법입니다. 단위는 일입니다.
 geo-redundant-backup | 사용 안 함 | 이 서버에 지역 중복 백업을 사용할 것인지 여부를 결정합니다.
 위치 | westus2 | 서버에 대한 Azure 위치입니다.
-ssl-enforcement | 사용 안 함 | 이 서버에 ssl을 사용할 것인지 여부를 결정합니다.
+ssl-enforcement | 사용 안 함 | 이 서버에 TLS/SSL을 사용할 것인지 여부를 결정합니다.
 storage-size | 5120 | 서버의 스토리지 용량입니다(단위는 메가바이트).
 버전 | 10 | PostgreSQL 주 버전입니다.
 admin-user | 시스템 생성 | 관리자의 사용자 이름입니다.

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: c5d70e5a8784e88d3f2906d500768735dced1ee0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3c474b57533cb6165ce7fe77defccd4cb7042b06
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73828134"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82189925"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>산업용 IoT(IIoT)란?
 
@@ -23,12 +23,12 @@ IIoT는 산업용 사물 인터넷입니다. IIoT는 제조 산업에서 IoT 애
 
 연결된 팩터리 솔루션 가속기를 사용하여 운영 생산성과 수익성을 향상시키세요. 이미 작업 현장에서 작동 중인 머신을 비롯한 산업 장비와 디바이스를 클라우드에서 연결하고 모니터링할 수 있습니다. IoT 데이터를 분석하여 전체 작업 현장의 성과 증대에 도움이 되는 인사이트를 얻을 수 있습니다.
 
-OPC 쌍을 통해 작업 현장 머신에 액세스하는 데 걸리는 시간을 줄이고 IIoT 솔루션 구축에 집중하세요. OPC 자격 증명 모음으로 인증서 관리 및 산업 자산 통합을 간소화하고 안전한 자산 연결성을 보장해드립니다. 이러한 마이크로서비스는 [Azure 산업용 IoT 구성 요소](https://github.com/Azure/azure-iiot-opc-ua) 외에도 REST와 유사한 API를 제공합니다. 서비스 API를 통해 에지 모듈 기능을 제어할 수 있습니다. 
+OPC 쌍을 통해 작업 현장 머신에 액세스하는 데 걸리는 시간을 줄이고 IIoT 솔루션 구축에 집중하세요. OPC 자격 증명 모음으로 인증서 관리 및 산업 자산 통합을 간소화하고 안전한 자산 연결성을 보장해드립니다. 이러한 마이크로서비스는 [Azure 산업용 IoT 구성 요소](https://github.com/Azure/Industrial-IoT) 외에도 REST와 유사한 API를 제공합니다. 서비스 API를 통해 에지 모듈 기능을 제어할 수 있습니다. 
 
 ![산업용 IoT 개요](media/overview-iot-industrial/overview.png)
 
 > [!NOTE]
-> Azure 산업용 IoT 서비스에 대한 자세한 내용은 GitHub [리포지토리](https://github.com/Azure/azure-iiot-services)를 참조하세요.
+> Azure 산업용 IoT 서비스에 대한 자세한 내용은 GitHub [리포지토리](https://github.com/Azure/Industrial-IoT) 및 [설명서](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 Azure IoT Edge 모듈의 작동 방식에 대해 잘 모르는 경우 다음 문서를 시작하세요.
 - [Azure IoT Edge 정보](../iot-edge/about-iot-edge.md)
 - [Azure IoT Edge 모듈](../iot-edge/iot-edge-modules.md)

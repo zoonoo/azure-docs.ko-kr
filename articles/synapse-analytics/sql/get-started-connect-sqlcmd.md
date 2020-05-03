@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8ff9034e6c31c8d95e862570e3962990dfec8442
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7ccb30cdd77e511572147a0b0f7287f931a45df2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419657"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82186841"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>sqlcmd를 사용하여 Synapse SQL에 연결
 
@@ -79,7 +79,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 
 ### <a name="use-sql-pool"></a>SQL 풀 사용
 
-연결 후, 인스턴스에 대해 지원되는 모든 TRANSACT-SQL 문을 실행할 수 있습니다.  이 예제에서 쿼리는 대화형 모드로 전송됩니다.
+연결 후 인스턴스에 대해 지원되는 모든 [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)(T-SQL) 문을 실행할 수 있습니다. 이 예제에서 쿼리는 대화형 모드로 전송됩니다.
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b6e4f521568c89e415e6e9fa621175052cf34d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 616910eda33b3ddc49fa6233ccb3989c5e4214e2
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74026891"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582853"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 Office 365 그룹이 만료되도록 설정
 
@@ -73,7 +73,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="to-remove-the-expiration-policy"></a>만료 정책을 제거하려면
 
-1. 해당 테넌트의 글로벌 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Azure AD 조직의 글로벌 관리자 계정으로 [Azure Portal](https://portal.azure.com)에 로그인했는지 확인합니다.
 2. **Azure Active Directory** > **그룹** > **만료**를 선택합니다.
 3. **이러한 Office 365 그룹에 만료 사용**을 **없음**으로 설정합니다.
 

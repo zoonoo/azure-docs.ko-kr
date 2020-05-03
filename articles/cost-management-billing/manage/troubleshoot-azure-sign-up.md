@@ -1,31 +1,35 @@
 ---
-title: Azure 등록 문제 해결
+title: Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 때 발생하는 문제 해결
 description: Microsoft Azure Portal 계정 센터에서 새 계정을 등록할 때 발생하는 문제를 해결합니다.
+services: cost-management-billing
 author: v-miegge
-ms.reviewer: dcscontentpm
+manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 540cb5b4ca8f78c734fbc7dcd16358be8eb391c0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409465"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133175"
 ---
-# <a name="troubleshoot-azure-sign-up"></a>Azure 등록 문제 해결
+# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 때 발생하는 문제 해결
 
 Microsoft Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 때 문제가 발생할 수 있습니다. 문제 해결을 시도하기 전에, 다음 사항을 고려하세요.
 
-- Azure 계정 프로필에 제공한 정보(연락처 이메일 주소, 주소, 전화 번호 포함)가 정확합니다.
+- Azure 계정 프로필에 제공한 정보(연락처 이메일 주소, 주소 및 전화 번호 포함)가 정확합니다.
 - 신용 카드 정보가 정확합니다.
 - 동일한 정보가 포함된 Microsoft 계정이 아직 없습니다.
 
+> [!NOTE]
+> 이미 기존 계정이 있고 로그인 문제를 해결하기 위한 지침을 찾고 있는 경우 [Azure 구독 로그인 문제 해결](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)을 참조하세요.
+
 ## <a name="resolutions"></a>해결 방법
 
-오류를 해결하려면 Azure에 등록하려고 할 때 발생하는 문제를 선택하십시오.
+오류를 해결하려면 Azure에 등록하려고 할 때 발생하는 문제를 선택합니다.
 
 ### <a name="error-we-cannot-proceed-with-sign-up-due-to-an-issue-with-your-account-please-contact-billing-support"></a>오류: *계정에서 발생한 문제로 인해 등록을 진행할 수 없습니다. 청구 지원 담당자에게 문의하세요.*
 
@@ -116,7 +120,7 @@ Azure In Open 구독을 만들려면 하나 이상의 Azure In Open 토큰이 �
 
 이 문제는 계정이 [관리되지 않는 Azure AD 디렉터리](../../active-directory/users-groups-roles/directory-self-service-signup.md)에 등록되어 있고 조직의 Azure AD 디렉터리에 없는 경우에 발생할 수 있습니다.
 
-이 문제를 해결하려면 다른 계정을 사용하여 Azure 계정을 등록하거나 관리되지 않는 AD 디렉터리 인수하세요. 자세한 내용은 [Azure Active Directory에서 관리자 권한으로 관리되지 않는 디렉터리 인수](../../active-directory/users-groups-roles/domains-admin-takeover.md)를 참조하세요.
+이 문제를 해결하려면 다른 계정을 사용하여 Azure 계정을 등록하거나 관리되지 않는 AD 디렉터리를 인수하세요. 자세한 내용은 [Azure Active Directory에서 관리자 권한으로 관리되지 않는 디렉터리 인수](../../active-directory/users-groups-roles/domains-admin-takeover.md)를 참조하세요.
 
 ## <a name="additional-help-resources"></a>추가 도움말 리소스
 

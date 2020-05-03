@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 741d4718b5e6140f4ddd2bb22e1a2ec830763176
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9a2bb636ba749cae50195cefeb8e7237d382fb99
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79224040"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82182347"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM의 Azure로의 재해 복구 설정
 
@@ -127,7 +127,7 @@ Site Recovery가 호환되는 Azure Storage 계정 및 네트워크가 하나 �
 2. **만들기 및 연결 정책**에서 정책 이름을 지정합니다. 여기서는 **ContosoReplicationPolicy**를 사용합니다.
 3. 이 자습서에서는 기본 설정을 그대로 적용합니다.
     - **복사 빈도**는 초기 복제 후 델타 데이터가 복제되는 빈도를 나타냅니다. 기본 빈도는 5분마다입니다.
-    - **복구 지점 보존**은 복구 지점이 2시간 동안 보존됨을 나타냅니다.
+    - **복구 지점 보존**은 복구 지점이 2시간 동안 보존됨을 나타냅니다. Hyper-V 호스트에서 호스팅되는 가상 머신을 보호할 때 허용되는 최대 보존 값은 24시간입니다.
     - **앱 일치 스냅샷 빈도**는 앱 일치 스냅샷을 포함하는 복구 지점이 1시간마다 만들어짐을 나타냅니다.
     - **초기 복제 시작 시간**은 초기 복제가 즉시 시작됨을 나타냅니다.
 4. 정책이 만들어지면 **확인**을 선택합니다. 새 정책을 만들면 지정된 Hyper-V 사이트에 자동으로 연결됩니다. 이 자습서에서는 **ContosoHyperVSite**입니다.

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: v-erkel
-ms.openlocfilehash: 084c33874b474fc1789df93e088d3cec4263eac9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 02013abe7050f7f193b6aeb1a441e70f46a5df48
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536644"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82106460"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Azure HPC Cache란?
 
@@ -63,6 +63,12 @@ Azure HPC Cache는 다음 Azure 지역에서 제공됩니다.
 * 미국 서부 2
 
 최신 가용성 정보를 보려면 [Azure HPC Cache 제품 페이지](https://azure.microsoft.com/services/hpc-cache)를 확인하세요.
+
+## <a name="service-availability"></a>서비스 가용성
+
+Azure HPC 캐시에서 사용할 각 구독에 대해 액세스를 요청해야 합니다. 이 제한은 서비스 품질을 보장하는 데 도움이 됩니다.
+
+[이 양식](https://aka.ms/onboard-hpc-cache)을 입력하여 액세스를 요청합니다. 구독이 액세스 목록에 추가된 후에는 캐시를 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: d2e7e157156a4049a5db37b1d5c0e02773adbcc3
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: a02abd931dddd410882dd67a73a5b5fab6dc8cf9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879550"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82194893"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 
@@ -61,7 +61,7 @@ Azure Security Center를 사용하여 보안 상태를 강화할 수 있습니�
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>조직 보안 정책 및 준수 관리
 
-워크로드가 안전한지 알고 확인하는 것이 보안의 기본 사항이며, 이는 맞춤화된 보안 정책을 구현하는 것에서 시작됩니다. Security Center의 모든 정책은 Azure Policy 제어를 바탕으로 구축되므로 **최고 수준의 정책 솔루션**이 제공하는 포괄적인 범위와 유연성을 얻을 수 있습니다. Security Center에서는 관리 그룹, 전체 구독 및 전체 테넌트에 대해 실행할 정책까지 설정할 수 있습니다.
+워크로드가 안전한지 알고 확인하는 것이 보안의 기본 사항이며, 이는 맞춤화된 보안 정책을 구현하는 것에서 시작됩니다. Security Center의 모든 정책은 Azure Policy 제어를 기반으로 빌드되므로 **최고 수준의 정책 솔루션**이 제공하는 포괄적인 범위와 유연성을 얻을 수 있습니다. Security Center에서는 관리 그룹, 전체 구독 및 전체 테넌트에 대해 실행할 정책까지 설정할 수 있습니다.
 
 ![Security Center 대시보드](media/security-center-intro/sc-dashboard.png)
 

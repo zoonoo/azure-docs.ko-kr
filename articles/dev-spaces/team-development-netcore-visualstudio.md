@@ -9,12 +9,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio를 사용하여 Azure Kubernetes Service의 .NET Core 애플리케이션에서 팀 개발을 수행하는 방법을 보여줍니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: b4520ce35807fb022fa39ae9b00347a27e192380
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c84c77fe7a425318700903427ff1c4aaa4e73a11
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78245045"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82166039"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Azure Dev Spaces와 함께 .NET Core 및 Visual Studio를 사용한 팀 개발
 
@@ -102,7 +102,7 @@ Visual Studio 내에서 서비스를 F5 또는 Ctrl+F5로 누르면 사용할 �
 
 ### <a name="update-code-for-mywebapi"></a>*mywebapi*에 대한 코드 업데이트
 
-1. *mywebapi* 프로젝트에서 다음과 같이 코드를 `string Get(int id)` 파일의 `Controllers/ValuesController.cs` 메서드로 변경합니다.
+1. *mywebapi* 프로젝트에서 다음과 같이 코드를 `Controllers/ValuesController.cs` 파일의 `string Get(int id)` 메서드로 변경합니다.
  
     ```csharp
     [HttpGet("{id}")]
@@ -122,7 +122,7 @@ Visual Studio 내에서 서비스를 F5 또는 Ctrl+F5로 누르면 사용할 �
 기본 제공되는 Azure Dev Spaces 기능을 사용하면 각 개발자가 자신의 공간에서 서비스의 전체 스택을 다시 만들 필요 없이 공유 환경에서 코드를 엔드투엔드에 테스트할 수 있습니다. 이 라우팅에서는 이 가이드의 이전 단계에서 설명한 대로 앱 코드에서 전파 헤더를 전달해야 합니다.
 
 ### <a name="test-code-running-in-the-_devscott_-space"></a>_dev/scott_ 공간에서 실행 중인 코드 테스트
-*webfrontend*와 함께 새 버전의 *mywebapi*를 테스트하려면 브라우저를 *webfrontend*에 대한 공용 액세스 지점 URL로 열고(예: http://dev.webfrontend.123456abcdef.eus.azds.io) ) 정보 페이지로 이동합니다. "Hello from webfrontend and Hello from mywebapi.(webfrontend에서 보낸 Hello 및 mywebapi에서 보낸 Hello입니다.)"라는 원래 메시지가 표시됩니다.
+*webfrontend*와 함께 새 버전의 *mywebapi*를 테스트하려면 브라우저를 *webfrontend*에 대한 공용 액세스 지점 URL로 열고(예: `http://dev.webfrontend.123456abcdef.eus.azds.io`) 정보 페이지로 이동합니다. "Hello from webfrontend and Hello from mywebapi.(webfrontend에서 보낸 Hello 및 mywebapi에서 보낸 Hello입니다.)"라는 원래 메시지가 표시됩니다.
 
 이제 URL에 "scott.s" 부분을 추가하여 http\://scott.s.dev.webfrontend.123456abcdef.eus.azds.io와 같이 만들고 브라우저를 새로 고칩니다. *mywebapi* 프로젝트에서 설정한 중단점에 적중되어야 합니다. F5 키를 클릭하여 계속 진행합니다. 그러면 브라우저에서 "Hello with webfrontend and mywebapi(webfrontend 및 mywebapi를 통한 Hello)"라는 새 메시지가 표시됩니다. 이는 *mywebapi*의 업데이트된 코드 경로가 _dev/scott_ 공간에서 실행되기 때문입니다.
 

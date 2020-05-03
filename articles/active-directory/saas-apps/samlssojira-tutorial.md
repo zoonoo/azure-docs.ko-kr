@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 957fee48397bc0b23737157dec0e74cf6505fab5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d6f6cb87cf7628c48ce6adf12336c4b712dc0ff9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160138"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202675"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>자습서: SAML SSO for Jira by resolution GmbH와 Azure Active Directory 통합
 
@@ -291,7 +291,7 @@ Azure AD 사용자가 SAML SSO for Jira by resolution GmbH에 로그인하도록
 
 액세스 패널에서 SAML SSO for Jira by resolution GmbH 타일을 클릭하면 SSO를 설정한 SAML SSO for Jira by resolution GmbH에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
-또한 [https://\<server-base-url>/plugins/servlet/samlsso](https://\<server-base-url>/plugins/servlet/samlsso)로 이동하면 Single Sign-On을 테스트할 수 있습니다. **\<server-base-url>** 을 Jira 인스턴스의 기본 URL로 바꿉니다.
+`https://<server-base-url>/plugins/servlet/samlsso`로 이동하는 경우 Single Sign-On을 테스트할 수도 있습니다. **\<server-base-url>** 을 Jira 인스턴스의 기본 URL로 바꿉니다.
 
 
 ## <a name="enable-single-sign-on-redirection-for-jira"></a>Jira에 대한 Single Sign-On 리디렉션 사용
@@ -311,7 +311,7 @@ SSO 리디렉션을 활성화하려면 **Jira 인스턴스**에서 다음을 수
 
 1. 오른쪽 위 모서리의 **설정 저장** 단추를 누릅니다.
 
-옵션을 활성화한 후 [https://\<server-base-url>/login.jsp?nosso](https://\<server-base-url>/login.jsp?nosso)로 이동하면 **SSO 사용 안 함** 옵션이 선택된 경우 여전히 사용자 이름/암호 프롬프트에 도달할 수 있습니다. 항상 그렇듯이, **\<server-base-url>** 을 사용자의 기본 URL로 바꿉니다.
+옵션을 활성화한 후에도 `https://\<server-base-url>/login.jsp?nosso`로 이동하여 **nosso 사용** 옵션을 선택하면 계속 사용자 이름/암호 프롬프트에 도달할 수 있습니다. 항상 그렇듯이, **\<server-base-url>** 을 사용자의 기본 URL로 바꿉니다.
 
 
 ## <a name="additional-resources"></a>추가 리소스

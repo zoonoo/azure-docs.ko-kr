@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 5b7d9cd7e7d438cf2beac76d5d8bcc78d377a8f4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4dff48f909cd3febbbb7e92dcf96070020b8f57c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77083095"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82145143"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>자습서: Azure Data Share를 사용하여 데이터 수락 및 받기  
 
@@ -72,9 +72,11 @@ ms.locfileid: "77083095"
 
 ## <a name="open-invitation"></a>초대 열기
 
-1. 받은 편지함에서 데이터 공급자의 초대를 확인합니다. 이 초대는 Microsoft Azure에서 **<yourdataprovider@domain.com>이(가) 보낸 Azure Data Share 초대**라는 제목으로 보낸 것입니다. 여러 개의 초대가 있는 경우 올바른 공유를 수락할 수 있도록 공유 이름을 적어둡니다. 
+1. 이메일 또는 Azure Portal에서 직접 초대를 열 수 있습니다. 
 
-1. **초대 보기**를 선택하여 Azure에서 초대를 확인합니다. 그러면 [받은 공유] 보기로 이동합니다.
+   이메일에서 초대를 열려면 받은 편지함에서 데이터 공급자의 초대를 확인합니다. 이 초대는 Microsoft Azure에서 **<yourdataprovider@domain.com>이(가) 보낸 Azure Data Share 초대**라는 제목으로 보낸 것입니다. **초대 보기**를 클릭하여 Azure에서 초대를 확인합니다. 
+
+   Azure Portal에서 직접 초대를 열려면 Azure Portal에서 **데이터 공유 초대**를 검색합니다. 그러면 데이터 공유 초대 목록으로 이동됩니다.
 
    ![초대](./media/invitations.png "초대 목록") 
 

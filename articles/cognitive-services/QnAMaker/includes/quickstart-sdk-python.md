@@ -1,17 +1,23 @@
 ---
-ms.openlocfilehash: 13dcdec4eff72f97e1af8ecb26e32c0ef5f881fd
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+title: '빠른 시작: Python용 QnA Maker 클라이언트 라이브러리'
+description: 이 빠른 시작에서는 Python용 QnA Maker 클라이언트 라이브러리를 시작하는 방법을 보여줍니다.
+ms.topic: include
+ms.date: 04/27/2020
+ms.openlocfilehash: ccd046ad8e511517abd9f45072781e736f0e79b9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81637063"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204032"
 ---
-
 python용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 수행할 수 있습니다.
 
 * 기술 자료 만들기
-* 기술 자료 관리
+* 기술 자료 업데이트
 * 기술 자료 게시
+* 게시된 엔드포인트 키 가져오기
+* 장기 실행 작업 대기
+* 기술 자료 삭제
 
 [참조 설명서](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-knowledge-qnamaker) | [패키지(pypi)](https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/) | [Python 샘플](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py)
 
@@ -21,6 +27,9 @@ python용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 �
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
+* Azure 구독을 보유한 후에는 Azure Portal에서 [QnA Maker 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)를 만들어 제작 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 선택합니다.
+    * 애플리케이션을 QnA Maker API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
+    * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 
 ## <a name="setting-up"></a>설치
 

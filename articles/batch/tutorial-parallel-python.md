@@ -1,21 +1,16 @@
 ---
-title: 병렬 워크로드 실행 - Azure Batch Python
+title: 병렬 워크로드 실행
 description: 자습서 - Batch Python 클라이언트 라이브러리를 사용하여 Azure Batch의 ffmpeg로 미디어 파일 병렬 처리
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: d4277e383a5cb69ef5395cb6dc477d888abd1d0d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 32e42fe04ad8ce55bbbbb90e5aca6356fd1c6f22
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77023092"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82117118"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>자습서: Python API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -65,7 +60,7 @@ Python 환경에서 `pip`를 사용하는 데 필요한 패키지를 설치합�
 pip install -r requirements.txt
 ```
 
-`config.py`파일을 엽니다. Batch 및 Storage 계정 자격 증명 문자열을 계정에 고유한 값으로 업데이트합니다. 다음은 그 예입니다.
+`config.py`파일을 엽니다. Batch 및 Storage 계정 자격 증명 문자열을 계정에 고유한 값으로 업데이트합니다. 다음은 그 예입니다. 
 
 
 ```Python
@@ -213,7 +208,7 @@ batch_service_client.job.add(job)
 
 ### <a name="create-tasks"></a>태스크 만들기
 
-이 앱은 `add_tasks`를 호출하여 작업에 태스크를 만듭니다. 이 정의된 함수는 [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter) 클래스를 사용하여 태스크 개체 목록을 만듭니다. 각 태스크는 `resource_files` 매개 변수를 사용하여 입력된 `command_line` 개체를 처리하는 ffmpeg를 실행합니다. ffmpeg는 이전에 풀이 생성될 때 각 노드에 설치되었습니다. 여기서 명령줄은 fmpeg를 실행하여 입력된 각 MP4(비디오) 파일을 MP3(오디오) 파일로 변환합니다.
+이 앱은 `add_tasks`를 호출하여 작업에 태스크를 만듭니다. 이 정의된 함수는 [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter) 클래스를 사용하여 태스크 개체 목록을 만듭니다. 각 태스크는 `command_line` 매개 변수를 사용하여 입력된 `resource_files` 개체를 처리하는 ffmpeg를 실행합니다. ffmpeg는 이전에 풀이 생성될 때 각 노드에 설치되었습니다. 여기서 명령줄은 fmpeg를 실행하여 입력된 각 MP4(비디오) 파일을 MP3(오디오) 파일로 변환합니다.
 
 이 샘플에서는 명령줄을 실행한 후 MP3 파일에 대한 [OutputFile](/python/api/azure-batch/azure.batch.models.outputfile) 개체를 만듭니다. 각 태스크의 출력 파일(이 경우에는 하나)은 태스크의 `output_files` 속성을 사용하여 연결된 스토리지 계정의 컨테이너에 업로드됩니다.
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 10/11/2019
-ms.openlocfilehash: f5aac7fe63b2afc997ff69e5d976c755440c1bea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 045f6d50846092820014ccc7f11a81f1e2234311
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75982565"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82144091"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>자습서: Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 모니터링
 
@@ -48,6 +48,9 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
 * Logic Apps에서 지원하는 메일 공급자(예: Office 365 Outlook, Outlook.com 또는 Gmail)의 메일 계정. 다른 공급자에 대한 내용은 [여기서 커넥터 목록을 검토하세요](/connectors/).
 
   이 자습서에서는 Office 365 Outlook 계정을 사용합니다. 다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다르게 표시될 수 있습니다.
+
+  > [!IMPORTANT]
+  > Gmail 커넥터를 사용하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이 이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 이 커넥터를 사용하거나 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
 
 * 자체 Azure 리소스 그룹에만 있는 [가상 머신](https://azure.microsoft.com/services/virtual-machines). 가상 머신이 아직 없는 경우 [VM 만들기 자습서](../virtual-machines/windows/quick-create-portal.md)를 통해 새로 만듭니다. 가상 머신에서 이벤트를 게시하기 위해 [필요한 별도의 작업은 없습니다](../event-grid/overview.md).
 
@@ -145,7 +148,7 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
 
       `triggerBody()?['data']['operationName']`
 
-      다음은 그 예입니다.
+      다음은 그 예입니다. 
 
       ![작업 이름을 추출하는 식 입력](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-add-data-operation-name.png)
 
@@ -173,7 +176,7 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
 
    ![조건이 true인 경우의 작업 추가](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-true-add-action.png)
 
-1. **작업 선택** 아래의 검색 상자에 `send an email`을 필터로 입력합니다. 전자 메일 공급자에 따라 일치하는 커넥터를 찾아 선택합니다. 그런 다음 커넥터에 대한 "전자 메일 보내기" 작업을 선택합니다. 다음은 그 예입니다.
+1. **작업 선택** 아래의 검색 상자에 `send an email`을 필터로 입력합니다. 전자 메일 공급자에 따라 일치하는 커넥터를 찾아 선택합니다. 그런 다음 커넥터에 대한 "전자 메일 보내기" 작업을 선택합니다. 다음은 그 예입니다. 
 
    * 예를 들어 Azure 회사 또는 학교 계정의 경우 Office 365 Outlook 커넥터를 선택합니다.
 
@@ -224,7 +227,7 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
 
    예를 들어 Azure Portal에서 가상 머신의 크기를 조정하거나 [Azure PowerShell로 VM 크기를 조정](../virtual-machines/windows/resize-vm.md)할 수 있습니다.
 
-   몇 분 후에 전자 메일을 받아야 합니다. 다음은 그 예입니다.
+   몇 분 후에 전자 메일을 받아야 합니다. 다음은 그 예입니다. 
 
    ![가상 머신 업데이트에 대한 전자 메일](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: ed593cb3f53878ceb1d4913a9244369ff4600371
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5c16173fb46144be7c44664c45e917ec0a886313
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78397576"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181161"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C 코드 샘플
 
@@ -47,3 +47,9 @@ ms.locfileid: "78397576"
 | 샘플 | Description |
 |--------| ----------- |
 | [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Web API를 호출하는 SPA(단일 페이지 애플리케이션)입니다. 인증은 MSAL.js를 사용하여 Azure AD B2C로 수행됩니다. |
+
+## <a name="saml-test-application"></a>SAML 테스트 애플리케이션
+
+| 샘플 | Description |
+|--------| ----------- |
+| [saml-sp-tester](https://github.com/azure-ad-b2c/saml-sp-tester/tree/master/source-code) | Saml ID 공급자로 작동하도록 구성된 Azure AD B2C를 테스트하기 위한 SAML 테스트 애플리케이션입니다. |

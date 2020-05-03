@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b226c37c36da033862377860be4c413229651fb6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6ce2e5a71d48942642ee01d8d2cc75a232abf259
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614046"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82159952"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>자습서: Application Insights를 사용하여 Service Fabric에서 ASP.NET Core 애플리케이션 모니터링 및 진단
 
@@ -100,9 +100,9 @@ Application Insights에는 시나리오에 따라 사용할 수 있는 두 개�
 3. `Microsoft.ApplicationInsights.ServiceFabric.Native`를 검색하고 적절한 NuGet 패키지를 클릭합니다.
 4. 오른쪽에서 애플리케이션의 두 서비스, 즉, **VotingWeb** 및 **VotingData** 옆에 있는 두 확인란을 클릭하고 **설치**를 클릭합니다.
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
-5. 나타나는 **변경 내용 미리 보기** 대화 상자에서 *확인*을 클릭하고, *라이선스 승인*에 동의합니다. 서비스에 NuGet 추가가 완료됩니다.
+5. 나타나는 *변경 내용 미리 보기* 대화 상자에서 **확인**을 클릭하고, *라이선스 승인*에 동의합니다. 서비스에 NuGet 추가가 완료됩니다.
 6. 이제 두 서비스에서 원격 분석 이니셜라이저를 설정해야 합니다. 이렇게 하려면 *VotingWeb.cs* 및 *VotingData.cs*를 엽니다. 둘 다에 대해 다음 두 단계를 수행합니다.
-    1. 다음과 같이 각  ServiceName>.cs*의 맨 위에서 기존 \<using* 문 뒤에 *using* 문 2개를 추가합니다.
+    1. 다음과 같이 각 *\<ServiceName>.cs*의 맨 위에서 기존 *using* 문 뒤에 *using* 문 2개를 추가합니다.
 
     ```csharp
     using Microsoft.ApplicationInsights.Extensibility;
@@ -168,7 +168,7 @@ ConfigureServices(services => services
 >[!NOTE]
 >최신 버전의 .NET Core SDK가 설치되지 않은 경우 빌드 오류가 발생할 수 있습니다.
 
-애플리케이션 배포가 완료되면 Voting Sample 단일 페이지 애플리케이션을 볼 수 있는 [localhost:8080](localhost:8080)으로 이동합니다. 다른 몇 가지 선택 항목에 응답하여 일부 샘플 데이터와 원격 분석을 만듭니다.
+애플리케이션 배포가 완료되면 Voting Sample 단일 페이지 애플리케이션을 볼 수 있는 `localhost:8080`으로 이동합니다. 다른 몇 가지 선택 항목에 응답하여 일부 샘플 데이터와 원격 분석을 만듭니다.
 
 ![AI 샘플 응답](./media/service-fabric-tutorial-monitoring-aspnet/vote-sample.png)
 
@@ -203,7 +203,7 @@ Application Insights는 기본적으로 많은 원격 분석 데이터를 제공
 
 1. 다른 using 문의 끝에 `using Microsoft.ApplicationInsights;`를 추가합니다.
 2. 클래스 시작 부분의 *IReliableStateManager* 만들기 아래에서 새 *TelemetryClient*를 선언합니다. `private TelemetryClient telemetry = new TelemetryClient();`.
-3. *Put()* 함수에 응답이 추가되었음을 확인하는 이벤트를 추가합니다. 트랜잭션이 완료된 후 return `telemetry.TrackEvent($"Added a vote for {name}");`OkResult*문 바로 앞에*를 추가합니다.
+3. *Put()* 함수에 응답이 추가되었음을 확인하는 이벤트를 추가합니다. 트랜잭션이 완료된 후 return *OkResult* 문 바로 앞에 `telemetry.TrackEvent($"Added a vote for {name}");`를 추가합니다.
 4. *Delete()* 에는 *votesDictionary*에 지정된 응답 옵션에 대한 응답이 포함되는 조건에 따라 “if/else”가 있습니다.
     1. *if* 문의 응답 삭제를 확인하는 이벤트를 *await tx.CommitAsync()* 뒤에 추가합니다. `telemetry.TrackEvent($"Deleted votes for {name}");`
     2. *else* 문에서 삭제가 수행되지 않았음을 보여 주는 이벤트를 return 문 앞에 추가합니다. `telemetry.TrackEvent($"Unable to delete votes for {name}, voting option not found");`
@@ -251,7 +251,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-이러한 변경 수행을 완료한 후 애플리케이션을 **시작**하여 최신 버전이 빌드 및 배포되도록 합니다. 애플리케이션 배포가 완료되면 [localhost:8080](localhost:8080)으로 이동한 다음, 몇 가지 응답 옵션을 추가 및 삭제합니다. 그런 다음, Application Insights 리소스로 돌아가서 최신 실행에 대한 추적을 확인합니다(이전처럼 추적이 Application Insights에 표시되는 데 1~2분 정도 걸릴 수 있음). 이제 추가 및 삭제한 모든 응답에 대해 “사용자 지정 이벤트”\* 와 모든 응답 원격 분석 데이터가 표시되어야 합니다.
+이러한 변경 수행을 완료한 후 애플리케이션을 **시작**하여 최신 버전이 빌드 및 배포되도록 합니다. 애플리케이션 배포가 완료되면 `localhost:8080`으로 이동하여 몇 가지 투표 옵션을 추가 및 삭제합니다. 그런 다음, Application Insights 리소스로 돌아가서 최신 실행에 대한 추적을 확인합니다(이전처럼 추적이 Application Insights에 표시되는 데 1~2분 정도 걸릴 수 있음). 이제 추가 및 삭제한 모든 응답에 대해 “사용자 지정 이벤트”\* 와 모든 응답 원격 분석 데이터가 표시되어야 합니다.
 
 ![사용자 지정 이벤트](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 

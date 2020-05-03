@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/03/2020
+ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 754f30f7931f9fad6a95328cbf8ab34f70cb75a0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9496173ee006c6ca3cab557f4e63ec21647ad0fd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426112"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82105576"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>자습서: Azure Key Vault에서 인증서 가져오기
 
@@ -76,17 +76,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     - **인증서를 만드는 방법**: 가져오기
     - **인증서 이름**: ExampleCertificate
     - **인증서 파일 업로드**: 디스크에서 인증서 파일 선택
-    - 다른 값은 기본값으로 그대로 둡니다. **만들기**를 클릭합니다.
+    - **암호**: 암호로 보호된 인증서 파일을 업로드하는 경우 여기에 해당 암호를 입력합니다. 그렇지 않으면 비워 둡니다. 인증서 파일을 성공적으로 가져오면 키 자격 증명 모음에서 해당 암호를 제거합니다.
+4. **만들기**를 클릭합니다.
 
 ![인증서 속성](../media/certificates/tutorial-import-cert/cert-import.png)
 
-인증서를 성공적으로 가져왔다는 메시지가 표시되면 목록에서 클릭할 수 있습니다. 그런 다음, 해당 속성 중 일부를 볼 수 있습니다. 
+**가져오기** 메서드를 사용하여 인증서를 추가하면 Azure Key Vault가 인증서 매개 변수(예: 유효 기간, 발급자 이름, 활성화 날짜 등)를 자동으로 채웁니다.
+
+인증서를 성공적으로 가져왔다는 메시지가 표시되면 목록에서 인증서를 클릭하여 해당 속성을 볼 수 있습니다. 
 
 ![인증서 속성](../media/certificates/tutorial-import-cert/current-version-hidden.png)
 
 ## <a name="import-a-certificate-using-azure-cli"></a>Azure CLI를 사용하여 인증서 가져오기
 
-지정된 키 자격 증명 모음으로 인증서 가져오기 프라이빗 키를 포함하는 기존의 유효한 인증서를 Azure Key Vault로 가져오려면 가져올 파일이 PFX 또는 PEM 형식일 수 있습니다. 인증서가 PEM 형식이면 PEM 파일은 키 및 x509 인증서를 포함해야 합니다. 이 작업을 수행하려면 인증서/가져오기 권한이 필요합니다.
+지정된 키 자격 증명 모음으로 인증서 가져오기 프라이빗 키를 포함하는 기존의 유효한 인증서를 Azure Key Vault로 가져오려면 가져올 파일이 PFX 또는 PEM 형식일 수 있습니다. 인증서가 PEM 형식인 경우 PEM 파일에는 키와 x509 인증서가 포함되어야 합니다. 이 작업을 수행하려면 인증서/가져오기 권한이 필요합니다.
 
 ```azurecli
 az keyvault certificate import --file
@@ -100,6 +103,22 @@ az keyvault certificate import --file
                                [--tags]
 ```
 [여기](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)에서 매개 변수에 대해 자세히 알아보기
+
+인증서를 가져온 후 [인증서 표시](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)를 사용하여 인증서를 볼 수 있습니다.
+
+
+```azurecli
+az keyvault certificate show [--id]
+                             [--name]
+                             [--only-show-errors]
+                             [--subscription]
+                             [--vault-name]
+                             [--version]
+```
+
+
+
+이제 Key Vault를 만들고, 인증서를 가져오고 인증서의 속성을 확인했습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -115,6 +134,6 @@ az keyvault certificate import --file
 
 이 자습서에서는 Key Vault를 만들어 인증서를 가져왔습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
-- [Azure Key Vault에서 인증서 관리](/archive/blogs/kv/manage-certificates-via-azure-key-vault)에 대한 자세한 정보
+- [Azure Key Vault에서 인증서 생성 관리](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)에 대해 자세히 알아봅니다.
 - [REST API를 사용하여 인증서 가져오기](/rest/api/keyvault/importcertificate/importcertificate)의 예제 참조
 - [Azure Key Vault 모범 사례](../general/best-practices.md) 검토

@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e419ac5c3d292b7e630d1ebb3d3b9f59ef7b8a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4253f5bd702abd061cf1cddd4badd68c9cd5d475
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74026944"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582828"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>빠른 시작: Azure Active Directory의 그룹에 대한 명명 정책
 
-이 빠른 시작에서는 사용자가 만든 Office 365 그룹의 Azure AD(Azure Active Directory) 테넌트에서 명명 정책을 설정할 것이며, 이렇게 하면 테넌트의 그룹을 정렬하고 검색할 수 있습니다. 예를 들어 명명 정책을 사용하여 다음과 같은 일을 할 수 있습니다.
+이 빠른 시작에서는 사용자가 만든 Office 365 그룹의 Azure AD(Azure Active Directory) 조직에서 명명 정책을 설정하여 조직의 그룹을 정렬하고 검색하는 데 도움을 줍니다. 예를 들어 명명 정책을 사용하여 다음과 같은 일을 할 수 있습니다.
 
 * 그룹의 기능, 멤버 자격, 지리적 영역 또는 그룹을 만든 사람 정보를 전달합니다.
 * 주소록의 그룹을 범주화합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "74026944"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal"></a>Azure Portal을 사용하여 테넌트의 그룹 명명 정책 구성
+## <a name="configure-the-group-naming-policy-in-the-azure-portal"></a>Azure Portal에서 그룹 명명 정책 구성
 
 1. 사용자 관리자 계정을 사용하여 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 1. **그룹**을 선택한 다음, **명명 정책**을 선택하여 명명 정책 페이지를 엽니다.

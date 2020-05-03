@@ -2,16 +2,16 @@
 title: 템플릿에서 Azure Key Vault 사용
 description: Azure Key Vault를 사용하여 Resource Manager 템플릿 배포 중에 보안 매개 변수 값을 전달하는 방법을 알아봅니다.
 author: mumian
-ms.date: 04/16/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: c33ad17927dae701e4201e76b7a75690c59dc374
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 7fd84fc2e98578772c806f358cb8d6c400e0d994
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536705"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82185016"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>자습서: ARM 템플릿 배포에 Azure Key Vault 통합
 
@@ -161,22 +161,30 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-[템플릿 배포](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)의 지침을 따릅니다. *azuredeploy.json* 및 *azuredeploy.parameters.json*을 모두 Cloud Shell에 업로드한 후 다음 PowerShell 스크립트를 사용하여 템플릿을 배포합니다.
+1. [Azure Cloud Shell](https://shell.azure.com)에 로그인
 
-```azurepowershell
-$projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
-$location = Read-Host -Prompt "Enter the same location that is used for creating the key vault (i.e. centralus)"
-$resourceGroupName = "${projectName}rg"
+1. 왼쪽 위 모서리에서 **PowerShell** 또는 **Bash**(CLI용)를 선택하여 기본 환경을 선택합니다.  전환하는 경우 셸을 다시 시작해야 합니다.
 
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateFile "$HOME/azuredeploy.json" `
-    -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
+    ![Azure Portal Cloud Shell 업로드 파일](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-Write-Host "Press [ENTER] to continue ..."
-```
+1. **파일 업로드/다운로드**를 선택한 다음, **업로드**를 선택합니다. *azuredeploy.json* 및 *azuredeploy.parameters.json*을 Cloud Shell에 업로드합니다. 파일을 업로드한 후 **ls** 명령 및 **cat** 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다.
 
-템플릿을 배포할 때는 키 자격 증명 모음에서 사용한 것과 동일한 리소스 그룹을 사용합니다. 이 접근 방식을 사용하면 리소스 그룹 2개를 삭제하지 않고 1개만 삭제하면 되므로 리소스를 더 쉽게 정리할 수 있습니다.
+1. 다음 PowerShell 스크립트를 실행하여 템플릿을 배포합니다.
+
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
+    $location = Read-Host -Prompt "Enter the same location that is used for creating the key vault (i.e. centralus)"
+    $resourceGroupName = "${projectName}rg"
+
+    New-AzResourceGroupDeployment `
+        -ResourceGroupName $resourceGroupName `
+        -TemplateFile "$HOME/azuredeploy.json" `
+        -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
+
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    템플릿을 배포할 때는 키 자격 증명 모음에서 사용한 것과 동일한 리소스 그룹을 사용합니다. 이 접근 방식을 사용하면 리소스 그룹 2개를 삭제하지 않고 1개만 삭제하면 되므로 리소스를 더 쉽게 정리할 수 있습니다.
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 

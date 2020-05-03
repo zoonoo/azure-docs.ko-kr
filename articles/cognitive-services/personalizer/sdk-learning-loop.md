@@ -2,14 +2,14 @@
 title: '빠른 시작: SDK를 통한 학습 루프 만들기 및 사용 - Personalizer'
 description: 이 빠른 시작에서는 클라이언트 SDK를 사용하여 기술 자료를 만들고 관리하는 방법을 보여줍니다.
 ms.topic: quickstart
-ms.date: 01/15/2020
+ms.date: 04/27/2020
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 7ebe22227b4323b2e6b1c3fc9ca31e171d1d97cd
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: c65be6c68372ffe92ffd942bf71d2b635ec2fd16
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77524872"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188874"
 ---
 # <a name="quickstart-personalizer-client-library"></a>빠른 시작: Personalizer 클라이언트 라이브러리
 
@@ -17,7 +17,7 @@ ms.locfileid: "77524872"
 
 Personalizer 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.
 
- * 순위 API - 콘텐츠 및 컨텍스트에 대해 제공하는 실시간 정보에 따라 콘텐츠 항목에서 가장 적합한 항목을 선택합니다.
+ * 순위 API - 콘텐츠 및 컨텍스트에 대해 제공하는 실시간 정보에 따라 작업에서 가장 적합한 항목을 선택합니다.
  * 보상 API - 비즈니스 요구에 따라 보상 점수를 확인한 다음, 이 API를 사용하여 Personalizer로 보냅니다. 이 점수는 1은 양호, 0은 나쁨과 같은 단일 값일 수 있으며, 비즈니스 요구에 따라 생성하는 알고리즘일 수 있습니다.
 
 ::: zone pivot="programming-language-csharp"

@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: bf4039b661ac7e0ee9630b86b9e15d1388991431
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e6195409a08498527ec40a2ddd2f909a092c9d19
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74108493"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202828"
 ---
 # <a name="import-an-api-app-as-an-api"></a>API로 API 앱 가져오기
 
@@ -32,14 +32,14 @@ ms.locfileid: "74108493"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-+ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
++ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 + 구독에 API 앱이 있는지 확인합니다. 자세한 내용은 [App Service 설명서](https://docs.microsoft.com/azure/app-service/)를 참조하세요.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>백 엔드 API 가져오기 및 게시
 
-1. **API Management**에서 **API**를 선택합니다.
+1. Azure Portal에서 API Management 서비스로 이동하고 메뉴에서 **API**를 선택합니다.
 2. **새 API 추가** 목록에서 **API 앱**을 선택합니다.
 
     ![API 앱](./media/import-api-app-as-api/api-app.png)
@@ -56,7 +56,8 @@ ms.locfileid: "74108493"
 
     * **Starter**
     * **무제한**   
-7. **만들기**를 선택합니다.
+7. 다른 API 설정을 입력합니다. 생성 중에 값을 설정하거나 나중에 **설정** 탭으로 이동하여 값을 설정할 수 있습니다. 설정은 [첫 번째 API 가져오기 및 게시](import-and-publish.md#-import-and-publish-a-backend-api) 자습서에 설명되어 있습니다.
+8. **만들기**를 선택합니다.
 
 ## <a name="test-the-new-api-in-the-azure-portal"></a>Azure Portal에서 새 API 테스트
 

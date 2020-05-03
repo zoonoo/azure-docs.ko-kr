@@ -2,15 +2,15 @@
 title: 종속 리소스가 포함된 템플릿
 description: Azure Portal을 사용하여 여러 리소스가 포함된 Azure Resource Manager 템플릿을 만들고 배포하는 방법을 알아봅니다.
 author: mumian
-ms.date: 04/10/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bbe973f5c701f55705fe197f56f5f8ab1d9e8c68
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: cf876d3c7c100f001ba81082d792e81a777c7315
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260776"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82193040"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>자습서: 종속 리소스를 사용하여 ARM 템플릿 만들기
 
@@ -96,11 +96,11 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 
     ![Visual Studio Code Azure Resource Manager 템플릿 가상 네트워크 dependsOn](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
-    dependsOn 요소를 사용하면 한 리소스를 하나 이상의 리소스에 종속된 것으로 정의할 수 있습니다. dependsOn 요소를 사용하면 한 리소스를 하나 이상의 리소스에 종속된 것으로 정의할 수 있습니다.  이 리소스는 다음과 같은 다른 리소스에 종속됩니다.
+    dependsOn 요소를 사용하면 한 리소스를 하나 이상의 리소스에 종속된 것으로 정의할 수 있습니다. 이 리소스는 다음과 같은 다른 리소스에 종속됩니다.
 
     * `Microsoft.Network/networkSecurityGroups`
 
-1. 50개의 리소스를 확장합니다. 리소스 종류는 `Microsoft.Network/networkInterfaces`입니다. 이 리소스는 다음과 같은 다른 두 리소스에 종속됩니다.
+1. 다섯 번째 리소스를 확장합니다. 리소스 종류는 `Microsoft.Network/networkInterfaces`입니다. 이 리소스는 다음과 같은 다른 두 리소스에 종속됩니다.
 
     * `Microsoft.Network/publicIPAddresses`
     * `Microsoft.Network/virtualNetworks`
@@ -118,9 +118,33 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-1. [템플릿 배포](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)의 지침을 따라 Cloud Shell을 열고 수정된 템플릿을 업로드합니다.
+1. [Azure Cloud Shell](https://shell.azure.com)에 로그인
+
+1. 왼쪽 위 모서리에서 **PowerShell** 또는 **Bash**(CLI용)를 선택하여 기본 환경을 선택합니다.  전환하는 경우 셸을 다시 시작해야 합니다.
+
+    ![Azure Portal Cloud Shell 업로드 파일](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
+
+1. **파일 업로드/다운로드**를 선택한 다음, **업로드**를 선택합니다. 이전 스크린샷을 참조하세요. 이전에 저장한 파일을 선택합니다. 파일을 업로드한 후 **ls** 명령 및 **cat** 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다.
 
 1. 다음 PowerShell 스크립트를 실행하여 템플릿을 배포합니다.
+
+    # <a name="cli"></a>[CLI](#tab/CLI)
+
+    ```azurecli
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    echo "Enter the virtual machine admin username:" &&
+    read adminUsername &&
+    echo "Enter the DNS label prefix:" &&
+    read dnsLabelPrefix &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location $location &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" --parameters adminUsername=$adminUsername dnsLabelPrefix=$dnsLabelPrefix
+    ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
@@ -141,19 +165,7 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-1. 다음 PowerShell 명령을 실행하여 새로 만든 가상 머신을 나열합니다.
-
-    ```azurepowershell
-    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
-    $resourceGroupName = "${projectName}rg"
-    $vmName = "SimpleWinVM"
-
-    Get-AzVM -Name $vmName -ResourceGroupName $resourceGroupName
-    
-    Write-Host "Press [ENTER] to continue ..."
-    ```
-
-    가상 머신 이름은 템플릿 내에서 **SimpleWinVM**으로 하드 코딩됩니다.
+    ---
 
 1. 가상 머신에 RDP를 수행하여 가상 머신이 성공적으로 생성되었는지 확인합니다.
 
@@ -163,7 +175,7 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
 2. **이름으로 필터링** 필드에서 리소스 그룹 이름을 입력합니다.
-3. 해당 리소스 그룹 이름을 선택합니다.  리소스 그룹에 총 6개의 리소스가 표시됩니다.
+3. 해당 리소스 그룹 이름을 선택합니다. 리소스 그룹에 총 6개의 리소스가 표시됩니다.
 4. 위쪽 메뉴에서 **리소스 그룹 삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계

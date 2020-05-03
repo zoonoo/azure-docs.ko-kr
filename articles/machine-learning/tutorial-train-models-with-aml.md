@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 02/10/2020
+ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8cf46db06a4a2f8fa86f97dab5a8477cf427c999
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bcc9e748cb5f88084b9cd3254654f9dc0fbc8aa1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80159083"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115570"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>자습서: MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "80159083"
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 >[!NOTE]
-> 이 문서의 코드는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 버전 1.0.65로 테스트되었습니다.
+> 이 문서의 코드는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 버전 1.0.83으로 테스트되었습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -188,12 +188,15 @@ mnist_file_dataset = mnist_file_dataset.register(workspace=ws,
 ```python
 # make sure utils.py is in the same directory as this code
 from utils import load_data
+import glob
+
 
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the model converge faster.
-X_train = load_data(os.path.join(data_folder, "train-images-idx3-ubyte.gz"), False) / 255.0
-X_test = load_data(os.path.join(data_folder, "t10k-images-idx3-ubyte.gz"), False) / 255.0
-y_train = load_data(os.path.join(data_folder, "train-labels-idx1-ubyte.gz"), True).reshape(-1)
-y_test = load_data(os.path.join(data_folder, "t10k-labels-idx1-ubyte.gz"), True).reshape(-1)
+X_train = load_data(glob.glob(os.path.join(data_folder,"**/train-images-idx3-ubyte.gz"), recursive=True)[0], False) / 255.0
+X_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-images-idx3-ubyte.gz"), recursive=True)[0], False) / 255.0
+y_train = load_data(glob.glob(os.path.join(data_folder,"**/train-labels-idx1-ubyte.gz"), recursive=True)[0], True).reshape(-1)
+y_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-labels-idx1-ubyte.gz"), recursive=True)[0], True).reshape(-1)
+
 
 # now let's show some randomly chosen images from the traininng set.
 count = 0
@@ -228,6 +231,7 @@ plt.show()
 필요한 코드를 컴퓨터에서 원격 리소스로 전달하기 위한 디렉터리를 만듭니다.
 
 ```python
+import os
 script_folder = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
@@ -245,7 +249,7 @@ import numpy as np
 import glob
 
 from sklearn.linear_model import LogisticRegression
-from sklearn.externals import joblib
+import joblib
 
 from azureml.core import Run
 from utils import load_data
@@ -265,6 +269,7 @@ X_train = load_data(glob.glob(os.path.join(data_folder, '**/train-images-idx3-ub
 X_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-images-idx3-ubyte.gz'), recursive=True)[0], False) / 255.0
 y_train = load_data(glob.glob(os.path.join(data_folder, '**/train-labels-idx1-ubyte.gz'), recursive=True)[0], True).reshape(-1)
 y_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-labels-idx1-ubyte.gz'), recursive=True)[0], True).reshape(-1)
+
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 
 # get hold of the current run
@@ -304,39 +309,49 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 ### <a name="create-an-estimator"></a>추정기 만들기
 
-[SKLearn 추정기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) 개체는 실행을 제출하는 데 사용됩니다. 다음과 같은 항목을 정의하는 코드를 실행하여 추정기를 만듭니다.
+추정기 개체는 실행을 제출하는 데 사용됩니다. Azure Machine Learning에는 제네릭 평가기뿐만 아니라 일반적인 기계 학습 프레임워크에 대해 미리 구성된 추정기가 있습니다. 지정하여 추정기 만들기
+
 
 * 추정기 개체의 이름(`est`)
 * 스크립트를 포함하는 디렉터리. 이 디렉터리의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다.
 * 컴퓨팅 대상. 이 경우 만든 Azure Machine Learning 컴퓨팅 클러스터를 사용합니다.
 * 학습 스크립트 이름(**train.py**)
+* 스크립트를 실행하는 데 필요한 라이브러리가 포함된 환경입니다.
 * 학습 스크립트에서 필요한 매개 변수
 
-이 자습서에서 이 대상은 AmlCompute입니다. 스크립트 폴더의 모든 파일은 실행을 위해 클러스터 노드에 업로드됩니다. **data_folder**는 데이터 세트를 사용하도록 설정되었습니다. 먼저 학습에 필요한 종속성을 지정하는 환경 개체를 만듭니다. 
+이 자습서에서 이 대상은 AmlCompute입니다. 스크립트 폴더의 모든 파일은 실행을 위해 클러스터 노드에 업로드됩니다. **data_folder**는 데이터 세트를 사용하도록 설정되었습니다. "먼저 scikit-learn 라이브러리, 데이터 세트에 액세스하는 데 필요한 azureml-dataprep 및 azureml-defaults가 포함된 환경을 만듭니다. 여기에는 로깅 메트릭에 대한 종속성이 포함됩니다. azureml-defaults에는 자습서 2부 뒤부분에 나오는 웹 서비스로 모델을 배포하는 데 필요한 종속성도 포함되어 있습니다.
+
+환경이 정의되면 작업 영역에 등록하여 자습서 2부에서 다시 사용합니다.
 
 ```python
 from azureml.core.environment import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 
-env = Environment('my_env')
-cd = CondaDependencies.create(pip_packages=['azureml-sdk','scikit-learn','azureml-dataprep[pandas,fuse]>=1.1.14'])
+# to install required packages
+env = Environment('tutorial-env')
+cd = CondaDependencies.create(pip_packages=['azureml-dataprep[pandas,fuse]>=1.1.14', 'azureml-defaults'], conda_packages = ['scikit-learn==0.22.1'])
+
 env.python.conda_dependencies = cd
+
+# Register environment to re-use later
+env.register(workspace = ws)
 ```
 
 그런 다음, 다음 코드를 사용하여 추정기를 만듭니다.
 
 ```python
-from azureml.train.sklearn import SKLearn
+from azureml.train.estimator import Estimator
 
 script_params = {
+    # to mount files referenced by mnist dataset
     '--data-folder': mnist_file_dataset.as_named_input('mnist_opendataset').as_mount(),
     '--regularization': 0.5
 }
 
-est = SKLearn(source_directory=script_folder,
+est = Estimator(source_directory=script_folder,
               script_params=script_params,
               compute_target=compute_target,
-              environment_definition=env, 
+              environment_definition=env,
               entry_script='train.py')
 ```
 

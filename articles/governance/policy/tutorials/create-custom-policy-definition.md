@@ -3,12 +3,12 @@ title: '자습서: 사용자 지정 정책 정의 만들기'
 description: 이 자습서에서는 Azure Policy에 대한 사용자 지정 정책 정의를 만들어 사용자 지정 비즈니스 규칙을 Azure 리소스에 적용합니다.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: f7c303956b209b88ce3c697b5b66243e37071c83
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a1eb8abcfbf7513b4620f66c0a7fdbd288f8705
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222750"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82190710"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>자습서: 사용자 지정 정책 정의 만들기
 
@@ -73,7 +73,7 @@ Azure 리소스의 속성을 확인하는 방법은 여러 가지가 있습니�
 속성을 찾는 가장 간단한 방법은 동일한 형식의 기존 리소스를 살펴보는 것입니다. 적용하려는 설정을 사용하여 이미 구성된 리소스는 비교 값을 제공합니다.
 해당 리소스에 대한 Azure Portal에서 **템플릿 내보내기** 페이지(**설정** 아래)를 확인하세요.
 
-![기존 리소스에서 템플릿 페이지 내보내기](../media/create-custom-policy-definition/export-template.png)
+:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="기존 리소스에서 템플릿 페이지 내보내기" border="false":::
 
 스토리지 계정에 대해 이렇게 하면 다음 예제와 비슷한 템플릿이 표시됩니다.
 

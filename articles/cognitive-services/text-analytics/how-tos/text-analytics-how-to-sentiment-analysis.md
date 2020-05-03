@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 03/09/2020
+ms.date: 04/27/2020
 ms.author: aahi
-ms.openlocfilehash: b3c112876bfd2578e6ebaa95c6902aa9b8f832d9
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 99a62daf6dced88efd9bda591a0ca44a8b259a75
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79203460"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195641"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>방법: Text Analytics API를 사용하여 감정 감지
 
@@ -58,7 +58,9 @@ Text Analytics API는 v2 및 v3의 두 가지 감정 분석 버전을 제공합�
 
 ### <a name="sentiment-labeling"></a>감정 레이블 지정
 
-감정 분석 v3은 문장 및 문서 수준에서 점수와 레이블을 반환할 수 있습니다. 점수와 레이블은 `positive`, `negative` 및 `neutral`입니다. 문서 수준에서 점수 없이 `mixed` 감정 레이블을 반환할 수도 있습니다. 문서의 감정은 다음과 같이 결정됩니다.
+Sentiment Analysis v3는 신뢰 점수와 함께 문장 및 문서 수준(`positive`, `negative` 및 `neutral`)에 감정 레이블을 반환합니다. `mixed` 감정 레이블은 문서 수준에서 반환될 수도 있습니다. 
+
+문서의 감정은 다음과 같이 결정됩니다.
 
 | 문장 감정                                                                            | 반환된 문서 레이블 |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -111,7 +113,7 @@ POST 요청을 만듭니다. [Postman](text-analytics-how-to-call-api.md) 또는
 
 ---
 
-Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 감정 분석을 위한 HTTPS 엔드포인트를 설정합니다. 사용하려는 버전의 올바른 URL을 포함해야 합니다. 다음은 그 예입니다.
+Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 감정 분석을 위한 HTTPS 엔드포인트를 설정합니다. 사용하려는 버전의 올바른 URL을 포함해야 합니다. 다음은 그 예입니다. 
 
 > [!NOTE]
 > Azure Portal에서 Text Analytics 리소스에 대한 키와 엔드포인트를 찾을 수 있습니다. 리소스의 **빠른 시작** 페이지의 **리소스 관리** 아래에 있습니다. 

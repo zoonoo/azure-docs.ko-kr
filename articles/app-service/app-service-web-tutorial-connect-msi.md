@@ -3,14 +3,14 @@ title: '자습서: 관리 ID를 사용하여 데이터 액세스'
 description: 관리 ID를 사용하여 데이터베이스 연결을 보다 안전하게 만드는 방법과 이를 다른 Azure 서비스에 적용하는 방법에 대해 알아봅니다.
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/18/2019
+ms.date: 04/27/2020
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: b66874cf95ed29d9be0a2d1ea397704131c7b21d
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 142cd2611e0dcf3227474efadded7bac88a4390a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085439"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82207636"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
@@ -24,8 +24,8 @@ ms.locfileid: "82085439"
 > [!NOTE]
 > 이 자습서에서 다루는 단계는 다음 버전을 지원합니다.
 > 
-> - .NET Framework 4.7.2
-> - .NET Core 2.2
+> - .NET Framework 4.7.2 이상
+> - .NET Core 2.2 이상
 >
 
 다음을 알아봅니다.
@@ -104,7 +104,7 @@ az login --allow-no-subscriptions
 Visual Studio에서 패키지 관리자 콘솔을 열고, [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 패키지를 추가합니다.
 
 ```powershell
-Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.1
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
 *Web.config*에서 파일 위쪽부터 다음과 같은 변경 작업을 수행합니다.
@@ -139,7 +139,7 @@ SQL Database에 연결하는 데 필요한 모든 항목입니다. Visual studio
 Visual Studio에서 패키지 관리자 콘솔을 열고, [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 패키지를 추가합니다.
 
 ```powershell
-Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.1
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
 [ASP.NET Core 및 SQL Database 자습서](app-service-web-tutorial-dotnetcore-sqldb.md)에서는 로컬 개발 환경에서 Sqlite 데이터베이스 파일을 사용하고 Azure 프로덕션 환경에서 App Service의 연결 문자열을 사용하기 때문에 `MyDbConnection` 연결 문자열은 전혀 사용되지 않습니다. Active Directory 인증을 사용하여 두 환경에서 동일한 연결 문자열을 사용하려고 합니다. *appsettings.json*에서 연결 문자열 `MyDbConnection`의 값을 다음으로 바꿉니다.
@@ -148,33 +148,10 @@ Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.1
 "Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
 ```
 
-*Startup.cs*에서 이전에 추가한 코드 섹션을 제거합니다.
-
-```csharp
-// Use SQL Database if in Azure, otherwise, use SQLite
-if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
-    services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
-else
-    services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlite("Data Source=localdatabase.db"));
-
-// Automatically perform database migration
-services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
-```
-
-또한 다음 코드로 바꿉니다.
-
-```csharp
-services.AddDbContext<MyDatabaseContext>(options => {
-    options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection"));
-});
-```
-
 다음으로, SQL Database에 대한 액세스 토큰을 사용하여 Entity Framework 데이터베이스 컨텍스트를 제공합니다. *Data\MyDatabaseContext.cs*에서 다음 코드를 빈 `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` 생성자의 중괄호 내에 추가합니다.
 
 ```csharp
-var conn = (System.Data.SqlClient.SqlConnection)Database.GetDbConnection();
+var conn = (Microsoft.Data.SqlClient.SqlConnection)Database.GetDbConnection();
 conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
 ```
 
@@ -233,7 +210,7 @@ Cloud Shell에서 SQLCMD 명령을 사용하여 SQL Database에 로그인합니�
 sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
 ```
 
-원하는 데이터베이스의 SQL 프롬프트에서 다음 명령을 실행하여 Azure AD 그룹을 추가하고 앱에 필요한 권한을 부여합니다. 예를 들면 다음과 같습니다. 
+원하는 데이터베이스에 대한 SQL 프롬프트에서 다음 명령을 실행하여 앱에 필요한 권한을 부여합니다. 예를 들면 다음과 같습니다. 
 
 ```sql
 CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;

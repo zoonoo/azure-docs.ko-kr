@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: a34264870ce812da5d7e7c790a1482d90b33d06a
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: db488e4a9ec9aa0f4f12c8de45f123dba1a93cdf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536168"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82112714"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>빠른 시작: ASP.NET Core 웹앱에 Microsoft로 로그인 추가
 이 빠른 시작에서는 코드 샘플을 사용하여 ASP.NET Core 웹앱이 모든 Azure AD(Azure Active Directory) 인스턴스에서 개인 계정(hotmail.com, outlook.com, 기타)과 회사 및 학교 계정에 로그인하는 방법을 배웁니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
@@ -155,6 +155,19 @@ public void ConfigureServices(IServiceCollection services)
 > [!NOTE]
 > 이 빠른 시작을 간단하게 수행할 수 있도록 `ValidateIssuer = false`로 설정했습니다. 실제 애플리케이션에서는 발급자의 유효성을 검사해야 합니다.
 > 자세한 방법은 샘플을 참조하세요.
+>
+> `app.UserCookiePolicy()` 및 `app.UseAuthentication()`의 두 가지 중요한 메서드를 포함하는 `Configure` 메서드도 참고하세요.
+
+```csharp
+// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    // more core
+    app.UseCookiePolicy();
+    app.UseAuthentication();
+    // more core
+}
+```
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>컨트롤러 또는 컨트롤러 메서드 보호
 

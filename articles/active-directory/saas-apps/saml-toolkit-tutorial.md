@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7902112c1694bacfeb45b5f20db80d5136642169
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4d2681c09030ff0f36938d7a09e1d1b2e9aa645c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77047943"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82166313"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>자습서: Azure AD SAML Toolkit와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -89,6 +88,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     다. **회신 URL** 텍스트 상자에서 `https://samltoolkit.azurewebsites.net/SAML/Consume` URL을 입력합니다.
 
+    > [!NOTE]
+    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 자습서 뒷부분에 설명된 실제 로그온 URL, 식별자 및 회신 URL 값으로 업데이트합니다.
+
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(원시)** 를 찾고, **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificateraw.png)
@@ -154,6 +156,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     1. **파일 선택**을 클릭하고 Azure Portal에서 다운로드한 **인증서(Raw)** 파일을 업로드합니다.
 
     1. **만들기**를 클릭합니다.
+
+    1. SAML Toolkit SSO 구성 페이지에서 로그온 URL, 식별자 및 ACS URL 값을 복사하고 Azure Portal의 **기본 SAML 구성 섹션**에서 적용되는 텍스트 상자에 붙여넣습니다.
 
 ### <a name="create-azure-ad-saml-toolkit-test-user"></a>Azure AD SAML Toolkit 테스트 사용자 만들기
 

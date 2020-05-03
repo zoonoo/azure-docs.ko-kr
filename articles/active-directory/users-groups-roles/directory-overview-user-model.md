@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3cc2de5a2f297e8133011905ff2961b44476d6b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8052bb44df6d29e17304763051fa2099009b9701
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77046333"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583010"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>사용자, 그룹, 라이선싱 및 대규모 조직에 대한 역할
 
@@ -60,7 +60,7 @@ Azure AD에서 사용자가 라이선스를 받은 그룹에 합류하면 해당
 
 ## <a name="assign-app-access"></a>앱 액세스 할당
 
-Azure AD를 사용하여 [Azure AD 테넌트에 배포된 엔터프라이즈 앱](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context)에 그룹 액세스를 할당할 수 있습니다. 동적 그룹을 앱에 대한 그룹 할당과 결합하면 조직이 성장함에 따라 사용자 앱 액세스 할당을 자동화할 수 있습니다. 엔터프라이즈 앱에 액세스를 할당하려면 Azure Active Directory Premium P1 또는 Premium P2 라이선스가 필요합니다.
+Azure AD를 사용하여 [Azure AD 조직에 배포된 엔터프라이즈 앱](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context)에 그룹 액세스를 할당할 수 있습니다. 동적 그룹을 앱에 대한 그룹 할당과 결합하면 조직이 성장함에 따라 사용자 앱 액세스 할당을 자동화할 수 있습니다. 엔터프라이즈 앱에 액세스를 할당하려면 Azure Active Directory Premium P1 또는 Premium P2 라이선스가 필요합니다.
 
 또한 Azure AD에서는 액세스를 할당하는 앱과 그룹 사이에 흐르는 데이터를 세밀하게 제어할 수 있습니다. [엔터프라이즈 애플리케이션](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)에서 앱을 열고 **프로비전**을 선택합니다.
 

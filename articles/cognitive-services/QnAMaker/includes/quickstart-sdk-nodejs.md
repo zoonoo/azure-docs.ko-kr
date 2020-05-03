@@ -2,13 +2,13 @@
 title: '빠른 시작: Node.js용 QnA Maker 클라이언트 라이브러리'
 description: 이 빠른 시작에서는 Node.js용 QnA Maker 클라이언트 라이브러리를 시작하는 방법을 보여줍니다.
 ms.topic: quickstart
-ms.date: 01/13/2020
-ms.openlocfilehash: 05e6d2c77a351c22c73f0bdb54daeaf0e03f4a9d
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 04/27/2020
+ms.openlocfilehash: 48038c8e7e8250190d79aba7901567e18881e912
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76020935"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204031"
 ---
 Node.js용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 수행할 수 있습니다.
 
@@ -27,6 +27,9 @@ Node.js용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 �
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * 현재 버전의 [Node.js](https://nodejs.org)
+* Azure 구독을 보유한 후에는 Azure Portal에서 [QnA Maker 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)를 만들어 제작 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 선택합니다.
+    * 애플리케이션을 QnA Maker API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
+    * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 
 ## <a name="setting-up"></a>설치
 
@@ -132,7 +135,7 @@ create 메서드가 반환되면 반환된 작업 ID를 [wait_for_operation](#ge
 
 ## <a name="publish-a-knowledge-base"></a>기술 자료 게시
 
-[publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#publish-string--msrest-requestoptionsbase-) 메서드를 사용하여 기술 자료를 게시합니다. 기술 자료 ID에서 참조하는 현재 저장 및 학습된 모델을 사용하며, 이를 엔드포인트에 게시합니다. HTTP 응답 코드를 확인하여 게시가 성공적으로 이루어졌는지 확인합니다.
+[publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#publish-string--msrest-requestoptionsbase-) 메서드를 사용하여 기술 자료를 게시합니다. 기술 자료 ID에서 참조하는 현재 저장 및 학습된 모델을 사용하며, 이를 엔드포인트에 게시합니다. HTTP 응답 코드를 확인하여 게시가 성공했는지 확인합니다.
 
 [!code-javascript[Publish a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=publishKnowledgeBase&highlight=3)]
 

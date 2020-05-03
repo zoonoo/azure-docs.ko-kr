@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/07/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f369eb54dc92a29ba122a8a645262dc085b1ed36
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2b4b94c05b39dddcef83644638a105d5b6c75118
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80930045"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184982"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>자습서: 배포 스크립트를 사용하여 자체 서명된 인증서 만들기(미리 보기)
 
@@ -284,35 +284,43 @@ ARM(Azure Resource Manager) 템플릿에서 배포 스크립트를 사용하는 
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-Visual Studio Code 빠른 시작의 [템플릿 배포](./quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template) 섹션을 참조하여 Cloud Shell을 열고 템플릿 파일을 셸에 업로드합니다. 그런 다음, 다음 PowerShell 스크립트를 실행합니다.
+1. [Azure Cloud Shell](https://shell.azure.com)에 로그인
 
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
-$identityId = Read-Host -Prompt "Enter the user-assigned managed identity ID"
+1. 왼쪽 위 모서리에서 **PowerShell** 또는 **Bash**(CLI용)를 선택하여 기본 환경을 선택합니다.  전환하는 경우 셸을 다시 시작해야 합니다.
 
-$adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
-$resourceGroupName = "${projectName}rg"
-$keyVaultName = "${projectName}kv"
+    ![Azure Portal Cloud Shell 업로드 파일](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+1. **파일 업로드/다운로드**를 선택한 다음, **업로드**를 선택합니다. 이전 스크린샷을 참조하세요.  이전 섹션에서 저장한 파일을 선택합니다. 파일을 업로드한 후 **ls** 명령 및 **cat** 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다.
 
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -identityId $identityId -keyVaultName $keyVaultName -objectId $adUserId
+1. 다음 PowerShell 스크립트를 실행하여 템플릿을 배포합니다.
 
-Write-Host "Press [ENTER] to continue ..."
-```
+    ```azurepowershell-interactive
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
+    $identityId = Read-Host -Prompt "Enter the user-assigned managed identity ID"
 
-배포 스크립트 서비스에서 스크립트 실행을 위한 추가 배포 스크립트 리소스를 만들어야 합니다. 준비 및 정리 프로세스는 실제 스크립트 실행 시간 외에도 완료하는 데 최대 1분 정도 걸릴 수 있습니다.
+    $adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
+    $resourceGroupName = "${projectName}rg"
+    $keyVaultName = "${projectName}kv"
 
-스크립트에 **Write-Output1**이 사용되는 잘못된 명령으로 인해 배포에 실패했습니다. 다음과 같은 오류 메시지가 표시됩니다.
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-```error
-The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
-program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
-```
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -identityId $identityId -keyVaultName $keyVaultName -objectId $adUserId
 
-배포 스크립트 실행 결과는 문제 해결을 위해 배포 스크립트 리소스에 저장됩니다.
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    배포 스크립트 서비스에서 스크립트 실행을 위한 추가 배포 스크립트 리소스를 만들어야 합니다. 준비 및 정리 프로세스는 실제 스크립트 실행 시간 외에도 완료하는 데 최대 1분 정도 걸릴 수 있습니다.
+
+    스크립트에 **Write-Output1**이 사용되는 잘못된 명령으로 인해 배포에 실패했습니다. 다음과 같은 오류 메시지가 표시됩니다.
+
+    ```error
+    The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
+    program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
+    ```
+
+    배포 스크립트 실행 결과는 문제 해결을 위해 배포 스크립트 리소스에 저장됩니다.
 
 ## <a name="debug-the-failed-script"></a>실패한 스크립트 디버그
 

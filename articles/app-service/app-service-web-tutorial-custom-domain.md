@@ -5,14 +5,14 @@ keywords: App Service, Azure App Service, 도메인 매핑, 도메인 이름, �
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/06/2019
+ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: adc9b60ce1c31076a91ec44b9656752b464e024d
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 116ec218b1f3947b85b4ab865df30477f05c601a
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811774"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559905"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -93,6 +93,12 @@ App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지�
 
 <a name="cname" aria-hidden="true"></a>
 
+## <a name="get-domain-verification-id"></a>도메인 확인 ID 가져오기
+
+앱에 사용자 지정 도메인을 추가하려면 도메인 공급자를 사용하여 확인 ID를 TXT 레코드로 추가하여 도메인 소유권을 확인해야 합니다. 앱 페이지의 왼쪽 탐색 영역에서 **개발 도구** 아래의 **리소스 탐색기**를 클릭한 다음, **이동**을 클릭합니다.
+
+앱 속성의 JSON 뷰에서 `customDomainVerificationId`를 검색하고 큰따옴표 안에 해당 값을 복사합니다. 다음 단계에는 이 확인 ID가 필요합니다.
+
 ## <a name="map-your-domain"></a>도메인 매핑
 
 **CNAME 레코드** 또는 **A 레코드**를 사용하여 사용자 지정 DNS 이름을 App Service에 매핑할 수 있습니다. 각 단계를 따릅니다.
@@ -114,11 +120,14 @@ App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지�
 
 #### <a name="create-the-cname-record"></a>CNAME 레코드 만들기
 
-CNAME 레코드를 추가하여 하위 도메인을 앱의 기본 도메인 이름(`<app_name>.azurewebsites.net`, 여기서 `<app_name>`은 사용자 앱의 이름)에 매핑합니다.
+하위 도메인을 앱의 기본 도메인 이름(`<app_name>.azurewebsites.net`, 여기서 `<app_name>`은 사용자 앱의 이름)에 매핑합니다. `www` 하위 도메인에 대한 CNAME 매핑을 만들려면 다음과 같은 두 개의 레코드를 만듭니다.
 
-`www.contoso.com` 도메인 예제의 경우 `www` 이름을 `<app_name>.azurewebsites.net`에 매핑하는 CNAME 레코드를 추가합니다.
+| 레코드 형식 | 호스트 | 값 | 주석 |
+| - | - | - |
+| CNAME | `www` | `<app_name>.azurewebsites.net` | 도메인 자체 매핑. |
+| TXT | `asuid.www` | [이전에 가져온 확인 ID](#get-domain-verification-id) | App Service는 `asuid.<subdomain>` TXT 레코드에 액세스하여 사용자 지정 도메인의 소유권을 확인합니다. |
 
-CNAME을 추가하면 DNS 레코드 페이지가 다음 예제와 비슷합니다.
+CNAME 및 TXT 레코드를 추가하면 DNS 레코드 페이지는 다음 예제와 비슷합니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
@@ -183,17 +192,12 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 
 #### <a name="create-the-a-record"></a>A 레코드 만들기
 
-앱에 A 레코드를 매핑하려면 App Service에 다음 **두** 개의 DNS 레코드가 필요합니다.
+A 레코드를 앱(일반적으로 루트 도메인)에 매핑하려면 두 개의 레코드를 만듭니다.
 
-- 앱의 IP 주소에 매핑할 **A** 레코드
-- 앱의 기본 도메인 이름 `<app_name>.azurewebsites.net`에 매핑할 **TXT** 레코드. App Service에서 구성할 때만 이 레코드를 사용하여 사용자 지정 도메인을 소유하고 있는지 확인합니다. App Service에서 사용자 지정 도메인의 유효성을 검사하고 해당 도메인을 구성한 후에는 이 TXT 레코드를 삭제할 수 있습니다.
-
-`contoso.com` 도메인 예제의 경우 다음 표에 따라 A 및 TXT 레코드를 만듭니다(`@`는 일반적으로 루트 도메인을 나타냄).
-
-| 레코드 형식 | 호스트 | 값 |
+| 레코드 형식 | 호스트 | 값 | 주석 |
 | - | - | - |
-| A | `@` | [앱의 IP 주소 복사](#info)에서 가져온 IP 주소 |
-| TXT | `@` | `<app_name>.azurewebsites.net` |
+| A | `@` | [앱의 IP 주소 복사](#info)에서 가져온 IP 주소 | 도메인 자체 매핑(`@`는 일반적으로 루트 도메인을 나타냄). |
+| TXT | `asuid` | [이전에 가져온 확인 ID](#get-domain-verification-id) | App Service는 `asuid.<subdomain>` TXT 레코드에 액세스하여 사용자 지정 도메인의 소유권을 확인합니다. 루트 도메인의 경우 `asuid`를 사용합니다. |
 
 > [!NOTE]
 > 권장되는 [CNAME 레코드](#map-a-cname-record) 대신 A 레코드를 사용하여 하위 도메인을 추가하려면(예: `www.contoso.com`) A 레코드와 TXT 레코드는 다음 표와 같이 표시되어야 합니다.
@@ -201,7 +205,7 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 > | 레코드 형식 | 호스트 | 값 |
 > | - | - | - |
 > | A | `www` | [앱의 IP 주소 복사](#info)에서 가져온 IP 주소 |
-> | TXT | `www` | `<app_name>.azurewebsites.net` |
+> | TXT | `asuid.www` | `<app_name>.azurewebsites.net` |
 >
 
 레코드를 추가하면 DNS 레코드 페이지가 다음 예제와 비슷합니다.

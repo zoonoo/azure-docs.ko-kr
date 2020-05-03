@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2b30c176cf3c9dd31ae3efa85d308b3f89bd4dbe
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 5d2d33dc2ef135fde0955336a40f851d6ed4e0e7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81736080"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82204597"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Azure Virtual WAN을 사용하려면 사용자에게 SD-WAN/VPN 디바이스를 사용하는 허브 및 스포크가 있어야 하나요?
 
@@ -49,7 +49,7 @@ P2S 클라이언트용 DNS 서버를 추가하는 두 가지 옵션이 있습니
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>사용자 VPN(지점 및 사이트 간)의 경우 지원되는 클라이언트 수는 어떻게 되나요?
 
-각 사용자 VPN P2S 게이트웨이에는 두 개의 인스턴스가 있으며, 각 인스턴스는 배율 단위가 변경될 때 특정 사용자를 지원합니다. 1-3 배율 단위는 500개, 4-6 배율 단위는 1,000개, 7-10 배율 단위는 5,000개, 11 이상 배율 단위는 최대 10,000개의 연결을 지원합니다. 예를 들어 사용자가 1 배율 단위를 선택한다고 가정해 보겠습니다. 각 배율 단위는 배포된 액티브-액티브 게이트웨이를 의미하며, 각 인스턴스(이 경우 2)에서 최대 500개의 연결을 지원합니다. 게이트웨이당 500개 * 2의 연결을 가져올 수 있지만 추천되는 연결 수를 초과하는 경우 추가 500개에 대한 연결이 중단될 수 있는 인스턴스를 처리해야 할 수 있으므로 이 배율 단위에 대해 500개 대신 1,000개를 계획한다는 의미가 아닙니다.
+각 사용자 VPN P2S 게이트웨이에는 두 개의 인스턴스가 있으며, 각 인스턴스는 배율 단위가 변경될 때 특정 사용자를 지원합니다. 1-3 배율 단위는 500개, 4-6 배율 단위는 1,000개, 7-12 배율 단위는 5,000개, 13-20 배율 단위는 최대 10,000개의 연결을 지원합니다. 예를 들어 사용자가 1 배율 단위를 선택한다고 가정해 보겠습니다. 각 배율 단위는 배포된 액티브-액티브 게이트웨이를 의미하며, 각 인스턴스(이 경우 2)에서 최대 500개의 연결을 지원합니다. 게이트웨이당 500개 * 2의 연결을 가져올 수 있지만 추천되는 연결 수를 초과하는 경우 추가 500개에 대한 연결이 중단될 수 있는 인스턴스를 처리해야 할 수 있으므로 이 배율 단위에 대해 500개 대신 1,000개를 계획한다는 의미가 아닙니다.
 
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Azure 가상 네트워크 게이트웨이(VPN Gateway)와 Azure Virtual WAN VPN Gateway의 차이는 무엇인가요?
 
@@ -215,6 +215,10 @@ Virtual Hub가 여러 원격 허브에서 동일한 경로를 학습하는 경�
 1) 경로 원본 a) 네트워크 경로 – Virtual Hub 게이트웨이에서 직접 학습한 VNET 접두사 b) Hub RouteTable(정적으로 구성된 경로) c) BGP d) InterHub 경로
 2)  경로 메트릭 : 가상 WAN은 ExpressRoute over VPN을 선호합니다. ExpressRoute 피어는 VPN 피어에 비해 가중치가 높습니다.
 3)  AS 경로 길이
+
+### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Virtual WAN에서 IPv6를 지원하나요?
+
+IPv6는 Virtual WAN 허브 및 게이트웨이에서 지원되지 않습니다. IPv6를 지원하는 VNET이 있고 VNET을 Virtual WAN에 연결하려는 경우에는 이 시나리오도 지원되지 않습니다. 
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Virtual WAN 유형(기본 및 표준) 사이의 차이점은 무엇인가요?
 

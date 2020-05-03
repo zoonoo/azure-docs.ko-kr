@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 03/18/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96d212df51a58125e3b959a18f5cf2ac9d391d30
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 934422b128fe591d16b9a1dbf73af2bc5264123e
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74422383"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582805"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Azure Active Directory에서 삭제된 Office 365 그룹 복원
 
@@ -52,7 +52,7 @@ Azure AD(Azure Active Directory)에서 Office 365 그룹을 삭제하는 경우 
 
 다음 cmdlet을 사용하여 관심 있는 그룹이 영구적으로 제거되었는지 확인하기 위해 삭제된 그룹을 볼 수 있습니다. 이러한 cmdlet은 [Azure AD PowerShell 모듈](https://www.powershellgallery.com/packages/AzureAD/)에 포함됩니다. 이 모듈에 대한 자세한 정보는 [Azure Active Directory PowerShell 버전 2](/powershell/azure/install-adv2?view=azureadps-2.0) 문서에서 찾을 수 있습니다.
 
-1.  다음 cmdlet을 실행하여 여전히 복원할 수 있는 테넌트의 모든 삭제된 Office 365 그룹을 표시합니다.
+1.  다음 cmdlet을 실행하여 여전히 복원할 수 있는 Azure AD 조직의 모든 삭제된 Office 365 그룹을 표시합니다.
    
 
     ```powershell

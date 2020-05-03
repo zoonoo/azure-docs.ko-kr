@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 382f3b59142aee7ddfbec4aceb153a174874ac1a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7ee5fa52f59ea2ef3332fe66c81c24ff44c64e81
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74027101"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582882"
 ---
-# <a name="tutorial-add-or-remove-group-members-automatically"></a>자습서: 자동으로 구성원 추가 또는 제거
+# <a name="tutorial-add-or-remove-group-members-automatically"></a>자습서: 자동으로 그룹 구성원 추가 또는 제거
 
-Azure AD(Azure Active Directory)에서 자동으로 보안 그룹 또는 Office 365 그룹에 사용자를 추가하거나 제거할 수 있으므로, 항상 수동으로 할 필요가 없습니다. 사용자 또는 디바이스의 속성이 변경될 때마다 Azure AD는 테넌트의 모든 동적 그룹 규칙을 평가하여 변경 내용에 구성원을 추가 또는 제거해야 하는지 확인합니다.
+Azure AD(Azure Active Directory)에서 자동으로 보안 그룹 또는 Office 365 그룹에 사용자를 추가하거나 제거할 수 있으므로, 항상 수동으로 할 필요가 없습니다. 사용자 또는 디바이스의 속성이 변경될 때마다 Azure AD는 Azure AD 조직의 모든 동적 그룹 규칙을 평가하여 변경 내용에 구성원을 추가 또는 제거해야 하는지 확인합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -35,15 +35,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 기능을 사용하려면 테넌트의 글로벌 관리자에 대한 하나의 Azure AD Premium 라이선스가 있어야 합니다. 아직 없는 경우 Azure AD에서 **라이선스** > **제품** > **사용/구매**를 선택합니다.
+이 기능을 사용하려면 조직의 글로벌 관리자로서 하나의 Azure AD Premium 라이선스가 있어야 합니다. 아직 없는 경우 Azure AD에서 **라이선스** > **제품** > **사용/구매**를 선택합니다.
 
-사용자에게 라이선스를 할당하지 않아도 사용자가 동적 그룹의 구성원이 됩니다. 테넌트에 모든 사용자를 수용할 수 있는 최소한의 Azure AD Premium P1 라이선스만 있으면 됩니다. 
+사용자에게 라이선스를 할당하지 않아도 사용자가 동적 그룹의 구성원이 됩니다. 이러한 모든 사용자를 수용하려면 조직에서 사용 가능한 최소한의 Azure AD Premium P1 라이선스만 있으면 됩니다. 
 
 ## <a name="create-a-group-of-guest-users"></a>게스트 사용자 그룹 만들기
 
 먼저, 모두 단일 파트너 회사 소속인 게스트 사용자 그룹을 만들겠습니다. 이들에게는 특별한 라이선스가 필요하므로, 이 용도에 사용할 그룹을 따로 만드는 것이 종종 더 효율적입니다.
 
-1. 테넌트에 대한 글로벌 관리자 계정을 사용하여 Azure Portal(https://portal.azure.com) 에 로그인합니다.
+1. 조직의 글로벌 관리자 계정을 사용하여 Azure Portal(https://portal.azure.com) )에 로그인합니다.
 2. **Azure Active Directory** > **그룹** > **새 그룹**을 선택합니다.
    ![새 그룹을 시작하는 명령 선택](./media/groups-dynamic-tutorial/new-group.png)
 3. **그룹** 블레이드에서:
@@ -80,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="remove-guests-from-all-users-group"></a>모든 사용자 그룹에서 게스트 제거
 
-아마도 여러분의 궁극적인 관리 계획은 모든 게스트 사용자를 각각 고유한 그룹에 회사별로 할당하는 것입니다. 이제 테넌트의 구성원인 사용자에게만 예약되도록 **모든 사용자** 그룹을 변경할 수도 있습니다. 그 후 홈 조직에 관련된 앱 및 라이선스를 할당하는 데 사용할 수 있습니다.
+아마도 여러분의 궁극적인 관리 계획은 모든 게스트 사용자를 각각 고유한 그룹에 회사별로 할당하는 것입니다. 이제 조직의 구성원인 사용자에게만 예약되도록 **모든 사용자** 그룹을 변경할 수도 있습니다. 그 후 홈 조직에 관련된 앱 및 라이선스를 할당하는 데 사용할 수 있습니다.
 
    ![모든 사용자 그룹을 구성원만으로 변경](./media/groups-dynamic-tutorial/all-users-edit.png)
 
@@ -88,7 +88,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 **게스트 사용자 그룹을 제거하려면**
 
-1. 테넌트의 글로벌 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 조직의 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **그룹**을 선택합니다. **게스트 사용자 Contoso** 그룹을 선택하고, 줄임표(...)를 선택한 다음, **삭제**를 선택합니다. 그룹을 삭제하면 할당된 모든 라이선스가 제거됩니다.
 
 **모든 사용자 그룹을 복원하려면**

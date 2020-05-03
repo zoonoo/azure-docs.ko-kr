@@ -2,15 +2,15 @@
 title: 여러 리소스 인스턴스 만들기
 description: Azure Resource Manager 템플릿을 만들어 여러 Azure 리소스 인스턴스를 만드는 방법을 알아봅니다.
 author: mumian
-ms.date: 04/08/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 83afff3aa15caa1743f66eea9eaee541492b8d1c
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b62cca48323d4e12a92c89d64ab67bf5b783c36f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260839"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82183837"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 여러 리소스 인스턴스 만들기
 
@@ -112,9 +112,40 @@ Visual Studio Code에서 다음 4개의 변경 내용을 만듭니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-배포 절차는 Visual Studio Code 빠른 시작의 [템플릿 배포](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) 섹션을 참조하세요.
+1. [Azure Cloud Shell](https://shell.azure.com)에 로그인
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+1. 왼쪽 위 모서리에서 **PowerShell** 또는 **Bash**(CLI용)를 선택하여 기본 환경을 선택합니다.  전환하는 경우 셸을 다시 시작해야 합니다.
+
+    ![Azure Portal Cloud Shell 업로드 파일](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
+
+1. **파일 업로드/다운로드**를 선택한 다음, **업로드**를 선택합니다. 이전 스크린샷을 참조하세요. 이전 섹션에서 저장한 파일을 선택합니다. 파일을 업로드한 후 **ls** 명령 및 **cat** 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다.
+
+1. Cloud Shell에서 다음 명령을 실행합니다. 탭을 선택하여 PowerShell 코드 또는 CLI 코드를 표시합니다.
+
+    # <a name="cli"></a>[CLI](#tab/CLI)
+
+    ```azurecli
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location "$location" &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
+    ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $resourceGroupName = "${projectName}rg"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json"
+    ```
+
+    ---
 
 세 개의 모든 스토리지 계정을 나열하려면 --name 매개 변수를 생략합니다.
 
@@ -133,6 +164,7 @@ echo "Press [ENTER] to continue ..."
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
 $resourceGroupName = "${projectName}rg"
+
 Get-AzStorageAccount -ResourceGroupName $resourceGroupName
 Write-Host "Press [ENTER] to continue ..."
 ```

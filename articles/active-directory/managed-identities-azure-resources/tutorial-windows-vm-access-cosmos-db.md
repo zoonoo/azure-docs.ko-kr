@@ -1,5 +1,5 @@
 ---
-title: 자습서`:` 관리 ID를 사용하여 Azure Cosmos DB에 액세스 - Windows - Azure AD
+title: '자습서: 관리 ID를 사용하여 Azure Cosmos DB에 액세스 - Windows - Azure AD'
 description: Windows VM에서 시스템 할당 관리 ID를 사용하여 Azure Cosmos DB에 액세스하는 프로세스를 단계별로 안내하는 자습서입니다.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9648c714ddbac93bcc76d84e7f6d8f2fcfaed992
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 11b7f8eeb94fb2d6f197af2d40b120c5f74d6128
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78248229"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583069"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Cosmos DB에 액세스
 
@@ -126,7 +126,7 @@ Invoke-WebRequest -Uri 'https://management.azure.com/subscriptions/<SUBSCRIPTION
 {"primaryReadonlyMasterKey":"bWpDxS...dzQ==",
 "secondaryReadonlyMasterKey":"38v5ns...7bA=="}
 ```
-이제 Cosmos DB 계정에 대한 액세스 키가 있으므로 Cosmos DB SDK에 전달하고 계정에 액세스하는 호출을 만들 수 있습니다.  빠른 예제의 경우 Azure CLI에 액세스 키를 전달할 수 있습니다.  Azure Portal에서 Cosmos DB 계정 블레이드의 `<COSMOS DB CONNECTION URL>`개요**탭에서**을 가져올 수 있습니다.  `<ACCESS KEY>`를 위에서 얻은 값으로 바꿉니다.
+이제 Cosmos DB 계정에 대한 액세스 키가 있으므로 Cosmos DB SDK에 전달하고 계정에 액세스하는 호출을 만들 수 있습니다.  빠른 예제의 경우 Azure CLI에 액세스 키를 전달할 수 있습니다.  Azure Portal에서 Cosmos DB 계정 블레이드의 **개요** 탭에서 `<COSMOS DB CONNECTION URL>`을 가져올 수 있습니다.  `<ACCESS KEY>`를 위에서 얻은 값으로 바꿉니다.
 
 ```azurecli
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>
