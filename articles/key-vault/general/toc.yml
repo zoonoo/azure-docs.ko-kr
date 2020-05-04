@@ -48,6 +48,8 @@
       href: authentication-requests-and-responses.md
     - name: Azure Key Vault 제한 지침
       href: overview-throttling.md
+    - name: Azure Key Vault 가용성 및 중복성
+      href: disaster-recovery-guidance.md
     - name: Azure Key Vault의 가상 네트워크 서비스 엔드포인트 - Azure Key Vault
       href: overview-vnet-service-endpoints.md
 - name: 방법 가이드
@@ -92,6 +94,10 @@
           href: soft-delete-cli.md
         - name: PowerShell에서 일시 삭제 사용
           href: soft-delete-powershell.md
+    - name: Key Vault 이동
+      items:
+        - name: 다른 영역으로 Key Vault 이동
+          href: keyvault-moveregion.md
     - name: 문제 해결
       items:
         - name: 구독 이동 후 키 자격 증명 모음 테넌트 ID 변경

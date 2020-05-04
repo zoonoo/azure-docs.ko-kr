@@ -252,7 +252,7 @@
         - name: 컨테이너 데이터를 실시간으로 보기
           href: ../azure-monitor/insights/container-insights-livedata-overview.md
           maintainContext: true
-    - name: Windows Server 컨테이너 모니터링 사용(미리 보기)
+    - name: Windows Server 컨테이너 사용
       items:
         - name: AKS 클러스터 만들기
           href: windows-container-cli.md

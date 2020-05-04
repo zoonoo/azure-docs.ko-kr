@@ -76,6 +76,8 @@
           href: ha-setup-with-stonith.md
         - name: Type II SKU용 OS 백업
           href: os-backup-type-ii-skus.md
+        - name: HANA Large Instances에 Kdump 사용
+          href: hana-large-instance-enable-kdump.md
         - name: HANA 대형 인스턴스를 위한 OS 업그레이드
           href: os-upgrade-hana-large-instance.md
         - name: SUSE Linux용 SMT 서버 설정

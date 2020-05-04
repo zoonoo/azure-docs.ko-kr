@@ -8,10 +8,12 @@
   items:
     - name: Azure 애플리케이션의 고가용성
       href: 'https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications'
+    - name: 영역 및 가용성 영역
+      href: az-overview.md
     - name: 가용성 영역 설명서
       items:
-        - name: 가용성 영역이란?
-          href: az-overview.md
+        - name: 가용성 영역을 지원하는 지역
+          href: az-region.md
         - name: 가상 머신
           items:
             - name: CLI를 사용하여 가용성 영역에서 Linux VM 만들기

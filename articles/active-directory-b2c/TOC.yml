@@ -76,6 +76,8 @@
       href: user-overview.md
     - name: 사용자 프로필 특성
       href: user-profile-attributes.md
+    - name: SSO 세션
+      href: session-overview.md
 - name: 방법 가이드
   items:
     - name: 앱 통합
@@ -275,7 +277,7 @@
                       href: date-transformations.md
                     - name: 일반
                       href: general-transformations.md
-                    - name: 정수
+                    - name: '정수 '
                       href: integer-transformations.md
                     - name: JSON
                       href: json-transformations.md
@@ -335,8 +337,8 @@
                       href: phone-factor-technical-profile.md
                     - name: REST (영문)
                       href: restful-technical-profile.md
-                    - name: SAML
-                      href: saml-technical-profile.md
+                    - name: SAML ID 공급자
+                      href: saml-identity-provider-technical-profile.md
                     - name: SAML 토큰 발급자
                       href: saml-issuer-technical-profile.md
                     - name: 자체 어설션
@@ -433,7 +435,7 @@
       href: 'https://azure.microsoft.com/updates/?product=active-directory-b2c'
     - name: 솔루션 및 교육
       href: solution-articles.md
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework'
     - name: 지원
       href: support-options.md

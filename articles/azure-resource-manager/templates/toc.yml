@@ -291,7 +291,7 @@
       items:
         - name: 모든 함수
           href: template-functions.md
-        - name: 배열 및 개체 함수
+        - name: 배열 함수
           href: template-functions-array.md
         - name: 비교 함수
           href: template-functions-comparison.md
@@ -303,6 +303,8 @@
           href: template-functions-logical.md
         - name: 숫자 함수
           href: template-functions-numeric.md
+        - name: 개체 함수
+          href: template-functions-object.md
         - name: 리소스 함수
           href: template-functions-resource.md
         - name: 문자열 함수
@@ -327,7 +329,7 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=azure-resource-manager'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-resource-manager'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager'

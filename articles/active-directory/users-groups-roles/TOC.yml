@@ -167,7 +167,7 @@
               href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
             - name: PowerShell에서 사용자 지정 역할 할당
               href: roles-assign-powershell.md
-            - name: 사용자 지정 rolpermissions
+            - name: 사용자 지정 역할
               href: roles-custom-available-permissions.md
             - name: 앱 관리자 권한 위임
               href: roles-delegate-app-roles.md

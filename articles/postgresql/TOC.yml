@@ -167,6 +167,10 @@
               href: concepts-hyperscale-firewall-rules.md
             - name: SSL 구성
               href: concepts-hyperscale-ssl-connection-security.md
+        - name: 비즈니스 연속성
+          items:
+            - name: 백업 및 복원
+              href: concepts-hyperscale-backup.md
         - name: 모니터링 및 튜닝
           items:
             - name: 모니터링 및 튜닝
@@ -273,6 +277,8 @@
               href: howto-data-encryption-portal.md
             - name: Azure CLI
               href: howto-data-encryption-cli.md
+            - name: 데이터 암호화 유효성 검사
+              href: howto-data-encryption-validation.md
         - name: 서버 다시 시작
           items:
             - name: Azure portal
@@ -329,7 +335,7 @@
       href: 'https://azure.microsoft.com/pricing/details/postgresql/'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-postgresql'
     - name: 동영상
       items:

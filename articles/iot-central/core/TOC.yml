@@ -6,6 +6,10 @@
       href: overview-iot-central.md
     - name: UI 둘러보기
       href: overview-iot-central-tour.md
+    - name: 최근 업데이트
+      items:
+        - name: 2020년 3월
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/'
 - name: 빠른 시작
   expanded: true
   items:
@@ -127,6 +131,14 @@
               href: howto-show-hide-chat.md
 - name: 리소스
   items:
+    - name: 최근 업데이트(쿼리)
+      href: 'https://azure.microsoft.com/updates/?category=iot&query=azure%20iot%20central'
+    - name: 최근 업데이트(또는 목록)
+      items:
+        - name: 2020년 4월
+          href: 'https://azure.microsoft.com//updates/new-iot-central-pricing-plans/'
+        - name: 2020년 3월
+          href: 'https://azure.microsoft.com//updates/new-iot-central-pricing-plans/'
     - name: 지원 및 도움말 옵션
       href: /azure/iot-fundamentals/iot-support-help
     - name: 업계 애플리케이션 템플릿

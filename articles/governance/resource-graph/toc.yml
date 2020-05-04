@@ -17,6 +17,9 @@
     - name: 첫 번째 쿼리 실행 - PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
       href: first-query-powershell.md
+    - name: 공유 쿼리 배포 - ARM 템플릿
+      displayName: 'resource manager, queries'
+      href: shared-query-template.md
 - name: 자습서
   items:
     - name: Azure Portal에서 쿼리 만들기 및 공유
@@ -78,6 +81,8 @@
       href: /rest/api/azure-resourcegraph/
     - name: OpenAPI
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01'
+    - name: 리소스 관리자 템플릿
+      href: /azure/templates/microsoft.resourcegraph/allversions
     - name: Resource Graph 테이블 및 리소스 종류
       href: ./reference/supported-tables-resources.md
 - name: 리소스

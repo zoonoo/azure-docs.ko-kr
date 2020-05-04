@@ -18,7 +18,7 @@
       href: spring-cloud-quickstart-launch-app-maven.md
 - name: 자습서
   items:
-    - name: Config 서버 설정
+    - name: 구성 서버 설정
       href: spring-cloud-tutorial-config-server.md
     - name: 수동으로 애플리케이션 크기 조정
       href: spring-cloud-tutorial-scale-manual.md
@@ -32,12 +32,20 @@
       href: spring-cloud-tutorial-bind-redis.md
     - name: Azure MySQL에 애플리케이션 바인딩
       href: spring-cloud-tutorial-bind-mysql.md
+    - name: Azure Spring Cloud에 사용자 지정 DNS 이름 매핑
+      href: spring-cloud-tutorial-custom-domain.md
+    - name: IntelliJ를 사용하여 Azure Spring Cloud 애플리케이션 배포
+      href: spring-cloud-tutorial-intellij-deploy-apps.md
 - name: 개념
   items:
     - name: Azure Spring Cloud 할당량 및 제한 이해
       href: spring-cloud-quotas.md
     - name: Azure Spring Cloud의 메트릭 이해
       href: spring-cloud-concept-metrics.md
+    - name: Azure Spring Cloud Service의 보안 컨트롤
+      href: spring-cloud-concept-security-controls.md
+    - name: Azure Spring Cloud의 앱 상태 이해
+      href: spring-cloud-concept-app-status.md
     - name: 재해 복구 계획
       href: disaster-recovery.md
 - name: 방법 가이드
@@ -56,6 +64,9 @@
       href: spring-cloud-howto-log-streaming.md
     - name: Azure Spring Cloud에서 영구 스토리지 사용
       href: spring-cloud-howto-persistent-storage.md
+    - name: Azure Spring Cloud에 DevOps 배포
+    - name: Azure 부하 분산 솔루션과 Azure Spring Cloud 통합
+      href: spring-cloud-howto-integrate-azure-load-balancers.md
 - name: Azure Spring Cloud에 DevOps 배포
   items:
     - name: Azure DevOps를 사용하는 CI/CD

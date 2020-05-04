@@ -262,9 +262,11 @@
       items:
         - name: 결과 작업
           href: search-pagination-page-layout.md
-        - name: 관련성 튜닝(점수 매기기 프로필)
+        - name: 관련성 채점
+          href: index-similarity-and-scoring.md
+        - name: 점수 매기기 프로필
           href: index-add-scoring-profiles.md
-        - name: 관련성 튜닝(유사성 알고리즘)
+        - name: 유사성 알고리즘
           href: index-ranking-similarity.md
     - name: 계획
       items:

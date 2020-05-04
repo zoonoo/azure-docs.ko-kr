@@ -5,20 +5,21 @@ services: lighthouse
 author: JnHs
 ms.service: lighthouse
 ms.topic: include
-ms.date: 12/19/2019
+ms.date: 04/24/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 4c50ca2449787d681d8b9571083a92077d95dcd8
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 4a6d9ef04a33c84d68dff1429fb39a193a249280
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986645"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204444"
 ---
 이러한 샘플은 교차 테넌트 관리 시나리오에서 수행할 수 있는 다양한 작업을 보여 줍니다.
 
 | **템플릿** | **설명** |
 |---------|---------|
+| [create-keyvault-secret](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret) | 고객의 테넌트에 Key Vault를 만들고 액세스 정책을 만듭니다.
 | [cross-rg-deployment](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/cross-rg-deployment) | 스토리지 계정을 두 개의 서로 다른 리소스 그룹에 배포합니다.|
 | [deploy-azure-mgmt-services](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/deploy-azure-mgmt-services) | Azure 관리 서비스를 만들고, 함께 연결하고, 추가 솔루션을 배포합니다. 엔드투엔드 배포의 경우 **rgWithAzureMgmt.json** 템플릿을 사용합니다. |
 | [deploy-azure-security-center](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/deploy-azure-security-center) | 대상 Azure 구독 내에서 Azure Security Center를 사용하도록 설정하고 구성합니다. |
