@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 6a197095d97e67f7548e60375148cff57e47b797
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0c099584642de1939df5e1e7d9785006e8d25235
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595931"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732345"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>CTF(Collaborative Translation Framework) 보고 사용 방법
 
@@ -94,7 +94,7 @@ CTF 보고 API의 엔드포인트는 https://api.microsofttranslator.com/v2/beta
 
 결과 집합에는 **UserTranslationCount** 배열이 포함됩니다. 각 UserTranslationCount에는 다음 요소가 있습니다.
 
-| 필드 | Description |
+| 필드 | 설명 |
 |:---|:---|
 | 개수| 검색된 결과 수입니다.|
 | 시작 | 원본 언어입니다.|
@@ -115,8 +115,8 @@ CTF 보고 API의 엔드포인트는 https://api.microsofttranslator.com/v2/beta
 > 서비스의 모든 사용자에게 공정하도록 할당량이 조정됩니다.
 
 **GitHib에서 코드 예제 보기**
-* [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-csharp.md)
-* [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-php.md)
+* [C#](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
+* [PHP](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP)
 
 ## <a name="getusertranslations-method"></a>GetUserTranslations 메서드
 
@@ -188,5 +188,5 @@ CTF 보고 API의 엔드포인트는 https://api.microsofttranslator.com/v2/beta
 > 서비스의 모든 사용자에게 공정하도록 할당량이 조정됩니다.
 
 **GitHib에서 코드 예제 보기**
-* [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
-* [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)
+* [C#](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
+* [PHP](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP)

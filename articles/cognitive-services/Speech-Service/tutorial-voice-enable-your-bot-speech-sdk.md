@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: b2c119f6552773bce7bb93a503c22324278ac0bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cb016ec490dc14cbde1a1cb3f34caf39e4740961
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399468"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732374"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>자습서: 음성 SDK를 사용 하 여 봇 음성 사용
 
@@ -104,7 +104,7 @@ ms.locfileid: "81399468"
 
 이 시점에서 리소스 그룹 (**SpeechEchoBotTutorial**)에 음성 리소스가 있는지 확인 합니다.
 
-| 속성 | Type  | 위치 |
+| 이름 | Type  | 위치 |
 |------|-------|----------|
 | SpeechEchoBotTutorial-Speech | Cognitive Services | 미국 서부 |
 
@@ -125,7 +125,7 @@ ms.locfileid: "81399468"
 
 이 시점에서 리소스 그룹 (**SpeechEchoBotTutorial-ResourceGroup**)에 두 개의 리소스가 있는지 확인 합니다.
 
-| 속성 | Type  | 위치 |
+| 이름 | Type  | 위치 |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | 미국 서부 |
@@ -164,7 +164,7 @@ ms.locfileid: "81399468"
 1. [Bot Framework 에뮬레이터](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) 버전 4.3.0 이상을 설치 합니다.
 2. Bot Framework 에뮬레이터를 시작 하 고 bot를 엽니다.
    * **파일** -> **열기 봇**.
-3. 봇의 URL을 입력 합니다. 다음은 그 예입니다.
+3. 봇의 URL을 입력 합니다. 예를 들어:
 
    ```
    http://localhost:3978/api/messages
@@ -178,7 +178,7 @@ ms.locfileid: "81399468"
 다음 단계는 Echo Bot를 Azure에 배포 하는 것입니다. 몇 가지 방법으로 봇을 배포할 수 있지만이 자습서에서는 Visual Studio에서 직접 게시 하는 방법을 집중적으로 설명 합니다.
 
 > [!NOTE]
-> 또는 [Azure CLI](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) 및 [배포 템플릿을](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/directline-speech/csharp_dotnetcore/02.echo-bot/DeploymentTemplates)사용 하 여 봇을 배포할 수 있습니다.
+> 또는 [Azure CLI](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) 및 [배포 템플릿을](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/adaptive-dialog/csharp_dotnetcore/04.core-bot/deploymentTemplates)사용 하 여 봇을 배포할 수 있습니다.
 
 1. Visual Studio에서 직접 선 음성 채널에서 사용 하도록 구성 된 Echo Bot를 엽니다.
 
@@ -207,7 +207,7 @@ ms.locfileid: "81399468"
 1. 기본 브라우저가 열리고 "봇이 준비 되었습니다!" 라는 페이지가 표시 됩니다.
 1. 이 시점에서 Azure Portal 리소스 그룹 **SpeechEchoBotTutorial** 를 확인 하 고 세 가지 리소스가 있는지 확인 합니다.
 
-| 속성 | Type  | 위치 |
+| 이름 | Type  | 위치 |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | 미국 서부 |
 | SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
@@ -248,7 +248,7 @@ ms.locfileid: "81399468"
 
 이 시점에서 Azure Portal 리소스 그룹 **SpeechEchoBotTutorial** 를 확인 합니다. 이제 다음 4 개의 리소스를 표시 해야 합니다.
 
-| 속성 | Type  | 위치 |
+| 이름 | Type  | 위치 |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | 미국 서부 |
 | SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
@@ -444,7 +444,7 @@ Windows 음성 도우미 클라이언트 소스 코드에서 다음 파일을 �
 > [!div class="nextstepaction"]
 > [Speech SDK를 사용 하 여 고유한 클라이언트 앱 빌드](quickstart-voice-assistant-csharp-uwp.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [사용자 가까이 Azure 지역](https://azure.microsoft.com/global-infrastructure/locations/) 에 배포 하 여 봇 응답 시간 개선을 확인 하세요.
 * 고품질 신경망을 [지 원하는 Azure 지역](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices) 에 배포
