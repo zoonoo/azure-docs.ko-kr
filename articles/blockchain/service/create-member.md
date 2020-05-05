@@ -4,18 +4,22 @@ description: Azure Portal을 사용하여 블록체인 컨소시엄을 위한 Az
 ms.date: 03/30/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
-ms.openlocfilehash: 7d29382cdedf7e35d186c73c9d32547e10fb10d6
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 9fb013960da5b7cb8ba44f129eab73565f5b5362
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460276"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82115247"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Blockchain Service 블록체인 멤버 만들기
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Blockchain Service에 새 블록체인 멤버 및 컨소시엄을 배포합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+없음
 
 ## <a name="create-a-blockchain-member"></a>블록체인 멤버 만들기
 

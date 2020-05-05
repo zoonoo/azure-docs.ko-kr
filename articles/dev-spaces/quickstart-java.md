@@ -7,10 +7,10 @@ description: 이 빠른 시작에서는 Azure Dev Spaces 및 Visual Studio Code�
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Java, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
 ms.openlocfilehash: ac7a1b37b565f3589b7c049a3c1ed2a84972ded0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80239743"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>빠른 시작: Visual Studio Code 및 Java를 사용하여 Kubernetes에서 디버그 및 반복 - Azure Dev Spaces
@@ -113,7 +113,7 @@ Visual Studio Code에도 기본 이미지, 노출된 포트 및 공용 엔드포
 
 ## <a name="update-code"></a>코드 업데이트
 
-서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 **Java 프로그램 시작(AZDS)** 을 다시 실행하면 됩니다. 다음은 그 예입니다.
+서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 **Java 프로그램 시작(AZDS)** 을 다시 실행하면 됩니다. 다음은 그 예입니다. 
 
 1. 애플리케이션이 여전히 실행되는 경우 **디버그**를 선택한 다음, **디버깅 중지**를 선택하여 중지합니다.
 1. [`src/main/java/com/ms/sample/webfrontend/Application.java`의 19줄](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19)을 다음으로 업데이트합니다.
@@ -141,7 +141,7 @@ Visual Studio Code에도 기본 이미지, 노출된 포트 및 공용 엔드포
 
 ## <a name="update-code-from-visual-studio-code"></a>Visual Studio Code에서 코드 업데이트
 
-서비스가 디버깅 모드로 실행되는 동안*src/main/java/com/ms/sample/webfrontend/Application.java*에서 줄 19를 업데이트합니다. 다음은 그 예입니다.
+서비스가 디버깅 모드로 실행되는 동안*src/main/java/com/ms/sample/webfrontend/Application.java*에서 줄 19를 업데이트합니다. 다음은 그 예입니다. 
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```

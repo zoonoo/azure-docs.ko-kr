@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cdad95b1a910a45629e85bcc716218b272afd9de
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e18fc765385e6d703e735a1ca15c539c32f36e93
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421297"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82116250"
 ---
 # <a name="overview-query-data-in-storage"></a>개요: 스토리지의 데이터 쿼리
 
@@ -72,9 +72,6 @@ CREATE DATABASE mydbname;
 > 기본적으로 SQL 주문형은 항상 AAD 통과를 사용합니다.
 
 스토리지 액세스 제어를 관리하는 방법에 대한 자세한 내용은 이 [링크](develop-storage-files-storage-access-control.md)를 확인하세요.
-
-> [!WARNING]
-> 엔드포인트 영역에 있는 스토리지 계정의 자격 증명을 만들어야 합니다. SQL 주문형은 다른 영역의 스토리지에 액세스할 수 있지만, 스토리지와 엔드포인트가 같은 영역에 있으면 보다 나은 성능 환경이 제공됩니다.
 
 CSV, JSON 및 Parquet 컨테이너에 대한 자격 증명을 만들려면 아래 코드를 실행합니다.
 
