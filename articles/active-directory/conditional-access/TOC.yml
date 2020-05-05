@@ -35,6 +35,8 @@
           href: concept-conditional-access-grant.md
         - name: 세션
           href: concept-conditional-access-session.md
+    - name: 인사이트 및 보고
+      href: howto-conditional-access-insights-reporting.md
     - name: 보고서 전용 모드
       href: concept-conditional-access-report-only.md
     - name: 서비스 종속성
@@ -110,7 +112,7 @@
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: 서비스 업데이트
       href: ../fundamentals/whats-new.md
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

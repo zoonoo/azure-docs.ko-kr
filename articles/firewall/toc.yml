@@ -23,6 +23,9 @@
     - name: 여러 주소를 사용하여 배포
       displayName: Resource Manager
       href: quick-create-multiple-ip-template.md
+    - name: 가용성 영역을 사용하여 배포
+      displayName: Resource Manager
+      href: deploy-template.md
 - name: 샘플
   items:
     - name: Azure PowerShell
@@ -61,8 +64,6 @@
       href: tutorial-hybrid-ps.md
     - name: Azure CLI를 사용하여 배포
       href: deploy-cli.md
-    - name: 템플릿을 사용하여 배포
-      href: deploy-template.md
     - name: 여러 공용 IP를 사용하여 배포
       href: deploy-multi-public-ip-powershell.md
     - name: 가용성 영역을 사용하여 배포
@@ -75,6 +76,8 @@
       href: snat-private-range.md
     - name: IP 그룹 만들기
       href: create-ip-group.md
+    - name: Windows Virtual Desktop 보호
+      href: protect-windows-virtual-desktop.md
 - name: 참조
   items:
     - name: Azure CLI

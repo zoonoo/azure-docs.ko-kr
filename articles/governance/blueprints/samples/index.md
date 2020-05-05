@@ -3,12 +3,12 @@ title: 청사진 샘플 인덱스
 description: Azure 청사진을 사용하여 환경, 정책 및 Cloud Adoptions Framework 기반을 배포하기 위한 규정 준수 및 표준 샘플의 인덱스입니다.
 ms.date: 02/26/2020
 ms.topic: sample
-ms.openlocfilehash: 745b16f8aff8fe003ec65449cdf3dc0d629ba6ff
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 582a4bbc1ec21e231d2a9f1feb1cfef34b3cce37
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383520"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594273"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -18,6 +18,7 @@ ms.locfileid: "81383520"
 
 |  |  |
 |---------|---------|
+| [오스트레일리아 정부 ISM PROTECTED](./ism-protected/control-mapping.md) | 오스트레일리아 정부 ISM PROTECTED 규정 준수에 대한 보호책을 제공합니다. |
 | [캐나다 연방 PBMM](./canada-federal-pbmm/index.md) | Canada Federal Protected B, 중간 무결성, 중간 가용성(PBMM) 규정 준수를 위한 가드레일을 제공합니다. |
 | [CIS Microsoft Azure Foundations 벤치마크](./cis-azure-1.1.0/index.md)| CIS Microsoft Azure Foundations 벤치마크 권장 사항을 준수하는 데 도움이 되는 일련의 정책을 제공합니다. |
 | [DoD 영향 수준 4](./dod-impact-level-4/index.md) | DoD 영향 수준 4를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |

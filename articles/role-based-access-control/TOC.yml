@@ -1,9 +1,9 @@
-- name: Azure 리소스에 대한 RBAC 설명서
+- name: Azure RBAC 설명서
   href: index.yml
   items: null
 - name: 개요
   items:
-    - name: RBAC란?
+    - name: Azure RBAC란?
       href: overview.md
     - name: 다른 역할 이해
       href: rbac-and-directory-admin-roles.md
@@ -74,7 +74,7 @@
           href: deny-assignments-powershell.md
         - name: REST API
           href: deny-assignments-rest.md
-    - name: 사용자 지정 역할 만들기
+    - name: 사용자 지정 역할 만들기 또는 업데이트
       items:
         - name: 개요
           href: custom-roles.md
@@ -100,7 +100,7 @@
       href: built-in-roles.md
     - name: 리소스 공급자 작업
       href: resource-provider-operations.md
-    - name: RBAC 제한
+    - name: Azure RBAC 제한
       href: '../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits'
     - name: Azure PowerShell
       href: /powershell/module/az.resources

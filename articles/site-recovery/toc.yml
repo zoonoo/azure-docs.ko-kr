@@ -165,8 +165,6 @@
               href: azure-to-azure-about-networking.md
             - name: 대상 Azure VM의 네트워킹 구성 사용자 지정
               href: azure-to-azure-customize-networking.md
-            - name: 모바일 서비스 프록시 설정 구성
-              href: configure-mobility-service-proxy-settings.md
             - name: 네트워크 매핑 설정 및 장애 조치(failover) 후 IP 주소 유지
               href: azure-to-azure-network-mapping.md
             - name: 장애 조치(failover) 후 IP 주소 유지에 대한 예제
@@ -191,6 +189,8 @@
               href: azure-to-azure-how-to-reprotect.md
             - name: Azure로 마이그레이션한 후 Azure VM에 대해 재해 복구 설정
               href: azure-to-azure-replicate-after-migration.md
+            - name: 영역 간 재해 복구 사용
+              href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
         - name: 관리
           items:
             - name: Azure VM에 대한 모바일 서비스 업데이트
@@ -241,7 +241,7 @@
               href: vmware-azure-set-up-replication.md
             - name: 모바일 서비스 배포
               items:
-                - name: 모바일 서비스 설치 정보
+                - name: 모바일 서비스 개요 및 설치
                   href: vmware-physical-mobility-service-overview.md
                 - name: 강제 설치 준비
                   href: vmware-azure-install-mobility-service.md

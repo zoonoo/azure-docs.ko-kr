@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Azure 리소스에 대한 RBAC 설명서
-summary: RBAC(역할 기반 액세스 제어)는 Azure 리소스에 대한 세밀한 액세스 관리를 제공하는 시스템입니다. RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
+title: Azure RBAC 설명서
+summary: Azure RBAC(Azure 역할 기반 액세스 제어)는 Azure 리소스에 대한 세밀한 액세스 관리를 제공하는 시스템입니다. Azure RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
 metadata:
-  title: Azure 리소스에 대한 RBAC(역할 기반 액세스 제어) 설명서
-  description: Azure 리소스에 액세스할 수 있는 사용자, 해당 리소스로 수행할 수 있는 작업 및 액세스 권한이 있는 영역을 관리하는 RBAC(역할 기반 액세스 제어)에 대해 알아봅니다.
+  title: Azure RBAC 설명서
+  description: Azure 리소스에 액세스할 수 있는 사용자, 해당 리소스로 수행할 수 있는 작업 및 액세스 권한이 있는 영역을 관리하는 Azure RBAC(Azure 역할 기반 액세스 제어)에 대해 알아봅니다.
   services: role-based-access-control
   ms.service: role-based-access-control
   ms.subservice: na
@@ -11,19 +11,19 @@ metadata:
   ms.collection: na
   author: rolyon
   ms.author: rolyon
-  ms.date: 08/26/2019
-  ms.openlocfilehash: e947b1ab685bcc1da5d3895e49c07d1ff56c0937
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 04/30/2020
+  ms.openlocfilehash: b2661936d82f8d167ec2ef466effcd84d0a972dd
+  ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "70968307"
+  ms.lasthandoff: 05/03/2020
+  ms.locfileid: "82733484"
 landingContent:
-- title: Azure 리소스용 RBAC 정보
+- title: Azure RBAC 정보
   linkLists:
   - linkListType: overview
     links:
-    - text: RBAC란?
+    - text: Azure RBAC란?
       url: overview.md
     - text: 다른 역할 이해
       url: rbac-and-directory-admin-roles.md
@@ -45,7 +45,7 @@ landingContent:
       url: tutorial-role-assignments-group-powershell.md
   - linkListType: learn
     links:
-    - text: RBAC로 Azure 리소스 보호
+    - text: Azure RBAC로 Azure 리소스 보호
       url: https://docs.microsoft.com/learn/modules/secure-azure-resources-with-rbac/
 - title: 액세스 관리
   linkLists:
@@ -63,12 +63,16 @@ landingContent:
       url: role-assignments-rest.md
     - text: 템플릿
       url: role-assignments-template.md
-- title: 사용자 지정 역할 만들기
+- title: 사용자 지정 역할 만들기 또는 업데이트
   linkLists:
   - linkListType: overview
     links:
     - text: 사용자 지정 역할
       url: custom-roles.md
+  - linkListType: how-to-guide
+    links:
+    - text: 사용자 지정 역할 만들기 - 포털
+      url: custom-roles-portal.md
   - linkListType: tutorial
     links:
     - text: 사용자 지정 역할 만들기 - PowerShell

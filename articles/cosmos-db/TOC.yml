@@ -87,6 +87,9 @@
       href: cli-samples.md
     - name: Azure 리소스 관리자
       href: resource-manager-samples.md
+    - name: Azure Policy 기본 제공
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
     - name: NoSQL 및 관계형 데이터베이스
@@ -1051,22 +1054,26 @@
       items:
         - name: Cosmos DB 모니터링
           href: monitor-cosmos-db.md
-        - name: 서버 쪽 대기 시간 모니터링
-          href: monitor-server-side-latency.md
-        - name: 요청 단위 사용량 모니터링
-          href: monitor-request-unit-usage.md
-        - name: 진단 로그 모니터링
-          href: cosmosdb-monitor-resource-logs.md
-        - name: 컨트롤 플레인 로그 감사
-          href: audit-control-plane-logs.md
-        - name: Cosmos용 Azure Monitor(미리 보기)
-          href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Azure Monitor 메트릭 사용
+          items:
+            - name: Cosmos용 Azure Monitor(미리 보기)
+              href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: 서버 쪽 대기 시간 모니터링
+              href: monitor-server-side-latency.md
+            - name: 요청 단위 사용량 모니터링
+              href: monitor-request-unit-usage.md
+        - name: 진단 로그 사용
+          items:
+            - name: 진단 로그 모니터링
+              href: cosmosdb-monitor-resource-logs.md
+            - name: 컨트롤 플레인 로그 감사
+              href: audit-control-plane-logs.md
         - name: Cosmos DB 계정에서 메트릭 보기
           href: use-metrics.md
-        - name: Logic Apps를 통한 애플리케이션 로깅
-          href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: 데이터 참조 모니터링
           href: monitor-cosmos-db-reference.md
+        - name: Logic Apps를 통한 애플리케이션 로깅
+          href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: 로컬에서 개발
       items:
         - name: 에뮬레이터 사용

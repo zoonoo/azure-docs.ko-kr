@@ -178,7 +178,7 @@
                   href: automation-onboard-solutions-from-automation-account.md
                 - name: Automation Runbook에서
                   href: automation-onboard-solutions.md
-            - name: 추적된 파일의 콘텐츠 보기
+            - name: 변경 내용 추적 및 인벤토리 관리
               href: change-tracking-file-contents.md
             - name: VM에서 인벤토리 컬렉션 관리
               href: automation-vm-inventory.md

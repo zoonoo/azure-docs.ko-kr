@@ -9,12 +9,19 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: DB 만들기 - 포털
-      href: quickstart-create-mysql-server-database-using-azure-portal.md
-    - name: DB 만들기 - Azure CLI
-      href: quickstart-create-mysql-server-database-using-azure-cli.md
-    - name: DB 만들기 - Azure CLI up 명령
-      href: quickstart-create-server-up-azure-cli.md
+    - name: DB 만들기
+      items:
+        - name: DB 만들기 - 포털
+          href: quickstart-create-mysql-server-database-using-azure-portal.md
+        - name: DB 만들기 - Azure CLI
+          href: quickstart-create-mysql-server-database-using-azure-cli.md
+        - name: DB 만들기 - Azure CLI up 명령
+          href: quickstart-create-server-up-azure-cli.md
+        - name: DB 만들기 - Azure PowerShell
+          href: quickstart-create-mysql-server-database-using-azure-powershell.md
+        - name: DB 만들기 - ARM 템플릿
+          href: quickstart-create-mysql-server-database-using-arm-template.md
+          displayName: deploy azure resource manager template
     - name: 연결 및 쿼리
       items:
         - name: PHP
@@ -43,6 +50,8 @@
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-using-cli.md
+        - name: Azure PowerShell
+          href: tutorial-design-database-using-powershell.md
         - name: Azure Resource Manager 템플릿
           href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
     - name: 2 - Web App 만들기
@@ -160,6 +169,8 @@
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restore-server-powershell.md
     - name: 데이터베이스 마이그레이션
       items:
         - name: 덤프 및 복원
@@ -186,12 +197,16 @@
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
+        - name: Azure PowerShell
+          href: howto-configure-server-parameters-using-powershell.md
     - name: 자동 증가 스토리지
       items:
         - name: Azure portal
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
+        - name: Azure PowerShell
+          href: howto-auto-grow-storage-powershell.md
     - name: 서버 로그 액세스
       items:
         - name: 느린 쿼리 로그
@@ -218,6 +233,8 @@
           href: howto-read-replicas-portal.md
         - name: '읽기 복제본 Azure CLI, REST API 만들기'
           href: howto-read-replicas-cli.md
+        - name: Azure PowerShell 읽기 복제본 만들기
+          href: howto-read-replicas-powershell.md
     - name: 문제 해결
       items:
         - name: 연결 오류 문제 해결
@@ -250,6 +267,8 @@
           href: howto-data-encryption-portal.md
         - name: Azure CLI
           href: howto-data-encryption-cli.md
+        - name: 데이터 암호화 유효성 검사
+          href: howto-data-encryption-validation.md
     - name: Azure AD 통합
       items:
         - name: Azure AD 통합 구성
@@ -264,6 +283,8 @@
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restart-server-powershell.md
 - name: 참조
   items:
     - name: Azure CLI
@@ -284,7 +305,7 @@
       href: 'https://azure.microsoft.com/pricing/details/mysql/'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMySQL'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-mysql'
     - name: 동영상
       items:

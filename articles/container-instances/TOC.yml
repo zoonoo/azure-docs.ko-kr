@@ -13,6 +13,9 @@
       href: container-instances-quickstart-portal.md
     - name: 컨테이너 인스턴스 배포 - PowerShell
       href: container-instances-quickstart-powershell.md
+    - name: 컨테이너 인스턴스 배포 - ARM 템플릿
+      displayName: Resource Manager
+      href: container-instances-quickstart-template.md
 - name: 자습서
   items:
     - name: 컨테이너 이미지 만들기 및 배포
@@ -51,6 +54,8 @@
       href: container-instances-orchestrator-relationship.md
     - name: 보안 고려 사항
       href: container-instances-image-security.md
+    - name: 가상 네트워킹
+      href: container-instances-virtual-network-concepts.md
 - name: 방법 가이드
   items:
     - name: 배포
@@ -77,8 +82,6 @@
           href: container-instances-start-command.md
         - name: 명령 실행(exec)
           href: container-instances-exec.md
-        - name: Jenkins 빌드 작업 실행
-          href: container-instances-jenkins.md
         - name: 관리 ID 사용(미리 보기)
           href: container-instances-managed-identity.md
         - name: GPU 리소스 사용(미리 보기)
@@ -153,7 +156,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 제품 사용자 의견 제공
       href: 'https://feedback.azure.com/forums/602224-azure-container-instances'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-container-instances'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'

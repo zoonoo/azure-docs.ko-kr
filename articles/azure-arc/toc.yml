@@ -4,6 +4,11 @@
   items:
     - name: 서버용 Azure Arc란?
       href: ./servers/overview.md
+- name: 샘플
+  items:
+    - name: Azure Policy 기본 제공
+      displayName: 'samples, policies, definitions'
+      href: ./servers/policy-samples.md
 - name: 방법 가이드
   items:
     - name: Azure Arc에 연결

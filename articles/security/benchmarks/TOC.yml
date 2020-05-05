@@ -3,6 +3,7 @@
 - name: 소개
   href: introduction.md
 - name: Single Sign On 설정
+  expanded: true
   items:
     - name: Azure 보안 컨트롤 개요
       href: overview.md
@@ -10,11 +11,11 @@
       href: security-control-network-security.md
     - name: 로깅 및 모니터링
       href: security-control-logging-monitoring.md
-    - name: ID 및 Access Control
+    - name: ID 및 액세스 제어
       href: security-control-identity-access-control.md
     - name: 데이터 보호
       href: security-control-data-protection.md
-    - name: 취약성 관리
+    - name: 취약점 관리
       href: security-control-vulnerability-management.md
     - name: 인벤토리 및 자산 관리
       href: security-control-inventory-asset-management.md
@@ -28,7 +29,7 @@
       href: security-control-incident-response.md
     - name: 침투 테스트 및 레드 팀 연습
       href: security-control-penetration-tests-red-team-exercises.md
-- name: 보안 기준
+- name: Azure 보안 기준
   items:
     - name: Azure 보안 기준 개요
       href: security-baselines-overview.md

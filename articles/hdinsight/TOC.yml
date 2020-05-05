@@ -221,14 +221,18 @@
               href: ./hdinsight-hadoop-oms-log-analytics-use-queries.md
             - name: 클러스터 성능 모니터링
               href: ./hdinsight-key-scenarios-to-monitor.md
-            - name: Ambari 및 Azure Monitor 로그를 사용하여 클러스터 가용성 모니터링
+            - name: 클러스터 가용성 - Apache Ambari
               href: ./hdinsight-cluster-availability.md
+            - name: 클러스터 가용성 - Azure Monitor 로그
+              href: ./cluster-availability-monitor-logs.md
         - name: 문제 해결
           items:
             - name: 스크립트 동작 문제 해결
               href: ./troubleshoot-script-action.md
             - name: 리소스 만들기 실패
               href: ./troubleshoot-resource-creation-fails.md
+            - name: Apache Oozie 문제 해결
+              href: ./troubleshoot-oozie.md
     - name: 참조
       items:
         - name: Azure PowerShell
@@ -699,6 +703,8 @@
               href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
             - name: Apache HBase 문제 해결
               href: ./hbase/apache-troubleshoot-hbase.md
+            - name: Apache HBase를 쿼리하는 REST API
+              href: ./hbase/troubleshoot-rest-api.md
 - name: 대화형 쿼리
   items:
     - name: 개요
@@ -901,6 +907,8 @@
           href: ./transport-layer-security.md
         - name: HDInsight용 VNET 계획
           href: ./hdinsight-plan-virtual-network-deployment.md
+        - name: 네트워크 트래픽 제어
+          href: ./control-network-traffic.md
         - name: NSG 및 UDR에 필요한 IP 주소
           href: ./hdinsight-management-ip-addresses.md
         - name: Azure Firewall에 대한 서비스 태그

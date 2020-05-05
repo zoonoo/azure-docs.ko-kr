@@ -1,0 +1,104 @@
+- name: Windows Virtual Desktop 2019년 가을 릴리스
+  href: ../index.yml
+- name: 개요
+  items:
+    - name: Windows Virtual Desktop이란?
+      href: ../overview.md
+    - name: 2020년 봄 릴리스 설명서
+      href: ../create-host-pools-azure-marketplace.md
+- name: 자습서
+  items:
+    - name: 1. 테넌트 만들기
+      href: tenant-setup-azure-active-directory.md
+    - name: 2. PowerShell을 사용하여 서비스 주체 만들기 및 역할 할당
+      href: create-service-principal-role-powershell.md
+    - name: 3. Azure Marketplace를 사용하여 호스트 풀 만들기
+      href: create-host-pools-azure-marketplace-2019.md
+    - name: 4. 앱 액세스 관리
+      href: manage-app-groups-2019.md
+    - name: 5. 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기
+      href: create-validation-host-pool-2019.md
+    - name: 6. 서비스 경고 설정
+      href: set-up-service-alerts-2019.md
+- name: 방법
+  items:
+    - name: Windows Virtual Desktop 리소스에 연결
+      items:
+        - name: 웹 클라이언트를 사용하여 연결
+          href: connect-web-2019.md
+        - name: Android 클라이언트와 연결
+          href: connect-android-2019.md
+        - name: macOS 클라이언트와 연결
+          href: connect-macos-2019.md
+        - name: iOS 클라이언트와 연결
+          href: connect-ios-2019.md
+    - name: 호스트 풀 및 세션 호스트 만들기
+      items:
+        - name: Azure Resource Manager 템플릿
+          href: create-host-pools-arm-template.md
+        - name: PowerShell
+          href: create-host-pools-powershell-2019.md
+        - name: Windows 7 가상 머신 배포
+          href: deploy-windows-7-virtual-machine.md
+        - name: GPU 기반 세션 호스트 배포
+          href: configure-vm-gpu-2019.md
+        - name: 기존 호스트 풀 확장
+          href: expand-existing-host-pool-2019.md
+    - name: 호스트 풀 설정 구성
+      items:
+        - name: RDP 속성
+          href: customize-rdp-properties-2019.md
+        - name: 개인 데스크톱 할당 유형
+          href: configure-host-pool-personal-desktop-assignment-type-2019.md
+    - name: 자동으로 세션 호스트 크기 조정
+      href: set-up-scaling-script.md
+    - name: 피드 사용자 지정
+      href: customize-feed-virtual-desktop-users-2019.md
+    - name: 관리 도구 배포
+      items:
+        - name: Azure Resource Manager 템플릿
+          href: manage-resources-using-ui.md
+        - name: PowerShell
+          href: manage-resources-using-ui-powershell.md
+    - name: 서비스 진단 사용
+      items:
+        - name: 진단 도구 배포
+          href: deploy-diagnostics.md
+        - name: Log Analytics에서 진단 사용
+          href: diagnostics-log-analytics-2019.md
+    - name: 기본 제공 앱 게시
+      href: publish-apps-2019.md
+- name: 개념
+  items:
+    - name: Windows Virtual Desktop 환경
+      href: environment-setup-2019.md
+    - name: Windows Virtual Desktop에서 위임된 액세스
+      href: delegated-access-virtual-desktop-2019.md
+    - name: 호스트 풀 부하 분산 메서드
+      href: host-pool-load-balancing-2019.md
+    - name: 데이터 위치
+      href: data-locations-2019.md
+- name: 문제 해결
+  items:
+    - name: '문제 해결 개요, 피드백 및 지원'
+      href: troubleshoot-set-up-overview-2019.md
+    - name: 문제 식별 및 진단
+      href: diagnostics-role-service-2019.md
+    - name: 테넌트 및 호스트 풀 만들기
+      href: troubleshoot-set-up-issues-2019.md
+    - name: 세션 호스트 가상 머신 구성
+      href: troubleshoot-vm-configuration-2019.md
+    - name: Windows 7 가상 머신 문제 해결
+      href: troubleshoot-windows-7-vm.md
+    - name: 관리 도구 문제 해결
+      href: troubleshoot-management-tool.md
+    - name: 원격 데스크톱 서비스 연결
+      href: troubleshoot-service-connection-2019.md
+    - name: Windows Virtual Desktop PowerShell
+      href: troubleshoot-powershell-2019.md
+- name: 참조
+  items:
+    - name: PowerShell
+      href: /powershell/windows-virtual-desktop/overview
+    - name: REST API
+      href: /rest/api/virtual-desktop/
