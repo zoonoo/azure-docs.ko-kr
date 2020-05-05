@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 5dbbbbb18bf81d70ed7955530db7c603594c16d0
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 93bedbf4275dacc3ec84e6df9c55e7e9a7b9d632
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652732"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780915"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>릴리스 정보: 음성 장치 SDK
 
@@ -23,6 +23,7 @@ ms.locfileid: "82652732"
 
 ## <a name="speech-devices-sdk-1110"></a>음성 장치 SDK 1.11.0:
 
+- [임의의 마이크 배열 기 하 도형을](how-to-devices-microphone-array-configuration.md) 지원 하 고 [구성 파일](https://aka.ms/sdsdk-micarray-json)을 통해 작업 각도를 설정 합니다.
 - [URBETTER](http://www.urbetter.com/products_56/278.html)지원.
 - [음성 도우미 샘플](https://aka.ms/sdsdk-speaker)에서 사용 되는 [GGEC 스피커](https://aka.ms/sdsdk-download-speaker) 에 대 한 이진 파일을 릴리스 했습니다.
 - Raspberry Pi 및 유사한 장치에 대해 [LINUX ARM32](https://aka.ms/sdsdk-download-linux-arm32) 및 [linux ARM 64](https://aka.ms/sdsdk-download-linux-arm64) 에 대 한 이진 파일을 릴리스 했습니다.
@@ -62,7 +63,7 @@ ms.locfileid: "82652732"
 - 새로운 키워드 기술은 상당한 품질 향상을 제공 하며 주요 변경 내용을 참조 하세요.
 - 새 오디오 처리 파이프라인.
 
-**호환성이 손상되는 변경**
+**주요 변경 내용**
 
 - 새로운 키워드 기술 덕분에 향상 된 키워드 포털에서 모든 키워드를 다시 만들어야 합니다. 장치에서 이전 키워드를 완전히 제거 하려면 이전 앱을 제거 합니다.
   - adb cognitiveservices account. sdsdkstarterapp를 제거 합니다.
@@ -77,7 +78,7 @@ ms.locfileid: "82652732"
 - 업데이트 된 키워드 처리, 주요 변경 내용을 참조 하세요.
 - 샘플 응용 프로그램은 음성 인식과 번역을 위한 언어 선택 항목을 추가 합니다.
 
-**호환성이 손상되는 변경**
+**주요 변경 내용**
 
 - [키워드를 설치](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) 하는 것은 간소화 되었으므로 이제 앱의 일부 이며 장치에 별도로 설치할 필요가 없습니다.
 - 키워드 인식이 변경 되었으며 두 개의 이벤트가 지원 됩니다.
@@ -96,7 +97,7 @@ ms.locfileid: "82652732"
 - 향상된 오디오 처리 알고리즘을 사용하여 음성 인식 정확도가 향상됩니다.
 - 연속 인식 오디오 세션 버그 하나가 해결되었습니다.
 
-**호환성이 손상되는 변경**
+**주요 변경 내용**
 
 - 이 릴리스에는 몇 가지 주요한 변경 내용이 도입되었습니다. API와 관련된 자세한 내용은 [이 페이지](https://aka.ms/csspeech/breakingchanges_1_0_0)를 확인하세요.
 - KWS 모델 파일은 Speech Devices SDK 1.0.1과 호환되지 않습니다. 새 키워드 파일이 장치에 기록 된 후 기존 키워드 파일이 삭제 됩니다.
