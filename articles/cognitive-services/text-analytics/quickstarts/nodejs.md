@@ -12,10 +12,10 @@ ms.date: 12/17/2019
 ms.author: aahi
 ms.custom: seo-javascript-september2019
 ms.openlocfilehash: c111937dbbea5e588e82bc9753a71d1d597ca767
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75378792"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Node.js를 사용하여 Text Analytics Cognitive Service 호출  
