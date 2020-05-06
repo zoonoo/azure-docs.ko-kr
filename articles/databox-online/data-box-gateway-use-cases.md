@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: e72113313e27949819db567c550401b1f051473f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dde84f0973cc7e21e57574bbabe398b38581358f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77022684"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562408"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Azure Data Box Gateway에 대한 사용 사례
 
@@ -77,7 +77,7 @@ Data Box Gateway의 주요 장점 중 하나는 데이터 크기에 관계없이
 
 ### <a name="ongoing-feed-with-data-box-gateway"></a>Data Box Gateway를 사용하여 진행 중인 피드
 
-Data Box Gateway에서 지속적인 수집을 위해 다음 단계를 수행합니다.
+Data Box Gateway에서 지속적인 수집을 위해 다음 단계를 수행합니다. 
 
 1. Data Box Gateway에서 클라우드 공유를 만듭니다. 이 공유는 Azure Storage 계정에 데이터를 자동으로 업로드합니다. Data Box Gateway 리소스에서 **공유**로 이동하고 **+ 공유 추가**를 클릭합니다.
 

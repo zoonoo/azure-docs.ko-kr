@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9a653d13137a3067bfaf51c64c09454a08783e31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ac37e9bd10caea5c6e58fc797eac73ce6c714162
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131407"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561036"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Azure IoT Edge 연속 통합 및 지속적인 배포
 
@@ -100,6 +100,13 @@ Azure Repos를 사용 하는 방법에 대 한 자세한 내용은 [Visual Studi
    * **기본 플랫폼**: 대상 IoT Edge 장치에 따라 모듈에 적절 한 플랫폼을 선택 합니다.
    * **출력 변수**: 출력 변수는 배포. json 파일이 생성 될 파일 경로를 구성 하는 데 사용할 수 있는 참조 이름을 포함 합니다. 참조 이름을 **edge**와 같이 기억하기 쉬운 이름을 설정합니다.
 
+
+   이러한 구성은 `module.json` 파일에 정의 된 이미지 리포지토리 및 태그를 사용 하 여 모듈 이미지의 이름을 지정 하 고 태그를 지정 합니다. 또한 **빌드 모듈 이미지** 를 사용 하면 변수를 `module.json` 파일에서 정의한 정확한 값으로 바꿀 수 있습니다. Visual Studio 또는 Visual Studio Code에서 `.env` 파일의 실제 값을 지정 합니다. Azure Pipelines **파이프라인 변수** 탭에서 값을 설정 합니다. **변수** 탭을 선택 하 고 이름 및 값을 다음과 같이 구성 합니다.
+
+    * **ACR_ADDRESS**: Azure Container Registry 주소입니다. 
+
+    프로젝트에 다른 변수가 있는 경우이 탭에서 이름 및 값을 지정할 수 있습니다. **빌드 모듈 이미지** 는 `${VARIABLE}` 형식의 변수만 인식 합니다. `**/module.json` 파일에서이 형식을 사용 하는지 확인 합니다.
+    
 7. 두 번째 **Azure IoT Edge** 작업을 선택하여 편집합니다. 이 작업은 모든 모듈 이미지를 선택된 컨테이너 레지스트리로 푸시합니다.
 
    * **표시 이름**: 작업 필드가 변경 될 때 표시 이름이 자동으로 업데이트 됩니다.

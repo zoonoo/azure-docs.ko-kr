@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mingshen
 ms.openlocfilehash: 672153eba4aa2b739b67694f939c4796b39ac4c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "81274381"
 ---
 # <a name="frequently-asked-questions-for-migrating-from-the-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로 마이그레이션하기 위한 질문과 대답
@@ -137,7 +137,7 @@ Cloud 파트너 포털의 단일 페이지에서 Sku를 제공 하는 데 사용
 
 다음 표에서는 두 포털 간의 해당 링크를 보여 줍니다.
 
-| 호출 | Cloud 파트너 포털 링크 | 파트너 센터 링크 |
+| 페이지 | Cloud 파트너 포털 링크 | 파트너 센터 링크 |
 |------|---------------------------|---------------------|
 | **모든 제품 페이지** | https://cloudpartner.azure.com/#alloffers | https://partner.microsoft.com/dashboard/commercial-marketplace/overview |
 | **모든 게시자 페이지** | https://cloudpartner.azure.com/#publishers | https://partner.microsoft.com/dashboard/account/v3/publishers/list |
