@@ -1,5 +1,5 @@
 ---
-title: 파트너 센터의 상용 marketplace 분석에서 대시보드 다운로드
+title: 파트너 센터의 Microsoft 상용 marketplace 분석에서 대시보드 다운로드
 description: Marketplace 제품에 대 한 다운로드 요청에 액세스 하는 방법을 알아봅니다.
 author: dsindona
 ms.author: dsindona
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: f81b8ae927df6c95bbc34be7ad9916c88aeba03b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 136a65e47327007d7a28c2777051be61f475323e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251676"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732721"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>상용 marketplace 분석에서 대시보드 다운로드
 

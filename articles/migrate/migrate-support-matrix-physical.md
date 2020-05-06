@@ -3,12 +3,12 @@ title: Azure Migrate의 물리적 서버 평가 지원
 description: Azure Migrate Server 평가를 사용 하 여 물리적 서버 평가 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: ae76a6b570ec58e71a8a1728a2a601728030f58c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f21ec149aa6f85c0a1f33e91dacf9de48ff72bbb
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538157"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744511"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>물리적 서버 평가를 위한 지원 매트릭스 
 
@@ -24,7 +24,7 @@ ms.locfileid: "81538157"
 --- | ---
 **평가 제한** | 단일 [Azure Migrate 프로젝트](migrate-support-matrix.md#azure-migrate-projects)에서 최대 35000 대의 물리적 서버를 검색 하 고 평가할 수 있습니다.
 **프로젝트 제한** | Azure 구독에서 여러 프로젝트를 만들 수 있습니다. 물리적 서버 외에도 프로젝트에는 각각에 대 한 평가 제한까지 VMware Vm 및 Hyper-v Vm이 포함 될 수 있습니다.
-**조사** | Azure Migrate 어플라이언스는 최대 250 대의 물리적 서버를 검색할 수 있습니다.
+**검색** | Azure Migrate 어플라이언스는 최대 250 대의 물리적 서버를 검색할 수 있습니다.
 **평가** | 단일 그룹에 최대 35000 대의 컴퓨터를 추가할 수 있습니다.<br/><br/> 단일 평가에서 최대 35000 대의 컴퓨터를 평가할 수 있습니다.
 
 평가에 대해 자세히 [알아보세요](concepts-assessment-calculation.md) .
@@ -34,16 +34,18 @@ ms.locfileid: "81538157"
 | **지원**                | **세부 정보**               
 | :-------------------       | :------------------- |
 | **물리적 서버 배포**       | 물리적 서버는 독립 실행형 이거나 클러스터에 배포할 수 있습니다. |
-| **권한**           | **Windows:** 검색 하려는 모든 Windows 서버에서 로컬 또는 도메인 사용자 계정이 필요 합니다. 사용자 계정은 원격 데스크톱 사용자, 성능 모니터 사용자 및 성능 로그 사용자 그룹에 추가 되어야 합니다. <br/><br/> **Linux:** 검색하려는 Linux 서버의 루트 계정이 필요합니다. |
-| **운영 체제** | Windows Server 2003 및 SUSE Linux를 제외 하 고 Azure에서 지 원하는 모든 [windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제입니다.|
+| **권한**           | **Windows:** 검색 하려는 모든 Windows 서버의 도메인 관리자 또는 로컬 관리자 여야 합니다. 사용자 계정은 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자 그룹에 추가 되어야 합니다. <br/><br/> **Linux:** 검색하려는 Linux 서버의 루트 계정이 필요합니다. |
+| **운영 체제** | Windows Server 2003 및 SUSE Linux를 제외 하 고 Azure에서 지 원하는 모든 [windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) server 운영 체제입니다.<br/><br/> Windows 10 및 Windows 8 클라이언트 운영 체제 |
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Azure Migrate 어플라이언스 요구 사항
 
-Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](migrate-appliance.md) 를 사용 합니다. 물리적 서버에 대 한 어플라이언스는 VM 또는 물리적 컴퓨터에서 실행할 수 있습니다. Azure Portal에서 다운로드 하는 PowerShell 스크립트를 사용 하 여 어플라이언스를 설정 합니다.
+Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](migrate-appliance.md) 를 사용 합니다. 물리적 서버에 대 한 어플라이언스는 VM 또는 물리적 컴퓨터에서 실행할 수 있습니다. 
 
 - 물리적 서버의 [어플라이언스 요구 사항](migrate-appliance.md#appliance---physical) 에 대해 알아봅니다.
 - 어플라이언스에서 [공용](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드에서 액세스 해야 하는 url에 대해 알아봅니다.
+- Azure Portal에서 다운로드 하는 [PowerShell 스크립트](how-to-set-up-appliance-physical.md) 를 사용 하 여 어플라이언스를 설정 합니다.
+Azure Government에서 [이 스크립트를 사용 하 여](deploy-appliance-script-government.md)어플라이언스를 배포 합니다.
 
 ## <a name="port-access"></a>포트 액세스
 

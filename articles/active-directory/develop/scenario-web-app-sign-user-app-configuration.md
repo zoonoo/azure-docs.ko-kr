@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 621aff0a6571714ad8dad587c2385e6081c2d0f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1eef510e6389b551e128877ffde723955a1084d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181667"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734640"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>사용자가 로그인 하는 웹 앱: 코드 구성
 
@@ -298,7 +298,7 @@ Java 샘플에서는 스프링 프레임 워크를 사용 합니다. 각 HTTP �
 
 인증 코드를 포함 하는 응답은 도착 하면 MSAL Java를 사용 하 여 토큰을 획득 합니다. 마지막으로 토큰 끝점에서 토큰을 수신 하면 (리디렉션 URI) 사용자에 게 로그인 됩니다.
 
-자세한 내용은 `doFilter()` [authfilter. java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java)의 메서드를 참조 하세요.
+자세한 내용은 `doFilter()` [authfilter. java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java)의 메서드를 참조 하세요.
 
 > [!NOTE]
 > 의 `doFilter()` 코드는 약간 다른 순서로 작성 되지만 흐름은 설명 된 흐름입니다.

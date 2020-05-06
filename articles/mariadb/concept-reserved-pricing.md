@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 9a6bd3cab41c69075f5170a8a3aad4f059d970e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/20/2020
+ms.openlocfilehash: 47ddad70b4764fedefb50b93de2b7f078cf9fd27
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159050"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732906"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>예약 된 용량의 Azure Database for MariaDB 계산 리소스에 대 한 선불
 
@@ -19,7 +19,7 @@ ms.locfileid: "80159050"
 
 특정 Azure Database for MariaDB 서버에 예약을 할당할 필요가 없습니다. 이미 실행 중인 Azure Database for MariaDB 또는 새로 배포 된는 예약 된 가격 책정의 혜택을 자동으로 받게 됩니다. 예약을 구입하면 1년 또는 3년 동안의 컴퓨팅 비용을 선결제하게 됩니다. 예약을 구매 하는 즉시 예약 특성과 일치 하는 Azure database for MariaDB 계산 요금은 더 이상 종 량 제 요금으로 청구 되지 않습니다. 예약은 소프트웨어, 네트워킹 또는 MariaDB 데이터베이스 서버와 관련 된 저장소 요금을 포함 하지 않습니다. 예약 기간이 끝나면 청구 혜택이 만료 되 고 Azure Database for MariaDB는 종 량 제 가격으로 청구 됩니다. 예약은 자동 갱신되지 않습니다. 가격 책정 정보는 [Azure Database for MariaDB 예약 된 용량 제공](https://azure.microsoft.com/pricing/details/mariadb/)을 참조 하세요. </br>
 
-[Azure Portal](https://portal.azure.com/)에서 Azure Database for MariaDB 예약 된 용량을 구매할 수 있습니다. 예약 된 용량을 구입 하려면:
+[Azure Portal](https://portal.azure.com/)에서 Azure Database for MariaDB 예약 된 용량을 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../cost-management-billing/reservations/monthly-payments-reservations.md)로 처리할 수 있습니다. 예약 된 용량을 구입 하려면:
 
 * 종 량 제 요금은 하나 이상의 Enterprise 또는 개별 구독에 대 한 소유자 역할에 속해야 합니다.
 * Enterprise 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가**를 활성화해야 합니다. 이 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.

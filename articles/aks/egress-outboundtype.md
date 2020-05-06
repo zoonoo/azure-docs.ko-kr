@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service)에서 사용자 지정 송신 경로
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 3780680c485aebf1ffc654d31c577821a9b96fff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7dbde4095fb635180bb1ba663734f8dbfd602f7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80676498"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733501"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>사용자 정의 경로를 사용 하 여 클러스터 송신 사용자 지정 (미리 보기)
 
@@ -23,7 +23,7 @@ AKS 클러스터에서 송신은 특정 시나리오에 맞게 사용자 지정�
 > * [AKS 지원 정책](support-policies.md)
 > * [Azure 지원 FAQ](faq.md)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * Azure CLI 버전 2.0.81 이상
 * Azure CLI Preview 확장 버전 0.4.28 이상
 * `2020-01-01` 이상의 API 버전
@@ -73,7 +73,7 @@ AKS에 의해 다음과 같은 설정이 수행 됩니다.
 
 가 `userDefinedRouting` 설정 된 경우 AKS는 송신 경로를 자동으로 구성 하지 않습니다. **사용자**가 다음을 수행 해야 합니다.
 
-클러스터는 구성 된 서브넷을 사용 하 여 기존 가상 네트워크에 배포 해야 합니다. 유효한 UDR (사용자 정의 경로)가 아웃 바운드 연결을 사용 하는 서브넷에 있어야 합니다.
+AKS 클러스터는 구성 된 서브넷을 사용 하 여 기존 가상 네트워크에 배포 해야 합니다. 표준 부하 분산 장치 (SLB) 아키텍처를 사용 하는 경우 명시적 송신을 설정 해야 합니다. 이를 위해서는 방화벽, 게이트웨이, 온-프레미스 등의 어플라이언스로 송신 요청을 보내거나 표준 부하 분산 장치 또는 지정 된 노드에 할당 된 공용 IP에서 송신을 수행할 수 있도록 해야 합니다.
 
 AKS 리소스 공급자는 SLB (표준 부하 분산 장치)를 배포 합니다. 부하 분산 장치는 규칙을 사용 하 여 구성 되지 않으며 [규칙이 배치 될 때까지 요금이 부과 되지](https://azure.microsoft.com/pricing/details/load-balancer/)않습니다. AKS는 SLB 프런트 엔드에 대 한 공용 IP 주소를 자동으로 프로 비전 **하지 않습니다** . AKS는 부하 분산 장치 백 엔드 풀을 자동으로 구성 **하지 않습니다** .
 

@@ -1,6 +1,6 @@
 ---
-title: Azure RBAC 및 REST API를 사용 하 여 역할 할당 나열
-description: Azure RBAC (역할 기반 액세스 제어) 및 REST API를 사용 하 여 사용자, 그룹, 서비스 주체 또는 관리 id가 액세스할 수 있는 리소스를 확인 하는 방법에 대해 알아봅니다.
+title: REST API를 사용 하 여 Azure 역할 할당 나열-Azure RBAC
+description: REST API 및 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹, 서비스 사용자 또는 관리 id가 액세스할 수 있는 리소스를 확인 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a494e7fd4c9fb79faa6a1d8cb2c3c871796ccdc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 043c91e5c1ecd86951ac3f9423558a3ab369d506
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062150"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735677"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-the-rest-api"></a>Azure RBAC 및 REST API를 사용 하 여 역할 할당 나열
+# <a name="list-azure-role-assignments-using-the-rest-api"></a>REST API를 사용 하 여 Azure 역할 할당 나열
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]이 문서에서는 REST API를 사용 하 여 역할 할당을 나열 하는 방법을 설명 합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "80062150"
 
 ## <a name="list-role-assignments"></a>역할 할당 나열
 
-RBAC에서 역할 할당을 나열하면 액세스 권한이 나열됩니다. 역할 할당을 나열하려면 [역할 할당 - 나열](/rest/api/authorization/roleassignments/list) REST API 중 하나를 사용합니다. 결과를 구체화하려면 범위와 선택적 필터를 지정합니다.
+Azure RBAC에서 액세스를 나열 하려면 역할 할당을 나열 합니다. 역할 할당을 나열하려면 [역할 할당 - 나열](/rest/api/authorization/roleassignments/list) REST API 중 하나를 사용합니다. 결과를 구체화하려면 범위와 선택적 필터를 지정합니다.
 
 1. 다음 요청으로 시작합니다.
 
@@ -54,7 +54,7 @@ RBAC에서 역할 할당을 나열하면 액세스 권한이 나열됩니다. �
 1. *{filter}* 를 역할 할당 목록을 필터링하기 위해 적용하려는 조건으로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Assert | Description |
+    > | Assert | 설명 |
     > | --- | --- |
     > | `$filter=atScope()` | 하위 범위에 역할 할당을 포함 하지 않고 지정 된 범위에 대 한 역할 할당을 나열 합니다. |
     > | `$filter=assignedTo('{objectId}')` | 지정 된 사용자 또는 서비스 사용자에 대 한 역할 할당을 나열 합니다.<br/>사용자가 역할 할당을 포함 하는 그룹의 구성원 인 경우 해당 역할 할당도 나열 됩니다. 이 필터는 그룹에 대해 전이적입니다. 즉, 사용자가 그룹의 구성원이 고 해당 그룹이 역할 할당을 포함 하는 다른 그룹의 멤버인 경우 해당 역할 할당도 나열 됩니다.<br/>이 필터는 사용자 또는 서비스 사용자의 개체 ID만 허용 합니다. 그룹의 개체 ID를 전달할 수 없습니다. |
@@ -63,5 +63,5 @@ RBAC에서 역할 할당을 나열하면 액세스 권한이 나열됩니다. �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure RBAC 및 REST API를 사용 하 여 역할 할당 추가 또는 제거](role-assignments-rest.md)
+- [REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-rest.md)
 - [Azure REST API 참조](/rest/api/azure/)

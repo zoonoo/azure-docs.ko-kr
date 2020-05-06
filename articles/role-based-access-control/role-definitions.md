@@ -1,6 +1,6 @@
 ---
-title: Azure 리소스에 대한 RBAC의 역할 정의 이해 | Microsoft Docs
-description: Azure 리소스의 세분화된 액세스 관리에 사용되는 RBAC(역할 기반 액세스 제어)의 역할 정의에 대해 알아봅니다.
+title: Azure 역할 정의 이해-Azure RBAC
+description: Azure 리소스에 대 한 세분화 된 액세스 관리를 위해 azure RBAC (역할 기반 액세스 제어)의 Azure 역할 정의에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 777ea7cc29679a3819e94d39913f167ea1cb3453
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03edb8e5c58f0fe746921d50ab3f657f291d16da
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641386"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735541"
 ---
-# <a name="understand-role-definitions-for-azure-resources"></a>Azure 리소스에 대한 역할 정의 이해
+# <a name="understand-azure-role-definitions"></a>Azure 역할 정의 이해
 
-역할의 작동 방식을 파악하려고 하거나, [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)을 만드는 경우 역할이 정의되는 방식을 파악하면 도움이 됩니다. 이 문서에서는 역할 정의에 대한 자세한 내용을 설명하고 몇 가지 예제를 제공합니다.
+Azure 역할의 작동 방식을 파악 하려고 하거나 고유한 [azure 사용자 지정 역할](custom-roles.md)을 만드는 경우 역할이 정의 되는 방식을 이해 하는 것이 좋습니다. 이 문서에서는 역할 정의에 대한 자세한 내용을 설명하고 몇 가지 예제를 제공합니다.
 
 ## <a name="role-definition"></a>역할 정의
 
@@ -42,7 +42,7 @@ NotDataActions []
 AssignableScopes []
 ```
 
-| 속성 | Description |
+| 속성 | 설명 |
 | --- | --- |
 | `Name` | 역할의 표시 이름입니다. |
 | `Id` | 역할의 고유 ID입니다. |
@@ -62,7 +62,7 @@ AssignableScopes []
 
 작업 문자열의 `{action}` 부분은 리소스 종류에서 수행할 수 있는 작업의 유형을 지정합니다. 예를 들어 `{action}`에 표시되는 부분 문자열은 다음과 같습니다.
 
-| 작업 부분 문자열    | Description         |
+| 작업 부분 문자열    | 설명         |
 | ------------------- | ------------------- |
 | `*` | 와일드카드 문자는 문자열과 일치하는 모든 작업에 대한 액세스 권한을 부여합니다. |
 | `read` | 읽기 작업(GET)을 사용하도록 설정합니다. |
@@ -170,7 +170,7 @@ Bob의 권한은 [저장소 Blob 데이터 참가자](built-in-roles.md#storage-
 
 스토리지의 관리 및 데이터 평면 보안에 대한 자세한 내용은 [Azure Storage 보안 가이드](../storage/blobs/security-recommendations.md)를 참조하세요.
 
-### <a name="what-tools-support-using-rbac-for-data-operations"></a>RBAC를 사용한 데이터 작업을 지원하는 도구는 무엇인가요?
+### <a name="what-tools-support-using-azure-roles-for-data-operations"></a>Azure 역할을 사용 하 여 데이터 작업을 지 원하는 도구
 
 데이터 작업을 보고 작업하려면 도구 또는 SDK의 올바른 버전이 있어야 합니다.
 
@@ -188,12 +188,12 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 
 - 2018-07-01
 
-## <a name="actions"></a>작업
+## <a name="actions"></a>동작
 
 `Actions` 권한은 역할에서 수행할 수 있는 관리 작업을 지정합니다. Azure 리소스 공급자의 보안 개체 작업을 식별하는 작업 문자열 모음입니다. `Actions`에서 사용할 수 있는 관리 작업의 몇 가지 예제는 다음과 같습니다.
 
 > [!div class="mx-tableFixed"]
-> | 작업 문자열    | Description         |
+> | 작업 문자열    | 설명         |
 > | ------------------- | ------------------- |
 > | `*/read` | 모든 Azure 리소스 공급자에 있는 모든 리소스 종류의 읽기 작업에 대한 액세스 권한을 부여합니다.|
 > | `Microsoft.Compute/*` | Microsoft.Compute 리소스 공급자에 있는 모든 리소스 종류의 모든 작업에 대한 액세스 권한을 부여합니다.|
@@ -214,7 +214,7 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 `DataActions` 권한은 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정합니다. 예를 들어 사용자가 스토리지 계정에 대한 Blob 데이터 읽기 액세스 권한이 있는 경우 해당 스토리지 계정 내의 Blob을 읽을 수 있습니다. `DataActions`에서 사용할 수 있는 데이터 작업의 몇 가지 예제는 다음과 같습니다.
 
 > [!div class="mx-tableFixed"]
-> | 작업 문자열    | Description         |
+> | 작업 문자열    | 설명         |
 > | ------------------- | ------------------- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | Blob 또는 Blob 목록 반환 |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | Blob 쓰기 결과 반환 |
@@ -245,10 +245,10 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 > | 관리 그룹 및 구독 | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
 > | 모든 범위 (기본 제공 역할에만 적용 됨) | `"/"` |
 
-사용자 지정 역할의 `AssignableScopes`에 대한 자세한 내용은 [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)을 참조하세요.
+사용자 지정 역할 `AssignableScopes` 에 대 한 자세한 내용은 [Azure 사용자 지정 역할](custom-roles.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)
-* [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)
+* [Azure 기본 제공 역할](built-in-roles.md)
+* [Azure 사용자 지정 역할](custom-roles.md)
 * [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)

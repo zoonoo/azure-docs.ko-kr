@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 3775070320b8c6e96dd06031bd87ea53f37046c5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 074010a2f3b1f4f4a58b3c4727bf4eed28402e0a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78894847"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82142629"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET 웹 애플리케이션 모니터링 시작
 
@@ -100,10 +100,6 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 ```
 
 자세한 내용은 GitHub 리포지토리의 [오픈 소스 JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)를 참조하세요.
-
-## <a name="video"></a>비디오
-
-* [처음부터 .NET 애플리케이션으로 Application Insight 구성](https://www.youtube.com/watch?v=blnGAVgMAfA)에 대한 외부의 단계별 비디오입니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 테스트를 완료하면 리소스 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 이 작업을 수행하려면 다음 단계를 따르세요.

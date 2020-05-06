@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell를 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기 또는 업데이트
-description: Azure PowerShell를 사용 하 여 Azure 리소스에 대 한 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법에 대해 알아봅니다.
+title: Azure PowerShell를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트-Azure RBAC
+description: Azure PowerShell 및 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,27 +14,27 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3c72e04ff7a08fecc2ef352a5879898c4c6d41c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffb53bff4e70fbeb80e518fe13aaeaa8b396cfac
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062267"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734810"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기 또는 업데이트
+# <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트
 
 > [!IMPORTANT]
 > 에 관리 그룹을 추가 `AssignableScopes` 하는 것은 현재 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure PowerShell를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법을 설명 합니다.
+[Azure 기본 제공 역할이](built-in-roles.md) 조직의 특정 요구를 충족 하지 않는 경우 사용자 고유의 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure PowerShell를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법을 설명 합니다.
 
-사용자 지정 역할을 만드는 방법에 대 한 단계별 자습서는 [자습서: Azure PowerShell 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)를 참조 하세요.
+사용자 지정 역할을 만드는 방법에 대 한 단계별 자습서는 [자습서: Azure PowerShell을 사용 하 여 Azure 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)를 참조 하세요.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 사용자 지정 역할을 만들려면 다음이 필요합니다.
 
@@ -401,6 +401,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: Azure PowerShell을 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
-- [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)
+- [자습서: Azure PowerShell을 사용 하 여 Azure 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
+- [Azure 사용자 지정 역할](custom-roles.md)
 - [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)
