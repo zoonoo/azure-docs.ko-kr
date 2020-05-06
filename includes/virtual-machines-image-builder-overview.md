@@ -57,7 +57,7 @@ AIB는 Azure Marketplace 기본 OS 이미지를 지원 합니다.
 
 RHEL Iso 지원은 더 이상 사용 되지 않습니다. 자세한 내용은 템플릿 설명서를 참조 하세요.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 
 ![Azure 이미지 작성기의 개념 그리기](./media/virtual-machines-image-builder-overview/image-builder.png)

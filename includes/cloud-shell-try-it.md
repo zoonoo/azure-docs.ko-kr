@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/13/2019
 ms.author: sttramer
 ms.openlocfilehash: 7da122465c9842ad580808ff713b75e775bde96b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76766483"
 ---
 ## <a name="use-azure-cloud-shell"></a>Azure Cloud Shell 사용
@@ -21,7 +21,7 @@ Azure Cloud Shell을 시작하려면 다음을 수행합니다.
 |-----------------------------------------------|---|
 | 코드 블록의 오른쪽 위 모서리에서 **사용**을 선택합니다. **사용해보기**를 선택하면 코드가 Cloud Shell에 자동으로 복사되지 않습니다. | ![Azure Cloud Shell에 대한 사용 예제](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
 | [https://shell.azure.com](https://shell.azure.com)으로 이동하거나 **Cloud Shell 시작** 버튼을 선택하여 브라우저에서 Cloud Shell을 엽니다. | [![새 창에서 Cloud Shell 시작](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
-| **Azure Portal**의 오른쪽 위에 있는 메뉴 모음에서 [Cloud Shell](https://portal.azure.com) 단추를 선택합니다. | ![Azure Portal의 Cloud Shell 단추](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
+| [Azure Portal](https://portal.azure.com)의 오른쪽 위에 있는 메뉴 모음에서 **Cloud Shell** 단추를 선택합니다. | ![Azure Portal의 Cloud Shell 단추](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
 
 이 문서의 코드를 Azure Cloud Shell에서 실행하려면 다음을 수행합니다.
 
