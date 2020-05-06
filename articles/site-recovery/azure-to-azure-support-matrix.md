@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용 하 여 보조 지역에 대 한 Azur
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: 73160a6bf416722021d76da21a32a1cd1ee04386
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea0b6763f4438033a8a5a1a4044479fc00f8456c
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111728"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864575"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구를 위한 지원 매트릭스
 
@@ -44,7 +44,7 @@ ms.locfileid: "82111728"
 **지리적 클러스터** | **Azure 지역**
 -- | --
 America | 캐나다 동부, 캐나다 중부, 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2, 미국 중부, 미국 중북부
-유럽 | 영국 서부, 영국 남부, 북부 유럽, 유럽 서부, 남아프리카 공화국 서 부, 남아프리카 공화국 북부, 노르웨이 동부, 노르웨이 서 부
+Europe | 영국 서부, 영국 남부, 북부 유럽, 유럽 서부, 남아프리카 공화국 서 부, 남아프리카 공화국 북부, 노르웨이 동부, 노르웨이 서 부
 아시아 | 인도 남부, 인도 중부, 인도 서 부, 동남 아시아, 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부
 오스트레일리아    | 오스트레일리아 동부, 오스트레일리아 남동부, 오스트레일리아 중부, 오스트레일리아 중부 2
 Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조나, US Gov 텍사스, US DoD 동부, US DoD 중부
@@ -82,7 +82,7 @@ Site Recovery는 이 섹션에 나열된 운영 체제를 실행하는 Azure VM�
 
 **운영 체제** | **세부 정보**
 --- | ---
-시작 | Server Core, 데스크톱 환경 포함 서버에 대해 지원 됩니다.
+Windows Server 2019 | Server Core, 데스크톱 환경 포함 서버에 대해 지원 됩니다.
 Windows Server 2016  | 지원 되는 Server Core, 데스크톱 환경 포함 서버.
 Windows Server 2012 R2 | 지원됩니다.
 Windows Server 2012 | 지원됩니다.
@@ -114,7 +114,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Azure virtual Machines에 대해 지원되는 Ubuntu 커널 버전
 
-**해제** | **모바일 서비스 버전** | **커널 버전** |
+**Release** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
 14.04 LTS | 9.32| 3.13.0-24-3.13.0-170-제네릭,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-4.4.0-148-제네릭,<br/>4.15.0-4.15.0-1045-azure |
 14.04 LTS | 9.31 | 3.13.0-24-3.13.0-170-제네릭,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-4.4.0-148-제네릭,<br/>4.15.0-4.15.0-1045-azure |
@@ -134,7 +134,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Azure virtual Machines에 대해 지원되는 Debian 커널 버전
 
-**해제** | **모바일 서비스 버전** | **커널 버전** |
+**Release** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
 Debian 7 | 9.28,9.29,9.30,9.31 | 3.2.0-4-amd64에서 3.2.0-6-amd64까지, 3.16.0-0.bpo.4-amd64 |
 |||
@@ -143,7 +143,7 @@ Debian 8 | 9.28 | 3.16.0-amd64 to 3.16.0-10-amd64, 4.9.0 64,-amd64 to 4.9.0 64,.
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Azure 가상 머신에 대해 지원되는 SUSE Linux Enterprise Server 12 커널 버전
 
-**해제** | **모바일 서비스 버전** | **커널 버전** |
+**Release** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.32 | 모든 stock SUSE 12 SP1, SP2, SP3, SP4 커널을 지원 합니다.</br></br> 4.4.138-azure-4.4.180-4.31,</br>4.12.14-6.3-azure-4.12.14-6.34  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.31 | 모든 stock SUSE 12 SP1, SP2, SP3, SP4 커널을 지원 합니다.</br></br> 4.4.138-azure-4.4.180-4.31,</br>4.12.14-6.3-azure-4.12.14-6.29  |
@@ -152,9 +152,10 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.29 | 모든 stock SUSE 
 
 #### <a name="supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines"></a>Azure virtual machines에 대해 지원 되는 SUSE Linux Enterprise Server 15 커널 버전
 
-**해제** | **모바일 서비스 버전** | **커널 버전** |
+**Release** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 및 15 SP1 | 9.32 | 모든 stock SUSE 15 및 15 커널을 지원 합니다.</br></br> 4.12.14-4.12.14-8.22-azure |
+SUSE Linux Enterprise Server 15 및 15 SP1 | 9.32 | 기본적으로 모든 [STOCK SUSE 15 및 15 커널을](https://www.suse.com/support/kb/doc/?id=000019587) 지원 합니다.</br></br> 4.12.14-4.12.14-8.22-azure |
+
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>복제된 컴퓨터 - Linux 파일 시스템/게스트 스토리지
 
@@ -171,13 +172,15 @@ Size | CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든 Azu
 가용성 집합 | 지원됨 | 기본 옵션을 사용 하 여 Azure VM에 대 한 복제를 사용 하도록 설정 하면 원본 지역 설정에 따라 가용성 집합이 자동으로 만들어집니다. 이러한 설정을 수정할 수 있습니다.
 가용성 영역 | 지원됨 |
 HUB(하이브리드 사용 혜택) | 지원됨 | 원본 VM에 활성 HUB 라이선스가 있는 경우 테스트 장애 조치(failover) 또는 장애 조치(failover)된 VM에서도 HUB 라이선스를 사용합니다.
-가상 머신 확장 집합 | 지원되지 않음 |
+가상 머신 크기 집합 | 지원되지 않음 |
 Azure 갤러리 이미지 - Microsoft 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 Azure 갤러리 이미지 - 타사 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 사용자 지정 이미지 - 타사 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | VMware VM 또는 물리적 컴퓨터가 Site Recovery를 사용하여 Azure에 마이그레이션되면 컴퓨터에서 실행되는 이전 버전의 모바일 서비스를 제거하고 컴퓨터를 다시 시작한 후 다른 Azure 지역에 복제해야 합니다.
 RBAC 정책 | 지원되지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 정책은 대상 지역의 장애 조치 (failover) VM에 복제 되지 않습니다.
 확장 | 지원되지 않음 | 확장은 대상 지역의 장애 조치 (failover) VM에 복제 되지 않습니다. 장애 조치 (failover) 후 수동으로 설치 해야 합니다.
+근접 배치 그룹 | 지원되지 않음 | 근접 배치 그룹 내에 있는 가상 머신은 Site Recovery를 사용 하 여 보호할 수 없습니다.
+
 
 ## <a name="replicated-machines---disk-actions"></a>복제된 컴퓨터 - 디스크 작업
 
@@ -197,7 +200,7 @@ RBAC 정책 | 지원되지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 
 **구성 요소** | **지원** | **세부 정보**
 --- | --- | ---
 OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아봅니다](../virtual-machines/windows/managed-disks-overview.md).
-임시 디스크 | 지원되지 않음 | 임시 디스크는 항상 복제에서 제외됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세히 알아보기](../virtual-machines/windows/managed-disks-overview.md).
+임시 디스크 | 지원되지 않음 | 임시 디스크는 항상 복제에서 제외됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세한 정보를 알아보세요](../virtual-machines/windows/managed-disks-overview.md).
 데이터 디스크 최대 크기 | 관리 디스크의 8192 GB<br></br>관리 되지 않는 디스크의 4095 GB|
 데이터 디스크 최소 크기 | 관리 되지 않는 디스크에 대 한 제한은 없습니다. 관리 디스크의 경우 2gb |
 데이터 디스크 최대 수 | 특정 Azure VM 크기에 대한 지원에 따라 최대 64개 | VM 크기에 대해 [자세히 알아봅니다](../virtual-machines/windows/sizes.md).
@@ -269,7 +272,7 @@ Azure DNS | 지원됨 |
 온-프레미스에 대 한 VPN 사이트 간 연결<br/><br/>(Express 경로 유무에 관계 없음)| 지원됨 | Site Recovery 트래픽이 온-프레미스로 라우팅되지 않도록 UDRs와 NSGs가 구성 되어 있는지 확인 합니다. [자세한 정보](site-recovery-azure-to-azure-networking-guidance.md)
 VNet 간 연결    | 지원됨 | [자세한 정보](site-recovery-azure-to-azure-networking-guidance.md)
 Virtual Network 서비스 엔드포인트 | 지원됨 | 스토리지 계정에 대한 가상 네트워크 액세스를 제한하는 경우 신뢰할 수 있는 Microsoft 서비스가 스토리지 계정에 액세스할 수 있는지 확인합니다.
-가속된 네트워킹 | 지원됨 | 원본 VM에서 가속 네트워킹을 사용하도록 설정해야 합니다. [자세히 알아보기](azure-vm-disaster-recovery-with-accelerated-networking.md).
+가속된 네트워킹 | 지원됨 | 원본 VM에서 가속 네트워킹을 사용하도록 설정해야 합니다. [자세한 정보를 알아보세요](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 
