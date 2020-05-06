@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.author: lcozzens
-ms.openlocfilehash: c744557471a9b37bd620bb9195bdb709c24649ab
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4b1b9e2360f4ae1cf428133006ed08327b10cdef
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77047279"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790765"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>CI/CD 파이프라인과 통합
 
@@ -96,4 +96,4 @@ Azure App Configuration의 [Export](./howto-import-export-data.md#export-data) �
 이 자습서에서는 배포 파이프라인에서 사용할 Azure App Configuration 데이터를 내보냈습니다. App Configuration을 사용하는 방법에 대해 자세히 알아보려면 Azure CLI 샘플로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [관리 ID 통합](./howto-integrate-azure-managed-service-identity.md)
+> [Azure CLI](https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest)

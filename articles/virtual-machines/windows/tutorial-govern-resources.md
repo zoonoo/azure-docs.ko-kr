@@ -1,23 +1,19 @@
 ---
 title: 자습서 - PowerShell을 사용하여 가상 머신 관리
 description: 이 자습서에서는 Azure PowerShell을 사용하여 RBAC, 정책, 잠금 및 태그를 적용하여 Azure 가상 머신을 관리하는 방법을 알아봅니다.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: tfitzmac
-manager: gwallace
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.tgt_pltfrm: vm-windows
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: d8cb1895c980fa9f84983ea8364cb2f0f5dcb982
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: b4ce4cd53f9dda3d0f96e892128d543e59c83b26
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456025"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82100365"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>자습서: Azure PowerShell을 사용한 Windows 가상 머신 관리에 대해 알아보기
 

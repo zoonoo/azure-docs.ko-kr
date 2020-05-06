@@ -15,10 +15,10 @@ ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 8e559be82fc7c3d6b25b99319785d49e30f56287
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81460004"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>자습서 - Azure CLI로 Linux VM 만들기 및 관리

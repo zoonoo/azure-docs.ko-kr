@@ -4,10 +4,10 @@ description: Azure Blueprints 서비스를 통해 Azure 환경에서 아티팩�
 ms.date: 11/21/2019
 ms.topic: overview
 ms.openlocfilehash: 4787f2d559daffcbf5d4057ac381f0f7e1ae0c57
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80677409"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
@@ -57,7 +57,7 @@ Resource Manager 템플릿과 청사진 중 하나만 선택할 필요는 없습
 
 ### <a name="blueprint-definition-locations"></a>청사진 정의 위치
 
-청사진 정의를 만들 때는 청사진을 저장할 위치를 정의합니다. 청사진은 **기여자** 권한이 있는 [관리 그룹](../management-groups/overview.md) 또는 구독에 저장할 수 있습니다. 위치가 관리 그룹인 경우 청사진은 해당 관리 그룹의 모든 하위 구독에 할당할 수 있습니다.
+청사진 정의를 만들 때는 청사진을 저장할 위치를 정의합니다. 청사진은 [기여자](../management-groups/overview.md) 권한이 있는 **관리 그룹** 또는 구독에 저장할 수 있습니다. 위치가 관리 그룹인 경우 청사진은 해당 관리 그룹의 모든 하위 구독에 할당할 수 있습니다.
 
 ### <a name="blueprint-parameters"></a>청사진 매개 변수
 
@@ -116,7 +116,7 @@ Blueprints에서는 정책/이니셔티브 또는 Azure Resource Manager 템플�
 이러한 기본 제공 역할이 보안 요구에 적합하지 않다면 [사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 만드는 것이 좋습니다.
 
 > [!NOTE]
-> 시스템 할당 관리 ID를 사용하는 경우 Azure Blueprints의 서비스 주체가 배포를 사용하려면 할당된 구독에 대한 **소유자** 역할이 필요합니다. 포털을 사용하는 경우에는 이 역할이 배포에 대해 자동으로 부여 및 취소됩니다. REST API를 사용하는 경우에는 이 역할을 수동으로 부여해야 합니다. 하지만 배포가 완료되면 역할은 자동으로 취소됩니다. 사용자가 할당한 관리 ID를 사용하는 경우 청사진 할당을 만드는 사용자에게만 **소유자** 및 **청사진 운영자** 기본 제공 역할 둘 다에 포함되는 `Microsoft.Blueprint/blueprintAssignments/write` 권한이 필요합니다.
+> 시스템 할당 관리 ID를 사용하는 경우 Azure Blueprints의 서비스 주체가 배포를 사용하려면 할당된 구독에 대한 **소유자** 역할이 필요합니다. 포털을 사용하는 경우에는 이 역할이 배포에 대해 자동으로 부여 및 취소됩니다. REST API를 사용하는 경우에는 이 역할을 수동으로 부여해야 합니다. 하지만 배포가 완료되면 역할은 자동으로 취소됩니다. 사용자가 할당한 관리 ID를 사용하는 경우 청사진 할당을 만드는 사용자에게만 `Microsoft.Blueprint/blueprintAssignments/write`소유자**및**청사진 운영자**기본 제공 역할 둘 다에 포함되는** 권한이 필요합니다.
 
 ## <a name="naming-limits"></a>이름 지정 제한
 

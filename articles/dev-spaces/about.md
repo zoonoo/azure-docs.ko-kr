@@ -7,10 +7,10 @@ description: Azure Dev Spaces가 Azure Kubernetes Service 클러스터의 팀에
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, kubectl, k8s
 manager: gwallace
 ms.openlocfilehash: 8b22181bcddda9e4156c0e0dbe61d7d813498d96
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80529722"
 ---
 # <a name="what-is-azure-dev-spaces"></a>Azure Dev Spaces란?
@@ -38,7 +38,7 @@ Azure Dev Spaces의 작동 방식에 대한 자세한 내용은 [Azure Dev Space
 
 ## <a name="supported-regions-and-configurations"></a>지원되는 Azure 지역 및 구성
 
-Azure Dev Spaces는 [일부 지역][supported-regions]의 AKS 클러스터에 의해서만 지원됩니다. Azure Dev Spaces는 Linux, macOS 또는 Windows 8 이상에 설치된 [Azure Dev Spaces 확장](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)에서 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 [Visual Studio Code](https://code.visualstudio.com/download)를 사용하여 AKS에서 애플리케이션을 빌드하고 실행할 수 있습니다. Windows 8 이상에 설치된 [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)도 사용할 수 있습니다. Visual Studio 2019는 Azure 개발 워크로드가 필요합니다. Visual Studio 2017은 웹 개발 워크로드 및 [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools)가 필요합니다.
+Azure Dev Spaces는 [일부 지역][supported-regions]의 AKS 클러스터에 의해서만 지원됩니다. Azure Dev Spaces는 Linux, macOS 또는 Windows 8 이상에 설치된 [Azure Dev Spaces 확장](/cli/azure/install-azure-cli?view=azure-cli-latest)에서 [Azure CLI](https://code.visualstudio.com/download) 또는 [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)를 사용하여 AKS에서 애플리케이션을 빌드하고 실행할 수 있습니다. Windows 8 이상에 설치된 [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)도 사용할 수 있습니다. Visual Studio 2019는 Azure 개발 워크로드가 필요합니다. Visual Studio 2017은 웹 개발 워크로드 및 [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools)가 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

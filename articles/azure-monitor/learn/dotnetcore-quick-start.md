@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ef46b86186d1f5e26360de891b3a090ab0ece66b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 9aa19dfa0626ff0726911815addbb03945ee36f1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78894826"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82144857"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core 웹 애플리케이션 모니터링 시작
 
@@ -99,11 +99,6 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 5. 왼쪽에서 **메트릭**을 클릭합니다. 메트릭 탐색기를 사용하여 리소스의 상태 및 사용률을 조사합니다. **새 차트 추가**를 클릭하여 사용자 지정 보기를 추가로 만들거나, **편집**을 선택하여 기존 차트의 종류, 높이, 색상표, 그룹화 및 메트릭을 수정할 수 있습니다. 예를 들어 메트릭 드롭다운의 “브라우저 페이지 로드 시간”과 집계의 “Avg”를 선택하여 평균 브라우저 페이지 로드 시간을 표시하는 차트를 만들 수 있습니다. Azure 메트릭 탐색기에 대해 자세히 알아보려면 [Azure 메트릭 탐색기 시작](../../azure-monitor/platform/metrics-getting-started.md)을 방문하세요.
 
      ![메트릭 탭: 평균 브라우저 페이지 로드 시간 차트](./media/dotnetcore-quick-start/8metrics.png)
-
-## <a name="video"></a>비디오
-
-- 처음부터 [.NET Core 및 애플리케이션으로 Visual Studio으로 Application Insight 구성](https://www.youtube.com/watch?v=NoS9UhcR4gA&t)에 대한 외부의 단계별 비디오입니다.
-- 처음부터 [.NET Core 및 Visual Studio Code를 사용하여 Application Insight를 구성](https://youtu.be/ygGt84GDync)하는 것에 관한 외부 단계별 비디오입니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 테스트를 완료하면 리소스 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 이 작업을 수행하려면 다음 단계를 따르세요.

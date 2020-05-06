@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
 ms.openlocfilehash: 8a1dd07fd567f41c2b406aabccd0421b5a6983af
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80671190"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -263,7 +263,7 @@ ms.locfileid: "80671190"
 
 1. 나타나는 배포 대상 창에서 Android 디바이스를 선택합니다.
 
-   ![배포 대상 선택 창 스크린샷](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-12-deploy.png)
+   ![배포 대상 선택 창 스크린샷 ](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-12-deploy.png)
 
 애플리케이션과 작업이 시작되면 단추를 클릭하여 봇에 말하기 시작합니다. 말하는 동안 문자화된 텍스트가 표시되고 봇에서 받은 최신 작업이 수신되면 나타납니다. 봇이 음성 응답을 제공하도록 구성된 경우에는 음성 텍스트 변환이 자동으로 재생됩니다.
 

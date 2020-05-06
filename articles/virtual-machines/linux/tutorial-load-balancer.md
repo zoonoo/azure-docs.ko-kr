@@ -16,10 +16,10 @@ ms.date: 11/13/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 89ed39d1cd18fc97cec06dce4313271731b23b90
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81460038"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>자습서: Azure CLI로 Azure의 Linux 가상 머신 부하를 분산하여 고가용성 애플리케이션 만들기
@@ -310,7 +310,7 @@ az network nic ip-config address-pool add \
     --address-pool myBackEndPool
 ```
 
-가상 NIC가 백엔드 주소 풀에 연결되었는지 확인하려면 앞 단계의 [az network lb address-pool show](/cli/azure/network/lb/address-pool)를 다시 사용합니다.
+가상 NIC가 백엔드 주소 풀에 연결되었는지 확인하려면 앞 단계의 [az network lb address-pool show](/cli/azure/network/lb/address-pool)를 다시 사용합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

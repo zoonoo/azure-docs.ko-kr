@@ -4,11 +4,11 @@ description: 이 자습서에서는 Recovery Services 자격 증명 모음에 �
 ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
-ms.openlocfilehash: 906901ce4792e8b363a3a9b77c9bf6bb4b59aec5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d29983bec7dbe379bfb2898e0f068a02b01ae726
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79222470"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Azure에 Windows Server 백업
@@ -23,7 +23,7 @@ Azure 백업을 사용하여 손상, 공격 및 재해로부터 Windows Server�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+<https://portal.azure.com.>에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 

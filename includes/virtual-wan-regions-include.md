@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c822e8af076f74e1bccc46b7a71717d9631de0a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e978a5e7e76c8ddc9b7e6b80ec7170c45baa2cae
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461957"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82784115"
 ---
 ### <a name="azure-regions-within-a-geopolitical-region"></a>지정 학적 지역 내의 Azure 지역
 
-사이트 간 기반 VPN 연결 및 가상 WAN 아키텍처는 다음 지역에서 사용할 수 있습니다.
+가상 WAN은 다음 지역에서 사용할 수 있습니다.
 
 |지역 | Azure 지역|
 |---|---|
@@ -37,7 +37,7 @@ ms.locfileid: "81461957"
 
 ### <a name="azure-regions-and-geopolitical-boundaries-for-national-clouds"></a>국가별 클라우드의 Azure 지역 및 지정 학적 경계
 
-사이트 간 기반 VPN 연결 및 가상 WAN 아키텍처는 다음 지역에서 사용할 수 있습니다.
+가상 WAN은 다음 지역에서 사용할 수 있습니다.
 
 |지역 | Azure 지역|
 |---|---|

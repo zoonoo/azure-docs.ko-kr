@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: 139dd2ebdabbc91a6de3b0a1eb921b110d47c3f3
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76842030"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>자습서: 몰입형 판독기(Node.js) 시작
