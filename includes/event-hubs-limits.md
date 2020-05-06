@@ -19,7 +19,7 @@ ms.locfileid: "75901651"
 
 다음 제한은 기본, 표준 및 전용 계층에서 공통적으로 적용 됩니다. 
 
-| 제한 | 범위 | 메모 | 값 |
+| 제한 | 범위 | 참고 | 값 |
 | --- | --- | --- | --- |
 | 구독당 Event Hubs 네임스페이스 수 |Subscription |- |100 |
 | 네임스페이스당 Event Hubs 개수 |네임스페이스 |새 이벤트 허브 만들기에 대 한 후속 요청이 거부 됩니다. |10 |
@@ -32,7 +32,7 @@ ms.locfileid: "75901651"
 | VNet (가상 네트워크) 및 IP 구성 규칙 수 | 엔터티 | - | 128 | 
 
 ### <a name="event-hubs-basic-and-standard---quotas-and-limits"></a>Event Hubs Basic 및 Standard-할당량 및 한도
-| 제한 | 범위 | 메모 | Basic | Standard |
+| 제한 | 범위 | 참고 | Basic | Standard |
 | --- | --- | --- | -- | --- |
 | Event Hubs 이벤트의 최대 크기|엔터티 | &nbsp; | 256KB | 1MB |
 | Event Hub당 소비자 그룹 수 |엔터티 | &nbsp; |1 |20 |

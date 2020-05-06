@@ -11,7 +11,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/27/2020
 ms.locfileid: "74224505"
 ---
-| 계층 | 무료 | Basic | Standard |
+| 계층 | Free | Basic | Standard |
 | --- | --- | --- | --- |
 | API 호출 |500,000 |단위당 150만 |단위당 1500만 |
 | 활성 장치 |500 |제한 없음 |제한 없음 |

@@ -20,7 +20,7 @@ ms.locfileid: "79129426"
 로컬 웹 UI에서 장치 재설정을 사용 하는 경우 데이터 디스크만 안전 하 게 초기화 되지만 부팅 디스크는 그대로 유지 됩니다. 부팅 디스크에는 장치 구성이 포함 됩니다.
 
 1. [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
-2. 명령 프롬프트에 다음을 입력합니다.
+2. 명령 프롬프트에서 다음을 입력합니다.
 
     `Reset-HcsAppliance -ClearData -BootDisk`
 

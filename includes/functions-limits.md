@@ -25,7 +25,7 @@ ms.locfileid: "77198346"
 | 최대 메모리 (인스턴스당 GB) | 1.5 | 3.5-14 | 1.75 g-14 |
 | 계획 당 함수 앱 |100 |100 |제한 없음<sup>5</sup> |
 | [App Service 계획](../articles/app-service/overview-hosting-plans.md) | 100/ [지역](https://azure.microsoft.com/global-infrastructure/regions/) |리소스 그룹당 100 |리소스 그룹당 100 |
-| 저장소<sup>6</sup> |1 GB |250GB |50-1000 GB |
+| 저장소<sup>6</sup> |1GB |250GB |50-1000 GB |
 | 앱당 사용자 지정 도메인</a> |500<sup>7</sup> |500 |500 |
 | 사용자 지정 도메인 [SSL 지원](../articles/app-service/configure-ssl-bindings.md) |제한 없는 SNI SSL 연결 포함 | 제한 없는 SNI SSL 및 1 개의 IP SSL 연결 포함 |제한 없는 SNI SSL 및 1 개의 IP SSL 연결 포함 | 
 

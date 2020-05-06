@@ -38,7 +38,7 @@ ms.locfileid: "82131595"
 * IP 제한
 * Always On
 * 진단 설정
-* CORS (원본 간 리소스 공유)
+* CORS(원본 간 리소스 공유)
 
 > [!NOTE]
 > 또한 스왑 되지 않은 설정에 적용 되는 특정 앱 설정은 교환 되지 않습니다. 예를 들어 진단 설정이 교환 되지 않으므로 및 `WEBSITE_HTTPLOGGING_RETENTION_DAYS` `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` 와 같은 관련 앱 설정은 슬롯 설정으로 표시 되지 않는 경우에도 교환 되지 않습니다.

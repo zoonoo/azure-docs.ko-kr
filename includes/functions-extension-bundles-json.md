@@ -23,7 +23,7 @@ ms.locfileid: "80878251"
 
 에서 `extensionBundle`사용할 수 있는 속성은 다음과 같습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | -------- | ----------- |
 | id | Microsoft Azure 함수 확장 번들에 대 한 네임 스페이스입니다. |
 | 버전 | 설치할 번들의 버전입니다. 함수 런타임은 항상 버전 범위 또는 간격으로 정의 된 허용 가능한 최대 버전을 선택 합니다. 위의 version 값은 1.0.0의 모든 번들 버전을 2.0.0 포함 하는 것을 허용 하지 않습니다. 자세한 내용은 [버전 범위 지정을 위한 간격 표기법](/nuget/reference/package-versioning#version-ranges)을 참조 하십시오. |
