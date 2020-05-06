@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 2de836a63eed79b7d166db220218e0c11ef11e70
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d59f2ef564da710d084dc027950bc983a88143de
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399749"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204575"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -83,7 +83,7 @@ SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
 Java용 음성 SDK의 [인식기 클래스](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable)는 음성 인식에 사용할 수 있는 몇 가지 메서드를 공개합니다.
 
 * 단일 샷 인식(비동기) - 비차단(비동기) 모드에서 인식을 수행합니다. 단일 발화를 인식합니다. 단일 발화의 끝은 끝에서 무음을 수신하거나 최대 15초의 오디오가 처리될 때까지 대기하여 결정됩니다.
-* 연속 인식(비동기) - 연속 인식 작업을 비동기적으로 시작합니다. 마이크를 사용하는 대신 오디오 파일을 제공하려는 경우에도 제공해야 합니다. 비동기 연속 인식을 중지하려면 [stopContinuousRecognitionAsync](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync)를 호출합니다.
+* 연속 인식(비동기) - 연속 인식 작업을 비동기적으로 시작합니다. 마이크를 사용하는 대신 오디오 파일을 제공하려는 경우에도 `audioConfig`를 제공해야 합니다. 비동기 연속 인식을 중지하려면 [stopContinuousRecognitionAsync](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync)를 호출합니다.
 
 > [!NOTE]
 > [음성 인식 모드를 선택하는 방법](../../../how-to-choose-recognition-mode.md)에 대해 자세히 알아보세요.

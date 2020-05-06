@@ -12,10 +12,10 @@ ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: c1af1142faca76cc58b6b3ca9a7106bc0433ea18
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74976369"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>빠른 시작: Python을 사용하여 Bing Web Search API 호출  

@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 11/07/2019
 ms.author: erhopf
 ms.openlocfilehash: 9b46bc070c7e3b9d88bb8aa3742623e62dff579b
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74818920"
 ---
 **대상 환경 선택**

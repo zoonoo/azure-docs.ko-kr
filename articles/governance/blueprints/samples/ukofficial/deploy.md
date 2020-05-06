@@ -4,10 +4,10 @@ description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 
 ms.date: 06/26/2019
 ms.topic: sample
 ms.openlocfilehash: 3d69f4477163618aa225150ac6352a16e901f826
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74546389"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>영국 공식 및 영국 NHS 청사진 샘플 배포
