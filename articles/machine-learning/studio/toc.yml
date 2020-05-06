@@ -52,8 +52,6 @@
           href: create-workspace.md
         - name: 관리
           href: manage-workspace.md
-        - name: 문제 해결
-          href: troubleshooting-creating-ml-workspace.md
         - name: ARM을 사용하여 배포
           href: deploy-with-resource-manager-template.md
     - name: 학습 데이터 가져오기
@@ -84,8 +82,6 @@
               href: algorithm-parameters-optimize.md
             - name: 결과 해석
               href: interpret-model-results.md
-            - name: 디버그
-              href: debug-models.md
         - name: 모델 다시 학습
           items:
             - name: “새” 웹 서비스
@@ -96,19 +92,12 @@
           items:
             - name: R로 시작
               href: r-get-started.md
-            - name: R 스크립트 실행
-              href: extend-your-experiment-with-r.md
             - name: 사용자 지정 R 모듈
               href: custom-r-modules.md
             - name: Python 스크립트 실행
               href: execute-python-scripts.md
     - name: 알고리즘 선택
-      items:
-        - name: 알고리즘 선택
-          href: algorithm-choice.md
-        - name: 알고리즘 예제
-          displayName: 'infographic, studio basics'
-          href: basics-infographic-with-algorithm-examples.md
+      href: algorithm-choice.md
     - name: 모델 배포
       items:
         - name: 웹 서비스 배포
@@ -143,14 +132,6 @@
           href: consuming-from-excel.md
         - name: Excel 추가 기능 사용
           href: excel-add-in-for-web-services.md
-    - name: 사용 사례
-      items:
-        - name: 고객 이탈
-          href: azure-ml-customer-churn-scenario.md
-        - name: 정서 분석
-          href: text-analytics-module-tutorial.md
-        - name: Excel에서 Studio로 분석 마이그레이션(클래식)
-          href: use-case-excel-studio.md
     - name: 고객 데이터 삭제 및 내보내기
       items:
         - name: Studio(클래식) 데이터

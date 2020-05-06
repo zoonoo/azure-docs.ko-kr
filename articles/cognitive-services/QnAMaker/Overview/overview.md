@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 02/21/2020
 ms.author: diberry
 ms.openlocfilehash: 2863a086343b0a5d3bc69ae319dbe93d557bcb4a
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80052921"
 ---
 # <a name="what-is-the-qna-maker-service"></a>QnA Maker 서비스란?

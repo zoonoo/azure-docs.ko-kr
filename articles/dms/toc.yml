@@ -78,7 +78,7 @@
         - name: 알려진 문제 - Oracle에서 Azure DB for PostgreSQL로 온라인 마이그레이션 - 단일 서버
           href: known-issues-oracle-azure-postgresql-online.md
         - name: 알려진 문제 - MongoDB에서 Azure Cosmos DB의 API for MongoDB로 마이그레이션
-          href: tutorial-mongodb-cosmos-db.md
+          href: known-issues-mongo-cosmos-db.md
         - name: 알려진 문제 - 하이브리드 모드 사용
           href: known-issues-dms-hybrid-mode.md
     - name: 동영상

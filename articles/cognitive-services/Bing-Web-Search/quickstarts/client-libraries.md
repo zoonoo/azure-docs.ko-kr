@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 5bbf3dcd6fff7bc93fb76b3e79ec7d4e4fa690ed
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78402592"
 ---
 # <a name="quickstart-use-a-bing-web-search-client-library"></a>빠른 시작: Bing Web Search 클라이언트 라이브러리 사용
