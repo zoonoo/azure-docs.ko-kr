@@ -4,10 +4,10 @@ description: 청사진 아티팩트 매개 변수 세부 정보를 비롯한 캐
 ms.date: 09/05/2019
 ms.topic: sample
 ms.openlocfilehash: 087112df7ab18cd71bde80f22b13c9c7800c05e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74544593"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>캐나다 연방 PBMM 청사진 샘플 배포

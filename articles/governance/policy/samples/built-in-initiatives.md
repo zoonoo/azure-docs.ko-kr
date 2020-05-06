@@ -1,14 +1,15 @@
 ---
 title: 기본 제공 정책 이니셔티브 목록
 description: Azure Policy에 대한 기본 제공 정책 이니셔티브를 나열합니다. 범주에는 규정 준수, 게스트 구성 등이 포함됩니다.
-ms.date: 01/31/2020
+ms.date: 04/26/2020
 ms.topic: sample
-ms.openlocfilehash: f98a5d611e807875390102d67efd1b0f0f262628
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: generated
+ms.openlocfilehash: 07692e29950e9099b81744ed33034151d2c48cc2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223900"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82190770"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Azure Policy 기본 제공 이니셔티브 정의
 
@@ -16,7 +17,21 @@ ms.locfileid: "79223900"
 
 각 기본 제공 기능의 이름은 [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)의 이니셔티브 정의 원본에 연결됩니다. 기본 제공 기능은 **메타데이터**의 **범주** 속성을 기준으로 그룹화됩니다. 특정 **범주**로 이동하려면 페이지 오른쪽에 있는 메뉴를 사용합니다. 그렇지 않으면 <kbd>Ctrl</kbd>-<kbd>F</kbd>를 사용하여 브라우저의 검색 기능을 사용합니다.
 
-[!INCLUDE [azure-policy-samples-policyset-index](../../../../includes/azure-policy-samples-policyset-index.md)]
+## <a name="guest-configuration"></a>게스트 구성
+
+[!INCLUDE [azure-policy-samples-policysets-guest-configuration](../../../../includes/policy/samples/bycat/policysets-guest-configuration.md)]
+
+## <a name="monitoring"></a>모니터링
+
+[!INCLUDE [azure-policy-samples-policysets-monitoring](../../../../includes/policy/samples/bycat/policysets-monitoring.md)]
+
+## <a name="regulatory-compliance"></a>규정 준수
+
+[!INCLUDE [azure-policy-samples-policysets-regulatory-compliance](../../../../includes/policy/samples/bycat/policysets-regulatory-compliance.md)]
+
+## <a name="security-center"></a>Security Center
+
+[!INCLUDE [azure-policy-samples-policysets-security-center](../../../../includes/policy/samples/bycat/policysets-security-center.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
