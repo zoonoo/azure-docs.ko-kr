@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 667fb39aabfec14cff01221b82a45ba8ad1d68d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e4dabad5057fda39fe3753c810a85e6aeb55b3a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78329735"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582940"
 ---
 # <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Azure Active Directory (미리 보기)에서 Office 365 그룹에 민감도 레이블 할당
 
@@ -112,10 +112,10 @@ Azure Active Directory (Azure AD)는 [Microsoft 365 준수 센터](https://sip.p
 
 민감도 레이블 옵션은 다음 조건이 모두 충족 될 경우에만 그룹에 대해 표시 됩니다.
 
-1. 이 테 넌 트에 대 한 Microsoft 365 준수 센터에 레이블이 게시 됩니다.
+1. 레이블은이 Azure AD 조직에 대 한 Microsoft 365 준수 센터에 게시 됩니다.
 1. 이 기능을 사용 하도록 설정 하면 PowerShell에서 EnableMIPLabels가 True로 설정 됩니다.
 1. 그룹이 Office 365 그룹입니다.
-1. 테 넌 트에 활성 Azure Active Directory Premium P1 라이선스가 있습니다.
+1. 조직에 활성 Azure Active Directory Premium P1 라이선스가 있습니다.
 1. 현재 로그인 한 사용자에 게는 레이블을 할당할 수 있는 충분 한 권한이 있습니다. 사용자는 전역 관리자, 그룹 관리자 또는 그룹 소유자 여야 합니다.
 
 그룹에 레이블을 할당 하기 위해 모든 조건을 충족 하는지 확인 하세요.

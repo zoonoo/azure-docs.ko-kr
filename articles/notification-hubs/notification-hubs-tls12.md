@@ -10,20 +10,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2020
-ms.openlocfilehash: 4da96df50e961f4291029a37e883fdcf88c6c87f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a87f3563b995081de8e7cbb4b4499718f77b02ff
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885755"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583257"
 ---
 # <a name="transport-layer-security-tls"></a>TLS(전송 계층 보안)
 
-더 높은 수준의 보안을 보장 하기 위해 Notification Hubs는 1.1 년 5 월 2020 31 일에 TLS 버전 1.0 및에 대 한 지원을 사용 하지 않도록 설정 합니다 (4 월 30 2020 일에 연장 됨). 이러한 이전 프로토콜은 약한 암호화를 제공 하며, 비스 트 및 POODLE 공격에 취약 합니다. Android 버전 5 이상 또는 iOS 버전 5 이상을 실행 하는 장치에 배포 된 응용 프로그램은 이러한 변경의 영향을 받지 않습니다. 이러한 운영 체제는 TLS 1.2을 지원 하 고 클라이언트와 서버는 연결 시 상호 지원 되는 가장 높은 버전의 프로토콜을 협상 합니다.
+더 높은 수준의 보안을 보장 하기 위해 Notification Hubs은 **2020 년 12 월 31** 일에 TLS 버전 1.0 및 1.1에 대 한 지원을 사용 하지 않도록 설정 합니다 (4 월 30 2020 일에 연장 됨). 이러한 이전 프로토콜은 약한 암호화를 제공 하며, 비스 트 및 POODLE 공격에 취약 합니다. Android 버전 5 이상 또는 iOS 버전 5 이상을 실행 하는 장치에 배포 된 응용 프로그램은 이러한 변경의 영향을 받지 않습니다. 이러한 운영 체제는 TLS 1.2을 지원 하 고 클라이언트와 서버는 연결 시 상호 지원 되는 가장 높은 버전의 프로토콜을 협상 합니다.
 
 Azure Notification Hubs를 사용 하는 모든 응용 프로그램을 검토 하 여 TLS 1.2을 지 원하는 가장 적절 한 라이브러리 및 TLS 스택을 사용 하는지 확인 하는 것이 좋습니다.
 

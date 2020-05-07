@@ -4,16 +4,16 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 8840e6649058837207c75dbdf7baa5c0b11ef387
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ac9865afe37916f1777d92eab8637884eba0c08
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75467656"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562130"
 ---
 장치는 Azure에서 데이터의 대상으로 사용 되는 저장소 계정과 연결 됩니다. 저장소 계정에 대 한 액세스는 해당 저장소 계정과 연결 된 구독 및 2 512 비트 저장소 액세스 키에 의해 제어 됩니다.
 
-키 중 하나는 Data Box Edge 장치에서 저장소 계정에 액세스할 때 인증에 사용 됩니다. 다른 키는 예약에 보관 되므로 정기적으로 키를 회전할 수 있습니다.
+키 중 하나는 Azure Stack Edge 장치가 저장소 계정에 액세스할 때 인증에 사용 됩니다. 다른 키는 예약에 보관 되므로 정기적으로 키를 회전할 수 있습니다.
 
 보안상의 이유로 많은 데이터 센터에 키 회전이 필요 합니다. 키 회전에 대해 이 모범 사례를 따르는 것이 좋습니다.
 

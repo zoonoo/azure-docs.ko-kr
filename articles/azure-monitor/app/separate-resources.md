@@ -2,13 +2,13 @@
 title: Azure 애플리케이션 Insights에서 원격 분석 분리
 description: 개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석
 ms.topic: conceptual
-ms.date: 05/15/2017
-ms.openlocfilehash: 565d51751ad50479f4e227b6855ac63b80bd949e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 04/29/2020
+ms.openlocfilehash: 92a1bb6cb0bb73ac67d38eeba5bd3cdafacf8b56
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536780"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562154"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>개발, 테스트 및 프로덕션의 원격 분석 구분
 
@@ -20,13 +20,24 @@ ms.locfileid: "81536780"
 
 사용자 웹앱에 대해 Application Insights 모니터링을 설정할 경우 Microsoft Azure에서 Application Insights *리소스*를 만듭니다. 앱에서 수집된 원격 분석을 보고 분석하기 위해서는 Azure Portal에서 이 리소스를 엽니다. 리소스는 해당 *계측 키*(ikey)로 식별됩니다. 앱을 모니터링하기 위해 Application Insights 패키지를 설치하는 경우 원격 분석을 보낼 위치를 파악할 수 있도록 계측 키로 구성합니다.
 
-일반적으로 다양한 시나리오에 별도의 리소스 또는 단일 공유 리소스를 사용하도록 선택합니다.
+각 Application Insights 리소스에는 기본 제공 되는 메트릭이 제공 됩니다. 구성 요소를 동일한 Application Insights 리소스로 완전히 분리 하는 경우 이러한 메트릭은에서 대시보드/경고에 적합 하지 않을 수 있습니다.
 
-* 서로 다른 독립적인 애플리케이션 - 각 앱에 대해 별도의 리소스와 ikey를 사용합니다.
-* 한 비즈니스 애플리케이션의 여러 구성 요소 또는 역할 - 모든 구성 요소 앱에 대해 [단일 공유 리소스](../../azure-monitor/app/app-map.md)를 사용합니다. cloud_RoleName 속성에 따라 원격 분석을 필터링 또는 분할할 수 있습니다.
-* 개발, 테스트 및 릴리스 - '스탬프' 프로덕션 단계에서 시스템 버전에 따라 별도의 리소스 및 ikey를 사용합니다.
-* A | B 테스트 - 단일 리소스를 사용합니다. 변형을 식별하는 원격 분석에 속성을 추가하는 TelemetryInitializer를 만듭니다.
+### <a name="use-a-single-application-insights-resource"></a>단일 Application Insights 리소스 사용
 
+-   함께 배포 되는 응용 프로그램 구성 요소 일반적으로 단일 팀에서 개발 되며 동일한 DevOps/ITOps 사용자 집합을 통해 관리 됩니다.
+-   응답 기간과 같은 Kpi (핵심 성과 지표)를 집계 하는 것이 적절 한 경우에는 기본적으로 모든 항목에서 기본적으로 (역할 메트릭 탐색기 이름별로 분할 하도록 선택할 수 있음).
+-   응용 프로그램 구성 요소 간에 RBAC (역할 기반 Access Control)를 다르게 관리할 필요가 없는 경우
+-   구성 요소 간에 다른 메트릭 경고 조건이 필요 하지 않은 경우
+-   구성 요소 간에 연속 내보내기를 다르게 관리할 필요가 없는 경우
+-   구성 요소 간에 청구/할당량을 다르게 관리할 필요가 없는 경우
+-   API 키가 모든 구성 요소의 데이터에 대해 동일한 액세스 권한을 갖도록 할 수 있습니다. 및 10 개의 API 키를 통해 모든 요구 사항을 충족할 수 있습니다.
+-   모든 역할에 동일한 스마트 검색 및 작업 항목 통합 설정이 있어야 합니다.
+
+### <a name="other-things-to-keep-in-mind"></a>염두에 두어야 할 기타 사항
+
+-   의미 있는 값이 [Cloud_RoleName](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net#set-cloud-role-name) 특성으로 설정 되도록 하려면 사용자 지정 코드를 추가 해야 할 수 있습니다. 이 특성에 대해 의미 있는 값이 설정 되지 않은 경우에는 *어떤* 포털 환경도 작동 하지 않습니다.
+- Service Fabric 응용 프로그램 및 클래식 클라우드 서비스의 경우 SDK는 Azure 역할 환경에서 자동으로 읽고이를 설정 합니다. 다른 모든 유형의 앱에 대해서는이를 명시적으로 설정 해야 할 수도 있습니다.
+-   라이브 메트릭 환경은 역할 이름으로 분할 하는 것을 지원 하지 않습니다.
 
 ## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> 동적 계측 키
 
@@ -47,7 +58,7 @@ ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설�
 이 예제에서는 서로 다른 리소스에 대한 ikeys는 다른 버전의 웹 구성 파일에 배치됩니다. 웹 구성 파일 교체는 릴리스 스크립트의 일부로 수행될 수 있고 대상 리소스를 교체합니다.
 
 ### <a name="web-pages"></a>웹 페이지
-IKey는 [빠른 시작 블레이드에서 가져온 스크립트](../../azure-monitor/app/javascript.md)의 앱 웹 페이지 에서도 사용 됩니다. 스크립트에 문자 그대로 코딩하는 대신, 서버 상태로부터 생성합니다. 예를 들어, ASP.NET 응용 프로그램에서:
+IKey는 [빠른 시작 창에서 가져온 스크립트](../../azure-monitor/app/javascript.md)의 앱 웹 페이지 에서도 사용 됩니다. 스크립트에 문자 그대로 코딩하는 대신, 서버 상태로부터 생성합니다. 예를 들어, ASP.NET 응용 프로그램에서:
 
 *Razor에서 JavaScript*
 
@@ -63,26 +74,11 @@ IKey는 [빠른 시작 블레이드에서 가져온 스크립트](../../azure-mo
 
 
 ## <a name="create-additional-application-insights-resources"></a>추가 Application Insights 리소스 만들기
-동일한 구성 요소의 다른 애플리케이션 구성 요소 또는 다른 스탬프(개발/테스트/프로덕션)에 대한 원격 분석을 분리하려면 새 Application Insights 리소스를 만들어야 합니다.
 
-[portal.azure.com](https://portal.azure.com)에서 Application Insights 리소스를 추가합니다.
-
-![새로 만들기, Application Insights 클릭](./media/separate-resources/01-new.png)
-
-* **애플리케이션 유형**은 개요 블레이드에 표시되는 내용 및 [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)에서 사용할 수 있는 속성에 영향을 줍니다. 앱 유형이 표시되지 않으면 웹 페이지에 대해 웹 유형 중 하나를 선택합니다.
-* **리소스 그룹** 은 [액세스 제어](../../azure-monitor/app/resources-roles-access-control.md)와 같은 속성을 관리 하는 데 편리 합니다. 개발, 테스트 및 프로덕션 환경에 대 한 별도 리소스 그룹을 사용할 수 있습니다.
-* **구독** 은 Azure의 지불 계정입니다.
-* **위치** 는 데이터를 보관하는 곳입니다. 현재는 변경할 수 없습니다. 
-* **대시보드에 추가** 는 Azure 홈 페이지에 리소스에 대한 빠른 액세스 타일을 넣습니다. 
-
-리소스 생성 시 몇 초 정도 걸립니다. 완료되면 알림이 표시 됩니다.
-
-리소스를 자동으로 만드는 [PowerShell 스크립트](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) 를 작성할 수 있습니다.
+Application Insights 리소스를 만들려면 [리소스 만들기 가이드](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)를 따르세요.
 
 ### <a name="getting-the-instrumentation-key"></a>계측 키 가져오기
-계측 키는 사용자가 만든 리소스를 식별합니다. 
-
-![Essentials과 계측 키를 차례로 클릭하고, CTRL + C 누릅니다.](./media/separate-resources/02-props.png)
+계측 키는 사용자가 만든 리소스를 식별합니다.
 
 사용자의 앱이 데이터를 보낼 모든 리소스의 계측 키가 필요합니다.
 
@@ -90,8 +86,6 @@ IKey는 [빠른 시작 블레이드에서 가져온 스크립트](../../azure-mo
 앱의 새 버전을 게시하면서 다른 빌드의 원격 분석을 구분하고자 할 수 있습니다.
 
 애플리케이션 버전 속성을 설정하여 [검색](../../azure-monitor/app/diagnostic-search.md) 및 [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md) 결과를 필터링할 수 있습니다.
-
-![속성 필터링](./media/separate-resources/050-filter.png)
 
 애플리케이션 버전 속성은 몇 가지 다른 방법으로 설정할 수 있습니다.
 
@@ -146,7 +140,6 @@ IKey는 [빠른 시작 블레이드에서 가져온 스크립트](../../azure-mo
 ### <a name="release-annotations"></a>릴리스 주석
 Azure DevOps를 사용하는 경우 새 버전을 릴리스할 때마다 [주석 표식](../../azure-monitor/app/annotations.md)이 차트에 추가됩니다. 다음 이미지는 이러한 표식이 어떻게 나타나는지를 보여줍니다.
 
-![차트의 샘플 릴리스 주석 스크린샷](media/separate-resources/release-annotation.png)
 ## <a name="next-steps"></a>다음 단계
 
 * [여러 역할에 대한 공유 리소스](../../azure-monitor/app/app-map.md)

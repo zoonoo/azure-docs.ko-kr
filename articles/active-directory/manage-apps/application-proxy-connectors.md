@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f1b8b9af8f90629d087246edf0cb3426bd9b66c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3737603360d3fce9d6e11e6c4ce9b2de58f76a6d
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406825"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583116"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 애플리케이션 프록시 커넥터 이해
 
@@ -136,7 +136,7 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 
 도메인 가입되지 않은 컴퓨터에서 커넥터를 실행할 수 있습니다. 하지만 Windows 통합 인증(IWA)을 사용하는 애플리케이션에 SSO(Single Sign-On)를 사용하려는 경우에는 도메인 가입된 컴퓨터가 필요합니다. 이 경우 커넥터 컴퓨터는 게시된 애플리케이션에 대한 사용자를 대신하여 [Kerberos](https://web.mit.edu/kerberos) 제한된 위임을 수행할 수 있는 도메인에 가입되어야 합니다.
 
-커넥터는 도메인이나 부분 신뢰하는 포리스트 또는 읽기 전용 도메인 컨트롤러에 가입할 수도 있습니다.
+또한 커넥터를 부분 신뢰 또는 읽기 전용 도메인 컨트롤러 포리스트의 도메인에 조인할 수 있습니다.
 
 ## <a name="connector-deployments-on-hardened-environments"></a>강화된 환경에 커넥터 배포
 

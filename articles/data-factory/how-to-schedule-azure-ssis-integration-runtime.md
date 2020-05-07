@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 50ff0afe13b5b098fbc8d9fbeefba295a6217192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 83ccc3160ed62a1ea801dd8c5795328fd2b5109f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606081"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82584012"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>일정에 따라 Azure-SSIS 통합 런타임을 시작하고 중지하는 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "81606081"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-create-azure-ssis-runtime-portal.md)의 지침에 따라 프로비전하세요. 
 
 ## <a name="create-and-schedule-adf-pipelines-that-start-and-or-stop-azure-ssis-ir"></a>Azure-SSIS IR을 시작 및/또는 중지하는 ADF 파이프라인 만들기 및 예약
@@ -353,7 +353,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Azure-SSIS IR을 시작/중지하는 일정 만들기
 
-이전 섹션에서는 Azure-SSIS IR을 시작 또는 중지할 수 있는 Azure Automation Runbook을 만들었습니다. 이번 섹션에서는 Runbook에 대한 두 가지 일정을 만들겠습니다. 첫 번째 일정을 구성할 때는 **OPERATION**에 대해 **START**를 지정합니다. 마찬가지로, 두 번째 일정을 구성할 때는 **OPERATION**에 대해 **STOP**을 지정합니다. 일정을 만드는 자세한 단계는 [일정 만들기](../automation/shared-resources/schedules.md#creating-a-schedule) 문서를 참조하세요.
+이전 섹션에서는 Azure-SSIS IR을 시작 또는 중지할 수 있는 Azure Automation Runbook을 만들었습니다. 이번 섹션에서는 Runbook에 대한 두 가지 일정을 만들겠습니다. 첫 번째 일정을 구성할 때는 **OPERATION**에 대해 **START**를 지정합니다. 마찬가지로, 두 번째 일정을 구성할 때는 **OPERATION**에 대해 **STOP**을 지정합니다. 일정을 만드는 자세한 단계는 [일정 만들기](../automation/shared-resources/schedules.md#create-a-schedule) 문서를 참조하세요.
 
 1. **Runbook** 창에서 **일정**을 선택하고, 도구 모음에서 **+ 일정 추가**를 선택합니다. 
 

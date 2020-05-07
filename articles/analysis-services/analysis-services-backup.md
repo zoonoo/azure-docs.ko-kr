@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Analysis Services 데이터베이스에�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 04/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2866ec860cbc9037aa6b57389b35f17ec71a7c9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 02ca7f268f2998d3b7d73ab9fc00bbd688b5f50c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145445"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582515"
 ---
 # <a name="backup-and-restore"></a>백업 및 복원
 
@@ -40,7 +40,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
 2.  **사용**을 클릭한 다음 **스토리지 설정**을 클릭합니다.
 
-    ![사용 하도록 설정](./media/analysis-services-backup/aas-backup-enable.png)
+    ![사용](./media/analysis-services-backup/aas-backup-enable.png)
 
 3. 스토리지 계정을 선택하거나 새로 만듭니다.
 
@@ -107,5 +107,5 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 ## <a name="related-information"></a>관련 정보
 
 [Azure Storage 계정](../storage/common/storage-create-storage-account.md)  
-[고가용성](analysis-services-bcdr.md)     
-[Azure Analysis Services 관리](analysis-services-manage.md)
+[고가용성](analysis-services-bcdr.md)      
+[네트워크 연결 Analysis Services FAQ](analysis-services-network-faq.md)

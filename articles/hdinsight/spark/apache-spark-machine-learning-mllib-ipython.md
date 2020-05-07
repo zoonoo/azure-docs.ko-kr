@@ -6,18 +6,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/16/2020
-ms.openlocfilehash: 26695df299ba5d0f50c8f271b5da99284a8d6764
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
+ms.date: 04/27/2020
+ms.openlocfilehash: 48bd53160c3d2e76dccd1f22723c30c2c7e00d7a
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81531136"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559941"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Apache Spark MLlib을 사용하여 Machine Learning 애플리케이션 빌드 및 데이터 세트 분석
 
-Apache Spark [Mllib](https://spark.apache.org/mllib/) 를 사용 하 여 기계 학습 응용 프로그램을 만드는 방법에 대해 알아봅니다. 응용 프로그램은 열려 있는 데이터 집합에 대 한 예측 분석을 수행 합니다. Spark의 기본 제공 Machine Learning 라이브러리에서 이 예제는 로지스틱 회귀를 통해 *분류*를 사용합니다.
+Apache Spark MLlib를 사용 하 여 기계 학습 응용 프로그램을 만드는 방법에 대해 알아봅니다. 응용 프로그램은 열려 있는 데이터 집합에 대 한 예측 분석을 수행 합니다. Spark의 기본 제공 Machine Learning 라이브러리에서 이 예제는 로지스틱 회귀를 통해 *분류*를 사용합니다.
 
 MLlib는 다음과 같은 기계 학습 작업에 유용한 여러 유틸리티를 제공 하는 코어 Spark 라이브러리입니다.
 
@@ -180,7 +180,7 @@ Spark 컨텍스트를 사용 하 여 원시 CSV 데이터를 메모리에 구조
 
     ![SQL 쿼리 출력](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "SQL 쿼리 출력")
 
-3. 데이터 시각화를 생성 하는 데 사용 되는 라이브러리인 [Matplotlib](https://en.wikipedia.org/wiki/Matplotlib)를 사용 하 여 플롯을 만들 수도 있습니다. 로컬로 유지되는 **countResultsdf** 데이터 프레임에서 플롯을 만들어야 하므로 코드 조각은 `%%local` 매직으로 시작해야 합니다. 이 작업을 수행 하면 코드가 Jupyter 서버에서 로컬로 실행 됩니다.
+3. 또한 데이터 시각화를 구성하는 데 사용되는 라이브러리인 Matplotlib를 사용하여 플롯을 만들 수 있습니다. 로컬로 유지되는 **countResultsdf** 데이터 프레임에서 플롯을 만들어야 하므로 코드 조각은 `%%local` 매직으로 시작해야 합니다. 이 작업을 수행 하면 코드가 Jupyter 서버에서 로컬로 실행 됩니다.
 
     ```PySpark
     %%local
@@ -362,28 +362,5 @@ model = pipeline.fit(labeledData)
 ## <a name="next-steps"></a>다음 단계
 
 * [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
-
-### <a name="scenarios"></a>시나리오
-
-* [Bi를 사용 하 여 Apache Spark: BI 도구와 함께 HDInsight에서 Spark를 사용 하 여 대화형 데이터 분석](apache-spark-use-bi-tools.md)
-* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
-
-### <a name="create-and-run-applications"></a>애플리케이션 만들기 및 실행
-
-* [Scala를 사용하여 독립 실행형 애플리케이션 만들기](apache-spark-create-standalone-application.md)
-* [Apache Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>도구 및 확장
-
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 애플리케이션 만들기 및 제출](apache-spark-intellij-tool-plugin.md)
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Apache Spark 애플리케이션을 원격으로 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
-* [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
-* [Jupyter 노트북에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
-* [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](apache-spark-jupyter-notebook-install-locally.md)
-
-### <a name="manage-resources"></a>리소스 관리
-
-* [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)
-* [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](apache-spark-job-debugging.md)
+* [Azure HDInsight를 사용 하 여 심층 학습 모델 Microsoft Cognitive Toolkit](apache-spark-microsoft-cognitive-toolkit.md)

@@ -10,23 +10,23 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 03/18/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 130ce05e332f4705feb4acd54cbeb25d25a82532
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9c61bbc794438c34a4bda27c8048ac0b21f9fc1
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253066"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582718"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 그룹 멤버 자격별로 사용자에게 라이선스 할당
 
 이 문서에서는 사용자 그룹에 제품 라이선스를 할당 하 고 Azure Active Directory (Azure AD)에서 올바르게 사용이 허가 되었는지 확인 하는 과정을 안내 합니다.
 
-이 예에서는 테넌트에 **HR 부서**라는 보안 그룹이 포함되어 있습니다. 이 그룹에는 인사 부서의 모든 멤버(약 1,000명의 사용자)이 포함되어 있습니다. 사용자가 부서 전체에 Office 365 Enterprise E3 라이선스를 할당하려고 합니다. 제품에 포함된 Yammer Enterprise 서비스는 해당 부서에서 사용할 준비를 갖출 때까지 일시적으로 사용하지 않도록 설정해야 합니다. 또한 동일한 사용자 그룹에 Enterprise Mobility + Security 라이선스를 배포하려고 합니다.
+이 예제에서 Azure AD 조직에는 **HR 부서**라는 보안 그룹이 포함 되어 있습니다. 이 그룹에는 인사 부서의 모든 멤버(약 1,000명의 사용자)이 포함되어 있습니다. 사용자가 부서 전체에 Office 365 Enterprise E3 라이선스를 할당하려고 합니다. 제품에 포함된 Yammer Enterprise 서비스는 해당 부서에서 사용할 준비를 갖출 때까지 일시적으로 사용하지 않도록 설정해야 합니다. 또한 동일한 사용자 그룹에 Enterprise Mobility + Security 라이선스를 배포하려고 합니다.
 
 > [!NOTE]
 > 일부 Microsoft 서비스는 모든 위치에서 사용할 수 없습니다. 사용자에게 라이선스를 할당하려면 먼저 관리자가 해당 사용자에 대해 사용 위치 속성을 지정해야 합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "79253066"
 
 1. 라이선스 관리자 계정으로 [**AZURE AD 관리 센터**](https://aad.portal.azure.com) 에 로그인 합니다. 라이선스를 관리 하려면 계정이 라이선스 관리자, 사용자 관리자 또는 전역 관리자 여야 합니다.
 
-1. **라이선스** 를 선택 하 여 테 넌 트의 모든 라이선스 대상 제품을 보고 관리할 수 있는 페이지를 엽니다.
+1. **라이선스** 를 선택 하 여 조직의 모든 라이선스 대상 제품을 보고 관리할 수 있는 페이지를 엽니다.
 
 1. **모든 제품**에서 제품 이름을 선택 하 여 Office 365 Enterprise E5와 Enterprise Mobility + Security E3을 모두 선택 합니다. 할당을 시작 하려면 페이지 위쪽에서 **할당** 을 선택 합니다.
 

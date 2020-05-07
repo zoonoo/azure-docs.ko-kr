@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 69c905176a5beb1c7d442cd5f1a69161cd520c5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f4633a3fcafcb2b3151270715036e7940eb1c91
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71099487"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561854"
 ---
 # <a name="azure-data-box-edge-and-azure-data-box-gateway-1906-release-notes"></a>Azure Data Box Edge 및 Azure Data Box Gateway 1906 릴리스 정보
 
-다음 릴리스 정보는 Azure Data Box Edge 및 Azure Data Box Gateway에 대 한 1906 릴리스에 대 한 중요 한 미해결 문제 및 해결 된 문제를 식별 합니다.
+다음 릴리스 정보는 Azure Data Box Edge 및 Azure Data Box Gateway에 대 한 1906 릴리스에 대 한 중요 한 미해결 문제 및 해결 된 문제를 식별 합니다. 
 
 릴리스 정보는 계속 업데이트되며, 해결 방법이 필요한 중대한 문제가 발견되면 해당 내용이 추가됩니다. Data Box Edge/Data Box Gateway를 배포 하기 전에 릴리스 정보에 포함 된 정보를 주의 깊게 검토 하세요.
 
@@ -31,8 +31,8 @@ ms.locfileid: "71099487"
 
 ## <a name="whats-new"></a>새로운 기능
 
-- **복구 키 관리 워크플로의 버그 수정** -이전 릴리스에서는 복구 키가 적용 되지 않은 버그 업데이트로 인해 있었습니다. 이 버그는 이 릴리스에서 수정되었습니다. 이 업데이트를 적용 하는 것이 좋습니다. 복구 키를 사용 하면 장치가 부팅 되지 않는 경우 장치에서 데이터를 복구할 수 있습니다. 자세한 내용은 [Data Box Edge 또는 Data Box Gateway를 배포할 때 복구 키를 저장](data-box-edge-deploy-connect-setup-activate.md#set-up-and-activate-the-physical-device)하는 방법을 참조 하세요.
-- FPGA와 관련 된 **FPGA (프로그래밍할 수 있는 게이트 형 게이트 배열) 로깅 개선 사항** -1905 릴리스, 로깅 및 경고 향상이 이루어졌습니다. FPGA와 함께에 지 계산 기능을 사용 하는 경우이는 Data Box Edge에 대 한 필수 업데이트가 됩니다. 자세한 내용은 [Data Box Edge에 지 compute를 사용 하 여 데이터를 변환](data-box-edge-deploy-configure-compute-advanced.md)하는 방법을 참조 하세요.
+- **복구 키 관리 워크플로의 버그 수정** -이전 릴리스에서는 복구 키가 적용 되지 않은 버그 업데이트로 인해 있었습니다. 이 버그는 이 릴리스에서 수정되었습니다. 이 업데이트를 적용 하는 것이 좋습니다. 복구 키를 사용 하면 장치가 부팅 되지 않는 경우 장치에서 데이터를 복구할 수 있습니다. 자세한 내용은 [Data Box Edge 또는 Data Box Gateway를 배포할 때 복구 키를 저장](azure-stack-edge-deploy-connect-setup-activate.md#set-up-and-activate-the-physical-device)하는 방법을 참조 하세요.
+- FPGA와 관련 된 **FPGA (프로그래밍할 수 있는 게이트 형 게이트 배열) 로깅 개선 사항** -1905 릴리스, 로깅 및 경고 향상이 이루어졌습니다. FPGA와 함께에 지 계산 기능을 사용 하는 경우이는 Data Box Edge에 대 한 필수 업데이트가 됩니다. 자세한 내용은 [Data Box Edge에 지 compute를 사용 하 여 데이터를 변환](azure-stack-edge-deploy-configure-compute-advanced.md)하는 방법을 참조 하세요.
 
 ## <a name="known-issues-in-ga-release"></a>GA 릴리스의 알려진 문제
 
@@ -42,4 +42,4 @@ ms.locfileid: "71099487"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Data Box Gateway 배포 준비](data-box-gateway-deploy-prep.md)
-- [Azure Data Box Edge 배포 준비](data-box-edge-deploy-prep.md)
+- [Azure Data Box Edge 배포 준비](azure-stack-edge-deploy-prep.md)

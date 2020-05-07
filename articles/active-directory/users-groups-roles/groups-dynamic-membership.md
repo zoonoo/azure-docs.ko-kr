@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/27/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f8237ac13744e56baa8551f8cced12b2785a48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a399ee43ef0ce97274f060b7a5b7df46fb523605
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81114731"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582895"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -31,7 +31,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 동적 멤버십을 사�
 - 디바이스 소유자의 특성을 기반으로 하는 디바이스 그룹은 만들 수 없습니다. 디바이스 멤버 자격 규칙은 디바이스 특성만 참조할 수 있습니다.
 
 > [!NOTE]
-> 이 기능을 사용하려면 하나 이상의 동적 그룹의 멤버인 고유한 각 사용자에 대해 Azure AD Premium P1 라이선스가 필요합니다. 사용자에게 동적 그룹의 멤버가 될 수 있는 라이선스를 지정할 필요는 없지만, 이러한 사용자를 모두 포함하려면 테넌트에 최소 개수의 라이선스는 있어야 합니다. 예를 들어, 테넌트의 모든 동적 그룹에 고유한 사용자가 총 1,000명 있는 경우, 라이선스 요구 사항을 충족하려면 Azure AD Premium P1에 대해 1,000개 이상의 라이선스가 필요합니다.
+> 이 기능을 사용하려면 하나 이상의 동적 그룹의 멤버인 고유한 각 사용자에 대해 Azure AD Premium P1 라이선스가 필요합니다. 사용자가 동적 그룹의 구성원이 될 수 있도록 사용자에 게 라이선스를 할당할 필요는 없지만, Azure AD 조직에는 이러한 모든 사용자를 포함 하는 최소 라이선스 수가 있어야 합니다. 예를 들어 조직의 모든 동적 그룹에 총 1000 명의 고유한 사용자가 있는 경우 라이선스 요구 사항을 충족 하기 위해 Azure AD Premium p 1에 대 한 1000 라이선스가 하나 이상 필요 합니다.
 > 동적 장치 그룹의 구성원 인 장치에는 라이선스가 필요 하지 않습니다.
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Azure Portal의 규칙 작성기
@@ -78,22 +78,22 @@ user.department -eq "Sales"
 
 멤버 자격 규칙을 구성하는 데 사용할 수 있는 세 가지 유형의 속성이 있습니다.
 
-- 부울
-- 문자열
+- Boolean
+- String
 - 문자열 컬렉션
 
 단일 식을 만드는 데 사용할 수 있는 사용자 속성은 다음과 같습니다.
 
 ### <a name="properties-of-type-boolean"></a>부울 형식의 속성
 
-| 속성 | 허용되는 값 | 사용 |
+| 속성 | 허용되는 값 | 사용법 |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>문자열 형식의 속성
 
-| 속성 | 허용되는 값 | 사용 |
+| 속성 | 허용되는 값 | 사용법 |
 | --- | --- | --- |
 | city |임의의 문자열 값 또는 *null* |(user.city -eq "value") |
 | country |임의의 문자열 값 또는 *null* |(user.country -eq "value") |
@@ -124,7 +124,7 @@ user.department -eq "Sales"
 
 ### <a name="properties-of-type-string-collection"></a>문자열 컬렉션 형식의 속성
 
-| 속성 | 허용되는 값 | 사용 |
+| 속성 | 허용되는 값 | 사용법 |
 | --- | --- | --- |
 | otherMails |임의의 문자열 값 |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -160,7 +160,7 @@ user.department -eq "Sales"
 
 
 ### <a name="using-the--match-operator"></a>-match 연산자 사용 
-**-match** 연산자는 정규식 일치에 사용됩니다. 예:
+**-match** 연산자는 정규식 일치에 사용됩니다. 예제:
 
 ```
 user.displayName -match "Da.*"   
@@ -249,7 +249,7 @@ null 값을 참조하는 올바른 방법은 다음과 같습니다.
 
 다중 값 속성은 동일한 유형인 개체의 컬렉션입니다. 이 속성은 -any 및 -all 논리 연산자를 사용하여 멤버 자격 규칙을 만드는 데 사용할 수 있습니다.
 
-| 속성 | 값 | 사용 |
+| 속성 | 값 | 사용법 |
 | --- | --- | --- |
 | assignedPlans | 컬렉션에 있는 각 개체는 다음 문자열 속성을 표시합니다. capabilityStatus, service, servicePlanId |user.assignedPlans -any(assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -310,20 +310,20 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 규칙을 올바르게 사용하는 데 도움이 될 수 있는 팁은 다음과 같습니다.
 
 - **관리자 ID**는 관리자의 개체 ID입니다. 관리자의 **프로필**에서 찾을 수 있습니다.
-- 규칙이 작동하려면 **관리자** 속성이 테넌트의 사용자에 대해 올바르게 설정되어 있는지 확인합니다. 사용자의 **프로필**에서 현재 값을 확인할 수 있습니다.
+- 규칙이 작동 하려면 조직의 사용자에 대해 **관리자** 속성이 올바르게 설정 되어 있는지 확인 합니다. 사용자의 **프로필**에서 현재 값을 확인할 수 있습니다.
 - 이 규칙은 관리자의 직접 보고서만 지원합니다. 다시 말해 그룹은 관리자의 직접 보고서 *및* 해당 보고서를 사용하여 만들 수는 없습니다.
 - 이 규칙은 다른 멤버 자격 규칙과 결합할 수 없습니다.
 
 ### <a name="create-an-all-users-rule"></a>"모든 사용자" 규칙 만들기
 
-멤버 자격 규칙을 사용하여 테넌트 내의 모든 사용자가 포함된 그룹을 만들 수 있습니다. 나중에 테넌트에서 사용자를 추가하거나 제거하면 그룹의 멤버 자격이 자동으로 조정됩니다.
+멤버 자격 규칙을 사용 하 여 조직 내의 모든 사용자를 포함 하는 그룹을 만들 수 있습니다. 나중에 조직에서 사용자를 추가 하거나 제거 하는 경우 그룹의 멤버 자격은 자동으로 조정 됩니다.
 
 "모든 사용자" 규칙은-ne 연산자와 null 값을 사용 하 여 단일 식을 사용 하 여 생성 됩니다. 이 규칙은 그룹에 멤버 사용자뿐만 아니라 B2B 게스트 사용자도 추가합니다.
 
 ```
 user.objectId -ne null
 ```
-그룹에서 게스트 사용자를 제외 하 고 테 넌 트의 멤버만 포함 하려는 경우 다음 구문을 사용할 수 있습니다.
+그룹에서 게스트 사용자를 제외 하 고 조직의 구성원만 포함 하려는 경우 다음 구문을 사용할 수 있습니다.
 
 ```
 (user.objectId -ne null) -and (user.userType -eq "Member")
@@ -331,7 +331,7 @@ user.objectId -ne null
 
 ### <a name="create-an-all-devices-rule"></a>"모든 장치" 규칙 만들기
 
-멤버 자격 규칙을 사용하여 테넌트 내의 모든 디바이스가 포함된 그룹을 만들 수 있습니다. 나중에 테넌트에서 디바이스를 추가하거나 제거하면 그룹의 멤버 자격이 자동으로 조정됩니다.
+멤버 자격 규칙을 사용 하 여 조직 내의 모든 장치를 포함 하는 그룹을 만들 수 있습니다. 나중에 조직에서 장치를 추가 하거나 제거 하는 경우 그룹의 멤버 자격은 자동으로 조정 됩니다.
 
 "모든 장치" 규칙은-ne 연산자와 null 값을 사용 하 여 단일 식을 사용 하 여 생성 됩니다.
 
@@ -374,7 +374,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 
 다음과 같은 디바이스 특성을 사용할 수 있습니다.
 
- 디바이스 특성  | 값 | 예제
+ 디바이스 특성  | 값 | 예
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | 임의의 문자열 값입니다. |(장치. displayName-eq "Rob iPhone")

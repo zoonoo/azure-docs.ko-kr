@@ -7,12 +7,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 771d7f5b037fde1144b18dc4ed0dee7aecac6744
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: cf051da4e2976ca54c95b54cd6ac89cb6f6cc1b1
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100212"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562222"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 연결 문제 해결
 
@@ -49,6 +49,7 @@ ms.locfileid: "82100212"
 * 서버 방화벽 구성: 프록시 서버 및 게이트웨이를 포함 하 여 클라이언트의 연결을 허용 하도록 Azure Database for PostgreSQL 서버 방화벽이 구성 되어 있는지 확인 합니다.
 * 클라이언트 방화벽 구성: 클라이언트의 방화벽은 데이터베이스 서버에 대 한 연결을 허용 해야 합니다. 일부 방화벽에서 PostgreSQL과 같은 애플리케이션 이름뿐만 아니라 연결할 수 없는 서버의 IP 주소 및 포트도 허용되어야 합니다.
 * 사용자 오류: 연결 문자열의 서버 이름 또는 사용자 이름에 누락 * \@된 servername* 접미사가 포함 된 연결 매개 변수를 잘못 입력 했을 수 있습니다.
+* _Ipv6 연결을 허용 하도록 서버가 구성 되어 있지 않습니다_. 라는 오류 메시지가 표시 되 면 기본 계층이 VNet 서비스 끝점을 지원 하지 않습니다. 기본 서버에 연결 하려는 서브넷에서 Microsoft .Sql 끝점을 제거 해야 합니다.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>영구적인 연결 문제를 해결하는 단계
 

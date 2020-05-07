@@ -1,7 +1,7 @@
 ---
 title: 다중 테 넌 트 상호 작용의 특징-Azure AD | Microsoft Docs
-description: Azure Active Directory 테 넌 트를 완전히 독립 된 조직으로 이해
-services: active-tenant
+description: Azure Active Directory 조직의 데이터 독립성 이해
+services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 04/07/2020
+ms.date: 04/29/2020
 ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 175d9ce7db1657e0e654f46adaf8a8d8ef28c25e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbe7b0211775e59504443d30fa253cfa14af13b1
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878122"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582747"
 ---
 # <a name="understand-how-multiple-azure-active-directory-organizations-interact"></a>여러 Azure Active Directory 조직에서 상호 작용 하는 방법 이해
 
-Azure AD (Azure Active Directory)에서 각 테 넌 트는 완전히 독립적인 조직입니다. 관리 하는 다른 Azure AD 조직과 논리적으로 독립적인 피어입니다. 조직 간 이러한 독립성에는 리소스 독립성, 관리 독립성 및 동기화 독립성이 포함 됩니다. 조직 간에는 부모-자식 관계가 없습니다.
+Azure AD (Azure Active Directory)에서 각 Azure AD 조직은 완전히 독립적입니다. 관리 하는 다른 Azure AD 조직과 논리적으로 독립적인 피어입니다. 조직 간 이러한 독립성에는 리소스 독립성, 관리 독립성 및 동기화 독립성이 포함 됩니다. 조직 간에는 부모-자식 관계가 없습니다.
 
 ## <a name="resource-independence"></a>리소스 독립성
 

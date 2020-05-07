@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.openlocfilehash: 39ea8dda0fd823d3061b2cb29e1c548f99281c82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbcbb19530aebe777a91cbe4c5487e1b50ace2e5
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418799"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559780"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>연속 창 트리거 종속성 만들기
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,6 +24,10 @@ ms.locfileid: "81418799"
 이 항목에서는 연속 창 트리거에 대한 종속성을 만드는 단계를 제공합니다. 연속 창 트리거에 대한 자세한 내용은 [연속 창 트리거를 만드는 방법](how-to-create-tumbling-window-trigger.md)을 참조하세요.
 
 종속성 체인을 빌드하고 데이터 팩터리에서 다른 트리거를 성공적으로 실행한 후에만 트리거가 실행되도록 하려면 이 고급 기능을 사용하여 연속 창 종속성을 만듭니다.
+
+연속 창 트리거를 사용 하 여 Azure Data Factory에서 종속 파이프라인을 만드는 방법에 대 한 데모를 보려면 다음 비디오를 시청 하세요.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="create-a-dependency-in-the-data-factory-ui"></a>Data Factory UI에서 종속성 만들기
 
@@ -75,14 +79,14 @@ ms.locfileid: "81418799"
 
 다음 표에서는 연속 창 종속성을 정의하는 데 필요한 특성 목록을 제공합니다.
 
-| **속성 이름** | **설명**  | **Type** | **필수** |
+| **속성 이름** | **설명**  | **형식** | **필수** |
 |---|---|---|---|
 | type  | 이 드롭다운에는 기존의 연속 창 트리거가 모두 표시됩니다. 종속성을 적용할 트리거를 선택합니다.  | TumblingWindowTriggerDependencyReference 또는 SelfDependencyTumblingWindowTriggerReference | 예 |
 | offset | 종속성 트리거의 오프셋입니다. 시간 범위 형식에 값을 제공 하 고 음수 및 양수 오프셋을 모두 사용할 수 있습니다. 트리거가 자체에 의존 하는 경우이 속성은 필수 이며 다른 모든 경우에는 선택 사항입니다. 자체 종속성은 항상 음수 오프셋이어야 합니다. 값을 지정 하지 않으면 창은 트리거 자체와 동일 합니다. | Timespan<br/>(hh:mm:ss) | 자체 종속성: 예<br/>기타: 아니요 |
 | 크기 | 종속성 연속 창의 크기입니다. 양의 timespan 값을 제공 합니다. 이 속성은 선택 사항입니다. | Timespan<br/>(hh:mm:ss) | 아니요  |
 
 > [!NOTE]
-> 연속 창 트리거는 최대 두 개의 다른 트리거에 따라 달라질 수 있습니다.
+> 연속 창 트리거는 최대 5 개의 다른 트리거에 종속 될 수 있습니다.
 
 ## <a name="tumbling-window-self-dependency-properties"></a>연속 창 자체 종속성 속성
 
@@ -147,10 +151,6 @@ ms.locfileid: "81418799"
 작업의 출력 스트림에 간격이 없는 일일 작업입니다.
 
 ![자체 종속성 예제](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "자체 종속성 예제")
-
-연속 창 트리거를 사용 하 여 Azure Data Factory에서 종속 파이프라인을 만드는 방법에 대 한 데모를 보려면 다음 비디오를 시청 하세요.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="monitor-dependencies"></a>종속성 모니터링
 

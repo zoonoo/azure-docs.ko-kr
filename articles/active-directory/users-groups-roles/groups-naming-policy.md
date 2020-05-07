@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 141e83e21db18f21468113fd9927c2bdd2ed176d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9018228ec685d69fb03dfbc23de530e1bb8abb4f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79497885"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582856"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Azure Active Directory에서 Office 365 그룹에 명명 정책 적용
 
-사용자가 생성하거나 편집한 Office 365 그룹에 대해 일관된 명명 규칙을 적용하려면 Azure AD(Azure Active Directory)에서 테넌트에 대한 그룹 명명 정책을 설정하세요. 예를 들어 명명 정책을 사용하여 그룹의 기능, 멤버 자격, 지리적 영역 또는 그룹을 만든 사람 정보를 전달할 수 있습니다. 또한 명명 정책을 사용하여 주소록에서 그룹을 범주화할 수 있습니다. 이 정책을 사용하여 그룹 이름 및 별칭에 특정 단어를 사용하지 않도록 차단할 수 있습니다.
+사용자가 만들거나 편집 하는 Office 365 그룹에 일관 된 명명 규칙을 적용 하려면 Azure Active Directory (Azure AD)에서 조직에 대 한 그룹 명명 정책을 설정 합니다. 예를 들어 명명 정책을 사용하여 그룹의 기능, 멤버 자격, 지리적 영역 또는 그룹을 만든 사람 정보를 전달할 수 있습니다. 또한 명명 정책을 사용하여 주소록에서 그룹을 범주화할 수 있습니다. 이 정책을 사용하여 그룹 이름 및 별칭에 특정 단어를 사용하지 않도록 차단할 수 있습니다.
 
 > [!IMPORTANT]
 > Office 365 그룹에 대 한 Azure AD 명명 정책을 사용 하려면 하나 이상의 Office 365 그룹의 멤버인 각 고유 사용자에 대해 Azure Active Directory Premium P1 라이선스 또는 Azure AD Basic .EDU 라이선스를 소유 하지만 반드시 할당 해야 하는 것은 아닙니다.
@@ -42,7 +42,7 @@ ms.locfileid: "79497885"
 
 ### <a name="prefix-suffix-naming-policy"></a>접두사-접미사 명명 정책
 
-명명 규칙의 일반 구조는 ‘접두사[GroupName]접미사’입니다. 여러 접두사 및 접미사를 정의할 수 있지만 설정에서는 [GroupName]의 인스턴스가 하나만 있을 수 있습니다. 접두사 또는 접미사는 그룹을 만든 사용자를 기반으로 대체되는 \[부서\]와 같은 사용자 속성 또는 고정 문자열일 수 있습니다. 결합된 접두사 및 접미사 문자열에 허용되는 문자 수는 53자입니다. 
+명명 규칙의 일반 구조는 ‘접두사[GroupName]접미사’입니다. 여러 접두사 및 접미사를 정의할 수 있지만 설정에서는 [GroupName]의 인스턴스가 하나만 있을 수 있습니다. 접두사 또는 접미사는 그룹을 만든 사용자를 기반으로 대체되는 \[부서\]와 같은 사용자 속성 또는 고정 문자열일 수 있습니다. 그룹 이름을 포함 하 여 접두사 및 접미사 문자열에 허용 되는 총 문자 수는 53 자입니다. 
 
 접두사 및 접미사에는 그룹 이름 및 그룹 별칭에서 지원되는 특수 문자를 포함할 수 있습니다. 그룹 별칭에서 지원되지 않는 접두사 또는 접미사의 문자는 그룹 이름에는 계속해서 표시되지만 그룹 별칭에서는 제거됩니다. 이러한 제한 사항으로 인해 그룹 이름에 적용된 접두사 및 접미사는 그룹 별칭에 적용된 접미부와 다를 수 있습니다. 
 
@@ -138,7 +138,7 @@ PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈�
 
    **계정에 로그인** 화면이 열리면 관리자 계정 및 암호를 입력하여 서비스에 연결하고 **로그인**을 선택합니다.
 
-1. [그룹 설정을 구성하는 Azure Active Directory cmdlet](groups-settings-cmdlets.md)의 단계에 따라 이 테넌트에 대한 그룹 설정을 만듭니다.
+1. [그룹 설정을 구성 하는 Azure Active Directory cmdlet](groups-settings-cmdlets.md) 의 단계에 따라이 조직에 대 한 그룹 설정을 만듭니다.
 
 ### <a name="view-the-current-settings"></a>현재 설정 보기
 
@@ -241,7 +241,7 @@ Azure AD에서 그룹 명명 정책을 설정한 후 사용자가 Office 365 앱
 Azure Active Directory 포털 | Azure AD 포털 및 액세스 패널 포털에는 그룹을 작성하거나 편집할 때 사용자가 그룹 이름을 입력하면 명명 정책이 적용된 이름이 표시됩니다. 사용자 정의 차단 단어를 입력하면 사용자가 이를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
 OWA(Outlook Web Access) | Outlook Web Access는 사용자가 그룹 이름 또는 그룹 별칭을 입력할 때 명명 정책이 적용된 이름을 표시합니다. 사용자 정의 차단 단어를 입력하면 사용자가 이를 제거할 수 있도록 차단된 단어와 함께 UI에 오류 메시지가 표시됩니다.
 Outlook 데스크톱 | Outlook 데스크톱에서 생성된 그룹은 명명 정책 설정을 준수합니다. Outlook 데스크톱 앱에는 적용된 그룹 이름의 미리 보기가 표시되지 않으며 사용자가 그룹 이름을 입력할 때 사용자 정의 차단 단어 오류를 반환하지 않습니다. 그러나 그룹을 만들거나 편집할 때 명명 정책이 자동으로 적용되며 그룹 이름 또는 별칭에 사용자 정의 차단 단어가 포함된 경우 오류 메시지가 표시됩니다.
-Microsoft 팀 | Microsoft 팀은 사용자가 팀 이름을 입력할 때 그룹 명명 정책이 적용된 이름을 표시합니다. 사용자 정의 차단 단어를 입력하면 사용자가 해당 단어를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
+Microsoft Teams | Microsoft 팀은 사용자가 팀 이름을 입력할 때 그룹 명명 정책이 적용된 이름을 표시합니다. 사용자 정의 차단 단어를 입력하면 사용자가 해당 단어를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
 SharePoint  |  SharePoint에는 사용자가 사이트 이름 또는 그룹 메일 주소를 입력할 때 명명 정책이 적용되는 이름이 표시됩니다. 사용자 정의 차단 단어를 입력하면 사용자가 해당 단어를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
 Microsoft Stream | Microsoft Stream은 사용자가 그룹 이름 또는 그룹 메일 별칭을 입력할 때 그룹 명명 정책이 적용된 이름을 표시합니다. 사용자 정의 차단 단어를 입력하면 사용자가 해당 단어를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
 Outlook iOS 및 Android 앱 | Outlook 앱에서 만든 그룹은 구성된 명명 정책을 준수합니다. Outlook 모바일 앱은 명명 정책이 적용된 이름의 미리 보기를 아직 표시하지 않으며 사용자가 그룹 이름을 입력하면 사용자 정의 차단 단어 오류를 반환하지 않습니다. 그러나 생성/편집 클릭 시 명명 정책은 자동으로 적용되며 그룹 이름 또는 별칭에 사용자 정의 차단 단어가 있는 경우에는 오류 메시지가 표시됩니다.

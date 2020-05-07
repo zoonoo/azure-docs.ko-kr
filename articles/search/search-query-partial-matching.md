@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 5a05f2973ac17460250fb3e80eb7bc0da9849940
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 05ff56c904fc48a1041ad40f00110a8ff0fd01f1
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262879"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592046"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>특수 문자를 포함 하는 부분 용어 검색 및 패턴 (와일드 카드, regex, 패턴)
 
@@ -24,7 +24,7 @@ ms.locfileid: "81262879"
 이 솔루션은 부분 용어 및 패턴을 일치 시킬 수 있도록 필요한 경우 공백과 특수 문자를 포함 하 여 전체 문자열을 유지 하는 분석기를 호출 하는 것입니다. 콘텐츠 유지 분석기를 사용 하 여 그대로 유지 되는 문자열에 대 한 추가 필드를 만드는 것은 솔루션의 기반이 됩니다.
 
 > [!TIP]
-> Postman 및 REST Api에 대해 잘 알고 있나요? 이 문서에서 설명 하 [는 쿼리 예제 컬렉션을 다운로드](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/full-syntax-examples) 하 여 부분 용어와 특수 문자를 쿼리 합니다.
+> Postman 및 REST Api에 대해 잘 알고 있나요? 이 문서에서 설명 하 [는 쿼리 예제 컬렉션을 다운로드](https://github.com/Azure-Samples/azure-search-postman-samples/) 하 여 부분 용어와 특수 문자를 쿼리 합니다.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Azure Cognitive Search의 부분 검색 이란?
 

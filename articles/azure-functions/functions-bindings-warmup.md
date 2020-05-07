@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: c3ed780bc50b690b2f5c3285024695ec6426b9b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72a6f97f45ec1adaa42d1f17a1916af137845392
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77167320"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559998"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions 준비 트리거
 
@@ -240,7 +240,7 @@ Python에서 특성을 지원 하지 않습니다.
 ## <a name="trigger---limits"></a>트리거 - 제한
 
 * 워밍업 트리거는 [프리미엄 계획](./functions-premium-plan.md)에서 실행 되는 앱 에서만 사용할 수 있습니다.
-* 준비 트리거는 다시 시작 또는 다른 비 확장 작업 중에만 확장 작업 중에 호출 됩니다. 사용자의 논리가 준비 트리거를 사용 하지 않고 필요한 모든 종속성을 로드할 수 있도록 해야 합니다. 지연 로드는이를 위해 좋은 패턴입니다.
+* 준비 트리거는 수평 확장 작업 중에만 호출 되 고 다시 시작 또는 다른 비 확장 작업 중에는 호출 되지 않습니다. 사용자의 논리가 준비 트리거를 사용 하지 않고 필요한 모든 종속성을 로드할 수 있도록 해야 합니다. 지연 로드는이를 위해 좋은 패턴입니다.
 * 인스턴스가 이미 실행 중인 경우에는 워밍업 트리거를 호출할 수 없습니다.
 * 함수 앱 당 하나의 준비 트리거 함수만 있을 수 있습니다.
 
