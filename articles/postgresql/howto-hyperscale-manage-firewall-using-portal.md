@@ -4,19 +4,20 @@ description: Azure Portal를 사용 하 여 Citus (Azure Database for PostgreSQL
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 660c395e6cff81b0abcac07e66385f80a538695f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7de5755a9a1e49b994e7efa7fc4bca58cc6cfd9
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74977542"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82584028"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)에 대 한 방화벽 규칙 관리
 서버 수준 방화벽 규칙은 지정 된 IP 주소 또는 IP 주소 범위에서 Citus (Hyperscale) 코디네이터 노드에 대 한 액세스를 관리 하는 데 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - 서버 그룹은 [Azure Database for PostgreSQL – Hyperscale (Citus) 서버 그룹을 만듭니다](quickstart-create-hyperscale-portal.md).
 

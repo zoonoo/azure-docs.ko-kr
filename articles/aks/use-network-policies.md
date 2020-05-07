@@ -5,12 +5,12 @@ description: AKS (Azure Kubernetes Service)에서 Kubernetes 네트워크 정책
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: a2794f53407be3ce3d7e69caa8039c13217a0356
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca0b6d4acd48dde0ea381ab37080fb6af1fb936c
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392606"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854229"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호
 
@@ -481,7 +481,7 @@ kubectl delete namespace development
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[use-advanced-networking]: configure-advanced-networking.md
+[use-advanced-networking]: configure-azure-cni.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [concepts-network]: concepts-network.md
 [az-feature-register]: /cli/azure/feature#az-feature-register

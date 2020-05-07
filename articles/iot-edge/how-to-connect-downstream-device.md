@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 3113f01341d2a1ec6160cfea3eb9d12d18b8495c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 49a94b8877d46cf95ec8701f470d87e187713f69
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687179"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583303"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -124,7 +124,7 @@ import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorel
 
 * 다운스트림 디바이스의 어딘가에 복사 및 저장한 루트 CA 인증서에 대한 전체 경로.
 
-    `<path>/azure-iot-test-only.root.ca.cert.pem`)을 입력합니다.
+    예: `<path>/azure-iot-test-only.root.ca.cert.pem`
 
 ### <a name="nodejs"></a>NodeJS
 
@@ -185,9 +185,9 @@ Windows 호스트에서 OpenSSL 또는 다른 TLS 라이브러리를 사용하�
 
 이 섹션에서는 Azure IoT Python 디바이스 클라이언트를 IoT Edge 게이트웨이에 연결하기 위한 샘플 애플리케이션을 소개합니다.
 
-1. [Python 용 Azure IoT 장치 SDK 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios)의 **send_message** 에 대 한 샘플을 가져옵니다.
-2. IoT Edge 컨테이너에서 실행 하거나 디버그 시나리오에서 `EdgeHubConnectionString` 및 `EdgeModuleCACertificateFile` 환경 변수를 설정 했는지 확인 합니다.
-3. 디바이스에서 샘플을 실행하는 방법에 대한 지침은 SDK 설명서를 참조하세요.
+1. [Python 용 Azure IoT 장치 SDK 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios)의 **send_message_downstream** 에 대 한 샘플을 가져옵니다.
+2. Python 스크립트 `IOTHUB_DEVICE_CONNECTION_STRING` 주석에 `IOTEDGE_ROOT_CA_CERT_PATH` 지정 된 대로 및 환경 변수를 설정 합니다.
+3. 장치에서 샘플을 실행 하는 방법에 대 한 추가 지침은 SDK 설명서를 참조 하세요.
 
 ## <a name="test-the-gateway-connection"></a>게이트웨이 연결 테스트
 

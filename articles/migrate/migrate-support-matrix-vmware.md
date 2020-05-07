@@ -2,17 +2,17 @@
 title: Azure Migrate의 VMware 평가 지원
 description: Azure Migrate Server 평가를 통한 VMware VM 평가 지원에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: 8a09562f14b95256ee9c2b5ba7d9c308cde66397
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: d378ece1eda906a30ec33e2cf27ad59df473b5c7
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81532207"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779912"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 평가를 위한 지원 매트릭스 
 
-이 문서에서는 Azure Migrate: 서버 평가] (마이그레이션-서비스-개요. md # Azure-마이그레이션-서버 평가 도구) 도구를 사용 하 여 Azure로 마이그레이션하기 위한 VMware Vm을 평가 하는 경우 필수 구성 요소 및 지원 요구 사항을 요약 합니다. VMware Vm을 Azure로 마이그레이션하려면 [마이그레이션 지원 매트릭스](migrate-support-matrix-vmware-migration.md)를 검토 하세요.
+이 문서에서는 [Azure Migrate: 서버 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용 하 여 Azure로 마이그레이션하기 위한 VMware vm을 평가할 때 필수 구성 요소 및 지원 요구 사항을 요약 합니다. VMware Vm을 Azure로 마이그레이션하려면 [마이그레이션 지원 매트릭스](migrate-support-matrix-vmware-migration.md)를 검토 하세요.
 
 VMware Vm을 평가 하려면 Azure Migrate 프로젝트를 만든 다음 프로젝트에 서버 평가 도구를 추가 합니다. 도구가 추가 된 후 [Azure Migrate 어플라이언스](migrate-appliance.md)를 배포 합니다. 어플라이언스는 온-프레미스 컴퓨터를 지속적으로 검색 하 고, 컴퓨터 메타 데이터 및 성능 데이터를 Azure로 전송 합니다. 검색이 완료 되 면 검색 된 컴퓨터를 그룹으로 수집 하 고 그룹에 대 한 평가를 실행 합니다.
 
@@ -21,7 +21,7 @@ VMware Vm을 평가 하려면 Azure Migrate 프로젝트를 만든 다음 프로
 **지원** | **세부 정보**
 --- | ---
 **프로젝트 제한** | Azure 구독에서 여러 프로젝트를 만들 수 있습니다.<br/><br/> 단일 [프로젝트](migrate-support-matrix.md#azure-migrate-projects)에서 최대 35000 VMware vm을 검색 하 고 평가할 수 있습니다. 프로젝트에는 물리적 서버와 Hyper-v Vm이 각각에 대 한 평가 제한까지 포함 될 수도 있습니다.
-**조사** | Azure Migrate 어플라이언스는 vCenter Server에서 VMware Vm을 1만 개까지 검색할 수 있습니다.
+**검색** | Azure Migrate 어플라이언스는 vCenter Server에서 VMware Vm을 1만 개까지 검색할 수 있습니다.
 **평가** | 단일 그룹에 최대 35000 대의 컴퓨터를 추가할 수 있습니다.<br/><br/> 단일 평가에서 최대 35000 Vm을 평가할 수 있습니다.
 
 평가에 대해 자세히 [알아보세요](concepts-assessment-calculation.md) .
@@ -34,7 +34,7 @@ VMware Vm을 평가 하려면 Azure Migrate 프로젝트를 만든 다음 프로
 **지원** | **세부 정보**
 --- | ---
 **지원 되는 컴퓨터** | 앱 검색은 현재 VMware Vm에 대해서만 지원 됩니다.
-**조사** | 앱 검색은 에이전트 없는 앱입니다. 컴퓨터 게스트 자격 증명을 사용 하 고 WMI 및 SSH 호출을 사용 하 여 컴퓨터에 원격으로 액세스 합니다.
+**검색** | 앱 검색은 에이전트 없는 앱입니다. 컴퓨터 게스트 자격 증명을 사용 하 고 WMI 및 SSH 호출을 사용 하 여 컴퓨터에 원격으로 액세스 합니다.
 **VM 지원** | 앱 검색은 모든 Windows 및 Linux 버전에 대해 지원 됩니다.
 **vCenter 자격 증명** | 앱 검색에는 읽기 전용 액세스 권한이 있는 vCenter Server 계정과 게스트 작업을 Virtual Machines > 사용 하도록 설정 된 권한이 필요 합니다.
 **VM 자격 증명** | 앱 검색은 현재 모든 Windows 서버에 대해 하나의 자격 증명을 사용 하 고 모든 Linux 서버에 대해 하나의 자격 증명을 사용 하도록 지원 합니다.<br/><br/> Windows Vm에 대 한 게스트 사용자 계정과 모든 Linux Vm에 대 한 일반/일반 사용자 계정 (비 sudo 액세스)을 만듭니다.
@@ -62,7 +62,7 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 
 - VMware에 대 한 [어플라이언스 요구 사항](migrate-appliance.md#appliance---vmware) 에 대해 알아봅니다.
 - 어플라이언스에서 [공용](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드에서 액세스 해야 하는 url에 대해 알아봅니다.
-- Azure Government에서 스크립트를 사용 하 여 어플라이언스를 배포 해야 합니다.
+- Azure Government에서 [스크립트를 사용 하 여](deploy-appliance-script-government.md)어플라이언스를 배포 해야 합니다.
 
 
 ## <a name="port-access"></a>포트 액세스
@@ -73,6 +73,23 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 vCenter Server | 어플라이언스에서 평가를 위한 구성 및 성능 메타 데이터를 수집할 수 있도록 TCP 포트 443에서 인바운드 연결 <br/><br/> 어플라이언스는 기본적으로 포트 443의 vCenter에 연결 됩니다. VCenter 서버가 다른 포트에서 수신 대기 하는 경우 검색을 설정할 때 포트를 수정할 수 있습니다.
 ESXi 호스트 (앱 검색/에이전트 없는 종속성 분석) | [앱 검색](how-to-discover-applications.md) 또는 [에이전트 없는 종속성 분석](concepts-dependency-visualization.md#agentless-analysis)을 수행 하려는 경우 어플라이언스는 TCP 포트 443의 ESXi 호스트에 연결 하 여 응용 프로그램을 검색 하 고 vm에서 에이전트 없는 종속성 시각화를 실행 합니다.
 
+## <a name="application-discovery"></a>애플리케이션 검색
+
+서버 평가는 컴퓨터를 검색 하는 것 외에도 컴퓨터에서 실행 되는 앱, 역할 및 기능을 검색할 수 있습니다. 앱 인벤토리를 검색 하면 온-프레미스 워크 로드에 맞게 조정 된 마이그레이션 경로를 식별 하 고 계획할 수 있습니다. 
+
+**지원** | **세부 정보**
+--- | ---
+**지원 되는 컴퓨터** | 앱 검색은 현재 VMware Vm에 대해서만 지원 됩니다.
+**검색** | 앱 검색은 에이전트 없는 앱입니다. 컴퓨터 게스트 자격 증명을 사용 하 고 WMI 및 SSH 호출을 사용 하 여 컴퓨터에 원격으로 액세스 합니다.
+**VM 지원** | 앱 검색은 모든 Windows 및 Linux 버전에 대해 지원 됩니다.
+**vCenter 자격 증명** | 앱 검색에는 읽기 전용 액세스 권한이 있는 vCenter Server 계정과 게스트 작업을 Virtual Machines > 사용 하도록 설정 된 권한이 필요 합니다.
+**VM 자격 증명** | 앱 검색은 현재 모든 Windows 서버에 대해 하나의 자격 증명을 사용 하 고 모든 Linux 서버에 대해 하나의 자격 증명을 사용 하도록 지원 합니다.<br/><br/> Windows Vm에 대 한 게스트 사용자 계정과 모든 Linux Vm에 대 한 일반/일반 사용자 계정 (비 sudo 액세스)을 만듭니다.
+**VMware 도구** | 검색 하려는 Vm에 VMware 도구를 설치 하 고 실행 해야 합니다. <br/> VMware 도구 버전은 10.2.0 보다 이후 여야 합니다.
+**PowerShell** | Vm에는 PowerShell 버전 2.0 이상이 설치 되어 있어야 합니다.
+**포트 액세스** | 검색 하려는 Vm을 실행 하는 ESXi 호스트에서 Azure Migrate 어플라이언스는 TCP 포트 443에 연결할 수 있어야 합니다.
+**제한** | 앱 검색의 경우 각 Azure Migrate 어플라이언스에서 최대 1만 개의 Vm을 검색할 수 있습니다.
+
+
 ## <a name="agentless-dependency-analysis-requirements"></a>에이전트 없는 종속성 분석 요구 사항
 
 [종속성 분석](concepts-dependency-visualization.md) 을 사용 하면 평가 하 여 Azure로 마이그레이션할 온-프레미스 컴퓨터 간의 종속성을 식별할 수 있습니다. 이 표에는 에이전트 없는 종속성 분석을 설정 하기 위한 요구 사항이 요약 되어 있습니다. 
@@ -82,7 +99,7 @@ ESXi 호스트 (앱 검색/에이전트 없는 종속성 분석) | [앱 검색](
 **배포 전** | 서버 평가 도구를 프로젝트에 추가 하 여 Azure Migrate 프로젝트가 준비 되어 있어야 합니다.<br/><br/>  온-프레미스 VMWare 컴퓨터를 검색 하도록 Azure Migrate 어플라이언스를 설정한 후 종속성 시각화를 배포 합니다.<br/><br/> 처음으로 프로젝트를 만드는 [방법에 대해 알아봅니다](create-manage-projects.md) .<br/> 기존 프로젝트에 평가 도구를 추가 하 [는 방법에 대해 알아봅니다](how-to-assess.md) .<br/> VMware Vm의 평가를 위해 Azure Migrate 어플라이언스를 설정 하 [는 방법에 대해 알아봅니다](how-to-set-up-appliance-vmware.md) .
 **VM 지원** | 현재 VMware Vm에 대해서만 지원 됩니다.
 **Windows VM** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 비트)
-**Windows 계정** |  종속성 분석의 경우 Azure Migrate 어플라이언스는 Windows Vm에 액세스할 수 있는 로컬 또는 도메인 관리자 계정이 필요 합니다.
+**Windows 계정** |  종속성 분석의 경우 Azure Migrate 어플라이언스에는 도메인 관리자 계정 또는 로컬 관리자 계정이 있어야 Windows Vm에 액세스할 수 있습니다.
 **Linux VM** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
 **Linux 계정** | 종속성 분석의 경우 Linux 컴퓨터에서 Azure Migrate 어플라이언스는 루트 권한이 있는 사용자 계정이 필요 합니다.<br/><br/> 또는 사용자 계정에/bin/netstat 및/bin/ls 파일에 대 한 다음 권한이 필요 합니다. CAP_DAC_READ_SEARCH 및 CAP_SYS_PTRACE.
 **필요한 에이전트** | 분석 하려는 컴퓨터에 에이전트가 필요 하지 않습니다.

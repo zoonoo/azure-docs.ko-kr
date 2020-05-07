@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0af897ca284b1d51867808c2c74496c73e9bdcc3
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266287"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582771"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제
 
@@ -43,7 +43,7 @@ ms.locfileid: "79266287"
 
 그룹에 추가된 직후에 라이선스가 사용자에게 할당됩니다. 특성을 변경하면 사용자는 그룹에서 나가고 라이선스가 제거됩니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 어떤 사용자가 Microsoft 웹 서비스에 액세스해야 하는지 결정하는 온-프레미스 ID 관리 솔루션의 예를 고려하세요. 이 솔루션은 **extensionAttribute1**을 사용하여 사용자가 가지고 있어야 하는 라이선스를 나타내는 문자열 값을 저장합니다. Azure AD Connect는 이 값을 Azure AD와 동기화합니다.
 
@@ -100,7 +100,7 @@ ms.locfileid: "79266287"
 
 ## <a name="managing-new-services-added-to-products"></a>제품에 추가된 새 서비스 관리
 
-Microsoft에서 제품 라이선스 계획에 새 서비스를 추가할 때 제품 라이선스를 할당 한 모든 그룹에서이 서비스를 기본적으로 사용할 수 있습니다. 제품 변경에 대한 알림을 구독하는 테넌트의 사용자는 예정된 서비스 추가에 대해 알리는 메일을 미리 받게 됩니다.
+Microsoft에서 제품 라이선스 계획에 새 서비스를 추가할 때 제품 라이선스를 할당 한 모든 그룹에서이 서비스를 기본적으로 사용할 수 있습니다. 제품 변경에 대 한 알림을 구독 하는 조직의 사용자는 예정 된 서비스 추가에 대해 알려 주는 시간 전에 전자 메일을 받게 됩니다.
 
 관리자는 변경이 영향을 미치는 모든 그룹을 검토하고 각 그룹에서 새 서비스를 사용하지 않도록 설정하는 등의 작업을 수행합니다. 예를 들어 특정 서비스만 배포할 그룹을 만든 경우 해당 그룹을 다시 방문하여 새로 추가된 서비스가 사용하지 않도록 설정되었는지 확인할 수 있습니다.
 
@@ -108,7 +108,7 @@ Microsoft에서 제품 라이선스 계획에 새 서비스를 추가할 때 제
 
 1. 원래 *Office 365 Enterprise E5* 제품을 여러 그룹에 할당했습니다. 해당 그룹 중 하나인 *O365 E5 - Exchange only*는 해당 구성원에 대해 *Exchange Online(계획 2)* 서비스만 사용할 수 있도록 설계되어 있습니다.
 
-2. Microsoft에서 E5 제품이 새 서비스인 *Microsoft Stream*을 통해 확장될 것이라는 알림을 받았습니다. 서비스가 테넌트에서 사용 가능해지면 다음을 수행할 수 있습니다.
+2. Microsoft에서 E5 제품이 새 서비스인 *Microsoft Stream*을 통해 확장될 것이라는 알림을 받았습니다. 조직에서 서비스를 사용할 수 있게 되 면 다음을 수행할 수 있습니다.
 
 3. [**Azure Active Directory > 라이선스 > 모든 제품**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 블레이드로 이동하고 *Office 365 Enterprise E5*, **허가된 그룹**을 차례로 선택하여 해당 제품을 가진 모든 그룹 목록을 표시합니다.
 
@@ -128,9 +128,9 @@ Microsoft에서 제품 라이선스 계획에 새 서비스를 추가할 때 제
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>PowerShell을 사용하여 누가 상속됨과 직접 라이선스를 가지고 있는지 확인
 PowerShell 스크립트를 사용하여 사용자가 라이선스를 직접 할당받는지 아니면 그룹에서 상속받는지를 확인할 수 있습니다.
 
-1. `connect-msolservice` cmdlet을 실행하여 인증하고 테넌트에 연결합니다.
+1. `connect-msolservice` Cmdlet을 실행 하 여 조직에 인증 하 고 연결 합니다.
 
-2. `Get-MsolAccountSku`는 테넌트에서 프로비전된 모든 제품 라이선스를 검색하는 데 사용할 수 있습니다.
+2. `Get-MsolAccountSku`Azure AD 조직에서 프로 비전 된 모든 제품 라이선스를 검색 하는 데 사용할 수 있습니다.
 
    ![Get-msolaccountsku cmdlet의 스크린샷](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
+ms.date: 04/30/2020
 ms.author: allensu
-ms.openlocfilehash: 5a65982c5c13eb4e4273efcfd8d14910b0f35572
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ecfbc610bfa62f723e0a02b8cdeb52cd33fb5cd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78197150"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853448"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>표준 Load Balancer 및 가용성 영역
 
@@ -26,20 +26,20 @@ Azure 표준 Load Balancer는 [가용성 영역](../availability-zones/az-overvi
 
 ## <a name="availability-zones-concepts-applied-to-load-balancer"></a><a name="concepts"></a> Load Balancer에 적용된 가용성 영역 개념
 
-Load Balancer 리소스 자체는 지역이며 영역이 될 수 없습니다. 구성할 수 있는 항목의 세분성은 프런트 엔드, 규칙 및 백 엔드 풀 정의의 각 구성에 의해 제한 됩니다.
-가용성 영역의 컨텍스트에서 Load Balancer 규칙의 동작 및 속성은 영역 중복 또는 영역으로 설명 됩니다.  영역 중복 및 구역은 속성의 영역 조건(zonality)을 나타냅니다.  Load Balancer 컨텍스트에서 영역 중복은 항상 *여러 영역* 을 의미 하 고 영역에는 서비스를 *단일 영역*으로 격리 하는 것을 의미 합니다.
-공용 및 내부 Load Balancer 모두는 영역 중복 시나리오 및 영역 시나리오를 지원하며, 필요에 따라 둘 다 영역을 통해 트래픽을 보낼 수 있습니다(*영역 간 부하 분산*). 
+Load Balancer 리소스 자체는 프런트 엔드, 규칙 및 백 엔드 풀 정의의 구성 요소에서 영역 구성을 상속 합니다.
+가용성 영역의 컨텍스트에서 Load Balancer 규칙의 동작 및 속성은 영역 중복 또는 영역으로 설명 됩니다.  Load Balancer 컨텍스트에서 영역 중복은 항상 *여러 영역* 을 의미 하 고 영역에는 서비스를 *단일 영역*으로 격리 하는 것을 의미 합니다.
+두 형식 (public, internal) Load Balancer 영역 중복 및 영역 시나리오를 지원 하 고 둘 다 필요에 따라 영역 간에 트래픽을 보낼 수 있습니다.
 
-### <a name="frontend"></a>프런트 엔드
+## <a name="frontend"></a>프런트 엔드
 
 Load Balancer 프런트 엔드는 가상 네트워크 리소스의 서브넷 내에서 공용 IP 주소 리소스 또는 개인 IP 주소를 참조 하는 프런트 엔드 IP 구성입니다.  서비스가 노출되는 부하 분산된 엔드포인트를 형성합니다.
 Load Balancer 리소스는 영역 중복 및 영역 중복 프런트 엔드 있는 규칙을 동시에 포함할 수 있습니다. 공용 IP 리소스 또는 개인 IP 주소가 영역에 대해 보장 되는 경우 영역 조건을 (또는 그 부족)는 변경 되지 않습니다.  공용 IP 또는 개인 IP 주소 프런트 엔드의 영역 조건을를 변경 하거나 생략 하려면 적절 한 영역에 공용 IP를 다시 만들어야 합니다.  가용성 영역은 여러 프런트 엔드에 대 한 제약 조건을 변경 하지 않습니다 .이 기능에 대 한 자세한 내용은 [Load Balancer에 대해 여러 프런트 엔드](load-balancer-multivip-overview.md) 을 검토 합니다.
 
-#### <a name="zone-redundant"></a>영역 중복 
+### <a name="zone-redundant"></a>영역 중복 
 
 가용성 영역이 있는 지역에서 표준 Load Balancer 프런트 엔드는 영역 중복 될 수 있습니다.  영역 중복은 모든 인바운드 또는 아웃 바운드 흐름이 단일 IP 주소를 사용 하 여 한 지역의 여러 가용성 영역에서 동시에 제공 됨을 의미 합니다. DNS 중복 구성표는 필요하지 않습니다. 단일 프런트 엔드 IP 주소는 영역 오류에 남아 있을 수 있으며 영역에 관계 없이 모든 (영향을 받지 않는) 백 엔드 풀 멤버에 연결 하는 데 사용할 수 있습니다. 하나 이상의 가용성 영역이 실패할 수 있으며, 지역에서 한 영역이 정상으로 유지 되는 한 데이터 경로가 생존 합니다. 프런트 엔드의 단일 IP 주소는 여러 가용성 영역에서 여러 독립 인프라 배포에 의해 동시에 제공 됩니다.  이는 비충돌 데이터 경로를 의미 하지 않지만 재시도 또는 재설정는 영역 오류의 영향을 받지 않는 다른 영역에서 성공 합니다.   
 
-#### <a name="optional-zone-isolation"></a>선택적 영역 격리
+### <a name="zonal"></a>횡단면
 
 *영역 프런트 엔드*라고 하는 단일 영역에 대한 프런트 엔드를 보장하도록 선택할 수 있습니다.  즉, 모든 인바운드 또는 아웃바운드 흐름이 한 지역의 단일 영역에서 처리됩니다.  프런트 엔드는 영역의 상태와 수명을 공유합니다.  데이터 경로는 보장된 영역 이외의 영역에서 오류가 발생해도 영향을 받지 않습니다. 영역 프런트 엔드를 사용하여 가용성 영역별 IP 주소를 공개할 수 있습니다.  
 
@@ -51,13 +51,7 @@ Load Balancer 리소스는 영역 중복 및 영역 중복 프런트 엔드 있�
 
 내부 Load Balancer 프런트 엔드의 경우 내부 Load Balancer 프런트 엔드 IP 구성에 *zones* 매개 변수를 추가합니다. 영역 프런트 엔드는 Load Balancer에서 특정 영역에 대한 서브넷의 IP 주소를 보장하도록 합니다.
 
-### <a name="cross-zone-load-balancing"></a>영역 간 부하 분산
-
-영역 간 부하 분산은 Load Balancer에서 모든 영역의 백 엔드 엔드포인트에 연결하는 기능이며 프런트 엔드 및 해당 영역 조건과는 별개입니다.  모든 부하 분산 규칙은 모든 가용성 영역 또는 지역 인스턴스에서 백 엔드 인스턴스를 대상으로 지정할 수 있습니다.
-
-가용성 영역 개념을 표현 하는 방식으로 시나리오를 구성 해야 합니다. 예를 들어 단일 영역 또는 여러 영역 내에서 가상 컴퓨터 배포를 보장 하 고 영역 프런트 엔드 및 영역 백 엔드 리소스를 동일한 영역에 정렬 해야 합니다.  영역 리소스만 사용 하는 가용성 영역을 사용 하는 경우 시나리오는 작동 하지만 가용성 영역에 대 한 명확한 오류 모드는 없을 수 있습니다. 
-
-### <a name="backend"></a>백 엔드
+## <a name="backend"></a>백 엔드
 
 Load Balancer는 virtual machines 인스턴스와 함께 작동 합니다.  이는 독립 실행형, 가용성 집합 또는 가상 머신 확장 집합 일 수 있습니다.  단일 가상 네트워크의 모든 가상 머신 인스턴스는 영역에 대 한 보장 여부 또는 보장 된 영역에 관계 없이 백 엔드 풀에 포함 될 수 있습니다.
 
@@ -65,13 +59,13 @@ Load Balancer는 virtual machines 인스턴스와 함께 작동 합니다.  이�
 
 여러 영역에서 가상 컴퓨터를 처리 하려는 경우에는 여러 영역의 가상 컴퓨터를 동일한 백 엔드 풀에 추가 하기만 하면 됩니다.  가상 머신 확장 집합을 사용할 때 하나 이상의 가상 머신 확장 집합을 동일한 백 엔드 풀에 배치할 수 있습니다.  또한 각 가상 머신 확장 집합은 하나 또는 여러 영역에 있을 수 있습니다.
 
-### <a name="outbound-connections"></a>아웃바운드 연결
+## <a name="outbound-connections"></a>아웃바운드 연결
 
 동일한 영역 중복 및 영역 속성은 [아웃 바운드 연결](load-balancer-outbound-connections.md)에 적용 됩니다.  아웃 바운드 연결에 사용 되는 영역 중복 공용 IP 주소는 모든 영역에서 제공 됩니다. 영역 공용 IP 주소는 보장 된 영역 에서만 제공 됩니다.  아웃 바운드 연결 SNAT 포트 할당은 영역 오류에 남아 있으며, 시나리오는 영역 실패의 영향을 받지 않는 경우 아웃 바운드 SNAT 연결을 계속 제공 합니다.  이를 위해서는 전송이 필요 하거나, 영향을 받는 영역에서 흐름을 제공 하는 경우 영역 중복 시나리오에 대 한 연결을 다시 설정 해야 할 수 있습니다.  영향을 받는 영역 이외의 영역에 있는 흐름에는 영향을 주지 않습니다.
 
 SNAT 포트 미리 할당 알고리즘은 가용성 영역을 사용 하거나 사용 하지 않는 상태와 동일 합니다.
 
-### <a name="health-probes"></a>상태 프로브
+## <a name="health-probes"></a>상태 프로브
 
 기존 상태 프로브 정의는 가용성 영역이 없는 그대로 남아 있습니다.  그러나 인프라 수준에서 상태 모델을 확장 했습니다. 
 

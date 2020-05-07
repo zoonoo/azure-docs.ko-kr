@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: ba0573af59c2924648361fec10bffed189291d28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19457dc7324c509f54a58a2cdaa39561bfc71b4d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81768565"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853335"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -42,7 +42,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **지역** | **Azure 지역** | **Express 경로 위치** |
 | --- | --- | --- |
 | **오스트레일리아 정부** | 오스트레일리아 중부, 오스트레일리아 중부 2 |캔버라, 캔버라2 |
-| **유럽** | 프랑스 중부, 프랑스 남부, 독일 북부, 독일 중서부, 북부 유럽, 노르웨이 동부, 노르웨이 서 부, 스위스 북부, 스위스 서부, 영국 서부, 영국 남부, 유럽 서부 |암스테르담, Amsterdam2, 코펜하겐, 더블린, 프랑크푸르트, Geneva, 런던, London2, 마르세유에, Milan, 뮌헨, Newport (Wales), Oslo, 파리, Stavanger, 스톡홀름, 취리히, 뮌헨 |
+| **Europe** | 프랑스 중부, 프랑스 남부, 독일 북부, 독일 중서부, 북부 유럽, 노르웨이 동부, 노르웨이 서 부, 스위스 북부, 스위스 서부, 영국 서부, 영국 남부, 유럽 서부 |암스테르담, Amsterdam2, 베를린, 코펜하겐, 더블린, 프랑크푸르트, Geneva, 런던, London2, 마르세유에, Milan, 뮌헨, Newport (Wales), Oslo, 파리, Stavanger, 스톡홀름, 취리히, 뮌헨 |
 | **북아메리카** | 미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 중서부, 캐나다 중부, 캐나다 동부 |애틀랜타, 시카고, 달라스, 덴버, Las Vegas, 로스앤젤레스, 마이애미, 뉴욕, San Antonio, 시애틀, 실리콘 계곡, 실리콘 Valley2, 워싱턴 DC, 워싱턴 DC2, 몬트리올, 퀘벡 City,, 밴쿠버 |
 | **아시아** | 동아시아, 동남 아시아 | 방콕, 홍콩, 홍콩 Kong2, 자카르타, 콸라룸푸르, 싱가포르, 싱가포르 2, 타이베이 |
 | **인도** | 인도 서부, 인도 중부, 인도 남부 |첸나이, 첸나이2, 뭄바이, 뭄바이2 |
@@ -82,6 +82,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **애틀랜타** | [서-ix AT2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | 1 | 해당 없음 | 해당 없음 | Equinix, Megaport |
 | **오클랜드** | [Vocus Group NZ 올버니](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | 해당 없음 | 10G | Devoli, Kordia, Megaport, Spark NZ, Vocus Group NZ |
 | **방콕** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | 해당 없음 | 10G | AIS |
+| **베를린** | [NTT GDC](https://www.e-shelter.de/en/location/berlin-1-data-center) | 1 | 독일 북부 | 10G | NTT 글로벌 데이터 센터 EMEA|
 | **부산** | [LG CN](https://www.lgcns.com/datacenter) | 2 | 한국 남부 | 해당 없음 | LG CNS |
 | **캔버라** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | 오스트레일리아 중부 | 10G, 100G | CDC |
 | **캔버라2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | 오스트레일리아 중부 2| 10G, 100G | CDC |
@@ -111,7 +112,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **마이애미** | [서-ix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | 해당 없음 | 10G | C3ntro, Megaport, Neutrona Networks |
 | **Milan** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | 해당 없음 | 10G | |
 | **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | 해당 없음 | 10G, 100G | 종 캐나다, Cologix, Megaport, Telus, Zayo |
-| **뭄바이** | Tata Communications | 2 | 인도 서부 | 해당 없음 | GCX (Global Gcx), Jio, Sify, Tata 통신, Verizon |
+| **뭄바이** | Tata Communications | 2 | 인도 서부 | 10G | GCX (Global Gcx), Jio, Sify, Tata 통신, Verizon |
 | **뭄바이2** | Airtel | 2 | 인도 서부 | 해당 없음 | Airtel, Sify, Vodafone Idea |
 | **뮌헨** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/) | 1 | 해당 없음 | 10G, 100G | |
 | **뉴욕** | [서-ix NY9](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny9/) | 1 | 해당 없음 | 해당 없음 | CenturyLink Cloud Connect, Colt, Coresite, 서 면 Inix, InterCloud, Megaport, Packet, Zayo |
@@ -133,11 +134,11 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **스톡홀름** | [서-ix SK1](https://www.equinix.com/locations/europe-colocation/sweden-colocation/stockholm-data-centers/sk1/) | 1 | 해당 없음 | 10G | 서-ix, Telia 캐리어 |
 | **시드니** | [서-ix SY2](https://www.equinix.com/locations/asia-colocation/australia-colocation/sydney-data-centers/sy2/) | 2 | 오스트레일리아 동부 | 10G, 100G | AARNet,&T NetBond, 영국령 텔레콤, Devoli, Kordia, Megaport, NEXTDC, NTT Communications, Optus, 주황, Spark NZ, Telstra Corporation, TPG 텔레콤, Verizon, Vocus Group NZ |
 | **Sydney2** | [NextDC S1](https://www.nextdc.com/data-centres/s1-sydney-data-centre) | 2 | 오스트레일리아 동부 | 10G, 100G | Megaport, NextDC |
-| **타이베이** | Chief Telecom | 2 | 해당 없음 | 10G | 최고 통신, FarEasTone |
+| **타이베이** | Chief Telecom | 2 | 해당 없음 | 10G | 최고 통신, Chunghwa 텔레콤, FarEasTone |
 | **도쿄** | [서-ix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | 일본 동부 | 10G, 100G | Aryaka Networks,&T NetBond, BBIX, 영국 텔레콤, CenturyLink Cloud Connect, Colt, Equinix, Internet 이니셔티브 일본 Inc.-IIJ, Megaport, NTT Communications, NTT 동부, 주황, 소프트 Bank, Verizon |
 | **Tokyo2** | [도쿄](https://www.attokyo.com/) | 2 | 일본 동부 | 10G, 100G | 도쿄 |
 | **토론토** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | 캐나다 중부 | 10G, 100G | &T NetBond, 종 캐나다, CenturyLink Cloud Connect, Cologix, Megaport, Telus, Verizon, Zayo |
-| **밴쿠버** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | Cologix | 10G, 100G | |
+| **밴쿠버** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | 해당 없음 | 10G | Cologix |
 | **워싱턴 DC** | [서-ix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | 1 | 미국 동부, 미국 동부 2 | 10G, 100G | Aryaka Networks,&T NetBond, 영국령 텔레콤, CenturyLink Cloud Connect, Cologix, Colt, Comcast, Coresite, Equinix, Internet2, InterCloud, IX 연결, 수준 3 통신, Megaport, Neutrona Networks, NTT 통신, 주황색, PacketFabric, SES, 스 프린트, Tata 통신, Telia 캐리어, Verizon, Zayo |
 | **워싱턴 DC2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | 1 | 미국 동부, 미국 동부 2 | 10G, 100G | CenturyLink Cloud Connect, Coresite, Intelsat, Viasat, Zayo | 
 | **취리히** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | 스위스 북부 | 10G, 100G | Intercloud, Interx이온, Megaport, Swisscom |
@@ -167,7 +168,7 @@ Azure 국가별 클라우드는 서로 격리 되며 전 세계 상용 Azure에�
 | **베이징** |China Telecom |
 | **베이징2** | 중국 통신, 중국 Unicom, GDS |
 | **상하이** |China Telecom |
-| **상하이2** | 중국 통신, GDS |
+| **상하이2** | 중국 통신, 중국 Unicom, GDS |
 
 자세히 알아보려면 [중국의 express](http://www.windowsazure.cn/home/features/expressroute/) 경로를 참조 하세요.
 
@@ -183,6 +184,7 @@ Azure 국가별 클라우드는 서로 격리 되며 전 세계 상용 Azure에�
 * 연결 공급자에게 문의하여 위의 표에 있는 Exchange 중 하나에 연결되어 있는지 확인합니다. Exchange 공급자가 제공하는 서비스에 대한 자세한 정보를 수집하려면 다음 링크를 확인할 수 있습니다. 여러 연결 공급자는 이미 이더넷 Exchange에 연결되어 있습니다.
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
+  * [제거 X](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange)
   * [Equinix 클라우드 Exchange](https://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
   * [InterXion](https://www.interxion.com/)
   * [NextDC](https://www.nextdc.com/)
@@ -238,7 +240,7 @@ Azure 국가별 클라우드는 서로 격리 되며 전 세계 상용 Azure에�
 | --- | --- |
 | **아시아** |Avanade Inc., OneAs1a |
 | **오스트레일리아** | Ensyst, IT Consultancy, MOQdigital, Vigilant.IT |
-| **유럽** |Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
+| **Europe** |Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
 | **북아메리카** |Avanade Inc., Equinix Professional Services, FlexManage, Lightstream, Perficient, Presidio |
 | **남아메리카** |Avanade Inc., Venha Pra Nuvem |
 ## <a name="next-steps"></a>다음 단계

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: f68f973882af28d80b3a27bc4591c5ee932404a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9c9ad45ac1cf59f05454cba0babff8c3b7368f72
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443611"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839116"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure SQL Database에 Azure Stream Analytics 출력
 
@@ -24,7 +24,7 @@ Azure Stream Analytics의 SQL 출력에서는 병렬 쓰기를 옵션으로 지�
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-- **분할 상속** – 이 SQL 출력 구성 옵션은 이전 쿼리 단계 또는 입력의 파티션 구성표를 상속할 수 있습니다. 이 옵션을 사용하면 디스크 기반 테이블에 데이터를 쓰고 작업에 [완전한 병렬](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) 토폴로지를 사용할 때 처리량이 향상될 것으로 예상할 수 있습니다. 이 분할은 이미 여러 다른 [출력](stream-analytics-parallelization.md#partitions-in-sources-and-sinks)에서 자동으로 발생합니다. 이 옵션을 사용한 대량 삽입에도 테이블 잠금(TABLOCK)이 비활성화됩니다.
+- **분할 상속** – 이 SQL 출력 구성 옵션은 이전 쿼리 단계 또는 입력의 파티션 구성표를 상속할 수 있습니다. 이 옵션을 사용하면 디스크 기반 테이블에 데이터를 쓰고 작업에 [완전한 병렬](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) 토폴로지를 사용할 때 처리량이 향상될 것으로 예상할 수 있습니다. 이 분할은 이미 여러 다른 [출력](stream-analytics-parallelization.md#partitions-in-inputs-and-outputs)에서 자동으로 발생합니다. 이 옵션을 사용한 대량 삽입에도 테이블 잠금(TABLOCK)이 비활성화됩니다.
 
 > [!NOTE] 
 > 입력 파티션이 8개보다 많은 경우 입력 파티션 구성표를 상속하는 것이 적합하지 않을 수 있습니다. 이 상한값은 ID 열이 하나이고 클러스터형 인덱스가 있는 테이블에서 관찰되었습니다. 이 경우 쿼리에서을 8 [로](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 사용 하 여 출력 작성기 수를 명시적으로 지정 하는 것이 좋습니다. 스키마 및 선택하는 인덱스에 따라 관찰 결과가 달라질 수 있습니다.

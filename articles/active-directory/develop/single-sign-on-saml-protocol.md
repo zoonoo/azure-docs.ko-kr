@@ -13,12 +13,12 @@ ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: f1437ec5d9c3fd0ff69be0c884c340cb857ee181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 333f23ddfe834307b5cbfebb9540e0b5efc79a53
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80881285"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853788"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
 
@@ -95,7 +95,7 @@ ID 공급자 목록을 포함하는 `Scoping` 요소는 Azure AD로 전송되는
 ### <a name="signature"></a>서명
 Azure AD에서 서명된 인증 요청을 지원하지 않으므로 `Signature` 요소는 `AuthnRequest` 요소에 포함하지 않습니다.
 
-### <a name="subject"></a>제목
+### <a name="subject"></a>주체
 Azure AD는 `AuthnRequest` 요소의 `Subject` 요소를 무시합니다.
 
 ## <a name="response"></a>응답
@@ -153,12 +153,12 @@ Azure AD는 `AuthnRequest` 요소의 `Subject` 요소를 무시합니다.
 
 ### <a name="issuer"></a>발급자
 
-Azure AD는 `Issuer` 요소를로 `https://login.microsoftonline.com/<TenantIDGUID>/` 설정 \<합니다. 여기서 TenantIDGUID>는 Azure ad 테 넌 트의 테 넌 트 ID입니다.
+Azure AD는 `Issuer` 요소를로 `https://sts.windows.net/<TenantIDGUID>/` 설정 \<합니다. 여기서 TenantIDGUID>는 Azure ad 테 넌 트의 테 넌 트 ID입니다.
 
 예를 들어 발급자 요소가 포함된 응답은 다음 샘플과 같습니다.
 
 ```
-<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 ### <a name="status"></a>상태
@@ -191,7 +191,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 이는로 `https://sts.windows.net/<TenantIDGUID>/`설정 됩니다 \<. 여기서 TENANTIDGUID>는 Azure AD 테 넌 트의 테 넌 트 ID입니다.
 
 ```
-<Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 #### <a name="signature"></a>서명
@@ -206,7 +206,7 @@ Azure AD는 성공적인 로그온에 대한 응답에서 어설션을 서명합
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>제목
+#### <a name="subject"></a>주체
 
 이 어설션의 문 주체인 보안 주체를 지정합니다. 여기에는 인증된 사용자를 나타내는 `NameID` 요소가 포함됩니다. `NameID` 값은 토큰의 대상 그룹인 서비스 공급자에만 전달되는 대상 지정 식별자입니다. 영구적이며 해지할 수 있지만 다시 할당되지는 않습니다. 또한 불투명하며 사용자에 대한 어떠한 정보도 표시하지 않으며 특성 쿼리의 식별자로 사용할 수 없습니다.
 

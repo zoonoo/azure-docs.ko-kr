@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jonbeck
-ms.openlocfilehash: df22c857571e51bb886ff1d25db185a306999540
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 409fe69d111e2c5aebe0ad0bd38ced10604b5f1b
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420867"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839065"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>고성능 컴퓨팅 VM 크기
 
@@ -39,7 +39,7 @@ Azure H 시리즈 Vm (가상 머신)은 다양 한 실제 HPC 워크 로드에 �
 
 ## <a name="rdma-capable-instances"></a>RDMA 지원 인스턴스
 
-대부분의 HPC VM 크기 (HBv2, HB, HC, H16r, H16mr, A8 및 A9)는 RDMA (원격 직접 메모리 액세스) 연결을 위한 네트워크 인터페이스를 지원 합니다. 선택한 [N 시리즈] (https://docs.microsoft.com/azure/virtual-machines/nc-series) NC24rs 구성 (NC24rs_v3, NC24rs_v2 및 NC24r)과 같이 ' r '로 지정 된 크기는 RDMA도 가능 합니다. 이 인터페이스는 다른 VM 크기에서 사용할 수 있는 표준 Azure 네트워크 인터페이스에 추가 됩니다.
+대부분의 HPC VM 크기 (HBv2, HB, HC, H16r, H16mr, A8 및 A9)는 RDMA (원격 직접 메모리 액세스) 연결을 위한 네트워크 인터페이스를 지원 합니다. NC24rs 구성 (NC24rs_v3, NC24rs_v2 및 NC24r)과 같이 ' r '로 지정 된 [N 시리즈](https://docs.microsoft.com/azure/virtual-machines/nc-series) 크기를 선택 하면 RDMA도 가능 합니다. 이 인터페이스는 다른 VM 크기에서 사용할 수 있는 표준 Azure 네트워크 인터페이스에 추가 됩니다.
 
 이 인터페이스를 사용 하면 RDMA 지원 인스턴스가 InfiniBand (IB) 네트워크를 통해 통신할 수 있으며, HBv2에 대 한 HDR 요금, HC, H16r, H16mr 및 RDMA 지원에 대 한 FDR 요금, A8 및 A9 Vm에 대 한 QDR 요금에 대 한 EDR 요금으로 작동할 수 있습니다. 이러한 RDMA 기능은 특정 MPI(Message Passing Interface) 애플리케이션의 확장성 및 성능을 향상시킬 수 있습니다. 속도에 대 한 자세한 내용은이 페이지의 테이블에 있는 세부 정보를 참조 하세요.
 
@@ -92,7 +92,7 @@ Azure에서는 다음을 비롯한 RDMA 네트워크를 사용하여 통신할 �
 
 - **가상 컴퓨터** -RDMA 가능 HPC vm을 동일한 확장 집합 또는 가용성 집합 (Azure Resource Manager 배포 모델을 사용 하는 경우)에 배포 합니다. 클래식 배포 모델을 사용하는 경우 동일한 클라우드 서비스에서 VM을 배포합니다.
 
-- **Virtual machine scale sets** -vmss (가상 머신 확장 집합)에서 배포를 단일 배치 그룹으로 제한 해야 합니다. 예를 들어, Resource Manager 템플릿에서 `singlePlacementGroup` 속성을 `true`로 설정합니다. 속성 `singlePlacementGroup` `true` 으로 분리 수 있는 최대 vmss 크기는 기본적으로 100 vm에 있습니다. HPC 작업 규모 요구가 단일 VMSS 테 넌 트의 100 Vm 보다 높은 경우, 무료로 무료로 [온라인 고객 지원 요청을 열](../azure-supportability/how-to-create-azure-support-request.md) 수 있습니다.
+- **Virtual machine scale sets** -vmss (가상 머신 확장 집합)에서 배포를 단일 배치 그룹으로 제한 하 여 vmss 내의 InfiniBand 통신을 확인 합니다. 예를 들어, Resource Manager 템플릿에서 `singlePlacementGroup` 속성을 `true`로 설정합니다. 속성 `singlePlacementGroup` `true` 으로 분리 수 있는 최대 vmss 크기는 기본적으로 100 vm에 있습니다. HPC 작업 규모 요구가 단일 VMSS 테 넌 트의 100 Vm 보다 높은 경우, 무료로 무료로 [온라인 고객 지원 요청을 열](../azure-supportability/how-to-create-azure-support-request.md) 수 있습니다. 단일 VMSS의 Vm 수에 대 한 제한을 300로 늘릴 수 있습니다. 가용성 집합을 사용 하 여 Vm을 배포 하는 경우 최대 제한은 가용성 집합 당 Vm 200에 있습니다.
 
 - **가상 머신 간의 MPI** -가상 머신 (vm) 간에 RDMA (예: MPI 통신 사용)가 필요한 경우 vm이 동일한 가상 머신 확장 집합 또는 가용성 집합에 있는지 확인 합니다.
 
@@ -129,6 +129,6 @@ Azure에서는 다음을 비롯한 RDMA 네트워크를 사용하여 통신할 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure 용 HPC 응용 프로그램 최적화에 대해 자세히 알아보고 [HPC 워크 로드] (https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview) 
+- Azure 용 HPC 응용 프로그램 최적화 및 [Hpc 작업](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview) 의 몇 가지 예제에 대해 자세히 알아보세요. 
 
 - [ACU(Azure 컴퓨팅 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.

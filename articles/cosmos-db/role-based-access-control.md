@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0c7332a42751b35b6ad8ec3f88afb7bc78cc85e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e028e7a5e7e7b8f747d7a1cfb36c553a8113544
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75445094"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583724"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Azure Cosmos DB의 역할 기반 액세스 제어
 
@@ -61,6 +61,12 @@ Cosmos 리소스 공급자는 계정 키 (즉, Cosmos SDK를 통해 연결 하�
         }
     }
 }
+```
+기존 리소스 관리자 템플릿을 내보내고이 속성을 사용 하 여 업데이트 하는 경우 템플릿의 기능을 완전히 바꿀 수 있습니다. 따라서 모든 값이 포함 되지 않은 경우 기본값으로 다시 설정 됩니다. 키 기반 메타 데이터 쓰기 액세스를 사용 하지 않도록 설정 하는 또 다른 방법은 다음 명령에 표시 된 대로 Azure CLI를 사용 하는 것입니다.
+
+```cli
+az cosmosdb update  --name CosmosDBAccountName --resource-group ResourceGroupName  --disable-key-based-metadata-write-access true
+
 ```
 
 ## <a name="next-steps"></a>다음 단계

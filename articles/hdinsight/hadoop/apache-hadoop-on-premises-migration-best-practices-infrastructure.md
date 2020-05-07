@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: d7ee8ae121e3cbb9760a87c95d12109a9b05e0c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61d7d2a52f58162d288b1155f9724c7912e451f3
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74951516"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780099"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 인프라 모범 사례
 
@@ -109,7 +109,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 구성 사용자 지정
 
-`core-site.xml`, `hive-site.xml` 및 `oozie-env.xml`과 같은 구성 파일에서 구성에 대한 변경 내용은 부트스트랩을 사용하여 만들 수 있습니다. 다음 스크립트는 Powershell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster)을 사용 하는 예입니다.
+`core-site.xml`, `hive-site.xml` 및 `oozie-env.xml`과 같은 구성 파일에서 구성에 대한 변경 내용은 부트스트랩을 사용하여 만들 수 있습니다. 다음 스크립트는 PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster)을 사용 하는 예입니다.
 
 ```powershell
 # hive-site.xml configuration
@@ -167,7 +167,7 @@ HDInsight와 함께 Azure Virtual Network를 사용하면 다음 시나리오가
 - Azure Virtual Network에서 데이터 저장소에 HDInsight를 연결합니다.
 - 인터넷을 통해 공개적으로 사용할 수 없는 Hadoop 서비스에 직접 액세스합니다. 예를 들어 Kafka API 또는 HBase Java API.
 
-HDInsight를 새 또는 기존 Azure Virtual Network에 추가할 수 있습니다. HDInsight가 기존 Virtual Network에 추가되는 경우 기존 네트워크 보안 그룹 및 사용자 정의 경로는 Azure 데이터 센터에서 [여러 개의 IP 주소](../hdinsight-management-ip-addresses.md)에 대한 무제한 액세스를 허용하도록 업데이트되어야 합니다. 또한 HDInsight 서비스에서 사용 중인 [포트](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ports)에 대 한 트래픽을 차단 하지 않도록 해야 합니다.
+HDInsight를 새 또는 기존 Azure Virtual Network에 추가할 수 있습니다. HDInsight가 기존 Virtual Network에 추가되는 경우 기존 네트워크 보안 그룹 및 사용자 정의 경로는 Azure 데이터 센터에서 [여러 개의 IP 주소](../hdinsight-management-ip-addresses.md)에 대한 무제한 액세스를 허용하도록 업데이트되어야 합니다. 또한 HDInsight 서비스에서 사용 중인 [포트](../control-network-traffic.md#required-ports)에 대 한 트래픽을 차단 하지 않도록 해야 합니다.
 
 > [!Note]  
 > HDInsight는 현재 강제 터널링을 지원하지 않습니다. 강제 터널링은 검사 및 로깅을 위해 디바이스에 아웃바운드 인터넷 트래픽을 적용하는 서브넷 설정입니다. 서브넷에 HDInsight를 설치하기 전에 강제 터널링을 제거하거나 HDInsight에 대해 새 서브넷을 만듭니다. HDInsight는 또한 아웃바운드 네트워크 연결 제한을 지원하지 않습니다.

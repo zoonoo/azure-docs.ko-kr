@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8b6a65a964016f702fcf75aa4cbdab33a952e3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1f27c7b91a78da8944c23fd353d3b6791b3e015
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74024246"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582562"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Azure Active Directory 로그인 페이지에 대 한 홈 영역 검색
 
@@ -28,7 +28,7 @@ ms.locfileid: "74024246"
 
 지금까지 홈 영역 검색은 일부 레거시 응용 프로그램에 대 한 홈 영역 검색 정책 또는 로그인 시 제공 되는 도메인에 의해 제어 됩니다. 예를 들어 검색 동작에서 사용자의 사용자 이름을 잘못 입력 한 경우에도 해당 조직의 자격 증명 컬렉션 화면에 도착 하는 Azure Active Directory 있습니다. 이는 사용자가 조직의 도메인 이름 "contoso.com"를 올바르게 제공할 때 발생 합니다. 이 동작으로 개별 사용자에 대 한 환경을 사용자 지정할 수는 없습니다.
 
-더 광범위 한 자격 증명을 지원 하 고 유용성을 높이려면 로그인 프로세스 중에 Azure Active Directory의 사용자 이름 조회 동작이 업데이트 됩니다. 새 동작은 로그인 페이지에 입력 된 사용자 이름을 기반으로 테 넌 트 및 사용자 수준 설정을 읽어 지능적 결정을 내립니다. 이러한 작업을 가능 하 게 하려면 로그인 페이지에 입력 된 사용자 이름이 지정 된 도메인에 있는지 확인 하거나 사용자에 게 자격 증명을 제공 하도록 리디렉션합니다 Azure Active Directory 합니다.
+더 광범위 한 자격 증명을 지원 하 고 유용성을 높이려면 로그인 프로세스 중에 Azure Active Directory의 사용자 이름 조회 동작이 업데이트 됩니다. 새 동작은 로그인 페이지에 입력 된 사용자 이름을 기반으로 조직 수준 및 사용자 수준 설정을 읽어 지능적 결정을 내립니다. 이러한 작업을 가능 하 게 하려면 로그인 페이지에 입력 된 사용자 이름이 지정 된 도메인에 있는지 확인 하거나 사용자에 게 자격 증명을 제공 하도록 리디렉션합니다 Azure Active Directory 합니다.
 
 이 작업의 추가 혜택은 향상 된 오류 메시지입니다. Azure Active Directory 사용자만을 지 원하는 응용 프로그램에 로그인 하는 경우 향상 된 오류 메시징의 몇 가지 예는 다음과 같습니다.
 

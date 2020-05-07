@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 0d6d69b82e80ff9bc33e49302cf59766b9c2e8d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e1f61641eed0584ecb5bb33f1a510c7df6e60e3
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81270828"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839082"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
 
@@ -52,10 +52,14 @@ ms.locfileid: "81270828"
 1. **Azure Portal에 표시 되지 않는 SQL Server의 이전 이미지를 배포할 수 있나요?**
 
    예, PowerShell을 사용하면 됩니다. PowerShell을 사용하여 SQL Server VM을 배포하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 SQL Server 가상 머신을 프로비전하는 방법](virtual-machines-windows-ps-sql-create.md)을 참조하세요.
+   
+1. **내 SQL Server VM의 일반화 된 Azure SQL Server Marketplace 이미지를 만들고이를 사용 하 여 Vm을 배포할 수 있나요?**
 
-1. **Azure VM에서 SQL Server을 일반화 하 고이를 사용 하 여 새 Vm을 배포할 수 있나요?**
+   예, 하지만 [SQL Server VM 리소스 공급자와 각 SQL Server VM를 등록](virtual-machines-windows-sql-register-with-resource-provider.md) 하 여 포털에서 SQL Server VM을 관리 하 고 자동화 된 패치 적용 및 자동 백업 등의 기능을 활용 해야 합니다. 리소스 공급자에 등록 하는 경우 각 SQL Server VM에 대 한 라이선스 형식을 지정 해야 합니다.
 
-   Windows Server VM을 배포할 수 있습니다 (SQL Server 설치 되지 않은 경우), [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) 프로세스를 사용 하 여 SQL Server 설치 미디어와 함께 Azure Vm (Windows)에서 SQL Server 일반화 합니다. [소프트웨어 보증이](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) 있는 고객은 [볼륨 라이선스 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 가져올 수 있습니다. 소프트웨어 보증이 없는 고객은 원하는 버전이 있는 Marketplace SQL Server VM 이미지에서 설치 미디어를 사용할 수 있습니다.
+1. **Azure VM에서 일반화 된 SQL Server를 어떻게 할까요? 하 고이를 사용 하 여 새 Vm을 배포 합니다.**
+
+   Windows Server VM (SQL Server 설치 하지 않고)을 배포 하 고 [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) 프로세스를 사용 하 여 SQL Server 설치 미디어와 함께 Azure Vm (Windows)에서 SQL Server을 일반화할 수 있습니다. [소프트웨어 보증이](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) 있는 고객은 [볼륨 라이선스 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 가져올 수 있습니다. 소프트웨어 보증이 없는 고객은 원하는 버전이 있는 Marketplace SQL Server VM 이미지에서 설치 미디어를 사용할 수 있습니다.
 
    또는 azure marketplace에서 Azure marketplace를 구성 하는 SQL Server 이미지 중 하나를 사용 하 여 Azure VM에서 SQL Server을 일반화 합니다. 사용자 고유의 이미지를 만들기 전에 원본 이미지에서 다음 레지스트리 키를 삭제 해야 합니다. 이렇게 하지 않으면 SQL Server 설치 부트스트랩 폴더 및/또는 SQL IaaS 확장의 블 로트가 실패 한 상태가 될 수 있습니다.
 
@@ -63,7 +67,7 @@ ms.locfileid: "81270828"
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
 
    > [!NOTE]
-   > 사용자 지정 일반화 된 이미지에서 배포 된 Vm을 포함 하 여 모든 SQL Server Azure Vm은 규정 준수 요구 사항을 충족 하 고 자동화 된 패치 적용 및 자동 백업 등의 선택적 기능을 활용 하기 위해 [SQL VM 못해 공급자에 등록](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) 하는 것이 좋습니다. 또한 각 SQL Server VM에 대 한 [라이선스 형식을 지정할](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) 수 있습니다.
+   > 사용자 지정 일반화 된 이미지에서 배포 된 Vm을 포함 하 여 Azure Vm에서 SQL Server는 규정 준수 요구 사항을 충족 하 고 자동화 된 패치 적용 및 자동 백업 등의 선택적 기능을 활용 하기 위해 [SQL VM 리소스 공급자에 등록](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) 해야 합니다. 또한 리소스 공급자를 사용 하 여 각 SQL Server VM에 대 한 [라이선스 형식을 지정할](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) 수 있습니다.
 
 1. **내 VHD를 사용 하 여 SQL Server VM을 배포할 수 있나요?**
 
@@ -92,7 +96,7 @@ ms.locfileid: "81270828"
 
 1. **종량제 갤러리 이미지 중 하나에서 만들어진 경우 사용자 고유의 SQL Server 라이선스를 사용하도록 VM을 변경할 수 있나요?**
 
-   예. [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/faq/)를 사용 하도록 설정 하 여 PAYG (종 량 제) 갤러리 이미지를 사용자 라이선스 (byol)로 쉽게 전환할 수 있습니다.  자세한 내용은 [SQL Server VM의 라이선스 모델을 변경하는 방법](virtual-machines-windows-sql-ahb.md)을 참조하세요. 현재 이 기능은 퍼블릭 클라우드 고객만 사용할 수 있습니다.
+   예. [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/faq/)를 사용 하도록 설정 하 여 PAYG (종 량 제) 갤러리 이미지를 사용자 라이선스 (byol)로 쉽게 전환할 수 있습니다.  자세한 내용은 [SQL Server VM의 라이선스 모델을 변경하는 방법](virtual-machines-windows-sql-ahb.md)을 참조하세요. 현재이 기능은 공용 및 Azure Government 클라우드 고객만 사용할 수 있습니다.
 
 1. **라이선싱 모델을 전환할 때 SQL Server 가동 중지 시간이 필요한가요?**
 
@@ -154,10 +158,7 @@ ms.locfileid: "81270828"
 
 1. **SQL Server VM 리소스 공급자를 사용 하 여 자체 배포 된 SQL Server Vm을 등록할 수 있나요?**
 
-    예. SQL Server를 자체 매체에서 등록하고 SQL IaaS 확장을 설치한 경우에는 SQL Server VM을 리소스 공급자에 등록하여 SQL IaaS 확장에 제공되는 관리 효율성의 이점을 누릴 수 있습니다. 그러나 자체 배포 된 SQL Server VM를 종 량 제로 변환할 수 없습니다.
-
-
-   
+    예. SQL Server를 자체 매체에서 등록하고 SQL IaaS 확장을 설치한 경우에는 SQL Server VM을 리소스 공급자에 등록하여 SQL IaaS 확장에 제공되는 관리 효율성의 이점을 누릴 수 있습니다.    
 
 
 ## <a name="administration"></a>관리

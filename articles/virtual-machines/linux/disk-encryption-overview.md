@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: fa7e085f723d4f4c411f52e045c9437d5cb293b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f75e5c856e05cc5ce53598849a7cb11ed059827a
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459783"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838861"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Linux Vm에 대 한 Azure Disk Encryption 
 
@@ -28,7 +28,7 @@ Azure Disk Encryption은 조직의 보안 및 규정 준수 약정에 따라 데
 > - 특정 권장 사항으로 인해 데이터, 네트워크 또는 컴퓨팅 리소스 사용량이 증가할 수 있으며 이로 인해 라이선스 또는 구독 비용이 발생합니다. 사용자는 유효한 활성 Azure 구독을 포함하여 지원되는 지역에서 Azure에 리소스를 만들어야 합니다.
 > - 현재 2 세대 Vm은 Azure Disk Encryption를 지원 하지 않습니다. 자세한 내용은 [Azure의 2 세대 vm에 대 한 지원](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) 을 참조 하세요.
 
-[Azure CLI를 사용 하 여 LINUX Vm 만들기 및 암호화](disk-encryption-cli-quickstart.md) 빠른 시작 또는 [Azure Powershell을 사용 하 여 linux vm 만들기 및 암호화 빠른](disk-encryption-powershell-quickstart.md)시작을 사용 하 여 몇 분만에 linux 용 Azure Disk Encryption의 기본 사항을 배울 수 있습니다.
+[Azure CLI를 사용 하 여 LINUX Vm 만들기 및 암호화](disk-encryption-cli-quickstart.md) 또는 Azure PowerShell를 사용 하 여 [linux vm 만들기 및 암호화 빠른](disk-encryption-powershell-quickstart.md)시작을 사용 하 여 몇 분만에 linux 용 Azure Disk Encryption의 기본 사항을 배울 수 있습니다.
 
 ## <a name="supported-vms-and-operating-systems"></a>지원 되는 Vm 및 운영 체제
 
@@ -56,29 +56,36 @@ Azure Disk Encryption는 [Azure 보증 linux 배포판](endorsed-distros.md)의 
 
 Azure에서 보증 되지 않는 Linux 서버 배포는 Azure Disk Encryption을 지원 하지 않습니다. 보증 인 경우 다음 배포 및 버전 에서만 Azure Disk Encryption 지원 됩니다.
 
-| Linux 배포 | 버전 | 암호화에 지원되는 볼륨 유형|
-| --- | --- |--- |
-| Ubuntu | 18.04| OS 및 데이터 디스크 |
-| Ubuntu | 16.04| OS 및 데이터 디스크 |
-| Ubuntu | 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](disk-encryption-troubleshooting.md) | OS 및 데이터 디스크 |
-| RHEL | 7.7 | OS 및 데이터 디스크 (아래 참고 참조) |
-| RHEL | 7.6 | OS 및 데이터 디스크 (아래 참고 참조) |
-| RHEL | 7.5 | OS 및 데이터 디스크 (아래 참고 참조) |
-| RHEL | 7.4 | OS 및 데이터 디스크 (아래 참고 참조) |
-| RHEL | 7.3 | OS 및 데이터 디스크 (아래 참고 참조) |
-| RHEL | 7.2 | OS 및 데이터 디스크 (아래 참고 참조) |
-| RHEL | 6.8 | 데이터 디스크 (아래 참고 참조) |
-| RHEL | 6.7 | 데이터 디스크 (아래 참고 참조) |
-| CentOS | 7.7 | OS 및 데이터 디스크 |
-| CentOS | 7.6 | OS 및 데이터 디스크 |
-| CentOS | 7.5 | OS 및 데이터 디스크 |
-| CentOS | 7.4 | OS 및 데이터 디스크 |
-| CentOS | 7.3 | OS 및 데이터 디스크 |
-| CentOS | 7.2n | OS 및 데이터 디스크 |
-| CentOS | 6.8 | 데이터 디스크 |
-| openSUSE | 42.3 | 데이터 디스크 |
-| SLES | 12-SP4 | 데이터 디스크 |
-| SLES | 12-SP3 | 데이터 디스크 |
+| 게시자 | 제품 | SKU | URN | 암호화에 지원되는 볼륨 유형 |
+| --- | --- |--- | --- |
+| Canonical | Ubuntu | 18.04-LTS | 정식: UbuntuServer: 18.04-LTS: 최신 | OS 및 데이터 디스크 |
+| Canonical | Ubuntu 18.04 | 18.04-매일-LTS | 정식: UbuntuServer: 18.04-DAILY-LTS: 최신 | OS 및 데이터 디스크 |
+| Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | 정식: UbuntuServer: 16.04-DAILY-LTS: 최신 | OS 및 데이터 디스크 |
+| Canonical | Ubuntu 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](disk-encryption-troubleshooting.md) | 14.04.5-LTS | 정식: UbuntuServer: 14.04.5-LTS: 최신 | OS 및 데이터 디스크 |
+| Canonical | Ubuntu 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | 정식: UbuntuServer: 14.04.5-DAILY-LTS: 최신 | OS 및 데이터 디스크 |
+| RedHat | RHEL 7.7 | 7.7 | RedHat: RHEL: 7.7: 최신 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RedHat | RHEL 7.7 | 7-RAW | RedHat: RHEL: 7-RAW: 최신 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RedHat | RHEL 7.7 | 7-LVM | RedHat: RHEL: 7lvm: 최신 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RedHat | RHEL 7.6 | 7.6 | RedHat: RHEL: 7.6: 최신 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RedHat | RHEL 7.5 | 7.5 | RedHat: RHEL: 7.5: 최신 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RedHat | RHEL 7.4 | 7.4 | RedHat: RHEL: 7.4: 최신 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RedHat | RHEL 7.3 | 7.3 | RedHat: RHEL: 7.3: 최신 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RedHat | RHEL 7.2 | 7.2 | RedHat: RHEL: 7.2: 최신 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RedHat | RHEL 6.8 | 6.8 | RedHat: RHEL: 6.8: 최신 | 데이터 디스크 (아래 참고 참조) |
+| RedHat | RHEL 6.7 | 6.7 | RedHat: RHEL: 6.7: 최신 | 데이터 디스크 (아래 참고 참조) |
+| OpenLogic | CentOS 7.7 | 7.7 | OpenLogic: CentOS: 7.7: 최신 | OS 및 데이터 디스크 |
+| OpenLogic | CentOS 7.7 | 7-LVM | OpenLogic: CentOS: 7lvm: 최신 | OS 및 데이터 디스크 |
+| OpenLogic | CentOS 7.6 | 7.6 | OpenLogic: CentOS: 7.6: 최신 | OS 및 데이터 디스크 |
+| OpenLogic | CentOS 7.5 | 7.5 | OpenLogic: CentOS: 7.5: 최신 | OS 및 데이터 디스크 |
+| OpenLogic | CentOS 7.4 | 7.4 | OpenLogic: CentOS: 7.4: 최신 | OS 및 데이터 디스크 |
+| OpenLogic | CentOS 7.3 | 7.3 | OpenLogic: CentOS: 7.3: 최신 | OS 및 데이터 디스크 |
+| OpenLogic | CentOS 7.2 n | 7.2n | OpenLogic: CentOS: 7.2 n: 최신 | OS 및 데이터 디스크 |
+| OpenLogic | CentOS 7.1 | 7.1 | OpenLogic: CentOS: 7.1: 최신 | 데이터 디스크만 |
+| OpenLogic | CentOS 7.0 | 7.0 | OpenLogic: CentOS: 7.0: 최신 | 데이터 디스크만 |
+| OpenLogic | CentOS 6.8 | 6.8 | OpenLogic: CentOS: 6.8: 최신 | 데이터 디스크만 |
+| SUSE | openSUSE 42.3 | 42.3 | SUSE:openSUSE-Leap:42.3:latest | 데이터 디스크만 |
+| SUSE | SLES 12-SP4 | 12-SP4 | SUSE: SLES: 12-SP4: 최신 | 데이터 디스크만 |
+| SUSE | SLES HPC 12-SP3 | 12-SP3 | SUSE:SLES-HPC:12-SP3:latest | 데이터 디스크만 |
 
 > [!NOTE]
 > 새 Azure Disk Encryption 구현은 RHEL7 종 량 제 이미지에 대 한 RHEL OS 및 데이터 디스크에 대해 지원 됩니다.  

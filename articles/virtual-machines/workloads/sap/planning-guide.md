@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/11/2020
+ms.date: 05/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ddcc5165f5588ff9015d7fafbc2b822268ffea7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c2e3219cebcc5e989059c02fec86ba242e1c31cc
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337158"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853868"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -487,7 +487,7 @@ SAP 워크 로드의 경우 SAP 워크 로드 및 SAP HANA 워크 로드에 적�
 
 운영 체제와 다른 지역의 서비스 제공에 대 한 다양 한 제품의 가격 책정은 사이트 [Linux Virtual Machines 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 및 [Windows Virtual Machines 가격](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)책정에 따라 제공 됩니다. 1 년 및 3 년의 예약 된 인스턴스에 대 한 세부 정보와 유연성은 다음 문서를 참조 하세요.
 
-- [Azure Reservations 이란?](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
+- [Azure Reservations란?](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
 - [Reserved VM Instances에서 가상 머신 크기 유연성](https://docs.microsoft.com/azure/virtual-machines/windows/reserved-vm-instance-size-flexibility)
 - [Azure 예약 할인이 가상 머신에 적용되는 방식](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-vm-reservation-charges) 
 
@@ -503,9 +503,50 @@ Microsoft의 하이퍼바이저는 가상 컴퓨터의 서로 다른 두 세대�
  
 기존 VM을 한 세대에서 다른 세대로 이동 하는 것은 불가능 합니다. 가상 컴퓨터 세대를 변경 하려면 원하는 세대의 새 VM을 배포 하 고 세대의 가상 머신에서 실행 중인 소프트웨어를 다시 설치 해야 합니다. 이는 VM의 기본 VHD 이미지에만 영향을 주며 데이터 디스크나 연결 된 NFS 또는 SMB 공유에는 영향을 주지 않습니다. 원래 할당 된 데이터 디스크, NFS 또는 SMB 공유 (예: 1 세대 VM)
 
-지금은 Azure M 시리즈 Vm과 Mv2 시리즈 Vm 간에 특히이 문제가 발생 합니다. 1 세대 VM 형식의 제한 사항으로 인해 Mv2 패밀리의 규모가 많은 Vm을 1 세대 형식으로 제공할 수는 없지만 2 세대에 독점적으로 제공 해야 합니다. 반면에 M 시리즈 VM 제품군은 아직 2 세대에 배포 되지 않습니다. 따라서 M 시리즈와 Mv2 시리즈 가상 머신 간의 크기를 조정 하려면 다른 VM 제품군을 대상으로 하는 가상 머신에서 소프트웨어를 다시 설치 해야 합니다. Microsoft는 2 세대 배포를 위해 M 시리즈 Vm을 배포할 수 있도록 노력 하 고 있습니다. M 시리즈 Vm을 나중에 2 세대 Vm으로 배포 하는 것은 M 시리즈와 Mv2 시리즈 가상 머신 간에 원활한 작은 크기 조정을 사용 하도록 설정 하는 것입니다. 양방향에서 M 시리즈에서 더 큰 Mv2 시리즈 virtual machines로 크기를 조정 하거나 더 큰 Mv2 시리즈 Vm에서 더 작은 M 시리즈 Vm으로 크기를 조정 합니다. M 시리즈 Vm을 2 세대 Vm으로 배포할 수 있는 즉시 설명서가 업데이트 될 예정입니다.    
+> [!NOTE]
+> 2020 년 5 월부터 2 세대 vm으로 Mv1 VM 제품군 Vm을 배포할 수 있습니다. 원활한 Mv1와 Mv2 제품군 Vm 사이에 더 작은 규모의 크기 조정이 가능 합니다.
 
- 
+
+#### <a name="quotas-in-azure-virtual-machine-services"></a>Azure Virtual Machine 서비스의 할당량
+Azure 저장소 및 네트워크 인프라는 Azure 인프라에서 다양 한 서비스를 실행 하는 Vm 간에 공유 됩니다. 사용자 고유의 데이터 센터에서와 마찬가지로 일부 인프라 리소스에 대 한 과도 한 프로 비전이 수행 됩니다. Microsoft Azure Platform은 디스크, CPU, 네트워크 및 기타 할당량을 사용하여 리소스 소비를 제한하며 일관되고 명확한 성능을 유지합니다. 여러 VM 유형 및 제품군 (E32s_v3, D64s_v3 등)에는 디스크 수, CPU, RAM, 네트워크에 대해 서로 다른 할당량이 있습니다.
+
+> [!NOTE]
+> SAP에서 지원하는 VM 유형의 CPU 및 메모리 리소스는 호스트 노드에서 미리 할당됩니다. 즉, VM을 배포한 후 VM 유형에 따라 정의된 대로 호스트의 리소스를 사용할 수 있게 됩니다.
+
+
+Azure 솔루션에 대해 SAP를 계획하고 크기를 조정할 때는 각 가상 머신 크기에 대한 할당량을 고려해야 합니다. VM 할당량에 대한 설명은 [여기(Linux)][virtual-machines-sizes-linux]와 [여기(Windows)][virtual-machines-sizes-windows]에 있습니다. 
+
+CPU 및 메모리 리소스 할당량 외에도 VM Sku에 대해 정의 된 다른 할당량은 다음과 관련이 있습니다.
+
+- VM에 대 한 네트워크 트래픽 처리량
+- 저장소 트래픽용 IOPS
+- 네트워크 트래픽에 대 한 처리량
+
+네트워킹에 대 한 처리량 한도는 네트워킹을 정의 하므로, 잡음이 많은 이웃 효과를 절대 최소값으로 유지할 수 있습니다. VM의 저장소 관련 할당량은 연결 된 누적 디스크의 할당량을 덮어씁니다 (저장소 부분의 뒷부분 참조). 즉, 누적 된 저장소 디스크를 탑재 하는 경우 VM의 처리량 및 IOPS 할당량을 초과 하면 VM 할당량 한도가 우선적으로 적용 됩니다.
+
+#### <a name="rough-sizing-of-vms-for-sap"></a>SAP 용 Vm의 대략적인 크기 조정 
+
+SAP 시스템이 Azure Virtual Machine 서비스 및 해당 기능에 적합한지 여부 또는 기존 시스템을 Azure에 배포하기 위해 다르게 구성해야 하는지 여부를 결정하기 위한 대략적인 의사 결정 트리로서, 아래의 의사 결정 트리를 사용할 수 있습니다.
+
+![Azure에서 SAP를 배포하는 기능을 결정하는 의사 결정 트리][planning-guide-figure-700]
+
+**1단계**: 시작하기 위한 가장 중요한 정보는 지정된 SAP 시스템의 SAPS 요구 사항입니다. SAP 시스템이 이미 2계층 구성으로 온-프레미스에 배포되더라도 SAPS 요구 사항을 DBMS 부분과 SAP 애플리케이션 부분으로 구분해야 합니다. 기존 시스템의 경우 사용 중인 하드웨어 관련된 SAPS를 기존 SAP 벤치마크를 기준으로 결정하거나 예측할 수 있습니다. 결과는 <https://sap.com/about/benchmark.html>에서 확인할 수 있습니다.
+새로 배포된 SAP 시스템의 경우 시스템의 SAPS 요구 사항을 결정해야 하는 크기 조정 연습 과정을 거쳐야 합니다.
+Azure의 SAP 크기 조정에 대한 내용은 이 블로그와 첨부 문서를 참조하세요. <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+
+**2단계**: 기존 시스템의 경우 DBMS 서버의 I/O 볼륨 및 초당 I/O 작업 수를 측정해야 합니다. 새로 예정된 시스템의 경우는 새 시스템에 대한 크기 조정 연습 과정을 진행하면서 DBMS에 대한 I/O 요구 사항을 대략적으로 알 수 있습니다. 확실하지 않은 경우 결국 개념 증명을 수행해야 합니다.
+
+**3단계**: DBMS 서버의 SAPS 요구 사항과 여러 다른 VM 형식의 Azure가 제공할 수 있는 SAPS를 비교합니다. 다른 Azure VM 형식의 SAPS 관련 정보는 SAP 정보 [1928533]에 나와 있습니다. 데이터베이스 계층이 대부분의 배포에서는 확장되지 않는 SAP NetWeaver 시스템의 계층이므로 먼저 DBMS VM을 중점적으로 설명합니다. 반면 SAP 응용 프로그램 계층은 규모를 확장할 수 있습니다. SAP에서 지 원하는 Azure VM 유형에 서 필요한 SAPS를 제공할 수 없는 경우 계획 된 SAP 시스템의 작업을 Azure에서 실행할 수 없습니다. 따라서 온-프레미스에 시스템을 배포해야 하거나 시스템에 대한 작업 볼륨을 변경해야 합니다.
+
+**4단계**: [여기(Linux)][virtual-machines-sizes-linux]와 [여기(Windows)][virtual-machines-sizes-windows]서 설명하는 대로 Azure에서는 사용자가 Standard Storage 또는 Premium Storage 중 어느 것을 사용하든지 간에 디스크당 IOPS 할당량을 적용합니다. VM 유형에 따라 탑재 가능한 데이터 디스크 수가 달라집니다. 따라서 각 VM 유형에서 얻을 수 있는 최대 IOPS 수를 계산할 수 있습니다. 데이터베이스 파일 레이아웃에 따라 게스트 OS에서 단일 볼륨이 되도록 디스크를 스트라이프할 수 있습니다. 그러나 배포된 SAP 시스템의 현재 IOPS 볼륨이 Azure의 가장 큰 VM 유형에 대해 계산된 제한을 초과하고 더 많은 메모리로 보상할 수 없으면 SAP 시스템의 작업은 심각한 영향을 받을 수 있습니다. 이러한 경우 Azure에 시스템을 배포하지 않아야 하는 상황이 올 수 있습니다.
+
+**5 단계**: 특히 2 계층 구성으로 온-프레미스에 배포 된 SAP 시스템에서 3 계층 구성으로 시스템을 Azure에서 구성 해야 할 가능성이 있습니다. 이 단계에서는 SAP 애플리케이션 계층에 확장할 수 없고 다른 Azure VM 유형에서 제공하는 CPU 및 메모리 리소스에 적합하지 않은 구성 요소가 있는지 여부를 확인해야 합니다. 실제로 이러한 구성 요소가 있는 경우 SAP 시스템과 해당 작업을 Azure에 배포할 수 없습니다. 하지만 SAP 애플리케이션 구성 요소를 여러 Azure VM으로 확장할 수 있으면 시스템을 Azure에 배포할 수 있습니다.
+
+**6단계**: DBMS 및 SAP 애플리케이션 계층 구성 요소를 Azure VM에서 실행할 수 있으면 다음과 관련해서 구성을 정의해야 합니다.
+
+* Azure VM의 수
+* 개별 구성 요소에 대한 VM 유형
+* 충분한 IOPS를 제공하기 위한 DBMS VM의 VHD 수 
 
 ### <a name="storage-microsoft-azure-storage-and-data-disks"></a><a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>저장소: Microsoft Azure Storage 및 데이터 디스크
 Microsoft Azure Virtual Machines는 다양한 스토리지 유형을 활용합니다. Azure Virtual Machine 서비스에서 SAP를 구현할 때는 다음 두 가지 주요 스토리지 유형 간의 차이점을 이해하는 것이 중요합니다.
@@ -725,39 +766,6 @@ ExpressRoute를 사용한 강제 터널링은 ExpressRoute BGP 피어링 세션�
 * 사이트 간 또는 지점 및 사이트 간 연결을 설정하려면 먼저 Azure Virtual Network를 만들어야 함
 * 가상 컴퓨터를 배포한 후에는 VM에 할당된 Virtual Network를 더 이상 변경할 수 없음
 
-### <a name="quotas-in-azure-virtual-machine-services"></a>Azure Virtual Machine 서비스의 할당량
-스토리지 및 네트워크 인프라가 Azure 인프라에서 다양한 서비스를 실행하는 VM 간에 공유된다는 사실을 명확히할 필요가 있습니다. 또한 고객 소유의 데이터 센터와 마찬가지로 일부 인프라 리소스가 과도하게 프로비전되는 경우도 발생하고 있습니다. Microsoft Azure Platform은 디스크, CPU, 네트워크 및 기타 할당량을 사용하여 리소스 소비를 제한하며 일관되고 명확한 성능을 유지합니다.  VM 유형(A5, A6, 등)마다 디스크 수, CPU, RAM, 네트워크에 대해 각기 다른 할당량을 갖습니다.
-
-> [!NOTE]
-> SAP에서 지원하는 VM 유형의 CPU 및 메모리 리소스는 호스트 노드에서 미리 할당됩니다. 즉, VM을 배포한 후 VM 유형에 따라 정의된 대로 호스트의 리소스를 사용할 수 있게 됩니다.
->
->
-
-Azure 솔루션에 대해 SAP를 계획하고 크기를 조정할 때는 각 가상 머신 크기에 대한 할당량을 고려해야 합니다. VM 할당량에 대한 설명은 [여기(Linux)][virtual-machines-sizes-linux]와 [여기(Windows)][virtual-machines-sizes-windows]에 있습니다.
-
-설명된 할당량은 이론적인 최대값을 나타냅니다.  디스크당 IOPS 제한은 작은 IO(8kb)로는 충족되지만 큰 IO(1Mb)로는 충족되지 않을 수 있습니다.  IOPS 제한은 단일 디스크의 세분성에 적용됩니다.
-
-SAP 시스템이 Azure Virtual Machine 서비스 및 해당 기능에 적합한지 여부 또는 기존 시스템을 Azure에 배포하기 위해 다르게 구성해야 하는지 여부를 결정하기 위한 대략적인 의사 결정 트리로서, 아래의 의사 결정 트리를 사용할 수 있습니다.
-
-![Azure에서 SAP를 배포하는 기능을 결정하는 의사 결정 트리][planning-guide-figure-700]
-
-**1단계**: 시작하기 위한 가장 중요한 정보는 지정된 SAP 시스템의 SAPS 요구 사항입니다. SAP 시스템이 이미 2계층 구성으로 온-프레미스에 배포되더라도 SAPS 요구 사항을 DBMS 부분과 SAP 애플리케이션 부분으로 구분해야 합니다. 기존 시스템의 경우 사용 중인 하드웨어 관련된 SAPS를 기존 SAP 벤치마크를 기준으로 결정하거나 예측할 수 있습니다. 결과는 <https://sap.com/about/benchmark.html>에서 확인할 수 있습니다.
-새로 배포된 SAP 시스템의 경우 시스템의 SAPS 요구 사항을 결정해야 하는 크기 조정 연습 과정을 거쳐야 합니다.
-Azure의 SAP 크기 조정에 대한 내용은 이 블로그와 첨부 문서를 참조하세요. <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
-
-**2단계**: 기존 시스템의 경우 DBMS 서버의 I/O 볼륨 및 초당 I/O 작업 수를 측정해야 합니다. 새로 예정된 시스템의 경우는 새 시스템에 대한 크기 조정 연습 과정을 진행하면서 DBMS에 대한 I/O 요구 사항을 대략적으로 알 수 있습니다. 확실하지 않은 경우 결국 개념 증명을 수행해야 합니다.
-
-**3단계**: DBMS 서버의 SAPS 요구 사항과 여러 다른 VM 형식의 Azure가 제공할 수 있는 SAPS를 비교합니다. 다른 Azure VM 형식의 SAPS 관련 정보는 SAP 정보 [1928533]에 나와 있습니다. 데이터베이스 계층이 대부분의 배포에서는 확장되지 않는 SAP NetWeaver 시스템의 계층이므로 먼저 DBMS VM을 중점적으로 설명합니다. 반면 SAP 응용 프로그램 계층은 규모를 확장할 수 있습니다. SAP에서 지 원하는 Azure VM 유형에 서 필요한 SAPS를 제공할 수 없는 경우 계획 된 SAP 시스템의 작업을 Azure에서 실행할 수 없습니다. 따라서 온-프레미스에 시스템을 배포해야 하거나 시스템에 대한 작업 볼륨을 변경해야 합니다.
-
-**4단계**: [여기(Linux)][virtual-machines-sizes-linux]와 [여기(Windows)][virtual-machines-sizes-windows]서 설명하는 대로 Azure에서는 사용자가 Standard Storage 또는 Premium Storage 중 어느 것을 사용하든지 간에 디스크당 IOPS 할당량을 적용합니다. VM 유형에 따라 탑재 가능한 데이터 디스크 수가 달라집니다. 따라서 각 VM 유형에서 얻을 수 있는 최대 IOPS 수를 계산할 수 있습니다. 데이터베이스 파일 레이아웃에 따라 게스트 OS에서 단일 볼륨이 되도록 디스크를 스트라이프할 수 있습니다. 그러나 배포된 SAP 시스템의 현재 IOPS 볼륨이 Azure의 가장 큰 VM 유형에 대해 계산된 제한을 초과하고 더 많은 메모리로 보상할 수 없으면 SAP 시스템의 작업은 심각한 영향을 받을 수 있습니다. 이러한 경우 Azure에 시스템을 배포하지 않아야 하는 상황이 올 수 있습니다.
-
-**5 단계**: 특히 2 계층 구성으로 온-프레미스에 배포 된 SAP 시스템에서 3 계층 구성으로 시스템을 Azure에서 구성 해야 할 가능성이 있습니다. 이 단계에서는 SAP 애플리케이션 계층에 확장할 수 없고 다른 Azure VM 유형에서 제공하는 CPU 및 메모리 리소스에 적합하지 않은 구성 요소가 있는지 여부를 확인해야 합니다. 실제로 이러한 구성 요소가 있는 경우 SAP 시스템과 해당 작업을 Azure에 배포할 수 없습니다. 하지만 SAP 애플리케이션 구성 요소를 여러 Azure VM으로 확장할 수 있으면 시스템을 Azure에 배포할 수 있습니다.
-
-**6단계**: DBMS 및 SAP 애플리케이션 계층 구성 요소를 Azure VM에서 실행할 수 있으면 다음과 관련해서 구성을 정의해야 합니다.
-
-* Azure VM의 수
-* 개별 구성 요소에 대한 VM 유형
-* 충분한 IOPS를 제공하기 위한 DBMS VM의 VHD 수
 
 ## <a name="managing-azure-assets"></a>Azure 자산 관리
 
@@ -1277,7 +1285,7 @@ Azure Storage 계정은 i/o 볼륨, IOPS 및 데이터 볼륨 측면에서 무�
 
 Storage 계정과 관련된 또 다른 주제는 Storage 계정의 VHD가 지역에서 복제되는지 여부입니다. 지역에서 복제 기능은 VM 수준이 아닌 Storage 계정 수준에서 사용하거나 사용하지 않도록 설정됩니다. 지역에서 복제 기능이 사용되도록 설정되면 Storage 계정 내의 VHD가 동일한 지역 내의 다른 Azure 데이터 센터로 복제됩니다. 이를 결정하기 전에 다음 제한 사항을 고려해야 합니다.
 
-Azure 지역에서 복제 기능은 VM의 각 VHD에서 로컬로 작동하며, VM의 여러 VHD에 걸쳐 시간순으로 IO를 복제하지 않습니다. 따라서 기본 VM을 나타내는 VHD와 VM에 연결된 추가 VHD는 서로 독립적으로 복제됩니다. 즉, 여러 다른 VHD에서 변경된 내용은 동기화되지 않습니다. IO가 기록된 순서와는 별도로 복제된다는 사실은 여러 VHD에 걸쳐 데이터베이스가 분산되어 있는 데이터베이스 서버의 경우에는 지역에서 복제 기능이 의미가 없음을 나타냅니다. DBMS 외에도 다른 VHD에서 데이터를 쓰거나 조작하는 프로세스의 애플리케이션이나 변경 순서가 중요한 애플리케이션도 있을 수 있습니다. 이러한 경우가 요구되면 Azure의 지역에서 복제 기능을 사용하지 않도록 설정해야 합니다. 다른 VM 집합이 아닌 특정 VM 집합에 대해 지역에서 복제 기능이 필요한지 또는 이 기능을 원하는지에 따라, 이미 VM 및 관련된 VHD를 지역에서 복제 기능이 사용되거나 사용되지 않도록 설정된 다른 Storage 계정으로 분류할 수 있습니다.
+Azure 지역에서 복제는 VM의 각 VHD에서 로컬로 작동 하며 VM의 여러 Vhd에서 시간순으로 i/o를 복제 하지 않습니다. 따라서 기본 VM을 나타내는 VHD와 VM에 연결된 추가 VHD는 서로 독립적으로 복제됩니다. 즉, 여러 다른 VHD에서 변경된 내용은 동기화되지 않습니다. I/o가 기록 되는 순서와는 독립적으로 복제 되기 때문에 지역에서 복제는 데이터베이스가 여러 Vhd에 분산 된 데이터베이스 서버에 대 한 값이 아닙니다. DBMS 외에도 다른 VHD에서 데이터를 쓰거나 조작하는 프로세스의 애플리케이션이나 변경 순서가 중요한 애플리케이션도 있을 수 있습니다. 이러한 경우가 요구되면 Azure의 지역에서 복제 기능을 사용하지 않도록 설정해야 합니다. 다른 VM 집합이 아닌 특정 VM 집합에 대해 지역에서 복제 기능이 필요한지 또는 이 기능을 원하는지에 따라, 이미 VM 및 관련된 VHD를 지역에서 복제 기능이 사용되거나 사용되지 않도록 설정된 다른 Storage 계정으로 분류할 수 있습니다.
 
 #### <a name="setting-automount-for-attached-disks"></a><a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>연결된 디스크에 대한 자동 탑재 설정
 ---
@@ -1289,7 +1297,7 @@ Azure 지역에서 복제 기능은 VM의 각 VHD에서 로컬로 작동하며, 
 > 자동 탑재를 설정하려면 다음 항목에서 명령줄 실행 파일인 diskpart.exe의 설명서를 참조하세요.
 >
 > * [DiskPart 명령줄 옵션](https://technet.microsoft.com/library/bb490893.aspx)
-> * [Automount](https://technet.microsoft.com/library/cc753703.aspx)
+> * [자동 탑재](https://technet.microsoft.com/library/cc753703.aspx)
 >
 > Windows 명령줄 창은 관리자 권한으로 열어야 합니다.
 >
@@ -1630,7 +1638,7 @@ SAP 지형을 실행하고 고급 DBMS 서버용 운영 체제 미설치 영역,
 
 <!-- sapms is prefix of a SAP service name and not a spelling error -->
 
-| 서비스 | 포트 이름 | 예: `<nn`> = 01 | 기본 범위(최소-최대) | 주석 |
+| 서비스 | 포트 이름 | 예: `<nn`> = 01 | 기본 범위(최소-최대) | 설명 |
 | --- | --- | --- | --- | --- |
 | 디스패처 |sapdp`<nn>` 참조: * |3201 |3200 - 3299 |SAP 디스패처, Windows 및 Java용 SAP GUI에서 사용 |
 | 메시지 서버 |sapms`<sid`> 참조: ** |3600 |제한 없는 sapms`<anySID`> |sid = SAP-System-ID |
@@ -2015,7 +2023,7 @@ SAP 인스턴스의 자동 시작과 관련된 자세한 내용은 다음 항목
 선택한 SAP 구성(2계층 또는 3계층)에 따라, 백업이 필요할 수도 있습니다. 데이터베이스의 백업 외에 VM 자체의 내용도 있습니다. DBMS 관련 백업은 데이터베이스 메서드로 수행됩니다. 다른 데이터베이스에 대한 자세한 설명은 [DBMS 가이드][dbms-guide]에 있습니다. SAP 데이터는 이 섹션에 설명되는 오프라인 방식으로(데이터베이스 콘텐츠도 포함) 또는 다음 섹션에 설명되는 온라인 방식으로 백업될 수 있습니다.
 
 오프라인 백업에서는 기본적으로 Azure Portal을 통해 VM을 종료해야 하며, VM에 연결된 모든 디스크 외의 기본 VM 디스크 복사본이 있어야 합니다. 이 경우 VM 및 관련 디스크의 지정 시간 이미지가 보존됩니다. '백업'을 다른 Azure Storage 계정으로 복사하는 것이 좋습니다. 따라서 이 문서의 [Azure Storage 계정 간 디스크 복사][planning-guide-5.4.2] 장에서 설명한 절차가 적용됩니다.
-Azure Portal 사용을 종료하는 것 외에도, <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>에 설명된 대로 Powershell 또는 CLI를 사용하여 이 작업을 수행할 수 있습니다.
+Azure Portal를 사용 하 여 종료 하는 것 외에도 여기에 설명 된 대로 PowerShell 또는 CLI를 통해 수행할 수 있습니다.<https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
 
 해당 상태가 복원될 때는 기본 VM뿐 아니라 기본 VM의 원본 디스크와 장착된 디스크도 삭제되고, 저장된 디스크가 관리 디스크의 리소스 그룹 또는 원래 Storage 계정으로 다시 복사된 후에 시스템이 다시 배포됩니다.
 이 문서에서는 PowerShell에서이 프로세스를 스크립팅 하는 방법을 보여 줍니다.<http://www.westerndevs.com/azure-snapshots/>

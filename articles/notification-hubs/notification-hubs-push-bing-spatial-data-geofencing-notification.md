@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9f8697332d34fc044c805db6c6595fdf067ed054
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0abe443521b928dd087e23b5491635b02cd832e8
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80127199"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592029"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>자습서: Notification Hubs 및 Bing Spatial Data를 사용하여 위치 기반 푸시 알림 보내기
 
@@ -217,7 +217,7 @@ ms.locfileid: "80127199"
 
 ## <a name="set-up-the-backend"></a>백 엔드 설정
 
-1. [GitHub에서 .NET 백 엔드 샘플](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)을 다운로드합니다.
+1. [GitHub에서 .NET 백 엔드 샘플](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers)을 다운로드합니다.
 2. 다운로드가 완료되면 `NotifyUsers` 폴더를 연 다음, Visual Studio에서 `NotifyUsers.sln` 파일을 엽니다.
 3. `AppBackend` 프로젝트를 **시작 프로젝트** 로 설정하고 시작합니다.
 

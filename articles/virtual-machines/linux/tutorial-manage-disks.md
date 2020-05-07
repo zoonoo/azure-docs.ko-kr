@@ -15,12 +15,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 1949b66ee48036163e92cb37c275e9117d6a74b4
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: be2a52f1a9071e9d4bb77ab4439291fd58cd828b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460021"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82129363"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>자습서 - Azure CLI를 사용하여 Azure 디스크 관리
 
@@ -32,7 +32,6 @@ Azure VM(가상 머신)은 디스크를 사용하여 운영 체제, 애플리케
 > * 표준 및 프리미엄 디스크
 > * 디스크 성능
 > * 데이터 디스크 연결 및 준비
-> * 디스크 크기 조정
 > * 디스크 스냅샷
 
 
@@ -265,7 +264,6 @@ az vm disk attach \
 > * 표준 및 프리미엄 디스크
 > * 디스크 성능
 > * 데이터 디스크 연결 및 준비
-> * 디스크 크기 조정
 > * 디스크 스냅샷
 
 VM 구성 자동화에 대해 자세히 알아보려면 다음 자습서로 이동합니다.

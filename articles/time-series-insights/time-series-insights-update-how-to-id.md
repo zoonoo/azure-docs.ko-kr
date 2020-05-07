@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 05/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: a62c2460698408f6a2bfa51c6638bdeaf88bb31f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: faf98d4fc5bf6c7028cf7d20bdf8df89fb3d533b
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77083534"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838725"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>시계열 ID 선택 모범 사례
 
@@ -27,6 +27,7 @@ ms.locfileid: "77083534"
 
 > [!IMPORTANT]
 > 시계열 Id는 다음과 같습니다.
+>
 > * *대/소문자를 구분* 하는 속성: 문자 및 문자/소문자나는 검색, 비교, 업데이트 및 분할 시 사용 됩니다.
 > * *변경할* 수 없는 속성: 만든 후에는 변경할 수 없습니다.
 
@@ -56,7 +57,7 @@ ms.locfileid: "77083534"
 
 ### <a name="example-2-time-series-id-with-a-composite-key"></a>예 2: 복합 키가 있는 시계열 ID
 
-* 동일한 자산 집합 내에서 여러 속성이 고유해야 합니다. 
+* 동일한 자산 집합 내에서 여러 속성이 고유해야 합니다.
 * 스마트 건물의 제조업체 이며 모든 방에 센서를 배포 합니다. 각 방에는 일반적으로 **sensorId**에 대해 동일한 값이 있습니다. 예는 **sensor1**, **sensor2**및 **sensor3**입니다.
 * 건물이 **flrRm**속성의 사이트에서 겹치는 층과 방 번호를 갖고 있습니다. 이러한 숫자에는 **1a**, **2b**및 **3a**와 같은 값이 있습니다.
 * **Redmond**, **바르셀로나**및 **도쿄**와 같은 값을 포함 하는 속성 **위치가**있습니다. 고유성을 만들려면 시계열 ID 키로 **sensorId**, **flrRm**및 **location**의 세 가지 속성을 지정 합니다.
@@ -72,7 +73,7 @@ ms.locfileid: "77083534"
 }
 ```
 
-Azure Portal에서 다음과 같이 복합 키를 입력할 수 있습니다. 
+Azure Portal에서 다음과 같이 복합 키를 입력할 수 있습니다.
 
 ```JSON
 [{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]

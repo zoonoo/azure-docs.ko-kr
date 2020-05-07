@@ -3,12 +3,12 @@ title: 컨테이너 그룹 업데이트
 description: Azure Containers Instances 컨테이너 그룹에서 실행되는 컨테이너를 업데이트하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: d64590c553f4ae4ef462d4468fade68861db31c3
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: dc10e38aa6be9473f89df6f7fa10a72f63d9ada8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160105"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854440"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 업데이트
 
@@ -28,9 +28,9 @@ ms.locfileid: "82160105"
 * 이전에 제공한 값을 사용 하 여 다른 속성을 설정 합니다. 속성의 값을 설정 하지 않으면 해당 값이 기본값으로 되돌아갑니다.
 
 > [!TIP]
-> [Yaml 파일](/container-instances-container-groups.md#deployment) 은 컨테이너 그룹의 배포 구성을 유지 하는 데 도움이 되며 업데이트 된 그룹을 배포 하기 위한 시작점을 제공 합니다. 다른 방법을 사용 하 여 그룹을 만든 경우 [az container export][az-container-export]를 사용 하 여 구성을 yaml로 내보낼 수 있습니다. 
+> [Yaml 파일](container-instances-container-groups.md#deployment) 은 컨테이너 그룹의 배포 구성을 유지 하는 데 도움이 되며 업데이트 된 그룹을 배포 하기 위한 시작점을 제공 합니다. 다른 방법을 사용 하 여 그룹을 만든 경우 [az container export][az-container-export]를 사용 하 여 구성을 yaml로 내보낼 수 있습니다. 
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 Azure CLI 예제에서는 컨테이너 그룹을 새 DNS 이름 레이블로 업데이트합니다. 그룹의 DNS 이름 레이블 속성은 업데이트할 수 있는 속성 이므로 컨테이너 그룹을 다시 배포 하 고 컨테이너를 다시 시작 합니다.
 

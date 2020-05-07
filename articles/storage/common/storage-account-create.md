@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ff7db383a74ce01f7f1a7bf49a33e41f91decf8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255406"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853488"
 ---
 # <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-없음
+없습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -67,7 +67,7 @@ Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 방법
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-없음
+없습니다.
 
 ---
 
@@ -152,8 +152,8 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 |ZRS(영역 중복 스토리지)     |Standard_ZRS         |
 |GRS(지역 중복 스토리지)     |Standard_GRS         |
 |읽기 액세스 GRS(지역 중복 스토리지)     |Standard_RAGRS         |
-|GZRS (지역 중복 저장소) (미리 보기)    |Standard_GZRS         |
-|읽기 액세스 지리적 영역 중복 저장소 (RA-GZRS) (미리 보기)    |Standard_RAGZRS         |
+|GZRS(지역 영역 중복 스토리지)    |Standard_GZRS         |
+|읽기 액세스 지리적 영역 중복 저장소 (RA-GZRS)    |Standard_RAGZRS         |
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -195,12 +195,12 @@ az storage account create \
 |ZRS(영역 중복 스토리지)     |Standard_ZRS         |
 |GRS(지역 중복 스토리지)     |Standard_GRS         |
 |읽기 액세스 GRS(지역 중복 스토리지)     |Standard_RAGRS         |
-|GZRS (지역 중복 저장소) (미리 보기)    |Standard_GZRS         |
-|읽기 액세스 지리적 영역 중복 저장소 (RA-GZRS) (미리 보기)    |Standard_RAGZRS         |
+|GZRS(지역 영역 중복 스토리지)    |Standard_GZRS         |
+|읽기 액세스 지리적 영역 중복 저장소 (RA-GZRS)    |Standard_RAGZRS         |
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-Azure PowerShell 또는 Azure CLI를 사용하여 스토리지 계정을 만드는 Resource Manager 템플릿을 배포할 수 있습니다. 이 방법 문서에 사용 된 템플릿은 [Azure Resource Manager 빠른 시작 템플릿에서](https://azure.microsoft.com/resources/templates/101-storage-account-create/)사용 됩니다. 스크립트를 실행하려면 **사용해 보세요.** 를 선택하여 Azure Cloud Shell을 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
+Azure PowerShell 또는 Azure CLI를 사용 하 여 리소스 관리자 템플릿을 배포 하 여 저장소 계정을 만들 수 있습니다. 이 방법 문서에 사용 된 템플릿은 [Azure Resource Manager 빠른 시작 템플릿에서](https://azure.microsoft.com/resources/templates/101-storage-account-create/)사용 됩니다. 스크립트를 실행 하려면 **시도** 를 선택 하 여 Azure Cloud Shell 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"

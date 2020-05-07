@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f4f6de807628704051cdddf74bcefbed678f8fcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01d94b39354333a8840ded8725625d6a91cf56b7
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457895"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592165"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service용 Linux Java 앱 구성
 
@@ -305,7 +305,7 @@ App Service에 대 한 [SSH 연결을 열고](app-service-linux-ssh-support.md) 
 
 기본적으로 App Service는 JAR 응용 프로그램의 이름을 *app.config*로 지정 합니다. 이 이름이 있으면 자동으로 실행 됩니다. Maven 사용자의 경우 *pom .xml*의 `<build>` 섹션에를 포함 `<finalName>app</finalName>` 하 여 JAR 이름을 설정할 수 있습니다. 속성을 `archiveFileName` 설정 하 여 [Gradle에서 동일한 작업을 수행할 수](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) 있습니다.
 
-JAR에 다른 이름을 사용 하려는 경우 JAR 파일을 실행 하는 [시작 명령도](app-service-linux-faq.md#built-in-images) 제공 해야 합니다. `java -jar my-jar-app.jar`)을 입력합니다. 시작 명령에 대 한 값은 포털의 구성 > 일반 설정 아래 또는 라는 `STARTUP_COMMAND`응용 프로그램 설정으로 설정할 수 있습니다.
+JAR에 다른 이름을 사용 하려는 경우 JAR 파일을 실행 하는 [시작 명령도](app-service-linux-faq.md#built-in-images) 제공 해야 합니다. 예: `java -jar my-jar-app.jar` 시작 명령에 대 한 값은 포털의 구성 > 일반 설정 아래 또는 라는 `STARTUP_COMMAND`응용 프로그램 설정으로 설정할 수 있습니다.
 
 ### <a name="server-port"></a>서버 포트
 
@@ -561,21 +561,25 @@ Redis와 함께 Tomcat를 사용 하려면 [PersistentManager](https://tomcat.ap
 
 8. Redis 계정 `azure-webapp-maven-plugin` 정보를 참조 하도록 앱의 *pom .xml* 파일에서 구성을 업데이트 합니다. 이 파일은 이전에 설정한 환경 변수를 사용 하 여 계정 정보를 원본 파일에서 제외 합니다.
 
-    필요한 경우 `1.7.0`을 [Azure App Service용 Maven 플러그 인](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)의 최신 버전으로 변경합니다.
+    필요한 경우 `1.9.1`을 [Azure App Service용 Maven 플러그 인](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)의 최신 버전으로 변경합니다.
 
     ```xml
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.7.0</version>
-        <configuration>
-
+        <version>1.9.1</version>
+        <configuration>            
             <!-- Web App information -->
+            <schemaVersion>v2</schemaVersion>
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appServicePlanName>${WEBAPP_PLAN_NAME}-${REGION}</appServicePlanName>
             <appName>${WEBAPP_NAME}-${REGION}</appName>
-            <region>${REGION}</region>
-            <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
+            <region>${REGION}</region>            
+            <runtime>
+                <os>linux</os>
+                <javaVersion>jre8</javaVersion>
+                <webContainer>tomcat 9.0</webContainer>
+            </runtime>
 
             <appSettings>
                 <property>

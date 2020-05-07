@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/14/2020
+ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: b825ed513f530733d7552e32206c12422a956b14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 63226089a0a87660f0796cdfef2b729070ca01e3
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81766929"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837858"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -43,7 +43,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **지역** | **Azure 지역** | **Express 경로 위치** |
 | --- | --- | --- |
 | **오스트레일리아 정부** |오스트레일리아 중부, 오스트레일리아 중부 2 |캔버라, 캔버라2 |
-| **유럽** | 프랑스 중부, 프랑스 남부, 독일 북부, 독일 중서부, 북부 유럽, 노르웨이 동부, 노르웨이 서 부, 스위스 북부, 스위스 서부, 영국 서부, 영국 남부, 유럽 서부 |암스테르담, Amsterdam2, 코펜하겐, 더블린, 프랑크푸르트, Geneva, 런던, London2, 마르세유에, Milan, 뮌헨, Newport (Wales), Oslo, 파리, Stavanger, 스톡홀름, 취리히 |
+| **유럽** | 프랑스 중부, 프랑스 남부, 독일 북부, 독일 중서부, 북부 유럽, 노르웨이 동부, 노르웨이 서 부, 스위스 북부, 스위스 서부, 영국 서부, 영국 남부, 유럽 서부 |암스테르담, Amsterdam2, 베를린, 코펜하겐, 더블린, 프랑크푸르트, Geneva, 런던, London2, 마르세유에, Milan, 뮌헨, Newport (Wales), Oslo, 파리, Stavanger, 스톡홀름, 취리히 |
 | **북아메리카** |미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 중서부, 캐나다 중부, 캐나다 동부 |애틀랜타, 시카고, 달라스, 덴버, Las Vegas, 로스앤젤레스, 마이애미, 뉴욕, San Antonio, 시애틀, 실리콘 계곡, 실리콘 Valley2, 워싱턴 DC, 워싱턴 DC2, 몬트리올, 퀘벡 City,, 밴쿠버 |
 | **아시아** | 동아시아, 동남 아시아 | 방콕, 홍콩, 홍콩 Kong2, 자카르타, 콸라룸푸르, 싱가포르, 싱가포르 2, 타이베이 |
 | **인도** | 인도 서부, 인도 중부, 인도 남부 |첸나이, 첸나이2, 뭄바이, 뭄바이2 |
@@ -94,6 +94,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **중국 모바일 국가별** |지원됨 |지원됨 | 싱가포르 |
 | **China Telecom Global** |지원됨 |지원됨 |홍콩 |
 | **중국 Unicom 전역** |지원됨 |지원됨 | Singapore2 |
+| **[Chunghwa 통신](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |지원됨 |지원됨 |타이베이 |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |지원됨 |지원됨 |시카고, 달라스, 몬트리올, 밴쿠버, 워싱턴 DC |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |지원됨 |지원됨 |암스테르담, Amsterdam2, 시카고, 더블린, 프랑크푸르트, 런던, London2, Newport, 뉴욕, 오사카, 파리, 실리콘 계곡, 실리콘 Valley2, 싱가포르 2, 도쿄, 워싱턴 DC |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |지원됨 |지원됨 |시카고, 실리콘밸리, 워싱턴 DC |
@@ -132,6 +133,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |지원됨 |지원됨 |멜버른, 퍼스, 시드니, Sydney2 |
 | **[NTT 통신](https://www.ntt.com/en/services/network/virtual-private-network.html)** |지원됨 |지원됨 |암스테르담, 홍콩 특별 행정구, 런던, 로스앤젤레스, 오사카, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
 | **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |지원됨 |지원됨 |도쿄 |
+| **[NTT 글로벌 데이터 센터 EMEA](https://www.ntt.com/en/services/data-center.html)** |지원됨 |지원됨 |베를린 |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |지원됨 |지원됨 |오사카 |
 | **[Ooredoo 클라우드 연결](https://www.ooredoo.qa/portal/OoredooQatar/cloud-connect-expressroute)** |지원됨 |지원됨 |마르세유 |
 | **[Optus](https://www.optus.com.au/enterprise/)** |지원됨 |지원됨 |멜버른, 시드니 |
@@ -188,7 +190,7 @@ Azure 국가별 클라우드는 서로 격리 되며 전 세계 상용 Azure에�
 | **서비스 공급자** | **Microsoft Azure** | **Office 365** | **위치** |
 | --- | --- | --- | --- |
 | **China Telecom** |지원됨 |지원되지 않음 |베이징, Beijing2, 상하이, Shanghai2 |
-| **중국 Unicom** | 지원됨 | 지원되지 않음 | 베이징2 |
+| **중국 Unicom** | 지원됨 | 지원되지 않음 | 베이징2, 상하이2 |
 | **[GDS](http://www.gds-services.com/en/about_2.html)** |지원됨 |지원되지 않음 |베이징2, 상하이2 |
 
 자세한 내용은 [중국의 ExpressRoute](http://www.windowsazure.cn/home/features/expressroute/)를 참조하세요.
@@ -211,6 +213,7 @@ Azure 국가별 클라우드는 서로 격리 되며 전 세계 상용 Azure에�
 * 연결 공급자에게 문의하여 위의 표에 있는 Exchange 중 하나에 연결되어 있는지 확인합니다. Exchange 공급자가 제공하는 서비스에 대한 자세한 정보를 수집하려면 다음 링크를 확인할 수 있습니다. 여러 연결 공급자는 이미 이더넷 Exchange에 연결되어 있습니다.
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
+  * [제거 X](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange)
   * [Equinix 클라우드 Exchange](https://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
   * [Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
   * [IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)

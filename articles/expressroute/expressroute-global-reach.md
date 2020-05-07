@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4c326a556530fd778c1178f11b79d2aba613b4c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e98f4a401a9fcab12bd7a276c47df67c7936b1d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136586"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853420"
 ---
 # <a name="expressroute-global-reach"></a>ExpressRoute Global Reach
 ExpressRoute는 온-프레미스 네트워크를 Microsoft 클라우드에 연결하기 위한 프라이빗이고 탄력적인 방법입니다. Azure와 같은 여러 Microsoft 클라우드 서비스, 개인 데이터 센터 또는 회사 네트워크에서 Office 365에 액세스할 수 있습니다. 예를 들어, 실리콘밸리의 ExpressRoute 회로를 사용하는 샌프란시스코 지사와, 런던의 ExpressRoute 회로를 사용하는 런던 지사가 있을 수 있습니다. 두 지사는 모두 미국 서부와 영국 남부에서 Azure 리소스에 고속으로 연결할 수 있습니다. 그러나 해당 지점은 서로 데이터를 직접 교환할 수 없습니다. 즉, 10.0.1.0/24는 10.0.3.0/24 및 10.0.4.0/24에 데이터를 보낼 수 있지만, 10.0.2.0/24에는 보낼 수 없습니다.
@@ -41,6 +41,7 @@ ExpressRoute Global Reach는 서비스 공급자의 WAN 구현을 보완하고 �
 * 한국
 * 네덜란드
 * 뉴질랜드
+* 노르웨이
 * 싱가포르
 * 스위스
 * United Kingdom

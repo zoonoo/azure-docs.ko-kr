@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45648170f69d513b15e79cdd76f56e66bbc88bfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 553ecc971235b5ba7d55a2dcb6963200919a3480
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332077"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853468"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 클라우드 프로 비전을 위한 필수 구성 요소
 이 문서에서는 id 솔루션으로 Azure AD (Azure AD) Connect cloud 프로 비전을 선택 하 고 Azure Active Directory 사용 하는 방법에 대 한 지침을 제공 합니다.
@@ -47,6 +47,8 @@ Azure AD Connect 클라우드 프로 비전을 사용 하려면 다음이 필요
 ### <a name="in-your-on-premises-environment"></a>온-프레미스 환경에서
 
 1. 최소 4gb RAM 및 .NET 4.7.1 + runtime을 사용 하 여 Windows Server 2012 R2 이상을 실행 하는 도메인에 가입 된 호스트 서버를 식별 합니다.
+
+1. 로컬 서버에 대 한 PowerShell 실행 정책은 Undefined 또는 RemoteSigned로 설정 해야 합니다.
 
 1. 서버와 Azure AD 사이에 방화벽이 있는 경우 다음 항목을 구성 합니다.
    - 에이전트에서 다음 포트를 통해 Azure AD에 대한 *아웃바운드* 요청을 수행할 수 있는지 확인합니다.
