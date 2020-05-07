@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5cb3752e5a74f26936efcbb9dba5cdcda76e01f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d77fc756530115ff828c79a3b444c1152ffe5c5a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113309"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608680"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation 실행 계정 관리
 
@@ -475,7 +475,7 @@ PowerShell 갤러리에서 [Extend-AutomationRunAsAccountRoleAssignmentToKeyVaul
 * 참가자 역할에서 제거 된 실행 계정
 * Azure AD의 서비스 주체 또는 애플리케이션
 
-이러한 잘못 된 구성 인스턴스의 경우 Automation 계정에서 변경 내용을 검색 하 고 계정에 `Incomplete` 대 한 실행 계정 속성 창에 상태를 표시 합니다.
+이러한 잘못 된 구성 인스턴스의 경우 Automation 계정에서 변경 내용을 감지 하 고 계정에 대 한 실행 계정 속성 창에서 *불완전* 상태를 표시 합니다.
 
 ![불완전 실행 계정 구성 상태](media/manage-runas-account/automation-account-runas-incomplete-config.png)
 

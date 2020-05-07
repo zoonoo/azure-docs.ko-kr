@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor의 사용자 지정 메트릭
+title: Azure Monitor의 사용자 지정 메트릭 (미리 보기)
 description: Azure Monitor의 사용자 지정 메트릭 및 모델링하는 방법을 알아봅니다.
 author: ancav
 ms.author: ancav
@@ -7,17 +7,20 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.subservice: metrics
-ms.openlocfilehash: 4286910c926cd6bd3b21acfd145e4e69548319ce
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 4891d7272516caf4944219907d81ee4fb89e0189
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204307"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837314"
 ---
-# <a name="custom-metrics-in-azure-monitor"></a>Azure Monitor의 사용자 지정 메트릭
+# <a name="custom-metrics-in-azure-monitor-preview"></a>Azure Monitor의 사용자 지정 메트릭 (미리 보기)
 
-Azure에서 리소스 및 애플리케이션을 배포하는 동안 성능 및 상태에 대한 정보를 얻기 위해 원격 분석 수집을 시작할 수 있습니다. Azure는 몇 가지 메트릭을 기본적으로 제공합니다. 이러한 메트릭은 [표준 또는 플랫폼](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)이라고 합니다. 그러나 메트릭은 본질적으로 제한되어 있습니다. 더욱 심층적인 인사이트를 제공하려면 일부 사용자 지정 성능 지표 또는 비즈니스 관련 메트릭을 수집하는 것이 좋습니다.
-이러한 **사용자 지정** 메트릭은 애플리케이션 원격 분석, Azure 리소스에서 실행되는 에이전트 또는 외부 모니터링 시스템을 통해서도 수집되어 Azure Monitor로 직접 전송될 수 있습니다. Azure Monitor에 게시된 후에는 Azure에서 내보낸 표준 메트릭과 나란히, Azure 리소스 및 애플리케이션에 대한 사용자 지정 메트릭을 찾아보고 쿼리 및 경고할 수 있습니다.
+Azure에서 리소스 및 애플리케이션을 배포하는 동안 성능 및 상태에 대한 정보를 얻기 위해 원격 분석 수집을 시작할 수 있습니다. Azure는 몇 가지 메트릭을 기본적으로 제공합니다. 이러한 메트릭은 [표준 또는 플랫폼](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)이라고 합니다. 그러나 메트릭은 본질적으로 제한되어 있습니다. 
+
+더욱 심층적인 인사이트를 제공하려면 일부 사용자 지정 성능 지표 또는 비즈니스 관련 메트릭을 수집하는 것이 좋습니다. 이러한 **사용자 지정** 메트릭은 애플리케이션 원격 분석, Azure 리소스에서 실행되는 에이전트 또는 외부 모니터링 시스템을 통해서도 수집되어 Azure Monitor로 직접 전송될 수 있습니다. Azure Monitor에 게시된 후에는 Azure에서 내보낸 표준 메트릭과 나란히, Azure 리소스 및 애플리케이션에 대한 사용자 지정 메트릭을 찾아보고 쿼리 및 경고할 수 있습니다.
+
+Azure Monitor 사용자 지정 메트릭은 공개 미리 보기로 제공 됩니다. 
 
 ## <a name="methods-to-send-custom-metrics"></a>사용자 지정 메트릭을 보내는 방법
 
@@ -27,19 +30,15 @@ Azure에서 리소스 및 애플리케이션을 배포하는 동안 성능 및 �
 - Azure Linux VM에 [InfluxData Telegraf 에이전트](collect-custom-metrics-linux-telegraf.md)를 설치하고 Azure Monitor 출력 플러그 인을 사용하여 메트릭을 보냅니다.
 - 사용자 지정 메트릭을 [Azure Monitor REST API에 직접](../../azure-monitor/platform/metrics-store-custom-rest-api.md)보냅니다 `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
-## <a name="pricing-model"></a>가격 책정 모델
+## <a name="pricing-model-and-rentention"></a>가격 책정 모델 및 보존
 
-표준 메트릭 (플랫폼 메트릭)을 Azure Monitor 메트릭 저장소에 수집 하는 데는 비용이 없습니다. Azure Monitor 메트릭 저장소에 수집 된 사용자 지정 메트릭은 크기가 8 바이트로 간주 되는 각 사용자 지정 메트릭 데이터가 포함 된 mb 당 요금이 청구 됩니다. 모든 수집 메트릭은 90 일 동안 유지 됩니다.
+사용자 지정 메트릭 및 메트릭 쿼리에 대 한 대금 청구를 사용 하도록 설정 하는 경우에 대 한 자세한 내용은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 를 확인 하세요. 사용자 지정 메트릭 및 메트릭 쿼리를 비롯 한 모든 메트릭에 대 한 특정 가격 정보는이 페이지에서 제공 됩니다. 요약 하자면, 표준 메트릭 (플랫폼 메트릭)을 Azure Monitor 메트릭 저장소에 수집할 비용은 없지만 사용자 지정 메트릭은 일반 공급으로 전환 될 때 비용을 incurr 합니다. 메트릭 API 쿼리는 비용을 incurr 합니다.
 
-메트릭 쿼리는 표준 API 호출 수에 따라 요금이 청구 됩니다. 표준 API 호출은 1440 데이터 요소를 분석 하는 호출입니다 (1440은 일별 메트릭 당 저장할 수 있는 총 데이터 요소 수 이기도). 1440 개 보다 많은 데이터 요소를 분석 하는 API 호출은 여러 표준 API 호출로 계산 됩니다. 1440 개 미만의 데이터 요소를 분석 하는 API 호출은 API 호출을 한 개 미만으로 계산 합니다. 표준 API 호출 수는 매일 분석 된 총 데이터 요소 수를 1440으로 나눈 값으로 매일 계산 됩니다.
-
-사용자 지정 메트릭 및 메트릭 쿼리에 대 한 특정 가격 정보는 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에서 확인할 수 있습니다.
+사용자 지정 메트릭은 [플랫폼 메트릭과 동일한 시간](data-platform-metrics.md#retention-of-metrics)동안 보존 됩니다. 
 
 > [!NOTE]  
-> Application Insights SDK를 통해 Azure Monitor로 전송 되는 메트릭은 수집 로그 데이터로 청구 되 고, [사용자 지정 메트릭 차원에 대 한 경고를 사용 하도록 설정](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) 된 Application Insights 기능이 선택 된 경우에만 추가 메트릭 요금이 발생 합니다. [지역에서](https://azure.microsoft.com/pricing/details/monitor/) [Application Insights 가격 책정 모델](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) 및 가격에 대해 자세히 알아보세요.
+> Application Insights SDK를 통해 Azure Monitor로 전송 되는 메트릭은 수집 로그 데이터로 청구 됩니다. [사용자 지정 메트릭 차원에 대 한 경고를 사용 하도록 설정](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) 된 Application Insights 기능이 선택 된 경우에만 추가 메트릭 요금이 발생 합니다. 이 확인란은 사용자 지정 메트릭 API를 사용 하 여 Azure Monitor 메트릭 데이터베이스로 데이터를 전송 하 여 더 복잡 한 경고를 허용 합니다.  [지역에서](https://azure.microsoft.com/pricing/details/monitor/) [Application Insights 가격 책정 모델](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) 및 가격에 대해 자세히 알아보세요.
 
-> [!NOTE]  
-> 사용자 지정 메트릭 및 메트릭 쿼리에 대 한 대금 청구를 사용 하도록 설정 하는 경우에 대 한 자세한 내용은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 를 확인 하세요. 
 
 ## <a name="how-to-send-custom-metrics"></a>사용자 지정 메트릭을 보내는 방법
 
@@ -54,7 +53,7 @@ Azure Monitor에 사용자 지정 메트릭을 보낼 때 보고되는 각 데�
 > [!TIP]  
 > 사용자 지정 메트릭을 내보내기 위해 Azure AD 토큰을 요청하는 경우 토큰이 요청되는 대상 그룹 또는 리소스가 `https://monitoring.azure.com/`이어야 합니다. 후행 슬래시(‘/’)를 포함해야 합니다.
 
-### <a name="subject"></a>제목
+### <a name="subject"></a>주체
 이 속성은 사용자 지정 메트릭이 보고되는 Azure 리소스 ID를 캡처합니다. 이 정보는 수행되는 API 호출의 URL에 인코딩됩니다. 각 API는 단일 Azure 리소스에 대한 메트릭 값만 전송할 수 있습니다.
 
 > [!NOTE]  
@@ -104,7 +103,7 @@ Azure Monitor는 1분 단위 간격으로 모든 메트릭을 저장합니다. �
 
 |트랜잭션 1|트랜잭션 2|트랜잭션 3|트랜잭션 4|
 |---|---|---|---|
-|7ms|4ms|13ms|16ms|
+|7ms|4ms|13ms|16밀리초|
 |
 
 Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.

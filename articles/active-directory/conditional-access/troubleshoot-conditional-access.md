@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 03/13/2020
+ms.date: 04/30/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf1daca79f3ed20d9b7a89af20d74ff5f3148b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9a2ab4b1ebc1c958be9dc4bd07a010f7fef8afc
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337442"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610521"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>조건부 액세스의 로그인 문제 해결
 
@@ -55,8 +55,11 @@ ms.locfileid: "80337442"
    1. **문제 해결 및 지원** 탭의 정보는 규정 준수 요구 사항을 충족 하지 않는 장치 등의 로그인 실패 이유에 대 한 명확한 이유를 제공할 수 있습니다.
    1. 자세히 조사 하려면 **정책 이름을**클릭 하 여 정책 구성으로 드릴 다운 합니다. **정책 이름을** 클릭 하면 검토 및 편집을 위해 선택한 정책에 대 한 정책 구성 사용자 인터페이스가 표시 됩니다.
    1. 조건부 액세스 정책 평가에 사용 된 **클라이언트 사용자** 및 **장치 세부 정보** 는 **기본 정보**, **위치**, **장치 정보**, **인증 세부 정보**및 로그인 이벤트의 **추가 세부 정보** 탭 에서도 사용할 수 있습니다.
+   1. 정책의 오른쪽에 있는 줄임표를 선택 하면 정책 세부 정보가 표시 됩니다. 이를 통해 관리자는 정책이 성공적으로 적용 된 이유에 대 한 추가 정보를 제공 합니다.
 
    ![로그인 이벤트 조건부 액세스 탭](./media/troubleshoot-conditional-access/image5.png)
+
+   ![정책 세부 정보 (미리 보기)](./media/troubleshoot-conditional-access/policy-details.png)
 
 이벤트의 정보가 로그인 결과를 이해 하기에 충분 하지 않거나 정책을 조정 하 여 원하는 결과를 얻을 수 없는 경우 지원 인시던트가 열립니다. 해당 로그인 이벤트의 **문제 해결 및 지원** 탭으로 이동 하 고 **새 지원 요청 만들기**를 선택 합니다.
 

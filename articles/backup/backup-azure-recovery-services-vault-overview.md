@@ -3,12 +3,12 @@ title: Recovery Services 자격 증명 모음 개요
 description: Recovery Services 자격 증명 모음 및 Azure Backup 자격 증명 모음 간의 개요 및 비교입니다.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: e6a359287533c9ffdd688b5285b24b9c70fa7b7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0dacd82b7cf4258c0147bbaf9dc39ee6fc0fa25
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80436955"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597956"
 ---
 # <a name="recovery-services-vaults-overview"></a>Recovery Services 자격 증명 모음 개요
 
@@ -79,6 +79,14 @@ VM에 백업이 구성되지 않은 경우 백업을 구성하라는 메시지�
 ### <a name="secure-the-vault"></a>자격 증명 모음 보안
 
 - [Recovery Services 자격 증명 모음에서 클라우드 백업 데이터 보안](backup-azure-security-feature.md)
+
+## <a name="azure-advisor"></a>Azure Advisor
+
+[Azure Advisor](https://docs.microsoft.com/azure/advisor/) 는 Azure 사용을 최적화 하는 데 도움이 되는 개인 설정 된 클라우드 컨설턴트입니다. Azure 사용량을 분석 하 고 배포를 최적화 하 고 보호 하는 데 도움이 되는 적시에 권장 사항을 제공 합니다. 고가용성, 보안, 성능 및 비용의 네 가지 범주로 권장 사항을 제공 합니다.
+
+Azure Advisor는 백업 되지 않은 Vm에 대 한 시간별 [권장 사항을](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) 제공 하므로 중요 한 vm은 백업 하지 않아도 됩니다. Snoozing 하 여 권장 사항을 제어할 수도 있습니다.  권장 사항을 클릭 하 고 Vm에 대 한 백업을 온라인에서 사용 하도록 설정할 수 있습니다 (백업이 저장 되는 위치) 및 백업 정책 (백업 일정 및 백업 복사본의 보존).
+
+![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
 ## <a name="next-steps"></a>다음 단계
 

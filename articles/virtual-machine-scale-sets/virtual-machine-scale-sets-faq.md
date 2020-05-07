@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: c2db0cca120d08b85229618547a2aaabbba437ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a5fcb3bb1ebf48eaa9cdce70800a4239c5fae03
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870211"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611401"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -45,11 +45,13 @@ VM 이미지를 만들고 캡처한 다음, 확장 집합에 대한 원본으로
 
 ### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>내 확장 집합 용량을 20에서 15로 줄이면, 어떤 VM이 제거되나요?
 
-가용성을 최대화하기 위해 업데이트 도메인과 장애 도메인이 균등하도록 가상 머신이 확장 집합에서 제거됩니다. ID가 가장 높은 VM이 먼저 제거됩니다.
+기본적으로 가상 컴퓨터는 가용성 영역 (확장 집합이 영역 구성에 배포 된 경우) 및 장애 도메인 간에 균등 하 게 확장 집합에서 제거 되어 가용성을 최대화 합니다. ID가 가장 높은 VM이 먼저 제거됩니다.
+
+확장 집합에 대 한 [확장 정책을](virtual-machine-scale-sets-scale-in-policy.md) 지정 하 여 가상 머신 제거의 순서를 변경할 수 있습니다.
 
 ### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>그런 다음 용량을 15에서 18로 늘리면 어떻게 되나요?
 
-용량을 18로 늘리면 3개의 새로운 VM 생성됩니다. VM 인스턴스 ID는 이전의 가장 큰 값에서 증가합니다(예: 20, 21, 22). VM은 장애 도메인과 업데이트 도메인에 균등하게 분배됩니다.
+용량을 18로 늘리면 3개의 새로운 VM 생성됩니다. VM 인스턴스 ID는 이전의 가장 큰 값에서 증가합니다(예: 20, 21, 22). Vm은 장애 도메인 간에 균형을 유지 합니다.
 
 ### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>확장 집합에서 여러 확장을 사용하는 경우, 실행 순서를 강제로 적용할 수 있나요?
 
@@ -223,7 +225,7 @@ Linux VM을 만들 때 일반 텍스트로 SSH 공개 키를 제공할 수 있�
 
 linuxConfiguration 요소 이름 | 필수 | Type | Description
 --- | --- | --- | ---
-ssh | 아니요 | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
+ssh | 아니요 | 수집 | Linux OS용 SSH 키 구성을 지정합니다.
 path | 예 | String | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
 keyData | 예 | String | base64로 인코딩된 SSH 공개 키를 지정합니다.
 
@@ -335,13 +337,13 @@ VM을 만든 다음 Key Vault에서 비밀을 업데이트하면 새 인증서�
 
 예. Azure 빠른 시작 템플릿에서 [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) 및 [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi)에 대 한 몇 가지 예제 MSI 템플릿을 볼 수 있습니다.
 
-## <a name="deleting"></a>삭제 중 
+## <a name="deleting"></a>삭제 중
 
 ### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>인스턴스를 삭제할 때 가상 머신 확장 집합 인스턴스에 설정 된 잠금이 적용 되나요?
 
-Azure Portal에서 여러 인스턴스를 선택 하 여 개별 인스턴스를 삭제 하거나 대량 삭제를 수행할 수 있습니다. 잠금이 준비 된 단일 인스턴스를 삭제 하려고 하면 잠금이 적용 되며 인스턴스를 삭제할 수 없습니다. 그러나 여러 인스턴스를 대량으로 선택 하 고 해당 인스턴스에 잠금이 있는 경우에는 잠금이 적용 되지 않으며 선택한 모든 인스턴스가 삭제 됩니다. 
- 
-Azure CLI에서 개별 인스턴스를 삭제 하는 기능만 있습니다. 잠금을 보유 한 단일 인스턴스를 삭제 하려고 하면 잠금이 적용 되 고 해당 인스턴스를 삭제할 수 없게 됩니다. 
+Azure Portal에서 여러 인스턴스를 선택 하 여 개별 인스턴스를 삭제 하거나 대량 삭제를 수행할 수 있습니다. 잠금이 준비 된 단일 인스턴스를 삭제 하려고 하면 잠금이 적용 되며 인스턴스를 삭제할 수 없습니다. 그러나 여러 인스턴스를 대량으로 선택 하 고 해당 인스턴스에 잠금이 있는 경우에는 잠금이 적용 되지 않으며 선택한 모든 인스턴스가 삭제 됩니다.
+
+Azure CLI에서 개별 인스턴스를 삭제 하는 기능만 있습니다. 잠금을 보유 한 단일 인스턴스를 삭제 하려고 하면 잠금이 적용 되 고 해당 인스턴스를 삭제할 수 없게 됩니다.
 
 ## <a name="extensions"></a>확장
 
@@ -466,7 +468,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>집합의 모든 VM NIC에 적용되도록 확장 집합에 NSG(네트워크 보안 그룹)를 할당할 수 있나요?
 
-예. 네트워크 프로필의 networkInterfaceConfigurations 섹션에서 참조하여 네트워크 보안 그룹을 확장 집합에 직접 적용할 수 있습니다. 예제:
+예. 네트워크 프로필의 networkInterfaceConfigurations 섹션에서 참조하여 네트워크 보안 그룹을 확장 집합에 직접 적용할 수 있습니다. 예:
 
 ```json
 "networkProfile": {
@@ -540,7 +542,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>확장 집합에서 사용하는 DNS 서버를 구성하려면 어떻게 해야 하나요?
 
-사용자 지정 DNS 구성을 포함한 가상 머신 확장 집합을 만들려면 dnsSettings JSON 패킷을 확장 집합 networkInterfaceConfigurations 섹션에 추가합니다. 예제:
+사용자 지정 DNS 구성을 포함한 가상 머신 확장 집합을 만들려면 dnsSettings JSON 패킷을 확장 집합 networkInterfaceConfigurations 섹션에 추가합니다. 예:
 
 ```json
     "dnsSettings":{
@@ -550,7 +552,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>각 VM에 공용 IP 주소를 할당하도록 확장 집합을 구성하려면 어떻게 해야 하나요?
 
-각 VM에 공용 IP 주소를 할당 하는 가상 머신 확장 집합을 만들려면 virtualMachineScaleSets/리소스의 API 버전이 2017-03-30 인지 확인 하 고 _고 publicipaddressconfiguration_ JSON 패킷을 확장 집합 ipConfigurations 섹션에 추가 합니다. 예제:
+각 VM에 공용 IP 주소를 할당 하는 가상 머신 확장 집합을 만들려면 virtualMachineScaleSets/리소스의 API 버전이 2017-03-30 인지 확인 하 고 _고 publicipaddressconfiguration_ JSON 패킷을 확장 집합 ipConfigurations 섹션에 추가 합니다. 예:
 
 ```json
     "publicipaddressconfiguration": {
@@ -668,7 +670,7 @@ Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey�
 }
 ```
 
-새 VM이 만들어지면 VM의 InstanceView 속성에 스크린샷 등에 대한 세부 정보가 표시됩니다. 아래 예를 살펴보세요.
+새 VM이 만들어지면 VM의 InstanceView 속성에 스크린샷 등에 대한 세부 정보가 표시됩니다. 예를 들면 다음과 같습니다.
 
 ```json
 "bootDiagnostics": {

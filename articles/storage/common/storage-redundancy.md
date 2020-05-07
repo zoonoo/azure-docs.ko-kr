@@ -1,21 +1,21 @@
 ---
 title: 데이터 중복
 titleSuffix: Azure Storage
-description: Microsoft Azure Storage 계정의 데이터는 내구성 및 고가용성을 위해 복제됩니다. 중복성 구성에는 LRS (로컬 중복 저장소), ZRS (영역 중복 저장소), GRS (지역 중복 저장소), 읽기 액세스 지역 중복 저장소 (RA-GRS), 지역 중복 저장소 (GZRS) (미리 보기) 및 읽기 액세스 지역 중복 저장소 (RA-GZRS) (미리 보기)가 포함 됩니다.
+description: Microsoft Azure Storage 계정의 데이터는 내구성 및 고가용성을 위해 복제됩니다. 중복성 구성에는 LRS (로컬 중복 저장소), ZRS (영역 중복 저장소), GRS (지역 중복 저장소), 읽기 액세스 지역 중복 저장소 (RA-GRS), 지역 중복 저장소 (GZRS) 및 읽기 액세스 지역 중복 저장소 (RA-GZRS)가 포함 됩니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 78f7c935e64276e7f4862dad966b99bff6bd246d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f4fff7c8865a59b916755a69a98448a1684da229
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81481935"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853318"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -38,7 +38,7 @@ Azure Storage 계정의 데이터는 항상 주 지역에서 3 번 복제 됩니
 
 LRS (로컬 중복 저장소)는 주 지역의 단일 물리적 위치 내에서 데이터를 세 번 복제 합니다. LRS는 지정 된 연도 동안 최소 99.999999999% (11 9)의 개체 내 구성을 제공 합니다.
 
-LRS는 가장 저렴 한 비용의 중복성 옵션이 며 다른 옵션에 비해 최소 내구성을 제공 합니다. LRS는 서버 랙 및 드라이브 오류 로부터 데이터를 보호 합니다. 그러나 데이터 센터 내에서 화재 또는 홍수와 같은 재해가 발생 하면 LRS를 사용 하는 저장소 계정의 모든 복제본이 손실 되거나 복구할 수 없을 수 있습니다. 이러한 위험을 완화 하기 위해 Microsoft에서는 ZRS ( [영역 중복 저장소](#zone-redundant-storage) ), GRS ( [지역 중복 저장소](#geo-redundant-storage) ) 또는 GZRS (지역 중복 저장소) ( [미리 보기)](#geo-zone-redundant-storage-preview) 를 사용 하는 것이 좋습니다.
+LRS는 가장 저렴 한 비용의 중복성 옵션이 며 다른 옵션에 비해 최소 내구성을 제공 합니다. LRS는 서버 랙 및 드라이브 오류 로부터 데이터를 보호 합니다. 그러나 데이터 센터 내에서 화재 또는 홍수와 같은 재해가 발생 하면 LRS를 사용 하는 저장소 계정의 모든 복제본이 손실 되거나 복구할 수 없을 수 있습니다. 이러한 위험을 완화 하기 위해 Microsoft에서는 ZRS ( [영역 중복 저장소](#zone-redundant-storage) ), GRS ( [지역 중복 저장소](#geo-redundant-storage) ) 또는 GZRS ( [지역](#geo-zone-redundant-storage) 중복 저장소)를 사용 하는 것이 좋습니다.
 
 LRS를 사용 하는 저장소 계정에 대 한 쓰기 요청은 동기적으로 발생 합니다. 쓰기 작업은 3 개의 모든 복제본에 데이터가 기록 된 후에만 성공적으로 반환 됩니다.
 
@@ -55,7 +55,7 @@ ZRS를 사용 하면 영역을 사용할 수 없는 경우에도 읽기 및 쓰�
 
 ZRS를 사용 하는 저장소 계정에 대 한 쓰기 요청은 동기적으로 발생 합니다. 쓰기 작업은 3 개의 가용성 영역에서 모든 복제본에 데이터가 기록 된 후에만 성공적으로 반환 됩니다.
 
-일관성, 내구성 및 고가용성이 필요한 시나리오의 경우 주 지역에서 ZRS를 사용 하는 것이 좋습니다. ZRS는 일시적으로 사용할 수 없게 되는 경우 데이터에 대 한 뛰어난 성능, 짧은 대기 시간 및 복원 력을 제공 합니다. 그러나 ZRS는 여러 영역이 영구적으로 영향을 받는 지역 재해 로부터 데이터를 보호 하지 못할 수 있습니다. 지역 재해 로부터 보호 하기 위해 Microsoft는 주 지역에서 ZRS를 사용 하 고 보조 지역에 데이터를 지역으로 복제 하는 GZRS ( [지역 영역 중복 저장소](#geo-zone-redundant-storage-preview) )를 사용 하는 것이 좋습니다.
+일관성, 내구성 및 고가용성이 필요한 시나리오의 경우 주 지역에서 ZRS를 사용 하는 것이 좋습니다. ZRS는 일시적으로 사용할 수 없게 되는 경우 데이터에 대 한 뛰어난 성능, 짧은 대기 시간 및 복원 력을 제공 합니다. 그러나 ZRS는 여러 영역이 영구적으로 영향을 받는 지역 재해 로부터 데이터를 보호 하지 못할 수 있습니다. 지역 재해 로부터 보호 하기 위해 Microsoft는 주 지역에서 ZRS를 사용 하 고 보조 지역에 데이터를 지역으로 복제 하는 GZRS ( [지역 영역 중복 저장소](#geo-zone-redundant-storage) )를 사용 하는 것이 좋습니다.
 
 다음 표에서는 ZRS를 지 원하는 저장소 계정의 유형을 보여 줍니다.
 
@@ -79,13 +79,13 @@ ZRS를 지 원하는 지역에 대 한 자세한 내용은 [Azure 가용성 영�
 Azure Storage는 보조 지역으로 데이터를 복사 하는 두 가지 옵션을 제공 합니다.
 
 - **GRS (지역 중복 저장소)** 는 LRS를 사용 하 여 주 지역의 단일 물리적 위치 내에서 데이터를 동기적으로 세 번 복사 합니다. 그런 다음 데이터를 보조 지역의 단일 물리적 위치에 비동기적으로 복사 합니다.
-- **GZRS (지역 중복 저장소** ) (미리 보기)는 ZRS를 사용 하 여 주 지역의 3 개 Azure 가용성 영역에서 데이터를 동기적으로 복사 합니다. 그런 다음 데이터를 보조 지역의 단일 물리적 위치에 비동기적으로 복사 합니다.
+- **GZRS (지역 중복 저장소)** 는 ZRS를 사용 하 여 주 지역의 3 개 Azure 가용성 영역에서 데이터를 동기적으로 복사 합니다. 그런 다음 데이터를 보조 지역의 단일 물리적 위치에 비동기적으로 복사 합니다.
 
 GRS와 GZRS 간의 주요 차이점은 데이터가 주 지역에 복제 되는 방식입니다. 보조 위치 내에서 데이터는 항상 LRS를 사용 하 여 동기적으로 세 번 복제 됩니다.
 
 GRS 또는 GZRS를 사용 하는 경우 보조 지역에 대 한 장애 조치 (failover)가 없으면 보조 위치의 데이터를 읽기 또는 쓰기 액세스에 사용할 수 없습니다. 보조 위치에 대 한 읽기 액세스의 경우 읽기 액세스 지역 중복 저장소 (RA-GRS) 또는 읽기 액세스 지역 중복 저장소 (RA-GZRS)를 사용 하도록 저장소 계정을 구성 합니다. 자세한 내용은 [보조 지역의 데이터에 대 한 읽기 액세스](#read-access-to-data-in-the-secondary-region)를 참조 하세요.
 
-주 지역을 사용할 수 없게 되 면 보조 지역 (미리 보기)으로 장애 조치 (failover) 하도록 선택할 수 있습니다. 장애 조치 (failover)가 완료 되 면 보조 지역은 주 지역이 되며 데이터를 다시 읽고 쓸 수 있습니다. 재해 복구에 대 한 자세한 내용 및 보조 지역으로 장애 조치 하는 방법에 대 한 자세한 내용은 [재해 복구 및 계정 장애 조치 (failover) (미리 보기)](storage-disaster-recovery-guidance.md)를 참조 하세요.
+주 지역을 사용할 수 없게 되 면 보조 지역으로 장애 조치 (failover) 하도록 선택할 수 있습니다. 장애 조치 (failover)가 완료 되 면 보조 지역은 주 지역이 되며 데이터를 다시 읽고 쓸 수 있습니다. 재해 복구에 대 한 자세한 내용 및 보조 지역으로 장애 조치 하는 방법에 대 한 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치 (failover)](storage-disaster-recovery-guidance.md)를 참조 하세요.
 
 > [!IMPORTANT]
 > 데이터는 보조 지역에 비동기적으로 복제 되기 때문에 주 지역에 영향을 주는 오류로 인해 주 지역을 복구할 수 없는 경우 데이터가 손실 될 수 있습니다. 주 지역에 대 한 최신 쓰기와 보조 지역에 대 한 마지막 쓰기 사이의 간격을 RPO (복구 지점 목표) 라고 합니다. RPO는 데이터를 복구할 수 있는 시점을 나타냅니다. 현재는 데이터를 보조 지역으로 복제 하는 데 걸리는 시간에 대 한 SLA는 없지만 일반적으로는 15 분 미만의 RPO가 Azure Storage 됩니다.
@@ -96,32 +96,15 @@ GRS (지역 중복 저장소)는 LRS를 사용 하 여 주 지역의 단일 물�
 
 쓰기 작업은 먼저 기본 위치로 커밋되고 LRS를 사용 하 여 복제 됩니다. 그런 다음 업데이트는 보조 지역에 비동기식으로 복제 됩니다. 데이터가 보조 위치에 기록되는 경우 LRS를 사용하여 해당 위치 내에도 복제됩니다.
 
-### <a name="geo-zone-redundant-storage-preview"></a>지리적 영역 중복 저장소 (미리 보기)
+### <a name="geo-zone-redundant-storage"></a>지역 영역 중복 스토리지
 
-GZRS (지역 중복 저장소) (미리 보기)는 지역에서 복제에서 제공 하는 지역 가동 중단 으로부터 보호 하 여 가용성 영역 간 중복성으로 제공 되는 고가용성을 결합 합니다. GZRS 저장소 계정의 데이터는 주 지역에 있는 세 개의 [Azure 가용성 영역](../../availability-zones/az-overview.md) 에 복사 되며 지역 재해 로부터 보호 하기 위해 보조 지역에도 복제 됩니다. Microsoft는 재해 복구에 대 한 최대 일관성, 내구성 및 가용성, 뛰어난 성능 및 복원 력을 필요로 하는 응용 프로그램에 GZRS를 사용 하는 것이 좋습니다.
+GZRS (지역 중복 저장소)는 지역에서 복제에서 제공 하는 지역 가동 중단 으로부터 보호 하 여 가용성 영역 간 중복성으로 제공 되는 고가용성을 결합 합니다. GZRS 저장소 계정의 데이터는 주 지역에 있는 세 개의 [Azure 가용성 영역](../../availability-zones/az-overview.md) 에 복사 되며 지역 재해 로부터 보호 하기 위해 보조 지역에도 복제 됩니다. Microsoft는 재해 복구에 대 한 최대 일관성, 내구성 및 가용성, 뛰어난 성능 및 복원 력을 필요로 하는 응용 프로그램에 GZRS를 사용 하는 것이 좋습니다.
 
 GZRS 저장소 계정을 사용 하 여 가용성 영역을 사용할 수 없게 되거나 복구할 수 없는 경우 계속 해 서 데이터를 읽고 쓸 수 있습니다. 또한 전체 지역 가동 중단 또는 주 지역을 복구할 수 없는 재해가 발생 한 경우에도 데이터를 지속적으로 사용할 수 있습니다. GZRS는 지정 된 연도 동안 최소 99.99999999999999% (16 9의) 개체 내 구성을 제공 하도록 설계 되었습니다.
 
-범용 v2 저장소 계정만 GZRS 및 RA-GZRS을 지원 합니다. 애플리케이션 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요. GZRS 및 RA-GZRS는 블록 blob, 페이지 blob (VHD 디스크 제외), 파일, 테이블 및 큐를 지원 합니다.
+범용 v2 저장소 계정만 GZRS 및 RA-GZRS을 지원 합니다. 애플리케이션 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요. GZRS 및 RA-GZRS는 블록 blob, 페이지 blob (VHD 디스크 제외), 파일, 테이블 및 큐를 지원 합니다. GZRS 및 RA-GZRS는 모든 Azure 지역에서 사용할 수 있습니다.
 
-GZRS 및 RA-GZRS는 현재 다음 지역에서 미리 보기로 제공 됩니다.
-
-- 동남아시아
-- 북유럽
-- 서유럽
-- 일본 동부
-- 영국 남부
-- 미국 동부
-- 미국 동부 2
-- 미국 중부
-- 미국 서부 2
-
-Microsoft는 추가 Azure 지역에서 GZRS 및 RA GZRS을 계속 사용할 수 있습니다. 지원 되는 지역에 대 한 자세한 내용은 [Azure 서비스 업데이트](https://azure.microsoft.com/updates/) 페이지를 정기적으로 확인 하세요.
-
-미리 보기 가격 책정에 대 한 자세한 내용은 [blob](https://azure.microsoft.com/pricing/details/storage/blobs), [파일](https://azure.microsoft.com/pricing/details/storage/files/), [큐](https://azure.microsoft.com/pricing/details/storage/queues/)및 [테이블](https://azure.microsoft.com/pricing/details/storage/tables/)에 대 한 GZRS 미리 보기 가격 책정을 참조 하세요.
-
-> [!IMPORTANT]
-> 프로덕션 워크 로드에는 미리 보기 기능을 사용 하지 않는 것이 좋습니다.
+가격 책정에 대 한 자세한 내용은 [blob](https://azure.microsoft.com/pricing/details/storage/blobs), [파일](https://azure.microsoft.com/pricing/details/storage/files/), [큐](https://azure.microsoft.com/pricing/details/storage/queues/)및 [테이블](https://azure.microsoft.com/pricing/details/storage/tables/)에 대 한 가격 세부 정보를 참조 하세요.
 
 ## <a name="read-access-to-data-in-the-secondary-region"></a>보조 지역의 데이터에 대 한 읽기 액세스
 
@@ -129,7 +112,7 @@ Microsoft는 추가 Azure 지역에서 GZRS 및 RA GZRS을 계속 사용할 수 
 
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>보조 데이터베이스에 대 한 읽기 액세스를 위한 응용 프로그램 디자인
 
-저장소 계정이 보조 지역에 대 한 읽기 액세스로 구성 된 경우 어떤 이유로 든 주 지역을 사용할 수 없게 되 면 보조 지역에서 데이터를 읽도록 원활 하 게 이동 하도록 응용 프로그램을 디자인할 수 있습니다. 보조 지역은 항상 읽기 액세스에 사용할 수 있으므로 응용 프로그램을 테스트 하 여 가동 중단 시 보조 데이터베이스에서 읽을 수 있는지 확인할 수 있습니다. 고가용성을 위해 응용 프로그램을 디자인 하는 방법에 대 한 자세한 내용은 [읽기 액세스 지역 중복 저장소를 사용 하 여 항상 사용 가능한 응용 프로그램 디자인](storage-designing-ha-apps-with-ragrs.md)을 참조 하세요.
+저장소 계정이 보조 지역에 대 한 읽기 액세스로 구성 된 경우 어떤 이유로 든 주 지역을 사용할 수 없게 되 면 보조 지역에서 데이터를 읽도록 원활 하 게 이동 하도록 응용 프로그램을 디자인할 수 있습니다. 보조 지역은 항상 읽기 액세스에 사용할 수 있으므로 응용 프로그램을 테스트 하 여 가동 중단 시 보조 데이터베이스에서 읽을 수 있는지 확인할 수 있습니다. 고가용성을 위해 응용 프로그램을 디자인 하는 방법에 대 한 자세한 내용은 [지역 중복을 사용 하 여 항상 사용 가능한 응용 프로그램 디자인](geo-redundant-design.md)을 참조 하세요.
 
 보조 복제본에 대 한 읽기 액세스를 사용 하도록 설정 하면 저장소 계정의 기본 끝점 뿐만 아니라 보조 끝점에서 데이터를 읽을 수 있습니다. 보조 끝점은 계정 이름에 접미사 *-보조* 를 추가 합니다. 예를 들어 Blob 저장소 `myaccount.blob.core.windows.net`에 대 한 기본 끝점이 인 경우 보조 끝점은 `myaccount-secondary.blob.core.windows.net`입니다. 저장소 계정에 대 한 계정 액세스 키는 기본 및 보조 끝점에 대해 동일 합니다.
 
@@ -145,7 +128,7 @@ Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리
 
 다음 표에서는 저장소 계정에 적용 되는 중복성 유형에 따라 지정 된 시나리오에서 지속 되 고 사용 가능한 데이터의 양을 보여 줍니다.
 
-| 시나리오                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (미리 보기)                              |
+| 시나리오                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | 데이터 센터 내의 노드를 사용할 수 없게 됩니다.                                                                 | 예                             | 예                              | 예                                  | 예                                  |
 | 전체 데이터 센터(영역 또는 비영역)를 사용할 수 없게 됨                                           | 예                              | 예                              | 예                                  | 예                                  |
@@ -160,7 +143,7 @@ Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리
 
 <sup>2</sup> 저장소 계정 유형에 대 한 자세한 내용은 [저장소 계정 개요](storage-account-overview.md)를 참조 하세요.
 
-모든 유형의 저장소 계정 및 [모든 계층 (보관 포함)](../blobs/storage-blob-storage-tiers.md) 에 대 한 모든 데이터는 저장소 계정에 대 한 중복성 옵션에 따라 복사 됩니다. 블록 blob, 추가 blob, 페이지 blob, 큐, 테이블 및 파일을 포함 하는 개체가 복사 됩니다.
+모든 유형의 저장소 계정에 대 한 모든 데이터는 저장소 계정에 대 한 중복성 옵션에 따라 복사 됩니다. 블록 blob, 추가 blob, 페이지 blob, 큐, 테이블 및 파일을 포함 하는 개체가 복사 됩니다. 보관 계층을 포함 하 여 모든 계층의 데이터가 복사 됩니다. Blob 계층에 대 한 자세한 내용은 [Azure blob storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md)을 참조 하세요.
 
 각 중복성 옵션에 대 한 가격 책정 정보는 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조 하세요.
 
@@ -175,5 +158,5 @@ Azure Storage는 CRCs (순환 중복 검사)를 사용 하 여 저장 된 데이
 
 - [저장소 계정에 대 한 마지막 동기화 시간 속성 확인](last-sync-time-get.md)
 - [저장소 계정에 대 한 중복성 옵션 변경](redundancy-migration.md)
-- [RA-GRS Storage를 사용 하 여 고가용성 응용 프로그램 디자인](../storage-designing-ha-apps-with-ragrs.md)
-- [재해 복구 및 계정 장애 조치 (failover) (미리 보기)](storage-disaster-recovery-guidance.md)
+- [지리적 중복을 사용 하 여 항상 사용 가능한 응용 프로그램 디자인](geo-redundant-design.md)
+- [재해 복구 및 저장소 계정 장애 조치 (failover)](storage-disaster-recovery-guidance.md)

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 04/24/2020
-ms.openlocfilehash: 27f86a3fa34f8029e59d11066de9ea5a25a8c5ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f2a2ee7a2806a753ffd159c91ed782634e74c704
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147989"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838673"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps용 커넥터
 
@@ -192,10 +192,11 @@ Logic Apps는 SAP 및 IBM MQ와 같은 엔터프라이즈 시스템에 액세스
 
 |   |   |   |   |   |
 |---|---|---|---|---|
-[![API 아이콘][as2-icon]<br>**AS2**][as2-doc] | [![API 아이콘][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | [![API 아이콘][azure-cosmos-db-icon]<br>**Azure Cosmos <br> DB**][azure-cosmos-db-doc] | [![API 아이콘][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc] | [![API 아이콘][azure-file-storage-icon]<br>**Azure File<br>Storage**][azure-file-storage-doc] |
-| [![API 아이콘][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc] | [![API 아이콘][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc] | [![API 아이콘][azure-table-storage-icon]<br>**Azure Table <br>Storage**][azure-table-storage-doc] | [![API 아이콘][azure-queues-icon]<br>**Azure <br>큐**][azure-queues-doc] | [![API 아이콘][edifact-icon]<br>**EDIFACT**][edifact-doc] |
-| [![API 아이콘][file-system-icon]<br>**파일 <br>시스템**][file-system-doc] | [![API 아이콘][ftp-icon]<br>**FTP**][ftp-doc] | [![API 아이콘][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc] | [![API 아이콘][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc] | [![API 아이콘][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc] |
-| [![API 아이콘][sap-icon]<br>**SAP**][sap-connector-doc] | [![API 아이콘][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | [![API 아이콘][smtp-icon]<br>**SMTP**][smtp-doc] | [![API 아이콘][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc] | [![API 아이콘][x12-icon]<br>**X12**][x12-doc] |
+[![API 아이콘][as2-icon]<br>**AS2**][as2-doc] | [![API 아이콘][azure-automation-icon]<br>**Azure <br>Automation**][azure-automation-doc] | [![API 아이콘][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | [![API 아이콘][azure-cosmos-db-icon]<br>**Azure Cosmos <br> DB**][azure-cosmos-db-doc] | [![API 아이콘][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc] |
+[![API 아이콘][azure-event-grid-icon]<br>**Azure Event <br>Grid**][azure-event-grid-doc] | [![API 아이콘][azure-file-storage-icon]<br>**Azure File<br>Storage**][azure-file-storage-doc] | [![API 아이콘][azure-key-vault-icon]<br>**Azure 주요 <br>자격 증명 모음**][azure-key-vault-doc] | [![API 아이콘][azure-monitor-logs-icon]<br>**Azure Monitor <br>로그**][azure-monitor-logs-doc] | [![API 아이콘][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc] |
+| [![API 아이콘][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc] | [![API 아이콘][azure-table-storage-icon]<br>**Azure Table <br>Storage**][azure-table-storage-doc] | [![API 아이콘][azure-queues-icon]<br>**Azure <br>큐**][azure-queues-doc] | [![API 아이콘][edifact-icon]<br>**EDIFACT**][edifact-doc] | [![API 아이콘][file-system-icon]<br>**파일 <br>시스템**][file-system-doc] |
+| [![API 아이콘][ftp-icon]<br>**FTP**][ftp-doc] | [![API 아이콘][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc] | [![API 아이콘][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc] | [![API 아이콘][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc] | [![API 아이콘][sap-icon]<br>**SAP**][sap-connector-doc] |
+| [![API 아이콘][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | [![API 아이콘][smtp-icon]<br>**SMTP**][smtp-doc] | [![API 아이콘][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc] | [![API 아이콘][x12-icon]<br>**X12**][x12-doc] |
 ||||||
 
 자세한 내용은 다음 항목을 참조하세요.
@@ -250,106 +251,6 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 * [논리 앱에 대한 사용자 지정 커넥터 만들기](https://docs.microsoft.com/connectors/custom-connectors/)
 * [논리 앱에 대한 사용자 지정 API 만들기](../logic-apps/logic-apps-create-api-app.md)
 
-<!--Misc doc links-->
-[gateway-doc]: ../logic-apps/logic-apps-gateway-connection.md "온-프레미스 데이터 게이트웨이를 사용하여 논리 앱에서 온-프레미스 데이터 원본에 연결"
-
-<!--Built-in doc links-->
-[azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "API 관리 및 게시를 위한 Azure API Management 서비스 인스턴스 만들기"
-[azure-app-services-doc]: ../logic-apps/logic-apps-custom-hosted-api.md "App Service API Apps과 논리 앱 통합"
-[azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Azure Functions와 논리 앱 통합"
-[batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "그룹 또는 일괄 처리로 메시지 처리"
-[condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "조건을 평가 하 고 조건이 true 인지 false 인지에 따라 다른 작업을 실행 합니다."
-[for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "배열의 모든 항목에 대해 동일한 작업 수행"
-[http-doc]: ./connectors-native-http.md "논리 앱에서 HTTP 또는 HTTPS 끝점 호출"
-[http-request-doc]: ./connectors-native-reqres.md "논리 앱에서 HTTP 요청 수신"
-[http-response-doc]: ./connectors-native-reqres.md "논리 앱에서 HTTP 요청에 응답"
-[http-swagger-doc]: ./connectors-native-http-swagger.md "논리 앱에서 REST 끝점 호출"
-[http-webhook-doc]: ./connectors-native-webhook.md "HTTP 또는 HTTPS 끝점의 특정 이벤트 대기"
-[nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "중첩된 워크플로와 논리 앱 통합"
-[query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "쿼리 작업을 사용하여 배열 선택 및 필터링"
-[schedule-doc]: ../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md "일정에 따라 논리 앱 실행"
-[schedule-delay-doc]: ./connectors-native-delay.md "다음 작업 실행 지연"
-[schedule-delay-until-doc]: ./connectors-native-delay.md "다음 작업 실행 지연"
-[schedule-recurrence-doc]:  ./connectors-native-recurrence.md "되풀이 일정에 따라 논리 앱 실행"
-[schedule-sliding-window-doc]: ./connectors-native-sliding-window.md "연속 청크의 데이터를 처리 해야 하는 논리 앱 실행"
-[scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "그룹에 속한 작업의 실행이 완료되면 해당 상태를 가져오는 그룹으로 작업을 구성"
-[switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "고유 값이 할당 된 사례에 대 한 작업을 구성 합니다. 식, 개체 또는 토큰의 결과와 일치 하는 값을 가진 case만 실행 합니다. 일치 하는 항목이 없는 경우 기본 사례를 실행 합니다."
-[terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "논리 앱에 대해 활발히 실행되는 워크플로 중지 또는 취소"
-[until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "지정 된 조건이 true 이거나 일부 상태가 변경 될 때까지 작업을 반복 합니다."
-[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "배열 필터링이나 CSV 및 HTML 테이블 생성과 같은 데이터 작업 수행"
-[variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "변수를 사용하여 작업 수행(예: 초기화, 설정, 증가, 감소 및 문자열 또는 배열 변수에 추가)"
-
-<!--Managed connector doc links-->
-[azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Azure Blob Storage 커넥터와 Blob 컨테이너의 파일 관리"
-[azure-cosmos-db-doc]: https://docs.microsoft.com/connectors/documentdb/ "Azure Cosmos DB에 연결 하 여 문서 및 저장 프로시저에 액세스할 수 있습니다."
-[azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Azure 리소스 또는 타사 리소스가 변경 되는 경우와 같이 Event Grid에서 게시 한 이벤트를 모니터링 합니다."
-[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "논리 앱과 Event Hubs 간에 이벤트를 보내고 받을 수 있도록 Azure Event Hubs에 연결 합니다."
-[azure-file-storage-doc]: https://docs.microsoft.com/connectors/azurefile/ "파일을 만들고, 업데이트 하 고, 가져오고, 삭제할 수 있도록 Azure Storage 계정에 연결 합니다."
-[azure-queues-doc]: https://docs.microsoft.com/connectors/azurequeues/ "큐 및 메시지를 만들고 관리할 수 있도록 Azure Storage 계정에 연결"
-[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Service Bus 큐 및 항목에서 메시지를 보내고 Service Bus 큐 및 구독에서 메시지를 받습니다."
-[azure-sql-data-warehouse-doc]: https://docs.microsoft.com/connectors/sqldw/ "Azure SQL Data Warehouse에 연결 하 여 데이터를 볼 수 있도록 합니다."
-[azure-table-storage-doc]: https://docs.microsoft.com/connectors/azuretables/ "테이블을 만들고, 업데이트 하 고, 쿼리할 수 있도록 Azure Storage 계정에 연결"
-[biztalk-server-doc]: https://docs.microsoft.com/connectors/biztalk/ "BizTalk Server에 연결 하 여 BizTalk 기반 응용 프로그램을 Azure Logic Apps와 나란히 실행할 수 있습니다."
-[box-doc]: ./connectors-create-api-box.md "Box에 연결 합니다. 파일 업로드, 가져오기, 삭제, 나열 등"
-[dropbox-doc]: ./connectors-create-api-dropbox.md "Dropbox에 연결 합니다. 파일 업로드, 가져오기, 삭제, 나열 등"
-[dynamics-365-doc]: ./connectors-create-api-crmonline.md "CRM Online 데이터로 작업할 수 있도록 Dynamics CRM Online에 연결"
-[facebook-doc]: ./connectors-create-api-facebook.md "Facebook에 연결 합니다. 타임 라인에 게시, 페이지 피드 가져오기 등"
-[file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "온-프레미스 파일 시스템에 연결"
-[ftp-doc]: ./connectors-create-api-ftp.md "파일 업로드, 가져오기, 삭제 등과 같은 FTP 태스크의 경우 FTP / FTPS 서버에 연결"
-[github-doc]: ./connectors-create-api-github.md "GitHub에 연결 및 문제 추적"
-[google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Google 캘린더에 연결 하 고 달력을 관리할 수 있음"
-[google-drive-doc]: ./connectors-create-api-googledrive.md "GoogleDrive에 연결 하 여 데이터 작업을 수행할 수 있습니다."
-[google-sheets-doc]: ./connectors-create-api-googlesheet.md "시트를 수정할 수 있도록 Google 시트에 연결"
-[google-tasks-doc]: ./connectors-create-api-googletasks.md "Google 작업에 연결 하 여 작업을 관리할 수 있도록 합니다."
-[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "IBM 메인프레임에서 3270 앱에 연결"
-[ibm-db2-doc]: ./connectors-create-api-db2.md "클라우드 또는 온-프레미스에서 IBM d b 2에 연결 합니다. 행을 업데이트 하 고 테이블을 가져옵니다."
-[ibm-informix-doc]: ./connectors-create-api-informix.md "클라우드 또는 온-프레미스에서 Informix에 연결 합니다. 행을 읽고 테이블을 나열 합니다."
-[ibm-mq-doc]: ./connectors-create-api-mq.md "온-프레미스 또는 Azure에서 IBM MQ에 연결하여 메시지 송수신"
-[instagram-doc]: ./connectors-create-api-instagram.md "명령이 있는 Agram에 연결 합니다. 이벤트 트리거 또는 동작"
-[mailchimp-doc]: ./connectors-create-api-mailchimp.md "MailChimp 계정에 연결 합니다. 메일 관리 및 자동화"
-[mandrill-doc]: ./connectors-create-api-mandrill.md "통신을 위해 Mandrill에 연결"
-[mysql-doc]: https://docs.microsoft.com/connectors/mysql/ "데이터를 읽고 쓸 수 있도록 온-프레미스 MySQL 데이터베이스에 연결 합니다."
-[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "전자 메일을 보내고 받고, 일정 및 연락처를 관리 하는 등의 방법으로 Office 365 계정에 연결 합니다."
-[office-365-users-doc]: ./connectors-create-api-office365-users.md
-[onedrive-doc]: ./connectors-create-api-onedrive.md "개인 Microsoft OneDrive에 연결 하 여 파일 업로드, 삭제, 나열 등을 수행할 수 있습니다."
-[onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "비즈니스 Microsoft OneDrive에 연결 하 여 파일 업로드, 삭제, 나열 등을 수행할 수 있습니다."
-[oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Oracle 데이터베이스에 연결 하 여 행을 추가 하 고 삽입 하 고 삭제할 수 있습니다."
-[outlook.com-doc]: ./connectors-create-api-outlook.md "전자 메일, 일정, 연락처 등을 관리할 수 있도록 Outlook 사서함에 연결"
-[postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "테이블에서 데이터를 읽을 수 있도록 PostgreSQL 데이터베이스에 연결 합니다."
-[project-online-doc]: ./connectors-create-api-projectonline.md "프로젝트, 작업, 리소스 등을 관리할 수 있도록 Microsoft Project Online에 연결"
-[rss-doc]: ./connectors-create-api-rss.md "피드 항목 게시 및 검색, RSS 피드에 새 항목이 게시 될 때 작업 트리거"
-[salesforce-doc]: ./connectors-create-api-salesforce.md "Salesforce 계정에 연결 합니다. 계정, 잠재 고객, 기회 등 관리"
-[sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "온-프레미스 SAP 시스템에 연결"
-[sendgrid-doc]: ./connectors-create-api-sendgrid.md "SendGrid에 연결 합니다. 전자 메일을 보내고 받는 사람 목록을 관리 합니다."
-[sftp-ssh-doc]: ./connectors-sftp-ssh.md "SSH를 사용 하 여 SFTP 계정에 연결 합니다. 파일 업로드, 가져오기, 삭제 등"
-[sharepoint-server-doc]: ./connectors-create-api-sharepointserver.md "SharePoint 온-프레미스 서버에 연결 합니다. 문서, 목록 항목 등 관리"
-[sharepoint-online-doc]: ./connectors-create-api-sharepointonline.md "SharePoint Online에 연결 합니다. 문서, 목록 항목 등 관리"
-[slack-doc]: ./connectors-create-api-slack.md "여유 시간에 연결 하 고 여유 채널에 메시지 게시"
-[smtp-doc]: ./connectors-create-api-smtp.md "SMTP 서버에 연결 및 첨부 파일이 포함된 이메일 보내기"
-[sparkpost-doc]: ./connectors-create-api-sparkpost.md "통신을 위해 SparkPost에 연결"
-[sql-server-doc]: ./connectors-create-api-sqlazure.md "Azure SQL Database 또는 SQL Server에 연결 합니다. SQL 데이터베이스 테이블에서 항목 만들기, 업데이트, 가져오기 및 삭제"
-[teradata-doc]: https://docs.microsoft.com/connectors/teradata/ "Teradata 데이터베이스에 연결 하 여 테이블에서 데이터 읽기"
-[trello-doc]: ./connectors-create-api-trello.md "Trello에 연결 합니다. 프로젝트 관리 및 모든 항목 구성"
-[twilio-doc]: ./connectors-create-api-twilio.md "Twilio에 연결 합니다. 메시지 보내기 및 가져오기, 사용 가능한 번호 가져오기, 수신 전화 번호 관리 등"
-[twitter-doc]: ./connectors-create-api-twitter.md "Twitter에 연결 합니다. 타임 라인 가져오기, 트 윗 게시 등"
-[yammer-doc]: ./connectors-create-api-yammer.md "Yammer에 연결 합니다. 메시지 게시, 새 메시지 가져오기 등"
-[youtube-doc]: ./connectors-create-api-youtube.md "YouTube에 연결 합니다. 비디오 및 채널 관리"
-
-<!--Enterprise Intregation Pack doc links-->
-[as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "AS2 프로토콜을 사용 하는 메시지 인코딩 및 디코딩"
-[edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "EDIFACT 프로토콜을 사용 하는 메시지 인코딩 및 디코딩"
-[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "EDIFACT 프로토콜을 사용 하는 메시지 디코딩"
-[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "EDIFACT 프로토콜을 사용 하는 메시지 인코딩"
-[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대 한 자세한 정보"
-[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대 한 자세한 정보"
-[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "통합 계정 아티팩트에 대 한 메타 데이터 관리"
-[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "액체 템플릿으로 JSON 변환"
-[x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "X12 프로토콜을 사용 하는 메시지 인코딩 및 디코딩"
-[x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "X12 프로토콜을 사용 하는 메시지 디코딩"
-[x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "X12 프로토콜을 사용 하는 메시지 인코딩"
-[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "XML 메시지 변환"
-[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "XML 메시지 유효성 검사"
-
 <!-- Built-ins icons -->
 [azure-api-management-icon]: ./media/apis-list/azure-api-management.png
 [azure-app-services-icon]: ./media/apis-list/azure-app-services.png
@@ -386,7 +287,9 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 [azure-event-grid-publish-icon]: ./media/apis-list/azure-event-grid-publish.png
 [azure-event-hubs-icon]: ./media/apis-list/azure-event-hubs.png
 [azure-file-storage-icon]: ./media/apis-list/azure-file-storage.png
+[azure-key-vault-icon]: ./media/apis-list/azure-key-vault.png
 [azure-ml-icon]: ./media/apis-list/azure-ml.png
+[azure-monitor-logs-icon]: ./media/apis-list/azure-monitor-logs.png
 [azure-queues-icon]: ./media/apis-list/azure-queues.png
 [azure-resource-manager-icon]: ./media/apis-list/azure-resource-manager.png
 [azure-service-bus-icon]: ./media/apis-list/azure-service-bus.png
@@ -469,3 +372,107 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 [x12-icon]: ./media/apis-list/x12.png
 [xml-validate-icon]: ./media/apis-list/xml-validation.png
 [xml-transform-icon]: ./media/apis-list/xsl-transform.png
+
+<!--Other doc links-->
+[gateway-doc]: ../logic-apps/logic-apps-gateway-connection.md "온-프레미스 데이터 게이트웨이를 사용하여 논리 앱에서 온-프레미스 데이터 원본에 연결"
+
+<!--Built-in doc links-->
+[azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "API 관리 및 게시를 위한 Azure API Management 서비스 인스턴스 만들기"
+[azure-app-services-doc]: ../logic-apps/logic-apps-custom-hosted-api.md "App Service API Apps과 논리 앱 통합"
+[azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Azure Functions와 논리 앱 통합"
+[batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "그룹 또는 일괄 처리로 메시지 처리"
+[condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "조건을 평가 하 고 조건이 true 인지 false 인지에 따라 다른 작업을 실행 합니다."
+[for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "배열의 모든 항목에 대해 동일한 작업 수행"
+[http-doc]: ./connectors-native-http.md "논리 앱에서 HTTP 또는 HTTPS 끝점 호출"
+[http-request-doc]: ./connectors-native-reqres.md "논리 앱에서 HTTP 요청 수신"
+[http-response-doc]: ./connectors-native-reqres.md "논리 앱에서 HTTP 요청에 응답"
+[http-swagger-doc]: ./connectors-native-http-swagger.md "논리 앱에서 REST 끝점 호출"
+[http-webhook-doc]: ./connectors-native-webhook.md "HTTP 또는 HTTPS 끝점의 특정 이벤트 대기"
+[nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "중첩된 워크플로와 논리 앱 통합"
+[query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "쿼리 작업을 사용하여 배열 선택 및 필터링"
+[schedule-doc]: ../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md "일정에 따라 논리 앱 실행"
+[schedule-delay-doc]: ./connectors-native-delay.md "다음 작업 실행 지연"
+[schedule-delay-until-doc]: ./connectors-native-delay.md "다음 작업 실행 지연"
+[schedule-recurrence-doc]:  ./connectors-native-recurrence.md "되풀이 일정에 따라 논리 앱 실행"
+[schedule-sliding-window-doc]: ./connectors-native-sliding-window.md "연속 청크의 데이터를 처리 해야 하는 논리 앱 실행"
+[scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "그룹에 속한 작업의 실행이 완료되면 해당 상태를 가져오는 그룹으로 작업을 구성"
+[switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "고유 값이 할당 된 사례에 대 한 작업을 구성 합니다. 식, 개체 또는 토큰의 결과와 일치 하는 값을 가진 case만 실행 합니다. 일치 하는 항목이 없는 경우 기본 사례를 실행 합니다."
+[terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "논리 앱에 대해 활발히 실행되는 워크플로 중지 또는 취소"
+[until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "지정 된 조건이 true 이거나 일부 상태가 변경 될 때까지 작업을 반복 합니다."
+[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "배열 필터링이나 CSV 및 HTML 테이블 생성과 같은 데이터 작업 수행"
+[variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "변수를 사용하여 작업 수행(예: 초기화, 설정, 증가, 감소 및 문자열 또는 배열 변수에 추가)"
+
+<!--Managed connector doc links-->
+[azure-automation-doc]: https://docs.microsoft.com/connectors/azureautomation/ "클라우드 및 온-프레미스 인프라에 대 한 자동화 작업 만들기 및 관리"
+[azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Azure Blob Storage 커넥터와 Blob 컨테이너의 파일 관리"
+[azure-cosmos-db-doc]: https://docs.microsoft.com/connectors/documentdb/ "Azure Cosmos DB에 연결 하 여 문서 및 저장 프로시저에 액세스할 수 있습니다."
+[azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Azure 리소스 또는 타사 리소스가 변경 되는 경우와 같이 Event Grid에서 게시 한 이벤트를 모니터링 합니다."
+[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "논리 앱과 Event Hubs 간에 이벤트를 보내고 받을 수 있도록 Azure Event Hubs에 연결 합니다."
+[azure-file-storage-doc]: https://docs.microsoft.com/connectors/azurefile/ "파일을 만들고, 업데이트 하 고, 가져오고, 삭제할 수 있도록 Azure Storage 계정에 연결 합니다."
+[azure-key-vault-doc]: https://docs.microsoft.com/connectors/keyvault/ "비밀 및 키를 관리할 수 있도록 Azure Key Vault에 연결"
+[azure-monitor-logs-doc]: https://docs.microsoft.com/connectors/azuremonitorlogs/ "Log Analytics 작업 영역 및 Application Insights 구성 요소에서 Azure Monitor 로그에 대해 쿼리 실행"
+[azure-queues-doc]: https://docs.microsoft.com/connectors/azurequeues/ "큐 및 메시지를 만들고 관리할 수 있도록 Azure Storage 계정에 연결"
+[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Service Bus 큐 및 항목에서 메시지를 보내고 Service Bus 큐 및 구독에서 메시지를 받습니다."
+[azure-sql-data-warehouse-doc]: https://docs.microsoft.com/connectors/sqldw/ "Azure SQL Data Warehouse에 연결 하 여 데이터를 볼 수 있도록 합니다."
+[azure-table-storage-doc]: https://docs.microsoft.com/connectors/azuretables/ "테이블을 만들고, 업데이트 하 고, 쿼리할 수 있도록 Azure Storage 계정에 연결"
+[biztalk-server-doc]: https://docs.microsoft.com/connectors/biztalk/ "BizTalk Server에 연결 하 여 BizTalk 기반 응용 프로그램을 Azure Logic Apps와 나란히 실행할 수 있습니다."
+[box-doc]: ./connectors-create-api-box.md "Box에 연결 합니다. 파일 업로드, 가져오기, 삭제, 나열 등"
+[dropbox-doc]: ./connectors-create-api-dropbox.md "Dropbox에 연결 합니다. 파일 업로드, 가져오기, 삭제, 나열 등"
+[dynamics-365-doc]: ./connectors-create-api-crmonline.md "CRM Online 데이터로 작업할 수 있도록 Dynamics CRM Online에 연결"
+[facebook-doc]: ./connectors-create-api-facebook.md "Facebook에 연결 합니다. 타임 라인에 게시, 페이지 피드 가져오기 등"
+[file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "온-프레미스 파일 시스템에 연결"
+[ftp-doc]: ./connectors-create-api-ftp.md "파일 업로드, 가져오기, 삭제 등과 같은 FTP 태스크의 경우 FTP / FTPS 서버에 연결"
+[github-doc]: ./connectors-create-api-github.md "GitHub에 연결 및 문제 추적"
+[google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Google 캘린더에 연결 하 고 달력을 관리할 수 있음"
+[google-drive-doc]: ./connectors-create-api-googledrive.md "GoogleDrive에 연결 하 여 데이터 작업을 수행할 수 있습니다."
+[google-sheets-doc]: ./connectors-create-api-googlesheet.md "시트를 수정할 수 있도록 Google 시트에 연결"
+[google-tasks-doc]: ./connectors-create-api-googletasks.md "Google 작업에 연결 하 여 작업을 관리할 수 있도록 합니다."
+[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "IBM 메인프레임에서 3270 앱에 연결"
+[ibm-db2-doc]: ./connectors-create-api-db2.md "클라우드 또는 온-프레미스에서 IBM d b 2에 연결 합니다. 행을 업데이트 하 고 테이블을 가져옵니다."
+[ibm-informix-doc]: ./connectors-create-api-informix.md "클라우드 또는 온-프레미스에서 Informix에 연결 합니다. 행을 읽고 테이블을 나열 합니다."
+[ibm-mq-doc]: ./connectors-create-api-mq.md "온-프레미스 또는 Azure에서 IBM MQ에 연결하여 메시지 송수신"
+[instagram-doc]: ./connectors-create-api-instagram.md "명령이 있는 Agram에 연결 합니다. 이벤트 트리거 또는 동작"
+[mailchimp-doc]: ./connectors-create-api-mailchimp.md "MailChimp 계정에 연결 합니다. 메일 관리 및 자동화"
+[mandrill-doc]: ./connectors-create-api-mandrill.md "통신을 위해 Mandrill에 연결"
+[mysql-doc]: https://docs.microsoft.com/connectors/mysql/ "데이터를 읽고 쓸 수 있도록 온-프레미스 MySQL 데이터베이스에 연결 합니다."
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "전자 메일을 보내고 받고, 일정 및 연락처를 관리 하는 등의 방법으로 Office 365 계정에 연결 합니다."
+[office-365-users-doc]: ./connectors-create-api-office365-users.md
+[onedrive-doc]: ./connectors-create-api-onedrive.md "개인 Microsoft OneDrive에 연결 하 여 파일 업로드, 삭제, 나열 등을 수행할 수 있습니다."
+[onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "비즈니스 Microsoft OneDrive에 연결 하 여 파일 업로드, 삭제, 나열 등을 수행할 수 있습니다."
+[oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Oracle 데이터베이스에 연결 하 여 행을 추가 하 고 삽입 하 고 삭제할 수 있습니다."
+[outlook.com-doc]: ./connectors-create-api-outlook.md "전자 메일, 일정, 연락처 등을 관리할 수 있도록 Outlook 사서함에 연결"
+[postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "테이블에서 데이터를 읽을 수 있도록 PostgreSQL 데이터베이스에 연결 합니다."
+[project-online-doc]: ./connectors-create-api-projectonline.md "프로젝트, 작업, 리소스 등을 관리할 수 있도록 Microsoft Project Online에 연결"
+[rss-doc]: ./connectors-create-api-rss.md "피드 항목 게시 및 검색, RSS 피드에 새 항목이 게시 될 때 작업 트리거"
+[salesforce-doc]: ./connectors-create-api-salesforce.md "Salesforce 계정에 연결 합니다. 계정, 잠재 고객, 기회 등 관리"
+[sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "온-프레미스 SAP 시스템에 연결"
+[sendgrid-doc]: ./connectors-create-api-sendgrid.md "SendGrid에 연결 합니다. 전자 메일을 보내고 받는 사람 목록을 관리 합니다."
+[sftp-ssh-doc]: ./connectors-sftp-ssh.md "SSH를 사용 하 여 SFTP 계정에 연결 합니다. 파일 업로드, 가져오기, 삭제 등"
+[sharepoint-server-doc]: ./connectors-create-api-sharepointserver.md "SharePoint 온-프레미스 서버에 연결 합니다. 문서, 목록 항목 등 관리"
+[sharepoint-online-doc]: ./connectors-create-api-sharepointonline.md "SharePoint Online에 연결 합니다. 문서, 목록 항목 등 관리"
+[slack-doc]: ./connectors-create-api-slack.md "여유 시간에 연결 하 고 여유 채널에 메시지 게시"
+[smtp-doc]: ./connectors-create-api-smtp.md "SMTP 서버에 연결 및 첨부 파일이 포함된 이메일 보내기"
+[sparkpost-doc]: ./connectors-create-api-sparkpost.md "통신을 위해 SparkPost에 연결"
+[sql-server-doc]: ./connectors-create-api-sqlazure.md "Azure SQL Database 또는 SQL Server에 연결 합니다. SQL 데이터베이스 테이블에서 항목 만들기, 업데이트, 가져오기 및 삭제"
+[teradata-doc]: https://docs.microsoft.com/connectors/teradata/ "Teradata 데이터베이스에 연결 하 여 테이블에서 데이터 읽기"
+[trello-doc]: ./connectors-create-api-trello.md "Trello에 연결 합니다. 프로젝트 관리 및 모든 항목 구성"
+[twilio-doc]: ./connectors-create-api-twilio.md "Twilio에 연결 합니다. 메시지 보내기 및 가져오기, 사용 가능한 번호 가져오기, 수신 전화 번호 관리 등"
+[twitter-doc]: ./connectors-create-api-twitter.md "Twitter에 연결 합니다. 타임 라인 가져오기, 트 윗 게시 등"
+[yammer-doc]: ./connectors-create-api-yammer.md "Yammer에 연결 합니다. 메시지 게시, 새 메시지 가져오기 등"
+[youtube-doc]: ./connectors-create-api-youtube.md "YouTube에 연결 합니다. 비디오 및 채널 관리"
+
+<!--Enterprise Intregation Pack doc links-->
+[as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "AS2 프로토콜을 사용 하는 메시지 인코딩 및 디코딩"
+[edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "EDIFACT 프로토콜을 사용 하는 메시지 인코딩 및 디코딩"
+[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "EDIFACT 프로토콜을 사용 하는 메시지 디코딩"
+[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "EDIFACT 프로토콜을 사용 하는 메시지 인코딩"
+[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대 한 자세한 정보"
+[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대 한 자세한 정보"
+[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "통합 계정 아티팩트에 대 한 메타 데이터 관리"
+[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "액체 템플릿으로 JSON 변환"
+[x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "X12 프로토콜을 사용 하는 메시지 인코딩 및 디코딩"
+[x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "X12 프로토콜을 사용 하는 메시지 디코딩"
+[x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "X12 프로토콜을 사용 하는 메시지 인코딩"
+[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "XML 메시지 변환"
+[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "XML 메시지 유효성 검사"
+

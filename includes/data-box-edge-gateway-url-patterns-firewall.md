@@ -4,16 +4,16 @@ ms.service: databox
 ms.topic: include
 ms.date: 02/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 92ec0cd0c39a515b15da88bb7c638edba2f57714
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: caba2cd99a29cab43e0bffb84243f45ccdcdfaba
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67182647"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561797"
 ---
 |    URL 패턴                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    구성 요소 또는 기능                                                                           |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://\*.databoxedge.azure.com/\*<br>https://\*.servicebus.windows.net/\*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                                                                           |    Azure Data Box Edge 서비스<br>Azure Service Bus<br>인증 서비스                           |
+|    https://\*.databoxedge.azure.com/\*<br>https://\*.servicebus.windows.net/\*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                                                                           |    Azure Stack Edge/Data Box Gateway 서비스<br>Azure Service Bus<br>인증 서비스                           |
 |    http://\*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                                |    디바이스 활성화                                                                                    |
 |    http:\//crl.microsoft.com/pki/\*<br>http:\//www.microsoft.com/pki/\*                                                                                                                                                                                                                                                                                                                                                                                                  |    인증서 해지                                                                               |
 |    https://\*.core.windows.net/\*<br>https://\*.data.microsoft.com<br>http://\*.msftncsi.com                                                                                                                                                                                                                                                                                                                                                                            |    Azure Storage 계정 및 모니터링                                                                |

@@ -4,13 +4,13 @@ description: App Service 또는 Azure Functions 앱에 대 한 id 공급자로 A
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
-ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 913aac7755e6c4f9a4b42d45933728fcc8840bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, fasttrack-edit, has-adal-ref
+ms.openlocfilehash: 60a5d50b511fc9db02daa9b7e74eedfe40eeb7a5
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190013"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609904"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용 하도록 App Service 또는 Azure Functions 앱 구성
 
@@ -33,7 +33,7 @@ ms.locfileid: "82190013"
 ## <a name="configure-with-express-settings"></a><a name="express"> </a>기본 설정을 사용하여 구성
 
 > [!NOTE]
-> 정부 클라우드에는 **Express** 옵션을 사용할 수 없습니다. 
+> 정부 클라우드에는 **Express** 옵션을 사용할 수 없습니다.
 
 1. [Azure Portal]에서 **App Services**를 검색 하 고 선택한 다음, 앱을 선택 합니다.
 2. 왼쪽 탐색 영역에서 **인증/권한 부여** > **를 선택 합니다.**
@@ -45,9 +45,9 @@ ms.locfileid: "82190013"
    2. 기존 앱 등록을 선택 하 고 **확인**을 클릭 합니다.
 
 3. **확인**을 선택하여 Azure Active Directory에 App Service 앱을 등록합니다. 새 앱 등록이 생성 됩니다.
-   
+
     ![Azure Active Directory의 Express 설정](./media/configure-authentication-provider-aad/express-settings.png)
-   
+
 4. 필드 기본적으로 App Service는 인증을 제공 하지만 사이트 콘텐츠 및 Api에 대 한 권한 있는 액세스를 제한 하지 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다. Azure Active Directory에서 인증 한 사용자만 앱에 액세스할 수 있도록 제한 하려면 **요청이 인증 되지 않은 경우** **Azure Active Directory를 사용 하 여 로그인**하도록 작업을 설정 합니다. 이 기능을 설정 하면 앱에서 모든 요청을 인증 해야 합니다. 또한 인증을 위해 인증 되지 않은 모든 Azure Active Directory로 리디렉션합니다.
 
     > [!CAUTION]
@@ -75,7 +75,7 @@ App Service 앱을 구성 하는 경우 다음 정보가 필요 합니다.
 1. [Azure Portal]에 로그인 하 여 **App Services**를 검색 하 고 선택한 다음, 앱을 선택 합니다. 앱의 **URL**을 적어둡니다. 이를 사용 하 여 Azure Active Directory 앱 등록을 구성 합니다.
 1. **Azure Active Directory** > **App registrations**앱 등록 > **새 등록**을 선택 합니다.
 1. **응용 프로그램 등록** 페이지에서 앱 등록에 대 한 **이름을** 입력 합니다.
-1. **URI 리디렉션**에서 **웹** 을 선택 하 고 `<app-url>/.auth/login/aad/callback`을 입력 합니다. `https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다. 
+1. **URI 리디렉션**에서 **웹** 을 선택 하 고 `<app-url>/.auth/login/aad/callback`을 입력 합니다. 예: `https://contoso.azurewebsites.net/.auth/login/aad/callback`
 1. **만들기**를 선택합니다.
 1. 앱 등록을 만든 후 나중에 **응용 프로그램 (클라이언트) id** 와 **디렉터리 (테 넌 트) id** 를 복사 합니다.
 1. **인증**을 선택합니다. **암시적 권한 부여**에서 **ID 토큰** 을 사용 하도록 설정 하 여 App Service에서 openid connect Connect 사용자 로그인을 허용 합니다.
@@ -87,20 +87,20 @@ App Service 앱을 구성 하는 경우 다음 정보가 필요 합니다.
 
 1. **범위 추가를**선택 합니다.
    1. **범위 이름**에 *user_impersonation*을 입력 합니다.
-   1. 텍스트 상자에 동의 페이지에서 사용자에 게 표시할 동의 범위 이름 및 설명을 입력 합니다. 예를 들어 *내 앱에 액세스*를 입력 합니다. 
+   1. 텍스트 상자에 동의 페이지에서 사용자에 게 표시할 동의 범위 이름 및 설명을 입력 합니다. 예를 들어 *내 앱에 액세스*를 입력 합니다.
    1. **범위 추가**를 선택 합니다.
 1. 필드 클라이언트 암호를 만들려면 **인증서 & 비밀** > **새 클라이언트 암호** > **추가**를 선택 합니다. 페이지에 표시 된 클라이언트 암호 값을 복사 합니다. 다시 표시되지 않습니다.
 1. 필드 여러 **회신 url**을 추가 하려면 **인증**을 선택 합니다.
 
 ### <a name="enable-azure-active-directory-in-your-app-service-app"></a><a name="secrets"> </a>App Service 앱에서 Azure Active Directory 사용
 
-1. [Azure Portal]에서 **App Services**를 검색 하 고 선택한 다음, 앱을 선택 합니다. 
+1. [Azure Portal]에서 **App Services**를 검색 하 고 선택한 다음, 앱을 선택 합니다.
 1. 왼쪽 창의 **설정**에서 **인증/권한 부여** > **를 선택 합니다.**
 1. 필드 기본적으로 App Service 인증은 앱에 대 한 인증 되지 않은 액세스를 허용 합니다. 사용자 인증을 적용 하려면 **요청이 인증 되지 않은 경우 수행할 작업** 을 Azure Active Directory를 **사용 하 여 로그인**하도록 설정 합니다.
 1. **인증 공급자**에서 **Azure Active Directory**를 선택합니다.
 1. **관리 모드**에서 **고급** 을 선택 하 고 다음 표에 따라 App Service 인증을 구성 합니다.
 
-    |필드|Description|
+    |필드|설명|
     |-|-|
     |클라이언트 ID| 앱 등록의 **응용 프로그램 (클라이언트) ID** 를 사용 합니다. |
     |발급자 Url| 을 `<authentication-endpoint>/<tenant-id>/v2.0`사용 하 고, * \<인증 끝점>* 를 [클라우드 환경에 대 한 인증 끝점](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (예: 글로벌 Azurehttps://login.microsoft.com의 경우 "")으로 바꾸고, * \<테 넌 트 id>* 를 앱 등록이 만들어진 **디렉터리 (테 넌 트) id** 로 바꿉니다. 이 값은 사용자를 올바른 Azure AD 테 넌 트로 리디렉션하고 적절 한 메타 데이터를 다운로드 하 여 적절 한 토큰 서명 키와 토큰 발급자 클레임 값을 확인 하는 데 사용 됩니다. AAD `/v2.0` v1을 사용 하는 응용 프로그램의 경우 섹션을 생략할 수 있습니다. |
@@ -117,7 +117,7 @@ App Service 앱을 구성 하는 경우 다음 정보가 필요 합니다.
 
 1. [Azure Portal]에서 **Active Directory** > **앱 등록** > **새 등록**을 선택 합니다.
 1. **응용 프로그램 등록** 페이지에서 앱 등록에 대 한 **이름을** 입력 합니다.
-1. **리디렉션 URI**에서 **공용 클라이언트 (모바일 & 데스크톱)** 를 선택 하 고 URL `<app-url>/.auth/login/aad/callback`을 입력 합니다. `https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다.
+1. **리디렉션 URI**에서 **공용 클라이언트 (모바일 & 데스크톱)** 를 선택 하 고 URL `<app-url>/.auth/login/aad/callback`을 입력 합니다. 예: `https://contoso.azurewebsites.net/.auth/login/aad/callback`
 
     > [!NOTE]
     > Microsoft Store 응용 프로그램의 경우 대신 URI로 [패키지 SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) 를 사용 합니다.

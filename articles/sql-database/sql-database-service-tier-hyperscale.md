@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 074a28af8c80c109dbe97306900e8f00618e435a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5512aa1a2538d3336bbcc4f65cad671d52b711a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411693"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610669"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
 
@@ -98,7 +98,7 @@ Hyperscale 데이터베이스에는 다음과 같은 다양 한 유형의 구성
 
 로그 서비스는 기본 계산 복제본의 로그 레코드를 수락 하 고, 영구 캐시에 보관 하 고, 로그 레코드를 관련 페이지 서버 뿐만 아니라 관련 페이지 서버에 전달 하 여 데이터를 업데이트할 수 있도록 합니다. 이러한 방식으로 기본 계산 복제본의 모든 데이터 변경 내용은 모든 보조 계산 복제본 및 페이지 서버로 로그 서비스를 통해 전파 됩니다. 마지막으로 로그 레코드는 거의 무한 한 저장소 저장소 인 Azure Storage의 장기 저장소로 푸시됩니다. 이 메커니즘을 통해 로그 잘림을 자주 수행 하지 않아도 됩니다. 로그 서비스에는 로그 레코드에 대 한 액세스를 가속화 하는 로컬 캐시도 있습니다.
 
-### <a name="azure-storage"></a>Azure 스토리지
+### <a name="azure-storage"></a>Azure Storage
 
 Azure Storage는 데이터베이스의 모든 데이터 파일을 포함 합니다. 페이지 서버는 Azure Storage의 데이터 파일을 최신 상태로 유지 합니다. 이 저장소는 백업 용도로 사용 되며 Azure 지역 간의 복제에도 사용 됩니다. 백업은 데이터 파일의 저장소 스냅숏을 사용 하 여 구현 됩니다. 스냅숏을 사용한 복원 작업은 데이터 크기에 관계 없이 빠르게 수행 됩니다. 데이터베이스의 백업 보존 기간 내의 특정 시점으로 데이터를 복원할 수 있습니다.
 
@@ -209,7 +209,7 @@ Azure SQL Database Hyperscale 계층은 현재 다음 지역에서 사용할 수
 | 데이터베이스에 1TB 보다 큰 데이터 파일이 하나 이상 있으면 마이그레이션이 실패 합니다. | 경우에 따라이 문제를 해결 하려면 많은 파일을 1TB 미만으로 축소 해야 할 수 있습니다. 마이그레이션 프로세스 중에 사용 되는 데이터베이스를 마이그레이션하는 경우 1tb 보다 큰 파일이 없는지 확인 합니다. 다음 쿼리를 사용 하 여 데이터베이스 파일의 크기를 확인 합니다. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | 관리되는 인스턴스 | 현재는 Hyperscale 데이터베이스에서 Azure SQL Database Managed Instance 지원 되지 않습니다. |
 | 탄력적 풀 |  탄력적 풀은 현재 SQL Database Hyperscale에서 지원 되지 않습니다.|
-| 하이퍼스케일로 마이그레이션은 현재 단방향 작업입니다. | 데이터베이스가 하이퍼스케일로 마이그레이션되고 나면 하이퍼스케일이 아닌 서비스 계층에 직접 마이그레이션할 수 없습니다. 현재는 데이터베이스를 Hyperscale에서 비-Hyperscale 마이그레이션하는 유일한 방법은 BACPAC 파일이 나 기타 데이터 이동 기술 (대량 복사, Azure Data Factory, Azure Databricks, SSIS 등)을 사용 하 여 내보내거나 가져오는 것입니다.|
+| 하이퍼스케일로 마이그레이션은 현재 단방향 작업입니다. | 데이터베이스가 하이퍼스케일로 마이그레이션되고 나면 하이퍼스케일이 아닌 서비스 계층에 직접 마이그레이션할 수 없습니다. 현재는 데이터베이스를 Hyperscale에서 비-Hyperscale 마이그레이션하는 유일한 방법은 bacpac 파일이 나 기타 데이터 이동 기술 (대량 복사, Azure Data Factory, Azure Databricks, SSIS 등)을 사용 하 여 내보내거나 가져오는 것입니다. Azure CLI에서 [AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) 또는 [AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport)를 사용 하 여 PowerShell에서의 Bacpac 내보내기/Azure Portal 가져오기는 [az sql db export](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) 및 [az sql db import](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import) [REST API](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) 를 사용 하 여에서 지원 되지 않습니다. 더 작은 Hyperscale 데이터베이스 (최대 200 GB)의 Bacpac 가져오기/내보내기는 SSMS 및 [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) 버전 18.4 이상을 사용 하 여 지원 됩니다. 대형 데이터베이스의 경우에는 bacpac 내보내기/가져오기 시간이 오래 걸릴 수 있으며 여러 가지 이유로 실패할 수 있습니다.|
 | 영구적 메모리 내 개체가 있는 데이터베이스 마이그레이션 | Hyperscale은 비영구 메모리 내 개체 (테이블 형식, 네이티브 SPs 및 함수)만 지원 합니다.  데이터베이스를 Hyperscale service 계층으로 마이그레이션하기 전에 메모리 내 영구 테이블 및 기타 개체를 삭제 하 고 메모리 내 개체로 다시 만들어야 합니다.|
 | 지역 복제  | Azure SQL Database Hyperscale에 대해 지역에서 복제를 구성할 수 없습니다. |
 | 데이터베이스 복사 | 아직 데이터베이스 복사를 사용 하 여 Azure SQL Hyperscale에서 새 데이터베이스를 만들 수는 없습니다. |

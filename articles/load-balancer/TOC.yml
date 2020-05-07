@@ -4,6 +4,8 @@
   items:
     - name: Azure Load Balancer란?
       href: load-balancer-overview.md
+    - name: 질문과 대답
+      href: load-balancer-faqs.md
 - name: 빠른 시작
   items:
     - name: Load Balancer 만들기 - 포털

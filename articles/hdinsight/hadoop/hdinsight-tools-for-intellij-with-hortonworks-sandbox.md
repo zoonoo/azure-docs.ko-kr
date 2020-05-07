@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 05/16/2018
-ms.openlocfilehash: 65a15a8506b88e95e14af8c87bcbe33087301519
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 986c2783f3d130114da93406bfaf70d5c038d5ed
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75647835"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856156"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용
 
@@ -32,7 +32,7 @@ IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Horto
 
 - [JDK(Java Developer Kit) 버전 1.8 이상](https://aka.ms/azure-jdks) IntelliJ용 Azure 도구 키트에 JDK가 필요합니다.
 
-- [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download)과 [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) 플러그 인 및 [IntelliJ용 Azure 도구 키트](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij) 플러그 인. IntelliJ용 HDInsight 도구는 IntelliJ용 Azure 도구 키트의 일부로 사용할 수 있습니다. 
+- [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download)과 [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) 플러그 인 및 [IntelliJ용 Azure 도구 키트](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij) 플러그 인. IntelliJ용 HDInsight 도구는 IntelliJ용 Azure 도구 키트의 일부로 사용할 수 있습니다.
 
 플러그 인을 설치하려면:
 

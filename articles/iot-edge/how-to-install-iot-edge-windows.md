@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: kgremban
-ms.openlocfilehash: 61b382f1c286209a12d0be39a81e6817806d3251
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e95f68610f8469a829255d6a16115dcf728ef612
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81113467"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856741"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows에 Azure IoT Edge 런타임 설치
 
@@ -33,7 +33,7 @@ Windows 시스템에서 Linux 컨테이너를 사용하는 것은 Azure IoT Edge
 
 최신 버전의 IoT Edge에 포함 된 내용에 대 한 자세한 내용은 [Azure IoT Edge 릴리스](https://github.com/Azure/azure-iotedge/releases)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 섹션을 사용하여 Windows 디바이스에서 IoT Edge를 지원할 수 있는지 여부를 검토하고 설치 전에 컨테이너 엔진에 대해 준비합니다.
 
@@ -193,17 +193,21 @@ Get-Service iotedge
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-가장 일반적인 구성 및 네트워킹 오류에 대 한 자동화 된 검사를 실행 합니다.
+[문제 해결 도구](troubleshoot.md#run-the-check-command) 를 실행 하 여 가장 일반적인 구성 및 네트워킹 오류를 확인 합니다.
 
 ```powershell
 iotedge check
 ```
 
-실행 중인 모듈을 나열합니다. 새로 설치한 후에는 실행 중인 것으로 표시 되는 유일한 모듈은 **edgeAgent**입니다. [IoT Edge 모듈](how-to-deploy-modules-portal.md) 을 처음으로 배포한 후에는 다른 시스템 모듈인 **edgeHub**가 장치에서 시작 됩니다.
+장치에서 IoT Edge 하기 위해 첫 번째 모듈을 배포할 때 까지는 **$edgeHub** 시스템 모듈이 장치에 배포 되지 않습니다. 따라서 자동 검사는 `Edge Hub can bind to ports on host` 연결 확인에 대 한 오류를 반환 합니다. 장치에 모듈을 배포한 후에도이 오류가 발생 하지 않으면이 오류를 무시할 수 있습니다.
+
+마지막으로 실행 중인 모듈을 나열 합니다.
 
 ```powershell
 iotedge list
 ```
+
+새로 설치한 후에는 실행 중인 것으로 표시 되는 유일한 모듈은 **edgeAgent**입니다. [IoT Edge 모듈](how-to-deploy-modules-portal.md) 을 처음으로 배포한 후에는 다른 시스템 모듈인 **edgeHub**가 장치에서 시작 됩니다.
 
 ## <a name="manage-module-containers"></a>모듈 컨테이너 관리
 
@@ -270,7 +274,7 @@ Get-AuthenticodeSignature "C:\<path>\IotEdgeSecurityDaemon.ps1"
 | **프록시** | 프록시 URL | 디바이스가 프록시 서버를 통해 인터넷에 연결해야 하는 경우 이 매개 변수를 포함합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
 | **OfflineInstallationPath** | 디렉터리 경로 | 이 매개 변수를 포함 하는 경우 설치 관리자는 설치에 필요한 IoT Edge cab 및 VC Runtime MSI 파일에 대해 나열 된 디렉터리를 확인 합니다. 디렉터리에서 찾을 수 없는 파일이 다운로드 됩니다. 두 파일이 모두 디렉터리에 있으면 인터넷에 연결 하지 않고 IoT Edge를 설치할 수 있습니다. 이 매개 변수를 사용 하 여 특정 버전을 사용할 수도 있습니다. |
 | **InvokeWebRequestParameters** | 매개 변수 및 값의 해시 테이블입니다. | 설치 중에 여러 개의 웹 요청이 생성됩니다. 이 필드를 사용하여 해당 웹 요청에 대한 매개 변수를 설정합니다. 이 매개 변수는 프록시 서버에 대한 자격 증명을 구성하는 데 유용합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
-| **RestartIfNeeded** | none | 이 플래그를 사용 하면 필요에 따라 메시지를 표시 하지 않고 배포 스크립트에서 컴퓨터를 다시 시작할 수 있습니다. |
+| **RestartIfNeeded** | 없음 | 이 플래그를 사용 하면 필요에 따라 메시지를 표시 하지 않고 배포 스크립트에서 컴퓨터를 다시 시작할 수 있습니다. |
 
 ### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
@@ -300,14 +304,14 @@ Initialize IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를
 | **프록시** | 프록시 URL | 디바이스가 프록시 서버를 통해 인터넷에 연결해야 하는 경우 이 매개 변수를 포함합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
 | **InvokeWebRequestParameters** | 매개 변수 및 값의 해시 테이블입니다. | 설치 중에 여러 개의 웹 요청이 생성됩니다. 이 필드를 사용하여 해당 웹 요청에 대한 매개 변수를 설정합니다. 이 매개 변수는 프록시 서버에 대한 자격 증명을 구성하는 데 유용합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
 | **OfflineInstallationPath** | 디렉터리 경로 | 이 매개 변수를 포함 하는 경우 설치 관리자는 설치에 필요한 IoT Edge cab 및 VC Runtime MSI 파일에 대해 나열 된 디렉터리를 확인 합니다. 디렉터리에서 찾을 수 없는 파일이 다운로드 됩니다. 두 파일이 모두 디렉터리에 있으면 인터넷에 연결 하지 않고 IoT Edge를 설치할 수 있습니다. 이 매개 변수를 사용 하 여 특정 버전을 사용할 수도 있습니다. |
-| **RestartIfNeeded** | none | 이 플래그를 사용 하면 필요에 따라 메시지를 표시 하지 않고 배포 스크립트에서 컴퓨터를 다시 시작할 수 있습니다. |
+| **RestartIfNeeded** | 없음 | 이 플래그를 사용 하면 필요에 따라 메시지를 표시 하지 않고 배포 스크립트에서 컴퓨터를 다시 시작할 수 있습니다. |
 
 ### <a name="uninstall-iotedge"></a>제거-IoTEdge
 
 | 매개 변수 | 허용되는 값 | 주석 |
 | --------- | --------------- | -------- |
-| **설정** | none | 이전 제거 시도가 실패 한 경우이 플래그는 제거를 강제로 수행 합니다.
-| **RestartIfNeeded** | none | 필요한 경우이 플래그를 사용 하 여 컴퓨터를 다시 시작 하 라는 메시지를 표시 하지 않고 제거할 수 있습니다. |
+| **설정** | 없음 | 이전 제거 시도가 실패 한 경우이 플래그는 제거를 강제로 수행 합니다.
+| **RestartIfNeeded** | 없음 | 필요한 경우이 플래그를 사용 하 여 컴퓨터를 다시 시작 하 라는 메시지를 표시 하지 않고 제거할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

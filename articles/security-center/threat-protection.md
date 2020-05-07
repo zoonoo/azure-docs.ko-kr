@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 79638f584f1c65b33f23a68f01dbe82878460cc2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b28901918f2606100d92f47800c6e0fb6778e3d0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234080"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606894"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>위협 보호 및 Azure Security Center
 
@@ -34,7 +34,9 @@ Azure Security Center의 위협 방지는 사용자 환경에 대 한 포괄적�
 > [!TIP]
 > Security Center의 위협 방지 기능을 사용 하려면 해당 하는 작업을 포함 하는 구독에 표준 가격 책정 계층을 적용 해야 합니다.
 >
-> 저장소 계정 및 PaaS SQL/MySQL/PG 서버에 대 한 Security Center의 위협 방지는 현재 리소스 수준에서 사용 하도록 설정 하 여 개별 저장소/s q m 작업을 보호할 수 있는 유일한 작업입니다.
+> 구독 수준 또는 리소스 수준에서 **Azure Storage 계정** 에 대해 위협 방지를 사용 하도록 설정할 수 있습니다.
+> 구독 수준 또는 리소스 수준에서 **AZURE SQL DATABASE SQL server** 에 대 한 위협 방지를 사용 하도록 설정할 수 있습니다.
+> 리소스 수준 에서만 **Azure Database for MariaDB/MySQL/PostgreSQL** 에 대 한 위협 방지를 사용 하도록 설정할 수 있습니다.
 
 
 
