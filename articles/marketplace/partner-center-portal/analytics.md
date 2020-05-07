@@ -1,20 +1,20 @@
 ---
-title: 파트너 센터의 상업적 marketplace에 대 한 분석
-description: 분석 보고서에 액세스 하 여 판매를 모니터링 하 고, 성능을 평가 하 고, marketplace 제품을 최적화 하는 방법을 간략하게 설명 합니다.
+title: 파트너 센터의 Microsoft 상업적 marketplace에 대 한 분석
+description: Microsoft 파트너 센터에서 분석 보고서에 액세스 하 여 판매를 모니터링 하 고, 성능을 평가 하 고, marketplace 제품을 최적화 하는 방법을 알아봅니다.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 41b9c5244ce9d468d9bf0fb7bafa719b4e6f55ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c406efd30e891c8ca69481299801e7309cdff81
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262284"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744902"
 ---
-# <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>파트너 센터의 상업적 marketplace에 대 한 분석
+# <a name="access-analytic-reports-for-the-commercial-marketplace-in-partner-center"></a>파트너 센터에서 상업적 marketplace에 대 한 분석 보고서 액세스
 
 Microsoft 파트너 센터의 분석 보고서에 액세스 하 여 판매를 모니터링 하 고, 성능을 평가 하 고, marketplace에서 제품을 최적화 하는 방법을 알아봅니다. 파트너는 파트너 센터에서 지원 되는 데이터 시각화 및 정보 그래프를 사용 하 여 제품 목록을 모니터링 하 고 판매를 최대화 하는 방법을 찾을 수 있습니다. 향상 된 분석 도구를 사용 하면 성능 결과에 대 한 작업을 수행 하 고 고객과 대리점의 관계를 보다 효율적으로 관리할 수 있습니다.
 

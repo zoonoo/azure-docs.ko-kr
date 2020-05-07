@@ -3,12 +3,12 @@ title: Azure Advisor로 Azure 애플리케이션의 성능 향상
 description: Advisor를 사용하여 Azure 배포 성능을 최적화합니다.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 405ec395feeb33b8511b9b915151b2ed9503c371
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff9b8fb9494c887397947f009b22cdc89d8f70b5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443051"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787943"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Azure Advisor로 Azure 애플리케이션의 성능 향상
 
@@ -28,6 +28,10 @@ Advisor는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합
 > 권장 사항을 가져오려면 데이터베이스에 일주일의 사용 기간이 필요하고, 그 기간 내에 일관된 활동이 필요합니다. SQL Database Advisor는 일관성 있는 쿼리 패턴을 임의 활동 버스트보다 더욱 쉽게 최적화할 수 있습니다.
 
 SQL Database Advisor에 대 한 자세한 내용은 [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)을 참조 하세요.
+
+## <a name="upgrade-your-storage-client-library-to-the-latest-version-for-better-reliability-and-performance"></a>안정성 및 성능 향상을 위해 Storage 클라이언트 라이브러리를 최신 버전으로 업그레이드
+
+최신 버전의 Storage 클라이언트 라이브러리/SDK에는 고객이 보고하고 QA 프로세스를 통해 사전에 식별된 문제에 대한 수정 사항이 포함되어 있습니다. 또한 최신 버전은 Azure Storage를 사용하여 전반적인 환경을 개선할 수 있는 새로운 기능 외에도 안정성 및 성능 최적화를 제공합니다. Advisor는 최신 버전의 SDK를 제공 하는 경우 최신 버전의 SDK로 업그레이드 하는 권장 사항 및 단계를 제공 합니다. 권장 사항은 지원 되는 언어 (c + + 및 .Net)에 대 한 것입니다.
 
 ## <a name="improve-app-service-performance-and-reliability"></a>App Service 성능 및 안정성 향상
 
@@ -73,6 +77,26 @@ Advisor는 복제된 테이블이 아니지만 변환을 통해 이득을 얻을
 ## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>최대 구독 제한에 도달 하지 않도록 저장소 계정 디자인
 
 Azure 지역은 구독 당 최대 250 개의 저장소 계정을 지원할 수 있습니다. 제한에 도달 하면 해당 지역/구독 조합에서 저장소 계정을 더 이상 만들 수 없습니다. Advisor는 최대 한도에 도달 하는 데 가까운 모든 저장소 계정에 대 한 설계를 위해 구독과 surface 권장 사항을 확인 합니다.
+
+## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-adress-high-p2s-use"></a>주소 high P2S use로 VNet 게이트웨이 SKU의 크기를 높이는 것이 좋습니다.
+
+각 게이트웨이 SKU는 지정 된 수의 동시 P2S 연결만 지원할 수 있습니다. 연결 수가 게이트웨이 제한에 근접 한 경우 추가 연결 시도가 실패할 수 있습니다. 게이트웨이의 크기를 높이면 더 많은 동시 P2S 사용자를 지원할 수 있습니다. Advisor는이 작업을 위해 권장 사항 및 단계를 제공 합니다.
+
+## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-address-high-cpu"></a>높은 CPU를 처리 하도록 VNet 게이트웨이 SKU의 크기를 높이는 것이 좋습니다.
+
+트래픽 부하가 높으면 VPN gateway는 높은 CPU로 인해 패킷을 삭제할 수 있습니다. VPN이 지속적으로 실행 되 고 있으므로 VPN Gateway SKU를 업그레이드 하는 것을 고려해 야 합니다. VPN 게이트웨이의 크기를 높이면 높은 CPU로 인해 연결이 끊어진 것을 확인할 수 있습니다. Advisor는이 문제를 사전에 해결 하는 권장 사항을 provdes 합니다. 
+
+## <a name="increase-batch-size-when-loading-to-maximize-load-throughput-data-compression-and-query-performance"></a>로드 처리량, 데이터 압축 및 쿼리 성능을 최대화 하기 위해 로드할 때 일괄 처리 크기를 늘립니다.
+
+Advisor는 데이터베이스에 로드할 때 일괄 처리 크기를 늘려 로드 성능 및 처리량을 높일 수 있음을 감지할 수 있습니다. COPY 문을 사용 하는 것을 고려할 수 있습니다. COPY 문을 사용할 수 없는 경우 SQLBulkCopy API 또는 BCP와 같은 로드 유틸리티를 사용할 때 일괄 처리 크기를 높이는 것이 좋습니다 .이에 대 한 좋은 방법은 10만 개 행 간의 일괄 처리 크기입니다. 이렇게 하면 부하 처리량, 데이터 압축 및 쿼리 성능이 향상 됩니다.
+
+## <a name="co-locate-the-storage-account-within-the-same-region-to-minimize-latency-when-loading"></a>로드할 때 대기 시간을 최소화 하기 위해 동일한 지역 내에 저장소 계정 배치
+
+Advisor는 SQL 풀과 다른 지역에서 로드 하 고 있음을 감지할 수 있습니다. 데이터를 로드할 때 대기 시간을 최소화 하려면 SQL 풀과 동일한 지역에 있는 저장소 계정에서 로드 하는 것을 고려해 야 합니다. 이렇게 하면 대기 시간을 최소화 하 고 로드 성능을 향상 시킬 수 있습니다.
+
+## <a name="unsupported-kubernetes-version-is-detected"></a>지원 되지 않는 Kubernetes 버전이 검색 되었습니다.
+
+Advisor는 지원 되지 않는 Kubernetes 버전이 검색 되었는지 검색할 수 있습니다. 권장 사항은 Kubernetes 클러스터가 지원 되는 버전으로 실행 되도록 하는 데 도움이 됩니다.
 
 ## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Azure MySQL, Azure PostgreSQL 및 Azure MariaDB 서버의 성능 최적화 
 

@@ -1,20 +1,20 @@
 ---
-title: 상업적 Marketplace에서 Azure 앱에 대 한 온 보 딩 API
-description: Microsoft 파트너 센터의 상용 marketplace에서 Azure 앱에 대 한 API 필수 조건입니다.
+title: Microsoft 상업적 marketplace에서 Azure 앱을 등록 하기 위한 파트너 센터 제출 API
+description: Microsoft 파트너 센터의 상용 marketplace에서 Azure 앱에 대 한 파트너 센터 제출 API를 사용 하기 위한 필수 구성 요소에 대해 알아봅니다.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: cc4d56058ce3985ec3a1d9124ef4ec73ff6be1a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c37e51ad0c6618e20d9445fab7472b1a3a72ab9
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80279762"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744888"
 ---
-# <a name="api-for-onboarding-azure-apps-in-partner-center"></a>파트너 센터에서 Azure 앱을 온 보 딩 하기 위한 API
+# <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>파트너 센터에서 Azure 앱을 등록 하기 위한 파트너 센터 제출 API
 
 *파트너 센터 제출 API* 를 사용 하 여 프로그래밍 방식으로 쿼리 하 고 Azure 제품에 대 한 제출을 만들며 게시 합니다.  이 API는 계정이 많은 제품을 관리 하 고 이러한 제품에 대 한 제출 프로세스를 자동화 하 고 최적화 하려는 경우에 유용 합니다.
 
@@ -70,3 +70,8 @@ grant_type=client_credentials
 Azure AD 액세스 토큰을 만든 후 파트너 센터 제출 API에서 메서드를 호출할 수 있습니다. 제출을 만들거나 업데이트 하려면 일반적으로 파트너 센터 제출 API에서 특정 순서로 여러 메서드를 호출 합니다. 각 시나리오와 각 방법의 구문에 대 한 자세한 내용은 수집 API swagger를 참조 하세요.
 
 https://apidocs.microsoft.com/services/partneringestion/
+
+## <a name="next-steps"></a>다음 단계
+
+* [AZURE VM 기술 자산 만들기](create-azure-container-technical-assets.md) 를 만드는 방법에 대해 알아봅니다.
+* [Azure Container 제품](create-azure-container-offer.md) 을 만드는 방법 알아보기

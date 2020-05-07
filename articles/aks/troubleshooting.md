@@ -6,12 +6,12 @@ author: sauryadas
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: 7bdabf2ec109fe96c28185bd1a2a680ce19c2650
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8460f4f2a66a1f545bea767cccf3aa77c9d3bff3
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79368335"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778960"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -58,7 +58,7 @@ Pod 문제를 해결하는 방법에 대한 자세한 내용은 [애플리케이
 
 ## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>대시보드에 연결할 수 없습니다.   어떻게 해야 합니까?
 
-클러스터 외부의 서비스에 액세스하는 가장 쉬운 방법은 `kubectl proxy`를 실행하는 것입니다. 그러면 localhost 포트 8001로 전송된 요청이 Kubernetes API 서버로 프록시됩니다. 여기에서 API 서버는 서비스로 프록시할 수 있습니다. `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`
+클러스터 외부의 서비스에 액세스하는 가장 쉬운 방법은 `kubectl proxy`를 실행하는 것입니다. 그러면 localhost 포트 8001로 전송된 요청이 Kubernetes API 서버로 프록시됩니다. 여기에서 API 서버는 서비스로 프록시할 수 있습니다. `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/`
 
 Kubernetes 대시보드가 표시 되지 않으면 `kube-proxy` pod가 `kube-system` 네임 스페이스에서 실행 중인지 확인 합니다. 실행 중 상태가 아니면 pod를 삭제합니다. 그러면 다시 시작됩니다.
 
@@ -172,14 +172,14 @@ AKS 클러스터에서 송신 트래픽을 제한 하는 경우 [필수 및 선�
 
 Kubernetes 버전 1.10에서 MountVolume는 Azure 디스크가 다시 탑재 되어 실패할 수 있습니다.
 
-Linux에서 잘못 된 DevicePath format 오류가 표시 될 수 있습니다. 다음은 그 예입니다.
+Linux에서 잘못 된 DevicePath format 오류가 표시 될 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-Windows에서 잘못 된 DevicePath (LUN) 번호 오류가 표시 될 수 있습니다. 다음은 그 예입니다.
+Windows에서 잘못 된 DevicePath (LUN) 번호 오류가 표시 될 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -225,7 +225,7 @@ spec:
   >[!NOTE]
   > Gid와 uid는 기본적으로 root 또는 0으로 탑재 됩니다. Gid 또는 uid가 루트가 아닌 (예: 1000)로 설정 된 경우 Kubernetes는를 `chown` 사용 하 여 해당 디스크 아래에 있는 모든 디렉터리와 파일을 변경 합니다. 이 작업을 수행 하는 데 시간이 오래 걸릴 수 있으며 디스크를 매우 느리게 탑재할 수 있습니다.
 
-* InitContainers에서를 사용 `chown` 하 여 gid 및 uid를 설정 합니다. 다음은 그 예입니다.
+* InitContainers에서를 사용 `chown` 하 여 gid 및 uid를 설정 합니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 initContainers:
@@ -239,7 +239,7 @@ initContainers:
 
 ### <a name="error-when-deleting-azure-disk-persistentvolumeclaim-in-use-by-a-pod"></a>Pod에서 사용 중인 Azure Disk PersistentVolumeClaim를 삭제 하는 동안 오류 발생
 
-Pod에서 사용 중인 Azure Disk PersistentVolumeClaim를 삭제 하려고 하면 오류가 표시 될 수 있습니다. 다음은 그 예입니다.
+Pod에서 사용 중인 Azure Disk PersistentVolumeClaim를 삭제 하려고 하면 오류가 표시 될 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```console
 $ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
@@ -295,7 +295,7 @@ Kubernetes 버전 1.9.2부터 여러 연결/분리 작업을 병렬로 실행 �
 
 ### <a name="azure-disk-waiting-to-detach-indefinitely"></a>무기한 분리 대기 중인 Azure 디스크
 
-첫 번째 시도에서 Azure Disk detach 작업이 실패 하는 경우에는 분리 작업을 다시 시도 하지 않고 원래 노드 VM에 연결 된 상태로 유지 됩니다. 이 오류는 한 노드에서 다른 노드로 디스크를 이동 하는 경우에 발생할 수 있습니다. 다음은 그 예입니다.
+첫 번째 시도에서 Azure Disk detach 작업이 실패 하는 경우에는 분리 작업을 다시 시도 하지 않고 원래 노드 VM에 연결 된 상태로 유지 됩니다. 이 오류는 한 노드에서 다른 노드로 디스크를 이동 하는 경우에 발생할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```console
 [Warning] AttachVolume.Attach failed for volume "pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" : Attach volume "kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance "/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0" failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code="ConflictingUserInput" Message="Disk '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9' cannot be attached as the disk is already owned by VM '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1'."
@@ -468,13 +468,13 @@ E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"k
 
 Base64 인코딩 저장소 계정 키를 사용 하 여 Azure 파일 암호에서 수동으로 *azurestorageaccountkey* 필드를 수동으로 업데이트 하 여 문제를 완화할 수 있습니다.
 
-Base64에서 저장소 계정 키를 인코딩하려면를 사용할 `base64`수 있습니다. 다음은 그 예입니다.
+Base64에서 저장소 계정 키를 인코딩하려면를 사용할 `base64`수 있습니다. 예를 들면 다음과 같습니다.
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Azure 비밀 파일을 업데이트 하려면를 사용 `kubectl edit secret`합니다. 다음은 그 예입니다.
+Azure 비밀 파일을 업데이트 하려면를 사용 `kubectl edit secret`합니다. 예를 들면 다음과 같습니다.
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret

@@ -1,18 +1,17 @@
 ---
-title: Pod 보안 모범 사례
-titleSuffix: Azure Kubernetes Service
+title: 개발자 모범 사례 - AKS(Azure Kubernetes Services)의 pod 보안
 description: AKS(Azure Kubernetes Services)에서 pod 보안을 유지하는 방법에 대한 개발자 모범 사례 알아보기
 services: container-service
 author: zr-msft
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: 1f093b5276ee7ab334043e57f97a108267c32c87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d97ae5692a4cdc328833ce4c01a8114506a960a
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804387"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779073"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 pod 보안 모범 사례
 
@@ -75,7 +74,7 @@ spec:
 다음 [연결 된 AKS 오픈 소스 프로젝트][aks-associated-projects] 를 사용 하 여 자동으로 pod을 인증 하거나 디지털 자격 증명 모음에서 자격 증명 및 키를 요청할 수 있습니다.
 
 * Azure 리소스에 대한 관리 ID 및
-* Azure Key Vault FlexVol 드라이버
+* [비밀 저장소 CSI 드라이버에 대 한 Azure Key Vault 공급자](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
 
 연결 된 AKS 오픈 소스 프로젝트는 Azure 기술 지원 서비스에서 지원 되지 않습니다. 커뮤니티에서 피드백 및 버그를 수집 하기 위해 제공 됩니다. 이러한 프로젝트는 프로덕션 환경에서 사용 하지 않는 것이 좋습니다.
 
@@ -89,28 +88,28 @@ Azure 리소스에 대 한 관리 되는 id를 통해 pod는 저장소 또는 SQ
 
 Pod id에 대 한 자세한 내용은 [응용 프로그램과 함께 pod 관리 되는 id를 사용 하도록 AKS 클러스터 구성][aad-pod-identity] 을 참조 하세요.
 
-### <a name="use-azure-key-vault-with-flexvol"></a>FlexVol에서 Azure Key Vault 사용
+### <a name="use-azure-key-vault-with-secrets-store-csi-driver"></a>비밀 저장소 CSI 드라이버를 사용 하 여 Azure Key Vault 사용
 
-pod 관리 ID는 지원하는 Azure 서비스에서 인증을 받을 때 사용할 수 있습니다. Azure 리소스에 대한 관리 ID가 없는 사용자 고유의 서비스 또는 애플리케이션의 경우 여전히 자격 증명 또는 키를 사용해야 합니다. 이러한 자격 증명을 저장하는 데 디지털 자격 증명 모음을 사용할 수 있습니다.
+Pod id 프로젝트를 사용 하면 Azure 서비스 지원에 대 한 인증을 사용할 수 있습니다. Azure 리소스에 대 한 관리 id가 없는 고유한 서비스 또는 응용 프로그램의 경우에도 자격 증명 또는 키를 사용 하 여 인증할 수 있습니다. 디지털 자격 증명 모음을 사용 하 여 이러한 비밀 콘텐츠를 저장할 수 있습니다.
 
-애플리케이션에 자격 증명이 필요하면 디지털 자격 증명 모음과 통신하고, 최신 자격 증명을 검색하고, 필요한 서비스에 연결합니다. Azure Key Vault는 이러한 디지털 자격 증명 모음일 수 있습니다. pod 관리 ID를 사용하여 Azure Key Vault에서 자격 증명을 검색하기 위한 간소화된 워크플로가 다음 다이어그램에 나와 있습니다.
+응용 프로그램에 자격 증명이 필요한 경우 디지털 자격 증명 모음과 통신 하 고, 최신 비밀 콘텐츠를 검색 한 다음, 필요한 서비스에 연결 합니다. Azure Key Vault는 이러한 디지털 자격 증명 모음일 수 있습니다. pod 관리 ID를 사용하여 Azure Key Vault에서 자격 증명을 검색하기 위한 간소화된 워크플로가 다음 다이어그램에 나와 있습니다.
 
-![pod 관리 ID를 사용하여 Key Vault에서 자격 증명을 검색 하기 위한 간소화된 워크플로](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
+![pod 관리 ID를 사용하여 Key Vault에서 자격 증명을 검색 하기 위한 간소화된 워크플로](media/developer-best-practices-pod-security/basic-key-vault.png)
 
-Key Vault를 사용하여 자격 증명, 스토리지 계정 키 또는 인증서와 같은 암호를 저장하고 정기적으로 순환합니다. FlexVolume을 사용하여 AKS 클러스터에 Azure Key Vault를 통합할 수 있습니다. FlexVolume 드라이버를 사용하면 AKS 클러스터가 기본적으로 Key Vault에서 자격 증명을 검색한 후 요청 pod에만 안전하게 제공할 수 있습니다. 클러스터 운영자와 함께 Key Vault FlexVol 드라이버를 AKS 노드에 배포합니다. pod 관리 ID를 사용하여 Key Vault에 대한 액세스를 요청하고 FlexVolume 드라이버를 통해 필요한 자격 증명을 검색할 수 있습니다.
+Key Vault를 사용하여 자격 증명, 스토리지 계정 키 또는 인증서와 같은 암호를 저장하고 정기적으로 순환합니다. [비밀 저장소 CSI 드라이버에 대 한 Azure Key Vault 공급자](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)를 사용 하 여 AZURE KEY VAULT를 AKS 클러스터와 통합할 수 있습니다. 비밀 저장소 CSI 드라이버를 사용 하면 AKS 클러스터가 Key Vault에서 비밀 콘텐츠를 기본적으로 검색 하 여 요청 pod에만 안전 하 게 제공할 수 있습니다. AKS worker 노드에 비밀 저장소 CSI 드라이버를 배포 하려면 cluster operator를 사용 합니다. Pod 관리 id를 사용 하 여 Key Vault에 대 한 액세스를 요청 하 고 비밀 저장소 CSI 드라이버를 통해 필요한 비밀 콘텐츠를 검색할 수 있습니다.
 
-Pod 및 노드에서 실행 되는 응용 프로그램 및 서비스와 함께 사용할 수 있습니다. Azure Key Vault
+1.16 이상의 Kubernetes 버전을 필요로 하는 Linux 노드 및 pod에 대해 비밀 저장소 CSI 드라이버를 사용 하 여 Azure Key Vault 수 있습니다. Windows 노드 및 pod의 경우 Kubernetes 버전 1.18 이상이 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 pod를 보호하는 방법을 중점적으로 설명했습니다. 이러한 일부 영역을 구현하려면 다음 문서를 참조하세요.
 
 * [AKS를 통해 Azure 리소스에 관리형 ID 사용][aad-pod-identity]
-* [Azure Key Vault와 AKS 통합][aks-keyvault-flexvol]
+* [Azure Key Vault와 AKS 통합][aks-keyvault-csi-driver]
 
 <!-- EXTERNAL LINKS -->
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity#demo
-[aks-keyvault-flexvol]: https://github.com/Azure/kubernetes-keyvault-flexvol
+[aks-keyvault-csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#selinuxoptions-v1-core
 [aks-associated-projects]: https://github.com/Azure/AKS/blob/master/previews.md#associated-projects
