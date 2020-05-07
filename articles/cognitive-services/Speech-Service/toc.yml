@@ -426,6 +426,8 @@
               href: faq-voice-assistants.md
     - name: 사용자 지정 키워드
       items:
+        - name: 사용자 지정 키워드 개요
+          href: custom-keyword-overview.md
         - name: 사용자 지정 키워드 명명 지침
           href: speech-devices-sdk-kws-guidelines.md
         - name: 사용자 지정 키워드 발견
@@ -519,6 +521,10 @@
           href: speech-devices-sdk-roobo-v1.md
         - name: Roobo v2 세부 정보
           href: speech-devices-sdk-roobo-v2.md
+    - name: 방법 가이드
+      items:
+        - name: 마이크 배열을 구성하는 방법
+          href: how-to-devices-microphone-array-configuration.md
     - name: 빠른 시작
       items:
         - name: 음성 디바이스 SDK 사용

@@ -3,12 +3,12 @@ title: Azure Backup 지원 매트릭스
 description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: b87430c9ff7d806fd1fc74d5d2a8270f9db43b53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc817c1833c4c9aedcbc5fa111de694fab715c43
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537324"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801266"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup에 대 한 지원 매트릭스
 
@@ -56,7 +56,7 @@ Azure Backup는 Recovery Services 자격 증명 모음을 사용 하 여 백업�
 
 **제한** | **세부 정보**
 --- | ---
-**Azure VM 데이터 디스크 수** | 16 개로 제한 <br> 16개 이상의 디스크(최대 32개 디스크)를 사용하여 VM의 프라이빗 미리 보기에 등록하려면 AskAzureBackupTeam@microsoft.com으로 이메일을 보내주세요.
+**Azure VM 데이터 디스크 수** | 16 개로 제한 <br> 16 개 이상의 디스크 (최대 32 디스크)를 사용 하 여 제한 된 Vm 미리 보기에 등록 하려면 다음에 작성 합니다.AskAzureBackupTeam@microsoft.com
 **Azure VM 데이터 디스크 크기** | 개별 디스크 크기는 최대 32 TB 이며 VM의 모든 디스크에 대해 최대 256 TB를 결합할 수 있습니다.
 
 ### <a name="azure-vm-backup-options"></a>Azure VM 백업 옵션

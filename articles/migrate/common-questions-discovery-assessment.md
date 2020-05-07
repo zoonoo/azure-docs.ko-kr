@@ -3,12 +3,12 @@ title: Azure Migrate의 검색, 평가 및 종속성 분석에 대 한 질문
 description: Azure Migrate에서 검색, 평가 및 종속성 분석에 대 한 일반적인 질문에 대 한 답변을 얻습니다.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: b4b2a50bc88768d46c82f6bce73447dc901e5dfd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 868755bb8926ffe218fdab76714c9970f26bb0a9
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681915"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744581"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>검색, 평가 및 종속성 분석-일반적인 질문
 
@@ -88,7 +88,7 @@ Azure에서 평가를 만들 때 성능 기간 및 성능 기록 백분위 수 �
 
 ## <a name="what-is-dependency-visualization"></a>종속성 시각화란?
 
-종속성 시각화를 사용 하면 더 강력 하 게 마이그레이션할 Vm 그룹을 평가할 수 있습니다. 종속성 시각화는 평가를 실행 하기 전에 컴퓨터 종속성을 교차 확인 합니다. 이 기능을 사용 하면 아무것도 유지 되지 않고 Azure로 마이그레이션할 때 예기치 않은 중단을 방지할 수 있습니다. Azure Migrate는 Azure Monitor의 서비스 맵 솔루션을 사용하여 종속성 시각화를 사용하도록 설정합니다. [자세히 알아보기](concepts-dependency-visualization.md).
+종속성 시각화를 사용 하면 더 강력 하 게 마이그레이션할 Vm 그룹을 평가할 수 있습니다. 종속성 시각화는 평가를 실행 하기 전에 컴퓨터 종속성을 교차 확인 합니다. 이 기능을 사용 하면 아무것도 유지 되지 않고 Azure로 마이그레이션할 때 예기치 않은 중단을 방지할 수 있습니다. Azure Migrate는 Azure Monitor의 서비스 맵 솔루션을 사용하여 종속성 시각화를 사용하도록 설정합니다. [자세한 정보를 알아보세요](concepts-dependency-visualization.md).
 
 > [!NOTE]
 > 에이전트 기반 종속성 분석은 Azure Government에서 사용할 수 없습니다. 에이전트 없는 종속성 분석을 사용할 수 있습니다.
@@ -102,11 +102,16 @@ Azure에서 평가를 만들 때 성능 기간 및 성능 기록 백분위 수 �
 Support(지원) | 이 옵션은 현재 미리 보기 상태 이며 VMware Vm에 대해서만 사용할 수 있습니다. 지원 되는 운영 체제를 [검토](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) 합니다. | GA (일반 공급)를 사용 합니다.
 에이전트 | 교차 확인 하려는 컴퓨터에 에이전트를 설치할 필요가 없습니다. | [MMA (Microsoft Monitoring agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)및 [종속성 에이전트](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent)를 분석 하려는 각 온-프레미스 컴퓨터에 설치 되는 에이전트입니다. 
 사전 요구 사항 | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agentless-analysis) 합니다. | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agent-based-analysis) 합니다.
-Log Analytics | 필요하지 않음. | Azure Migrate는 종속성 시각화를 위해 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 의 [서비스 맵](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) 솔루션을 사용 합니다. [자세히 알아보기](concepts-dependency-visualization.md#agent-based-analysis).
-작동 방식 | 종속성 시각화에 사용 되는 컴퓨터에서 TCP 연결 데이터를 캡처합니다. 검색 후 5 분 간격으로 데이터를 수집 합니다. | 컴퓨터에 설치 된 서비스 맵 에이전트는 각 프로세스에 대 한 TCP 프로세스 및 인바운드/아웃 바운드 연결에 대 한 데이터를 수집 합니다.
+Log Analytics | 필요하지 않음. | Azure Migrate는 종속성 시각화를 위해 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 의 [서비스 맵](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) 솔루션을 사용 합니다. [자세한 정보를 알아보세요](concepts-dependency-visualization.md#agent-based-analysis).
+작동 방법 | 종속성 시각화에 사용 되는 컴퓨터에서 TCP 연결 데이터를 캡처합니다. 검색 후 5 분 간격으로 데이터를 수집 합니다. | 컴퓨터에 설치 된 서비스 맵 에이전트는 각 프로세스에 대 한 TCP 프로세스 및 인바운드/아웃 바운드 연결에 대 한 데이터를 수집 합니다.
 데이터 | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다. | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다.<br/><br/> 연결 수, 대기 시간 및 데이터 전송 정보를 수집 하 고 Log Analytics 쿼리에 사용할 수 있습니다. 
 시각화 | 단일 서버에 대 한 종속성 맵은 1 시간에서 30 일 동안 볼 수 있습니다. | 단일 서버의 종속성 맵입니다.<br/><br/> 지도는 한 시간에 한 해 볼 수 있습니다.<br/><br/> 서버 그룹의 종속성 맵입니다.<br/><br/> 지도 보기에서 그룹의 서버를 추가 하 고 제거 합니다.
 데이터 내보내기 | 현재 테이블 형식으로 다운로드할 수 없습니다. | Log Analytics를 사용 하 여 데이터를 쿼리할 수 있습니다.
+
+
+## <a name="do-i-need-to-deploy-the-appliance-for-agentless-dependency-analysis"></a>에이전트 없는 종속성 분석용 어플라이언스를 배포 해야 하나요?
+
+예, [Azure Migrate 어플라이언스](migrate-appliance.md) 를 배포 해야 합니다.
 
 ## <a name="do-i-pay-for-dependency-visualization"></a>종속성 시각화에 대해 비용을 지불 하나요?
 

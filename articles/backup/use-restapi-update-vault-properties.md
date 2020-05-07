@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 자격 증명 모음
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 6cecbb18e0cd6f548e1688ef978f10dcee7d9fbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c604fe067e73f5f9a17f4b5f810708121cff767
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252364"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744576"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>REST API를 사용 하 여 Azure Recovery Services 자격 증명 모음 구성 업데이트
 
@@ -21,7 +21,7 @@ ms.locfileid: "79252364"
 
 그러나이 기능이 필요 하지 않은 시나리오는 있습니다. Azure Recovery Services 자격 증명 모음에는 일시 삭제 된 백업 항목이 있는 경우 삭제할 수 없습니다. 자격 증명 모음을 즉시 삭제 해야 하는 경우 문제가 발생할 수 있습니다. 예를 들어의 경우 배포 작업은 동일한 워크플로에서 생성 된 리소스를 정리 하는 경우가 많습니다. 배포는 자격 증명 모음을 만들고, 항목에 대 한 백업을 구성 하 고, 테스트 복원을 수행한 후 백업 항목과 자격 증명 모음을 계속 해 서 삭제할 수 있습니다. 자격 증명 모음을 삭제 하지 못하면 전체 배포가 실패할 수 있습니다. 즉시 삭제를 보장 하는 유일한 방법은 일시 삭제를 사용 하지 않도록 설정 하는 것입니다.
 
-따라서 고객은 시나리오에 따라 특정 자격 증명 모음에 대해 일시 삭제를 사용 하지 않도록 설정할지 여부를 신중 하 게 선택 해야 합니다. 자세한 내용은 [일시 삭제 문서](backup-azure-security-feature-cloud.md#soft-delete)를 참조 하세요.
+따라서 고객은 시나리오에 따라 특정 자격 증명 모음에 대해 일시 삭제를 사용 하지 않도록 설정할지 여부를 신중 하 게 선택 해야 합니다. 자세한 내용은 [일시 삭제 문서](backup-azure-security-feature-cloud.md)를 참조 하세요.
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>REST API를 사용 하 여 일시 삭제 상태 페치
 
@@ -43,7 +43,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 ' GET ' 작업에 대 한 성공적인 응답은 다음과 같습니다.
 
-|속성  |Type  |Description  |
+|속성  |Type  |설명  |
 |---------|---------|---------|
 |200 정상     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 확인        |
 
@@ -83,10 +83,10 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 자세한 내용은 [REST API 설명서](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body) 를 참조 하세요.
 
-|속성  |필수  |Type  |Description  |
+|Name  |필수  |Type  |설명  |
 |---------|---------|---------|---------|
-|eTag     |         |   문자열      |  선택적 eTag       |
-|위치     |  true       |문자열         |   리소스 위치      |
+|eTag     |         |   String      |  선택적 eTag       |
+|위치     |  true       |String         |   리소스 위치      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  자격 증명 모음의 속성       |
 |tags     |         | Object        |     리소스 태그    |
 
@@ -107,7 +107,7 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 ' PATCH ' 작업에 대 한 성공적인 응답은 다음과 같습니다.
 
-|속성  |Type  |Description  |
+|속성  |Type  |설명  |
 |---------|---------|---------|
 |200 정상     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 확인        |
 

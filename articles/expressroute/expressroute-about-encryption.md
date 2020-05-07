@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: d48f83df4e83fd1d1fe38eea76432e1b1c711b76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77755ab6bdbb3c1e6416475f5066b5dd463eb7f5
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461466"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838759"
 ---
 # <a name="expressroute-encryption"></a>Express 경로 암호화
  
@@ -31,7 +31,7 @@ MACsec는 [IEEE 표준](https://1.ieee802.org/security/802-1ae/)입니다. MAC (
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>Express 경로에서 MACsec를 사용 하도록 설정 하면 네트워크 성능이 저하 되나요?
 MACsec 암호화 및 암호 해독은 사용 하는 라우터의 하드웨어에서 발생 합니다. 그 쪽에는 성능에 영향을 주지 않습니다. 그러나 사용 하는 장치에 대 한 네트워크 공급 업체에 문의 하 여 MACsec에 성능에 영향을 주는 것이 있는지 확인 해야 합니다.
 ### <a name="which-cipher-suites-are-supported-for-encryption"></a>암호화에 대해 지원 되는 암호 그룹은 무엇 인가요?
-AES128 및 AES256를 지원 합니다.
+AES128 및 AES256의 [확장 패킷 번호 매기기](https://1.ieee802.org/security/802-1aebw/) 버전을 지원 합니다. 또한 장치의 MACsec 구성에서 [좋아하는 (보안 채널 식별자)](https://en.wikipedia.org/wiki/IEEE_802.1AE) 를 사용 하지 않도록 설정 하세요. 
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>IPsec에의 한 종단 간 암호화 FAQ
 IPsec은 [IETF 표준](https://tools.ietf.org/html/rfc6071)입니다. IP (인터넷 프로토콜) 수준이 나 네트워크 계층 3에서 데이터를 암호화 합니다. IPsec을 사용 하 여 온-프레미스 네트워크와 Azure의 가상 네트워크 (VNET) 간에 종단 간 연결을 암호화할 수 있습니다. 아래 Faq를 참조 하세요.

@@ -3,12 +3,12 @@ title: Azure Functions에 대한 Python 개발자 참조
 description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 936d6455f448e0243c7d4de2b9f1b88673a32798
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea128fc7c68b49fc14d796e9a3b91a9dbddd9b26
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185985"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780048"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -22,7 +22,7 @@ Azure Functions는 Python 스크립트에서 입력을 처리 하 고 출력을 
 
 트리거와 바인딩의 데이터는 `name` *함수 json* 파일에 정의 된 속성을 사용 하 여 메서드 특성을 통해 함수에 바인딩됩니다. 예를 들어, 아래 _함수인 json_ 은 라는 `req`HTTP 요청에 의해 트리거되는 간단한 함수를 설명 합니다.
 
-:::code language="son" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
+:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
 이 정의에 따라 함수 코드 `__init__.py` 를 포함 하는 파일은 다음 예제와 같이 표시 될 수 있습니다.
 
@@ -77,6 +77,7 @@ Python 함수 프로젝트에 권장 되는 폴더 구조는 다음 예제와 �
  | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
+ | - Dockerfile
  tests
 ```
 기본\_\_프로젝트 폴더 (앱\_\_)에는 다음 파일이 포함 될 수 있습니다.
@@ -86,6 +87,7 @@ Python 함수 프로젝트에 권장 되는 폴더 구조는 다음 예제와 �
 * *host. json*: 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션을 포함 합니다. 이 파일은 Azure에 게시됩니다. 모든 옵션은 로컬로 실행할 때 지원 되지 않습니다. 자세한 내용은 [호스트 json](functions-host-json.md)을 참조 하세요.
 * *. funcignore*: (선택 사항) Azure에 게시 되지 않아야 하는 파일을 선언 합니다.
 * *. .gitignore*: (선택 사항) git 리포지토리에서 제외 되는 파일을 선언 합니다 (예: 로컬 설정).
+* *Dockerfile*: (선택 사항) [사용자 지정 컨테이너](functions-create-function-linux-custom-image.md)에서 프로젝트를 게시할 때 사용 됩니다.
 
 각 함수에는 자체 코드 파일과 바인딩 구성 파일(function.json)이 있습니다. 
 
@@ -248,7 +250,7 @@ def main(req):
 
 다양한 추적 수준에서 콘솔에 쓸 수 있는 추가 로깅 메서드가 제공됩니다.
 
-| 방법                 | Description                                |
+| 메서드                 | 설명                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | 루트 로거에 위험 수준의 메시지를 기록합니다.  |
 | **`error(_message_)`**   | 루트 로거에 오류 수준의 메시지를 기록합니다.    |
@@ -330,11 +332,11 @@ def main():
 
 FUNCTIONS_WORKER_PROCESS_COUNT는 요구를 충족 하도록 응용 프로그램을 확장할 때 함수가 만드는 각 호스트에 적용 됩니다. 
 
-## <a name="context"></a>Context
+## <a name="context"></a>컨텍스트
 
 실행 중에 함수의 호출 컨텍스트를 가져오려면 해당 시그니처에 [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) 인수를 포함 합니다. 
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```python
 import azure.functions

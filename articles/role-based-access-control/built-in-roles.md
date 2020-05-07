@@ -1,6 +1,6 @@
 ---
-title: Azure RBAC에 대 한 azure 기본 제공 역할
-description: 이 문서에서는 Azure 역할 기반 액세스 제어 (RBAC)에 대 한 Azure 기본 제공 역할에 대해 설명 합니다. Actions, NotActions, DataActions 및 NotDataActions를 나열 합니다.
+title: Azure 기본 제공 역할-Azure RBAC
+description: 이 문서에서는 azure RBAC (역할 기반 액세스 제어)에 대 한 Azure 기본 제공 역할에 대해 설명 합니다. Actions, NotActions, DataActions 및 NotDataActions를 나열 합니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,30 +11,30 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/15/2020
+ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 78e5c219d83198f3bf4c329c33018caad2b0cc62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b6587ca113319c266d2335c9cbb154e0ecc4afa1
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194927"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838742"
 ---
 # <a name="azure-built-in-roles"></a>Azure 기본 제공 역할
 
-[Azure 역할 기반 access control (RBAC)](overview.md) 에는 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 할당할 수 있는 몇 가지 azure 기본 제공 역할이 있습니다. 역할 할당은 Azure 리소스에 대한 액세스를 제어하는 방법입니다. 기본 제공 역할이 조직의 특정 요구를 충족 하지 않는 경우 고유한 [Azure 사용자 지정 역할](custom-roles.md)을 만들 수 있습니다.
+Azure [RBAC (역할 기반 액세스 제어)](overview.md) 에는 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 할당할 수 있는 몇 가지 azure 기본 제공 역할이 있습니다. 역할 할당은 Azure 리소스에 대한 액세스를 제어하는 방법입니다. 기본 제공 역할이 조직의 특정 요구를 충족 하지 않는 경우 고유한 [Azure 사용자 지정 역할](custom-roles.md)을 만들 수 있습니다.
 
-이 문서에는 계속 업데이트되는 Azure 리소스에 대한 기본 제공 역할이 나와 있습니다. 최신 역할을 가져오려면 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 또는 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용합니다. Azure Active Directory (Azure AD)에 대 한 관리자 역할을 찾고 [있는 경우 Azure Active Directory의 관리자 역할 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조 하세요.
+이 문서에는 항상 진화 하는 Azure 기본 제공 역할이 나열 되어 있습니다. 최신 역할을 가져오려면 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 또는 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용합니다. Azure Active Directory (Azure AD)에 대 한 관리자 역할을 찾고 [있는 경우 Azure Active Directory의 관리자 역할 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조 하세요.
 
 ## <a name="all"></a>모두
 
-다음 표에서는 각 기본 제공 역할의 간단한 설명 및 고유 ID를 제공 합니다. 역할 이름을 선택 하 여 각 역할에 대 `Actions`한 `NotActions`, `DataActions`, 및 `NotDataActions` 목록을 표시 합니다. 이러한 동작의 의미와 동작이 관리 및 데이터 평면에 적용되는 방식에 대한 자세한 내용은 [Azure 리소스에 대한 역할 정의 이해](role-definitions.md)를 참조하세요.
+다음 표에서는 각 기본 제공 역할의 간단한 설명 및 고유 ID를 제공 합니다. 역할 이름을 선택 하 여 각 역할에 대 `Actions`한 `NotActions`, `DataActions`, 및 `NotDataActions` 목록을 표시 합니다. 이러한 작업의 의미와 관리 및 데이터 평면에 적용 되는 방법에 대 한 자세한 내용은 [Azure 역할 정의 이해](role-definitions.md)를 참조 하세요.
 
 
 > [!div class="mx-tableFixed"]
-> | 기본 제공 역할 | Description | ID |
+> | 기본 제공 역할 | 설명 | ID |
 > | --- | --- | --- |
 > | **일반** |  |  |
 > | [기여자](#contributor) | 리소스 액세스 권한을 부여 하는 것을 제외 하 고 모든 항목을 관리할 수 있습니다. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -55,7 +55,7 @@ ms.locfileid: "82194927"
 > | [DNS 영역 참가자](#dns-zone-contributor) | Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. | befefa01-2a29-4197-83a8-272ff33ce314 |
 > | [네트워크 기여자](#network-contributor) | 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. | 4d97b98b-1d4f-4787-a291-c67834d212e7 |
 > | [Traffic Manager 기여자](#traffic-manager-contributor) | Traffic Manager 프로필을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. | a4b10055-b0c7-44c2-b00f-c7b5b3550cf7 |
-> | **저장소** |  |  |
+> | **스토리지** |  |  |
 > | [Avere 기여자](#avere-contributor) | Avere vFXT 클러스터를 만들고 관리할 수 있습니다. | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | [Avere 연산자](#avere-operator) | Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다. | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
 > | [백업 참가자](#backup-contributor) | 백업 서비스를 관리할 수 있지만 자격 증명 모음을 만들고 다른 사용자에 게 액세스 권한을 부여할 수 없습니다. | 5e467623-bb1f-42f4-a55d-6e525e11384b |
@@ -81,7 +81,7 @@ ms.locfileid: "82194927"
 > | [저장소 큐 데이터 메시지 보낸 사람](#storage-queue-data-message-sender) | Azure Storage 큐에 메시지를 추가 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | [저장소 큐 데이터 판독기](#storage-queue-data-reader) | Azure Storage 큐 및 큐 메시지를 읽고 나열 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Web** |  |  |
-> | [Azure Maps 데이터 판독기(미리 보기)](#azure-maps-data-reader-preview) | Azure maps 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권한을 부여 합니다. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | [Azure Maps 데이터 판독기](#azure-maps-data-reader) | Azure maps 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권한을 부여 합니다. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Search 서비스 기여자](#search-service-contributor) | Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [웹 계획 참가자](#web-plan-contributor) | 웹 사이트의 웹 계획을 관리할 수 있지만 액세스할 수는 없습니다. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [웹 사이트 기여자](#website-contributor) | 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다. | de139f84-1756-47ae-9be6-808fbbe84772 |
@@ -147,10 +147,10 @@ ms.locfileid: "82194927"
 > | [Azure 센티널 판독기](#azure-sentinel-reader) | Azure 센티널 판독기 | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Azure 센티널 응답자](#azure-sentinel-responder) | Azure 센티널 응답자 | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
 > | [Key Vault 참가자](#key-vault-contributor) | 키 자격 증명 모음을 관리할 수 있지만 액세스할 수는 없습니다. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
-> | [보안 관리자](#security-admin) | 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행합니다. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [보안 관리자](#security-admin) | Security Center에 대 한 사용 권한을 확인 하 고 업데이트 합니다. 보안 읽기 권한자 역할과 동일한 권한 및 보안 정책을 업데이트 하 고 경고 및 권장 사항을 해제할 수도 있습니다. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [보안 평가 참가자](#security-assessment-contributor) | Security Center에 대 한 평가를 푸시할 수 있습니다. | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [보안 관리자(레거시)](#security-manager-legacy) | 레거시 역할입니다. 대신 보안 관리자를 사용 하세요. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
-> | [보안 판독기](#security-reader) | 권장 사항 및 경고를 볼 수 있으며, 보안 정책을 보거나, 보안 상태를 볼 수 있지만 변경할 수는 없습니다. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [보안 Reader](#security-reader) | Security Center에 대 한 사용 권한을 봅니다. 권장 사항, 경고, 보안 정책 및 보안 상태를 볼 수 있지만 변경할 수는 없습니다. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **DevOps** |  |  |
 > | [DevTest Labs 사용자](#devtest-labs-user) | Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있습니다. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | [랩 작성자](#lab-creator) | Azure Lab 계정 하에서 관리 랩을 만들고, 관리하고, 삭제할 수 있습니다. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
@@ -202,7 +202,7 @@ ms.locfileid: "82194927"
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | * | 모든 유형의 리소스 만들기 및 관리 |
 > | **NotActions** |  |
 > | Microsoft.Authorization/*/Delete | 역할, 정책 할당, 정책 정의 및 정책 집합 정의 삭제 |
@@ -252,7 +252,7 @@ ms.locfileid: "82194927"
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | * | 모든 유형의 리소스 만들기 및 관리 |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -292,7 +292,7 @@ ms.locfileid: "82194927"
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -332,7 +332,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.Authorization/* | 권한 부여 관리 |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 업데이트 |
@@ -379,7 +379,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.ClassicCompute/domainNames/* | 클래식 컴퓨팅 도메인 이름 만들기 및 관리 |
 > | Microsoft.ClassicCompute/virtualMachines/* | 가상 머신 만들기 및 관리 |
@@ -451,7 +451,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Network/publicIPAddresses/read | 공용 IP 주소 정의를 가져옵니다. |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
 > | Microsoft.Network/loadBalancers/read | 부하 분산 장치 정의를 가져옵니다. |
@@ -503,7 +503,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Compute/availabilitySets/* | 컴퓨팅 가용성 집합 만들기 및 관리 |
 > | Microsoft.Compute/locations/* | 컴퓨팅 위치 만들기 및 관리 |
@@ -623,7 +623,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Network/publicIPAddresses/read | 공용 IP 주소 정의를 가져옵니다. |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
 > | Microsoft.Network/loadBalancers/read | 부하 분산 장치 정의를 가져옵니다. |
@@ -676,7 +676,7 @@ CDN 끝점을 관리할 수 있지만 다른 사용자에 게 액세스 권한�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
@@ -730,7 +730,7 @@ CDN 끝점을 볼 수 있지만 변경할 수는 없습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
@@ -784,7 +784,7 @@ CDN 프로필과 해당 끝점을 관리할 수 있지만 다른 사용자에 �
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
@@ -838,7 +838,7 @@ CDN 프로필과 해당 끝점을 볼 수 있지만 변경할 수는 없습니�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
@@ -892,7 +892,7 @@ CDN 프로필과 해당 끝점을 볼 수 있지만 변경할 수는 없습니�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.ClassicNetwork/* | 클래식 네트워크 만들기 및 관리 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
@@ -944,7 +944,7 @@ Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.Network/dnsZones/* | DNS 영역 및 레코드 만들기 및 관리 |
@@ -996,7 +996,7 @@ Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.Network/* | 네트워크 만들기 및 관리 |
@@ -1048,7 +1048,7 @@ Traffic Manager 프로필을 관리할 수 있지만 액세스할 수 있는 사
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.Network/trafficManagerProfiles/* |  |
@@ -1103,7 +1103,7 @@ Avere vFXT 클러스터를 만들고 관리할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft. Compute/*/cread |  |
 > | Microsoft.Compute/availabilitySets/* |  |
@@ -1185,7 +1185,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Compute/virtualMachines/read | 가상 머신의 속성을 가져옵니다. |
 > | Microsoft.Network/networkInterfaces/read | 네트워크 인터페이스 정의를 가져옵니다.  |
 > | Microsoft.Network/networkInterfaces/write | 네트워크 인터페이스를 만들거나 기존 네트워크 인터페이스를 업데이트합니다.  |
@@ -1251,7 +1251,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
 > | Microsoft.RecoveryServices/locations/* |  |
@@ -1371,7 +1371,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | 작업의 상태를 반환합니다. |
@@ -1521,7 +1521,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp는 서비스에서 사용하는 내부 작업입니다. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | 작업의 상태를 반환합니다. |
@@ -1635,7 +1635,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.ClassicStorage/storageAccounts/* | 스토리지 계정 만들기 및 관리 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
@@ -1687,7 +1687,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ClassicStorage/storageAccounts/listkeys/action | 스토리지 계정의 액세스 키를 나열합니다. |
 > | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | 스토리지 계정에 대한 기존 액세스 키를 다시 생성합니다. |
 > | **NotActions** |  |
@@ -1729,7 +1729,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Resources/deployments/* | 배포 만들기 및 관리 |
@@ -1779,7 +1779,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Databox/*/read |  |
 > | Microsoft.Databox/jobs/listsecrets/action |  |
@@ -1837,7 +1837,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.BigAnalytics/accounts/* |  |
 > | Microsoft.DataLakeAnalytics/accounts/* |  |
@@ -1919,7 +1919,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | 지정된 스토리지 계정에 대한 액세스 키를 반환합니다. |
 > | Microsoft. Storage/storageAccounts/ListAccountSas/action | 지정된 스토리지 계정에 대한 계정 SAS 토큰을 반환합니다. |
 > | Microsoft.Storage/storageAccounts/read | 스토리지 계정의 목록을 반환하거나 지정된 스토리지 계정의 속성을 가져옵니다. |
@@ -1963,7 +1963,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.Insights/diagnosticSettings/* | Analysis Server에 대한 진단 설정 생성, 업데이트 및 읽기 |
@@ -2019,7 +2019,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Storage/storageAccounts/listkeys/action | 지정된 스토리지 계정에 대한 액세스 키를 반환합니다. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | 지정된 스토리지 계정에 대한 액세스 키를 다시 생성합니다. |
 > | **NotActions** |  |
@@ -2061,7 +2061,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 컨테이너를 삭제 합니다. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환 합니다. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | 컨테이너의 메타 데이터 또는 속성을 수정 합니다. |
@@ -2115,7 +2115,7 @@ POSIX 액세스 제어 할당을 포함 하 여 Azure Storage blob 컨테이너 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* | 컨테이너에 대 한 모든 권한 |
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Blob service에 대 한 사용자 위임 키를 반환 합니다. |
 > | **NotActions** |  |
@@ -2159,7 +2159,7 @@ POSIX 액세스 제어 할당을 포함 하 여 Azure Storage blob 컨테이너 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환 합니다. |
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Blob service에 대 한 사용자 위임 키를 반환 합니다. |
 > | **NotActions** |  |
@@ -2203,7 +2203,7 @@ Azure AD 자격 증명으로 서명 된 컨테이너 또는 blob에 대 한 공�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Blob service에 대 한 사용자 위임 키를 반환 합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2243,7 +2243,7 @@ Azure 파일 공유의 파일/디렉터리에 대 한 읽기, 쓰기 및 삭제 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2287,7 +2287,7 @@ Azure 파일 공유에서 파일/디렉터리에 대 한 Acl을 읽고, 쓰고, 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2333,7 +2333,7 @@ Azure 파일 공유의 파일/디렉터리에 대 한 읽기 액세스를 허용
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2373,7 +2373,7 @@ Azure Storage 큐 및 큐 메시지를 읽고, 쓰고, 삭제 합니다. 지정 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | 큐를 삭제 합니다. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | 큐 또는 큐 목록을 반환 합니다. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/write | 큐 메타 데이터 또는 속성을 수정 합니다. |
@@ -2423,7 +2423,7 @@ Azure Storage 큐에서 메시지를 피킹 (peeking) 하 고 검색 하 고 삭
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2465,7 +2465,7 @@ Azure Storage 큐에 메시지를 추가 합니다. 지정 된 데이터 작업�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2505,7 +2505,7 @@ Azure Storage 큐 및 큐 메시지를 읽고 나열 합니다. 지정 된 데�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | 큐 또는 큐 목록을 반환합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2543,19 +2543,19 @@ Azure Storage 큐 및 큐 메시지를 읽고 나열 합니다. 지정 된 데�
 ## <a name="web"></a>웹
 
 
-### <a name="azure-maps-data-reader-preview"></a>Azure Maps 데이터 판독기(미리 보기)
+### <a name="azure-maps-data-reader"></a>Azure Maps 데이터 판독기
 
 Azure maps 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권한을 부여 합니다.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
-> | Microsoft.Maps/accounts/data/read | Maps 계정에 데이터 읽기 액세스 권한을 부여합니다. |
+> | Microsoft Maps/계정/*/읽기 |  |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -2572,12 +2572,12 @@ Azure maps 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권�
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.Maps/accounts/data/read"
+        "Microsoft.Maps/accounts/*/read"
       ],
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Maps Data Reader (Preview)",
+  "roleName": "Azure Maps Data Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -2590,7 +2590,7 @@ Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
@@ -2642,7 +2642,7 @@ Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
@@ -2696,7 +2696,7 @@ Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.Insights/components/* | Insights 구성 요소 만들기 및 관리 |
@@ -2761,7 +2761,7 @@ acr 삭제
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.containerregistry/레지스트리/아티팩트/삭제 | 컨테이너 레지스트리에서 아티팩트를 삭제 합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2801,7 +2801,7 @@ acr 이미지 서명자
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | 컨테이너 레지스트리에 대한 콘텐츠 신뢰 메타데이터를 푸시/풀합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2841,7 +2841,7 @@ acr pull
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | 컨테이너 레지스트리에서 이미지를 끌어오거나 가져옵니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2881,7 +2881,7 @@ acr push
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | 컨테이너 레지스트리에서 이미지를 끌어오거나 가져옵니다. |
 > | Microsoft.ContainerRegistry/registries/push/write | 컨테이너 레지스트리에 이미지를 푸시하거나 작성합니다. |
 > | **NotActions** |  |
@@ -2923,7 +2923,7 @@ acr 격리 데이터 읽기 권한자
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.containerregistry/레지스트리/격리/읽기 | 컨테이너 레지스트리에서 격리된 이미지를 끌어오거나 가져옵니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2963,7 +2963,7 @@ acr 격리 데이터 작성자
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.containerregistry/레지스트리/격리/읽기 | 컨테이너 레지스트리에서 격리된 이미지를 끌어오거나 가져옵니다. |
 > | Microsoft.containerregistry/레지스트리/격리/쓰기 | 격리된 이미지의 격리 상태를 작성/수정합니다. |
 > | **NotActions** |  |
@@ -3005,7 +3005,7 @@ acr 격리 데이터 작성자
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | 관리되는 클러스터의 clusterAdmin 자격 증명을 나열합니다. |
 > | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | 자격 증명 나열을 사용하여 역할 이름별로 관리되는 클러스터 액세스 프로필을 가져옵니다. |
 > | **NotActions** |  |
@@ -3047,7 +3047,7 @@ acr 격리 데이터 작성자
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | 관리되는 클러스터의 clusterUser 자격 증명을 나열합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -3090,7 +3090,7 @@ Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 �
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.DocumentDB/*/read | 컬렉션 읽기 |
 > | Microsoft.DocumentDB/databaseAccounts/readonlykeys/action | 데이터베이스 계정 읽기 전용 키를 읽습니다. |
@@ -3142,7 +3142,7 @@ Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 �
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.DocumentDb/databaseAccounts/* |  |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -3204,7 +3204,7 @@ Cosmos DB 데이터베이스 또는 계정의 컨테이너에 대한 복원 요�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.DocumentDB/databaseAccounts/backup/action | 백업 구성하는 요청 제출 |
 > | Microsoft.DocumentDB/databaseAccounts/restore/action | 복원 요청 제출 |
 > | **NotActions** |  |
@@ -3246,7 +3246,7 @@ Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.DocumentDb/databaseAccounts/* | Azure Cosmos DB 계정 만들기 및 관리 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
@@ -3300,7 +3300,7 @@ Redis Cache를 관리할 수 있지만 액세스할 수는 없습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Cache/redis/* | Redis 캐시 만들기 및 관리 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
@@ -3352,7 +3352,7 @@ SQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
@@ -3460,7 +3460,7 @@ SQL 관리 되는 인스턴스 및 필요한 네트워크 구성을 관리할 �
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Resources/deployments/* | 배포 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
@@ -3526,7 +3526,7 @@ SQL Server 및 데이터베이스의 보안과 관련된 정책을 관리할 수
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | 스토리지 계정 또는 SQL 데이터베이스 같은 리소스를 서브넷에 조인합니다. 했어야 하지 않습니다. |
@@ -3650,7 +3650,7 @@ SQL server 및 데이터베이스를 관리할 수 있지만 보안 관련 정�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
@@ -3767,7 +3767,7 @@ Azure Event Hubs 리소스에 대 한 모든 액세스를 허용 합니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft EventHub/* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -3809,7 +3809,7 @@ Azure Event Hubs 리소스에 대 한 수신 액세스를 허용 합니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft EventHub/*/eventhubs/consumergroups/read |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -3851,7 +3851,7 @@ Azure Event Hubs 리소스에 대 한 액세스를 보낼 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft EventHub/*/eventhubs/read |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -3893,7 +3893,7 @@ Azure Event Hubs 리소스에 대 한 액세스를 보낼 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.DataFactory/dataFactories/* | 데이터 팩터리 및 그 안에 포함된 자식 리소스를 만들고 관리합니다. |
 > | Microsoft.DataFactory/factories/* | 데이터 팩터리 및 그 안에 포함된 자식 리소스를 만들고 관리합니다. |
@@ -3949,7 +3949,7 @@ Azure Event Hubs 리소스에 대 한 액세스를 보낼 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Insights/components/*/read |  |
 > | Microsoft.Insights/components/purge/action | Application Insights에서 데이터 삭제 |
 > | Microsoft.OperationalInsights/workspaces/*/read | Log analytics 데이터 보기 |
@@ -3995,7 +3995,7 @@ HDInsight 클러스터 구성을 읽고 수정할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft HDInsight/*/읽기 |  |
 > | Microsoft HDInsight/클러스터/getGatewaySettings/작업 | HDInsight 클러스터에 대 한 게이트웨이 설정 가져오기 |
 > | Microsoft HDInsight/클러스터/updateGatewaySettings/action | HDInsight 클러스터에 대 한 게이트웨이 설정 업데이트 |
@@ -4051,7 +4051,7 @@ HDInsight Enterprise Security Package에 필요한 도메인 서비스 관련 �
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.AAD/*/read |  |
 > | Microsoft.AAD/domainServices/*/read |  |
 > | Microsoft.AAD/domainServices/oucontainer/* |  |
@@ -4095,7 +4095,7 @@ Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.Automation/automationAccounts/* |  |
 > | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
@@ -4161,7 +4161,7 @@ Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | 새 엔진을 사용하여 검색합니다. |
 > | Microsoft.OperationalInsights/workspaces/search/action | 검색 쿼리를 실행합니다. |
@@ -4212,7 +4212,7 @@ Blockchain 멤버 노드에 대 한 액세스를 허용 합니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft Blockchain/blockchainMembers/transactionNodes/read | 기존 Blockchain 구성원 트랜잭션 노드를 가져오거나 나열 합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -4257,7 +4257,7 @@ Cognitive Services의 키를 만들고, 읽고, 업데이트하고, 삭제 및 �
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.CognitiveServices/* |  |
 > | Microsoft.Features/features/read | 구독 기능을 가져옵니다. |
@@ -4329,7 +4329,7 @@ Cognitive Services 데이터를 읽을 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -4369,7 +4369,7 @@ Cognitive Services의 키를 읽고 나열할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | Microsoft.CognitiveServices/accounts/listkeys/action | 키를 나열합니다. |
 > | Microsoft.Insights/alertRules/read | 클래식 메트릭 경고를 읽습니다. |
@@ -4438,7 +4438,7 @@ Cognitive Services의 키를 읽고 나열할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -4488,7 +4488,7 @@ Cognitive Services의 키를 읽고 나열할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -4540,7 +4540,7 @@ Cognitive Services의 키를 읽고 나열할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -4589,7 +4589,7 @@ Cognitive Services의 키를 읽고 나열할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ApiManagement/service/* | API Management 서비스 만들기 및 관리 |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
@@ -4641,7 +4641,7 @@ Cognitive Services의 키를 읽고 나열할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ApiManagement/service/*/read | API Management 서비스 인스턴스 읽기 |
 > | Microsoft.ApiManagement/service/backup/action | 사용자가 제공한 스토리지 계정의 지정된 컨테이너로 API Management 서비스를 백업합니다. |
 > | Microsoft.ApiManagement/service/delete | API Management 서비스 인스턴스를 삭제합니다. |
@@ -4711,7 +4711,7 @@ Cognitive Services의 키를 읽고 나열할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ApiManagement/service/*/read | API Management 서비스 인스턴스 읽기 |
 > | Microsoft.ApiManagement/service/read | API Management 서비스 인스턴스에 대한 메타데이터 읽기 |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -4767,7 +4767,7 @@ Cognitive Services의 키를 읽고 나열할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -4811,7 +4811,7 @@ Cognitive Services의 키를 읽고 나열할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -4851,7 +4851,7 @@ Azure Service Bus 리소스에 대 한 모든 액세스를 허용 합니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | ServiceBus/* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -4893,7 +4893,7 @@ Azure Service Bus 리소스에 대 한 수신 액세스를 허용 합니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | ServiceBus/*/queues/read |  |
 > | ServiceBus/*/항목/읽기 |  |
 > | ServiceBus/*/topics/subscriptions/read |  |
@@ -4939,7 +4939,7 @@ Azure Service Bus 리소스에 대 한 액세스를 보낼 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | ServiceBus/*/queues/read |  |
 > | ServiceBus/*/항목/읽기 |  |
 > | ServiceBus/*/topics/subscriptions/read |  |
@@ -4985,7 +4985,7 @@ Azure Stack 등록을 관리할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft AzureStack/등록/제품/*/action |  |
 > | Microsoft.AzureStack/registrations/products/read | Azure Stack Marketplace 제품의 속성 가져오기 |
 > | Microsoft.AzureStack/registrations/read | Azure Stack 등록의 속성 가져오기 |
@@ -5029,7 +5029,7 @@ EventGrid 이벤트 구독 작업을 관리할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.EventGrid/eventSubscriptions/* |  |
 > | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | 항목 유형별로 글로벌 이벤트 구독을 나열합니다. |
@@ -5085,7 +5085,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.EventGrid/eventSubscriptions/read | EventSubscription 읽기 |
 > | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | 항목 유형별로 글로벌 이벤트 구독을 나열합니다. |
@@ -5135,7 +5135,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.IntelligentSystems/accounts/* | 지능형 시스템 계정 만들기 및 관리 |
@@ -5187,7 +5187,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | 스토리지 계정의 액세스 키를 나열합니다. |
 > | Microsoft.ClassicStorage/storageAccounts/read | 지정된 계정의 스토리지 계정을 반환합니다. |
@@ -5267,7 +5267,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/*/read | Insights 경고 규칙을 읽습니다. |
 > | Microsoft Insights/metricAlerts/*/cread |  |
@@ -5342,7 +5342,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/read | 기존 사용자 할당 ID를 가져옵니다. |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/write | 새로운 사용자 할당 ID를 만들거나 기존 사용자 할당 ID와 연결된 태그를 업데이트합니다. |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/delete | 기존 사용자 할당 ID를 삭제합니다. |
@@ -5396,7 +5396,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -5451,7 +5451,7 @@ Azure 센티널 기여자
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft SecurityInsights/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | 새 엔진을 사용하여 검색합니다. |
 > | Microsoft.OperationalInsights/workspaces/*/read | Log analytics 데이터 보기 |
@@ -5517,7 +5517,7 @@ Azure 센티널 판독기
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft SecurityInsights/*/읽기 |  |
 > | DataConnectorsCheckRequirements/작업 | 사용자 권한 부여 및 라이선스 확인 |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | 새 엔진을 사용하여 검색합니다. |
@@ -5587,7 +5587,7 @@ Azure 센티널 응답자
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft SecurityInsights/*/읽기 |  |
 > | DataConnectorsCheckRequirements/작업 | 사용자 권한 부여 및 라이선스 확인 |
 > | Microsoft SecurityInsights/case/* |  |
@@ -5661,7 +5661,7 @@ Azure 센티널 응답자
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.KeyVault/* |  |
@@ -5710,12 +5710,12 @@ Azure 센티널 응답자
 
 ### <a name="security-admin"></a>보안 관리자
 
-보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행합니다.
+Security Center에 대 한 사용 권한을 확인 하 고 업데이트 합니다. 보안 읽기 권한자 역할과 동일한 권한 및 보안 정책을 업데이트 하 고 경고 및 권장 사항을 해제할 수도 있습니다.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Authorization/policyAssignments/* | 정책 할당 만들기 및 관리 |
 > | Microsoft.Authorization/policyDefinitions/* | 정책 정의 만들기 및 관리 |
@@ -5775,7 +5775,7 @@ Security Center에 대 한 평가를 푸시할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft. 보안/평가/작성 | 구독에서 보안 평가를 만들거나 업데이트 합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -5815,7 +5815,7 @@ Security Center에 대 한 평가를 푸시할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.ClassicCompute/*/read | 클래식 가상 머신에 대한 구성 정보 읽기 |
 > | Microsoft.ClassicCompute/virtualMachines/*/write | 클래식 가상 머신에 대한 구성 정보 쓰기 |
@@ -5866,14 +5866,14 @@ Security Center에 대 한 평가를 푸시할 수 있습니다.
 }
 ```
 
-### <a name="security-reader"></a>보안 판독기
+### <a name="security-reader"></a>보안 Reader
 
-권장 사항 및 경고를 볼 수 있으며, 보안 정책을 보거나, 보안 상태를 볼 수 있지만 변경할 수는 없습니다.
+Security Center에 대 한 사용 권한을 봅니다. 권장 사항, 경고, 보안 정책 및 보안 상태를 볼 수 있지만 변경할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.operationalInsights/workspaces/*/read | Log analytics 데이터 보기 |
@@ -5930,7 +5930,7 @@ Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Compute/availabilitySets/read | 가용성 집합의 속성을 가져옵니다. |
 > | Microsoft.Compute/virtualMachines/*/read | 가상 머신(VM 크기, 런타임 상태, VM 확장 등)의 속성 읽기 |
@@ -6034,7 +6034,7 @@ Azure Lab 계정 하에서 관리 랩을 만들고, 관리하고, 삭제할 수 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | 랩 계정에서 랩을 만듭니다. |
@@ -6093,7 +6093,7 @@ Application Insights 구성 요소를 관리할 수 있음
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 경고 규칙 만들기 및 관리 |
 > | MetricAlerts/* | 새 경고 규칙 만들기 및 관리 |
@@ -6149,7 +6149,7 @@ Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.Insights/components/*/read |  |
@@ -6199,7 +6199,7 @@ Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
@@ -6217,6 +6217,9 @@ Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Insights 웹 테스트 만들기 및 관리 |
 > | Microsoft Insights/통합 문서/* |  |
+> | PrivateLinkScopes/* |  |
+> | PrivateLinkScopeOperationStatuses/* |  |
+> | Microsoft.OperationalInsights/workspaces/write | 새 작업 영역을 만들거나 기존 작업 영역의 고객 ID를 제공하여 기존 작업 영역에 연결합니다. |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Log analytics 솔루션 팩을 읽고 쓰고 삭제 합니다. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | Log analytics 저장 된 검색을 읽고 쓰고 삭제 합니다. |
 > | Microsoft.OperationalInsights/workspaces/search/action | 검색 쿼리를 실행합니다. |
@@ -6263,6 +6266,9 @@ Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스
         "Microsoft.Insights/scheduledqueryrules/*",
         "Microsoft.Insights/webtests/*",
         "Microsoft.Insights/workbooks/*",
+        "Microsoft.Insights/privateLinkScopes/*",
+        "Microsoft.Insights/privateLinkScopeOperationStatuses/*",
+        "Microsoft.OperationalInsights/workspaces/write",
         "Microsoft.OperationalInsights/workspaces/intelligencepacks/*",
         "Microsoft.OperationalInsights/workspaces/savedSearches/*",
         "Microsoft.OperationalInsights/workspaces/search/action",
@@ -6293,7 +6299,7 @@ Azure 리소스에 대한 게시 메트릭 사용
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Insights/Register/Action | Microsoft Insights 공급자를 등록합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 업데이트 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
@@ -6339,7 +6345,7 @@ Azure 리소스에 대한 게시 메트릭 사용
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/search/action | 검색 쿼리를 실행합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 업데이트 |
@@ -6383,7 +6389,7 @@ Azure 리소스에 대한 게시 메트릭 사용
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft Insights/통합 문서/쓰기 | 통합 문서 만들기 또는 업데이트 |
 > | Microsoft Insights/통합 문서/삭제 | 통합 문서 삭제 |
 > | Microsoft Insights/통합 문서/읽기 | 통합 문서 읽기 |
@@ -6427,7 +6433,7 @@ Azure 리소스에 대한 게시 메트릭 사용
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | microsoft insights/통합 문서/읽기 | 통합 문서 읽기 |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -6470,7 +6476,7 @@ Automation Runbook을 사용하여 작업을 만들고 관리합니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Hybrid Runbook Worker 리소스를 읽습니다. |
 > | Microsoft.Automation/automationAccounts/jobs/read | Azure Automation 작업을 가져옵니다. |
@@ -6534,7 +6540,7 @@ Automation Runbook을 사용하여 작업을 만들고 관리합니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Hybrid Runbook Worker 리소스를 읽습니다. |
 > | Microsoft.Automation/automationAccounts/jobs/read | Azure Automation 작업을 가져옵니다. |
@@ -6614,7 +6620,7 @@ Runbook 작업을 만들려면 Runbook 속성을 읽어보세요.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Automation/automationAccounts/runbooks/read | Azure Automation Runbook을 가져옵니다. |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
@@ -6664,7 +6670,7 @@ Azure 연결 된 컴퓨터를 등록할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | HybridCompute/컴퓨터/읽기 | 모든 Azure Arc 컴퓨터를 읽습니다. |
 > | HybridCompute/컴퓨터/쓰기 | Azure Arc 컴퓨터를 작성 합니다. |
 > | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | 게스트 구성 할당을 가져옵니다. |
@@ -6708,7 +6714,7 @@ Azure에 연결 된 컴퓨터를 읽고, 쓰고, 삭제 하 고, 다시 등록�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | HybridCompute/컴퓨터/읽기 | 모든 Azure Arc 컴퓨터를 읽습니다. |
 > | HybridCompute/컴퓨터/쓰기 | Azure Arc 컴퓨터를 작성 합니다. |
 > | HybridCompute/컴퓨터/삭제 | Azure Arc 컴퓨터를 삭제 합니다. |
@@ -6758,7 +6764,7 @@ Azure에 연결 된 컴퓨터를 읽고, 쓰고, 삭제 하 고, 다시 등록�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Billing/*/read | 대금 청구 정보 읽기 |
 > | Microsoft.Commerce/*/read |  |
@@ -6810,7 +6816,7 @@ Azure에 연결 된 컴퓨터를 읽고, 쓰고, 삭제 하 고, 다시 등록�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft. 청사진/청사진/* | 청사진 정의 또는 청사진 아티팩트를 만들고 관리 합니다. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
@@ -6858,7 +6864,7 @@ Azure에 연결 된 컴퓨터를 읽고, 쓰고, 삭제 하 고, 다시 등록�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft. 청사진/blueprintAssignments/* | 청사진 할당을 만들고 관리 합니다. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
@@ -6906,7 +6912,7 @@ Azure에 연결 된 컴퓨터를 읽고, 쓰고, 삭제 하 고, 다시 등록�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Consumption/* |  |
 > | Microsoft.CostManagement/* |  |
 > | Microsoft.Billing/billingPeriods/read |  |
@@ -6962,7 +6968,7 @@ Azure에 연결 된 컴퓨터를 읽고, 쓰고, 삭제 하 고, 다시 등록�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Consumption/*/read |  |
 > | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Billing/billingPeriods/read |  |
@@ -7018,7 +7024,7 @@ Azure에 연결 된 컴퓨터를 읽고, 쓰고, 삭제 하 고, 다시 등록�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft 솔루션/응용 프로그램/* |  |
 > | Microsoft.Solutions/register/action | 솔루션에 등록합니다. |
@@ -7066,7 +7072,7 @@ Azure에 연결 된 컴퓨터를 읽고, 쓰고, 삭제 하 고, 다시 등록�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.Solutions/applications/read | 애플리케이션 목록을 검색합니다. |
 > | Microsoft Solutions/*/action |  |
@@ -7110,7 +7116,7 @@ Azure에 연결 된 컴퓨터를 읽고, 쓰고, 삭제 하 고, 다시 등록�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.Resources/deployments/* | 배포 만들기 및 관리 |
 > | Microsoft.Solutions/jitRequests/* |  |
@@ -7154,7 +7160,7 @@ Azure에 연결 된 컴퓨터를 읽고, 쓰고, 삭제 하 고, 다시 등록�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft ManagedServices/registrationAssignments/read | 관리 되는 서비스 등록 할당 목록을 검색 합니다. |
 > | Microsoft ManagedServices/registrationAssignments/delete | 관리 되는 서비스 등록 할당을 제거 합니다. |
 > | Microsoft ManagedServices/operationStatuses/읽기 | 리소스의 작업 상태를 읽습니다. |
@@ -7198,7 +7204,7 @@ Azure에 연결 된 컴퓨터를 읽고, 쓰고, 삭제 하 고, 다시 등록�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Management/managementGroups/delete | 관리 그룹을 삭제합니다. |
 > | Microsoft.Management/managementGroups/read | 인증된 사용자의 관리 그룹을 나열합니다. |
 > | Microsoft.Management/managementGroups/subscriptions/delete | 관리 그룹에서 구독의 연결을 해제합니다. |
@@ -7246,7 +7252,7 @@ Azure에 연결 된 컴퓨터를 읽고, 쓰고, 삭제 하 고, 다시 등록�
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Management/managementGroups/read | 인증된 사용자의 관리 그룹을 나열합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -7286,7 +7292,7 @@ New Relic Application Performance Management 계정 및 애플리케이션을 �
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
@@ -7338,7 +7344,7 @@ New Relic Application Performance Management 계정 및 애플리케이션을 �
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft. 권한 부여/policyassignments/읽기 | 정책 할당에 대한 정보를 가져옵니다. |
 > | Microsoft. Authorization/policydefinitions/읽기 | 정책 정의에 대한 정보를 가져옵니다. |
 > | Microsoft. Authorization/policysetdefinitions/읽기 | 정책 집합 정의에 대한 정보를 가져옵니다. |
@@ -7386,7 +7392,7 @@ New Relic Application Performance Management 계정 및 애플리케이션을 �
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.Authorization/policyassignments/* | 정책 할당 만들기 및 관리 |
 > | Microsoft.Authorization/policydefinitions/* | 정책 정의 만들기 및 관리 |
@@ -7436,7 +7442,7 @@ New Relic Application Performance Management 계정 및 애플리케이션을 �
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
@@ -7530,7 +7536,7 @@ New Relic Application Performance Management 계정 및 애플리케이션을 �
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
@@ -7561,7 +7567,7 @@ New Relic Application Performance Management 계정 및 애플리케이션을 �
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | 보호 컨테이너를 전환합니다. |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | 테스트 장애 조치(Failover) |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | 테스트 장애 조치(Failover) 정리 |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | 장애 조치(Failover) |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | 장애 조치  |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | 모바일 서비스를 업데이트합니다. |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | 보호 컨테이너 매핑을 읽습니다. |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Recovery Services 공급자를 읽습니다. |
@@ -7684,7 +7690,7 @@ Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp는 서비스에서 사용하는 내부 작업입니다. |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/read | 확장 정보 가져오기 작업에서는 ‘자격 증명 모음’ 형식의 Azure 리소스를 나타내는 개체의 확장 정보를 가져옵니다. |
@@ -7784,7 +7790,7 @@ Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 업데이트 |
@@ -7828,7 +7834,7 @@ Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft .Resources/subscription/resourceGroups/resources/read | 리소스 그룹에 대한 리소스를 가져옵니다. |
@@ -7885,7 +7891,7 @@ BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.BizTalkServices/BizTalk/* | BizTalk 서비스 만들기 및 관리 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
@@ -7937,7 +7943,7 @@ Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 클래식 메트릭 경고 만들기 및 관리 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |

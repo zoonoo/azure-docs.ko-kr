@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02ec8dace971cd4dc1407c9e8d20839504c9ecc3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01c625bebbcd2e619a8125fdfb92673cd02966b2
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331850"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583203"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: Grant
 
@@ -83,7 +83,6 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 - Microsoft Kaizala
 - Microsoft Launcher
 - Microsoft Office
-- Microsoft Office 허브
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -95,14 +94,14 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 - 비즈니스용 Microsoft Skype
 - Microsoft StaffHub
 - Microsoft Stream
-- Microsoft 팀
+- Microsoft Teams
 - Microsoft To-Do
 - Microsoft Visio
 - Microsoft Word
 - Microsoft Yammer
 - Microsoft Whiteboard
 
-**설명**
+**주의**
 
 - 승인된 클라이언트 앱은 Intune 모바일 애플리케이션 관리 기능을 지원합니다.
 - **승인된 클라이언트 앱 필요** 요구 사항:
@@ -125,7 +124,7 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 - Microsoft Outlook
 - Microsoft Planner
 
-**설명**
+**주의**
 
 - 앱 보호 정책에 대 한 앱은 정책 보호를 사용 하 여 Intune 모바일 응용 프로그램 관리 기능을 지원 합니다.
 - **앱 보호 정책** 요구 사항은 다음과 같습니다.

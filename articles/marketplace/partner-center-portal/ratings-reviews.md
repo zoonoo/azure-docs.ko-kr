@@ -1,44 +1,41 @@
 ---
-title: 파트너 센터의 상용 marketplace 분석의 등급 및 리뷰 대시보드
-description: Azure Marketplace 및 AppSource에서 제품에 대 한 고객 피드백의 통합 보기에 액세스 하는 방법에 대해 알아봅니다.
+title: 파트너 센터의 등급 & 리뷰 분석 대시보드
+description: Microsoft AppSource 및 Azure Marketplace에서 제품에 대 한 고객 피드백의 통합 보기에 액세스 하는 방법에 대해 알아봅니다.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 405ba37fd10fa48bf45f1031d2e9b5b17620ea0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7ed477ea095defa27878e8f4a84162043829273
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262420"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792924"
 ---
-# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>상업적 marketplace 분석의 등급 및 리뷰 대시보드
+# <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>파트너 센터의 등급 & 리뷰 분석 대시보드
 
-이 문서에서는 파트너 센터의 등급 & 리뷰 대시보드에 대 한 정보를 제공 합니다. 이 대시보드는 Azure Marketplace 및 AppSource의 제품에 대 한 고객 피드백의 통합 보기를 표시 합니다.
+이 문서에서는 파트너 센터의 등급 & 리뷰 대시보드에 대 한 정보를 제공 합니다. 이 대시보드는 Microsoft AppSource 및 Azure Marketplace에 대 한 제품의 고객 의견에 대 한 통합 보기를 표시 합니다. 두 마켓플레이스에서 고객이 찾아보거나 검색 하 고 구매할 때 제공 하는 제품에 대 한 등급과 리뷰를 남길 수 있습니다.
 
-파트너 센터 분석 도구에서 **등급 & 리뷰 대시보드에** 액세스 하려면 상업적 Marketplace에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 대시보드를 엽니다.
+- 고객은 새 등급을 제출 하거나 기존 등급을 검토 하 고 업데이트 또는 삭제 하거나 제출한 등급을 검토할 수 있습니다. 고객은 자신이 소유 하는 등급과 리뷰만 변경할 수 있습니다.  
+- 리뷰는 Azure Marketplace 또는 AppSource 제품의 제품 표시 페이지에 있는 리뷰 탭에 게시 됩니다. 고객은 이름을 포함 하거나 익명으로 게시할 수 있습니다.  
 
 >[!NOTE]
 > 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석에 대 한 질문과 용어](./faq-terminology.md)를 참조 하세요.
 
-## <a name="ratings--reviews"></a>등급 & 리뷰
+## <a name="access-the-dashboard"></a>대시보드 액세스
 
-두 마켓플레이스에서 고객이 찾아보거나 검색 하 고 구매할 때 제공 하는 제품에 대 한 등급과 리뷰를 남길 수 있습니다.
+파트너 센터의 [상업 마켓플레이스 대시보드에서](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview) **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 섹션을 확장 하 고 **등급 & 리뷰**를 선택 합니다.
 
-- 고객은 새 등급을 제출 하거나 기존 등급을 검토 하 고 업데이트 또는 삭제 하거나 제출한 등급을 검토할 수 있습니다. 고객은 자신이 소유 하는 등급과 리뷰만 변경할 수 있습니다.  
-- 검토는 Azure marketplace 또는 AppSource 제품의 제품 표시 페이지에 있는 리뷰 탭에 게시 됩니다. 고객은 이름을 포함 하거나 익명으로 게시할 수 있습니다.  
-
-**등급 & 검토 대시보드** 는 고객의이 활동에 대 한 추세와 통찰력을 표시 합니다. 다음 항목에 대 한 그래픽 표현을 볼 수 있습니다.
+대시보드에는 다음과 같은 고객 활동의 그래픽 표현이 표시 됩니다.
 
 - 등급 & 리뷰  
 - 의견 검토
 
-**Marketplace storefront 탭** 을 사용 하 여 게시자는 appsource & Azure Marketplace 탭에서 제품 메트릭을 별도로 볼 수 있습니다. 특정 제품 메트릭을 보려면 제품 드롭다운 목록에서 제품을 선택 합니다.
+**Marketplace storefront** 탭을 사용 하 여 제품 Microsoft AppSource 및 Azure Marketplace 메트릭을 따로 볼 수 있습니다. 특정 제품 메트릭을 보려면 제품 드롭다운 목록에서 제품을 선택 합니다.
 
-
-### <a name="ratings-and-reviews-summary"></a>등급 및 리뷰 요약
+### <a name="ratings--reviews-summary"></a>등급 & 검토 요약
 
 등급 & 검토 요약 섹션에는 선택한 날짜 범위에 대 한 아래 메트릭이 표시 됩니다.
 

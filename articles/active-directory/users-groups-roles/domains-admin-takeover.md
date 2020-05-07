@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09012d93a1f9fd24427cb8b3937b3a36cf75d9e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36c7bb426a329a54f333b76e028b884204543014
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75834178"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582984"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 
@@ -34,15 +34,15 @@ ms.locfileid: "75834178"
 
 ## <a name="internal-admin-takeover"></a>내부 관리자 인수
 
-Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 외부 인수를 지원하지 않습니다. 그것이 시나리오이거나, 또는 관리자이고 셀프 서비스 등록을 사용한 사용자가 만든 관리되지 않거나 또는 "섀도" 테넌트를 인수하려는 경우, 내부 관리자 인수를 사용하여 이를 수행할 수 있습니다.
+Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 외부 인수를 지원하지 않습니다. 사용자의 시나리오 이거나 관리자 이며 셀프 서비스 등록을 사용 하는 사용자가 만든 관리 되지 않거나 "섀도" Azure AD 조직을 사용 하려는 경우에는 내부 관리자 인수을 사용 하 여이 작업을 수행할 수 있습니다.
 
-1. Power BI에 등록 하 여 관리 되지 않는 테 넌 트에서 사용자 컨텍스트를 만듭니다. 예제의 편의를 위해 이러한 단계는 해당 경로를 가정합니다.
+1. Power BI에 등록 하 여 관리 되지 않는 조직에서 사용자 컨텍스트를 만듭니다. 예제의 편의를 위해 이러한 단계는 해당 경로를 가정합니다.
 
 2. [Power BI 사이트](https://powerbi.com)를 열고 **무료로 시작**을 선택합니다. 조직에 대한 도메인 이름을 사용하는 사용자 계정을 입력합니다. 예: `admin@fourthcoffee.xyz`. 확인 코드를 입력한 후 인증 코드에 대한 전자 메일을 확인합니다.
 
 3. Power BI에서 온 확인 전자 메일에서 **예, 바로 저입니다**를 선택합니다.
 
-4. Power BI 사용자 계정을 사용 하 여 [Microsoft 365 관리 센터](https://portal.office.com/admintakeover) 에 로그인 합니다. 관리되지 않는 테넌트에서 이미 확인된 도메인 이름의 **관리자 되기**에 관해 지시하는 메시지를 수신합니다. **예, 관리자가 되고 싶습니다**를 선택합니다.
+4. Power BI 사용자 계정을 사용 하 여 [Microsoft 365 관리 센터](https://portal.office.com/admintakeover) 에 로그인 합니다. 관리 되지 않는 조직에서 이미 확인 된 도메인 이름의 **관리자** 가 되도록 지시 하는 메시지가 표시 됩니다. **예, 관리자가 되고 싶습니다**를 선택합니다.
   
    ![관리자 되기에 대한 첫 번째 스크린샷](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -50,35 +50,35 @@ Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 �
   
    ![도메인 이름에 대한 TXT 레코드 추가](./media/domains-admin-takeover/become-admin-txt-record.png)
 
-도메인 이름 등록자에서 DNS TXT 레코드가 확인된 경우 Microsoft Azure AD 테넌트를 관리할 수 있습니다.
+DNS TXT 레코드를 도메인 이름 등록 기관에서 확인 하는 경우 Azure AD 조직을 관리할 수 있습니다.
 
-앞의 단계를 완료하면 이제 Office 365에서 Fourth Coffee 테넌트의 전역 관리자가 되었습니다. 도메인 이름을 다른 Azure 서비스와 통합하려면 Office 365에서 제거하고 Azure에서 다른 관리되는 테넌트에 추가할 수 있습니다.
+위의 단계를 완료 하면 이제 Office 365의 네 번째 커피 조직의 전역 관리자가 됩니다. 도메인 이름을 다른 Azure 서비스와 통합 하려면 Office 365에서 해당 이름을 제거 하 고 Azure의 다른 관리 되는 조직에 추가 하면 됩니다.
 
-### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Microsoft Azure AD에서 관리되는 테넌트에 도메인 이름 추가하기
+### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Azure AD에서 관리 되는 조직에 도메인 이름 추가
 
 1. [Microsoft 365 관리 센터](https://admin.microsoft.com)를 엽니다.
 2. 사용자 **탭을** 선택 하 고 사용자 지정 도메인 이름을 사용 하지 않는 *사용자\@fourthcoffeexyz.onmicrosoft.com* 같은 이름으로 새 사용자 계정을 만듭니다. 
-3. 새 사용자 계정에 Microsoft Azure AD 테넌트에 대한 전역 관리자 권한이 있는지 확인합니다.
+3. 새 사용자 계정에 Azure AD 조직에 대 한 전역 관리자 권한이 있는지 확인 합니다.
 4. Microsoft 365 관리 센터에서 **도메인** 탭을 열고 도메인 이름을 선택한 다음 **제거**를 선택 합니다. 
   
    ![Office 365에서 도메인 이름 제거](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
 5. 제거된 도메인 이름을 참조하는 Office 365에 사용자 또는 그룹이 있다면 이러한 이름은 onmicrosoft.com 도메인으로 이름이 변경되어야 합니다. 강제로 도메인 이름을 삭제 하면이 예제에서 *사용자\@fourthcoffeexyz.onmicrosoft.com*에 모든 사용자의 이름이 자동으로 바뀝니다.
   
-6. Microsoft Azure AD 테넌트에 대한 전역 관리자인 계정으로 [Microsoft Azure AD 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다.
+6. Azure ad 조직에 대 한 전역 관리자 인 계정으로 [AZURE ad 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) 에 로그인 합니다.
   
 7. **사용자 지정 도메인 이름**을 선택하고 도메인 이름을 추가합니다. 도메인 이름의 소유권을 확인하려면 DNS TXT 레코드를 입력해야 합니다. 
   
    ![Azure AD에 추가 된 것으로 확인 된 도메인](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Office 365 테넌트에 할당된 라이선스를 가진 Power BI 또는 Azure Rights Management 서비스의 모든 사용자는 도메인 이름이 제거된 경우 해당 대시보드를 저장해야 합니다. *사용자\@fourthcoffee*대신 사용자 *\@fourthcoffeexyz.onmicrosoft.com* 같은 사용자 이름으로 로그인 해야 합니다.
+> Office 365 조직에 할당 된 라이선스가 있는 Power BI 또는 Azure Rights Management 서비스의 사용자는 도메인 이름이 제거 되 면 대시보드를 저장 해야 합니다. *사용자\@fourthcoffee*대신 사용자 *\@fourthcoffeexyz.onmicrosoft.com* 같은 사용자 이름으로 로그인 해야 합니다.
 
 ## <a name="external-admin-takeover"></a>외부 관리자 인수
 
-이미 Azure 서비스 또는 Office 365을 사용하여 테넌트를 관리하는 경우, 사용자 지정 도메인 이름이 또 다른 Microsoft Azure Active Directory 테넌트에서 이미 확인되었다면 추가할 수 없습니다. 그러나 Microsoft Azure AD에서 사용자가 관리하는 테넌트로부터 관리되지 않는 테넌트를 외부 관리자 인수로서 인수할 수 있습니다. 일반적인 절차는 [Microsoft Azure AD에 사용자 지정 도메인 추가](../fundamentals/add-custom-domain.md) 문서를 따릅니다.
+이미 Azure 서비스 또는 Office 365를 사용 하 여 조직을 관리 하는 경우 다른 Azure AD 조직에서 이미 확인 된 사용자 지정 도메인 이름을 추가할 수 없습니다. 그러나 Azure AD의 관리 되는 조직에서는 외부 관리자 인수 관리 되지 않는 조직을 사용할 수 있습니다. 일반적인 절차는 [Microsoft Azure AD에 사용자 지정 도메인 추가](../fundamentals/add-custom-domain.md) 문서를 따릅니다.
 
-도메인 이름의 소유권을 확인하는 경우 Microsoft Azure AD는 관리되지 않는 테넌트의 도메인 이름을 제거하고 그것을 기존 테넌트로 옮깁니다. 관리되지 않는 디렉터리의 외부 관리자 인수를 하려면 내부 관리자 인수와 동일한 DNS TXT 유효성 검사 프로세스를 필요로 합니다. 차이점은 또한 다음을 도메인 이름과 함께 이동할 수 있습니다.
+도메인 이름의 소유권을 확인 하는 경우 Azure AD는 관리 되지 않는 조직에서 도메인 이름을 제거 하 고 기존 조직으로 이동 합니다. 관리되지 않는 디렉터리의 외부 관리자 인수를 하려면 내부 관리자 인수와 동일한 DNS TXT 유효성 검사 프로세스를 필요로 합니다. 차이점은 또한 다음을 도메인 이름과 함께 이동할 수 있습니다.
 
 - 사용자
 - Subscriptions
@@ -100,27 +100,27 @@ Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 �
 
 SharePoint, OneDrive 또는 비즈니스용 Skype를 포함 하는 서비스 계획이 있는 서비스에 대해서는 외부 관리자 인수 지원 되지 않습니다. 예를 들어, Office 무료 구독을 사용 합니다. 
 
-선택적으로 관리되지 않는 테넌트에서 도메인 이름을 제거하고 원하는 테넌트에서 확인하기 위해 [**ForceTakeover** 옵션](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option)을 사용할 수 있습니다. 
+필요에 따라 [ **ForceTakeover** 옵션](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) 을 사용 하 여 관리 되지 않는 조직에서 도메인 이름을 제거 하 고 원하는 조직에서 도메인 이름을 확인할 수 있습니다. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>개인용 RMS에 대한 자세한 내용
 
-[개인용 RMS](/azure/information-protection/rms-for-individuals)의 경우, 관리되지 않는 테넌트가 사용자 소유의 테넌트와 같은 지역에 있을 경우 자동으로 생성된 [Azure Information Protection 테넌트 키](/azure/information-protection/plan-implement-tenant-key) 및 [기본 보호 템플릿](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates)이 도메인 이름과 함께 추가로 이동됩니다.
+개인용 [RMS](/azure/information-protection/rms-for-individuals)의 경우 관리 되지 않는 조직이 소유 하 고 있는 조직과 동일한 지역에 있는 경우 자동으로 생성 된 [Azure Information Protection 조직 키](/azure/information-protection/plan-implement-tenant-key) 와 [기본 보호 템플릿이](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) 도메인 이름으로 추가로 이동 됩니다.
 
-관리되지 않는 테넌트가 다른 지역에 있을 때는 이 키 및 템플릿이 이동되지 않습니다. 예를 들어 관리 되지 않는 테 넌 트가 유럽에 있고 사용자가 소유 하는 조직은 북아메리카에 있는 경우입니다.
+관리 되지 않는 조직이 다른 지역에 있으면 키와 템플릿이 이동 하지 않습니다. 예를 들어 관리 되지 않는 조직이 유럽에 있고 소유 하 고 있는 조직이 북아메리카 경우입니다.
 
 개인용 RMS는 보호된 콘텐츠를 열기 위한 Azure AD 인증을 지원하도록 디자인되었지만, 사용자의 콘텐츠 보호를 방지하지 못 합니다. 사용자가 개인용 RMS 구독을 사용 하 여 콘텐츠를 보호 하 고 키와 템플릿을 이동 하지 않은 경우 도메인 인수 후 해당 콘텐츠에 액세스할 수 없습니다.
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>ForceTakeover 옵션에 대한 Microsoft Azure AD PowerShell cmdlets
 [PowerShell 예](#powershell-example)에서 사용되는 이러한 cmdlet을 참조할 수 있습니다.
 
-Cmdlet | 사용
+Cmdlet | 사용법
 ------- | -------
-`connect-msolservice` | 메시지가 표시되면 관리되는 테넌트에 로그인합니다.
-`get-msoldomain` | 현재 테넌트와 연결된 도메인 이름을 보여줍니다.
-`new-msoldomain –name <domainname>` | 테넌트에 도메인 이름을 확인되지 않음(아직 DNS 확인이 실행되지 않음)으로 추가합니다.
-`get-msoldomain` | 도메인 이름이 이제 관리되는 테넌트와 연결된 도메인 이름 목록에 포함되지만, **확인되지 않음**으로 나열됩니다.
+`connect-msolservice` | 메시지가 표시 되 면 관리 되는 조직에 로그인 합니다.
+`get-msoldomain` | 현재 조직과 연결 된 도메인 이름을 표시 합니다.
+`new-msoldomain –name <domainname>` | 조직에 도메인 이름을 확인 되지 않음으로 추가 합니다 (DNS 확인이 아직 수행 되지 않음).
+`get-msoldomain` | 이제 도메인 이름이 관리 되는 조직과 연결 된 도메인 이름 목록에 포함 되어 있지만 확인 되지 **않음으로 표시 됩니다.**
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | 도메인에 대해 새 DNS TXT 레코드를 저장할 정보 제공 (MS = xxxxx). TXT 레코드가 전파되는 데 약간의 시간이 걸리므로 확인이 즉시 이뤄지지 않을 수도 있습니다. 따라서 **-ForceTakeover** 옵션을 고려하기 전에 몇 분 정도 기다리십시오. 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>여전히 도메인 이름이 확인되지 않는 경우 **-ForceTakeover** 옵션을 사용하여 진행할 수 있습니다. TXT 레코드가 만들어졌는지 확인하고 인수 프로세스를 시작합니다.<li>**-ForceTakeover** 옵션은 인수를 차단하는 Office 365 서비스가 관리되지 않는 테넌트에 있을 경우와 같이 외부 관리자 인수를 강제 적용할 경우에만 cmdlet에 추가되어야 합니다.
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>여전히 도메인 이름이 확인되지 않는 경우 **-ForceTakeover** 옵션을 사용하여 진행할 수 있습니다. TXT 레코드가 만들어졌는지 확인하고 인수 프로세스를 시작합니다.<li>**ForceTakeover** 옵션은 관리 되지 않는 조직에 인수를 차단 하는 Office 365 서비스가 있는 경우와 같이 외부 관리자 인수을 적용 하는 경우에만 cmdlet에 추가 해야 합니다.
 `get-msoldomain` | 이제 도메인 목록은 도메인 이름을 **확인됨**으로 표시합니다.
 
 > [!NOTE]
@@ -144,12 +144,12 @@ Cmdlet | 사용
    ```powershell
    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
    ```
-    다음은 그 예입니다.
+    예를 들면 다음과 같습니다.
    ```
    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. 이 명령에서 반환되는 값(챌린지)을 복사합니다. 다음은 그 예입니다.
+4. 이 명령에서 반환되는 값(챌린지)을 복사합니다. 예를 들면 다음과 같습니다.
    ```powershell
    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -160,7 +160,7 @@ Cmdlet | 사용
    Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
-   다음은 그 예입니다.
+   예를 들면 다음과 같습니다.
   
    ```powershell
    Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force
