@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 04/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 50ac2a728750c6b01dfc57fa7e20df25c856395a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93813dfaecf40fcb5cab0856d013fb890118886c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77087381"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580671"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights 미리 보기 사용 사례
 
@@ -42,13 +42,13 @@ Azure Time Series Insights는 종단 간 플랫폼 간 제공 서비스입니다
 
 대부분의 고객은 Time Series Insights의 두드러진 기능 중 하나인 정보를 얻는 데 필요한 최소한의 시간에 동의 합니다.
 
-* Time Series Insights는 데이터를 미리 준비할 필요가 없습니다. 
-* 몇 분 내에 Azure IoT Hub 또는 Azure Event Hubs 인스턴스에 수십억 개의 이벤트에 연결 하는 데 빠르게 작동 합니다. 
+* Time Series Insights는 데이터를 미리 준비할 필요가 없습니다.
+* 몇 분 내에 Azure IoT Hub 또는 Azure Event Hubs 인스턴스에 수십억 개의 이벤트에 연결 하는 데 빠르게 작동 합니다.
 * 연결이 설정되면 수십억 개의 이벤트를 시각화하고 분석하여 이상 현상을 포착하고 데이터에서 숨겨진 추세를 발견할 수 있습니다.
 
 Time Series Insights는 직관적이고 사용 방법이 간단합니다. 코드를 전혀 작성하지 않고도 데이터와 상호 작용할 수 있습니다. 또한 SQL을 잘 알고 있는 고급 사용자를 위한 세부적인 텍스트 기반 쿼리 언어를 제공 하는 것은 아니지 Time Series Insights만 새로운 언어를 배울 필요가 없습니다. 초보 사용자를 위한 선택-클릭 탐색도 제공합니다.
 
-고객은 속도를 활용 하 여 자산 관련 문제를 신속 하 게 진단할 수 있습니다. 이러한 사용자는 DevOps 분석을 수행 하 여 IoT 솔루션에서 버그의 근본 원인을 파악할 수 있습니다. 또한 데이터 과학 이니셔티브의 일부로 추가 조사를 위해 플래그를 지정 하는 영역을 식별할 수 있습니다. 
+고객은 속도를 활용 하 여 자산 관련 문제를 신속 하 게 진단할 수 있습니다. 이러한 사용자는 DevOps 분석을 수행 하 여 IoT 솔루션에서 버그의 근본 원인을 파악할 수 있습니다. 또한 데이터 과학 이니셔티브의 일부로 추가 조사를 위해 플래그를 지정 하는 영역을 식별할 수 있습니다.
 
 Time Series Insights에 저장된 데이터와 상호 작용하는 세 가지 기본적인 방법이 있습니다.
 

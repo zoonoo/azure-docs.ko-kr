@@ -1,27 +1,25 @@
 ---
-title: Workday 특성 참조 | Microsoft Docs
+title: Workday 특성 참조
 description: SuccessFactors-HR 기반 프로 비전에서 지 원하는 SuccessFactors의 특성 알아보기
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/19/2020
 ms.author: chmutali
-ms.openlocfilehash: 61f374c3fbc15e78784fe30c4e66ea109537727d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: celested
+ms.openlocfilehash: b0acb058e7e58656257d55f82f5dd02a8ae7d9c3
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112884"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593066"
 ---
 # <a name="workday-attribute-reference"></a>Workday 특성 참조
+
 이 섹션에서는 XPATH 쿼리를 사용 하 여 Workday에서 인출할 수 있는 특성의 목록을 제공 합니다. Workday 웹 서비스 API 버전에 따라를 사용 하려는 경우 해당 섹션을 참조 하세요. 
 
 ## <a name="xpath-values-for-workday-web-services-wws-api-v211"></a>WWS (Workday 웹 서비스) API v 21.1의 XPATH 값
@@ -29,7 +27,7 @@ ms.locfileid: "82112884"
 
 아래 표에서 Workday 인바운드 프로 비전 앱 커넥터를 사용 하 여 기본 제공 되는 Workday 특성 및 해당 XPATH 식의 목록을 캡처합니다. 
 
-| \# | 속성                                  | Workday API 식                                                                                                                                                                                                                                                                                                                                                                                       |
+| \# | Name                                  | Workday API 식                                                                                                                                                                                                                                                                                                                                                                                       |
 |----|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Active                                | wd: Worker/wd: Worker\_data/Wd: 고용\_데이터/wd: 작업자\_상태\_데이터/wd: 활성/텍스트\(\)                                                                                                                                                                                                                                                                                                                     |
 | 2  | AddressLine2Data                      | wd: worker/wd: worker\_data/wd: 고용\_데이터/wd: 위치\_데이터/wd: 비즈니스\_사이트\_요약\_데이터/wd: 주소\_데이터/wd: address\_line\_data\[@wd:Type= ' address\_line\_2 '\]/text\(\)                                                                                                                                                                                                                             |
@@ -117,7 +115,7 @@ ms.locfileid: "82112884"
 WWS API v 30.0 이상을 사용 하는 경우 프로 비전 작업을 설정 하기 전에 **특성 매핑-> 고급 옵션-Workday의 특성 편집 목록 >** 아래 나열 된 값을 사용 하려면 **XPATH API 식을** 업데이트 하세요. 추가 Xpath를 구성 하려면 [자습서: 구성 관리](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration)섹션을 참조 하세요. 
 
 
-| \# | 속성                                  | Workday XPATH API 식                                                                                                                                                                                                                                                                                                                                                |
+| \# | Name                                  | Workday XPATH API 식                                                                                                                                                                                                                                                                                                                                                |
 |----|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Active                                | wd: Worker/wd: Worker\_data/Wd: 고용\_데이터/wd: 작업자\_상태\_데이터/wd: 활성/텍스트\(\)                                                                                                                                                                                                                                                                                               |
 | 2  | AddressLine2Data                      | wd: worker/wd: worker\_data/wd: 고용\_데이터/wd: worker\_작업\_데이터\[@wd:Primary\_작업 = 1\]/wd: 위치\_데이터/wd: 비즈니스\_사이트\_요약\_데이터/wd: address\_data/wd: address\_line\_Data\[@wd:Type= ' address\_line\_2 '\]/text\(\)                                                                                                                                                            |

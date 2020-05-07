@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
-ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29ce845fa3239dd48ff2ff0480beff08cf704b30
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74269443"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82591689"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>C++에서 Azure Storage 리소스 나열
 
@@ -62,7 +62,7 @@ list_blob_item_segment list_blobs_segmented(const continuation_token& token) con
 * *_segment*은 API 목록에 단일 호출을 반환한 결과 집합을 포함합니다.
 * *continuation_token*은 결과의 다음 페이지를 가져오기 위해 다음 호출에 전달됩니다. 더 이상 반환할 결과가 없으면 연속 토큰이 null입니다.
 
-예를 들어 컨테이너의 모든 blob을 나열하는 일반적인 호출은 다음 코드 조각처럼 보일 수 있습니다. 코드는 다음과 같은 [샘플](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp)에서 사용할 수 있습니다.
+예를 들어 컨테이너의 모든 blob을 나열하는 일반적인 호출은 다음 코드 조각처럼 보일 수 있습니다. 코드는 다음과 같은 [샘플](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp)에서 사용할 수 있습니다.
 
 ```cpp
 // List blobs in the blob container
@@ -185,7 +185,7 @@ lazy 목록 API는 Storage Client Library for C++ 버전 2.2.0에 포함됩니�
 
 ## <a name="conclusion"></a>결론
 
-이 문서에서는 Storage Client Library for C++에서 다양한 개체에 대한 각기 다른 목록 API의 오버로드에 대해 다루었습니다. 요약하면
+이 문서에서는 Storage Client Library for C++에서 다양한 개체에 대한 각기 다른 목록 API의 오버로드에 대해 다루었습니다. 요약:
 
 * 여러 스레드 시나리오에서 비동기 API를 사용하는 것이 좋습니다.
 * 분할된 목록은 대부분의 시나리오에서 권장됩니다.

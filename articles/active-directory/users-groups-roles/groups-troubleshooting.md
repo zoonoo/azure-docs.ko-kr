@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f685ac63e3b4a8cf466be4eb4561472fb084d49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 689a528a75613ac6a38bed74d6597d492f498e8b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74026553"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582723"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>문제 해결 및 그룹 문제 해결
 
@@ -43,7 +43,7 @@ Powershell에서 관리자가 아닌 사용자에 대 한 그룹 만들기를 �
    ```
 
 <br/>**Powershell에서 동적 그룹을 만들려고 할 때 허용 되는 최대 그룹 오류가 수신 되었습니다.**<br/>
-동적 그룹 정책을 나타내는 메시지가 Powershell에 수신 _되는 경우 허용 되는 최대 그룹 수에 도달_하면 테 넌 트의 동적 그룹에 대 한 최대 제한에 도달 했음을 의미 합니다. 테 넌 트 당 최대 동적 그룹 수는 5000입니다.
+동적 그룹 정책을 나타내는 메시지가 Powershell에 수신 _되는 경우 허용 되는 최대 그룹 수에 도달_하면 조직의 동적 그룹에 대 한 최대 제한에 도달 했음을 의미 합니다. 조직 당 최대 동적 그룹 수는 5000입니다.
 
 새 동적 그룹을 만들려면 먼저 일부 기존 동적 그룹을 삭제 해야 합니다. 한도를 늘릴 수 있는 방법은 없습니다.
 
@@ -53,7 +53,7 @@ Powershell에서 관리자가 아닌 사용자에 대 한 그룹 만들기를 �
 1. 규칙의 사용자 또는 장치 특성에 대 한 값을 확인 합니다. 규칙을 충족 하는 사용자가 있는지 확인 합니다. 장치의 경우 장치 속성을 확인 하 여 동기화 된 특성에 예상 값이 포함 되어 있는지 확인 합니다.<br/>
 2. 멤버 자격 처리 상태를 확인 하 여 완료 되었는지 확인 합니다. 그룹의 **개요** 페이지에서 [멤버 자격 처리 상태](groups-create-rule.md#check-processing-status-for-a-rule) 와 마지막 업데이트 날짜를 확인할 수 있습니다.
 
-모든 것이 제대로 된 것 같으면 그룹이 채워지도록 잠시 기다립니다. 테넌트 크기에 따라 그룹을 채우는 데 처음 또는 규칙이 변경된 후에는 최대 24시간이 소요될 수 있습니다.
+모든 것이 제대로 된 것 같으면 그룹이 채워지도록 잠시 기다립니다. Azure AD 조직의 규모에 따라 그룹은 처음으로 채우거 나 규칙 변경 후에 최대 24 시간이 걸릴 수 있습니다.
 
 **규칙을 구성했으나 규칙의 기존 구성원이 제거됨**<br/>이는 예상된 동작입니다. 규칙을 사용하도록 설정하거나 변경하면 그룹의 기존 멤버가 제거됩니다. 규칙 평가에서 반환된 사용자는 그룹에 멤버로 추가됩니다.
 

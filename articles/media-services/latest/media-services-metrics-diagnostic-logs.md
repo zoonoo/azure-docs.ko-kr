@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 75363212684bb09e84a4bc4881af26e6d2a8e7e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585283"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559535"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Azure Monitor를 통해 Media Services 메트릭 및 진단 로그를 모니터링 합니다.
 
@@ -63,7 +63,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 |메트릭 이름|표시 이름|Description|
 |---|---|---|
 |요청|요청|스트리밍 끝점에서 제공 하는 총 HTTP 요청 수를 제공 합니다.|
-|송신|송신|송신 바이트의 총 수입니다. 예를 들어 스트리밍 끝점에 의해 스트리밍되는 바이트입니다.|
+|송신|송신|스트리밍 끝점 당 분당 총 바이트 수입니다.|
 |SuccessE2ELatency|성공 종단 간 대기 시간|스트리밍 끝점이 응답의 마지막 바이트를 보낸 시점에서 요청을 받은 시간입니다.|
 
 ### <a name="why-would-i-want-to-use-metrics"></a>메트릭을 사용 하는 이유는 무엇 인가요?
@@ -78,7 +78,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 * 패키지에서 얼마나 많은 HLS 또는 대시 요청을 가져올 수 있나요?
 * 실패 한 요청 수의 임계값이 적중 된 경우를 알 수 있도록 경고를 설정 어떻게 할까요??
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 [Media Services 메트릭을 모니터링 하는 방법을](media-services-metrics-howto.md)참조 하세요.
 
@@ -92,7 +92,7 @@ Media Services는 다음 진단 로그를 지원 합니다.
 
 ### <a name="key-delivery"></a>키 배달
 
-|속성|Description|
+|Name|Description|
 |---|---|
 |키 배달 서비스 요청|키 배달 서비스 요청 정보를 표시 하는 로그입니다. 자세한 내용은 [스키마](media-services-diagnostic-logs-schema.md)를 참조 하세요.|
 
@@ -105,7 +105,7 @@ Media Services는 다음 진단 로그를 지원 합니다.
 * DRM 또는 정책 유형별 오류를 참조 하세요.
 * 클라이언트에서 승인 되지 않은 라이선스 요청 수를 확인 합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 [Media Service 진단 로그를 모니터링 하는 방법을](media-services-diagnostic-logs-howto.md)참조 하세요.
 

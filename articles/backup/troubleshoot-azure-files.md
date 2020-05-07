@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 문제 해결
 description: 이 문서에서는 Azure 파일 공유를 보호할 때 발생하는 문제를 해결하는 방법에 대한 내용을 설명합니다.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a6ce613b8c0fe8a7a5df6397ba2f1eb508d61aae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9b3514b4c1a00cc2f9bb1e1922975bf0bb70d24
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100059"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562086"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Azure 파일 공유를 백업 하는 동안 발생 하는 문제 해결
 
@@ -25,6 +25,7 @@ ms.locfileid: "82100059"
   >스토리지 계정의 모든 파일 공유를 Recovery Services 자격 증명 모음 하나로 보호할 수 있습니다. [이 스크립트](scripts/backup-powershell-script-find-recovery-services-vault.md) 를 사용 하 여 저장소 계정이 등록 된 recovery services 자격 증명 모음을 찾을 수 있습니다.
 
 - 지원 되지 않는 저장소 계정에 파일 공유가 없는지 확인 하세요. [Azure 파일 공유 백업에 대 한 지원 매트릭스](azure-file-share-support-matrix.md) 를 참조 하 여 지원 되는 저장소 계정을 찾을 수 있습니다.
+- 저장소 계정의 방화벽 설정을 확인 하 여 신뢰할 수 있는 Microsoft 서비스에서 저장소 계정에 액세스 하도록 허용 하는 옵션이 설정 되어 있는지 확인 합니다.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>스토리지 계정의 포털 상태 검색이 실패했다는 오류가 발생합니다.
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: d1929f937d86001a0f2a399b1ebd92e47bbd2c86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a6efe74008b2271b960f877f5f0f6b2b6b549a8d
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80990908"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583092"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
 
@@ -95,6 +95,10 @@ PrincipalsAllowedToDelegateToAccount 메서드는 커넥터 서버가 웹 응용
 
 커넥터 서버와 웹 응용 프로그램 서비스 계정이 서로 다른 도메인에 있는 경우 리소스 기반 위임이 사용 됩니다. 위임 권한은 대상 웹 서버 및 웹 응용 프로그램 서비스 계정에서 구성 됩니다. 이 제한 된 위임 방법은 비교적 새로운 방법입니다. 메서드는 리소스 (웹 서비스) 소유자가 위임할 수 있는 컴퓨터 및 서비스 계정을 제어 하도록 허용 하 여 도메인 간 위임을 지 원하는 Windows Server 2012에서 도입 되었습니다. 이 구성에 도움이 되는 UI가 없으므로 PowerShell을 사용 해야 합니다.
 자세한 내용은 [응용 프로그램 프록시를 사용 하 여 Kerberos 제한 된 위임 이해](https://aka.ms/kcdpaper)백서를 참조 하십시오.
+
+### <a name="does-ntlm-authentication-work-with-azure-ad-application-proxy"></a>NTLM 인증은 Azure AD 응용 프로그램 프록시에서 작동 하나요?
+
+NTLM 인증은 사전 인증 또는 Single Sign-On 방법으로 사용할 수 없습니다. NTLM 인증은 클라이언트와 게시 된 웹 응용 프로그램 간에 직접 협상할 수 있는 경우에만 사용할 수 있습니다. NTLM 인증을 사용 하면 일반적으로 브라우저에 로그인 프롬프트가 표시 됩니다.
 
 ## <a name="pass-through-authentication"></a>통과 인증
 

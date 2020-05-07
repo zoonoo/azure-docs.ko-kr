@@ -3,12 +3,12 @@ title: PowerShell을 사용하여 Azure에 Windows Server 백업
 description: 이 문서에서는 Windows Server 또는 Windows 클라이언트에서 Azure Backup를 설정 하 고 백업 및 복구를 관리 하는 데 PowerShell을 사용 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 3b9bcf8e777244cec11383619d145e3a99ff46d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fde81aba5a2b74ce25c8f3cd70dc24df6f566420
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193023"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597980"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
 
@@ -111,7 +111,7 @@ MARSAgentInstaller.exe /?
 
 사용 가능한 옵션은 다음과 같습니다.
 
-| 옵션 | 세부 정보 | 기본값 |
+| 옵션 | 세부 정보 | 기본 |
 | --- | --- | --- |
 | /q |자동 설치 |- |
 | /p:"위치" |Azure Backup 에이전트의 설치 폴더에 대한 경로입니다. |C:\Program Files\Microsoft Azure Recovery Services Agent |
@@ -209,7 +209,12 @@ Server properties updated successfully.
 
 Azure Backup에 전송되는 백업 데이터는 데이터의 기밀성을 보호하기 위해 암호화됩니다. 암호화 암호는 복원 시 데이터를 해독하기 위한 “암호"입니다.
 
-Azure Portal의 **Recovery Services 자격 증명 모음** 섹션에 있는 **설정** > **속성** > **보안 pin** 아래에서 **생성**을 선택 하 여 보안 pin을 생성 해야 합니다. 그런 다음 명령에서로이 `generatedPIN` 를 사용 합니다.
+Azure Portal의 **Recovery Services 자격 증명 모음** 섹션에 있는 **설정** > **속성** > **보안 pin** 아래에서 **생성**을 선택 하 여 보안 pin을 생성 해야 합니다. 
+
+>[!NOTE]
+> 보안 PIN은 Azure Portal를 통해서만 생성할 수 있습니다.
+
+그런 다음 명령에서로이 `generatedPIN` 를 사용 합니다.
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force

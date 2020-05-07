@@ -2,26 +2,21 @@
 title: Azure AD 갤러리 앱에 사용자 프로 비전을 구성 하는 문제
 description: Azure AD 애플리케이션 갤러리에 이미 나열된 애플리케이션에 대한 사용자 프로비전을 구성할 때 발생하는 일반적인 문제를 해결하는 방법
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3955b96e4a7edfc79a229d927523bdd4473409d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e6fb5fbecc9b2917f4fde2d1ccb76d6962a0af18
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77522767"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593967"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 사용자 프로비전 구성 문제
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34451fcc4597f77464e5e9566613e21e9fecdbc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aff304b0866092badc515df7201fb4873acc298e
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74027306"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582931"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Azure Active Directory에서 정적 그룹 멤버 자격을 동적으로 변경
 
@@ -32,7 +32,7 @@ ms.locfileid: "74027306"
 
 ## <a name="change-the-membership-type-for-a-group"></a>그룹에 대한 멤버 자격 유형 변경
 
-1. 테 넌 트의 전역 관리자 또는 사용자 관리자 인 계정으로 [AZURE AD 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
+1. Azure ad 조직의 전역 관리자 또는 사용자 관리자 인 계정으로 [AZURE ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
 2. **그룹**을 선택 합니다.
 3. **모든 그룹** 목록에서 변경하려는 그룹을 엽니다.
 4. **속성**을 선택합니다.

@@ -1,6 +1,6 @@
 ---
 title: 전자 메일 확인 사용자에 대 한 셀프 서비스 등록-Azure AD | Microsoft Docs
-description: Azure Active Directory (Azure AD) 테 넌 트에서 셀프 서비스 등록 사용
+description: Azure Active Directory (Azure AD) 조직에서 셀프 서비스 등록 사용
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 953837e22cdd3ba8a54d702eac61461739db82d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fedb9375ec7ac7e7c7ac7a3ebf91166f70b6a05b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74027642"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583007"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Azure Active Directory에 대 한 셀프 서비스 등록 이란?
 
@@ -57,7 +57,7 @@ AllowEmailVerifiedUsers 및 AllowAdHocSubscriptions는 관리 되거나 관리 �
 
 이전 조건이 true인 경우, 멤버 사용자는 홈 디렉터리에서 생성되고, B2B 게스트 사용자는 초대 디렉터리에서 생성됩니다.
 
-Flow 및 PowerApps 평가판 등록은 **AllowAdHocSubscriptions** 설정에 의해 제어 되지 않습니다. 자세한 내용은 다음 항목을 참조하세요.
+Flow 및 PowerApps 평가판 등록은 **AllowAdHocSubscriptions** 설정에 의해 제어 되지 않습니다. 자세한 내용은 다음 아티클을 참조하세요.
 
 * [내 기존 사용자가 Power BI를 사용하기 시작하지 않도록 방지하는 방법](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
 * [조직의 Flow Q&A](https://docs.microsoft.com/flow/organization-q-and-a)

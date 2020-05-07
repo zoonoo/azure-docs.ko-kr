@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 2ebf5d574b4d185953ab0f7984648c440d6f107e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: fa8d8ccef7d6ad6e1b5d9f19de61e45ee8c439fa
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678680"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82587828"
 ---
 PowerShell cmdlet **AzPeeringLocation** 는 필수 매개 변수 `Kind`를 사용 하 여 피어 링 위치 목록을 반환 합니다 .이 위치는 이후 단계에서 사용할 수 있습니다.
 
@@ -30,7 +30,7 @@ Exchange 피어 링 위치에는 다음 필드가 포함 됩니다.
 * MicrosoftIPv4Address
 * MicrosoftIPv6Address
 
-[Peeringdb](https://wwww.peeringdb.com)를 참조 하 여 원하는 피어 링 기능에 있는지 확인 합니다.
+[Peeringdb](https://www.peeringdb.com)를 참조 하 여 원하는 피어 링 기능에 있는지 확인 합니다.
 
 이 예에서는 피어 링 위치로 시애틀을 사용 하 여 피어 링을 만드는 방법을 보여 줍니다.
 

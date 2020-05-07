@@ -3,12 +3,12 @@ title: Azure 서비스의 리소스 공급자
 description: Azure Resource Manager에 대 한 모든 리소스 공급자 네임 스페이스를 나열 하 고 해당 네임 스페이스에 대 한 Azure 서비스를 표시 합니다.
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: 55fbe4ae383e5275d185e2a03224e77660a01ef5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 9bb8d91d141997a7dd466d247ddcb0bd364e1c80
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81382505"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559863"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 서비스에 대 한 리소스 공급자
 
@@ -28,7 +28,7 @@ ms.locfileid: "81382505"
 | Microsoft AppConfiguration | core |
 | Microsoft AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft.Attestation | Azure 증명 서비스 |
-| Microsoft.Authorization | [Azure 리소스 관리자](../index.yml) |
+| Microsoft.Authorization | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automation](../../automation/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
 | Microsoft AzureData | SQL Server 레지스트리 |
@@ -61,7 +61,7 @@ ms.locfileid: "81382505"
 | Microsoft. CustomerLockbox | Microsoft Azure에 대 한 고객 Lockbox |
 | Microsoft CustomProviders | [Azure 사용자 지정 공급자](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](/azure/databox-family/) |
-| Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/data-box-edge-overview.md) |
+| Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) |
 | Microsoft.Databricks | [Azure Databricks](/azure/azure-databricks/) |
 | Microsoft.DataCatalog | [Data Catalog](/azure/data-catalog/) |
 | Microsoft.DataFactory | [Data Factory](/azure/data-factory/) |
@@ -84,7 +84,7 @@ ms.locfileid: "81382505"
 | EnterpriseKnowledgeGraph | 엔터프라이즈 지식 그래프 |
 | Microsoft.EventGrid | [Event Grid](/azure/event-grid/) |
 | Microsoft.EventHub | [Event Hubs](../../event-hubs/index.yml) |
-| Microsoft.Features | [Azure 리소스 관리자](../index.yml) |
+| Microsoft.Features | [Azure Resource Manager](../index.yml) |
 | Microsoft.GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
 | Microsoft.HanaOnAzure | [Azure의 SAP HANA(대규모 인스턴스)](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.HardwareSecurityModules | [Azure 전용 HSM](../../dedicated-hsm/index.yml) |
@@ -130,7 +130,7 @@ ms.locfileid: "81382505"
 | Microsoft.Relay | [Azure Relay](../../service-bus-relay/relay-what-is-it.md) |
 | Microsoft.ResourceGraph | [Azure Resource Graph](/azure/governance/resource-graph/) |
 | Microsoft.ResourceHealth | [Azure Service Health](../../service-health/index.yml)|
-| Microsoft.Resources | [Azure 리소스 관리자](../index.yml) |
+| Microsoft.Resources | [Azure Resource Manager](../index.yml) |
 | Microsoft.SaaS | core |
 | Microsoft.Scheduler | [Scheduler](/azure/scheduler/) |
 | Microsoft.Search | [Azure Cognitive Search](../../search/index.yml) |
@@ -145,9 +145,9 @@ ms.locfileid: "81382505"
 | Microsoft.Solutions | [Azure 관리되는 애플리케이션](../managed-applications/index.yml) |
 | Microsoft.Sql | [Azure SQL Database](../../sql-database/index.yml)<br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft.SqlVirtualMachine | [Azure Virtual Machines의 SQL Server](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) |
-| Microsoft.Storage | [저장소](../../storage/index.yml) |
+| Microsoft.Storage | [스토리지](../../storage/index.yml) |
 | StorageCache | [Azure HPC Cache](/azure/hpc-cache/) |
-| Microsoft.StorageSync | [저장소](../../storage/index.yml) |
+| Microsoft.StorageSync | [스토리지](../../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](/azure/storsimple/) |
 | Microsoft.StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |

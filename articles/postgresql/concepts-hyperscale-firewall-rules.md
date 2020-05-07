@@ -4,14 +4,15 @@ description: 이 문서에서는 Citus (Azure Database for PostgreSQL-Hyperscale
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: b843cd1528630a21255053f623356a0379daacf6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 127840738d8fb8db00a7efc0b0d8fe393138488d
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74975570"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580918"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL의 방화벽 규칙-Hyperscale (Citus)
 Azure Database for PostgreSQL 서버 방화벽은 사용 권한이 있는 컴퓨터를 지정할 때까지 Citus (Hyperscale) 코디네이터 노드에 대 한 모든 액세스를 차단 합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.

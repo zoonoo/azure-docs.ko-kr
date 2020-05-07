@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/23/2020
-ms.openlocfilehash: 64fe56ff506cf256dd7e317984551949f9ffad06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 2dae0f662eefa7f7b1f56d057cd47f1cb92244ce
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189367"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592063"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 크기 조정
 
@@ -30,7 +30,7 @@ HDInsight는 클러스터의 작업자 노드 수를 확장 및 축소 하는 �
 
 Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티를 제공 합니다.
 
-|유틸리티 | Description|
+|유틸리티 | 설명|
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
@@ -74,27 +74,38 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 
 * Apache Storm
 
-    폭풍이 실행 되는 동안 데이터 노드를 원활 하 게 추가 하거나 제거할 수 있습니다. 그러나 크기 조정 작업이 성공적으로 완료 된 후에는 토폴로지의 균형을 다시 조정 해야 합니다.
-
-    다음 두 가지 방법으로 사용하여 균형을 조정할 수 있습니다.
+    폭풍이 실행 되는 동안 데이터 노드를 원활 하 게 추가 하거나 제거할 수 있습니다. 그러나 크기 조정 작업이 성공적으로 완료 된 후에는 토폴로지의 균형을 다시 조정 해야 합니다. 균형을 재조정 하면 토폴로지는 클러스터의 새 노드 수에 따라 [병렬 처리 설정을](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) 다시 조정 수 있습니다. 실행 중인 토폴로지의 균형을 다시 조정하려면 다음 옵션 중 하나를 사용합니다.
 
   * Storm 웹 UI
+
+    Storm UI를 사용하여 토폴로지 균형을 다시 맞추려면 다음 단계를 사용합니다.
+
+    1. 웹 `https://CLUSTERNAME.azurehdinsight.net/stormui` 브라우저에서를 엽니다. 여기서 `CLUSTERNAME` 는 스톰 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 지정한 HDInsight 클러스터 관리자(관리자) 이름 및 암호를 입력합니다.
+
+    1. 균형을 다시 맞추려는 토폴로지를 선택한 다음 **균형 다시 맞추기** 단추를 선택합니다. 리 밸런스 작업이 완료 되기 전에 지연 시간을 입력 합니다.
+
+        ![HDInsight Storm 규모 균형 재조정](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
   * 명령줄 인터페이스(CLI) 도구
 
-    자세한 내용은 [Apache Storm 설명서](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)를 참조 하세요.
+    서버에 연결하고 다음 명령을 사용하여 토폴로지 균형을 다시 맞춥니다.
 
-    Storm 웹 UI는 HDInsight 클러스터에서 제공됩니다.
+    ```bash
+     storm rebalance TOPOLOGYNAME
+    ```
 
-    ![HDInsight Storm 규모 균형 재조정](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    매개 변수를 지정하여 원래 토폴로지로 제공된 병렬 처리 힌트를 재정의할 수도 있습니다. 예를 들어 아래 코드는 `mytopology` 토폴로지를 5 작업자 프로세스, 파란색 spout 구성 요소에 대 한 3 개의 실행자 및 노란색 볼트 구성 요소에 대 한 10 개의 실행자로 재구성 합니다.
 
-    다음은 Storm 토폴로지 균형을 다시 조정하는 CLI 명령의 예제입니다.
-
-    ```console
+    ```bash
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
+
+* Kafka
+
+    크기 조정 작업 후 파티션 복제본의 균형을 다시 조정해야 합니다. 자세한 내용은 [HDInsight에서 Apache Kafka를 사용한 데이터의 고가용성](./kafka/apache-kafka-high-availability.md) 문서를 참조하세요.
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>클러스터를 안전 하 게 확장 하는 방법
 
@@ -127,7 +138,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 yarn application -kill <application_id>
 ```
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```bash
 yarn application -kill "application_1499348398273_0003"
@@ -252,3 +263,8 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure HDInsight 클러스터 자동 크기 조정](hdinsight-autoscale-clusters.md)
+
+HDInsight 클러스터 크기 조정에 대한 자세한 내용은 다음을 참조하세요.
+
+* [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Azure CLI를 사용 하 여 HDInsight에서 Apache Hadoop 클러스터 관리](hdinsight-administer-use-command-line.md#scale-clusters)

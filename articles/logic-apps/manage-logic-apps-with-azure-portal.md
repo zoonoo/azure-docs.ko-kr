@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 author: lauradolan
 ms.author: ladolan
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/13/2020
-ms.openlocfilehash: f726ca90c215c4aff3734bd8022bbc1ad4dc5f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: d80972cd200b8f85e14d316c4c06a38f88ac81b5
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415949"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598167"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Azure Portal에서 논리 앱 관리
 
@@ -54,11 +54,11 @@ ms.locfileid: "81415949"
 
 1. **속성** 창에서 논리 앱에 대 한 다음 정보를 보고 복사할 수 있습니다.
 
-   * **이름**
+   * **Name**
    * **리소스 ID**
    * **리소스 그룹**
    * **위치**
-   * **Type** 
+   * **형식** 
    * **구독 이름**
    * **구독 ID**
    * **액세스 끝점**
@@ -145,6 +145,10 @@ Azure Portal에서 [단일 논리 앱을 삭제](#delete-single-logic-app) 하�
 * 진행 중인 모든 실행 및 보류 중인 실행은 완료 될 때까지 계속 됩니다. 이러한 실행의 수에 따라이 프로세스에 다소 시간이 걸릴 수 있습니다.
 
 * Logic Apps 엔진은 새 워크플로 인스턴스를 만들거나 실행 하지 않습니다.
+
+> [!NOTE]
+> 자식 논리 앱을 삭제 하 고 다시 만드는 경우 부모 논리 앱을 다시 저장 해야 합니다. 다시 만들어진 자식 앱은 다른 메타 데이터를 포함 합니다.
+> 자식을 다시 만든 후 부모 논리 앱을 다시 저장 하지 않으면 자식 논리 앱에 대 한 호출이 실패 하 고 "권한 없음" 오류가 표시 됩니다. 이 동작은 통합 계정에서 아티팩트를 사용 하거나 Azure 함수를 호출 하는 것과 같은 부모-자식 논리 앱에 적용 됩니다.
 
 <a name="delete-single-logic-app"></a>
 

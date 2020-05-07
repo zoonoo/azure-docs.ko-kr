@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 54f6473954c73de6ec29602c3d1563579b3e8cc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b452362744d7fbf655ea043127a15f5173d04e4c
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265390"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562460"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Azure Data Box Gateway 문제 해결 
 
@@ -40,7 +40,7 @@ ms.locfileid: "79265390"
 
 ## <a name="collect-support-package"></a>지원 패키지 수집
 
-로크 패키지는 Microsoft 지원에서 디바이스 문제를 해결하는 데 도움을 줄 수 있는 모든 관련 로그로 구성됩니다. 로그 패키지는 로컬 웹 UI를 통해 생성할 수 있습니다.
+로크 패키지는 Microsoft 지원에서 디바이스 문제를 해결하는 데 도움을 줄 수 있는 모든 관련 로그로 구성됩니다. 로그 패키지는 로컬 웹 UI를 통해 생성할 수 있습니다. 
 
 지원 패키지를 수집하려면 다음 단계를 수행합니다. 
 

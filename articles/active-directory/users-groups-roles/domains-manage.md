@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2395aa5984de2a9fe41e4778d16aba69bfef5192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e21d850f03fdca300085c864a12611acb968aa8
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77559236"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582959"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 도메인 이름 관리
 
@@ -41,7 +41,7 @@ ms.locfileid: "77559236"
 
 디렉터리의 주 도메인 이름을 페더레이션되지 않은 확인된 사용자 지정 도메인으로 변경할 수 있습니다. 디렉터리의 주 도메인을 변경해도 기존 사용자의 사용자 이름은 변경되지 않습니다.
 
-## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Azure AD 테넌트에 사용자 지정 도메인 이름 추가
+## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>Azure AD 조직에 사용자 지정 도메인 이름 추가
 
 관리되는 도메인 이름은 900개까지 추가할 수 있습니다. 모든 도메인을 온-프레미스 Active Directory와 페더레이션하도록 구성하려는 경우 각 디렉터리에서 최대 450개의 도메인 이름을 추가할 수 있습니다.
 
@@ -72,7 +72,7 @@ DNS 등록 기관을 변경하는 경우 Azure AD에서 추가로 수행해야 �
 Azure Portal에서 **ForceDelete**를 호출하려면 도메인 이름에 대한 참조가 1,000개 미만인지 확인해야 합니다. 또한 프로비저닝 서비스가 Exchange인 모든 참조는 [ Exchange 관리 센터](https://outlook.office365.com/ecp/)에서 업데이트하거나 제거해야 합니다. 여기에는 Exchange 메일 사용이 가능한 보안 그룹 및 배포 목록이 포함됩니다. 자세한 내용은 [메일 사용이 가능한 보안 그룹 제거](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)를 참조하세요. 또한 다음 중 하나에 해당하는 경우에는 **ForceDelete** 작업이 정상적으로 실행되지 않습니다.
 
 * Office 365 도메인 구독 서비스를 통해 도메인을 구매한 경우
-* 다른 고객 테넌트 대신 관리를 수행하는 파트너인 경우
+* 다른 고객 조직을 대신 하 여 관리 하는 파트너입니다.
 
 **ForceDelete** 작업의 일부분으로 수행되는 작업은 다음과 같습니다.
 
@@ -85,7 +85,7 @@ Azure Portal에서 **ForceDelete**를 호출하려면 도메인 이름에 대한
 * 이름을 바꿀 개체 수가 1,000개보다 많은 경우
 * 이름을 바꿀 애플리케이션 중 하나가 다중 테넌트 앱인 경우
 
-### <a name="frequently-asked-questions"></a>자주 묻는 질문
+### <a name="frequently-asked-questions"></a>질문과 대답
 
 **질문: 도메인 삭제가 실패하고 이 도메인 이름에 Exchange Mastered 그룹이 있다는 오류가 표시되는 이유는 무엇인가요?** <br>
 **대답:** 현재 메일 사용이 가능한 보안 그룹 및 배포 목록과 같은 특정 그룹은 Exchange에서 프로비전되므로 [EAC(Exchange 관리 센터)](https://outlook.office365.com/ecp/)에서 수동으로 정리해야 합니다. 사용자 지정 도메인 이름을 사용하는 느린 ProxyAddresses가 있을 수도 있으며, 이러한 항목은 다른 도메인 이름으로 수동 업데이트해야 합니다. 

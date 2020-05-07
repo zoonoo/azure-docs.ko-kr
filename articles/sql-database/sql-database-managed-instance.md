@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
-ms.openlocfilehash: 04b07ff60c882501c49ad58607db867e7e99897c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 65bce50665b6dd99662e99ca57569f906f3af208
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80879074"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598541"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스는 무엇입니까?
 
@@ -167,19 +167,31 @@ Azure SQL Database에서는 관리되는 새로운 인스턴스를 자동으로 
 
 \*\*\*12 시간은 현재 구성 이지만 나중에 변경 될 수 있으므로이에 대 한 하드 종속성을 주지 않습니다. 이전에 가상 클러스터를 삭제 해야 하는 경우 (예: 서브넷을 해제 하려면) [Azure SQL Database 관리 되는 인스턴스를 삭제 한 후 서브넷 삭제](sql-database-managed-instance-delete-virtual-cluster.md)를 참조 하세요.
 
-### <a name="instance-availability-during-management"></a>관리 중 인스턴스 가용성
+### <a name="instance-availability-during-management-operations"></a>관리 작업 중 인스턴스 가용성
 
 관리 되는 인스턴스는 배포 및 삭제 작업 중에 클라이언트 응용 프로그램에서 사용할 수 없습니다.
 
-관리 되는 인스턴스는 업데이트 작업 중에 사용할 수 있지만 일반적으로 최대 10 초 동안 발생 하는 업데이트의 끝에서 발생 하는 장애 조치 (failover)로 인 한 가동 중지 시간이 짧습니다. 이에 대 한 예외는 일반 용도의 서비스 계층의 예약 된 저장소 공간 업데이트로, 장애 조치 (failover)가 발생 하거나 인스턴스 가용성에 영향을 주지 않습니다.
-
-> [!IMPORTANT]
-> [복구 시간이 길어질 때](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process)데이터베이스에서 발생 하는 장기 실행 트랜잭션의 경우 장애 조치 (failover) 기간이 크게 달라질 수 있습니다. 따라서 관리 되는 인스턴스의 계산 또는 Azure SQL Database 저장소 크기를 조정 하거나 장기 실행 트랜잭션 (데이터 가져오기, 데이터 처리 작업, 인덱스 다시 작성 등)을 사용 하 여 서비스 계층을 동시에 변경 하지 않는 것이 좋습니다. 작업이 끝날 때 수행 되는 데이터베이스 장애 조치 (failover)는 진행 중인 트랜잭션을 취소 하 고 복구 시간이 길어질 수 있습니다.
+업데이트를 마칠 때 발생 하는 장애 조치 (failover)로 인 한 짧은 가동 중지 시간을 제외 하 고 업데이트 작업 중에 관리 되는 인스턴스를 사용할 수 가속화 된 장기 실행 트랜잭션이 중단 되는 경우에도 [가속화 된 데이터베이스 복구](sql-database-accelerated-database-recovery.md)덕분에 일반적으로 최대 10 초 정도 지속 됩니다.
 
 > [!TIP]
 > 범용 서비스 계층의 예약 된 저장소 공간 업데이트는 장애 조치 (failover)가 발생 하거나 인스턴스 가용성에 영향을 주지 않습니다.
 
-[가속화 된 데이터베이스 복구](sql-database-accelerated-database-recovery.md) 는 현재 Azure SQL Database 관리 되는 인스턴스에 사용할 수 없습니다. 이 기능을 사용 하도록 설정 하면 장기 실행 트랜잭션의 경우에도 장애 조치 (failover) 시간의 가변성을 크게 줄일 수 있습니다.
+> [!IMPORTANT]
+> Azure SQL Database 관리 되는 인스턴스의 계산 또는 저장소 크기를 조정 하거나 장기 실행 트랜잭션 (데이터 가져오기, 데이터 처리 작업, 인덱스 다시 작성 등)을 사용 하 여 서비스 계층을 동시에 변경 하는 것은 권장 되지 않습니다. 작업이 끝날 때 수행 되는 데이터베이스 장애 조치 (failover)는 진행 중인 모든 트랜잭션을 취소 합니다.
+
+
+### <a name="management-operations-cross-impact"></a>관리 작업 간 영향
+
+관리 되는 인스턴스 관리 작업은 동일한 가상 클러스터 내에 배치 된 인스턴스의 다른 관리 작업에 영향을 줄 수 있습니다. 여기에는 다음이 포함 됩니다.
+
+- 가상 클러스터에서 **장기 실행 복원 작업** 은 동일한 서브넷에서 다른 인스턴스 만들기 또는 크기 조정 작업을 수행 하는 경우에 배치 됩니다.<br/>**예:** 장기 실행 복원 작업을 수행 하 고 동일한 서브넷에 만들기 또는 크기 조정 요청이 있는 경우 계속 하기 전에 복원 작업이 완료 될 때까지 대기 하므로이 요청을 완료 하는 데 시간이 더 오래 걸립니다.
+    
+- **이후 인스턴스 만들기 또는 크기 조정** 작업은 이전에 시작 된 인스턴스 만들기 또는 가상 클러스터 크기 조정을 시작한 인스턴스 크기에 따라 유지 됩니다.<br/>**예:** 동일한 가상 클러스터에 있는 동일한 서브넷에 여러 개의 만들기 및/또는 크기 조정 요청이 있고 그 중 하나에서 가상 클러스터 크기 조정을 시작 하는 경우 가상 클러스터 크기를 조정 하는 데 필요한 모든 요청은 가상 클러스터 크기를 조정 하는 데 필요한 시간 보다 더 오래 지속 됩니다. 이러한 요청은 다시 시작 하기 전에 크기 조정이 완료 될 때까지 기다려야 합니다.
+
+- **5 분 내에 제출 된 만들기/크기 조정 작업** 은 일괄 처리 되 고 동시에 실행 됩니다.<br/>**예:** 5 분 내에 제출 된 모든 작업에 대해 하나의 가상 클러스터 크기 조정만 수행 됩니다 (첫 번째 작업 요청을 실행 하는 순간부터 측정). 첫 번째 요청을 제출한 후 5 분 넘게 다른 요청을 제출 하는 경우 실행이 시작 되기 전에 가상 클러스터 크기 조정이 완료 될 때까지 기다립니다.
+
+> [!IMPORTANT]
+> 진행 중인 다른 작업으로 인해 유지 되는 관리 작업은 계속 되는 조건이 충족 되 면 자동으로 다시 시작 됩니다. 일시 중지 된 관리 작업을 다시 시작 하는 데 필요한 사용자 작업은 없습니다.
 
 ### <a name="canceling-management-operations"></a>관리 작업 취소
 
@@ -320,7 +332,7 @@ SQL Database 서비스는 사용자를 위해 작업을 수행하거나 이러�
 
 다음 표는 Transact SQL을 통해 액세스할 수 있으며 애플리케이션이 Managed Instance와 함께 작동 중인지 감지하고 중요한 속성을 검색하는 데 사용할 수 있는 여러 속성을 보여줍니다.
 
-|속성|값|주석|
+|속성|값|설명|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure(RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|이 값은 SQL Database와 같습니다. 이 **는** SQL 엔진 버전 12 (SQL Server 2014)를 나타내지 않습니다. 관리 되는 인스턴스는 항상 사용 가능한 최신 RTM 버전의 SQL Server와 같거나 높은 안정적인 최신 SQL 엔진 버전을 항상 실행 합니다.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|이 값은 SQL Database와 같습니다.|

@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 61da2454d6a72d43a7b4600d7ea85e6a3f82958f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 886bff3f57f101229c04e91cfa4cf85051f8b1c6
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60755039"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561170"
 ---
 # <a name="monitor-your-azure-data-box-gateway"></a>Azure Data Box Gateway 모니터링
 
-이 문서에서는 Azure Data Box Gateway를 모니터링하는 방법을 설명합니다. 디바이스를 모니터링하기 위해 Azure Portal 또는 로컬 웹 UI를 사용할 수 있습니다. Azure Portal을 사용하여 디바이스 이벤트를 보고 경고를 구성 및 관리하고 메트릭을 봅니다.
+이 문서에서는 Azure Data Box Gateway를 모니터링하는 방법을 설명합니다. 디바이스를 모니터링하기 위해 Azure Portal 또는 로컬 웹 UI를 사용할 수 있습니다. Azure Portal을 사용하여 디바이스 이벤트를 보고 경고를 구성 및 관리하고 메트릭을 봅니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 

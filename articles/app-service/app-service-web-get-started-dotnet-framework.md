@@ -5,12 +5,12 @@ ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
 ms.date: 04/21/2020
 ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: 47a5cf2586b8146a68772962c60dc0dbdbb7e2fe
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 056c96807fed7d5acca85635440c8fe4d989c933
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768832"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592397"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Azure에서 ASP.NET Framework 웹앱 만들기
 
@@ -138,6 +138,8 @@ Visual Studio 2019를 이미 설치한 경우:
    ![Azure Portal의 App Service 개요](./media/app-service-web-get-started-dotnet-framework/web-app-general-framework-vs2019.png)
 
    왼쪽 메뉴에는 앱을 구성할 수 있는 여러 페이지가 표시됩니다.
+
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

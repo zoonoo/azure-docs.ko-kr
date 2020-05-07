@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 89f981fcda8f40daff49ebdf796b896d90ce1754
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2476cf360909374f711564fb5fad5c9e0706083d
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69900619"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562477"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Azure Data Box Gateway 보안 및 데이터 보호
 
@@ -39,7 +39,7 @@ Data Box Gateway 서비스는 Azure에서 호스트 되는 관리 서비스입�
 
 Data Box Gateway 장치는 사용자가 제공 하는 온-프레미스 시스템의 하이퍼바이저에서 프로 비전 되는 가상 장치입니다. 장치는 Azure에 데이터를 전송 하는 데 도움이 됩니다. 장치:
 
-- Data Box Edge/Data Box Gateway 서비스에 액세스 하려면 정품 인증 키가 필요 합니다.
+- Azure Stack Edge/Data Box Gateway 서비스에 액세스 하려면 정품 인증 키가 필요 합니다.
 - 는 장치 암호로 항상 보호 됩니다.
 <!---  secure boot enabled.
 - Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies.-->
@@ -56,7 +56,7 @@ Data Box Gateway 장치는 사용자가 제공 하는 온-프레미스 시스템
 
 암호는 권한 있는 사용자만 데이터에 액세스할 수 있도록 합니다. Data Box Gateway 장치는 잠긴 상태에서 부팅 됩니다.
 
-다음과 같은 작업을 수행할 수 있습니다.
+다음과 같습니다.
 
 - 브라우저를 통해 장치의 로컬 웹 UI에 연결 하 고 장치에 로그인 하는 데 암호를 제공 합니다.
 - HTTP를 통해 장치의 PowerShell 인터페이스에 원격으로 연결 합니다. 원격 관리는 기본적으로 설정 되어 있습니다. 그런 다음 장치 암호를 제공 하 여 장치에 로그인 할 수 있습니다. 자세한 내용은 [Data Box Gateway 장치에 원격으로 연결](data-box-gateway-connect-powershell-interface.md#connect-to-the-powershell-interface)을 참조 하세요.

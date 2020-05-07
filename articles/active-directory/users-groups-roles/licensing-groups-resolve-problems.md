@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddfc4bf7ed3bdf214a44a5dfe03259d32b2f3f94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43eba1b2f3373555e871b586ae633dcb64abfd9b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74025689"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582687"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결
 
@@ -66,7 +66,7 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
 **문제:** 그룹에 지정된 제품 중 하나에 이미 다른 제품을 통해 사용자에게 할당된 다른 서비스 계획과 충돌하는 서비스 계획이 포함되어 있습니다. 일부 서비스 계획은 관련된 다른 서비스 계획과 동일한 사용자에게 할당할 수 없는 방식으로 구성되어 있습니다.
 
-아래 예제를 고려해 보세요. 모든 계획을 사용하도록 설정된 Office 365 Enterprise *E1*의 라이선스가 한 사용자에게 직접 할당되었습니다. 이 사용자는 Office 365 Enterprise *E3* 제품이 할당된 그룹에 추가되었습니다. E3 제품에는 E1에 포함된 계획과 중복될 수 없는 서비스 계획이 포함되어 있으므로 그룹 라이선스 할당은 "서비스 계획 충돌" 오류로 인해 실패합니다. 이 예제에서 충돌하는 서비스 계획은 다음과 같습니다.
+다음 예제를 살펴보십시오. 모든 계획을 사용하도록 설정된 Office 365 Enterprise *E1*의 라이선스가 한 사용자에게 직접 할당되었습니다. 이 사용자는 Office 365 Enterprise *E3* 제품이 할당된 그룹에 추가되었습니다. E3 제품에는 E1에 포함된 계획과 중복될 수 없는 서비스 계획이 포함되어 있으므로 그룹 라이선스 할당은 "서비스 계획 충돌" 오류로 인해 실패합니다. 이 예제에서 충돌하는 서비스 계획은 다음과 같습니다.
 
 - SharePoint Online(계획 2)은 SharePoint Online(계획 1)과 충돌합니다.
 - Exchange Online(계획 2)은 Exchange Online(계획 1)과 충돌합니다.
@@ -100,7 +100,7 @@ Azure AD가 사용 위치가 지원되지 않는 사용자에게 그룹 라이�
 
 ## <a name="duplicate-proxy-addresses"></a>프록시 주소 중복
 
-Exchange Online을 사용하는 경우 테넌트의 일부 사용자가 동일한 프록시 주소 값으로 올바르게 구성되지 않을 수 있습니다. 그룹 기반 라이선스가 이러한 사용자에게 라이선스를 할당하려 할 때 실패하면 “프록시 주소가 이미 사용 중”이라는 메시지가 표시됩니다.
+Exchange Online을 사용 하는 경우 조직의 일부 사용자가 동일한 프록시 주소 값으로 올바르게 구성 되지 않을 수 있습니다. 그룹 기반 라이선스가 이러한 사용자에게 라이선스를 할당하려 할 때 실패하면 “프록시 주소가 이미 사용 중”이라는 메시지가 표시됩니다.
 
 > [!TIP]
 > 중복 프록시 주소가 있는지를 확인하려면 Exchange Online에 대해 다음과 같은 PowerShell cmdlet을 실행합니다.

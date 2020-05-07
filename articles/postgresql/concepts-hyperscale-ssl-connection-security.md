@@ -4,14 +4,15 @@ description: Citus (Azure Database for PostgreSQL-Hyperscale) 및 연결 된 응
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 8a691b6d3f28800ab1cb38a72f124e950d485084
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 791eed9419375c7245488b8ec61a1c5481be382e
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422331"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580574"
 ---
 # <a name="configure-tls-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale에서 TLS 구성 (Citus)
 Citus (Hyperscale) 코디네이터 노드에 대 한 클라이언트 응용 프로그램 연결에는 TLS (전송 계층 보안)가 필요 하며,이는 이전에 SSL (SSL(Secure Sockets Layer)) 이라고 합니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간에 TLS 연결을 적용 하면 서버와 응용 프로그램 간에 데이터 스트림을 암호화 하 여 "메시지 가로채기 (man-in-the-middle)" 공격 으로부터 보호 하는 데 도움이 됩니다.

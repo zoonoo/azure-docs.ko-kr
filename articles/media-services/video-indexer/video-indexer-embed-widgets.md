@@ -10,18 +10,18 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: 5134a262397676aa9b59de9b0c6de61c26d21523
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 545dbcfb1db5595ff5b2047ec44afa8a065d816d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262913"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594851"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>앱에 Video Indexer 위젯을 포함 합니다.
 
 이 문서에서는 앱에 Video Indexer 위젯을 포함 하는 방법을 보여 줍니다. Video Indexer는 *인식 통찰력*, *플레이어*및 *편집자*의 세 가지 위젯 유형을 앱에 포함 하도록 지원 합니다.
 
-버전 2부터 위젯 기준 URL에는 지정 된 계정의 지역이 포함 됩니다. 예를 들어 미국 서부 지역의 계정은 `https://wus2.videoindexer.ai/embed/insights/...`를 생성합니다.
+버전 2부터 위젯 기준 URL에는 지정 된 계정의 지역이 포함 됩니다. 예를 들어 미국 서부 지역의 계정은 `https://www.videoindexer.ai/embed/insights/.../?location=westus2`를 생성합니다.
 
 ## <a name="widget-types"></a>위젯 유형
 
@@ -29,19 +29,20 @@ ms.locfileid: "81262913"
 
 인지 인사이트 위젯에는 비디오 인덱싱 프로세스에서 추출한 모든 시각적 인사이트가 포함되어 있습니다. 인식 통찰력 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|속성|정의|Description|
+|Name|정의|설명|
 |---|---|---|
 |`widgets` | 쉼표로 구분된 문자열 | 렌더링 하려는 정보를 제어할 수 있습니다.<br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` 사용자 및 키워드 UI 정보를 렌더링 합니다.<br/>사용 가능한 옵션: 사람, animatedCharacters, 키워드, 레이블, 정서, 감정을, 토픽, 키 프레임, 성적 증명서, ocr, 스피커, 장면 및 namedEntities.|
 |`controls`|쉼표로 구분된 문자열|렌더링 하려는 컨트롤을 제어할 수 있습니다.<br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` 검색 옵션 및 다운로드 단추만 렌더링 합니다.<br/>사용 가능한 옵션: 검색, 다운로드, 사전 설정, 언어|
 |`language`|짧은 언어 코드 (언어 이름)|Insights 언어를 제어 합니다.<br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>또는 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | 짧은 언어 코드 | UI의 언어를 제어 합니다. 기본값은 `en`입니다. <br/>예: `locale=de`.|
 |`tab` | 기본 선택 된 탭 | 기본적으로 렌더링 되는 **Insights** 탭을 제어 합니다. <br/>예: `tab=timeline` **타임 라인** 탭이 선택 된 상태에서 정보를 렌더링 합니다.|
+|`location` ||매개 `location` 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 위치 값에 `trial` 대해를 사용 해야 합니다. `trial``location` 매개 변수의 기본값입니다.| 
 
 ### <a name="player-widget"></a>플레이어 위젯
 
 플레이어 위젯을 사용 하 여 적응 비트 전송률을 사용 하 여 비디오를 스트리밍할 수 있습니다. 플레이어 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|속성|정의|Description|
+|Name|정의|설명|
 |---|---|---|
 |`t` | 시작부터 초 | 지정 된 시간 지점에서 플레이어의 재생을 시작 합니다.<br/> 예: `t=60`. |
 |`captions` | 언어 코드 | **캡션** 메뉴에서 위젯 로드를 사용할 수 있도록 지정 된 언어의 캡션을 페치합니다.<br/> 예: `captions=en-US`. |
@@ -49,34 +50,40 @@ ms.locfileid: "81262913"
 |`type`| | 오디오 플레이어 스킨을 활성화 합니다 (비디오 부분이 제거 됨).<br/> 예: `type=audio`. |
 |`autoplay` | 부울 값 | 플레이어가 로드 될 때 비디오 재생을 시작 해야 하는지 여부를 나타냅니다. 기본값은 `true`입니다.<br/> 예: `autoplay=false`. |
 |`language`/`locale` | 언어 코드 | 플레이어 언어를 제어 합니다. 기본값은 `en-US`입니다.<br/>예: `language=de-DE`.|
+|`location` ||매개 `location` 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 위치 값에 `trial` 대해를 사용 해야 합니다. `trial``location` 매개 변수의 기본값입니다.| 
 
 ### <a name="editor-widget"></a>편집기 위젯
 
 편집기 위젯을 사용 하 여 새 프로젝트를 만들고 비디오의 정보를 관리할 수 있습니다. 편집기 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|속성|정의|Description|
+|Name|정의|설명|
 |---|---|---|
-|`accessToken`<sup>*</sup> | 문자열 | 위젯을 포함 하는 데 사용 되는 계정에만 있는 비디오에 대 한 액세스를 제공 합니다.<br> 편집기 위젯에는 `accessToken` 매개 변수가 필요 합니다. |
+|`accessToken`<sup>*</sup> | String | 위젯을 포함 하는 데 사용 되는 계정에만 있는 비디오에 대 한 액세스를 제공 합니다.<br> 편집기 위젯에는 `accessToken` 매개 변수가 필요 합니다. |
 |`language` | 언어 코드 | 플레이어 언어를 제어 합니다. 기본값은 `en-US`입니다.<br/>예: `language=de-DE`. |
 |`locale` | 짧은 언어 코드 | Insights 언어를 제어 합니다. 기본값은 `en`입니다.<br/>예: `language=de`. |
+|`location` ||매개 `location` 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 위치 값에 `trial` 대해를 사용 해야 합니다. `trial``location` paramete에 대 한 기본값입니다.| 
 
 <sup>*</sup>소유자는 신중 하 `accessToken` 게 제공 해야 합니다.
 
-## <a name="embedding-public-content"></a>공용 콘텐츠 포함
+## <a name="embedding-videos"></a>비디오 포함
+
+이 섹션에서는 공용 및 개인 콘텐츠를 앱에 포함 하는 방법을 설명 합니다.
+
+매개 `location` 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 위치 값에 `trial` 대해를 사용 해야 합니다. `trial``location` paramete에 대 한 기본값입니다. 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`
+
+> [!IMPORTANT]
+> **플레이어** 또는 **Insights** 위젯에 대 한 링크를 공유 하면 액세스 토큰이 포함 되며 계정에 읽기 전용 권한을 부여 합니다.
+
+### <a name="public-content"></a>공용 콘텐츠
 
 1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트에 로그인 합니다.
-2. 작업 하려는 비디오를 선택 합니다.
-3. 비디오 아래에 표시 되**</>** 는 포함 단추 ()를 선택 합니다.
-
-    **Embed** 단추를 선택한 후에는 앱에 포함 하려는 위젯을 선택할 수 있습니다.
-4. 원하는 위젯 유형 (**인지 정보**, **플레이어**또는 **편집기**)을 선택 합니다.
+1. 작업 하려는 비디오를 선택 하 고 **재생**을 누릅니다.
+1. 원하는 위젯 유형 (**인지 정보**, **플레이어**또는 **편집기**)을 선택 합니다.
+1. ** &lt; / &gt; Embed**를 클릭 합니다.
 5. Embed 태그를 복사 합니다 ( **공유 & embed** 대화 상자에 **포함 된 코드 복사** 에 표시).
 6. 앱에 코드를 추가 합니다.
 
-> [!NOTE]
-> 비디오 Url을 공유 하는 데 문제가 있는 경우 `location` 매개 변수를 링크에 추가 합니다. 매개 변수는 [Video Indexer 있는 Azure 지역](regions.md)으로 설정 해야 합니다. 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`
-
-## <a name="embedding-private-content"></a>프라이빗 콘텐츠 포함
+### <a name="private-content"></a>개인 콘텐츠
 
 개인 비디오를 포함 하려면 iframe의 `src` 특성에 액세스 토큰을 전달 해야 합니다.
 
@@ -186,7 +193,7 @@ Azure Media Player 이외의 비디오 플레이어를 사용 하는 경우 비�
         </video>    
 
 2. 인지 인사이트 위젯을 포함합니다.
-3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 다음은 그 예입니다.
+3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 예를 들면 다음과 같습니다.
 
         <script>
     
@@ -247,7 +254,7 @@ iframe 창의 제목도 iframe URL에 `&title=<YourTitle>`을 제공하여 사�
 
 Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하여 플레이어 크기를 선택할 수 있습니다.
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
@@ -267,7 +274,7 @@ Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하�
 
 Video Indexer API 및 위젯의 샘플이 포함 된 [코드 샘플](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) 리포지토리를 참조 하세요.
 
-| 파일/폴더                       | Description                                |
+| 파일/폴더                       | 설명                                |
 |-----------------------------------|--------------------------------------------|
 | `azure-media-player`              | 사용자 지정 Azure Media Player 비디오 인덱서 비디오를 로드 합니다.                        |
 | `azure-media-player-vi-insights`  | 사용자 지정 Azure Media Player를 사용 하 여 VI 정보를 포함 합니다.                             |

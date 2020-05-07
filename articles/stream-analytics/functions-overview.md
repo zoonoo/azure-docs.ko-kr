@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.openlocfilehash: 45e766c624ee96f7faa06fb07d00349e620a4c0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d167c603ada885a1a4917c66bab110e4ce38cab4
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133476"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598371"
 ---
 # <a name="user-defined-functions-in-azure-stream-analytics"></a>Azure Stream Analytics의 사용자 정의 함수
 
@@ -47,6 +47,9 @@ Azure Stream Analytics는 모든 함수 호출 및 반환 된 결과에 대 한 
 
 모든 런타임 오류는 치명적인 것으로 간주 되 고 활동 및 리소스 로그를 통해 표시 됩니다. 함수에서 모든 예외와 오류를 처리 하 고 유효한 결과를 쿼리에 반환 하는 것이 좋습니다. 이렇게 하면 작업이 [실패 한 상태로](job-states.md)전환 되지 않습니다.  
 
+## <a name="exception-handling"></a>예외 처리
+
+데이터를 처리 하는 동안 발생 하는 모든 예외는 Azure Stream Analytics에서 데이터를 사용할 때 치명적인 오류로 간주 됩니다. 사용자 정의 함수는 예외를 throw 할 가능성이 높고 처리가 중지 될 수 있습니다. 이 문제를 방지 하려면 JavaScript 또는 c #에서 try-catch 블록을 사용 하 여 코드를 실행 *하는 동안* 예외를 catch 합니다. Catch 된 예외는 시스템 오류를 발생 시 키 지 않고 기록 하 고 처리할 수 있습니다. 처리 엔진에 예기치 않은 예외가 발생 하지 않도록 하기 위해 항상 사용자 지정 코드를 *try-catch* 블록에 래핑하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -54,4 +57,3 @@ Azure Stream Analytics는 모든 함수 호출 및 반환 된 결과에 대 한 
 * [JavaScript 사용자 정의 집계 Azure Stream Analytics](stream-analytics-javascript-user-defined-aggregates.md)
 * [Azure Stream Analytics 작업에 대 한 .NET Standard 사용자 정의 함수 개발](stream-analytics-edge-csharp-udf-methods.md)
 * [Azure Machine Learning와 Azure Stream Analytics 통합](machine-learning-udf.md)
-
