@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 753d606e1fc2dc966c970a210cf6fc5066d5ed83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c49467451963ceb52f114430343fafb955ec4f7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460140"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786991"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Linux 가상 머신에 대 한 Azure Disk Encryption FAQ
 
@@ -21,7 +21,7 @@ ms.locfileid: "81460140"
 
 ## <a name="what-is-azure-disk-encryption-for-linux-vms"></a>Linux Vm의 Azure Disk Encryption은 무엇 인가요?
 
-Linux Vm에 대 한 Azure Disk Encryption Linux의 dm 기능을 사용 하 여 OS 디스크 * 및 데이터 디스크에 대 한 전체 디스크 암호화를 제공 합니다. 또한 [EncryptFormatAll 기능](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms)을 사용 하는 경우 임시 리소스 디스크의 암호화를 제공 합니다. VM에서 저장소 백 엔드로 암호화 된 콘텐츠 흐름입니다. 따라서 고객이 관리 하는 키를 사용 하 여 종단 간 암호화를 제공 합니다.
+Linux Vm에 대 한 Azure Disk Encryption Linux의 dm 기능을 사용 하 여 OS 디스크 * 및 데이터 디스크에 대 한 전체 디스크 암호화를 제공 합니다. 또한 [EncryptFormatAll 기능](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms)을 사용 하는 경우 임시 디스크의 암호화를 제공 합니다. VM에서 저장소 백 엔드로 암호화 된 콘텐츠 흐름입니다. 따라서 고객이 관리 하는 키를 사용 하 여 종단 간 암호화를 제공 합니다.
  
 [지원 되는 vm 및 운영 체제를](disk-encryption-overview.md#supported-vms-and-operating-systems)참조 하세요.
 
@@ -61,7 +61,7 @@ OS 볼륨을 암호화 한 후에는 OS 볼륨에서 암호화를 사용 하지 
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>는 고객이 관리 하는 키를 사용 하 여 저장소 서버 쪽 암호화와 Azure Disk Encryption 어떻게 다르며 언제 각 솔루션을 사용 해야 하나요?
 
-Azure Disk Encryption는 고객이 관리 하는 키를 사용 하 여 OS 디스크, 데이터 디스크 및 임시 리소스 디스크에 대 한 종단 간 암호화를 제공 합니다.
+Azure Disk Encryption는 고객 관리 키를 사용 하 여 OS 디스크, 데이터 디스크 및 임시 디스크에 대 한 종단 간 암호화를 제공 합니다.
 - 요구 사항에 위의 암호화와 종단 간 암호화를 모두 암호화 하는 작업이 포함 된 경우 Azure Disk Encryption를 사용 합니다. 
 - 요구 사항에 따라 고객이 관리 하는 키를 사용 하 여 미사용 데이터만 암호화 해야 하는 경우에 [는 고객 관리 키를 사용 하 여 서버 쪽 암호화](disk-encryption.md)를 사용 합니다. 고객 관리 키를 사용 하 여 Azure Disk Encryption 및 저장소 서버 쪽 암호화를 모두 사용 하 여 디스크를 암호화할 수 없습니다. 
 - [Azure Disk Encryption에 대해 지원 되는 운영 체제](disk-encryption-overview.md#supported-operating-systems) 에 Linux 배포판이 나열 되어 있지 않거나 [지원 되지 않는 Windows 시나리오](disk-encryption-linux.md#unsupported-scenarios)에서 호출 된 시나리오를 사용 하는 경우 [고객 관리 키를 사용 하 여 서버 쪽 암호화](disk-encryption.md)를 고려 합니다.

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1208e08f7b85e893ba754bdbdf71a2da4f68c90a
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 6a21effc3e567e75a8851fec35ff80dffc60a761
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509071"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787178"
 ---
 # <a name="overview-of-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 개요
 
@@ -23,10 +23,15 @@ ms.locfileid: "82509071"
 - Microsoft 서비스
 - Linux 데몬
 
-변경 내용 추적 및 인벤토리는 클라우드의 Azure Monitor 서비스에서 데이터를 가져옵니다. Azure는 모니터링 되는 서버에서 설치 된 소프트웨어, Microsoft 서비스, Windows 레지스트리 및 파일 및 Linux 디먼에 대 한 변경 내용을 처리를 위해 Azure Monitor 보냅니다. 클라우드 서비스는 수신 된 데이터에 논리를 적용 하 고 기록 하 여 사용할 수 있도록 합니다. 
-
 > [!NOTE]
 > Azure Resource Manager 속성 변경 내용을 추적 하려면 Azure 리소스 그래프 [변경 기록](../governance/resource-graph/how-to/get-resource-changes.md)을 참조 하세요.
+
+변경 내용 추적 및 인벤토리는 Azure Monitor에서 데이터를 가져옵니다. Log Analytics 작업 영역에 연결 된 가상 컴퓨터는 Log Analytics 에이전트를 사용 하 여, 모니터링 되는 서버에서 설치 된 소프트웨어, Microsoft 서비스, Windows 레지스트리 및 파일, Linux 디먼의 변경 내용에 대 한 데이터를 수집 합니다. 데이터를 사용할 수 있는 경우 에이전트는 처리를 위해 Azure Monitor 보냅니다. Azure Monitor는 수신 된 데이터에 논리를 적용 하 고 기록 하며 사용할 수 있도록 합니다. 
+
+변경 내용 추적 및 인벤토리 기능을 사용 하면 Azure Automation의 변경 내용 추적 및 인벤토리 기능 영역을 모두 사용할 수 있습니다. 두 영역 모두 동일한 Log Analytics 에이전트를 사용 하기 때문에 VM을 추가 하는 프로세스는 두 기능 영역에서 동일 합니다. 
+
+> [!NOTE]
+> 변경 내용 추적 및 인벤토리 기능을 사용 하려면 Automation 계정의 동일한 구독 및 지역에서 모든 Vm을 찾아야 합니다.
 
 현재 변경 내용 추적 및 인벤토리는 다음 항목을 지원 하지 않습니다.
 
@@ -38,7 +43,7 @@ ms.locfileid: "82509071"
 기타 제한 사항은 다음과 같습니다.
 
 * **최대 파일 크기** 열과 값은 현재 구현에서 사용되지 않습니다.
-* 30 분 컬렉션 주기에서 2500 개 이상의 파일을 수집 하는 경우 솔루션 성능이 저하 될 수 있습니다.
+* 30 분 컬렉션 주기에서 2500 개 이상의 파일을 수집 하는 경우 변경 내용 추적 및 인벤토리 성능이 저하 될 수 있습니다.
 * 네트워크 트래픽이 높으면 변경 레코드를 표시 하는 데 최대 6 시간이 걸릴 수 있습니다.
 * 컴퓨터를 종료 하는 동안 구성을 수정 하는 경우 컴퓨터에서 이전 구성에 속하는 변경 내용을 게시할 수 있습니다.
 
@@ -49,33 +54,7 @@ ms.locfileid: "82509071"
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-변경 내용 추적 및 인벤토리 및 Azure Monitor Log Analytics 에이전트는 Windows 및 Linux 운영 체제에서 지원 됩니다.
-
-### <a name="windows-operating-systems"></a>Windows 운영 체제
-
-공식적으로 지원 되는 Windows 운영 체제 버전은 Windows Server 2008 R2 이상 버전입니다.
-
-### <a name="linux-operating-systems"></a>Linux 운영 체제
-
-아래에서 설명 하는 Linux 배포판은 Linux 용 Log Analytics 에이전트에 공식적으로 지원 됩니다. 하지만 Linux 에이전트는 나열되지 않은 그 밖의 배포에서 실행이 가능할 수 있습니다. 다른 설명이 없는 한, 나열된 각 주 버전의 모든 부 버전이 지원됩니다.
-
-#### <a name="64-bit-linux-operating-systems"></a>64 비트 Linux 운영 체제
-
-* CentOS 6 및 7
-* Amazon Linux 2017.09
-* Oracle Linux 6 및 7
-* Red Hat Enterprise Linux Server 6 및 7
-* Debian GNU/Linux 8 및 9
-* Ubuntu Linux 14.04 LTS, 16.04 LTS, 18.04 LTS
-* SUSE Linux Enterprise Server 12
-
-#### <a name="32-bit-linux-operating-systems"></a>32 비트 Linux 운영 체제
-
-* CentOS 6
-* Oracle Linux 6
-* Red Hat Enterprise Linux Server 6
-* Debian GNU/Linux 8 및 9
-* Ubuntu Linux 14.04 LTS 및 16.04 LTS
+변경 내용 추적 및 인벤토리는 Log Analytics 에이전트 요구 사항을 충족 하는 모든 운영 체제에서 지원 됩니다. 공식적으로 지원 되는 Windows 운영 체제 버전은 Windows Server 2008 SP1 이상 및 Windows 7 SP1 이상입니다. 여러 Linux 운영 체제도 지원 됩니다. [Log Analytics 에이전트 개요](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent)를 참조 하세요. 
 
 ## <a name="network-requirements"></a>네트워크 요구 사항
 
@@ -83,14 +62,14 @@ ms.locfileid: "82509071"
 
 |Azure 공용  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.ods.opinsights.azure.com    | *.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|\*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|* .azure-automation.net|*.azure-automation.us|
+|\*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
+|* .azure-automation.net | *.azure-automation.us|
 
 ## <a name="change-tracking-and-inventory-user-interface"></a>변경 내용 추적 및 인벤토리 사용자 인터페이스
 
-Azure Portal에서 변경 내용 추적 및 인벤토리를 사용 하 여 모니터링 되는 컴퓨터의 변경 내용에 대 한 요약을 볼 수 있습니다. Automation 계정의 **구성 관리** 아래에서 **변경 내용 추적** 을 선택 하 여이 기능을 사용할 수 있습니다. 
+Azure Portal에서 변경 내용 추적 및 인벤토리를 사용 하 여 모니터링 되는 컴퓨터의 변경 내용에 대 한 요약을 볼 수 있습니다. Automation 계정의 **구성 관리** 아래에서 **변경 내용 추적** 또는 **인벤토리에** 대 한 vm 추가 옵션 중 하나를 선택 하 여이 기능을 사용할 수 있습니다.  
 
 ![변경 내용 추적 대시보드](./media/change-tracking/change-tracking-dash01.png)
 
@@ -124,7 +103,7 @@ Windows와 Linux 모두에서 파일의 변경 내용을 추적 하기 위해 �
 변경 내용 추적 및 인벤토리를 사용 하 여 레지스트리 키에 대 한 변경 내용을 모니터링할 수 있습니다. 모니터링을 통해 타사 코드와 맬웨어가 활성화 될 수 있는 확장성 지점을 파악할 수 있습니다. 다음 표에서는 미리 구성 되어 있지만 사용할 수 없는 레지스트리 키를 나열 합니다. 이러한 키를 추적 하려면 각 키를 사용 하도록 설정 해야 합니다.
 
 > [!div class="mx-tdBreakAll"]
-> |레지스트리 키 | 목적 |
+> |레지스트리 키 | 용도 |
 > | --- | --- |
 > |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Windows 탐색기에 직접 연결 되 고 일반적 **으로 explorer.exe를 사용 하**여 in-process로 실행 되는 일반적인 자동 시작 항목을 모니터링 합니다.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup` | 시작 시 실행되는 스크립트를 모니터링합니다.
@@ -183,10 +162,10 @@ Windows와 Linux 모두에서 파일의 변경 내용을 추적 하기 위해 �
 |레지스트리|250|
 |Windows 소프트웨어 (핫픽스 포함 안 함) |250|
 |Linux 패키지|1250|
-|Services|250|
+|서비스|250|
 |디먼|250|
 
-변경 내용 추적 및 인벤토리를 사용 하는 컴퓨터의 평균 Log Analytics 데이터 사용량은 매월 약 40 MB입니다. 이 값은 근사값이며, 사용자 환경에 따라 변경될 수 있습니다. 사용자 환경을 모니터링하여 정확한 사용량을 확인하는 것이 좋습니다.
+변경 내용 추적 및 인벤토리를 사용 하는 컴퓨터에 대 한 평균 Log Analytics 데이터 사용량은 사용자 환경에 따라 매월 약 40 MB입니다. Log Analytics 작업 영역의 사용량 및 예상 비용 기능을 사용 하 여 사용량 차트에서 변경 내용 추적 및 인벤토리에 따라 데이터 수집을 볼 수 있습니다. 이 데이터 뷰를 사용 하 여 데이터 사용량을 평가 하 고 청구서에 영향을 주는 방법을 결정할 수 있습니다. [사용량 및 예상 비용 이해를](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs)참조 하세요.  
 
 ### <a name="microsoft-service-data"></a>Microsoft 서비스 데이터
 
@@ -203,7 +182,7 @@ Microsoft 서비스의 기본 수집 빈도는 30 분입니다. **설정 편집*
 
 하이브리드 환경의 구성 상태에 대 한 변경 내용에 대 한 경고를 변경 내용 추적 및 인벤토리의 핵심 기능입니다. 경고에 대 한 응답으로 (예: Azure 함수, 자동화 runbook, 웹 후크 등에 대 한 작업) 여러 가지 유용한 작업을 트리거할 수 있습니다. 컴퓨터에 대 한 **C:\windows\system32\drivers\etc\hosts** 파일 변경에 대 한 경고는 변경 내용 추적 및 인벤토리 데이터에 대 한 경고의 좋은 적용입니다. 다음 표에 정의 된 쿼리 시나리오를 비롯 하 여 경고에 대 한 더 많은 시나리오가 있습니다. 
 
-|쿼리  |Description  |
+|쿼리  |설명  |
 |---------|---------|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|시스템에 중요 한 파일에 대 한 변경 내용을 추적 하는 데 유용 합니다.|
 |ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|키 구성 파일에 대 한 수정 내용을 추적 하는 데 유용 합니다.|

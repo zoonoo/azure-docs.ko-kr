@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/30/2020
-ms.openlocfilehash: f9ca75943eaec2ae018b54145d872fc09294035e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed65d69c18f2dbcd53324fe3cc18af8c51c546b2
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398175"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780116"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 계산 대상 이란? 
 
@@ -64,11 +64,37 @@ Azure Machine Learning에서 관리 되는 계산 리소스를 만들고 관리 
 학습 및 batch 추론 (미리 보기)에 대 한 계산 클러스터 Azure Machine Learning 사용할 수 있습니다.  이 계산 리소스를 사용 하 여 다음을 수행 합니다.
 
 * 단일 또는 다중 노드 클러스터
-* 실행을 제출할 때마다 자동으로 크기 조정 
+* 실행을 제출할 때마다 자동 크기 조정 
 * 자동 클러스터 관리 및 작업 예약 
 * CPU와 GPU 리소스에 대한 지원
 
+### <a name="supported-vm-series-and-sizes"></a>지원 되는 VM 시리즈 및 크기
 
+Azure Machine Learning에서 관리 되는 계산 리소스에 대 한 노드 크기를 선택 하면 Azure에서 사용할 수 있는 VM 크기 선택 중에서 선택할 수 있습니다. Azure는 다양 한 워크 로드에 대해 다양 한 크기의 Linux 및 Windows를 제공 합니다. 다양 한 [VM 유형 및 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)에 대 한 자세한 내용은 여기를 참조 하세요.
+
+VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습니다.
+* 일부 VM 시리즈는 Azure Machine Learning에서 지원 되지 않습니다.
+* 일부 VM 시리즈는 제한 되어 있습니다. 제한 된 시리즈를 사용 하려면 고객 지원에 문의 하 여 해당 시리즈에 대 한 할당량 증가를 요청 합니다. 지원 문의에 대 한 자세한 내용은 [Azure 지원 옵션](https://azure.microsoft.com/support/options/) 을 참조 하세요.
+
+지원 되는 시리즈 및 제한 사항에 대해 자세히 알아보려면 다음 표를 참조 하세요. 
+
+| **지원 되는 VM 시리즈**  | **제한 사항** |
+|------------|------------|
+| D | 없음 |
+| Dv2 | 없음 |  
+| DSv2 | 없음 |  
+| FSv2 | 없음 |  
+| M | 승인 필요 |
+| NC | 없음 |    
+| NCsv2 | 승인 필요 |
+| NCsv3 | 승인 필요 |  
+| NDs | 승인 필요 |
+| NDv2 | 승인 필요 |
+| NV | 없음 |
+| NVv3 | 승인 필요 | 
+
+
+이러한 VM 시리즈를 지 원하는 Azure Machine Learning 있지만 일부 Azure 지역에서는 사용 하지 못할 수 있습니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)에서 사용할 수 있는 VM 시리즈를 확인할 수 있습니다.
 
 ## <a name="unmanaged-compute"></a>관리 되지 않는 계산
 

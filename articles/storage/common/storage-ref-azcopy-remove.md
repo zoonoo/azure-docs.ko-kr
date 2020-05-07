@@ -4,16 +4,16 @@ description: 이 문서에서는 azcopy remove 명령에 대 한 참조 정보�
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 05/04/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: abce1acb88e920c0de7bbb6447ec9d838f10486c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f76489f384f233f65eb8fcca3a8359cd5b67c20a
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74033992"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780728"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -89,9 +89,13 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options"></a>옵션
 
-**--제외-경로 문자열**      제거할 때 이러한 경로를 제외 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 하지 않습니다. 상대 경로 접두사를 확인 합니다. 예: myFolder; myFolder/subDirName/file .pdf.
+**--스냅숏 삭제** 문자열은 기본적으로 blob에 스냅숏이 있는 경우 삭제 작업이 실패 합니다. 루트 blob 및 모든 해당 스냅숏을 제거 하려면 ' 포함 '을 지정 합니다. 또는 스냅숏을 제거 하 고 루트 blob을 유지 하려면 '만 '을 지정 합니다.
+
+**--제외-경로 문자열은** 제거할 때 이러한 경로를 제외 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 하지 않습니다. 상대 경로 접두사를 확인 합니다. 예: myFolder; myFolder/subDirName/file .pdf.
 
 **--exclude-패턴** 문자열은 이름이 패턴 목록과 일치 하는 파일을 제외 합니다. 예: *.jpg;*. pdf; exactName
+
+**--force-읽기** 전용    Azure Files 파일 또는 폴더를 삭제 하는 경우 기존 개체에 읽기 전용 특성이 설정 된 경우에도 삭제 작업을 강제로 수행 합니다.
 
 **-h,--** 제거에 대 한 도움말 도움말
 
@@ -111,6 +115,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 |---|---|
 |--0mbps uint32|전송 률 (메가 비트/초)을 대문자로 처리 합니다. 순간 처리량은 cap와 약간 다를 수 있습니다. 이 옵션을 0으로 설정 하거나 생략 하면 처리량이 생략 되지 않습니다.|
 |--출력 형식 문자열|명령의 출력 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 "text"입니다.|
+|--신뢰할 수 있는 microsoft 접미사 문자열   | Azure Active Directory 로그인 토큰이 전송 될 수 있는 추가 도메인 접미사를 지정 합니다.  기본값은 '*. core.windows.net;* 입니다. core.chinacloudapi.cn; *. core.cloudapi.de;*. core.usgovcloudapi.net '. 여기에 나열 된 Any는 기본값에 추가 됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치 해야 합니다. 여러 항목을 세미콜론으로 구분 합니다.|
 
 ## <a name="see-also"></a>참고 항목
 

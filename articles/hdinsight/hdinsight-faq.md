@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 392329d254615406204d67a4e135b6857e13a57d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a69cb83492fabc692886fe6966a147de3bcbb04
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192555"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780847"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: 질문과 대답
 
@@ -133,7 +133,7 @@ Hive metastore는 Hive 서버에서 사용 하는 데이터 원본에 대 한 �
 
 - 에 지 노드: [HDInsight의 Apache Hadoop 클러스터에서 빈에 지 노드 사용](hdinsight-apps-use-edge-node.md)에 설명 된 대로 클러스터에 다른에 지 노드를 추가할 수 있습니다.
 
-- 독립 실행형 노드: 독립 실행형 가상 컴퓨터를 동일한 서브넷에 추가 하 고 개인 끝점을 사용 하 여 해당 가상 컴퓨터에서 클러스터에 액세스할 `https://<CLUSTERNAME>-int.azurehdinsight.net`수 있습니다. 자세한 내용은 [네트워크 트래픽 제어](hdinsight-plan-virtual-network-deployment.md#networktraffic)를 참조 하세요.
+- 독립 실행형 노드: 독립 실행형 가상 컴퓨터를 동일한 서브넷에 추가 하 고 개인 끝점을 사용 하 여 해당 가상 컴퓨터에서 클러스터에 액세스할 `https://<CLUSTERNAME>-int.azurehdinsight.net`수 있습니다. 자세한 내용은 [네트워크 트래픽 제어](./control-network-traffic.md)를 참조 하세요.
 
 ### <a name="should-i-store-data-on-the-local-disk-of-an-edge-node"></a>에 지 노드의 로컬 디스크에 데이터를 저장 해야 하나요?
 

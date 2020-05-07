@@ -3,12 +3,12 @@ title: 클러스터의 Azure Service Fabric 버전 업그레이드
 description: 클러스터 업데이트 모드 설정, 인증서 업그레이드, 애플리케이션 포트 추가, OS 패치 수행 등을 포함하는 Service Fabric 클러스터를 실행하는 Service Fabric 코드 및/또는 구성을 업그레이드합니다. 업그레이드를 수행할 때 예상할 수 있는 것은 무엇입니까?
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: c3ffcbd4296385623ff5e2c1ee001c27598ff3fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 802e7402f60370b7151c5e373c8a4921a5af7c80
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75451815"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789603"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>클러스터의 Service Fabric 버전 업그레이드
 
@@ -110,7 +110,7 @@ Output:
 
 ## <a name="next-steps"></a>다음 단계
 * [Service fabric 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md) 중 일부를 사용자 지정 하는 방법 알아보기
-* [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
+* [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-in-out.md)
 * [응용 프로그램 업그레이드](service-fabric-application-upgrade.md) 에 대 한 자세한 정보
 
 <!--Image references-->

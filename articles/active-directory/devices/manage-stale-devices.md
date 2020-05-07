@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46be728216ed4b9c9e84c1c7f68c5ddf2051f42b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fdc011a39c5526e6a2577ab1b21567bbe64ffcc6
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672324"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788878"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>방법: Azure AD에서 오래 된 장치 관리
 
@@ -176,7 +176,7 @@ Azure AD 장치가 Windows Autopilot 개체와 연결 된 경우 나중에 장�
 
 디바이스에서 Azure AD를 인증하는 데 사용되는 모든 인증이 거부됩니다. 일반적인 예제는 다음과 같습니다.
 
-- **하이브리드 Azure AD 조인 디바이스** - 사용자는 이 디바이스를 사용하여 해당 온-프레미스 도메인에 로그인할 수 있습니다. 그러나 Office 365와 같은 Azure AD 리소스에는 액세스할 수 없습니다.
+- **하이브리드 AZURE AD 조인 장치** -사용자가 장치를 사용 하 여 온-프레미스 도메인에 로그인 할 수 있습니다. 그러나 Office 365와 같은 Azure AD 리소스에는 액세스할 수 없습니다.
 - **Azure AD 조인 디바이스** - 사용자는 이 디바이스를 사용하여 로그인할 수 없습니다. 
 - **모바일 디바이스** - 사용자는 Office 365와 같은 Azure AD 리소스에 액세스할 수 없습니다. 
 

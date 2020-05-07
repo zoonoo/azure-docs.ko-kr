@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: 34805c4eaae5d969fc2338c24f9f92404e065d15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca4dc888af414ede270118eff72652f098d3306c
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727178"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779045"
 ---
 # <a name="localization"></a>지역화 #
 
@@ -44,7 +44,7 @@ Azure Media Player 현재 해당 언어 코드를 사용 하 여 다음 언어�
 | 프랑스어              | fr   | 노르웨이어-니노르스크     | nn     | 중국어-간체    | zh-hans      |
 | 갈리시아어            | gl   | 폴란드어                  | pl     | 중국어-번체   | zh-hant      |
 | 히브리어              | he   | 포르투갈어 - 브라질     | pt-br  |                         |              |
-| 힌디어               | hu   | 포르투갈어 - 포르투갈   | pt-pt  |                         |              |
+| 힌디어               | hi   | 포르투갈어 - 포르투갈   | pt-pt  |                         |              |
 
 
 > [!NOTE]

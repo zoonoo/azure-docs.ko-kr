@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 8701fe6857e95334a5e1d24bfe70feb130d5512c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e6bd55fbb73113dfbcd01e94753c4fb21219c14
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756019"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780881"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -65,7 +65,7 @@ AD (Azure Active Directory)를 사용 하거나 SAS (공유 액세스 서명) �
 
 | 스토리지 유형 | 현재 지원 되는 권한 부여 방법 |
 |--|--|
-|**Blob Storage** | Azure AD & SAS |
+|**Blob 저장소** | Azure AD & SAS |
 |**Blob 저장소 (계층적 네임 스페이스)** | Azure AD & SAS |
 |**파일 저장소** | SAS 전용 |
 
@@ -84,7 +84,7 @@ Azure Active Directory를 사용 하 여 각 명령에 SAS 토큰을 추가 하�
 
 파일을 업로드 하려면 다음 역할 중 하나가 보안 주체에 할당 되었는지 확인 합니다.
 
-- [Storage Blob 데이터 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Storage Blob 데이터 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
 - [Storage Blob 데이터 소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 이러한 모든 범위에서 보안 주체에 이러한 역할을 할당할 수 있습니다.
@@ -273,8 +273,8 @@ Id를 인증 하거나 SAS 토큰을 얻은 후 파일 전송을 시작할 수 �
 
 | 운영 체제  | 명령 |
 |--------|-----------|
-| **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
-| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
+| **Linux** | `curl -s -D- https://aka.ms/downloadazcopy-v10-linux | grep ^Location` |
+| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).headers.location` |
 
 > [!NOTE]
 > Linux의 경우 `--strip-components=1` `tar` 명령에서 버전 이름이 포함 된 최상위 폴더를 제거 하 고 대신 이진 파일을 현재 폴더로 직접 추출 합니다. 이렇게 하면 `azcopy` `wget` URL만 업데이트 하 여 새 버전의로 스크립트를 업데이트할 수 있습니다.

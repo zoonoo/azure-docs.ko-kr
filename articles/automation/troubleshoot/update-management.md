@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 91ecff311b8820d3b97e1de0e4b4e87c150e749b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f936b62349a534e6193a3c628c66c49d1a58b681
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678932"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790833"
 ---
 # <a name="troubleshoot-issues-with-the-update-management-solution"></a>업데이트 관리 솔루션 관련 문제 해결
 
@@ -49,13 +49,13 @@ Error details: Failed to enable the Update solution
 
 * OS에 따라 [Windows](update-agent-issues.md#troubleshoot-offline) 또는 [Linux](update-agent-issues-linux.md#troubleshoot-offline)에 대 한 문제 해결사를 실행 합니다.
 
-* [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning) 으로 이동 하 여 업데이트 관리 작동 하는 데 허용 되어야 하는 주소 및 포트에 대해 알아봅니다.  
+* 업데이트 관리 작동 하는 데 허용 되어야 하는 주소 및 포트에 대 한 자세한 내용을 보려면 [네트워크 구성](../automation-hybrid-runbook-worker.md#network-planning) 으로 이동 하세요.  
 
-* [네트워크 계획](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) 으로 이동 하 여 Log Analytics 에이전트가 작동 하는 데 허용 되어야 하는 주소 및 포트에 대해 알아봅니다.
+* Log Analytics 에이전트가 작동 하도록 허용 되어야 하는 주소 및 포트에 대 한 자세한 내용을 보려면 [네트워크 구성](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) 으로 이동 하세요.
 
 * 범위 구성 문제를 확인 합니다. [범위 구성](../automation-onboard-solutions-from-automation-account.md#scope-configuration) 에 따라 솔루션에 대해 구성 되는 컴퓨터가 결정 됩니다. 컴퓨터가 작업 영역에 표시 되지만 * * 업데이트 관리 포털에는 표시 되지 않는 경우 컴퓨터를 대상으로 하는 범위 구성을 설정 해야 합니다. 범위 구성에 대해 알아보려면 [작업 영역에서 컴퓨터](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace)등록을 참조 하세요.
 
-* [하이브리드 Runbook worker 삭제](../automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker)의 단계를 수행 하 여 작업자 구성을 제거 합니다. 
+* [Windows Hybrid Runbook Worker 제거](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) 또는 [Linux Hybrid Runbook Worker 제거](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker)의 단계를 수행 하 여 작업자 구성을 제거 합니다. 
 
 ## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>시나리오: 교체 된 업데이트가 업데이트 관리에 누락 된 것으로 표시 됨
 
@@ -448,7 +448,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 ### <a name="resolution"></a>해결 방법
 
 1. 컴퓨터에서 [업데이트 관리 아래의 포털에 표시 되지 않는](#nologs) 단계를 수행 하 여 컴퓨터가 올바른 작업 영역에 보고 하는지 확인 합니다.
-2. [Hybrid runbook 그룹을 삭제](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group)하 여 컴퓨터에서 아티팩트를 정리 하 고 다시 시도 하세요.
+2. [Hybrid runbook 그룹을 삭제](../automation-windows-hrw-install.md#remove-a-hybrid-worker-group)하 여 컴퓨터에서 아티팩트를 정리 하 고 다시 시도 하세요.
 
 ## <a name="scenario-machine-cant-communicate-with-the-service"></a><a name="machine-unable-to-communicate"></a>시나리오: 컴퓨터에서 서비스와 통신할 수 없습니다.
 

@@ -59,10 +59,12 @@
               href: relay-hybrid-connections-dotnet-api-overview.md
             - name: 노드
               href: relay-hybrid-connections-node-ws-api-overview.md
-    - name: 관리
+    - name: 관리 및 모니터링
       items:
         - name: Azure Monitoring을 사용하여 Azure Relay 모니터링
           href: relay-metrics-azure-monitor.md
+        - name: 진단 로그 설정
+          href: diagnostic-logs.md
 - name: 참조
   items:
     - name: .NET
@@ -83,11 +85,11 @@
       href: relay-faq.md
     - name: 블로그
       href: 'https://blogs.msdn.microsoft.com/servicebus/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/service-bus/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 샘플
       href: 'https://github.com/azure/azure-relay/tree/master/samples'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-servicebusrelay'

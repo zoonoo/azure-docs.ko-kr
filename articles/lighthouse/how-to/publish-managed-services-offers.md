@@ -1,21 +1,18 @@
 ---
 title: Azure Marketplace에 관리 서비스 제품 게시
 description: 고객이 Azure 위임 된 리소스 관리에 대 한 관리 서비스 제품을 게시 하는 방법을 알아봅니다.
-ms.date: 04/24/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 19c4d1a4bd0ffd7c0162cbf7f20c49a5b219b9bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04da33d0232371f4175a935bf1e35925376babbc
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146735"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788742"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Azure Marketplace에 관리 서비스 제품 게시
 
-> [!IMPORTANT]
-> 2020 4 월 13 일부 터 관리 서비스 제품 관리를 파트너 센터로 이동 하기 시작 합니다. 마이그레이션 후 파트너 센터에서 제품을 만들고 관리 합니다. [새 관리 서비스 제안 만들기](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) 의 지침에 따라 마이그레이션된 제안을 관리 합니다.
-
-이 문서에서는 [Cloud 파트너 포털](https://cloudpartner.azure.com/)를 사용 하 여 [Azure Marketplace](https://azuremarketplace.microsoft.com) 에 공용 또는 개인 관리 서비스 제품을 게시 하는 방법을 알아봅니다. 제품을 구매한 고객은 [Azure 위임 된 리소스 관리](../concepts/azure-delegated-resource-management.md)에 대 한 구독 및 리소스 그룹을 등록할 수 있습니다.
+이 문서에서는 파트너 센터에서 [상업적 Marketplace](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) 프로그램을 사용 하 여 [Azure Marketplace](https://azuremarketplace.microsoft.com) 에 공용 또는 개인 관리 서비스 제품을 게시 하는 방법을 알아봅니다. 제품을 구매한 고객은 [Azure 위임 된 리소스 관리](../concepts/azure-delegated-resource-management.md)에 대 한 구독 및 리소스 그룹을 등록할 수 있습니다.
 
 ## <a name="publishing-requirements"></a>게시 요구 사항
 
@@ -28,133 +25,22 @@ MPN(Microsoft 파트너 네트워크) ID는 게시하는 제품에 [자동으로
 > [!NOTE]
 > Azure Marketplace에 제품을 게시하지 않으려는 경우 Azure Resource Manager 템플릿을 사용하여 수동으로 고객을 온보딩할 수 있습니다. 자세한 내용은 [Azure 위임 리소스 관리에 고객 온보딩](onboard-customer.md)을 참조하세요.
 
-관리 서비스 제품 게시는 Azure Marketplace에 다른 유형의 제품을 게시 하는 것과 비슷합니다. 일반 게시 프로세스에 대해 알아보려면 [Azure Marketplace 및 AppSource 게시 가이드](../../marketplace/marketplace-publishers-guide.md)를 참조 하세요. [상업 마켓플레이스 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies), 특히 [관리 서비스](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services) 섹션도 검토해야 합니다.
+## <a name="create-your-offer"></a>제품 만들기
+
+제공 해야 하는 모든 정보 및 자산을 포함 하 여 제품을 만드는 방법에 대 한 자세한 지침은 [관리 서비스 제안 만들기](../../marketplace/partner-center-portal/create-new-managed-service-offer.md)를 참조 하세요.
+
+일반 게시 프로세스에 대해 알아보려면 [Azure Marketplace 및 AppSource 게시 가이드](../../marketplace/marketplace-publishers-guide.md)를 참조 하세요. [상업 마켓플레이스 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies), 특히 [관리 서비스](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services) 섹션도 검토해야 합니다.
 
 고객이 제품을 추가한 후에는 하나 이상의 구독 또는 리소스 그룹을 위임할 수 있습니다. 그러면 [Azure 위임 된 리소스 관리에 등록](#the-customer-onboarding-process)됩니다.
 
 > [!IMPORTANT]
 > 관리 서비스 제안의 각 계획에는 **매니페스트 세부 정보** 섹션이 포함 되어 있습니다. 여기에는 테 넌 트에서 위임 된 리소스 그룹 및/또는 해당 요금제를 구매한 고객의 구독에 대 한 액세스 권한이 있는 Azure Active Directory (Azure AD) 엔터티를 정의 합니다. 포함 하는 모든 그룹 (또는 사용자 또는 서비스 주체)은 계획을 구입 하는 모든 고객에 대해 동일한 권한을 갖게 됩니다. 각 고객에 대해 사용할 다른 그룹을 할당 하려면 각 고객에 게 단독으로 사용 되는 별도의 [개인 요금제](../../marketplace/private-offers.md) 를 게시 해야 합니다.
 
-## <a name="create-your-offer"></a>제품 만들기
-
-1. [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인 합니다.
-2. 왼쪽 탐색 메뉴에서 **새 제품**을 선택하고 **관리형 서비스**를 선택합니다.
-3. 제품에 대 한 **편집기** 섹션에는 **제품 설정**, **계획**, **마켓플레이스**및 **지원**이라는 4 개의 파트가 표시 됩니다. 이러한 섹션을 완료하는 방법에 대한 지침은 참조하세요.
-
-### <a name="enter-offer-settings"></a>제품 설정 입력
-
-**제품 설정** 섹션에서 다음을 제공합니다.
-
-|필드  |Description  |
-|---------|---------|
-|**제품 ID**     | 게시자 프로필에 있는 제품의 고유 식별자입니다. 이 ID에는 소문자 영숫자, 대시 및 밑줄만 사용할 수 있으며 최대 50자로 제한됩니다. 제품 ID는 제품 URL 및 청구 보고서 등에 표시될 수 있습니다. 제품을 게시한 후에는 이 값을 변경할 수 없습니다.        |
-|**게시자 ID**     | 제품에 연결될 게시자 ID입니다. 게시자 ID가 둘 이상인 경우 이 제품에 사용할 ID를 선택할 수 있습니다.       |
-|**이름**     | 고객이 Azure Marketplace 및 Azure Portal에서 제품에 대해 보게 되는 이름(최대 50자)입니다. 고객이 이해할 수 있는 인식 가능한 브랜드 이름 사용합니다. 고유한 웹 사이트를 통해 이 제품을 홍보하는 경우 여기에 정확히 동일한 이름을 사용해야 합니다.        |
-
-완료되면 **저장**을 선택합니다. 이제 **플랜** 섹션으로 이동할 준비가 되었습니다.
-
-### <a name="create-plans"></a>플랜 만들기
-
-각 제품에는 하나 이상의 플랜(SKU라고도 함)이 있어야 합니다. 여러 플랜을 추가하여 다양한 가격으로 다양한 기능 세트를 지원하거나, 제한된 특정 고객 대상 그룹을 위한 특정 플랜을 사용자 지정할 수 있습니다. 고객은 상위 제품 아래에서 사용할 수 있는 플랜을 볼 수 있습니다.
-
-플랜 섹션에서 **새 플랜**을 선택합니다. 그런 다음, **플랜 ID**를 입력합니다. 이 ID에는 소문자 영숫자, 대시 및 밑줄만 사용할 수 있으며 최대 50자로 제한됩니다. 플랜 ID는 제품 URL 및 청구 보고서 등에 표시될 수 있습니다. 제품을 게시한 후에는 이 값을 변경할 수 없습니다.
-
-#### <a name="plan-details"></a>플랜 세부 정보
-
-**플랜 세부 정보** 섹션에서 다음 섹션을 완료합니다.
-
-|필드  |Description  |
-|---------|---------|
-|**제목**     | 표시할 플랜의 이름입니다. 최대 길이는 50자입니다.        |
-|**요약**     | 제목 아래에 표시할 플랜에 대한 간결한 설명입니다. 최대 길이는 100자입니다.        |
-|**설명**     | 플랜에 대한 자세한 설명을 제공하는 설명 텍스트입니다.         |
-|**청구 모델**     | 여기에는 2개의 청구 모델이 있지만 관리형 서비스 제품에 대한 **사용자 라이선스 필요**를 선택해야 합니다. 즉, 고객에게 이 제품과 관련된 비용을 직접 청구할 것이며 Microsoft는 사용자에게 요금을 부과하지 않음을 의미합니다.   |
-|**이 계획은 개인 계획 인가요?**     | SKU가 프라이빗 또는 공개인지 여부를 나타냅니다. 기본값은 **아니요**(공개)입니다. 이 선택을 그대로 두면 플랜이 특정 고객 또는 특정 수의 고객으로 제한되지 않습니다. 일단 퍼블릭 플랜을 게시하면 나중에 프라이빗으로 변경할 수 없습니다. 이 플랜을 특정 고객만 사용할 수 있도록 설정하려면 **예**를 선택합니다. 이렇게 하면 구독 ID를 제공하여 고객을 식별해야 합니다. 구독 ID를 하나씩(구독이 최대 10개인 경우) 입력하거나 .csv 파일을 업로드하여(구독이 최대 2만개인 경우)을 업로드하여 입력할 수 있습니다. 제품을 테스트하고 유효성을 검사할 수 있도록 여기에 고유한 구독을 포함해야 합니다. 자세한 내용은 [프라이빗 SKU 및 플랜](../../marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)을 참조하세요.  |
-
-> [!IMPORTANT]
-> 계획이 공개로 게시 되 면 비공개로 변경할 수 없습니다. 제품을 수락 하 고 리소스를 위임할 수 있는 고객을 제어 하려면 비공개 요금제를 사용 합니다. 공개 계획을 사용 하면 특정 고객 또는 특정 수의 고객에 대 한 가용성을 제한할 수 없습니다 (이렇게 선택 하는 경우 계획을 완전히 판매 하지 않을 수 있음). 제품을 게시할 때 **역할 정의가** [관리 되는 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) 로 설정 된 **권한 부여** 를 포함 한 경우에만 고객이 제안을 수락한 후 [에 위임에 대 한 액세스 권한을 제거할](remove-delegation.md) 수 있습니다. 또한 고객에 게 연락 하 여 [액세스 권한을 제거](view-manage-service-providers.md#add-or-remove-service-provider-offers)하도록 요청할 수 있습니다.
-
-#### <a name="manifest-details"></a>매니페스트 세부 정보
-
-플랜의 **매니페스트 세부 정보** 섹션을 완료합니다. 이렇게 하면 고객 리소스를 관리하기 위한 권한 부여 정보가 포함된 매니페스트가 생성됩니다. 이 정보는 Azure 위임 리소스 관리를 사용하도록 설정하는 데 필요합니다.
-
-> [!NOTE]
-> 위에서 설명한 것처럼 **권한 부여** 항목의 사용자 및 역할은 플랜을 구매한 모든 고객에게 적용됩니다. 특정 고객에 대한 액세스를 제한하려는 경우 독점 사용을 위해 프라이빗 플랜을 게시해야 합니다.
-
-먼저 매니페스트의 **버전** 을 제공합니다. *n.n.n* 형식(예: 1.2.5)을 사용합니다.
-
-그런 다음, **테넌트 ID**를 입력합니다. 이 GUID는 조직의 Azure Active Directory 테넌트 ID(예: 고객의 리소스를 관리하기 위해 작업할 테넌트)와 연결된 GUID입니다. 이 작업이 어려운 경우 Azure Portal의 오른쪽 위에 있는 계정 이름으로 마우스를 가져가거나 **디렉터리 전환**을 선택하여 찾을 수 있습니다.
-
-마지막으로 플랜에 하나 이상의 **권한 부여** 항목을 추가합니다. 권한 부여는 플랜을 구매한 고객의 리소스 및 구독에 액세스할 수 있는 엔터티를 정의하고, 특정 수준의 액세스 권한을 부여하는 역할을 할당합니다.
-
-> [!TIP]
-> 대부분의 경우 일련의 개별 사용자 계정이 아닌 Azure AD 사용자 그룹 또는 서비스 주체에 권한을 할당하는 것이 좋습니다. 이렇게 하면 액세스 요구 사항이 변경될 때 플랜을 업데이트한 후 다시 게시하지 않고도 개별 사용자에 대한 액세스 권한을 추가하거나 제거할 수 있습니다. 추가 권장 사항은 [Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자](../concepts/tenants-users-roles.md)를 참조하세요.
-
-각 **권한 부여**에 대해 다음을 제공해야 합니다. 그런 다음, 사용자 및 역할 정의를 더 추가하는 데 필요한 횟수만큼 **새 권한 부여**를 선택할 수 있습니다.
-
-- **AZURE Ad 개체 ID**: 사용자, 사용자 그룹 또는 응용 프로그램의 azure ad 식별자 이며,이 식별자는 역할 정의에 설명 된 대로 고객의 리소스에 대 한 특정 사용 권한을 부여 받습니다.
-- **AZURE AD 개체 표시 이름**: 고객이이 권한 부여의 용도를 이해 하는 데 도움이 되는 친숙 한 이름입니다. 리소스를 위임할 때 고객에게 이 이름이 표시됩니다.
-- **역할 정의**: 목록에서 사용 가능한 Azure AD 기본 제공 역할 중 하나를 선택 합니다. 이 역할은 **Azure AD 개체 ID** 필드의 사용자가 고객의 리소스에 대해 갖게 되는 권한을 결정합니다. 이러한 역할에 대 한 설명은 [기본 제공 역할](../../role-based-access-control/built-in-roles.md) 및 [Azure 위임 된 리소스 관리에 대 한 역할 지원](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)을 참조 하세요.
-  > [!NOTE]
-  > 해당 하는 새로운 기본 제공 역할이 Azure에 추가 되 면 여기에서 사용할 수 있게 되며, 이러한 역할은 표시 되기 전에 약간의 지연이 있을 수 있습니다.
-- **할당 가능한 역할**:이 권한 부여에 대 한 **역할 정의** 에서 사용자 액세스 관리자를 선택한 경우에만 필요 합니다. 그렇다면 여기에 할당 가능한 역할을 하나 이상 추가해야 합니다. **Azure AD 개체 ID** 필드의 사용자는 이러한 **할당 가능한 역할**을 [수정할 수 있는 정책을 배포](deploy-policy-remediation.md)하는 데 필요한 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 할당할 수 있습니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다. 여기에서 하나 이상의 역할을 선택하지 않으면 제출이 인증을 통과하지 못합니다. 이 사용자의 역할 정의에 대해 사용자 액세스 관리자를 선택 하지 않은 경우이 필드는 영향을 주지 않습니다.
-
-> [!TIP]
-> 필요한 경우 [위임에 대 한 액세스를 제거할](remove-delegation.md) 수 있도록 하려면 **역할 정의가** [관리 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)로 설정 된 **권한 부여** 를 포함 합니다. 이 역할을 할당하지 않으면 고객 테넌트의 사용자만 위임된 리소스를 제거할 수 있습니다.
-
-정보를 완료한 후에는 추가 플랜을 만드는 데 필요한 만큼 **새 플랜**을 선택할 수 있습니다. 작업이 끝나면 **저장**을 선택한 후 **Marketplace** 섹션을 계속 진행합니다.
-
-### <a name="provide-marketplace-text-and-images"></a>Marketplace 텍스트 및 이미지 제공
-
-**Marketplace** 섹션에서는 고객이 Azure Marketplace 및 Azure Portal에 표시되는 텍스트와 이미지를 제공합니다.
-
-**개요** 섹션에서 다음 필드를 완료합니다.
-
-|필드  |Description  |
-|---------|---------|
-|**제목**     |  제안의 제목이며. 종종 긴 정식 이름입니다. 이 제목은 마켓플레이스에서 눈에 띄게 표시됩니다. 최대 길이는 50자입니다. 대부분의 경우 이 이름은 **제품 설정** 섹션에 입력한 **이름**과 동일해야 합니다.       |
-|**요약**     | 제품의 간략한 용도 또는 기능입니다. 일반적으로 제목 아래에 표시됩니다. 최대 길이는 100자입니다.        |
-|**긴 요약**     | 제품의 용도 또는 기능을 좀 더 자세히 요약한 것입니다. 최대 길이는 256자입니다.        |
-|**설명**     | 제품에 대한 자세한 정보. 이 필드의 최대 길이는 3000자이며 단순 HTML 형식을 지원합니다. 설명의 어딘가에 "관리 서비스" 또는 "관리 서비스"라는 단어를 포함해야 합니다.       |
-|**마케팅 식별자**     | 고유한 URL 식별자입니다. 이 식별자에는 소문자 영숫자 문자와 대시만 사용할 수 있습니다. 이 제품의 Marketplace Url에 사용 됩니다. 예를 들어, 게시자 ID가 *contoso*이고 마케팅 식별자가 *sampleApp*이면 Azure Marketplace에서 제품의 URL은 `https://azuremarketplace.microsoft.com/marketplace/apps/contoso-sampleApp`이 됩니다.       |
-|**미리 보기 구독 ID**     | 1-100개의 구독 식별자를 추가합니다. 이러한 구독과 연결된 고객은 활성화되기 전에 Azure Marketplace에서 제품을 볼 수 있습니다. 고객이 제품을 사용하도록 설정하기 전에 Azure Marketplace에서 제품이 표시되는 방식을 미리 볼 수 있도록 여기에 사용자 고유의 구독을 포함하는 것이 좋습니다.  Microsoft 지원 및 엔지니어링 팀은 이 미리 보기 기간 중에 제품을 볼 수도 있습니다.   |
-|**유용한 링크**     | 설명서, 릴리스 정보, FAQ 등의 제품과 관련된 URL입니다.        |
-|**권장 범주(최대 5개)**     | 제품에 적용되는 하나 이상의 범주(최대 5개)입니다. 이러한 범주는 고객이 Azure Marketplace 및 Azure Portal에서 제품을 검색하는 데 도움이 됩니다.        |
-
-**마케팅 아티팩트** 섹션에서 제품과 함께 표시할 로고 및 기타 자산을 업로드할 수 있습니다. 필요에 따라 고객이 제품을 이해하는 데 도움이 될 수 있는 스크린샷 또는 비디오 링크를 업로드할 수 있습니다.
-
-**작은 (40x40)**, **Medium (90x90)**, **Large (115X115)** 및 **Wide (255x115)** 의 4 가지 로고 크기가 필요 합니다. 로고에 대해서는 다음 지침을 따르세요.
-
-- Azure 디자인은 단순한 색 팔레트를 사용합니다. 로고의 기본 색상과 보조 색상 수를 제한합니다.
-- 포털의 테마 색은 흰색과 검은색입니다. 로고의 배경색으로 이러한 색을 사용하지 마십시오. 포털에서 로고가 돋보이도록 하는 색을 사용합니다. 간단한 기본 색을 사용하는 것이 좋습니다.
-- 투명한 배경을 사용하는 경우 로고 및 텍스트는 흰색, 검은색 또는 파란색이 아니어야 합니다.
-- 로고의 모양과 느낌은 평면적이어야 하며 그라데이션은 사용하지 마십시오. 로고의 배경에 그라데이션 효과를 사용하지 마십시오.
-- 로고에 회사 또는 브랜드 이름을 포함한 텍스트를 놓지 마십시오.
-- 로고가 늘어나지 않았는지 확인합니다.
-
-**Hero (815x290)** 로고는 선택 사항이지만 권장됩니다. 대표 로고를 포함하는 경우 다음 지침을 따르세요.
-
-- 대표 로고에는 텍스트를 포함하지 않도록 하고 로고 오른쪽에 415픽셀의 빈 공간을 남겨 두어야 합니다. 프로그래밍 방식으로 포함될 텍스트 요소, 즉 게시자 표시 이름, 플랜 제목, 제품의 자세한 요약에 대한 공간을 확보하는 데 필요합니다.
-- 대표 로고의 배경은 검은색, 흰색 또는 투명이 아닐 수 있습니다. 포함된 텍스트가 흰색으로 표시되기 때문에 배경색이 너무 밝지 않은지 확인합니다.
-- 대표 아이콘이 있는 제품을 게시한 후에는 제거할 수 없습니다(원할 경우 다른 버전으로 업데이트할 수 있음).
-
-**잠재 고객 관리** 섹션에서 잠재 고객이 저장될 CRM 시스템을 선택할 수 있습니다. [관리 서비스 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)에 따라 **잠재 대상 고객**이 필요합니다.
-
-마지막으로 **법적 정보** 섹션에서 **개인정보취급방침 URL** 및 **사용 약관**을 제공합니다. 이 제품에 대해 [표준 계약](../../marketplace/standard-contract.md)을 사용할지 여부를 여기에서 지정할 수도 있습니다.
-
-**지원** 섹션으로 이동하기 전에 변경 내용을 저장해야 합니다.
-
-### <a name="add-support-info"></a>지원 정보 추가
-
-**지원** 섹션에서 엔지니어링 담당자와 고객 지원 담당자의 이름, 메일 및 전화 번호를 제공합니다. 지원 URL도 제공해야 합니다. Microsoft는 비즈니스 및 지원 문제에 대해 연락해야 하는 경우 이 정보를 사용할 수 있습니다.
-
-이 정보를 추가한 후에는 **저장**을 선택합니다.
-
 ## <a name="publish-your-offer"></a>제품 게시
 
-모든 섹션을 완료한 후, 다음 단계는 Azure Marketplace에 제품을 게시하는 것입니다. **게시** 단추를 선택하여 제품을 라이브로 전환하는 프로세스를 시작합니다. 이 프로세스에 대한 자세한 내용은 [Azure Marketplace 및 AppSource 제안 게시](../../marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer.md)를 참조하세요.
+모든 섹션을 완료한 후, 다음 단계는 Azure Marketplace에 제품을 게시하는 것입니다. **게시** 단추를 선택하여 제품을 라이브로 전환하는 프로세스를 시작합니다. 이 프로세스에 대 한 자세한 정보는 [여기](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#publish)에서 확인할 수 있습니다. 
 
-언제든지 [제품의 업데이트된 버전을 게시](../../marketplace/cloud-partner-portal/manage-offers/cpp-update-offer.md)할 수 있습니다. 예를 들어 이전에 게시된 제품에 새 역할 정의를 추가하려고 할 수 있습니다. 이렇게 하면 제품을 이미 추가한 고객은 Azure Portal의 [**서비스 공급자**](view-manage-service-providers.md) 페이지에 업데이트를 사용할 수 있음을 알려 주는 아이콘이 표시됩니다. 각 고객은 [변경 내용을 검토](view-manage-service-providers.md#update-service-provider-offers)하고 새 버전으로 업데이트할지 여부를 결정할 수 있습니다. 
+언제든지 [제품의 업데이트된 버전을 게시](../..//marketplace/partner-center-portal/update-existing-offer.md)할 수 있습니다. 예를 들어 이전에 게시된 제품에 새 역할 정의를 추가하려고 할 수 있습니다. 이렇게 하면 제품을 이미 추가한 고객은 Azure Portal의 [**서비스 공급자**](view-manage-service-providers.md) 페이지에 업데이트를 사용할 수 있음을 알려 주는 아이콘이 표시됩니다. 각 고객은 [변경 내용을 검토](view-manage-service-providers.md#update-service-provider-offers)하고 새 버전으로 업데이트할지 여부를 결정할 수 있습니다. 
 
 ## <a name="the-customer-onboarding-process"></a>고객 온보딩 프로세스
 

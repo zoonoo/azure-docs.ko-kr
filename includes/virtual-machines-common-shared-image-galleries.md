@@ -1,42 +1,41 @@
 ---
 title: 파일 포함
 description: 포함 파일
-services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 04/16/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: a477114bda7d138a6860d21f2fad75e27d968833
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5cb3e6d53f6840b8f4e535976739c188daed18b2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80117179"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789042"
 ---
 공유 이미지 갤러리는 관리 되는 이미지에 대 한 구조와 조직을 구축 하는 데 도움이 되는 서비스입니다. 공유 이미지 갤러리는 다음을 제공 합니다.
 
 - 이미지의 관리 되는 전역 복제
 - 보다 쉽게 관리할 수 있도록 이미지의 버전 관리 및 그룹화
 - 가용성 영역를 지 원하는 지역에서 ZRS (영역 중복 저장소) 계정을 포함 하는 항상 사용 가능한 이미지 ZRS는 영역 오류에 대 한 더 나은 복원 력을 제공 합니다.
+- 프리미엄 저장소 지원 (Premium_LRS).
 - RBAC를 사용 하 여 구독 간 및 AD (Active Directory) 테 넌 트 간에 공유
 - 각 지역에서 이미지 복제본으로 배포를 확장 합니다.
 
 공유 이미지 갤러리를 사용하면 조직 내의 여러 사용자, 서비스 주체 또는 AD 그룹에게 이미지를 공유할 수 있습니다. 배포의 크기를 더 빠르게 조정하기 위해 여러 지역에 공유 이미지를 복제할 수 있습니다.
 
-관리되는 이미지는 이미지를 만드는 방법에 따라 전체 VM(연결된 데이터 디스크 포함) 또는 OS 디스크의 사본입니다. 이미지에서 VM을 만드는 경우 이미지의 VHD 복사본을 사용하여 새 VM의 디스크를 만듭니다. 관리되는 이미지는 스토리지에 유지되며 새 VM을 만들 때 계속 반복해서 사용할 수 있습니다.
+이미지는 생성 방법에 따라 전체 VM (연결 된 데이터 디스크 포함) 또는 OS 디스크의 복사본입니다. 이미지에서 VM을 만드는 경우 이미지의 VHD 복사본을 사용하여 새 VM의 디스크를 만듭니다. 이미지는 저장소에 남아 있으며 다시 사용 하 여 새 Vm을 만들 수 있습니다.
 
-유지 관리 해야 하는 관리 되는 이미지가 많고 회사 전체에서 사용할 수 있게 하려는 경우 공유 이미지 갤러리를 리포지토리로 사용 하 여 이미지를 쉽게 공유할 수 있도록 합니다. 
+유지 관리 해야 하는 많은 수의 이미지가 있고 회사 전체에서 사용할 수 있도록 하려는 경우 공유 이미지 갤러리를 리포지토리로 사용할 수 있습니다. 
 
 공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다.
 
 | 리소스 | Description|
 |----------|------------|
-| **관리 이미지** | 단독으로 사용 하거나 이미지 갤러리에서 **이미지 버전** 을 만드는 데 사용할 수 있는 기본 이미지입니다. 관리 되는 이미지는 [일반화](#generalized-and-specialized-images) 된 vm에서 만들어집니다. 관리되는 이미지는 여러 VM을 만드는 데 사용할 수 있는 특수한 유형의 VHD로, 이제 공유 이미지 버전을 만드는 데 사용할 수 있습니다. |
-| **스냅샷** | **이미지 버전**을 만드는 데 사용할 수 있는 VHD의 복사본입니다. 스냅숏은 [특수 한 VM (](#generalized-and-specialized-images) 일반화 되지 않은 VM)에서 가져올 수 있으며 단독으로 사용 하거나 데이터 디스크의 스냅숏으로 사용 하 여 특수 이미지 버전을 만들 수 있습니다.
+| **이미지 소스** | 이미지 갤러리에서 **이미지 버전** 을 만드는 데 사용할 수 있는 리소스입니다. 이미지 소스는 [일반화 되거나 특수화](#generalized-and-specialized-images)된 기존 Azure VM이 될 수 있습니다. 즉, 다른 이미지 갤러리의 관리 되는 이미지, 스냅숏 또는 이미지 버전을 사용할 수 있습니다. |
 | **이미지 갤러리** | Azure Marketplace와 마찬가지로 **이미지 갤러리**는 이미지를 관리하고 공유하는 데 사용되는 리포지토리이지만 액세스할 수 있는 사람을 제어할 수 있습니다. |
-| **이미지 정의** | 이미지는 갤러리 내에서 정의 되며, 조직 내에서 이미지를 사용 하기 위한 요구 사항 및 이미지에 대 한 정보를 전달 합니다. 이미지를 일반화 하거나 특수화 하 든, 운영 체제, 최소 및 최대 메모리 요구 사항, 릴리스 정보 등의 정보를 포함할 수 있습니다. 이미지의 형식 정의입니다. |
+| **이미지 정의** | 이미지 정의는 갤러리 내에서 생성 되 고 이미지에 대 한 정보 및 해당 이미지를 내부적으로 사용 하기 위한 요구 사항을 전달 합니다. 여기에는 이미지가 Windows인지, Linux인지 여부, 릴리스 정보, 최소 및 최대 메모리 요구 사항이 포함됩니다. 이미지의 형식 정의입니다. |
 | **이미지 버전** | **이미지 버전**은 갤러리를 사용하는 경우 VM을 만들 때 사용합니다. 사용 환경에 필요한 만큼 여러 버전의 이미지를 가질 수 있습니다. 관리되는 이미지와 마찬가지로 **이미지 버전**을 사용하여 VM을 만들 때는 이미지 버전을 사용하여 VM의 새 디스크를 만듭니다. 이미지 버전은 여러 번 사용할 수 있습니다. |
 
 <br>
@@ -45,7 +44,7 @@ ms.locfileid: "80117179"
 
 ## <a name="image-definitions"></a>이미지 정의
 
-이미지 정의는 이미지 버전의 논리적 그룹화입니다. 이미지 정의는 이미지를 만든 이유에 대 한 정보, 사용 중인 OS 및 이미지 사용에 대 한 정보를 포함 합니다. 이미지 정의는 특정 이미지 만들기에 대 한 모든 세부 정보에 대 한 계획과 비슷합니다. 이미지 정의에서 VM을 배포 하는 것이 아니라 정의에서 만든 이미지 버전에서 VM을 배포 하지 않습니다.
+이미지 정의는 이미지 버전의 논리적 그룹화입니다. 이미지 정의는 이미지를 만든 이유에 대 한 정보, 사용 중인 OS 및 이미지 사용에 대 한 기타 정보를 포함 합니다. 이미지 정의는 특정 이미지 만들기에 대 한 모든 세부 정보에 대 한 계획과 비슷합니다. 이미지 정의에서 VM을 배포 하는 대신 정의에서 만든 이미지 버전에서 배포 합니다.
 
 조합- **게시자**, **제품** 및 **SKU**에 사용 되는 각 이미지 정의에 대해 3 개의 매개 변수가 있습니다. 특정 이미지 정의를 찾는 데 사용 됩니다. 3개 값을 모두 공유하지는 않으면서 1개 또는 2개의 값을 공유하는 이미지 버전을 사용할 수 있습니다.  예를 들어 다음은 3개의 이미지 정의와 해당 값입니다.
 
@@ -68,23 +67,18 @@ ms.locfileid: "80117179"
 * 태그-이미지 정의를 만들 때 태그를 추가할 수 있습니다. 태그에 대 한 자세한 내용은 [태그를 사용 하 여 리소스 구성](../articles/azure-resource-manager/management/tag-resources.md) 을 참조 하세요.
 * 최소 및 최대 vCPU 및 메모리 권장 사항-이미지에 vCPU 및 메모리 권장 사항이 있는 경우 해당 정보를 이미지 정의에 연결할 수 있습니다.
 * 허용 되지 않는 디스크 유형-VM의 저장소 요구 사항에 대 한 정보를 제공할 수 있습니다. 예를 들어 이미지가 표준 HDD 디스크에 적합 하지 않은 경우 허용 안 함 목록에 추가 합니다.
+* Hyper-v 생성-이미지를 gen 1 또는 gen 2 Hyper-v VHD에서 만들었는지 여부를 지정할 수 있습니다.
 
 ## <a name="generalized-and-specialized-images"></a>일반화 되 고 특수 이미지
 
 공유 이미지 갤러리에서 지 원하는 두 가지 운영 체제 상태가 있습니다. 일반적으로 이미지는 이미지를 만들기 전에 이미지를 만드는 데 사용 되는 VM을 일반화 해야 합니다. 일반화는 VM에서 컴퓨터 및 사용자 관련 정보를 제거 하는 프로세스입니다. Windows의 경우 Sysprep도 사용 됩니다. Linux의 경우 [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` 또는 `-deprovision+user` 매개 변수를 사용할 수 있습니다.
 
-특수 한 Vm은 컴퓨터의 특정 정보 및 계정을 제거 하는 프로세스를 거치지 않았습니다. 또한 특수 이미지에서 만든 Vm에는 `osProfile` 연결 된가 없습니다. 즉, 특수 이미지에 몇 가지 제한 사항이 있습니다.
+특수 한 Vm은 컴퓨터의 특정 정보 및 계정을 제거 하는 프로세스를 거치지 않았습니다. 또한 특수 이미지에서 만든 Vm에는 `osProfile` 연결 된가 없습니다. 즉, 특수 이미지에 몇 가지 혜택 외에 몇 가지 제한 사항이 있습니다.
 
+- 특수 이미지에서 만든 Vm 및 확장 집합은 더 빠르게 실행 될 수 있습니다. 이러한 이미지는 이미 첫 번째 부팅을 통해 생성 된 원본에서 만들어지므로 이러한 이미지에서 만든 Vm은 더 빠르게 부팅 됩니다.
 - Vm에 로그인 하는 데 사용할 수 있는 계정은 해당 VM에서 만든 특수 이미지를 사용 하 여 만든 모든 VM 에서도 사용할 수 있습니다.
 - Vm에는 이미지를 만든 VM의 **컴퓨터 이름이** 포함 됩니다. 충돌을 방지 하려면 컴퓨터 이름을 변경 해야 합니다.
 - 는 `osProfile` 를 사용 하 여 `secrets`일부 중요 한 정보를 VM에 전달 하는 방법입니다. 에서 사용 `secrets` 하는 keyvault, WinRM 및 기타 기능을 사용 하면 문제가 발생할 `osProfile`수 있습니다. 일부 경우에는 MSI (관리 서비스 id)를 사용 하 여 이러한 제한 문제를 해결할 수 있습니다.
-
-> [!IMPORTANT]
-> 특수 이미지는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
->
-> **알려진 미리 보기 제한 사항** Vm은 포털 또는 API를 사용 하는 특수 이미지 에서만 만들 수 있습니다. 는 미리 보기에 대해 CLI 또는 PowerShell을 지원 하지 않습니다.
-
 
 ## <a name="regional-support"></a>국가별 지원
 
@@ -113,6 +107,7 @@ ms.locfileid: "80117179"
 - 100 공유 이미지 갤러리, 구독 당, 지역별
 - 1000 이미지 정의 (구독 당, 지역별)
 - 1만 이미지 버전 (구독 당, 지역별)
+- 10 개의 이미지 버전 복제본 (구독 당, 지역별)
 - 이미지에 연결 된 모든 디스크 크기는 1TB 미만 이어야 합니다.
 
 자세한 내용은 현재 사용량을 확인 하는 방법에 대 한 예제는 [제한에 대 한 리소스 사용 확인](https://docs.microsoft.com/azure/networking/check-usage-against-limits) 을 참조 하세요.
@@ -144,7 +139,7 @@ ms.locfileid: "80117179"
 
 ![이미지를 복제하는 방법을 보여 주는 그래픽](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>액세스
+## <a name="access"></a>액세스 권한
 
 공유 이미지 갤러리, 이미지 정의 및 이미지 버전은 모든 리소스 이므로 기본 제공 되는 네이티브 Azure RBAC 컨트롤을 사용 하 여 공유할 수 있습니다. RBAC를 사용 하 여 이러한 리소스를 다른 사용자, 서비스 사용자 및 그룹과 공유할 수 있습니다. 내에서 만든 테 넌 트 외부의 개별 사용자에 대 한 액세스를 공유할 수도 있습니다. 사용자가 공유 이미지 버전에 액세스할 수 있게 되 면 VM 또는 가상 머신 확장 집합을 배포할 수 있습니다.  사용자가 액세스할 수 있는 항목을 이해하는 데 도움이 되는 공유 행렬은 다음과 같습니다.
 
@@ -167,12 +162,12 @@ ms.locfileid: "80117179"
 만든 후에는 이미지 갤러리 리소스를 변경할 수 있습니다. 이러한 제한 사항은 다음과 같습니다.
  
 공유 이미지 갤러리:
-- Description
+- 설명
 
 이미지 정의:
 - 권장 vCPU
 - 권장 메모리
-- Description
+- 설명
 - 수명 주기 끝
 
 이미지 버전:
@@ -200,7 +195,7 @@ ms.locfileid: "80117179"
 - [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [이미지 버전에서 VM 만들기](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문 
+## <a name="frequently-asked-questions"></a>질문과 대답 
 
 * [구독 간에 모든 공유 이미지 갤러리 리소스를 나열하는 방법은 무엇인가요?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
 * [기존 이미지를 공유 이미지 갤러리로 이동할 수 있나요?](#can-i-move-my-existing-image-to-the-shared-image-gallery)
@@ -217,31 +212,32 @@ ms.locfileid: "80117179"
 * [공유 이미지 갤러리 사용 요금은 얼마인가요?](#what-are-the-charges-for-using-the-shared-image-gallery)
 * [공유 이미지 갤러리 및 이미지 정의와 이미지 버전을 만드는 데 사용 해야 하는 API 버전은 무엇 인가요?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
 * [이미지 버전에서 공유 VM 또는 가상 머신 확장 집합을 만드는 데 사용 해야 하는 API 버전은 무엇 인가요?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
+* [관리 되는 이미지를 사용 하 여 만든 가상 머신 확장 집합을 업데이트 하 여 공유 이미지 갤러리 이미지를 사용할 수 있나요?]
 
 ### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>구독 간에 모든 공유 이미지 갤러리 리소스를 나열하는 방법은 무엇인가요?
 
 Azure Portal에 대 한 액세스 권한이 있는 모든 구독에서 공유 이미지 갤러리 리소스를 모두 나열 하려면 다음 단계를 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
-1. **모든 리소스**로 이동합니다.
+1. 페이지 아래로 스크롤하고 **모든 리소스**를 선택 합니다.
 1. 모든 리소스를 나열하려는 모든 구독을 선택합니다.
-1. **프라이빗 갤러리** 형식의 리소스를 찾습니다.
- 
-   이미지 정의 및 이미지 버전을 확인하려면 **숨겨진 형식 표시**도 선택해야 합니다.
- 
-   사용 권한이 있는 구독 간에 공유 이미지 갤러리 리소스를 나열하려면 Azure CLI에서 다음 명령을 사용하세요.
+1. **공유 이미지 갤러리**, 형식의 리소스를 찾습니다.
+  
+사용 권한이 있는 구독 간에 공유 이미지 갤러리 리소스를 나열하려면 Azure CLI에서 다음 명령을 사용하세요.
 
-   ```azurecli
+```azurecli
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
-   ```
+```
+
+자세한 내용은 [Azure CLI](../articles/virtual-machines/update-image-resources-cli.md) 또는 [PowerShell](../articles/virtual-machines/update-image-resources-powershell.md)을 사용 하 여 **갤러리 리소스 관리** 를 참조 하세요.
 
 ### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>기존 이미지를 공유 이미지 갤러리로 이동할 수 있나요?
  
 예. 가지고 있는 이미지의 유형에 따라 3가지 시나리오가 있습니다.
 
- 시나리오 1: SIG와 동일한 구독에 관리 되는 이미지가 있는 경우 여기에서 이미지 정의와 이미지 버전을 만들 수 있습니다.
+ 시나리오 1: 관리되는 이미지가 있는 경우 이를 통해 이미지 정의와 이미지 버전을 만들 수 있습니다. 자세한 내용은 [Azure CLI](../articles/virtual-machines/image-version-managed-image-cli.md) 또는 [PowerShell](../articles/virtual-machines/image-version-managed-image-powershell.md)을 사용 하 여 **관리 되는 이미지에서 이미지 버전으로 마이그레이션** 을 참조 하세요.
 
- 시나리오 2: SIG와 동일한 구독에 관리 되지 않는 이미지가 있는 경우 해당 이미지에서 관리 되는 이미지를 만든 다음 여기에서 이미지 정의와 이미지 버전을 만들 수 있습니다. 
+ 시나리오 2: 관리 되지 않는 이미지가 있는 경우 해당 이미지에서 관리 되는 이미지를 만든 다음 여기에서 이미지 정의와 이미지 버전을 만들 수 있습니다. 
 
  시나리오 3: 로컬 파일 시스템에 VHD가 있는 경우 관리 되는 이미지에 VHD를 업로드 해야 합니다. 그런 다음 이미지 정의 및 이미지 버전을 만들 수 있습니다.
 
@@ -250,11 +246,17 @@ Azure Portal에 대 한 액세스 권한이 있는 모든 구독에서 공유 �
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>특수한 디스크에서 이미지 버전을 만들 수 있나요?
 
-예, 특수 한 디스크에 대 한 지원은 미리 보기 상태입니다. 포털 ([Windows](../articles/virtual-machines/linux/shared-images-portal.md) 또는 [LINUX](../articles/virtual-machines/linux/shared-images-portal.md)) 및 API를 사용 하 여 특수 이미지에서 VM을 만들 수 있습니다. 미리 보기에 대 한 PowerShell은 지원 되지 않습니다.
+예, 특수 한 디스크에 대 한 지원은 미리 보기 상태입니다. 포털, PowerShell 또는 API를 사용 하 여 특수화 된 이미지에서 VM을 만들 수 있습니다. 
+
+
+[PowerShell을 사용 하 여 특수화 된 VM의 이미지를 만듭니다](../articles/virtual-machines/image-version-vm-powershell.md).
+
+포털을 사용 하 여 [Windows](../articles/virtual-machines/linux/shared-images-portal.md) 또는 [Linux] (. /articles/virtual-machines/linux/shared-images-portal.md) 이미지입니다. 
+
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>공유 이미지 갤러리 리소스를 만든 후 다른 구독으로 이동할 수 있나요?
 
-아니요. 공유 이미지 갤러리 리소스를 다른 구독으로 이동할 수는 없습니다. 그러나 필요에 따라 갤러리의 이미지 버전을 다른 지역으로 복제할 수는 있습니다.
+아니요, 공유 이미지 갤러리 리소스를 다른 구독으로 이동할 수 없습니다. 갤러리의 이미지 버전을 다른 지역에 복제 하거나 [Azure CLI](../articles/virtual-machines/image-version-another-gallery-cli.md) 또는 [PowerShell](../articles/virtual-machines/image-version-another-gallery-powershell.md)을 사용 하 여 다른 갤러리에서 이미지를 복사할 수 있습니다.
 
 ### <a name="can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud"></a>Azure 중국 21Vianet 또는 Azure 독일 또는 Azure Government Cloud와 같은 클라우드 간에 이미지 버전을 복제할 수 있나요?
 
@@ -308,3 +310,7 @@ CLI에서 일반적인 복제본 수를 지정하려면 `az sig image-version cr
 ### <a name="what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version"></a>이미지 버전에서 공유 VM 또는 가상 머신 확장 집합을 만드는 데 사용 해야 하는 API 버전은 무엇 인가요?
 
 이미지 버전을 사용한 VM 및 Virtual Machine Scale Set 배포의 경우 API 버전 2018-04-01 이상을 사용하는 것이 좋습니다.
+
+### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>공유 이미지 갤러리 이미지를 사용 하기 위해 관리 되는 이미지를 사용 하 여 만든 가상 머신 확장 집합을 업데이트할 수 있나요?
+
+예, OS 유형, Hyper-v 생성 및 데이터 디스크 레이아웃이 이미지 사이에서 일치 하는 한 관리 되는 이미지에서 공유 이미지 갤러리 이미지로 확장 집합 이미지 참조를 업데이트할 수 있습니다. 

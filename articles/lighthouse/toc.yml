@@ -10,6 +10,9 @@
     - name: 인덱스
       displayName: 'template, sample'
       href: ./samples/index.md
+    - name: Azure Policy 기본 제공
+      displayName: 'samples, policies, definitions'
+      href: ./samples/policy-samples.md
 - name: 개념
   items:
     - name: Azure 위임 리소스 관리
@@ -33,6 +36,9 @@
     - name: 엔터프라이즈 시나리오의 Azure Lighthouse
       displayName: 'corporation, IT, consolidate'
       href: ./concepts/enterprise.md
+    - name: Azure Lighthouse 및 Azure 관리형 애플리케이션
+      displayName: 'managed apps, ama'
+      href: ./concepts/managed-applications.md
 - name: 방법 가이드
   items:
     - name: Azure 위임 리소스 관리에 고객 등록

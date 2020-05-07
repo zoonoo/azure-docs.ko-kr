@@ -3,14 +3,14 @@ title: Azure 업데이트 관리에서 작동 하도록 Windows 업데이트 설
 description: 이 문서에서는 Azure 업데이트 관리에서 작동 하도록 구성 하는 Windows 업데이트 설정에 대해 설명 합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 03/02/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f226c4d297d25644b2650d085655f70d8326927
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9b5f2b19b29eae0132ec01a9f3fb7e8355361f5
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279027"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779453"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>업데이트 관리에 대 한 Windows 업데이트 설정 구성
 
@@ -22,6 +22,8 @@ Azure 업데이트 관리는 [Windows 업데이트 클라이언트](https://docs
 - 레지스트리 직접 편집
 
 업데이트 관리은 Windows 업데이트 클라이언트를 제어 하기 위해 지정 된 대부분의 설정을 따릅니다. 설정을 사용 하 여 비 Windows 업데이트를 사용 하는 경우에도 업데이트 관리에서 해당 업데이트를 관리 합니다. 업데이트 배포를 수행 하기 전에 업데이트 다운로드를 사용 하도록 설정 하려는 경우 업데이트 배포는 더 빠르고 효율적이 고 유지 관리 기간을 초과할 가능성이 줄어듭니다.
+
+Azure 구독에서 WSUS를 설정 하 고 Windows 가상 머신을 최신 상태로 안전 하 게 유지 하는 방법에 대 한 추가 권장 사항은 [wsus를 사용 하 여 azure에서 windows 가상 머신 업데이트를 위한 배포 계획](https://docs.microsoft.com/azure/architecture/example-scenario/wsus/)을 참조 하세요.
 
 ## <a name="pre-download-updates"></a>다운로드 전 업데이트
 

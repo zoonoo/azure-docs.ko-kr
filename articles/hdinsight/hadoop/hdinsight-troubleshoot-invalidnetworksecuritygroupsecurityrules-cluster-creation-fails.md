@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/31/2019
-ms.openlocfilehash: a73e1e9f7a9c017dd29b627a24c25ae2e064c0a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2cf4859d3bf4c34fff4cb076eec11bcd2d81e4ab
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75894140"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780779"
 ---
 # <a name="scenario-invalidnetworksecuritygroupsecurityrules---cluster-creation-fails-in-azure-hdinsight"></a>시나리오: InvalidNetworkSecurityGroupSecurityRules-Azure HDInsight에서 클러스터 만들기 실패
 
@@ -28,7 +28,7 @@ ms.locfileid: "75894140"
 
 ## <a name="resolution"></a>해결 방법
 
-Azure Portal로 이동 하 여 클러스터가 배포 되는 서브넷과 연결 된 NSG를 식별 합니다. **인바운드 보안 규칙** 섹션에서 규칙이 [여기](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip)에 언급 된 IP 주소에 대 한 포트 443에 대 한 인바운드 액세스를 허용 하는지 확인 합니다.
+Azure Portal로 이동 하 여 클러스터가 배포 되는 서브넷과 연결 된 NSG를 식별 합니다. **인바운드 보안 규칙** 섹션에서 규칙이 [여기](../control-network-traffic.md)에 언급 된 IP 주소에 대 한 포트 443에 대 한 인바운드 액세스를 허용 하는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

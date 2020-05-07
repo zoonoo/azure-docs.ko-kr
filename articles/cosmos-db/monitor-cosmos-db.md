@@ -8,18 +8,19 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: ec0894818c0c246223749e1efcf7ea9e5ebee463
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eef6ece115afc41fd30d77747eb3e368cf95719c
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194536"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780184"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>모니터링 Azure Cosmos DB
+
 Azure 리소스를 사용 하는 중요 한 응용 프로그램 및 비즈니스 프로세스를 사용 하는 경우 해당 리소스의 가용성, 성능 및 작업을 모니터링 하려고 합니다. 이 문서에서는 Azure Cosmos 데이터베이스에서 생성 되는 모니터링 데이터와 Azure Monitor 기능을 사용 하 여이 데이터를 분석 하 고 경고 하는 방법을 설명 합니다.
 
 ## <a name="what-is-azure-monitor"></a>Azure Monitor란?
-Azure Cosmos DB는 azure에서 전체 stack 모니터링 서비스인 [Azure Monitor](../azure-monitor/overview.md) 를 사용 하 여 모니터링 데이터를 만들며,이를 통해 다른 클라우드 및 온-프레미스의 리소스 외에도 azure 리소스를 모니터링할 수 있는 완전 한 기능 집합을 제공 합니다. 
+Azure Cosmos DB는 azure에서 전체 stack 모니터링 서비스인 [Azure Monitor](../azure-monitor/overview.md) 를 사용 하 여 모니터링 데이터를 만들며,이를 통해 다른 클라우드 및 온-프레미스의 리소스 외에도 azure 리소스를 모니터링할 수 있는 완전 한 기능 집합을 제공 합니다.
 
 Azure 서비스를 모니터링 하는 방법을 잘 모르는 경우 다음을 설명 하는 [Azure Monitor으로 azure 리소스 모니터링](../azure-monitor/insights/monitor-azure-resource.md) 문서부터 시작 하세요.
 
@@ -32,9 +33,8 @@ Azure 서비스를 모니터링 하는 방법을 잘 모르는 경우 다음을 
 다음 섹션에서는 Azure Cosmos DB에서 수집한 특정 데이터를 설명 하 고 Azure tools를 사용 하 여 데이터 수집을 구성 하 고이 데이터를 분석 하기 위한 예제를 제공 하 여이 문서를 작성 합니다.
 
 ## <a name="azure-monitor-for-cosmos-db-preview"></a>Cosmos DB에 대 한 Azure Monitor (미리 보기)
-[Azure Cosmos DB에 대 한 Azure Monitor](../azure-monitor/insights/cosmosdb-insights-overview.md) [Azure Monitor의 통합 문서 기능](../azure-monitor/app/usage-workbooks.md) 을 기반으로 하며 아래 섹션에 설명 된 Cosmos DB에 대해 수집 된 것과 동일한 모니터링 데이터를 사용 합니다. 이 도구를 사용 하 여 통합 된 대화형 환경에서 모든 Azure Cosmos DB 리소스의 전반적인 성능, 오류, 용량 및 운영 상태를 확인 하 고 자세한 분석 및 경고를 위해 Azure Monitor의 다른 기능을 활용 합니다. 
 
-![Cosmos DB에 대 한 Azure Monitor](media/monitor-cosmos-db/azure-monitor-cosmos-db.png)
+Azure Cosmos DB에 대 한 Azure Monitor [Azure Monitor의 통합 문서 기능](../azure-monitor/app/usage-workbooks.md) 을 기반으로 하며 아래 섹션에 설명 된 Cosmos DB에 대해 수집 된 것과 동일한 모니터링 데이터를 사용 합니다. Azure Monitor를 사용 하 여 통합 된 대화형 환경에서 모든 Azure Cosmos DB 리소스의 전반적인 성능, 오류, 용량 및 운영 상태를 확인 하 고, 자세한 분석 및 경고를 위해 Azure Monitor의 다른 기능을 활용 합니다. 자세히 알아보려면 [Azure Cosmos DB에 대 한 Azure Monitor 탐색](../azure-monitor/insights/cosmosdb-insights-overview.md) 문서를 참조 하세요.
 
 > [!NOTE]
 > 컨테이너를 만들 때 이름은 같지만 대/소문자가 다른 두 개의 컨테이너를 만들지 않아야 합니다. Azure 플랫폼의 일부 부분에서 대/소문자를 구분 하지 않으므로이로 인해 이러한 이름을 가진 컨테이너에 대 한 원격 분석 및 작업의 혼동/충돌이 발생할 수 있습니다.
@@ -87,11 +87,10 @@ Azure Cosmos DB는 메트릭을 사용 하기 위한 사용자 지정 환경을 
 - 지역
 - StatusCode
 
-
 ## <a name="analyzing-log-data"></a>로그 데이터 분석
 Azure Monitor 로그의 데이터는 각각 고유한 속성 집합이 있는 테이블에 저장 됩니다. Azure Cosmos DB은 다음 테이블에 데이터를 저장 합니다.
 
-| 테이블 | Description |
+| 테이블 | 설명 |
 |:---|:---|
 | AzureDiagnostics | 여러 서비스에서 리소스 로그를 저장 하는 데 사용 하는 공통 테이블입니다. Azure Cosmos DB의 리소스 로그는를 사용 하 `MICROSOFT.DOCUMENTDB`여 식별할 수 있습니다.   |
 | AzureActivity    | 활동 로그의 모든 레코드를 저장 하는 공통 테이블입니다. 
@@ -110,31 +109,15 @@ Azure Monitor 로그의 데이터는 각각 고유한 속성 집합이 있는 �
 
     ```Kusto
     AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+    | where ResourceProvider=="Microsoft.DocumentDb" and Category=="DataPlaneRequests"
 
-    ```
-
-* 가장 최근에 로깅된 10개 이벤트를 쿼리하려면
-
-    ```Kusto
-    AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
-    | limit 10
-    ```
-
-* 모든 작업을 쿼리하고 작업 유형별로 그룹화하려면
-
-    ```Kusto
-    AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
-    | summarize count() by OperationName
     ```
 
 * 모든 작업에 대해 쿼리하려면 자원별로 그룹화 합니다.
 
     ```Kusto
     AzureActivity 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | where ResourceProvider=="Microsoft.DocumentDb" and Category=="DataPlaneRequests" 
     | summarize count() by Resource
 
     ```
@@ -143,62 +126,16 @@ Azure Monitor 로그의 데이터는 각각 고유한 속성 집합이 있는 �
 
     ```Kusto
     AzureActivity 
-    | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | where Caller == "test@company.com" and ResourceProvider=="Microsoft.DocumentDb" and Category=="DataPlaneRequests" 
     | summarize count() by Resource
-    ```
-* **DataPlaneRequests** 및 **queryruntimestatistics**의 데이터로 조인 되는 100 RUs 보다 큰 모든 쿼리를 가져옵니다.
-
-    ```Kusto
-    AzureDiagnostics
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
-    | project activityId_g, requestCharge_s
-    | join kind= inner (
-           AzureDiagnostics
-           | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
-           | project activityId_g, querytext_s
-    ) on $left.activityId_g == $right.activityId_g
-    | order by requestCharge_s desc
-    | limit 100
-    ```
-
-* 3밀리초보다 오래 소요되는 작업을 쿼리하려면
-
-    ```Kusto
-    AzureDiagnostics 
-    | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
-    | summarize count() by clientIpAddress_s, TimeGenerated
-    ```
-
-* 작업을 실행 중인 에이전트를 쿼리하려면
-
-    ```Kusto
-    AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
-    | summarize count() by OperationName, userAgent_s
-    ```
-
-* 장기 실행 작업이 수행된 시점을 쿼리하려면
-
-    ```Kusto
-    AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
-    | project TimeGenerated , duration_s 
-    | summarize count() by bin(TimeGenerated, 5s)
-    | render timechart
-    ```
-    
-* 파티션 키 통계를 가져와서 데이터베이스 계정에 대 한 상위 3 개 파티션 간의 오차를 평가 하려면:
-
-    ```Kusto
-    AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-    | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
     ```
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>프로그래밍 방식으로 Azure Cosmos DB 모니터링
+
 포털에서 제공되는 계정 수준 메트릭(예: 계정 스토리지 사용 및 총 요청)은 SQL API를 통해 사용할 수 없습니다. 그러나 SQL API를 사용하여 컬렉션 수준에서 사용량 현황 데이터를 검색할 수 있습니다. 컬렉션 수준 데이터를 검색하려면 다음을 수행합니다.
 
 * REST API를 사용하려면 [컬렉션에 대해 GET을 수행](https://msdn.microsoft.com/library/mt489073.aspx)합니다. 컬렉션에 대한 할당량 및 사용량 정보는 응답의 x-ms-resource-quota 및 x-ms-resource-usage 헤더에서 반환됩니다.
+
 * .NET SDK를 사용하려면 [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) 메서드를 사용합니다. 이 메서드는 **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage** 등의 여러 사용량 속성이 포함된 [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx)를 반환합니다.
 
 추가 메트릭에 액세스하려면 [Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights)를 사용하세요. 가용 메트릭 정의는 다음을 호출하면 검색할 수 있습니다.

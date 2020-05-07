@@ -449,6 +449,8 @@
           items:
             - name: Azure 애플리케이션 제품 만들기
               href: ./partner-center-portal/create-new-azure-apps-offer.md
+            - name: Azure 애플리케이션 요금 청구
+              href: ./partner-center-portal/azure-app-metered-billing.md
             - name: 검토 피드백 처리
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: 온보딩용 API
@@ -515,11 +517,6 @@
               href: ./partner-center-portal/create-new-saas-offer.md
             - name: SaaS 요금 청구
               href: ./partner-center-portal/saas-metered-billing.md
-              items:
-                - name: Marketplace 계량 서비스 API - FAQ
-                  href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
-                - name: Marketplace 계량 서비스 API
-                  href: ./partner-center-portal/marketplace-metering-service-apis.md
             - name: SaaS 처리 API
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -546,6 +543,14 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
             - name: Salesforce
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
+        - name: Marketplace 계량 서비스
+          items:
+            - name: 인증 전략
+              href: ./partner-center-portal/marketplace-metering-service-authentication.md
+            - name: Marketplace 계량 서비스 API
+              href: ./partner-center-portal/marketplace-metering-service-apis.md
+            - name: Marketplace 계량 서비스 API - FAQ
+              href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
         - name: 제품 시험 사용
           href: ./partner-center-portal/test-drive.md
         - name: 공동 판매 옵션
@@ -589,11 +594,13 @@
           href: ./partner-center-portal/get-paid.md
         - name: 지급 계정 및 세금 양식 설정
           href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
-        - name: 청구 세부 정보
-          href: ./partner-center-portal/billing-details.md
         - name: '결제 임계값, 메서드 및 시간 프레임'
           href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
+        - name: 지급 요약 개요
+          href: ./partner-center-portal/payout-summary-overview.md
         - name: 지급 요약
           href: ./partner-center-portal/payout-summary.md
+        - name: 지급 정책 세부 정보
+          href: ./partner-center-portal/payout-policy-details.md
         - name: 세금 세부 정보
           href: ./partner-center-portal/tax-details-paid-transactions.md
