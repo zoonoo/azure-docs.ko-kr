@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: b71384e0a42af5481af7b17b91cd0b1d0ed82ee8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61de52e5a6703682d52d49efe9decb814231dae4
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082597"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901276"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Windows 가상 머신에 대 한 Azure Disk Encryption FAQ
 
@@ -21,7 +21,7 @@ ms.locfileid: "82082597"
 
 ## <a name="what-is-azure-disk-encryption-for-windows-vms"></a>Windows Vm의 Azure Disk Encryption은 무엇 인가요?
 
-Windows Vm에 대 한 Azure Disk Encryption은 Windows의 Bitlocker 기능을 사용 하 여 OS 디스크 및 데이터 디스크에 대 한 전체 디스크 암호화를 제공 합니다. 또한, [Vetype 매개 변수가 모두 인](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk)경우 임시 리소스 디스크의 암호화를 제공 합니다.  VM에서 저장소 백 엔드로 암호화 된 콘텐츠 흐름입니다. 따라서 고객이 관리 하는 키를 사용 하 여 종단 간 암호화를 제공 합니다.
+Windows Vm에 대 한 Azure Disk Encryption은 Windows의 BitLocker 기능을 사용 하 여 OS 디스크 및 데이터 디스크에 대 한 전체 디스크 암호화를 제공 합니다. 또한, [Vetype 매개 변수가 모두 인](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk)경우 임시 디스크의 암호화를 제공 합니다.  VM에서 저장소 백 엔드로 암호화 된 콘텐츠 흐름입니다. 따라서 고객이 관리 하는 키를 사용 하 여 종단 간 암호화를 제공 합니다.
  
 [지원 되는 vm 및 운영 체제를](disk-encryption-overview.md#supported-vms-and-operating-systems)참조 하세요.
  
@@ -61,7 +61,7 @@ OS 볼륨을 암호화 한 후에는 OS 볼륨에서 암호화를 사용 하지 
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>는 고객이 관리 하는 키를 사용 하 여 저장소 서버 쪽 암호화와 Azure Disk Encryption 어떻게 다르며 언제 각 솔루션을 사용 해야 하나요?
 
-Azure Disk Encryption는 고객이 관리 하는 키를 사용 하 여 OS 디스크, 데이터 디스크 및 임시 리소스 디스크에 대 한 종단 간 암호화를 제공 합니다.
+Azure Disk Encryption는 고객이 관리 하는 키를 사용 하 여 OS 디스크, 데이터 디스크 및 임시 디스크에 대 한 종단 간 암호화를 제공 합니다.
 
 - 요구 사항에 위의 암호화와 종단 간 암호화를 모두 암호화 하는 작업이 포함 된 경우 Azure Disk Encryption를 사용 합니다. 
 - 요구 사항에 따라 고객이 관리 하는 키를 사용 하 여 미사용 데이터만 암호화 해야 하는 경우에 [는 고객 관리 키를 사용 하 여 서버 쪽 암호화](disk-encryption.md)를 사용 합니다. 고객 관리 키를 사용 하 여 Azure Disk Encryption 및 저장소 서버 쪽 암호화를 모두 사용 하 여 디스크를 암호화할 수 없습니다.
@@ -129,9 +129,6 @@ Azure Disk Encryption는 다음과 같이 Windows 버전에 따라 BitLocker의 
 \*AES 256 비트 (디퓨저 포함)는 Windows 2012 이상에서 지원 되지 않습니다.
 
 Windows OS 버전을 확인 하려면 가상 머신에서 ' winver ' 도구를 실행 합니다.
-
-## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>EncryptFormatAll을 사용하고 모든 볼륨 유형을 지정하면 이미 암호화한 데이터 드라이브에서 데이터가 지워지나요?
-아니요. Azure Disk Encryption을 사용하여 이미 암호화된 데이터 드라이브에서는 데이터가 지워지지 않습니다. EncryptFormatAll은 OS 드라이브를 다시 암호화하지 않은 것과 유사하게 이미 암호화된 데이터 드라이브를 다시 암호화하지 않습니다. 
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>암호화 된 VM을 백업 및 복원할 수 있나요? 
 

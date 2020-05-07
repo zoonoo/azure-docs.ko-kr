@@ -6,20 +6,20 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5e7f1b70aca50b4e42d056beb0b17795430091c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273558"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690714"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Service Bus 트리거
 
-Service Bus 트리거를 사용하여 Service Bus 큐 또는 토픽의 메시지에 응답합니다.
+Service Bus 트리거를 사용하여 Service Bus 큐 또는 토픽의 메시지에 응답합니다. 확장 버전 3.1.0부터 세션 사용 큐 또는 토픽을 트리거할 수 있습니다.
 
 설정 및 구성 세부 정보에 대 한 자세한 내용은 [개요](functions-bindings-service-bus-output.md)를 참조 하세요.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -222,7 +222,7 @@ Service Bus 토픽에 메시지가 추가 될 때도 Java 함수를 트리거할
   }
   ```
 
-  다음 예제와 같이 `Connection` 사용할 Service Bus 연결 문자열을 포함 하는 앱 설정의 이름을 지정 하도록 속성을 설정할 수 있습니다.
+  `Connection` 속성이 정의 되어 있지 않으므로 함수는 Service Bus 연결 문자열의 기본 이름인 `AzureWebJobsServiceBus`이라는 앱 설정을 찾습니다. 다음 예제와 같이 `Connection` 속성을 설정 하 여 사용할 Service Bus 연결 문자열을 포함 하는 응용 프로그램 설정의 이름을 지정할 수도 있습니다.
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -302,7 +302,7 @@ Python에서 특성을 지원 하지 않습니다.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용법
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -354,21 +354,24 @@ Functions 런타임은 [PeekLock 모드](../service-bus-messaging/service-bus-pe
 
 ## <a name="message-metadata"></a>메시지 메타 데이터
 
-Service Bus 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 이러한 속성은 [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 클래스의 멤버입니다.
+Service Bus 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 이러한 속성은 [Message](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet) 클래스의 멤버입니다.
 
-|속성|Type|Description|
+|속성|Type|설명|
 |--------|----|-----------|
-|`DeliveryCount`|`Int32`|배달 수입니다.|
-|`DeadLetterSource`|`string`|배달 못한 편지 원본입니다.|
-|`ExpiresAtUtc`|`DateTime`|만료 시간(UTC)입니다.|
-|`EnqueuedTimeUtc`|`DateTime`|큐에 대기된 시간(UTC)입니다.|
-|`MessageId`|`string`|Service Bus에서 중복 메시지를 식별하는 데 사용할 수 있는 사용자 정의 값입니다(설정된 경우).|
 |`ContentType`|`string`|응용 프로그램 관련 논리에 대해 보낸 사람 및 수신자가 사용한 콘텐츠 형식 식별자입니다.|
-|`ReplyTo`|`string`|큐 주소에 대한 회신입니다.|
-|`SequenceNumber`|`Int64`|Service Bus에 의해 메시지에 할당되는 고유 번호입니다.|
-|`To`|`string`|주소로 보내기입니다.|
-|`Label`|`string`|응용 프로그램 관련 레이블입니다.|
 |`CorrelationId`|`string`|상관관계 ID입니다.|
+|`DeadLetterSource`|`string`|배달 못한 편지 원본입니다.|
+|`DeliveryCount`|`Int32`|배달 수입니다.|
+|`EnqueuedTimeUtc`|`DateTime`|큐에 대기된 시간(UTC)입니다.|
+|`ExpiresAtUtc`|`DateTime`|만료 시간(UTC)입니다.|
+|`Label`|`string`|응용 프로그램 관련 레이블입니다.|
+|`MessageId`|`string`|Service Bus에서 중복 메시지를 식별하는 데 사용할 수 있는 사용자 정의 값입니다(설정된 경우).|
+|`MessageReceiver`|`MessageReceiver`|메시지 수신자를 Service Bus 합니다. 메시지를 중단, 완료 또는 배달 못한 데 사용할 수 있습니다.|
+|`MessageSession`|`MessageSession`|세션을 사용 하는 큐 및 토픽에 대 한 메시지 받는 사람입니다.|
+|`ReplyTo`|`string`|큐 주소에 대한 회신입니다.|
+|`SequenceNumber`|`long`|Service Bus에 의해 메시지에 할당되는 고유 번호입니다.|
+|`To`|`string`|주소로 보내기입니다.|
+|`UserProperties`|`IDictionary<string, object>`|보낸 사람에 의해 설정 되는 속성입니다.|
 
 이 아티클의 앞부분에서 이러한 속성을 사용하는 [코드 예제](#example)를 참조하세요.
 

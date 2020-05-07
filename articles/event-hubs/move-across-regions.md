@@ -9,12 +9,12 @@ ms.custom: subject-moving-resources
 ms.date: 04/14/2020
 ms.author: spelluru
 ms.reviewer: shvija
-ms.openlocfilehash: 2dfc9c517605bbb48bee0b306fb275464cfebe39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b96bf1c538b3c5589a1993a0353292fadd0936d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606809"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690480"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Azure Event Hubs 네임 스페이스를 다른 지역으로 이동
 기존 Event Hubs 네임 스페이스를 한 지역에서 다른 지역으로 이동 하려는 다양 한 시나리오가 있습니다. 예를 들어 테스트를 위한 동일한 구성으로 네임 스페이스를 만들 수 있습니다. [재해 복구 계획](event-hubs-geo-dr.md#setup-and-failover-flow)의 일부로 다른 지역에 보조 네임 스페이스를 만들 수도 있습니다.
@@ -22,12 +22,12 @@ ms.locfileid: "81606809"
 > [!NOTE]
 > 이 문서에서는 기존 Event Hubs 네임 스페이스에 대 한 Azure Resource Manager 템플릿을 내보낸 다음 템플릿을 사용 하 여 다른 지역에서 동일한 구성 설정을 사용 하 여 네임 스페이스를 만드는 방법을 보여 줍니다. 그러나이 프로세스는 아직 처리 되지 않은 이벤트는 이동 하지 않습니다. 원래 네임 스페이스를 삭제 하기 전에 해당 이벤트를 처리 해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 계정에서 사용 하는 서비스 및 기능이 대상 지역에서 지원 되는지 확인 합니다.
 - 미리 보기 기능에 대해 구독을 대상 지역에 대 한 허용 목록 확인 합니다.
 - 네임 스페이스에서 event hubs에 대해 **캡처 기능** 을 사용 하도록 설정한 경우 Event Hubs 네임 스페이스를 이동 하기 전에 [Azure Storage 또는 Azure Data Lake Store gen 2](../storage/common/storage-account-move.md) 또는 [Azure Data Lake Store gen 1](../data-lake-store/data-lake-store-migration-cross-region.md) 계정을 이동 합니다. 이 문서에서 설명 하는 것과 유사한 단계를 수행 하 여 저장소 및 Event Hubs 네임 스페이스를 포함 하는 리소스 그룹을 다른 지역으로 이동할 수도 있습니다. 
-- Event Hubs 네임 스페이스가 **Event Hubs 클러스터**에 있는 경우이 문서의 단계를 진행 하기 전에 **대상 지역** 에 [전용 클러스터를 만듭니다](event-hubs-dedicated-cluster-create-portal.md) . 
+- Event Hubs 네임 스페이스가 **Event Hubs 클러스터**에 있는 경우이 문서의 단계를 진행 하기 전에 **대상 지역** 에 [전용 클러스터를 만듭니다](event-hubs-dedicated-cluster-create-portal.md) . [GitHub에서 빠른 시작 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-cluster-namespace-eventhub/) 사용 하 여 Event Hubs 클러스터를 만들 수도 있습니다. 템플릿에서 JSON의 네임 스페이스 부분을 제거 하 여 클러스터만 만듭니다. 
 
 ## <a name="prepare"></a>준비
 시작 하려면 리소스 관리자 템플릿을 내보냅니다. 이 템플릿에는 Event Hubs 네임 스페이스를 설명 하는 설정이 포함 되어 있습니다.

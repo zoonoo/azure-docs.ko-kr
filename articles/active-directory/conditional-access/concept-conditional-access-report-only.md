@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd41e79a1e08c57e806f6ada32faccfa5fdf5792
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c5643b0ce9d93c28372b30e6fc114816cafbce6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295294"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690454"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>조건부 액세스 보고서 전용 모드
 
@@ -26,7 +26,7 @@ ms.locfileid: "80295294"
 
 - 조건부 액세스 정책은 보고서 전용 모드에서 사용 하도록 설정할 수 있습니다.
 - 로그인 하는 동안 보고서 전용 모드의 정책은 평가 되지만 적용 되지 않습니다.
-- 결과는 로그인 로그 정보에 대 한 **조건부 액세스** 및 **보고서 전용 (미리 보기)** 탭에 기록 됩니다.
+- 결과는 로그인 로그 정보에 대 한 **조건부 액세스** 및 **보고서 전용** 탭에 기록 됩니다.
 - Azure Monitor 구독이 있는 고객은 조건부 액세스 insights 통합 문서를 사용 하 여 조건부 액세스 정책의 영향을 모니터링할 수 있습니다.
 
 > [!WARNING]
@@ -38,7 +38,7 @@ ms.locfileid: "80295294"
 
 지정 된 로그인에 대해 보고서 전용 모드의 정책을 평가 하는 경우 다음과 같은 네 가지 새로운 결과 값이 있습니다.
 
-| 결과 | Description |
+| 결과 | 설명 |
 | --- | --- |
 | 보고서 전용: 성공 | 구성 된 모든 정책 조건, 필요한 비 대화형 권한 부여 컨트롤 및 세션 컨트롤이 충족 되었습니다. 예를 들어 토큰에 이미 있는 MFA 클레임이 multi-factor authentication 요구 사항을 충족 하거나 규격 장치에서 장치 검사를 수행 하 여 준수 장치 정책을 충족 합니다. |
 | 보고서 전용: 오류 | 구성 된 모든 정책 조건이 충족 되었지만 모든 필수 비 대화형 권한 부여 컨트롤 또는 세션 컨트롤이 충족 되지 않았습니다. 예를 들어, 블록 컨트롤이 구성 된 사용자에 게 정책이 적용 되거나 장치가 규격 장치 정책에 실패 하는 경우를 예로 들 수 있습니다. |

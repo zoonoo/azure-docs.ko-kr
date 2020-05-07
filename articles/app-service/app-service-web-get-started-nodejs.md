@@ -5,14 +5,12 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 03/04/2020
 ms.custom: mvc, devcenter, seodec18
-experimental: false
-experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: bcb0ae2457175e7511c3539187d72d48e80baa5b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: df1e0809c0122eae593543cd193a6477b03d0938
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80047126"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690786"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기 
 
@@ -23,7 +21,7 @@ Visual Studio Code를 사용하여 Node.js/Express 앱을 로컬로 만든 다�
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - [Node.js 및 npm](https://nodejs.org). `node --version` 명령을 실행하여 Node.js가 설치되어 있는지 확인합니다.
 - [Visual Studio Code](https://code.visualstudio.com/)
-- Visual Studio Code용 [Azure App Service 확장](vscode:extension/ms-azuretools.vscode-azureappservice)
+- Visual Studio Code용 [Azure App Service 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
 
 ## <a name="clone-and-run-a-local-nodejs-application"></a>로컬 Node.js 애플리케이션 복제 및 실행
 
@@ -45,7 +43,7 @@ Visual Studio Code를 사용하여 Node.js/Express 앱을 로컬로 만든 다�
     npm start
     ```
     
-1. 브라우저를 열고, [http://localhost:1337](http://localhost:1337)으로 이동합니다. 브라우저에서 "Hello World!"가 표시됩니다.
+1. 브라우저를 열고 `http://localhost:1337`로 이동합니다. 브라우저에서 "Hello World!"가 표시됩니다.
 
 1. 터미널에서 **Ctrl**+**C**를 눌러 서버를 중지합니다.
 
@@ -66,7 +64,7 @@ Visual Studio Code를 사용하여 Node.js/Express 앱을 로컬로 만든 다�
 
     ![Azure에 로그인](containers/media/quickstart-nodejs/sign-in.png)
 
-1. VS Code의 **AZURE APP SERVICE** 탐색기에서 파란색 위쪽 화살표 아이콘을 선택하여 앱을 Azure에 배포합니다. ('웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포**를 선택하여 명령 팔레트(CtrlShiftP)에서 동일한 명령을 호출할 수도 있습니다.)
+1. VS Code의 **AZURE APP SERVICE** 탐색기에서 파란색 위쪽 화살표 아이콘을 선택하여 앱을 Azure에 배포합니다. ('웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포**를 선택하여 **명령 팔레트**(**Ctrl**+**Shift**+**P**)에서 동일한 명령을 호출할 수도 있습니다.)
 
     ![웹앱에 배포](containers/media/quickstart-nodejs/deploy.png)
         

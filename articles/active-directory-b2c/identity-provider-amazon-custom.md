@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 05/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2de891ee109677f92ff603759701f7732f5951ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 059c43b24ddc9f319eac4f2783cfc203bed8c7f1
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188514"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900431"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Amazon 계정으로 로그인하도록 설정
 
@@ -24,22 +24,21 @@ ms.locfileid: "78188514"
 
 이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 지정 정책을](custom-policy-overview.md) 사용 하 여 Amazon 계정의 사용자에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [사용자 지정 정책 시작](custom-policy-get-started.md)의 단계를 완료합니다.
 - Amazon 계정이 아직 없는 경우에서 [https://www.amazon.com/](https://www.amazon.com/)하나 만듭니다.
 
-## <a name="register-the-application"></a>애플리케이션 등록
+## <a name="create-an-app-in-the-amazon-developer-console"></a>Amazon developer console에서 앱 만들기
 
-사용자가 Amazon 계정에서 로그인하도록 설정하려면 Amazon 애플리케이션을 만들어야 합니다.
+Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션 id 공급자로 사용 하려면 [Amazon 개발자 서비스 및 기술](https://developer.amazon.com)에서 응용 프로그램을 만들어야 합니다. Amazon 계정이 아직 없는 경우에서 [https://www.amazon.com/](https://www.amazon.com/)등록할 수 있습니다.
 
-1. Amazon 계정 자격 증명을 사용하여 [Amazon 개발자 센터](https://login.amazon.com/)에 로그인합니다.
-2. 이미 수행한 경우 **등록**을 클릭하고 개발자 등록 단계를 수행하며 정책에 동의합니다.
-3. **새 애플리케이션 등록**을 선택합니다.
-4. **이름**, **설명** 및 **개인 정보 알림 URL**을 입력하고 **저장**을 클릭합니다. 개인정보취급방침은 사용자에게 개인 정보를 제공하는 관리 대상 페이지입니다.
-5. **웹 설정** 섹션에서 **클라이언트 ID** 값을 복사합니다. **비밀 표시**를 선택하여 클라이언트 암호를 표시한 후 복사합니다. 테넌트에서 Amazon 계정을 ID 공급자로 구성하려면 둘 모두가 필요합니다. **클라이언트 보안 비밀**은 중요한 보안 자격 증명이므로
-6. **웹 설정** 섹션에서 **편집**을 선택한 후 **허용된 JavaScript 원본**에 `https://your-tenant-name.b2clogin.com`을 입력하고, **허용된 반환 URL**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-tenant-name`을 테넌트 이름으로 바꿉니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용합니다.
-7. **저장**을 클릭합니다.
+> [!NOTE]  
+> 아래의 **8 단계** 에서 다음 url을 사용 하 여 `your-tenant-name` 를 테 넌 트의 이름으로 바꿉니다. 테 넌 트 이름을 입력 하는 경우 Azure AD B2C에 대 문자가 대문자로 정의 된 경우에도 모든 소문자를 사용 합니다.
+> - **허용 되는 원본**에 대해 다음을 입력 합니다.`https://your-tenant-name.b2clogin.com` 
+> - **허용 되는 반환 url**에 대해 다음을 입력 합니다.`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
+
+[!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
 
 ## <a name="create-a-policy-key"></a>정책 키 만들기
 

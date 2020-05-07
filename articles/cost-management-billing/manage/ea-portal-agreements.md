@@ -3,16 +3,16 @@ title: Azure EA 계약 및 수정안
 description: 이 문서에서는 Azure EA 계약 및 수정안이 Azure EA 포털 사용에 미치는 영향을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/01/2020
+ms.date: 05/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 0b007e98f37246d17679761fd601ed76fd9fb875
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 570a7b3bef702d0e42e23bc4b7af41cc431b9cc8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586237"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691003"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Azure EA 계약 및 수정안
 

@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 094939ee62046c72f07ac46f0781e687034f731f
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74014372"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690625"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Azure Active Directory 보고서에 Azure Monitor 통합 문서를 사용 하는 방법
 
@@ -42,7 +42,7 @@ ms.locfileid: "74014372"
 
 - 로그인 로그 쿼리를 심층적으로 파악 하 고, 통합 문서는 액세스 권한이 부여 되거나 거부 된 사용자 수 및 리소스에 액세스할 때 조건부 액세스 정책을 바이패스 한 사용자 수를 보고 합니다.
 
-- 이러한 질문을 해결 하는 데 도움이 되도록 Active Directory는 모니터링을 위한 통합 문서를 제공 합니다. [Azure Monitor 통합 문서](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) 는 텍스트, 분석 쿼리, 메트릭 및 매개 변수를 풍부한 대화형 보고서로 결합 합니다.
+- 이러한 질문을 해결 하는 데 도움이 되도록 Azure Active Directory는 모니터링을 위한 통합 문서를 제공 합니다. [Azure Monitor 통합 문서](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) 는 텍스트, 분석 쿼리, 메트릭 및 매개 변수를 풍부한 대화형 보고서로 결합 합니다.
 
 
 
@@ -54,11 +54,11 @@ ms.locfileid: "74014372"
  
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 통합 문서 모니터링을 사용 하려면 다음이 필요 합니다.
 
-- Premium (P1 또는 P2) 라이선스가 있는 Active Directory 테 넌 트. [프리미엄 라이선스를 얻는](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium)방법에 대해 알아봅니다.
+- Premium (P1 또는 P2) 라이선스가 있는 Azure Active Directory 테 넌 트. [프리미엄 라이선스를 얻는](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium)방법에 대해 알아봅니다.
 
 - [Log Analytics 작업 영역](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)입니다.
 
@@ -97,7 +97,7 @@ ms.locfileid: "74014372"
 
 - 모든 로그인
 
-- 성공
+- Success
 
 - 보류 중인 사용자 작업
 
@@ -134,7 +134,7 @@ ms.locfileid: "74014372"
 
 - 모든 로그인
 
-- 성공
+- Success
 
 
 각 추세는 다음 범주로 필터링 할 수 있습니다.
@@ -267,7 +267,7 @@ ms.locfileid: "74014372"
 
 - 모든 로그인
 
-- 성공
+- Success
 
 - 보류 중인 작업
 

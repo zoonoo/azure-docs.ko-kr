@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd5fed45332c73c633db1137bdc23aea66fd3403
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35497f978a1819f09411487e4bbc7eb1d05cc80d
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332776"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900388"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 일회성 암호 기술 프로필을 정의 합니다.
 
@@ -144,6 +144,7 @@ Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.
 | UserMessageIfSessionDoesNotExist | 아니요 | 코드 확인 세션이 만료 된 경우 사용자에 게 표시할 메시지입니다. 코드가 만료 되었거나 지정 된 식별자에 대 한 코드가 생성 되지 않았습니다. |
 | UserMessageIfMaxRetryAttempted | 아니요 | 허용 되는 최대 확인 시도 횟수를 초과 하는 경우 사용자에 게 표시할 메시지입니다. |
 | Usermessageifin유효한 코드 | 아니요 | 잘못 된 코드를 제공한 경우 사용자에 게 표시할 메시지입니다. |
+| UserMessageIfVerificationFailedRetryAllowed | 아니요 | 사용자가 잘못 된 코드를 제공 하 고 사용자가 올바른 코드를 제공할 수 있는 경우 사용자에 게 표시할 메시지입니다.  |
 |UserMessageIfSessionConflict|아니요| 코드를 확인할 수 없는 경우 사용자에 게 표시할 메시지입니다.|
 
 ### <a name="example"></a>예제

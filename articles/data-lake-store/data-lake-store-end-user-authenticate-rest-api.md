@@ -1,22 +1,17 @@
 ---
-title: '최종 사용자 인증: Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1과 함께 REST API 사용 | Microsoft Docs'
+title: 최종 사용자 인증-Data Lake Storage Gen1를 사용 하는 REST-Azure
 description: Azure Active Directory와 REST API를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증을 수행하는 방법을 알아봅니다.
-services: data-lake-store
-documentationcenter: ''
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 0ef65c23ee1bf4f064695779b71c8616427da204
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac06c9ef355eeba489d2006c435a48b7efcfd7f0
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60877825"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688075"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>REST API를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
