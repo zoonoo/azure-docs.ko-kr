@@ -4,17 +4,17 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 7c1ad2581d025a9259c5cb2a84e4237f938fc892
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: a2083de1ddf400b368815877725d3b8dd446156b
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81637148"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82844526"
 ---
 Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리하려면 일종의 자동화가 필요합니다. 완벽한 Azure 인프라 배포 및 관리 수명 주기를 자동화할 수 있는 다양한 도구와 솔루션이 있습니다. 이 문서에서는 Azure에서 사용할 수 있는 인프라 자동화 도구 중 일부를 소개합니다. 이러한 도구는 일반적으로 다음 방법 중 하나에 적합합니다.
 
 - VM 구성 자동화
-    - 도구에는 [Ansible,](#ansible) [Chef,](#chef) [Puppet](#puppet)및 Azure 리소스 [관리자 템플릿이](#azure-resource-manager-template)포함됩니다.
+    - 도구에는 [Ansible](#ansible), [Chef](#chef), [퍼핏](#puppet)및 [Azure Resource Manager 템플릿이](#azure-resource-manager-template)포함 됩니다.
     - VM 사용자 지정과 관련된 도구에는 Linux VM용 [cloud-init](#cloud-init), [PowerShell DSC(Desired State Configuration)](#powershell-dsc) 및 모든 Azure VM을 위한 [Azure 사용자 지정 스크립트 확장](#azure-custom-script-extension)이 포함됩니다.
 
 - 인프라 관리 자동화
@@ -30,7 +30,7 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
 방법 배우기:
 
 - [Azure에서 사용하도록 Linux에 Ansible 설치 및 구성](../articles/ansible/ansible-install-configure.md)
-- [리눅스 가상 머신을 만듭니다.](../articles/ansible/ansible-create-vm.md)
+- [Linux 가상 머신을 만듭니다](../articles/ansible/ansible-create-vm.md).
 - [Linux 가상 머신 관리](../articles/ansible/ansible-manage-linux-vm.md)
 
 
@@ -100,8 +100,8 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 방법 배우기:
 
-- [Azure를 사용하여 Terraform 설치 및 구성](../articles/terraform/terraform-install-configure.md)
-- [Terraform을 사용하여 Azure 인프라 만들기](../articles/terraform/terraform-create-complete-vm.md)
+- [Azure를 사용하여 Terraform 설치 및 구성](/azure/developer/terraform/install-configure)
+- [Terraform을 사용하여 Azure 인프라 만들기](/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure)
 
 
 ## <a name="azure-automation"></a>Azure Automation
@@ -111,7 +111,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 방법 배우기:
 
-- [PowerShell 실행책을 만듭니다.](../articles/automation/automation-first-runbook-textual-powershell.md)
+- [PowerShell runbook을 만듭니다](../articles/automation/automation-first-runbook-textual-powershell.md).
 - [Hybrid Runbook Worker를 사용하여 온-프레미스 리소스 관리](../articles/automation/automation-hybrid-runbook-worker.md)
 - [Azure Automation DSC 사용](../articles/automation/automation-dsc-getting-started.md)
 
@@ -121,7 +121,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 다음에 대해 자세히 알아봅니다.
 
-- [Azure DevOps 서비스](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
+- [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
 
 
 ## <a name="jenkins"></a>Jenkins
@@ -133,15 +133,15 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
-[Azure 리소스 관리자는](../articles/azure-resource-manager/templates/overview.md) Azure에 대한 배포 및 관리 서비스입니다. Azure 구독에서 리소스를 만들고, 업데이트하고, 삭제할 수 있는 관리 계층을 제공합니다. 배포 이후 액세스 제어, 잠금 및 태그와 같은 관리 기능을 사용하여 리소스를 보호하고 구성합니다.
+[Azure Resource Manager](../articles/azure-resource-manager/templates/overview.md) 은 Azure에 대 한 배포 및 관리 서비스입니다. Azure 구독에서 리소스를 만들고, 업데이트하고, 삭제할 수 있는 관리 계층을 제공합니다. 배포 이후 액세스 제어, 잠금 및 태그와 같은 관리 기능을 사용하여 리소스를 보호하고 구성합니다.
 
 방법 배우기:
 
-- [리소스 관리자 템플릿을 사용하여 스팟 VM을 배포합니다.](../articles/virtual-machines/linux/spot-template.md)
-- [C# 및 리소스 관리자 템플릿을 사용하여 Azure 가상 컴퓨터를 배포합니다.](../articles/virtual-machines/windows/csharp-template.md)
-- [리소스 관리자 템플릿에서 Windows 가상 컴퓨터를 만듭니다.](../articles/virtual-machines/windows/ps-template.md)
-- [VM 에 대한 템플릿을 다운로드합니다.](../articles/virtual-machines/windows/download-template.md)
-- [Azure 이미지 빌더 템플릿을 만듭니다.](../articles/virtual-machines/linux/image-builder-json.md)
+- [리소스 관리자 템플릿을 사용 하 여 스폿 vm을 배포](../articles/virtual-machines/linux/spot-template.md)합니다.
+- [C # 및 리소스 관리자 템플릿을 사용 하 여 Azure 가상 컴퓨터를 배포](../articles/virtual-machines/windows/csharp-template.md)합니다.
+- [리소스 관리자 템플릿에서 Windows 가상 머신을 만듭니다](../articles/virtual-machines/windows/ps-template.md).
+- [VM에 대 한 템플릿을 다운로드](../articles/virtual-machines/windows/download-template.md)합니다.
+- [Azure 이미지 작성기 템플릿을 만듭니다](../articles/virtual-machines/linux/image-builder-json.md).
 
 ## <a name="next-steps"></a>다음 단계
 Azure에서 인프라 자동화 도구를 사용하기 위한 옵션은 다양합니다. 필요한 요구 사항과 환경에 가장 적합한 솔루션을 자유롭게 사용할 수 있습니다. Azure에 기본 제공된 일부 도구를 시작 및 사용하려면 [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md) 또는 [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment.md) VM의 사용자 지정을 자동화하는 방법을 참조하세요.

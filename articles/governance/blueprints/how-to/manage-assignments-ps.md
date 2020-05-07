@@ -1,14 +1,14 @@
 ---
 title: PowerShell을 사용 하 여 할당을 관리 하는 방법
 description: 공식 Azure 청사진 PowerShell 모듈인 Az. 청사진을 사용 하 여 청사진 할당을 관리 하는 방법을 알아봅니다.
-ms.date: 09/30/2019
+ms.date: 05/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 0868e5e207202511c1981a930870bfdc68a77a8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa0f89df79c4ae1c5b66998089f04575bd53ea37
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80677437"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863980"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>PowerShell을 사용 하 여 할당을 관리 하는 방법
 
@@ -205,8 +205,7 @@ ResourceGroups    : ResourceGroup
 
 ### <a name="example-2-use-a-json-assignment-definition-file"></a>예제 2: JSON 할당 정의 파일 사용
 
-다음 예에서는 [예 1](#example-1-provide-parameters)과 거의 동일한 할당을 만듭니다.
-이 예제에서는 cmdlet에 매개 변수를 전달 하는 대신 JSON 할당 정의 파일 및 **AssignmentFile** 매개 변수를 사용 하는 방법을 보여 줍니다. 또한 **excludedPrincipals** 속성은 **잠금의**일부로 구성 됩니다. **ExcludedPrincipals** 에 대 한 PowerShell 매개 변수는 없으며 JSON 할당 정의 파일을 통해 설정 해야만 속성을 구성할 수 있습니다.
+다음 예에서는 [예 1](#example-1-provide-parameters)과 거의 동일한 할당을 만듭니다. 이 예제에서는 cmdlet에 매개 변수를 전달 하는 대신 JSON 할당 정의 파일 및 **AssignmentFile** 매개 변수를 사용 하는 방법을 보여 줍니다. 또한 **excludedPrincipals** 속성은 **잠금의**일부로 구성 됩니다. **ExcludedPrincipals** 에 대 한 PowerShell 매개 변수는 없으며 JSON 할당 정의 파일을 통해 설정 해야만 속성을 구성할 수 있습니다.
 
 ```json
 {
@@ -335,7 +334,7 @@ $blueprintAssignment = Get-AzBlueprintAssignment -Name 'Assignment-lock-resource
 Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '{subId}'
 ```
 
-## <a name="end-to-end-code-example"></a>종단 간 코드 예제
+## <a name="code-example"></a>코드 예제
 
 다음 예에서는 모든 단계를 함께 수행 하 여 청사진 정의를 가져온 다음로 `{subId}`표시 되는 특정 구독에 대 한 청사진 할당을 만들고, 업데이트 하 고, 제거 합니다.
 

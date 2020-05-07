@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 5414a70180a82be8253dace7d800c90c1ae6a9bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50ce0d57ec7395c69bf65e41b67f0cb005a43cb8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276076"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854970"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -76,7 +76,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
     - 요청을 수행 하는 사용자의 ID (있는 경우)
     - 요청을 수행 하는 상관 관계 컨텍스트 (있는 경우)
 - **사용자 정보** (예: 위치, 네트워크, IP)
-- **장치 정보** (예: 브라우저, OS, 버전, 언어, 해상도, 모델)
+- **장치 정보** (예: 브라우저, OS, 버전, 언어, 모델)
 - **세션 정보**
 
 ### <a name="telemetry-initializers"></a>원격 분석 이니셜라이저
@@ -99,7 +99,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configuration
 대부분의 구성 필드의 이름은 기본적으로 false로 설정 될 수 있습니다. 을 `instrumentationKey`제외한 모든 필드는 선택 사항입니다.
 
-| 속성 | 기본값 | Description |
+| Name | 기본값 | Description |
 |------|---------|-------------|
 | instrumentationKey | null | **필수**<br>Azure Portal에서 가져온 계측 키입니다. |
 | accountId | null | 앱이 사용자를 계정으로 그룹화 하는 경우 계정 ID (선택 사항)입니다. 공백, 쉼표, 세미콜론, 같음 또는 세로 막대가 없습니다. |
@@ -145,7 +145,14 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 기본적으로이 SDK는 단일 페이지 응용 프로그램에서 발생 하는 상태 기반 경로 변경을 처리 **하지** 않습니다. 단일 페이지 응용 프로그램에 대해 자동 경로 변경 추적을 사용 하도록 설정 하려면 `enableAutoRouteTracking: true` 설치 구성에를 추가 하면 됩니다.
 
-현재이 SDK를 사용 하 여 초기화할 수 있는 별도의 [반응 플러그 인](#react-extensions) 을 제공 합니다. 또한 사용자에 대 한 경로 변경 추적을 수행 하 고 [다른 반응 특정 원격 분석](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)을 수집 합니다.
+현재이 SDK를 사용 하 여 초기화할 수 있는 별도의 [반응 플러그 인](#react-extensions)을 제공 합니다. 또한 사용자에 대 한 경로 변경 추적을 수행 하 고 [다른 반응 특정 원격 분석](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)을 수집 합니다.
+
+> [!NOTE]
+> 반응 `enableAutoRouteTracking: true` 플러그 인을 사용 **하지 않는** 경우에만를 사용 합니다. 두 가지 모두 경로가 변경 될 때 새 PageViews를 보낼 수 있습니다. 둘 다 사용 하도록 설정 된 경우 중복 PageViews를 보낼 수 있습니다.
+
+## <a name="configuration-autotrackpagevisittime"></a>구성: autoTrackPageVisitTime
+
+를 설정 `autoTrackPageVisitTime: true`하면 각 페이지에서 사용자가 소비한 시간이 추적 됩니다. 새 페이지 보기에서 *이전* 페이지에서 사용자가 소비한 시간은 이라는 `PageVisitTime` [사용자 지정 메트릭으로](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) 전송 됩니다. 이 사용자 지정 메트릭은 [메트릭 탐색기](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) "로그 기반 메트릭"으로 볼 수 있습니다.
 
 ## <a name="react-extensions"></a>확장에 대응
 

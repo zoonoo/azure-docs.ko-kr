@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 05/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c83aa6e476bbd898999fb6efe490c7847a809ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 200ede6b4c5565a8eab95b0398abaa1c056c612f
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77120117"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853138"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory ID 보호 알림
 
@@ -50,12 +50,11 @@ Azure AD ID 보호는 사용자 위험 및 위험 검색을 관리 하는 데 �
 주간 다이제스트 전자 메일에는 새로운 위험 검색에 대 한 요약이 포함 되어 있습니다.  
  다음을 포함합니다.
 
-- 위험에 노출된 사용자
-- 의심스러운 활동
-- 감지된 취약점
+- 새로운 위험한 사용자가 탐지됨
+- 실시간으로 감지 된 새 위험한 로그인
 - ID 보호에서 관련된 보고서에 대한 링크
 
-![주간 다이제스트 전자 메일](./media/howto-identity-protection-configure-notifications/400.png)
+![주간 다이제스트 전자 메일](./media/howto-identity-protection-configure-notifications/weekly-digest-email.png)
 
 기본적으로 받는 사람은 모든 전역 관리자를 포함 합니다. 전역 관리자는 다른 전역 관리자, 보안 관리자, 보안 판독기를 받는 사람으로 추가할 수도 있습니다.
 
