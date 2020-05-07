@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/01/2020
+ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 8acf04d26d0c69c426eb86f8a26a9f243c6f5ad2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92011495f5f746b18a7706ed2f9583548cc51286
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136671"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836668"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대 한 질문과 대답
 
@@ -159,7 +159,7 @@ Traffic Manager를 사용 하 여 여러 데이터 센터의 여러 응용 프�
 
 예.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Application Gateway가 가상 네트워크에서 항상 배포되나요?
 
@@ -240,7 +240,7 @@ Application Gateway v2는 현재 i p v 6을 지원 하지 않습니다. IPv4만 
     
     b. 원본에서 **Azureloadbalancer** 서비스 태그로 트래픽 및 대상 및 대상 포트를 **Any** 로 허용
     
-    다. 원본에서 **인터넷** 서비스 태그로 모든 인바운드 트래픽을 거부 하 고 대상 및 대상 포트를 **Any**로 거부 합니다. 인바운드 규칙에서이 규칙의 *최소 우선 순위* 를 지정 합니다.
+    c. 원본에서 **인터넷** 서비스 태그로 모든 인바운드 트래픽을 거부 하 고 대상 및 대상 포트를 **Any**로 거부 합니다. 인바운드 규칙에서이 규칙의 *최소 우선 순위* 를 지정 합니다.
     
     d. 개인 IP 주소에 대 한 액세스가 차단 되지 않도록 VirtualNetwork 인바운드 허용과 같은 기본 규칙을 유지 합니다.
     
@@ -330,42 +330,6 @@ Application Gateway는 최대 100 인증 인증서를 지원 합니다.
 
 아니요, .pfx 파일 암호에 영숫자 문자만 사용 합니다.
 
-## <a name="configuration---web-application-firewall-waf"></a>구성-WAF (웹 응용 프로그램 방화벽)
-
-### <a name="does-the-waf-sku-offer-all-the-features-available-in-the-standard-sku"></a>WAF SKU는 표준 SKU에서 사용할 수 있는 모든 기능을 제공 하나요?
-
-예. WAF는 표준 SKU의 모든 기능을 지원 합니다.
-
-### <a name="how-do-i-monitor-waf"></a>WAF를 모니터링하려면 어떻게 하나요?
-
-진단 로깅을 통해 WAF를 모니터링 합니다. 자세한 내용은 [Application Gateway에 대 한 진단 로깅 및 메트릭](application-gateway-diagnostics.md)을 참조 하세요.
-
-### <a name="does-detection-mode-block-traffic"></a>검색 모드에서 트래픽을 차단하나요?
-
-아니요. 검색 모드는 WAF 규칙을 트리거하는 트래픽만 로깅합니다.
-
-### <a name="can-i-customize-waf-rules"></a>WAF 규칙을 사용자 지정할 수 있나요?
-
-예. 자세한 내용은 [WAF 규칙 그룹 및 규칙 사용자 지정](application-gateway-customize-waf-rules-portal.md)을 참조 하세요.
-
-### <a name="what-rules-are-currently-available-for-waf"></a>WAF에 대해 현재 사용할 수 있는 규칙은 무엇 인가요?
-
-WAF는 현재 CRS [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229), [3.0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30)및 [3.1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31)을 지원 합니다. 이러한 규칙은 OWASP (Web Application Security Project)에서 식별 하는 대부분의 상위 10 개 취약점에 대 한 기준선 보안을 제공 합니다. 
-
-* SQL 삽입 공격 보호
-* 사이트 간 스크립팅 보호
-* 명령 삽입, HTTP 요청 밀 반입, HTTP 응답 분할 및 원격 파일 포함 공격과 같은 일반적인 웹 공격 으로부터 보호
-* HTTP 프로토콜 위반 보호
-* 누락된 호스트 사용자-에이전트 및 수락 헤더 같은 HTTP 프로토콜 이상 보호
-* 보트, 크롤러 및 스캐너 방지
-* 일반적인 응용 프로그램 잘못 된 기능 (즉, Apache, IIS 등) 검색
-
-자세한 내용은 [OWASP top-10 취약성](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)을 참조 하세요.
-
-### <a name="does-waf-support-ddos-protection"></a>WAF는 DDoS protection을 지원 하나요?
-
-예. Application gateway가 배포 된 가상 네트워크에서 DDoS 보호를 사용 하도록 설정할 수 있습니다. 이 설정은 Azure DDoS Protection 서비스가 응용 프로그램 게이트웨이 VIP (가상 IP)도 보호 하도록 합니다.
-
 ## <a name="configuration---ingress-controller-for-aks"></a>AKS에 대 한 구성-수신 컨트롤러
 
 ### <a name="what-is-an-ingress-controller"></a>수신 컨트롤러는 무엇 인가요?
@@ -439,7 +403,7 @@ Application Gateway 액세스 로그를 위해 인기 있는 [Goaccess](https://
     
     b. 원본에서 **Azureloadbalancer** 서비스 태그 및 대상 포트로의 트래픽을 Any로 허용 **합니다** .
     
-    다. 원본에서 **인터넷** 서비스 태그 및 대상 **포트로 모든 인바운드 트래픽을 거부 합니다.** 인바운드 규칙에서이 규칙의 *최소 우선 순위* 를 지정 합니다.
+    c. 원본에서 **인터넷** 서비스 태그 및 대상 **포트로 모든 인바운드 트래픽을 거부 합니다.** 인바운드 규칙에서이 규칙의 *최소 우선 순위* 를 지정 합니다.
     
     d. 개인 IP 주소에 대 한 액세스가 차단 되지 않도록 VirtualNetwork 인바운드 허용과 같은 기본 규칙을 유지 합니다.
     

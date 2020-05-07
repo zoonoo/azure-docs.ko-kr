@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/21/2020
-ms.openlocfilehash: 9129cb308a364a3ed0654055f8afe9dd8c89010a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/4/2020
+ms.openlocfilehash: 6b738fc96a51893d8c0a0e75c5551007da60bdd2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024628"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793196"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 읽기 복제본
 
@@ -146,6 +146,8 @@ Azure Database for MariaDB은 Azure Monitor에서 **복제 지연 시간 (초)**
 - [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
 [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) 매개 변수가 복제본 서버에서 잠겨 있습니다.
+
+마스터 서버에서 위의 매개 변수 중 하나를 업데이트 하려면 복제본 서버를 삭제 하 고, 마스터의 매개 변수 값을 업데이트 하 고, 복제본을 다시 만드십시오.
 
 ### <a name="other"></a>기타
 

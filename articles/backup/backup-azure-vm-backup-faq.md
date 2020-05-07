@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: a6746944e34b8bd2fbb115baaabece96ee93dd1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190098"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82800654"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -176,6 +176,14 @@ VM은 수정된 정책 또는 새 정책의 일정 및 보존 설정을 사용�
 4. 백업을 다시 시작 합니다.
 
 이동 작업 전에 만든 사용 가능한 복원 지점에서 VM을 복원할 수 있습니다.
+
+### <a name="what-happens-after-i-move-a-vm-to-a-different-resource-group"></a>VM을 다른 리소스 그룹으로 이동한 후에는 어떻게 되나요?
+
+VM이 다른 리소스 그룹으로 이동 되 면 Azure Backup 관련 된 새 VM이 됩니다.
+
+VM을 새 리소스 그룹으로 이동한 후 동일한 자격 증명 모음이 나 다른 자격 증명 모음에서 VM을 다시 보호할 수 있습니다. Azure Backup에 대 한 새 VM 이므로 별도로 청구 됩니다.
+
+필요한 경우 이전 VM의 복원 지점이 복원에 사용 될 수 있습니다. 이 백업 데이터가 필요 하지 않은 경우 데이터 삭제로 이전 VM 보호를 중지할 수 있습니다.
 
 ### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>동일한 백업 정책에 연결할 수 있는 Vm 수에 제한이 있나요?
 

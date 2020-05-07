@@ -4,12 +4,12 @@ description: Azure에서 리소스 웹앱, 클라우드 서비스, 가상 머신
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 0a40496e4d496d0062c6ee7a6ab935c1ad9b35a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db1814c0a27ac6d61c7353a2c66cb5a1a72688d3
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75396345"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801606"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
@@ -17,6 +17,9 @@ ms.locfileid: "75396345"
 Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)에만 적용됩니다.
 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>구독에서 자동 크기 조정 설정 검색
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4u7ts]
+
 Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 모두 검색할 수 있습니다. 단계별 연습을 진행하려면 다음 단계를 수행합니다.
 
 1. Azure Portal를 엽니다 [.][1]
@@ -42,7 +45,7 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
   ![새 웹앱에 대한 크기 조정 설정][5]
 1. 크기 조정 설정의 이름을 입력하고 **규칙 추가**를 클릭합니다. 오른쪽에 컨텍스트 창으로 열리는 크기 조정 규칙 옵션을 확인합니다. 이 규칙은 기본적으로 리소스의 CPU 백분율이 70%를 초과하면 인스턴스 수를 하나씩 늘리도록 옵션을 설정합니다. 규칙을 기본값으로 유지하고 **추가**를 클릭합니다.
   ![웹앱에 대한 크기 조정 설정 만들기][6]
-1. 이제 첫 번째 크기 조정 규칙을 만들었습니다. UX에 권장 모범 사례와 "하나 이상의 규모 감축 규칙이 있는 것이 좋습니다."라는 메시지가 표시됩니다. 이렇게 하려면
+1. 이제 첫 번째 크기 조정 규칙을 만들었습니다. UX에 권장 모범 사례와 "하나 이상의 규모 감축 규칙이 있는 것이 좋습니다."라는 메시지가 표시됩니다. 확인 방법은 다음과 같습니다.
 
     a. **규칙 추가**를 클릭합니다.
 

@@ -5,19 +5,19 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 3/26/2020
+ms.date: 4/30/2020
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 813baba37684525c336bc34a49e496f54a19288d
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: a60591fb33c8f14a65b406073cf3194fca882d12
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509740"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837382"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Azure Synapse Analytics 릴리스 정보
 
@@ -31,7 +31,7 @@ ms.locfileid: "82509740"
 
 
 > [!NOTE]
-> SELECT @@VERSION 에서 반환 된 제품 이름은 Microsoft Azure SQL Data Warehouse에서 Azure Synapse Analytics로 변경 됩니다. 변경을 수행 하기 전에 고급 공지를 보냅니다. 이 변경은 응용 프로그램 코드의 SELECT @@VERSION 결과에서 제품 이름을 구문 분석 하는 고객과 관련이 있습니다. 제품 재 브랜딩으로 인 한 응용 프로그램 코드 변경을 방지 하려면 다음 명령을 사용 하 여 데이터베이스 제품 이름 및 버전에 대 한 SERVERPROPERTY을 쿼리하여 버전 번호 XX를 반환 합니다. XXXXX. X (제품 이름 없음) 다음 명령을 사용 합니다.
+> SELECT @@VERSION 에서 반환 된 제품 이름은 Microsoft Azure SQL Data Warehouse에서 Microsoft Azure Synapse Analytics로 변경 됩니다. 변경을 수행 하기 전에 고급 공지를 보냅니다. 이 변경은 응용 프로그램 코드의 SELECT @@VERSION 결과에서 제품 이름을 구문 분석 하는 고객과 관련이 있습니다. 제품 재 브랜딩으로 인 한 응용 프로그램 코드 변경을 방지 하려면 다음 명령을 사용 하 여 데이터베이스 제품 이름 및 버전에 대 한 SERVERPROPERTY을 쿼리하여 버전 번호 XX를 반환 합니다. XXXXX. X (제품 이름 없음) 다음 명령을 사용 합니다.
 >
 > ```sql
 > SELECT SERVERPROPERTY('ProductVersion')
@@ -48,13 +48,17 @@ ms.locfileid: "82509740"
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
 |**데이터베이스 호환성 수준 (미리 보기)**| 이 릴리스에서는 이제 사용자가 데이터베이스의 호환성 수준을 설정 하 여 특정 버전의 Synapse SQL 엔진에 대 한 Transact-sql 언어 및 쿼리 처리 동작을 얻을 수 있습니다. 자세한 내용은 database_scoped_configurations 및 [Alter Database 범위 구성](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조 하세요 [.](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
-|**Sp_describe_undeclared_parameters**| 사용자가 Transact-sql 일괄 처리에서 선언 되지 않은 매개 변수에 대 한 메타 데이터를 볼 수 있도록 허용 합니다. 자세한 내용은 [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조 하세요.|
+|**Sp_describe_undeclared_parameters**| 사용자가 Transact-sql 일괄 처리에서 선언 되지 않은 매개 변수에 대 한 메타 데이터를 볼 수 있도록 허용 합니다. 자세한 내용은 [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조 하세요.| <br/><br/><br/>
+
+| 도구 개선                                         | 세부 정보                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **[Visual Studio 16.6 Preview 5](https://docs.microsoft.com/visualstudio/releases/2019/release-notes-preview#--visual-studio-2019-version-166-preview-5-) SQL SERVER DATA TOOLS (SSDT)** | 이 릴리스에는 SSDT에 대 한 다음과 같은 개선 사항이 포함 되어 있습니다. </br> </br> -데이터 검색 및 분류<br/> -COPY 문 <br/> -Unique 제약 조건이 있는 테이블<br/> -순서가 지정 된 클러스터형 Columnstore 인덱스가 있는 테이블<br/> <br/>이 릴리스에는 SSDT에 대 한 다음 수정 사항이 포함 되어 있습니다. </br></br>  -배포 열 데이터 형식을 변경 하는 경우 SSDT에서 생성 하는 업데이트 스크립트는 테이블을 삭제 하 고 다시 만드는 대신 CTAS 및 이름 바꾸기 작업을 수행 합니다. </br> |
 
 ## <a name="march-2020"></a>2020년 3월
 
 | 도구 개선                                         | 세부 정보                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **[Visual Studio 16.6 Preview 2](/visualstudio/releases/2019/release-notes-preview) -SQL SERVER DATA TOOLS (SSDT)** | 이 릴리스에는 SSDT에 대 한 다음과 같은 향상 된 기능 및 수정 사항이 포함 되어 있습니다. </br> </br> -구체화 된 뷰 (MV)에서 참조 하는 테이블을 변경 하면 MVs에서 지원 되지 않는 Alter View 문이 생성 되는 문제 해결<br/><br/> -데이터베이스 또는 프로젝트에 행 수준 보안 개체가 있을 때 스키마 비교 작업이 실패 하지 않도록 하기 위해 변경 내용을 구현 했습니다. 행 수준 보안 개체는 현재 SSDT에 대해 지원 되지 않습니다.  <br/><br/> -데이터베이스에 많은 수의 개체를 나열할 때 시간 제한이 발생 하지 않도록 SQL Server 개체 탐색기 시간 제한 임계값이 증가 했습니다.<br/><br/> -개체 탐색기를 채울 때 불안정성을 줄이고 성능을 향상 시키기 위해 데이터베이스 개체 목록을 SQL Server 개체 탐색기 검색 하는 방법 최적화 |
+| **[Visual Studio 16.6 Preview 2](https://docs.microsoft.com/visualstudio/releases/2019/release-notes-preview#whats-new-in-visual-studio-2019) -SQL SERVER DATA TOOLS (SSDT)** | 이 릴리스에는 SSDT에 대 한 다음과 같은 향상 된 기능 및 수정 사항이 포함 되어 있습니다. </br> </br> -구체화 된 뷰 (MV)에서 참조 하는 테이블을 변경 하면 MVs에서 지원 되지 않는 Alter View 문이 생성 되는 문제 해결<br/><br/> -데이터베이스 또는 프로젝트에 행 수준 보안 개체가 있을 때 스키마 비교 작업이 실패 하지 않도록 하기 위해 변경 내용을 구현 했습니다. 행 수준 보안 개체는 현재 SSDT에 대해 지원 되지 않습니다.  <br/><br/> -데이터베이스에 많은 수의 개체를 나열할 때 시간 제한이 발생 하지 않도록 SQL Server 개체 탐색기 시간 제한 임계값이 증가 했습니다.<br/><br/> -개체 탐색기를 채울 때 불안정성을 줄이고 성능을 향상 시키기 위해 데이터베이스 개체 목록을 SQL Server 개체 탐색기 검색 하는 방법 최적화 |
 
 ## <a name="january-2020"></a>2020년 1월
 
@@ -141,7 +145,7 @@ ms.locfileid: "82509740"
 
 | 설명서 개선 | 세부 정보 |
 | --- | --- |
-|none | |
+|없음 | |
 | | |
 
 ## <a name="december-2018"></a>2018년 12월

@@ -40,6 +40,8 @@
       href: components.md
     - name: 개념
       href: concepts.md
+    - name: SKU
+      href: skus.md
     - name: 상태 모니터링
       items:
         - name: 상태 프로브

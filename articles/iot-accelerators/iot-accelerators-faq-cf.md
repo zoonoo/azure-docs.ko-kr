@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: f2f8c08176f80436a339924adb4b2a09338a548a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c8739dff39490f14b613af483f769ac031c1bd9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313597"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792380"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기에 대한 질문과 대답
 
@@ -76,13 +76,13 @@ www.azureiotsolutions.com에서 솔루션을 배포한 경우 VM에 로그인할
 1. 활성화되어 있는 컨테이너를 확인하려면 `docker ps`를 실행합니다.
 1. 모든 시뮬레이션 컨테이너를 중지하려면 `./stopsimulation`을 실행합니다.
 1. 모든 시뮬레이션 컨테이너를 시작하려면:
-    * **IOTHUB_CONNECTIONSTRING** 이름으로 셸 변수를 내보냅니다. `<name of your deployment>.config.user` 파일에서 **IotHubOwnerConnectionString** 설정의 값을 사용합니다. 다음은 그 예입니다.
+    * **IOTHUB_CONNECTIONSTRING** 이름으로 셸 변수를 내보냅니다. `<name of your deployment>.config.user` 파일에서 **IotHubOwnerConnectionString** 설정의 값을 사용합니다. 예를 들어:
 
         ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
         ```
 
-    * `./startsimulation`을 실행합니다.
+    * `./startsimulation`를 실행합니다.
 
 ### <a name="how-do-i-update-the-simulation-in-the-vm"></a>VM에서 시뮬레이션을 어떻게 업데이트하나요?
 
@@ -111,7 +111,7 @@ Azure Portal을 사용하여 연결 문자열을 찾을 수도 있습니다. 배
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-[DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 또는 [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 도구를 사용하여 솔루션이 사용 중인 IoT Hub에 등록된 디바이스를 확인할 수 있습니다. 디바이스 탐색기를 사용하려면 배포에서 IoT Hub에 대한 연결 문자열이 필요합니다. Azure CLI용 IoT 확장을 사용하려면 IoT Hub 이름이 필요합니다.
+[DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/) 또는 [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 도구를 사용하여 솔루션이 사용 중인 IoT Hub에 등록된 디바이스를 확인할 수 있습니다. 디바이스 탐색기를 사용하려면 배포에서 IoT Hub에 대한 연결 문자열이 필요합니다. Azure CLI용 IoT 확장을 사용하려면 IoT Hub 이름이 필요합니다.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>시뮬레이션 구성 요소에서 로그 데이터는 어떻게 얻을 수 있나요?
 
@@ -125,7 +125,7 @@ Azure Portal을 사용하여 연결 문자열을 찾을 수도 있습니다. 배
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>시뮬레이션이 데이터를 클라우드로 보내는지 어떻게 확인할 수 있나요?
 
-[DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 또는 [Azure IoT CLI Extension monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) 명령을 사용하여 특정 디바이스에서 IoT Hub로 전송된 데이터를 검사할 수 있습니다. 이러한 도구를 사용하려면 배포에서 IoT 허브에 대한 연결 문자열을 알아야 합니다. [내 솔루션에서 사용하는 IoT 허브의 연결 문자열을 어떻게 찾나요?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)를 참조하세요.
+[Azure Iot 탐색기](https://github.com/Azure/azure-iot-explorer) 또는 [Azure iot CLI 확장 모니터-이벤트](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) 명령을 사용 하면 특정 장치에서 IoT Hub으로 전송 된 데이터를 검사할 수 있습니다. 이러한 도구를 사용하려면 배포에서 IoT 허브에 대한 연결 문자열을 알아야 합니다. [내 솔루션에서 사용하는 IoT 허브의 연결 문자열을 어떻게 찾나요?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)를 참조하세요.
 
 게시자 디바이스 중 하나를 통해 보낸 데이터를 검사합니다.
 

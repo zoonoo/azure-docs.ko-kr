@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 47bd550bbd8d75a06d38babe88b5a95f3790af50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5fc106bfd97e8decd47ac7d43383907dcbbbda9c
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106555"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792985"
 ---
-## <a name="2-assign-access-permissions-to-an-identity"></a>2. id에 대 한 액세스 권한 할당
+## <a name="2-assign-access-permissions-to-an-identity"></a>2 id에 대 한 액세스 권한 할당
 
 Id 기반 인증을 사용 하 여 Azure Files 리소스에 액세스 하려면 id (사용자, 그룹 또는 서비스 사용자)에 게 공유 수준에서 필요한 권한이 있어야 합니다. 이 프로세스는 특정 사용자가 파일 공유에 대해 갖는 액세스 유형을 지정 하는 Windows 공유 사용 권한을 지정 하는 것과 비슷합니다. 이 섹션의 지침에서는 파일 공유에 대한 읽기, 쓰기 또는 삭제 권한을 ID에 할당하는 방법을 보여줍니다. 
 
@@ -28,7 +28,7 @@ Id 기반 인증을 사용 하 여 Azure Files 리소스에 액세스 하려면 
 > [!IMPORTANT]
 > 파일 소유권을 가져오는 기능을 포함 하 여 파일 공유에 대 한 모든 관리 권한을 저장소 계정 키를 사용 해야 합니다. Azure AD 자격 증명으로는 관리 권한이 지원되지 않습니다.
 
-Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 공유 수준 권한을 부여 하는 사용자의 Azure AD id에 기본 제공 역할을 할당할 수 있습니다.
+Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 공유 수준 권한을 부여 하는 사용자의 Azure AD id에 기본 제공 역할을 할당할 수 있습니다. 공유 수준 RBAC 역할 할당은 적용 되는 데 다소 시간이 걸릴 수 있습니다. 
 
 > [!NOTE]
 > 인증에 온-프레미스 AD DS를 사용 하려는 경우 [AD DS 자격 증명을 AZURE AD와 동기화](../articles/active-directory/hybrid/how-to-connect-install-roadmap.md) 해야 합니다. AD DS에서 Azure AD로 암호 해시 동기화는 선택 사항입니다. 공유 수준 권한은 온-프레미스 AD DS에서 동기화 되는 Azure AD id에 부여 됩니다.
@@ -70,7 +70,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
 
-## <a name="3-configure-ntfs-permissions-over-smb"></a>3. SMB를 통한 NTFS 사용 권한 구성 
+## <a name="3-configure-ntfs-permissions-over-smb"></a>3 SMB를 통한 NTFS 사용 권한 구성 
 RBAC를 사용하여 공유 수준 권한할당을 한 후에는 루트, 디렉터리 또는 파일 수준에서 적절한 NTFS 권한을 할당해야 합니다. 공유 수준 사용 권한은 사용자가 공유에 액세스할 수 있는지 여부를 결정 하는 상위 수준 게이트 키퍼로 생각 하면 됩니다. NTFS 권한은 사용자가 디렉터리 또는 파일 수준에서 수행할 수 있는 작업을 결정 하기 위해 보다 세분화 된 수준으로 작동 합니다.
 
 Azure Files는 NTFS 기본 및 고급 권한의 전체 집합을 지원합니다. 공유를 탑재 한 다음 Windows 파일 탐색기를 사용 하거나 Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) 또는 [Set ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) 명령을 실행 하 여 Azure 파일 공유의 디렉터리 및 파일에 대 한 NTFS 권한을 확인 하 고 구성할 수 있습니다. 
@@ -119,7 +119,7 @@ icacls <mounted-drive-letter>: /grant <user-email>:(f)
 
 Icacls를 사용 하 여 NTFS 권한 및 지원 되는 다양 한 권한 유형을 설정 하는 방법에 대 한 자세한 내용은 [icacls 명령줄 참조](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls)를 참조 하세요.
 
-## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4. 도메인에 가입 된 VM에서 파일 공유 탑재
+## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4 도메인에 가입 된 VM에서 파일 공유 탑재
 
 다음 프로세스는 파일 공유 및 액세스 권한이 올바르게 설정 되었는지 확인 하 고 도메인에 가입 된 VM에서 Azure 파일 공유에 액세스할 수 있는지 확인 합니다. 공유 수준 RBAC 역할 할당은 적용 되는 데 다소 시간이 걸릴 수 있습니다. 
 

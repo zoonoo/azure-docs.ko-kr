@@ -4,12 +4,12 @@ description: Service Fabric 클러스터 용량 계획 고려 사항입니다. �
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f011dee94e135ba40f8d3c87240e905e4a2739ec
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258916"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793060"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 프로덕션 배포의 경우 용량 계획은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 하는 항목 중 일부입니다.
@@ -104,7 +104,7 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 [노드 형식 정�
 
 - Gold 또는 Silver 내구성 수준이 활성화된 가상 머신 확장 집합의 노드 수는 최소 5개로 유지합니다.
 - 내구성 수준이 Silver 또는 Gold인 각 가상 머신 확장 집합은 Service Fabric 클러스터에서 고유한 노드 형식에 매핑되어야 합니다. 여러 가상 머신 확장 집합을 단일 노드 형식에 매핑하면 Service Fabric 클러스터와 Azure 인프라 간의 조정이 제대로 작동하지 않습니다.
-- 임의의 VM 인스턴스를 삭제하지 말고 항상 가상 머신 확장 집합 규모 축소 기능을 사용하세요. 임의의 VM 인스턴스를 삭제하면 UD와 FD 전체에서 VM 인스턴스의 불균형 생성이 확산될 가능성이 있습니다. 이러한 불균형은 서비스 인스턴스/서비스 복제본 간에 부하를 적절하게 분산하는 시스템 기능에 부정적인 영향을 줄 수 있습니다.
+- 임의의 VM 인스턴스를 삭제 하지 마세요. 항상 기능에서 가상 머신 확장 집합 소수 자릿수를 사용 하십시오. 임의의 VM 인스턴스를 삭제하면 UD와 FD 전체에서 VM 인스턴스의 불균형 생성이 확산될 가능성이 있습니다. 이러한 불균형은 서비스 인스턴스/서비스 복제본 간에 부하를 적절하게 분산하는 시스템 기능에 부정적인 영향을 줄 수 있습니다.
 - 자동 크기 조정을 사용하는 경우 한 번에 한 노드에서만 규모 감축(VM 인스턴스 제거)이 수행되도록 규칙을 설정하세요. 한 번에 여러 인스턴스의 규모를 축소하는 방식은 안전하지 않습니다.
 - 주 노드 형식에서 VM을 삭제하거나 할당 해제하는 경우 전용 VM 수를 안정성 계층에 필요한 수 미만으로 줄여서는 안 됩니다. 이러한 작업은 내구성 수준이 Silver 또는 Gold인 확장 집합에서 무기한 차단됩니다.
 

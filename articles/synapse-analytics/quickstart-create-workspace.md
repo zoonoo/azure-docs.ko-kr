@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1ccfb1b008a7e3e48f56b1af62087d303522ed73
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 49bd251b7f76a844a0d3fd1b1a09f7e15c5e7ddb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676739"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792210"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>빠른 시작: Azure Synapse Analytics 작업 영역(미리 보기) 만들기
 
@@ -41,7 +41,7 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
     | 설정 | 제안 값 | Description |
     | :------ | :-------------- | :---------- |
     | **구독** | *구독* | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
-    | **리소스 그룹** | *리소스 그룹* | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요. |
+    | **리소스 그룹** | *리소스 그룹* | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요. |
     | **작업 영역 이름** | mysampleworkspace | 작업 영역의 이름을 지정합니다. 이 이름은 연결 엔드포인트에도 사용됩니다.|
     | **지역** | 미국 동부2 | 작업 영역의 위치를 지정합니다.|
     | **Data Lake Storage Gen2** | 계정: `storage account name` </br> 파일 시스템: `root file system to use` | 기본 스토리지로 사용할 ADLS Gen2 스토리지 계정과 사용할 파일 시스템을 지정합니다.|

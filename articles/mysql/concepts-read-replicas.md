@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/21/2020
-ms.openlocfilehash: 47f686f810f62fe03a9b0217677c436f3b91782b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/4/2020
+ms.openlocfilehash: cb82b3223d50c66b4d6c176a274d5ccf8d510911
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767877"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792108"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL의 읽기 복제본
 
@@ -56,7 +56,6 @@ MySQL 복제 기능 및 문제에 대 한 자세한 내용은 [mysql 복제 설�
     
 * 단방향 쌍: 일부 Azure 지역은 한 방향 으로만 쌍을 이룹니다. 이러한 지역에는 인도 서 부, 브라질 남부 및 US Gov 버지니아 포함 됩니다. 
    즉, 인도 서 부의 마스터 서버는 남부 인도에서 복제본을 만들 수 있습니다. 그러나 인도 남부의 마스터 서버는 인도 서 부에서 복제본을 만들 수 없습니다. 이는 인도 서 부의 보조 지역이 남부 인도 이지만 남부 인도의 보조 지역은 인도 서 부가 아니기 때문입니다.
-
 
 ## <a name="create-a-replica"></a>복제본 만들기
 
@@ -146,6 +145,8 @@ Azure Database for MySQL은 Azure Monitor에서 **복제 지연 시간 (초)** �
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
 [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) 매개 변수가 복제본 서버에서 잠겨 있습니다. 
+
+마스터 서버에서 위의 매개 변수 중 하나를 업데이트 하려면 복제본 서버를 삭제 하 고, 마스터의 매개 변수 값을 업데이트 하 고, 복제본을 다시 만드십시오.
 
 ### <a name="other"></a>기타
 

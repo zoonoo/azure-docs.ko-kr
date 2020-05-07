@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 489a90180454e2b4a9dad34730fbd3c4f235a2ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5921fc9038e53f34e23f6fd97111c71b29699dc5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77598105"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793145"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>클러스터에서 실행되는 Service Fabric 버전 업그레이드 
 
@@ -162,7 +162,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 ## <a name="next-steps"></a>다음 단계
 * [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)
 * 일부 [Service Fabric 클러스터 설정](service-fabric-cluster-fabric-settings.md)을 사용자 지정합니다.
-* [클러스터를 확장 및 축소합니다](service-fabric-cluster-scale-up-down.md).
+* [클러스터를 확장 및 축소합니다](service-fabric-cluster-scale-in-out.md).
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG

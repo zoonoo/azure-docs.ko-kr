@@ -5,23 +5,16 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 01/28/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 1ec3ecdafb8e475f5f13372789528612ccd7b8b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e8972b1b2bfaac12baee1ea823429749ed70461
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "66226049"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792754"
 ---
-## <a name="using-rbac-to-share-images"></a>RBAC를 사용하여 이미지 공유
-
-RBAC (역할 기반 Access Control)를 사용 하 여 여러 구독에서 이미지를 공유할 수 있습니다. 이미지 버전에 대한 읽기 권한을 갖고 있는(구독 포함) 모든 사용자는 이미지 버전을 사용하여 가상 머신을 배포할 수 있습니다.
-
-RBAC를 사용하여 리소스를 공유하는 방법에 대한 자세한 내용은 [RBAC 및 Azure CLI를 사용하여 액세스 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)를 참조하세요.
-
-
 ## <a name="list-information"></a>정보 나열
 
 [az sig list](/cli/azure/sig#az-sig-list)를 사용하여 사용 가능한 이미지 갤러리에 대한 위치, 상태 및 기타 정보를 가져올 수 있습니다.

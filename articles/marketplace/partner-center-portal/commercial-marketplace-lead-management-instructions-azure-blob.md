@@ -1,32 +1,36 @@
 ---
-title: 상용 marketplace 프로그램의 Azure 테이블 | Azure Marketplace
-description: Azure Blob에 대 한 리드 관리 구성
+title: Azure Blob storage를 사용 하 여 리드 관리-Microsoft 상업적 marketplace
+description: Azure Blob을 사용 하 여 Microsoft AppSource 및 Azure Marketplace에 대 한 잠재 고객을 구성 하는 방법을 알아봅니다.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 7/30/2019
+ms.date: 05/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 062252b007e22fcd2644c8b647fc0ecc2f5938cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 076edc62a467701eaf0de23f280cdaf2abd945de
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80285251"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792720"
 ---
-# <a name="lead-management-instructions-for-azure-blob"></a>Azure Blob에 대 한 리드 관리 지침
+# <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Azure Blob storage를 사용 하 여 상업적 marketplace 잠재 고객 관리
 
 >[!Caution]
->Marketplace 제품의 리드를 처리 하는 Azure Blob 옵션은 더 이상 사용 되지 않습니다. Azure Blob에 대 한 리드 관리 구성과 함께 게시 된 제품이 있는 경우 더 이상 고객 리드를 받고 있지 않습니다. 리드 관리 구성을 다른 리드 관리 옵션으로 업데이트 하세요. [리드 관리 방문 페이지](./commercial-marketplace-get-customer-leads.md)에서 다른 옵션에 대해 알아봅니다. "
+>Azure Blob 저장소에 대 한 상업적 marketplace 지원은 더 이상 사용 되지 않으며 제품의 리드를 처리 하는 옵션이 아닙니다. 현재 Azure Blob에 대해 구성 된 수석 marketplace 제품을 사용 하는 경우 고객 잠재 고객이 더 이상 수신 되지 않습니다. 리드 관리 구성을 다른 리드 관리 옵션으로 업데이트 하세요. [리드 관리 방문 페이지](./commercial-marketplace-get-customer-leads.md)에서 다른 옵션에 대해 알아봅니다. "
 
-CRM (고객 관계 관리) 시스템을 파트너 센터에서 명시적으로 지원 하지 않고 Azure Marketplace 및 AppSource 리드를 수신 하는 경우 Azure Blob을 사용 하 여 이러한 잠재 고객을 처리할 수 있습니다. 그런 다음 데이터를 내보내 CRM 시스템으로 가져오도록 선택할 수 있습니다. 이 문서의 지침에서는 Azure Storage 계정을 만드는 과정을 안내 하 고 해당 계정으로 Azure Blob을 제공 합니다. 또한 Microsoft Flow를 사용 하 여 새 흐름을 만들어 제품이 잠재 고객을 받을 때 전자 메일 알림을 보낼 수 있습니다.
+ CRM (고객 관계 관리) 시스템을 파트너 센터에서 명시적으로 지원 하지 않아 Microsoft AppSource 및 Azure Marketplace 잠재 고객을 받을 수 없는 경우 Azure Blob storage를 사용할 수 있습니다. 그런 다음 데이터를 내보내 CRM 시스템으로 가져오도록 선택할 수 있습니다. 이 문서의 지침에서는 Azure Storage 계정을 만드는 과정을 안내 하 고 해당 계정 아래에 blob을 제공 합니다. 또한 전원 자동화를 사용 하 여 새 흐름을 만들어 제품에서 잠재 고객이 수신 되 면 전자 메일 알림을 보낼 수 있습니다.
 
+>[!NOTE]
+>이러한 지침에서 사용 되는 전원 자동화 커넥터를 사용 하려면 유료 구독이 필요 합니다. 이 문서의 지침을 따르기 전에이를 고려해 야 합니다.
 
-## <a name="how-to-configure-azure-blob"></a>Azure Blob을 구성 하는 방법
+## <a name="configure-azure-blob-storage"></a>Azure Blob storage 구성
 
 1. Azure 계정이 없으면 [평가판 계정을 생성](https://azure.microsoft.com/pricing/free-trial/)할 수 있습니다.
-1. Azure 계정이 활성화 되 면 [Azure Portal](https://portal.azure.com)에 로그인 합니다.
-1. Azure Portal에서 다음 절차를 사용 하 여 저장소 계정을 만듭니다.  
+
+2. Azure 계정이 활성화 되 면 [Azure Portal](https://portal.azure.com)에 로그인 합니다.
+
+3. Azure Portal에서 다음 절차를 사용 하 여 저장소 계정을 만듭니다.  
     1. 왼쪽 메뉴 모음에서 **+ 리소스 만들기** 를 선택 합니다.  **새** 창 (블레이드)이 오른쪽에 표시 됩니다.
     2. **새** 창에서 **저장소** 를 선택 합니다.  **추천** 목록이 오른쪽에 표시 됩니다.
     3. 계정 만들기를 시작 하려면 **Storage 계정을** 선택 하세요.  [저장소 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)문서의 지침을 따릅니다.
@@ -65,7 +69,7 @@ CRM (고객 관계 관리) 시스템을 파트너 센터에서 명시적으로 �
 
     ![새 컨테이너](./media/commercial-marketplace-lead-management-instructions-azure-blob/new-container.png)
 
-## <a name="configure-your-offer-to-send-leads-to-the-azure-blob"></a>Azure Blob에 잠재 고객을 보내도록 제품 구성
+## <a name="configure-your-offer-to-send-leads-to-azure-blob-storage"></a>Azure Blob storage에 잠재 고객을 보내도록 제품 구성
 
 게시 포털에서 제품에 대 한 리드 관리 정보를 구성할 준비가 되 면 다음 단계를 수행 합니다.
 

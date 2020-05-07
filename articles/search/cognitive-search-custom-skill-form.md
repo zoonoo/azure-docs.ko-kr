@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: 713b790c432f0e416392243262aed4b0fcda8892
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 050848b0bff65b19e2b17bd170e1d3e9ff0176f1
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81274576"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792006"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>예: 양식 인식기 사용자 지정 기술 만들기
 
@@ -164,8 +164,8 @@ Cognitive Search 파이프라인에서이 기술을 사용 하려면 기술 정�
 
 이 가이드에서는 Azure 양식 인식기 서비스에서 사용자 지정 기술을 만들었습니다. 사용자 지정 기술에 대해 자세히 알아보려면 다음 리소스를 참조 하세요. 
 
-* [Azure Search 전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://github.com/*zure-Samples/azure-search-power-skills)
+* [Azure Search 전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://github.com/Azure-Samples/azure-search-power-skills)
 * [AI 보강 파이프라인에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)
 * [기술 집합 정의](cognitive-search-defining-skillset.md)
-* [기술 만들기 (REST)](https://docs.microsoft.com/rest/api/*earchservice/create-skillset)
+* [기술 만들기 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 * [지도 보강 필드](cognitive-search-output-field-mapping.md)

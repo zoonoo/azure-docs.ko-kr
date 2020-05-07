@@ -5,23 +5,23 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: 21f645e64c9944ed102f538710ea6facc26c7e83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 178daba47acaf8ad161a0634c16b046ec330abb6
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314024"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864430"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Azure PowerShell을 사용하여 여러 공용 IP 주소로 Azure Firewall 배포
 
 이 기능을 통해 다음과 같은 시나리오를 사용할 수 있습니다.
 
 - **DNAT** - 여러 표준 포트 인스턴스를 백 엔드 서버로 변환할 수 있습니다. 예를 들어 공용 IP 주소가 2개인 경우 두 IP 주소 모두에 대해 TCP 포트 3389(RDP)를 변환할 수 있습니다.
-- **SNAT** - 아웃바운드 SNAT 연결에 추가 포트를 사용할 수 있기 때문에 SNAT 포트가 고갈될 가능성이 줄어듭니다. 이때 Azure Firewall은 연결에 사용할 원본 공용 IP 주소를 임의로 선택합니다. 네트워크에 다운스트림 필터링이 있는 경우, 방화벽과 연결된 모든 공용 IP 주소를 허용해야 합니다.
+- **SNAT** - 아웃바운드 SNAT 연결에 추가 포트를 사용할 수 있기 때문에 SNAT 포트가 고갈될 가능성이 줄어듭니다. 이때 Azure Firewall은 연결에 사용할 원본 공용 IP 주소를 임의로 선택합니다. 네트워크에 다운스트림 필터링이 있는 경우, 방화벽과 연결된 모든 공용 IP 주소를 허용해야 합니다. 이 구성을 간소화 하기 위해 [공용 IP 주소 접두사](../virtual-network/public-ip-address-prefix.md) 를 사용 하는 것이 좋습니다.
  
-여러 공용 IP 주소를 사용하는 Azure Firewall은 Azure Portal, Azure PowerShell, Azure CLI, REST 및 템플릿을 통해 사용할 수 있습니다. 최대 100 공용 IP 주소를 사용 하 여 Azure 방화벽을 배포할 수 있습니다.
+여러 공용 IP 주소를 사용하는 Azure Firewall은 Azure Portal, Azure PowerShell, Azure CLI, REST 및 템플릿을 통해 사용할 수 있습니다. 최대 250 공용 IP 주소를 사용 하 여 Azure 방화벽을 배포할 수 있습니다.
 
 다음 Azure PowerShell 예제에서는 Azure 방화벽에 대 한 공용 IP 주소를 구성, 추가 및 제거할 수 있는 방법을 보여 줍니다.
 

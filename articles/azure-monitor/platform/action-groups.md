@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 339b11664308962962c59b2e9386ff122681293a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c8808450f8baa6d395ee9c24dbc59dfa919b66d
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116216"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801011"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 구독에서는 작업 그룹을 2,000개까지 구성할 수 있습니다.
@@ -93,7 +93,7 @@ Runbook 페이로드에 대 한 제한은 [Azure 구독 서비스](../../azure-r
 
 작업 그룹에 제한 된 수의 전자 메일 작업이 있을 수 있습니다. [Rate 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 문서를 참조 하세요.
 
-### <a name="function"></a>함수
+### <a name="function"></a>기능
 [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app)에서 기존 HTTP 트리거 끝점을 호출 합니다.
 
 작업 그룹에 제한 된 수의 함수 작업이 있을 수 있습니다.
@@ -200,16 +200,21 @@ Write-Host $myApp.AppRoles
 
 작업 그룹에서 제한 된 수의 SMS 작업이 있을 수 있습니다.
 
-Azure Portal 작업 그룹 사용자 인터페이스를 사용 하 여 국가 코드를 선택할 수 없는 경우에는 해당 국가에서 SMS가 지원 되지 않습니다. 지원 되는 국가의 가격은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에 나와 있습니다. 국가 코드를 사용할 수 없는 경우 [사용자 음성](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice)에서 해당 국가를 추가 하도록 선택할 수 있습니다.  
+> [!NOTE]
+> Azure Portal 작업 그룹 사용자 인터페이스를 사용 하 여 국가 코드를 선택할 수 없는 경우에는 해당 국가에서 SMS가 지원 되지 않습니다.  국가 코드를 사용할 수 없는 경우 [사용자 음성](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice)에서 해당 국가를 추가 하도록 선택할 수 있습니다. 그 동안에는 작업 그룹이 사용자 국가를 지 원하는 타사 SMS 공급자에 대 한 웹 후크를 호출 하 게 됩니다.  
 
+지원 되는 국가의 가격은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에 나와 있습니다.
   
 
 ### <a name="voice"></a>음성
-[Rate 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 문서를 참조 하세요.
+추가 중요 한 동작에 대 한 자세한 내용은 [요율 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 문서를 참조 하세요.
 
 작업 그룹에 제한 된 수의 음성 작업이 있을 수 있습니다.
 
-Azure Portal 작업 그룹 사용자 인터페이스에서 국가 코드를 선택할 수 없는 경우 사용자의 국가에서 음성 통화가 지원 되지 않습니다. 지원 되는 국가의 가격은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에 나와 있습니다. 국가 코드를 사용할 수 없는 경우 [사용자 음성](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice)에서 해당 국가를 추가 하도록 선택할 수 있습니다.  
+> [!NOTE]
+> Azure Portal 작업 그룹 사용자 인터페이스에서 국가 코드를 선택할 수 없는 경우 사용자의 국가에서 음성 통화가 지원 되지 않습니다. 국가 코드를 사용할 수 없는 경우 [사용자 음성](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice)에서 해당 국가를 추가 하도록 선택할 수 있습니다.  이와 관련 하 여 작업 그룹을 사용 하 여 사용자 국가에서 지원을 받은 타사 음성 통화 공급자에 게 웹 후크를 호출 하는 것이 문제입니다.  
+
+지원 되는 국가의 가격은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에 나와 있습니다.
 
 ### <a name="webhook"></a>웹후크
 웹 후크는 다음 규칙을 사용 하 여 다시 시도 됩니다. 웹 후크 호출은 408, 429, 503, 504 또는 HTTP 끝점이 응답 하지 않는 경우 최대 2 회 다시 시도 됩니다. 10초 후에 첫 번째 다시 시도가 발생합니다. 두 번째 다시 시도는 100초 후에 진행됩니다. 두 번 실패 한 후에는 작업 그룹에서 30 분 동안 끝점을 호출 하지 않습니다. 

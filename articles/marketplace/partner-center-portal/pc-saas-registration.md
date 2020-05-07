@@ -1,23 +1,22 @@
 ---
-title: SaaS 응용 프로그램 등록 | Azure Marketplace
-description: Azure Portal를 사용 하 여 SaaS 응용 프로그램을 등록 하는 방법을 설명 합니다.
+title: SaaS 응용 프로그램 등록-Azure Marketplace
+description: Azure Portal를 사용 하 여 SaaS 응용 프로그램을 등록 하 고 Azure Active Directory 보안 토큰을 받는 방법에 대해 알아봅니다.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 9c20fe34e108de95a34aabea56390e8a6f0d858f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3c20d25917d66cba8ae3d811eddaa6455b87722
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275716"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792958"
 ---
 # <a name="register-a-saas-application"></a>SaaS 애플리케이션 등록
 
 이 문서에서는 Microsoft [Azure Portal](https://portal.azure.com/)를 사용 하 여 SaaS 응용 프로그램을 등록 하는 방법을 설명 합니다.  성공적으로 등록 된 후 SaaS 처리 Api에 액세스 하는 데 사용할 수 있는 Azure Active Directory (Azure AD) 보안 토큰을 받게 됩니다.  Azure AD에 대 한 자세한 내용은 [인증 이란?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios) 을 참조 하세요.
-
 
 ## <a name="service-to-service-authentication-flow"></a>서비스 간 인증 흐름
 
@@ -26,7 +25,6 @@ ms.locfileid: "80275716"
 ![SaaS 제안 API 흐름](./media/saas-offer-publish-api-flow-v1.png)
 
 Azure는 해당 최종 사용자에게 SaaS 서비스가 노출하는 인증을 제한하지 않습니다. 그러나 SaaS 처리 Api를 사용 하는 인증은 Azure AD 보안 토큰을 사용 하 여 수행 됩니다. 일반적으로 Azure Portal를 통해 SaaS 앱을 등록 하 여 가져옵니다. 
-
 
 ## <a name="register-an-azure-ad-secured-app"></a>Azure AD 보안 앱 등록
 
@@ -55,7 +53,6 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
 
 >[!Note]
 >기본적으로 새로 등록된 애플리케이션은 동일한 테넌트의 사용자만이 애플리케이션에 로그인할 수 있도록 구성됩니다.
-
 
 ## <a name="using-the-azure-ad-security-token"></a>Azure AD 보안 토큰 사용
 
@@ -101,9 +98,9 @@ HTTP 메서드
 |  |  |  |
 
 
-*응답이*
+*응답*
 
-|  **이름**  | **Type**       |  **설명**    |
+|  **Name**  | **형식**       |  **설명**    |
 | ---------- | -------------  | ------------------- |
 | 200 정상    | TokenResponse  | 요청 성공   |
 |  |  |  |
@@ -123,7 +120,6 @@ HTTP 메서드
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
   }               
 ```
-
 
 ## <a name="next-steps"></a>다음 단계
 

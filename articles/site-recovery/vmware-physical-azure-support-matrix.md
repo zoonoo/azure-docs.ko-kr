@@ -3,12 +3,12 @@ title: Azure Site Recovery의 VMware/물리적 재해 복구를 위한 지원 �
 description: Azure Site Recovery를 사용 하 여 VMware Vm 및 물리적 서버에서 Azure로의 재해 복구에 대 한 지원을 요약 합니다.
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.openlocfilehash: eb78f6073d2bcb7289f13d5c994cff8c13f9a6e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8e7b2f8f6483d462f781d95011ef7b972e83b87
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185798"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801793"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -26,10 +26,10 @@ VMware Vm의 재해 복구 | 온-프레미스 VMware VM을 Azure로 복제. Azur
 
 ## <a name="on-premises-virtualization-servers"></a>온-프레미스 가상화 서버
 
-**서버** | **Requirements** | **세부 정보**
+**서버** | **요구 사항** | **세부 정보**
 --- | --- | ---
 vCenter Server | 버전 6.7, 6.5, 6.0 또는 5.5 | 재해 복구 배포에 vCenter 서버를 사용 하는 것이 좋습니다.
-vSphere 호스트 | 버전 6.7, 6.5, 6.0 또는 5.5 | vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 기본적으로 프로세스 서버는 구성 서버에서 실행 됩니다. [자세히 알아보기](vmware-physical-azure-config-process-server-overview.md).
+vSphere 호스트 | 버전 6.7, 6.5, 6.0 또는 5.5 | vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 기본적으로 프로세스 서버는 구성 서버에서 실행 됩니다. [자세한 정보를 알아보세요](vmware-physical-azure-config-process-server-overview.md).
 
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery 구성 서버
@@ -39,7 +39,7 @@ vSphere 호스트 | 버전 6.7, 6.5, 6.0 또는 5.5 | vSphere 호스트와 vCent
 - VMware Vm의 경우에는 파일을 다운로드 하 여 VMware VM을 만드는 구성 서버를 설정 합니다.
 - 물리적 서버의 경우 구성 서버 컴퓨터를 수동으로 설정 합니다.
 
-**구성 요소** | **Requirements**
+**구성 요소** | **요구 사항**
 --- |---
 CPU 코어 | 8
 RAM | 16GB
@@ -66,13 +66,13 @@ Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드�
 **구성 요소** | **세부 정보**
 --- | ---
 컴퓨터 설정 | Azure로 복제하는 컴퓨터는 [Azure 요구 사항](#azure-vm-requirements)을 충족해야 합니다.
-머신 워크로드 | Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드의 복제를 지원합니다. [자세히 알아보기](https://aka.ms/asr_workload).
+머신 워크로드 | Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드의 복제를 지원합니다. [자세한 정보를 알아보세요](https://aka.ms/asr_workload).
 머신 이름 | 컴퓨터의 표시 이름이 [Azure 예약 리소스 이름](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-reserved-resource-name) 에 포함 되지 않는지 확인 합니다.<br/><br/> 논리적 볼륨 이름은 대/소문자를 구분 하지 않습니다. 장치의 두 볼륨 이름이 동일 하지 않은지 확인 합니다. Ex: 이름이 "voLUME1", "voLUME1" 인 볼륨은 Azure Site Recovery를 통해 보호할 수 없습니다.
 시작 | [업데이트 롤업 34](https://support.microsoft.com/help/4490016) (모바일 서비스 버전 9.22)부터 지원 됩니다.
 Windows Server 2016 64 비트 | Server Core, 데스크톱 환경 포함 서버에 대해 지원 됩니다.
 Windows Server 2012 R2/Windows Server 2012 | 지원됩니다.
 Windows Server 2008 R2 SP1 이상 | 지원됩니다.<br/><br/> 모바일 서비스 에이전트의 버전 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 에서 Windows 2008 R2 SP1 이상을 실행 하는 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4490628) ) 및 [SHA-2 업데이트](https://support.microsoft.com/help/4474419) 를 설치 해야 합니다. S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
-Windows Server 2008 SP2 이상 (64 비트/32 비트) |  마이그레이션에만 지원 됩니다. [자세히 알아보기](migrate-tutorial-windows-server-2008.md).<br/><br/> 모바일 서비스 에이전트 버전 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 에서는 WINDOWS 2008 SP2 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4493730) ) 및 [SHA-2 업데이트가](https://support.microsoft.com/help/4474419) 설치 되어 있어야 합니다. ISHA-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus)에 대해 자세히 알아보세요.
+Windows Server 2008 SP2 이상 (64 비트/32 비트) |  마이그레이션에만 지원 됩니다. [자세한 정보를 알아보세요](migrate-tutorial-windows-server-2008.md).<br/><br/> 모바일 서비스 에이전트 버전 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 에서는 WINDOWS 2008 SP2 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4493730) ) 및 [SHA-2 업데이트가](https://support.microsoft.com/help/4474419) 설치 되어 있어야 합니다. ISHA-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus)에 대해 자세히 알아보세요.
 Windows 10, Windows 8.1, Windows 8 | 지원됩니다.
 Windows 7 SP1 64 비트 | [업데이트 롤업 36](https://support.microsoft.com/help/4503156) (모바일 서비스 버전 9.22)부터 지원 됩니다. </br></br> 모바일 서비스 에이전트의 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 부터 WINDOWS 7 SP1 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4490628) ) 및 [s h a-2 업데이트가](https://support.microsoft.com/help/4474419) 설치 되어 있어야 합니다.  S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus)에 대해 자세히 알아보세요.
 Linux | 64 비트 시스템만 지원 됩니다. 32 비트 시스템은 지원 되지 않습니다.<br/><br/>모든 Linux 서버에는 [LIS (linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 설치 되어 있어야 합니다. 테스트 장애 조치/장애 조치 (failover) 후 Azure에서 서버를 부팅 해야 합니다. 빌드된 LIS 구성 요소가 없는 경우 Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다. <br/><br/> Site Recovery는 Azure에서 Linux 서버를 실행하도록 장애 조치(failover)를 오케스트레이션합니다. 그러나 Linux 공급 업체 지원 수명 종료에 해당하지 않는 배포 버전만으로 제한될 수 있습니다.<br/><br/> Linux 배포에서는 배포의 부 버전 릴리스/업데이트에 포함된 스톡 커널만 지원됩니다.<br/><br/> 주요 Linux 배포 버전에서 보호된 시스템을 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 운영 체제를 업그레이드한 다음, 복제를 다시 사용하도록 설정합니다.<br/><br/> Azure에서 Linux 및 오픈 소스 기술에 대 한 지원에 대해 [자세히 알아보세요](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) .
@@ -117,7 +117,7 @@ Debian 8 | [9.29][9.29 UR] | 3.16.0-amd64 to 3.16.0-10-amd64, 4.9.0 64,-amd64 to
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 지원되는 커널 버전
 
-**해제** | **모바일 서비스 버전** | **커널 버전** |
+**Release** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.28][9.28 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-default를 3.12.74-60.64.118-default로</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-default to 4.4.121-92.117-default</br></br>SP3 4.4.73-기본값-4.4.180-94.100-default</br></br>SP3 4.4.138-4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-default to 4.12.14-95.29-default</br>SP4 4.12.14-4.12.14-6.23-azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.27][9.27 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-default를 3.12.74-60.64.115-default로</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-default to 4.4.121-92.114-default</br></br>SP3 4.4.73-기본값-4.4.180-94.97-default</br></br>SP3 4.4.138-4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-default to 4.12.14-95.19-default</br>SP4 4.12.14-4.12.14-6.15-azure |
@@ -126,13 +126,15 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.25][9.25 UR] | SP1 3.1
 
 ### <a name="suse-linux-enterprise-server-15-supported-kernel-versions"></a>지원 되는 커널 버전 SUSE Linux Enterprise Server 15 개
 
-**해제** | **모바일 서비스 버전** | **커널 버전** |
+**Release** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 및 15 SP1 | [9.32](https://support.microsoft.com/help/4550047/) | 모든 stock SUSE 15 및 15 커널을 지원 합니다. </br></br> 4.12.14-4.12.14-8.22-azure
+SUSE Linux Enterprise Server 15 및 15 SP1 | [9.32](https://support.microsoft.com/help/4550047/) | 기본적으로 모든 [STOCK SUSE 15 및 15 커널을](https://www.suse.com/support/kb/doc/?id=000019587) 지원 합니다. </br></br> 4.12.14-4.12.14-8.22-azure
+
+
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux 파일 시스템/게스트 스토리지
 
-**구성 요소** | **지원됨**
+**구성 요소** | **되지**
 --- | ---
 파일 시스템 | ext3, ext4, XFS, BTRFS (이 테이블에 따라 적용 가능한 조건)
 LVM (논리 볼륨 관리) 프로 비전| 굵고 프로 비전-예 <br></br> 씬 프로 비전-아니요
@@ -156,7 +158,7 @@ BTRFS | BTRFS는 [업데이트 롤업 34](https://support.microsoft.com/help/449
 
 ## <a name="network"></a>네트워크
 
-**구성 요소** | **지원됨**
+**구성 요소** | **되지**
 --- | ---
 호스트 네트워크 NIC 팀 | VMware VM에서 지원됩니다. <br/><br/>물리적 컴퓨터 복제에 지원되지 않습니다.
 호스트 네트워크 VLAN | 예.
@@ -172,7 +174,7 @@ BTRFS | BTRFS는 [업데이트 롤업 34](https://support.microsoft.com/help/449
 
 ## <a name="azure-vm-network-after-failover"></a>Azure VM 네트워크(장애 조치(failover) 후)
 
-**구성 요소** | **지원됨**
+**구성 요소** | **되지**
 --- | ---
 Azure ExpressRoute | 예
 ILB | 예
@@ -186,7 +188,7 @@ Azure 가상 네트워크 서비스 엔드포인트<br/> | 예
 가속된 네트워킹 | 아니요
 
 ## <a name="storage"></a>스토리지
-**구성 요소** | **지원됨**
+**구성 요소** | **되지**
 --- | ---
 동적 디스크 | OS 디스크는 기본 디스크 여야 합니다. <br/><br/>데이터 디스크는 동적 디스크일 수 있습니다.
 Docker 디스크 구성 | 아니요
@@ -217,15 +219,15 @@ ReFS | 복원 파일 시스템은 모바일 서비스 버전 9.23 이상에서 �
 
 ## <a name="replication-channels"></a>복제 채널
 
-|**복제 유형**   |**지원됨**  |
+|**복제 유형**   |**되지**  |
 |---------|---------|
 |ODX (오프 로드 된 데이터 전송)    |       아니요  |
 |오프 라인 시드        |   아니요      |
 | Azure Data Box | 아니요
 
-## <a name="azure-storage"></a>Azure 스토리지
+## <a name="azure-storage"></a>Azure Storage
 
-**구성 요소** | **지원됨**
+**구성 요소** | **되지**
 --- | ---
 로컬 중복 스토리지 | 예
 지역 중복 스토리지 | 예
@@ -242,7 +244,7 @@ Vnet에 대 한 Azure Storage 방화벽 | 예.<br/> 복제 데이터를 저장 �
 
 ## <a name="azure-compute"></a>Azure Compute
 
-**기능** | **지원됨**
+**기능** | **되지**
 --- | ---
 가용성 집합 | 예
 가용성 영역 | 아니요
@@ -253,7 +255,7 @@ HUB | 예
 
 Azure로 복제 된 온-프레미스 Vm은이 표에 요약 된 Azure VM 요구 사항을 충족 해야 합니다. Site Recovery에서 복제에 대 한 필수 구성 요소 확인을 실행 하면 일부 요구 사항이 충족 되지 않은 경우 검사가 실패 합니다.
 
-**구성 요소** | **Requirements** | **세부 정보**
+**구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---
 게스트 운영 체제 | 복제된 컴퓨터에 대해 [지원되는 운영 체제](#replicated-machines)를 확인합니다. | 지원되지 않는 경우 확인이 실패합니다.
 게스트 운영 체제 아키텍처 | 64비트. | 지원되지 않는 경우 확인이 실패합니다.
@@ -299,7 +301,7 @@ VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
 
 ## <a name="vault-tasks"></a>자격 증명 모음 작업
 
-**동작** | **지원됨**
+**동작** | **되지**
 --- | ---
 리소스 그룹 간 자격 증명 모음 이동 | 아니요
 구독 내 및 구독 간에 자격 증명 모음 이동 | 아니요

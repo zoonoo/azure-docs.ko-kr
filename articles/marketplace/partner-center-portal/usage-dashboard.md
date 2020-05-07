@@ -1,31 +1,31 @@
 ---
-title: 파트너 센터의 상용 marketplace 분석에서 사용 대시보드
-description: 모든 VM에 액세스 하는 방법에 대해 사용 및 요금제 청구 메트릭을 제공 합니다.
+title: Microsoft 상업적 marketplace 분석의 사용량 대시보드
+description: 모든 VM에 액세스 하는 방법에 대해 사용 및 요금제 청구 메트릭을 제공 합니다. 상업적 Marketplace에서 파트너 센터의 사용량 대시보드로 이동 합니다.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 33762540d14ea51e8325abe9a466007cd7cca748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89a0a782b4a18b71f7be8bcdd3728fd008c24d5a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262182"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793009"
 ---
-# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>상용 marketplace 분석의 사용량 대시보드
+# <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Microsoft 상업적 marketplace 분석의 사용량 대시보드
 
 이 문서에서는 파트너 센터의 사용량 대시보드에 대 한 정보를 제공 합니다. 이 대시보드는 VM 사용량 및 요금제 청구 사용량 이라는 두 개의 별도 탭에 모든 VM이 사용량 및 요금제 청구 메트릭을 표시 합니다.
 
-사용량 대시보드에 액세스 하려면 상업적 Marketplace에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 대시보드를 엽니다.
+사용량 대시보드에 액세스 하려면 **상업적 Marketplace**에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 대시보드를 엽니다.
 
 >[!NOTE]
 > 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석에 대 한 질문과 용어](./faq-terminology.md)를 참조 하세요.
 
 ## <a name="usage-dashboard"></a>사용량 대시보드
 
-사용량 대시보드는 모든 VM (가상 머신)이 사용량 및 요금제 청구 사용량을 제공 하는 메트릭을 나타냅니다. 이러한 탭은 VM 사용량 및 요금제 청구 사용량의 두 가지 별도 탭에 있습니다.
+사용량 대시보드는 모든 VM (가상 머신)이 사용량 및 요금제 청구 사용량을 제공 하는 메트릭을 나타냅니다. 이러한 메트릭은 VM 사용량과 요금제 청구 사용량 이라는 두 개의 별도 탭에 있습니다.
 
 VM 사용 탭에는 다음 항목에 대 한 그래픽 표시가 있습니다.
 
@@ -46,7 +46,7 @@ VM 사용 탭에는 다음 항목에 대 한 그래픽 표시가 있습니다.
 사용 요약 테이블은 구매한 모든 제품에 대 한 고객 사용 시간을 표시 합니다.
 
 - 정규화 된 사용 시간은 VM 코어 수를 고려 하 여 표준화 된 사용 시간 ([VM 코어 수] x [원시 사용 시간])으로 정의 됩니다. "SHAREDCORE"로 지정 된 Vm은 1/6 (또는 0.1666)를 [VM 코어 수] 승수로 사용 합니다.
-- 원시 사용 시간은 Vm이 시간 단위로 실행 되는 시간의 양에 따라 정의 됩니다.
+- 원시 사용 시간은 Vm이 시간 단위로 실행 된 시간 수로 정의 됩니다.
 - 백분율 값은 선택 된 날짜 범위에 대 한 사용량 증가 변경을 나타냅니다 ([지난 달 사용량-첫 달 사용])/첫 번째 월 사용).
 - 위쪽을 가리키는 녹색 삼각형은 증가 변경을 의미 합니다.
 - 아래쪽을 가리키는 빨간색 삼각형은 이전 월을 기준으로 하는 부정적인 증가율을 나타냅니다.
@@ -58,13 +58,13 @@ VM 사용 탭에는 다음 항목에 대 한 그래픽 표시가 있습니다.
 
 ### <a name="usage-by-offers"></a>제안에의 한 사용
 
-- **제안 별 정규화 된 사용** 원형 차트에는 선택한 날짜 범위에 따른 제품 별 정규화 된 사용 시간에 대 한 분석 결과가 표시 됩니다. 상위 5 개 제안은 그래프에 표시 되 고 나머지는 "rest" 범주로 그룹화 됩니다.
+- **제안 별 정규화 된 사용** 원형 차트에는 선택한 날짜 범위에 따른 제품 별 정규화 된 사용 시간에 대 한 분석 결과가 표시 됩니다. 상위 5 개 제안은 그래프에 표시 되 고 나머지는 **나머지 모든** 범주로 그룹화 됩니다.
 - 가로 막대형 차트는 선택한 날짜 범위에 대 한 월 단위 급수 추세를 나타냅니다. 월 열은 해당 월의 사용 시간이 가장 많은 제안에서 사용 시간을 나타냅니다. 꺾은선형 차트는 보조 Y 축에 그려진 증가율 추세를 보여 줍니다.
 - 차트 위쪽의 슬라이더를 사용 하 여 x 축을 따라 오른쪽에서 왼쪽으로 스크롤하고 특정 데이터 요소에 초점을 맞출 수 있습니다.
 
 ### <a name="usage-trend-by-offers-and-skus"></a>제품 및 Sku 별 사용량 추세
 
-이 차트는 제품의 선택한 Sku에 대 한 정규화 된 사용량 추세를 표시 합니다. 제품 순위표 사용 시간을 기준으로 최고 50 제안을 표시 하 고 사용 시간을 기준으로 정렬 됩니다. SKU 순위표는 선택한 제품에 대 한 사용량이 가장 높은 상위 50 Sku를 표시 합니다.
+이 차트는 제품의 선택한 Sku에 대 한 정규화 된 사용량 추세를 표시 합니다. 제품 순위표 사용 시간을 기준으로 내림차순으로 정렬 된 상위 50 제안을 표시 합니다. SKU 순위표는 선택한 제품에 대 한 사용량이 가장 높은 상위 50 Sku를 표시 합니다.
 
 ### <a name="usage-by-offer-type"></a>제안 유형별 사용
 
@@ -123,5 +123,5 @@ VM 사용 탭에는 다음 항목에 대 한 그래픽 표시가 있습니다.
 - 그래픽 및 다운로드 가능한 형식으로 주문에 대 한 자세한 내용은 [상용 marketplace 분석의 주문 대시보드](./orders-dashboard.md)를 참조 하세요.
 - 성장 추세를 비롯 한 고객에 대 한 자세한 내용은 [상용 marketplace 분석의 고객 대시보드](./customer-dashboard.md)를 참조 하세요.
 - 최근 30 일 동안의 다운로드 요청 목록은 [상용 marketplace 분석에서 대시보드 다운로드](./downloads-dashboard.md)를 참조 하세요.
-- Azure Marketplace 및 AppSource의 제품에 대 한 고객 의견의 통합 보기를 보려면 [상용 Marketplace 분석의 등급 및 리뷰 대시보드](./ratings-reviews.md)를 참조 하세요.
+- Microsoft AppSource 및 Azure Marketplace의 제품에 대 한 고객 의견의 통합 보기를 보려면 [상용 Marketplace 분석의 등급 및 리뷰 대시보드](./ratings-reviews.md)를 참조 하세요.
 - 상용 marketplace 분석 및 데이터 용어의 포괄적인 사전에 대 한 질문과 대답은 [상업적 marketplace 분석에 대 한 질문과 대답](./faq-terminology.md)을 참조 하세요.

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.openlocfilehash: 721e5414fc4753cd5d58a17fc7ed51ea99868778
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77c1cc6ef5a7353d246958d1b047f054d5f49890
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80810369"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837161"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너(미리 보기)를 사용하여 모델 다시 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -29,16 +29,10 @@ ms.locfileid: "80810369"
 > * 학습 파이프라인을 게시 합니다.
 > * 새 매개 변수를 사용 하 여 모델을 다시 학습 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Enterprise SKU를 사용하는 Azure Machine Learning 작업 영역
-* 디자이너에서 액세스할 수 있는 데이터 집합입니다. 다음 중 하나일 수 있습니다.
-   * Azure Machine Learning 등록 된 데이터 집합
-    
-     **디스크나**
-   * Azure Machine Learning 데이터 저장소에 저장 된 데이터 파일입니다.
-   
-디자이너를 사용한 데이터 액세스에 대 한 자세한 내용은 [디자이너로 데이터를 가져오는 방법을](how-to-designer-import-data.md)참조 하세요.
+* 이 방법 시리즈의 1 부를 완료 하 고 [디자이너에서 데이터를 변환](how-to-designer-transform-data.md)합니다.
 
 또한이 문서에서는 디자이너에서 파이프라인을 빌드하는 방법에 대 한 기본 지식이 있다고 가정 합니다. 단계별 소개를 보려면 [자습서](tutorial-designer-automobile-price-train-score.md)를 완료 하세요. 
 

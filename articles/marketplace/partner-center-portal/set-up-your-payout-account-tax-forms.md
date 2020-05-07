@@ -1,17 +1,17 @@
 ---
-Description: 상용 marketplace의 제품 판매에서 돈을 받으려면 지급 계정을 설정 하 고 필요한 세금 양식을 작성 해야 합니다.
-title: 지급 계정 및 세금 양식 설정 | Azure Marketplace
+title: 지급 계정 & 세금 양식 설정-Microsoft 상업적 marketplace
+Description: 상용 marketplace의 제품 판매에서 돈을 받으려면 지급 계정을 설정 하 고 필요한 세금 양식을 작성 하는 방법에 대해 알아보세요.
 ms.date: 12/10/2019
 ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: fb0caa64feb7cb024b684a2e94937aec8893bb5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 627f6f01a17fc8cabb4f1883306baeb0e2d77e70
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80281309"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792890"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>지급 계정 및 세금 양식 설정
 
@@ -32,7 +32,7 @@ ms.locfileid: "80281309"
 
 ## <a name="tax-forms"></a>세금 양식
 
-### <a name="filling-out-your-tax-forms"></a>세금 양식 작성
+### <a name="fill-out-your-tax-forms"></a>세금 양식 작성
 
 먼저 세금 프로필을 만들어 참여 하는 프로그램에 할당 해야 합니다. 다음 단계를 완료 하 여 상용 marketplace에 대 한 *세금 프로필* 을 만들 수 있습니다.
 
@@ -45,18 +45,21 @@ ms.locfileid: "80281309"
 > 국가와 지역이 서로 다른 세금 요구 사항이 있습니다. 세금을 지불 해야 하는 정확한 양은 제품을 판매 하는 국가 및 지역에 따라 달라 집니다. Microsoft에서 판매를 송금 세금을 사용 하는 국가를 확인 하려면 [Microsoft Azure Marketplace 게시자 계약](https://go.microsoft.com/fwlink/p/?LinkID=699560) 을 참조 하세요. 다른 국가에서는 등록 된 위치에 따라 판매를 다시 mit 하 고 현지 처리 시간이 소모 기관에 직접 제품 판매에 대 한 세금을 사용 해야 할 수 있습니다. 또한 앱 판매 진행이 수입으로 taxable 수 있습니다. 상업적 marketplace 활동에 대 한 올바른 세금 정보를 결정 하는 데 도움이 되는 국가 또는 지역에 대 한 관련 기관에 문의 하는 것이 좋습니다.
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard)의 오른쪽 위 모서리에서 **계정 설정** 아이콘을 선택 하 고 **개발자 설정**을 선택 합니다.
+
 2. 왼쪽 탐색 메뉴에서 **지급 및 세금**을 선택한 다음 **지급 및 세금 할당**을 선택 합니다.
 
 3. 세금 정보를 구성 하려는 프로그램 및 판매자 ID 조합을 선택 합니다.
 
 4. 기존 세금 프로필을 사용 하려는 경우 드롭다운 목록에서 선택 합니다. 그렇지 않으면 **새 프로필 만들기** 를 선택 하 고 **제출**을 누릅니다. 세금 프로필 페이지가 표시 됩니다.
+
 5. **편집** 단추를 클릭 하 여 세금 정보를 편집 합니다.
+
 6. 적절 한 라디오 단추를 선택 하 고 메시지가 표시 되 면 국가를 선택 합니다. 이 단계에서는 계정에 지급를 만드는 데 사용할 Microsoft 비즈니스 엔터티를 결정 합니다.
 
 7. 6 단계에서 선택한 내용에 따라 해당 국가에 필요한 세금 정보를 제공 하 라는 메시지가 표시 됩니다.
 
-> [!NOTE]
-> 거주지 나 참여 국가에 관계 없이 상업적 marketplace를 통해 제품 또는 추가 기능을 판매 하려면 미국 세금 양식을 작성 해야 합니다. 특정 미국 상주 요구 사항을 충족 하는 게시자는 IRS W-9 양식을 작성 해야 합니다. 미국의 외부에 있는 다른 게시자는 IRS 폼을 작성 해야 합니다. 세금 프로필을 완료할 때 이러한 양식을 온라인으로 채울 수 있습니다.
+   > [!NOTE]
+   > 거주지 나 참여 국가에 관계 없이 상업적 marketplace를 통해 제품 또는 추가 기능을 판매 하려면 미국 세금 양식을 작성 해야 합니다. 특정 미국 상주 요구 사항을 충족 하는 게시자는 IRS W-9 양식을 작성 해야 합니다. 미국의 외부에 있는 다른 게시자는 IRS 폼을 작성 해야 합니다. 세금 프로필을 완료할 때 이러한 양식을 온라인으로 채울 수 있습니다.
 
 ### <a name="withholding-rates"></a>원천 요금
 
@@ -108,8 +111,8 @@ ms.locfileid: "80281309"
 
 6. 제출을 클릭 하 여 변경 내용을 저장 합니다.
 
-> [!NOTE]
-> Microsoft는 프로필에서 정보의 유효성을 검사 하는 데 최대 48 시간까지 걸릴 수 있습니다. 이 프로세스가 완료 되 면 *확인 상태가* **완료** 로 표시 됩니다.
+   > [!NOTE]
+   > Microsoft는 프로필에서 정보의 유효성을 검사 하는 데 최대 48 시간까지 걸릴 수 있습니다. 이 프로세스가 완료 되 면 *확인 상태가* **완료** 로 표시 됩니다.
 
 지급 성공적으로 작동 하는지 확인 하려면 다음을 확인 합니다.
 
@@ -122,7 +125,9 @@ ms.locfileid: "80281309"
 변경 하거나 잘못 된 정보를 수정 해야 하는 경우 기존 지불 프로필을 편집할 수 있습니다.
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard)의 오른쪽 위 모서리에서 **설정** 기어 아이콘을 선택 하 고 **개발자 설정**을 선택 합니다.
+
 2. *지급 및 세금* 제목 아래에서 **지급 및 세금 프로필**을 선택 합니다.
+
 3. 결제 프로필은 해당 상태와 함께 나열 됩니다. 편집할 프로필을 찾은 다음 맨 오른쪽에 있는 **편집** 을 클릭 합니다.
 
 > [!IMPORTANT]
@@ -138,9 +143,13 @@ ms.locfileid: "80281309"
 PayPal을 지불 방법으로 사용 하는 방법에 대 한 일반적인 질문:
 
 - **지불액을 받기 위해 필요한 PayPal 설정은 무엇 인가요?** PayPal 계정이 eCheck 상환액을 차단 하지 않는지 확인 합니다. 이 설정은 PayPal의 지불 수신 기본 설정 페이지에서 관리 됩니다. 자세한 내용은 [PayPal의 계정 설정 페이지](https://go.microsoft.com/fwlink/p/?linkid=513139) 를 참조 하세요.
+
 - **내 국가/지역이 지원 되나요?** [지불 임계값, 방법 및](payment-thresholds-methods-timeframes.md) 기간을 확인 하 여 PayPal이 지원 되는 지불 방법에 대해 알아보세요.
+
 - **내 PayPal 계정을 파트너 센터 계정과 동일한 국가/지역에 등록 해야 하나요?** 아니요. PayPal 계정을 설정할 때 기본 구성을 사용할 수 있습니다. 일부 통화에서 지불을 차단 하지 않는 한 다른 국가/지역과 통화에 대 한 문제는 발생 하지 않아야 합니다. 이 설정은 PayPal의 지불 수신 기본 설정 페이지에서 관리 됩니다.
+
 - **PayPal 결제를 수동으로 수락 해야 하나요?** 아니요. PayPal 계정은 기본적으로 사용자가 직접 지불을 수락 하도록 요구 하기 위해 설정 됩니다. 즉, 30 일 이내에 지불을 수락 하지 않으면 반환 됩니다. PayPal의 추가 설정 페이지에서 "묻기"를 해제 하 여이 설정을 변경할 수 있습니다.
+
 - **PayPal에서 지 원하는 통화는 무엇 인가요?** 현재 목록에 대해서는 [PayPal의 지원 페이지](https://developer.paypal.com/docs/classic/api/currency-codes/#paypal) 를 참조 하세요.
 
 ### <a name="specific-requirements-for-certain-countriesregions"></a>특정 국가/지역에 대 한 특정 요구 사항
@@ -193,3 +202,7 @@ Microsoft는 첫 번째 지급을 시도할 때 세 문서를 모두 제공 합�
 4. *프로필 할당* 페이지로 돌아가 지급를 실행할 때 사용할 통화를 선택 합니다.
 5. 여러 프로그램에 동일한 프로필을 사용할 수 있지만 참여 하는 각 프로그램에 대해 지불 프로필을 선택 해야 합니다.
 6. 제출을 클릭 하 여 변경 내용을 저장 합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+[상용 마켓플레이스 청구](billing-details.md)

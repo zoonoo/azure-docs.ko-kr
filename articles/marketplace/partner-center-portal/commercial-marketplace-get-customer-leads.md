@@ -1,24 +1,24 @@
 ---
-title: Microsoft 상업적 marketplace 제품의 잠재 고객 구성
-description: Microsoft 상업적 marketplace에서 고객 리드를 구성 합니다.
+title: Microsoft 상업적 marketplace의 리드 관리
+description: Microsoft AppSource 및 Azure Marketplace 제품에서 고객 리드를 생성 하 고 받는 방법을 알아봅니다.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 54c67656d7847b44c8fc83b33a4e03be3838cf76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d1bf859968c7b7a889abe635c917d0da11bf6e1
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131112"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837331"
 ---
-# <a name="customer-leads-from-your-marketplace-offer"></a>마켓플레이스 제품의 잠재 고객
+# <a name="customer-leads-from-your-commercial-marketplace-offer"></a>상업적 marketplace 제품의 고객 책임자
 
-고객은 Microsoft [Appsource](https://appsource.microsoft.com) 및 [Azure Marketplace](https://azuremarketplace.microsoft.com)에서 귀하의 제품에 관심이 있거나 배포 하는 고객입니다. 제품이 marketplace에 게시 된 후 고객 리드를 받게 됩니다. 이 문서는 다음 사항을 설명합니다.
+고객은 [Microsoft AppSource](https://appsource.microsoft.com) 및 [Azure Marketplace](https://azuremarketplace.microsoft.com)에서 귀하의 제품에 관심이 있거나 배포 하는 고객입니다. 제품이 상업적 marketplace에 게시 된 후 고객 리드를 받을 수 있습니다. 이 문서에서는 다음과 같은 리드 관리 개념을 설명 합니다.
 
-* Marketplace 제품이 고객 리드를 생성 하 여 비즈니스 기회가 누락 되지 않도록 합니다. 
+* 상업적 marketplace 제품이 고객 리드를 생성 하 여 비즈니스 기회가 누락 되지 않도록 합니다. 
 * 단일 중앙 위치에서 잠재 고객을 관리할 수 있도록 제품에 CRM (고객 관계 관리) 시스템을 연결 하는 방법을 설명 합니다.
 * 사용자에 게 도달 하는 고객에 대 한 후속 작업을 수행할 수 있도록 사용자가 전송 하는 잠재 고객 데이터입니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "82131112"
 
 가능한 값은 다음과 같습니다.
 
-- **"INS"**: *설치*를 나타냅니다. 고객이 제품을 구매 하는 경우이 작업은 Azure Marketplace 또는 AppSource에 있습니다.
+- **"INS"**: *설치*를 나타냅니다. 고객이 제품을 획득 하는 경우이 작업은 Azure Marketplace 또는 AppSource에 있습니다.
 - **"PLT"**: *파트너-led 평가판*을 나타냅니다. 이 작업은 고객이 **연락처** 옵션을 선택할 때 appsource에 있습니다.
 - **"Dnc"**: 연결 안 *함*을 의미 합니다. 앱 페이지에 교차 나열 된 파트너에 게 연락 요청이 요청 될 때이 작업은 AppSource에 있습니다. 이 고객이 앱에 교차 나열 되었다는 알림을 공유 하지만 사용자에 게 연락할 필요가 없습니다.
 - **"만들기"**:이 작업은 Azure Portal 내에만 있으며 고객이 자신의 계정에 제품을 구매할 때 생성 됩니다.
@@ -92,7 +92,7 @@ ms.locfileid: "82131112"
 - **후속**작업: 후속 작업을 잊지 마십시오. 일반적인 트랜잭션은 5 ~ 12 개의 후속 호출이 필요 합니다.
 - **키우십시오**: 잠재 고객을 키우십시오 하 여 더 높은 수익 이윤으로 이동 하세요.
 
-## <a name="leads-frequently-asked-questions"></a>자주 묻는 질문과 대답
+## <a name="common-questions-about-lead-management"></a>리드 관리에 대 한 일반적인 질문
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>리드 대상을 설정하는 데 필요한 도움은 어디에서 받을 수 있나요?
 
@@ -133,7 +133,7 @@ Azure Blob storage는 더 이상 잠재 고객으로 지원 되지 않으므로 
 
 ### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>상업적 marketplace에서 전자 메일을 받았지만 CRM에서 잠재 고객을 찾을 수 없는 이유는 무엇입니까?
 
-최종 사용자의 메일 도메인 원본이 .edu일 수 있습니다. 개인 정보 보호를 위해 .edu 도메인에서 개인 식별이 가능한 정보를 전달 하지 않습니다. [파트너 센터 도움말 및 지원을](https://partner.microsoft.com/support/v2/?stage=1)통해 지원 티켓을 제출 합니다.
+최종 사용자의 메일 도메인 원본이 .edu일 수 있습니다. 개인 정보 보호를 위해 .edu 도메인의 개인 정보를 전달 하지 않습니다. [파트너 센터 도움말 및 지원을](https://partner.microsoft.com/support/v2/?stage=1)통해 지원 티켓을 제출 합니다.
 
 ### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Azure 테이블을 선행 대상으로 구성 했습니다. 잠재 고객을 어떻게 볼 수 있나요?
 
@@ -149,7 +149,7 @@ Azure Portal에서 Azure 테이블에 저장 된 잠재 고객 데이터에 액�
 
 ### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>리드 대상에 문제가 있습니다. 일부 리드가 누락되었습니다. 메일로 보내줄 수 있나요?
 
-개인적으로 식별할 수 있는 정보 정책으로 인해 보안 되지 않은 전자 메일을 통해 잠재 고객 정보를 공유할 수 없습니다.
+개인 정보 정책으로 인해 보안 되지 않은 전자 메일을 통해 잠재 고객 정보를 공유할 수 없습니다.
 
 ### <a name="i-configured-an-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>Azure 테이블을 선행 대상으로 구성 했습니다. 비용은 얼마 인가요?
 

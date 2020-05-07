@@ -3,12 +3,12 @@ title: Azure VM Backup의 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: d86ce94c62ec9f25b364e9fdc963e3043b274722
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86141532e0db80f75c6e79277b36060ecb939a53
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80389293"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801436"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -24,7 +24,7 @@ ms.locfileid: "80389293"
 
 다음은 Azure Backup 서비스를 사용하여 Azure VM을 백업 및 복원하는 방법입니다.
 
-**시나리오** | **Backup** | **에이전트** |**복원**
+**시나리오** | **백** | **에이전트** |**복원**
 --- | --- | --- | ---
 Azure VM의 직접 백업  | 전체 VM을 백업 합니다.  | Azure VM에 추가 에이전트가 필요 하지 않습니다. Azure Backup는 VM에서 실행 되는 [AZURE vm 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 에 대 한 확장을 설치 하 고 사용 합니다. | 다음과 같이 복원합니다.<br/><br/> - **기본 VM을 만듭니다**. VM에 여러 IP 주소와 같은 특수 구성이 없는 경우에 유용 합니다.<br/><br/> - **VM 디스크 복원**. 디스크를 복원합니다. 그런 다음 기존 VM에 연결 하거나 PowerShell을 사용 하 여 디스크에서 새 VM을 만듭니다.<br/><br/> - **VM 디스크 바꾸기**. VM이 있으며 Managed Disks(암호화되지 않음)를 사용하는 경우 디스크를 복원하고 VM에서 기존 디스크 대신 사용할 수 있습니다.<br/><br/> - **특정 파일/폴더 복원**. 전체 VM이 아닌 VM에서 파일/폴더를 복원할 수 있습니다.
 Azure VM의 직접 백업(Windows만 해당)  | 특정 파일/폴더/볼륨을 백업 합니다. | [Azure Recovery Services 에이전트](backup-azure-file-folder-backup-faq.md)를 설치 합니다.<br/><br/> 파일/폴더 수준에서 VM을 백업하려면 Azure VM 에이전트에 대한 백업 확장과 함께 MARS 에이전트를 실행할 수 있습니다. | 특정 폴더/파일을 복원합니다.
@@ -112,7 +112,7 @@ DPM/MABS 디스크의 복구 지점 수 | 파일 서버의 경우 64이 고, 앱
 
 ## <a name="support-for-file-level-restore"></a>파일 수준 복원에 대한 지원
 
-**복원** | **지원됨**
+**복원** | **되지**
 --- | ---
 운영 체제에서 파일 복원 | 백업된 VM과 동일한(또는 호환되는) OS가 있는 모든 컴퓨터에서 파일을 복원할 수 있습니다. [호환 되는 OS 표](backup-azure-restore-files-from-vm.md#system-requirements)를 참조 하세요.
 암호화된 VM에서 파일 복원 | 지원 안 됨
@@ -125,7 +125,7 @@ LVM/RAID 배열을 사용하여 Linux VM에서 파일 복원 | 동일한 VM에�
 
 다음 표에는 vm 디스크 추가 또는 교체와 같은 VM 관리 작업을 수행 하는 동안 백업에 대 한 지원이 요약 되어 있습니다.
 
-**복원** | **지원됨**
+**복원** | **되지**
 --- | ---
 구독/지역/영역에서의 복원 | 지원 안 됨
 기존 VM에 복원 | 디스크 바꾸기 옵션을 사용합니다.
@@ -158,7 +158,7 @@ Gen2 Vm | 지원됨 <br> Azure Backup [Gen2 vm](https://azure.microsoft.com/upda
 
 **구성 요소** | **지원**
 --- | ---
-Azure VM 데이터 디스크 수 | 16 개 이하의 데이터 디스크를 사용 하 여 VM을 백업 합니다.<BR> 16개 이상의 디스크(최대 32개 디스크)를 사용하여 VM의 프라이빗 미리 보기에 등록하려면 AskAzureBackupTeam@microsoft.com으로 이메일을 보내주세요.
+Azure VM 데이터 디스크 수 | 16 개 이하의 데이터 디스크를 사용 하 여 VM을 백업 합니다.<BR> 16 개 이상의 디스크 (최대 32 디스크)를 사용 하 여 제한 된 Vm 미리 보기에 등록 하려면 다음에 작성 합니다.AskAzureBackupTeam@microsoft.com
 데이터 디스크 크기 | 개별 디스크 크기는 최대 32 TB 이며 VM의 모든 디스크에 대해 최대 256 TB를 결합할 수 있습니다.
 스토리지 유형 | 표준 HDD, 표준 SSD, 프리미엄 SSD.
 관리 디스크 | 지원됩니다.

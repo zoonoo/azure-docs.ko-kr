@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 05/04/2020
 ms.author: rogarana
-ms.openlocfilehash: b2dd501344e1ea799db58ea749395aaed05d05f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6309219b31c22f1f1d090cc9de9931609e3423f7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106556"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792986"
 ---
 # <a name="enable-on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Azure 파일 공유를 위해 SMB를 통한 온-프레미스 Active Directory Domain Services 인증 사용
 
@@ -54,13 +54,11 @@ Azure 파일 공유에 대 한 AD DS 인증을 사용 하도록 설정 하기 �
 
     컴퓨터 또는 VM에서 AD 자격 증명을 사용 하 여 파일 공유에 액세스 하려면 장치가 AD DS에 도메인에 가입 되어 있어야 합니다. 도메인에 가입 하는 방법에 대 한 자세한 내용은 [도메인에 컴퓨터 가입](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain)을 참조 하세요. 
 
-- [지원 되는 지역](#regional-availability)에서 Azure storage 계정을 선택 하거나 만듭니다. 
+- Azure storage 계정을 선택 하거나 만듭니다.  성능을 최적화 하려면 공유에 액세스할 예정인 VM과 동일한 지역에 저장소 계정을 배포 하는 것이 좋습니다.
 
     파일 공유가 포함 된 저장소 계정이 Azure AD DS 인증에 대해 아직 구성 되지 않았는지 확인 합니다. 저장소 계정에서 Azure AD DS 인증을 사용 하도록 설정한 Azure Files 경우 온-프레미스 AD DS를 사용 하도록 변경 하기 전에 사용 하지 않도록 설정 해야 합니다. 이는 Azure AD DS 환경에서 구성 된 기존 Acl을 적절 한 사용 권한을 적용 하도록 다시 구성 해야 함을 의미 합니다.
     
     새 파일 공유를 만드는 방법에 대 한 자세한 내용은 [Azure Files에서 파일 공유 만들기](storage-how-to-create-file-share.md)를 참조 하세요.
-    
-    성능을 최적화 하려면 공유에 액세스할 예정인 VM과 동일한 지역에 저장소 계정을 배포 하는 것이 좋습니다. 
 
 - 저장소 계정 키를 사용 하 여 Azure 파일 공유를 탑재 하 여 연결을 확인 합니다. 
 
@@ -70,23 +68,23 @@ Azure 파일 공유에 대 한 AD DS 인증을 사용 하도록 설정 하기 �
 
 AD DS (미리 보기)를 사용 하 여 Azure Files 인증은 [모든 공용 지역 및 Azure .gov 지역](https://azure.microsoft.com/global-infrastructure/locations/)에서 사용할 수 있습니다.
 
-## <a name="workflow-overview"></a>워크플로 개요
-
-Azure 파일 공유에 대해 SMB를 통한 AD DS 인증을 사용 하도록 설정 하기 전에 [필수 구성 요소](#prerequisites) 섹션을 읽고 완료 하는 것이 좋습니다. 필수 구성 요소는 AD, Azure AD 및 Azure Storage 환경이 제대로 구성 되어 있는지 확인 합니다. 
+## <a name="overview"></a>개요
 
 파일 공유에서 네트워킹 구성을 사용 하도록 설정 하려는 경우 AD DS 인증을 사용 하도록 설정 하기 전에 먼저 [네트워킹 고려](https://docs.microsoft.com/azure/storage/files/storage-files-networking-overview) 사항을 평가 하 고 관련 구성을 완료 하는 것이 좋습니다.
 
-다음으로 AD 인증에 대 한 Azure Files를 설정 하려면 다음 단계를 수행 합니다. 
+Azure 파일 공유에 대 한 AD DS 인증을 사용 하도록 설정 하면 온-프레미스 AD DS 자격 증명을 사용 하 여 Azure 파일 공유에 인증할 수 있습니다. 또한 세부적인 액세스 제어를 허용 하기 위해 사용 권한을 보다 잘 관리할 수 있습니다. 이렇게 하려면 AD connect를 사용 하 여 온-프레미스 AD DS에서 Azure AD로 id를 동기화 해야 합니다. 온-프레미스 AD DS 자격 증명을 사용 하 여 파일/공유 수준 액세스를 관리 하는 동안 Azure AD에 동기화 된 id로 공유 수준 액세스를 제어 합니다.
 
-1. 저장소 계정에 대 한 Azure Files AD DS 인증을 사용 하도록 설정 합니다. 
+다음으로 AD DS 인증에 대 한 Azure Files를 설정 하려면 다음 단계를 수행 합니다. 
 
-2. 대상 AD id와 동기화 되는 Azure AD id (사용자, 그룹 또는 서비스 주체)에 공유에 대 한 액세스 권한을 할당 합니다. 
+1. [저장소 계정에 대 한 Azure Files AD DS 인증 사용](#1-enable-ad-ds-authentication-for-your-account)
 
-3. 디렉터리 및 파일에 대 한 SMB를 통해 Acl을 구성 합니다. 
+1. [대상 AD id와 동기화 되는 Azure AD id (사용자, 그룹 또는 서비스 주체)에 공유에 대 한 액세스 권한을 할당 합니다.](#2-assign-access-permissions-to-an-identity)
+
+1. [디렉터리 및 파일에 대해 SMB를 통한 Acl 구성](#3-configure-ntfs-permissions-over-smb)
  
-4. Azure 파일 공유를 AD DS에 가입 된 VM에 탑재 합니다. 
+1. [AD DS에 연결 된 VM에 Azure 파일 공유를 탑재 합니다.](#4-mount-a-file-share-from-a-domain-joined-vm)
 
-5. AD DS에서 저장소 계정 id의 암호를 업데이트 합니다.
+1. [AD DS에서 저장소 계정 id의 암호를 업데이트 합니다.](#5-update-the-password-of-your-storage-account-identity-in-ad-ds)
 
 다음 다이어그램에서는 Azure 파일 공유에 대해 SMB를 통한 Azure AD 인증을 사용 하도록 설정 하는 종단 간 워크플로를 보여 줍니다. 
 
@@ -95,9 +93,9 @@ Azure 파일 공유에 대해 SMB를 통한 AD DS 인증을 사용 하도록 설
 > [!NOTE]
 > Azure 파일 공유에 대 한 SMB를 통한 AD DS 인증은 Windows 7 또는 Windows Server 2008 r 2 보다 최신 버전의 OS에서 실행 되는 컴퓨터 또는 Vm 에서만 지원 됩니다. 
 
-## <a name="1-enable-ad-authentication-for-your-account"></a>1. 계정에 AD 인증을 사용 하도록 설정 합니다. 
+## <a name="1-enable-ad-ds-authentication-for-your-account"></a>1 계정에 대 한 AD DS 인증 사용 
 
-Azure 파일 공유에 대해 SMB를 통한 AD DS 인증을 사용 하도록 설정 하려면 먼저 AD DS에 저장소 계정을 등록 한 후 저장소 계정에 필요한 도메인 속성을 설정 해야 합니다. 저장소 계정에서이 기능을 사용 하도록 설정 하면 계정에 있는 모든 신규 및 기존 파일 공유에 적용 됩니다. 을 `join-AzStorageAccountForAuth` 사용 하 여 기능을 사용 하도록 설정 합니다. 이 섹션 내의 스크립트에서 종단 간 워크플로에 대 한 자세한 설명을 찾을 수 있습니다. 
+Azure 파일 공유에 대해 SMB를 통한 AD DS 인증을 사용 하도록 설정 하려면 먼저 AD DS에 저장소 계정을 등록 한 후 저장소 계정에 필요한 도메인 속성을 설정 해야 합니다. 저장소 계정에서이 기능을 사용 하도록 설정 하면 계정에 있는 모든 신규 및 기존 파일 공유에 적용 됩니다. AzFilesHybrid Powershell 모듈을 다운로드 하 고 `join-AzStorageAccountForAuth` 를 사용 하 여 기능을 사용 하도록 설정 합니다. 이 섹션 내의 스크립트에서 종단 간 워크플로에 대 한 자세한 설명을 찾을 수 있습니다. 
 
 > [!IMPORTANT]
 > 이 `Join-AzStorageAccountForAuth` CMDLET은 AD 환경을 수정 합니다. 다음 설명을 참조 하 여 명령을 실행할 수 있는 적절 한 권한이 있고 적용 된 변경 내용이 준수 및 보안 정책과 일치 하는지 확인 하기 위해 수행 하는 작업을 더 잘 이해 합니다. 
@@ -118,7 +116,7 @@ Cmdlet에서 만든 AD DS 계정은 AD 도메인의 저장소 계정을 나타�
 PowerShell에서 실행 하기 전에 아래 매개 변수에서 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 > [!IMPORTANT]
 > 도메인 가입 cmdlet은 ad의 저장소 계정 (파일 공유)을 나타내는 AD 계정을 만듭니다. 컴퓨터 계정 또는 서비스 로그온 계정으로 등록 하도록 선택할 수 있습니다. 자세한 내용은 [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) 를 참조 하십시오. 컴퓨터 계정의 경우 AD에 30 일 동안 기본 암호 만료 기간이 설정 되어 있습니다. 마찬가지로, 서비스 로그온 계정에는 AD 도메인 또는 OU (조직 구성 단위)에 대 한 기본 암호 만료 기간이 설정 되어 있을 수 있습니다.
-> 두 계정 유형 모두에서 AD 환경에 구성 된 암호 만료 기간을 확인 하 고 최대 암호 사용 기간 이전에 AD 계정의 [ad에서 저장소 계정 id의 암호를 업데이트](#5-update-the-password-of-your-storage-account-identity-in-ad-ds) 하도록 계획 하는 것이 좋습니다. AD 계정 암호를 업데이트 하지 못하면 Azure 파일 공유에 액세스할 때 인증 오류가 발생 합니다. [Ad에서 새 AD OU (조직 구성 단위)를 만들고](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) 이에 따라 [컴퓨터 계정](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) 또는 서비스 로그온 계정에 대 한 암호 만료 정책을 사용 하지 않도록 설정할 수 있습니다. 
+> 두 계정 유형 모두에서 AD 환경에 구성 된 암호 만료 기간을 확인 하 고 최대 암호 사용 기간 이전에 AD 계정의 [ad에서 저장소 계정 id의 암호를 업데이트](#5-update-the-password-of-your-storage-account-identity-in-ad-ds) 하도록 계획 하는 것이 좋습니다. [Ad에서 새 AD OU (조직 구성 단위)를 만들고](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) 이에 따라 [컴퓨터 계정](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) 또는 서비스 로그온 계정에 대 한 암호 만료 정책을 사용 하지 않도록 설정할 수 있습니다. 
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -144,12 +142,12 @@ Select-AzSubscription -SubscriptionId $SubscriptionId
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
 # You can use to this PowerShell cmdlet: Get-ADOrganizationalUnit to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify the target OU.
 # You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
-#You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
+# You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
 
 Join-AzStorageAccountForAuth `
         -ResourceGroupName $ResourceGroupName `
         -Name $StorageAccountName `
-        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` #Default set to "ComputerAccount"
+        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` # Default set to "ComputerAccount" if this parameter is not provided
         -OrganizationalUnitName "<ou-name-here>" #You can also use -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" instead. If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
 
 #You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, go to Azure Files FAQ.
@@ -176,7 +174,7 @@ OU에서 암호 만료를 적용 하는 경우 Azure 파일 공유에 액세스�
 
 새로 만든 계정의 SID를 유지 하 고 다음 단계에 필요 합니다. 저장소 계정을 나타내는 id를 Azure AD에 동기화 할 필요가 없습니다.
 
-##### <a name="c-enable-the-feature-on-your-storage-account"></a>다. 저장소 계정에서 기능을 사용 하도록 설정
+##### <a name="c-enable-the-feature-on-your-storage-account"></a>c. 저장소 계정에서 기능을 사용 하도록 설정
 
 그런 다음 스크립트는 저장소 계정에서이 기능을 사용 하도록 설정 합니다. 이 설치를 수동으로 수행 하려면 다음 명령에서 도메인 속성에 대 한 구성 세부 정보를 제공 하 고 실행 합니다. 다음 명령에 필요한 저장소 계정 SID는 [이전 섹션](#b-creating-an-identity-representing-the-storage-account-in-your-ad-manually)의 AD DS에서 만든 ID의 sid입니다.
 
@@ -218,7 +216,7 @@ $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 
 이제 SMB를 통해 AD DS 인증을 사용 하도록 설정 하 고 AD DS id를 사용 하 여 Azure 파일 공유에 대 한 액세스를 제공 하는 사용자 지정 역할을 할당 했습니다. 추가 사용자에 게 파일 공유에 대 한 액세스 권한을 부여 하려면 [액세스 권한 할당](#2-assign-access-permissions-to-an-identity) 을 사용 하 여 id를 사용 하 고 [SMB를 통한 NTFS 사용 권한 구성](#3-configure-ntfs-permissions-over-smb) 섹션의 지침을 따르세요.
 
-## <a name="5-update-the-password-of-your-storage-account-identity-in-ad-ds"></a>5. AD DS에서 저장소 계정 id의 암호를 업데이트 합니다.
+## <a name="5-update-the-password-of-your-storage-account-identity-in-ad-ds"></a>5 AD DS에서 저장소 계정 id의 암호를 업데이트 합니다.
 
 암호 만료 시간을 적용 하는 OU에서 저장소 계정을 나타내는 AD DS identity/account를 등록 한 경우 최대 암호 사용 기간 보다 먼저 암호를 회전 해야 합니다. AD DS 계정의 암호를 업데이트 하지 못하면 인증 오류가 발생 하 여 Azure 파일 공유에 액세스 하지 못합니다.  
 

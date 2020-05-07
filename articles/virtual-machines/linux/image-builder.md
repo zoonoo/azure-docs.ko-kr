@@ -4,15 +4,15 @@ description: Azure 이미지 작성기를 사용 하 여 Linux VM을 만듭니�
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.openlocfilehash: 0d36d7db4d85ece8de77040925c535305951562b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b50b2a9bfca99e1868c083759cce26bb176789f4
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80066679"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792414"
 ---
 # <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>미리 보기: Azure 이미지 작성기를 사용 하 여 Linux VM 만들기
 

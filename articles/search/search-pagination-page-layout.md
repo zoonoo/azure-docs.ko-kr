@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 0f815003449f0600bce1cb8927b92b85b51b09a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da01d0f7d2313b9700c5aae08edbda9e355b3774
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641612"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801776"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Azure Cognitive Search에서 검색 결과를 사용 하는 방법
 
@@ -78,7 +78,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
 
 검색 점수는 동일한 결과 집합의 다른 문서와 비교 하 여 일치의 강도를 반영 하는 일반적인 관련성을 전달 합니다. 점수는 쿼리를 사용할 때와 항상 일치 하는 것은 아니므로 쿼리를 사용할 때 검색 문서 정렬 방법이 약간 달라질 수 있습니다. 이러한 상황이 발생할 수 있는 이유에 대 한 몇 가지 설명이 있습니다.
 
-| 원인 | Description |
+| 원인 | 설명 |
 |-----------|-------------|
 | 데이터 변동성 | 인덱스 내용에 따라 문서를 추가, 수정 또는 삭제할 수 있습니다. 인덱스 업데이트가 시간에 따라 처리 되 면 일치 하는 문서의 검색 점수에 영향을 주기 때문에 용어 빈도가 변경 됩니다. |
 | 여러 복제본 | 여러 복제본을 사용 하는 서비스의 경우 각 복제본에 대해 병렬로 쿼리가 실행 됩니다. 검색 점수를 계산 하는 데 사용 되는 인덱스 통계는 복제본 별로 계산 되며 결과는 쿼리 응답에 병합 되 고 정렬 됩니다. 복제본은 대부분 서로 미러 되지만 상태 차이가 많지 않기 때문에 통계가 다를 수 있습니다. 예를 들어, 하나의 복제본이 해당 통계에 영향을 주는 문서를 삭제 했을 수 있습니다 .이 문서는 다른 복제본에 병합 되었습니다. 일반적으로 복제본 별 통계의 차이점은 작은 인덱스에서 더 두드러집니다. |
@@ -92,9 +92,15 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
 
 ## <a name="hit-highlighting"></a>적중 항목 강조 표시
 
-적중 항목 강조 표시는 결과에서 일치 하는 용어에 적용 되는 텍스트 서식 (예: 굵게 또는 노란색 강조 표시)을 참조 하 여 일치 항목을 쉽게 찾을 수 있도록 합니다. 적중 항목 강조 표시 명령은 [쿼리 요청](https://docs.microsoft.com/rest/api/searchservice/search-documents)에 제공 됩니다. 검색 엔진은 태그 `highlightPreTag` `highlightPostTag`와 일치 하는 용어를 포함 하 고 코드에서 응답을 처리 합니다 (예: 굵은 글꼴 적용).
+적중 항목 강조 표시는 결과에서 일치 하는 용어에 적용 되는 텍스트 서식 (예: 굵게 또는 노란색 강조 표시)을 참조 하 여 일치 항목을 쉽게 찾을 수 있도록 합니다. 적중 항목 강조 표시 명령은 [쿼리 요청](https://docs.microsoft.com/rest/api/searchservice/search-documents)에 제공 됩니다. 
 
-서식 지정은 전체 용어 쿼리에 적용 됩니다. 다음 예에서는 설명 필드 내에 "해변이", "샌드", "", "해변" 이라는 용어를 강조 표시 하도록 태그가 지정 됩니다. 유사 항목 및 와일드 카드 검색과 같은 엔진에서 쿼리 확장을 트리거하는 쿼리는 적중 항목 강조 표시를 제한적으로 지원 합니다.
+적중 항목 강조 표시를 사용 `highlight=[comma-delimited list of string fields]` 하도록 설정 하려면를 추가 하 여 강조 표시를 사용할 필드를 지정 합니다. 강조 표시는 일치 항목이 즉시 명확 하지 않은 설명 필드와 같은 긴 콘텐츠 필드에 유용 합니다. 적중 항목 강조 표시에 대 한 **검색** 가능으로 특성이 지정 된 필드 정의만 있습니다.
+
+기본적으로 Azure Cognitive Search는 필드 당 최대 5 개의 강조 표시를 반환 합니다. 필드에 대시 다음에 정수를 추가 하 여이 수를 조정할 수 있습니다. 예를 들어 `highlight=Description-10` 은 설명 필드에서 일치 하는 내용에 대해 최대 10 개의 하이라이트를 반환 합니다.
+
+서식 지정은 전체 용어 쿼리에 적용 됩니다. 서식 지정 형식은 태그, `highlightPreTag` 및 `highlightPostTag`에 의해 결정 되며, 코드에서 응답을 처리 합니다 (예: 굵은 글꼴 또는 노란색 배경 적용).
+
+다음 예에서는 설명 필드 내에 "해변이", "샌드", "", "해변" 이라는 용어를 강조 표시 하도록 태그가 지정 됩니다. 유사 항목 및 와일드 카드 검색과 같은 엔진에서 쿼리 확장을 트리거하는 쿼리는 적중 항목 강조 표시를 제한적으로 지원 합니다.
 
 ```http
 GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 

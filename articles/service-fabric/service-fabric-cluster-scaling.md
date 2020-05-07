@@ -4,12 +4,12 @@ description: Azure Service Fabric 클러스터의 스케일 인 또는 스케일
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: 9dd60a5898b648215fc8b26e49a706a7b19dfeeb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a21182c974d6141264c8ca0c36bfc8f6a366d6f3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258695"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793179"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Azure Service Fabric 클러스터 크기 조정
 Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 머신 또는 VM을 노드라고 합니다. 클러스터는 잠재적으로 수천 개의 노드를 포함할 수 있습니다. Service Fabric 클러스터를 만든 후에 수평으로(노드 수 변경) 또는 수직으로(노드의 리소스 변경) 클러스터 크기를 조정할 수 있습니다.  클러스터에서 워크로드가 실행되는 경우에도 언제든지 클러스터의 크기를 조정할 수 있습니다.  클러스터의 크기를 조정하면 애플리케이션 크기도 자동으로 조정됩니다.
@@ -29,13 +29,13 @@ Azure 클러스터 크기를 조정할 때는 다음 지침에 유의하세요.
 - 상태 저장 프로덕션 워크로드를 실행하는 주가 아닌 노드 형식에는 항상 5개 이상의 노드가 있어야 합니다.
 - 상태 비저장 프로덕션 워크로드를 실행하는 주가 아닌 노드 형식에는 항상 2개 이상의 노드가 있어야 합니다.
 - [내구성 수준](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)이 Gold 또는 Silver인 모든 노드 유형에는 항상 5개 이상의 노드가 있어야 합니다.
-- 노드 형식에서 임의의 VM 인스턴스/노드를 삭제하지 말고, 항상 가상 머신 확장 집합 규모 축소 기능을 사용하세요. 임의 VM 인스턴스를 삭제하면 부하를 적절히 분산하는 시스템 기능에 부정적인 영향을 줄 수 있습니다.
+- 노드 유형에 서 임의 VM 인스턴스/노드를 제거 하지 마세요. 항상 가상 머신 확장 집합 크기 조정 기능을 사용 합니다. 임의 VM 인스턴스를 삭제하면 부하를 적절히 분산하는 시스템 기능에 부정적인 영향을 줄 수 있습니다.
 - 자동 크기 조정 규칙을 사용하는 경우 스케일 인(VM 인스턴스 제거)을 한 번에 한 노드에서 수행하도록 규칙을 설정합니다. 한 번에 여러 인스턴스의 규모를 축소하는 방식은 안전하지 않습니다.
 
-클러스터의 Service Fabric 노드 형식은 백 엔드에서 가상 머신 확장 집합으로 구성되므로 각 노드 형식/가상 머신 확장 집합에 대한 [자동 크기 조정 규칙을 설정하거나 수동으로 크기를 조정](service-fabric-cluster-scale-up-down.md)해야 합니다.
+클러스터의 Service Fabric 노드 형식은 백 엔드에서 가상 머신 확장 집합으로 구성되므로 각 노드 형식/가상 머신 확장 집합에 대한 [자동 크기 조정 규칙을 설정하거나 수동으로 크기를 조정](service-fabric-cluster-scale-in-out.md)해야 합니다.
 
 ### <a name="programmatic-scaling"></a>프로그래밍 방식으로 크기 조정
-많은 시나리오에서 [수동으로 또는 자동 크기 조정 규칙을 통해 클러스터 크기를 조정](service-fabric-cluster-scale-up-down.md)하는 것은 적절한 해결 방법입니다. 그러나 고급 시나리오에서는 이 방법이 적절하지 않을 수 있습니다. 이러한 접근 방식의 잠재적 단점은 다음과 같습니다.
+많은 시나리오에서 [수동으로 또는 자동 크기 조정 규칙을 통해 클러스터 크기를 조정](service-fabric-cluster-scale-in-out.md)하는 것은 적절한 해결 방법입니다. 그러나 고급 시나리오에서는 이 방법이 적절하지 않을 수 있습니다. 이러한 접근 방식의 잠재적 단점은 다음과 같습니다.
 
 - 수동으로 크기를 조정 하려면 로그인 하 고 크기 조정 작업을 명시적으로 요청 해야 합니다. 크기 조정 작업을 자주 또는 예기치 않은 시점에 수행해야 하는 경우에는 이 방법이 좋지 않을 수 있습니다.
 - 자동 크기 조정 규칙은 가상 머신 확장 집합에서 인스턴스를 제거할 때 노드 형식의 내구성 수준이 Silver 또는 Gold가 아닌 한 연결된 Service Fabric 클러스터에서 해당 노드의 지식을 제거하지 않습니다. 자동 크기 조정 규칙은 Service Fabric 수준이 아닌 확장 집합 수준에서 작동하기 때문에 Service Fabric 노드를 정상적으로 종료하지 않아도 자동 크기 조정 규칙이 Service Fabric 노드를 제거할 수 있습니다. 이 강제 노드 제거는 규모 감축 작업 후 'ghost' Service Fabric 노드 상태를 남깁니다. 개인(또는 서비스)은 Service Fabric 클러스터에서 제거된 노드 상태를 주기적으로 정리해야 합니다.

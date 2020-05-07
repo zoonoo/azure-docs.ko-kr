@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: e2c4e5b6c10b06d82a1933962cb2d97e031876a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee9dfc11cad61d6190ae4a2382f0124207c32c4c
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80068016"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801623"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -129,6 +129,6 @@ Media Services v3에서 라이브 스트리밍 워크플로를 이해 하려면 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [라이브 스트리밍 빠른 시작] (live-events-wirecast-quickstart.md (
+* [라이브 스트리밍 빠른 시작](live-events-wirecast-quickstart.md)
 * [라이브 스트리밍 자습서](stream-live-tutorial-with-api.md)
 * [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md)

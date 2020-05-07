@@ -8,14 +8,14 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 01b2bd464db51e255930fe83a3f4321687322275
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b576fc99e2f203bb3d690a8135ee76cee26b3de8
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77151203"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792363"
 ---
-# <a name="receive-and-send-b2b-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩를 사용 하 여 B2B 메시지 수신 및 전송
+# <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩를 사용 하 여 B2B AS2 메시지 받기 및 확인
 
 거래 업체 및 규약을 정의 하는 통합 계정이 있는 경우 [엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md)와 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 를 사용 하 여 거래 업체 간에 메시지를 교환 하는 자동화 된 b2b (비즈니스 간) 워크플로를 만들 수 있습니다. Azure Logic Apps는 AS2, X12, EDIFACT 및 RosettaNet 산업 표준 프로토콜을 지 원하는 커넥터를 사용 하 여 작동 합니다. 이러한 커넥터를 [Logic Apps에서 사용할 수](../connectors/apis-list.md)있는 다른 커넥터 (예: Salesforce 및 Office 365 Outlook)와 결합할 수도 있습니다.
 
