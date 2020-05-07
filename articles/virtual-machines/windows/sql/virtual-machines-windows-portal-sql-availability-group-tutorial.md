@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 426ba4c0ac84799b4d0e6bf9330508f928437fd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5494b1a7590e87bac9f8ffeaeef8f1da791fd6e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060188"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791139"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>자습서: Azure SQL Server VM에서 수동으로 가용성 그룹 구성
 
@@ -72,7 +72,7 @@ ms.locfileid: "80060188"
    ![클러스터 만들기](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
 4. 클러스터 만들기 마법사에서 아래 표에 나온 설정으로 페이지를 단계별로 진행하여 1노드 클러스터를 만듭니다.
 
-   | 호출 | 설정 |
+   | 페이지 | 설정 |
    | --- | --- |
    | 시작하기 전에 |기본값 사용 |
    | 서버 선택 |첫 번째 SQL Server 이름을 **서버 이름 입력**에 입력하고 **추가**를 클릭합니다. |
@@ -116,7 +116,7 @@ ms.locfileid: "80060188"
 
 1. **다음**을 클릭합니다.
 
-1. **마침**을 클릭합니다.
+1. **Finish**를 클릭합니다.
 
    이제 장애 조치(Failover) 클러스터 관리자에 새 노드가 포함된 클러스터가 표시되고 **노드** 컨테이너에 목록으로 표시됩니다.
 
@@ -179,7 +179,7 @@ ms.locfileid: "80060188"
 
 1. **확인**에서 설정을 확인합니다. **다음**을 클릭합니다.
 
-1. **마침**을 클릭합니다.
+1. **Finish**를 클릭합니다.
 
 클러스터 코어 리소스는 파일 공유 감시로 구성됩니다.
 
@@ -348,7 +348,7 @@ Repeat these steps on the second SQL Server.
 
 Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기 및 Windows Server 장애 조치(failover) 클러스터의 IP 주소를 보유합니다. 이 섹션에서는 Azure Portal에서 부하 분산 장치를 만드는 방법을 요약합니다.
 
-Azure Load Balancer는 표준 Load Balancer 또는 기본 Load Balancer일 수 있습니다. 표준 Load Balancer는 기본 Load Balancer 보다 더 많은 기능을 제공합니다. 가용성 그룹의 경우 가용성 집합 대신 가용성 영역을 사용하는 경우 표준 Load Balancer가 필요합니다. 부하 분산 장치 유형 간의 차이점에 대한 자세한 내용은 [Load Balancer SKU 비교](../../../load-balancer/concepts-limitations.md#skus)를 참조하세요.
+Azure Load Balancer는 표준 Load Balancer 또는 기본 Load Balancer일 수 있습니다. 표준 Load Balancer는 기본 Load Balancer 보다 더 많은 기능을 제공합니다. 가용성 그룹의 경우 가용성 집합 대신 가용성 영역을 사용하는 경우 표준 Load Balancer가 필요합니다. 부하 분산 장치 Sku 간의 차이점에 대 한 자세한 내용은 [LOAD BALANCER SKU 비교](../../../load-balancer/skus.md)를 참조 하세요.
 
 1. Azure Portal에서 SQL Server가 있는 리소스 그룹으로 이동하여 **+추가**를 클릭합니다.
 1. **Load Balancer**를 검색 합니다. Microsoft에서 게시한 부하 분산 장치를 선택합니다.
@@ -360,8 +360,8 @@ Azure Load Balancer는 표준 Load Balancer 또는 기본 Load Balancer일 수 �
 
    | 설정 | 필드 |
    | --- | --- |
-   | **이름** |예를 들어 **sqlLB**와 같은 부하 분산 장치에 대한 텍스트 이름을 사용합니다. |
-   | **Type** |내부 |
+   | **Name** |예를 들어 **sqlLB**와 같은 부하 분산 장치에 대한 텍스트 이름을 사용합니다. |
+   | **형식** |내부 |
    | **가상 네트워크** |Azure Virtual Network의 이름을 사용합니다. |
    | **서브넷** |가상 컴퓨터가 있는 서브넷 이름을 사용합니다.  |
    | **IP 주소 할당** |정적 |
@@ -402,9 +402,9 @@ Azure Load Balancer는 표준 Load Balancer 또는 기본 Load Balancer일 수 �
 
 1. 다음과 같이 수신기 상태 프로브를 설정합니다.
 
-   | 설정 | Description | 예제
+   | 설정 | 설명 | 예
    | --- | --- |---
-   | **이름** | Text | SQLAlwaysOnEndPointProbe |
+   | **Name** | Text | SQLAlwaysOnEndPointProbe |
    | **프로토콜** | TCP 선택 | TCP |
    | **포트** | 사용하지 않는 모든 포트 | 59999 |
    | **간격은**  | 프로브 시도 간격(초) |5 |
@@ -418,9 +418,9 @@ Azure Load Balancer는 표준 Load Balancer 또는 기본 Load Balancer일 수 �
 
 1. 수신기 부하 분산 규칙을 다음과 같이 설정합니다.
 
-   | 설정 | Description | 예제
+   | 설정 | 설명 | 예
    | --- | --- |---
-   | **이름** | Text | SQLAlwaysOnEndPointListener |
+   | **Name** | Text | SQLAlwaysOnEndPointListener |
    | **프런트 엔드 IP 주소** | 주소 선택 |부하 분산 장치를 만들 때 생성된 주소를 사용합니다. |
    | **프로토콜** | TCP 선택 |TCP |
    | **포트** | 가용성 그룹 수신기용 포트 사용 | 1433 |
@@ -445,9 +445,9 @@ WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
 
 1. WSFC 클러스터 코어 IP 주소 상태 프로브를 다음과 같이 설정합니다.
 
-   | 설정 | Description | 예제
+   | 설정 | 설명 | 예
    | --- | --- |---
-   | **이름** | Text | WSFCEndPointProbe |
+   | **Name** | Text | WSFCEndPointProbe |
    | **프로토콜** | TCP 선택 | TCP |
    | **포트** | 사용하지 않는 모든 포트 | 58888 |
    | **간격은**  | 프로브 시도 간격(초) |5 |
@@ -459,9 +459,9 @@ WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
 
 1. 클러스터 코어 IP 주소 부하 분산 규칙을 다음과 같이 설정합니다.
 
-   | 설정 | Description | 예제
+   | 설정 | 설명 | 예
    | --- | --- |---
-   | **이름** | Text | WSFCEndPoint |
+   | **Name** | Text | WSFCEndPoint |
    | **프런트 엔드 IP 주소** | 주소 선택 |WSFC IP 주소를 구성할 때 생성된 주소를 사용합니다. 수신기 IP 주소와는 다릅니다. |
    | **프로토콜** | TCP 선택 |TCP |
    | **포트** | 클러스터 IP 주소에 대한 포트를 사용합니다. 수신기 프로브 포트에 사용되지 않는 사용 가능한 포트입니다. | 58888 |

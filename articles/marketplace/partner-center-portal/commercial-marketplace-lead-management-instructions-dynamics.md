@@ -1,18 +1,18 @@
 ---
-title: Dynamics 365 고객 참여를 위한 리드 관리 | Azure Marketplace
-description: Dynamics 365 Customer Engagement에 대 한 리드 관리를 구성 합니다.
+title: Dynamics 365 고객 참여를 위한 리드 관리-Microsoft 상업적 marketplace
+description: Microsoft AppSource 및 Azure Marketplace에서 리드를 관리 하도록 Dynamics 365 고객 Engagement를 설정 하는 방법을 알아봅니다.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: b9158f7b2e3fc73a2fe2a9b20ead2558b7467f6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 985b3258eb0b957242d529945f32ed9704a91e7d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131048"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791003"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Dynamics 365 고객 Engagement에 대 한 리드 관리 구성
 
@@ -23,12 +23,12 @@ ms.locfileid: "82131048"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서의 단계를 완료 하려면 다음 사용자 권한이 필요 합니다. 그러려면 다음 작업을 수행해야 합니다.
+이 문서의 단계를 완료 하려면 다음 사용자 권한이 필요 합니다.
 
-* 솔루션을 설치 하 고 다음 지침을 수행 하려면 Dynamics 365 Customer Engagement 인스턴스의 관리자 여야 합니다.
-* 상업적 marketplace 제품에서 잠재 고객을 보내는 데 사용 되는 잠재 고객 서비스에 대 한 새 서비스 계정을 만들려면 테 넌 트 관리자 여야 합니다.
-* Office 365 관리 포털에 액세스할 수 있습니다.
-* Azure Portal에 대 한 액세스 권한이 있어야 합니다.
+* 솔루션을 설치할 수 있는 Dynamics 365 고객 Engagement 인스턴스에 대 한 관리자 권한
+* 상업적 marketplace 제품에서 잠재 고객을 보내는 데 사용 되는 잠재 고객 서비스에 대 한 새 서비스 계정을 만들 수 있는 테 넌 트 관리자 권한입니다.
+* Office 365 관리 포털에 액세스 합니다.
+* Azure Portal에 대 한 액세스.
 
 ## <a name="install-the-solution"></a>솔루션 설치
 

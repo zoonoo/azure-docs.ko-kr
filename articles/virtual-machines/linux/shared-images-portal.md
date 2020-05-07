@@ -7,15 +7,15 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 11/06/2019
+ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 74c87d589f1c50551ac5685fe0fa126a82bffbde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28cdc96020d085c6f44c8b6818aa76dd7eb29891
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758442"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789000"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>포털을 사용 하 여 Azure 공유 이미지 갤러리 만들기
 
@@ -27,21 +27,13 @@ ms.locfileid: "81758442"
 
 공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다. 이 문서에서는 이러한 리소스를 사용하거나 작성하게 됩니다.
 
-| 리소스 | Description|
-|----------|------------|
-| **관리 이미지** | 단독으로 사용 하거나 이미지 갤러리에서 **이미지 버전** 을 만드는 데 사용할 수 있는 기본 이미지입니다. 관리 되는 이미지는 [일반화](shared-image-galleries.md#generalized-and-specialized-images) 된 vm에서 만들어집니다. 관리되는 이미지는 여러 VM을 만드는 데 사용할 수 있는 특수한 유형의 VHD로, 이제 공유 이미지 버전을 만드는 데 사용할 수 있습니다. |
-| **스냅샷** | **이미지 버전**을 만드는 데 사용할 수 있는 VHD의 복사본입니다. 스냅숏은 [특수 한 VM (](shared-image-galleries.md#generalized-and-specialized-images) 일반화 되지 않은 VM)에서 가져올 수 있으며 단독으로 사용 하거나 데이터 디스크의 스냅숏으로 사용 하 여 특수 이미지 버전을 만들 수 있습니다.
-| **이미지 갤러리** | Azure Marketplace와 마찬가지로 **이미지 갤러리**는 이미지를 관리하고 공유하는 데 사용되는 리포지토리이지만 액세스할 수 있는 사람을 제어할 수 있습니다. |
-| **이미지 정의** | 이미지는 갤러리 내에서 정의 되며, 조직 내에서 이미지를 사용 하기 위한 요구 사항 및 이미지에 대 한 정보를 전달 합니다. 이미지를 일반화 하거나 특수화 하 든, 운영 체제, 최소 및 최대 메모리 요구 사항, 릴리스 정보 등의 정보를 포함할 수 있습니다. 이미지의 형식 정의입니다. |
-| **이미지 버전** | **이미지 버전**은 갤러리를 사용하는 경우 VM을 만들 때 사용합니다. 사용 환경에 필요한 만큼 여러 버전의 이미지를 가질 수 있습니다. 관리되는 이미지와 마찬가지로 **이미지 버전**을 사용하여 VM을 만들 때는 이미지 버전을 사용하여 VM의 새 디스크를 만듭니다. 이미지 버전은 여러 번 사용할 수 있습니다. |
+
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 <br>
 
-> [!IMPORTANT]
-> 특수 이미지는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
->
-> **알려진 미리 보기 제한 사항** Vm은 포털 또는 API를 사용 하는 특수 이미지 에서만 만들 수 있습니다. 는 미리 보기에 대해 CLI 또는 PowerShell을 지원 하지 않습니다.
+
+
 
 
 ## <a name="before-you-begin"></a>시작하기 전에

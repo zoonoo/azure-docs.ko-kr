@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 0f8d9d7d90e88b4e43721dac274833a3b0df275e
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 17c92558ebef2eee0a4daead45d16a295cedd1bb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203151"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790482"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법
 
 Azure API Management는 여러 지역 배포를 지원 하므로 API 게시자는 지원 되는 여러 Azure 지역에서 단일 Azure API Management 서비스를 배포할 수 있습니다. 다중 지역 기능을 사용 하면 지리적으로 분산 된 API 소비자가 받은 요청 대기 시간을 줄이고 한 지역이 오프 라인 상태가 되는 경우 서비스 가용성을 향상 시킬 수 있습니다.
 
-새 Azure API Management 서비스에는 처음에 하나의 장치만 단일 Azure 지역 (주 지역 [)에 포함][unit] 됩니다. 기본 또는 보조 지역에 추가 지역을 추가할 수 있습니다. API Management 게이트웨이 구성 요소는 선택한 모든 기본 및 보조 지역에 배포 됩니다. 들어오는 API 요청은 자동으로 가장 가까운 지역으로 전달 됩니다. 지역이 오프 라인 상태가 되 면 API 요청은 실패 한 영역 주위에 자동으로 가장 가까운 다음 게이트웨이로 라우팅됩니다.
+새 Azure API Management 서비스에는 처음에 하나의 장치만 단일 Azure 지역 (주 지역 [)에 포함][unit] 됩니다. 기본 또는 보조 지역에 추가 단위를 추가할 수 있습니다. API Management 게이트웨이 구성 요소는 선택한 모든 기본 및 보조 지역에 배포 됩니다. 들어오는 API 요청은 자동으로 가장 가까운 지역으로 전달 됩니다. 지역이 오프 라인 상태가 되 면 API 요청은 실패 한 영역 주위에 자동으로 가장 가까운 다음 게이트웨이로 라우팅됩니다.
 
 > [!NOTE]
 > API Management의 게이트웨이 구성 요소만 모든 지역에 배포 됩니다. 서비스 관리 구성 요소 및 개발자 포털은 주 지역 에서만 호스팅됩니다. 따라서 주 지역 가동 중단이 발생 하는 경우에는 기본 지역이 다시 온라인 상태가 될 때까지 개발자 포털에 액세스 하 고 구성을 변경 하는 기능 (예: Api 추가, 정책 적용)이 손상 됩니다. 주 지역은 오프 라인 상태 이지만 보조 지역은 사용 가능한 최신 구성을 사용 하 여 API 트래픽을 계속 제공 합니다.

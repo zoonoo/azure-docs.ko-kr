@@ -3,46 +3,45 @@ title: Azure 게스트 OS에 적용된 업데이트 목록 | Microsoft Docs
 description: 게스트 OS 릴리스에 적용된 업데이트 목록
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: yohaddad
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/17/2020
-ms.author: raiye
-ms.openlocfilehash: a271eca3c3b6e7cd364f2bc87f2e15006874fa08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/4/2020
+ms.author: yohaddad
+ms.openlocfilehash: e74bccbd7465a8f0e0d2da0a672a88c7d70d666f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617693"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791564"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
 
 ## <a name="april-2020-guest-os"></a>게스트 OS 4 월 2020
 
->[!NOTE]
->4 월 게스트 OS가 자동 업데이트를 위해 구성 된 클라우드 서비스 Vm에 현재 롤아웃 되 고 있습니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음 패치는 4 월 게스트 OS에 포함 되어 있습니다. 이 목록은 변경될 수 있습니다.
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 20-04  |  [4550965]  |  Windows 보안  | 2.97 | 4 월 14 일, 2020 |
-|  Rel 20-04  |  [4550905]  |  Internet Explorer  | 2.97, 3.84, 4.77 | 4 월 14 일, 2020 |
-|  Rel 20-04  |  [4550971]  |  Windows 보안  | 3.84 | 4 월 14 일, 2020 |
-|  Rel 20-04  |  [4550970]  |  Windows 보안  | 4.77 | 4 월 14 일, 2020 |
-|  Rel 20-04  |  [4550929]  |  최신 누적 업데이트 (LCU)  | 5.42 | 4 월 14 일, 2020 |
-|  Rel 20-04  |  [4549949]  |  최신 누적 업데이트 (LCU)  | 6.18 | 4 월 14 일, 2020 |
-|  Rel 20-04  |  [4540688]  |  월간 롤업  | 2.97 | 3 월 10 일, 2020 |
-|  Rel 20-04  |  [4550735]  |  서비스 스택 업데이트  | 2.97 | 3 월 10 일, 2020 |
-|  Rel 20-04  |  [4540726]  |  서비스 스택 업데이트  | 3.84 | 3 월 10 일, 2020 |
-|  Rel 20-04  |  [4541510]  |  월간 롤업  | 3.84 | 3 월 10 일, 2020 |
-|  Rel 20-04  |  [4541509]  |  월간 롤업  | 4.77 | 3 월 10 일, 2020 |
-|  Rel 20-04  |  [4540725]  |  서비스 스택 업데이트  | 4.77 | 3 월 10 일, 2020 |
-|  Rel 20-04  |  [4540723]  |  서비스 스택 업데이트  | 5.42 | 3 월 10 일, 2020 |
-|  Rel 20-04  |  [4539571]  |  서비스 스택 업데이트  | 6.18 | 3 월 10 일, 2020 |
+|  Rel 20-04   |  [4550965]  |  Windows 보안   |  [2.97]  |  4 월 14 일, 2020  |
+|  Rel 20-04   |  [4550905]  |  Internet Explorer   |  [2.97], [3.84], [4.77]  |  4 월 14 일, 2020  |
+|  Rel 20-04   |  [4550971]  |  Windows 보안   |  [3.84]  |  4 월 14 일, 2020  |
+|  Rel 20-04   |  [4550970]  |  Windows 보안   |  [4.77]  |  4 월 14 일, 2020  |
+|  Rel 20-04   |  [4550929]  |  최신 누적 업데이트 (LCU)   |  [5.42]  |  4 월 14 일, 2020  |
+|  Rel 20-04   |  [4549949]  |  최신 누적 업데이트 (LCU)   |  [6.18]  |  4 월 14 일, 2020  |
+|  Rel 20-04   |  [4540688]  |  월간 롤업   |  [2.97]  |  3 월 10 일, 2020  |
+|  Rel 20-04   |  [4550735]  |  서비스 스택 업데이트   |  [2.97]  |  3 월 10 일, 2020  |
+|  Rel 20-04   |  [4540726]  |  서비스 스택 업데이트   |  [3.84]  |  3 월 10 일, 2020  |
+|  Rel 20-04   |  [4541510]  |  월간 롤업   |  [3.84]  |  3 월 10 일, 2020  |
+|  Rel 20-04   |  [4541509]  |  월간 롤업   |  [4.77]  |  3 월 10 일, 2020  |
+|  Rel 20-04   |  [4540725]  |  서비스 스택 업데이트   |  [4.77]  |  3 월 10 일, 2020  |
+|  Rel 20-04   |  [4540723]  |  서비스 스택 업데이트   |  [5.42]  |  3 월 10 일, 2020  |
+|  Rel 20-04   |  [4539571]  |  서비스 스택 업데이트   |  [6.18]  |  3 월 10 일, 2020  |
+
 
 [4550965]: https://support.microsoft.com/kb/4550965
 [4550905]: https://support.microsoft.com/kb/4550905
@@ -58,6 +57,11 @@ ms.locfileid: "81617693"
 [4540725]: https://support.microsoft.com/kb/4540725
 [4540723]: https://support.microsoft.com/kb/4540723
 [4539571]: https://support.microsoft.com/kb/4539571
+[2.97]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.84]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.77]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.42]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.18]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="march-2020-guest-os"></a>3 월 2020 게스트 OS

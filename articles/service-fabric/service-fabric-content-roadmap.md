@@ -3,12 +3,12 @@ title: Azure Service Fabric에 대 한 자세한 정보
 description: Azure Service Fabric의 주요 영역과 핵심 개념에 대해 알아봅니다. Service Fabric 및 마이크로 서비스를 만드는 방법의 확장된 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 4e6e21f5f9ebfeddb5292e00dc8a929341e77372
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 573b1ec662bdc7e72f964698f5e0670860895586
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75458156"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791853"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Service Fabric에 대해 궁금하신가요?
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다.  그러나 Service Fabric은 노출 영역이 대규모이므로 학습할 내용이 많습니다.  이 문서에서는 Service Fabric의 개요를 제공하고 핵심 개념, 프로그래밍 모델, 애플리케이션 수명 주기, 테스트, 클러스터 및 상태 모니터링에 대해 설명합니다. 내용 소개 및 Service Fabric을 사용하여 마이크로 서비스를 만드는 방법은 [개요](service-fabric-overview.md) 및 [마이크로 서비스란?](service-fabric-overview-microservices.md)을 읽어보세요. 이 문서에는 포괄적인 콘텐츠 목록이 포함되어 있지 않지만 Service Fabric의 모든 영역에 대한 개요 및 시작 문서에 대한 링크가 있습니다. 
@@ -136,7 +136,7 @@ Linux 독립 실행형 클러스터는 아직 지원되지 않습니다.
 자세한 내용은 [클러스터에 보안 적용](service-fabric-cluster-security.md)을 참조하세요.
 
 ### <a name="scaling"></a>확장
-새 노드를 클러스터에 추가하면 Service Fabric이 증가된 수의 노드에서 파티션 복제본 및 인스턴스의 균형을 조정합니다. 전반적인 애플리케이션 성능이 향상되고 메모리 액세스에 대한 경합이 감소합니다. 클러스터의 노드가 효율적으로 사용되지 않는 경우 클러스터의 노드 수를 줄일 수 있습니다. Service Fabric은 각 노드의 하드웨어를 보다 효율적으로 사용할 수 있도록 감소된 노드 수에 맞게 파티션 복제본 및 인스턴스의 균형을 다시 조정합니다. Azure에서 [수동으로](service-fabric-cluster-scale-up-down.md) 또는 [프로그래밍 방식으로](service-fabric-cluster-programmatic-scaling.md) 클러스터의 크기를 조정할 수 있습니다. 독립 실행형 클러스터는 [수동으로](service-fabric-cluster-windows-server-add-remove-nodes.md) 크기를 조정할 수 있습니다.
+새 노드를 클러스터에 추가하면 Service Fabric이 증가된 수의 노드에서 파티션 복제본 및 인스턴스의 균형을 조정합니다. 전반적인 애플리케이션 성능이 향상되고 메모리 액세스에 대한 경합이 감소합니다. 클러스터의 노드가 효율적으로 사용되지 않는 경우 클러스터의 노드 수를 줄일 수 있습니다. Service Fabric은 각 노드의 하드웨어를 보다 효율적으로 사용할 수 있도록 감소된 노드 수에 맞게 파티션 복제본 및 인스턴스의 균형을 다시 조정합니다. Azure에서 [수동으로](service-fabric-cluster-scale-in-out.md) 또는 [프로그래밍 방식으로](service-fabric-cluster-programmatic-scaling.md) 클러스터의 크기를 조정할 수 있습니다. 독립 실행형 클러스터는 [수동으로](service-fabric-cluster-windows-server-add-remove-nodes.md) 크기를 조정할 수 있습니다.
 
 ### <a name="cluster-upgrades"></a>클러스터 업그레이드
 주기적으로 새로운 버전의 Service Fabric 런타임이 릴리스됩니다. 항상 [지원되는 버전](service-fabric-support.md)을 실행하도록 클러스터의 런타임, 패브릭 또는 업그레이드를 수행합니다. 패브릭 업그레이드 외에도 인증서 또는 애플리케이션 포트와 같은 클러스터 구성을 업데이트할 수 있습니다.

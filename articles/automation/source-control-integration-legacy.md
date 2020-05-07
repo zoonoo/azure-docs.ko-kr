@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: dcadfcb4c2f8e6bc371b0a70b917c8c1e218fba9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b990db39ffe0623b50a2cfc728da61bc51bdd4da
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679504"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855352"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure Automation에서 소스 제어 통합 - 레거시
 
@@ -63,7 +63,7 @@ ms.locfileid: "81679504"
      | **매개 변수** | **값** |
      |:--- |:--- |
      | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
-     | `Type`  |문자열 |
+     | `Type`  |String |
      | `Value` |{"Branch":\<*분기 이름*>,"RunbookFolderPath":\<*Runbook 폴더 경로*>,"ProviderType":\<*GitHub에 대한 값 1을 가짐*>,"Repository":\<*리포지토리 이름*>,"Username":\<*GitHub 사용자 이름*>} |
 
    * **Microsoft.Azure.Automation.SourceControl.OAuthToken**변수는 OAuthToken의 안전하고 암호화된 값을 포함합니다.  
@@ -102,7 +102,7 @@ Runbook 체크 인을 사용하면 Azure Automation에서 Runbook에 대한 변�
    > [!NOTE]
    > 원본 제어 Runbook은 보거나 편집할 수 없는 특별한 Automation Runbook입니다. Runbook 목록에 표시되지는 않지만 작업 목록에 표시되는 동기화 작업을 확인할 수 있습니다.
 
-5. 수정된 Runbook의 이름은 체크 인된 Runbook의 입력 매개 변수로 전송됩니다. 리포지토리 동기화 페이지에서 runbook을 확장 하 여 [작업 세부 정보를 볼](automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 수 있습니다.  
+5. 수정된 Runbook의 이름은 체크 인된 Runbook의 입력 매개 변수로 전송됩니다. 리포지토리 동기화 페이지에서 runbook을 확장 하 여 [작업 세부 정보를 볼](automation-runbook-execution.md#job-statuses) 수 있습니다.  
 
     ![동기화 작업에 대 한 입력을 표시 하는 창](media/source-control-integration-legacy/automation-CheckinInput.png)
 6. 변경 내용을 보기 위해 작업이 완료되면 GitHub 리포지토리를 새로 고칩니다.  커밋 메시지 ( **Azure Automation에서 업데이트 된 *Runbook 이름* ** )를 사용 하 여 리포지토리에 커밋이 있어야 합니다.  

@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure에서 Service Fabric 클러스터의 �
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: f1b813576a94541cdc2ab0a67fea71b6f49696c5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6e8dbb5a56bf313bf35ad97ec6ea7df8ce483be9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78251804"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788827"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 크기 조정
 
@@ -84,7 +84,7 @@ Azure 클러스터 크기를 조정할 때는 다음 지침에 유의하세요.
 
 따라서 *nt1InstanceCount*의 값을 업데이트하여 두 번째 노드 유형의 노드 수를 변경합니다.  한 노드 유형의 노드 수는 100개를 초과할 수 없습니다.  상태 저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 5개 이상의 노드가 있어야 합니다. 상태 비저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 둘 이상의 노드가 있어야 합니다.
 
-Bronze [내구성 수준][durability]의 노드 유형에서 노드를 확장하거나 제거하려는 경우 [해당 노드의 상태를 수동으로 제거](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set)해야 합니다.  Silver 및 Gold 내구성 계층의 경우 이러한 단계는 플랫폼에서 자동으로 수행됩니다.
+Bronze [내구성 수준][durability]의 노드 유형에서 노드를 확장하거나 제거하려는 경우 [해당 노드의 상태를 수동으로 제거](service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set)해야 합니다.  Silver 및 Gold 내구성 계층의 경우 이러한 단계는 플랫폼에서 자동으로 수행됩니다.
 
 ### <a name="deploy-the-updated-template"></a>업데이트된 템플릿 배포
 모든 변경 내용은 *template.json* 및 *parameters.json* 파일에 저장됩니다.  업데이트된 템플릿을 배포하려면 다음 명령을 실행합니다.

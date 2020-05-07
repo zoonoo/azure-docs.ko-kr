@@ -3,12 +3,12 @@ title: Azure Service Fabric 독립 실행형 클러스터 업그레이드
 description: Azure Service Fabric 독립 실행형 클러스터의 버전 또는 구성 업그레이드에 대해 알아봅니다.  T
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: 6da9b4c6890895141ecc419382f05f667614fb31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac3e80aae440c6709057e4211f7a4f6a1beea058
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75451836"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790646"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Service Fabric 독립 실행형 클러스터 업그레이드 및 업데이트
 
@@ -38,7 +38,7 @@ POA(패치 오케스트레이션 애플리케이션)는 Service Fabric 클러스
 
 ## <a name="next-steps"></a>다음 단계
 * [Service fabric 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md) 중 일부를 사용자 지정 하는 방법 알아보기
-* [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
+* [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-in-out.md)
 * [응용 프로그램 업그레이드](service-fabric-application-upgrade.md) 에 대 한 자세한 정보
 
 <!--Image references-->

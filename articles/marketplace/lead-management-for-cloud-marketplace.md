@@ -7,24 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 6f93e00cb9f840b27578eb9a5b0c6a2cab1ac525
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c41831f528ae425b35a04503180a956f67762b70
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160548"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789847"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>상업적 marketplace에 대 한 리드 관리
 
-
 성공적인 비즈니스를 위한 핵심은 고객입니다. 오늘날의 제품 구매의 변형에서 마케터는 고객과 직접 연결 하 고 관계를 구축 하는 데 집중 해야 합니다. 고품질의 리드를 생성하는 것이 판매 주기에 중요한 수단인 이유입니다. [파트너 센터](https://partner.microsoft.com/)에 제품을 나열 하 고 나면 고객이 관심을 표시 하거나 marketplace에서 제품을 배포 하는 즉시 고객 연락처 정보를 프로그래밍 방식으로 받을 수 있는 도구가 제공 됩니다. 
-
-
 
 ## <a name="what-are-leads-in-the-marketplace"></a>Marketplace에서 리드란 무엇인가요?
 
 리드는 Marketplace에서 여러분의 제품에 관심을 보이거나 제품을 배포하는 고객으로부터 나옵니다. 제품이 Azure Marketplace 또는 AppSource에 표시 되는지 여부에 관계 없이 CRM에서 파트너 센터의 목록으로 올바르게 설정 되 면 고객의 잠재 고객을 받을 수 있습니다. 
-
 
 ## <a name="how-to-connect-your-crm-system-with-partner-center"></a>파트너 센터와 CRM 시스템을 연결 하는 방법
 
@@ -48,7 +44,7 @@ Azure **테이블** -azure table을 사용 하 여 잠재 고객을 가져오기
 
 기술 설정이 준비 되 면 이러한 잠재 고객을 현재 판매 & 마케팅 전략 및 운영 프로세스에 통합 해야 합니다. Microsoft는 전반적인 판매 프로세스를 보다 잘 이해하고 고품질 리드와 충분한 데이터를 제공하여 궁극적으로는 고객이 성공하도록 지원하기 위해 노력하고 있습니다. 이렇게 고객의 성공을 지원할 수 있도록, 추가 데이터를 제공하여 리드를 최적화하고 향상시킬 수 있는 방법에 대한 의견을 환영합니다. 판매 팀이 Marketplace 리드를 사용 하 여 더 성공적으로 사용할 수 있도록 사용자 의견 및 제안 사항을 제공 하는 데 관심이 있는 경우 알려주세요.
 
-## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a>파트너 센터에서 게시 하는 동안 발생 하는 일반적인 리드 구성 오류
+## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a>파트너 센터에서 게시 하는 동안 발생 하는 일반적인 리드 구성 오류
 
 **잠재 고객을 Dynamics CRM에 저장할 수 없습니다. Dynamics CRM 계정 설정을 확인 합니다. LastCRMError: Dynamics CRM, LastCRMException에 로그인 할 수 없습니다.** 
 

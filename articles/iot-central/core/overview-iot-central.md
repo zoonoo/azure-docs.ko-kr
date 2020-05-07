@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 05d73ae09d95879c37e86f5f3e73e35ed4607296
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 409ba6cd192f65c73aba6bd6eb11a26ec1f820fa
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82560961"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790884"
 ---
 # <a name="what-is-azure-iot-central"></a>Azure IoT Central이란?
 
@@ -29,19 +29,6 @@ IoT Central은 엔터프라이즈급 IoT 솔루션의 개발, 관리 및 유지 
 - 애플리케이션을 관리하는 방법.
 - IoT Central의 Azure IoT Edge 기능.
 - Azure IoT Edge 런타임 기반 디바이스를 애플리케이션에 연결하는 방법을 설명합니다.
-
-## <a name="known-issues"></a>알려진 문제
-
-- 연속 데이터 내보내기는 Avro 형식을 지원하지 않습니다(비호환).
-- GeoJSON은 현재 지원되지 않습니다.
-- 지도 타일은 현재 지원되지 않습니다.
-- 작업은 복합 형식을 지원하지 않습니다.
-- 배열 스키마 형식은 지원되지 않습니다.
-- C 디바이스 SDK와 Node.js 디바이스 및 서비스 SDK만 지원됩니다.
-- IoT Central은 현재 미국, 유럽, 아시아 태평양, 오스트레일리아, 영국 및 일본 위치에서 사용할 수 있습니다.
-- 영국 및 일본 위치에서는 **사용자 지정 애플리케이션(레거시)** 애플리케이션 템플릿을 사용할 수 없습니다.
-- 디바이스 기능 모델의 모든 인터페이스가 동일한 파일에 인라인으로 정의되어 있어야 합니다.
-- [IoT 플러그 앤 플레이](../../iot-pnp/overview-iot-plug-and-play.md)에 대한 지원은 미리 보기에 있으며 선택한 지역에서만 지원됩니다.
 
 ## <a name="personas"></a>가상 사용자
 
@@ -152,7 +139,7 @@ IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트하므�
 
 대규모로 작동하도록 설계된 IoT 솔루션을 사용하는 경우 디바이스 관리에 대한 체계적인 접근 방식이 중요합니다. 디바이스를 클라우드에 연결하는 것만으로는 충분 하지 않고, 디바이스를 계속 연결된 정상 상태로 유지해야 합니다. 운영자는 다음과 같은 IoT Central 기능을 사용하여 애플리케이션의 전체 수명 주기 동안 디바이스를 관리할 수 있습니다.
 
-### <a name="dashboards"></a>대시보드 
+### <a name="dashboards"></a>대시보드
 
 기본 제공 [대시보드](./howto-set-up-template.md#generate-default-views)는 디바이스 상태 및 원격 분석을 모니터링하는 사용자 지정 가능한 UI를 제공합니다. [애플리케이션 템플릿](howto-use-app-templates.md)의 미리 작성된 대시보드로 시작하거나, 운영자의 요구 사항에 맞는 맞춤형 대시보드를 만들어 보세요. 애플리케이션의 모든 사용자와 대시보드를 공유할 수도 있고, 대시보드를 비공개로 유지할 수도 있습니다.
 
@@ -193,6 +180,18 @@ IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트하므�
 ## <a name="quotas"></a>할당량
 
 각 Azure 구독에는 IoT 솔루션의 범위에 영향을 줄 수 있는 기본 할당량이 있습니다. 현재 IoT Central은 구독 시 배포할 수 있는 애플리케이션 수를 10개로 제한합니다. 이 제한을 늘려야 하는 경우 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
+
+## <a name="known-issues"></a>알려진 문제
+
+- 연속 데이터 내보내기는 Avro 형식을 지원하지 않습니다(비호환).
+- GeoJSON은 현재 지원되지 않습니다.
+- 지도 타일은 현재 지원되지 않습니다.
+- 배열 스키마 형식은 지원되지 않습니다.
+- C 디바이스 SDK와 Node.js 디바이스 및 서비스 SDK만 지원됩니다.
+- IoT Central은 현재 미국, 유럽, 아시아 태평양, 오스트레일리아, 영국 및 일본 위치에서 사용할 수 있습니다.
+- 영국 및 일본 위치에서는 **사용자 지정 애플리케이션(레거시)** 애플리케이션 템플릿을 사용할 수 없습니다.
+- 디바이스 기능 모델의 모든 인터페이스가 동일한 파일에 인라인으로 정의되어 있어야 합니다.
+- [IoT 플러그 앤 플레이](../../iot-pnp/overview-iot-plug-and-play.md)에 대한 지원은 미리 보기에 있으며 선택한 지역에서만 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 8904d584d453cb0945a11b08ad50688aeb1e1fc0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 601f1c224d6e1d756c27dc2478951682ce6bb4fd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207329"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854752"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리
 
@@ -44,11 +44,13 @@ Log Analytics에 대 한 기본 가격은 데이터 볼륨 수집을 기반으�
 
 또한 [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/), [Azure 센티널](https://azure.microsoft.com/pricing/details/azure-sentinel/) 및 [구성 관리](https://azure.microsoft.com/pricing/details/automation/) 와 같은 일부 솔루션에는 고유한 가격 책정 모델이 있습니다. 
 
-### <a name="dedicated-clusters"></a>전용 클러스터
+### <a name="log-analytics-clusters"></a>Log Analytics 클러스터
 
-Azure Monitor 로그 전용 클러스터는 [고객이 관리](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys)하는 키와 같은 고급 시나리오를 지원 하기 위해 단일 관리 되는 Adx (Azure 데이터 탐색기) 클러스터로 작업 영역의 컬렉션입니다.  전용 클러스터는 종 량 제 가격 책정과 비교 하 여 25% 할인 된 1000 g b/일에 시작 되는 용량 예약 가격 책정 모델만 지원 합니다. 예약 수준 위의 모든 사용량은 종 량 제 요금으로 청구 됩니다. 클러스터 용량 예약은 예약 수준을 늘린 후 31 일의 약정 기간을 갖습니다. 약정 기간 동안에는 용량 예약 수준을 낮출 수는 없지만 언제 든 지 늘릴 수 있습니다. [전용 클러스터를 만들고](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) [작업 영역을 연결 하](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource)는 방법에 대해 자세히 알아보세요.  
+Log Analytics 클러스터는 [고객이 관리](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys)하는 키와 같은 고급 시나리오를 지원 하기 위해 단일 관리 되는 Azure 데이터 탐색기 클러스터로 작업 영역 컬렉션입니다.  Log Analytics 클러스터는 종 량 제 가격 책정과 비교 하 여 25% 할인으로 1000 g b/일에 시작 되는 용량 예약 가격 책정 모델만 지원 합니다. 예약 수준 위의 모든 사용량은 종 량 제 요금으로 청구 됩니다. 클러스터 용량 예약은 예약 수준을 늘린 후 31 일의 약정 기간을 갖습니다. 약정 기간 동안에는 용량 예약 수준을 낮출 수는 없지만 언제 든 지 늘릴 수 있습니다. [Log Analytics 클러스터를 만들고](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) [작업 영역을 연결 하](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource)는 방법에 대해 자세히 알아보세요.  
 
-수집 데이터에 대 한 청구는 클러스터 수준에서 수행 되기 때문에 클러스터에 연결 된 작업 영역에는 더 이상 가격 책정 계층이 없습니다. 클러스터에 연결 된 각 작업 영역의 수집 데이터 수량은 집계 되어 클러스터의 일별 청구 금액을 계산 합니다. Azure Security Center에서 노드 별 할당은이 집계 전에 작업 영역 수준에서 적용 됩니다. 데이터 보존은 여전히 작업 영역 수준에서 청구 됩니다.  
+클러스터 용량 예약 수준은에서 `Capacity` `Sku`매개 변수를 사용 하 여 Azure Resource Manager 프로그래밍 방식으로 구성 됩니다. 은 `Capacity` gb 단위로 지정 되며 100 g b/일 단위로 1000 g b/일 이상의 값을 가질 수 있습니다. 이 내용은 [여기](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource)에 자세히 설명되어 있습니다. 클러스터가 2000 g b를 초과 하는 예약이 필요한 경우에 [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com)문의 하세요.
+
+수집 데이터에 대 한 청구는 클러스터 수준에서 수행 되기 때문에 클러스터에 연결 된 작업 영역에는 더 이상 가격 책정 계층이 없습니다. 클러스터에 연결 된 각 작업 영역의 수집 데이터 수량은 집계 되어 클러스터의 일별 청구 금액을 계산 합니다. [Azure Security Center](https://docs.microsoft.com/azure/security-center/) 에서 노드 별 할당은 클러스터의 모든 작업 영역에서 집계 된 데이터를 집계 하기 전에 작업 영역 수준에서 적용 됩니다. 데이터 보존은 여전히 작업 영역 수준에서 청구 됩니다. 클러스터 청구는 작업 영역이 클러스터에 연결 되었는지 여부에 관계 없이 클러스터를 만들 때 시작 됩니다. 
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>환경을 관리 하는 비용 예측 
 
@@ -310,7 +312,7 @@ Usage
 
 ### <a name="data-volume-by-computer"></a>컴퓨터별 데이터 볼륨
 
-`Usage` 데이터 형식은 completer 수준에 정보를 포함 하지 않습니다. 컴퓨터당 수집 데이터의 **크기** 를 보려면 바이트 단위로 크기를 제공 `_BilledSize` 하는 [속성](log-standard-properties.md#_billedsize)을 사용 합니다.
+데이터 `Usage` 형식은 컴퓨터 수준에서 정보를 포함 하지 않습니다. 컴퓨터당 수집 데이터의 **크기** 를 보려면 바이트 단위로 크기를 제공 `_BilledSize` 하는 [속성](log-standard-properties.md#_billedsize)을 사용 합니다.
 
 ```kusto
 union withsource = tt * 
@@ -467,7 +469,7 @@ union withsource = tt *
 | where computerName != ""
 | summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
 | summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
-| join (
+| join kind=leftouter (
     Heartbeat 
     | where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
     | where Computer != ""

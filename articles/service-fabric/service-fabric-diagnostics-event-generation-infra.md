@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 720cc157111293146b796f8567f94a4f1f4830c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce0cd0866cc6daa36d598767a486faeabac8076d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75376939"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791819"
 ---
 # <a name="monitoring-the-cluster"></a>클러스터 모니터링
 
@@ -74,7 +74,7 @@ Azure Service Fabric 클러스터에 대한 도움을 받기 위해 Microsoft �
 
 ## <a name="measuring-performance"></a>성능 측정
 
-클러스터 성능 측정을 통해 어떻게 부하를 처리하고 클러스터 크기 조정과 관련된 의사 결정을 주도할 수 있는지 이해할 수 있습니다([Azure에서](service-fabric-cluster-scale-up-down.md) 또는 [온-프레미스로](service-fabric-cluster-windows-server-add-remove-nodes.md) 클러스터 크기를 조정하는 방법에 대한 자세한 내용 참조). 성능 데이터는 나중에 로그를 분석할 때 사용자나 애플리케이션 및 서비스가 수행한 작업에 비교될 경우에도 유용합니다. 
+클러스터 성능 측정을 통해 어떻게 부하를 처리하고 클러스터 크기 조정과 관련된 의사 결정을 주도할 수 있는지 이해할 수 있습니다([Azure에서](service-fabric-cluster-scale-in-out.md) 또는 [온-프레미스로](service-fabric-cluster-windows-server-add-remove-nodes.md) 클러스터 크기를 조정하는 방법에 대한 자세한 내용 참조). 성능 데이터는 나중에 로그를 분석할 때 사용자나 애플리케이션 및 서비스가 수행한 작업에 비교될 경우에도 유용합니다. 
 
 Service Fabric을 사용할 경우 수집할 경우 수집할 성능 카운터에 대해서는 [Service Fabric의 성능 카운터](service-fabric-diagnostics-event-generation-perf.md)를 참조하세요.
 

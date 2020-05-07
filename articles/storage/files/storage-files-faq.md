@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 01b5f87c2557e2195573b90766ee45e001798cca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5aee3a19e33204da00483d0f4ee3f6ee97e8a07d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537698"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856259"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -68,7 +68,7 @@ ms.locfileid: "81537698"
 
 * <a id="redundancy-options"></a>
   **Azure Files에서 지원되는 스토리지 중복 옵션은 무엇인가요?**  
-    현재 Azure Files에서는 LRS (로컬 중복 저장소), ZRS (영역 중복 저장소), GRS (지역 중복 저장소) 및 GZRS (지역 중복 저장소) (미리 보기)를 지원 합니다. 앞으로 RA-GRS(읽기 액세스 지역 중복 스토리지)를 지원할 예정이지만 지금은 일정 계획이 나와 있지 않습니다.
+    현재 Azure Files에서는 LRS (로컬 중복 저장소), ZRS (영역 중복 저장소), GRS (지역 중복 저장소) 및 GZRS (지역 중복 저장소)를 지원 합니다. 앞으로 RA-GRS(읽기 액세스 지역 중복 스토리지)를 지원할 예정이지만 지금은 일정 계획이 나와 있지 않습니다.
 
 * <a id="tier-options"></a>
   **Azure Files에서 어떤 스토리지 계층이 지원되나요?**  

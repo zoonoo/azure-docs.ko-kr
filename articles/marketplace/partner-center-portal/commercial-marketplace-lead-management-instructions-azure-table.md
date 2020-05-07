@@ -1,24 +1,24 @@
 ---
-title: Azure 테이블을 사용 하 여 Microsoft 상업적 marketplace 리드 관리 구성
-description: Azure 테이블을 사용 하 여 Microsoft AppSource 및 Azure Marketplace에서 리드를 관리 하는 방법을 알아봅니다.
+title: Azure Table storage를 사용 하 여 리드 관리-Microsoft 상업적 marketplace
+description: Azure Table storage를 사용 하 여 Microsoft AppSource 및 Azure Marketplace에 대 한 잠재 고객을 구성 하는 방법을 알아봅니다.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 9814b03e348fc807c04364afbf027369f917670a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ecca18e9de02bfe5f3bcb972d0b4034ab8012ac
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131136"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791020"
 ---
-# <a name="configure-lead-management-by-using-an-azure-table"></a>Azure 테이블을 사용 하 여 리드 관리 구성
+# <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Azure Table storage를 사용 하 여 상업적 marketplace 잠재 고객 관리
 
-CRM (고객 관계 관리) 시스템을 파트너 센터에서 명시적으로 지원 하지 않고 Microsoft AppSource 및 Azure Marketplace 잠재 고객을 받을 수 있는 경우 Azure 테이블을 사용 하 여 이러한 잠재 고객을 처리할 수 있습니다. 그런 다음 데이터를 내보내 CRM 시스템으로 가져오도록 선택할 수 있습니다. 이 문서의 지침에서는 해당 계정 아래에 Azure Storage 계정과 Azure 테이블을 만드는 과정을 안내 합니다. 또한 제품에서 잠재 고객을 받을 때 전자 메일 알림을 보내기 위해 전원 자동화를 사용 하 여 새 흐름을 만들 수 있습니다.
+CRM (고객 관계 관리) 시스템을 파트너 센터에서 명시적으로 지원 하지 않고 Microsoft AppSource 및 Azure Marketplace 잠재 고객을 받을 수 있는 경우 Azure Table storage를 사용 하 여 이러한 잠재 고객을 처리할 수 있습니다. 그런 다음 데이터를 내보내 CRM 시스템으로 가져오도록 선택할 수 있습니다. 이 문서에서는 Azure storage 계정 및 해당 계정 아래에 테이블을 만드는 방법을 설명 합니다. 또한 제품에서 잠재 고객을 받을 때 전자 메일 알림을 보내기 위해 전원 자동화를 사용 하 여 새 흐름을 만들 수 있습니다.
 
-## <a name="configure-an-azure-table"></a>Azure 테이블 구성
+## <a name="configure-an-azure-storage-account"></a>Azure storage 계정 구성
 
 1. Azure 계정이 없으면 [평가판 계정을 생성](https://azure.microsoft.com/pricing/free-trial/)할 수 있습니다.
 1. Azure 계정이 활성화 되 면 [Azure Portal](https://portal.azure.com)에 로그인 합니다.
@@ -32,7 +32,11 @@ CRM (고객 관계 관리) 시스템을 파트너 센터에서 명시적으로 �
 
         저장소 계정에 대 한 자세한 내용은 [빠른 시작 자습서](https://docs.microsoft.com/azure/storage/)를 참조 하세요. 저장소 가격 책정에 대 한 자세한 내용은 [저장소 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조 하세요.
 
-1. 저장소 계정이 프로 비전 될 때까지 기다립니다. 이 프로세스는 일반적으로 몇 분 정도 걸립니다. 그런 다음 **모든 리소스 보기**를 선택 하 여 Azure Portal의 **홈** 페이지에서 저장소 계정에 액세스 합니다. Azure Portal의 왼쪽 메뉴 모음에서 **모든 리소스** 를 선택할 수도 있습니다.
+1. 저장소 계정이 프로 비전 될 때까지 기다립니다. 이 프로세스는 일반적으로 몇 분 정도 걸립니다. 
+
+## <a name="create-a-table-in-your-storage-account"></a>저장소 계정에 테이블 만들기
+
+1. Azure Portal의 **홈** 페이지에서 저장소 계정에 액세스 하기 위해 **모든 리소스 보기** 를 선택 합니다. Azure Portal의 왼쪽 메뉴 모음에서 **모든 리소스** 를 선택할 수도 있습니다.
 
     ![Azure 저장소 계정에 액세스](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png)
 
@@ -52,13 +56,13 @@ CRM (고객 관계 관리) 시스템을 파트너 센터에서 명시적으로 �
 
     [Azure Storage 탐색기](https://archive.codeplex.com/?p=azurestorageexplorer) 또는 다른 도구를 사용 하 여 저장소 테이블의 데이터를 볼 수 있습니다. Azure 테이블에서 데이터를 내보낼 수도 있습니다. 
 
-## <a name="optional-use-power-automate-with-an-azure-table"></a>필드 Azure 테이블에서 강력한 자동화 사용 
+## <a name="optional-use-power-automate-to-get-lead-notifications"></a>필드 전원 자동화를 사용 하 여 잠재 고객 알림 받기
 
-Azure 테이블에 리드를 추가할 때마다 [전원 자동화](https://docs.microsoft.com/flow/) 를 사용 하 여 알림을 자동화할 수 있습니다. 계정이 없는 경우 [무료 계정에 등록할](https://flow.microsoft.com/)수 있습니다.
+Azure Storage 테이블에 리드를 추가할 때마다 [전원 자동화](https://docs.microsoft.com/flow/) 를 사용 하 여 알림을 자동화할 수 있습니다. 계정이 없는 경우 [무료 계정에 등록할](https://flow.microsoft.com/)수 있습니다.
 
 ### <a name="lead-notification-example"></a>잠재 고객 알림 예제
 
-Azure 테이블에 새 잠재 고객이 추가되면 이메일 알림을 자동으로 전송하는 간단한 흐름을 만드는 가이드로 이 예제를 사용합니다. 이 예에서는 테이블 저장소가 업데이트 되는 경우 1 시간 마다 리드 정보를 보내도록 되풀이를 설정 합니다.
+이 예에서는 새 잠재 고객이 Azure Table storage에 추가 될 때 자동으로 전자 메일 알림을 보내는 흐름을 만듭니다. 이 예에서는 테이블 저장소가 업데이트 되는 경우 1 시간 마다 리드 정보를 보내도록 되풀이를 설정 합니다.
 
 1. 전원 자동화 계정에 로그인 합니다.
 1. 왼쪽 막대에서 **내 흐름**을 선택 합니다.
@@ -89,21 +93,21 @@ Azure 테이블에 새 잠재 고객이 추가되면 이메일 알림을 자동�
    >[!TIP] 
    >흐름을 검사하여 각 단계가 올바르게 구성됐는지 확인할 수 있습니다. 흐름을 확인 하려면 **흐름** 메뉴 모음에서 **흐름 검사기** 를 선택 합니다.
 
-   다음 단계에서는 Azure 테이블에 연결 하 고 새 잠재 고객을 처리 하는 처리 논리를 설정 합니다.
+   다음 단계에서는 테이블에 연결 하 고 새 잠재 고객을 처리 하는 처리 논리를 설정 합니다.
 
-1. 8 단계 후에 **+ 새 단계**를 선택 합니다. 그런 다음 **작업 선택** 창에서 **엔터티 가져오기** 를 검색 합니다.
+1. **+ 새 단계**를 선택합니다. 그런 다음 **작업 선택** 창에서 **엔터티 가져오기** 를 검색 합니다.
 1. **작업**아래에서 **엔터티 가져오기 (Azure Table Storage)** 를 선택 합니다.
 1. **Azure Table Storage** 창에서 다음 상자에 대 한 정보를 제공 하 고 **만들기**를 선택 합니다.
 
-    * **연결 이름**:이 흐름과 Azure 테이블 간에 설정 하는 연결에 대 한 의미 있는 이름을 제공 합니다.
-    * **Storage 계정 이름**: Azure 테이블의 저장소 계정 이름을 제공 합니다. 저장소 계정의 **액세스 키** 페이지에서이 이름을 찾을 수 있습니다.
-    * **공유 저장소 키**: Azure 테이블의 저장소 계정에 대 한 키 값을 제공 합니다. 저장소 계정의 **액세스 키** 페이지에서이 값을 찾을 수 있습니다.
+    * **연결 이름**:이 흐름과 테이블 사이에 설정 하는 연결에 대 한 의미 있는 이름을 제공 합니다.
+    * **저장소 계정 이름**: 테이블의 저장소 계정 이름을 제공 합니다. 저장소 계정의 **액세스 키** 페이지에서이 이름을 찾을 수 있습니다.
+    * **공유 저장소 키**: 테이블의 저장소 계정에 대 한 키 값을 제공 합니다. 저장소 계정의 **액세스 키** 페이지에서이 값을 찾을 수 있습니다.
 
       ![Azure Table Storage 창](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
    **만들기**를 선택 하면 **엔터티 가져오기** 창이 표시 됩니다. 여기에서 **고급 옵션 표시**를 선택 하 고 다음 상자에 대 한 정보를 제공 합니다.
 
-   * **테이블**: azure table storage의 이름을 선택 합니다 ("Azure 테이블 구성" 섹션의 6 단계에서 설명). 다음 이미지는이 예제에서 "marketplaceleads" 테이블을 선택 하는 경우의 프롬프트를 보여 줍니다.
+   * **테이블**: 테이블 [만들기](#create-a-table-in-your-storage-account)에서 테이블 이름을 선택 합니다. 다음 이미지는이 예제에서 "marketplaceleads" 테이블을 선택 하는 경우의 프롬프트를 보여 줍니다.
 
      ![엔터티 가져오기 창](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
@@ -177,9 +181,18 @@ Azure 테이블에 새 잠재 고객이 추가되면 이메일 알림을 자동�
 게시 포털에서 제품에 대 한 리드 관리 정보를 구성할 준비가 되 면 다음 단계를 수행 합니다.
 
 1. 제품에 대 한 **제품 설정** 페이지로 이동 합니다.
+
 1. **리드 관리** 섹션에서 **연결** 을 선택 합니다.
-1. **연결 정보** 팝업 창에서 **리드 대상**에 대해 **Azure 테이블** 을 선택 합니다. **저장소 계정 연결 문자열** 상자의 이전 단계를 수행 하 여 만든 Azure storage 계정에서 연결 문자열을 붙여 넣습니다.
+     ![잠재 고객 관리](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
+
+1. **연결 정보** 팝업 창에서 **리드 대상**에 대해 **Azure 테이블** 을 선택 합니다. 
+     ![리드 관리, 연결 세부 정보](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
+
+1. **저장소 계정 연결 문자열** 상자의 이전 단계를 수행 하 여 만든 Azure storage 계정에서 연결 문자열을 붙여 넣습니다.
+     ![리드 관리, 연결 정보 저장소 계정](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
+
 1. **연락처 전자 메일**: 회사에서 새 잠재 고객이 수신 될 때 전자 메일 알림을 받을 사람의 전자 메일을 제공 합니다. 세미콜론으로 구분 하 여 여러 전자 메일을 제공할 수 있습니다.
+
 1. **확인**을 선택합니다.
 
 선행 대상에 성공적으로 연결 되었는지 확인 하려면 **유효성 검사** 단추를 선택 합니다. 성공 하면 잠재 고객 대상에 테스트 리드를 갖게 됩니다.
@@ -188,10 +201,3 @@ Azure 테이블에 새 잠재 고객이 추가되면 이메일 알림을 자동�
 >제안에 대 한 잠재 고객을 받으려면 먼저 나머지 제품을 구성 하 고 게시 해야 합니다.
 
 잠재 고객이 생성 되 면 Microsoft는 Azure 테이블로 잠재 고객을 보냅니다. 흐름을 구성한 경우 전자 메일도 구성한 전자 메일 주소로 전송 됩니다.
-
-![잠재 고객 관리](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
-
-![리드 관리, 연결 세부 정보](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
-
-![리드 관리, 연결 정보 저장소 계정](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
-
