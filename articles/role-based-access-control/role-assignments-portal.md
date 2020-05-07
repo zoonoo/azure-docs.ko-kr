@@ -1,6 +1,6 @@
 ---
-title: RBAC 및 Azure Portal를 사용 하 여 역할 할당 추가 또는 제거
-description: Azure RBAC (역할 기반 액세스 제어) 및 Azure Portal를 사용 하 여 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 대 한 Azure 리소스에 대 한 액세스 권한을 부여 하는 방법에 대해 알아봅니다.
+title: Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거-Azure RBAC
+description: Azure Portal 및 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹, 서비스 주체 또는 관리 id에 대 한 Azure 리소스에 대 한 액세스 권한을 부여 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,20 +14,20 @@ ms.workload: identity
 ms.date: 01/25/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e2458b07602bca3b6f12b2f486b509c11d705461
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 88cb1e9893e0ca058e57ce12f00747a59248fb19
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79246358"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735694"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Azure RBAC 및 Azure Portal를 사용 하 여 역할 할당 추가 또는 제거
+# <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]이 문서에서는 Azure Portal를 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
 
 Azure Active Directory에서 관리자 역할을 할당 해야 하는 경우 [Azure Active Directory에서 관리자 역할 보기 및 할당](../active-directory/users-groups-roles/directory-manage-roles-portal.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 역할 할당을 추가 하거나 제거 하려면 다음을 수행 해야 합니다.
 
@@ -143,7 +143,7 @@ Azure RBAC에서 Azure 리소스에 대 한 액세스 권한을 제거 하려면
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure RBAC 및 Azure Portal를 사용 하 여 역할 할당 나열](role-assignments-list-portal.md)
-- [자습서: RBAC 및 Azure Portal를 사용 하 여 Azure 리소스에 대 한 사용자 액세스 권한 부여](quickstart-assign-role-user-portal.md)
-- [Azure 리소스에 대한 RBAC 문제 해결](troubleshooting.md)
+- [Azure Portal를 사용 하 여 Azure 역할 할당 나열](role-assignments-list-portal.md)
+- [자습서: Azure Portal을 사용 하 여 Azure 리소스에 대 한 사용자 액세스 권한 부여](quickstart-assign-role-user-portal.md)
+- [Azure RBAC 문제 해결](troubleshooting.md)
 - [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md)

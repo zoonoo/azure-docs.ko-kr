@@ -3,12 +3,12 @@ title: 공유 이미지 갤러리를 사용 하 여 사용자 지정 풀 만들�
 description: 응용 프로그램에 필요한 소프트웨어와 데이터를 포함 하는 계산 노드에 사용자 지정 이미지를 프로 비전 하기 위해 공유 이미지 갤러리를 사용 하 여 Batch 풀을 만듭니다. 사용자 지정 이미지는 Batch 워크로드를 실행하도록 컴퓨팅 노드를 구성하는 효율적인 방법입니다.
 ms.topic: article
 ms.date: 08/28/2019
-ms.openlocfilehash: 45f721dbdf11e0a6f58da71c644acf687dfadd49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a26aaecc5da0ef348b720919b04d86f8fcfbc70
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116522"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743571"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>공유 이미지 갤러리를 사용 하 여 사용자 지정 풀 만들기
 
@@ -32,7 +32,7 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 * **사용자 지정 이미지 보다 성능이 우수 합니다.** 공유 이미지를 사용 하는 경우 풀이 안정 된 상태에 도달 하는 데 걸리는 시간은 최대 25% 더 빠르며 VM 유휴 대기 시간은 최대 30% 더 짧습니다.
 * **보다 쉽게 관리할 수 있도록 이미지 버전 관리 및 그룹화** 이미지 그룹화 정의에는 이미지를 만든 이유에 대 한 정보, 사용 중인 OS 및 이미지 사용에 대 한 정보가 포함 되어 있습니다. 이미지를 그룹화 하면 이미지를 쉽게 관리할 수 있습니다. 자세한 내용은 [이미지 정의](../virtual-machines/windows/shared-image-galleries.md#image-definitions)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 > [!NOTE]
 > Azure AD를 사용 하 여 인증 해야 합니다. 공유 키 인증을 사용 하는 경우 인증 오류가 발생 합니다.  
@@ -128,6 +128,71 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
     }
     ...
 }
+```
+
+## <a name="create-a-pool-from-a-shared-image-using-python"></a>Python을 사용 하 여 공유 이미지에서 풀 만들기
+
+Python SDK를 사용 하 여 공유 이미지에서 풀을 만들 수도 있습니다. 
+
+```python
+# Import the required modules from the
+# Azure Batch Client Library for Python
+import azure.batch as batch
+import azure.batch.models as batchmodels
+from azure.common.credentials import ServicePrincipalCredentials
+
+# Specify Batch account and service principal account credentials
+account = "{batch-account-name}"
+batch_url = "{batch-account-url}"
+ad_client_id = "{sp-client-id}"
+ad_tenant = "{tenant-id}"
+ad_secret = "{sp-secret}"
+
+# Pool settings
+pool_id = "LinuxNodesSamplePoolPython"
+vm_size = "STANDARD_D2_V3"
+node_count = 1
+
+# Initialize the Batch client with Azure AD authentication
+creds = ServicePrincipalCredentials(
+    client_id=ad_client_id,
+    secret=ad_secret,
+    tenant=ad_tenant,
+    resource="https://batch.core.windows.net/"
+)
+client = batch.BatchServiceClient(creds, batch_url)
+
+# Configure the start task for the pool
+start_task = batchmodels.StartTask(
+    command_line="printenv AZ_BATCH_NODE_STARTUP_DIR"
+)
+start_task.run_elevated = True
+
+# Create an ImageReference which specifies the image from
+# Shared Image Gallery to install on the nodes.
+ir = batchmodels.ImageReference(
+    virtual_machine_image_id="/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/galleries/{gallery name}/images/{image definition name}/versions/{version id}"
+)
+
+# Create the VirtualMachineConfiguration, specifying
+# the VM image reference and the Batch node agent to
+# be installed on the node.
+vmc = batchmodels.VirtualMachineConfiguration(
+    image_reference=ir,
+    node_agent_sku_id="batch.node.ubuntu 18.04"
+)
+
+# Create the unbound pool
+new_pool = batchmodels.PoolAddParameter(
+    id=pool_id,
+    vm_size=vm_size,
+    target_dedicated_nodes=node_count,
+    virtual_machine_configuration=vmc,
+    start_task=start_task
+)
+
+# Create pool in the Batch service
+client.pool.add(new_pool)
 ```
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-portal"></a>Azure Portal를 사용 하 여 공유 이미지에서 풀 만들기

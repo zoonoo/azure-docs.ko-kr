@@ -139,9 +139,9 @@
         - name: 컨테이너 및 데이터베이스에 대한 처리량 프로비전
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
-        - name: 처리량 프로비전 - 자동 스케일링 모드
+        - name: 처리량 프로비저닝 - 자동 크기 조정
           href: provision-throughput-autoscale.md
-        - name: 자동 스케일링 FAQ
+        - name: 자동 크기 조정 FAQ
           href: autoscale-faq.md
     - name: SQL 쿼리(SQL query)
       items:
@@ -916,6 +916,8 @@
           href: how-to-manage-consistency.md
         - name: 충돌 해결 정책 구성
           href: how-to-manage-conflicts.md
+        - name: 세션 토큰 형식 변환
+          href: how-to-convert-session-token.md
     - name: 프로비전된 처리량
       items:
         - name: 컨테이너에서 처리량 프로비전
@@ -1062,7 +1064,7 @@
               href: monitor-server-side-latency.md
             - name: 요청 단위 사용량 모니터링
               href: monitor-request-unit-usage.md
-        - name: 진단 로그 사용
+        - name: Azure Monitor 로그 사용
           items:
             - name: 진단 로그 모니터링
               href: cosmosdb-monitor-resource-logs.md

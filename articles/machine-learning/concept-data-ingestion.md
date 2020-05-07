@@ -1,5 +1,5 @@
 ---
-title: 데이터 수집 옵션
+title: 데이터 수집 & 자동화
 titleSuffix: Azure Machine Learning
 description: 기계 학습 모델을 학습 하기 위한 데이터 수집 옵션에 대해 알아봅니다.
 services: machine-learning
@@ -10,25 +10,27 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 6b1c671d2079c7d8ab59e9afe981ccef3f58ef27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 475c4fd6b34996c83035c4f7ef93b9fa02ded11f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79086892"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789864"
 ---
-# <a name="data-ingestion-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 수집
+# <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Azure Machine Learning 워크플로에 대 한 데이터 수집 옵션
 
-이 문서에서는 Azure Machine Learning에서 사용할 수 있는 다음 데이터 수집 옵션의 장단점에 대해 알아봅니다. 
+이 문서에서는 Azure Machine Learning에서 사용할 수 있는 데이터 수집 옵션의 장단점에 대해 알아봅니다. 
 
-1. 파이프라인 [Azure Data Factory](#use-azure-data-factory)
-2. [Azure Machine Learning Python SDK](#use-the-python-sdk)
+다음 중에서 선택합니다.
++ 데이터를 추출, 로드 및 변환 하기 위해 특별히 빌드된 [Azure Data Factory](#azure-data-factory) 파이프라인
+
++ [PYTHON SDK를 Azure Machine Learning](#azure-machine-learning-python-sdk)하 여 기본 데이터 수집 작업에 대 한 사용자 지정 코드 솔루션을 제공 합니다.
+
++ 둘 다의 조합입니다.
 
 데이터 수집은 구조화 되지 않은 데이터가 하나 이상의 원본에서 추출 된 후 기계 학습 모델 학습을 준비 하는 프로세스입니다. 특히 수동으로 수행 하는 경우와 여러 원본에서 많은 양의 데이터가 있는 경우 시간이 많이 소요 됩니다. 이러한 작업을 자동화 하면 리소스를 확보 하 고 모델에서 가장 최근의 데이터와 적용 가능한 데이터를 사용할 수 있습니다.
 
-ADF (Azure Data Factory)를 사용 하 여 데이터를 추출, 로드 및 변환할 수 있지만 Python SDK를 사용 하면 기본 데이터 수집 작업을 위한 사용자 지정 코드 솔루션을 개발할 수 있습니다. 필요한 것이 하나도 없는 경우 ADF와 Python SDK를 함께 사용 하 여 요구 사항을 충족 하는 전체 데이터 수집 워크플로를 만들 수도 있습니다. 
-
-## <a name="use-azure-data-factory"></a>Azure Data Factory 사용
+## <a name="azure-data-factory"></a>Azure 데이터 팩터리
 
 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) 은 데이터 수집 파이프라인에 대 한 데이터 원본 모니터링 및 트리거에 대 한 기본 지원을 제공 합니다.  
 
@@ -55,7 +57,7 @@ Azure Data Factory 데이터 흐름에 대 한 포함 된 데이터 계보 기�
     
 [Azure Data Factory](how-to-data-ingest-adf.md)를 사용 하 여 Machine Learning에 대 한 데이터 수집 파이프라인을 빌드하는 방법에 대해 알아봅니다.
 
-## <a name="use-the-python-sdk"></a>Python SDK 사용 
+## <a name="azure-machine-learning-python-sdk"></a>Azure Machine Learning Python SDK 
 
 [PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml)를 사용 하 여 데이터 수집 작업을 [Azure Machine Learning 파이프라인](how-to-create-your-first-pipeline.md) 단계로 통합할 수 있습니다.
 
@@ -73,5 +75,7 @@ Azure Data Factory 데이터 흐름에 대 한 포함 된 데이터 계보 기�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Data Factory](how-to-data-ingest-adf.md) 를 사용 하 여 Machine Learning에 대 한 데이터 수집 파이프라인을 빌드하는 방법을 알아봅니다.
-* [Azure Pipelines](how-to-cicd-data-ingestion.md)를 사용 하 여 데이터 수집 파이프라인의 개발 수명 주기를 자동화 하 고 관리 하는 방법을 알아봅니다.
+다음 방법 문서를 따르세요.
+* [Azure Data Factory를 사용 하 여 데이터 수집 파이프라인 빌드](how-to-data-ingest-adf.md)
+
+* [Azure Pipelines를 사용 하 여 데이터 수집 파이프라인을 자동화 하 고 관리](how-to-cicd-data-ingestion.md)합니다.

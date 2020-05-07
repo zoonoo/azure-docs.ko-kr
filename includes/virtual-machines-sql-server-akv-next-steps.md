@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 22f16a7382cb0fe1f3fe2a6ef5e7c00a6989623c
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 9df08151e4af6e82a775b3ee99dab88134a2f032
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67182153"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82784098"
 ---
 ## <a name="next-steps"></a>다음 단계
 
@@ -25,7 +25,7 @@ Azure Key Vault 통합을 설정한 후에는 SQL VM에서 SQL Server 암호화�
 
 ### <a name="prerequisites-for-examples"></a>예에 대한 필수 조건
 
-각 예제는 두 가지 필수 조건을 기반으로 합니다. 하나는 주요 자격 증명 모음의 비대칭 키인 **CONTOSO_KEY**이고, 다른 하나는 AKV 통합 기능을 통해 생성되는 자격 증명인 **Azure_EKM_TDE_cred**입니다. 다음 Transact-SQL 명령은 예를 실행하기 위한 필수 구성 요소를 설치합니다.
+각 예제는 **CONTOSO_KEY** 이라는 주요 자격 증명 모음의 비대칭 키와 **Azure_EKM_cred**라는 AKV 통합 기능으로 만든 자격 증명 이라는 두 가지 필수 조건을 기반으로 합니다. 다음 Transact-SQL 명령은 예를 실행하기 위한 필수 구성 요소를 설치합니다.
 
 ``` sql
 USE master;
@@ -33,7 +33,7 @@ GO
 
 --create credential
 --The <<SECRET>> here requires the <Application ID> (without hyphens) and <Secret> to be passed together without a space between them.
-CREATE CREDENTIAL sysadmin_ekm_cred
+CREATE CREDENTIAL Azure_EKM_cred
     WITH IDENTITY = 'keytestvault', --keyvault
     SECRET = '<<SECRET>>'
 FOR CRYPTOGRAPHIC PROVIDER AzureKeyVault_EKM_Prov;
@@ -41,7 +41,7 @@ FOR CRYPTOGRAPHIC PROVIDER AzureKeyVault_EKM_Prov;
 
 --Map the credential to a SQL login that has sysadmin permissions. This allows the SQL login to access the key vault when creating the asymmetric key in the next step.
 ALTER LOGIN [SQL_Login]
-ADD CREDENTIAL sysadmin_ekm_cred;
+ADD CREDENTIAL Azure_EKM_cred;
 
 
 CREATE ASYMMETRIC KEY CONTOSO_KEY
@@ -142,7 +142,7 @@ SELECT CONVERT(VARCHAR, DECRYPTBYKEY(@DATA));
 CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 ```
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 이러한 암호화 기능을 사용하는 방법에 대한 자세한 내용은 [SQL Server 암호화 기능과 함께 EKM 사용](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM)을 참조하세요.
 

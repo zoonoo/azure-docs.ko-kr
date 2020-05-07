@@ -1,23 +1,23 @@
 ---
-title: Azure 웹 응용 프로그램 방화벽-질문과 대답
+title: Azure의 azure 웹 응용 프로그램 방화벽 Front 도어 서비스-질문과 대답
 description: 이 문서에서는 Azure Front 도어의 웹 응용 프로그램 방화벽에 대 한 질문과 대답을 제공 합니다.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: fefbb038cec0c061f1fd191a77164880372555a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d129c37c909c630623f8a41c06da9aa80e4e2392
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314315"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837637"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Azure Front 도어 서비스의 Azure 웹 응용 프로그램 방화벽에 대 한 질문과 대답
 
-이 문서에서는 Azure WAF (웹 응용 프로그램 방화벽) 기능 및 기능에 대 한 일반적인 질문에 답변 합니다. 
+이 문서에서는 Azure Front 도어 서비스의 기능 및 기능에 대 한 Azure WAF (웹 응용 프로그램 방화벽)에 대 한 일반적인 질문에 답변 합니다. 
 
 ## <a name="what-is-azure-waf"></a>Azure WAF 란?
 

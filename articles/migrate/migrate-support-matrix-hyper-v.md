@@ -3,12 +3,12 @@ title: Azure Migrate의 Hyper-v 평가 지원
 description: Azure Migrate Server 평가를 통한 Hyper-v 평가 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 990d5026d9621c144c31635fabac4416eb9d20e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67fabebf805e38a6bca5dda6e691c263ee235219
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538174"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744596"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Hyper-v 평가를 위한 지원 매트릭스
 
@@ -23,7 +23,7 @@ Hyper-v VM 평가를 설정 하려면 Azure Migrate 프로젝트를 만들고 �
 --- | ---
 **평가 제한** | 단일 [Azure Migrate 프로젝트](migrate-support-matrix.md#azure-migrate-projects)에서 35000 hyper-v vm을 검색 하 고 평가할 수 있습니다.
 **프로젝트 제한** | Azure 구독에서 여러 프로젝트를 만들 수 있습니다. Hyper-v Vm 외에도 프로젝트에는 각각에 대 한 평가 제한까지 VMware Vm 및 물리적 서버가 포함 될 수 있습니다.
-**조사** | Azure Migrate 어플라이언스는 5000 Hyper-v Vm을 검색할 수 있습니다.<br/><br/> 어플라이언스는 최대 300 Hyper-v 호스트에 연결할 수 있습니다.
+**검색** | Azure Migrate 어플라이언스는 5000 Hyper-v Vm을 검색할 수 있습니다.<br/><br/> 어플라이언스는 최대 300 Hyper-v 호스트에 연결할 수 있습니다.
 **평가** | 단일 그룹에 최대 35000 대의 컴퓨터를 추가할 수 있습니다.<br/><br/> 그룹에 대 한 단일 평가에서 최대 35000 Vm을 평가할 수 있습니다.
 
 평가에 대해 자세히 [알아보세요](concepts-assessment-calculation.md) .
@@ -54,7 +54,7 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 
 - Hyper-v에 대 한 [어플라이언스 요구 사항](migrate-appliance.md#appliance---hyper-v) 에 대해 알아봅니다.
 - 어플라이언스에서 [공용](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드에서 액세스 해야 하는 url에 대해 알아봅니다.
-- Azure Government에서 스크립트를 사용 하 여 어플라이언스를 배포 해야 합니다.
+- Azure Government에서 [스크립트를 사용 하 여](deploy-appliance-script-government.md)어플라이언스를 배포 해야 합니다.
 
 ## <a name="port-access"></a>포트 액세스
 

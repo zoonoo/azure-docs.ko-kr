@@ -1,6 +1,6 @@
 ---
-title: RBAC 및 Azure Resource Manager 템플릿을 사용 하 여 역할 할당 추가
-description: Azure RBAC (역할 기반 액세스 제어) 및 Azure Resource Manager 템플릿을 사용 하 여 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 대 한 Azure 리소스에 대 한 액세스 권한을 부여 하는 방법에 대해 알아봅니다.
+title: Azure Resource Manager 템플릿을 사용 하 여 Azure 역할 할당 추가-Azure RBAC
+description: Azure Resource Manager 템플릿 및 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 대 한 Azure 리소스에 대 한 액세스 권한을 부여 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9f817880f938f5d03024e3aacd9b84817a5ac721
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 777d11a129f02d1a2f5c796dea0af438ca81ba8c
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77138295"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735626"
 ---
-# <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Azure RBAC 및 Azure Resource Manager 템플릿을 사용 하 여 역할 할당 추가
+# <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure 역할 할당 추가
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Azure PowerShell 또는 Azure CLI를 사용 하는 것 외에도 [Azure Resource Manager 템플릿을](../azure-resource-manager/templates/template-syntax.md)사용 하 여 역할을 할당할 수 있습니다. 템플릿은 리소스를 일관되고 반복적으로 배포해야 하는 경우 유용할 수 있습니다. 이 문서에서는 템플릿을 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
 
@@ -66,7 +66,7 @@ objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output ts
 
 ## <a name="add-a-role-assignment"></a>역할 할당 추가
 
-RBAC에서 액세스 권한을 부여 하려면 역할 할당을 추가 합니다.
+Azure RBAC에서 액세스 권한을 부여 하려면 역할 할당을 추가 합니다.
 
 ### <a name="resource-group-without-parameters"></a>리소스 그룹 (매개 변수 없음)
 

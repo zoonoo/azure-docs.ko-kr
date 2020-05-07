@@ -1,6 +1,6 @@
 ---
-title: Azure RBAC 및 Azure CLI를 사용 하 여 역할 할당 나열
-description: Azure RBAC (역할 기반 액세스 제어) 및 Azure CLI를 사용 하 여 사용자, 그룹, 서비스 주체 또는 관리 id가 액세스할 수 있는 리소스를 확인 하는 방법에 대해 알아봅니다.
+title: Azure CLI를 사용 하 여 Azure 역할 할당 나열-Azure RBAC
+description: 사용자, 그룹, 서비스 사용자 또는 관리 id에서 Azure CLI 및 Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 액세스할 수 있는 리소스를 확인 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,21 +14,21 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5716e7bb89d017866bd1575256e2d119bb7acbe5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4b635d6867c36b8b0f385320e3720bea41b54d1
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80385064"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735745"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Azure RBAC 및 Azure CLI를 사용 하 여 역할 할당 나열
+# <a name="list-azure-role-assignments-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 역할 할당 나열
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]이 문서에서는 Azure CLI를 사용 하 여 역할 할당을 나열 하는 방법을 설명 합니다.
 
 > [!NOTE]
 > 조직에서 [Azure 위임 된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용 하는 서비스 공급자에 대해 아웃소싱 된 관리 기능을 사용 하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시 되지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Cloud Shell 또는 [Azure CLI](/cli/azure) [의 Bash](/azure/cloud-shell/overview)
 
@@ -98,7 +98,7 @@ az role assignment list --resource-group pharma-sales --output json | jq '.[] | 
 az role assignment list --subscription <subscription_name_or_id>
 ```
 
-예제:
+예:
 
 ```azurecli-interactive
 az role assignment list --subscription 00000000-0000-0000-0000-000000000000 --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -112,7 +112,7 @@ az role assignment list --subscription 00000000-0000-0000-0000-000000000000 --ou
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-예제:
+예:
 
 ```azurecli-interactive
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/marketing-group --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -144,4 +144,4 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure RBAC 및 Azure CLI를 사용 하 여 역할 할당 추가 또는 제거](role-assignments-cli.md)
+- [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-cli.md)

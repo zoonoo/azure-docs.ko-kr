@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services 라이브 이벤트 오류 코드 | Microsoft Docs
 description: 이 문서에는 라이브 이벤트 오류 코드가 나열 되어 있습니다.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2020
-ms.author: juliako
-ms.openlocfilehash: f9067562f67190b8bc04392f33078d4d3262f986
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/4/2020
+ms.author: inhenkel
+ms.openlocfilehash: e039a240465478e86ce816890219e5dfaa07dfbf
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77654582"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791054"
 ---
 # <a name="media-services-live-event-error-codes"></a>Media Services 라이브 이벤트 오류 코드
 
@@ -28,7 +28,7 @@ ms.locfileid: "77654582"
 
 라이브 이벤트에 대 한 [Event Grid](https://docs.microsoft.com/azure/event-grid/) 이벤트를 구독할 때 [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected) 이벤트에서 다음 오류 중 하나가 표시 될 수 있습니다.
 
-| 결과 코드 | Description |
+| 결과 코드 | 설명 |
 | ----------- | ----------- |
 | MPE_RTMP_APPID_AUTH_FAILURE | 잘못된 수집 URL입니다. |
 | MPE_INGEST_ENCODER_CONNECTION_DENIED | 인코더 IP가 IP 허용 목록에 구성되어 있지 않습니다. |
@@ -40,12 +40,13 @@ ms.locfileid: "77654582"
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | 비디오 또는 오디오 FLVTag에 대한 타임스탬프가 RTMP 인코더에서 유효하지 않습니다. |
 | MPE_INGEST_FRAMERATE_EXCEEDED | Framerate를 사용 하 여 들어오는 인코더 수집 스트림이 라이브 이벤트/채널 인코딩에 허용 되는 최대 30fps를 초과 했습니다.|
 | MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED | 들어오는 인코더 수집 스트림에서 라이브 이벤트/채널 인코딩에 대 한 1920x1088 및 통과 라이브 이벤트/채널에 대 한 4096 x 2160의 허용 되는 해상도를 초과 했습니다.|
+| MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV | 라이브 이벤트가 한 번에 많은 양의 오디오 데이터를 받았거나 키 프레임이 없는 많은 양의 비디오 데이터가 수신 되었습니다. 올바른 데이터로 다시 시도할 수 있는 기회를 제공 하기 위해 인코더의 연결을 끊었습니다. |
 
 ## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
 [LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) 이벤트에서 다음 오류 중 하나가 표시 될 수 있습니다.
 
-|결과 코드|Description|
+|결과 코드|설명|
 |---|---|
 |MPE_RTMP_SESSION_IDLE_TIMEOUT|허용된 시간 한도 동안 유휴 상태가 된 후 RTMP 세션 시간이 초과되었습니다.|
 |MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID|비디오 또는 오디오 FLVTag에 대한 타임스탬프가 RTMP 인코더에서 유효하지 않습니다.|

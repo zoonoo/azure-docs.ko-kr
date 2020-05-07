@@ -3,12 +3,12 @@ title: 보안 기능 개요
 description: 백업 데이터를 보호 하 고 비즈니스의 보안 요구를 충족 하는 데 도움이 되는 Azure Backup의 보안 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 2eec3ee50f1de695b5432ee50b0900e35b81a6eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 688573b571c6ce4473f06d4c194795a38a33244b
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585827"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743649"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Azure Backup의 보안 기능 개요
 
@@ -16,9 +16,9 @@ ms.locfileid: "80585827"
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Id 및 사용자 액세스 관리 및 제어
 
-Azure Backup를 사용 하면 [AZURE RBAC (역할 기반 Access Control)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)를 사용 하 여 세분화 액세스를 관리할 수 있습니다. RBAC를 사용 하면 팀 내에서 업무를 분리 하 고 사용자에 게 해당 작업을 수행 하는 데 필요한 만큼의 액세스 권한만 부여할 수 있습니다.
+Recovery services 자격 증명 모음에 사용 되는 저장소 계정은 격리 되며 악의적인 목적을 위해 사용자가 액세스할 수 없습니다. 액세스는 복원과 같은 Azure Backup 관리 작업을 통해서만 허용 됩니다. Azure Backup를 사용 하면 [AZURE RBAC (역할 기반 Access Control)](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault)를 사용 하 여 세분화 된 액세스를 통해 관리 되는 작업을 제어할 수 있습니다. RBAC를 사용 하면 팀 내에서 업무를 분리 하 고 사용자에 게 해당 작업을 수행 하는 데 필요한 만큼의 액세스 권한만 부여할 수 있습니다.
 
-Azure Backup는 백업 관리 작업을 제어 하는 세 가지 기본 제공 역할을 제공 합니다.
+Azure Backup는 백업 관리 작업을 제어 하는 세 가지 [기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 을 제공 합니다.
 
 * 백업 참여자-Recovery Services 자격 증명 모음을 삭제 하 고 다른 사용자에 게 액세스 권한을 부여 하는 경우를 제외 하 고 백업을 만들고 관리
 * 백업 운영자-백업 제거 및 백업 정책 관리를 제외한 모든 참가자
@@ -47,13 +47,13 @@ Azure Vm을 백업 하려면 가상 머신의 디스크에서 Recovery Services 
 
 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움이 됩니다. Azure 내에서 Azure storage와 자격 증명 모음 간의 전송 데이터는 HTTPS에 의해 보호 됩니다. 이 데이터는 Azure 백본 네트워크에 남아 있습니다.
 
-* 백업 데이터는 Microsoft 관리 키를 사용 하 여 자동으로 암호화 됩니다. Azure Key Vault에 저장 된 [고객 관리 키](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption-of-backup-data-using-customer-managed-keys) 를 사용 하 여 Recovery Services 자격 증명 모음에서 백업 된 관리 디스크 vm을 암호화할 수도 있습니다. 이 암호화를 사용 하도록 설정 하기 위해 명시적인 조치를 취할 필요는 없습니다. Recovery Services 자격 증명 모음에 백업 되는 모든 워크 로드에 적용 됩니다.
+* 백업 데이터는 Microsoft 관리 키를 사용 하 여 자동으로 암호화 됩니다. Azure Key Vault에 저장 된 [고객 관리 키](backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys) 를 사용 하 여 Recovery Services 자격 증명 모음에서 백업 된 관리 디스크 vm을 암호화할 수도 있습니다. 이 암호화를 사용 하도록 설정 하기 위해 명시적인 조치를 취할 필요는 없습니다. Recovery Services 자격 증명 모음에 백업 되는 모든 워크 로드에 적용 됩니다.
 
 * Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스크가 있는 Azure Vm의 백업 및 복원을 지원 합니다. [암호화 된 Azure vm 및 Azure Backup에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>의도 하지 않은 삭제 로부터 백업 데이터 보호
 
-Azure Backup는 삭제 후에도 백업 데이터를 보호 하는 데 도움이 되는 보안 기능을 제공 합니다. 일시 삭제를 사용 하는 경우 사용자가 VM의 백업을 삭제 하면 백업 데이터는 14 일 동안 보존 되어 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대 한 14 일의 추가 보존은 고객에 게 비용을 부과 하지 않습니다. [일시 삭제에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete).
+Azure Backup는 삭제 후에도 백업 데이터를 보호 하는 데 도움이 되는 보안 기능을 제공 합니다. 일시 삭제를 사용 하는 경우 사용자가 VM의 백업을 삭제 하면 백업 데이터는 14 일 동안 보존 되어 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대 한 14 일의 추가 보존은 고객에 게 비용을 부과 하지 않습니다. [일시 삭제에 대해 자세히 알아보세요](backup-azure-security-feature-cloud.md).
 
 ## <a name="monitoring-and-alerts-of-suspicious-activity"></a>의심 스러운 활동의 모니터링 및 경고
 

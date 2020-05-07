@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 600167e529e1ff8cfa65eeb3d0fb6fe26e9466bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9883065993f35054338079c8b9647a8420574414
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137521"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738068"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>주 지역으로 장애 조치(failover)된 Azure VM 다시 보호
 
@@ -44,7 +44,7 @@ ms.locfileid: "82137521"
 
 ![사용자 지정](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
-|속성 |메모  |
+|속성 |참고  |
 |---------|---------|
 |대상 리소스 그룹 | VM이 만들어진 대상 리소스 그룹을 수정합니다. 다시 보호의 일부로 대상 VM이 삭제됩니다. 장애 조치(failover) 후 VM을 만들 새 리소스 그룹을 선택할 수 있습니다. |
 |대상 가상 네트워크 | 다시 보호 작업 동안 대상 네트워크를 변경할 수 없습니다. 네트워크를 변경하려면 네트워크 매핑을 다시 실행합니다. |
@@ -95,6 +95,10 @@ ms.locfileid: "82137521"
 |원본 영역에 1TB premium 디스크가 있는 1 개의 VM이 있습니다.<br/>20gb 데이터만 사용 되 고 나머지 디스크는 비어 있습니다.<br/>디스크 유형은 프리미엄 이며 200 MBps 처리량이 있습니다.<br/>장애 조치 (failover) 직후 디스크의 초기 데이터는 15gb입니다. 장애 조치 (failover) 후 5gb의 데이터 변경 내용이 있습니다. 따라서 채워진 전체 데이터는 20gb입니다.| 대략적인 시간: 30-45 분.<br/>디스크에 채워지는 데이터가 디스크 크기의 10% 보다 작기 때문에 전체 초기 복제를 수행 합니다.<br/>전송 속도는 약 16%의 처리량 또는 32MBps입니다. 따라서 30GB/32mbps 인 20gb의 변경 사항을 적용 하 여 약 11 분의 시간을 전송 합니다.<br/>일부 오버 헤드 시간은 Site Recovery 자동 크기 조정 하는 데 필요 합니다 (약 20-30 분). |
 
 주 지역으로 장애 복구 (failback) 한 후 VM을 다시 보호 하는 경우 (즉, VM이 주 지역에서 DR 지역으로 다시 보호 되는 경우) 대상 VM 및 연결 된 NIC가 삭제 됩니다.
+
+VM이 DR 지역에서 주 지역으로 다시 보호 되는 경우 기본 VM 및 연결 된 NIC를 삭제 하지 않습니다.
+
+주 지역으로 장애 복구 (failback) 한 후 VM을 다시 보호 하는 경우 (즉, VM이 주 지역에서 DR 지역으로 다시 보호 되는 경우) 대상 VM 및 연결 된 NIC가 삭제 됩니다. 
 
 VM이 DR 지역에서 주 지역으로 다시 보호 되는 경우 기본 VM 및 연결 된 NIC를 삭제 하지 않습니다.
 

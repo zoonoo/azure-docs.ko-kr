@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 96a2cce5d0e8abfd1f22b5fc64633eebc41aca39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f58c34a46f4eb1bffe4516f2a6f9f17a799fbfb3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431567"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786600"
 ---
 # <a name="system-views-supported-in-synapse-sql"></a>Synapse SQL에서 지원 되는 시스템 뷰
 Synapse SQL에서 지원 되는 T-sql 문에 대 한 설명서에 대 한 링크입니다.
@@ -238,17 +238,17 @@ SQL 풀 및 분석 플랫폼 시스템의 PDW (병렬 데이터 웨어하우스)
 ## <a name="sql-server-information_schema-views"></a>SQL Server INFORMATION_SCHEMA 보기
 
 * [CHECK_CONSTRAINTS](/sql/relational-databases/system-information-schema-views/check-constraints-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [세로](/sql/relational-databases/system-information-schema-views/columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [COLUMNS](/sql/relational-databases/system-information-schema-views/columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [매개 변수](/sql/relational-databases/system-information-schema-views/parameters-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [ROUTINES](/sql/relational-databases/system-information-schema-views/routines-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SCHEMATA](/sql/relational-databases/system-information-schema-views/schemata-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [표의](/sql/relational-databases/system-information-schema-views/tables-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [VIEW_COLUMN_USAGE](/sql/relational-databases/system-information-schema-views/view-column-usage-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [VIEW_TABLE_USAGE](/sql/relational-databases/system-information-schema-views/view-table-usage-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [레이아웃](/sql/relational-databases/system-information-schema-views/views-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [VIEWS](/sql/relational-databases/system-information-schema-views/views-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 참조 정보는 [SYNAPSE sql의 t-sql 문](/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements)및 [Synapse sql의 t-sql 언어 요소](/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)를 참조 하세요.
+자세한 참조 정보는 [SYNAPSE sql의 t-sql 문](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements)및 [Synapse sql의 t-sql 언어 요소](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)를 참조 하세요.
 
  

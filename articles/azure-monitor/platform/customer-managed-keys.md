@@ -1,21 +1,21 @@
 ---
-title: 고객 관리 키 구성 Azure Monitor
+title: 고객 관리 키 Azure Monitor
 description: CMK (고객이 관리 하는 키)를 구성 하 여 Azure Key Vault 키를 사용 하 여 Log Analytics 작업 영역의 데이터를 암호화 하는 방법에 대 한 정보 및 단계입니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 04/12/2020
-ms.openlocfilehash: 25fdb0aefacbdd9c2630a69981a67821ac155786
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/04/2020
+ms.openlocfilehash: 64dd56339244364340ea9b78fbbe1e63cf611c44
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758810"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780830"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>고객 관리 키 구성 Azure Monitor 
 
-이 문서에서는 Log Analytics 작업 영역 및 Application Insights 구성 요소에 대 한 CMK (고객 관리 키)를 구성 하는 단계와 배경 정보를 제공 합니다. 구성 된 후에는 작업 영역 또는 구성 요소에 전송 된 모든 데이터가 Azure Key Vault 키로 암호화 됩니다.
+이 문서에서는 Log Analytics 작업 영역에 대 한 CMK (고객 관리 키)를 구성 하는 단계 및 배경 정보를 제공 합니다. 구성 된 후에는 작업 영역으로 전송 되는 모든 데이터가 Azure Key Vault 키로 암호화 됩니다.
 
 구성 전에 [제한 사항 및 제약 조건을](#limitations-and-constraints) 검토 하는 것이 좋습니다.
 
@@ -28,12 +28,6 @@ ms.locfileid: "81758810"
 - CMK 기능은 ADX (Azure 데이터 탐색기) 클러스터용 전용 데이터 저장소 클러스터에서 제공 되며, 매일 1TB를 보내는 고객에 게 적합 합니다. 
 
 - CMK 가격 책정 모델은 현재 사용할 수 없으며,이 문서에서 다루지 않습니다. 전용 ADX 클러스터에 대 한 가격 책정 모델은 1 번째 사분기 (CY) 2020에 예상 되며 기존 CMK 배포에 적용 됩니다.
-
-- 이 문서에서는 Log Analytics 작업 영역에 대 한 CMK 구성에 대해 설명 합니다. Application Insights 구성 요소에 대 한 CMK는 부록에 나열 된 경우에도이 문서를 사용 하 여 지원 됩니다.
-
-> [!NOTE]
-> Log Analytics 및 Application Insights는 동일한 데이터 저장소 플랫폼과 쿼리 엔진을 사용 합니다.
-> 이러한 두 저장소는 Log Analytics Application Insights를 통합 하 여 Azure Monitor에서 단일 통합 로그 저장소를 만드는 과정을 통해 함께 제공 됩니다. 이 변경은 2020 년의 두 번째 분기에 대해 계획 됩니다. 그러면 Application Insights 데이터에 대 한 CMK를 배포할 필요가 없는 경우 통합이 완료 될 때까지 대기 하는 것이 좋습니다. 그러면 Log Analytics 작업 영역으로 마이그레이션한 후 CMK를 다시 구성 해야 합니다. 일별 1TB는 클러스터 수준에서 적용 되며, 2 분기 동안 통합이 완료 될 때까지 Application Insights 및 Log Analytics 별도의 클러스터가 필요 합니다.
 
 ## <a name="customer-managed-key-cmk-overview"></a>CMK (고객 관리 키) 개요
 
@@ -56,7 +50,7 @@ Azure Monitor는 시스템 할당 관리 id를 활용 하 여 Azure Key Vault에
 3.    전용 ADX 클러스터를 Azure Monitor 합니다.
 4.    CMK 암호화에 대 한 *클러스터* 리소스와 연결 된 고객의 작업 영역입니다.
 
-## <a name="encryption-keys-management"></a>암호화 키 관리
+## <a name="encryption-keys-operation"></a>암호화 키 작업
 
 저장소 데이터 암호화에는 세 가지 유형의 키가 있습니다.
 
@@ -78,8 +72,6 @@ Azure Monitor는 시스템 할당 관리 id를 활용 하 여 Azure Key Vault에
 
 ## <a name="cmk-provisioning-procedure"></a>CMK 프로 비전 절차
 
-CMK 구성 Application Insights 3 단계와 6 단계에 대 한 부록 콘텐츠를 따르세요.
-
 1. Subscription 허용 목록-이 초기 액세스 기능에 필요 합니다.
 2. Azure Key Vault 만들기 및 키 저장
 3. *클러스터* 리소스 만들기
@@ -92,7 +84,7 @@ CMK 구성 Application Insights 3 단계와 6 단계에 대 한 부록 콘텐츠
 > [!IMPORTANT]
 > 모든 API 요청은 요청 헤더에 전달자 권한 부여 토큰을 포함 해야 합니다.
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -180,9 +172,7 @@ CMK 기능은 초기 액세스 기능입니다. *클러스터* 리소스를 만�
 
 ### <a name="create-cluster-resource"></a>*클러스터* 리소스 만들기
 
-이 리소스는 Key Vault와 Log Analytics 작업 영역 간의 중간 id 연결로 사용 됩니다. 구독이 허용 목록 된 것을 확인 한 후에는 작업 영역이 있는 지역에서 Log Analytics *클러스터* 리소스를 만듭니다. Application Insights 및 Log Analytics에는 별도의 *클러스터* 리소스 형식이 필요 합니다. *클러스터* 리소스의 유형은 만들 때 *Clustertype* 속성을 *loganalytics*또는 *applicationinsights*로 설정 하 여 정의 됩니다. 클러스터 리소스 유형은 후에는 변경할 수 없습니다.
-
-Application Insights CMK 구성의 경우 부록 콘텐츠를 따르세요.
+이 리소스는 Key Vault와 Log Analytics 작업 영역 간의 중간 id 연결로 사용 됩니다. 구독이 허용 목록 된 것을 확인 한 후에는 작업 영역이 있는 지역에서 Log Analytics *클러스터* 리소스를 만듭니다.
 
 *클러스터* 리소스를 만들 때 sku (용량 예약 수준)를 지정 해야 합니다. 용량 예약 수준 범위는 매일 1000 ~ 2000 GB 이며, 나중에 100의 단계에서 업데이트할 수 있습니다. 하루에 2000 GB 보다 높은 용량 예약 수준이 필요한 경우 Microsoft 담당자에 게 문의 하 여 사용 하도록 설정 합니다. 이 속성은 현재 청구에 영향을 주지 않습니다. 전용 클러스터에 대 한 가격 책정 모델을 도입 하는 경우 기존 CMK 배포에 대 한 요금이 적용 됩니다.
 
@@ -191,7 +181,7 @@ Application Insights CMK 구성의 경우 부록 콘텐츠를 따르세요.
 이 리소스 관리자 요청은 비동기 작업입니다.
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -211,7 +201,7 @@ Content-type: application/json
 ```
 Id는 생성 시 *클러스터* 리소스에 할당 됩니다.
 
-**응답이**
+**응답**
 
 200 OK 및 헤더
 기능의 초기 액세스 기간 동안 ADX 클러스터는 수동으로 프로 비전 됩니다. 작업을 완료 하는 동안 매우 많이 사용 되는 ADX 클러스터를 프로 비전 하는 동안 두 가지 방법으로 프로 비전 상태를 확인할 수 있습니다.
@@ -223,14 +213,14 @@ Id는 생성 시 *클러스터* 리소스에 할당 됩니다.
 이전 단계를 완료 한 후에는이 기능의 초기 액세스 기간 동안 ADX 클러스터가 제품 팀에서 수동으로 프로 비전 됩니다. Microsoft 채널을 사용 하 여이 단계를 진행 하 고 *클러스터* 리소스 응답을 제공 합니다. 
 
 ```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 ```
 
 > [!IMPORTANT]
 > 다음 단계에서 세부 정보가 필요 하므로 응답을 복사 하 고 저장 합니다.
 
-**응답이**
+**응답**
 
 ```json
 {
@@ -311,7 +301,7 @@ Content-type: application/json
 ```
 "KeyVaultProperties"에는 Key Vault 키 식별자 정보가 포함 되어 있습니다.
 
-**응답이**
+**응답**
 
 200 OK 및 헤더
 키 식별자의 전파를 완료 하는 데 몇 분이 걸립니다. 다음 두 가지 방법으로 업데이트 상태를 확인할 수 있습니다.
@@ -350,7 +340,6 @@ Content-type: application/json
 ```
 
 ### <a name="workspace-association-to-cluster-resource"></a>*클러스터* 리소스에 작업 영역 연결
-CMK를 구성 Application Insights이 단계에 대해서는 부록 콘텐츠를 따르세요.
 
 이 작업을 수행 하려면 작업 영역 및 *클러스터* 리소스 모두에 ' 쓰기 ' 권한이 있어야 합니다. 여기에는 다음 작업이 포함 됩니다.
 
@@ -376,7 +365,7 @@ Content-type: application/json
 }
 ```
 
-**응답이**
+**응답**
 
 200 OK 및 헤더
 수집 데이터는 연결 작업 후에 관리 키를 사용 하 여 암호화 된 상태로 저장 됩니다 .이 작업은 완료 하는 데 최대 90 분까지 걸릴 수 있습니다. 다음 두 가지 방법으로 작업 영역 연결 상태를 확인할 수 있습니다.
@@ -387,7 +376,7 @@ Content-type: application/json
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
 ```
 
-**응답이**
+**응답**
 
 ```json
 {
@@ -445,9 +434,7 @@ CMK를 회전 하려면 Azure Key Vault의 새 키 버전을 사용 하 여 *클
 - Azure Key Vault를 복구할 수 있는 것으로 구성 해야 합니다. 이러한 속성은 기본적으로 사용 하도록 설정 되어 있지 않으며 CLI 또는 PowerShell을 사용 하 여 구성 해야 합니다.
 
   - [일시 삭제](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) 를 켜야 합니다.
-  - 일시 삭제 후에도 비밀/자격 증명 모음을 강제로 삭제 하지 않도록 [보호 하려면 제거 보호](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) 를 켜야 합니다.
-
-- Application Insights 및 Log Analytics에는 별도의 *클러스터* 리소스가 필요 합니다. *클러스터* 리소스의 형식은 생성 시 "clustertype" 속성을 ' loganalytics ' 또는 ' applicationinsights '로 설정 하 여 정의 됩니다. *클러스터* 리소스 유형은 변경할 수 없습니다.
+  - 일시 삭제 후에도 비밀/자격 증명 모음을 강제로 삭제 하는 것을 방지 하려면 [보호 제거](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) 를 켜야 합니다.
 
 - 다른 리소스 그룹 또는 구독에 대 한 *클러스터* 리소스 이동은 현재 지원 되지 않습니다.
 
@@ -455,9 +442,10 @@ CMK를 회전 하려면 Azure Key Vault의 새 키 버전을 사용 하 여 *클
 
 - 다른 *클러스터* 리소스와 연결 된 경우 *클러스터* 리소스에 대 한 작업 영역 연결이 실패 합니다.
 
+
 ## <a name="troubleshooting-and-management"></a>문제 해결 및 관리
 
-- Key Vault 가용성
+- Key Vault 가용성 고려 사항
     - 정상 작업에서-저장소는 짧은 기간 동안 AEK를 캐시 하 고 Key Vault로 돌아가서 정기적으로 래핑 해제 합니다.
     
     - 일시적인 연결 오류-저장소는 키가 짧은 시간 동안 캐시에 유지 되도록 허용 하 여 일시적인 오류 (시간 제한, 연결 오류, DNS 문제)를 처리 하 고,이를 통해 작은 문제 가용성을 극복 합니다. 쿼리 및 수집 기능은 중단 없이 계속 됩니다.
@@ -472,6 +460,8 @@ CMK를 회전 하려면 Azure Key Vault의 새 키 버전을 사용 하 여 *클
 
 - *클러스터* 리소스를 만들 때 충돌 오류가 발생 하는 경우 – 지난 14 일 동안 *클러스터* 리소스를 삭제 하 고 일시 삭제 기간에 있을 수 있습니다. *클러스터* 리소스 이름은 일시 삭제 기간 동안 예약 된 상태로 유지 되며 해당 이름을 사용 하 여 새 클러스터를 만들 수 없습니다. 이 이름은 *클러스터* 리소스가 영구적으로 삭제 될 때 일시 삭제 기간이 지나면 릴리스됩니다.
 
+- 작업이 진행 되는 동안 *클러스터* 리소스를 업데이트 하는 경우 작업이 실패 합니다.
+
 - 리소스 그룹에 대 한 모든 *클러스터* 리소스 가져오기:
 
   ```rst
@@ -479,7 +469,7 @@ CMK를 회전 하려면 Azure Key Vault의 새 키 버전을 사용 하 여 *클
   Authorization: Bearer <token>
   ```
     
-  **응답이**
+  **응답**
   
   ```json
   {
@@ -496,10 +486,10 @@ CMK를 회전 하려면 Azure Key Vault의 새 키 버전을 사용 하 여 *클
           "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
           },
         "properties": {
-           "KeyVaultProperties": {
-              KeyVaultUri: "https://key-vault-name.vault.azure.net",
-              KeyName: "key-name",
-              KeyVersion: "current-version"
+           "keyVaultProperties": {
+              keyVaultUri: "https://key-vault-name.vault.azure.net",
+              keyName: "key-name",
+              keyVersion: "current-version"
               },
           "provisioningState": "Succeeded",
           "clusterType": "LogAnalytics", 
@@ -521,177 +511,22 @@ CMK를 회전 하려면 Azure Key Vault의 새 키 버전을 사용 하 여 *클
   Authorization: Bearer <token>
   ```
     
-  **응답이**
+  **응답**
     
   ' 리소스 그룹에 대 한*클러스터* 리소스 '와 동일한 응답 이지만 구독 범위에 있습니다.
 
 - *클러스터* 리소스에서 *용량 예약* 업데이트-연결 된 작업 영역에 대 한 데이터 볼륨이 변경 될 때 청구 고려 사항에 대 한 용량 예약 수준을 업데이트 하려면 [ *클러스터* 리소스 업데이트](#update-cluster-resource-with-key-identifier-details) 및 새 용량 값 제공을 참조 하세요. 용량 예약 수준의 범위는 매일 1000 ~ 2000 GB이 고 100의 단계에 있을 수 있습니다. 하루 2000 g b 보다 높은 수준의 경우 Microsoft 담당자에 게 연락 하 여 사용 하도록 설정 합니다.
 
-- *클러스터* 리소스 삭제--삭제 작업은 실수로 또는 의도적으로 삭제 되었는지 여부에 관계 없이 14 일 내에 데이터를 포함 하 여 *클러스터* 리소스를 복구할 수 있도록 하는 일시 삭제 작업을 수행 합니다. *클러스터* 리소스 이름은 일시 삭제 기간 동안 예약 된 상태로 유지 되며 해당 이름을 사용 하 여 새 클러스터를 만들 수 없습니다. 일시 삭제 기간이 지나면 *클러스터* 리소스 이름이 해제 되 고 *클러스터* 리소스와 데이터가 영구적으로 삭제 되며 복구할 수 없습니다. 연결 된 작업 영역은 삭제 작업 시 *클러스터* 리소스에서 연결 해제 됩니다. 새 수집 데이터는 공유 Log Analytics 저장소에 저장 되 고 Microsoft 키를 사용 하 여 암호화 됩니다. 연결 해제 된 작업 영역은 비동기 작업입니다.
+- *클러스터* 리소스 삭제-이 작업을 수행 하려면 *클러스터* 리소스에 대 한 ' 쓰기 ' 권한이 있어야 합니다. 일시 삭제 작업은 삭제가 실수나 의도적인 지 여부에 관계 없이 14 일 내에 데이터를 포함 하 여 *클러스터* 리소스를 복구할 수 있도록 하기 위해 수행 됩니다. *클러스터* 리소스 이름은 일시 삭제 기간 동안 예약 된 상태로 유지 되며 해당 이름을 사용 하 여 새 클러스터를 만들 수 없습니다. 일시 삭제 기간이 지나면 *클러스터* 리소스 이름이 해제 되 고 *클러스터* 리소스와 데이터가 영구적으로 삭제 되며 복구할 수 없습니다. 연결 된 작업 영역은 삭제 작업 시 *클러스터* 리소스에서 연결 해제 됩니다. 새 수집 데이터는 공유 Log Analytics 저장소에 저장 되 고 Microsoft 키를 사용 하 여 암호화 됩니다. 연결 해제 된 작업 영역은 비동기 작업입니다.
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
 
-  **응답이**
+  **응답**
 
   200 정상
 
 - *클러스터* 리소스 및 데이터 복구-지난 14 일 동안 삭제 된 *클러스터* 리소스는 일시 삭제 상태 이며 복구할 수 있습니다. 이는 현재 제품 그룹에서 수동으로 수행 합니다. 복구 요청에 Microsoft 채널을 사용 합니다.
 
-## <a name="appendix"></a>부록
-
-CMK (Application Insights Customer 관리 키)도 지원 되지만 응용 프로그램 정보 구성 요소에 대 한 CMK 배포를 계획 하려면 다음 변경 사항을 고려해 야 합니다.
-
-Log Analytics 및 Application Insights는 동일한 데이터 저장소 플랫폼과 쿼리 엔진을 사용 합니다. 이러한 두 저장소는 Application Insights의 통합을 통해 Log Analytics으로 통합 하 여 Azure Monitor에서 단일 통합 로그 저장소를 제공 합니다.
-2020. 이렇게 변경 하면 응용 프로그램 정보 데이터를 Log Analytics 작업 영역으로 가져와 쿼리, 통찰력 및 기타 향상 된 기능을 만들 수 있습니다 .이 경우 작업 영역에서 CMK 구성이 Application Insights 데이터에도 적용 됩니다.
-
-> [!NOTE]
-> 통합 전에 응용 프로그램 정보 데이터에 대해 CMK를 배포 하지 않아도 되는 경우 Application Insights CMK를 사용 하 여 대기 하는 것이 좋습니다. 이러한 배포는 통합에 의해 중단 되므로 Log Analytics 작업 영역으로 마이그레이션한 후 CMK를 다시 구성 해야 합니다. 일별 1TB는 클러스터 수준에서 적용 되며, 2 분기 동안 통합이 완료 될 때까지 Application Insights 및 Log Analytics 별도의 클러스터가 필요 합니다.
-
-## <a name="application-insights-cmk-configuration"></a>CMK 구성 Application Insights
-
-Application Insights CMK의 구성은 다음 단계를 제외한 제약 조건 및 문제 해결을 포함 하 여이 문서에 설명 된 프로세스와 동일 합니다.
-
-- *클러스터* 리소스 만들기
-- *클러스터* 리소스에 구성 요소 연결
-
-Application Insights에 대해 CMK를 구성 하는 경우 위에 나열 된 단계 대신 이러한 단계를 사용 합니다.
-
-### <a name="create-a-cluster-resource"></a>*클러스터* 리소스 만들기
-
-이 리소스는 Key Vault와 구성 요소 간의 중간 id 연결로 사용 됩니다. 구독이 허용 목록 확인을 받은 후에는 구성 요소가 있는 지역에서 Log Analytics *클러스터* 리소스를 만듭니다. *클러스터* 리소스의 유형은 만들 때 *Clustertype* 속성을 *loganalytics*또는 *applicationinsights*로 설정 하 여 정의 됩니다. Application Insights CMK에 대 한 *Applicationinsights* 여야 합니다. 구성 후에는 *Clustertype* 설정을 변경할 수 없습니다.
-
-**만들기**
-
-이 리소스 관리자 요청은 비동기 작업입니다.
-
-```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
-Authorization: Bearer <token>
-Content-type: application/json
-
-{
-  "identity": {
-    "type": "systemAssigned"
-    },
-  "sku": {
-    "name": "capacityReservation",
-    "Capacity": 1000
-    },
-  "properties": {
-    "clusterType":"ApplicationInsights"
-    },
-  "location": "<region-name>"
-}
-```
-
-**응답이**
-
-200 OK 및 헤더
-기능의 초기 액세스 기간 동안 ADX 클러스터는 수동으로 프로 비전 됩니다. 작업을 완료 하는 동안 매우 많이 사용 되는 ADX 클러스터를 프로 비전 하는 동안 두 가지 방법으로 프로 비전 상태를 확인할 수 있습니다.
-1. 응답에서 AsyncOperation URL 값을 복사 하 고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 수행 합니다.
-2. *클러스터* 리소스에 GET 요청을 보내고 *provisioningState* 값을 확인 합니다. 프로 비전 중에 *ProvisioningAccount* 완료 되 면 *성공* 합니다.
-
-### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>구성 요소를 사용 하 여 *클러스터* 리소스에 구성 요소 연결 [-API 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate)
-
-다음 작업을 포함 하 여이 작업을 수행 하려면 구성 요소 및 *클러스터* 리소스 모두에 ' 쓰기 ' 권한이 있어야 합니다.
-
-- 구성 요소: Microsoft Insights/component/write
-- *클러스터* 리소스: OperationalInsights/클러스터/쓰기
-
-> [!IMPORTANT]
-> 이 단계는 ADX 클러스터 프로 비전 후에만 수행 해야 합니다. 프로 비전 전에 구성 요소를 연결 하 고 데이터를 수집 하는 경우 수집 데이터는 삭제 되 고 복구할 수 없습니다.
-> ADX 클러스터가 프로 비전 되었는지 확인 하려면 *클러스터* 리소스 가져오기 REST API를 실행 하 고 *ProvisioningState* 값이 *성공*인지 확인 합니다.
-
-```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
-Authorization: Bearer <token>
-```
-
-**응답이**
-```json
-{
-  "identity": {
-    "type": "SystemAssigned",
-    "tenantId": "tenant-id",
-    "principalId": "principal-id"
-    },
-  "sku": {
-    "name": "capacityReservation",
-    "capacity": 1000,
-    "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-    },
-  "properties": {
-    "KeyVaultProperties": {
-      KeyVaultUri: "https://key-vault-name.vault.azure.net",
-      KeyName: "key-name",
-      KeyVersion: "current-version"
-      },
-    "provisioningState": "Succeeded",
-    "clusterType": "ApplicationInsights", 
-    "clusterId": "cluster-id"
-    },
-  "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
-  "name": "cluster-name",
-  "type": "Microsoft.OperationalInsights/clusters",
-  "location": "region-name"
-  }
-```
-
-> [!IMPORTANT]
-> 다음 단계에서 필요 하므로 응답을 복사 하 고 유지 합니다.
-
-**구성 요소 연결**
-
-```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Insights/components/<component-name>?api-version=2015-05-01
-Authorization: Bearer <token>
-Content-type: application/json
-
-{
-  "properties": {
-    "clusterDefinitionId": "cluster-id"
-  },
-  "location": "<region-name>",
-  "kind": "<component-type>"
-}
-```
-"clusterDefinitionId"은 이전 단계의 응답에서 제공 된 "clusterId" 값입니다.
-"kind" 예는 "web"입니다.
-
-**응답이**
-
-```json
-{
-  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.insights/components/component-name",
-  "name": "component-name",
-  "type": "Microsoft.Insights/components",
-  "location": "region-name",
-  "tags": "",
-  "kind": "",
-  "properties": {
-    "clusterDefinitionId": "cluster-id"
-    "ApplicationId": "",
-    "AppId": "",
-    "Application_Type": "",
-    "Flow_Type": "",
-    "Request_Source": "",
-    "InstrumentationKey": "",
-    "CreationDate": "",
-    "TenantId": "",
-    "HockeyAppId": "",
-    "HockeyAppToken": "",
-    "provisioningState": "",
-    "SamplingPercentage":,
-    "RetentionInDays":,
-    "ConnectionString": "",
-    "DisableIpMasking":,
-    "ImmediatePurgeDataOn30Days": 
-  }
-}
-```
-"clusterDefinitionId"은이 구성 요소에 연결 된 *클러스터* 리소스 ID입니다.
-
-연결 후 구성 요소에 전송 된 데이터는 관리 되는 키로 암호화 된 상태로 저장 됩니다.

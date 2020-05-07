@@ -1,0 +1,42 @@
+- name: AVS(Azure VMware 솔루션)
+  href: index.yml
+- name: 개요
+  items:
+    - name: AVS(Azure VMware 솔루션) 정보
+      href: introduction.md
+- name: 자습서
+  items:
+    - name: 1 - 네트워크 계획
+      href: tutorial-network-checklist.md
+    - name: 2 - AVS 프라이빗 클라우드 만들기
+      href: tutorial-create-private-cloud.md
+    - name: 3 - 네트워킹 구성
+      href: tutorial-configure-networking.md
+    - name: 4 - 프라이빗 클라우드 액세스
+      href: tutorial-access-private-cloud.md
+    - name: 5 - 프라이빗 클라우드 스케일링
+      href: tutorial-scale-private-cloud.md
+- name: 개념
+  items:
+    - name: 프라이빗 클라우드 및 클러스터
+      href: concepts-private-clouds-clusters.md
+    - name: 프라이빗 클라우드 네트워킹 및 상호 연결
+      href: concepts-networking.md
+    - name: 프라이빗 클라우드의 스토리지
+      href: concepts-storage.md
+    - name: 프라이빗 클라우드의 액세스 및 ID
+      href: concepts-identity.md
+    - name: 프라이빗 클라우드 업그레이드
+      href: concepts-upgrades.md
+- name: 방법 가이드
+  items:
+    - name: DHCP 관리
+      href: manage-dhcp.md
+    - name: 재해 복구
+      href: disaster-recovery.md
+- name: 참조
+  items: null
+- name: 리소스
+  items:
+    - name: FAQ
+      href: faq.md

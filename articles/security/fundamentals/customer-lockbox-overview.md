@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/04/2019
-ms.openlocfilehash: abc16ae7f7ab8bf15173248a6e7668e689e127de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5330c751aaa3fcbd5c7fc268e4a4de08d336d474
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77561972"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735439"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Microsoft Azure에 대 한 고객 Lockbox
 
@@ -49,7 +49,7 @@ Microsoft Azure 고객 Lockbox는 고객이 고객 데이터 액세스 요청을
 
     요청은 이제 고객에 게 **알림** 상태 이며, 액세스 권한을 부여 하기 전에 고객의 승인을 기다리고 있습니다.
 
-7. 고객 조직에서 Azure 구독에 대 한 [소유자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) 을 가진 사용자는 Microsoft에서 전자 메일을 받아 보류 중인 액세스 요청에 대해 알립니다. 고객 Lockbox 요청의 경우이 사람은 지정 된 승인자입니다.
+7. 고객 조직에서 Azure 구독에 대 한 [소유자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) 을 가진 사용자는 Microsoft에서 전자 메일을 받아 보류 중인 액세스 요청에 대해 알립니다. 고객 Lockbox 요청의 경우이 사람은 지정 된 승인자입니다.
 
     전자 메일 예:
 
@@ -65,7 +65,7 @@ Microsoft Azure 고객 Lockbox는 고객이 고객 데이터 액세스 요청을
 
     ![Azure 고객 Lockbox-보류 중인 요청 보기](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
-10. 지정 된 승인자는 **서비스 요청 ID** 를 선택 하 여 원래 사용자가 만든 지원 티켓 요청을 볼 수도 있습니다. 이 정보는 Microsoft 지원가 개입 된 이유와 보고 된 문제의 기록에 대 한 컨텍스트를 제공 합니다. 다음은 그 예입니다.
+10. 지정 된 승인자는 **서비스 요청 ID** 를 선택 하 여 원래 사용자가 만든 지원 티켓 요청을 볼 수도 있습니다. 이 정보는 Microsoft 지원가 개입 된 이유와 보고 된 문제의 기록에 대 한 컨텍스트를 제공 합니다. 예를 들면 다음과 같습니다.
 
     ![Azure 고객 Lockbox-지원 티켓 요청 보기](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 

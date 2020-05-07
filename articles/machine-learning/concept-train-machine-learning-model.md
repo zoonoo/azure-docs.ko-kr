@@ -1,5 +1,5 @@
 ---
-title: 모델 학습 방법
+title: 빌드 & 학습 모델
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning를 사용 하 여 모델을 학습 하는 데 사용할 수 있는 여러 가지 방법을 알아봅니다. 추정는 Scikit-배우기, TensorFlow, Keras, PyTorch 및 체 이너와 같은 인기 있는 프레임 워크를 사용 하는 쉬운 방법을 제공 합니다. Machine Learning 파이프라인을 사용 하면 간편 하 게 무인 실행을 예약 하 고, 다른 유형의 계산 환경을 사용 하 고, 워크플로의 일부를 다시 사용할 수 있습니다. 및 실행 구성은 학습 프로세스가 실행 되는 계산 대상에 대해 세부적인 제어를 제공 합니다.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 68ad9cc47d68f7bc3ae952f7e458781cdc1c4ab2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c75c41012928b7bffb61a00a73f314e4c372b154
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79129763"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792346"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 
@@ -22,7 +22,7 @@ Azure Machine Learning은 SDK를 사용 하는 code first 솔루션에서 자동
 
 + [Python 용 AZURE MACHINE LEARNING SDK](#python-sdk): python SDK는 다양 한 기능을 사용 하 여 모델을 학습 하는 여러 가지 방법을 제공 합니다.
 
-    | 학습 방법 | Description |
+    | 학습 방법 | 설명 |
     | ----- | ----- |
     | [실행 구성](#run-configuration) | **모델을 학습 하는 일반적인 방법은** 학습 스크립트 및 실행 구성을 사용 하는 것입니다. 실행 구성은 모델 학습에 사용 되는 학습 환경을 구성 하는 데 필요한 정보를 제공 합니다. 실행 구성, 학습 스크립트 및 계산 대상 (교육 환경)을 사용 하 여 교육 작업을 실행할 수 있습니다. |
     | [자동화된 기계 학습](#automated-machine-learning) | 자동화 된 기계 학습을 사용 하면 **광범위 한 데이터 과학 또는 프로그래밍 지식 없이 모델**을 학습할 수 있습니다. 데이터 과학 및 프로그래밍 배경을 사용 하는 사용자의 경우 알고리즘 선택 및 하이퍼 매개 변수 튜닝을 자동화 하 여 시간과 리소스를 절약 하는 방법을 제공 합니다. 자동화 된 machine learning을 사용할 때 실행 구성을 정의 하는 것에 대해 걱정할 필요가 없습니다. |

@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: 25cff0d0ea007bdd55131ab334a5813344991d0e
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 29baead8dbb41b004a9ace8576029c9bd8af3290
+  ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78672139"
+  ms.lasthandoff: 05/05/2020
+  ms.locfileid: "82790782"
 landingContent:
 - title: Azure App Configuration 정보
   linkLists:
@@ -76,6 +76,8 @@ landingContent:
     links:
     - text: CI/CD 파이프라인과 통합
       url: integrate-ci-cd-pipeline.md
+    - text: Helm을 사용하여 Kubernetes 배포와 통합
+      url: integrate-kubernetes-deployment-helm.md
   - linkListType: tutorial
     links:
     - text: ASP.NET Core 앱에서 Key Vault 참조 사용

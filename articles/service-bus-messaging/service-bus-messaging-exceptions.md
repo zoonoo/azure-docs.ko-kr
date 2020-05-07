@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: aschhab
-ms.openlocfilehash: d04902a8d53397b7e7d9712a1c75ce44cc7aa7ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1a4caf6ffd5740b4227aff2f38d9cb709c77b48
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80880791"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739350"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus 메시징 예외
 이 문서에서는 .NET Framework Api에 의해 생성 된 .NET 예외를 나열 합니다. 
@@ -46,8 +46,6 @@ ms.locfileid: "80880791"
 | [MessageNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagenotfoundexception) |특정 시퀀스 번호를 통해 메시지 수신을 시도합니다. 이 메시지를 찾을 수 없습니다. |메시지를 아직 받지 않았는지 확인 합니다. 전달 실패 큐에서 메시지가 전달되지 않았는지 확인합니다. |다시 시도 해도 도움이 되지 않습니다. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |클라이언트에서 Service Bus에 대 한 연결을 설정할 수 없습니다. |제공된 호스트 이름이 정확하며 호스트에 연결할 수 있는지 확인합니다. |간헐적인 연결 문제라면 재시도로 문제를 해결할 수 있습니다. |
 | [ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception) |지금은 서비스에서 요청을 처리할 수 없습니다. |클라이언트가 잠시 대기한 후 작업을 다시 시도할 수 있습니다. |클라이언트가 일정 시간 이후에 다시 시도할 수 있습니다. 재시도에서 다른 예외가 발생한 경우 해당 예외의 재시도 작동을 확인합니다. |
-| [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception) |메시지와 연결 된 잠금 토큰이 만료 되었거나 잠금 토큰을 찾을 수 없습니다. |메시지를 제거합니다. |다시 시도 해도 도움이 되지 않습니다. |
-| [SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception) |이 세션에 연결된 잠금이 손실되었습니다. |[MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 개체를 중단합니다. |다시 시도 해도 도움이 되지 않습니다. |
 | [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |다음 상황에 발생할 수 있는 일반 메시징 예외:<p>다른 엔터티 형식에 속하는(예: topic) 이름이나 경로를 사용하여 [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient)를 만들려고 시도합니다.</p><p>256KB보다 큰 메시지를 전송하려고 시도합니다. </p>서버 또는 서비스가 요청을 처리하는 동안 오류가 발생했습니다. 자세한 내용은 예외 메시지를 참조하세요. 일반적으로 일시적인 예외입니다.</p><p>엔터티가 제한 되기 때문에 요청이 종료 되었습니다. 오류 코드: 50001, 50002, 50008. </p> | 코드를 확인하고 메시지 본문에서 직렬화 가능 개체(또는 사용자 지정 직렬 변환기 사용)만 사용하는지 확인합니다. <p>설명서에서 지원되는 속성 값 유형을 확인하고 지원되는 유형만 사용합니다.</p><p> [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) 속성을 확인합니다. **True**인 경우 작업을 다시 시도할 수 있습니다. </p>| 제한으로 인해 예외가 발생 한 경우 몇 초 정도 기다린 후 작업을 다시 시도 하세요. 재시도 동작은 정의 되지 않으며 다른 시나리오에서는 도움이 되지 않을 수 있습니다.|
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |해당 서비스 네임스페이스에서 이미 다른 엔터티가 사용하는 이름으로 엔터티를 만들려고 합니다. |기존 엔터티를 삭제하거나 만들려는 엔터티에 다른 이름을 선택합니다. |다시 시도 해도 도움이 되지 않습니다. |
 | [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) |메시징 엔터티가 최대 허용 크기에 도달했거나 네임스페이스에 대한 최대 연결 수를 초과했습니다. |엔터티나 하위 큐에서 메시지를 수신하여 엔터티에 공간을 만듭니다. [QuotaExceededException](#quotaexceededexception)를 참조 하세요. |그 사이 메시지가 제거되었으면 재시도가 도움이 될 수 있습니다. |
@@ -78,7 +76,7 @@ Message: The maximum entity size has been reached or exceeded for Topic: 'xxx-xx
 
 ### <a name="namespaces"></a>네임스페이스
 
-네임스페이스의 경우 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception)은 애플리케이션이 네임스페이스에 대한 최대 연결 수를 초과했음을 나타낼 수 있습니다. 다음은 그 예입니다.
+네임스페이스의 경우 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception)은 애플리케이션이 네임스페이스에 대한 최대 연결 수를 초과했음을 나타낼 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
@@ -102,6 +100,96 @@ ConnectionsQuotaExceeded for namespace xxx.
 
 ### <a name="queues-and-topics"></a>큐 및 토픽
 큐 및 토픽의 경우 제한 시간은 연결 문자열의 일부로 [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings) 속성에서 또는 [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder)를 통해 지정됩니다. 오류 메시지 자체는 다를 수 있지만 현재 작업에 대해 지정된 시간 제한 값을 항상 포함합니다. 
+
+## <a name="messagelocklostexception"></a>MessageLockLostException
+
+### <a name="cause"></a>원인
+
+**Microsoft.servicebus.messaging.messagelocklostexception** 는 [PeekLock](message-transfers-locks-settlement.md#peeklock) 수신 모드를 사용 하 여 메시지를 받고 클라이언트에서 보유 한 잠금이 서비스 쪽에서 만료 되 면 throw 됩니다.
+
+메시지의 잠금은 다양 한 이유로 인해 만료 될 수 있습니다. 
+
+  * 클라이언트 응용 프로그램에서 해당 잠금 타이머를 갱신 하기 전에 만료 되었습니다.
+  * 클라이언트 응용 프로그램이 잠금을 획득 하 고 영구 저장소에 저장 한 다음 다시 시작 합니다. 다시 시작 되 면 클라이언트 응용 프로그램은 처리 중인 메시지를 검토 하 고이를 완료 하려고 시도 합니다.
+
+### <a name="resolution"></a>해결 방법
+
+**Microsoft.servicebus.messaging.messagelocklostexception**이벤트에서 클라이언트 응용 프로그램은 더 이상 메시지를 처리할 수 없습니다. 클라이언트 응용 프로그램은 필요에 따라 분석을 위해 예외를 로깅하는 것을 고려할 수 있지만 클라이언트는 메시지를 삭제 *해야* 합니다.
+
+메시지에 대 한 잠금이 만료 되었으므로 큐 또는 구독으로 돌아가서 receive를 호출 하는 다음 클라이언트 응용 프로그램에서 처리할 수 있습니다.
+
+**MaxDeliveryCount** 를 초과 하면 메시지가 **DeadLetterQueue**로 이동 될 수 있습니다.
+
+## <a name="sessionlocklostexception"></a>SessionLockLostException
+
+### <a name="cause"></a>원인
+
+**Microsoft.servicebus.messaging.sessionlocklostexception** 는 세션이 수락 되 고 클라이언트에서 보유 한 잠금이 서비스 쪽에서 만료 되 면 throw 됩니다.
+
+세션에 대 한 잠금은 다양 한 이유로 인해 만료 될 수 있습니다. 
+
+  * 클라이언트 응용 프로그램에서 해당 잠금 타이머를 갱신 하기 전에 만료 되었습니다.
+  * 클라이언트 응용 프로그램이 잠금을 획득 하 고 영구 저장소에 저장 한 다음 다시 시작 합니다. 다시 시작 되 면 클라이언트 응용 프로그램은 처리 중인 세션을 검토 하 고 해당 세션에서 메시지를 처리 하려고 했습니다.
+
+### <a name="resolution"></a>해결 방법
+
+**Microsoft.servicebus.messaging.sessionlocklostexception**의 경우 클라이언트 응용 프로그램은 세션에서 메시지를 더 이상 처리할 수 없습니다. 클라이언트 응용 프로그램에서 분석을 위해 예외를 로깅하는 것을 고려할 수 있지만 클라이언트는 메시지를 삭제 *해야* 합니다.
+
+세션에 대 한 잠금이 만료 되었으므로 큐 또는 구독으로 돌아가서 세션을 수락 하는 다음 클라이언트 응용 프로그램에 의해 잠겨 있을 수 있습니다. 세션 잠금은 지정 된 시간에 단일 클라이언트 응용 프로그램에서 유지 되므로 순서가 지정 된 처리가 보장 됩니다.
+
+## <a name="socketexception"></a>SocketException
+
+### <a name="cause"></a>원인
+
+다음과 같은 경우에는 **Socketexception** 이 throw 됩니다.
+   * 지정 된 시간 (TCP 오류 코드 10060) 후에 호스트가 제대로 응답 하지 않아 연결 시도가 실패 한 경우
+   * 연결 된 호스트가 응답 하지 못해 연결을 설정 하지 못했습니다.
+   * 메시지를 처리 하는 동안 오류가 발생 했거나 원격 호스트가 시간 제한을 초과 했습니다.
+   * 기본 네트워크 리소스 문제
+
+### <a name="resolution"></a>해결 방법
+
+**Socketexception** 오류는 응용 프로그램을 호스트 하는 VM이 이름을 `<mynamespace>.servicebus.windows.net` 해당 IP 주소로 변환할 수 없음을 의미 합니다. 
+
+아래 명령에서 IP 주소에 대 한 매핑에 성공 했는지 확인 합니다.
+
+```Powershell
+PS C:\> nslookup <mynamespace>.servicebus.windows.net
+```
+
+아래와 같이 출력을 제공 해야 합니다.
+
+```bash
+Name:    <cloudappinstance>.cloudapp.net
+Address:  XX.XX.XXX.240
+Aliases:  <mynamespace>.servicebus.windows.net
+```
+
+위의 이름이 IP와 네임 스페이스 별칭으로 **확인 되지** 않는 경우 추가로 조사할 네트워크 관리자를 확인 합니다. 이름 확인은 일반적으로 고객 네트워크의 리소스를 DNS 서버를 통해 수행 됩니다. Azure DNS에서 DNS 확인을 수행 하는 경우 Azure 지원에 문의 하세요.
+
+이름 확인이 **예상 대로 작동**하는 경우 [여기](service-bus-troubleshooting-guide.md#connectivity-certificate-or-timeout-issues) 에서 Azure Service Bus에 대 한 연결이 허용 되는지 확인 합니다.
+
+
+## <a name="messagingexception"></a>MessagingException
+
+### <a name="cause"></a>원인
+
+**Messagingexception** 은 다양 한 이유로 throw 될 수 있는 일반 예외입니다. 몇 가지 이유는 다음과 같습니다.
+
+   * **토픽** 또는 **구독**에 대 한 **QueueClient** 를 만들려고 했습니다.
+   * 전송 된 메시지의 크기가 지정 된 계층에 대 한 제한 보다 큽니다. Service Bus [할당량 및 한도](service-bus-quotas.md)에 대해 자세히 알아보세요.
+   * 제한으로 인해 특정 데이터 평면 요청 (보내기, 받기, 완료, 중단)이 종료 되었습니다.
+   * 서비스 업그레이드 및 다시 시작으로 인해 발생 하는 일시적인 문제입니다.
+
+> [!NOTE]
+> 위의 예외 목록은 완전 하지 않습니다.
+
+### <a name="resolution"></a>해결 방법
+
+해결 단계는 **Messagingexception** 이 throw 된 원인에 따라 달라 집니다.
+
+   * **일시적인 문제** (여기서 ***isTransient*** 가 ***true***로 설정 된 경우) 또는 **제한 문제**에 대해 작업을 다시 시도 하면이 문제를 해결할 수 있습니다. SDK에 대 한 기본 재시도 정책은이를 위해 활용할 수 있습니다.
+   * 다른 문제의 경우 예외의 세부 정보는 문제를 나타내며 동일한에서 해결 단계를 추론할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 전체 Service Bus .NET API 참조는 [Azure .NET API 참조](/dotnet/api/overview/azure/service-bus)를 확인하세요.

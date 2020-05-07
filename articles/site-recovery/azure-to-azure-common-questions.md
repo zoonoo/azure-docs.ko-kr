@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7d3bcc32dc8f1412a5adbc175a5f8618628bce83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6f665c5b0f2fbd291d20ef21d0a447d20f7c2da
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80547882"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738051"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure에서 Azure로 재해 복구
 
@@ -194,10 +194,10 @@ Site Recovery은 모든 컴퓨터의 복제 그룹을 만드는 **다중 VM 일�
 다중 VM 일관성은 CPU를 많이 사용 하므로 사용 하도록 설정 하면 워크 로드 성능에 영향을 줄 수 있습니다. 컴퓨터가 동일한 워크 로드를 실행 하 고 여러 컴퓨터에서 일관성을 유지 해야 하는 경우에만 다중 VM 일관성을 사용 합니다. 예를 들어 응용 프로그램에 두 개의 SQL Server 인스턴스와 두 개의 웹 서버가 있는 경우 SQL Server 인스턴스에만 다중 VM 일관성을 유지 해야 합니다.
 
 ### <a name="can-you-add-an-already-replicating-vm-to-a-replication-group"></a>복제 그룹에 이미 복제 중인 VM을 추가할 수 있나요?
-
 복제를 사용 하도록 설정 하는 동안 새 복제 그룹에 VM을 추가할 수 있습니다. 복제를 사용 하도록 설정 하는 동안 기존 복제 그룹에 VM을 추가할 수도 있습니다. 그러나 이미 복제 된 VM을 새 복제 그룹 또는 기존 복제 그룹에 추가할 수는 없습니다.
+ 
+## <a name="failover"></a>장애 조치 
 
-## <a name="failover"></a>장애 조치(Failover)
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Azure Vm의 대상 지역에서 용량을 어떻게 보장 하나요?
 

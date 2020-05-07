@@ -1,5 +1,5 @@
 ---
-title: 연속 통합 및 배포
+title: 지속적인 통합 및 배포
 description: Azure Pipelines를 사용한 연속 통합 및 배포에 대 한 기본 제공 지원을 통해 데이터 웨어하우징에 대 한 엔터프라이즈급 데이터베이스 DevOps 환경
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: ddd24eb510405d49465ca4e0e0f326f7260e2ed1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14c3dde4a86e36a4015a319e608ab8543302932f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416238"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791292"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>데이터 웨어하우징에 대 한 지속적인 통합 및 배포
 
@@ -46,7 +46,7 @@ ms.locfileid: "81416238"
 
 ## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Azure SQL Data Warehouse(또는 Database) 배포 작업을 사용한 지속적인 배포
 
-1. [Azure SQL Database 배포 작업](/devops/pipelines/targets/azure-sqldb?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 사용하여 새 작업을 추가하고, 대상 데이터 웨어하우스에 연결하는 데 필요한 필드를 채웁니다. 이 작업이 실행되면 이전 빌드 프로세스에서 생성된 DACPAC가 대상 데이터 웨어하우스에 배포됩니다. [Azure SQL Data Warehouse 배포 작업](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment)을 사용할 수도 있습니다.
+1. [Azure SQL Database 배포 작업](/azure/devops/pipelines/targets/azure-sqldb)을 사용하여 새 작업을 추가하고, 대상 데이터 웨어하우스에 연결하는 데 필요한 필드를 채웁니다. 이 작업이 실행되면 이전 빌드 프로세스에서 생성된 DACPAC가 대상 데이터 웨어하우스에 배포됩니다. [Azure SQL Data Warehouse 배포 작업](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment)을 사용할 수도 있습니다.
 
       ![배포 작업](./media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "배포 작업")
 
