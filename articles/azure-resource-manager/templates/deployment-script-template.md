@@ -5,21 +5,20 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/30/2020
 ms.author: jgao
-ms.openlocfilehash: 99db4ec61a515301224691d7c2e4e3c905fee1c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 14663e71126d8c201015996e3e4dc76976128bcc
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188912"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610805"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용 (미리 보기)
 
 Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 대해 알아봅니다. 이라는 `Microsoft.Resources/deploymentScripts`새 리소스 유형을 사용 하면 사용자가 템플릿 배포에서 배포 스크립트를 실행 하 고 실행 결과를 검토할 수 있습니다. 이러한 스크립트는 다음과 같은 사용자 지정 단계를 수행 하는 데 사용할 수 있습니다.
 
 - 디렉터리에 사용자 추가
-- 앱 등록 만들기
 - 데이터 평면 작업 (예: blob 복사 또는 시드 데이터베이스)을 수행 합니다.
 - 라이선스 키 조회 및 유효성 검사
 - 자체 서명된 인증서 만들기
@@ -37,14 +36,14 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
 배포 스크립트 리소스는 Azure Container Instance를 사용할 수 있는 지역 에서만 사용할 수 있습니다.  [Azure 지역에서 Azure Container Instances에 대 한 리소스 가용성을](../../container-instances/container-instances-region-availability.md)참조 하세요.
 
 > [!IMPORTANT]
-> 스크립트를 실행하고 문제를 해결하기 위해 두 개의 배포 스크립트 리소스, 즉 스토리지 계정과 컨테이너 인스턴스가 동일한 리소스 그룹에 만들어집니다. 이러한 리소스는 일반적으로 배포 스크립트 실행이 터미널 상태가 될 때 스크립트 서비스에 의해 삭제 됩니다. 리소스가 삭제될 때까지 해당 리소스에 대한 요금이 청구됩니다. 자세히 알아보려면 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조 하세요.
+> 스크립트를 실행 하 고 문제를 해결 하려면 저장소 계정 및 컨테이너 인스턴스가 필요 합니다. 기존 저장소 계정을 지정 하는 옵션이 있습니다. 그렇지 않으면 컨테이너 인스턴스와 함께 저장소 계정이 스크립트 서비스에 의해 자동으로 생성 됩니다. 자동으로 생성 된 두 리소스는 일반적으로 배포 스크립트 실행이 터미널 상태로 될 때 스크립트 서비스에 의해 삭제 됩니다. 리소스가 삭제될 때까지 해당 리소스에 대한 요금이 청구됩니다. 자세히 알아보려면 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - **대상 리소스 그룹에 대 한 참가자의 역할이 있는 사용자 할당 관리 id**입니다. 이 ID는 배포 스크립트를 실행하는 데 사용됩니다. 리소스 그룹 외부에서 작업을 수행 하려면 추가 권한을 부여 해야 합니다. 예를 들어 새 리소스 그룹을 만들려는 경우 구독 수준에 id를 할당 합니다.
 
   > [!NOTE]
-  > 배포 스크립트 엔진은 백그라운드에서 저장소 계정 및 컨테이너 인스턴스를 만듭니다.  구독에서 Azure storage 계정 (ContainerInstance) 및 Azure container instance () 리소스 공급자를 등록 하지 않은 경우 구독 수준에서 참가자 역할이 있는 사용자 할당 관리 id가 필요 합니다.
+  > 스크립트 서비스는 기존 저장소 계정을 지정 하지 않는 한 저장소 계정을 만들고 백그라운드에서 컨테이너 인스턴스를 만듭니다.  구독에서 Azure storage 계정 (ContainerInstance) 및 Azure container instance () 리소스 공급자를 등록 하지 않은 경우 구독 수준에서 참가자 역할이 있는 사용자 할당 관리 id가 필요 합니다.
 
   Id를 만들려면 Azure Portal를 사용 하거나 [Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)를 사용 하거나 [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)를 사용 하 여 [사용자 할당 관리 id 만들기](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)를 참조 하세요. 이 ID는 템플릿을 배포할 때 필요합니다. ID의 형식은 다음과 같습니다.
 
@@ -101,6 +100,13 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
   },
   "properties": {
     "forceUpdateTag": 1,
+    "containerSettings": {
+      "containerGroupName": "mycustomaci"
+    },
+    "storageAccountSettings": {
+      "storageAccountName": "myStorageAccount",
+      "storageAccountKey": "myKey"
+    },
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
     "environmentVariables": [
@@ -132,6 +138,8 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
 - **Id**: 배포 스크립트 서비스는 사용자 할당 관리 id를 사용 하 여 스크립트를 실행 합니다. 현재 사용자 할당 관리 id만 지원 됩니다.
 - **kind**: 스크립트 유형을 지정합니다. 현재 Azure PowerShell 및 Azure CLI 스크립트는 지원 됩니다. 값은 **Azurepowershell** 및 **azurepowershell**입니다.
 - **Forceupdatetag**: 템플릿 배포 간에이 값을 변경 하면 배포 스크립트가 강제로 다시 실행 됩니다. 매개 변수의 defaultValue로 설정 해야 하는 newGuid () 또는 utcNow () 함수를 사용 합니다. 자세한 내용은 [스크립트를 두 번 이상 실행](#run-script-more-than-once)을 참조하세요.
+- **containerSettings**: Azure Container Instance를 사용자 지정 하는 설정을 지정 합니다.  **containerGroupName** 는 컨테이너 그룹 이름을 지정 하는 데 사용할 수 있습니다.  지정 하지 않으면 그룹 이름이 자동으로 생성 됩니다.
+- **Storageaccountsettings**: 기존 저장소 계정을 사용 하는 설정을 지정 합니다. 지정 하지 않으면 저장소 계정이 자동으로 만들어집니다. [기존 저장소 계정 사용](#use-an-existing-storage-account)을 참조 하세요.
 - **azPowerShellVersion**/**azCliVersion**: 사용할 모듈 버전을 지정 합니다. 지원 되는 PowerShell 및 CLI 버전 목록은 [필수 구성 요소](#prerequisites)를 참조 하세요.
 - **arguments**: 매개 변수의 값을 지정합니다. 값은 공백으로 구분됩니다.
 - 환경 **변수**: 스크립트에 전달할 환경 변수를 지정 합니다. 자세한 내용은 [배포 스크립트 개발](#develop-deployment-scripts)을 참조 하세요.
@@ -182,7 +190,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="use-external-scripts"></a>외부 스크립트 사용
 
-인라인 스크립트 외에도 외부 스크립트 파일을 사용할 수 있습니다. 파일 확장명이 **ps1** 인 기본 PowerShell 스크립트만 지원 됩니다. CLI 스크립트의 경우 스크립트는 유효한 bash 스크립트 이면 기본 스크립트에 확장을 포함 하거나 확장을 사용 하지 않을 수 있습니다. 외부 스크립트 파일을 사용 하려면를 `scriptContent` 로 `primaryScriptUri`바꿉니다. 다음은 그 예입니다.
+인라인 스크립트 외에도 외부 스크립트 파일을 사용할 수 있습니다. 파일 확장명이 **ps1** 인 기본 PowerShell 스크립트만 지원 됩니다. CLI 스크립트의 경우 스크립트는 유효한 bash 스크립트 이면 기본 스크립트에 확장을 포함 하거나 확장을 사용 하지 않을 수 있습니다. 외부 스크립트 파일을 사용 하려면를 `scriptContent` 로 `primaryScriptUri`바꿉니다. 예를 들어:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -241,7 +249,7 @@ PowerShell 배포 스크립트와는 달리 CLI/bash 지원에서는 스크립�
 ### <a name="handle-non-terminating-errors"></a>종료 되지 않는 오류 처리
 
 배포 스크립트에서 [**$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
-) 변수를 사용 하 여 PowerShell이 종료 되지 않는 오류에 응답 하는 방식을 제어할 수 있습니다. 배포 스크립트 엔진이 값을 설정/변경 하지 않습니다.  $ErrorActionPreference에 대해 설정한 값에도 불구 하 고, 스크립트에서 오류가 발생할 경우 배포 스크립트에서 리소스 프로 비전 상태를 *Failed* 로 설정 합니다.
+) 변수를 사용 하 여 PowerShell이 종료 되지 않는 오류에 응답 하는 방식을 제어할 수 있습니다. 스크립트 서비스에서 값을 설정/변경 하지 않습니다.  $ErrorActionPreference에 대해 설정한 값에도 불구 하 고, 스크립트에서 오류가 발생할 경우 배포 스크립트에서 리소스 프로 비전 상태를 *Failed* 로 설정 합니다.
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>배포 스크립트에 보안 문자열 전달
 
@@ -249,7 +257,7 @@ PowerShell 배포 스크립트와는 달리 CLI/bash 지원에서는 스크립�
 
 ## <a name="debug-deployment-scripts"></a>배포 스크립트 디버그
 
-스크립트 서비스는 스크립트 실행을 위한 [저장소 계정](../../storage/common/storage-account-overview.md) 및 [컨테이너 인스턴스](../../container-instances/container-instances-overview.md) 를 만듭니다. 두 리소스 모두 리소스 이름에 **azscripts** 접미사가 있습니다.
+스크립트 서비스는 기존 저장소 계정을 지정 하지 않는 한 [저장소 계정을](../../storage/common/storage-account-overview.md) 만들고 스크립트 실행을 위한 [컨테이너 인스턴스](../../container-instances/container-instances-overview.md) 를 만듭니다. 이러한 리소스는 스크립트 서비스에서 자동으로 생성 되는 경우 리소스 이름에 **azscripts** 접미사가 있습니다.
 
 ![리소스 관리자 템플릿 배포 스크립트 리소스 이름](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
@@ -292,17 +300,38 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 
 ![리소스 관리자 템플릿 배포 스크립트, 숨겨진 유형 표시, 포털](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
 
+## <a name="use-an-existing-storage-account"></a>기존 스토리지 계정 사용
+
+스크립트를 실행 하 고 문제를 해결 하려면 저장소 계정 및 컨테이너 인스턴스가 필요 합니다. 기존 저장소 계정을 지정 하는 옵션이 있습니다. 그렇지 않으면 컨테이너 인스턴스와 함께 저장소 계정이 스크립트 서비스에 의해 자동으로 생성 됩니다. 기존 저장소 계정을 사용 하기 위한 요구 사항:
+
+- 지원 되는 저장소 계정 종류는 범용 v2 계정, 범용 v1 계정 및 fileStorage 계정입니다. 자세한 내용은 [저장소 계정 유형](../../storage/common/storage-account-overview.md)을 참조 하세요.
+- 저장소 계정 방화벽 규칙이 꺼져 있어야 합니다. [Azure Storage 방화벽 및 가상 네트워크 구성을](../../storage/common/storage-network-security.md) 참조 하세요.
+- 배포 스크립트의 사용자 할당 관리 id에는 저장소 계정을 관리할 수 있는 권한이 있어야 합니다. 여기에는 파일 공유 읽기, 만들기, 삭제 등이 포함 됩니다.
+
+기존 저장소 계정을 지정 하려면의 `Microsoft.Resources/deploymentScripts`property 요소에 다음 json을 추가 합니다.
+
+```json
+"storageAccountSettings": {
+  "storageAccountName": "myStorageAccount",
+  "storageAccountKey": "myKey"
+},
+```
+
+전체 `Microsoft.Resources/deploymentScripts` 정의 샘플은 [샘플 템플릿](#sample-templates) 을 참조 하세요.
+
+기존 저장소 계정이 사용 되는 경우 스크립트 서비스는 고유한 이름의 파일 공유를 만듭니다. 스크립트 서비스에서 파일 공유를 정리 하는 방법은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources) 를 참조 하세요.
+
 ## <a name="clean-up-deployment-script-resources"></a>배포 스크립트 리소스 정리
 
-배포 스크립트는 배포 스크립트를 실행 하 고 디버그 정보를 저장 하는 데 사용 되는 저장소 계정 및 컨테이너 인스턴스를 만듭니다. 이러한 두 리소스는 프로 비전 된 리소스와 동일한 리소스 그룹에 만들어지고 스크립트가 만료 될 때 스크립트 서비스에 의해 삭제 됩니다. 이러한 리소스의 수명 주기를 제어할 수 있습니다.  삭제 될 때까지 두 리소스에 대해 요금이 청구 됩니다. 가격 정보는 [Container Instances 가격 책정](https://azure.microsoft.com/pricing/details/container-instances/) 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조 하세요.
+스크립트를 실행 하 고 문제를 해결 하려면 저장소 계정 및 컨테이너 인스턴스가 필요 합니다. 기존 저장소 계정을 지정 하는 옵션이 있습니다. 그렇지 않으면 컨테이너 인스턴스와 함께 저장소 계정이 스크립트 서비스에 의해 자동으로 생성 됩니다. 배포 스크립트 실행이 터미널 상태 이면 스크립트 서비스에서 자동으로 생성 된 두 리소스를 삭제 합니다. 리소스가 삭제될 때까지 해당 리소스에 대한 요금이 청구됩니다. 가격 정보는 [Container Instances 가격 책정](https://azure.microsoft.com/pricing/details/container-instances/) 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조 하세요.
 
 이러한 리소스의 수명 주기는 템플릿의 다음 속성에 의해 제어 됩니다.
 
-- **Cleanuppreference**설정: 스크립트 실행이 터미널 상태가 될 때의 우선 순위를 정리 합니다.  지원되는 값은
+- **Cleanuppreference**설정: 스크립트 실행이 터미널 상태가 될 때의 우선 순위를 정리 합니다. 지원되는 값은
 
-  - **항상**: 스크립트 실행이 터미널 상태에서 가져온 후 리소스를 삭제 합니다. 리소스를 정리 하 고 나면 deploymentScripts 리소스가 계속 존재할 수 있으므로 시스템 스크립트는 리소스를 삭제 하기 전에 stdout, output, return value 등의 스크립트 실행 결과를 DB에 복사 합니다.
-  - **Onsuccess**: 스크립트 실행에 성공한 경우에만 리소스를 삭제 합니다. 리소스에 계속 액세스 하 여 디버그 정보를 찾을 수 있습니다.
-  - **Onexpiration**: **보존 기간** 설정이 만료 된 경우에만 리소스를 삭제 합니다. 이 속성은 현재 사용할 수 없습니다.
+  - **항상**: 스크립트 실행이 터미널 상태에서 가져온 후 자동으로 만들어진 리소스를 삭제 합니다. 기존 저장소 계정이 사용 되는 경우 스크립트 서비스는 저장소 계정에 생성 된 파일 공유를 삭제 합니다. 리소스를 정리 하 고 나면 deploymentScripts 리소스가 계속 존재할 수 있기 때문에 스크립트 서비스는 리소스를 삭제 하기 전에 스크립트 실행 결과 (예: stdout, output, return value 등)를 유지 합니다.
+  - **Onsuccess**: 스크립트가 성공적으로 실행 된 경우에만 자동으로 생성 된 리소스를 삭제 합니다. 기존 저장소 계정이 사용 되는 경우 스크립트 서비스는 스크립트 실행에 성공한 경우에만 파일 공유를 제거 합니다. 리소스에 계속 액세스 하 여 디버그 정보를 찾을 수 있습니다.
+  - **Onexpiration**: **보존 기간** 설정이 만료 된 경우에만 자동으로 리소스를 삭제 합니다. 기존 저장소 계정이 사용 되는 경우 스크립트 서비스는 파일 공유를 제거 하지만 저장소 계정은 유지 합니다.
 
 - 보존 **기간**: 스크립트 리소스가 유지 되는 시간 간격을 지정 합니다 .이 시간 후에 만료 되 고 삭제 됩니다.
 

@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: f5f18e9365b09f06c1bd4f25a8efe909cc308dad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d97fbe6ac515a2559340474105d73b7c9b9c6ee4
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537018"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731920"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>여러 VM에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 사용
 
@@ -101,7 +101,7 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 
 * VM runbook 시작 및 중지 일정
 * VM runbook 시작 및 중지
-* 변수
+* variables
 
 또는 Log Analytics 작업 영역에서 Automation 계정에서 작업 영역의 연결을 끊을 수도 있습니다. 작업 영역에서 **관련 리소스**아래에 있는 **Automation 계정** 을 선택 합니다. Automation 계정 페이지에서 **계정 연결 해제**를 선택 합니다.
 
@@ -129,7 +129,7 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 
 **원인:** 솔루션이 일부 Linux 배포판 또는 일부 Windows에 지원되지 않습니다.
 
-**해결 방법:**[지원되는 클라이언트 목록](automation-update-management.md#clients)을 참조하세요.
+**해결 방법:** [지원 되는 클라이언트 목록을](automation-update-management.md#supported-client-types)참조 하십시오.
 
 ### <a name="classic-vms-cannot-be-enabled"></a>클래식 VM을 사용할 수 없음
 

@@ -1,6 +1,6 @@
 ---
-title: Azure RBAC 및 Azure Portal를 사용 하 여 역할 할당 나열
-description: Azure RBAC (역할 기반 액세스 제어) 및 Azure Portal를 사용 하 여 사용자, 그룹, 서비스 주체 또는 관리 id가 액세스할 수 있는 리소스를 확인 하는 방법에 대해 알아봅니다.
+title: Azure Portal를 사용 하 여 Azure 역할 할당 나열-Azure RBAC
+description: Azure Portal 및 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹, 서비스 사용자 또는 관리 id가 액세스할 수 있는 리소스를 확인 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 03a3d3c7d572d7ec5b8d3ac3d527d0d59e649bc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4c02369f44255dfa472202215496378d41f8c6c
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062236"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735728"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Azure RBAC 및 Azure Portal를 사용 하 여 역할 할당 나열
+# <a name="list-azure-role-assignments-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당 나열
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]이 문서에서는 Azure Portal를 사용 하 여 역할 할당을 나열 하는 방법을 설명 합니다.
 
@@ -138,5 +138,5 @@ ms.locfileid: "80062236"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure RBAC 및 Azure Portal를 사용 하 여 역할 할당 추가 또는 제거](role-assignments-portal.md)
-- [Azure 리소스에 대한 RBAC 문제 해결](troubleshooting.md)
+- [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-portal.md)
+- [Azure RBAC 문제 해결](troubleshooting.md)

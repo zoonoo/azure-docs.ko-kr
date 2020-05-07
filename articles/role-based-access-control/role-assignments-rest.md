@@ -1,6 +1,6 @@
 ---
-title: RBAC 및 REST API를 사용 하 여 역할 할당 추가 또는 제거
-description: Azure RBAC (역할 기반 액세스 제어) 및 REST API를 사용 하 여 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 대 한 Azure 리소스에 대 한 액세스 권한을 부여 하는 방법에 대해 알아봅니다.
+title: REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거-Azure RBAC
+description: REST API 및 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹, 서비스 주체 또는 관리 id에 대 한 Azure 리소스에 대 한 액세스 권한을 부여 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9beda6589c03f1b14fc9756af86a9ce0711894c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b73de61834a3ab20cab5e664ed307ad63e087608
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063005"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735643"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Azure RBAC 및 REST API를 사용 하 여 역할 할당 추가 또는 제거
+# <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]이 문서에서는 REST API를 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "80063005"
 
 ## <a name="add-a-role-assignment"></a>역할 할당 추가
 
-RBAC에서 액세스 권한을 부여 하려면 역할 할당을 추가 합니다. 역할 할당을 추가 하려면 [역할 할당-REST API 만들기](/rest/api/authorization/roleassignments/create) 를 사용 하 고 보안 주체, 역할 정의 및 범위를 지정 합니다. 이 API를 호출하려면 `Microsoft.Authorization/roleAssignments/write` 작업에 액세스할 수 있어야 합니다. 기본 제공 역할의 경우 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator)에게만 이러한 작업의 권한이 부여됩니다.
+Azure RBAC에서 액세스 권한을 부여 하려면 역할 할당을 추가 합니다. 역할 할당을 추가 하려면 [역할 할당-REST API 만들기](/rest/api/authorization/roleassignments/create) 를 사용 하 고 보안 주체, 역할 정의 및 범위를 지정 합니다. 이 API를 호출하려면 `Microsoft.Authorization/roleAssignments/write` 작업에 액세스할 수 있어야 합니다. 기본 제공 역할의 경우 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator)에게만 이러한 작업의 권한이 부여됩니다.
 
 1. 할당하려는 역할 정의에 대한 식별자를 가져오려면 [역할 정의 - 나열](/rest/api/authorization/roledefinitions/list) REST API를 사용하거나 [기본 제공 역할](built-in-roles.md)을 참조하세요.
 
@@ -85,7 +85,7 @@ RBAC에서 액세스 권한을 부여 하려면 역할 할당을 추가 합니�
 
 ## <a name="remove-a-role-assignment"></a>역할 할당 제거
 
-RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해야 합니다. 역할 할당을 제거하려면 [역할 할당 - 삭제](/rest/api/authorization/roleassignments/delete) REST API를 사용합니다. 이 API를 호출하려면 `Microsoft.Authorization/roleAssignments/delete` 작업에 액세스할 수 있어야 합니다. 기본 제공 역할의 경우 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator)에게만 이러한 작업의 권한이 부여됩니다.
+Azure RBAC에서 액세스 권한을 제거 하려면 역할 할당을 제거 합니다. 역할 할당을 제거하려면 [역할 할당 - 삭제](/rest/api/authorization/roleassignments/delete) REST API를 사용합니다. 이 API를 호출하려면 `Microsoft.Authorization/roleAssignments/delete` 작업에 액세스할 수 있어야 합니다. 기본 제공 역할의 경우 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator)에게만 이러한 작업의 권한이 부여됩니다.
 
 1. 역할 할당 식별자(GUID)를 가져옵니다. 이 식별자는 역할 할당을 처음 만들 때 반환되거나 역할 할당을 나열하여 가져올 수 있습니다.
 
@@ -109,7 +109,7 @@ RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해야 합
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure RBAC 및 REST API를 사용 하 여 역할 할당 나열](role-assignments-list-rest.md)
+- [REST API를 사용 하 여 Azure 역할 할당 나열](role-assignments-list-rest.md)
 - [리소스 관리자 템플릿과 리소스 관리자 REST API로 리소스 배포](../azure-resource-manager/templates/deploy-rest.md)
 - [Azure REST API 참조](/rest/api/azure/)
-- [REST API를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기](custom-roles-rest.md)
+- [REST API를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트](custom-roles-rest.md)

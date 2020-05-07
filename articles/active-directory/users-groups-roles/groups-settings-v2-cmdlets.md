@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a218e956c72f8005e533db7b8800e98ee72ce223
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc12e571ca955a0ddc47e1c1dd73c2717161df4b
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74233108"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739316"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>그룹 관리를 위한 Azure Active Directory 버전 2 cmdlet
 
@@ -52,6 +52,10 @@ Azure AD PowerShell 모듈을 설치하려면 다음 명령을 사용합니다.
 
 이제 모듈에서 cmdlet 사용을 시작할 수 있습니다. Azure AD 모듈의 cmdlet에 대한 자세한 내용은 [Azure Active Directory PowerShell 버전 2](/powershell/azure/install-adv2?view=azureadps-2.0)에 대한 온라인 참조 문서를 참조하세요.
 
+> [!NOTE]
+> Azure AD PowerShell cmdlet은 .net Core를 기반으로 하기 때문에 새로운 Powershell 7에서 작동 하지 않습니다. Microsoft는이 사실을 알고 있으며 업데이트 하는 중입니다. 이제 Azure AD powershell 작업에 사용할 Windows Powershell 5.x 모듈을 사용 하는 것이 좋습니다. 
+
+
 ## <a name="connect-to-the-directory"></a>디렉터리에 연결
 
 Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 PowerShell 세션을 관리하려는 디렉터리에 연결해야 합니다. 다음 명령을 사용합니다.
@@ -63,8 +67,8 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
 이 cmdlet은 디렉터리에 액세스하는 데 사용할 자격 증명을 묻습니다. 이 예제에서는 karen@drumkit.onmicrosoft.com 을 사용하여 데모 디렉터리에 액세스합니다. 이 cmdlet은 세션이 디렉터리에 정상적으로 연결되었음을 표시하기 위한 확인을 반환합니다.
 
 ```powershell
-    Account                       Environment Tenant
-    -------                       ----------- ------
+    Account                       Environment Tenant ID
+    -------                       ----------- ---------
     Karen@drumkit.onmicrosoft.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f…
 ```
 
@@ -318,7 +322,7 @@ Cmdlet은 지정 된 그룹에 대 한 소유자 (사용자 및 서비스 사용
 * postmaster
 * root
 * secure
-* security
+* 보안
 * ssl-admin
 * webmaster
 

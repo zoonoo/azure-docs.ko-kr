@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 01/24/2020
 ms.author: mimart
 ms.reviewer: japere
-ms.custom: it-pro
+ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b43d2de0a366d7e69a025b2e4e2998dccda2038e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ae3cd491db03fd036869a8d86aeb646e3175b59
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76756214"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609972"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Azure AD 애플리케이션 프록시 커넥터에 대한 무인 설치 스크립트 만들기
 
@@ -36,14 +36,14 @@ ms.locfileid: "76756214"
 
 [응용 프로그램 프록시 커넥터가](application-proxy-connectors.md) 작동 하려면 응용 프로그램 관리자 및 암호를 사용 하 여 Azure AD 디렉터리에 등록 해야 합니다. 일반적으로 이러한 정보는 커넥터 설치 중에 팝업 대화 상자에서 입력되지만, 대신 PowerShell을 사용하여 이 프로세스를 자동화할 수도 있습니다.
 
-무인 설치를 위한 두 단계가 있습니다. 먼저 커넥터를 설치합니다. 두 번째, Azure AD에 커넥터를 등록합니다. 
+무인 설치를 위한 두 단계가 있습니다. 먼저 커넥터를 설치합니다. 두 번째, Azure AD에 커넥터를 등록합니다.
 
 ## <a name="install-the-connector"></a>커넥터 설치
 등록 없이 커넥터를 설치하려면 다음 단계를 사용합니다.
 
 1. 명령 프롬프트를 엽니다.
 2. 다음 명령을 실행합니다. /q는 자동 설치를 의미합니다. 자동 설치는 최종 사용자 사용권 계약에 동의할지 묻는 메시지가 표시되지 않습니다.
-   
+
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
 ## <a name="register-the-connector-with-azure-ad"></a>Azure AD에 커넥터 등록
@@ -54,13 +54,13 @@ ms.locfileid: "76756214"
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Windows PowerShell 자격 증명 개체를 사용하여 커넥터 등록
 1. 디렉터리에 대한 관리 사용자 이름 및 암호를 포함하는 Windows PowerShell 자격 증명 개체 `$cred`를 만듭니다. 다음 명령을 실행 하 여 * \<사용자 이름\> * 및 * \<암호\>* 를 바꿉니다.
-   
+
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
 2. **C:\Program Files\Microsoft AAD App Proxy Connector**로 이동하여 사용자가 만든 `$cred` 개체를 사용하여 다음 스크립트를 실행합니다.
-   
+
         .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature ApplicationProxy
 
 ### <a name="register-the-connector-using-a-token-created-offline"></a>오프라인에서 만든 토큰을 사용하여 커넥터 등록
@@ -128,38 +128,38 @@ ms.locfileid: "76756214"
         $AADPoshPath = (Get-InstalledModule -Name AzureAD).InstalledLocation
         # Set Location for ADAL Helper Library
         $ADALPath = $(Get-ChildItem -Path $($AADPoshPath) -Filter Microsoft.IdentityModel.Clients.ActiveDirectory.dll -Recurse ).FullName | Select-Object -Last 1
-        
+
         # Add ADAL Helper Library
         Add-Type -Path $ADALPath
-        
+
         #region constants
-        
+
         # The AAD authentication endpoint uri
-        [uri]$AadAuthenticationEndpoint = "https://login.microsoftonline.com/common/oauth2/token?api-version=1.0/" 
-        
+        [uri]$AadAuthenticationEndpoint = "https://login.microsoftonline.com/common/oauth2/token?api-version=1.0/"
+
         # The application ID of the connector in AAD
         [string]$ConnectorAppId = "55747057-9b5d-4bd4-b387-abf52a8bd489"
-        
+
         # The reply address of the connector application in AAD
-        [uri]$ConnectorRedirectAddress = "urn:ietf:wg:oauth:2.0:oob" 
-        
+        [uri]$ConnectorRedirectAddress = "urn:ietf:wg:oauth:2.0:oob"
+
         # The AppIdUri of the registration service in AAD
         [uri]$RegistrationServiceAppIdUri = "https://proxy.cloudwebappproxy.net/registerapp"
-        
+
         #endregion
-        
+
         #region GetAuthenticationToken
-        
+
         # Set AuthN context
         $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $AadAuthenticationEndpoint
-        
+
         # Build platform parameters
         $promptBehavior = [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Always
         $platformParam = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList $promptBehavior
-        
+
         # Do AuthN and get token
         $authResult = $authContext.AcquireTokenAsync($RegistrationServiceAppIdUri.AbsoluteUri, $ConnectorAppId, $ConnectorRedirectAddress, $platformParam).Result
-        
+
         # Check AuthN result
         If (($authResult) -and ($authResult.AccessToken) -and ($authResult.TenantId) ) {
         $token = $authResult.AccessToken
@@ -168,7 +168,7 @@ ms.locfileid: "76756214"
         Else {
         Write-Output "Authentication result, token or tenant id returned are null"
         }
-        
+
         #endregion
 
 2. 토큰을 만들었으면 토큰을 사용하여 SecureString을 만듭니다.
@@ -179,9 +179,7 @@ ms.locfileid: "76756214"
 
    `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 
-## <a name="next-steps"></a>다음 단계 
+## <a name="next-steps"></a>다음 단계
 * [고유한 도메인 이름을 사용하여 애플리케이션 게시](application-proxy-configure-custom-domain.md)
 * [Single Sign-On 사용](application-proxy-configure-single-sign-on-with-kcd.md)
 * [애플리케이션 프록시에서 발생한 문제 해결](application-proxy-troubleshoot.md)
-
-

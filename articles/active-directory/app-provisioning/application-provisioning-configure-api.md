@@ -2,26 +2,21 @@
 title: Microsoft Graph Api를 사용 하 여 프로 비전 구성-Azure Active Directory | Microsoft Docs
 description: 응용 프로그램의 여러 인스턴스에 대해 프로 비전을 설정 해야 하나요? 자동 프로 비전 구성을 자동화 하기 위해 Microsoft Graph Api를 사용 하 여 시간을 절약 하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c72217a565071f9531281af1862ba3681e353a4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 585cafc548b3458c6e9cc0ef91c44f163fb7fa2f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481469"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593950"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Microsoft Graph Api를 사용 하 여 프로 비전 구성
 
@@ -66,7 +61,7 @@ Azure AD 응용 프로그램 갤러리의 응용 프로그램에는 각 응용 �
 GET https://graph.microsoft.com/beta/applicationTemplates
 ```
 
-#### <a name="response"></a>*응답이*
+#### <a name="response"></a>*응답*
 
 <!-- {
   "blockType": "response",
@@ -123,7 +118,7 @@ Content-type: application/json
 }
 ```
 
-#### <a name="response"></a>*응답이*
+#### <a name="response"></a>*응답*
 
 
 <!-- {
@@ -187,7 +182,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/temp
 ```
 
 
-#### <a name="response"></a>*응답이*
+#### <a name="response"></a>*응답*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -228,7 +223,7 @@ Content-type: application/json
 }
 ```
 
-#### <a name="response"></a>*응답이*
+#### <a name="response"></a>*응답*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -278,7 +273,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/job
     ]
 }
 ```
-#### <a name="response"></a>*응답이*
+#### <a name="response"></a>*응답*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -304,7 +299,7 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
 }
 ```
 
-#### <a name="response"></a>*응답이*
+#### <a name="response"></a>*응답*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -327,7 +322,7 @@ HTTP/1.1 204 No Content
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/start
 ```
 
-#### <a name="response"></a>*응답이*
+#### <a name="response"></a>*응답*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -353,7 +348,7 @@ HTTP/1.1 204 No Content
 GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
 ```
 
-#### <a name="response"></a>*응답이*
+#### <a name="response"></a>*응답*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -403,7 +398,7 @@ Content-length: 2577
 ```msgraph-interactive
 GET https://graph.microsoft.com/beta/auditLogs/provisioning
 ```
-#### <a name="response"></a>*응답이*
+#### <a name="response"></a>*응답*
 <!-- {
   "blockType": "response",
   "truncated": true,

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: c91b38fcbfb9b517651adead010408425e519a82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b71890323f6aca92fb9f847252feed57d8db234f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80382752"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594953"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Video Indexer가 있는 Azure 지역
 
@@ -23,7 +23,7 @@ Video Indexer API에는 호출을 라우팅할 Azure 지역으로 설정해야 �
 
 ## <a name="locations"></a>위치
 
-**location** 매개 변수에는 해당 값으로 Azure 지역 코드 이름을 지정해야 합니다. Video Indexer를 미리 보기 모드로 사용하는 경우 값으로 *"trial"* 을 사용해야 합니다. 그렇지 않으면, 계정이 있고 호출을 라우팅해야 하는 Azure 지역의 코드 이름을 가져오기 위해 [Azure CLI](/cli/azure)에서 다음 줄을 실행할 수 있습니다.
+`location` 매개 변수에는 Azure 지역 코드 이름을 해당 값으로 지정 해야 합니다. 미리 보기 모드에서 Video Indexer를 사용 하는 경우 값으로 `"trial"` 을 입력 해야 합니다. `trial``location` 매개 변수의 기본값입니다. 그렇지 않으면, 계정이 있고 호출을 라우팅해야 하는 Azure 지역의 코드 이름을 가져오기 위해 [Azure CLI](/cli/azure)에서 다음 줄을 실행할 수 있습니다.
 
 ```azurecli-interactive
 az account list-locations

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: sngun
-ms.openlocfilehash: d380e4c025b35f0000e13c62422d54dc10079524
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5df7866f7897109dbd7a0ea8a52b857ab671875
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192870"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735354"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Azure Cosmos DB 제어 평면 작업을 감사 하는 방법
 
@@ -27,7 +27,9 @@ Azure Cosmos DB의 컨트롤 평면은 Azure Cosmos 계정에서 다양 한 작�
 
 ## <a name="disable-key-based-metadata-write-access"></a>키 기반 메타 데이터 쓰기 액세스 사용 안 함
 
-Azure Cosmos DB에서 제어 평면 작업을 감사 하기 전에 계정에 대 한 키 기반 메타 데이터 쓰기 액세스를 사용 하지 않도록 설정 합니다. 키 기반 메타 데이터 쓰기 액세스를 사용 하지 않도록 설정 하면 계정 키를 통해 Azure Cosmos 계정에 연결 하는 클라이언트가 계정에 액세스할 수 없습니다. 속성을 `disableKeyBasedMetadataWriteAccess` true로 설정 하 여 쓰기 액세스를 비활성화할 수 있습니다. 이 속성을 설정한 후에는 적절 한 RBAC (역할 기반 액세스 제어) 역할 및 자격 증명을 사용 하는 사용자가 리소스에 대 한 변경 내용을 수행할 수 있습니다. 이 속성을 설정 하는 방법에 대 한 자세한 내용은 [sdk에서 변경 방지](role-based-access-control.md#preventing-changes-from-cosmos-sdk) 문서를 참조 하세요. 쓰기 권한을 사용 하지 않도록 설정한 후에는 처리량에 대 한 SDK 기반 변경 내용이 계속 적용 됩니다.
+Azure Cosmos DB에서 제어 평면 작업을 감사 하기 전에 계정에 대 한 키 기반 메타 데이터 쓰기 액세스를 사용 하지 않도록 설정 합니다. 키 기반 메타 데이터 쓰기 액세스를 사용 하지 않도록 설정 하면 계정 키를 통해 Azure Cosmos 계정에 연결 하는 클라이언트가 계정에 액세스할 수 없습니다. 속성을 `disableKeyBasedMetadataWriteAccess` true로 설정 하 여 쓰기 액세스를 비활성화할 수 있습니다. 이 속성을 설정한 후에는 적절 한 RBAC (역할 기반 액세스 제어) 역할 및 자격 증명을 사용 하는 사용자가 리소스에 대 한 변경 내용을 수행할 수 있습니다. 이 속성을 설정 하는 방법에 대 한 자세한 내용은 [sdk에서 변경 방지](role-based-access-control.md#preventing-changes-from-cosmos-sdk) 문서를 참조 하세요. 
+
+`disableKeyBasedMetadataWriteAccess` 가 설정 된 후 SDK 기반 클라이언트가 만들기 또는 업데이트 작업을 실행 하는 경우 *' ContainerNameorDatabaseName ' 리소스에 대 한 작업 ' POST '는 Azure Cosmos DB 끝점이 반환 될 수 없습니다* . 계정에 대 한 이러한 작업에 대 한 액세스를 설정 하거나 Azure Resource Manager, Azure CLI 또는 Azure Powershell을 통해 만들기/업데이트 작업을 수행 해야 합니다. 다시 전환 하려면 [COSMOS SDK에서 변경 방지](role-based-access-control.md#preventing-changes-from-cosmos-sdk) 문서에 설명 된 대로 Azure CLI를 사용 하 여 disableKeyBasedMetadataWriteAccess을 **false** 로 설정 합니다. 의 `disableKeyBasedMetadataWriteAccess` 값을 true 대신 false로 변경 해야 합니다.
 
 메타 데이터 쓰기 액세스를 해제 하는 경우 다음 사항을 고려 하세요.
 
@@ -65,7 +67,7 @@ Azure Portal를 사용 하 여 제어 평면 작업에 대 한 진단 로그를 
    | where TimeGenerated >= ago(1h)
    ```
 
-다음 스크린샷은 VNET이 Azure Cosmos 계정에 추가 될 때 로그를 캡처합니다.
+다음 스크린샷은 Azure Cosmos 계정에 대 한 일관성 수준이 변경 될 때 로그를 캡처합니다.
 
 ![VNet이 추가 될 때의 제어 평면 로그](./media/audit-control-plane-logs/add-ip-filter-logs.png)
 
@@ -149,8 +151,25 @@ API 관련 작업의 경우 작업은 다음과 같은 형식으로 이름이 �
 
 * CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
 * CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
+* SqlContainersUpdateStart, SqlContainersUpdateComplete
 
 *Resourcedetails* 속성은 전체 리소스 본문을 요청 페이로드로 포함 하 고 업데이트 하도록 요청 된 모든 속성을 포함 합니다.
+
+## <a name="diagnostic-log-queries-for-control-plane-operations"></a>제어 평면 작업에 대 한 진단 로그 쿼리
+
+다음은 제어 평면 작업에 대 한 진단 로그를 가져오는 몇 가지 예입니다.
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdateStart"
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdateStart"
+```
 
 ## <a name="next-steps"></a>다음 단계
 

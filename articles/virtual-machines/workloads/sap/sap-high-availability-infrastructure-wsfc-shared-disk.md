@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8a49bc979923bf52d099e30615910c5bdb0601b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5e0eda72f39a70f02b596a8fd69728336eac333
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279859"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594817"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Windows 장애 조치(Failover) 클러스터 및 공유 디스크를 사용하여 SAP ASCS/SCS를 위한 SAP HA용 Azure 인프라 준비
 
@@ -164,7 +164,7 @@ ms.locfileid: "79279859"
 
 이 문서에서는 SAP ASCS 인스턴스를 클러스터링하는 옵션으로서 *클러스터 공유 디스크*를 사용하여 Windows 장애 조치(Failover) 클러스터에서 고가용성 SAP 시스템을 설치 및 구성하기 위해 Azure 인프라를 준비하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 설치를 시작하기 전에 먼저 다음 문서를 검토하세요.
 
@@ -177,9 +177,9 @@ Azure Resource Manager의 3계층 템플릿도 고가용성 시나리오를 지�
 
 이 문서에서 설명하는 예제 시나리오를 위한 Azure Resource Manager 템플릿을 가져올 수 있는 위치는 다음과 같습니다
 
-* [Azure Marketplace 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
+* [Azure Marketplace 이미지](https://github.com/Azure/azure-quickstart-templates/)  
 * [Azure Marketplace 이미지, Azure Managed Disks 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md)  
-* [사용자 지정 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
+* [사용자 지정 이미지](https://github.com/Azure/azure-quickstart-templates/)
 * [사용자 지정 이미지, Managed Disks 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
 
 아키텍처 템플릿 1에 대한 인프라를 준비하려면:
@@ -270,9 +270,9 @@ _**그림 1:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
 
 이 배포 시나리오를 위한 Azure Resource Manager 템플릿을 가져올 수 있는 위치는 다음과 같습니다
 
-* [Azure Marketplace 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
+* [Azure Marketplace 이미지](https://github.com/Azure/azure-quickstart-templates/)  
 * [Azure Marketplace 이미지, Managed Disks 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md)  
-* [사용자 지정 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
+* [사용자 지정 이미지](https://github.com/Azure/azure-quickstart-templates/)
 * [사용자 지정 이미지, Managed Disks 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)
 
 
@@ -524,7 +524,7 @@ SAP ASCS 또는 SCS 인스턴스에 대해 다른 번호를 사용하려는 경�
 1. Azure Portal에서 ** \<SID\>-lb-ascs 부하 분산 장치** > **부하 분산 규칙**을 선택 합니다.
 2. SAP ASCS 또는 SCS 인스턴스에 속하는 모든 부하 분산 규칙에 대해 다음 값을 변경합니다.
 
-   * 속성
+   * Name
    * 포트
    * 백 엔드 포트
 
@@ -649,7 +649,7 @@ SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(Failover) 클러스터
 
    ![그림 18: 확인란 선택 안 함][sap-ha-guide-figure-3017]
 
-   _**그림 18:** 확인란을 선택 *하지* 마십시오._
+   _**그림 18:** 확인란 선택 *안 함*_
 
    쿼럼 및 디스크에 대한 경고는 무시해도 됩니다. [SAP ASCS/SCS 클러스터 공유 디스크용 SIOS DataKeeper Cluster Edition 설치][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios]에서 설명한 대로 쿼럼을 설정하고 나중에 디스크를 공유합니다.
 

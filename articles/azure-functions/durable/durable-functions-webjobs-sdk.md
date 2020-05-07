@@ -4,12 +4,12 @@ description: WebJobs SDK를 사용하여 WebJobs에서 실행하도록 지속성
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d8dd0c86fbc520d0bd3ef6034891bd9871774b4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad498bdbc4e6dc9745c6ef45b3dc601ad36c0a62
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74232732"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733416"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>WebJobs로 Durable Functions를 실행 하는 방법
 
@@ -19,9 +19,9 @@ ms.locfileid: "74232732"
 
 WebJobs SDK의 버전 2.x에서 호스트는의 `IHost`구현 이며, 버전 2.x에서는 개체를 `JobHost` 사용 합니다.
 
-연결 Durable Functions 샘플은 WebJobs SDK 2.x 버전에서 사용할 수 있습니다. [Durable Functions 리포지토리](https://github.com/azure/azure-functions-durable-extension/)를 다운로드 하거나 복제 하 고 *samples\\\\webjobss00ststststststststststststststststststst\*
+연결 Durable Functions 샘플은 WebJobs SDK 2.x 버전에서 사용할 수 있습니다. [Durable Functions 리포지토리](https://github.com/azure/azure-functions-durable-extension/)를 다운로드 하거나 복제 하 고, *v1* 분기를 체크 아웃 하 고 *samples\\webjobss00stststststststststststststststststst\\*
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 사용자가 WebJobs SDK의 기본 사항, Azure Functions에 대한 C# 클래스 라이브러리 개발 및 지속성 함수에 대해 익숙한 것으로 가정합니다. 이러한 항목에 대한 소개가 필요한 경우 다음 리소스를 참조하세요.
 
@@ -184,7 +184,7 @@ while (true)
 
 WebJob으로 실행 되도록 설정 Durable Functions 했으며, 이제는이를 독립 실행형 Azure Functions으로 Durable Functions 실행 하는 것과 어떻게 다른 지 이해 하 고 있습니다. 이 시점에서 샘플에서 작업을 보는 것이 도움이 될 수 있습니다.
 
-이 섹션에서는 [샘플 프로젝트](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/webjobssdk/chaining)를 실행하는 방법에 대한 개요를 제공합니다. WebJobs SDK 프로젝트를 로컬로 실행하여 Azure WebJob에 배포하는 방법을 설명하는 자세한 지침은 [WebJobs SDK 시작](../../app-service/webjobs-sdk-get-started.md#deploy-as-a-webjob)을 참조하세요.
+이 섹션에서는 [샘플 프로젝트](https://github.com/Azure/azure-functions-durable-extension/tree/v1/samples/webjobssdk/chaining)를 실행하는 방법에 대한 개요를 제공합니다. WebJobs SDK 프로젝트를 로컬로 실행하여 Azure WebJob에 배포하는 방법을 설명하는 자세한 지침은 [WebJobs SDK 시작](../../app-service/webjobs-sdk-get-started.md#deploy-as-a-webjob)을 참조하세요.
 
 ### <a name="run-locally"></a>로컬 실행
 
@@ -224,7 +224,7 @@ WebJob으로 실행 되도록 설정 Durable Functions 했으며, 이제는이�
     * `Microsoft.Azure.WebJobs.Extensions.Storage`
     * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-1. .NET Core 구성 프레임 워크를 사용 하 여 *appsettings* 파일에서 저장소 연결 문자열 및 Application Insights 계측 키를 설정 합니다. 아래 예를 살펴보세요.
+1. .NET Core 구성 프레임 워크를 사용 하 여 *appsettings* 파일에서 저장소 연결 문자열 및 Application Insights 계측 키를 설정 합니다. 예를 들면 다음과 같습니다.
 
     ```json
         {
@@ -233,7 +233,7 @@ WebJob으로 실행 되도록 설정 Durable Functions 했으며, 이제는이�
         }
     ```
 
-1. 이 작업 `Main` 을 수행 하도록 메서드 코드를 변경 합니다. 아래 예를 살펴보세요.
+1. 이 작업 `Main` 을 수행 하도록 메서드 코드를 변경 합니다. 예를 들면 다음과 같습니다.
 
    ```cs
    static void Main(string[] args)

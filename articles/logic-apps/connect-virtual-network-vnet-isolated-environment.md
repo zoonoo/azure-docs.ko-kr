@@ -3,15 +3,15 @@ title: ISE를 사용 하 여 Azure 가상 네트워크에 연결
 description: Azure Logic Apps에서 Azure Vnet (가상 네트워크)에 액세스할 수 있는 ISE (통합 서비스 환경)를 만듭니다.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/12/2020
-ms.openlocfilehash: fa63380a8e27dcc8f4de414c483f8d8ed2323e7b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.date: 05/01/2020
+ms.openlocfilehash: da739df761d1d7881764f6ee296872fa02781a6f
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234116"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734963"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -94,7 +94,7 @@ ISE에 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 > [!IMPORTANT]
 > 원본 포트는 사용 후 삭제 되므로 모든 규칙에 대해를로 `*` 설정 해야 합니다. 언급 된 위치에서 내부 ISE 및 외부 ISE는 [ise 생성 시 선택 된 끝점](connect-virtual-network-vnet-isolated-environment.md#create-environment)을 참조 합니다. 자세한 내용은 [끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. 
 
-| 목적 | Direction | 대상 포트 | 원본 서비스 태그 | 대상 서비스 태그 | 메모 |
+| 용도 | Direction | 대상 포트 | 원본 서비스 태그 | 대상 서비스 태그 | 참고 |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
 | 가상 네트워크 내에서 서브넷 통신 | 인바운드 및 아웃바운드 | * | ISE의 서브넷을 포함 하는 가상 네트워크의 주소 공간 | ISE의 서브넷을 포함 하는 가상 네트워크의 주소 공간 | 가상 네트워크의 서브넷 *간에* 트래픽을 전송 하는 데 필요 합니다. <p><p>**중요**: 각 서브넷의 *구성 요소* 간 트래픽을 전송 하려면 각 서브넷 내의 모든 포트를 열어야 합니다. |
 | 논리 앱에 대 한 통신 | 인바운드 | 443 | 내부 ISE: <br>VirtualNetwork <p><p>외부 ISE: <br>인터넷 <br>( **참고** 열 참조) | VirtualNetwork | **인터넷** 서비스 태그를 사용 하는 대신 논리 앱에서 요청 트리거 또는 웹 후크를 호출 하는 컴퓨터 또는 서비스의 원본 IP 주소를 지정할 수 있습니다. <p><p>**중요**:이 포트를 닫거나 차단 하면 요청 트리거가 있는 논리 앱에 대 한 HTTP 호출이 차단 됩니다. |
@@ -141,7 +141,7 @@ ISE에 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
    | **위치** | 예 | <*Azure-datacenter-지역*> | 환경을 배포할 Azure 데이터 센터 지역 |
    | **SKU** | 예 | **프리미엄** 또는 **개발자 (SLA 없음)** | 만들고 사용할 ISE SKU입니다. 이러한 Sku 간의 차이점은 [ISE sku](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)를 참조 하세요. <p><p>**중요**:이 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에 변경할 수 없습니다. |
    | **추가 용량** | 프리미엄: <br>예 <p><p>개발자: <br>해당 없음 | 프리미엄: <br>0 ~ 10 <p><p>개발자: <br>해당 없음 | 이 ISE 리소스에 사용할 추가 처리 단위의 수입니다. 만든 후 용량을 추가 하려면 [ISE 용량 추가](../logic-apps/ise-manage-integration-service-environment.md#add-capacity)를 참조 하세요. |
-   | **액세스 끝점** | 예 | **내부** 또는 **외부** | ISE에 사용할 액세스 끝점의 유형입니다. 이러한 끝점은 ISE의 논리 앱에 대 한 요청 또는 webhook 트리거가 가상 네트워크 외부에서 호출을 받을 수 있는지 여부를 결정 합니다. <p><p>선택 항목은 논리 앱 실행 기록에서 입력 및 출력을 보고 액세스할 수 있는 방법에도 영향을 줍니다. 자세한 내용은 [ISE 끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. <p><p>**중요**:이 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에 변경할 수 없습니다. |
+   | **액세스 끝점** | 예 | **내부** 또는 **외부** | ISE에 사용할 액세스 끝점의 유형입니다. 이러한 끝점은 ISE의 논리 앱에 대 한 요청 또는 webhook 트리거가 가상 네트워크 외부에서 호출을 받을 수 있는지 여부를 결정 합니다. <p><p>선택 항목은 논리 앱 실행 기록에서 입력 및 출력을 보고 액세스할 수 있는 방법에도 영향을 줍니다. 자세한 내용은 [ISE 끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. <p><p>**중요**: ISE를 만드는 동안에만 액세스 끝점을 선택할 수 있으며 나중에이 옵션을 변경할 수 없습니다. |
    | **가상 네트워크** | 예 | <*Azure-virtual-네트워크 이름*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크가 없는 경우 [먼저 Azure virtual network를 만듭니다](../virtual-network/quick-create-portal.md). <p><p>**중요**: ISE를 만들 때 *만* 이 삽입을 수행할 수 있습니다. |
    | **서브넷** | 예 | <*서브넷-리소스 목록*> | ISE에는 사용자 환경에서 리소스를 만들고 배포 하기 위해 네 개의 *빈* 서브넷이 필요 합니다. 각 서브넷을 만들려면 [이 테이블 아래의 단계를 따릅니다](#create-subnet). |
    |||||

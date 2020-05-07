@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/30/2020
 ms.author: mimart
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 491908b651cd2b875fcfeed4c55d34f0e8c5cfa1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c58c99faa83d6f04ac37d03789202e111f1b06d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80802512"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611163"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -39,6 +39,362 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 
 ---
 
+## <a name="april-2020"></a>2020년 4월
+
+### <a name="combined-security-info-registration-experience-is-now-generally-available"></a>결합 된 보안 정보 등록 환경이 이제 일반 공급 됩니다.
+
+**유형:** 새로운 기능
+
+**서비스 범주:** 인증 (로그인)
+
+**제품 기능:** Id 보안 & 보호
+
+Multi-Factor Authentication (MFA) 및 셀프 서비스 암호 재설정 (SSPR)에 대 한 결합 된 등록 환경이 이제 일반 공급 됩니다. 이 새로운 등록 환경을 통해 사용자는 단일 단계별 프로세스에서 MFA 및 SSPR에 등록할 수 있습니다. 조직의 새 환경을 배포 하는 경우 사용자는 더 짧은 시간에 더 많은 작업을 등록할 수 있습니다. 블로그 [게시물을 확인 하세요.](https://bit.ly/3etiRyQ)
+
+---
+
+### <a name="continuous-access-evaluation"></a>연속 액세스 평가
+
+**유형:** 새로운 기능
+
+**서비스 범주:** 인증 (로그인)
+
+**제품 기능:** Id 보안 & 보호
+
+연속 액세스 평가는 Azure AD에서 이벤트가 발생 하는 경우 (예: 사용자 계정 삭제) Azure AD 액세스 토큰을 사용 하는 신뢰 당사자에 대해 거의 실시간으로 정책을 적용할 수 있는 새로운 보안 기능입니다. 팀과 Outlook 클라이언트를 위해이 기능을 먼저 롤링 합니다. 자세한 내용은 [블로그](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933) 및 [설명서](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation)를 참조 하세요.
+
+---
+
+### <a name="sms-sign-in-firstline-workers-can-sign-in-to-azure-ad-backed-applications-with-their-phone-number-and-no-password"></a>SMS 로그인: Firstline Worker는 전화 번호를 사용 하 고 암호 없이 Azure AD 지원 응용 프로그램에 로그인 할 수 있습니다.
+
+**유형:** 새로운 기능
+
+**서비스 범주:** 인증 (로그인)
+
+**제품 기능:** 사용자 인증
+
+Office는 기존 이외의 조직에서 사용할 수 있는 일련의 모바일 중심 비즈니스 앱과 주 통신 방법으로 전자 메일을 사용 하지 않는 대기업의 직원을 시작 합니다. 이러한 앱은 frontline 직원, deskless 작업자, 현장 에이전트 또는 소매점에서 전자 메일 주소를 얻지 못할 수도 있고, 컴퓨터에 대 한 액세스 권한이 있거나, 소매 직원을 대상으로 합니다. 이 프로젝트는 전화 번호를 입력 하 고 코드를 왕복 하 여 이러한 직원이 비즈니스 응용 프로그램에 로그인 할 수 있도록 합니다. 자세한 내용은 [관리자 설명서](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-sms-signin) 및 [최종 사용자 설명서](https://docs.microsoft.com/azure/active-directory/user-help/sms-sign-in-explainer)를 참조 하세요.
+
+---
+
+### <a name="invite-internal-users-to-use-b2b-collaboration"></a>내부 사용자에 게 B2B 공동 작업을 사용 하도록 초대
+
+**유형:** 새로운 기능
+
+**서비스 범주:** B2B
+
+**제품 기능:**
+
+Microsoft는 향후 b2b 공동 작업 자격 증명을 사용 하도록 기존 내부 계정을 초대할 수 있도록 B2B 초대 기능을 확장 하 고 있습니다. 초대 된 전자 메일 주소와 같은 일반적인 매개 변수와 함께 사용자 개체를 초대 API에 전달 하 여이 작업을 수행 합니다. 사용자의 개체 ID, UPN, 그룹 멤버 자격, 앱 할당 등은 그대로 유지 되지만 앞으로는 B2B를 사용 하 여 초대 전에 사용한 내부 자격 증명이 아닌 해당 홈 테 넌 트 자격 증명을 사용 하 여 인증 합니다. 자세한 내용은 [설명서](https://docs.microsoft.com/azure/active-directory/b2b/invite-internal-users)를 참조 하세요.
+
+---
+
+### <a name="report-only-mode-for-conditional-access-is-now-generally-available"></a>조건부 액세스에 대 한 보고서 전용 모드가 이제 일반 공급 됩니다.
+
+**유형:** 새로운 기능
+
+**서비스 범주:** 조건부 액세스
+
+**제품 기능:** Id 보안 & 보호
+
+[AZURE AD 조건부 액세스에 대 한 보고서 전용 모드](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only) 를 통해 액세스 제어를 적용 하지 않고 정책의 결과를 평가할 수 있습니다. 조직 전체에서 보고서 전용 정책을 테스트 하 고 사용 하도록 설정 하기 전에 영향을 파악 하 여 배포를 더 안전 하 고 쉽게 만들 수 있습니다. 지난 몇 달 동안 보고서 전용 정책의 범위에 이미 있는 26M 사용자를 포함 하 여 보고서 전용 모드를 강력 하 게 채택 했습니다. 이 공지를 사용 하면 기본적으로 새 Azure AD 조건부 액세스 정책이 보고서 전용 모드에서 생성 됩니다. 즉, 정책을 만든 순간부터 정책의 영향을 모니터링할 수 있습니다. MS Graph Api를 사용 하는 사용자의 경우에는 [프로그래밍 방식으로 보고서 전용 정책을 관리할](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta)수도 있습니다. 
+
+---
+
+### <a name="conditional-access-insights-and-reporting-workbook-is-generally-available"></a>조건부 액세스 정보 및 보고 통합 문서를 일반적으로 사용할 수 있음
+
+**유형:** 새로운 기능
+
+**서비스 범주:** 조건부 액세스
+
+**제품 기능:** Id 보안 & 보호
+
+조건부 액세스 [정보 및 보고 통합 문서](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) 는 관리자에 게 테 넌 트의 Azure AD 조건부 액세스에 대 한 요약 보기를 제공 합니다. 관리자는 개별 정책을 선택 하는 기능을 사용 하 여 각 정책에서 수행 하는 작업을 더 잘 이해 하 고 실시간으로 변화를 모니터링할 수 있습니다. 통합 문서는 Azure Monitor에 저장 된 데이터를 스트리밍하 며 몇 분 내에 [이러한 지침에 따라](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)설정할 수 있습니다. 대시보드를 더 쉽게 검색할 수 있도록 Azure AD 조건부 액세스 메뉴 내의 새 정보 및 보고 탭으로 이동 했습니다.
+
+---
+
+### <a name="policy-details-blade-for-conditional-access-is-in-public-preview"></a>조건부 액세스에 대 한 정책 세부 정보 블레이드가 공개 미리 보기 상태입니다.
+
+**유형:** 새로운 기능
+
+**서비스 범주:** 조건부 액세스
+
+**제품 기능:** Id 보안 & 보호
+
+새 [정책 세부 정보 블레이드](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access) 는 조건부 액세스 정책 평가 중에 충족 된 할당, 조건 및 컨트롤을 표시 합니다. 로그인 정보의 **조건부 액세스** 또는 **보고서 전용** 탭에서 행을 선택 하 여 블레이드에 액세스할 수 있습니다.
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---april-2020"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새 페더레이션된 앱-4 월 2020
+
+**유형:** 새로운 기능
+
+**서비스 범주:** 엔터프라이즈 앱
+
+**제품 기능:** 타사 통합
+
+4 월 2020에 앱 갤러리에 대 한 페더레이션 지원과 함께 이러한 31 개의 새 앱을 추가 했습니다. 
+
+[SincroPool Apps](https://www.sincropool.com/), [smartdb](https://hibiki.dreamarts.co.jp/smartdb/trial/), [Float](https://docs.microsoft.com/azure/active-directory/saas-apps/float-tutorial), [LMS365](https://lms.365.systems/), [iwt-9j-u8d 조달 Suite](https://docs.microsoft.com/azure/active-directory/saas-apps/iwt-procurement-suite-tutorial), [Lunni](https://lunni.fi/),, [Jira에 대 한](https://docs.microsoft.com/azure/active-directory/saas-apps/easysso-for-jira-tutorial) [가상 교육 아카데미](https://vta.c3p.ca/app/en/openid?authenticate_with=microsoft), [Meraki 대시보드](https://docs.microsoft.com/azure/active-directory/saas-apps/meraki-dashboard-tutorial), [Office 365](https://app.mover.io/login)이동 기 [, 발표자 참여](https://speakerengage.com/login.php), [솔직히](https://docs.microsoft.com/azure/active-directory/saas-apps/honestly-tutorial), [동맹](https://docs.microsoft.com/azure/active-directory/saas-apps/ally-tutorial), [DutyFlow](https://app.dutyflow.nl/), [alertmedia](https://docs.microsoft.com/azure/active-directory/saas-apps/alertmedia-tutorial), [gr8](https://docs.microsoft.com/azure/active-directory/saas-apps/gr8-people-tutorial), [Pendo](https://docs.microsoft.com/azure/active-directory/saas-apps/pendo-tutorial), [highground](https://docs.microsoft.com/azure/active-directory/saas-apps/highground-tutorial), [조화](https://docs.microsoft.com/azure/active-directory/saas-apps/harmony-tutorial), [Timetabling 솔루션](https://docs.microsoft.com/azure/active-directory/saas-apps/timetabling-solutions-tutorial), [SynchroNet 클릭](https://docs.microsoft.com/azure/active-directory/saas-apps/synchronet-click-tutorial), [역량](https://www.made-in-office.com/en/), [fortes 자료 변경 클라우드](https://docs.microsoft.com/azure/active-directory/saas-apps/fortes-change-cloud-tutorial), [Litmus](https://docs.microsoft.com/azure/active-directory/saas-apps/litmus-tutorial), [groupcoa](https://recorder.grouptalk.com/), Frontify, [MongoDB cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/mongodb-cloud-tutorial), [TickitLMS 배우기](https://docs.microsoft.com/azure/active-directory/saas-apps/tickitlms-learn-tutorial), [coco](https://hexaware.com/partnerships-and-alliances/digital-transformation-using-microsoft-azure/), [nitro 생산성 도구](https://docs.microsoft.com/azure/active-directory/saas-apps/nitro-productivity-suite-tutorial) , [(Trend 마이크로 웹 보안)](https://review.docs.microsoft.com/azure/active-directory/saas-apps/trend-micro-tutorial) [Frontify](https://docs.microsoft.com/azure/active-directory/saas-apps/frontify-tutorial)
+
+앱에 대한 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://aka.ms/appstutorial)을 참조하세요. Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 자세한 내용은 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://aka.ms/azureadapprequest)을 참조하세요.
+
+---
+
+### <a name="microsoft-graph-delta-query-support-for-oauth2permissiongrant-available-for-public-preview"></a>공개 미리 보기에 사용할 수 있는 oAuth2PermissionGrant에 대 한 델타 쿼리 지원 Microsoft Graph
+
+**유형:** 새로운 기능
+
+**서비스 범주:** MS 그래프
+
+**제품 기능:** 개발자 환경
+
+OAuth2PermissionGrant에 대 한 델타 쿼리는 공개 미리 보기에서 사용할 수 있습니다. 이제 Microsoft Graph를 지속적으로 폴링할 필요 없이 변경 내용을 추적할 수 있습니다. [자세한 정보](https://docs.microsoft.com/graph/api/oAuth2PermissionGrant-delta?view=graph-rest-beta&tabs=http)
+
+---
+
+### <a name="microsoft-graph-delta-query-support-for-organizational-contact-generally-available"></a>조직 연락처에 대 한 Microsoft Graph 델타 쿼리 지원 일반 공급
+
+**유형:** 새로운 기능
+
+**서비스 범주:** MS 그래프
+
+**제품 기능:** 개발자 환경
+
+조직 연락처에 대 한 델타 쿼리를 일반적으로 사용할 수 있습니다. 이제 Microsoft Graph를 지속적으로 폴링 하지 않고도 프로덕션 앱에서 변경 내용을 추적할 수 있습니다. OrgContact 데이터를 지속적으로 폴링하는 기존 코드를 델타 쿼리로 대체 하 여 성능을 크게 향상 시킵니다. [자세한 정보](https://docs.microsoft.com/graph/api/orgcontact-delta?view=graph-rest-1.0&tabs=http)
+
+---
+
+### <a name="microsoft-graph-delta-query-support-for-application-generally-available"></a>응용 프로그램에 대 한 델타 쿼리 지원이 일반 공급 되는 Microsoft Graph
+
+**유형:** 새로운 기능
+
+**서비스 범주:** MS 그래프
+
+**제품 기능:** 개발자 환경
+
+응용 프로그램에 대 한 델타 쿼리를 일반적으로 사용할 수 있습니다. 이제 Microsoft Graph를 지속적으로 폴링 하지 않고도 프로덕션 앱에서 변경 내용을 추적할 수 있습니다. 응용 프로그램 데이터를 지속적으로 폴링하는 기존 코드를 델타 쿼리로 대체 하 여 성능을 크게 향상 시킵니다. [자세한 정보](https://docs.microsoft.com/graph/api/application-delta?view=graph-rest-1.0)
+
+---
+
+### <a name="microsoft-graph-delta-query-support-for-administrative-units-available-for-public-preview"></a>공개 미리 보기에 사용할 수 있는 관리 단위에 대 한 델타 쿼리 지원 Microsoft Graph
+
+**유형:** 새로운 기능
+
+**서비스 범주:** MS 그래프
+
+**제품 기능:** 관리 단위에 대 한 개발자 환경 델타 쿼리는 공개 미리 보기에서 사용할 수 있습니다. 이제 Microsoft Graph를 지속적으로 폴링할 필요 없이 변경 내용을 추적할 수 있습니다. [자세한 정보](https://docs.microsoft.com/graph/api/administrativeunit-delta?view=graph-rest-beta&tabs=http)
+
+---
+
+### <a name="manage-authentication-phone-numbers-and-more-in-new-microsoft-graph-beta-apis"></a>새 Microsoft Graph 베타 Api에서 인증 전화 번호 등을 관리 합니다.
+
+**유형:** 새로운 기능
+
+**서비스 범주:** MS 그래프
+
+**제품 기능:** 개발자 환경
+
+이러한 Api는 사용자의 인증 방법을 관리 하기 위한 핵심 도구입니다. 이제 MFA 및 SSPR (셀프 서비스 암호 재설정)에 사용 되는 인증자를 프로그래밍 방식으로 미리 등록 하 고 관리할 수 있습니다. 이는 Azure MFA, SSPR 및 Microsoft Graph 공간에서 가장 많이 요청 되는 기능 중 하나입니다. 이 wave에서 릴리스된 새 Api는 다음을 수행할 수 있는 기능을 제공 합니다.
+
+- 사용자의 인증 전화를 읽고, 추가 하 고, 업데이트 하 고, 제거 합니다.
+- 사용자의 암호 다시 설정
+- SMS 로그인 설정 및 해제
+
+자세한 내용은 [AZURE AD 인증 방법 API 개요](https://docs.microsoft.com/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta)를 참조 하세요.
+
+---
+
+### <a name="administrative-units-public-preview"></a>관리 단위 공개 미리 보기
+
+**유형:** 새로운 기능
+
+**서비스 범주:** RBAC
+
+**제품 기능:** 액세스 제어
+
+관리 단위를 사용 하면 정의한 조직의 부서, 지역 또는 기타 세그먼트로 제한 된 관리자 권한을 부여할 수 있습니다. 관리 단위를 사용 하 여 지역 관리자에 게 권한을 위임 하거나 세부적인 수준에서 정책을 설정할 수 있습니다. 예를 들어 사용자 계정 관리자는 프로필 정보를 업데이트 하 고, 암호를 다시 설정 하 고, 관리 단위 에서만 사용자에 대 한 라이선스를 할당할 수 있습니다.
+
+중앙 관리자는 관리 단위를 사용 하 여 다음과 같은 작업을 할 수 있습니다.
+
+- 리소스의 분산 관리를 위한 관리 단위 만들기
+- 관리 단위의 Azure AD 사용자만 관리 권한을 사용 하 여 역할 할당
+- 필요에 따라 사용자 및 그룹으로 관리 단위 채우기
+
+자세한 내용은 [Azure Active Directory의 관리 단위 관리 (미리 보기)](https://aka.ms/AdminUnitsDocs)를 참조 하세요.
+
+---
+
+### <a name="printer-administrator-and-printer-technician-built-in-roles"></a>프린터 관리자 및 프린터 기술자 기본 제공 역할
+
+**유형:** 새로운 기능
+
+**서비스 범주:** RBAC
+
+**제품 기능:** 액세스 제어
+
+**프린터 관리자**:이 역할의 사용자는 프린터를 등록 하 고 유니버설 인쇄 커넥터 설정을 포함 하 여 Microsoft 유니버설 인쇄 솔루션의 모든 프린터 구성의 모든 측면을 관리할 수 있습니다. 모든 위임 된 인쇄 권한 요청에 동의할 수 있습니다. 또한 프린터 관리자는 보고서 인쇄에 액세스할 수 있습니다. 
+
+**Printer 기술자**:이 역할의 사용자는 Microsoft 유니버설 인쇄 솔루션에서 프린터를 등록 하 고 프린터 상태를 관리할 수 있습니다. 모든 커넥터 정보를 읽을 수도 있습니다. 프린터 기술 자가 할 수 없는 주요 작업은 프린터 및 공유 프린터에 대 한 사용자 권한을 설정 하는 것입니다. [자세한 정보](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#printer-administrator)
+
+---
+
+### <a name="hybrid-identity-admin-built-in-role"></a>하이브리드 Id 관리 기본 제공 역할
+
+**유형:** 새로운 기능
+
+**서비스 범주:** RBAC
+
+**제품 기능:** 액세스 제어
+
+이 역할의 사용자는 Azure AD에서 하이브리드 id를 사용 하도록 설정 하는 것과 관련 된 서비스 및 설정을 사용, 구성 및 관리할 수 있습니다. 이 역할은 Azure AD를 PHS (암호 해시 동기화), PTA (통과 인증) 또는 페더레이션 (AD FS 또는 타사 페더레이션 공급자) &#8212;에서 지원 되는 세 가지 인증&#8212;방법 중 하나로 구성 하 고,이를 사용 하도록 설정 하는 데 관련 온-프레미스 인프라를 배포 하는 기능을 제공 합니다. 온-프레미스 인프라에는 프로 비전 및 PTA 에이전트가 포함 됩니다. 이 역할은 원활한 sso (Single Sign-on)를 사용 하 여 비 Windows 10 장치 또는 비 Windows Server 2016 컴퓨터에서 원활한 인증을 사용 하는 기능을 부여 합니다. 또한이 역할은 로그인 로그를 확인 하 고 모니터링 및 문제 해결을 위한 상태 및 분석에 액세스할 수 있는 기능을 부여 합니다. [자세한 정보](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#hybrid-identity-administrator)
+
+---
+
+### <a name="network-administrator-built-in-role"></a>네트워크 관리자 기본 제공 역할
+
+**유형:** 새로운 기능
+
+**서비스 범주:** RBAC
+
+**제품 기능:** 액세스 제어
+
+이 역할을 가진 사용자는 Microsoft의 네트워크 경계 아키텍처 권장 사항을 검토 하 여 사용자 위치에서 네트워크 원격 분석을 기반으로 할 수 있습니다. Office 365의 네트워크 성능은 일반적으로 사용자 위치와 관련 된 신중한 엔터프라이즈 고객 네트워크 경계 아키텍처를 사용 합니다. 이 역할을 사용 하면 검색 된 사용자 위치를 편집 하 고 해당 위치에 대 한 네트워크 매개 변수를 구성 하 여 원격 분석 측정 및 디자인 권장 사항을 쉽게 개선할 수 있습니다. [자세한 정보](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#network-administrator)
+
+---
+
+### <a name="bulk-activity-and-downloads-in-the-azure-ad-admin-portal-experience"></a>Azure AD 관리 포털 환경에서 대량 작업 및 다운로드
+
+**유형:** 새로운 기능
+
+**서비스 범주:** 사용자 관리
+
+**제품 기능:** 디렉터리나
+
+이제 Azure AD 관리 포털 환경에서 CSV 파일을 업로드 하 여 Azure AD의 사용자 및 그룹에 대 한 대량 작업을 수행할 수 있습니다. 사용자를 만들고, 사용자를 삭제 하 고, 게스트 사용자를 초대할 수 있습니다. 그리고 그룹에서 구성원을 추가 하 고 제거할 수 있습니다.
+
+Azure AD 관리 포털 환경에서 Azure AD 리소스 목록을 다운로드할 수도 있습니다. 디렉터리, 디렉터리의 그룹 목록 및 특정 그룹의 구성원에 대 한 사용자 목록을 다운로드할 수 있습니다.
+
+자세한 내용은 다음을 확인 하세요.
+
+- [사용자 만들기](https://docs.microsoft.com/azure/active-directory/users-groups-roles/users-bulk-add) 또는 [게스트 사용자 초대](https://docs.microsoft.com/azure/active-directory/b2b/tutorial-bulk-invite)
+- [사용자 삭제](https://docs.microsoft.com/azure/active-directory/users-groups-roles/users-bulk-delete) 또는 [삭제 된 사용자 복원](https://docs.microsoft.com/azure/active-directory/users-groups-roles/users-bulk-restore)
+- [사용자 목록 다운로드](https://docs.microsoft.com/azure/active-directory/users-groups-roles/users-bulk-download) 또는 [그룹 목록 다운로드](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-bulk-download)
+- 그룹에 대 한 멤버 [추가 (가져오기)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-bulk-import-members) 또는 구성원 [제거](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-bulk-remove-members) 또는 [구성원 목록 다운로드](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-bulk-download-members)
+
+---
+
+### <a name="my-staff-delegated-user-management"></a>내 직원 위임 된 사용자 관리
+
+**유형:** 새로운 기능
+
+**서비스 범주:** 사용자 관리
+
+**제품 기능:**
+
+직원 들이 자신의 직원 구성원이 자신의 Azure AD 계정에 액세스할 수 있도록 내 직원은 저장소 관리자와 같은 Firstline 관리자를 사용 하도록 설정 합니다. 조직에서는 중앙 기술 지원팀에 의존 하는 대신 암호 재설정 또는 전화 번호 변경과 같은 일반적인 작업을 Firstline Manager로 위임할 수 있습니다. 직원 들이 자신의 계정에 액세스할 수 없는 사용자는 기술 지원팀 또는 IT 담당자가 필요 하지 않은 두 번의 클릭 만으로 액세스 권한을 다시 얻을 수 있습니다. 자세한 내용은 내 [직원 (미리 보기)을 사용](https://aka.ms/MyStaffAdminDocs) 하 여 사용자 관리 및 [내 직원 (미리 보기)을 사용 하 여 사용자 관리 위임 (미리 보기)](https://aka.ms/MyStaffUserDocs)을 참조 하세요.
+
+---
+
+### <a name="an-upgraded-end-user-experience-in-access-reviews"></a>액세스 검토에서 업그레이드 된 최종 사용자 환경
+
+**유형:** 변경된 기능
+
+**서비스 범주:** 액세스 검토
+
+**제품 기능:** Id 거 버 넌 스
+
+내 앱 포털에서 Azure AD 액세스 검토에 대 한 검토자 환경을 업데이트 했습니다. 4 월 말에 Azure AD 액세스를 검토 하는 검토자에 게는 사용자의 액세스에 업데이트 된 환경을 사용해 볼 수 있는 배너가 표시 됩니다. 업데이트 된 액세스 검토 환경은 현재 환경과 동일한 기능을 제공 하지만 사용자가 생산성을 높일 수 있도록 새로운 기능을 기반으로 하는 향상 된 사용자 인터페이스를 제공 합니다. [업데이트 된 환경에 대 한 자세한 내용은 여기에서 확인할 수](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review)있습니다. 이 공개 미리 보기는 7 월 2020이 끝날 때까지 마지막으로 발생 합니다. 7 월 말에 미리 보기 환경을 옵트인 하지 않은 검토자는 액세스 검토를 수행 하기 위해 자동으로 내 액세스로 전달 됩니다. 검토자가 내 액세스의 미리 보기 환경으로 영구적으로 전환 되도록 하려면 [여기에서 요청 하세요](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
+
+---
+
+### <a name="workday-inbound-user-provisioning-and-writeback-apps-now-support-the-latest-versions-of-workday-web-services-api"></a>Workday 인바운드 사용자 프로 비전 및 쓰기 저장 앱은 이제 최신 버전의 Workday 웹 서비스 API를 지원 합니다.
+
+**유형:** 변경된 기능
+
+**서비스 범주:** 앱 프로비전
+
+**제품 기능:** 
+
+이제 고객의 의견에 따라 엔터프라이즈 앱 갤러리에서 Workday 인바운드 사용자 프로 비전 및 쓰기 저장 앱을 업데이트 하 여 최신 버전의 WWS (Workday 웹 서비스) API를 지원 합니다. 이러한 변경을 통해 고객은 연결 문자열에서 사용할 WWS API 버전을 지정할 수 있습니다. 이를 통해 고객은 Workday 릴리스에서 제공 되는 더 많은 HR 특성을 검색할 수 있습니다. Workday 쓰기 저장 앱은 이제 권장 Change_Work_Contact_Info Workday 웹 서비스를 사용 하 여 Maintain_Contact_Info의 제한을 극복 합니다.
+
+연결 문자열에 버전이 지정 되지 않은 경우 기본적으로 Workday 인바운드 프로 비전 앱은 WWS v 21.1를 사용 하 여 인바운드 사용자 프로 비전을 위한 최신 Workday Api로 전환 하 고, 고객은 [자습서에 설명 된](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles) 대로 연결 문자열을 업데이트 하 고 [workday 특성 참조 가이드](https://docs.microsoft.com/azure/active-directory/app-provisioning/workday-attribute-reference#xpath-values-for-workday-web-services-wws-api-v30)에 설명 된 대로 workday 특성에 사용 되는 xpath도 업데이트 해야 합니다. 
+
+쓰기 저장 (writeback)을 위해 새 API를 사용 하려면 Workday 쓰기 저장 프로 비전 앱에 필요한 변경 내용이 없습니다. Workday 쪽에서 Workday (Workday 통합 시스템 사용자) 계정에 자습서 섹션인 [비즈니스 프로세스 보안 정책 권한 구성](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#configuring-business-process-security-policy-permissions)에 설명 된 대로 Change_Work_Contact 비즈니스 프로세스를 호출할 수 있는 권한이 있는지 확인 합니다. 
+
+새 API 버전 지원이 반영 되도록 [자습서 가이드](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial) 를 업데이트 했습니다.
+
+---
+
+### <a name="users-with-default-access-role-are-now-in-scope-for-provisioning"></a>기본 액세스 역할이 있는 사용자는 현재 프로 비전 범위에 있습니다.
+
+**유형:** 변경된 기능
+
+**서비스 범주:** 앱 프로비전
+
+**제품 기능:** Id 수명 주기 관리
+
+지금까지 기본 액세스 역할이 있는 사용자는 프로 비전 범위를 벗어났습니다. 이 역할을 가진 사용자가 프로 비전 범위에 있는 것을 고객에 게 제공할 수 있는 피드백을 받았습니다. 2020 년 4 월 16 일부 터 모든 새 프로 비전 구성을 사용 하면 기본 액세스 역할이 있는 사용자를 프로 비전 할 수 있습니다. 점진적으로 기존 프로 비전 구성의 동작을 변경 하 여이 역할을 사용 하는 사용자 프로 비전을 지원 합니다. [자세한 정보](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned)
+
+---
+
+### <a name="updated-provisioning-ui"></a>업데이트 된 프로 비전 UI
+
+**유형:** 변경된 기능
+
+**서비스 범주:** 앱 프로비전
+
+**제품 기능:** Id 수명 주기 관리
+
+프로 비전 환경을 새로 고쳐 더 집중 된 관리 보기를 만들었습니다. 이미 구성 된 엔터프라이즈 응용 프로그램의 프로 비전 블레이드로 이동 하면 프로 비전 시작, 중지 및 다시 시작 등의 작업을 프로 비전 하 고 관리 하는 과정을 쉽게 모니터링할 수 있습니다. [자세한 정보](https://docs.microsoft.com/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal)
+
+---
+
+### <a name="dynamic-group-rule-validation-is-now-available-for-public-preview"></a>동적 그룹 규칙 유효성 검사는 이제 공개 미리 보기로 제공 됩니다.
+
+**유형:** 변경된 기능
+
+**서비스 범주:** 그룹 관리
+
+**제품 기능:** 협업
+
+이제 Azure Active Directory (Azure AD)에서 동적 그룹 규칙의 유효성을 검사 하는 방법을 제공 합니다. **규칙 유효성 검사** 탭에서 샘플 그룹 멤버에 대해 동적 규칙의 유효성을 검사 하 여 규칙이 예상 대로 작동 하는지 확인할 수 있습니다. 관리자는 동적 그룹 규칙을 만들거나 업데이트할 때 사용자 또는 장치가 그룹의 구성원 인지 여부를 확인 하려고 합니다. 이를 통해 사용자 또는 장치가 규칙 기준을 충족 하는지 여부를 평가 하 고, 멤버 자격이 필요 하지 않을 때 문제 해결을 지원 합니다.
+
+자세한 내용은 [동적 그룹 멤버 자격 규칙 유효성 검사 (미리 보기)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-rule-validation)를 참조 하세요.
+
+---
+
+### <a name="identity-secure-score---security-defaults-and-mfa-improvement-action-updates"></a>Id 보안 점수-보안 기본값 및 MFA 개선 작업 업데이트
+
+**유형:** 변경된 기능
+
+**서비스 범주:** 해당 없음
+
+**제품 기능:** Id 보안 & 보호
+
+**AZURE AD 개선 작업의 보안 기본값 지원:** Microsoft Secure 점수는 [AZURE AD의 보안 기본값](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)을 지원 하도록 개선 작업을 업데이트 하 여 일반적인 공격에 대해 미리 구성 된 보안 설정으로 조직을 보호 하는 작업을 더 쉽게 수행할 수 있게 해줍니다. 이는 다음과 같은 개선 작업에 영향을 줍니다.
+
+- 모든 사용자가 보안 액세스를 위해 multi-factor authentication을 완료할 수 있는지 확인
+- 관리 역할에 대 한 MFA 필요
+- 정책을 사용 하 여 레거시 인증 차단
+ 
+**MFA 개선 작업 업데이트:** 비즈니스에 사용 되는 정책을 적용 하는 동시에 비즈니스의 보안을 보장 하기 위한 비즈니스 요구 사항을 반영 하기 위해 Microsoft 보안 점수는 다단계 인증 중심의 세 가지 개선 작업을 제거 하 고 2를 추가 했습니다.
+
+제거 되는 향상 작업:
+
+- Multi-factor authentication에 대 한 모든 사용자 등록
+- 모든 사용자용 MFA 필요
+- Azure AD 권한 있는 역할에 대 한 MFA 필요
+
+추가 된 개선 작업:
+
+- 모든 사용자가 보안 액세스를 위해 multi-factor authentication을 완료할 수 있는지 확인
+- 관리 역할에 대 한 MFA 필요
+
+이러한 새로운 향상 된 작업을 수행 하려면 디렉터리에서 MFA (multi-factor authentication)에 대해 사용자 또는 관리자를 등록 하 고 조직의 요구에 맞는 올바른 정책 집합을 설정 해야 합니다. 주요 목표는 모든 사용자와 관리자가 여러 요소나 위험 기반 id 확인 프롬프트를 사용 하 여 인증할 수 있도록 하는 동시에 유연성을 유지 하는 것입니다. 이는 범위가 지정 된 결정을 적용 하는 여러 정책이 있거나, Microsoft에서 MFA에 대 한 사용자의 시도 시기를 결정 하는 보안 기본값 (3 월 16 일 기준)을 설정 하는 형태를 사용할 수 있습니다. [Microsoft 보안 점수의 새로운 기능에 대해 자세히](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score?view=o365-worldwide#whats-new)알아보세요.
+
+---
+
 ## <a name="march-2020"></a>2020년 3월
 
 ### <a name="unmanaged-azure-active-directory-accounts-in-b2b-update-for-march-2021"></a>3 월에 대 한 B2B 업데이트의 관리 되지 않는 Azure Active Directory 계정 2021
@@ -48,6 +404,8 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 **제품 기능:** B2B/B2C
  
 **2021 년 3 월 31 일부 터**MICROSOFT는 B2B 공동 작업 시나리오에 대해 관리 되지 않는 Azure Active Directory (Azure AD) 계정 및 테 넌 트를 만들어 더 이상 초대 상환을 지원 하지 않습니다. 이를 위해 준비 하는 [동안 일회용 암호 인증을 전자 메일로](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode)보내도록 옵트인 하는 것이 좋습니다.
+
+---
 
 ### <a name="users-with-the-default-access-role-will-be-in-scope-for-provisioning"></a>기본 액세스 역할이 있는 사용자는 프로 비전 범위에 포함 됩니다.
 
@@ -139,7 +497,7 @@ Azure AD B2B 공동 작업 기능은 21Vianet (Azure 중국 21Vianet) 테 넌 �
 **서비스 범주:** 앱 프로비전  
 **제품 기능:** Id 수명 주기 관리
  
-Azure AD 프로 비전 서비스는 다양 한 구성 기능 집합을 제공 합니다. 고객은 나중에 참조 하거나 알려진 올바른 버전으로 롤백할 수 있도록 구성을 저장할 수 있어야 합니다. 프로 비전 구성을 JSON 파일로 다운로드 하 고 필요할 때 업로드 하는 기능을 추가 했습니다. [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration).
+Azure AD 프로 비전 서비스는 다양 한 구성 기능 집합을 제공 합니다. 고객은 나중에 참조 하거나 알려진 올바른 버전으로 롤백할 수 있도록 구성을 저장할 수 있어야 합니다. 프로 비전 구성을 JSON 파일로 다운로드 하 고 필요할 때 업로드 하는 기능을 추가 했습니다. [자세한 정보를 알아보세요](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration).
 
 ---
  
@@ -151,7 +509,7 @@ Azure AD 프로 비전 서비스는 다양 한 구성 기능 집합을 제공 �
  
 이전에는 21Vianet (Azure 중국 21Vianet)에서 운영 하는 Microsoft Azure에서 SSPR (셀프 서비스 암호 재설정)를 사용 하 여 자신의 암호를 재설정 하는 관리자는 본인의 id를 증명 하기 위해 하나의 "게이트" (챌린지)만 필요 했습니다. 공용 및 기타 국가에서 관리자는 일반적으로 SSPR를 사용 하는 경우 두 개의 게이트를 사용 하 여 id를 증명 해야 합니다. 그러나 Azure 중국 21Vianet에서 SMS 또는 전화 통화를 지원 하지 않았기 때문에 관리자가 한 게이트 암호 재설정을 수행할 수 있습니다.
 
-Azure 중국 21Vianet과 공용 클라우드 간에 SSPR 기능 패리티를 만들고 있습니다. 앞으로 관리자는 SSPR를 사용할 때 두 개의 게이트를 사용 해야 합니다. SMS, 전화 통화 및 인증자 앱 알림 및 코드가 지원 됩니다. [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy#administrator-reset-policy-differences).
+Azure 중국 21Vianet과 공용 클라우드 간에 SSPR 기능 패리티를 만들고 있습니다. 앞으로 관리자는 SSPR를 사용할 때 두 개의 게이트를 사용 해야 합니다. SMS, 전화 통화 및 인증자 앱 알림 및 코드가 지원 됩니다. [자세한 정보를 알아보세요](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy#administrator-reset-policy-differences).
 
 ---
 
@@ -200,7 +558,7 @@ Azure AD 서비스의 안정성을 보장 하기 위해 이제 사용자 암호�
  
 현재 사용자 지정 컨트롤 미리 보기를 파트너 제공 인증 기능이 Azure Active Directory 관리자 및 최종 사용자 환경에서 원활 하 게 작동 하도록 허용 하는 방법으로 바꿀 계획입니다. 현재 파트너 MFA 솔루션에는 다음과 같은 제한 사항이 있습니다. 암호를 입력 한 후에만 작동 합니다. 다른 주요 시나리오에서의 단계별 인증에 대 한 MFA 역할을 하지 않습니다. 최종 사용자 또는 관리 자격 증명 관리 기능과 통합 되지 않습니다. 새 구현에서는 파트너 제공 인증 요인이 등록, 사용, MFA 클레임, 인증 단계 인증, 보고, 로깅 등의 주요 시나리오에 대 한 기본 제공 요소와 함께 작동할 수 있습니다. 
 
-사용자 지정 컨트롤은 일반 공급에 도달할 때까지 새 디자인과 함께 미리 보기에서 계속 지원 됩니다. 이 시점에서 고객에 게 새 설계로 마이그레이션할 수 있는 시간을 제공 합니다. 현재 방법의 제한 사항 때문에 새로운 디자인을 사용할 수 있을 때까지 새 공급자를 등록 하지 않습니다. Microsoft는 고객과 공급자와 긴밀 하 게 협력 하 고 있으며,이에 따라 일정에 따라 일정을 전달 합니다. [자세히 알아보기](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/upcoming-changes-to-custom-controls/ba-p/1144696#).
+사용자 지정 컨트롤은 일반 공급에 도달할 때까지 새 디자인과 함께 미리 보기에서 계속 지원 됩니다. 이 시점에서 고객에 게 새 설계로 마이그레이션할 수 있는 시간을 제공 합니다. 현재 방법의 제한 사항 때문에 새로운 디자인을 사용할 수 있을 때까지 새 공급자를 등록 하지 않습니다. Microsoft는 고객과 공급자와 긴밀 하 게 협력 하 고 있으며,이에 따라 일정에 따라 일정을 전달 합니다. [자세한 정보를 알아보세요](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/upcoming-changes-to-custom-controls/ba-p/1144696#).
 
 ---
 
@@ -322,7 +680,7 @@ Azure AD 서비스의 안정성을 보장 하기 위해 이제 사용자 암호�
 **서비스 범주:** 내 앱   
 **제품 기능:** 최종 사용자 환경
  
-관리자가 사용자 앱을 구성 하도록 구성할 수 있는 작업 영역을 이제는 컬렉션 이라고 합니다. [내 앱 포털에서 컬렉션 만들기](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-collections)에서 구성 하는 방법에 대 한 자세한 정보를 찾습니다.
+관리자가 사용자의 앱을 구성 하도록 구성할 수 있는 작업 영역은 이제 컬렉션 이라고 합니다. [내 앱 포털에서 컬렉션 만들기](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-collections)에서 구성 하는 방법에 대 한 자세한 정보를 찾습니다.
 
 ---
  
@@ -608,213 +966,5 @@ Azure Active Directory 테 넌 트에서 프로 비전, Openid connect 연결 �
 고객 으로부터 일부 앱 및 서비스의 앱 역할 정의 값에 대 한 길이 제한이 120 자에서 너무 짧습니다. 이에 대 한 응답으로 역할 값 정의의 최대 길이를 240 자로 늘립니다.
 
 응용 프로그램 관련 역할 정의를 사용 하는 방법에 대 한 자세한 내용은 [응용 프로그램에 앱 역할 추가 및 토큰에서 수신](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)을 참조 하세요.
-
----
-
-## <a name="october-2019"></a>2019년 10월
-
-### <a name="deprecation-of-the-identityriskevent-api-for-azure-ad-identity-protection-risk-detections"></a>Azure AD ID 보호 위험 검색을 위한 identityRiskEvent API의 사용 중단  
-
-**유형:** 변경 계획  
-**서비스 범주:** Id 보호  
-**제품 기능:** Id 보안 & 보호
-
-개발자 피드백에 대 한 응답으로 Azure AD Premium P2 구독자는 이제 Microsoft Graph에 대해 새로운 riskDetection API를 사용 하 여 Azure AD ID 보호의 위험 검색 데이터에 대 한 복잡 한 쿼리를 수행할 수 있습니다. 기존 [identityRiskEvent](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta) API 베타 버전은 **2020 년 1 월 10**일에 데이터를 반환 하는 것을 중지 합니다. 조직에서 identityRiskEvent API를 사용 하는 경우 새 riskDetection API로 전환 해야 합니다.
-
-새 riskDetection API에 대 한 자세한 내용은 [위험 검색 api 참조 설명서](https://aka.ms/RiskDetectionsAPI)를 참조 하세요.
-
----
-
-### <a name="application-proxy-support-for-the-samesite-attribute-and-chrome-80"></a>SameSite 특성 및 Chrome 80에 대 한 응용 프로그램 프록시 지원
-
-**유형:** 변경 계획  
-**서비스 범주:** 응용 프로그램 프록시  
-**제품 기능:** 액세스 제어
-
-Chrome 80 브라우저 릴리스 전에 몇 주 후에는 응용 프로그램 프록시 쿠키가 **SameSite** 특성을 처리 하는 방법을 업데이트할 계획입니다. Chrome 80 릴리스에서는 **SameSite** 특성을 지정 하지 않은 모든 쿠키가로 `SameSite=Lax`설정 된 것 처럼 처리 됩니다.
-
-이러한 변경으로 인해 잠재적으로 부정적인 영향을 방지 하려면 다음을 수행 하 여 응용 프로그램 프록시 액세스 및 세션 쿠키를 업데이트 합니다.
-
-- **보안 쿠키 사용** 설정의 기본값을 **예**로 설정 합니다.
-
-- **SameSite** 특성의 기본값을 **None**으로 설정 합니다.
-
-    >[!NOTE]
-    > 응용 프로그램 프록시 액세스 쿠키는 항상 보안 채널을 통해 단독으로 전송 됩니다. 이러한 변경 내용은 세션 쿠키에만 적용 됩니다.
-
-응용 프로그램 프록시 쿠키 설정에 대 한 자세한 내용은 Azure Active Directory에서 온 [-프레미스 응용 프로그램에 액세스 하기 위한 쿠키 설정](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)을 참조 하세요.
-
----
-
-### <a name="app-registrations-legacy-and-converged-app-management-from-the-application-registration-portal-appsdevmicrosoftcom-will-no-longer-be-available"></a>응용 프로그램 등록 포털 (apps.dev.microsoft.com)에서 앱 등록 (레거시) 및 수렴 형 앱 관리를 더 이상 사용할 수 없습니다.
-
-**유형:** 변경 계획  
-**서비스 범주:** 해당 없음  
-**제품 기능:** 개발자 환경
-
-가까운 장래에 Azure AD 계정을 사용 하는 사용자는 더 이상 응용 프로그램 등록 포털 (apps.dev.microsoft.com)을 사용 하 여 수렴 형 응용 프로그램을 등록 하 고 관리할 수 없으며 Azure Portal의 앱 등록 (레거시) 환경에서 응용 프로그램을 등록 하 고 관리할 수 없습니다.
-
-새로운 앱 등록 환경에 대해 자세히 알아보려면 [Azure Portal 학습 가이드에서 앱 등록](../develop/app-registrations-training-guide-for-app-registrations-legacy-users.md)를 참조 하세요.
-
----
-
-### <a name="users-are-no-longer-required-to-re-register-during-migration-from-per-user-mfa-to-conditional-access-based-mfa"></a>사용자가 더 이상 사용자 단위 MFA에서 조건부 액세스 기반 MFA로 마이그레이션하는 동안 다시 등록할 필요가 없습니다.
-
-**유형:** 고정  
-**서비스 범주:** MFA  
-**제품 기능:** Id 보안 & 보호
-
-사용자가 MFA (사용자별 Multi-Factor Authentication)에 대해 사용 하지 않도록 설정 된 후 조건부 액세스 정책을 통해 MFA에 대해 사용 하도록 설정 된 경우 사용자가 다시 등록 해야 하는 알려진 문제를 해결 했습니다.
-
-사용자가 다시 등록 하도록 하려면 Azure AD 포털의 사용자 인증 방법에서 **필요한 MFA 다시 등록** 옵션을 선택할 수 있습니다. 사용자별 MFA에서 조건부 액세스 기반 MFA로 사용자를 마이그레이션하는 방법에 대 한 자세한 내용은 [사용자별 mfa 사용자를 조건부 액세스 기반 mfa로 변환](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted#convert-users-from-per-user-mfa-to-conditional-access-based-mfa)을 참조 하세요.
-
----
-
-### <a name="new-capabilities-to-transform-and-send-claims-in-your-saml-token"></a>SAML 토큰에서 클레임을 변환 하 고 전송 하는 새로운 기능
-
-**유형:** 새로운 기능  
-**서비스 범주:** 엔터프라이즈 앱  
-**제품 기능:** SSO
-
-SAML 토큰에서 클레임을 사용자 지정 하 고 전송 하는 데 도움이 되는 추가 기능을 추가 했습니다. 이러한 새로운 기능은 다음과 같습니다.
-
-- 클레임에서 전송 하는 값을 수정 하는 데 도움이 되는 추가 클레임 변환 함수
-
-- 단일 클레임에 여러 변환을 적용할 수 있습니다.
-
-- 사용자 유형 및 사용자가 속한 그룹을 기반으로 클레임 원본을 지정 하는 기능입니다.
-
-이러한 새로운 기능에 대 한 자세한 내용은 [엔터프라이즈 응용 프로그램에 대 한 SAML 토큰에서 발급 된 클레임 사용자 지정](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)을 참조 하세요.
-
----
-
-### <a name="new-my-sign-ins-page-for-end-users-in-azure-ad"></a>Azure AD의 최종 사용자에 대 한 새 내 로그인 페이지
-
-**유형:** 새로운 기능  
-**서비스 범주:** 인증 (로그인)  
-**제품 기능:** 모니터링 및 보고
-
-조직의 사용자가 비정상적인 활동을 확인 하는 최근 로그인https://mysignins.microsoft.com) 기록을 볼 수 있도록 새 **내 로그인** 페이지를 추가 했습니다. 이 새 페이지를 통해 사용자는 다음을 볼 수 있습니다.
-
-- 사용자가 자신의 암호를 추측 하려고 하는 경우
-
-- 공격자가 자신의 계정 및 위치에서 성공적으로 로그인 한 경우
-
-- 공격자가 액세스 하려고 시도한 앱입니다.
-
-자세한 내용은 [사용자가 이제 비정상적인 활동 블로그의 로그인 기록을 확인할 수 있습니다](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Users-can-now-check-their-sign-in-history-for-unusual-activity/ba-p/916066) .를 참조 하세요.
-
----
-
-### <a name="migration-of-azure-ad-domain-services-azure-ad-ds-from-classic-to-azure-resource-manager-virtual-networks"></a>클래식에서 Azure Resource Manager 가상 네트워크로 Azure AD Domain Services (Azure AD DS) 마이그레이션
-
-**유형:** 새로운 기능  
-**서비스 범주:** Azure AD Domain Services  
-**제품 기능:** Azure AD Domain Services
-
-기존 가상 네트워크에서 중단 된 고객에 게 좋은 소식이 있습니다. 이제 클래식 가상 네트워크에서 기존 리소스 관리자 가상 네트워크로 일회성 마이그레이션을 수행할 수 있습니다. 리소스 관리자 가상 네트워크로 이동한 후에는 세분화 된 암호 정책, 전자 메일 알림 및 감사 로그와 같은 추가 및 업그레이드 기능을 활용할 수 있습니다.
-
-자세한 내용은 [미리 보기-클래식 가상 네트워크 모델에서 리소스 관리자로 Azure AD Domain Services 마이그레이션을](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet)참조 하세요.
-
----
-
-### <a name="updates-to-the-azure-ad-b2c-page-contract-layout"></a>Azure AD B2C 페이지 계약 레이아웃에 대 한 업데이트
-
-**유형:** 새로운 기능  
-**서비스 범주:** B2C - 소비자 ID 관리  
-**제품 기능:** B2B/B2C
-
-Azure AD B2C에 대 한 페이지 계약의 버전 1.2.0에 대 한 몇 가지 새로운 변경 사항이 도입 되었습니다. 이 업데이트 된 버전에서 이제 요소의 로드 순서를 제어할 수 있습니다 .이를 통해 스타일 시트 (CSS)가 로드 될 때 발생 하는 깜박임을 중지할 수도 있습니다.
-
-페이지 계약에 대 한 전체 변경 내용 목록은 [버전 변경 로그](https://docs.microsoft.com/azure/active-directory-b2c/page-layout#120)를 참조 하세요.
-
----
-
-### <a name="update-to-the-my-apps-page-along-with-new-workspaces-public-preview"></a>새 작업 영역과 함께 내 앱 페이지로 업데이트 (공개 미리 보기)
-
-**유형:** 새로운 기능  
-**서비스 범주:** 내 앱  
-**제품 기능:** 액세스 제어
-
-이제 조직의 사용자가 새 작업 영역 기능을 사용 하 여 앱을 보다 쉽게 찾을 수 있도록 해 주는 새로운 내 앱 환경을 보고 액세스 하는 방법을 사용자 지정할 수 있습니다. 새 작업 영역 기능은 조직의 사용자가 이미 액세스할 수 있는 앱에 대 한 필터 역할을 합니다.
-
-새 내 앱 환경 롤아웃 및 작업 영역 만들기에 대 한 자세한 내용은 [My apps (미리 보기) 포털에서 작업 영역 만들기](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces)를 참조 하세요.
-
----
-
-### <a name="support-for-the-monthly-active-user-based-billing-model-general-availability"></a>월간 활성 사용자 기반 청구 모델에 대 한 지원 (일반 공급)
-
-**유형:** 새로운 기능  
-**서비스 범주:** B2C - 소비자 ID 관리  
-**제품 기능:** B2B/B2C
-
-이제 Azure AD B2C는 MAU (월간 활성 사용자) 대금 청구를 지원 합니다. MAU 요금은 일정 월 동안 인증 활동이 있는 고유한 사용자 수를 기준으로 합니다. 기존 고객은 언제 든 지이 새로운 청구 방법으로 전환할 수 있습니다.
-
-2019 년 11 월 1 일부 터 모든 신규 고객은이 방법을 사용 하 여 자동으로 청구 됩니다. 이 청구 방법은 비용 혜택 및 미리 계획 하는 기능을 통해 고객에 게 유용 합니다.
-
-자세한 내용은 [월간 활성 사용자 청구 모델으로 업그레이드](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-how-to-enable-billing#upgrade-to-monthly-active-users-billing-model)를 참조 하세요.
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---october-2019"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새 페더레이션된 앱-10 월 2019
-
-**유형:** 새로운 기능  
-**서비스 범주:** 엔터프라이즈 앱  
-**제품 기능:** 타사 통합
-
-2019 년 10 월에 앱 갤러리에 대 한 페더레이션 지원을 통해 이러한 35 새 앱을 추가 했습니다.
-
-[위기 발생 시 – Mobile](https://docs.microsoft.com/azure/active-directory/saas-apps/in-case-of-crisis-mobile-tutorial), [Juno 여행](https://docs.microsoft.com/azure/active-directory/saas-apps/juno-journey-tutorial), [ExponentHR](https://docs.microsoft.com/azure/active-directory/saas-apps/exponenthr-tutorial), [Tact](https://tact.ai/assistant/), [OpusCapita 현금 관리](http://cm1.opuscapita.com/tenantname), [Salestim](https://prd.salestim.io/forms), [Learnster](https://docs.microsoft.com/azure/active-directory/saas-apps/learnster-tutorial), [Dynatrace](https://docs.microsoft.com/azure/active-directory/saas-apps/dynatrace-tutorial), [HunchBuzz](https://login.hunchbuzz.com/integrations/azure/process), [Freshworks](https://docs.microsoft.com/azure/active-directory/saas-apps/freshworks-tutorial), [ECornell](https://docs.microsoft.com/azure/active-directory/saas-apps/ecornell-tutorial), [ShipHazmat](https://docs.microsoft.com/azure/active-directory/saas-apps/shiphazmat-tutorial), [NETHIREVUE](https://docs.microsoft.com/azure/active-directory/saas-apps/netskope-cloud-security-tutorial), HireVue, [contentful](https://docs.microsoft.com/azure/active-directory/saas-apps/contentful-tutorial), [Bindtuning](https://bindtuning.com/login), [좌표 – 유럽](https://www.hirevue.com/), [좌표-usonly](https://www.hirevue.com/), [HireVue 좌표-US](https://www.hirevue.com/), [WittyParrot Knowledge Box](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup), [cloudmore](https://docs.microsoft.com/azure/active-directory/saas-apps/cloudmore-tutorial), [Visit.org](https://docs.microsoft.com/azure/active-directory/saas-apps/visitorg-tutorial), [Cambium Xirrus EasyPass Portal](https://login.xirrus.com/azure-signup), [Paylocity](https://docs.microsoft.com/azure/active-directory/saas-apps/paylocity-tutorial), [Mail 행운!](https://docs.microsoft.com/azure/active-directory/saas-apps/mail-luck-tutorial), [teamie](https://theteamie.com/), 팀을 [위한 속도](https://velocity.peakup.org/teams/login), [SIGNL4](https://account.signl4.com/manage), [eab 탐색](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-impl-tutorial), [screenmeet](https://console.screenmeet.com/), [오메가 Point](https://pi.ompnt.com/), [Intune 용 전자 메일 (iphone)](https://speaking.email/FAQ/98/email-access-via-microsoft-intune), [Office 365 Direct (iphone/Android)](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct), [ExactCare SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/exactcare-sso-tutorial), [iHealthHome Care 탐색 시스템](https://ihealthnav.com/account/signin), [Qubie](https://qubie.azurewebsites.net/static/adminTab/authorize.html)
-
-앱에 대한 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://aka.ms/appstutorial)을 참조하세요. Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 자세한 내용은 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://aka.ms/azureadapprequest)을 참조하세요.
-
----
-
-### <a name="consolidated-security-menu-item-in-the-azure-ad-portal"></a>Azure AD 포털의 통합 보안 메뉴 항목
-
-**유형:** 변경된 기능  
-**서비스 범주:** Id 보호  
-**제품 기능:** Id 보안 & 보호
-
-이제 새 **보안** 메뉴 항목 및 **검색** 표시줄의 Azure Portal에서 사용 가능한 모든 Azure AD 보안 기능에 액세스할 수 있습니다. 또한 **보안 시작**이라는 새로운 **보안** 방문 페이지는 공개 설명서, 보안 지침 및 배포 가이드에 대 한 링크를 제공 합니다.
-
-새 **보안** 메뉴에는 다음이 포함 됩니다.
-
-- 조건부 액세스
-- ID 보호
-- Security Center
-- ID 보안 점수
-- 인증 방법
-- MFA
-- 위험 보고서-위험한 사용자, 위험한 로그인, 위험 검색
-- 기타...
-
-자세한 내용은 [보안-시작](https://portal.azure.com/#blade/Microsoft_AAD_IAM/SecurityMenuBlade/GettingStarted)을 참조 하세요.
-
----
-
-### <a name="office-365-groups-expiration-policy-enhanced-with-autorenewal"></a>자동 갱신로 강화 된 Office 365 그룹 만료 정책
-
-**유형:** 변경된 기능  
-**서비스 범주:** 그룹 관리  
-**제품 기능:** Id 수명 주기 관리
-
-해당 구성원 들이 적극적으로 사용 중인 그룹을 자동으로 갱신 하도록 Office 365 그룹 만료 정책이 향상 되었습니다. 그룹은 Outlook, SharePoint 및 팀을 포함 하 여 모든 Office 365 앱의 사용자 활동을 기반으로 autorenewed 됩니다.
-
-이러한 향상 된 기능은 그룹 만료 알림을 줄이고 활성 그룹을 계속 사용할 수 있도록 하는 데 도움이 됩니다. Office 365 그룹에 대 한 활성 만료 정책이 이미 있는 경우이 새 기능을 설정 하기 위해 아무것도 수행할 필요가 없습니다.
-
-자세한 내용은 [Office 365 그룹에 대 한 만료 정책 구성](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-lifecycle)을 참조 하세요.
-
----
-
-### <a name="updated-azure-ad-domain-services-azure-ad-ds-creation-experience"></a>업데이트 된 Azure AD Domain Services (Azure AD DS) 만들기 환경
-
-**유형:** 변경된 기능  
-**서비스 범주:** Azure AD Domain Services  
-**제품 기능:** Azure AD Domain Services
-
-새로운 향상 된 생성 환경을 포함 하도록 Azure AD Domain Services (Azure AD DS)를 업데이트 하 여 세 번의 클릭 만으로 관리 되는 도메인을 만들 수 있습니다. 또한 이제 템플릿에서 Azure AD DS를 업로드 하 고 배포할 수 있습니다.
-
-자세한 내용은 [자습서: Azure Active Directory Domain Services 인스턴스 만들기 및 구성](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance)을 참조 하세요.
 
 ---

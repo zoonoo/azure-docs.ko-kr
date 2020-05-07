@@ -1,33 +1,37 @@
 ---
-title: SAP SuccessFactors 특성 참조 | Microsoft Docs
+title: SAP SuccessFactors 특성 참조
 description: SuccessFactors-HR 기반 프로 비전에서 지 원하는 SuccessFactors의 특성 알아보기
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: 00b16f969525e7b802c008ba247ecba015875689
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: celested
+ms.openlocfilehash: cdd6abf5d10a529aa4c529d0364b2ba9f1df72e3
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77522359"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593187"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>SAP SuccessFactors 특성 참조
 
+이 문서에서는 다음에 대 한 정보를 찾을 수 있습니다.
+
+- [지원 되는 SuccessFactors 엔터티 및 특성](#supported-successfactors-entities-and-attributes)
+- [기본 특성 매핑](#default-attribute-mapping)
+
 ## <a name="supported-successfactors-entities-and-attributes"></a>지원 되는 SuccessFactors 엔터티 및 특성
 
-아래 표에서는 다음 두 프로 비전 앱에서 지원 되는 SuccessFactors 특성 목록을 캡처합니다. 
-* [SuccessFactors 사용자 프로 비전을 Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
-* [Azure AD 사용자 프로 비전에 SuccessFactors](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) 
+아래 표에서는 다음 두 프로 비전 앱에서 지원 되는 SuccessFactors 특성 목록을 캡처합니다.
+
+- [SuccessFactors 사용자 프로 비전을 Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
+- [Azure AD 사용자 프로 비전에 SuccessFactors](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
+
 
 | \# | SuccessFactors 엔터티                  | SuccessFactors 특성     | 작업 유형 |
 |----|----------------------------------------|------------------------------|----------------|
@@ -111,7 +115,6 @@ ms.locfileid: "77522359"
 | 77 | EmpEmploymentTermination               | activeEmploymentsCount       | 읽기           |
 | 78 | EmpEmploymentTermination               | latestTerminationDate        | 읽기           |
 
-
 ## <a name="default-attribute-mapping"></a>기본 특성 매핑
 
 아래 표에서는 위에 나열 된 SuccessFactors 특성과 AD/Azure AD 특성 간의 기본 특성 매핑을 제공 합니다. Azure AD 프로 비전 앱 "매핑" 블레이드에서 위의 목록에서 특성을 포함 하도록이 기본 매핑을 수정할 수 있습니다. 
@@ -138,4 +141,3 @@ ms.locfileid: "77522359"
 | 18 | EmpJob\.위치                       | 주소록 주소    | streetAddress                           | 해당 없음                                                                                           |
 | 19 | EmpJob\.위치                       | officeLocationZipCode    | postalCode                              | 해당 없음                                                                                           |
 | 20 | EmpEmploymentTermination               | activeEmploymentsCount   | accountEnabled                          | activeEmploymentsCount = 0 인 경우에는 account\. 사용 하지 않도록 설정 합니다.                                           |
-

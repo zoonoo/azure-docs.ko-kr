@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 1d647ba7e8d4f0e29252dfff95099e39bab87895
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1463415a464fe1d7a7146cec20f2c17d7c8eb03
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77662079"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738085"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Azure Monitor 로그의 구조
 [로그 쿼리](log-query-overview.md) 를 사용 하 여 데이터에 대 한 정보를 신속 하 게 파악 하는 기능은 Azure Monitor의 강력한 기능입니다. 효율적이 고 유용한 쿼리를 만들려면 원하는 데이터의 위치와 구성 방법 등의 몇 가지 기본 개념을 이해 해야 합니다. 이 문서에서는 시작 하는 데 필요한 기본 개념을 제공 합니다.
@@ -52,18 +52,19 @@ Application Insights에서 응용 프로그램을 만들 때 해당 응용 프�
 
 Log Analytics 작업 영역과 달리 Application Insights 응용 프로그램에는 고정 테이블 집합이 있습니다. 응용 프로그램에 쓰도록 다른 데이터 원본을 구성할 수 없으므로 추가 테이블을 만들 수 없습니다. 
 
-| 테이블 | Description | 
+| 테이블 | 설명 | 
 |:---|:---|
-| availabilityResults | 가용성 테스트의 요약 데이터입니다. |
-| browserTimings      | 들어오는 데이터를 처리 하는 데 걸린 시간과 같은 클라이언트 성능에 대 한 데이터입니다. |
-| customEvents        | 응용 프로그램에서 만든 사용자 지정 이벤트입니다. |
-| customMetrics       | 응용 프로그램에서 만든 사용자 지정 메트릭입니다. |
-| 종속성        | 응용 프로그램에서 외부 구성 요소에 대 한 호출입니다. |
-| 예외          | 응용 프로그램 런타임에서 throw 되는 예외입니다. |
-| pageViews           | 브라우저 정보를 사용 하 여 각 웹 사이트 보기에 대 한 데이터입니다. |
-| performanceCounters | 응용 프로그램을 지 원하는 계산 리소스의 성능 측정 |
-| requests            | 각 응용 프로그램 요청에 대 한 세부 정보입니다.  |
-| traces              | 분산 추적의 결과입니다. |
+| availabilityResults   | 가용성 테스트의 요약 데이터입니다.
+| browserTimings      |     들어오는 데이터를 처리 하는 데 걸린 시간과 같은 클라이언트 성능에 대 한 데이터입니다.
+| customEvents        | 응용 프로그램에서 만든 사용자 지정 이벤트입니다.
+| customMetrics       | 응용 프로그램에서 만든 사용자 지정 메트릭입니다.
+| 종속성        | REST API, 데이터베이스 또는 파일 시스템에 대 한 호출과 같이, 다른 구성 요소 (외부 구성 요소 포함)를 통해 기록 된 다른 구성 요소 (외부 구성 요소 포함)에 대 한 호출을 호출 합니다. 
+| 예외            | 응용 프로그램 런타임에서 throw 되는 예외는 서버 쪽 및 클라이언트 쪽 (브라우저) 예외를 모두 캡처합니다.
+| pageViews           | 브라우저 정보를 사용 하 여 각 웹 사이트 보기에 대 한 데이터입니다.
+| performanceCounters   | 응용 프로그램을 지 원하는 계산 리소스 (예: Windows 성능 카운터)의 성능 측정
+| requests            | 응용 프로그램에서 받은 요청입니다. 예를 들어 웹 앱이 수신 하는 각 HTTP 요청에 대해 별도의 요청 레코드가 기록 됩니다. 
+| traces                | 이를 통해 기록 추적 ()을 통해 기록 된 응용 프로그램 코드/로깅 프레임 워크를 통해 내보낸 자세한 로그 (추적)
+
 
 응용 프로그램에 대 한 Log Analytics의 **스키마** 탭에서 각 테이블에 대 한 스키마를 볼 수 있습니다.
 
@@ -72,7 +73,7 @@ Log Analytics 작업 영역과 달리 Application Insights 응용 프로그램�
 ## <a name="standard-properties"></a>표준 속성
 Azure Monitor 로그의 각 테이블에는 자체 스키마가 있지만 모든 테이블에서 공유 하는 표준 속성은 있습니다. 각 항목에 대 한 자세한 내용은 [Azure Monitor 로그의 표준 속성](../platform/log-standard-properties.md) 을 참조 하세요.
 
-| Log Analytics 작업 영역 | 응용 프로그램 Application Insights | Description |
+| Log Analytics 작업 영역 | 응용 프로그램 Application Insights | 설명 |
 |:---|:---|:---|
 | TimeGenerated | timestamp  | 레코드를 만든 날짜와 시간입니다. |
 | Type          | itemType   | 레코드가 검색 된 테이블의 이름입니다. |

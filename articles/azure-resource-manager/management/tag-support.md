@@ -3,12 +3,12 @@ title: 리소스에 대 한 태그 지원
 description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 모든 Azure 서비스에 대한 세부 정보를 제공합니다.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: c971d3af102faf99f97aac261882797460d71f37
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c035f4f9ce6b7c842caeab3b705394417d15ba0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81255029"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609292"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](tag-resources.md)를 지원하는지 여부를 설명합니다. **태그 지원** 이라는 열은 리소스 형식에 태그에 대 한 속성이 있는지 여부를 나타냅니다. **비용 보고서에서 태그** 레이블이 지정 된 열은 리소스 종류가 태그를 비용 보고서에 전달 하는지 여부를 나타냅니다. [Cost Management 비용 분석](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) 및 [Azure 청구 송장 및 일간 사용 현황 데이터](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)에서 태그를 기준으로 비용을 볼 수 있습니다.
@@ -240,7 +240,7 @@ ms.locfileid: "81255029"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | reportFeedback | 아니요 | 아니요 |
+> | reportFeedback | 아니요 | 예 |
 > | 서비스 | 예 | 예 |
 > | validateServiceName | 아니요 | 아니요 |
 
@@ -1551,6 +1551,7 @@ ms.locfileid: "81255029"
 > | virtualHubs | 예 | 예 |
 > | virtualNetworkGateways | 예 | 예 |
 > | virtualNetworks | 예 | 예 |
+> | virtualNetworks/서브넷 | 아니요 | 아니요 |
 > | virtualNetworkTaps | 예 | 예 |
 > | virtualWans | 예 | 아니요 |
 > | vpnGateways | 예 | 예 |
@@ -2073,7 +2074,7 @@ ms.locfileid: "81255029"
 > | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | cancel | 아니요 | 아니요 |
-> | CreateSubscription | 아니요 | 아니요 |
+> | CreateSubscription | 아니요 | 예 |
 > | enable | 아니요 | 아니요 |
 > | 이름 바꾸기 | 아니요 | 아니요 |
 > | SubscriptionDefinitions | 아니요 | 아니요 |

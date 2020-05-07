@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 5a8d5f96449cfecd4628c38fa2788a1e06e96b07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a046791b8c50577c1921764b06bac5d88780194d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758899"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734997"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -824,7 +824,7 @@ ASP.NET 용으로 개발 된 로깅 프레임 워크를 권장 합니다. [시�
 |LogLevel    |코드|
 |------------|---|
 |추적       | 0 |
-|Debug       | 1 |
+|디버그       | 1 |
 |Information | 2 |
 |Warning     | 3 |
 |Error       | 4 |
@@ -956,9 +956,9 @@ static async Task Main()
 
 #### <a name="version-2x"></a>버전 2. *x*
 
-버전 2에서 WebJobs SDK에 [`TelemetryClient`] 대 한 Application Insights 공급자가 내부적으로 만든 *는를*사용 [`ServerTelemetryChannel`](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)합니다. Application Insights 엔드포인트를 사용할 수 없거나 들어오는 요청을 제한하는 경우 이 채널은 [웹앱의 파일 시스템에 요청을 저장해 두었다가 나중에 다시 전송](https://apmtips.com/blog/2015/09/03/more-telemetry-channels)합니다.
+버전 2에서 WebJobs SDK에 [`TelemetryClient`] 대 한 Application Insights 공급자가 내부적으로 만든 *는를*사용 [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll)합니다. Application Insights 엔드포인트를 사용할 수 없거나 들어오는 요청을 제한하는 경우 이 채널은 [웹앱의 파일 시스템에 요청을 저장해 두었다가 나중에 다시 전송](https://apmtips.com/blog/2015/09/03/more-telemetry-channels)합니다.
 
-는 [`TelemetryClient`] 를 구현 `ITelemetryClientFactory`하는 클래스에 의해 만들어집니다. 기본적으로이는 [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs)입니다.
+는 [`TelemetryClient`] 를 구현 `ITelemetryClientFactory`하는 클래스에 의해 만들어집니다. 기본적으로이는 [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/)입니다.
 
 Application Insights 파이프라인의 일부를 수정 하려는 경우 고유한 `ITelemetryClientFactory`를 제공할 수 있으며, 호스트는 클래스를 사용 하 여를 [`TelemetryClient`]생성 합니다. 예를 들어 다음 코드는 `DefaultTelemetryClientFactory` 를 재정의 하 여의 `ServerTelemetryChannel`속성을 수정 합니다.
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 495877f1c839de2cf3583a37180054c91bd9f139
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76907774"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732005"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>실행 상태를 모니터링 하 고, 트리거 기록을 검토 하 고, Azure Logic Apps에 대 한 경고를 설정 합니다.
 
@@ -19,7 +19,8 @@ ms.locfileid: "76907774"
 
 실시간 이벤트 모니터링과 풍부한 디버깅을 위해 [Azure Monitor 로그](../azure-monitor/overview.md)를 사용 하 여 논리 앱에 대 한 진단 로깅을 설정 합니다. 이 Azure 서비스를 사용 하면 클라우드 및 온-프레미스 환경을 모니터링 하 여 해당 가용성 및 성능을 더 쉽게 유지할 수 있습니다. 그런 다음 트리거 이벤트, 실행 이벤트 및 작업 이벤트와 같은 이벤트를 찾아 볼 수 있습니다. [Azure Monitor 로그](../azure-monitor/platform/data-platform-logs.md)에이 정보를 저장 하 여이 정보를 찾고 분석 하는 데 도움이 되는 [로그 쿼리](../azure-monitor/log-query/log-query-overview.md) 를 만들 수 있습니다. 또한 Azure Storage 및 Azure Event Hubs와 같은 다른 Azure 서비스에서이 진단 데이터를 사용할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용 하 여 논리 앱 모니터링](../logic-apps/monitor-logic-apps-log-analytics.md)을 참조 하세요.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+> [!NOTE]
+> 논리 앱이 [내부 액세스 끝점](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)을 사용 하도록 만들어진 [ISE (integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 에서 실행 되는 경우 *가상 네트워크 내부 에서만*논리 앱의 실행 기록에서 입력 및 출력을 보고 액세스할 수 있습니다. 실행 기록에 액세스 하려는 컴퓨터와 개인 끝점 간에 네트워크 연결이 있는지 확인 합니다. 예를 들어 클라이언트 컴퓨터는 ISE의 가상 네트워크 내부 또는 ISE의 가상 네트워크 (예: 피어 링 또는 가상 사설망)에 연결 된 가상 네트워크 내부에 있을 수 있습니다. 자세한 내용은 [ISE 끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. 
 
 <a name="review-runs-history"></a>
 
@@ -45,7 +46,7 @@ ms.locfileid: "76907774"
 
    논리 앱 실행에 대 한 가능한 상태는 다음과 같습니다.
 
-   | 상태 | Description |
+   | 상태 | 설명 |
    |--------|-------------|
    | **Cancelled** | 워크플로가 실행 중이지만 취소 요청을 받았습니다. |
    | **Failed** | 하나 이상의 작업이 실패 했으며 워크플로의 이후 작업이 실패를 처리 하도록 설정 되지 않았습니다. |
@@ -115,7 +116,7 @@ ms.locfileid: "76907774"
 
    트리거 시도에서 가능한 상태는 다음과 같습니다.
 
-   | 상태 | Description |
+   | 상태 | 설명 |
    |--------|-------------|
    | **Failed** | 오류가 발생했습니다. 실패한 트리거에 생성된 오류 메시지를 검토하려면 해당 트리거 시도를 선택하고 **출력**을 선택합니다. 예를 들어 유효하지 않은 입력을 찾을 수 있습니다. |
    | **건너뜁니다** | 트리거는 엔드포인트를 확인했지만 데이터가 없습니다. |

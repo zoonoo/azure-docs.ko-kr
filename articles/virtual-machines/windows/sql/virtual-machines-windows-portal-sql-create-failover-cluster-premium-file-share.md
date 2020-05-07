@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 9595ee87801fa4ce187a50197fc58d6c448eac24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09dd4ea3cd039bcb91acc877e51fee7e40168ac3
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78303225"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612761"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Azure virtual machines에서 프리미엄 파일 공유를 사용 하 여 SQL Server 장애 조치 (failover) 클러스터 인스턴스 구성
 
@@ -47,7 +47,7 @@ Azure IaaS VM 장애 조치 (failover) 클러스터에서는 서버당 단일 NI
 > [!IMPORTANT]
 > SQL Server 현재 Azure 가상 컴퓨터의 장애 조치 (failover) 클러스터 인스턴스는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)의 [경량 관리 모드](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) 에서만 지원 됩니다. 전체 확장 모드에서 경량 모드로 변경 하려면 해당 Vm에 대 한 **Sql 가상 컴퓨터** 리소스를 삭제 한 다음 경량 모드로 sql VM 리소스 공급자에 등록 합니다. Azure Portal를 사용 하 여 **SQL 가상 컴퓨터** 리소스를 삭제 하는 경우 **올바른 가상 컴퓨터 옆의 확인란을 선택 취소**합니다. 전체 확장은 자동화 된 백업, 패치, 고급 포털 관리 등의 기능을 지원 합니다. 이러한 기능은 에이전트가 경량 관리 모드로 다시 설치 된 후 SQL Vm에 대해 작동 하지 않습니다.
 
-프리미엄 파일 공유는 많은 워크 로드의 요구 사항을 충족 하는 IOPS 및 전체 용량을 제공 합니다. IO를 많이 사용 하는 워크 로드의 경우 관리 되는 프리미엄 디스크 또는 ultra disks에 따라 [스토리지 공간 다이렉트를 사용 하 여 장애 조치 클러스터 인스턴스를 SQL Server](virtual-machines-windows-portal-sql-create-failover-cluster.md)합니다.  
+프리미엄 파일 공유는 많은 워크 로드의 요구 사항을 충족 하는 IOPS 및 처리량 용량을 제공 합니다. IO를 많이 사용 하는 워크 로드의 경우 관리 되는 프리미엄 디스크 또는 ultra disks에 따라 [스토리지 공간 다이렉트를 사용 하 여 장애 조치 클러스터 인스턴스를 SQL Server](virtual-machines-windows-portal-sql-create-failover-cluster.md)합니다.  
 
 사용자 환경의 IOPS 작업을 확인 하 고 프리미엄 파일 공유에서 배포 또는 마이그레이션을 시작 하기 전에 필요한 IOPS를 제공 하는지 확인 합니다. Windows 성능 모니터 디스크 카운터를 사용 하 여 데이터, 로그 및 임시 DB 파일을 SQL Server 하는 데 필요한 총 IOPS (디스크 전송 수/초) 및 처리량 (디스크 바이트/초)을 모니터링할 수 있습니다.
 
@@ -71,7 +71,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 
 Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failover) 클러스터에 대해 지원 되지 않습니다. Filestream을 사용 하려면 [스토리지 공간 다이렉트](virtual-machines-windows-portal-sql-create-failover-cluster.md)를 사용 하 여 클러스터를 배포 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 완료 하기 전에 다음이 이미 있어야 합니다.
 
@@ -136,7 +136,7 @@ Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failove
 
 1. Azure가 가상 컴퓨터를 만든 후 RDP를 사용 하 여 각 가상 컴퓨터에 연결 합니다.
 
-   RDP를 사용 하 여 가상 컴퓨터에 처음 연결 하는 경우 네트워크에서 PC를 검색할 수 있도록 허용할지 묻는 메시지가 표시 됩니다. **예**를 선택합니다.
+   RDP를 사용 하 여 가상 컴퓨터에 처음 연결 하는 경우 네트워크에서 PC를 검색할 수 있도록 허용할지 묻는 메시지가 표시 됩니다. **Yes**를 선택합니다.
 
 1. SQL Server 기반 가상 머신 이미지 중 하나를 사용 하는 경우 SQL Server 인스턴스를 제거 합니다.
 
@@ -153,7 +153,7 @@ Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failove
 
    각 가상 컴퓨터의 Windows 방화벽에서 이러한 포트를 엽니다.
 
-   | 목적 | TCP 포트 | 메모
+   | 용도 | TCP 포트 | 참고
    | ------ | ------ | ------
    | SQL Server | 1433 | SQL Server의 기본 인스턴스에 대한 표준 포트입니다. 갤러리에서 이미지를 사용한 경우 이 포트는 자동으로 열립니다.
    | 상태 프로브 | 59999 | 모든 공개 TCP 포트입니다. 이후 단계에서 이 포트를 사용하려면 부하 분산 장치 [상태 프로브](#probe) 및 클러스터를 구성합니다.
@@ -257,7 +257,7 @@ PowerShell을 사용 하 여 클러스터의 유효성을 검사 하려면 가�
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
-#### <a name="windows-server-2019"></a>시작
+#### <a name="windows-server-2019"></a>Windows Server 2019
 
 다음 PowerShell 스크립트는 Windows Server 2019에 대 한 장애 조치 (failover) 클러스터를 만듭니다. 자세한 내용은 [장애 조치 (Failover) 클러스터: 클러스터 네트워크 개체](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97)를 참조 하세요. Azure 가상 네트워크에서 노드 이름 (가상 머신 이름) 및 사용 가능한 IP 주소를 사용 하 여 스크립트를 업데이트 합니다.
 
