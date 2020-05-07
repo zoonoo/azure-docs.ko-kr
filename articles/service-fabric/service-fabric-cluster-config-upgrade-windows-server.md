@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 8e7e01dac29cb9ba91c83270dac4e46c73b2089e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d0279cc323f7eee87feb2a596a4c2df0b4667e1
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75610128"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790850"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>독립 실행형 클러스터의 구성 업그레이드 
 
@@ -75,7 +75,7 @@ Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Confi
 
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric 클러스터 설정](service-fabric-cluster-fabric-settings.md) 중 일부를 사용자 지정하는 방법 알아보기
-* [클러스터를 확장 및 축소](service-fabric-cluster-scale-up-down.md)하는 방법을 알아봅니다.
+* [클러스터를 확장 및 축소](service-fabric-cluster-scale-in-out.md)하는 방법을 알아봅니다.
 * [애플리케이션 업그레이드](service-fabric-application-upgrade.md)에 대해 알아보기
 
 <!--Image references-->

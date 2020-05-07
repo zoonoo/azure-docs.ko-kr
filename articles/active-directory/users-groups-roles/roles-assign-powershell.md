@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a2096b7899039e7a9d3455bc0c6fb3ec84ebd1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bfcb00f56a3cc6f71729fbeaf317ce9447e120ed
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74025329"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582616"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Azure Active Directory에서 PowerShell을 사용 하 여 리소스 범위에 사용자 지정 역할 할당
 
@@ -28,7 +28,7 @@ Azure AD 관리자 역할에 대 한 자세한 내용은 [Azure Active Director
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
-전역 관리자 계정을 사용 하 여 Azure AD 테 넌 트에 연결 하 여 역할을 할당 하거나 제거 합니다.
+전역 관리자 계정을 사용 하 여 Azure AD 조직에 연결 하 여 역할을 할당 하거나 제거 합니다.
 
 ## <a name="prepare-powershell"></a>PowerShell 준비
 

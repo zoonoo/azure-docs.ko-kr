@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 54a6f875bc33d24d412d2424c634d1019b4af399
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670120"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82591655"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Azure Monitor의 로그 쿼리 개요
 로그 쿼리를 통해 [Azure Monitor 로그](../platform/data-platform-logs.md)에 수집 된 데이터의 값을 완벽 하 게 활용할 수 있습니다. 강력한 쿼리 언어를 사용 하면 여러 테이블의 데이터를 조인 하 고, 큰 데이터 집합을 집계 하 고, 최소한의 코드로 복잡 한 작업을 수행할 수 있습니다. 실제로 모든 질문에 대 한 답변 및 분석은 지원 데이터가 수집 되는 동안 수행 되며, 올바른 쿼리를 구성 하는 방법을 이해할 수 있습니다.
@@ -81,7 +81,7 @@ Log Analytics는 로그 쿼리를 작성 하 고 대화형으로 결과를 분�
 Azure Portal의 여러 위치에서 Log Analytics를 시작할 수 있습니다. Log Analytics에서 사용할 수 있는 데이터의 범위는 시작 방법에 따라 결정 됩니다. 자세한 내용은 [쿼리 범위](scope.md) 를 참조 하세요.
 
 - **Azure Monitor** 메뉴 또는 **Log Analytics 작업 영역** 메뉴에서 **로그** 를 선택 합니다.
-- Application Insights 응용 프로그램의 **개요** 페이지에서 **분석** 을 선택 합니다.
+- Application Insights 응용 프로그램의 **개요** 페이지에서 **로그** 를 선택 합니다.
 - Azure 리소스의 메뉴에서 **로그** 를 선택 합니다.
 
 ![Log Analytics](media/log-query-overview/log-analytics.png)

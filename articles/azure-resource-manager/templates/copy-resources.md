@@ -2,13 +2,13 @@
 title: 리소스의 여러 인스턴스 배포
 description: Azure Resource Manager 템플릿에서 복사 작업 및 배열을 사용 하 여 리소스 형식을 여러 번 배포 합니다.
 ms.topic: conceptual
-ms.date: 09/27/2019
-ms.openlocfilehash: e65ab93c21daffa0053e53d953fe95fa9f28e2a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153321"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583389"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>ARM 템플릿의 리소스 반복
 
@@ -18,7 +18,7 @@ ms.locfileid: "80153321"
 
 리소스 배포 여부를 지정해야 하는 경우, [조건 요소](conditional-resource-deployment.md)를 참조하세요.
 
-## <a name="resource-iteration"></a>리소스 반복
+## <a name="syntax"></a>구문
 
 Copy 요소의 일반적인 형식은 다음과 같습니다.
 
@@ -34,6 +34,23 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 **Name** 속성은 루프를 식별 하는 값입니다. **Count** 속성은 리소스 종류에 대해 원하는 반복 횟수를 지정 합니다.
 
 **Mode** 및 **batchSize** 속성을 사용 하 여 리소스를 병렬로 배포할지 또는 순차적으로 배포할지를 지정 합니다. 이러한 속성은 [직렬 또는 병렬](#serial-or-parallel)에 설명 되어 있습니다.
+
+## <a name="copy-limits"></a>복사 제한
+
+개수는 800를 초과할 수 없습니다.
+
+개수는 음수일 수 없습니다. 최신 버전의 Azure CLI, PowerShell 또는 REST API를 사용 하 여 템플릿을 배포 하는 경우에는 0이 될 수 있습니다. 특히 다음을 사용 해야 합니다.
+
+* Azure PowerShell **2.6** 이상
+* Azure CLI **2.0.74** 이상
+* REST API 버전 **2019-05-10** 이상
+* 배포 리소스 종류에는 [연결 된 배포](linked-templates.md) 에서 API 버전 **2019-05-10** 이상을 사용 해야 합니다.
+
+이전 버전의 PowerShell, CLI 및 REST API는 count에 대해 0을 지원 하지 않습니다.
+
+Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 해 서 사용 합니다. 전체 모드를 사용 하 여 리소스 그룹에 다시 배포 하면 복사 루프를 확인 한 후 템플릿에 지정 되지 않은 모든 리소스가 삭제 됩니다.
+
+## <a name="resource-iteration"></a>리소스 반복
 
 다음 예에서는 **Storagecount** 매개 변수에 지정 된 저장소 계정의 수를 만듭니다.
 
@@ -257,14 +274,6 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
   ...
 }]
 ```
-
-## <a name="copy-limits"></a>복사 제한
-
-개수는 800를 초과할 수 없습니다.
-
-개수는 음수일 수 없습니다. Azure PowerShell 2.6 Azure CLI 이상 버전을 사용 하 여 템플릿을 배포 하거나, 2.0.74 이상 또는 REST API **2019-05-10** 이상 버전을 사용 하는 경우 count를 0으로 설정할 수 있습니다. 이전 버전의 PowerShell, CLI 및 REST API는 count에 대해 0을 지원 하지 않습니다.
-
-Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 해 서 사용 합니다. 전체 모드를 사용 하 여 리소스 그룹에 다시 배포 하면 복사 루프를 확인 한 후 템플릿에 지정 되지 않은 모든 리소스가 삭제 됩니다.
 
 ## <a name="example-templates"></a>예제 템플릿
 

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5948fba67d3f071d77192f9ad89bc696fdc0c3cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 521982a5cf09e0da9c52bca2fe367432a1d29e57
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253456"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583129"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>애플리케이션 프록시를 사용하여 앱에 Single Sign-On에 대한 Kerberos 제한된 위임
 
@@ -100,11 +100,13 @@ Active Directory 구성은 애플리케이션 프록시 커넥터와 애플리�
 
 ## <a name="sso-for-non-windows-apps"></a>비 Windows 앱에 대한 SSO
 
-클라우드에서 Azure AD가 사용자를 인증할 때 Azure AD 애플리케이션 프록시에서 Kerberos 위임 흐름이 시작됩니다. 요청이 온-프레미스에 도착하면 Azure AD 애플리케이션 프록시 커넥터는 로컬 Active Directory와 상호 작용하여 사용자 대신 Kerberos 티켓을 발급합니다. 해당 과정은 Kerberos 제한 위임(KCD)이라고 합니다. 다음 단계에서 요청은 백 엔드 애플리케이션에 Kerberos 티켓으로 전송됩니다. 
+클라우드에서 Azure AD가 사용자를 인증할 때 Azure AD 애플리케이션 프록시에서 Kerberos 위임 흐름이 시작됩니다. 요청이 온-프레미스에 도착하면 Azure AD 애플리케이션 프록시 커넥터는 로컬 Active Directory와 상호 작용하여 사용자 대신 Kerberos 티켓을 발급합니다. 해당 과정은 Kerberos 제한 위임(KCD)이라고 합니다. 
 
-이러한 요청을 보내는 방법을 정의하는 몇 가지 프로토콜이 있습니다. 대부분의 비 Windows 서버는 SPNEGO와 협상을 예상합니다. 이 프로토콜은 Azure AD 애플리케이션 프록시에서 지원되지만 기본적으로 사용할 수 없습니다. 서버는 둘 다가 아닌, SPNEGO 또는 표준 KCD에 대해 구성될 수 있습니다.
+다음 단계에서 요청은 백 엔드 애플리케이션에 Kerberos 티켓으로 전송됩니다. 
 
-SPNEGO에 대한 커넥터 컴퓨터를 구성하는 경우 해당 커넥터 그룹의 다른 모든 커넥터가 SPNEGO를 사용하여 구성되는지 확인합니다. 표준 KCD를 예상하는 애플리케이션은 SPNEGO에 대해 구성되지 않은 다른 커넥터를 통해 라우팅돼야 합니다.
+이러한 요청에서 Kerberos 티켓을 보내는 방법을 정의 하는 몇 가지 메커니즘이 있습니다. 대부분의 비 Windows 서버는 SPNEGO 토큰의 형태로 수신 될 것으로 간주 합니다. 이 메커니즘은 Azure AD 응용 프로그램 프록시에서 지원 되지만 기본적으로 사용 하지 않도록 설정 되어 있습니다. SPNEGO 또는 standard Kerberos 토큰에 대해 커넥터를 구성할 수 있지만 둘 다 사용할 수는 없습니다.
+
+SPNEGO에 대한 커넥터 컴퓨터를 구성하는 경우 해당 커넥터 그룹의 다른 모든 커넥터가 SPNEGO를 사용하여 구성되는지 확인합니다. 표준 Kerberos 토큰을 필요로 하는 응용 프로그램은 SPNEGO에 대해 구성 되지 않은 다른 커넥터를 통해 라우팅해야 합니다.
  
 
 SPNEGO를 사용하도록 설정하려면

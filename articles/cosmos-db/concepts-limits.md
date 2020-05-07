@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 6dcda58652abe51d360748222263f30f337a2251
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4d578596471153e4fc0e37d3ca093685326ecc7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182738"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791768"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -138,9 +138,9 @@ Cosmos DB은 권한 부여에 HMAC를 사용 합니다. 컨테이너, 파티션 
 
 Cosmos DB는 쓰기 중 트리거의 실행을 지원 합니다. 서비스는 쓰기 작업당 최대 하나의 사전 트리거와 하나의 사후 트리거를 지원 합니다. 
 
-## <a name="autoscale-mode-limits"></a>자동 크기 조정 모드 제한
+## <a name="limits-for-autoscale-provisioned-throughput"></a>자동 크기 조정 프로 비전 된 처리량에 대 한 제한
 
-자동 크기 조정 모드의 처리량 및 저장소 제한에 대해서는 [자동 크기 조정](provision-throughput-autoscale.md#autoscale-limits) 문서를 참조 하세요.
+자동 크기 조정으로 처리량 및 저장소 제한에 대해서는 [자동 크기 조정](provision-throughput-autoscale.md#autoscale-limits) 문서를 참조 하세요.
 
 ## <a name="sql-query-limits"></a>SQL 쿼리 제한
 

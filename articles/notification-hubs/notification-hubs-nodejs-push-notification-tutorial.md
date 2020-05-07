@@ -13,16 +13,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 6e109c5a7f4911893c81c88ae84322fb962fff6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb984a944067ddb1449f58b464e596fd138dc7c7
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71213200"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592012"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs 및 Node.js를 사용하여 푸시 알림 보내기
 
@@ -39,7 +39,7 @@ ms.locfileid: "71213200"
 
 - Android
 - iOS
-- UWP
+- 범용 Windows 플랫폼
 - Windows Phone
 
 ## <a name="notification-hubs"></a>Notification Hubs
@@ -133,7 +133,7 @@ notificationHubService.gcm.send(null, payload, function(error){
 - **Payload** - 메시지의 JSON 또는 문자열 페이로드
 - **Callback** - 콜백 함수.
 
-페이로드 형식에 대한 자세한 내용은 **로컬 및 푸시 알림 프로그래밍 가이드** 문서의 [알림 페이로드](https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) 섹션을 참조하세요.
+페이로드 형식에 대 한 자세한 내용은 [usernotifications 가이드](https://developer.apple.com/documentation/usernotifications)의 **알림 콘텐츠** 섹션을 참조 하십시오.
 
 다음 코드는 `NotificationHubService`에서 공개하는 `ApnsService` 인스턴스를 사용하여 모든 클라이언트에 경고 메시지를 보냅니다.
 

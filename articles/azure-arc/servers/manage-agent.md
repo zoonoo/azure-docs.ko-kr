@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/14/2020
+ms.date: 04/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5ad2127b4cb9da3ca83aa04bd1885908a88dba62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 685c56c7ef270acb416d4b76c6aceb8553e9a07f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81308966"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82581701"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>연결 된 컴퓨터 에이전트 관리 및 유지 관리
 
@@ -25,7 +25,7 @@ Windows 및 Linux용 Azure Connected Machine 에이전트는 요구 사항에 �
 
 | 운영 체제 | 업그레이드 방법 |
 |------------------|----------------|
-| Windows | 수동<br> Windows 업데이트 |
+| Windows | 수동<br> Windows Update |
 | Ubuntu | [Apt](https://help.ubuntu.com/lts/serverguide/apt.html) |
 | SUSE Linux Enterprise Server | [zypper](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
 | RedHat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) | 
@@ -199,7 +199,7 @@ Azcmagent 도구 (Azcmagent)는 설치 중에 서버 (미리 보기)에 연결 �
 
     a. 관리자 권한이 있는 계정으로 컴퓨터에 로그인합니다.  
     b. **제어판**에서 **프로그램 및 기능**을 선택합니다.  
-    다. **프로그램 및 기능**에서 **Azure Connected Machine 에이전트**, ** 제거**, **예**를 차례로 선택합니다.  
+    c. **프로그램 및 기능**에서 **Azure Connected Machine 에이전트**, ** 제거**, **예**를 차례로 선택합니다.  
 
     >[!NOTE]
     > **AzureConnectedMachineAgent.msi** 설치 관리자 패키지를 두 번 클릭하여 에이전트 설정 마법사를 실행할 수도 있습니다.
@@ -261,3 +261,49 @@ Azure에서 지원 서비스를 사용 하 여 컴퓨터를 관리 하지 않으
 1. [Azure Portal](https://aka.ms/hybridmachineportal)로 이동하여 서버용 Azure Arc를 엽니다.
 
 2. 목록에서 머신을 선택하고, 줄임표 (**...**)를 선택한 다음, **삭제**를 선택합니다.
+
+## <a name="update-or-remove-proxy-settings"></a>프록시 설정 업데이트 또는 제거
+
+에이전트가 프록시 서버를 통해 서비스와 통신 하도록 구성 하거나 배포 후에이 구성을 제거 하거나 다음 방법 중 하나를 사용 하 여이 작업을 완료 합니다.
+
+### <a name="windows"></a>Windows
+
+프록시 서버 환경 변수를 설정하려면 다음 명령을 실행합니다.
+
+```powershell
+# If a proxy server is needed, execute these commands with the proxy URL and port.
+[Environment]::SetEnvironmentVariable("https_proxy","http://{proxy-url}:{proxy-port}","Machine")
+$env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
+# For the changes to take effect, the agent service needs to be restarted after the proxy environment variable is set.
+Restart-Service -Name himds
+```
+
+프록시 서버를 통한 통신을 중지 하도록 에이전트를 구성 하려면 다음 명령을 실행 하 여 프록시 서버 환경 변수를 제거 하 고 에이전트 서비스를 다시 시작 합니다.
+
+```powershell
+[Environment]::SetEnvironmentVariable("https_proxy",$null,"Machine")
+$env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
+# For the changes to take effect, the agent service needs to be restarted after the proxy environment variable removed.
+Restart-Service -Name himds
+```
+
+### <a name="linux"></a>Linux
+
+프록시 서버를 설정 하려면 에이전트 설치 패키지를 다운로드 한 디렉터리에서 다음 명령을 실행 합니다.
+
+```bash
+# Reconfigure the connected machine agent and set the proxy server.
+bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+```
+
+프록시 서버를 통한 통신을 중지 하도록 에이전트를 구성 하려면 다음 명령을 실행 하 여 프록시 구성을 제거 합니다.
+
+```bash
+sudo azcmagent_proxy remove
+```
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure Policy](../../governance/policy/overview.md)를 사용 하 여 컴퓨터를 관리 하는 방법, 컴퓨터에서 예상 Log Analytics 작업 영역에 보고 하는지 [확인,](../../governance/policy/concepts/guest-configuration.md)vm을 사용 하 여 [Azure Monitor](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)모니터링 사용 등의 작업을 수행 하는 방법을 알아봅니다.
+
+- [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. 컴퓨터에서 실행 되는 OS 및 워크 로드를 사전에 모니터링 하거나, 자동화 runbook 또는 업데이트 관리 같은 기능을 사용 하 여 관리 하거나, [Azure Security Center](../../security-center/security-center-intro.md)같은 다른 Azure 서비스를 사용 하려는 경우 Windows 및 Linux 용 Log Analytics 에이전트가 필요 합니다.

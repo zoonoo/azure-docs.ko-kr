@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 17a96479b80410cbfcb2a6061904491f95c45f10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5820856f7d4c51e41162f01a9687304cb223088
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116267"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791921"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Azure Cognitive Search 인덱서를 사용 하 여 필드 매핑 및 변환
 
@@ -28,7 +28,7 @@ Azure Cognitive Search 인덱서를 사용 하는 경우 입력 데이터가 대
 * 데이터를 Base64 인코딩 또는 디코딩해야 합니다. 필드 매핑은 Base64 인코딩 및 디코딩에 대한 함수를 포함한 여러 **매핑 함수**를 지원합니다.
 
 > [!NOTE]
-> 인덱서의 필드 매핑은 간단한 데이터 변환 기능을 사용 하 여 데이터 필드를 인덱스 필드에 매핑하는 간단한 방법입니다. 더 복잡 한 데이터는 인덱싱에 취약 형식으로 변형 하기 위해 전처리가 필요할 수 있습니다. 고려할 수 있는 한 가지 옵션은 [Azure Data Factory](https://docs.microsoft.com/zure/data-factory/)입니다.
+> 인덱서의 필드 매핑은 간단한 데이터 변환 기능을 사용 하 여 데이터 필드를 인덱스 필드에 매핑하는 간단한 방법입니다. 더 복잡 한 데이터는 인덱싱에 취약 형식으로 변형 하기 위해 전처리가 필요할 수 있습니다. 고려할 수 있는 한 가지 옵션은 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)입니다.
 
 ## <a name="set-up-field-mappings"></a>필드 매핑 설정
 
@@ -183,7 +183,7 @@ Azure Cognitive Search의 .NET 라이브러리는 기본 제공 인코딩을 제
 
 다음 표에서는 문자열 `00>00?00`의 서로 다른 base64 인코딩을 비교합니다. base64 함수에 필요한 추가 처리를 판단하려면(있는 경우) `00>00?00` 문자열에서 라이브러리 인코딩 함수를 적용하고 출력을 `MDA-MDA_MDA` 예상 출력과 비교합니다.
 
-| 인코딩 | Base64 인코딩 출력 | 라이브러리 인코딩 후 추가 처리 | 라이브러리 인코딩 전 추가 처리 |
+| Encoding | Base64 인코딩 출력 | 라이브러리 인코딩 후 추가 처리 | 라이브러리 인코딩 전 추가 처리 |
 | --- | --- | --- | --- |
 | Base64(패딩 있음) | `MDA+MDA/MDA=` | URL 지원 문자 사용 및 패딩 제거 | 표준 base64 문자 사용 및 패딩 추가 |
 | Base64(패딩 없음) | `MDA+MDA/MDA` | URL 지원 문자 사용 | 표준 base64 문자 사용 |

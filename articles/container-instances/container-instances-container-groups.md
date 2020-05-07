@@ -4,12 +4,12 @@ description: 수명 주기 및 Cpu, 저장소 및 네트워크와 같은 리소�
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 3efc4528863286da676fc7eb758176156c87a32a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: b5f4f834d44294d846495a59af2fb65b231e4820
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115655"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583827"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances의 컨테이너 그룹
 
@@ -69,7 +69,7 @@ Azure Container Instances는 그룹의 인스턴스에 대 한 [리소스 요청
 
 ## <a name="networking"></a>네트워킹
 
-컨테이너 그룹은 외부 연결 IP 주소, 해당 IP 주소에 있는 하나 이상의 포트 및 FQDN (정규화 된 도메인 이름)을 가진 DNS 레이블을 공유할 수 있습니다. 외부 클라이언트가 그룹 내 컨테이너에 도달하게 지원하려면 IP 주소와 컨테이너에서 해당 포트를 공개해야 합니다. 그룹 내의 컨테이너는 포트 네임 스페이스를 공유 하기 때문에 포트 매핑이 지원 되지 않습니다. 컨테이너 그룹을 삭제 하면 컨테이너 그룹의 IP 주소와 FQDN이 해제 됩니다. 
+컨테이너 그룹은 외부 연결 IP 주소, 해당 IP 주소에 있는 하나 이상의 포트 및 FQDN (정규화 된 도메인 이름)을 가진 DNS 레이블을 공유할 수 있습니다. 외부 클라이언트가 그룹 내 컨테이너에 도달하게 지원하려면 IP 주소와 컨테이너에서 해당 포트를 공개해야 합니다. 컨테이너 그룹의 IP 주소와 FQDN은 컨테이너 그룹이 삭제 될 때 해제 됩니다. 
 
 컨테이너 그룹 내에서 컨테이너 인스턴스는 해당 포트가 그룹의 IP 주소 또는 컨테이너에서 외부에 노출 되지 않는 경우에도 모든 포트의 localhost를 통해 서로 연결할 수 있습니다.
 
@@ -79,7 +79,7 @@ Azure Container Instances는 그룹의 인스턴스에 대 한 [리소스 요청
 
 컨테이너 그룹 내에서 탑재할 외부 볼륨을 지정할 수 있습니다. 지원 되는 볼륨은 다음과 같습니다.
 * [Azure 파일 공유][azure-files]
-* [기밀][secret]
+* [비밀][secret]
 * [빈 디렉터리][empty-directory]
 * [복제 된 git 리포지토리][volume-gitrepo]
 
@@ -118,7 +118,7 @@ Azure Resource Manager 템플릿을 통해 다중 컨테이너 그룹 배포 방
 [resource-limits]: /rest/api/container-instances/containergroups/createorupdate#resourcelimits
 [resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
-[virtual-network]: container-instances-vnet.md
+[virtual-network]: container-instances-virtual-network-concepts.md
 [secret]: container-instances-volume-secret.md
 [volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md

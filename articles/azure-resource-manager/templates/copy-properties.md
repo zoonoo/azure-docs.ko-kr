@@ -3,12 +3,12 @@ title: 속성의 여러 인스턴스 정의
 description: Azure Resource Manager 템플릿에서 복사 작업을 사용 하 여 리소스에 대 한 속성을 만들 때 여러 번 반복 합니다.
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 831ae1af202a1cdf52bdd2bdf0d9a042a97ba52f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fde2ecf14bc5b29bb31ffa78e067b780438578a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81391328"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583400"
 ---
 # <a name="property-iteration-in-arm-templates"></a>ARM 템플릿의 속성 반복
 
@@ -16,7 +16,7 @@ ms.locfileid: "81391328"
 
 [리소스](copy-resources.md), [변수](copy-variables.md)및 [출력과](copy-outputs.md)함께 copy를 사용할 수도 있습니다.
 
-## <a name="property-iteration"></a>속성 반복
+## <a name="syntax"></a>구문
 
 Copy 요소의 일반적인 형식은 다음과 같습니다.
 
@@ -35,6 +35,21 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 **Count** 속성은 속성에 대해 원하는 반복 횟수를 지정 합니다.
 
 **입력** 속성은 반복할 속성을 지정 합니다. **Input** 속성의 값에서 생성 된 요소의 배열을 만듭니다.
+
+## <a name="copy-limits"></a>복사 제한
+
+개수는 800를 초과할 수 없습니다.
+
+개수는 음수일 수 없습니다. 최신 버전의 Azure CLI, PowerShell 또는 REST API를 사용 하 여 템플릿을 배포 하는 경우에는 0이 될 수 있습니다. 특히 다음을 사용 해야 합니다.
+
+* Azure PowerShell **2.6** 이상
+* Azure CLI **2.0.74** 이상
+* REST API 버전 **2019-05-10** 이상
+* 배포 리소스 종류에는 [연결 된 배포](linked-templates.md) 에서 API 버전 **2019-05-10** 이상을 사용 해야 합니다.
+
+이전 버전의 PowerShell, CLI 및 REST API는 count에 대해 0을 지원 하지 않습니다.
+
+## <a name="property-iteration"></a>속성 반복
 
 다음 예제는 가상 머신에서 `copy`를 dataDisks 속성에 적용하는 방법을 보여 줍니다.
 
@@ -232,12 +247,6 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
   }
 }
 ```
-
-## <a name="copy-limits"></a>복사 제한
-
-개수는 800를 초과할 수 없습니다.
-
-개수는 음수일 수 없습니다. Azure PowerShell 2.6 Azure CLI 이상 버전을 사용 하 여 템플릿을 배포 하거나, 2.0.74 이상 또는 REST API **2019-05-10** 이상 버전을 사용 하는 경우 count를 0으로 설정할 수 있습니다. 이전 버전의 PowerShell, CLI 및 REST API는 count에 대해 0을 지원 하지 않습니다.
 
 ## <a name="example-templates"></a>예제 템플릿
 

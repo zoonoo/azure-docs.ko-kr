@@ -3,14 +3,14 @@ title: 템플릿 배포 정의 (미리 보기)
 description: Azure Resource Manager 템플릿을 배포 하기 전에 리소스에 대해 수행 되는 변경 내용을 확인 합니다.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 04/29/2020
 ms.author: jgao
-ms.openlocfilehash: f13789912e5b801295f1f926a12db50849cd75d8
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 70023f4fa5d44c74c7ce14f3a2c09ff14c9d2f8c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509587"
+ms.locfileid: "82581194"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>ARM 템플릿 배포 가상 작업 (미리 보기)
 
@@ -106,7 +106,7 @@ Resource changes: 1 to modify.
 * `New-AzResourceGroupDeployment -Whatif`리소스 그룹 배포의 경우
 * `New-AzSubscriptionDeployment -Whatif`구독 `New-AzDeployment -Whatif` 수준 배포의 경우
 
-또는 `-Confirm` switch 매개 변수를 사용 하 여 변경 내용을 미리 보고 배포를 계속 하 라는 메시지를 받을 수 있습니다.
+`-Confirm` 스위치 매개 변수를 사용 하 여 변경 내용을 미리 보고 배포를 계속 하 라는 메시지를 받을 수 있습니다.
 
 * `New-AzResourceGroupDeployment -Confirm`리소스 그룹 배포의 경우
 * `New-AzSubscriptionDeployment -Confirm`구독 `New-AzDeployment -Confirm` 수준 배포의 경우
@@ -123,10 +123,10 @@ Resource changes: 1 to modify.
 * `az deployment group what-if`리소스 그룹 배포의 경우
 * `az deployment sub what-if`구독 수준 배포의 경우
 
-또는 `--confirm-with-what-if` 매개 변수를 사용 하 여 변경 내용을 미리 보고 배포를 계속 하 라는 메시지를 받을 수 있습니다.
+`--confirm-with-what-if` 스위치 (또는 약식 `-c`)를 사용 하 여 변경 내용을 미리 보고 배포를 계속 하 라는 메시지를 받을 수 있습니다.
 
-* `az deployment group create --confirm-with-what-if`리소스 그룹 배포의 경우
-* `az deployment sub create --confirm-with-what-if`구독 수준 배포의 경우
+* `az deployment group create --confirm-with-what-if`또는 `-c` 리소스 그룹 배포의 경우
+* `az deployment sub create --confirm-with-what-if`또는 `-c` 구독 수준 배포의 경우
 
 이전 명령은 수동으로 검사할 수 있는 텍스트 요약을 반환 합니다. 프로그래밍 방식으로 변경 내용을 검사할 수 있는 JSON 개체를 가져오려면 다음을 사용 합니다.
 
@@ -340,7 +340,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 가상 작업은 [배포 모드](deployment-modes.md)사용을 지원 합니다. 완료 모드로 설정 된 경우 템플릿에 없는 리소스가 삭제 됩니다. 다음 예제에서는 전체 모드에서 [정의 된 리소스가 없는 템플릿을](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) 배포 합니다.
 
-템플릿을 배포 하기 전에 변경 내용을 미리 보려면 `-Confirm` switch 매개 변수를 deployment 명령과 함께 사용 합니다. 변경이 필요한 경우 배포를 완료할 것인지 확인 합니다.
+템플릿을 배포 하기 전에 변경 내용을 미리 보려면 배포 명령에 confirm 스위치 매개 변수를 사용 합니다. 변경 내용이 예상 대로 변경 되 면 배포를 완료 하도록 승인 합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

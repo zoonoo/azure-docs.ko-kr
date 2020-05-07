@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 3d250ef1aba979be04a44acaf31a3d685f162e37
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df96ceb47bf33b734f2127bade50af18713a97a0
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80283891"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82581369"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>GA (VM용 Azure Monitor 일반 공급) 질문과 대답
 이 일반 공급 FAQ는 GA에 대비 하 여 Q4 2019 및 Q1 2020에서 적용 된 변경 내용을 다룹니다.
@@ -44,7 +44,7 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-grou
 
 ## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>VMInsights 솔루션을 설치 하는 경우 내 작업 영역에서 성능 카운터는 어떻게 해야 하나요?
 
-작업 영역에서 VM용 Azure Monitor 사용 되는 성능 카운터를 사용 하도록 설정 하는 이전 메서드입니다. 현재 버전은이 데이터를 라는 `InsightsMetrics`테이블에 저장 합니다. 더 이상 사용 하지 않아도 되는 경우 작업 영역을 사용 하지 않도록 설정 하도록 선택할 수 있습니다. 
+작업 영역에서 VM용 Azure Monitor 사용 되는 성능 카운터를 사용 하도록 설정 하는 이전 메서드입니다. 현재 버전은이 데이터를 라는 `InsightsMetrics`테이블에 저장 합니다. 더 이상 사용 하지 않아도 되는 경우 작업 영역에서 이러한 성능 카운터를 사용 하지 않도록 선택할 수 있습니다. 
 
 >[!NOTE]
 >`Perf` 테이블에서 이러한 카운터를 참조 하는 경고 규칙이 있는 경우 `InsightsMetrics` 테이블에 저장 된 새 데이터를 참조 하도록 업데이트 해야 합니다. 이 테이블을 참조 하는 데 사용할 수 있는 예제 로그 쿼리는 설명서를 참조 하세요.
