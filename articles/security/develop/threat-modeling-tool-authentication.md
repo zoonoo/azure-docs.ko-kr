@@ -15,18 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 1bef73e6be4bdbe8828e1d20ea6e684759984627
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 569e8d769d56acbb4c7fb4258952ec19e44b58e4
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72244642"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607829"
 ---
-# <a name="security-frame-authentication--mitigations"></a>보안 프레임: 인증 | 완화 
+# <a name="security-frame-authentication--mitigations"></a>보안 프레임: 인증 | 완화
 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
-| **웹 응용 프로그램**    | <ul><li>[표준 인증 메커니즘을 사용 하 여 웹 응용 프로그램 인증 고려](#standard-authn-web-app)</li><li>[애플리케이션에서 실패한 인증 시나리오를 안전하게 처리해야 함](#handle-failed-authn)</li><li>[버전 업그레이드 또는 적응 인증을 사용하도록 설정](#step-up-adaptive-authn)</li><li>[관리 인터페이스가 적절하게 잠겨 있는지 확인](#admin-interface-lockdown)</li><li>[암호 찾기 기능을 안전 하 게 구현](#forgot-pword-fxn)</li><li>[암호 및 계정 정책이 구현 되었는지 확인](#pword-account-policy)</li><li>[사용자 이름 열거를 방지하기 위한 컨트롤 구현](#controls-username-enum)</li></ul> |
+| **웹 애플리케이션**    | <ul><li>[표준 인증 메커니즘을 사용 하 여 웹 응용 프로그램 인증 고려](#standard-authn-web-app)</li><li>[애플리케이션에서 실패한 인증 시나리오를 안전하게 처리해야 함](#handle-failed-authn)</li><li>[버전 업그레이드 또는 적응 인증을 사용하도록 설정](#step-up-adaptive-authn)</li><li>[관리 인터페이스가 적절하게 잠겨 있는지 확인](#admin-interface-lockdown)</li><li>[암호 찾기 기능을 안전 하 게 구현](#forgot-pword-fxn)</li><li>[암호 및 계정 정책이 구현 되었는지 확인](#pword-account-policy)</li><li>[사용자 이름 열거를 방지하기 위한 컨트롤 구현](#controls-username-enum)</li></ul> |
 | **Database** | <ul><li>[가능 하면 Windows 인증을 사용 하 여 SQL Server에 연결 합니다.](#win-authn-sql)</li><li>[가능 하면 Azure Active Directory 인증을 사용 하 여 SQL Database에 연결 합니다.](#aad-authn-sql)</li><li>[SQL 인증 모드가 사용되는 경우 계정 및 암호 정책이 SQL Server에 적용되어야 함](#authn-account-pword)</li><li>[포함 된 데이터베이스에서 SQL 인증 사용 안 함](#autn-contained-db)</li></ul> |
 | **Azure Event Hub** | <ul><li>[SaS 토큰을 사용하여 디바이스당 인증 자격 증명 사용](#authn-sas-tokens)</li></ul> |
 | **Azure 신뢰 경계** | <ul><li>[Azure 관리자에 Azure Multi-Factor Authentication을 사용하도록 설정](#multi-factor-azure-admin)</li></ul> |
@@ -44,8 +45,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 웹 애플리케이션 | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | 웹 애플리케이션 |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
@@ -55,8 +56,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 웹 애플리케이션 | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | 웹 애플리케이션 |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
@@ -66,8 +67,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 웹 애플리케이션 | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | 웹 애플리케이션 |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
@@ -77,8 +78,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 웹 애플리케이션 | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | 웹 애플리케이션 |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
@@ -88,8 +89,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 웹 애플리케이션 | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | 웹 애플리케이션 |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
@@ -99,8 +100,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 웹 애플리케이션 | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | 웹 애플리케이션 |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
@@ -110,8 +111,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 웹 애플리케이션 | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | 웹 애플리케이션 |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
@@ -121,8 +122,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 데이터베이스 | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | 데이터베이스 |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | OnPrem |
 | **특성**              | SQL 버전 - 모두 |
 | **참조**              | [SQL Server - 인증 모드 선택](https://msdn.microsoft.com/library/ms144284.aspx) |
@@ -132,8 +133,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 데이터베이스 | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | 데이터베이스 |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | SQL Azure |
 | **특성**              | SQL 버전 - V12 |
 | **참조**              | [Azure Active Directory 인증을 사용하여 SQL Database에 연결](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
@@ -143,8 +144,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 데이터베이스 | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | 데이터베이스 |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [SQL Server 암호 정책](https://technet.microsoft.com/library/ms161959(v=sql.110).aspx) |
@@ -154,8 +155,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 데이터베이스 | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | 데이터베이스 |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | OnPrem, SQL Azure |
 | **특성**              | SQL 버전 - MSSQL2012, SQL 버전 - V12 |
 | **참조**              | [포함된 데이터베이스의 보안 모범 사례](https://msdn.microsoft.com/library/ff929055.aspx) |
@@ -165,8 +166,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure Event Hub | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | Azure Event Hub |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [Event Hubs 인증 및 보안 모델 개요](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
@@ -176,8 +177,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure 신뢰 경계 | 
-| **SDL 단계**               | 배포 |  
+| **구성 요소**               | Azure 신뢰 경계 |
+| **SDL 단계**               | 배포 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [Azure Multi-Factor Authentication 정의](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/) |
@@ -187,8 +188,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Service Fabric 신뢰 경계 | 
-| **SDL 단계**               | 배포 |  
+| **구성 요소**               | Service Fabric 신뢰 경계 |
+| **SDL 단계**               | 배포 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 환경 - Azure  |
 | **참조**              | [서비스 패브릭 클러스터 보안 시나리오](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security) |
@@ -198,8 +199,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Service Fabric 신뢰 경계 | 
-| **SDL 단계**               | 배포 |  
+| **구성 요소**               | Service Fabric 신뢰 경계 |
+| **SDL 단계**               | 배포 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 환경 - Azure, 환경 - 독립 실행형 |
 | **참조**              | [Service Fabric 클라이언트-노드 인증서 보안](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#_client-to-node-certificate-security), [클라이언트 인증서를 사용하여 보안 클러스터에 연결](https://azure.microsoft.com/documentation/articles/service-fabric-connect-to-secure-cluster/) |
@@ -209,8 +210,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Service Fabric 신뢰 경계 | 
-| **SDL 단계**               | 배포 |  
+| **구성 요소**               | Service Fabric 신뢰 경계 |
+| **SDL 단계**               | 배포 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 환경 - Azure |
 | **참조**              | [클러스터 보안 시나리오 - 보안 권장 사항](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#security-recommendations) |
@@ -220,8 +221,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Service Fabric 신뢰 경계 | 
-| **SDL 단계**               | 배포 |  
+| **구성 요소**               | Service Fabric 신뢰 경계 |
+| **SDL 단계**               | 배포 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 환경 - Azure |
 | **참조**              | [X.509 인증서 및 서비스 패브릭](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#x509-certificates-and-service-fabric) |
@@ -231,8 +232,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | ID 서버 | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | ID 서버 |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [IdentityServer3 - 큰 그림](https://identityserver.github.io/Documentation/docsv2/overview/bigPicture.html) |
@@ -242,8 +243,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | ID 서버 | 
-| **SDL 단계**               | 배포 |  
+| **구성 요소**               | ID 서버 |
+| **SDL 단계**               | 배포 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [Identity Server 배포 - 캐싱](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html)(영문) |
@@ -253,8 +254,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 컴퓨터 신뢰 경계 | 
-| **SDL 단계**               | 배포 |  
+| **구성 요소**               | 컴퓨터 신뢰 경계 |
+| **SDL 단계**               | 배포 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
@@ -264,14 +265,14 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | WCF | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | WCF |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반, .NET Framework 3 |
 | **특성**              | 해당 없음 |
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
 | **단계** | MSMQ 큐에 연결할 때 프로그램이 인증을 사용하는 데 실패하면 공격자는 처리를 위해 큐에 메시지를 익명으로 제출할 수 있습니다. 다른 프로그램에 메시지를 전달하는 데 사용되는 MSMQ 큐에 연결하는 데 인증이 사용되지 않으면 공격자가 악성인 익명의 메시지를 제출할 수 있습니다.|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 아래에 보이는 WCF 구성 파일의 `<netMsmqBinding/>` 요소는 메시지 배달을 위한 MSMQ 큐에 연결할 때 WCF가 인증을 사용하지 않도록 지시합니다.
 ```
 <bindings>
@@ -286,7 +287,7 @@ ms.locfileid: "72244642"
 ```
 모든 들어오거나 나가는 메시지에 대해 항상 Windows 도메인 또는 인증서 인증을 요구하도록 MSMQ를 구성합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 아래 WCF 구성 파일의 `<netMsmqBinding/>` 요소는 MSMQ 큐에 연결할 때 WCF가 인증서 인증을 사용하도록 지시합니다. 클라이언트는 X.509 인증서를 사용하여 인증됩니다. 클라이언트 인증서는 서버의 클라이언트 저장소에 있어야 합니다.
 ```
 <bindings>
@@ -304,14 +305,14 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | WCF | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | WCF |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | .NET Framework 3 |
 | **특성**              | 클라이언트 자격 증명 유형 - 없음 |
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **단계** | 인증이 없다는 것은 모든 사람이 이 서비스에 액세스할 수 있음을 의미합니다. 해당 클라이언트를 인증하지 않는 서비스는 모든 사용자가 액세스할 수 있습니다. 클라이언트 자격 증명에 대해 인증하도록 애플리케이션을 구성합니다. message clientCredentialType을 Windows 또는 Certificate로 설정하여 이 작업을 수행할 수 있습니다. |
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```
 <message clientCredentialType=""Certificate""/>
 ```
@@ -320,14 +321,14 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | WCF | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | WCF |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반, .NET Framework 3 |
 | **특성**              | 클라이언트 자격 증명 유형 - 없음 |
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **단계** | 인증이 없다는 것은 모든 사람이 이 서비스에 액세스할 수 있음을 의미합니다. 해당 클라이언트를 인증하지 않는 서비스는 모든 사용자가 해당 기능에 액세스할 수 있습니다. 클라이언트 자격 증명에 대해 인증하도록 애플리케이션을 구성합니다. transport clientCredentialType을 Windows 또는 Certificate로 설정하여 이 작업을 수행할 수 있습니다. |
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```
 <transport clientCredentialType=""Certificate""/>
 ```
@@ -336,8 +337,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Web API | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | Web API |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [ASP.NET Web API의 인증 및 권한 부여](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api)(영문), [ASP.NET Web API의 외부 인증 서비스(C#)](https://www.asp.net/web-api/overview/security/external-authentication-services)(영문) |
@@ -347,8 +348,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure AD | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | Azure AD |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [Azure AD의 인증 시나리오](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/), [Azure Active Directory 코드 샘플](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/), [Azure Active Directory 개발자 가이드](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
@@ -358,8 +359,8 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure AD | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | Azure AD |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [웹 애플리케이션에 대한 Azure Active Directory의 최신 인증](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/)(영문), [ADAL 토큰 캐시로 Redis 사용](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)(영문)  |
@@ -369,14 +370,14 @@ ms.locfileid: "72244642"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure AD | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | Azure AD |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [웹 애플리케이션에 대한 Azure Active Directory의 최신 인증](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/)(영문) |
 | **단계** | <p>TokenReplayCache 속성을 통해 개발자는 토큰 재생 캐시를 정의할 수 있으며 두 번 이상 사용할 수 있는 토큰이 없음을 확인할 용도로 토큰을 저장하는 데 사용할 수 있는 저장소를 정의할 수 있습니다.</p><p>일반적인 공격 즉, 토큰 재생 공격에 대한 조치입니다. 로그인 시 전송된 토큰을 가로채는 공격자는 새로운 세션을 설정하기 위해 토큰을 다시 앱에 전송("재생")하려고 할 수 있습니다. 예를 들어, OIDC 코드 부여 흐름에서 사용자가 성공적으로 인증된 후 신뢰 당사자의 "/signin-oidc" 엔드포인트에 대한 요청은 "id_token", "code" 및 "state" 매개 변수로 구성됩니다.</p><p>신뢰 당사자는 이 요청을 확인하고 새 세션을 설정합니다. 이 요청을 악의적으로 캡처하고 재생한 공격자는 성공적인 세션을 설정하여 사용자를 스푸핑할 수 있습니다. OpenID Connect에서 nonce의 존재를 제한할 수는 있지만 공격을 성공적으로 적용할 수 있는 환경이 완전히 사라지지는 않습니다. 이러한 애플리케이션을 보호하려면 개발자는 ITokenReplayCache의 구현을 제공하고 인스턴스를 TokenReplayCache에 할당할 수 있습니다.</p>|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```csharp
 // ITokenReplayCache defined in ADAL
 public interface ITokenReplayCache
@@ -386,7 +387,7 @@ bool TryFind(string securityToken);
 }
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ITokenReplayCache 인터페이스의 예제 구현은 다음과 같습니다. (프로젝트별 캐싱 프레임워크를 사용자 지정 및 구현하세요)
 ```csharp
 public class TokenReplayCache : ITokenReplayCache
@@ -430,8 +431,8 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure AD | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | Azure AD |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
@@ -441,8 +442,8 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | IoT 필드 게이트웨이 | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | IoT 필드 게이트웨이 |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
@@ -452,14 +453,14 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | IoT 클라우드 게이트웨이 | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | IoT 클라우드 게이트웨이 |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반, C#, Node.JS,  |
 | **특성**              | 해당 없음, 게이트웨이 선택 - Azure IoT Hub |
-| **참조**              | N/A, [.net이 포함 된 Azure iot hub](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Iot HUB 및 Node JS 시작](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [SAS 및 인증서를 사용 하 여 iot 보안](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git 리포지토리](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
+| **참조**              | N/A, [.net이 포함 된 Azure iot hub](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Iot HUB 및 Node JS 시작](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [SAS 및 인증서를 사용 하 여 iot 보안](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git 리포지토리](https://github.com/Azure/azure-iot-sdks/) |
 | **단계** | <ul><li>**일반:** TLS(전송 계층 보안) 또는 IPSec을 사용하여 디바이스를 인증합니다. 전체 비대칭 암호화를 처리할 수 없는 PSK(미리 공유한 키)를 해당 디바이스에서 사용할 수 있도록 인프라가 지원해야 합니다. Azure AD, Oauth를 활용하세요.</li><li>**C#:** DeviceClient 인스턴스를 만들 때, 기본적으로 Create 메서드는 AMQP 프로토콜을 사용하여 IoT Hub와 통신하는 DeviceClient 인스턴스를 만듭니다. HTTPS 프로토콜을 사용하려면 프로토콜을 지정할 수 있도록 해주는 Create 메서드의 재정의를 사용합니다. HTTPS 프로토콜을 사용하려면 `Microsoft.AspNet.WebApi.Client` NuGet 패키지를 프로젝트에 추가하여 `System.Net.Http.Formatting` 네임스페이스를 포함해야 합니다.</li></ul>|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```csharp
 static DeviceClient deviceClient;
 
@@ -474,7 +475,7 @@ deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegist
 await deviceClient.SendEventAsync(message);
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 **Node.JS: 인증**
 #### <a name="symmetric-key"></a>대칭 키
 * Azure에서 IoT hub 만들기
@@ -512,9 +513,9 @@ await deviceClient.SendEventAsync(message);
     if (policyName) token += "&skn="+policyName;
     return token;
     ```
-* sas 토큰을 사용하여 연결: 
+* sas 토큰을 사용하여 연결:
     ```javascript
-    Client.fromSharedAccessSignature(sas, Http); 
+    Client.fromSharedAccessSignature(sas, Http);
     ```
   #### <a name="certificates"></a>인증서
 * OpenSSL과 같은 도구를 사용하여 자체 서명된 X509 인증서를 생성하고 인증서 및 키를 저장할 .cert 및 .key 파일을 각각 생성합니다.
@@ -541,7 +542,7 @@ await deviceClient.SendEventAsync(message);
     var options = {
         key: fs.readFileSync('./key.pem', 'utf8'),
         cert: fs.readFileSync('./server.crt', 'utf8')
-    }; 
+    };
     // Calling setOptions with the x509 certificate and key (and optionally, passphrase) will configure the client //transport to use x509 when connecting to IoT Hub
     client.setOptions(options);
     //call fn to execute after the connection is set up
@@ -552,8 +553,8 @@ await deviceClient.SendEventAsync(message);
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | IoT 클라우드 게이트웨이  | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | IoT 클라우드 게이트웨이  |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 게이트웨이 선택 - Azure IoT Hub |
 | **참조**              | [Azure IoT Hub 보안 토큰](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) |
@@ -563,8 +564,8 @@ await deviceClient.SendEventAsync(message);
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure Storage | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | Azure Storage |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | StorageType - Blob |
 | **참조**              | [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [공유 액세스 서명, 1부: SAS 모델 이해하기](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
@@ -574,8 +575,8 @@ await deviceClient.SendEventAsync(message);
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure Storage | 
-| **SDL 단계**               | 빌드 |  
+| **구성 요소**               | Azure Storage |
+| **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음 |
 | **참조**              | [공유 액세스 서명, 1부: SAS 모델 이해하기](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [공유 액세스 서명, 2부: Blob Storage를 사용하여 SAS 만들기 및 사용](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [공유 액세스 서명 및 저장된 액세스 정책을 사용하여 계정의 개체에 대한 액세스를 위임하는 방법](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |

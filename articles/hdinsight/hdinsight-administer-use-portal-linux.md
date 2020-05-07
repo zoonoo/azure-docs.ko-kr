@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/23/2020
-ms.openlocfilehash: 8170a0190e2d322c07f8f4978a77a8171579cbfb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/24/2020
+ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232890"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598501"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "82232890"
 
 [Azure Portal](https://portal.azure.com)를 사용 하 여 Azure HDInsight에서 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 관리할 수 있습니다. 다른 도구를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 방법에 대한 정보를 보려면 위쪽에 있는 탭 선택기를 사용하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
@@ -219,13 +219,19 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
 4. **스크립트 동작** 페이지에서 **새 제출**을 선택 합니다.
 5. **스크립트 동작 제출** 페이지에서 다음 정보를 입력 합니다.
 
+> [!NOTE]
+> SSH 암호에는 다음 문자를 사용할 수 없습니다.
+> ```
+> " ' ` / \ < % ~ | $ & ! 
+> ```
+
    | 필드 | 값 |
    | --- | --- |
    | 스크립트 유형 | 드롭다운 목록에서 **- 사용자 지정**을 선택합니다.|
-   | 속성 |"Ssh 자격 증명 변경" |
+   | Name |"Ssh 자격 증명 변경" |
    | Bash 스크립트 URI |Changecredentials.sh 파일에 대 한 URI입니다. |
    | 노드 유형: (헤드, 작업자, Nimbus, 감독자 또는 사육 사) |나열된 모든 노드 형식에 대한 ✓ |
-   | 매개 변수 |SSH 사용자 이름 및 새 암호를 입력합니다. 사용자 이름과 암호 사이에 공백이 하나 있어야 합니다. Ssh 암호에는 다음 문자가 지원 되지 않습니다. "' '/\ <% ~ | $ &
+   | 매개 변수 |SSH 사용자 이름 및 새 암호를 입력합니다. 사용자 이름과 암호 사이에 공백이 하나 있어야 합니다. |
    | 이 스크립트 작업을 유지... |이 필드는 선택 취소로 둡니다. |
 
 6. **만들기**를 선택하여 스크립트를 적용합니다. 스크립트가 완료 되 면 새 자격 증명을 사용 하 여 SSH를 사용 하 여 클러스터에 연결할 수 있습니다.

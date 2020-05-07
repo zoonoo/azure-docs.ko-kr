@@ -16,18 +16,19 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8a2c962c69ead28c4e79b663010eab77a499f5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: has-adal-ref
+ms.openlocfilehash: 13c3a7f8376d4c852a74be75e323c6bb042b5407
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80048427"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610992"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에서 OpenID/OAuth 애플리케이션 구성
 
 ## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>갤러리에서 OpenID 애플리케이션을 추가하는 프로세스
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory**를 선택합니다. 
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory**를 선택합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png))
 
@@ -61,17 +62,17 @@ ms.locfileid: "80048427"
 
 ![OpenID Connect를 사용하는 인증 흐름](./media/openidoauth-tutorial/authenticationflow.png)
 
-### <a name="multitenant-application"></a>다중 테넌트 애플리케이션 
-다중 테넌트 애플리케이션은 하나의 조직이 아니라 많은 조직에서 사용하기 위한 것입니다. 일반적으로 ISV(Independent Software Vendor)가 작성한 SaaS(Software-as-a-Service) 애플리케이션이 이에 해당합니다. 
+### <a name="multitenant-application"></a>다중 테넌트 애플리케이션
+다중 테넌트 애플리케이션은 하나의 조직이 아니라 많은 조직에서 사용하기 위한 것입니다. 일반적으로 ISV(Independent Software Vendor)가 작성한 SaaS(Software-as-a-Service) 애플리케이션이 이에 해당합니다.
 
-다중 테넌트 애플리케이션은 사용될 수는 있는 각 디렉터리에 프로비전되어야 합니다. 등록하려면 사용자 또는 관리자 동의가 필요합니다. 이러한 동의 프로세스는 애플리케이션이 디렉터리에 등록되고 Graph API 또는 다른 웹 API에 대한 액세스 권한이 제공되면 시작됩니다. 다른 조직의 사용자나 관리자가 애플리케이션을 사용하기 위해 등록할 때는 대화 상자에서 애플리케이션에서 요구되는 권한을 표시합니다. 
+다중 테넌트 애플리케이션은 사용될 수는 있는 각 디렉터리에 프로비전되어야 합니다. 등록하려면 사용자 또는 관리자 동의가 필요합니다. 이러한 동의 프로세스는 애플리케이션이 디렉터리에 등록되고 Graph API 또는 다른 웹 API에 대한 액세스 권한이 제공되면 시작됩니다. 다른 조직의 사용자나 관리자가 애플리케이션을 사용하기 위해 등록할 때는 대화 상자에서 애플리케이션에서 요구되는 권한을 표시합니다.
 
 그런 다음, 사용자 또는 관리자는 애플리케이션에 동의할 수 있습니다. 동의는 명시된 데이터에 대한 애플리케이션 액세스를 제공하고 마지막으로 디렉터리에 애플리케이션을 등록합니다.
 
 > [!NOTE]
 > 여러 디렉터리에 있는 사용자에게 애플리케이션을 사용할 수 있도록 만들려면 사용자가 속한 테넌트를 확인할 수 있는 메커니즘이 필요합니다. 단일 테넌트 애플리케이션은 사용자에 대한 고유한 디렉터리에서 확인해야 합니다. 다중 테넌트 애플리케이션은 Azure AD의 모든 디렉터리에서 특정 사용자를 식별해야 합니다.
-> 
-> 이 작업을 수행할 수 있도록 Azure AD는 테넌트 특정 엔드포인트를 제공하지 않고 다중 테넌트 애플리케이션이 로그인 요청을 디렉션할 수 있는 공통 인증 엔드포인트를 제공합니다. 이 엔드포인트는 Azure AD의 모든 디렉터리에 대해 `https://login.microsoftonline.com/common`입니다. 테넌트별 엔드포인트는 `https://login.microsoftonline.com/contoso.onmicrosoft.com`일 수 있습니다. 
+>
+> 이 작업을 수행할 수 있도록 Azure AD는 테넌트 특정 엔드포인트를 제공하지 않고 다중 테넌트 애플리케이션이 로그인 요청을 디렉션할 수 있는 공통 인증 엔드포인트를 제공합니다. 이 엔드포인트는 Azure AD의 모든 디렉터리에 대해 `https://login.microsoftonline.com/common`입니다. 테넌트별 엔드포인트는 `https://login.microsoftonline.com/contoso.onmicrosoft.com`일 수 있습니다.
 >
 > 애플리케이션을 개발하는 경우 공통 엔드포인트를 고려하는 것은 중요합니다. 로그인, 로그아웃 및 토큰 유효성 검사 중에 여러 테넌트를 처리하는 데 필요한 논리가 필요합니다.
 
@@ -80,9 +81,9 @@ ms.locfileid: "80048427"
 ## <a name="consent-framework"></a>동의 프레임워크
 
 Azure AD 동의 프레임워크를 사용하여 다중 테넌트 웹 및 네이티브 클라이언트 애플리케이션을 개발할 수 있습니다. 이러한 애플리케이션을 사용하면 애플리케이션이 등록되어 있는 계정과 다르게 Azure AD 테넌트의 사용자 계정으로 로그인할 수 있습니다. 다음과 같은 웹 API에 액세스해야 할 수 있습니다.
-- Azure AD, Intune 및 Office 365의 서비스에 액세스하기 위한 Microsoft Graph API 
+- Azure AD, Intune 및 Office 365의 서비스에 액세스하기 위한 Microsoft Graph API
 - 기타 Microsoft 서비스의 API
-- 사용자 고유의 웹 API 
+- 사용자 고유의 웹 API
 
 이 프레임워크는 애플리케이션을 자신의 디렉터리에 등록하는 것에 동의하는 사용자나 관리자를 기반으로 합니다. 등록은 디렉터리 데이터 액세스가 필요할 수도 있습니다. 사용자가 동의해 주면 해당 클라이언트 애플리케이션에서 사용자를 대신하여 Microsoft Graph API를 호출하고 필요한 대로 정보를 사용할 수 있습니다.
 
@@ -146,7 +147,7 @@ Graph API는 또한 더 많은 Microsoft 클라우드 서비스에서 사용자 
 
 앱 전용 권한은 테넌트 관리자의 동의를 항상 필요로 합니다. 애플리케이션이 애플리케이션 전용 사용 권한을 요청하고 사용자가 애플리케이션에 로그인을 시도하는 경우 오류 메시지가 나타납니다. 메시지는 사용자가 동의할 수 없음을 알립니다.
 
-애플리케이션이 관리자 동의가 필요한 권한을 사용할 경우 관리자가 작업을 시작할 수 있도록 단추나 링크와 같은 제스처가 있어야 합니다. 애플리케이션에서 이 작업에 대해 보내는 요청은 일반적인 OAuth2/OpenID Connect 권한 부여 요청입니다. 이 요청은 *prompt=admin_consent* 쿼리 문자열 매개 변수를 포함합니다. 
+애플리케이션이 관리자 동의가 필요한 권한을 사용할 경우 관리자가 작업을 시작할 수 있도록 단추나 링크와 같은 제스처가 있어야 합니다. 애플리케이션에서 이 작업에 대해 보내는 요청은 일반적인 OAuth2/OpenID Connect 권한 부여 요청입니다. 이 요청은 *prompt=admin_consent* 쿼리 문자열 매개 변수를 포함합니다.
 
 관리자가 동의하고 서비스 주체가 고객 테넌트에 만들어진 후 이후의 로그인 요청은 *prompt=admin_consent* 매개 변수를 필요로 하지 않습니다. 관리자가 요청된 권한이 허용된다고 결정했다면 테넌트의 다른 사용자들에게 그 시점 이후로 동의하라는 메시지가 표시되지 않습니다.
 

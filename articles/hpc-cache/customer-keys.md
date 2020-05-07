@@ -4,14 +4,14 @@ description: Azure HPC 캐시에서 Azure Key Vault를 사용 하 여 기본 Mic
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 04/29/2020
 ms.author: v-erkel
-ms.openlocfilehash: f8a8b8dfedd9c4ac0590dc91e5cdced50d2be6ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d10241b8395c33767ffeeb550d9d8060bde3ce3
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195080"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597742"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Azure HPC 캐시에 대해 고객이 관리 하는 암호화 키 사용
 
@@ -20,11 +20,7 @@ Azure Key Vault를 사용 하 여 Azure HPC 캐시에서 데이터를 암호화 
 > [!NOTE]
 > 캐시 디스크를 포함 하 여 Azure에 저장 된 모든 데이터는 기본적으로 Microsoft 관리 키를 사용 하 여 미사용에 암호화 됩니다. 데이터를 암호화 하는 데 사용 되는 키를 관리 하려는 경우에만이 문서의 단계를 수행 해야 합니다.
 
-이 기능은 다음 Azure 지역 에서만 사용할 수 있습니다.
-
-* 미국 동부
-* 미국 중남부
-* 미국 서부 2
+이 기능은 Azure HPC 캐시를 사용할 수 있는 일부 Azure 지역 에서만 사용할 수 있습니다. 자세한 내용은 [지역 가용성](hpc-cache-overview.md#region-availability) 목록을 참조 하세요.
 
 Azure HPC 캐시에 대해 고객이 관리 하는 키 암호화를 사용 하도록 설정 하는 세 가지 단계가 있습니다.
 
@@ -71,7 +67,7 @@ Azure HPC 캐시에 대해 고객이 관리 하는 키 암호화를 사용 하�
 자세한 내용은 [Azure Key Vault 설명서](../key-vault/key-vault-overview.md) 를 참조 하세요.
 
 > [!NOTE]
-> Azure Key Vault는 동일한 구독을 사용 해야 하며, Azure HPC 캐시와 동일한 지역에 있어야 합니다. 이 문서의 시작 부분에 나열 된 지원 되는 지역 중 하나를 사용 합니다.
+> Azure Key Vault는 동일한 구독을 사용 해야 하며, Azure HPC 캐시와 동일한 지역에 있어야 합니다. 선택한 지역이 [고객이 관리 하는 키 기능을 지원](hpc-cache-overview.md#region-availability)하는지 확인 합니다.
 
 ## <a name="2-create-the-cache-with-customer-managed-keys-enabled"></a>2. 고객 관리 키를 사용 하는 캐시 만들기
 

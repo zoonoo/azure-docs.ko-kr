@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ad36547b0cf9457d7ff4fdd919a0bb1362539eb5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1cf3905a34fdced878526cfcc55e6dd0a1a369f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80522697"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82595311"
 ---
 이 문서에서는 Azure Managed Disks 및 Azure 프리미엄 SD 디스크에 대해 몇몇 자주 묻는 질문과 대답을 설명합니다.
 
@@ -120,7 +120,7 @@ Azure Managed Disks에서는 현재 로컬 중복 스토리지 Managed Disks만 
 아니요. 컴퓨터 이름 속성은 업데이트할 수 없습니다. 새 VM은 운영 체제 디스크를 만들 때 사용한 부모 VM에서 이 속성을 상속합니다. 
 
 **Managed Disks를 사용하여 VM을 만드는 Azure Resource Manager 템플릿 예제를 어디에 배치할 수 있나요?**
-* [Managed Disks를 사용하는 템플릿 목록](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+* [Managed Disks를 사용하는 템플릿 목록](https://github.com/Azure/azure-quickstart-templates/)
 * https://github.com/chagarw/MDPP
 
 **BLOB에서 디스크를 만들 때 해당 원본 BLOB와 지속적으로 유지되는 관계가 있습니까?**

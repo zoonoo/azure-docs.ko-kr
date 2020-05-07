@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: cc487e8def180735606aa010651dde40ef93908e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8ee9ddbd8a2d0ecbe8e2f13e6421cec177c7ce69
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80069566"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594205"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Azure Files 네트워크 엔드포인트 구성
 Azure Files는 Azure 파일 공유에 액세스하기 위한 다음과 같은 두 가지 기본 유형의 엔드포인트를 제공합니다. 
@@ -218,7 +218,7 @@ New-AzPrivateDnsRecordSet `
 가상 네트워크 내에 가상 머신이 있거나 [여기](storage-files-networking-dns.md)에 설명된 대로 DNS 전달을 구성한 경우 다음 명령을 사용하여 프라이빗 엔드포인트가 올바르게 설정되었는지 테스트할 수 있습니다.
 
 ```PowerShell
-$storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.File) | `
+$storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.file) | `
     Select-Object -ExpandProperty Host
 
 Resolve-DnsName -Name $storageAccountHostName
@@ -393,7 +393,7 @@ az network private-dns record-set a add-record \
 httpEndpoint=$(az storage account show \
         --resource-group $storageAccountResourceGroupName \
         --name $storageAccountName \
-        --query "primaryEndpoints.File" | \
+        --query "primaryEndpoints.file" | \
     tr -d '"')
 
 hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/")

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: b0ba47ff28208bce1a6fa6ec300a261d788167de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3fae34d0bb1aaaa2471f1cc9fd55ef9b4b73dfd
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415608"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594307"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Azure Integration Runtime IP 주소
 
@@ -25,7 +25,7 @@ ms.locfileid: "81415608"
 Azure Integration Runtime 사용 하는 IP 주소는 Azure Integration Runtime이 있는 지역에 따라 다릅니다. *모두* 동일한 지역에 있는 Azure integration runtime은 동일한 IP 주소 범위를 사용 합니다.
 
 > [!IMPORTANT]  
-> 데이터 흐름은 현재 이러한 Ip를 사용 하지 않습니다. 
+> 데이터 흐름은 고정 IP 범위의 사용을 지원 하지 않습니다.
 >
 > 이러한 IP 범위는 데이터 이동, 파이프라인 및 외부 활동 실행에 사용할 수 있습니다. 이러한 IP 범위는 Azure Integration runtime에서 인바운드 액세스를 위해 데이터 저장소/n a m e 보안 그룹 (NSG)/방화벽의 허용 목록에 사용할 수 있습니다. 
 
@@ -42,7 +42,7 @@ Azure Integration Runtime 사용 하는 IP 주소는 Azure Integration Runtime�
 | 브라질         | 브라질 남부        | 191.235.224.128/25,</br>191.235.225.0/26,</br>191.233.205.160/28 |
 | Canada         | 캐나다 중부      | 52.228.80.128/25,</br>52.228.81.0/26,</br>13.71.175.80/28    |
 | 중국          | 중국 동부 2        | 40.73.172.48/28,</br>52.130.0.128/25,</br>52.130.1.0/26      |
-| 유럽         | 북유럽        | 20.38.82.0/23,</br>20.38.80.192/26,</br>13.69.230.96/28      |
+| Europe         | 북유럽        | 20.38.82.0/23,</br>20.38.80.192/26,</br>13.69.230.96/28      |
 | &nbsp;         | 서유럽         | 40.74.26.0/23,</br>40.74.24.192/26,</br>13.69.67.192/28      |
 | 프랑스         | 프랑스 중부      | 20.43.40.128/25,</br>20.43.41.0/26,</br>40.79.132.112/28     |
 | 인도          | 인도 중부       | 52.140.104.128/25,</br>52.140.105.0/26,</br>20.43.121.48/28  |

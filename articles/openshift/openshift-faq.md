@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ef355361516264db95a333dde8a117819ca1a661
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 92529c2d60b32e9c8b57b897008b5333adc2a4d4
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203695"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594970"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
@@ -135,7 +135,7 @@ Syslog, docker 로그, 저널 및 dmesg는 관리 서비스에서 처리 되며 
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>ARO의 기본 pod 스케줄러 구성은 무엇입니까?
 
-ARO는 OpenShift에서 제공 되는 기본 스케줄러를 사용 합니다. ARO에서 지원 되지 않는 몇 가지 추가 메커니즘이 있습니다. 자세한 내용은 [기본 scheduler 설명서](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) 및 [마스터 스케줄러 설명서](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v6/data/master/etc/origin/master/scheduler.json) 를 참조 하세요.
+ARO는 OpenShift에서 제공 되는 기본 스케줄러를 사용 합니다. ARO에서 지원 되지 않는 몇 가지 추가 메커니즘이 있습니다. 자세한 내용은 [기본 scheduler 설명서](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) 및 [마스터 스케줄러 설명서](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v16/data/master/etc/origin/master/scheduler.json) 를 참조 하세요.
 
 고급/사용자 지정 일정은 현재 지원 되지 않습니다. 자세한 내용은 [일정 설명서](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/index.html) 를 참조 하세요.
 

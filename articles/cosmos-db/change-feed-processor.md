@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB의 변경 피드 프로세서 라이브러리
-description: Azure Cosmos DB 변경 피드 프로세서 라이브러리를 사용 하 여 변경 피드, 변경 피드 프로세서의 구성 요소를 읽는 방법에 대해 알아봅니다.
-author: markjbrown
-ms.author: mjbrown
+title: Azure Cosmos DB의 변경 피드 프로세서
+description: Azure Cosmos DB 변경 피드 프로세서를 사용 하 여 변경 피드, 변경 피드 프로세서의 구성 요소를 읽는 방법에 대해 알아봅니다.
+author: timsander1
+ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 4/29/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e71b2807595aebeb1f0c8682fde119f4e267e55d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d069df0a095cc0356cd61155dde875a5d92ed18d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273316"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594154"
 ---
-# <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 프로세서 
+# <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 프로세서
 
 변경 피드 프로세서는 [AZURE COSMOS DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3)의 일부입니다. 이를 통해 변경 피드를 읽고 이벤트 처리를 여러 소비자에 게 효과적으로 배포 하는 프로세스를 간소화할 수 있습니다.
 
@@ -23,13 +23,13 @@ ms.locfileid: "78273316"
 
 ## <a name="components-of-the-change-feed-processor"></a>변경 피드 프로세서의 구성 요소
 
-변경 피드 프로세서를 구현 하는 네 가지 주요 구성 요소는 다음과 같습니다. 
+변경 피드 프로세서를 구현 하는 네 가지 주요 구성 요소는 다음과 같습니다.
 
 1. **모니터링된 컨테이너:** 모니터링된 컨테이너에는 변경 피드가 생성되는 데이터가 있습니다. 모니터링 되는 컨테이너에 대 한 모든 삽입 및 업데이트는 컨테이너의 변경 피드에 반영 됩니다.
 
-1. **임대 컨테이너:** 임대 컨테이너는 상태 저장소 역할을 하며 여러 작업자의 변경 피드 처리를 조정 합니다. 임대 컨테이너는 모니터링 되는 컨테이너와 동일한 계정 또는 별도의 계정에 저장할 수 있습니다. 
+1. **임대 컨테이너:** 임대 컨테이너는 상태 저장소 역할을 하며 여러 작업자의 변경 피드 처리를 조정 합니다. 임대 컨테이너는 모니터링 되는 컨테이너와 동일한 계정 또는 별도의 계정에 저장할 수 있습니다.
 
-1. **호스트:** 호스트는 변경 피드 프로세서를 사용 하 여 변경 내용을 수신 하는 응용 프로그램 인스턴스입니다. 동일한 임대 구성을 사용 하는 여러 인스턴스는 병렬로 실행 될 수 있지만 각 인스턴스의 **인스턴스 이름은**서로 달라 야 합니다. 
+1. **호스트:** 호스트는 변경 피드 프로세서를 사용 하 여 변경 내용을 수신 하는 응용 프로그램 인스턴스입니다. 동일한 임대 구성을 사용 하는 여러 인스턴스는 병렬로 실행 될 수 있지만 각 인스턴스의 **인스턴스 이름은**서로 달라 야 합니다.
 
 1. **대리자:** 대리자는 변경 피드 프로세서에서 읽는 각 변경 내용 일괄 처리로 수행할 작업을 정의 하는 코드입니다. 
 
@@ -65,7 +65,11 @@ ms.locfileid: "78273316"
 
 ## <a name="error-handling"></a>오류 처리
 
-변경 피드 프로세서는 사용자 코드 오류에 대 한 복원 력이 있습니다. 즉, 대리자 구현에 처리 되지 않은 예외가 있는 경우 (단계 #4) 특정 변경 내용의 일괄 처리가 중지 되 고 새 스레드가 생성 됩니다. 새 스레드는 해당 파티션 키 값 범위에 대 한 최신 지정 시간을 확인 하 고, 해당 위치에서 다시 시작 하 여 대리자에 동일한 변경 내용을 효율적으로 보냅니다. 이 동작은 대리자가 변경 내용을 올바르게 처리할 때까지 계속 되며, 변경 피드 프로세서에서 "한 번 이상" 보장 하는 이유가 있습니다. 대리자 코드가 throw 되는 경우 해당 일괄 처리를 다시 시도 합니다.
+변경 피드 프로세서는 사용자 코드 오류에 대 한 복원 력이 있습니다. 즉, 대리자 구현에 처리 되지 않은 예외가 있는 경우 (단계 #4) 특정 변경 내용의 일괄 처리가 중지 되 고 새 스레드가 생성 됩니다. 새 스레드는 해당 파티션 키 값 범위에 대 한 최신 지정 시간을 확인 하 고, 해당 위치에서 다시 시작 하 여 대리자에 동일한 변경 내용을 효율적으로 보냅니다. 대리자 코드가 예외를 throw 하는 경우 해당 일괄 처리를 다시 시도 하므로이 동작은 대리자가 변경 내용을 올바르게 처리 하 고 변경 피드 프로세서에서 "한 번 이상"의 보장을 받을 때까지 계속 됩니다.
+
+변경 피드 프로세서에서 계속 해 서 동일한 변경 내용을 다시 시도 하는 것을 방지 하기 위해 대리자 코드에서 예외 발생 시 배달 못 한 편지 큐에 문서를 기록 하는 논리를 추가 해야 합니다. 이 디자인은 계속 해 서 나중에 변경 내용을 처리할 수 있는 동안 처리 되지 않은 변경 내용을 추적할 수 있도록 합니다. 배달 못 한 편지 큐는 단순히 다른 Cosmos 컨테이너가 될 수 있습니다. 정확히 데이터 저장소는 처리 되지 않은 변경 내용이 지속 된다는 것만 중요 하지 않습니다.
+
+또한 변경 피드 [평가기](how-to-use-change-feed-estimator.md) 를 사용 하 여 변경 피드를 읽을 때 변경 피드 프로세서 인스턴스의 진행률을 모니터링할 수 있습니다. 변경 피드 프로세서에서 계속 해 서 동일한 변경 내용을 다시 시도 하는 경우를 모니터링 하는 것 외에도, 변경 피드 프로세서를 CPU, 메모리, 네트워크 대역폭 등의 사용 가능한 리소스로 인해 지연 여부를 파악할 수 있습니다.
 
 ## <a name="dynamic-scaling"></a>동적 크기 조정
 
@@ -85,7 +89,7 @@ ms.locfileid: "78273316"
 
 Cosmos 컨테이너 내부 및 외부의 데이터 이동은 항상 RU를 사용하므로 사용된 RU 요금이 청구됩니다. 임대 컨테이너에서 사용되는 RU 요금이 청구됩니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
 * [GitHub의 사용 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)

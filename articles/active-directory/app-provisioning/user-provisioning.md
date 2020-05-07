@@ -1,28 +1,24 @@
 ---
-title: Azure AD에서 SaaS 앱 사용자를 자동으로 프로비저닝 | Microsoft Docs
+title: Azure AD에서 자동 SaaS 앱 사용자 프로 비전
 description: Azure AD를 사용하여 여러 타사 SaaS 애플리케이션에서 사용자 계정을 자동으로 프로비저닝, 프로비저닝 해제, 지속적으로 업데이트하는 방법을 소개합니다.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: mimart
-ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e828fd9c2561007c332db67bfd0b20dda9b845f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: arvinh, celested
+ms.openlocfilehash: 1e72d885858b543999090a4a0521845d556802fd
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79454536"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593117"
 ---
-# <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Azure Active Directory 사용 하 여 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전 해제 자동화
+# <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-ad"></a>Azure AD를 사용 하 여 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전 해제 자동화
 
 Azure AD (Azure Active Directory)에서 용어 **앱 프로 비전은** 사용자가 액세스 해야 하는 클라우드 ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 응용 프로그램에서 사용자 id 및 역할을 자동으로 만드는 것을 의미 합니다. 자동 프로비저닝에는 사용자 ID를 생성하는 것 외에도 상태 또는 역할이 변경될 때 사용자 ID의 유지 관리 및 제거가 포함됩니다. 일반적인 시나리오에는 Azure AD 사용자를 [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md) 등과 같은 애플리케이션에 프로비저닝하는 것이 포함됩니다.
 

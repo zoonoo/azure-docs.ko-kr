@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 393d67b200a4f8d44cb001b3a7e2e491209e9d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99fbda6f6d5e8fc88f9f4f34c6e194412a120057
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80364159"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598490"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database 관리 되는 인스턴스 FAQ (질문과 대답)
 
@@ -94,7 +94,13 @@ Azure SQL Database 관리 되는 인스턴스와 온-프레미스 SQL Server 간
 
 새 관리 되는 인스턴스가 백그라운드에서 프로 비전 되 고 프로세스가 끝날 때 빠른 장애 조치 (failover)를 사용 하 여 이전 인스턴스와 새 인스턴스 간에 데이터베이스가 자동으로 전송 되기 때문에이 작업은 장기 실행 작업입니다. 
 
+**두 하드웨어 생성이 동일한 지역에서 지원 되지 않으면 어떻게 되나요?**
+
 동일한 지역에서 두 하드웨어 생성이 모두 지원 되지 않는 경우 하드웨어 생성을 변경 하는 것이 가능 하지만이를 수동으로 수행 해야 합니다. 이렇게 하려면 원하는 하드웨어 생성을 사용할 수 있는 지역에 새 인스턴스를 프로 비전 하 고 이전 인스턴스와 새 인스턴스 간에 데이터를 수동으로 백업 하 고 복원 해야 합니다.
+
+**업데이트 작업을 수행 하는 데 충분 한 IP 주소가 없는 경우 어떻게 되나요?**
+
+관리 되는 인스턴스가 프로 비전 되는 서브넷에 충분 한 IP 주소가 없는 경우 새 서브넷과 새 서브넷을 만들어야 합니다. 또한 향후 업데이트 작업에서 유사한 상황을 방지 하기 위해 더 많은 IP 주소를 사용 하 여 새 서브넷을 만드는 것이 좋습니다. 서브넷 크기 당 propper 대해 [vnet 서브넷 크기를 결정 하는 방법을](sql-database-managed-instance-determine-size-vnet-subnet.md)확인 합니다. 새 인스턴스를 프로 비전 한 후에는 이전 인스턴스와 새 인스턴스 간에 데이터를 수동으로 백업 하 고 복원 하거나 인스턴스 간 지정 [시간 복원을](sql-database-managed-instance-point-in-time-restore.md?tabs=azure-powershell)수행할 수 있습니다. 
 
 
 ## <a name="tune-performance"></a>성능 조정

@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 10/16/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4384d29811d29f06422802abba5d3eb1ea5737e9
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 091c0a8cb4c0db517ab2dbabaf16633227dba42c
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72430083"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594698"
 ---
 # <a name="backup-and-restore"></a>백업 및 복원
 
@@ -162,7 +162,7 @@ SAP HANA 스냅숏 만들기를 시작 하려면 저장소 스냅숏 스크립�
 
 ### <a name="step-6-get-the-snapshot-scripts-configure-the-snapshots-and-test-the-configuration-and-connectivity"></a>6단계: 스냅샷 스크립트 가져오기, 스냅샷 구성, 구성 및 연결 테스트
 
-[GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.1)에서 최신 버전의 스크립트를 다운로드하십시오. 스크립트 설치 방법이 스크립트의 릴리스 4.1로 변경 되었습니다. 자세한 내용은 [Azure의 SAP HANA Microsoft 스냅숏 도구](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md)에서 "SAP HANA 통신 사용"을 참조 하세요.
+[GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.2)에서 최신 버전의 스크립트를 다운로드하십시오. 스크립트 설치 방법이 스크립트의 릴리스 4.1로 변경 되었습니다. 자세한 내용은 [Azure의 SAP HANA Microsoft 스냅숏 도구](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md)에서 "SAP HANA 통신 사용"을 참조 하세요.
 
 명령의 정확한 순서는 [Azure의 Microsoft snapshot tools for SAP HANA](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md)에서 "스냅숏 도구 간단히 설치 (기본값)"를 참조 하세요. 기본 설치를 사용 하는 것이 좋습니다. 
 

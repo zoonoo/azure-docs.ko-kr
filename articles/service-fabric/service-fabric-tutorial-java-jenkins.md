@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: dee1d5a744ddfc2ad38cbe93447377a8af27a2f7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 74c412ad4c62a5821890aa5602b521f3f63da925
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75376657"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594766"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>자습서: Service Fabric에서 Java 애플리케이션에 CI/CD를 사용하도록 Jenkins 환경 구성
 
@@ -85,7 +85,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
    a. 일반 섹션에서 **GitHub 프로젝트**에 대한 확인란을 선택하고 GitHub 프로젝트 URL을 지정합니다. 이 URL은 Jenkins CI/CD(연속 통합, 연속 배포) 흐름과 통합하려는 Service Fabric Java 애플리케이션을 호스트합니다(예: ``https://github.com/testaccount/dev_test``).
 
-   b. **소스 코드 관리** 섹션 아래에서 **Git**를 선택합니다. Jenkins CI/CD 흐름과 통합하려는 Service Fabric Java 애플리케이션을 호스트하는 리포지토리 URL을 지정합니다(예: *https://github.com/testaccount/dev_test.git* ). 또한 여기에서 빌드할 분기를 지정할 수 있습니다(예: **/master**).
+   b. **소스 코드 관리** 섹션 아래에서 **Git**를 선택합니다. Jenkins CI/CD 흐름과 통합하려는 Service Fabric Java 애플리케이션을 호스트하는 리포지토리 URL을 지정합니다(예: *`https://github.com/testaccount/dev_test.git`* ). 또한 여기에서 빌드할 분기를 지정할 수 있습니다(예: **/master**).
 
 1. Jenkins와 통신할 수 있도록 리포지토리를 호스팅하는 *GitHub*을 구성합니다. 다음 단계를 사용합니다.
 

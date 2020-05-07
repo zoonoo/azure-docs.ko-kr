@@ -2,13 +2,13 @@
 title: 구독에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드는 방법을 설명합니다. 또한 Azure 구독 범위에서 리소스를 배포하는 방법도 보여 줍니다.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: 6bec29a07653ff5ad7d1e2f8317246049e127c8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: 80fe451f696480ec24b3d8eced64941de9492fef
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604996"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610822"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>구독 수준에서 리소스 그룹 및 리소스 만들기
 
@@ -20,6 +20,7 @@ Azure 구독의 리소스 관리를 간소화 하기 위해 구독에서 [정책
 
 구독 수준에서 다음과 같은 리소스 유형을 배포할 수 있습니다.
 
+* [청사진이](/azure/templates/microsoft.blueprint/blueprints)
 * [예산의](/azure/templates/microsoft.consumption/budgets)
 * [배포](/azure/templates/microsoft.resources/deployments) -리소스 그룹에 배포 하는 중첩 된 템플릿의 경우
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
@@ -244,11 +245,11 @@ Azure Resource Manager 템플릿에서 리소스 그룹을 만들려면 리소�
 }
 ```
 
-## <a name="create-policies"></a>정책 만들기
+## <a name="azure-policy"></a>Azure Policy
 
-### <a name="assign-policy"></a>정책 할당
+### <a name="assign-policy-definition"></a>정책 정의 할당
 
-다음 예제는 기존 정책 정의를 구독에 할당합니다. 정책이 매개 변수를 사용하는 경우 개체로 제공합니다. 정책이 매개 변수를 사용하지 않으면 기본 빈 개체를 사용합니다.
+다음 예제는 기존 정책 정의를 구독에 할당합니다. 정책 정의에서 매개 변수를 사용 하는 경우 해당 매개 변수를 개체로 제공 합니다. 정책 정의에서 매개 변수를 사용 하지 않는 경우 기본 빈 개체를 사용 합니다.
 
 ```json
 {
@@ -285,7 +286,7 @@ Azure Resource Manager 템플릿에서 리소스 그룹을 만들려면 리소�
 Azure CLI를 사용하여 이 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurecli-interactive
-# Built-in policy that accepts parameters
+# Built-in policy definition that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
 az deployment sub create \
@@ -312,9 +313,9 @@ New-AzSubscriptionDeployment `
   -policyParameters $policyParams
 ```
 
-### <a name="define-and-assign-policy"></a>정책 정의 및 할당
+### <a name="create-and-assign-policy-definitions"></a>정책 정의 만들기 및 할당
 
-정책은 같은 서식 파일에 [정의](../../governance/policy/concepts/definition-structure.md)하고 할당할 수 있습니다.
+동일한 템플릿에서 정책 정의를 [정의](../../governance/policy/concepts/definition-structure.md) 하 고 할당할 수 있습니다.
 
 ```json
 {
@@ -357,7 +358,7 @@ New-AzSubscriptionDeployment `
 }
 ```
 
-구독에서 정책 정의를 만들어 구독에 적용하려면 다음 CLI 명령을 사용합니다.
+구독에서 정책 정의를 만들고 구독에 할당 하려면 다음 CLI 명령을 사용 합니다.
 
 ```azurecli
 az deployment sub create \
@@ -373,6 +374,32 @@ New-AzSubscriptionDeployment `
   -Name definePolicy `
   -Location centralus `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
+```
+
+## <a name="azure-blueprints"></a>Azure Blueprints
+
+### <a name="create-blueprint-definition"></a>청사진 정의 만들기
+
+템플릿에서 청사진 정의를 [만들](../../governance/blueprints/tutorials/create-from-sample.md) 수 있습니다.
+
+:::code language="json" source="~/quickstart-templates/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json":::
+
+구독에서 청사진 정의를 만들려면 다음 CLI 명령을 사용 합니다.
+
+```azurecli
+az deployment sub create \
+  --name demoDeployment \
+  --location centralus \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
+```
+
+PowerShell에서 이 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurepowershell
+New-AzSubscriptionDeployment `
+  -Name demoDeployment `
+  -Location centralus `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
 ```
 
 ## <a name="template-samples"></a>템플릿 샘플

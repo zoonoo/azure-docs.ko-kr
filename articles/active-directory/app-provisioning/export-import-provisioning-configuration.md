@@ -1,50 +1,54 @@
 ---
-title: 프로 비전 구성을 내보내고 재해 복구를 위해 알려진 양호한 상태로 롤백합니다. | Microsoft Docs
+title: 프로 비전 구성을 내보내고 재해 복구를 위해 알려진 양호한 상태로 롤백합니다.
 description: 프로 비전 구성을 내보내고 재해 복구를 위해 알려진 양호한 상태로 롤백하는 방법에 대해 알아봅니다.
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
+manager: CelesteDG
 ms.service: active-directory
-ms.subservice: saas-app-tutorial
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.subservice: app-provisioning
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 03/19/2020
 ms.author: chmutali
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92a40a5fe3067cf96d3c742102c9ca66078cd5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acc14cf9fc544a15dfb9ac4ffd74e5ed0ac56108
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80051304"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593763"
 ---
-# <a name="export-your-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>프로 비전 구성을 내보내고 알려진 양호한 상태로 롤백합니다.
+# <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>방법: 프로 비전 구성 내보내기 및 알려진 정상 상태로 롤백
+
+이 문서에서는 다음을 수행하는 방법을 알아봅니다.
+
+- Azure Portal에서 프로 비전 구성 내보내기 및 가져오기
+- Microsoft Graph API를 사용 하 여 프로 비전 구성 내보내기 및 가져오기
 
 ## <a name="export-and-import-your-provisioning-configuration-from-the-azure-portal"></a>Azure Portal에서 프로 비전 구성 내보내기 및 가져오기
 
-### <a name="how-can-i-export-my-provisioning-configuration"></a>프로 비전 구성을 어떻게 내보낼 수 있나요?
+### <a name="export-your-provisioning-configuration"></a>프로 비전 구성 내보내기
+
 구성을 내보내려면:
+
 1. [Azure Portal](https://portal.azure.com/)의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택합니다.
-2. **Azure Active Directory** 창에서 **엔터프라이즈 응용 프로그램** 을 선택 하 고 응용 프로그램을 선택 합니다.
-3. 왼쪽 탐색 창에서 **프로 비전**을 선택 합니다. 프로 비전 구성 페이지에서 **특성 매핑**을 클릭 한 다음 **고급 옵션을 표시**하 고 마지막으로 **스키마를 검토**합니다. 그러면 스키마 편집기로 이동 합니다. 
-5. 페이지 맨 위에 있는 명령 모음에서 다운로드를 클릭 하 여 스키마를 다운로드 합니다.
+1. **Azure Active Directory** 창에서 **엔터프라이즈 응용 프로그램** 을 선택 하 고 응용 프로그램을 선택 합니다.
+1. 왼쪽 탐색 창에서 **프로 비전**을 선택 합니다. 프로 비전 구성 페이지에서 **특성 매핑**을 클릭 한 다음 **고급 옵션을 표시**하 고 마지막으로 **스키마를 검토**합니다. 그러면 스키마 편집기로 이동 합니다.
+1. 페이지 맨 위에 있는 명령 모음에서 다운로드를 클릭 하 여 스키마를 다운로드 합니다.
 
 ### <a name="disaster-recovery---roll-back-to-a-known-good-state"></a>재해 복구-알려진 정상 상태로 롤백
-구성을 내보내고 저장 하면 이전 버전의 구성으로 롤백할 수 있습니다. 특성 매핑 또는 범위 지정 필터를 변경 하는 경우 언제 든 지 프로 비전 구성을 내보내고 나중에 사용 하기 위해 저장 하는 것이 좋습니다. 위의 단계에서 다운로드 한 JSON 파일을 열고 JSON 파일의 전체 내용을 복사 하 고 스키마 편집기에서 JSON 페이로드의 전체 내용을 바꾸고 저장 하기만 하면 됩니다. 활성 프로 비전 주기가 있으면 완료 되 고 다음 주기에 업데이트 된 스키마가 사용 됩니다. 또한 다음 주기는 새로운 구성에 따라 모든 사용자 및 그룹을 다시 평가 하는 초기 주기로 사용 됩니다. 이전 구성으로 롤백할 때 다음 사항을 고려 하십시오.
-* 사용자를 다시 평가 하 여 범위에 속해야 하는지 확인 합니다. 범위 지정 필터가 변경 된 경우 사용자가 범위를 초과 하지 않으면 사용 하지 않도록 설정 됩니다. 대부분의 경우이 동작은 원하는 동작 이지만,이를 방지 하 고 [범위 삭제 생략](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) 기능을 사용할 수 있는 경우가 있습니다. 
-* 프로 비전 구성을 변경 하면 서비스가 다시 시작 되 고 [초기 순환이](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental)트리거됩니다.
 
+구성을 내보내고 저장 하면 이전 버전의 구성으로 롤백할 수 있습니다. 특성 매핑 또는 범위 지정 필터를 변경 하는 경우 언제 든 지 프로 비전 구성을 내보내고 나중에 사용 하기 위해 저장 하는 것이 좋습니다. 위의 단계에서 다운로드 한 JSON 파일을 열고 JSON 파일의 전체 내용을 복사 하 고 스키마 편집기에서 JSON 페이로드의 전체 내용을 바꾸고 저장 하기만 하면 됩니다. 활성 프로 비전 주기가 있으면 완료 되 고 다음 주기에 업데이트 된 스키마가 사용 됩니다. 또한 다음 주기는 새로운 구성에 따라 모든 사용자 및 그룹을 다시 평가 하는 초기 주기로 사용 됩니다. 이전 구성으로 롤백할 때 다음 사항을 고려 하십시오.
+
+- 사용자를 다시 평가 하 여 범위에 속해야 하는지 확인 합니다. 범위 지정 필터가 변경 된 경우 사용자가 범위를 초과 하지 않으면 사용 하지 않도록 설정 됩니다. 대부분의 경우이 동작은 원하는 동작 이지만,이를 방지 하 고 [범위 삭제 생략](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) 기능을 사용할 수 있는 경우가 있습니다. 
+- 프로 비전 구성을 변경 하면 서비스가 다시 시작 되 고 [초기 순환이](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental)트리거됩니다.
 
 ## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Microsoft Graph API를 사용 하 여 프로 비전 구성 내보내기 및 가져오기
-Microsoft Graph API 및 Microsoft Graph 탐색기를 사용 하 여 사용자 프로 비전 특성 매핑 및 스키마를 JSON 파일로 내보내고 Azure AD로 다시 가져올 수 있습니다. 여기에 캡처된 단계를 사용 하 여 프로 비전 구성의 백업을 만들 수도 있습니다. 
+
+Microsoft Graph API 및 Microsoft Graph 탐색기를 사용 하 여 사용자 프로 비전 특성 매핑 및 스키마를 JSON 파일로 내보내고 Azure AD로 다시 가져올 수 있습니다. 여기에 캡처된 단계를 사용 하 여 프로 비전 구성의 백업을 만들 수도 있습니다.
 
 ### <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>1 단계: 프로 비전 App Service 보안 주체 ID (개체 ID)를 검색 합니다.
 
-1. [Azure Portal](https://portal.azure.com)를 시작 하 고 프로 비전 응용 프로그램의 속성 섹션으로 이동 합니다. 예를 들어 *Workday를 AD 사용자 프로 비전 응용 프로그램* 매핑으로 내보내려는 경우 해당 앱의 속성 섹션으로 이동 합니다. 
+1. [Azure Portal](https://portal.azure.com)를 시작 하 고 프로 비전 응용 프로그램의 속성 섹션으로 이동 합니다. 예를 들어 *Workday를 AD 사용자 프로 비전 응용 프로그램* 매핑으로 내보내려는 경우 해당 앱의 속성 섹션으로 이동 합니다.
 1. 프로비전 앱의 속성 섹션에서 ‘개체 ID’ 필드와 연결된 GUID 값을 복사합니다.** 이 값은 앱의 **ServicePrincipalId** 라고도 하며 Microsoft Graph 탐색기 작업에 사용 됩니다.
 
    ![Workday 앱 서비스 주체 ID](./media/export-import-provisioning-configuration/wd_export_01.png)
@@ -99,4 +103,4 @@ Microsoft Graph Explorer에서 다음 PUT 쿼리를 구성하고 [servicePrincip
 
    [![요청 헤더](./media/export-import-provisioning-configuration/wd_export_05.png)](./media/export-import-provisioning-configuration/wd_export_05.png#lightbox)
 
-“쿼리 실행” 단추를 클릭하여 새 스키마를 가져옵니다.
+**쿼리 실행** 을 선택 하 여 새 스키마를 가져옵니다.

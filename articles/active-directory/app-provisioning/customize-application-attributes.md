@@ -2,24 +2,20 @@
 title: Azure AD 특성 매핑 사용자 지정 | Microsoft Docs
 description: Azure Active Directory의 Saas 앱에 대한 어떤 특성 매핑이 있고 어떻게 비즈니스 요구 사항에 맞게 수정하는지를 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11eddf0e5f9f950373e222a8007cabf7aa0720bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4abfdd94c57064c86e533234d78f774c45ba8e4a
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82142261"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593865"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>사용자 프로 비전 특성 사용자 지정-Azure Active Directory에서 SaaS 응용 프로그램에 대 한 매핑
 

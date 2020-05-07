@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 97c8f8a5bb2111264e9459a7d2128c1ab7c2503d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed7b01fb83ebd0c494f3f0f06a28dbf4e98c0b2d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414425"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592082"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>연속 창에 따라 파이프라인을 실행하는 트리거 만들기
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -94,11 +94,11 @@ ms.locfileid: "81414425"
 
 다음 테이블은 연속 창 트리거의 되풀이 및 일정 계획과 관련된 주요 JSON 요소의 대략적인 개요를 제공합니다.
 
-| JSON 요소 | Description | Type | 허용되는 값 | 필수 |
+| JSON 요소 | 설명 | Type | 허용되는 값 | 필수 |
 |:--- |:--- |:--- |:--- |:--- |
-| **type** | 트리거의 유형입니다. 형식은 고정 값 "TumblingWindowTrigger"입니다. | 문자열 | "TumblingWindowTrigger" | 예 |
-| **runtimeState** | 트리거 런타임의 현재 상태입니다.<br/>**참고**: 이 요소는 \<readOnly>입니다. | 문자열 | "시작된," "중지된," "사용 안 함" | 예 |
-| **주기와** | 트리거를 되풀이하는 빈도 단위(시간 또는 분)를 나타내는 문자열입니다. **startTime** 날짜 값이 **frequency** 값보다 더 세부적인 경우 **startTime** 날짜는 시간 경계를 계산할 때 고려됩니다. 예를 들어, **frequency** 값이 시간이고 **startTime** 값이 2017-09-01T10:10:10Z이면 첫 번째 기간은 (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z)입니다. | 문자열 | "minute," "hour"  | 예 |
+| **type** | 트리거의 유형입니다. 형식은 고정 값 "TumblingWindowTrigger"입니다. | String | "TumblingWindowTrigger" | 예 |
+| **runtimeState** | 트리거 런타임의 현재 상태입니다.<br/>**참고**: 이 요소는 \<readOnly>입니다. | String | "시작된," "중지된," "사용 안 함" | 예 |
+| **주기와** | 트리거를 되풀이하는 빈도 단위(시간 또는 분)를 나타내는 문자열입니다. **startTime** 날짜 값이 **frequency** 값보다 더 세부적인 경우 **startTime** 날짜는 시간 경계를 계산할 때 고려됩니다. 예를 들어, **frequency** 값이 시간이고 **startTime** 값이 2017-09-01T10:10:10Z이면 첫 번째 기간은 (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z)입니다. | String | "minute," "hour"  | 예 |
 | **interval** | 트리거가 실행되는 빈도를 결정하는 **frequency** 값에 대한 간격을 나타내는 양의 정수입니다. 예를 들어 **interval**이 3이고 **frequency**가 "시간"인 경우 트리거가 세 시간마다 되풀이됩니다. <br/>**참고**: 최소 창 간격은 5 분입니다. | 정수 | 양의 정수입니다. | 예 |
 | **startTime**| 첫 번째 발생이며 과거일 수 있습니다. 첫 번째 트리거 간격은 (**startTime**, **startTime** + **interval**)입니다. | DateTime | DateTime 값입니다. | 예 |
 | **endTime**| 마지막 발생이며 과거일 수 있습니다. | DateTime | DateTime 값입니다. | 예 |
@@ -106,9 +106,12 @@ ms.locfileid: "81414425"
 | **maxConcurrency** | 준비된 시간에 발생하는 동시 트리거 실행 수입니다. 예를 들어 채우기를 백업 하려면 24 windows에서 어제 결과 대 한 매시간 실행 됩니다. **maxConcurrency** = 10이면 처음 10개 시간(00:00-01:00 - 09:00-10:00)에만 트리거 이벤트가 발생합니다. 처음 10개의 트리거된 파이프라인 실행이 완료되면 다음 10개 시간(10:00-11:00 - 19:00-20:00)에 트리거 실행이 발생합니다. **maxConcurrency** = 10이라는 이 예제에서 10개 시간이 준비되면 총 10개의 파이프라인이 실행됩니다. 1개의 시간이 있는 경우 1개의 파이프라인만이 실행됩니다. | 정수 | 1~50 사이의 정수입니다. | 예 |
 | **retryPolicy: Count** | 파이프라인 실행이 "실패함"으로 표시되기 전에 다시 시도한 횟수입니다.  | 정수 | 기본값이 0(다시 시도 안 함)인 정수입니다. | 아니요 |
 | **retryPolicy: intervalInSeconds** | 시간(초)로 지정된 다시 시도 사이의 지연입니다. | 정수 | 기본값이 30인 시간(초)입니다. | 아니요 |
-| **dependsOn: 형식** | TumblingWindowTriggerReference의 형식입니다. 종속성이 설정 된 경우 필수 사항입니다. | 문자열 |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | 아니요 |
+| **dependsOn: 형식** | TumblingWindowTriggerReference의 형식입니다. 종속성이 설정 된 경우 필수 사항입니다. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | 아니요 |
 | **dependsOn: 크기** | 종속성 연속 창의 크기입니다. | Timespan<br/>(hh:mm:ss)  | 기본값은 자식 트리거의 창 크기인 양의 timespan 값입니다.  | 아니요 |
 | **dependsOn: offset** | 종속성 트리거의 오프셋입니다. | Timespan<br/>(hh:mm:ss) |  자체 종속성에서 음수가 되어야 하는 timespan 값입니다. 값을 지정 하지 않으면 창은 트리거 자체와 동일 합니다. | 자체 종속성: 예<br/>기타: 아니요  |
+
+> [!NOTE]
+> 연속 창 트리거를 게시 한 후에는 **간격** 및 **빈도** 를 편집할 수 없습니다.
 
 ### <a name="windowstart-and-windowend-system-variables"></a>WindowStart 및 WindowEnd 시스템 변수
 

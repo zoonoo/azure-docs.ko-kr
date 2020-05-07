@@ -2,26 +2,21 @@
 title: 사용자가 내 응용 프로그램에서 프로 비전 되지 않음
 description: Azure AD로 사용자 프로비전을 구성한 Azure AD 갤러리 애플리케이션에 사용자가 표시되지 않는 일반적인 문제를 해결하는 방법
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac6d4f24d3b6c21828ccb11785005df736c6b070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa47fbba7632077c83dc1d594c7c58c59c869bf7
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81680344"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594018"
 ---
 # <a name="no-users-are-being-provisioned"></a>프로비전된 사용자 없음 
 >[!NOTE]

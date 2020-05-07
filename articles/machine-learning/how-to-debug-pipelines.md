@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: 9c2e00ed14a45c6df7cf72845db2ecd069381ca5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f0eb6aa92dd8999baed6868a159c86d5e7bd0c8
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257218"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594650"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>기계 학습 파이프라인 디버그 및 문제 해결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -88,7 +88,7 @@ ms.locfileid: "81257218"
 
 다음 표에서는 파이프라인에 대 한 다양 한 디버그 옵션에 대 한 정보를 제공 합니다. 여기에 표시 된 Azure Machine Learning, Python 및 OpenCensus 뿐 아니라 다른 옵션도 존재 하므로 완전 한 목록은 아닙니다.
 
-| 라이브러리                    | Type   | 예제                                                          | 대상                                  | 리소스                                                                                                                                                                                                                                                                                                                    |
+| 라이브러리                    | Type   | 예                                                          | 대상                                  | 리소스                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure Machine Learning SDK | 메트릭 | `run.log(name, val)`                                             | Azure Machine Learning 포털 UI             | [실험을 추적 하는 방법](how-to-track-experiments.md#available-metrics-to-track)<br>[azureml 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
 | Python 인쇄/로깅    | 로그    | `print(val)`<br>`logging.info(message)`                          | 드라이버 로그, Azure Machine Learning 디자이너 | [실험을 추적 하는 방법](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Python 로깅](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
@@ -128,28 +128,32 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 ## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너에서 디버그 및 문제 해결 (미리 보기)
 
-이 섹션에서는 디자이너의 파이프라인 문제를 해결 하는 방법에 대 한 개요를 제공 합니다.
-디자이너에서 만든 파이프라인의 경우 제작 페이지나 파이프라인 실행 세부 정보 페이지에서 **로그 파일** 을 찾을 수 있습니다.
+이 섹션에서는 디자이너의 파이프라인 문제를 해결 하는 방법에 대 한 개요를 제공 합니다. 디자이너에서 만든 파이프라인의 경우 제작 페이지나 파이프라인 실행 세부 정보 페이지에서 **70_driver_log** 파일을 찾을 수 있습니다.
 
-### <a name="access-logs-from-the-authoring-page"></a>제작 페이지에서 로그 액세스
+### <a name="get-logs-from-the-authoring-page"></a>제작 페이지에서 로그 가져오기
 
-파이프라인 실행을 제출 하 고 제작 페이지에 유지 하는 경우 각 모듈에 대해 생성 되는 로그 파일을 찾을 수 있습니다.
+파이프라인 실행을 제출 하 고 제작 페이지에 유지 하는 경우 각 모듈의 실행이 완료 되 면 각 모듈에 대해 생성 되는 로그 파일을 찾을 수 있습니다.
 
-1. 제작 캔버스에서 모듈을 선택 합니다.
+1. 작성 캔버스에서 실행이 완료 된 모듈을 선택 합니다.
 1. 모듈의 오른쪽 창에서 **출력 + 로그** 탭으로 이동 합니다.
-1. 로그 파일 `70_driver_log.txt`을 선택 합니다.
+1. 오른쪽 창을 확장 하 고 **70_driver_log .txt** 를 선택 하 여 브라우저에서 파일을 봅니다. 로그를 로컬로 다운로드할 수도 있습니다.
 
-    ![페이지 모듈 로그 제작](./media/how-to-debug-pipelines/pipelinerun-05.png)
+    ![디자이너의 확장 된 출력 창](./media/how-to-debug-pipelines/designer-logs.png)
 
-### <a name="access-logs-from-pipeline-runs"></a>파이프라인 실행에서 로그 액세스
+### <a name="get-logs-from-pipeline-runs"></a>파이프라인 실행에서 로그 가져오기
 
-**파이프라인 또는** **실험** 섹션의 파이프라인 실행 세부 정보 페이지에서 특정 실행의 로그 파일을 찾을 수도 있습니다.
+파이프라인 실행 세부 정보 페이지에서 특정 실행에 대 한 로그 파일을 찾을 수도 있습니다 .이 페이지는 스튜디오의 **파이프라인** 또는 **실험** 섹션에서 찾을 수 있습니다.
 
 1. 디자이너에서 만든 파이프라인 실행을 선택 합니다.
-    ![파이프라인 실행 페이지](./media/how-to-debug-pipelines/pipelinerun-04.png)
+
+    ![파이프라인 실행 페이지](./media/how-to-debug-pipelines/designer-pipelines.png)
+
 1. 미리 보기 창에서 모듈을 선택 합니다.
 1. 모듈의 오른쪽 창에서 **출력 + 로그** 탭으로 이동 합니다.
-1. 로그 파일 `70_driver_log.txt`을 선택 합니다.
+1. 오른쪽 창을 확장 하 여 브라우저에서 **70_driver_log .txt** 파일을 보거나 파일을 선택 하 여 로그를 로컬로 다운로드 합니다.
+
+> [!IMPORTANT]
+> 파이프라인 실행 정보 페이지에서 파이프라인을 업데이트 하려면 파이프라인 실행을 새 파이프라인 초안으로 **복제** 해야 합니다. 파이프라인 실행은 파이프라인의 스냅숏입니다. 로그 파일과 비슷하며 변경할 수 없습니다. 
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>Application Insights 디버그 및 문제 해결
 이러한 방식으로 OpenCensus Python 라이브러리를 사용 하는 방법에 대 한 자세한 내용은이 가이드: [Application Insights machine learning 파이프라인 디버그 및 문제 해결](how-to-debug-pipelines-application-insights.md) 을 참조 하세요.
@@ -158,7 +162,7 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 ML 파이프라인에서 사용 되는 Python 코드를 대화형으로 디버깅 해야 하는 경우도 있습니다. Visual Studio Code (VS Code) 및 Visual Studio용 Python 도구 (PTVSD)를 사용 하 여 학습 환경에서 실행 되는 코드에 연결할 수 있습니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 * __Azure Virtual Network__를 사용 하도록 구성 된 __Azure Machine Learning 작업 영역__ 입니다.
 * 파이프라인 단계의 일부로 Python 스크립트를 사용 하는 __Azure Machine Learning 파이프라인__ 입니다. 예를 들면 PythonScriptStep입니다.
@@ -171,7 +175,7 @@ ML 파이프라인에서 사용 되는 Python 코드를 대화형으로 디버�
 
 Azure Machine Learning에서 Azure Virtual Network를 사용 하는 방법에 대 한 자세한 내용은 azure [Virtual Network 내에서 AZURE ML 실험 및 유추 작업 보호](how-to-enable-virtual-network.md)를 참조 하세요.
 
-### <a name="how-it-works"></a>작동 방식
+### <a name="how-it-works"></a>작동 방법
 
 ML 파이프라인 단계는 Python 스크립트를 실행 합니다. 이러한 스크립트는 다음 작업을 수행 하도록 수정 됩니다.
     

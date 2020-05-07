@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/23/2020
-ms.openlocfilehash: af4e33e2653aebe5d1c979aa314463e4beb7b0d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: 672fecc7487a73909efa5b4247f4889bb47b7b7e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233400"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594324"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 조회 변환
 
@@ -33,7 +33,7 @@ ms.locfileid: "82233400"
 
 **여러 행 일치:** 사용 하도록 설정 하면 주 스트림에서 여러 개의 일치 하는 행이 여러 행을 반환 합니다. 그렇지 않으면 ' Match on ' 조건에 따라 단일 행만 반환 됩니다.
 
-**일치 기준:** ' 여러 행 일치 '가 사용 하도록 설정 된 경우에만 표시 됩니다. 행, 첫 번째 일치 또는 마지막 일치 항목에 대해 일치 여부를 선택 합니다. 행은 가장 빠르게 실행 되므로 권장 됩니다. 첫 번째 행 또는 마지막 행을 선택한 경우 정렬 조건을 지정 해야 합니다.
+**일치 기준:** ' 여러 행 일치 '를 선택 하지 않은 경우에만 표시 됩니다. 행, 첫 번째 일치 또는 마지막 일치 항목에 대해 일치 여부를 선택 합니다. 행은 가장 빠르게 실행 되므로 권장 됩니다. 첫 번째 행 또는 마지막 행을 선택한 경우 정렬 조건을 지정 해야 합니다.
 
 **조회 조건:** 일치 시킬 열을 선택 합니다. 같음 조건이 충족 되 면 행이 일치 하는 것으로 간주 됩니다. ' 계산 열 '을 가리키고 선택 하 여 [데이터 흐름 식 언어](data-flow-expression-functions.md)를 사용 하 여 값을 추출 합니다.
 

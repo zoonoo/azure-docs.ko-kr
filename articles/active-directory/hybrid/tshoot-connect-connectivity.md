@@ -16,12 +16,13 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72dbb404d1b4d3618909e0233f332d2f98b51516
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: f55f291575aea40cba8551a5fec535f63a90150c
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049730"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610448"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Azure AD 연결 문제 해결
 이 문서는 Azure AD Connect와 Azure AD 간 연결의 작동 방식 및 연결 문제 해결 방법을 설명합니다. 이러한 문제는 프록시 서버 환경에서 발생할 가능성이 가장 높습니다.
@@ -31,7 +32,7 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 
 이 문서에서는 Fabrikam이 해당 프록시를 통해 Azure AD에 연결되는 방법을 보여 줍니다. 프록시 서버의 이름은 fabrikamproxy이고 포트 8080을 사용하고 있습니다.
 
-첫째, [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) 가 올바르게 구성되었는지 확인해야 합니다.  
+첫째, [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) 가 올바르게 구성되었는지 확인해야 합니다.
 ![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
@@ -58,25 +59,24 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 다음 문제는 설치 마법사에서 발생하는 가장 일반적인 오류입니다.
 
 ### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>설치 마법사가 올바르게 구성되지 않음
-마법사 자체가 프록시에 연결할 수 없는 경우 이 오류가 표시됩니다.  
+마법사 자체가 프록시에 연결할 수 없는 경우 이 오류가 표시됩니다.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
 * 이 오류가 표시되면 [machine.config](how-to-connect-install-prerequisites.md#connectivity)가 올바르게 구성되었는지 확인합니다.
 * 올바르게 구성된 경우 문제가 마법사 외부에 있는지 확인하기 위해 [프록시 연결 확인](#verify-proxy-connectivity) 의 단계를 수행합니다.
 
 ### <a name="a-microsoft-account-is-used"></a>Microsoft 계정이 사용됨
-**학교 또는 조직 계정**이 아닌 **Microsoft 계정**을 사용하면 일반 오류가 발생합니다.  
+**학교 또는 조직 계정**이 아닌 **Microsoft 계정**을 사용하면 일반 오류가 발생합니다.
 ![Microsoft 계정이 사용됨](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>MFA 엔드포인트에 연결할 수 없음
-이 오류는 끝점 **https://secure.aadcdn.microsoftonline-p.com** 에 연결할 수 없고 전역 관리자가 MFA를 사용 하도록 설정한 경우에 나타납니다.  
+이 오류는 끝점 **https://secure.aadcdn.microsoftonline-p.com** 에 연결할 수 없고 전역 관리자가 MFA를 사용 하도록 설정한 경우에 나타납니다.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * 이 오류가 표시되는 경우 엔드포인트 **secure.aadcdn.microsoftonline-p.com**이 프록시에 추가되어 있는지 확인합니다.
 
 ### <a name="the-password-cannot-be-verified"></a>암호를 확인할 수 없음
-설치 마법사가 Azure AD 연결에 성공했지만 암호 자체를 확인할 수 없는 경우 이 오류가 표시됩니다.  
-![암호가 잘못 되었습니다.](./media/tshoot-connect-connectivity/badpassword.png)
+설치 마법사가 Azure AD에 연결 하는 데 성공 했지만 암호 자체를 확인할 수 없는 경우 다음 오류가 표시 됩니다. ![잘못 된 암호입니다.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * 암호가 임시 암호라서 변경해야 하나요? 실제로 올바른 암호인가요? Azure AD Connect 서버 이외의 컴퓨터에서 `https://login.microsoftonline.com`에 로그인하여 계정이 사용 가능한지 확인합니다.
 
@@ -93,7 +93,7 @@ PowerShell은 프록시에 연결하기 위해 machine.config의 구성을 사�
 프록시가 올바르게 구성되지 않으면 ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
 ![proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)과 같은 오류가 표시됩니다.
 
-| 오류 | 오류 텍스트 | 주석 |
+| Error | 오류 텍스트 | 설명 |
 | --- | --- | --- |
 | 403 |사용할 수 없음 |요청된 URL에 대해 프록시가 열려 있지 않습니다. 프록시 구성을 다시 확인하고 [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 이 열려 있는지 확인합니다. |
 | 407 |프록시 인증 필요 |프록시 서버에 로그인이 필요한데 아무 것도 제공되지 않았습니다. 프록시 서버에 인증이 필요한 경우 machine.config에서이 설정이 구성 되어 있는지 확인 합니다. 또한 마법사를 실행 하는 사용자와 서비스 계정에 도메인 계정을 사용 하 고 있는지 확인 합니다. |
@@ -186,7 +186,7 @@ MFA (multi-factor authentication) 챌린지를 취소 했습니다.
 </div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>Azure AD 전역 관리자 역할 필요
-사용자가 인증되었습니다. 그러나 사용자에게 전역 관리자 역할이 할당되지 않습니다. 이것이 사용자에게 [전역 관리자 역할을 할당하는 방법](../users-groups-roles/directory-assign-admin-roles.md)입니다. 
+사용자가 인증되었습니다. 그러나 사용자에게 전역 관리자 역할이 할당되지 않습니다. 이것이 사용자에게 [전역 관리자 역할을 할당하는 방법](../users-groups-roles/directory-assign-admin-roles.md)입니다.
 
 <div id="privileged-identity-management">
 <!--
@@ -224,7 +224,7 @@ MFA (multi-factor authentication) 챌린지를 취소 했습니다.
 ## <a name="troubleshooting-steps-for-previous-releases"></a>이전 릴리스에 대한 문제 해결 단계입니다.
 빌드 번호 1.1.105.0(2016년 2월에 발표됨)으로 시작하는 릴리스에서 로그인 도우미 사용이 중지되었습니다. 이 섹션 및 구성은 더 이상 필요하지 않지만 참조로 유지됩니다.
 
-단일 로그인 도우미를 작동하려면 winhttp가 구성되어야 합니다. 이 구성은 [**netsh**](how-to-connect-install-prerequisites.md#connectivity)를 사용하여 수행할 수 있습니다.  
+단일 로그인 도우미를 작동하려면 winhttp가 구성되어야 합니다. 이 구성은 [**netsh**](how-to-connect-install-prerequisites.md#connectivity)를 사용하여 수행할 수 있습니다.
 ![netsh](./media/tshoot-connect-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>로그인 도우미가 올바르게 구성되지 않음

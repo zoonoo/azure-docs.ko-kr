@@ -3,15 +3,15 @@ title: Azure Logic Apps에서 통합 서비스 환경 관리
 description: Azure Logic Apps에 대 한 ISE (통합 서비스 환경)에서 네트워크 상태를 확인 하 고 논리 앱, 연결, 사용자 지정 커넥터 및 통합 계정 관리
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: f48106be67763c093a183be01098cab74391752e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 41e511bce3599dd341ccf8192612e3f08111245a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284201"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598422"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE (통합 서비스 환경) 관리
 
@@ -54,6 +54,10 @@ ISE에 있는 논리 앱을 보고 관리할 수 있습니다.
    ![논리 앱 보기](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
 
 1. ISE에서 더 이상 필요 하지 않은 논리 앱을 제거 하려면 해당 논리 앱을 선택한 다음 **삭제**를 선택 합니다. 삭제를 확인 하려면 **예**를 선택 합니다.
+
+> [!NOTE]
+> 자식 논리 앱을 삭제 하 고 다시 만드는 경우 부모 논리 앱을 다시 저장 해야 합니다. 다시 만들어진 자식 앱은 다른 메타 데이터를 포함 합니다.
+> 자식을 다시 만든 후 부모 논리 앱을 다시 저장 하지 않으면 자식 논리 앱에 대 한 호출이 실패 하 고 "권한 없음" 오류가 표시 됩니다. 이 동작은 통합 계정에서 아티팩트를 사용 하거나 Azure 함수를 호출 하는 것과 같은 부모-자식 논리 앱에 적용 됩니다.
 
 <a name="find-api-connections"></a>
 

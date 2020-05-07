@@ -4,12 +4,12 @@ description: VM 백업 스택, Resource Manager 배포 모델에 대한 Azure �
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7cf437c6b20ea6b688e8e93e401cf71ef0260888
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc29d1ac4c2e4c22ce6e6f8356927e768dc274e3
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76705431"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597657"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 
@@ -24,7 +24,7 @@ ms.locfileid: "76705431"
 * 는 최대 32 TB의 디스크 크기를 지원 합니다. Azure Backup에서는 디스크 크기를 조정 하지 않는 것이 좋습니다.
 * 는 표준 HDD 디스크 및 프리미엄 SSD 디스크와 함께 표준 SSD 디스크를 지원 합니다.
 * 복원 시 관리 되지 않는 Vm 원본 저장소 계정 (디스크당)을 사용할 수 있습니다. 이 기능은 VM의 디스크가 스토리지 계정에 분산된 경우에도 지원됩니다. 이는 다양한 VM 구성에 대한 복원 작업을 가속화합니다.
-* 즉시 복원을 사용 하 여 premium storage를 사용 하는 Vm 백업의 경우 할당 된 총 저장소 공간 *50%* 의 사용 가능한 공간을 할당 하는 것이 좋습니다 .이는 첫 번째 백업 **에서만** 필요 합니다. 50%의 사용 가능한 공간은 첫 번째 백업이 완료 된 후 백업에 대 한 요구 사항이 아닙니다.
+* 즉시 복원을 사용 하 여 저장소 계정에 관리 되지 않는 프리미엄 디스크를 사용 하는 Vm을 백업 하는 경우 할당 된 총 저장소 공간 *50%* 의 사용 가능한 공간을 할당 하는 것이 좋습니다 .이는 첫 번째 백업에 **만** 필요 합니다. 50%의 사용 가능한 공간은 첫 번째 백업이 완료 된 후 백업에 대 한 요구 사항이 아닙니다.
 
 ## <a name="whats-new-in-this-feature"></a>이 기능의 새로운 사항
 
