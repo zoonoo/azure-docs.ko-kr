@@ -1,79 +1,22 @@
 ---
-title: Azure Logic Apps에서 Wunderlist에 연결
+title: Wunderlist에 연결
 description: Azure Logic Apps를 사용하여 Wunderlist 계정에서 목록, 작업, 알림 등을 모니터링하고 관리하는 작업 및 워크플로 자동화
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 08/25/2018
+ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: 5ac13595bd77238aaede5fa3bdc3a35ef69e8504
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 66971d754d5cd524750fccaa6f89a2cdca138f2a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789123"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82925918"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Wunderlist 모니터링 및 관리
 
-Azure Logic Apps 및 Wunderlist 커넥터를 사용하면 다음과 같이 다른 작업들과 함께 Wunderlist 계정에서 할 일 목록, 작업, 알림 등을 모니터링하고 관리하는 자동화된 작업 및 워크플로를 만들 수 있습니다.
-
-* 새 작업이 만들어질 때, 작업이 만료될 때 또는 미리 알림이 발생할 때 모니터링합니다.
-* 목록, 정보, 작업, 하위 작업 등을 만들고 관리합니다.
-* 미리 알림을 설정합니다.
-* 목록, 작업, 하위 작업, 알림, 파일, 정보, 설명 등을 가져옵니다.
-
-[Wunderlist](https://www.wunderlist.com/)는 어디서든 디바이스에서 사용자 프로젝트, 할 일 목록 및 작업을 계획, 관리 및 완료하는 데 유용한 서비스입니다. 트리거를 사용하여 Wunderlist 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Wunderlist 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Wunderlist 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어, 새 작업이 만료되면 Slack 커넥터를 사용하여 메시지를 게시할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps 된 항목](../logic-apps/logic-apps-overview.md) 을 검토 하세요.
-
-## <a name="prerequisites"></a>사전 요구 사항
-
-* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
-
-* Wunderlist 계정 및 사용자 자격 증명
-
-   자격 증명을 통해 Wunderlist 계정에 대한 연결을 만들고 액세스하는 권한이 논리 앱에 부여됩니다.
-
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
-
-* Yammer 계정에 액세스하려는 논리 앱입니다. Wunderlist 트리거를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). 예를 들어 Wunderlist 동작을 사용하려면 **되풀이** 트리거 같은 다른 트리거를 통해 논리 앱을 시작합니다.
-
-## <a name="connect-to-wunderlist"></a>Wunderlist에 연결
-
-[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
-
-1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
-
-1. 경로를 선택합니다. 
-
-   * 빈 논리 앱의 경우 검색 상자에서 필터로 “wunderlist”를 입력합니다. 
-   트리거 목록에서 원하는 트리거를 선택합니다. 
-
-     또는
-
-   * 기존 논리 앱의 경우: 
-   
-     * 작업을 추가하려는 마지막 단계에서 **새 단계**를 선택합니다. 
-
-       또는
-
-     * 작업을 추가하려는 단계 사이에서, 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-     표시 되는 더하기 기호**+**()를 선택 하 고 **작업 추가**를 선택 합니다.
-     
-       검색 상자에서 필터로 “wunderlist”를 입력합니다. 
-       작업 목록에서 원하는 작업을 선택합니다.
-
-1. Wunderlist에 로그인하라는 메시지가 표시되면 로그인합니다. 그러면 액세스를 허용할 수 있습니다.
-
-1. 선택한 트리거 또는 작업에 대해 필요한 세부 정보를 제공하고 논리 앱의 워크플로를 계속 빌드합니다.
-
-## <a name="connector-reference"></a>커넥터 참조
-
-커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/wunderlist/)를 검토하세요.
-
-## <a name="get-support"></a>지원 받기
-
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
+2020 년 5 월 6 일부터 [Wunderlist 서비스를 종료](https://www.wunderlist.com/) 하 고 고객에 게 [데이터를 마이그레이션하고 Microsoft 사용을 시작](https://www.wunderlist.com/blog/goodbye-from-wunderlist/)하 라는 메시지를 표시 합니다. [Microsoft To Do connector](https://docs.microsoft.com/connectors/todo/) 를 사용 하 여 사용 되지 않는 [Wunderlist 커넥터](https://docs.microsoft.com/connectors/wunderlist/)를 바꿀 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

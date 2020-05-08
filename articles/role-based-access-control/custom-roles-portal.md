@@ -1,6 +1,6 @@
 ---
-title: Azure Portal (미리 보기)를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트-Azure RBAC
-description: Azure Portal를 사용 하 여 azure RBAC (역할 기반 액세스 제어)에 대 한 Azure 사용자 지정 역할을 만드는 방법에 대해 알아봅니다. 여기에는 사용자 지정 역할을 나열, 생성, 업데이트 및 삭제하는 방법이 포함됩니다.
+title: Azure Portal를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트-Azure RBAC
+description: Azure Portal 및 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure 사용자 지정 역할을 만드는 방법에 대해 알아봅니다. 여기에는 사용자 지정 역할을 나열, 생성, 업데이트 및 삭제하는 방법이 포함됩니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,25 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2020
+ms.date: 04/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 3204cdf51f3f37588f684f801a811f569b337d13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9ba8fa64a9699917fe73365cb5d9aa0c858cde7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77674871"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734182"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal-preview"></a>Azure Portal (미리 보기)를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트
 
-> [!IMPORTANT]
-> Azure Portal를 사용 하는 Azure 사용자 지정 역할은 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+[Azure 기본 제공 역할이](built-in-roles.md) 조직의 특정 요구를 충족 하지 않는 경우 고유한 azure 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로, 구독 및 리소스 그룹 범위에서 사용자, 그룹 및 서비스 사용자에 게 사용자 지정 역할을 할당할 수 있습니다. 사용자 지정 역할은 Azure AD(Azure Active Directory) 디렉터리에 저장되며 구독에서 공유할 수 있습니다. 각 디렉터리에는 최대 5000 개의 사용자 지정 역할이 있을 수 있습니다. Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure Portal를 사용 하 여 사용자 지정 역할을 만드는 방법을 설명 합니다.
 
-[Azure 기본 제공 역할이](built-in-roles.md) 조직의 특정 요구를 충족 하지 않는 경우 고유한 azure 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로, 구독 및 리소스 그룹 범위에서 사용자, 그룹 및 서비스 사용자에 게 사용자 지정 역할을 할당할 수 있습니다. 사용자 지정 역할은 Azure AD(Azure Active Directory) 디렉터리에 저장되며 구독에서 공유할 수 있습니다. 각 디렉터리에는 최대 5000 개의 사용자 지정 역할이 있을 수 있습니다. Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure Portal (현재 미리 보기 상태)를 사용 하 여 사용자 지정 역할을 만드는 방법을 설명 합니다.
-
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 사용자 지정 역할을 만들려면 다음이 필요합니다.
 
@@ -38,7 +33,7 @@ ms.locfileid: "77674871"
 
 Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수천 개의 권한이 있습니다. 다음 네 가지 방법으로 사용자 지정 역할에 추가 하려는 권한을 결정할 수 있습니다.
 
-| 방법 | Description |
+| 메서드 | 설명 |
 | --- | --- |
 | 기존 역할 살펴보기 | 기존 역할을 확인 하 여 사용 되는 사용 권한을 확인할 수 있습니다. 자세한 내용은 [Azure 기본 제공 역할](built-in-roles.md)을 참조 하세요. |
 | 키워드별 권한 검색 | Azure Portal를 사용 하 여 사용자 지정 역할을 만드는 경우 키워드를 사용 하 여 사용 권한을 검색할 수 있습니다. 예를 들어 *가상 컴퓨터* 또는 *청구* 권한을 검색할 수 있습니다. 이 검색 기능에 대 한 자세한 내용은 [4 단계: 사용 권한](#step-4-permissions)을 참조 하세요. |
@@ -77,7 +72,7 @@ Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수�
 
 1. Azure Portal에서 사용자 지정 역할을 할당할 수 있도록 하려는 구독 또는 리소스 그룹을 연 다음 **Access control (IAM)** 을 엽니다.
 
-1. **추가** 를 클릭 한 다음 **사용자 지정 역할 추가 (미리 보기)** 를 클릭 합니다.
+1. **추가** 를 클릭 한 다음 **사용자 지정 역할 추가**를 클릭 합니다.
 
     ![사용자 지정 역할 추가 메뉴](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -109,7 +104,7 @@ Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수�
     }
     ```
 
-1. JSON 파일에서 다양 한 속성에 대 한 값을 지정 합니다. 일부 값이 추가 된 예제는 다음과 같습니다. 다른 속성에 대 한 자세한 내용은 [역할 정의 이해](role-definitions.md)를 참조 하세요.
+1. JSON 파일에서 다양 한 속성에 대 한 값을 지정 합니다. 일부 값이 추가 된 예제는 다음과 같습니다. 다른 속성에 대 한 자세한 내용은 [Azure 역할 정의 이해](role-definitions.md)를 참조 하세요.
 
     ```json
     {
@@ -141,7 +136,7 @@ Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수�
     
 1. Azure Portal에서 **Access control (IAM)** 페이지를 엽니다.
 
-1. **추가** 를 클릭 한 다음 **사용자 지정 역할 추가 (미리 보기)** 를 클릭 합니다.
+1. **추가** 를 클릭 한 다음 **사용자 지정 역할 추가**를 클릭 합니다.
 
     ![사용자 지정 역할 추가 메뉴](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -260,7 +255,7 @@ Microsoft.CostManagement/exports/delete
 
 ## <a name="step-5-assignable-scopes"></a>5 단계: 할당 가능한 범위
 
-할당 가능한 **범위** 탭에서 사용자 지정 역할을 할당할 수 있는 위치 (예: 구독 또는 리소스 그룹)를 지정 합니다. 시작을 선택한 방법에 따라이 탭에는 액세스 제어 (IAM) 페이지를 연 범위가 나열 될 수 있습니다. 할당 가능한 범위를 루트 범위 ("/")로 설정 하는 것은 지원 되지 않습니다. 이 미리 보기에서는 관리 그룹을 할당 가능한 범위로 추가할 수 없습니다.
+할당 가능한 **범위** 탭에서 사용자 지정 역할을 할당할 수 있는 위치 (예: 구독 또는 리소스 그룹)를 지정 합니다. 시작을 선택한 방법에 따라이 탭에는 액세스 제어 (IAM) 페이지를 연 범위가 나열 될 수 있습니다. 할당 가능한 범위를 루트 범위 ("/")로 설정 하는 것은 지원 되지 않습니다. 현재는 할당 가능한 범위로 관리 그룹을 추가할 수 없습니다.
 
 1. **할당 가능한 범위 추가** 를 클릭 하 여 할당 가능한 범위 추가 창을 엽니다.
 
@@ -352,6 +347,6 @@ Microsoft.CostManagement/exports/delete
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: Azure PowerShell을 사용하여 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
-- [Azure의 사용자 지정 역할](custom-roles.md)
+- [자습서: Azure PowerShell을 사용 하 여 Azure 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
+- [Azure 사용자 지정 역할](custom-roles.md)
 - [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)

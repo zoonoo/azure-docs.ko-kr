@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: 8cba02d3c7d1e649853570b199b646b1c4dcce2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c7d4f0a6d33a52fd972815923e60b33ce8a7448
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80667409"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901347"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구에서 복제 문제 해결
 
@@ -41,7 +41,7 @@ Error ID: 153007
 
 다음 테이블에는 Azure Site Recovery 제한이 제공됩니다. 이러한 제한은 테스트를 기반으로 하지만 모든 가능한 응용 프로그램 i/o (입/출력) 조합을 처리할 수는 없습니다. 실제 결과는 애플리케이션 I/O 조합에 따라 달라질 수 있습니다.
 
-고려해 야 할 두 가지 제한이 있습니다. 디스크당 데이터 변동 및 가상 컴퓨터당 데이터 변동 예를 들어 다음 표의 Premium P20 디스크를 살펴보겠습니다. 단일 VM의 경우 디스크 마다 5 m b/초 Site Recovery를 처리할 수 있으며, 이러한 디스크는 최대 5 개까지 처리할 수 있습니다. Site Recovery은 VM 당 총 변동 수가 25MB/s로 제한 됩니다.
+고려해 야 할 두 가지 제한이 있습니다. 디스크당 데이터 변동 및 가상 컴퓨터당 데이터 변동 예를 들어 다음 표의 Premium P20 디스크를 살펴보겠습니다. 단일 VM의 경우 디스크 마다 5 m b/초 Site Recovery를 처리할 수 있으며, 이러한 디스크는 최대 5 개까지 처리할 수 있습니다. Site Recovery의 제한은 VM 당 총 변동 수는 54 m b/초입니다.
 
 **복제 저장소 대상** | **원본 디스크의 평균 I/O 크기** |**원본 디스크의 평균 데이터 변동** | **원본 데이터 디스크의 일별 총 데이터 변동**
 ---|---|---|---
@@ -65,7 +65,7 @@ Azure Site Recovery는 디스크 유형에 따라 데이터 변경 비율에 대
 데이터 변경 률이 급증 하는 경우 데이터 버스트로 인해 발생할 수 있습니다. 데이터 변경 률이 10mb/s (Premium의 경우) 또는 2 m b/초 (표준) 보다 큰 경우 복제가 처리 됩니다. 변동 수가 지원 되는 한도를 초과 하는 경우 다음 옵션 중 하나를 고려 하십시오.
 
 - 높은 데이터 변경 률을 유발 하는 디스크 제외: 먼저 복제를 사용 하지 않도록 설정 합니다. 그런 다음 [PowerShell](azure-to-azure-exclude-disks.md)을 사용 하 여 디스크를 제외할 수 있습니다.
-- 재해 복구 저장소 디스크의 계층 변경:이 옵션은 디스크 데이터 변동이 20 m b/초 미만인 경우에만 가능 합니다. 예를 들어, P10 디스크를 사용 하는 VM의 데이터 변동이 8 m b/초 보다 크지만 10mb/s 미만입니다. 고객이 보호 중에 대상 스토리지에 대해 P30 디스크를 사용할 수 있는 경우 문제를 해결할 수 있습니다. 이 솔루션은 프리미엄 Managed Disks를 사용 하는 컴퓨터에만 사용할 수 있습니다. 다음 단계를 수행하세요.
+- 재해 복구 저장소 디스크의 계층 변경:이 옵션은 디스크 데이터 변동이 20 m b/초 미만인 경우에만 가능 합니다. 예를 들어, P10 디스크를 사용 하는 VM의 데이터 변동이 8 m b/초 보다 크지만 10mb/s 미만입니다. 고객이 보호 중에 대상 스토리지에 대해 P30 디스크를 사용할 수 있는 경우 문제를 해결할 수 있습니다. 이 솔루션은 프리미엄 Managed Disks를 사용 하는 컴퓨터에만 사용할 수 있습니다. 아래 단계를 수행합니다.
 
   1. 영향을 받는 복제 된 컴퓨터의 **디스크로** 이동 하 여 복제본 디스크 이름을 복사 합니다.
   1. Managed disk의이 복제본으로 이동 합니다.

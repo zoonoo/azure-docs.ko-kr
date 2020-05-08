@@ -3,12 +3,12 @@ title: 사용자 지정 이벤트 및 메트릭용 Application Insights API | Mi
 description: 디바이스 또는 데스크톱 앱, 웹 페이지, 서비스에 코드를 몇 줄 삽입하여 사용 및 진단 문제를 추적할 수 있습니다.
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.openlocfilehash: 152bd117ec0ae76c2c85ead26ba5278aa71d582f
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 74ca6d6a13967c2139d3d47dd425b6cb1a3ee31a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509290"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927941"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -31,7 +31,7 @@ ms.locfileid: "82509290"
 
 이러한 대부분의 원격 분석 호출에 [속성 및 메트릭을 연결](#properties) 할 수 있습니다.
 
-## <a name="before-you-start"></a><a name="prep"></a>시작하기 전에
+## <a name="before-you-start"></a><a name="prep"></a>시작 하기 전에
 
 Application Insights SDK에 대한 참조가 아직 없는 경우:
 
@@ -436,7 +436,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 다음은 그 예입니다.
+대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 다음은 그 예입니다. 
 
 ```kusto
 exceptions
@@ -499,7 +499,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다.
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.  
 
-또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 다음은 그 예입니다.
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 다음은 그 예입니다. 
 
 *C#*
 
@@ -649,7 +649,7 @@ telemetry.flush();
 
 ## <a name="authenticated-users"></a>인증된 사용자
 
-웹앱에서 사용자는 기본적으로 쿠키로 식별됩니다. 사용자가 다른 컴퓨터 또는 브라우저에서 앱에 액세스하거나 쿠키를 삭제하는 경우 두 번 이상 계산될 수 있습니다.
+웹 앱에서 사용자는 기본적으로 [쿠키로 식별](../../azure-monitor/app/usage-segmentation.md#the-users-sessions-and-events-segmentation-tool)됩니다. 사용자가 다른 컴퓨터 또는 브라우저에서 앱에 액세스하거나 쿠키를 삭제하는 경우 두 번 이상 계산될 수 있습니다.
 
 사용자가 앱에 로그인하면 브라우저 코드에서 인증된 사용자 ID를 설정하여 보다 정확한 개수를 얻을 수 있습니다.
 
@@ -1062,7 +1062,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 다음은 그 예입니다.
+TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 다음은 그 예입니다. 
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
@@ -1111,7 +1111,7 @@ telemetry.Context.Operation.Name = "MyOperationName";
 
 * *Track_() 호출에서 발생할 수 있는 예외는 무엇인가요?*
 
-    없음 try-catch 절에 래핑할 필요가 없습니다. SDK에 문제가 발생하는 경우 디버그 콘솔 출력에 메시지를 작성하고 메시지가 완료되는 경우 진단 검색에 표시됩니다.
+    없습니다. try-catch 절에 래핑할 필요가 없습니다. SDK에 문제가 발생하는 경우 디버그 콘솔 출력에 메시지를 작성하고 메시지가 완료되는 경우 진단 검색에 표시됩니다.
 * *포털에서 데이터를 가져오는 REST API가 있나요?*
 
     예, [데이터 액세스 API](https://dev.applicationinsights.io/)가 있습니다. 데이터를 추출하는 다른 방법에는 [Analytics에서 Power BI로 내보내기](../../azure-monitor/app/export-power-bi.md ) 및 [연속 내보내기](../../azure-monitor/app/export-telemetry.md)가 있습니다.

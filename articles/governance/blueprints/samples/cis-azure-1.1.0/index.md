@@ -1,14 +1,14 @@
 ---
 title: CIS Microsoft Azure Foundations 벤치마크 청사진 샘플 개요
 description: CIS Microsoft Azure Foundations 벤치마크 청사진 샘플의 개요입니다. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
-ms.date: 08/09/2019
+ms.date: 05/06/2020
 ms.topic: sample
-ms.openlocfilehash: 414c6d5a38821767dd43e62aa9f42edd8633dbe2
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: cc2d2e31ddf71ad5cebf21bc8f23e20331b24617
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "74544575"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864150"
 ---
 # <a name="overview-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>CIS Microsoft Azure Foundations 벤치마크 청사진 샘플 개요
 

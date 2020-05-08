@@ -2,13 +2,13 @@
 title: 논리적 조직에 대 한 리소스, 리소스 그룹 및 구독 태그
 description: 태그를 적용하여 대금 청구 및 관리를 위해 Azure 리소스를 구성하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 04/10/2020
-ms.openlocfilehash: 2f437682a2ac415ce8478b09a44bff044bd9511b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 9ba7c58f6fa56b8ef2c233a5fe7f8f8e04fe29e1
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81255127"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864490"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>태그를 사용 하 여 Azure 리소스 및 관리 계층 구조 구성
 
@@ -591,7 +591,9 @@ REST API 작업에 대한 내용은 [Azure 청구 REST API 참조](/rest/api/bil
 * 태그 이름에는 다음 문자를 포함할 수 없습니다: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
-   > Azure DNS 현재 영역 및 트래픽 관리자 서비스는 태그에서 공백 사용을 허용 하지 않습니다.
+   > 현재 Azure DNS 영역 및 Traffic Manager 서비스는 태그에서 공백 사용을 허용 하지 않습니다.
+   >
+   > Azure 전면 도어는 태그 이름에서의 `#` 사용을 지원 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

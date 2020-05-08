@@ -1,6 +1,6 @@
 ---
-title: REST API 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기 또는 업데이트
-description: REST API를 사용 하 여 Azure 리소스에 대 한 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법에 대해 알아봅니다.
+title: REST API를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트-Azure RBAC
+description: REST API 및 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,21 +15,21 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fda0400310f46da64322654c42af75521746d679
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0bc96dc9a8e541cfd827ba5f5abe35c13f2d2462
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062183"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734096"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>REST API를 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기 또는 업데이트
+# <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>REST API를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트
 
 > [!IMPORTANT]
 > 에 관리 그룹을 추가 `AssignableScopes` 하는 것은 현재 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 REST API를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법을 설명 합니다.
+[Azure 기본 제공 역할이](built-in-roles.md) 조직의 특정 요구를 충족 하지 않는 경우 사용자 고유의 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 REST API를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법을 설명 합니다.
 
 ## <a name="list-custom-roles"></a>사용자 지정 역할 나열
 
@@ -189,7 +189,7 @@ ms.locfileid: "80062183"
 
 1. `notActions` 속성에서 허용된 `actions`로부터 제외되는 작업을 추가합니다.
 
-1. `roleName` 및 `description` 속성에서 고유한 역할 이름 및 설명을 지정합니다. 속성에 대한 자세한 내용은 [사용자 지정 역할](custom-roles.md)을 참조하세요.
+1. `roleName` 및 `description` 속성에서 고유한 역할 이름 및 설명을 지정합니다. 속성에 대 한 자세한 내용은 [Azure 사용자 지정 역할](custom-roles.md)을 참조 하세요.
 
     요청 본문의 예제는 다음과 같습니다.
 
@@ -340,6 +340,6 @@ ms.locfileid: "80062183"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)
-- [RBAC 및 REST API를 사용하여 Azure 리소스에 대한 액세스 관리](role-assignments-rest.md)
+- [Azure 사용자 지정 역할](custom-roles.md)
+- [REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-rest.md)
 - [Azure REST API 참조](/rest/api/azure/)

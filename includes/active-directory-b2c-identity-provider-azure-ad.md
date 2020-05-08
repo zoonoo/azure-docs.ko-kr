@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 04/07/2020
 ms.author: mimart
-ms.openlocfilehash: 31a6d116ae1afce9afdd3786747490980963d823
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 818f33abfdb0655d96c0a8873a43903ee972b3bf
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678061"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82925447"
 ---
 ## <a name="register-an-azure-ad-app"></a>Azure AD 앱 등록
 
@@ -36,7 +36,7 @@ ms.locfileid: "81678061"
 
 ### <a name="configuring-optional-claims"></a>선택적 클레임 구성
 
-Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경우 Azure Portal UI 또는 응용 프로그램 매니페스트에서 응용 프로그램에 대 한 선택적 클레임을 구성할 수 있습니다. 자세한 내용은 [AZURE AD 앱에 선택적 클레임을 제공 하는 방법](/active-directory/develop/active-directory-optional-claims.md)을 참조 하세요.
+Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경우 Azure Portal UI 또는 응용 프로그램 매니페스트에서 응용 프로그램에 대 한 선택적 클레임을 구성할 수 있습니다. 자세한 내용은 [AZURE AD 앱에 선택적 클레임을 제공 하는 방법](/azure/active-directory/develop/active-directory-optional-claims)을 참조 하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **Azure Active Directory**를 검색하고 선택합니다.
 1. **관리** 섹션에서 **앱 등록**을 선택 합니다.

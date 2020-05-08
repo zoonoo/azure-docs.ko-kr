@@ -3,12 +3,12 @@ title: 리소스 유형별 이동 작업 지원
 description: 새 리소스 그룹이나 구독으로 이동할 수 있는 Azure 리소스 종류를 소개합니다.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: a92da04f5b883661d53fd291dc72351a1c4eafb1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: 45450b21b1cd3236712043629f433c2c5fe20f80
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610839"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900969"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 이 문서에서는 Azure 리소스 종류가 이동 작업을 지원하는지 여부에 대한 정보를 제공합니다. 또한 리소스를 이동할 때 고려해 야 할 특수 조건에 대 한 정보를 제공 합니다.
@@ -1252,7 +1252,10 @@ ms.locfileid: "82610839"
 > | workspaces | 예 | 예 |
 
 > [!IMPORTANT]
-> 새 구독으로의 이동이 [구독 할당량](azure-subscription-service-limits.md#azure-monitor-limits)을 초과 하지 않는지 확인 합니다.
+> 새 구독으로 이동 하는 것이 [구독 할당량](azure-subscription-service-limits.md#azure-monitor-limits)을 초과 하지 않는지 확인 합니다.
+
+> [!IMPORTANT]
+> 연결 된 automation 계정이 있는 작업 영역은 이동할 수 없습니다. 이동 작업을 시작 하기 전에 automation 계정의 연결을 해제 해야 합니다.   
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 

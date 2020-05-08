@@ -3,12 +3,12 @@ title: 템플릿으로 빠른 작업 실행
 description: Azure Resource Manager 템플릿을 사용 하 여 이미지를 빌드하기 위해 ACR 작업 실행 대기
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: 6e85e4a3d10ea34d71efde959aa7d179eba69e3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196531"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927771"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>리소스 관리자 템플릿을 사용 하 여 ACR 작업 실행
 
@@ -16,7 +16,7 @@ ms.locfileid: "82196531"
 
 이 문서에서는 [az acr build][az-acr-build] 명령을 사용 하 여 수동으로 만들 수 있는 것과 마찬가지로 빠른 작업 실행을 큐에 대기 하는 Azure Resource Manager 템플릿 예제를 보여 줍니다.
 
-태스크 실행을 큐에 대기 하는 리소스 관리자 템플릿은 자동화 시나리오에서 유용 하 고의 `az acr build`기능을 확장 합니다. 다음은 그 예입니다.
+태스크 실행을 큐에 대기 하는 리소스 관리자 템플릿은 자동화 시나리오에서 유용 하 고의 `az acr build`기능을 확장 합니다. 다음은 그 예입니다. 
 
 * 템플릿을 사용 하 여 컨테이너 레지스트리를 만들고 작업 실행을 즉시 큐에 대기 하 여 컨테이너 이미지를 빌드하고 푸시합니다.
 * Azure 리소스에 대 한 관리 되는 id와 같은 빠른 작업 실행에서 사용할 수 있는 추가 리소스를 만들거나 사용 하도록 설정 합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "82196531"
 
 이 예에서는 다음 템플릿 매개 변수에 대 한 값을 제공 합니다.
 
-|매개 변수  |값  |
+|매개 변수  |Value  |
 |---------|---------|
 |registryName     |만든 레지스트리의 고유 이름         |
 |리포지토리     |빌드 작업에 대 한 대상 리포지토리        |
@@ -139,7 +139,7 @@ Azure Portal에서 작업 실행 로그를 볼 수도 있습니다.
 
 ### <a name="create-new-dockerfile"></a>새 Dockerfile 만들기
 
-기본 레지스트리에서 기본 이미지를 가져오는 Dockerfile을 만듭니다. GitHub 리포지토리의 로컬 포크에서 다음 단계를 수행 합니다 (예: https://github.com/myGitHubID/acr-build-helloworld-node.git*).
+기본 레지스트리에서 기본 이미지를 가져오는 Dockerfile을 만듭니다. GitHub 리포지토리의 로컬 포크에서 다음 단계를 수행 `https://github.com/myGitHubID/acr-build-helloworld-node.git`합니다 (예:).
 
 1. GitHub UI에서 **새 파일 만들기**를 선택 합니다.
 1. 파일 이름을 *Dockerfile-test로* 하 고 다음 내용을 붙여넣습니다. *Mybaseregistry*에 대 한 레지스트리 이름을 대체 합니다.
@@ -179,7 +179,7 @@ az role assignment create \
 
 이 예에서는 다음 템플릿 매개 변수에 대 한 값을 제공 합니다.
 
-|매개 변수  |값  |
+|매개 변수  |Value  |
 |---------|---------|
 |registryName     |이미지가 빌드되는 레지스트리 이름  |
 |리포지토리     |빌드 작업에 대 한 대상 리포지토리        |

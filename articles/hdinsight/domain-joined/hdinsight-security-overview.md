@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 492c248b9a68b39b37984b978944b4f7ef34d756
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 91a3c71ecaa8af58e13cb96571fc7afdf618fcdd
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190115"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780082"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 개요
 
@@ -87,7 +87,7 @@ Azure 규정 준수 제품은 공식 인증을 비롯한 다양한 유형의 보
 | 운영 체제 보안 | 최신의 보안 기본 이미지를 사용하여 클러스터 만들기 | Customer |
 |  | 정기적인 간격에 따른 [OS 패치](../hdinsight-os-patching.md) 보장 | Customer |
 | 네트워크 보안 | [가상 네트워크](../hdinsight-plan-virtual-network-deployment.md) 구성 |
-|  | [인바운드 NSG(네트워크 보안 그룹) 규칙](../hdinsight-plan-virtual-network-deployment.md#networktraffic) 구성 | Customer |
+|  | [인바운드 NSG(네트워크 보안 그룹) 규칙](../control-network-traffic.md) 구성 | Customer |
 |  | 방화벽을 사용하여 [아웃바운드 트래픽 제한](../hdinsight-restrict-outbound-traffic.md) 구성 | Customer |
 | 가상화된 인프라 | 해당 없음 | HDInsight(클라우드 공급자) |
 | 물리적 인프라 보안 | 해당 없음 | HDInsight(클라우드 공급자) |

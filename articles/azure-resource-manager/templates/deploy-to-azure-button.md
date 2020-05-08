@@ -2,17 +2,17 @@
 title: Azure 단추에 배포
 description: GitHub 리포지토리에서 Azure Resource Manager 템플릿을 배포 하려면 단추를 사용 합니다.
 ms.topic: conceptual
-ms.date: 02/07/2020
-ms.openlocfilehash: 88436eac970b252d7b0bc7bccee4131e06e9e0cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: e403d095f7419ed13742dcfa8e8407a92ad10be0
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77109054"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744087"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>배포 단추를 사용 하 여 GitHub 리포지토리에서 템플릿 배포
 
-이 문서에서는 **Azure에 배포** 단추를 사용 하 여 GitHub 리포지토리에서 템플릿을 배포 하는 방법을 설명 합니다. GitHub 리포지토리의 README.md 파일 또는 리포지토리를 참조 하는 웹 페이지에 직접 단추를 추가할 수 있습니다.
+이 문서에서는 **Azure에 배포** 단추를 사용 하 여 GitHub 리포지토리에서 템플릿을 배포 하는 방법을 설명 합니다. GitHub 리포지토리의 README.md 파일 또는 리포지토리를 참조 하는 웹 페이지에 직접 단추를 추가할 수 있습니다. 이 방법은 리소스 그룹 수준 배포만 지원 합니다.
 
 ## <a name="use-common-image"></a>공통 이미지 사용
 

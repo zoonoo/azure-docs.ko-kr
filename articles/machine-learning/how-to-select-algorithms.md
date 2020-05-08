@@ -10,12 +10,12 @@ author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
-ms.openlocfilehash: 98f7edac5bbec7a88999c728b2e4db8be7a3d2b5
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: HT
+ms.openlocfilehash: ad384896301e809940f6e99df2f5562cfdb6a6fe
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891357"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927584"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 알고리즘을 선택 하는 방법
 
@@ -50,21 +50,21 @@ Azure Machine Learning Algorithm 참고 자료 시트의 지침과 함께 솔루
 | --- |:---:|:---:|:---:|:---:| --- |
 | **분류 패밀리** | | | | | |
 | [2 클래스 로지스틱 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri) |좋음  |Fast |예 |4 | |
-| [2 클래스 의사 결정 포리스트](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |최고 |보통 |아니요 |5 |더 느린 점수 매기기 시간을 표시 합니다. 누적 트리 예측의 디 어 지 잠금으로 인 한 더 느린 점수 매기기 시간 때문에 일대다 다중 클래스를 사용 하지 않는 것이 좋습니다. |
-| [2 클래스 승격 된 의사 결정 트리](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |최고 |보통 |아니요 |6 |큰 메모리 공간 |
-| [2 클래스 신경망](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-neural-network?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |아니요 |8 | |
+| [2 클래스 의사 결정 포리스트](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |최고 |보통 |예 |5 |더 느린 점수 매기기 시간을 표시 합니다. 누적 트리 예측의 디 어 지 잠금으로 인 한 더 느린 점수 매기기 시간 때문에 일대다 다중 클래스를 사용 하지 않는 것이 좋습니다. |
+| [2 클래스 승격 된 의사 결정 트리](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |최고 |보통 |예 |6 |큰 메모리 공간 |
+| [2 클래스 신경망](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-neural-network?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |예 |8 | |
 | [2 클래스 평균 퍼셉트론](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-averaged-perceptron?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |예 |4 | |
 | [2 클래스 지원 벡터 컴퓨터](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) |좋음 |Fast |예 |5 |큰 기능 집합의 적합 |
 | [다중 클래스 로지스틱 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri) |좋음 |Fast |예 |4 | |
-| [다중 클래스 의사 결정 포리스트](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) |최고 |보통 |아니요 |5 |더 느린 점수 매기기 시간 표시 |
-| [다중 클래스 승격 된 의사 결정 트리](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |최고 |보통 |아니요 |6 | 적용 범위가 적은 몇 가지 위험으로 정확도를 향상 시키는 경향이 있습니다. |
-| [다중 클래스 신경망](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |아니요 |8 | |
+| [다중 클래스 의사 결정 포리스트](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) |최고 |보통 |예 |5 |더 느린 점수 매기기 시간 표시 |
+| [다중 클래스 승격 된 의사 결정 트리](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |최고 |보통 |예 |6 | 적용 범위가 적은 몇 가지 위험으로 정확도를 향상 시키는 경향이 있습니다. |
+| [다중 클래스 신경망](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |예 |8 | |
 | [One-vs-all 다중 클래스](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/one-vs-all-multiclass?WT.mc_id=docs-article-lazzeri) | - | - | - | - |선택된 2클래스 메서드의 속성을 참조하세요. |
 | **회귀 제품군** | | | | | |
 | [선형 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/linear-regression?WT.mc_id=docs-article-lazzeri) |좋음 |Fast |예 |4 | |
-| [의사 결정 포리스트 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/decision-forest-regression?WT.mc_id=docs-article-lazzeri)|최고 |보통 |아니요 |5 | |
-| [승격 된 의사 결정 트리 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/boosted-decision-tree-regression?WT.mc_id=docs-article-lazzeri) |최고 |보통 |아니요 |6 |큰 메모리 공간 |
-| [신경망 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |아니요 |8 | |
+| [의사 결정 포리스트 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/decision-forest-regression?WT.mc_id=docs-article-lazzeri)|최고 |보통 |예 |5 | |
+| [승격 된 의사 결정 트리 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/boosted-decision-tree-regression?WT.mc_id=docs-article-lazzeri) |최고 |보통 |예 |6 |큰 메모리 공간 |
+| [신경망 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |예 |8 | |
 | **클러스터링 제품군** | | | | | |
 | [K-클러스터링을 의미 합니다.](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri) |최고 |보통 |예 |8 |클러스터링 알고리즘 |
 
@@ -148,6 +148,6 @@ Machine Learning 디자이너에서 기계 학습 모델을 만들고 사용 하
 
 ## <a name="next-steps"></a>다음 단계
 
- - [Azure Machine Learning 디자이너에 대 한 자세한 정보](https://docs.microsoft.com/azure/machine-learning/service/concept-designer?WT.mc_id=docs-article-lazzeri)
+ - [Azure Machine Learning 디자이너에 대 한 자세한 정보](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri)
  - Azure Machine Learning 디자이너에서 사용할 수 있는 모든 기계 학습 알고리즘에 대 한 설명은 [디자이너 알고리즘 및 모듈 참조 Machine Learning](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri) 를 참조 하세요.
- - 심층 학습, 기계 학습 및 AI 간의 관계를 탐색 하려면 [심층 학습 및 Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-deep-learning-vs-machine-learning?WT.mc_id=docs-article-lazzeri) 을 참조 하세요.
+ - 심층 학습, 기계 학습 및 AI 간의 관계를 탐색 하려면 [심층 학습 및 Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-deep-learning-vs-machine-learning?WT.mc_id=docs-article-lazzeri) 을 참조 하세요.

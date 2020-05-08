@@ -63,6 +63,9 @@
       href: samples-powershell.md
     - name: 리소스 관리자 템플릿
       href: samples-resource-manager-templates.md
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
     - name: App Service 계획
