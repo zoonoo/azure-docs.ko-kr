@@ -1010,6 +1010,8 @@
         - name: 보안 개요
           href: /azure/databricks/security/index
           maintainContext: true
+        - name: 보안 기준
+          href: security-baseline.md
         - name: Access Control
           items:
             - name: 액세스 제어 개요

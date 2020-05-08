@@ -56,6 +56,8 @@
       href: use-key-vault-references-spring-boot.md
     - name: CI/CD 파이프라인과 통합
       href: integrate-ci-cd-pipeline.md
+    - name: Helm를 사용하여 Kubernetes 배포와 통합
+      href: integrate-kubernetes-deployment-helm.md
 - name: 샘플
   items:
     - name: Azure CLI

@@ -1,18 +1,18 @@
 ---
 title: Azure Automation Hybrid Runbook Worker에서 Runbook 실행
-description: 이 문서에서는 Hybrid Runbook Worker 역할이 있는 로컬 데이터 센터 또는 클라우드 공급자의 컴퓨터에서 Runbook을 실행하는 방법에 대한 정보를 제공합니다.
+description: 이 문서에서는 Hybrid Runbook Worker 사용 하 여 로컬 데이터 센터 또는 클라우드 공급자의 컴퓨터에서 runbook을 실행 하는 방법에 대 한 정보를 제공 합니다.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: b65c72e0c65cf9aa84cb614478fbdf78258f3054
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a86139c7becaae996e343166088b416dd8d6404f
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405819"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855639"
 ---
-# <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
+# <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
 Hybrid Runbook Worker를 대상으로 하는 runbook은 일반적으로 로컬 컴퓨터의 리소스나 작업자를 배포한 로컬 환경의 리소스를 관리 합니다. Azure Automation의 Runbook은 일반적으로 Azure 클라우드에서 리소스를 관리합니다. 다르게 사용 되는 경우에도 Azure Automation에서 실행 되는 runbook과 Hybrid Runbook Worker에서 실행 되는 runbook은 구조에서 동일 합니다.
 
@@ -21,15 +21,23 @@ Hybrid Runbook Worker에서 실행할 runbook을 작성 하는 경우 작업자�
 >[!NOTE]
 >이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대한 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](automation-update-azure-modules.md)을 사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
-## <a name="runbook-permissions-for-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에 대 한 Runbook 권한
+## <a name="plan-runbook-job-behavior"></a>Runbook 작업 동작 계획
 
-비 Azure 리소스에 액세스할 때 Hybrid Runbook Worker에서 실행 되는 runbook은 일반적으로 Azure 리소스를 인증 하는 runbook에서 사용 하는 인증 메커니즘을 사용할 수 없습니다. Runbook은 로컬 리소스에 대 한 자체 인증을 제공 하거나 [Azure 리소스에 대 한 관리 되는 id](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)를 사용 하 여 인증을 구성 합니다. 또한 모든 runbook에 대 한 사용자 컨텍스트를 제공 하는 실행 계정을 지정할 수 있습니다.
+Azure Automation는 Azure 샌드박스에서 실행 되는 작업과 약간 다른 방식으로 Hybrid Runbook Worker에 대 한 작업을 처리 합니다. 장기 실행 runbook이 있는 경우 다시 시작할 수 있도록 복원 력이 있는지 확인 합니다. 작업 동작에 대 한 자세한 내용은 [Hybrid Runbook Worker 작업](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-jobs)을 참조 하세요.
 
-### <a name="runbook-authentication"></a>Runbook 인증
+Hybrid Runbook Worker에 대 한 작업은 Windows의 로컬 **시스템** 계정 또는 Linux의 **nxautomation** 계정에서 실행 된다는 점에 주의 하세요. Linux의 경우 **nxautomation** 계정에 runbook 모듈이 저장 된 위치에 대 한 액세스 권한이 있는지 확인 합니다. [Install-Module](/powershell/module/powershellget/install-module) cmdlet을 사용 하는 경우 **nxautomation** 계정에 액세스 권한이 `Scope` 있는지 확인 하려면 매개 변수에 대해 AllUsers를 지정 해야 합니다. Linux의 PowerShell에 대 한 자세한 내용은 [Windows 이외의 플랫폼에서 powershell에 대 한 알려진 문제](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms)를 참조 하세요.
 
-기본적으로 runbook은 로컬 컴퓨터에서 실행 됩니다. Windows의 경우 로컬 **시스템** 계정의 컨텍스트에서 실행 됩니다. Linux의 경우 특수 사용자 계정 **nxautomation**의 컨텍스트에서 실행 됩니다. 두 시나리오 모두 runbook은 액세스 하는 리소스에 대 한 자체 인증을 제공 해야 합니다.
+## <a name="set-up-runbook-permissions"></a>Runbook 사용 권한 설정
 
-Runbook에서 다른 리소스에 대해 인증할 수 있도록 자격 증명을 지정할 수 있는 cmdlet을 사용 하 여 runbook에서 [자격 증명](automation-credentials.md) 및 [인증서](automation-certificates.md) 자산을 사용할 수 있습니다. 다음 예제에서는 컴퓨터를 다시 시작하는 Runbook의 일부를 보여 줍니다. 자격 증명 자산에서 자격 증명을 검색 하 고 변수 자산에서 컴퓨터 이름을 검색 한 다음 `Restart-Computer` cmdlet에 이러한 값을 사용 합니다.
+다음과 같은 방법으로 Hybrid Runbook Manager에서 실행할 runbook에 대 한 사용 권한을 정의 합니다.
+
+* Runbook이 로컬 리소스에 대 한 자체 인증을 제공 하도록 합니다.
+* [Azure 리소스에 대 한 관리 id를](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)사용 하 여 인증을 구성 합니다. 
+* 모든 runbook에 대 한 사용자 컨텍스트를 제공 하는 실행 계정을 지정 합니다.
+
+## <a name="use-runbook-authentication-to-local-resources"></a>로컬 리소스에 runbook 인증 사용
+
+리소스에 대 한 자체 인증을 제공 하는 runbook을 준비 하는 경우 runbook에서 [자격 증명](automation-credentials.md) 및 [인증서](automation-certificates.md) 자산을 사용 합니다. Runbook이 여러 리소스를 인증할 수 있도록 자격 증명을 지정할 수 있는 여러 cmdlet이 있습니다. 다음 예제에서는 컴퓨터를 다시 시작하는 Runbook의 일부를 보여 줍니다. 자격 증명 자산에서 자격 증명을 검색 하 고 변수 자산에서 컴퓨터 이름을 검색 한 다음 `Restart-Computer` cmdlet에 이러한 값을 사용 합니다.
 
 ```powershell
 $Cred = Get-AutomationPSCredential -Name "MyCredential"
@@ -40,26 +48,7 @@ Restart-Computer -ComputerName $Computer -Credential $Cred
 
 [InlineScript](automation-powershell-workflow.md#inlinescript) 활동을 사용할 수도 있습니다. `InlineScript`[PSCredential 일반 매개 변수로](/powershell/module/psworkflow/about/about_workflowcommonparameters)지정 된 자격 증명을 사용 하 여 다른 컴퓨터에서 코드 블록을 실행할 수 있습니다.
 
-### <a name="run-as-account"></a>실행 계정
-
-Runbook이 로컬 리소스에 대 한 자체 인증을 제공 하는 대신 Hybrid Runbook Worker 그룹에 대 한 실행 계정을 지정할 수 있습니다. 이렇게 하려면 로컬 리소스에 대 한 액세스 권한이 있는 [자격 증명 자산](automation-credentials.md) 을 정의 해야 합니다. 이러한 리소스에는 인증서 저장소가 포함 되며, 모든 runbook은 그룹의 Hybrid Runbook Worker에 대해 이러한 자격 증명으로 실행 됩니다.
-
-자격 증명에 대한 사용자 이름은 다음 서식 중 하나여야 합니다.
-
-* domain\username
-* username@domain
-* 사용자 이름(온-프레미스 컴퓨터에 로컬인 계정용)
-
-다음 절차를 사용 하 여 Hybrid Runbook Worker 그룹에 대 한 실행 계정을 지정할 수 있습니다.
-
-1. 로컬 리소스에 대한 액세스로 [자격 증명 자산](automation-credentials.md)을 만듭니다.
-2. Azure Portal에서 Automation 계정을 엽니다.
-3. **Hybrid Worker 그룹** 타일을 선택한 다음 그룹을 선택합니다.
-4. **모든 설정**, **Hybrid worker 그룹 설정**을 차례로 선택 합니다.
-5. **실행** 값을 **기본값** 에서 **사용자 지정**으로 변경 합니다.
-6. 자격 증명을 선택하고 **저장**을 클릭합니다.
-
-### <a name="managed-identities-for-azure-resources"></a><a name="managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 관리 Id
+## <a name="use-runbook-authentication-with-managed-identities"></a><a name="runbook-auth-managed-identities"></a>관리 id로 runbook 인증 사용
 
 Azure virtual machines의 Hybrid Runbook Worker는 azure 리소스에 대 한 관리 되는 id를 사용 하 여 Azure 리소스에 인증할 수 있습니다. 실행 계정이 아닌 Azure 리소스에 대해 관리 되는 id를 사용 하면 다음을 수행 하지 않아도 되므로 이점이 제공 됩니다.
 
@@ -86,7 +75,26 @@ Hybrid Runbook Worker에서 Azure 리소스에 관리 되는 id를 사용 하려
 > [!NOTE]
 > `Connect-AzAccount -Identity`는 시스템 할당 id 및 단일 사용자 할당 id를 사용 하 여 Hybrid Runbook Worker에 대해 작동 합니다. Hybrid Runbook Worker에서 사용자 할당 id를 여러 개 사용 하는 경우 Runbook은에 대 한 `AccountId` `Connect-AzAccount` 매개 변수를 지정 하 여 특정 사용자 할당 id를 선택 해야 합니다.
 
-### <a name="automation-run-as-account"></a><a name="runas-script"></a>Automation 실행 계정
+## <a name="use-runbook-authentication-with-run-as-account"></a>실행 계정으로 runbook 인증 사용
+
+Runbook이 로컬 리소스에 대 한 자체 인증을 제공 하는 대신 Hybrid Runbook Worker 그룹에 대 한 실행 계정을 지정할 수 있습니다. 이렇게 하려면 로컬 리소스에 대 한 액세스 권한이 있는 [자격 증명 자산](automation-credentials.md) 을 정의 해야 합니다. 이러한 리소스에는 인증서 저장소가 포함 되며, 모든 runbook은 그룹의 Hybrid Runbook Worker에 대해 이러한 자격 증명으로 실행 됩니다.
+
+자격 증명에 대한 사용자 이름은 다음 서식 중 하나여야 합니다.
+
+* domain\username
+* username@domain
+* 사용자 이름(온-프레미스 컴퓨터에 로컬인 계정용)
+
+다음 절차를 사용 하 여 Hybrid Runbook Worker 그룹에 대 한 실행 계정을 지정할 수 있습니다.
+
+1. 로컬 리소스에 대한 액세스로 [자격 증명 자산](automation-credentials.md)을 만듭니다.
+2. Azure Portal에서 Automation 계정을 엽니다.
+3. **Hybrid Worker 그룹** 타일을 선택한 다음 그룹을 선택합니다.
+4. **모든 설정**, **Hybrid worker 그룹 설정**을 차례로 선택 합니다.
+5. **실행** 값을 **기본값** 에서 **사용자 지정**으로 변경 합니다.
+6. 자격 증명을 선택하고 **저장**을 클릭합니다.
+
+### <a name="install-run-as-account-certificate"></a><a name="runas-script"></a>실행 계정 인증서 설치
 
 Azure에서 리소스를 배포 하는 자동화 된 빌드 프로세스의 일부로, 배포 시퀀스의 작업 또는 단계 집합을 지원 하기 위해 온-프레미스 시스템에 액세스 해야 할 수 있습니다. 실행 계정을 사용 하 여 Azure에 대 한 인증을 제공 하려면 실행 계정 인증서를 설치 해야 합니다.
 
@@ -171,17 +179,9 @@ Get-AzAutomationAccount | Select-Object AutomationAccountName
 5. Runbook을 실행 하 고 실행 계정을 사용 하 여 runbook을 실행 하 고 인증 하는 Hybrid Runbook Worker 그룹을 대상으로 지정 합니다. 
 6. 작업 스트림을 검사 하 여 로컬 컴퓨터 저장소로 인증서를 가져오려고 시도 하는 것을 보고 하 고 여러 줄을 사용 하 여 다음을 확인 합니다. 이 동작은 구독에 정의 하는 Automation 계정 수와 인증의 성공 정도에 따라 달라 집니다.
 
-## <a name="job-behavior-on-hybrid-runbook-workers"></a>Hybrid Runbook Worker의 작업 동작
+## <a name="start-a-runbook-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 runbook 시작
 
-Azure Automation는 Azure 샌드박스에서 실행 되는 작업과 약간 다른 방식으로 Hybrid Runbook Worker에 대 한 작업을 처리 합니다. 한 가지 중요 한 차이점은 runbook worker의 작업 기간에 제한이 없다는 것입니다. Azure 샌드박스에서 실행 되는 runbook은 공평 하 게 [공유](automation-runbook-execution.md#fair-share)되므로 3 시간으로 제한 됩니다.
-
-장기 실행 runbook의 경우 작업자를 호스트 하는 컴퓨터가 다시 부팅 되는 경우와 같이 가능한 다시 시작에 대 한 복원 력이 있는지 확인 해야 합니다. Hybrid Runbook Worker 호스트 컴퓨터가 다시 부팅 되는 경우 실행 중인 모든 Runbook 작업은 처음부터 또는 PowerShell 워크플로 runbook에 대 한 마지막 검사점에서 다시 시작 됩니다. Runbook 작업이 세 번 이상 다시 시작 되 면 일시 중단 됩니다.
-
-Hybrid Runbook Worker에 대 한 작업은 Windows의 로컬 시스템 계정 또는 Linux의 **nxautomation** 계정에서 실행 된다는 점에 주의 하세요. Linux의 경우 **nxautomation** 계정에 runbook 모듈이 저장 된 위치에 대 한 액세스 권한이 있는지 확인 해야 합니다. [Install-Module](/powershell/module/powershellget/install-module) cmdlet을 사용 하는 경우 **nxautomation** 계정에 액세스 권한이 `Scope` 있는지 확인 하려면 매개 변수에 대해 AllUsers를 지정 해야 합니다. Linux의 PowerShell에 대 한 자세한 내용은 [Windows 이외의 플랫폼에서 powershell에 대 한 알려진 문제](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms)를 참조 하세요.
-
-## <a name="starting-a-runbook-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 runbook 시작
-
-[Azure Automation에서 runbook을 시작](automation-starting-a-runbook.md) 하는 방법은 runbook을 시작 하는 다양 한 방법을 설명 합니다. Hybrid Runbook Worker에서 runbook을 시작 하면 Hybrid Runbook Worker 그룹의 이름을 지정할 수 있는 **실행** 대상 옵션이 사용 됩니다. 그룹을 지정 하면 해당 그룹의 작업자 중 하나가 runbook을 검색 하 고 실행 합니다. Runbook이이 옵션을 지정 하지 않으면 Azure Automation는 평소와 같이 runbook을 실행 합니다.
+Runbook [시작 Azure Automation에서](start-runbooks.md) runbook을 시작 하는 다양 한 방법을 설명 합니다. Hybrid Runbook Worker에서 runbook을 시작 하면 Hybrid Runbook Worker 그룹의 이름을 지정할 수 있는 **실행** 대상 옵션이 사용 됩니다. 그룹을 지정 하면 해당 그룹의 작업자 중 하나가 runbook을 검색 하 고 실행 합니다. Runbook이이 옵션을 지정 하지 않으면 Azure Automation는 평소와 같이 runbook을 실행 합니다.
 
 Azure Portal에서 runbook을 시작 하면 **Azure** 또는 **Hybrid Worker**를 선택할 수 있는 **실행** 대상 옵션이 표시 됩니다. **Hybrid Worker**를 선택 하는 경우 드롭다운에서 Hybrid Runbook Worker 그룹을 선택할 수 있습니다.
 
@@ -194,7 +194,7 @@ Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name
 > [!NOTE]
 > 이전 버전을 설치한 경우 [최신 PowerShell 버전을 다운로드](https://azure.microsoft.com/downloads/) 해야 합니다. PowerShell에서 runbook을 시작 하는 워크스테이션에만이 버전을 설치 합니다. 이 컴퓨터에서 runbook을 시작 하려는 경우를 제외 하 고 Hybrid Runbook Worker 컴퓨터에 설치할 필요는 없습니다.
 
-## <a name="working-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker에서 서명 된 runbook 사용
+## <a name="work-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker에서 서명 된 runbook으로 작업
 
 서명 된 runbook만 실행 하도록 Windows Hybrid Runbook Worker를 구성할 수 있습니다.
 
@@ -252,9 +252,9 @@ $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprin
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-Runbook이 서명 된 경우 Automation 계정으로 가져온 후 서명 블록을 사용 하 여 게시 해야 합니다. Runbook을 가져오는 방법에 대한 자세한 내용은 [파일의 Runbook을 Azure Automation으로 가져오기](manage-runbooks.md#importing-a-runbook)를 참조하세요.
+Runbook이 서명 된 경우 Automation 계정으로 가져온 후 서명 블록을 사용 하 여 게시 해야 합니다. Runbook을 가져오는 방법에 대 한 자세한 내용은 [Runbook 가져오기](manage-runbooks.md#import-a-runbook)를 참조 하세요.
 
-## <a name="working-with-signed-runbooks-on-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker에서 서명 된 runbook 사용
+## <a name="work-with-signed-runbooks-on-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker에서 서명 된 runbook에 대 한 작업
 
 서명 된 runbook을 사용할 수 있으려면 Linux Hybrid Runbook Worker 로컬 컴퓨터에 [GPG](https://gnupg.org/index.html) 실행 파일이 있어야 합니다.
 
@@ -313,7 +313,6 @@ gpg –-clear-sign <runbook name>
 
 ## <a name="next-steps"></a>다음 단계
 
-* Runbook을 시작 하는 방법에 대 한 자세한 내용은 [Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md)을 참조 하세요.
 * 텍스트 편집기를 사용 하 여 Azure Automation PowerShell runbook으로 작업 하는 방법을 이해 하려면 [Azure Automation에서 Runbook 편집](automation-edit-textual-runbook.md)을 참조 하세요.
 * Runbook이 성공적으로 완료 되지 않으면 [runbook 실행 오류](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)에 대 한 문제 해결 가이드를 검토 합니다.
 * 언어 참조 및 학습 모듈을 포함하여 PowerShell에 대한 자세한 내용은 [PowerShell 문서](https://docs.microsoft.com/powershell/scripting/overview)를 참조하세요.

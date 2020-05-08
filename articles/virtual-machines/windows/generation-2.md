@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 07bf03096cbe5ec8e0fe9619519fdddb91cde984
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bf690ad3ad38632834a92c4a743b1cb584beaf65
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231665"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838827"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2 세대 Vm에 대 한 지원
 
@@ -38,6 +38,7 @@ ms.locfileid: "82231665"
 * [HB 시리즈](../hb-series.md)
 * [HC 시리즈](../hc-series.md)
 * [Ls 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) 및 [Lsv2 시리즈](../lsv2-series.md)
+* [M 시리즈](../m-series.md)
 * [Mv2 시리즈](../mv2-series.md)<sup>1</sup>
 * [NCv2 시리즈](../ncv2-series.md) 및 [NCv3 시리즈](../ncv3-series.md)
 * [ND 시리즈](../nd-series.md)
@@ -146,11 +147,11 @@ OS로 Windows Server 2012를 사용 하 여 VM을 만드는 경우 1 세대 (BIO
 
 1 세대 VM을 만드는 것과 같은 방법으로 관리 되는 이미지 또는 관리 디스크에서 2 세대 VM을 만들 수 있습니다.
 
-### <a name="virtual-machine-scale-sets"></a>가상 머신 확장 집합
+### <a name="virtual-machine-scale-sets"></a>가상 머신 크기 집합
 
 또한 가상 머신 확장 집합을 사용 하 여 2 세대 Vm을 만들 수 있습니다. Azure CLI에서 Azure 확장 집합을 사용 하 여 2 세대 Vm을 만듭니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 * **모든 Azure 지역에서 2 세대 Vm을 사용할 수 있나요?**  
     예. 하지만 모든 지역에서 [2 세대 VM 크기](#generation-2-vm-sizes) 를 사용할 수 있는 것은 아닙니다. 2 세대 VM의 가용성은 VM 크기의 가용성에 따라 달라 집니다.
