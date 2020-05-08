@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: af0611e121228a587e159bd4e6529c807132d16d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 350363641056802e09eea90c85b4ccf8e33d9051
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204446"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930151"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>초급자를 위한 데이터 과학 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
 최고의 데이터 과학자가 제공하는 5개의 짧은 비디오로 구성된 *초급자를 위한 데이터 과학*에서 데이터 과학을 빠르게 살펴보세요. 이러한 비디오는 기초적이지만 데이터 과학에 관심이 있든 데이터 과학자와 함께 일하든 상관없이 유용한 정보를 제공합니다.
@@ -66,7 +66,7 @@ ms.locfileid: "79204446"
 
 두 가지 가능한 답변이 있는 질문에 유용합니다.
 
-다음은 그 예입니다.
+다음은 그 예입니다. 
 
 * 이 타이어는 다음 1,000마일을 가는 동안 터질까요? 예 또는 아니요?
 * 어떤 방식이 더 많은 고객을 이끌까요? 5달러 쿠폰 또는 25% 할인?
@@ -136,4 +136,4 @@ ms.locfileid: "79204446"
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio를 사용 하 여 첫 번째 데이터 과학 실험 시도 (클래식)](create-experiment.md)
-* [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/preview/overview-what-is-azure-ml)
+* [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/overview-what-is-azure-ml)

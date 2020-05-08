@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: e76c75e172e48866565cc292ac673f7bbddabf1f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/08/2020
+ms.openlocfilehash: 458925dd9f7f7386a9159256fdb024d027f7016c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232822"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929318"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -48,17 +48,20 @@ HDInsight의 모든 관리 디스크는 Azure SSE(스토리지 서비스 암호�
 ## <a name="upcoming-changes"></a>예정된 변경
 이후 릴리스에서는 다음과 같은 변경이 수행 됩니다. 
 
-### <a name="deprecate-spark-21-and-22-for-hdinsight-36-spark-cluster"></a>HDInsight 3.6 Spark 클러스터에 대 한 사용 중단 Spark 2.1 및 2.2
-7 월 1 2020부터 고객은 HDInsight 3.6에서 Spark 2.1 및 2.2을 사용 하 여 새 Spark 클러스터를 만들 수 없습니다. Microsoft의 지원 없이 기존 클러스터는 그대로 실행 됩니다. 잠재적 시스템/지원 중단이 발생 하지 않도록 하려면 HDInight 3.6에서 2.3로 이동 하 30 2020는 것이 좋습니다.
+### <a name="deprecate-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>HDInsight 3.6 Spark 클러스터의 사용 중단 Spark 2.1 및 2.2
+7 월 1 2020부터 고객은 HDInsight 3.6에서 Spark 2.1 및 2.2을 사용 하 여 새 Spark 클러스터를 만들 수 없습니다. Microsoft의 지원 없이 기존 클러스터는 그대로 실행 됩니다. 잠재적 시스템/지원 중단이 발생 하지 않도록 하려면 2.3 년 6 30 2020 월 3.6로 HDInsight에서 Spark로 이동 하는 것이 좋습니다.
 
-### <a name="deprecate-spark-23-for-hdinsight-40-spark-cluster"></a>HDInsight 4.0 Spark 클러스터에 대 한 사용 중단 Spark 2.3
-7 월 1 2020부터 고객은 HDInsight 4.0의 Spark 2.3을 사용 하 여 새 Spark 클러스터를 만들 수 없습니다. Microsoft의 지원 없이 기존 클러스터는 그대로 실행 됩니다. 잠재적 시스템/지원 중단이 발생 하지 않도록 하려면 HDInight 4.0에서 2.4로 이동 하 30 2020는 것이 좋습니다.
+### <a name="deprecate-spark-23-in-hdinsight-40-spark-cluster"></a>HDInsight 4.0 Spark 클러스터의 사용 중단 Spark 2.3
+7 월 1 2020부터 고객은 HDInsight 4.0의 Spark 2.3을 사용 하 여 새 Spark 클러스터를 만들 수 없습니다. Microsoft의 지원 없이 기존 클러스터는 그대로 실행 됩니다. 잠재적 시스템/지원 중단이 발생 하지 않도록 하려면 2.4 년 6 30 2020 월 4.0로 HDInsight에서 Spark로 이동 하는 것이 좋습니다.
 
-### <a name="deprecate-kafka-11-for-hdinsight-40-kafka-cluster"></a>사용 중단 Kafka 1.1 for HDInsight 4.0 Kafka 클러스터
-7 월 1 2020부터 고객은 HDInsight 4.0의 Kafka 1.1를 사용 하 여 새 Kafka 클러스터를 만들 수 없습니다. Microsoft의 지원 없이 기존 클러스터는 그대로 실행 됩니다. 잠재적 시스템/지원 중단을 방지 하려면 HDInight 4.0의 Kafka 2.1을 6 월 30 2020로 이동 하는 것이 좋습니다.
+### <a name="deprecate-kafka-11-in-hdinsight-40-kafka-cluster"></a>HDInsight 4.0 Kafka 클러스터의 사용 중단 Kafka 1.1
+7 월 1 2020부터 고객은 HDInsight 4.0의 Kafka 1.1를 사용 하 여 새 Kafka 클러스터를 만들 수 없습니다. Microsoft의 지원 없이 기존 클러스터는 그대로 실행 됩니다. 잠재적 시스템/지원 중단이 발생 하지 않도록 하려면 2.1 년 6 30 2020 월로 HDInsight 4.0에서 Kafka로 이동 하는 것이 좋습니다.
 
-### <a name="hbase-20-to-21"></a>HBase 2.0 ~ 2.1
-예정 된 HDInsight 4.0 릴리스에서 HBase 버전은 버전 2.0에서 2.1로 업그레이드 됩니다.
+### <a name="hbase-20-to-216"></a>HBase 2.0 to 2.1.6
+예정 된 HDInsight 4.0 릴리스에서 HBase 버전은 버전 2.0에서 2.1.6로 업그레이드 됩니다.
+
+### <a name="spark-240-to-244"></a>Spark 2.4.0 2.4.4
+예정 된 HDInsight 4.0 릴리스에서 Spark 버전은 2.4.0 버전에서 2.4.4로 업그레이드 됩니다.
 
 ### <a name="a-minimum-4-core-vm-is-required-for-head-node"></a>헤드 노드에는 최소 4 코어 VM이 필요 합니다. 
 최소 4 코어 VM은 HDInsight 클러스터의 고가용성 및 안정성을 보장 하기 위해 헤드 노드에 필요 합니다. 4 월 6 2020부터 고객이 새 HDInsight 클러스터에 대 한 헤드 노드로 4 코어 또는 그 이상의 VM만 선택할 수 있습니다. 기존 클러스터는 정상적으로 계속 실행 됩니다. 

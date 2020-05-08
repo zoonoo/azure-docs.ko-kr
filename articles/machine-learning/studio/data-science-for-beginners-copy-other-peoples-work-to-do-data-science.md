@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 3a99ad12af7f6eecb74f6c0d52a269770fd5ed7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91f1f69db7f3faa9e1bbdae7966716c974a4dfa5
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73837829"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930287"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>데이터 과학을 수행하기 위해 다른 사람의 작품 복사
 ## <a name="video-5-data-science-for-beginners-series"></a>비디오 5: 초급자를 위한 데이터 과학 시리즈
@@ -92,4 +92,4 @@ Microsoft Azure Machine Learning Studio (클래식)에서 "초보자를 위한 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Machine Learning Studio를 사용 하 여 첫 번째 데이터 과학 실험 시도 (클래식)](create-experiment.md)
-* [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/preview/overview-what-is-azure-ml)
+* [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/overview-what-is-azure-ml)

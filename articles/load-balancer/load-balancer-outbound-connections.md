@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: acf49c4247c8084a3afd3c2046003ee1b20d2f67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 80da8d2880509a8ed6a2af8cb181b3bc2c281c09
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393099"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930576"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -40,7 +40,7 @@ Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기�
 
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용하는 경우 Azure Load Balancer 및 관련 리소스가 명시적으로 정의됩니다.  현재 Azure는 Azure Resource Manager 리소스에 대한 아웃바운드 연결을 달성할 수 있는 세 가지 방법을 제공합니다. 
 
-| SKU | 시나리오 | 방법 | IP 프로토콜 | Description |
+| SKU | 시나리오 | 메서드 | IP 프로토콜 | Description |
 | --- | --- | --- | --- | --- |
 | 표준, 기본 | [1. 인스턴스 수준 공용 IP 주소를 사용 하는 VM (Load Balancer 포함 또는 포함 안 함)](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure는 인스턴스 NIC의 IP 구성에 할당된 공용 IP를 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. 표준 Load Balancer 사용 하는 경우 공용 IP가 가상 컴퓨터에 할당 되 면 [아웃 바운드 규칙이](load-balancer-outbound-rules-overview.md) 지원 되지 않습니다. |
 | 표준, 기본 | [2. VM과 연결 된 공용 Load Balancer (인스턴스에 공용 IP 주소 없음)](#lb) | Load Balancer 프런트 엔드를 사용하여 포트를 가장하는(PAT) SNAT | TCP, UDP |Azure는 공용 Load Balancer 프런트 엔드의 공용 IP 주소를 여러 개인 IP 주소와 공유합니다. Azure는 프런트 엔드의 삭제 포트를 PAT에 사용합니다. 아웃 바운드 연결을 명시적으로 정의 하려면 [아웃 바운드 규칙](load-balancer-outbound-rules-overview.md) 을 사용 해야 합니다. |
@@ -119,7 +119,7 @@ SNAT 포트는 [SNAT 및 PAT 이해](#snat) 섹션에 설명된 대로 미리 �
 
 ### <a name="port-masquerading-snat-pat"></a><a name="pat"></a>포트 가장 SNAT(PAT)
 
-공용 Load Balancer 리소스가 VM 인스턴스와 연결된 경우 각 아웃바운드 연결 원본이 다시 작성됩니다. 원본은 가상 네트워크 개인 IP 주소 공간에서 부하 분산 장치의 프런트 엔드 공용 IP 주소로 다시 작성됩니다. 공용 IP 주소 공간에서 흐름의 5튜플(원본 IP 주소, 원본 포트, IP 전송 프로토콜, 대상 IP 주소, 대상 포트)은 고유해야 합니다.  포트 가장 SNAT는 TCP 또는 UDP IP 프로토콜과 함께 사용할 수 있습니다.
+공용 Load Balancer 리소스가 전용 공용 IP 주소가 없는 VM 인스턴스와 연결 된 경우 각 아웃 바운드 연결 원본이 다시 작성 됩니다. 원본은 가상 네트워크 개인 IP 주소 공간에서 부하 분산 장치의 프런트 엔드 공용 IP 주소로 다시 작성됩니다. 공용 IP 주소 공간에서 흐름의 5튜플(원본 IP 주소, 원본 포트, IP 전송 프로토콜, 대상 IP 주소, 대상 포트)은 고유해야 합니다. 포트 가장 SNAT는 TCP 또는 UDP IP 프로토콜과 함께 사용할 수 있습니다.
 
 여러 흐름이 단일 공용 IP 주소에서 시작되므로 삭제 포트(SNAT 포트)는 프라이빗 원본 IP 주소를 다시 작성한 후 이 목적에 사용됩니다. 포트 위장 SNAT 알고리즘은 UDP와 TCP의 SNAT 포트를 다르게 할당합니다.
 
@@ -147,7 +147,7 @@ SNAT 포트 리소스가 고갈되면 기존 흐름에서 SNAT 포트를 릴리�
 
 ### <a name="ephemeral-port-preallocation-for-port-masquerading-snat-pat"></a><a name="preallocatedports"></a>포트 가장 SNAT(PAT)에 대한 삭제 포트 미리 할당
 
-Azure는 포트 가장 SNAT([PAT](#pat))을 사용할 때 백 엔드 풀의 크기에 따라 사용 가능한 미리 할당 SNAT 포트 수를 결정하는 알고리즘을 사용합니다. SNAT 포트는 특정 공용 IP 원본 주소에 사용할 수 있는 삭제 포트입니다.
+Azure는 포트 가장 SNAT([PAT](#pat))을 사용할 때 백 엔드 풀의 크기에 따라 사용 가능한 미리 할당 SNAT 포트 수를 결정하는 알고리즘을 사용합니다. SNAT 포트는 특정 공용 IP 원본 주소에 사용할 수 있는 삭제 포트입니다. 부하 분산 장치와 연결 된 각 공용 IP 주소에 대해 각 IP 전송 프로토콜에 대 한 SNAT 포트로 사용할 수 있는 64000 포트가 있습니다.
 
 동일한 수의 SNAT 포트가 UDP 및 TCP에 대해 각각 미리 할당되고 IP 전송 프로토콜별로 독립적으로 사용됩니다.  그러나 SNAT 포트 사용은 흐름이 UDP인지 아니면 TCP인지에 따라 다릅니다.
 
@@ -193,11 +193,14 @@ SNAT 포트 할당은 IP 전송 프로토콜과 관련이 있으며(TCP 및 UDP�
 이 섹션은 Azure의 아웃바운드 연결에서 발생할 수 있는 SNAT 고갈을 완화하는 데 도움을 주고자 합니다.
 
 ### <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> SNAT(PAT) 포트 고갈 관리
-[PAT](#pat) 에 사용 되는 사용 [후 삭제 포트](#preallocatedports) 는 공용 Ip [주소가 없는 독립 실행형 vm](#defaultsnat) 및 [공용 ip 주소가 없는 부하 분산 vm](#lb)에 설명 된 대로 소모 성 리소스입니다. 사용 후 삭제 포트의 사용을 모니터링 하 고 현재 할당과 비교 하 여의 위험을 확인 하거나 [이](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) 가이드를 사용 하 여 SNAT exhuastion을 확인할 수 있습니다.
+[PAT](#pat) 에 사용 되는 사용 [후 삭제 포트](#preallocatedports) 는 공용 Ip [주소가 없는 독립 실행형 vm](#defaultsnat) 및 [공용 ip 주소가 없는 부하 분산 vm](#lb)에 설명 된 대로 소모 성 리소스입니다. 사용 후 삭제 포트의 사용량을 모니터링 하 고 현재 할당을 비교 하 여의 위험을 확인 하거나 [이](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) 가이드를 사용 하 여 SNAT 소모를 확인할 수 있습니다.
 
 동일한 대상 IP 주소 및 포트에 대해 많은 아웃바운드 TCP 또는 UDP 연결을 시작할 것인지 알고 있는 경우 실패하는 아웃바운드 연결을 확인하고, 지원 서비스에서 SNAT 포트([PAT](#pat)에서 사용하는 미리 할당된 [삭제 포트](#preallocatedports))가 고갈될 것이라는 알림을 받는 경우 몇 가지 일반적인 완화 옵션을 사용할 수 있습니다. 다음 옵션을 검토하고 시나리오에 가장 적합한 옵션을 결정합니다. 한 가지 이상의 옵션이 이 시나리오를 관리하는 데 도움이 될 수 있습니다.
 
 아웃바운드 연결 동작을 이해하는 데 어려움이 있는 경우 IP 스택 통계(netstat)를 사용할 수 있습니다. 또는 패킷 캡처를 사용하여 연결 동작을 관찰하면 도움이 될 수 있습니다. 이러한 패킷 캡처는 인스턴스의 게스트 OS에서 수행할 수도 있고 [패킷 캡처용 Network Watcher](../network-watcher/network-watcher-packet-capture-manage-portal.md)를 사용할 수도 있습니다. 
+
+#### <a name="manually-allocate-snat-ports-to-maximize-snat-ports-per-vm"></a><a name ="manualsnat"></a>수동으로 SNAT 포트를 할당 하 여 VM 당 SNAT 포트 최대화
+[미리 할당 된 포트](#preallocatedports)에 정의 된 대로 부하 분산 장치는 백 엔드의 vm 수에 따라 포트를 자동으로 할당 합니다. 기본적으로이 작업은 확장성을 보장 하기 위해 신중 하 게 수행 됩니다. 백 엔드에 포함할 최대 Vm 수를 알고 있는 경우 각 아웃 바운드 규칙에서이를 구성 하 여 SNAT 포트를 수동으로 할당할 수 있습니다. 예를 들어, 최대 10 개의 Vm이 있는 경우 기본 1024이 아닌 VM 당 6400 SNAT 포트를 할당할 수 있습니다. 
 
 #### <a name="modify-the-application-to-reuse-connections"></a><a name="connectionreuse"></a>연결을 다시 사용하도록 애플리케이션 수정 
 애플리케이션에서 연결을 다시 사용하여 SNAT에서 사용되는 사용 후 삭제 포트에 대한 수요를 줄일 수 있습니다. 이러한 효과는 연결 재사용이 기본 옵션인 HTTP/1.1 같은 프로토콜에서 특히 두드러집니다. 또한 전송으로 HTTP를 사용하는 다른 프로토콜(예: REST)도 이점을 얻을 수 있습니다. 

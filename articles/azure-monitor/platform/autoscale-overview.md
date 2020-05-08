@@ -4,12 +4,12 @@ description: Microsoft Azure에서 자동 크기 조정
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: faf393c01c494538ab647f39e2c4eb1d823d1abd
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: HT
+ms.openlocfilehash: 08b39fce046ea9dee02ddf6ffe34971b81c3b5b7
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791445"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928706"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Microsoft Azure의 자동 크기 조정 개요
 이 문서에서는 Microsoft Azure 자동 크기 조정에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
@@ -38,7 +38,7 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 ## <a name="custom-metrics"></a>사용자 지정 메트릭
 애플리케이션에서 내보낼 수 있는 사용자 지정 메트릭을 활용할 수도 있습니다. Application Insights에 메트릭을 보내도록 애플리케이션을 구성한 경우 이러한 메트릭을 활용하여 크기 조정 여부를 결정할 수 있습니다.
 
-## <a name="time"></a>시간
+## <a name="time"></a>Time
 일정 기반 규칙은 UTC 기준으로 합니다. 규칙을 설정할 때 표준 시간대를 올바르게 설정해야 합니다.  
 
 ## <a name="rules"></a>규칙
@@ -105,7 +105,8 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 | Virtual Machines: Windows 예제 |[VM Scale Sets 리소스 관리자 템플릿을 사용 하 여 고급 자동 크기 조정 구성](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
 | API Management 서비스|[Azure API Management 인스턴스 자동 크기 조정](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 | Azure 데이터 탐색기 클러스터|[변화 하는 수요에 맞게 Azure 데이터 탐색기 클러스터 크기 조정 관리](https://docs.microsoft.com/azure/data-explorer/manage-cluster-horizontal-scaling)|
-
+| Azure App Service |[Azure 앱 서비스에서 앱 강화](https://docs.microsoft.com/azure/app-service/manage-scale-up)|
+| Logic Apps |[ISE (통합 서비스 환경) 용량 추가](https://docs.microsoft.com/azure/logic-apps/ise-manage-integration-service-environment#add-ise-capacity)|
 ## <a name="next-steps"></a>다음 단계
 자동 크기 조정에 대한 자세한 내용은 앞에 나열된 자동 크기 조정 연습을 사용하거나 다음 리소스를 참조하세요.
 
