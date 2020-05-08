@@ -4,14 +4,14 @@ description: Azure Cosmos DB를 사용 하 여 공간 데이터 인덱싱
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: eb0a2b2778b3217e185b9883def6eaa54674cc5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd96f440c4e8c971d1f1473f667d31e60edef137
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137906"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839211"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하 여 지리 공간적 데이터 인덱싱
 
@@ -28,11 +28,17 @@ Azure Cosmos DB의 데이터베이스 엔진은 실제로 스키마를 알 수 �
 
 ## <a name="modifying-geospatial-data-type"></a>지리 공간적 데이터 형식 수정
 
-컨테이너에서는 `geospatialConfig` 지리 공간적 데이터를 인덱싱하는 방법을 지정 합니다. 컨테이너 (지리 또는 `geospatialConfig` 기 하 도형) 당 하나를 지정 해야 합니다. 지정 하지 않으면는 `geospatialConfig` 기본적으로 geography 데이터 형식으로 지정 됩니다. 를 수정 `geospatialConfig`하면 컨테이너의 모든 기존 지리 공간적 데이터가 인덱싱해야 됩니다.
+컨테이너에서 **지리 공간적 구성은** 공간 데이터를 인덱싱하는 방법을 지정 합니다. 컨테이너 마다 지리 **공간적 구성** 하나를 지정 합니다. 지리 또는 기 하 도형입니다.
 
-> [!NOTE]
-> 현재 Azure Cosmos DB는 3.6 이상 버전 에서만 .NET SDK의 geospatialConfig 수정 사항을 지원 합니다.
->
+Azure Portal에서 **지리** 와 **기 하 도형** 공간 형식을 전환할 수 있습니다. Geometry 공간 형식으로 전환 하기 전에 [경계 상자를 사용 하 여 유효한 공간 기 하 도형 인덱싱 정책을](#geometry-data-indexing-examples) 만드는 것이 중요 합니다.
+
+Azure Portal 내 **데이터 탐색기** 에서 **지리 공간적 구성을** 설정 하는 방법은 다음과 같습니다.
+
+![지리 공간적 구성 설정](./media/sql-query-geospatial-index/geospatial-configuration.png)
+
+.NET SDK에서를 `geospatialConfig` 수정 하 여 **지리 공간적 구성을**조정할 수도 있습니다.
+
+지정 하지 않으면는 `geospatialConfig` 기본적으로 geography 데이터 형식으로 지정 됩니다. 를 수정 `geospatialConfig`하면 컨테이너의 모든 기존 지리 공간적 데이터가 인덱싱해야 됩니다.
 
 속성을 설정 하 고 **boundingBox**를 추가 하 여 지리 `geometry` 공간적 데이터 형식을로 수정 하는 예제는 다음과 같습니다. `geospatialConfig`
 
@@ -112,7 +118,7 @@ Geography 데이터 형식과 마찬가지로 **geometry** 데이터 형식을 �
 
 기하학적 데이터는 무한 할 수 있는 평면을 차지 하기 때문에 경계 상자가 필요 합니다. 그러나 공간 인덱스에는 유한 공간이 필요 합니다. **Geography** 데이터 형식의 경우 지구는 경계 이므로 경계 상자를 설정할 필요가 없습니다.
 
-데이터의 모든 (또는 대부분)를 포함 하는 경계 상자를 만들어야 합니다. 경계 상자 내에 있는 개체에 대해 계산 된 작업만이 공간 인덱스를 활용할 수 있습니다. 경계 상자는 쿼리 성능에 부정적인 영향을 주므로 필요 이상으로 크게 설정 하면 안 됩니다.
+데이터의 모든 (또는 대부분)를 포함 하는 경계 상자를 만듭니다. 경계 상자 내에 있는 개체에 대해 계산 된 작업만이 공간 인덱스를 활용할 수 있습니다. 경계 상자를 필요한 것 보다 크게 설정 하면 쿼리 성능에 부정적인 영향을 줍니다.
 
 **GeospatialConfig** 로 설정 된 `geometry` **geometry** 데이터를 인덱싱하는 인덱싱 정책 예제는 다음과 같습니다.
 

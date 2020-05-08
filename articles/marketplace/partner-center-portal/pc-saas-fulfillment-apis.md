@@ -1,26 +1,25 @@
 ---
-title: SaaS 처리 Api | Azure Marketplace
-description: SaaS 제품을 Azure Marketplace와 통합할 수 있도록 지 원하는 Api 버전을 소개 합니다.
+title: Microsoft 상업적 marketplace의 SaaS 등록 Api
+description: Microsoft AppSource 및 Azure Marketplace에서 SaaS 제품을 통합 하는 데 사용할 수 있는 처리 Api를 소개 합니다.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 92b1c52457fa92709381124480c05a5f636167f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba1b158bc529b148a8e3138d122c13ead19e073e
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275733"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858078"
 ---
-# <a name="saas-fulfillment-apis"></a>SaaS 처리 API
+# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 SaaS 등록 Api
 
-SaaS 처리 Api는 Isv (독립 소프트웨어 공급 업체)가 SaaS 응용 프로그램을 Azure Marketplace와 통합할 수 있도록 합니다. 이러한 Api를 통해 ISV 응용 프로그램은 direct, 파트너-led (대리점) 및 현장 led와 같은 모든 상거래 사용 채널에 참여할 수 있습니다.  Azure Marketplace에 불가능 SaaS 제품을 나열 하기 위한 요구 사항입니다.
+SaaS 처리 Api를 통해 Isv (독립 소프트웨어 공급 업체)는 Microsoft AppSource 및 Azure Marketplace에서 SaaS 응용 프로그램을 통합할 수 있습니다. 이러한 Api를 통해 ISV 응용 프로그램은 direct, 파트너-led (대리점) 및 현장 led와 같은 모든 상거래 사용 채널에 참여할 수 있습니다. Microsoft AppSource 및 Azure Marketplace에서 불가능 SaaS 제품을 나열 하는 데 필요 합니다.
 
 > [!WARNING]
 > 이 API의 현재 버전은 모든 새 SaaS 제품에 사용 되는 버전 2입니다.  API의 버전 1은 더 이상 사용 되지 않으며 기존 제안을 지원 하기 위해 유지 관리 되 고 있습니다.
-
 
 ## <a name="business-model-support"></a>비즈니스 모델 지원
 

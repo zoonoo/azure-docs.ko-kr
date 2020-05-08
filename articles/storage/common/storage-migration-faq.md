@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 39f1137638f9cd4926b712bdd18e681d90adcdc4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b020cbd15ba17609b7a476ccda9b1e814405341e
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668543"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858786"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -68,7 +68,7 @@ Azure CLI를 사용할 수 있습니다.
 
 **한 스토리지 컨테이너에서 다른 스토리지 컨테이너로 데이터를 이동하려면 어떻게 할까요?**
 
-다음 단계를 수행하세요.
+아래 단계를 수행합니다.
 
 1.  대상 Blob에 컨테이너(폴더)를 만듭니다.
 
@@ -106,7 +106,7 @@ AzCopy를 사용하여 데이터를 이동합니다. 자세한 내용은 [Window
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-다음 단계를 수행하세요.
+아래 단계를 수행합니다.
 
 1.  관리 디스크가 연결된 가상 머신을 중지합니다.
 
@@ -152,7 +152,7 @@ AzCopy를 사용하여 데이터를 다운로드합니다. 자세한 내용은 [
 
 **Premium Storage 계정에서 표준 스토리지 계정으로 이동하려면 어떻게 할까요?**
 
-다음 단계를 수행하세요.
+아래 단계를 수행합니다.
 
 1.  표준 스토리지 계정을 만듭니다. (또는 구독에서 기존 표준 스토리지 계정을 사용합니다.)
 
@@ -284,11 +284,11 @@ Azure 파일 공유를 사용합니다.
 
 **복제된 스토리지 계정(예: 영역 중복 스토리지, 지역 중복 스토리지 또는 읽기 권한 액세스 지역 중복 스토리지)의 경우 보조 지역에 저장된 데이터에 액세스하려면 어떻게 할까요?**
 
--   영역 중복 스토리지 또는 지역 중복 스토리지를 사용하는 경우 해당 지역으로 장애 조치를 시작하지 않으면 보조 지역의 데이터에 액세스할 수 없습니다. 장애 조치에 대한 자세한 내용은 [Azure Storage에서 재해 복구 및 스토리지 계정 장애 조치(failover)(미리 보기)](storage-disaster-recovery-guidance.md)를 참조하세요.
+-   영역 중복 스토리지 또는 지역 중복 스토리지를 사용하는 경우 해당 지역으로 장애 조치를 시작하지 않으면 보조 지역의 데이터에 액세스할 수 없습니다. 장애 조치 (failover) 프로세스에 대 한 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치](storage-disaster-recovery-guidance.md)(failover)를 참조 하세요.
 
 -   읽기 액세스 지역 중복 스토리지를 사용하는 경우 언제든지 보조 지역의 데이터에 액세스할 수 있습니다. 다음 방법 중 하나를 사용합니다.  
 
-    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 다음은 그 예입니다.  
+    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 예를 들면 다음과 같습니다.  
 
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 

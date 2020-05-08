@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 61318fbccdf92c6502aa8b2236d8b234cec67668
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2c42637dda9d1a413c0521ea2d7565a63ca58e81
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209148"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858292"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - 지리적 재해 복구 
 
@@ -71,11 +71,11 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 
 ![1][]
 
-### <a name="setup"></a>설치 프로그램
+### <a name="setup"></a>설치
 
 먼저 기존의 기본 네임스페이스 및 새로운 보조 네임스페이스를 만들거나 사용한 다음 둘을 쌍으로 연결합니다. 이 페어링은 연결하는 데 사용할 수 있는 별칭을 제공합니다. 별칭을 사용하므로 연결 문자열을 변경할 필요가 없습니다. 새 네임스페이스에만 장애 조치(Failover) 페어링에 추가할 수 있습니다. 마지막으로 장애 조치가 필요한 경우 감지할 몇 가지 모니터링을 추가해야 합니다. 대부분의 경우에 서비스는 큰 에코시스템의 일부입니다. 따라서 장애 조치가 주로 나머지 하위 시스템 또는 인프라와 동기화되어 수행되어야 하므로 자동 장애 조치는 거의 불가능합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 이 시나리오의 예로 메시지 또는 이벤트를 내보내는 POS(Point of Sale) 솔루션을 고려합니다. Event Hubs는 일부 매핑 또는 다시 포맷 솔루션에 해당 이벤트를 전달합니다. 그런 다음 추가 처리를 위해 다른 시스템에 매핑된 데이터를 전달합니다. 해당 시점에 이러한 시스템은 모두 같은 Azure 지역에서 호스팅될 수 있습니다. 장애 조치할 시기 및 부분에 대한 결정은 인프라에 있는 데이터 흐름에 따라 달라집니다. 
 
@@ -138,7 +138,7 @@ Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영
 ## <a name="next-steps"></a>다음 단계
 
 * [GitHub의 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient)은 지리적 페어링을 만들고 재해 복구 시나리오에 대한 장애 조치(Failover)를 시작하는 간단한 워크플로를 진행합니다.
-* [REST API 참조](/rest/api/eventhub/disasterrecoveryconfigs)에서는 지리적 재해 복구 구성을 수행하기 위한 API에 대해 설명합니다.
+* [REST API 참조](/rest/api/eventhub/)에서는 지리적 재해 복구 구성을 수행하기 위한 API에 대해 설명합니다.
 
 Event Hubs에 대한 자세한 내용은 다음 링크를 방문하세요.
 

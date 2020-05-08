@@ -226,7 +226,9 @@
         - name: 토큰 및 세션 관리
           items:
             - name: 토큰 사용자 지정
-              href: custom-policy-manage-sso-and-token-config.md
+              href: configure-tokens-custom-policy.md
+            - name: 세션 동작 구성
+              href: session-behavior-custom-policy.md
         - name: 외부 IdP 토큰 통과
           href: idp-pass-through-custom.md
         - name: 적응 환경
