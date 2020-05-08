@@ -1,23 +1,21 @@
 ---
 title: Azure Service Fabric 역방향 프록시 보안 통신
 description: 역방향 프록시를 구성 하 여 Azure Service Fabric 응용 프로그램에서 안전한 종단 간 통신을 사용 하도록 설정 합니다.
-author: kavyako
 ms.topic: conceptual
 ms.date: 08/10/2017
-ms.author: kavyako
-ms.openlocfilehash: 61a8d1e766ea576f7d2984add239b0da7e2e8183
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e88a81108f38efefe413024fb2b41bbd82f297b2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80617122"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858536"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>역방향 프록시를 사용하여 보안 서비스 연결
 
 이 문서에서는 역방향 프록시와 서비스 간에 보안 연결을 설정하여 종단 간 보안 채널을 사용하도록 설정하는 방법에 대해 설명합니다. 역방향 프록시에 대한 자세한 내용은 [Azure Service Fabric의 역방향 프록시](service-fabric-reverseproxy.md)를 참조하세요.
 
-보안 서비스에 연결하는 것은 역방향 프록시가 HTTPS에서 수신하도록 구성된 경우에만 지원됩니다. 이 문서에서는 이러한 경우를 가정합니다.
-Service Fabric에서 역방향 프록시를 구성하려면 [Azure Service Fabric의 역방향 프록시 설정](service-fabric-reverseproxy-setup.md)을 참조하세요.
+> [!IMPORTANT]
+> 보안 서비스에 연결하는 것은 역방향 프록시가 HTTPS에서 수신하도록 구성된 경우에만 지원됩니다. 이 문서에서는 이러한 경우를 가정합니다. Service Fabric에서 역방향 프록시를 구성하려면 [Azure Service Fabric의 역방향 프록시 설정](service-fabric-reverseproxy-setup.md)을 참조하세요.
 
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>역방향 프록시와 서비스 간의 안전한 연결 설정 
 
@@ -34,7 +32,7 @@ Service Fabric에서 역방향 프록시를 구성하려면 [Azure Service Fabri
 
 ### <a name="service-certificate-validation-options"></a>서비스 인증서 유효성 검사 옵션 
 
-- **None**: 역방향 프록시가 프록시 설정된 서비스 인증서의 확인을 건너뛰고 보안 연결을 설정합니다. 기본 동작입니다.
+- **None**: 역방향 프록시가 프록시 설정된 서비스 인증서의 확인을 건너뛰고 보안 연결을 설정합니다. 이것은 기본적인 동작입니다.
 [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 섹션에서 값이 **None**인 **ApplicationCertificateValidationPolicy**를 지정합니다.
 
    ```json
@@ -176,14 +174,14 @@ Service Fabric은 서비스에 대한 다중 엔드포인트 구성을 지원합
 TLS 종료는 역방향 프록시에서 발생 하며 모든 클라이언트 인증서 데이터가 손실 됩니다. 서비스가 클라이언트 인증서 인증을 수행하려면 [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 섹션에서 **ForwardClientCertificate** 설정을 지정합니다.
 
 1. **ForwardClientCertificate** 가 **false**로 설정 된 경우 역방향 프록시는 클라이언트에 TLS 핸드셰이크를 수행 하는 동안 클라이언트 인증서를 요청 하지 않습니다.
-기본 동작입니다.
+이것은 기본적인 동작입니다.
 
 2. **ForwardClientCertificate** 가 **true**로 설정 된 경우 역방향 프록시는 클라이언트를 사용 하 여 TLS 핸드셰이크 중에 클라이언트의 인증서를 요청 합니다.
 그런 다음 **X-Client-Certificate**라는 사용자 지정 HTTP 헤더에 클라이언트 인증서 데이터를 전달합니다. 헤더 값은 클라이언트 인증서의 base64로 인코딩된 PEM 형식의 문자열입니다. 서비스는 인증서 데이터를 검사한 후 요청에 성공하거나/적절한 상태 코드와 함께 실패할 수 있습니다.
-클라이언트가 인증서를 제시하지 않으면 역방향 프록시는 빈 헤더를 전달하고 서비스에서 처리하도록 합니다.
+클라이언트에서 인증서를 제공 하지 않는 경우 역방향 프록시는 빈 헤더를 전달 하 고 서비스에서 대/소문자를 처리할 수 있도록 합니다.
 
 > [!NOTE]
-> 역방향 프록시는 단지 전달자일 뿐입니다. 클라이언트 인증서의 유효성 검사를 수행하지는 않습니다.
+> 역방향 프록시는 전달 서비스로만 작동 합니다. 클라이언트 인증서의 유효성 검사를 수행하지는 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

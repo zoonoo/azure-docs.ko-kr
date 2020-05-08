@@ -6,12 +6,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 7908b168adcaa00819990d7ced04ba4888d67d63
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572364"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871306"
 ---
 # <a name="refresh-with-azure-automation"></a>Azure Automation을 사용하여 새로 고침
 
@@ -173,7 +173,7 @@ Azure Data Factory를 사용 하 여 runbook을 사용 하려면 먼저 runbook�
 > [!IMPORTANT]
 > 가상 컴퓨터 공용 IP 주소가 정적으로 구성 되어 있는지 확인 하십시오.
 >
->Azure Automation Hybrid Worker를 구성 하는 방법에 대 한 자세한 내용은 [Hybrid Runbook Worker를 사용 하 여 데이터 센터 또는 클라우드에서 리소스 자동화](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker)를 참조 하세요.
+>Azure Automation Hybrid Worker를 구성 하는 방법에 대 한 자세한 내용은 [Hybrid Runbook Worker 설치](../automation/automation-hybrid-runbook-worker.md#hybrid-runbook-worker-installation)를 참조 하세요.
 
 Hybrid Worker 구성 되 면 [Data Factory 사용](#consume-with-data-factory)섹션에 설명 된 대로 Webhook를 만듭니다.  여기에서 유일한 차이점은 Webhook를 구성할 때 > **Hybrid Worker** **에서 실행**옵션을 선택 하는 것입니다.
 

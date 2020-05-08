@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 38116efc9e87eca8e2514a0a84045a69b8d42326
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a0feb6b638cb6e3a74fcd30baea5e8a04375699
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80887047"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857795"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>모델 변환 REST API 사용
 
@@ -45,7 +45,7 @@ ms.locfileid: "80887047"
 ### <a name="start-conversion-using-a-linked-storage-account"></a>연결 된 저장소 계정을 사용 하 여 변환 시작
 Azure 원격 렌더링 계정에는 [저장소 계정을 연결](../create-an-account.md#link-storage-accounts)하는 방법에 대 한 단계를 수행 하 여 제공 된 저장소 계정에 대 한 액세스 권한이 있어야 합니다.
 
-| 엔드포인트 | 방법 |
+| 엔드포인트 | 메서드 |
 |-----------|:-----------|
 | /v1/accounts/**accountID**/conversions/create | POST |
 
@@ -75,7 +75,7 @@ JSON 문서에 래핑된 진행 중인 변환의 ID를 반환 합니다. 필드 
 ### <a name="start-conversion-using-provided-shared-access-signatures"></a>제공 된 공유 액세스 서명을 사용 하 여 변환 시작
 ARR 계정이 저장소 계정에 연결 되지 않은 경우이 REST 인터페이스를 사용 하 여 *SAS (공유 액세스 서명)* 를 사용 하 여 액세스를 제공할 수 있습니다.
 
-| 엔드포인트 | 방법 |
+| 엔드포인트 | 메서드 |
 |-----------|:-----------|
 | /v1/accounts/**accountID**/conversions/createWithSharedAccessSignature | POST |
 
@@ -114,12 +114,13 @@ JSON 문서에 래핑된 진행 중인 변환의 ID를 반환 합니다. 필드 
 위의 REST 호출 중 하나로 시작 하는 진행 중인 변환의 상태는 다음 인터페이스를 사용 하 여 쿼리할 수 있습니다.
 
 
-| 엔드포인트 | 방법 |
+| 엔드포인트 | 메서드 |
 |-----------|:-----------|
 | /v1/accounts/**accountID**/conversions/**conversionId** | GET |
 
 다음 값을 가질 수 있는 "status" 필드가 포함 된 JSON 문서를 반환 합니다.
 
+- 만들어지며
 - 이상을
 - "Success"
 - 실패로

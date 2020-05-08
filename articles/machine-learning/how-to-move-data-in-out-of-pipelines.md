@@ -1,7 +1,7 @@
 ---
-title: ML 파이프라인의 입력 및 출력 데이터
+title: ML 파이프라인에서 데이터 이동
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 파이프라인에서 데이터 준비, 사용 및 생성
+description: Azure Machine Learning 파이프라인에서 데이터의 입력 & 출력에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,19 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.openlocfilehash: 3dd1a82bf7fad1f201f5c0f52af944ef44a3fdf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: contperfq4
+ms.openlocfilehash: 233361fb238342cde3c692174e85fb57f69979b1
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80879766"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858461"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>ML 파이프라인 단계로/단계 간에 데이터 이동(Python)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-데이터는 machine learning 파이프라인의 핵심입니다. 이 문서에서는 Azure Machine Learning 파이프라인의 단계 간에 데이터를 가져오고, 변환 하 고, 이동 하는 코드를 제공 합니다. Azure Machine Learning에서 데이터가 작동 하는 방식에 대 한 개요는 [Azure storage 서비스에서 데이터 액세스](how-to-access-data.md)를 참조 하세요. Azure Machine Learning 파이프라인의 이점과 구조는 [Azure Machine Learning 파이프라인 이란?](concept-ml-pipelines.md)을 참조 하세요.
+이 문서에서는 Azure Machine Learning 파이프라인의 단계 간에 데이터를 가져오고, 변환 하 고, 이동 하는 코드를 제공 합니다. Azure Machine Learning에서 데이터가 작동 하는 방식에 대 한 개요는 [Azure storage 서비스에서 데이터 액세스](how-to-access-data.md)를 참조 하세요. Azure Machine Learning 파이프라인의 이점과 구조는 [Azure Machine Learning 파이프라인 이란?](concept-ml-pipelines.md)을 참조 하세요.
 
 이 문서에서 설명하는 방법:
 
@@ -35,7 +36,7 @@ ms.locfileid: "80879766"
 
 필요한 사항:
 
-- Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+- Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 - [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)또는 [Azure Machine Learning studio](https://ml.azure.com/)에 대 한 액세스입니다.
 
