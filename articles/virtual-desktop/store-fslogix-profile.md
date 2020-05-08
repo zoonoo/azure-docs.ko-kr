@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 71ba24784dee7771acbe19bf0261c7dc02478b24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4bb315991846b115070854b6e81caf16232fef6b
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127525"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607184"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Windows 가상 데스크톱의 FSLogix 프로필 컨테이너에 대 한 저장소 옵션
 
@@ -40,7 +40,7 @@ Windows 가상 데스크톱은 FSLogix 프로필 컨테이너를 권장 사용�
 
 |기능|Azure 파일|Azure NetApp Files|직접 스토리지 공간|
 |--------|-----------|------------------|---------------------|
-|액세스|클라우드, 온-프레미스 및 하이브리드 (Azure 파일 동기화)|클라우드, 온-프레미스 (Express 경로를 통해)|클라우드, 온-프레미스|
+|액세스 권한|클라우드, 온-프레미스 및 하이브리드 (Azure 파일 동기화)|클라우드, 온-프레미스 (Express 경로를 통해)|클라우드, 온-프레미스|
 |Backup|Azure backup 스냅숏 통합|Azure NetApp Files 스냅숏|Azure backup 스냅숏 통합|
 |보안 및 규정 준수|[모든 Azure 지원 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO 완료|[모든 Azure 지원 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
 |Azure Active Directory 통합|[네이티브 Active Directory 및 Azure Active Directory Domain Services](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Azure Active Directory Domain Services 및 네이티브 Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|네이티브 Active Directory 또는 Azure Active Directory Domain Services 지원만|
@@ -57,4 +57,4 @@ FSLogix 프로필 컨테이너, 사용자 프로필 디스크 및 기타 사용�
 - [Azure NetApp 파일을 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기](create-fslogix-profile-container.md)
 - [Azure에서 UPD 저장소에 대 한 2 노드 스토리지 공간 다이렉트 스케일 아웃 파일 서버 배포](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) 의 지침은 사용자 프로필 디스크 대신 FSLogix 프로필 컨테이너를 사용 하는 경우에도 적용 됩니다.
 
-[Windows 가상 데스크톱에서 테 넌 트 만들기](tenant-setup-azure-active-directory.md)에서 처음부터 시작 하 여 고유한 Windows 가상 데스크톱 솔루션을 설정할 수도 있습니다.
+[Windows 가상 데스크톱에서 테 넌 트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)에서 처음부터 시작 하 여 고유한 Windows 가상 데스크톱 솔루션을 설정할 수도 있습니다.

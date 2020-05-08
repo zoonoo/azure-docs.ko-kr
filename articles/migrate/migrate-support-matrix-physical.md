@@ -3,12 +3,12 @@ title: Azure Migrate의 물리적 서버 평가 지원
 description: Azure Migrate Server 평가를 사용 하 여 물리적 서버 평가 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: f21ec149aa6f85c0a1f33e91dacf9de48ff72bbb
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 31fd676a339a6c82cec84e0f355ac875f68a653c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744511"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983672"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>물리적 서버 평가를 위한 지원 매트릭스 
 

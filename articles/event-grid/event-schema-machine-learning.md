@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 7d9af420c7e2b47d2aeb4a8bf42ee138a605b305
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f77a76d6acb67c739e0adf186d23e9b16ff7e2ee
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393269"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928876"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Machine Learning
 
@@ -267,5 +267,5 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 * Azure Event Grid에 대한 소개는 [Event Grid란?](overview.md)을 참조하세요.
 * Azure Event Grid 구독을 만드는 방법에 대 한 자세한 내용은 [Event Grid 구독 스키마](subscription-creation-schema.md) 를 참조 하세요.
-* Azure Machine Learning와 함께 Azure Event Grid를 사용 하는 방법에 대 한 소개는 [Azure Machine Learning 이벤트](/azure/machine-learning/service/concept-event-grid-integration) 사용을 참조 하세요.
-* Azure Machine Learning와 함께 Azure Event Grid를 사용 하는 예제는 [이벤트 기반 기계 학습 워크플로 만들기](/azure/machine-learning/service/how-to-use-event-grid) 를 참조 하세요.
+* Azure Machine Learning와 함께 Azure Event Grid를 사용 하는 방법에 대 한 소개는 [Azure Machine Learning 이벤트](/azure/machine-learning/concept-event-grid-integration) 사용을 참조 하세요.
+* Azure Machine Learning와 함께 Azure Event Grid를 사용 하는 예제는 [이벤트 기반 기계 학습 워크플로 만들기](/azure/machine-learning/how-to-use-event-grid) 를 참조 하세요.

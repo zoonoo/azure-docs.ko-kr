@@ -3,16 +3,16 @@ title: 컨테이너 그룹 업데이트
 description: Azure Containers Instances 컨테이너 그룹에서 실행되는 컨테이너를 업데이트하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: dc10e38aa6be9473f89df6f7fa10a72f63d9ada8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854440"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928723"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 업데이트
 
-컨테이너 인스턴스를 정상적으로 작동 하는 동안 [컨테이너 그룹](container-instances-container-groups.md)에서 실행 중인 컨테이너를 업데이트 해야 하는 경우가 있을 수 있습니다. 예를 들어 이미지 버전, DNS 이름 또는 환경 변수와 같은 속성을 업데이트 하거나 응용 프로그램이 충돌 하는 컨테이너에서 속성을 새로 고칠 수 있습니다.
+컨테이너 인스턴스를 정상적으로 작동 하는 동안 [컨테이너 그룹](./container-instances-container-groups.md)에서 실행 중인 컨테이너를 업데이트 해야 하는 경우가 있을 수 있습니다. 예를 들어 이미지 버전, DNS 이름 또는 환경 변수와 같은 속성을 업데이트 하거나 응용 프로그램이 충돌 하는 컨테이너에서 속성을 새로 고칠 수 있습니다.
 
 하나 이상의 수정 된 속성을 사용 하 여 기존 그룹을 다시 배포 하 여 실행 중인 컨테이너 그룹의 컨테이너를 업데이트 합니다. 컨테이너 그룹을 업데이트 하면 일반적으로 동일한 기본 컨테이너 호스트에서 그룹의 실행 중인 모든 컨테이너가 내부에서 다시 시작 됩니다.
 
@@ -28,9 +28,9 @@ ms.locfileid: "82854440"
 * 이전에 제공한 값을 사용 하 여 다른 속성을 설정 합니다. 속성의 값을 설정 하지 않으면 해당 값이 기본값으로 되돌아갑니다.
 
 > [!TIP]
-> [Yaml 파일](container-instances-container-groups.md#deployment) 은 컨테이너 그룹의 배포 구성을 유지 하는 데 도움이 되며 업데이트 된 그룹을 배포 하기 위한 시작점을 제공 합니다. 다른 방법을 사용 하 여 그룹을 만든 경우 [az container export][az-container-export]를 사용 하 여 구성을 yaml로 내보낼 수 있습니다. 
+> [Yaml 파일](./container-instances-container-groups.md#deployment) 은 컨테이너 그룹의 배포 구성을 유지 하는 데 도움이 되며 업데이트 된 그룹을 배포 하기 위한 시작점을 제공 합니다. 다른 방법을 사용 하 여 그룹을 만든 경우 [az container export][az-container-export]를 사용 하 여 구성을 yaml로 내보낼 수 있습니다. 
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 Azure CLI 예제에서는 컨테이너 그룹을 새 DNS 이름 레이블로 업데이트합니다. 그룹의 DNS 이름 레이블 속성은 업데이트할 수 있는 속성 이므로 컨테이너 그룹을 다시 배포 하 고 컨테이너를 다시 시작 합니다.
 
@@ -80,7 +80,7 @@ Windows Server Core와 같이 더 큰 컨테이너 이미지를 기반으로 하
 
 이 문서에서는 **컨테이너 그룹**이 여러 번 언급되었습니다. Azure Container Instances의 모든 컨테이너는 컨테이너 그룹에 배포되고, 이 컨테이너 그룹에는 둘 이상의 컨테이너가 포함될 수 있습니다.
 
-[Azure Container Instances의 컨테이너 그룹](container-instances-container-groups.md)
+[Azure Container Instances의 컨테이너 그룹](./container-instances-container-groups.md)
 
 [다중 컨테이너 그룹 배포](container-instances-multi-container-group.md)
 
