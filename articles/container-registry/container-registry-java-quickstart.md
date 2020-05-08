@@ -5,12 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: fa64ec526ab85e412b407da8566ac6f802ca2d20
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 561c45bd13648f5f17273b478f320e9fd3d71331
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82195284"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857600"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>빠른 시작: Java 컨테이너 이미지를 빌드하고 Azure Container Registry로 푸시
 
@@ -151,7 +151,7 @@ ms.locfileid: "82195284"
 축하합니다! 이제 Azure 지원 JDK에서 컨테이너화된 Java 앱 빌드가 ACR로 푸시되었습니다. 이제 이미지를 Azure App Service에 배포하거나 명령(자리 표시자 대체)을 사용하여 로컬로 끌어와서 이미지를 테스트할 수 있습니다.
 
 ```bash
-docker pull <your registry name>.azurecr.io/gs-spring-boot-docker:v1
+docker pull <your registry name>.azurecr.io/gs-spring-boot-docker
 ```
 
 ## <a name="next-steps"></a>다음 단계

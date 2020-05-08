@@ -1,27 +1,28 @@
 ---
-title: Openid connect Connect 프로토콜-Microsoft identity platform | Microsoft
+title: Microsoft id 플랫폼 및 Openid connect 연결 프로토콜 | Microsoft
+titleSuffix: Microsoft identity platform
 description: Openid connect Connect 인증 프로토콜의 Microsoft identity platform 구현을 사용 하 여 웹 응용 프로그램을 빌드합니다.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 161f97dc99ce5ce16d7c40126b95a769c4b79621
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 88f647bbb72c92db194407b677e533a867261ce4
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868329"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926496"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft id 플랫폼 및 Openid connect Connect 프로토콜
 
-OpenID Connect는 웹 애플리케이션에 사용자를 안전하게 로그인하는 데 사용할 수 있는 OAuth 2.0 기반의 인증 프로토콜입니다. Openid connect Connect의 Microsoft identity platform 끝점 구현을 사용 하는 경우 웹 기반 앱에 로그인 및 API 액세스를 추가할 수 있습니다. 이 문서는 언어 독립적으로 수행하는 방법을 보여주고 Microsoft 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
+OIDC (Openid connect Connect)는 사용자가 웹 응용 프로그램에 안전 하 게 로그인 하는 데 사용할 수 있는 OAuth 2.0을 기반으로 하는 인증 프로토콜입니다. Openid connect Connect의 Microsoft identity platform 끝점 구현을 사용 하는 경우 웹 기반 앱에 로그인 및 API 액세스를 추가할 수 있습니다. 이 문서는 언어 독립적으로 수행하는 방법을 보여주고 Microsoft 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)는 OAuth를 통해 Single Sign-On을 수행할 수 있도록 OAuth 2.0 *권한 부여* 프로토콜을 확장하여 *인증* 프로토콜로 사용합니다. OpenID Connect는 클라이언트가 사용자 ID를 확인할 수 있게 하는 보안 토큰인 *ID 토큰*의 개념을 소개합니다. ID 토큰은 사용자에 대한 기본 프로필 정보도 가져옵니다. OpenID Connect는 OAuth 2.0을 확장하기 때문에 앱에서 [권한 부여 서버](active-directory-v2-protocols.md#the-basics)로 보안이 유지되는 리소스에 액세스하는 데 사용할 수 있는 *액세스 토큰*을 안전하게 획득할 수 있습니다. Microsoft id 플랫폼 끝점을 사용 하면 Azure AD에 등록 된 타사 앱에서 웹 Api와 같은 보안 리소스에 대 한 액세스 토큰을 발급할 수도 있습니다. 액세스 토큰을 발급 하도록 응용 프로그램을 설정 하는 방법에 대 한 자세한 내용은 [Microsoft id 플랫폼 끝점을 사용 하 여 앱을 등록 하는 방법](quickstart-register-app.md)을 참조 하세요. 서버에서 호스트되고 브라우저를 통해 액세스되는 [웹 애플리케이션](v2-app-types.md#web-apps)을 빌드하는 경우 OpenID Connect를 사용하는 것이 좋습니다.
 
@@ -44,7 +45,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 `{tenant}`는 4개의 값 중 하나를 가질 수 있습니다.
 
-| 값 | Description |
+| Value | Description |
 | --- | --- |
 | `common` |개인 Microsoft 계정와 Azure AD의 회사 또는 학교 계정이 모두 있는 사용자는 응용 프로그램에 로그인 할 수 있습니다. |
 | `organizations` |Azure AD의 회사 또는 학교 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. |
@@ -83,7 +84,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 > [!IMPORTANT]
 > /Cauthentication 끝점에서 ID 토큰을 성공적으로 요청 하려면 [등록 포털](https://portal.azure.com) 의 앱 등록에 인증 탭 ( `oauth2AllowIdTokenImplicitFlow` [응용 프로그램 매니페스트의](reference-app-manifest.md) 플래그를로 `true`설정)에서 사용 하도록 설정 된 id_tokens의 암시적 허용이 있어야 합니다. 사용 하도록 설정 되지 않은 경우 `unsupported_response` "입력 매개 변수 ' response_type '에 대해 제공 된 값이이 클라이언트에 대해 허용 되지 않습니다. 라는 오류가 반환 됩니다. 필요한 값은 'code'입니다."가 반환됩니다.
 
-다음은 그 예입니다.
+다음은 그 예입니다. 
 
 ```HTTP
 // Line breaks are for legibility only.
@@ -102,9 +103,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 이 요청을 실행하려면 다음 링크를 클릭하세요. 로그인하면 브라우저가 주소 표시줄에서 ID 토큰과 함께 `https://localhost/myapp/`으로 리디렉션됩니다. 이 요청은 `response_mode=fragment`를 사용합니다(학습 용도로만). `response_mode=form_post`를 사용하는 것이 좋습니다.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| 매개 변수 | 조건 | Description |
+| 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
-| `tenant` | 필수 | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본 사항](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
+| `tenant` | 필요한 공간 | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본 사항](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | `client_id` | 필수 | [Azure Portal – 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 앱에 할당 한 **응용 프로그램 (클라이언트) ID** 입니다. |
 | `response_type` | 필수 | OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. `code`와 같은 다른 `response_type` 값을 포함할 수도 있습니다. |
 | `redirect_uri` | 권장 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 리디렉션 URI입니다. URL로 인코딩되어야 한다는 점을 제외하고 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. 없는 경우 끝점은 임의로 등록 된 redirect_uri 하나를 선택 하 여 사용자를로 다시 보냅니다. |

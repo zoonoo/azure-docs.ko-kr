@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 05/04/2020
 tags: connectors
-ms.openlocfilehash: 1885d7f8713b3801ce0c9846b7a8509b3864032a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8137bea37c25554d814e237380ba5c57c5b24d57
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656296"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900936"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Azure Logic Apps에서 인바운드 HTTPS 요청을 수신 하 고 응답 합니다.
 
@@ -22,10 +22,13 @@ ms.locfileid: "80656296"
 * 외부 webhook 이벤트가 발생 하는 경우 워크플로를 트리거합니다.
 * 다른 논리 앱에서 HTTPS 호출을 받고 응답 합니다.
 
+요청 트리거는 논리 앱에 대 한 인바운드 호출에 대 한 권한을 부여 하기 위해 Azure AD OAuth ( [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) )를 지원 합니다. 이 인증을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [AZURE AD OAuth 인증 사용 Azure Logic Apps에서 보안 액세스 및 데이터](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth)를 참조 하세요.
+
 > [!NOTE]
-> 요청 트리거는 들어오는 호출에 TLS (전송 계층 보안) 1.2 *만* 지원 합니다. 나가는 호출은 TLS 1.0, 1.1 및 1.2를 계속 지원 합니다. 자세한 내용은 [TLS 1.0 문제 해결](https://docs.microsoft.com/security/solving-tls1-problem)을 참조 하세요.
+> 요청 트리거는 들어오는 호출에 TLS (전송 계층 보안) 1.2 *만* 지원 합니다. 보내는 호출은 TLS 1.0, 1.1 및 1.2을 지원 합니다. 자세한 내용은 [TLS 1.0 문제 해결](https://docs.microsoft.com/security/solving-tls1-problem)을 참조 하세요.
 >
-> TLS 핸드셰이크 오류가 표시 되 면 TLS 1.2을 사용 하는지 확인 합니다. 들어오는 호출의 경우 지원 되는 암호 그룹은 다음과 같습니다.
+> TLS 핸드셰이크 오류가 발생 하는 경우 TLS 1.2를 사용 해야 합니다. 
+> 들어오는 호출의 경우 지원 되는 암호 그룹은 다음과 같습니다.
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -46,7 +49,7 @@ ms.locfileid: "80656296"
 
 ## <a name="add-request-trigger"></a>요청 트리거 추가
 
-이 기본 제공 트리거 *는 들어오는 https* 요청만 수신할 수 있는 수동으로 호출할 수 있는 https 끝점을 만듭니다. 이 이벤트가 발생 하면 트리거가 발생 하 고 논리 앱을 실행 합니다. 트리거의 기본 JSON 정의 및이 트리거를 호출 하는 방법에 대 한 자세한 내용은 [요청 트리거 형식](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) 및 [Azure Logic Apps에서 HTTP 끝점을 사용 하 여 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조 하세요.
+이 기본 제공 트리거 *는 들어오는 https* 요청만 수신할 수 있는 수동으로 호출할 수 있는 https 끝점을 만듭니다. 이 이벤트가 발생 하면 트리거가 발생 하 고 논리 앱을 실행 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 빈 논리 앱을 만듭니다.
 
@@ -58,7 +61,7 @@ ms.locfileid: "80656296"
 
    ![요청 트리거](./media/connectors-native-reqres/request-trigger.png)
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
+   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST URL** | {없음} | 예 | 논리 앱을 저장 한 후에 생성 되 고 논리 앱을 호출 하는 데 사용 되는 끝점 URL입니다. |
    | **요청 본문 JSON 스키마** | `schema` | 아니요 | 들어오는 요청 본문의 속성 및 값을 설명 하는 JSON 스키마입니다. |
@@ -157,7 +160,7 @@ ms.locfileid: "80656296"
 
 1. 추가 속성을 지정 하려면 **새 매개 변수 추가** 목록을 열고 추가 하려는 매개 변수를 선택 합니다.
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
+   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
    |---------------|--------------------|----------|-------------|
    | **방법이** | `method` | 아니요 | 들어오는 요청에서 논리 앱을 호출 하는 데 사용 해야 하는 메서드입니다. |
    | **상대 경로** | `relativePath` | 아니요 | 논리 앱의 끝점 URL에서 수락할 수 있는 매개 변수의 상대 경로입니다. |
@@ -177,19 +180,23 @@ ms.locfileid: "80656296"
 
    논리 앱은 1 분 동안만 들어오는 요청을 열어 둡니다. 논리 앱 워크플로에 응답 작업이 포함 되어 있다고 가정 하면 논리 앱이이 시간 경과 후 응답을 반환 하지 않는 경우 논리 앱은를 `504 GATEWAY TIMEOUT` 호출자에 게 반환 합니다. 그렇지 않고 논리 앱에 응답 동작이 포함 되지 않은 경우 논리 앱은 즉시 호출자에 게 `202 ACCEPTED` 응답을 반환 합니다.
 
-1. 완료되면 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다. 
+1. 완료되면 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
    이 단계에서는 논리 앱을 트리거하는 요청을 보내는 데 사용할 URL을 생성 합니다. 이 URL을 복사 하려면 URL 옆에 있는 복사 아이콘을 선택 합니다.
 
    ![논리 앱을 트리거하는 데 사용할 URL](./media/connectors-native-reqres/generated-url.png)
 
-1. 논리 앱을 트리거하려면 생성 된 URL에 HTTP POST를 보냅니다. 예를 들어 [Postman](https://www.getpostman.com/)과 같은 도구를 사용할 수 있습니다.
+1. 논리 앱을 트리거하려면 생성 된 URL에 HTTP POST를 보냅니다.
+
+   예를 들어 [Postman](https://www.getpostman.com/) 과 같은 도구를 사용 하 여 HTTP POST를 보낼 수 있습니다. 요청 트리거에 대 한 인바운드 호출에 대 한 권한 부여를 위해 인증 (Azure AD OAuth) [Azure Active Directory 열기를 사용 하도록 설정한](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) 경우 [SAS (공유 액세스 서명) URL](../logic-apps/logic-apps-securing-a-logic-app.md#sas) 을 사용 하거나 인증 토큰을 사용 하 여 트리거를 호출 하지만 둘 다 사용할 수는 없습니다. 인증 토큰은 권한 부여 헤더 `Bearer` 에 형식을 지정 해야 합니다. 자세한 내용은 [Azure Logic Apps의 보안 액세스 및 데이터-요청 기반 트리거에](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers)대 한 액세스를 참조 하세요.
+
+트리거의 기본 JSON 정의 및이 트리거를 호출 하는 방법에 대 한 자세한 내용은 다음 항목을 참조 하세요. [요청 트리거 형식](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) 및 [호출, 트리거 또는 중첩 워크플로를 사용 하 여 Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md)합니다.
 
 ### <a name="trigger-outputs"></a>트리거 출력
 
 요청 트리거의 출력에 대 한 자세한 내용은 다음과 같습니다.
 
-| JSON 속성 이름 | 데이터 형식 | Description |
+| JSON 속성 이름 | 데이터 형식 | 설명 |
 |--------------------|-----------|-------------|
 | `headers` | Object | 요청의 헤더를 설명 하는 JSON 개체입니다. |
 | `body` | Object | 요청의 본문 콘텐츠를 설명 하는 JSON 개체입니다. |
@@ -244,7 +251,7 @@ ms.locfileid: "80656296"
 
    응답 작업에서 설정할 수 있는 속성에 대 한 자세한 내용은 다음과 같습니다. 
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
+   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
    |---------------|--------------------|----------|-------------|
    | **상태 코드** | `statusCode` | 예 | 응답에 반환할 상태 코드 |
    | **헤더** | `headers` | 아니요 | 응답에 포함할 하나 이상의 헤더를 설명 하는 JSON 개체입니다. |

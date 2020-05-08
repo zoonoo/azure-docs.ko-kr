@@ -11,19 +11,16 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 0a21af683d9fa7849d3e96c545983c9f40a8d4c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7563eb4d22048021886925f6864e3616bed83a75
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76935327"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858772"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>공용 기본 Load Balancer용 Azure Monitor 로그
-
->[!IMPORTANT]
->Azure Load Balancer는 기본 및 표준이라는 두 가지 형식을 지원합니다. 이 문서는 기본 Load Balancer에 대해 설명합니다. 표준 Load Balancer에 대한 자세한 내용은 Azure Monitor에서 다차원 메트릭을 통해 원격 분석을 노출하는 [표준 Load Balancer 개요](load-balancer-standard-overview.md)를 참조하세요.
 
 Azure에서 기본 Load Balancer를 관리하고 문제를 해결하는 데 다양한 유형의 로그를 사용할 수 있습니다. 이러한 로그 중 일부는 포털을 통해 액세스할 수 있으며, 로그는 이벤트 허브 또는 Log Analytics 작업 영역으로 스트리밍할 수 있습니다. Azure blob storage에서 모든 로그를 추출 하 고 Excel 및 Power BI와 같은 다른 도구에서 볼 수 있습니다.  아래 목록에서 다른 종류의 로그에 대해 자세히 알아볼 수 있습니다.
 
