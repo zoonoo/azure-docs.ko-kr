@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 04/03/2019
-ms.openlocfilehash: c0012b61cf43d01afd5e7f5f52948310b5eb8420
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34e9b40b0b6989edacd72eb23d357e2a84b6f8d8
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73828070"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891071"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5에 대한 1433 이외 포트
 
@@ -72,9 +72,9 @@ Azure 클라이언트 컴퓨터에서 11000-11999의 포트 범위를 SQL Databa
 
 ## <a name="related-links"></a>관련 링크
 
-* ADO.NET 4.6은 2015년 7월 20일에 출시되었습니다. .NET 팀의 블로그 알림은 [여기](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx)서 확인할 수 있습니다.
-* ADO.NET 4.5는 2012년 8월 15일에 출시되었습니다. .NET 팀의 블로그 알림은 [여기](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx)서 확인할 수 있습니다.
-  * ADO.NET 4.5.1에 관한 블로그 게시물은 [여기](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-net-framework-4-5-1-preview.aspx)서 확인할 수 있습니다.
+* ADO.NET 4.6은 2015년 7월 20일에 출시되었습니다. .NET 팀의 블로그 알림은 [여기](https://devblogs.microsoft.com/dotnet/announcing-net-framework-4-6/)서 확인할 수 있습니다.
+* ADO.NET 4.5는 2012년 8월 15일에 출시되었습니다. .NET 팀의 블로그 알림은 [여기](https://devblogs.microsoft.com/dotnet/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code/)서 확인할 수 있습니다.
+  * ADO.NET 4.5.1에 관한 블로그 게시물은 [여기](https://devblogs.microsoft.com/dotnet/announcing-the-net-framework-4-5-1-preview/)서 확인할 수 있습니다.
 
 * Microsoft® ODBC Driver 17 for SQL Server® - Windows, Linux 및 macOS https://www.microsoft.com/download/details.aspx?id=56567
 

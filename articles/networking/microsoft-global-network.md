@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 10a061163447a60f1c25b386ef28028436284650
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b78e227159065d2ae85d9b1dc989e8ea192ae26a
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75453067"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982805"
 ---
 # <a name="microsoft-global-network"></a>Microsoft 글로벌 네트워크
 
-Microsoft는 전 세계에서 가장 큰 백본 네트워크 중 하나를 소유 하 고 운영 합니다. 10만 마일 이상으로 확장 되는 이러한 글로벌 및 고급 아키텍처는 데이터 센터와 고객을 연결 합니다. 
+Microsoft는 전 세계에서 가장 큰 백본 네트워크 중 하나를 소유 하 고 운영 합니다. 16만 마일 이상으로 확장 되는 이러한 글로벌 및 고급 아키텍처는 데이터 센터와 고객을 연결 합니다. 
  
 매일 전 세계의 고객은 Microsoft Azure, Bing, Dynamics 365, Office 365, XBox 등에 대 한 엄청난 요청을 연결 하 고 전달 합니다. 형식에 관계 없이 고객은 서비스에서 인스턴트 안정성과 응답성을 필요로 합니다. 
  
@@ -32,7 +32,7 @@ Microsoft WAN ( [global network](https://azure.microsoft.com/global-infrastructu
  
 ## <a name="get-the-premium-cloud-network"></a>프리미엄 클라우드 네트워크 가져오기
  
-Microsoft 클라우드를 사용 하는 경우 [가장 적합 한 환경을](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) 옵트인 하는 것이 쉽습니다. 전략적으로 배치 된 경계 노드를 통해 고객 트래픽이 글로벌 네트워크에 진입 하는 순간부터 데이터는 빛이 거의 가까운 속도로 최적화 된 경로를 통해 이동 합니다. 이렇게 하면 최상의 성능을 위해 최적 대기 시간을 보장 합니다. 3500 개 이상의 위치 145에서 수천 개의 연결을 통해 개가 넘는 고유한 인터넷 파트너 (피어)에 연결 된 이러한 가장자리 노드는 상호 연결 전략의 기반을 제공 합니다. 
+Microsoft 클라우드를 사용 하는 경우 [가장 적합 한 환경을](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) 옵트인 하는 것이 쉽습니다. 전략적으로 배치 된 경계 노드를 통해 고객 트래픽이 글로벌 네트워크에 진입 하는 순간부터 데이터는 빛이 거의 가까운 속도로 최적화 된 경로를 통해 이동 합니다. 이렇게 하면 최상의 성능을 위해 최적 대기 시간을 보장 합니다. 3500 개 이상의 위치 165에서 수천 개의 연결을 통해 개가 넘는 고유한 인터넷 파트너 (피어)에 연결 된 이러한 가장자리 노드는 상호 연결 전략의 기반을 제공 합니다. 
  
 런던에서 도쿄로 또는 워싱턴 DC에서 로스앤젤레스로 연결 하는 경우 네트워크 성능은 정량화 된 되며 대기 시간, 지터, 패킷 손실 및 처리량과 같은 항목의 영향을 받습니다.  Microsoft에서는 전송 링크와 달리 직접 상호 연결을 선호 하 고 사용 합니다. 이렇게 하면 응답 트래픽이 대칭으로 유지 되 고 홉, 피어 링 파티 및 경로를 가능한 짧고 간단 하 게 유지 하는 데 도움이 됩니다. 
 

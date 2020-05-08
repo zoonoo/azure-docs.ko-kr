@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: anhoang
-ms.openlocfilehash: b0ecbc4dc030fa8e7fbe362c1304c3c97278bdf5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c2b9b4d51e89975d988ed94bf85695bd8a1cc770
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75462382"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872447"
 ---
 # <a name="quickstart-use-custom-commands-with-custom-voice-preview"></a>빠른 시작: 사용자 지정 음성 (미리 보기)으로 사용자 지정 명령 사용
 
@@ -35,7 +35,8 @@ ms.locfileid: "75462382"
 > ![매개 변수가 있는 샘플 문장](media/custom-speech-commands/select-custom-voice.png)
 
 > [!NOTE]
-> 사용자 지정 음성 프로젝트 페이지에서 사용자 지정 음성을 만들 수 있습니다. **음성 스튜디오** 링크를 선택 하 고 **사용자 지정 음성** 을 선택 하 여 시작 합니다.
+> - **공용 음성**의 경우 **신경망** 은 특정 지역 에서만 사용할 수 있습니다. 가용성을 확인 하려면 [지역/엔드포인트 별 표준 및 신경망](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)을 참조 하세요.
+> - **사용자 지정**음성의 경우 사용자 지정 음성 프로젝트 페이지에서 만들 수 있습니다. [사용자 지정 음성 시작을](./how-to-custom-voice.md)참조 하세요.
 
 이제 응용 프로그램은 기본 음성 대신 선택한 음성으로 응답 합니다.
 

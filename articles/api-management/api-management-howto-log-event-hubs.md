@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 2f67079938ddcf4a65e01ef50ab7e5cdf7078b73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260941"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871266"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Azure API Management에서 Azure Event Hubs에 이벤트를 기록하는 방법
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수집할 수 있는 확장성이 뛰어난 데이터 수집 서비스이므로 연결된 디바이스와 애플리케이션이 생성하는 대량의 데이터를 처리하고 분석할 수 있습니다. Event Hubs는 이벤트 파이프라인에 대한 &quot;현관&quot;의 역할을 하고 데이터가 이벤트 허브에 수집되면 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환 및 저장될 수 있습니다. Event Hubs는 이러한 이벤트를 소비하는 데에서 이벤트 스트림의 프로덕션을 분리하므로 이벤트 소비자가 자신의 개인 일정에 이벤트를 액세스할 수 있습니다.
@@ -34,9 +34,9 @@ Event Hub를 만들고 Event Hub 간에 이벤트를 송신 및 수신해야 하
 
 API Management 로거는 [API Management REST API](https://aka.ms/apimapi)를 사용하여 구성됩니다. 자세한 요청 예제 [는로 거를 만드는 방법](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate)을 참조 하세요.
 
-## <a name="configure-log-to-eventhubs-policies"></a>log-to-eventhubs 정책 구성
+## <a name="configure-log-to-eventhub-policies"></a>로그-eventhub 정책 구성
 
-API Management에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-eventhubs 정책을 구성할 수 있습니다. log-to-eventhubs 정책은 인바운드 정책 섹션 또는 아웃바운드 정책 섹션에서 사용할 수 있습니다.
+로거가 API Management에서 구성 된 후에는 원하는 이벤트를 기록 하도록 로그-eventhub 정책을 구성할 수 있습니다. 로그-eventhub 정책은 인바운드 정책 섹션 또는 아웃 바운드 정책 섹션에서 사용할 수 있습니다.
 
 1. APIM 인스턴스로 이동합니다.
 2. API 탭을 선택합니다.
@@ -49,15 +49,32 @@ API Management에 로거가 구성되면 원하는 이벤트를 기록하는 log
 9. 오른쪽 창에서 **고급 정책** > **EventHub에 기록을**선택 합니다. 그러면 `log-to-eventhub` 정책 문 템플릿을 삽입합니다.
 
 ```xml
-<log-to-eventhub logger-id ='logger-id'>
-  @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
+<log-to-eventhub logger-id="logger-id">
+    @{
+        return new JObject(
+            new JProperty("EventTime", DateTime.UtcNow.ToString()),
+            new JProperty("ServiceName", context.Deployment.ServiceName),
+            new JProperty("RequestId", context.RequestId),
+            new JProperty("RequestIp", context.Request.IpAddress),
+            new JProperty("OperationName", context.Operation.Name)
+        ).ToString();
+    }
 </log-to-eventhub>
 ```
-이전 단계에서 `logger-id`를 URL에서 `{new logger name}`에 사용한 값으로 바꾸어 로거를 만듭니다.
+이전 `logger-id` 단계에서로 거를 만들기 `{loggerId}` 위해 요청 URL에서에 사용한 값으로 대체 합니다.
 
-문자열을 `log-to-eventhub` 요소에 대한 값으로 반환하는 모든 식을 사용할 수 있습니다. 이 예제에서는 날짜 및 시간, 서비스 이름, 요청 ID, 요청 IP 주소 및 작업 이름을 포함하는 문자열이 기록됩니다.
+문자열을 `log-to-eventhub` 요소에 대한 값으로 반환하는 모든 식을 사용할 수 있습니다. 이 예제에서는 날짜 및 시간, 서비스 이름, 요청 id, 요청 ip 주소 및 작업 이름을 포함 하는 JSON 형식의 문자열이 기록 됩니다.
 
 **저장** 을 클릭하여 업데이트된 정책 구성을 저장합니다. 저장되는 즉시 정책이 활성화되며 지정된 이벤트 허브에 이벤트가 기록됩니다.
+
+## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>을 사용 하 여 Event Hubs에서 로그를 미리 봅니다 Azure Stream Analytics
+
+[Azure Stream Analytics 쿼리](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics)를 사용 하 여 Event Hubs에서 로그를 미리 볼 수 있습니다. 
+
+1. Azure Portal에서 로거가 이벤트를 전송 하는 이벤트 허브를 찾습니다. 
+2. **기능**에서 **데이터 처리** 탭을 선택 합니다.
+3. **이벤트에서 실시간 통찰력 사용** 카드에서 **탐색**을 선택 합니다.
+4. **입력 미리 보기** 탭에서 로그를 미리 볼 수 있습니다. 표시 된 데이터가 최신이 아닌 경우 **새로 고침** 을 선택 하 여 최신 이벤트를 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Event Hubs에 대해 자세히 알아보기

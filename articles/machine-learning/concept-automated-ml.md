@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f592a7f5a4af38988bcf433f0adc89d9be7579cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce51a1b25453a5bbacbd268b37f2bd21cfe37fea
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082012"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983468"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>AutoML (자동화 된 기계 학습) 이란?
 
@@ -131,11 +131,72 @@ ms.locfileid: "82082012"
 
 + Python SDK: `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` [ `AutoMLConfig` 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)에 대해를 지정 합니다. 
 
+
+
+## <a name="ensemble-models"></a><a name="ensemble"></a>앙상블 모델
+
+자동화 된 machine learning은 기본적으로 사용 되는 앙상블 모델을 지원 합니다. 앙상블 learning은 단일 모델 사용과 반대로 여러 모델을 결합 하 여 기계 학습 결과와 예측 성능을 향상 시킵니다. 앙상블 반복은 실행의 최종 반복으로 나타납니다. 자동화 된 machine learning은 모델 결합을 위해 투표 및 스택 앙상블 메서드를 모두 사용 합니다.
+
+* **투표**: 예측 된 클래스 확률 (분류 작업의 경우) 또는 예측 된 회귀 목표 (회귀 작업의 경우)의 가중치가 적용 된 평균을 기반으로 예측 합니다.
+* **스택**: 스택은 다른 유형의 모델을 결합 하 고 개별 모델의 출력을 기반으로 메타 모델을 학습 합니다. 현재 기본 메타 모델은 분류 작업의 경우 LogisticRegression이 고 회귀/예측 작업의 경우 ElasticNet입니다.
+
+[Caruana 앙상블 선택 알고리즘](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) 은 정렬 된 앙상블 초기화를 사용 하 여 앙상블 내에서 사용할 모델을 결정 하는 데 사용 됩니다. 높은 수준에서이 알고리즘은 가장 적합 한 개별 점수가 포함 된 최대 5 개의 모델을 사용 하 여 앙상블를 초기화 하 고 이러한 모델이 가장 높은 점수의 5% 임계값을 초과 하 여 초기 앙상블 저하를 방지 하는지 확인 합니다. 그런 다음 각 앙상블 반복에 대해 새 모델이 기존 앙상블에 추가 되 고 결과 점수가 계산 됩니다. 새 모델에서 기존 앙상블 점수가 향상 되 면 새 모델을 포함 하도록 앙상블이 업데이트 됩니다.
+
+자동화 된 machine learning에서 기본 앙상블 설정을 변경 [하는 방법을](how-to-configure-auto-train.md#ensemble) 참조 하세요.
+
+## <a name="guidance-on-local-vs-remote-managed-ml-compute-targets"></a><a name="local-remote"></a>로컬 및 원격 관리 ML 계산 대상에 대 한 지침
+
+자동화 된 ML의 웹 인터페이스는 항상 원격 [계산 대상을](concept-compute-target.md)사용 합니다.  하지만 Python SDK를 사용 하는 경우 자동화 된 ML 학습을 위한 로컬 계산 또는 원격 계산 대상을 선택 합니다.
+
+* **로컬 계산**: 교육은 로컬 노트북 또는 VM 계산에서 발생 합니다. 
+* **원격 계산**: Machine Learning 계산 클러스터에서 교육이 발생 합니다.  
+
+### <a name="choose-compute-target"></a>계산 대상 선택
+계산 대상을 선택할 때 다음 요소를 고려 합니다.
+
+ * **로컬 계산 선택**: 시나리오에 작은 데이터 및 짧은 기차를 사용 하는 초기 탐색 나 데모에 대 한 시나리오가 있는 경우 (예: 자식 실행 당 몇 분 또는 몇 분) 로컬 컴퓨터의 교육이 더 적합할 수 있습니다.  설치 시간이 없으며 인프라 리소스 (사용자 PC 또는 VM)를 직접 사용할 수 있습니다.
+ * **원격 ML 계산 클러스터를 선택 합니다**. 더 큰 학습을 필요로 하는 모델을 만드는 프로덕션 학습에서와 같은 큰 데이터 집합을 사용 하 여 학습 하는 경우 원격 계산은 클러스터의 노드에 `AutoML` 대해 학습을 병렬화 하기 때문에 훨씬 더 나은 종단 간 시간 성능을 제공 합니다. 원격 계산에서 내부 인프라의 시작 시간은 자식 실행 당 1.5 분에 추가 되 고, Vm이 아직 실행 되지 않은 경우 클러스터 인프라의 추가 분이 추가 됩니다.
+
+### <a name="pros-and-cons"></a>장점 및 단점
+로컬 및 원격을 사용 하도록 선택할 때 이러한 장단점을 고려 합니다.
+
+|  | 장점 (이점)  |단점 (Handicaps)  |
+|---------|---------|---------|---------|
+|**로컬 계산 대상** |  <li> 환경 시작 시간 없음   | <li>  기능의 하위 집합<li>  실행을 병렬화 할 수 없음 <li> 큰 데이터의 경우 더 악화 됩니다. <li>학습 하는 동안 데이터 스트리밍이 없습니다. <li>  DNN 기반 기능화 없음 <li> Python SDK만 해당 |
+|**원격 ML 계산 클러스터**|  <li> 전체 기능 집합 <li> 자식 실행 병렬 처리 <li>   대량 데이터 지원<li>  DNN 기반 기능화 <li>  주문형 계산 클러스터의 동적 확장성 <li> 코드 없음 환경 (웹 UI)도 사용할 수 있습니다.  |  <li> 클러스터 노드의 시작 시간 <li> 각 자식 실행에 대 한 시작 시간    |
+
+### <a name="feature-availability"></a>기능 가용성 
+
+ 아래 표에 나와 있는 것 처럼 원격 계산을 사용 하는 경우 더 많은 기능을 사용할 수 있습니다. 이러한 기능 중 일부는 엔터프라이즈 작업 영역 에서만 사용할 수 있습니다.
+
+| 기능                                                    | 원격 | 로컬 | 위해서는 <br>엔터프라이즈 작업 영역 |
+|------------------------------------------------------------|--------|-------|-------------------------------|
+| 데이터 스트리밍 (대량 데이터 지원, 최대 100 GB)          | ✓      |       | ✓                             |
+| DNN-BERT 기반 텍스트 기능화 및 교육             | ✓      |       | ✓                             |
+| 기본 GPU 지원 (학습 및 유추)        | ✓      |       | ✓                             |
+| 이미지 분류 및 레이블 지정 지원                  | ✓      |       | ✓                             |
+| 예측을 위한 자동 ARIMA, Prophet 및 ForecastTCN 모델 | ✓      |       | ✓                             |
+| 동시에 여러 번 실행/반복                       | ✓      |       | ✓                             |
+| AutoML studio 웹 환경 UI에서 interpretability를 사용 하 여 모델 만들기      | ✓      |       | ✓                             |
+| Studio 웹 환경 UI의 기능 엔지니어링 사용자 지정                        | ✓      |       | ✓                              |
+| Azure ML 하이퍼 매개 변수 변수 튜닝                             | ✓      |       |                               |
+| Azure ML 파이프라인 워크플로 지원                         | ✓      |       |                               |
+| 계속 실행                                             | ✓      |       |                               |
+| 예측                                                | ✓      | ✓     | ✓                             |
+| 노트북에서 실험 만들기 및 실행                    | ✓      | ✓     |                               |
+| UI에서 실험의 정보 및 메트릭을 등록 하 고 시각화 합니다. | ✓      | ✓     |                               |
+| 데이터 guardrails                                            | ✓      | ✓     |                               |
+
+
+## <a name="automated-ml-in-azure-machine-learning"></a>Azure Machine Learning의 자동화 된 ML
+
+Azure Machine Learning는 자동화 된 ML 작업을 위한 두 가지 환경을 제공 합니다.
+
+* 코드를 능숙 하 게 [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+
+* 제한 된/아니요 코드 환경 고객의 경우 Azure Machine Learning studio[https://ml.azure.com](https://ml.azure.com/)  
+
 <a name="parity"></a>
-
-## <a name="the-studio-vs-sdk"></a>Studio vs SDK
-
-Python SDK를 통해 제공 되는 고급 자동 ML 기능과 Azure Machine Learning의 스튜디오 간 패리티 및 차이점에 대해 알아봅니다. 
 
 ### <a name="experiment-settings"></a>실험 설정 
 
@@ -182,17 +243,6 @@ Azure Databricks 클러스터에 대 한 학습 지원| ✓|
 |Guardrails 가져오기| ✓|✓|
 |실행 일시 중지 & 다시 시작| ✓| |
 
-## <a name="ensemble-models"></a><a name="ensemble"></a>앙상블 모델
-
-자동화 된 machine learning은 기본적으로 사용 되는 앙상블 모델을 지원 합니다. 앙상블 learning은 단일 모델 사용과 반대로 여러 모델을 결합 하 여 기계 학습 결과와 예측 성능을 향상 시킵니다. 앙상블 반복은 실행의 최종 반복으로 나타납니다. 자동화 된 machine learning은 모델 결합을 위해 투표 및 스택 앙상블 메서드를 모두 사용 합니다.
-
-* **투표**: 예측 된 클래스 확률 (분류 작업의 경우) 또는 예측 된 회귀 목표 (회귀 작업의 경우)의 가중치가 적용 된 평균을 기반으로 예측 합니다.
-* **스택**: 스택은 다른 유형의 모델을 결합 하 고 개별 모델의 출력을 기반으로 메타 모델을 학습 합니다. 현재 기본 메타 모델은 분류 작업의 경우 LogisticRegression이 고 회귀/예측 작업의 경우 ElasticNet입니다.
-
-[Caruana 앙상블 선택 알고리즘](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) 은 정렬 된 앙상블 초기화를 사용 하 여 앙상블 내에서 사용할 모델을 결정 하는 데 사용 됩니다. 높은 수준에서이 알고리즘은 가장 적합 한 개별 점수가 포함 된 최대 5 개의 모델을 사용 하 여 앙상블를 초기화 하 고 이러한 모델이 가장 높은 점수의 5% 임계값을 초과 하 여 초기 앙상블 저하를 방지 하는지 확인 합니다. 그런 다음 각 앙상블 반복에 대해 새 모델이 기존 앙상블에 추가 되 고 결과 점수가 계산 됩니다. 새 모델에서 기존 앙상블 점수가 향상 되 면 새 모델을 포함 하도록 앙상블이 업데이트 됩니다.
-
-자동화 된 machine learning에서 기본 앙상블 설정을 변경 [하는 방법을](how-to-configure-auto-train.md#ensemble) 참조 하세요.
-
 <a name="use-with-onnx"></a>
 
 ## <a name="automl--onnx"></a>AutoML & ONNX
@@ -203,20 +253,19 @@ Azure Machine Learning를 사용 하면 자동화 된 ML을 사용 하 여 Pytho
 
 ONNX 런타임은 c #도 지원 하므로, 기록이 필요 하지 않거나 REST 끝점이 도입 하는 네트워크 대기 시간 없이 c # 앱에서 자동으로 작성 된 모델을 사용할 수 있습니다. [Onnx RUNTIME c # API를 사용 하 여 추론 onnx 모델](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md)에 대해 자세히 알아보세요. 
 
-
-
 ## <a name="next-steps"></a>다음 단계
 
 자동화 된 machine learning을 사용 하 여 모델을 작성 하는 방법 및 예제를 참조 하세요.
-
-+ [자습서: 자동으로 회귀 모델 학습 Azure Machine Learning](tutorial-auto-train-models.md)
 
 + 자동 학습 실험의 설정 구성:
   + Azure Machine Learning studio에서 [다음 단계를 사용](how-to-use-automated-ml-for-ml-models.md)합니다.
   + Python SDK를 사용 하 여 [다음 단계를 수행](how-to-configure-auto-train.md)합니다.
 
++ [원격 계산 대상을](how-to-auto-train-remote.md) 사용 하는 방법 알아보기
+
++ [자습서: 자동으로 회귀 모델 학습 Azure Machine Learning](tutorial-auto-train-models.md) 
+
 + 시계열 데이터를 사용 하 여 자동으로 학습 하는 방법에 대해 설명 하 고 [다음 단계를 사용](how-to-auto-train-forecast.md)합니다.
 
 + 자동화 된 [기계 학습에 대 한 Jupyter Notebook 샘플](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/) 사용해 보기
-
 * 자동화 된 ML은, [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) 및 [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/) 같은 다른 Microsoft 솔루션 에서도 사용할 수 있습니다.

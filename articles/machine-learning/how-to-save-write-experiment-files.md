@@ -12,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 12a38b08fd429280f34b4eb02d4b72187b622261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0938888b7343b441725faace7a5f20d8f50674c8
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79078442"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872055"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Azure Machine Learning 실험을 위해 파일을 저장 하 고 작성 하는 위치
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Your total snapshot size exceeds the limit of 300.0 MB
 실험&nbsp;설명|저장소 제한 솔루션
 ---|---
 2000 개 미만의 파일 & 데이터 저장소를 사용할 수 없음| 스냅숏 크기 제한 재정의 <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> 파일 수와 크기에 따라 몇 분 정도 걸릴 수 있습니다.
-특정 스크립트 디렉터리를 사용 해야 합니다.| 소스 코드 `.amlignore` 의 일부가 아닌 실험 스냅숏에서 파일을 제외 하도록 파일을 만듭니다. `.amlignore` 파일 이름을 파일에 추가 하 고 학습 스크립트와 동일한 디렉터리에 저장 합니다. 파일 `.amlignore` 은 `.gitignore` 파일과 동일한 [구문과 패턴](https://git-scm.com/docs/gitignore) 을 사용 합니다.
+특정 스크립트 디렉터리를 사용 해야 합니다.| [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 파이프라인|각 단계에 다른 하위 디렉터리 사용
 Jupyter Notebook| 파일을 `.amlignore` 만들거나, 비어 있는 새 하위 디렉터리로 파일을 이동 하 고, 코드를 다시 실행 합니다.
 

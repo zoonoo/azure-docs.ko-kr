@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 03/08/2019
-ms.openlocfilehash: 82c3c3274a8a9d66019ce906ee7be47cedac7470
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7da8905adfbddd7241aff84e4b55917ddbdb6d1
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73822051"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888947"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: 중요한 데이터 보호 및 Windows 인증서 저장소에 암호화 키 저장
 
@@ -35,7 +35,7 @@ Always Encrypted는 클라이언트와 서버 사이의 이동 중에, 그리고
 * 데이터베이스 테이블을 만들고 열을 암호화합니다.
 * 암호화된 열에서 데이터를 삽입하고 선택하며 표시한 애플리케이션을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에는 다음이 필요합니다.
 
@@ -543,4 +543,4 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암�
 * [투명한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx)
 * [SQL Server 암호화](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Always Encrypted 마법사](https://msdn.microsoft.com/library/mt459280.aspx)
-* [Always Encrypted 블로그](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [Always Encrypted 블로그](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

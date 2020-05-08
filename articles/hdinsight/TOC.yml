@@ -155,8 +155,16 @@
           items:
             - name: Apache Ambari 웹 UI를 사용하여 클러스터 관리
               href: ./hdinsight-hadoop-manage-ambari.md
-            - name: Apache Ambari 웹 UI를 사용하여 클러스터 최적화
-              href: ./hdinsight-changing-configs-via-ambari.md
+            - name: Apache Ambari로 최적화
+              items:
+                - name: 클러스터 최적화
+                  href: ./hdinsight-changing-configs-via-ambari.md
+                - name: Apache HBase 최적화
+                  href: ./optimize-hbase-ambari.md
+                - name: Apache Hive 최적화
+                  href: ./optimize-hive-ambari.md
+                - name: Apache Pig 최적화
+                  href: ./optimize-pig-ambari.md
             - name: Apache Ambari REST API 사용
               href: ./hdinsight-hadoop-manage-ambari-rest-api.md
             - name: 클러스터 삭제
@@ -939,6 +947,8 @@
           href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
         - name: 아웃바운드 트래픽을 제한하는 방화벽 사용
           href: ./hdinsight-restrict-outbound-traffic.md
+        - name: 네트워크 가상 어플라이언스 구성
+          href: ./network-virtual-appliance.md
         - name: 문제 해결
           items:
             - name: ESP 인증 문제

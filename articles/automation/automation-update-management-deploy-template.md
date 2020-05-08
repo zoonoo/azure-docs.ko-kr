@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 45045cb1360658d394e5469d022ac03033d11aff
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: dd8706c1e95e6b1e4ca4a38d4a336f6186464696
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82165793"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872196"
 ---
 # <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 업데이트 관리 솔루션 등록
 
@@ -26,6 +26,9 @@ ms.locfileid: "82165793"
 템플릿은 하나 이상의 Azure 또는 비 Azure Vm의 온 보 딩을 자동화 하지 않습니다.
 
 구독에서 지원 되는 지역에 배포 된 Log Analytics 작업 영역 및 Automation 계정이 이미 있는 경우에는 연결 되지 않습니다. 작업 영역에 업데이트 관리 솔루션이 아직 배포 되지 않았습니다. 이 템플릿을 사용 하 여 성공적으로 링크를 만들고 업데이트 관리 솔루션을 배포 합니다. 
+
+>[!NOTE]
+>Linux의 업데이트 관리 일부로 **nxautomation** 사용자 등록은 서명 된 runbook만 실행 합니다.
 
 >[!NOTE]
 >이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대한 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](automation-update-azure-modules.md)을 사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.

@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/16/2019
-ms.openlocfilehash: 9c43b141608e5a9051499fdfb2adb5d8b0b593df
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/07/2020
+ms.openlocfilehash: 805b51bf4e6d8feab9539f660dfc72ca78b82d5c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232476"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982635"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 존재 변환
 
@@ -21,7 +21,9 @@ ms.locfileid: "82232476"
 
 존재 변환은 데이터가 다른 원본 또는 스트림에 있는지 확인 하는 행 필터링 변환입니다. 출력 스트림에는 왼쪽 스트림에 존재 하거나 오른쪽 스트림에 존재 하지 않는 모든 행이 포함 됩니다. 존재 변환은 ```SQL WHERE EXISTS``` 및와 ```SQL WHERE NOT EXISTS```비슷합니다.
 
-## <a name="configuration"></a>Configuration
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vZKz]
+
+## <a name="configuration"></a>구성
 
 1. **올바른 스트림** 드롭다운에서 있는지 확인 하는 데이터 스트림을 선택 합니다.
 1. 존재 **하는 데이터** 를 찾고 있는지 여부를 지정 합니다.

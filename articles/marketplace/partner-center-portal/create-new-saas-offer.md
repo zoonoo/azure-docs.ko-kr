@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 9ffa10726c1ca838f00b713e6640f609c122975a
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: b85846419ce5f6cd4093e198d83240817c95754a
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735099"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983060"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 새 SaaS 제품 만들기
 
@@ -77,7 +77,6 @@ Microsoft를 통해 판매 되는 고객 검색 및 취득은 Microsoft에서 �
 
 - 사용자 제품은 id 관리 및 인증을 위해 [Azure Active Directory (AZURE AD)](https://azure.microsoft.com/services/active-directory/) 를 사용 해야 합니다.
 - 제품에서 SaaS 처리 [api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) 를 사용 하 여 Azure Marketplace와 통합 해야 합니다.
-- 더 광범위 한 요구 사항은 [SaaS 제품 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)를 참조 하세요.
 
 #### <a name="saas-pricing-and-billing-options"></a>SaaS 가격 및 청구 옵션
 
@@ -110,11 +109,11 @@ Marketplace 목록을 만들어 Microsoft로 비즈니스를 홍보 하세요. M
 
 #### <a name="get-it-now-free"></a>지금 받기 (무료)
 
-[Azure Active Directory (AZURE AD)를 사용 하 여 한 번의 클릭으로 인증](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있는 올바른 주소 ( *http* 또는 *https*로 시작)를 제공 하 여 고객에 게 제품을 무료로 제공 합니다. 예: `https://contoso.com/saas-app`
+[Azure Active Directory (AZURE AD)를 사용 하 여 한 번의 클릭으로 인증](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있는 올바른 주소 ( *http* 또는 *https*로 시작)를 제공 하 여 고객에 게 제품을 무료로 제공 합니다. `https://contoso.com/saas-app`)을 입력합니다.
 
 #### <a name="free-trial-listing"></a>무료 평가판 (목록)
 
-올바른 주소 ( *http* 또는 *https*로 시작)를 제공 하 여 고객에 게 제품을 나열 하 고, 여기에서 [Azure Active Directory (Azure AD)를 사용 하 여 한 번의 클릭으로 인증](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)을 받을 수 있습니다. 예: `https://contoso.com/trial/saas-app` 무료 평가판을 나열 하는 제품은 서비스에서 생성, 관리 및 구성 되며 Microsoft에서 관리 하는 구독을 포함 하지 않습니다.
+올바른 주소 ( *http* 또는 *https*로 시작)를 제공 하 여 고객에 게 제품을 나열 하 고, 여기에서 [Azure Active Directory (Azure AD)를 사용 하 여 한 번의 클릭으로 인증](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)을 받을 수 있습니다. `https://contoso.com/trial/saas-app`)을 입력합니다. 무료 평가판을 나열 하는 제품은 서비스에서 생성, 관리 및 구성 되며 Microsoft에서 관리 하는 구독을 포함 하지 않습니다.
 
 > [!NOTE]
 > 평가판 링크를 통해 응용 프로그램에서 수신 하는 토큰은 Azure AD를 통해 사용자 정보를 가져와서 앱에서 계정 만들기를 자동화 하는 데만 사용할 수 있습니다. 이 토큰을 사용 하는 인증에는 MSA (Microsoft 계정)가 지원 되지 않습니다.
@@ -156,7 +155,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 이 페이지에서는 마켓플레이스에서 제품을 그룹화 하는 데 사용 되는 범주와 산업, 제품을 지 원하는 법적 계약 및 앱 버전을 정의 하 라는 메시지를 표시 합니다.
 
-### <a name="category"></a>범주
+### <a name="category"></a>Category
 
 제품을 적절 한 마켓플레이스 검색 영역으로 그룹화 하려면 하나 이상의 범주를 선택 합니다. 제품 설명에서 제품이 이러한 범주를 어떻게 지원 하는지 설명 합니다.
 

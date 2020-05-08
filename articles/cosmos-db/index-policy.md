@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: f010ec46c41c2302cc9c99a631fd18b1af9661eb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68adfb8b4cfb7c665a8e8b162b4698a095bb671e
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232073"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82869929"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 
@@ -27,7 +27,7 @@ Azure Cosmos DB 모든 컨테이너에는 컨테이너의 항목을 인덱싱하
 Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 
 - **일관성**: 항목이 생성, 업데이트 또는 삭제 될 때 인덱스가 동기적으로 업데이트 됩니다. 즉, 읽기 쿼리의 일관성은 [계정에 대해 구성 된 일관성](consistency-levels.md)이 됩니다.
-- **없음**: 컨테이너에서 인덱싱을 사용할 수 없습니다. 이는 컨테이너를 보조 인덱스가 없어도 순수 키-값 저장소로 사용할 때 일반적으로 사용 됩니다. 이를 사용 하 여 대량 작업의 성능을 향상 시킬 수도 있습니다. 대량 작업이 완료 되 면 인덱스 모드를 일관 된 상태로 설정 하 고 완료 될 때까지 [IndexTransformationProgress](how-to-manage-indexing-policy.md#use-the-net-sdk-v2) 를 사용 하 여 모니터링할 수 있습니다.
+- **없음**: 컨테이너에서 인덱싱을 사용할 수 없습니다. 이는 컨테이너를 보조 인덱스가 없어도 순수 키-값 저장소로 사용할 때 일반적으로 사용 됩니다. 이를 사용 하 여 대량 작업의 성능을 향상 시킬 수도 있습니다. 대량 작업이 완료 되 면 인덱스 모드를 일관 된 상태로 설정 하 고 완료 될 때까지 [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) 를 사용 하 여 모니터링할 수 있습니다.
 
 > [!NOTE]
 > Azure Cosmos DB는 지연 인덱싱 모드도 지원 합니다. 지연 인덱싱은 엔진이 다른 작업을 수행 하지 않을 때 훨씬 낮은 우선 순위 수준으로 인덱스 업데이트를 수행 합니다. 이로 인해 **일치 하지 않거나 불완전** 한 쿼리 결과가 발생할 수 있습니다. Cosmos 컨테이너를 쿼리하려면 지연 인덱스를 선택 하면 안 됩니다.
@@ -101,7 +101,7 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 
 포함 된 경로와 제외 된 경로에 충돌이 있는 경우 보다 정확한 경로가 우선 적용 됩니다.
 
-아래 예를 살펴보세요.
+예를 들면 다음과 같습니다.
 
 **포함 된 경로**:`/food/ingredients/nutrition/*`
 

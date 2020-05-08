@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
-ms.openlocfilehash: cf9597f4a722ff9cda68e87b31db77c989afcb0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f69a3f61c288b320399d1b3abfc632c93261c540
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129841"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983366"
 ---
 # <a name="evaluate-model-module"></a>모델 평가 모듈
 
@@ -34,9 +34,13 @@ ms.locfileid: "82129841"
 
 
 ## <a name="how-to-use-evaluate-model"></a>모델 평가를 사용 하는 방법
-1. [점수 모델](./score-model.md) 의 **점수가 매겨진 데이터 집합** 출력을 **모델 평가**의 왼쪽 입력 포트에 연결 합니다. 
+1. 데이터 할당 [의 점수가](./score-model.md) **매겨진 데이터 집합** 출력을 **모델 평가**의 왼쪽 입력 포트에 [클러스터에](./assign-data-to-clusters.md) 연결 합니다. 
+  > [!NOTE] 
+  > "데이터 집합에서 열 선택"과 같은 모듈을 사용 하 여 입력 데이터 집합의 일부를 선택 하는 경우에는 실제 레이블 열 (학습에 사용 됨), ' 점수가 매겨진 확률 ' 열 및 ' 점수가 매겨진 레이블 ' 열이 있는지 확인 하 여 CC와 같은 메트릭과 이진 분류/변칙 검색의 정확도를 계산 하세요.
+  > 다중 클래스 분류/회귀에 대 한 메트릭을 계산 하기 위해 실제 레이블 열인 ' 점수가 매겨진 레이블 ' 열이 존재 합니다.
+  > ' 할당 ' 열, 열 ' DistancesToClusterCenter no. X ' (X는 0, ..., Number of 중심)에 있는 클러스터링에 대 한 메트릭을 계산 하는 중심 인덱스입니다.
 
-2. 필드 두 번째 모델에 대 한 [점수 매기기 모델](./score-model.md) 의 **점수가 매겨진 데이터 집합** 출력을 **모델 평가**의 **오른쪽** 입력에 연결 합니다. 동일한 데이터에서 서로 다른 두 모델의 결과를 쉽게 비교할 수 있습니다. 두 입력 알고리즘은 동일한 알고리즘 형식 이어야 합니다. 또는 서로 다른 매개 변수를 사용하여 동일한 데이터에 대해 수행한 두 번의 실행 결과 생성된 점수를 비교할 수 있습니다.
+2. 필드 두 번째 모델의 클러스터에 데이터 [할당의 점수가](./score-model.md) **매겨진 데이터 집합** 출력을 **모델 평가**의 **오른쪽** 입력 포트에 연결 합니다. 동일한 데이터에서 서로 다른 두 모델의 결과를 쉽게 비교할 수 있습니다. 두 입력 알고리즘은 동일한 알고리즘 형식 이어야 합니다. 또는 서로 다른 매개 변수를 사용하여 동일한 데이터에 대해 수행한 두 번의 실행 결과 생성된 점수를 비교할 수 있습니다.
 
     > [!NOTE]
     > 알고리즘 형식이 ' Machine Learning 알고리즘 '의 ' 2 클래스 분류 ', ' 다중 클래스 분류 ', ' 회귀 ', ' 클러스터링 '을 참조 합니다. 

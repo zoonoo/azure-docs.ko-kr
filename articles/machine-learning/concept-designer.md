@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 78a6e7fa8d030185f537136a3a2124d8bc59d808
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 945a27da874071d22952207b7be5add79ce7e2ec
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79037633"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872629"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너(미리 보기)란 무엇인가요? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -82,7 +82,7 @@ Machine learning 데이터 집합을 사용 하면 데이터에 쉽게 액세스
 
 ![모듈 속성](./media/concept-designer/properties.png)
 
-사용 가능한 기계 학습 알고리즘 라이브러리를 탐색 하는 데 도움이 필요한 경우 [알고리즘 & 모듈 참조 개요](algorithm-module-reference/module-reference.md) 를 참조 하세요.
+사용 가능한 기계 학습 알고리즘 라이브러리를 탐색 하는 데 도움이 필요한 경우 [알고리즘 & 모듈 참조 개요](algorithm-module-reference/module-reference.md)를 참조 하세요. 알고리즘 선택에 대 한 도움말은 [Azure Machine Learning Algorithm 참고 자료 시트](algorithm-cheat-sheet.md)를 참조 하세요.
 
 ## <a name="compute-resources"></a><a name="compute"></a>계산 리소스
 
@@ -91,9 +91,10 @@ Machine learning 데이터 집합을 사용 하면 데이터에 쉽게 액세스
 | 컴퓨팅 대상 | 학습 | 배포 |
 | ---- |:----:|:----:|
 | Azure Machine Learning 컴퓨팅 | ✓ | |
+| Azure Machine Learning 컴퓨팅 인스턴스 | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-계산 대상은 [Azure Machine Learning 작업 영역](concept-workspace.md)에 연결 됩니다. [Azure Machine Learning Studio (클래식)](https://ml.azure.com)의 작업 영역에서 계산 대상을 관리 합니다.
+계산 대상은 [Azure Machine Learning 작업 영역](concept-workspace.md)에 연결 됩니다. [Azure Machine Learning studio](https://ml.azure.com)의 작업 영역에서 계산 대상을 관리 합니다.
 
 ## <a name="deploy"></a>배포
 
@@ -103,7 +104,7 @@ Machine learning 데이터 집합을 사용 하면 데이터에 쉽게 액세스
 
 모델을 배포 하는 방법을 알아보려면 [자습서: 디자이너를 사용 하 여 machine learning 모델 배포](tutorial-designer-automobile-price-deploy.md)를 참조 하세요.
 
-## <a name="publish"></a>게시
+## <a name="publish"></a>게시하기
 
 파이프라인을 **파이프라인 끝점**에 게시할 수도 있습니다. 실시간 끝점과 마찬가지로, 파이프라인 끝점을 사용 하 여 REST 호출을 통해 외부 응용 프로그램에서 새 파이프라인 실행을 제출할 수 있습니다. 그러나 파이프라인 끝점을 사용 하 여 실시간으로 데이터를 보내거나 받을 수 없습니다.
 

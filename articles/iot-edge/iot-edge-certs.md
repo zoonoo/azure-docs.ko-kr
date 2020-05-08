@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: d3e456d57d98b796fb1aea2e82de51f9fae40c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b299cf21652c23451aed735b10597adb85dc3db
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733172"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982731"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Azure IoT Edge에서 인증서를 사용 하는 방법 이해
 
@@ -36,7 +36,7 @@ IoT Edge 인증서는 모듈 및 다운스트림 IoT 장치에서 [IoT Edge hub]
 
 ### <a name="root-ca-certificate"></a>루트 CA 인증서
 
-루트 CA 인증서는 전체 프로세스에서 신뢰의 기반입니다. 프로덕션 시나리오에서 이 CA 인증서는 대개 Baltimore, Verisign, DigiCert 등의 신뢰할 수 있는 상업용 인증 기관에서 구매한 인증서입니다. IoT Edge 디바이스에 연결하는 디바이스를 완전히 제어할 수 있어야 회사 수준 인증 기관을 사용할 수 있습니다. 어떤 경우에도 IoT Edge Hub의 전체 인증서 체인은 루트 인증서까지 이어져야 하므로 리프 IoT 디바이스는 루트 인증서를 신뢰해야 합니다. 루트 CA 인증서를 신뢰할 수 있는 루트 인증 기관 저장소에 저장할 수도 있고, 애플리케이션 코드에서 인증서 세부 정보를 제공할 수도 있습니다.
+루트 CA 인증서는 전체 프로세스에서 신뢰의 기반입니다. 프로덕션 시나리오에서 이 CA 인증서는 대개 Baltimore, Verisign, DigiCert 등의 신뢰할 수 있는 상업용 인증 기관에서 구매한 인증서입니다. IoT Edge 디바이스에 연결하는 디바이스를 완전히 제어할 수 있어야 회사 수준 인증 기관을 사용할 수 있습니다. 두 이벤트 모두 IoT Edge 허브에서 전체 인증서 체인이 롤오버 되므로 리프 IoT 장치에서 루트 인증서를 신뢰 해야 합니다. 루트 CA 인증서를 신뢰할 수 있는 루트 인증 기관 저장소에 저장할 수도 있고, 애플리케이션 코드에서 인증서 세부 정보를 제공할 수도 있습니다.
 
 ### <a name="intermediate-certificates"></a>중간 인증서
 

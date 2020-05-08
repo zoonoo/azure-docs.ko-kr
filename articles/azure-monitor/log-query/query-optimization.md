@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 29d5213b8eecd94ed8c8ce565972c9f98872a362
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411425"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864252"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 최적화
 Azure Monitor 로그는 [ADX (Azure 데이터 탐색기)](/azure/data-explorer/) 를 사용 하 여 로그 데이터를 저장 하 고 쿼리를 실행 하 여 해당 데이터를 분석 합니다. ADX 클러스터를 만들고, 관리 하 고, 유지 관리 하며, 로그 분석 워크 로드에 맞게 최적화 합니다. 쿼리를 실행 하면 최적화 되 고 작업 영역 데이터를 저장 하는 적절 한 ADX 클러스터로 라우팅됩니다. Azure Monitor 로그와 Azure 데이터 탐색기 모두 자동 쿼리 최적화 메커니즘을 많이 사용 합니다. 자동 최적화는 상당한 향상을 제공 하지만 쿼리 성능을 크게 향상 시킬 수 있는 경우도 있습니다. 이 문서에서는 성능 고려 사항 및 해결을 위한 몇 가지 기법을 설명 합니다.
@@ -108,7 +108,7 @@ Heartbeat
 | summarize count() by Computer
 ```
 
-### <a name="use-effective-aggregation-commands-and-dimmentions-in-summarize-and-join"></a>요약 및 조인에서 유효한 집계 명령 및 키를 사용 합니다.
+### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>요약 및 조인에서 효과적인 집계 명령 및 차원 사용
 
 [Max ()](/azure/kusto/query/max-aggfunction), [sum (](/azure/kusto/query/sum-aggfunction)), [count ()](/azure/kusto/query/count-aggfunction)및 [avg ()](/azure/kusto/query/avg-aggfunction) 와 같은 일부 집계 명령은 논리로 인 한 CPU 영향은 낮지만, 다른 일부는 더 복잡 하며 효율적으로 실행 될 수 있도록 추론 및 추정치를 포함 합니다. 예를 들어 [dcount ()](/azure/kusto/query/dcount-aggfunction) 는 HyperLogLog 알고리즘을 사용 하 여 각 값을 실제로 계산 하지 않고 대량 데이터 집합의 고유 개수에 대 한 종가를 제공 합니다. 백분위 수 함수는 가장 가까운 순위 백분위 수 알고리즘을 사용 하 여 유사한 근사치를 수행 합니다. 몇 가지 명령에는 영향을 줄이기 위한 선택적 매개 변수가 있습니다. 예를 들어 [makeset ()](/azure/kusto/query/makeset-aggfunction) 함수에는 CPU 및 메모리에 크게 영향을 주는 최대 집합 크기를 정의 하는 선택적 매개 변수가 있습니다.
 
