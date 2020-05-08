@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: b3b235833e794e48ae655d184bf938effc0d7ac0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f117f1518211680c4ea1f5ac51ecf0e44396a133
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81768385"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856755"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>자동 조정에 대한 전자 메일 알림
 
@@ -69,7 +69,7 @@ Marketplace의 Automation 앱을 선택하고 구성하는 방법을 통해 Azur
 Azure Automation Runbook을 만들려면 다음 단계를 수행합니다.
 
 1. 이전 단계에서 만든 Azure Automation 계정에 액세스 합니다.
-1. Automation 계정 창에서 왼쪽의 "**runbook**" 메뉴 항목을 클릭 하 여 PowerShell 스크립트를 사용 하 여 새 Azure Automation runbook을 만듭니다. Automation Runbook을 만드는 방법에 대한 자세한 내용은 [새 Runbook 만들기](../automation/manage-runbooks.md#creating-a-runbook)를 참조하세요.
+1. Automation 계정 창에서 왼쪽의 "**runbook**" 메뉴 항목을 클릭 하 여 PowerShell 스크립트를 사용 하 여 새 Azure Automation runbook을 만듭니다. Automation runbook을 만드는 방법에 대해 자세히 알아보려면 [새 Runbook 만들기](../automation/manage-runbooks.md#create-a-runbook)를 참조 하세요.
 1. 새 runbook을 추가 하려면 "**+ Runbook 추가**" 메뉴 옵션을 클릭 한 다음 "**빠른 생성 – 새 runbook 만들기**"를 클릭 합니다.
 1. Runbook 창에서 runbook의 이름을 입력 하 고 (이 예제에서는 "**자동 Tuningemailautomation**" 사용) runbook의 유형을 **PowerShell** 로 선택 하 고이 runbook의 용도를 설명 하는 설명을 작성 합니다.
 1. **만들기** 단추를 클릭 하 여 새 runbook 만들기를 완료 합니다.

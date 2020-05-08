@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b270ce3cd15dbd1e8dd53bd60376a87d6e08f75c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfc7e12efb0e5e4613bb4cc5f2f9a35383f37546
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637208"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857247"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob storage 기능
 
@@ -40,7 +40,7 @@ ms.locfileid: "80637208"
 |수명 주기 관리 정책|미리 보기|[Azure Blob Storage 수명 주기 관리](storage-lifecycle-management-concepts.md)|
 |진단 로그|일반 공급|[Azure Storage 분석 로깅](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |변경 피드|아직 지원 되지 않음|[Azure Blob storage의 변경 피드 지원](storage-blob-change-feed.md)|
-|계정 장애 조치|아직 지원 되지 않음|[재해 복구 및 계정 장애 조치 (failover)](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|계정 장애 조치|아직 지원 되지 않음|[재해 복구 및 저장소 계정 장애 조치 (failover)](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Blob 컨테이너 ACL|아직 지원 되지 않음|[컨테이너 ACL 설정](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |사용자 지정 도메인|아직 지원 되지 않음|[Azure Blob storage 끝점에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)|
 |변경할 수 없는 저장소|아직 지원 되지 않음|[변경할 수 없는 저장소로 비즈니스에 중요 한 blob 데이터 저장](storage-blob-immutable-storage.md)|

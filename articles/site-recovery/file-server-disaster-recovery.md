@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: c9f10815f2fbc8a17b8b712b6e5f8391fc7d541e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 59541c568c1d5341375236f9f074b7f82e1a6f94
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75980291"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858742"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 파일 서버 보호 
 
@@ -30,7 +30,7 @@ ms.locfileid: "75980291"
 DFSR은 RDC(원격 차등 압축)라는 압축 알고리즘을 사용합니다. 이 기능은 제한된 대역폭 네트워크를 통해 효율적으로 파일을 업데이트하는 데 사용할 수 있습니다. 파일에서 데이터의 삽입, 제거 및 재배열을 검색합니다. 파일이 업데이트될 때 변경된 파일 블록만 복제하도록 DFSR이 활성화됩니다. 사용량이 많지 않은 시간에 매일 백업을 수행하는 파일 서버 환경도 있습니다. 여기서는 재해 요구 사항을 충족합니다. DFSR이 구현되지 않습니다.
 
 다음과 같은 다이어그램은 DFSR을 구현한 파일 서버 환경을 보여줍니다.
-                
+        
 ![DFSR 아키텍처](media/site-recovery-file-server/dfsr-architecture.JPG)
 
 위의 다이어그램에서 여러 파일 서버는 복제 그룹 간에 파일을 복제하는 데 적극적으로 참여하는 멤버를 호출했습니다. 복제된 폴더의 콘텐츠는 멤버가 오프라인으로 전환되는 경우에도 멤버 중 하나에 요청을 전송하는 모든 클라이언트에 사용할 수 있습니다.
@@ -57,19 +57,19 @@ DFSR은 RDC(원격 차등 압축)라는 압축 알고리즘을 사용합니다. 
 |환경  |권장  |고려할 항목 |
 |---------|---------|---------|
 |DFSR 포함 또는 제외 파일 서버 환경|   [복제를 위해 Site Recovery 사용](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery는 공유 디스크 클러스터 또는 NAS(Network Attached Storage)를 지원하지 않습니다. 환경에서 이러한 구성을 사용하는 경우 적절한 다른 인증 방법 중 하나를 사용합니다. <br> Site Recovery는 SMB 3.0을 지원하지 않습니다. 복제된 VM은 파일에 대한 변경 내용이 파일의 원래 위치에서 업데이트되는 경우에만 변경 내용을 통합합니다.<br>  Site Recovery은 거의 동기 데이터 복제 프로세스를 제공 하므로 계획 되지 않은 장애 조치 (failover) 시나리오의 경우 데이터가 손실 될 수 있으며 USN 불일치 문제가 발생할 수 있습니다.
-|DFSR 포함 파일 서버 환경     |  [Azure IaaS 가상 머신으로 확장된 DFSR](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      DFSR은 대역폭 환경에서 잘 작동합니다. 이 방법에서는 Azure VM을 항상 실행해야 합니다. 계획에서 VM의 비용을 고려해야 합니다.         |
+|DFSR 포함 파일 서버 환경     |  [Azure IaaS 가상 머신으로 확장된 DFSR](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |    DFSR은 대역폭 환경에서 잘 작동합니다. 이 방법에서는 Azure VM을 항상 실행해야 합니다. 계획에서 VM의 비용을 고려해야 합니다.         |
 |Azure IaaS VM     |     파일 동기화    |     재해 복구 시나리오에서 파일 동기화를 사용하는 경우 장애 조치(failover) 중 파일 공유가 투명한 방식으로 클라이언트 컴퓨터에 액세스할 수 있는지 확인하기 위해 수동 작업을 수행해야 합니다. 파일 동기화에는 클라이언트 컴퓨터에서 포트 445가 열려 있어야 합니다.     |
 
 
 ### <a name="site-recovery-support"></a>Site Recovery 지원
 Site Recovery 복제는 애플리케이션을 제한하지 않으므로 권장 사항은 다음 시나리오에서도 유지됩니다.
 
-| 원본    |보조 사이트 대상    |Azure 대상
+| 원본  |보조 사이트 대상  |Azure 대상
 |---------|---------|---------|
-|Azure| -|예|
-|Hyper-V|   예 |예
-|VMware |예|   예
-|물리적 서버|   예 |예
+|Azure|  -|예|
+|Hyper-V|  예  |예
+|VMware  |예|  예
+|물리적 서버|  예  |예
  
 
 > [!IMPORTANT]
@@ -97,7 +97,7 @@ Azure Files는 기존의 온-프레미스 파일 서버 또는 NAS 디바이스�
 
 다음 단계는 파일 동기화를 사용하는 방법을 간단하게 설명합니다.
 
-1. [Azure에서 스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 스토리지 계정에 대해 읽기 액세스 지역 중복 스토리지를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [Azure Storage에서 재해 복구 및 강제 장애 조치 (failover) (미리 보기)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)를 참조 하세요.
+1. [Azure에서 스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 스토리지 계정에 대해 읽기 액세스 지역 중복 스토리지를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치 (failover)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)를 참조 하세요.
 2. [파일 공유를 만듭니다](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. Azure 파일 서버에서 [파일 동기화를 시작합니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide).
 4. 동기화 그룹을 만듭니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 동기화 그룹은 Azure 파일 공유를 나타내는 하나 이상의 클라우드 엔드포인트를 포함해야 합니다. 또한 동기화 그룹은 Windows 서버의 경로를 나타내는 하나의 서버 엔드포인트를 포함해야 합니다.
@@ -146,7 +146,7 @@ Site Recovery와 파일 동기화를 통합하려면:
 
 파일 동기화를 사용하려면 다음 단계를 수행합니다.
 
-1. [Azure에서 스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 스토리지 계정에 대해 읽기 액세스 지역 중복 스토리지(권장)를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [Azure Storage에서 재해 복구 및 강제 장애 조치(Failover)(미리 보기)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)를 참조하세요.
+1. [Azure에서 스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 스토리지 계정에 대해 읽기 액세스 지역 중복 스토리지(권장)를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치 (failover)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)를 참조 하세요.
 2. [파일 공유를 만듭니다](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. 온-프레미스 파일 서버에서 [파일 동기화를 배포합니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide).
 4. 동기화 그룹을 만듭니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 동기화 그룹은 Azure 파일 공유를 나타내는 하나 이상의 클라우드 엔드포인트를 포함해야 합니다. 또한 동기화 그룹은 온-프레미스 Windows 서버의 경로를 나타내는 하나의 서버 엔드포인트를 포함해야 합니다.

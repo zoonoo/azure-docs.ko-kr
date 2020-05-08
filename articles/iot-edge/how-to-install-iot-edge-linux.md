@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: kgremban
-ms.openlocfilehash: fb86ee9ce956917f8da44146e58a4775e0ba639f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 947f224426b3a70c39cbf94ee888c5c353b3993b
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79535904"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857342"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치
 
@@ -284,7 +284,7 @@ systemctl status iotedge
 journalctl -u iotedge --no-pager --no-full
 ```
 
-가장 일반적인 구성 및 네트워킹 오류에 대해 자동화 된 검사를 실행 합니다.
+[문제 해결 도구](troubleshoot.md#run-the-check-command) 를 실행 하 여 가장 일반적인 구성 및 네트워킹 오류를 확인 합니다.
 
 ```bash
 sudo iotedge check

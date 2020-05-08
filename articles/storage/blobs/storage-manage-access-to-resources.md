@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 4d9a54c220861b19d67b07998e609ee72897446a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c524cb30b73c95329650924123b2ebc26a5d8a5
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255484"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856017"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>컨테이너 및 Blob에 대한 익명 읽기 권한 관리
 
@@ -51,6 +51,16 @@ ms.locfileid: "79255484"
 
 ### <a name="set-container-public-access-level-with-net"></a>.NET을 사용 하 여 컨테이너 공용 액세스 수준 설정
 
+# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+
+컨테이너에 대 한 사용 권한을 설정 하려면 [BlobContainerClient](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.blobcontainerclient.setaccesspolicy?view=azure-dotnet) 메서드를 호출 합니다. 
+
+다음 예제에서는 컨테이너의 권한을 전체 공용 읽기 권한으로 설정합니다. Blob에 대 한 공용 읽기 액세스만 사용 권한을 설정 하려면 **PublicAccessType** 필드를 [BlobContainerClient](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.blobcontainerclient.setaccesspolicy?view=azure-dotnet) 메서드에 전달 합니다. 익명 사용자에 대 한 모든 사용 권한을 제거 하려면 **BlobContainerPublicAccessType** 필드를 사용 합니다.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_SetPublicContainerPermissions":::
+
+# <a name="net-v11-sdk"></a>[\.NET v11 SDK](#tab/dotnet11)
+
 .NET 용 Azure Storage 클라이언트 라이브러리를 사용 하 여 컨테이너에 대 한 권한을 설정 하려면 먼저 다음 방법 중 하나를 호출 하 여 컨테이너의 기존 권한을 검색 합니다.
 
 - [GetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissions)
@@ -76,6 +86,8 @@ private static async Task SetPublicContainerPermissions(CloudBlobContainer conta
 }
 ```
 
+---
+
 ## <a name="access-containers-and-blobs-anonymously"></a>컨테이너 및 Blob에 익명으로 액세스
 
 컨테이너 및 Blob에 익명으로 액세스하는 클라이언트는 자격 증명을 필요로 하지 않는 생성자를 사용할 수 있습니다. 다음 예에서는 컨테이너 및 blob을 익명으로 참조 하는 몇 가지 다른 방법을 보여 줍니다.
@@ -83,6 +95,12 @@ private static async Task SetPublicContainerPermissions(CloudBlobContainer conta
 ### <a name="create-an-anonymous-client-object"></a>익명 클라이언트 개체 만들기
 
 계정에 대 한 Blob 저장소 끝점을 제공 하 여 익명 액세스를 위한 새 서비스 클라이언트 개체를 만들 수 있습니다. 그러나 익명 액세스에 사용할 수 있는 해당 계정의 컨테이너 이름도 알아야 합니다.
+
+# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_CreateAnonymousBlobClient":::
+
+# <a name="net-v11-sdk"></a>[\.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 public static void CreateAnonymousBlobClient()
@@ -100,11 +118,19 @@ public static void CreateAnonymousBlobClient()
     Console.WriteLine(container.Properties.LastModified);
     Console.WriteLine(container.Properties.ETag);
 }
-```
+``` 
+
+---
 
 ### <a name="reference-a-container-anonymously"></a>컨테이너를 익명으로 참조
 
 익명으로 사용할 수 있는 컨테이너에 대한 URL이 있는 경우 해당 URL을 사용하여 컨테이너를 직접 참조할 수 있습니다.
+
+# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_ListBlobsAnonymously":::
+
+# <a name="net-v11-sdk"></a>[\.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 public static void ListBlobsAnonymously()
@@ -120,11 +146,19 @@ public static void ListBlobsAnonymously()
         Console.WriteLine(blobItem.Uri);
     }
 }
-```
+``` 
+
+---
 
 ### <a name="reference-a-blob-anonymously"></a>Blob을 익명으로 참조
 
 익명 액세스에 사용할 수 있는 Blob에 대한 URL이 있는 경우 해당 URL을 사용하여 Blob을 직접 참조할 수 있습니다.
+
+# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_DownloadBlobAnonymously":::
+
+# <a name="net-v11-sdk"></a>[\.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 public static void DownloadBlobAnonymously()
@@ -133,7 +167,9 @@ public static void DownloadBlobAnonymously()
         new Uri(@"https://storagesamples.blob.core.windows.net/sample-container/logfile.txt"));
     blob.DownloadToFile(@"C:\Temp\logfile.txt", FileMode.Create);
 }
-```
+``` 
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

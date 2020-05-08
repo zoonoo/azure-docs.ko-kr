@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/03/2020
-ms.openlocfilehash: 65b89a13637f5a4e1712995a6ac58d88b4421806
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/27/2020
+ms.openlocfilehash: 2503c26ac0348739bbf117c3538af797833ce8b8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414859"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857650"
 ---
 # <a name="transformation-with-azure-databricks"></a>Azure Databricks를 통한 변환
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 자습서에서는 Azure Data Factory의 **유효성 검사**, **데이터 복사**및 **노트북** 작업을 포함 하는 종단 간 파이프라인을 만듭니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "81414859"
 
 ![파이프라인 다이어그램](media/solution-template-Databricks-notebook/pipeline-example.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 싱크로 사용 하기 위해 라는 `sinkdata` 컨테이너가 있는 Azure Blob storage 계정.
 
@@ -153,6 +153,9 @@ Databricks 작업 영역으로 **변환** 노트북을 가져오려면 다음을
 1. **파이프라인 매개 변수가** 다음 스크린샷에 표시 된 것과 일치 하는지 확인 합니다. ![파이프라인 매개 변수](media/solution-template-Databricks-notebook/pipeline-parameters.png)
 
 1. 데이터 집합에 연결 합니다.
+
+    >[!NOTE]
+    >아래 데이터 집합에서 파일 경로가 템플릿에 자동으로 지정 되었습니다. 변경 해야 하는 경우 연결 오류가 발생 하는 경우 **컨테이너** 와 **디렉터리** 에 대 한 경로를 지정 해야 합니다.
 
    - **SourceAvailabilityDataset** -원본 데이터를 사용할 수 있는지 확인 합니다.
 

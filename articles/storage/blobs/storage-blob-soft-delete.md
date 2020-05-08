@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4deae235ed15d02874ab5cb3470c62e934324364
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 389dea74f5002cb09d7683947356d236ea8d338b
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80234303"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858697"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure Storage Blob에 대한 일시 삭제
 
@@ -76,7 +76,7 @@ Blob 넣기, **블록**배치, **블록 목록 배치**또는 **blob 복사** **
 
 | REST API 작업 | 리소스 유형 | Description | 동작 변경 |
 |--------------------|---------------|-------------|--------------------|
-| [Delete](/rest/api/storagerp/StorageAccounts/Delete) | 계정 | 포함하는 모든 컨테이너 및 Blob을 포함하여 스토리지 계정을 삭제합니다.                           | 변경 없음 삭제된 계정의 컨테이너 및 Blob은 복구할 수 없습니다. |
+| [삭제](/rest/api/storagerp/StorageAccounts/Delete) | 계정 | 포함하는 모든 컨테이너 및 Blob을 포함하여 스토리지 계정을 삭제합니다.                           | 변경 없음 삭제된 계정의 컨테이너 및 Blob은 복구할 수 없습니다. |
 | [컨테이너 삭제](/rest/api/storageservices/delete-container) | 컨테이너 | 포함하는 모든 Blob을 포함하여 컨테이너를 삭제합니다. | 변경 없음 삭제된 컨테이너의 Blob은 복구할 수 없습니다. |
 | [Blob 배치](/rest/api/storageservices/put-blob) | 블록, 추가 및 페이지 Blob | 새 Blob을 만들거나 컨테이너 내 기존 Blob 교체 | 기존 Blob을 교체하는 데 사용되는 경우, 호출 전에 Blob의 상태 스냅샷이 자동으로 생성됩니다. 이는 동일한 유형의 blob (블록, 추가 또는 페이지)로 대체 되는 경우에만 이전에 일시 삭제 된 blob에도 적용 됩니다. 다른 형식의 Blob으로 교체되는 경우 기존의 모든 일시 삭제된 데이터는 영구적으로 만료됩니다. |
 | [Blob 삭제](/rest/api/storageservices/delete-blob) | 블록, 추가 및 페이지 Blob | 삭제를 위한 Blob 또는 Blob 스냅샷을 표시합니다. 가비지 수집 중 Blob 또는 스냅샷은 나중에 삭제됩니다. | Blob 스냅샷을 삭제하는 데 사용되는 경우 해당 스냅샷은 일시 삭제됨으로 표시됩니다. Blob을 삭제하는 데 사용되는 경우 해당 스냅숏은 일시 삭제됨으로 표시됩니다. |
@@ -102,7 +102,7 @@ Blob을 일시 삭제 된 특정 스냅숏으로 복원 하려면 기본 blob에
 
 일시 삭제된 Blob 및 Blob 스냅샷을 보려면 **Blob 나열**에 삭제된 데이터를 포함하도록 선택할 수 있습니다. 일시 삭제된 기본 Blob만을 보거나 일시 삭제된 Blob 스냅샷도 포함하도록 선택할 수 있습니다. 모든 일시 삭제된 데이터의 경우 데이터가 삭제되었던 시간 및 데이터가 영구적으로 만료되기 전까지의 일 수를 볼 수 있습니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음은 일시 삭제가 설정 된 경우 *HelloWorld* 라는 blob을 업로드, 덮어쓰기, 스냅숏, 삭제 및 복원 하는 .net 스크립트의 콘솔 출력입니다.
 
@@ -192,7 +192,7 @@ Blob의 스냅샷을 삭제 취소하면 **승격**을 클릭하여 루트 Blob�
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
-# <a name="powershell"></a>[슬래시](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -371,5 +371,5 @@ Azure 가상 머신은 **Put 페이지**호출을 사용 하 여 관리 되지 �
 * [.NET 샘플 코드](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
 * [BLOB 서비스 REST API](/rest/api/storageservices/blob-service-rest-api)
 * [Azure Storage 복제](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 설계](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Azure Storage에서 재해 복구 및 스토리지 계정 장애 조치(Failover)(미리 보기)](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [지리적 중복을 사용 하 여 항상 사용 가능한 응용 프로그램 디자인](../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [재해 복구 및 저장소 계정 장애 조치 (failover)](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

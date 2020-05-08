@@ -1,18 +1,18 @@
 ---
-title: VM 이미지에 대 한 공유 액세스 서명 URI를 가져옵니다. Azure Marketplace
-description: 이 문서에서는 각 VHD (가상 하드 디스크)에 대해 SAS (공유 액세스 서명) URI를 가져오는 방법을 설명 합니다.
+title: VM 이미지에 대 한 공유 액세스 서명 URI-Azure Marketplace
+description: Azure Marketplace에서 VHD (가상 하드 디스크)에 대 한 SAS (공유 액세스 서명) URI를 생성 합니다.
 author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mingshen
-ms.openlocfilehash: c226d35647e4a5a2b1d583dd6328bfb73dae2a1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b521a3a035044e2f0c1b625df19d265cfa35b49a
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732632"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857932"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>VM 이미지에 대한 공유 액세스 서명 URI 가져오기
 

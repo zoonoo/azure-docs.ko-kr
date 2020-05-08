@@ -1,22 +1,22 @@
 ---
-title: 파트너 센터의 상용 marketplace 분석에서 marketplace Insights 대시보드
-description: 게시자가 AppSource 및 Azure Marketplace 상점에서 고객 참여를 측정할 수 있게 해 주는 marketplace 웹 분석의 요약에 액세스 합니다.
+title: Marketplace 정보-Microsoft 상업적 마켓플레이스
+description: Microsoft AppSource 및 Azure Marketplace에서 고객 참여를 측정할 수 있게 해 주는 marketplace 웹 분석의 요약에 액세스 합니다.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 05389f0aea7e2637dd28281236e7fd7ec2b412fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cecff7347189c5e5b964e10439297bce405810b7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251710"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857912"
 ---
-# <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>상업적 marketplace 분석의 Marketplace Insights 대시보드
+# <a name="marketplace-insights-dashboard-in-partner-center"></a>파트너 센터의 Marketplace Insights 대시보드
 
-이 문서에서는 파트너 센터의 Marketplace Insights 대시보드에 대 한 정보를 제공 합니다. 이 대시보드는 marketplace 웹 분석의 요약을 표시 합니다 .이를 통해 게시자는 marketplace 상점: AppSource 및 Azure Marketplace에 나열 된 해당 제품 세부 정보 페이지에 대 한 고객 참여를 측정할 수 있습니다.
+이 문서에서는 파트너 센터의 Marketplace Insights 대시보드에 대 한 정보를 제공 합니다. 이 대시보드는 marketplace 웹 분석의 요약을 표시 합니다 .이를 통해 게시자는 marketplace 상점: Microsoft AppSource 및 Azure Marketplace에 나열 된 해당 제품 세부 정보 페이지에 대 한 고객 engagement를 측정할 수 있습니다.
 
 ## <a name="marketplace-insights-dashboard"></a>Marketplace 인사이트 대시보드
 

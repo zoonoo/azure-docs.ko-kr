@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 1eb3da3759f5fca1bc5d675a9b2d61fcf9358bd4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1bce0a95b672bb23767fce3d5d092221ccd8321
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195471"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858347"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Azure HDInsight의 ODBC를 사용하여 Microsoft Power BI와 Apache Hive 데이터 시각화
 
@@ -76,4 +76,4 @@ ODBC를 사용 하 여 Microsoft Power BI Desktop를 Azure HDInsight에 연결 �
 
 * [Microsoft Hive ODBC Driver로 HDInsight에 Excel 연결](./apache-hadoop-connect-excel-hive-odbc-driver.md)
 * [파워 쿼리를 사용 하 여 Apache Hadoop에 Excel을 연결](apache-hadoop-connect-excel-power-query.md)합니다.
-* [직접 쿼리를 사용 하 여 Microsoft Power BI로 대화형 쿼리 Apache Hive 데이터 시각화](/interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
+* [직접 쿼리를 사용 하 여 Microsoft Power BI로 대화형 쿼리 Apache Hive 데이터 시각화](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)

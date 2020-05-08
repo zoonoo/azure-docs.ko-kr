@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/24/2020
+ms.date: 05/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf8c797edec143d09739272917b5781a239280ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb1dba32ed2e913268a9fc37f37ab8cec360c5de
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147739"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858428"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -111,6 +111,7 @@ SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 자세�
 
 ## <a name="change-log"></a>변경 로그
 
+- 05/05/2020: Gen2 배포를 Mv1 VM 제품군에 사용할 수 있도록 [Azure Virtual Machines 계획 및 구현을 위한 SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) 의 변경 내용
 - 04/24/2020 SAP HANA: SAP HANA [SLES의 ANF](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)를 사용 하 여 azure vm에서 azure vm의 대기 노드를 사용 하는 azure VM의 [RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel), NetWeaver의 azure vm에서 azure vm에 대 한 고가용성, anf를 사용 하는 [SLES의 azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) vm에서 sap NetWeaver에 대 한 고가용성, anf 볼륨의 IP 주소가 자동으로 할당 되는 설명을 추가 하는 [RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
 - 04/22/2020: 클러스터를 유지 관리 모드에서 제거 하는 것과 충돌 하므로 SLES의 `is-managed` [Azure vm에서 SAP HANA의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) 을 변경 하 여 해당 지침에서 meta 특성을 제거 합니다.
 - 04/21/2020: SQL Azure DB를 SAP (Hybris) Commerce Platform 1811에 대해 지원 되는 DBMS로 추가 했습니다 .이 문서에서는 [Azure 배포에 대해 지원 되는 sap 소프트웨어](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) 및 [sap 인증 및 구성에서 실행 되는 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications) 에 대해 다룹니다 Microsoft Azure

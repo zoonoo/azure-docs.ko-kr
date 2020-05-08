@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 239dc0f3133a5adf59a23d333131c91d3a655597
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe9ae8997e05e4ab99dba66de88976342fbabe56
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770382"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858357"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Azure 내부 Load Balancer 업그레이드-아웃 바운드 연결이 필요 하지 않음
-[Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus)를 참조 하세요.
+[Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](https://docs.microsoft.com/azure/load-balancer/skus#skus)를 참조 하세요.
 
 이 문서에서는 기본 Load Balancer에서 표준 Load Balancer로의 트래픽을 마이그레이션하는 것과 함께 기본 Load Balancer와 동일한 구성을 사용 하 여 표준 Load Balancer를 만드는 PowerShell 스크립트를 소개 합니다.
 
@@ -33,6 +33,17 @@ ms.locfileid: "81770382"
 * 스크립트는 아웃 바운드 연결이 필요 하지 않은 내부 Load Balancer 업그레이드만 지원 합니다. 일부 Vm에 대 한 [아웃 바운드 연결이](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 필요한 경우에는이 [페이지](upgrade-InternalBasic-To-PublicStandard.md) 에서 지침을 참조 하세요. 
 * 표준 부하 분산 장치를 다른 지역에 만든 경우 이전 지역의 기존 Vm을 새로 만든 표준 Load Balancer에 연결할 수 없습니다. 이 제한 사항을 해결 하려면 새 지역에 새 VM을 만들어야 합니다.
 * Load Balancer 프런트 엔드 IP 구성 또는 백 엔드 풀이 없는 경우 스크립트를 실행 하는 동안 오류가 발생할 수 있습니다. 비어 있지 않은지 확인 합니다.
+
+## <a name="change-ip-allocation-method-to-static-for-frontend-ip-configuration-ignore-this-step-if-its-already-static"></a>프런트 엔드 IP 구성의 IP 할당 방법을 정적으로 변경 (이미 정적인 경우이 단계 무시)
+
+1. 왼쪽 메뉴에서 **모든 서비스** 를 선택 하 고 **모든 리소스**를 선택한 다음, 리소스 목록에서 기본 Load Balancer를 선택 합니다.
+
+2. **설정**아래에서 **프런트 엔드 ip 구성**을 선택 하 고 첫 번째 프런트 엔드 ip 구성을 선택 합니다. 
+
+3. **할당**에 대해 **정적** 을 선택 합니다.
+
+4. 기본 Load Balancer의 모든 프런트 엔드 IP 구성에 대해 3 단계를 반복 합니다.
+
 
 ## <a name="download-the-script"></a>스크립트 다운로드
 

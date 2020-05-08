@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 0ad780c04954c09ddfd432b3c7de3dc65f0841bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/05/2020
+ms.openlocfilehash: 20819bc6ec091eddf5d65b1c0d7aa57c821b2fc1
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942989"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858804"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Azure Cognitive Search의 지식 저장소 소개
 
@@ -25,6 +25,10 @@ ms.locfileid: "78942989"
 과거에 인지 기술을 사용 하는 경우 *기술력과* 는 강화 시퀀스를 통해 문서를 이동 한다는 것을 이미 알고 있습니다. 결과는 검색 인덱스이거나 지식 저장소의 프로젝션(이 미리 보기의 새로운 기능)일 수 있습니다. 검색 인덱스와 기술 자료 저장소의 두 출력은 동일한 파이프라인의 제품입니다. 동일한 입력에서 파생 되지만 매우 다양 한 방식으로 구조화, 저장 및 사용 되는 출력이 생성 됩니다.
 
 물리적으로 지식 저장소는 Azure Table 스토리지, Azure Blob 스토리지 또는 둘 다인 [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview)입니다. Azure Storage에 연결할 수 있는 모든 도구 또는 프로세스는 지식 저장소의 콘텐츠를 사용할 수 있습니다.
+
+
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=235&end=426]
+
 
 ![파이프라인의 지식 저장소 다이어그램](./media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg "파이프라인의 지식 저장소 다이어그램")
 
@@ -46,6 +50,10 @@ AI 보강 파이프라인이 생성할 수 있는 작업을 확인 하는 것이
 > AI 보강 및 인식 기술을 처음 접하는 가요? Azure Cognitive Search는 Cognitive Services 비전 및 언어 기능과 통합되어 이미지 파일, 엔터티 인식 및 텍스트 파일에서 핵심 구 추출 등에 OCR(광학 문자 인식)을 사용하여 원본 데이터를 추출하고 보강합니다. 자세한 내용은 [Azure Cognitive Search의 AI 보강](cognitive-search-concept-intro.md)을 참조하세요.
 
 ## <a name="physical-storage"></a>실제 저장소
+
+
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=455&end=542]
+
 
 기술 자료 저장소의 물리적 식은 기술의 `projections` `knowledgeStore` 정의 요소를 통해 반복 됩니다. 프로젝션은 의도 된 용도와 일치 하도록 출력의 구조를 정의 합니다.
 

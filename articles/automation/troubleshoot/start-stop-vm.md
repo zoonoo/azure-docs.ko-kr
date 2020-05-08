@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 292c86107ff6d57aa020af746674ed40a7ec39d0
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: HT
+ms.openlocfilehash: 611e8441fab56114ca010d0b555c9ed156ae9d40
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836600"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855065"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>작업 시간 외 VM 시작/중지 문제 해결
 
@@ -104,7 +104,7 @@ Start-AzureRmVm : Run Login-AzureRmAccount to login
 
 * 업무 시간 외 Vm 시작/중지 솔루션에 대 한 일정을 올바르게 구성 했는지 확인 합니다. 일정을 구성 하는 방법에 대 한 자세한 내용은 [일정](../automation-schedules.md)을 참조 하세요.
 
-* [작업 스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 검사 하 여 오류를 찾습니다. 다음 runbook 중 하나에서 작업을 찾습니다.
+* [작업 스트림을](../automation-runbook-execution.md#job-statuses) 검사 하 여 오류를 찾습니다. 다음 runbook 중 하나에서 작업을 찾습니다.
 
   * **AutoStop_CreateAlert_Child**
   * **AutoStop_CreateAlert_Parent**
@@ -157,7 +157,7 @@ Start-AzureRmVm : Run Login-AzureRmAccount to login
 
 * Vm을 시작 하 고 중지 하려면 Automation 계정에 대 한 실행 계정에 VM에 대 한 적절 한 권한이 있어야 합니다. 리소스에 대 한 사용 권한을 확인 하는 방법에 대 한 자세한 내용은 [빠른 시작: Azure Portal 사용 하 여 사용자에 게 할당 된 역할 보기](../../role-based-access-control/check-access.md)를 참조 하세요. 실행 계정에서 사용 하는 서비스 사용자에 대 한 응용 프로그램 ID를 제공 해야 합니다. Azure Portal에서 Automation 계정으로 이동 하 여이 값을 검색할 수 있습니다. **계정 설정** 아래에서 **실행 계정** 을 선택 하 고 적절 한 실행 계정을 선택 합니다.
 * VM을 시작 하거나 할당을 취소 하는 동안 문제가 발생 하는 경우 VM 자체에 문제가 있을 수 있습니다. 예를 들어 VM을 종료 하려고 할 때 적용 되는 업데이트, 중단 된 서비스 등이 있습니다. VM 리소스로 이동 하 고 **활동 로그** 를 확인 하 여 로그에 오류가 있는지 확인 합니다. 또한 VM에 로그인을 시도 하 여 이벤트 로그에 오류가 있는지 확인할 수 있습니다. VM 문제 해결에 대해 자세히 알아보려면 [Azure virtual Machines 문제 해결](../../virtual-machines/troubleshooting/index.yml)을 참조 하세요.
-* [작업 스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 검사 하 여 오류를 찾습니다. 포털에서 Automation 계정으로 이동 하 고 **프로세스 자동화**아래에서 **작업** 을 선택 합니다.
+* [작업 스트림을](../automation-runbook-execution.md#job-statuses) 검사 하 여 오류를 찾습니다. 포털에서 Automation 계정으로 이동 하 고 **프로세스 자동화**아래에서 **작업** 을 선택 합니다.
 
 ## <a name="scenario-my-custom-runbook-fails-to-start-or-stop-my-vms"></a><a name="custom-runbook"></a>시나리오: 내 사용자 지정 runbook이 Vm을 시작 하거나 중지 하지 못함
 
@@ -174,7 +174,7 @@ Start-AzureRmVm : Run Login-AzureRmAccount to login
 다음을 권장합니다.
 
 * [작업 시간 외 Vm 시작/중지 솔루션](../automation-solution-vm-management.md) 을 사용 하 여 Azure Automation에서 vm을 시작 하 고 중지할 수 있습니다. 이 솔루션은 Microsoft에서 작성한 것입니다. 
-* Microsoft는 사용자 지정 runbook을 지원 하지 않습니다. [Runbook 문제 해결](runbooks.md)에서 사용자 지정 runbook에 대 한 솔루션을 찾을 수 있습니다. [작업 스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 검사 하 여 오류를 찾습니다. 
+* Microsoft는 사용자 지정 runbook을 지원 하지 않습니다. [Runbook 문제 해결](runbooks.md)에서 사용자 지정 runbook에 대 한 솔루션을 찾을 수 있습니다. [작업 스트림을](../automation-runbook-execution.md#job-statuses) 검사 하 여 오류를 찾습니다. 
 
 ## <a name="scenario-vms-dont-start-or-stop-in-the-correct-sequence"></a><a name="dont-start-stop-in-sequence"></a>시나리오: Vm이 올바른 순서로 시작 되거나 중지 되지 않습니다.
 
@@ -231,7 +231,7 @@ Start-AzureRmVm : Run Login-AzureRmAccount to login
 
 ### <a name="resolution"></a>해결 방법
 
-여러 오류를 해결 하려면 [종료/중지 시간 동안 Vm 시작/중지 솔루션](../automation-solution-vm-management.md#update-the-solution)을 제거 하 고 업데이트 합니다. 또한 [작업 스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 검사 하 여 오류를 찾을 수 있습니다. 
+여러 오류를 해결 하려면 [종료/중지 시간 동안 Vm 시작/중지 솔루션](../automation-solution-vm-management.md#update-the-solution)을 제거 하 고 업데이트 합니다. 또한 [작업 스트림을](../automation-runbook-execution.md#job-statuses) 검사 하 여 오류를 찾을 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
