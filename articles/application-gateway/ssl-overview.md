@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: ae80b49c3bfb40743665768622d3f4a8a6990c12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 286c9329be38055808571d8d32c724d27a61cbf3
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311858"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855884"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Application Gateway를 사용 하는 TLS 종료 및 종단 간 TLS 개요
 
@@ -28,6 +28,10 @@ Application Gateway는 게이트웨이에서 TLS 종료를 지원 합니다. 그
 - **인증서 관리** – 인증서를 구매 하 고 모든 백 엔드 서버가 아닌 응용 프로그램 게이트웨이에만 설치 해야 합니다. 이렇게 하면 시간과 금액이 모두 절약 됩니다.
 
 Tls 종료를 구성 하려면 tls/SSL 인증서를 수신기에 추가 하 여 application gateway에서 TLS/SSL 프로토콜 사양에 따라 대칭 키를 파생할 수 있도록 해야 합니다. 대칭 키는 게이트웨이로 전송 된 트래픽을 암호화 하 고 암호 해독 하는 데 사용 됩니다. TLS/SSL 인증서는 PFX (개인 정보 교환) 형식 이어야 합니다. 이 파일 형식을 사용하면 애플리케이션 게이트웨이에서 트래픽의 암호화 및 암호 해독을 수행하는 데 필요한 프라이빗 키를 내보낼 수 있습니다.
+
+> [!IMPORTANT] 
+> 수신기의 인증서는 전체 인증서 체인을 업로드 해야 합니다. 
+
 
 > [!NOTE] 
 >
