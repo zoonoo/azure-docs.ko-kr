@@ -3,13 +3,13 @@ title: Azure Kubernetes 서비스에서 시스템 노드 풀 사용 (AKS)
 description: AKS (Azure Kubernetes Service)에서 시스템 노드 풀을 만들고 관리 하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 04/06/2020
-ms.openlocfilehash: b567d9e618877463e1e659f368d35fbb787a4ef2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/28/2020
+ms.openlocfilehash: 04322bdaa2e0e72c5fbdbadb07f2608ee360e1e3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259071"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790561"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스에서 시스템 노드 풀 관리 (AKS)
 
@@ -29,6 +29,8 @@ Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀
 * [Azure Kubernetes 서비스 (AKS)의 할당량, 가상 머신 크기 제한 및 지역 가용성][quotas-skus-regions]을 참조 하세요.
 * AKS 클러스터는 가상 머신 확장 집합을 VM 유형으로 빌드해야 합니다.
 * 노드 풀의 이름에는 소문자 영숫자만 사용할 수 있으며 소문자 문자로 시작 해야 합니다. Linux 노드 풀의 경우 길이는 1 자에서 12 자 사이 여야 합니다. Windows 노드 풀의 길이는 1에서 6 자 사이 여야 합니다.
+* 2020-03-01 이상의 API 버전을 사용 하 여 노드 풀 모드를 설정 해야 합니다.
+* 노드 풀의 모드는 필수 속성 이며 ARM 템플릿 또는 직접 API 호출을 사용 하는 경우 명시적으로 설정 해야 합니다.
 
 ## <a name="system-and-user-node-pools"></a>시스템 및 사용자 노드 풀
 
@@ -175,4 +177,4 @@ az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
-[maximum-pods]: faq.md#why-cant-i-set-maxpods-below-30
+[maximum-pods]: configure-azure-cni.md#maximum-pods-per-node

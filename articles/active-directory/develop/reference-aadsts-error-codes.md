@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/07/2020
+ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 87a962709638391887eaa275f059bf4ceae9218b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ec1e7e9aa84c01cd62836f3c09f22cdb143817a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406982"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611333"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 인증 및 권한 부여 오류 코드
 
@@ -72,9 +72,9 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | `temporarily_unavailable` | 서버가 일시적으로 사용량이 많아 요청을 처리할 수 없습니다. | 요청을 다시 시도하십시오. 클라이언트 응용 프로그램은 일시적인 상태 때문에 응답이 지연 되었음을 사용자에 게 설명할 수 있습니다. |
 
 ## <a name="lookup-current-error-code-information"></a>현재 오류 코드 정보 조회
-오류 코드와 메시지는 변경 될 수 있습니다.  최신 정보를 보려면 `https://login.microsoftonline.com/error` 페이지에서 AADSTS 오류 설명, 픽스 및 몇 가지 제안 된 해결 방법을 살펴보세요.  
+오류 코드와 메시지는 변경 될 수 있습니다.  최신 정보를 보려면 [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) 페이지에서 AADSTS 오류 설명, 픽스 및 몇 가지 제안 된 해결 방법을 살펴보세요.  
 
-반환 된 오류 코드의 숫자 부분을 검색 합니다.  예를 들어 "AADSTS16000" 오류 코드를 받은 경우 "16000" `https://login.microsoftonline.com/error` 에 대해 검색을 수행 합니다.  URL에 오류 코드 번호를 추가 하 여 특정 오류에 직접 연결할 수도 있습니다 `https://login.microsoftonline.com/error?code=16000`.
+반환 된 오류 코드의 숫자 부분을 검색 합니다.  예를 들어 "AADSTS16000" 오류 코드를 받은 경우 "16000" [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) 에 대해 검색을 수행 합니다.  URL에 오류 코드 번호를 추가 하 여 특정 오류에 직접 연결할 수도 있습니다 [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000).
 
 ## <a name="aadsts-error-codes"></a>AADSTS 오류 코드
 
@@ -189,6 +189,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS65001 | DelegationDoesNotExist - 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보내세요. |
 | AADSTS65004 | UserDeclinedConsent - 사용자가 앱에 액세스하는 데 동의하지 않았습니다. 사용자가 로그인을 다시 시도하고 응용 프로그램에 동의해야 합니다.|
 | AADSTS65005 | MisconfiguredApplication - 앱에 필요한 리소스 액세스 목록에 리소스에서 검색 가능한 앱이 없거나, 클라이언트 앱에서 필요한 리소스 액세스 목록에 지정되지 않은 리소스에 대한 액세스를 요청했거나, Graph 서비스에서 잘못된 요청 또는 찾을 수 없는 리소스를 반환했습니다. 앱에서 SAML을 지원하는 경우 잘못된 식별자(엔터티)로 앱을 구성했을 수 있습니다. 아래 링크를 사용 하 여 SAML에 대해 나열 된 해상도를 사용해 보세요.[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
+| AADSTS650052 | 앱은 조직 `\"{organization}\"` 에서 구독 하거나 사용 `(\"{name}\")` 하도록 설정 하지 않은 서비스에 액세스 해야 합니다. IT 관리자에 게 문의 하 여 서비스 구독의 구성을 검토 합니다. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - 인증에 실패했습니다. 새로 고침 토큰이 잘못되었습니다. 다음과 같은 이유로 오류가 발생했을 수 있습니다.<ul><li>토큰 바인딩 헤더가 비어 있습니다.</li><li>토큰 바인딩 해시가 일치하지 않습니다.</li></ul> |
 | AADSTS70001 | UnauthorizedClient - 애플리케이션을 사용할 수 없습니다. |
@@ -206,6 +207,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS75001 | BindingSerializationError - SAML 메시지를 바인딩하는 동안 오류가 발생했습니다. |
 | AADSTS75003 | UnsupportedBindingError - 앱에서 지원되지 않는 바인딩 관련 오류를 반환했습니다. SAML 프로토콜 응답은 HTTP POST 이외의 바인딩을 통해 보낼 수 없습니다. |
 | AADSTS75005 | Saml2MessageInvalid - Azure AD에서는 SSO의 앱에서 보낸 SAML 요청을 지원하지 않습니다. |
+| AADSTS7500514 | 지원 되는 유형의 SAML 응답을 찾을 수 없습니다. 지원 되는 응답 형식은 ' Response ' (XML 네임 스페이스 ' urn: oasis: names: tc: SAML: 2.0: protocol ') 또는 ' Assertion ' (XML 네임 스페이스 ' urn: oasis: names: tc: SAML: 2.0: Assertion ')입니다. 응용 프로그램 오류-개발자가이 오류를 처리 합니다.|
 | AADSTS75008 | RequestDeniedError - SAML 요청에 예기치 않은 대상이 있기 때문에 앱의 요청이 거부되었습니다. |
 | AADSTS75011 | NoMatchedAuthnContextInOutputClaims - 사용자가 서비스를 통해 인증하는 인증 방법이 요청한 인증 방법과 일치하지 않습니다. |
 | AADSTS75016 | Saml2AuthenticationRequestInvalidNameIDPolicy - SAML2 인증 요청에 잘못된 NameIdPolicy가 있습니다. |
@@ -311,6 +313,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS700020 | InteractionRequired - 액세스 권한 부여에는 상호 작용이 필요합니다. |
 | AADSTS700022 | InvalidMultipleResourcesScope - 입력 매개 변수 범위에 대해 제공한 값이 둘 이상의 리소스를 포함하므로 잘못되었습니다. |
 | AADSTS700023 | InvalidResourcelessScope - 액세스 토큰을 요청할 때 입력 매개 변수 범위에 대해 제공한 값이 잘못되었습니다. |
+| AADSTS7000215 | 잘못된 클라이언트 비밀을 제공합니다. 개발자 오류-앱에서 필수 또는 올바른 인증 매개 변수를 사용 하지 않고 로그인 하려고 합니다.|
 | AADSTS7000222| InvalidClientSecretExpiredKeysProvided-제공 된 클라이언트 비밀 키가 만료 되었습니다. Azure Portal을 방문 하 여 앱에 대 한 새 키를 만들거나, 추가 보안을 위해 인증서 자격 증명을 사용 하는 것이 좋습니다.https://aka.ms/certCreds |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant 제공 된 권한 부여 코드는 다른 테 넌 트에 대해 사용 하기 위한 것 이므로 거부 됩니다. OAuth2 인증 코드는에 대해 획득 한 것과 동일한 테 넌 트에 대해 (또는/또는 Tenant-id} 적절 하 게) 회수 되어야 합니다. |
 | AADSTS1000000 | UserNotBoundError - 바인딩 API를 사용하려면 Azure AD 사용자가 외부 IDP에도 인증해야 하는데, 아직 인증하지 않았습니다. |

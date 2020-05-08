@@ -86,7 +86,7 @@
     - name: 엔드투엔드 MLOps 예제
       href: 'https://github.com/microsoft/MLOps'
     - name: 공개 데이터 세트(공용)
-      href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
+      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: 개념
   items:
     - name: 비용 계획 및 관리
@@ -172,6 +172,8 @@
           href: how-to-setup-authentication.md
         - name: Azure Machine Learning 모니터링
           href: monitor-azure-machine-learning.md
+    - name: 이벤트 표 통합
+      href: concept-event-grid-integration.md
 - name: 방법 가이드
   items:
     - name: 작업 영역 만들기 및 관리
@@ -341,7 +343,7 @@
               displayName: functions app
               href: how-to-deploy-functions.md
             - name: Azure IoT Edge 디바이스
-              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/context/ml-context
+              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
             - name: FPGA 유추
               href: how-to-deploy-fpga-web-service.md
             - name: 사용자 지정 Docker 이미지
@@ -382,7 +384,7 @@
           href: how-to-debug-pipelines-application-insights.md
         - name: CI/CD용 Azure Pipelines
           displayName: 'continuous, integration, delivery'
-          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
+          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
         - name: 디자이너 변환 데이터
           displayName: pipeline
           href: how-to-designer-transform-data.md
@@ -454,7 +456,7 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: ML 제품 비교
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: Workbench의 변경된 내용
       displayName: 'desktop, ui, Workbench, upgrade, update, transfer'
       href: overview-what-happened-to-workbench.md

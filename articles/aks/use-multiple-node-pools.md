@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여�
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: f948c115b86abc532a121c68fa7a148ff15caae9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf7e767f1a7b0c657c744c96b308160393e3f326
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259088"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610924"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -722,22 +722,65 @@ az group deployment create \
 
 리소스 관리자 템플릿에서 정의한 노드 풀 설정 및 작업에 따라 AKS 클러스터를 업데이트 하는 데 몇 분 정도 걸릴 수 있습니다.
 
-## <a name="assign-a-public-ip-per-node-for-a-node-pool-preview"></a>노드 풀 (미리 보기)에 대 한 노드당 공용 IP 할당
+## <a name="assign-a-public-ip-per-node-for-your-node-pools-preview"></a>노드 풀에 대해 노드당 공용 IP 할당 (미리 보기)
 
 > [!WARNING]
-> 노드 당 공용 IP를 할당 하는 미리 보기 중에 VM 프로 비전과 충돌 하는 가능한 부하 분산 장치 규칙으로 인해 *AKS의 표준 LOAD BALANCER SKU* 와 함께 사용할 수 없습니다. 이러한 제한으로 인해 Windows 에이전트 풀은이 미리 보기 기능에서 지원 되지 않습니다. 미리 보기 중에는 노드당 공용 IP를 할당 해야 하는 경우 *기본 LOAD BALANCER SKU* 를 사용 해야 합니다.
+> 노드 당 공용 IP 기능을 사용 하려면 CLI preview 확장 0.4.43 이상을 설치 해야 합니다.
 
 AKS 노드에는 통신에 고유한 공용 IP 주소가 필요 하지 않습니다. 그러나 시나리오에서는 고유한 전용 공용 IP 주소를 수신 하기 위해 노드 풀의 노드가 필요할 수 있습니다. 일반적인 시나리오는 콘솔에서 클라우드 가상 컴퓨터에 직접 연결 하 여 홉을 최소화 해야 하는 게임 워크 로드에 대 한 것입니다. 이 시나리오는 미리 보기 기능인 노드 공용 IP (미리 보기)를 등록 하 여 AKS에서 수행할 수 있습니다.
 
-다음 Azure CLI 명령을 실행 하 여 노드 공용 IP 기능에 등록 합니다.
+최신 aks-preview 확장을 설치 하 고 업데이트 하려면 다음 Azure CLI 명령을 사용 합니다.
+
+```azurecli
+az extension add --name aks-preview
+az extension update --name aks-preview
+az extension list
+```
+
+다음 Azure CLI 명령을 사용 하 여 노드 공용 IP 기능에 등록 합니다.
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
+기능을 등록 하는 데 몇 분 정도 걸릴 수 있습니다.  다음 명령을 사용 하 여 상태를 확인할 수 있습니다.
 
-등록에 성공 하면 [위와](#manage-node-pools-using-a-resource-manager-template) 동일한 지침에 따라 Azure Resource Manager 템플릿을 배포 하 고, 부울 속성 `enableNodePublicIP` 을 agentpoolprofiles에 추가 합니다. 기본적으로 값 `true` 을로 설정 합니다. 지정 하지 않은 `false` 경우로 설정 됩니다. 
+```azurecli-interactive
+ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodePublicIPPreview')].{Name:name,State:properties.state}"
+```
 
-이 속성은 생성 시간 전용 속성 이며 최소 API 버전 2019-06-01이 필요 합니다. 이는 Linux 및 Windows 노드 풀 모두에 적용할 수 있습니다.
+등록이 완료 되 면 새 리소스 그룹을 만듭니다.
+
+```azurecli-interactive
+az group create --name myResourceGroup2 --location eastus
+```
+
+새 AKS 클러스터를 만들고 노드에 대 한 공용 IP를 연결 합니다. 노드 풀의 각 노드는 고유한 공용 IP를 수신 합니다. 가상 머신 확장 집합 인스턴스를 살펴보면이를 확인할 수 있습니다.
+
+```azurecli-interactive
+az aks create -g MyResourceGroup2 -n MyManagedCluster -l eastus  --enable-node-public-ip
+```
+
+기존 AKS 클러스터의 경우 새 노드 풀을 추가 하 고 노드에 대 한 공용 IP를 연결할 수도 있습니다.
+
+```azurecli-interactive
+az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
+```
+
+> [!Important]
+> 미리 보기 중에 Azure Instance Metadata Service는 현재 표준 계층 VM SKU에 대 한 공용 IP 주소 검색을 지원 하지 않습니다. 이러한 제한으로 인해 kubectl 명령을 사용 하 여 노드에 할당 된 공용 Ip를 표시할 수 없습니다. 그러나 Ip가 할당 되 고 의도 한 대로 작동 합니다. 노드에 대 한 공용 Ip는 가상 머신 확장 집합의 인스턴스에 연결 됩니다.
+
+다음과 같은 다양 한 방법으로 노드에 대 한 공용 Ip를 찾을 수 있습니다.
+
+* Azure CLI 명령 [az vmss list-instance-공용-ip][az-list-ips] 를 사용 합니다.
+* [PowerShell 또는 Bash 명령을][vmss-commands]사용 합니다. 
+* 가상 머신 확장 집합의 인스턴스를 확인 하 여 Azure Portal에서 공용 Ip를 볼 수도 있습니다.
+
+> [!Important]
+> [노드 리소스 그룹][node-resource-group] 에는 노드 및 해당 공용 ip가 포함 됩니다. 노드 리소스 그룹을 사용 하 여 노드에 대 한 공용 Ip를 찾을 수 있습니다.
+
+```azurecli
+az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
+```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -753,6 +796,12 @@ az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpu
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
+```
+
+노드 풀에 대 한 공용 IP 시나리오에 대해 만든 추가 클러스터를 삭제할 수도 있습니다.
+
+```azurecli-interactive
+az group delete --name myResourceGroup2 --yes --no-wait
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -795,3 +844,7 @@ Windows Server 컨테이너 노드 풀을 만들고 사용 하려면 [AKS에서 
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-system-pool]: use-system-pools.md
+[ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
+[vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
+[az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips

@@ -1,6 +1,6 @@
 ---
-title: Azure 리소스에 대한 사용자 지정 역할 | Microsoft Docs
-description: Azure 리소스에 대한 세분화된 액세스 관리를 위해 RBAC(역할 기반 액세스 제어)를 사용하여 사용자 지정 역할을 만드는 방법을 알아봅니다.
+title: Azure 사용자 지정 역할-Azure RBAC
+description: Azure 리소스에 대 한 세분화 된 액세스 관리를 위해 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure 사용자 지정 역할을 만드는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,27 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9454962e210781559f2fdceb1c36f499c4ae8ff7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5030fb50313e1db2173990c55930c22fdf58f559
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062181"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734793"
 ---
-# <a name="custom-roles-for-azure-resources"></a>Azure 리소스에 대한 사용자 지정 역할
+# <a name="azure-custom-roles"></a>Azure 사용자 지정 역할
 
 > [!IMPORTANT]
 > 에 관리 그룹을 추가 `AssignableScopes` 하는 것은 현재 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 관리 그룹, 구독 및 리소스 그룹 범위에서 사용자, 그룹 및 서비스 사용자에 게 사용자 지정 역할을 할당할 수 있습니다.
+[Azure 기본 제공 역할이](built-in-roles.md) 조직의 특정 요구를 충족 하지 않는 경우 사용자 고유의 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 관리 그룹, 구독 및 리소스 그룹 범위에서 사용자, 그룹 및 서비스 사용자에 게 사용자 지정 역할을 할당할 수 있습니다.
 
-동일한 Azure AD 디렉터리를 신뢰 하는 구독 간에 사용자 지정 역할을 공유할 수 있습니다. 디렉터리 당 사용자 지정 역할은 **5000** 개로 제한 됩니다. (Azure 독일 및 Azure 중국 21Vianet의 경우 제한은 2000 사용자 지정 역할입니다.) Azure Portal (미리 보기), Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 사용자 지정 역할을 만들 수 있습니다.
+동일한 Azure AD 디렉터리를 신뢰 하는 구독 간에 사용자 지정 역할을 공유할 수 있습니다. 디렉터리 당 사용자 지정 역할은 **5000** 개로 제한 됩니다. (Azure 독일 및 Azure 중국 21Vianet의 경우 제한은 2000 사용자 지정 역할입니다.) Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 사용자 지정 역할을 만들 수 있습니다.
 
 ## <a name="custom-role-example"></a>사용자 지정 역할 예제
 
@@ -75,7 +75,7 @@ ms.locfileid: "80062181"
 
 1. 사용자 지정 역할을 만들 방법을 결정 합니다.
 
-    [Azure Portal](custom-roles-portal.md) (미리 보기), [Azure PowerShell](custom-roles-powershell.md), [Azure CLI](custom-roles-cli.md)또는 [REST API](custom-roles-rest.md)를 사용 하 여 사용자 지정 역할을 만들 수 있습니다.
+    [Azure Portal](custom-roles-portal.md), [Azure PowerShell](custom-roles-powershell.md), [Azure CLI](custom-roles-cli.md)또는 [REST API](custom-roles-rest.md)를 사용 하 여 사용자 지정 역할을 만들 수 있습니다.
 
 1. 필요한 권한 결정
 
@@ -89,7 +89,7 @@ ms.locfileid: "80062181"
 
     사용자 지정 역할이 있으면 해당 역할을 테스트하여 예상대로 작동하는지 확인해야 합니다. 나중에 조정해야 하는 경우 사용자 지정 역할을 업데이트할 수 있습니다.
 
-사용자 지정 역할을 만드는 방법에 대한 단계별 자습서는 [자습서: Azure PowerShell을 사용하여 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md) 또는 [자습서: Azure CLI를 사용하여 사용자 지정 역할 만들기](tutorial-custom-role-cli.md)를 참조하세요.
+사용자 지정 역할을 만드는 방법에 대 한 단계별 자습서는 [자습서: Azure PowerShell을 사용 하 여 azure 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md) 또는 [자습서: Azure CLI를 사용 하 여 azure 사용자 지정 역할 만들기](tutorial-custom-role-cli.md)를 참조 하세요.
 
 ## <a name="custom-role-properties"></a>사용자 지정 역할 속성
 
@@ -131,6 +131,6 @@ ms.locfileid: "80062181"
 사용자 지정 역할 및 관리 그룹에 대 한 자세한 내용은 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Portal (미리 보기)를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트](custom-roles-portal.md)
-- [Azure 리소스에 대한 역할 정의 이해](role-definitions.md)
-- [Azure 리소스에 대한 RBAC 문제 해결](troubleshooting.md)
+- [Azure Portal를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트](custom-roles-portal.md)
+- [Azure 역할 정의 이해](role-definitions.md)
+- [Azure RBAC 문제 해결](troubleshooting.md)

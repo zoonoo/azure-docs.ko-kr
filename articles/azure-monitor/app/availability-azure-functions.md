@@ -2,15 +2,15 @@
 title: Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
 description: 이 문서에서는 동작 트리거 함수에 지정 된 구성에 따라 주기적으로 실행 되는 지 수 ()를 사용 하 여 Azure 함수를 만드는 방법을 설명 합니다. 이 테스트의 결과는 Application Insights 리소스로 전송 되며, 여기서 가용성 결과 데이터를 쿼리하고 경고할 수 있습니다. 사용자 지정 된 테스트를 통해 포털 UI를 사용 하 여 보다 복잡 한 가용성 테스트를 작성 하거나, Azure VNET 내부에서 앱을 모니터링 하거나, 끝점 주소를 변경 하거나, 지역에서 사용할 수 없는 경우 가용성 테스트를 만들 수 있습니다.
 ms.topic: conceptual
-author: morgangrobin
-ms.author: mogrobin
-ms.date: 11/22/2019
-ms.openlocfilehash: 476d66c51c10a5fcfb3cb0319c47b3338d28812c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 05/04/2020
+ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77665802"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791115"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
 
@@ -160,12 +160,10 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 모든 것이 작동 하는지 확인 하기 위해 Application Insights 리소스의 가용성 탭에서 그래프를 살펴볼 수 있습니다.
 
 > [!NOTE]
-> RunAvailabilityTest에 고유한 비즈니스 논리를 구현한 경우 아래 스크린샷 처럼 성공적인 결과가 표시 됩니다. 그렇지 않은 경우에는 실패 한 결과가 표시 됩니다.
+> RunAvailabilityTest에 고유한 비즈니스 논리를 구현한 경우 아래 스크린샷 처럼 성공적인 결과가 표시 됩니다. 그렇지 않은 경우에는 실패 한 결과가 표시 됩니다. 로 `TrackAvailability()` 만든 테스트는 테스트 이름 옆에 **사용자 지정** 이 표시 됩니다.
 
 >[!div class="mx-imgBorder"]
->![성공적인 결과가 포함 된 가용성 탭](media/availability-azure-functions/availtab.png)
-
-Azure Functions를 사용 하 여 테스트를 설정 하는 경우 가용성 탭에서 **테스트 추가** 를 사용 하는 것과 달리 테스트 이름이 나타나지 않으며 상호 작용할 수 없습니다. 결과는 시각화 되지만 포털을 통해 가용성 테스트를 만들 때 표시 되는 것과 동일한 자세한 보기 대신 요약 뷰를 얻을 수 있습니다.
+>![성공적인 결과가 포함 된 가용성 탭](media/availability-azure-functions/availability-custom.png)
 
 종단 간 트랜잭션 세부 정보를 보려면 드릴스루에서 **성공** 또는 **실패** 를 선택 하 고 샘플을 선택 합니다. 그래프에서 데이터 요소를 선택 하 여 종단 간 트랜잭션 세부 정보를 가져올 수도 있습니다.
 

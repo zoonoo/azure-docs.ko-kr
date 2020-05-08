@@ -1,6 +1,6 @@
 ---
-title: Azure 센티널의 Azure Monitor 통합 문서에 따라 대시보드를 사용 하 여 데이터 시각화 | Microsoft Docs
-description: 이 자습서에서는 Azure 센티널의 통합 문서를 기반으로 대시보드를 사용 하 여 데이터를 시각화 하는 방법을 알아봅니다.
+title: Azure 센티널에서 Azure Monitor 통합 문서를 사용 하 여 데이터 시각화 | Microsoft Docs
+description: 이 자습서를 사용 하 여 Azure 센티널에서 통합 문서를 사용 하 여 데이터를 시각화 하는 방법을 알아보세요.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/01/2020
+ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: b4461ac43e9356536914b345ef28f5de62fc9f82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f145b75ba351121bf750f90dbc0a7df382ca04b1
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77585223"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739163"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>자습서: 데이터 시각화 및 모니터링
 
 
 
- [데이터 원본을](quickstart-onboard.md) azure 센티널에 연결한 후에는 사용자 지정 대시보드를 만드는 다양 한 기능을 제공 하는 Azure Monitor 통합 문서에 대 한 azure 센티널 도입을 사용 하 여 데이터를 시각화 하 고 모니터링할 수 있습니다. 통합 문서가 Azure 센티널에 다르게 표시 되는 반면 [Azure Monitor 통합 문서를 사용 하 여 대화형 보고서를 만드는](../azure-monitor/app/usage-workbooks.md)방법을 확인 하는 것이 유용할 수 있습니다. Azure Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 문서를 만들 수 있으며 데이터 원본을 연결하는 즉시 데이터를 신속하게 파악할 수 있는 기본 제공 통합 문서 템플릿도 제공됩니다.
+[데이터 원본을](quickstart-onboard.md) azure 센티널에 연결 하면 사용자 지정 대시보드를 만들 때 다양 한 기능을 제공 하는 Azure Monitor 통합 문서에 대 한 azure 센티널 채택을 사용 하 여 데이터를 시각화 하 고 모니터링할 수 있습니다. 통합 문서가 Azure 센티널에 다르게 표시 되는 반면 [Azure Monitor 통합 문서를 사용 하 여 대화형 보고서를 만드는](../azure-monitor/app/usage-workbooks.md)방법을 확인 하는 것이 유용할 수 있습니다. Azure Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 문서를 만들 수 있으며 데이터 원본을 연결하는 즉시 데이터를 신속하게 파악할 수 있는 기본 제공 통합 문서 템플릿도 제공됩니다.
 
 
 이 자습서는 Azure 센티널에서 데이터를 시각화 하는 데 도움이 됩니다.
@@ -33,7 +33,7 @@ ms.locfileid: "77585223"
 > * 기본 제공 통합 문서 사용
 > * 새 통합 문서 만들기
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 센티널 작업 영역의 리소스 그룹에 대해 적어도 통합 문서 판독기 또는 통합 문서 참가자 권한이 있어야 합니다.
 

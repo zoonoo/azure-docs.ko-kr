@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 66d7228e78f03196da0b26249e7f1f86e79d79fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/02/2020
+ms.openlocfilehash: 7f671e2a77a0a00fd1cc4338e29c14f7b8fca4f2
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159016"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734725"
 ---
 # <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>예약 된 용량의 Azure Database for PostgreSQL 계산 리소스에 대 한 선불
 
@@ -22,7 +22,7 @@ ms.locfileid: "80159016"
 > [!IMPORTANT]
 > 예약 된 용량 가격은 Azure Database for PostgreSQL [단일 서버](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) 배포에만 사용할 수 있으며, [hyperscale Citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) 배포에 대해서는 사용할 수 없습니다.
 
-[Azure Portal](https://portal.azure.com/)에서 Azure Database for PostgreSQL 예약 된 용량을 구매할 수 있습니다. 예약 된 용량을 구입 하려면:
+[Azure Portal](https://portal.azure.com/)에서 Azure Database for PostgreSQL 예약 된 용량을 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../cost-management-billing/reservations/monthly-payments-reservations.md)로 처리할 수 있습니다. 예약 된 용량을 구입 하려면:
 
 * 종 량 제 요금은 하나 이상의 Enterprise 또는 개별 구독에 대 한 소유자 역할에 속해야 합니다.
 * Enterprise 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가**를 활성화해야 합니다. 이 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.

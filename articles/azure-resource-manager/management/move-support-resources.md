@@ -3,12 +3,12 @@ title: 리소스 유형별 이동 작업 지원
 description: 새 리소스 그룹이나 구독으로 이동할 수 있는 Azure 리소스 종류를 소개합니다.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 90fbec4dc076feb1fee8c38cf9757d3c5ddbafaf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a92da04f5b883661d53fd291dc72351a1c4eafb1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804795"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610839"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 이 문서에서는 Azure 리소스 종류가 이동 작업을 지원하는지 여부에 대한 정보를 제공합니다. 또한 리소스를 이동할 때 고려해 야 할 특수 조건에 대 한 정보를 제공 합니다.
@@ -1105,7 +1105,7 @@ ms.locfileid: "80804795"
 > | ------------- | ----------- | ---------- |
 > | managednetworks | 아니요 | 아니요 |
 > | managednetworks/managednetworkgroups | 아니요 | 아니요 |
-> | managednetworks/managednetworkpeering정책만 | 아니요 | 아니요 |
+> | managednetworks/managednetworkpeering정책만 | 아니요 | 예 |
 > | 알림 | 아니요 | 아니요 |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft ManagedServices
@@ -1523,6 +1523,7 @@ ms.locfileid: "80804795"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | instancepools | 아니요 | 아니요 |
+> | 위치 | 예 | 예 |
 > | managedinstances | 아니요 | 아니요 |
 > | managedinstances/데이터베이스 | 아니요 | 아니요 |
 > | servers | 예 | 예 |
