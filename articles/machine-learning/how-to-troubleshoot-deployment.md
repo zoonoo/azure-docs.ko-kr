@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: fab46f7d7ae74ad643ce3f122b27b0dc767f5a78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01fa9c111371c3ede5d3be33f4066f325bad4680
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78399673"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929250"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Azure Kubernetes Service 및 Azure Container Instances 배포 Azure Machine Learning 문제 해결
 
@@ -24,19 +24,19 @@ Azure Machine Learning를 사용 하 여 Azure Container Instances (ACI) 및 Azu
 
 Azure Machine Learning에서 모델을 배포 하는 경우 시스템에서 많은 작업을 수행 합니다.
 
-모델 배포에 대 한 권장 및 최신 접근 방식은 [환경](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) 개체를 입력 매개 변수로 사용 하는 [모델인 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API를 통해 구현 됩니다. 이 경우 서비스는 배포 단계 중에 기본 docker 이미지를 만들고 필요한 모델을 모두 하나의 호출로 탑재 합니다. 기본 배포 작업은 다음과 같습니다.
+모델 배포에 대 한 권장 및 최신 접근 방식은 [환경](how-to-use-environments.md) 개체를 입력 매개 변수로 사용 하는 [모델인 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API를 통해 구현 됩니다. 이 경우 서비스는 배포 단계 중에 기본 docker 이미지를 만들고 필요한 모델을 모두 하나의 호출로 탑재 합니다. 기본 배포 작업은 다음과 같습니다.
 
 1. 모델을 작업 영역 모델 레지스트리에 등록합니다.
 
 2. 유추 구성 정의:
-    1. Yaml 파일 환경에서 지정 하는 종속성을 기반으로 [환경](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) 개체를 만들거나 사용자의 확보 환경 중 하나를 사용 합니다.
+    1. Yaml 파일 환경에서 지정 하는 종속성을 기반으로 [환경](how-to-use-environments.md) 개체를 만들거나 사용자의 확보 환경 중 하나를 사용 합니다.
     2. 환경 및 점수 매기기 스크립트를 기반으로 유추 구성 (InferenceConfig 개체)을 만듭니다.
 
 3. ACI (Azure Container Instance) 서비스 또는 AKS (Azure Kubernetes Service)에 모델을 배포 합니다.
 
 이 프로세스에 대한 자세한 정보는 [모델 관리](concept-model-management-and-deployment.md) 소개를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. 없는 경우 [무료 또는 유료 버전의 Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
 * [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)입니다.
@@ -50,7 +50,7 @@ Azure Machine Learning에서 모델을 배포 하는 경우 시스템에서 많�
 
 문제가 발생할 경우 가장 먼저 할 일은 배포 작업을 개별 단계로 분리하여(이전 설명 참조) 문제를 격리하는 것입니다.
 
-[환경](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) 개체를 입력 매개 변수로 사용 하 여 [모델인 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API를 통해 새로운/권장 배포 방법을 사용 하는 경우 코드를 세 가지 주요 단계로 나눌 수 있습니다.
+[환경](how-to-use-environments.md) 개체를 입력 매개 변수로 사용 하 여 [모델인 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API를 통해 새로운/권장 배포 방법을 사용 하는 경우 코드를 세 가지 주요 단계로 나눌 수 있습니다.
 
 1. 모델을 등록합니다. 다음은 몇 가지 샘플 코드입니다.
 
@@ -204,7 +204,7 @@ print(Model.get_model_path(model_name='my-best-model'))
 
 ## <a name="function-fails-runinput_data"></a>함수 실패: run(input_data)
 
-서비스가 성공적으로 배포되었지만 채점 엔드포인트에 데이터를 게시할 때 크래시가 발생하는 경우 오류를 catch하는 명령문을 `run(input_data)` 함수에 추가하면 구체적인 오류 메시지가 반환됩니다. 다음은 그 예입니다.
+서비스가 성공적으로 배포되었지만 채점 엔드포인트에 데이터를 게시할 때 크래시가 발생하는 경우 오류를 catch하는 명령문을 `run(input_data)` 함수에 추가하면 구체적인 오류 메시지가 반환됩니다. 다음은 그 예입니다. 
 
 ```python
 def run(input_data):

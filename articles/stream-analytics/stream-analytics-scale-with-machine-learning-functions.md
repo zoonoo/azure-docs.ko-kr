@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 5b08625d055063b3804a35a3344ff01c7edb79de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e2c99274df90d232754c862f3174b5767392cec
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80066996"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929046"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Azure Machine Learning Studio (클래식) 함수를 사용 하 여 Stream Analytics 작업 크기 조정
 
@@ -58,7 +58,7 @@ Stream Analytics 작업에 대 한 대기 시간 *허용 오차* 를 확인 합�
 
 Machine Learning 웹 서비스에서 ' 최대 동시 호출 수 '를 구성할 수도 있습니다. 이 매개 변수를 최 댓 값 (현재 200)으로 설정 하는 것이 좋습니다.
 
-이 설정에 대한 자세한 내용은 [Machine Learning 웹 서비스와 관련된 크기 조정 문서](../machine-learning/studio/scaling-webservice.md)를 참조하세요.
+이 설정에 대한 자세한 내용은 [Machine Learning 웹 서비스와 관련된 크기 조정 문서](../machine-learning/studio/create-endpoint.md)를 참조하세요.
 
 ## <a name="example--sentiment-analysis"></a>예 – 정서 분석
 다음 예제는 [Stream Analytics Machine Learning 통합 자습서](stream-analytics-machine-learning-integration-tutorial.md)에 설명된 대로 정서 분석 Machine Learning 함수를 사용하는 Stream Analytics 작업을 포함하고 있습니다.

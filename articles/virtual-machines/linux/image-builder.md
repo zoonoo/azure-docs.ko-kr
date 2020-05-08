@@ -1,30 +1,28 @@
 ---
-title: Azure 이미지 작성기 (미리 보기)를 사용 하 여 Linux VM 만들기
-description: Azure 이미지 작성기를 사용 하 여 Linux VM을 만듭니다.
+title: Linux Vm에 대 한 이미지 갤러리와 함께 Azure 이미지 작성기 사용 (미리 보기)
+description: Azure 이미지 작성기 및 공유 이미지 갤러리를 사용 하 여 Linux VM 이미지를 만듭니다.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 05/05/2019
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.openlocfilehash: b50b2a9bfca99e1868c083759cce26bb176789f4
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.reviewer: danis
+ms.openlocfilehash: 9774d7765906d07c974ca19ce6a0f4807898c3a0
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792414"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928332"
 ---
-# <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>미리 보기: Azure 이미지 작성기를 사용 하 여 Linux VM 만들기
+# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Linux 이미지를 만들어 공유 이미지 갤러리에 배포 
 
-이 문서에서는 Azure 이미지 작성기 및 Azure CLI를 사용 하 여 사용자 지정 된 Linux 이미지를 만드는 방법을 보여 줍니다. 이 문서의 예제에서는 이미지를 사용자 지정 하는 세 [가지 다른 사용자 지정을 사용](image-builder-json.md#properties-customize) 합니다.
+이 문서에서는 Azure 이미지 작성기와 Azure CLI를 사용 하 여 [공유 이미지 갤러리](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)에서 이미지 버전을 만든 다음 전체적으로 이미지를 배포 하는 방법을 보여 줍니다. [Azure PowerShell](../windows/image-builder-gallery.md)를 사용 하 여이 작업을 수행할 수도 있습니다.
 
-- Shell (ScriptUri)- [셸 스크립트](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh)를 다운로드 하 여 실행 합니다.
-- Shell (인라인)-특정 명령을 실행 합니다. 이 예제에서 인라인 명령에는 디렉터리를 만들고 OS를 업데이트 하는 작업이 포함 됩니다.
-- 파일- [GitHub의 파일](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) 을 VM의 디렉터리로 복사 합니다.
 
-를 `buildTimeoutInMinutes`지정할 수도 있습니다. 기본값은 240 분 이며 빌드 시간을 더 오래 실행 하면 빌드 시간을 늘릴 수 있습니다.
+샘플. json 템플릿을 사용 하 여 이미지를 구성 합니다. 사용 중인. json 파일은 [helloImageTemplateforSIG](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json)입니다. 
 
-샘플. json 템플릿을 사용 하 여 이미지를 구성 합니다. 사용 중인. json 파일은 [helloImageTemplateLinux](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json)입니다. 
+공유 이미지 갤러리에 이미지를 배포 하기 위해 템플릿에서는 템플릿의 `distribute` 섹션에 대 한 값으로 [sharedImage](image-builder-json.md#distribute-sharedimage) 를 사용 합니다.
 
 > [!IMPORTANT]
 > Azure 이미지 작성기는 현재 공개 미리 보기로 제공 됩니다.
@@ -47,7 +45,8 @@ az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachine
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-
+az provider show -n Microsoft.KeyVault | grep registrationState
+az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
@@ -55,147 +54,172 @@ az provider show -n Microsoft.Storage | grep registrationState
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
-
+az provider register -n Microsoft.Compute
+az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 ```
 
-## <a name="setup-example-variables"></a>설정 예제 변수
+## <a name="set-variables-and-permissions"></a>변수 및 사용 권한 설정 
 
 일부 정보를 반복 해 서 사용 하 게 되며,이 정보를 저장 하는 몇 가지 변수를 만듭니다.
 
+미리 보기의 경우 이미지 작성기는 원본 관리 이미지와 동일한 리소스 그룹에서 사용자 지정 이미지 만들기만 지원 합니다. 이 예제의 리소스 그룹 이름을 원본 관리 이미지와 동일한 리소스 그룹으로 업데이트 합니다.
 
-```console
-# Resource group name - we are using myImageBuilderRG in this example
-imageResourceGroup=myImageBuilerRGLinux
+```azurecli-interactive
+# Resource group name - we are using ibLinuxGalleryRG in this example
+sigResourceGroup=ibLinuxGalleryRG
 # Datacenter location - we are using West US 2 in this example
-location=WestUS2
-# Name for the image - we are using myBuilderImage in this example
-imageName=myBuilderImage
-# Run output name
-runOutputName=aibLinux
+location=westus2
+# Additional region to replicate the image to - we are using East US in this example
+additionalregion=eastus
+# name of the shared image gallery - in this example we are using myGallery
+sigName=myIbGallery
+# name of the image definition to be created - in this example we are using myImageDef
+imageDefName=myIbImageDef
+# image distribution metadata reference name
+runOutputName=aibLinuxSIG
 ```
 
 구독 ID에 대 한 변수를 만듭니다. 을 사용 하 여 `az account show | grep id`이를 가져올 수 있습니다.
 
-```console
-subscriptionID=<Your subscription ID>
+```azurecli-interactive
+subscriptionID=<Subscription ID>
 ```
 
-## <a name="create-the-resource-group"></a>리소스 그룹을 만듭니다.
-이미지 구성 템플릿 아티팩트와 이미지를 저장 하는 데 사용 됩니다.
+리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
-az group create -n $imageResourceGroup -l $location
+az group create -n $sigResourceGroup -l $location
 ```
 
-## <a name="set-permissions-on-the-resource-group"></a>리소스 그룹에 대 한 사용 권한 설정
-이미지 작성기에서 리소스 그룹에 이미지를 만들 수 있는 권한을 부여 합니다. 적절 한 권한이 없으면 이미지 빌드가 실패 합니다. 
+## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>사용자 할당 id 만들기 및 리소스 그룹에 대 한 사용 권한 설정
+이미지 작성기는 제공 된 [사용자 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) 를 사용 하 여 Azure 공유 이미지 갤러리 (SIG)에 이미지를 삽입 합니다. 이 예제에서는 SIG에 이미지를 배포 하는 세분화 된 작업을 포함 하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 사용자 id에 할당 됩니다.
 
-`--assignee` 값은 이미지 작성기 서비스에 대 한 앱 등록 ID입니다. 
+```bash
+# create user assigned identity for image builder to access the storage account where the script is located
+idenityName=aibBuiUserId$(date +'%s')
+az identity create -g $sigResourceGroup -n $idenityName
 
-```azurecli-interactive
+# get identity id
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+
+# get the user identity URI, needed for the template
+imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
+
+# this command will download a Azure Role Definition template, and update the template with the parameters specified earlier.
+curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+
+imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
+
+# update the definition
+sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
+sed -i -e "s/<rgName>/$sigResourceGroup/g" aibRoleImageCreation.json
+sed -i -e "s/Azure Image Builder Service Image Creation Role/$imageRoleDefName/g" aibRoleImageCreation.json
+
+# create role definitions
+az role definition create --role-definition ./aibRoleImageCreation.json
+
+# grant role definition to the user assigned identity
 az role assignment create \
-    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role Contributor \
-    --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
+    --assignee $imgBuilderCliId \
+    --role $imageRoleDefName \
+    --scope /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup
 ```
 
-## <a name="download-the-template-example"></a>템플릿 예제 다운로드
 
-매개 변수가 있는 샘플 이미지 구성 템플릿을 사용할 수 있도록 만들었습니다. 샘플 json 파일을 다운로드 하 고 이전에 설정한 변수로 구성 합니다.
+## <a name="create-an-image-definition-and-gallery"></a>이미지 정의 및 갤러리 만들기
 
-```bash
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json -o helloImageTemplateLinux.json
+공유 이미지 갤러리에서 이미지 작성기를 사용 하려면 기존 이미지 갤러리 및 이미지 정의가 있어야 합니다. 이미지 작성기는 이미지 갤러리 및 이미지 정의를 만들지 않습니다.
 
-sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateLinux.json
-sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateLinux.json
-sed -i -e "s/<region>/$location/g" helloImageTemplateLinux.json
-sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
-sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
+사용할 갤러리 및 이미지 정의가 아직 없는 경우 만들기를 시작 합니다. 먼저 이미지 갤러리를 만듭니다.
+
+```azurecli-interactive
+az sig create \
+    -g $sigResourceGroup \
+    --gallery-name $sigName
 ```
 
-필요에 따라이 예제의 json을 수정할 수 있습니다. 예를 들어의 `buildTimeoutInMinutes` 값을 늘려 더 오래 실행 되는 빌드를 허용할 수 있습니다. 와 같은 `vi`텍스트 편집기를 사용 하 여 Cloud Shell에서 파일을 편집할 수 있습니다.
+그런 다음 이미지 정의를 만듭니다.
 
-```bash
-vi helloImageTemplateLinux.json
+```azurecli-interactive
+az sig image-definition create \
+   -g $sigResourceGroup \
+   --gallery-name $sigName \
+   --gallery-image-definition $imageDefName \
+   --publisher myIbPublisher \
+   --offer myOffer \
+   --sku 18.04-LTS \
+   --os-type Linux
 ```
 
-> [!NOTE]
-> 원본 이미지의 경우 항상 버전을 [지정](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure)해야 합니다 .를 사용할 `latest`수 없습니다.
->
-> 이미지가 배포 되는 리소스 그룹을 추가 하거나 변경 하는 경우 [리소스 그룹에 대 한 사용 권한이 설정 되어](#set-permissions-on-the-resource-group)있는지 확인 해야 합니다.
 
+## <a name="download-and-configure-the-json"></a>Json 다운로드 및 구성
 
-## <a name="submit-the-image-configuration"></a>이미지 구성 제출
-VM 이미지 작성기 서비스에 이미지 구성 제출
+Json 템플릿을 다운로드 하 고 변수로 구성 합니다.
+
+```azurecli-interactive
+curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json -o helloImageTemplateforSIG.json
+sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforSIG.json
+sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforSIG.json
+sed -i -e "s/<imageDefName>/$imageDefName/g" helloImageTemplateforSIG.json
+sed -i -e "s/<sharedImageGalName>/$sigName/g" helloImageTemplateforSIG.json
+sed -i -e "s/<region1>/$location/g" helloImageTemplateforSIG.json
+sed -i -e "s/<region2>/$additionalregion/g" helloImageTemplateforSIG.json
+sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIG.json
+sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateforSIG.json
+```
+
+## <a name="create-the-image-version"></a>이미지 버전 만들기
+
+이 다음 파트는 갤러리에서 이미지 버전을 만듭니다. 
+
+이미지 구성을 Azure 이미지 작성기 서비스에 제출 합니다.
 
 ```azurecli-interactive
 az resource create \
-    --resource-group $imageResourceGroup \
-    --properties @helloImageTemplateLinux.json \
+    --resource-group $sigResourceGroup \
+    --properties @helloImageTemplateforSIG.json \
     --is-full-object \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateLinux01
+    -n helloImageTemplateforSIG01
 ```
-
-성공적으로 완료 되 면 성공 메시지를 반환 하 고 $imageResourceGroup에 이미지 작성기 구성 템플릿 아티팩트를 만듭니다. ' 숨겨진 형식 표시 '를 사용 하도록 설정 하면 포털에서 리소스 그룹을 볼 수 있습니다.
-
-또한 백그라운드에서 이미지 작성기는 구독에 준비 리소스 그룹을 만듭니다. 이미지 작성기는 이미지 빌드에 대 한 준비 리소스 그룹을 사용 합니다. 리소스 그룹의 이름은 형식으로 지정 됩니다 `IT_<DestinationResourceGroup>_<TemplateName>`.
-
-> [!IMPORTANT]
-> 스테이징 리소스 그룹을 직접 삭제 하지 마십시오. 이미지 템플릿 아티팩트를 삭제 하면 스테이징 리소스 그룹이 자동으로 삭제 됩니다. 자세한 내용은이 문서의 끝에 있는 [정리](#clean-up) 섹션을 참조 하세요.
-
-이미지 구성 템플릿 전송 중에 서비스에서 오류를 보고 하는 경우 [문제 해결](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) 단계를 참조 하세요. 또한 빌드 제출을 다시 시도 하기 전에 템플릿을 삭제 해야 합니다. 템플릿을 삭제 하려면:
-
-```azurecli-interactive
-az resource delete \
-    --resource-group $imageResourceGroup \
-    --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateLinux01
-```
-
-## <a name="start-the-image-build"></a>이미지 빌드를 시작 합니다.
 
 이미지 빌드를 시작 합니다.
 
-
 ```azurecli-interactive
 az resource invoke-action \
-     --resource-group $imageResourceGroup \
+     --resource-group $sigResourceGroup \
      --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
-     -n helloImageTemplateLinux01 \
+     -n helloImageTemplateforSIG01 \
      --action Run 
 ```
 
-빌드가 완료 될 때까지 대기 합니다 .이 예제에서는 10-15 분 정도 걸릴 수 있습니다.
-
-오류가 발생 하는 경우 다음 [문제 해결](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) 단계를 검토 하세요.
+이미지를 만들고 두 영역에 복제 하는 데 다소 시간이 걸릴 수 있습니다. VM 만들기로 이동 하기 전에이 부분이 완료 될 때까지 기다립니다.
 
 
 ## <a name="create-the-vm"></a>VM 만들기
 
-빌드한 이미지를 사용 하 여 VM을 만듭니다.
+Azure 이미지 작성기에서 만든 이미지 버전에서 VM을 만듭니다.
 
 ```azurecli-interactive
 az vm create \
-  --resource-group $imageResourceGroup \
-  --name myVM \
-  --admin-username azureuser \
-  --image $imageName \
+  --resource-group $sigResourceGroup \
+  --name myAibGalleryVM \
+  --admin-username aibuser \
   --location $location \
+  --image "/subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup/providers/Microsoft.Compute/galleries/$sigName/images/$imageDefName/versions/latest" \
   --generate-ssh-keys
 ```
 
-VM을 만들 때 출력에서 IP 주소를 가져와 VM에 대 한 SSH에 사용 합니다.
+VM에 SSH 연결합니다.
 
-```bash
-ssh azureuser@<pubIp>
+```azurecli-interactive
+ssh aibuser@<publicIpAddress>
 ```
 
-SSH 연결이 설정 되는 즉시 이미지는 하루 메시지와 함께 사용자 지정 된 것을 볼 수 있습니다.
+SSH 연결이 설정 되는 즉시 이미지는 *하루 메시지* 와 함께 사용자 지정 된 것을 볼 수 있습니다.
 
-```output
-
+```console
 *******************************************************
 **            This VM was built from the:            **
 **      !! AZURE VM IMAGE BUILDER Custom Image !!    **
@@ -203,38 +227,75 @@ SSH 연결이 설정 되는 즉시 이미지는 하루 메시지와 함께 사�
 *******************************************************
 ```
 
-SSH `exit` 연결을 닫을 때를 입력 합니다.
+## <a name="clean-up-resources"></a>리소스 정리
 
-## <a name="check-the-source"></a>원본 확인
+이제 이미지 버전을 다시 사용자 지정 하 여 동일한 이미지의 새 버전을 만들려면 다음 단계를 건너뛰고 [Azure 이미지 작성기를 사용 하 여 다른 이미지 버전 만들기](image-builder-gallery-update-image-version.md)로 이동 하세요.
 
-이미지 작성기 템플릿의 ' 속성 '에는 원본 이미지, 실행 하는 사용자 지정 스크립트 및 배포 되는 위치가 표시 됩니다.
 
-```bash
-cat helloImageTemplateLinux.json
-```
+그러면 생성 된 이미지와 함께 다른 모든 리소스 파일이 삭제 됩니다. 리소스를 삭제 하기 전에이 배포를 완료 했는지 확인 합니다.
 
-이 json 파일에 대 한 자세한 내용은 [이미지 작성기 템플릿 참조](image-builder-json.md) 를 참조 하세요.
-
-## <a name="clean-up"></a>정리
-
-완료 되 면 리소스를 삭제할 수 있습니다.
+이미지 갤러리 리소스를 삭제 하는 경우 이미지를 만드는 데 사용 된 이미지 정의를 삭제 하려면 먼저 모든 이미지 버전을 삭제 해야 합니다. 갤러리를 삭제 하려면 먼저 갤러리에서 이미지 정의를 모두 삭제 해야 합니다.
 
 이미지 작성기 템플릿을 삭제 합니다.
 
 ```azurecli-interactive
 az resource delete \
-    --resource-group $imageResourceGroup \
+    --resource-group $sigResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateLinux01
+    -n helloImageTemplateforSIG01
 ```
 
-이미지 리소스 그룹을 삭제 합니다.
+권한 할당, 역할 및 id 삭제
+```azurecli-interactive
+az role assignment delete \
+    --assignee $imgBuilderCliId \
+    --role "$imageRoleDefName" \
+    --scope /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup
 
-```azurecli
-az group delete -n $imageResourceGroup
+az role definition delete --name "$imageRoleDefName"
+
+az identity delete --ids $imgBuilderId
 ```
 
+이미지 작성기에서 만든 이미지 버전을 가져옵니다 .이는 항상로 `0.`시작 하 고 이미지 버전을 삭제 합니다.
+
+```azurecli-interactive
+sigDefImgVersion=$(az sig image-version list \
+   -g $sigResourceGroup \
+   --gallery-name $sigName \
+   --gallery-image-definition $imageDefName \
+   --subscription $subscriptionID --query [].'name' -o json | grep 0. | tr -d '"')
+az sig image-version delete \
+   -g $sigResourceGroup \
+   --gallery-image-version $sigDefImgVersion \
+   --gallery-name $sigName \
+   --gallery-image-definition $imageDefName \
+   --subscription $subscriptionID
+```   
+
+
+이미지 정의를 삭제 합니다.
+
+```azurecli-interactive
+az sig image-definition delete \
+   -g $sigResourceGroup \
+   --gallery-name $sigName \
+   --gallery-image-definition $imageDefName \
+   --subscription $subscriptionID
+```
+
+갤러리를 삭제 합니다.
+
+```azurecli-interactive
+az sig delete -r $sigName -g $sigResourceGroup
+```
+
+해당 리소스 그룹을 삭제합니다.
+
+```azurecli-interactive
+az group delete -n $sigResourceGroup -y
+```
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에 사용 된 json 파일의 구성 요소에 대해 자세히 알아보려면 [이미지 작성기 템플릿 참조](image-builder-json.md)를 참조 하세요.
+[Azure 공유 이미지 갤러리](shared-image-galleries.md)에 대해 자세히 알아보세요.
