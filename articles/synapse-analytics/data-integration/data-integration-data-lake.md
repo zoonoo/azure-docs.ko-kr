@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics에서 Azure Data Lake Storage Gen2에 수집
+title: Azure Data Lake Storage Gen2에 수집
 description: Azure Synapse Analytics에서 Azure Data Lake Storage Gen2으로 데이터를 수집 하는 방법을 알아봅니다.
 services: synapse-analytics
 author: djpmsft
@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4d7d7be523749797e5dbce0e50c307fc682974f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7b844bcf45417fefc7dd78a26d5dae0b2ce03249
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430579"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982907"
 ---
 # <a name="ingesting-data-into-azure-data-lake-storage-gen2"></a>데이터를 Azure Data Lake Storage Gen2으로 수집 
 
 이 문서에서는 Azure Synapse Analytics를 사용 하 여 Azure Data Lake Gen 2 (Azure Data Lake Gen 2) 저장소 계정에서 한 위치에서 다른 위치로 데이터를 수집 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**: azure 구독이 없는 경우 시작 하기 전에 [무료 azure 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 * **Azure Storage 계정**: Azure Data Lake Gen 2를 *원본* 데이터 저장소로 사용 합니다. 저장소 계정이 없는 경우 새로 만드는 단계는 [Azure Storage 계정 만들기](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 를 참조 하세요.

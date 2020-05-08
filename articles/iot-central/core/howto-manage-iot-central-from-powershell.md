@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 03/27/2020
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 42d853c9cf53c1c6921fbd1816ec2298c9c3583e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ca1c8f4a8e92babf65ec049b3784882bd3af689
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80365536"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744970"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Azure PowerShell에서 IoT Central 관리
 
@@ -48,7 +48,7 @@ Install-Module Az.IotCentral
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
-[New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) cmdlet을 사용하여 Azure 구독에 IoT Central 애플리케이션을 만듭니다. 다음은 그 예입니다.
+[New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) cmdlet을 사용하여 Azure 구독에 IoT Central 애플리케이션을 만듭니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 # Create a resource group for the IoT Central application
@@ -60,7 +60,7 @@ New-AzResourceGroup -ResourceGroupName "MyIoTCentralResourceGroup" `
 # Create an IoT Central application
 New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
   -Name "myiotcentralapp" -Subdomain "mysubdomain" `
-  -Sku "ST1" -Template "iotc-pnp-preview@1.0.0" `
+  -Sku "ST1" -Template "iotc-pnp-preview" `
   -DisplayName "My Custom Display Name"
 ```
 
@@ -70,7 +70,7 @@ New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 |------------------|------------|
 |ResourceGroupName |애플리케이션을 포함하는 리소스 그룹입니다. 리소스 그룹이 구독에 이미 있어야 합니다. |
 |위치 |기본적으로 이 cmdlet은 리소스 그룹의 위치를 사용합니다. 현재 **오스트레일리아**, **아시아 태평양**, **유럽** **, 미국, 영국**및 **일본** 지역에서 IoT Central 응용 **프로그램을 만들**수 있습니다. |
-|속성              |Azure Portal의 애플리케이션 이름입니다. |
+|Name              |Azure Portal의 애플리케이션 이름입니다. |
 |하위 도메인         |애플리케이션 URL의 하위 도메인입니다. 예제에서 애플리케이션 URL은 `https://mysubdomain.azureiotcentral.com`입니다. |
 |SKU               |현재 **ST1** 또는 **ST2**중 하나를 사용할 수 있습니다. [Azure IoT Central 가격 책정](https://azure.microsoft.com/pricing/details/iot-central/)을 참조하세요. |
 |템플릿          | 사용할 애플리케이션 템플릿입니다. 자세한 내용은 다음 표를 참조하세요. |

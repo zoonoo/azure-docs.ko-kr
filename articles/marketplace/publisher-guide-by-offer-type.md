@@ -1,28 +1,26 @@
 ---
-title: 제품 유형별 Microsoft 상업적 마켓플레이스 게시 가이드
-description: 이 문서에서는 Microsoft 상업적 marketplace에서 제공 하는 제품 유형을 설명 합니다.
+title: 제품 유형별 게시 가이드-Microsoft 상업적 marketplace
+description: 이 문서에서는 Microsoft 상업적 marketplace에서 사용할 수 있는 제품 유형을 설명 합니다.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 6521f19ea566719fee39c238adda8e3a068e2c25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b39cbab71808aaf09f7dc38b3be77f6f35ab598
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81419292"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982686"
 ---
 # <a name="publishing-guide-by-offer-type"></a>제품 형식별 게시 가이드
 
-[게시 옵션을 결정](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)하면 제품을 제공 하는 데 사용할 제품 유형을 선택할 준비가 된 것입니다.
+이 문서에서는 상업적 marketplace에서 사용할 수 있는 제품 유형을 설명 합니다. Marketplace에 제품을 제공하는 데 사용된 메타데이터, 아티팩트 및 기타 콘텐츠를 포함한 제품 구조는 *제품 유형*에 의해 정의됩니다.
 
- Marketplace에 제품을 제공하는 데 사용된 메타데이터, 아티팩트 및 기타 콘텐츠를 포함한 제품 구조는 *제품 유형*에 의해 정의됩니다.
+제품을 만들기 전에 [게시 옵션을 결정](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)한 후 제품을 제공 하는 데 사용할 제품 유형을 선택 해야 합니다. 제품 유형은 게시하려는 솔루션, 앱 또는 서비스 제품의 유형뿐만 아니라 Microsoft 제품 및 서비스에 대한 맞춤도 해당됩니다.
 
-제품을 만들기 전에 제품 유형을 선택해야 합니다. 제품 유형은 게시하려는 솔루션, 앱 또는 서비스 제품의 유형뿐만 아니라 Microsoft 제품 및 서비스에 대한 맞춤도 해당됩니다.
-
-단일 제안 유형을 다르게 구성 하 여 다른 게시 옵션, 호출 작업, 프로 비전 또는 가격 책정을 사용할 수 있습니다. 제품 유형의 게시 옵션과 구성은 제품 자격 및 기술 요구 사항에도 맞춥니다.
+서로 다른 게시 옵션, 작업 호출, 프로 비전 또는 가격 책정을 사용 하도록 설정 하는 여러 가지 방법으로 단일 제품 유형을 구성할 수 있습니다. 제품 유형의 게시 옵션과 구성은 제품 자격 및 기술 요구 사항에도 맞춥니다.
 
 제품을 만들기 전에 상점 및 제품 유형 자격 요구 사항 및 기술 게시 요구 사항을 검토해야 합니다.
 
@@ -32,10 +30,10 @@ Azure Marketplace 제품 유형은 아래 표에 나열되어 있습니다.
 
 | **제안 유형**    | **설명**  |
 | :------------------- | :-------------------|
-| [**가상 컴퓨터**](./marketplace-virtual-machines.md) | 고객과 연결된 구독에 가상 어플라이언스를 배포할 경우 가상 머신 제품 형식을 사용합니다. |
+| [**가상 머신**](./marketplace-virtual-machines.md) | 고객과 연결된 구독에 가상 어플라이언스를 배포할 경우 가상 머신 제품 형식을 사용합니다. |
 | [**솔루션 템플릿**](./marketplace-solution-templates.md) | 솔루션에 단일 VM 이외에 추가 배포 및 구성 자동화가 필요한 경우 솔루션 템플릿 (Azure 응용 프로그램이 라고도 함) 제품 유형을 사용 합니다. 솔루션 템플릿은 Vm을 비롯 하 여 다양 한 종류의 Azure 리소스를 사용할 수 있습니다.  |
 | [**관리 되는 응용 프로그램**](./marketplace-managed-apps.md) | 다음 조건이 필요한 경우 Azure 앱: 관리되는 앱 제품 형식을 사용합니다. <br> <ul> <li> VM 또는 전체 IaaS 기반 솔루션을 사용하여 고객에게 구독 기반 솔루션을 배포합니다. </li> <li>사용자 또는 고객이 솔루션을 파트너가 관리하도록 요구합니다. </li> <ul> |
-| [**SaaS 애플리케이션**](./marketplace-saas-applications-technical-publishing-guide.md) | SaaS 앱 제품 유형을 사용하면 고객이 SaaS 기반, 기술 솔루션을 구독으로 구매할 수 있습니다. |
+| [**SaaS 애플리케이션**](./partner-center-portal/create-new-saas-offer.md) | SaaS 앱 제품 유형을 사용하면 고객이 SaaS 기반, 기술 솔루션을 구독으로 구매할 수 있습니다. |
 | [**컨테이너 제품**](./marketplace-containers.md) | 솔루션이 Kubernetes 기반 Azure Container Service로 프로비전된 Docker 컨테이너 이미지인 경우 컨테이너 제품 유형을 사용합니다. |
 | [**Azure IoT Edge 모듈**](./iot-edge-module.md) | Azure IoT Edge 모듈은 IoT Edge가 관리하는 최소 계산 단위이며 Microsoft 서비스(예: Azure Stream Analytics), 타사 서비스 또는 고유한 솔루션별 코드를 포함할 수 있습니다. |
 | [**컨설팅 서비스**](./consulting-services.md) | 컨설팅 서비스는 고객을 서비스와 연결 하 여 Azure, Dynamics 365 또는 Power Suite 서비스의 사용을 지원 하 고 확장 하는 데 도움이 됩니다.|

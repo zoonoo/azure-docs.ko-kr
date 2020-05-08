@@ -14,48 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
-ms.openlocfilehash: c6a230f6abeab45c56aab2db40b8b1defcc06d90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a00a3c1e0d34a8c7abbcd5bfc7a6771d9e2a4c3
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77598700"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983043"
 ---
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[1612105]:https://launchpad.support.sap.com/#/notes/1612105
-[2694118]:https://launchpad.support.sap.com/#/notes/2694118
-
-
-[db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
-[db2-hadr-10.5]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
-[dbms-db2]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm
-
-[sap-instfind]:https://help.sap.com/viewer/9e41ead9f54e44c1ae1a1094b0f80712/ALL/en-US/576f5c1808de4d1abecbd6e503c9ba42.html
-[rhel-ha-addon]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index
-[rhel-ha-admin]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index
-[rhel-ha-ref]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index
-[rhel-azr-supp]:https://access.redhat.com/articles/3131341
-[rhel-azr-inst]:https://access.redhat.com/articles/3252491
-[rhel-db2-supp]:https://access.redhat.com/articles/3144221
-[ascs-ha-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel
-[glusterfs]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs
-[rhel-pcs-azr]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker
-[anf-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files
-
-[dbms-guide]:dbms-guide.md
-[deployment-guide]:deployment-guide.md
-[planning-guide]:planning-guide.md
-[azr-sap-plancheck]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist
-
-
-
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Red Hat Enterprise Linux Server의 Azure VM에서 IBM DB2 LUW의 고가용성
 
 HADR (고가용성 [및 재해 복구) 구성](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) 에서 LINUX, UNIX 및 WINDOWS 용 IBM DB2 (LUW)는 주 데이터베이스 인스턴스를 실행 하는 노드 하 나와 보조 데이터베이스 인스턴스를 실행 하는 하나 이상의 노드로 구성 됩니다. 주 데이터베이스 인스턴스에 대 한 변경 내용은 구성에 따라 동기식 또는 비동기적으로 보조 데이터베이스 인스턴스에 복제 됩니다. 
@@ -446,7 +411,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 
    b. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **Db2 연결**).
 
-   다. **할당** 을 **정적**으로 설정 하 고, 시작 부분에 정의 된 ip 주소 **가상 ip** 를 입력 합니다.
+   c. **할당** 을 **정적**으로 설정 하 고, 시작 부분에 정의 된 ip 주소 **가상 ip** 를 입력 합니다.
 
    d. **확인**을 선택합니다.
 
@@ -458,7 +423,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 
    b. 새 백 엔드 풀의 이름 (예: **Db2-백**엔드)을 입력 합니다.
 
-   다. **가상 머신 추가**를 선택합니다.
+   c. **가상 머신 추가**를 선택합니다.
 
    d. 이전 단계에서 만든 IBM Db2 데이터베이스를 호스트 하는 가용성 집합 또는 가상 머신을 선택 합니다.
 
@@ -472,7 +437,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 
    b. 새 상태 프로브 (예: **Db2-hp**)의 이름을 입력 합니다.
 
-   다. 프로토콜 및 포트 **62500**로 **TCP** 를 선택 합니다. **간격** 값을 **5**로 유지 하 고 **비정상 임계값** 을 **2**로 설정 된 상태로 유지 합니다.
+   c. 프로토콜 및 포트 **62500**로 **TCP** 를 선택 합니다. **간격** 값을 **5**로 유지 하 고 **비정상 임계값** 을 **2**로 설정 된 상태로 유지 합니다.
 
    d. **확인**을 선택합니다.
 
@@ -482,7 +447,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 
    b. 새 Load Balancer 규칙의 이름 (예: **Db2-SID**)을 입력 합니다.
 
-   다. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Db2-프런트 엔드**)를 선택 합니다.
+   c. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Db2-프런트 엔드**)를 선택 합니다.
 
    d. **프로토콜** 을 **TCP**로 설정 된 상태로 유지 하 고 포트 *데이터베이스 통신 포트*를 입력 합니다.
 
@@ -853,3 +818,36 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
 ## <a name="next-steps"></a>다음 단계
 - [SAP NetWeaver에 대한 고가용성 아키텍처 및 시나리오](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
 - [Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정][rhel-pcs-azr]
+
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2233094]:https://launchpad.support.sap.com/#/notes/2233094
+[1612105]:https://launchpad.support.sap.com/#/notes/1612105
+[2694118]:https://launchpad.support.sap.com/#/notes/2694118
+
+
+[db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
+[db2-hadr-10.5]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
+[dbms-db2]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm
+
+[sap-instfind]:https://help.sap.com/viewer/9e41ead9f54e44c1ae1a1094b0f80712/ALL/en-US/576f5c1808de4d1abecbd6e503c9ba42.html
+[rhel-ha-addon]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index
+[rhel-ha-admin]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index
+[rhel-ha-ref]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index
+[rhel-azr-supp]:https://access.redhat.com/articles/3131341
+[rhel-azr-inst]:https://access.redhat.com/articles/3252491
+[rhel-db2-supp]:https://access.redhat.com/articles/3144221
+[ascs-ha-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel
+[glusterfs]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs
+[rhel-pcs-azr]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker
+[anf-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files
+
+[dbms-guide]:dbms-guide.md
+[deployment-guide]:deployment-guide.md
+[planning-guide]:planning-guide.md
+[azr-sap-plancheck]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist

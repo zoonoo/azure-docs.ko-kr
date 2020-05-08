@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 8159ef45dee8a2f9ace69c2a5b66a29e4948d82c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60381198"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982006"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig PowerShell 참조
 이 설명서에서는 Azure AD Connect에 포함된 ADSyncConfig.psm1 PowerShell 모듈에 대해 다음과 같은 참조 정보를 제공합니다.
@@ -59,25 +59,24 @@ SearchBase 매개 변수에서 시작하여 AD에서 검색하고, ObjectClass �
 ### <a name="examples"></a>예제
 
 #### <a name="example-1"></a>예제 1
+' Contoso ' 도메인에서 사용 하지 않도록 설정 된 개체를 찾습니다. 기본적으로 ' organizationalUnit ' 개체만 반환 됩니다.
 ```
-Find objects with disabled inheritance in 'Contoso' domain (by default returns 'organizationalUnit' objects only)
-```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso'
+```
 
 #### <a name="example-2"></a>예제 2
+' Contoso ' 도메인에서 상속을 사용할 수 없는 ' 사용자 ' 개체를 찾습니다.
 ```
-Find 'user' objects with disabled inheritance in 'Contoso' domain
-```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso' -ObjectClass 'user'
+```
 
 #### <a name="example-3"></a>예제 3
+OU에서 상속을 사용할 수 없는 모든 유형의 개체 찾기
 ```
-Find all types of objects with disabled inheritance in a OU
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
 ```
 
-Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
+
 
 ### <a name="parameters"></a>PARAMETERS
 

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: b6f665c5b0f2fbd291d20ef21d0a447d20f7c2da
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.openlocfilehash: bc2acc4303a270a2bf71f0c9ff249b60a0328a09
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738051"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983281"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure에서 Azure로 재해 복구
 
@@ -100,6 +100,10 @@ Site Recovery를 사용 하 여 동일한 지리적 클러스터 내의 두 지�
 예, 응용 프로그램을 복제 하 고 재해 복구 구성을 별도의 리소스 그룹에 유지할 수 있습니다.
 
 예를 들어 응용 프로그램의 각 계층 응용 프로그램, 데이터베이스 및 웹이 별도의 리소스 그룹에 있는 경우 [복제 마법사](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) 를 세 번 선택 하 여 모든 계층을 보호 해야 합니다. 이러한 세 계층은 3 개의 다른 리소스 그룹으로 복제 Site Recovery.
+
+### <a name="can-i-move-storage-accounts-across-resource-groups"></a>리소스 그룹에서 저장소 계정을 이동할 수 있나요?
+
+아니요, 이것은 지원되지 않는 시나리오입니다. 그러나 실수로 저장소 계정을 다른 리소스 그룹으로 이동 하 고 원래 리소스 그룹을 삭제 하는 경우 이전 리소스 그룹과 같은 이름으로 새 리소스 그룹을 만든 다음 저장소 계정을이 리소스 그룹으로 이동할 수 있습니다.
 
 ## <a name="replication-policy"></a>복제 정책
 

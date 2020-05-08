@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 05/07/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 441fdd14cc2c734b6ce532f3ad1d30663b2f56c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e0fc3cb450c253882ed34a2c4f5748efe55d0ec
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049804"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982040"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>조직의 Azure Active Directory 로그인 페이지에 브랜딩 추가
 조직의 로고 및 사용자 지정 색 구성표를 사용하여 Azure AD(Azure Active Directory) 로그인 페이지에 일관된 모양과 느낌을 제공합니다. 사용자가 Office 365와 같은 조직의 웹 기반 앱에 로그인할 때 로그인 페이지가 나타납니다. 여기서는 Azure AD를 ID 공급자로 사용합니다.
@@ -52,9 +52,9 @@ ms.locfileid: "80049804"
 
         - **언어도.** 언어는 기본값으로 자동 설정되고 변경될 수 없습니다.
         
-        - **로그인 페이지 배경 이미지** .png 또는 .jpg 이미지 파일을 선택하여 로그인 페이지의 배경으로 표시합니다. 
+        - **로그인 페이지 배경 이미지** .png 또는 .jpg 이미지 파일을 선택하여 로그인 페이지의 배경으로 표시합니다. 이미지는 브라우저의 중앙에 고정 되 고 볼 수 있는 공간의 크기에 맞게 조정 됩니다. 크기 1920 x 1080 픽셀 보다 큰 이미지를 선택할 수 없거나 파일 크기가 300 KB 보다 큰 이미지를 선택할 수 없습니다.
         
-            이미지는 크기가 1920x1080픽셀보다 클 수 없고 파일 크기가 300KB 미만이어야 합니다.
+            강한 주제 포커스가 없는 이미지를 사용 하는 것이 좋습니다. 예를 들어 불투명 흰색 상자는 화면 가운데에 표시 되며, 표시 가능한 공간의 크기에 따라 이미지의 모든 부분을 처리할 수 있습니다.
 
         - **배너 로고.** 사용자가 **My Apps** 포털 페이지에서 사용자 이름을 입력한 후에 .png 또는 .jpg 버전의 로고를 선택하여 로그인 페이지에 표시합니다.
             
@@ -62,7 +62,7 @@ ms.locfileid: "80049804"
 
         - **Username 힌트입니다.** 사용자 이름을 잊어버린 경우 사용자에게 표시되는 힌트 텍스트를 입력합니다. 이 텍스트는 링크 또는 코드 없는 유니코드여야 하고 64자를 초과할 수 없습니다. 게스트가 앱에 로그인하는 경우 이 힌트를 추가하는 것이 좋습니다.
 
-        - **로그인 페이지 텍스트** 로그인 페이지의 맨 아래에 표시되는 텍스트를 입력합니다. 이 텍스트를 사용하여 지원 센터에 대한 전화 번호 또는 법적 설명과 같은 추가 정보를 주고 받을 수 있습니다. 이 텍스트는 유니코드여야 하고 256자를 초과할 수 없습니다. 또한 링크 또는 HTML 태그를 포함하지 않는 것이 좋습니다.
+        - **로그인 페이지 텍스트** 로그인 페이지의 맨 아래에 표시되는 텍스트를 입력합니다. 이 텍스트를 사용하여 지원 센터에 대한 전화 번호 또는 법적 설명과 같은 추가 정보를 주고 받을 수 있습니다. 이 텍스트는 유니코드여야 하고 256자를 초과할 수 없습니다.
 
     - **고급 설정**
             

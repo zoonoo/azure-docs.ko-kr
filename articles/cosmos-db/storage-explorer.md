@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: d2fe231dce26311268e578a495fb2ba7076651e0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 2cf1ab2b9ec7e1094a0afa34973db3441c22ee5b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608033"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982771"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Azure Storage Explorer 를 사용하여 데이터 작업
 
@@ -158,7 +158,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 1. 새 꼭짓점을 만들려면 왼쪽 창에서 **그래프**를 열고, **새 꼭짓점**을 클릭하고, 내용을 편집한 다음, **확인**을 클릭합니다.
 2. 기존 꼭짓점을 수정하려면 오른쪽 창에서 펜 아이콘을 클릭합니다.
 
-    ![Graph](./media/storage-explorer/vertex.png)
+    ![그래프](./media/storage-explorer/vertex.png)
 
 #### <a name="delete-a-graph"></a>그래프 삭제
 - 꼭짓점을 삭제하려면 꼭짓점 이름 옆에 있는 휴지통 아이콘을 클릭합니다.
@@ -273,7 +273,7 @@ Storage Explorer가 이러한 "자체 서명된 인증서" 중 하나를 발견�
 
 ### <a name="httphttps-proxy-issue"></a>Http/Https 프록시 문제
 
-ASE에서 http/https 프록시를 구성할 때 왼쪽 트리에서 Azure Cosmos DB 노드를 나열할 수 없습니다. 알려진 문제이며 다음 릴리스에서 수정될 예정입니다. 이 시점에서 Azure Portal에서 Azure Cosmos DB 데이터 탐색기를 해결 방법으로 사용할 수 있습니다.
+ASE에서 http/https 프록시를 구성할 때 왼쪽 트리에서 Azure Cosmos DB 노드를 나열할 수 없습니다. 이 시점에서 Azure Portal에서 Azure Cosmos DB 데이터 탐색기를 해결 방법으로 사용할 수 있습니다.
 
 ### <a name="development-node-under-local-and-attached-node-issue"></a>“로컬 및 연결” 노드 중 “개발” 노드 문제
 

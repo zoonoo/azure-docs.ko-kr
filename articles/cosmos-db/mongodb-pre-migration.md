@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: lbosq
-ms.openlocfilehash: 9e867a544de8904274286cb68fc047f3f4b93e0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89cd1de3658c16fccdb70567641a68f5c1575507
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183316"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791751"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 MongoDB에서 Azure Cosmos DB의 API로 데이터 마이그레이션을 위한 마이그레이션 전 단계
 
@@ -30,7 +30,7 @@ MongoDB (온-프레미스 또는 클라우드)에서 MongoDB의 API Azure Cosmos
 
 다음은 Azure Cosmos DB의 MongoDB API에 대 한 특정 특성입니다.
 
-- **용량 모델**: Azure Cosmos DB의 데이터베이스 용량은 처리량 기반 모델을 기반으로 합니다. 이 모델은 초 단위로 컬렉션에 대해 실행할 수 있는 데이터베이스 작업의 수를 나타내는 단위인 [초당 요청 단위](request-units.md)를 기반으로 합니다. 이 용량은 [데이터베이스 또는 컬렉션 수준](set-throughput.md)에서 할당 될 수 있으며, 할당 모델에서 프로 비전 하거나 [자동 크기 조정 모델](provision-throughput-autoscale.md)을 사용 하 여 프로 비전 할 수 있습니다.
+- **용량 모델**: Azure Cosmos DB의 데이터베이스 용량은 처리량 기반 모델을 기반으로 합니다. 이 모델은 초 단위로 컬렉션에 대해 실행할 수 있는 데이터베이스 작업의 수를 나타내는 단위인 [초당 요청 단위](request-units.md)를 기반으로 합니다. 이 용량은 [데이터베이스 또는 컬렉션 수준](set-throughput.md)에서 할당 될 수 있으며 할당 모델에서 프로 비전 하거나 [자동 크기 조정 프로 비전 된 처리량](provision-throughput-autoscale.md)을 사용 하 여 프로 비전 할 수 있습니다.
 
 - **요청 단위**: 모든 데이터베이스 작업에는 Azure Cosmos DB 관련 된 RUs (요청 단위) 비용이 포함 됩니다. 이를 실행 하면 지정 된 초에 사용 가능한 요청 단위 수준에서 뺍니다. 요청에 현재 할당 된 r u/초 보다 많은 RUs가 필요한 경우 문제를 해결 하는 두 가지 옵션이 있습니다. RUs의 용량을 늘리거나 다음 초가 시작 될 때까지 기다린 후 작업을 다시 시도 하세요.
 

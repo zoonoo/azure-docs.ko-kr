@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2020
-ms.openlocfilehash: eb778c8d24639320b60927438de76a29de724ac2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/27/2020
+ms.openlocfilehash: 7b72d83740e0e2b02ef9d2ea3cd1cbf04a4c99cc
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684706"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983570"
 ---
 # <a name="execute-r-script"></a>R 스크립트 실행
 
@@ -42,6 +42,8 @@ azureml_main <- function(dataframe1, dataframe2){
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
 ```
+> [!NOTE]
+> 파이프라인이 여러 R 스크립트 실행 모듈을 포함 하 고 미리 설치 된 목록에 없는 동일한 패키지를 필요로 하는 경우 각각의 모듈에 패키지를 각각 설치 하십시오. 
 
 ## <a name="installing-r-packages"></a>R 패키지 설치
 추가 R 패키지를 설치 하려면 `install.packages()` 메서드를 사용 합니다. 패키지는 각 **r 스크립트 실행** 모듈에 대해 설치 되 고 다른 **r 스크립트 실행** 모듈에서 공유 되지 않습니다.
@@ -140,7 +142,7 @@ azureml_main <- function(dataframe1, dataframe2){
 1. **R 스크립트** 텍스트 상자에 올바른 R 스크립트를 입력 하거나 붙여 넣습니다.
 
     > [!NOTE]
-    > 스크립트를 작성할 때 매우 주의 해야 하며 선언 되지 않은 변수를 사용 하거나 가져온 모듈이 나 함수를 사용 하는 것과 같은 구문 오류가 없는지 확인 하십시오. 또한이 문서 끝에 있는 사전 설치 된 패키지 목록에 추가 주의 지불 합니다. 나열 되지 않은 패키지를 사용 하려면 다음 스크립트에 해당 패키지를 설치 하세요.`install.packages("zoo",repos = "http://cran.us.r-project.org")`
+    > 스크립트를 작성할 때는 매우 주의 해야 하며 선언 되지 않은 변수를 사용 하거나 가져온 모듈이 나 함수를 사용 하는 것과 같은 구문 오류가 없는지 확인 하십시오. 또한이 문서 끝에 있는 사전 설치 된 패키지 목록에 주의를 기울여야 합니다. 나열 되지 않은 패키지를 사용 하려면 다음 스크립트에 해당 패키지를 설치 하세요.`install.packages("zoo",repos = "http://cran.us.r-project.org")`
     
     > [!NOTE]
     > "보기"와 같이 X11 라이브러리에 종속 된 함수는 미리 설치 되지 않으므로 지원 되지 않습니다.

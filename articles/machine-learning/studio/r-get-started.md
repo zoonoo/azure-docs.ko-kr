@@ -9,41 +9,37 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 1dcda3efe3872100100d6e85b68a36359b7eab84
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 665bb12c91c8d6a5a60fd8f60216f30131f34915
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209505"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982193"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>R에서 Azure Machine Learning Studio (클래식) 시작
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
-이 자습서는 R 프로그래밍 언어를 사용 하 여 Azure Machine Learning Studio (클래식) 확장을 시작 하는 데 도움이 됩니다. 이 R 프로그래밍 자습서에 따라 Studio (클래식) 내에서 R 코드를 만들고 테스트 하 고 실행 합니다. 자습서를 진행할 때 스튜디오에서 R 언어 (클래식)를 사용 하 여 완전 한 예측 솔루션을 만듭니다.  
+이 자습서에서는 ML Studio (클래식)를 사용 하 여 R 코드를 만들고 테스트 하 고 실행 하는 방법에 대해 알아봅니다. 끝에는 완전 한 예측 솔루션이 있습니다.  
 
-Azure Machine Learning Studio (클래식)에는 많은 강력한 기계 학습 및 데이터 조작 모듈이 포함 되어 있습니다. 강력한 R 언어는 분석의 대표 언어라고 표현되어 왔습니다. R을 사용 하 여 Studio (클래식)에서 다행히 분석 및 데이터 조작을 확장할 수 있습니다. 이 조합은 R의 유연성 및 심층 분석을 통해 Studio (클래식)를 배포 하는 확장성과 용이성을 제공 합니다.
+> [!div class="checklist"]
+> * 데이터 정리 및 변환에 사용할 코드를 만듭니다.
+> * 데이터 집합에 있는 여러 변수 간의 상관 관계를 분석 합니다.
+> * 우유 production에 대해 계절 시계열 예측 모델을 만듭니다.
 
-### <a name="forecasting-and-the-dataset"></a>예측 및 데이터 세트
 
-예측은 널리 활용되고 매우 유용한 분석 방법입니다. 이는 계절성 품목의 매출 예측 및 최적의 재고 수준 결정에서부터 거시 경제 변수 예측에 이르기까지 일반적으로 사용됩니다. 일반적으로 예측은 시계열 모델을 통해 수행됩니다.
+Azure Machine Learning Studio (클래식)에는 많은 강력한 기계 학습 및 데이터 조작 모듈이 포함 되어 있습니다. R 프로그래밍 언어를 사용 하 여이 조합은 R의 유연성 및 심층 분석을 통해 Studio (클래식)를 배포 하는 확장성과 용이성을 제공 합니다.
 
-시계열 데이터는 값에 시간 인덱스가 있는 데이터입니다. 시간 인덱스는 예를 들어 매월 또는 매분처럼 규칙적이거나 불규칙적일 수 있습니다. 시계열 모델은 시계열 데이터를 기반으로 합니다. R 프로그래밍 언어는 시계열 데이터를 위한 유연한 프레임워크 및 광범위한 분석이 포함되어 있습니다.
+예측은 널리 활용되고 매우 유용한 분석 방법입니다. 이는 계절성 품목의 매출 예측 및 최적의 재고 수준 결정에서부터 거시 경제 변수 예측에 이르기까지 일반적으로 사용됩니다. 일반적으로 예측은 시계열 모델을 통해 수행됩니다. 시계열 데이터는 값에 시간 인덱스가 있는 데이터입니다. 시간 인덱스는 예를 들어 매월 또는 매분처럼 규칙적이거나 불규칙적일 수 있습니다. 시계열 모델은 시계열 데이터를 기반으로 합니다. R 프로그래밍 언어는 시계열 데이터를 위한 유연한 프레임워크 및 광범위한 분석이 포함되어 있습니다.
 
-이 가이드에서는 캘리포니아 유제품 생산 및 가격 책정 데이터로 작업 합니다. 이러한 데이터에는 기준 상품, 즉 몇몇 유제품 생산 및 유지방 가격에 대한 월별 정보가 포함됩니다.
+## <a name="get-the-data"></a>데이터 가져오기
+
+이 자습서에서는 캘리포니아 유제품 생산 및 가격 데이터를 사용 합니다. 여기에는 여러 유제품 제품의 생산에 대 한 월간 정보와 우유 fat의 가격 (벤치 마크 상품)이 포함 됩니다.
 
 이 문서에 사용 된 데이터는 R 스크립트와 함께 [MachineLearningSamples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples)에서 다운로드할 수 있습니다. 파일 `cadairydata.csv` 의 데이터는 원래 위스콘신의 대학에서 제공 되는 정보에서 합성 되었습니다 [https://dairymarkets.com](https://dairymarkets.com).
 
-### <a name="organization"></a>조직
 
-Azure Machine Learning Studio (클래식) 환경에서 분석 및 데이터 조작 R 코드를 만들고 테스트 하 고 실행 하는 방법을 배울 때 몇 가지 단계를 진행 합니다.  
-
-* 먼저 Azure Machine Learning Studio (클래식) 환경에서 R 언어를 사용 하는 기본 사항을 살펴보겠습니다.
-* 그런 다음 Azure Machine Learning Studio (클래식) 환경에서 데이터, R 코드 및 그래픽의 i/o에 대 한 다양 한 측면을 논의 합니다.
-* 그런 다음 데이터 정리 및 변환용 코드를 만들어 예측 솔루션의 첫 번째 부분을 만듭니다.
-* 준비된 데이터를 가지고 데이터 세트에서 여러 변수 간의 상관관계를 분석합니다.
-* 마지막으로 우유 생산의 계절성 시계열 예측 모델을 만듭니다.
 
 ## <a name="interact-with-r-language-in-machine-learning-studio-classic"></a><a id="mlstudio"></a>Machine Learning Studio에서 R 언어와 상호 작용 (클래식)
 
@@ -143,7 +139,7 @@ Rstudio [IDE를 사용 하 여](https://support.rstudio.com/hc/sections/20010758
 
 이 섹션에 대 한 전체 코드는 [MachineLearningSamples/스튜디오-샘플](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples)에 있습니다.
 
-### <a name="load-and-check-data-in-machine-learning-studio-classic"></a>Machine Learning Studio에서 데이터 로드 및 확인 (클래식)
+### <a name="load-and-check-data"></a>데이터 로드 및 확인 
 
 #### <a name="load-the-dataset"></a><a id="loading"></a>데이터 세트 로드
 
@@ -1306,7 +1302,7 @@ RStudio는 매우 잘 문서화 되어 있습니다. 다음은 시작 하는 데
 * **R 코드 편집 및 실행** -Rstudio는 r 코드를 편집 하 고 실행 하기 위한 통합 환경을 제공 합니다. 자세한 내용은 [코드 편집 및 실행](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code) 을 참조 하세요.
 * **디버깅** -rstudio에는 강력한 디버깅 기능이 포함 되어 있습니다. 이러한 기능에 대 한 자세한 내용은 [RStudio를 사용 하 여 디버깅](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio) 을 참조 하세요. 중단점 문제 해결 기능에 대 한 자세한 내용은 [중단점 문제 해결](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting)을 참조 하세요.
 
-## <a name="further-reading"></a><a id="appendixb"></a>추가 참고 자료
+## <a name="further-reading"></a><a id="appendixb"></a>추가 정보
 
 이 R 프로그래밍 자습서에서는 Azure Machine Learning Studio (클래식)에서 R 언어를 사용 하는 데 필요한 기본 사항을 설명 합니다. R에 익숙하지 않은 경우 CRAN에서 두 가지 소개 자료를 사용할 수 있습니다.
 
