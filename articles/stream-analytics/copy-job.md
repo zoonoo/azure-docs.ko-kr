@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 5c8f770855dd8d19a9d313f1b79f9bf8da4b2393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 258fc30f3e4a4ba374ada89c03b824ff5e27718e
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75771498"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612268"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업 복사 또는 백업
 
-Visual Studio Code 또는 Visual Studio를 사용 하 여 배포 된 Azure Stream Analytics 작업을 복사 하거나 백업할 수 있습니다. 
+Visual Studio Code 또는 Visual Studio를 사용 하 여 배포 된 Azure Stream Analytics 작업을 복사 하거나 백업할 수 있습니다. 작업을 다른 지역으로 복사 하면 마지막 출력 시간이 복사 되지 않습니다. 따라서 복사 된 작업을 시작할 때 [**마지막으로 중지 된 경우**](https://docs.microsoft.com/azure/stream-analytics/start-job#start-options) 에는이 옵션을 사용할 수 없습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.

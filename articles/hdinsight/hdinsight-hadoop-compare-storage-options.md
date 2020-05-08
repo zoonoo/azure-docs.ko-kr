@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: bfbe311d9768923eee8c1b0cc4f3b4ec1a7ad69a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed93ba937a843618f36bac6e88b15ff77355ca75
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186308"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610703"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 사용할 스토리지 옵션 비교
 
 HDInsight 클러스터를 만들 때 몇 가지 Azure storage 서비스 중에서 선택할 수 있습니다.
 
 * [Azure Storage](./overview-azure-storage.md)
-* [Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen1.md)
-* [Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen2.md)
+* [Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)
+* [Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen1.md)
 
 이 문서에서는 이러한 스토리지 유형 및 각 유형의 고유 기능에 대한 개요를 제공합니다.
 

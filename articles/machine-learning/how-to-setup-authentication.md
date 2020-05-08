@@ -10,12 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: fcaa7a0c44851d6b48b40b01af4c8ec992c330b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 6b2cfa85ea412a5ef8bda47a7ff6e99970ba6b0e
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283538"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611843"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +33,7 @@ ms.locfileid: "79283538"
 
 Azure Machine Learning 내에서 보안 및 인증에 대 한 일반적인 개요는 [개념 문서](concept-enterprise-security.md) 를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 * Azure Machine Learning SDK를 설치 하거나 SDK가 이미 설치 된 [Azure Machine Learning 노트북 VM](concept-azure-machine-learning-architecture.md#compute-instance) 을 사용 하도록 [개발 환경을 구성](how-to-configure-environment.md) 합니다.
@@ -125,7 +126,7 @@ az ad sp show --id your-client-id
 }
 ```
 
-다음으로, 다음 명령을 사용 하 여 machine learning 작업 영역에 대 한 서비스 주체 액세스 권한을 할당 합니다. `-w` 및 `-g` 매개 변수에 대 한 작업 영역 이름 및 해당 리소스 그룹 이름이 각각 필요 합니다. `--user` 매개 변수의 경우 이전 단계의 `objectId` 값을 사용 합니다. 매개 `--role` 변수를 사용 하 여 서비스 주체에 대 한 액세스 역할을 설정할 수 있으며, 일반적으로 **소유자** 또는 **참가자**중 하나를 사용 합니다. 둘 다 계산 클러스터 및 데이터 저장소와 같은 기존 리소스에 대 한 쓰기 권한이 있지만 **소유자** 만 이러한 리소스를 프로 비전 할 수 있습니다. 
+다음으로, 다음 명령을 사용 하 여 machine learning 작업 영역에 대 한 서비스 주체 액세스 권한을 할당 합니다. `-w` 및 `-g` 매개 변수에 대 한 작업 영역 이름 및 해당 리소스 그룹 이름이 각각 필요 합니다. `--user` 매개 변수의 경우 이전 단계의 `objectId` 값을 사용 합니다. 매개 `--role` 변수를 사용 하 여 서비스 주체에 대 한 액세스 역할을 설정할 수 있으며, 일반적으로 **소유자** 또는 **참가자**중 하나를 사용 합니다. 둘 다 계산 클러스터 및 데이터 저장소와 같은 기존 리소스에 대 한 쓰기 권한이 있지만 **소유자** 만 이러한 리소스를 프로 비전 할 수 있습니다.
 
 ```azurecli-interactive
 az ml workspace share -w your-workspace-name -g your-resource-group-name --user your-sp-object-id --role owner
@@ -148,7 +149,7 @@ sp = ServicePrincipalAuthentication(tenant_id="your-tenant-id", # tenantID
 이제 `sp` 변수는 SDK에서 직접 사용 하는 인증 개체를 포함 합니다. 일반적으로 다음 코드와 같이 환경 변수에서 위의 사용 된 id/암호를 저장 하는 것이 좋습니다.
 
 ```python
-import os 
+import os
 
 sp = ServicePrincipalAuthentication(tenant_id=os.environ['AML_TENANT_ID'],
                                     service_principal_id=os.environ['AML_PRINCIPAL_ID'],
@@ -160,7 +161,7 @@ Python에서 실행 되 고 SDK를 주로 사용 하는 자동화 된 워크플�
 ```python
 from azureml.core import Workspace
 
-ws = Workspace.get(name="ml-example", 
+ws = Workspace.get(name="ml-example",
                    auth=sp,
                    subscription_id="your-sub-id")
 ws.get_details()
@@ -168,7 +169,7 @@ ws.get_details()
 
 ## <a name="azure-machine-learning-rest-api-auth"></a>Azure Machine Learning REST API 인증
 
-위의 단계에서 만든 서비스 주체를 사용 하 여 Azure Machine Learning [REST API](https://docs.microsoft.com/rest/api/azureml/)에 인증할 수도 있습니다. 자동화 된 워크플로에서 헤드리스 인증에 대 한 서비스 간 호출을 허용 하는 Azure Active Directory [클라이언트 자격 증명 부여 흐름](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)을 사용 합니다. 예제는 Python 및 node.js 둘 다에서 [ADAL 라이브러리](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) 를 사용 하 여 구현 되지만 openid connect Connect 1.0을 지 원하는 오픈 소스 라이브러리를 사용할 수도 있습니다. 
+위의 단계에서 만든 서비스 주체를 사용 하 여 Azure Machine Learning [REST API](https://docs.microsoft.com/rest/api/azureml/)에 인증할 수도 있습니다. 자동화 된 워크플로에서 헤드리스 인증에 대 한 서비스 간 호출을 허용 하는 Azure Active Directory [클라이언트 자격 증명 부여 흐름](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)을 사용 합니다. 예제는 Python 및 node.js 둘 다에서 [ADAL 라이브러리](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) 를 사용 하 여 구현 되지만 openid connect Connect 1.0을 지 원하는 오픈 소스 라이브러리를 사용할 수도 있습니다.
 
 > [!NOTE]
 > MSAL는 ADAL 보다 최신 라이브러리 이지만 MSAL와 클라이언트 자격 증명을 사용 하 여 서비스 간 인증을 수행할 수 없습니다 .이는 주로 특정 사용자에 연결 된 대화형/UI 인증을 위한 클라이언트 쪽 라이브러리 이기 때문입니다. REST API를 사용 하 여 자동화 된 워크플로를 빌드하려면 아래와 같이 ADAL을 사용 하는 것이 좋습니다.
@@ -206,7 +207,7 @@ context.acquireTokenWithClientCredentials(
 변수 `tokenResponse` 는 토큰 및 관련 메타 데이터 (예: 만료 시간)를 포함 하는 개체입니다. 토큰은 1 시간 동안 유효 하며, 동일한 호출을 다시 실행 하 여 새 토큰을 검색 함으로써 새로 고칠 수 있습니다. 다음은 샘플 응답입니다.
 
 ```javascript
-{ 
+{
     tokenType: 'Bearer',
     expiresIn: 3599,
     expiresOn: 2019-12-17T19:15:56.326Z,
@@ -214,13 +215,13 @@ context.acquireTokenWithClientCredentials(
     accessToken: "random-oauth-token",
     isMRRT: true,
     _clientId: 'your-client-id',
-    _authority: 'https://login.microsoftonline.com/your-tenant-id' 
+    _authority: 'https://login.microsoftonline.com/your-tenant-id'
 }
 ```
 
 `accessToken` 속성을 사용 하 여 인증 토큰을 가져옵니다. 토큰을 사용 하 여 API 호출을 수행 하는 방법에 대 한 예제는 [REST API 설명서](https://github.com/microsoft/MLOps/tree/master/examples/AzureML-REST-API) 를 참조 하세요.
 
-### <a name="python"></a>Python 
+### <a name="python"></a>Python
 
 다음 단계를 사용 하 여 Python을 사용 하 여 인증 토큰을 생성 합니다. 사용자 환경에서를 실행 `pip install adal`합니다. 그런 다음 위의 단계 `tenantId`에서 `clientId`만든 서비스 `clientSecret` 주체에서, 및를 다음 스크립트의 적절 한 변수에 대 한 값으로 사용 합니다.
 
@@ -242,13 +243,13 @@ print(token_response)
 
 ```python
 {
-    'tokenType': 'Bearer', 
-    'expiresIn': 3599, 
-    'expiresOn': '2019-12-17 19:47:15.150205', 
-    'resource': 'https://management.azure.com/', 
-    'accessToken': 'random-oauth-token', 
-    'isMRRT': True, 
-    '_clientId': 'your-client-id', 
+    'tokenType': 'Bearer',
+    'expiresIn': 3599,
+    'expiresOn': '2019-12-17 19:47:15.150205',
+    'resource': 'https://management.azure.com/',
+    'accessToken': 'random-oauth-token',
+    'isMRRT': True,
+    '_clientId': 'your-client-id',
     '_authority': 'https://login.microsoftonline.com/your-tenant-id'
 }
 ```
@@ -314,9 +315,9 @@ print(token)
 > [!IMPORTANT]
 > 토큰의 `refresh_by` 시간 이후에 새 토큰을 요청 해야 합니다. Python SDK 외부에서 토큰을 새로 고쳐야 하는 경우 한 가지 옵션은 앞에서 설명한 대로 서비스 주체 인증과 함께 REST API를 사용 하 여 `service.get_token()` 주기적으로 호출 하는 것입니다.
 >
-> Azure Kubernetes Service 클러스터와 동일한 지역에 Azure Machine Learning 작업 영역을 만드는 것이 좋습니다. 
+> Azure Kubernetes Service 클러스터와 동일한 지역에 Azure Machine Learning 작업 영역을 만드는 것이 좋습니다.
 >
-> 토큰을 사용 하 여 인증 하기 위해 웹 서비스는 Azure Machine Learning 작업 영역이 생성 되는 영역에 대 한 호출을 수행 합니다. 작업 영역을 사용할 수 없는 경우에는 클러스터가 작업 영역에서 다른 지역에 있는 경우에도 웹 서비스에 대 한 토큰을 가져올 수 없습니다. 결과적으로 작업 영역을 다시 사용할 수 있을 때까지 Azure AD 인증를 사용할 수 없습니다. 
+> 토큰을 사용 하 여 인증 하기 위해 웹 서비스는 Azure Machine Learning 작업 영역이 생성 되는 영역에 대 한 호출을 수행 합니다. 작업 영역을 사용할 수 없는 경우에는 클러스터가 작업 영역에서 다른 지역에 있는 경우에도 웹 서비스에 대 한 토큰을 가져올 수 없습니다. 결과적으로 작업 영역을 다시 사용할 수 있을 때까지 Azure AD 인증를 사용할 수 없습니다.
 >
 > 또한 클러스터 지역과 작업 영역 영역 간의 거리가 클수록 토큰을 인출 하는 데 시간이 오래 걸립니다.
 

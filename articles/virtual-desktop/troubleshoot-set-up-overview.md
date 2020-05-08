@@ -5,38 +5,43 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 02/07/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2b9dfb2ee7e74f94bfc3e6d2c679cb7da3d6bc66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 196c4f692b425d2fc6592888ba89f2fa6dafd3de
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127409"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612506"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>문제 해결 개요, 피드백 및 지원
 
+>[!IMPORTANT]
+>이 콘텐츠는 Azure Resource Manager Windows 가상 데스크톱 개체를 사용 하 여 스프링 2020 업데이트에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 2019 릴리스를 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md)를 참조 하세요.
+>
+> Windows 가상 데스크톱 스프링 2020 업데이트는 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에 사용 하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
 이 문서에서는 Windows 가상 데스크톱 테 넌 트 환경을 설정할 때 발생할 수 있는 문제에 대 한 개요를 제공 하 고 문제를 해결 하는 방법을 제공 합니다.
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="report-issues-during-public-preview"></a>공개 미리 보기 중 문제 보고
 
-[Windows Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문하여 제품 팀 및 활발하게 활동하는 커뮤니티 멤버들과 Windows Virtual Desktop 서비스에 대해 토론해 보세요.
+스프링 2020 릴리스에 대 한 공개 미리 보기 중에 문제를 보고 하거나 기능을 제안 하려면 [Windows 가상 데스크톱 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문 하세요. 기술 커뮤니티를 사용 하 여 모범 사례를 논의 하거나 새로운 기능을 제안 하 고 투표를 할 수 있습니다. 공개 미리 보기 릴리스와 관련 된 문제를 보고 하는 경우 문제 유형에 **스프링 2020 업데이트 (미리 보기)** 로 레이블을 지정 해야 합니다.
+
+도움을 요청 하거나 새로운 기능을 제안 하는 게시물을 작성 하는 경우 최대한 많은 세부 정보로 항목을 설명 해야 합니다. 자세한 정보는 다른 사용자가 질문에 답변 하거나 투표를 제안 하는 기능을 이해 하는 데 도움이 될 수 있습니다.
 
 ## <a name="escalation-tracks"></a>에스컬레이션 트랙
 
-다음 표를 사용 하 여 원격 데스크톱 클라이언트를 사용 하 여 테 넌 트 환경을 설정할 때 발생할 수 있는 문제를 식별 하 고 해결할 수 있습니다. 테 넌 트가 설정 되 면 새로운 [진단 서비스](diagnostics-role-service.md) 를 사용 하 여 일반적인 시나리오에 대 한 문제를 식별할 수 있습니다.
+다른 작업을 수행 하기 전에 azure [상태 페이지](https://status.azure.com/status) 를 확인 하 고 [Azure Service Health](https://azure.microsoft.com/features/service-health/) 하 여 azure 서비스가 올바르게 실행 되 고 있는지 확인 합니다.
 
->[!NOTE]
-> 제품 팀 및 활성 커뮤니티 구성원의 문제를 논의 하기 위해 방문할 수 있는 기술 커뮤니티 포럼이 있습니다. [Windows 가상 데스크톱 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) 를 방문 하 여 토론을 시작 합니다.
+다음 표를 사용 하 여 원격 데스크톱 클라이언트를 사용 하 여 테 넌 트 환경을 설정할 때 발생할 수 있는 문제를 식별 하 고 해결할 수 있습니다. 테 넌 트가 설정 되 면 새로운 [진단 서비스](diagnostics-role-service.md) 를 사용 하 여 일반적인 시나리오에 대 한 문제를 식별할 수 있습니다.
 
 | **문제**                                                            | **제안 된 솔루션**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
-| Windows 가상 데스크톱 테 넌 트 만들기                                                    | Azure 가동 중단이 발생 하면 [azure 지원 요청을 여세요](https://azure.microsoft.com/support/create-ticket/). 그렇지 않은 경우 [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/), 서비스에 대해 **Windows 가상 데스크톱** 을 선택 하 고, 문제 유형에 대해 **배포** 를 선택한 다음, 문제 하위 유형에 대 한 **Windows 가상 데스크톱 테 넌 트 만들기 문제** 를 선택 합니다.|
-| Azure Portal에서 Marketplace 템플릿 액세스       | Azure 가동 중단이 발생 하면 [azure 지원 요청을 여세요](https://azure.microsoft.com/support/create-ticket/). <br> <br> Azure Marketplace Windows 가상 데스크톱 템플릿을 무료로 사용할 수 있습니다.|
-| GitHub에서 Azure Resource Manager 템플릿 액세스                                  | [테 넌 트 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)의 [Windows 가상 데스크톱 세션 호스트 vm 만들기](troubleshoot-set-up-issues.md#creating-windows-virtual-desktop-session-host-vms) 섹션을 참조 하세요. 그래도 문제가 해결 되지 않으면 [GitHub 지원 팀](https://github.com/contact)에 문의 하세요. <br> <br> GitHub에서 템플릿에 액세스 한 후에 오류가 발생 하는 경우 [Azure 지원](https://azure.microsoft.com/support/create-ticket/)에 문의 하세요.|
+| Azure Portal에서 Marketplace 템플릿 액세스       | Azure Marketplace Windows 가상 데스크톱 템플릿을 무료로 사용할 수 있습니다.|
 | 세션 호스트 풀 Azure Virtual Network (VNET) 및 Express 경로 설정               | [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/)네트워킹 범주 아래에서 적절 한 서비스를 선택 합니다. |
-| Windows 가상 데스크톱과 함께 제공 되는 Azure Resource Manager 템플릿을 사용 하지 않는 경우 세션 호스트 풀 VM (가상 머신) 만들기 | [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/)서비스에 대해 **Windows를 실행 하는 가상 컴퓨터** 를 선택 합니다. <br> <br> Windows 가상 데스크톱과 함께 제공 되는 Azure Resource Manager 템플릿에 대 한 문제는 [테 넌 트 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)의 Windows 가상 데스크톱 테 넌 트 만들기 섹션을 참조 하세요. |
+| Windows 가상 데스크톱과 함께 제공 되는 Azure Resource Manager 템플릿을 사용 하지 않는 경우 세션 호스트 풀 VM (가상 머신) 만들기 | [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/)서비스에 대해 **Windows를 실행 하는 가상 컴퓨터** 를 선택 합니다. <br> <br> Windows 가상 데스크톱과 함께 제공 되는 Azure Resource Manager 템플릿에 대 한 문제는 [환경 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)의 Windows 가상 데스크톱 테 넌 트 만들기 섹션을 참조 하세요. |
 | Azure Portal에서 Windows 가상 데스크톱 세션 호스트 환경 관리    | [Azure 지원 요청을 엽니다](https://azure.microsoft.com/support/create-ticket/). <br> <br> 원격 데스크톱 서비스/Windows 가상 데스크톱 PowerShell을 사용 하는 경우 관리 문제에 대 한 자세한 내용은 [Windows 가상 데스크톱 powershell](troubleshoot-powershell.md) 또는 [Azure 지원 요청 열기](https://azure.microsoft.com/support/create-ticket/)를 참조 하 고, 서비스에 대해 **windows 가상 데스크톱** 을 선택 하 고, 문제 유형에 대 한 **구성 및 관리** 를 선택한 다음, 문제 하위 형식에 대해 **PowerShell을 사용 하 여 테 넌 트 구성** |
 | 호스트 풀 및 응용 프로그램 그룹에 연결 되는 Windows 가상 데스크톱 구성 관리 (앱 그룹)      | [Windows 가상 데스크톱 PowerShell](troubleshoot-powershell.md)을 참조 하거나, [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/), 서비스에 대 한 **windows 가상 데스크톱** 을 선택한 다음, 적절 한 문제 유형을 선택 합니다.|
 | FSLogix 프로필 컨테이너 배포 및 관리 | [Fslogix 제품에 대 한 문제 해결 가이드](/fslogix/fslogix-trouble-shooting-ht/) 를 참조 하 고, 문제가 해결 되지 않으면 [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/), 서비스에 대 한 **Windows 가상 데스크톱** 을 선택 하 고, 문제 유형으로 **fslogix** 를 선택한 다음, 적절 한 문제 하위 유형을 선택 합니다. |
@@ -46,11 +51,12 @@ ms.locfileid: "79127409"
 | 클라이언트 연결                                                                    | [Windows 가상 데스크톱 서비스 연결](troubleshoot-service-connection.md) 을 참조 하 고, 문제가 해결 되지 않으면 [세션 호스트 가상 컴퓨터 구성](troubleshoot-vm-configuration.md)을 참조 하세요. |
 | 원격 응용 프로그램 또는 데스크톱의 응답성                                      | 문제가 특정 응용 프로그램 또는 제품에 연결 된 경우 해당 제품을 담당 하는 팀에 문의 하십시오. |
 | 라이선스 메시지 또는 오류                                                          | 문제가 특정 응용 프로그램 또는 제품에 연결 된 경우 해당 제품을 담당 하는 팀에 문의 하십시오. |
-| GitHub에서 Windows 가상 데스크톱 도구를 사용 하는 경우의 문제 (Azure Resource Manager 템플릿, 진단 도구, 관리 도구) | 문제를 보고 [원격 데스크톱 서비스 Azure Resource Manager 템플릿](https://github.com/Azure/RDS-Templates/blob/master/README.md) 을 참조 하세요. |
+| 타사 인증 방법에 대 한 문제 | 타사 공급자가 Windows 가상 데스크톱 시나리오를 지원 하는지 확인 하 고 알려진 문제와 관련 된 방법을 확인 합니다. |
+| Windows 가상 데스크톱에 대 한 Log Analytics 사용 문제 | 진단 스키마 문제에 대 한 자세한 내용은 [Azure 지원 요청을 여세요](https://azure.microsoft.com/support/create-ticket/).<br><br>Log Analytics의 쿼리, 시각화 또는 기타 문제의 경우 Log Analytics에서 적절 한 문제 유형을 선택 합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-- Windows 가상 데스크톱 환경에서 테 넌 트 및 호스트 풀을 만드는 동안 발생 하는 문제를 해결 하려면 [테 넌 트 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)를 참조 하세요.
+- Windows 가상 데스크톱 환경에서 호스트 풀을 만드는 동안 발생 하는 문제를 해결 하려면 [환경 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)를 참조 하세요.
 - Windows 가상 데스크톱에서 VM (가상 컴퓨터)을 구성 하는 동안 발생 하는 문제를 해결 하려면 [세션 호스트 가상 컴퓨터 구성](troubleshoot-vm-configuration.md)을 참조 하세요.
 - Windows 가상 데스크톱 클라이언트 연결 문제를 해결 하려면 [Windows 가상 데스크톱 서비스 연결](troubleshoot-service-connection.md)을 참조 하세요.
 - 원격 데스크톱 클라이언트와 관련 된 문제를 해결 하려면 [원격 데스크톱 클라이언트 문제 해결](troubleshoot-client.md) 을 참조 하세요.

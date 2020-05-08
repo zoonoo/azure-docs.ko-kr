@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: chrimo
-ms.openlocfilehash: 2543dd12e8a75a038a1fc04371b8c562ef696e25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 994edf26e43c7ad67d4f8822d4ed0d18d53b510b
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254236"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612455"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>세션 호스트 가상 컴퓨터에 Windows 라이선스 적용
 
@@ -23,7 +23,7 @@ Windows 가상 데스크톱 라이선스를 사용 하면 호스트 풀에서 �
 
 Windows 가상 데스크톱 라이선스를 사용 하는 몇 가지 방법이 있습니다.
 - [Azure Marketplace 제공](./create-host-pools-azure-marketplace.md)을 사용 하 여 호스트 풀 및 해당 세션 호스트 가상 컴퓨터를 만들 수 있습니다. 이러한 방식으로 만든 가상 머신은 라이선스를 자동으로 적용 합니다.
-- [GitHub Azure Resource Manager 템플릿을](./create-host-pools-arm-template.md)사용 하 여 호스트 풀 및 해당 세션 호스트 가상 컴퓨터를 만들 수 있습니다. 이러한 방식으로 만든 가상 머신은 라이선스를 자동으로 적용 합니다.
+- [GitHub Azure Resource Manager 템플릿을](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)사용 하 여 호스트 풀 및 해당 세션 호스트 가상 컴퓨터를 만들 수 있습니다. 이러한 방식으로 만든 가상 머신은 라이선스를 자동으로 적용 합니다.
 - 기존 세션 호스트 가상 머신에 라이선스를 적용할 수 있습니다. 이렇게 하려면 먼저 [PowerShell을 사용 하 여 호스트 풀 만들기](./create-host-pools-powershell.md) 의 지침에 따라 호스트 풀 및 연결 된 vm을 만든 다음이 문서로 돌아와서 라이선스를 적용 하는 방법을 알아보세요.
 
 ## <a name="apply-a-windows-license-to-a-session-host-vm"></a>세션 호스트 VM에 Windows 라이선스 적용
