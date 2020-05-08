@@ -8,14 +8,20 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b8023c0927c05d3952bd9f3a51e99e85154552fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70fd29944d31682de5a6a34f76fdf27e3ff7d3ff
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656368"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607846"
 ---
 # <a name="connect-with-the-web-client"></a>웹 클라이언트를 사용하여 연결
+
+>[!IMPORTANT]
+>이 콘텐츠는 Azure Resource Manager Windows 가상 데스크톱 개체를 사용 하 여 스프링 2020 업데이트에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 2019 릴리스를 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/connect-web-2019.md)를 참조 하세요.
+>
+> Windows 가상 데스크톱 스프링 2020 업데이트는 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에 사용 하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 웹 클라이언트를 사용 하면 시간이 오래 걸리는 설치 프로세스 없이 웹 브라우저에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다.
 
@@ -26,7 +32,7 @@ ms.locfileid: "80656368"
 
 HTML5 지원 브라우저가 제대로 작동 하는 동안에는 다음 운영 체제 및 브라우저를 공식적으로 지원 합니다.
 
-| 브라우저           | 지원되는 OS                     | 메모               |
+| 브라우저           | 지원되는 OS                     | 참고               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
 | Internet Explorer | Windows                          |                     |
@@ -36,7 +42,7 @@ HTML5 지원 브라우저가 제대로 작동 하는 동안에는 다음 운영 
 
 ## <a name="access-remote-resources-feed"></a>원격 리소스 피드에 액세스
 
-브라우저에서 [Windows 가상 데스크톱 웹 클라이언트로](https://rdweb.wvd.microsoft.com/webclient) 이동 하 여 사용자 계정으로 로그인 합니다.
+브라우저에서 [Windows 가상 데스크톱 웹 클라이언트로](https://rdweb.wvd.microsoft.com/arm/webclient) 이동 하 여 사용자 계정으로 로그인 합니다.
 
 >[!NOTE]
 >Windows 가상 데스크톱에 사용 하려는 계정이 아닌 다른 Azure Active Directory 계정으로 이미 로그인 한 경우에는 로그 아웃 하거나 개인 브라우저 창을 사용 해야 합니다.

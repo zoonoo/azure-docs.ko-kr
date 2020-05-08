@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: f07c02df1b8e0032c9e1b4ef9a24c345fee20a40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c15f16692e92c4d25d8194aaf93a3da907ae0e67
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426307"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598150"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Azure Stream Analytics 작업에 대 한 .NET Standard 사용자 정의 함수 개발 (미리 보기)
 
@@ -42,17 +42,29 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 모든 UDF 패키지의 형식에는 `/UserCustomCode/CLR/*` 경로가 있습니다. DLL(동적 연결 라이브러리) 및 리소스는 `/UserCustomCode/CLR/*` 폴더 아래에 복사되어 시스템 및 Azure Stream Analytics DLL에서 사용자 DLL을 격리할 수 있습니다. 이 패키지 경로는 사용되는 방법에 관계없이 모든 함수에 사용됩니다.
 
 ## <a name="supported-types-and-mapping"></a>지원되는 형식 및 매핑
+C #에서 사용 되는 Azure Stream Analytics 값은 한 환경에서 다른 환경으로 마샬링해야 합니다. 마샬링은 UDF의 모든 입력 매개 변수에 대해 발생 합니다. 모든 Azure Stream Analytics 형식에는 c #의 해당 형식이 아래 표에 나와 있습니다.
 
-|**UDF 형식(C#)**  |**Azure Stream Analytics 형식**  |
+|**Azure Stream Analytics 형식** |**C # 형식** |
+|---------|---------|
+|bigint | long |
+|float | double |
+|nvarchar(max) | 문자열 |
+|Datetime | DateTime |
+|레코드 | 사전\<문자열, 개체> |
+|Array | 배열\<개체> |
+
+데이터를 c #에서 Azure Stream Analytics로 마샬링해야 하 고 UDF의 출력 값에서 발생 하는 경우에도 마찬가지입니다. 다음 표에서는 지원 되는 형식을 보여 줍니다.
+
+|**C # 형식**  |**Azure Stream Analytics 형식**  |
 |---------|---------|
 |long  |  bigint   |
-|double  |  double   |
-|string  |  nvarchar(max)   |
-|dateTime  |  dateTime   |
-|struct  |  IRecord   |
-|개체  |  IRecord   |
-|배열\<개체>  |  IArray   |
-|dictionary<string, object>  |  IRecord   |
+|double  |  float   |
+|문자열  |  nvarchar(max)   |
+|DateTime  |  dateTime   |
+|struct  |  레코드   |
+|object  |  레코드   |
+|배열\<개체>  |  Array   |
+|사전\<문자열, 개체>  |  레코드   |
 
 ## <a name="codebehind"></a>CodeBehind
 사용자 정의 함수는 **Script.asql** CodeBehind에 작성할 수 있습니다. Visual Studio 도구에서 CodeBehind 파일을 어셈블리 파일로 자동으로 컴파일합니다. 어셈블리는 Zip 파일로 패키지되고, Azure에 작업을 제출할 때 스토리지 계정에 업로드됩니다. [Stream Analytics Edge 작업에 대한 C# UDF](stream-analytics-edge-csharp-udf.md) 자습서에 따라 CodeBehind를 사용하여 C# UDF를 작성하는 방법을 알아볼 수 있습니다. 
@@ -70,7 +82,7 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 6. 어셈블리 경로를 `JobConfig.json` 작업 구성 파일에 구성합니다. [어셈블리 경로]를 **로컬 프로젝트 참조 또는 CodeBehind**로 설정합니다.
 7. 함수 프로젝트와 Azure Stream Analytics 프로젝트를 모두 다시 빌드합니다.  
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 이 예제에서 **Udftest** 는 c # 클래스 라이브러리 프로젝트 이며 **ASAUDFDemo** 는 **udftest**를 참조 하는 Azure Stream Analytics 프로젝트입니다.
 

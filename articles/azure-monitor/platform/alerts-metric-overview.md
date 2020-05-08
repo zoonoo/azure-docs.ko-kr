@@ -4,12 +4,12 @@ description: 메트릭 경고로 수행할 수 있는 작업과 Azure Monitor에
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: a6860cad077b597df923274f8971f5652d4ba9e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 310d484fa1c88b2c54918fff84020a3438db9ae0
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80397984"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855049"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -26,7 +26,7 @@ Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작�
 - 대상 리소스(모니터링할 Azure 리소스): myVM
 - 메트릭: 백분율 CPU
 - 조건 형식: Static
-- 시간 집계(원시 메트릭 값에 대해 실행되는 통계. 지원 되는 시간 집계는 Min, Max, Avg, Total, Count): Average입니다.
+- 시간 집계(원시 메트릭 값에 대해 실행되는 통계. [지원 되는 시간 집계](metrics-charts.md#changing-aggregation) 는 Min, Max, Avg, Total, Count): Average입니다.
 - 기간 (메트릭 값을 확인 하는 뒤로 이동 창): 지난 5 분 동안
 - 빈도 (메트릭 경고에서 조건이 충족 되었는지 확인 하는 빈도): 1 분
 - 연산자: 보다 큼
@@ -43,7 +43,7 @@ Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작�
 - 대상 리소스(모니터링할 Azure 리소스): myVM
 - 메트릭: 백분율 CPU
 - 조건 형식: 동적
-- 시간 집계(원시 메트릭 값에 대해 실행되는 통계. 지원 되는 시간 집계는 Min, Max, Avg, Total, Count): Average입니다.
+- 시간 집계(원시 메트릭 값에 대해 실행되는 통계. [지원 되는 시간 집계](metrics-charts.md#changing-aggregation) 는 Min, Max, Avg, Total, Count): Average입니다.
 - 기간 (메트릭 값을 확인 하는 뒤로 이동 창): 지난 5 분 동안
 - 빈도 (메트릭 경고에서 조건이 충족 되었는지 확인 하는 빈도): 1 분
 - 연산자: 보다 큼
@@ -128,10 +128,10 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 | 서비스 | 공용 Azure | 정부 | 중국 |
 |:--------|:--------|:--------|:--------|
-| 가상 머신  | **예** | 예 | 아니요 |
-| SQL server 데이터베이스 | **예** | **예** | 예 |
-| SQL server 탄력적 풀 | **예** | **예** | 예 |
-| Data box edge 장치 | **예** | **예** | 예 |
+| 가상 머신  | **예** | 아니요 | 아니요 |
+| SQL server 데이터베이스 | **예** | **예** | 아니요 |
+| SQL server 탄력적 풀 | **예** | **예** | 아니요 |
+| Data box edge 장치 | **예** | **예** | 아니요 |
 
 세 가지 방법 중 하나로 단일 메트릭 경고 규칙에 따라 모니터링 범위를 지정할 수 있습니다. 예를 들어 virtual machines를 사용 하 여 범위를 다음과 같이 지정할 수 있습니다.  
 

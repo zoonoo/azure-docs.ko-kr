@@ -3,12 +3,12 @@ title: Application Insights의 성능 카운터 | Microsoft Docs
 description: Application Insights에서 시스템 및 사용자 지정 .NET 성능 카운터를 모니터링합니다.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: 94d2520c17867f6d70caffd002a76365a425986f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 201338d3a904030ea961aede094b9877bfee3e36
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77669882"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855103"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights의 시스템 성능 카운터
 
@@ -74,7 +74,7 @@ ASP.NET/ASP.NET Core 웹 응용 프로그램에 대해 수집 되도록 구성 �
 ```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
-      @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec")));
+      @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
 
