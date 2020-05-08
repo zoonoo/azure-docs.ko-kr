@@ -8,29 +8,28 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d4538c1d15aeae624f5d73e9985448bda2fd8f1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3149d45f50c53209e3be6be6688c9c2ce8fb0555
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188463"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900341"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Amazon 계정으로 등록 설정 및 로그인
 
-## <a name="create-an-amazon-application"></a>Amazon 애플리케이션 만들기
+## <a name="create-an-app-in-the-amazon-developer-console"></a>Amazon developer console에서 앱 만들기
 
-Amazon 계정을 Azure Active Directory B2C (Azure AD B2C)에서 [id 공급자로](authorization-code-flow.md) 사용 하려면 테 넌 트에서 응용 프로그램을 나타내는 응용 프로그램을 만들어야 합니다. Amazon 계정이 아직 없는 경우에서 [https://www.amazon.com/](https://www.amazon.com/)등록할 수 있습니다.
+Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션 id 공급자로 사용 하려면 [Amazon 개발자 서비스 및 기술](https://developer.amazon.com)에서 응용 프로그램을 만들어야 합니다. Amazon 계정이 아직 없는 경우에서 [https://www.amazon.com/](https://www.amazon.com/)등록할 수 있습니다.
 
-1. Amazon 계정 자격 증명을 사용하여 [Amazon 개발자 센터](https://login.amazon.com/)에 로그인합니다.
-1. 이미 수행한 경우 **등록**을 클릭하고 개발자 등록 단계를 수행하며 정책에 동의합니다.
-1. **새 애플리케이션 등록**을 선택합니다.
-1. **이름**, **설명** 및 **개인 정보 알림 URL**을 입력하고 **저장**을 클릭합니다. 개인정보취급방침은 사용자에게 개인 정보를 제공하는 관리 대상 페이지입니다.
-1. **웹 설정** 섹션에서 **클라이언트 ID** 값을 복사합니다. **비밀 표시**를 선택하여 클라이언트 암호를 표시한 후 복사합니다. 테넌트에서 Amazon 계정을 ID 공급자로 구성하려면 둘 모두가 필요합니다. **클라이언트 보안 비밀**은 중요한 보안 자격 증명이므로
-1. **웹 설정** 섹션에서 **편집**을 선택한 후 **허용된 JavaScript 원본**에 `https://your-tenant-name.b2clogin.com`을 입력하고, **허용된 반환 URL**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-tenant-name`을 테넌트 이름으로 바꿉니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용해야 합니다.
-1. **저장**을 클릭합니다.
+> [!NOTE]  
+> 아래의 **8 단계** 에서 다음 url을 사용 하 여 `your-tenant-name` 를 테 넌 트의 이름으로 바꿉니다. 테 넌 트 이름을 입력 하는 경우 Azure AD B2C에 대 문자가 대문자로 정의 된 경우에도 모든 소문자를 사용 합니다.
+> - **허용 되는 원본**에 대해 다음을 입력 합니다.`https://your-tenant-name.b2clogin.com` 
+> - **허용 되는 반환 url**에 대해 다음을 입력 합니다.`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
+
+[!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
 
 ## <a name="configure-an-amazon-account-as-an-identity-provider"></a>Amazon 계정을 ID 공급자로 구성
 

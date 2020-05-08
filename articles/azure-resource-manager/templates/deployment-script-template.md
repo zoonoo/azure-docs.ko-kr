@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/06/2020
 ms.author: jgao
-ms.openlocfilehash: 14663e71126d8c201015996e3e4dc76976128bcc
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: 5b938e2072daec56261e529ab8a2a8b15b55d143
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610805"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872326"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용 (미리 보기)
 
@@ -38,7 +38,7 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
 > [!IMPORTANT]
 > 스크립트를 실행 하 고 문제를 해결 하려면 저장소 계정 및 컨테이너 인스턴스가 필요 합니다. 기존 저장소 계정을 지정 하는 옵션이 있습니다. 그렇지 않으면 컨테이너 인스턴스와 함께 저장소 계정이 스크립트 서비스에 의해 자동으로 생성 됩니다. 자동으로 생성 된 두 리소스는 일반적으로 배포 스크립트 실행이 터미널 상태로 될 때 스크립트 서비스에 의해 삭제 됩니다. 리소스가 삭제될 때까지 해당 리소스에 대한 요금이 청구됩니다. 자세히 알아보려면 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - **대상 리소스 그룹에 대 한 참가자의 역할이 있는 사용자 할당 관리 id**입니다. 이 ID는 배포 스크립트를 실행하는 데 사용됩니다. 리소스 그룹 외부에서 작업을 수행 하려면 추가 권한을 부여 해야 합니다. 예를 들어 새 리소스 그룹을 만들려는 경우 구독 수준에 id를 할당 합니다.
 
@@ -304,8 +304,8 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 
 스크립트를 실행 하 고 문제를 해결 하려면 저장소 계정 및 컨테이너 인스턴스가 필요 합니다. 기존 저장소 계정을 지정 하는 옵션이 있습니다. 그렇지 않으면 컨테이너 인스턴스와 함께 저장소 계정이 스크립트 서비스에 의해 자동으로 생성 됩니다. 기존 저장소 계정을 사용 하기 위한 요구 사항:
 
-- 지원 되는 저장소 계정 종류는 범용 v2 계정, 범용 v1 계정 및 fileStorage 계정입니다. 자세한 내용은 [저장소 계정 유형](../../storage/common/storage-account-overview.md)을 참조 하세요.
-- 저장소 계정 방화벽 규칙이 꺼져 있어야 합니다. [Azure Storage 방화벽 및 가상 네트워크 구성을](../../storage/common/storage-network-security.md) 참조 하세요.
+- 지원 되는 저장소 계정 종류는 범용 v2, 범용 v1 및 FileStorage 계정입니다. FileStorage만 프리미엄 SKU를 지원 합니다. 자세한 내용은 [저장소 계정 유형](../../storage/common/storage-account-overview.md)을 참조 하세요.
+- 저장소 계정 방화벽 규칙은 아직 지원 되지 않습니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../../storage/common/storage-network-security.md)을 참조하세요.
 - 배포 스크립트의 사용자 할당 관리 id에는 저장소 계정을 관리할 수 있는 권한이 있어야 합니다. 여기에는 파일 공유 읽기, 만들기, 삭제 등이 포함 됩니다.
 
 기존 저장소 계정을 지정 하려면의 `Microsoft.Resources/deploymentScripts`property 요소에 다음 json을 추가 합니다.
@@ -316,6 +316,16 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
   "storageAccountKey": "myKey"
 },
 ```
+
+- **Storageaccountname**: 저장소 계정의 이름을 지정 합니다.
+- **storageAccountKey "**: 저장소 계정 키 중 하나를 지정 합니다. 함수를 [`listKeys()`](./template-functions-resource.md#listkeys) 사용 하 여 키를 검색할 수 있습니다. 예를 들어:
+
+    ```json
+    "storageAccountSettings": {
+        "storageAccountName": "[variables('storageAccountName')]",
+        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+    }
+    ```
 
 전체 `Microsoft.Resources/deploymentScripts` 정의 샘플은 [샘플 템플릿](#sample-templates) 을 참조 하세요.
 
@@ -336,7 +346,7 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 - 보존 **기간**: 스크립트 리소스가 유지 되는 시간 간격을 지정 합니다 .이 시간 후에 만료 되 고 삭제 됩니다.
 
 > [!NOTE]
-> 다른 용도로는 배포 스크립트 리소스를 사용 하지 않는 것이 좋습니다.
+> 다른 용도로는 스크립트 서비스에 의해 생성 되는 저장소 계정 및 컨테이너 인스턴스도 사용 하지 않는 것이 좋습니다. 스크립트 수명 주기에 따라 두 리소스가 제거 될 수 있습니다.
 
 ## <a name="run-script-more-than-once"></a>스크립트를 두 번 이상 실행
 

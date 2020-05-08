@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: tisande
-ms.openlocfilehash: 38e262abefe5444c1fe7586810f4b971cc7baf6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a6060448175530ada5ba95ceda470056a7be002
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81114159"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872151"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB의 API에서 스트림 변경
 
@@ -45,7 +45,7 @@ Azure Cosmos DB의 SQL API에 있는 변경 피드와 달리 변경 스트림을
 
 다음 예제에서는 컬렉션의 모든 항목에 대 한 변경 스트림을 가져오는 방법을 보여 줍니다. 이 예제에서는 삽입, 업데이트 또는 교체 될 때 항목을 감시 하는 커서를 만듭니다. 변경 `$match` 스트림을 가져오려면 `$project` 단계, 단계 `fullDocument` 및 옵션이 필요 합니다. 변경 스트림을 사용 하 여 삭제 작업을 감시 하는 작업은 현재 지원 되지 않습니다. 이 문제를 해결 하려면 삭제할 항목에 소프트 마커를 추가 하면 됩니다. 예를 들어 "deleted" 라는 항목에 특성을 추가할 수 있습니다. 항목을 삭제 하려는 경우 "deleted"를로 `true` 설정 하 고 항목에 대 한 TTL을 설정할 수 있습니다. "Deleted"를로 업데이트 `true` 하는 것이 업데이트 이므로 변경 스트림에이 변경 내용이 표시 됩니다.
 
-### <a name="javascript"></a>JavaScript:
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 var cursor = db.coll.watch(
@@ -61,8 +61,7 @@ while (!cursor.isExhausted()) {
     }
 }
 ```
-
-### <a name="c"></a>C#:
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 var pipeline = new EmptyPipelineDefinition<ChangeStreamDocument<BsonDocument>>()

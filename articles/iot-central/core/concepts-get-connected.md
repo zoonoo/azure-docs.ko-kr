@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b66f5a7d85eb91970d5f551b010dd512b216b9c6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
-ms.translationtype: MT
+ms.openlocfilehash: 28abf6fca0933158b067dda7ab54af93dac4b7d9
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509519"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872426"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -95,6 +95,14 @@ X.509 인증서를 사용 하 여 장치를 대량 연결 하려면 먼저 CSV �
 
 업로드 된 루트 또는 중간 인증서를 사용 하 여 장치에 대 한 x.509 리프 인증서를 생성 합니다. 리프 인증서의 `CNAME` 값으로 **장치 ID** 를 사용 합니다. 장치 코드에는 응용 프로그램에 대 한 **id 범위** 값, **장치 id**및 해당 장치 인증서가 필요 합니다.
 
+#### <a name="sample-device-code"></a>샘플 장치 코드
+
+[Azure IOT NODE.JS SDK](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/device/samples/register_x509.js) 의 다음 샘플에서는 node.js 장치 클라이언트가 x.509 리프 인증서 및 DPS를 사용 하 여 IoT Central 응용 프로그램에 등록 하는 방법을 보여 줍니다.
+
+:::code language="nodejs" source="~/azure-iot-sdk-node/provisioning/device/samples/register_x509.js":::
+
+해당 하는 C 샘플은 [Azure IoT C 프로 비전 장치 클라이언트 SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)의 prov_dev_client_sample을 참조 하세요 [.](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)
+
 ### <a name="for-testing-purposes-only"></a>테스트 목적 으로만 사용
 
 테스트 전용으로 다음 유틸리티를 사용 하 여 루트, 중간 및 장치 인증서를 생성할 수 있습니다.
@@ -106,11 +114,6 @@ X.509 인증서를 사용 하 여 장치를 대량 연결 하려면 먼저 CSV �
   - 인증서를 .cer 파일로 저장 하 여 IoT Central 응용 프로그램에 업로드 합니다.
   - IoT Central 응용 프로그램의 확인 코드를 사용 하 여 확인 인증서를 생성 합니다.
   - 장치 Id를 도구에 대 한 매개 변수로 사용 하 여 장치에 대 한 리프 인증서를 만듭니다.
-
-### <a name="further-reference"></a>추가 참조
-
-- [RaspberryPi에 대 한 샘플 구현](https://aka.ms/iotcentral-docs-Raspi-releases)
-- [C의 샘플 장치 클라이언트](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
 
 ## <a name="connect-without-registering-devices"></a>장치를 등록 하지 않고 연결
 

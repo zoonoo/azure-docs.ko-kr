@@ -3,17 +3,26 @@ title: Azure Migrate에서 평가/마이그레이션 도구 추가
 description: Azure Migrate 프로젝트를 만들고 평가/마이그레이션 도구를 추가 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 48bdea31d17ea1ddf0b983af962dce30b22d8dcf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1294831162df973e1f87052c1520d5d95990cf8f
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537732"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901181"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>처음으로 평가/마이그레이션 도구에 추가
 
 이 문서에서는 [Azure Migrate](migrate-overview.md) 프로젝트에 평가 또는 마이그레이션 도구를 처음으로 추가 하는 방법을 설명 합니다.  
 Azure Migrate는 Azure에 대 한 온-프레미스 앱 및 워크 로드 및 사설/공용 클라우드 Vm의 검색, 평가 및 마이그레이션을 추적 하는 중앙 허브를 제공 합니다. 허브는 기타 도구 및 ISV (독립 소프트웨어 공급 업체) [제품](migrate-services-overview.md#isv-integration) 뿐만 아니라 평가 및 마이그레이션에 대 한 Azure Migrate 도구를 제공 합니다. 
+
+## <a name="check-permissions-to-create-project"></a>프로젝트를 만들 수 있는 권한 확인
+
+Azure Migrate 프로젝트를 아직 만들지 않은 경우 올바른 권한이 있는지 확인 합니다.
+
+1. Azure Portal에서 구독을 열고, **액세스 제어(IAM)** 를 선택합니다.
+2. 액세스 권한 확인에서 관련 계정을 찾아 클릭하여 권한을 확인합니다. 기여자 또는 소유자 권한이 있어야 합니다.
+    - Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자입니다.
+    - 구독 소유자가 아닌 경우 해당 역할을 할당해 주도록 소유자에게 문의합니다.
 
 ## <a name="create-a-project-and-add-a-tool"></a>프로젝트 만들기 및 도구 추가
 
@@ -66,4 +75,6 @@ Azure 구독에 새 Azure Migrate 프로젝트를 설정 하 고 도구를 추�
 
 ## <a name="next-steps"></a>다음 단계
 
-[평가](how-to-assess.md) 및 [마이그레이션](how-to-migrate.md) 도구를 추가 하는 방법에 대해 알아봅니다. 
+- [Azure Migrate 시작: 서버 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool)또는 [Azure Migrate: 서버 마이그레이션](migrate-services-overview.md#azure-migrate-server-migration-tool).
+- ISV 도구 또는 Movere를 추가한 경우 도구를 Azure Migrate에 연결 하기 위해 준비 하는 [단계를 검토](prepare-isv-movere.md) 합니다.
+- [평가](how-to-assess.md) 및 [마이그레이션](how-to-migrate.md) 도구를 추가 하는 방법에 대해 알아봅니다. 

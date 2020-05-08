@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f4fff7c8865a59b916755a69a98448a1684da229
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: d37e790b8a77a48cb5ef53292712164dcdcf459b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853318"
+ms.locfileid: "82872005"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -104,6 +104,18 @@ GZRS 저장소 계정을 사용 하 여 가용성 영역을 사용할 수 없게
 
 범용 v2 저장소 계정만 GZRS 및 RA-GZRS을 지원 합니다. 애플리케이션 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요. GZRS 및 RA-GZRS는 블록 blob, 페이지 blob (VHD 디스크 제외), 파일, 테이블 및 큐를 지원 합니다. GZRS 및 RA-GZRS는 모든 Azure 지역에서 사용할 수 있습니다.
 
+GZRS 및 GZRS는 다음 지역에서 지원 됩니다.
+
+- 동남아시아
+- 북유럽
+- 서유럽
+- 일본 동부
+- 영국 남부
+- 미국 중부
+- 미국 동부
+- 미국 동부 2
+- 미국 서부 2
+
 가격 책정에 대 한 자세한 내용은 [blob](https://azure.microsoft.com/pricing/details/storage/blobs), [파일](https://azure.microsoft.com/pricing/details/storage/files/), [큐](https://azure.microsoft.com/pricing/details/storage/queues/)및 [테이블](https://azure.microsoft.com/pricing/details/storage/tables/)에 대 한 가격 세부 정보를 참조 하세요.
 
 ## <a name="read-access-to-data-in-the-secondary-region"></a>보조 지역의 데이터에 대 한 읽기 액세스
@@ -154,7 +166,7 @@ Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리
 
 Azure Storage는 CRCs (순환 중복 검사)를 사용 하 여 저장 된 데이터의 무결성을 정기적으로 확인 합니다. 데이터 손상이 감지 되 면 중복 데이터를 사용 하 여 복구 됩니다. 또한 Azure Storage는 데이터를 저장 하거나 검색할 때 데이터 패킷의 손상을 검색 하기 위해 모든 네트워크 트래픽에 대 한 체크섬을 계산 합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [저장소 계정에 대 한 마지막 동기화 시간 속성 확인](last-sync-time-get.md)
 - [저장소 계정에 대 한 중복성 옵션 변경](redundancy-migration.md)

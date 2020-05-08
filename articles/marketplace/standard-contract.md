@@ -1,22 +1,22 @@
 ---
-title: 표준 계약 | Azure Marketplace
-description: Azure Marketplace 및 AppSource에 대 한 표준 계약
+title: Microsoft 상업적 marketplace에 대 한 표준 계약
+description: 파트너 센터의 Azure Marketplace 및 AppSource에 대 한 표준 계약
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: facb500299f7196e0e1387c3a7267a917d13a3a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3886b29a47edcfb36114cedf8b8edb3799e0c345
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681457"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871425"
 ---
-# <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 표준 계약
+# <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 표준 계약
 
-고객을 위한 조달 프로세스를 간소화 하 고 소프트웨어 공급 업체에 대 한 법적 복잡성을 줄이기 위해 Microsoft는 marketplace에서 트랜잭션을 용이 하 게 하기 위해 Microsoft 상업적 marketplace에 대 한 표준 계약을 제공 합니다. 상업적 marketplace 게시자는 사용자 지정 약관을 만드는 대신 표준 계약에 따라 소프트웨어를 제공 하도록 선택할 수 있으며,이는 고객이 한 번만 심사 하 고 수락 하면 됩니다. 표준 계약은에서 찾을 [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178)수 있습니다.
+Microsoft는 Microsoft 상업적 marketplace에 대 한 표준 계약을 제공 합니다. 이를 통해 고객에 대 한 조달 프로세스를 간소화 하 고, 소프트웨어 공급 업체의 법적 복잡성을 줄이고, marketplace에서 트랜잭션을 용이 하 게 할 수 있습니다. 상용 마켓플레이스 게시자로 사용자 지정 약관을 만드는 대신 [표준 계약](https://go.microsoft.com/fwlink/?linkid=2041178)에 따라 소프트웨어를 제공 하도록 선택할 수 있으며,이는 고객이 심사 하 고 한 번만 수락 하면 됩니다.
 
 제품에 대 한 사용 조건은 파트너 센터에서 제품을 만들 때 정의 됩니다. 사용자 고유의 사용자 지정 사용 약관을 제공 하는 대신 Microsoft 상업적 marketplace에 대 한 표준 계약을 사용 하도록 선택할 수 있습니다.
 
@@ -40,7 +40,7 @@ Microsoft 상업적 marketplace에 대 한 표준 계약을 활용할 수 있습
 
 ## <a name="customer-experience"></a>고객 환경
 
-Azure marketplace 또는 AppSource의 검색 환경을 사용 하는 동안 고객은 Microsoft 상용 marketplace 및 모든 universal 개정의 표준 계약으로 제품에 연결 된 용어를 볼 수 있습니다.
+Azure Marketplace 또는 AppSource의 검색 환경을 사용 하는 동안 고객은 제품과 관련 된 용어를 Microsoft 상업적 Marketplace 및 모든 universal 개정의 표준 계약으로 볼 수 있습니다.
 
 ![Azure Portal 고객 검색 환경입니다.](media/marketplace-publishers-guide/azure-discovery-process.png)
 

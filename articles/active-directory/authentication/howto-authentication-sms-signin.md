@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 04/24/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845948d9aec28ee79a11fb11aaef4cfbf1b263fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 517ff16cd1cbf9bfe31404d3b1b3993a02d6dae9
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770562"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871561"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Azure Active Directory를 사용 하 여 SMS 기반 인증용 사용자 구성 및 사용 (미리 보기)
 
@@ -38,9 +38,9 @@ ms.locfileid: "81770562"
 * 구독과 연결 된 Azure Active Directory 테 넌 트입니다.
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * SMS 기반 인증을 사용 하도록 설정 하려면 Azure AD 테 넌 트에서 *전역 관리자* 권한이 필요 합니다.
-* 문자 메시지 인증 방법 정책에서 사용 하도록 설정 된 각 사용자는 사용 하지 않는 경우에도 사용이 허가 되어야 합니다. 사용 하도록 설정 된 각 사용자에 게는 다음 Azure AD 또는 Microsoft 365 라이선스 중 하나가 있어야 합니다.
+* 문자 메시지 인증 방법 정책에서 사용 하도록 설정 된 각 사용자는 사용 하지 않는 경우에도 사용이 허가 되어야 합니다. 사용 하도록 설정 된 각 사용자에 게는 다음 Azure AD, Office 365 또는 Microsoft 365 라이선스 중 하나가 있어야 합니다.
     * [Azure AD Premium P1 또는 P2][azuread-licensing]
-    * [Microsoft 365 (M365) F1 또는 F3][m365-firstline-workers-licensing]
+    * [Microsoft 365 (M365) f1 또는 f3][m365-firstline-workers-licensing] 또는 [Office 365 f1][o365-f1] 또는 [f3][o365-f3]
     * [EMS (Enterprise Mobility + Security) e3 또는 e5][ems-licensing] 또는 [Microsoft 365 (M365) e3 또는 e5][m365-licensing]
 
 ## <a name="limitations"></a>제한 사항
@@ -164,3 +164,5 @@ Microsoft Authenticator App 또는 FIDO2 보안 키와 같은 암호 없이 Azur
 [azuread-licensing]: https://azure.microsoft.com/pricing/details/active-directory/
 [ems-licensing]: https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing
 [m365-licensing]: https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans
+[o365-f1]: https://www.microsoft.com/microsoft-365/business/office-365-f1?market=af
+[o365-f3]: https://www.microsoft.com/microsoft-365/business/office-365-f3?activetab=pivot%3aoverviewtab

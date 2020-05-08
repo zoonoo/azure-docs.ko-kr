@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/04/2020
 ms.author: sstein
-ms.openlocfilehash: c3dc5b26435f6d876e5eaea943e359055018913b
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: aa8d1634c015f338053a4d167db34ef0b5a83505
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201315"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801691"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 릴리스 정보
 
@@ -24,7 +24,7 @@ ms.locfileid: "82201315"
 
 ### <a name="single-database"></a>[단일 데이터베이스](#tab/single-database)
 
-| 기능 | 세부 정보 |
+| 기능 | 설명 |
 | ---| --- |
 | 새 Fsv2 시리즈 및 M 시리즈 하드웨어 생성| 자세한 내용은 [하드웨어 생성](sql-database-service-tiers-vcore.md#hardware-generations)을 참조 하세요.|
 | 단일 데이터베이스 및 탄력적 풀을 사용한 가속화 된 데이터베이스 복구 | 자세한 내용은 [가속화 데이터베이스 복구](sql-database-accelerated-database-recovery.md)를 참조 하세요.|
@@ -43,7 +43,7 @@ ms.locfileid: "82201315"
 
 ### <a name="managed-instance"></a>[Managed Instance](#tab/managed-instance)
 
-| 기능 | 세부 정보 |
+| 기능 | 설명 |
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-instance-pools">인스턴스 풀</a> | 더 작은 SQL 인스턴스를 클라우드로 마이그레이션하는 편리 하 고 비용 효율적인 방법입니다. |
 | <a href="https://aka.ms/managed-instance-aadlogins">인스턴스 수준 Azure AD 서버 보안 주체 (로그인)</a> | <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> 문을 사용 하 여 서버 수준 로그인을 만듭니다. |
@@ -78,30 +78,35 @@ ms.locfileid: "82201315"
 
 |문제  |검색 된 날짜  |상태  |해결 된 날짜  |
 |---------|---------|---------|---------|
-|[리소스 그룹에 대 한 사용 권한이 Managed Instance에 적용 되지 않음](#permissions-on-resource-group-not-applied-to-managed-instance)|2 월 2020|해결 방법||
-|[장애 조치 (failover) 그룹용 포털을 통한 수동 장애 조치의 제한 사항](#limitation-of-manual-failover-via-portal-for-failover-groups)|1 월 2020|해결 방법||
-|[SQL 에이전트 역할에는 sysadmin이 아닌 로그인에 대 한 명시적 실행 권한이 필요 합니다.](#in-memory-oltp-memory-limits-are-not-applied)|12 월 2019|해결 방법||
+|[기존 작업을 수정, 사용 안 함 또는 사용 하도록 설정할 때 에이전트가 응답 하지 않습니다.](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|2020 년 5 월|자동 완화| |
+|[리소스 그룹에 대 한 사용 권한이 Managed Instance에 적용 되지 않음](#permissions-on-resource-group-not-applied-to-managed-instance)|2 월 2020|해결 방법| |
+|[장애 조치 (failover) 그룹용 포털을 통한 수동 장애 조치의 제한 사항](#limitation-of-manual-failover-via-portal-for-failover-groups)|1 월 2020|해결 방법| |
+|[SQL 에이전트 역할에는 sysadmin이 아닌 로그인에 대 한 명시적 실행 권한이 필요 합니다.](#in-memory-oltp-memory-limits-are-not-applied)|12 월 2019|해결 방법| |
 |[에이전트 프로세스를 다시 시작 하 여 SQL 에이전트 작업을 중단할 수 있습니다.](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|12 월 2019|해결됨|3 월 2020|
-|[AAD 로그인 및 사용자는 SSDT에서 지원 되지 않습니다.](#aad-logins-and-users-are-not-supported-in-ssdt)|11 월 2019|해결 방법 없음||
-|[메모리 내 OLTP 메모리 제한이 적용 되지 않습니다.](#in-memory-oltp-memory-limits-are-not-applied)|10 월 2019|해결 방법||
-|[비어 있지 않은 파일을 제거 하는 동안 잘못 된 오류가 반환 되었습니다.](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|10 월 2019|해결 방법||
-|[지속적인 데이터베이스 복원으로 서비스 계층 변경 및 인스턴스 만들기 작업 차단](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|9 월 2019|해결 방법||
-|[장애 조치 (failover) 후 중요 비즈니스용 서비스 계층의 Resource Governor를 다시 구성 해야 할 수 있음](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|9 월 2019|해결 방법||
-|[서비스 계층 업그레이드 후 데이터베이스 간 Service Broker 대화 상자를 다시 초기화 해야 함](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|8 월 2019|해결 방법||
-|[Azure AD 로그인 유형의 Impersonification 지원 되지 않습니다.](#impersonification-of-azure-ad-login-types-is-not-supported)|7 월 2019|해결 방법 없음||
-|[@querysp_send_db_mail에서 지원 되지 않는 매개 변수](#-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|해결 방법 없음||
-|[지역 장애 조치 (failover) 후 트랜잭션 복제를 다시 구성 해야 합니다.](#transactional-replication-must-be-reconfigured-after-geo-failover)|3 월 2019|해결 방법 없음||
-|[복원 작업 중에 임시 데이터베이스가 사용 됩니다.](#temporary-database-is-used-during-restore-operation)||해결 방법||
-|[TEMPDB 구조와 콘텐츠를 다시 만들었습니다.](#tempdb-structure-and-content-is-re-created)||해결 방법 없음||
-|[작은 데이터베이스 파일이 포함된 스토리지 공간 초과](#exceeding-storage-space-with-small-database-files)||해결 방법||
-|[데이터베이스 이름 대신 표시 되는 GUID 값](#guid-values-shown-instead-of-database-names)||해결 방법||
-|[오류 로그는 지속 되지 않습니다.](#error-logs-arent-persisted)||해결 방법 없음||
+|[AAD 로그인 및 사용자는 SSDT에서 지원 되지 않습니다.](#aad-logins-and-users-are-not-supported-in-ssdt)|11 월 2019|해결 방법 없음| |
+|[메모리 내 OLTP 메모리 제한이 적용 되지 않습니다.](#in-memory-oltp-memory-limits-are-not-applied)|10 월 2019|해결 방법| |
+|[비어 있지 않은 파일을 제거 하는 동안 잘못 된 오류가 반환 되었습니다.](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|10 월 2019|해결 방법| |
+|[지속적인 데이터베이스 복원으로 서비스 계층 변경 및 인스턴스 만들기 작업 차단](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|9 월 2019|해결 방법| |
+|[장애 조치 (failover) 후 중요 비즈니스용 서비스 계층의 Resource Governor를 다시 구성 해야 할 수 있음](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|9 월 2019|해결 방법| |
+|[서비스 계층 업그레이드 후 데이터베이스 간 Service Broker 대화 상자를 다시 초기화 해야 함](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|8 월 2019|해결 방법| |
+|[Azure AD 로그인 유형의 Impersonification 지원 되지 않습니다.](#impersonification-of-azure-ad-login-types-is-not-supported)|7 월 2019|해결 방법 없음| |
+|[@querysp_send_db_mail에서 지원 되지 않는 매개 변수](#-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|해결 방법 없음| |
+|[지역 장애 조치 (failover) 후 트랜잭션 복제를 다시 구성 해야 합니다.](#transactional-replication-must-be-reconfigured-after-geo-failover)|3 월 2019|해결 방법 없음| |
+|[복원 작업 중에 임시 데이터베이스가 사용 됩니다.](#temporary-database-is-used-during-restore-operation)||해결 방법| |
+|[TEMPDB 구조와 콘텐츠를 다시 만들었습니다.](#tempdb-structure-and-content-is-re-created)||해결 방법 없음| |
+|[작은 데이터베이스 파일이 포함된 스토리지 공간 초과](#exceeding-storage-space-with-small-database-files)||해결 방법| |
+|[데이터베이스 이름 대신 표시 되는 GUID 값](#guid-values-shown-instead-of-database-names)||해결 방법| |
+|[오류 로그는 지속 되지 않습니다.](#error-logs-arent-persisted)||해결 방법 없음| |
 |[동일한 인스턴스 내에 있는 두 데이터베이스의 트랜잭션 범위는 지원 되지 않습니다.](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||해결 방법|3 월 2020|
-|[CLR 모듈 및 연결 된 서버는 때때로 로컬 IP 주소를 참조할 수 없습니다.](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||해결 방법||
-|Azure Blob Storage에서 데이터베이스를 복원한 후 DBCC CHECKDB를 사용 하 여 데이터베이스 일관성을 확인 하지 않았습니다.||해결됨|11 월 2019|
-|원본 데이터베이스에 메모리 내 OLTP 개체가 포함 되어 있는 경우 중요 비즈니스용 계층에서 일반 용도의 계층으로의 지정 시간 데이터베이스 복원에 실패 합니다.||해결됨|10 월 2019|
-|보안 연결을 사용 하는 외부 (비 Azure) 메일 서버와 데이터베이스 메일 기능||해결됨|10 월 2019|
-|관리 되는 인스턴스에서 지원 되지 않는 포함 된 데이터베이스||해결됨|8 월 2019|
+|[CLR 모듈 및 연결 된 서버는 때때로 로컬 IP 주소를 참조할 수 없습니다.](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||해결 방법| |
+|Azure Blob Storage에서 데이터베이스를 복원한 후 DBCC CHECKDB를 사용 하 여 데이터베이스 일관성을 확인 하지 않았습니다.| |해결됨|11 월 2019|
+|원본 데이터베이스에 메모리 내 OLTP 개체가 포함 되어 있는 경우 중요 비즈니스용 계층에서 일반 용도의 계층으로의 지정 시간 데이터베이스 복원에 실패 합니다.| |해결됨|10 월 2019|
+|보안 연결을 사용 하는 외부 (비 Azure) 메일 서버와 데이터베이스 메일 기능| |해결됨|10 월 2019|
+|관리 되는 인스턴스에서 지원 되지 않는 포함 된 데이터베이스| |해결됨|8 월 2019|
+
+### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>기존 작업을 수정, 사용 안 함 또는 사용 하도록 설정할 때 에이전트가 응답 하지 않습니다.
+
+기존 작업을 수정 하거나 사용 하지 않도록 설정 하거나 사용 하도록 설정 하는 특정 상황에서는 에이전트가 응답 하지 않을 수 있습니다. 이 문제는 검색 시 자동으로 완화 되며 에이전트 프로세스를 다시 시작 합니다.
 
 ### <a name="permissions-on-resource-group-not-applied-to-managed-instance"></a>관리 되는 인스턴스에 적용 되지 않는 리소스 그룹에 대 한 사용 권한
 
@@ -199,7 +204,7 @@ SQL Server Data Tools Azure Active directory 로그인 및 사용자를 완전�
 
 범용으로 관리 되는 각 인스턴스에는 Azure Premium 디스크 공간 용으로 예약 된 저장소 최대 35 TB가 있습니다. 각 데이터베이스 파일은 별도의 실제 디스크에 배치 됩니다. 디스크 크기는 128GB, 256GB, 512GB, 1TB 또는 4TB일 수 있습니다. 디스크의 사용 되지 않는 공간은 청구 되지 않지만 Azure Premium 디스크 크기의 총 합계는 35 TB를 초과할 수 없습니다. 경우에 따라 총 8TB가 필요 없는 관리 되는 인스턴스는 내부 조각화로 인해 저장소 크기에 대 한 35 TB Azure 제한을 초과할 수 있습니다.
 
-예를 들어 범용 관리 되는 인스턴스의 크기가 4tb 디스크에 배치 된 크기가 1.2 인 큰 파일이 있을 수 있습니다. 또한 각각 별도의 128 GB 디스크에 배치 되는 248 파일의 크기가 1gb입니다. 이 예제에 대한 설명:
+예를 들어 범용 관리 되는 인스턴스의 크기가 4tb 디스크에 배치 된 크기가 1.2 인 큰 파일이 있을 수 있습니다. 또한 각각 별도의 128 GB 디스크에 배치 되는 248 파일의 크기가 1gb입니다. 이 예제에서:
 
 - 전체 할당된 디스크 스토리지 크기는 1x4TB + 248x128GB = 35TB입니다.
 - 인스턴스에서 데이터베이스에 대해 예약된 총 공간은 1x1.2TB + 248x1GB = 1.4TB입니다.

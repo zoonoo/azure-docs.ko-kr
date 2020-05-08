@@ -2,7 +2,7 @@
 title: OAuth 2.0 암시적 권한 부여 흐름-Microsoft identity platform | Microsoft
 description: Microsoft id 플랫폼 암시적 흐름을 사용 하 여 단일 페이지 앱을 보호 합니다.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 89ae088b9cbb3bb3c593cfcbbfb4ce619baccfa8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34ae87859b20895598611d25eb069fd05c24d262
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868420"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900423"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft id 플랫폼 및 암시적 허용 흐름
 
@@ -95,19 +95,19 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 암시적 흐름을 사용 하 여 로그인을 테스트 하려면을 클릭 <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank"> https://login.microsoftonline.com/common/oauth2/v2.0/authorize..합니다.</a> 로그인 한 후 브라우저는 주소 표시줄 `https://localhost/myapp/` `id_token` 에서를 사용 하 여로 리디렉션해야 합니다.
 >
 
-| 매개 변수 |  | Description |
+| 매개 변수 |  | 설명 |
 | --- | --- | --- |
-| `tenant` | 필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
-| `client_id` | 필수 | [Azure Portal 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당 된 응용 프로그램 (클라이언트) ID입니다. |
-| `response_type` | 필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. response_type `token`을 포함할 수도 있습니다. `token` 을 여기서 사용하면 앱은 권한 부여 엔드포인트에 두 번째 요청을 수행하지 않고 권한 부여 엔드포인트에서 즉시 액세스 토큰을 받을 수 있습니다. `token` Response_type를 사용 하는 경우 매개 `scope` 변수는 토큰을 발급할 리소스를 나타내는 범위를 포함 해야 합니다 (예: Microsoft Graph에서 읽기).  |
+| `tenant` | required |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
+| `client_id` | required | [Azure Portal 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당 된 응용 프로그램 (클라이언트) ID입니다. |
+| `response_type` | required |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. response_type `token`을 포함할 수도 있습니다. `token` 을 여기서 사용하면 앱은 권한 부여 엔드포인트에 두 번째 요청을 수행하지 않고 권한 부여 엔드포인트에서 즉시 액세스 토큰을 받을 수 있습니다. `token` Response_type를 사용 하는 경우 매개 `scope` 변수는 토큰을 발급할 리소스를 나타내는 범위를 포함 해야 합니다 (예: Microsoft Graph에서 읽기).  |
 | `redirect_uri` | 권장 |앱에서 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. |
-| `scope` | 필수 |공백으로 구분 된 [범위](v2-permissions-and-consent.md)목록입니다. Openid connect Connect (id_tokens)의 경우 동의 UI의 "로그인 `openid`" 권한으로 변환 되는 범위를 포함 해야 합니다. 필요에 따라 추가 사용자 데이터에 대 `email` 한 `profile` 액세스 권한을 얻기 위해 및 범위를 포함할 수도 있습니다. 액세스 토큰을 요청 하는 경우 다양 한 리소스에 대 한 동의를 요청 하기 위해이 요청에 다른 범위를 포함할 수도 있습니다. |
+| `scope` | required |공백으로 구분 된 [범위](v2-permissions-and-consent.md)목록입니다. Openid connect Connect (id_tokens)의 경우 동의 UI의 "로그인 `openid`" 권한으로 변환 되는 범위를 포함 해야 합니다. 필요에 따라 추가 사용자 데이터에 대 `email` 한 `profile` 액세스 권한을 얻기 위해 및 범위를 포함할 수도 있습니다. 액세스 토큰을 요청 하는 경우 다양 한 리소스에 대 한 동의를 요청 하기 위해이 요청에 다른 범위를 포함할 수도 있습니다. |
 | `response_mode` | 선택적 |결과 토큰을 앱으로 다시 보내는 데 사용해야 하는 메서드를 지정합니다. 는 기본적으로 액세스 토큰에 대해서만 쿼리 하지만 요청에 id_token 포함 된 경우에는 fragment를 사용 합니다. |
 | `state` | 권장 |토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 콘텐츠의 문자열일 수 있습니다. 임의로 생성 된 고유 값은 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하는 데 사용 됩니다. 또한 state는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
 | `nonce` | 필수 |앱에서 생성하여 요청에 포함된 값이며, 결과 id_token에 클레임으로 포함됩니다. 그러면 앱에서 이 값을 확인하여 토큰 재생 공격을 완화할 수 있습니다. 이 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. id_token이 요청된 경우에만 필요합니다. |
-| `prompt` | 선택적 |필요한 사용자 상호 작용 유형을 나타냅니다. 현재 유효한 값은 'login', 'none', 'select_account', 'consent'뿐입니다. `prompt=login` 은 Single-Sign On을 무효화면서, 사용자가 요청에 자신의 자격 증명을 입력하도록 합니다. `prompt=none`그 반대의 경우에는 사용자에 게 대화형 프롬프트가 표시 되지 않습니다. Single sign-on을 통해 요청을 자동으로 완료할 수 없는 경우 Microsoft identity platform 끝점은 오류를 반환 합니다. `prompt=select_account`는 세션에 저장된 모든 계정이 표시되는 계정 선택기로 사용자를 전송합니다. `prompt=consent` 는 사용자가 로그인한 후에 OAuth 동의 대화 상자를 트리거하여 앱에 권한을 부여할 것을 사용자에게 요청합니다. |
+| `prompt` | 선택 사항 |필요한 사용자 상호 작용 유형을 나타냅니다. 현재 유효한 값은 'login', 'none', 'select_account', 'consent'뿐입니다. `prompt=login` 은 Single-Sign On을 무효화면서, 사용자가 요청에 자신의 자격 증명을 입력하도록 합니다. `prompt=none`그 반대의 경우에는 사용자에 게 대화형 프롬프트가 표시 되지 않습니다. Single sign-on을 통해 요청을 자동으로 완료할 수 없는 경우 Microsoft identity platform 끝점은 오류를 반환 합니다. `prompt=select_account`는 세션에 저장된 모든 계정이 표시되는 계정 선택기로 사용자를 전송합니다. `prompt=consent` 는 사용자가 로그인한 후에 OAuth 동의 대화 상자를 트리거하여 앱에 권한을 부여할 것을 사용자에게 요청합니다. |
 | `login_hint`  |선택적 |사용자 이름을 미리 알고 있는 경우 사용자 로그인 페이지의 사용자 이름/이메일 주소 필드를 미리 채우는 데 사용할 수 있습니다. `preferred_username` 클레임을 사용하여 이전 로그인 작업에서 사용자 이름이 이미 추출된 경우 앱이 재인증 과정에서 이 매개 변수를 종종 사용합니다.|
-| `domain_hint` | 선택적 |포함 되는 경우 사용자가 로그인 페이지에서 이동 하는 전자 메일 기반 검색 프로세스를 건너뛰고 약간 더 간소화 된 사용자 환경을 제공 합니다. 이는 단일 테 넌 트에서 작동 하는 lob (기간 업무) 앱에 일반적으로 사용 되며, 지정 된 테 넌 트 내에서 도메인 이름을 제공 합니다.  이렇게 하면 사용자를 해당 테 넌 트의 페더레이션 공급자로 전달 합니다.  이렇게 하면 게스트가이 응용 프로그램에 로그인 할 수 없습니다.  |
+| `domain_hint` | 선택 사항 |포함 되는 경우 사용자가 로그인 페이지에서 이동 하는 전자 메일 기반 검색 프로세스를 건너뛰고 약간 더 간소화 된 사용자 환경을 제공 합니다. 이는 단일 테 넌 트에서 작동 하는 lob (기간 업무) 앱에 일반적으로 사용 되며, 지정 된 테 넌 트 내에서 도메인 이름을 제공 합니다.  이렇게 하면 사용자를 해당 테 넌 트의 페더레이션 공급자로 전달 합니다.  이렇게 하면 게스트가이 응용 프로그램에 로그인 할 수 없습니다.  |
 
 이 시점에서 사용자에게 자격 증명을 입력하고 인증을 완료하라는 메시지가 표시됩니다. 또한 Microsoft identity platform 끝점은 사용자가 `scope` 쿼리 매개 변수에 표시 된 사용 권한에 동의한 확인 합니다. 사용자가 해당 권한 중 어떤 항목에도 동의하지 **않은** 경우에는 필요한 권한에 동의하라는 메시지가 표시됩니다. 자세한 내용은. [권한, 동의 및 다중 테넌트 앱](v2-permissions-and-consent.md)을 참조하세요.
 
@@ -125,7 +125,7 @@ GET https://localhost/myapp/#
 &state=12345
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `access_token` |`response_type`이 `token`을 포함하는 경우 포함됩니다. 앱에서 요청한 액세스 토큰입니다. 액세스 토큰을 디코드 하거나 검사 하지 않아야 합니다 .이 토큰은 불투명 문자열로 처리 되어야 합니다. |
 | `token_type` |`response_type`이 `token`을 포함하는 경우 포함됩니다. 항상 `Bearer`입니다. |
@@ -144,7 +144,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `error` |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -193,7 +193,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fgraph.microsoft.com%2Fdirectory.read
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `access_token` |`response_type`이 `token`을 포함하는 경우 포함됩니다. Microsoft Graph의 경우 앱에서 요청한 액세스 토큰입니다. 액세스 토큰을 디코드 하거나 검사 하지 않아야 합니다 .이 토큰은 불투명 문자열로 처리 되어야 합니다. |
 | `token_type` | 항상 `Bearer`입니다. |
@@ -212,7 +212,7 @@ error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `error` |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -231,11 +231,14 @@ Openid connect Connect `end_session_endpoint` 를 사용 하면 앱에서 micros
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| 매개 변수 |  | Description |
+| 매개 변수 |  | 설명 |
 | --- | --- | --- |
-| `tenant` |필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
+| `tenant` |required |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | `post_logout_redirect_uri` | 권장 | 로그아웃이 완료된 후 사용자가 반환되어야 하는 URL입니다. 이 값은 애플리케이션에 대해 등록된 리디렉션 URI 중 하나와 일치해야 합니다. 포함 되지 않은 경우 사용자가 Microsoft id 플랫폼 끝점에서 일반 메시지를 표시 합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 * [MSAL JS 샘플](sample-v2-code.md)을 검토하여 코딩을 시작합니다.
+
+[OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
+[OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819

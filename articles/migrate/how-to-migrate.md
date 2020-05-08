@@ -1,32 +1,21 @@
 ---
 title: Azure Migrate의 마이그레이션 도구 추가
 description: Azure Migrate에서 마이그레이션 도구를 추가 하는 방법에 대해 알아봅니다.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.manager: carmonm
 ms.topic: article
-ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: 6bcb65912627356215769ccc8380ee1a7404f6f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/26/2020
+ms.openlocfilehash: e7d36a642f41b77e3b4c4125bae64f02def3b306
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185958"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901460"
 ---
 # <a name="add-migration-tools"></a>마이그레이션 도구 추가
 
 이 문서에서는 [Azure Migrate](migrate-overview.md)의 마이그레이션 도구를 추가 하는 방법을 설명 합니다.
 
-Azure Migrate는 Azure에 대 한 평가 및 마이그레이션을 위한 도구 허브를 제공 합니다. 네이티브 도구, 다른 Azure 서비스에서 제공 하는 도구 및 타사 ISV (독립 소프트웨어 공급 업체) 제품을 포함 합니다.
-
-마이그레이션 도구를 추가 하 고 Azure Migrate 프로젝트를 아직 설정 하지 않은 경우이 [문서](how-to-add-tool-first-time.md)를 따릅니다.
-
-
-
-## <a name="selecting-an-isv-tool"></a>ISV 도구 선택
-
-마이그레이션을 위해 [isv 도구](migrate-services-overview.md#isv-integration) 를 선택 하는 경우 isv 정책에 따라 라이선스를 얻거나 무료 평가판에 등록할 수 있습니다. 각 도구에는 Azure Migrate에 연결할 수 있는 옵션이 있습니다. 도구를 배포 하 고 도구 지침 및 설명서에 따라 도구 작업 영역을 Azure Migrate 연결 합니다. 
+- 마이그레이션 도구를 추가 하 고 Azure Migrate 프로젝트를 아직 설정 하지 않은 경우이 [문서](how-to-add-tool-first-time.md)를 따릅니다.
+- 마이그레이션을 위해 ISV 도구를 추가한 경우 해당 단계에 [따라](prepare-isv-movere.md)도구를 사용 하 여 작업을 준비 합니다.
 
 ## <a name="select-a-migration-scenario"></a>마이그레이션 시나리오 선택
 

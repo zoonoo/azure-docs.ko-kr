@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/17/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 9f1d23f11cf73680a8861c9f1ac6cbd40ad497a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e70401bbaa97920163f3c7e76e32b9b9be2f5e72
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257337"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871488"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -60,7 +60,7 @@ Azure Machine Learning 다음 도구를 사용 합니다.
     * [실험](#experiments)
         * [실행할지](#runs) 
             * [실행 구성](#run-configurations)
-            * [스냅샷](#snapshots)
+            * [스냅숏에](#snapshots)
             * [Git 추적](#github-tracking-and-integration)
             * [Logging](#logging)
     * [ML 파이프라인](#ml-pipelines)
@@ -119,7 +119,7 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 실행을 제출하면 Azure Machine Learning은 스크립트를 포함하는 디렉터리를 zip 파일로 압축하여 컴퓨팅 대상으로 보냅니다. 그런 다음, zip 파일이 추출되고 스크립트가 실행됩니다. 또한 Azure Machine Learning은 zip 파일을 실행 기록의 일부인 스냅샷으로 저장합니다. 작업 영역에 대한 액세스 권한이 있는 사용자는 실행 기록을 찾아보고 스냅샷을 다운로드할 수 있습니다.
 
 > [!NOTE]
-> 불필요 한 파일이 스냅숏에 포함 되지 않도록 하려면 ignore 파일 (. .gitignore 또는. amlignore)을 만듭니다. 이 파일을 스냅숏 디렉터리에 넣고 무시할 파일 이름을 추가 합니다. Amlignore 파일은 [.gitignore 파일과 동일한 구문과 패턴](https://git-scm.com/docs/gitignore)을 사용 합니다. 두 파일이 모두 있는 경우 amlignore 파일이 우선적으로 적용 됩니다.
+> [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 
 ### <a name="github-tracking-and-integration"></a>GitHub 추적 및 통합
 
@@ -182,7 +182,7 @@ Azure ML 환경은 데이터 준비, 모델 학습 및 모델 처리를 위한 �
 
 PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이러한 프레임 워크 사용을 간소화 하기 위해 각 [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)및 [체 이너](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 추정 제공 됩니다.
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 * [추정를 사용 하 여 ML 모델을 학습](how-to-train-ml-models.md)합니다.
 * [Azure Machine Learning를 사용 하 여 대규모로 Pytorch 심층 학습 모델을 학습](how-to-train-pytorch.md)합니다.
@@ -224,7 +224,7 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 
 데이터 집합은 또는 `from_delimited_files()` `to_pandas_dataframe()`을 사용 하는 것과 같이 널리 사용 되는 형식으로 데이터 작업을 위한 메서드를 제공 합니다
 
-자세한 내용은 [Azure Machine Learning 데이터 집합 만들기 및 등록](how-to-create-register-datasets.md)을 참조 하세요.  데이터 집합을 사용 하는 추가 예제는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets)을 참조 하세요.
+자세한 내용은 [Azure Machine Learning 데이터 집합 만들기 및 등록](how-to-create-register-datasets.md)을 참조 하세요.  데이터 집합을 사용 하는 추가 예제는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets-tutorial)을 참조 하세요.
 
 **데이터** 저장소는 Azure storage 계정에 대 한 저장소 추상화입니다. 데이터 저장소는 Azure Blob 컨테이너 또는 Azure 파일 공유 중 하나를 백 엔드 스토리지로 사용할 수 있습니다. 각 작업 영역에는 기본 데이터 저장소가 있으며 추가 데이터 저장소를 등록할 수 있습니다. Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저장소의 파일을 저장하고 검색합니다.
 

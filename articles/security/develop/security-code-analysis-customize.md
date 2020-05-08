@@ -2,7 +2,7 @@
 title: Microsoft 보안 코드 분석 작업 사용자 지정
 titleSuffix: Azure
 description: 이 문서에서는 Microsoft 보안 코드 분석 확장에서 작업을 사용자 지정 하는 방법을 설명 합니다.
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6cdf892651407defc21f359a8e3b326b4af63b62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d074c12f28abdc61f4d70356c2a7aa264deb44c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77499994"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871872"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>빌드 작업 구성 및 사용자 지정
 
@@ -62,7 +62,7 @@ Windows 업데이트 오류 및 해당 문제 해결에 대 한 자세한 내용
     - 지정 된 여러 대상을 세미콜론 (;)으로 구분 해야 합니다.
     - 지정자는 단일 파일 이거나 와일드 카드를 포함할 수 있습니다.
     - 디렉터리 사양은 항상 *로 \\끝나야 합니다.
-    - 예:
+    - 예제:
 
            *.dll;*.exe
            $(BUILD_STAGINGDIRECTORY)\*
@@ -91,7 +91,8 @@ BinSkim 명령줄 인수, ID 별 규칙 또는 종료 코드에 대 한 자세�
 ![자격 증명 스캐너 빌드 작업 구성](./media/security-tools/3-taskdetails.png)
 
 사용 가능한 옵션은 다음과 같습니다.
-
+  - **표시 이름**: Azure Devops 태스크의 이름입니다. 기본값은 자격 증명 검색 프로그램을 실행 합니다.
+  - **도구 주 버전**: 사용 가능한 값에는 **credscan V2**, **credscan V1**이 포함 됩니다. 고객은 **Credscan V2** 버전을 사용 하는 것이 좋습니다.
   - **출력 형식**: 사용 가능한 값은 **TSV**, **CSV**, **SARIF**및 **PREfast**입니다.
   - **도구 버전**: **최신**을 선택 하는 것이 좋습니다.
   - **검색 폴더**: 검색할 리포지토리 폴더입니다.
