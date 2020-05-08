@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: d72a1057c359127eb70f0a82fbf2637409535dce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe85fed9268e1a4248ef373d577c89e58c01eba5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131177"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792040"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용 하는 Azure SQL 투명한 데이터 암호화
 
@@ -93,7 +93,7 @@ Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로
 
 ### <a name="recommendations-when-configuring-akv"></a>AKV 구성 시 권장 사항
 
-- 서버가 주요 자격 증명 모음의 TDE 보호기에 액세스할 때 고가용성을 보장 하기 위해 최대 500 범용 또는 200 중요 비즈니스용 단일 구독의 key vault에 연결 합니다. 이러한 수치는 환경을 기반으로 하며 [주요 자격 증명 모음 서비스 제한](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits)에 문서화 되어 있습니다. 여기서는 서버 장애 조치 (failover) 후에 문제가 발생 하지 않도록 하는 것이 좋습니다 .이는 해당 서버에 있는 데이터베이스의 경우 자격 증명 모음에 대해 많은 키 작업을 트리거합니다.
+- 서버가 주요 자격 증명 모음의 TDE 보호기에 액세스할 때 고가용성을 보장 하기 위해 최대 500 범용 또는 200 중요 비즈니스용 단일 구독의 key vault에 연결 합니다. 이러한 수치는 환경을 기반으로 하며 [주요 자격 증명 모음 서비스 제한](https://docs.microsoft.com/azure/key-vault/general/service-limits)에 문서화 되어 있습니다. 여기서는 서버 장애 조치 (failover) 후에 문제가 발생 하지 않도록 하는 것이 좋습니다 .이는 해당 서버에 있는 데이터베이스의 경우 자격 증명 모음에 대해 많은 키 작업을 트리거합니다.
 
 - 주요 자격 증명 모음에 리소스 잠금을 설정 하 여이 중요 한 리소스를 삭제할 수 있는 사용자를 제어 하 고 실수로 또는 무단 삭제를 방지할 수 있습니다. [리소스 잠금](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)에 대 한 자세한 정보.
 

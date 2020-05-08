@@ -1,29 +1,29 @@
 ---
-title: Azure VM 기술 자산 만들기
-description: 이 문서에서는 Azure Marketplace에 대 한 컨테이너 제안을 구성 하기 위한 단계 및 요구 사항을 설명 합니다.
+title: Azure container 제품에 대 한 기술 개념-Microsoft 상업적 marketplace
+description: Azure Marketplace에서 컨테이너 제품을 구성 하는 데 도움이 되는 기술 리소스 및 지침입니다.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: e51b8c705533fd74a5e46eaa2570563fef485309
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3c6f88df151cc497f0de670d5d78a05c7477459
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730633"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791887"
 ---
-# <a name="create-an-azure-vm-technical-asset"></a>Azure VM 기술 자산 만들기
+# <a name="create-an-azure-container-offer"></a>Azure 컨테이너 제안 만들기
 
 > [!IMPORTANT]
-> Azure Container 제품의 관리를 Cloud 파트너 포털에서 파트너 센터로 전환 하 고 있습니다. 제품이 마이그레이션될 때까지 Cloud 파트너 포털에 대 한 [컨테이너 기술 자산 준비](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets) 의 지침에 따라 제품을 관리 하세요.
+> Azure container 제품의 관리를 Cloud 파트너 포털에서 파트너 센터로 전환 하 고 있습니다. 제품이 마이그레이션될 때까지 Cloud 파트너 포털에 대 한 [컨테이너 기술 자산 준비](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets) 의 지침에 따라 제품을 관리 하세요.
 
-이 문서에서는 Azure Marketplace에 대 한 컨테이너 제안을 구성 하기 위한 단계 및 요구 사항을 설명 합니다.
+이 문서에서는 Azure Marketplace에 대 한 컨테이너 제품을 만드는 데 도움이 되는 기술 리소스 및 권장 사항을 제공 합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-빠른 시작, 자습서 및 샘플은 [Azure Container Instances](https://docs.microsoft.com/azure/container-instances)를 참조 하세요.
+빠른 시작, 자습서 및 샘플은 [Azure Container Instances 설명서](https://docs.microsoft.com/azure/container-instances)를 참조 하세요.
 
 ## <a name="fundamental-technical-knowledge"></a>기본 기술 지식
 
@@ -61,6 +61,6 @@ ms.locfileid: "81730633"
 - [자습서: Azure Container Instances에 배포할 컨테이너 이미지 만들기](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
 - [자습서: Azure Container Registry 작업을 사용 하 여 클라우드에서 컨테이너 이미지를 빌드하고 배포](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)합니다.
 
-## <a name="next-step"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 - [컨테이너 제품을 만듭니다](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer).

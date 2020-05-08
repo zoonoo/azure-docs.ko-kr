@@ -33,6 +33,8 @@
   items:
     - name: Azure 보안 기준 개요
       href: security-baselines-overview.md
+    - name: API Management 보안 기준
+      href: ../../api-management/security-baseline.md
     - name: Azure Cache for Redis 보안 기준
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Backup 보안 기준
@@ -45,8 +47,12 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Data Explorer 보안 기준
       href: /azure/data-explorer/security-baseline
+    - name: Databricks 보안 기준
+      href: ../../azure-databricks/security-baseline.md
     - name: Event Hubs 보안 기준
       href: ../../event-hubs/security-baseline.md
+    - name: Functions 보안 기준
+      href: ../../azure-functions/security-baseline.md
     - name: HDInsight 보안 기준
       href: ../../hdinsight/security-baseline.md
     - name: Key Vault 보안 기준
