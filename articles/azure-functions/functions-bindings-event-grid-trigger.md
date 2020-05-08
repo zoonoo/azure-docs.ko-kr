@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2027629e1e9e297c97cbf40485ebe7dc2e3e6c0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4673bcb71fc2f45c3b02f8fe5e463184395e8ef8
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277727"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891288"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Event Grid 트리거
 
@@ -303,7 +303,7 @@ Python에서 특성을 지원 하지 않습니다.
 
 ---
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 다음 표에서는 *function.json* 파일에 설정된 바인딩 구성 속성을 설명합니다. `EventGridTrigger` 특성에서 설정할 생성자 매개 변수 또는 속성은 없습니다.
 
@@ -313,7 +313,7 @@ Python에서 특성을 지원 하지 않습니다.
 | **방향도** | 필수 - `in`으로 설정해야 합니다. |
 | **name** | 필수 - 이벤트 데이터를 수신하는 매개 변수에 대한 함수 코드에 사용되는 변수 이름입니다. |
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용법
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -570,4 +570,4 @@ Event Grid 트리거 함수가 실행되고, 다음 예제와 비슷한 결과�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Event Grid 이벤트 디스패치](./functions-bindings-event-grid-trigger.md)
+* [Event Grid 이벤트 디스패치](./functions-bindings-event-grid-output.md)

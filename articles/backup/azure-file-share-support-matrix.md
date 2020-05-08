@@ -2,13 +2,13 @@
 title: Azure 파일 공유 백업에 대 한 지원 매트릭스
 description: Azure 파일 공유를 백업할 때 지원 설정 및 제한 사항에 대 한 요약을 제공 합니다.
 ms.topic: conceptual
-ms.date: 1/26/2020
-ms.openlocfilehash: b5bfae9454464bc8d11cef3bd346861e13822046
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.date: 5/07/2020
+ms.openlocfilehash: 4da17bb591e94a0eaf26f95210a3e841ad17973b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838572"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890717"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Azure 파일 공유 백업에 대 한 지원 매트릭스
 
@@ -41,21 +41,21 @@ Azure 파일 공유에 대 한 백업은 다음 지역에서 제공 됩니다.
 
 ## <a name="protection-limits"></a>보호 제한
 
-| Setting                                                      | 제한 |
+| 설정                                                      | 제한 |
 | ------------------------------------------------------------ | ----- |
 | 자격 증명 모음 당 하루에 보호할 수 있는 최대 파일 공유 수 | 200   |
 | 하루에 자격 증명 모음 당 등록할 수 있는 최대 저장소 계정 수 | 50    |
 
 ## <a name="backup-limits"></a>Backup 제한
 
-| Setting                                      | 제한 |
+| 설정                                      | 제한 |
 | -------------------------------------------- | ----- |
 | 하루에 최대 주문형 백업 수 | 4     |
 | 하루에 예약 된 최대 백업 수 | 1     |
 
 ## <a name="restore-limits"></a>복원 제한
 
-| Setting                                                      | 제한   |
+| 설정                                                      | 제한   |
 | ------------------------------------------------------------ | ------- |
 | 하루 최대 복원 수                           | 10      |
 | 복원 당 최대 파일 수                         | 10      |
@@ -63,7 +63,7 @@ Azure 파일 공유에 대 한 백업은 다음 지역에서 제공 됩니다.
 
 ## <a name="retention-limits"></a>보존 제한
 
-| Setting                                                      | 제한    |
+| 설정                                                      | 제한    |
 | ------------------------------------------------------------ | -------- |
 | 언제 든 지 파일 공유 당 최대 총 복구 지점 수 | 200      |
 | 주문형 백업에서 만든 복구 지점의 최대 보존 | 10 년 |
@@ -74,7 +74,7 @@ Azure 파일 공유에 대 한 백업은 다음 지역에서 제공 됩니다.
 
 ## <a name="supported-restore-methods"></a>지원되는 복원 방법
 
-| Restore 메서드     | 세부 정보                                                      |
+| Restore 메서드     | 설명                                                      |
 | ------------------ | ------------------------------------------------------------ |
 | 전체 공유 복원 | 원본 또는 대체 위치에 전체 파일 공유를 복원할 수 있습니다. |
 | 항목 수준 복원 | 원본 또는 대체 위치로 개별 파일 및 폴더를 복원할 수 있습니다. |

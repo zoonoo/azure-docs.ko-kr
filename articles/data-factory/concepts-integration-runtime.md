@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: ffa348c796a4d9d4e3bdb8e7ce18ba0eb82e17ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 214d97822bdb2efbe164c3526939ddbe78777e59
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418389"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890730"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 
 
@@ -128,6 +128,10 @@ IR 위치는 해당 백 엔드 컴퓨팅의 위치, 즉 기본적으로 데이�
 
 ### <a name="azure-ir-location"></a>Azure IR 위치
 
+Azure IR의 특정 위치를 설정할 수 있습니다 .이 경우 작업 실행 또는 디스패치는 해당 특정 지역에서 수행 됩니다.
+
+기본값인 자동 확인 Azure IR 사용 하도록 선택 하는 경우
+
 - 복사 활동의 경우 ADF는 싱크 데이터 저장소의 위치를 자동으로 검색 한 다음 사용 가능한 경우 동일한 지역에서 IR을 사용 하 고 동일한 지역에서 가장 가까운 것을 사용 합니다. 싱크 데이터 저장소의 지역이 검색 되지 않는 경우 data factory 지역의 IR이 대신 사용 됩니다.
 
   예를 들어 미국 동부에서 공장을 만든 경우 
@@ -135,7 +139,8 @@ IR 위치는 해당 백 엔드 컴퓨팅의 위치, 즉 기본적으로 데이�
   - 미국 서 부에 있는 Azure Blob에 데이터를 복사 하는 경우 ADF가 미국 서 부에 있음을 감지 하면 복사 작업은 미국 서 부에서 IR에 실행 됩니다. 지역 검색이 실패 하는 경우 복사 작업은 미국 동부에서 IR에 실행 됩니다.
   - 지역이 검색 되지 않는 Salesforce에 데이터를 복사 하는 경우 복사 작업은 미국 동부에서 IR에 실행 됩니다.
 
-- 복사 활동의 경우 ADF는 싱크 및 원본 데이터 저장소를 자동으로 검색 하 여 동일한 지역 (사용할 수 있는 경우) 또는 동일한 지리에서 가장 가까운 위치를 선택 하거나 데이터 팩터리 영역을 대체 항목으로 사용 하 여 검색할 수 없는 경우에 가장 적합 합니다.
+  >[!TIP] 
+  >데이터 규정 준수 요구 사항이 엄격하고 데이터가 특정 지리를 벗어나면 안 되는 경우 특정 영역에 명시적으로 Azure IR을 만들고 ConnectVia 속성을 사용하여 연결된 서비스가 이 IR을 가리키게 할 수 있습니다. 예를 들어 영국 남부의 Blob 데이터를 영국 남부의 SQL DW로 복사하고 데이터가 영국을 벗어나지 않게 하려면 영국 남부에 Azure IR을 만들고 두 연결된 서비스를 이 IR에 연결하면 됩니다.
 
 - Lookup/GetMetadata/Delete 활동 실행 (파이프라인 활동이 라고도 함), 변환 활동 디스패치 (외부 활동) 및 작성 작업 (테스트 연결, 폴더 목록 및 테이블 목록 찾아보기, 데이터 미리 보기), ADF는 data factory 지역에서 IR을 사용 합니다.
 

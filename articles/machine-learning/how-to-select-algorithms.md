@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
-ms.date: 03/05/2020
-ms.openlocfilehash: e0482bac9569a834adf3e1cdef2b3f702980eac0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/07/2020
+ms.openlocfilehash: 98f7edac5bbec7a88999c728b2e4db8be7a3d2b5
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78328666"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891357"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 알고리즘을 선택 하는 방법
 
@@ -40,7 +40,35 @@ Machine Learning designer는 [다중 클래스 의사 결정 포리스트](https
 
 Azure Machine Learning Algorithm 참고 자료 시트의 지침과 함께 솔루션에 대 한 기계 학습 알고리즘을 선택할 때 다른 요구 사항을 염두에 두어야 합니다. 다음은 정확도, 학습 시간, 선형, 매개 변수 개수 및 기능 수와 같은 고려해 야 할 추가 요소입니다.
 
-## <a name="additional-requirements-for-a-data-science-scenario"></a>데이터 과학 시나리오에 대 한 추가 요구 사항
+## <a name="comparison-of-machine-learning-algorithms"></a>기계 학습 알고리즘 비교
+
+일부 학습 알고리즘에서는 데이터 구조 또는 원하는 결과에 대해 특수한 가정을 합니다. 사용자 요구에 적합한 것을 찾을 수 있는 경우 보다 유용한 결과, 보다 정확한 예측 또는 단축된 교육 시간을 제공할 수 있습니다.
+
+다음 표에는 분류, 회귀 및 클러스터링 제품군에서 알고리즘의 가장 중요 한 특성이 요약 되어 있습니다.
+
+| **알고리즘** | **높아집니다** | **학습 시간** | **선형성** | **매개 변수** | **참고 사항** |
+| --- |:---:|:---:|:---:|:---:| --- |
+| **분류 패밀리** | | | | | |
+| [2 클래스 로지스틱 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri) |좋음  |Fast |예 |4 | |
+| [2 클래스 의사 결정 포리스트](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |최고 |보통 |아니요 |5 |더 느린 점수 매기기 시간을 표시 합니다. 누적 트리 예측의 디 어 지 잠금으로 인 한 더 느린 점수 매기기 시간 때문에 일대다 다중 클래스를 사용 하지 않는 것이 좋습니다. |
+| [2 클래스 승격 된 의사 결정 트리](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |최고 |보통 |아니요 |6 |큰 메모리 공간 |
+| [2 클래스 신경망](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-neural-network?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |아니요 |8 | |
+| [2 클래스 평균 퍼셉트론](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-averaged-perceptron?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |예 |4 | |
+| [2 클래스 지원 벡터 컴퓨터](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) |좋음 |Fast |예 |5 |큰 기능 집합의 적합 |
+| [다중 클래스 로지스틱 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri) |좋음 |Fast |예 |4 | |
+| [다중 클래스 의사 결정 포리스트](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) |최고 |보통 |아니요 |5 |더 느린 점수 매기기 시간 표시 |
+| [다중 클래스 승격 된 의사 결정 트리](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |최고 |보통 |아니요 |6 | 적용 범위가 적은 몇 가지 위험으로 정확도를 향상 시키는 경향이 있습니다. |
+| [다중 클래스 신경망](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |아니요 |8 | |
+| [One-vs-all 다중 클래스](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/one-vs-all-multiclass?WT.mc_id=docs-article-lazzeri) | - | - | - | - |선택된 2클래스 메서드의 속성을 참조하세요. |
+| **회귀 제품군** | | | | | |
+| [선형 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/linear-regression?WT.mc_id=docs-article-lazzeri) |좋음 |Fast |예 |4 | |
+| [의사 결정 포리스트 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/decision-forest-regression?WT.mc_id=docs-article-lazzeri)|최고 |보통 |아니요 |5 | |
+| [승격 된 의사 결정 트리 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/boosted-decision-tree-regression?WT.mc_id=docs-article-lazzeri) |최고 |보통 |아니요 |6 |큰 메모리 공간 |
+| [신경망 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |아니요 |8 | |
+| **클러스터링 제품군** | | | | | |
+| [K-클러스터링을 의미 합니다.](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri) |최고 |보통 |예 |8 |클러스터링 알고리즘 |
+
+## <a name="requirements-for-a-data-science-scenario"></a>데이터 과학 시나리오에 대 한 요구 사항
 
 데이터를 사용 하 여 수행할 작업을 확인 한 후에는 솔루션에 대 한 추가 요구 사항을 확인 해야 합니다. 
 
@@ -117,7 +145,6 @@ Machine Learning 디자이너에서 기계 학습 모델을 만들고 사용 하
 지정 된 출력의 경우 기능 선택은 입력에 통계 테스트를 적용 하는 프로세스를 의미 합니다. 목표는 출력의 예측 가능성이 더 높은 열을 결정 하는 것입니다. Machine Learning 디자이너의 [필터 기반 기능 선택 모듈](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/filter-based-feature-selection?WT.mc_id=docs-article-lazzeri) 은 선택할 수 있는 여러 기능 선택 알고리즘을 제공 합니다. 모듈에는 피어슨 상관 관계 및 카이 제곱 값과 같은 상관 관계 메서드가 포함 되어 있습니다.
 
 또한 [순열 기능 중요도 모듈](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/permutation-feature-importance?WT.mc_id=docs-article-lazzeri) 을 사용 하 여 데이터 집합에 대 한 기능 중요도 점수 집합을 계산할 수 있습니다. 그런 다음 이러한 점수를 활용 하 여 모델에서 사용 하기에 가장 적합 한 기능을 결정 하는 데 도움을 줍니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

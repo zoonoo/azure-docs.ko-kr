@@ -1,61 +1,59 @@
 ---
-title: Power BI 앱 제안 만들기-Azure Marketplace
+title: Microsoft 상업적 marketplace에서 Power BI 앱 제안 만들기
 description: Microsoft AppSource에 대 한 Power BI 앱 제품을 만들고 게시 하는 방법을 알아봅니다.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: dc036ae3cba6aa4d3a689562afffb991fadc8c0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 17a6b7e46341ee0231ac88b849495cfc7e46ad88
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81867592"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839150"
 ---
-# <a name="create-a-power-bi-app"></a>Power BI 앱 만들기
-
-> [!IMPORTANT]
-> Power BI 앱 제품의 관리를 Cloud 파트너 포털에서 파트너 센터로 전환 하 고 있습니다. 제품을 마이그레이션할 때까지 Cloud 파트너 포털에 대 한 [Power BI 앱 제안 만들기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-create-offer) 의 지침에 따라 제품을 관리 하세요.
+# <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Microsoft AppSource에 대 한 Power BI 앱 만들기
 
 이 문서에서는 Microsoft [Appsource](https://appsource.microsoft.com/)에 Power BI app 제품을 만들고 게시 하는 방법을 설명 합니다.
 
-Power BI app 제품을 만들려면 먼저 파트너 센터에 상용 marketplace 계정이 있어야 합니다. 아직 만들지 않은 경우 [파트너 센터 계정에서 상용 마켓플레이스 계정 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 를 참조 하세요.
+아직 수행 하지 않은 경우 시작 하기 전에 [파트너 센터에서 상업적 Marketplace 계정을 만듭니다](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) . 계정이 상업적 marketplace 프로그램에 등록 되어 있는지 확인 합니다.
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인 합니다.
 2. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스** > **개요**를 선택 합니다.
+3. 개요 페이지에서 **+ 새 제품** > **Power BI 서비스 앱**을 선택 합니다.
 
-    :::image type="content" source="media/power-bi-menu-overview.png" alt-text="상업적 marketplace 메뉴 개요" border="false":::
+   ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/new-offer-pbi-app.png)
 
-3. **+ 새 제품** > **Power BI 앱**을 선택 합니다. **새 제품** 대화 상자가 나타납니다.
+> [!NOTE]
+> 제품을 게시 한 후에는 제품을 다시 게시 한 후에만 파트너 센터에서 해당 제품에 대 한 편집 내용이 상점에 표시 됩니다. 변경을 수행한 후 항상 다시 게시 해야 합니다.
 
 > [!IMPORTANT]
-> **Power BI 앱** 옵션이&#39;t가 표시 되거나&#39;사용 하도록 설정 되지 않은 경우 계정에이 제안 유형을 만들 수 있는 권한이&#39;되지 않습니다. 개발자 계정에 대 한 등록을 포함 하 여이 제품 유형에 대 한 모든 [요구 사항을](create-power-bi-app-overview.md) 충족할&#39;있는지 확인 하세요.
+> **Power BI 서비스 앱** 이 표시 되거나 사용 하도록 설정 되지 않은 경우 계정에이 제안 유형을 만들 수 있는 권한이 없습니다. 개발자 계정 등록을 포함 하 여이 제품 유형에 대 한 모든 [요구 사항을](create-power-bi-app-overview.md) 충족 했는지 확인 하세요.
 
-### <a name="offer-id-and-alias"></a>제품 ID 및 별칭
+## <a name="new-offer"></a>새 제안
 
 **제품 ID**를 입력 합니다. 계정의 각 제품에 대 한 고유 식별자입니다.
 
 - 이 ID는 marketplace 제품 및 Azure Resource Manager 템플릿에 대 한 웹 주소의 고객에 게 표시 됩니다 (해당 하는 경우).
-- 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50 자로 제한 됩니다. 예를 들어 **테스트-제품-1** 을 입력 하는 경우 제품 웹 주소는 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`입니다.
-
+- 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50 자로 제한 됩니다. 예를 들어 여기에 **테스트-1** 을 입력 하는 경우 제품 웹 주소는 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`입니다.
 - **만들기**를 선택한 후에는 제품 ID를 변경할 수 없습니다.
 
-**제품 별칭**을 입력 합니다. 파트너 센터에서 제품을 참조 하는 데 사용 되는 이름입니다.
+**제품 별칭**을 입력 합니다. 파트너 센터의 제안에 사용 되는 이름입니다.
 
 - 이 이름은 marketplace에서 사용 되지 않으며 고객에 게 표시 되는 제품 이름 및 기타 값과 다릅니다.
-- **만들기**를 선택한 후에는 변경할 수 없습니다.
+- **만들기**를 선택한 후에는 제품 별칭을 변경할 수 없습니다.
 
-이러한 두 값을 입력 한 후 **만들기** 를 선택 하 여 제품 개요 페이지로 이동 합니다.
+**만들기** 를 선택 하 여 제품을 생성 하 고 계속 합니다.
 
 ## <a name="offer-overview"></a>제품 개요
 
-**제품 개요** 페이지에는이 제품을 게시 하는 데 필요한 단계를 시각적으로 표시 하 고 (완료 된 시간과 예정 된) 각 단계를 완료 하는 데 소요 되는 시간이 표시 됩니다.
+이 페이지에서는이 제품을 게시 하는 데 필요한 단계를 시각적으로 표시 하 고 (완료 된 시간과 예정 된) 각 단계를 완료 하는 데 걸리는 시간을 표시 합니다.
 
-사용자가 선택한 항목에 따라이 제품에 대 한 작업을 수행할 수 있는 링크가 포함 되어 있습니다. 다음은 그 예입니다.
+사용자가 선택한 항목에 따라이 제품에 대 한 작업을 수행할 수 있는 링크가 포함 되어 있습니다. 예를 들어:
 
 - 제안이 초안 [삭제 제안](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer) 인 경우
 - 제품이 라이브 인 경우 [제품 판매를 중지](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan) 합니다.
@@ -63,8 +61,6 @@ Power BI app 제품을 만들려면 먼저 파트너 센터에 상용 marketplac
 - 게시자 로그 아웃을 완료 하지 않은 경우 [게시 취소](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
 
 ## <a name="offer-setup"></a>제품 설정
-
-제품을 설정 하려면 다음 단계를 수행 합니다.
 
 ### <a name="connect-lead-management"></a>리드 관리 연결
 
@@ -90,7 +86,7 @@ Power BI app 제품을 만들려면 먼저 파트너 센터에 상용 marketplac
 - [일반적인 잠재 고객 구성 오류](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
 - [리드 관리 개요](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (팝업 차단이 해제 되어 있는지 확인)
 
-다음 섹션인 속성을 계속 진행 하기 전에 **초안 저장** 을 선택 합니다.
+계속 하기 전에 **초안 저장** 을 선택 합니다.
 
 ## <a name="properties"></a>속성
 
@@ -102,7 +98,7 @@ Power BI app 제품을 만들려면 먼저 파트너 센터에 상용 marketplac
 
 ### <a name="industry"></a>산업
 
-필요에 따라 각 업계에서 최대 2 개의 산업 및 두 개의 감축할를 선택 합니다. 제품을 표시 하는 데 범주가 사용 되는 반면, 산업 및 감축할는 검색 필터에 사용 되며 Storefront에 적용 됩니다. 제품이 특정 산업 및/또는 세로를 대상으로 하는 경우 제품 설명을 사용 하 여 제품에서 선택 된 산업 또는 감축할를 지 원하는 방법을 설명 합니다. 제품이&#39;t 산업에 한정 되지 않는 경우이 섹션을 비워 둡니다.
+필요에 따라 각 업계에서 최대 2 개의 산업 및 두 개의 감축할를 선택 합니다. 제품을 표시 하는 데 범주가 사용 되는 반면, 산업 및 감축할는 검색 필터에 사용 되며 Storefront에 적용 됩니다. 제품이 특정 산업 및/또는 세로를 대상으로 하는 경우 제품 설명을 사용 하 여 제품에서 선택 된 산업 또는 감축할를 지 원하는 방법을 설명 합니다. 제품이 특정 업계에 국한 되지 않는 경우이 섹션을 비워 둡니다.
 
 > [!NOTE]
 > 새로운 산업 및 감축할를 도입 하 여 제품 검색 환경을 개선 하기 위해 노력 하 고 있으므로 일부 산업 또는 감축할는 아직 Storefront에 표시 되지 않을 수 있습니다. (*)로 표시 된 산업 및 감축할는 미래의 날짜에 제공 될 예정입니다. 게시 된 모든 제안은 키워드 검색을 통해 검색할 수 있습니다.
@@ -147,7 +143,7 @@ Power BI app 제품을 만들려면 먼저 파트너 센터에 상용 marketplac
 각 언어/시장에 대해 마켓플레이스 세부 정보 (예: 제품 이름, 설명 및 이미지)를 정의 합니다. 이 정보를 제공 하려면 언어/시장 이름을 선택 합니다.
 
 > [!NOTE]
-> 제품 설명이 구로 시작 하는 경우 제품 세부 정보는 영어로 지정할 필요가 없습니다. &quot;이 응용 프로그램은 [영어가 아닌 언어] 에서만 사용할 수 있습니다. &quot; 또한 제품 목록에 사용 된 것과 다른&#39;언어의 콘텐츠를 제공 하는 유용한 링크를 제공 하&#39;.
+> 제품 설명이 "영어가 아닌 언어 에서만 사용할 수 있습니다."로 시작 하는 경우 제품 세부 정보는 영어로 지정할 필요가 없습니다. 또한 제품 목록에 사용 된 것과 다른 언어로 콘텐츠를 제공 하는 유용한 링크도 제공 합니다.
 
 ### <a name="name"></a>속성
 
@@ -163,7 +159,7 @@ Power BI app 제품을 만들려면 먼저 파트너 센터에 상용 marketplac
 
 제품에 대 한 간단한 설명을 제공 합니다. 이 길이는 최대 100 자까지 가능 하며 marketplace 검색 결과에 사용 됩니다.
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 제품에 대 한 더 긴 설명을 최대 3000 자까지 제공 합니다. 이는 marketplace 목록 개요에서 고객에 게 표시 됩니다.
 
@@ -184,9 +180,13 @@ Power BI app 제품을 만들려면 먼저 파트너 센터에 상용 marketplac
 - 제품을 판매 하기 위한 기능과 기능을 사용 하지 마세요. 대신 제품에서 제공 하는 가치에 집중 하세요.
 - 산업별 어휘 또는 혜택 기반 표현을 사용해 보세요.
 
-제품 **설명을** 보다 유용 하 게 사용 하려면 서식 있는 텍스트 편집기를 사용 하 여 설명의 서식을 지정 합니다. 서식 있는 텍스트 편집기를 사용 하면 숫자, 글머리 기호, 굵게, 기울임꼴 및 들여쓰기를 추가 하 여 설명을 더 쉽게 읽을 수 있습니다.
+제품 설명을 보다 유용 하 게 사용 하려면 서식 있는 텍스트 편집기를 사용 하 여 서식 지정을 적용 합니다.
 
-:::image type="content" source="media/power-bi-rich-text-editor.png" alt-text="서식 있는 텍스트 편집기를 보여 줍니다." border="false":::
+![서식 있는 텍스트 편집기 사용](./media/rich-text-editor.png)
+
+| <center>텍스트 형식 변경 | <center>글머리 기호 또는 번호 매기기 추가 | <center>텍스트 들여쓰기 추가 또는 제거 |
+| --- | --- | --- |
+| <center>![서식 있는 텍스트 편집기를 사용 하 여 텍스트 형식 변경](./media/text-editor3.png) |  <center>![서식 있는 텍스트 편집기를 사용 하 여 목록 추가](./media/text-editor4.png) |  <center>![서식 있는 텍스트 편집기를 사용 하 여 들여쓰기](./media/text-editor5.png) |
 
 ### <a name="search-keywords"></a>검색 키워드
 
@@ -206,7 +206,7 @@ Power BI app 제품을 만들려면 먼저 파트너 센터에 상용 marketplac
 
 ### <a name="contact-information"></a>연락처 정보
 
-**지원 연락처** 와 **엔지니어링 연락처**의 이름, 전자 메일 및 전화 번호를 제공 해야 합니다. 이 정보는 고객에 게 표시 되지&#39;. Microsoft에서 사용할 수 있으며, CSP (클라우드 솔루션 공급자) 파트너에 게 제공 될 수 있습니다.
+**지원 연락처** 와 **엔지니어링 연락처**의 이름, 전자 메일 및 전화 번호를 제공 해야 합니다. 이 정보는 고객에 게 표시 되지 않습니다. Microsoft에서 사용할 수 있으며, CSP (클라우드 솔루션 공급자) 파트너에 게 제공 될 수 있습니다.
 
 - 지원 담당자 (필수): 일반 지원 질문의 경우
 - 엔지니어링 연락처 (필수): 기술 관련 질문 및 인증 문제.
@@ -222,12 +222,14 @@ Power BI app 제품을 만들려면 먼저 파트너 센터에 상용 marketplac
 
 제품에 사용할 로고 및 이미지를 제공 합니다. 모든 이미지는 .png 형식 이어야 합니다. 흐린 이미지는 거부 됩니다.
 
->[!Note]
+>[!NOTE]
 >파일을 업로드 하는 데 문제가 있는 경우 로컬 네트워크가 파트너 센터에서 사용 하는 https://upload.xboxlive.com 서비스를 차단 하지 않는지 확인 합니다.
 
 #### <a name="store-logos"></a>매장 로고
 
-&#39;s 로고를 두 가지 크기로 제공 합니다. **작은** (48 x 48 픽셀) 및 **큼** (216 x 216 픽셀)을 제공 합니다.
+제품 로고의 .png 파일을 두 픽셀 크기로 제공 합니다.
+- **작음** (48 x 48)
+- **큼** (216 x 216)
 
 두 로고가 모두 필요 하며 marketplace 목록의 다른 위치에서 사용 됩니다.
 
@@ -237,7 +239,7 @@ Power BI app 제품을 만들려면 먼저 파트너 센터에 상용 marketplac
 
 #### <a name="videos-optional"></a>비디오 (선택 사항)
 
-제품을 설명 하는 비디오를 최대 5 개까지 추가 합니다. 비디오&#39;s 이름, 웹 주소 및 비디오의 축소판 그림 이미지를 1280 x 720 픽셀 크기에 입력 합니다.
+제품을 설명 하는 비디오를 최대 5 개까지 추가 합니다. 비디오의 이름, 웹 주소 및 비디오의 축소판 그림 이미지를 1280 x 720 픽셀 크기로 입력 합니다.
 
 #### <a name="additional-marketplace-listing-resources"></a>리소스를 나열 하는 추가 마켓플레이스
 
@@ -249,7 +251,7 @@ Power BI Service의 앱을 프로덕션으로 승격 하 고 고객이 앱을 �
 
 ## <a name="supplemental-content"></a>추가 콘텐츠
 
-유효성을 검사 하는 데 도움이 되도록 제품에 대 한 추가 정보를 제공 합니다. 이&#39;정보는 고객에 게 표시 되거나 marketplace에 게시 되지 않습니다.
+유효성을 검사 하는 데 도움이 되도록 제품에 대 한 추가 정보를 제공 합니다. 이 정보는 고객에 게 표시 되지 않거나 marketplace에 게시 됩니다.
 
 ### <a name="validation-assets"></a>유효성 검사 자산
 
@@ -257,13 +259,13 @@ Power BI Service의 앱을 프로덕션으로 승격 하 고 고객이 앱을 �
 
 ## <a name="review-and-publish"></a>검토 및 게시
 
-제품의 모든 필수 섹션을 완료&#39;후에는 검토 및 게시를 위해 제품을 제출할 수 있습니다.
+제품의 필수 섹션을 모두 완료 한 후에는 제품을 제출 하 여 검토 하 고 게시할 수 있습니다.
 
 포털의 오른쪽 위 모서리에서 **검토 및 게시**를 선택 합니다.
 
 검토 페이지에서 다음을 수행할 수 있습니다.
 
-- 제품의 각 섹션에 대 한 완료 상태를 확인 합니다. 제품의 모든 섹션이 완료로 표시 될 때까지 t 게시를&#39;수 있습니다.
+- 제품의 각 섹션에 대 한 완료 상태를 확인 합니다. 제품의 모든 섹션이 완료로 표시 될 때까지 게시할 수 없습니다.
   - **시작 되지 않음** -섹션이 시작 되지 않았으며 완료 해야 합니다.
   - **불완전** -섹션에 수정 해야 하는 오류가 있거나 추가 정보를 제공 해야 합니다. 지침은이 문서의 앞부분에 나오는 섹션을 참조 하세요.
   - **완료** -섹션에 필요한 모든 데이터가 있고 오류가 없습니다. 제품을 제출 하려면 먼저 제품의 모든 섹션을 완료 해야 합니다.

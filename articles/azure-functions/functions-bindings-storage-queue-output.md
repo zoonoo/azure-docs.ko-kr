@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 76af5f398edd736874fa79095f2e80c02298eac0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd8442c00e2b7685b0dc1a7bd5150c87f2c27b7c
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277337"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891445"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 출력 바인딩
 
@@ -123,7 +123,7 @@ public static void Run(
     {
       "type": "queue",
       "direction": "out",
-      "name": "$return",
+      "name": "myQueueItem",
       "queueName": "outqueue",
       "connection": "MyStorageConnectionAppSetting"
     }
@@ -137,7 +137,8 @@ JavaScript 코드는 다음과 같습니다.
 
 ```javascript
 module.exports = function (context, input) {
-    context.done(null, input.body);
+    context.bindings.myQueueItem = input.body;
+    context.done();
 };
 ```
 
@@ -300,7 +301,7 @@ public class HttpTriggerQueueOutput {
 }
 ```
 
-| 속성    | Description |
+| 속성    | 설명 |
 |-------------|-----------------------------|
 |`name`       | 함수 시그니처의 매개 변수 이름을 선언 합니다. 함수가 트리거되면이 매개 변수의 값에 큐 메시지의 내용이 포함 됩니다. |
 |`queueName`  | 저장소 계정에서 큐 이름을 선언 합니다. |
@@ -310,7 +311,7 @@ public class HttpTriggerQueueOutput {
 
 ---
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 다음 표에서는 *함수. json* 파일 및 `Queue` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
 
@@ -324,7 +325,7 @@ public class HttpTriggerQueueOutput {
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용법
 
 # <a name="c"></a>[C#](#tab/csharp)
 

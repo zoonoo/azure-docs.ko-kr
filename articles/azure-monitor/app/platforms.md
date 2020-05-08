@@ -4,12 +4,12 @@ description: Application Insights 사용할 수 있는 언어, 플랫폼 및 통
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.openlocfilehash: cbda252fece638393ee7757dc165c4b009a0195e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 153d4ad3d95c182dcc4f2aa3bad857d7e1984cc2
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79136726"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891104"
 ---
 # <a name="supported-languages"></a>지원되는 언어
 
@@ -46,7 +46,7 @@ ms.locfileid: "79136726"
 * [Azure Monitor](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 
 ## <a name="export-and-data-analysis"></a>내보내기 및 데이터 분석
-* [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
+* [Power BI](https://powerbi.microsoft.com/blog/explore-your-application-insights-data-with-power-bi/)
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md)
 
 ## <a name="unsupported-sdks"></a>지원되지 않는 SDK

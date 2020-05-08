@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 5aee3a19e33204da00483d0f4ee3f6ee97e8a07d
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: b4d3be9fbacee82f36f1238c5d9b4598c95b5df2
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856259"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888816"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -170,7 +170,7 @@ ms.locfileid: "82856259"
 
     - SAS(공유 액세스 서명)를 사용하여 특정 사용 권한을 가지며, 지정된 시간 간격에 유효한 토큰을 생성할 수 있습니다. 예를 들어, 만료 시간으로 10분이 있는 특정 파일에 대한 읽기 전용 액세스 권한이 있는 토큰을 생성할 수 있습니다. 토큰이 유효한 동안 토큰을 소유한 사람은 해당 10분 동안 해당 파일에 대한 읽기 전용 액세스 권한을 가집니다. 공유 액세스 서명 키는 REST API 또는 클라이언트 라이브러리를 통해서만 지원 됩니다. 스토리지 계정 키를 사용하여 SMB를 통해 Azure 파일 공유를 탑재해야 합니다.
 
-    - Azure 파일 동기화는 동기화하는 모든 서버 엔드포인트에 대한 모든 임의 ACL 또는 DACL(Active Directory 기반 또는 로컬 여부)을 유지합니다. Windows Server는 Active Directory에서 이미 인증을 받을 수 있으므로 Azure 파일 동기화는 Active Directory 기반 인증 및 ACL의 전체 지원이 제공될 때까지 효과적인 일시적 옵션입니다.
+    - Azure 파일 동기화는 동기화하는 모든 서버 엔드포인트에 대한 모든 임의 ACL 또는 DACL(Active Directory 기반 또는 로컬 여부)을 유지합니다. 
     
     Azure Storage에 대 한 [액세스 권한을 부여](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 하 여 Azure Storage 서비스에서 지원 되는 모든 프로토콜의 포괄적인 표현을 참조할 수 있습니다. 
 
@@ -414,7 +414,7 @@ ms.locfileid: "82856259"
 **IBM MQ에서 Azure Files를 어떻게 사용하나요?**  
     IBM은 IBM MQ 고객이 IBM 서비스로 Azure Files를 구성할 수 있도록 돕는 문서를 발표했습니다. 자세한 내용은 [Microsoft Azure 파일 서비스와 IBM MQ 다중 인스턴스 큐 관리자를 설치하는 방법](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)을 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Windows에서 Azure Files 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)
 * [Linux에서 Azure Files 문제 해결](storage-troubleshoot-linux-file-connection-problems.md)
 * [Azure 파일 동기화 문제 해결](storage-sync-files-troubleshoot.md)
