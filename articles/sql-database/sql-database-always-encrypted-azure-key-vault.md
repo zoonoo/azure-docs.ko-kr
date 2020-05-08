@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: f1d08581c5d29fc41fb33541d766af7cece88cdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c171c1bab99e4e3748267308745ee66631ed08d
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81451672"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888970"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: 중요한 데이터 보호 및 Azure Key Vault에 암호화 키 저장
 
@@ -35,7 +35,7 @@ ms.locfileid: "81451672"
 - 데이터베이스 테이블을 만들고 열을 암호화합니다.
 - 암호화된 열에서 데이터를 삽입하고 선택하며 표시한 애플리케이션을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에는 다음이 필요합니다.
 
@@ -621,4 +621,4 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면, 먼저 �
 - [투명 한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx)
 - [암호화 SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 - [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)
-- [상시 암호화 블로그](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+- [상시 암호화 블로그](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

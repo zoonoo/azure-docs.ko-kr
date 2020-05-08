@@ -2,7 +2,7 @@
 title: IoT용 Azure Security Center 설명서
 summary: IoT용 Azure Security Center는 포괄적인 IoT 디바이스 위협 방지를 제공하는 Azure 기반 클라우드 보안 서비스입니다.
 metadata:
-  title: 문서화
+  title: IoT용 Azure Security Center 설명서
   description: Azure 기반 클라우드 보안 서비스인 IoT용 Azure Security Center가 포괄적인 IoT 디바이스 위협 방지 기능을 제공하는 방법에 대해 알아봅니다.
   services: service
   ms.service: asc-for-iot
@@ -11,12 +11,12 @@ metadata:
   author: mlottner
   ms.author: mlottner
   ms.date: 09/23/2019
-  ms.openlocfilehash: f5b399ad604918f7644b90e7b5f852bb27c46be0
-  ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+  ms.openlocfilehash: 5a9f5c9d919c6c30c6318749ad2a62d40865e573
+  ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/14/2020
-  ms.locfileid: "81310979"
+  ms.lasthandoff: 05/07/2020
+  ms.locfileid: "82890913"
 landingContent:
 - title: IoT용 Azure Security Center 정보
   linkLists:

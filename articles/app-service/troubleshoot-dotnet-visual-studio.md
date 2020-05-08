@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb68860af56914acede6c9cbf04d3e8ad3edbe04
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280054"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891066"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 앱 문제 해결
 ## <a name="overview"></a>개요
@@ -614,7 +614,7 @@ Visual Studio를 사용하여 App Service 앱에서 생성된 로그를 쉽게 �
 Azure App Service에서 앱 문제 해결에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [앱을 모니터링하는 방법](web-sites-monitor.md)
-* [Visual Studio 2013을 사용하여 Azure App Service에서 메모리 누수 검사](https://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx) 관리되는 메모리 문제를 분석하는 데 사용되는 Visual Studio 기능에 대한 Microsoft ALM 블로그 게시물입니다.
+* [Visual Studio 2013을 사용하여 Azure App Service에서 메모리 누수 검사](https://devblogs.microsoft.com/devops/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013/) 관리되는 메모리 문제를 분석하는 데 사용되는 Visual Studio 기능에 대한 Microsoft ALM 블로그 게시물입니다.
 * [알아 두면 도움이 되는 Azure App Service 온라인 도구](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/) Amit Apple의 블로그 게시물입니다.
 
 특정 문제 해결 질문과 관련하여 도움이 필요한 경우 다음 포럼 중 하나에서 게시물을 작성하십시오.
@@ -678,7 +678,7 @@ App Service 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다
   웹 서버 로그(*.log* 파일)의 데이터를 보는 데 사용하는 도구입니다.
 * [LogParser를 사용 하 여 IIS 성능 문제 또는 응용 프로그램 오류 문제 해결](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
    웹 서버 로그를 분석하는 데 사용할 수 있는 로그 파서 도구를 소개합니다.
-* [Robert McMurray의 LogParser 사용 관련 블로그 게시물](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [Robert McMurray의 LogParser 사용 관련 블로그 게시물](https://docs.microsoft.com/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
 * [IIS 7.0, IIS 7.5 및 IIS 8.0의 HTTP 상태 코드](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>실패한 요청 로그 분석

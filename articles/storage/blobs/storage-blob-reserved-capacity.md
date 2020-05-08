@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e73686629de8481f6a37e5bfafc9b723206b4853
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4ba54736abe335b53a3b8c6733063efcb34ea29a
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80351022"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856832"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>예약된 용량으로 Blob 스토리지에 대한 비용 최적화
 
@@ -84,7 +84,7 @@ Azure Storage 예약을 구매할 때 예약에 대 한 지역, 액세스 계층
    |**구독**  | Azure Storage 예약에 대해 지불 하는 데 사용 되는 구독입니다. 선택한 구독의 결제 방법을 사용 하 여 비용을 청구 합니다. 구독은 다음 형식 중 하나 여야 합니다. <br/><br/>  기업계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p): Enterprise 구독의 경우 요금 청구는 등록의 금액 약정 잔액에서 공제 되거나 초과분로 청구 됩니다. <br/><br/> 종 량 제 요금이 있는 개별 구독 (제품 번호: MS-MS-AZR-0017P-0003P 또는 MS-AZR-0017P-0023P): 종 량 제 요금이 있는 개별 구독의 경우 요금 청구는 구독에 대 한 신용 카드나 청구서 지불 방법으로 청구 됩니다.    |
    | **지역** | 예약이 적용 되는 지역입니다. |
    | **액세스 계층** | 예약이 적용 되는 액세스 계층입니다. *핫*, *쿨*또는 *Archive*옵션을 포함 합니다. 액세스 계층에 대 한 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](storage-blob-storage-tiers.md)을 참조 하세요. |
-   | **중복** | 예약에 대 한 중복성 옵션입니다. 옵션에는 *LRS*, *ZRS*, *GRS*및 *RA-GZRS*가 포함 됩니다. 중복성 옵션에 대 한 자세한 내용은 [Azure Storage 중복성](../common/storage-redundancy.md)을 참조 하세요. |
+   | **중복** | 예약에 대 한 중복성 옵션입니다. 옵션에는 *LRS*, *ZRS*, *GRS*, *GZRS*, *ra-GRS*및 *RA-GZRS*가 포함 됩니다. 중복성 옵션에 대 한 자세한 내용은 [Azure Storage 중복성](../common/storage-redundancy.md)을 참조 하세요. |
    | **청구 빈도** | 예약에 대 한 계정 청구 빈도를 나타냅니다. 옵션에는 *월별* 또는 *선행*이 포함 됩니다. |
    | **크기** | 예약이 적용 되는 지역입니다. |
    |**용어**  | 1년 또는 3년입니다.   |
@@ -129,5 +129,5 @@ Azure Reservations 정책에 대 한 자세한 내용은 [셀프 서비스 교�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Reservations 이란?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Azure Reservations란?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Azure Storage에 예약 할인이 적용되는 방식 이해](../../cost-management-billing/reservations/understand-storage-charges.md)

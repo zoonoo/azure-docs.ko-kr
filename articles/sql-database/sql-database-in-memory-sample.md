@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: b707d67c88eb550d397134b2294c1c5b0e1f7f7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ff4647682f5f4d688f3b581b96715e01976a387
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80528209"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891162"
 ---
 # <a name="in-memory-sample"></a>메모리 내 샘플
 
@@ -51,7 +51,7 @@ Azure SQL Database에서 메모리 내 기술을 사용하면 애플리케이션
 
 3. [메모리 내 OLTP Transact-SQL 스크립트](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) 를 클립보드에 복사합니다. T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
 
-4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다. 다음은 그 예입니다.
+4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다. 예를 들어:
 
 
 ```sql
@@ -182,7 +182,7 @@ VM 또는 선택한 호스트에서 RML(Replay Markup Language) 유틸리티를 
 자세한 내용은 다음을 참조하세요.
 - [메모리 내 OLTP에 대한 샘플 데이터베이스](https://msdn.microsoft.com/library/mt465764.aspx)의 ostress.exe 설명
 - [메모리 내 OLTP에 대 한 예제 데이터베이스](https://msdn.microsoft.com/library/mt465764.aspx).
-- [ostress.exe 설치에 대한 블로그](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
+- [ostress.exe 설치에 대한 블로그](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910)
 
 
 

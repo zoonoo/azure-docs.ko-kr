@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 04a900c98311f4e7dcccbfca93ea41e212308759
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 777f3de8f2872e378fe30cc50ee0a5eb3823a625
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80882100"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900320"
 ---
 # <a name="single-page-application-move-to-production"></a>단일 페이지 응용 프로그램: 프로덕션으로 이동
 
@@ -40,7 +40,7 @@ ms.locfileid: "80882100"
 MSAL를 사용 하 여 사용자 고유의 백 엔드 웹 API에 대 한 토큰을 가져오는 방법을 보여 주는 샘플입니다.
 
 > [!div class="nextstepaction"]
-> [ASP.NET 백 엔드가 있는 SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+> [ASP.NET 백 엔드를 사용 하는 SPA](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi)
 
 MSAL를 사용 하 여 Azure Active Directory B2C (Azure AD B2C)에 등록 된 앱에서 사용자를 로그인 하는 방법을 보여 주는 샘플입니다.
 

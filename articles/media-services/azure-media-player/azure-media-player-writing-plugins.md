@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.openlocfilehash: b7aac80b19a7c30d994f3c14e19047583d5334ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7902dfdf81d8e44921a5218d56effc90f433f02d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727113"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857412"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Azure Media Player에 대 한 플러그 인 작성 #
 
@@ -35,7 +35,7 @@ ms.locfileid: "81727113"
 
 태그 또는 외부 JavaScript 파일 내 `<script>` 에서 HTML 페이지에 직접 코드를 작성할 수 있습니다. 후자를 수행 하는 경우에는 AMP 스크립트 `<head>` *뒤* 에 HTML 페이지의에 JavaScript 파일을 포함 해야 합니다.
 
-예제:
+예:
 
 ```javascript
     <!--*****START OF Azure Media Player Scripts*****-->
@@ -87,7 +87,7 @@ ms.locfileid: "81727113"
 
 ### <a name="plugin-gallery"></a>플러그 인 갤러리 ###
 
-[플러그 인 갤러리](http//:aka.ms/ampplugins) 에는 커뮤니티에서 시계열 마커, 확대/축소, 분석 등의 기능에 대해 이미 제공한 여러 플러그 인이 있습니다. 이 페이지에서는 플러그 인에 대 한 액세스 뿐만 아니라 작동 중인 플러그 인을 보여 주는 데모를 설정 하는 방법에 대 한 지침을 제공 합니다. 갤러리에 포함 해야 하는 쿨 플러그 인을 만드는 경우 확인할 수 있도록 자유롭게 제출할 수 있습니다.
+[플러그 인 갤러리](https://aka.ms/ampplugins) 에는 커뮤니티에서 시계열 마커, 확대/축소, 분석 등의 기능에 대해 이미 제공한 여러 플러그 인이 있습니다. 이 페이지에서는 플러그 인에 대 한 액세스 뿐만 아니라 작동 중인 플러그 인을 보여 주는 데모를 설정 하는 방법에 대 한 지침을 제공 합니다. 갤러리에 포함 해야 하는 쿨 플러그 인을 만드는 경우 확인할 수 있도록 자유롭게 제출할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계 ##
 

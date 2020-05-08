@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 04/19/2020
-ms.openlocfilehash: 992c981d49e7c6fbf8b6156570f6554a05caab5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 968da0154f5a2587531e7594956a069f11c110d2
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687751"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890952"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL Database의 JSON 기능 시작
 Azure SQL Database를 사용하면 [JSON](https://www.json.org/)(JavaScript Object Notation) 형식으로 표현된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 JSON 텍스트로 내보낼 수 있습니다. 다음 JSON 시나리오는 Azure SQL Database에서 사용할 수 있습니다.
@@ -192,5 +192,5 @@ JSON을 애플리케이션에 통합하는 방법을 알아보려면 다음 리�
 * [MSDN 설명서](https://msdn.microsoft.com/library/dn921897.aspx)
 * [Channel 9 비디오](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
-JSON을 애플리케이션에 통합하는 다양한 시나리오에 대해 알아보려면 이 [Channel 9 비디오](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds)에서 데모를 참조하거나 [JSON 블로그 게시물](https://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/)에서 사용 사례와 일치하는 시나리오 찾아보세요.
+JSON을 애플리케이션에 통합하는 다양한 시나리오에 대해 알아보려면 이 [Channel 9 비디오](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds)에서 데모를 참조하거나 [JSON 블로그 게시물](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/json-in-sql-server-use-cases)에서 사용 사례와 일치하는 시나리오 찾아보세요.
 

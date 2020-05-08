@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 1b3bdad0125b5bddbba20c8d807924fc3ea87e32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d201beb2ff4aba815749b12a506d2292779cb82
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79299399"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857293"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Azure Stream Analytics의 데이터 보호 
 
@@ -61,6 +61,9 @@ Stream Analytics에서 유지 해야 하는 모든 개인 데이터는 저장소
 Stream Analytics 작업에서 사용 되는 리소스의 연결 세부 정보도 저장 됩니다. 모든 데이터를 보호 하기 위해 저장소 계정을 암호화 합니다. 
 
 규정을 준수 하는 산업 또는 환경에서 규정 준수 의무를 충족 하는 데 도움이 되도록 [Microsoft의 규정 준수 제품](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)에 대해 자세히 알아볼 수 있습니다. 
+
+## <a name="known-issues"></a>알려진 문제
+관리 id를 사용 하 여 입력 또는 출력을 인증할 때 고객 관리 키를 사용 하는 작업이 실패 하 게 되는 알려진 문제가 있습니다. 이 문제에 대 한 수정 작업을 수행 하 고 있으며 곧 사용할 수 있게 될 예정입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
-ms.date: 04/10/2020
-ms.openlocfilehash: ed2fe1736c887fd8aa866c8d0c71a5df0aa4fb31
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/30/2020
+ms.openlocfilehash: 4eaa9c4e3d200eedd57c468639c1af3830911d1d
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232839"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889250"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Apache Hadoop, Apache Spark, Apache Kafka 등을 사용하여 HDInsight에서 클러스터 설정
 
@@ -26,11 +26,13 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머
 > [!IMPORTANT]  
 > 클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다. [클러스터 삭제](hdinsight-delete-cluster.md) 방법에 대해 알아보세요.
 
+여러 클러스터를 함께 사용 하는 경우 가상 네트워크를 만들 수 있습니다. 또한 Spark 클러스터를 사용 하는 경우 Hive 웨어하우스 커넥터를 사용 하는 것이 좋습니다. 자세한 내용은 [Azure HDInsight에 대 한 가상 네트워크 계획](./hdinsight-plan-virtual-network-deployment.md) 및 [Hive 웨어하우스 커넥터를 사용 하 여 Apache Spark 및 Apache Hive 통합](interactive-query/apache-hive-warehouse-connector.md)을 참조 하세요.
+
 ## <a name="cluster-setup-methods"></a>클러스터 설정 방법
 
 다음 표는 HDInsight 클러스터를 설정하기 위해 사용할 수 있는 다양한 방법을 보여줍니다.
 
-| 다음을 사용하여 만든 클러스터 | 웹 브라우저 사용 | 명령줄 | REST API | SDK) |
+| 다음을 사용하여 만든 클러스터 | 웹 브라우저 사용 | 명령 줄 | REST API | SDK |
 | --- |:---:|:---:|:---:|:---:|
 | [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
@@ -204,7 +206,7 @@ Azure Virtual Network 내에서 두 개의 클러스터 유형을 사용하는 �
 
 각 클러스터 유형에는 자체 노드 수, 노드에 대한 용어 및 기본 VM 크기가 있습니다. 다음 표에서는 각 노드 유형에 대한 노드 수는 괄호로 묶어서 표시됩니다.
 
-| Type | 노드 | 다이어그램 |
+| 형식 | 노드 | 다이어그램 |
 | --- | --- | --- |
 | Hadoop은 |헤드 노드 (2), 작업자 노드 (1 +) |![HDInsight Hadoop 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |헤드 서버(2), 지역 서버(1+), 마스터/ZooKeeper 노드(3) |![HDInsight HBase 클러스터 유형 설정](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 67b703f0079e26d01330d52d170f99699480fad6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b777e6a45bdfe78889366982a6c28e10e21c4fbc
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196388"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857005"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 비용 계획 및 관리
 
@@ -90,7 +90,7 @@ az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 
 
 다른 Azure 계산 리소스와 마찬가지로 AmlCompute에는 내재 된 [할당량 (또는 제한) 구성이](how-to-manage-quotas.md#azure-machine-learning-compute)함께 제공 됩니다. 이 할당량은 VM 제품군 (예: Dv2 series, NCv3 series)에 의해 다르며 각 구독에 대 한 지역별 차이가 있습니다. 구독은 작은 기본값을 사용 하 여 시작 되지만,이 설정을 사용 하 여 구독에서 분리 수 있는 Amlcompute 리소스의 양을 제어할 수 있습니다. 
 
-또한 구독 내의 각 작업 영역에 대해 [VM 제품군으로 작업 영역 수준 할당량](/how-to-manage-quotas.md#workspace-level-quota)을 구성 합니다. 이렇게 하면 각 작업 영역에서 잠재적으로 발생할 수 있는 비용을 보다 세부적으로 제어 하 고 특정 VM 제품군을 제한할 수 있습니다. 
+또한 구독 내의 각 작업 영역에 대해 [VM 제품군으로 작업 영역 수준 할당량](how-to-manage-quotas.md#workspace-level-quota)을 구성 합니다. 이렇게 하면 각 작업 영역에서 잠재적으로 발생할 수 있는 비용을 보다 세부적으로 제어 하 고 특정 VM 제품군을 제한할 수 있습니다. 
 
 작업 영역 수준에서 할당량을 설정 하려면 [Azure Portal](https://portal.azure.com)에서 시작 합니다.  구독에서 작업 영역을 선택 하 고 왼쪽 창에서 **사용량 + 할당량** 을 선택 합니다. 그런 다음 할당량 **구성** 탭을 선택 하 여 할당량을 확인 합니다. 이 할당량은 여러 작업 영역에 영향을 주는 설정 이므로이 할당량을 설정 하려면 구독 범위에서 권한이 필요 합니다.
 

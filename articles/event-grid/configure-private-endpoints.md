@@ -7,20 +7,17 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 97f08bf0f89fdb65f0ffef7d18557f210e45a8d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b72462334fa2311b017be49860ed422dfa35430c
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101011"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890823"
 ---
-# <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains-preview"></a>Azure Event Grid 토픽 또는 도메인에 대 한 개인 끝점 구성 (미리 보기)
+# <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Azure Event Grid 토픽 또는 도메인에 대 한 개인 끝점 구성
 [개인 끝점](../private-link/private-endpoint-overview.md) 을 사용 하 여 공용 인터넷을 통하지 않고 [개인 링크](../private-link/private-link-overview.md) 를 통해 안전 하 게 항목 및 도메인에 대 한 가상 네트워크에서 직접 이벤트를 수신 하도록 허용할 수 있습니다. 개인 끝점은 토픽 또는 도메인에 대 한 VNet 주소 공간의 IP 주소를 사용 합니다. 개념에 대 한 자세한 내용은 [네트워크 보안](network-security.md)을 참조 하세요.
 
 이 문서에서는 토픽 또는 도메인에 대 한 개인 끝점을 구성 하는 방법을 설명 합니다.
-
-> [!IMPORTANT]
-> 개인 끝점 기능은 프리미엄 계층의 토픽 및 도메인에만 사용할 수 있습니다. 기본 계층에서 프리미엄 계층으로 업그레이드 하려면 [가격 책정 계층 업데이트](update-tier.md) 문서를 참조 하세요. 
 
 ## <a name="use-azure-portal"></a>Azure Portal 사용 
 이 섹션에서는 Azure Portal를 사용 하 여 토픽 또는 도메인에 대 한 개인 끝점을 만드는 방법을 보여 줍니다.
@@ -74,7 +71,7 @@ ms.locfileid: "82101011"
 
 다음 네 가지 프로비저닝 상태가 있습니다.
 
-| 서비스 작업 | 서비스 소비자 프라이빗 엔드포인트 상태 | Description |
+| 서비스 작업 | 서비스 소비자 프라이빗 엔드포인트 상태 | 설명 |
 |--|--|--|
 | 없음 | Pending | 연결이 수동으로 만들어지며 개인 링크 리소스 소유자의 승인이 보류 중입니다. |
 | 승인 | 승인됨 | 연결이 자동 또는 수동으로 승인되었으며, 사용할 준비가 되었습니다. |
@@ -205,7 +202,7 @@ az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --nam
 - Resource group
 - 가상 네트워크
 - 가상 네트워크의 서브넷
-- Azure Event Grid 토픽 (프리미엄 계층)
+- Azure Event Grid 항목
 - 항목의 개인 끝점
 
 > [!NOTE]
@@ -254,8 +251,7 @@ az network vnet subnet update \
 az eventgrid topic create \
     --resource-group $resourceGroupName \
     --name $topicName \
-    --location $location \
-    --sku "Premium" 
+    --location $location
 
 # verify that the topic was created.
 az eventgrid topic show \
@@ -369,7 +365,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 
 ```azurepowershell-interactive
-$body = @{"location"="<LOCATION>"; "sku"= @{"name"="premium"}; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
+$body = @{"location"="<LOCATION>"; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
 
 # create topic
 Invoke-RestMethod -Method 'Put'  `

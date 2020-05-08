@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1fffb3eb10b7d3cbb3360a03112c3b4d7db8d109
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 5356ff0ac165deefc5053cf4faa40c1159e98678
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209488"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856872"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 [Azure Files](storage-files-introduction.md) 는 서버를 사용 하지 않는 azure 파일 공유를 직접 탑재 하거나 Azure File Sync를 사용 하 여 온-프레미스에서 azure 파일 공유를 캐시 하는 두 가지 주요 방법으로 배포할 수 있습니다. 선택 하는 배포 옵션에 따라 배포를 계획할 때 고려해 야 할 사항이 변경 됩니다. 
@@ -84,7 +84,7 @@ Azure 스토리지 계정에 대해 전송 중 암호화를 사용하지 않도�
     - 프리미엄 파일 공유는 프로 비전 된 청구 모델을 사용 하 여 청구 됩니다. 즉, 실제로 요청 하는 저장소 크기 보다 프로 비전 하는 저장소 용량에 대 한 비용을 지불 합니다. 
     - 표준 파일 공유에는 종 량 제 모델을 사용 하 여 요금이 청구 됩니다. 여기에는 실제로 소비 하는 저장소의 양에 대 한 기본 저장소 비용과 공유 사용 방법에 따라 추가 트랜잭션 비용이 포함 됩니다. 표준 파일 공유를 사용 하는 경우 Azure 파일 공유를 사용 (읽기/쓰기/탑재) 하면 청구서가 증가 합니다.
 - **중복성 옵션**
-    - 프리미엄 파일 공유는 LRS (로컬 중복) 및 ZRS (영역 중복) 저장소에만 사용할 수 있습니다. 
+    - 프리미엄 파일 공유는 LRS (로컬 중복) 및 ZRS (영역 중복) 저장소에만 사용할 수 있습니다.
     - 표준 파일 공유는 로컬 중복, 영역 중복, 지역 중복 (GRS) 및 GZRS (지역 영역 중복) 저장소에 사용할 수 있습니다.
 - **파일 공유의 최대 크기**
     - 프리미엄 파일 공유는 추가 작업 없이 최대 100 TiB 프로 비전 할 수 있습니다.

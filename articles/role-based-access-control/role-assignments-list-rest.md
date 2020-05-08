@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 043c91e5c1ecd86951ac3f9423558a3ab369d506
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 50ef431559a38d30f7e1e76646e8930c70fc4ef9
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735677"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891324"
 ---
 # <a name="list-azure-role-assignments-using-the-rest-api"></a>REST API를 사용 하 여 Azure 역할 할당 나열
 
@@ -42,7 +42,7 @@ Azure RBAC에서 액세스를 나열 하려면 역할 할당을 나열 합니다
 1. URI 내에서 *{scope}* 를 역할 할당을 나열하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | Type |
+    > | 범위 | 형식 |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -60,6 +60,35 @@ Azure RBAC에서 액세스를 나열 하려면 역할 할당을 나열 합니다
     > | `$filter=assignedTo('{objectId}')` | 지정 된 사용자 또는 서비스 사용자에 대 한 역할 할당을 나열 합니다.<br/>사용자가 역할 할당을 포함 하는 그룹의 구성원 인 경우 해당 역할 할당도 나열 됩니다. 이 필터는 그룹에 대해 전이적입니다. 즉, 사용자가 그룹의 구성원이 고 해당 그룹이 역할 할당을 포함 하는 다른 그룹의 멤버인 경우 해당 역할 할당도 나열 됩니다.<br/>이 필터는 사용자 또는 서비스 사용자의 개체 ID만 허용 합니다. 그룹의 개체 ID를 전달할 수 없습니다. |
     > | `$filter=atScope()+and+assignedTo('{objectId}')` | 지정 된 사용자 또는 서비스 사용자와 지정 된 범위에 대 한 역할 할당을 나열 합니다. |
     > | `$filter=principalId+eq+'{objectId}'` | 지정 된 사용자, 그룹 또는 서비스 사용자에 대 한 역할 할당을 나열 합니다. |
+
+다음 요청은 구독 범위에서 지정 된 사용자에 대 한 모든 역할 할당을 나열 합니다.
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()+and+assignedTo('{objectId1}')
+```
+
+다음은 출력 예제입니다.
+
+```json
+{
+    "value": [
+        {
+            "properties": {
+                "roleDefinitionId": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+                "principalId": "{objectId1}",
+                "scope": "/subscriptions/{subscriptionId1}",
+                "createdOn": "2019-01-15T21:08:45.4904312Z",
+                "updatedOn": "2019-01-15T21:08:45.4904312Z",
+                "createdBy": "{createdByObjectId1}",
+                "updatedBy": "{updatedByObjectId1}"
+            },
+            "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",
+            "type": "Microsoft.Authorization/roleAssignments",
+            "name": "{roleAssignmentId1}"
+        }
+    ]
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c9e3cfa689f2e528f4d20e796017ae9d91c29fe2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461721"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857164"
 ---
 # <a name="design-secure-applications-on-azure"></a>Azure에서 보안 응용 프로그램 디자인
 이 문서에서는 클라우드 용 응용 프로그램을 디자인할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL (보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 의 요구 사항 및 디자인 단계에서 고려해 야 하는 보안 질문 및 개념과 함께 학습 리소스를 다룹니다. 목표는 보다 안전한 응용 프로그램을 디자인 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주는 것입니다.
@@ -222,11 +222,11 @@ SDL의 확인 단계에서 [공격 노출 영역 검토를 수행](secure-develo
 응용 프로그램에서 액세스 패턴에 [최소한의 권한을](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) 적용 하는지 확인 합니다.
 
 > [!NOTE]
->  최소 권한 규칙은 소프트웨어 및 소프트웨어를 만드는 사용자에 게 적용 해야 합니다. 소프트웨어 개발자는 너무 많은 액세스 권한을 제공 하는 경우 IT 보안에 큰 위험을 초래할 수 있습니다. 개발자가 악의적인 의도를가지고 있거나 너무 많은 액세스 권한을 제공 하는 경우 결과가 심각한 영향을 받을 수 있습니다. 개발 수명 주기 동안 개발자에 게 최소 권한 규칙을 적용 하는 것이 좋습니다.
+> 최소 권한 규칙은 소프트웨어 및 소프트웨어를 만드는 사용자에 게 적용 해야 합니다. 소프트웨어 개발자는 너무 많은 액세스 권한을 제공 하는 경우 IT 보안에 큰 위험을 초래할 수 있습니다. 개발자가 악의적인 의도를가지고 있거나 너무 많은 액세스 권한을 제공 하는 경우 결과가 심각한 영향을 받을 수 있습니다. 개발 수명 주기 동안 개발자에 게 최소 권한 규칙을 적용 하는 것이 좋습니다.
 
 #### <a name="implement-just-in-time-access"></a>Just-in-time 액세스 구현
 
-JIT ( *just-in-time* ) 액세스를 구현 하 여 권한 노출 시간을 더 낮게 합니다. [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-build-visibility-and-take-full-control-of-admin-activity) 사용:
+JIT ( *just-in-time* ) 액세스를 구현 하 여 권한 노출 시간을 더 낮게 합니다. [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-take-control-of-admin-activity) 사용:
 
 - JIT만 필요한 사용 권한을 사용자에 게 제공 합니다.
 - 권한을 자동으로 해지하는 짧은 기간 동안 자신 있게 역할을 할당합니다.
