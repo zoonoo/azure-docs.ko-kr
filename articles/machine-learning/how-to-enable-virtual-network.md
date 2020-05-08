@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/17/2020
-ms.openlocfilehash: 6cf89790ee125d8d09d9bdead2f6e34dcb73e8f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5e4f811d39c75742f11c52de5c178fbf4063000d
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188126"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864643"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -150,7 +150,7 @@ Azure Machine Learning 작업 영역의 가상 네트워크 내에서 Data Lake 
 > 이러한 리소스는 구독의 [리소스 할당량](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)으로 제한됩니다.
 
 
-### <a name="required-ports"></a><a id="mlcports"></a> 필수 포트
+### <a name="required-ports"></a><a id="mlcports"></a>필요한 포트
 
 Machine Learning 컴퓨팅은 현재 Azure Batch 서비스를 사용하여 지정된 가상 네트워크에 VM을 프로비전합니다. 서브넷은 Batch 서비스에서의 인바운드 통신을 허용해야 합니다. 이 통신을 사용 하 여 Machine Learning 컴퓨팅 노드에서 실행을 예약 하 고 Azure Storage 및 기타 리소스와 통신할 수 있습니다. Batch 서비스는 Vm에 연결 된 Nic (네트워크 인터페이스) 수준에서 NSGs (네트워크 보안 그룹)를 추가 합니다. 이러한 NSG는 다음 트래픽을 허용하도록 인바운드 및 아웃바운드 규칙을 자동으로 구성합니다.
 
@@ -359,7 +359,7 @@ except ComputeTargetException:
 가상 네트워크의 AKS를 작업 영역에 추가 하려면 다음 단계를 사용 합니다.
 
 > [!IMPORTANT]
-> 다음 절차를 시작 하기 전에 [Azure Kubernetes 서비스에서 고급 네트워킹 구성 (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking#prerequisites) 의 필수 구성 요소에 따라 클러스터에 대 한 IP 주소 지정을 계획 합니다.
+> 다음 절차를 시작 하기 전에 [Azure Kubernetes 서비스에서 고급 네트워킹 구성 (AKS)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) 의 필수 구성 요소에 따라 클러스터에 대 한 IP 주소 지정을 계획 합니다.
 >
 > AKS 인스턴스와 Azure virtual network는 동일한 지역에 있어야 합니다. 가상 네트워크의 작업 영역에서 사용 하는 Azure Storage 계정의 보안을 유지 하는 경우 AKS 인스턴스와 동일한 가상 네트워크에 있어야 합니다.
 
@@ -557,7 +557,7 @@ Azure 방화벽과 함께 Azure Machine Learning를 사용 하는 방법에 대 
     
     자세한 내용은 [update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) 메서드 참조를 참조 하세요.
 
-1. Azure Machine Learning 작업 영역에 대 한 개인 링크를 사용 하 고 가상 네트워크에 작업 영역에 대 한 Azure Container Registry을 저장 하는 경우 다음 Azure Resource Manager 템플릿도 적용 해야 합니다. 이 템플릿을 사용 하면 작업 영역에서 개인 링크를 통해 ACR와 통신할 수 있습니다.
+1. 다음 Azure Resource Manager 템플릿을 적용 해야 합니다. 이 템플릿을 사용 하면 작업 영역에서 ACR와 통신할 수 있습니다.
 
     ```json
     {

@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: a012c3ce8f7c9e105a42d8383a502f3608c84070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c032e900cd2f58581517b08905d5b0660ed8bbda
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732918"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857820"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>SSH를 통해 Azure Toolkit for IntelliJ를 사용 하 여 HDInsight 클러스터에서 Apache Spark 응용 프로그램 디버그
 
-이 문서에서는 [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) 의 hdinsight 도구를 사용 하 여 hdinsight 클러스터에서 응용 프로그램을 원격으로 디버그 하는 방법에 대 한 단계별 지침을 제공 합니다. 프로젝트를 디버그하려는 경우 [Azure Toolkit for IntelliJ로 HDInsight Spark 애플리케이션 디버그](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) 비디오를 시청할 수도 있습니다.
+이 문서에서는 [Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij) 의 hdinsight 도구를 사용 하 여 hdinsight 클러스터에서 응용 프로그램을 원격으로 디버그 하는 방법에 대 한 단계별 지침을 제공 합니다. 프로젝트를 디버그하려는 경우 [Azure Toolkit for IntelliJ로 HDInsight Spark 애플리케이션 디버그](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) 비디오를 시청할 수도 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

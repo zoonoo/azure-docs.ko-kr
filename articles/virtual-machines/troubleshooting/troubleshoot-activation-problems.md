@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: fd38f646b8dfc58839cd2645f7fadf7332693854
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 820fe016d630e63660368c9065acbcda9b514921
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605996"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858618"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Windows Azure 가상 컴퓨터 정품 인증 문제 해결
 
@@ -102,7 +102,7 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
   
     또한 1688 포트가 있는 KMS 끝점에 대 한 아웃 바운드 네트워크 트래픽이 VM의 방화벽에서 차단 되지 않았는지 확인 합니다.
 
-5. 해당 지역에 적용 되는 대상 IP 23.102.135.246 (kms.core.windows.net) 또는 해당 지역에 적용 되는 적절 한 KMS 끝점의 IP에 해당 하는 VM의 다음 홉 형식이 **인터넷**인 [Network Watcher 다음 홉](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) 을 사용 하 여 확인 합니다.  결과가 VirtualAppliance 또는 VirtualNetworkGateway 인 경우 기본 경로가 있을 수 있습니다.  네트워크 관리자에 게 문의 하 여 올바른 조치를 결정 하는 작업을 수행 합니다.  해당 솔루션이 조직의 정책과 일치 하는 경우 [사용자 지정 경로](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) 일 수 있습니다.
+5. 해당 지역에 적용 되는 대상 IP 23.102.135.246 (kms.core.windows.net) 또는 해당 지역에 적용 되는 적절 한 KMS 끝점의 IP에 해당 하는 VM의 다음 홉 형식이 **인터넷**인 [Network Watcher 다음 홉](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) 을 사용 하 여 확인 합니다.  결과가 VirtualAppliance 또는 VirtualNetworkGateway 인 경우 기본 경로가 있을 수 있습니다.  네트워크 관리자에 게 문의 하 여 올바른 작업 과정을 확인 하세요.  해당 솔루션이 조직의 정책과 일치 하는 경우 [사용자 지정 경로](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) 일 수 있습니다.
 
 6. kms.core.windows.net에 성공적으로 연결되었는지 확인한 후에 해당 관리자 권한 Windows PowerShell 프롬프트에서 다음 명령을 실행합니다. 이 명령은 여러 번 활성화되도록 시도합니다.
 

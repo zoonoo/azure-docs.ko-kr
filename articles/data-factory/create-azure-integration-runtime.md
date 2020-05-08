@@ -10,12 +10,12 @@ ms.date: 03/13/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: e32530ece3626807b199850a2b4af5461ff51cde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 901761c8a5dc17cd7f00c3f04153c8e9aa99b648
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414072"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858026"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Azure 통합 런타임을 만들고 구성하는 방법
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -59,10 +59,10 @@ AzDataFactoryV2IntegrationRuntime PowerShell cmdlet을 사용 하 여 해당 위
 1. **Integration runtime 설정** 페이지에서 **Azure, 자체 호스팅**을 차례로 선택 하 고 **계속**을 선택 합니다. 
 
 1. 다음 페이지에서 **Azure** 를 선택 하 여 Azure IR를 만든 후 **계속**을 선택 합니다.
-   ![Integration Runtime 만들기](media/create-azure-integration-runtime/new-azure-ir.png)
+   ![Integration Runtime 만들기](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
 
 1. Azure IR에 대 한 이름을 입력 하 고 **만들기**를 선택 합니다.
-   ![Azure IR 만들기](media/create-azure-integration-runtime/create-azure-ir.png)
+   ![Azure IR 만들기](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
 
 1. 만들기가 완료 되 면 팝업 알림이 표시 됩니다. **통합 런타임** 페이지에서 새로 만든 IR이 목록에 표시 되는지 확인 합니다.
 

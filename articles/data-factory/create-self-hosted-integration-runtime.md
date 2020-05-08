@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 03/13/2020
-ms.openlocfilehash: 6bc0f002c6927cfd9a314797663e1dabbac392b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d18a8d09749b832984872b57eec8a36abc1b2e2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416633"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857673"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 
@@ -67,7 +67,7 @@ Azure Data Factory UI를 사용 하 여 자체 호스팅 IR을 만들려면 다�
 1. **Integration runtime 설정** 페이지에서 **Azure, 자체 호스팅**을 차례로 선택 하 고 **계속**을 선택 합니다. 
 
 1. 다음 페이지에서 자체 **호스팅** 을 선택 하 여 자체 호스팅 IR을 만든 다음, **계속**을 선택 합니다.
-   ![Selfhosted IR 만들기](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
+   ![Selfhosted IR 만들기](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
 1. IR의 이름을 입력 하 고 **만들기**를 선택 합니다.
 
@@ -107,7 +107,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
 응용 프로그램의 매개 변수 및 속성에 대 한 자세한 내용은 다음과 같습니다. 
 
-| 속성                                                    | Description                                                  | 필수 |
+| 속성                                                    | 설명                                                  | 필요한 공간 |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **RegisterNewNode** "`<AuthenticationKey>`"                     | 지정 된 인증 키를 사용 하 여 자체 호스팅 integration runtime 노드를 등록 합니다. | 아니요       |
 | **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | 지정 된 인증 키와 노드 이름을 사용 하 여 자체 호스팅 integration runtime 노드를 등록 합니다. | 아니요       |
@@ -153,7 +153,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 - 데이터 저장소가 Azure IaaS (Infrastructure as a Service) 가상 머신의 클라우드에 있는 경우에도 자체 호스팅 통합 런타임을 사용 합니다.
 - FIPS 규격 암호화를 사용 하는 Windows 서버에 설치한 자체 호스팅 통합 런타임에서 태스크가 실패할 수 있습니다. 이 문제를 해결하려면 서버에서 FIPS 규격 암호화를 사용하지 않도록 설정합니다. FIPS 호환 암호화를 사용 하지 않도록 설정 하려면 다음 레지스트리 하위 키의 값을 1 (사용)에서 0 (사용 안 `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`함)으로 변경 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 지원 되는 Windows 버전은 다음과 같습니다.
   + Windows 7 서비스 팩 1
