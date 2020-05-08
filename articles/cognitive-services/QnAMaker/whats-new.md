@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 02/14/2020
 ms.author: diberry
 ms.openlocfilehash: c0ee1abcb99e10d57d05945f45595e5bfd76fa28
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80155990"
 ---
 # <a name="whats-new-in-qna-maker"></a>QnA Maker의 새로운 기능
