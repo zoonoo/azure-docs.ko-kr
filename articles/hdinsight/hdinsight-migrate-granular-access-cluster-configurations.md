@@ -6,13 +6,13 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.openlocfilehash: bb78d84aa0f9a2832b6599edeac9d50e0e226437
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/20/2020
+ms.openlocfilehash: 058300dca3e7eae41b7d8010e1ca5ee7d4cdcf3a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546346"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598473"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 
@@ -24,14 +24,14 @@ ms.locfileid: "80546346"
 
 2019 9 월 3 일부 터 이러한 비밀에 액세스 하려면 `Microsoft.HDInsight/clusters/configurations/action` 권한이 필요 합니다. 즉, 사용자가 읽기 권한자 역할을 사용 하 여 더 이상 액세스할 수 없습니다. 이 권한이 있는 역할은 참가자, 소유자 및 새 HDInsight 클러스터 운영자 역할 (아래 참조)입니다.
 
-또한 참가자 또는 소유자의 관리 권한을 부여 하지 않고도 암호를 검색할 수 있는 새 [HDInsight 클러스터 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) 역할을 도입 하 고 있습니다. 요약하면
+또한 참가자 또는 소유자의 관리 권한을 부여 하지 않고도 암호를 검색할 수 있는 새 [HDInsight 클러스터 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) 역할을 도입 하 고 있습니다. 요약:
 
 | 역할                                  | 이전의                                                                                        | 앞으로 이동       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| 판독기                                | -암호를 비롯 한 읽기 액세스                                                                   | -읽기 액세스, 비밀 **제외** |           |   |   |
+| 판독기                                | -암호를 포함 한 읽기 권한입니다.                                                                   | -읽기 액세스, 비밀 **제외** |           |   |   |
 | HDInsight 클러스터 운영자<br>(새 역할) | 해당 없음                                                                                              | -읽기/쓰기 액세스 (암호 포함)         |   |   |
-| 참가자                           | -읽기/쓰기 액세스 (암호 포함)<br>-모든 유형의 Azure 리소스를 만들고 관리 합니다.     | 변경 내용 없음 |
-| 소유자                                 | -암호를 포함 하는 읽기/쓰기 액세스<br>-모든 리소스에 대 한 모든 권한<br>-다른 사용자에 대 한 액세스 위임 | 변경 내용 없음 |
+| 참가자                           | -암호를 포함 하는 읽기/쓰기 액세스입니다.<br>-모든 유형의 Azure 리소스를 만들고 관리 합니다.<br>-스크립트 동작을 실행 합니다.     | 변경 내용 없음 |
+| 소유자                                 | -암호를 포함 하는 읽기/쓰기 액세스입니다.<br>-모든 리소스에 대 한 모든 권한<br>-다른 사용자에 게 액세스 권한을 위임 합니다.<br>-스크립트 동작을 실행 합니다. | 변경 내용 없음 |
 
 사용자에 게 클러스터 암호에 대 한 읽기/쓰기 액세스 권한을 부여 하는 HDInsight 클러스터 운영자 역할 할당을 추가 하는 방법에 대 한 자세한 내용은 아래 섹션에서 [사용자에 게 Hdinsight 클러스터 운영자 역할 할당 추가](#add-the-hdinsight-cluster-operator-role-assignment-to-a-user)를 참조 하세요.
 

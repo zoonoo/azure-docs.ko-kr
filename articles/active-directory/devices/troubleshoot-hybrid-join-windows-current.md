@@ -11,14 +11,15 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26e52930211611673b6fe2309e2dca067a91ebc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331777"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611316"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 연결 된 장치 문제 해결 
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 연결 된 장치 문제 해결
 
 이 문서의 내용은 Windows 10 또는 Windows Server 2016를 실행 하는 장치에 적용 됩니다.
 
@@ -30,13 +31,13 @@ ms.locfileid: "80331777"
 - [엔터프라이즈 설정 로밍](../active-directory-windows-enterprise-state-roaming-overview.md)
 - [비즈니스용 Windows Hello](../active-directory-azureadjoin-passport-deployment.md)
 
-이 문서에서는 잠재적인 문제를 해결 하기 위한 문제 해결 지침을 제공 합니다. 
+이 문서에서는 잠재적인 문제를 해결 하기 위한 문제 해결 지침을 제공 합니다.
 
 Windows 10 및 Windows Server 2016의 경우 하이브리드 Azure Active Directory 조인은 Windows 10 2015년 11월 업데이트 이상을 지원합니다.
 
 ## <a name="troubleshoot-join-failures"></a>조인 오류 문제 해결
 
-### <a name="step-1-retrieve-the-join-status"></a>1단계: 조인 상태 검색 
+### <a name="step-1-retrieve-the-join-status"></a>1단계: 조인 상태 검색
 
 **조인 상태를 검색하려면:**
 
@@ -88,22 +89,22 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-### <a name="step-2-evaluate-the-join-status"></a>2단계: 조인 상태 평가 
+### <a name="step-2-evaluate-the-join-status"></a>2단계: 조인 상태 평가
 
 다음 필드를 검토하고 예상 값을 갖는지 확인합니다.
 
-#### <a name="domainjoined--yes"></a>DomainJoined : YES  
+#### <a name="domainjoined--yes"></a>DomainJoined : YES
 
-이 필드는 디바이스가 온-프레미스 Active Directory에 조인되는지 여부를 나타냅니다. 값이 **아니요**인 경우 디바이스는 하이브리드 Azure AD 조인을 수행할 수 없습니다.  
+이 필드는 디바이스가 온-프레미스 Active Directory에 조인되는지 여부를 나타냅니다. 값이 **아니요**인 경우 디바이스는 하이브리드 Azure AD 조인을 수행할 수 없습니다.
 
-#### <a name="workplacejoined--no"></a>WorkplaceJoined : NO  
+#### <a name="workplacejoined--no"></a>WorkplaceJoined : NO
 
 이 필드는 디바이스가 Azure AD에 개인 디바이스로 등록되어 있는지 여부를 나타냅니다(*작업 영역 조인*으로 표시). 이 값은 하이브리드 Azure AD 조인된 도메인에 가입된 컴퓨터에 대해 **아니요**이어야 합니다. 값이 **예**인 경우 하이브리드 Azure AD 조인을 완료하기 전에 회사 또는 학교 계정이 추가되었습니다. 이 경우 Windows 10 버전의 1주년 업데이트(1607)를 사용하는 경우 계정은 무시됩니다.
 
-#### <a name="azureadjoined--yes"></a>AzureAdJoined : YES  
+#### <a name="azureadjoined--yes"></a>AzureAdJoined : YES
 
 이 필드는 장치가 조인 되었는지 여부를 나타냅니다. 장치가 Azure AD 조인 장치 또는 하이브리드 Azure AD 가입 장치인 경우에는 값이 **예** 입니다.
-값이 **아니요**인 경우 Azure AD에 대한 조인은 아직 완료되지 않았습니다. 
+값이 **아니요**인 경우 Azure AD에 대한 조인은 아직 완료되지 않았습니다.
 
 추가 문제 해결을 위해 다음 단계를 진행 합니다.
 
@@ -155,7 +156,7 @@ WamDefaultAuthority: organizations
    - 유효한 SCP 개체는 Azure AD에서 확인 된 도메인 이름을 가리키는 AD 포리스트에 있어야 합니다.
    - 자세한 내용은 [서비스 연결 지점 구성](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join)섹션에서 찾을 수 있습니다.
 - 검색 끝점에서 연결 및 검색 메타 데이터를 가져오지 못했습니다.
-   - 장치는 등록 및 권한 부여 끝점 `https://enterpriseregistration.windows.net`을 검색 하기 위해 시스템 컨텍스트에서 액세스할 수 있어야 합니다. 
+   - 장치는 등록 및 권한 부여 끝점 `https://enterpriseregistration.windows.net`을 검색 하기 위해 시스템 컨텍스트에서 액세스할 수 있어야 합니다.
    - 온-프레미스 환경에 아웃 바운드 프록시가 필요한 경우 IT 관리자는 장치의 컴퓨터 계정이 아웃 바운드 프록시를 검색 하 고 자동으로 인증할 수 있는지 확인 해야 합니다.
 - 사용자 영역 끝점에 연결 하는 데 실패 하 고 영역 검색을 수행 합니다. (Windows 10 버전 1809 이상에만 해당)
    - 장치는 확인 된 도메인에 대해 `https://login.microsoftonline.com`영역 검색을 수행 하 고 도메인 유형 (관리/페더레이션)을 결정할 수 있도록 시스템 컨텍스트에서 액세스할 수 있어야 합니다.
@@ -173,7 +174,7 @@ WamDefaultAuthority: organizations
    - 이유: 검색을 수행 하는 동안 작업 시간이 초과 되었습니다.
    - 해결 방법: 시스템 `https://enterpriseregistration.windows.net` 컨텍스트에서에 액세스할 수 있는지 확인 합니다. 자세한 내용은 [네트워크 연결 요구 사항](hybrid-azuread-join-managed-domains.md#prerequisites)섹션을 참조 하세요.
 - **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
-   - 원인: 일반 영역 검색에 실패 했습니다. STS에서 도메인 유형 (관리/페더레이션)을 확인 하지 못했습니다. 
+   - 원인: 일반 영역 검색에 실패 했습니다. STS에서 도메인 유형 (관리/페더레이션)을 확인 하지 못했습니다.
    - 해결 방법: 아래에서 하위 오류를 찾아 자세히 조사 합니다.
 
 **일반적인 하위 오류 코드:**
@@ -260,7 +261,7 @@ WamDefaultAuthority: organizations
 
 - **ERROR_ADAL_PROTOCOL_NOT_SUPPORTED** (0xcaa90017/-894894057)
    - 원인: 인증 프로토콜이 WS-TRUST가 아닙니다.
-   - 해결 방법: 온-프레미스 id 공급자는 WS-TRUST를 지원 해야 합니다. 
+   - 해결 방법: 온-프레미스 id 공급자는 WS-TRUST를 지원 해야 합니다.
 - **ERROR_ADAL_FAILED_TO_PARSE_XML** (0xcaa9002c/-894894036)
    - 원인: 온-프레미스 페더레이션 서비스에서 XML 응답을 반환 하지 않았습니다.
    - 해결 방법: MEX 끝점이 유효한 XML을 반환 하는지 확인 합니다. 프록시가 방해 하지 않고 비 xml 응답을 반환 하는지 확인 합니다.
@@ -278,7 +279,7 @@ WamDefaultAuthority: organizations
    - 해결 방법: 잠시 후 다시 시도 하거나 안정적인 다른 네트워크 위치에서 조인 해 보세요.
 - **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/894947441)
    - 이유: 이전에 SSL (SSL(Secure Sockets Layer))으로 알려진 TLS (전송 계층 보안)를 서버에서 보낸 인증서의 유효성을 검사할 수 없습니다.
-   - 해결 방법: 클라이언트 시간 오차를 확인 합니다. 잠시 후 다시 시도 하거나 안정적인 다른 네트워크 위치에서 조인 해 보세요. 
+   - 해결 방법: 클라이언트 시간 오차를 확인 합니다. 잠시 후 다시 시도 하거나 안정적인 다른 네트워크 위치에서 조인 해 보세요.
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/894947587)
    - 이유:에 `https://login.microsoftonline.com` 연결 하지 못했습니다.
    - 해결 방법:에 대 한 `https://login.microsoftonline.com`네트워크 연결을 확인 합니다.
@@ -293,11 +294,11 @@ WamDefaultAuthority: organizations
    - 해결 방법: 페더레이션 서버 설정을 확인 합니다. 인증 로그에서 서버 오류 코드를 찾습니다.
 - **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
    - 원인: 토큰 끝점에서 액세스 토큰을 가져오려고 할 때 오류가 발생 했습니다.
-   - 해결 방법: ADAL 로그에서 기본 오류를 찾습니다. 
+   - 해결 방법: ADAL 로그에서 기본 오류를 찾습니다.
 - **ERROR_ADAL_OPERATION_PENDING** (0xcaa1002d/-895418323)
    - 이유: 일반 ADAL 오류
    - 해결 방법: 인증 로그에서 하위 오류 코드 또는 서버 오류 코드를 찾습니다.
-    
+
 #### <a name="join-phase"></a>조인 단계
 
 실패 이유:
@@ -337,7 +338,7 @@ WamDefaultAuthority: organizations
    - 원인: DRS에서 오류 응답을 받았습니다. 오류 코드: "DirectoryError"
    - 해결 방법: 가능한 원인 및 해결 방법에 대해서는 서버 오류 코드를 참조 하십시오.
 - **DSREG_E_DEVICE_AUTHENTICATION_ERROR** (0x801c0002/-2145648638)
-   - 이유: DRS에서 오류 응답을 받았습니다: "AuthenticationError" 및 ErrorSubCode 코드는 "DeviceNotFound"이 아닙니다. 
+   - 이유: DRS에서 오류 응답을 받았습니다: "AuthenticationError" 및 ErrorSubCode 코드는 "DeviceNotFound"이 아닙니다.
    - 해결 방법: 가능한 원인 및 해결 방법에 대해서는 서버 오류 코드를 참조 하십시오.
 - **DSREG_E_DEVICE_INTERNALSERVICE_ERROR** (0x801c0006/-2145648634)
    - 원인: DRS에서 오류 응답을 받았습니다. 오류 코드: "DirectoryError"
@@ -349,7 +350,7 @@ WamDefaultAuthority: organizations
    - 원인: TPM 작업이 실패 했거나 잘못 되었습니다.
    - 해결 방법: 잘못 된 sysprep 이미지가 원인일 수 있습니다. Sysprep 이미지가 생성 된 컴퓨터가 Azure AD 조인, 하이브리드 Azure AD 조인 또는 Azure AD가 등록 되지 않았는지 확인 합니다.
 - **TPM_E_PCP_INTERNAL_ERROR** (0x80290407/-2144795641)
-   - 이유: 일반 TPM 오류입니다. 
+   - 이유: 일반 TPM 오류입니다.
    - 해결 방법:이 오류가 발생 한 장치에서 TPM을 사용 하지 않도록 설정 합니다. Windows 10 버전 1809 이상에서는 tpm 오류를 자동으로 감지 하 고 TPM을 사용 하지 않고 하이브리드 Azure AD 조인을 완료 합니다.
 - **TPM_E_NOTFIPS** (0x80280036/-2144862154)
    - 원인: FIPS 모드의 TPM이 현재 지원 되지 않습니다.
@@ -386,28 +387,32 @@ WamDefaultAuthority: organizations
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>5 단계: 로그 및 연락처 Microsoft 지원 수집
 
-여기에서 공용 [ https://1drv.ms/u/s스크립트를 가져옵니다. AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ]( https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ)
+다음에서 파일 Auth를 다운로드 합니다.[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. 관리자 명령 프롬프트를 열고를 실행 `start_ngc_tracing_public.cmd`합니다.
-2. 문제를 재현 하는 단계를 수행 합니다.
-3. 을 실행 `stop_ngc_tracing_public.cmd`하 여 로깅 스크립트의 실행을 중지 합니다.
-4. 압축 하 고 분석 `%SYSTEMDRIVE%\TraceDJPP\*` 을 위해 로그를 보냅니다.
+1. 파일의 압축을 풀고 포함 된 파일 **start-auth** 및 **stop-auth** 를 **start-auth** 및 **stop-auth**로 이름을 바꿉니다.
+1. 관리자 권한 명령 프롬프트에서 **start-auth**를 실행 합니다.
+1. 스위치 계정을 사용 하 여 문제 사용자의 다른 세션으로 전환 합니다.
+1. 문제를 재현합니다.
+1. 스위치 계정을 사용 하 여 추적을 실행 하는 관리자 세션으로 다시 전환 합니다.
+1. 관리자 권한 명령 프롬프트에서 **stop-auth**를 실행 합니다.
+1. Zip을 열고 스크립트가 실행 된 폴더에서 **Authlogs** 폴더를 보냅니다.
 
 ## <a name="troubleshoot-post-join-issues"></a>조인 후 문제 해결
 
-### <a name="retrieve-the-join-status"></a>조인 상태 검색 
+### <a name="retrieve-the-join-status"></a>조인 상태 검색
 
 #### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet: YES 및 AzureADPrt: YES
-  
-이러한 필드는 사용자가 디바이스에 로그인 시 Azure AD에서 성공적으로 인증되었는지 여부를 나타냅니다. 값이 **아니요**인 경우 다음의 원인 때문일 수 있습니다.
+
+이러한 필드는 사용자가 디바이스에 로그인 시 Azure AD에서 성공적으로 인증되었는지 여부를 나타냅니다.
+값이 **아니요**인 경우 다음의 원인 때문일 수 있습니다.
 
 - 등록 시 장치에 연결 된 TPM의 저장소 키가 잘못 되었습니다. 상승 된 상태에서 실행 하는 동안에는 KeySignTest를 확인 하세요.
 - 대체 로그인 ID
 - HTTP 프록시를 찾을 수 없음
 
 ## <a name="known-issues"></a>알려진 문제
-- 설정-> 계정-회사 또는 학교에 액세스 > 하는 하이브리드 Azure AD 조인 장치는 모바일 핫스팟 또는 외부 WiFi 네트워크에 연결 된 경우 Azure AD 용과 온-프레미스 AD에 대해 각각 하나씩 두 개의 계정을 표시할 수 있습니다. 이는 UI 문제 이며 기능에 영향을 주지 않습니다. 
- 
+- 설정-> 계정-회사 또는 학교에 액세스 > 하는 하이브리드 Azure AD 조인 장치는 모바일 핫스팟 또는 외부 WiFi 네트워크에 연결 된 경우 Azure AD 용과 온-프레미스 AD에 대해 각각 하나씩 두 개의 계정을 표시할 수 있습니다. 이는 UI 문제 이며 기능에 영향을 주지 않습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 [Dsregcmd.exe 명령을 사용 하 여 장치 문제 해결](troubleshoot-device-dsregcmd.md) 계속

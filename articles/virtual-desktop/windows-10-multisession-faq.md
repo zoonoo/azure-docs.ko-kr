@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d7ea99e2ee8e2882c211ee17acec70222dc058a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 143410f0bf0659161427f4b5391124f53f712972
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637091"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611996"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Windows 10 Enterprise 다중 세션 FAQ
 
@@ -104,4 +104,4 @@ Windows 가상 데스크톱 및 Windows 10 Enterprise 다중 세션에 대 한 �
 
 - [Windows 가상 데스크톱 미리 보기 설명서](overview.md) 를 참조 하십시오.
 - [Windows 가상 데스크톱 TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) 을 방문 하세요.
-- Windows [가상 데스크톱 자습서](tenant-setup-azure-active-directory.md) 를 사용 하 여 Windows 가상 데스크톱 배포 설정
+- Windows [가상 데스크톱 자습서](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) 를 사용 하 여 Windows 가상 데스크톱 배포 설정

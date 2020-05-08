@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/28/2020
-ms.openlocfilehash: 3f49ea14d5737e9c55e7193c18a5fc2ac5922ec5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 935459a398c07d3b4f61c76dec75b083a2354720
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82230861"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609040"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for MySQL 서버 다시 시작
 
@@ -21,7 +21,7 @@ ms.locfileid: "82230861"
 
 다시 시작을 완료 하는 데 필요한 시간은 MySQL 복구 프로세스에 따라 달라 집니다. 다시 시작 시간을 줄이려면 다시 시작 하기 전에 서버에서 발생 하는 작업의 양을 최소화 하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
@@ -43,3 +43,8 @@ PowerShell을 로컬로 사용 하도록 선택 하는 경우 [AzAccount](/power
 ```azurepowershell-interactive
 Restart-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
+
+## <a name="next-steps"></a>다음 단계
+
+> [!div class="nextstepaction"]
+> [PowerShell을 사용 하 여 Azure Database for MySQL 서버 만들기](quickstart-create-mysql-server-database-using-azure-powershell.md)

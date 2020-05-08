@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2020
-ms.openlocfilehash: 79dc1b188e91028a98f43dc24972228f2d2101be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/27/2020
+ms.openlocfilehash: 9b2114672db755efba1818505c8f399ac01aea71
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684722"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983604"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
@@ -150,6 +150,8 @@ Azure Machine Learning는 데이터 처리를 위한 여러 일반적인 유틸�
 import os
 os.system(f"pip install scikit-misc")
 ```
+> [!NOTE]
+> 파이프라인이 여러 Python 스크립트 실행 모듈을 포함 하 고 미리 설치 된 목록에 없는 동일한 패키지를 필요로 하는 경우 각각의 모듈에 패키지를 각각 설치 하십시오. 
 
 ## <a name="upload-files"></a>파일 업로드
 **Python 실행 스크립트** 는 [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-)를 사용 하 여 파일 업로드를 지원 합니다.
@@ -218,7 +220,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 5. **Python 스크립트** 텍스트 상자에 올바른 Python 스크립트를 입력 하거나 붙여 넣습니다.
 
     > [!NOTE]
-    > 스크립트를 작성 하 고 선언 되지 않은 개체 또는 가져온 모듈을 사용 하는 것과 같은 구문 오류가 없는지 확인 하는 것이 매우 주의 하세요. 또한 사전 설치 된 모듈 목록에 대 한 추가 주의 지불 합니다. 나열 되지 않은 모듈을 가져오려면 스크립트에 해당 하는 패키지를 설치 합니다 (예:).
+    > 스크립트를 작성 하 고 선언 되지 않은 개체 또는 가져온 모듈을 사용 하는 것과 같은 구문 오류가 없는지 확인 하는 것이 매우 주의 하세요. 또한 사전 설치 된 모듈 목록에 주의를 기울여야 합니다. 나열 되지 않은 모듈을 가져오려면 스크립트에 해당 하는 패키지를 설치 합니다 (예:).
     >  ``` Python
     > import os
     > os.system(f"pip install scikit-misc")
