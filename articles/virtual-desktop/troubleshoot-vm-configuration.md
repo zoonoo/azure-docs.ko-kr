@@ -5,17 +5,23 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/03/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c7d9a5d576ceec301eba7436c1e0af34412ae854
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cada61f8fa1dfd163062ce22527f41e65291b3f8
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127595"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607251"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>세션 호스트 가상 머신 구성
+
+>[!IMPORTANT]
+>이 콘텐츠는 Azure Resource Manager Windows 가상 데스크톱 개체를 사용 하 여 스프링 2020 업데이트에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 2019 릴리스를 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md)를 참조 하세요.
+>
+> Windows 가상 데스크톱 스프링 2020 업데이트는 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에 사용 하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 문서를 사용 하 여 Windows 가상 데스크톱 세션 호스트 Vm (가상 컴퓨터)을 구성할 때 발생 하는 문제를 해결할 수 있습니다.
 
@@ -25,7 +31,7 @@ ms.locfileid: "79127595"
 
 ## <a name="vms-are-not-joined-to-the-domain"></a>Vm이 도메인에 가입 되어 있지 않습니다.
 
-Vm을 도메인에 가입 하는 데 문제가 있는 경우 다음 지침을 따르세요.
+Vm (가상 머신)을 도메인에 가입 하는 데 문제가 있는 경우 다음 지침을 따르세요.
 
 - [Windows Server 가상 컴퓨터를 관리 되는 도메인에 가입](../active-directory-domain-services/join-windows-vm.md) 또는 [도메인 가입 템플릿](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)사용의 프로세스를 사용 하 여 수동으로 VM에 연결 합니다.
 - VM의 명령줄에서 도메인 이름을 ping 해 봅니다.
@@ -77,7 +83,7 @@ Vm을 도메인에 가입 하는 데 문제가 있는 경우 다음 지침을 �
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>Windows 가상 데스크톱 에이전트 및 Windows 가상 데스크톱 부팅 로더가 설치 되어 있지 않습니다.
 
-Vm을 프로 비전 하는 권장 방법은 **Windows 가상 데스크톱 호스트 풀 만들기 및 프로 비전** 템플릿 Azure Resource Manager을 사용 하는 것입니다. 템플릿은 Windows 가상 데스크톱 에이전트 및 Windows 가상 데스크톱 에이전트 부팅 로더를 자동으로 설치 합니다.
+Vm을 프로 비전 하는 권장 방법은 Azure Portal 만들기 템플릿을 사용 하는 것입니다. 템플릿은 Windows 가상 데스크톱 에이전트 및 Windows 가상 데스크톱 에이전트 부팅 로더를 자동으로 설치 합니다.
 
 다음 지침에 따라 구성 요소가 설치 되었는지 확인 하 고 오류 메시지를 확인 합니다.
 
@@ -96,8 +102,8 @@ Vm을 프로 비전 하는 권장 방법은 **Windows 가상 데스크톱 호스
 **수정 2:** 다음 목록에서 항목을 확인 합니다.
 
 - 계정에 MFA가 없는지 확인 합니다.
-- 테 넌 트 이름이 정확 하 고 테 넌 트가 Windows 가상 데스크톱에 존재 하는지 확인 합니다.
-- 계정에 최소한 RDS 참가자 권한이 있는지 확인 합니다.
+- 호스트 풀의 이름이 정확 하 고 호스트 풀이 Windows 가상 데스크톱에 있는지 확인 하십시오.
+- 계정에 Azure 구독 또는 리소스 그룹에 대 한 참가자 이상의 권한이 있는지 확인 합니다.
 
 ### <a name="error-authentication-failed-error-in-cwindowstempscriptloglog"></a>오류: 인증에 실패 했습니다. C:\Windows\Temp\ScriptLog.log에서 오류가 발생 했습니다.
 
@@ -106,16 +112,16 @@ Vm을 프로 비전 하는 권장 방법은 **Windows 가상 데스크톱 호스
 **해결 방법:** 다음 목록에서 항목을 확인 합니다.
 
 - Windows 가상 데스크톱 서비스를 사용 하 여 Vm을 수동으로 등록 합니다.
-- Windows 가상 데스크톱에 연결 하는 데 사용 되는 계정에 테 넌 트에서 호스트 풀을 만들 수 있는 권한이 있는지 확인 합니다.
+- Windows 가상 데스크톱에 연결 하는 데 사용 되는 계정에는 Azure 구독 또는 리소스 그룹에서 호스트 풀을 만들 수 있는 권한이 있는지 확인 합니다.
 - 계정 확인에 MFA가 없습니다.
 
 ## <a name="windows-virtual-desktop-agent-is-not-registering-with-the-windows-virtual-desktop-service"></a>Windows 가상 데스크톱 에이전트가 Windows 가상 데스크톱 서비스에 등록 되지 않습니다.
 
 Windows 가상 데스크톱 에이전트가 수동으로 또는 Azure Resource Manager 템플릿 및 PowerShell DSC를 통해 세션 호스트 Vm에 설치 되 면 등록 토큰을 제공 합니다. 다음 섹션에서는 Windows 가상 데스크톱 에이전트 및 토큰에 적용 되는 문제를 해결 하는 방법에 대해 설명 합니다.
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>오류: RdsSessionHost cmdlet에 있는 상태는 상태를 사용할 수 없음으로 표시 합니다.
+### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>오류: AzWvdSessionHost cmdlet에 있는 상태는 상태를 사용할 수 없음으로 표시 합니다.
 
-![RdsSessionHost cmdlet은 상태를 사용할 수 없음으로 표시 합니다.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![AzWvdSessionHost cmdlet은 상태를 사용할 수 없음으로 표시 합니다.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **원인:** 에이전트는 자신을 새 버전으로 업데이트할 수 없습니다.
 
@@ -128,17 +134,17 @@ Windows 가상 데스크톱 에이전트가 수동으로 또는 Azure Resource M
 5. 설치 마법사를 완료 합니다.
 6. 작업 관리자를 열고 RDAgentBootLoader 서비스를 시작 합니다.
 
-## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>오류: Windows 가상 데스크톱 에이전트 레지스트리 항목 IsRegistered에는 0 값이 표시 됩니다.
+## <a name="error-windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>오류: Windows 가상 데스크톱 에이전트 레지스트리 항목 IsRegistered에는 0 값이 표시 됩니다.
 
 **원인:** 등록 토큰이 만료 되었거나 만료 값 999999를 사용 하 여 생성 되었습니다.
 
 **해결 방법:** 에이전트 레지스트리 오류를 해결 하려면 다음 지침을 따르세요.
 
-1. 등록 토큰이 이미 있는 경우 RDSRegistrationInfo를 사용 하 여 제거 합니다.
-2. Rds-NewRegistrationInfo를 사용 하 여 새 토큰을 생성 합니다.
-3. -ExpriationHours 매개 변수가 72 (최대값은 99999)로 설정 되어 있는지 확인 합니다.
+1. 등록 토큰이 이미 있는 경우 AzWvdRegistrationInfo를 사용 하 여 제거 합니다. 
+2. **AzWvdRegistrationInfo** cmdlet을 실행 하 여 새 토큰을 생성 합니다. 
+3. *-Expriationtime* 매개 변수가 3 일로 설정 되었는지 확인 합니다.
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>오류: Windows 가상 데스크톱 에이전트가 RdsSessionHost을 실행 하는 경우 하트 비트를 보고 하지 않습니다.
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>오류: Windows 가상 데스크톱 에이전트가 AzWvdSessionHost을 실행 하는 경우 하트 비트를 보고 하지 않습니다.
 
 **원인 1:** RDAgentBootLoader 서비스가 중지 되었습니다.
 
@@ -180,7 +186,7 @@ Windows 가상 데스크톱 side-by-side 스택은 Windows Server 2019와 함께
 
 Side-by-side 스택은 세션 호스트 풀 Vm에서 설치 또는 사용 하도록 설정 하는 세 가지 주요 방법이 있습니다.
 
-- Azure Resource Manager **새 Windows 가상 데스크톱 호스트 풀 템플릿 만들기 및 프로 비전**
+- Azure Portal 생성 템플릿 사용
 - 마스터 이미지에 포함 및 활성화
 - 각 VM에서 수동으로 설치 또는 사용 하도록 설정 (또는 확장/PowerShell 사용)
 
@@ -209,13 +215,7 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 **해결 방법:** 세션 호스트 VM에 side-by-side 스택을 설치 하려면 다음 지침을 따르세요.
 
 1. RDP (원격 데스크톱 프로토콜)를 사용 하 여 로컬 관리자로 세션 호스트 VM에 직접 가져올 수 있습니다.
-2. PowerShell 세션에서 사용할 [Windows 가상 데스크톱 powershell 모듈](/powershell/windows-virtual-desktop/overview/) 을 다운로드 하 여 가져온 다음 (아직 없는 경우)이 cmdlet을 실행 하 여 계정에 로그인 합니다.
-
-    ```powershell
-    Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-    ```
-
-3. PowerShell을 사용 하 여 [호스트 풀 만들기](create-host-pools-powershell.md)를 사용 하 여 side-by-side 스택을 설치 합니다.
+2. PowerShell을 사용 하 여 [호스트 풀 만들기](create-host-pools-powershell.md)를 사용 하 여 side-by-side 스택을 설치 합니다.
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>오작동 하는 Windows 가상 데스크톱 side-by-side 스택을 수정 하는 방법
 
@@ -339,7 +339,7 @@ Azure 갤러리에서 최신 버전의 Windows 10 버전 1903 이미지를 사�
 ## <a name="next-steps"></a>다음 단계
 
 - Windows 가상 데스크톱 및 에스컬레이션 트랙 문제 해결에 대 한 개요는 [문제 해결 개요, 사용자 의견 및 지원](troubleshoot-set-up-overview.md)을 참조 하세요.
-- Windows 가상 데스크톱 환경에서 테 넌 트 및 호스트 풀을 만드는 동안 발생 하는 문제를 해결 하려면 [테 넌 트 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)를 참조 하세요.
+- Windows 가상 데스크톱 환경에서 호스트 풀을 만드는 동안 발생 하는 문제를 해결 하려면 [환경 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)를 참조 하세요.
 - Windows 가상 데스크톱에서 VM (가상 컴퓨터)을 구성 하는 동안 발생 하는 문제를 해결 하려면 [세션 호스트 가상 컴퓨터 구성](troubleshoot-vm-configuration.md)을 참조 하세요.
 - Windows 가상 데스크톱 클라이언트 연결 문제를 해결 하려면 [Windows 가상 데스크톱 서비스 연결](troubleshoot-service-connection.md)을 참조 하세요.
 - 원격 데스크톱 클라이언트와 관련 된 문제를 해결 하려면 [원격 데스크톱 클라이언트 문제 해결](troubleshoot-client.md) 을 참조 하세요.

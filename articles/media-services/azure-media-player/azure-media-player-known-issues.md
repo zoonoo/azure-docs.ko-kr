@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: ff8dc58b9122e5173a9a6065e2efdbc5697be0d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 250fd242e76f64002a6e55e7caf616ac201b593b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727217"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692249"
 ---
 # <a name="known-issues"></a>알려진 문제 #
 
@@ -46,9 +46,10 @@ ms.locfileid: "81727217"
 
 - 라이브 콘텐츠의 DVR 창에서 콘텐츠가 완료 되 면 타임 라인은 영역을 검색 하거나 프레젠테이션 끝에 도달할 때까지 계속 증가 합니다.
 - MSE를 사용 하는 Firefox의 라이브 프레젠테이션에 몇 가지 문제가 있습니다.
-- 오디오나 비디오 자산은 AzureHtml5JS 기술을 통해 재생 되지 않습니다.
-  - 오디오나 비디오를 사용 하지 않고 자산을 재생 하려는 경우 [Azure Media Services 탐색기 도구](https://aka.ms/amse) 를 사용 하 여 빈 오디오나 비디오를 삽입 하면 됩니다.
-    - 자동 오디오를 삽입 하는 방법에 대 한 지침은 [여기](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio) 에서 찾을 수 있습니다.
+
+- 오디오 전용 자산은 AzureHtml5JS 기술을 통해 재생 되지 않습니다.
+  - 오디오 없이 자산을 재생 하려는 경우 [Azure Media Services 탐색기 도구](https://aka.ms/amse) 를 사용 하 여 빈 오디오를 삽입 하면 됩니다.
+  - 자동 오디오를 삽입 하는 방법에 대 한 지침은 [여기](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio) 에서 찾을 수 있습니다.
 
 ## <a name="flash"></a>깜박임 ##
 
@@ -91,7 +92,7 @@ ms.locfileid: "81727217"
 ## <a name="apple"></a>Apple ##
 
 - Mac의 Safari는 기본적으로 "플러그 인을 절약 하기 위해 플러그 인 중지" 설정을 사용 하 여 기본적으로 절전 모드를 사용 하도록 설정 하 여 Flash 및 Silverlight와 같은 플러그 인이 사용자에 게 선호 되지 않는다고 생각 되는 경우이를 차단 합니다. 이 블록은 플러그 인 존재를 차단 하지 않습니다. 기능만 제공 합니다. 기본 techOrder 경우 재생 하려고 할 때 문제가 발생할 수 있습니다.
-  - 완화 1: 비디오 플레이어가 ' front and center ' 인 경우 (문서의 왼쪽 상단 모서리에서 시작 하는 3000 x 3000 픽셀 경계 내에 있는 경우) 계속 재생 됩니다.
+  - 완화 1: 비디오 플레이어가 ' front and center ' 인 경우 (문서의 왼쪽 위 모서리에서 시작 하 여 3000 x 3000 픽셀 경계 내에 있는 경우) 계속 재생 됩니다.
   - 완화 2: Safari의 techOrder을 ["azureHtml5JS", "html5"]로 변경 합니다. 이 완화 방법은 Flashss 기술은 기술에서 사용할 수 있는 모든 기능을 얻지 못하는 것입니다.
 - Silverlight를 통한 PlayReady 콘텐츠에서 Safari를 재생 하는 동안 문제가 발생할 수 있습니다.
 - AES 및 제한 된 토큰 콘텐츠는 iOS 및 이전 Android 장치를 사용 하 여 재생 되지 않습니다.

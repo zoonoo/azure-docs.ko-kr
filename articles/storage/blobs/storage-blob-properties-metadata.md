@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: b4abd7e29dec67ddc1be50a2a6703da2a25551d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74c023c06e7b28183a53772be6798419c91dd37a
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137665"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692458"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>.NET을 사용 하 여 blob 속성 및 메타 데이터 관리
 
@@ -24,6 +24,11 @@ Blob은 포함 된 데이터 외에 시스템 속성과 사용자 정의 메타 
 - **시스템 속성**: 각 Blob 저장소 리소스에 시스템 속성이 있습니다. 그 중 일부를 읽거나 설정할 수 있지만 나머지는 읽기 전용입니다. 일부 시스템 속성은 내부적으로 특정 표준 HTTP 헤더에 해당합니다. .NET 용 Azure Storage 클라이언트 라이브러리는 이러한 속성을 유지 관리 합니다.
 
 - **사용자 정의 메타 데이터**: 사용자 정의 메타 데이터는 Blob 저장소 리소스에 대해 지정 하는 하나 이상의 이름-값 쌍으로 구성 됩니다. 메타 데이터를 사용 하 여 리소스와 함께 추가 값을 저장할 수 있습니다. 메타 데이터 값은 자신만의 목적 으로만 사용 되며 리소스의 동작 방식에는 영향을 주지 않습니다.
+
+> [!NOTE]
+> Blob 인덱스 태그는 또한 Blob storage 리소스와 함께 임의의 사용자 정의 키/값 특성을 저장 하는 기능을 제공 합니다. 메타 데이터와 마찬가지로 Blob 인덱스 태그만 자동으로 인덱싱되어 네이티브 blob service에서 쿼리할 수 있습니다. Azure Search와 같은 별도의 서비스를 사용 하지 않는 경우에는 메타 데이터를 고유 하 게 인덱싱하고 쿼리할 수 없습니다.
+>
+> 이 기능에 대해 자세히 알아보려면 [Blob 인덱스를 사용 하 여 Azure Blob Storage에서 데이터 관리 및 찾기 (미리 보기)](storage-manage-find-blobs.md)를 참조 하세요.
 
 Blob storage 리소스에 대 한 메타 데이터 및 속성 값 검색은 2 단계 프로세스입니다. 이러한 값을 읽으려면 먼저 또는 `FetchAttributes` `FetchAttributesAsync` 메서드를 호출 하 여 명시적으로 인출 해야 합니다. 이 규칙의 예외는 `Exists` 및 `ExistsAsync` 메서드가 내부적으로 적절 한 `FetchAttributes` 메서드를 호출 하는 것입니다. 이러한 메서드 중 하나를 호출 하는 경우에도를 호출할 `FetchAttributes`필요가 없습니다.
 

@@ -3,7 +3,7 @@ title: OAuth 2.0 장치 코드 흐름 | Microsoft
 titleSuffix: Microsoft identity platform
 description: 브라우저 없이 사용자 로그인 장치 권한 부여를 사용 하 여 포함 된 브라우저 없는 인증 흐름을 빌드합니다.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 42f3ca233597d0fbc31ce656bd856875e873e3c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0677603f02b429c269c0f93ef348b2b1d717a9f
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868479"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82689773"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 장치 권한 부여 흐름
 
@@ -51,9 +51,9 @@ scope=user.read%20openid%20profile
 
 ```
 
-| 매개 변수 | 조건 | Description |
+| 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
-| `tenant` | 필수 | /공용/소비자 또는/organizations. 일 수 있습니다.  GUID 또는 친숙 한 이름 형식의 사용 권한을 요청 하려는 디렉터리 테 넌 트가 될 수도 있습니다.  |
+| `tenant` | 필요한 공간 | /공용/소비자 또는/organizations. 일 수 있습니다.  GUID 또는 친숙 한 이름 형식의 사용 권한을 요청 하려는 디렉터리 테 넌 트가 될 수도 있습니다.  |
 | `client_id` | 필수 | [Azure Portal – 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 앱에 할당 한 **응용 프로그램 (클라이언트) ID** 입니다. |
 | `scope` | 권장 | 사용자가 동의할 수 있도록 할 공백으로 구분 된 [범위](v2-permissions-and-consent.md) 목록입니다.  |
 
@@ -61,14 +61,14 @@ scope=user.read%20openid%20profile
 
 성공적인 응답은 사용자가 로그인할 수 있게 하는 데 필요한 정보가 포함된 JSON 개체입니다.
 
-| 매개 변수 | 형식 | Description |
+| 매개 변수 | 형식 | 설명 |
 | ---              | --- | --- |
-|`device_code`     | 문자열 | 클라이언트와 권한 부여 서버 간의 세션을 확인하는 데 사용되는 긴 문자열입니다. 클라이언트에서 이 매개 변수를 사용하여 권한 부여 서버의 액세스 토큰을 요청합니다. |
-|`user_code`       | 문자열 | 보조 디바이스의 세션을 식별하는 데 사용되어 사용자에게 표시되는 짧은 문자열입니다.|
+|`device_code`     | String | 클라이언트와 권한 부여 서버 간의 세션을 확인하는 데 사용되는 긴 문자열입니다. 클라이언트에서 이 매개 변수를 사용하여 권한 부여 서버의 액세스 토큰을 요청합니다. |
+|`user_code`       | String | 보조 디바이스의 세션을 식별하는 데 사용되어 사용자에게 표시되는 짧은 문자열입니다.|
 |`verification_uri`| URI | 로그인하기 위해 사용자가 `user_code`을(를) 사용하여 이동하는 URI입니다. |
 |`expires_in`      | int | `device_code` 및 `user_code`의 만료 전 시간(초)입니다. |
 |`interval`        | int | 클라이언트에서 폴링 요청 간에 가 대기해야 하는 시간(초)입니다. |
-| `message`        | 문자열 | 사용자를 위한 지침이 포함된 사람이 읽을 수 있는 문자열입니다. 이는 `?mkt=xx-XX` 양식의 요청에 **쿼리 매개 변수**를 포함하고 적절한 언어 문화권 코드를 채워서 지역화할 수 있습니다. |
+| `message`        | String | 사용자를 위한 지침이 포함된 사람이 읽을 수 있는 문자열입니다. 이는 `?mkt=xx-XX` 양식의 요청에 **쿼리 매개 변수**를 포함하고 적절한 언어 문화권 코드를 채워서 지역화할 수 있습니다. |
 
 > [!NOTE]
 > 응답 `verification_uri_complete` 필드는 현재 포함 되어 있지 않거나 지원 되지 않습니다.  [표준](https://tools.ietf.org/html/rfc8628) 에 따라 장치 코드 흐름 표준의 선택적 부분으로 나열 `verification_uri_complete` 되는 것을 볼 수 있기 때문에이를 언급 합니다.
@@ -92,7 +92,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 | 매개 변수 | 필수 | 설명|
 | -------- | -------- | ---------- |
-| `tenant`  | 필수 | 초기 요청에 사용 되는 것과 동일한 테 넌 트 또는 테 넌 트 별칭입니다. |
+| `tenant`  | 필요한 공간 | 초기 요청에 사용 되는 것과 동일한 테 넌 트 또는 테 넌 트 별칭입니다. |
 | `grant_type` | 필수 | `urn:ietf:params:oauth:grant-type:device_code`이어야 합니다.|
 | `client_id`  | 필수 | 초기 요청에 사용된 `client_id`과(와) 일치해야 합니다. |
 | `device_code`| 필수 | 디바이스 권한 요청에서 반환된 `device_code`입니다.  |
@@ -123,9 +123,9 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 }
 ```
 
-| 매개 변수 | 형식 | Description |
+| 매개 변수 | 형식 | 설명 |
 | --------- | ------ | ----------- |
-| `token_type` | 문자열| 항상 Bearer입니다. |
+| `token_type` | String| 항상 Bearer입니다. |
 | `scope` | 공백으로 구분된 문자열 | 액세스 토큰이 반환된 경우 이 매개 변수는 액세스 토큰의 유효 범위를 나열합니다. |
 | `expires_in`| int | 포함된 액세스 토큰이 유효하게 될 때까지의 시간(초)입니다. |
 | `access_token`| 불투명 문자열 | 요청 된 [범위](v2-permissions-and-consent.md) 에 대해 발급 됩니다.  |

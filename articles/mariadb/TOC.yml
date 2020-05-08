@@ -29,6 +29,9 @@
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
+    - name: Azure Policy 기본 제공
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
     - name: DB 및 서버
@@ -218,7 +221,7 @@
       href: 'https://azure.microsoft.com/pricing/details/mariadb/'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-mariadb'
     - name: 기능 요청
       href: 'https://feedback.azure.com/forums/915439-azure-database-for-mariadb'

@@ -4,12 +4,12 @@ description: Azure Application Insights .NET SDK를 통한 사용자 지정 작�
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 31c1fb366e7b109ea1fa4977d8e2f908e766e0f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 316c1b7ea32f661b009bfee7a89cb7e5ed082f3b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276102"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690855"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK를 통한 사용자 지정 작업 추적
 
@@ -38,7 +38,7 @@ Application Insights 웹 SDK는 IIS 파이프라인과 모든 ASP.NET Core 애�
 상위 수준에서 작업은 `RequestTelemetry`를 만들고 알려진 속성을 설정하는 것입니다. 작업이 완료되면 원격 분석을 추적합니다. 다음 예제에서는 이 작업을 보여 줍니다.
 
 ### <a name="http-request-in-owin-self-hosted-app"></a>Owin 자체 호스팅 앱의 HTTP 요청
-이 예제에서 추적 컨텍스트는 [상관 관계에 대한 HTTP 프로토콜](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)에 따라 전파됩니다. 여기서 설명하는 헤더를 받아야 합니다.
+이 예제에서 추적 컨텍스트는 [상관 관계에 대한 HTTP 프로토콜](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)에 따라 전파됩니다. 여기서 설명하는 헤더를 받아야 합니다.
 
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
@@ -117,7 +117,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 상관 관계에 대한 HTTP 프로토콜도 `Correlation-Context` 헤더를 선언하지만, 여기서는 간소화하기 위해 생략했습니다.
 
 ## <a name="queue-instrumentation"></a>큐 계측
-HTTP 요청과 상관 관계 세부 정보를 전달 하는 데 [상관 관계를 위한](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) [W3C 추적 컨텍스트](https://www.w3.org/TR/trace-context/) 및 http 프로토콜을 사용 하는 경우 모든 큐 프로토콜은 큐 메시지를 따라 동일한 세부 정보를 전달 하는 방법을 정의 해야 합니다. 일부 큐 프로토콜(예: AMQP)은 추가 메타데이터 전달을 허용하며 일부 다른 큐 프로토콜(예: Azure Storage 큐)은 메시지 페이로드로 인코딩될 컨텍스트가 필요합니다.
+HTTP 요청과 상관 관계 세부 정보를 전달 하는 데 [상관 관계를 위한](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) [W3C 추적 컨텍스트](https://www.w3.org/TR/trace-context/) 및 http 프로토콜을 사용 하는 경우 모든 큐 프로토콜은 큐 메시지를 따라 동일한 세부 정보를 전달 하는 방법을 정의 해야 합니다. 일부 큐 프로토콜(예: AMQP)은 추가 메타데이터 전달을 허용하며 일부 다른 큐 프로토콜(예: Azure Storage 큐)은 메시지 페이로드로 인코딩될 컨텍스트가 필요합니다.
 
 > [!NOTE]
 > * **큐에 대해 구성 요소 간 추적이 아직 지원 되지 않음** HTTP를 사용 하는 경우 생산자와 소비자가 서로 다른 Application Insights 리소스에 원격 분석을 보내면 트랜잭션 진단 환경 및 응용 프로그램 맵에 트랜잭션 및 맵 끝이 표시 됩니다. 큐의 경우에는이를 아직 지원 하지 않습니다. 
@@ -213,7 +213,7 @@ ASP.NET 및 ASP.NET Core 응용 프로그램에서 기본적으로 구성 되며
 #### <a name="enqueue"></a>큐에 넣기
 Storage 큐는 HTTP API를 지원하므로 큐를 통한 모든 작업은 Application Insights에서 자동으로 추적됩니다. 대부분의 경우 이 계측으로 충분합니다. 그러나 생산자 추적과 소비자 쪽 추적 사이의 상관 관계를 지정하려면 상관 관계에 대한 HTTP 프로토콜에서 수행하는 것과 비슷한 일부 상관 관계 컨텍스트를 전달해야 합니다. 
 
-이 예제는 `Enqueue` 작업을 추적하는 방법을 보여 줍니다. 다음과 같은 작업을 수행할 수 있습니다.
+이 예제는 `Enqueue` 작업을 추적하는 방법을 보여 줍니다. 다음과 같습니다.
 
  - **상관 관계 지정 재시도(있는 경우)**: 모든 작업에는 `Enqueue` 작업인 하나의 공통 부모가 있습니다. 그렇지 않으면 들어오는 요청의 자식으로 추적됩니다. 큐에 대한 논리적 요청이 여러 개 있으면 재시도가 발생한 호출을 찾는 것이 어려울 수 있습니다.
  - **스토리지 상관 관계 지정 로그(필요한 경우)**: Application Insights 원격 분석과의 상관 관계가 지정됩니다.
@@ -346,7 +346,7 @@ public async Task Process(MessagePayload message)
 
 ### <a name="dependency-types"></a>종속성 유형
 
-Application Insights는 종속성 형식을 사용 하 여 UI 환경을 cusomize 합니다. 큐의 경우 [트랜잭션 진단 환경을](/azure/azure-monitor/app/transaction-diagnostics)개선 `DependencyTelemetry` 하는 다음과 같은 유형을 인식 합니다.
+Application Insights는 종속성 형식을 사용 하 여 UI 환경을 사용자 지정 합니다. 큐의 경우 [트랜잭션 진단 환경을](/azure/azure-monitor/app/transaction-diagnostics)개선 `DependencyTelemetry` 하는 다음과 같은 유형을 인식 합니다.
 - `Azure queue`Azure Storage 큐의 경우
 - `Azure Event Hubs`Azure Event Hubs
 - `Azure Service Bus`Azure Service Bus
@@ -482,4 +482,4 @@ public async Task RunAllTasks()
 - Application Insights 유형 및 데이터 모델은 [데이터 모델](../../azure-monitor/app/data-model.md)을 참조합니다.
 - 사용자 지정 [이벤트 및 메트릭](../../azure-monitor/app/api-custom-events-metrics.md)을 Application Insights에 보고합니다.
 - 컨텍스트 속성 컬렉션에 대한 표준 [구성](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)을 확인합니다.
-- [System.Diagnostics.Activity 사용자 가이드](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)에서 원격 분석 상관 관계를 지정하는 방법을 확인합니다.
+- [System.Diagnostics.Activity 사용자 가이드](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)에서 원격 분석 상관 관계를 지정하는 방법을 확인합니다.

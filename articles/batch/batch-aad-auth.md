@@ -3,12 +3,13 @@ title: Azure Active Directory를 사용 하 여 Azure Batch 서비스 인증
 description: Batch는 Batch 서비스의 인증을 위해 Azure AD를 지원합니다. 다음 두 가지 방법 중 하나로 인증 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 01/28/2020
-ms.openlocfilehash: e1f95871788b4b9848ba622da1c8eb0cc83c07aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 3fa1aa2bb7389200fe5e5a80598686143344d636
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116182"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608475"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -35,9 +36,9 @@ Azure AD로 인증하려면 이 엔드포인트를 테넌트 ID(디렉터리 ID)
 
 `https://login.microsoftonline.com/<tenant-id>`
 
-> [!NOTE] 
-> 테넌트별 엔드포인트는 서비스 주체를 사용하여 인증할 때 필요합니다. 
-> 
+> [!NOTE]
+> 테넌트별 엔드포인트는 서비스 주체를 사용하여 인증할 때 필요합니다.
+>
 > 통합 인증을 사용하여 인증할 때 테넌트별 엔드포인트는 선택 사항이지만 권장됩니다. 그러나 Azure AD 공통 엔드포인트도 사용할 수 있습니다. 공통 엔드포인트는 특정 테넌트를 제공하지 않을 때 일반 자격 증명 수집 인터페이스를 제공합니다. 공통 엔드포인트는 `https://login.microsoftonline.com/common`입니다.
 >
 >
@@ -120,13 +121,13 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 ### <a name="assign-rbac-to-your-application"></a>응용 프로그램에 RBAC 할당
 
-서비스 주체를 사용 하 여 인증 하려면 RBAC를 응용 프로그램에 할당 해야 합니다. 다음 단계를 수행하세요.
+서비스 주체를 사용 하 여 인증 하려면 RBAC를 응용 프로그램에 할당 해야 합니다. 아래 단계를 수행합니다.
 
 1. Azure Portal에서 애플리케이션에서 사용되는 Batch 계정으로 이동합니다.
 1. Batch 계정의 **설정** 섹션에서 **Access Control (IAM)** 을 선택 합니다.
 1. **역할 할당** 탭을 선택합니다.
 1. **역할 할당 추가**를 선택합니다.
-1. **역할** 드롭다운에서 애플리케이션에 대한 *기여자* 또는 *읽기 권한자* 역할을 선택합니다. 이러한 역할에 대한 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../role-based-access-control/overview.md)을 참조하세요.  
+1. **역할** 드롭다운에서 애플리케이션에 대한 *기여자* 또는 *읽기 권한자* 역할을 선택합니다. 이러한 역할에 대한 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../role-based-access-control/overview.md)을 참조하세요.
 1. **선택** 필드에서 애플리케이션의 이름을 입력합니다. 목록에서 응용 프로그램을 선택한 다음, **저장**을 선택 합니다.
 
 이제 액세스 제어 설정에서 RBAC 역할이 할당된 애플리케이션이 표시됩니다.
@@ -209,7 +210,7 @@ Azure Portal에서 다음 단계를 따릅니다.
 이 섹션의 코드 예제에서는 Azure AD에서 통합 인증과 서비스 주체를 사용하여 인증하는 방법을 보여 줍니다. 이러한 코드 예제 대부분은 .NET을 사용하지만, 개념은 다른 언어와 비슷합니다.
 
 > [!NOTE]
-> Azure AD 인증 토큰은 1시간 후 만료됩니다. 수명이 긴 **BatchClient** 개체를 사용하는 경우 항상 유효한 토큰을 갖도록 모든 요청에 대해 ADAL에서 토큰을 검색하는 것이 좋습니다. 
+> Azure AD 인증 토큰은 1시간 후 만료됩니다. 수명이 긴 **BatchClient** 개체를 사용하는 경우 항상 유효한 토큰을 갖도록 모든 요청에 대해 ADAL에서 토큰을 검색하는 것이 좋습니다.
 >
 >
 > 이를 위해 .NET에서 Azure AD에서 토큰을 검색하는 메서드를 작성하고 해당 메서드를 대리자로 **BatchTokenCredentials** 개체에 전달합니다. 대리자 메서드는 유효한 토큰이 제공되었는지 확인하도록 Batch 서비스에 대한 모든 요청에서 호출됩니다. 기본적으로 ADAL은 토큰을 캐시하므로 필요한 경우 Azure AD에서 새 토큰이 검색됩니다. Azure AD의 토큰에 대한 자세한 내용은 [Azure AD의 인증 시나리오][aad_auth_scenarios]를 참조하세요.
@@ -266,9 +267,9 @@ public static async Task<string> GetAuthenticationTokenAsync()
     var authContext = new AuthenticationContext(AuthorityUri);
 
     // Acquire the authentication token from Azure AD.
-    var authResult = await authContext.AcquireTokenAsync(BatchResourceUri, 
-                                                        ClientId, 
-                                                        new Uri(RedirectUri), 
+    var authResult = await authContext.AcquireTokenAsync(BatchResourceUri,
+                                                        ClientId,
+                                                        new Uri(RedirectUri),
                                                         new PlatformParameters(PromptBehavior.Auto));
 
     return authResult.AccessToken;
@@ -307,7 +308,7 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
 private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
 ```
 
-Batch 서비스 리소스 엔드포인트 참조:  
+Batch 서비스 리소스 엔드포인트 참조:
 
 ```csharp
 private const string BatchResourceUri = "https://batch.core.windows.net/";
@@ -372,7 +373,7 @@ from azure.common.credentials import ServicePrincipalCredentials
 TENANT_ID = "<tenant-id>"
 ```
 
-Batch 서비스 리소스 엔드포인트 참조:  
+Batch 서비스 리소스 엔드포인트 참조:
 
 ```python
 RESOURCE = "https://batch.core.windows.net/"

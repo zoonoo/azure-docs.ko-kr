@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7857d11c625911cd1b49dfcf0e0d612fc6a3871e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12d86f9415f7f5b813d2dce8eb3ad4bb63dec30c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314302"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929760"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
 
@@ -153,7 +153,7 @@ Azure ML은 메타 데이터를 사용 하 여 모든 ML 자산의 종단간 감
 - [Interpretability](how-to-machine-learning-interpretability.md) 를 사용 하면 모델을 설명 하 고 규정 준수를 충족 하며 지정 된 입력에 대 한 결과에서 모델이 도착 하는 방식을 이해할 수 있습니다.
 - Azure ML 실행 기록은 모델 학습에 사용 되는 코드, 데이터 및 계산에 대 한 스냅숏을 저장 합니다.
 - Azure ML 모델 레지스트리는 모델과 연결 된 모든 메타 데이터를 캡처합니다 (배포 하는 경우 실험을 통해 배포 되는 위치, 배포가 정상 인 경우).
-- [Azure Event Grid와 통합](concept-event-grid-integration.md) 하면 ML 수명 주기의 이벤트에 대해 작업을 수행할 수 있습니다. 예를 들어 모델 등록, 배포, 데이터 드리프트 및 교육 (실행) 이벤트입니다.
+- [Azure와 통합](how-to-use-event-grid.md) 하면 ML 수명 주기의 이벤트에 대해 작업을 수행할 수 있습니다. 예를 들어 모델 등록, 배포, 데이터 드리프트 및 교육 (실행) 이벤트입니다.
 
 > [!TIP]
 > 모델 및 데이터 집합에 대 한 일부 정보는 자동으로 캡처되고 __태그__를 사용 하 여 추가 정보를 추가할 수 있습니다. 작업 영역에서 등록 된 모델 및 데이터 집합을 찾을 때 태그를 필터로 사용할 수 있습니다.

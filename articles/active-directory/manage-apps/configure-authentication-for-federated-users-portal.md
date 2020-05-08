@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60bfc964ffc394b3f79c9d279158003f383b7331
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 340cf77ae6b4c5677ed91f6a0626b73d259e5fd2
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943436"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690498"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 
@@ -168,7 +168,7 @@ Azure AD PowerShell cmdlet을 사용하여 다음을 포함한 몇 가지 시나
 
 아무 정책도 반환되지 않으면 테넌트에서 만들어진 정책이 없는 것입니다.
 
-### <a name="example-set-hrd-policy-for-an-application"></a>예제: 애플리케이션에 대한 HRD 정책 설정 
+### <a name="example-set-an-hrd-policy-for-an-application"></a>예: 응용 프로그램에 대 한 HRD 정책 설정 
 
 다음 예제에서는 애플리케이션에 할당되는 다음 정책 중 하나를 만듭니다. 
 - 테넌트에 단일 도메인이 있는 경우 애플리케이션에 로그인할 때 사용자를 AD FS 로그인 화면으로 자동 가속합니다. 
@@ -251,7 +251,7 @@ Get-AzureADPolicy
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
-### <a name="example-remove-an-hrd-policy-for-an-application"></a>예제: 애플리케이션에 대한 HRD 정책 제거
+### <a name="example-remove-an-hrd-policy-from-an-application"></a>예: 응용 프로그램에서 HRD 정책을 제거 합니다.
 #### <a name="step-1-get-the-objectid"></a>1단계: ObjectID 가져오기
 앞의 예제를 사용하여 제거하려는 애플리케이션 서비스 주체의 정책 **ObjectID**를 가져옵니다. 
 

@@ -3,17 +3,17 @@ title: Azure Storage 수명 주기 관리
 description: 오래된 데이터를 핫에서 쿨로 전환하고 계층을 보관하는 수명 주기 정책 규칙을 만드는 방법을 알아봅니다.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/21/2019
+ms.date: 04/24/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 238c12baf55b525a24107a727d09588ef06a6bef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 255e440586af2a5c9115023f45fbf02e25c57ab6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77598309"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692136"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Storage 수명 주기 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "77598309"
 - BLOB을 쿨 스토리지 계층으로 전환하여(핫 스토리지 계층에서 쿨 스토리지 계층으로, 핫 스토리지 계층에서 보관 스토리지 계층으로 또는 쿨 스토리지 계층에서 보관 스토리지 계층으로) 성능 및 비용 최적화
 - 수명 주기가 끝나면 BLOB 삭제
 - 스토리지 계정 수준에서 하루에 한 번 실행할 규칙 정의
-- 컨테이너 또는 BLOB 하위 집합에 규칙 적용(접두사를 필터로 사용)
+- 컨테이너 또는 blob의 하위 집합에 규칙 적용 (이름 접두사 또는 [blob 인덱스 태그](storage-manage-find-blobs.md) 를 필터로 사용)
 
 수명 주기의 초기 단계에서 데이터가 자주 액세스 되는 시나리오를 고려 하 여 2 주 후에만 가끔 액세스 합니다. 첫 번째 달 이후에는 데이터 세트에 거의 액세스하지 않습니다. 이 시나리오에서 초기 단계 동안에는 핫 스토리지 계층이 가장 적절합니다. 쿨 저장소는 간헐적으로 액세스 하는 데 가장 적합 합니다. 보관 저장소는 한 달에 데이터를 사용한 후 가장 좋은 계층 옵션입니다. 데이터의 보존 기간에 따라 스토리지 계층을 조정하면 요구 사항에 맞는 가장 저렴한 스토리지 옵션을 디자인할 수 있습니다. 이와 같이 전환하려면 수명 주기 관리 정책 규칙을 사용하여 오래된 데이터를 쿨 계층으로 이동하면 됩니다.
 
@@ -128,7 +128,7 @@ Azure Portal를 통해 정책을 추가 하는 방법에는 두 가지가 있습
 
 6. 이 JSON 예제에 대 한 자세한 내용은 [정책](#policy) 및 [규칙](#rules) 섹션을 참조 하십시오.
 
-# <a name="powershell"></a>[슬래시](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 다음 PowerShell 스크립트를 사용 하 여 저장소 계정에 정책을 추가할 수 있습니다. 변수 `$rgname` 는 리소스 그룹 이름으로 초기화 해야 합니다. 변수 `$accountName` 는 저장소 계정 이름으로 초기화 해야 합니다.
 
@@ -226,16 +226,16 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 정책은 규칙의 컬렉션입니다.
 
-| 매개 변수 이름 | 매개 변수 형식 | 메모 |
+| 매개 변수 이름 | 매개 변수 형식 | 참고 |
 |----------------|----------------|-------|
 | `rules`        | 규칙 개체의 배열 | 정책에 하나 이상의 규칙이 필요 합니다. 정책에서 최대 100 개의 규칙을 정의할 수 있습니다.|
 
 정책 내의 각 규칙에는 다음과 같은 몇 가지 매개 변수가 있습니다.
 
-| 매개 변수 이름 | 매개 변수 형식 | 메모 | 필수 |
+| 매개 변수 이름 | 매개 변수 형식 | 참고 | 필수 |
 |----------------|----------------|-------|----------|
-| `name`         | 문자열 |규칙 이름에는 최대 256 자의 영숫자 문자를 사용할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다.  정책 내에서 고유해야 합니다. | True |
-| `enabled`      | 부울 | 규칙을 일시적으로 사용 하지 않도록 설정할 수 있도록 하는 선택적 부울입니다. 설정 되지 않은 경우 기본값은 true입니다. | False | 
+| `name`         | String |규칙 이름에는 최대 256 자의 영숫자 문자를 사용할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다.  정책 내에서 고유해야 합니다. | True |
+| `enabled`      | Boolean | 규칙을 일시적으로 사용 하지 않도록 설정할 수 있도록 하는 선택적 부울입니다. 설정 되지 않은 경우 기본값은 true입니다. | False | 
 | `type`         | 열거형 값 | 현재 유효한 형식은 `Lifecycle`입니다. | True |
 | `definition`   | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | True |
 
@@ -289,10 +289,14 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 필터에는 다음이 포함됩니다.
 
-| 필터 이름 | 필터 형식 | 메모 | 필수 여부 |
+| 필터 이름 | 필터 형식 | 참고 | 필수 여부 |
 |-------------|-------------|-------|-------------|
 | blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서는를 `blockBlob`지원 합니다. | 예 |
-| prefixMatch | 접두사를 매칭할 문자열 배열입니다. 각 규칙은 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어에서 `https://myaccount.blob.core.windows.net/container1/foo/...` 규칙에 대 한 모든 blob을 일치 시키려는 경우 prefixMatch은 `container1/foo`입니다. | PrefixMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다.  | 아니요 |
+| prefixMatch | 일치 시킬 접두사의 문자열 배열입니다. 각 규칙은 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어에서 `https://myaccount.blob.core.windows.net/container1/foo/...` 규칙에 대 한 모든 blob을 일치 시키려는 경우 prefixMatch은 `container1/foo`입니다. | PrefixMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다.  | 아니요 |
+| blobIndexMatch | 일치 시킬 Blob 인덱스 태그 키 및 값 조건으로 구성 된 사전 값의 배열입니다. 각 규칙은 최대 10 개의 Blob 인덱스 태그 조건을 정의할 수 있습니다. 예를 들어 규칙에 대해 `Project = Contoso` 에서 `https://myaccount.blob.core.windows.net/` 의 모든 blob을 일치 시키려는 경우 blobindexmatch는 `{"name": "Project","op": "==","value": "Contoso"}`입니다. | BlobIndexMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 아니요 |
+
+> [!NOTE]
+> Blob 인덱스는 공개 미리 보기 상태 이며 **프랑스 중부** 및 **프랑스 남부** 지역에서 사용할 수 있습니다. 알려진 문제 및 제한과 함께이 기능에 대해 자세히 알아보려면 [Blob 인덱스를 사용 하 여 Azure Blob Storage에서 데이터 관리 및 찾기 (미리 보기)](storage-manage-find-blobs.md)를 참조 하세요.
 
 ### <a name="rule-actions"></a>규칙 작업
 
@@ -304,14 +308,14 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | 현재 핫 계층에서 Blob을 지원합니다.         | 지원되지 않음 |
 | tierToArchive | 현재 핫 또는 쿨 계층에서 Blob을 지원합니다. | 지원되지 않음 |
-| 삭제        | 지원됨                                   | 지원됨     |
+| delete        | 지원됨                                   | 지원됨     |
 
 >[!NOTE]
 >동일한 Blob에 작업을 두 개 이상 정의하는 경우 수명 주기 관리는 가장 저렴한 작업을 Blob에 적용합니다. 예를 들어 `delete` 작업은 `tierToArchive` 작업보다 저렴합니다. `tierToArchive` 작업은 `tierToCool` 작업보다 저렴합니다.
 
 실행 조건은 age를 기준으로 합니다. 기본 Blob은 마지막으로 수정된 시간을 사용하여 보존 기간을 추적하고 Blob 스냅샷은 스냅샷 생성 시간을 사용하여 보존 기간을 추적합니다.
 
-| 작업 실행 조건             | 조건 값                          | Description                             |
+| 작업 실행 조건             | 조건 값                          | 설명                             |
 |----------------------------------|------------------------------------------|-----------------------------------------|
 | daysAfterModificationGreaterThan | 일 단위로 보존 기간을 나타내는 정수 값 | 기본 blob 동작의 조건입니다.     |
 | daysAfterCreationGreaterThan     | 일 단위로 보존 기간을 나타내는 정수 값 | Blob 스냅숏 작업 조건 |
@@ -405,6 +409,42 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 }
 ```
 
+### <a name="delete-data-with-blob-index-tags"></a>Blob 인덱스 태그를 사용 하 여 데이터 삭제
+일부 데이터는 명시적으로 삭제 하도록 표시 된 경우에만 만료 되어야 합니다. Blob 인덱스 키/값 특성으로 태그가 지정 된 데이터를 만료 하도록 수명 주기 관리 정책을 구성할 수 있습니다. 다음 예제에서는로 `Project = Contoso`태그가 지정 된 모든 블록 blob를 삭제 하는 정책을 보여 줍니다. Blob 인덱스에 대해 자세히 알아보려면 [Blob 인덱스를 사용 하 여 Azure Blob Storage에서 데이터 관리 및 찾기 (미리 보기)](storage-manage-find-blobs.md)를 참조 하세요.
+
+```json
+{
+    "rules": [
+        {
+            "enabled": true,
+            "name": "DeleteContosoData",
+            "type": "Lifecycle",
+            "definition": {
+                "actions": {
+                    "baseBlob": {
+                        "delete": {
+                            "daysAfterModificationGreaterThan": 0
+                        }
+                    }
+                },
+                "filters": {
+                    "blobIndexMatch": [
+                        {
+                            "name": "Project",
+                            "op": "==",
+                            "value": "Contoso"
+                        }
+                    ],
+                    "blobTypes": [
+                        "blockBlob"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
 ### <a name="delete-old-snapshots"></a>오래된 스냅샷 삭제
 
 전체 수명 주기 동안 주기적으로 수정되고 액세스되는 데이터의 경우 해당 데이터의 이전 버전을 추적하기 위해 스냅샷이 자주 사용됩니다. 스냅샷 기간에 따라 오래된 스냅샷을 삭제하는 정책을 만들 수 있습니다. 스냅샷 기간은 스냅샷 생성 시간을 평가하여 확인합니다. 이 정책 규칙은 `activedata` 컨테이너 내에 있고 스냅샷 생성 후 90일 이상이 경과된 블록 Blob 스냅샷을 삭제합니다.
@@ -448,3 +488,7 @@ Blob을 한 액세스 계층에서 다른 액세스 계층으로 이동 하면 �
 실수로 삭제된 데이터를 복구하는 방법을 알아봅니다.
 
 - [Azure Storage Blob에 대한 일시 삭제](../blobs/storage-blob-soft-delete.md)
+
+Blob 인덱스를 사용 하 여 데이터를 관리 하 고 찾는 방법에 대해 알아봅니다.
+
+- [Blob 인덱스를 사용 하 여 Azure Blob Storage에서 데이터 관리 및 찾기](storage-manage-find-blobs.md)

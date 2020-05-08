@@ -1,5 +1,5 @@
 ---
-title: 상업적 Marketplace에서 새로운 관리 서비스 제품 만들기
+title: Microsoft 상업적 marketplace에서 관리 서비스 제품 만들기
 description: 파트너 센터에서 상업용 Marketplace 포털을 사용 하 여 Azure Marketplace에 나열 하기 위해 새 관리 서비스 제품을 만드는 방법입니다.
 author: JnHs
 ms.author: jenhayes
@@ -8,56 +8,60 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: c82c3e0b6e6d11ccc33bf8556b06aeb04a6d37b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a8cd35ced61c5b0e8b3b534394c9b6a0f543ebbb
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147920"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691370"
 ---
-# <a name="create-a-new-managed-service-offer"></a>새 관리 서비스 제안 만들기
+# <a name="create-a-managed-service-offer"></a>관리되는 서비스 제품 만들기
 
-> [!IMPORTANT]
-> 관리 서비스 제품의 관리를 Cloud 파트너 포털에서 파트너 센터로 전환 하 고 있습니다. 제품이 마이그레이션될 때까지 [Azure Marketplace에 관리 서비스 제품 게시](../../lighthouse/how-to/publish-managed-services-offers.md) 의 지침에 따라 Cloud 파트너 포털에서 제품을 관리 하세요.
+관리 서비스는 [Azure Lighthouse](../../lighthouse/overview.md) 시나리오를 사용 하도록 설정 하는 데 도움이 됩니다. 고객이 관리 서비스 제안을 수락 하면 [Azure에서 위임 된 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md)를 위해 리소스를 등록할 수 있습니다. 아직 수행 하지 않은 경우 시작 하기 전에 [파트너 센터에서 상업적 Marketplace 계정을 만듭니다](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) . 계정이 상업적 marketplace 프로그램에 등록 되어 있는지 확인 합니다.
 
-관리 서비스는 [Azure Lighthouse](../../lighthouse/overview.md) 시나리오를 사용 하도록 설정 하는 데 도움이 됩니다. 고객이 관리 서비스 제안을 수락 하면 [Azure에서 위임 된 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md)를 위해 리소스를 등록할 수 있습니다.
-
-관리 서비스 제품 만들기를 시작 하려면 먼저 [파트너 센터 계정을 만들고](./create-account.md) **개요** 페이지가 선택 된 상태로 [상용 마켓플레이스 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)를 열어야 합니다. [실버 또는 골드 클라우드 플랫폼 역량 수준이](https://partner.microsoft.com/membership/cloud-platform-competency) 있거나 관리 서비스 제품을 게시 하려면 [Azure 전문가 MSP](https://partner.microsoft.com/membership/azure-expert-msp) 여야 합니다.
-
-![파트너 센터의 상용 마켓플레이스 대시보드](./media/new-offer-overview.png)
-
->[!Note]
-> 제품이 게시 되 면 파트너 센터에서 만든 제품에 대 한 편집 내용은 시스템 에서만 업데이트 되 고 다시 게시 된 후에도 저장 됩니다. 변경을 수행한 후 게시에 대 한 제품을 제출 했는지 확인 하세요.
+[실버 또는 골드 클라우드 플랫폼 역량 수준이](https://partner.microsoft.com/membership/cloud-platform-competency) 있거나 관리 서비스 제품을 게시 하려면 [Azure 전문가 MSP](https://partner.microsoft.com/membership/azure-expert-msp) 여야 합니다.
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
-**+ 새 제품** 단추를 선택한 다음 **관리 서비스** 메뉴 항목을 선택 합니다. **새 제품** 대화 상자가 표시 됩니다.
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인 합니다.
+2. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스** > **개요**를 선택 합니다.
+3. 개요 페이지에서 **+ 새 제품** > **관리 서비스**를 선택 합니다.
 
-### <a name="offer-id-and-alias"></a>제품 ID 및 별칭
+    ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/new-offer-managed-service.png)
 
-- **제품 ID**: 계정의 각 제품에 대 한 고유 식별자입니다. 이 ID는 marketplace 제품에 대 한 URL 주소에서 고객에 게 표시 됩니다. 이 ID는 소문자 영숫자 (하이픈 및 밑줄은 포함 되지만 공백 없음)만 포함할 수 있으며, 50 자로 제한 되며, **만들기**를 선택한 후에는 변경할 수 없습니다.  예를 들어 여기에서 *테스트-1* 을 입력 하면 제품 URL은가 됩니다 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+>[!NOTE]
+>제품을 게시 한 후에는 제품을 다시 게시 한 후에만 파트너 센터에서 해당 제품에 대 한 편집 내용이 상점에 표시 됩니다. 변경을 수행한 후 항상 다시 게시 해야 합니다.
 
-- **제품 별칭**: 파트너 센터 내의 제품을 참조 하는 데 사용 되는 이름입니다. 이 이름은 marketplace에서 사용 되지 않으며 고객에 게 표시 되는 제품 이름 및 기타 값과 다릅니다. **만들기**를 선택한 후에는이 값을 변경할 수 없습니다.
+## <a name="new-offer"></a>새 제안
 
-**제품 ID** 및 **제품 별칭**을 입력 한 후 **만들기**를 선택 합니다. 그러면 제품의 여러 부분에 대해 작업을 수행할 수 있습니다.
+**제품 ID**를 입력 합니다. 계정의 각 제품에 대 한 고유 식별자입니다.
+
+* 이 ID는 marketplace 제품 및 Azure Resource Manager 템플릿에 대 한 웹 주소의 고객에 게 표시 됩니다 (해당 하는 경우).
+* 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50 자로 제한 됩니다. 예를 들어 **테스트-제품-1**을 입력 하는 경우 제품 웹 주소는 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`입니다.
+* **만들기**를 선택한 후에는 제품 ID를 변경할 수 없습니다.
+
+**제품 별칭**을 입력 합니다. 파트너 센터의 제안에 사용 되는 이름입니다.
+
+* 이 이름은 marketplace에서 사용 되지 않으며 고객에 게 표시 되는 제품 이름 및 기타 값과 다릅니다.
+* **만들기**를 선택한 후에는 번째 제안 별칭을 변경할 수 없습니다.
+
+**만들기** 를 선택 하 여 제품을 생성 하 고 계속 합니다.
 
 ## <a name="offer-setup"></a>제품 설정
-
-**제품 설정** 페이지에서 다음 정보를 요청 합니다. 이러한 필드를 완료 한 후에는 **저장** 을 선택 해야 합니다.
 
 ## <a name="connect-lead-management"></a>리드 관리 연결
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-[관리 서비스 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)에 따라 **잠재 대상 고객**이 필요합니다. 이렇게 하면 고객이 제품을 배포할 때마다 CRM 시스템에 레코드가 만들어집니다.
+[관리 되는 서비스 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)에 따라 **리드 대상이** 필요 합니다. 이렇게 하면 고객이 제품을 배포할 때마다 CRM 시스템에 레코드가 만들어집니다.
 
 자세한 내용은 [리드 관리 개요](./commercial-marketplace-get-customer-leads.md)를 참조 하세요.
 
-다음 섹션으로 이동 하기 전에 페이지를 **저장** 해야 합니다.
+계속 하기 전에 **초안 저장** 을 선택 합니다.
 
 ## <a name="properties"></a>속성
 
-**속성** 페이지에서 marketplace에서 제품을 그룹화 하는 데 사용 되는 범주와 제품을 지 원하는 법적 계약을 정의할 수 있습니다. 이 페이지를 완료 한 후 **저장** 을 선택 합니다.
+이 페이지에서는 marketplace에서 제품을 그룹화 하는 데 사용 되는 범주와 제품을 지 원하는 법적 계약을 정의할 수 있습니다.
 
 ### <a name="category"></a>범주
 
@@ -67,14 +71,16 @@ ms.locfileid: "82147920"
 
 사용 **약관** 필드에 고유한 약관을 제공 합니다. 사용 약관을 찾을 수 있는 URL을 제공할 수도 있습니다. 고객은 이러한 약관에 동의 해야 제품을 사용해 볼 수 있습니다.
 
+계속 하기 전에 **초안 저장** 을 선택 합니다.
+
 ## <a name="offer-listing"></a>제품 목록
 
-**제품 목록** 페이지에서 제품에 대 한 marketplace 세부 정보 (제품 이름, 설명, 이미지 등)를 정의할 수 있습니다.
+이 페이지에서 제품에 대 한 marketplace 세부 정보 (예: 제품 이름, 설명 및 이미지)를 정의할 수 있습니다.
 
 > [!NOTE]
-> 제품 설명 (예: 설명, 문서, 스크린샷, 사용 약관 등)은 영어로 시작 하지 않아도 됩니다. "이 응용 프로그램은 [영어가 아닌 언어] 에서만 사용할 수 있습니다." 또한 제품 목록 콘텐츠에 사용 되는 것 이외의 언어로 콘텐츠를 제공 하는 *데 유용한 링크 URL* 을 제공 하는 것도 허용 됩니다.
+> 제품 설명 (예: 설명, 문서, 스크린샷 및 사용 약관)은 영어로 시작 해야 합니다. "이 응용 프로그램은 [영어가 아닌 언어] 에서만 사용할 수 있습니다." 라고 표시 됩니다. 또한 제품 목록 콘텐츠에 사용 되는 것 이외의 언어로 콘텐츠를 제공 하는 *데 유용한 링크 URL* 을 제공 하는 것도 허용 됩니다.
 
-### <a name="name"></a>속성
+### <a name="name"></a>Name
 
 여기에 입력 하는 이름은 고객에 게 제품 목록의 제목으로 표시 됩니다. 이 필드는 제품을 만들 때 **제공 별칭** 에 입력 한 텍스트로 미리 채워져 있지만이 값을 변경할 수 있습니다. 이 이름은 상표 수 있으며 상표 또는 저작권 기호를 포함할 수 있습니다. 이름은 50 자를 초과할 수 없으며, 모든 emojis를 포함할 수 없습니다.
 
@@ -100,23 +106,13 @@ Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 �
 - 제품을 판매하는 특징과 기능에 의존하지 않습니다. 대신, 전달하는 가치에 중점을 둡니다.  
 - 산업별 어휘 또는 혜택 기반 단어를 최대한 많이 사용합니다.
 
-제품 설명을 보다 유용 하 게 사용 하려면 서식 있는 텍스트 편집기를 사용 하 여 설명의 서식을 지정 합니다.
+제품 설명을 보다 유용 하 게 사용 하려면 서식 있는 텍스트 편집기를 사용 하 여 서식 지정을 적용 합니다.
 
-![서식 있는 텍스트 편집기 사용](./media/text-editor2.png)
+![서식 있는 텍스트 편집기 사용](./media/rich-text-editor.png)
 
-서식 있는 텍스트 편집기를 사용 하려면 다음 지침을 따르십시오.
-
-- 콘텐츠 형식을 변경 하려면 아래와 같이 서식을 지정할 텍스트를 강조 표시 하 고 텍스트 스타일을 선택 합니다.
-
-     ![서식 있는 텍스트 편집기를 사용 하 여 텍스트 형식 변경](./media/text-editor3.png)
-
-- 글머리 기호 또는 번호 매기기 목록을 텍스트에 추가 하려면 아래 옵션을 사용 합니다.
-
-     ![서식 있는 텍스트 편집기를 사용 하 여 목록 추가](./media/text-editor4.png)
-
-- 텍스트에 들여쓰기를 추가 하거나 제거 하려면 아래 옵션을 사용 합니다.
-
-     ![서식 있는 텍스트 편집기를 사용 하 여 들여쓰기](./media/text-editor5.png)
+| <center>텍스트 형식 변경 | <center>글머리 기호 또는 번호 매기기 추가 | <center>텍스트 들여쓰기 추가 또는 제거 |
+| --- | --- | --- |
+| <center>![서식 있는 텍스트 편집기를 사용 하 여 텍스트 형식 변경](./media/text-editor3.png) |  <center>![서식 있는 텍스트 편집기를 사용 하 여 목록 추가](./media/text-editor4.png) |  <center>![서식 있는 텍스트 편집기를 사용 하 여 들여쓰기](./media/text-editor5.png) |
 
 ### <a name="privacy-policy-link"></a>개인 정보 취급 방침 링크
 
@@ -138,12 +134,19 @@ Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 �
 
 이 섹션에서는 고객에 게 제품을 표시할 때 사용 되는 로고 및 이미지를 제공할 수 있습니다. 모든 이미지는 .png 형식 이어야 합니다.
 
->[!Note]
+>[!NOTE]
 >파일을 업로드 하는 데 문제가 있는 경우 로컬 네트워크가 파트너 센터에서 사용 하는 https://upload.xboxlive.com 서비스를 차단 하지 않는지 확인 합니다.
 
 #### <a name="marketplace-logos"></a>마켓플레이스 로고
 
-**작은 (40x40)**, **Medium (90x90)**, **Large (115X115)** 및 **Wide (255x115)** 의 4 가지 로고 크기가 필요 합니다. 로고에 대해서는 다음 지침을 따르세요.
+제품 로고를 4 픽셀 크기로 제공 합니다.
+
+- **작음** (40 x 40)
+- **보통** (90 x 90)
+- **큼** (115 x 115)
+- **넓게** (255 x 115)
+
+로고에 대해서는 다음 지침을 따르세요.
 
 - Azure 디자인은 단순한 색 팔레트를 사용합니다. 로고의 기본 색상과 보조 색상 수를 제한합니다.
 - 포털의 테마 색은 흰색과 검은색입니다. 로고의 배경색으로 이러한 색을 사용하지 마십시오. 포털에서 로고가 돋보이도록 하는 색을 사용합니다. 간단한 기본 색을 사용하는 것이 좋습니다.
@@ -164,6 +167,8 @@ Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 �
 
 - [Marketplace 제품 목록에 대 한 모범 사례](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
+계속 하기 전에 **초안 저장** 을 선택 합니다.
+
 ## <a name="preview"></a>미리 보기
 
 제품을 광범위 한 marketplace 제품에 게시 하기 전에 먼저 제한 된 미리 보기 대상 사용자가 사용할 수 있도록 해야 합니다. 이를 통해 고객에 게 제공 하기 전에 Azure Marketplace에 표시 되는 방법을 확인할 수 있습니다. Microsoft 지원 및 엔지니어링 팀은이 미리 보기 기간 동안 제품을 볼 수 있습니다.
@@ -171,6 +176,8 @@ Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 �
 Preview **대상 그룹 섹션에** Azure 구독 id를 입력 하 여 미리 보기 대상 그룹을 정의할 수 있습니다. 최대 10 개의 구독 Id를 수동으로 입력 하거나 최대 100 구독 Id를 포함 하는 .csv 파일을 업로드할 수 있습니다.
 
 이러한 구독과 연결 된 모든 고객은 live가 되기 전에 Azure Marketplace에서 제품을 볼 수 있습니다. 제품을 미리 볼 수 있도록 여기에 고유한 구독을 포함 해야 합니다.
+
+계속 하기 전에 **초안 저장** 을 선택 합니다.
 
 ## <a name="plan-overview"></a>계획 개요
 
@@ -237,18 +244,20 @@ Preview **대상 그룹 섹션에** Azure 구독 id를 입력 하 여 미리 보
 
 계획에 대 한 모든 섹션을 완료 한 후에는 추가 계획을 만드는 데 필요한 만큼 **+ 새 계획 만들기** 를 선택할 수 있습니다. 완료되면 **저장**을 선택합니다.
 
-## <a name="publish"></a>게시
+계속 하기 전에 **초안 저장** 을 선택 합니다.
+
+## <a name="publish"></a>게시하기
 
 ### <a name="submit-offer-to-preview"></a>미리 보기로 제품 제출
 
-제품의 필수 섹션을 모두 완료 한 후 포털의 오른쪽 위 모서리에서 **게시** 를 선택 합니다. **검토 및 게시** 페이지로 리디렉션됩니다.
+제품의 필수 섹션을 모두 완료 한 후에는 포털의 오른쪽 위 모서리에서 **검토 및 게시** 를 선택 합니다.
 
 이 제품을 처음 게시 하는 경우 다음을 수행할 수 있습니다.
 
 - 제품의 각 섹션에 대 한 완료 상태를 확인 합니다.
-  - *시작 되지 않음* -섹션이 작업 되지 않아 완료 해야 함을 의미 합니다.
-  - *불완전* -섹션에 수정 해야 하거나 더 많은 정보를 제공 해야 하는 오류가 있음을 의미 합니다. 섹션으로 돌아가서 업데이트 합니다.
-  - *완료* -섹션이 완료 되었고 필요한 모든 데이터가 제공 되었으며 오류가 없음을 의미 합니다. 제품의 모든 섹션은 제품을 제출 하기 전에 완전 한 상태 여야 합니다.
+  - **시작 되지 않음** -섹션이 작업 되지 않았으므로 완료 해야 합니다.
+  - **불완전** -섹션에 수정 해야 하는 오류가 있거나 추가 정보를 제공 해야 합니다. 섹션으로 돌아가서 업데이트 합니다.
+  - **완료** -섹션이 완료 되 고 필요한 모든 데이터가 제공 되었으며 오류가 발생 하지 않습니다. 제품의 모든 섹션은 제품을 제출 하기 전에 완전 한 상태 여야 합니다.
 - **인증에 대 한 참고 사항** 섹션에서는 앱을 이해 하는 데 도움이 되는 보조 노트 뿐만 아니라 앱이 올바르게 테스트 되었는지 확인 하기 위해 인증 팀에 테스트 지침을 제공 합니다.
 - **제출**을 선택 하 여 게시에 대 한 제품을 제출 합니다. 제품의 미리 보기 버전을 검토 하 고 승인할 수 있는 경우 전자 메일을 보냅니다. 파트너 센터로 돌아가서 제품을 공개 (또는 개인 제품의 경우 비공개 사용자에 게 공개)에 게시 하기 위해 **live live** 를 선택 합니다.
 

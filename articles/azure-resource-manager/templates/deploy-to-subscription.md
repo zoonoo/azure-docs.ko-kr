@@ -2,13 +2,13 @@
 title: 구독에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드는 방법을 설명합니다. 또한 Azure 구독 범위에서 리소스를 배포하는 방법도 보여 줍니다.
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.openlocfilehash: 80fe451f696480ec24b3d8eced64941de9492fef
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.date: 05/07/2020
+ms.openlocfilehash: a48bc2fd4efb383b42fd0889df079c9a6f700dda
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610822"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929063"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>구독 수준에서 리소스 그룹 및 리소스 만들기
 
@@ -35,6 +35,7 @@ Azure 구독의 리소스 관리를 간소화 하기 위해 구독에서 [정책
 * [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
 * [Support계획 유형](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [사이](/azure/templates/microsoft.resources/tags)
+* [workspacesettings](/azure/templates/microsoft.security/workspacesettings)
 
 ### <a name="schema"></a>스키마
 
@@ -96,11 +97,11 @@ REST API의 경우 [배포-구독 범위에서 만들기](/rest/api/resources/de
 * [Subscriptionresourceid ()](template-functions-resource.md#subscriptionresourceid) 함수를 사용 하 여 구독 수준에서 배포 된 리소스에 대 한 리소스 ID를 가져올 수 있습니다.
 
   예를 들어 정책 정의에 대 한 리소스 ID를 가져오려면 다음을 사용 합니다.
-  
+
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
   ```
-  
+
   반환 된 리소스 ID 형식은 다음과 같습니다.
 
   ```json

@@ -3,12 +3,12 @@ title: 테 넌 트에 리소스 배포
 description: Azure Resource Manager 템플릿의 테 넌 트 범위에서 리소스를 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: fcdfc5b1c4333a0d7eeec80a09ad85579a1f8b77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a3748c0948238b588a01f7d91780693a2c5bf3a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79460265"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930066"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>테 넌 트 수준에서 리소스 만들기
 
@@ -19,6 +19,7 @@ ms.locfileid: "79460265"
 테 넌 트 수준에서 다음과 같은 리소스 유형을 배포할 수 있습니다.
 
 * [배포](/azure/templates/microsoft.resources/deployments) -관리 그룹 또는 구독에 배포 하는 중첩 된 템플릿의 경우
+* managementGroups
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
@@ -103,13 +104,13 @@ REST API의 경우, [테 넌 트 범위에서 배포-만들기 또는 업데이�
 * [Tenantresourceid ()](template-functions-resource.md#tenantresourceid) 함수를 사용 하 여 테 넌 트 수준에서 배포 된 리소스에 대 한 리소스 ID를 가져올 수 있습니다.
 
   예를 들어 정책 정의에 대 한 리소스 ID를 가져오려면 다음을 사용 합니다.
-  
+
   ```json
   tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
   ```
-  
+
   반환 된 리소스 ID 형식은 다음과 같습니다.
-  
+
   ```json
   /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```

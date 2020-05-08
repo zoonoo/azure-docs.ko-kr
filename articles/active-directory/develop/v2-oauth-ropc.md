@@ -3,7 +3,7 @@ title: 리소스 소유자 암호 자격 증명 부여를 사용 하 여 로그�
 titleSuffix: Microsoft identity platform
 description: ROPC (리소스 소유자 암호 자격 증명) 부여를 사용 하 여 브라우저 없는 인증 흐름을 지원 합니다.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a282264ed3e9539bcc96babfc41376d2c6c35628
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 26b3cb343aba2d45d5a14944a7f8856715bca100
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868646"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690095"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Microsoft id 플랫폼 및 OAuth 2.0 리소스 소유자 암호 자격 증명
 
@@ -66,7 +66,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
-| `tenant` | 필수 | 사용자를 로그인할 디렉터리 테넌트입니다. 이는 GUID 또는 친숙한 이름 형식일 수 있습니다. 이 매개 변수는 `common` 또는 `consumers`로 설정할 수 없고 `organizations`로 설정할 수 있습니다. |
+| `tenant` | 필요한 공간 | 사용자를 로그인할 디렉터리 테넌트입니다. 이는 GUID 또는 친숙한 이름 형식일 수 있습니다. 이 매개 변수는 `common` 또는 `consumers`로 설정할 수 없고 `organizations`로 설정할 수 있습니다. |
 | `client_id` | 필수 | [Azure Portal 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당 된 응용 프로그램 (클라이언트) ID입니다. |
 | `grant_type` | 필수 | `password`로 설정해야 합니다. |
 | `username` | 필수 | 사용자의 전자 메일 주소입니다. |
@@ -90,9 +90,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 }
 ```
 
-| 매개 변수 | 형식 | Description |
+| 매개 변수 | 형식 | 설명 |
 | --------- | ------ | ----------- |
-| `token_type` | 문자열 | 항상 `Bearer`로 설정합니다. |
+| `token_type` | String | 항상 `Bearer`로 설정합니다. |
 | `scope` | 공백으로 구분된 문자열 | 액세스 토큰이 반환된 경우 이 매개 변수는 액세스 토큰의 유효 범위를 나열합니다. |
 | `expires_in`| int | 포함된 액세스 토큰의 유효 시간(초)입니다. |
 | `access_token`| 불투명 문자열 | 요청 된 [범위](v2-permissions-and-consent.md) 에 대해 발급 됩니다. |
