@@ -7,18 +7,20 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: 9cfb44fbf84ad85f3e2684dfec21cc83d4aaa666
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131265"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983077"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Azure 애플리케이션 Gateway에 대 한 WAF (웹 응용 프로그램 방화벽) 문제 해결
 
 WAF (웹 응용 프로그램 방화벽)를 통과 해야 하는 요청이 차단 된 경우 몇 가지 작업을 수행할 수 있습니다.
 
 먼저 [waf 개요](ag-overview.md) 및 [waf 구성](application-gateway-waf-configuration.md) 문서를 읽어야 합니다. 또한 [waf 모니터링](../../application-gateway/application-gateway-diagnostics.md) 을 사용 하도록 설정 했는지 확인 합니다 .이 문서에서는 waf 함수, waf 규칙 집합이 작동 하는 방식 및 waf 로그에 액세스 하는 방법을 설명 합니다.
+
+OWASP 규칙 집합은 매우 엄격 하 게 사용할 수 있도록 설계 되었으며 WAF를 사용 하는 응용 프로그램 또는 조직의 특정 요구에 맞게 조정 됩니다. 이는 전적으로 대부분의 경우에서 제외, 사용자 지정 규칙을 만들기 위해 발생 하거나 문제 또는 가양성을 일으킬 수 있는 규칙을 사용 하지 않도록 설정 하는 데 필요 합니다. 사이트별 및 URI 별 정책을 사용 하면 이러한 변경 내용이 특정 사이트/u r i에만 영향을 줄 수 있으므로 동일한 문제로 실행 되지 않는 다른 사이트에는 변경 내용이 영향을 주지 않아야 합니다. 
 
 ## <a name="understanding-waf-logs"></a>WAF 로그 이해
 

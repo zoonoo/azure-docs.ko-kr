@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a4c02369f44255dfa472202215496378d41f8c6c
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: ed7f2b57df97a99a73ad191e45fb900a04f8021f
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735728"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983026"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당 나열
 
@@ -32,7 +32,9 @@ ms.locfileid: "82735728"
 
 구독에서 사용자 또는 그룹에 할당 된 역할을 확인 하는 가장 쉬운 방법은 **Azure 리소스** 창을 사용 하는 것입니다.
 
-1. Azure Portal에서 **모든 서비스** 를 클릭 한 다음 **사용자** 또는 **그룹**을 선택 합니다.
+1. Azure Portal에서 Azure Portal 메뉴의 **모든 서비스** 를 선택 합니다.
+
+1. **Azure Active Directory** 선택 하 고 **사용자** 또는 **그룹**을 선택 합니다.
 
 1. 원하는 역할 할당을 나열할 사용자 또는 그룹을 클릭 합니다.
 

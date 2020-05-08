@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: e3eca498e5716ae7c0a03e5e624d618899da8dc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df7b8e6243bc45b5d5bdd8a9a72e81b0946454ff
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770394"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858403"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Azure 내부 Load Balancer 업그레이드-아웃 바운드 연결 필요
-[Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus)를 참조 하세요. 표준 내부 Load Balancer는 아웃 바운드 연결을 제공 하지 않으므로 표준 공용 Load Balancer를 대신 만들 수 있는 솔루션을 제공 합니다.
+[Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](https://docs.microsoft.com/azure/load-balancer/skus#skus)를 참조 하세요. 표준 내부 Load Balancer는 아웃 바운드 연결을 제공 하지 않으므로 표준 공용 Load Balancer를 대신 만들 수 있는 솔루션을 제공 합니다.
 
 업그레이드에는 네 단계가 있습니다.
 

@@ -1,14 +1,14 @@
 ---
 title: 청사진의 수명 주기 이해
 description: 청사진 정의가 거치는 수명 주기와 청사진 할당 업데이트 및 제거를 포함 하 여 각 단계에 대 한 세부 정보를 알아보세요.
-ms.date: 07/30/2019
+ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 46da42ec97f16af91ef8e41362a085d466bbb887
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc024c0e6643420d26bdc92e47fabe647c55ae7b
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80677380"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864031"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Azure Blueprint의 수명 주기 이해
 

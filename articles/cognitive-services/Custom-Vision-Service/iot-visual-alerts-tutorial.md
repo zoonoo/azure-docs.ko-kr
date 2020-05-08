@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: ac7609d49631fb2ed16fa129f8dc4099cc166247
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d94f557ddd946d20020825e2bbb6babbd67d3af3
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769879"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734334"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>자습서: IoT 디바이스에서 Custom Vision을 사용하여 시각적 상태 보고
 
@@ -62,7 +62,7 @@ IoT 시각적 경고 앱은 연속 루프에서 실행되며, 다음과 같은 �
 | [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | 이 코드는 XAML UI의 동작을 제어합니다. 상태 시스템 처리 코드를 포함합니다.|
 | [CustomVision\CustomVisionServiceWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionServiceWrapper.cs) | 이 클래스는 Custom Vision Service와의 통합을 처리하는 래퍼입니다.|
 | [CustomVision\CustomVisionONNXModel.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionONNXModel.cs) | 이 클래스는 ONNX 모델을 로드하고 해당 모델에 대해 이미지 점수를 매길 수 있도록 Windows ML과의 통합을 처리하는 래퍼입니다.|
-| [IoTHub\IotHubWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/IoTHub/IotHubWrapper.cs) | 이 클래스는 점수 매기기 결과를 Azure에 업로드할 수 있도록 IoT Hub와의 통합을 처리하는 래퍼입니다.|
+| [IoTHub\IotHubWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/IoTHub/IoTHubWrapper.cs) | 이 클래스는 점수 매기기 결과를 Azure에 업로드할 수 있도록 IoT Hub와의 통합을 처리하는 래퍼입니다.|
 
 ## <a name="set-up-the-visual-alerts-app"></a>시각적 경고 앱 설정
 
@@ -90,7 +90,7 @@ ARM 프로세서를 사용하여 IoT 디바이스에 배포하는 경우 대상 
 
 모델을 설정하려면 앱이 **학습 이미지 캡처** 상태여야 합니다. 다음 단계 중 하나를 수행합니다.
 * PC에서 앱을 실행하는 경우 UI의 오른쪽 위 모서리에 있는 단추를 사용합니다.
-* IoT 디바이스에서 앱을 실행하는 경우 IoT Hub를 통해 디바이스에서 `EnterLearningMode` 메서드를 호출합니다. 메서드는 Azure Portal에서 IoT Hub 메뉴의 디바이스 항목 또는 [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 등의 도구를 통해 호출할 수 있습니다.
+* IoT 디바이스에서 앱을 실행하는 경우 IoT Hub를 통해 디바이스에서 `EnterLearningMode` 메서드를 호출합니다. 메서드는 Azure Portal에서 IoT Hub 메뉴의 디바이스 항목 또는 [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp) 등의 도구를 통해 호출할 수 있습니다.
  
 앱이 **학습 이미지 캡처** 상태가 되면 대상 이미지 수에 도달할 때까지 매초마다 약 두 개의 이미지를 캡처합니다. 기본적으로 대상은 30개의 이미지이지만 원하는 수를 `EnterLearningMode` IoT Hub 메서드에 인수로 전달하여 이 매개 변수를 설정할 수 있습니다. 
 

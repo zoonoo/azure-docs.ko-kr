@@ -15,12 +15,12 @@ ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b6587ca113319c266d2335c9cbb154e0ecc4afa1
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: HT
+ms.openlocfilehash: b5ba4b84fcd9c1722e8ab2f4031ec1551357e406
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838742"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82869981"
 ---
 # <a name="azure-built-in-roles"></a>Azure 기본 제공 역할
 
@@ -156,7 +156,7 @@ Azure [RBAC (역할 기반 액세스 제어)](overview.md) 에는 사용자, 그
 > | [랩 작성자](#lab-creator) | Azure Lab 계정 하에서 관리 랩을 만들고, 관리하고, 삭제할 수 있습니다. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
 > | **모니터** |  |  |
 > | [Application Insights 구성 요소 기여자](#application-insights-component-contributor) | Application Insights 구성 요소를 관리할 수 있음 | ae349356-3a1b-4a5e-921d-050484c6347e |
-> | [Application Insights 스냅샷 디버거](#application-insights-snapshot-debugger) | Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스냅샷을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
+> | [Application Insights 스냅샷 디버거](#application-insights-snapshot-debugger) | Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스냅샷을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다. 사용자에 게 Application Insights 스냅숏 디버거 역할을 부여 하는 경우 사용자에 게 직접 역할을 부여 해야 합니다. 역할은 사용자 지정 역할에 추가 될 때 인식 되지 않습니다. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | [Monitoring Contributor](#monitoring-contributor) | 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있음 [Azure Monitor에서의 역할, 권한 및 보안 시작](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles)도 참조하세요. | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | [모니터링 메트릭 게시자](#monitoring-metrics-publisher) | Azure 리소스에 대한 게시 메트릭 사용 | 3913510d-42f4-4e42-8a64-420c390055eb |
 > | [Monitoring Reader](#monitoring-reader) | 모든 모니터링 데이터를 읽을 수 있음(메트릭, 로그 등) [Azure Monitor에서의 역할, 권한 및 보안 시작](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles)도 참조하세요. | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
@@ -6144,7 +6144,7 @@ Application Insights 구성 요소를 관리할 수 있음
 
 ### <a name="application-insights-snapshot-debugger"></a>Application Insights 스냅샷 디버거
 
-Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스냅샷을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다.
+Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스냅샷을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다. 사용자에 게 Application Insights 스냅숏 디버거 역할을 부여 하는 경우 사용자에 게 직접 역할을 부여 해야 합니다. 역할은 사용자 지정 역할에 추가 될 때 인식 되지 않습니다. 
 
 > [!div class="mx-tableFixed"]
 > |  |  |

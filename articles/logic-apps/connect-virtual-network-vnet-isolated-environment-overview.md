@@ -3,15 +3,15 @@ title: Azure 가상 네트워크에 액세스
 description: ISEs (integration service environment)가 Azure 가상 네트워크에 액세스 하는 방법에 대 한 개요 (Vnet)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
-ms.date: 03/12/2020
-ms.openlocfilehash: 9d5e0c088fe773f16e1fc57f292ca812906aa09c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
+ms.date: 05/01/2020
+ms.openlocfilehash: d74303df74a1e877645b333fa0726a68055c819b
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127254"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734922"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
@@ -111,16 +111,18 @@ ISE를 만들 때 개발자 SKU 또는 프리미엄 SKU를 선택할 수 있습�
 
 ## <a name="ise-endpoint-access"></a>ISE 끝점 액세스
 
-ISE를 만들 때 내부 또는 외부 액세스 끝점 중 하나를 사용 하도록 선택할 수 있습니다. 선택은 ISE의 논리 앱에 대 한 요청 또는 webhook 트리거가 가상 네트워크 외부에서 호출을 받을 수 있는지 여부를 결정 합니다.
-
-이러한 끝점은 논리 앱의 실행 기록에서 입/출력에 액세스할 수 있는 방법에도 영향을 줍니다.
-
-* **내부**: *가상 네트워크 내부 에서만* 실행 기록에서 논리 앱의 입력 및 출력을 보고 액세스할 수 있는 ISE에서 논리 앱에 대 한 호출을 허용 하는 개인 끝점
-
-* **외부**: *가상 네트워크 외부의*실행 기록에서 논리 앱의 입력 및 출력을 보고 액세스할 수 있는 ISE에서 논리 앱에 대 한 호출을 허용 하는 공용 끝점입니다. NSGs (네트워크 보안 그룹)를 사용 하는 경우 실행 기록의 입력 및 출력에 대 한 액세스를 허용 하는 인바운드 규칙으로 설정 되어 있는지 확인 합니다. 자세한 내용은 [ISE에 대 한 액세스 사용](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access)을 참조 하세요.
+ISE를 만들 때 내부 또는 외부 액세스 끝점 중 하나를 사용 하도록 선택할 수 있습니다. 선택은 ISE의 논리 앱에 대 한 요청 또는 webhook 트리거가 가상 네트워크 외부에서 호출을 받을 수 있는지 여부를 결정 합니다. 이러한 끝점은 논리 앱의 실행 기록에서 입/출력에 액세스할 수 있는 방법에도 영향을 줍니다.
 
 > [!IMPORTANT]
-> 액세스 끝점 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에 변경할 수 없습니다.
+> ISE를 만드는 동안에만 액세스 끝점을 선택할 수 있으며 나중에이 옵션을 변경할 수 없습니다.
+
+* **내부**: 개인 끝점은 *가상 네트워크 내부 에서만*논리 앱의 실행 기록에서 입력 및 출력을 보고 액세스할 수 있는 ISE에서 논리 앱에 대 한 호출을 허용 합니다. 실행 기록에 액세스 하려는 컴퓨터와 개인 끝점 간에 네트워크 연결이 있는지 확인 합니다. 예를 들어 클라이언트 컴퓨터는 ISE의 가상 네트워크 내부 또는 ISE의 가상 네트워크 (예: 피어 링 또는 가상 사설망)에 연결 된 가상 네트워크 내부에 있을 수 있습니다.
+
+* **외부**: 공용 끝점은 ISE에서 논리 앱에 대 한 호출을 허용 하며, *가상 네트워크 외부에서*논리 앱 실행 기록의 입력 및 출력을 보고 액세스할 수 있습니다. NSGs (네트워크 보안 그룹)를 사용 하는 경우 실행 기록의 입력 및 출력에 대 한 액세스를 허용 하는 인바운드 규칙으로 설정 되어 있는지 확인 합니다. 자세한 내용은 [ISE에 대 한 액세스 사용](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access)을 참조 하세요.
+
+ISE가 내부 또는 외부 액세스 끝점을 사용 하는지 확인 하려면 ISE의 메뉴에서 **설정**아래에 있는 **속성**을 선택 하 고 **액세스 끝점** 속성을 찾습니다.
+
+![ISE 액세스 끝점 찾기](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
 
 <a name="create-integration-account-environment"></a>
 

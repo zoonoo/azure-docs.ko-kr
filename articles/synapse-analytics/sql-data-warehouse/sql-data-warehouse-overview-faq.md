@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 260086d186f7e2b2d6f76c437057f5fbc8af39b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ef8196cebfbdda72f98fee0e9c75bcb80172a55e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416084"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791462"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (이전의 SQL DW) 질문과 대답
 
@@ -23,11 +23,11 @@ ms.locfileid: "81416084"
 
 17. Azure Synapse란?
 
-A. Azure Synapse는 데이터 웨어하우징 및 빅 데이터 분석을 함께 제공 하는 무한 분석 서비스입니다. 서버를 사용 하지 않는 주문형 또는 프로 비전 된 리소스 (대규모)를 사용 하 여 사용자의 용어로 데이터를 자유롭게 쿼리할 수 있습니다. Azure Synapse는 통합된 환경으로 이 두 세계를 결합하여 BI 및 기계 학습에 대한 즉각적인 요구에 따라 데이터를 수집, 준비, 관리 및 제공합니다. 자세한 내용은 [Azure Synapse Analytics 정의](sql-data-warehouse-overview-what-is.md)를 참조 하세요.
+A. Azure Synapse는 데이터 웨어하우징 및 빅 데이터 분석을 함께 제공 하는 분석 서비스입니다. Azure Synapse는 BI 및 기계 학습 요구 사항에 대 한 데이터를 수집, 준비, 관리 및 제공 하기 위해 통합 된 환경과 함께 이러한 두 가지를 제공 합니다. 자세한 내용은 [Azure Synapse Analytics 정의](sql-data-warehouse-overview-what-is.md)를 참조 하세요.
 
 17. Azure SQL Data Warehouse 어떻게 되었습니까?
 
-A. Azure Synapse는 SQL DW (Azure SQL Data Warehouse)로 진화 하 고 있습니다. 우리는 동일한 업계 최고의 데이터 웨어하우스를 새로운 수준의 성능 및 기능으로 완전히 새로운 수준으로 만들었습니다. Azure Synapse를 사용 하 여 프로덕션에서 기존 데이터 웨어하우스 워크 로드를 계속 실행 하 고 미리 보기에 있는 새로운 기능을 통해 자동으로 이점을 누릴 수 있습니다. 자세한 내용은 [Azure Synapse Analytics 란?](sql-data-warehouse-overview-what-is.md)을 참조 하세요.
+A. Azure Synapse는 SQL DW (Azure SQL Data Warehouse)로 진화 하 고 있습니다. 우리는 동일한 업계 최고의 데이터 웨어하우스를 새로운 수준의 성능 및 기능으로 완전히 새로운 수준으로 만들었습니다. Azure Synapse를 사용 하 여 프로덕션에서 기존 데이터 웨어하우스 워크 로드를 계속 실행할 수 있습니다. 자세한 내용은 [Azure Synapse Analytics 란?](sql-data-warehouse-overview-what-is.md)을 참조 하세요.
 
 17. Synapse SQL pool 이란?
 
@@ -43,8 +43,7 @@ A. Azure Synapse는 TDE 및 감사와 같은 데이터를 보호 하기 위한 �
 
 17. Azure Synapse가 준수 하는 법적 또는 비즈니스 표준에 대 한 자세한 내용은 어디서 확인할 수 있나요?
 
-A. SOC 및 ISO와 같은 제품에 대한 다양한 규정 준수 제안에 대해서는 [Microsoft 규정 준수](https://www.microsoft.com/trustcenter/compliance/complianceofferings) 페이지를 방문하세요.
-먼저 규정 준수 제목을 선택 합니다. 그런 다음 페이지의 오른쪽에 있는 Microsoft 범위 내 클라우드 서비스 섹션에서 Azure를 확장 하 여 Azure Synapse 규격의 서비스를 확인 합니다.
+A. SOC 및 ISO와 같은 제품에 대한 다양한 규정 준수 제안에 대해서는 [Microsoft 규정 준수](https://www.microsoft.com/trustcenter/compliance/complianceofferings) 페이지를 방문하세요. 먼저 규정 준수 제목을 선택 합니다. 그런 다음 페이지의 오른쪽에 있는 Microsoft 범위 내 클라우드 서비스 섹션에서 Azure를 확장 하 여 Azure Synapse 규격의 서비스를 확인 합니다.
 
 17. Power BI 연결할 수 있나요?
 

@@ -1,14 +1,14 @@
 ---
 title: PowerShell을 사용 하 여 청사진 가져오기 및 내보내기
 description: 청사진 정의를 코드로 사용 하는 방법에 대해 알아봅니다. Export 및 import 명령을 사용 하 여 공유, 소스 제어 및 관리 합니다.
-ms.date: 09/03/2019
+ms.date: 05/06/2020
 ms.topic: how-to
-ms.openlocfilehash: dcdf48f8941198591b39d6cf89ec5e6dac7ba94c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cc6bc241dc6b7b4baa669e64a0d5e43641a55b8
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686832"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864048"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>PowerShell을 사용 하 여 청사진 정의 가져오기 및 내보내기
 

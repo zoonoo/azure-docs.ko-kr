@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 46c53c99c12ade986ab913bf013b652a931a4d22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed1c2f14ca5a791743a95cc50e5af0c29c74fefe
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257745"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983315"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 랩 관리 
 이 문서에서는 클래스룸 랩을 만들고 삭제하는 방법을 설명합니다. 또한 랩 계정에서 모든 클래스룸 랩을 보는 방법을 보여 줍니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 랩 계정에서 클래스룸 랩을 설정하려면 랩 계정에서 **랩 작성자** 역할의 멤버여야 합니다. 랩 계정을 만드는 데 사용한 계정이 이 역할에 자동으로 추가됩니다. 랩 소유자는 [랩 작성자 역할에 사용자 추가](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) 문서의 단계에 따라 랩 작성자 역할에 다른 사용자를 추가할 수 있습니다.
 
 ## <a name="create-a-classroom-lab"></a>클래스룸 랩 만들기
@@ -104,9 +104,10 @@ ms.locfileid: "81257745"
 | 작음 | 2 | 3.5 GB | 이 크기는 명령줄, 웹 브라우저 열기, 트래픽이 적은 웹 서버, 중소 규모의 데이터베이스에 가장 적합 합니다. |
 | 보통 | 4 | 7 GB | 이 크기는 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다. | 
 | 중간 (중첩 된 가상화) | 4 | 16GB | 이 크기는 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다. 이 크기는 중첩 된 가상화도 지원 합니다. <p>이 크기는 각 학생이 여러 Vm이 필요한 시나리오에서 사용할 수 있습니다. 교사는 중첩 된 가상화를 사용 하 여 가상 컴퓨터 내에서 작은 크기의 중첩 된 가상 컴퓨터를 설정할 수 있습니다. </p> |
-| 큰 | 8 | 32GB | 이 크기는 더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 큰 데이터베이스, 큰 메모리 캐시를 필요로 하는 응용 프로그램에 가장 적합 합니다. 이 크기는 또한 중첩 된 가상화를 지원 합니다. |  
-| 소형 GPU (시각화) | 6 | 56GB | 이 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 사용 하는 원격 시각화, 스트리밍, 게임, 인코딩에 가장 적합 합니다. | 
 | 소형 GPU (계산) | 6 | 56GB | 이 크기는 인공 지능 및 심층 학습 응용 프로그램과 같은 계산 집약적 및 네트워크 집약적 응용 프로그램에 가장 적합 합니다. | 
+| 소형 GPU (시각화) | 6 | 56GB | 이 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 사용 하는 원격 시각화, 스트리밍, 게임, 인코딩에 가장 적합 합니다. | 
+| 큰 | 8 | 16GB | 이 크기는 더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 큰 데이터베이스, 큰 메모리 캐시를 필요로 하는 응용 프로그램에 가장 적합 합니다. |
+| 큼 (중첩 된 가상화) | 8 | 32GB | 이 크기는 더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 큰 데이터베이스, 큰 메모리 캐시를 필요로 하는 응용 프로그램에 가장 적합 합니다. 이 크기는 중첩 된 가상화도 지원 합니다. |  
 | 중형 GPU (시각화) | 12 | 112GB | 이 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 사용 하는 원격 시각화, 스트리밍, 게임, 인코딩에 가장 적합 합니다. | 
 
 > [!NOTE]

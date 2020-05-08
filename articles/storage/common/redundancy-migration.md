@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5c37dbdc34138faab8adae6ad18252c18a75cad4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6376d858ae5113996bf7c93a8b3054797151c6b3
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337087"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858673"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>저장소 계정이 복제 되는 방식 변경
 
@@ -26,7 +26,7 @@ Azure Storage는 다음과 같은 유형의 복제를 제공 합니다.
 - LRS(로컬 중복 스토리지)
 - ZRS(영역 중복 스토리지)
 - GRS (지역 중복 저장소) 또는 읽기 액세스 지역 중복 저장소 (RA-GRS)
-- GZRS (지역 중복 저장소) 또는 읽기 액세스 지역 중복 저장소 (RA-GZRS) (미리 보기)
+- GZRS (지역 중복 저장소) 또는 읽기 액세스 지역 중복 저장소 (RA-GZRS)
 
 이러한 각 옵션에 대 한 개요는 [Azure Storage 중복성](storage-redundancy.md)을 참조 하세요.
 
@@ -46,7 +46,7 @@ Azure Storage는 다음과 같은 유형의 복제를 제공 합니다.
 <sup>1</sup> 은 일회성 송신 요금을 발생 시킵니다.
 
 > [!CAUTION]
-> (RA-) GRS 또는 (RA-) GZRS 계정에 대 한 [계정 장애 조치 (failover](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance) )를 수행한 경우 새 주 지역에서 로컬로 중복 되도록 구성 됩니다. 이러한 LRS 계정에 대 한 ZRS 또는 GZRS에 대 한 실시간 마이그레이션은 지원 되지 않습니다. [수동 마이그레이션을](https://docs.microsoft.com/azure/storage/common/redundancy-migration#perform-a-manual-migration-to-zrs)수행 해야 합니다.
+> (RA-) GRS 또는 (RA-) GZRS 계정에 대 한 [계정 장애 조치](storage-disaster-recovery-guidance.md) (failover)를 수행한 경우이 계정은 장애 조치 (failover) 후 새 주 지역에서 로컬로 중복 됩니다. 장애 조치 (failover)로 인해 발생 하는 LRS 계정에 대 한 ZRS 또는 GZRS에 대 한 실시간 마이그레이션은 지원 되지 않습니다. ZRS 또는 GZRS으로 [수동 마이그레이션을](#perform-a-manual-migration-to-zrs) 수행 해야 합니다.
 
 ## <a name="change-the-replication-setting"></a>복제 설정 변경
 
@@ -195,4 +195,4 @@ az storage account update -g <resource_group> -n <storage_account> --set kind=St
 
 - [Azure Storage 중복성](storage-redundancy.md)
 - [저장소 계정에 대 한 마지막 동기화 시간 속성 확인](last-sync-time-get.md)
-- [읽기 액세스 지역 중복 저장소를 사용 하 여 항상 사용 가능한 응용 프로그램 디자인](storage-designing-ha-apps-with-ragrs.md)
+- [지리적 중복을 사용 하 여 항상 사용 가능한 응용 프로그램 디자인](geo-redundant-design.md)

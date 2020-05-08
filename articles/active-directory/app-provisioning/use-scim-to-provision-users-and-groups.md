@@ -2,28 +2,23 @@
 title: Azure AD에서 앱에 대 한 사용자 프로 비전을 위한 SCIM 끝점 개발
 description: SCIM (도메인 간 Id 관리)에 대 한 시스템에서 자동 사용자 프로 비전을 표준화 합니다. SCIM 끝점을 개발 하 고, Azure Active Directory SCIM API를 통합 하 고, 클라우드 응용 프로그램에 사용자 및 그룹을 프로 비전 하는 자동화를 시작 하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.custom: aaddev;it-pro;seohack1
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a54bc3cfa67330fb0056ccd1898d9ab3de2b0ab2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65bbb35d041a48e68d01a50e88e42fbeb73f2ea6
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229921"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864286"
 ---
-# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM 끝점을 빌드하고 Azure Active Directory (Azure AD)를 사용 하 여 사용자 프로 비전 구성
+# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>SCIM 끝점을 빌드하고 Azure AD를 사용 하 여 사용자 프로 비전 구성
 
 응용 프로그램 개발자는 SCIM (도메인 간 Id 관리) 사용자 관리 API에 대 한 시스템을 사용 하 여 응용 프로그램과 Azure AD 간에 사용자 및 그룹의 자동 프로 비전을 사용 하도록 설정할 수 있습니다. 이 문서에서는 SCIM 끝점을 빌드하고 Azure AD 프로 비전 서비스와 통합 하는 방법을 설명 합니다. SCIM 사양은 프로 비전을 위한 공용 사용자 스키마를 제공 합니다. SAML 또는 Openid connect Connect와 같은 페더레이션 표준과 함께 사용 하는 경우 SCIM은 관리자에 게 액세스 관리를 위한 종단 간 표준 기반 솔루션을 제공 합니다.
 
@@ -338,7 +333,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 *GET/사용자? filter = userName eq "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
-##### <a name="response"></a><a name="response-2"></a>응답이
+##### <a name="response"></a><a name="response-2"></a>응답
 
 *HTTP/1.1 200 확인*
 ```json
@@ -379,7 +374,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 *GET/사용자? filter = userName eq "존재 하지 않는 사용자"*
 
-##### <a name="response"></a><a name="response-3"></a>응답이
+##### <a name="response"></a><a name="response-3"></a>응답
 
 *HTTP/1.1 200 확인*
 ```json
@@ -416,7 +411,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 }
 ```
 
-##### <a name="response"></a><a name="response-4"></a>응답이
+##### <a name="response"></a><a name="response-4"></a>응답
 
 *HTTP/1.1 200 확인*
 ```json
@@ -460,7 +455,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 }
 ```
 
-##### <a name="response"></a><a name="response-5"></a>응답이
+##### <a name="response"></a><a name="response-5"></a>응답
 
 *HTTP/1.1 200 확인*
 ```json
@@ -509,7 +504,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 }
 ```
 
-##### <a name="response"></a><a name="response-14"></a>응답이
+##### <a name="response"></a><a name="response-14"></a>응답
 
 ```json
 {
@@ -549,7 +544,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 */Users/5171a35d82074e068ce2 HTTP/1.1 삭제*
 
-##### <a name="response"></a><a name="response-6"></a>응답이
+##### <a name="response"></a><a name="response-6"></a>응답
 
 *HTTP/1.1 204 내용 없음*
 
@@ -576,7 +571,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 }
 ```
 
-##### <a name="response"></a><a name="response-7"></a>응답이
+##### <a name="response"></a><a name="response-7"></a>응답
 
 *HTTP/1.1 201 생성*
 ```json
@@ -601,7 +596,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 *GET/Groups/40734ae655284ad3abcc? excludedAttributes = members HTTP/1.1*
 
-##### <a name="response"></a><a name="response-8"></a>응답이
+##### <a name="response"></a><a name="response-8"></a>응답
 *HTTP/1.1 200 확인*
 ```json
 {
@@ -622,7 +617,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 ##### <a name="request"></a><a name="request-9"></a>요청
 */Groups? excludedAttributes = members&filter = displayName eq "displayName" HTTP/1.1*
 
-##### <a name="response"></a><a name="response-9"></a>응답이
+##### <a name="response"></a><a name="response-9"></a>응답
 
 *HTTP/1.1 200 확인*
 ```json
@@ -662,7 +657,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 }
 ```
 
-##### <a name="response"></a><a name="response-10"></a>응답이
+##### <a name="response"></a><a name="response-10"></a>응답
 
 *HTTP/1.1 204 내용 없음*
 
@@ -685,7 +680,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 }
 ```
 
-##### <a name="response"></a><a name="response-11"></a>응답이
+##### <a name="response"></a><a name="response-11"></a>응답
 
 *HTTP/1.1 204 내용 없음*
 
@@ -708,7 +703,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 }
 ```
 
-##### <a name="response"></a><a name="response-12"></a>응답이
+##### <a name="response"></a><a name="response-12"></a>응답
 
 *HTTP/1.1 204 내용 없음*
 
@@ -718,7 +713,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 */Groups/cdb1ce18f65944079d37 HTTP/1.1 삭제*
 
-##### <a name="response"></a><a name="response-13"></a>응답이
+##### <a name="response"></a><a name="response-13"></a>응답
 
 *HTTP/1.1 204 내용 없음*
 
@@ -1200,8 +1195,8 @@ SCIM 사양에는 인증 및 권한 부여에 대 한 SCIM 관련 체계가 정�
 [!NOTE] Azure AD 프로 비전 구성 사용자 지정 앱 UI에서 토큰 필드를 비워 두지 않는 것이 좋습니다. 생성 된 토큰은 주로 테스트 목적으로 사용할 수 있습니다.
 
 **OAuth 인증 코드 부여 흐름:** 프로 비전 서비스는 [인증 코드 부여](https://tools.ietf.org/html/rfc6749#page-24)를 지원 합니다. 갤러리에서 앱 게시 요청을 제출 하 고 나면 팀에서 다음 정보를 수집 하는 작업을 수행 합니다.
-*  권한 부여 URL: 사용자 에이전트 리디렉션을 통해 리소스 소유자 로부터 인증을 얻기 위해 클라이언트에서 사용 하는 URL입니다. 사용자는 액세스 권한을 부여 하기 위해이 URL로 리디렉션됩니다. 
-*  토큰 교환 URL: 일반적으로 클라이언트 인증을 사용 하 여 액세스 토큰에 대 한 권한 부여를 교환 하기 위해 클라이언트에서 사용 하는 URL입니다.
+*  권한 부여 URL: 사용자 에이전트 리디렉션을 통해 리소스 소유자 로부터 인증을 얻기 위해 클라이언트에서 사용 하는 URL입니다. 사용자는 액세스 권한을 부여 하기 위해이 URL로 리디렉션됩니다. 이 URL은 현재 테 넌 트 별로 구성할 수 없습니다.
+*  토큰 교환 URL: 일반적으로 클라이언트 인증을 사용 하 여 액세스 토큰에 대 한 권한 부여를 교환 하기 위해 클라이언트에서 사용 하는 URL입니다. 이 URL은 현재 테 넌 트 별로 구성할 수 없습니다.
 *  클라이언트 ID: 권한 부여 서버는 클라이언트에서 제공 하는 등록 정보를 나타내는 고유한 문자열인 클라이언트 식별자 인 등록 된 클라이언트를 발급 합니다.  클라이언트 식별자가 비밀이 아닙니다. 리소스 소유자에 게 노출 되며 클라이언트 인증에 단독으로 사용 하면 **안** 됩니다.  
 *  클라이언트 암호: 클라이언트 암호는 권한 부여 서버에서 생성 하는 암호입니다. 권한 부여 서버에만 알려진 고유한 값 이어야 합니다. 
 

@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/20/2020
-ms.openlocfilehash: 6b353967c9b9c7517f1a42581717c6394c0e6374
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: c3858756a0140481c0ab249e29c95f76c4b90da5
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729134"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982652"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 Alter row 변환
 
@@ -24,6 +24,8 @@ ms.locfileid: "81729134"
 ![행 설정 변경](media/data-flow/alter-row1.png "행 설정 변경")
 
 Alter Row 변환은 데이터 흐름의 데이터베이스 또는 CosmosDB 싱크에 대해서만 작동 합니다. 행에 할당 하는 작업 (insert, update, delete, upsert)은 디버그 세션 중에 발생 하지 않습니다. 파이프라인에서 데이터 흐름 실행 작업을 실행 하 여 데이터베이스 테이블에 대 한 alter row 정책을 적용 합니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vJYc]
 
 ## <a name="specify-a-default-row-policy"></a>기본 행 정책 지정
 
@@ -54,6 +56,20 @@ Alter row 정책이 작동 하려면 데이터 스트림이 데이터베이스 �
 > 삽입, 업데이트 또는 upsert가 싱크에 있는 대상 테이블의 스키마를 수정 하면 데이터 흐름이 실패 합니다. 데이터베이스의 대상 스키마를 수정 하려면 테이블 **다시 만들기** 동작을 선택 합니다. 그러면 새 스키마 정의를 사용 하 여 테이블을 삭제 하 고 다시 만듭니다.
 
 싱크 변환에는 대상 데이터베이스에서 고유한 행 id에 대 한 단일 키 또는 일련의 키가 필요 합니다. SQL 싱크에 대해 싱크 설정 탭에서 키를 설정 합니다. CosmosDB의 경우 설정에서 파티션 키를 설정 하 고 싱크 매핑에서 CosmosDB 시스템 필드 "id"도 설정 합니다. CosmosDB의 경우 업데이트, upsert 및 삭제에 대 한 시스템 열 "id"를 반드시 포함 해야 합니다.
+
+## <a name="merges-and-upserts-with-azure-sql-database-and-synapse"></a>Azure SQL Database 및 Synapse를 사용 하 여 병합 및 upsert
+
+ADF 데이터 흐름은 upsert 옵션을 사용 하 여 Azure SQL Database 및 Synapse Database 풀 (데이터 웨어하우스)에 대 한 병합을 지원 합니다.
+
+그러나 대상 데이터베이스 스키마에서 키 열의 identity 속성을 사용한 시나리오를 실행할 수 있습니다. ADF를 사용 하려면 업데이트 및 upsert에 대 한 행 값과 일치 하는 데 사용할 키를 식별 해야 합니다. 하지만 대상 열에 identity 속성이 설정 되어 있고 upsert 정책을 사용 하는 경우 대상 데이터베이스에서 열에 쓰기를 허용 하지 않습니다. 분산 테이블의 배포 열에 대해 upsert를 시도 하는 경우 오류가 발생할 수도 있습니다.
+
+다음은이 문제를 해결 하는 방법입니다.
+
+1. 싱크 변환 설정으로 이동 하 고 "키 열 쓰기 생략"을 설정 합니다. 그러면 ADF가 매핑에 대 한 키 값으로 선택한 열을 쓰지 않습니다.
+
+2. 해당 키 열이 id 열에 대 한 문제를 일으키는 열이 아닌 경우 싱크 변환 전처리 SQL 옵션 ```SET IDENTITY_INSERT tbl_content ON```을 사용할 수 있습니다. 그런 다음 사후 처리 SQL 속성을 사용 하 여 해제 ```SET IDENTITY_INSERT tbl_content OFF```합니다.
+
+3. Id 사례와 배포 열의 경우 모두, 조건부 분할 변환을 사용 하 여 별도의 업데이트 조건과 별도의 삽입 조건을 사용 하 여 Upsert에서 논리를 전환할 수 있습니다. 이러한 방식으로 키 열 매핑을 무시 하도록 업데이트 경로에 대 한 매핑을 설정할 수 있습니다.
 
 ## <a name="data-flow-script"></a>데이터 흐름 스크립트
 

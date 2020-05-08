@@ -3,13 +3,13 @@ title: 개념 - AKS(Azure Kubernetes Service)의 보안
 description: 마스터 및 노드 통신, 네트워크 정책 및 Kubernetes 비밀을 비롯한 AKS(Azure Kubernetes Service)의 보안에 대해 알아봅니다.
 services: container-service
 ms.topic: conceptual
-ms.date: 03/01/2019
-ms.openlocfilehash: 1960d18396f47b3dbdd51a50ec4241be5ebe4ff1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/08/2020
+ms.openlocfilehash: f3c4fd922ef0e4243344b34dd90f7e48f903abcd
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82206632"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981394"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
@@ -27,7 +27,9 @@ AKS(Azure Kubernetes Service)에서 애플리케이션 워크로드를 실행하
 
 AKS에서 Kubernetes 마스터 구성 요소는 Microsoft에서 제공하는 관리 서비스에 속합니다. 각 AKS 클러스터에는 API 서버, 스케줄러 등을 제공 하는 고유한 단일 테 넌 트, 전용 Kubernetes 마스터가 있습니다. 이 마스터는 Microsoft에서 관리 하 고 유지 관리 합니다.
 
-기본적으로 Kubernetes API 서버는 공용 IP 주소 및 FQDN (정규화 된 도메인 이름)을 사용 합니다. Kubernetes 역할 기반 액세스 제어 및 Azure Active Directory를 사용하여 API 서버에 대한 액세스를 제어할 수 있습니다. 자세한 내용은 [AKS와 Azure AD 통합][aks-aad]을 참조하세요.
+기본적으로 Kubernetes API 서버는 공용 IP 주소 및 FQDN (정규화 된 도메인 이름)을 사용 합니다. [권한 있는 IP 범위][authorized-ip-ranges]를 사용 하 여 API 서버 끝점에 대 한 액세스를 제한할 수 있습니다. 가상 네트워크에 대 한 API 서버 액세스를 제한 하는 완전 한 [개인 클러스터][private-clusters] 를 만들 수도 있습니다.
+
+Kubernetes 역할 기반 액세스 제어 및 Azure Active Directory를 사용하여 API 서버에 대한 액세스를 제어할 수 있습니다. 자세한 내용은 [AKS와 Azure AD 통합][aks-aad]을 참조하세요.
 
 ## <a name="node-security"></a>노드 보안
 
@@ -65,6 +67,10 @@ AKS 또는 다른 곳의 Kubernetes 환경은 현재 악의적인 다중 테넌�
 ### <a name="azure-network-security-groups"></a>Azure 네트워크 보안 그룹
 
 가상 네트워크에서 트래픽 흐름을 필터링하기 위해 Azure에 네트워크 보안 그룹 규칙이 사용됩니다. 이러한 규칙은 리소스에 대한 액세스가 허용되거나 거부되는 원본 및 대상 IP 범위, 포트 및 프로토콜을 정의합니다. Kubernetes API 서버에 대 한 TLS 트래픽을 허용 하는 기본 규칙이 생성 됩니다. 부하 분산 장치, 포트 매핑 또는 수신 경로가 있는 서비스를 만들면 AKS에서 트래픽이 적절하게 흐르도록 네트워크 보안 그룹이 자동으로 수정됩니다.
+
+### <a name="kubernetes-network-policy"></a>Kubernetes 네트워크 정책
+
+클러스터의 pod 간에 네트워크 트래픽을 제한 하기 위해 AKS는 [Kubernetes 네트워크 정책][network-policy]에 대 한 지원을 제공 합니다. 네트워크 정책을 사용 하 여 네임 스페이스 및 레이블 선택기에 따라 클러스터 내의 특정 네트워크 경로를 허용 하거나 거부 하도록 선택할 수 있습니다.
 
 ## <a name="kubernetes-secrets"></a>Kubernetes 비밀
 
@@ -104,3 +110,6 @@ Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [developer-best-practices-pod-security]:developer-best-practices-pod-security.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[authorized-ip-ranges]: api-server-authorized-ip-ranges.md
+[private-clusters]: private-clusters.md
+[network-policy]: use-network-policies.md

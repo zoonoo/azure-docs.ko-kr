@@ -1,6 +1,6 @@
 ---
-title: Azure RBAC 및 Azure PowerShell를 사용 하 여 역할 할당 나열
-description: Azure RBAC (역할 기반 액세스 제어) 및 Azure PowerShell를 사용 하 여 사용자, 그룹, 서비스 주체 또는 관리 id가 액세스할 수 있는 리소스를 확인 하는 방법에 대해 알아봅니다.
+title: Azure PowerShell를 사용 하 여 Azure 역할 할당 나열-Azure RBAC
+description: 사용자, 그룹, 서비스 사용자 또는 관리 id에서 Azure PowerShell 및 Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 액세스할 수 있는 리소스를 확인 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0ec3153e5b1bfbe04a079d1cfc44e8e8709784d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1bdf703ac29ce11749de70fa0ef5972ee284401b
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75931144"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735711"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Azure RBAC 및 Azure PowerShell를 사용 하 여 역할 할당 나열
+# <a name="list-azure-role-assignments-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 역할 할당 나열
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]이 문서에서는 Azure PowerShell를 사용 하 여 역할 할당을 나열 하는 방법을 설명 합니다.
 
@@ -168,4 +168,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure RBAC 및 Azure PowerShell를 사용 하 여 역할 할당 추가 또는 제거](role-assignments-powershell.md)
+- [Azure PowerShell를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-powershell.md)

@@ -12,12 +12,12 @@ ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7704a758f53b6ba26b1c9cf9e9e2811f533601f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08f142a270cae525571ae414602a89b2538c17d0
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112204"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981989"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -47,6 +47,17 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 >동기화를 위해 Azure AD Connect를 사용 하도록 설정한 경우 이전 버전 중 하나를 실행할 때 예정 된 결함에 대해 경고 하는 상태 알림을 자동으로 수신 하는 즉시 시작 됩니다.
 >
 >Azure AD Connect를 최신 버전으로 업그레이드 하는 방법에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) 를 참조 하세요.
+
+## <a name="15300"></a>1.5.30.0
+
+### <a name="release-status"></a>릴리스 상태
+05/07/2020: 다운로드를 위해 릴리스 됨
+
+### <a name="fixed-issues"></a>해결된 문제
+- 선택 되지 않은 도메인이 마법사 UI에서 잘못 선택 된 문제가 해결 되었습니다.
+- ADSyncConfig PowerShell 모듈에서 모든 Set ADSync * Permissions cmdlet에 사용 된 DSACLS 명령을 호출 하면 다음 오류 중 하나가 발생 하는 문제가 해결 되었습니다.
+     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
+     - `GrantAcls : No GUID Found for computer …`
 
 ## <a name="15290"></a>1.5.29.0
 
@@ -105,6 +116,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 - 사용을 시도 하기 전에 모든 서비스 복제본에서 계정이 전파 되지 않았기 때문에 디렉터리 확장 또는 PHS를 사용 하도록 설정 하는 것이 실패할 수 있는 Azure Active Directory 동기화 계정을 생성 하는 문제가 해결 되었습니다. 
 - 서로게이트 문자를 올바르게 처리 하지 않은 동기화 오류 압축 유틸리티의 버그를 수정 했습니다. 
 - 서버를 스케줄러 일시 중단 상태로 유지 하는 자동 업그레이드의 버그를 수정 했습니다. 
+- 도메인/OU 필터링 페이지에서 도메인 트리를 변경 하지 않고 도메인 트리를 부분적 으로만 확장 하 여 해당 실행 프로필을 제거 하는 버그를 수정 했습니다.
 
 ## <a name="14380"></a>1.4.38.0
 ### <a name="release-status"></a>릴리스 상태
@@ -554,18 +566,18 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-Type     | 속성                          | 액세스               | 적용 대상
+유형     | 이름                          | 액세스 권한               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
-Allow    | SYSTEM                        | 모든 권한         | 이 개체  |
-Allow    | Enterprise Admins             | 모든 권한         | 이 개체  |
-Allow    | Domain Admins                 | 모든 권한         | 이 개체  |
-Allow    | Administrators                | 모든 권한         | 이 개체  |
-Allow    | 엔터프라이즈 도메인 컨트롤러 | 내용 보기        | 이 개체  |
-Allow    | 엔터프라이즈 도메인 컨트롤러 | 모든 속성 읽기  | 이 개체  |
-Allow    | 엔터프라이즈 도메인 컨트롤러 | 읽기 권한     | 이 개체  |
-Allow    | 인증된 사용자           | 내용 보기        | 이 개체  |
-Allow    | 인증된 사용자           | 모든 속성 읽기  | 이 개체  |
-Allow    | 인증된 사용자           | 읽기 권한     | 이 개체  |
+허용    | SYSTEM                        | 모든 권한         | 이 개체  |
+허용    | Enterprise Admins             | 모든 권한         | 이 개체  |
+허용    | Domain Admins                 | 모든 권한         | 이 개체  |
+허용    | Administrators                | 모든 권한         | 이 개체  |
+허용    | 엔터프라이즈 도메인 컨트롤러 | 내용 보기        | 이 개체  |
+허용    | 엔터프라이즈 도메인 컨트롤러 | 모든 속성 읽기  | 이 개체  |
+허용    | 엔터프라이즈 도메인 컨트롤러 | 읽기 권한     | 이 개체  |
+허용    | 인증된 사용자           | 내용 보기        | 이 개체  |
+허용    | 인증된 사용자           | 모든 속성 읽기  | 이 개체  |
+허용    | 인증된 사용자           | 읽기 권한     | 이 개체  |
 
 AD DS 계정에 대한 설정을 강화하려면 [이 PowerShell 스크립트](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978)를 실행할 수 있습니다. 이 PowerShell 스크립트는 위에서 언급한 사용 권한을 AD DS 계정에 할당합니다.
 

@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f519022fffe98c565c3b2d30f6578b9ebb70c57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f0644c25d0047f774fe8f99efa34a33e10d7b2b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428018"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983298"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>작업 영역 관리 id에 사용 권한 부여 (미리 보기)
 
-이 문서에서는 Azure synapse 작업 영역에서 관리 되는 id에 대 한 사용 권한을 부여 하는 방법을 설명 합니다. 그러면 작업 영역에서 SQL 풀에 대 한 액세스를 허용 하 고 Azure Portal를 통해 ADLS gen2 storage 계정을 사용 합니다.
+이 문서에서는 Azure synapse 작업 영역에서 관리 되는 id에 대 한 사용 권한을 부여 하는 방법을 설명 합니다. 그런 다음 작업 영역에서 SQL 풀에 대 한 액세스를 허용 하 고 Azure Portal를 통해 저장소 계정을 ADLS Gen2 합니다.
 
 >[!NOTE]
 >이 작업 영역 관리 ID는 이 문서의 나머지 부분에서 관리 ID라고 합니다.
@@ -29,25 +29,25 @@ Azure Synapse 작업 영역을 만들 때 **보안 + 네트워킹** 을 선택 �
 
 ![SQL 풀에 대 한 CONTROL 권한](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
-## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>ADLS gen2 storage 계정에 관리 id 사용 권한 부여
+## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>ADLS Gen2 저장소 계정에 관리 id 사용 권한 부여
 
-ADLS gen2 storage 계정은 Azure Synapse 작업 영역을 만드는 데 필요 합니다. Azure Synapse 작업 영역에서 Spark 풀을 성공적으로 시작 하려면 Azure Synapse 관리 id에이 저장소 계정에 대 한 *저장소 Blob 데이터 참가자* 역할이 있어야 합니다. Azure Synapse의 파이프라인 오케스트레이션은이 역할의 이점도 있습니다.
+Azure Synapse 작업 영역을 만들려면 ADLS Gen2 storage 계정이 필요 합니다. Azure Synapse 작업 영역에서 Spark 풀을 성공적으로 시작 하려면 Azure Synapse 관리 id에이 저장소 계정에 대 한 *저장소 Blob 데이터 참가자* 역할이 있어야 합니다. Azure Synapse의 파이프라인 오케스트레이션은이 역할의 이점도 있습니다.
 
 ### <a name="grant-permissions-to-managed-identity-during-workspace-creation"></a>작업 영역을 만드는 동안 관리 id에 권한 부여
 
-Azure Synapse는 Azure Portal을 사용 하 여 Azure Synapse 작업 영역을 만든 후 관리 되는 id에 저장소 Blob 데이터 참가자 역할을 부여 하려고 시도 합니다. **기본 사항** 탭에서 ADLS gen2 storage 계정 세부 정보를 제공 합니다.
+Azure Synapse는 Azure Portal을 사용 하 여 Azure Synapse 작업 영역을 만든 후 관리 되는 id에 저장소 Blob 데이터 참가자 역할을 부여 하려고 시도 합니다. **기본 사항** 탭에서 ADLS Gen2 저장소 계정 세부 정보를 제공 합니다.
 
 ![작업 영역 생성 흐름의 기본 사항 탭](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-1.png)
 
-ADLS gen2 storage 계정을 선택 하 고 **계정 이름** 및 **파일 시스템 이름에서 파일 시스템**을 선택 합니다.
+**계정 이름** 및 **파일 시스템 이름**에서 ADLS Gen2 저장소 계정 및 파일 시스템을 선택 합니다.
 
-![ADLS gen2 storage 계정 세부 정보 제공](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png)
+![ADLS Gen2 저장소 계정 정보 제공](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png)
 
-작업 영역 작성자도 ADLS gen2 storage 계정의 **소유자** 인 경우 Azure Synapse는 *저장소 Blob 데이터 참가자* 역할을 관리 되는 id에 할당 합니다. 입력 한 저장소 계정 세부 정보 아래에 다음 메시지가 표시 됩니다.
+작업 영역 작성자도 ADLS Gen2 저장소 계정의 **소유자** 인 경우 Azure Synapse는 *저장소 Blob 데이터 참가자* 역할을 관리 되는 id에 할당 합니다. 입력 한 저장소 계정 세부 정보 아래에 다음 메시지가 표시 됩니다.
 
 ![저장소 Blob 데이터 참여자 할당 성공](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-3.png)
 
-작업 영역 작성자가 ADLS gen2 storage 계정의 소유자가 아닌 경우 Azure Synapse는 *저장소 Blob 데이터 참가자* 역할을 관리 되는 id에 할당 하지 않습니다. 저장소 계정 세부 정보 아래에 표시 되는 메시지는 작업 영역 작성자에 게 *저장소 Blob 데이터 참가자* 역할에 관리 되는 id에 대 한 권한을 부여할 수 있는 권한이 없음을 알립니다.
+작업 영역 작성자가 ADLS Gen2 저장소 계정의 소유자가 아닌 경우, Azure Synapse는 관리 되는 id에 *저장소 Blob 데이터 참가자* 역할을 할당 하지 않습니다. 저장소 계정 세부 정보 아래에 표시 되는 메시지는 작업 영역 작성자에 게 *저장소 Blob 데이터 참가자* 역할에 관리 되는 id에 대 한 권한을 부여할 수 있는 권한이 없음을 알립니다.
 
 ![저장소 Blob 데이터 참가자 할당 실패](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-4.png)
 
@@ -55,21 +55,21 @@ ADLS gen2 storage 계정을 선택 하 고 **계정 이름** 및 **파일 시스
 
 ### <a name="grant-permissions-to-managed-identity-after-workspace-creation"></a>작업 영역을 만든 후 관리 되는 id에 권한 부여
 
-작업 영역을 만드는 동안 *저장소 Blob 데이터 참가자* 를 관리 id에 할당 하지 않으면 ADLS gen2 Storage 계정의 **소유자** 가 해당 역할을 id에 수동으로 할당 합니다. 다음 단계는 수동 할당을 수행 하는 데 도움이 됩니다.
+작업 영역을 만드는 동안 *저장소 Blob 데이터 참가자* 를 관리 id에 할당 하지 않으면 ADLS Gen2 저장소 계정의 **소유자** 가 해당 역할을 id에 수동으로 할당 합니다. 다음 단계는 수동 할당을 수행 하는 데 도움이 됩니다.
 
-#### <a name="step-1-navigate-to-the-adls-gen2-storage-account-in-azure-portal"></a>1 단계: Azure Portal에서 ADLS gen2 저장소 계정으로 이동
+#### <a name="step-1-navigate-to-the-adls-gen2-storage-account-in-azure-portal"></a>1 단계:에서 ADLS Gen2 저장소 계정으로 이동 Azure Portal
 
-Azure Portal에서 ADLS gen2 storage 계정을 열고 왼쪽 탐색 영역에서 **개요** 를 선택 합니다. 컨테이너 또는 filesystem 수준 에서만 *저장소 Blob 데이터 참가자* 역할을 할당 해야 합니다. **컨테이너**를 선택합니다.  
-![ADLS gen2 storage 계정 개요](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-5.png)
+Azure Portal에서 ADLS Gen2 storage 계정을 열고 왼쪽 탐색 영역에서 **개요** 를 선택 합니다. 컨테이너 또는 filesystem 수준 에서만 *저장소 Blob 데이터 참가자* 역할을 할당 해야 합니다. **컨테이너**를 선택합니다.  
+![ADLS Gen2 storage 계정 개요](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-5.png)
 
 #### <a name="step-2-select-the-container"></a>2 단계: 컨테이너 선택
 
 관리 id에는 작업 영역을 만들 때 제공 된 컨테이너 (파일 시스템)에 대 한 데이터 액세스 권한이 있어야 합니다. Azure Portal에서이 컨테이너 또는 파일 시스템을 찾을 수 있습니다. Azure Portal에서 Azure Synapse 작업 영역을 열고 왼쪽 탐색 영역에서 **개요** 탭을 선택 합니다.
-![ADLS gen2 storage 계정 컨테이너](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-7.png)
+![저장소 계정 컨테이너 ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-7.png)
 
 
 *저장소 Blob 데이터 참가자* 역할을 관리 되는 id에 부여 하려면 동일한 컨테이너 또는 파일 시스템을 선택 합니다.
-![ADLS gen2 storage 계정 컨테이너 선택](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
+![ADLS Gen2 storage 계정 컨테이너 선택](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
 #### <a name="step-3-navigate-to-access-control"></a>3 단계: 액세스 제어로 이동
 
@@ -114,7 +114,7 @@ Azure Portal에서 ADLS gen2 storage 계정을 열고 왼쪽 탐색 영역에서
 ![역할 할당 확인](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-14.png)
 
 저장소 blob *데이터* 참가자 역할이 할당 된 **저장소 blob 데이터 참가자** 섹션에 나열 된 관리 id가 표시 되어야 합니다. 
-![ADLS gen2 storage 계정 컨테이너 선택](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-15.png)
+![ADLS Gen2 storage 계정 컨테이너 선택](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-15.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bd7726d2bbf2830d18d78b5f0b0d7202b734124d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: add2805d9a360d3d9cd45ab54f476a6852fb7bd5
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537681"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858571"
 ---
 # <a name="enable-and-create-large-file-shares"></a>대량 파일 공유 사용 및 만들기
 
@@ -26,8 +26,9 @@ ms.locfileid: "81537681"
 
 ## <a name="restrictions"></a>제한
 
-지금은 LRS (로컬 중복 저장소) 또는 ZRS (영역 중복 저장소)를 사용 하 여 파일 공유를 사용할 수 있습니다. GZRS (지역 중복 저장소), GRS (지역 중복 저장소) 또는 읽기 액세스 지역 중복 저장소 (RA-GRS)를 사용할 수 없습니다.
-계정에서 대량 파일 공유를 사용 하도록 설정 하는 작업은 되돌릴 수 없습니다. 사용 하도록 설정한 후에는 계정을 GZRS, GRS 또는 RA-GRS로 변환할 수 없습니다.
+지금은 LRS (로컬 중복 저장소) 또는 ZRS (영역 중복 저장소)를 사용 하 여 파일 공유를 사용할 수 있습니다. GZRS (지역 중복 저장소), GRS (지역 중복 저장소), 읽기 액세스 지역 중복 저장소 (RA-GRS) 또는 읽기 액세스 지역 중복 저장소 (RA-GZRS)를 사용할 수 없습니다.
+
+계정에서 대량 파일 공유를 사용 하도록 설정 하는 작업은 되돌릴 수 없습니다. 사용 하도록 설정한 후에는 계정을 GZRS, GRS, RA-GRS 또는 RA-GZRS로 변환할 수 없습니다.
 
 ## <a name="create-a-new-storage-account"></a>새 스토리지 계정 만들기
 
@@ -68,7 +69,7 @@ ms.locfileid: "81537681"
 대량 파일 공유를 사용 하는 저장소 계정을 만들려면 다음 명령을 사용 합니다. , `<yourStorageAccountName>` `<yourResourceGroup>`및 `<yourDesiredRegion>` 을 사용자의 정보로 바꿉니다.
 
 ```azurecli-interactive
-## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 az storage account create --name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> --sku Standard_LRS --kind StorageV2 --enable-large-file-share
 ```
 
@@ -79,13 +80,13 @@ az storage account create --name <yourStorageAccountName> -g <yourResourceGroup>
 대량 파일 공유를 사용 하는 저장소 계정을 만들려면 다음 명령을 사용 합니다. , `<yourStorageAccountName>` `<yourResourceGroup>`및 `<yourDesiredRegion>` 을 사용자의 정보로 바꿉니다.
 
 ```powershell
-## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
 
 ## <a name="enable-large-files-shares-on-an-existing-account"></a>기존 계정에서 대량 파일 공유 사용
 
-기존 계정에서 대량 파일 공유를 사용 하도록 설정할 수도 있습니다. 대량 파일 공유를 사용 하도록 설정 하는 경우 GZRS, GRS 또는 RA-GRS로 변환할 수 없습니다. 이 저장소 계정에서 대량 파일 공유를 사용 하도록 설정 하는 것은 취소할 수 없습니다.
+기존 계정에서 대량 파일 공유를 사용 하도록 설정할 수도 있습니다. 대량 파일 공유를 사용 하도록 설정 하는 경우 GZRS, GRS, RA-GRS 또는 RA-GZRS로 변환할 수 없습니다. 이 저장소 계정에서 대량 파일 공유를 사용 하도록 설정 하는 것은 취소할 수 없습니다.
 
 ### <a name="portal"></a>포털
 

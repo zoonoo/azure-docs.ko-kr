@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 9f95677211a89c1bb2a18076741dec08e76c5d70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbb2ddaa1fb84590f9dec1c84ac4bc87a8e03022
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81390423"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738119"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Azure 간 VM 복제 오류 문제 해결
 
@@ -172,8 +172,6 @@ SUSE Linux는 기호화 된 링크 또는 symlink를 사용 하 여 인증서 �
 ## <a name="outbound-urls-or-ip-ranges-error-code-151037-or-151072"></a>아웃 바운드 Url 또는 IP 범위 (오류 코드 151037 또는 151072)
 
 Site Recovery 복제가 작동 하려면 VM에서 특정 Url에 대 한 아웃 바운드 연결이 필요 합니다. VM이 방화벽 뒤에 있거나 NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 이러한 문제 중 하나가 발생할 수 있습니다. Url을 통해 아웃 바운드 액세스를 계속 지원 하지만 IP 범위 허용 목록을 사용 하는 것은 더 이상 지원 되지 않습니다.
-
-### <a name="issue-1-failed-to-register-azure-vm-with-site-recovery-151195"></a>문제 1: Site Recovery을 사용 하 여 Azure VM을 등록 하지 못했습니다. (151195)
 
 #### <a name="possible-causes"></a>가능한 원인
 
@@ -477,7 +475,7 @@ Linux 그랜드 통합 부팅 로더 (GRUB) 구성 파일 (_/boot/grub/menu.lst_
 
 각 장치 이름을 해당 하는 UUID로 바꿉니다.
 
-1. 명령을 `blkid <device name>`실행 하 여 장치의 UUID를 찾습니다. 다음은 그 예입니다.
+1. 명령을 `blkid <device name>`실행 하 여 장치의 UUID를 찾습니다. 예를 들면 다음과 같습니다.
 
    ```shell
    blkid /dev/sda1

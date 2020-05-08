@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.openlocfilehash: 77c1cc6ef5a7353d246958d1b047f054d5f49890
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: fb0122833dabe4030232efb3ca07557ce1826aff
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837161"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981904"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너(미리 보기)를 사용하여 모델 다시 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "82837161"
 
 ### <a name="sample-pipeline"></a>샘플 파이프라인
 
-이 문서에 사용 된 파이프라인은 [샘플 3: 수입 예측](samples-designer.md#classification-samples)의 변경 된 버전입니다. 파이프라인은 샘플 데이터 집합 대신 [데이터 가져오기](algorithm-module-reference/import-data.md) 모듈을 사용 하 여 사용자 고유의 데이터를 사용 하 여 모델을 학습 하는 방법을 보여 줍니다.
+이 문서에 사용 된 파이프라인은 [샘플 3: 수입 예측](samples-designer.md#classification)의 변경 된 버전입니다. 파이프라인은 샘플 데이터 집합 대신 [데이터 가져오기](algorithm-module-reference/import-data.md) 모듈을 사용 하 여 사용자 고유의 데이터를 사용 하 여 모델을 학습 하는 방법을 보여 줍니다.
 
 ![데이터 가져오기 모듈을 강조 표시 하는 상자를 사용 하 여 수정 된 샘플 파이프라인을 보여 주는 스크린샷](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 

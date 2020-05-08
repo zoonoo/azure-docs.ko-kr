@@ -250,7 +250,7 @@
         - name: 클라이언트 라이브러리
           items:
             - name: azure-eventhub 버전 5
-              href: /python/api/overview/azure/eventhub/client
+              href: /python/api/azure-eventhub/?view=azure-python
             - name: azure-eventhub 버전 1
               href: /python/api/azure-eventhub/?view=azure-python-previous
         - name: 관리 라이브러리

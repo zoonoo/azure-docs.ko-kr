@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 18490ec7c3cfde33cef186b753e2adc809f854c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6821e3de3bfec891d98e9291a479cbb7537364ca
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641362"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733665"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>모든 Azure 구독 및 관리 그룹을 관리하는 액세스 권한 상승
 
@@ -84,7 +84,7 @@ Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azur
 
 1. 권한이 상승된 액세스를 확인하는 데 필요한 변경을 수행합니다.
 
-    역할 할당에 대한 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](role-assignments-portal.md)를 참조하세요. Azure AD PIM(Privileged Identity Management)을 사용하는 경우 [PIM에서 관리할 Azure 리소스 검색](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) 또는 [PIM에서 Azure 리소스 역할 할당](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md)을 참조하세요.
+    역할 할당에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-portal.md)를 참조 하세요. Azure AD PIM(Privileged Identity Management)을 사용하는 경우 [PIM에서 관리할 Azure 리소스 검색](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) 또는 [PIM에서 Azure 리소스 역할 할당](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md)을 참조하세요.
 
 ### <a name="remove-elevated-access"></a>상승된 액세스 제거
 
@@ -321,5 +321,5 @@ az role assignment list --role "User Access Administrator" --scope "/"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure의 다양한 역할 이해](rbac-and-directory-admin-roles.md)
-- [RBAC 및 REST API를 사용하여 Azure 리소스에 대한 액세스 관리](role-assignments-rest.md)
+- [다른 역할 이해](rbac-and-directory-admin-roles.md)
+- [REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-rest.md)

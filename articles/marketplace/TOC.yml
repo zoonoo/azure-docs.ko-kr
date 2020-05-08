@@ -26,11 +26,11 @@
         - name: 제품 형식별 게시 가이드
           href: ./publisher-guide-by-offer-type.md
           items:
-            - name: Virtual Machines
+            - name: 가상 머신
               href: ./marketplace-virtual-machines.md
-            - name: 'Azure 애플리케이션: 솔루션 템플릿'
+            - name: Azure 앱 솔루션 템플릿
               href: ./marketplace-solution-templates.md
-            - name: 'Azure 애플리케이션: 관리형 애플리케이션'
+            - name: Azure 앱 관리형 애플리케이션
               href: ./marketplace-managed-apps.md
             - name: SaaS 앱
               href: ./marketplace-saas-applications-technical-publishing-guide.md
@@ -42,7 +42,7 @@
               href: ./consulting-services.md
             - name: 'Office 365, Dynamics 365 및 Power BI'
               href: ./appsource-offer-publishing-guide.md
-            - name: Azure Active Directory를 사용하여 AppSource와 Marketplace 목록을 사용하도록 설정
+            - name: Azure AD를 사용하여 인증 제안 사용
               href: ./enable-appsource-marketplace-using-azure-ad.md
             - name: 통합된 솔루션
               href: ./integrated-solutions-for-publishers.md
@@ -51,7 +51,7 @@
           items:
             - name: 목록에 제품 추가 모범 사례
               href: ./gtm-offer-listing-best-practices.md
-            - name: 추천 받기
+            - name: 기능 가져오기
               href: ./gtm-how-to-get-featured.md
             - name: Marketplace 콘텐츠 유효성 검사
               href: ./marketplace-criteria-content-validation.md
@@ -69,7 +69,7 @@
         - name: 상용 마켓플레이스 지원
           href: ./support-azure-marketplace.md
           items:
-            - name: Marketplace FAQ
+            - name: 상용 마켓플레이스 FAQ
               href: ./marketplace-faq-publisher-guide.md
             - name: 지리적 가용성 및 통화
               href: ./marketplace-geo-availability-currencies.md
@@ -289,49 +289,9 @@
             - name: 도움말 wiki
               href: ./cloud-partner-portal-orig/help-wiki.md
         - name: IoT Edge 모듈 제품
-          href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
-          items:
-            - name: 사전 요구 사항
-              href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
-            - name: IoT Edge 모듈 제품 만들기
-              href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
-              items:
-                - name: 제품 설정 탭
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md
-                - name: SKU 탭
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-skus-tab.md
-                - name: Marketplace 탭
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md
-                - name: 지원 탭
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-support-tab.md
-            - name: IoT Edge 모듈 기술 자산 만들기
-              href: ./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md
-            - name: IoT Edge 모듈 제안 게시
-              href: ./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md
-            - name: 기존 제품 업데이트
-              href: ./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md
+          href: ./cloud-partner-portal/iot-edge-module/iot-edge-module-offer.md
         - name: Power BI 앱 제품
           href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
-          items:
-            - name: 사전 요구 사항
-              href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
-            - name: Power BI 앱 제품 만들기
-              href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
-              items:
-                - name: 제품 설정 탭
-                  href: ./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md
-                - name: 기술 정보 탭
-                  href: ./cloud-partner-portal/power-bi/cpp-technical-info-tab.md
-                - name: 상점 세부 정보 탭
-                  href: ./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md
-                - name: 연락처 탭
-                  href: ./cloud-partner-portal/power-bi/cpp-contacts-tab.md
-            - name: Power BI 앱 기술 자산 만들기
-              href: ./cloud-partner-portal/power-bi/cpp-create-technical-assets.md
-            - name: Power BI 앱 제안 게시
-              href: ./cloud-partner-portal/power-bi/cpp-publish-offer.md
-            - name: 기존 제품 업데이트
-              href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
         - name: SaaS 애플리케이션 제품
           href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
         - name: 가상 머신 제안
@@ -495,10 +455,10 @@
               href: ./partner-center-portal/create-new-business-central-offer.md
         - name: IoT Edge 모듈 제품
           items:
-            - name: IoT Edge 모듈 기술 자산 준비
-              href: ./partner-center-portal/create-iot-edge-module-asset.md
             - name: IoT Edge 모듈 제품 만들기
               href: ./partner-center-portal/azure-iot-edge-module-creation.md
+            - name: IoT Edge 모듈 기술 자산 준비
+              href: ./partner-center-portal/create-iot-edge-module-asset.md
         - name: 관리되는 서비스 제품
           items:
             - name: 관리되는 서비스 제품 만들기

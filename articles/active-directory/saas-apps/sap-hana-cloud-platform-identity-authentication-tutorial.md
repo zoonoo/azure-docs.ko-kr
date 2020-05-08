@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e92cba923bc197d82083973b3fac476ab93117ad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: db852254d7f6ec9c0cb76151fa23e58e2d97bd2c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231376"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981802"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-platform-identity-authentication"></a>자습서: SAP Cloud Platform Identity Authentication과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -176,7 +176,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-sap-cloud-platform-identity-authentication-sso"></a>SAP Cloud Platform Identity Authentication SSO 구성
 
-1. 애플리케이션에 대해 SSO를 구성하려면 SAP Cloud Platform Identity Authentication 관리 콘솔로 이동합니다. URL 패턴은 다음과 같습니다. `https://<tenant-id>.accounts.ondemand.com/admin` [Microsoft Azure AD와 통합](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/626b17331b4d4014b8790d3aea70b240.html)에서 SAP Cloud Platform Identity Authentication 설명서를 참조하세요.
+1. 애플리케이션에 대해 SSO를 구성하려면 SAP Cloud Platform Identity Authentication 관리 콘솔로 이동합니다. URL 패턴은 다음과 같습니다. `https://<tenant-id>.accounts.ondemand.com/admin` [Microsoft Azure AD와 통합](https://developers.sap.com/tutorials/cp-ias-azure-ad.html)에서 SAP Cloud Platform Identity Authentication 설명서를 참조하세요.
 
 2. Azure Portal에서 **저장** 단추를 선택합니다.
 
@@ -199,7 +199,7 @@ SAP Cloud Platform Identity Authentication에서는 ID 페더레이션 옵션을
 
 ID 페더레이션 옵션은 기본적으로 사용 안 함으로 설정되어 있습니다. ID 페더레이션을 사용하도록 설정하면 SAP 클라우드 플랫폼 ID 인증으로 가져온 사용자만 애플리케이션에 액세스할 수 있습니다.
 
-SAP Cloud Platform Identity Authentication에서 ID 페더레이션을 사용 또는 사용하지 않도록 설정하는 방법은 [SAP Cloud Platform Identity Authentication의 사용자 저장소에서 ID 페더레이션 구성](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/c029bbbaefbf4350af15115396ba14e2.html)의 “SAP Cloud Platform Identity Authentication으로 ID 페더레이션 설정”을 참조하세요.
+SAP Cloud Platform Identity Authentication에서 ID 페더레이션을 사용 또는 사용하지 않도록 설정하는 방법은 [SAP Cloud Platform Identity Authentication의 사용자 저장소에서 ID 페더레이션 구성](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/c029bbbaefbf4350af15115396ba14e2.html)의 “SAP Cloud Platform Identity Authentication으로 ID 페더레이션 설정”을 참조하세요.
 
 ## <a name="test-sso"></a>SSO 테스트 
 

@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에서 저장 프로시저, 트리거 및 Udf 작성
 description: Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 정의하는 방법 알아보기
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: 4dee017323bda5fc08598a9b24cadd11516807cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/07/2020
+ms.author: tisande
+ms.openlocfilehash: 3c0ac8ac419b3cdd2b154974d3ccbcce6896e847
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75441728"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982295"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 작성하는 방법
 
@@ -21,15 +21,12 @@ Azure Cosmos DB에서는 사용자가 **저장 프로시저**, **트리거** 및
 
 > [!NOTE]
 > 분할된 컨테이너의 경우 저장 프로시저를 실행할 때 파티션 키 값은 요청 옵션에서 제공되어야 합니다. 저장 프로시저의 범위는 항상 파티션 키로 지정됩니다. 다른 파티션 키 값을 가진 항목은 저장 프로시저에 표시되지 않습니다. 이 트리거에도 적용되었습니다.
-
 > [!Tip]
 > Cosmos는 저장 프로시저, 트리거 및 사용자 정의 함수를 사용 하 여 컨테이너 배포를 지원 합니다. 자세한 내용은 [서버 쪽 기능을 사용 하 여 Azure Cosmos DB 컨테이너 만들기](manage-sql-with-resource-manager.md#create-sproc) 를 참조 하세요.
 
 ## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>저장 프로시저를 작성하는 방법
 
 저장 프로시저는 JavaScript를 사용하여 작성되고, Azure Cosmos 컨테이너 내에서 항목을 만들고, 업데이트하고, 읽고, 쿼리하고, 삭제할 수 있습니다. 저장 프로시저는 컬렉션별로 등록되며 해당 컬렉션에 있는 모든 문서 또는 첨부 파일에서 작동할 수 있습니다.
-
-**예제**
 
 "Hello World" 응답을 반환하는 단순한 저장 프로시저는 다음과 같습니다.
 
@@ -51,7 +48,7 @@ var helloWorldStoredProc = {
 
 ### <a name="create-an-item-using-stored-procedure"></a><a id="create-an-item"></a>저장 프로시저를 사용하여 항목 만들기
 
-저장 프로시저를 사용 하 여 항목을 만들 때 항목이 Azure Cosmos 컨테이너에 삽입 되 고 새로 만든 항목에 대 한 ID가 반환 됩니다. 항목 만들기는 비동기 작업이고 JavaScript 콜백 함수에 따라 달라집니다. 콜백 함수에는 작업이 실패할 경우의 오류 개체 및 반환 값(이 경우에는 생성된 개체)에 각각 사용되는 두 개의 매개 변수가 있습니다. 콜백 내에서 예외를 처리하거나 오류를 throw할 수 있습니다. 콜백이 제공되지 않았고 오류가 있는 경우, Azure Cosmos DB 런타임에서 오류를 throw합니다. 
+저장 프로시저를 사용 하 여 항목을 만들 때 항목이 Azure Cosmos 컨테이너에 삽입 되 고 새로 만든 항목에 대 한 ID가 반환 됩니다. 항목 만들기는 비동기 작업이고 JavaScript 콜백 함수에 따라 달라집니다. 콜백 함수에는 작업이 실패할 경우의 오류 개체 및 반환 값(이 경우에는 생성된 개체)에 각각 사용되는 두 개의 매개 변수가 있습니다. 콜백 내에서 예외를 처리하거나 오류를 throw할 수 있습니다. 콜백이 제공되지 않았고 오류가 있는 경우, Azure Cosmos DB 런타임에서 오류를 throw합니다.
 
 또한 저장 프로시저에는 설명을 설정하는 매개 변수가 포함되며 부울 값입니다. 매개 변수가 true로 설정되고 설명이 누락된 경우 저장 프로시저는 예외를 throw합니다. 그렇지 않으면 저장 프로시저의 나머지가 계속 실행됩니다.
 
@@ -73,7 +70,7 @@ function createToDoItem(itemToCreate) {
 }
 ```
 
-### <a name="arrays-as-input-parameters-for-stored-procedures"></a>저장 프로시저의 입력 매개 변수로 배열 
+### <a name="arrays-as-input-parameters-for-stored-procedures"></a>저장 프로시저의 입력 매개 변수로 배열
 
 Azure Portal에서 저장 프로시저를 정의하는 경우 입력 매개 변수는 항상 문자열로 저장 프로시저에 전송됩니다. 입력으로 문자열의 배열을 전달하는 경우에도 배열은 문자열로 변환되고 저장 프로시저로 전송됩니다. 이를 해결하기 위해 저장 프로시저 내에서 함수를 정의하여 배열로 문자열을 구문 분석할 수 있습니다. 다음 코드에서는 문자열 입력 매개 변수를 배열로 구문 분석하는 방법을 보여줍니다.
 
@@ -102,12 +99,12 @@ function tradePlayers(playerId1, playerId2) {
     var player1Document, player2Document;
 
     // query for players
-    var filterQuery = 
-    {     
+    var filterQuery =
+    {
         'query' : 'SELECT * FROM Players p where p.id = @playerId1',
         'parameters' : [{'name':'@playerId1', 'value':playerId1}] 
     };
-            
+
     var accept = container.queryDocuments(container.getSelfLink(), filterQuery, {},
         function (err, items, responseOptions) {
             if (err) throw new Error("Error" + err.message);
@@ -115,10 +112,10 @@ function tradePlayers(playerId1, playerId2) {
             if (items.length != 1) throw "Unable to find both names";
             player1Item = items[0];
 
-            var filterQuery2 = 
-            {     
+            var filterQuery2 =
+            {
                 'query' : 'SELECT * FROM Players p where p.id = @playerId2',
-                'parameters' : [{'name':'@playerId2', 'value':playerId2}] 
+                'parameters' : [{'name':'@playerId2', 'value':playerId2}]
             };
             var accept2 = container.queryDocuments(container.getSelfLink(), filterQuery2, {},
                 function (err2, items2, responseOptions2) {
@@ -208,6 +205,56 @@ function bulkImport(items) {
             tryCreate(items[count], callback);
         }
     }
+}
+```
+
+### <a name="async-await-with-stored-procedures"></a><a id="async-promises"></a>저장 프로시저를 사용 하 여 비동기 대기
+
+다음은 도우미 함수를 사용 하 여 동기-wait를 사용 하는 저장 프로시저의 예입니다. 저장 프로시저는 항목에 대 한 쿼리를 수행 하 고이를 대체 합니다.
+
+```javascript
+function async_sample() {
+    const ERROR_CODE = {
+        NotAccepted: 429
+    };
+
+    const asyncHelper = {
+        queryDocuments(sqlQuery, options) {
+            return new Promise((resolve, reject) => {
+                const isAccepted = __.queryDocuments(__.getSelfLink(), sqlQuery, options, (err, feed, options) => {
+                    if (err) reject(err);
+                    resolve({ feed, options });
+                });
+                if (!isAccepted) reject(new Error(ERROR_CODE.NotAccepted, "replaceDocument was not accepted."));
+            });
+        },
+
+        replaceDocument(doc) {
+            return new Promise((resolve, reject) => {
+                const isAccepted = __.replaceDocument(doc._self, doc, (err, result, options) => {
+                    if (err) reject(err);
+                    resolve({ result, options });
+                });
+                if (!isAccepted) reject(new Error(ERROR_CODE.NotAccepted, "replaceDocument was not accepted."));
+            });
+        }
+    };
+
+    async function main() {
+        let continuation;
+        do {
+            let { feed, options } = await asyncHelper.queryDocuments("SELECT * from c", { continuation });
+
+            for (let doc of feed) {
+                doc.newProp = 1;
+                await asyncHelper.replaceDocument(doc);
+            }
+
+            continuation = options.continuation;
+        } while (continuation);
+    }
+
+    main().catch(err => getContext().abort(err));
 }
 ```
 

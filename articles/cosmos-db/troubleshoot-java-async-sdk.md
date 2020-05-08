@@ -1,22 +1,35 @@
 ---
-title: Azure Cosmos DB Java 비동기 SDK 진단 및 문제 해결
-description: 클라이언트 쪽 로깅 기타 타사 도구 등의 기능을 사용하여 Azure Cosmos DB 문제를 파악, 진단 및 해결합니다.
-author: moderakh
+title: 비동기 Java SDK v2 Azure Cosmos DB 진단 및 문제 해결
+description: 클라이언트 쪽 로깅 및 기타 타사 도구와 같은 기능을 사용 하 여 비동기 Java SDK v 2의 Azure Cosmos DB 문제를 식별, 진단 및 해결 합니다.
+author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 04/30/2019
-ms.author: moderakh
+ms.date: 05/08/2020
+ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 04fa8d65ffb822fcd37f6da1bf3074a4e6a1d088
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "65519974"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982618"
 ---
-# <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Azure Cosmos DB SQL API 계정에서 Java 비동기 SDK를 사용하는 경우 발생하는 문제 해결
+# <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>SQL API 계정에서 Azure Cosmos DB Async Java SDK v2를 사용할 때 발생 하는 문제 해결
+
+> [!div class="op_single_selector"]
+> * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
+> * [Async Java SDK v2](troubleshoot-java-async-sdk.md)
+> * [.NET](troubleshoot-dot-net-sdk.md)
+> 
+
+> [!IMPORTANT]
+> Azure Cosmos DB에 대 한 최신 Java SDK가 *아닙니다* . 프로젝트에 Azure Cosmos DB Java SDK v4를 사용 하는 것이 좋습니다. [Azure Cosmos DB JAVA SDK v4](migrate-java-v4-sdk.md) 가이드 및 [Reactor 및 Rxjava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 로 마이그레이션 가이드의 지침에 따라 업그레이드 합니다. 
+>
+> 이 문서에서는 Azure Cosmos DB Async Java SDK v 2의 문제 해결에 대해서만 다룹니다. 자세한 내용은 Azure Cosmos DB Async Java SDK v2 [릴리스 정보](sql-api-sdk-async-java.md), [Maven 리포지토리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) 및 [성능 팁](performance-tips-async-java.md) 을 참조 하세요.
+>
+
 이 문서에서는 SQL API 계정과 Azure Cosmos DB [Java ASYNC SDK](sql-api-sdk-async-java.md) 를 사용 하는 경우 일반적인 문제, 해결 방법, 진단 단계 및 도구에 대해 설명 합니다.
 Java 비동기 SDK는 Azure Cosmos DB SQL API에 액세스하기 위한 클라이언트 쪽 논리적 표현을 제공합니다. 이 문서에서는 문제가 발생하는 경우 사용자에게 도움이 되는 도구 및 방법을 설명합니다.
 
@@ -80,6 +93,9 @@ SDK는 [Netty](https://netty.io/) IO 라이브러리를 사용하여 Azure Cosmo
 Netty IO 스레드는 비차단 Netty IO 작업에만 사용해야 합니다. SDK는 앱의 코드에 대한 Netty IO 스레드 중 하나에서 API 호출 결과를 반환합니다. 앱이 Netty 스레드에서 결과를 수신한 후 오래 지속되는 작업을 수행하는 경우 SDK는 해당 내부 IO 작업을 수행하기에 충분한 IO 스레드가 없을 수도 있습니다. 이러한 앱 코딩으로 인해 낮은 처리량, 높은 대기 시간 및 `io.netty.handler.timeout.ReadTimeoutException` 실패가 발생할 수 있습니다. 해결 방법은 작업에 시간이 걸리는 것을 알고 있는 경우 스레드를 전환하는 것입니다.
 
 예를 들어, 다음 코드 조각을 살펴보세요. Netty 스레드에서 수 밀리초 이상 소요되는 오래 지속되는 작업을 수행할 수 있습니다. 이 경우 결과적으로 IO 작업을 처리하기 위한 Netty IO 스레드가 없는 상태가 될 수 있습니다. 따라서 ReadTimeoutException 오류가 발생합니다.
+
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-readtimeout"></a>Async Java SDK V2 (Maven:: azure-cosmosdb)
+
 ```java
 @Test
 public void badCodeWithReadTimeoutException() throws Exception {
@@ -131,13 +147,19 @@ public void badCodeWithReadTimeoutException() throws Exception {
     assertThat(failureCount.get()).isGreaterThan(0);
 }
 ```
-   해결 방법은 시간이 걸리는 작업을 수행하는 스레드를 변경하는 것입니다. 앱에 대한 스케줄러의 싱글톤 인스턴스를 정의합니다.
-   ```java
+해결 방법은 시간이 걸리는 작업을 수행하는 스레드를 변경하는 것입니다. 앱에 대한 스케줄러의 싱글톤 인스턴스를 정의합니다.
+
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-scheduler"></a>Async Java SDK V2 (Maven:: azure-cosmosdb)
+
+```java
 // Have a singleton instance of an executor and a scheduler.
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
-   ```
-   계산이 많은 작업 또는 차단 IO 작업과 같이 시간이 걸리는 작업을 수행해야 할 수 있습니다. 이 경우 `.observeOn(customScheduler)` API를 사용하여 `customScheduler`가 제공하는 작업자로 스레드를 전환합니다.
+```
+계산이 많은 작업 또는 차단 IO 작업과 같이 시간이 걸리는 작업을 수행해야 할 수 있습니다. 이 경우 `.observeOn(customScheduler)` API를 사용하여 `customScheduler`가 제공하는 작업자로 스레드를 전환합니다.
+
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-applycustomscheduler"></a>Async Java SDK V2 (Maven:: azure-cosmosdb)
+
 ```java
 Observable<ResourceResponse<Document>> createObservable = client
         .createDocument(getCollectionLink(), docDefinition, null, false);
@@ -169,7 +191,7 @@ Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()
 
 위의 예외는 RxJava lib의 이전 버전에 대 한 종속성을 제시 합니다 (예: 1.2.2). SDK는 rxjava의 이전 버전에서 사용할 수 없는 Api를 포함 하는 RxJava 1.3.8를 사용 합니다. 
 
-이러한 issuses에 대 한 해결 방법은 RxJava-1.2.2에 제공 되는 다른 종속성을 식별 하 고 RxJava-1.2.2에서 전이적 종속성을 제외 하 고 CosmosDB SDK에서 최신 버전을 가져오도록 허용 하는 것입니다.
+이러한 문제에 대 한 해결 방법은 RxJava-1.2.2에서 제공 되는 다른 종속성을 식별 하 고 RxJava-1.2.2에 대 한 전이적 종속성을 제외 하 고 CosmosDB SDK에서 최신 버전을 가져오도록 허용 하는 것입니다.
 
 RxJava-1.2.2에서 가져올 라이브러리를 식별 하려면 다음 명령을 실행 합니다.
 ```bash

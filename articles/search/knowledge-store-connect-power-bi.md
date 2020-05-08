@@ -7,20 +7,25 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/26/2019
-ms.openlocfilehash: 4fd71a7f322cb2672eb485f17e4de2619a7c2d2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/05/2020
+ms.openlocfilehash: e67bd688d720ed3d7549a86c9cff752bc19fb2fc
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78270040"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858823"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Power BI를 사용하여 지식 저장소 연결
 
 > [!IMPORTANT] 
 > 지식 저장소는 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-Preview](search-api-preview.md)는 미리 보기 기능을 제공합니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
 
-이 문서에서는 Power BI Desktop 앱에서 파워 쿼리를 사용하여 지식 저장소에 연결하고 검색하는 방법을 알아봅니다. 템플릿을 사용해서 빠르게 시작하거나 사용자 지정 대시보드를 처음부터 만들 수 있습니다.
+이 문서에서는 Power BI Desktop 앱에서 파워 쿼리를 사용하여 지식 저장소에 연결하고 검색하는 방법을 알아봅니다. 템플릿을 사용해서 빠르게 시작하거나 사용자 지정 대시보드를 처음부터 만들 수 있습니다. 아래 간략 한 비디오에서는 Power BI와 함께 Azure Cognitive Search를 사용 하 여 데이터에 대 한 환경을 보강 하는 방법을 보여 줍니다.
+
+
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=593&end=663]
+
+
 
 + [Azure Portal에서 지식 저장소 만들기](knowledge-store-create-portal.md) 또는 [REST를 사용하여 Azure Cognitive Search 지식 저장소 만들기](knowledge-store-create-rest.md)의 단계에 따라 이 연습에서 사용되는 지식 저장소 샘플을 만듭니다. 또한 지식 저장소를 만들 때 사용한 Azure Storage 계정의 이름과 Azure Portal의 액세스 키가 필요합니다.
 
