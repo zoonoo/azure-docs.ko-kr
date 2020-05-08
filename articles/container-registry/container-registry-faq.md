@@ -1,16 +1,16 @@
 ---
-title: 질문과 대답
+title: 자주 묻는 질문
 description: Azure Container Registry 서비스와 관련 된 faq (질문과 대답)
 author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 7452b5dd3c952a13a28566914d2fe513689d4751
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39b543c5f886b22d488198873b75cf76555692fa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618805"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731647"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대 한 질문과 대답
 
@@ -313,7 +313,7 @@ unauthorized: authentication required
 ```
 
 오류를 해결하려면:
-1. Docker 디먼 구성 `--signature-verification=false` 파일 `/etc/sysconfig/docker`에 옵션을 추가 합니다. 다음은 그 예입니다.
+1. Docker 디먼 구성 `--signature-verification=false` 파일 `/etc/sysconfig/docker`에 옵션을 추가 합니다. 예를 들어:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    
@@ -441,7 +441,7 @@ Microsoft Edge/IE 브라우저를 사용 하는 경우 최대 100 개의 리포�
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Windows에서 http 추적을 수집 어떻게 할까요?
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>전제 조건
 
 - Fiddler에서 https 암호 해독 사용:<https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Docker ui를 통해 프록시를 사용 하도록 Docker를 사용 하도록 설정 합니다.<https://docs.docker.com/docker-for-windows/#proxies>
@@ -493,10 +493,10 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 | Git 서비스 | 원본 컨텍스트 | 수동 빌드 | Commit 트리거를 통한 자동 빌드 |
 |---|---|---|---|
-| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | 예 | 예 |
-| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | 예 | 예 |
-| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | 예 | 아니요 |
-| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | 예 | 아니요 |
+| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | 예 | 예 |
+| Azure Repos | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | 예 | 예 |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | 예 | 아니요 |
+| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | 예 | 아니요 |
 
 ## <a name="run-error-message-troubleshooting"></a>오류 메시지 실행 문제 해결
 

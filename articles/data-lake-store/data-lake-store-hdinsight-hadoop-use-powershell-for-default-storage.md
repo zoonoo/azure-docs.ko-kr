@@ -1,23 +1,17 @@
 ---
-title: PowerShell을 통해 Azure Data Lake Storage Gen1을 기본 스토리지로 사용하여 HDInsight 클러스터 만들기 | Microsoft Docs
-description: Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1로 HDInsight 클러스터 만들기 및 사용
-services: data-lake-store,hdinsight
-documentationcenter: ''
+title: PowerShell-Data Lake Storage Gen1를 사용 하는 HDInsight 클러스터-Azure
+description: Azure PowerShell를 사용 하 여 Azure Data Lake Storage Gen1에서 Azure HDInsight 클러스터를 만들고 사용 합니다.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 8917af15-8e37-46cf-87ad-4e6d5d67ecdb
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c57a45145d9abc43d0ca79839ea297dfc025db9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b4e5fad65d2ad358bca6b5a2b87d4aa36b77e73
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "66161408"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692062"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>PowerShell을 통해 Azure Data Lake Storage Gen1을 기본 스토리지로 사용하여 HDInsight 클러스터 만들기
 
@@ -133,7 +127,7 @@ Data Lake Storage Gen1의 Active Directory 인증을 설정하려면 다음 두 
         makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
 
     프라이빗 키 암호를 입력하라는 메시지가 표시됩니다. 명령을 성공적으로 실행한 후에 지정한 인증서 디렉터리에서 **CertFile.cer** 및 **mykey.pvk**를 확인해야 합니다.
-2. [Pvk2Pfx][pvk2pfx] 유틸리티를 사용하여 MakeCert가 생성한 .pvk 및 .cer 파일을 .pfx 파일로 변환합니다. 다음 명령을 실행합니다.
+2. [Pvk2Pfx][pvk2pfx] 유틸리티를 사용하여 MakeCert가 생성한 .pvk 및 .cer 파일을 .pfx 파일로 변환합니다. 다음 명령 실행:
 
         pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 

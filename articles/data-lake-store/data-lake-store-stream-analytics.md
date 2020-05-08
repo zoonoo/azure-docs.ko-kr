@@ -1,40 +1,34 @@
 ---
-title: Stream Analytics에서 Azure Data Lake Storage Gen1로 데이터 스트리밍 | Microsoft Docs
-description: Azure Stream Analytics를 사용하여 Azure Data Lake Storage Gen1에 데이터 스트리밍
-services: data-lake-store,stream-analytics
-documentationcenter: ''
+title: Stream Analytics에서 Data Lake Storage Gen1로 데이터 스트리밍-Azure
+description: Azure Stream Analytics를 사용 하 여 데이터를 Azure Data Lake Storage Gen1으로 스트리밍합니다.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: edb58e0b-311f-44b0-a499-04d7e6c07a90
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: d3dbacd58b3bda3fbf8ee8ad5f175eccc2cb2a24
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f1740d167bedd20f51ad5bf24a56b7e7e787f754
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60194946"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690975"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Azure Stream Analytics를 사용하여 Azure Storage Blob에서 Azure Data Lake Storage Gen1에 데이터 스트리밍
-이 문서는 Azure Stream Analytics 작업에 대한 출력으로 Azure Data Lake Storage Gen1을 사용하는 방법을 알아봅니다. 이 문서에서는 Azure Storage Blob(입력)에서 데이터를 읽고 Data Lake Storage Gen1(출력)에 데이터를 기록하는 간단한 시나리오를 보여줍니다.
+이 문서에서는 Azure Stream Analytics 작업에 대 한 출력으로 Azure Data Lake Storage Gen1를 사용 하는 방법에 대해 알아봅니다. 이 문서에서는 Azure Storage Blob(입력)에서 데이터를 읽고 Data Lake Storage Gen1(출력)에 데이터를 기록하는 간단한 시나리오를 보여줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * **Azure Storage 계정**. 이 계정에서 Blob 컨테이너를 사용하여 Stream Analytics 작업에 대한 데이터를 입력합니다. 이 자습서의 경우 **storageforasa**라는 스토리지 계정 및 **storageforasacontainer**라는 계정 내의 컨테이너가 있다고 가정합니다. 컨테이너를 만든 후에 샘플 데이터 파일을 거기에 업로드합니다. 
   
-* **Data Lake Storage Gen1 계정**. [Azure Portal을 사용 하 여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)의 지침을 따릅니다. **myadlsg1**라는 Data Lake Storage Gen1 계정이 있다고 가정합니다. 
+* **Data Lake Storage Gen1 계정**. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다. **myadlsg1**라는 Data Lake Storage Gen1 계정이 있다고 가정합니다. 
 
 ## <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
 입력 원본 및 출력 대상을 포함하는 Stream Analytics 작업을 만들어 시작합니다. 이 자습서의 경우 원본은 Azure blob 컨테이너이고 대상은 Data Lake Storage Gen1입니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그온 합니다.
 
 2. 왼쪽 창에서 **Stream Analytics 작업**을 클릭한 후 **추가**를 클릭합니다.
 
@@ -118,5 +112,5 @@ ms.locfileid: "60194946"
 
     데이터 탐색기 창에서 Data Lake Storage Gen1 출력 설정(`streamanalytics/job/output/{date}/{time}`)에 지정된 대로 출력이 폴더 경로에 기록됩니다.  
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [HDInsight 클러스터를 만들어 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-portal.md)

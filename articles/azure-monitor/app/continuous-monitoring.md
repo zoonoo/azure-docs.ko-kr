@@ -2,13 +2,13 @@
 title: Azure Pipelines 및 Azure 애플리케이션 Insights를 사용 하 여 DevOps 릴리스 파이프라인의 지속적인 모니터링 | Microsoft Docs
 description: Application Insights를 사용 하 여 연속 모니터링을 신속 하 게 설정 하는 지침을 제공 합니다.
 ms.topic: conceptual
-ms.date: 07/16/2019
-ms.openlocfilehash: e565101218b975ef2bd29b8a32a4aa1bf4300b6d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 0d47fb1eccdfcfc7b2719825575f06dc85e62452
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655398"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652762"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>릴리스 파이프라인에 연속 모니터링 추가
 
@@ -51,17 +51,19 @@ Azure Pipelines는 Azure 애플리케이션 정보를 통합 하 여 소프트�
 
 경고 규칙 설정을 수정 하려면:
 
-1. 릴리스 파이프라인 페이지의 왼쪽 창에서 **Application Insights 경고 구성**을 선택 합니다.
+릴리스 파이프라인 페이지의 왼쪽 창에서 **Application Insights 경고 구성**을 선택 합니다.
 
-1. **Azure Monitor 경고** 창에서 **경고 규칙**옆에 있는 **줄임표 (...)** 를 선택 합니다.
-   
-1. **경고 규칙** 대화 상자에서 **가용성**과 같은 경고 규칙 옆에 있는 드롭다운 기호를 선택 합니다. 
-   
-1. 요구 사항에 맞게 **임계값** 및 기타 설정을 수정 합니다.
-   
-   ![경고 수정](media/continuous-monitoring/003.png)
-   
-1. **확인**을 선택 하 고 Azure devops 창에서 오른쪽 위에 있는 **저장** 을 선택 합니다. 설명 설명을 입력 한 다음 **확인**을 선택 합니다.
+인라인 스크립트를 통해 네 가지 기본 경고 규칙을 만듭니다.
+
+```bash
+$subscription = az account show --query "id";$subscription.Trim("`"");$resource="/subscriptions/$subscription/resourcegroups/"+"$(Parameters.AppInsightsResourceGroupName)"+"/providers/microsoft.insights/components/" + "$(Parameters.ApplicationInsightsResourceName)";
+az monitor metrics alert create -n 'Availability_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg availabilityResults/availabilityPercentage < 99' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'FailedRequests_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count requests/failed > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerResponseTime_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg requests/duration > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerExceptions_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count exceptions/server > 5' --description "created from Azure DevOps";
+```
+
+스크립트를 수정 하 고 경고 규칙을 추가 하거나, 경고 조건을 수정 하거나, 배포 목적에 적합 하지 않은 경고 규칙을 제거할 수 있습니다.
 
 ## <a name="add-deployment-conditions"></a>배포 조건 추가
 

@@ -1,23 +1,17 @@
 ---
-title: 'Python: Azure Data Lake Storage Gen1에서의 계정 관리 작업 | Microsoft Docs'
-description: Python SDK를 사용하여 Azure Data Lake Storage Gen1 계정 관리 작업을 수행하는 방법을 알아봅니다.
-services: data-lake-store
-documentationcenter: ''
+title: Python을 사용 하 여 Azure Data Lake Storage Gen1 계정 관리
+description: Azure Data Lake Storage Gen1 계정 관리 작업을 위해 Python SDK를 사용 하는 방법을 알아봅니다.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 75f6de6f-6fd8-48f4-8707-cb27d22d27a6
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c71136ecb57fac460514b5f4815ba19cc22d86cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0c27c4b6d906a0892735697a8e90f87da6edf9c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76290617"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692097"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Python을 사용한 Azure Data Lake Storage Gen1에서의 계정 관리 작업
 > [!div class="op_single_selector"]

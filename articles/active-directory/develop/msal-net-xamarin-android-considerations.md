@@ -13,13 +13,12 @@ ms.date: 04/24/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81b55253d757f641979c6f72001803d7d38d9af3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb5950360734bc46923ef18424e3ad1ce275ad7a
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77132507"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652681"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>MSAL.NET와 함께 Xamarin Android 사용에 대 한 고려 사항
 이 문서에서는 Microsoft Authentication Library for .NET (MSAL.NET)과 함께 Xamarin Android를 사용할 때 고려해 야 할 사항을 설명 합니다.
@@ -57,7 +56,7 @@ var pca = PublicClientApplicationBuilder
 ## <a name="ensure-that-control-returns-to-msal"></a>컨트롤이 MSAL로 반환 되는지 확인 합니다. 
 인증 흐름의 대화형 부분이 종료 되 면 컨트롤이 MSAL로 돌아갑니다. Android에서의 `OnActivityResult` `Activity`메서드를 재정의 합니다. 그런 다음 `SetAuthenticationContinuationEventArgs` `AuthenticationContinuationHelper` msal 클래스의 메서드를 호출 합니다. 
 
-아래 예를 살펴보세요.
+예를 들면 다음과 같습니다.
 
 ```csharp
 protected override void OnActivityResult(int requestCode, 
@@ -161,6 +160,6 @@ var authResult = AcquireTokenInteractive(scopes)
 
 자세한 내용은 [Microsoft id 플랫폼을 사용 하는 Xamarin mobile 응용 프로그램](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations)샘플을 참조 하세요. 다음 표에서는 추가 정보 파일의 관련 정보를 요약 하 여 보여 줍니다.
 
-| 예제 | 플랫폼 | Description |
+| 샘플 | 플랫폼 | Description |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin.ios, Android, UWP | MSAL을 사용 하 여 Azure AD 2.0 끝점을 통해 Microsoft 개인 계정 및 Azure AD를 인증 하는 방법을 보여 주는 간단한 Xamarin Forms 앱입니다. 또한 앱은 Microsoft Graph 액세스 하 고 결과 토큰을 표시 하는 방법을 보여 줍니다. <br>![토폴로지](media/msal-net-xamarin-android-considerations/topology.png) |

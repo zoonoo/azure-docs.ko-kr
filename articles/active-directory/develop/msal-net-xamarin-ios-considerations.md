@@ -13,13 +13,12 @@ ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76e614b605cd07cd5dc454824dd204447f806907
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7125559dd39e1626634dae7c45b0744bfff57d8c
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262712"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652665"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>MSAL.NET와 함께 Xamarin iOS 사용에 대 한 고려 사항
 Xamarin iOS에서 .NET 용 Microsoft Authentication Library (MSAL.NET)를 사용 하는 경우 다음을 수행 해야 합니다. 
@@ -32,7 +31,7 @@ Xamarin iOS에서 .NET 용 Microsoft Authentication Library (MSAL.NET)를 사용
 
 ## <a name="implement-openurl"></a>OpenUrl 구현
 
-파생 클래스 `OpenUrl` 의 메서드를 재정의 하 고를 `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs`호출 합니다. `FormsApplicationDelegate` 아래 예를 살펴보세요.
+파생 클래스 `OpenUrl` 의 메서드를 재정의 하 고를 `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs`호출 합니다. `FormsApplicationDelegate` 예를 들면 다음과 같습니다.
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
@@ -115,7 +114,7 @@ IOS 12 Safari를 사용 하 여 ASP.NET Core OIDC 인증이 중단 되는 것을
 
 Xamarin iOS의 속성에 대 한 자세한 내용은 다음 샘플의 README.md 파일에서 [iOS 관련 고려 사항](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/master/1-Basic#ios-specific-considerations) 단락을 참조 하세요.
 
-예제 | 플랫폼 | Description
+샘플 | 플랫폼 | Description
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, 유니버설 Windows 플랫폼 (UWP) | MSAL을 사용 하 여 Azure AD 2.0 끝점을 통해 Microsoft 개인 계정 및 Azure AD를 인증 하는 방법을 보여 주는 간단한 Xamarin Forms 앱입니다. 또한 앱은 결과 토큰을 사용 하 여 Microsoft Graph에 액세스 하는 방법을 보여 줍니다.
 

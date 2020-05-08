@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.openlocfilehash: 8f354152c23dd7ad0413f27585d724f8070ca003
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a254465d9055fcf1cf10a2a1d6eb82b2afc16f0b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75551525"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692279"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Azure NetApp Files의 성능 벤치마크 테스트 추천 사항
 
@@ -124,4 +124,4 @@ REST API 호출을 사용 하 여 Azure NetApp Files 카운터에 액세스할 �
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure NetApp Files에 대한 서비스 수준](azure-netapp-files-service-levels.md)
-- [Azure NetApp Files의 성능 벤치마크](azure-netapp-files-performance-benchmarks.md)
+- [Linux용 성능 벤치마크](performance-benchmarks-linux.md)
