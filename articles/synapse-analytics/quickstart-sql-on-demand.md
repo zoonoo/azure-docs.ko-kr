@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0d543abc88c1e45f2c1f5503473d8e92566fc582
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 43f361fbaf4ab0462af0a720d7711f219134a165
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457385"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692163"
 ---
 # <a name="quickstart-using-sql-on-demand"></a>빠른 시작: SQL 주문형 사용
 
@@ -39,21 +39,20 @@ Synapse SQL 주문형(미리 보기)은 Azure Storage에 있는 파일에서 SQL
 | 엔드포인트 액세스를 위한 사용자 이름 및 암호 | 엔드포인트 엑세스에 사용                               |
 | 보기를 만드는 데 사용되는 데이터베이스         | 샘플에서 시작점으로 사용되는 데이터베이스       |
 
-## <a name="first-time-setup"></a>처음 설치
+## <a name="first-time-setup"></a>처음 설정
 
-샘플을 사용하기 전에 할 일:
+샘플을 사용하기 전에:
 
 - 보기에 대한 데이터베이스 만들기(보기를 사용하려는 경우)
 - SQL 주문형에서 스토리지의 파일에 액세스하는 데 사용할 자격 증명 만들기
 
 ### <a name="create-database"></a>데이터베이스 만들기
 
-데모용 데이터베이스를 직접 만드세요. 이 데이터베이스에서 보기를 직접 만듭니다. 이 문서의 샘플 쿼리에서 이 데이터베이스를 사용할 것입니다.
+데모용 데이터베이스를 직접 만드세요. 이 데이터베이스를 사용하여 보기 및 이 문서의 샘플 쿼리를 만듭니다.
 
 > [!NOTE]
 > 데이터베이스는 실제 데이터가 아닌 메타데이터를 보는 용도로만 사용됩니다.
->
-> 빠른 시작의 뒷부분에서 사용할 수 있도록 사용하는 데이터베이스 이름을 기록해 두세요.
+>빠른 시작의 뒷부분에서 사용할 수 있도록 사용하는 데이터베이스 이름을 기록해 두세요.
 
 다음 쿼리를 사용하여 `mydbname`을 원하는 이름으로 변경합니다.
 
@@ -66,9 +65,15 @@ CREATE DATABASE mydbname
 SQL 주문형을 사용하여 쿼리를 실행하려면 스토리지의 파일에 액세스하는 데 사용할 SQL 주문형의 자격 증명을 만듭니다.
 
 > [!NOTE]
-> 스토리지 계정에 액세스하기 위한 자격 증명을 만들어야 합니다. SQL 주문형은 다른 영역의 스토리지에 액세스할 수 있지만, 스토리지와 Azure Synapse 작업 영역이 같은 영역에 있으면 보다 나은 성능 환경이 제공됩니다.
+> 이 섹션에서 샘플을 성공적으로 실행하려면 SAS 토큰을 사용해야 합니다.
+>
+> SAS 토큰을 사용하려면 UserIdentity를 삭제해야 하며, 이에 대한 내용은 다음 [문서](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through)에 설명되어 있습니다.
+>
+> 기본적으로 SQL 주문형은 항상 AAD 통과를 사용합니다.
 
-CSV, JSON 및 Parquet 컨테이너의 자격 증명을 만들도록 다음 코드 조각을 수정합니다.
+스토리지 액세스 제어를 관리하는 방법에 대한 자세한 내용은 [SQL 주문형에 대한 스토리지 계정 액세스 제어](sql/develop-storage-files-storage-access-control.md) 문서를 참조하세요.
+
+다음 코드 조각을 실행하여 이 섹션의 샘플에 사용된 자격 증명을 만듭니다.
 
 ```sql
 -- create credentials for containers in our demo storage account
@@ -90,7 +95,7 @@ GO
 
 ![헤더가 없는 CSV 파일의 처음 10개 행, Windows 스타일 새 줄](./sql/media/query-single-csv-file/population.png)
 
-다음 쿼리는 Windows 스타일 새 행과 쉼표로 구분된 열을 사용하여 헤더 행 없는 CSV 파일을 읽는 방법을 보여줍니다.
+다음 쿼리는 Windows 스타일 새 행과 쉼표로 구분된 열을 사용하여 헤더 행 없는 CSV 파일을 읽는 방법을 보여 줍니다.
 
 ```sql
 SELECT TOP 10 *
@@ -155,7 +160,7 @@ FROM OPENROWSET
 
 ### <a name="querying-json-files"></a>JSON 파일 쿼리
 
-다음 쿼리는 [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*라는 제목의 서적에서 스칼라 값(제목, 게시자)을 검색하는 방법을 보여줍니다.
+다음 쿼리는 [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*라는 제목의 서적에서 스칼라 값(제목, 게시자)을 검색하는 방법을 보여 줍니다.
 
 ```sql
 SELECT
@@ -177,11 +182,11 @@ WHERE
 ```
 
 > [!IMPORTANT]
-> 전체 JSON 파일을 단일 행/열로 읽기 때문에 파일에서 찾을 수 없는 FIELDTERMINATOR, FIELDQUOTE 및 ROWTERMINATOR가 0x0b로 설정됩니다.
+> 전체 JSON 파일을 단일 행/열로 읽고 있습니다. 따라서 파일에서 찾을 수 없는 FIELDTERMINATOR, FIELDQUOTE 및 ROWTERMINATOR가 0x0b로 설정됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 다음 빠른 시작 문서를 시작할 수 있습니다.
+이제 다음 문서를 진행할 수 있습니다.
 
 - [단일 CSV 파일 쿼리](sql/query-single-csv-file.md)
 - [폴더 및 여러 CSV 파일 쿼리](sql/query-folders-multiple-csv-files.md)
@@ -192,7 +197,4 @@ WHERE
 - [보기 만들기 및 사용](sql/create-use-views.md)
 - [외부 테이블 만들기 및 사용](sql/create-use-external-tables.md)
 - [Azure 스토리지에 쿼리 결과 유지](sql/create-external-table-as-select.md)
-
-다음 문서로 넘어가서 단일 CSV 파일을 쿼리하는 방법을 알아보세요.
-> [!div class="nextstepaction"]
-> [단일 CSV 파일 쿼리](sql/query-single-csv-file.md)
+- [단일 CSV 파일 쿼리](sql/query-single-csv-file.md)

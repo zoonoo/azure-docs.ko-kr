@@ -3,17 +3,17 @@ title: Azure Cost Management로 클라우드 투자를 최적화
 description: 이 문서는 클라우드 투자의 가치를 극대화하고, 비용을 줄이고, 비용이 어디에 지출되는지 평가하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/07/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 8df98514545a2670ea18a2b4b131a097244d7b46
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 759c69544c083e95cbd5198eecf9f7bb0e882aa8
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874588"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791615"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure Cost Management로 클라우드 투자를 최적화하는 방법
 
@@ -104,6 +104,12 @@ Cost Management 내에서 경험 극대화를 위한 첫 번째 단계 가장 �
 
 - 선불 요금 약정 옵션
 - 축소된 Azure 가격에 액세스
+
+#### <a name="azure-in-csp"></a>[Azure in CSP](https://azure.microsoft.com/offers/ms-azr-0145p/)
+
+- CSP 파트너는 고객의 요구와 고객 관계의 중심에 대한 첫 번째 연락 지점입니다.
+- CSP 파트너는 새 고객을 프로비저닝하고, 구독을 주문하고, 구독을 관리하고, 고객 대신 관리 작업을 수행합니다.
+- CSP 파트너는 가격 책정, 약관 및 요금 청구를 제어하면서 고유한 솔루션 또는 재판매 Azure를 사용하여 서비스를 번들합니다.
 
 ## <a name="estimate-the-cost-of-your-solution"></a>솔루션 비용 예측
 

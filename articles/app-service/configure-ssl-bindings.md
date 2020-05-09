@@ -3,15 +3,15 @@ title: TLS/SSL 바인딩으로 사용자 지정 DNS 보호
 description: 인증서로 TLS/SSL 바인딩을 만들어 사용자 지정 도메인에 대한 HTTPS 액세스를 보호합니다. HTTPS 또는 TLS 1.2를 적용하여 웹 사이트의 보안을 향상시킵니다.
 tags: buy-ssl-certificates
 ms.topic: tutorial
-ms.date: 10/25/2019
+ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 9792181379bfa6f9e0337bf14208fe853c16b745
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: c93938db4632f6509e386d440c9be75596ea254f
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811756"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597898"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호
 
@@ -83,7 +83,7 @@ ms.locfileid: "80811756"
 |-|-|
 | 사용자 지정 도메인 | TLS/SSL 바인딩을 추가할 도메인 이름입니다. |
 | 프라이빗 인증서 지문 | 바인딩할 인증서입니다. |
-| TLS/SSL 유형 | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** - 여러 개의 SNI SSL 바인딩을 추가할 수 있습니다. 이 옵션을 사용하면 여러 TLS/SSL 인증서로 같은 IP 주소의 여러 도메인을 보호할 수 있습니다. 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원합니다(자세한 내용은 [서버 이름 표시](https://wikipedia.org/wiki/Server_Name_Indication) 참조).</li><li>**IP SSL** - IP SSL 바인딩 하나만 추가할 수 있습니다. 이 옵션을 사용하면 전용 공용 IP 주소를 보호하는 데 하나의 TLS/SSL 인증서만 사용할 수 있습니다. 바인딩을 구성한 후에 [IP SSL에 대한 A 레코드 다시 매핑](#remap-a-record-for-ip-ssl)의 단계를 따릅니다.<br/>IP SSL은 프로덕션 또는 격리 계층에서만 지원됩니다. </li></ul> |
+| TLS/SSL 유형 | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** - 여러 개의 SNI SSL 바인딩을 추가할 수 있습니다. 이 옵션을 사용하면 여러 TLS/SSL 인증서로 같은 IP 주소의 여러 도메인을 보호할 수 있습니다. 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원합니다(자세한 내용은 [서버 이름 표시](https://wikipedia.org/wiki/Server_Name_Indication) 참조).</li><li>**IP SSL** - IP SSL 바인딩 하나만 추가할 수 있습니다. 이 옵션을 사용하면 전용 공용 IP 주소를 보호하는 데 하나의 TLS/SSL 인증서만 사용할 수 있습니다. 바인딩을 구성한 후에 [IP SSL에 대한 레코드 다시 매핑](#remap-records-for-ip-ssl)의 단계를 따릅니다.<br/>IP SSL은 **표준** 계층 이상에서만 지원됩니다. </li></ul> |
 
 작업이 완료되면 사용자 지정 도메인의 TLS/SSL 상태가 **보안**으로 변경됩니다.
 
@@ -92,15 +92,17 @@ ms.locfileid: "80811756"
 > [!NOTE]
 > **사용자 지정 도메인**의 **보호** 상태는 인증서를 사용하여 보호됨을 의미하지만, App Service는 인증서가 자체 서명되었는지 아니면 만료되었는지 확인하지 않습니다. 예를 들어 브라우저가 오류 또는 경고를 표시할 수도 있습니다.
 
-## <a name="remap-a-record-for-ip-ssl"></a>IP SSL에 대한 A 레코드 다시 매핑
+## <a name="remap-records-for-ip-ssl"></a>IP SSL에 대한 레코드 다시 매핑
 
 앱에서 IP SSL을 사용하지 않을 경우 [사용자 지정 도메인에 대한 HTTPS 테스트](#test-https)로 건너뜁니다.
 
-기본적으로 앱에서는 공유 공용 IP 주소를 사용합니다. IP SSL을 사용하여 인증서를 바인딩하면 App Service에서 앱에 대한 새로운 전용 IP 주소를 만듭니다.
+다음과 같은 두 가지 변경 작업을 수행해야 합니다.
 
-A 레코드를 앱에 매핑한 경우 이 새로운 전용 IP 주소로 도메인 레지스트리를 업데이트합니다.
+- 기본적으로 앱에서는 공유 공용 IP 주소를 사용합니다. IP SSL을 사용하여 인증서를 바인딩하면 App Service에서 앱에 대한 새로운 전용 IP 주소를 만듭니다. A 레코드를 앱에 매핑한 경우 이 새로운 전용 IP 주소로 도메인 레지스트리를 업데이트합니다.
 
-앱의 **사용자 지정 도메인** 페이지가 새로운 전용 IP 주소로 업데이트됩니다. [이 IP 주소를 복사](app-service-web-tutorial-custom-domain.md#info)하고 이 새로운 IP 주소에 [A 레코드를 다시 매핑](app-service-web-tutorial-custom-domain.md#map-an-a-record)합니다.
+    앱의 **사용자 지정 도메인** 페이지가 새로운 전용 IP 주소로 업데이트됩니다. [이 IP 주소를 복사](app-service-web-tutorial-custom-domain.md#info)하고 이 새로운 IP 주소에 [A 레코드를 다시 매핑](app-service-web-tutorial-custom-domain.md#map-an-a-record)합니다.
+
+- `<app-name>.azurewebsites.net`에 대한 SNI SSL 바인딩이 있는 경우 [모든 CNAME 매핑을 다시 매핑](app-service-web-tutorial-custom-domain.md#map-a-cname-record)하여 대신 `sni.<app-name>.azurewebsites.net`(`sni` 접두사 추가)을 가리킵니다.
 
 ## <a name="test-https"></a>HTTPS 테스트
 
@@ -131,7 +133,7 @@ A 레코드를 앱에 매핑한 경우 이 새로운 전용 IP 주소로 도메�
 
 ![HTTPS 적용](./media/configure-ssl-bindings/enforce-https.png)
 
-작업이 완료되면 앱을 가리키는 HTTP URL 중 하나로 이동합니다. 다음은 그 예입니다.
+작업이 완료되면 앱을 가리키는 HTTP URL 중 하나로 이동합니다. 다음은 그 예입니다. 
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`

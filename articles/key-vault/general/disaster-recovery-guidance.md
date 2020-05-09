@@ -2,19 +2,19 @@
 title: Azure Key Vault에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업 - Azure Key Vault | Microsoft Docs
 description: Azure Key Vault에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업에 대해 알아봅니다.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/12/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 96929dcbe3d51589b0c3c0df89671dadb20e37cc
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 05/04/2020
+ms.author: sudbalas
+ms.openlocfilehash: 4796e6c555ca67794409fb1476f3c4fd0d760719
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425882"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780456"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault 가용성 및 중복성
 
@@ -34,6 +34,8 @@ Azure Key Vault에는 서비스의 개별 구성 요소가 실패해도 애플�
 * 장애 조치가 완료되면 주요 자격 증명 모음은 읽기 전용 모드입니다. 이 모드에서 지원되는 요청은 다음과 같습니다.
   * 주요 자격 증명 모음 나열
   * 주요 자격 증명 모음 속성 가져오기
+   * 인증서 나열
+  * 인증서 가져오기
   * 암호 나열
   * 암호 가져오기
   * 키 나열

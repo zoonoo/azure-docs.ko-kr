@@ -1,5 +1,5 @@
 ---
-title: 'C# 자습서: 여러 데이터 원본 인덱싱'
+title: 여러 Azure 데이터 원본을 인덱싱하는 C# 자습서
 titleSuffix: Azure Cognitive Search
 description: 인덱서를 사용하여 데이터를 여러 데이터 원본에서 단일 Azure Cognitive Search 인덱스로 가져오는 방법을 알아봅니다. 이 자습서 및 샘플 코드는 C#에 있습니다.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/28/2020
-ms.openlocfilehash: 8e75d9de45c64813ac75de635371d2435fb9261f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: eb1824e41fe9fc5185ae4e914b4828cddb2c42db
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78271489"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780524"
 ---
-# <a name="tutorial-index-data-from-multiple-data-sources-in-c"></a>자습서: C#에서 여러 데이터 원본의 데이터 인덱싱
+# <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 여러 데이터 원본에서 인덱스
 
 Azure Cognitive Search는 데이터를 여러 데이터 원본에서 단일 통합 검색 인덱스로 가져오고, 분석하고, 인덱싱할 수 있습니다. 이렇게 하면 정형 데이터가 텍스트, HTML 또는 JSON 문서와 같은 다른 원본의 비정형 데이터, 심지어 일반 텍스트 데이터를 사용하여 집계되는 상황을 지원합니다.
 

@@ -5,20 +5,20 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: 1b639da3494c0527141347ca61e77980d29a59ea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: feee7475dcadc6d06693d9e60020097f8dc9149c
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80135558"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628608"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>구매할 예약 결정
 
 Azure Databricks를 제외한 모든 예약은 매시간 적용됩니다. 일관된 기본 사용량에 따라 예약을 구매해야 합니다. 구매할 항목을 결정하는 방법에는 여러 가지가 있으며 이 문서는 어떤 예약을 구매할지 결정하는 데 도움이 됩니다.
 
-이전 사용량보다 더 많은 용량을 구매하면 미달 사용 예약이 발생합니다. 가능하면 미달 사용을 피해야 합니다. 사용되지 않는 예약 용량은 한 시간에서 다음 시간으로 전달되지 않습니다.  예약 수량을 초과하는 사용량은 보다 고가의 종량제 요금을 사용하여 청구됩니다.
+이전 사용량보다 더 많은 용량을 구매하면 미달 사용 예약이 발생합니다. 가능하면 미달 사용을 피해야 합니다. 사용되지 않는 예약 용량은 한 시간에서 다음 시간으로 전달되지 않습니다. 예약 수량을 초과하는 사용량은 보다 고가의 종량제 요금을 사용하여 청구됩니다.
 
 ## <a name="analyze-usage-data"></a>사용량 데이터 분석
 
@@ -40,11 +40,11 @@ Azure Databricks를 제외한 모든 예약은 매시간 적용됩니다. 일관
 
 인스턴스 크기 패밀리 수준에서 분석하려면 [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv)에서 인스턴스 크기 유연성 값을 가져올 수 있습니다. 값과 데이터를 결합하여 분석을 수행합니다. 인스턴스 크기 유연성에 대한 자세한 내용은 [예약 VM 인스턴스에서 가상 머신 크기 유연성](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md)을 참조하세요.
 
-### <a name="analyze-usage-for-a-sql-database-reserved-instance-purchase"></a>SQL Database 예약 인스턴스 구매의 사용량 분석
+### <a name="analyze-usage-for-an-azure-synapse-analytics-reserved-instance-purchase"></a>Azure Synapse Analytics 예약 인스턴스 구매 사용량 분석
 
-예약 용량은 SQL Database vCore 컴퓨팅 가격 책정에 적용됩니다. DTU 기반 가격 책정, SQL 라이선스 비용 또는 컴퓨팅 이외의 비용에는 적용되지 않습니다.
+예약 용량은 Azure Synapse Analytics DWU 가격 책정에 적용됩니다. Azure Synapse Analytics 라이선스 비용 또는 컴퓨팅 이외의 비용에는 적용되지 않습니다.
 
-적격 SQL 사용 범위를 좁히려면 사용량 데이터에 다음 필터를 적용합니다.
+적격 사용 범위를 좁히려면 사용량 데이터에 다음 필터를 적용합니다.
 
 
 - **SQL Database**에 대해 **MeterCategory** 필터를 적용합니다.
@@ -60,22 +60,22 @@ Azure Databricks를 제외한 모든 예약은 매시간 적용됩니다. 일관
 - 세대. 예를 들어 Gen 5.
 - 리소스 위치
 
-### <a name="analysis-for-sql-data-warehouse"></a>SQL Data Warehouse에 대한 분석
+### <a name="analysis-for-azure-synapse-analytics"></a>Azure Synapse Analytics에 대한 분석
 
-예약 용량은 SQL Data Warehouse DWU 사용량에 적용되며 100 DWU 증분 단위로 구매됩니다. 적격 SQL 사용 범위를 좁히려면 사용량 데이터에 다음 필터를 적용합니다.
+예약 용량은 Azure Synapse Analytics DWU 사용량에 적용되며 100 DWU 증분 단위로 구매됩니다. 적격 사용 범위를 좁히려면 사용량 데이터에 다음 필터를 적용합니다.
 
 - **100 DWUs**에 대해 **MeterName** 필터를 적용합니다.
 - **Compute Optimized Gen2**에 대해 **Meter Sub-Category** 필터를 적용합니다.
 
-**리소스 위치** 필드를 사용하여 지역의 SQL DW 사용량을 확인합니다.
+**리소스 위치** 필드를 사용하여 지역의 Azure Synapse Analytics 사용량을 확인합니다.
 
-SQL Data Warehouse 사용량은 하루 종일 확장 및 축소할 수 있습니다. SQL Data Warehouse 인스턴스를 관리하는 팀에 문의하여 기본 사용량에 대해 알아보세요.
+Azure Synapse Analytics 사용량은 하루 종일 확장 및 축소할 수 있습니다. Azure Synapse Analytics 인스턴스를 관리하는 팀에 문의하여 기본 사용량에 대해 알아보세요.
 
-Azure Portal의 예약으로 이동하여 100 DWU의 배수로 SQL Data Warehouse 예약 용량을 구매합니다.
+Azure Portal의 예약으로 이동하여 100 DWU의 배수로 Azure Synapse Analytics 예약 용량을 구매합니다.
 
 ## <a name="reservation-purchase-recommendations"></a>예약 구매 권장 사항
 
-예약 구매 권장 사항은 최근 7일, 30일 및 60일 동안 시간별 사용량 데이터를 분석하여 계산됩니다. Azure는 예약했을 경우의 비용을 계산하고 해당 기간 동안 발생한 실제 종량제 비용과 비교합니다. 계산은 시간 프레임 동안 사용한 모든 수량에 대해 수행됩니다. 절감액을 극대화하는 수량이 추천됩니다. 
+예약 구매 권장 사항은 최근 7일, 30일 및 60일 동안 시간별 사용량 데이터를 분석하여 계산됩니다. Azure는 예약했을 경우의 비용을 계산하고 해당 기간 동안 발생한 실제 종량제 비용과 비교합니다. 계산은 시간 프레임 동안 사용한 모든 수량에 대해 수행됩니다. 절감액을 극대화하는 수량이 추천됩니다.
 
 예를 들어 대부분 500대의 VM을 사용하지만 종종 700대의 VM으로 사용량이 급증하는 경우를 들 수 있습니다. 이 예에서 Azure는 500 및 700대의 VM에 대한 절감액을 계산합니다. 700대의 VM 사용량은 이따금 발생하므로 권장 사항 계산에 따라 500대 VM 예약 구매의 경우가 절감액이 극대화되며, 따라서 500대 수량이 추천됩니다.
 

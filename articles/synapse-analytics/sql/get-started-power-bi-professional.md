@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0ce8f3a447f1896ae6d96d343782f8cdb44d4c6f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 4bedcc1f7375cb83131b00be93c785069a7d3e7d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425332"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692385"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Power BI Professional을 사용하여 Synapse SQL에 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "81425332"
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-이 자습서에서는 Power BI 데스크톱을 SQL 주문형(미리 보기)에 연결하는 방법의 단계를 안내합니다.
+이 자습서에서는 Power BI 데스크톱을 SQL 주문형(미리 보기)에 연결하는 단계를 안내합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -57,12 +57,12 @@ ms.locfileid: "81425332"
 
 ### <a name="create-database"></a>데이터베이스 만들기
 
-데모 환경을 사용할 예정이므로 데모용 데이터베이스를 직접 만들어야 합니다. 데이터베이스에서 보기를 만드는 데 필요합니다. 이 데이터베이스는 이 설명서의 일부 샘플 쿼리에 사용됩니다.
+이 시작 문서에서는 데모로 사용할 사용자 고유의 데이터베이스를 만들어야 합니다. 보기 생성에는 데이터베이스가 필요합니다. 이 설명서 내의 일부 샘플 쿼리에서 이 데이터베이스를 사용합니다.
 
 > [!NOTE]
 > 데이터베이스는 실제 데이터가 아닌 메타데이터를 보는 용도로만 사용됩니다.
 >
-> 사용할 데이터베이스 이름을 적어 둡니다. 나중에 필요합니다.
+> 나중에 필요하므로 사용 중인 데이터베이스 이름을 적어 둡니다.
 
 ```sql
 DROP DATABASE IF EXISTS demo;
@@ -92,17 +92,18 @@ GO
 
 ## <a name="creating-power-bi-desktop-report"></a>Power BI 데스크톱 보고서 만들기
 
-Power BI 데스크톱 애플리케이션을 열고 "데이터 가져오기" 옵션을 선택합니다.
-![Power BI 데스크톱 애플리케이션을 열고 데이터 가져오기를 선택합니다.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
+Power BI 데스크톱 애플리케이션을 열고 **데이터 가져오기** 옵션을 선택합니다.
+
+![Power BI Desktop 애플리케이션을 열고 [데이터 가져오기] 선택](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
 ### <a name="step-1---select-data-source"></a>1단계 - 데이터 원본 선택
 
-메뉴에서 "Azure"를 선택한 다음, "Azure SQL Database"를 선택합니다.
+메뉴에서 **Azure**를 선택한 다음, **Azure SQL Database**를 선택합니다.
 ![데이터 원본을 선택합니다.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
 ### <a name="step-2---select-database"></a>2단계 - 데이터베이스 선택
 
-데이터베이스의 URL과 보기가 있는 데이터베이스의 이름을 기록합니다.
+데이터베이스의 URL과 보기가 있는 데이터베이스의 이름을 작성합니다.
 ![엔드포인트에서 데이터베이스를 선택합니다.](./media/get-started-power-bi-professional/step-2-db.png)
 
 ## <a name="next-steps"></a>다음 단계

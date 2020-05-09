@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: dc0f8171e18598e4f805a03a4bc6d17de220fbe1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cfc3c445595bec046de4256a57d566067fe3d29e
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68698984"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692434"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>스토리지 계정에 대한 처리량 및 대기 시간 메트릭 확인
 
@@ -24,7 +24,7 @@ ms.locfileid: "68698984"
 > * Azure Portal에서 차트 구성
 > * 처리량 및 대기 시간 메트릭 확인
 
-[Azure Storage 메트릭](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)은 Azure Monitor를 사용하여 스토리지 계정의 성능 및 가용성에 대한 통합된 뷰를 제공합니다.
+[Azure Storage 메트릭](../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)은 Azure Monitor를 사용하여 스토리지 계정의 성능 및 가용성에 대한 통합된 뷰를 제공합니다.
 
 ## <a name="configure-metrics"></a>메트릭 구성
 
@@ -52,7 +52,7 @@ ms.locfileid: "68698984"
 
 ## <a name="dimensions"></a>차원
 
-[차원](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions)은 차트를 자세히 보고 자세한 정보를 얻는 데 사용됩니다. 메트릭에 따라 서로 다른 차원이 있습니다. 사용 가능한 하나의 차원은 **API 이름** 차원입니다. 이 차원은 차트를 각각 별도의 API 호출로 나눕니다. 아래의 첫 번째 이미지는 스토리지 계정에 대한 총 트랜잭션의 예제 차트를 보여 줍니다. 두 번째 이미지는 동일한 차트를 보여 주지만 API 이름 차원이 선택되어 있습니다. 확인한 대로 각 트랜잭션이 나열되고 API 이름에 의해 생성된 호출 수에 대한 자세한 정보를 제공합니다.
+[차원](../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions)은 차트를 자세히 보고 자세한 정보를 얻는 데 사용됩니다. 메트릭에 따라 서로 다른 차원이 있습니다. 사용 가능한 하나의 차원은 **API 이름** 차원입니다. 이 차원은 차트를 각각 별도의 API 호출로 나눕니다. 아래의 첫 번째 이미지는 스토리지 계정에 대한 총 트랜잭션의 예제 차트를 보여 줍니다. 두 번째 이미지는 동일한 차트를 보여 주지만 API 이름 차원이 선택되어 있습니다. 확인한 대로 각 트랜잭션이 나열되고 API 이름에 의해 생성된 호출 수에 대한 자세한 정보를 제공합니다.
 
 ![스토리지 계정 메트릭 - 차원이 없는 트랜잭션](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
 

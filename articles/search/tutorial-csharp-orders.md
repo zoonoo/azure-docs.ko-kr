@@ -1,21 +1,21 @@
 ---
 title: 결과 정렬에 대한 C# 자습서
 titleSuffix: Azure Cognitive Search
-description: 이 자습서에서는 검색 결과를 정렬하는 방법을 보여줍니다. 이전의 호텔 프로젝트를 기반으로 기본 속성, 보조 속성을 정렬하며 부스팅 기준을 추가하는 점수 매기기 프로필을 포함합니다.
+description: 이 C# 자습서에서는 검색 결과를 정렬하는 방법을 보여 줍니다. 이전의 호텔 프로젝트를 기반으로 기본 속성, 보조 속성을 정렬하며 부스팅 기준을 추가하는 점수 매기기 프로필을 포함합니다.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 812085a5a4b3e8d1233f19c947d2fd5e433f6ab7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 699b3e5b7e51e12ec0bf39ec0c9045dd3a27a6fd
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121557"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780609"
 ---
-# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>C# 자습서: 결과 정렬 - Azure Cognitive Search
+# <a name="tutorial-order-search-results-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 검색 결과 정렬
 
 자습서 시리즈의 이 시점까지는 결과가 반환되어 기본 순서로 표시됩니다. 이는 데이터가 위치한 순서이거나 기본 _점수 매기기 프로필_이 정의되었을 수 있으며, 이 프로필은 정렬 매개 변수를 지정하지 않은 경우에 사용됩니다. 이 자습서에서는 기본 속성에 따라 결과를 정렬하는 방법을 살펴본 다음, 기본 속성이 동일한 결과에 대해 보조 속성에 대한 해당 선택 항목을 정렬하는 방법에 대해 살펴보겠습니다. 최종적인 예제에서는 숫자 값에 따라 정렬하는 대신 사용자 지정 점수 매기기 프로필에 따라 정렬하는 방법을 보여 줍니다. _복합 형식_의 표시에 대해서도 좀 더 자세히 살펴봅니다.
 
@@ -114,7 +114,7 @@ ms.locfileid: "77121557"
     ```
 
     >[!Tip]
-    >브라우저는 일반적으로 css 파일을 캐시합니다. 그러면 기존 css 파일을 사용하여 편집한 내용이 무시될 수 있습니다. 이 문제와 관련하여 버전 매개 변수가 포함된 쿼리 문자열을 링크에 추가하는 것이 좋습니다. 다음은 그 예입니다.
+    >브라우저는 일반적으로 css 파일을 캐시합니다. 그러면 기존 css 파일을 사용하여 편집한 내용이 무시될 수 있습니다. 이 문제와 관련하여 버전 매개 변수가 포함된 쿼리 문자열을 링크에 추가하는 것이 좋습니다. 다음은 그 예입니다. 
     >
     >```html
     >   <link rel="stylesheet" href="~/css/hotels.css?v1.1" />

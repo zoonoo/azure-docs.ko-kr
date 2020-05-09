@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: tutorial
 ms.date: 03/18/2020
 ms.author: victorh
-ms.openlocfilehash: 738be1361bfbd944575abceb08781b241336f6e8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a9e0cc3977892fd899b4a25e17ad72f13481506
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79472545"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608816"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure CDN에 WAF 정책 만들기
 
@@ -22,12 +22,12 @@ ms.locfileid: "79472545"
 
 > [!div class="checklist"]
 > * WAF 정책 만들기
-> * CDN 엔드포인트와 연결하기
+> * CDN 엔드포인트와 연결합니다. **Microsoft SKU의 Azure CDN Standard**에서 호스팅되는 엔드포인트에만 WAF 정책을 연결할 수 있습니다.
 > * WAF 규칙 구성
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-다음 지침에 따라 Azure CDN 프로필 및 엔드포인트를 만듭니다. [빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기](../../cdn/cdn-create-new-endpoint.md) 
+다음 지침에 따라 Azure CDN 프로필 및 엔드포인트를 만듭니다. [빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기](../../cdn/cdn-create-new-endpoint.md)를 참조하세요. 
 
 ## <a name="create-a-web-application-firewall-policy"></a>웹 애플리케이션 방화벽 정책 만들기
 

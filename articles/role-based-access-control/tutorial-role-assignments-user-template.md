@@ -1,6 +1,6 @@
 ---
-title: '자습서: RBAC 및 Resource Manager 템플릿을 사용하여 사용자에게 Azure 리소스에 대한 액세스 권한 부여'
-description: 이 자습서에서 Azure Resource Manager 템플릿을 사용하여 RBAC(역할 기반 액세스 제어)를 통해 사용자에게 Azure 리소스에 대한 액세스 권한을 부여하는 방법을 알아봅니다.
+title: '자습서: Azure Resource Manager 템플릿을 사용하여 사용자에게 Azure 리소스에 대한 액세스 권한 부여 - Azure RBAC'
+description: 이 자습서에서는 Azure Resource Manager 템플릿 및 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 사용자에게 Azure 리소스에 대한 액세스 권한을 부여하는 방법을 알아봅니다.
 services: role-based-access-control,azure-resource-manager
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
-ms.openlocfilehash: 96ca4f65d2def5f5004388c533410f09cc2a71fa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f98b1e9c57cf9f624c5af3e59c8afd56d073dd28
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77138209"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735473"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>자습서: RBAC 및 Resource Manager 템플릿을 사용하여 사용자에게 Azure 리소스에 대한 액세스 권한 부여
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-an-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 사용자에게 Azure 리소스에 대한 액세스 권한 부여
 
-[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. 이 자습서에서는 리소스 그룹을 만들고 리소스 그룹에서 가상 머신을 만들고 관리할 수 있는 액세스 권한을 사용자에게 부여합니다. 이 자습서는 Resource Manager 템플릿을 배포하여 액세스 권한을 부여하는 프로세스를 중점적으로 다룹니다. Resource Manager 탬플릿 개발에 대한 자세한 내용은 [Resource Manager 설명서](/azure/azure-resource-manager/) 및 [템플릿 참조](/azure/templates/microsoft.authorization/allversions
+[Azure RBAC(Azure 역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. 이 자습서에서는 리소스 그룹을 만들고 리소스 그룹에서 가상 머신을 만들고 관리할 수 있는 액세스 권한을 사용자에게 부여합니다. 이 자습서는 Resource Manager 템플릿을 배포하여 액세스 권한을 부여하는 프로세스를 중점적으로 다룹니다. Resource Manager 탬플릿 개발에 대한 자세한 내용은 [Resource Manager 설명서](/azure/azure-resource-manager/) 및 [템플릿 참조](/azure/templates/microsoft.authorization/allversions
 )를 참조하세요.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
@@ -83,4 +83,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: RBAC 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](tutorial-role-assignments-user-powershell.md)
+> [자습서: Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](tutorial-role-assignments-user-powershell.md)

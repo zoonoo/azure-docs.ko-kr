@@ -1,21 +1,21 @@
 ---
 title: 탐색을 지원하기 위한 패싯 사용에 관한 C# 자습서
 titleSuffix: Azure Cognitive Search
-description: 이 자습서는 "검색 결과 페이지 매김 - Azure Cognitive Search" 프로젝트를 기반으로 하여 패싯 탐색을 추가합니다. 패싯을 사용하여 검색 범위를 손쉽게 좁힐 수 있는 방법을 알아봅니다.
+description: "\"페이징 결과\"를 계속 진행하여 패싯 탐색을 추가합니다. 패싯을 사용하여 검색 범위를 손쉽게 좁힐 수 있는 방법을 알아봅니다."
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: d88a9d7efdabd493fd31b961748bb6ad3bd8d738
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bc25ba6d95fe58a80c90881c6ad60cdb8801cce4
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121575"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780592"
 ---
-# <a name="c-tutorial-use-facets-to-aid-navigation---azure-cognitive-search"></a>C# 자습서: 패싯을 사용하여 탐색 지원 - Azure Cognitive Search
+# <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 패싯 탐색 추가
 
 패싯은 사용자가 검색에 초점을 맞추는 데 사용할 수 있는 링크 세트를 제공함으로써 탐색을 지원하는 데 사용됩니다. 패싯은 데이터의 특성입니다(예: 샘플 데이터에서 호텔의 범주 또는 특정 기능).
 

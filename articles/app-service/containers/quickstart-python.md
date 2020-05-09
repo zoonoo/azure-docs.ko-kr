@@ -4,14 +4,12 @@ description: 첫 번째 Python 앱을 App Service의 Linux 컨테이너에 배�
 ms.topic: quickstart
 ms.date: 04/03/2020
 ms.custom: seo-python-october2019, cli-validate
-experimental: true
-experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 7f8d21cbccc1a6eec7f62ab5d129f3f0637b8d13
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 5b055c3ed93d5f093295b52c7a28a73e242bfe75
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085130"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690872"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>빠른 시작: Azure App Service on Linux에서 Python 앱 만들기
 
@@ -104,6 +102,11 @@ az login
 ```azurecli
 az webapp up --sku F1 -n <app-name>
 ```
+> [!CAUTION]
+> **Azure-CLI 버전 2.5.0**을 사용하는 경우 `-l <location-name>` 매개 변수가 포함되지 않은 경우 특정 시나리오가 실패하는 `az webapp up`에 재발이 있습니다. 이 문제는 [여기에서 추적](https://github.com/Azure/azure-cli/issues/13257)됩니다.  
+> 
+>`az --version` 명령을 사용하여 사용 중인 Azure-CLI의 버전을 확인할 수 있습니다.
+>
 
 `--sku F1` 인수는 무료 가격 책정 계층에 웹앱을 만듭니다. 이 인수를 생략하여 프리미엄 계층을 대신 사용할 수 있으며, 이 경우 시간당 비용이 발생합니다.
 

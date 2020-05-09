@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7242b82ee5c43878a33731bd1f02b685020f22b0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aeced8c4108760fc3e10dbf891a469792c210707
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78673643"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780065"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Jupyter Notebooks를 사용하여 Azure Machine Learning 검색
 
@@ -55,7 +55,13 @@ DSVM(Data Science Virtual Machine)은 데이터 과학 수행을 위해 특별�
 
 ## <a name="next-steps"></a>다음 단계
 
-[샘플 Notebook](https://aka.ms/aml-notebooks)을 살펴보고 Azure Machine Learning에서 제공하는 기능을 확인하거나 다음 자습서를 사용해 봅니다.
+[샘플 Notebook](https://aka.ms/aml-notebooks)을 살펴보고 Azure Machine Learning에서 제공하는 기능을 확인합니다.
+
+GitHub 샘플 프로젝트 및 예제는 다음 리포지토리를 참조하세요.
++ [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
++ [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
+
+이러한 자습서를 시도합니다.
 
 - [MNIST를 사용하여 이미지 분류 모델 학습 및 배포](tutorial-train-models-with-aml.md)
 

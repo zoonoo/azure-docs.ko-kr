@@ -5,14 +5,14 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: 4baa06ad0011b06da50fd7a83aaa3e87db62c6ac
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ae94a5c8d7e9ff93098e85535aea3699206b9e03
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417520"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626960"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -86,11 +86,11 @@ Azure Reservations는 진화하는 요구 사항을 충족하는 데 유용한 �
 
 ## <a name="charges-covered-by-reservation"></a>예약에 포함되는 요금
 
-- **예약 Virtual Machine 인스턴스** - 예약에 가상 머신 컴퓨팅 비용만 포함됩니다. 추가 소프트웨어, Windows, 네트워킹 또는 스토리지 요금은 포함되지 않습니다.
+- **예약 Virtual Machine 인스턴스** - 예약에는 가상 머신 및 클라우드 서비스 컴퓨팅 비용만 포함됩니다. 추가 소프트웨어, Windows, 네트워킹 또는 스토리지 요금은 포함되지 않습니다.
 - **Azure Storage 예약 용량** - 예약에는 Blob 스토리지 또는 Azure Data Lake Gen2 스토리지의 표준 스토리지 계정에 대한 스토리지 용량이 포함됩니다. 예약에는 대역폭 또는 트랜잭션 요금이 포함되지 않습니다.
 - **Azure Cosmos DB 예약 용량** - 리소스에 프로비저닝된 처리량이 포함됩니다. 스토리지 및 네트워킹 요금은 포함하지 않습니다.
 - **SQL Database 예약 vCore** - 컴퓨팅 비용만 예약에 포함됩니다. SQL 라이선스는 별도로 청구됩니다.
-- **SQL Data Warehouse** - 예약에 cDWU 사용이 포함됩니다. SQL Data Warehouse 사용과 관련된 스토리지 또는 네트워킹 요금은 포함되지 않습니다.
+- **Azure Synapse Analytics** - 예약에는 cDWU 사용이 포함됩니다. Azure Synapse Analytics 사용과 관련된 스토리지 또는 네트워킹 요금은 포함되지 않습니다.
 - **Azure Databricks** - 예약에는 DBU 사용량만 포함됩니다. 컴퓨팅, 스토리지 및 네트워킹과 같은 기타 요금은 별도로 적용됩니다.
 - **App Service 스탬프 요금** - 예약에 스탬프 사용이 포함됩니다. 예약은 작업자에게 적용되지 않으므로 스탬프와 연결된 다른 모든 리소스에는 별도의 요금이 청구됩니다.
 - **Azure Database for MySQL** - 컴퓨팅 비용만 예약에 포함됩니다. 예약에는 MySQL Database 서버와 연결된 소프트웨어, 네트워킹 또는 스토리지 요금이 포함되지 않습니다.

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a29fd66cf264b09cc5e0db7ac1a329be3f297bb8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 64895e5f48168305aea3e83596cdbcae982a6cb9
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82096336"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692418"
 ---
 # <a name="quickstart-using-synapse-studio-preview"></a>빠른 시작: Synapse Studio 사용(미리 보기)
 
@@ -64,7 +64,7 @@ Synapse Studio를 연 후 **데이터**로 이동한 다음, **스토리지 계�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Storage에 대한 **Storage Blob 데이터 읽기 권한자** 또는 **Storage Blob 데이터 기여자** RBAC 권한을 할당하여](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role) Azure AD 사용자가 파일을 쿼리할 수 있습니다.
+- Azure Storage에 대한 [**Storage Blob 데이터 읽기 권한자** 또는 **Storage Blob 데이터 기여자** RBAC 권한을 할당하여](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role) Azure AD 사용자가 파일을 쿼리할 수 있습니다.
 - [SQL 주문형을 사용하여 Azure Storage에서 파일 쿼리](sql/on-demand-workspace-overview.md)
-- [Apache Spark 풀 만들기](quickstart-create-apache-spark-pool.md)
+- [Azure Portal을 사용하여 Apache Spark 풀 만들기](quickstart-create-apache-spark-pool.md)
 - [Azure Storage에 저장된 파일에 대한 Power BI 보고서 만들기](sql/tutorial-connect-power-bi-desktop.md)

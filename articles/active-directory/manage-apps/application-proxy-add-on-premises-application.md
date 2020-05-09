@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73aa01ea08c8bab1395516c31bb46dbfd88045db
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 10d0f949fb2a5755512a30dcca011690d86a7e7b
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481418"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597725"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -47,10 +47,12 @@ Azure AD에 온-프레미스 애플리케이션을 추가하려면 다음이 필
 프로덕션 환경의 고가용성을 위해 둘 이상의 Windows Server를 사용하는 것이 좋습니다. 이 자습서에서는 하나의 Windows Server로 충분합니다.
 
 > [!IMPORTANT]
-> Windows Server 2019에 커넥터를 설치하는 경우 HTTP2 제한이 있습니다. 이 버전에서 커넥터를 사용하는 해결 방법은 다음 레지스트리 키를 추가하고 서버를 다시 시작하는 것입니다. 참고: 이는 머신 레지스트리 전체 키입니다. 
-    ```
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
-    ```
+> Windows Server 2019에 커넥터를 설치하는 경우 WinHttp 구성 요소에서 HTTP2 프로토콜 지원을 사용하지 않도록 설정해야 합니다. 이는 지원되는 운영 체제의 이전 버전에서는 기본적으로 사용되지 않습니다. 다음 레지스트리 키를 추가하고 서버를 다시 시작하면 Windows Server 2019에서 서버를 사용할 수 없게 됩니다. 이는 머신 전체 레지스트리 키입니다.
+>
+> ```
+> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+> ```
+>
 
 #### <a name="recommendations-for-the-connector-server"></a>커넥터 서버에 대한 권장 사항
 

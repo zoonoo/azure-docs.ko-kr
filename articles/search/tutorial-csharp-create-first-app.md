@@ -3,19 +3,19 @@ title: 첫 번째 앱 만들기 C# 자습서
 titleSuffix: Azure Cognitive Search
 description: 첫 번째 C# 검색 앱을 단계별로 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 GitHub의 작동하는 앱 링크와 앱을 처음부터 빌드하는 전체 프로세스의 링크를 제공합니다. Azure Cognitive Search의 필수 구성 요소에 대해 알아봅니다.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 2b4f67fc448d98239947fd764d4926f1d590c5e2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a105766b713ce44d800391e2e943f2ac864fa0df
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121579"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780626"
 ---
-# <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>C# 자습서: 첫 번째 앱 만들기 - Azure Cognitive Search
+# <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 첫 번째 검색 앱 만들기
 
 Azure Cognitive Search를 사용하여 인덱스에서 검색 결과를 쿼리 및 표시하는 웹 인터페이스를 만드는 방법을 알아봅니다. 검색 페이지 작성에 집중할 수 있도록 이 자습서는 기존에 호스트한 인덱스로 시작됩니다. 인덱스에는 가상의 호텔 데이터가 포함되어 있습니다. 기본 페이지를 만든 후에는 후속 단원에서 페이징, 패싯 및 자동 완성 환경을 포함하도록 기본 페이지를 개선할 수 있습니다.
 

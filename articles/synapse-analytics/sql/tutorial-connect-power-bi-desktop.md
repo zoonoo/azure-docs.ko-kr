@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e0ac6ccde2443a7b374d9eb85f6f960af79c69dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1bdf2d0e3613af7eec339194d6d8a446be83f365
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769489"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692399"
 ---
-# <a name="tutorial-connect-sql-on-demand-preview-to-power-bi-desktop--create-report"></a>자습서: Power BI Desktop에 SQL 주문형(미리 보기)을 연결하고 보고서 만들기
+# <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>자습서: Power BI Desktop으로 SQL 주문형(미리 보기)을 사용하고 보고서 만들기
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "81769489"
 >
 > - 데모 데이터베이스 만들기
 > - 보고서에 사용되는 보기 만들기
-> - Power BI Desktop에 연결
+> - SQL 주문형에 Power BI Desktop 연결
 > - 보기 기반의 보고서 만들기
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -130,11 +130,11 @@ FROM
 
     - AAD 예제 
   
-    ![[로그인]을 클릭합니다.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
+        ![[로그인]을 클릭합니다.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
 
     - SQL 로그인 예제 - 사용자 이름 및 암호를 입력합니다.
 
-    ![SQL 로그인 사용](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
+        ![SQL 로그인 사용](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
 
 
 5. `usPopulationView` 보기를 선택한 다음, **로드**를 선택합니다. 

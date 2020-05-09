@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71e5e13485c4a10664d98363e8e99bfd3b4f4bcf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 79038152dd40b213b92a379c4b50ddd840eb8e6c
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72035712"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732575"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>자습서: NetDocuments와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -137,49 +137,48 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 다른 웹 브라우저 창에서 NetDocuments 회사 사이트에 관리자로 로그인합니다.
 
-2. **관리자**로 이동합니다.
+2. 오른쪽 위 모서리에서 이름>**관리자**를 선택합니다.
 
-3. **사용자와 그룹 추가 및 제거**를 클릭합니다.
+3. **보안 센터**를 선택합니다.
    
-    ![리포지토리](./media/netdocuments-tutorial/ic795047.png "리포지토리")
+    ![리포지토리](./media/netdocuments-tutorial/security-center.png "Security Center")
 
-4. **고급 인증 옵션 구성**을 클릭합니다.
+4. **고급 인증**을 선택합니다.
     
-    ![고급 인증 옵션 구성](./media/netdocuments-tutorial/ic795048.png "고급 인증 옵션 구성")
+    ![고급 인증 옵션 구성](./media/netdocuments-tutorial/advance-authentication.png "고급 인증 옵션 구성")
 
-5. **페더레이션 ID** 대화 상자에서 다음 단계를 수행합니다.
+5.  **페더레이션 ID** 탭에서 다음 단계를 수행합니다.   
    
-    ![페더레이션 ID](./media/netdocuments-tutorial/ic795049.png "페더레이션 ID")
+    ![페더레이션 ID](./media/netdocuments-tutorial/federated-id.png "페더레이션 ID")
    
     a. **페더레이션 ID 서버 유형**으로 **Active Directory Federation Services**를 선택합니다.
-   
-    b. **파일 선택**을 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
-   
-    다. **확인**을 클릭합니다.
+    
+    b.  **파일 선택**을 선택하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
+    
+    다.  **SAVE**(저장)를 선택합니다.
 
 ### <a name="create-netdocuments-test-user"></a>NetDocuments 테스트 사용자 만들기
 
-Azure AD 사용자가 NetDocuments에 로그인할 수 있게 하려면 NetDocuments에 프로비저닝해야 합니다.  
-NetDocuments의 경우 프로비전은 수동 작업입니다.
+Azure AD 사용자가 NetDocuments에 로그인할 수 있게 하려면 NetDocuments에 프로비저닝해야 합니다. NetDocuments의 경우 프로비전은 수동 작업입니다.
 
 **사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
 
 1. **NetDocuments** 회사 사이트에 관리자 권한으로 로그온합니다.
 
-2. 위쪽의 메뉴에서 **관리자**를 클릭합니다.
+2. 오른쪽 위 모서리에서 이름>**관리자**를 선택합니다.
    
-    ![관리자](./media/netdocuments-tutorial/ic795051.png "Admin")
+    ![관리자](./media/netdocuments-tutorial/user-admin.png "Admin")
 
-3. **사용자와 그룹 추가 및 제거**를 클릭합니다.
+3. **사용자 및 그룹**을 선택합니다.
    
-    ![리포지토리](./media/netdocuments-tutorial/ic795047.png "리포지토리")
+    ![리포지토리](./media/netdocuments-tutorial/users-groups.png "리포지토리")
 
 4. **메일 주소** 텍스트 상자에 프로비전하려는 유효한 Azure Active Directory 계정의 이메일 주소를 입력한 다음 **사용자 추가**를 클릭합니다.
    
-    ![이메일 주소](./media/netdocuments-tutorial/ic795053.png "메일 주소")
+    ![이메일 주소](./media/netdocuments-tutorial/user-mail.png "메일 주소")
    
-    >[!NOTE]
-    >Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 이메일을 받습니다. 다른 NetDocuments 사용자 계정 생성 도구 또는 NetDocuments가 제공한 API를 사용하여 Azure Active Directory 사용자 계정을 프로비전할 수 있습니다.
+    > [!NOTE]
+    > Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 이메일을 받습니다. 다른 NetDocuments 사용자 계정 생성 도구 또는 NetDocuments가 제공한 API를 사용하여 Azure Active Directory 사용자 계정을 프로비전할 수 있습니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 
@@ -196,4 +195,3 @@ NetDocuments의 경우 프로비전은 수동 작업입니다.
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD로 NetDocuments 체험하기](https://aad.portal.azure.com/)
-

@@ -9,12 +9,12 @@ ms.custom:
 - seodec18
 - seo-python-october2019
 - cli-validate
-ms.openlocfilehash: 0c9329b46d096df1afab6f7e457d143f9c6504be
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 504e2f7c07d8d29e4fe4dad52dc008c895517a3d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085759"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609785"
 ---
 # <a name="tutorial-deploy-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>자습서: Azure App Service에서 PostgreSQL을 사용하는 Python(Django) 웹앱 배포
 
@@ -133,7 +133,7 @@ az postgres up --resource-group myResourceGroup --location westus2 --server-name
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
-> Postgres 서버의 위치를 지정하려면 `--location <location-name>` 인수를 포함시킵니다. 여기서 `<location_name>`은 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/) 중 하나입니다. 구독에 사용할 수 있는 지역은 [`az account list-locations`](/cli/azure/account#az-account-list-locations) 명령을 사용하여 가져올 수 있습니다.
+> `--location <location-name>`은 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/) 중 하나로 설정할 수 있습니다. 구독에 사용할 수 있는 지역은 [`az account list-locations`](/cli/azure/account#az-account-list-locations) 명령을 사용하여 가져올 수 있습니다. 프로덕션 앱의 경우 데이터베이스와 앱을 동일한 위치에 배치합니다.
 
 ## <a name="deploy-the-app-service-app"></a>App Service 앱 배포
 
@@ -149,7 +149,7 @@ az postgres up --resource-group myResourceGroup --location westus2 --server-name
 다음 예제와 같이 [`az webapp up`](/cli/azure/webapp#az-webapp-up) 명령을 사용하여 App Service 앱을 만듭니다. *\<app-name>* 을 *고유* 이름으로 바꿉니다(서버 엔드포인트는 *https://\<app-name>.azurewebsites.net*임). *\<app-name>* 에 허용되는 문자는 `A`-`Z`, `0`-`9` 및 `-`입니다.
 
 ```azurecli
-az webapp up --plan myAppServicePlan --sku B1 --name <app-name>
+az webapp up --plan myAppServicePlan --location westus2 --sku B1 --name <app-name>
 ```
 <!-- !!! without --sku creates PremiumV2 plan!! -->
 
@@ -183,10 +183,10 @@ az webapp up --plan myAppServicePlan --sku B1 --name <app-name>
 *\<app-resource-group>* 의 값을 복사합니다. 이는 나중에 앱을 구성하는 데 필요합니다. 
 
 > [!TIP]
-> 나중에 동일한 명령을 사용하여 변경 내용을 배포하고 다음을 사용하여 진단 로그를 즉시 사용하도록 설정할 수 있습니다.
+> 관련 설정은 리포지토리의 숨겨진 *.azure* 디렉터리에 저장됩니다. 나중에 간단한 명령을 사용하여 변경 내용을 배포하고 다음을 사용하여 진단 로그를 즉시 사용하도록 설정할 수 있습니다.
 > 
 > ```azurecli
-> az webapp up --name <app-name>
+> az webapp up
 > ```
 
 이제 샘플 코드가 배포되었지만 앱이 아직 Azure의 Postgres 데이터베이스에 연결되지 않았습니다. 이렇게 하려면 다음을 수행합니다.
@@ -219,8 +219,6 @@ cd site/wwwroot
 
 # Activate default virtual environment in App Service container
 source /antenv/bin/activate
-# Install requirements in environment
-pip install -r requirements.txt
 # Run database migrations
 python manage.py migrate
 # Create the super user (follow prompts)
@@ -358,7 +356,7 @@ python manage.py runserver
 변경 내용을 다시 배포하려면 리포지토리 루트에서 다음 명령을 실행합니다.
 
 ```azurecli
-az webapp up --name <app-name>
+az webapp up
 ```
 
 App Service에서 앱이 있는지 검색하고 코드만 배포합니다.

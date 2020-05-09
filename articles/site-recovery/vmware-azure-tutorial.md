@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 37fdd42adf66ebcb11b357ece6ea63384630d9f4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 878c3aa766559e455ee4456d84b86dc486e43fa5
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222640"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610686"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -65,11 +65,11 @@ ms.locfileid: "79222640"
 - **마스터 대상 서버**: 마스터 대상 서버는 Azure에서 장애 복구 중 복제 데이터를 처리합니다.
 
 
-이 모든 구성 요소가 *구성 서버*라고 하는 단일 온-프레미스 머신에 함께 설치됩니다. 기본적으로 VMware 재해 복구의 경우 구성 서버를 고가용성 VMware VM으로 설정합니다. 이렇게 하려면 준비된 OVA(Open Virtualization Application) 템플릿을 다운로드하고 VMware로 가져와서 VM을 만듭니다. 
+이 모든 구성 요소가 *구성 서버*라고 하는 단일 온-프레미스 머신에 함께 설치됩니다. 기본적으로 VMware 재해 복구의 경우 구성 서버를 고가용성 VMware VM으로 설정합니다. 이렇게 하려면 준비된 OVA(Open Virtualization Application) 템플릿을 다운로드하고 VMware로 가져와서 VM을 만듭니다.
 
 - 최신 버전의 구성 서버는 포털에서 받을 수 있습니다. [Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 직접 다운로드할 수도 있습니다.
 - 어떤 이유로 OVA 템플릿을 사용하여 VM을 설정할 수 없는 경우 [다음 지침](physical-manage-configuration-server.md)에 따라 구성 서버를 수동으로 설정합니다.
-- OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라이선스입니다. VM에서 실행 중인 Windows는 필요한 라이선스로 활성화해야 합니다. 
+- OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라이선스입니다. VM에서 실행 중인 Windows는 필요한 라이선스로 활성화해야 합니다.
 
 
 ### <a name="download-the-vm-template"></a>VM 템플릿 다운로드
@@ -77,7 +77,7 @@ ms.locfileid: "79222640"
 1. 자격 증명 모음에서 **인프라 준비** > **원본**으로 이동합니다.
 2. **원본 준비**에서 **+구성 서버**를 선택합니다.
 3. **서버 추가**에서 **VMware에 대한 구성 서버**가 **서버 형식**에 표시되는지 확인합니다.
-4. 구성 서버에 대한 OVF 템플릿을 다운로드합니다.
+4. 구성 서버에 대한 OVA 템플릿을 다운로드합니다.
 
 
 
@@ -85,7 +85,7 @@ ms.locfileid: "79222640"
 
 
 1. VMWare vSphere 클라이언트를 사용하여 VMware vCenter 서버 또는 vSphere ESXi 호스트에 로그인합니다.
-2. **파일** 메뉴에서 **OVF 템플릿 배포**를 선택하여 **OVF 템플릿 배포 마법사**를 시작합니다. 
+2. **파일** 메뉴에서 **OVF 템플릿 배포**를 선택하여 **OVF 템플릿 배포 마법사**를 시작합니다.
 
      ![OVF 템플릿](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
@@ -105,11 +105,11 @@ ms.locfileid: "79222640"
 
 1. VSphere 클라이언트 인벤토리에서 VM을 마우스 오른쪽 단추로 클릭하고 **설정 편집**을 선택합니다.
 2. **하드웨어**에서 **추가** > **이더넷 어댑터**를 선택합니다. 그런 후 **다음**을 선택합니다.
-3. 어댑터 유형 및 네트워크를 선택합니다. 
+3. 어댑터 유형 및 네트워크를 선택합니다.
 4. VM이 켜질 때 가상 NIC에 연결하려면 **전원이 켜지면 연결**을 선택합니다. **다음** > **마침**을 선택합니다. 그런 다음, **확인**을 선택합니다.
 
 
-## <a name="register-the-configuration-server"></a>구성 서버 등록 
+## <a name="register-the-configuration-server"></a>구성 서버 등록
 
 구성 서버를 설정한 후에는 자격 증명 모음에 구성 서버를 등록합니다.
 
@@ -179,7 +179,7 @@ ms.locfileid: "79222640"
 3. **컴퓨터 형식**에서 **Virtual Machines**를 선택합니다.
 4. **vCenter/vSphere 하이퍼바이저**에서 vSphere 호스트를 관리하는 vSphere 호스트 또는 vCenter Server를 선택하거나 해당 호스트를 선택합니다.
 5. 프로세스 서버(기본적으로 구성 서버 VM에 설치됨)를 선택합니다. 그런 다음, **확인**을 선택합니다. 각 프로세스 서버의 상태는 권장되는 제한 및 기타 매개 변수에 따라 표시됩니다. 정상 프로세스 서버를 선택합니다. [위험한](vmware-physical-azure-monitor-process-server.md#process-server-alerts) 프로세스 서버는 선택할 수 없습니다. 오류를 [해결](vmware-physical-azure-troubleshoot-process-server.md)**하거나** [스케일 아웃 프로세스 서버](vmware-azure-set-up-process-server-scale.md)를 설정할 수 있습니다.
-6. **대상**에서 장애 조치(Failover)된 VM을 만들려는 구독 및 리소스 그룹을 선택합니다. Resource Manager 배포 모델을 사용하는 경우입니다. 
+6. **대상**에서 장애 조치(Failover)된 VM을 만들려는 구독 및 리소스 그룹을 선택합니다. Resource Manager 배포 모델을 사용하는 경우입니다.
 7. 장애 조치(failover) 후 Azure VM이 생성될 때 연결될 Azure 네트워크 및 서브넷을 선택합니다.
 8. 복제를 활성화한 모든 VM에 네트워크 설정을 적용하려면 **선택한 컴퓨터에 대해 지금 구성**을 선택합니다. 네트워크가 없는 경우 **만들어야** 합니다.
 9. **Virtual Machines** > **Virtual Machines 선택**에서 복제하려는 각 컴퓨터를 선택합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 다음, **확인**을 선택합니다. 특정 가상 머신을 보거나 선택할 수 없으면 문제 해결 방법에 대한 [자세한 정보](https://aka.ms/doc-plugin-VM-not-showing)를 확인하세요.

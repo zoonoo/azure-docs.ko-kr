@@ -10,14 +10,19 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a9506d45350a567e3643b6edd6afc7668662f6e5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 27e6c7beb8c88a29b90b30e0c77e35e493f2480a
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416021"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690916"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics(이전의 SQL DW)란?
+
+> [!NOTE] 
+> [Azure Synapse(작업 영역 미리 보기)에 대한 액세스를 요청](https://aka.ms/synapsepreview)하여 작업 영역, Spark, SQL 주문형, 통합 Synapse Studio 환경 등 최신 Azure Synapse 기능을 사용해 보세요. 
+>
+>[Azure Synapse(작업 영역 미리 보기) 설명서](../overview-what-is.md)를 살펴보세요.
 
 Azure Synapse는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 분석을 결합한 분석 서비스입니다. 또한 서버리스 주문형 리소스 또는 프로비저닝된 리소스를 규모에 맞게 사용하여 사용자의 용어로 데이터를 자유롭게 쿼리할 수 있습니다. Azure Synapse는 통합된 환경으로 이 두 세계를 결합하여 BI 및 기계 학습에 대한 즉각적인 요구에 따라 데이터를 수집, 준비, 관리 및 제공합니다.
 
@@ -30,10 +35,7 @@ Azure Synapse에는 다음 네 가지 구성 요소가 있습니다.
 - Synapse 파이프라인: 하이브리드 데이터 통합(미리 보기)
 - 스튜디오: 통합 사용자 환경.  (미리 보기)
 
-> [!NOTE]
-> Azure Synapse의 미리 보기 기능에 액세스하려면 [여기](https://aka.ms/synapsepreview)에서 액세스를 요청합니다. Microsoft에서 모든 요청을 심사하고 최대한 빨리 응답합니다.
->
-> [Azure Synapse 미리 보기 설명서](../overview-what-is.md)를 확인합니다.
+
 
 ## <a name="synapse-sql-pool-in-azure-synapse"></a>Azure Synapse의 Synapse SQL 풀
 

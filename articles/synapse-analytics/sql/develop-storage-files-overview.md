@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2126996620d6f891dde4e7530c057d2c7f31a996
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 941fa8d2570d22b6c2a54de02a61b4a7ece2e632
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676680"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691888"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Synapse SQL 내에서 SQL 주문형(미리 보기) 리소스를 사용하여 스토리지 파일 쿼리
 
@@ -123,11 +123,15 @@ OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
 ```
 
+최적의 성능을 위해 [적절한 유추된 데이터 형식](best-practices-sql-on-demand.md#check-inferred-data-types)이 사용되는지 확인합니다. 
+
 ### <a name="filename-function"></a>filename 함수
 
-이 함수는 행이 제공되는 파일 이름을 반환합니다.
+이 함수는 행이 제공되는 파일 이름을 반환합니다. 
 
 특정 파일을 쿼리하려면 [특정 파일 쿼리](query-specific-files.md#filename) 문서의 filename 섹션을 참조하세요.
+
+반환 데이터 형식은 nvarchar(1024)입니다. 성능을 최적화하려면 항상 filename 함수의 결과를 적절한 데이터 형식으로 캐스팅합니다. 문자 데이터 형식을 사용하는 경우 적절한 길이가 사용되는지 확인합니다.
 
 ### <a name="filepath-function"></a>filepath 함수
 
@@ -137,6 +141,8 @@ BULK N'path_to_file(s)', FORMAT='PARQUET');
 - 매개 변수를 사용하여 호출하면 매개 변수에 지정된 위치에 있는 와일드카드와 일치하는 경로의 일부를 반환합니다. 예를 들어 1의 매개 변수 값은 첫 번째 와일드카드와 일치하는 경로의 일부를 반환합니다.
 
 자세한 내용은 [특정 파일 쿼리](query-specific-files.md#filepath) 문서의 filepath 섹션을 참조하세요.
+
+반환 데이터 형식은 nvarchar(1024)입니다. 성능을 최적화하려면 항상 filepath 함수의 결과를 적절한 데이터 형식으로 캐스팅합니다. 문자 데이터 형식을 사용하는 경우 적절한 길이가 사용되는지 확인합니다.
 
 ### <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>복합 형식 및 중첩되거나 반복되는 데이터 구조 작업
 

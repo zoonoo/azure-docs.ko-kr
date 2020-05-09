@@ -1,21 +1,21 @@
 ---
-title: 자동 완성 및 제안
+title: 자동 완성 및 제안에 대한 C# 자습서
 titleSuffix: Azure Cognitive Search
-description: 이 자습서에서는 드롭다운 목록을 사용하여 사용자로부터 검색어 입력을 수집하는 방법으로 자동 완성 및 제안을 보여줍니다. 기존 호텔 프로젝트를 기반으로 빌드됩니다.
+description: 드롭다운 목록을 사용하여 사용자로부터 검색어 입력을 수집하는 자동 완성 및 제안을 추가합니다. 이 자습서는 기존 호텔 프로젝트를 기반으로 합니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 6b74c3bbb811c122950fd969a8797e87f8f77f86
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 63c098ccd42a438f8daab787afb54cf13cd053c3
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641067"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780558"
 ---
-# <a name="c-tutorial-add-autocomplete-and-suggestions---azure-cognitive-search"></a>C# 자습서: 자동 완성 및 제안 추가 - Azure Cognitive Search
+# <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 자동 완성 및 제안 추가
 
 사용자가 검색 상자에 입력을 시작할 때 자동 완성(형식 미리 쿼리 및 제안된 문서)을 구현하는 방법을 알아봅니다. 이 자습서에서는 자동 완성 쿼리와 제안 결과를 개별적으로 표시한 다음, 함께 표시합니다. 사용자는 두 세개의 문자만 입력하면 사용 가능한 모든 결과를 찾을 수 있습니다.
 

@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 48aaca64949aafecff27c76ad7572b3c2fa44732
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 47eda62810b1098fcaca5b734be4f74edc0db49a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81391499"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609360"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>빠른 시작: 관리되는 애플리케이션 정의 만들기 및 게시
 
@@ -290,7 +290,7 @@ az managedapp definition create \
 
 * **리소스 그룹**: 관리형 애플리케이션 정의를 만든 리소스 그룹의 이름입니다.
 * **잠금 수준**: 관리되는 리소스 그룹에 배치하는 잠금 유형입니다. 고객이 이 리소스 그룹에서 바람직하지 않은 작업을 수행할 수 없게 합니다. 현재 지원되는 유일한 잠금 수준은 ReadOnly입니다. ReadOnly를 지정하는 경우 고객은 관리되는 리소스 그룹에 있는 리소스만 읽을 수 있습니다. 관리되는 리소스 그룹에 대한 액세스 권한이 부여된 게시자 ID는 잠금에서 제외됩니다.
-* **권한 부여**: 관리되는 리소스 그룹에 권한을 부여하는 데 사용되는 보안 주체 ID 및 역할 정의 ID를 설명합니다. `<principalId>:<roleDefinitionId>` 형식으로 지정됩니다. 둘 이상의 값이 필요한 경우 `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>` 형식으로 지정합니다. 값은 공백으로 구분됩니다.
+* **권한 부여**: 관리되는 리소스 그룹에 권한을 부여하는 데 사용되는 보안 주체 ID 및 역할 정의 ID를 설명합니다. `<principalId>:<roleDefinitionId>` 형식으로 지정됩니다. 둘 이상의 값이 필요한 경우 `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>` 형식으로 지정합니다. 값은 쉼표로 구분됩니다.
 * **패키지 파일 URI**: 필요한 파일이 포함되어 있는 .zip 패키지의 위치입니다.
 
 ## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>관리형 애플리케이션 정의에 대한 사용자 고유의 스토리지 가져오기

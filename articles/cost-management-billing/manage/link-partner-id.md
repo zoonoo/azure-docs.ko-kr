@@ -4,15 +4,15 @@ description: 고객의 리소스를 관리하기 위해 사용하는 사용자 �
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 02/13/2020
+ms.date: 05/04/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: c3f5dd4d1b67f5b1079a56d5c3428d286fd9d77f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f0d45c9dd8dc33226ca75fe34467a8695c8aae4d
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204803"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778824"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
@@ -159,4 +159,5 @@ C:\ az managementpartner delete --partner-id 12345
 
 **회사에서 [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview)를 사용하여 고객 리소스에 액세스하는 경우 내 파트너 ID를 어떻게 연결하나요?**
 
-[관리형 서비스 제품을 Azure Marketplace에 게시](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)하여 고객을 Azure 위임 리소스 관리에 온보딩하면 MPN ID가 자동으로 연결됩니다. [Azure Resource Manager 템플릿을 배포하여 고객을 온보딩](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer)하는 경우 MPN(Microsoft 파트너 네트워크) ID를 각 온보딩된 각 구독에 액세스할 수 있는 하나 이상의 사용자 계정과 연결해야 합니다. 이 작업은 서비스 공급자 테넌트에서 수행해야 합니다. 간단히 하기 위해, 테넌트에서 MPN ID와 연결된 서비스 주체 계정을 만들고 온보딩한 모든 고객에 대한 읽기 권한자 액세스 권한을 이 계정에 부여하는 것이 좋습니다.
+[관리형 서비스 제품을 Azure Marketplace에 게시](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)하여 고객을 Azure 위임 리소스 관리에 온보딩하면 MPN ID가 자동으로 연결됩니다. [Azure Resource Manager 템플릿을 배포하여 고객을 온보딩](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer)하는 경우 MPN(Microsoft 파트너 네트워크) ID를 각 온보딩된 각 구독에 액세스할 수 있는 하나 이상의 사용자 계정과 연결해야 합니다. 이 작업은 서비스 공급자 테넌트에서 수행해야 합니다. 간단히 하기 위해, 테넌트에서 MPN ID와 연결된 서비스 주체 계정을 만들고 온보딩한 모든 고객에 대한 읽기 권한자 액세스 권한을 이 계정에 부여하는 것이 좋습니다. 이 예제에서는 RBAC 판독기 역할이 사용되며 파트너 획득 크레딧을 사용할 수 없는 역할 중 하나입니다. 역할에 대한 자세한 내용 [파트너 획득 크레딧에 대한 역할 및 권한](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2)을 참조하세요.
+

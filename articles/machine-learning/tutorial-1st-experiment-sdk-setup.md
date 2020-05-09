@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: 75ae07de9d5c80245a6e75dcb2c12be9128ff4fe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 535cf95216cca210b5add5ca22cd6e5b1b997541
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184591"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779014"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>자습서: Python SDK로 첫 번째 ML 실험 만들기 시작
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,11 +47,7 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 이 자습서에서는 작업 영역의 클라우드 Notebook 서버를 설치하지 않는 미리 구성된 환경으로 사용합니다. 환경, 패키지 및 종속성을 제어하려면 [사용자 고유의 환경](how-to-configure-environment.md#local)을 사용합니다.
 
-이 비디오를 따르거나 아래의 상세 단계를 사용하여 작업 영역에서 자습서를 복제하고 실행합니다. 
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
-
-
+ 아래의 상세 단계를 사용하여 작업 영역에서 자습서를 복제하고 실행합니다. 
 
 ### <a name="clone-a-notebook-folder"></a>Notebook 폴더 복제
 
@@ -63,7 +59,7 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 1. 왼쪽에서 **Notebook**을 선택합니다.
 
-1. **Samples** 폴더를 엽니다.
+1. 맨 위에 있는 **샘플** 탭을 선택합니다.
 
 1. **Python** 폴더를 엽니다.
 
@@ -71,20 +67,21 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 1. **tutorials** 폴더의 오른쪽에 있는 **“...”** 을 선택한 다음, **복제**를 선택합니다.
 
-    ![폴더 복제](./media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="자습서 폴더 복제":::
 
 1. 작업 영역에 액세스하는 각 사용자를 표시하는 폴더 목록이 표시됩니다.  **tutorials** 폴더를 복제할 폴더를 선택합니다.
 
-### <a name="a-nameopenopen-the-cloned-notebook"></a><a name="open">복제된 Notebook 열기
+### <a name="open-the-cloned-notebook"></a><a name="open"></a>복제된 Notebook 열기
 
-1. **사용자 파일**에서 폴더를 연 다음, 복제된 **tutorials** 폴더를 엽니다.
-
-    ![자습서 폴더 열기](./media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
+1. **사용자 파일** 섹션에 방금 닫은 **자습서** 폴더를 엽니다.
 
     > [!IMPORTANT]
     > **samples** 폴더에서 Notebook을 볼 수 있지만 해당 폴더에서 Notebook을 실행할 수는 없습니다.  Notebook을 실행하려면 **사용자 파일** 섹션에서 복제된 버전의 Notebook을 열어야 합니다.
     
 1. **tutorials/create-first-ml-experiment** 폴더에서 **tutorial-1st-experiment-sdk-train.ipynb** 파일을 선택합니다.
+
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="자습서 폴더 열기":::
+
 
 1. 위쪽 바에서 Notebook을 실행하는 데 사용할 컴퓨팅 인스턴스를 선택합니다. 이러한 VM은 [Azure Machine Learning을 실행하는 데 필요한 모든 항목](concept-compute-instance.md#contents)을 사용하여 미리 구성됩니다. 
 
