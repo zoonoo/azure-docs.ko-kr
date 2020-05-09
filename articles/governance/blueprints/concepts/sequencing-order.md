@@ -1,14 +1,14 @@
 ---
 title: 배포 순서 이해
 description: 청사진을 할당 하는 동안 청사진 아티팩트가 배포 되는 기본 순서와 배포 순서를 사용자 지정 하는 방법에 대해 알아봅니다.
-ms.date: 08/22/2019
+ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41b1b1ada5b7c6c919f227927001570332eeccbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91e11f8127ba2532ad48362de1689f4be2b6f935
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80677573"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864524"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Azure Blueprint의 배포 순서 이해
 
@@ -47,8 +47,7 @@ JSON 예제에는 사용자 고유의 값으로 바꿔야 하는 변수가 있�
 JSON에서 `dependsOn` 속성을 정의하여 순서를 지정할 수 있습니다. 리소스 그룹 및 아티팩트 개체에 대 한 청사진 정의는이 속성을 지원 합니다. `dependsOn`은 특정 아티팩트가 만들어지기 전에 만들어야 하는 아티팩트 이름의 문자열 배열입니다.
 
 > [!NOTE]
-> 청사진 개체를 만들 때 각 아티팩트 리소스는 파일 이름에서 ( [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact)을 사용 하는 경우) 또는 URL 끝점 ( [REST API](/rest/api/blueprints/artifacts/createorupdate)사용 하는 경우)을 가져옵니다.
-> 아티팩트의 _resourceGroup_ 참조는 청사진 정의에 정의 된 것과 일치 해야 합니다.
+> 청사진 개체를 만들 때 각 아티팩트 리소스는 파일 이름에서 ( [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact)을 사용 하는 경우) 또는 URL 끝점 ( [REST API](/rest/api/blueprints/artifacts/createorupdate)사용 하는 경우)을 가져옵니다. 아티팩트의 _resourceGroup_ 참조는 청사진 정의에 정의 된 것과 일치 해야 합니다.
 
 ### <a name="example---ordered-resource-group"></a>예제-정렬 된 리소스 그룹
 
@@ -137,7 +136,8 @@ JSON에서 `dependsOn` 속성을 정의하여 순서를 지정할 수 있습니�
 
 만들기 프로세스가 진행되는 동안 토폴로지 정렬을 사용하여 청사진 아티팩트의 종속성 그래프가 만들어집니다. 리소스 그룹과 아티팩트 간의 각 종속성 수준이 지원되는지 확인합니다.
 
-기본 순서를 변경하지 않는 아티팩트 종속성이 선언된 경우에는 변경 작업이 수행되지 않습니다. 구독 수준 정책을 사용하는 리소스 그룹을 예로 들 수 있습니다. 다른 예로는 리소스 그룹 ‘standard-rg’ 자식 역할 할당을 사용하는 리소스 그룹 ‘standard-rg’ 자식 정책 할당이 있습니다. 두 경우 모두 `dependsOn`이 기본값을 변경하지 않으며 아무 것도 변경되지 않습니다.
+기본 순서를 변경하지 않는 아티팩트 종속성이 선언된 경우에는 변경 작업이 수행되지 않습니다.
+구독 수준 정책을 사용하는 리소스 그룹을 예로 들 수 있습니다. 다른 예로는 리소스 그룹 ‘standard-rg’ 자식 역할 할당을 사용하는 리소스 그룹 ‘standard-rg’ 자식 정책 할당이 있습니다. 두 경우 모두 `dependsOn`이 기본값을 변경하지 않으며 아무 것도 변경되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

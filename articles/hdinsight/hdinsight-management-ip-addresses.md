@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
-ms.openlocfilehash: 5e8f39b58f258742108fe323d9395efd87bc288f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1a539096ac1a154ca37bbe6703f820787f927fb
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78271827"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778263"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 관리 IP 주소
 
@@ -82,7 +82,7 @@ Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 포트 53에서 
 
 Azure Government에 사용할 IP 주소에 대한 자세한 내용은 [Azure Government 인텔리전스 + 분석](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) 문서를 참조하세요.
 
-자세한 내용은 [네트워크 트래픽 제어](hdinsight-plan-virtual-network-deployment.md#networktraffic) 섹션을 참조 하세요.
+자세한 내용은 [네트워크 트래픽 제어](./control-network-traffic.md)를 참조 하세요.
 
 UDRs (사용자 정의 경로)를 사용 하는 경우 경로를 지정 하 고 다음 홉이 "Internet"로 설정 된 가상 네트워크에서 위의 Ip로의 아웃 바운드 트래픽을 허용 해야 합니다.
 

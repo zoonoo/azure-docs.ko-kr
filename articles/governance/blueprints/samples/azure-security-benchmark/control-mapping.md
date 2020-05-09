@@ -3,16 +3,16 @@ title: Azure 보안 벤치마크 청사진 샘플 제어
 description: Azure Policy에 대한 Azure 보안 벤치마크 청사진 샘플의 제어 매핑입니다.
 ms.date: 04/16/2020
 ms.topic: sample
-ms.openlocfilehash: 0f2d24d7d8c9f7ce2568f11b15e65ed1fcd02afb
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f80b72f06532adef28bf5e5afd1eb94c2e34ee2d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538665"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691300"
 ---
 # <a name="control-mapping-of-the-azure-security-benchmark-blueprint-sample"></a>Azure 보안 벤치마크 청사진 샘플의 제어 매핑
 
-다음 문서에서는 Azure Blueprints Azure 보안 벤치마크 청사진 샘플이 Azure 보안 벤치마크 제어에 매핑되는 방법에 대해 자세히 설명합니다. 제어에 대한 자세한 내용은 [Azure 보안 벤치마크](https://docs.microsoft.com/azure/security/benchmarks/overview)를 참조하세요.
+다음 문서에서는 Azure Blueprints Azure 보안 벤치마크 청사진 샘플이 Azure 보안 벤치마크 제어에 매핑되는 방법에 대해 자세히 설명합니다. 제어에 대한 자세한 내용은 [Azure 보안 벤치마크](../../../../security/benchmarks/overview.md)를 참조하세요.
 
 다음은 **Azure 보안 벤치마크** 제어에 대한 매핑입니다. 특정 컨트롤 매핑으로 바로 점프하려면 오른쪽의 탐색 기능을 사용합니다. 매핑된 제어는 [Azure Policy](../../../policy/overview.md) 이니셔티브를 사용하여 구현됩니다. 전체 이니셔티브를 검토하려면 Azure Portal에서 **정책**을 열고 **정의** 페이지를 선택합니다. 그런 다음, **\[미리 보기\]: Azure 보안 벤치마크 추천 사항 감사 및 지원하는 특정 VM 확장 배포** 기본 제공 정책 이니셔티브를 찾아서 선택합니다.
 

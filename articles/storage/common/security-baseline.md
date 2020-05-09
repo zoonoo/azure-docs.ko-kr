@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 184b60f6147089cbdfd855b473b3346d021f7fbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92f2102d8d6353da2002a4ee9d5bfbe57a774e10
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176603"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792074"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azure Storage에 대 한 Azure 보안 기준
 
@@ -82,7 +82,7 @@ Azure Storage에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 **지침**: Network Watcher 패킷 캡처를 사용 하 여 저장소 계정과 가상 머신 간의 트래픽을 추적 하는 캡처 세션을 만들 수 있습니다. 원하는 트래픽만 캡처할 수 있도록 캡처 세션에 대 한 필터가 제공됩니다. 패킷 캡처를 통해 사후 및 사전 대응적으로 네트워크 예외를 진단할 수 있습니다. 또한 네트워크 침입에 대한 정보를 가져오는 네트워크 통계를 수집하는 것을 포함하여 클라이언트 서버 간 통신을 디버그할 수 있습니다. 원격으로 패킷 캡처를 트리거할 수 있으면 원하는 가상 머신에서 수동으로 패킷 캡처를 실행하는 부담이 없어지고 시간이 단축됩니다. 
 
-- [포털에서 Azure Network Watcher를 사용하여 패킷 캡처 관리](https://docs.microsoft.comazure/network-watcher/network-watcher-packet-capture-manage-portal)
+- [포털에서 Azure Network Watcher를 사용하여 패킷 캡처 관리](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal)
 
 **Azure Security Center 모니터링**: 예
 
@@ -887,7 +887,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들어 �
 
 또한 저장소 계정 키의 손실 또는 공개의 영향을 제한 하기 위해 저장소 계정 키를 자주 회전 합니다.
 
-- [휴지 상태의 데이터에 대 한 암호화 Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [미사용 데이터에 대한 Azure Storage 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
 
 - [저장소 계정 액세스 키 관리](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
 

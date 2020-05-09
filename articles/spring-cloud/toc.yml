@@ -36,6 +36,11 @@
       href: spring-cloud-tutorial-custom-domain.md
     - name: IntelliJ를 사용하여 Azure Spring Cloud 애플리케이션 배포
       href: spring-cloud-tutorial-intellij-deploy-apps.md
+- name: 샘플
+  items:
+    - name: Azure Policy 기본 제공
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
     - name: Azure Spring Cloud 할당량 및 제한 이해

@@ -11,23 +11,23 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 4488c174ba5ff35ec2709d7c1b9f3093b4ee90a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8fb39e8762d31f00029a0eeea33f1e630fb15a6
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409066"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927397"
 ---
-# <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용하여 Azure Machine Learning 모델 업데이트
+# <a name="update-ml-studio-classicv-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용 하 여 ML Studio (클래식) v 모델 업데이트
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서는 주요 Azure Data Factory - Azure Machine Learning 통합 문서인 [Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)를 보완합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요.
+이 문서에서는 [Azure Machine Learning 및 Azure Data Factory를 사용 하 여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)의 기본 Azure Data Factory-ML Studio (클래식) 통합 문서를 보완 합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요.
 
 ## <a name="overview"></a>개요
-Azure Machine Learning 모델을 조작하는 프로세스의 일부로 모델을 학습하고 저장합니다. 그런 다음, 이를 예측 웹 서비스를 만드는 데 사용합니다. 그러면 웹 사이트, 대시보드 및 모바일 앱에서 웹 서비스를 사용할 수 있습니다.
+운영 화 ML Studio (클래식) 모델 프로세스의 일부로 모델을 학습 하 고 저장 합니다. 그런 다음, 이를 예측 웹 서비스를 만드는 데 사용합니다. 그러면 웹 사이트, 대시보드 및 모바일 앱에서 웹 서비스를 사용할 수 있습니다.
 
-Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이지 않습니다. 새 데이터를 사용할 수 있는 경우 또는 API 소비자가 자체적인 데이터를 가진 경우 모델을 재학습해야 합니다. Azure Machine Learning에서 모델을 다시 학습하는 방법에 대한 자세한 내용은 [Machine Learning 모델 재학습](../machine-learning/machine-learning-retrain-machine-learning-model.md)을 참조하세요.
+Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이지 않습니다. 새 데이터를 사용할 수 있는 경우 또는 API 소비자가 자체적인 데이터를 가진 경우 모델을 재학습해야 합니다. 
 
 재학습은 자주 발생할 수 있습니다. 일괄 처리 실행 작업 및 리소스 업데이트 작업을 사용하면 Azure Machine Learning 모델을 조작하여 Data Factory를 통해 예측 웹 서비스를 다시 학습하고 업데이트할 수 있습니다.
 
@@ -35,9 +35,9 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 
 ![웹 서비스](./media/update-machine-learning-models/web-services.png)
 
-## <a name="azure-machine-learning-update-resource-activity"></a>Azure Machine Learning 리소스 업데이트 작업
+## <a name="ml-studio-classic-update-resource-activity"></a>ML Studio (클래식) 리소스 업데이트 작업
 
-다음 JSON 코드 조각에서는 Azure Machine Learning 일괄 처리 실행 작업을 정의합니다.
+다음 JSON 코드 조각은 ML Studio (클래식) 일괄 처리 실행 작업을 정의 합니다.
 
 ```json
 {
@@ -59,10 +59,10 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 }
 ```
 
-| 속성                      | 설명                              | 필수 |
+| 속성                      | 설명                              | 필요한 공간 |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | 파이프라인의 작업 이름입니다.     | 예      |
-| description                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
+| 이름                          | 파이프라인의 작업 이름입니다.     | 예      |
+| description                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
 | type                          | Azure Machine Learning 리소스 업데이트 작업의 경우 작업 유형은 **AzureMLUpdateResource**입니다. | 예      |
 | linkedServiceName             | updateResourceEndpoint 속성을 포함하는 Azure Machine Learning 연결된 서비스입니다. | 예      |
 | trainedModelName              | 업데이트할 웹 서비스 실험의 학습된 모델 모듈의 이름입니다. | 예      |

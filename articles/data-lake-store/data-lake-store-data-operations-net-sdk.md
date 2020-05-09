@@ -1,17 +1,17 @@
 ---
-title: '.NET SDK: Azure Data Lake Storage Gen1에 대 한 파일 시스템 작업'
+title: Data Lake Storage Gen1의 .NET SDK-파일 시스템 작업-Azure
 description: 폴더 만들기 등의 Data Lake Storage Gen1에 대 한 파일 시스템 작업에 Azure Data Lake Storage Gen1 .NET SDK를 사용 합니다.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.author: twooley
-ms.openlocfilehash: 7e33ecbbb49fc2b0683d0757da36deec72796806
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9e52a3cb8d31b5fccc9a0b5a3a76d4e9b43de123
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638904"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690956"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>.NET SDK를 사용 하 여 Data Lake Storage Gen1에 대 한 파일 시스템 작업
 

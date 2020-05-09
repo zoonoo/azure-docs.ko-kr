@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: add0d27ae6a612fed0320b5329d19236b7bbbd01
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3fb5f1df0eb4473483c9298cdbf36909b75065e7
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79370647"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927210"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>음성 장치 SDK 란 무엇 인가요?
 
@@ -49,7 +49,7 @@ Windows의 경우 샘플 응용 프로그램은 플랫폼 간 Java 응용 프로
 Linux의 경우 샘플 응용 프로그램은 플랫폼 간 Java 응용 프로그램으로 제공 됩니다. 최신 버전의 [JRE Speech 장치 SDK](https://aka.ms/sdsdk-download-JRE)를 다운로드 합니다.
 응용 프로그램은 Speech SDK 패키지 및 64 비트 Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)의 Eclipse Java IDE (v4)를 사용 하 여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 
-향후 장치, [Roobo V2 DDK](https://aka.ms/sdsdk-download-roobov2), [Urbetter](https://aka.ms/sdsdk-download-urbetter)및 [GGEC 스피커](https://aka.ms/sdsdk-download-speaker)를 지원 하기 위해 추가 바이너리가 제공 됩니다.
+향후 장치, [Roobo V2 DDK](https://aka.ms/sdsdk-download-roobov2), [urbetter](https://aka.ms/sdsdk-download-urbetter), [GGEC 스피커](https://aka.ms/sdsdk-download-speaker), [linux ARM32](https://aka.ms/sdsdk-download-linux-arm32)및 [linux ARM64](https://aka.ms/sdsdk-download-linux-arm64)을 지원 하기 위해 추가 바이너리가 제공 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
