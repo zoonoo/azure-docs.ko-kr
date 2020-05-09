@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 60032677594537f1e7791b7108eebd5d4cfad5b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8af33e95c92cf51bdabe3325bd9249b4662b7d28
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75430332"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583760"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 개인 끝점 만들기
 프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다. 
@@ -137,7 +137,7 @@ $subnet = $virtualNetwork `
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
   -Name "myPrivateEndpoint" `
   -Location "westcentralus" `
-  -Subnet  $subnet`
+  -Subnet  $subnet `
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
 
@@ -198,9 +198,10 @@ mstsc /v:<publicIpAddress>
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>VM에서 SQL Database Server에 비공개 액세스
 
 1. myVM의 원격 데스크톱에서 PowerShell을 엽니다.
-2. `nslookup myserver.database.windows.net`를 입력합니다. 
+2. `nslookup myserver.database.windows.net`를 입력합니다. 을 SQL server `myserver` 이름으로 바꾸어야 합니다.
 
     다음과 유사한 메시지가 표시됩니다.
+    
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -209,14 +210,21 @@ mstsc /v:<publicIpAddress>
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
     ```
+    
 3. SQL Server Management Studio를 설치합니다.
-4. 서버에 연결에서 다음 정보를 입력 하거나 선택 합니다. 값 서버 유형 설정 데이터베이스 엔진를 선택 합니다.
-      서버 이름 myserver.database.windows.net 사용자 이름을 선택 합니다. 생성 중에 제공 된 사용자 이름을 입력 합니다.
-      암호 생성 중에 제공 된 암호를 입력 합니다.
-      암호 기억을 예를 선택 합니다.
-5. 연결을 선택합니다.
-6. 왼쪽 메뉴에서 데이터베이스를 검색 합니다. 
-7. 생략할 Mydatabase에서 정보 만들기 또는 쿼리
+4. **서버에 연결**에서 다음 정보를 입력하거나 선택합니다.
+
+    | 설정 | 값 |
+    | --- | --- |
+    | 서버 유형 | 데이터베이스 엔진 |
+    | 서버 이름 | myserver.database.windows.net |
+    | 사용자 이름 | 만드는 동안 제공 된 사용자 이름을 입력 합니다. |
+    | 암호 | 만드는 동안 제공 된 암호 입력 |
+    | 암호 기억을 | 예 |
+    
+5. **연결**을 선택합니다.
+6. 왼쪽 메뉴에서 **데이터베이스** 를 검색 합니다. 
+7. (선택 사항) Mydatabase에서 정보를 만들거나 쿼리합니다.
 8. *Myvm*에 대 한 원격 데스크톱 연결을 닫습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리 

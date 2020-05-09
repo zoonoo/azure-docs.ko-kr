@@ -1,22 +1,22 @@
 ---
-title: 공동 판매 시/도 코드 | Azure Marketplace
-description: 제품의 공동 판매 페이지에서 연락처 정보를 제공할 때 이러한 시/도 코드를 사용 합니다.
+title: Azure Marketplace에서 시/도 코드 공동 판매
+description: Azure Marketplace에서 제품의 공동 판매 페이지에 대 한 연락처 정보를 제공할 때 사용 가능한 시/도 코드를 가져옵니다.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 782f2d6facb28630989f086a68c551314e02e48e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a39cb5f49c9f038f567b7f3322b5962bc1dc9fc8
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619356"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744698"
 ---
-# <a name="co-sell-state-and-province-codes"></a>공동 판매 시/도 코드
+# <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Azure Marketplace에서 시/도 코드 공동 판매
 
-해당 하는 경우 [제품의 공동 판매 페이지에서 연락처 정보](commercial-marketplace-co-sell.md#contacts)를 제공할 때 이러한 코드를 사용 하 여 시/도 정보를 제공 합니다.
+이 문서에서는 제품의 공동 판매 페이지에서 연락처 정보를 제공할 때 사용할 수 있는 시/도 코드를 나열 합니다. 해당 하는 경우 [제품의 공동 판매 페이지에서 연락처 정보](commercial-marketplace-co-sell.md#contacts)를 제공할 때 이러한 코드를 사용 하 여 시/도 정보를 제공 합니다.
 
 ## <a name="us-states-and-territories"></a>미국 주 및 지역
 

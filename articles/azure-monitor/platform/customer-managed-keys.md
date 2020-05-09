@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/07/2020
-ms.openlocfilehash: 068752b01170c2f0c6411ee470d32f3dfb887dea
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: c78d8d603b6686d382ec7edcccc24d5dacc4745a
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901021"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982227"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>고객 관리 키 Azure Monitor 
 
@@ -74,7 +74,7 @@ Azure Monitor는 시스템 할당 관리 id를 활용 하 여 Azure Key Vault에
 
 1. Subscription 허용 목록-이 초기 액세스 기능에 필요 합니다.
 2. Azure Key Vault 만들기 및 키 저장
-3. *클러스터* 리소스 만들기-실제 클러스터 및 데이터 저장소 인 전용 Log Analytics 클러스터를 프로 비전 합니다.
+3. *클러스터* 리소스 만들기
 5. Key Vault에 대 한 사용 권한 부여
 6. Log Analytics 작업 영역 연결
 
@@ -83,7 +83,7 @@ Azure Monitor는 시스템 할당 관리 id를 활용 하 여 Azure Key Vault에
 > [!IMPORTANT]
 > 모든 API 요청은 요청 헤더에 전달자 권한 부여 토큰을 포함 해야 합니다.
 
-예를 들어:
+다음은 그 예입니다. 
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -173,13 +173,14 @@ CMK 기능은 초기 액세스 기능입니다. *클러스터* 리소스를 만�
 
 이 리소스는 Key Vault와 Log Analytics 작업 영역 간의 중간 id 연결로 사용 됩니다. 구독이 허용 목록 된 것을 확인 한 후에는 작업 영역이 있는 지역에서 Log Analytics *클러스터* 리소스를 만듭니다.
 
-*클러스터* 리소스를 만들 때 sku ( *용량 예약* 수준)를 지정 해야 합니다. *용량 예약* 수준 범위는 매일 1000 ~ 2000 GB 이며, 나중에 100의 단계에서 업데이트할 수 있습니다. 하루에 2000 GB 보다 높은 용량 예약 수준을 요구 하는 경우 microsoft에 문의 LAIngestionRate@microsoft.com하세요. [자세한 정보](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
+*클러스터* 리소스를 만들 때 sku ( *용량 예약* 수준)를 지정 해야 합니다. *용량 예약* 수준 범위는 매일 1000 ~ 2000 GB 이며, 나중에 100의 단계에서 업데이트할 수 있습니다. 하루에 2000 GB 보다 높은 용량 예약 수준을 요구 하는 경우 microsoft에 문의 LAIngestionRate@microsoft.com하세요. [자세히 알아보기](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
     
 *BillingType* 속성은 *클러스터* 리소스 및 해당 데이터에 대 한 청구 특성을 결정 합니다.
 - *클러스터* (기본값)--청구는 *클러스터* 리소스를 호스트 하는 구독에 대 한 특성을 갖습니다.
 - *작업 영역* --청구는 작업 영역을 상대적으로 호스트 하는 구독에 대 한 특성을 가집니다. 
 
-> [! 정보] *클러스터* 리소스를 만든 후에는 PATCH REST 요청을 사용 하 여 *sku*, *keyVaultProperties* 또는 *billingType* 를 사용 하 여 업데이트할 수 있습니다.
+> [!NOTE]
+> *클러스터* 리소스를 만든 후에는 PATCH REST 요청을 사용 하 여 *sku*, *keyVaultProperties* 또는 *billingType* 를 사용 하 여 업데이트할 수 있습니다.
 
 **만들기**
 
@@ -278,7 +279,8 @@ Key Vault *키 식별자* 정보를 사용 하 여 *클러스터* 리소스를 �
 
 이 리소스 관리자 요청은 키 식별자 정보를 업데이트할 때 비동기 작업이 며 용량 값을 업데이트할 때 동기식입니다.
 
-> [! 정보] *sku*, *keyVaultProperties* 또는 *BillingType*를 업데이트 하기 위해 *클러스터* 리소스의 부분 본문을 제공할 수 있습니다.
+> [!Note]
+> *클러스터* 리소스의 부분 본문을 제공 하 여 *sku*, *keyVaultProperties* 또는 *billingType*를 업데이트할 수 있습니다.
 
 ```rst
 PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -299,7 +301,7 @@ Content-type: application/json
        KeyVaultUri: "https://<key-vault-name>.vault.azure.net",
        KeyName: "<key-name>",
        KeyVersion: "<current-version>"
-       },
+       }
    },
    "location":"<region-name>"
 }
@@ -328,10 +330,10 @@ Content-type: application/json
     "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
     },
   "properties": {
-    "KeyVaultProperties": {
-      KeyVaultUri: "https://key-vault-name.vault.azure.net",
-      KeyName: "key-name",
-      KeyVersion: "current-version"
+    "keyVaultProperties": {
+      keyVaultUri: "https://key-vault-name.vault.azure.net",
+      kyName: "key-name",
+      keyVersion: "current-version"
       },
     "provisioningState": "Succeeded",
     "clusterType": "LogAnalytics", 
@@ -435,7 +437,7 @@ CMK를 회전 하려면 Azure Key Vault의 새 키 버전을 사용 하 여 *클
 
 - 하위 지역 및 구독 당 최대 *클러스터* 리소스 수는 2입니다.
 
-- *클러스터* 리소스에서 작업 영역을 연결 하 고 연결을 해제할 수 있습니다. 30 일으로 제한 된 작업 영역 연결의 수입니다.
+- 작업 영역을 *클러스터* 리소스에 연결한 다음, 해당 데이터에 대 한 cmk가 더 이상 필요 하지 않거나 다른 이유로 작업 영역을 연결 해제할 수 있습니다. 30 일 동안 작업 영역에서 수행할 수 있는 작업 영역 연결 수는 2로 제한 됩니다.
 
 - *클러스터* 리소스에 대 한 작업 영역 연결은 전용 Log Analytics 클러스터 프로 비전이 완료 되었음을 확인 한 후에만 수행 해야 합니다. 완료 되기 전에 작업 영역으로 전송 된 데이터는 삭제 되 고 복구할 수 없습니다.
 
@@ -453,26 +455,9 @@ CMK를 회전 하려면 Azure Key Vault의 새 키 버전을 사용 하 여 *클
 - 다른 *클러스터* 리소스와 연결 된 경우 *클러스터* 리소스에 대 한 작업 영역 연결이 실패 합니다.
 
 
-## <a name="troubleshooting-and-management"></a>문제 해결 및 관리
+## <a name="management"></a>관리
 
-- Key Vault 가용성 고려 사항
-    - 정상 작업에서-저장소는 짧은 기간 동안 AEK를 캐시 하 고 Key Vault로 돌아가서 정기적으로 래핑 해제 합니다.
-    
-    - 일시적인 연결 오류-저장소는 키가 짧은 시간 동안 캐시에 유지 되도록 허용 하 여 일시적인 오류 (시간 제한, 연결 오류, DNS 문제)를 처리 하 고,이를 통해 작은 문제 가용성을 극복 합니다. 쿼리 및 수집 기능은 중단 없이 계속 됩니다.
-    
-    - 라이브 사이트-약 30 분을 사용할 수 없으면 저장소 계정을 사용할 수 없게 됩니다. 데이터 손실을 방지 하기 위해 쿼리 기능을 사용할 수 없으며 Microsoft 키를 사용 하 여 몇 시간 동안 수집 데이터를 캐시 합니다. Key Vault에 대 한 액세스가 복원 되 면 쿼리를 사용할 수 있게 되며 임시 캐시 된 데이터는 데이터 저장소에 수집 CMK를 사용 하 여 암호화 됩니다.
-
-- *클러스터* 리소스를 만들고 KeyVaultProperties를 즉시 지정 하는 경우 시스템 Id가 *클러스터* 리소스에 할당 될 때까지 액세스 정책을 정의할 수 없으므로 작업이 실패할 수 있습니다.
-
-- KeyVaultProperties를 사용 하 여 기존 *클러스터* 리소스를 업데이트 하 고 ' Get ' 키 액세스 정책이 Key Vault에 없는 경우 작업이 실패 합니다.
-
-- 작업 영역에 연결 된 *클러스터* 리소스를 삭제 하려고 하면 삭제 작업은 실패 합니다.
-
-- *클러스터* 리소스를 만들 때 충돌 오류가 발생 하는 경우 – 지난 14 일 동안 *클러스터* 리소스를 삭제 하 고 일시 삭제 기간에 있을 수 있습니다. *클러스터* 리소스 이름은 일시 삭제 기간 동안 예약 된 상태로 유지 되며 해당 이름을 사용 하 여 새 클러스터를 만들 수 없습니다. 이 이름은 *클러스터* 리소스가 영구적으로 삭제 될 때 일시 삭제 기간이 지나면 릴리스됩니다.
-
-- 작업이 진행 되는 동안 *클러스터* 리소스를 업데이트 하는 경우 작업이 실패 합니다.
-
-- 리소스 그룹에 대 한 모든 *클러스터* 리소스 가져오기:
+- **리소스 그룹에 대 한 모든 *클러스터* 리소스 가져오기**
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -515,7 +500,7 @@ CMK를 회전 하려면 Azure Key Vault의 새 키 버전을 사용 하 여 *클
   }
   ```
 
-- 구독에 대 한 모든 *클러스터* 리소스를 가져옵니다.
+- **구독에 대 한 모든 *클러스터* 리소스 가져오기**
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -526,9 +511,38 @@ CMK를 회전 하려면 Azure Key Vault의 새 키 버전을 사용 하 여 *클
     
   ' 리소스 그룹에 대 한*클러스터* 리소스 '와 동일한 응답 이지만 구독 범위에 있습니다.
 
-- *클러스터* 리소스에서 *용량 예약* 업데이트-연결 된 작업 영역에 대 한 데이터 볼륨이 변경 될 때 청구 고려 사항에 대 한 용량 예약 수준을 업데이트 하려면 [ *클러스터* 리소스 업데이트](#update-cluster-resource-with-key-identifier-details) 및 새 용량 값 제공을 참조 하세요. 용량 예약 수준의 범위는 매일 1000 ~ 2000 GB이 고 100의 단계에 있을 수 있습니다. 하루 2000 g b 보다 높은 수준의 경우 Microsoft 담당자에 게 연락 하 여 사용 하도록 설정 합니다.
+- ***클러스터* 리소스의 *용량 예약* 업데이트**
 
-- 작업 영역 연결 해제-이 작업을 수행 하려면 작업 영역 및 *클러스터* 리소스에 대 한 ' 쓰기 ' 권한이 있어야 합니다. 언제 든 지 *클러스터* 리소스에서 작업 영역을 연결 해제할 수 있습니다. 연결 취소 작업 후 새 수집 데이터는 Log Analytics 저장소에 저장 되 고 Microsoft 키로 암호화 됩니다. *클러스터* 리소스가 프로 비전 되 고 유효한 Key Vault 키로 구성 되는 한, 연결 취소 전후에 작업 영역에 수집 된 데이터를 쿼리할 수 있습니다.
+  연결 된 작업 영역에 대 한 데이터 볼륨이 시간이 지남에 따라 변경 되 고 용량 예약 수준을 적절 하 게 업데이트 하려는 경우. [ *클러스터* 리소스 업데이트](#update-cluster-resource-with-key-identifier-details) 를 따르고 새 용량 값을 제공 합니다. 1000 ~ 2000 g b의 범위와 100의 단계에 있을 수 있습니다. 하루 2000 g b 보다 높은 수준의 경우 Microsoft 담당자에 게 연락 하 여 사용 하도록 설정 합니다. 전체 REST 요청 본문을 제공할 필요 없이 sku를 포함 해야 합니다.
+
+  ```json
+  {
+    "sku": {
+      "name": "capacityReservation",
+      "Capacity": 1000
+    }
+  }
+  ``` 
+
+- ***클러스터* 리소스에서 *billingType* 업데이트**
+
+  *BillingType* 속성은 *클러스터* 리소스 및 해당 데이터에 대 한 청구 특성을 결정 합니다.
+  - *클러스터* (기본값)--청구는 클러스터 리소스를 호스트 하는 구독에 대 한 특성을 갖습니다.
+  - *작업 영역* --청구는 작업 영역을 상대적으로 호스트 하는 구독에 대 한 특성을 가집니다.
+  
+  [ *클러스터* 리소스 업데이트](#update-cluster-resource-with-key-identifier-details) 를 따르고 새 billingType 값을 제공 합니다. 전체 REST 요청 본문을 제공할 필요 없이 *billingType*를 포함 해야 합니다.
+
+  ```json
+  {
+    "properties": {
+      "billingType": "cluster",
+      }  
+  }
+  ``` 
+
+- **작업 영역 연결 해제**
+
+  이 작업을 수행 하려면 작업 영역 및 *클러스터* 리소스에 대 한 ' 쓰기 ' 권한이 있어야 합니다. 언제 든 지 *클러스터* 리소스에서 작업 영역을 연결 해제할 수 있습니다. 연결 취소 작업 후 새 수집 데이터는 Log Analytics 저장소에 저장 되 고 Microsoft 키로 암호화 됩니다. *클러스터* 리소스가 프로 비전 되 고 유효한 Key Vault 키로 구성 되는 한, 연결 취소 전후에 작업 영역에 수집 된 데이터를 쿼리할 수 있습니다.
 
   이 리소스 관리자 요청은 비동기 작업입니다.
 
@@ -545,7 +559,10 @@ CMK를 회전 하려면 Azure Key Vault의 새 키 버전을 사용 하 여 *클
   1. 응답에서 AsyncOperation URL 값을 복사 하 고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 수행 합니다.
   2. [작업 영역 보내기 –](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) 요청을 가져오고 응답을 관찰 합니다. 연결 된 작업 영역에는 *기능*아래에 *clusterresourceid* 가 포함 되지 않습니다.
 
-- *클러스터* 리소스 삭제-이 작업을 수행 하려면 *클러스터* 리소스에 대 한 ' 쓰기 ' 권한이 있어야 합니다. 일시 삭제 작업은 삭제가 실수나 의도적인 지 여부에 관계 없이 14 일 내에 데이터를 포함 하 여 *클러스터* 리소스를 복구할 수 있도록 하기 위해 수행 됩니다. *클러스터* 리소스 이름은 일시 삭제 기간 동안 예약 된 상태로 유지 되며 해당 이름을 사용 하 여 새 클러스터를 만들 수 없습니다. 일시 삭제 기간이 지나면 *클러스터* 리소스 이름이 해제 되 고 *클러스터* 리소스와 데이터가 영구적으로 삭제 되며 복구할 수 없습니다. 연결 된 작업 영역은 삭제 작업 시 *클러스터* 리소스에서 연결 해제 됩니다. 새 수집 데이터는 Log Analytics 저장소에 저장 되 고 Microsoft 키를 사용 하 여 암호화 됩니다. 작업 영역 연결 해제 작업은 비동기적 이며 완료 하는 데 최대 90 분이 걸릴 수 있습니다.
+
+- ***클러스터* 리소스를 삭제 합니다.**
+
+  이 작업을 수행 하려면 *클러스터* 리소스에 대 한 ' 쓰기 ' 권한이 있어야 합니다. 일시 삭제 작업은 삭제가 실수나 의도적인 지 여부에 관계 없이 14 일 내에 데이터를 포함 하 여 *클러스터* 리소스를 복구할 수 있도록 하기 위해 수행 됩니다. *클러스터* 리소스 이름은 일시 삭제 기간 동안 예약 된 상태로 유지 되며 해당 이름을 사용 하 여 새 클러스터를 만들 수 없습니다. 일시 삭제 기간이 지나면 *클러스터* 리소스 이름이 해제 되 고 *클러스터* 리소스와 데이터가 영구적으로 삭제 되며 복구할 수 없습니다. 연결 된 작업 영역은 삭제 작업 시 *클러스터* 리소스에서 연결 해제 됩니다. 새 수집 데이터는 Log Analytics 저장소에 저장 되 고 Microsoft 키를 사용 하 여 암호화 됩니다. 작업 영역 연결 해제 작업은 비동기적 이며 완료 하는 데 최대 90 분이 걸릴 수 있습니다.
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -556,4 +573,25 @@ CMK를 회전 하려면 Azure Key Vault의 새 키 버전을 사용 하 여 *클
 
   200 정상
 
-- *클러스터* 리소스 및 데이터 복구-지난 14 일 동안 삭제 된 *클러스터* 리소스는 일시 삭제 상태 이며 복구할 수 있습니다. 이는 현재 제품 그룹에서 수동으로 수행 합니다. 복구 요청에 Microsoft 채널을 사용 합니다.
+- ***클러스터* 리소스 및 데이터 복구** 
+  
+  지난 14 일 동안 삭제 된 *클러스터* 리소스는 일시 삭제 상태 이며 복구할 수 있습니다. 이는 현재 제품 그룹에서 수동으로 수행 합니다. 복구 요청에 Microsoft 채널을 사용 합니다.
+
+
+## <a name="troubleshooting"></a>문제 해결
+- Key Vault 가용성에 대 한 동작
+  - 정상 작업에서-저장소는 짧은 기간 동안 AEK를 캐시 하 고 Key Vault로 돌아가서 정기적으로 래핑 해제 합니다.
+    
+  - 일시적인 연결 오류-저장소는 키가 짧은 시간 동안 캐시에 유지 되도록 허용 하 여 일시적인 오류 (시간 제한, 연결 오류, DNS 문제)를 처리 하 고,이를 통해 작은 문제 가용성을 극복 합니다. 쿼리 및 수집 기능은 중단 없이 계속 됩니다.
+    
+  - 라이브 사이트-약 30 분을 사용할 수 없으면 저장소 계정을 사용할 수 없게 됩니다. 데이터 손실을 방지 하기 위해 쿼리 기능을 사용할 수 없으며 Microsoft 키를 사용 하 여 몇 시간 동안 수집 데이터를 캐시 합니다. Key Vault에 대 한 액세스가 복원 되 면 쿼리를 사용할 수 있게 되며 임시 캐시 된 데이터는 데이터 저장소에 수집 CMK를 사용 하 여 암호화 됩니다.
+
+- *클러스터* 리소스를 만들고 KeyVaultProperties를 즉시 지정 하는 경우 시스템 Id가 *클러스터* 리소스에 할당 될 때까지 액세스 정책을 정의할 수 없으므로 작업이 실패할 수 있습니다.
+
+- KeyVaultProperties를 사용 하 여 기존 *클러스터* 리소스를 업데이트 하 고 ' Get ' 키 액세스 정책이 Key Vault에 없는 경우 작업이 실패 합니다.
+
+- 작업 영역에 연결 된 *클러스터* 리소스를 삭제 하려고 하면 삭제 작업은 실패 합니다.
+
+- *클러스터* 리소스를 만들 때 충돌 오류가 발생 하는 경우 – 지난 14 일 동안 *클러스터* 리소스를 삭제 하 고 일시 삭제 기간에 있을 수 있습니다. *클러스터* 리소스 이름은 일시 삭제 기간 동안 예약 된 상태로 유지 되며 해당 이름을 사용 하 여 새 클러스터를 만들 수 없습니다. 이 이름은 *클러스터* 리소스가 영구적으로 삭제 될 때 일시 삭제 기간이 지나면 릴리스됩니다.
+
+- 작업이 진행 되는 동안 *클러스터* 리소스를 업데이트 하는 경우 작업이 실패 합니다.

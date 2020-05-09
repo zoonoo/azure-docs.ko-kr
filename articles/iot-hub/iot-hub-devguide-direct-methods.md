@@ -10,12 +10,12 @@ ms.author: rezas
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 13936a55baed59d5b6257f13f69305a1ce72927a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 9fb2242f6e3f8ce78a0e5043a53ce3055819725b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730395"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583671"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 
@@ -81,13 +81,21 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지 사�
 요청에서로 `connectTimeoutInSeconds` 제공 되는 값은 연결이 끊어진 장치가 온라인 상태가 될 때까지 IoT Hub 서비스에서 대기 해야 하는 직접 메서드를 호출 하는 시간입니다. 기본값은 0입니다. 즉, 직접 메서드를 호출할 때 장치가 이미 온라인 상태 여야 합니다. 의 `connectTimeoutInSeconds` 최대값은 300 초입니다.
 
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
-`curl`을 사용하는 기본 예제는 아래를 참조하세요. 
+이 예제에서는 Azure IoT Hub에 등록 된 IoT 장치에서 직접 메서드를 호출 하는 요청을 안전 하 게 시작할 수 있습니다.
+
+시작 하려면 [Azure CLI에 대 한 Microsoft Azure IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 을 사용 하 여 SharedAccessSignature를 만듭니다. 
+
+```bash
+az iot hub generate-sas-token -n <iothubName> -du <duration>
+```
+
+그런 다음 권한 부여 헤더를 새로 생성 된 sharedaccesssignature `iothubName`로 바꾸고, `deviceId`, `methodName` 및 `payload` 매개 변수를 아래 예제 `curl` 명령의 구현과 일치 하도록 수정 합니다.  
 
 ```bash
 curl -X POST \
-  https://iothubname.azure-devices.net/twins/myfirstdevice/methods?api-version=2018-06-30 \
+  https://<iothubName>.azure-devices.net/twins/<deviceId>/methods?api-version=2018-06-30 \
   -H 'Authorization: SharedAccessSignature sr=iothubname.azure-devices.net&sig=x&se=x&skn=iothubowner' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -100,6 +108,14 @@ curl -X POST \
 }'
 ```
 
+수정 된 명령을 실행 하 여 지정 된 직접 메서드를 호출 합니다. 성공적인 요청은 HTTP 200 상태 코드를 반환 합니다.
+
+> [!NOTE]
+> 위의 예제에서는 장치에서 직접 메서드를 호출 하는 방법을 보여 줍니다.  IoT Edge 모듈에서 직접 메서드를 호출 하려는 경우 아래와 같이 url 요청을 수정 해야 합니다.
+
+```bash
+https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06
+```
 ### <a name="response"></a>응답
 
 백 엔드 앱은 다음 항목으로 구성된 응답을 받습니다.

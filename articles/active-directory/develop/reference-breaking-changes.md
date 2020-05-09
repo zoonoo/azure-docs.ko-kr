@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/13/2020
+ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a60b927f7239818b582ffcd85ddb4b7d69594482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09f27c922df4a15858236b2635b962f4bc92811b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535964"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871529"
 ---
 # <a name="whats-new-for-authentication"></a>인증의 새로운 기능?
 
@@ -37,13 +37,31 @@ ms.locfileid: "81535964"
 
 지금은 예약이 없습니다.  또는 프로덕션에 적용 되는 변경 내용에 대해서는 아래를 참조 하세요.
 
+## <a name="may-2020"></a>2020년 5월
+
+### <a name="azure-government-endpoints-are-changing"></a>Azure Government 끝점이 변경 됩니다.
+
+**개시 날짜**: 5 월 5 일 (6 월 2020 마무리) 
+
+**영향을 받는 끝점**: 모두
+
+**영향을 받는 프로토콜**: 모든 흐름
+
+2018 6 월 1 일에 Azure Government의 AAD (공식 Azure Active Directory) 기관이에서 `https://login-us.microsoftonline.com` 로 `https://login.microsoftonline.us`변경 되었습니다. 이 변경은 AAD도 서비스를 Azure Government 하는 Microsoft 365 GCC High 및 DoD에도 적용 됩니다. 미국 정부 테 넌 트 내에서 응용 프로그램을 소유 하는 경우 `.us` 끝점에서 사용자를 로그인 하도록 응용 프로그램을 업데이트 해야 합니다.  
+
+5 월 5 일에 Azure AD는 공개 끝점 (`microsoftonline.com`)을 사용 하 여 정부 사용자가 미국 정부 테 넌 트에 호스트 된 앱에 로그인 하지 못하도록 차단 하는 끝점 변경을 적용 하기 시작 합니다.  영향을 받는 앱은 오류 `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint`를 표시 하기 시작 합니다. 이 오류는 앱이 공용 클라우드 끝점에서 미국 정부 사용자에 게 로그인을 시도 하 고 있음을 나타냅니다. 앱이 공용 클라우드 테 넌 트에 있고 미국 정부 사용자를 지원 하려면 앱을 업데이트 하 여 [명시적으로 지원](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)해야 합니다. 이를 위해서는 미국 정부 클라우드에서 새 앱 등록을 만들어야 할 수 있습니다. 
+
+이 변경 내용은 미국 정부 클라우드의 사용자가 응용 프로그램에 로그인 하는 빈도에 따라 점진적 출시를 사용 하 여 수행 됩니다. 앱에 미국 정부 사용자의 로그인은 자주 적용 되지 않으며 미국 정부 사용자가 자주 사용 하는 앱은 적용이 적용 됩니다. 6 월 2020에 모든 앱에서 적용이 완료 될 것으로 간주 됩니다. 
+
+자세한 내용은 [이 마이그레이션의 Azure Government 블로그 게시물](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)을 참조 하세요. 
+
 ## <a name="march-2020"></a>2020년 3월
 
 ### <a name="user-passwords-will-be-restricted-to-256-characters"></a>사용자 암호는 256 자로 제한 됩니다.
 
 **개시 날짜**: 2020 년 3 월 13 일
 
-**영향을 받는 엔드포인트**: v1.0 및 v2.0 모두
+**영향을 받는 끝점**: 모두
 
 **영향을 받는 프로토콜**: 모든 사용자 흐름
 
@@ -84,7 +102,7 @@ HTTP 리디렉션을 통해 login.microsoftonline.com에서 응용 프로그램�
 
 9/2 주부터 POST 메서드를 사용 하는 인증 요청은 보다 엄격한 HTTP 표준을 사용 하 여 유효성이 검사 됩니다.  특히 공백과 큰따옴표 (")는 요청 양식 값에서 더 이상 제거 되지 않습니다. 이러한 변경으로 인해 기존 클라이언트는 중단 되지 않으며, Azure AD로 전송 되는 요청은 매번 안정적으로 처리 됩니다. 나중에 (위 참조) 요청 내에서 중복 된 매개 변수를 거부 하 고 BOM을 무시할 계획입니다.
 
-예제:
+예:
 
 현재는 `?e=    "f"&g=h` 와 `?e=f&g=h` 동일 하 게 `e`  ==  `f`구문 분석 됩니다.  이 변경으로 인해 이제는 `e`  ==  `    "f"` 이를 구문 분석 하 여 유효한 인수가 될 가능성이 낮으므로 요청이 실패 합니다.
 

@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/25/2020
-ms.openlocfilehash: 78ef749f36e9ffd3aae510d201b0700e5e197065
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: a2e80b9320509144456663672ac5ae03f522459a
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183299"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735388"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Azure Data Factory의 데이터 흐름 작업
 
@@ -54,14 +54,14 @@ ms.locfileid: "82183299"
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | Description | 허용되는 값 | 필수
+속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
 데이터 | 실행 되는 데이터 흐름에 대 한 참조입니다. | DataFlowReference | 예
-integrationRuntime | 데이터 흐름이 실행 되는 계산 환경입니다. 지정 하지 않으면 자동 확인 Azure 통합 런타임이 사용 됩니다. | IntegrationRuntimeReference | 아니요
+integrationRuntime | 데이터 흐름이 실행 되는 계산 환경입니다. 지정 하지 않으면 자동 확인 Azure 통합 런타임이 사용 됩니다. 지역 자동 확인의 통합 런타임만 지원 됩니다. | IntegrationRuntimeReference | 아니요
 compute. coreCount | Spark 클러스터에서 사용 되는 코어 수입니다. Azure Integration runtime 자동 확인이 사용 되는 경우에만 지정할 수 있습니다. | 8, 16, 32, 48, 80, 144, 272 | 아니요
 계산. | Spark 클러스터에서 사용 되는 계산의 유형입니다. Azure Integration runtime 자동 확인이 사용 되는 경우에만 지정할 수 있습니다. | "일반", "서는 E최적화 됨", "MemoryOptimized" | 아니요
 linkedService | SQL DW 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 저장소 계정 | LinkedServiceReference | 데이터 흐름이 SQL DW를 읽거나 쓰는 경우에만
-스테이징. folderPath | SQL DW 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 blob 저장소 계정의 폴더 경로 | 문자열 | 데이터 흐름이 SQL DW를 읽거나 쓰는 경우에만
+스테이징. folderPath | SQL DW 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 blob 저장소 계정의 폴더 경로 | String | 데이터 흐름이 SQL DW를 읽거나 쓰는 경우에만
 
 ![데이터 흐름 실행](media/data-flow/activity-data-flow.png "데이터 흐름 실행")
 
@@ -75,13 +75,13 @@ linkedService | SQL DW 원본 또는 싱크를 사용 하는 경우 PolyBase 스
 
 ### <a name="data-flow-integration-runtime"></a>데이터 흐름 통합 런타임
 
-데이터 흐름 활동 실행에 사용할 Integration Runtime를 선택 합니다. 기본적으로 Data Factory은 4 개의 작업자 코어와 함께 Azure Integration runtime 자동 확인을 사용 하 고 TTL (time to live)은 사용 하지 않습니다. 이 IR은 범용 계산 형식이 며 팩터리와 동일한 지역에서 실행 됩니다. 데이터 흐름 활동 실행에 대 한 특정 지역, 계산 유형, 코어 수 및 TTL을 정의 하는 고유한 Azure 통합 런타임을 만들 수 있습니다.
+데이터 흐름 활동 실행에 사용할 Integration Runtime를 선택 합니다. 기본적으로 Data Factory은 4 개의 작업자 코어와 함께 Azure Integration runtime 자동 확인을 사용 하 고 TTL (time to live)은 사용 하지 않습니다. 이 IR은 범용 계산 형식이 며 팩터리와 동일한 지역에서 실행 됩니다. 데이터 흐름 활동 실행에 대 한 특정 지역, 계산 유형, 코어 수 및 TTL을 정의 하는 고유한 Azure 통합 런타임을 만들 수 있습니다. 지금은 지역 자동 확인의 통합 런타임이 데이터 흐름 작업에서 지원 됩니다.
 
 파이프라인 실행의 경우 클러스터는 작업 클러스터로, 실행이 시작 되기 전에 몇 분 정도 걸릴 수 있습니다. TTL을 지정 하지 않으면 모든 파이프라인 실행에이 시작 시간이 필요 합니다. TTL을 지정 하면 웜 클러스터 풀은 마지막 실행 후에 지정 된 시간 동안 활성 상태를 유지 하므로 시작 시간이 짧아집니다. 예를 들어 TTL이 60 분이 고 한 시간에 한 번씩 데이터 흐름을 실행 하는 경우 클러스터 풀은 활성 상태로 유지 됩니다. 자세한 내용은 [Azure integration runtime](concepts-integration-runtime.md)을 참조 하세요.
 
 ![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
 
-> [!NOTE]
+> [!IMPORTANT]
 > 데이터 흐름 작업의 Integration Runtime 선택은 파이프라인의 *트리거된 실행* 에만 적용 됩니다. 데이터 흐름을 사용 하 여 파이프라인을 디버깅 하면 디버그 세션에 지정 된 클러스터에서 실행 됩니다.
 
 ### <a name="polybase"></a>PolyBase
@@ -98,9 +98,7 @@ Azure SQL Data Warehouse를 싱크 또는 원본으로 사용 하는 경우 Poly
 
 ### <a name="parameterized-data-flows"></a>매개 변수가 있는 데이터 흐름
 
-데이터 흐름이 매개 변수화 된 경우 **매개 변수** 탭에서 데이터 흐름 매개 변수의 동적 값을 설정 합니다. ADF 파이프라인 식 언어 또는 데이터 흐름 식 언어를 사용 하 여 동적 또는 리터럴 매개 변수 값을 할당할 수 있습니다. 자세한 내용은 [데이터 흐름 매개 변수](parameters-data-flow.md)를 참조 하세요. 파이프라인 속성을 식의 일부로 포함 하 여 데이터 흐름 매개 변수로 전달 하려는 경우 파이프라인 식을 선택 합니다.
-
-![데이터 흐름 매개 변수 실행 예제](media/data-flow/parameter-example.png "매개 변수 예")
+데이터 흐름이 매개 변수화 된 경우 **매개 변수** 탭에서 데이터 흐름 매개 변수의 동적 값을 설정 합니다. ADF 파이프라인 식 언어 또는 데이터 흐름 식 언어를 사용 하 여 동적 또는 리터럴 매개 변수 값을 할당할 수 있습니다. 자세한 내용은 [데이터 흐름 매개 변수](parameters-data-flow.md)를 참조 하세요.
 
 ### <a name="parameterized-compute-properties"></a>매개 변수가 있는 계산 속성
 
