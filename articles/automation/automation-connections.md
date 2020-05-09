@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: b00dd226306ed639757666cc4f826b0d7a0e5711
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
-ms.translationtype: HT
+ms.openlocfilehash: 1a50c5d3d6e068054cfc8381b220d38471a7eb6c
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82651819"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996583"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Azure Automation에서 연결 관리
 
@@ -27,9 +27,6 @@ Azure Automation 연결 자산에는 아래 나열 된 정보가 포함 되어 �
 >[!NOTE]
 >Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 자동화 계정에 대해 생성 되는 고유 키를 사용 하 여 암호화 되 고 Azure Automation 저장 됩니다. Azure Automation은 시스템 관리 Key Vault에 키를 저장 합니다. 보안 자산을 저장 하기 전에 Automation은 Key Vault에서 키를 로드 한 다음이를 사용 하 여 자산을 암호화 합니다. 
 
->[!NOTE]
->이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대한 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](automation-update-azure-modules.md)을 사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
-
 ## <a name="connection-types"></a>연결 형식
 
 Azure Automation는 다음과 같은 기본 제공 연결 형식을 사용할 수 있습니다.
@@ -44,7 +41,7 @@ Azure Automation는 다음과 같은 기본 제공 연결 형식을 사용할 �
 
 다음 표의 cmdlet은 PowerShell을 사용 하 여 Automation 연결을 만들고 관리 합니다. [Az 모듈](shared-resources/modules.md#az-modules)의 일부로 제공 됩니다.
 
-|Cmdlet|설명|
+|Cmdlet|Description|
 |---|---|
 |[AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|연결에 대 한 정보를 검색 합니다.|
 |[AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|새 연결을 만듭니다.|
@@ -55,7 +52,7 @@ Azure Automation는 다음과 같은 기본 제공 연결 형식을 사용할 �
 
 다음 표의 내부 cmdlet은 runbook 및 DSC 구성의 연결에 액세스 하는 데 사용 됩니다. 이 cmdlet은 전역 모듈과 `Orchestrator.AssetManagement.Cmdlets`함께 제공 됩니다. 자세한 내용은 [내부 cmdlet](shared-resources/modules.md#internal-cmdlets)을 참조 하세요.
 
-|내부 Cmdlet|설명|
+|내부 Cmdlet|Description|
 |---|---|
 |`Get-AutomationConnection` | 연결의 여러 필드 값을 검색 하 여 [해시](https://go.microsoft.com/fwlink/?LinkID=324844)테이블로 반환 합니다. 그런 다음 runbook 또는 DSC 구성의 적절 한 명령과 함께이 해시 테이블을 사용할 수 있습니다.|
 
@@ -66,7 +63,7 @@ Azure Automation는 다음과 같은 기본 제공 연결 형식을 사용할 �
 
 다음 표의 함수는 Python 2 runbook의 연결에 액세스 하는 데 사용 됩니다.
 
-| 함수 | 설명 |
+| 함수 | Description |
 |:---|:---|
 | `automationassets.get_automation_connection` | 연결을 검색합니다. 연결의 속성이 있는 사전을 반환합니다. |
 
