@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b0d7816dc83a7c3536e44ff2461d85ea6178ff1
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a108c952c4f1f9b8298e57c8fd94c767bb065f00
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778484"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981776"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>조건부 액세스 Azure Active Directory의 서비스 종속성은 무엇 인가요? 
 
 조건부 액세스 정책을 사용 하 여 웹 사이트 및 서비스에 대 한 액세스 요구 사항을 지정할 수 있습니다. 예를 들어 액세스 요구 사항에는 MFA (multi-factor authentication) 또는 [관리 되는 장치](require-managed-devices.md)를 요구 하는 기능이 포함 될 수 있습니다. 
 
 사이트 또는 서비스에 직접 액세스 하는 경우 일반적으로 관련 정책의 영향을 쉽게 평가할 수 있습니다. 예를 들어 SharePoint Online에 대해 MFA (multi-factor authentication)를 구성 해야 하는 정책이 있는 경우 SharePoint 웹 포털에 로그인 할 때마다 MFA가 적용 됩니다. 그러나 다른 클라우드 앱에 대 한 종속성이 있는 클라우드 앱이 있으므로 정책의 영향을 평가 하는 것은 항상 직접적인 것은 아닙니다. 예를 들어 Microsoft 팀은 SharePoint Online에서 리소스에 대 한 액세스를 제공할 수 있습니다. 따라서 현재 시나리오에서 Microsoft 팀에 액세스할 때 SharePoint MFA 정책도 적용 됩니다. 
+
+> [!TIP]
+> Office [365 (미리 보기)](concept-conditional-access-cloud-apps.md#office-365-preview) 앱을 사용 하면 office 스택에서 서비스 종속성 문제를 방지 하기 위해 모든 office 앱을 대상으로 합니다.
 
 ## <a name="policy-enforcement"></a>정책 적용 
 

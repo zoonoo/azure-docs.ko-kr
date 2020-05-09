@@ -5,12 +5,12 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f6dd455024aba184cbb16b5b9c7cfffd032dc70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 143317cd424428d7f480f4880d3aab750853890b
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811735"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592369"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Azure App Service에 대 한 TLS 상호 인증 구성
 
@@ -24,7 +24,7 @@ ms.locfileid: "80811735"
 
 ## <a name="enable-client-certificates"></a>클라이언트 인증서 사용하도록 설정
 
-클라이언트 인증서를 요구 하도록 앱을 설정 하려면 앱에 대 한 `clientCertEnabled` 설정을로 `true`설정 해야 합니다. 설정을 설정 하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행 합니다.
+클라이언트 인증서를 요구 하도록 앱을 설정 하려면 Azure Portal에서 **구성** > **일반 설정** 을 선택 하 여 들어오는 인증서 요구를 전환 하거나 앱에 대 한 `clientCertEnabled` 설정을로 `true`설정 해야 합니다. **On** 설정을 설정 하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>

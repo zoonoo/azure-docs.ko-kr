@@ -2,13 +2,13 @@
 title: 배포용 링크 템플릿
 description: Azure Resource Manager 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 322797383ee865ceb66c44793387da827aeb8879
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: f71d8cc62daf68b158bed444da1446e016194b56
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131922"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609309"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -35,7 +35,7 @@ ms.locfileid: "80131922"
   "resources": [
     {
       "name": "nestedTemplate1",
-      "apiVersion": "2017-05-10",
+      "apiVersion": "2019-10-01",
       "type": "Microsoft.Resources/deployments",
       "properties": {
         "mode": "Incremental",
@@ -64,7 +64,7 @@ ms.locfileid: "80131922"
   "resources": [
     {
       "name": "nestedTemplate1",
-      "apiVersion": "2017-05-10",
+      "apiVersion": "2019-10-01",
       "type": "Microsoft.Resources/deployments",
       "properties": {
         "mode": "Incremental",
@@ -101,7 +101,7 @@ ms.locfileid: "80131922"
 ```json
 {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2017-05-10",
+  "apiVersion": "2019-10-01",
   "name": "nestedTemplate1",
   "properties": {
   "expressionEvaluationOptions": {
@@ -124,7 +124,7 @@ ms.locfileid: "80131922"
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
+      "apiVersion": "2019-10-01",
       "name": "nestedTemplate1",
       "properties": {
         "expressionEvaluationOptions": {
@@ -208,7 +208,7 @@ ms.locfileid: "80131922"
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "dynamicSecret",
       "properties": {
         "mode": "Incremental",
@@ -292,7 +292,7 @@ ms.locfileid: "80131922"
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
+      "apiVersion": "2019-10-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -326,7 +326,7 @@ Resource Manager에서 템플릿에 액세스할 수 있어야 합니다. 한 �
 "resources": [
   {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2018-05-01",
+  "apiVersion": "2019-10-01",
   "name": "linkedTemplate",
   "properties": {
     "mode": "Incremental",
@@ -349,7 +349,7 @@ Resource Manager에서 템플릿에 액세스할 수 있어야 합니다. 한 �
 "resources": [
   {
    "type": "Microsoft.Resources/deployments",
-   "apiVersion": "2018-05-01",
+   "apiVersion": "2019-10-01",
    "name": "linkedTemplate",
    "properties": {
      "mode": "Incremental",
@@ -367,7 +367,7 @@ Resource Manager에서 템플릿에 액세스할 수 있어야 합니다. 한 �
 
 인라인 매개 변수와 매개 변수 파일에 대한 링크를 둘 다 사용할 수는 없습니다. `parametersLink` 및 `parameters`를 둘 다 지정하면 오류를 발생하며 배포가 실패합니다.
 
-## `contentVersion`
+## <a name="contentversion"></a>contentVersion
 
 또는 속성에 대 한 `contentVersion` 속성을 제공할 필요가 없습니다. `parametersLink` `templateLink` 를 제공 `contentVersion`하지 않으면 템플릿의 현재 버전이 배포 됩니다. 콘텐츠 버전 값을 제공하는 경우에는 연결된 템플릿의 버전과 일치해야 합니다. 그렇지 않으면 오류와 함께 배포에 실패합니다.
 
@@ -412,7 +412,7 @@ Resource Manager에서 템플릿에 액세스할 수 있어야 합니다. 한 �
 "resources": [
   {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2018-05-01",
+  "apiVersion": "2019-10-01",
   "name": "[concat('nestedTemplate', copyIndex())]",
   // yes, copy works here
   "copy":{
@@ -486,7 +486,7 @@ Resource Manager에서 템플릿에 액세스할 수 있어야 합니다. 한 �
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -593,7 +593,7 @@ Resource Manager에서 템플릿에 액세스할 수 있어야 합니다. 한 �
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -666,7 +666,7 @@ Resource Manager는 각 템플릿을 배포 기록에서 별도 배포로 처리
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "[concat('linkedTemplate', copyIndex())]",
       "copy": {
         "count": 3,
@@ -733,7 +733,7 @@ done
   "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2018-05-01",
+    "apiVersion": "2019-10-01",
     "name": "linkedTemplate",
     "properties": {
     "mode": "Incremental",
@@ -787,7 +787,7 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 다음 예제에서는 연결된 템플릿의 일반적인 사용 방법을 보여 줍니다.
 
-|기본 템플릿  |연결된 템플릿 |Description  |
+|기본 템플릿  |연결된 템플릿 |설명  |
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[연결 된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | 연결된 템플릿에서 문자열을 반환합니다. |
 |[공용 IP 주소가 있는 Load Balancer](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[연결 된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |연결된 템플릿에서 공용 IP 주소를 반환하고 부하 분산 장치에서 해당 값을 설정합니다. |

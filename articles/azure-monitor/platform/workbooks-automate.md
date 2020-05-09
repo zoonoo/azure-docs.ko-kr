@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: d62fa84711bd8cba57d07f3464c21344bc5c32c6
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: HT
+ms.openlocfilehash: 76ecc3ee17353ebd0bbead1bba959f85d521d0df
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731743"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982142"
 ---
 # <a name="programmatically-manage-workbooks"></a>프로그래밍 방식으로 통합 문서 관리
 
@@ -42,7 +42,7 @@ ms.locfileid: "82731743"
 2. 다음은 통합 문서 템플릿을 Azure Monitor 통합 문서 갤러리에 배포 하는 샘플 Azure Resource Manager 템플릿입니다. 대신 복사한 JSON을 붙여넣습니다 `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`. 통합 문서 템플릿을 만드는 참조 Azure Resource Manager 템플릿은 [여기](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template)에서 찾을 수 있습니다.
 
     ```json
-          {
+    {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
@@ -114,7 +114,7 @@ ms.locfileid: "82731743"
 | 리소스 그룹의 통합 문서                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
 | Azure Active Directory의 통합 문서            | `microsoft.aadiam/tenant`                          | `workbook`    |
 | 가상 컴퓨터의 VM 정보                | `microsoft.compute/virtualmachines`                | `insights`    |
-| Virtual machine scale sets의 VM 정보                   | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+| Virtual machine scale sets의 VM 정보      | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
 
 ## <a name="azure-resource-manager-template-for-deploying-a-workbook-instance"></a>통합 문서 인스턴스를 배포 하기 위한 Azure Resource Manager 템플릿
 
@@ -203,7 +203,7 @@ ms.locfileid: "82731743"
 ### <a name="workbook-types"></a>통합 문서 유형
 통합 문서 유형 새 통합 문서 인스턴스가 표시 될 통합 문서 갤러리 유형을 지정 합니다. 다음 옵션을 사용할 수 있습니다.
 
-| Type | 갤러리 위치 |
+| 유형 | 갤러리 위치 |
 | :------------- |:-------------|
 | `workbook` | Application Insights, Azure Monitor 등의 통합 문서 갤러리를 비롯 하 여 대부분의 보고서에 사용 되는 기본값입니다.  |
 | `tsg` | Application Insights 문제 해결 가이드 갤러리 |
