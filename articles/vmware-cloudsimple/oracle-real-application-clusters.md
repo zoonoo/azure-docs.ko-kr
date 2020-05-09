@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b945beaa7497e1ad19315bacf1284dd0cbc24d6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868068"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793043"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Oracle RAC 설치를 위한 CloudSimple 사설 클라우드 최적화
 
@@ -44,7 +44,7 @@ Oracle RAC 가상 컴퓨터에는 특정 기능에 사용 되는 여러 디스�
 
 다음 예에서는 아래 테이블에 정의 된 디스크를 사용 합니다.
 
-| 디스크                                      | 목적                                       | 공유 디스크 |
+| 디스크                                      | 용도                                       | 공유 디스크 |
 |-------------------------------------------|-----------------------------------------------|-------------|
 | OS                                        | 운영 체제 디스크                         | 아니요          |
 | 그리드에                                      | Oracle 그리드 소프트웨어의 설치 위치     | 아니요          |
@@ -244,7 +244,7 @@ Oracle 데이터, 로그 및 다시 실행 로그 파일에 필요한 모든 새
 VM-호스트 선호도 규칙은 VM이 원하는 호스트에서 실행 되는지 확인 합니다.  VCenter에 대 한 규칙을 정의 하 여 Oracle VM이 적절 한 리소스와 함께 호스트에서 실행 되도록 하 고 특정 라이선스 요구 사항을 충족할 수 있습니다.
 
 1. CloudSimple 포털에서 cloudowner 사용자의 [권한을 에스컬레이션](escalate-private-cloud-privileges.md) 합니다.
-2. 사설 클라우드의 [vSphere 클라이언트에 로그인](https://docs.azure.cloudsimple.com/vsphere-access) 합니다.
+2. 사설 클라우드의 vSphere 클라이언트에 로그인 합니다.
 3. VSphere 클라이언트에서 Oracle Vm이 배포 되는 클러스터를 선택 하 고 **구성**을 클릭 합니다.
 4. 구성 아래에서 **v m/호스트 그룹**을 선택 합니다.
 5. 클릭 **+** 합니다.

@@ -4,18 +4,22 @@ description: Azure CLI를 사용하여 블록체인 컨소시엄을 위한 Azure
 ms.date: 03/30/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
-ms.openlocfilehash: 322b1884726b6dfe322560032ed1b8a98c600154
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 1561f485917ecbb64d51ffbe045ab4120fbf58ad
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529631"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82116828"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Blockchain Service 블록체인 멤버 만들기
 
 이 빠른 시작에서는 Azure CLI를 사용하여 Azure Blockchain Service에 새 블록체인 멤버 및 컨소시엄을 배포합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+없음
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 

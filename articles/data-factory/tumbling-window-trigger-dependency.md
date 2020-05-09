@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.openlocfilehash: bbcbb19530aebe777a91cbe4c5487e1b50ace2e5
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559780"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82870044"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>연속 창 트리거 종속성 만들기
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -90,7 +90,10 @@ ms.locfileid: "82559780"
 
 ## <a name="tumbling-window-self-dependency-properties"></a>연속 창 자체 종속성 속성
 
-이전 창이 성공적으로 완료 될 때까지 트리거가 다음 창으로 이동 하지 않아야 하는 시나리오에서는 자체 종속성을 작성 합니다. 이전 hr 내에서의 이전 실행의 성공 여부에 따라 달라 지는 자체 종속성 트리거는 다음과 같은 속성을 갖습니다.
+이전 창이 성공적으로 완료 될 때까지 트리거가 다음 창으로 이동 하지 않아야 하는 시나리오에서는 자체 종속성을 작성 합니다. 이전 시간 내에 이전에 실행 된 이전 실행의 성공 여부에 따라 달라 지는 자체 종속성 트리거는 다음 코드에 표시 된 속성을 갖습니다.
+
+> [!NOTE]
+> 트리거된 파이프라인이 이전에 트리거된 창에서 파이프라인의 출력을 사용 하는 경우에는 연속 창 트리거 자체 종속성만 사용 하는 것이 좋습니다. 병렬 트리거 실행을 제한 하려면 최대 트리거 동시성을 설정 합니다.
 
 ```json
 {

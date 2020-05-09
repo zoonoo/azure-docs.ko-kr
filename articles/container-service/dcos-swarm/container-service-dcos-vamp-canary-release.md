@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dfdf6e1f8edfb4dafaf93e62090ed51878f9b2aa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77189097"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734827"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(사용되지 않음) Azure Container Service DC/OS 클러스터에서 Vamp를 사용하여 마이크로서비스 카나리아 릴리스
 
@@ -129,7 +129,7 @@ Vamp가 실행 중이니, 청사진의 서비스를 배포합니다.
 
 [Vamp 청사진](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments)은 가장 간단한 형태로 엔드포인트(게이트웨이), 클러스터 및 배포할 서비스를 설명합니다. Vamp는 클러스터를 사용하여 동일한 서비스의 여러 변형을 카나리아 릴리스 또는 A/B 테스트를 위한 논리 그룹으로 그룹화합니다.  
 
-이 시나리오에서는 [**sava**](https://github.com/magneticio/sava)라고 하는 샘플 모놀리식 애플리케이션을 사용하며 버전은 1.0입니다. 모놀리식은 magneticio/sava:1.0.0 아래의 Docker 허브에 있는 Docker 컨테이너에 패키지됩니다. 앱은 보통 포트 8080에서 실행되지만 이 예에서는 포트 9050 아래에 노출하려 합니다. 간단한 청사진을 사용하여 Vamp를 통해 앱을 배포합니다.
+이 시나리오에서는 [**sava**](https://github.com/magneticio/sava-product)라고 하는 샘플 모놀리식 애플리케이션을 사용하며 버전은 1.0입니다. 모놀리식은 magneticio/sava:1.0.0 아래의 Docker 허브에 있는 Docker 컨테이너에 패키지됩니다. 앱은 보통 포트 8080에서 실행되지만 이 예에서는 포트 9050 아래에 노출하려 합니다. 간단한 청사진을 사용하여 Vamp를 통해 앱을 배포합니다.
 
 1. **배포**로 이동합니다.
 
