@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
-ms.openlocfilehash: 4961e5a63e5bc1933cf19b1f291b521d89cbda0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8f32f574a4ff7be0cc3cc7915b8203b53824c63
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76279148"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792329"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Azure 스프링 클라우드 재해 복구
 
@@ -32,3 +32,32 @@ Azure 스프링 클라우드 응용 프로그램은 특정 지역에서 실행 �
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) 는 DNS 기반 트래픽 부하 분산을 제공 하 고 여러 지역에 걸쳐 네트워크 트래픽을 분산할 수 있습니다.  Azure Traffic Manager을 사용 하 여 고객에 게 가장 가까운 Azure 스프링 클라우드 서비스 인스턴스로 고객을 안내 합니다.  최상의 성능 및 중복성을 위해 azure 스프링 클라우드 서비스로 보내기 전에 Azure Traffic Manager를 통해 모든 응용 프로그램 트래픽을 전달 합니다.
 
 Azure 스프링 클라우드 응용 프로그램이 여러 지역에 있는 경우 Azure Traffic Manager를 사용 하 여 각 지역의 응용 프로그램에 대 한 트래픽 흐름을 제어할 수 있습니다.  서비스 IP를 사용 하 여 각 서비스에 대 한 Azure Traffic Manager 끝점을 정의 합니다. 고객은 Azure 스프링 클라우드 서비스를 가리키는 Azure Traffic Manager DNS 이름에 연결 해야 합니다.  Azure Traffic Manager 정의 된 끝점에서 트래픽 부하를 분산 합니다.  재해가 발생 한 데이터 센터에서 Azure Traffic Manager는 해당 지역에서 해당 쌍으로 트래픽을 전달 하 여 서비스 연속성을 보장 합니다.
+
+## <a name="create-azure-traffic-manager-for-azure-spring-cloud"></a>Azure 스프링 클라우드 용 Azure Traffic Manager 만들기
+
+1. 서로 다른 두 지역에 Azure 스프링 클라우드를 만듭니다.
+두 개의 서로 다른 지역 (미국 동부 및 유럽 서부)에 배포 된 두 개의 Azure 스프링 클라우드 서비스 인스턴스가 필요 합니다. Azure Portal를 사용 하 여 기존 Azure 스프링 클라우드 응용 프로그램을 시작 하 여 두 서비스 인스턴스를 만듭니다. 각는 트래픽에 대 한 기본 및 장애 조치 (failover) 끝점 역할을 합니다. 
+
+**두 서비스 인스턴스 정보:**
+
+| 서비스 이름 | 위치 | 애플리케이션 |
+|--|--|--|
+| 서비스-샘플-a | 미국 동부 | 게이트웨이/인증-서비스/계정-서비스 |
+| 서비스-샘플-b | 서유럽 | 게이트웨이/인증-서비스/계정-서비스 |
+
+2. 서비스에 대 한 사용자 지정 도메인 설정 사용자 지정 도메인 [문서](spring-cloud-tutorial-custom-domain.md) 를 참조 하 여 이러한 두 개의 기존 서비스 인스턴스에 대 한 사용자 지정 도메인을 설정 합니다. 성공적으로 설정 되 면 두 서비스 인스턴스가 사용자 지정 도메인에 바인딩합니다. bcdr-test.contoso.com
+
+3. Traffic manager 및 두 개의 끝점 만들기: [Azure Portal를 사용 하 여 Traffic Manager 프로필을 만듭니다](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
+
+Traffic manager 프로필은 다음과 같습니다.
+* Traffic Manager DNS 이름:http://asc-bcdr.trafficmanager.net
+* 끝점 프로필: 
+
+| 프로필 | Type | 대상 | 우선 순위 | 사용자 지정 헤더 설정 |
+|--|--|--|--|--|
+| 끝점 프로필 | 외부 끝점 | service-sample-a.asc-test.net | 1 | 호스트: bcdr-test.contoso.com |
+| 끝점 B 프로필 | 외부 끝점 | service-sample-b.asc-test.net | 2 | 호스트: bcdr-test.contoso.com |
+
+4. DNS 영역: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net에서 CNAME 레코드를 만듭니다. 
+
+5. 이제 환경이 완전 하 게 설정 됩니다. 고객은 다음을 통해 앱에 액세스할 수 있어야 합니다. bcdr-test.contoso.com

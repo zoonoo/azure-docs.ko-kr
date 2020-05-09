@@ -7,12 +7,12 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: 929ab4109eb8d0e90b6c561a2135c0b7dd4205bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd18fd484ac456f0c38cd6d9b73a2395a08ad5d0
+ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77672262"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82883110"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Microsoft Azure 진단 확장 설치 및 구성 (WAD)
 Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 수집 하 고 Azure virtual machines 및 기타 계산 리소스의 작업 부하를 수집 하는 Azure Monitor의 에이전트입니다. 이 문서에서는 Windows 진단 확장 설치 및 구성에 대 한 자세한 내용 및 Azure Storage 계정에 데이터가 저장 되는 방법에 대 한 설명을 제공 합니다.
@@ -35,7 +35,7 @@ Azure Portal에서 개별 가상 컴퓨터에 진단 확장을 설치 하 고 �
 
 진단 확장을 사용 하도록 설정한 후 기본 구성을 수정할 수 있습니다. 다음 표에서는 다양 한 탭에서 수정할 수 있는 옵션을 설명 합니다. 일부 옵션에는 보다 자세한 구성을 지정할 수 있는 **사용자 지정** 명령이 있습니다. 다른 설정에 대 한 자세한 내용은 [Windows 진단 확장 스키마](diagnostics-extension-schema-windows.md) 를 참조 하세요.
 
-| 탭 | Description |
+| 탭 | 설명 |
 |:---|:---|
 | 개요 | 현재 구성을 다른 탭에 대 한 링크와 함께 표시 합니다. |
 | 성능 카운터 | 수집할 성능 카운터와 각에 대 한 샘플링 주기를 선택 합니다.  |
@@ -124,28 +124,28 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `
     "PublicConfig": {
         "WadCfg": {
             "DiagnosticMonitorConfiguration": {
-                "overallQuotaInMB": 10000
-            },
-            "DiagnosticInfrastructureLogs": {
-                "scheduledTransferLogLevelFilter": "Error"
-            },
-            "PerformanceCounters": {
-                "scheduledTransferPeriod": "PT1M",
-                "PerformanceCounterConfiguration": [
-                    {
-                        "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                        "sampleRate": "PT3M",
-                        "unit": "percent"
-                    }
-                ]
-            },
-            "WindowsEventLog": {
-                "scheduledTransferPeriod": "PT1M",
-                    "DataSource": [
-                    {
-                        "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
-                    }
-                ]
+                "overallQuotaInMB": 10000,
+                "DiagnosticInfrastructureLogs": {
+                    "scheduledTransferLogLevelFilter": "Error"
+                },
+                "PerformanceCounters": {
+                    "scheduledTransferPeriod": "PT1M",
+                    "PerformanceCounterConfiguration": [
+                        {
+                            "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                            "sampleRate": "PT3M",
+                            "unit": "percent"
+                        }
+                    ]
+                },
+                "WindowsEventLog": {
+                    "scheduledTransferPeriod": "PT1M",
+                        "DataSource": [
+                        {
+                            "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
+                        }
+                    ]
+                }
             }
         },
         "StorageAccount": "mystorageaccount",
@@ -165,7 +165,7 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `
 다음 표에서는 진단 확장에서 수집 된 데이터의 다양 한 유형과 테이블이 나 blob으로 저장 되었는지 여부를 보여 줍니다. 공용 구성의 [Storagetype 설정](diagnostics-extension-schema-windows.md#publicconfig-element) 에 따라 테이블에 저장 된 데이터를 blob에 저장할 수도 있습니다.
 
 
-| 데이터 | 스토리지 유형 | Description |
+| 데이터 | 스토리지 유형 | 설명 |
 |:---|:---|:---|
 | WADDiagnosticInfrastructureLogsTable | 테이블 | 진단 모니터 및 구성 변경 |
 | WADDirectoriesTable | 테이블 | 진단 모니터가 모니터링 하는 디렉터리입니다.  IIS 로그, IIS 실패한 요청 로그 및 사용자 지정 디렉터리를 포함합니다.  Blob 로그 파일의 위치는 Container 필드에 지정되고 Blob의 이름은 RelativePath 필드에 있습니다.  AbsolutePath 필드는 Azure 가상 머신에 존재했던 파일의 이름과 위치를 나타냅니다. |
@@ -177,7 +177,7 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `
 | 재구성 | Blob | 진단 모니터에 의해 모니터링 되는 디렉터리 구성을 기반으로 하는 사용자 지정 컨테이너입니다.  이 Blob 컨테이너의 이름은 WADDirectoriesTable에 지정됩니다. |
 
 ## <a name="tools-to-view-diagnostic-data"></a>진단 데이터를 볼 도구
-여러 도구를 사용하여 스토리지로 전송된 후 데이터를 볼 수 있습니다. 다음은 그 예입니다.
+여러 도구를 사용하여 스토리지로 전송된 후 데이터를 볼 수 있습니다. 예를 들어:
 
 * Visual Studio의 서버 탐색기 - Microsoft Visual Studio용 Azure 도구를 설치한 경우 서버 탐색기에서 Azure Storage 노드를 사용하여 Azure Storage 계정에서 읽기 전용 Blob 및 테이블 데이터를 볼 수 있습니다. 로컬 스토리지 에뮬레이터 계정 및 Azure용으로 만든 스토리지 계정에서 데이터를 표시할 수 있습니다. 자세한 내용은 [서버 탐색기로 Storage 리소스 탐색 및 관리](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)를 참조하세요.
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, OSX 및 Linux에서 Azure Storage 데이터로 손쉽게 작업할 수 있도록 해주는 독립 실행형 앱입니다.

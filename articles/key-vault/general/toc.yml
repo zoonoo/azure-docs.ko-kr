@@ -96,6 +96,10 @@
           href: soft-delete-powershell.md
     - name: Key Vault 이동
       items:
+        - name: 다른 리소스 그룹으로 Key Vault 이동
+          href: keyvault-moveresourcegroup.md
+        - name: 다른 구독으로 Key Vault 이동
+          href: keyvault-move-subscription.md
         - name: 다른 영역으로 Key Vault 이동
           href: keyvault-moveregion.md
     - name: 문제 해결
