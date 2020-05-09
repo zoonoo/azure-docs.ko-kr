@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 8d15c217f2e65877ea3baa18f6ba847492bc7fa1
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: e6ff33b6a23cb85649a8811a8bef27ab455ab9e6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509825"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980901"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Azure 메트릭 탐색기의 고급 기능
 
@@ -137,9 +137,6 @@ Y축 범위를 제어하려면 “...” 차트 메뉴를 사용하고 **차트 
 차트 선의 색을 변경 하려면 차트에 해당 하는 범례의 색이 지정 된 막대를 클릭 합니다. 색 선택 대화 상자가 열립니다. 색 선택기를 사용 하 여 선의 색을 구성 합니다.
 
 차트 색이 구성 된 후에는 차트를 대시보드에 고정할 때 해당 색이 그대로 유지 됩니다. 다음 섹션에서는 차트를 고정 하는 방법을 보여 줍니다.
-
-> [!NOTE]
-> 릴리스 및 게시 일정의 제약 조건으로 인해 차트 선의 색을 일시적으로 변경 하려면 특수 매개 변수를 전달 해야 하나요? 기능을 Azure Portal [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true)시작할 때 **colorpicker = true** 를 지정 해야 합니다. 이 제한 사항은 곧 삭제될 예정입니다. 
 
 ![메트릭 이미지](./media/metrics-charts/018.png)
 

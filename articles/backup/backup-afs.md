@@ -3,12 +3,12 @@ title: Azure Portal의 Azure 파일 공유 백업
 description: Azure Portal를 사용 하 여 Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: da2c7fa4cc5c3b7b948604a6f6d3999671cb3697
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a77f7fd0ec21eae60a7313a9ffa889fbef4372c6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101342"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978031"
 ---
 # <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에서 Azure 파일 공유 백업
 
@@ -50,35 +50,70 @@ ms.locfileid: "82101342"
 
 ## <a name="discover-file-shares-and-configure-backup"></a>파일 공유 검색 및 백업 구성
 
-1. [Azure Portal](https://portal.azure.com/)에서 파일 공유를 백업 하는 데 사용할 Recovery Services 자격 증명 모음을 엽니다.
+1. [Azure Portal](https://portal.azure.com/)에서 파일 공유에 대 한 백업을 구성 하는 데 사용할 Recovery Services 자격 증명 모음을 엽니다.
 
-1. **Recovery Services 자격 증명 모음** 대시보드에서 **+ 백업**을 선택 합니다.
+1. **Recovery Services 자격 증명 모음** 창의 맨 위에 있는 메뉴에서 **+ 백업을** 선택 합니다.
 
    ![Recovery Services 자격 증명 모음](./media/backup-afs/recovery-services-vault.png)
 
-    a. **백업 목표**에서 **워크 로드가 실행 되는 위치** 를 **Azure**로 설정 합니다.
+    1. **백업 목표** 창에서 드롭다운 목록에서 **azure** 옵션을 선택 하 여 **워크 로드가 실행 되는 위치** 를 **azure** 로 설정 합니다.
 
-    ![Azure 파일 공유를 백업 목표로 선택](./media/backup-afs/backup-goal.png)
+          ![작업으로 Azure 선택](./media/backup-afs/backup-goal.png)
 
-    b.  **백업할 항목**에서 드롭다운 목록에서 **Azure 파일 공유** 를 선택 합니다.
+    2. **백업할 항목**에서 드롭다운 목록에서 **Azure 파일 공유** 를 선택 합니다.
 
-    다.  **백업** 을 선택 하 여 자격 증명 모음에 Azure 파일 공유 확장을 등록 합니다.
+          ![Azure 파일 공유 선택](./media/backup-afs/select-azure-file-share.png)
 
-    ![백업을 선택 하 여 Azure 파일 공유를 자격 증명 모음과 연결 합니다.](./media/backup-afs/register-extension.png)
+    3. **백업** 을 선택 하 여 자격 증명 모음에 Azure 파일 공유 확장을 등록 합니다.
 
-1. **백업**을 선택한 후 **백업** 창이 열리고 검색 된 지원 저장소 계정 목록에서 저장소 계정을 선택 하 라는 메시지가 표시 됩니다. 이 자격 증명 모음과 연결 되거나 자격 증명 모음과 동일한 지역에 있지만 아직 Recovery Services 자격 증명 모음에 연결 되지 않습니다.
+          ![백업을 선택 하 여 Azure 파일 공유를 자격 증명 모음과 연결 합니다.](./media/backup-afs/register-extension.png)
 
-1. 검색 된 저장소 계정 목록에서 계정을 선택 하 고 **확인**을 선택 합니다. Azure는 저장소 계정에서 백업할 수 있는 파일 공유를 검색 합니다. 최근에 파일 공유를 추가 하 고 목록에 표시 되지 않는 경우 파일 공유가 나타날 때까지 잠시 기다립니다.
+1. **백업**을 선택한 후 **백업** 창이 열립니다. 보호 하려는 파일 공유를 호스트 하는 저장소 계정을 선택 하려면 **Storage 계정** 텍스트 상자 아래에서 링크 **선택** 텍스트를 클릭 합니다.
 
-    ![파일 공유 검색](./media/backup-afs/discovering-file-shares.png)
+   ![선택 링크 선택](./media/backup-afs/choose-select-link.png)
 
-1. **파일 공유** 목록에서 백업 하려는 파일 공유를 하나 이상 선택 합니다. **확인**을 선택합니다.
+1. **저장소 계정 선택 창이** 오른쪽에 열리고 검색 된 지원 저장소 계정 집합이 나열 됩니다. 이 자격 증명 모음과 연결 되거나 자격 증명 모음과 동일한 지역에 있지만 아직 Recovery Services 자격 증명 모음에 연결 되지 않습니다.
+
+1. 검색 된 저장소 계정 목록에서 계정을 선택 하 고 **확인**을 선택 합니다.
+
+   ![검색 된 저장소 계정에서 선택](./media/backup-afs/select-discovered-storage-account.png)
+
+1. 다음 단계는 백업 하려는 파일 공유를 선택 하는 것입니다. **파일 공유 To Backup** 섹션에서 **추가** 단추를 클릭 합니다.
+
+   ![백업할 파일 공유를 선택 합니다.](./media/backup-afs/select-file-shares-to-back-up.png)
+
+1. **파일 공유 컨텍스트 선택** 창이 오른쪽에 열립니다. Azure는 저장소 계정에서 백업할 수 있는 파일 공유를 검색 합니다. 최근에 파일 공유를 추가 하 고 목록에 표시 되지 않는 경우 파일 공유가 나타날 때까지 잠시 기다립니다.
+
+1. **파일 공유 선택** 목록에서 백업 하려는 파일 공유를 하나 이상 선택 합니다. **확인**을 선택합니다.
 
    ![파일 공유 선택](./media/backup-afs/select-file-shares.png)
 
-1. 파일 공유를 선택한 후 **백업 메뉴는** **백업 정책**으로 전환 됩니다. 이 메뉴에서 기존 백업 정책을 선택 하거나 새로 만듭니다. 그런 다음 **백업 사용**을 선택 합니다.
+1. 파일 공유에 대 한 백업 정책을 선택 하려면 다음 세 가지 옵션을 사용할 수 있습니다.
 
-    ![백업 정책 선택](./media/backup-afs/select-backup-policy.png)
+   * 기본 정책을 선택 합니다.<br>
+   이 옵션을 사용 하면 30 일 동안 보존 되는 매일 백업을 사용 하도록 설정할 수 있습니다. 자격 증명 모음에 기존 백업 정책이 없으면 기본 정책 설정을 사용 하 여 백업 창이 열립니다. 기본 설정을 선택 하려면 직접 **백업 사용**을 클릭 하면 됩니다.
+
+   * 새 정책 만들기 <br>
+
+      1. 파일 공유에 대 한 새 백업 정책을 만들려면 **백업 정책** 섹션의 드롭다운 목록 아래에 있는 링크 텍스트를 클릭 합니다.<br>
+
+         ![새 정책 만들기](./media/backup-afs/create-new-policy.png)
+
+      1. **백업 정책** 컨텍스트 창이 오른쪽에 열립니다. 텍스트 상자에 정책 이름을 지정 하 고 요구 사항에 따라 보존 기간을 선택 합니다. 매일 보존 옵션만 기본적으로 사용 하도록 설정 되어 있습니다. 매주, 매월 또는 매년 보존 하려면 해당 확인란을 선택 하 고 원하는 보존 값을 제공 합니다.
+
+      1. 보존 값과 유효한 정책 이름을 지정한 후 확인을 클릭 합니다.<br>
+
+         ![정책 이름 및 보존 값 지정](./media/backup-afs/policy-name.png)
+
+   * 기존 백업 정책 중 하나를 선택 합니다. <br>
+
+   보호를 구성 하기 위한 기존 백업 정책 중 하나를 선택 하려면 **백업 정책** 드롭다운 목록에서 원하는 정책을 선택 합니다.<br>
+
+   ![기존 정책 선택](./media/backup-afs/choose-existing-policy.png)
+
+1. **백업 사용** 을 클릭 하 여 파일 공유 보호를 시작 합니다.
+
+   ![백업 사용 선택](./media/backup-afs/enable-backup.png)
 
 백업 정책을 설정 하면 예약 된 시간에 파일 공유의 스냅숏이 생성 됩니다. 또한 복구 지점은 선택한 기간 동안 보존 됩니다.
 

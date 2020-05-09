@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 9e499d609a3f78dc5f422b9ed90df09be30f2e7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e55e6d4eb4f52b8a4b64db89691cf087a30ecb73
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79080414"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612319"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>클라우드의 자동화된 기계 학습을 사용하여 모델 학습
 
@@ -30,7 +30,9 @@ Azure Machine Learning Compute (AmlCompute)와 같은 추가 계산 대상을 �
 
 ## <a name="how-does-remote-differ-from-local"></a>원격과 로컬의 차이
 
-"[자동화 된 기계 학습으로 분류 모델 학습](tutorial-auto-train-models.md)" 자습서에서는 로컬 컴퓨터를 사용 하 여 자동화 된 ML을 사용 하 여 모델을 학습 하는 방법을 배웁니다. 로컬로 교육하는 워크플로는 원격 대상에도 적용됩니다. 그러나 원격 컴퓨팅을 사용하면 자동화된 ML 실험 반복이 비동기적으로 실행됩니다. 이 기능을 사용하면 특정 반복을 취소하거나, 실행 상태를 확인하거나, Jupyter 노트의 다른 셀에서 계속 작업할 수 있습니다. 원격으로 학습 하려면 AmlCompute와 같은 원격 계산 대상을 먼저 만듭니다. 그런 다음, 원격 리소스를 구성하고 코드를 여기에 제출합니다.
+원격 계산 대상을 사용 하는 경우 더 많은 기능을 사용할 수 있습니다.  자세한 내용은 [로컬 및 원격 계산 대상](concept-automated-ml.md#local-remote)을 참조 하세요.
+
+"[자동화 된 기계 학습으로 분류 모델 학습](tutorial-auto-train-models.md)" 자습서에서는 로컬 컴퓨터를 사용 하 여 자동화 된 ML을 사용 하 여 모델을 학습 하는 방법을 배웁니다. 로컬로 교육하는 워크플로는 원격 대상에도 적용됩니다. 원격으로 학습 하려면 AmlCompute와 같은 원격 계산 대상을 먼저 만듭니다. 그런 다음, 원격 리소스를 구성하고 코드를 여기에 제출합니다.
 
 이 문서에서는 원격 AmlCompute 대상에서 자동화 된 ML 실험을 실행 하는 데 필요한 추가 단계를 보여 줍니다. 이 자습서의 작업 영역 개체 `ws`는 여기 나오는 코드 전체에서 사용됩니다.
 
@@ -218,7 +220,7 @@ remote_run.get_portal_url()
 
 작업 영역에서 동일한 정보를 사용할 수 있습니다.  이러한 결과에 대해 자세히 알아보려면 자동화 된 [machine learning 결과 이해](how-to-understand-automated-ml.md)를 참조 하세요.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 다음 [노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb) 은이 문서의 개념을 보여 줍니다.
 

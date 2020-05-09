@@ -7,12 +7,13 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 265e15713f8159e370ef22a197ffe931200a88f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: affdbfba125b7e9b3f3fe250a56af30e9efe816e
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758990"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611009"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>REST 프록시를 사용 하 여 Azure HDInsight에서 Apache Kafka 클러스터와 상호 작용
 
@@ -38,7 +39,7 @@ Kafka REST 프록시에 대 한 액세스는 Azure Active Directory 보안 그�
 
 REST 프록시 끝점 요청의 경우 클라이언트 응용 프로그램은 OAuth 토큰을 가져와야 합니다. 토큰은 보안 그룹 구성원 자격을 확인 하는 데 사용 됩니다. OAuth 토큰을 가져오는 방법을 보여 주는 아래 [클라이언트 응용 프로그램 샘플](#client-application-sample) 찾기 클라이언트 응용 프로그램은 HTTP 요청의 OAuth 토큰을 REST 프록시로 전달 합니다.
 
-> [!NOTE]  
+> [!NOTE]
 > AAD 보안 그룹에 대해 자세히 알아보려면 [Azure Active Directory 그룹을 사용 하 여 앱 및 리소스 액세스 관리](../../active-directory/fundamentals/active-directory-manage-groups.md)를 참조 하세요. OAuth 토큰의 작동 방식에 대 한 자세한 내용은 [oauth 2.0 코드 부여 흐름을 사용 하 여 Azure Active Directory 웹 응용 프로그램에 대 한 액세스 권한 부여](../../active-directory/develop/v1-protocols-oauth-code.md)를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -77,7 +78,7 @@ REST 프록시 끝점 요청의 경우 클라이언트 응용 프로그램은 OA
 1. 을 실행 `pip3 install msal`하 여 필요한 python 종속성을 설치 합니다.
 1. **이러한 속성을 구성** 하는 코드 섹션을 수정 하 고 사용자 환경에 대 한 다음 속성을 업데이트 합니다.
 
-    |속성 |Description |
+    |속성 |설명 |
     |---|---|
     |테넌트 ID|구독이 인 Azure 테 넌 트.|
     |클라이언트 ID|보안 그룹에 등록 한 응용 프로그램의 ID입니다.|

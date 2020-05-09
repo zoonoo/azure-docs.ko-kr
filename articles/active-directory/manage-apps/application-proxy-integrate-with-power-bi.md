@@ -14,24 +14,24 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.custom: it-pro
+ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc96c94152b39cc70cfc4553690faaa5b9cb8d20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a6fab618280f1383e3840c67d85136edc095b9a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77111580"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610091"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 Power BI Mobile에 대한 원격 액세스 설정
 
-이 문서에서는 Azure AD 응용 프로그램 프록시를 사용 하 여 Power BI mobile 앱이 Power BI Report Server (PBIRS) 및 SQL Server Reporting Services (SSRS) 2016 이상에 연결 하도록 설정 하는 방법을 설명 합니다. 이러한 통합을 통해 회사 네트워크를 벗어난 사용자는 Power BI 모바일 앱에서 해당 Power BI 보고서에 액세스 하 고 Azure AD 인증으로 보호할 수 있습니다. 이 보호에는 조건부 액세스 및 multi-factor authentication과 같은 [보안 이점이](application-proxy-security.md#security-benefits) 포함 됩니다.  
+이 문서에서는 Azure AD 응용 프로그램 프록시를 사용 하 여 Power BI mobile 앱이 Power BI Report Server (PBIRS) 및 SQL Server Reporting Services (SSRS) 2016 이상에 연결 하도록 설정 하는 방법을 설명 합니다. 이러한 통합을 통해 회사 네트워크를 벗어난 사용자는 Power BI 모바일 앱에서 해당 Power BI 보고서에 액세스 하 고 Azure AD 인증으로 보호할 수 있습니다. 이 보호에는 조건부 액세스 및 multi-factor authentication과 같은 [보안 이점이](application-proxy-security.md#security-benefits) 포함 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 이미 보고서 서비스를 배포 하 고 [응용 프로그램 프록시를 사용 하도록 설정](application-proxy-add-on-premises-application.md)했다고 가정 합니다.
 
-- 응용 프로그램 프록시를 사용 하도록 설정 하려면 Windows 서버에 커넥터를 설치 하 고 커넥터에서 Azure AD 서비스와 통신할 수 있도록 [필수 구성 요소](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) 를 완료 해야 합니다.  
+- 응용 프로그램 프록시를 사용 하도록 설정 하려면 Windows 서버에 커넥터를 설치 하 고 커넥터에서 Azure AD 서비스와 통신할 수 있도록 [필수 구성 요소](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) 를 완료 해야 합니다.
 - Power BI를 게시 하는 경우 동일한 내부 및 외부 도메인을 사용 하는 것이 좋습니다. 사용자 지정 도메인에 대해 자세히 알아보려면 [응용 프로그램 프록시에서 사용자 지정 도메인 작업](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain)을 참조 하세요.
 - 이 통합은 **Power BI Mobile iOS 및 Android** 응용 프로그램에 사용할 수 있습니다.
 
@@ -68,7 +68,7 @@ Azure AD 응용 프로그램 프록시 서비스에서 사용자 id를 Reporting
 KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반복 합니다.
 
 1. 도메인 관리자로 도메인 컨트롤러에 로그인 하 고 **Active Directory 사용자 및 컴퓨터**를 엽니다.
-2. 커넥터가 실행 중인 컴퓨터를 찾습니다.  
+2. 커넥터가 실행 중인 컴퓨터를 찾습니다.
 3. 컴퓨터를 두 번 클릭 하 고 **위임** 탭을 선택 합니다.
 4. 위임 설정을 **지정 된 서비스에 대 한 위임용 으로만이 컴퓨터 트러스트**로 설정 합니다. 그런 다음 **모든 인증 프로토콜 사용**을 선택합니다.
 5. **추가**를 선택 하 고 **사용자 또는 컴퓨터**를 선택 합니다.
@@ -95,7 +95,7 @@ KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반�
 
    b. **Single Sign-on 모드**의 경우 **Windows 통합 인증**을 선택 합니다.
 
-   c. **내부 응용 프로그램 SPN** 을 이전에 설정한 값으로 설정 합니다.  
+   c. **내부 응용 프로그램 SPN** 을 이전에 설정한 값으로 설정 합니다.
 
    d. 커넥터에 대한 **위임된 로그인 ID**를 선택하여 사용자를 대신하여 사용합니다. 자세한 내용은 [다른 온-프레미스 및 클라우드 id로 작업](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)을 참조 하세요.
 
@@ -105,7 +105,7 @@ KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반�
 
 ## <a name="step-3-modify-the-reply-uris-for-the-application"></a>3 단계: 응용 프로그램에 대 한 회신 URI 수정
 
-Power BI 모바일 앱에서 연결 하 여 보고서 서비스에 액세스 하려면 2 단계에서 자동으로 만들어진 응용 프로그램 등록을 구성 해야 합니다. 
+Power BI 모바일 앱에서 연결 하 여 보고서 서비스에 액세스 하려면 2 단계에서 자동으로 만들어진 응용 프로그램 등록을 구성 해야 합니다.
 
 1. Azure Active Directory **개요** 페이지에서 **앱 등록**를 선택 합니다.
 2. **모든 응용 프로그램** 탭 아래에서 2 단계에서 만든 응용 프로그램을 검색 합니다.
@@ -117,11 +117,11 @@ Power BI 모바일 앱에서 연결 하 여 보고서 서비스에 액세스 하
    - `msauth://code/mspbi-adalms%3a%2f%2fcom.microsoft.powerbimobilems`
    - `mspbi-adal://com.microsoft.powerbimobile`
    - `mspbi-adalms://com.microsoft.powerbimobilems`
-   
+
    **Android**Power BI Mobile에 대 한 앱을 구성 하는 경우 공용 클라이언트 형식 (모바일 & 데스크톱)의 다음 리디렉션 uri를 추가 합니다.
    - `urn:ietf:wg:oauth:2.0:oob`
    - `mspbi-adal://com.microsoft.powerbimobile`
-   - `msauth://com.microsoft.powerbim/g79ekQEgXBL5foHfTlO2TPawrbI%3D` 
+   - `msauth://com.microsoft.powerbim/g79ekQEgXBL5foHfTlO2TPawrbI%3D`
    - `msauth://com.microsoft.powerbim/izba1HXNWrSmQ7ZvMXgqeZPtNEU%3D`
 
    > [!IMPORTANT]
@@ -144,7 +144,7 @@ Microsoft Intune를 사용 하 여 회사의 직원이 사용 하는 클라이�
 1. **Azure Active Directory** 한 다음 **앱 등록**으로 이동 합니다.
 2. Native client 응용 프로그램을 등록할 때 3 단계에서 구성 된 응용 프로그램을 선택 합니다.
 3. 응용 프로그램 페이지에서 **API 권한**을 선택 합니다.
-4. **권한 추가를**클릭 합니다. 
+4. **권한 추가를**클릭 합니다.
 5. **내 조직에서 사용 하는 api**에서 "Microsoft 모바일 응용 프로그램 관리"를 검색 하 고 선택 합니다.
 6. 응용 프로그램에 **DeviceManagementManagedApps** 사용 권한 추가
 7. **관리자 동의 부여** 를 클릭 하 여 응용 프로그램에 대 한 사용 권한을 부여 합니다.

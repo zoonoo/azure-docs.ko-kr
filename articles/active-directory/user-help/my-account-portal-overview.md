@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 01/15/2020
+ms.date: 04/20/2020
 ms.author: curtand
-ms.openlocfilehash: 4c9d421fd9ac8305c27dfa798f2869e59a04f9fb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: fd22f3b9d365bfee543712f680d504bb134f24d7
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77062458"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625700"
 ---
 # <a name="what-is-the-my-account-portal"></a>내 계정 포털이란?
 
 **내 계정** 포털에서는 보안 정보를 설정 및 관리하고, 연결된 조직 및 디바이스를 관리하고, 조직이 데이터를 사용하는 방식을 확인하여 회사 또는 학교 계정을 관리할 수 있습니다.
 
-다음 브라우저 중 하나의 최신 버전에서 **내 계정** 포털(https://myprofile.microsoft.com) )로 이동할 수 있습니다.
+다음 브라우저 중 하나의 최신 버전에서 **내 계정** 포털(https://myaccount.microsoft.com) )로 이동할 수 있습니다.
 
 - Chrome
 - Microsoft Edge

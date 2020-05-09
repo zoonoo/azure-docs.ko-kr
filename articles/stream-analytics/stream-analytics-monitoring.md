@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4e9f90035816269d2d41781be34d0d8080628b12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54bff88e9650240a3703e18d583f603cafeb3022
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75431644"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611894"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Stream Analytics 작업 모니터링 및 쿼리를 모니터링하는 방법 이해
 
@@ -37,7 +37,7 @@ Azure Portal는 쿼리 및 작업 성능을 모니터링 하 고 문제를 해�
 | 기능 요청      | Azure Machine Learning 함수(있는 경우)에 대한 호출 수입니다. |
 | 입력 역직렬화 오류       | 역직렬화할 수 없는 입력 이벤트 수입니다.  |
 | 입력 이벤트 바이트      | Stream Analytics 작업이 받은 데이터의 양(바이트)입니다. 입력 소스로 전송되는 이벤트의 유효성을 검사하는 데 사용할 수 있습니다. |
-| 입력 이벤트           | 입력 이벤트에서 역직렬화된 레코드 수입니다. Deserialization 오류가 발생 하는 들어오는 이벤트는이 수에 포함 되지 않습니다. |
+| 입력 이벤트           | 입력 이벤트에서 역직렬화된 레코드 수입니다. Deserialization 오류가 발생 하는 들어오는 이벤트는이 수에 포함 되지 않습니다. 내부 복구 및 자체 조인과 같은 시나리오에서 여러 번 Stream Analytics 여 동일한 이벤트를 수집 수 있습니다. 따라서 작업에 간단한 ' 통과 ' 쿼리가 있는 경우 입력 이벤트와 출력 이벤트 메트릭이 일치 하지 않도록 하는 것이 좋습니다. |
 | 수신된 입력 원본       | 작업에서 받은 메시지 수입니다. 이벤트 허브의 경우 메시지는 단일 EventData 합니다. Blob의 경우 메시지는 단일 blob입니다. Deserialization 전에는 입력 원본이 계산 됩니다. Deserialization 오류가 발생 하면 입력 된 소스가 입력 이벤트 보다 클 수 있습니다. 그렇지 않으면 각 메시지가 여러 이벤트를 포함할 수 있으므로 입력 이벤트 보다 작거나 같을 수 있습니다. |
 | 늦은 입력 이벤트      | 구성된 지연 도착 허용 시간보다 늦게 도착한 이벤트입니다. [Azure Stream Analytics 이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)에 대해 자세히 알아봅니다. |
 | 순서 비지정 이벤트    | 이벤트 순서 지정 정책에 기반하여 조정된 타임스탬프를 받거나 삭제된 순서가 정해지지 않은 수신 이벤트의 수입니다. 잘못된 순서 허용 시간 설정의 구성에 의해 영향을 받을 수 있습니다. |

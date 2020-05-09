@@ -4,12 +4,12 @@ description: MARS 에이전트가 백업 시나리오를 지 원하는 방법 �
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d2cc8e32152f6930c9c250e2811668cc2c924616
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5656c113a6823a1708854a547b199bd16c521b04
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78673285"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611486"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>MARS (Microsoft Azure Recovery Services) 에이전트 정보
 
@@ -39,19 +39,21 @@ MARS 에이전트는 다음 복원 시나리오를 지원 합니다.
 
 ## <a name="backup-process"></a>백업 프로세스
 
-1. Azure Portal에서 [Recovery Services 자격 증명 모음](install-mars-agent.md#create-a-recovery-services-vault)을 만들고 백업 목표에서 파일, 폴더 및 시스템 상태를 선택 합니다.
+1. Azure Portal에서 [Recovery Services 자격 증명 모음](install-mars-agent.md#create-a-recovery-services-vault)을 만들고 **백업 목표**에서 파일, 폴더 및 시스템 상태를 선택 합니다.
 2. [Recovery Services 자격 증명 모음 자격 증명 및 에이전트 설치 관리자](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) 를 온-프레미스 컴퓨터에 다운로드 합니다.
 
-    백업 옵션을 선택 하 여 온-프레미스 컴퓨터를 보호 하려면 파일, 폴더 및 시스템 상태를 선택한 다음 MARS 에이전트를 다운로드 합니다.
-
-3. 인프라 준비:
-
-    a. 설치 관리자를 실행 하 여 [에이전트를 설치](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent)합니다.
-
-    b. 다운로드 한 자격 증명 모음 자격 증명을 사용 하 여 Recovery Services 자격 증명 모음에 컴퓨터를 등록 합니다.
-4. 클라이언트의 에이전트 콘솔에서 [백업을 구성](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy)합니다. 백업 데이터의 보존 정책을 지정 하 여 보호를 시작 합니다.
+3. [에이전트를 설치](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) 하 고 다운로드 한 자격 증명 모음을 사용 하 여 Recovery Services 자격 증명 모음에 컴퓨터를 등록 합니다.
+4. 클라이언트의 에이전트 콘솔에서 [백업을 구성](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) 하 여 백업할 항목, 백업 시기 (일정), 백업이 Azure에 유지 되는 기간 (보존 정책)을 지정 하 고 보호를 시작 합니다.
 
 ![Azure Backup 에이전트 다이어그램](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
+
+### <a name="additional-information"></a>추가 정보
+
+- **초기 백업** (첫 번째 백업)은 백업 설정에 따라 실행 됩니다.  MARS 에이전트는 VSS를 사용 하 여 백업을 위해 선택한 볼륨의 특정 시점 스냅숏을 만듭니다. 에이전트는 Windows 시스템 기록기 작업을 사용 하 여 스냅숏을 캡처합니다. 응용 프로그램 VSS 기록기를 사용 하지 않으며 앱 일치 스냅숏을 캡처하지 않습니다. VSS를 사용 하 여 스냅숏을 만든 후 MARS 에이전트는 백업을 구성할 때 지정한 캐시 폴더에 VHD (가상 하드 디스크)를 만듭니다. 에이전트는 또한 각 데이터 블록에 대 한 체크섬을 저장 합니다.
+
+- **증분 백업** (후속 백업)은 지정한 일정에 따라 실행 됩니다. 증분 백업 중에 변경 된 파일을 식별 하 고 새 VHD를 만듭니다. VHD는 압축 되 고 암호화 된 후 자격 증명 모음으로 전송 됩니다. 증분 백업이 완료 된 후에는 새 VHD가 초기 복제 후 생성 된 VHD와 병합 됩니다. 이 병합 된 VHD는 진행 중인 백업을 비교 하는 데 사용할 최신 상태를 제공 합니다.
+
+- MARS 에이전트는 전체 볼륨을 검사 **하 여 디렉터리** 또는 파일의 변경 내용을 확인 하는 방법으로 USN (업데이트 시퀀스 번호) 변경 저널을 사용 하 여 **최적화 된 모드로** 백업 작업을 실행할 수 있습니다. 에이전트가 볼륨의 각 파일을 검색 하 고 메타 데이터와 비교 하 여 변경 된 파일을 확인 해야 하므로 최적화 되지 않은 모드는 느립니다.  **초기 백업은** 항상 최적화 되지 않은 모드에서 실행 됩니다. 이전 백업이 실패 한 경우 다음 예약 된 백업 작업이 최적화 되지 않은 모드에서 실행 됩니다.
 
 ### <a name="additional-scenarios"></a>추가 시나리오
 

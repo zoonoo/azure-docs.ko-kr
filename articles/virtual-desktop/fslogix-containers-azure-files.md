@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1dc5d54fa24217c91e14a8f37e092888b2bb6474
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7728ff96ccc3da5a36d919e61518a3ce3d13581c
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127886"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611979"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 프로필 컨테이너 및 Azure Files
 
@@ -47,7 +47,7 @@ UPD 및 RUP는 RDSH (원격 데스크톱 세션 호스트) 및 VHD (가상 하�
 
 다음 표에서는 이전 사용자 프로필 기술의 이점과 제한 사항을 보여 줍니다.
 
-| 기술 | 최신 설정 | Win32 설정 | OS 설정 | 사용자 데이터 | 서버 SKU에서 지원 됨 | Azure의 백 엔드 저장소 | 백 엔드 저장소 온-프레미스 | 버전 지원 | 후속 로그인 시간 |메모|
+| 기술 | 최신 설정 | Win32 설정 | OS 설정 | 사용자 데이터 | 서버 SKU에서 지원 됨 | Azure의 백 엔드 저장소 | 백 엔드 저장소 온-프레미스 | 버전 지원 | 후속 로그인 시간 |참고|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
 | **사용자 프로필 디스크 (UPD)** | 예 | 예 | 예 | 예 | 예 | 예 | 예 | Win 7 이상 | 예 | |
 | **로밍 사용자 프로필 (RUP), 유지 관리 모드** | 예 | 예 | 예 | 예 | 예| 예 | 예 | Win 7 이상 | 아니요 | |
@@ -98,7 +98,7 @@ Windows 가상 데스크톱 환경이 모범 사례를 따르는지 확인 하�
 
 다음 가이드를 사용 하 여 Windows 가상 데스크톱 환경을 설정 합니다.
 
-- 데스크톱 가상화 솔루션 빌드를 시작 하려면 [Windows 가상 데스크톱에서 테 넌 트 만들기](tenant-setup-azure-active-directory.md)를 참조 하세요.
+- 데스크톱 가상화 솔루션 빌드를 시작 하려면 [Windows 가상 데스크톱에서 테 넌 트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)를 참조 하세요.
 - Windows 가상 데스크톱 테 넌 트 내에서 호스트 풀을 만들려면 [Azure Marketplace를 사용 하 여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)를 참조 하세요.
 - 클라우드에서 완전히 관리 되는 파일 공유를 설정 하려면 [Azure Files 공유 설정](/azure/storage/files/storage-files-active-directory-enable/)을 참조 하세요.
 - FSLogix 프로필 컨테이너를 구성 하려면 [파일 공유를 사용 하 여 호스트 풀에 대 한 프로필 컨테이너 만들기](create-host-pools-user-profile.md)를 참조 하세요.

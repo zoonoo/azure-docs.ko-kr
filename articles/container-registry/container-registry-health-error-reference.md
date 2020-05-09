@@ -3,12 +3,12 @@ title: 상태 검사에 대 한 오류 참조
 description: Azure Container Registry에서 az acr check 상태 진단 명령을 실행 하 여 발견 된 문제에 대 한 오류 코드 및 가능한 해결 방법
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: 971b28b2bf8d9ac22cec0efe979837886762cf17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80289144"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978317"
 ---
 # <a name="health-check-error-reference"></a>상태 검사 오류 참조
 
@@ -58,7 +58,7 @@ ms.locfileid: "80289144"
 
 ## <a name="connectivity_forbidden_error"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-이 오류는 지정 된 레지스트리에 대 한 챌린지 끝점이 403 사용할 수 없음 HTTP 상태로 응답 했음을 의미 합니다. 이 오류는 사용자가 레지스트리에 액세스할 수 없음을 의미 합니다. 가상 네트워크 구성 때문입니다. 현재 구성 된 방화벽 규칙을 보려면를 실행 `az acr show --query networkRuleSet --name <registry>`합니다.
+이 오류는 지정 된 레지스트리에 대 한 챌린지 끝점이 403 사용할 수 없음 HTTP 상태로 응답 했음을 의미 합니다. 이 오류는 사용자가 레지스트리에 액세스할 수 없음을 의미 합니다. 가상 네트워크 구성으로 인해 또는 레지스트리의 공용 끝점에 대 한 액세스가 허용 되지 않기 때문일 수 있습니다. 현재 구성 된 방화벽 규칙을 보려면를 실행 `az acr show --query networkRuleSet --name <registry>`합니다.
 
 *잠재적 해결 방법*: 가상 네트워크 규칙을 제거 하거나 현재 클라이언트 IP 주소를 허용 목록에 추가 합니다.
 

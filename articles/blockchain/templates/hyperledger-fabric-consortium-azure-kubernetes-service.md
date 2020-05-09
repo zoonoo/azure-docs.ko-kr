@@ -4,12 +4,12 @@ description: Azure Kubernetes Service에서 Hyperledger Fabric consortium 네트
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: v-umha
-ms.openlocfilehash: 2312c002e5c2e0b813f8acbdc3e3bff597f204d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da4ec99f1b9d73ab67a2312094feaa1a89aee394
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476443"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980231"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)의 hyperledger 패브릭 컨소시엄
 
@@ -42,7 +42,7 @@ Azure에서 Hyperledger 패브릭 네트워크를 빌드하려면 피어 노드�
   - **패브릭 ca**: 패브릭 ca를 실행 하는 pod입니다.
 - **PostgreSQL**: 패브릭 CA id를 유지 하기 위해 PostgreSQL의 인스턴스가 배포 됩니다.
 
-- **Azure 키 자격 증명 모음**: 키 자격 증명 모음 인스턴스는 패브릭 CA 자격 증명과 고객이 제공한 루트 인증서를 저장 하기 위해 배포 됩니다 .이 인증서는 템플릿 배포 다시 시도 시 사용 되며 템플릿의 메커니즘을 처리 하는 데 사용 됩니다.
+- **Azure 키 자격 증명 모음**: 키 자격 증명 모음 인스턴스는 패브릭 CA 자격 증명과 고객이 제공한 루트 인증서를 저장 하기 위해 배포 됩니다 .이 인증서는 템플릿 배포를 다시 시도 하는 경우 템플릿 메커니즘을 처리 하는 데 사용 됩니다.
 - **Azure managed disk**: azure 관리 디스크는 원장 및 피어 노드 세계 상태 데이터베이스용 영구 저장소에 대 한 것입니다.
 - **공용 ip**: 클러스터와의 상호 작용을 위해 배포 된 AKS 클러스터의 공용 ip 끝점입니다.
 
@@ -54,7 +54,6 @@ Azure에서 Hyperledger 패브릭 네트워크를 빌드하려면 피어 노드�
 
 - [Orderer/피어 조직 배포](#deploy-the-ordererpeer-organization)
 - [컨소시엄 빌드](#build-the-consortium)
-- [네이티브 HLF 작업 실행](#run-native-hlf-operations)
 
 ## <a name="deploy-the-ordererpeer-organization"></a>Orderer/피어 조직 배포
 
@@ -78,7 +77,7 @@ HLF 네트워크 구성 요소 배포를 시작 하려면 [Azure Portal](https:/
     ![Azure Kubernetes의 hyperledger 패브릭 서비스 템플릿](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-settings.png)
 
 5. 다음 세부 정보를 입력합니다.
-    - **조직 이름**: 다양 한 데이터 평면 작업에 필요한 패브릭 조직의 이름입니다. 조직 이름은 배포 마다 고유 해야 합니다. 
+    - **조직 이름**: 다양 한 데이터 평면 작업에 필요한 패브릭 조직의 이름입니다. 조직 이름은 배포 마다 고유 해야 합니다.
     - **패브릭 네트워크 구성 요소**: 설치 하려는 blockchain 네트워크 구성 요소를 기준으로 정렬 서비스 또는 피어 노드를 선택 합니다.
     - **노드 수** -다음은 두 가지 유형의 노드입니다.
         - 서비스 순서 지정-네트워크에 내결함성을 제공한 노드 수를 선택 합니다. 지원 되는 가져오므로 노드 수는 3, 5, 7만 지원 됩니다.
@@ -116,48 +115,82 @@ HLF 네트워크 구성 요소 배포를 시작 하려면 [Azure Portal](https:/
 
 ## <a name="build-the-consortium"></a>컨소시엄 빌드
 
-주문 서비스 및 피어 노드를 배포 하는 블록 체인 consortium 게시물을 빌드하려면 아래 단계를 순서 대로 수행 해야 합니다. **네트워크** 스크립트 (byn.sh)를 빌드하여 컨소시엄을 설정 하 고, 채널을 만들고, chaincode을 설치 하는 데 도움이 됩니다.
+주문 서비스 및 피어 노드를 배포 하는 블록 체인 consortium 게시물을 빌드하려면 아래 단계를 순서 대로 수행 해야 합니다. Azhlf (Azure HLF script)를 사용 하 여 컨소시엄 설정, 채널 만들기 및 chaincode 작업에 도움이 됩니다.
 
 > [!NOTE]
-> 제공 된 byn (네트워크) 스크립트는 demo/devtest 시나리오에만 사용할 수 있습니다. 프로덕션 등급을 설정 하려면 기본 HLF Api를 사용 하는 것이 좋습니다.
+> 스크립트에 업데이트가 있습니다 .이 업데이트는 Azure HLF 스크립트를 사용 하 여 더 많은 기능을 제공 합니다. 이전 스크립트를 참조 하려면 [여기를 참조](https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/blob/master/consortiumScripts/README.md)하세요. 이 스크립트는 Azure Kubernetes 서비스 템플릿 버전 2.0.0 이상에서 Hyperledger 패브릭과 호환 됩니다. 배포 버전을 확인 하려면 [문제 해결](#troubleshoot)의 단계를 따르세요.
 
-Byn 스크립트를 실행 하는 모든 명령은 Azure Bash CLI (명령줄 인터페이스)를 통해 실행할 수 있습니다. 를 통해 Azure shell 웹 버전에 로그인 할 수 있습니다. ![Azure Kubernetes의 hyperledger 패브릭 서비스 템플릿](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) 옵션을 Azure Portal 선택 합니다. 명령 프롬프트에서 bash를 입력 하 고를 입력 하 여 bash CLI로 전환 합니다.
+> [!NOTE]
+> 제공 되는 Azure HLF (azhlf) 스크립트는 데모/DevTest 시나리오에만 도움이 됩니다. 이 스크립트로 만든 채널 및 컨소시엄에는 데모/DevTest 시나리오를 간소화 하는 기본 HLF 정책이 있습니다. 프로덕션 설정의 경우 기본 HLF Api를 사용 하 여 조직의 규정 준수 요구 사항에 따라 channel/consortium HLF 정책을 업데이트 하는 것이 좋습니다.
+
+
+Azure HLF 스크립트를 실행 하는 모든 명령은 Azure Bash 명령줄을 통해 실행할 수 있습니다. 인터페이스 (CLI). 를 통해 Azure shell 웹 버전에 로그인 할 수 있습니다.  ![Azure Kubernetes의 hyperledger 패브릭 서비스 템플릿](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) 옵션을 Azure Portal 선택 합니다. 명령 프롬프트에서 bash를 입력 하 고를 입력 하 여 bash CLI로 전환 합니다.
 
 자세한 내용은 [Azure shell](https://docs.microsoft.com/azure/cloud-shell/overview) 을 참조 하세요.
 
 ![Azure Kubernetes의 hyperledger 패브릭 서비스 템플릿](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-powershell.png)
 
 
-Byn.sh 및 fabric-admin 파일을 다운로드 합니다.
+다음 이미지는 가져오므로 조직과 피어 조직 간에 컨소시엄을 빌드하는 단계별 프로세스를 보여 줍니다. 이러한 단계를 실행 하는 자세한 명령은 다음 섹션에 설명 되어 있습니다.
+
+![Azure Kubernetes의 hyperledger 패브릭 서비스 템플릿](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
+
+클라이언트 응용 프로그램의 초기 설정에 대해 아래 명령을 수행 합니다. 
+
+1.  [클라이언트 응용 프로그램 파일 다운로드](#download-client-application-files)
+2.  [환경 변수 설정](#setup-environment-variables)
+3.  [조직 연결 프로필, 관리 사용자 및 MSP 가져오기](#import-organization-connection-profile-admin-user-identity-and-msp)
+
+초기 설정을 완료 한 후 클라이언트 응용 프로그램을 사용 하 여 다음과 같은 작업을 수행할 수 있습니다.  
+
+- [채널 관리 명령](#channel-management-commands)
+- [컨소시엄 관리 명령](#consortium-management-commands)
+- [Chaincode 관리 명령](#chaincode-management-commands)
+
+### <a name="download-client-application-files"></a>클라이언트 응용 프로그램 파일 다운로드
+
+첫 번째 설정은 클라이언트 응용 프로그램 파일을 다운로드 하는 것입니다. 다음 명령을 실행 하 여 필요한 모든 파일 및 패키지를 다운로드 합니다.
 
 ```bash-interactive
-curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/consortiumScripts/byn.sh -o byn.sh; chmod 777 byn.sh
-curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/consortiumScripts/fabric-admin.yaml -o fabric-admin.yaml
-```
-**Azure CLI Bash 셸에서 아래 환경 변수를 설정**합니다.
+curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/azhlfToolSetup.sh | bash
+cd azhlfTool
+npm install
+npm run setup
 
-채널 정보 및 가져오므로 조직 정보 설정
+```
+이러한 명령은 공용 GitHub 리포지토리에서 Azure HLF client 응용 프로그램 코드를 복제 한 다음 모든 종속 npm 패키지를 로드 합니다. 명령을 성공적으로 실행 한 후에는 현재 디렉터리에서 node_modules 폴더를 볼 수 있습니다. 필요한 모든 패키지가 node_modules 폴더에 로드 됩니다.
+
+
+### <a name="setup-environment-variables"></a>환경 변수 설정하기
+
+> [!NOTE]
+> 모든 환경 변수는 Azure 리소스 명명 규칙을 따릅니다.
+
+
+**가져오므로 조직 클라이언트용 환경 변수 설정**
+
 
 ```bash
-SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 --subscription $3; }
-ORDERER_AKS_SUBSCRIPTION=<ordererAKSClusterSubscriptionID>
-ORDERER_AKS_RESOURCE_GROUP=<ordererAKSClusterResourceGroup>
-ORDERER_AKS_NAME=<ordererAKSClusterName>
-ORDERER_DNS_ZONE=$(az aks show --resource-group $ORDERER_AKS_RESOURCE_GROUP --name $ORDERER_AKS_NAME --subscription $ORDERER_AKS_SUBSCRIPTION -o json | jq .addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName | tr -d '"')
-ORDERER_END_POINT="orderer1.$ORDERER_DNS_ZONE:443"
+ORDERER_ORG_SUBSCRIPTION=<ordererOrgSubscription>
+ORDERER_ORG_RESOURCE_GROUP=<ordererOrgResourceGroup>
+ORDERER_ORG_NAME=<ordererOrgName>
+ORDERER_ADMIN_IDENTITY="admin.$ORDERER_ORG_NAME"
 CHANNEL_NAME=<channelName>
 ```
-피어 조직 정보 설정
+**피어 조직 클라이언트에 대해 아래 환경 변수 설정**
 
 ```bash
-PEER_AKS_RESOURCE_GROUP=<peerAKSClusterResourceGroup>
-PEER_AKS_NAME=<peerAKSClusterName>
-PEER_AKS_SUBSCRIPTION=<peerAKSClusterSubscriptionID>
-#Peer organization name is case-sensitive. Specify exactly the same name, which was provided while creating the Peer AKS Cluster.
-PEER_ORG_NAME=<peerOrganizationName>
+PEER_ORG_SUBSCRIPTION=<peerOrgSubscritpion>
+PEER_ORG_RESOURCE_GROUP=<peerOrgResourceGroup>
+PEER_ORG_NAME=<peerOrgName>
+PEER_ADMIN_IDENTITY="admin.$PEER_ORG_NAME"
+CHANNEL_NAME=<channelName>
 ```
 
-피어 및 가져오므로 조직 간에 다양 한 공용 인증서를 공유 하기 위해 하나의 Azure 파일 공유를 만듭니다.
+> [!NOTE]
+> 컨소시엄의 피어 Orgs 수에 따라 피어 명령을 반복 하 고 환경 변수를 적절 하 게 설정 해야 할 수 있습니다.
+
+**Azure storage 계정 설정에 대 한 아래 환경 변수를 설정 합니다.**
 
 ```bash
 STORAGE_SUBSCRIPTION=<subscriptionId>
@@ -165,311 +198,223 @@ STORAGE_RESOURCE_GROUP=<azureFileShareResourceGroup>
 STORAGE_ACCOUNT=<azureStorageAccountName>
 STORAGE_LOCATION=<azureStorageAccountLocation>
 STORAGE_FILE_SHARE=<azureFileShareName>
+```
 
+Azure storage 계정 만들기에 대해 아래 단계를 따르세요. Azure storage 계정이 이미 생성 된 경우 다음 단계를 건너뜁니다.
+
+```bash
 az account set --subscription $STORAGE_SUBSCRIPTION
 az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
+```
+
+Azure storage 계정에서 파일 공유를 만드는 다음 단계를 수행 합니다. 파일 공유를 이미 만든 경우에는 다음 단계를 건너뜁니다.
+
+```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 az storage share create  --account-name $STORAGE_ACCOUNT  --account-key $STORAGE_KEY  --name $STORAGE_FILE_SHARE
+```
+
+Azure 파일 공유 연결 문자열을 생성 하는 다음 단계를 따르세요.
+
+```bash
+STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 SAS_TOKEN=$(az storage account generate-sas --account-key $STORAGE_KEY --account-name $STORAGE_ACCOUNT --expiry `date -u -d "1 day" '+%Y-%m-%dT%H:%MZ'` --https-only --permissions lruwd --resource-types sco --services f | tr -d '"')
-AZURE_FILE_CONNECTION_STRING="https://$STORAGE_ACCOUNT.file.core.windows.net/$STORAGE_FILE_SHARE?$SAS_TOKEN"
-```
-**채널 관리 명령**
+AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STORAGE_FILE_SHARE?$SAS_TOKEN
 
-가져오므로 조직 AKS 클러스터로 이동 하 고 명령을 실행 하 여 새 채널을 만듭니다.
+```
+
+### <a name="import-organization-connection-profile-admin-user-identity-and-msp"></a>조직 연결 프로필, 관리 사용자 id 및 MSP 가져오기
+
+아래 명령을 실행 하 여 Azure Kubernetes 클러스터에서 조직의 연결 프로필, 관리자 사용자 id 및 MSP를 가져오고 이러한 id를 클라이언트 응용 프로그램 로컬 저장소 (예: "azhlfTool/stores" 디렉터리)에 저장 합니다.
+
+가져오므로 조직의 경우:
 
 ```bash
-SWITCH_TO_AKS_CLUSTER $ORDERER_AKS_RESOURCE_GROUP $ORDERER_AKS_NAME $ORDERER_AKS_SUBSCRIPTION
-./byn.sh createChannel "$CHANNEL_NAME"
+./azhlf adminProfile import fromAzure -o $ORDERER_ORG_NAME -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION
+./azhlf connectionProfile import fromAzure -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION -o $ORDERER_ORG_NAME   
+./azhlf msp import fromAzure -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION -o $ORDERER_ORG_NAME
 ```
 
-**컨소시엄 관리 명령**
-
-채널 및 컨소시엄에서 피어 조직을 추가 하려면 지정 된 순서로 아래 명령을 실행 합니다.
-
-1. 피어 조직 AKS 클러스터로 이동 하 여 Azure File Storage에서 해당 구성원 서비스 제공 (MSP)을 업로드 합니다.
-
-    ```bash
-    SWITCH_TO_AKS_CLUSTER $PEER_AKS_RESOURCE_GROUP $PEER_AKS_NAME $PEER_AKS_SUBSCRIPTION
-    ./byn.sh uploadOrgMSP "$AZURE_FILE_CONNECTION_STRING"
-    ```
-
-2. 가져오므로 조직 AKS 클러스터로 이동 하 여 채널 및 컨소시엄에서 피어 조직을 추가 합니다.
-
-    ```bash
-    SWITCH_TO_AKS_CLUSTER $ORDERER_AKS_RESOURCE_GROUP $ORDERER_AKS_NAME $ORDERER_AKS_SUBSCRIPTION
-    #add peer in consortium
-    ./byn.sh addPeerInConsortium "$PEER_ORG_NAME" "$AZURE_FILE_CONNECTION_STRING"
-    #add peer in channel
-    ./byn.sh addPeerInChannel "$PEER_ORG_NAME" "$CHANNEL_NAME" "$AZURE_FILE_CONNECTION_STRING"
-    ```
-
-3. 피어 조직으로 돌아가서 채널에서 피어 노드를 조인 하는 명령을 실행 합니다.
-
-    ```bash
-    SWITCH_TO_AKS_CLUSTER $PEER_AKS_RESOURCE_GROUP $PEER_AKS_NAME $PEER_AKS_SUBSCRIPTION
-    ./byn.sh joinNodesInChannel "$CHANNEL_NAME" "$ORDERER_END_POINT" "$AZURE_FILE_CONNECTION_STRING"
-    ```
-
-마찬가지로, 채널에 피어 조직을 더 추가 하려면 필요한 피어 조직에 따라 피어 AKS 환경 변수를 업데이트 하 고 1 ~ 3 단계를 실행 합니다.
-
-**Chaincode 관리 명령**
-
-아래 명령을 실행 하 여 chaincode 관련 작업을 수행 합니다. 이러한 명령은 demo chaincode에서 모든 작업을 수행 합니다. 이 데모 chaincode에는 "a"와 "b" 라는 두 개의 변수가 있습니다. Chaincode를 인스턴스화할 때 "a"는 1000로 초기화 되 고 "b"는 2000으로 초기화 됩니다. Chaincode의 각 호출에서 10 개 단위는 "a"에서 "b"로 전송 됩니다. Chaincode에 대 한 쿼리 작업은 "a" 변수의 세계 상태를 표시 합니다.
-
-피어 조직 AKS 클러스터에서 실행 되는 다음 명령을 실행 합니다.
+피어 조직의 경우:
 
 ```bash
-# switch to peer organization AKS cluster. Skip this command if already connected to the required Peer AKS Cluster
-SWITCH_TO_AKS_CLUSTER $PEER_AKS_RESOURCE_GROUP $PEER_AKS_NAME $PEER_AKS_SUBSCRIPTION
-```
-**Chaincode operation 명령**
-
-```bash
-PEER_NODE_NAME="peer<peer#>"
-./byn.sh installDemoChaincode "$PEER_NODE_NAME"
-./byn.sh instantiateDemoChaincode "$PEER_NODE_NAME" "$CHANNEL_NAME" "$ORDERER_END_POINT" "$AZURE_FILE_CONNECTION_STRING"
-./byn.sh invokeDemoChaincode "$PEER_NODE_NAME" "$CHANNEL_NAME" "$ORDERER_END_POINT" "$AZURE_FILE_CONNECTION_STRING"
-./byn.sh queryDemoChaincode "$PEER_NODE_NAME" "$CHANNEL_NAME"
+./azhlf adminProfile import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
+./azhlf connectionProfile import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
+./azhlf msp import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ```
 
-## <a name="run-native-hlf-operations"></a>네이티브 HLF 작업 실행
-
-고객이 AKS의 HLF 네트워크에서 하이퍼 원장 기본 명령을 실행 하는 작업을 시작 하는 데 도움이 됩니다. 패브릭 NodeJS SDK를 사용 하 여 HLF 작업을 수행 하는 샘플 응용 프로그램이 제공 됩니다. 새 사용자 id를 만들고 사용자 고유의 chaincode를 설치 하기 위한 명령이 제공 됩니다.
-
-### <a name="before-you-begin"></a>시작하기 전에
-
-응용 프로그램의 초기 설정에 대해 아래 명령을 수행 합니다.
-
-- 응용 프로그램 파일 다운로드
-- 연결 프로필 및 관리자 프로필 생성
-- 관리 사용자 id 가져오기
-
-초기 설정을 완료 한 후 SDK를 사용 하 여 다음과 같은 작업을 수행할 수 있습니다.
-
-- 사용자 id 생성
-- Chaincode 작업
-
-위에서 언급 한 명령은 Azure Cloud Shell에서 실행할 수 있습니다.
-
-### <a name="download-application-files"></a>응용 프로그램 파일 다운로드
-
-응용 프로그램을 실행 하기 위한 첫 번째 설정은 폴더에 있는 모든 응용 프로그램 파일을 다운로드 하는 것입니다.
-
-**앱 폴더를 만들고 폴더에 입력 합니다**.
-
-```bash
-mkdir app
-cd app
-```
-다음 명령을 실행 하 여 필요한 모든 파일 및 패키지를 다운로드 합니다.
-
-```bash-interactive
-curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/application/setup.sh | bash
-```
-이 명령은 모든 패키지를 로드 하는 데 시간이 걸립니다. 명령을 성공적으로 실행 한 후에는 현재 디렉터리 `node_modules` 에서 폴더를 볼 수 있습니다. 필요한 모든 패키지가 `node_modules` 폴더에 로드 됩니다.
-
-### <a name="generate-connection-profile-and-admin-profile"></a>연결 프로필 및 관리자 프로필 생성
-
-폴더 `profile` 내에 `app` 디렉터리 만들기
-
-```bash
-cd app
-mkdir ./profile
-```
-Azure cloud shell에서 이러한 환경 변수 설정
-
-```bash
-# Organization name whose connection profile is to be generated
-ORGNAME=<orgname>
-# Organization AKS cluster resource group
-AKS_RESOURCE_GROUP=<resourceGroup>
-```
-
-아래 명령을 실행 하 여 조직의 연결 프로필 및 관리자 프로필을 생성 합니다.
-
-```bash
-./getConnector.sh $AKS_RESOURCE_GROUP | sed -e "s/{action}/gateway/g"| xargs curl > ./profile/$ORGNAME-ccp.json
-./getConnector.sh $AKS_RESOURCE_GROUP | sed -e "s/{action}/admin/g"| xargs curl > ./profile/$ORGNAME-admin.json
-```
-
-이름 `<orgname>-ccp.json` 및 `<orgname>-admin.json` 를 각각 사용 하 여 `profile` 프로필 폴더에 조직의 연결 프로필 및 관리자를 만듭니다.
-
-마찬가지로 각 가져오므로 및 피어 조직에 대해 연결 프로필 및 관리자 프로필을 생성 합니다.
-
-
-### <a name="import-admin-user-identity"></a>관리 사용자 id 가져오기
-
-마지막 단계는 작은 사람에 게 조직의 관리 사용자 id를 가져오는 것입니다.
-
-```bash
-npm run importAdmin -- -o <orgName>
-
-```
-위의 명령은 importAdmin을 실행 하 여 관리 사용자 id를 전자 지갑로 가져옵니다. 이 스크립트는 관리자 프로필 `<orgname>-admin.json` 에서 관리 id를 읽고 HLF 작업을 실행 하는 데 사용할 수 있는 작은 수로 가져옵니다.
-
-스크립트는 파일 시스템을 사용 하 여 id를 저장 합니다. 연결 프로필에서 ". 작은" 필드에 지정 된 경로에 따라 전자 지갑을 만듭니다. 기본적으로 ". m e x" 필드는를 `<orgname>`사용 하 여 초기화 됩니다. `<orgname>` 즉, 현재 디렉터리에 id를 저장할 폴더가 만들어집니다. 다른 경로에서 전자 지갑을 만들려면 admin 사용자 등록 및 기타 HLF 작업을 실행 하기 전에 연결 프로필에서 ". 작은" 필드를 수정 합니다.
-
-마찬가지로 각 조직에 대 한 관리 사용자 id를 가져옵니다.
-
-명령에 전달 된 인수에 대 한 자세한 내용은 명령 도움말을 참조 하세요.
-
-```bash
-npm run importAdmin -- -h
-
-```
-
-### <a name="user-identity-generation"></a>사용자 id 생성
-
-HLF 구성에 대 한 새 사용자 id를 생성 하려면 아래 명령을 지정 된 순서 대로 실행 합니다.
+### <a name="channel-management-commands"></a>채널 관리 명령
 
 > [!NOTE]
-> 사용자 id 생성 단계를 시작 하기 전에 응용 프로그램의 초기 설정이 완료 되었는지 확인 합니다.
+> 모든 채널 작업을 시작 하기 전에 클라이언트 응용 프로그램의 초기 설정이 완료 되었는지 확인 합니다.  
 
-Azure cloud shell에서 아래 환경 변수 설정
+다음은 두 가지 채널 관리 명령입니다.
+
+1. [채널 만들기 명령](#create-channel-command)
+2. [앵커 피어 명령 설정](#setting-anchor-peers-command)
+
+
+#### <a name="create-channel-command"></a>채널 만들기 명령
+
+가져오므로 조직 클라이언트에서 명령을 실행 하 여 새 채널을 만듭니다. 이 명령은 가져오므로 조직에만 채널을 만듭니다.  
 
 ```bash
-# Organization name for which user identity is to be generated
-ORGNAME=<orgname>
-# Name of new user identity. Identity will be registered with the Fabric-CA using this name.
-USER_IDENTITY=<username>
-
+./azhlf channel create -c $CHANNEL_NAME -u $ORDERER_ADMIN_IDENTITY -o $ORDERER_ORG_NAME
 ```
 
-새 사용자 등록 및 등록
+#### <a name="setting-anchor-peers-command"></a>앵커 피어 명령 설정
+피어 조직 클라이언트에서 아래 명령을 실행 하 여 지정 된 채널에서 피어 조직의 앵커 피어를 설정 합니다.
 
-새 사용자를 등록 하 고 등록 하려면 registerUser .js를 실행 하는 아래 명령을 실행 합니다. 이는 생성 된 사용자 id를 전자 지갑에 저장 합니다.
+>[!NOTE]
+> 이 명령을 실행 하기 전에 Consortium 관리 명령을 사용 하 여 채널에 피어 조직을 추가 해야 합니다.
 
 ```bash
-npm run registerUser -- -o $ORGNAME -u $USER_IDENTITY
-
+./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY
 ```
 
-> [!NOTE]
-> 관리자 사용자 id는 새 사용자에 대 한 등록 명령을 실행 하는 데 사용 됩니다. 따라서이 명령을 실행 하기 전에 작은 사용자 id를 사용 해야 합니다. 그렇지 않으면이 명령은 실패 합니다.
+`<anchorPeersList>`앵커 피어로 설정할 피어 노드의 공백으로 구분 된 목록입니다. 예를 들면 다음과 같습니다.
 
-명령에 전달 된 인수에 대 한 자세한 내용은 명령 도움말을 참조 하세요.
+  - Peer1 `<anchorPeersList>` 노드만 앵커 피어로 설정 하려면 "peer1"로 설정 합니다.
+  - Peer1 `<anchorPeersList>` 및 peer3 노드를 앵커 피어로 설정 하려면 "peer1" "peer3"로 설정 합니다.
+
+### <a name="consortium-management-commands"></a>컨소시엄 관리 명령
+
+>[!NOTE]
+> 컨소시엄 작업을 시작 하기 전에 클라이언트 응용 프로그램의 초기 설정이 완료 되었는지 확인 합니다.  
+
+채널 및 컨소시엄에서 피어 조직을 추가 하기 위해 지정 된 순서에서 아래 명령을 실행 합니다.
+1.  피어 조직 클라이언트에서 azure storage에 피어 조직 MSP 업로드
+
+      ```bash
+      ./azhlf msp export toAzureStorage -f  $AZURE_FILE_CONNECTION_STRING -o $PEER_ORG_NAME
+      ```
+2.  가져오므로 조직 클라이언트에서 azure storage에서 피어 조직 MSP를 다운로드 한 다음 명령을 실행 하 여 채널/컨소시엄에서 피어 조직을 추가 합니다.
+
+      ```bash
+      ./azhlf msp import fromAzureStorage -o $PEER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
+      ./azhlf channel join -c  $CHANNEL_NAME -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
+      ./azhlf consortium join -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
+      ```
+
+3.  가져오므로 조직 클라이언트에서이 연결 프로필을 사용 하 여 피어 조직이 가져오므로 노드에 연결할 수 있도록 azure storage에 가져오므로 연결 프로필을 업로드 합니다.
+
+      ```bash
+      ./azhlf connectionProfile  export toAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
+      ```
+
+4.  피어 조직 클라이언트에서 azure storage에서 가져오므로 연결 프로필을 다운로드 한 다음 명령을 실행 하 여 채널에서 피어 노드를 추가 합니다.
+
+      ```bash
+      ./azhlf connectionProfile  import fromAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
+      ./azhlf channel joinPeerNodes -o $PEER_ORG_NAME  -u $PEER_ADMIN_IDENTITY -c $CHANNEL_NAME --ordererOrg $ORDERER_ORG_NAME
+      ```
+
+마찬가지로, 채널에 피어 조직을 더 추가 하려면 필요한 피어 조직에 따라 피어 환경 변수를 업데이트 하 고 1 ~ 4 단계를 실행 합니다.
+
+
+### <a name="chaincode-management-commands"></a>Chaincode 관리 명령
+
+>[!NOTE]
+> Chaincode 작업을 시작 하기 전에 클라이언트 응용 프로그램의 초기 설정이 완료 되었는지 확인 합니다.  
+
+**아래 chaincode 특정 환경 변수 설정**
 
 ```bash
-npm run registerUser -- -h
-
-```
-
-### <a name="chaincode-operations"></a>Chaincode 작업
-
-
-> [!NOTE]
-> Chaincode 작업을 시작 하기 전에 응용 프로그램의 초기 설정이 완료 되었는지 확인 합니다.
-
-Azure Cloud shell에서 아래 chaincode 특정 환경 변수를 설정 합니다.
-
-```bash
-# peer organization name where chaincode is to be installed
-ORGNAME=<orgName>
-USER_IDENTITY="admin.$ORGNAME"
-CC_NAME=<chaincodeName>
+# peer organization name where chaincode operation is to be performed
+ORGNAME=<PeerOrgName>
+USER_IDENTITY="admin.$ORGNAME"  
+# If you are using chaincode_example02 then set CC_NAME=“chaincode_example02”
+CC_NAME=<chaincodeName>  
+# If you are using chaincode_example02 then set CC_VERSION=“1” for validation
 CC_VERSION=<chaincodeVersion>
-# Language in which chaincode is written. Supported languages are 'node', 'golang' and 'java'
-# Default value is 'golang'
-CC_LANG=<chaincodeLanguage>
-# CC_PATH contains the path where your chaincode is place. In case of go chaincode, this path is relative to 'GOPATH'.
-# For example, if your chaincode is present at path '/opt/gopath/src/chaincode/chaincode.go'.
-# Then, set GOPATH to '/opt/gopath' and CC_PATH to 'chaincode'
-CC_PATH=<chaincodePath>
-# 'GOPATH' environment variable. This needs to be set in case of go chaincode only.
-export GOPATH=<goPath>
-# Channel on which chaincode is to be instantiated/invoked/queried
-CHANNEL=<channelName>
-
-````
-
-아래 chaincode 작업을 수행할 수 있습니다.
-
-- Chaincode 설치
-- Chaincode 인스턴스화
-- Chaincode 호출
-- Chaincode 쿼리
-
-### <a name="install-chaincode"></a>Chaincode 설치
-
-아래 명령을 실행 하 여 피어 조직에 chaincode를 설치 합니다.
-
-```bash
-npm run installCC -- -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -l $CC_LANG -v $CC_VERSION
-
-```
-`ORGNAME` 환경 변수에 설정 된 조직의 모든 피어 노드에 chaincode를 설치 합니다. 채널에 피어 조직이 두 개 이상 있는 경우 해당 조직 모두에 chaincode를 설치 하려면 각 피어 조직에 대해 개별적으로 명령을 실행 합니다.
-
-다음 단계를 수행 합니다.
-
-- 및 `ORGNAME` issue `<peerOrg1Name>` `installCC` 명령으로 설정 합니다.
-- 및 `ORGNAME` issue `<peerOrg2Name>` `installCC` 명령으로 설정 합니다.
-
-  각 피어 조직에 대해이를 실행 합니다.
-
-명령에 전달 된 인수에 대 한 자세한 내용은 명령 도움말을 참조 하십시오.
-
-```bash
-npm run installCC -- -h
-
+# Language in which chaincode is written. Supported languages are 'node', 'golang' and 'java'  
+# Default value is 'golang'  
+CC_LANG=<chaincodeLanguage>  
+# CC_PATH contains the path where your chaincode is place.
+# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/chaincode/src/chaincode_example02/go”
+CC_PATH=<chaincodePath>  
+# Channel on which chaincode is to be instantiated/invoked/queried  
+CHANNEL_NAME=<channelName>  
 ```
 
-### <a name="instantiate-chaincode"></a>Chaincode 인스턴스화
+아래 chaincode 작업을 수행할 수 있습니다.  
 
-아래 명령을 실행 하 여 피어에서 chaincode를 인스턴스화합니다.
+- [Chaincode 설치](#install-chaincode)  
+- [Chaincode 인스턴스화](#instantiate-chaincode)  
+- [Chaincode 호출](#invoke-chaincode)
+- [Chaincode 쿼리](#query-chaincode)
+
+
+### <a name="install-chaincode"></a>Chaincode 설치  
+
+아래 명령을 실행 하 여 피어 조직에 chaincode를 설치 합니다.  
 
 ```bash
-npm run instantiateCC -- -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL -f <instantiateFunc> -a <instantiateFuncArgs>
+./azhlf chaincode install -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -l $CC_LANG -v $CC_VERSION  
 
 ```
-각각 및 `<instantiateFunc>` `<instantiateFuncArgs>` 에서 인스턴스화 함수 이름 및 쉼표로 구분 된 인수 목록을 전달 합니다. 예를 들어 [fabrcar chaincode](https://github.com/hyperledger/fabric-samples/blob/release/chaincode/fabcar/fabcar.go)에서 chaincode `<instantiateFunc>` 를로 설정 하 `"Init"` 고 `<instantiateFuncArgs>` 를 빈 문자열로 `""`인스턴스화합니다.
+ORGNAME 환경 변수에 설정 된 피어 조직의 모든 피어 노드에 chaincode를 설치 합니다. 두 개 이상의 피어 조직이 채널에 있고 chaincode를 모두 설치 하려면 각 피어 조직에 대해이 명령을 별도로 실행 합니다.  
+
+다음 단계를 수행 합니다.  
+
+1.  PeerOrg1 `ORGNAME` 및 `USER_IDENTITY` issue `./azhlf chaincode install` 명령으로 설정 합니다.  
+2.  PeerOrg2 `ORGNAME` 및 `USER_IDENTITY` issue `./azhlf chaincode install` 명령으로 설정 합니다.  
+
+### <a name="instantiate-chaincode"></a>Chaincode 인스턴스화  
+
+피어 클라이언트 응용 프로그램에서 아래 명령을 실행 하 여 채널에서 chaincode를 인스턴스화합니다.  
+
+```bash
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+```
+각각 및 `<instantiateFunc>` `<instantiateFuncArgs>` 에서 인스턴스화 함수 이름 및 공백으로 구분 된 인수 목록을 전달 합니다. 예를 들어 chaincode_example02에서로 설정 된 chaincode을 "a" " `<instantiateFunc>` 2000 `init`" `<instantiateFuncArgs>` "b" "1000"로 설정 합니다.
 
 > [!NOTE]
-> 채널의 한 피어 조직에서 한 번 명령을 실행 합니다.
-> 트랜잭션이 가져오므로에 성공적으로 제출 되 면 가져오므로는이 트랜잭션을 채널의 모든 피어 조직에 배포 합니다. 따라서 chaincode은 채널의 모든 피어 조직에 있는 모든 피어 노드에서 인스턴스화됩니다.
+> 채널의 한 피어 조직에서 한 번 명령을 실행 합니다. 트랜잭션이 가져오므로에 성공적으로 제출 되 면 가져오므로는이 트랜잭션을 채널의 모든 피어 조직에 배포 합니다. 따라서 chaincode은 채널의 모든 피어 조직에 있는 모든 피어 노드에서 인스턴스화됩니다.  
 
-명령에 전달 된 인수에 대 한 자세한 내용은 명령 도움말을 참조 하세요.
+
+### <a name="invoke-chaincode"></a>Chaincode 호출  
+
+피어 조직 클라이언트에서 아래 명령을 실행 하 여 chaincode 함수를 호출 합니다.  
 
 ```bash
-npm run instantiateCC -- -h
-
+./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>  
 ```
 
-### <a name="invoke-chaincode"></a>Chaincode 호출
+ `<invokeFunction>` 각각 `<invokeFuncArgs>`및 에서 호출 함수 이름 및 공백으로 구분 된 인수 목록을 전달 합니다. Chaincode_example02를 계속 진행 하 여 호출 작업을 "a" "b `<invokeFunction>` " `invoke` " `<invokeFuncArgs>` 10"으로 설정 합니다.  
 
-아래 명령을 실행 하 여 chaincode 함수를 호출 합니다.
+>[!NOTE]
+> 채널의 한 피어 조직에서 한 번 명령을 실행 합니다. 트랜잭션이 가져오므로에 성공적으로 제출 되 면 가져오므로는이 트랜잭션을 채널의 모든 피어 조직에 배포 합니다. 따라서 세계 상태는 채널에 있는 모든 피어 조직의 모든 피어 노드에서 업데이트 됩니다.  
+
+
+### <a name="query-chaincode"></a>Chaincode 쿼리  
+
+아래 명령을 실행 하 여 chaincode를 쿼리 합니다.  
 
 ```bash
-npm run invokeCC -- -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL -f <invokeFunc> -a <invokeFuncArgs>
-
+./azhlf chaincode query -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>  
 ```
-각각 및 `<invokeFunction>` `<invokeFuncArgs>` 에서 호출 함수 이름 및 쉼표로 구분 된 인수 목록을 전달 합니다. Fabcar chaincode 예제를 계속 진행 하 여 initLedger 함수를로 `<invokeFunction>` 설정 `"initLedger"` 하 `<invokeFuncArgs>` 고 `""`를로 설정 합니다.
+ `<queryFunction>` 각각 `<queryFuncArgs>`및 에서 쿼리 함수 이름 및 공백으로 구분 된 인수 목록을 전달 합니다. 다시 chaincode_example02로 이동 chaincode을 참조로 가져와 세계 상태에서 "a"의 값을 "a"로 `<queryFunction>`  `query`  `<queryArgs>` 설정 합니다.  
 
-> [!NOTE]
-> 채널의 한 피어 조직에서 한 번 명령을 실행 합니다.
-> 트랜잭션이 가져오므로에 성공적으로 제출 되 면 가져오므로는이 트랜잭션을 채널의 모든 피어 조직에 배포 합니다. 따라서 세계 상태는 채널에 있는 모든 피어 조직의 모든 피어 노드에서 업데이트 됩니다.
+## <a name="troubleshoot"></a>문제 해결
 
-명령에 전달 된 인수에 대 한 자세한 내용은 명령 도움말을 참조 하세요.
+**실행 중인 템플릿 버전을 확인 하려면**
+
+아래 명령을 실행 하 여 템플릿 배포의 버전을 찾습니다.
+
+템플릿이 배포 된 리소스 그룹에 따라 아래 환경 변수를 설정 합니다.
 
 ```bash
-npm run invokeCC -- -h
 
+SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 --subscription $3; }
+AKS_CLUSTER_SUBSCRIPTION=<AKSClusterSubscriptionID>
+AKS_CLUSTER_RESOURCE_GROUP=<AKSClusterResourceGroup>
+AKS_CLUSTER_NAME=<AKSClusterName>
 ```
-
-### <a name="query-chaincode"></a>Chaincode 쿼리
-
-아래 명령을 실행 하 여 chaincode를 쿼리 합니다.
-
+아래 명령을 실행 하 여 템플릿 버전을 인쇄 합니다.
 ```bash
-npm run queryCC -- -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL -f <queryFunction> -a <queryFuncArgs>
-
-```
-
-각각 및 `<queryFunction>` `<queryFuncArgs>` 에서 쿼리 함수 이름 및 쉼표로 구분 된 인수 목록을 전달 합니다. Chaincode를 참조 `fabcar` 로 가져와서 전 세계 상태의 모든 자동차 `<queryFunction>` 를로 설정 `"queryAllCars"` `<queryArgs>` `""`합니다.
-
-명령에 전달 된 인수에 대 한 자세한 내용은 명령 도움말을 참조 하세요.
-
-```bash
-npm run queryCC -- -h
+SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
+kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
 
 ```

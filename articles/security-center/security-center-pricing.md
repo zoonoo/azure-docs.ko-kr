@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: f4379a5149fff020eb532f0e17cc1c37fbdcd694
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2eb302462e402e701cc5ae664239c457c90ab1b9
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232430"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612795"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>보안 강화를 위해 표준 계층으로 업그레이드
 
@@ -49,9 +49,12 @@ Security Center는 두 계층으로 제공됩니다.
 [![Security Center 가격 책정](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
 > [!NOTE]
-> 고급 위협 방지 기능을 비롯 한 모든 Security Center 기능을 사용 하도록 설정 하려면 해당 하는 작업을 포함 하는 구독에 표준 가격 책정 계층을 적용 해야 합니다. 작업 영역에 대 한 가격 책정 구성은 just-in-time VM 액세스, 적응 응용 프로그램 제어 및 Azure 리소스에 대 한 네트워크 검색을 사용 하도록 설정 하지 않습니다. 
+> 위협 방지 기능을 비롯 한 모든 Security Center 기능을 사용 하도록 설정 하려면 해당 하는 작업을 포함 하는 구독에 표준 가격 책정 계층을 적용 해야 합니다. 작업 영역에 대 한 가격 책정 구성은 just-in-time VM 액세스, 적응 응용 프로그램 제어 및 Azure 리소스에 대 한 네트워크 검색을 사용 하도록 설정 하지 않습니다. 
 >
-> 저장소 계정 및 PaaS SQL/MySQL/PG 서버에 대 한 Security Center의 위협 방지는 현재 리소스 수준에서 사용 하도록 설정 하 여 개별 저장소/s q m 작업을 보호할 수 있는 유일한 작업입니다.
+> 구독 수준 또는 리소스 수준에서 **Azure Storage 계정** 에 대해 위협 방지를 사용 하도록 설정할 수 있습니다.
+> 구독 수준 또는 리소스 수준에서 **AZURE SQL DATABASE SQL server** 에 대 한 위협 방지를 사용 하도록 설정할 수 있습니다.
+> 리소스 수준 에서만 **Azure Database for MariaDB/MySQL/PostgreSQL** 에 대 한 위협 방지를 사용 하도록 설정할 수 있습니다.
+
 
 ## <a name="why-upgrade-to-standard"></a>표준으로 업그레이드 하는 이유
 Security Center에서는 다음을 비롯하여 하이브리드 클라우드 작업을 위한 강화된 보안 및 위협 방지 기능을 제공합니다.
