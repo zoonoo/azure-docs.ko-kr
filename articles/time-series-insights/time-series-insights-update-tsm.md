@@ -8,21 +8,22 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 04/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 648578563a0e53d3ed5bda6ab47f85c3c6a2a24e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1487cbb7885711beca969604316fd151defb114a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476657"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580609"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 시계열 모델
 
 이 문서에서는 시계열 모델, 기능 및 Azure Time Series Insights 미리 보기 환경에서 사용자 고유의 모델 빌드 및 업데이트를 시작 하는 방법을 설명 합니다.
 
 > [!TIP]
->  * 라이브 시계열 모델 예제는 [Contoso 바람 팜 데모](https://insights.timeseries.azure.com/preview/samples) 환경으로 이동 합니다.
+>
+> * 라이브 시계열 모델 예제는 [Contoso 바람 팜 데모](https://insights.timeseries.azure.com/preview/samples) 환경으로 이동 합니다.
 > * 시계열 모델 UI를 탐색 하는 방법에 대 한 자세한 내용은 [Azure Time Series Insights Preview 탐색기](time-series-insights-update-explorer.md) 를 참조 하세요.
 > * Time Series Insights 웹 탐색기를 사용 하 여 [시계열 모델을 사용 하는 방법](time-series-insights-update-how-to-tsm.md) 에 대해 알아봅니다.
 
@@ -51,9 +52,9 @@ Contoso가 초기 데이터 및 시각화 솔루션에 만족 하는 동안 다�
 
 [![시계열 모델 스마트 오븐 차트 예제](media/v2-update-tsm/time-series-model-smart-oven.png)](media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
 
-* 시계열 모델은 데이터를 시간 범위에서 그리고 센서와 장치 종류 간에 비교할 수 있으므로 데이터를 tsi 하기 때문에 쿼리 및 탐색에서 중요 한 역할을 합니다. (**A**) 
+* 시계열 모델은 데이터를 시간 범위에서 그리고 센서와 장치 종류 간에 비교할 수 있으므로 데이터를 tsi 하기 때문에 쿼리 및 탐색에서 중요 한 역할을 합니다. (**A**)
 * 시계열 모델에서 유지 되는 데이터는 시계열 쿼리 계산을 변수로 유지 하 고 쿼리 시간에 다시 계산 하기 때문에 데이터는 추가 까닭 됩니다.
-* 시계열 모델은 향상 된 시각화 및 관리 기능을 위해 데이터를 구성 하 고 집계 합니다. (**B**) 
+* 시계열 모델은 향상 된 시각화 및 관리 기능을 위해 데이터를 구성 하 고 집계 합니다. (**B**)
 
 ### <a name="key-capabilities"></a>주요 기능
 
@@ -101,7 +102,7 @@ Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스�
 | --- | ---|
 | timeSeriesId | 인스턴스가 연결 된 시계열의 UUID입니다. |
 | typeId | 인스턴스가 연결 된 시계열 모델 형식의 UUID입니다. 기본적으로 검색 되는 새 인스턴스는 모두 기본 형식에 연결 됩니다.
-| name | **Name** 속성은 선택 사항이 며 대/소문자를 구분 합니다. **이름을** 사용할 수 없는 경우 기본적으로 **Timeseriesid**로 설정 됩니다. 이름이 제공 되는 경우에도 **Timeseriesid** 는 여전히 사용할 수 [있습니다.](time-series-insights-update-explorer.md#4-time-series-well) |
+| 이름 | **Name** 속성은 선택 사항이 며 대/소문자를 구분 합니다. **이름을** 사용할 수 없는 경우 기본적으로 **Timeseriesid**로 설정 됩니다. 이름이 제공 되는 경우에도 **Timeseriesid** 는 여전히 사용할 수 [있습니다.](time-series-insights-update-explorer.md#4-time-series-well) |
 | description | 인스턴스에 대 한 텍스트 설명입니다. |
 | 계층 Id | 인스턴스가 속한 계층을 정의 합니다. |
 | instanceFields | 인스턴스 속성 및 인스턴스를 정의 하는 정적 데이터입니다. 계층 구조 또는 비 계층 구조의 값을 정의하는 한편 검색 작업을 수행하기 위한 인덱싱도 지원합니다. |
@@ -148,7 +149,7 @@ Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스�
 | 속성 | Description |
 | ---| ---|
 | id | 예를 들어 인스턴스를 정의할 때 사용 되는 계층의 고유 식별자입니다. |
-| name | 계층의 이름을 제공 하는 데 사용 되는 문자열입니다. |
+| 이름 | 계층의 이름을 제공 하는 데 사용 되는 문자열입니다. |
 | source | 사용자가 만들려는 계층의 하향식 부모 자식인 조직의 계층 또는 경로를 지정 합니다. 부모-자식 속성은 인스턴스 필드로 매핑됩니다. |
 
 계층은 JSON에서 다음과 같이 표시 됩니다.
@@ -240,7 +241,7 @@ Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스�
 | 속성 | Description |
 | ---| ---|
 | id | 형식의 UUID입니다. |
-| name | 형식의 이름을 제공 하는 데 사용 되는 문자열입니다. |
+| 이름 | 형식의 이름을 제공 하는 데 사용 되는 문자열입니다. |
 | description | 형식에 대 한 문자열 설명입니다. |
 | variables | 형식과 연결 된 변수를 지정 합니다. |
 
@@ -284,13 +285,13 @@ Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스�
 }
 ```
 
-### <a name="variables"></a>변수
+### <a name="variables"></a>variables
 
 Time Series Insights 형식에는 이벤트에 대 한 수식 및 계산 규칙을 지정 하는 많은 변수가 있을 수 있습니다.
 
 각 변수는 *숫자*, *범주*및 *집계*의 세 가지 *종류*중 하나일 수 있습니다.
 
-* **숫자** 종류는 연속 값으로 작동 합니다. 
+* **숫자** 종류는 연속 값으로 작동 합니다.
 * **범주** 종류는 불연속 된 불연속 값 집합을 사용 합니다.
 * **집계** 값은 단일 종류의 여러 변수 (모든 숫자 또는 모든 범주)를 결합 합니다.
 

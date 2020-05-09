@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f7be4d01dd930e9ff421b2a163f1648f1793da9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ea8c40faad4ee709ae98f868e36fd42e46501bea
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82230913"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927040"
 ---
 # <a name="azure-ad-b2c-session"></a>Azure AD B2C 세션
 
@@ -99,22 +99,20 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함 됩니
    - SAML-id 공급자 메타 데이터에 `SingleLogoutService` 위치가 포함 된 경우
 1. 필요에 따라 다른 응용 프로그램에서 로그 아웃 합니다. 자세한 내용은 [Single sign-on](#single-sign-out) 섹션을 참조 하세요.
 
-> [!NOTE]
-> 로그 아웃 하면 Azure AD B2C를 사용 하 여 사용자의 Single Sign-On 상태가 지워지므로 사용자의 소셜 id 공급자 세션에서 로그 아웃 하지 못할 수 있습니다. 사용자가 후속 로그인 중에 동일한 id 공급자를 선택 하는 경우 자격 증명을 입력 하지 않고 다시 인증할 수 있습니다. 사용자가 응용 프로그램에서 로그 아웃 하려는 경우 반드시 Facebook 계정에서 로그 아웃 하려는 것은 아닙니다. 그러나 로컬 계정을 사용 하는 경우 사용자의 세션이 제대로 종료 됩니다.
+로그 아웃 하면 Azure AD B2C를 사용 하 여 사용자의 Single Sign-On 상태가 지워지므로 사용자의 소셜 id 공급자 세션에서 로그 아웃 하지 못할 수 있습니다. 사용자가 후속 로그인 중에 동일한 id 공급자를 선택 하는 경우 자격 증명을 입력 하지 않고 다시 인증할 수 있습니다. 사용자가 응용 프로그램에서 로그 아웃 하려는 경우 반드시 Facebook 계정에서 로그 아웃 하려는 것은 아닙니다. 그러나 로컬 계정을 사용 하는 경우 사용자의 세션이 제대로 종료 됩니다.
 
-### <a name="single-sign-out"></a>Single Sign-Out
+### <a name="single-sign-out"></a>Single Sign-Out 
+
+
+> [!NOTE]
+> 이 기능은 [사용자 지정 정책](custom-policy-overview.md)으로 제한 됩니다.
 
 사용자를 Azure AD B2C 로그 아웃 끝점으로 리디렉션하는 경우 (OAuth2 및 SAML 프로토콜 모두) 브라우저에서 사용자의 세션을 지웁니다 Azure AD B2C. 그러나 사용자는 인증을 위해 Azure AD B2C를 사용 하는 다른 응용 프로그램에 여전히 로그인 되어 있을 수 있습니다. 이러한 응용 프로그램이 사용자에 게 동시에 로그인 할 수 있도록 하기 위해 Azure AD B2C는 현재 사용자가 로그인 `LogoutUrl` 되어 있는 모든 응용 프로그램의 등록 된에 HTTP GET 요청을 보냅니다.
 
-애플리케이션은 사용자를 식별하는 모든 세션을 지우고 `200` 요청을 반환하여 이 요청에 응답해야 합니다. 응용 프로그램에서 single sign-on을 지원 하려면 응용 프로그램의 코드에서를 `LogoutUrl` 구현 해야 합니다. Azure Portal에서 `LogoutUrl`을 설정할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동 합니다.
-1. 페이지의 오른쪽 위 모서리에서 계정을 클릭 하 여 Active B2C 디렉터리를 선택 합니다.
-1. 왼쪽 탐색 패널에서 **Azure AD B2C**를 선택 하 고 **앱 등록**을 선택한 다음 응용 프로그램을 선택 합니다.
-1. **설정**을 선택 하 고 **속성**을 선택한 다음 **로그 아웃 URL** 텍스트 상자를 찾습니다. 
-
+애플리케이션은 사용자를 식별하는 모든 세션을 지우고 `200` 요청을 반환하여 이 요청에 응답해야 합니다. 응용 프로그램에서 single sign-on을 지원 하려면 응용 프로그램의 코드에서를 `LogoutUrl` 구현 해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 - [사용자 흐름에서 세션 동작을 구성](session-behavior.md)하는 방법에 대해 알아봅니다.
-- [사용자 지정 정책에서 세션 동작을 구성](custom-policy-manage-sso-and-token-config.md#session-behavior-and-sso)하는 방법에 대해 알아봅니다.
+- [사용자 지정 정책에서 세션 동작을 구성](session-behavior-custom-policy.md)하는 방법에 대해 알아봅니다.

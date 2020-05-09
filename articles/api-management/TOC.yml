@@ -53,6 +53,8 @@
           href: api-management-policies.md
     - name: 보안
       items:
+        - name: 보안 기준
+          href: security-baseline.md
         - name: 기본 제공 보안 컨트롤
           href: api-management-security-controls.md
     - name: Subscriptions

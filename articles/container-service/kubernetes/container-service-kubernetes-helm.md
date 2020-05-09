@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: a32c9fab3877a693d2df26571b9fae4aa7b4380c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a3423b908ac5e089faa30b19914d3b74ae9a547
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76271092"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735422"
 ---
 # <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(사용되지 않음) Helm을 사용하여 Kubernetes 클러스터에 컨테이너 배포
 
@@ -34,7 +34,7 @@ Helm에는 두 가지 구성 요소가 있습니다.
 
 * 로컬 컴퓨터에서 [설치 및 구성`kubectl`](../container-service-connect.md)
 
-* 로컬 컴퓨터에 [Helm 설치](https://github.com/kubernetes/helm/blob/master/docs/install.md)
+* 로컬 컴퓨터에 [Helm 설치](https://helm.sh/docs/intro/quickstart/)
 
 ## <a name="helm-basics"></a>Helm 기초 
 
@@ -149,5 +149,5 @@ sudo mysql –h v1-mariadb
  
 ## <a name="next-steps"></a>다음 단계
 
-* Kubernetes 차트 관리에 대한 자세한 내용을 보려면 [Helm 설명서](https://github.com/kubernetes/helm/blob/master/docs/index.md)를 참조하십시오. 
+* Kubernetes 차트 관리에 대한 자세한 내용을 보려면 [Helm 설명서](https://helm.sh/docs/)를 참조하십시오. 
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.author: spelluru
-ms.openlocfilehash: ee64f26d0ff685a83718c5d5e3d6f6eaf9230807
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: 2c8cc4c01b172cd11c13558cd195673d21499b41
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691809"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983910"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Azure Lab Services의 교실 랩-질문과 대답 (FAQ)
 Azure Lab Services에서 교실 labs에 대해 가장 일반적인 질문 중 일부에 대 한 답변을 받으세요. 
@@ -67,7 +67,7 @@ Azure의 데이터 센터에 대 한 공용 IP 주소 범위를 제공 하는 [A
 클래스 룸 랩에 최대 400 명의 사용자를 추가할 수 있습니다. 
 
 ## <a name="blog-post"></a>블로그 게시물
-[Azure Lab Services 블로그](https://azure.microsoft.com/blog/tag/azure-lab-services/)를 구독 합니다.
+[Azure Lab Services 블로그](https://aka.ms/azlabs-blog)를 구독 합니다.
 
 ## <a name="update-notifications"></a>업데이트 알림
 Lab services [업데이트](https://azure.microsoft.com/updates/?product=lab-services) 를 구독 하 여 lab services의 새로운 기능에 대 한 정보를 계속 받을 수 있습니다.
