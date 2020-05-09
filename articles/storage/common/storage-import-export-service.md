@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: eee0fc2797fbe0666a6b848fde574c7807f47cc9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 120dbe9c4b79755105ba634c68606edfbfdc4ad2
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282446"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872442"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure Import/Export 서비스란?
 
@@ -41,7 +41,7 @@ Import/Export 서비스는 다음 구성 요소를 사용합니다.
 * **WAImportExport 도구**: 이 도구는 다음 작업을 수행하는 명령줄 도구입니다.
   * 가져오기용으로 발송할 디스크 드라이브를 준비합니다.
   * 드라이브에 데이터를 편리하게 복사할 수 있도록 합니다.
-  * AES 128 비트 BitLocker를 사용 하 여 드라이브의 데이터를 암호화 합니다. 외부 키 보호기를 사용 하 여 BitLocker 키를 보호할 수 있습니다.
+  * AES 256 비트 BitLocker를 사용 하 여 드라이브의 데이터를 암호화 합니다. 외부 키 보호기를 사용 하 여 BitLocker 키를 보호할 수 있습니다.
   * 가져오기 생성 동안 사용되는 드라이브 저널 파일을 생성합니다.
   * 내보내기 작업에 필요한 드라이브 수를 식별하는 데 도움이 됩니다.
 
@@ -131,7 +131,7 @@ Azure Import/Export 서비스는 모든 Azure Storage 계정으로의 데이터 
 
 ## <a name="security-considerations"></a>보안 고려 사항
 
-드라이브의 데이터는 AES 128 비트 BitLocker 드라이브 암호화를 사용 하 여 암호화 됩니다. 이렇게 암호화하면 전송 중 데이터가 보호됩니다.
+드라이브의 데이터는 AES 256 비트 BitLocker 드라이브 암호화를 사용 하 여 암호화 됩니다. 이렇게 암호화하면 전송 중 데이터가 보호됩니다.
 
 가져오기 작업의 경우 드라이브는 두 가지 방법으로 암호화됩니다.  
 

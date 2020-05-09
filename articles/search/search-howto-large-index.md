@@ -2,43 +2,94 @@
 title: 기본 제공 인덱서를 사용 하 여 대량 데이터 집합 인덱스
 titleSuffix: Azure Cognitive Search
 description: 일괄 처리 모드, 높아지면, 예약 된 병렬 및 분산 인덱싱을 위한 기술을 통한 대량 데이터 인덱싱 또는 계산 집약적 인덱싱에 대 한 전략입니다.
-manager: nitinme
-author: HeidiSteen
-ms.author: heidist
+manager: liamca
+author: dereklegenzoff
+ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 4ad5e961e390b60784355ff3bc72aca4a2f73e11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/05/2020
+ms.openlocfilehash: 915243fb4dbc6bb274e26261bc5741811ef24592
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190955"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82925986"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Azure Cognitive Search에서 대량 데이터 집합을 인덱싱하는 방법
+
+Azure Cognitive Search는 데이터를 검색 인덱스로 가져오기 위한 [두 가지 기본](search-what-is-data-import.md) 방법인 데이터를 프로그래밍 방식으로 인덱스에 *푸시하고* 지원 되는 데이터 원본에서 데이터를 *끌어올* [Azure Cognitive Search 인덱서](search-indexer-overview.md) 를 가리키도록 합니다.
 
 데이터 볼륨이 커지거나 처리 요구가 변경 됨에 따라 단순 또는 기본 인덱싱 전략이 더 이상 실용적이 지 않을 수 있습니다. Azure Cognitive Search의 경우 데이터 업로드 요청을 구조화 하는 방법에서 예약 된 작업 및 분산 된 작업에 대해 원본 관련 인덱서를 사용 하는 것에 이르기까지 더 큰 데이터 집합을 수용 하기 위한 여러 가지 방법이 있습니다.
 
 동일한 기법은 장기 실행 프로세스에도 적용 됩니다. 특히 [병렬 인덱싱](#parallel-indexing) 에 설명 된 단계는 [AI 보강 파이프라인](cognitive-search-concept-intro.md)에서 이미지 분석 또는 자연어 처리와 같은 계산 집약적인 인덱싱에 유용 합니다.
 
-다음 섹션에서는 많은 양의 데이터를 인덱싱하는 세 가지 방법에 대해 설명 합니다.
+다음 섹션에서는 밀어넣기 API와 인덱서를 모두 사용 하 여 많은 양의 데이터를 인덱싱하는 방법을 알아봅니다.
 
-## <a name="option-1-pass-multiple-documents"></a>옵션 1: 여러 문서 전달
+## <a name="push-api"></a>푸시 API
 
-대용량 데이터 세트를 인덱싱하기 위한 가장 간단한 메커니즘 중 하나는 단일 요청에서 여러 문서 또는 레코드를 제출하는 것입니다. 전체 페이로드가 16MB 미만인 한 요청은 대량 업로드 작업에서 최대 1000개의 문서를 처리할 수 있습니다. 이러한 제한은 .NET SDK에서 [문서 추가 REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 또는 [인덱스 메서드](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) 를 사용 하는지에 따라 적용 됩니다. 두 API의 경우 각 요청의 본문에 1000 문서를 패키지할 수 있습니다.
+인덱스에 데이터를 푸시할 때 푸시 API의 인덱싱 속도에 영향을 주는 몇 가지 주요 고려 사항이 있습니다. 이러한 요소는 아래 섹션에 설명 되어 있습니다. 
 
-일괄 처리 인덱싱은 REST 또는 .NET을 사용하여 또는 인덱서를 통해 개별 요청에 대해 구현됩니다. 몇 가지 인덱서는 다른 제한에서 작동합니다. 특히 Azure Blob 인덱싱은 큰 평균 문서 크기의 인식으로 10개의 문서에서 일괄 처리 크기를 설정합니다. [만들기 인덱서 REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)에 따른 인덱서의 경우 `BatchSize` 인수를 설정하여 데이터의 특징에 더 잘 일치하도록 이 설정을 사용자 지정할 수 있습니다. 
+이 문서의 정보 외에도 [인덱싱 속도 최적화 자습서](tutorial-optimize-indexing-push-api.md) 의 코드 샘플을 활용 하 여 자세히 알아볼 수 있습니다.
+
+### <a name="service-tier-and-number-of-partitionsreplicas"></a>서비스 계층 및 파티션/복제본 수
+
+파티션을 추가 하거나 검색 서비스의 계층을 늘리면 인덱싱 속도가 향상 됩니다.
+
+다른 복제본을 추가 하면 인덱싱 속도가 향상 될 수도 있지만이는 보장 되지 않습니다. 반면에 추가 복제본은 검색 서비스에서 처리할 수 있는 쿼리 볼륨을 증가 시킵니다. 복제본은 [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)를 얻기 위한 핵심 구성 요소 이기도 합니다.
+
+파티션/복제본을 추가 하거나 상위 계층으로 업그레이드 하기 전에 통화 비용 및 할당 시간을 고려 합니다. 파티션을 추가 하면 인덱싱 속도가 현저 하 게 증가 하지만 추가/제거 하는 작업은 15 분에서 몇 시간까지 걸릴 수 있습니다. 자세한 내용은 [용량 조정](search-capacity-planning.md)에 대 한 설명서를 참조 하세요.
+
+### <a name="index-schema"></a>인덱스 스키마
+
+인덱스의 스키마는 데이터를 인덱싱하는 데 중요 한 역할을 합니다. 필드를 추가 하 고 이러한 필드에 추가 속성 (예: *검색*가능, *패싯 가능*또는 *필터링*가능)을 추가 하면 인덱싱 속도가 줄어듭니다.
+
+일반적으로 필드를 사용 하려는 경우에는 필드에 속성을 추가 하는 것이 좋습니다.
 
 > [!NOTE]
 > 문서 크기를 유지 하기 위해 인덱스에 쿼리할 수 없는 데이터를 추가 하지 마세요. 이미지 및 기타 이진 데이터는 직접 검색할 수 없으므로 인덱스에 저장하지 않아야 합니다. 쿼리할 수 없는 데이터를 검색 결과에 통합하려면 리소스에 대한 URL 참조를 저장하는 검색할 수 없는 필드를 정의해야 합니다.
 
-## <a name="option-2-add-resources"></a>옵션 2: 리소스 추가
+### <a name="batch-size"></a>Batch 크기
 
-[표준 가격 책정 계층](search-sku-tier.md) 중 하나에서 프로비전되는 서비스는 종종 스토리지 및 워크로드(쿼리 또는 인덱싱) 모두에 대해 활용도 낮은 용량을 갖습니다. 이는 [파티션 및 복제본 수를 늘려](search-capacity-planning.md) 더 큰 데이터 세트를 수용하기 위한 확실한 솔루션이 됩니다. 최상의 결과를 위해 스토리지에 대한 파티션 및 데이터 수집 작업에 대한 복제본의 리소스가 필요합니다.
+대용량 데이터 세트를 인덱싱하기 위한 가장 간단한 메커니즘 중 하나는 단일 요청에서 여러 문서 또는 레코드를 제출하는 것입니다. 전체 페이로드가 16MB 미만인 한 요청은 대량 업로드 작업에서 최대 1000개의 문서를 처리할 수 있습니다. 이러한 제한은 .NET SDK에서 [문서 추가 REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 또는 [인덱스 메서드](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) 를 사용 하는지에 따라 적용 됩니다. 두 API의 경우 각 요청의 본문에 1000 문서를 패키지할 수 있습니다.
 
-복제본과 파티션을 늘리면 비용이 증가 하는 청구 가능 이벤트가 발생 하지만, 최대 부하 상태에서 연속 인덱싱을 하지 않는 경우 인덱싱 프로세스 기간에 대 한 크기 조정을 추가한 다음 인덱싱이 완료 된 후에 리소스 수준을 다시 아래로 조정할 수 있습니다.
+일괄 처리를 사용 하 여 문서를 인덱싱하려면 인덱싱 성능이 크게 향상 됩니다. 데이터에 가장 적합 한 일괄 처리 크기를 결정 하는 것은 인덱싱 속도를 최적화 하는 핵심 구성 요소입니다. 최적의 일괄 처리 크기에 영향을 주는 두 가지 주요 요인은 다음과 같습니다.
++ 인덱스의 스키마입니다.
++ 데이터의 크기입니다.
 
-## <a name="option-3-use-indexers"></a>옵션 3: 인덱서 사용
+최적의 일괄 처리 크기는 인덱스와 데이터에 따라 달라 지므로 가장 좋은 방법은 시나리오에 대 한 가장 빠른 인덱싱 속도의 결과를 확인 하기 위해 다른 일괄 처리 크기를 테스트 하는 것입니다. 이 [자습서](tutorial-optimize-indexing-push-api.md) 에서는 .net SDK를 사용 하 여 일괄 처리 크기를 테스트 하기 위한 샘플 코드를 제공 합니다. 
+
+### <a name="number-of-threadsworkers"></a>스레드/작업자 수
+
+Azure Cognitive Search의 인덱싱 속도를 최대한 활용 하려면 여러 스레드를 사용 하 여 서비스에 동시에 일괄 처리 인덱싱 요청을 보내야 할 수 있습니다.  
+
+최적 스레드 수는 다음에 의해 결정 됩니다.
+
++ 검색 서비스의 계층입니다.
++ 파티션 수
++ 일괄 처리 크기
++ 인덱스의 스키마입니다.
+
+이 샘플을 수정 하 고 다른 스레드 수로 테스트 하 여 시나리오에 적합 한 스레드 수를 결정할 수 있습니다. 그러나 여러 스레드가 동시에 실행 되는 동안에는 대부분의 효율성을 활용할 수 있습니다. 
+
+> [!NOTE]
+> 검색 서비스의 계층을 늘리거나 파티션을 늘릴 때 동시 스레드 수도 늘려야 합니다.
+
+검색 서비스에 대 한 요청이 발생할 때 요청이 완전히 성공 하지 못했음을 나타내는 [HTTP 상태 코드가](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) 발생할 수 있습니다. 인덱싱하는 동안 두 가지 일반적인 HTTP 상태 코드는 다음과 같습니다.
+
++ **503 서비스를 사용할 수 없음** -이 오류는 시스템의 부하가 높은 상태 이며 지금은 요청을 처리할 수 없음을 의미 합니다.
++ **207 다중 상태** -이 오류는 일부 문서가 성공 했지만 하나 이상의 오류가 발생 했음을 의미 합니다.
+
+### <a name="retry-strategy"></a>재시도 전략 
+
+오류가 발생 하는 경우 [지 수 백오프 재시도 전략](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff)을 사용 하 여 요청을 다시 시도해 야 합니다.
+
+Azure Cognitive Search의 .NET SDK는 503s 및 기타 실패 한 요청을 자동으로 다시 시도 하지만 207s를 다시 시도 하는 고유한 논리를 구현 해야 합니다. 다시 시도 전략을 구현 하는 데 사용할 수도 있는 오픈 소스 도구를 사용할 [수도 있습니다.](https://github.com/App-vNext/Polly)
+
+### <a name="network-data-transfer-speeds"></a>네트워크 데이터 전송 속도
+
+네트워크 데이터 전송 속도는 데이터를 인덱싱할 때 제한 요인이 될 수 있습니다. Azure 환경 내에서 데이터를 인덱싱하면 인덱싱 속도를 높일 수 있습니다.
+
+## <a name="indexers"></a>인덱서
 
 [인덱서](search-indexer-overview.md) 는 검색 가능한 콘텐츠에 대해 지원 되는 Azure 데이터 원본을 탐색 하는 데 사용 됩니다. 대규모 인덱싱에 대해 명시적으로 의도하지 않으므로 여러 인덱서 기능은 더 큰 데이터 세트를 수용하는 데 특히 유용합니다.
 
@@ -48,6 +99,12 @@ ms.locfileid: "77190955"
 
 > [!NOTE]
 > 인덱서는 데이터 소스에 따라 달라 지는 인덱서 방법을 사용 하는 것은 Azure에서 선택한 데이터 원본에 대해서만 사용할 수 있는 [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob 저장소](search-howto-indexing-azure-blob-storage.md), [테이블 저장소](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md)입니다.
+
+### <a name="batch-size"></a>Batch 크기
+
+밀어넣기 API와 마찬가지로 인덱서를 사용 하 여 일괄 처리당 항목 수를 구성할 수 있습니다. [만들기 인덱서 REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)에 따른 인덱서의 경우 `batchSize` 인수를 설정하여 데이터의 특징에 더 잘 일치하도록 이 설정을 사용자 지정할 수 있습니다. 
+
+기본 일괄 처리 크기는 데이터 원본에 따라 다릅니다. Azure SQL Database 및 Azure Cosmos DB의 기본 일괄 처리 크기는 1000입니다. 반면, Azure Blob 인덱싱에서는 더 큰 평균 문서 크기를 인식 하 여 10 개의 문서에서 일괄 처리 크기를 설정 합니다. 
 
 ### <a name="scheduled-indexing"></a>예약된 인덱싱
 

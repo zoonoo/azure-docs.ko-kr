@@ -7,15 +7,17 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/20/2020
-ms.openlocfilehash: 78f5f6eda28bed164668445b5671dad92f8dedd7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 7a1a2aa92549bcab35532120c4af5bd0b6904f58
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77500263"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891240"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인에 사용자 지정 기술 추가 방법
+
+> [!VIDEO https://www.youtube.com/embed/fHLCE-NZeb4?version=3&start=172&end=221]
 
 Azure Cognitive Search의 [보강 파이프라인](cognitive-search-concept-intro.md) 은 [기본 제공 인식 기술](cognitive-search-predefined-skills.md) 뿐만 아니라 개인적으로 만들고 파이프라인에 추가 하는 [사용자 지정 기술](cognitive-search-custom-skill-web-api.md) 에서 조합할 수 있습니다. 이 문서에서는 AI 보강 파이프라인에 포함 될 수 있도록 인터페이스를 노출 하는 사용자 지정 기술을 만드는 방법을 알아봅니다. 
 
@@ -39,6 +41,10 @@ URI가 안전한 지 확인 합니다 (HTTPS).
 현재, 사용자 지정 기술을 조작하는 유일한 메커니즘은 Web API 인터페이스를 사용하는 것입니다. Web API는 이 섹션에 설명된 요구 사항을 충족해야 합니다.
 
 ### <a name="1--web-api-input-format"></a>1. Web API 입력 형식
+
+
+> [!VIDEO https://www.youtube.com/embed/fHLCE-NZeb4?version=3&start=294&end=340]
+
 
 Web API가 처리할 레코드 배열을 수락해야 합니다. 각 레코드에는 Web API에 제공되는 입력인 “속성 모음”이 포함되어야 합니다. 
 
@@ -158,6 +164,7 @@ Web API 보강자를 만들 때 요청의 일부로 HTTP 헤더 및 매개 변�
 
 이 문서에서는 사용자 지정 기술을 기술에 통합 하는 데 필요한 인터페이스 요구 사항에 대해 설명 했습니다. 사용자 지정 기술 및 기술 컴퍼지션에 대 한 자세한 내용을 보려면 다음 링크를 클릭 하십시오.
 
++ [사용자 지정 기술에 대 한 비디오 보기](https://youtu.be/fHLCE-NZeb4)
 + [전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://github.com/Azure-Samples/azure-search-power-skills)
 + [예: AI 보강에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)

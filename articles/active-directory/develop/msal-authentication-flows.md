@@ -13,12 +13,12 @@ ms.date: 01/30/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 25c219bedbbbec9fbc0c5617c7bd9fc482faf49a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db9937d87692a1221d72bd27cfd653d803b9a1c6
+ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050504"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82883246"
 ---
 # <a name="authentication-flows"></a>인증 흐름
 
@@ -60,7 +60,7 @@ MSAL은 사용자에 게 로그인에 대 한 자격 증명을 대화형으로 �
 MSAL.NET를 사용 하 여 특정 플랫폼에서 대화형으로 토큰을 얻는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 - [Xamarin Android](msal-net-xamarin-android-considerations.md)
 - [Xamarin iOS](msal-net-xamarin-ios-considerations.md)
-- [UWP](msal-net-uwp-considerations.md)
+- [범용 Windows 플랫폼](msal-net-uwp-considerations.md)
 
 MSAL의 대화형 호출에 대 한 자세한 내용은 [MSAL .js 대화형 요청의 프롬프트 동작](msal-js-prompt-behavior.md)을 참조 하세요.
 
@@ -232,4 +232,4 @@ Windows 도메인 가입 컴퓨터에서 자동으로 토큰을 획득 하는 �
 
 ### <a name="azure-ad-b2c-specifics"></a>Azure AD B2C 세부 정보
 
-MSAL.NET 및 Azure AD B2C를 사용 하는 방법에 대 한 자세한 내용은 [Azure AD B2C에서 ROPC 사용 (MSAL.NET)](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc-with-azure-ad-b2c)을 참조 하세요.
+MSAL.NET 및 Azure AD B2C에서 ROPC를 사용 하는 방법에 대 한 자세한 내용은 [Azure AD B2C에서 ROPC 사용](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc)을 참조 하세요.

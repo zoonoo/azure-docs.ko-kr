@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 8140fc4286ac97260e0b23ea700a70303ec69e2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5428f24ea5ab780c4b51e0af37908077ddc32232
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411193"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891363"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Azure Machine Learning 작업 영역에 대 한 Azure 개인 링크 구성 (미리 보기)
 
@@ -118,7 +118,7 @@ VPN gateway에 대 한 자세한 내용은 [vpn Gateway 란?](/azure/vpn-gateway
 
 작업 영역에서 사용 되는 Azure Key Vault를 보호 하기 위해 가상 네트워크 내에 배치 하거나 개인 링크를 사용 하도록 설정할 수 있습니다.
 
-키 자격 증명 모음을 가상 네트워크에 배치 하는 방법에 대 한 자세한 내용은 [작업 영역과 함께 key vault 인스턴스 사용](how-to-enable-virtual-network.md#use-a-key-vault-instance-with-your-workspace)을 참조 하세요.
+키 자격 증명 모음을 가상 네트워크에 배치 하는 방법에 대 한 자세한 내용은 [작업 영역과 함께 key vault 인스턴스 사용](how-to-enable-virtual-network.md#key-vault-instance)을 참조 하세요.
 
 키 자격 증명 모음에 개인 링크를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [Azure 개인 링크와 Key Vault 통합](/azure/key-vault/private-link-service)을 참조 하세요.
 
@@ -131,7 +131,7 @@ VPN gateway에 대 한 자세한 내용은 [vpn Gateway 란?](/azure/vpn-gateway
 
 ## <a name="azure-container-registry"></a>Azure Container Registry
 
-가상 네트워크 내의 Azure Container Registry 보안에 대 한 자세한 내용은 [Azure Container Registry 사용](how-to-enable-virtual-network.md#use-azure-container-registry)을 참조 하세요.
+가상 네트워크 내의 Azure Container Registry 보안에 대 한 자세한 내용은 [Azure Container Registry 사용](how-to-enable-virtual-network.md#azure-container-registry)을 참조 하세요.
 
 > [!IMPORTANT]
 > Azure Machine Learning 작업 영역에 대 한 개인 링크를 사용 하 고 가상 네트워크에 작업 영역에 대 한 Azure Container Registry을 저장 하는 경우 다음 Azure Resource Manager 템플릿도 적용 해야 합니다. 이 템플릿을 사용 하면 작업 영역에서 개인 링크를 통해 ACR와 통신할 수 있습니다.

@@ -1,6 +1,6 @@
 ---
-title: Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 Azure RBAC에서 역할 정의를 나열 합니다. Microsoft Docs
-description: Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 Azure RBAC에서 기본 제공 및 사용자 지정 역할을 나열 하는 방법에 대해 알아봅니다.
+title: Azure 역할 정의 나열-Azure RBAC
+description: Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 Azure 기본 제공 및 사용자 지정 역할을 나열 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: aa888eedc81ceb3188f801e273c70722207bf512
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e691e37a85604132a6b1c4b2af3501f2c8636e18
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062994"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891265"
 ---
-# <a name="list-role-definitions-in-azure-rbac"></a>Azure RBAC에서 역할 정의 나열
+# <a name="list-azure-role-definitions"></a>Azure 역할 정의 나열
 
-역할 정의는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 사용 권한 컬렉션입니다. 일반적으로 단지 역할이라고 합니다. [Azure 역할 기반 access control (RBAC)](overview.md) 은 120의 [기본 제공 역할을 사용](built-in-roles.md) 하거나 사용자 고유의 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure 리소스에 대 한 액세스 권한을 부여 하는 데 사용할 수 있는 기본 제공 및 사용자 지정 역할을 나열 하는 방법을 설명 합니다.
+역할 정의는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 사용 권한 컬렉션입니다. 일반적으로 단지 역할이라고 합니다. Azure [RBAC (역할 기반 액세스 제어)](overview.md) 는 120의 [기본 제공 역할을 사용](built-in-roles.md) 하거나 사용자 고유의 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure 리소스에 대 한 액세스 권한을 부여 하는 데 사용할 수 있는 기본 제공 및 사용자 지정 역할을 나열 하는 방법을 설명 합니다.
 
 Azure Active Directory에 대 한 관리자 역할 목록을 보려면 [Azure Active Directory의 관리자 역할 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조 하세요.
 
@@ -327,7 +327,7 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 1. URI 내에서 *{scope}* 를 역할 정의를 나열 하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | Type |
+    > | 범위 | 형식 |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -339,10 +339,59 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 1. *{Filter}* 를 역할 정의 목록 필터에 적용 하려는 조건으로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Assert | Description |
+    > | Assert | 설명 |
     > | --- | --- |
     > | `$filter=atScopeAndBelow()` | 지정 된 범위 및 모든 하위 범위에 대 한 역할 정의를 나열 합니다. |
     > | `$filter=type+eq+'{type}'` | 지정 된 형식의 역할 정의를 나열 합니다. 역할의 형식은 또는 `CustomRole` `BuiltInRole`일 수 있습니다. |
+
+다음 요청은 구독 범위에서 사용자 지정 역할 정의를 나열 합니다.
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=type+eq+'CustomRole'
+```
+
+다음은 출력 예제입니다.
+
+```json
+{
+    "value": [
+        {
+            "properties": {
+                "roleName": "Billing Reader Plus",
+                "type": "CustomRole",
+                "description": "Read billing data and download invoices",
+                "assignableScopes": [
+                    "/subscriptions/{subscriptionId1}"
+                ],
+                "permissions": [
+                    {
+                        "actions": [
+                            "Microsoft.Authorization/*/read",
+                            "Microsoft.Billing/*/read",
+                            "Microsoft.Commerce/*/read",
+                            "Microsoft.Consumption/*/read",
+                            "Microsoft.Management/managementGroups/read",
+                            "Microsoft.CostManagement/*/read",
+                            "Microsoft.Billing/invoices/download/action",
+                            "Microsoft.CostManagement/exports/*"
+                        ],
+                        "notActions": [
+                            "Microsoft.CostManagement/exports/delete"
+                        ]
+                    }
+                ],
+                "createdOn": "2020-02-21T04:49:13.7679452Z",
+                "updatedOn": "2020-02-21T04:49:13.7679452Z",
+                "createdBy": "{createdByObjectId1}",
+                "updatedBy": "{updatedByObjectId1}"
+            },
+            "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId1}",
+            "type": "Microsoft.Authorization/roleDefinitions",
+            "name": "{roleDefinitionId1}"
+        }
+    ]
+}
+```
 
 ### <a name="list-a-role-definition"></a>역할 정의 나열
 
@@ -363,7 +412,7 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 1. URI 내에서 *{scope}* 를 역할 정의를 나열 하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | Type |
+    > | 범위 | 형식 |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -372,9 +421,45 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
      
 1. *{roleDefinitionId}* 를 역할 정의 식별자로 바꿉니다.
 
+다음 요청은 [판독기](built-in-roles.md#reader) 역할 정의를 나열 합니다.
+
+```http
+GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7?api-version=2015-07-01
+```
+
+다음은 출력 예제입니다.
+
+```json
+{
+    "properties": {
+        "roleName": "Reader",
+        "type": "BuiltInRole",
+        "description": "Lets you view everything, but not make any changes.",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "*/read"
+                ],
+                "notActions": []
+            }
+        ],
+        "createdOn": "2015-02-02T21:55:09.8806423Z",
+        "updatedOn": "2019-02-05T21:24:35.7424745Z",
+        "createdBy": null,
+        "updatedBy": null
+    },
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "type": "Microsoft.Authorization/roleDefinitions",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7"
+}
+```
+
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)
-- [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)
-- [Azure RBAC 및 Azure Portal를 사용 하 여 역할 할당 나열](role-assignments-list-portal.md)
-- [Azure RBAC 및 Azure Portal를 사용 하 여 역할 할당 추가 또는 제거](role-assignments-portal.md)
+- [Azure 기본 제공 역할](built-in-roles.md)
+- [Azure 사용자 지정 역할](custom-roles.md)
+- [Azure Portal를 사용 하 여 Azure 역할 할당 나열](role-assignments-list-portal.md)
+- [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-portal.md)

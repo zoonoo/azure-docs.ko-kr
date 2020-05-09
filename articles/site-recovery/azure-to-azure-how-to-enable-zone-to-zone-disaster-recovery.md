@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 4d103001ba655ea6540c9dd00e937087b7b6311c
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
-ms.translationtype: HT
+ms.openlocfilehash: 27b433ba33d287a183d8ce6cc05d87649b2d0b00
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738313"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891510"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Azure virtual machines에 대해 영역에 영역 재해 복구를 사용 하도록 설정
 
@@ -106,16 +106,16 @@ Azure Portal 로그인 합니다.
 
 ## <a name="faqs"></a>FAQ
 
-1. 영역 및 지역 재해 복구에 대 한 가격은 어떻게 작동 하나요?
+**1. 지역에서 영역 재해 복구에 대 한 가격은 어떻게 작동 하나요?**
 영역 및 영역 재해 복구에 대 한 가격은 Azure에서 Azure로 재해 복구에 대 한 가격 책정과 동일 합니다. 가격 책정 페이지에 대 한 자세한 [내용은 여기에서](https://azure.microsoft.com/pricing/details/site-recovery/) 찾을 수 [있습니다.](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) 영역 재해 복구 영역에 표시 되는 송신 요금은 지역에서 지역 재해 복구 보다 낮습니다.
 
-2. RTO 및 RPO에 대 한 SLA는 무엇 인가요?
-RTO SLA는 전체 Site Recovery와 동일 합니다. RTO <= 2 시간으로 보장 됩니다. RPO에 대해 정의 된 SLA는 없습니다.
+**2. RTO 및 RPO에 대 한 SLA는 무엇 인가요?**
+RTO SLA는 전체 Site Recovery와 동일 합니다. 최대 2 시간의 RTO를 보장 합니다. RPO에 대해 정의 된 SLA는 없습니다.
 
-3. 보조 영역에서 용량을 보장 하나요?
+**3. 보조 영역에서 용량을 보장 하나요?**
 Site Recovery 팀 및 Azure 용량 관리 팀은 충분 한 인프라 용량을 계획 하 고 있습니다. 장애 조치 (failover)를 시작할 때 팀은 Site Recovery로 보호 되는 VM 인스턴스가 대상 영역에 배포 되도록 하는 데도 도움이 됩니다.
 
-4. 지원 되는 운영 체제는 무엇 인가요?
+**4. 지원 되는 운영 체제는 무엇 인가요?**
 영역 간 재해 복구는 Azure에서 Azure로 재해 복구와 동일한 운영 체제를 지원 합니다. [여기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix)에서 지원 매트릭스를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계

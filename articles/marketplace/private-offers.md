@@ -1,22 +1,22 @@
 ---
-title: 개인 제품 | Azure Marketplace
-description: 앱 및 서비스 게시자용 Azure Marketplace의 프라이빗 제품
+title: Microsoft 상업적 marketplace의 개인 제품
+description: 앱 및 서비스 게시자를 위한 Microsoft 상업적 marketplace의 개인 제품입니다.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: dsindona
-ms.openlocfilehash: efda9fb66a65f1f2cd40de8bf32a8a3fa99aea7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e449f65ca65a679aa6c6823938fa561b84e38368
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681426"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872384"
 ---
-# <a name="private-offers"></a>프라이빗 제품
+# <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 개인 제품
 
-[Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/)의 프라이빗 제품을 사용하면 게시자가 대상 고객에게만 표시되는 SKU를 만들 수 있습니다.
+의 개인 제공 [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/) 게시자는 대상 고객 에게만 표시 되는 계획을 만들 수 있습니다. 이 문서에서는 개인 제품의 옵션 및 이점에 대해 알아봅니다.
 
 ## <a name="unlock-enterprise-deals-with-private-offers"></a>Enterprise에서 개인 제품으로 거래
 
