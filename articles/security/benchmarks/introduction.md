@@ -7,13 +7,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
-ms.custom: security-baselines
-ms.openlocfilehash: 8f65eb008d5df6ea3f2f85778d538023e6ce98eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: security-benchmark
+ms.openlocfilehash: 883042c94576014c3bdeabd38516d9531c8fd3dc
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75945330"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606860"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Azure 보안 벤치 마크 소개
 
@@ -32,9 +32,9 @@ Azure 보안 벤치 마크 설명서는 보안 제어 및 서비스 권장 사�
 
 "제어", "벤치 마크" 및 "기준" 이라는 용어는 Azure 보안 벤치 마크 설명서에서 자주 사용 되며, Azure에서 이러한 용어를 사용 하는 방법을 이해 하는 것이 중요 합니다. 
 
-| 용어 | Description | 예제 |
+| 용어 | Description | 예 |
 |--|--|--|
-| 제어 | **컨트롤** 은 기술 또는 구현과 관련이 없는 기능이 나 작업에 대 한 개략적인 설명입니다. | 데이터 보호는 보안 제어 중 하나입니다. 이 컨트롤은 데이터를 보호 하기 위해 해결 해야 하는 특정 작업을 포함 합니다. |
+| 컨트롤 | **컨트롤** 은 기술 또는 구현과 관련이 없는 기능이 나 작업에 대 한 개략적인 설명입니다. | 데이터 보호는 보안 제어 중 하나입니다. 이 컨트롤은 데이터를 보호 하기 위해 해결 해야 하는 특정 작업을 포함 합니다. |
 | 벤치마크 | **벤치 마크** 에는 Azure와 같은 특정 기술에 대 한 보안 권장 사항이 포함 되어 있습니다. 권장 사항은 자신이 속한 컨트롤에 의해 분류 됩니다. | Azure 보안 벤치 마크는 Azure 플랫폼과 관련 된 보안 권장 사항을 구성 합니다.  |
 | 기초 | **기준은** 조직의 보안 요구 사항입니다. 보안 요구 사항은 벤치 마크 권장 사항을 기반으로 합니다. 각 조직에서는 기준에 포함할 벤치 마크 권장 사항을 결정 합니다. | Contoso 회사는 Azure 보안 벤치 마크에서 특정 권장 사항을 요구 하도록 선택 하 여 보안 기준을 만듭니다. |
 

@@ -2,13 +2,13 @@
 title: PowerShell 사용하여 Azure Application Insights 자동화 | Microsoft Docs
 description: Azure Resource Manager 템플릿을 사용 하 여 PowerShell에서 리소스, 경고 및 가용성 테스트 만들기 및 관리를 자동화 합니다.
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 9494b659b5b4357f3190c45d8cc72c4e130f0ecc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/02/2020
+ms.openlocfilehash: fba85981f32611164c328945e45de4032ad949eb
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275881"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780507"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>PowerShell을 사용 하 여 Application Insights 리소스 관리
 
@@ -21,10 +21,10 @@ ms.locfileid: "79275881"
 ## <a name="one-time-setup"></a>일 회 설정
 아직 Azure 구독에서 PowerShell을 사용한 적이 없을 경우:
 
-스크립트를 실행하려는 컴퓨터에 Azure Powershell 모듈을 설치합니다.
+스크립트를 실행 하려는 컴퓨터에 Azure PowerShell 모듈을 설치 합니다.
 
 1. [Microsoft 웹 플랫폼 설치 관리자(v5 이상)](https://www.microsoft.com/web/downloads/platform.aspx)를 설치합니다.
-2. 이를 사용하여 Microsoft Azure Powershell을 설치합니다.
+2. 이를 사용 하 여 Microsoft Azure PowerShell를 설치 합니다.
 
 리소스 관리자 템플릿 사용 외에도 Application Insights 리소스를 프로그래밍 방식으로 쉽게 구성할 수 있도록 하는 다양 한 [Application Insights PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)이 있습니다. Cmdlet에 의해 활성화 되는 기능은 다음과 같습니다.
 
@@ -229,7 +229,21 @@ Cmdlet을 통해 추가 속성을 사용할 수 있습니다.
 
 이러한 cmdlet의 매개 변수에 대 한 [자세한 설명서](https://docs.microsoft.com/powershell/module/az.applicationinsights) 를 참조 하세요.  
 
-## <a name="set-the-data-retention"></a>데이터 보존 설정 
+## <a name="set-the-data-retention"></a>데이터 보존 설정
+
+다음은 Application Insights 리소스에 대 한 데이터 보존을 프로그래밍 방식으로 설정 하는 세 가지 방법입니다.
+
+### <a name="setting-data-retention-using-a-powershell-commands"></a>PowerShell 명령을 사용 하 여 데이터 보존 설정
+
+다음은 Application Insights 리소스에 대 한 데이터 보존을 설정 하는 간단한 PowerShell 명령 집합입니다.
+
+```PS
+$Resource = Get-AzResource -ResourceType Microsoft.Insights/components -ResourceGroupName MyResourceGroupName -ResourceName MyResourceName
+$Resource.Properties.RetentionInDays = 365
+$Resource | Set-AzResource -Force
+```
+
+### <a name="setting-data-retention-using-rest"></a>REST를 사용 하 여 데이터 보존 설정
 
 Application Insights 리소스에 대 한 현재 데이터 보존을 얻으려면 OSS 도구 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용할 수 있습니다.  [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) 및 [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)에서 ARMClient에 대해 자세히 알아보세요.  현재 보존을 가져오는를 `ARMClient`사용 하는 예제는 다음과 같습니다.
 
@@ -251,6 +265,8 @@ New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
        -retentionInDays 365 `
        -appName myApp
 ```
+
+### <a name="setting-data-retention-using-a-powershell-script"></a>PowerShell 스크립트를 사용 하 여 데이터 보존 설정
 
 다음 스크립트를 사용 하 여 보존 기간을 변경할 수도 있습니다. 이 스크립트를 복사 하 여 `Set-ApplicationInsightsRetention.ps1`다른 이름으로 저장 합니다.
 

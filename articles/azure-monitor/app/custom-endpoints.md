@@ -3,12 +3,12 @@ title: Azure 애플리케이션 Insights 기본 SDK 끝점 재정의
 description: Azure Government 같은 영역에 대 한 기본 Azure Monitor Application Insights SDK 끝점을 수정 합니다.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: b43bd13c73f77c6292e2062db88d68a20e5bf480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5bf5b07f7c058b4778e7695f150fdc71e048182
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729522"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629187"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>기본 끝점 재정의 Application Insights
 
@@ -76,56 +76,9 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 # <a name="azure-functions"></a>[Azure Functions](#tab/functions)
 
-### <a name="azure-functions-v2x"></a>Azure Functions v2. x
+Azure Functions 이제 함수의 응용 프로그램 설정에 설정 된 [연결 문자열](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) 을 사용 하는 것이 좋습니다. 함수 창 내에서 함수에 대 한 응용 프로그램 설정에 액세스 하려면 **설정** > **구성** > **응용 프로그램 설정**을 선택 합니다. 
 
-함수 프로젝트에 다음 패키지를 설치 합니다.
-
-- Microsoft ApplicationInsights 버전 2.10.0
-- 2.10.0. PerfCounterCollector 버전
-- TelemetryChannel 버전 (2.10.0)
-
-그런 다음 함수 응용 프로그램의 시작 코드를 추가 (또는 수정) 합니다.
-
-```csharp
-[assembly: WebJobsStartup(typeof(Example.Startup))]
-namespace Example
-{
-  class Startup : FunctionsStartup
-  {
-      public override void Configure(IWebJobsBuilder builder)
-      {
-          var quickPulseFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryModule) && 
-                                               sd.ImplementationType == typeof(QuickPulseTelemetryModule));
-          if (quickPulseFactory != null)
-          {
-              builder.Services.Remove(quickPulseFactory);
-          }
-
-          var appIdFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(IApplicationIdProvider));
-          if (appIdFactory != null)
-          {
-              builder.Services.Remove(appIdFactory);
-          }
-
-          var channelFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryChannel));
-          if (channelFactory != null)
-          {
-              builder.Services.Remove(channelFactory);
-          }
-
-          builder.Services.AddSingleton<ITelemetryModule, QuickPulseTelemetryModule>(_ =>
-              new QuickPulseTelemetryModule
-              {
-                  QuickPulseServiceEndpoint = "QuickPulse_Endpoint_Address"
-              });
-
-          builder.Services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "Profile_Query_Endpoint_address" });
-
-          builder.Services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "TelemetryChannel_Endpoint_Address" });
-      }
-  }
-}
-```
+이름: `APPLICATIONINSIGHTS_CONNECTION_STRING` 값:`Connection String Value`
 
 # <a name="java"></a>[Java](#tab/java)
 

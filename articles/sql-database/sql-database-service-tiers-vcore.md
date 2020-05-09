@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 5fd69dcd30292630862887ab5434764ba377b396
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78e01c854201e3c5253cd86aebcd85b62bf5568d
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481085"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629303"
 ---
 # <a name="vcore-model-overview"></a>vCore 모델 개요
 
@@ -102,7 +102,7 @@ M 시리즈는 중요 비즈니스용 계층 에서만 지원 되며 영역 중�
 |Gen4     |-Intel E5-2673 v3 (Haswell) 2.4 GHz 프로세서<br>-최대 24 개의 vCores 프로 비전 (1 개 Vcores = 1 실제 코어)  |-vCore 당 7GB<br>-최대 168 GB 프로 비전|
 |5세대     |**프로비저닝된 컴퓨팅**<br>-Intel E5-2673 v4 (Broadwell) 2.3 GHz 및 Intel SP-8160 (Skylake) * 프로세서<br>-최대 80 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)<br><br>**서버리스 컴퓨팅**<br>-Intel E5-2673 v4 (Broadwell) 2.3 GHz 및 Intel SP-8160 (Skylake) * 프로세서<br>-최대 16 개의 Vcores 자동 확장 (1 개 Vcores = 1 개 하이퍼 스레드)|**프로비저닝된 컴퓨팅**<br>-vCore 당 5.1 GB<br>-최대 408 GB 프로 비전<br><br>**서버리스 컴퓨팅**<br>-VCore 당 최대 24gb까지 자동 확장<br>-최대 48 GB까지 자동 확장|
 |Fsv2 시리즈     |-Intel Xeon Platinum 8168 (SkyLake) 프로세서<br>-3.4 GHz의 모든 코어 터보 클록 속도와 3.7 g h z의 싱글 코어 터보 클록 속도를 모두 유지 합니다.<br>-72 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)|-vCore 당 1.9 GB<br>-136 GB 프로 비전|
-|M 시리즈     |-Intel Xeon E7-8890 v3 2.5 GHz 프로세서<br>-128 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)|-vCore 당 30GB<br>-3.7 TB 프로 비전|
+|M 시리즈     |-Intel Xeon E7-8890 v3 2.5 g h z 및 Intel Xeon Platinum 8280M 2.7 GHz (캐스케이드 Lake) 프로세서<br>-128 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)|-vCore 당 30GB<br>-3.7 TB 프로 비전|
 
 \*Gen5 동적 관리 뷰에서 Intel SP-8160 (Skylake) 프로세서를 사용 하는 데이터베이스용 하드웨어 생성 [dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 은 Gen6로 표시 됩니다. 모든 Gen5 데이터베이스에 대 한 리소스 제한은 프로세서 유형 (Broadwell 또는 Skylake)에 관계 없이 동일 합니다.
 
@@ -199,7 +199,7 @@ M 시리즈는 추가 지역의 가용성이 제한 될 수도 있습니다. 여
 ##### <a name="create-a-support-request-to-enable-m-series"></a>M 시리즈를 사용 하도록 지원 요청을 만듭니다. 
 
 1. 포털에서 **도움말 + 지원** 을 선택 합니다.
-2. **새 지원 요청**을 선택합니다.
+2. **새 지원 요청**을 선택 합니다.
 
 **기본 사항** 페이지에서 다음을 제공 합니다.
 

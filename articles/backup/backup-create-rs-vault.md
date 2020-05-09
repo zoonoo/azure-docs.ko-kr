@@ -4,12 +4,12 @@ description: 이 문서에서는 백업 및 복구 지점이 저장 되는 Recov
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 439f102e8f13bff63ab388be8f10df07ab2dc7d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ac1c7e887f80767d6ff1819476e91cb4b06bf1b
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80672858"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744936"
 ---
 # <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -37,10 +37,10 @@ Recovery Services 자격 증명 모음을 만들려면:
 
     ![Recovery Services 자격 증명 모음 구성](./media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   - **이름**: 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 고유해야 합니다. 2자 이상 50자 이하의 이름을 지정합니다. 이름은 문자로 시작해야 하며, 문자, 숫자, 하이픈만 포함할 수 있습니다.
+   - **Name**: 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 고유해야 합니다. 2자 이상 50자 이하의 이름을 지정합니다. 이름은 문자로 시작해야 하며, 문자, 숫자, 하이픈만 포함할 수 있습니다.
    - **구독**: 사용할 구독을 선택합니다. 단일 구독의 멤버인 경우 해당 이름이 표시됩니다. 사용할 구독을 잘 모르는 경우 기본(제안된) 구독을 사용합니다. 회사 또는 학교 계정이 둘 이상의 Azure 구독과 연결된 경우에만 여러 항목을 선택할 수 있습니다.
    - **리소스 그룹**: 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. 구독에서 사용 가능한 리소스 그룹 목록을 보려면 **기존 그룹 사용**을 선택한 다음, 드롭다운 목록 상자에서 리소스를 선택합니다. 새 리소스 그룹을 만들려면 **새로 만들기**를 선택하고 이름을 입력합니다. 리소스 그룹에 대한 전체 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조하세요.
-   - **위치**: 자격 증명 모음의 지리적 지역을 선택합니다. 가상 머신을 보호할 자격 증명 모음을 만들려면, 자격 증명 모음이 **반드시** 가상 머신과 동일한 지역에 있어야 합니다.
+   - **위치**: 자격 증명 모음에 대한 지리적 지역을 선택합니다. 가상 머신을 보호할 자격 증명 모음을 만들려면, 자격 증명 모음이 **반드시** 가상 머신과 동일한 지역에 있어야 합니다.
 
       > [!IMPORTANT]
       > VM의 위치를 잘 모를 경우 대화 상자를 닫습니다. 포털에서 가상 머신의 목록으로 이동합니다. 가상 머신이 여러 지역에 있는 경우 각 지역에 Recovery Services 자격 증명 모음을 만듭니다. 첫 번째 위치에서 자격 증명 모음을 만든 후에 다른 위치에 대한 자격 증명 모음을 만듭니다. 백업 데이터를 저장할 스토리지 계정을 지정하지 않아도 됩니다. Recovery Services 자격 증명 모음 및 Azure Backup 서비스는 이를 자동으로 처리합니다.
@@ -121,7 +121,7 @@ GRS 중복성으로 만든 자격 증명 모음에는 지역 간 복원 기능�
 
 - 기본적으로 **저장소 복제 유형은** **지역 중복**으로 설정 됩니다. 백업을 구성한 후에는 수정 하는 옵션을 사용할 수 없습니다. 설정을 검토 하 고 수정 하려면 다음 [단계](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) 를 수행 합니다.
 
-- 새로 만든 자격 증명 모음에 대해 기본적으로 **일시 삭제** 를 **사용** 하 여 실수로 인 한 삭제 또는 악의적인 삭제 로부터 백업 데이터를 보호 합니다. 설정을 검토 하 고 수정 하려면 다음 [단계](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) 를 수행 합니다.
+- 새로 만든 자격 증명 모음에 대해 기본적으로 **일시 삭제** 를 **사용** 하 여 실수로 인 한 삭제 또는 악의적인 삭제 로부터 백업 데이터를 보호 합니다. 설정을 검토 하 고 수정 하려면 다음 [단계](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) 를 수행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

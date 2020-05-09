@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 028c30fced14a60af9f5683e6c6e087b15591735
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 089858c789bb11245e98f32047cabb4117ece904
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605487"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838589"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Azure에서 사용할 수 있는 Red Hat Enterprise Linux (RHEL) 이미지
 Azure는 다양 한 사용 사례에 대 한 다양 한 RHEL 이미지를 제공 합니다.
@@ -28,7 +28,10 @@ Azure는 다양 한 사용 사례에 대 한 다양 한 RHEL 이미지를 제공
 ## <a name="list-of-rhel-images"></a>RHEL 이미지 목록
 Azure에서 사용할 수 있는 RHEL 이미지 목록입니다. 달리 명시 되지 않은 경우 모든 이미지는 LVM으로 분할 되 고 일반 RHEL 리포지토리에 연결 됩니다 (E4S가 아닌 EUS는 아님). 다음 이미지는 현재 일반적으로 사용할 수 있습니다.
 
-제품| SKU | 분할 | 프로비전 | 메모
+> [!NOTE]
+> 원시 이미지는 LVM 분할 이미지를 위해 더 이상 생성 되지 않습니다. LVM은 훨씬 더 유연한 파티션 크기 조정 옵션을 포함 하 여 오래 된 원시 (LVM) 파티션 구성표에 비해 여러 가지 이점을 제공 합니다.
+
+제품| SKU | 분할 | 프로비전 | 참고
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 6.7      | RAW    | Linux 에이전트 |
 |             | 6.8      | RAW    | Linux 에이전트 |
@@ -47,6 +50,9 @@ RHEL          | 6.7      | RAW    | Linux 에이전트 |
 |             | 7.6      | RAW    | Linux 에이전트 | 2019 년 5 월에 기본적으로 EUS 리포지토리에 연결 됩니다.
 |             | 76-gen2  | RAW    | Linux 에이전트 | 기본적으로 EUS 리포지토리에 연결 됩니다.
 |             | 7.7      | LVM    | Linux 에이전트 | 기본적으로 EUS 리포지토리에 연결 됩니다.
+|             | 77-gen2  | LVM    | Linux 에이전트 | 기본적으로 EUS 리포지토리에 연결 됩니다.
+|             | 7.8      | LVM    | Linux 에이전트 | 일반 리포지토리에 연결 됨 (RHEL 7.8에 대해 EUS를 사용할 수 없음)
+|             | 78-gen2  | LVM    | Linux 에이전트 | 일반 리포지토리에 연결 됨 (RHEL 7.8에 대해 EUS를 사용할 수 없음)
 |             | 8-LVM    | LVM    | Linux 에이전트 | RHEL .x 이미지 패밀리입니다. 일반 리포지토리에 연결 됩니다.
 |             | 8lvm-gen2| LVM    | Linux 에이전트 | Hyper-v 세대 2-RHEL 8. x 이미지 제품군 일반 리포지토리에 연결 됩니다.
 |             | 8        | LVM    | Linux 에이전트 | RHEL 8.0 이미지

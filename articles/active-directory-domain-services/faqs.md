@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 86b68b794928900717bea25623e7eb833c23e86c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92b3fd2453a4fb121c97f8f25f1d3ca129826092
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655342"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926972"
 ---
 # <a name="frequently-asked-questions-faqs"></a>FAQ(질문과 대답)
 
@@ -91,6 +91,7 @@ ms.locfileid: "80655342"
 * [관리되는 도메인에서 DNS 레코드를 수정하거나 추가할 수 있습니까?](#can-i-modify-or-add-dns-records-in-my-managed-domain)
 * [관리되는 도메인에 대한 암호 수명 정책은 무엇인가요?](#what-is-the-password-lifetime-policy-on-a-managed-domain)
 * [Azure AD Domain Services에서 AD 계정 잠금 보호를 제공하나요?](#does-azure-ad-domain-services-provide-ad-account-lockout-protection)
+* [Azure AD Domain Services 내에서 분산 파일 시스템 (DFS) 및 복제를 구성할 수 있나요?](#can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services)
 
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>원격 데스크톱을 사용하여 관리되는 도메인의 도메인 컨트롤러에 연결할 수 있습니까?
 아니요. 원격 데스크톱을 사용 하 여 관리 되는 도메인에 대 한 도메인 컨트롤러에 연결할 수 있는 권한이 없습니다. *AAD DC 관리자* 그룹의 멤버는 adac (Active Directory 관리 센터) 또는 ad PowerShell과 같은 ad 관리 도구를 사용 하 여 관리 되는 도메인을 관리할 수 있습니다. 이러한 도구는 관리 되는 도메인에 가입 된 Windows Server에서 *원격 서버 관리 도구* 기능을 사용 하 여 설치 됩니다. 자세한 내용은 [관리 VM을 만들어 Azure AD Domain Services 관리 되는 도메인 구성 및](tutorial-create-management-vm.md)관리를 참조 하세요.
@@ -119,6 +120,9 @@ Azure AD Domain Services 관리되는 도메인의 기본 암호 수명은 90일
 ### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Azure AD Domain Services에서 AD 계정 잠금 보호를 제공하나요?
 예. 관리되는 도메인에서 2분 안에 5차례 암호를 잘못 입력하면 사용자 계정이 30분 동안 잠깁니다. 30분 후 사용자 계정이 자동으로 잠금 해제됩니다. 관리 되는 도메인에 대 한 잘못 된 암호 시도는 Azure AD에서 사용자 계정을 잠그지 않습니다. 사용자 계정은 Azure AD Domain Services 관리되는 도메인 안에서만 잠깁니다. 자세한 내용은 [관리 되는 도메인의 암호 및 계정 잠금 정책](password-policy.md)을 참조 하세요.
 
+### <a name="can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services"></a>Azure AD Domain Services 내에서 분산 파일 시스템 및 복제를 구성할 수 있나요?
+아니요. Azure AD Domain Services를 사용 하는 경우 분산 파일 시스템 (DFS) 및 복제를 사용할 수 없습니다.
+
 ## <a name="billing-and-availability"></a>요금 청구 및 가용성
 
 * [Azure AD Domain Services는 유료 서비스인가요?](#is-azure-ad-domain-services-a-paid-service)
@@ -129,7 +133,7 @@ Azure AD Domain Services 관리되는 도메인의 기본 암호 수명은 90일
 * [어떤 Azure 지역에서 서비스를 사용할 수 있습니까?](#can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services)
 
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>Azure AD Domain Services는 유료 서비스인가요?
-예. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory-ds/)를 참조 하세요.
+예. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory-ds/)를 참조하세요.
 
 ### <a name="is-there-a-free-trial-for-the-service"></a>서비스에 대한 무료 평가판이 있습니까?
 Azure AD Domain Services는 Azure 무료 평가판에 포함 되어 있습니다. [Azure의 1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.

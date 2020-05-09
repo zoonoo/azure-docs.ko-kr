@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Managed Instance 에이전트를 사용 하 여 SSIS 패키지 실행
-description: Azure SQL Database Managed Instance 에이전트를 사용 하 여 SSIS 패키지를 실행 하는 방법을 알아봅니다.
+title: Azure SQL Database Managed Instance 에이전트를 사용 하 여 SSIS 패키지 실행 예약
+description: Azure SQL Database Managed Instance 에이전트를 사용 하 여 SSIS 패키지 실행을 예약 하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -9,19 +9,22 @@ ms.topic: conceptual
 ms.author: lle
 author: lle
 ms.date: 04/14/2020
-ms.openlocfilehash: fcbfeb5ab3a3a80fdb8f7e355f290451d4afe804
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f230e4d33686b006b20e856d5e8033847e3f3d67
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144795"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628489"
 ---
-# <a name="run-ssis-packages-by-using-azure-sql-database-managed-instance-agent"></a>Azure SQL Database Managed Instance 에이전트를 사용 하 여 SSIS 패키지 실행
+# <a name="schedule-ssis-package-executions-by-using-azure-sql-database-managed-instance-agent"></a>Azure SQL Database Managed Instance 에이전트를 사용 하 여 SSIS 패키지 실행 예약
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 이 문서에서는 Azure SQL Database Managed Instance 에이전트를 사용 하 여 SSIS (SQL Server Integration Services) 패키지를 실행 하는 방법을 설명 합니다. 이 기능은 온-프레미스 환경에서 SQL Server 에이전트를 사용 하 여 SSIS 패키지를 예약 하는 경우와 유사한 동작을 제공 합니다.
 
 이 기능을 사용 하면 Azure SQL Database 관리 되는 인스턴스 또는 Azure Files 같은 파일 시스템에 SSISDB에 저장 된 SSIS 패키지를 실행할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 기능을 사용 하려면 버전 18.5 SSMS (최신 버전의 SQL Server Management Studio)를 [다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) 하 여 설치 합니다.
 
 또한 Azure Data Factory에서 [AZURE SSIS 통합 런타임을 프로 비전](tutorial-create-azure-ssis-runtime-portal.md) 해야 합니다. Azure SQL Database 관리 되는 인스턴스를 끝점 서버로 사용 합니다. 
@@ -78,7 +81,7 @@ ms.locfileid: "82144795"
 
         ![파일 원본 유형에 대 한 옵션](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
       
-        패키지 경로 ** \\ <storage account name>는 file.core.windows.net\<파일 공유 이름 \<>패키지 이름>. package.dtsx**입니다.
+        패키지 경로가 인 **`\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`** 경우
       
         **패키지 파일 액세스 자격 증명**에서 azure 파일 계정 이름 및 계정 키를 입력 하 여 azure 파일에 액세스 합니다. 도메인은 **Azure**로 설정 됩니다.
 
@@ -89,11 +92,14 @@ ms.locfileid: "82144795"
         해당 도메인, 사용자 이름 및 암호를 입력 하 여 네트워크 공유 패키지 파일에 액세스 합니다.
    1. 패키지 파일이 암호로 암호화 된 경우 **암호화 암호** 를 선택 하 고 암호를 입력 합니다.
 1. 구성 파일이 SSIS 패키지를 실행 하는 데 필요한 경우 **구성 탭에서** 구성 파일 경로를 입력 합니다.
+   Azure Files에 구성을 저장 하는 경우 해당 구성 경로는 **`\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`** 입니다.
 1. **실행 옵션** 탭에서 **Windows 인증** 또는 **32 비트 런타임을** 사용 하 여 SSIS 패키지를 실행할지 여부를 선택할 수 있습니다.
-1. **로깅** 탭에서 로깅 경로 및 해당 로깅 액세스 자격 증명을 선택 하 여 로그 파일을 저장할 수 있습니다. 기본적으로 로깅 경로는 패키지 폴더 경로와 같으며 로깅 액세스 자격 증명은 패키지 액세스 자격 증명과 동일 합니다.
+1. **로깅** 탭에서 로깅 경로 및 해당 로깅 액세스 자격 증명을 선택 하 여 로그 파일을 저장할 수 있습니다. 
+   기본적으로 로깅 경로는 패키지 폴더 경로와 같으며 로깅 액세스 자격 증명은 패키지 액세스 자격 증명과 동일 합니다.
+   Azure Files에 로그를 저장 하는 경우 로깅 경로는가 됩니다 **`\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`**.
 1. **값 설정** 탭에서 속성 경로 및 값을 입력 하 여 패키지 속성을 재정의할 수 있습니다.
  
-   예를 들어 사용자 변수의 값을 재정의 하려면 **\Package.variables [user::<variable name>] 형식으로 해당 경로를 입력 합니다. 값**입니다.
+   예를 들어 사용자 변수의 값을 재정의 하려면 다음 형식으로 해당 경로를 입력 **`\Package.Variables[User::<variable name>].Value`** 합니다.
 1. **확인** 을 선택 하 여 에이전트 작업 구성을 저장 합니다.
 1. 에이전트 작업을 시작 하 여 SSIS 패키지를 실행 합니다.
 

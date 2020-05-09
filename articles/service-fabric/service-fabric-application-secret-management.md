@@ -1,16 +1,14 @@
 ---
 title: Azure Service Fabric 응용 프로그램 비밀 관리
 description: Service Fabric 애플리케이션에서 비밀 값을 보호하는 방법에 대해 설명합니다(플랫폼에 관계 없음).
-author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.author: vturecek
-ms.openlocfilehash: 4d2138935122b9e08b21963519fce3f72466ab1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 18090dd3e4046da2069e3035be4edb4d2f979204
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414506"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583242"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Service Fabric 애플리케이션에서 암호화된 비밀 관리
 이 가이드에서는 Service Fabric 애플리케이션에서 비밀을 관리하는 단계를 안내합니다. 스토리지 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 모든 민감한 정보를 비밀로 처리할 수 있습니다.

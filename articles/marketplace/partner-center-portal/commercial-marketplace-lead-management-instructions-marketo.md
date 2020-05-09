@@ -1,22 +1,22 @@
 ---
-title: Marketo에서 리드 관리 구성 | Azure Marketplace
-description: Azure Marketplace 고객에 대 한 Marketo에 대 한 리드 관리를 구성 합니다.
+title: Marketo의 리드 관리-Microsoft 상업적 marketplace
+description: Marketo CRM 시스템을 사용 하 여 Microsoft AppSource 및 Azure Marketplace에서 리드를 관리 하는 방법을 알아봅니다.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: b142e0ab1aaa242157e207ceecf958be51bb1721
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f3a097629f8c5f4a3f0ecefa5ee50f2d3e62162
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133649"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789881"
 ---
-# <a name="configure-lead-management-in-marketo"></a>Marketo의 잠재 고객 관리 구성
+# <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Marketo를 사용 하 여 상업적 marketplace 잠재 고객 관리
 
-이 문서에서는 Marketo CRM 시스템을 설정 하 여 상업적 marketplace 제안의 판매 리드를 처리 하는 방법을 설명 합니다.
+이 문서에서는 Marketo CRM 시스템을 설정 하 여 Microsoft AppSource 및 Azure Marketplace에서 제품의 판매 리드를 처리 하는 방법을 설명 합니다.
 
 ## <a name="set-up-your-marketo-crm-system"></a>Marketo CRM 시스템 설정
 
@@ -67,9 +67,11 @@ ms.locfileid: "82133649"
 
 게시 포털에서 제품에 대 한 리드 관리 정보를 구성할 준비가 되 면 다음 단계를 수행 합니다. 
 
-1. 제품에 대 한 **제품 설정** 페이지로 이동 합니다.
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인 합니다.
 
-1. **리드 관리** 섹션에서 **연결** 을 선택 합니다. 
+1. 제품을 선택 하 고 **제품 설정** 탭으로 이동 합니다.
+
+1. **리드 관리** 섹션에서 **연결**을 선택 합니다. 
 
     ![리드 관리 섹션 연결 단추](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
 
@@ -86,6 +88,6 @@ ms.locfileid: "82133649"
 
 1. **확인**을 선택합니다.
 
-   선행 대상에 성공적으로 연결 되었는지 확인 하려면 **유효성 검사** 단추를 선택 합니다. 성공 하면 잠재 고객 대상에 테스트 리드를 갖게 됩니다.
+   선행 대상에 성공적으로 연결 되었는지 확인 하려면 **유효성 검사**를 선택 합니다. 성공 하면 잠재 고객 대상에 테스트 리드를 갖게 됩니다.
 
    ![연결 정보 팝업 창](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 7f927d230efba580cff163d31c6f572a10d0b4aa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2e225d4d37f6bdb3d50b32f6464456e4f7fa0036
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80991146"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853949"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft ID 플랫폼 로그인 추가
 이 빠른 시작에서는 코드 샘플을 사용하여 ASP.NET 웹앱이 모든 Azure AD(Azure Active Directory) 인스턴스에서 개인 계정(hotmail.com, outlook.com, 기타)과 회사 및 학교 계정에 로그인하는 방법을 배웁니다.  (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
@@ -43,7 +43,7 @@ ms.locfileid: "80991146"
 > 1. **새 등록**을 선택합니다.
 > 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
 >      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `ASPNET-Quickstart`)을 입력합니다.
->      - **리디렉션 URI**에 `http://localhost:44368/`을 추가하고 **등록**을 클릭합니다.
+>      - **리디렉션 URI**에 `https://localhost:44368/`을 추가하고 **등록**을 클릭합니다.
 >      - 관리 섹션 아래의 왼쪽 탐색 창에서 **인증**을 선택합니다.
 >          - **암시적 권한 부여** 하위 섹션에서 **ID 토큰**을 선택합니다.
 >          - 그런 다음, **저장**을 선택합니다.

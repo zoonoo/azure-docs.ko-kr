@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell를 사용 하 여 Azure 리소스에 대 한 거부 할당 나열
-description: Azure PowerShell를 사용 하 여 특정 범위에서 특정 Azure 리소스 작업에 대 한 액세스가 거부 된 사용자, 그룹, 서비스 사용자 및 관리 되는 id를 나열 하는 방법에 대해 알아봅니다.
+title: Azure PowerShell를 사용 하 여 Azure 거부 할당 나열-Azure RBAC
+description: Azure PowerShell 및 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 특정 범위에서 특정 Azure 리소스 작업에 대 한 액세스가 거부 된 사용자, 그룹, 서비스 사용자 및 관리 되는 id를 나열 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,25 +13,25 @@ ms.workload: identity
 ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5ba18b89bd37dbd55350321c503e37ab0590ab87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd852d19b284f97995855fe06c97ea0ea69be293
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77137390"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733965"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 리소스에 대 한 거부 할당 나열
+# <a name="list-azure-deny-assignments-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 거부 할당 나열
 
-[할당 거부](deny-assignments.md) 는 역할 할당에서 액세스 권한을 부여 하는 경우에도 사용자가 특정 Azure 리소스 작업을 수행 하지 못하도록 차단 합니다. 이 문서에서는 Azure PowerShell를 사용 하 여 거부 할당을 나열 하는 방법을 설명 합니다.
+[Azure 거부 할당](deny-assignments.md) 은 사용자가 역할 할당을 통해 액세스 권한을 부여 하는 경우에도 특정 Azure 리소스 작업을 수행 하지 못하도록 차단 합니다. 이 문서에서는 Azure PowerShell를 사용 하 여 거부 할당을 나열 하는 방법을 설명 합니다.
 
 > [!NOTE]
-> 사용자 고유의 거부 할당을 직접 만들 수는 없습니다. 거부 할당을 만드는 방법에 대 한 자세한 내용은 [거부 할당](deny-assignments.md)을 참조 하세요.
+> 사용자 고유의 거부 할당을 직접 만들 수는 없습니다. 거부 할당을 만드는 방법에 대 한 자세한 내용은 [Azure 거부 할당](deny-assignments.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 거부 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
-- `Microsoft.Authorization/denyAssignments/read`[Azure 리소스에 대 한 대부분의 기본 제공 역할](built-in-roles.md) 에 포함 된 사용 권한
+- `Microsoft.Authorization/denyAssignments/read`대부분의 [Azure 기본 제공 역할](built-in-roles.md) 에 포함 된 사용 권한
 - Azure Cloud Shell 또는 [Azure PowerShell](/powershell/azure/install-az-ps) [의 PowerShell](/azure/cloud-shell/overview)
 
 ## <a name="list-deny-assignments"></a>거부 할당 목록
@@ -125,6 +125,6 @@ PS C:\> Get-AzDenyAssignment -Scope /subscriptions/11111111-1111-1111-1111-11111
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 리소스에 대한 거부 할당 이해](deny-assignments.md)
-- [Azure Portal를 사용 하 여 Azure 리소스에 대 한 거부 할당 나열](deny-assignments-portal.md)
-- [REST API를 사용하여 Azure 리소스에 대한 거부 할당 나열](deny-assignments-rest.md)
+- [Azure 거부 할당 이해](deny-assignments.md)
+- [Azure Portal를 사용 하 여 Azure deny 할당 나열](deny-assignments-portal.md)
+- [REST API를 사용 하 여 Azure deny 할당 나열](deny-assignments-rest.md)

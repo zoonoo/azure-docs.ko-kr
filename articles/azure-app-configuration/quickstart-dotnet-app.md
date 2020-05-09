@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: 1c56088a2c51c50c7f9cf1ff1e790d580fdb08d8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: cfa89a7921751541d1044d697237946cd63cbfd8
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80245398"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732056"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 .NET Framework 앱 만들기
 
@@ -49,11 +49,11 @@ ms.locfileid: "80245398"
 
 ## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
 
-1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭에서 다음 NuGet 패키지를 검색하여 프로젝트에 추가합니다. 찾을 수 없으면 **시험판 포함** 확인란을 선택합니다.
+1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭에서 다음 NuGet 패키지를 검색하여 프로젝트에 추가합니다.
 
     ```
-    Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
-    Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
+    Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 or later
+    Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 or later
     System.Configuration.ConfigurationManager version 4.6.0 or later
     ```
 
