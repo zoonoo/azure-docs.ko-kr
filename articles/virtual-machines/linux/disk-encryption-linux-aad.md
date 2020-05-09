@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee365d37a957350fa8a68da0f34149d3210d6238
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ce3afb533aa33b88b15510eacc88c0884811cc6
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78970618"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792601"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Linux Vm에서 Azure AD를 사용 하 여 Azure Disk Encryption 사용 (이전 릴리스)
 
@@ -142,7 +142,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
 
 다음 표에 Azure AD 클라이언트 ID를 사용하는 기존 또는 실행 중인 VM에 대한 Resource Manager 템플릿 매개 변수 목록이 나와 있습니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | AADClientID | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
 | AADClientSecret | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
@@ -158,7 +158,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
 ## <a name="use-the-encryptformatall-feature-for-data-disks-on-linux-iaas-vms"></a><a name="bkmk_EFA"> </a>Linux IaaS vm의 데이터 디스크에 EncryptFormatAll 기능 사용
 EncryptFormatAll 매개 변수는 Linux 데이터 디스크가 암호화되는 시간을 줄여줍니다. 특정 기준을 충족 하는 파티션은 현재 파일 시스템으로 포맷 됩니다. 그런 다음 명령 실행 전의 위치에 다시 탑재 합니다. 조건을 충족 하는 데이터 디스크를 제외 하려는 경우 명령을 실행 하기 전에 분리할 수 있습니다.
 
- 이 명령을 실행 하면 이전에 탑재 된 모든 드라이브가 포맷 됩니다. 그런 다음 암호화 계층은 빈 드라이브의 맨 위에서 시작 됩니다. 이 옵션을 선택 하면 VM에 연결 된 임시 리소스 디스크도 암호화 됩니다. 임시 드라이브가 다시 설정 되 면 다음 기회에 Azure Disk Encryption 솔루션에 의해 VM에 대해 다시 포맷 되 고 다시 암호화 됩니다.
+ 이 명령을 실행 하면 이전에 탑재 된 모든 드라이브가 포맷 됩니다. 그런 다음 암호화 계층은 빈 드라이브의 맨 위에서 시작 됩니다. 이 옵션을 선택 하면 VM에 연결 된 임시 디스크도 암호화 됩니다. 임시 드라이브가 다시 설정 되 면 다음 기회에 Azure Disk Encryption 솔루션에 의해 VM에 대해 다시 포맷 되 고 다시 암호화 됩니다.
 
 >[!WARNING]
 > VM의 데이터 볼륨에 필요한 데이터가 있는 경우 EncryptFormatAll를 사용할 수 없습니다. 디스크를 탑재 해제 하 여 암호화에서 디스크를 제외할 수 있습니다. 먼저 테스트 VM에서 EncryptFormatAll 매개 변수를 사용해 보고 프로덕션 VM에서 사용해 보기 전에 기능 매개 변수 및 그에 해당 하는 의미를 이해 합니다. EncryptFormatAll 옵션은 데이터 디스크의 형식을 지정 하므로 데이터 디스크의 모든 데이터가 손실 됩니다. 계속 하기 전에 제외 하려는 디스크가 제대로 분리 되었는지 확인 합니다. </br></br>
@@ -259,7 +259,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 ### <a name="enable-encryption-on-a-newly-added-disk-with-the-azure-cli"></a>Azure CLI를 사용 하 여 새로 추가 된 디스크에서 암호화 사용
  VM이 "모두"로 이전에 암호화 된 경우--volume type 매개 변수는 모두 그대로 유지 되어야 합니다. All은 OS 디스크 및 데이터 디스크 모두를 포함합니다. VM이 이전에 "OS" 볼륨 유형으로 암호화 된 경우에는 OS와 새 데이터 디스크가 모두 포함 되도록--volume-type 매개 변수를 모두로 변경 해야 합니다. VM이 "Data" 볼륨 유형 으로만 암호화 된 경우에는 여기에 설명 된 대로 데이터를 유지할 수 있습니다. 새 데이터 디스크를 추가 하 고 VM에 연결 하는 것은 암호화를 준비 하는 데 충분 하지 않습니다. 암호화를 사용 하도록 설정 하기 전에 새로 연결 된 디스크도 포맷 되 고 VM 내에서 적절히 탑재 되어야 합니다. Linux에서 디스크는 [영구 블록 장치 이름을](troubleshoot-device-names-problems.md)사용 하 여/etc/fstab에 탑재 되어야 합니다. 
 
-Powershell 구문과 달리 CLI에서는 암호화를 사용 하도록 설정할 때 고유한 시퀀스 버전을 제공 하지 않아도 됩니다. CLI는 고유 시퀀스 버전 값을 자동으로 생성하여 사용합니다.
+PowerShell 구문과 달리 CLI에서는 암호화를 사용 하도록 설정할 때 고유한 시퀀스 버전을 제공 하지 않아도 됩니다. CLI는 고유 시퀀스 버전 값을 자동으로 생성하여 사용합니다.
 
 -  **클라이언트 암호를 사용 하 여 실행 중인 VM 암호화:** 
     
@@ -274,7 +274,7 @@ Powershell 구문과 달리 CLI에서는 암호화를 사용 하도록 설정할
      ```
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Azure PowerShell을 사용하여 새로 추가된 디스크에서 암호화 사용
- Powershell을 사용 하 여 Linux 용 새 디스크를 암호화 하는 경우 새 시퀀스 버전을 지정 해야 합니다. 시퀀스 버전은 고유해야 합니다. 다음 스크립트는 시퀀스 버전에 대 한 GUID를 생성 합니다. 
+ PowerShell을 사용 하 여 Linux 용 새 디스크를 암호화 하는 경우 새 시퀀스 버전을 지정 해야 합니다. 시퀀스 버전은 고유해야 합니다. 다음 스크립트는 시퀀스 버전에 대 한 GUID를 생성 합니다. 
  
 
 -  **클라이언트 암호를 사용 하 여 실행 중인 VM 암호화:** 다음 스크립트는 변수를 초기화 하 고 AzVMDiskEncryptionExtension cmdlet을 실행 합니다. 리소스 그룹, VM, 키 자격 증명 모음, Azure AD 앱 및 클라이언트 암호는 필수 조건으로 이미 만들어져 있어야 합니다. MyVirtualMachineResourceGroup, MyKeyVaultResourceGroup, MySecureVM, Mysecurevm, 및 사용자의 값으로 대체 합니다. -VolumeType 매개 변수는 OS 디스크가 아닌 데이터 디스크로 설정됩니다. VM이 이전에 "OS" 또는 "All" 볼륨 유형으로 암호화 된 경우에는 OS와 새 데이터 디스크가 모두 포함 되도록-Vetype 매개 변수를 All로 변경 해야 합니다.

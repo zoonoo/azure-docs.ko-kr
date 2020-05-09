@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54e3821d269d11397ec4f9f5833e33ac6b555abc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: faa80bf09113786e35a6ce98157f18639e30d210
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80755109"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582635"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Azure Active Directory에서 LinkedIn 계정 연결 통합
 
@@ -30,8 +30,8 @@ ms.locfileid: "80755109"
 > 예외:
 >
 > * Microsoft Cloud for US Government, Microsoft Cloud Germany 또는 중국에서 21Vianet이 운영하는 Azure 및 Office 365를 사용하는 고객은 이 설정을 사용할 수 없습니다.
-> * 독일에서 프로비전된 테넌트에 대해서는 설정이 기본적으로 꺼져 있습니다. Microsoft Cloud Germany를 사용하는 고객은 이 설정을 사용할 수 없습니다.
-> * 프랑스에서 프로비전된 테넌트에 대해서는 설정이 기본적으로 꺼져 있습니다.
+> * 이 설정은 독일에서 프로 비전 된 Azure AD 조직에 대해 기본적으로 해제 되어 있습니다. Microsoft Cloud Germany를 사용하는 고객은 이 설정을 사용할 수 없습니다.
+> * 이 설정은 프랑스에서 프로 비전 된 조직에 대해 기본적으로 해제 되어 있습니다.
 >
 > 조직에 대해 LinkedIn 계정 연결을 사용 하도록 설정 하면 사용자가 대신 회사 데이터에 액세스 하는 앱에 동의한 후 계정 연결이 작동 합니다. 사용자 동의 설정에 대 한 자세한 내용은 [응용 프로그램에 대 한 사용자 액세스를 제거 하는 방법](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment)을 참조 하세요.
 
@@ -96,7 +96,7 @@ Azure AD 관리 센터의 LinkedIn 계정 연결 설정에서 2 단계에서 선
   
    시스템 상태 | 영향
    ------ | ------
-   **사용** | Office 2016 옵션의 **Office 애플리케이션에 LinkedIn 기능 표시** 설정이 사용으로 설정됩니다. 조직의 사용자는 Office 2016 응용 프로그램에서 LinkedIn 기능을 사용할 수 있습니다.
+   **Enabled** | Office 2016 옵션의 **Office 애플리케이션에 LinkedIn 기능 표시** 설정이 사용으로 설정됩니다. 조직의 사용자는 Office 2016 응용 프로그램에서 LinkedIn 기능을 사용할 수 있습니다.
    **사용 안 함** | Office 2016 옵션의 **Office 애플리케이션에 LinkedIn 기능 표시** 설정이 사용 안 함으로 설정되며, 최종 사용자가 이 설정을 변경할 수 없습니다. 조직 내 사용자가 Office 2016 애플리케이션에서 LinkedIn 기능을 사용할 수 있습니다.
 
 이 그룹 정책은 로컬 컴퓨터용 Office 2016 앱에만 영향을 줍니다. 사용자가 Office 2016 앱에서 LinkedIn을 사용 하지 않도록 설정 하는 경우 Office 365의 LinkedIn 기능이 계속 표시 될 수 있습니다.

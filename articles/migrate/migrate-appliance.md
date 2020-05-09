@@ -2,13 +2,13 @@
 title: Azure Migrate 어플라이언스
 description: 서버 평가 및 마이그레이션에 사용 되는 Azure Migrate 어플라이언스에 대 한 개요를 제공 합니다.
 ms.topic: conceptual
-ms.date: 04/23/2020
-ms.openlocfilehash: 71a17211a530b4cb55764f3b3ab84ff5a4d5f3e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 439f6d9c80a0b93f071d30d580facc4604cabbac
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106381"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780337"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -18,7 +18,7 @@ ms.locfileid: "82106381"
 
 Azure Migrate 어플라이언스는 다음과 같은 시나리오에서 사용 됩니다.
 
-**시나리오** | **도구** | **사용 목적** 
+**시나리오** | **도구** | **사용 대상** 
 --- | --- | ---
 **VMware VM 평가** | Azure Migrate: 서버 평가 | VMware Vm 검색<br/><br/> 컴퓨터 앱 및 종속성 검색<br/><br/> 평가에 대 한 컴퓨터 메타 데이터 및 성능 메타 데이터를 수집 합니다.
 **VMware VM 에이전트 없는 마이그레이션** | Azure Migrate: 서버 마이그레이션 | VMware Vm 검색 <br/><br/> 에이전트 없는 마이그레이션을 사용 하 여 VMware Vm을 복제 합니다.
@@ -42,6 +42,7 @@ Azure Migrate 어플라이언스는 다음과 같은 시나리오에서 사용 �
 
 **요구 사항** | **VMware** 
 --- | ---
+**권한** | 어플라이언스 웹 앱에 로컬로 또는 원격으로 액세스 하려면, 도메인 관리자 또는 어플라이언스 컴퓨터의 로컬 관리자 여야 합니다.
 **어플라이언스 구성 요소** | 어플라이언스의 구성 요소는 다음과 같습니다.<br/><br/> - **관리 앱**: 어플라이언스를 배포 하는 동안 사용자가 입력 하는 웹 앱입니다. Azure로 마이그레이션하기 위해 컴퓨터를 평가 하는 데 사용 됩니다.<br/> - **검색 에이전트**: 에이전트에서 컴퓨터 구성 데이터를 수집 합니다. Azure로 마이그레이션하기 위해 컴퓨터를 평가 하는 데 사용 됩니다.<br/>- **평가 에이전트**: 에이전트는 성능 데이터를 수집 합니다. Azure로 마이그레이션하기 위해 컴퓨터를 평가 하는 데 사용 됩니다.<br/>- **자동 업데이트 서비스**: 어플라이언스 구성 요소를 업데이트 합니다 (24 시간 마다 실행).<br/>- **DRA 에이전트**: VM 복제를 오케스트레이션 하 고 복제 된 컴퓨터와 Azure 간의 통신을 조정 합니다. 에이전트 없는 마이그레이션을 사용 하 여 Azure에 VMware Vm을 복제 하는 경우에만 사용 됩니다.<br/>- **게이트웨이**: 복제 된 데이터를 Azure로 보냅니다. 에이전트 없는 마이그레이션을 사용 하 여 Azure에 VMware Vm을 복제 하는 경우에만 사용 됩니다.
 **지원 되는 배포** | OVA 템플릿을 사용 하 여 VMware VM으로 배포 합니다.<br/><br/> PowerShell 설치 스크립트를 사용 하 여 VMware VM 또는 물리적 컴퓨터로 배포 합니다.
 **프로젝트 지원** |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
@@ -61,6 +62,7 @@ Azure Migrate 어플라이언스는 다음과 같은 시나리오에서 사용 �
 
 **요구 사항** | **Hyper-V** 
 --- | ---
+**권한** | 어플라이언스 웹 앱에 로컬로 또는 원격으로 액세스 하려면, 도메인 관리자 또는 어플라이언스 컴퓨터의 로컬 관리자 여야 합니다.
 **어플라이언스 구성 요소** | 어플라이언스의 구성 요소는 다음과 같습니다.<br/><br/>- **관리 앱**: 어플라이언스를 배포 하는 동안 사용자가 입력 하는 웹 앱입니다. Azure로 마이그레이션하기 위해 컴퓨터를 평가 하는 데 사용 됩니다.<br/> - **검색 에이전트**: 에이전트에서 컴퓨터 구성 데이터를 수집 합니다. Azure로 마이그레이션하기 위해 컴퓨터를 평가 하는 데 사용 됩니다.<br/>- **평가 에이전트**: 에이전트는 성능 데이터를 수집 합니다. Azure로 마이그레이션하기 위해 컴퓨터를 평가 하는 데 사용 됩니다.<br/>- **자동 업데이트 서비스**: 어플라이언스 구성 요소를 업데이트 합니다 (24 시간 마다 실행).
 **지원 되는 배포** | VHD 템플릿을 사용 하 여 Hyper-v VM으로 배포<br/><br/> PowerShell 설치 스크립트를 사용 하 여 Hyper-v VM 또는 물리적 컴퓨터로 배포 합니다.
 **프로젝트 지원** |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
@@ -77,12 +79,13 @@ Azure Migrate 어플라이언스는 다음과 같은 시나리오에서 사용 �
 
 **요구 사항** | **실제** 
 --- | ---
+**권한** | 어플라이언스 웹 앱에 로컬로 또는 원격으로 액세스 하려면, 도메인 관리자 또는 어플라이언스 컴퓨터의 로컬 관리자 여야 합니다.
 **어플라이언스 구성 요소** | 어플라이언스의 구성 요소는 다음과 같습니다. <br/><br/> - **관리 앱**: 어플라이언스를 배포 하는 동안 사용자가 입력 하는 웹 앱입니다. Azure로 마이그레이션하기 위해 컴퓨터를 평가 하는 데 사용 됩니다.<br/> - **검색 에이전트**: 에이전트에서 컴퓨터 구성 데이터를 수집 합니다. Azure로 마이그레이션하기 위해 컴퓨터를 평가 하는 데 사용 됩니다.<br/>- **평가 에이전트**: 에이전트는 성능 데이터를 수집 합니다. Azure로 마이그레이션하기 위해 컴퓨터를 평가 하는 데 사용 됩니다.<br/>- **자동 업데이트 서비스**: 어플라이언스 구성 요소를 업데이트 합니다 (24 시간 마다 실행).
 **지원 되는 배포** | PowerShell 설치 스크립트를 사용 하 여 전용 물리적 컴퓨터 또는 VM으로 배포 합니다. 스크립트는 포털에서 다운로드할 수 있습니다.
 **프로젝트 지원** |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
 **검색 제한** | 어플라이언스는 최대 250 대의 물리적 서버를 검색할 수 있습니다.
-**PowerShell 스크립트** | 포털에서 zip 폴더에 스크립트 (AzureMigrateInstaller)를 다운로드 합니다. [자세히 알아보기](tutorial-assess-physical.md#set-up-the-appliance). 또는 [직접 다운로드](https://go.microsoft.com/fwlink/?linkid=2105112)합니다.<br/><br/> 다운로드 크기는 59.7 MB입니다.
-**소프트웨어/하드웨어** |  어플라이언스는 Windows Server 2016, 32 GB RAM, 8 개 vCPUs, 80 g b의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 컴퓨터에서 실행 해야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요 하며 직접 또는 프록시를 통해 인터넷에 액세스 해야 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행 하는 경우 Windows Server 2016를 실행 하 고 하드웨어 요구 사항을 충족 하는지 확인 합니다. 
+**PowerShell 스크립트** | 포털에서 zip 폴더에 스크립트 (AzureMigrateInstaller)를 다운로드 합니다. [자세한 정보를 알아보세요](tutorial-assess-physical.md#set-up-the-appliance). 또는 [직접 다운로드](https://go.microsoft.com/fwlink/?linkid=2105112)합니다.<br/><br/> 다운로드 크기는 59.7 MB입니다.
+**소프트웨어/하드웨어** |  어플라이언스는 Windows Server 2016, 32 GB RAM, 8 개 vCPUs, 80 g b의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 컴퓨터에서 실행 해야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요 하며 직접 또는 프록시를 통해 인터넷에 액세스 해야 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행 하는 경우 Windows Server 2016를 실행 하 고 하드웨어 요구 사항을 충족 하는지 확인 합니다.<br/> Windows Server 2019를 사용 하는 컴퓨터에서 어플라이언스를 실행 하는 것은 지원 되지 않습니다.
 **해시 값** | PowerShell 스크립트 해시 값을 [확인](deploy-appliance-script.md#verify-file-security) 합니다.
 
 ## <a name="url-access"></a>URL 액세스
@@ -90,7 +93,8 @@ Azure Migrate 어플라이언스는 다음과 같은 시나리오에서 사용 �
 Azure Migrate 어플라이언스를 인터넷에 연결 해야 합니다.
 
 - 어플라이언스를 배포 하는 경우 필요한 Url에 대 한 연결 확인을 Azure Migrate 합니다.
-- URL 기반 프록시를 사용 하 여 인터넷에 연결 하는 경우 이러한 Url에 대 한 액세스를 허용 해야 합니다. 그러면 프록시가 Url을 조회 하는 동안 수신 된 CNAME 레코드를 확인 합니다.
+- 목록의 모든 Url에 대 한 액세스를 허용 해야 합니다. 평가만 수행 하는 경우에는 VMware 에이전트 없는 마이그레이션에만 필요 하다 고 표시 된 Url을 건너뛸 수 있습니다.
+-  URL 기반 프록시를 사용 하 여 인터넷에 연결 하는 경우 프록시가 Url을 조회 하는 동안 수신 된 CNAME 레코드를 확인 하는지 확인 합니다.
 
 ### <a name="public-cloud-urls"></a>공용 클라우드 Url
 
@@ -100,7 +104,7 @@ Azure Migrate 어플라이언스를 인터넷에 연결 해야 합니다.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Azure 구독에 로그인합니다.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | 기기가 Azure Migrate와 통신할 수 있도록 AD (Azure Active Directory) 앱을 만듭니다.
 management.azure.com | 어플라이언스에 대 한 Azure AD 앱을 만들어 Azure Migrate 서비스와 통신 합니다.
-dc.services.visualstudio.com | 내부 모니터링에 사용 되는 앱 로그를 업로드 합니다.
+*.services.visualstudio.com | 내부 모니터링에 사용 되는 앱 로그를 업로드 합니다.
 *.vault.azure.net | Azure Key Vault에서 비밀을 관리 합니다.
 aka.ms/* | 즉, 링크에 대 한 액세스를 허용 합니다. Azure Migrate 어플라이언스 업데이트에 사용 됩니다.
 download.microsoft.com/download | Microsoft 다운로드에서 다운로드할 수 있습니다.
@@ -176,7 +180,7 @@ IPv6 주소 | vm.Guest.Net
 읽기 처리량 (초당 MB) | net.received.average
 쓰기 처리량 (초당 MB) | net.transmitted.average
 **인벤토리 경로 세부 정보** | 
-속성 | container.GetType().Name
+Name | container.GetType().Name
 자식 개체 유형 | container.ChildType
 참조 세부 정보 | container.MoRef
 부모 세부 정보 | Container.Parent
@@ -257,7 +261,7 @@ Azure Migrate 어플라이언스에서 검색 된 메타 데이터를 사용 하
 
 다음은 기기가 수집 하 여 Azure에 전송 하는 Hyper-v VM 메타 데이터의 전체 목록입니다.
 
-**데이터로* | **WMI 클래스** | **WMI 클래스 속성**
+**데이터로** | **WMI 클래스** | **WMI 클래스 속성**
 --- | --- | ---
 **컴퓨터 세부 정보** | 
 BIOS의 일련 번호 _ Msvm_BIOSElement | BIOSSerialNumber
@@ -298,6 +302,84 @@ Hyper-V Virtual Network 어댑터 | 보낸 바이트/초 | VM 크기에 대 한 
 - CPU 사용률은 VM에 연결 된 모든 가상 프로세서에 대 한 모든 사용량의 합계입니다.
 - 메모리 사용률은 (현재 압력 * 게스트 표시 실제 메모리)/100입니다.
 - 디스크 및 네트워크 사용률 값은 나열 된 Hyper-v 성능 카운터에서 수집 됩니다.
+
+
+## <a name="collected-data---physical"></a>수집 된 데이터-실제
+
+어플라이언스는 메타 데이터, 성능 데이터 및 종속성 분석 데이터를 수집 합니다 (에이전트 없는 [종속성 분석이](concepts-dependency-visualization.md) 사용 되는 경우).
+
+### <a name="windows-metadata"></a>Windows 메타 데이터
+
+Azure Migrate 어플라이언스에서 검색 된 메타 데이터를 사용 하면 컴퓨터와 앱이 Azure로 마이그레이션할 준비가 되었는지 여부를 파악 하 고, 올바른 크기의 컴퓨터와 앱을 계획 하며, 비용을 계획 하 고, 응용 프로그램 종속성을 분석할 수 있습니다. Microsoft는 라이선스 규정 준수 감사에서이 데이터를 사용 하지 않습니다.
+
+다음은 기기가 수집 하 여 Azure에 전송 하는 Windows server 메타 데이터의 전체 목록입니다.
+
+**데이터로** | **WMI 클래스** | **WMI 클래스 속성**
+--- | --- | ---
+FQDN | Win32_ComputerSystem | 도메인, 이름, PartOfDomain
+프로세서 코어 수 | Win32_PRocessor | NumberOfCores
+할당 된 메모리 | Win32_ComputerSystem | Total이상 메모리
+BIOS 일련 번호 | Win32_ComputerSystemProduct | IdentifyingNumber
+BIOS GUID | Win32_ComputerSystemProduct | UUID
+부팅 유형 | Win32_DiskPartition | Type = **GPT: System** for EFI/BIOS를 사용 하는 파티션 확인
+OS 이름 | Win32_OperatingSystem | 캡션
+OS 버전 |Win32_OperatingSystem | 버전
+OS 아키텍처 | Win32_OperatingSystem | OSArchitecture
+디스크 수 | Win32_DiskDrive | 모델, 크기, DeviceID, 미디어 유형, 이름
+디스크 크기 | Win32_DiskDrive | Size
+NIC 목록 | Win32_NetworkAdapterConfiguration | 설명, 인덱스
+NIC IP 주소 | Win32_NetworkAdapterConfiguration | IPAddress
+NIC MAC 주소 | Win32_NetworkAdapterConfiguration | MACAddress
+
+### <a name="linux-metadata"></a>Linux 메타 데이터
+
+다음은 기기가 수집 하 여 Azure에 전송 하는 Linux 서버 메타 데이터의 전체 목록입니다.
+
+**데이터로** | **용** 
+--- | --- 
+FQDN | cat/proc/sys/kernel/hostname, hostname-f
+프로세서 코어 수 |  /proc/cpuinfo \| awk '/^ processor/{print $3} ' \| wc.exe-l
+할당 된 메모리 | cat/proc/meminfo \| Grep memtotal \| awk ' {printf "% 0f에서", $2/1024} '
+BIOS 일련 번호 | lshw \| grep "serial:" \| head-n1 \| awk ' {print $2} ' <br/> /usr/sbin/dmidecode-t 1 \| Grep ' 직렬 ' \| awk ' {$1 = ""; $2 = ""; print} '
+BIOS GUID | cat/sys/class/dmi/id/product_uuid
+부팅 유형 | [-d/sys/firmware/efi]  && echo efi \| \| echo BIOS
+OS 이름/버전 | OS 버전 및 이름에 대 한 다음 파일에 액세스 합니다.<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/enterprise-release <br/> /etc/redhat-release<br/> /etc/oracle-release<br/>  /etc/SuSE-release<br/>  /etc/lsb-release  <br/> /etc/debian_version
+OS 아키텍처 | Uname-m
+디스크 수 | fdisk-l \| Egrep ' Disk. * bytes ' \| awk ' {print $2} ' \| cut-f1-d ': '
+부팅 디스크 | df/boot \| sed-n 2p \| awk ' {print $1} '
+디스크 크기 | fdisk-l \| Egrep ' Disk. * bytes ' \| egrep $disk: \| awk ' {print $5} '
+NIC 목록 | ip-o-4 addr show \| awk ' {print $2} '
+NIC IP 주소 | ip 주소 show $nic \| grep inet \| awk ' {print $2} ' \| cut-f1-d "/" 
+NIC MAC 주소 | ip 주소 show $nic \| grep 에테르 스코프 \| awk ' {print $2} '
+
+### <a name="windows-performance-data"></a>Windows 성능 데이터
+
+다음은 기기가 수집 하 여 Azure에 전송 하는 Windows server 성능 데이터입니다.
+
+**Data** | **WMI 클래스(WMI class)** | **WMI 클래스 속성**
+--- | --- | ---
+CPU 사용량 | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
+메모리 사용량 | Win32_PerfFormattedData_PerfOS_Memory | AvailableMBytes
+NIC 수 | Win32_PerfFormattedData_Tcpip_NetworkInterface | 네트워크 장치 수를 가져옵니다.
+NIC 당 받은 데이터 | Win32_PerfFormattedData_Tcpip_NetworkInterface  | BytesReceivedPerSec
+NIC 당 전송 된 데이터 | BWin32_PerfFormattedData_Tcpip_NetworkInterface | BytesSentPersec
+디스크 수 | BWin32_PerfFormattedData_PerfDisk_PhysicalDisk | 디스크 수
+디스크 세부 정보 | Win32_PerfFormattedData_PerfDisk_PhysicalDisk | DiskWritesPerSec, Diskwritespersec, DiskReadsPerSec, Diskwritespersec
+
+### <a name="linux-performance-data"></a>Linux 성능 데이터
+
+다음은 기기가 수집 하 여 Azure에 전송 하는 Linux server 성능 데이터입니다.
+
+**Data** | **Linux** 
+--- | --- 
+CPU 사용량 | cat/proc/st/| grep ' cpu '/proc/stat
+메모리 사용량 | 무료 \| grep 메모리 \| awk ' {print $3/$ 2 * 100.0} '
+NIC 수 | lshw-클래스 network \| grep eth [0-60] \| wc.exe-l
+NIC 당 받은 데이터 | cat/sys/class/net/eth $ nic/statistics/rx_bytes
+NIC 당 전송 된 데이터 | cat/sys/class/net/eth $ nic/statistics/tx_bytes
+디스크 수 | fdisk-l \| Egrep ' Disk. * bytes ' \| awk ' {print $2} ' \| cut-f1-d ': '
+디스크 세부 정보 | cat/proc/diskstats
+
 
 ## <a name="appliance-upgrades"></a>어플라이언스 업그레이드
 
@@ -359,7 +441,7 @@ Hyper-V Virtual Network 어댑터 | 보낸 바이트/초 | VM 크기에 대 한 
 
 1. 최신 어플라이언스 서비스 버전을 확인 하려면 LatestComponents 파일을 [다운로드](https://aka.ms/latestapplianceservices) 합니다.
 2.  다운로드 한 후 LatestComponents 파일을 메모장에서 엽니다.
-3. 파일에서 최신 서비스 버전을 확인 하 고 다운로드 링크를 다운로드 합니다. 다음은 그 예입니다.
+3. 파일에서 최신 서비스 버전을 확인 하 고 다운로드 링크를 다운로드 합니다. 예를 들면 다음과 같습니다.
 
     "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 

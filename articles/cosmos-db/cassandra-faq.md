@@ -6,16 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: thvankra
-ms.openlocfilehash: 9b771a82d88f9902aeb6022f07811ded8a6e0e62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7d4618382c31f0b1f2efa42fe87a6efe4bc85319
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192836"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608254"
 ---
-# <a name="frequently-asked-questions-about-the-cassandra-api-for-azure-cosmos-db"></a>Azure Cosmos DB Cassandra API에 대 한 질문과 대답
+# <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>의 Cassandra API에 대 한 질문과 대답 Azure Cosmos DB
 
-## <a name="what-are-some-key-differences-between-apache-cassandra-and-the-cassandra-api"></a>Apache Cassandra와 Cassandra API 간의 몇 가지 주요 차이점은 무엇 인가요?
+이 문서에서는 Azure Cosmos DB에서 Apache Cassandra와 Cassandra API의 기능 차이점에 대해 설명 합니다. 또한 Azure Cosmos DB의 Cassandra API에 대 한 질문과 대답을 제공 합니다.
+
+## <a name="key-differences-between-apache-cassandra-and-the-cassandra-api"></a>Apache Cassandra와 Cassandra API 간의 주요 차이점
 
 - Apache Cassandra는 파티션 키 크기에 대해 100의 제한을 권장 합니다. Azure Cosmos DB에 대 한 Cassandra API에는 파티션당 최대 20gb가 허용 됩니다.
 - Apache Cassandra를 사용 하면 지 속성 커밋을 비활성화할 수 있습니다. 커밋 로그에 대 한 쓰기를 건너뛰고 memtables로 바로 이동할 수 있습니다. 이로 인해 memtables가 디스크의 SSTables에 플러시되기 전에 노드가 중단 되 면 데이터가 손실 될 수 있습니다. Azure Cosmos DB는 데이터 손실을 방지 하기 위해 항상 내구성이 있는 커밋을 수행 합니다.
@@ -131,7 +133,7 @@ Azure Cosmos DB는 읽기, 쓰기 및 처리량에 대 한 성능 보장을 제�
 
 ### <a name="how-can-i-monitor-infrastructure-along-with-throughput"></a>처리량과 함께 인프라를 모니터링 하려면 어떻게 해야 하나요?
 
-Azure Cosmos DB는 인프라를 관리하고 모니터링할 걱정 없이 생산성을 높이는 데 도움이 되는 플랫폼 서비스입니다. 예를 들어 다양 한 도구를 사용 하 여 이전에 노드 상태, 복제본 상태, gc 및 OS 매개 변수를 모니터링할 필요가 없습니다. 제한 되는지 확인 하기 위해 포털 메트릭에 제공 되는 처리량을 처리 하 고 처리량을 늘리거나 줄일 수 있습니다. 다음과 같은 작업을 수행할 수 있습니다.
+Azure Cosmos DB는 인프라를 관리하고 모니터링할 걱정 없이 생산성을 높이는 데 도움이 되는 플랫폼 서비스입니다. 예를 들어 다양 한 도구를 사용 하 여 이전에 노드 상태, 복제본 상태, gc 및 OS 매개 변수를 모니터링할 필요가 없습니다. 제한 되는지 확인 하기 위해 포털 메트릭에 제공 되는 처리량을 처리 하 고 처리량을 늘리거나 줄일 수 있습니다. 다음과 같습니다.
 
 - [Sla](monitor-accounts.md) 모니터링
 - [메트릭](use-metrics.md) 사용

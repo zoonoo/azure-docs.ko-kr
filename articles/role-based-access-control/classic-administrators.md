@@ -1,5 +1,5 @@
 ---
-title: Azure 클래식 구독 관리자 | Microsoft Docs
+title: Azure 클래식 구독 관리자
 description: Azure 공동 관리자 및 서비스 관리자 역할을 추가하거나 변경하는 방법과 계정 관리자를 확인하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2493e893f9afda0642bd838c94538dd0b984bce5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cacdeee4512c512b058be96c4fe3a829c2933f06
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243485"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734861"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 클래식 구독 관리자
 
-RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 액세스를 관리하는 것이 좋습니다. 그러나 클래식 배포 모델을 계속 사용 하는 경우에는 클래식 구독 관리자 역할 (서비스 관리자 및 공동 관리자)을 사용 해야 합니다. 자세한 내용은 [Azure Resource Manager 및 클래식 배포](../azure-resource-manager/management/deployment-models.md)를 참조 하세요.
+Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 Azure 리소스에 대 한 액세스를 관리 하는 것이 좋습니다. 그러나 클래식 배포 모델을 계속 사용 하는 경우에는 클래식 구독 관리자 역할 (서비스 관리자 및 공동 관리자)을 사용 해야 합니다. 자세한 내용은 [Azure Resource Manager 및 클래식 배포](../azure-resource-manager/management/deployment-models.md)를 참조 하세요.
 
 이 문서에서는 공동 관리자 및 서비스 관리자 역할을 추가하거나 변경하는 방법과 계정 관리자를 확인하는 방법을 설명합니다.
 
@@ -71,9 +71,9 @@ RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 �
 
 사용자 B는 모든 것을 관리할 수 있다고 예상할 수 있습니다. 이러한 차이가 나타나는 이유는 Microsoft 계정이 멤버 사용자가 아닌 게스트 사용자로 구독에 추가되기 때문입니다. 게스트 사용자에 멤버 사용자와 비교할 때 Azure AD에서 다른 기본 권한을 갖습니다. 예를 들어, 멤버 사용자는 Azure AD에서 다른 사용자가 읽을 수 있지만 게스트 사용자는 그럴 수 없습니다. 멤버 사용자는 Azure AD에서 새 서비스 주체를 등록할 수 있지만 게스트 사용자는 그럴 수 없습니다.
 
-게스트 사용자가 이러한 작업을 수행할 수 있도록 하려면 게스트 사용자가 필요한 특정 Azure AD 관리자 역할을 할당해야 합니다. 예를 들어, 이전 시나리오에서는 다른 사용자를 읽기 위한 [디렉터리 읽기 권한자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 역할과 서비스 주체를 만들 수 있는 [애플리케이션 개발자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) 역할을 할당할 수 있습니다. 멤버 및 게스트 사용자와 해당 권한에 대한 자세한 내용은 [Azure Active Directory의 기본 사용자 권한이란?](../active-directory/fundamentals/users-default-permissions.md)을 참조하세요. 게스트 사용자에 게 액세스 권한을 부여 하는 방법에 대 한 자세한 내용은 [RBAC를 사용 하 여 외부 게스트 사용자에 대 한 Azure 리소스 액세스 관리](role-assignments-external-users.md)를 참조 하세요.
+게스트 사용자가 이러한 작업을 수행할 수 있어야 하는 경우 가능한 해결 방법은 게스트 사용자에 게 필요한 특정 Azure AD 역할을 할당 하는 것입니다. 예를 들어, 이전 시나리오에서는 다른 사용자를 읽기 위한 [디렉터리 읽기 권한자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 역할과 서비스 주체를 만들 수 있는 [애플리케이션 개발자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) 역할을 할당할 수 있습니다. 멤버 및 게스트 사용자와 해당 권한에 대한 자세한 내용은 [Azure Active Directory의 기본 사용자 권한이란?](../active-directory/fundamentals/users-default-permissions.md)을 참조하세요. 게스트 사용자에 게 액세스 권한을 부여 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 외부 게스트 사용자에 대 한 Azure 역할 할당 추가 또는 제거](role-assignments-external-users.md)를 참조 하세요.
 
-[Azure 리소스의 기본 제공 역할](../role-based-access-control/built-in-roles.md)은 [Azure AD 관리자 역할](../active-directory/users-groups-roles/directory-assign-admin-roles.md)과 다릅니다. 기본 제공 역할은 Azure AD에 대한 액세스 권한을 부여하지 않습니다. 자세한 내용은 [다른 역할 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)를 참조하세요.
+[Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md) 은 [azure AD 역할과](../active-directory/users-groups-roles/directory-assign-admin-roles.md)다릅니다. 기본 제공 역할은 Azure AD에 대한 액세스 권한을 부여하지 않습니다. 자세한 내용은 [다른 역할 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)를 참조하세요.
 
 멤버 사용자와 게스트 사용자를 비교 하는 내용은 [Azure Active Directory?의 기본 사용자 권한은 무엇입니까?](../active-directory/fundamentals/users-default-permissions.md)를 참조 하십시오.
 
@@ -150,6 +150,6 @@ Microsoft 계정 및 Azure AD 계정에 대 한 자세한 내용은 [Azure Activ
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure의 다양한 역할 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)
+* [다른 역할 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)
 * [Azure 구독 관리자 추가 또는 변경](../cost-management-billing/manage/add-change-subscription-administrator.md)

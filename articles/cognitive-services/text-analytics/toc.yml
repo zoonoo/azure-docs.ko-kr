@@ -52,6 +52,8 @@
       href: language-support.md
     - name: 텍스트 오프셋
       href: concepts/text-offsets.md
+    - name: 데이터 제한
+      href: concepts/data-limits.md
 - name: 방법 가이드
   items:
     - name: 텍스트 분석 API 호출
@@ -116,13 +118,13 @@
       href: text-analytics-resource-external-community.md
     - name: FAQ
       href: text-analytics-resource-faq.md
-    - name: 가격 책정
+    - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
     - name: 사용해 보세요.
       href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'

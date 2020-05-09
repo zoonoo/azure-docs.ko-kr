@@ -1,20 +1,20 @@
 ---
-title: Vm 시작/중지 솔루션에서 로그를 쿼리 하는 방법
-description: 이 문서에서는 Azure Monitor에서 Vm 시작/중지 솔루션에 의해 생성 된 로그 데이터를 쿼리 하는 방법을 설명 합니다.
+title: 작업 시간 외 VM 시작/중지에서 로그를 쿼리 하는 방법
+description: 이 문서에서는 Azure Monitor에서 작업 시간 외 VM 시작/중지 솔루션에 의해 생성 된 로그 데이터를 쿼리 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 472f3762ca18f71ba95053576daf025d8477fee9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 472baa3f4b3cbb970a8f365ccc94929ad565c421
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604732"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864235"
 ---
-# <a name="how-to-query-logs-from-startstop-vms-solution"></a>Vm 시작/중지 솔루션에서 로그를 쿼리 하는 방법
+# <a name="how-to-query-logs-from-startstop-vms-during-off-hours"></a>작업 시간 외 VM 시작/중지에서 로그를 쿼리 하는 방법
 
-Azure Automation는 두 가지 유형의 레코드를 연결 된 Log Analytics 작업 영역 (작업 로그 및 작업 스트림)에 전달 합니다. 이 데이터는 Azure Monitor에서 [쿼리에](../azure-monitor/log-query/log-query-overview.md) 사용할 수 있습니다.
+Azure Automation는 두 가지 유형의 레코드를 연결 된 Log Analytics 작업 영역 (작업 로그 및 작업 스트림)에 전달 합니다. 이 문서에서는 Azure Monitor에서 [쿼리에](../azure-monitor/log-query/log-query-overview.md) 사용할 수 있는 데이터를 검토 합니다.
 
 ## <a name="job-logs"></a>작업 로그
 

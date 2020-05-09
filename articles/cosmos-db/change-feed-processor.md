@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 4/29/2020
+ms.date: 05/06/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d069df0a095cc0356cd61155dde875a5d92ed18d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: aa9b090627b6f27a54b67c361b45b6f99e3a6338
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594154"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982380"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 프로세서
 
@@ -89,7 +89,7 @@ ms.locfileid: "82594154"
 
 Cosmos 컨테이너 내부 및 외부의 데이터 이동은 항상 RU를 사용하므로 사용된 RU 요금이 청구됩니다. 임대 컨테이너에서 사용되는 RU 요금이 청구됩니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
 * [GitHub의 사용 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
@@ -100,6 +100,7 @@ Cosmos 컨테이너 내부 및 외부의 데이터 이동은 항상 RU를 사용
 이제 다음 문서에서 변경 피드 프로세서에 대해 자세히 알아볼 수 있습니다.
 
 * [변경 피드 개요](change-feed.md)
+* [변경 피드 끌어오기 모델](change-feed-pull-model.md)
 * [변경 피드 프로세서 라이브러리에서 마이그레이션하는 방법](how-to-migrate-from-change-feed-library.md)
 * [변경 피드 평가기 사용](how-to-use-change-feed-estimator.md)
 * [변경 피드 프로세서 시작 시간](how-to-configure-change-feed-start-time.md)
