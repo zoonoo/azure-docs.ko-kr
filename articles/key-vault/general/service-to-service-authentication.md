@@ -10,12 +10,12 @@ ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: cd630acfd65f0a79c186ba35bc15627bf7ccfdbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84cf12aa91de72ae54e63f2cfe7a61586b6bf457
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686186"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857089"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -272,7 +272,7 @@ Azure CLI를 사용 하 여 기본 구독을 사용 하려는 계정을 포함 �
 
 #### <a name="unauthorized-access-access-denied-forbidden-or-similar-error"></a>무단 액세스, 액세스 거부, 사용 권한 없음 또는 유사한 오류
 
-사용된 보안 주체가 액세스하려는 리소스에 대한 액세스 권한이 없습니다. 사용자 계정이 나 App Service의 MSI "참가자"에 게 리소스에 대 한 액세스 권한을 부여 합니다. 이 중 하나는 로컬 컴퓨터에서 샘플을 실행 하 고 있는지 Azure에 App Service에 배포 했는지에 따라 달라 집니다. 주요 자격 증명 모음과 같은 일부 리소스에는 사용자, 앱, 그룹 등의 보안 주체에 대 한 액세스 권한을 부여 하는 데 사용 하는 고유한 [액세스 정책도](https://docs.microsoft.com/azure/key-vault/secure-your-key-vault#data-plane-and-access-policies) 있습니다.
+사용된 보안 주체가 액세스하려는 리소스에 대한 액세스 권한이 없습니다. 사용자 계정이 나 App Service의 MSI "참가자"에 게 리소스에 대 한 액세스 권한을 부여 합니다. 이 중 하나는 로컬 컴퓨터에서 샘플을 실행 하 고 있는지 Azure에 App Service에 배포 했는지에 따라 달라 집니다. 주요 자격 증명 모음과 같은 일부 리소스에는 사용자, 앱, 그룹 등의 보안 주체에 대 한 액세스 권한을 부여 하는 데 사용 하는 고유한 [액세스 정책도](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies) 있습니다.
 
 ### <a name="common-issues-when-deployed-to-azure-app-service"></a>Azure App Service에 배포할 때 발생 하는 일반적인 문제
 

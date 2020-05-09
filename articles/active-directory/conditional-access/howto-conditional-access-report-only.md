@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d9bec829d7fb3e76eb243bda73423303670585e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb13eb699f770d4d7f896b8179888d1514b1c46d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295124"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690368"
 ---
-# <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>보고서 전용 모드에서 조건부 액세스 정책 구성 (미리 보기)
+# <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>보고서 전용 모드에서 조건부 액세스 정책 구성
 
 보고서 전용 모드에서 조건부 액세스 정책을 구성 하려면:
 
@@ -42,7 +42,7 @@ Azure AD 로그인 로그에서 보고서 전용 결과를 봅니다.
 1. 보고서 판독기, 보안 읽기 권한자, 보안 관리자 또는 전역 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
 1. **Azure Active Directory** > **로그인**으로 이동 합니다.
 1. 로그인을 선택 하거나 필터를 추가 하 여 결과를 좁힙니다.
-1. **세부 정보** 서랍에서 **보고서 전용 (미리 보기)** 탭을 선택 하 여 로그인 중에 평가 된 정책을 확인 합니다.
+1. **세부 정보** 서랍에서 **보고서 전용** 탭을 선택 하 여 로그인 중에 평가 된 정책을 확인 합니다.
 
 > [!NOTE]
 > 로그인 로그를 다운로드 하는 경우 조건부 액세스 보고서 전용 결과 데이터를 포함 하려면 JSON 형식을 선택 합니다.
@@ -62,7 +62,7 @@ Azure AD 로그를 Azure Monitor와 통합 하면 새 조건부 액세스 insigh
 
 1. 보안 관리자 또는 전역 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
 1. **Azure Active Directory** > **통합 문서**를 찾습니다.
-1. **조건부 액세스 정보 (미리 보기)** 를 선택 합니다.
+1. **조건부 액세스 정보**를 선택 합니다.
 1. **조건부 액세스 정책** 드롭다운에서 하나 이상의 정책을 선택 합니다. 기본적으로 사용 하도록 설정 된 모든 정책이 선택 됩니다.
 1. 시간 범위를 선택 합니다. 시간 범위가 사용 가능한 데이터 집합을 초과 하면 보고서에 사용 가능한 데이터가 모두 표시 됩니다. **조건부 액세스 정책** 및 **시간 범위** 매개 변수를 설정 하면 보고서가 로드 됩니다.
    1. 필요에 따라 개별 **사용자** 또는 **앱** 을 검색 하 여 보고서 범위를 좁힐 수 있습니다.

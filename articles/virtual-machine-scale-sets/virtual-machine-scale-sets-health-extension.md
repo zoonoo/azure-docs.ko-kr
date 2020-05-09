@@ -5,21 +5,21 @@ author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 05/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: cb5f1d48bb1a95db004d9da553e19a35071c73b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30f68d22a228e6de596e6999490ea7789ab21547
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273735"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864371"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 애플리케이션 상태 확장 사용
-애플리케이션 상태 모니터링은 배포 관리 및 업그레이드에 대한 중요한 신호입니다. Azure 가상 머신 확장 집합은 배포를 업그레이드하기 위해 개별 인스턴스의 상태 모니터링을 사용하는 [자동 OS 이미지 업그레이드](virtual-machine-scale-sets-automatic-upgrade.md)를 포함한 [롤링 업그레이드](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)를 지원합니다.
+애플리케이션 상태 모니터링은 배포 관리 및 업그레이드에 대한 중요한 신호입니다. Azure 가상 머신 확장 집합은 배포를 업그레이드하기 위해 개별 인스턴스의 상태 모니터링을 사용하는 [자동 OS 이미지 업그레이드](virtual-machine-scale-sets-automatic-upgrade.md)를 포함한 [롤링 업그레이드](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)를 지원합니다. 또한 상태 확장을 사용 하 여 확장 집합에 있는 각 인스턴스의 응용 프로그램 상태를 모니터링 하 고 [자동 인스턴스 복구](virtual-machine-scale-sets-automatic-instance-repairs.md)를 사용 하 여 인스턴스 복구를 수행할 수 있습니다.
 
 이 문서에서는 애플리케이션 상태 확장을 사용하여 가상 머신 확장 집합에 배포된 애플리케이션의 상태를 모니터링하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 사용자가 다음에 대해 잘 알고 있다고 가정합니다.
 -   Azure 가상 머신 [확장](../virtual-machines/extensions/overview.md)
 -   가상 머신 확장 집합 [수정](virtual-machine-scale-sets-upgrade-scale-set.md)
@@ -31,7 +31,7 @@ ms.locfileid: "81273735"
 
 ## <a name="extension-schema"></a>확장 스키마
 
-애플리케이션 상태 확장에 대한 스키마를 보여 주는 JSON은 다음과 같습니다. 확장을 사용하려면 적어도 연결된 포트 또는 요청 경로가 각각 있는 "tcp" 또는 "http" 요청이 필요합니다.
+애플리케이션 상태 확장에 대한 스키마를 보여 주는 JSON은 다음과 같습니다. 확장 하려면 각각 연결 된 포트나 요청 경로를 포함 하는 "tcp", "http" 또는 "https" 요청 중 하나 이상이 필요 합니다.
 
 ```json
 {
@@ -55,20 +55,20 @@ ms.locfileid: "81273735"
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식
+| Name | 값/예제 | 데이터 형식
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| 게시자 | `Microsoft.ManagedServices` | string |
-| type | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows`(Windows) | string |
+| 게시자 | `Microsoft.ManagedServices` | 문자열 |
+| type | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows`(Windows) | 문자열 |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>설정
 
-| 속성 | 값/예제 | 데이터 형식
+| Name | 값/예제 | 데이터 형식
 | ---- | ---- | ----
-| protocol | `http` 또는 `tcp` | string |
-| 포트 | 프로토콜이 `http`인 경우 선택 항목이고, 프로토콜이 `tcp`인 경우 필수 항목입니다. | int |
-| requestPath | 프로토콜이 `http`인 경우 필수 항목이고, 프로토콜이 `tcp`인 경우 허용되지 않습니다. | string |
+| protocol | `http` 또는 `https` 또는 `tcp` | 문자열 |
+| 포트 | 프로토콜이 `http` 또는 `https`인 경우 선택 사항이 고, 프로토콜이 이면 필수입니다.`tcp` | int |
+| requestPath | 프로토콜이 또는 `https`인 경우 `http` 필수입니다. 프로토콜이 일 때 허용 되지 않습니다.`tcp` | 문자열 |
 
 ## <a name="deploy-the-application-health-extension"></a>애플리케이션 상태 확장 배포
 아래 예제에서 자세히 설명한 대로 애플리케이션 상태 확장은 확장 집합에 여러 가지 방법으로 배포할 수 있습니다.
