@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/28/2019
-ms.openlocfilehash: ceaed0800df01bf2c44fee13d98b01b6e726200d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/05/2020
+ms.openlocfilehash: b6b32f9eadc6677bad591f4040981c4c95bf1f76
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77662487"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871250"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Azure Monitor의 SQL Server Health Check 솔루션을 사용 하 여 SQL 환경을 최적화 합니다.
 
@@ -34,8 +34,8 @@ SQL Health Check 솔루션을 사용하여 일정한 간격으로 서버 환경�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * SQL Health Check 솔루션을 사용 하려면 MMA (Microsoft Monitoring Agent)가 설치 된 각 컴퓨터에 지원 되는 .NET Framework 4.6.2 버전이 설치 되어 있어야 합니다.  MMA 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용됩니다.  
-* 이 솔루션은 SQL Server 2012, 2014 및 2016 버전을 지원합니다.
-* Azure Marketplace로부터 SQL Health Check 솔루션을 추가하기 위한 Azure Portal의 Log Analytics 작업 영역.  솔루션을 설치하기 위해서는 사용자가 Azure 구독의 관리자 또는 참가자여야 합니다.
+* 이 솔루션은 SQL Server 버전 2012, 2014, 2016, 2017 및 2019을 지원 합니다.
+* Azure Marketplace로부터 SQL Health Check 솔루션을 추가하기 위한 Azure Portal의 Log Analytics 작업 영역. 솔루션을 설치하기 위해서는 사용자가 Azure 구독의 관리자 또는 참가자여야 합니다.
 
   > [!NOTE]
   > 솔루션을 추가하면 에이전트가 있는 서버에 AdvisorAssessment.exe 파일이 추가됩니다. 구성 데이터가 판독되고 처리를 위해 클라우드의 Azure Monitor로 전송됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다.

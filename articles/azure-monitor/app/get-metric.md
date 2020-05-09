@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
-ms.openlocfilehash: 6d0d05f13f592fc981d3df52d107b385bdbbb21e
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 94525ce901a89935c4ee7800ada44a9dff84b27a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515288"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927907"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>.NET 및 .NET Core의 사용자 지정 메트릭 컬렉션
 
@@ -20,7 +20,7 @@ Azure Monitor Application Insights .NET 및 .NET Core Sdk에는 사용자 지정
 
 ## <a name="trackmetric-versus-getmetric"></a>고가 및 GetMetric
 
-`TrackMetric()`메트릭을 나타내는 원시 원격 분석을 보냅니다. 각 값에 대해 단일 원격 분석 항목을 보내는 것은 비효율적입니다. `TrackMetric()`메트릭을 나타내는 원시 원격 분석을 보냅니다. 각 값에 대해 단일 원격 분석 항목을 보내는 것은 비효율적입니다. `TrackMetric()`는 모두 `TrackMetric(item)` 원격 분석 이니셜라이저 및 프로세서의 전체 SDK 파이프라인을 거치 므로 성능 측면 에서도 비효율적입니다. 와 `TrackMetric()`달리 `GetMetric()` 는 로컬 사전 집계를 처리 한 다음 1 분의 고정 된 간격으로 집계 요약 메트릭을 제출 합니다. 따라서 두 번째 또는 그 밀리초 수준에서 일부 사용자 지정 메트릭을 면밀 하 게 모니터링 해야 하는 경우에는 1 분에 한 번만 모니터링 하는 저장소 및 네트워크 트래픽 비용을 발생 시킬 수 있습니다. 또한 집계 된 메트릭에 대해 전송 되어야 하는 원격 분석 항목의 총 수가 크게 감소 하기 때문에 제한 발생 위험이 크게 줄어듭니다.
+`TrackMetric()`메트릭을 나타내는 원시 원격 분석을 보냅니다. 각 값에 대해 단일 원격 분석 항목을 보내는 것은 비효율적입니다. `TrackMetric()`는 모두 `TrackMetric(item)` 원격 분석 이니셜라이저 및 프로세서의 전체 SDK 파이프라인을 거치 므로 성능 측면 에서도 비효율적입니다. 와 `TrackMetric()`달리 `GetMetric()` 는 로컬 사전 집계를 처리 한 다음 1 분의 고정 된 간격으로 집계 요약 메트릭을 제출 합니다. 따라서 두 번째 또는 그 밀리초 수준에서 일부 사용자 지정 메트릭을 면밀 하 게 모니터링 해야 하는 경우에는 1 분에 한 번만 모니터링 하는 저장소 및 네트워크 트래픽 비용을 발생 시킬 수 있습니다. 또한 집계 된 메트릭에 대해 전송 되어야 하는 원격 분석 항목의 총 수가 크게 감소 하기 때문에 제한 발생 위험이 크게 줄어듭니다.
 
 Application Insights에서 및 `TrackMetric()` `GetMetric()` 를 통해 수집 된 사용자 지정 메트릭은 [샘플링](https://docs.microsoft.com/azure/azure-monitor/app/sampling)대상이 아닙니다. 중요 한 메트릭을 샘플링 하면 이러한 메트릭을 기반으로 작성 된 경고가 불안정 해질 수 있는 시나리오가 발생할 수 있습니다. 사용자 지정 메트릭을 샘플링 하지 않으면 일반적으로 경고 임계값이 위반 되는 경우 경고가 발생 한다는 것을 확신할 수 있습니다.  그러나 사용자 지정 메트릭이 샘플링 되지 않으므로 몇 가지 잠재적인 문제가 있습니다.
 
@@ -186,23 +186,11 @@ Application Insights Telemetry: {"name":"Microsoft.ApplicationInsights.Dev.00000
 
 ![분할 지원](./media/get-metric/splitting-support.png)
 
-기본적으로 메트릭 탐색기 환경 내의 다차원 메트릭은 Application Insights 리소스에서 설정 되지 않습니다. 이 동작을 켜려면 ["사용자 지정 메트릭 차원에 대 한 경고 사용"](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)을 선택 하 여 사용량 및 예상 비용 탭으로 이동 합니다.
-
-### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions"></a>3 개 이상의 차원이 있을 때 metricIdentifier를 사용 하는 방법
-
-현재 10 개의 차원이 지원 되지만, 다음의 `metricIdentifier`사용자에 게는 3 차원 이상이 필요 합니다.
-
-```csharp
-// Add "using Microsoft.ApplicationInsights.Metrics;" to use MetricIdentifier
-// MetricIdentifier id = new MetricIdentifier("[metricNamespace]","[metricId],"[dim1]","[dim2]","[dim3]","[dim4]","[dim5]");
-MetricIdentifier id = new MetricIdentifier("CustomMetricNamespace","ComputerSold", "FormFactor", "GraphicsCard", "MemorySpeed", "BatteryCapacity", "StorageCapacity");
-Metric computersSold  = _telemetryClient.GetMetric(id);
-computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");
-```
+기본적으로 메트릭 탐색기 환경 내의 다차원 메트릭은 Application Insights 리소스에서 설정 되지 않습니다.
 
 ### <a name="enable-multi-dimensional-metrics"></a>다차원 메트릭 사용
 
-Application Insights 리소스에 대해 다차원 메트릭을 사용 하도록 설정 하려면 **사용량 및 예상 비용** > **사용자 지정 메트릭** > 을 선택 하 여 > **사용자 지정 메트릭 차원에 대 한 경고 사용****을**선택 합니다.
+Application Insights 리소스에 대해 다차원 메트릭을 사용 하도록 설정 하려면 **사용량 및 예상 비용** > **사용자 지정 메트릭** > 을 선택 하 여 > **사용자 지정 메트릭 차원에 대 한 경고 사용****을**선택 합니다. 이에 대 한 자세한 내용은 [여기](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)에서 찾을 수 있습니다.
 
 이러한 변경을 수행 하 고 새 다차원 원격 분석을 보내면 **분할을 적용할**수 있습니다.
 
@@ -214,6 +202,18 @@ Application Insights 리소스에 대해 다차원 메트릭을 사용 하도록
 그리고 각 _Formfactor_ 차원에 대 한 메트릭 집계를 확인 합니다.
 
 ![폼 팩터](./media/get-metric/formfactor.png)
+
+### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions"></a>3 개 이상의 차원이 있을 때 MetricIdentifier를 사용 하는 방법
+
+현재 10 개의 차원이 지원 되지만 3 차원 이상에서는를 사용 해야 합니다 `MetricIdentifier`.
+
+```csharp
+// Add "using Microsoft.ApplicationInsights.Metrics;" to use MetricIdentifier
+// MetricIdentifier id = new MetricIdentifier("[metricNamespace]","[metricId],"[dim1]","[dim2]","[dim3]","[dim4]","[dim5]");
+MetricIdentifier id = new MetricIdentifier("CustomMetricNamespace","ComputerSold", "FormFactor", "GraphicsCard", "MemorySpeed", "BatteryCapacity", "StorageCapacity");
+Metric computersSold  = _telemetryClient.GetMetric(id);
+computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");
+```
 
 ## <a name="custom-metric-configuration"></a>사용자 지정 메트릭 구성
 

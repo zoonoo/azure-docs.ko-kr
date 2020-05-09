@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 49860504da8dd2a1b994a23a24df95f59c959c90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8be2c8cc70db963252054a39cad558c4c1b5bd2
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263193"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871211"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에서 내보낸 클레임 사용자 지정(미리 보기)
 
@@ -44,7 +44,7 @@ Azure AD에서 **정책** 개체는 개별 응용 프로그램 또는 조직의 
 
 토큰에 사용되는 시기와 방법을 정의하는 특정 클레임 집합이 있습니다.
 
-| 클레임 집합 | Description |
+| 클레임 집합 | 설명 |
 |---|---|
 | 핵심 클레임 집합 | 정책에 관계없이 모든 토큰에 포함됩니다. 또한 이러한 클레임은 제한된 것으로 간주되며 수정할 수 없습니다. |
 | 기본 클레임 집합 | 핵심 클레임 집합뿐 아니라 토큰에서 기본적으로 내보내지는 클레임을 포함합니다. 클레임 매핑 정책을 사용하여 기본 클레임을 생략하거나 수정할 수 있습니다. |
@@ -284,7 +284,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 #### <a name="table-3-valid-id-values-per-source"></a>표 3: 원본별 유효한 ID 값
 
-| 원본 | ID | Description |
+| 원본 | ID | 설명 |
 |-----|-----|-----|
 | 사용자 | surname | 성 |
 | 사용자 | givenname | 이름 |
@@ -358,7 +358,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>표 4: 변환 메서드 및 예상 입력 및 출력
 
-|TransformationMethod|예상 입력|예상 출력|Description|
+|TransformationMethod|예상 입력|예상 출력|설명|
 |-----|-----|-----|-----|
 |Join|string1, string2, 구분 기호|outputClaim|구분 기호를 사용하여 입력 문자열을 조인합니다. 예: string1:"foo@bar.com" , string2:"sandbox" , separator:"."는 outputClaim:"foo@bar.com.sandbox"를 생성합니다.|
 |ExtractMailPrefix|mail|outputClaim|메일 주소의 로컬 부분을 추출합니다. 예: mail:"foo@bar.com"은 outputClaim:"foo"를 생성합니다. \@ 기호가 없으면 원본 입력 문자열이 현재 그대로 반환됩니다.|
@@ -384,7 +384,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>표 5: SAML NameID에 대한 데이터 원본으로 허용되는 특성
 
-|원본|ID|Description|
+|원본|ID|설명|
 |-----|-----|-----|
 | 사용자 | mail|메일 주소|
 | 사용자 | userprincipalname|사용자 계정 이름|
@@ -484,7 +484,7 @@ Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클�
    1. 정책을 만들려면 다음 명령을 실행합니다.  
      
       ``` powershell
-      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/employeeid","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
       ```
     
    2. 새 정책을 보고 정책 ObjectId를 가져오려면 다음 명령을 실행합니다.
@@ -524,6 +524,6 @@ Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클�
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 Azure Portal를 통해 SAML 토큰에서 발급 된 클레임을 사용자 지정 하는 방법에 대 한 자세한 내용은 [방법: 엔터프라이즈 응용 프로그램에 대 한 saml 토큰에서 발급 된 클레임 사용자 지정](active-directory-saml-claims-customization.md) 을 참조 하세요.

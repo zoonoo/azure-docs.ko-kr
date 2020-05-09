@@ -3,12 +3,12 @@ title: Azure Application Insights의 종속성 추적 | Microsoft Docs
 description: Application Insights를 사용 하 여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램에서 종속성 호출을 모니터링 합니다.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 1e30d8036c1fc624d39f027f38e314c6c57360f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b7a20731fa5eae8313adcf07d877626fcaa4dce
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731502"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980850"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure 애플리케이션 Insights에서 종속성 추적 
 
@@ -92,14 +92,14 @@ SQL 호출의 경우 서버 및 데이터베이스의 이름은 항상 수집 �
 
 ASP.NET Core 응용 프로그램의 경우 전체 SQL 쿼리를 가져오는 데 필요한 추가 단계가 없습니다.
 
-ASP.NET 응용 프로그램의 경우 응용 프로그램 계측 엔진을 필요로 하는 바이트 코드 계측을 통해 전체 SQL 쿼리가 수집 됩니다. 아래에 설명 된 대로 추가 플랫폼별 단계가 필요 합니다.
+ASP.NET 응용 프로그램의 경우 전체 SQL 쿼리가 바이트 코드 계측의 도움을 사용 하 여 수집 됩니다. 여기에는 계측 엔진이 나 System.web 라이브러리 대신 [Microsoft. sqlclient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet 패키지를 사용 해야 합니다. 아래에 설명 된 대로 추가 플랫폼별 단계가 필요 합니다.
 
 | 플랫폼 | 전체 SQL 쿼리를 가져오는 데 필요한 단계 |
 | --- | --- |
 | Azure 웹앱 |웹 앱 제어판에서 [Application Insights 블레이드를 열고](../../azure-monitor/app/azure-web-apps.md) .NET에서 SQL 명령을 사용 하도록 설정 합니다. |
-| IIS 서버 (Azure VM, 온-프레미스 등) | 상태 모니터 PowerShell 모듈을 사용 하 여 [계측 엔진을 설치](../../azure-monitor/app/status-monitor-v2-api-reference.md) 하 고 IIS를 다시 시작 합니다. |
+| IIS 서버 (Azure VM, 온-프레미스 등) | [Microsoft. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet 패키지를 사용 하거나 상태 모니터 PowerShell 모듈을 사용 하 여 [계측 엔진을 설치](../../azure-monitor/app/status-monitor-v2-api-reference.md) 하 고 IIS를 다시 시작 합니다. |
 | Azure 클라우드 서비스 | [StatusMonitor를 설치 하기 위한 시작 작업](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) 추가 <br> 응용 프로그램은 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 또는 [ASP.NET Core 응용 프로그램](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 에 대 한 NuGet 패키지를 설치 하 여 빌드 시에 applicationinsights SDK로 등록 됩니다. |
-| IIS Express | 지원되지 않음
+| IIS Express | [Microsoft. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet 패키지를 사용 합니다.
 
 위의 경우, 계측 엔진의 유효성을 검사 하는 올바른 방법은 수집 `DependencyTelemetry` 된의 SDK 버전이 ' rddp ' 인지 확인 하는 것입니다. ' rdddsd ' 또는 ' rddf '은 종속성이 DiagnosticSource 또는 EventSource 콜백을 통해 수집 되므로 전체 SQL 쿼리가 캡처되지 않습니다.
 

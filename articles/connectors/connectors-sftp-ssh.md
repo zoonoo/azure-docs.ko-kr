@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 04/13/2020
+ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: d7fafdd5830ec2825771d4d611a5f4bd5d87260a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7635d98bb48543dd07f05f34ea854af870876cc3
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393629"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927448"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>SSH 및 Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
@@ -34,7 +34,7 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
 * SFTP- [청크](../logic-apps/logic-apps-handle-large-messages.md) 를 지 원하는 ssh 작업은 최대 1gb의 파일을 처리할 수 있지만 청크를 지원 하지 않는 파일은 최대 50 MB까지 처리할 수 있습니다. 기본 청크 크기는 250MB 이지만이 크기는 네트워크 대기 시간, 서버 응답 시간 등의 요소에 따라 5mb에서 시작 하 여 최대 50까지 점진적으로 증가 하 여 변경할 수 있습니다.
 
   > [!NOTE]
-  > [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
+  > [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블이 지정 된 버전에서 대신 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 사용 하도록 청크를 요구 합니다.
 
   대신 사용할 [상수 청크 크기를 지정할](#change-chunk-size) 때이 적응형 동작을 재정의할 수 있습니다. 이 크기는 5mb에서 50 MB 까지입니다. 예를 들어 45 MB 파일 및 해당 파일 크기를 대기 시간 없이 지원할 수 있는 네트워크가 있다고 가정 합니다. 적응 청크는 호출 하는 것이 아니라 여러 번 호출 됩니다. 호출 수를 줄이기 위해 50 MB 청크 크기를 설정 해 볼 수 있습니다. 다른 시나리오에서는 논리 앱의 시간이 초과 되는 경우 (예: 15MB 청크를 사용 하는 경우) 크기를 5mb로 줄일 수 있습니다.
 
@@ -42,7 +42,7 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
 
   | 작업 | 청크 지원 | 청크 크기 지원 재정의 |
   |--------|------------------|-----------------------------|
-  | **파일 복사** | 아니요 | 해당 없음 |
+  | **파일 복사** | 예 | 해당 없음 |
   | **파일 만들기** | 예 | 예 |
   | **폴더 만들기** | 해당 없음 | 해당 없음 |
   | **파일 삭제** | 해당 없음 | 해당 없음 |
@@ -53,7 +53,7 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
   | **경로를 사용하여 파일 메타데이터 가져오기** | 해당 없음 | 해당 없음 |
   | **폴더의 파일 나열** | 해당 없음 | 해당 없음 |
   | **파일 이름 바꾸기** | 해당 없음 | 해당 없음 |
-  | **파일 업데이트** | 아니요 | 해당 없음 |
+  | **파일 업데이트** | 예 | 해당 없음 |
   ||||
 
 * SFTP-SSH 트리거는 메시지 청크를 지원 하지 않습니다. 파일 콘텐츠를 요청 하는 경우 트리거는 15MB 미만의 파일만 선택 합니다. 64MB 보다 큰 파일을 가져오려면 대신 다음 패턴을 따릅니다.
@@ -127,7 +127,7 @@ SFTP-a s s-SSH 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴�
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   다음은 그 예입니다.
+   다음은 그 예입니다. 
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -248,7 +248,7 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 작업을
 커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/sftpwithssh/)를 참조 하세요.
 
 > [!NOTE]
-> [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
+> [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블이 지정 된 버전에는 대신 [ISE 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 사용 하는 청크가 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

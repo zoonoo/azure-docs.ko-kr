@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: da739df761d1d7881764f6ee296872fa02781a6f
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: HT
+ms.date: 05/05/2020
+ms.openlocfilehash: 8fab8c51655c860bc63715a5313c18ac72d4b0cd
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734963"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871625"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -80,42 +80,49 @@ ISE에 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
 * 제약 조건 없이 새 Azure 가상 네트워크 및 서브넷을 만든 경우 서브넷 간 트래픽을 제어 하기 위해 가상 네트워크에서 [NSGs (네트워크 보안 그룹)](../virtual-network/security-overview.md#network-security-groups) 를 설정할 필요가 없습니다.
 
-* 기존 가상 네트워크에서 *필요* 에 따라 [서브넷 간 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)하 여 nsgs를 설정할 수 있습니다. 이 경로로 이동 하거나 이미 NSGs를 사용 하 고 있는 경우 NSGs가 있거나 NSGs를 설정 하려는 가상 네트워크에서 [이 테이블의 포트를 열어야](#network-ports-for-ise) 합니다.
+* 기존 가상 네트워크의 경우 *필요에 따라* [nsgs (네트워크 보안 그룹)](../virtual-network/security-overview.md#network-security-groups) 를 설정 하 여 [서브넷 간 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)할 수 있습니다. 이 경로로 이동 하거나 이미 NSGs를 사용 하 고 있는 경우 해당 NSGs에 대 한 [이 표에 설명 된 포트를 열어야](#network-ports-for-ise) 합니다.
 
-  > [!NOTE]
-  > [Nsg 보안 규칙](../virtual-network/security-overview.md#security-rules)을 사용 하는 경우 TCP 및 UDP 프로토콜을 *모두* 사용 해야 합니다. NSG 보안 규칙은 이러한 포트에 액세스 해야 하는 IP 주소에 대해 열어야 하는 포트를 설명 합니다. 이러한 끝점 사이에 존재 하는 방화벽, 라우터 또는 기타 항목 에서도 해당 IP 주소에 액세스할 수 있는 포트를 유지 해야 합니다.
+  [Nsg 보안 규칙](../virtual-network/security-overview.md#security-rules)을 설정 하는 경우 **TCP** 및 **UDP** 프로토콜을 *모두* 사용 해야 합니다. 또는 각 프로토콜에 대 한 별도의 규칙을 만들 필요가 없도록 **를 대신 선택할** 수 있습니다. NSG 보안 규칙은 이러한 포트에 액세스 해야 하는 IP 주소에 대해 열어야 하는 포트를 설명 합니다. 이러한 끝점 사이에 존재 하는 방화벽, 라우터 또는 기타 항목 에서도 해당 IP 주소에 액세스할 수 있는 포트를 유지 해야 합니다.
 
 <a name="network-ports-for-ise"></a>
 
 ### <a name="network-ports-used-by-your-ise"></a>ISE에서 사용 하는 네트워크 포트
 
-이 표에서는 ISE에서 사용 하는 Azure virtual network의 포트와 이러한 포트가 사용 되는 위치에 대해 설명 합니다. 보안 규칙을 만들 때 복잡성을 줄이기 위해 테이블의 [서비스 태그](../virtual-network/service-tags-overview.md) 는 특정 Azure 서비스에 대 한 IP 주소 접두사 그룹을 나타냅니다.
+이 표에서는 ISE에 액세스 하기 위해 필요한 포트와 해당 포트에 대 한 용도를 설명 합니다. 보안 규칙을 설정 하는 경우 복잡성을 줄이기 위해 테이블은 특정 Azure 서비스에 대 한 IP 주소 접두사 그룹을 나타내는 [서비스 태그](../virtual-network/service-tags-overview.md) 를 사용 합니다. 언급 된 위치에서 *내부 ise* 및 *외부 ISE* 는 [ise를 만드는 동안 선택 된 액세스 끝점](connect-virtual-network-vnet-isolated-environment.md#create-environment)을 참조 합니다. 자세한 내용은 [끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요.
 
 > [!IMPORTANT]
-> 원본 포트는 사용 후 삭제 되므로 모든 규칙에 대해를로 `*` 설정 해야 합니다. 언급 된 위치에서 내부 ISE 및 외부 ISE는 [ise 생성 시 선택 된 끝점](connect-virtual-network-vnet-isolated-environment.md#create-environment)을 참조 합니다. 자세한 내용은 [끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. 
+> 모든 규칙에 대해 원본 포트가 삭제 되기 때문에 원본 포트 `*` 를로 설정 해야 합니다.
 
-| 용도 | Direction | 대상 포트 | 원본 서비스 태그 | 대상 서비스 태그 | 참고 |
-|---------|-----------|-------------------|--------------------|-------------------------|-------|
-| 가상 네트워크 내에서 서브넷 통신 | 인바운드 및 아웃바운드 | * | ISE의 서브넷을 포함 하는 가상 네트워크의 주소 공간 | ISE의 서브넷을 포함 하는 가상 네트워크의 주소 공간 | 가상 네트워크의 서브넷 *간에* 트래픽을 전송 하는 데 필요 합니다. <p><p>**중요**: 각 서브넷의 *구성 요소* 간 트래픽을 전송 하려면 각 서브넷 내의 모든 포트를 열어야 합니다. |
-| 논리 앱에 대 한 통신 | 인바운드 | 443 | 내부 ISE: <br>VirtualNetwork <p><p>외부 ISE: <br>인터넷 <br>( **참고** 열 참조) | VirtualNetwork | **인터넷** 서비스 태그를 사용 하는 대신 논리 앱에서 요청 트리거 또는 웹 후크를 호출 하는 컴퓨터 또는 서비스의 원본 IP 주소를 지정할 수 있습니다. <p><p>**중요**:이 포트를 닫거나 차단 하면 요청 트리거가 있는 논리 앱에 대 한 HTTP 호출이 차단 됩니다. |
-| 논리 앱 실행 기록 | 인바운드 | 443 | 내부 ISE: <br>VirtualNetwork <p><p>외부 ISE: <br>인터넷 <br>( **참고** 열 참조) | VirtualNetwork | **인터넷** 서비스 태그를 사용 하는 대신 논리 앱의 실행 기록을 보려는 컴퓨터 또는 서비스의 원본 IP 주소를 지정할 수 있습니다. <p><p>**중요**:이 포트를 닫거나 차단 해도 실행 기록이 표시 되지 않지만 해당 실행 기록의 각 단계에 대 한 입력 및 출력은 볼 수 없습니다. |
-| Logic Apps 디자이너 - 동적 속성 | 인바운드 | 454 | LogicAppsManagement | VirtualNetwork | 요청은 해당 지역에 대 한 끝점 [인바운드](../logic-apps/logic-apps-limits-and-config.md#inbound) IP 주소 Logic Apps 액세스 합니다. |
-| 커넥터 배포 | 인바운드 | 454 | AzureConnectors | VirtualNetwork | 커넥터를 배포 및 업데이트 하는 데 필요 합니다. 이 포트를 닫거나 차단 하면 ISE 배포가 실패 하 고 커넥터 업데이트 또는 수정이 방지 됩니다. |
-| 네트워크 상태 검사 | 인바운드 | 454 | LogicApps | VirtualNetwork | 요청은 해당 지역에 대 한 [인바운드](../logic-apps/logic-apps-limits-and-config.md#inbound) 및 [아웃 바운드](../logic-apps/logic-apps-limits-and-config.md#outbound) IP 주소에 대 한 Logic Apps 액세스 끝점에서 제공 됩니다. |
-| App Service 관리 종속성 | 인바운드 | 454, 455 | AppServiceManagement | VirtualNetwork | |
-| Azure Traffic Manager에서 통신 | 인바운드 | 내부 ISE: 454 <p><p>외부 ISE: 443 | AzureTrafficManager | VirtualNetwork | |
-| API Management - 관리 엔드포인트 | 인바운드 | 3443 | APIManagement | VirtualNetwork | |
-| 커넥터 정책 배포 | 인바운드 | 3443 | APIManagement | VirtualNetwork | 커넥터를 배포 및 업데이트 하는 데 필요 합니다. 이 포트를 닫거나 차단 하면 ISE 배포가 실패 하 고 커넥터 업데이트 또는 수정이 방지 됩니다. |
-| 논리 앱에서 통신 | 아웃바운드 | 80, 443 | VirtualNetwork | 대상에 따라 다름 | 논리 앱에서 통신 해야 하는 외부 서비스에 대 한 끝점입니다. |
-| Azure Active Directory | 아웃바운드 | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
-| 연결 관리 | 아웃바운드 | 443 | VirtualNetwork  | AppService | |
-| 진단 로그 및 메트릭 게시 | 아웃바운드 | 443 | VirtualNetwork  | AzureMonitor | |
-| Azure Storage 종속성 | 아웃바운드 | 80, 443, 445 | VirtualNetwork | 스토리지 | |
-| Azure SQL 종속성 | 아웃바운드 | 1433 | VirtualNetwork | SQL | |
-| Azure Resource Health | 아웃바운드 | 1886 | VirtualNetwork | AzureMonitor | Resource Health에 상태를 게시 하는 데 필요 합니다. |
-| 이벤트 허브에 로그 정책 및 모니터링 에이전트의 종속성 | 아웃바운드 | 5672 | VirtualNetwork | EventHub | |
-| 역할 인스턴스 간의 Azure Cache for Redis 인스턴스 액세스 | 인바운드 <br>아웃바운드 | 6379-6383 | VirtualNetwork | VirtualNetwork | 또한 ISE가 Redis 용 Azure Cache를 사용 하도록 하려면 [Azure cache For REDIS FAQ에 설명 된 이러한 아웃 바운드 및 인바운드 포트](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements)를 열어야 합니다. |
-||||||
+#### <a name="inbound-security-rules"></a>인바운드 보안 규칙
+
+| 용도 | 원본 서비스 태그 또는 IP 주소 | 원본 포트 | 대상 서비스 태그 또는 IP 주소 | 대상 포트 | 참고 |
+|---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
+| 가상 네트워크 내에서 서브넷 간 통신 | ISE 서브넷을 사용 하는 가상 네트워크의 주소 공간 | * | ISE 서브넷을 사용 하는 가상 네트워크의 주소 공간 | * | 가상 네트워크의 서브넷 *간에* 트래픽을 전송 하는 데 필요 합니다. <p><p>**중요**: 각 서브넷의 *구성 요소* 간 트래픽을 전송 하려면 각 서브넷 내의 모든 포트를 열어야 합니다. |
+| 둘 다: <p>논리 앱에 대 한 통신 <p><p>논리 앱에 대 한 실행 기록| 내부 ISE: <br>**VirtualNetwork** <p><p>외부 ISE: **인터넷** 또는 참고 **참고** | * | **VirtualNetwork** | 443 | **인터넷** 서비스 태그를 사용 하는 대신 다음 항목에 대 한 원본 IP 주소를 지정할 수 있습니다. <p><p>-논리 앱에서 요청 트리거 또는 웹 후크를 호출 하는 컴퓨터 또는 서비스 <p>-논리 앱 실행 기록에 액세스 하려는 컴퓨터 또는 서비스 <p><p>**중요**:이 포트를 닫거나 차단 하면 요청 트리거나 웹 후크가 있는 논리 앱을 호출할 수 없습니다. 또한 실행 기록의 각 단계에 대 한 입력 및 출력에 액세스할 수 없습니다. 그러나 논리 앱 실행 기록에 액세스 하는 것은 금지 되지 않습니다.|
+| Logic Apps 디자이너-동적 속성 | **LogicAppsManagement** | * | **VirtualNetwork** | 454 | 요청은 해당 지역에 대 한 Logic Apps 액세스 끝점의 [인바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#inbound) 에서 제공 됩니다. |
+| 커넥터 배포 | **AzureConnectors** | * | **VirtualNetwork** | 454 | 커넥터를 배포 및 업데이트 하는 데 필요 합니다. 이 포트를 닫거나 차단 하면 ISE 배포가 실패 하 고 커넥터 업데이트 및 수정이 방지 됩니다. |
+| 네트워크 상태 검사 | **LogicApps** | * | **VirtualNetwork** | 454 | 요청은 Logic Apps 액세스 끝점의 [인바운드 ip 주소](../logic-apps/logic-apps-limits-and-config.md#inbound) 와 해당 지역에 대 한 [아웃 바운드 ip 주소](../logic-apps/logic-apps-limits-and-config.md#outbound) 에서 제공 됩니다. |
+| App Service 관리 종속성 | **AppServiceManagement** | * | **VirtualNetwork** | 454, 455 ||
+| Azure Traffic Manager에서 통신 | **AzureTrafficManager** | * | **VirtualNetwork** | 내부 ISE: 454 <p><p>외부 ISE: 443 ||
+| 둘 다: <p>커넥터 정책 배포 <p>API Management - 관리 엔드포인트 | **Microsoft.apimanagement** | * | **VirtualNetwork** | 3443 | 커넥터 정책 배포의 경우 커넥터를 배포 및 업데이트 하려면 포트 액세스가 필요 합니다. 이 포트를 닫거나 차단 하면 ISE 배포가 실패 하 고 커넥터 업데이트 및 수정이 방지 됩니다. |
+| 역할 인스턴스 간의 Azure Cache for Redis 인스턴스 액세스 | **VirtualNetwork** | * | **VirtualNetwork** | 6379-6383 및 **메모** 참조| ISE가 Redis 용 Azure Cache를 사용 하려면 [REDIS FAQ에 대해 Azure cache에서 설명 하는 이러한 아웃 바운드 및 인바운드 포트](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements)를 열어야 합니다. |
+|||||||
+
+#### <a name="outbound-security-rules"></a>아웃바운드 보안 규칙
+
+| 용도 | 원본 서비스 태그 또는 IP 주소 | 원본 포트 | 대상 서비스 태그 또는 IP 주소 | 대상 포트 | 참고 |
+|---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
+| 가상 네트워크 내에서 서브넷 간 통신 | ISE 서브넷을 사용 하는 가상 네트워크의 주소 공간 | * | ISE 서브넷을 사용 하는 가상 네트워크의 주소 공간 | * | 가상 네트워크의 서브넷 *간에* 트래픽을 전송 하는 데 필요 합니다. <p><p>**중요**: 각 서브넷의 *구성 요소* 간 트래픽을 전송 하려면 각 서브넷 내의 모든 포트를 열어야 합니다. |
+| 논리 앱에서 통신 | **VirtualNetwork** | * | 대상에 따라 다름 | 80, 443 | 대상은 논리 앱에서 통신 해야 하는 외부 서비스에 대 한 끝점에 따라 다릅니다. |
+| Azure Active Directory | **VirtualNetwork** | * | **AzureActiveDirectory** | 80, 443 ||
+| Azure Storage 종속성 | **VirtualNetwork** | * | **스토리지** | 80, 443, 445 ||
+| 연결 관리 | **VirtualNetwork** | * | **AppService** | 443 ||
+| 메트릭 & 진단 로그 게시 | **VirtualNetwork** | * | **AzureMonitor** | 443 ||
+| Azure SQL 종속성 | **VirtualNetwork** | * | **SQL** | 1433 ||
+| Azure Resource Health | **VirtualNetwork** | * | **AzureMonitor** | 1886 | Resource Health에 상태를 게시 하는 데 필요 합니다. |
+| 이벤트 허브에 로그 정책 및 모니터링 에이전트의 종속성 | **VirtualNetwork** | * | **EventHub** | 5672 ||
+| 역할 인스턴스 간의 Azure Cache for Redis 인스턴스 액세스 | **VirtualNetwork** | * | **VirtualNetwork** | 6379-6383 및 **메모** 참조| ISE가 Redis 용 Azure Cache를 사용 하려면 [REDIS FAQ에 대해 Azure cache에서 설명 하는 이러한 아웃 바운드 및 인바운드 포트](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements)를 열어야 합니다. |
+|||||||
 
 <a name="create-environment"></a>
 
