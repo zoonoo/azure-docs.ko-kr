@@ -4,10 +4,10 @@ description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 
 ms.date: 03/06/2020
 ms.topic: sample
 ms.openlocfilehash: c92e24327bc1879b8fea89cf85a50f845e473810
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79415311"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>DoD 영향 수준 4 청사진 샘플 배포

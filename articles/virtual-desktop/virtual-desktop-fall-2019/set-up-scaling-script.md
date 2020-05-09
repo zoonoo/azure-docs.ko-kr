@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 12b56519ab3fe9319f00841bd8a0cc795d99e950
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: 28e76a93e309112d965c49f25be232ced789ad66
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615462"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983196"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Azure Automation를 사용 하 여 세션 호스트 크기 조정
 
@@ -161,7 +161,9 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <appl
 3. 다음 cmdlet을 실행 하 여 로컬 컴퓨터에서 createazurelogicapp 스크립트 파일을 다운로드 합니다.
 
      ```powershell
-     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazurelogicapp.ps1" -OutFile "your local machine path\ createazurelogicapp.ps1"
+     Set-Location -Path "c:\temp"
+     $uri = "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazurelogicapp.ps1"
+     Invoke-WebRequest -Uri $uri -OutFile ".\createazurelogicapp.ps1"
      ```
 
 4. 다음 cmdlet을 실행 하 여 RDS Owner 또는 RDS 참여자 권한이 있는 계정으로 Windows 가상 데스크톱에 로그인 합니다.
@@ -173,42 +175,38 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <appl
 5. 다음 PowerShell 스크립트를 실행 하 여 Azure 논리 앱 및 실행 일정을 만듭니다.
 
      ```powershell
-     $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group for the new Azure Logic App"
+     $aadTenantId = (Get-AzContext).Tenant.Id
      
-     $aadTenantId = Read-Host -Prompt "Enter your Azure AD tenant ID"
-
-     $subscriptionId = Read-Host -Prompt "Enter your Azure Subscription ID"
-
-     $tenantName = Read-Host -Prompt "Enter the name of your WVD tenant"
-
-     $hostPoolName = Read-Host -Prompt "Enter the name of the host pool you'd like to scale"
-
+     $azureSubscription = Get-AzSubscription | Out-GridView -PassThru -Title "Select your Azure Subscription"
+     Select-AzSubscription -Subscription $azureSubscription.Id
+     $subscriptionId = $azureSubscription.Id
+     
+     $resourceGroup = Get-AzResourceGroup | Out-GridView -PassThru -Title "Select the resource group for the new Azure Logic App"
+     $resourceGroupName = $resourceGroup.ResourceGroupName
+     $location = $resourceGroup.Location
+     
+     $wvdTenant = Get-RdsTenant | Out-GridView -PassThru -Title "Select your WVD tenant"
+     $tenantName = $wvdTenant.TenantName
+     
+     $wvdHostpool = Get-RdsHostPool -TenantName $wvdTenant.TenantName | Out-GridView -PassThru -Title "Select the host pool you'd like to scale"
+     $hostPoolName = $wvdHostpool.HostPoolName
+     
      $recurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
-
      $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
-
      $endPeakTime = Read-Host -Prompt "Enter the end time for peak hours in local time, e.g. 18:00"
-
      $timeDifference = Read-Host -Prompt "Enter the time difference between local time and UTC in hours, e.g. +5:30"
-
      $sessionThresholdPerCPU = Read-Host -Prompt "Enter the maximum number of sessions per CPU that will be used as a threshold to determine when new session host VMs need to be started during peak hours"
-
      $minimumNumberOfRdsh = Read-Host -Prompt "Enter the minimum number of session host VMs to keep running during off-peak hours"
-
      $limitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, users will be signed out immediately"
-
      $logOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
-
      $logOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
-
-     $location = Read-Host -Prompt "Enter the name of the Azure region where you will be creating the logic app"
-
-     $connectionAssetName = Read-Host -Prompt "Enter the name of the Azure RunAs connection asset"
-
+     
+     $automationAccount = Get-AzAutomationAccount -ResourceGroupName $resourceGroup.ResourceGroupName | Out-GridView -PassThru
+     $automationAccountName = $automationAccount.AutomationAccountName
+     $automationAccountConnection = Get-AzAutomationConnection -ResourceGroupName $resourceGroup.ResourceGroupName -AutomationAccountName $automationAccount.AutomationAccountName | Out-GridView -PassThru -Title "Select the Azure RunAs connection asset"
+     $connectionAssetName = $automationAccountConnection.Name
+     
      $webHookURI = Read-Host -Prompt "Enter the URI of the WebHook returned by when you created the Azure Automation Account"
-
-     $automationAccountName = Read-Host -Prompt "Enter the name of the Azure Automation Account"
-
      $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don't want to be managed by this scaling tool"
 
      .\createazurelogicapp.ps1 -ResourceGroupName $resourceGroupName `

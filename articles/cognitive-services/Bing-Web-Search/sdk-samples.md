@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: sample
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 63996d5e654f22235ab1c243067389653bfaabd8
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 36719fc8370c04e9c2d01422536502f90e124c12
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "65798440"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735252"
 ---
 # <a name="bing-web-search-sdk-samples"></a>Bing Web Search SDK 샘플
 
@@ -31,11 +31,11 @@ Bing Web Search SDK는 Python, Node.js, C# 및 Java에서 사용할 수 있습�
 다음 링크를 사용하여 기본 설정 언어용 SDK에 액세스하세요.
 
 * [Python 샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 시작
-  * 정의 및 종속성은 [Python 라이브러리](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-websearch)도 참조하세요.
+  * 정의 및 종속성은 [Python 라이브러리](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-websearch)도 참조하세요.
 * [Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 시작
   * [Node.js Web Search](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesWebSearch)도 참조하세요.
 * [.NET 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) 시작
   * [NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0)
-  * 정의 및 종속성은 [.NET 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingWebSearch)도 참조하세요.
+  * 정의 및 종속성은 [.NET 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingWebSearch)도 참조하세요.
 * [Java 샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 시작
   * 정의 및 종속성은 [Java 라이브러리](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) 도 참조하세요.
