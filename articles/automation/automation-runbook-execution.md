@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: ace701a6c19f4fe3af1c9ae6f5e63097dd59d405
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 1a9a503fd566c9b50f1503e0955bf12f69ac9960
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871680"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927924"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -46,7 +46,7 @@ Runbook이 Azure의 리소스에 대해 인증 되 고 실행 되도록 설계 �
 
 다음 표에서는 각각에 대해 나열 된 권장 실행 환경을 사용 하는 몇 가지 runbook 실행 태스크를 보여 줍니다.
 
-|작업|권장|참고|
+|작업|권장|메모|
 |---|---|---|
 |Azure 리소스와 통합|Azure 샌드박스|Azure에서 호스트 되는 인증은 더 간단 합니다. Azure VM에서 Hybrid Runbook Worker를 사용 하는 경우 [관리 되는 id와 함께 Runbook 인증을 사용할](automation-hrw-run-runbooks.md#runbook-auth-managed-identities)수 있습니다.|
 |Azure 리소스를 관리 하기 위한 최적의 성능 얻기|Azure 샌드박스|스크립트는 대기 시간이 짧은 동일한 환경에서 실행 됩니다.|
@@ -86,7 +86,7 @@ Azure Automation는 [Azure Monitor](https://docs.microsoft.com/azure/azure-monit
 
 ### <a name="log-analytics-agent-for-windows"></a>Windows용 Log Analytics 에이전트
 
-[Windows 용 Log Analytics 에이전트](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windowsmonitor) 는 windows vm 및 물리적 컴퓨터를 관리 하는 Azure Monitor와 함께 작동 합니다. 컴퓨터는 Azure에서 실행 되거나 로컬 데이터 센터와 같은 비 Azure 환경에서 실행 될 수 있습니다. 하나 이상의 Log Analytics 작업 영역에 보고 하도록 에이전트를 구성 해야 합니다. 
+[Windows 용 Log Analytics 에이전트](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows) 는 windows vm 및 물리적 컴퓨터를 관리 하는 Azure Monitor와 함께 작동 합니다. 컴퓨터는 Azure에서 실행 되거나 로컬 데이터 센터와 같은 비 Azure 환경에서 실행 될 수 있습니다. 하나 이상의 Log Analytics 작업 영역에 보고 하도록 에이전트를 구성 해야 합니다. 
 
 >[!NOTE]
 >Windows 용 Log Analytics 에이전트는 이전에 Microsoft Monitoring Agent (MMA)로 알려져 있었습니다.
@@ -132,7 +132,7 @@ Azure Automation는 동일한 Automation 계정에서 작업을 실행 하는 �
 
 다음 표에서는 작업에 사용할 수 있는 상태에 대해 설명 합니다. 모든 runbook 작업에 대 한 상태 요약을 보거나 Azure Portal의 특정 runbook 작업에 대 한 세부 정보를 자세히 확인할 수 있습니다. 또한 Runbook의 작업 상태와 작업 스트림을 전달하기 위해 Log Analytics 작업 영역과 통합하도록 구성할 수도 있습니다. Azure Monitor 로그와 통합 하는 방법에 대 한 자세한 내용은 [자동화에서 작업 상태 및 작업 스트림을 Azure Monitor 로그로 전달](automation-manage-send-joblogs-log-analytics.md)을 참조 하세요. Runbook의 상태를 사용 하는 예제는 [작업 상태 가져오기](manage-runbooks.md#obtain-job-statuses) 도 참조 하세요.
 
-| 상태 | 설명 |
+| 상태 | Description |
 |:--- |:--- |
 | Completed |작업이 완료되었습니다. |
 | Failed |그래픽 또는 PowerShell 워크플로 runbook을 컴파일하지 못했습니다. PowerShell runbook을 시작 하지 못했거나 작업에서 예외가 발생 했습니다. [Azure Automation runbook 형식](automation-runbook-types.md)을 참조 하세요.|

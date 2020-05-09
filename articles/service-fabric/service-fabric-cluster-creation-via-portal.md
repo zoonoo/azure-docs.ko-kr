@@ -3,16 +3,16 @@ title: Azure Portal에서 Service Fabric 클러스터 만들기
 description: Azure Portal 및 Azure Key Vault를 사용하여 Azure에서 보안 Service Fabric 클러스터를 설정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: e0cd3d5e5a37720134a5bce596bba211b375f19d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 64a4c430cc7402419d64b77fdcc9a6389cf9de6d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458320"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792482"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
 > [!div class="op_single_selector"]
-> * [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
+> * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 > * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
@@ -107,7 +107,7 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 2. 주 노드 형식에 대한 최소 VM **크기**는 클러스터에 대해 선택한 **내구성 계층**에 따라 결정됩니다. 내구성 계층에 대한 기본값은 브론즈입니다. 내구성에 대한 자세한 내용은 [Service Fabric 클러스터 내구성을 선택하는 방법][service-fabric-cluster-durability]을 참조하세요.
 3. **가상 머신 크기**를 선택합니다. D 시리즈 VM에는 SSD 드라이브가 있으므로 특히 상태 저장 애플리케이션에 권장됩니다. 부분 코어가 있거나 사용 가능한 디스크 용량이 10GB 미만인 VM SKU를 사용하지 마세요. VM 크기 선택에 대한 도움말을 보려면 [Service Fabric 클러스터 계획 고려 사항 문서][service-fabric-cluster-capacity]를 참조하세요.
 4.  **단일 노드 클러스터 및 3개 노드 클러스터**는 테스트용으로만 사용되며 실행 중인 프로덕션 워크로드에는 지원되지 않습니다.
-5. 노드 형식에 대한 **초기 VM 확장 집합 용량**을 선택합니다. 나중에 노드 형식의 VM 수를 늘리거나 줄일 수 있지만 주 노드 형식에서 프로덕션 워크로드의 최소값은 5개입니다. 다른 노드 형식은 최소 VM이 1대만 있어도 됩니다. 주 노드 형식에 대한 최소 VM **수**는 클러스터의 **안정성**을 결정합니다.  
+5. 노드 형식에 대한 **초기 VM 확장 집합 용량**을 선택합니다. 나중에 노드 형식에서 Vm 수를 확장 하거나 축소할 수 있지만 주 노드 형식에서 프로덕션 워크 로드에 대 한 최소값은 5입니다. 다른 노드 형식은 최소 VM이 1대만 있어도 됩니다. 주 노드 형식에 대한 최소 VM **수**는 클러스터의 **안정성**을 결정합니다.  
 6. **사용자 지정 끝점**을 구성 합니다. 이 필드를 사용하면 Azure Load Balancer를 통해 애플리케이션에 대한 공용 인터넷에 노출하려고 하는 쉼표로 구분된 포트 목록을 입력할 수 있습니다. 예를 들어 클러스터에 웹 애플리케이션을 배포하려는 경우 여기에 "80"을 입력하여 포트 80의 트래픽이 클러스터로 이동되도록 허용합니다. 엔드포인트에 대한 자세한 내용은 [애플리케이션과 통신][service-fabric-connect-and-communicate-with-services]을 참조하세요.
 7. **역방향 프록시 사용**.  [Service Fabric 역방향 프록시](service-fabric-reverseproxy.md)는 Service Fabric 클러스터 탐색에서 마이크로 서비스가 실행되도록 하고 http 엔드포인트가 있는 다른 서비스와 통신합니다.
 8. **클러스터 구성** 블레이드로 돌아가, **+선택적 설정 표시** 아래에서 클러스터 **진단**을 구성합니다. 기본적으로 문제 해결을 돕기 위해 클러스터에서 진단이 활성화됩니다. 진단을 사용하지 않으려면 **상태** 토글을 **사용 안 함**로 변경합니다. 진단을 끄지 **않는** 것이 좋습니다. 이미 Application Insights 프로젝트가 생성되어 있는 경우 애플리케이션 추적이 프로젝트로 라우팅되도록 해당 키를 제공합니다.

@@ -3,20 +3,20 @@ title: HTTPS를 사용 하 여 호출 수신 및 응답
 description: Azure Logic Apps를 사용 하 여 외부 서비스에서 인바운드 HTTPS 요청 처리
 services: logic-apps
 ms.suite: integration
-ms.reviewers: klam, logicappspm
+ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: 8137bea37c25554d814e237380ba5c57c5b24d57
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: c6d8dc087e6306173fc4d55368cd3c4c624d5302
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900936"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978572"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Azure Logic Apps에서 인바운드 HTTPS 요청을 수신 하 고 응답 합니다.
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 기본 제공 요청 트리거 또는 응답 작업을 사용 하 여 들어오는 HTTPS 요청을 수신 하 고 응답 하는 자동화 된 작업 및 워크플로를 만들 수 있습니다. 예를 들어 논리 앱을 사용할 수 있습니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 기본 제공 요청 트리거 및 응답 작업을 사용 하 여 들어오는 HTTPS 요청을 수신 하 고 응답 하는 자동화 된 작업 및 워크플로를 만들 수 있습니다. 예를 들어 논리 앱을 사용할 수 있습니다.
 
 * 온-프레미스 데이터베이스에서 데이터에 대 한 HTTPS 요청을 수신 하 고 응답 합니다.
 * 외부 webhook 이벤트가 발생 하는 경우 워크플로를 트리거합니다.
@@ -49,11 +49,11 @@ ms.locfileid: "82900936"
 
 ## <a name="add-request-trigger"></a>요청 트리거 추가
 
-이 기본 제공 트리거 *는 들어오는 https* 요청만 수신할 수 있는 수동으로 호출할 수 있는 https 끝점을 만듭니다. 이 이벤트가 발생 하면 트리거가 발생 하 고 논리 앱을 실행 합니다.
+이 기본 제공 트리거 *는 들어오는 https* 요청만 수신할 수 있는 수동으로 호출할 수 있는 https 끝점을 만듭니다. 이 이벤트가 발생 하면 트리거가 발생 하 고 논리 앱을 실행 합니다. 트리거의 기본 JSON 정의 및이 트리거를 호출 하는 방법에 대 한 자세한 내용은 [요청 트리거 형식](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) 및 [HTTPS 끝점을 사용 하 여 Azure Logic Apps에서 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조 하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 빈 논리 앱을 만듭니다.
 
-1. 논리 앱 디자이너가 열리면 검색 상자에 "http 요청"을 필터로 입력 합니다. 트리거 목록에서 논리 앱 워크플로의 첫 단계인 **HTTP 요청을 받을 때** 트리거를 선택 합니다.
+1. 논리 앱 디자이너가 열리면 검색 상자에를 필터로 입력 `http request` 합니다. 트리거 목록에서 논리 앱 워크플로의 첫 단계인 **HTTP 요청을 받을 때** 트리거를 선택 합니다.
 
    ![요청 트리거 선택](./media/connectors-native-reqres/select-request-trigger.png)
 
@@ -61,10 +61,10 @@ ms.locfileid: "82900936"
 
    ![요청 트리거](./media/connectors-native-reqres/request-trigger.png)
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
+   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST URL** | {없음} | 예 | 논리 앱을 저장 한 후에 생성 되 고 논리 앱을 호출 하는 데 사용 되는 끝점 URL입니다. |
-   | **요청 본문 JSON 스키마** | `schema` | 아니요 | 들어오는 요청 본문의 속성 및 값을 설명 하는 JSON 스키마입니다. |
+   | **요청 본문 JSON 스키마** | `schema` | 예 | 들어오는 요청 본문의 속성 및 값을 설명 하는 JSON 스키마입니다. |
    |||||
 
 1. 필요에 따라 **본문 Json 스키마 요청** 상자에서 들어오는 요청의 본문을 설명 하는 JSON 스키마를 입력 합니다. 예를 들면 다음과 같습니다.
@@ -160,10 +160,10 @@ ms.locfileid: "82900936"
 
 1. 추가 속성을 지정 하려면 **새 매개 변수 추가** 목록을 열고 추가 하려는 매개 변수를 선택 합니다.
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
+   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
    |---------------|--------------------|----------|-------------|
-   | **방법이** | `method` | 아니요 | 들어오는 요청에서 논리 앱을 호출 하는 데 사용 해야 하는 메서드입니다. |
-   | **상대 경로** | `relativePath` | 아니요 | 논리 앱의 끝점 URL에서 수락할 수 있는 매개 변수의 상대 경로입니다. |
+   | **방법이** | `method` | 예 | 들어오는 요청에서 논리 앱을 호출 하는 데 사용 해야 하는 메서드입니다. |
+   | **상대 경로** | `relativePath` | 예 | 논리 앱의 끝점 URL에서 수락할 수 있는 매개 변수의 상대 경로입니다. |
    |||||
 
    이 예제에서는 **메서드** 속성을 추가 합니다.
@@ -196,7 +196,7 @@ ms.locfileid: "82900936"
 
 요청 트리거의 출력에 대 한 자세한 내용은 다음과 같습니다.
 
-| JSON 속성 이름 | 데이터 형식 | 설명 |
+| JSON 속성 이름 | 데이터 형식 | Description |
 |--------------------|-----------|-------------|
 | `headers` | Object | 요청의 헤더를 설명 하는 JSON 개체입니다. |
 | `body` | Object | 요청의 본문 콘텐츠를 설명 하는 JSON 개체입니다. |
@@ -251,11 +251,11 @@ ms.locfileid: "82900936"
 
    응답 작업에서 설정할 수 있는 속성에 대 한 자세한 내용은 다음과 같습니다. 
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
+   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
    |---------------|--------------------|----------|-------------|
    | **상태 코드** | `statusCode` | 예 | 응답에 반환할 상태 코드 |
-   | **헤더** | `headers` | 아니요 | 응답에 포함할 하나 이상의 헤더를 설명 하는 JSON 개체입니다. |
-   | **본문** | `body` | 아니요 | 응답 본문 |
+   | **헤더** | `headers` | 예 | 응답에 포함할 하나 이상의 헤더를 설명 하는 JSON 개체입니다. |
+   | **본문** | `body` | 예 | 응답 본문 |
    |||||
 
 1. 응답 본문에 대 한 JSON 스키마와 같은 추가 속성을 지정 하려면 **새 매개 변수 추가** 목록을 열고 추가 하려는 매개 변수를 선택 합니다.
