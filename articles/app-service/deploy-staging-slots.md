@@ -3,14 +3,14 @@ title: 스테이징 환경 설정
 description: 프로덕션이 아닌 슬롯에 앱을 배포 하 고 프로덕션으로 자동 교환 하는 방법에 대해 알아봅니다. 안정성을 높이고 배포에서 앱 가동 중지 시간을 제거 합니다.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 21e025088e59c7f65f848b332ecb393b05918261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11e133a24ff728cc864e50e898e9db982b186337
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78300874"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597922"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -58,11 +58,11 @@ ms.locfileid: "78300874"
    
     ![배포 슬롯 제목](./media/web-sites-staged-publishing/StagingTitle.png)
 
-    스테이징 슬롯에는 다른 App Service 앱과 마찬가지로 관리 페이지가 있습니다. 슬롯의 구성을 변경할 수 있습니다. 배포 슬롯을 보고 있다는 사실을 상기시키기 위해 페이지 상단에 슬롯 이름이 표시됩니다.
+    스테이징 슬롯에는 다른 App Service 앱과 마찬가지로 관리 페이지가 있습니다. 슬롯의 구성을 변경할 수 있습니다. 배포 슬롯을 보고 있음을 알리기 위해 앱 이름은 ** \<앱 이름>/\<슬롯 이름>** 으로 표시 되 고 앱 유형은 **App Service (슬롯)** 입니다. 동일한 명칭을 사용 하 여 리소스 그룹에서 별도의 앱으로 슬롯을 볼 수도 있습니다.
 
 6. 슬롯의 리소스 페이지에서 앱 URL을 선택 합니다. 배포 슬롯에는 고유한 호스트 이름이 있으며 라이브 앱 이기도 합니다. 배포 슬롯에 대 한 공용 액세스를 제한 하려면 [AZURE APP SERVICE IP 제한](app-service-ip-restrictions.md)을 참조 하세요.
 
-다른 슬롯에서 설정을 복제하더라도 새 배포 슬롯에는 내용이 없습니다. 예를 들어 Git를 [사용 하 여이 슬롯에 게시할](app-service-deploy-local-git.md)수 있습니다. 다른 리포지토리 분기 또는 다른 리포지토리로부터 슬롯에 배포할 수 있습니다. 
+다른 슬롯에서 설정을 복제하더라도 새 배포 슬롯에는 내용이 없습니다. 예를 들어 Git를 [사용 하 여이 슬롯에 게시할](app-service-deploy-local-git.md)수 있습니다. 다른 리포지토리 분기 또는 다른 리포지토리로부터 슬롯에 배포할 수 있습니다.
 
 <a name="AboutConfiguration"></a>
 
@@ -260,7 +260,7 @@ Preview를 사용 하 여 교환 하려면:
 
 문자열 `x-ms-routing-name=self` 는 프로덕션 슬롯을 지정합니다. 클라이언트 브라우저는 링크에 액세스 한 후 프로덕션 슬롯으로 리디렉션됩니다. 모든 후속 요청에는 `x-ms-routing-name=self` 프로덕션 슬롯에 세션을 고정 하는 쿠키가 있습니다.
 
-사용자가 베타 앱에 옵트인 (opt in) 할 수 있도록 하려면 비프로덕션 슬롯의 이름에 동일한 쿼리 매개 변수를 설정 합니다. 아래 예를 살펴보세요.
+사용자가 베타 앱에 옵트인 (opt in) 할 수 있도록 하려면 비프로덕션 슬롯의 이름에 동일한 쿼리 매개 변수를 설정 합니다. 예를 들면 다음과 같습니다.
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
@@ -272,7 +272,7 @@ Preview를 사용 하 여 교환 하려면:
 
 ## <a name="delete-a-slot"></a>슬롯 삭제
 
-앱을 검색 하 고 선택 합니다. **배포 슬롯** >   >  **Overview***\<슬롯을 선택 하>개요를 삭제 *합니다. 명령 모음에서 **삭제** 를 선택 합니다.  
+앱을 검색 하 고 선택 합니다. **배포 슬롯** >   >  **Overview***\<슬롯을 선택 하>개요를 삭제 *합니다. 앱 유형은 배포 슬롯을 보고 있음을 알리기 위해 **App Service (슬롯)** 로 표시 됩니다. 명령 모음에서 **삭제** 를 선택 합니다.  
 
 ![배포 슬롯 삭제](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 

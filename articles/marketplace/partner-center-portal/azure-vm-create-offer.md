@@ -1,25 +1,25 @@
 ---
-title: Azure 가상 머신 제품 만들기-Azure Marketplace
-description: 상용 marketplace에서 virtual machine 제품을 만드는 방법에 대해 알아봅니다.
+title: Azure Marketplace에서 Azure virtual machine 제품을 만듭니다.
+description: 필요한 SKU를 사용 하 여 Azure Marketplace에서 가상 컴퓨터 제품을 만드는 방법을 알아봅니다.
 author: emuench
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/10/2020
-ms.openlocfilehash: d598f741c5add58a89aa2b7aa01802a7e35f9a19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 31b8960f5617566a72545510cf03771f7a3bfcbd
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869052"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82745018"
 ---
-# <a name="create-an-azure-virtual-machine-offer"></a>Azure 가상 머신 제품 만들기
+# <a name="create-an-azure-virtual-machine-offer-in-the-azure-marketplace"></a>Azure Marketplace에서 Azure virtual machine 제품을 만듭니다.
 
 > [!IMPORTANT]
 > Azure VM 제품의 관리를 Cloud 파트너 포털에서 파트너 센터로 전환 하 고 있습니다. 제품이 마이그레이션될 때까지 Cloud 파트너 포털에서 [Virtual Machine 제품 만들기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-offer) 의 지침에 따라 제품을 관리 하세요.
 
-이 문서에서는 [Azure Marketplace](https://azuremarketplace.microsoft.com/)에 대 한 Azure 가상 머신 제품을 만들고 게시 하는 방법을 설명 합니다. 운영 체제, VHD (가상 하드 디스크) 및 최대 16 개의 데이터 디스크를 포함 하는 Windows 및 Linux 기반 가상 컴퓨터를 모두 처리 합니다.
+이 문서에서는 [Azure Marketplace](https://azuremarketplace.microsoft.com/)에 대 한 Azure 가상 머신 제품을 만들고 게시 하는 방법을 설명 합니다. 운영 체제, VHD (가상 하드 디스크) 및 최대 16 개의 데이터 디스크를 포함 하는 Windows 및 Linux 기반 가상 컴퓨터를 모두 처리 합니다. 아직 수행 하지 않은 경우 시작 하기 전에 [파트너 센터에서 상업적 Marketplace 계정을 만듭니다](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) . 계정이 상업적 marketplace 프로그램에 등록 되어 있는지 확인 합니다.
 
 ## <a name="introduction"></a>소개
 
@@ -58,17 +58,18 @@ Azure Marketplace에 게시 하면 다음과 같은 이점이 있습니다.
 - [Azure 애플리케이션을 디자인 및 설계](https://azure.microsoft.com/solutions/architecture/)하는 방법
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)및 [azure 네트워킹](https://azure.microsoft.com/services/?filter=networking#networking) 에 대 한 작업 지식
 
-## <a name="create-an-azure-virtual-machine-offer"></a>Azure 가상 머신 제품 만들기
+## <a name="create-a-new-offer"></a>새 제안 만들기
 
-Azure 가상 머신 제품을 만들려면 먼저 파트너 센터에 상업적 marketplace 계정이 있어야 합니다. 아직 만들지 않은 경우 [파트너 센터에서 상용 마켓플레이스 계정 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)를 참조 하세요.
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인 합니다.
+2. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스** > **개요**를 선택 합니다.
+3. 개요 페이지에서 **+ 새로 만들기 제품** > **Azure Virtual Machine**을 선택 합니다.
 
-1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인 한 다음, 상단 메뉴에서 **대시보드**를 선택 합니다.
-2. 왼쪽 탐색 모음에서 **상업용 마켓플레이스**, **개요**를 차례로 선택 합니다.
-3. **개요** 페이지에서 **+ 새 제품**을 선택 하 고 **Azure Virtual Machine**을 선택 합니다. **새 제품** 대화 상자가 나타납니다.
+    ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/new-offer-azure-vm.png)
 
-    ![새 제품 단추와 Azure Virtual Machine 제품이 선택 된 파트너 센터의 개요 페이지를 보여 줍니다.](media/avm-create7.png)
+> [!NOTE]
+> 제품을 게시 한 후에는 제품을 다시 게시 한 후에만 파트너 센터에서 해당 제품에 대 한 편집 내용이 상점에 표시 됩니다. 변경을 수행한 후 항상 다시 게시 해야 합니다.
 
-## <a name="offer-id-and-alias"></a>제품 ID 및 별칭
+## <a name="new-offer"></a>새 제안
 
 **제품 ID**를 입력 합니다. 계정의 각 제품에 대 한 고유 식별자입니다.
 
@@ -76,7 +77,9 @@ Azure 가상 머신 제품을 만들려면 먼저 파트너 센터에 상업적 
 - 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50 자로 제한 됩니다. 예를 들어 여기에 **테스트-1** 을 입력 하는 경우 제품 웹 주소는 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`입니다.
 - **만들기**를 선택한 후에는 제품 ID를 변경할 수 없습니다.
 
-**제품 별칭**을 입력 합니다. 파트너 센터의 제안에 사용 되는 이름입니다. 이 이름은 marketplace에서 사용 되지 않으며 고객에 게 표시 되는 제품 이름 및 기타 값과 다릅니다.
+**제품 별칭**을 입력 합니다. 파트너 센터의 제안에 사용 되는 이름입니다.
+
+- 이 이름은 marketplace에서 사용 되지 않으며 고객에 게 표시 되는 제품 이름 및 기타 값과 다릅니다.
 
 **만들기** 를 선택 하 여 제품을 생성 하 고 계속 합니다.
 
@@ -84,15 +87,15 @@ Azure 가상 머신 제품을 만들려면 먼저 파트너 센터에 상업적 
 
 ### <a name="test-drive"></a>시험 사용
 
-고객이 제품을 구매할 수 있게 해 주는 데모 (테스트 드라이브)를 설정 합니다. 고객이 고정 기간 동안 제품을 사용해 볼 수 있도록 하는 데모 환경을 만들려면 [상용 marketplace에서 제품 시험](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive)사용을 참조 하세요.
+시험 (시험) 드라이브는 "구매 전 시도" 옵션을 제공 하 여 잠재 고객에 게 제품을 보여 줄 수 있는 좋은 방법입니다 .이를 통해 변환 및 높은 우량 잠재 고객의 생성이 증가 합니다. [테스트 드라이브에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
 
-테스트 드라이브를 사용 하도록 설정 하려면 **테스트 드라이브 사용** 확인란을 선택 합니다. 제품에서 테스트 드라이브를 제거 하려면이 확인란의 선택을 취소 합니다.
+테스트 드라이브를 고정 된 시간 동안 사용 하도록 설정 하려면 **테스트 드라이브 사용** 확인란을 선택 합니다. 제품에서 테스트 드라이브를 제거 하려면이 확인란의 선택을 취소 합니다.
 
 추가 테스트 드라이브 리소스:
 
 - [기술 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [마케팅 모범 사례](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [테스트 드라이브 개요](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (팝업 차단이 해제 되어 있는지 확인).
+- [테스트 드라이브 개요](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (팝업 차단이 해제 되어 있는지 확인)
 
 ### <a name="lead-management"></a>잠재 고객 관리
 
@@ -174,7 +177,7 @@ Azure 가상 머신 제품을 만들려면 먼저 파트너 센터에 상업적 
 
 ### <a name="marketplace-details"></a>Marketplace 세부 정보
 
-#### <a name="name"></a>속성
+#### <a name="name"></a>Name
 
 여기에 입력 하는 이름은 고객에 게 제품 목록의 제목으로 표시 됩니다. 이 필드는 제품을 만들 때 **제품 별칭** 상자에 입력 한 텍스트로 미리 채워집니다. 이 이름은 나중에 변경할 수 있습니다.
 
@@ -213,9 +216,13 @@ Azure 가상 머신 제품을 만들려면 먼저 파트너 센터에 상업적 
 - 제품을 판매 하는 기능과 기능을 사용 하지 마세요. 대신 제품에서 제공 하는 가치에 집중 하세요.
 - 산업별 또는 혜택 기반 단어를 사용 합니다.
 
-제품 설명을 보다 유용 하 게 사용 하려면 서식 있는 텍스트 편집기를 사용 하 여 설명의 서식을 지정 합니다. 서식 있는 텍스트 편집기를 사용 하면 숫자, 글머리 기호, 굵게, 기울임꼴 및 들여쓰기를 추가 하 여 설명을 더 쉽게 읽을 수 있습니다.
+제품 설명을 보다 유용 하 게 사용 하려면 서식 있는 텍스트 편집기를 사용 하 여 서식 지정을 적용 합니다.
 
-![새 제품 단추와 컨설팅 서비스 제품이 선택 된 파트너 센터의 개요 페이지를 보여 줍니다.](media/power-bi-rich-text-editor.png)
+![서식 있는 텍스트 편집기 사용](./media/rich-text-editor.png)
+
+| <center>텍스트 형식 변경 | <center>글머리 기호 또는 번호 매기기 추가 | <center>텍스트 들여쓰기 추가 또는 제거 |
+| --- | --- | --- |
+| <center>![서식 있는 텍스트 편집기를 사용 하 여 텍스트 형식 변경](./media/text-editor3.png) |  <center>![서식 있는 텍스트 편집기를 사용 하 여 목록 추가](./media/text-editor4.png) |  <center>![서식 있는 텍스트 편집기를 사용 하 여 들여쓰기](./media/text-editor5.png) |
 
 #### <a name="privacy-policy-link"></a>개인 정보 취급 방침 링크
 
@@ -239,7 +246,7 @@ Azure 가상 머신 제품을 만들려면 먼저 파트너 센터에 상업적 
 
 고객이 지원 티켓을 열 때 사용할 Microsoft 파트너에 대 한 연락처 정보를 제공 합니다. Marketplace에는이 내용이 나열 되지 않습니다.
 
-- 속성
+- Name
 - 메일
 - Phone
 
@@ -247,7 +254,7 @@ Azure 가상 머신 제품을 만들려면 먼저 파트너 센터에 상업적 
 
 인증 관련 문제를 포함 하 여 제품에 문제가 있을 때 사용할 Microsoft의 연락처 정보를 제공 합니다. Marketplace에는이 내용이 나열 되지 않습니다.
 
-- 속성
+- Name
 - 메일
 - Phone
 
@@ -256,7 +263,7 @@ Azure 가상 머신 제품을 만들려면 먼저 파트너 센터에 상업적 
 제품에 사용할 로고 및 이미지를 제공 합니다. 모든 이미지는 PNG 형식 이어야 합니다. 이미지가 흐리게 발생 하면 제출이 거부 됩니다.
 
 >[!Note]
->파일을 업로드 하는 데 문제가 있는 경우 로컬 네트워크가 파트너 센터에서 사용 하는 https://upload.xboxlive.com 서비스를 차단 하지 않는지 확인 합니다.
+>파일을 업로드 하는 동안 문제가 발생 하는 경우 로컬 네트워크가 파트너 센터에서 https://upload.xboxlive.com 사용 하는 서비스를 차단 하지 않는지 확인 합니다.
 
 #### <a name="marketplace-logos"></a>마켓플레이스 로고
 
@@ -271,11 +278,11 @@ Azure 가상 머신 제품을 만들려면 먼저 파트너 센터에 상업적 
 
 #### <a name="screenshots"></a>스크린샷
 
-제품의 작동 방식을 보여 주는 최대 5 개의 스크린샷을 추가 합니다. 각 스크린샷은 1280 x 720 픽셀 크기 및 PNG 형식 이어야 합니다. 또한 스크린샷을 설명 하는 캡션을 추가 해야 합니다.
+제품의 작동 방식을 보여 주는 최대 5 개의 스크린샷을 추가 합니다. 각 스크린샷은 1280 x 720 픽셀 크기 및 PNG 형식 이어야 합니다. 각 스크린샷은 캡션을 포함 해야 합니다.
 
 #### <a name="videos"></a>동영상
 
-제품을 설명 하는 비디오를 최대 5 개까지 추가 합니다. 이러한 서비스는 외부 비디오 서비스에서 호스팅되어야 합니다. 각 비디오의 이름, 웹 주소 및 비디오의 미리 보기 PNG 이미지를 1280 x 720 픽셀 크기로 입력 합니다.
+제품을 설명 하는 비디오를 최대 5 개까지 추가 합니다. 이러한 서비스는 외부 비디오 서비스에서 호스팅되어야 합니다. 각 비디오의 이름, 웹 주소 및 비디오의 미리 보기 PNG 이미지를 1280 x 720 픽셀에 입력 합니다.
 
 리소스를 나열 하는 추가 marketplace는 [marketplace 제품 목록에 대 한 모범 사례](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)를 참조 하세요.
 
@@ -331,7 +338,7 @@ Azure 가상 머신 제품을 만들려면 먼저 파트너 센터에 상업적 
 
 계획의 유형에 대 한 상위 수준 구성을 설정 하 고, 다른 계획의 기술 구성을 재사용 하 고, 계획을 사용할 수 있는 Azure 지역을 설정 합니다. 선택 항목에 따라 동일한 계획에 대 한 다른 탭에 표시 되는 필드가 결정 됩니다.
 
-#### <a name="reuse-technical-configuration"></a>기술 구성 다시 사용
+#### <a name="re-use-technical-configuration"></a>기술 구성 다시 사용
 
 동일한 유형의 계획이 두 개 이상 있고 패키지가 둘 사이에 동일한 경우 **이 계획에서 다른 계획의 기술 구성**다시 사용할 계획을 선택할 수 있습니다. 이 옵션을 사용 하면이 제품에 대해 동일한 유형의 다른 계획 중 하나를 선택 하 고 해당 기술 구성을 다시 사용할 수 있습니다.
 
@@ -342,7 +349,7 @@ Azure 가상 머신 제품을 만들려면 먼저 파트너 센터에 상업적 
 
 계획은 하나 이상의 Azure 지역에서 사용할 수 있어야 합니다.
 
-**Azure Global** 옵션을 선택 하 여 상업적 marketplace 통합이 있는 모든 공용 azure 지역에서 고객이 요금제를 사용할 수 있도록 합니다. 자세한 내용은 [지리적 가용성 및 통화 지원](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)을 참조 하세요.
+**Azure global** 옵션을 선택 하 여 상업적 marketplace 통합이 있는 모든 azure 글로벌 지역에서 고객이 요금제를 사용할 수 있도록 합니다. 자세한 내용은 [지리적 가용성 및 통화 지원](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)을 참조 하세요.
 
 **Azure Government** 옵션을 선택 하 여 [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) 지역에서 계획을 사용할 수 있도록 합니다. 이 지역은 미국 연방, 주, 지방 또는 부족의 고객에 대 한 제어 된 액세스와 이러한 엔터티를 제공 하는 파트너를 제공 합니다. 게시자는 규정 준수 제어, 보안 조치 및 모범 사례를 담당 합니다. Azure Government는 미국에만 있는 물리적으로 격리 된 데이터 센터와 네트워크를 사용 합니다.
 
@@ -353,7 +360,7 @@ Azure 가상 머신 제품을 만들려면 먼저 파트너 센터에 상업적 
 
 #### <a name="azure-government-certifications"></a>Azure Government 인증
 
-이 옵션은 **Azure 지역**에서 **Azure Government** 를 선택 하는 경우에만 표시 됩니다.
+이 옵션은 **Azure Government**를 선택한 경우에만 표시 됩니다.
 
 Azure Government services는 특정 정부 규정 및 요구 사항이 적용 되는 데이터를 처리 합니다. 예를 들어 FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 및 CJIS가 있습니다. 이러한 프로그램에 대 한 인증을 인식 하기 위해 이러한 프로그램을 설명 하는 최대 100 링크를 제공할 수 있습니다. 이러한 링크는 프로그램의 목록에 대 한 링크 이거나 사용자의 웹 사이트에서 준수의 설명에 대 한 링크 일 수 있습니다. 이러한 링크는 Azure Government 고객만 볼 수 있습니다.
 
@@ -361,7 +368,7 @@ Azure Government services는 특정 정부 규정 및 요구 사항이 적용 �
 
 ### <a name="plan-listing"></a>계획 목록
 
-여기서는 계획의 목록 세부 정보를 구성 합니다. 이 탭에는 동일한 제품의 계획 간에 다를 수 있는 특정 정보가 표시 됩니다.
+여기서 계획의 세부 정보를 구성 합니다. 이 탭에는 동일한 제품의 계획 간에 다를 수 있는 특정 정보가 표시 됩니다.
 
 #### <a name="plan-name"></a>계획 이름
 
@@ -488,9 +495,9 @@ CSP ( [클라우드 솔루션 공급자](https://azure.microsoft.com/offers/ms-a
 
 추가 테스트 드라이브 리소스:
 
-- 기술 모범 사례
-- 마케팅 모범 사례
-- 드라이브 테스트 개요 (PDF) 팝업 차단이 해제 되어 있는지 확인 합니다.
+- [마케팅 모범 사례](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [기술 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [개요](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF, 팝업 차단이 해제 되어 있는지 확인)
 
 계속 하기 전에 **초안 저장** 을 선택 합니다.
 
@@ -520,7 +527,7 @@ CSP ( [클라우드 솔루션 공급자](https://azure.microsoft.com/offers/ms-a
 
 **제품 개요** 페이지에는이 제품을 게시 하는 데 필요한 단계를 시각적으로 표시 하 고 (완료 및 진행 중) 각 단계를 완료 하는 데 소요 되는 시간이 표시 됩니다.
 
-이 페이지에는 사용자가 선택한 항목에 따라이 제품에 대 한 작업을 수행할 수 있는 링크가 포함 되어 있습니다. 다음은 그 예입니다.
+이 페이지에는 사용자가 선택한 항목에 따라이 제품에 대 한 작업을 수행할 수 있는 링크가 포함 되어 있습니다. 예를 들면 다음과 같습니다.
 
 - 제안이 초안 [삭제 제안](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer) 인 경우
 - 제품이 라이브 인 경우 [제품 판매를 중지](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan) 합니다.

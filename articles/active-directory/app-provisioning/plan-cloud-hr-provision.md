@@ -4,20 +4,19 @@ description: 이 문서에서는 Azure Active Directory와 함께 Workday 및 Su
 services: active-directory
 author: martincoetzer
 manager: CelesteDG
-tags: azuread
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
-ms.reviewer: arvindha
-ms.openlocfilehash: 28abe2dfa5a1a13ba09e20202180cb5e47d94072
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: arvindha, celested
+ms.openlocfilehash: 86b858b628dc2ed9eac730d4c3f090f4d7d6c7e2
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77522435"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593304"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>사용자 프로 비전을 Azure Active Directory 클라우드 HR 응용 프로그램 계획
 
@@ -80,7 +79,7 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 
 또한 클라우드 HR 앱에서 소스인 Active Directory 또는 Azure AD로 프로 비전 되는 모든 사용자에 대해 유효한 Azure AD Premium P1 이상의 구독 라이선스가 필요 합니다. 클라우드 HR 앱에서 소유 하 고 있는 라이선스 수가 잘못 된 경우 사용자 프로 비전 중에 오류가 발생할 수 있습니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 - Azure AD 전역 관리자 액세스를 사용 하 여 Azure AD Connect 프로 비전 에이전트를 구성 합니다.
 - 클라우드 HR 앱의 테스트 및 프로덕션 인스턴스입니다.

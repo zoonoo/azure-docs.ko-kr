@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 01d94b39354333a8840ded8725625d6a91cf56b7
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: ffc7c289fd675a68c8b02af1777fea3d4530e17a
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592165"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889489"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service용 Linux Java 앱 구성
 
@@ -25,7 +25,7 @@ Linux에서 Azure App Service Java 개발자는 완전히 관리 되는 Linux �
 
 ## <a name="deploying-your-app"></a>앱 배포
 
-[Azure App Service에 대해 Maven 플러그 인](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) 을 사용 하 여 jar 및 war 파일을 둘 다 배포할 수 있습니다. [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) 또는 [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse)에서도 인기 있는 ide를 사용 하 여 배포할 수 있습니다.
+[Azure App Service에 대해 Maven 플러그 인](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) 을 사용 하 여 jar 및 war 파일을 둘 다 배포할 수 있습니다. [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) 또는 [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse)에서도 인기 있는 ide를 사용 하 여 배포할 수 있습니다.
 
 그렇지 않으면 배포 방법이 보관 유형에 따라 달라 집니다.
 
@@ -305,7 +305,7 @@ App Service에 대 한 [SSH 연결을 열고](app-service-linux-ssh-support.md) 
 
 기본적으로 App Service는 JAR 응용 프로그램의 이름을 *app.config*로 지정 합니다. 이 이름이 있으면 자동으로 실행 됩니다. Maven 사용자의 경우 *pom .xml*의 `<build>` 섹션에를 포함 `<finalName>app</finalName>` 하 여 JAR 이름을 설정할 수 있습니다. 속성을 `archiveFileName` 설정 하 여 [Gradle에서 동일한 작업을 수행할 수](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) 있습니다.
 
-JAR에 다른 이름을 사용 하려는 경우 JAR 파일을 실행 하는 [시작 명령도](app-service-linux-faq.md#built-in-images) 제공 해야 합니다. 예: `java -jar my-jar-app.jar` 시작 명령에 대 한 값은 포털의 구성 > 일반 설정 아래 또는 라는 `STARTUP_COMMAND`응용 프로그램 설정으로 설정할 수 있습니다.
+JAR에 다른 이름을 사용 하려는 경우 JAR 파일을 실행 하는 [시작 명령도](app-service-linux-faq.md#built-in-images) 제공 해야 합니다. `java -jar my-jar-app.jar`)을 입력합니다. 시작 명령에 대 한 값은 포털의 구성 > 일반 설정 아래 또는 라는 `STARTUP_COMMAND`응용 프로그램 설정으로 설정할 수 있습니다.
 
 ### <a name="server-port"></a>서버 포트
 
