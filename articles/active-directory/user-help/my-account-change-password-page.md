@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 06e5abe04ed1ec75dcbf1b216bfaab1a7458ce72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 75564ea463198967c6ed170851058202b5ba3478
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77064056"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625955"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>암호 변경 페이지에서 회사 또는 학교 계정 암호를 변경 합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "77064056"
 
 ## <a name="update-a-password-from-the-change-password-page"></a>암호 변경 페이지에서 암호를 업데이트 합니다.
 
-1. 기존 암호를 사용 하 여 회사 또는 학교 계정에 로그인 한 다음 **내 계정** (페이지)https://myprofile.microsoft.com/) 으로 이동 합니다.
+1. 기존 암호를 사용 하 여 회사 또는 학교 계정에 로그인 한 다음 **내 계정** (페이지)https://myaccount.microsoft.com/) 으로 이동 합니다.
 
 2. 왼쪽 탐색 창에서 **암호** 를 선택 하거나 암호 블록에서 **암호 변경** 링크를 **선택 합니다.**
 

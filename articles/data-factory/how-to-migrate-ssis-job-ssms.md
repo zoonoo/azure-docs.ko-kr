@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: 6e357e98d6c5190c6dfef675dc1ab9cf30a717c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b27fe2abc50396b527e61487acf9797db59c1cce
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81455090"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627588"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>SSMS를 사용 하 여 ADF로 SQL Server 에이전트 작업 마이그레이션
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Ssis ( [온-프레미스 SQL Server Integration Services) 워크 로드를 ADF에서 ssis로 마이그레이션할](scenario-ssis-migration-overview.md)때 ssis 패키지를 마이그레이션한 후에 SQL Server Integration Services 패키지의 작업 단계 유형을 사용 하 여 SQL Server 에이전트 작업을 일괄 마이그레이션할 수 있습니다. 패키지를 AZURE DATA FACTORY (ADF) 파이프라인/작업/SQL SERVER MANAGEMENT STUDIO (SSMS) **SSIS 작업 마이그레이션 마법사**를 통해 예약할 수 있습니다.
 
@@ -29,7 +31,7 @@ Ssis ( [온-프레미스 SQL Server Integration Services) 워크 로드를 ADF�
     > 파일 시스템의 패키지 위치만 지원 됩니다.
 - 해당 하는 작업 단계를 사용 하 여 해당 하는 작업을 아래와 같은 해당 ADF 리소스로 마이그레이션합니다.
 
-|SQL 에이전트 작업 개체  |ADF 리소스  |메모|
+|SQL 에이전트 작업 개체  |ADF 리소스  |참고|
 |---------|---------|---------|
 |SQL 에이전트 작업|pipeline     |*작업 이름>에 대해 \< *파이프라인 이름이 생성 됩니다. <br> <br> 기본 제공 에이전트 작업은 적용 되지 않습니다. <li> SSIS 서버 유지 관리 작업 <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
 |SSIS 작업 단계|SSIS 패키지 실행 작업|<li> 작업 이름은> \<단계 이름이 됩니다. <li> 작업 단계에서 사용 되는 프록시 계정이이 작업의 Windows 인증으로 마이그레이션됩니다. <li> 작업 단계에서 정의한 *32 비트 런타임 사용* 을 제외한 *실행 옵션* 은 마이그레이션에서 무시 됩니다. <li> 작업 단계에서 정의 된 *확인* 은 마이그레이션하는 동안 무시 됩니다.|
@@ -37,7 +39,7 @@ Ssis ( [온-프레미스 SQL Server Integration Services) 워크 로드를 ADF�
 
 - 로컬 출력 폴더에 Azure Resource Manager (ARM) 템플릿을 생성 하 고 직접 또는 나중에 데이터 팩터리에 직접 배포 합니다. ADF 리소스 관리자 템플릿에 대 한 자세한 내용은 [DataFactory 리소스 유형](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서 설명 하는 기능을 사용 하려면 SQL Server Management Studio 버전 18.5 이상이 필요 합니다. SSMS의 최신 버전을 다운로드하려면 [Download SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)(SSMS(SQL Server Management Studio) 다운로드)를 참조하세요.
 

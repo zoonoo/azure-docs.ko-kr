@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: 3010ee7b996c9d3e96082edeb9447c960da321bd
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 0fb5da965a9b13667b8a128e83a5a4cd2c2b28d7
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509787"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691852"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
 
@@ -30,8 +30,8 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 * **[활동 로그](../azure-monitor/platform/platform-logs-overview.md)**: 이러한 로그에는 작업에 대해 수행 된 작업에 대 한 정보가 포함 됩니다. 로그는 항상 켜져 있습니다. Azure Portal에서 이벤트 허브 네임 스페이스의 왼쪽 창에서 **활동 로그** 를 선택 하 여 활동 로그 항목을 볼 수 있습니다. 예: "네임 스페이스 만들기 또는 업데이트", "이벤트 허브 만들기 또는 업데이트"
 
     ![Event Hubs 네임 스페이스에 대 한 활동 로그](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[진단 로그](../azure-monitor/platform/platform-logs-overview.md)**: 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
-
+* **[진단 로그](../azure-monitor/platform/platform-logs-overview.md)**: 진단 로그는 API를 사용 하거나 언어 SDK의 관리 클라이언트를 통해 네임 스페이스에 대해 수행 되는 작업 및 작업에 대 한 다양 한 정보를 제공 합니다. 
+    
     다음 섹션에서는 Event Hubs 네임 스페이스에 대 한 진단 로그를 사용 하도록 설정 하는 방법을 보여 줍니다.
 
 ## <a name="enable-diagnostic-logs"></a>진단 로그 활성화
@@ -55,34 +55,36 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 
 Event Hubs는 다음 범주에 대 한 진단 로그를 캡처합니다.
 
-- **보관 로그:** Event Hubs 보관, 특히 보관 오류와 관련된 로그입니다.
-- **작업 로그:** Event Hubs 작업 중에 발생하는 정보, 특히 이벤트 허브 만들기, 사용된 리소스 및 작업 상태와 같은 작업 유형입니다.
-- **자동 크기 조정 로그**: Event Hubs 네임 스페이스에서 수행 되는 자동 크기 조정 작업에 대 한 정보입니다. 
-- **Kafka 코디네이터 로그** -Event Hubs와 관련 된 kafka 코디네이터 작업에 대 한 정보입니다. 
-- **Kafka 사용자 로그**: Event Hubs와 관련 된 kafka 사용자 작업에 대 한 정보입니다. 
-- **Event Hubs 가상 네트워크 (VNet) 연결 이벤트**: Event Hubs 가상 네트워크 연결 이벤트에 대 한 정보입니다. 
-- **고객 관리 키 사용자 로그**: 고객이 관리 하는 키와 관련 된 작업에 대 한 정보입니다. 
+| 범주 | Description | 
+| -------- | ----------- | 
+| 보관 로그 | 캡처 작업과 관련 된 로그 [Event Hubs 캡처](event-hubs-capture-overview.md) 작업에 대 한 정보를 캡처합니다. |
+| 작업 로그 | Azure Event Hubs 네임 스페이스에서 수행 되는 모든 관리 작업을 캡처합니다. Azure Event Hubs에서 수행 되는 대량의 데이터 작업으로 인해 데이터 작업이 캡처되지 않습니다. |
+| 로그 자동 크기 조정 | Event Hubs 네임 스페이스에 대해 수행 되는 자동 확장 작업을 캡처합니다. |
+| Kafka 코디네이터 로그 | Event Hubs와 관련 된 Kafka 코디네이터 작업을 캡처합니다. |
+| Kafka 사용자 오류 로그 | Event Hubs에서 호출 되는 Kafka Api에 대 한 정보를 캡처합니다. |
+| VNet (가상 네트워크) 연결 이벤트 Event Hubs | Event Hubs으로 트래픽을 전송 하는 IP 주소 및 가상 네트워크에 대 한 정보를 캡처합니다. |
+| 고객 관리 키 사용자 로그 | 고객이 관리 하는 키와 관련 된 작업을 캡처합니다. |
 
 
-    모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 섹션에 설명된 형식을 사용하는 문자열 필드가 있습니다.
+모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 섹션에 설명된 형식을 사용하는 문자열 필드가 있습니다.
 
 ## <a name="archive-logs-schema"></a>보관 로그 스키마
 
 보관 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-속성 | Description
+Name | Description
 ------- | -------
-TaskName | 실패한 작업에 대한 설명입니다.
-ActivityId | 추적에 사용되는 내부 ID입니다.
-trackingId | 추적에 사용되는 내부 ID입니다.
-resourceId | Azure Resource Manager 리소스 ID입니다.
-eventHub | 이벤트 허브 전체 이름(네임스페이스 이름 포함)입니다.
-partitionId | 데이터가 기록되는 이벤트 허브 파티션입니다.
-archiveStep | ArchiveFlushWriter
-startTime | 실패 시작 시간입니다.
-failures | 실패가 발생한 횟수입니다.
-durationInSeconds | 실패 기간입니다.
-message | 오류 메시지입니다.
+TaskName | 실패한 작업에 대한 설명
+ActivityId | 추적에 사용되는 내부 ID
+trackingId | 추적에 사용되는 내부 ID
+resourceId | Azure Resource Manager 리소스 ID
+eventHub | 이벤트 허브 전체 이름(네임스페이스 이름 포함)
+partitionId | 기록 되는 이벤트 허브 파티션
+archiveStep | 가능한 값: ArchiveFlushWriter, DestinationInit
+startTime | 실패 시작 시간
+failures | 오류가 발생 한 횟수
+durationInSeconds | 실패 기간
+message | 오류 메시지
 category | ArchiveLogs
 
 다음 코드는 보관 로그 JSON 문자열에 대한 예입니다.
@@ -90,10 +92,10 @@ category | ArchiveLogs
 ```json
 {
    "TaskName": "EventHubArchiveUserError",
-   "ActivityId": "21b89a0b-8095-471a-9db8-d151d74ecf26",
-   "trackingId": "21b89a0b-8095-471a-9db8-d151d74ecf26_B7",
-   "resourceId": "/SUBSCRIPTIONS/854D368F-1828-428F-8F3C-F2AFFA9B2F7D/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
-   "eventHub": "fbettati-opera-eventhub:eventhub:eh123~32766",
+   "ActivityId": "000000000-0000-0000-0000-0000000000000",
+   "trackingId": "0000000-0000-0000-0000-00000000000000000",
+   "resourceId": "/SUBSCRIPTIONS/000000000-0000-0000-0000-0000000000000/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/<Event Hubs Namespace Name>",
+   "eventHub": "<Event Hub full name>",
    "partitionId": "1",
    "archiveStep": "ArchiveFlushWriter",
    "startTime": "9/22/2016 5:11:21 AM",
@@ -108,29 +110,29 @@ category | ArchiveLogs
 
 작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-속성 | Description
+Name | Description
 ------- | -------
-ActivityId | 추적 목적에 사용되는 내부 ID입니다.
-EventName | 작업 이름입니다.  
-resourceId | Azure Resource Manager 리소스 ID입니다.
-SubscriptionId | 구독 ID가 표시됩니다.
-EventTimeString | 작업 시간입니다.
-EventProperties | 작업 속성입니다.
-상태 | 작업 상태입니다.
-Caller | 작업 호출자(Azure Portal 또는 관리 클라이언트)입니다.
-category | OperationalLogs
+ActivityId | 추적 목적으로 사용 되는 내부 ID |
+EventName | 작업 이름 |
+resourceId | Azure Resource Manager 리소스 ID |
+SubscriptionId | 구독 ID |
+EventTimeString | 작업 시간 |
+EventProperties | 작업 속성 |
+상태 | 작업 상태 |
+Caller | 작업 호출자(Azure Portal 또는 관리 클라이언트) |
+범주 | OperationalLogs |
 
 다음 코드는 작업 로그 JSON 문자열에 대한 예입니다.
 
 ```json
 Example:
 {
-   "ActivityId": "6aa994ac-b56e-4292-8448-0767a5657cc7",
+   "ActivityId": "00000000-0000-0000-0000-00000000000000",
    "EventName": "Create EventHub",
-   "resourceId": "/SUBSCRIPTIONS/1A2109E3-9DA0-455B-B937-E35E36C1163C/RESOURCEGROUPS/DEFAULT-SERVICEBUS-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/SHOEBOXEHNS-CY4001",
-   "SubscriptionId": "1a2109e3-9da0-455b-b937-e35e36c1163c",
+   "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-0000000000000/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/<Event Hubs namespace name>",
+   "SubscriptionId": "000000000-0000-0000-0000-000000000000",
    "EventTimeString": "9/28/2016 8:40:06 PM +00:00",
-   "EventProperties": "{\"SubscriptionId\":\"1a2109e3-9da0-455b-b937-e35e36c1163c\",\"Namespace\":\"shoeboxehns-cy4001\",\"Via\":\"https://shoeboxehns-cy4001.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
+   "EventProperties": "{\"SubscriptionId\":\"0000000000-0000-0000-0000-000000000000\",\"Namespace\":\"<Namespace Name>\",\"Via\":\"https://<Namespace Name>.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
    "Status": "Succeeded",
    "Caller": "ServiceBus Client",
    "category": "OperationalLogs"
@@ -140,66 +142,96 @@ Example:
 ## <a name="autoscale-logs-schema"></a>자동 크기 조정 로그 스키마
 자동 크기 조정 로그 JSON에는 다음 표에 나열 된 요소가 포함 되어 있습니다.
 
-| 속성 | Description |
+| Name | Description |
 | ---- | ----------- | 
-| trackingId | 추적 목적으로 사용 되는 내부 ID |
-| resourceId | Azure 구독 ID 및 네임 스페이스 이름을 포함 하는 내부 ID |
-| message | 자동 팽창 동작에 대 한 세부 정보를 제공 하는 정보 메시지입니다. 이 메시지에는 지정 된 네임 스페이스에 대 한 이전 및 현재 처리량 단위 값과 TU의 확장을 트리거한 항목이 포함 되어 있습니다. |
+| TrackingId | 추적 목적으로 사용 되는 내부 ID |
+| ResourceId | Azure Resource Manager 리소스 ID입니다. |
+| 메시지 | 자동 팽창 동작에 대 한 세부 정보를 제공 하는 정보 메시지입니다. 이 메시지에는 지정 된 네임 스페이스에 대 한 이전 및 현재 처리량 단위 값과 TU의 확장을 트리거한 항목이 포함 되어 있습니다. |
 
 ## <a name="kafka-coordinator-logs-schema"></a>Kafka 코디네이터 로그 스키마
 Kafka 코디네이터 로그 JSON에는 다음 표에 나열 된 요소가 포함 되어 있습니다.
 
-| 속성 | Description |
+| Name | Description |
 | ---- | ----------- | 
-| requestId | 추적 목적으로 사용 되는 요청 ID |
-| resourceId | Azure 구독 ID 및 네임 스페이스 이름을 포함 하는 내부 ID |
-| operationName | 그룹 조정을 수행 하는 동안 수행 되는 작업의 이름입니다. |
-| clientId | 클라이언트 ID |
-| namespaceName | 네임스페이스 이름 | 
-| subscriptionId | Azure 구독 ID |
-| message | 소비자 그룹 조정을 수행 하는 동안 수행 된 작업에 대 한 세부 정보를 제공 하는 정보 메시지입니다. |
+| RequestId | 추적 목적으로 사용 되는 요청 ID |
+| ResourceId | Azure Resource Manager 리소스 ID |
+| 작업(Operation) | 그룹 조정을 수행 하는 동안 수행 되는 작업의 이름입니다. |
+| clientid | 클라이언트 ID |
+| NamespaceName | 네임스페이스 이름 | 
+| SubscriptionId | Azure 구독 ID |
+| 메시지 | 그룹 조정 중 수행 된 작업에 대 한 세부 정보를 제공 하는 정보 또는 경고 메시지입니다. |
+
+### <a name="example"></a>예
+
+```json
+{
+    "RequestId": "FE01001A89E30B020000000304620E2A_KafkaExampleConsumer#0",
+    "Operation": "Join.Start",
+    "ClientId": "KafkaExampleConsumer#0",
+    "Message": "Start join group for new member namespace-name:c:$default:I:KafkaExampleConsumer#0-cc40856f7f3c4607915a571efe994e82, current group size: 0, API version: 2, session timeout: 10000ms, rebalance timeout: 300000ms.",
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "KafkaCoordinatorLogs"
+}
+```
 
 ## <a name="kafka-user-error-logs-schema"></a>Kafka 사용자 오류 로그 스키마
 Kafka 사용자 오류 로그 JSON에는 다음 표에 나열 된 요소가 포함 되어 있습니다.
 
-| 속성 | Description |
+| Name | Description |
 | ---- | ----------- |
-| trackingId | 추적에 사용 되는 추적 ID입니다. |
-| namespaceName | 네임스페이스 이름 |
-| eventhub | 이벤트 허브 이름 |
-| partitionId | Partition ID |
-| groupId | 그룹 ID |
+| TrackingId | 추적에 사용 되는 추적 ID입니다. |
+| NamespaceName | 네임스페이스 이름 |
+| Eventhub | 이벤트 허브 이름 |
+| PartitionId | Partition ID |
+| GroupId | 그룹 ID |
 | clientid | 클라이언트 ID |
-| resourceId | Azure 구독 ID 및 네임 스페이스 이름을 포함 하는 내부 ID |
-| message | 오류에 대 한 세부 정보를 제공 하는 정보 메시지 |
+| ResourceId | Azure Resource Manager 리소스 ID입니다. |
+| 메시지 | 오류에 대 한 세부 정보를 제공 하는 정보 메시지 |
 
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Event Hubs 가상 네트워크 연결 이벤트 스키마
 
 VNet (가상 네트워크) 연결 이벤트 JSON에는 다음 표에 나열 된 요소가 포함 되어 Event Hubs.
 
-| 속성 | Description |
+| Name | Description |
 | ---  | ----------- | 
-| subscriptionId | Azure 구독 ID |
-| namespaceName | 네임스페이스 이름 |
-| ipAddress | Event Hubs 서비스에 연결 하는 클라이언트의 IP 주소 |
-| action | 연결 요청을 평가할 때 Event Hubs 서비스에서 수행 하는 작업입니다. 지원 되는 작업은 **Acceptconnection** 및 **RejectConnection**입니다. |
-| reason | 작업이 완료 된 이유를 제공 합니다. |
+| SubscriptionId | Azure 구독 ID |
+| NamespaceName | 네임스페이스 이름 |
+| IPAddress | Event Hubs 서비스에 연결 하는 클라이언트의 IP 주소 |
+| 작업 | 연결 요청을 평가할 때 Event Hubs 서비스에서 수행 하는 작업입니다. 지원 되는 작업은 **연결 허용** 및 **연결 거부**입니다. |
+| 이유 | 작업이 완료 된 이유를 제공 합니다. |
 | 개수 | 지정 된 동작의 발생 횟수 |
-| resourceId | 구독 ID 및 네임 스페이스 이름을 포함 하는 내부 리소스 ID입니다. |
+| ResourceId | Azure Resource Manager 리소스 ID입니다. |
+
+### <a name="example"></a>예
+
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Deny Connection",
+    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
+    "Count": "65",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "EventHubVNetConnectionEvent"
+}
+```
 
 ## <a name="customer-managed-key-user-logs"></a>고객 관리 키 사용자 로그
 고객 관리 키 사용자 로그 JSON에는 다음 표에 나열 된 요소가 포함 되어 있습니다.
 
-| 속성 | Description |
+| Name | Description |
 | ---- | ----------- | 
-| category | 메시지의 범주 유형입니다. 다음 값 중 하나입니다. **오류** 및 **정보** |
-| resourceId | Azure 구독 ID 및 네임 스페이스 이름을 포함 하는 내부 리소스 ID |
-| keyVault | Key Vault 리소스의 이름입니다. |
-| key | Key Vault 키의 이름입니다. |
+| 범주 | 메시지의 범주 유형입니다. 다음 값 중 하나입니다. **오류** 및 **정보** |
+| ResourceId | Azure 구독 ID 및 네임 스페이스 이름을 포함 하는 내부 리소스 ID |
+| KeyVault | Key Vault 리소스의 이름입니다. |
+| Key | Key Vault 키의 이름입니다. |
 | 버전 | Key Vault 키의 버전 |
-| operation(작업) | 요청을 처리 하기 위해 수행 된 작업의 이름입니다. |
-| code | 상태 코드 |
-| message | 메시지-오류 또는 정보 메시지에 대 한 세부 정보를 제공 합니다. |
+| 작업(Operation) | 요청을 처리 하기 위해 수행 된 작업의 이름입니다. |
+| 코드 | 상태 코드 |
+| 메시지 | 메시지-오류 또는 정보 메시지에 대 한 세부 정보를 제공 합니다. |
 
 
 
