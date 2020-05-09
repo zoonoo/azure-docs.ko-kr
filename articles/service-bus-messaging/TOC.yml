@@ -72,6 +72,9 @@
   items:
     - name: Service Bus 샘플
       href: service-bus-samples.md
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
     - name: 프리미엄 메시징
@@ -125,7 +128,7 @@
               href: service-bus-messages-payloads.md
             - name: '메시지 전송, 잠금 및 확인'
               href: message-transfers-locks-settlement.md
-            - name: 메시지 순서 지정 및 타임스탬프
+            - name: '메시지 순서 지정 및 타임스탬프 '
               href: message-sequencing.md
             - name: 메시지 만료(TTL(Time To Live))
               href: message-expiration.md
