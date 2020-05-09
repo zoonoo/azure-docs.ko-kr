@@ -7,18 +7,18 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 55512491121aee28404ab5f85b4223c67a2f0e1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 588926a90d9a40c00bca4914dc1d5ed08301ff75
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80236071"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780796"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>IoT Edge 장치, 모듈 및 자식 장치에 대 한 확장 된 오프 라인 기능 이해
 
 Azure IoT Edge은 IoT Edge 장치에서 확장 된 오프 라인 작업을 지원 하 고 IoT Edge 없는 자식 장치에서 오프 라인 작업을 지원 합니다. IoT Edge 장치가 IoT Hub에 연결할 수 있는 한 가지 기회가 있는 한 해당 장치와 모든 자식 장치는 간헐적으로 또는 인터넷 연결을 사용 하지 않고 계속 작동할 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 IoT Edge 디바이스가 오프라인으로 전환되면 IoT Edge 허브는 세 가지 역할을 맡습니다. 첫째, 업스트림으로 이동하는 모든 메시지를 저장하고 디바이스가 다시 연결될 때까지 보관합니다. 둘째, 모듈 및 자식 디바이스가 계속 작동할 수 있도록 IoT Hub를 대신하여 모듈 및 자식 디바이스를 인증합니다. 셋째, 일반적으로 IoT Hub를 통과하는 자식 디바이스 간 통신을 지원합니다.
 
@@ -108,7 +108,7 @@ az iot hub device-identity add-children \
 
 ## <a name="specify-dns-servers"></a>DNS 서버 지정
 
-견고성을 향상 시키려면 사용자 환경에서 사용 되는 DNS 서버 주소를 지정 하는 것이 좋습니다. IoT Edge에 대 한 DNS 서버를 설정 하려면 문제 해결 문서에서 [Edge 에이전트 모듈 지속적으로 ' 빈 구성 파일 ' 및 장치에서 모듈 시작 안 함](troubleshoot.md#edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device) 확인을 참조 하세요.
+견고성을 향상 시키려면 사용자 환경에서 사용 되는 DNS 서버 주소를 지정 하는 것이 좋습니다. IoT Edge에 대 한 DNS 서버를 설정 하려면 문제 해결 문서에서 [Edge 에이전트 모듈 지속적으로 ' 빈 구성 파일 ' 및 장치에서 모듈 시작 안 함](troubleshoot-common-errors.md#edge-agent-module-reports-empty-config-file-and-no-modules-start-on-the-device) 확인을 참조 하세요.
 
 ## <a name="optional-offline-settings"></a>선택적 오프라인 설정
 

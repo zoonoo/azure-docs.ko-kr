@@ -2,31 +2,27 @@
 title: Azure AD 프로 비전 작동 방법 이해 | Microsoft Docs
 description: Azure AD 프로 비전 작동 방법 이해
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 241d90981ed9ba54d253e6c22c00f9e5a9197863
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ee685da3492b6915a687151beea3e82e46185de
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884888"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593729"
 ---
 # <a name="how-provisioning-works"></a>프로비저닝 작동 방법
 
 자동 프로 비전은 사용자가 액세스 해야 하는 클라우드 응용 프로그램에서 사용자 id 및 역할을 만드는 것을 말합니다. 자동 프로비저닝에는 사용자 ID를 생성하는 것 외에도 상태 또는 역할이 변경될 때 사용자 ID의 유지 관리 및 제거가 포함됩니다. 배포를 시작 하기 전에이 문서를 검토 하 여 Azure AD 프로 비전이 작동 하는 방법과 구성 권장 사항을 얻는 방법에 대해 알아보세요. 
 
-**AZURE AD 프로 비전 서비스** 는 응용 프로그램 공급 업체에서 제공 하는 Scim (도메인 간 id 관리) 2.0 사용자 관리 API 끝점에 대 한 시스템에 연결 하 여 SaaS 앱 및 기타 시스템에 사용자를 프로 비전 합니다. 이 SCIM 끝점을 사용 하면 Azure AD에서 사용자를 프로그래밍 방식으로 만들고, 업데이트 하 고, 제거할 수 있습니다. 선택한 응용 프로그램의 경우 프로 비전 서비스는 그룹 및 역할과 같은 추가 id 관련 개체를 만들고 업데이트 하 고 제거할 수도 있습니다. Azure AD와 응용 프로그램 간의 프로 비전에 사용 되는 채널은 HTTPS TLS 암호화를 사용 하 여 암호화 됩니다.
+**AZURE AD 프로 비전 서비스** 는 응용 프로그램 공급 업체에서 제공 하는 Scim (도메인 간 id 관리) 2.0 사용자 관리 API 끝점에 대 한 시스템에 연결 하 여 SaaS 앱 및 기타 시스템에 사용자를 프로 비전 합니다. 이 SCIM 끝점을 사용 하면 Azure AD에서 사용자를 프로그래밍 방식으로 만들고, 업데이트 하 고, 제거할 수 있습니다. 선택한 응용 프로그램의 경우 프로 비전 서비스는 그룹 및 역할과 같은 추가 id 관련 개체를 만들고 업데이트 하 고 제거할 수도 있습니다. Azure AD와 응용 프로그램 간의 프로 비전에 사용 되는 채널은 HTTPS TLS 1.2 암호화를 사용 하 여 암호화 됩니다.
 
 
 ![Azure ad 프로 비전](./media/how-provisioning-works/provisioning0.PNG)

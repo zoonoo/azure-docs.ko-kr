@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.openlocfilehash: 1a760b4cedad5e43a2ef9f186162675aaf6d5ea5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: a9368e67abf3c45981cf1f85fe46a2a2799a6877
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234182"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864337"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB에서 분할
 
@@ -56,7 +56,7 @@ Azure Cosmos DB에서 [다중 항목 ACID 트랜잭션이](database-transactions
 컨테이너가 몇 개의 실제 파티션으로 확장 될 수 있는 경우 파티션 간 쿼리를 최소화 하는 파티션 키를 선택 해야 합니다. 다음 중 하나에 해당 하는 경우 컨테이너에 몇 개의 실제 파티션이 필요 합니다.
 
 * 사용자의 컨테이너가 프로 비전 된 3만 이상의 기능을 제공 합니다.
-* 컨테이너가 100 g b의 데이터를 저장 합니다.
+* 컨테이너가 100 GB 이상의 데이터를 저장 합니다.
 
 ## <a name="using-item-id-as-the-partition-key"></a>항목 ID를 파티션 키로 사용
 
