@@ -1,22 +1,17 @@
 ---
-title: '서비스 간 인증: Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1 인증 | Microsoft Docs'
-description: Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증을 수행하는 방법을 알아봅니다.
-services: data-lake-store
-documentationcenter: ''
+title: 서비스 간 인증-Data Lake Storage Gen1-Azure
+description: Azure Active Directory를 사용 하 여 Azure Data Lake Storage Gen1에서 서비스 간 인증을 수행 하는 방법을 알아봅니다.
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 3fbf2f2540e8f1ca84aad2759b9a1fc790e4065d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 74ad40eb7f7483bb010cf8eb002776893c50a256
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "66241367"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688193"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -73,7 +68,7 @@ Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스
     ![그룹에 권한 할당](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "그룹에 권한 할당")
    
     Data Lake Storage Gen1의 사용 권한 및 기본/액세스 ACL에 대한 자세한 내용은 [Data Lake Storage Gen1에서 액세스 제어](data-lake-store-access-control.md)를 참조하세요.
-7. **사용자 지정 액세스 추가** 블레이드에서 **확인**을 클릭합니다. 이제 연결된 권한을 사용하여 새로 추가된 그룹이 **액세스** 블레이드에 나열됩니다.
+7. **사용자 지정 액세스 추가** 블레이드에서 **확인**을 클릭합니다. 연결 된 권한으로 새로 추가 된 그룹이 **액세스** 블레이드에서 나열 됩니다.
    
     ![그룹에 권한 할당](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "그룹에 권한 할당")
 

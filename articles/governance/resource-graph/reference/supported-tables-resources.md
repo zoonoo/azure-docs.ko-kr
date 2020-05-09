@@ -1,14 +1,14 @@
 ---
 title: 지원 되는 리소스 관리자 리소스 유형
 description: Azure 리소스 그래프에서 지원 되는 리소스 관리자 리소스 유형 목록 및 변경 기록을 제공 합니다.
-ms.date: 04/24/2020
+ms.date: 04/29/2020
 ms.topic: reference
-ms.openlocfilehash: 7092a6dccc2870c7fd7b6dc6feb3af16f0fd3b7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ab079bcd1e7e8558d754a413068ca9f0ae276c6
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82141889"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594256"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure 리소스 그래프 테이블 및 리소스 종류 참조
 
@@ -62,6 +62,7 @@ Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-ma
 - microsoft appconfiguration/configurationstores
 - microsoft appplatform/스프링
 - microsoft archive/collections
+- microsoft. 증명/attestationproviders
 - microsoft. automation/automationaccounts
 - microsoft. automation/automationaccounts/구성
 - microsoft. automation/automationaccounts/runbook
@@ -75,6 +76,7 @@ Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-ma
 - microsoft azuredata/sqlinstances
 - microsoft azuredata/sqlserverregistrations
 - microsoft azurestack/등록
+- azurestackhci/클러스터
 - baremetal/consoleconnections
 - baremetal/crayservers
 - baremetal/monitoringservers
@@ -146,6 +148,7 @@ Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-ma
 - databricks/작업 영역
 - microsoft.datacatalog/카탈로그
 - microsoft.datacatalog/datacatalogs
+- datadog/모니터
 - datafactory/datafactories
 - datafactory/팩터리
 - datalakeanalytics/계정

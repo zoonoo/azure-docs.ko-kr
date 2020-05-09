@@ -1,10 +1,10 @@
 ---
 title: 네트워크 액세스 컨트롤
-description: 액세스를 관리 하 고 단일 또는 풀링된 데이터베이스를 구성 하기 위한 Azure SQL Database 및 데이터 웨어하우스의 네트워크 액세스 제어 개요입니다.
+description: 액세스를 관리 하 고 단일 또는 풀링된 데이터베이스를 구성 하기 위한 Azure SQL Database 및 Azure Synapse Analytics 용 네트워크 액세스 제어 개요.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 8b4ee679b21d904f997f727f5f26275c86acc9c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fdeb8ee3fbb01ea007205e02eb247925fb3baea1
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414406"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629578"
 ---
-# <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Azure SQL Database 및 데이터 웨어하우스 네트워크 액세스 제어
+# <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database 및 Azure Synapse Analytics 네트워크 액세스 제어
 
 > [!NOTE]
-> 이 문서는 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
+> 이 문서는 azure sql server에 적용 되며, Azure SQL server에 생성 된 SQL Database 및 Azure Synapse Analytics 데이터베이스 모두에 적용 됩니다. 간단히 하기 위해 SQL Database와 Azure Synapse Analytics를 모두 참조할 때 SQL Database 사용 됩니다.
 
 > [!IMPORTANT]
 > 이 문서는 **Azure SQL Database Managed Instance**에 적용되지 *않습니다*. 네트워킹 구성에 대 한 자세한 내용은 [Managed Instance에 연결](sql-database-managed-instance-connect-app.md) 을 참조 하세요.
@@ -56,7 +56,7 @@ ms.locfileid: "81414406"
 
 Azure SQL Server **에서** 로 설정 하면 azure 경계 내의 모든 리소스에서 통신할 수 있으며,이는 구독의 일부가 될 수도 있고 그렇지 않을 수도 있습니다.
 
-대부분의 경우에는 대부분의 고객이 원하는 것 보다는 **ON** 설정이 더 허용 됩니다. 이 설정을 **OFF** 로 설정 하 고 더 제한적인 IP 방화벽 규칙 또는 Virtual Network 방화벽 규칙으로 대체 하는 것이 좋습니다. 이렇게 하면 VNet의 일부가 아닌 Azure의 Vm에서 실행 되는 다음 기능에 영향을 주므로 Azure IP 주소를 통해 Sql Database에 연결 합니다.
+대부분의 경우에는 대부분의 고객이 원하는 것 보다는 **ON** 설정이 더 허용 됩니다. 이 설정을 **OFF** 로 설정 하 고 더 제한적인 IP 방화벽 규칙 또는 Virtual Network 방화벽 규칙으로 대체 하는 것이 좋습니다. 이렇게 하면 VNet의 일부가 아닌 Azure의 Vm에서 실행 되는 다음 기능에 영향을 주므로 Azure IP 주소를 통해 SQL Database에 연결 합니다.
 
 ### <a name="import-export-service"></a>가져오기/내보내기 서비스
 **Azure 서비스에 대 한 액세스 허용** 이 **OFF**로 설정 되어 있으면 가져오기 내보내기 서비스가 작동 하지 않습니다. 그러나 [AZURE VM에서 sqlpackage를 수동으로 실행 하거나](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) DACFx API를 사용 하 여 코드에서 직접 내보내기를 수행 하 여 문제를 해결할 수 있습니다.
@@ -65,7 +65,7 @@ Azure SQL Server **에서** 로 설정 하면 azure 경계 내의 모든 리소�
 **Azure 서비스에 대 한 액세스 허용** 을 **OFF**로 설정 하 여 데이터 동기화 기능을 사용 하려면 **허브** 데이터베이스를 호스트 하는 지역에 대 한 **Sql 서비스 태그** 에서 [IP 주소를 추가](sql-database-server-level-firewall-rule.md) 하는 개별 방화벽 규칙 항목을 만들어야 합니다.
 **허브** 와 **구성원** 데이터베이스를 모두 호스팅하는 논리 서버에 이러한 서버 수준 방화벽 규칙을 추가 합니다 (다른 지역에 있을 수 있음).
 
-다음 PowerShell 스크립트를 사용 하 여 미국 서 부 지역에 대 한 Sql 서비스 태그에 해당 하는 IP 주소를 생성 합니다.
+다음 PowerShell 스크립트를 사용 하 여 미국 서 부 지역에 대 한 SQL 서비스 태그에 해당 하는 IP 주소를 생성 합니다.
 ```powershell
 PS C:\>  $serviceTags = Get-AzNetworkServiceTag -Location eastus2
 PS C:\>  $sql = $serviceTags.Values | Where-Object { $_.Name -eq "Sql.WestUS" }
@@ -81,7 +81,7 @@ PS C:\> $sql.Properties.AddressPrefixes
 ```
 
 > [!TIP]
-> AzNetworkServiceTag은 Location 매개 변수를 지정 하는 경우에도 Sql 서비스 태그의 전역 범위를 반환 합니다. 동기화 그룹에서 사용 하는 허브 데이터베이스를 호스트 하는 지역으로 필터링 해야 합니다.
+> AzNetworkServiceTag은 Location 매개 변수를 지정 하는 경우에도 SQL 서비스 태그의 전역 범위를 반환 합니다. 동기화 그룹에서 사용 하는 허브 데이터베이스를 호스트 하는 지역으로 필터링 해야 합니다.
 
 PowerShell 스크립트의 출력은 클래스를 사용 하지 않는 CIDR (도메인 간 라우팅) 표기법으로 되어 있으므로 Get-IPrangeStartEnd를 사용 하 여 시작 및 끝 IP 주소 형식으로 변환 해야 [합니다.](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) 예를 들면 다음과 같습니다.
 ```powershell

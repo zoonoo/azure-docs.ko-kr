@@ -1,16 +1,16 @@
 ---
-title: 휴가 시간 동안 Vm 시작/중지 Azure Automation 사용
-description: 이 문서에서는 Azure virtual machines에 대해 VM Azure Automation 시작/중지 솔루션을 사용 하도록 설정 하는 방법을 설명 합니다.
+title: Azure Automation 작업 시간 외 VM 시작/중지 솔루션 사용
+description: 이 문서에서는 Azure 가상 컴퓨터에 대 한 작업 시간 외 VM에서 VM 시작/중지 Azure Automation을 사용 하도록 설정 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: d47daa29c65f847fdeb33b9e24a892ac1f31b52a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed9937576334fcba6707f2737e92c3cddce2d7f7
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82096965"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864218"
 ---
 # <a name="enable-azure-automation-startstop-vms-solution"></a>Vm Azure Automation 시작/중지 솔루션 사용
 
