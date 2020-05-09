@@ -1,31 +1,21 @@
 ---
 title: Azure Migrate에서 평가 도구 추가
 description: Azure Migrate에서 평가 도구를 추가 하는 방법에 대해 알아봅니다.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
-ms.manager: carmonm
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 64af78abd8f82b41d4a03fbb56c96e3038cef5a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 04/26/2020
+ms.openlocfilehash: 7e7d7cf26cab30cd7449e4643fdfb59faece47f2
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185905"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901050"
 ---
 # <a name="add-assessment-tools"></a>평가 도구 추가
 
-이 문서에서는 [Azure Migrate](migrate-overview.md)에서 평가 도구를 추가 하는 방법을 설명 합니다.
+이 문서에서는 [Azure Migrate](migrate-overview.md)에서 평가 도구를 추가 하는 방법을 설명 합니다. 
 
-Azure Migrate는 Azure에 대 한 평가 및 마이그레이션을 위한 도구 허브를 제공 합니다. 여기에는 Azure Migrate 도구 뿐만 아니라 기타 도구 및 ISV (독립 소프트웨어 공급 업체) 제품이 포함 됩니다.
-
-평가 도구를 추가 하려는 데 아직 Azure Migrate 프로젝트가 없는 경우이 [문서](how-to-add-tool-first-time.md)를 따르세요.
-
-## <a name="select-a-tool"></a>도구 선택
-
-평가를 위해 Azure Migrate 없는 도구를 선택 하는 경우 먼저 라이선스를 얻거나 도구 정책에 따라 무료 평가판에 등록 합니다. 도구에는 Azure Migrate에 연결할 수 있는 옵션이 있습니다. 지침 및 설명서에 따라 도구를 Azure Migrate에 연결 합니다. 도구에 대해 [자세히 알아보세요](migrate-services-overview.md) .
-
+- 평가 도구를 추가 하려는 데 아직 Azure Migrate 프로젝트가 없는 경우이 [문서](how-to-add-tool-first-time.md)를 따르세요.
+- ISV 도구 또는 Movere를 추가한 경우에는이 도구를 사용 하 여 작업을 준비 하는 [단계를 수행](prepare-isv-movere.md)합니다.
 
 ## <a name="select-an-assessment-scenario"></a>평가 시나리오 선택
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 5a8a58a3935b7cd5efb8565f7e3278ccaae4f4de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf8fb383625ec2752264d6e5a70d8625f06689fc
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77921439"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628302"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Azure에서 Linux 가상 컴퓨터 배포 문제 해결
 
@@ -56,13 +56,13 @@ Azure의 VM(가상 머신) 배포 문제를 해결하려면 일반적인 오류 
 
 ## <a name="my-drivers-are-missing-for-my-linux-n-series-vm"></a>내 드라이버가 Linux N 시리즈 VM에 누락되었습니다.
 
-Linux 기반 VM용 드라이버가 [여기](../linux/n-series-driver-setup.md)에 위치합니다. 
+Linux 기반 Vm에 대 한 드라이버를 설치 하는 지침은 [여기](../sizes-gpu.md#supported-operating-systems-and-drivers)에 있습니다.
 
 ## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>N 시리즈 VM 내에서 GPU 인스턴스를 찾을 수 없습니다.
 
-Windows Server 2016 또는 Windows Server 2012 R2를 실행하는 Azure N 시리즈 VM의 GPU 기능을 이용하려면 배포 후 각 VM에 NVIDIA 그래픽 드라이버를 설치해야 합니다. [Windows VM](../windows/n-series-driver-setup.md) 및 [Linux VM](../linux/n-series-driver-setup.md)에 대한 드라이버 설치 정보를 사용할 수 있습니다.
+Azure N 시리즈 Vm의 GPU 기능을 활용 하려면 배포 후 각 VM에 그래픽 드라이버를 설치 해야 합니다. 드라이버 설치 정보는 [여기](../sizes-gpu.md#supported-operating-systems-and-drivers)에서 확인할 수 있습니다.
 
-## <a name="is-n-series-vms-available-in-my-region"></a>N 시리즈 VM을 내 지역에서 사용할 수 있나요?
+## <a name="are-n-series-vms-available-in-my-region"></a>내 지역에서 N 시리즈 Vm을 사용할 수 있나요?
 
 가용성을 [지역에서 사용할 수 있는 제품 표](https://azure.microsoft.com/regions/services)에서 확인할 수 있고 가격 책정을 [여기](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series)에서 확인할 수 있습니다.
 

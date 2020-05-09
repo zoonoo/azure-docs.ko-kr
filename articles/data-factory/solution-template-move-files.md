@@ -11,15 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: b36eb2615e98ee8ea7751c836fd43e81a5a0f4e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81f072822226e4a573cf0086cac7e64ca1cfe45f
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414752"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628166"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Azure Data Factory 파일 이동
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 문서에서는 파일 기반 저장소 간에 파일을 한 폴더에서 다른 폴더로 이동 하는 데 사용할 수 있는 솔루션 템플릿에 대해 설명 합니다. 이 템플릿을 사용 하는 일반적인 시나리오 중 하나: 파일은 소스 저장소의 방문 폴더에 계속 저장 됩니다. ADF 파이프라인은 일정 트리거를 만들어 해당 파일을 원본에서 대상 저장소로 정기적으로 이동할 수 있습니다.  ADF 파이프라인이 "파일 이동"을 달성 하는 방식은 랜딩 폴더에서 파일을 가져오고 각 파일을 대상 저장소의 다른 폴더로 복사한 다음 원본 저장소의 랜딩 폴더에서 동일한 파일을 삭제 하는 것입니다.
 

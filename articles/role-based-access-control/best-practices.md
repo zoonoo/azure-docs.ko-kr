@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dc86dd488ff9e8649ae80f4768941791dd37fce6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 053e86f3493c7a11a3cbbaad0871e45345697878
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81726775"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735337"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Azure RBAC에 대 한 모범 사례
 
@@ -26,13 +26,13 @@ ms.locfileid: "81726775"
 
 ## <a name="only-grant-the-access-users-need"></a>사용자에 게 필요한 액세스 권한만 부여
 
-Azure RBAC를 사용 하면 팀 내에서 업무를 분리 하 고 사용자에 게 해당 작업을 수행 하는 데 필요한 만큼의 권한만 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신, 특정 범위에서 특정 작업만 허용할 수 있습니다.
+Azure RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신, 특정 범위에서 특정 작업만 허용할 수 있습니다.
 
-액세스 제어 전략을 계획할 때 작업을 완료하는 데 필요한 최소한의 권한만 사용자에게 부여하는 것이 가장 좋습니다. 다음 다이어그램은 RBAC에 대한 권장 패턴을 보여줍니다.
+액세스 제어 전략을 계획할 때 작업을 완료하는 데 필요한 최소한의 권한만 사용자에게 부여하는 것이 가장 좋습니다. 다음 다이어그램에서는 Azure RBAC 사용에 대 한 제안 된 패턴을 보여 줍니다.
 
-![RBAC 및 최소 권한](./media/best-practices/rbac-least-privilege.png)
+![Azure RBAC 및 최소 권한](./media/best-practices/rbac-least-privilege.png)
 
-역할 할당을 추가 하는 방법에 대 한 자세한 내용은 [역할 할당 추가 또는 제거](role-assignments-portal.md)를 참조 하세요.
+역할 할당을 추가 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-portal.md)를 참조 하세요.
 
 ## <a name="limit-the-number-of-subscription-owners"></a>구독 소유자 수 제한
 
