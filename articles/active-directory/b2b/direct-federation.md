@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 05/07/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b99a80a90df8fcfc5efe6dfa0c2cd7e8e5e04e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 474d2e0c31eed852ba96780ca996eca632bd5842
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050893"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926989"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>게스트 사용자를 위한 AD FS 및 타사 공급자와의 직접 페더레이션 (미리 보기)
 |     |
@@ -31,7 +31,7 @@ ms.locfileid: "80050893"
 > 직접 페더레이션 게스트 사용자는 테 넌 트 컨텍스트 (예: `https://myapps.microsoft.com/?tenantid=<tenant id>` 또는 또는 `https://portal.azure.com/<tenant id>`확인 된 도메인의 경우 `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`)를 포함 하는 링크를 사용 하 여 로그인 해야 합니다. 애플리케이션 및 리소스에 대한 직접 링크는 테넌트 컨텍스트를 포함하는 한 작동합니다. 직접 페더레이션 사용자는 현재 테 넌 트 컨텍스트가 없는 일반 끝점을 사용 하 여 로그인 할 수 없습니다. 예를 들어, `https://myapps.microsoft.com`또는 `https://portal.azure.com` `https://teams.microsoft.com` 를 사용 하면 오류가 발생 합니다.
  
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>게스트 사용자가 직접 페더레이션을 사용 하 여 인증 된 경우는 언제 입니까?
-조직과의 직접 페더레이션을 설정한 후에는 직접 페더레이션을 사용 하 여 초대 하는 모든 새 게스트 사용자가 인증 됩니다. 직접 페더레이션을 설정 해도 이미 초대를 받은 게스트 사용자에 대 한 인증 방법은 변경 되지 않습니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
+조직과의 직접 페더레이션을 설정한 후에는 직접 페더레이션을 사용 하 여 초대 하는 모든 새 게스트 사용자가 인증 됩니다. 직접 페더레이션을 설정 해도 이미 초대를 받은 게스트 사용자에 대 한 인증 방법은 변경 되지 않습니다. 몇 가지 예제는 다음과 같습니다.
  - 게스트 사용자가 이미 사용자의 초대를 사용 하는 경우 이후에 조직과 직접 페더레이션을 설정 하면 해당 게스트 사용자는 직접 페더레이션을 설정 하기 전에 사용한 것과 동일한 인증 방법을 계속 사용 합니다.
  - 파트너 조직과의 직접 페더레이션을 설정 하 고 게스트 사용자를 초대 하는 경우 파트너 조직에서 나중에 Azure AD로 이동 하는 경우 초대를 이미 사용한 게스트 사용자는 테 넌 트의 직접 페더레이션 정책이 존재 하는 한 직접 페더레이션을 계속 사용 합니다.
  - 파트너 조직과의 직접 페더레이션을 삭제 하는 경우 현재 직접 페더레이션을 사용 하는 모든 게스트 사용자는 로그인 할 수 없습니다.
@@ -50,10 +50,13 @@ ms.locfileid: "80050893"
 
 ### <a name="authentication-url"></a>인증 URL
 직접 페더레이션은 인증 URL의 도메인이 대상 도메인과 일치 하거나 인증 URL이 허용 되는 이러한 id 공급자 중 하나인 정책에만 허용 됩니다 .이 목록은 변경 될 수 있습니다.
+
 -   accounts.google.com
 -   pingidentity.com
 -   login.pingone.com
 -   okta.com
+-   oktapreview.com
+-   okta-emea.com
 -   my.salesforce.com
 -   federation.exostar.com
 -   federation.exostartest.com
@@ -95,7 +98,7 @@ Azure AD B2B는 아래 나열 된 특정 요구 사항과 함께 SAML 프로토�
 
 IdP의 SAML 2.0 응답에 필요한 특성:
 
-|특성  |값  |
+|특성  |Value  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |사용자     |`urn:federation:MicrosoftOnline`         |
@@ -104,7 +107,7 @@ IdP의 SAML 2.0 응답에 필요한 특성:
 
 IdP에서 발급 한 SAML 2.0 토큰에 필요한 클레임:
 
-|특성  |값  |
+|특성  |Value  |
 |---------|---------|
 |NameID 형식     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -121,7 +124,7 @@ Azure AD B2B는 아래 나열 된 몇 가지 특정 요구 사항과 함께 WS-�
 
 IdP의 WS-급지됨 메시지에 필요한 특성:
  
-|특성  |값  |
+|특성  |Value  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |사용자     |`urn:federation:MicrosoftOnline`         |
@@ -129,7 +132,7 @@ IdP의 WS-급지됨 메시지에 필요한 특성:
 
 IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
 
-|특성  |값  |
+|특성  |Value  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -166,7 +169,7 @@ IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
 ### <a name="to-configure-direct-federation-in-azure-ad-using-powershell"></a>PowerShell을 사용 하 여 Azure AD에서 직접 페더레이션을 구성 하려면
 
 1. 그래프 모듈에 대한 Azure AD PowerShell의 최신 버전을 설치합니다([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). 자세한 단계가 필요한 경우 게스트 사용자를 추가 하는 빠른 시작에는 [최신 AzureADPreview 모듈 설치](b2b-quickstart-invite-powershell.md#install-the-latest-azureadpreview-module)섹션이 포함 되어 있습니다. 
-2. 다음 명령을 실행합니다. 
+2. 다음 명령 실행: 
    ```powershell
    Connect-AzureAD
    ```
@@ -209,7 +212,7 @@ IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
 
 PowerShell을 사용 하 여 id 공급자와의 직접 페더레이션을 제거 하려면 다음을 수행 합니다.
 1. 그래프 모듈에 대한 Azure AD PowerShell의 최신 버전을 설치합니다([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
-2. 다음 명령을 실행합니다. 
+2. 다음 명령 실행: 
    ```powershell
    Connect-AzureAD
    ```

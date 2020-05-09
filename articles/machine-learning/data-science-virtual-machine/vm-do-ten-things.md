@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 6574ccd7616ac1442b1c8c69b6218431ad912ab3
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 47663072be0931961d0f2fded938322027148d7a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204222"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929284"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
@@ -40,7 +40,7 @@ DSVM은 Azure 서비스와 긴밀 하 게 연동 됩니다. Azure에 이미 저�
 > 
 > 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 필요합니다. [무료 평가판에 등록할](https://azure.microsoft.com/free/)수 있습니다.
 * Azure Portal에서 Data Science Virtual Machine를 프로 비전 하는 방법에 대 한 지침은 [가상 컴퓨터를 만들](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016)때 제공 됩니다.
@@ -68,7 +68,7 @@ Jupyter Notebook는 데이터 탐색 및 모델링을 위한 브라우저 기반
 
 Jupyter Notebook를 시작 하려면 **시작** 메뉴 또는 바탕 화면에서 **Jupyter Notebook** 아이콘을 선택 합니다. DSVM 명령 프롬프트에서 기존 전자 필기장이 있거나 새 노트북을 만들 ```jupyter notebook``` 디렉터리에서 명령을 실행할 수도 있습니다.  
 
-Jupyter를 시작 하면 DSVM에 미리 패키지 된 몇 가지 예제 노트북이 포함 된 디렉터리가 표시 됩니다. 이제 다음을 수행할 수 있습니다.
+Jupyter를 시작한 후 DSVM에 미리 `/notebooks` 포장 된 예: 전자 필기장에 대 한 디렉터리로 이동 합니다. 이제 다음을 수행할 수 있습니다.
 
 * 전자 필기장을 선택 하 여 코드를 확인 합니다.
 * Shift + Enter를 선택 하 여 각 셀을 실행 합니다.
@@ -134,7 +134,7 @@ IrisPredictor(3,2,3,4)
 > 
 
 ### <a name="build-and-operationalize-r-models"></a>R 모델 빌드 및 운영
-Data Science Virtual Machine에서 작성 된 R 모델을 Python의 작업 방식과 유사한 방식으로 Azure Machine Learning에 배포할 수 있습니다. 다음 단계를 참조하십시오.
+Data Science Virtual Machine에서 작성 된 R 모델을 Python의 작업 방식과 유사한 방식으로 Azure Machine Learning에 배포할 수 있습니다. 실행할 단계는 다음과 같습니다.
 
 1. 작업 영역 ID 및 인증 토큰을 제공 하는 설정 json 파일을 만듭니다. 
 2. 모델의 예측 함수에 대 한 래퍼를 작성 합니다.
@@ -265,7 +265,7 @@ Git을 사용 하 여 github.com에서 사용할 수 있는 리소스에서 GitH
 ### <a name="azure-blob-storage"></a>Azure Blob 스토리지
 Azure Blob storage는 크고 작은 데이터를 위한 안정적이 고 경제적인 클라우드 저장소 서비스입니다. 이 섹션에서는 Blob 저장소로 데이터를 이동 하 고 Azure blob에 저장 된 데이터에 액세스 하는 방법을 설명 합니다.
 
-#### <a name="prerequisites"></a>전제 조건
+#### <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Portal](https://portal.azure.com)에서 Azure Blob storage 계정을 만듭니다.
 
@@ -367,7 +367,7 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 ### <a name="azure-data-lake"></a>Azure Data Lake
 Azure Data Lake Storage는 빅 데이터 분석 워크 로드에 대 한 하이퍼 확장 리포지토리 이며, HDFS (Hadoop 분산 파일 시스템)와 호환 됩니다. Hadoop, Spark 및 Azure Data Lake Analytics와 작동합니다. 이 섹션에서는 Azure Data Lake Analytics를 사용 하 여 데이터를 Azure Data Lake Storage로 이동 하 고 분석을 실행 하는 방법을 알아봅니다.
 
-#### <a name="prerequisites"></a>전제 조건
+#### <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Portal](https://portal.azure.com)에서 Azure Data Lake Analytics 인스턴스를 만듭니다.
 
@@ -452,7 +452,7 @@ Azure Data Lake 데이터 집합을 수집 한 후에는 [U-SQL 언어](../../da
 ### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터
 Azure HDInsight는 클라우드에서 관리 되는 Apache Hadoop Spark, HBase 및 스톰 서비스입니다. Data Science Virtual Machine에서 Azure HDInsight 클러스터를 쉽게 사용할 수 있습니다.
 
-#### <a name="prerequisites"></a>전제 조건
+#### <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Portal](https://portal.azure.com)에서 Azure Blob storage 계정을 만듭니다. 이 스토리지 계정은 HDInsight 클러스터에 대한 데이터를 저장하는 데 사용됩니다.
 

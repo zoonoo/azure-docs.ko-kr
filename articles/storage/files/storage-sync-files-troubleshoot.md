@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 11942a08d46f4b46dc5478fca4b64796b9ce0a7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41bc2a05b81bca586cde261bf2eb05db96d687f8
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176127"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801319"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -807,12 +807,9 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **오류 문자열** | ECS_E_INVALID_AAD_TENANT |
 | **재구성 필요** | 예 |
 
-이 오류는 Azure 파일 동기화가 현재 다른 Azure Active Directory 테넌트로 구독을 이동하는 작업을 지원하지 않기 때문에 발생합니다.
+최신 Azure File Sync 에이전트가 있는지 확인 합니다. 에이전트 V10에서는 구독을 다른 Azure Active Directory 테 넌 트로 이동 하는 것을 지원 Azure File Sync.
  
-이 문제를 해결하려면 다음 옵션 중 하나를 수행합니다.
-
-- **옵션 1 (권장)**: 구독을 원래 Azure Active Directory 테 넌 트로 다시 이동 합니다.
-- **옵션 2**: 현재 동기화 그룹을 삭제 하 고 다시 만듭니다. 서버 엔드포인트에서 클라우드 계층화를 사용하도록 설정한 경우, 동기화 그룹을 삭제한 다음 [클라우드 계층화 섹션]( https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)에 설명된 단계를 수행하여 동기화 그룹을 다시 만들기 전에 분리되고 계층화된 파일을 제거합니다. 
+최신 에이전트 버전을 사용 하는 경우 Microsoft.storagesync 응용 프로그램에 저장소 계정에 대 한 액세스 권한을 부여 해야 합니다 ( [저장소 계정에 액세스할 수 있는지 확인 Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot#troubleshoot-rbac)참조).
 
 <a id="-2134364010"></a>**방화벽 및 가상 네트워크 예외가 구성 되지 않아 동기화 하지 못했습니다.**  
 
@@ -1158,7 +1155,7 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 
 위의 조건이 충족되지 않으면 서버에서 계층화된 파일이 이제 분리되기 때문에 액세스를 복원하지 못할 수 있습니다. 분리 된 계층화 된 파일을 제거 하려면 아래 지침을 따르세요.
 
-**참고**
+**참고 사항**
 - 서버에서 계층화 된 파일에 액세스할 수 없는 경우 Azure 파일 공유에 직접 액세스 하는 경우에도 전체 파일에 액세스할 수 있어야 합니다.
 - 나중에 분리 된 계층화 된 파일을 방지 하려면 서버 끝점을 삭제할 때 [서버 끝점 제거](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint) 에 설명 된 단계를 따르세요.
 
@@ -1201,7 +1198,7 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 $orphanFilesRemoved = Remove-StorageSyncOrphanedTieredFiles -Path <folder path containing orphaned tiered files> -Verbose
 $orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
 ```
-**참고** 
+**참고 사항** 
 - Azure 파일 공유에 동기화 되지 않은 서버에서 수정 된 계층화 된 파일은 삭제 됩니다.
 - 액세스할 수 있는 계층화 된 파일 (고아 아님)은 삭제 되지 않습니다.
 - 계층화 되지 않은 파일은 서버에 유지 됩니다.
@@ -1248,7 +1245,25 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 3. Azure 파일 동기화 필터 드라이버(StorageSync.sys 및 StorageSyncGuard.sys)가 실행 중인지 확인합니다.
     - 관리자 권한의 명령 프롬프트에서 `fltmc`를 실행합니다. StorageSync.sys 및 StorageSyncGuard.sys 파일 시스템 필터 드라이버가 나열되는지 확인합니다.
 
-문제가 해결되지 않으면 AFSDiag 도구를 실행합니다.
+문제가 해결 되지 않으면 AFSDiag 도구를 실행 하 고 추가 진단을 위해 해당 사례에 할당 된 지원 엔지니어에 게 .zip 파일 출력을 보냅니다.
+
+에이전트 버전 v11 이상:
+
+1. 관리자 권한으로 PowerShell 창을 열고 다음 명령을 실행합니다(각 명령 후 Enter 키 누름).
+
+    > [!NOTE]
+    >AFSDiag는 로그를 수집 하기 전에 출력 디렉터리와 임시 폴더를 만들고 실행 후에 임시 폴더를 삭제 합니다. 데이터를 포함 하지 않는 출력 위치를 지정 하십시오.
+    
+    ```powershell
+    cd "c:\Program Files\Azure\StorageSyncAgent"
+    Import-Module .\afsdiag.ps1
+    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
+    ```
+
+2. 문제를 재현합니다. 작업을 완료하면 **D** 키를 입력합니다.
+3. 로그 및 추적 파일을 포함하는 .zip 파일은 사용자가 지정한 출력 디렉터리에 저장됩니다. 
+
+에이전트 버전 v10 및 이전 버전의 경우:
 1. AFSDiag 출력이 저장될 디렉터리를 만듭니다(예: C:\output).
     > [!NOTE]
     >AFSDiag는 로그를 수집 하기 전에 출력 디렉터리의 모든 내용을 삭제 합니다. 데이터를 포함 하지 않는 출력 위치를 지정 하십시오.

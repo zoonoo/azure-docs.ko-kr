@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 38e9134fdd6fb922fd9ed6efa9aa258a77487013
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: HT
+ms.openlocfilehash: 82f6d9e56e5d5745077ef512cb3392c16b95961f
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787569"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872175"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 배포
 
@@ -73,6 +73,9 @@ Linux Hybrid Runbook Worker에 대한 최소 요구 사항은 다음과 같습�
 Linux 컴퓨터에 Hybrid Runbook Worker를 설치 하 고 구성 하려면 간단한 수동 프로세스를 수행 합니다. Azure Log Analytics 작업 영역에서 Automation Hybrid Worker 솔루션을 활성화한 다음, 일련의 명령을 실행하여 컴퓨터를 작업자로 등록하고 그룹에 추가해야 합니다.
 
 계속 진행하기 전에 Automation 계정이 연결된 Log Analytics 작업 영역을 기록해 둡니다. 또한 Automation 계정에 대한 기본 키를 기록해 둡니다. 작업 영역과 기본 키는 모두 Azure Portal에서 찾을 수 있습니다. 자동화 계정을 선택하고 **작업 영역**을 선택하면 작업 영역 ID를, **키**를 선택하면 기본 키를 확인할 수 있습니다. Hybrid Runbook Worker에 필요한 포트 및 주소 정보는 [네트워크 구성](automation-hybrid-runbook-worker.md#network-planning)을 참조하세요.
+
+>[!NOTE]
+> Linux Hybrid Worker 설치 하는 동안 해당 sudo 권한이 있는 [nxautomation 계정이](automation-runbook-execution.md#log-analytics-agent-for-linux) 있어야 합니다. 작업자를 설치 하려고 시도 했지만 해당 계정이 없거나 적절 한 권한이 없는 경우 설치에 실패 합니다.
 
 1. 다음 방법 중 하나를 사용하여 Azure에서 Automation Hybrid Worker 솔루션을 활성화합니다.
 

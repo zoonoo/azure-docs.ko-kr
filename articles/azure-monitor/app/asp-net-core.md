@@ -2,19 +2,19 @@
 title: ASP.NET Core 응용 프로그램에 대 한 Azure 애플리케이션 정보 | Microsoft Docs
 description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링합니다.
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.openlocfilehash: e8ace92c39ed6b7bdcca0bae14cc0ae95aced2c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: 9c7c2e22d2befb503a388df1fa8a42c3d6eb07c5
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145255"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652782"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
 이 문서에서는 [ASP.NET Core](https://docs.microsoft.com/aspnet/core) 응용 프로그램에 대해 Application Insights를 사용 하도록 설정 하는 방법을 설명 합니다. 이 문서의 지침을 완료 하면 Application Insights는 ASP.NET Core 응용 프로그램에서 요청, 종속성, 예외, 성능 카운터, 하트 비트 및 로그를 수집 합니다.
 
-여기서 사용 하는 예제는를 대상 `netcoreapp2.2`으로 하는 [MVC 응용 프로그램](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) 입니다. 모든 ASP.NET Core 응용 프로그램에 이러한 지침을 적용할 수 있습니다.
+여기서 사용 하는 예제는를 대상 `netcoreapp3.0`으로 하는 [MVC 응용 프로그램](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) 입니다. 모든 ASP.NET Core 응용 프로그램에 이러한 지침을 적용할 수 있습니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
@@ -28,7 +28,7 @@ ms.locfileid: "82145255"
 * **IDE**: Visual Studio, VS Code 또는 명령줄.
 
 > [!NOTE]
-> Application Insights와 함께 ASP.NET Core 3(sp3)을 사용 하는 경우 [2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) 버전 이상을 사용 하세요. 이 버전은 ASP.NET Core 3(sp3)을 지원 합니다.
+> ASP.NET Core 3.x에는 [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) 이상이 필요 합니다.
 
 ## <a name="prerequisites"></a>전제 조건
 
@@ -103,13 +103,15 @@ ms.locfileid: "82145255"
 
     * `ApplicationInsights:InstrumentationKey`
 
-    다음은 그 예입니다.
+    예를 들어:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
     * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    일반적으로 `APPINSIGHTS_INSTRUMENTATIONKEY` 는 Azure Web Apps에 배포 된 응용 프로그램에 대 한 계측 키를 지정 합니다.
+    * `APPINSIGHTS_INSTRUMENTATIONKEY`는 일반적으로 [Azure Web Apps](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net)에서 사용 되지만이 SDK가 지원 되는 모든 위치에서 사용 될 수도 있습니다. 코드 없는 웹 앱 모니터링을 수행 하는 경우 연결 문자열을 사용 하지 않는 경우이 형식이 필요 합니다.
+
+    계측 키를 설정 하는 대신 [연결 문자열](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net)도 사용할 수 있습니다.
 
     > [!NOTE]
     > 코드에 지정 된 계측 키가 다른 옵션을 통해 `APPINSIGHTS_INSTRUMENTATIONKEY`적용 되는 환경 변수를 통해 이깁니다.
@@ -199,7 +201,7 @@ public void ConfigureServices(IServiceCollection services)
 
 의 전체 설정 목록`ApplicationInsightsServiceOptions`
 
-|설정 | Description | 기본값
+|Setting | 설명 | 기본값
 |---------------|-------|-------
 |EnablePerformanceCounterCollectionModule  | 사용/사용 안 함`PerformanceCounterCollectionModule` | true
 |EnableRequestTrackingTelemetryModule   | 사용/사용 안 함`RequestTrackingTelemetryModule` | true
@@ -209,7 +211,7 @@ public void ConfigureServices(IServiceCollection services)
 |EnableAzureInstanceMetadataTelemetryModule   |  사용/사용 안 함`AzureInstanceMetadataTelemetryModule` | true
 |EnableQuickPulseMetricStream | LiveMetrics 기능 사용/사용 안 함 | true
 |EnableAdaptiveSampling | 적응 샘플링 사용/사용 안 함 | true
-|EnableHeartbeat 비트 | 하트 비트 기능 사용/사용 안 함-주기적 (15 분 기본값)은 ' HeartBeatState ' 라는 사용자 지정 메트릭을 .NET 버전, Azure 환경 정보 (해당 하는 경우) 등의 런타임에 대 한 정보로 보냅니다. | true
+|EnableHeartbeat 비트 | 하트 비트 기능 사용/사용 안 함-주기적 (15 분 기본값)은 ' HeartbeatState ' 라는 사용자 지정 메트릭을 .NET 버전, Azure 환경 정보 (해당 하는 경우) 등의 런타임에 대 한 정보로 보냅니다. | true
 |AddAutoCollectedMetricExtractor | 샘플링을 수행 하기 전에 요청/종속성에 대 한 미리 집계 된 메트릭을 전송 하는 TelemetryProcessor AutoCollectedMetrics 추출기를 사용/사용 안 함으로 설정 합니다. | true
 |RequestCollectionOptions. 사이 예외 | 요청 수집 모듈에서 처리 되지 않은 예외 추적의 보고를 사용 하거나 사용 하지 않도록 설정 합니다. | ApplicationInsightsLoggerProvider를 사용 하 여 예외를 추적 하므로 NETSTANDARD 2.0의 경우 false이 고, 그렇지 않으면 true입니다.
 
@@ -361,7 +363,7 @@ using Microsoft.ApplicationInsights.Channel;
 
 위의 경우 자동 수집 모듈이 원격 분석을 수집 하는 것을 방지할 수 없습니다. Application Insights에 대 한 원격 분석 보내기가 위의 방법으로 사용 하지 않도록 설정 됩니다. 특정 자동 수집 모듈을 원하지 않는 경우 [원격 분석 모듈을 제거](#configuring-or-removing-default-telemetrymodules) 하는 것이 좋습니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="does-application-insights-support-aspnet-core-3x"></a>는 ASP.NET Core 3(sp3)을 지원 Application Insights?
 

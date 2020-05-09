@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: vkukke
-ms.openlocfilehash: ed3b70ad267252981110e7970bc5c5fad6cf4b4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6d6d8df8f3c5da762ac672b304ec072a723e7d7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79300155"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857057"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Azure Event Grid 리소스에 대 한 네트워크 보안
 이 문서에서는 Azure Event Grid에서 다음 보안 기능을 사용 하는 방법을 설명 합니다. 
@@ -27,7 +27,7 @@ ms.locfileid: "79300155"
 
 서비스 태그를 사용 하 여 [네트워크 보안 그룹](../virtual-network/security-overview.md#security-rules) 또는 [Azure 방화벽](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용 합니다. 규칙의 적절 한 *원본* 또는 *대상* 필드에서 서비스 태그 이름 (예: **azureeventgrid**)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다.
 
-| 서비스 태그 | 목적 | 인바운드 또는 아웃 바운드를 사용할 수 있나요? | 지역별 일 수 있나요? | Azure 방화벽과 함께 사용할 수 있나요? |
+| 서비스 태그 | 용도 | 인바운드 또는 아웃 바운드를 사용할 수 있나요? | 지역별 일 수 있나요? | Azure 방화벽과 함께 사용할 수 있나요? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | AzureEventGrid | Azure Event Grid. <br/><br/>*참고:* 이 태그는 미국 남부 중부, 미국 동부, 미국 동부 2, 미국 서 부 2 및 미국 중부 전용의 Azure Event Grid 끝점을 포함 합니다. | 모두 | 아니요 | 아니요 |
 
@@ -61,7 +61,7 @@ VNet에서 토픽 또는 도메인에 대 한 개인 끝점을 만드는 경우 
 | 속성                                          | Type      | 값                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<azure traffic manager 프로필\>
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager 프로필\>
 
 [IP 방화벽](#ip-firewall)을 사용 하 여 공용 끝점을 통해 VNet 외부의 클라이언트에 대 한 액세스를 거부 하거나 제어할 수 있습니다. 
 
@@ -92,10 +92,9 @@ VNet에서 토픽 또는 도메인에 대 한 개인 끝점을 만드는 경우 
 게시에 성공 하려면 개인 끝점 연결 상태를 **승인**해야 합니다. 연결이 거부 되 면 Azure Portal를 사용 하 여 승인할 수 없습니다. 유일한 방법은 연결을 삭제 하 고 새 연결을 만드는 것입니다.
 
 ## <a name="pricing-and-quotas"></a>가격 책정 및 할당량
-**개인 끝점** 은 프리미엄 계층 토픽 및 도메인 에서만 사용할 수 있습니다. Event Grid는 토픽 또는 도메인 당 최대 64 개의 개인 끝점 연결을 만들 수 있습니다. 기본 계층에서 프리미엄 계층으로 업그레이드 하려면 [가격 책정 계층 업데이트](update-tier.md) 문서를 참조 하세요.
+**개인 끝점** 은 Event Grid의 기본 및 프리미엄 계층에서 모두 사용할 수 있습니다. Event Grid는 토픽 또는 도메인 당 최대 64 개의 개인 끝점 연결을 만들 수 있습니다. 
 
 **IP 방화벽** 기능은 Event Grid의 기본 및 프리미엄 계층에서 모두 사용할 수 있습니다. 토픽 또는 도메인 당 최대 16 개의 IP 방화벽 규칙을 만들 수 있습니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 Event Grid 리소스에 대 한 IP 방화벽을 구성 하 여 특정 IP 주소 또는 IP 주소 범위의 선택 집합 에서만 공용 인터넷을 통해 액세스를 제한할 수 있습니다. 단계별 지침은 [IP 방화벽 구성](configure-firewall.md)을 참조 하세요.

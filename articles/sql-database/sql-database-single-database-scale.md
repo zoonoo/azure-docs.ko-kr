@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 84846e642fa102045b89eb12dbc85b0995867a3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: a13b860e01e7ef295df629d79dfa44700b5f0d02
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061591"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691584"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정
 
@@ -48,13 +48,27 @@ VCores 또는 Dtu 수를 처음 선택 하 고 나면 [Azure Portal](sql-databas
 
 ## <a name="latency"></a>대기 시간 
 
-단일 데이터베이스 또는 탄력적 풀의 서비스 계층을 변경 하거나 계산 크기를 조정 하는 데 예상 되는 대기 시간은 다음과 같이 매개 변수화 됩니다.
+서비스 계층을 변경 하거나, 단일 데이터베이스 또는 탄력적 풀의 계산 크기를 조정 하거나, 탄력적 풀에서 데이터베이스를 이동 하거나, 탄력적 풀 간에 데이터베이스를 이동 하는 데 예상 되는 대기 시간은 다음과 같습니다.
 
 |서비스 계층|기본 단일 데이터베이스,</br>Standard (S0-S1)|기본 탄력적 풀</br>Standard (S2-S 12), </br>대규모 </br>범용 단일 데이터베이스 또는 탄력적 풀|프리미엄 또는 중요 비즈니스용 단일 데이터베이스 또는 탄력적 풀|
 |:---|:---|:---|:---|
 |**기본 단일 데이터베이스,</br> 표준 (S0-S1)**|&bull;&nbsp;사용 된 공간에 독립적인 일정 한 시간 대기 시간</br>&bull;&nbsp;일반적으로 5 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
 |**기본 탄력적 풀, </br>표준 (S2-s 12), </br>hyperscale, </br>범용 단일 데이터베이스 또는 탄력적 풀**|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;사용 된 공간에 독립적인 일정 한 시간 대기 시간</br>&bull;&nbsp;일반적으로 5 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
 |**프리미엄 또는 중요 비즈니스용 단일 데이터베이스 또는 탄력적 풀**|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
+
+> [!NOTE]
+> 또한 Standard (S2-S 12) 및 범용 데이터베이스의 경우 데이터베이스에서[PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)(Premium File Share) 저장소를 사용 하는 경우 탄력적 풀에서 또는 탄력적 풀 간에 데이터베이스를 이동 하는 데 대 한 대기 시간이 데이터베이스 크기에 비례 합니다.
+>
+> 데이터베이스에서 PFS 저장소를 사용 하 고 있는지 확인 하려면 데이터베이스의 컨텍스트에서 다음 쿼리를 실행 합니다. AccountType 열의 값이 `PremiumFileStorage`이면 데이터베이스에서 PFS 저장소를 사용 합니다.
+ 
+```sql
+SELECT s.file_id,
+       s.type_desc,
+       s.name,
+       FILEPROPERTYEX(s.name, 'AccountType') AS AccountType
+FROM sys.database_files AS s
+WHERE s.type_desc IN ('ROWS', 'LOG');
+```
 
 > [!TIP]
 > 진행 중인 작업을 모니터링 하려면 [sql REST API를 사용 하 여 작업 관리](https://docs.microsoft.com/rest/api/sql/operations/list), [CLI를 사용](/cli/azure/sql/db/op)하 여 작업 관리, [t-sql을 사용 하 여 작업 모니터링](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 및 다음 두 가지 PowerShell 명령 ( [AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) 및 [AzSqlDatabaseActivity)](/powershell/module/az.sql/stop-azsqldatabaseactivity)을 참조 하세요.

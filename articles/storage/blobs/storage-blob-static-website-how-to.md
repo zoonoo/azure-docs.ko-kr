@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: 056e23f0f0cf1a3a1c70042cef3c92dd41f14f82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23a5d2c0e52a22872a8b9a64503d61493018b611
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80247013"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839167"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트를 호스팅합니다.
 
@@ -159,8 +159,11 @@ Azure PowerShell 모듈을 사용 하 여 정적 웹 사이트 호스팅을 사�
 이 예에서는 Azure Cloud Shell 세션에서 명령을 실행 중인 것으로 가정 합니다.
 
 ```azurecli-interactive
-az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
+az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
 ```
+
+> [!NOTE] 
+> 브라우저에서 사용자에 게 콘텐츠를 렌더링 하지 않고 파일을 다운로드 하 라는 메시지를 표시 하 `--content-type 'text/html; charset=utf-8'` 는 경우 명령에를 추가할 수 있습니다. 
 
 * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
@@ -178,11 +181,13 @@ az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-a
 ```powershell
 # upload a file
 set-AzStorageblobcontent -File "<path-to-file>" `
--Properties @{ ContentType = "text/html; charset=utf-8";} `
 -Container `$web `
 -Blob "<blob-name>" `
 -Context $ctx
 ```
+
+> [!NOTE] 
+> 브라우저에서 사용자에 게 콘텐츠를 렌더링 하지 않고 파일을 다운로드 하 라는 메시지를 표시 하 `-Properties @{ ContentType = "text/html; charset=utf-8";}` 는 경우 명령에를 추가할 수 있습니다.
 
 * 자리 표시자 `<path-to-file>` 값을 업로드할 파일의 정규화 된 경로로 바꿉니다 (예: `C:\temp\index.html`).
 

@@ -44,6 +44,11 @@
           href: tutorial-sap-hana-restore-cli.md
         - name: 백업된 SAP HANA 데이터베이스 관리 - CLI
           href: tutorial-sap-hana-manage-cli.md
+- name: 샘플
+  items:
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
     - name: 지원 매트릭스
@@ -342,10 +347,18 @@
           href: security-overview.md
         - name: 역할 기반 Access Control
           href: backup-rbac-rs-vault.md
-        - name: 클라우드 워크로드 보안
-          href: backup-azure-security-feature-cloud.md
+        - name: 일시 삭제
+          items:
+            - name: 개요
+              href: backup-azure-security-feature-cloud.md
+            - name: Virtual Machines의 경우
+              href: soft-delete-virtual-machines.md
+            - name: Azure VM에서 SQL Server 및 SAP HANA의 경우
+              href: soft-delete-sql-saphana-in-azure-vm.md
         - name: 하이브리드 백업 보안
           href: backup-azure-security-feature.md
+        - name: 암호화
+          href: backup-encryption.md
         - name: 기본 제공 보안 컨트롤
           href: backup-security-controls.md
         - name: 보안 기준

@@ -8,12 +8,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 897ae1fa474de8726ed0caa1def162a00e142dbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03e5f1e888680f6020b45f51103e7b5cb6dc86ab
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268406"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692726"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure Storage 분석 메트릭 (클래식)
 
@@ -23,7 +23,7 @@ ms.locfileid: "79268406"
 
 > [!NOTE]
 > Blob, 큐, 테이블 및 파일 서비스에 대 한 스토리지 분석 메트릭을 사용할 수 있습니다.
-> 스토리지 분석 메트릭은 현재 클래식 메트릭입니다. Microsoft에서는 스토리지 분석 메트릭 대신 [Azure Monitor의 저장소 메트릭을](storage-metrics-in-azure-monitor.md) 사용 하는 것이 좋습니다.
+> 스토리지 분석 메트릭은 현재 클래식 메트릭입니다. Microsoft에서는 스토리지 분석 메트릭 대신 [Azure Monitor의 저장소 메트릭을](monitor-storage.md) 사용 하는 것이 좋습니다.
 
 ## <a name="transaction-metrics"></a>트랜잭션 메트릭  
  각 스토리지 서비스 및 요청한 API 작업에 대해 시간 또는 분 간격으로 유용한 데이터 세트이 기록됩니다. 이러한 데이터에는 수신/송신, 가용성, 오류, 분류된 요청 비율 등이 포함됩니다. 트랜잭션 세부 정보의 전체 목록은 [스토리지 분석 메트릭 테이블 스키마](/rest/api/storageservices/storage-analytics-metrics-table-schema) 항목에서 확인할 수 있습니다.  
@@ -145,7 +145,7 @@ Azure Portal에서 저장소 계정의 메뉴 블레이드의 **모니터링 (�
 
 ||||  
 |-|-|-|  
-|**메트릭**|**테이블 이름**|**참고**|  
+|**메트릭**|**테이블 이름**|**참고 사항**|  
 |시간 메트릭|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|2013-08-15 이전 버전에서는 이러한 테이블을 다음과 같이 지칭했습니다.<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br />  $MetricsTransactionsQueue<br /><br /> 파일 서비스에 대 한 메트릭은 버전 2015-04-05부터 사용할 수 있습니다.|  
 |분 메트릭|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|PowerShell을 사용하거나 프로그래밍 방식으로만 사용하도록 설정할 수 있습니다.<br /><br /> 파일 서비스에 대 한 메트릭은 버전 2015-04-05부터 사용할 수 있습니다.|  
 |용량|$MetricsCapacityBlob|Blob 서비스만 해당합니다.|  
@@ -154,7 +154,7 @@ Azure Portal에서 저장소 계정의 메뉴 블레이드의 **모니터링 (�
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
-|**PartitionKey**|**RowKey**|**없으면**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**가용성**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
+|**PartitionKey**|**RowKey**|**타임스탬프**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**가용성**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
 |20140522T1100|user;All|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
 |20140522T1100|user;QueryEntities|2014-05-22T11:01:16.7640250Z|5|5|2694|45951|100|143.8|7.8|100|  
 |20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  

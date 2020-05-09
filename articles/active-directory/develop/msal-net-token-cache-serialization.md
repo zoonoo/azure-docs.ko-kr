@@ -13,12 +13,12 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1c330bdaedfedbfeb87e740147e5040cc9d72f16
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: abc4836b5e8729eec45a0eb2cd8b5fa7be6b1ce4
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690159"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890570"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>MSAL.NET에서 토큰 캐시 직렬화
 [획득한 토큰](msal-acquire-cache-tokens.md)은 MSAL(Microsoft 인증 라이브러리)을 사용하여 캐시됩니다.  애플리케이션 코드는 캐시에서 토큰을 가져오려고 시도한 후 다른 방법으로 토큰을 획득해야 합니다.  이 문서에서는 MSAL.NET에서 제공하는 토큰 캐시의 기본 및 사용자 지정 직렬화에 대해 설명합니다.
@@ -51,7 +51,7 @@ MSAL.NET에서는 메모리 내 토큰 캐시가 기본적으로 제공됩니다
 
 사용자가 작성하려는 토큰 캐시 직렬화가 [공용 클라이언트 애플리케이션](msal-client-applications.md)(데스크톱)을 위한 것인지 아니면 [기밀 클라이언트 애플리케이션](msal-client-applications.md)(웹앱/웹 API, 디먼 앱)을 위한 것인지에 따라 전략이 달라집니다.
 
-### <a name="token-cache-for-a-public-client"></a>공용 클라이언트의 토큰 캐시 
+### <a name="token-cache-for-a-public-client"></a>공용 클라이언트의 토큰 캐시
 
 MSAL.NET v2.x부터 공용 클라이언트의 토큰 캐시를 직렬화하는 여러 가지 옵션이 제공됩니다. 캐시를 MSAL.NET 형식으로만 직렬화할 수 있습니다(MSAL과 플랫폼에서 통합 형식 캐시를 공통적으로 사용).  ADAL V3의 [레거시](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) 토큰 캐시 직렬화를 지원할 수도 있습니다.
 
@@ -326,9 +326,10 @@ services.AddDistributedSqlServerCache(options =>
 해당 사용은 [2-2 단계 토큰 캐시](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache)의 [ASP.NET Core 웹 앱 자습서](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/) 에서 제공 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 다음 샘플은 토큰 캐시 직렬화를 보여줍니다.
 
-| 샘플 | 플랫폼 | Description|
+| 예제 | 플랫폼 | Description|
 | ------ | -------- | ----------- |
 |[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | 데스크톱(WPF) | Microsoft Graph API를 호출하는 Windows 데스크톱 .NET(WPF) 애플리케이션 ![토폴로지](media/msal-net-token-cache-serialization/topology.png)|
-|[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | 데스크톱(콘솔) | Azure AD v1.0 애플리케이션(ADAL.NET 사용)을 컨버지드 애플리케이션이라고도 하는 Azure AD v2.0 애플리케이션(MSAL.NET 사용)으로 마이그레이션, 특히 [토큰 캐시 마이그레이션](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)하는 방법을 보여주는 Visual Studio 솔루션 세트|
+|[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | 데스크톱(콘솔) | MSAL.NET를 사용 하 여 Azure AD v1.0 응용 프로그램 (ADAL.NET 사용)을 Microsoft id 플랫폼 응용 프로그램으로 마이그레이션하는 방법을 보여 주는 Visual Studio 솔루션 집합입니다. 특히 [토큰 캐시 마이그레이션](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md) 을 참조 하세요.|
