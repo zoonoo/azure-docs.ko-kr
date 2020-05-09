@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 9488b96dda15b0ffb794f83826dc299a5f397b77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c3dd3e7e0bc899b87a16f66dc4d049a2876dbb4
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77064005"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628370"
 ---
 # <a name="set-up-an-email-address-as-your-verification-method"></a>전자 메일 주소를 확인 방법으로 설정 합니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "77064005"
 
 ### <a name="to-set-up-your-email-address"></a>이메일 주소를 설정하려면
 
-1. 회사 또는 학교 계정에 로그인한 다음, https://myprofile.microsoft.com/ 페이지로 이동합니다.
+1. 회사 또는 학교 계정에 로그인한 다음, https://myaccount.microsoft.com/ 페이지로 이동합니다.
 
     ![보안 정보 링크가 강조 표시된 내 프로필 페이지](media/security-info/securityinfo-myprofile-page.png)
 

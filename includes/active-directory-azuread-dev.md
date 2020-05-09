@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 081/24/2020
+ms.date: 01/24/2020
 ms.author: ryanwi
 ms.custom: include file
-ms.openlocfilehash: 3f4c413178206dcd9e6aca38ffd5c6490e12bd65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e5371a4d2b160b5de8b69b0d25ef0f49f80927b
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77163877"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82784081"
 ---
 > [!IMPORTANT]
 > [V 2.0 (Microsoft identity platform](/azure/active-directory/develop/v2-overview) )은 Azure Active Directory (Azure AD) developer platform (v1.0)의 진화입니다. 이 플랫폼을 사용하면 개발자가 모든 Microsoft ID에 로그인하고, Microsoft Graph와 같은 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다.

@@ -7,15 +7,15 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 17bed17b536f6e88fc821fd83e09a1d6ea218bc3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a48ed39af243296bcb76cb61f1fe64e4e95ab7e7
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74130478"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801742"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Application Gateway의 잘못된 게이트웨이 오류 문제 해결
-
+<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=66c070b6-1c47-4c7f-b928-317a8c8b452f" target='_blank'>Start</a></span><span class="has-padding-small">가상 에이전트를 사용 하 여 <b>자동 진단을</b> 실행 하 여 문제를 빠르게 해결 합니다.</span> <span class="has-padding-small"> <sub>Privacy Statement</sub> 개인정보 <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
 Azure 애플리케이션 Gateway를 사용 하는 경우 잘못 된 게이트웨이 (502)의 문제를 해결 하는 방법에 대해 알아봅니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -82,7 +82,7 @@ DhcpOptions            : {
 
 다음 표에서는 기본 상태 프로브와 관련 된 값을 나열 합니다.
 
-| 프로브 속성 | 값 | Description |
+| 프로브 속성 | 값 | 설명 |
 | --- | --- | --- |
 | 프로브 URL |`http://127.0.0.1/` |URL 경로 |
 | 간격 |30 |프로브 간격(초) |

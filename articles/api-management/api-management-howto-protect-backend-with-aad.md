@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 300f44daeeea5e8a774575dabcb00686906bb5de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b212316970b77d325552956cfacded2dc570234f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804370"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778977"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API 보호
 
@@ -79,7 +79,7 @@ API를 호출하는 모든 클라이언트 애플리케이션을 Azure AD에서�
     - **이름** 섹션에서 응용 프로그램의 사용자에 게 표시 되는 의미 있는 응용 프로그램 이름 (예: *클라이언트-앱)* 을 입력 합니다. 
     - **지원 되는 계정 유형** 섹션에서 **모든 조직 디렉터리 (임의의 Azure AD 디렉터리-다중 테 넌 트)의 계정**을 선택 합니다. 
 
-1. **URI 리디렉션** 섹션에서 URL `https://contoso5.portal.azure-api.net/signin`을 선택 `Web` 하 고 입력 합니다.
+1. **URI 리디렉션** 섹션에서 URL 필드를 `Web` 선택 하 고 현재에 대해 비워 둡니다.
 
 1. **등록**을 선택하여 애플리케이션을 만듭니다. 
 
@@ -149,9 +149,9 @@ API 및 개발자 콘솔을 나타내는 두 개의 애플리케이션을 등록
 
 1. **만들기**를 선택합니다.
 
-1. 클라이언트 앱으로 돌아가서 **인증**을 선택 합니다.
+1. Azure Active Directory에서 클라이언트-앱 등록으로 돌아가서 **인증**을 선택 합니다.
 
-1. **Uri 리디렉션**에서 **웹**으로 유형을 선택 하 고, **리디렉션 URI**아래 **redirect_url** 붙여넣은 다음 저장을 클릭 합니다.
+1. **플랫폼 구성** 에서 **플랫폼 추가**를 클릭 하 고, **웹**으로 유형을 선택 하 고, **리디렉션 URI**아래에 **redirect_url** 을 붙여넣은 다음, **구성** 단추를 클릭 하 여 저장 합니다.
 
 OAuth 2.0 권한 부여 서버를 구성했으므로 개발자 콘솔에서 Azure AD의 액세스 토큰을 가져올 수 있습니다. 
 

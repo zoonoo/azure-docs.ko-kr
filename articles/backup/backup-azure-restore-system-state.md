@@ -4,12 +4,12 @@ description: Azure의 백업에서 Windows Server 시스템 상태를 복원하�
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39cac84c4a33c1da209d0a0cc7b0f8ac8ee390a0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77602459"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610788"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 
@@ -124,7 +124,7 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
 
 2. 다시 부팅한 후에 Windows Server Backup 스냅인을 엽니다. 스냅인이 설치된 위치를 모르는 경우 컴퓨터 또는 서버에서 **Windows Server Backup**을 검색합니다.
 
-    데스크톱 앱이 검색 결과에 나타납니다.
+    데스크톱 앱이 검색 결과에 나타납니다. 표시 되지 않거나 응용 프로그램을 열 때 오류가 발생 하는 경우 **서버 관리자**의 **기능 추가 마법사** 에서 사용할 수 있는 **Windows Server 백업 기능**및 그 아래 종속 구성 요소를 설치 해야 합니다.
 
 3. 스냅인에서 **로컬 Backup**을 선택합니다.
 

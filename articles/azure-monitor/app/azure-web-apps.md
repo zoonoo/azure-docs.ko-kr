@@ -3,13 +3,12 @@ title: Azure App Services 성능 모니터링 | Microsoft Docs
 description: Azure App Services에 대한 애플리케이션 성능 모니터링입니다. 차트 로드 및 응답 시간, 종속성 정보 및 성능에 대 한 경고를 설정 합니다.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: dd0d3be6ed7e5185183618cc2bdeff5ee8d749f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0f4d4dedab30839db56cb47ac7ac103413f2d4be
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729802"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733453"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -71,7 +70,7 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
     * 예를 들어 초기 샘플링 비율을 변경 하려면 다음 `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` 의 응용 프로그램 설정 및 값 `100`을 만들 수 있습니다.
 
-    * 지원 되는 적응 샘플링 원격 분석 프로세서 설정 목록에 대해서는 [코드](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) 및 [관련 설명서](https://docs.microsoft.com/azure/azure-monitor/app/sampling)를 참조할 수 있습니다.
+    * 지원 되는 적응 샘플링 원격 분석 프로세서 설정 목록에 대해서는 [코드](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) 및 [관련 설명서](https://docs.microsoft.com/azure/azure-monitor/app/sampling)를 참조할 수 있습니다.
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
@@ -399,7 +398,11 @@ Application Insights 에이전트/확장에 대 한 최신 정보는 [릴리스]
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP 및 WordPress는 지원 되지 않습니다.
 
-PHP 및 WordPress 사이트는 지원 되지 않습니다. 현재 이러한 워크 로드의 서버 쪽 모니터링에 대 한 공식적으로 지원 되는 SDK/에이전트가 없습니다. 그러나 클라이언트 쪽 javascript를 웹 페이지에 추가 하 여 클라이언트 쪽 javascript를 PHP 또는 WordPress 사이트에 수동으로 계측 하면 [JAVASCRIPT SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript)를 사용 하 여 수행할 수 있습니다. 
+PHP 및 WordPress 사이트는 지원 되지 않습니다. 현재 이러한 워크 로드의 서버 쪽 모니터링에 대 한 공식적으로 지원 되는 SDK/에이전트가 없습니다. 그러나 클라이언트 쪽 javascript를 웹 페이지에 추가 하 여 클라이언트 쪽 javascript를 PHP 또는 WordPress 사이트에 수동으로 계측 하면 [JAVASCRIPT SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript)를 사용 하 여 수행할 수 있습니다.
+
+### <a name="connection-string-and-instrumentation-key"></a>연결 문자열 및 계측 키
+
+코드 없는 모니터링을 사용 하는 경우 연결 문자열만 필요 합니다. 그러나 수동 계측을 수행할 때 이전 버전의 SDK와 이전 버전과의 호환성을 유지 하기 위해 계측 키를 설정 하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [라이브 앱에서 프로파일러를 실행합니다](../app/profiler.md).

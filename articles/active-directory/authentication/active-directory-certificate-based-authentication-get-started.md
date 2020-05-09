@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a6c44a8253c81b44d02351b2df9c943d9f358f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 9c3ea7596e589431412489bea4ac9a23fa604540
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654347"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610652"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory에서 인증서 기반 인증 시작
 
@@ -45,7 +46,7 @@ ms.locfileid: "80654347"
 - 클라이언트 인증을 위한 클라이언트 인증서가 클라이언트에 발급되어야 합니다.
 
 >[!IMPORTANT]
->Azure Active Directory 다운로드 하 고 캐시에 대 한 CRL의 최대 크기는 20MB이 고, CRL을 다운로드 하는 데 필요한 시간은 10 초를 초과 하면 안 됩니다.  Azure Active Directory CRL을 다운로드할 수 없는 경우 해당 CA에서 발급 한 인증서를 사용 하는 인증서 기반 인증에 실패 합니다. CRL 파일이 크기 제약 조건 내에 있는지 확인 하는 모범 사례는 인증서 수명을 합당 한 제한 내에서 유지 하 고 만료 된 인증서를 정리 하는 것입니다. 
+>Azure Active Directory 다운로드 하 고 캐시에 대 한 CRL의 최대 크기는 20MB이 고, CRL을 다운로드 하는 데 필요한 시간은 10 초를 초과 하면 안 됩니다.  Azure Active Directory CRL을 다운로드할 수 없는 경우 해당 CA에서 발급 한 인증서를 사용 하는 인증서 기반 인증에 실패 합니다. CRL 파일이 크기 제약 조건 내에 있는지 확인 하는 모범 사례는 인증서 수명을 합당 한 제한 내에서 유지 하 고 만료 된 인증서를 정리 하는 것입니다.
 
 ## <a name="step-1-select-your-device-platform"></a>1단계: 디바이스 플랫폼 선택
 
@@ -56,7 +57,7 @@ ms.locfileid: "80654347"
 
 다음 디바이스 플랫폼에 대한 관련 정보가 있습니다.
 
-- [OWA(Outlook Web Access)](active-directory-certificate-based-authentication-android.md)
+- [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 
 ## <a name="step-2-configure-the-certificate-authorities"></a>2단계: 인증 기관 구성
