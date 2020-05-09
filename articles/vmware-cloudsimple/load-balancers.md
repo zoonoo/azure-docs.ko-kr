@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6c98b699b1d3aba15ce69c519d35d7ce3e90d123
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fec54c19b9040e7cb44f1a5d2b7909510ab7313
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77014881"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734606"
 ---
 # <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>CloudSimple 사설 클라우드에 대 한 부하 분산 솔루션 선택
 
@@ -37,7 +37,7 @@ VCenter 인터페이스를 통해 VMware 환경에 가상 부하 분산 장치 �
 
 Azure 구독의 Azure vNet 내에서 웹 프런트 엔드 계층을 실행 하는 하이브리드 배포에서 응용 프로그램을 실행 하도록 선택 하 고 응용 프로그램의 DB 계층이 CloudSimple 사설 클라우드의 VMware Vm에서 실행 되는 경우 트래픽 관리를 위해 DB 계층 Vm 앞에 Azure 내부 부하 분산 장치 (L4 부하 분산 장치)를 사용할 수 있습니다.
 
-자세히 알아보려면 Azure [내부 Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer) 설명서를 참조 하세요.
+자세히 알아보려면 Azure [내부 Load Balancer](../load-balancer/components.md#frontend-ip-configurations) 설명서를 참조 하세요.
 
 ## <a name="global-server-load-balancer"></a>글로벌 서버 부하 분산 장치
 

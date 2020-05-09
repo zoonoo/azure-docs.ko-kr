@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 90dc5a067c05cadb3d5e102435b2e3d3de803e28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 651027ffd63a376ff0b8595636ece4c8f39c86e8
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335024"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82615950"
 ---
 | 리소스 | 제한 |
 | --- | --- |
@@ -17,7 +17,7 @@ ms.locfileid: "80335024"
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 VM 총 코어 수 |지역 당 20<sup>개의 1</sup> 제한을 늘리려면 지원 담당자에 게 문의 하세요. |
 | Azure 스폿 VM [구독](../articles/billing-buy-sign-up-azure-subscription.md) 당 총 코어 수 |지역 당 20<sup>개의 1</sup> 제한을 늘리려면 지원 담당자에 게 문의 하세요. |
 | Dv2 및 F와 같은 시리즈 당 VM, [구독](../articles/billing-buy-sign-up-azure-subscription.md) 당 코어 수 |지역 당 20<sup>개의 1</sup> 제한을 늘리려면 지원 담당자에 게 문의 하세요. |
-| 구독 당 [가용성 집합](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) |2000 지역입니다. |
+| 구독 당 [가용성 집합](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) |2500 지역입니다. |
 | 가용성 집합당 가상 머신 | 200 |
 | 구독당 인증서 |무제한<sup>2</sup> |
 

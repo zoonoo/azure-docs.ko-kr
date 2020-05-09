@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용 하 여 조직의 Azure 리소스에 대 한 규칙을 설정 하는 방법을 설명 합니다.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5d4a86f4d9f74cf17229467f19a3afa8bebcf40f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f396f46fa77f75452ac8ac3cd98bccd58fe0dfe4
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187769"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82613305"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -65,7 +65,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 모든 Azure Policy 샘플은 [Azure Policy 샘플](../samples/index.md)에 있습니다.
 
-## <a name="mode"></a>Mode
+## <a name="mode"></a>모드
 
 **모드** 는 정책이 Azure Resource Manager 속성을 대상으로 하는지 아니면 리소스 공급자 속성을 대상으로 하는지에 따라 구성 됩니다.
 
@@ -73,14 +73,14 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 **mode**는 정책에 대해 평가할 리소스 종류를 결정합니다. 지원되는 모드는 다음과 같습니다.
 
-- `all`: 리소스 그룹 및 모든 리소스 종류를 평가합니다.
+- `all`: 리소스 그룹, 구독 및 모든 리소스 종류를 평가 합니다.
 - `indexed`: 태그 및 위치를 지원하는 리소스 종류만 평가합니다.
 
 예를 들어 리소스 `Microsoft.Network/routeTables` 는 태그와 위치를 지원 하 고 두 모드에서 모두 계산 됩니다. 그러나 리소스 `Microsoft.Network/routeTables/routes` 는 태그를 지정할 수 없으며 모드에서 `Indexed` 평가 되지 않습니다.
 
 대부분 **mode**를 `all`로 설정하는 것이 좋습니다. 포털을 통해 생성된 모든 정책 정의는 `all` 모드를 사용합니다. PowerShell 또는 Azure CLI를 사용하는 경우 **mode** 매개 변수를 수동으로 지정할 수 있습니다. 정책 정의에 **mode** 값이 포함되지 않으면 기본적으로 Azure PowerShell에서는 `all`로 설정되고 Azure CLI에서는 `null`로 설정됩니다. `null` 모드는 이전 버전과의 호환성을 지원하기 위해 `indexed`를 사용하는 것과 같습니다.
 
-`indexed`는 태그 또는 위치를 시스템에 적용하는 정책을 만들 때 사용해야 합니다. 이 모드는 반드시 사용해야 하는 것은 아니지만, 사용하는 경우 태그와 위치를 지원하지 않는 리소스가 규정 준수 결과에 미준수 항목으로 표시되지 않습니다. 예외는 **리소스 그룹**입니다. 리소스 그룹에서 위치 또는 태그를 적용하는 정책은 **mode**를 `all`로 설정하고 구체적으로 `Microsoft.Resources/subscriptions/resourceGroups` 형식을 대상으로 지정해야 합니다. 예를 들어 [리소스 그룹 태그 적용](../samples/enforce-tag-rg.md)을 참조하세요. 태그를 지 원하는 리소스 목록은 [Azure 리소스에 대 한 태그 지원](../../../azure-resource-manager/management/tag-support.md)을 참조 하세요.
+`indexed`는 태그 또는 위치를 시스템에 적용하는 정책을 만들 때 사용해야 합니다. 이 모드는 반드시 사용해야 하는 것은 아니지만, 사용하는 경우 태그와 위치를 지원하지 않는 리소스가 규정 준수 결과에 미준수 항목으로 표시되지 않습니다. **리소스 그룹** 및 **구독은**예외입니다. 리소스 그룹 또는 구독에 대 한 위치 또는 태그를 적용 하는 **mode** 정책은 모드 `all` 를로 설정 하 `Microsoft.Resources/subscriptions/resourceGroups` 고 `Microsoft.Resources/subscriptions` 구체적으로 또는 유형을 대상으로 지정 해야 합니다. 예를 들어 [리소스 그룹 태그 적용](../samples/enforce-tag-rg.md)을 참조하세요. 태그를 지 원하는 리소스 목록은 [Azure 리소스에 대 한 태그 지원](../../../azure-resource-manager/management/tag-support.md)을 참조 하세요.
 
 ### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />리소스 공급자 모드 (미리 보기)
 
@@ -682,7 +682,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 ### <a name="understanding-the--alias"></a>[*] 별칭 이해
 
-사용할 수 있는 여러 별칭에는 ' normal ' 이름으로 표시 되 고 다른 ** \[ \* ** 버전에 연결 된 버전이 있습니다. 다음은 그 예입니다.
+사용할 수 있는 여러 별칭에는 ' normal ' 이름으로 표시 되 고 다른 ** \[ \* ** 버전에 연결 된 버전이 있습니다. 예를 들면 다음과 같습니다.
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

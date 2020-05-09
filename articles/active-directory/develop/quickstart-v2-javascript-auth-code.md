@@ -13,12 +13,12 @@ ms.date: 04/22/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
 ROBOTS: NOINDEX
-ms.openlocfilehash: d362db3a51848603c78d663c5b628192ff028d02
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9663c11508b0478a67f528cb301d705a3125e4f6
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82209616"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871513"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>빠른 시작: 인증 코드 흐름을 사용하여 사용자를 로그인하고 JavaScript SPA에서 액세스 토큰을 가져옵니다. 
 
@@ -112,7 +112,7 @@ ms.locfileid: "82209616"
 
 > [!div renderon="portal" class="sxs-lookup"]
 > > [!NOTE]
-> > `Enter_the_Supported_Account_Info_Here`
+> > :::no-loc text="Enter_the_Supported_Account_Info_Here":::
 
 > [!div renderon="docs"]
 >
@@ -178,7 +178,8 @@ ms.locfileid: "82209616"
 MSAL.js 라이브러리는 사용자를 로그인하고 Microsoft ID 플랫폼으로 보호되는 API 액세스에 사용되는 토큰을 요청합니다. 샘플의 *index.html* 파일에는 라이브러리에 대한 참조가 포함되어 있습니다.
 
 ```html
-<script type="text/javascript" src="https://alcdn.msftauth.net/lib/1.2.1/js/msal.js" integrity="sha384-9TV1245fz+BaI+VvCjMYL0YDMElLBwNS84v3mY57pXNOt6xcUYch2QLImaTahcOP" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://alcdn.msauth.net/browser/2.0.0-beta.0/js/msal-browser.js" integrity=
+"sha384-r7Qxfs6PYHyfoBR6zG62DGzptfLBxnREThAlcJyEfzJ4dq5rqExc1Xj3TPFE/9TH" crossorigin="anonymous"></script>
 ```
 > [!TIP]
 > 이전 버전을 [MSAL.js 릴리스](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)에서 최근에 릴리스된 버전으로 바꿀 수 있습니다.
@@ -186,7 +187,7 @@ MSAL.js 라이브러리는 사용자를 로그인하고 Microsoft ID 플랫폼�
 또는 Node.js가 설치된 경우 Node.js 패키지 관리자(npm)를 사용하여 최신 버전을 다운로드할 수 있습니다.
 
 ```batch
-npm install msal
+npm install @azure/msal-browser
 ```
 
 ## <a name="next-steps"></a>다음 단계

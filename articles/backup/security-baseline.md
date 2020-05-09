@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: acc8ceaa96f6fddafdbf4aa74ab9e43a1a60714a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68453341defd2d359e69e0ecf8a821464fead0d3
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195675"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744037"
 ---
 # <a name="azure-security-baseline-for-backup"></a>백업용 Azure 보안 기준
 
@@ -460,7 +460,7 @@ Microsoft는 Azure Backup에 대 한 기본 인프라를 관리 하 고, 고객 
 
 **지침**: 서버에서 Recovery Services 자격 증명 모음으로의 백업 트래픽은 보안 HTTPS 링크를 통해 전송 되 고 자격 증명 모음에 저장 될 때 AES (AES(Advanced Encryption Standard)) 256를 사용 하 여 암호화 됩니다.
 
-- [Azure Backup에서 미사용 암호화 이해](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption)
+- [Azure Backup에서 미사용 암호화 이해](https://docs.microsoft.com/azure/backup/backup-encryption)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -508,7 +508,7 @@ Azure Backup 백업 관리 작업을 제어 하기 위한 세 가지 기본 제�
 
 MARS 에이전트로 백업 하거나 고객이 관리 하는 키로 암호화 된 Recovery Services 자격 증명 모음을 사용 하는 경우에만 암호화 키에 액세스할 수 있습니다. Microsoft는 복사본을 유지 관리할 수 없으며, 키에 대한 액세스 권한도 없습니다. 키를 잃어버리면 Microsoft에서 백업 데이터를 복구할 수 없습니다.
 
-- [Azure Backup에 대 한 미사용 암호화 이해](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption)
+- [Azure Backup에 대 한 미사용 암호화 이해](https://docs.microsoft.com/azure/backup/backup-encryption)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -902,7 +902,7 @@ Azure Key Vault 내에서 고객 관리 키를 백업 합니다.
 
 - [Azure에서 주요 자격 증명 모음 키를 백업 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Azure Backup의 암호화 이해](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption-of-backup-data-using-customer-managed-keys)
+- [Azure Backup의 암호화 이해](https://docs.microsoft.com/azure/backup/backup-encryption#encryption-of-backup-data-using-customer-managed-keys)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 

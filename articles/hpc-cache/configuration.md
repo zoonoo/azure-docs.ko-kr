@@ -4,14 +4,14 @@ description: MTU 및 비 루트 squash 같은 캐시에 대 한 추가 설정을
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: 7938fcc0819fc3e5e0762cc8c3c2931594ed1c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3bab06166110a3627bb3a99d51ceb09b0c7ed80
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195063"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871422"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>추가 Azure HPC 캐시 설정 구성
 
@@ -42,13 +42,15 @@ Azure [vm에 대 한 tcp/ip 성능 튜닝](../virtual-network/virtual-network-tc
 ## <a name="configure-root-squash"></a>Root squash 구성
 <!-- linked from troubleshoot -->
 
-**Root squash** 설정은 Azure HPC 캐시에서 루트 액세스를 허용 하는 방법을 제어 합니다. Root squash는 권한이 없는 클라이언트의 루트 수준 액세스를 방지 하는 데 도움이 됩니다.
+**Enable root squash** 설정은 Azure HPC 캐시가 클라이언트 컴퓨터에서 루트 사용자의 요청을 처리 하는 방법을 제어 합니다.
 
-이 설정을 사용 하면 사용자가 캐시 수준에서 루트 액세스를 제어할 수 있으며,이를 통해 ``no_root_squash`` 저장소 대상으로 사용 되는 NAS 시스템에 필요한 설정을 보정할 수 있습니다. [NFS 저장소 대상 필수 구성 요소](hpc-cache-prereqs.md#nfs-storage-requirements)에 대해 자세히 알아보세요. 또한 Azure Blob 저장소 대상에서 사용 하는 경우 보안을 향상 시킬 수 있습니다.
+Root squash를 사용 하도록 설정 하면 클라이언트의 루트 사용자가 Azure HPC 캐시를 통해 요청을 보낼 때 사용자에 게 자동으로 매핑됩니다. 또한 클라이언트 요청에서 UID 권한 비트를 사용 하는 것을 방지 합니다.
+
+Root squash가 사용 하지 않도록 설정 된 경우 클라이언트 루트 사용자 (UID 0)의 요청은 백 엔드 NFS 저장소 시스템에 루트로 전달 됩니다. 이 구성은 부적절 한 파일 액세스를 허용할 수 있습니다.
+
+캐시에서 root squash를 설정 하면 저장소 대상으로 사용 되 ``no_root_squash`` 는 NAS 시스템에서 필요한 설정을 보정할 수 있습니다. [NFS 저장소 대상 필수 구성 요소](hpc-cache-prereqs.md#nfs-storage-requirements)에 대해 자세히 알아보세요. 또한 Azure Blob 저장소 대상에서 사용 하는 경우 보안을 향상 시킬 수 있습니다.
 
 기본 설정은 **예**입니다. 4 월 2020 이전에 만든 캐시에는 기본 설정인 **No**가 있을 수 있습니다.
-
-이 기능을 사용 하도록 설정 하면 캐시에 대 한 클라이언트 요청에서 UID 권한 비트를 사용할 수 없습니다.
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Blob 저장소 대상에 대 한 스냅숏 보기
 

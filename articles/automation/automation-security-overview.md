@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 109bb6dd29ea9c4239e0abcfc668f1185f7e9783
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d3dbaad18f6acbe1ddf17d81f54e4232c838dd7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82114533"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787416"
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Azure Automation의 인증 소개
 
@@ -25,7 +25,7 @@ Azure Automation을 처음 시작하려면 Automation 계정을 하나 이상 �
 
 각 Automation 계정의 Automation 리소스는 단일 Azure 지역과 연결되지만 Automation 계정은 구독 내 모든 리소스를 관리할 수 있습니다. 여러 지역에서 Automation 계정을 만드는 주된 이유는 데이터 및 리소스를 특정 지역으로 격리해야 하는 정책이 있을 수 있기 때문입니다.
 
-Azure Automation에서 Azure Resource Manager 및 Azure cmdlet을 사용하여 리소스에 대해 수행하는 모든 작업은 Azure Active Directory 조직 ID 자격 증명 기반 인증을 사용하여 Azure에 인증해야 합니다. Azure cmdlet을 사용 하 여 Azure에서 리소스를 관리 하는 인증을 제공 하 Azure Automation의 실행 계정. 실행 계정을 만들면 AD (Azure Active Directory)에 새 서비스 주체 사용자가 만들어지고 구독 수준에서이 사용자에 게 참가자 역할이 할당 됩니다. Azure 가상 머신에서 Hybrid Runbook Worker를 사용하는 Runbook의 경우 실행 계정 대신 [Azure 리소스에 대한 관리 ID](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)를 사용하여 Azure 리소스를 인증할 수 있습니다.
+Azure Automation에서 Azure Resource Manager 및 Azure cmdlet을 사용하여 리소스에 대해 수행하는 모든 작업은 Azure Active Directory 조직 ID 자격 증명 기반 인증을 사용하여 Azure에 인증해야 합니다. Azure cmdlet을 사용 하 여 Azure에서 리소스를 관리 하는 인증을 제공 하 Azure Automation의 실행 계정. 실행 계정을 만들면 AD (Azure Active Directory)에 새 서비스 주체 사용자가 만들어지고 구독 수준에서이 사용자에 게 참가자 역할이 할당 됩니다. Azure virtual machines에서 Hybrid Runbook Worker를 사용 하는 runbook의 경우 실행 계정 대신 [관리 되는 id와 함께 runbook 인증](automation-hrw-run-runbooks.md#runbook-auth-managed-identities) 을 사용 하 여 azure 리소스에 인증할 수 있습니다.
 
 실행 계정에 대 한 서비스 주체에는 기본적으로 Azure AD를 읽을 수 있는 권한이 없습니다. Azure AD를 읽거나 관리 하는 권한을 추가 하려면 **API 권한**에서 서비스 주체에 대 한 사용 권한을 부여 해야 합니다. 자세한 내용은 [웹 api에 액세스 하기 위한 권한 추가](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)를 참조 하세요.
 
