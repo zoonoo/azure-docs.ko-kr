@@ -7,12 +7,12 @@ ms.date: 02/13/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 46f19748ea56777bd1c23b3cf066fa28787d8882
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 26fe0538548e13933e112e83bae6e6131f2a030d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77486103"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594642"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>v12 Java 클라이언트 라이브러리를 사용하는 Azure Storage 샘플
 
@@ -209,19 +209,7 @@ ms.locfileid: "77486103"
       [파일에 대한 액세스 제어 가져오기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/GetSetAccessControlExample.java#L104)
    :::column-end:::
 :::row-end:::
-:::row:::
-   :::column span="":::
-      [Data Lake 파일 클라이언트를 사용하여 파일 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/UploadDownloadExample.java#L67)
-   :::column-end:::
-   :::column span="":::
-      [파일에 데이터 추가](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/UploadDownloadExample.java#L85)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="2":::
-      [파일 다운로드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/UploadDownloadExample.java#L127)
-   :::column-end:::
-:::row-end:::
+
 
 ## <a name="azure-file-samples"></a>Azure File 샘플
 

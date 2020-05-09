@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 595762e6e8f22dddff30f1cff8c4bb79e89624b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e42a4d738d375b4bceeb32f6159b4476843cf281
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80473857"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612659"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>원격 데스크톱 클라이언트 문제 해결
 
@@ -81,7 +81,7 @@ Windows 7 또는 Windows 10 용 원격 데스크톱 클라이언트와 같은 �
 ## <a name="next-steps"></a>다음 단계
 
 - Windows 가상 데스크톱 및 에스컬레이션 트랙 문제 해결에 대 한 개요는 [문제 해결 개요, 사용자 의견 및 지원](troubleshoot-set-up-overview.md)을 참조 하세요.
-- Windows 가상 데스크톱 환경에서 테 넌 트 및 호스트 풀을 만드는 동안 발생 하는 문제를 해결 하려면 [테 넌 트 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)를 참조 하세요.
+- Windows 가상 데스크톱 환경에서 Windows 가상 데스크톱 환경 및 호스트 풀을 만드는 동안 발생 하는 문제를 해결 하려면 [환경 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)를 참조 하세요.
 - Windows 가상 데스크톱에서 VM (가상 컴퓨터)을 구성 하는 동안 발생 하는 문제를 해결 하려면 [세션 호스트 가상 컴퓨터 구성](troubleshoot-vm-configuration.md)을 참조 하세요.
 - Windows 가상 데스크톱과 함께 PowerShell을 사용할 때 발생 하는 문제를 해결 하려면 [Windows 가상 데스크톱 PowerShell](troubleshoot-powershell.md)을 참조 하세요.
 - 문제 해결 자습서를 진행 하려면 [자습서: 템플릿 배포 리소스 관리자 문제 해결](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조 하세요.

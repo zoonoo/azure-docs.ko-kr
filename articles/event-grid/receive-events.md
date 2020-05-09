@@ -8,16 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 2c34a9e1463c49ab1822d1de6bf33e81f19cf003
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60803761"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629595"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP 엔드포인트에서 이벤트 수신
 
-이 아티클에서는 이벤트 구독으로부터 이벤트를 수신하기 위해 [HTTP 엔드포인트의 유효성을 검사](security-authentication.md#webhook-event-delivery)한 다음, 이벤트를 수신하고 역직렬화하는 방법을 설명합니다. 이 문서에서는 데모용으로 Azure Function을 사용하나 애플리케이션이 어디서 호스팅되느냐와 관계없이 동일한 개념이 적용됩니다.
+이 아티클에서는 이벤트 구독으로부터 이벤트를 수신하기 위해 [HTTP 엔드포인트의 유효성을 검사](webhook-event-delivery.md)한 다음, 이벤트를 수신하고 역직렬화하는 방법을 설명합니다. 이 문서에서는 데모용으로 Azure Function을 사용하나 애플리케이션이 어디서 호스팅되느냐와 관계없이 동일한 개념이 적용됩니다.
 
 > [!NOTE]
 > Event Grid로 Azure Function을 트리거할 때는 [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)를 사용하는 것이 **좋습니다**. 여기서 사용된 일반 웹후크 트리거는 데모용입니다.
@@ -28,7 +28,7 @@ HTTP 트리거 함수가 있는 함수 앱이 필요합니다.
 
 ## <a name="add-dependencies"></a>종속성 추가
 
-.NET에서 개발할 때는 함수에 `Microsoft.Azure.EventGrid` [Nuget 패키지](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)의 [종속성을 추가](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies)합니다. 이 문서의 예제에는 버전 1.4.0 이상이 필요합니다.
+.Net에서 개발 하는 경우 `Microsoft.Azure.EventGrid` [NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)에 대 한 함수에 [종속성을 추가](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) 합니다. 이 문서의 예제에는 버전 1.4.0 이상이 필요합니다.
 
 다른 언어에 대한 SDK는 [SDK 게시](./sdk-overview.md#data-plane-sdks) 참조에서 제공합니다. 이 패키지에는 `EventGridEvent`, `StorageBlobCreatedEventData`, `EventHubCaptureFileCreatedEventData` 같은 원시 이벤트 형식의 모델이 있습니다.
 
@@ -50,7 +50,7 @@ Azure Function에서 "파일 보기" 링크를 클릭하고(Azure 함수 포털�
 
 ## <a name="endpoint-validation"></a>엔드포인트 유효성 검사
 
-먼저 수행할 작업은 `Microsoft.EventGrid.SubscriptionValidationEvent` 이벤트를 처리하는 것입니다. 누군가가 이벤트를 구독할 때마다 Event Grid는 유효성 검사 이벤트를 데이터 페이로드에 `validationCode`가 있는 엔드포인트에 보냅니다. 엔드포인트는 응답 본문에서 [엔드포인트가 유효하며 자신의 소유임을 증명하기 위해](security-authentication.md#webhook-event-delivery) 이를 다시 에코하는 데 필요합니다. WebHook 트리거 함수가 아닌 [Event Grid 트리거](../azure-functions/functions-bindings-event-grid.md)를 사용할 경우 엔드포인트 유효성 검사가 자동으로 처리됩니다. 타사 API 서비스를 사용하는 경우(예: [Zapier](https://zapier.com) 또는 [IFTTT](https://ifttt.com/)) 프로그래밍 방식으로 유효성 검사 코드를 에코하지 못할 수 있습니다. 이러한 서비스의 경우 구독 유효성 검사 이벤트에 전송된 유효성 검사 URL을 사용하여 수동으로 구독의 유효성을 검사할 수 있습니다. `validationUrl` 속성에 해당 URL을 복사하고 REST 클라이언트 또는 웹 브라우저를 통해 GET 요청을 보냅니다.
+먼저 수행할 작업은 `Microsoft.EventGrid.SubscriptionValidationEvent` 이벤트를 처리하는 것입니다. 누군가가 이벤트를 구독할 때마다 Event Grid는 유효성 검사 이벤트를 데이터 페이로드에 `validationCode`가 있는 엔드포인트에 보냅니다. 엔드포인트는 응답 본문에서 [엔드포인트가 유효하며 자신의 소유임을 증명하기 위해](webhook-event-delivery.md) 이를 다시 에코하는 데 필요합니다. WebHook 트리거 함수가 아닌 [Event Grid 트리거](../azure-functions/functions-bindings-event-grid.md)를 사용할 경우 엔드포인트 유효성 검사가 자동으로 처리됩니다. 타사 API 서비스를 사용하는 경우(예: [Zapier](https://zapier.com) 또는 [IFTTT](https://ifttt.com/)) 프로그래밍 방식으로 유효성 검사 코드를 에코하지 못할 수 있습니다. 이러한 서비스의 경우 구독 유효성 검사 이벤트에 전송된 유효성 검사 URL을 사용하여 수동으로 구독의 유효성을 검사할 수 있습니다. `validationUrl` 속성에 해당 URL을 복사하고 REST 클라이언트 또는 웹 브라우저를 통해 GET 요청을 보냅니다.
 
 C#에서 `DeserializeEventGridEvents()` 함수는 Event Grid 이벤트를 역직렬화합니다. 이벤트 데이터를 StorageBlobCreatedEventData와 같은 적절한 형식으로 역직렬화합니다. `Microsoft.Azure.EventGrid.EventTypes` 클래스를 사용하여 지원되는 이벤트 형식 및 이름을 가져옵니다.
 

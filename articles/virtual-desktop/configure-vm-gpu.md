@@ -7,14 +7,20 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 8b675a78041b68210fa7583510582783c506c720
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aae3f8b1cfe224f0a948eb16bd6ee5120b19dde1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767034"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612081"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 GPU (그래픽 처리 장치) 가속 구성
+
+>[!IMPORTANT]
+>이 콘텐츠는 Azure Resource Manager Windows 가상 데스크톱 개체를 사용 하 여 스프링 2020 업데이트에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 2019 릴리스를 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md)를 참조 하세요.
+>
+> Windows 가상 데스크톱 스프링 2020 업데이트는 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에 사용 하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Windows 가상 데스크톱은 향상 된 앱 성능 및 확장성을 위해 GPU 가속 렌더링 및 인코딩을 지원 합니다. GPU 가속은 특히 그래픽이 많은 앱에 매우 중요 합니다.
 
@@ -26,7 +32,7 @@ Azure는 다양 한 [GPU 최적화 가상 머신 크기](/azure/virtual-machines
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>호스트 풀을 만들고, 가상 머신을 프로 비전 하 고, 앱 그룹을 구성 합니다.
 
-선택한 크기의 VM을 사용 하 여 새 호스트 풀을 만듭니다. 지침은 [자습서: Azure Marketplace 사용 하 여 호스트 풀 만들기](/azure/virtual-desktop/create-host-pools-azure-marketplace)를 참조 하세요.
+선택한 크기의 VM을 사용 하 여 새 호스트 풀을 만듭니다. 지침은 [자습서: Azure Portal을 사용 하 여 호스트 풀 만들기](/azure/virtual-desktop/create-host-pools-azure-marketplace)를 참조 하세요.
 
 Windows 가상 데스크톱은 다음과 같은 운영 체제에서 GPU 가속 렌더링 및 인코딩을 지원 합니다.
 
@@ -39,7 +45,7 @@ Windows 가상 데스크톱은 다음과 같은 운영 체제에서 GPU 가속 �
 
 Windows 가상 데스크톱에서 Azure N 시리즈 Vm의 GPU 기능을 활용 하려면 적절 한 그래픽 드라이버를 설치 해야 합니다. [지원 되는 운영 체제 및 드라이버](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) 의 지침에 따라 해당 하는 그래픽 공급 업체에서 수동으로 또는 Azure VM 확장을 사용 하 여 드라이버를 설치 합니다.
 
-Azure에서 배포 된 드라이버만 Windows 가상 데스크톱에서 지원 됩니다. Additionaly NVIDIA Gpu를 사용 하는 Azure Vm의 경우 Windows 가상 데스크톱에 대해 [NVIDIA 그리드 드라이버만](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) 지원 됩니다.
+Azure에서 배포 된 드라이버만 Windows 가상 데스크톱에서 지원 됩니다. 또한 NVIDIA Gpu를 사용 하는 Azure Vm의 경우 Windows 가상 데스크톱에 대해 [NVIDIA 그리드 드라이버만](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) 지원 됩니다.
 
 드라이버를 설치한 후에는 VM을 다시 시작 해야 합니다. 위 지침의 확인 단계를 사용 하 여 그래픽 드라이버가 성공적으로 설치 되었는지 확인 합니다.
 

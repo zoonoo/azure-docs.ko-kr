@@ -4,14 +4,14 @@ description: 이 문서에서는 Azure Automation를 사용 하 여 Azure Analys
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 7908b168adcaa00819990d7ced04ba4888d67d63
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: HT
+ms.openlocfilehash: bbbc2863e06b4602a4175d46bbe21414041583ba
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871306"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926564"
 ---
 # <a name="refresh-with-azure-automation"></a>Azure Automation을 사용하여 새로 고침
 
@@ -60,7 +60,7 @@ Azure Automation 및 PowerShell Runbook을 사용 하 여 Azure 분석 테이블
 
     ![자격 증명 만들기](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. 자격 증명에 대 한 세부 정보를 입력 합니다.  **사용자 이름**에 대해 **spn ClientId**를 입력 하 고 **암호**에 **spn 암호**를 입력 합니다.
+2. 자격 증명에 대 한 세부 정보를 입력 합니다. **사용자 이름**에 서비스 사용자 응용 프로그램 Id (appid)를 입력 하 고 **암호**에 서비스 사용자 암호를 입력 합니다.
 
     ![자격 증명 만들기](./media/analysis-services-refresh-azure-automation/7.png)
 
@@ -144,7 +144,7 @@ Azure Data Factory를 사용 하 여 runbook을 사용 하려면 먼저 runbook�
 **본문** 은 다음 속성을 포함 하는 JSON 문서입니다.
 
 
-|속성  |값  |
+|속성  |Value  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Azure Analysis Services 데이터베이스의 이름입니다. <br/> 예: Adventureworksdb.msi         |
 |**AnalysisServicesServer**     |Azure Analysis Services 서버 이름입니다. <br/> 예: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |

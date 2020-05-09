@@ -1,20 +1,20 @@
 ---
-title: 상업적 Marketplace에서 Azure Apps 제품에 대 한 검토 피드백 처리
-description: Microsoft 파트너 센터에서 상용 Marketplace 포털을 사용 하 여 Azure Marketplace, AppSource 또는 CSP (클라우드 솔루션 공급자) 프로그램을 통해 나열 하거나 판매 하기 위해 Azure Apps 제품에 대 한 검토 피드백을 처리 하는 방법입니다.
+title: Microsoft 상업적 marketplace에서 Azure Apps 제품에 대 한 검토 피드백을 처리 합니다.
+description: Microsoft 파트너 센터에서 상용 Marketplace 포털을 사용 하 여 Azure Marketplace, AppSource 또는 CSP (클라우드 솔루션 공급자) 프로그램을 통해 나열 하거나 판매할 Azure Apps 제품에 대 한 검토 피드백을 처리 하는 방법입니다.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 3932f3fc71dc6427b6cdf93d3a7bc58534a9981c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 464f4d5434c8c0b8615e24eb1a323ae66a52273c
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80279796"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744881"
 ---
-# <a name="handling-review-feedback"></a>검토 피드백 처리
+# <a name="handling-review-feedback-for-azure-apps-offer-before-publishing-in-the-azure-marketplace"></a>Azure Marketplace 게시 하기 전에 Azure Apps 제품에 대 한 검토 피드백을 처리 합니다.
 
 이 문서에서는 Microsoft Azure Marketplace 검토 팀이 사용하는 Azure DevOps 환경에 액세스하는 방법을 설명합니다. **Microsoft 검토** 단계 중에 Azure 애플리케이션 제품에서 심각한 문제가 발견되면 이 시스템에 로그인하여 해당 문제에 대한 자세한 정보(검토 피드백)를 볼 수 있습니다. 이러한 문제를 모두 해결한 후 Azure Marketplace에서 계속 게시하려면 제품을 다시 제출해야 합니다. 다음 다이어그램은 이 피드백 프로세스와 게시 프로세스 간의 관계를 보여 줍니다.
 

@@ -1,19 +1,20 @@
 ---
-title: 상업적 marketplace에서 지불 하기 | Azure Marketplace
-description: 상업적 marketplace에서 수익에 대 한 지불을 받는 방법에 대해 알아봅니다.
+title: Microsoft 상업적 marketplace에서 지불 하기
+description: Microsoft 상업적 marketplace에서 수익에 대 한 지불을 받는 방법에 대해 알아봅니다.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 3c75d5ccdd2d632fbc31d1be3faf6cbc6d3fb223
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 678c47fc345838f6d1e93ac397a4e54d1c61391f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275835"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780500"
 ---
-# <a name="getting-paid"></a>지급 받기
+# <a name="getting-paid-in-commercial-marketplace"></a>상업적 marketplace에서 지불 하기
+
 제품, 추가 기능 및 광고 소득에 대 한 지불을 받는 것에 대 한 몇 가지 중요 한 정보는 다음과 같습니다.
 
 > [!IMPORTANT]
@@ -40,18 +41,17 @@ ms.locfileid: "80275835"
 
 또한 특정 시장의 현지 통화로 선택한 무료 형식 가격을 입력할 수 있는 옵션도 제공 됩니다. 이 작업을 수행 하는 경우 새 가격으로 업데이트를 제출 하지 않으면 가격은 조정 되지 않습니다 (변환 요금이 변경 되는 경우에도). 
 
-선택한 가격은 고객이 지불 해야 하는 판매 또는 부가 가치 세금을 포함할 수 있습니다. 자세한 정보는 [유료 제품에 대 한 세금 세부 정보](tax-details-paid-transactions.md) 를 참조 하세요.
+선택한 가격은 고객이 지불 해야 하는 판매 또는 부가 가치 세금을 포함할 수 있습니다. 자세한 내용은 [유료 제품의 세금 세부 정보](tax-details-paid-transactions.md)를 참조 하세요.
 
 
 ## <a name="payout-reporting"></a>지급 보고
 
-지불 정보에 대 한 세부 정보에 액세스 하 고 [파트너 센터](https://partner.microsoft.com/dashboard)의 **지급 요약** 에서 보고서를 다운로드할 수 있습니다. 여기에 표시 된 정보 및 얻게 되는 금액을 범주화 하는 방법에 대 한 자세한 내용은 [지급 summary](payout-summary.md)를 참조 하세요.
+지불 정보에 대 한 세부 정보에 액세스 하 고 [파트너 센터](https://partner.microsoft.com/dashboard)의 **지급 요약** 에서 보고서를 다운로드할 수 있습니다. 여기에 표시 된 정보와 얻게 되는 금액을 범주화 하는 방법에 대 한 자세한 내용은 [지급 summary 개요](payout-summary-overview.md)를 참조 하세요.
 
 
-## <a name="payout-timeframe"></a>지급 기간
+## <a name="payout-time-frame"></a>지급 시간 프레임
 
-월 기준으로 지급 됩니다 (해당 결제 임계값이 충족 되 고 아래 설명 된 대로 지급을 보류 중으로 설정 하지 않은 경우). 일반적으로 해당 월의 15 일을 기준으로 지정 된 달의 지불을 보냅니다. 지불액은 일반적으로 지급 계정에 도달할 때까지 3 일에서 10 일까지 소요 됩니다. 자세한 내용은 [지불 임계값, 방법 및](payment-thresholds-methods-timeframes.md)기간을 참조 하세요.
-
+월 기준으로 지급 됩니다 (해당 결제 임계값이 충족 되 고 아래 설명 된 대로 지급을 보류 중으로 설정 하지 않은 경우). 일반적으로 해당 월의 15 일을 기준으로 지정 된 달의 지불을 보냅니다. 지불액은 일반적으로 지급 계정에 도달할 때까지 3 일에서 10 일까지 소요 됩니다. 자세한 내용은 [지불 임계값, 메서드 및 시간 프레임](payment-thresholds-methods-timeframes.md)을 참조 하세요.
 
 ##  <a name="payout-hold-status"></a>지급 보류 상태
 
@@ -63,12 +63,3 @@ ms.locfileid: "80275835"
 
 > [!NOTE]
 > **지급 보류 상태** 는 각 프로그램에 개별적으로 적용 됩니다 (Microsoft Store, 광고, Azure Marketplace 등). 모든 프로그램에 대 한 지불을 유지 하려는 경우 각 프로그램에 대해 개별적으로 지불을 유지 해야 합니다.
-
-
- 
-
- 
-
-
-
-

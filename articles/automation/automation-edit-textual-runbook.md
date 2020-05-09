@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2ef7db244057bc8b3b2e4d938b9f3bdd11c7940a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aef6a58d18c0d9c1b18915786dd6e3359c31eda0
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406036"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855785"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Azure Automation에서 텍스트 Runbook 편집
 
@@ -22,7 +22,7 @@ Azure Automation에서 텍스트 편집기를 사용하여 [PowerShell Runbook](
 
 텍스트 편집기에는 cmdlet, 자산 및 자식 Runbook에 대한 코드를 Runbook에 삽입하는 기능이 포함되어 있습니다. 코드를 직접 입력 하는 대신 사용 가능한 리소스 목록에서 선택할 수 있으며, 편집기에서 적절 한 코드를 runbook에 삽입 합니다.
 
-Azure Automation의 각 Runbook에는 초안과 게시 등 두 버전이 있습니다. Runbook의 초안 버전을 편집한 다음 실행할 수 있도록 게시합니다. 게시된 버전은 편집할 수 없습니다. 자세한 내용은 [Runbook 게시](manage-runbooks.md#publishing-a-runbook)를 참조 하세요.
+Azure Automation의 각 Runbook에는 초안과 게시 등 두 버전이 있습니다. Runbook의 초안 버전을 편집한 다음 실행할 수 있도록 게시합니다. 게시된 버전은 편집할 수 없습니다. 자세한 내용은 [Runbook 게시](manage-runbooks.md#publish-a-runbook)를 참조 하세요.
 
 이 문서에서는 이 편집기를 사용하여 다양한 기능을 수행하기 위한 상세 단계를 제공합니다. 이러한 기능은 [그래픽 runbook](automation-runbook-types.md#graphical-runbooks)에는 적용 되지 않습니다. 이러한 runbook을 사용 하려면 [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)을 참조 하세요.
 
@@ -84,7 +84,7 @@ Export-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automation
 
 ### <a name="change-the-contents-of-a-runbook-using-windows-powershell"></a>Windows PowerShell을 사용 하 여 runbook 내용 변경
 
-다음 샘플 명령에서는 스크립트 파일의 콘텐츠로 기존 Runbook 콘텐츠를 대체하는 방법을 보여줍니다. 이 내용은 [Windows PowerShell을 사용하여 스크립트 파일에서 Runbook을 가져오려면](manage-runbooks.md#importing-a-runbook)에서 설명한 것과 동일한 샘플 절차입니다.
+다음 샘플 명령에서는 스크립트 파일의 콘텐츠로 기존 Runbook 콘텐츠를 대체하는 방법을 보여줍니다. 
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"
@@ -105,5 +105,5 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 * [연결](automation-connections.md)
 * [자격 증명](automation-credentials.md)
 * [일정](automation-schedules.md)
-* [변수](automation-variables.md)
+* [variables](automation-variables.md)
 * [PowerShell cmdlet 참조](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)

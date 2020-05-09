@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: 3d9dec0065bb62821fcedcbc4f6e5b578c061caf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: e9f8fe17fa28cc5fcc4543bfb5e194bd3e7b837d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272462"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594100"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
 Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 Linux 환경에서 Apache Hadoop을 제공합니다. 대부분의 작업에 대해 Linux 설치에서 모든 다른 Hadoop으로 정확하게 작동해야 합니다. 이 문서를 알고 있어야 하는 특정 차이점을 호출합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계 대부분은 많은 시스템에 설치해야 할 수 있는 다음과 같은 유틸리티를 사용합니다.
 
@@ -95,21 +95,21 @@ Hadoop 관련 파일은 `/usr/hdp`의 클러스터 노드에서 찾을 수 있�
 
 ## <a name="hdfs-azure-storage-and-data-lake-storage"></a>HDFS, Azure Storage 및 Data Lake Storage
 
-대부분의 Hadoop 배포판에서 HDFS에 저장된 데이터는 클러스터의 머신에서 로컬 스토리지에 의해 되돌아갑니다. 계산 리소스에 대해 매시간 또는 분 단위로 요금이 부과 되는 클라우드 기반 솔루션의 경우 로컬 저장소를 사용 하는 데 비용이 많이 들 수 있습니다.
+대부분의 Hadoop 배포판에서 데이터는 HDFS에 저장 됩니다. HDFS는 클러스터에 있는 컴퓨터의 로컬 저장소에 의해 지원 됩니다. 계산 리소스에 대해 매시간 또는 분 단위로 요금이 부과 되는 클라우드 기반 솔루션의 경우 로컬 저장소를 사용 하는 데 비용이 많이 들 수 있습니다.
 
-HDInsight를 사용할 때는 Azure Blob Storage와, 선택적으로 Azure Data Lake Storage를 통해 데이터 파일이 확장성 있고 탄력적인 방식으로 클라우드에 저장됩니다. 이러한 서비스는 다음과 같은 이점을 제공합니다.
+HDInsight를 사용 하는 경우 데이터 파일은 Azure Blob Storage를 사용 하 여 클라우드에서 탄력적이 고 복원 가능한 방식으로 저장 되며 필요에 따라 Azure Data Lake Storage. 이러한 서비스는 다음과 같은 이점을 제공합니다.
 
 * 저렴한 장기 스토리지
 * 웹 사이트, 파일 업로드/다운로드 유틸리티, 다양한 언어 SDK 및 웹 브라우저와 같은 외부 서비스에 액세스할 수 있음
-* 대용량 파일 용량과 대규모 확장성 있는 스토리지
+* 대용량 파일 용량 및 대용량 저장소.
 
 자세한 내용은 [Blob 이해](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 및 [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)를 참조하세요.
 
-Azure Storage 또는 Data Lake Storage를 사용하는 경우 HDInsight에서 데이터에 액세스하기 위해 특별한 작업을 수행할 필요가 없습니다. 예를 들어 다음 명령은 Azure Storage 또는 Data Lake Storage에 저장 `/example/data` 되었는지 여부에 관계 없이 폴더에 있는 파일을 나열 합니다.
+Azure Storage 또는 Data Lake Storage를 사용하는 경우 HDInsight에서 데이터에 액세스하기 위해 특별한 작업을 수행할 필요가 없습니다. 예를 들어 다음 명령은 Azure Storage 또는 Data Lake Storage에 저장 `/example/data` 되어 있는지 폴더의 파일을 나열 합니다.
 
     hdfs dfs -ls /example/data
 
-HDInsight에서 데이터 스토리지 리소스(Azure Blob Storage 및 Azure Data Lake Storage)는 컴퓨팅 리소스와는 분리됩니다. 따라서 필요에 따라 계산을 수행하는 HDInsight 클러스터를 만들고 나중에 작업이 완료되면 클러스터를 삭제할 수 있습니다. 그 동안 데이터 파일은 클라우드 스토리지에서 필요한 시간 동안 안전하게 유지됩니다.
+HDInsight에서 데이터 스토리지 리소스(Azure Blob Storage 및 Azure Data Lake Storage)는 컴퓨팅 리소스와는 분리됩니다. 필요에 따라 계산을 수행 하는 HDInsight 클러스터를 만들고, 나중에 작업이 완료 되 면 클러스터를 삭제할 수 있습니다. 데이터 파일은 필요한 경우 클라우드 저장소에 안전 하 게 보관 됩니다.
 
 ### <a name="uri-and-scheme"></a><a name="URI-and-scheme"></a>URI 및 구성표
 
@@ -210,42 +210,7 @@ __Azure Data Lake Storage__를 사용하는 경우 다음 링크를 참조하여
 
 ## <a name="scaling-your-cluster"></a><a name="scaling"></a>클러스터 크기 조정
 
-클러스터 크기 조정 기능을 사용하면 클러스터에서 사용하는 데이터 노드 수를 동적으로 변경할 수 있습니다. 클러스터에서 다른 작업 또는 프로세스가 실행되는 동안 크기 조정 작업을 수행할 수 있습니다.  또한 [HDInsight 클러스터 크기 조정](./hdinsight-scaling-best-practices.md) 을 참조 하세요.
-
-다른 클러스터 종류는 다음과 같이 크기 조정에 영향을 받습니다.
-
-* **Hadoop**: 클러스터의 노드 수를 줄이면 클러스터 서비스 중 일부가 다시 시작됩니다. 크기 조정 작업을 수행하면 작업이 실행 중이거나 보류 중 상태가 되므로 크기 조정 작업이 완료되지 못하고 실패합니다. 작업이 완료되면 작업을 다시 제출할 수 있습니다.
-* **HBase**: 지역 서버는 크기 조정 작업을 완료한 후 몇 분 안에 자동으로 균형을 맞춥니다. 지역 서버를 수동으로 조정하려면 다음 단계를 사용합니다.
-
-    1. SSH를 사용하여 HDInsight 클러스터에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-
-    2. 다음을 사용하여 HBase 셸을 시작합니다.
-
-            hbase shell
-
-    3. HBase 셸이 로드되면 다음을 사용하여 지역 서버를 수동으로 조정합니다.
-
-            balancer
-
-* **Storm**: 크기 조정 작업을 수행한 후 실행 중인 모든 Storm 토폴로지 균형을 다시 맞추어야 합니다. 균형을 다시 조정하면 토폴로지를 새 클러스터의 노드 수에 따라 병렬 처리 설정을 다시 조정할 수 있습니다. 실행 중인 토폴로지의 균형을 다시 조정하려면 다음 옵션 중 하나를 사용합니다.
-
-    * **SSH**: 서버에 연결하고 다음 명령을 사용하여 토폴로지 균형을 다시 맞춥니다.
-
-            storm rebalance TOPOLOGYNAME
-
-        매개 변수를 지정하여 원래 토폴로지로 제공된 병렬 처리 힌트를 재정의할 수도 있습니다. 예를 들어 `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10`은 토폴로지를 5개 작업자 프로세스, 파란색 spout 구성 요소를 3개 실행자 및 노란색 bolt 구성 요소를 10개 실행자로 다시 구성합니다.
-
-    * **Storm UI**: Storm UI를 사용하여 토폴로지 균형을 다시 맞추려면 다음 단계를 사용합니다.
-
-        1. 웹 `https://CLUSTERNAME.azurehdinsight.net/stormui` 브라우저에서를 엽니다. 여기서 `CLUSTERNAME` 는 스톰 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 지정한 HDInsight 클러스터 관리자(관리자) 이름 및 암호를 입력합니다.
-        2. 균형을 다시 맞추려는 토폴로지를 선택한 다음 **균형 다시 맞추기** 단추를 선택합니다. 균형 재조정 작업이 수행되기 전에 지연 시간을 입력합니다.
-
-* **Kafka**: 크기 조정 작업 후 파티션 복제본의 균형을 다시 조정해야 합니다. 자세한 내용은 [HDInsight에서 Apache Kafka를 사용한 데이터의 고가용성](./kafka/apache-kafka-high-availability.md) 문서를 참조하세요.
-
-HDInsight 클러스터 크기 조정에 대한 자세한 내용은 다음을 참조하세요.
-
-* [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Azure CLI를 사용 하 여 HDInsight에서 Apache Hadoop 클러스터 관리](hdinsight-administer-use-command-line.md#scale-clusters)
+클러스터 크기 조정 기능을 사용하면 클러스터에서 사용하는 데이터 노드 수를 동적으로 변경할 수 있습니다. 클러스터에서 다른 작업이 나 프로세스가 실행 되는 동안 크기 조정 작업을 수행할 수 있습니다.  [HDInsight 클러스터 크기 조정](./hdinsight-scaling-best-practices.md)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Hue(또는 다른 Hadoop 구성 요소)를 어떻게 설치합니까?
 
@@ -258,7 +223,7 @@ HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 �
 
 ### <a name="jar-files"></a>Jar 파일
 
-일부 Hadoop 기술은 MapReduce 작업의 일부로 사용되거나 Pig 또는 Hive 내부에서 사용되는 함수를 포함하는 자체 포함된 jar 파일에 제공되어 있습니다. 설정이 필요 없는 경우가 많으며 만든 후에 클러스터에 업로드하여 바로 사용할 수 있습니다. 구성 요소에서 클러스터를 다시 이미징하여 유지할 수 있도록 하려면 클러스터의 기본 스토리지(WASB 또는 ADL)에 jar 파일을 저장할 수 있습니다.
+일부 Hadoop 기술은 자체 포함 jar 파일을 제공 합니다. 이러한 파일은 MapReduce 작업의 일부로 사용 되거나 Pig 또는 Hive 내부에서 사용 되는 함수를 포함 합니다. 설정이 필요 없는 경우가 많으며 만든 후에 클러스터에 업로드하여 바로 사용할 수 있습니다. 구성 요소가 클러스터의 이미지로 다시 설치를 유지 하는지 확인 하려면 클러스터 기본 저장소에 jar 파일을 저장 합니다.
 
 예를 들어 [Apache DataFu](https://datafu.incubator.apache.org/)의 최신 버전을 사용하려는 경우 프로젝트가 포함된 jar을 다운로드하고 HDInsight 클러스터에 업로드할 수 있습니다. 그런 다음 Pig 또는 Hive를 사용하는 방법에 대한 DataFu 설명서를 수행합니다.
 

@@ -1,20 +1,20 @@
 ---
-title: 작업 시간 외 Vm 시작/중지 솔루션 구성 Azure Automation
+title: 작업 시간 외 VM 시작/중지 솔루션 Azure Automation 구성
 description: 이 문서에서는 다양 한 사용 사례 또는 시나리오를 지원 하도록 작업 시간 외 VM 시작/중지 솔루션을 구성 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9842a736cf922e0490f2b0c8acb1d2e5833f3d6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 4cceb0d5ada82de73bc74c0ed408f8eb988ea8ec
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604771"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864269"
 ---
-# <a name="how-to-configure-startstop-vms-during-off-hours-solution"></a>업무 시간 외 Vm 시작/중지 솔루션을 구성 하는 방법
+# <a name="how-to-configure-startstop-vms-during-off-hours-solution"></a>작업 시간 외 VM 시작/중지 솔루션을 구성 하는 방법
 
-**작업 시간 외 Vm 시작/중지** 솔루션을 사용 하 여 다음을 수행할 수 있습니다.
+**작업 시간 외 VM 시작/중지** 솔루션을 사용 하 여 다음을 수행할 수 있습니다.
 
 - [Vm을 시작 및 중지 하도록 예약](#schedule)합니다.
 - [Azure 태그](#tags) (클래식 vm에서는 지원 되지 않음)를 사용 하 여 vm을 시작 하 고 오름차순으로 중지 하도록 예약 합니다.
@@ -125,7 +125,7 @@ Runbook **AutoStop_CreateAlert_Parent** 를 실행 하면 대상 구독, 리소�
 
 ### <a name="to-target-the-autostop-action-to-a-list-of-vms"></a>Vm 목록에 대해 autostop 작업을 대상으로 하려면
 
-1. 새 [일정](shared-resources/schedules.md#creating-a-schedule) 을 만들고 **AutoStop_CreateAlert_Parent** runbook에 연결 하 여 `VMList` 매개 변수에 쉼표로 구분 된 VM 이름 목록을 추가 합니다.
+1. 새 [일정](shared-resources/schedules.md#create-a-schedule) 을 만들고 **AutoStop_CreateAlert_Parent** runbook에 연결 하 여 `VMList` 매개 변수에 쉼표로 구분 된 VM 이름 목록을 추가 합니다.
 
 2. 필요에 따라 자동 종료에서 일부 Vm을 제외 하려는 경우 쉼표로 구분 된 VM 이름 목록을 `External_ExcludeVMNames` 변수에 추가할 수 있습니다.
 
@@ -180,7 +180,7 @@ VM이 실행 될 때 시작/중지 솔루션에 포함 되도록 하기 위해 �
 
 4. **매개 변수 및 실행 설정** 을 선택 하 고 **작업** 필드를 **중지**로 설정 합니다.
 
-5. **확인** 을 선택하여 변경 내용을 저장합니다.
+5. **확인**을 선택하여 변경 내용을 저장합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
