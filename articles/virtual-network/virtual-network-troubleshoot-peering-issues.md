@@ -15,16 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 662619e101b45d1dd8b34ea97e31f214b254124a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20580edb84a8c983c2342e6a5904c75a0986a3d7
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521875"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801572"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>가상 네트워크 피어링 문제 해결
+<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=457b3ba7-7ac5-93be-981c-677553ad39dd" target='_blank'>Start</a></span><span class="has-padding-small">가상 에이전트를 사용 하 여 <b>자동 진단을</b> 실행 하 여 문제를 빠르게 해결 합니다.</span> <span class="has-padding-small"> <sub>Privacy Statement</sub> 개인정보 <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
 
-이 문제 해결 가이드에서는 대부분의 [가상 네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 문제를 해결 하는 데 유용한 단계를 제공 합니다.
+이 문제 해결 가이드에서는 대부분의 [가상 네트워크 피어 링](virtual-network-peering-overview.md) 문제를 해결 하는 데 유용한 단계를 제공 합니다.
 
 ![가상 네트워크 피어 링 다이어그램](./media/virtual-network-troubleshoot-peering-issues/4489538_en_1.png)
 

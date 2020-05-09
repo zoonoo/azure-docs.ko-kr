@@ -9,13 +9,13 @@ ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: b777e6a45bdfe78889366982a6c28e10e21c4fbc
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/08/2020
+ms.openlocfilehash: 2161a9e4460526113aaf89609b72250a09fc6af3
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857005"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891211"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 비용 계획 및 관리
 
@@ -63,7 +63,7 @@ Azure Machine Learning에서 리소스를 사용 하는 경우 비용이 발생 
 
 Machine Learning에 대 한 별도의 서비스 영역은 표시 되지 않습니다.  대신 Machine Learning 작업 영역에 추가 된 다양 한 리소스를 볼 수 있습니다.
 
-## <a name="use-amlcompute"></a>AmlCompute 사용
+## <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Azure Machine Learning 계산 클러스터 사용 (AmlCompute)
 
 지속적으로 변화 하는 데이터를 통해 정확한 모델을 유지 하기 위해 빠르고 효율적인 모델 학습 및 재 학습을 수행 해야 합니다. 그러나 지속적인 교육은 특히 Gpu의 심층 학습 모델에 대 한 비용으로 제공 됩니다. 
 
@@ -138,5 +138,7 @@ Azure Machine Learning Compute는 기본적으로 예약 된 인스턴스를 지
 
 ## <a name="next-steps"></a>다음 단계
 
-* [비용 분석](../cost-management-billing/costs/quick-acm-cost-analysis.md)으로 비용 관리에 대해 자세히 알아보세요.
-* [Azure Machine Learning 계산](how-to-set-up-training-targets.md#amlcompute)에 대해 자세히 알아보세요.
+다음에 대해 자세히 알아봅니다.
+* [리소스 할당량 관리 및 증가](how-to-manage-quotas.md)
+* [ [비용 분석](../cost-management-billing/costs/quick-acm-cost-analysis.md)을 사용 하 여 비용 관리.
+* [계산을 Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute)합니다.

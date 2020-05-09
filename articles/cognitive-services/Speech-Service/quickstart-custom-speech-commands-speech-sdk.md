@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 9e324af0b90f595b5b7af2a417a562efb193d854
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 186b684cc7e4442d1a8ce14f06e16c839e117a26
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76156780"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872502"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>빠른 시작: 음성 SDK (미리 보기)를 사용 하 여 사용자 지정 명령 응용 프로그램에 연결
 
@@ -24,19 +24,20 @@ ms.locfileid: "76156780"
 이 문서에서는 다음을 수행 합니다.
 
 - 사용자 지정 명령 응용 프로그램 게시 및 응용 프로그램 식별자 가져오기 (앱 ID)
-- 음성 SDK를 사용 하 여 클라이언트 앱을 만들어 사용자 지정 명령 응용 프로그램과 통신할 수 있도록 합니다.
+- Speech SDK를 사용 하 여 사용자 지정 명령 응용 프로그램과 통신할 수 있도록 하는 UWP (유니버설 Windows 플랫폼) 클라이언트 앱 만들기
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 완료 하려면 사용자 지정 명령 응용 프로그램이 필요 합니다. 사용자 지정 명령 응용 프로그램을 아직 만들지 않은 경우 이러한 이전 빠른 시작에서 수행할 수 있습니다.
-
-- [빠른 시작: 사용자 지정 명령 만들기 (미리 보기)](./quickstart-custom-speech-commands-create-new.md)
-- [빠른 시작: 매개 변수를 사용 하 여 사용자 지정 명령 만들기 (미리 보기)](./quickstart-custom-speech-commands-create-parameters.md)
+> [!div class = "checklist"]
+> * [빠른 시작: 사용자 지정 명령 만들기 (미리 보기)](./quickstart-custom-speech-commands-create-new.md)
+> * [빠른 시작: 매개 변수를 사용 하 여 사용자 지정 명령 만들기 (미리 보기)](./quickstart-custom-speech-commands-create-parameters.md)
 
 다음도 필요 합니다.
-
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Speech Service에 대한 Azure 구독 키. [무료로 다운로드](get-started.md) 하거나 [Azure Portal](https://portal.azure.com) 에서 만드세요.
+> [!div class = "checklist"]
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * Speech Service에 대한 Azure 구독 키. [무료로 다운로드](get-started.md) 하거나 [Azure Portal](https://portal.azure.com) 에서 만드세요.
+> * [디바이스를 개발에 사용하도록 설정](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="optional-get-started-fast"></a>선택 사항: 빠르게 시작
 
@@ -44,12 +45,13 @@ ms.locfileid: "76156780"
 
 ## <a name="step-1-publish-custom-commands-application"></a>1 단계: 사용자 지정 명령 응용 프로그램 게시
 
-1. [이전에 만든 사용자 지정 명령 응용 프로그램](./quickstart-custom-speech-commands-create-new.md) 을 열고 **게시** 를 선택 합니다.
+1. [이전에 만든 사용자 지정 명령 응용 프로그램 (미리 보기)](./quickstart-custom-speech-commands-create-new.md) 을 열고 **게시** 를 선택 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![애플리케이션 게시](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
 1. 나중에 사용 하기 위해 게시 알림에서 앱 ID를 복사 합니다.
+1. 나중에 사용 하기 위해 음성 리소스 키를 복사 합니다.
 
 ## <a name="step-2-create-a-visual-studio-project"></a>2 단계: Visual Studio 프로젝트 만들기
 
@@ -129,7 +131,7 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
 
 1. **솔루션 탐색기**에서 코드 숨겨진 소스 파일 `MainPage.xaml.cs` (아래 `MainPage.xaml`에 그룹화 됨)을 엽니다.
 
-1. 파일의 내용을 다음 코드로 바꿉니다.
+1. 파일의 내용을 다음 코드로 바꿉니다. 
 
    ```csharp
    using Microsoft.CognitiveServices.Speech;
@@ -298,6 +300,11 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
        }
    }
    ```
+    > [!NOTE]
+    > "' Object ' 형식이 참조 되지 않은 어셈블리에 정의 되어 있습니다." 라는 오류 메시지가 표시 되는 경우
+    > 1. 솔루션을 마우스 오른쪽 단추로 클라이언트 합니다.
+    > 1. **솔루션에 대 한 NuGet 패키지 관리**를 선택 하 고 **업데이트** 를 선택 합니다. 
+    > 1. 업데이트 목록에 **microsoft.netcore.universalwindowsplatform** 이 표시 되 면 microsoft.netcore.universalwindowsplatform를 최신 버전으로 업데이트 **합니다** .
 
 1. 의 메서드 본문에 다음 코드를 추가 합니다.`InitializeDialogServiceConnector`
 
@@ -419,3 +426,6 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
 > [!div class="nextstepaction"]
 > [방법: 음성 SDK를 사용 하 여 클라이언트에서 명령 수행 (미리 보기)](./how-to-custom-speech-commands-fulfill-sdk.md)
 > [방법: 사용자 지정 명령 매개 변수에 유효성 검사 추가 (미리 보기)](./how-to-custom-speech-commands-validations.md)
+
+## <a name="sample-source-code"></a>샘플 소스 코드
+[GitHub에서 VoiceAssistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant) 의 클라이언트 샘플 코드를 확인 하세요.

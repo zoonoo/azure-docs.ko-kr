@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/02/2020
-ms.openlocfilehash: fcb837af85a54102e8c9eafc33249af9dba6b5ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4210352a9d8cd3cd9cb9afda7d9a4798d96f44b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631411"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982890"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Azure Machine Learning 모델 interpretability
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -72,19 +72,19 @@ SDK에서 클래스 및 메서드를 사용 하 여 다음을 수행할 수 있�
 
  `azureml-interpret`에서는 해석 된 모델을 학습 하 고 블랙 박스 AI 시스템을 설명 하는 데 도움이 되는 오픈 소스 python 패키지인 [해석 커뮤니티](https://github.com/interpretml/interpret-community/)에서 개발한 interpretability 기술을 사용 합니다. [해석-커뮤니티](https://github.com/interpretml/interpret-community/) 는이 SDK의 지원 되는 explainers 호스트 역할을 하며 현재 다음 interpretability 기술을 지원 합니다.
 
-|Interpretability 기술|Description|Type|
+|Interpretability 기술|Description|형식|
 |--|--|--------------------|
-|1. SHAP 트리 설명| [Shap](https://github.com/slundberg/shap)의 tree 설명는 트리의 트리와 관련 된 다항식 TIME FAST shap 값 예측 알고리즘을 **중심으로 합니다.**|모델 관련|
-|2. SHAP 심층 설명| [Shap](https://github.com/slundberg/shap)의 설명에 따라 deep 설명 "는 [SHAP nips 용지](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions)에 설명 된 DeepLIFT와의 연결을 기반으로 하는 심층 학습 모델의 shap 값에 대 한 고속 근사값 알고리즘입니다. TensorFlow 백 엔드를 사용 하는 **TensorFlow** 모델 및 **keras** 모델이 지원 됩니다 (PyTorch에 대 한 예비 지원도 있습니다.).|모델 관련|
-|3. SHAP 선형 설명| [Shap](https://github.com/slundberg/shap)의 선형 설명는 **선형 모델**에 대해 shap 값을 계산 하 고, 선택적으로 기능 간 상관 관계를 고려 합니다.|모델 관련|
-|4. SHAP 커널 설명| [Shap](https://github.com/slundberg/shap)의 커널 설명는 특별히 가중치가 적용 된 로컬 선형 회귀를 사용 하 여 **모든 모델**에 대 한 shap 값을 예측 합니다.|모델 독립적|
-|5. 모방 설명 (전역 서로게이트)| 설명 모방은 블랙 박스 모델을 모방 하기 위해 [전역 서로게이트 모델](https://christophm.github.io/interpretable-ml-book/global.html) 을 학습 하는 아이디어를 기반으로 합니다. 전역 서로게이트 모델은 **모든 블랙 박스 모델** 의 예측을 최대한 정확 하 게 예측 하도록 학습 된 본질적으로 해석 되는 모델입니다. 데이터 과학자은 서로게이트 모델을 해석 하 여 블랙 박스 모델에 대 한 결론을 그릴 수 있습니다. 다음 해석 가능 모델 중 하나를 서로게이트 모델 (LightGBM (LGBMExplainableModel), 선형 회귀 (LinearExplainableModel), 추계 explainable) 및 의사 결정 트리 (SGDExplainableModel)로 사용할 수 있습니다.|모델 독립적|
-|6. PFI (순열 기능 중요도 설명)| 순열 기능 중요도는 [Breiman의 임의 포리스트 용지](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (섹션 10 참조)에서 설명 하는 분류 및 회귀 모델을 설명 하는 데 사용 되는 기술입니다. 높은 수준에서 작동 방식은 전체 데이터 집합에 대해 한 번에 하나의 기능을 임의로 순서 섞기 하 고 관심 있는 성능 메트릭이 변경 되는 정도를 계산 하는 것입니다. 변화가 클수록 해당 기능이 중요한 것입니다. PFI는 **기본 모델** 의 전체 동작을 설명할 수 있지만 개별 예측에 대해서는 설명 하지 않습니다. |모델 독립적|
+|SHAP 트리 설명| [Shap](https://github.com/slundberg/shap)의 tree 설명는 트리의 트리와 관련 된 다항식 TIME FAST shap 값 예측 알고리즘을 **중심으로 합니다.**|모델 관련|
+|SHAP 심층 설명| SHAP의 설명에 따라 Deep 설명 "는 [SHAP NIPS 용지](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions)에 설명 된 DeepLIFT와의 연결을 기반으로 하는 심층 학습 모델의 shap 값에 대 한 고속 근사값 알고리즘입니다. TensorFlow 백 엔드를 사용 하는 **TensorFlow** 모델 및 **keras** 모델이 지원 됩니다 (PyTorch에 대 한 예비 지원도 있습니다.).|모델 관련|
+|SHAP 선형 설명| SHAP의 선형 설명는 **선형 모델**에 대해 shap 값을 계산 하 고, 선택적으로 기능 간 상관 관계를 고려 합니다.|모델 관련|
+|SHAP 커널 설명| SHAP의 커널 설명는 특별히 가중치가 적용 된 로컬 선형 회귀를 사용 하 여 **모든 모델**에 대 한 shap 값을 예측 합니다.|모델 독립적|
+|설명 모방 (전역 서로게이트)| 설명 모방은 블랙 박스 모델을 모방 하기 위해 [전역 서로게이트 모델](https://christophm.github.io/interpretable-ml-book/global.html) 을 학습 하는 아이디어를 기반으로 합니다. 전역 서로게이트 모델은 **모든 블랙 박스 모델** 의 예측을 최대한 정확 하 게 예측 하도록 학습 된 본질적으로 해석 되는 모델입니다. 데이터 과학자은 서로게이트 모델을 해석 하 여 블랙 박스 모델에 대 한 결론을 그릴 수 있습니다. 다음 해석 가능 모델 중 하나를 서로게이트 모델 (LightGBM (LGBMExplainableModel), 선형 회귀 (LinearExplainableModel), 추계 explainable) 및 의사 결정 트리 (SGDExplainableModel)로 사용할 수 있습니다.|모델 독립적|
+|순열 기능 중요도 설명 (PFI)| 순열 기능 중요도는 [Breiman의 임의 포리스트 용지](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (섹션 10 참조)에서 설명 하는 분류 및 회귀 모델을 설명 하는 데 사용 되는 기술입니다. 높은 수준에서 작동 방식은 전체 데이터 집합에 대해 한 번에 하나의 기능을 임의로 순서 섞기 하 고 관심 있는 성능 메트릭이 변경 되는 정도를 계산 하는 것입니다. 변화가 클수록 해당 기능이 중요한 것입니다. PFI는 **기본 모델** 의 전체 동작을 설명할 수 있지만 개별 예측에 대해서는 설명 하지 않습니다. |모델 독립적|
 
 
 
 
-위에서 설명한 interpretability 기술 외에도 이라는 `TabularExplainer`다른 [shap 기반 설명](https://github.com/slundberg/shap)을 지원 합니다. 모델에 따라은 지원 `TabularExplainer` 되는 shap explainers 중 하나를 사용 합니다.
+위에서 설명한 interpretability 기술 외에도 이라는 `TabularExplainer`다른 shap 기반 설명을 지원 합니다. 모델에 따라은 지원 `TabularExplainer` 되는 shap explainers 중 하나를 사용 합니다.
 
 * 모든 트리 기반 모델에 대 한 TreeExplainer
 * DNN 모델에 대 한 DeepExplainer
@@ -120,4 +120,6 @@ Azure Machine Learning 계산에 대 한 설명을 원격으로 실행 하 고 �
 
 ## <a name="next-steps"></a>다음 단계
 
-로컬 및 Azure Machine Learning 원격 계산 리소스 모두에 대 한 모델 학습에 대해 interpretability를 사용 하도록 설정 [하는 방법을](how-to-machine-learning-interpretability-aml.md) 참조 하세요. 추가 시나리오는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) 을 참조 하세요.
+- 로컬 및 Azure Machine Learning 원격 계산 리소스 모두에 대 한 모델 학습에 대해 interpretability를 사용 하도록 설정 [하는 방법을](how-to-machine-learning-interpretability-aml.md) 참조 하세요. 
+- 추가 시나리오는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) 을 참조 하세요. 
+- Interpretability for text 시나리오에 관심이 있는 경우 NLP에 대 한 interpretability 기술에 대 한 소개- [텍스트 해석](https://github.com/interpretml/interpret-text) [-커뮤니티에서 해석](https://github.com/interpretml/interpret-community/)하는 관련 오픈 소스 리포지토리를 참조 하세요. `azureml.interpret`패키지는 현재 이러한 기술을 지원 하지 않지만 [텍스트 분류의 예제 전자 필기장](https://github.com/interpretml/interpret-text/blob/master/notebooks/text_classification/text_classification_classical_text_explainer.ipynb)을 사용 하 여 시작할 수 있습니다.

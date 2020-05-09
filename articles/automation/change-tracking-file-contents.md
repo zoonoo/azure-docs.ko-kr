@@ -5,27 +5,27 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7dc218416e3b91998a6f06a62670ff8d2158d533
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 8ca1bd7a724d3256bc2e171ce39fd6a06e2e5935
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509148"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779300"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 관리
 
 추적할 새 파일 또는 레지스트리 키를 추가 하면 Azure Automation [변경 내용 추적 및 인벤토리](change-tracking.md) 기능을 사용 하도록 설정할 수 있습니다. 이 문서에는이 기능을 사용 하는 절차가 포함 되어 있습니다.
 
-## <a name="enable-the-full-change-tracking-and-inventory-solution"></a>전체 변경 내용 추적 및 인벤토리 솔루션을 사용 하도록 설정
+## <a name="enable-the-full-change-tracking-and-inventory-feature"></a>전체 변경 내용 추적 및 인벤토리 기능 사용
 
-[AZURE SECURITY CENTER FIM (파일 무결성 모니터링)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)을 사용 하도록 설정한 경우 아래에 설명 된 대로 전체 변경 내용 추적 및 인벤토리 솔루션을 사용할 수 있습니다. 이 프로세스에서는 설정이 제거 되지 않습니다.
+[AZURE SECURITY CENTER FIM (파일 무결성 모니터링)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)을 사용 하도록 설정한 경우 아래에 설명 된 대로 전체 변경 내용 추적 및 인벤토리 기능을 사용할 수 있습니다. 이 프로세스에서는 설정이 제거 되지 않습니다.
 
 > [!NOTE]
-> 전체 변경 내용 추적 및 인벤토리 솔루션을 사용 하도록 설정 하면 추가 요금이 발생할 수 있습니다. [Automation 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조 하세요.
+> 전체 변경 내용 추적 및 인벤토리 기능을 사용 하도록 설정 하면 추가 요금이 발생할 수 있습니다. [Automation 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조 하세요.
 
 1. 작업 영역으로 이동 하 여 [설치 된 모니터링 솔루션 목록](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions)에서 해당 작업 영역을 찾아 모니터링 솔루션을 제거 합니다.
 2. 솔루션 이름을 클릭 하 여 요약 페이지를 열고 [모니터링 솔루션 제거](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution)에 설명 된 대로 **삭제**를 클릭 합니다.
-3. 솔루션을 다시 사용 하도록 설정 하려면 Automation 계정으로 이동 하 고 **구성 관리**아래에서 **변경 내용 추적** 을 선택 합니다.
+3. 변경 내용 추적 및 인벤토리를 다시 사용 하도록 설정 하려면 Automation 계정으로 이동 하 고 **구성 관리**아래에서 **변경 내용 추적** 을 선택 합니다.
 4. Log Analytics 작업 영역 및 Automation 계정을 선택 하 고 작업 영역 설정을 확인 한 다음 **사용**을 클릭 합니다.
 
 ## <a name="onboard-machines-to-change-tracking-and-inventory"></a><a name="onboard"></a>변경 내용 추적 및 인벤토리에 컴퓨터 등록
@@ -150,7 +150,7 @@ ms.locfileid: "82509148"
 
 변경 레코드에 대 한 Azure Monitor 로그에 대해 다양 한 검색을 수행할 수 있습니다. 변경 내용 추적 페이지가 열려 있는 상태에서 **Log Analytics** 를 클릭 하 여 로그 페이지를 엽니다. 다음 표에서는 변경 레코드에 대 한 샘플 로그 검색을 제공 합니다.
 
-|쿼리  |Description  |
+|쿼리  |설명  |
 |---------|---------|
 |ConfigurationData<br>&#124; 여기서 ConfigDataType = = "Microsoft services" 및 SvcStartupType = = "Auto"<br>&#124; where SvcState == "중지됨"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | 자동으로 설정 되었지만 중지 된 것으로 보고 된 Microsoft 서비스에 대 한 최신 인벤토리 레코드를 표시 합니다. 결과는 지정 된 소프트웨어 이름 및 컴퓨터에 대 한 최신 레코드로 제한 됩니다.    |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "소프트웨어" and ChangeCategory == "제거됨"<br>&#124; order by TimeGenerated desc|제거 되는 소프트웨어에 대 한 변경 레코드를 표시 합니다.|
