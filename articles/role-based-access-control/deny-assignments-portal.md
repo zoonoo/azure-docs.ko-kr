@@ -1,6 +1,6 @@
 ---
-title: Azure Portal를 사용 하 여 Azure 리소스에 대 한 거부 할당 나열
-description: Azure Portal를 사용 하 여 특정 범위에서 특정 Azure 리소스 작업에 대 한 액세스가 거부 된 사용자, 그룹, 서비스 사용자 및 관리 되는 id를 나열 하는 방법에 대해 알아봅니다.
+title: Azure Portal를 사용 하 여 Azure deny 할당 나열-Azure RBAC
+description: Azure Portal 및 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 특정 범위에서 특정 Azure 리소스 작업에 대 한 액세스가 거부 된 사용자, 그룹, 서비스 사용자 및 관리 되는 id를 나열 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,25 +14,25 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4db76e5c6191457346ca1f95678cf73843334d3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97c03d417f8bf123de3332142344f292de00e3b2
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77137434"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734113"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 리소스에 대 한 거부 할당 나열
+# <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure deny 할당 나열
 
-[할당 거부](deny-assignments.md) 는 역할 할당에서 액세스 권한을 부여 하는 경우에도 사용자가 특정 Azure 리소스 작업을 수행 하지 못하도록 차단 합니다. 이 문서에서는 Azure Portal를 사용 하 여 거부 할당을 나열 하는 방법을 설명 합니다.
+[Azure 거부 할당](deny-assignments.md) 은 사용자가 역할 할당을 통해 액세스 권한을 부여 하는 경우에도 특정 Azure 리소스 작업을 수행 하지 못하도록 차단 합니다. 이 문서에서는 Azure Portal를 사용 하 여 거부 할당을 나열 하는 방법을 설명 합니다.
 
 > [!NOTE]
-> 사용자 고유의 거부 할당을 직접 만들 수는 없습니다. 거부 할당을 만드는 방법에 대 한 자세한 내용은 [거부 할당](deny-assignments.md)을 참조 하세요.
+> 사용자 고유의 거부 할당을 직접 만들 수는 없습니다. 거부 할당을 만드는 방법에 대 한 자세한 내용은 [Azure 거부 할당](deny-assignments.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 거부 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
-- `Microsoft.Authorization/denyAssignments/read`사용 권한은 [Azure 리소스에 대 한 대부분의 기본 제공 역할](built-in-roles.md)에 포함 되어 있습니다.
+- `Microsoft.Authorization/denyAssignments/read`사용 권한은 대부분의 [Azure 기본 제공 역할](built-in-roles.md)에 포함 되어 있습니다.
 
 ## <a name="list-deny-assignments"></a>거부 할당 목록
 
@@ -56,7 +56,7 @@ ms.locfileid: "77137434"
 
     |  |  |
     | --- | --- |
-    | **이름** | 거부 할당의 이름입니다. |
+    | **Name** | 거부 할당의 이름입니다. |
     | **주체 유형** | 사용자, 그룹, 시스템 정의 그룹 또는 서비스 주체입니다. |
     | **거부됨**  | 거부 할당에 포함된 보안 주체의 이름입니다. |
     | **Id** | 거부 할당의 고유 식별자입니다. |
@@ -90,9 +90,9 @@ ms.locfileid: "77137434"
 
     ![거부 할당 - 거부된 사용 권한](./media/deny-assignments-portal/deny-assignment-denied-permissions.png)
 
-    | 동작 유형 | Description |
+    | 동작 유형 | 설명 |
     | --- | --- |
-    | **작업**  | 거부된 관리 작업입니다. |
+    | **actions**  | 거부된 관리 작업입니다. |
     | **NotActions** | 거부된 관리 작업에서 제외되는 관리 작업입니다. |
     | **DataActions**  | 거부된 데이터 작업입니다. |
     | **NotDataActions** | 거부된 데이터 작업에서 제외되는 데이터 작업입니다. |
@@ -109,5 +109,5 @@ ms.locfileid: "77137434"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 리소스에 대한 거부 할당 이해](deny-assignments.md)
-* [Azure PowerShell를 사용 하 여 Azure 리소스에 대 한 거부 할당 나열](deny-assignments-powershell.md)
+* [Azure 거부 할당 이해](deny-assignments.md)
+* [Azure PowerShell를 사용 하 여 Azure 거부 할당 나열](deny-assignments-powershell.md)
