@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 112413720f969474369555a74bc89846666e2ef9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a20884c33d5232661e858e0b3ec722f139825aea
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77663456"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928009"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>VM용 Azure Monitor Map 기능과 System Center Operations Manager 통합
 
@@ -108,8 +108,8 @@ Log Analytics 작업 영역이 연결 되 면 Operations Manager 운영 콘솔�
 
 **서비스 맵 개요** 창(**관리** 창 --> Operations Management Suite**Operations Management Suite** > **서비스 맵**)을 통해 구성된 작업 영역을 편집하거나 삭제할 수 있습니다.
 
->[!NOTE]
->[Operations Management Suite은 서비스 컬렉션](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand)로, Log Analytics를 포함했으며 현재는 [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md)의 일부입니다.
+> [!NOTE]
+> [Operations Management Suite은 서비스 컬렉션](../terminology.md#april-2018---retirement-of-operations-management-suite-brand)로, Log Analytics를 포함했으며 현재는 [Azure Monitor](../overview.md)의 일부입니다.
 
 현재 릴리스에서는 Log Analytics 작업 영역을 하나만 구성할 수 있습니다.
 

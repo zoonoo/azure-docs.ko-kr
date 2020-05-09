@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: afc79badd19fa180e631f1f8fa9735567a0b1e33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83cb62efd98615b7eda7f52ebafe95dedc282355
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74978716"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930457"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>업데이트 리소스 작업을 사용하여 Azure Machine Learning 모델 업데이트
 
@@ -44,7 +44,7 @@ ms.locfileid: "74978716"
 1. [Azure Machine Learning Studio (클래식)](https://studio.azureml.net)에서 실험을 만듭니다.
 2. 모델에 만족 하는 경우 Azure Machine Learning Studio (클래식)를 사용 하 여 **학습 실험** 및 점수 매기기/**예측 실험**에 대 한 웹 서비스를 게시 합니다.
 
-다음 표에서는 이 예제에 사용된 웹 서비스에 대해 설명합니다.  자세한 내용은 [프로그래밍 방식으로 Machine Learning 모델 다시 학습](../../machine-learning/machine-learning-retrain-models-programmatically.md)을 참조하세요.
+다음 표에서는 이 예제에 사용된 웹 서비스에 대해 설명합니다.  자세한 내용은 [프로그래밍 방식으로 다시 학습 Machine Learning Studio (클래식) 모델](../../machine-learning/studio/retrain-machine-learning-model.md) 을 참조 하세요.
 
 - **학습 웹 서비스** - 학습 데이터를 수신하고 학습된 모델을 생성합니다. 재학습의 출력은 Azure Blob Storage에서 .ilearner 파일입니다. 웹 서비스로 학습 실험을 게시할 때 사용자에 대한 **기본 엔드포인트** 가 자동으로 만들어집니다. 더 많은 엔드포인트를 만들 수 있지만 예제에서는 기본 엔드포인트만 사용합니다.
 - **점수 매기기 웹 서비스** - 레이블이 지정되지 않은 데이터 예제를 수신하고 예측을 합니다. 예측의 출력은 실험의 구성에 따라 .csv 파일 또는 Azure SQL 데이터베이스의 행과 같은 다양한 형태를 포함할 수 있습니다. 웹 서비스로 예측 실험을 게시할 때 사용자에 대한 기본 엔드포인트가 자동으로 만들어집니다. 

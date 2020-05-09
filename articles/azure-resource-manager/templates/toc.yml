@@ -46,6 +46,8 @@
           href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Service Bus 메시징
           href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Site Recovery
+          href: ../../site-recovery/quickstart-create-vault-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: SQL Database
           href: ../../sql-database/sql-database-single-database-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 가상 머신 확장 집합 - Linux
@@ -247,6 +249,8 @@
       items:
         - name: 파이프라인이 있는 VS 프로젝트
           href: add-template-to-azure-pipelines.md
+        - name: 배포 - GitHub Actions
+          href: deploy-github-actions.md
     - name: 템플릿 내보내기
       href: export-template-portal.md
     - name: 배포 기록 보기

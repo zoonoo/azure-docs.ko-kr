@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 28abf6fca0933158b067dda7ab54af93dac4b7d9
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: HT
+ms.openlocfilehash: ddbb1c6fd705e658867c0d594981e87bc8cd6afe
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872426"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930491"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -146,11 +146,11 @@ X.509 인증서를 사용 하 여 장치를 대량 연결 하려면 먼저 CSV �
 
 ### <a name="connect-devices-that-use-x509-certificates-without-registering"></a>등록 하지 않고 x.509 인증서를 사용 하는 장치 연결
 
-1. IoT Central 응용 프로그램에 [루트 또는 중간 X. x.509 인증서를 추가 하 고 확인](#connect-devices-using-x509-certificates) 합니다. (#connect 장치-x509-인증서 사용)
+1. IoT Central 응용 프로그램에 [루트 또는 중간 X. x.509 인증서를 추가 하 고 확인](#connect-devices-using-x509-certificates) 합니다.
 
 1. IoT Central 응용 프로그램에 추가한 루트 또는 중간 인증서를 사용 하 여 장치에 대 한 리프 인증서를 생성 합니다. 리프 인증서 `CNAME` 에서로 소문자 장치 id를 사용 합니다.
 
-1. OEM은 장치 ID, 생성 된 왼쪽 x.509 인증서 및 응용 프로그램 **ID 범위** 값을 사용 하 여 각 장치를 깜박입니다.
+1. OEM은 장치 ID, 생성 된 리프 x.509 인증서 및 응용 프로그램 **ID 범위** 값을 사용 하 여 각 장치를 깜박입니다.
 
 1. 장치를 전환 하면 먼저 DPS에 연결 하 여 IoT Central 등록 정보를 검색 합니다.
 

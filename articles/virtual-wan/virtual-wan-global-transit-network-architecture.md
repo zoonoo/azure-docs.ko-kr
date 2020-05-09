@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 02/06/2020
+ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9515058bc78a2d56dc1734c046dac5d5b04f68d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19eaaa1ac442a04799bfa8d8d495b9c7dd393e5a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81113172"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928281"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>글로벌 전송 네트워크 아키텍처 및 가상 WAN
 
@@ -99,6 +99,9 @@ Express 경로 Global Reach는 Express 경로에 대 한 추가 기능입니다.
 
 이 옵션을 통해 기업은 Azure 백본을 활용 하 여 분기를 연결할 수 있습니다. 그러나이 기능을 사용할 수 있는 경우에도 Azure 가상 WAN을 통해 분기를 연결 하는 이점 및 사설 WAN 사용의 이점을 비교 해야 합니다.  
 
+> [!NOTE]
+> 가상 WAN에서 분기 간 연결을 사용 하지 않도록 설정-분기 간 연결을 사용 하지 않도록 가상 WAN을 구성할 수 있습니다. 이 meta-configuation은 VPN (S2S 및 P2S)과 Express 경로 연결 된 사이트 간의 경로 전파를 차단 합니다. 이 구성은 지점 및 vnet 간 경로 전파 및 연결에 영향을 주지 않습니다. Azure Portal을 사용 하 여이 설정을 구성 하려면 가상 WAN 구성 메뉴에서 설정: 분기 간-사용 안 함을 선택 합니다. 
+
 ### <a name="remote-user-to-vnet-c"></a>원격 사용자-VNet (c)
 
 원격 사용자 클라이언트에서 가상 WAN으로 지점 및 사이트 간 연결을 사용 하 여 Azure에 대 한 직접 보안 원격 액세스를 사용 하도록 설정할 수 있습니다. 엔터프라이즈 원격 사용자는 더 이상 회사 VPN을 사용 하 여 클라우드로 hairpin 필요가 없습니다.
@@ -110,6 +113,15 @@ Express 경로 Global Reach는 Express 경로에 대 한 추가 기능입니다.
 ### <a name="vnet-to-vnet-transit-e-and-vnet-to-vnet-cross-region-h"></a>VNet 간 전송 (e) 및 VNet 간 (h)
 
 VNet 간 전송 기능을 사용 하면 여러 Vnet에서 구현 된 다중 계층 응용 프로그램을 상호 연결 하기 위해 Vnet에서 서로 연결할 수 있습니다. 필요에 따라 VNet 피어 링을 통해 Vnet를 서로 연결할 수 있으며,이는 VWAN 허브를 통해 전송 하지 않아도 되는 일부 시나리오에 적합 합니다.
+
+
+## <a name="force-tunneling-and-default-route-in-azure-virtual-wan"></a><a name="DefaultRoute"></a>Azure 가상 WAN의 강제 터널링 및 기본 경로
+
+가상 WAN에서 VPN, Express 경로 또는 Virtual Network 연결에 기본 경로 사용을 구성 하 여 강제 터널링을 사용 하도록 설정할 수 있습니다.
+
+가상 허브는 연결에서 기본 플래그 사용이 ' 사용 ' 인 경우 학습 된 기본 경로를 가상 네트워크/사이트 간 VPN/Express 경로 연결에 전파 합니다. 
+
+사용자가 가상 네트워크 연결, VPN 연결 또는 ExpressRoute 연결을 편집할 때 이 플래그를 볼 수 있습니다. 사이트 또는 ExpressRoute 회로가 허브에 연결된 경우 기본적으로 이 플래그는 사용하지 않도록 설정됩니다. VNet을 가상 허브에 연결하기 위해 가상 네트워크 연결을 추가하면 기본적으로 사용하도록 설정됩니다. 기본 경로는 Virtual WAN 허브에서 시작되지 않습니다. 허브에 방화벽을 배포한 결과로 Virtual WAN 허브에서 학습했거나 다른 연결된 사이트에서 강제 터널링을 사용할 경우 기본 경로가 전파됩니다.
 
 ## <a name="security-and-policy-control"></a><a name="security"></a>보안 및 정책 제어
 
@@ -137,6 +149,24 @@ VNet 간 또는 타사 보안 전송에서는 Vnet가 가상 WAN 허브의 Azure
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>지점 및 인터넷 간 또는 타사 보안 서비스 (j)
 분기 간 또는 타사 보안 전송에서는 가상 WAN 허브의 Azure 방화벽을 통해 인터넷 또는 지원 되는 타사 보안 서비스에 연결할 수 있습니다.
+
+### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>보안 된 가상 허브에서 기본 경로 (0.0.0.0/0)를 사용 하도록 설정 어떻게 할까요?
+
+가상 WAN 허브 (보안 가상 허브)에 배포 된 Azure 방화벽은 인터넷 또는 신뢰할 수 있는 보안 공급자 (VPN 또는 Express 경로를 통해 연결), 스포크 Vnet 및 사용자 (P2S VPN을 통해 연결)에 대 한 기본 라우터로 구성 될 수 있습니다. 이 구성은 Azure 방화벽 관리자를 사용 하 여 수행 해야 합니다.  허브로 트래픽 라우팅을 참조 하 여 분기 (사용자 포함)의 모든 트래픽을 구성 하 고 Azure 방화벽을 통해 인터넷으로 Vnet. 
+
+다음은 두 단계 구성입니다.
+
+1. 보안 가상 허브 경로 설정 메뉴를 사용 하 여 인터넷 트래픽 라우팅을 구성 합니다. 방화벽을 통해 인터넷으로 트래픽을 보낼 수 있는 Vnet 및 분기를 구성 합니다.
+
+2. 허브 또는 신뢰할 수 있는 보안 공급자에서 Azure FW를 통해 인터넷 (0.0.0.0/0)으로 트래픽을 라우팅할 수 있는 연결 (Vnet 및 분기)을 구성 합니다. 이 단계를 수행 하면 기본 경로가 선택한 분기 및 연결을 통해 가상 WAN 허브에 연결 된 Vnet 전파 됩니다. 
+
+### <a name="force-tunneling-traffic-to-on-premises-firewall-in-a-secured-virtual-hub"></a>보호 된 가상 허브에서 온-프레미스 방화벽에 트래픽 강제 터널링
+
+지점 (VPN 또는 ER 사이트) 중 하나에서 가상 허브에 의해 이미 학습 된 기본 경로 (BGP를 통해)가 이미 있는 경우이 기본 경로는 Azure 방화벽 관리자 설정에서 얻은 기본 경로에 의해 재정의 됩니다. 이 경우 Vnet에서 허브를 입력 하는 모든 트래픽과 인터넷으로 향하는 분기가 Azure 방화벽 또는 신뢰할 수 있는 보안 공급자로 라우팅됩니다.
+
+> [!NOTE]
+> 현재 Vnet, 분기 또는 사용자에서 시작 되는 인터넷 바운드 트래픽에 대해 온-프레미스 방화벽 또는 Azure 방화벽 (및 신뢰할 수 있는 보안 공급자)을 선택할 수 있는 옵션은 없습니다. Azure 방화벽 관리자 설정에서 배운 기본 경로는 항상 분기 중 하나에서 얻은 기본 경로 보다 우선 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

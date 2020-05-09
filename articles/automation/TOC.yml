@@ -24,6 +24,11 @@
       href: learn/automation-tutorial-runbook-textual.md
     - name: Python Runbook 만들기
       href: learn/automation-tutorial-runbook-textual-python2.md
+- name: 샘플
+  items:
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
     - name: Automation 계정 인증 개요

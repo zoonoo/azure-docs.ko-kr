@@ -1,18 +1,18 @@
 ---
 title: Azure 쌍을 이루는 지역을 사용 하 여 비즈니스 연속성 & 재해 복구 보장
 description: Azure 지역 페어링을 사용 하 여 응용 프로그램 복원 력 보장
-author: jpconnock
-manager: angrobe
+author: barbkess
+manager: barbkess
 ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.author: jeconnoc
-ms.openlocfilehash: 778943dad9a04632797d5d9165b6f1f9a3eb9850
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: barbkess
+ms.openlocfilehash: be6d2fb590dfefb170b3f23378c507b4d6b2295d
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248256"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980051"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역
 
@@ -55,7 +55,7 @@ Azure 지리는 하나 이상의 Azure 지역을 포함 하는 전 세계 영역
 | Canada |캐나다 중부 |캐나다 동부 |
 | 중국 |중국 북부 |중국 동부|
 | 중국 |중국 북부 2 |중국 동부 2|
-| 유럽 |유럽 북부 (아일랜드) |유럽 서부 (네덜란드) |
+| Europe |유럽 북부 (아일랜드) |유럽 서부 (네덜란드) |
 | 프랑스 |프랑스 중부|프랑스 남부|
 | 독일 |독일 중부 |독일 북동부 |
 | 인도 |인도 중부 |인도 남부 |
