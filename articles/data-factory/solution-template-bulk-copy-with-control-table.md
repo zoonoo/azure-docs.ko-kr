@@ -11,15 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: d6d634d9a32ae1728e1122d863ddabd94f73ee27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46e81242c1fba463f547015a244650ae6e574580
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414839"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629085"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>컨트롤 테이블이 있는 데이터베이스에서 대량 복사
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Oracle Server, Netezza, Teradata 또는 SQL Server 데이터 웨어하우스의 데이터를 Azure SQL Data Warehouse에 복사 하려면 여러 테이블에서 대량의 데이터를 로드 해야 합니다. 일반적으로 단일 테이블에서 여러 스레드가 동시에 행을 로드할 수 있도록 각 테이블에서 데이터를 분할 해야 합니다. 이 문서에서는 이러한 시나리오에서 사용할 템플릿을 설명 합니다.
 

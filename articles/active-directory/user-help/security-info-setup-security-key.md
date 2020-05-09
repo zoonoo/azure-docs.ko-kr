@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: curtand
-ms.openlocfilehash: ee868ded0dc3a46f2ec20d0141aa2576cbf71f45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 016a09432499c5fd2be8fd488c7ef7a644c00bca
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062339"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628336"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>보안 키를 확인 방법으로 설정 합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "77062339"
 
 키를 사용 하 여 회사 또는 학교 계정에 로그인 하려면 보안 키를 만들고 고유한 PIN을 지정 해야 합니다. 계정에 최대 10 개의 키가 등록 되어 있을 수 있습니다. 
 
-1. 에서 https://myprofile.microsoft.com **내 프로필** 페이지로 이동 하 여 아직 로그인 하지 않았으면 로그인 합니다.
+1. 에서 https://myaccount.microsoft.com **내 프로필** 페이지로 이동 하 여 아직 로그인 하지 않았으면 로그인 합니다.
 
 2. **보안 정보**를 선택 하 **고 메서드 추가**를 선택한 다음 **방법 추가** 드롭다운 목록에서 **보안 키** 를 선택 합니다.
 

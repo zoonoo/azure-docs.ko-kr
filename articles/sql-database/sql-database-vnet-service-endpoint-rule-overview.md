@@ -11,19 +11,19 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 7032f9e8f57ea9400bf6a92f89b13fa1866f8fc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e7e1f91cd4b647472e1899c3485d038f25b5b24
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414386"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82651811"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>데이터베이스 서버에 대한 가상 네트워크 서비스 엔드포인트 및 규칙 사용
 
-*가상 네트워크 규칙*은 Azure [SQL Database](sql-database-technical-overview.md)의 단일 데이터베이스 및 탄력적 풀 또는 [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)의 데이터베이스에 대한 데이터베이스 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락할지 여부를 제어하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure SQL Database 및 SQL Data Warehouse에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유를 설명합니다.
+*가상 네트워크 규칙* 은 azure [SQL Database](sql-database-technical-overview.md) 의 단일 데이터베이스 및 탄력적 풀에 대 한 데이터베이스 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신 [을 수락 하는지](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 여부를 제어 하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 가상 네트워크 규칙 기능이 때때로 Azure SQL Database 및 Azure Synapse 분석에 대 한 통신을 안전 하 게 허용 하기 위한 최상의 옵션인 이유를 설명 합니다.
 
 > [!IMPORTANT]
-> 이 문서는 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. Azure SQL Database의 **관리되는 인스턴스** 배포는 서비스 엔드포인트와 연결되지 않으므로 이 문서는 해당 배포에 적용되지 *않습니다*.
+> 이 문서는 azure sql server에 적용 되며, Azure SQL server에 생성 된 SQL Database 및 Azure Synapse Analytics 데이터베이스 모두에 적용 됩니다. 간단히 하기 위해 SQL Database와 Azure Synapse Analytics를 모두 참조할 때 SQL Database 사용 됩니다. Azure SQL Database의 **관리되는 인스턴스** 배포는 서비스 엔드포인트와 연결되지 않으므로 이 문서는 해당 배포에 적용되지 *않습니다*.
 
 가상 네트워크 규칙을 만들려면 먼저 참조할 규칙에 대한 [가상 네트워크 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]가 있어야 합니다.
 
@@ -105,13 +105,13 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향
 
-Azure Storage는 사용자가 Azure Storage 계정에 대한 연결성을 제한하도록 허용하는 동일한 기능을 구현했습니다. Azure SQL Server에서 사용 중인 Azure Storage 계정에서 이 기능을 사용하도록 선택한 경우 문제가 발생할 수 있습니다. 다음은 이로 인해 영향을 받는 Azure SQL Database 및 Azure SQL Data Warehouse 기능의 목록 및 논의 내용입니다.
+Azure Storage는 사용자가 Azure Storage 계정에 대한 연결성을 제한하도록 허용하는 동일한 기능을 구현했습니다. Azure SQL Server에서 사용 중인 Azure Storage 계정에서 이 기능을 사용하도록 선택한 경우 문제가 발생할 수 있습니다. 다음은이에 영향을 받는 Azure SQL Database 및 Azure Synapse Analytics 기능을 나열 하 고 설명 하는 것입니다.
 
-### <a name="azure-sql-data-warehouse-polybase"></a>Azure SQL Data Warehouse PolyBase
+### <a name="azure-synapse-analytics-polybase"></a>Azure Synapse Analytics PolyBase
 
-PolyBase는 대개 Azure Storage 계정에서 Azure SQL Data Warehouse로 데이터를 로드하는 데 사용됩니다. 데이터를 로드하는 Azure Storage 계정이 액세스를 VNet 서브넷 집합으로만 제한하는 경우 PolyBase에서 계정으로의 연결은 중단됩니다. Azure SQL Data Warehouse가 VNet으로 보호되는 Azure Storage에 연결되는 PolyBase 가져오기 및 내보내기 시나리오를 사용하도록 설정하는 경우 아래에 설명된 단계를 따르세요.
+PolyBase는 Azure Storage 계정에서 Azure Synapse Analytics로 데이터를 로드 하는 데 일반적으로 사용 됩니다. 데이터를 로드하는 Azure Storage 계정이 액세스를 VNet 서브넷 집합으로만 제한하는 경우 PolyBase에서 계정으로의 연결은 중단됩니다. VNet으로 보안이 유지 되는 Azure Storage에 연결 하는 Azure Synapse Analytics를 사용 하 여 PolyBase 가져오기 및 내보내기 시나리오를 모두 사용 하도록 설정 하려면 아래에 나와 있는 단계를 따르세요.
 
-#### <a name="prerequisites"></a>전제 조건
+#### <a name="prerequisites"></a>사전 요구 사항
 
 - [이 가이드](https://docs.microsoft.com/powershell/azure/install-az-ps)를 사용하여 Azure PowerShell을 설치합니다.
 - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 범용 v2로 업그레이드해야 합니다.
@@ -122,7 +122,7 @@ PolyBase는 대개 Azure Storage 계정에서 Azure SQL Data Warehouse로 데이
 
 #### <a name="steps"></a>단계
 
-1. PowerShell에서 AAD (Azure Active Directory)를 사용 하 여 Azure SQL Data Warehouse 인스턴스를 호스트 하는 **Azure SQL Server를 등록** 합니다.
+1. PowerShell에서 AAD (Azure Active Directory)를 사용 하 여 Azure Synapse Analytics 인스턴스를 호스트 하는 **azure SQL Server를 등록** 합니다.
 
    ```powershell
    Connect-AzAccount
@@ -135,11 +135,11 @@ PolyBase는 대개 Azure Storage 계정에서 Azure SQL Data Warehouse로 데이
    > [!NOTE]
    > - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 **v2로 업그레이드**해야 합니다.
    > - Azure Data Lake Storage Gen2의 알려진 문제에 대해서는 이 [가이드](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues)를 참조하세요.
-
-1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가**를 클릭합니다. 1 단계에서와 같이 AAD (Azure Active Directory에 등록 한 Azure SQL Data Warehouse를 호스팅하는 Azure SQL Server에 **저장소 Blob 데이터 참가자** RBAC 역할을 할당 합니다.
+    
+1. 저장소 계정에서 **Access Control (IAM)** 로 이동 하 여 **역할 할당 추가**를 선택 합니다. 드롭다운에서 **저장소 Blob 데이터 참가자** RBAC 역할을 선택 합니다. **액세스 권한을 할당 하 여** **Azure AD 사용자, 그룹 또는 서비스 주체**를 선택 합니다. **Select**에 1 단계와 같이 AAD (Azure Active Directory에 등록 한 azure SQL Server (Azure Synapse Analytics 데이터 웨어하우스의 논리 서버)의 서버 이름을 입력 합니다. 정규화 된 DNS 이름 (database.windows.net이 없는**servername** )은 서버 이름만 사용 합니다.
 
    > [!NOTE]
-   > 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. Azure 리소스에 대한 다양한 기본 제공 역할을 보려면 이 [가이드](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)를 참조하세요.
+   > 저장소 계정에 대 한 소유자 권한이 있는 멤버만이 단계를 수행할 수 있습니다. Azure 리소스에 대한 다양한 기본 제공 역할을 보려면 이 [가이드](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)를 참조하세요.
   
 1. **Azure Storage 계정에 대한 Polybase 연결:**
 
@@ -225,7 +225,7 @@ PowerShell을 사용하여 **IgnoreMissingVNetServiceEndpoint** 플래그를 설
 
 - [가상 네트워크 규칙: 작업][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure SQL Database에 관련된 특정 Virtual Network 서비스 엔드포인트 *형식 이름*으로 태그가 지정된 서브넷이 있어야 합니다.
 

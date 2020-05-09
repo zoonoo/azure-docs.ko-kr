@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: a8cd35ced61c5b0e8b3b534394c9b6a0f543ebbb
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: 41b2e12a94f5751e31f482c913c71b4731b1cf6c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691370"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871914"
 ---
 # <a name="create-a-managed-service-offer"></a>관리되는 서비스 제품 만들기
 
@@ -80,7 +80,7 @@ ms.locfileid: "82691370"
 > [!NOTE]
 > 제품 설명 (예: 설명, 문서, 스크린샷 및 사용 약관)은 영어로 시작 해야 합니다. "이 응용 프로그램은 [영어가 아닌 언어] 에서만 사용할 수 있습니다." 라고 표시 됩니다. 또한 제품 목록 콘텐츠에 사용 되는 것 이외의 언어로 콘텐츠를 제공 하는 *데 유용한 링크 URL* 을 제공 하는 것도 허용 됩니다.
 
-### <a name="name"></a>Name
+### <a name="name"></a>속성
 
 여기에 입력 하는 이름은 고객에 게 제품 목록의 제목으로 표시 됩니다. 이 필드는 제품을 만들 때 **제공 별칭** 에 입력 한 텍스트로 미리 채워져 있지만이 값을 변경할 수 있습니다. 이 이름은 상표 수 있으며 상표 또는 저작권 기호를 포함할 수 있습니다. 이름은 50 자를 초과할 수 없으며, 모든 emojis를 포함할 수 없습니다.
 
@@ -92,7 +92,7 @@ Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 �
 
 제품에 대 한 더 긴 설명 (최대 256 자)을 제공 합니다. 이 긴 요약은 marketplace 검색 결과에도 사용할 수 있습니다.
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 제품에 대 한 더 긴 설명 (최대 3000 자)을 제공 합니다. 이 설명은 marketplace 목록 개요에서 고객에 게 표시 됩니다. 제품의 가치 제안, 주요 이점, 범주 및/또는 업계 연결, 앱 내 구매 기회 및 필요한 공개를 포함 합니다.
 
