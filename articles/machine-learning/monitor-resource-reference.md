@@ -5,17 +5,17 @@ description: Azure Machine Learning에 대해 수집 되 고 Azure Monitor에서
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/27/2020
-ms.openlocfilehash: 1abd52c98cb1fa6ebe1014fc7a65e756d038d683
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9a43f4a7da39869e002e2da9fb9638381e57cb8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187599"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856021"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Azure machine learning 모니터링 데이터 참조
 
@@ -126,7 +126,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 다음 표에서는 Azure Machine Learning에 대해 수집 된 플랫폼 메트릭을 나열 합니다. 모든 메트릭은 네임 스페이스 **Azure Machine Learning 작업 영역**에 저장 됩니다.
 
-**모델**
+**모델링**
 
 | 메트릭 | 단위 | Description |
 | ----- | ----- | ----- |

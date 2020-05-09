@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: fbd8e03b1f8af7802133c35ae4860116aaea0c3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab25b2e300f9fe9b0b1d077a42538c69fa543af2
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430566"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982703"
 ---
 # <a name="ingesting-data-into-a-sql-pool"></a>SQL 풀로 데이터 수집
 
 이 문서에서는 Azure Synapse Analytics를 사용 하 여 Azure Data Lake Gen 2 저장소 계정에서 SQL 풀로 데이터를 수집 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**: azure 구독이 없는 경우 시작 하기 전에 [무료 azure 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 * **Azure storage 계정**: Azure Data Lake Storage Gen 2를 *원본* 데이터 저장소로 사용 합니다. 저장소 계정이 없는 경우 새로 만드는 단계는 [Azure Storage 계정 만들기](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 를 참조 하세요.
@@ -39,7 +39,7 @@ Azure Synapse Analytics에서 연결 된 서비스는 다른 서비스에 대 �
 
 ## <a name="create-pipeline"></a>파이프라인 만들기
 
-파이프라인은 일련의 활동을 실행 하기 위한 논리적 흐름을 포함 합니다. 이 섹션에서는 ADLS gen 2에서 SQL 풀로 데이터를 수집 하는 복사 작업이 포함 된 파이프라인을 만듭니다.
+파이프라인은 일련의 활동을 실행 하기 위한 논리적 흐름을 포함 합니다. 이 섹션에서는 ADLS Gen2의 데이터를 SQL 풀로 수집 하는 복사 작업이 포함 된 파이프라인을 만듭니다.
 
 1. **오케스트레이션** 탭으로 이동 합니다. 파이프라인 헤더 옆에 있는 더하기 아이콘을 클릭 하 고 **파이프라인**을 선택 합니다.
 1. 작업 창의 **이동 및 변환** 에서 파이프라인 캔버스로 **데이터 복사** 를 끌어 옵니다.

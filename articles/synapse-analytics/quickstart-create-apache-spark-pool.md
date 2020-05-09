@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0fd8a379927396f2ae44d74c2d968d48fbd039c1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2501f66c42360d3ec1626f5f4ee42e0212f1967b
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82096370"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792244"
 ---
 # <a name="quickstart-create-a-new-apache-spark-pool-preview"></a>빠른 시작: 새 Apache Spark 풀 만들기(미리 보기)
 
@@ -25,16 +25,16 @@ Synapse Analytics는 데이터를 수집, 변환, 모델링, 분석 및 제공�
 > [!IMPORTANT]
 > Spark 인스턴스 요금은 인스턴스 사용 여부에 관계없이 분 단위 비례 배분 방식으로 청구됩니다. Spark 인스턴스를 사용한 후 꼭 인스턴스를 종료하거나 짧은 시간 제한을 설정해야 합니다. 자세한 내용은 이 문서의 **리소스 정리** 섹션을 참조하세요.
 
-Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https:/azure.microsoft.com/free/).
+Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독 - [체험 구독 만들기](https:/azure.microsoft.com/free/)
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Synapse Analytics 작업 영역](quickstart-create-workspace.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https:/portal.azure.com/)
+[Azure 포털](https://portal.azure.com/)
 
 ## <a name="create-new-apache-spark-pool"></a>새 Apache Spark 풀 만들기
 

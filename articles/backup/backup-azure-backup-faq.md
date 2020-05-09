@@ -3,12 +3,12 @@ title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 039666c4b54da6ac5444f5aa5acda5f1bb438782
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee6df940dd36a325d3638c3ad29ebfd8dec713d8
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80156058"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801708"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -82,7 +82,7 @@ Windows 10 64비트 | Enterprise, Pro, Home | 컴퓨터에서 최신 서비스 �
 Windows 8.1 64비트 | Enterprise, Pro | 컴퓨터에서 최신 서비스 팩과 업데이트가 실행되어야 합니다.
 Windows 8 64비트 | Enterprise, Pro | 컴퓨터에서 최신 서비스 팩과 업데이트가 실행되어야 합니다.
 Windows 7 64비트 | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | 컴퓨터에서 최신 서비스 팩과 업데이트가 실행되어야 합니다.
-Server (서버) | |
+서버 | |
 Windows Server 2019 64비트 | Standard, Datacenter, Essentials | 최신 서비스 팩/업데이트를 포함합니다.
 Windows Server 2016 64비트 | Standard, Datacenter, Essentials | 최신 서비스 팩/업데이트를 포함합니다.
 Windows Server 2012 R2 64비트 | Standard, Datacenter, Foundation | 최신 서비스 팩/업데이트를 포함합니다.
@@ -107,7 +107,7 @@ Windows 8 이상 | 54,400GB
 Windows 7 |1700GB
 Windows Server 2012 이상 | 54,400GB
 Windows Server 2008, Windows Server 2008 R2 | 1700GB
-Azure VM | 데이터 디스크 16개<br/> 16개 이상의 디스크(최대 32개 디스크)를 사용하여 VM의 프라이빗 미리 보기에 등록하려면 AskAzureBackupTeam@microsoft.com으로 이메일을 보내주세요. <br><br> 최대 32TB의 데이터 디스크
+Azure VM | 데이터 디스크 16개<br/> 16 개 이상의 디스크 (최대 32 디스크)를 사용 하 여 제한 된 Vm 미리 보기에 등록 하려면 다음에 작성 합니다.AskAzureBackupTeam@microsoft.com <br><br> 최대 32TB의 데이터 디스크
 
 ### <a name="how-is-the-data-source-size-determined"></a>데이터 원본 크기는 어떻게 결정하나요?
 

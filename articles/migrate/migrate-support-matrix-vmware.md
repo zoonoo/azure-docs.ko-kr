@@ -3,12 +3,12 @@ title: Azure Migrate의 VMware 평가 지원
 description: Azure Migrate Server 평가를 통한 VMware VM 평가 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: d378ece1eda906a30ec33e2cf27ad59df473b5c7
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a0d05c56670c54aca25232a86b5a0e89d2f0bcfd
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779912"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983655"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 평가를 위한 지원 매트릭스 
 
@@ -53,7 +53,7 @@ VMware Vm을 평가 하려면 Azure Migrate 프로젝트를 만든 다음 프로
 **vCenter Server** | 검색 하 고 평가 하려는 컴퓨터는 vCenter Server 버전 5.5, 6.0, 6.5 또는 6.7에서 관리 해야 합니다.
 **사용 권한 (평가)** | 읽기 전용 계정을 vCenter Server 합니다.
 **권한 (앱 검색)** | 읽기 전용 액세스 권한이 있는 vCenter Server 계정 및 가상 컴퓨터에 대 한 권한이 설정 된 **게스트 작업 >** 합니다.
-**권한 (종속성 시각화)** | **가상 컴퓨터** > **게스트 작업**에 대해 읽기 전용 액세스 및 권한이 설정 된 센터 서버 계정
+**권한 (종속성 시각화)** | **가상 컴퓨터** > **게스트 작업**에 대해 읽기 전용 액세스 및 권한이 설정 된 vCenter Server 계정
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Azure Migrate 어플라이언스 요구 사항

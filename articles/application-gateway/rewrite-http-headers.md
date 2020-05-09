@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: ced807b25cd1e829988a1e6b7621a5f73e0edfc2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: HT
+ms.openlocfilehash: 421c1f4d1abe9be5f5081235e78ebe77b1813e6e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202433"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562239"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Application Gateway를 사용 하 여 HTTP 헤더 재작성
 
@@ -60,7 +60,7 @@ Application Gateway 서버 변수를 사용 하 여 서버에 대 한 유용한 
 
 Application gateway는 다음 서버 변수를 지원 합니다.
 
-| 변수 이름 | Description                                                  |
+| 변수 이름 | 설명                                                  |
 | -------------------------- | :----------------------------------------------------------- |
 | add_x_forwarded_for_proxy  | I P 1, IP2, P 3 등의 형식으로 추가 된 ( `client_ip` 이 표의 뒷부분에 나오는 설명 참조) 변수와 함께 X로 전달 된 클라이언트 요청 헤더 필드입니다. X 전달-For 필드가 클라이언트 요청 헤더에 없으면 `add_x_forwarded_for_proxy` 변수는 `$client_ip` 변수와 같습니다. 이 변수는 헤더에 포트 정보가 없는 IP 주소만 포함 되도록 Application Gateway에 의해 설정 된 X 전달 된 헤더를 다시 작성 하려는 경우에 특히 유용 합니다. |
 | ciphers_supported          | 클라이언트에서 지 원하는 암호화 목록입니다.          |
@@ -157,6 +157,8 @@ HTTP 응답에서 중요 한 정보를 표시 하는 헤더를 제거 하는 것
 ## <a name="limitations"></a>제한 사항
 
 - 응답에 이름이 같은 헤더가 두 개 이상 있는 경우 해당 헤더 중 하나의 값을 다시 작성 하면 응답의 다른 헤더가 삭제 됩니다. 이는 일반적으로 응답에 두 개 이상의 쿠키 헤더를 사용할 수 있으므로 설정-쿠키 헤더에서 발생할 수 있습니다. 이러한 시나리오 중 하나는 응용 프로그램 게이트웨이와 함께 app service를 사용 하 고 응용 프로그램 게이트웨이에서 쿠키 기반 세션 선호도를 구성 하는 경우입니다. 이 경우 응답에는 app service에서 사용 하는 두 개의 설정-쿠키 헤더 (예:)와 application `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` gateway 선호도 ( `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`예:)가 포함 됩니다. 이 시나리오에서 Set 쿠키 헤더 중 하나를 다시 작성 하면 응답에서 다른 Set 쿠키 헤더가 제거 될 수 있습니다.
+
+- 응용 프로그램 게이트웨이가 요청을 리디렉션하거나 사용자 지정 오류 페이지를 표시 하도록 구성 된 경우에는 다시 작성이 지원 되지 않습니다.
 
 - 연결, 업그레이드 및 호스트 헤더 재작성은 현재 지원 되지 않습니다.
 

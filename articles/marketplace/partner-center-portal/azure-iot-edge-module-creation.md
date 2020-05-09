@@ -1,36 +1,30 @@
 ---
-title: 파트너 센터를 사용 하 여 Azure IoT Edge 모듈 제품 만들기-Azure Marketplace
-description: 파트너 센터를 사용 하 여 Azure Marketplace에서 IoT Edge 모듈 제품을 만드는 방법을 알아봅니다.
+title: Azure Marketplace에서 파트너 센터를 사용 하 여 Azure IoT Edge 모듈 제안 만들기
+description: 파트너 센터를 사용 하 여 Azure Marketplace에서 IoT Edge 모듈 제품을 만들고 구성 하 고 게시 하는 방법을 알아봅니다.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: cca54e4e456fe766b190f64657cd1aca1d9520e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d69090eb07159c2c188c54499a167f127269df24
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869139"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857660"
 ---
-# <a name="create-an-iot-edge-module-offer"></a>IoT Edge 모듈 제품 만들기
+# <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Azure Marketplace에서 IoT Edge 모듈 제품 만들기, 구성 및 게시
 
-> [!IMPORTANT]
-> IoT Edge 모듈 제품의 관리를 Cloud 파트너 포털에서 파트너 센터로 전환 하 고 있습니다. 제품을 마이그레이션할 때까지 Cloud 파트너 포털에 대 한 [IoT Edge 모듈 제공 게시 개요](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) 의 지침에 따라 제품을 관리 하세요.
-
-이 문서에서는 Azure Marketplace에 대 한 IoT (사물 인터넷) Edge 모듈 제품을 만들고 게시 하는 방법을 설명 합니다.
-
-IoT Edge module 제품을 만들려면 먼저 파트너 센터에 상용 marketplace 계정이 있어야 합니다. 아직 만들지 않은 경우 [파트너 센터에서 상용 마켓플레이스 계정 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)를 참조 하세요.
+이 문서에서는 Azure Marketplace에 대 한 IoT (사물 인터넷) Edge 모듈 제품을 만들고 게시 하는 방법을 설명 합니다. 아직 수행 하지 않은 경우 시작 하기 전에 [파트너 센터에서 상업적 Marketplace 계정을 만듭니다](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) . 계정이 상업적 marketplace 프로그램에 등록 되어 있는지 확인 합니다.
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
-1. 파트너 센터에 로그인합니다.
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인 합니다.
 2. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스** > **개요**를 선택 합니다.
+3. 개요 페이지에서 **+ 새 제품** > **IoT Edge 모듈**을 선택 합니다.
 
-    ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/cs-menu-overview.png)
-
-3. **+ 새 제품** > **IoT Edge 모듈**을 선택 합니다. **새 제품** 대화 상자가 나타납니다.
+    ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
 > 제품을 게시 한 후에는 제품을 다시 게시 한 후에만 파트너 센터에서 해당 제품에 대 한 편집 내용이 상점에 표시 됩니다. 변경을 수행한 후 항상 다시 게시 해야 합니다.
@@ -41,20 +35,20 @@ IoT Edge module 제품을 만들려면 먼저 파트너 센터에 상용 marketp
 
 - 이 ID는 marketplace 제품 및 Azure Resource Manager 템플릿에 대 한 웹 주소의 고객에 게 표시 됩니다 (해당 하는 경우).
 - 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50 자로 제한 됩니다. 예를 들어 **테스트-제품-1**을 입력 하는 경우 제품 웹 주소는 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`입니다.
-- 만들기를 선택한 후에는 제품 ID를 변경할 수 없습니다.
+- **만들기**를 선택한 후에는 제품 ID를 변경할 수 없습니다.
 
-**제품 별칭**을 입력 합니다. 파트너 센터에서 제품을 참조 하는 데 사용 되는 이름입니다.
+**제품 별칭**을 입력 합니다. 파트너 센터의 제안에 사용 되는 이름입니다.
 
 - 이 이름은 marketplace에서 사용 되지 않으며 고객에 게 표시 되는 제품 이름 및 기타 값과 다릅니다.
 - **만들기**를 선택한 후에는 변경할 수 없습니다.
 
-이러한 두 값을 입력 한 후에는 다음 페이지인 개요를 제공 하기 전에 **만들기** 를 선택 합니다.
+**만들기** 를 선택 하 여 제품을 생성 하 고 계속 합니다.
 
 ## <a name="offer-overview"></a>제품 개요
 
 **제품 개요** 페이지에는이 제품을 게시 하는 데 필요한 단계를 시각적으로 표시 하 고 (완료 된 시간과 예정 된) 각 단계를 완료 하는 데 소요 되는 시간이 표시 됩니다.
 
-이 페이지에는 사용자가 선택한 항목에 따라이 제품에 대 한 작업을 수행할 수 있는 링크가 포함 되어 있습니다. 다음은 그 예입니다.
+이 페이지에는 사용자가 선택한 항목에 따라이 제품에 대 한 작업을 수행할 수 있는 링크가 포함 되어 있습니다. 예를 들면 다음과 같습니다.
 
 - 제안이 초안 [삭제 제안](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer) 인 경우
 - 제품이 라이브 인 경우 [제품 판매를 중지](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan) 합니다.
@@ -86,10 +80,10 @@ IoT Edge module 제품을 만들려면 먼저 파트너 센터에 상용 marketp
 
 - [리드 관리 개요](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [잠재 고객 관리 FAQ](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [일반적인 잠재 고객 구성 오류](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [일반적인 잠재 고객 구성 오류](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [리드 관리 개요](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (팝업 차단이 해제 되어 있는지 확인).
 
-다음 섹션인 속성을 계속 진행 하기 전에 **초안 저장** 을 선택 합니다.
+계속 하기 전에 **초안 저장** 을 선택 합니다.
 
 ### <a name="properties"></a>속성
 
@@ -132,7 +126,7 @@ IoT Edge module 제품을 만들려면 먼저 파트너 센터에 상용 marketp
 > [!NOTE]
 > 제품 설명이 "영어가 아닌 언어 에서만 사용할 수 있습니다."로 시작 하는 경우 제품 세부 정보는 영어로 지정할 필요가 없습니다. 또한 제품 목록 세부 정보에 사용 된 것과 다른 언어로 콘텐츠를 제공 하는 유용한 링크도 제공 합니다.
 
-### <a name="name"></a>속성
+### <a name="name"></a>Name
 
 여기에 입력 하는 이름은 제품의 제목으로 표시 됩니다. 이 필드는 제품을 만들 때 **제품 별칭** 상자에 입력 한 텍스트로 미리 채워집니다. 이 이름은 나중에 변경할 수 있습니다.
 
@@ -150,7 +144,7 @@ IoT Edge module 제품을 만들려면 먼저 파트너 센터에 상용 marketp
 
 제품에 대 한 자세한 설명을 제공 합니다. 이 길이는 최대 256 자까지 가능 하며 marketplace 검색 결과에 사용 됩니다.
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 제품에 대 한 더 긴 설명을 최대 3000 자까지 제공 합니다. 이는 marketplace 목록 개요에서 고객에 게 표시 됩니다.
 
@@ -161,7 +155,7 @@ IoT Edge module 제품을 만들려면 먼저 파트너 센터에 상용 marketp
 - 앱 내 구매 기회
 - 필요한 모든 공개
 
-IoT Edge 모듈 제공에는 설명의 맨 아래에 최소 하드웨어 요구 사항 단락이 포함 되어 있어야 합니다. 다음은 그 예입니다.
+IoT Edge 모듈 제공에는 설명의 맨 아래에 최소 하드웨어 요구 사항 단락이 포함 되어 있어야 합니다. 예를 들면 다음과 같습니다.
 
 *최소 하드웨어 요구 사항: Linux x64 및 arm32 OS, 1gb RAM, 500 Mb의 저장소*
 

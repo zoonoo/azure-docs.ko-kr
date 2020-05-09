@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 02/28/2020
 ms.author: pafarley
 ms.openlocfilehash: 82e9c9a6dd8dc18f186a21e72a1a3d205094b707
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80155191"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능

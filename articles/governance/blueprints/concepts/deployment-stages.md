@@ -1,14 +1,14 @@
 ---
 title: 청사진 배포 단계
 description: 청사진 할당을 만드는 동안 Azure 청사진 서비스가 거치는 보안 및 아티팩트 관련 단계를 알아봅니다.
-ms.date: 11/13/2019
+ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 61d19c84cd659b9df3a272c5c2743944e51df06e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9efc66baa262e004a8beea5295e8567f4ab119dd
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80677324"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863997"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>청사진 배포 단계
 

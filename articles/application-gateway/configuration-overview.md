@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 89d894a5125a16f95e6ef8a15c2503d48f3a8e55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 046946bb9d3ce1ae86d49409d024c862d2edb982
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632184"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856065"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -101,18 +101,18 @@ NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다.
 
    UDR을 만들어 0.0.0.0/0 트래픽을 인터넷으로 직접 보낼 수 있습니다. 
 
-  **시나리오 3**: Azure Kubernetes Service kubenet의 udr
+  **시나리오 3**: kubenet를 사용 하는 Azure Kubernetes Service에 대 한 udr
 
-  AKS (Azure Kubernetes Service) 및 AGIC (Application Gateway 수신 컨트롤러)와 함께 kubenet를 사용 하는 경우 pod로 전송 된 트래픽을 올바른 노드로 라우팅할 수 있도록 경로 테이블을 설정 해야 합니다. Azure CNI를 사용 하는 경우에는이 작업이 필요 하지 않습니다. 
+  AKS (Azure Kubernetes Service) 및 AGIC (Application Gateway 수신 컨트롤러)와 함께 kubenet를 사용 하는 경우 Application Gateway에서 pod로 전송 된 트래픽을 올바른 노드로 라우팅할 수 있도록 경로 테이블이 필요 합니다. Azure CNI를 사용 하는 경우에는이 작업이 필요 하지 않습니다. 
 
-   Kubenet가 작동할 수 있도록 경로 테이블을 설정 하려면 다음 단계를 사용 합니다.
+  Kubenet가 작동할 수 있도록 경로 테이블을 사용 하려면 다음 단계를 수행 합니다.
 
-  1. Azure에서 경로 테이블 리소스를 만듭니다. 
-  2. 만들어지면 **경로** 페이지로 이동 합니다. 
-  3. 새 경로를 추가 합니다.
+  1. AKS에서 만든 리소스 그룹으로 이동 합니다 (리소스 그룹의 이름은 "MC_"로 시작 해야 함).
+  2. 해당 리소스 그룹에서 AKS에 의해 생성 된 경로 테이블을 찾습니다. 경로 테이블은 다음 정보로 채워야 합니다.
      - 주소 접두사는 AKS에서 연결 하려는 pod의 IP 범위 여야 합니다. 
-     - 다음 홉 형식은 **가상 어플라이언스**여야 합니다. 
-     - 다음 홉 주소는 주소 접두사 필드에 정의 된 IP 범위 내에서 pod를 호스팅하는 노드의 IP 주소 여야 합니다. 
+     - 다음 홉 형식은 가상 어플라이언스 여야 합니다. 
+     - 다음 홉 주소는 pod을 호스트 하는 노드의 IP 주소 여야 합니다.
+  3. 이 경로 테이블을 Application Gateway 서브넷에 연결 합니다. 
     
   **v2 지원 되지 않는 시나리오**
 

@@ -12,22 +12,22 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: b8708aec1137836516852135412c4c7cec2feba4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a89c5e3fb84f797d9ad7f81626fb7185ce3e076
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79408405"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854174"
 ---
-# <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Azure Active Directory를 사용 하 여 응용 프로그램에 대 한 그룹 클레임 구성 (공개 미리 보기)
+# <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Azure Active Directory를 사용 하 여 응용 프로그램에 대 한 그룹 클레임 구성
 
 응용 프로그램 내에서 사용 하기 위해 토큰에 사용자 그룹 멤버 자격 정보를 제공할 수 Azure Active Directory.  다음 두 가지 주요 패턴이 지원 됩니다.
 
-- OID (Azure Active Directory 개체 식별자) 특성으로 식별 되는 그룹 (일반적으로 사용 가능)
-- Active Directory (AD) 동기화 된 그룹 및 사용자에 대 한 sAMAccountName 또는 GroupSID 특성으로 식별 되는 그룹 (공개 미리 보기)
+- OID (Azure Active Directory 개체 식별자) 특성으로 식별 되는 그룹
+- Active Directory (AD) 동기화 된 그룹 및 사용자에 대 한 sAMAccountName 또는 GroupSID 특성으로 식별 되는 그룹
 
 > [!IMPORTANT]
-> 이 미리 보기 기능에는 다음과 같은 몇 가지 주의 사항이 있습니다.
+> 이 기능에는 다음과 같은 몇 가지 주의 사항이 있습니다.
 >
 >- 온-프레미스에서 동기화 된 sAMAccountName 및 SID (보안 식별자) 특성 사용에 대 한 지원은 AD FS 및 기타 id 공급자에서 기존 응용 프로그램을 이동할 수 있도록 설계 되었습니다. Azure AD에서 관리 되는 그룹은 이러한 클레임을 내보내는 데 필요한 특성을 포함 하지 않습니다.
 >- 대규모 조직에서 사용자가 멤버로 속한 그룹 수는 Azure Active Directory 토큰에 추가 되는 한도를 초과할 수 있습니다. 150 SAML 토큰에 대 한 그룹 및 JWT의 경우 200입니다. 이로 인해 예기치 않은 결과가 발생할 수 있습니다. 사용자가 많은 수의 그룹 멤버 자격을 갖는 경우 클레임에서 내보내는 그룹을 응용 프로그램에 대 한 관련 그룹으로 제한 하는 옵션을 사용 하는 것이 좋습니다.  
@@ -84,7 +84,7 @@ Active Directory 그룹에 대 한 그룹 이름을 내보내도록 Azure Active
 
 ![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
-| 선택 | Description |
+| 선택 | 설명 |
 |----------|-------------|
 | **모든 그룹** | 보안 그룹과 배포 목록 및 역할을 내보냅니다.  |
 | **보안 그룹** | 사용자가 구성원 인 보안 그룹을 그룹 클레임에 내보냅니다. |
@@ -140,14 +140,14 @@ Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory �
 
 유효한 값은 다음과 같습니다.
 
-| 선택 | Description |
+| 선택 | 설명 |
 |----------|-------------|
 | **모두가** | 보안 그룹, 배포 목록 및 역할을 내보냅니다. |
 | **SecurityGroup** | 사용자가 구성원 인 보안 그룹을 그룹 클레임에 내보냅니다. |
 | **"DirectoryRole** | 사용자에 게 디렉터리 역할이 할당 된 경우 ' wids ' 클레임으로 내보내집니다. 그룹 클레임은 내보내지 않습니다. |
 | **"ApplicationGroup** | 응용 프로그램에 명시적으로 할당 되 고 사용자가 멤버인 그룹만 내보냅니다. |
 
-   다음은 그 예입니다.
+   예를 들면 다음과 같습니다.
 
    ```json
    "groupMembershipClaims": "SecurityGroup"

@@ -5,12 +5,12 @@ author: radicmilos
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: edcf2774873cc23a74a47cc1c9a12e2daa2ed419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d81feaede7658de69e255c32d3a3ef570156f93
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984540"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793094"
 ---
 # <a name="introduction-to-auto-scaling"></a>자동 크기 조정 소개
 자동 크기 조정은 서비스가 보고하는 로드 또는 리소스의 사용량에 따라 서비스를 동적으로 조정하는 Service Fabric의 추가 기능입니다. 자동 크기 조정 기능은 뛰어난 탄력성을 제공하며 필요에 따라 서비스의 인스턴스 또는 파티션을 추가로 프로비전할 수 있습니다. 전체 자동 크기 조정 프로세스는 자동화되고 투명합니다. 서비스에 정책을 설정하면 서비스 수준에서 수동으로 크기 조정 작업을 수행할 필요가 없습니다. 자동 크기 조정은 서비스 생성 시 또는 서비스를 업데이트하여 언제든지 설정할 수 있습니다.
@@ -130,7 +130,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 * _최소 인스턴스 수_ 는 크기 조정의 하한값을 정의 합니다. 서비스의 파티션 수가 이 한계에 도달하면 로드에 관계없이 서비스가 규모 감축되지 않습니다.
 
 > [!WARNING] 
-> AddRemoveIncrementalNamedPartitionScalingMechanism을 상태 저장 서비스와 함께 사용하면 Service Fabric이 **알림 또는 경고 없이** 파티션을 추가 또는 제거합니다. 크기 조정 메커니즘이 트리거되면 데이터의 다시 분할이 수행되지 않습니다. 강화 작업의 경우 새 파티션은 비어 있고 규모 축소 작업의 경우 ** 파티션은 **포함된 모든 데이터와 함께 삭제됩니다.
+> AddRemoveIncrementalNamedPartitionScalingMechanism을 상태 저장 서비스와 함께 사용하면 Service Fabric이 **알림 또는 경고 없이** 파티션을 추가 또는 제거합니다. 크기 조정 메커니즘이 트리거되면 데이터의 다시 분할이 수행되지 않습니다. 규모 확장 작업의 경우 새 파티션이 비어 있게 되 고, 크기 조정 작업의 경우 **파티션은 포함 된 모든 데이터와 함께 삭제**됩니다.
 
 ## <a name="setting-auto-scaling-policy"></a>자동 크기 조정 정책 설정
 

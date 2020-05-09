@@ -8,16 +8,16 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: a0f726d32f2f63cf85101254fded005fc0b5a1db
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cfc28577f089ef22457e9f66ff08106969a5a4b2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233553"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857382"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Azure Red Hat OpenShift 4 개인 클러스터 만들기
 
-이 문서에서는 OpenShift 4를 실행 하는 Azure Red Hat OpenShift 전용 클러스터를 만들기 위해 환경을 준비 합니다. 이 문서에서 배울 내용은 다음과 같습니다.
+이 문서에서는 OpenShift 4를 실행 하는 Azure Red Hat OpenShift 전용 클러스터를 만들기 위해 환경을 준비 합니다. 다음을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 필수 구성 요소를 설정 하 고 필요한 가상 네트워크 및 서브넷 만들기
@@ -65,15 +65,21 @@ aro                                1.0.0
 ...
 ```
 
-### <a name="obtain-a-red-hat-pull-secret-optional"></a>Red Hat pull 비밀 가져오기 (선택 사항)
+### <a name="get-a-red-hat-pull-secret-optional"></a>Red Hat pull 비밀 가져오기 (선택 사항)
 
 Red Hat pull 비밀을 사용 하면 클러스터에서 추가 콘텐츠와 함께 Red Hat 컨테이너 레지스트리에 액세스할 수 있습니다. 이 단계는 선택 사항이지만 권장됩니다.
 
-로 이동 하 여 끌어오기 비밀 https://cloud.redhat.com/openshift/install/azure/aro-provisioned *다운로드*를 클릭 하 여 끌어오기 암호를 가져옵니다.
+1. **[Red Hat OpenShift 클러스터 관리자 포털로 이동](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) 하 여 로그인 합니다.**
 
-Red Hat 계정에 로그인 하거나 비즈니스 전자 메일을 사용 하 여 새 Red Hat 계정을 만들고 사용 약관에 동의 해야 합니다.
+   Red Hat 계정에 로그인 하거나 비즈니스 전자 메일을 사용 하 여 새 Red Hat 계정을 만들고 사용 약관에 동의 해야 합니다.
+
+2. **끌어오기 비밀 다운로드를 클릭 합니다.**
 
 저장 `pull-secret.txt` 된 파일을 안전한 위치에 보관 합니다. 각 클러스터 만들기에 사용 됩니다.
+
+`az aro create` 명령을 실행할 때 매개 변수를 `--pull-secret @pull-secret.txt` 사용 하 여 끌어오기 암호를 참조할 수 있습니다. 파일을 저장 한 디렉터리에서를 실행 `az aro create` 합니다. `pull-secret.txt` 그렇지 않으면를 `@pull-secret.txt` 로 `@<path-to-my-pull-secret-file`바꿉니다.
+
+끌어오기 비밀을 복사 하거나 다른 스크립트에서 참조 하는 경우에는 끌어오기 비밀을 유효한 JSON 문자열로 포맷 해야 합니다.
 
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>두 개의 빈 서브넷을 포함 하는 가상 네트워크 만들기
 
@@ -177,7 +183,10 @@ Red Hat 계정에 로그인 하거나 비즈니스 전자 메일을 사용 하 �
 
 ## <a name="create-the-cluster"></a>클러스터 만들기
 
-다음 명령을 실행 하 여 클러스터를 만듭니다. `apiserver-visibility` 및 `ingress-visibility` 매개 변수를 확인 합니다. 필요에 따라 끌어오기 암호를 전달 하 여 클러스터에서 추가 콘텐츠와 함께 Red Hat 컨테이너 레지스트리에 액세스할 수 있습니다. [Red Hat OpenShift 클러스터 관리자](https://cloud.redhat.com/openshift/install/azure/installer-provisioned) 로 이동 하 고 Pull 비밀 복사를 클릭 하 여 끌어오기 비밀에 액세스 합니다.
+다음 명령을 실행 하 여 클러스터를 만듭니다. 필요에 따라 [red hat pull 암호를 전달](#get-a-red-hat-pull-secret-optional) 하 여 클러스터에서 추가 콘텐츠와 함께 red hat 컨테이너 레지스트리에 액세스할 수 있습니다.
+
+>[!NOTE]
+> 복사/붙여넣기 명령 및 선택적 매개 변수 중 하나를 사용 하는 경우 초기 해시 태그 및 후행 주석 텍스트를 삭제 해야 합니다. 또한 뒤에 오는 백슬래시를 사용 하 여 명령의 이전 줄에서 인수를 닫습니다.
 
 ```azurecli-interactive
 az aro create \
@@ -185,15 +194,12 @@ az aro create \
   --name $CLUSTER \
   --vnet aro-vnet \
   --master-subnet master-subnet \
-  --worker-subnet worker-subnet \
-  --apiserver-visibility Private \
-  --ingress-visibility Private
-  # --domain aro.example.com # [OPTIONAL] custom domain
-  # --pull-secret 'Pull secret from https://cloud.redhat.com/openshift/install/azure/installer-provisioned/' # [OPTIONAL]
+  --worker-subnet worker-subnet
+  # --domain foo.example.com # [OPTIONAL] custom domain
+  # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
->[!NOTE]
-> 클러스터를 만드는 데 일반적으로 약 35 분이 소요 됩니다.
+`az aro create` 명령을 실행 한 후 클러스터를 만드는 데 일반적으로 약 35 분이 소요 됩니다.
 
 >[!IMPORTANT]
 > 사용자 지정 도메인 (예: **foo.example.com**)을 지정 하도록 선택 하는 경우 openshift 콘솔은 기본 제공 도메인 `https://console-openshift-console.apps.foo.example.com` `https://console-openshift-console.apps.<random>.<location>.aroapp.io`대신와 같은 URL에서 사용할 수 있습니다.

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 345666b53336cc6959a65eefd4b0f2475bea8c80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f2843623061e39e8c9c0ebc35b4916bf9bd3b186
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67078613"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561871"
 ---
 # <a name="azure-data-box-edge-and-azure-data-box-gateway-1905-release-notes"></a>Azure Data Box Edge 및 Azure Data Box Gateway 1905 릴리스 정보
 
@@ -21,7 +21,7 @@ ms.locfileid: "67078613"
 
 다음 릴리스 정보는 Azure Data Box Edge 및 Azure Data Box Gateway에 대 한 1905 릴리스에 대 한 중요 한 미해결 문제 및 해결 된 문제를 식별 합니다.
 
-릴리스 정보는 계속 업데이트되며, 해결 방법이 필요한 중대한 문제가 발견되면 해당 내용이 추가됩니다. Data Box Edge/Data Box Gateway를 배포 하기 전에 릴리스 정보에 포함 된 정보를 주의 깊게 검토 하세요.
+릴리스 정보는 계속 업데이트되며, 해결 방법이 필요한 중대한 문제가 발견되면 해당 내용이 추가됩니다. Data Box Edge/Data Box Gateway를 배포 하기 전에 릴리스 정보에 포함 된 정보를 주의 깊게 검토 하세요. 
 
 이 릴리스는 소프트웨어 버전에 해당 합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "67078613"
 
 ## <a name="whats-new"></a>새로운 기능
 
-- **FPGA (필드 프로그래밍 가능 게이트 배열) 로깅 개선** -이 릴리스에서는 FPGA와 관련 된 로깅 및 경고 기능 향상을 만들었습니다. FPGA와 함께에 지 계산 기능을 사용 하는 경우 Data Box Edge에 필요한 업데이트입니다. 자세한 내용은 [Data Box Edge에 지 compute를 사용 하 여 데이터를 변환](data-box-edge-deploy-configure-compute-advanced.md)하는 방법을 참조 하세요.
+- **FPGA (필드 프로그래밍 가능 게이트 배열) 로깅 개선** -이 릴리스에서는 FPGA와 관련 된 로깅 및 경고 기능 향상을 만들었습니다. FPGA와 함께에 지 계산 기능을 사용 하는 경우 Data Box Edge에 필요한 업데이트입니다. 자세한 내용은 [Data Box Edge에 지 compute를 사용 하 여 데이터를 변환](azure-stack-edge-deploy-configure-compute-advanced.md)하는 방법을 참조 하세요.
 
 ## <a name="known-issues-in-ga-release"></a>GA 릴리스의 알려진 문제
 
@@ -43,4 +43,4 @@ ms.locfileid: "67078613"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Data Box Gateway 배포 준비](data-box-gateway-deploy-prep.md)
-- [Azure Data Box Edge 배포 준비](data-box-edge-deploy-prep.md)
+- [Azure Data Box Edge 배포 준비](azure-stack-edge-deploy-prep.md)

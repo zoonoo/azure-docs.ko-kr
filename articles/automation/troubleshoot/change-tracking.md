@@ -9,19 +9,19 @@ ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 11c1fd05055922b07801c20d525d852d5360b069
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 4f230cd0965d58f690d333cd62f2c7c1d499e8d1
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679343"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582153"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>변경 내용 추적 및 인벤토리 문제 해결
 
-이 문서에서는 변경 내용 추적 및 인벤토리 문제를 해결 하는 방법을 설명 합니다.
+이 문서에서는 Azure Automation 변경 내용 추적 및 인벤토리 문제를 해결 하는 방법을 설명 합니다.
 
 >[!NOTE]
->이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대한 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](../automation-update-azure-modules.md)을 사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
+>이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대한 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법을](../automation-update-azure-modules.md)사용 하 여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
 ## <a name="windows"></a>Windows
 
@@ -35,7 +35,7 @@ ms.locfileid: "81679343"
 
 이 오류는 다음과 같은 경우에 발생할 수 있습니다.
 
-* Windows 용 Log Analytics 에이전트가 실행 되 고 있지 않습니다.
+* Windows 용 Azure Log Analytics 에이전트가 실행 되 고 있지 않습니다.
 * Automation 계정에 대 한 다시 통신이 차단 되 고 있습니다.
 * 변경 내용 추적 및 인벤토리 관리 팩은 다운로드 되지 않습니다.
 * 등록 중인 VM이 Windows 용 Log Analytics agent를 사용 하 여 sysprep 되지 않은 복제 된 컴퓨터에서 가져온 것일 수 있습니다.
@@ -51,10 +51,10 @@ StartTracing.cmd VER
 net start healthservice
 ```
 
-여전히 도움이 필요한 경우 진단 정보를 수집 하 고 지원 담당자에 게 문의할 수 있습니다. 
+여전히 도움이 필요한 경우 진단 정보를 수집 하 고 지원 담당자에 게 문의할 수 있습니다.
 
 > [!NOTE]
-> 로그 Analyticss 에이전트는 기본적으로 오류 추적을 사용 하도록 설정 합니다. 앞의 예제와 같이 자세한 오류 메시지를 사용 하려면 `VER` 매개 변수를 사용 합니다. 정보 추적의 경우 `StartTracing.cmd`를 호출할 때 `INF`를 사용합니다.
+> Log Analytics 에이전트는 기본적으로 오류 추적을 사용 하도록 설정 합니다. 앞의 예제와 같이 자세한 오류 메시지를 사용 하려면 `VER` 매개 변수를 사용 합니다. 정보 추적의 경우를 `INF` 호출할 `StartTracing.cmd`때를 사용 합니다.
 
 ##### <a name="log-analytics-agent-for-windows-not-running"></a>Log Analytics 에이전트가 실행 되 고 있지 않음
 
@@ -62,9 +62,9 @@ Windows (**health service**)에 대 한 Log Analytics 에이전트가 컴퓨터�
 
 ##### <a name="communication-to-automation-account-blocked"></a>Automation 계정에 대 한 통신이 차단 됨
 
-머신에서 이벤트 뷰어를 확인하여 단어가 `changetracking`인 이벤트를 검색합니다.
+컴퓨터에서 이벤트 뷰어를 확인 하 고 해당 단어가 `changetracking` 포함 된 모든 이벤트를 찾습니다.
 
-변경 내용 추적 및 인벤토리가 작동 하도록 허용 해야 하는 주소 및 포트에 대해 알아보려면 [Hybrid Runbook Worker를 사용 하 여 데이터 센터 또는 클라우드에서 리소스 자동화](../automation-hybrid-runbook-worker.md#network-planning) 를 참조 하세요.
+변경 내용 추적와 인벤토리가 작동 하도록 허용 해야 하는 주소 및 포트에 대 한 자세한 내용은 [Hybrid Runbook Worker를 사용 하 여 데이터 센터 또는 클라우드에서 리소스 자동화](../automation-hybrid-runbook-worker.md#network-planning)를 참조 하세요.
 
 ##### <a name="management-packs-not-downloaded"></a>다운로드 되지 않은 관리 팩
 
@@ -84,7 +84,7 @@ Windows (**health service**)에 대 한 Log Analytics 에이전트가 컴퓨터�
 
 #### <a name="issue"></a>문제
 
-솔루션에 등록 된 Linux 컴퓨터에 대 한 인벤토리 및 변경 내용 추적 결과가 표시 되지 않습니다. 
+솔루션에 등록 된 Linux 컴퓨터에 대 한 변경 내용 추적 및 인벤토리 결과가 표시 되지 않습니다. 
 
 #### <a name="cause"></a>원인
 이 문제와 관련 된 가능한 원인은 다음과 같습니다.
@@ -103,7 +103,7 @@ Heartbeat
 | summarize by Computer, Solutions
 ```
 
-쿼리 결과에 컴퓨터가 표시 되지 않으면 최근에 체크 인 되지 않은 것입니다. 로컬 구성 문제가 있는 것 이므로 에이전트를 다시 설치 해야 합니다. 설치 및 구성에 대 한 자세한 내용은 [Log Analytics 에이전트를 사용 하 여 로그 데이터 수집](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent)을 참조 하세요. 
+쿼리 결과에 컴퓨터가 표시 되지 않으면 최근에 체크 인 되지 않은 것입니다. 로컬 구성 문제가 있는 것 이므로 에이전트를 다시 설치 해야 합니다. 설치 및 구성에 대 한 자세한 내용은 [Log Analytics 에이전트를 사용 하 여 로그 데이터 수집](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent)을 참조 하세요.
 
 컴퓨터가 쿼리 결과에 표시 되 면 범위 구성을 확인 합니다. [Azure Monitor의 모니터링 솔루션을 대상으로 지정을](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting)참조 하세요.
 
@@ -119,8 +119,8 @@ Azure Security Center의 FIM 기능이 Linux 파일의 무결성에 대해 잘�
 
 ## <a name="next-steps"></a>다음 단계
 
-위의 문제가 표시 되지 않거나 문제를 해결할 수 없는 경우 추가 지원을 위해 다음 채널 중 하나를 시도해 보세요.
+여기에 문제가 표시 되지 않거나 문제를 해결할 수 없는 경우 추가 지원을 위해 다음 채널 중 하나를 시도해 보세요.
 
 * Azure [포럼](https://azure.microsoft.com/support/forums/)을 통해 azure 전문가 로부터 답변을 받으세요.
-* Azure 커뮤니티 [@AzureSupport](https://twitter.com/azuresupport)를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 하 여 고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정인를 사용 하 여 연결 하세요.
-* Azure 지원 인시던트 제출 [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 **지원 받기**를 선택 합니다.
+* 사용자 환경을 [@AzureSupport](https://twitter.com/azuresupport)개선 하기 위한 공식 Microsoft Azure 계정인를 사용 하 여 연결 하세요. Azure 지원은 Azure 커뮤니티를 답변, 지원 및 전문가에 게 연결 합니다.
+* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동 하 여 **지원 받기**를 선택 합니다.

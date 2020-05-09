@@ -1,28 +1,35 @@
 ---
-title: Async Java용 Azure Cosmos DB 성능 팁
-description: Azure Cosmos database 성능 향상을 위한 클라이언트 구성 옵션 학습
-author: SnehaGunda
+title: Azure Cosmos DB Async Java SDK v2의 성능 팁
+description: 비동기 Java SDK v 2에 대 한 Azure Cosmos database 성능 향상을 위한 클라이언트 구성 옵션에 대해 알아봅니다.
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: sngun
-ms.openlocfilehash: b892b1f4ff73679ab425d0e97f5361e0f3712252
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.author: anfeldma
+ms.openlocfilehash: 1a3ec22b9d1375f1c438d24791389284c1d4ee84
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80549180"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982550"
 ---
-# <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Azure Cosmos DB 및 Async Java에 대한 성능 팁
+# <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Azure Cosmos DB Async Java SDK v2의 성능 팁
 
 > [!div class="op_single_selector"]
-> * [비동기 Java](performance-tips-async-java.md)
-> * [Java](performance-tips-java.md)
+> * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
+> * [Async Java SDK v2](performance-tips-async-java.md)
+> * [Java SDK v2 동기화](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
 
-Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크기가 조정되는 빠르고 유연한 분산 데이터베이스입니다. Azure Cosmos DB를 사용하여 데이터베이스의 크기를 조정하기 위해 주요 아키텍처를 변경하거나 복잡한 코드를 작성할 필요는 없습니다. 규모를 확장 및 축소하는 것은 단일 API 호출 또는 SDK 메서드 호출을 수행하는 것만큼 쉽습니다. 그러나 네트워크 호출을 통해 Azure Cosmos DB에 액세스하기 때문에 [SQL Async Java SDK](sql-api-sdk-async-java.md)를 사용할 때 최대 성능을 얻기 위해 클라이언트 쪽에서 최적화를 지정할 수 있습니다.
+> [!IMPORTANT]  
+> Azure Cosmos DB에 대 한 최신 Java SDK가 *아닙니다* . 프로젝트에 Azure Cosmos DB Java SDK v4를 사용 하는 것이 좋습니다. 업그레이드 하려면 [Azure Cosmos DB JAVA SDK v4로 마이그레이션](migrate-java-v4-sdk.md) 가이드 및 [Reactor Vs rxjava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 가이드의 지침을 따르세요. 
+> 
+> 이 문서의 성능 팁은 Azure Cosmos DB Async Java SDK v 2에만 해당 됩니다. 자세한 내용은 Async Java SDK v2 [릴리스 정보](sql-api-sdk-async-java.md), [Maven 리포지토리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)및 Azure Cosmos DB async java sdk v2 [문제 해결 가이드](troubleshoot-java-async-sdk.md) 를 Azure Cosmos DB 참조 하세요.
+>
+
+Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크기가 조정되는 빠르고 유연한 분산 데이터베이스입니다. Azure Cosmos DB를 사용하여 데이터베이스의 크기를 조정하기 위해 주요 아키텍처를 변경하거나 복잡한 코드를 작성할 필요는 없습니다. 규모를 확장 및 축소하는 것은 단일 API 호출 또는 SDK 메서드 호출을 수행하는 것만큼 쉽습니다. 그러나 네트워크 호출을 통해 Azure Cosmos DB에 액세스 하기 때문에 [Azure Cosmos DB Async JAVA SDK v2](sql-api-sdk-async-java.md)를 사용할 때 최대 성능을 얻기 위해 클라이언트 쪽 최적화를 수행할 수 있습니다.
 
 "내 데이터베이스 성능을 향상시키는 방법"을 물으면 다음 옵션을 고려합니다.
 
@@ -31,7 +38,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 * **연결 모드: 직접 모드를 사용 합니다.**
 <a id="direct-connection"></a>
     
-    클라이언트에서 Azure Cosmos DB에 연결 하는 방법은 특히 클라이언트 쪽 대기 시간 측면에서 성능에 중요 한 영향을 미칩니다. *Connectionmode* 는 클라이언트 *connectionmode*를 구성 하는 데 사용할 수 있는 키 구성 설정입니다. 비동기 Java SDK의 경우 사용 가능한 두 ConnectionModes는 다음과 같습니다.  
+    클라이언트에서 Azure Cosmos DB에 연결 하는 방법은 특히 클라이언트 쪽 대기 시간 측면에서 성능에 중요 한 영향을 미칩니다. *Connectionmode* 는 클라이언트 *connectionmode*를 구성 하는 데 사용할 수 있는 키 구성 설정입니다. Azure Cosmos DB Async Java SDK v 2의 경우 사용 가능한 두 ConnectionModes는 다음과 같습니다.  
       
     * [게이트웨이(기본값)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
     * [직접](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
@@ -39,7 +46,9 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     게이트웨이 모드는 모든 SDK 플랫폼에서 지원 되며 기본적으로 구성 된 옵션입니다. 응용 프로그램이 엄격한 방화벽 제한이 있는 회사 네트워크 내에서 실행 되는 경우 표준 HTTPS 포트 및 단일 끝점을 사용 하기 때문에 게이트웨이 모드를 선택 하는 것이 가장 좋습니다. 그러나 게이트웨이 모드의 경우 성능 유지를 위해 Azure Cosmos DB에서 데이터를 읽거나 쓸 때마다 네트워크 홉이 추가됩니다. 이로 인해 직접 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공 합니다.
 
     Connectionmode 매개 변수를 사용 하 여 *Documentclient* 인스턴스를 생성 하는 *ConnectionPolicy* 동안 *connectionmode* 가 구성 됩니다.
-    
+
+    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-connectionpolicy"></a>Async Java SDK V2 (Maven:: azure-cosmosdb)
+
     ```java
         public ConnectionPolicy getConnectionPolicy() {
           ConnectionPolicy policy = new ConnectionPolicy();
@@ -61,7 +70,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 ## <a name="sdk-usage"></a>SDK 사용
 * **최신 SDK 설치**
 
-    Azure Cosmos DB SDK는 최상의 성능을 제공하기 위해 지속적으로 향상됩니다. [Azure Cosmos DB SDK](sql-api-sdk-async-java.md) 페이지를 참조하여 최신 SDK를 확인하고 향상된 기능을 검토하세요.
+    Azure Cosmos DB SDK는 최상의 성능을 제공하기 위해 지속적으로 향상됩니다. 최신 SDK를 확인 하 고 향상 된 기능을 검토 하려면 Async Java SDK v2 [릴리스 정보](sql-api-sdk-async-java.md) 페이지 Azure Cosmos DB 참조 하세요.
 
 * **응용 프로그램 수명 동안 singleton Azure Cosmos DB 클라이언트 사용**
 
@@ -71,9 +80,9 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 * **ConnectionPolicy 튜닝**
 
-    기본적으로 직접 모드 Cosmos DB 요청은 비동기 Java SDK를 사용 하는 경우 TCP를 통해 수행 됩니다. 내부적으로 SDK는 특별 한 직접 모드 아키텍처를 사용 하 여 네트워크 리소스를 동적으로 관리 하 고 최적의 성능을 얻을 수 있습니다.
+    기본적으로 Azure Cosmos DB Async Java SDK v2를 사용 하는 경우 직접 모드 Cosmos DB 요청은 TCP를 통해 수행 됩니다. 내부적으로 SDK는 특별 한 직접 모드 아키텍처를 사용 하 여 네트워크 리소스를 동적으로 관리 하 고 최적의 성능을 얻을 수 있습니다.
 
-    비동기 Java SDK에서, 대부분의 워크 로드를 사용 하 여 데이터베이스 성능을 향상 시키기 위해 직접 모드를 선택 하는 것이 가장 좋습니다. 
+    Azure Cosmos DB Async Java SDK v2에서 직접 모드는 대부분의 워크 로드를 사용 하 여 데이터베이스 성능을 향상 시키는 가장 좋은 방법입니다. 
 
     * ***직접 모드 개요***
 
@@ -88,7 +97,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
         참조 데이터베이스로 Azure Cosmos DB를 사용 하는 경우 (즉, 여러 시점 읽기 작업과 몇 가지 쓰기 작업에 데이터베이스를 사용 하는 경우) *idleEndpointTimeout* 를 0 (시간 제한 없음)으로 설정 하는 것이 허용 될 수 있습니다.
 
 
-        | 구성 옵션       | 기본값    |
+        | 구성 옵션       | 기본    |
         | :------------------:       | :-----:    |
         | bufferPageSize             | 8192       |
         | connectionTimeout          | "PT1M"     |
@@ -106,7 +115,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
     * ***직접 모드를 위한 프로그래밍 팁***
 
-        비동기 java sdk 문제를 해결 하기 위한 기준으로 Azure Cosmos DB [Async JAVA Sdk 문제 해결](troubleshoot-java-async-sdk.md) 문서를 검토 합니다.
+        SDK 문제를 해결 하기 위한 기준으로 Azure Cosmos DB Async Java SDK v2 [문제 해결](troubleshoot-java-async-sdk.md) 문서를 검토 합니다.
 
         직접 모드를 사용 하는 경우 몇 가지 중요 한 프로그래밍 팁:
 
@@ -114,14 +123,14 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
         + **전용 스레드에서 계산 집약적인 작업을 수행** 합니다. 이전 팁과 비슷한 이유로 복잡 한 데이터 처리와 같은 작업은 별도의 스레드에 배치 하는 것이 가장 좋습니다. 다른 데이터 저장소에서 데이터를 끌어오는 요청 (예: 스레드에서 Azure Cosmos DB 및 Spark 데이터 저장소를 동시에 활용 하는 경우)은 대기 시간이 증가 하 고 다른 데이터 저장소에서 응답을 기다립니다 추가 스레드를 생성 하는 것이 좋습니다.
 
-            + Async Java SDK의 기본 네트워크 IO는 Netty를 통해 관리 됩니다. [NETTY IO 스레드를 차단 하는 코딩 패턴을 방지 하기 위한 다음 팁](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread)을 참조 하십시오.
+            + Azure Cosmos DB Async Java SDK v 2의 기본 네트워크 IO는 Netty를 통해 관리 됩니다. [NETTY IO 스레드를 차단 하는 코딩 패턴을 방지 하기 위한 다음 팁](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread)을 참조 하십시오.
 
         + **데이터 모델링** -Azure Cosmos DB SLA는 문서 크기를 1KB 미만으로 가정 합니다. 더 작은 문서 크기를 선호 하는 데이터 모델 및 프로그래밍을 최적화 하면 일반적으로 대기 시간이 감소 합니다. 1KB 보다 큰 문서를 저장 하 고 검색 해야 하는 경우 문서를 Azure Blob Storage의 데이터에 연결 하는 것이 좋습니다.
 
 
 * **분할된 컬렉션에 대한 병렬 쿼리 튜닝**
 
-    Azure Cosmos DB SQL Async Java SDK는 분할된 컬렉션을 병렬로 쿼리할 수 있는 병렬 쿼리를 지원합니다. 자세한 내용은 SDK 사용과 관련된 [코드 샘플](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples)을 참조하세요. 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다.
+    Azure Cosmos DB Async Java SDK v2는 병렬 쿼리를 지원 하므로 분할 된 컬렉션을 병렬로 쿼리할 수 있습니다. 자세한 내용은 SDK 사용과 관련된 [코드 샘플](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples)을 참조하세요. 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다.
 
     * ***튜닝 setMaxDegreeOfParallelism\:***
     
@@ -159,9 +168,11 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 * **적절한 스케줄러 사용(이벤트 루프 IO Netty 스레드 도용 방지)**
 
-    Async Java SDK는 비블록킹 IO에 [netty](https://netty.io/)를 사용합니다. SDK는 IO 작업을 실행하기 위해 고정된 수의 IO netty 이벤트 루프 스레드(시스템에 있는 CPU 코어 수만큼)를 사용합니다. API에서 반환된 Observable은 공유 IO 이벤트 루프 netty 스레드 중 하나에서 결과를 도출합니다. 따라서 이 공유 IO 이벤트 루프 netty 스레드를 차단하지 않는 것이 중요합니다. IO 이벤트 루프 netty 스레드에서 CPU 집약적인 작업 또는 차단 작업을 수행하면 교착 상태가 발생하거나 SDK 처리량이 크게 저하될 수 있습니다.
+    Azure Cosmos DB Async Java SDK v2는 비 블로킹 IO에 [netty](https://netty.io/) 를 사용 합니다. SDK는 IO 작업을 실행하기 위해 고정된 수의 IO netty 이벤트 루프 스레드(시스템에 있는 CPU 코어 수만큼)를 사용합니다. API에서 반환된 Observable은 공유 IO 이벤트 루프 netty 스레드 중 하나에서 결과를 도출합니다. 따라서 이 공유 IO 이벤트 루프 netty 스레드를 차단하지 않는 것이 중요합니다. IO 이벤트 루프 netty 스레드에서 CPU 집약적인 작업 또는 차단 작업을 수행하면 교착 상태가 발생하거나 SDK 처리량이 크게 저하될 수 있습니다.
 
     예를 들어 다음 코드는 이벤트 루프 IO netty 스레드에서 CPU 집약적인 작업을 실행합니다.
+
+    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-noscheduler"></a>Async Java SDK V2 (Maven:: azure-cosmosdb)
 
     ```java
     Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
@@ -178,6 +189,8 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     ```
 
     결과에 대해 CPU 집약적인 작업을 수행하려는 경우 결과를 수신한 후에는 이벤트 루프 IO netty 스레드에서 이를 수행하지 않아야 합니다. 대신 사용자의 스케줄러를 제공하여 작업 실행을 위해 사용자의 스레드를 제공할 수 있습니다.
+
+    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-scheduler"></a>Async Java SDK V2 (Maven:: azure-cosmosdb)
 
     ```java
     import rx.schedulers;
@@ -198,7 +211,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
     작업 유형에 따라 작업에 적절한 RxJava Scheduler를 사용해야 합니다. 여기 [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html)를 참조 하세요.
 
-    자세한 내용은 [GitHub 페이지](https://github.com/Azure/azure-cosmosdb-java)에서 Async Java SDK를 확인하세요.
+    자세한 내용은 Azure Cosmos DB Async Java SDK v2의 [GitHub 페이지](https://github.com/Azure/azure-cosmosdb-java) 를 참조 하세요.
 
 * **Netty의 로깅 사용 안 함**
 
@@ -258,6 +271,8 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
     Azure Cosmos DB의 인덱싱 정책을 통해 인덱싱 경로(setIncludedPaths 및 setExcludedPaths)를 활용하여 인덱싱에 포함하거나 제외할 문서 경로를 지정할 수 있습니다. 인덱싱 비용이 인덱싱된 고유 경로 수와 직접 관련이 있기 때문에, 인덱싱 경로를 사용하면 사전에 알려진 쿼리 패턴의 시나리오에 대해 쓰기 성능을 향상시키고 인덱스 스토리지를 낮출 수 있습니다. 예를 들어 다음 코드는 "*" 와일드 카드를 사용 하 여 인덱싱에서 문서의 전체 섹션 (하위 트리 라고도 함)을 제외 하는 방법을 보여 줍니다.
 
+    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-indexing"></a>Async Java SDK V2 (Maven:: azure-cosmosdb)
+
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
     numberIndex.set("precision", -1);
@@ -282,6 +297,8 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     쿼리의 복잡성은 작업에 사용되는 요청 단위의 양에 영향을 줍니다. 조건자의 수, 조건자의 특성, UDF 수 및 원본 데이터 집합의 크기는 모두 쿼리 작업의 비용에 영향을 줍니다.
 
     모든 작업(만들기, 업데이트 또는 삭제)에 대한 오버헤드를 측정하려면 [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 헤더를 검사하여 이 작업에 사용된 요청 단위 수를 측정합니다. ResourceResponse\<t> 또는 FeedResponse\<t>에서 동일한 requestcharge 속성을 확인할 수도 있습니다.
+
+    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-requestcharge"></a>Async Java SDK V2 (Maven:: azure-cosmosdb)
 
     ```Java
     ResourceResponse<Document> response = asyncClient.createDocument(collectionLink, documentDefinition, null,
