@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 97e3c6212edd2ade4eabb96db3543e9b3b68e2ae
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 4badf550809df6cc63711c47e6e6f5b3690fdfca
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67454140"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691324"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Azure NetApp Files의 성능 고려 사항
 
@@ -34,8 +34,6 @@ ms.locfileid: "67454140"
 테스트에서 관찰 된 최대 경험적 처리량은 4500 MiB/s입니다.  Premium storage 계층에서 70.31 TiB 볼륨 할당량은이 수준의 성능을 얻기에 충분 한 처리량 제한을 프로 비전 합니다.  
 
 볼륨 할당량을 70.31 TiB 이상으로 할당 하는 것을 고려 하는 경우 추가 데이터를 저장 하기 위해 볼륨에 추가 할당량을 할당할 수 있습니다. 그러나 추가 된 할당량으로 인해 실제 처리량이 증가 하지 않습니다.  
-
-자세한 내용은 [Azure NetApp Files에 대 한 성능 벤치 마크](azure-netapp-files-performance-benchmarks.md) 를 참조 하세요.
 
 ## <a name="overprovisioning-the-volume-quota"></a>볼륨 할당량 과도 프로 비전
 
@@ -64,4 +62,4 @@ ms.locfileid: "67454140"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure NetApp Files에 대한 서비스 수준](azure-netapp-files-service-levels.md)
-- [Azure NetApp Files의 성능 벤치마크](azure-netapp-files-performance-benchmarks.md)
+- [Linux용 성능 벤치마크](performance-benchmarks-linux.md)

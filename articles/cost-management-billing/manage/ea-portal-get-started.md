@@ -3,16 +3,16 @@ title: Azure Enterprise Portal 시작
 description: 이 문서에서는 Azure EA(Azure 기업계약) 고객이 Azure Enterprise Portal을 사용하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/01/2020
+ms.date: 05/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: da63960b312bde6ae8aafb659ef08ef2f52600cc
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 647802ada8c8ca701c552749730b54bfce1e1651
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586295"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691553"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Azure Enterprise Portal 시작
 

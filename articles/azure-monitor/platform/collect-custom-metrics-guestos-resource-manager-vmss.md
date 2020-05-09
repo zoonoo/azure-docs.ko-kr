@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 24f83e4f6285d045e67bdaef431ebcff2345ef84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe550bb4f5e63761bb645c9904816048584b1bca
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77663899"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733248"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Windows 가상 머신 확장 집합에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 
@@ -245,14 +245,14 @@ Resource Manager 템플릿을 배포하려면 Azure PowerShell을 사용합니�
    ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
-1. 배포 중인 VM에 대한 새 리소스 그룹을 만듭니다. 다음 명령을 실행합니다. 
+1. 배포 중인 VM에 대한 새 리소스 그룹을 만듭니다. 다음 명령 실행: 
 
    ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
-   > 사용자 지정 메트릭을 사용할 수 있는 Azure 지역을 사용해야 합니다. [사용자 지정 메트릭을 사용할 수 있는 Azure 지역](https://github.com/MicrosoftDocs/azure-docs-pr/pull/metrics-custom-overview.md#supported-regions)을 사용해야 합니다.
+   > 사용자 지정 메트릭을 사용할 수 있는 Azure 지역을 사용해야 합니다. [사용자 지정 메트릭을 사용할 수 있는 Azure 지역](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/azure-monitor/platform/metrics-custom-overview.md#supported-regions)을 사용해야 합니다.
  
 1. 다음 명령을 실행하여 VM을 배포합니다.  
 

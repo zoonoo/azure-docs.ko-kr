@@ -11,15 +11,16 @@ author: djpmsft
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
-ms.openlocfilehash: 14f1d3b58996d438279bfa2a234c754a6d840c79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5e4512030431b6d2e5d0f849e82a281c882b177
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414740"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628949"
 ---
 # <a name="templates"></a>템플릿
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 템플릿은 Data Factory를 빠르게 시작할 수 있게 해주는 미리 정의된 Azure Data Factory 파이프라인입니다. 템플릿은 Data Factory를 처음 사용하며 빠르게 시작하려는 경우에 유용합니다. 이러한 템플릿은 데이터 통합 프로젝트를 빌드하기 위한 개발 시간을 줄여 개발자의 생산성을 향상합니다.
 

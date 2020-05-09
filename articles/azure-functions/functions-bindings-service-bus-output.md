@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 02d9ce87d45c5f1c9a123aae18f7d710b268f03e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6817ac4ebc272747776eab8b11dba62f318e4ed
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80582249"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690730"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Service Bus 출력 바인딩
 
@@ -19,7 +19,7 @@ Azure Service Bus 출력 바인딩을 사용하여 큐 또는 토픽 메시지�
 
 설정 및 구성 세부 정보에 대 한 자세한 내용은 [개요](functions-bindings-service-bus-output.md)를 참조 하세요.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -275,7 +275,7 @@ Python에서 특성을 지원 하지 않습니다.
 
 ---
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 다음 표에서는 *함수. json* 파일 및 `ServiceBus` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
 
@@ -287,11 +287,11 @@ Python에서 특성을 지원 하지 않습니다.
 |**queueName**|**QueueName**|큐의 이름입니다.  토픽이 아닌 큐 메시지를 보내는 경우에만 설정합니다.
 |**topicName**|**TopicName**|항목의 이름입니다. 큐가 아닌 토픽 메시지를 보내는 경우에만 설정합니다.|
 |**connection**|**연결**|이 바인딩에 사용할 Service Bus 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 이름의 나머지만을 지정할 수 있습니다. 예를 들어을 "MyServiceBus `connection` "로 설정 하는 경우 함수 런타임은 이름이 "AzureWebJobsMyServiceBus" 인 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 "AzureWebJobsServiceBus"라는 앱 설정에서 기본 Service Bus 연결 문자열을 사용합니다.<br><br>연결 문자열을 얻으려면 [관리 자격 증명 가져오기](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string)에 나온 단계를 따릅니다. 연결 문자열은 Service Bus 네임스페이스에 대한 것이어야 하며, 특정 큐 또는 항목으로 제한되지 않습니다.|
-|**accessRights**|**액세스**|연결 문자열에 대한 액세스 권한입니다. 사용 가능한 값은 `manage` 및 `listen`입니다. 기본값은 `manage`이며, `connection`에 **관리** 권한이 있음을 의미합니다. **관리** 권한이 없는 연결 문자열을 사용하는 경우 `accessRights`을 "listen"으로 설정합니다. 그렇지 않으면 함수 런타임은 관리 권한이 필요한 작업 시도를 실패할 수 있습니다. Azure Functions 버전 2.x 이상에서는 Service Bus SDK의 최신 버전이 관리 작업을 지원 하지 않으므로이 속성을 사용할 수 없습니다.|
+|**accessRights** (v1에만 해당)|**액세스**|연결 문자열에 대한 액세스 권한입니다. 사용 가능한 값은 `manage` 및 `listen`입니다. 기본값은 `manage`이며, `connection`에 **관리** 권한이 있음을 의미합니다. **관리** 권한이 없는 연결 문자열을 사용하는 경우 `accessRights`을 "listen"으로 설정합니다. 그렇지 않으면 함수 런타임은 관리 권한이 필요한 작업 시도를 실패할 수 있습니다. Azure Functions 버전 2.x 이상에서는 Service Bus SDK의 최신 버전이 관리 작업을 지원 하지 않으므로이 속성을 사용할 수 없습니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용법
 
 Azure Functions 1.x에서 큐가 존재하지 않고 `accessRights`를 `manage`로 설정한 경우 런타임은 큐를 만듭니다. 함수 버전 2.x 이상에서는 큐 또는 항목이 이미 존재 해야 합니다. 존재 하지 않는 큐 또는 토픽을 지정 하면 함수가 실패 합니다. 
 
@@ -347,8 +347,8 @@ C # 함수를 사용 하는 경우:
 
 | 바인딩 | 참조 |
 |---|---|
-| 서비스 버스 | [Service Bus 오류 코드](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
-| 서비스 버스 | [Service Bus 한도](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
+| Service Bus | [Service Bus 오류 코드](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
+| Service Bus | [Service Bus 한도](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
 
 <a name="host-json"></a>  
 
@@ -366,9 +366,9 @@ C # 함수를 사용 하는 경우:
         "serviceBus": {
             "prefetchCount": 100,
             "messageHandlerOptions": {
-                "autoComplete": false,
+                "autoComplete": true,
                 "maxConcurrentCalls": 32,
-                "maxAutoRenewDuration": "00:55:00"
+                "maxAutoRenewDuration": "00:05:00"
             },
             "sessionHandlerOptions": {
                 "autoComplete": false,
@@ -380,13 +380,15 @@ C # 함수를 사용 하는 경우:
     }
 }
 ```
+을로 `isSessionsEnabled` `true`설정한 경우 `sessionHandlerOptions` 이 적용 됩니다.  을로 `isSessionsEnabled` `false`설정한 경우 `messageHandlerOptions` 이 적용 됩니다.
 
 |속성  |기본값 | Description |
 |---------|---------|---------|
 |prefetchCount|0|메시지 수신자가 동시에 요청할 수 있는 메시지 수를 가져오거나 설정 합니다.|
 |maxAutoRenewDuration|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.|
-|autoComplete|true|트리거가 메시지를 즉시 완료 (자동 완성)로 표시할지 아니면 완료를 호출 하기 위해 함수가 종료 될 때까지 기다릴지 여부를 지정 합니다.|
-|maxConcurrentCalls|16|메시지 펌프가 시작되어야 하는 콜백에 대한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다. 런타임이 큐 또는 토픽 메시지를 한 번에 하나만 처리하도록 하려면, `maxConcurrentCalls`를 1로 설정합니다. |
+|autoComplete|true|트리거가 처리 후 자동으로 완료를 호출 해야 하는지, 아니면 함수 코드가 수동으로 complete를 호출 하는지 여부입니다.|
+|maxConcurrentCalls|16|메시지 펌프가 확장 인스턴스당 시작 해야 하는 콜백에 대 한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다.|
+|maxConcurrentSessions|2000|크기 조정 된 인스턴스당 동시에 처리할 수 있는 최대 세션 수입니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

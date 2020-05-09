@@ -1,22 +1,17 @@
 ---
-title: Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1에 인증 | Microsoft Docs
-description: Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1에 인증하는 방법 알아보기
-services: data-lake-store
-documentationcenter: ''
+title: 인증-Azure AD를 사용 하 여 Data Lake Storage Gen1
+description: Azure Active Directory를 사용 하 여 Azure Data Lake Storage Gen1 인증 하는 방법을 알아봅니다.
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: f83cf183bee930dd07c707b0eb49125cecd70b84
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 49e6df417190071e06582be400575e1880f2543a
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60193597"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692294"
 ---
 # <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1에 인증
 
