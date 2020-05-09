@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 99a9e68a2e0c39364cc5105f230b00ffb90d867d
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: e76b100607c0ac39c1b05e44ac0d1e76a6129384
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888807"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612676"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>진단 기능에 Log Analytics 사용
 
@@ -25,19 +25,31 @@ ms.locfileid: "82888807"
 
 Windows 가상 데스크톱은 다른 여러 Azure 서비스와 같은 모니터링 및 경고에 [Azure Monitor](../azure-monitor/overview.md) 를 사용 합니다. 이를 통해 관리자는 단일 인터페이스를 통해 문제를 식별할 수 있습니다. 서비스는 사용자 및 관리 작업 모두에 대 한 활동 로그를 만듭니다. 각 활동 로그는 다음과 같은 범주에 속합니다.  
 
-- 관리 작업:
-    - Api 또는 PowerShell을 사용 하 여 Windows 가상 데스크톱 개체를 변경 하려는 시도가 성공 했는지 여부를 추적 합니다. 예를 들어 사용자가 PowerShell을 사용 하 여 호스트 풀을 성공적으로 만들 수 있나요?
+- 관리 작업:  
+
+   - Api 또는 PowerShell을 사용 하 여 Windows 가상 데스크톱 개체를 변경 하려는 시도가 성공 했는지 여부를 추적 합니다. 예를 들어 사용자가 PowerShell을 사용 하 여 호스트 풀을 성공적으로 만들 수 있나요?
+
 - 방향 
-    - 사용자가 작업 영역을 성공적으로 구독할 수 있나요? 
-    - 사용자가 원격 데스크톱 클라이언트에 게시 된 모든 리소스를 볼 수 있나요?
+
+   - 사용자가 작업 영역을 성공적으로 구독할 수 있나요? 
+
+   - 사용자가 원격 데스크톱 클라이언트에 게시 된 모든 리소스를 볼 수 있나요?
+
 - 연결: 
-    - 사용자가 서비스에 대 한 연결을 시작 하 고 완료 하는 경우 
+
+   - 사용자가 서비스에 대 한 연결을 시작 하 고 완료 하는 경우 
+
 - 호스트 등록: 
-    - 세션 호스트가 연결 시 서비스에 성공적으로 등록 되었습니까?
+
+   - 세션 호스트가 연결 시 서비스에 성공적으로 등록 되었습니까?
+
 - Errors: 
-    - 사용자에 게 특정 작업에 대 한 문제가 발생 하나요? 이 기능은 정보를 활동과 조인 하는 한 활동 데이터를 추적 하는 테이블을 생성할 수 있습니다.
+
+   - 사용자에 게 특정 작업에 대 한 문제가 발생 하나요? 이 기능은 정보를 활동과 조인 하는 한 활동 데이터를 추적 하는 테이블을 생성할 수 있습니다.
+
 - 검사점  
-    - 작업 수명의 특정 단계에 도달 했습니다. 예를 들어, 세션 중에 사용자가 특정 호스트로 부하가 분산 된 다음 연결 중에 사용자가 로그온 했습니다.
+
+   - 작업 수명의 특정 단계에 도달 했습니다. 예를 들어, 세션 중에 사용자가 특정 호스트로 부하가 분산 된 다음 연결 중에 사용자가 로그온 했습니다.
 
 진단 역할 서비스 자체는 Windows 가상 데스크톱의 일부 이기 때문에 Windows 가상 데스크톱에 연결 되지 않은 연결은 진단 결과에 표시 되지 않습니다. 사용자에 게 네트워크 연결 문제가 발생 하는 경우 Windows 가상 데스크톱 연결 문제가 발생할 수 있습니다.
 
@@ -134,7 +146,7 @@ Azure Portal 또는 Azure Monitor에서 Log Analytics 작업 영역에 액세스
 
 사용자가 만든 연결 목록을 가져오려면 다음 cmdlet을 실행 합니다.
 
-```kusto
+```powershell
 WVDConnections 
 | project-away TenantId,SourceSystem 
 | summarize arg_max(TimeGenerated, *), StartTime =  min(iff(State== 'Started', TimeGenerated , datetime(null) )), ConnectTime = min(iff(State== 'Connected', TimeGenerated , datetime(null) ))   by CorrelationId 
@@ -157,29 +169,45 @@ WVDConnections
 
 사용자의 피드 활동을 보려면 다음을 수행 합니다.
 
-```kusto
+```powershell
 WVDFeeds  
+
 | project-away TenantId,SourceSystem  
+
 | join kind=leftouter (  
+
     WVDErrors  
+
     |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId  
+
     ) on CorrelationId      
+
 | join kind=leftouter (  
+
    WVDCheckpoints  
+
    | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId  
+
    | mv-apply Checkpoints on  
+
     (  
+
         order by todatetime(Checkpoints['Time']) asc  
+
         | summarize Checkpoints=makelist(Checkpoints)  
+
     )  
+
    ) on CorrelationId  
+
 | project-away CorrelationId1, CorrelationId2  
+
 | order by  TimeGenerated desc 
 ```
 
 단일 사용자에 대 한 모든 연결을 찾으려면 다음을 수행 합니다. 
 
-```kusto
+```powershell
 |where UserName == "userupn" 
 |take 100 
 |sort by TimeGenerated asc, CorrelationId 
@@ -188,7 +216,7 @@ WVDFeeds
 
 하루에 연결 된 사용자 수를 찾으려면 다음을 수행 합니다.
 
-```kusto
+```powershell
 WVDConnections 
 |where UserName == "userupn" 
 |take 100 
@@ -199,7 +227,7 @@ WVDConnections
 
 사용자가 세션 기간을 찾으려면:
 
-```kusto
+```powershell
 let Events = WVDConnections | where UserName == "userupn" ; 
 Events 
 | where State == "Connected" 
@@ -214,15 +242,15 @@ on CorrelationId
 
 특정 사용자에 대 한 오류를 찾으려면 다음을 수행 합니다.
 
-```kusto
+```powershell
 WVDErrors
-| where UserName == "userupn" 
+| where UserName == "johndoe@contoso.com" 
 |take 100
 ```
 
 특정 오류가 발생 했는지 여부를 확인 하려면 다음을 수행 합니다.
 
-```kusto
+```powershell
 WVDErrors 
 | where CodeSymbolic =="ErrorSymbolicCode" 
 | summarize count(UserName) by CodeSymbolic 
@@ -230,7 +258,7 @@ WVDErrors
 
 모든 사용자에 게 오류 발생을 찾으려면:
 
-```kusto
+```powershell
 WVDErrors 
 | where ServiceError =="false" 
 | summarize usercount = count(UserName) by CodeSymbolic 

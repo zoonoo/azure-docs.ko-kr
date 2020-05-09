@@ -4,12 +4,12 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 02/24/2020
 ms.topic: include
-ms.openlocfilehash: c77849b2285283a34e6adf84dc3845a4076407af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78bf29a170152666d82ec26504ee8f61ed90636a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77597946"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82615971"
 ---
 ## <a name="attack-scenario"></a>공격 시나리오
 
@@ -29,9 +29,16 @@ Just-In-Time을 사용하도록 설정하면 Security Center는 NSG 규칙을 �
  > Azure 방화벽 뒤에 있는 VM에 대해 JIT 액세스 요청이 승인 되 면 Security Center는 NSG 및 방화벽 정책 규칙을 자동으로 변경 합니다. 지정 된 시간 동안 규칙은 선택한 포트 및 요청 된 원본 IP 주소 또는 범위에 대 한 인바운드 트래픽을 허용 합니다. 시간이 지남에 따라 Security Center 방화벽 및 NSG 규칙을 이전 상태로 복원 합니다.
 
 
+## <a name="roles-that-can-read-jit-policies"></a>JIT 정책을 읽을 수 있는 역할
+
+**판독기** 와 **securityreader** 역할은 모두 정책을 읽을 수 있습니다.
+
 ## <a name="permissions-needed-to-configure-and-use-jit"></a>JIT를 구성 및 사용하는 데 필요한 권한
+
+JIT를 사용할 수 있는 사용자 지정 역할을 만들려면 다음 정보가 필요 합니다.
 
 | 사용자가 다음을 수행할 수 있도록 설정: | 설정할 권한|
 | --- | --- |
 | VM에 대 한 JIT 정책 구성 또는 편집 | *역할에 다음 작업을 할당합니다.*  <ul><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> VM의 구독 또는 리소스 그룹의 범위: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |VM에 대한 JIT 액세스 요청 | *사용자에게 다음 작업을 할당합니다.*  <ul><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  구독 또는 리소스 그룹 또는 VM의 범위에서 다음을 수행 합니다.<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  구독 또는 리소스 그룹 또는 VM의 범위에서 다음을 수행 합니다.<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
+|JIT 정책 읽기| *사용자에게 다음 작업을 할당합니다.*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|

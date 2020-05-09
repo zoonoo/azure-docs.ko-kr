@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 20a82cbd7de4b5678648bac19ab9b59bf557b0ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec69a9906eabb4ce56f79b1b88c2b5f2440f84b1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79128326"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612472"
 ---
 # <a name="set-up-msix-app-attach"></a>MSIX 앱 연결 설정
 
 > [!IMPORTANT]
 > MSIX 앱 연결은 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에 사용 하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 항목에서는 Windows 가상 데스크톱 환경에서 MSIX 앱 연결을 설정 하는 방법을 안내 합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "79128326"
 시작 하기 전에 MSIX 앱 연결을 구성 하는 데 필요한 사항은 다음과 같습니다.
 
 - MSIX 앱 연결 Api를 지 원하는 windows 10 버전을 얻으려면 Windows 참가자 포털에 액세스 합니다.
-- 작동 하는 Windows 가상 데스크톱 배포. 자세한 내용은 [Windows 가상 데스크톱에서 테 넌 트 만들기](tenant-setup-azure-active-directory.md)를 참조 하세요.
+- 작동 하는 Windows 가상 데스크톱 배포. 자세한 내용은 [Windows 가상 데스크톱에서 테 넌 트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)를 참조 하세요.
 - MSIX 패키징 도구
 - MSIX 패키지가 저장 되는 Windows 가상 데스크톱 배포의 네트워크 공유
 
@@ -207,7 +207,7 @@ PowerShell 스크립트를 업데이트 하기 전에 VHD의 볼륨에 대 한 �
 
 4.  부모 폴더를 엽니다. 올바르게 확장 된 경우 패키지와 이름이 같은 폴더가 표시 됩니다. 이 폴더의 이름과 일치 하도록 **$packageName** 변수를 업데이트 합니다.
 
-    `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`)을 입력합니다.
+    예: `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`
 
 5.  명령 프롬프트를 열고 **mountvol**을 입력 합니다. 이 명령은 볼륨과 해당 Guid의 목록을 표시 합니다. 2 단계에서 드라이브 문자가 VHD를 탑재 한 드라이브와 일치 하는 볼륨의 GUID를 복사 합니다.
 

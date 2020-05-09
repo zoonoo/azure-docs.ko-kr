@@ -1,21 +1,25 @@
 ---
-title: Azure CLI를 사용 하 여 Linux VM의 이미지 캡처
-description: Azure CLI를 사용하여 대량 배포에 사용할 Azure VM 이미지를 캡처합니다.
+title: Azure CLI를 사용 하 여 Linux VM의 관리 되는 이미지 캡처
+description: Azure CLI를 사용 하 여 대량 배포에 사용할 Azure VM의 관리 되는 이미지를 캡처합니다.
 author: cynthn
-ms.service: virtual-machines-linux
-ms.topic: article
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 77f6244651551763f5460432655d66267775a256
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: legacy
+ms.openlocfilehash: 70282879b64054d48d904b5ada9284f844448851
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250401"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792686"
 ---
-# <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>가상 머신 또는 VHD의 이미지를 만드는 방법
+# <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>가상 컴퓨터 또는 VHD의 관리 되는 이미지를 만드는 방법
 
-Azure에서 사용할 VM(가상 머신)의 복사본을 여러 개 만들려면 VM 또는 OS VHD의 이미지를 캡처합니다. 배포에 대한 이미지를 만들려면 개인 계정 정보를 제거해야 합니다. 다음 단계에서는 기존 VM의 프로비전을 해제하고, 할당을 취소하고, 이미지를 만듭니다. 이 이미지를 사용하여 구독 내의 모든 리소스 그룹에서 VM을 만들 수 있습니다.
+개발 및 테스트를 위해 Azure에서 사용할 VM (가상 머신)의 여러 복사본을 만들려면 VM 또는 OS VHD의 관리 되는 이미지를 캡처합니다. 대규모로 이미지를 만들고 저장 하 고 공유 하려면 [공유 이미지 갤러리](../shared-images-cli.md)를 참조 하세요.
+
+관리 되는 이미지를 만들려면 개인 계정 정보를 제거 해야 합니다. 다음 단계에서는 기존 VM의 프로비전을 해제하고, 할당을 취소하고, 이미지를 만듭니다. 이 이미지를 사용하여 구독 내의 모든 리소스 그룹에서 VM을 만들 수 있습니다.
 
 백업 또는 디버깅을 위해 기존 Linux VM의 복사본을 만들거나 온-프레미스 VM에서 특수한 Linux VHD를 업로드하려면 [사용자 지정 디스크 이미지에서 Linux VM 업로드 및 만들기](upload-vhd.md)를 참조하세요.  
 
@@ -131,11 +135,4 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>다음 단계
-원본 VM 이미지에서 여러 VM을 만들 수 있습니다. 이미지를 변경하려면: 
-
-- 사용자 이미지에서 VM을 만듭니다.
-- 모든 업데이트 또는 구성 변경 내용을 확인합니다.
-- 단계에 따라 이미지를 다시 프로비전 해제, 할당 취소, 일반화하고 만듭니다.
-- 향후 배포에서 이 새로운 이미지를 사용합니다. 원본 이미지를 삭제할 수도 있습니다.
-
-CLI를 사용하여 VM을 관리하는 방법에 대한 자세한 내용은 [Azure CLI](/cli/azure)를 참조하세요.
+대규모로 이미지를 만들고 저장 하 고 공유 하려면 [공유 이미지 갤러리](shared-images.md)를 참조 하세요.

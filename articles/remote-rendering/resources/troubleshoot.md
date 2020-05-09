@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b86af2ff8fad3793fc47cec9399fd499c1cabba7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1b807c6e4fa269ac2ab8d7eacd3ca1d4f81a1ca
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681848"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792618"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -98,6 +98,10 @@ GPU에서 하드웨어 비디오 디코딩을 지원 하는지 확인 합니다.
 
 ### <a name="common-client-side-issues"></a>일반적인 클라이언트 쪽 문제
 
+**모델이 선택한 VM의 한도를 초과 합니다. 특히 최대 다각형 수는 다음과 같습니다.**
+
+특정 [VM 크기 제한](../reference/limits.md#overall-number-of-polygons)을 참조 하세요.
+
 **모델이 뷰 내에 없습니다.**
 
 대부분의 경우 모델은 올바르게 표시 되지만 카메라의 외부에 위치 합니다. 일반적으로 모델을 멀리 떨어져 있는 피벗을 사용 하 여 내보낸 후 카메라의 먼 클리핑 평면에 의해 잘립니다. 모델의 경계 상자를 프로그래밍 방식으로 쿼리 하 고 Unity를 사용 하 여 상자를 선 상자로 시각화 하거나 해당 값을 디버그 로그에 출력 하는 것이 좋습니다.
@@ -139,8 +143,20 @@ Azure 원격 렌더링은 Unity 렌더링 파이프라인에 후크하고 비디
 
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>원격 렌더링 API를 사용 하는 Unity 코드는 컴파일되지 않습니다.
 
+### <a name="use-debug-when-compiling-for-unity-editor"></a>Unity 편집기를 컴파일할 때 디버그 사용
+
 Unity 솔루션의 *빌드 형식을* **디버그**로 전환 합니다. Unity 편집기에서 ARR을 테스트할 때 ' 디버그 `UNITY_EDITOR` ' 빌드에서만 정의를 사용할 수 있습니다. 이는 [배포 된 응용 프로그램](../quickstarts/deploy-to-hololens.md)에 사용 되는 빌드 형식과 관련이 없으며 ' 릴리스 ' 빌드를 선호 해야 합니다.
 
+### <a name="compile-failures-when-compiling-unity-samples-for-hololens-2"></a>HoloLens 용 Unity 샘플을 컴파일하는 동안 컴파일 오류가 발생 했습니다. 2
+
+HoloLens 2에 대 한 Unity 샘플 (빠른 시작, ShowCaseApp, ...)을 컴파일하려고 할 때 발생 하는 오류가 표시 됩니다. Visual Studio는 불만 일부 파일을 복사할 수 없습니다. 이 문제가 발생 하는 경우:
+* 프로젝트에서 모든 임시 Unity 파일을 제거 하 고 다시 시도 하세요.
+* 복사 단계에서 긴 파일 이름으로 인해 문제가 발생 하는 것 처럼 보일 수 있으므로 프로젝트가 합리적인 짧은 경로를 사용 하는 디스크의 디렉터리에 있는지 확인 합니다.
+* 그래도 도움이 되지 않으면 MS Sense가 복사 단계에 방해가 될 수 있습니다. 예외를 설정 하려면 명령줄에서 다음 레지스트리 명령을 실행 합니다 (관리자 권한 필요).
+    ```cmd
+    reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
+    ```
+    
 ## <a name="unstable-holograms"></a>불안정 한 Holograms
 
 렌더링 된 개체가 head 이동과 함께 이동 하는 것 처럼 보이는 경우에는 lsr ( *늦은 단계 다시 프로젝션* )의 문제가 발생할 수 있습니다. 이러한 상황을 접근 하는 방법에 대 한 지침은 [후기 단계 Reprojection](../overview/features/late-stage-reprojection.md) 에 대 한 섹션을 참조 하세요.

@@ -11,13 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.custom: seodec18
-ms.openlocfilehash: beefad41a270233336bb9134268c98341e81a7cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, has-adal-ref
+ms.openlocfilehash: bf959a7ac8c1038c4306a45ba4519374c5d85f29
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380800"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612285"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -93,7 +93,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
    1. 애플리케이션이 Time Series Insights API를 호출할 때 `Authorization` 헤더에서 이 토큰을 전달할 수 있습니다.
 
-* 또는 개발자가 MSAL을 사용 하 여 인증 하도록 선택할 수 있습니다. [MSAL으로 마이그레이션](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) 에 대해 알아보고 [c #을 사용 하 여 Azure Time Series Insights 환경의 GA 참조 데이터 관리](time-series-insights-manage-reference-data-csharp.md) 문서를 참조 하세요. 
+* 또는 개발자가 MSAL을 사용 하 여 인증 하도록 선택할 수 있습니다. [MSAL으로 마이그레이션](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) 에 대해 알아보고 [c #을 사용 하 여 Azure Time Series Insights 환경의 GA 참조 데이터 관리](time-series-insights-manage-reference-data-csharp.md) 문서를 참조 하세요.
 
 ## <a name="common-headers-and-parameters"></a>일반 헤더 및 매개 변수
 
@@ -104,7 +104,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 ### <a name="authentication"></a>인증
 
-[TIME SERIES INSIGHTS Rest api](https://docs.microsoft.com/rest/api/time-series-insights/)에 대해 인증 된 쿼리를 수행 하려면 선택한 rest 클라이언트 (Postman, JavaScript, c #)를 사용 하 여 유효한 OAuth 2.0 전달자 토큰을 [인증 헤더](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) 에 전달 해야 합니다. 
+[TIME SERIES INSIGHTS Rest api](https://docs.microsoft.com/rest/api/time-series-insights/)에 대해 인증 된 쿼리를 수행 하려면 선택한 rest 클라이언트 (Postman, JavaScript, c #)를 사용 하 여 유효한 OAuth 2.0 전달자 토큰을 [인증 헤더](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) 에 전달 해야 합니다.
 
 > [!TIP]
 > 호스팅된 Azure Time Series Insights [CLIENT sdk 샘플 시각화](https://tsiclientsample.azurewebsites.net/) 를 읽고 차트 및 그래프와 함께 [JavaScript 클라이언트 sdk](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) 를 사용 하 여 프로그래밍 방식으로 Time Series Insights api를 사용 하 여 인증 하는 방법을 알아봅니다.
@@ -115,7 +115,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 | 필요한 요청 헤더 | Description |
 | --- | --- |
-| 권한 부여 | Time Series Insights 인증 하려면 유효한 OAuth 2.0 전달자 토큰을 **인증** 헤더에 전달 해야 합니다. | 
+| 권한 부여 | Time Series Insights 인증 하려면 유효한 OAuth 2.0 전달자 토큰을 **인증** 헤더에 전달 해야 합니다. |
 
 > [!IMPORTANT]
 > 토큰은 `https://api.timeseries.azure.com/` 리소스 (토큰의 "대상"이 라고도 함)에 대해 정확 하 게 발급 되어야 합니다.
@@ -146,7 +146,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 필수 URL 쿼리 문자열 매개 변수는 API 버전에 따라 달라 집니다.
 
-| 해제 | 가능한 API 버전 값 |
+| Release | 가능한 API 버전 값 |
 | --- |  --- |
 | 일반 공급 | `api-version=2016-12-12`|
 | 미리 보기 | `api-version=2018-11-01-preview` |

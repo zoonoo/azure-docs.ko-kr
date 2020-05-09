@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fcae1ed9064d38457ede73c675afb75ce4872fe6
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79246475"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611786"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Azure 테이블 저장소 테이블 디자인 가이드: 확장 가능 하 고 성능이 뛰어난 테이블
 
@@ -195,12 +195,12 @@ Azure storage 계정의 확장성 목표에 대 한 자세한 내용은 [standar
 
 | 열 이름 | 데이터 형식 |
 | --- | --- |
-| `PartitionKey`(부서 이름) |문자열 |
-| `RowKey`(직원 ID) |문자열 |
-| `FirstName` |문자열 |
-| `LastName` |문자열 |
+| `PartitionKey`(부서 이름) |String |
+| `RowKey`(직원 ID) |String |
+| `FirstName` |String |
+| `LastName` |String |
 | `Age` |정수 |
-| `EmailAddress` |문자열 |
+| `EmailAddress` |String |
 
 테이블 저장소 쿼리를 디자인 하기 위한 몇 가지 일반적인 지침은 다음과 같습니다. 다음 예제에 사용 된 필터 구문은 테이블 저장소 REST API에서 가져온 것입니다. 자세한 내용은 [엔터티 쿼리](https://msdn.microsoft.com/library/azure/dd179421.aspx)를 참조 하세요.  
 
@@ -208,7 +208,7 @@ Azure storage 계정의 확장성 목표에 대 한 자세한 내용은 [standar
 * 두 번째 최상의 방법은 *범위 쿼리입니다*. 이 메서드는 `PartitionKey`, 및 `RowKey` 값 범위에 대 한 필터를 사용 하 여 둘 이상의 엔터티를 반환 합니다. 값 `PartitionKey` 은 특정 파티션을 식별 하 고, 값 `RowKey` 은 해당 파티션에 있는 엔터티의 하위 집합을 식별 합니다. 예: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`  
 * 세 번째 최상의 *파티션은 파티션 검색*입니다. 및는 `PartitionKey`키가 아닌 다른 속성에 대해 및 필터를 사용 하 고 둘 이상의 엔터티를 반환할 수 있습니다. 값 `PartitionKey` 은 특정 파티션을 식별 하 고, 속성 값은 해당 파티션에 있는 엔터티의 하위 집합에 대해 선택 합니다. 예: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`  
 * *테이블 검색* 은를 포함 `PartitionKey`하지 않으며 테이블을 구성 하는 모든 파티션을 검색 하 여 일치 하는 엔터티에 대해 비효율적입니다. 필터가를 `RowKey`사용 하는지 여부에 관계 없이 테이블 검색을 수행 합니다. 예: `$filter=LastName eq 'Jones'`  
-* 여러 엔터티를 반환 하는 Azure Table storage 쿼리는 `PartitionKey` `RowKey` 순서 대로 정렬 합니다. 클라이언트에서 엔터티를 순서 대로 정렬 하지 않으려면 가장 일반적인 `RowKey` 정렬 순서를 정의 하는를 선택 합니다. Azure Cosmos DB에서 Azure Table API에 의해 반환 된 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬 되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
+* 여러 엔터티를 반환 하는 Azure Table storage 쿼리는 `PartitionKey` `RowKey` 순서 대로 정렬 합니다. 클라이언트에서 엔터티를 순서 대로 정렬 하지 않으려면 가장 일반적인 `RowKey` 정렬 순서를 정의 하는를 선택 합니다. Azure Cosmos DB에서 Azure Table API에 의해 반환 된 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬 되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](table-api-faq.md#table-api-vs-table-storage)을 참조하세요.
 
 "**Or**"를 사용 하 여 `RowKey` 값을 기준으로 필터를 지정 하면 파티션 검색이 발생 하며 범위 쿼리로 처리 되지 않습니다. 따라서와 같은 필터를 사용 하는 쿼리를 `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`사용 하지 마십시오.  
 
@@ -250,7 +250,7 @@ Azure storage 계정의 확장성 목표에 대 한 자세한 내용은 [standar
 Table storage는 `PartitionKey` `RowKey`및를 기준으로 오름차순으로 정렬 된 쿼리 결과를 반환 합니다.
 
 > [!NOTE]
-> Azure Cosmos DB에서 Azure Table API에 의해 반환 된 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬 되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
+> Azure Cosmos DB에서 Azure Table API에 의해 반환 된 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬 되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](table-api-faq.md#table-api-vs-table-storage)을 참조하세요.
 
 테이블 저장소의 키는 문자열 값입니다. 숫자 값이 올바르게 정렬 되도록 하려면 고정 길이로 변환 하 고 0으로 채움 해야 합니다. 예를 들어로 사용 하는 직원 ID 값 `RowKey` 이 정수 값 이면 직원 id **123** 을 **00000123**로 변환 해야 합니다. 
 
@@ -663,7 +663,7 @@ Table storage 및 Queue storage의 일부 오류는 일시적인 오류 이며 �
 ![부서 엔터티 및 employee 엔터티 그래픽][16]
 
 #### <a name="solution"></a>솔루션
-두 개의 별도 엔터티에 데이터를 저장하는 대신 데이터를 비정규화하여 부서 엔터티에 관리자 세부 정보의 복사본을 유지합니다. 다음은 그 예입니다.  
+두 개의 별도 엔터티에 데이터를 저장하는 대신 데이터를 비정규화하여 부서 엔터티에 관리자 세부 정보의 복사본을 유지합니다. 예를 들면 다음과 같습니다.  
 
 ![비 정규화 된 부서 및 결합 된 부서 엔터티의 그래픽][17]
 
@@ -733,7 +733,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 날짜 및 시간 역순으로 정렬 된 값을 `RowKey` 사용 하 여 가장 최근에 파티션에 추가 된 *n 개* 엔터티를 검색 합니다.  
 
 > [!NOTE]
-> Azure Cosmos DB에서 Azure Table API에 의해 반환 된 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬 되지 않습니다. 따라서이 패턴은 테이블 저장소에 적합 하지만 Azure Cosmos DB에는 적합 하지 않습니다. 기능 차이점에 대 한 자세한 목록은 [Azure Cosmos DB 및 Azure Table Storage의 Table API 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조 하세요.
+> Azure Cosmos DB에서 Azure Table API에 의해 반환 된 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬 되지 않습니다. 따라서이 패턴은 테이블 저장소에 적합 하지만 Azure Cosmos DB에는 적합 하지 않습니다. 기능 차이점에 대 한 자세한 목록은 [Azure Cosmos DB 및 Azure Table Storage의 Table API 차이점](table-api-faq.md#table-api-vs-table-storage)을 참조 하세요.
 
 #### <a name="context-and-problem"></a>컨텍스트 및 문제점
 일반적인 요구 사항은 가장 최근에 생성된 엔터티(예: 직원이 제출한 가장 최근 비용 청구 10개)를 검색할 수 있는 것입니다. 테이블 쿼리는 집합 `$top` 에서 처음 *n 개* 엔터티를 반환 하는 쿼리 작업을 지원 합니다. 집합의 마지막 *n 개* 엔터티를 반환 하는 해당 쿼리 작업은 없습니다.  

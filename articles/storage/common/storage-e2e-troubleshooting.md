@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 69983502fb7d099f474fb1c4c084f5d381a173e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8dc3c629830019a6c207c18f1783559e89512172
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76314762"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610975"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 엔드투엔드 문제 해결
 
@@ -161,7 +161,7 @@ Message Analyzer에는 서버, 클라이언트 및 네트워크 로그를 분석
 
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Message Analyzer 및 Azure Storage 자산 다운로드 및 설치
 
-1. Microsoft 다운로드 센터에서 [Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) 를 다운로드하고 설치 관리자를 실행합니다.
+1. [메시지 분석기](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer)를 다운로드 합니다.
 2. Message Analyzer를 시작합니다.
 3. **도구** 메뉴에서 **자산 관리자**를 선택합니다. **자산 관리자** 대화 상자에서 **다운로드**를 선택한 다음 **Azure Storage**에 필터링합니다. 아래 그림에 표시된 대로 Azure Storage 자산이 표시됩니다.
 4. **Sync All Displayed Items(표시된 모든 항목 동기화)** 를 클릭하여 Azure Storage 자산을 설치합니다. 사용 가능한 자산은 다음과 같습니다.
@@ -319,10 +319,10 @@ Message Analyzer를 사용하여 로그 데이터를 분석하는 데 익숙해�
 | SAS(공유 액세스 서명) 권한 부여 문제 |AzureStorageLog.RequestStatus ==  "SASAuthorizationError" |네트워크 |
 | HTTP 409(충돌) 메시지 |HTTP.Response.StatusCode   == 409 |네트워크 |
 | 409(모두) |*StatusCode   == 409 |모두 |
-| PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음 |AzureStorageLog.RequestStatus ==   "ClientOtherError" |Server (서버) |
-| Nagle 경고 |((AzureStorageLog.EndToEndLatencyMS   - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS *   1.5)) 및 (AzureStorageLog.RequestPacketSize <1460) 및 (AzureStorageLog.EndToEndLatencyMS -   AzureStorageLog.ServerLatencyMS >= 200) |Server (서버) |
+| PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음 |AzureStorageLog.RequestStatus ==   "ClientOtherError" |서버 |
+| Nagle 경고 |((AzureStorageLog.EndToEndLatencyMS   - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS *   1.5)) 및 (AzureStorageLog.RequestPacketSize <1460) 및 (AzureStorageLog.EndToEndLatencyMS -   AzureStorageLog.ServerLatencyMS >= 200) |서버 |
 | 서버 및 네트워크 로그의 시간 범위 |#Timestamp   >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 |서버, 네트워크 |
-| 서버 로그의 시간 범위 |AzureStorageLog.Timestamp   >= 2014-10-20T16:36:38 및 AzureStorageLog.Timestamp <=   2014-10-20T16:36:39 |Server (서버) |
+| 서버 로그의 시간 범위 |AzureStorageLog.Timestamp   >= 2014-10-20T16:36:38 및 AzureStorageLog.Timestamp <=   2014-10-20T16:36:39 |서버 |
 
 ## <a name="next-steps"></a>다음 단계
 
