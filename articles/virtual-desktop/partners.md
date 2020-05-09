@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 05/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e10908a3ce0ad372ab7d05fda9a15481d0efc5a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15bfb1e4d21e4f91cb37fed6e43b4e03f5643b13
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127580"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692227"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -82,6 +82,16 @@ Windows 가상 데스크톱과 함께 사용 하는 경우 제어 기능을 통�
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit)하세요.
 - [파트너 웹 사이트로 이동](https://www.controlup.com/solutions/ms_wvd/)합니다.
 
+## <a name="dell"></a>Dell
+
+![Dell 로고](./media/partners/dell.png)
+
+Dell 기술 씬 클라이언트는 Microsoft Azure 및 Windows 가상 데스크톱 서비스에 액세스 하도록 최적화 되어 있습니다. Wyse 씬 클라이언트는 점점 더 많은 앱 및 콘텐츠를 최대한 활용할 수 있는 고품질 컴퓨팅 환경을 제공 하 여, 그래픽 집약적 고급 사용자까지 공동 작업 지식 근로자의 요구 사항을 충족 시킬 수 있습니다. 공간이 제한 된 환경에 이상적 이며, Wyse 씬 클라이언트는 사용자가 다양 한 양식 팩터를 사용 하는 방법 및 다양 한 탑재 옵션을 선택 하는 방식에 맞게 조정 됩니다.
+
+Wyse 씬 클라이언트는 공격에 취약 한 영역, 보안 준수 표준 지원 및 고급 multi-factor authentication 솔루션에 대 한 보안을 염두에 두어야 합니다. Dell 독점 Wyse ThinOS를 사용 하 여 매우 안전한 씬 클라이언트를 배포 하거나, Dell에서 추가 된 보안 기능을 사용 하 여 상업적으로 검증 된 디자인 및 Windows 10 IoT Enterprise를 통해 강화 된 Wyse ThinLinux에서 클라우드 응용 프로그램 및 가상 작업 영역에 안전 하 게 액세스할 수 있습니다. 보안, HTTPS 기반 통신 및 역할 기반 관리에 대 한 active directory 인증을 사용 하 여 Wyse Management Suite는 항상 최신 상태를 유지 하 고, WMS Pro 용 모바일 앱을 사용 하 여 중요 한 경고를 보고 언제 든 한 번의 탭으로 실시간 명령을 보낼 수 있습니다.
+
+- [파트너 웹 사이트로 이동](https://www.delltechnologies.com/en-us/wyse/index.htm#scroll=off&overlay=//www.dellemc.com/en-us/collaterals/unauth/brochures/products/thin-clients/Wyse_Windows_Embedded_Standard_thin_clients_brochure.pdf)합니다.
+
 ## <a name="devicetrust"></a>deviceTRUST
 
 ![deviceTRUST 로고](./media/partners/devicetrust.png)
@@ -110,6 +120,7 @@ IGEL은 Microsoft Azure 및 Windows 가상 데스크톱 서비스의 승인 되 
  
 IGEL OS는 Citrix, Microsoft 및 VMware에서 널리 사용 되는 모든 가상 앱, 데스크톱 및 클라우드 작업 영역 클라이언트 프로토콜을 지원 합니다. 여기에는 조직에서 고유한 사용자 환경에 Windows 가상 데스크톱 서비스를 신속 하 게 도입할 수 있도록 85 주변 장치, 인터페이스 및 프로토콜 파트너의 통합 기술이 포함 되어 있습니다. IGEL OS는 읽기 전용 모듈식 끝점 OS로, 변조 로부터 보호 하는 데 도움이 됩니다. 이제 끝점 하드웨어 (일부 선택 된 모델) 또는 UEFI 프로세스에서 Azure 클라우드 및 Windows 가상 데스크톱 서비스에 이르기까지 끝점에서 실행 되는 모든 주요 주요 프로세스의 무결성을 확인 하는 완전 한 "신뢰 체인"이 포함 됩니다. IGEL OS를 사용 하 여 기업은 사용자의 끝점 장치에 대 한 무결성, 보안 및 관리 효율성을 완벽 하 게 확신 하는 Azure 클라우드에서 Windows 가상 데스크톱을 구독할 수 있습니다.
 
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviO)하세요.
 - [파트너 웹 사이트로 이동](https://www.igel.com/igel-os-universal-desktop-operating-system/)합니다.
 
 ## <a name="ivanti"></a>Ivanti
@@ -191,6 +202,7 @@ PolicyPak Software는 응용 프로그램, 데스크톱, 브라우저, Java 및 
 
 PolicyPak의 가장 중요 한 사용 사례는 로컬 관리자 권한을 제거 하 고 UAC 프롬프트를 표시 하며, 랜 섬 웨어를 차단 하 고, 여러 브라우저를 관리 하 고, Internet Explorer의 엔터프라이즈 및 호환성 모드를 관리 하 고, Windows 10 파일 연결을 관리 하 고, windows 10 시작 메뉴와 작업 표시줄을 관리 하 고, Windows 10 기능 및 선택적 기능을 관리 하는 것  
 
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviN)하세요.
 - [파트너 웹 사이트로 이동](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html)합니다.
 
 ## <a name="printerlogic"></a>프린터 논리
@@ -211,8 +223,8 @@ Printix는 office 인쇄 리소스에 대 한 사용자 연결을 자동화 하�
 
 인쇄는 모든 office 및 소규모 비즈니스 환경 에서만 기본적인 작업입니다. Windows 가상 데스크톱을 완벽 하 게 활용 하 고 뛰어난 사용자 환경을 제공 하기 위해 사용자가 최소한의 노력과 최대 안정성으로 프린터에 연결할 수 있는지 확인 하는 것이 중요 합니다. Printix를 사용 하면 SSO (Single Sign-On), 자동 구성, 정기 업데이트 및 인쇄 환경의 지속적인 모니터링을 통해 Windows 가상 데스크톱을 최대한 활용할 수 있습니다.
 
-- [공동 솔루션 brief 보기](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aiK2)
-- [파트너 웹 사이트로 이동](https://www.printix.net/printix-for-windows-virtual-desktop)
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aiK2)하세요.
+- [파트너 웹 사이트로 이동](https://www.printix.net/printix-for-windows-virtual-desktop)합니다.
 
 ## <a name="rdpsoft"></a>RDPSoft
 
@@ -222,7 +234,7 @@ RDPSoft는 강력 하 고 저렴 한 모니터링, 관리 및 보고 솔루션�
  
 RDPSoft의 원격 데스크톱 회사 솔루션은 Windows 가상 데스크톱 관리를 향상 시킵니다. 프리미엄 관리 기능을 사용 하면 원격 지원, 사용자 세션 및 프로세스 관리를 제공 하 여 지원 센터 직원에 게 Windows 가상 데스크톱 관리 작업을 간편 하 게 위임할 수 있습니다. 이와 동시에 원격 데스크톱 지향 제품군은 사용자 단위 성능 및 로드, 사용자 활동 및 감사, Windows 가상 데스크톱 연결 품질 (대기 시간 및 대역폭), 라이선스 및 보안에 대 한 풍부한 메트릭을 검토를 위해 중앙 Azure SQL database 인스턴스에 수집 합니다. RDPSoft를 사용 하면 풍부한 기록 보고 및 종합적인 대시보드를 클릭 하 여 바로 이동할 수 있습니다.
 
-- [파트너 웹 사이트로 이동](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
+- [파트너 웹 사이트로 이동](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)합니다.
 
 ## <a name="sepago"></a>sepago
 
@@ -232,7 +244,8 @@ sepago는 Cologne에서 4 개의 친구에 의해 2002에서 설립 되었습니
 
 sepago의 혁신 및 개발 랩은 빅 데이터 및 AI 기술을 사용 하 여 스마트 솔루션을 구축 합니다. 이러한 솔루션은 Windows 가상 데스크톱과 같은 파트너 제품의 비즈니스, 사용자 환경 및 판을 개선 하는 데 중점을 둡니다.
 
-- [파트너 웹 사이트로 이동](https://www.sepago.de/wvd-value-add-tools/)
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm)하세요.
+- [파트너 웹 사이트로 이동](https://www.sepago.de/wvd-value-add-tools/)합니다.
 
 ## <a name="thinprint"></a>ThinPrint
 
@@ -263,7 +276,18 @@ uberAgent 회사에서 제공 하는 방대한 제한은 Windows 가상 데스�
 
 uberAgent는 데이터를 수집 하지 않는 최종 사용자 컴퓨팅을 위해 설계 된 모니터링 및 분석 제품으로, 고객에 게 중요 한 정보를 제공 합니다. uberAgent에는 사용자 환경, 응용 프로그램 성능 및 끝점 보안의 주요 측면을 포함 하 여 시스템의 사용자 밀도에 영향을 주지 않고 Windows 가상 데스크톱 Vm에 대해 알고 있어야 하는 모든 것을 설명 하는 고유한 메트릭이 있습니다. uberAgent는 문제 해결을 간소화 하 고 크기 조정에 도움이 되며 정보 보안을 위해 중요 한 정보를 제공 합니다.
 
-- [파트너 웹 사이트로 이동](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop)
+- [파트너 웹 사이트로 이동](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop)합니다.
+
+## <a name="workspace-365"></a>작업 영역 365
+
+![작업 영역 365 로고](./media/partners/workspace-365.png)
+
+작업 영역 365은 모든 정보 (비즈니스 데이터, 문서, 통신 및 마이크로 앱)를 결합 한 작업 영역에서 모든 로컬, 웹 또는 호스팅된 응용 프로그램에 대 한 액세스를 제공 합니다. 사용자가 개인 설정 된 작업 영역을 제공 하기 위해 역할, 위치, 장치, 브라우저 등에 자동으로 조정 됩니다. 사용자는 화면 아래에 있는 기술에 관계 없이 간단 하 고 일관 된 환경을 얻을 수 있습니다. RDP, Citrix 및 레거시 응용 프로그램과 같은 현재 솔루션을 통합 하 고, 동일한 사용자 환경을 유지 하면서 Windows 가상 데스크톱으로 이동할 수 있습니다. 또한 SharePoint, OneDrive, 팀, 파일 서버 등의 모든 파일 위치를 하나의 문서 관리 앱에서 통합할 수 있습니다.
+
+IT 관리자는 작업 영역 365를 사용 하 여 사용 권한에 따라 사용자가 Windows 가상 데스크톱 사용 응용 프로그램을 사용할 수 있도록 설정할 수 있습니다. 그런 다음 관리자는 이러한 응용 프로그램을 공유 응용 프로그램 그룹에 추가할 수 있습니다. Windows 가상 데스크톱 응용 프로그램이 작업 영역 365에 표시 되 면 사용자는 다시 로그인 하지 않고도 작업 영역에서 열 수 있습니다. 
+
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vARh)하세요.
+- [파트너 웹 사이트로 이동](https://workspace365.net/product-tour/hybrid-workspace-365/)합니다.
 
 ## <a name="workspot"></a>워크 지점
 
@@ -279,4 +303,4 @@ uberAgent는 데이터를 수집 하지 않는 최종 사용자 컴퓨팅을 위
 ## <a name="next-steps"></a>다음 단계
 
 - [Windows 가상 데스크톱에 대해 자세히 알아보세요](overview.md).
-- [Windows 가상 데스크톱에서 테 넌 트를 만듭니다](tenant-setup-azure-active-directory.md).
+- [Windows 가상 데스크톱에서 테 넌 트를 만듭니다](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).

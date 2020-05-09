@@ -4,10 +4,10 @@ description: 관리 그룹 계층 구조를 살펴보고, 유지 관리하고, �
 ms.date: 04/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: 423d1837c3d5710e24abb94f5411200319e8a8aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 05/01/2020
 ms.locfileid: "81381674"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
@@ -93,7 +93,7 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
    :::image type="content" source="./media/delete_confirm.png" alt-text="그룹 삭제 확인 창" border="false":::
 
-1. **예**를 선택합니다.
+1. **Yes**를 선택합니다.
 
 ### <a name="delete-in-powershell"></a>PowerShell에서 삭제
 

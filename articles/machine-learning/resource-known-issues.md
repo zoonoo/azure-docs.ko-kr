@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 2760033cd66e99a7a7f6d331e03c6f98c486d286
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93015da810f163a48529704e69e1747ac1aec401
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231971"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889389"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>알려진 문제 및 문제 해결 Azure Machine Learning
 
@@ -39,7 +39,7 @@ ms.locfileid: "82231971"
 Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당량](how-to-manage-quotas.md)에 대해 알아보세요.
 
 ## <a name="installation-and-import"></a>설치 및 가져오기
-
+                           
 * **Pip 설치: 종속성이 단일 줄 설치와 일치 하지**않을 수 있습니다. 
 
    이는 단일 선으로를 설치할 때 작동 하는 종속성 해결 프로그램이 없기 때문에 pip의 알려진 제한 사항입니다. 첫 번째 고유 종속성은 보이는 유일한 종속성입니다. 
@@ -56,7 +56,29 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
         pip install azure-ml-datadrift
         pip install azureml-train-automl 
      ```
-
+     
+* **설명 패키지를 설치할 때 guarateed가 설치 되지 않습니다.** 
+   
+   모델 설명이 설정 된 원격 automl 실행을 실행 하면 "" 모델 설명을 위한 azureml 설명 모델 패키지를 설치 하세요. "라는 오류 메시지가 표시 됩니다. 이것은 알려진 문제 이며 해결 방법으로 다음 단계 중 하나를 수행 하십시오.
+  
+  1. Azureml를 로컬로 설치 합니다.
+   ```
+      pip install azureml-explain-model
+   ```
+  2. Automl 구성에서 model_explainability = False를 전달 하 여 explainability 기능을 완전히 사용 하지 않도록 설정 합니다.
+   ```
+      automl_config = AutoMLConfig(task = 'classification',
+                             path = '.',
+                             debug_log = 'automated_ml_errors.log',
+                             compute_target = compute_target,
+                             run_configuration = aml_run_config,
+                             featurization = 'auto',
+                             model_explainability=False,
+                             training_data = prepped_data,
+                             label_column_name = 'Survived',
+                             **automl_settings)
+    ``` 
+    
 * **Panda 오류: 일반적으로 AutoML 실험을 수행 하는 동안 표시 됩니다.**
    
    Pip를 사용 하 여 environmnet를 수동으로 설정 하는 경우 지원 되지 않는 패키지 버전이 설치 되기 때문에 특성 오류 (특히 pandas)를 알 수 있습니다. 이러한 오류를 방지 하려면 automl_setup을 [사용 하 여 AutoML SDK를 설치 하세요](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md).
@@ -83,7 +105,7 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
 
 * **패키지를 설치할 때 Databricks 오류 발생**
 
-    추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예제:
+    추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예:
     
     ```python
     psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -214,7 +236,7 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
 
 다음 오류에 대해이 작업을 수행 합니다.
 
-|오류  | 해결 방법  |
+|Error  | 해결 방법  |
 |---------|---------|
 |웹 서비스 배포 시 이미지 작성 오류     |  이미지 구성을 위해 "pConda acl = = 1.2.1"을 파일에 대 한 pip 종속성으로 추가 합니다.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   배포에 사용 되는 Vm의 SKU를 메모리를 더 많이 포함 하는 Vm으로 변경 합니다. |

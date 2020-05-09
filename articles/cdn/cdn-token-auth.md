@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
-ms.author: mezha
-ms.openlocfilehash: fa71f472294b91baebc2a6075ddb2b50123e545d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: mazha
+ms.openlocfilehash: 491f413f9bf189b1a46d04042fd7223a47af1f24
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67593384"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929131"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>보안 토큰 인증을 사용하여 Azure CDN 자산 보안 유지
 
@@ -29,7 +29,7 @@ ms.locfileid: "67593384"
 
 토큰 인증은 Azure CDN(Content Delivery Network)이 권한 없는 클라이언트에 자산을 제공하지 못하도록 할 수 있는 메커니즘입니다. 토큰 인증은 일반적으로 다른 웹 사이트(예: 메시지 보드)에서 권한 없이 사용자의 자산을 사용하는 콘텐츠 *핫링크*를 방지하기 위해 수행됩니다. 핫링크는 콘텐츠 배달 비용에 영향을 줄 수 있습니다. CDN에서 토큰 인증을 사용하도록 설정하면 CDN에서 콘텐츠를 전송하기 전에 요청이 CDN 에지 서버에서 인증됩니다. 
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 토큰 인증은 요청에 요청자에 대한 인코딩된 정보가 포함된 토큰 값을 포함하도록 요구하여 요청이 신뢰할 수 있는 사이트에서 생성되었는지 확인합니다. 인코딩된 정보가 요구 사항을 충족하는 경우에만 요청자에게 콘텐츠가 제공되며, 그렇지 않으면 요청이 거부됩니다. 다음 매개 변수 중 하나 이상을 사용하여 요구 사항을 설정할 수 있습니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "67593384"
 
       ```rand -hex <key length>```
 
-      예를 들면 다음과 같습니다.
+      다음은 그 예입니다. 
 
       ```OpenSSL> rand -hex 32``` 
 
