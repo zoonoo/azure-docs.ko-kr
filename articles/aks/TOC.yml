@@ -59,6 +59,11 @@
       href: tutorial-kubernetes-app-update.md
     - name: 7- 클러스터 업그레이드
       href: tutorial-kubernetes-upgrade-cluster.md
+- name: 샘플
+  items:
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
     - name: 클러스터 및 워크로드

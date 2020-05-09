@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 67c47b35e84a93d7d9032ad55b425ae2bb6971fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 37eabd4b2f61a82388b1c8d0aaf4aef2320f008e
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79209561"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801810"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-databases-using-azure-portal"></a>Azure Portal를 사용 하 여 Azure SQL Database 및 Azure Synapse Analytics 데이터베이스에 대 한 경고 만들기
 
@@ -24,8 +24,8 @@ ms.locfileid: "79209561"
 
 이 문서에서는 Azure Portal를 사용 하 여 Azure SQL Database 및 Azure Synapse Analytics (이전의 Azure SQL Data Warehouse)에서 단일, 풀링된 및 데이터 웨어하우스 데이터베이스에 대 한 경고를 설정 하는 방법을 보여 줍니다. 메트릭(예: 데이터베이스 크기 또는 CPU 사용량)이 임계값에 도달하면 경고에서 이메일을 보내거나 webhook를 호출할 수 있습니다. 이 문서는 또한 경고 기간 설정에 대한 모범 사례를 제공합니다.
 
-> [!IMPORTANT]
-> Managed Instance에서는 아직 이 기능을 사용할 수 없습니다. 대안으로 SQL Agent를 사용하여 [동적 관리 뷰](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)를 기반으로 메트릭에 대한 이메일 경고를 보낼 수 있습니다.
+> [!NOTE]
+> SQL 관리 되는 인스턴스 관련 지침은 [AZURE SQL Managed Instance에 대 한 경고 만들기](sql-database-managed-instance-alerts.md)를 참조 하세요.
 
 Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메트릭을 기반으로 경고를 받을 수 있습니다.
 

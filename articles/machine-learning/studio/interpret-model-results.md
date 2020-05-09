@@ -8,21 +8,18 @@ ms.subservice: studio
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 9a0b855f48085138b28e02e0a5d01c5dd0f666be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23a201ef63a9a1a6bb5bd078867ccc1200893049
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218061"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982023"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio(클래식)에서 모델 결과 해석
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 이 항목에서는 Azure Machine Learning Studio (클래식)에서 예측 결과를 시각화 하 고 해석 하는 방법에 대해 설명 합니다. 모델을 학습시키고 모델에 대한 예측을 수행("모델 점수 매기기")한 후에는 예측 결과를 이해하고 해석해야 합니다.
-
-
 
 Azure Machine Learning Studio (클래식)에는 다음과 같은 네 가지 주요 종류의 기계 학습 모델이 있습니다.
 
@@ -37,11 +34,11 @@ Azure Machine Learning Studio (클래식)에는 다음과 같은 네 가지 주�
 * 클러스터링을 위한 [클러스터에 할당][assign-to-clusters] 모듈
 * 추천 시스템을 위한 [매치박스 추천 점수 매기기][score-matchbox-recommender]
 
-이 문서에서는 이러한 각 모듈의 예측 결과를 해석하는 방법에 대해 설명합니다. 이러한 모듈의 개요는 [Azure Machine Learning Studio (클래식)에서 알고리즘을 최적화 하는 매개 변수를 선택 하는 방법](algorithm-parameters-optimize.md)을 참조 하세요.
+[ML Studio (클래식)에서 알고리즘을 최적화 하는 매개 변수를 선택](algorithm-parameters-optimize.md)하는 방법을 알아봅니다.
 
-이 항목에서는 예측 해석에 대해 다루지만 모델 평가는 다루지 않습니다. 모델을 평가 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning Studio에서 모델 성능을 평가 하는 방법 (클래식)](evaluate-model-performance.md)을 참조 하세요.
+모델을 평가 하는 방법에 대 한 자세한 내용은 [모델 성능을 평가 하는 방법](evaluate-model-performance.md)을 참조 하세요.
 
-Azure Machine Learning Studio (클래식)을 처음 접하는 경우 간단한 실험을 만들어 시작 하는 데 도움이 필요 하면 [Azure Machine Learning Studio (클래식)에서 간단한 실험 만들기](create-experiment.md)를 참조 하세요.
+ML Studio (클래식)을 처음 접하는 경우 [간단한 실험을 만드는 방법을 알아보세요](create-experiment.md).
 
 ## <a name="classification"></a>분류
 분류 문제의 하위 범주는 다음 두 가지가 있습니다.

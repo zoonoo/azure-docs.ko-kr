@@ -127,7 +127,7 @@
         - name: IoT 솔루션 가속기
           href: /azure/iot-accelerators
         - name: IoT 플러그 앤 플레이
-          href: /azure/iot
+          href: /azure/iot-pnp
         - name: Azure Maps
           href: /azure/azure-maps
         - name: Time Series Insights
