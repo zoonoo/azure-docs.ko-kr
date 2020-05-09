@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/28/2020
-ms.openlocfilehash: 09431a6690be751324bb796415d308d3b7727dad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c8a19fe338af14f97e0eb191d7b57e840c71e400
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82254097"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612727"
 ---
-# <a name="auto-grow-storage-in-azure-database-for-mysql-storage-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for MySQL 저장소의 저장소 자동 증가
+# <a name="auto-grow-storage-in-azure-database-for-mysql-server-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for MySQL 서버에서 저장소 자동 증가
 
 이 문서에서는 워크 로드에 영향을 주지 않고 확장 되도록 Azure Database for MySQL server 저장소를 구성 하는 방법을 설명 합니다.
 
@@ -52,4 +52,5 @@ New-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -Sku GP_
 
 ## <a name="next-steps"></a>다음 단계
 
-[메트릭에 대 한 경고를 만드는 방법](howto-alert-on-metric.md)에 대해 알아봅니다.
+> [!div class="nextstepaction"]
+> [PowerShell을 사용 하 여 Azure Database for MySQL에서 읽기 복제본을 만들고 관리 하는 방법](howto-read-replicas-powershell.md)입니다.

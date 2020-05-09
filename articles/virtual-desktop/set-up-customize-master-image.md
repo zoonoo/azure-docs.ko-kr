@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aba444e618a6ee2c6808b7f6d9d706fdf18fe546
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: fc6eb22f81279003a5355993db231ffec8e31b7d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209046"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611962"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
@@ -203,7 +203,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-s
 
 이제 이미지가 있으므로 호스트 풀을 만들거나 업데이트할 수 있습니다. 호스트 풀을 만들고 업데이트 하는 방법에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
-- [Azure Resource Manager 템플릿으로 호스트 풀 만들기](create-host-pools-arm-template.md)
+- [Azure Resource Manager 템플릿으로 호스트 풀 만들기](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
 - [자습서: Azure Marketplace를 사용 하 여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)
 - [PowerShell을 사용한 호스트 풀 만들기](create-host-pools-powershell.md)
 - [파일 공유를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기](create-host-pools-user-profile.md)

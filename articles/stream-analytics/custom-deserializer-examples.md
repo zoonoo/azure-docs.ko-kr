@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 4f4cc5cefe8090e9e95f80b8b74bf15591cb7887
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5cde80bf3205557884dfe8f2b8f5e79031bbca69
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133081"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612064"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>.NET 사용자 지정 deserializers를 사용 하 여 모든 형식의 입력 읽기
 
@@ -247,6 +247,10 @@ namespace ExampleCustomCode.Serialization
 ### <a name="can-i-share-my-deserializer-implementation-with-the-community-so-that-others-can-benefit"></a>다른 사용자가 혜택을 받을 수 있도록 내 역직렬 변환기 구현을 커뮤니티와 공유할 수 있나요?
 
 역직렬 변환기를 구현한 후에는 다른 사용자가 커뮤니티와 공유 하 여 도울 수 있습니다. [Azure Stream Analytics GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers)리포지토리에 코드를 제출 합니다.
+
+### <a name="what-are-the-other-limitation-of-using-custom-deserializers-in-stream-analytics"></a>Stream Analytics에서 사용자 지정 deserializers를 사용 하는 다른 제한은 무엇 인가요?
+
+입력이 MapField type을 포함 하는 스키마를 사용 하는 Protobuf 형식인 경우에는 사용자 지정 역직렬 변환기를 구현할 수 없습니다. 이 유형을 앞으로 지원 하기 위해 노력 하 고 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: mimart
-ms.reviewer: arvinh
-ms.openlocfilehash: ceba22e9289e0a10211ee26a7758238a8b1f06c7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.reviewer: arvinh, celested
+ms.openlocfilehash: 0b2c8e6bb71e00ccb6eda33ecb1b087d09ce5de7
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201689"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626193"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>SCIM 및 Microsoft Graph를 함께 사용 하 여 사용자를 프로 비전 하 고 필요한 데이터를 사용 하 여 응용 프로그램 보강
 
@@ -104,7 +104,7 @@ DELETE /Users/5171a35d82074e068ce2 HTTP/1.1
 
 **권장 사항:** Microsoft Graph는 다양 한 리소스에 대 한 [변경 알림](https://docs.microsoft.com/graph/webhooks) 및 [변경 내용 추적](https://docs.microsoft.com/graph/delta-query-overview) 기능을 제공 합니다. 변경 알림에 대 한 다음 제한 사항에 유의 하세요.
 - 이벤트 수신기가 이벤트를 승인 하지만 어떤 이유로 든 동작 하지 않으면 이벤트가 손실 될 수 있습니다.
-- 이벤트 수신기가 이벤트를 승인 하지만 어떤 이유로 든 동작 하지 않으면 이벤트가 손실 될 수 있습니다.
+- 변경 내용이 수신 되는 순서는 시간순이 아닐 수도 있습니다.
 - 변경 알림은 항상 위의 이유로 [리소스 데이터](https://docs.microsoft.com/graph/webhooks-with-resource-data) 를 포함 하지 않습니다. 개발자는 동기화 시나리오에 대 한 변경 추적과 함께 변경 알림을 사용 하는 경우가 많습니다. 
 
 ## <a name="scenario-6-provision-users-and-groups-in-azure-ad"></a>시나리오 6: Azure AD에서 사용자 및 그룹 프로 비전

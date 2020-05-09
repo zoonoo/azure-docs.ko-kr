@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: c718daa4bc99bffd6fcfeb084299bed6682fe884
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2aed3a66f70864b3445418a51b0e79280e6884bd
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75780510"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629204"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>서버를 사용 하지 않는 Azure SQL Database SQLite 데이터베이스를 마이그레이션하는 방법
-SQLite는 대부분의 사용자에 게 데이터베이스 및 SQL 프로그래밍의 첫 번째 환경을 제공 합니다. 많은 운영 체제에 포함 되어 있으며 널리 사용 되는 응용 프로그램을 통해 전 세계에서 가장 널리 사용 되 고 있는 데이터베이스 엔진을 사용 합니다. 그리고 대부분의 사용자가 사용 하는 첫 번째 데이터베이스 엔진 일 가능성이 많기 때문에 종종 프로젝트 또는 응용 프로그램의 중심 부분으로 종료 될 수 있습니다. 프로젝트 또는 응용 프로그램이 초기 SQLite 구현을 보다 커지면 하는 경우 개발자는 데이터를 신뢰할 수 있는 중앙 집중식 데이터 저장소로 마이그레이션해야 할 수 있습니다.
+SQLite는 대부분의 사용자에 게 데이터베이스 및 SQL 프로그래밍의 첫 번째 환경을 제공 합니다. 이는 많은 운영 체제에 포함 되어 있으며 널리 사용 되는 응용 프로그램을 통해 전 세계에서 가장 널리 배포 되 고 사용 되는 데이터베이스 엔진 중 하나를 사용 합니다. 그리고 대부분의 사용자가 사용 하는 첫 번째 데이터베이스 엔진 일 가능성이 많기 때문에 종종 프로젝트 또는 응용 프로그램의 중심 부분으로 종료 될 수 있습니다. 프로젝트 또는 응용 프로그램이 초기 SQLite 구현을 보다 커지면 하는 경우 개발자는 데이터를 신뢰할 수 있는 중앙 집중식 데이터 저장소로 마이그레이션해야 할 수 있습니다.
 
 서버를 사용 하지 않는 Azure SQL Database 작업 부하에 따라 자동으로 계산을 확장 하는 단일 데이터베이스에 대 한 계산 계층 이며, 초당 사용 된 계산의 양에 대 한 요금을 청구 합니다. 서버를 사용 하지 않는 계산 계층은 저장소가 청구 될 때 비활성 기간 동안 데이터베이스를 자동으로 일시 중지 하 고 작업이 반환 될 때 데이터베이스를 자동으로 다시 시작 합니다.
 

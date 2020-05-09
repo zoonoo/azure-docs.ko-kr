@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 236f1e4e41488b926d9fc2e5e717e68090a0ed7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4714a78ed03a9b861f3a266cfd0d7bca456b3c4
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063971"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628353"
 ---
 # <a name="set-up-security-questions-as-your-verification-method"></a>확인 방법으로 보안 질문 설정
 
@@ -55,7 +55,7 @@ ms.locfileid: "77063971"
 
 ### <a name="to-set-up-your-security-questions"></a>본인 확인 질문을 설정하려면 다음을 수행합니다.
 
-1. 회사 또는 학교 계정에 로그인한 다음, https://myprofile.microsoft.com/ 페이지로 이동합니다.
+1. 회사 또는 학교 계정에 로그인한 다음, https://myaccount.microsoft.com/ 페이지로 이동합니다.
 
     ![보안 정보 링크가 강조 표시된 내 프로필 페이지](media/security-info/securityinfo-myprofile-page.png)
 

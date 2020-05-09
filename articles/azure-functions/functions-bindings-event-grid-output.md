@@ -6,16 +6,16 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e7a2611312ffc33703dd5cc9d0a2d7142ddb0532
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0237bcbf98578d9f83f3c9652661c786df54e73a
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77368949"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627690"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Event Grid 출력 바인딩
 
-Event Grid 출력 바인딩을 사용 하 여 사용자 지정 토픽에 이벤트를 씁니다. [사용자 지정 토픽에 대 한 유효한 액세스 키](../event-grid/security-authentication.md#custom-topic-publishing)가 있어야 합니다.
+Event Grid 출력 바인딩을 사용 하 여 사용자 지정 토픽에 이벤트를 씁니다. [사용자 지정 토픽에 대 한 유효한 액세스 키](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key)가 있어야 합니다.
 
 설정 및 구성 세부 정보에 대 한 자세한 내용은 [개요](./functions-bindings-event-grid.md)를 참조 하세요.
 
@@ -25,7 +25,7 @@ Event Grid 출력 바인딩을 사용 하 여 사용자 지정 토픽에 이벤�
 > [!IMPORTANT]
 > Event Grid 출력 바인딩은 함수 2.x 이상 에서만 사용할 수 있습니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -224,7 +224,7 @@ Java에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
 > [!IMPORTANT]
 > `TopicEndpointUri` 구성 속성의 값을 사용자 지정 토픽의 URI가 포함 된 앱 설정의 이름으로 설정 했는지 확인 합니다. 이 속성에서 직접 사용자 지정 항목의 URI를 지정 하지 마십시오.
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용법
 
 # <a name="c"></a>[C#](#tab/csharp)
 

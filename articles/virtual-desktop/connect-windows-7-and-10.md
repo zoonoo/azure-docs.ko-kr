@@ -8,18 +8,21 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b6436059cc8b3637edfc2a146d0aab3e2beae6a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b16818856ca8196b82eb8f618cf22b5fc1b6854
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154341"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612693"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Windows Desktop 클라이언트와 연결
 
 > 적용 대상: Windows 7, Windows 10 및 Windows 10 IoT Enterprise
 
 Windows 데스크톱 클라이언트를 사용 하 여 windows 7, Windows 10 및 Windows 10 IoT Enterprise를 사용 하는 장치에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다.
+
+>[!NOTE]
+>Windows 클라이언트는 Windows 가상 데스크톱 2019 릴리스를 자동으로 설정 합니다. 그러나 클라이언트가 사용자에 게 Azure Resource Manager 리소스가 있음을 감지 하면 리소스를 자동으로 추가 하거나 사용자에 게 사용 가능 여부를 알립니다. 
 
 > [!IMPORTANT]
 > Windows Virtual Desktop은 RADC(RemoteApp 및 데스크톱 연결) 클라이언트 또는 원격 데스크톱 연결(MSTSC) 클라이언트를 지원하지 않습니다.

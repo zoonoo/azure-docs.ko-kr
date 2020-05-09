@@ -5,12 +5,12 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: f8322c12669e41fc7c9aa88e99f95cf1b26ea87d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ae68a8871bc2894191644e4ab183be4b469bf16
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78944094"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610244"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Traffic Manager 통합을 사용 하 여 Azure App Service에서 사용자 지정 도메인 이름 구성
 
@@ -66,12 +66,18 @@ App Service 앱이 지원 되는 가격 책정 계층에 있으면 끝점을 추
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-각 도메인 공급자의 세부 사항이 변경 되는 동안 사용자 지정 도메인 이름 (예: **contoso.com**) *에서* 앱과 통합 된**contoso.trafficmanager.net**(Traffic Manager 도메인 이름) *로* 매핑합니다.
+각 도메인 공급자의 세부 사항이 변경 되는 반면, [루트가 아닌 사용자 지정 도메인 이름](#what-about-root-domains) (예: **www.contoso.com**) *에서* 앱과 통합 된**contoso.trafficmanager.net**(Traffic Manager 도메인 이름) *로* 매핑합니다. 
 
 > [!NOTE]
 > 레코드를 이미 사용 중이고 앱을 우선적으로 바인딩해야 하는 경우 추가 CNAME 레코드를 만들 수 있습니다. 예를 들어 **www\.contoso.com** 를 앱에 미리 바인딩하려면 **awverify** 에서 **contoso.trafficmanager.net**로 CNAME 레코드를 만듭니다. 그런 다음 "www" CNAME\.레코드를 변경할 필요 없이 "www contoso.com"를 앱에 추가할 수 있습니다. 자세한 내용은 [Azure App Service에 활성 DNS 이름 마이그레이션](manage-custom-dns-migrate-domain.md)을 참조 하세요.
 
 도메인 공급자에서 DNS 레코드를 추가하거나 수정했다면 변경 내용을 저장합니다.
+
+### <a name="what-about-root-domains"></a>루트 도메인은 무엇 인가요?
+
+Traffic Manager는 CNAME 레코드를 사용 하는 사용자 지정 도메인 매핑만 지원 하 고 DNS 표준은 루트 도메인 (예: **contoso.com**) 매핑을 위한 CNAME 레코드를 지원 하지 않기 때문에 Traffic Manager 루트 도메인에 대 한 매핑을 지원 하지 않습니다. 이 문제를 해결 하려면 앱 수준에서 URL 리디렉션을 사용 합니다. 예를 들어 ASP.NET Core에서 [URL 재작성](/aspnet/core/fundamentals/url-rewriting)을 사용할 수 있습니다. 그런 다음 Traffic Manager를 사용 하 여 하위 도메인 (**www.contoso.com**)의 부하를 분산 합니다.
+
+고가용성 시나리오의 경우 루트 도메인에서 각 앱 복사본의 IP 주소로 가리키는 여러 *a 레코드* 를 만들어 Traffic Manager 없이 내결함성 DNS 설치를 구현할 수 있습니다. 그런 다음 [동일한 루트 도메인을 모든 앱 복사본에 매핑합니다](app-service-web-tutorial-custom-domain.md#map-an-a-record). 동일한 도메인 이름이 동일한 지역에 있는 두 개의 다른 앱에 매핑될 수 없기 때문에이 설정은 앱 복사본이 다른 지역에 있는 경우에만 작동 합니다.
 
 ## <a name="enable-custom-domain"></a>사용자 지정 도메인 사용
 도메인 이름에 대 한 레코드가 전파 된 후 브라우저를 사용 하 여 사용자 지정 도메인 이름이 App Service 앱으로 확인 되는지 확인 합니다.

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 521a0ef4053be55e6c7322da5af26ccfc6c844e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74790731"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612336"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Azure Logic Apps에서 거래 업체 규약 만들기 및 관리
 
@@ -68,6 +68,14 @@ Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에
    | **수신 설정** | 다양함 | 다양함 | 이러한 속성은 호스트 파트너가 규약의 게스트 파트너 로부터 들어오는 모든 메시지를 수신 하는 방법을 지정 합니다. 자세한 내용은 해당 계약 유형을 참조 하세요. <p>- [AS2 메시지 설정](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT 메시지 설정](logic-apps-enterprise-integration-edifact.md) <br>- [X12 메시지 설정](logic-apps-enterprise-integration-x12.md) |
    | **송신 설정** | 다양함 | 다양함 | 이러한 속성은 호스트 파트너가 규약의 게스트 파트너에 게 보내는 모든 메시지를 보내는 방법을 지정 합니다. 자세한 내용은 해당 계약 유형을 참조 하세요. <p>- [AS2 메시지 설정](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT 메시지 설정](logic-apps-enterprise-integration-edifact.md) <br>- [X12 메시지 설정](logic-apps-enterprise-integration-x12.md) |
    |||||
+
+   > [!IMPORTANT]
+   > 규약에 대 한 해결 방법은 파트너 및 들어오는 메시지에 정의 된 항목의 일치 여부에 따라 달라 집니다.
+   >
+   > * 발신자의 한정자 및 식별자입니다.
+   > * 수신자의 한정자 및 식별자입니다.
+   >
+   > 파트너에 대해 이러한 값이 변경 되 면 계약도 업데이트 해야 합니다.
 
 1. 규약 만들기가 완료 되 면 **추가** 페이지에서 **확인**을 선택 하 여 통합 계정으로 돌아갑니다.
 

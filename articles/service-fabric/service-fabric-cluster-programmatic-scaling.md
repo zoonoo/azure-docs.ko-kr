@@ -5,16 +5,16 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: ffe07960c6d32bea8ec31b1fe8248b6abc2b63af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd7c57f3089115e4da861fc8fd20331ab92bc33e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75458291"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787144"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>프로그래밍 방식으로 Service Fabric 클러스터의 크기 조정 
 
-Azure에서 실행되는 Service Fabric 클러스터는 가상 머신 확장 집합 위에 구축됩니다.  [클러스터 크기 조정](./service-fabric-cluster-scale-up-down.md)에서는 Service Fabric 클러스터 크기를 수동으로 또는 자동 크기 조정 규칙을 사용하여 조정하는 방법을 설명합니다. 이 문서에서는 좀 더 고급 시나리오에 해당하는 유연한 Azure Compute SDK를 사용하여 자격 증명을 관리하고 클러스터의 크기를 조정하는 방법을 설명합니다. 개요를 보려면 [Azure 크기 조정 작업을 조정하는 프로그래밍 방법](service-fabric-cluster-scaling.md#programmatic-scaling)을 읽어보세요. 
+Azure에서 실행되는 Service Fabric 클러스터는 가상 머신 확장 집합 위에 구축됩니다.  [클러스터 크기 조정](./service-fabric-cluster-scale-in-out.md)에서는 Service Fabric 클러스터 크기를 수동으로 또는 자동 크기 조정 규칙을 사용하여 조정하는 방법을 설명합니다. 이 문서에서는 좀 더 고급 시나리오에 해당하는 유연한 Azure Compute SDK를 사용하여 자격 증명을 관리하고 클러스터의 크기를 조정하는 방법을 설명합니다. 개요를 보려면 [Azure 크기 조정 작업을 조정하는 프로그래밍 방법](service-fabric-cluster-scaling.md#programmatic-scaling)을 읽어보세요. 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -119,6 +119,6 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 
 사용자 고유의 자동 크기 조정 논리를 구현하려면 먼저 다음과 같은 개념과 유용한 API부터 숙지해야 합니다.
 
-- [수동으로 또는 자동 크기 조정 규칙을 사용하여 크기 조정](./service-fabric-cluster-scale-up-down.md)
+- [수동으로 또는 자동 크기 조정 규칙을 사용하여 크기 조정](./service-fabric-cluster-scale-in-out.md)
 - [.NET용 Fluent Azure Management 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/Fluent)(Service Fabric 클러스터의 기본 가상 가상 머신 확장 집합과 상호 작용하는 데 유용함)
 - [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient)(Service Fabric 클러스터 및 그 노드와 상호 작용하는 데 유용함)

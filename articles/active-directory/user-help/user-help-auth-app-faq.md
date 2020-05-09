@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/30/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: c56db99b056d4b1e9b7dd75bc2f21bf582ee2ab7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d039a7e21ac1ef6415cc363201c9754b47503add
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756845"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627775"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대 한 Faq (질문과 대답)
 
@@ -25,10 +25,11 @@ ms.locfileid: "80756845"
 
 Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure Multi-factor Authentication을 사용하는 경우 권장됩니다. [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) 및 [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458) 디바이스의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
-| 질문 | 솔루션 |
-| -------- | -------- |
+| 질문 | Answer |
+| -------- | ------ |
+| 회사 또는 서비스에 장치에 대 한 액세스를 제공 하는 것에 동의 하는 장치를 등록 하 고 있습니까? | 장치를 등록 하면 조직의 서비스에 액세스할 수 있으며 조직에서 장치에 액세스할 수 없습니다. |
 | Android Microsoft Authenticator에서 OTP 코드의 스크린샷을 사용할 수 있나요? | Microsoft Authenticator Android 릴리스 6.2003.1704의 경우 기본적으로 인증자의 스크린샷를 사용 하는 경우 모든 OTP 코드는 사용자의 보호를 강화 하기 위해 숨겨집니다. 사용자가 스크린샷에서 OTP 코드를 보거나 다른 앱이 인증자의 화면을 캡처하도록 허용할 경우 인증자 앱에서 "화면 캡처" 설정을 사용 하도록 설정한 다음 앱을 다시 시작 하 여 수행할 수 있습니다. |
 | Authenticator는 내 대신 어떤 데이터를 저장하며, 이러한 데이터는 어떻게 삭제할 수 있나요? | Microsoft Authenticator 앱은 세 가지 유형의 정보를 수집합니다.<ul><li>사용자 계정을 추가할 때 제공하는 계정 정보 계정을 제거하여 이 데이터를 제거할 수 있습니다.</li><li>Microsoft에 로그를 보낼 수 있는 앱의 **도움말** 메뉴를 **로그 보내기** 를 선택 하기 전 까지는 앱에만 남아 있는 진단 로그 데이터입니다. 이러한 로그 파일에는 전자 메일 주소 (예:, alain@contoso.com), 서버 또는 IP 주소, 장치 데이터 (예: 장치 이름 및 운영 체제 버전)와 같은 개인 데이터가 포함 되며, 개인 데이터는 앱 문제를 해결 하는 데 필요한 정보로 제한 됩니다. 수집된 정보를 확인하려면 언제든지 앱에서 이러한 로그 파일을 볼 수 있습니다. 로그 파일을 보내는 경우 인증 앱 엔지니어는 이를 사용하여 고객이 보고한 문제를 해결할 수 있습니다.</li><li>개인적으로 식별이 가능한 사용 현황 데이터 (예: "계정 흐름 추가/계정 추가 성공" 또는 "승인 승인 됨") 이 데이터는 당사의 엔지니어링 의사 결정의 핵심이며 사용자에게 중요한 기능 및 앱에 대한 업데이트의 양식에서 만들어야 하는 개선 사항의 위치를 확인할 수 있도록 도와줍니다. 앱 사용자는 앱을 처음 시작할 때이 데이터 수집에 대 한 알림을 확인 하 고 앱의 **설정** 페이지에서 해제할 수 있다는 알림을 받게 됩니다. 언제든지 이 설정을 활성화 또는 비활성화할 수 있습니다.</li></ul> |
 | 앱에서 코드란 무엇인가요? | Microsoft Authenticator 앱을 열면 추가 된 계정이 타일로 표시 됩니다.<li>IOS 장치에서 회사 또는 학교 계정 및 개인 Microsoft 계정에는 계정의 전체 화면 보기에 6 자리 또는 8 자리 숫자가 표시 됩니다 (계정 타일을 눌러 액세스).<br><br>![앱의 계정 화면](./media/user-help-auth-app-faq/auth-app-accounts.png)<li>IOS 장치 및 Android 장치에 있는 모든 계정의 다른 계정에 대해 앱의 계정 페이지에 6 자리 또는 8 자리 숫자가 표시 됩니다. 이러한 코드는 사용자 신원을 확인하는 용도로 사용됩니다. 사용자 이름 및 암호를 사용 하 여 로그인 한 후에는 해당 계정과 연결 된 확인 코드를 입력 합니다. 예를 들어 Katy Contoso 계정에 로그인 하 고 iOS 장치를 사용 하는 경우 계정 타일을 탭 한 다음 확인 코드를 사용 하 여 id를 확인 합니다. Outlook 계정에 로그인 하는 것을 Katy 하는 경우 동일한 단계를 수행 합니다.<br><br>![앱에서 계정 타일을 탭핑 한 후](./media/user-help-auth-app-faq/katy-signin.png)<br><br>Contoso 계정 타일을 탭 하면 Katy는 전체 화면 보기에서 확인 코드를 확인 하 고 895823를 입력 하 여 로그인을 완료 합니다.<br><br>![앱의 확인 코드 화면](./media/user-help-auth-app-faq/verification-code.png) |

@@ -1,28 +1,27 @@
 ---
 title: IP 방화벽 규칙
-description: SQL database 또는 SQL Data Warehouse 방화벽에 대 한 서버 수준 IP 방화벽 규칙을 구성 합니다. 단일 또는 풀링된 데이터베이스에 대 한 액세스를 관리 하 고 데이터베이스 수준 IP 방화벽 규칙을 구성 합니다.
+description: SQL database 또는 Azure Synapse Analytics 방화벽에 대 한 서버 수준 IP 방화벽 규칙을 구성 합니다. 단일 또는 풀링된 데이터베이스에 대 한 액세스를 관리 하 고 데이터베이스 수준 IP 방화벽 규칙을 구성 합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
-ms.custom: ''
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
-ms.openlocfilehash: 12280e8a5b90c6712703fefc60ec1bfb12ba8573
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fe0881a7e6c624ea1104d1ebace307e6cf4e337
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606086"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629238"
 ---
-# <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>IP 방화벽 규칙 Azure SQL Database 및 Azure SQL Data Warehouse
+# <a name="azure-sql-database-and-azure-synapse-analytics-ip-firewall-rules"></a>Azure SQL Database 및 Azure Synapse Analytics IP 방화벽 규칙
 
 > [!NOTE]
-> 이 문서는 azure sql 서버에 적용 되며, Azure SQL server의 Azure SQL Database 및 Azure SQL Data Warehouse 데이터베이스에 적용 됩니다. 간단히 하기 위해 *SQL Database* 를 사용 하 여 SQL Database 및 SQL Data Warehouse를 모두 참조 합니다.
+> 이 문서는 azure sql server에 적용 되며, Azure SQL server의 Azure SQL Database 및 Azure Synapse Analytics 데이터베이스 모두에 적용 됩니다. 간단히 하기 위해 *SQL Database* 를 사용 하 여 SQL Database 및 Azure Synapse를 모두 참조 합니다.
 
 > [!IMPORTANT]
 > 이 문서는 *Azure SQL Database Managed Instance*에 적용되지 *않습니다*. 네트워크 구성에 대 한 자세한 내용은 [Azure SQL Database Managed Instance에 응용 프로그램 연결](sql-database-managed-instance-connect-app.md)을 참조 하세요.
@@ -30,7 +29,7 @@ ms.locfileid: "81606086"
 예를 들어 이름이 *mysqlserver*인 새 Azure SQL server를 만들 때 SQL Database 방화벽은 서버에 대 한 공용 끝점 ( *mysqlserver.database.windows.net*에서 액세스할 수 있음)에 대 한 모든 액세스를 차단 합니다.
 
 > [!IMPORTANT]
-> SQL Data Warehouse는 서버 수준 IP 방화벽 규칙만 지원 합니다. 데이터베이스 수준 IP 방화벽 규칙은 지원 하지 않습니다.
+> Azure Synapse는 서버 수준 IP 방화벽 규칙만 지원 합니다. 데이터베이스 수준 IP 방화벽 규칙은 지원 하지 않습니다.
 
 ## <a name="how-the-firewall-works"></a>방화벽 작동 방법
 다음 다이어그램과 같이 인터넷 및 Azure의 연결 시도는 SQL server 또는 SQL database에 연결 하기 전에 방화벽을 통과 해야 합니다.
@@ -149,9 +148,9 @@ Azure Portal에서 서버 수준 IP 방화벽 규칙을 설정 하려면 Azure S
 
 | 카탈로그 뷰 또는 저장 프로시저 | Level | Description |
 | --- | --- | --- |
-| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Server (서버) |현재 서버 수준 IP 방화벽 규칙을 표시합니다. |
-| [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Server (서버) |서버 수준 IP 방화벽 규칙을 생성 및 업데이트합니다. |
-| [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Server (서버) |서버 수준 IP 방화벽 규칙을 제거합니다. |
+| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |서버 |현재 서버 수준 IP 방화벽 규칙을 표시합니다. |
+| [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |서버 |서버 수준 IP 방화벽 규칙을 생성 및 업데이트합니다. |
+| [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |서버 |서버 수준 IP 방화벽 규칙을 제거합니다. |
 | [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |데이터베이스 |현재 데이터베이스 수준 IP 방화벽 규칙을 표시합니다. |
 | [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) |데이터베이스 |데이터베이스 수준 IP 방화벽 규칙을 생성 및 업데이트합니다. |
 | [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) |데이터베이스 |데이터베이스 수준 IP 방화벽 규칙을 제거합니다. |
@@ -183,10 +182,10 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 | Cmdlet | Level | Description |
 | --- | --- | --- |
-| [AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Server (서버) |현재 서버 수준 방화벽 규칙 반환 |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Server (서버) |새 서버 수준 방화벽 규칙 만들기 |
-| [AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |Server (서버) |기존 서버 수준 방화벽 규칙 속성 업데이트 |
-| [AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |Server (서버) |서버 수준 방화벽 규칙 제거 |
+| [AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |서버 |현재 서버 수준 방화벽 규칙 반환 |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |서버 |새 서버 수준 방화벽 규칙 만들기 |
+| [AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |서버 |기존 서버 수준 방화벽 규칙 속성 업데이트 |
+| [AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |서버 |서버 수준 방화벽 규칙 제거 |
 
 다음 예제에서는 PowerShell을 사용 하 여 서버 수준 IP 방화벽 규칙을 설정 합니다.
 
@@ -205,11 +204,11 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 | Cmdlet | Level | Description |
 | --- | --- | --- |
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Server (서버)|서버 IP 방화벽 규칙을 만듭니다.|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Server (서버)|서버의 IP 방화벽 규칙을 나열합니다.|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Server (서버)|IP 방화벽 규칙의 세부 정보를 표시 합니다.|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Server (서버)|IP 방화벽 규칙을 업데이트 합니다.|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Server (서버)|IP 방화벽 규칙을 삭제 합니다.|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|서버|서버 IP 방화벽 규칙을 만듭니다.|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|서버|서버의 IP 방화벽 규칙을 나열합니다.|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|서버|IP 방화벽 규칙의 세부 정보를 표시 합니다.|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|서버|IP 방화벽 규칙을 업데이트 합니다.|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|서버|IP 방화벽 규칙을 삭제 합니다.|
 
 다음 예제에서는 CLI를 사용 하 여 서버 수준 IP 방화벽 규칙을 설정 합니다.
 
@@ -227,10 +226,10 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 | API | Level | Description |
 | --- | --- | --- |
-| [방화벽 규칙 나열](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Server (서버) |현재 서버 수준 IP 방화벽 규칙을 표시합니다. |
-| [방화벽 규칙 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server (서버) |서버 수준 IP 방화벽 규칙을 생성 및 업데이트합니다. |
-| [방화벽 규칙 삭제](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Server (서버) |서버 수준 IP 방화벽 규칙을 제거합니다. |
-| [방화벽 규칙 가져오기](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server (서버) | 서버 수준 IP 방화벽 규칙을 가져옵니다. |
+| [방화벽 규칙 나열](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |서버 |현재 서버 수준 IP 방화벽 규칙을 표시합니다. |
+| [방화벽 규칙 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |서버 |서버 수준 IP 방화벽 규칙을 생성 및 업데이트합니다. |
+| [방화벽 규칙 삭제](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |서버 |서버 수준 IP 방화벽 규칙을 제거합니다. |
+| [방화벽 규칙 가져오기](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | 서버 | 서버 수준 IP 방화벽 규칙을 가져옵니다. |
 
 ## <a name="troubleshoot-the-database-firewall"></a>데이터베이스 방화벽 문제 해결
 
@@ -253,7 +252,7 @@ SQL Database 서비스에 대 한 액세스가 예상과 다르게 작동 하는
 
 - **로그인에 권한이 없거나 잘못 된 암호가 사용 되었습니다.**
 
-  로그인에 SQL Database 서버에 대 한 권한이 없거나 암호가 올바르지 않은 경우 서버에 대 한 연결이 거부 됩니다. 방화벽 설정을 만들면 클라이언트에서 서버에 연결할 수 있는 *기회가* 제공 됩니다. 클라이언트는 여전히 필요한 보안 자격 증명을 제공 해야 합니다. 로그인 준비에 대 한 자세한 내용은 [SQL Database 및 SQL Data Warehouse에 대 한 데이터베이스 액세스 제어 및 권한 부여](sql-database-manage-logins.md)를 참조 하세요.
+  로그인에 SQL Database 서버에 대 한 권한이 없거나 암호가 올바르지 않은 경우 서버에 대 한 연결이 거부 됩니다. 방화벽 설정을 만들면 클라이언트에서 서버에 연결할 수 있는 *기회가* 제공 됩니다. 클라이언트는 여전히 필요한 보안 자격 증명을 제공 해야 합니다. 로그인 준비에 대 한 자세한 내용은 [SQL Database 및 Azure Synapse에 대 한 데이터베이스 액세스 제어 및 권한 부여](sql-database-manage-logins.md)를 참조 하세요.
 
 - **동적 IP 주소:**
 

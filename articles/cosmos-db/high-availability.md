@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 0a67360ab840b7897c85a382dfc3965bd27f6a3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9667d82551e169dcc4a4bfd3ac79b15390f58aa0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81688067"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609224"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB의 고가용성
 
@@ -99,6 +99,10 @@ Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성 하는 경우 추�
 - 미국 서부 2
 
 - 오스트레일리아 동부
+
+- 일본 동부
+
+- 북유럽
 
 > [!NOTE]
 > 단일 지역 Azure Cosmos 계정에 대해 가용성 영역를 사용 하도록 설정 하면 계정에 추가 지역을 추가 하는 것과 동일한 요금이 부과 됩니다. 가격 책정에 대 한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 및 [Azure Cosmos DB 문서의 다중 지역 비용](optimize-cost-regions.md) 을 참조 하세요.

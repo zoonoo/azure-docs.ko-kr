@@ -3,19 +3,19 @@ title: Azure Application Insights에서 리소스, 역할 및 액세스 제어 |
 description: 조직 Insights의 소유자, 참여자 및 읽기 권한자입니다.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 1e57af269c4052d0dcd4a8f7970ca23017024299
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee14fee66e3aa6f4e8d999f6f98debe361387515
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79473135"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628240"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights에서 리소스, 역할 및 액세스 제어
 
 [Microsoft Azure의 역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md)를 사용하여 Azure [Application Insights][start]의 데이터에 대한 읽기 및 업데이트 액세스를 제어할 수 있습니다.
 
 > [!IMPORTANT]
-> 리소스 자체가 아닌 애플리케이션 리소스가 속한 **리소스 그룹 또는 구독** 의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 기여자** 역할을 할당합니다. 이렇게 하면 애플리케이션 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세히 알아보기](#access).
+> 리소스 자체가 아닌 애플리케이션 리소스가 속한 **리소스 그룹 또는 구독** 의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 기여자** 역할을 할당합니다. 이렇게 하면 애플리케이션 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세한 정보를 알아보세요](#access).
 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -40,11 +40,6 @@ ms.locfileid: "79473135"
 ## <a name="control-access-in-the-resource-group"></a><a name="access"></a> 리소스 그룹의 액세스 제어
 
 애플리케이션에 대해 만든 리소스 외에도 경고 및 웹 테스트에 대한 별도의 리소스가 숨겨져 있다는 사실을 이해해야 합니다. Application Insights 리소스와 동일한 [리소스 그룹](#resource-group) 에 연결 됩니다. 웹 사이트 또는 스토리지 같은 다른 Azure 서비스를 여기에 넣었을 수도 있습니다.
-
-이러한 리소스에 대한 액세스를 제어하기 위한 권장 사항이 있습니다.
-
-* **리소스 그룹 또는 구독** 수준에서 액세스를 제어합니다.
-* 사용자에게 **Application Insights 구성 요소 참여자** 역할을 할당합니다. 그러면 그룹의 다른 서비스에 대한 액세스 권한을 제공하지 않아도 사용자가 웹 테스트, 경고 및 Application Insights 리소스를 편집할 수 있습니다.
 
 ## <a name="to-provide-access-to-another-user"></a>다른 사용자에 대한 액세스 권한 제공
 
