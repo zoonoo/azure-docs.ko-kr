@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: ff6ae0de0bbd8c47b81fa5066a97eb0b3e0cf6bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29852eb0920f7bb32464d91e0be65c7dcb03325c
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204395"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627962"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (클래식) 웹 서비스: 배포 및 소비
 
@@ -68,7 +68,7 @@ Cmdlet을 사용 하려면 먼저 [AzAccount](/powershell/module/az.accounts/con
 
 *MachineLearningWorkspace* 노드와 동일한 수준에서 *Properties* 노드의 자식으로 JSON 템플릿에 추가합니다.
 
-아래 예를 살펴보세요.
+예를 들면 다음과 같습니다.
 
     "StorageAccount": {
             "name": "YourStorageAccountName",
@@ -81,7 +81,6 @@ Cmdlet을 사용 하려면 먼저 [AzAccount](/powershell/module/az.accounts/con
 추가 세부 정보는 다음 문서 및 샘플 코드를 참조하세요.
 
 * MSDN의 [Azure Machine Learning Studio (클래식) cmdlet](https://docs.microsoft.com/powershell/module/az.machinelearning) 참조
-* GitHub의 샘플 [연습](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt)
 
 ## <a name="consume-the-web-services"></a>웹 서비스 사용
 

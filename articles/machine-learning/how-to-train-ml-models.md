@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: a9a3c10687b92d946fccb282f2eda4af637cf2ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c96ba3496f4542658878518207b2033342e33f5
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686761"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628762"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -58,7 +58,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 이 코드 조각에서 `Estimator` 생성자에 지정한 매개 변수는 다음과 같습니다.
 
-매개 변수 | Description
+매개 변수 | 설명
 --|--
 `source_directory`| 학습 작업에 필요한 모든 코드가 포함된 로컬 디렉터리입니다. 이 폴더는 로컬 컴퓨터에서 원격 계산으로 복사 됩니다.
 `script_params`| 학습 스크립트 `entry_script`에 전달할 명령줄 인수를 `<command-line argument, value>` 쌍으로 지정 하는 사전입니다. 에서 `script_params`자세한 정보 플래그를 지정 하려면를 `<command-line argument, "">`사용 합니다.
@@ -110,7 +110,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 위의 코드는 `Estimator` 생성자에 다음과 같은 새 매개 변수를 표시합니다.
 
-매개 변수 | Description | 기본값
+매개 변수 | 설명 | 기본값
 --|--|--
 `custom_docker_image`| 사용하려는 이미지의 이름입니다. 공용 Docker 리포지토리(여기서는 Docker 허브)에서 사용할 수 있는 이미지만 제공합니다. 프라이빗 Docker 리포지토리의 이미지를 사용하려면 생성자의 `environment_definition` 매개 변수를 대신 사용합니다. [예제를 참조하세요](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| 학습 작업에 사용할 노드의 수입니다. | `1`
@@ -143,7 +143,7 @@ model = run.register_model(model_name='sklearn-sample', model_path=None)
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
 평가기를 사용 하 여 scikit 모델을 학습 하는 노트북은 다음을 참조 하세요.
-* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
 심층 학습 프레임 워크 관련 추정을 사용 하 여 학습 모델에 대 한 노트북은 다음을 참조 하세요.
 

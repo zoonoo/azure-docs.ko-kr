@@ -1,18 +1,18 @@
 ---
 title: Azure HDInsight에서 클러스터 노드의 디스크 공간이 부족 합니다.
 description: Azure HDInsight의 클러스터 노드 디스크 공간 문제 Apache Hadoop 문제 해결
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 08/05/2019
-ms.openlocfilehash: fbfd82473b68f5032d19834ac809191d498a5a67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 04/30/2020
+ms.openlocfilehash: ead79ca0a37a270f03a305064c80426553db59ca
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75894120"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628540"
 ---
 # <a name="scenario-cluster-node-runs-out-of-disk-space-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 클러스터 노드의 디스크 공간이 부족 합니다.
 
@@ -36,7 +36,17 @@ Apache Yarn 응용 프로그램 캐시가 사용 가능한 모든 디스크 공�
 
 1. 이 문제를 완화 하기 위해 응용 프로그램에서 사용 하는 디스크 공간을 해제 하는 응용 프로그램을 중지 합니다.
 
-1. 궁극적으로 문제를 해결 하려면 응용 프로그램을 최적화 합니다.
+1. 작업자 노드에서 문제가 자주 발생 하는 경우 클러스터에서 YARN 로컬 캐시 설정을 튜닝할 수 있습니다.
+
+    YARN--> Configs--> Advanced로 이동 하 여 Ambari UI를 엽니다.  
+    사용자 지정 yarn-site.xml 섹션에 다음 2 개의 속성을 추가 하 고 저장 합니다.
+
+    ```
+    yarn.nodemanager.localizer.cache.target-size-mb=2048
+    yarn.nodemanager.localizer.cache.cleanup.interval-ms=300000
+    ```
+
+1. 위의 방법으로 문제가 해결 되지 않으면 응용 프로그램을 최적화 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

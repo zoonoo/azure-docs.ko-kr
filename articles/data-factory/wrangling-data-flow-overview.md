@@ -7,16 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 71df574602518fdc252d9d86859ed772a17be443
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b8632eaf7662d705235adaad7cd03d2e7e4904b
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408966"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626874"
 ---
 # <a name="what-are-wrangling-data-flows"></a>랭 글 링 데이터 흐름은 무엇 인가요?
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 조직은 매일 계속 증가 하는 복잡 한 데이터를 정확 하 게 분석 하기 위해 데이터 준비 및 랭 글 링을 수행 해야 합니다. 조직에서 다양 한 비즈니스 프로세스의 데이터를 사용 하 고 시간 값을 줄일 수 있도록 데이터를 준비 해야 합니다.
 

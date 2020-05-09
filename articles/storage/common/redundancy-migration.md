@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6376d858ae5113996bf7c93a8b3054797151c6b3
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: 5d047aa3c5c937e3b84b8fa672101bc801221067
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858673"
+ms.locfileid: "82871372"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>저장소 계정이 복제 되는 방식 변경
 
@@ -38,12 +38,13 @@ Azure Storage는 다음과 같은 유형의 복제를 제공 합니다.
 
 | 켜기 | ... LRS에 | ... to GRS/RA-GRS | ... ZRS에 | ... to GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... LRS에서</b> | 해당 없음 | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정<sup>1</sup> 변경 | 수동 마이그레이션 수행 <br /><br />실시간 마이그레이션 요청 | 수동 마이그레이션 수행 <br /><br /> 또는 <br /><br /> GRS/RA-GRS로 전환한 다음 실시간 마이그레이션<sup>1</sup> 을 요청 합니다. |
-| <b>... from GRS/RA-GRS</b> | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정을 변경 합니다. | 해당 없음 | 수동 마이그레이션 수행 <br /><br /> 또는 <br /><br /> 먼저 LRS로 전환한 다음 실시간 마이그레이션을 요청 합니다. | 수동 마이그레이션 수행 <br /><br /> 실시간 마이그레이션 요청 |
-| <b>... ZRS에서</b> | 수동 마이그레이션 수행 | 수동 마이그레이션 수행 | 해당 없음 | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정<sup>1</sup> 변경 |
-| <b>... from GZRS/RA-GZRS</b> | 수동 마이그레이션 수행 | 수동 마이그레이션 수행 | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정을 변경 합니다. | 해당 없음 |
+| <b>... LRS에서</b> | N/A | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정<sup>1</sup> 변경 | 수동 마이그레이션 수행 <br /><br />실시간 마이그레이션 요청 | 수동 마이그레이션 수행 <br /><br /> 또는 <br /><br /> GRS/RA-GRS로 전환한 다음 실시간 마이그레이션<sup>1</sup> 을 요청 합니다. |
+| <b>... from GRS/RA-GRS</b> | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정을 변경 합니다. | N/A | 수동 마이그레이션 수행 <br /><br /> 또는 <br /><br /> 먼저 LRS로 전환한 다음 실시간 마이그레이션을 요청 합니다. | 수동 마이그레이션 수행 <br /><br /> 실시간 마이그레이션 요청 |
+| <b>... ZRS에서</b> | 수동 마이그레이션 수행 | 수동 마이그레이션 수행 | N/A | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정<sup>1, 2</sup> 를 변경 합니다. |
+| <b>... from GZRS/RA-GZRS</b> | 수동 마이그레이션 수행 | 수동 마이그레이션 수행 | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정을 변경 합니다. | N/A |
 
-<sup>1</sup> 은 일회성 송신 요금을 발생 시킵니다.
+<sup>1</sup> 은 일회성 송신 요금을 발생 시킵니다.<br />
+<sup>2</sup> 미국 동부 2, 미국 동부, 유럽 서 부 지역에서는 ZRS에서 GZRS/RA로 또는 그 반대로 변환할 수 없습니다.
 
 > [!CAUTION]
 > (RA-) GRS 또는 (RA-) GZRS 계정에 대 한 [계정 장애 조치](storage-disaster-recovery-guidance.md) (failover)를 수행한 경우이 계정은 장애 조치 (failover) 후 새 주 지역에서 로컬로 중복 됩니다. 장애 조치 (failover)로 인해 발생 하는 LRS 계정에 대 한 ZRS 또는 GZRS에 대 한 실시간 마이그레이션은 지원 되지 않습니다. ZRS 또는 GZRS으로 [수동 마이그레이션을](#perform-a-manual-migration-to-zrs) 수행 해야 합니다.
@@ -121,14 +122,14 @@ Microsoft에서는 실시간 마이그레이션에 대한 요청을 신속하게
 
 1. **새 지원 요청** 을 선택 합니다.
 2. 사용자 계정 정보를 기반으로 **기본 사항**을 완료합니다. **서비스** 섹션에서 **스토리지 계정 관리** 및 ZRS로 변환하려는 리소스를 선택합니다.
-3. **다음**을 선택합니다.
+3. **새로 만들기**를 선택합니다.
 4. **문제** 섹션에서 다음 값을 지정합니다.
     - **심각도**: 기본값을 그대로 둡니다.
     - **문제 유형**: **데이터 마이그레이션**을 선택합니다.
     - **범주**: **ZRS로 마이그레이션을**선택 합니다.
     - **제목**: 설명이 포함된 제목, 예를 들어 **ZRS 계정 마이그레이션**을 입력합니다.
     - **세부 정보**: **세부** 정보 상자에 추가 세부 정보를 입력 합니다. 예를 들어, \_ \_ 지역의 [LRS, GRS]에서 ZRS로 마이그레이션해야 합니다.
-5. **다음**을 선택합니다.
+5. **새로 만들기**를 선택합니다.
 6. **연락처 정보** 블레이드에서 연락처 정보가 올바른지 확인합니다.
 7. **만들기**를 선택합니다.
 
@@ -191,7 +192,7 @@ az storage account update -g <resource_group> -n <storage_account> --set kind=St
 > [!IMPORTANT]
 > GRS에서 GRS 또는 LRS로 저장소 계정을 마이그레이션하는 경우 해당 계정은 변환 된 날짜를 초과 하 여 30 일이 경과 하면 RA-GRS로 청구 됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Azure Storage 중복성](storage-redundancy.md)
 - [저장소 계정에 대 한 마지막 동기화 시간 속성 확인](last-sync-time-get.md)

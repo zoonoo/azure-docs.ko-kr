@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2020
 ms.author: shvija
-ms.openlocfilehash: bf90120157bf64bd62a3b5ec9d8a6b2c6260e024
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7f17c589b043a055bd541a0850d9efc8e1d96be
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398308"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628864"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>응용 프로그램의 여러 인스턴스에 걸쳐 파티션 로드 균형 조정
 이벤트 처리 응용 프로그램의 크기를 조정 하기 위해 응용 프로그램의 여러 인스턴스를 실행 하 고 부하의 균형을 유지 하도록 할 수 있습니다. 이전 버전에서는 [EventProcessorHost](event-hubs-event-processor-host.md) 를 통해 프로그램의 여러 인스턴스 간에 부하를 분산 하 고 수신 시 검사점 이벤트를 분산할 수 있었습니다. 최신 버전 (5.0 이상)에서는 **EventProcessorClient** (.Net 및 Java) 또는 **EventHubConsumerClient** (Python 및 JavaScript)를 사용 하 여 동일한 작업을 수행할 수 있습니다. 개발 모델은 이벤트를 사용 하 여 더 간단 하 게 만들 수 있습니다. 이벤트 처리기를 등록 하 여 관심 있는 이벤트를 구독할 수 있습니다.
@@ -27,7 +27,7 @@ ms.locfileid: "80398308"
 > [!NOTE]
 > Event Hubs의 크기를 조정하는 핵심은 분할된 소비자라는 개념입니다. [경쟁하는 소비자](https://msdn.microsoft.com/library/dn568101.aspx) 패턴과 달리 분할된 소비자 패턴을 사용하면 경합 병목 상태를 제거하고 종단 간 병렬 처리를 용이하게 하여 대규모 크기 조정이 가능해집니다.
 
-## <a name="example-scenario"></a>예제 시나리오
+## <a name="example-scenario"></a>예제 시나리오 
 
 예제 시나리오로 100,000호의 집을 모니터링하는 보안 회사를 가정합니다. 1 분 마다 각 홈에 설치 된 동작 탐지기, 도어/window 열린 센서, 유리 브레이크 감지기 등의 다양 한 센서에서 데이터를 가져옵니다. 회사는 거주자가 거의 실시간으로 해당 집의 활동을 모니터링하는 웹 사이트를 제공합니다.
 
@@ -86,9 +86,9 @@ ms.locfileid: "80398308"
 > [!NOTE]
 > Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지 원하는 환경에서 검사점 저장소로 Azure Blob Storage을 사용 하는 경우, 코드를 사용 하 여 저장소 서비스 API 버전을 해당 환경에서 지 원하는 특정 버전으로 변경 해야 합니다. 예를 들어 [Azure Stack 허브 버전 2002에서 Event Hubs](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)를 실행 하는 경우 저장소 서비스에 사용할 수 있는 가장 높은 버전은 2017-11-09입니다. 이 경우에는 코드를 사용 하 여 저장소 서비스 API 버전을 2017-11-09로 대상으로 해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 GitHub의 다음 샘플을 참조 하세요. 
 > - [.Net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
-> - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithOlderStorageVersion.java)
-> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.js) 또는 [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.ts)
-> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/event_processor_blob_storage_example_with_storage_api_version.py)
+> - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) 또는 [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
+> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)
 
 ## <a name="thread-safety-and-processor-instances"></a>스레드 안전성 및 프로세서 인스턴스
 

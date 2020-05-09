@@ -8,14 +8,16 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: 630a8ead409ad60b9146838f062210a3301b43b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36660854b9a7ae13431545392ef551694b48e97c
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81760200"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628915"
 ---
 # <a name="open-and-save-files-on-premises-and-in-azure-with-ssis-packages-deployed-in-azure"></a>Azure에 배포된 SSIS 패키지로 온-프레미스 및 Azure에서 파일 열기 및 저장
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 문서는 로컬 파일 시스템을 사용하는 SSIS 패키지를 Azure의 SSIS로 리프트하고 이동하는 경우 온-프레미스 및 Azure에서 파일을 열고 저장하는 방법을 설명합니다.
 

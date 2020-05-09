@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 68fe7da136d744e1efa76a89061afe6995a75051
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 920755e128f10a79a056d47813b1b65d8633c937
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133252"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628745"
 ---
 # <a name="troubleshoot-input-connections"></a>입력 연결 문제 해결
 
@@ -51,9 +51,18 @@ Stream Analytics 작업이 입력으로부터 잘못된 형식의 메시지를 �
 
 Event Hubs를 사용 하는 가장 좋은 방법은 작업 확장성을 위해 여러 소비자 그룹을 사용 하는 것입니다. 특정 입력에 대한 Stream Analytics 작업의 판독기 수가 단일 소비자 그룹의 판독기 수에 영향을 줍니다. 수신자의 정확한 수는 확장 토폴로지 논리에 대한 내부 구현 세부 정보를 기반으로 하고 외부에 노출되지 않습니다. 판독기 수는 작업이 시작하거나 작업을 업그레이드하는 동안 변경될 수 있습니다.
 
-수신기 수가 최댓값을 초과하는 경우  오류가 표시됩니다.
+수신자 수가 최대값을 초과 하면 다음과 같은 오류 메시지가 표시 됩니다. 오류 메시지에는 소비자 그룹의 이벤트 허브에 대 한 기존 연결 목록이 포함 됩니다. 태그 `AzureStreamAnalytics` 는 연결이 Azure 스트리밍 서비스에서 온 것임을 나타냅니다.
 
-`The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
+```
+The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.
+
+The following information may be helpful in identifying the connected receivers: Exceeded the maximum number of allowed receivers per partition in a consumer group which is 5. List of connected receivers – 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
+```
 
 > [!NOTE]
 > 작업을 업그레이드하는 동안 판독기 수가 변경되면 일시적인 경고가 감사 로그에 기록됩니다. Stream Analytics 작업은 자동으로 이러한 일시적인 문제를 복구합니다.

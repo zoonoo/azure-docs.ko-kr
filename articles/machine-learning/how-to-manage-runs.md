@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 01/09/2020
-ms.openlocfilehash: cdc739c7464b3deb87faaaabfd8d657ae8c28678
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6dc2eeb572eeed17281677945c93067bbadee94
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617765"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628574"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Python에서 학습 실행 시작, 모니터링 및 취소
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,11 +30,11 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
 * 자식 실행을 만듭니다.
 * 태그를 만들고 실행을 찾습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 항목이 필요 합니다.
 
-* Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)입니다.
 
@@ -103,7 +103,7 @@ notebook_run.log(name="message", value="Hello from run!")
     >
     > 실행 구성 개체를 프로그래밍 방식으로 만드는 Python 스크립트가 있는 경우 [.runconfig ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) 를 사용 하 여 .runconfig 파일로 저장할 수 있습니다.
     >
-    > .Runconfig 파일 예제에 대 한 자세한 [https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml)내용은을 참조 하십시오.
+    > .Runconfig 파일 예제에 대 한 자세한 [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/)내용은을 참조 하십시오.
 
     자세한 내용은 [az ml run submit-스크립트](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script)를 참조 하세요.
 

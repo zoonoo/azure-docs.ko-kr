@@ -7,16 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 7235e95e5b33fb931411a51796a8dbec96c46355
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a0947a5e2b57f728023b0f923428814b3e439ec
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417660"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626686"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>랭 글 링 데이터 흐름의 변환 함수
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure Data Factory의 랭 글 링 데이터 흐름을 사용 하면 클라우드 규모에서 코드 없이 agile 데이터를 준비 하 고 랭 글 링 수 있습니다. 랭 글 링 데이터 흐름은 [온라인 파워 쿼리](https://docs.microsoft.com/powerquery-m/power-query-m-reference) 와 통합 되며 spark 실행을 통해 데이터 랭 글 링에 파워 쿼리 M 함수를 사용할 수 있습니다. 
 
@@ -85,7 +85,7 @@ M 함수 테이블을 사용 합니다. 다음 조건을 필터링 하려면 [�
 
 ## <a name="known-unsupported-functions"></a>지원 되지 않는 알려진 함수
 
-| 함수 | 상태 |
+| 기능 | 상태 |
 | -- | -- |
 | Table.PromoteHeaders | 지원 안 됨 데이터 집합에서 "First row as header"를 설정 하 여 동일한 결과를 얻을 수 있습니다. |
 | Table.CombineColumns | 이는 직접 지원 되지 않지만 지정 된 두 열을 연결 하는 새 열을 추가 하 여 달성할 수 있는 일반적인 시나리오입니다.  예: Table. AddColumn (RemoveEmailColumn, "Name", each [FirstName] & "" & [LastName]) |

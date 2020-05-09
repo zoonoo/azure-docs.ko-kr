@@ -10,14 +10,16 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: 0c4cdc3481fb58efd8eaa4cd83e1d6167f203a4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f2983b375e3eeb73a0372e123d4d2763b3c65ec
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81760187"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629391"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Azure의 SSIS 패키지에서 Windows 인증으로 데이터 저장소 및 파일 공유 액세스
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Windows 인증을 사용하여 Azure Data Factory(ADF)의 Azure-SSIS Integration Runtime(IR)에서 실행되는 SSIS 패키지에서 SQL Server, 파일 공유, Azure Files 등과 같은 데이터 저장소에 액세스할 수 있습니다. 데이터 저장소는 온-프레미스 상태이거나, Azure VM(가상 머신)에서 호스트되거나 Azure에서 관리형 서비스로서 실행 중일 수 있습니다. 온-프레미스 네트워크에 연결 되어 있는 경우 온-프레미스 네트워크에 연결 된 Virtual Network (Microsoft Azure Virtual Network)에 Azure-SSIS IR를 조인 해야 합니다. [Microsoft Azure Virtual Network에 Azure-SSIS IR 조인](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조 하세요. Azure SSIS IR을 실행하는 SSIS 패키지에서 Windows 인증을 사용하여 데이터 저장소에 액세스하는 방법에는 네 가지가 있습니다.
 
