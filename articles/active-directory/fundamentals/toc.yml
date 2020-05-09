@@ -50,7 +50,7 @@
     - name: 배포 가이드
       items:
         - name: '배포 30, 90 이상'
-      href: active-directory-deployment-checklist-p2.md
+          href: active-directory-deployment-checklist-p2.md
     - name: 데이터 스토리지
       items:
         - name: 유럽에 대한 ID 데이터 스토리지

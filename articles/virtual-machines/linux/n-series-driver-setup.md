@@ -9,18 +9,18 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
-ms.openlocfilehash: b424361f318504f96a57ee67722e725fbafc6561
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: cb2d5c43b8c04829dd6830126b7bc01bee07133b
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78944567"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628195"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
-Linux를 실행하는 Azure N 시리즈 VM의 GPU 기능을 최대한 활용하려면 NVIDIA GPU 드라이버를 설치해야 합니다. [NVIDIA GPU 드라이버 확장](../extensions/hpccompute-gpu-linux.md)은 N 시리즈 VM에 적절한 NVIDIA CUDA 또는 GRID 드라이버를 설치합니다. Azure CLI 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 배포판 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](../extensions/hpccompute-gpu-linux.md)를 참조하세요.
+NVIDIA gpu에 의해 지원 되는 Azure N 시리즈 Vm의 GPU 기능을 활용 하려면 NVIDIA GPU 드라이버를 설치 해야 합니다. [NVIDIA GPU 드라이버 확장](../extensions/hpccompute-gpu-linux.md)은 N 시리즈 VM에 적절한 NVIDIA CUDA 또는 GRID 드라이버를 설치합니다. Azure CLI 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 배포판 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](../extensions/hpccompute-gpu-linux.md)를 참조하세요.
 
-GPU 드라이버를 수동으로 설치하려는 경우 이 문서는 지원되는 배포판, 드라이버 및 설치 및 확인 단계를 제공합니다. [Windows VM](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대한 드라이버 수동 설치 정보도 제공합니다.
+NVIDIA GPU 드라이버를 수동으로 설치 하도록 선택 하는 경우이 문서는 지원 되는 배포, 드라이버 및 설치 및 확인 단계를 제공 합니다. [Windows VM](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대한 드라이버 수동 설치 정보도 제공합니다.
 
 N 시리즈 VM 사양, 스토리지 용량 및 디스크 세부 정보는 [GPU Linux VM 크기](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 
 
@@ -151,7 +151,7 @@ GPU 디바이스 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드�
 
 ## <a name="rdma-network-connectivity"></a>RDMA 네트워크 연결
 
-동일한 가용성 집합 또는 VM 확장 집합의 단일 배치 그룹에 배포된 NC24r과 같은 RDMA 지원 N 시리즈 VM에서 RDMA 네트워크 연결을 사용할 수 있습니다. RDMA 네트워크는 Intel MPI 5.x 이상 버전을 사용하여 실행되는 애플리케이션에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 추가 요구 사항은 다음과 같습니다.
+Rdma 네트워크 연결은 동일한 가용성 집합에 배포 된 NC24r 같은 RDMA 지원 N 시리즈 Vm 또는 VM (가상 machiine) 확장 집합의 단일 배치 그룹에 대해 사용 하도록 설정할 수 있습니다. RDMA 네트워크는 Intel MPI 5.x 이상 버전을 사용하여 실행되는 애플리케이션에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 추가 요구 사항은 다음과 같습니다.
 
 ### <a name="distributions"></a>배포
 
@@ -356,7 +356,7 @@ fi
 ## <a name="troubleshooting"></a>문제 해결
 
 * `nvidia-smi`를 사용하여 지속성 모드를 설정할 수 있으므로 카드를 쿼리해야 할 때 명령 출력이 더 빠릅니다. 지속성 모드를 설정하려면 `nvidia-smi -pm 1`을 실행합니다. VM을 다시 시작하면 모드 설정이 사라집니다. 모드 설정은 시작할 때 실행되도록 항상 스크립팅할 수 있습니다.
-* NVIDIA VERDA 드라이버를 최신 버전으로 업데이트 하 고 RDMA connectivcity가 더 이상 작동 하지 않는 경우 [rdma 드라이버를 다시 설치](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) 하 여 해당 연결을 reistablish 합니다. 
+* NVIDIA VERDA 드라이버를 최신 버전으로 업데이트 하 고 RDMA 연결이 더 이상 작동 하지 않는 경우 [rdma 드라이버를 다시 설치](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) 하 여 해당 연결을 다시 설정 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

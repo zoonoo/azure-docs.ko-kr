@@ -1,7 +1,7 @@
 ---
-title: 방화벽 뒤에 Azure Machine Learning 사용
+title: 방화벽 사용
 titleSuffix: Azure Machine Learning
-description: Azure 방화벽 뒤에 Azure Machine Learning 안전 하 게 사용 합니다. Azure Machine Learning가 제대로 작동 하도록 방화벽을 통해 허용 해야 하는 호스트에 대해 알아봅니다.
+description: Azure 방화벽을 사용 하 여 Azure Machine Learning 작업 영역에 대 한 액세스를 제어 합니다. Azure Machine Learning가 제대로 작동 하도록 방화벽을 통해 허용 해야 하는 호스트에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/27/2020
-ms.openlocfilehash: 2c5fe9d46ef408775cc4b99d4820a652a91683c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40c25dda3fefa9c54df832e16149a68a4aa5a33b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196323"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981968"
 ---
-# <a name="use-azure-machine-learning-workspace-behind-azure-firewall"></a>Azure 방화벽 뒤에 Azure Machine Learning 작업 영역 사용
+# <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Azure Machine Learning 용 Azure 방화벽 뒤에 작업 영역 사용
 
-이 문서에는 Azure Machine Learning에서 사용할 Azure 방화벽 구성에 대 한 정보가 포함 되어 있습니다.
+이 문서에서는 Azure Machine Learning 작업 영역에서 사용할 수 있도록 Azure 방화벽을 구성 하는 방법에 대해 알아봅니다.
 
 Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 대 한 액세스를 제어 하는 데 사용할 수 있습니다. 올바르게 구성 되지 않은 경우 방화벽에서 작업 영역을 사용 하 여 문제를 일으킬 수 있습니다.
 
@@ -36,7 +36,7 @@ Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 
 
 이 섹션의 호스트는 Microsoft에서 소유 하며 작업 영역의 적절 한 기능을 제공 하는 데 필요한 서비스를 제공 합니다.
 
-| **호스트 이름** | **목적** |
+| **호스트 이름** | **용도** |
 | ---- | ---- |
 | **\*. batchai.core.windows.net** | 클러스터 학습 |
 | **ml.azure.com** | Azure Machine Learning Studio |
@@ -55,7 +55,7 @@ Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 
 
 이 섹션의 호스트는 Python 패키지를 설치 하는 데 사용 됩니다. 개발, 학습 및 배포 중에 필요 합니다. 
 
-| **호스트 이름** | **목적** |
+| **호스트 이름** | **용도** |
 | ---- | ---- |
 | **anaconda.com** | Conda 패키지를 설치할 때 사용 됩니다. |
 | **pypi.org** | Pip 패키지를 설치할 때 사용 됩니다. |
@@ -67,7 +67,7 @@ Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 
 > [!IMPORTANT]
 > 내부적으로 Azure Machine Learning 용 R SDK는 Python 패키지를 사용 합니다. 따라서 방화벽을 통해 Python 호스트도 허용 해야 합니다.
 
-| **호스트 이름** | **목적** |
+| **호스트 이름** | **용도** |
 | ---- | ---- |
 | **cloud.r-project.org** | CRAN 패키지를 설치할 때 사용 됩니다. |
 

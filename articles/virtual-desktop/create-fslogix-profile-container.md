@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 149fb5818ee360c7333997655ea9eb8d7ded346c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 294a59ed94344ecf590eb9b34f991deaaa10db69
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81270896"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607387"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Azure NetApp Files를 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기
 
@@ -23,7 +23,7 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 
 이 가이드에서는 Azure NetApp Files 계정을 설정 하 고 Windows 가상 데스크톱에서 FSLogix 프로필 컨테이너를 만드는 방법을 보여 줍니다.
 
-이 문서에서는 이미 [호스트 풀이](create-host-pools-azure-marketplace.md) 설정 되어 있고 Windows 가상 데스크톱 환경에서 하나 이상의 테 넌 트로 그룹화 되어 있다고 가정 합니다. 테 넌 트를 설정 하는 방법을 알아보려면 [Windows 가상 데스크톱에서 테 넌 트 만들기](tenant-setup-azure-active-directory.md) 및 [기술 커뮤니티 블로그 게시물](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054)을 참조 하세요.
+이 문서에서는 이미 [호스트 풀이](create-host-pools-azure-marketplace.md) 설정 되어 있고 Windows 가상 데스크톱 환경에서 하나 이상의 테 넌 트로 그룹화 되어 있다고 가정 합니다. 테 넌 트를 설정 하는 방법을 알아보려면 [Windows 가상 데스크톱에서 테 넌 트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) 및 [기술 커뮤니티 블로그 게시물](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054)을 참조 하세요.
 
 이 가이드의 지침은 Windows 가상 데스크톱 사용자 전용입니다. Windows 가상 데스크톱 외부에서 Azure NetApp Files를 설정 하 고 FSLogix 프로필 컨테이너를 만드는 방법에 대 한 일반적인 지침을 찾고 있는 경우 [Azure NetApp Files 설정 및 NFS 볼륨 만들기 빠른](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md)시작을 참조 하세요.
 
@@ -33,7 +33,7 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 >[!NOTE]
 >Azure의 여러 FSLogix 프로필 컨테이너 저장소 옵션에 대 한 비교 자료를 찾고 있는 경우 [FSLogix 프로필 컨테이너에 대 한 저장소 옵션](store-fslogix-profile.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 호스트 풀에 대해 FSLogix 프로필 컨테이너를 만들려면 먼저 다음을 수행 해야 합니다.
 
@@ -210,7 +210,7 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 
 ## <a name="make-sure-users-can-access-the-azure-netapp-file-share"></a>사용자가 Azure NetApp 파일 공유에 액세스할 수 있는지 확인
 
-1. 인터넷 브라우저를 열고로 <https://rdweb.wvd.microsoft.com/webclient/index.html>이동 합니다.
+1. 인터넷 브라우저를 열고로 <https://rdweb.wvd.microsoft.com/arm/webclient>이동 합니다.
 
 2. 원격 데스크톱 그룹에 할당 된 사용자의 자격 증명을 사용 하 여 로그인 합니다.
 

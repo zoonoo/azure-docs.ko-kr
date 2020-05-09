@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: f9bb8743f0b0852e46b440de22038e3f84272e93
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: a7e0cb41f32a60e4f00cb60cc3c86e40ab926785
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561014"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735133"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>자습서: 사진의 콘텐츠를 사용하여 몰입형 리더를 시작하는 iOS 앱 만들기(Swift)
 
@@ -22,7 +22,7 @@ ms.locfileid: "82561014"
 
 [Computer Vision Cognitive Services 읽기 API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text)는 Microsoft의 최신 인식 모델을 사용하여 이미지의 텍스트 콘텐츠를 감지하고, 식별된 텍스트를 머신에서 읽을 수 있는 문자 스트림으로 변환합니다.
 
-이 자습서에서는 iOS 앱을 처음부터 빌드하고, 몰입형 리더 SDK를 사용하여 읽기 API와 몰입형 리더를 통합합니다. 이 자습서의 전체 작업 샘플은 [여기](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/samples/picture-to-immersive-reader-swift)서 제공됩니다.
+이 자습서에서는 iOS 앱을 처음부터 빌드하고, 몰입형 리더 SDK를 사용하여 읽기 API와 몰입형 리더를 통합합니다. 이 자습서의 전체 작업 샘플은 [여기](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios)서 제공됩니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

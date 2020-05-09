@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de91bd7e1e4c5f9909213f663dd3ede0f979d4de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69c96d123ebe97ba4a7a6df0395efe698924fef1
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262153"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734742"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Azure Active Directory 포털을 사용하여 사용자 지정 도메인 이름 추가
 
@@ -37,7 +37,7 @@ ms.locfileid: "79262153"
 >[!IMPORTANT]
 >테넌트를 만든 사용자는 자동으로 해당 테넌트에 대한 글로벌 관리자가 됩니다. 글로벌 관리자는 해당 테넌트에 추가 관리자를 추가할 수 있습니다.
 
-구독 역할에 대 한 자세한 내용은 [AZURE RBAC 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles)을 참조 하세요.
+구독 역할에 대 한 자세한 내용은 [Azure 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)을 참조 하세요.
 
 >[!TIP]
 > 온-프레미스 Windows Server AD를 Azure AD와 페더레이션 하려는 경우에는 Azure AD Connect 도구를 실행 하 여 디렉터리를 동기화 할 때 **내 로컬 Active Directory Single Sign-On에 대해이 도메인을 구성 하도록 계획** 을 선택 해야 합니다.
