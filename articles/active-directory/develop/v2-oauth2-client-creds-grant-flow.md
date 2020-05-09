@@ -2,7 +2,7 @@
 title: Microsoft id 플랫폼의 OAuth 2.0 클라이언트 자격 증명 흐름 | Microsoft
 description: OAuth 2.0 인증 프로토콜의 Microsoft id 플랫폼 구현을 사용 하 여 웹 응용 프로그램을 빌드합니다.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.date: 12/17/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 36a5fdf990432e3a41cf8fc578fa20b4910250b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e25af1f629ea6fa7db14ce89dfffaa340486a989
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868449"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82689797"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름
 
@@ -107,7 +107,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
-| `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. 이는 GUID 또는 친숙한 이름 형식일 수 있습니다. 사용자가 속한 테넌트가 무엇인지 모르고 테넌트를 사용하여 로그인하지 않으려는 경우 `common`을 사용합니다. |
+| `tenant` | 필요한 공간 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. 이는 GUID 또는 친숙한 이름 형식일 수 있습니다. 사용자가 속한 테넌트가 무엇인지 모르고 테넌트를 사용하여 로그인하지 않으려는 경우 `common`을 사용합니다. |
 | `client_id` | 필수 | [Azure Portal – 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 앱에 할당 한 **응용 프로그램 (클라이언트) ID** 입니다. |
 | `redirect_uri` | 필수 | 리디렉션 URI는 처리할 앱에 응답을 전송하려는 위치입니다. URL로 인코딩되어야 한다는 점을 제외하고 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 하며 추가 경로 세그먼트가 있을 수 있습니다. |
 | `state` | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
@@ -170,7 +170,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
-| `tenant` | 필수 | 애플리케이션에서 GUID 또는 도메인 이름 형식으로 작동하도록 계획하는 디렉터리 테넌트입니다. |
+| `tenant` | 필요한 공간 | 애플리케이션에서 GUID 또는 도메인 이름 형식으로 작동하도록 계획하는 디렉터리 테넌트입니다. |
 | `client_id` | 필수 | 앱에 할당되는 애플리케이션 ID입니다. 앱을 등록한 포털에서 이 정보를 찾을 수 있습니다. |
 | `scope` | 필수 | 이 요청에서 `scope` 매개 변수에 전달된 값은 원하는 리소스의 리소스 식별자(애플리케이션 ID URI)여야 하고, `.default` 접미사가 붙어 있어야 합니다. Microsoft Graph 예제의 경우 값은 `https://graph.microsoft.com/.default`입니다. <br/>이 값은 앱에 대해 구성한 모든 직접 응용 프로그램 사용 권한의 Microsoft id 플랫폼 끝점을 알려 주며, 끝점은 사용 하려는 리소스와 연결 된 사용 권한의 토큰을 발급 해야 합니다. `/.default` 범위에 대해 자세히 알아보려면 [동의 설명서](v2-permissions-and-consent.md#the-default-scope)를 참조하세요. |
 | `client_secret` | 필수 | 앱 등록 포털에서 앱에 대해 생성한 클라이언트 암호입니다. 클라이언트 암호는 보내기 전에 URL로 인코딩해야 합니다. |
@@ -192,7 +192,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 | 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
-| `tenant` | 필수 | 애플리케이션에서 GUID 또는 도메인 이름 형식으로 작동하도록 계획하는 디렉터리 테넌트입니다. |
+| `tenant` | 필요한 공간 | 애플리케이션에서 GUID 또는 도메인 이름 형식으로 작동하도록 계획하는 디렉터리 테넌트입니다. |
 | `client_id` | 필수 |앱에 할당되는 애플리케이션(클라이언트) ID입니다. |
 | `scope` | 필수 | 이 요청에서 `scope` 매개 변수에 전달된 값은 원하는 리소스의 리소스 식별자(애플리케이션 ID URI)여야 하고, `.default` 접미사가 붙어 있어야 합니다. Microsoft Graph 예제의 경우 값은 `https://graph.microsoft.com/.default`입니다. <br/>이 값은 Microsoft id 플랫폼 끝점에 앱에 대해 구성한 모든 직접 응용 프로그램 권한의 토큰을 알려 주며, 사용 하려는 리소스와 연결 된 사용 권한의 토큰을 발급 해야 합니다. `/.default` 범위에 대해 자세히 알아보려면 [동의 설명서](v2-permissions-and-consent.md#the-default-scope)를 참조하세요. |
 | `client_assertion_type` | 필수 | 값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`로 설정해야 합니다. |
@@ -265,7 +265,7 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph
 
 Microsoft 인증 라이브러리에서 [클라이언트 자격 증명 개요 설명서](https://aka.ms/msal-net-client-credentials)를 읽어보세요.
 
-| 예제 | 플랫폼 |Description |
+| 샘플 | 플랫폼 |설명 |
 |--------|----------|------------|
 |[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET Core 2.1 콘솔 | 사용자를 대신하지 않고 애플리케이션의 ID를 사용하여 Microsoft Graph를 쿼리하는 테넌트의 사용자를 표시하는 간단한 .NET Core 애플리케이션입니다. 샘플에는 인증에 인증서를 사용하는 다양한 사례도 설명되어 있습니다. |
 |[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | 사용자를 대신하지 않고 애플리케이션의 ID를 사용하여 Microsoft Graph에서 데이터를 동기화하는 웹 애플리케이션입니다. |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 959e473cb52e23c9d04586f0b24da34537f4e660
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92bb254873669ae7c0894d633f17b5701b7ddc97
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115604"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594732"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 2 사용
 사용자 지정 스크립트 확장 버전 2는 Azure 가상 머신에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure Storage 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임을 제공할 수 있습니다. 
@@ -110,19 +110,19 @@ Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 | 
+| Name | 값/예제 | 데이터 형식 | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
-| 게시자 | Microsoft.Compute.Extensions | string |
-| type | CustomScript | string |
+| 게시자 | Microsoft.Compute.Extensions | 문자열 |
+| type | CustomScript | 문자열 |
 | typeHandlerVersion | 2.1 | int |
-| fileUris(예) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute(예) | python MyPythonScript.py \<> | string |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| fileUris(예) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
+| commandToExecute(예) | python MyPythonScript.py \<> | 문자열 |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | 문자열 |
 | skipDos2Unix(예) | false | boolean |
 | timestamp(예) | 123456789 | 32비트 정수 |
-| storageAccountName(예) | examplestorageacct | string |
-| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| storageAccountName(예) | examplestorageacct | 문자열 |
+| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 문자열 |
 | Microsoft.managedidentity (예:) | {} 또는 {"clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232"} 또는 {"objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b"} | json 개체 |
 
 ### <a name="property-value-details"></a>속성 값 세부 정보
@@ -218,7 +218,7 @@ CustomScript (버전 2.1 이상)는 "fileUris" 설정에 제공 된 Url에서 �
 
 대상 VM/VMSS에서 시스템이 할당 한 id를 사용 하려면 "microsoft.managedidentity" 필드를 빈 json 개체로 설정 합니다. 
 
-> 예제:
+> 예:
 >
 > ```json
 > {
@@ -230,7 +230,7 @@ CustomScript (버전 2.1 이상)는 "fileUris" 설정에 제공 된 Url에서 �
 
 대상 VM/VMSS에서 사용자 할당 id를 사용 하려면 관리 id의 클라이언트 ID 또는 개체 ID를 사용 하 여 "microsoft.managedidentity" 필드를 구성 합니다.
 
-> 예:
+> 예제:
 >
 > ```json
 > {

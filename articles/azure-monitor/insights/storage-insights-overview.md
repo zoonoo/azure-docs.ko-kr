@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/15/2019
-ms.openlocfilehash: f23be7e764ad180a23c76abb7f9bb2218fd61e4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 497ea5a27a56ed5f8192b694fac1c52c8bf57ca6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77662522"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691123"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>저장소에 대 한 Azure Monitor를 사용 하 여 저장소 서비스 모니터링 (미리 보기)
 
@@ -67,7 +67,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 **가용성**, **E2E 대기 시간**, **서버 대기 시간**및 **트랜잭션 오류 유형/오류** 열에서 값을 선택 하면 해당 저장소 계정에 대해 선택한 열과 일치 하는 특정 유형의 저장소 메트릭에 맞게 조정 된 보고서로 이동 합니다. 각 범주의 통합 문서에 대 한 자세한 내용은 아래의 [자세한 저장소 통합 문서](#detailed-storage-workbooks) 섹션을 참조 하세요. 
 
 >[!NOTE]
->보고서에 표시 될 수 있는 오류에 대 한 자세한 내용은 [응답 유형 스키마](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) 및 응답 유형 (예: **serverothererror**, **clientothererror**, **ClientThrottlingError**)을 참조 하세요. 선택한 저장소 계정에 따라 세 가지 유형의 오류가 보고 된 경우 다른 모든 오류는 **기타**범주에 표시 됩니다.
+>보고서에 표시 될 수 있는 오류에 대 한 자세한 내용은 [응답 유형 스키마](../../storage/common/monitor-storage-reference.md#metrics-dimensions) 및 응답 유형 (예: **serverothererror**, **clientothererror**, **ClientThrottlingError**)을 참조 하세요. 선택한 저장소 계정에 따라 세 가지 유형의 오류가 보고 된 경우 다른 모든 오류는 **기타**범주에 표시 됩니다.
 
 기본 **가용성** 임계값은 다음과 같습니다.
 

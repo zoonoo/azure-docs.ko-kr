@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/13/2020
-ms.openlocfilehash: e0042960c25d58b72bc0ab884de5a2db62e566d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 0ac33a0912d52405cf3d2ae18d5102930a94f3ff
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81413437"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890881"
 ---
 # <a name="data-flow-script-dfs"></a>데이터 흐름 스크립트 (DFS)
 
@@ -177,6 +177,21 @@ aggregate(groupBy(movie),
 
 ```
 derive(DWhash = sha1(Name,ProductNumber,Color))
+```
+
+아래 스크립트를 사용 하 여 각 열의 이름을 지정할 필요 없이 스트림에 있는 모든 열을 사용 하 여 행 해시를 생성할 수도 있습니다.
+
+```
+derive(DWhash = sha1(columns()))
+```
+
+### <a name="string_agg-equivalent"></a>String_agg 동일
+이 코드는 T-sql ```string_agg()``` 함수와 동일 하 게 작동 하며 문자열 값을 배열로 집계 합니다. 그런 다음 해당 배열을 SQL 대상과 함께 사용할 문자열로 캐스팅할 수 있습니다.
+
+```
+source1 aggregate(groupBy(year),
+    string_agg = collect(title)) ~> Aggregate1
+Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,5 +1,6 @@
 ---
-title: OAuth 2.0 및 Openid connect 연결 프로토콜-Microsoft identity platform | Microsoft
+title: Microsoft id 플랫폼의 OAuth 2.0 및 Openid connect 연결 프로토콜 | Microsoft
+titleSuffix: Microsoft identity platform
 description: Microsoft id 플랫폼 끝점에서 지 원하는 OAuth 2.0 및 Openid connect Connect 프로토콜에 대 한 가이드입니다.
 services: active-directory
 author: hpsin
@@ -8,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 80b93efb58d225c53a64fa044f51145b392460d7
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: 12f5df9b644246092f0a5da2b30dc5a7187ca827
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690260"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926819"
 ---
-# <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Microsoft id 플랫폼의 OAuth 2.0 및 Openid connect Connect 프로토콜
+# <a name="oauth-20-and-openid-connect-protocols-on-microsoft-identity-platform"></a>Microsoft id 플랫폼의 OAuth 2.0 및 Openid connect 연결 프로토콜
 
-업계 표준 프로토콜, Openid connect Connect 및 OAuth 2.0를 사용 하는 id 인 서비스를 위한 Microsoft id 플랫폼 끝점입니다. 서비스는 표준을 준수하지만 이러한 프로토콜의 두 구현 간에는 약간의 차이가 있을 수 있습니다. 여기에 있는 정보는 [오픈 소스 라이브러리](reference-v2-libraries.md) 중 하나를 사용하는 대신 HTTP 요청을 직접 전송 및 처리하여 코드를 작성하거나 타사 오픈 소스 라이브러리를 사용하도록 선택한 경우에 유용합니다.
+산업 표준 프로토콜인 OIDC (Openid connect Connect) 및 OAuth 2.0를 사용 하는 Microsoft id 플랫폼 끝점입니다. 서비스는 표준을 준수하지만 이러한 프로토콜의 두 구현 간에는 약간의 차이가 있을 수 있습니다. 이 정보는 [오픈 소스 라이브러리](reference-v2-libraries.md)중 하나를 사용 하는 대신 HTTP 요청을 직접 전송 및 처리 하거나 타사 오픈 소스 라이브러리를 사용 하 여 코드를 작성 하도록 선택 하는 경우에 유용 합니다.
 
 ## <a name="the-basics"></a>기본 사항
 
@@ -55,7 +56,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 여기서 `{tenant}` 은 네 개의 서로 다른 값 중 하나를 가질 수 있습니다.
 
-| 값 | 설명 |
+| Value | Description |
 | --- | --- |
 | `common` | 개인 Microsoft 계정과 Azure AD의 회사/학교 계정이 모두 있는 사용자가 애플리케이션에 로그인할 수 있습니다. |
 | `organizations` | Azure AD의 회사/학교 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. |
@@ -69,7 +70,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 ## <a name="tokens"></a>토큰
 
-OAuth 2.0 및 Openid connect Connect의 Microsoft id 플랫폼 구현은 JWTs로 표시 되는 전달자 토큰을 포함 하 여 전달자 토큰을 광범위 하 게 사용 합니다. 전달자 토큰은 보호된 리소스에 대한 "전달자" 액세스 권한을 부여하는 간단한 보안 토큰입니다. 이런 의미에서, "전달자"는 토큰을 제공할 수 있는 당사자입니다. 파티는 전달자 토큰을 수신 하기 위해 먼저 Microsoft id 플랫폼에 인증 해야 하지만 전송 및 저장 시 토큰을 보호 하는 데 필요한 단계를 수행 하지 않은 경우 의도 하지 않은 당사자가 가로채서 사용할 수 있습니다. 일부 보안 토큰에는 권한 없는 당사자가 사용하는 것을 방지하는 기본 제공 메커니즘이 있지만, 전달자 토큰에는 이러한 메커니즘이 없으므로 전송 계층 보안(HTTPS)과 같은 보안 채널에서 전달자 토큰을 전송해야 합니다. 전달자 토큰이 보안되지 않은 상태로 전송되는 경우, 악의적 사용자가 메시지 가로채기(man-in-the-middle) 공격으로 토큰을 획득하고 보호된 리소스에 무단으로 액세스하는 데 이 토큰을 사용할 수 있습니다. 나중에 사용하기 위해 전달자 토큰을 저장하거나 캐싱할 때도 동일한 보안 원칙이 적용됩니다. 항상 앱이 안전한 방식으로 전달자 토큰을 전송하고 저장하도록 합니다. 전달자 토큰의 보안 고려 사항을 자세히 알아보려면 [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750)를 참조하세요.
+OAuth 2.0 및 Openid connect Connect의 Microsoft id 플랫폼 구현은 jwt 토큰 (JSON 웹 토큰)으로 표시 되는 전달자 토큰을 비롯 하 여 전달자 토큰을 광범위 하 게 사용 합니다. 전달자 토큰은 보호된 리소스에 대한 "전달자" 액세스 권한을 부여하는 간단한 보안 토큰입니다. 이런 의미에서, "전달자"는 토큰을 제공할 수 있는 당사자입니다. 파티는 전달자 토큰을 수신 하기 위해 먼저 Microsoft id 플랫폼에 인증 해야 하지만 전송 및 저장 시 토큰을 보호 하는 데 필요한 단계를 수행 하지 않은 경우 의도 하지 않은 당사자가 가로채서 사용할 수 있습니다. 일부 보안 토큰에는 권한 없는 당사자가 사용하는 것을 방지하는 기본 제공 메커니즘이 있지만, 전달자 토큰에는 이러한 메커니즘이 없으므로 전송 계층 보안(HTTPS)과 같은 보안 채널에서 전달자 토큰을 전송해야 합니다. 전달자 토큰이 보안되지 않은 상태로 전송되는 경우, 악의적 사용자가 메시지 가로채기(man-in-the-middle) 공격으로 토큰을 획득하고 보호된 리소스에 무단으로 액세스하는 데 이 토큰을 사용할 수 있습니다. 나중에 사용하기 위해 전달자 토큰을 저장하거나 캐싱할 때도 동일한 보안 원칙이 적용됩니다. 항상 앱이 안전한 방식으로 전달자 토큰을 전송하고 저장하도록 합니다. 전달자 토큰의 보안 고려 사항을 자세히 알아보려면 [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750)를 참조하세요.
 
 Microsoft id 플랫폼 끝점에서 사용 되는 다양 한 토큰 형식에 대 한 자세한 내용은 [microsoft id 플랫폼 끝점 토큰 참조](v2-id-and-access-tokens.md)에서 확인할 수 있습니다.
 
