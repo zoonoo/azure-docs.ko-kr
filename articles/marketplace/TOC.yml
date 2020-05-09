@@ -199,19 +199,7 @@
             - name: 기존 제품 업데이트
               href: ./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md
         - name: 컨설팅 서비스
-          href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
-          items:
-            - name: 사전 요구 사항
-              href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
-            - name: 컨설팅 서비스 제품 만들기
-              href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
-              items:
-                - name: 제품 설정 탭
-                  href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md
-                - name: 상점 세부 정보 탭
-                  href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md
-            - name: 컨설팅 서비스 제품 게시
-              href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md
+          href: ./cloud-partner-portal/consulting-services/consulting-services-offer.md
         - name: 컨테이너 제품
           href: ./cloud-partner-portal/containers/cpp-containers-offer.md
           items:

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 5fdca371e9188ef69068ddbcaa416cbb2b44054c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: dapine
+zone_pivot_groups: programming-languages-set-two-with-js
+ms.openlocfilehash: 0c0c57c27689da7df23285c9740665f811f71fd5
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402148"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82977569"
 ---
 # <a name="choose-a-speech-recognition-mode"></a>음성 인식 모드 선택
 
@@ -64,13 +64,24 @@ result = speech_recognizer.recognize_once()
 ```
 
 ::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+`recognizeOnceAsync` 함수 사용에 대 한 자세한 내용은 [JavaScript Speech SDK 문서](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-)를 참조 하세요.
+
+```JavaScript
+recognizer.recognizeOnceAsync((result)=>{}, (error)=>{}));
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-more"
 
 추가 언어는 [SPEECH SDK 참조 문서](speech-to-text.md#speech-sdk-reference-docs)를 참조 하세요.
 
 ::: zone-end
 
-## <a name="continuous"></a>연속
+## <a name="continuous"></a>계속
 
 장기 실행 인식이 필요한 경우 연속 인식을 위해 start 및 해당 stop 함수를 사용 합니다. Start 함수는 stop 함수를 호출할 때까지 또는 대기 시간이 너무 많이 경과 될 때까지 모든 길이 발언를 시작 하 고 계속 처리 합니다. 연속 모드를 사용 하는 경우 발생 시 발생 하는 다양 한 이벤트에 등록 해야 합니다. 예를 들어, "인식 된" 이벤트는 음성 인식이 발생할 때 발생 합니다. 인식을 처리 하려면 이벤트 처리기가 있어야 합니다.
 
@@ -152,6 +163,26 @@ speech_recognizer.stop_continuous_recognition()
 ```
 
 ::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+```JavaScript
+recognizer.recognized = (s, e) => {
+    if (e.result.reason == ResultReason.RecognizedSpeech) {
+        // Do something with the recognized text
+        // e.getResult().getText()
+    }
+});
+
+// Start continuous speech recognition
+recognizer.startContinuousRecognitionAsync(()=>{}, (error)=>{});
+
+// Stop continuous speech recognition
+recognizer.stopContinuousRecognitionAsync(()=>{}, (error)=>{});
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-more"
 
 추가 언어는 [SPEECH SDK 참조 문서](speech-to-text.md#speech-sdk-reference-docs)를 참조 하세요.
@@ -202,6 +233,18 @@ SpeechConfig.enable_dictation()
 ```
 
 ::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+`enableDictation` 함수 사용에 대 한 자세한 내용은 [JavaScript Speech SDK 문서](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#enabledictation--)를 참조 하세요.
+
+```JavaScript
+// Enable diction
+speechConfig.enableDictation();
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-more"
 
 추가 언어는 [SPEECH SDK 참조 문서](speech-to-text.md#speech-sdk-reference-docs)를 참조 하세요.

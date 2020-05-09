@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: yinhew
-ms.openlocfilehash: 005824b0953be741f47c027d121dbe073adca3ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2f102199c14ba9611a83e3ed3b31ebcd189624d6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82131294"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978623"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-Text REST API
 
@@ -52,7 +52,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 | 매개 변수 | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `language` | 인식되는 음성 언어를 식별합니다. [지원 되는 언어](language-support.md#speech-to-text)를 참조 하세요. | 필수 |
-| `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. detailed 응답에는 신뢰도 값 및 4가지 다른 표현과 함께 여러 결과가 포함됩니다. 기본 설정은 `simple`입니다. | Optional |
+| `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. 자세한 응답에는 표시 텍스트의 네 가지 표현이 포함 되어 있습니다. 기본 설정은 `simple`입니다. | Optional |
 | `profanity` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용 되는 `masked`값은 사용 금지를 별표 `removed`()로 대체 하는로, 결과의 모든 `raw`비속어를 제거 하는 또는 결과의 비속어를 포함 하는입니다. 기본 설정은 `masked`입니다. | Optional |
 | `pronunciationScoreParams` | 인식 결과에서 발음 점수를 표시 하는 매개 변수를 지정 합니다 .이 매개 변수는 정확도, 능숙, 완전성 등의 표시기를 사용 하 여 음성 입력의 발음 품질을 평가 합니다. 이 매개 변수는 여러 개의 자세한 매개 변수를 포함 하는 base64 인코딩 json입니다. 이 매개 변수를 빌드하는 방법은 [발음 평가 매개 변수](#pronunciation-assessment-parameters) 를 참조 하세요. | Optional |
 | `cid` | [Custom Speech 포털](how-to-custom-speech.md) 을 사용 하 여 사용자 지정 모델을 만드는 경우 **배포** 페이지에서 찾을 수 있는 **끝점 ID** 를 통해 사용자 지정 모델을 사용할 수 있습니다. 쿼리 문자열 매개 변수에 대 한 인수로 **끝점 ID** 를 사용 합니다. `cid` | Optional |
@@ -74,10 +74,10 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 오디오는 HTTP `POST` 요청 본문에서 전송됩니다. 오디오는 이 테이블의 형식 중 하나여야 합니다.
 
-| 형식 | Codec | Bitrate | 샘플링 주기  |
-|--------|-------|---------|--------------|
-| WAV    | PCM   | 16비트  | 16kHz, mono |
-| OGG    | OPUS  | 16비트  | 16kHz, mono |
+| 형식 | Codec | 비트 전송률 | 샘플링 주기  |
+|--------|-------|----------|--------------|
+| WAV    | PCM   | 256 kbps | 16kHz, mono |
+| OGG    | OPUS  | 256 kpbs | 16kHz, mono |
 
 >[!NOTE]
 >위의 형식은 음성 서비스의 REST API 및 WebSocket을 통해 지원 됩니다. [음성 SDK](speech-sdk.md) 는 현재 [다른 형식](how-to-use-codec-compressed-audio-input-streams.md)뿐만 아니라 PCM 코덱으로 WAV 형식을 지원 합니다.
@@ -200,9 +200,10 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 > [!NOTE]
 > 오디오가 욕설로만 구성되어 있고 `profanity` 쿼리 매개 변수가 `remove`로 설정되어 있는 경우 서비스는 음성 결과를 변환하지 않습니다.
 
-`detailed` 형식에는 동일한 인식 결과의 대체 `simple` 해석 목록과 함께 형식과 `NBest`동일한 데이터가 포함 됩니다. 이러한 결과는 가장 가능성이 낮은 것부터 순위가 높습니다. 첫 번째 항목은 기본 인식 결과와 같습니다.  `detailed` 형식을 사용하는 경우 `DisplayText`는 `NBest` 목록의 각 결과에 대한 `Display`로 제공됩니다.
+형식 `detailed` 에는 인식 된 결과의 추가 형식이 포함 되어 있습니다.
+`detailed` 형식을 사용하는 경우 `DisplayText`는 `NBest` 목록의 각 결과에 대한 `Display`로 제공됩니다.
 
-`NBest` 목록의 각 개체에는 다음이 포함됩니다.
+`NBest` 목록의 개체는 다음을 포함할 수 있습니다.
 
 | 매개 변수 | Description |
 |-----------|-------------|
@@ -244,13 +245,6 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
         "ITN" : "remind me to buy 5 pencils",
         "MaskedITN" : "remind me to buy 5 pencils",
         "Display" : "Remind me to buy 5 pencils.",
-      },
-      {
-        "Confidence" : "0.54",
-        "Lexical" : "rewind me to buy five pencils",
-        "ITN" : "rewind me to buy 5 pencils",
-        "MaskedITN" : "rewind me to buy 5 pencils",
-        "Display" : "Rewind me to buy 5 pencils.",
       }
   ]
 }

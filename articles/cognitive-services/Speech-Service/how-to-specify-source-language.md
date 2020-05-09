@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: qiohu
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: f0723534d9d2187593cb73f058ffea62473b80a9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+zone_pivot_groups: programming-languages-speech-services-nomore-variant
+ms.openlocfilehash: 07ca4c519a04910e7e126d3481afb17d2b5dc350
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80235953"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82977722"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>음성 텍스트에 대 한 소스 언어 지정
 
@@ -142,9 +142,9 @@ speech_recognizer = speechsdk.SpeechRecognizer(
 
 ::: zone-end
 
-::: zone pivot="programming-language-more"
+::: zone pivot="programming-language-javascript"
 
-## <a name="how-to-specify-source-language-in-javascript"></a>Javascript에서 소스 언어를 지정 하는 방법
+## <a name="how-to-specify-source-language-in-javascript"></a>JavaScript에서 소스 언어를 지정 하는 방법
 
 첫 번째 단계는 `SpeechConfig`다음을 만드는 것입니다.
 
@@ -163,6 +163,9 @@ speechConfig.speechRecognitionLanguage = "de-DE";
 ```Javascript
 speechConfig.endpointId = "The Endpoint ID for your custom model.";
 ```
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
 
 ## <a name="how-to-specify-source-language-in-objective-c"></a>목표에서 원본 언어를 지정 하는 방법-C
 
@@ -186,7 +189,7 @@ speechConfig.endpointId = @"The Endpoint ID for your custom model.";
 
 ::: zone-end
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * 음성 텍스트에 대해 지원 되는 언어 및 로캘 목록은 [언어 지원](language-support.md)을 참조 하세요.
 
