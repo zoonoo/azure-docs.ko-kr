@@ -9,36 +9,39 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: dadfe0022cfb99703222ba7a91ca3ec6f5fce645
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 1f9c8d449fb060d5b1a5f810f9e387057eac3252
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836634"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927975"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Linux 업데이트 에이전트 문제 해결
 
-Azure Automation 업데이트 관리 솔루션에서 컴퓨터가 준비 (정상) 상태로 표시 되지 않는 많은 이유가 있을 수 있습니다. 업데이트 관리에서 Hybrid Runbook Worker 에이전트의 상태를 확인 하 여 근본적인 문제를 확인할 수 있습니다. 이 문서에서는 [오프 라인 시나리오](#troubleshoot-offline)에서 Azure Portal 및 비 azure 컴퓨터에서 azure 컴퓨터에 대 한 문제 해결사를 실행 하는 방법을 설명 합니다. 
+업데이트 관리에서 컴퓨터가 준비 (정상) 상태로 표시 되지 않는 여러 가지 이유가 있을 수 있습니다. Linux Hybrid Runbook Worker 에이전트의 상태를 확인 하 여 근본적인 문제를 확인할 수 있습니다. 다음은 컴퓨터에 대 한 세 가지 준비 상태입니다.
 
-컴퓨터는 다음과 같은 세 가지 준비 상태에 있을 수 있습니다.
-
-* **준비**: Hybrid Runbook Worker 배포 되었으며 마지막으로 1 시간 이내에 표시 되었습니다.
-* **연결 끊김**: Hybrid Runbook Worker 배포 되었으며 마지막으로 1 시간 전에 표시 되었습니다.
-* **구성 되지 않음**: Hybrid Runbook Worker을 찾을 수 없거나 등록을 완료 하지 못했습니다.
+* 준비: Hybrid Runbook Worker 배포 되었으며 마지막으로 1 시간 이내에 표시 되었습니다.
+* 연결 끊김: Hybrid Runbook Worker 배포 되었으며 마지막으로 1 시간 전에 표시 되었습니다.
+* 구성 되지 않음: Hybrid Runbook Worker을 찾을 수 없거나 등록을 완료 하지 못했습니다.
 
 > [!NOTE]
 > Azure Portal 표시 되는 내용과 컴퓨터의 현재 상태 사이에 약간의 지연이 있을 수 있습니다.
 
+이 문서에서는 [오프 라인 시나리오](#troubleshoot-offline)에서 Azure Portal 및 비 azure 컴퓨터에서 azure 컴퓨터에 대 한 문제 해결사를 실행 하는 방법을 설명 합니다. 
+
+> [!NOTE]
+> 문제 해결사 스크립트는 현재 프록시 서버를 통해 트래픽을 라우팅 하지 않습니다 (구성 된 경우).
+
 ## <a name="start-the-troubleshooter"></a>문제 해결사 시작
 
-Azure 컴퓨터의 경우 포털의 **에이전트 준비 상태 업데이트** 열에서 **문제 해결** 링크를 선택 하 여 **업데이트 에이전트 문제 해결** 페이지를 엽니다. 비 Azure 컴퓨터의 경우 링크를 통해이 문서를 볼 수 있습니다. 비 Azure 컴퓨터의 문제를 해결 하려면 "오프 라인 문제 해결" 섹션의 지침을 참조 하세요.
+Azure 컴퓨터의 경우 포털의 **에이전트 준비 상태 업데이트** 열에서 **문제 해결** 링크를 선택 하 여 업데이트 에이전트 문제 해결 페이지를 엽니다. 비 Azure 컴퓨터의 경우 링크를 통해이 문서를 볼 수 있습니다. 비 Azure 컴퓨터의 문제를 해결 하려면 "오프 라인 문제 해결" 섹션의 지침을 참조 하세요.
 
 ![VM 목록 페이지](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
 > 검사를 수행하려면 VM이 실행되고 있어야 합니다. VM이 실행 되 고 있지 않으면 **Vm 시작** 이 표시 됩니다.
 
-**업데이트 에이전트 문제 해결** 페이지에서 **실행 검사** 를 선택 하 여 문제 해결사를 시작 합니다. 문제 해결사는 [실행 명령을](../../virtual-machines/linux/run-command.md) 사용 하 여 컴퓨터에서 종속성을 확인 하는 스크립트를 실행 합니다. 문제 해결사가 완료되면 검사 결과를 반환합니다.
+업데이트 에이전트 문제 해결 페이지에서 **실행 검사** 를 선택 하 여 문제 해결사를 시작 합니다. 문제 해결사는 [실행 명령을](../../virtual-machines/linux/run-command.md) 사용 하 여 컴퓨터에서 종속성을 확인 하는 스크립트를 실행 합니다. 문제 해결사가 완료되면 검사 결과를 반환합니다.
 
 ![문제 해결 페이지](../media/update-agent-issues-linux/troubleshoot-page.png)
 
@@ -52,7 +55,7 @@ Azure 컴퓨터의 경우 포털의 **에이전트 준비 상태 업데이트** 
 
 운영 체제 검사는 Hybrid Runbook Worker에서 다음 운영 체제 중 하나를 실행 하 고 있는지 확인 합니다.
 
-|운영 체제  |참고  |
+|운영 체제  |메모  |
 |---------|---------|
 |CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 분류 기반 패치를 적용 하려면 CentOS가 없는 보안 데이터를 반환 하는 ' yum '이 필요 합니다.         |
 |Red Hat Enterprise 6(x86/x64) 및 7(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
@@ -84,6 +87,9 @@ sudo /opt/microsoft/omsagent/bin/service_control restart
 ### <a name="hybrid-runbook-worker-status"></a>Hybrid Runbook Worker 상태
 
 이 검사에서는 Hybrid Runbook Worker가 머신에서 실행되고 있는지 확인합니다. Hybrid Runbook Worker가 제대로 실행되는 경우 다음 프로세스가 있어야 합니다. 자세히 알아보려면 [Linux 용 Log Analytics 에이전트 문제 해결](hybrid-runbook-worker.md#oms-agent-not-running)을 참조 하세요.
+
+> [!NOTE]
+> Hybrid Runbook Worker 실행 되 고 있지 않고 작업 끝점이 실패 한 경우 업데이트가 실패할 수 있습니다. 업데이트 관리는 작업 끝점에서 hybrid worker 패키지를 다운로드 합니다.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>

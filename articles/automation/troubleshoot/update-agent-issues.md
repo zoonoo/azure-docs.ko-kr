@@ -9,42 +9,45 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 6983a2ac7ab5fafcb00aee0b72221a8540ea1668
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b4467128fae3fd71a6e588e3c05d287c153e168
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678983"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927890"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Windows 업데이트 에이전트 문제 해결
 
-업데이트 관리에서 컴퓨터가 준비 (정상) 상태로 표시 되지 않는 여러 가지 이유가 있을 수 있습니다. 업데이트 관리에서 Hybrid Runbook Worker 에이전트의 상태를 확인 하 여 근본적인 문제를 확인할 수 있습니다. 이 문서에서는 [오프 라인 시나리오](#troubleshoot-offline)에서 Azure Portal 및 비 azure 컴퓨터에서 azure 컴퓨터에 대 한 문제 해결사를 실행 하는 방법을 설명 합니다.
+업데이트 관리에서 컴퓨터가 준비 (정상) 상태로 표시 되지 않는 여러 가지 이유가 있을 수 있습니다. Windows Hybrid Runbook Worker 에이전트의 상태를 확인 하 여 근본적인 문제를 확인할 수 있습니다. 다음은 컴퓨터에 대 한 세 가지 준비 상태입니다.
 
-다음은 컴퓨터에 대 한 세 가지 준비 상태입니다.
-
-* 준비 됨-Hybrid Runbook Worker 배포 되었으며 마지막으로 1 시간 전에 표시 되었습니다.
-* 연결 끊김-Hybrid Runbook Worker 배포 되었으며 마지막으로 1 시간 전에 표시 되었습니다.
-* 구성 되지 않음-Hybrid Runbook Worker를 찾을 수 없거나 등록을 완료 하지 못했습니다.
+* 준비: Hybrid Runbook Worker 배포 되었으며 마지막으로 1 시간 이내에 표시 되었습니다.
+* 연결 끊김: Hybrid Runbook Worker 배포 되었으며 마지막으로 1 시간 전에 표시 되었습니다.
+* 구성 되지 않음: Hybrid Runbook Worker을 찾을 수 없거나 등록을 완료 하지 못했습니다.
 
 > [!NOTE]
 > Azure Portal 표시 되는 내용과 컴퓨터의 현재 상태 사이에 약간의 지연이 있을 수 있습니다.
 
+이 문서에서는 [오프 라인 시나리오](#troubleshoot-offline)에서 Azure Portal 및 비 azure 컴퓨터에서 azure 컴퓨터에 대 한 문제 해결사를 실행 하는 방법을 설명 합니다. 이제 문제 해결사에 WSUS (Windows Server Update Services)와 자동 다운로드 및 설치 키에 대 한 확인이 포함 됩니다.
+
+> [!NOTE]
+> 문제 해결사 스크립트는 현재 프록시 서버를 통해 트래픽을 라우팅 하지 않습니다 (구성 된 경우).
+
 ## <a name="start-the-troubleshooter"></a>문제 해결사 시작
 
-Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 **문제 해결** 링크를 클릭하여 업데이트 에이전트 문제 해결 페이지를 시작합니다. 비 Azure 컴퓨터의 경우 링크를 통해이 문서를 볼 수 있습니다. 비 Azure 컴퓨터 문제를 해결 하려면 [오프 라인 지침](#troubleshoot-offline) 을 참조 하세요.
+Azure 컴퓨터의 경우 포털의 **에이전트 준비 상태 업데이트** 열에서 **문제 해결** 링크를 선택 하 여 **업데이트 에이전트 문제 해결** 페이지를 시작할 수 있습니다. 비 Azure 컴퓨터의 경우 링크를 통해이 문서를 볼 수 있습니다. 비 Azure 컴퓨터 문제를 해결 하려면 [오프 라인 지침](#troubleshoot-offline) 을 참조 하세요.
 
-![가상 머신의 업데이트 관리 목록](../media/update-agent-issues/vm-list.png)
+![가상 컴퓨터의 업데이트 관리 목록 스크린샷](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
 > Hybrid Runbook Worker 상태를 확인 하려면 VM이 실행 중 이어야 합니다. VM이 실행되고 있는 않은 경우 **VM 시작** 단추가 나타납니다.
 
-업데이트 에이전트 문제 해결 페이지에서 **검사 실행**을 선택하여 문제 해결사를 시작합니다. 문제 해결사는 [실행 명령을](../../virtual-machines/windows/run-command.md) 사용 하 여 컴퓨터에서 종속성을 확인 하는 스크립트를 실행 합니다. 문제 해결사가 완료되면 검사 결과를 반환합니다.
+**업데이트 에이전트 문제 해결** 페이지에서 **검사 실행**을 선택하여 문제 해결사를 시작합니다. 문제 해결사는 [실행 명령을](../../virtual-machines/windows/run-command.md) 사용 하 여 컴퓨터에서 종속성을 확인 하는 스크립트를 실행 합니다. 문제 해결사가 완료되면 검사 결과를 반환합니다.
 
-![업데이트 에이전트 문제 해결 페이지](../media/update-agent-issues/troubleshoot-page.png)
+![업데이트 에이전트 문제 해결 페이지의 스크린샷](../media/update-agent-issues/troubleshoot-page.png)
 
 준비가 되면 페이지에 결과가 표시됩니다. 검사 섹션에서는 각 검사에 포함된 항목을 보여줍니다.
 
-![업데이트 에이전트 문제 해결 검사](../media/update-agent-issues/update-agent-checks.png)
+![업데이트 에이전트 확인 문제 해결의 스크린샷](../media/update-agent-issues/update-agent-checks.png)
 
 ## <a name="prerequisite-checks"></a>필수 구성 요소 확인
 
@@ -54,7 +57,7 @@ Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 
 
 |운영 체제  |메모  |
 |---------|---------|
-|Windows Server 2012 이상 |.NET Framework 4.6 이상이 필요 합니다. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1이 필요 합니다.  ([Windows Management Framework 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2012 이상 |.NET Framework 4.6 이상이 필요 합니다. ([.NET Framework을 다운로드](/dotnet/framework/install/guide-for-developers)합니다.)<br/> Windows PowerShell 5.1이 필요 합니다.  ([Windows Management Framework 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
 ### <a name="net-462"></a>.NET 4.6.2
 
@@ -62,11 +65,11 @@ Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-WMF 검사는 시스템에 WMF (Windows Management Framework)의 필수 버전이 있는지 확인 합니다.- [Windows Management framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
+WMF 검사는 시스템에 필요한 WMF (Windows Management Framework) 버전 ( [Windows Management framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))이 있는지 확인 합니다.
 
 ### <a name="tls-12"></a>TLS 1.2
 
-이 검사는 TLS 1.2를 사용하여 통신을 암호화하고 있는지 확인합니다. TLS 1.0은 더 이상 플랫폼에서 지원되지 않습니다. 클라이언트가 TLS 1.2를 사용하여 업데이트 관리와 통신하는 것이 좋습니다.
+이 검사는 TLS 1.2를 사용하여 통신을 암호화하고 있는지 확인합니다. TLS 1.0은 더 이상 플랫폼에서 지원되지 않습니다. TLS 1.2를 사용 하 여 업데이트 관리와 통신 합니다.
 
 ## <a name="connectivity-checks"></a>연결 검사
 
@@ -98,13 +101,13 @@ Windows 용 Log Analytics 에이전트를 다시 설치 하려면 [windows 용 L
 
 ## <a name="access-permissions-checks"></a>액세스 권한 검사
 
-### <a name="machinekeys-folder-access"></a>MachineKeys 폴더 액세스
+### <a name="crypto-folder-access"></a>암호화 폴더 액세스
 
-암호화 폴더 액세스 검사는 로컬 시스템 계정에 C:\ProgramData\Microsoft\Crypto\RSA에 대한 액세스 권한이 있는지 확인합니다.
+암호화 폴더 액세스 검사는 로컬 시스템 계정에 C:\ProgramData\Microsoft\Crypto\RSA.에 대 한 액세스 권한이 있는지 여부를 확인 합니다.
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>오프라인으로 문제 해결
 
-스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. PowerShell 갤러리에서 [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) 스크립트를 가져올 수 있습니다. 스크립트를 실행 하려면 WMF 4.0 이상 버전이 설치 되어 있어야 합니다. 최신 버전의 PowerShell을 다운로드 하려면 [다양 한 버전의 Powershell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-powershell)를 참조 하세요.
+스크립트를 로컬로 실행 하 여 Hybrid Runbook Worker 오프 라인에서 문제 해결사를 사용할 수 있습니다. PowerShell 갤러리 [문제 해결-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration)에서 다음 스크립트를 가져옵니다. 스크립트를 실행 하려면 WMF 4.0 이상 버전이 설치 되어 있어야 합니다. 최신 버전의 PowerShell을 다운로드 하려면 [다양 한 버전의 Powershell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-powershell)를 참조 하세요.
 
 이 스트립트의 출력은 다음 예제와 같이 표시됩니다.
 
@@ -202,4 +205,4 @@ CheckResultMessageArguments : {}
 
 ## <a name="next-steps"></a>다음 단계
 
-Hybrid Runbook Worker의 문제를 더 많이 해결하려면 [Hybrid Runbook Worker 문제 해결](hybrid-runbook-worker.md)을 참조하세요.
+[Hybrid Runbook Worker 문제 해결](hybrid-runbook-worker.md)
