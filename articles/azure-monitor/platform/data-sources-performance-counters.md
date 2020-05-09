@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: d1a972a1d89066b961f2dcc28fba830e3a04ebc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 446beca9b8491fb252a1e3284a9ec9a0e6dabef5
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274763"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739367"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure Monitor의 Windows 및 Linux 성능 데이터 원본
 Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 애플리케이션의 성능에 대한 정보를 자세히 제공합니다.  Azure Monitor는 장기적인 분석 및 보고를 위한 성능 데이터 집계는 물론 거의 실시간에 가까운(NRT) 분석을 위해 빈번한 간격으로 성능 카운터를 수집할 수 있습니다.
@@ -25,7 +25,7 @@ Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체�
 
 Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스턴스를 선택할 수 있습니다. Linux 성능 카운터의 경우, 선택하는 각 카운터의 인스턴스는 부모 카운터의 모든 자식 카운터에 적용됩니다. 다음 테이블은 Linux와 Windows 성능 카운터 모두에서 사용할 수 있는 공통 인스턴스를 보여줍니다.
 
-| 인스턴스 이름 | Description |
+| 인스턴스 이름 | 설명 |
 | --- | --- |
 | \_합계 |모든 인스턴스의 총계 |
 | \* |모든 인스턴스 |
@@ -73,7 +73,7 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 
 이 요소의 매개 변수를 다음 테이블에서 설명합니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |:--|:--|
 | object\_name | 수집하는 개체의 이름입니다. |
 | instance\_regex |  수집할 인스턴스를 정의하는 *정규식*입니다. `.*` 값은 모든 인스턴스를 지정합니다. \_Total 인스턴스에 대해서만 프로세서 메트릭을 수집하려면 `_Total`을 지정합니다. crond 또는 sshd 인스턴스에 대해서만 프로세서 메트릭을 수집하려면 `(crond\|sshd)`를 지정합니다. |
@@ -131,13 +131,13 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 | 프로세서 | % 권한이 부여된 시간 |
 | 프로세서 | % Processor Time |
 | 프로세서 | % 사용자 시간 |
-| System (시스템) | 사용 가능한 실제 메모리 |
-| System (시스템) | 페이징 파일에 사용 가능한 공간 |
-| System (시스템) | 사용 가능한 가상 메모리 |
-| System (시스템) | 프로세스 |
-| System (시스템) | 페이징 파일에 저장된 크기 |
-| System (시스템) | 작동 시간 |
-| System (시스템) | 사용자 |
+| 시스템 | 사용 가능한 실제 메모리 |
+| 시스템 | 페이징 파일에 사용 가능한 공간 |
+| 시스템 | 사용 가능한 가상 메모리 |
+| 시스템 | 프로세스 |
+| 시스템 | 페이징 파일에 저장된 크기 |
+| 시스템 | 작동 시간 |
+| 시스템 | 사용자 |
 
 
 다음은 성능 메트릭에 대한 기본 구성입니다.
@@ -175,12 +175,12 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
     </source>
 
 ## <a name="data-collection"></a>데이터 수집
-Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모든 성능 카운터를 지정된 샘플 간격으로 수집합니다.  데이터는 집계되지 않으며 구독에서 지정한 기간 동안 모든 로그 쿼리 보기에서 원시 데이터를 사용할 수 있습니다.
+Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모든 성능 카운터를 지정된 샘플 간격으로 수집합니다.  데이터는 집계 되지 않으며, log analytics 작업 영역에 지정 된 기간 동안 모든 로그 쿼리 보기에서 원시 데이터를 사용할 수 있습니다.
 
 ## <a name="performance-record-properties"></a>성능 레코드 속성
 성능 레코드에는 **Perf**라는 type과 다음 테이블의 속성이 포함됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | Computer |이벤트가 수집된 컴퓨터입니다. |
 | CounterName |성능 카운터의 이름입니다. |
@@ -199,7 +199,7 @@ Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모�
 ## <a name="log-queries-with-performance-records"></a>성능 레코드를 통한 로그 쿼리
 다음 표에서는 성능 레코드를 검색하는 로그 쿼리의 다양한 예제를 제공합니다.
 
-| 쿼리 | Description |
+| 쿼리 | 설명 |
 |:--- |:--- |
 | Perf |모든 성능 데이터 |
 | Perf &#124; where Computer == "MyComputer" |특정 컴퓨터의 모든 성능 데이터 |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7c1eb9dceda70cd74237f8a824ef03bb9c2dc7ae
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: 43718e992349ff9bcb3635ab1b949c2b2f2c9ec0
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82606843"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871992"
 ---
 # <a name="security-baselines-for-azure"></a>Azure 보안 기준
 
@@ -30,3 +30,6 @@ Azure에 대 한 보안 기준은 클라우드 중심 제어 영역에 중점을
 - **Azure Security Center 모니터링**: Azure Security Center에 의해 컨트롤이 모니터링 되는지 여부와 참조 링크를 포함 합니다.
 
 이 특정 서비스에 적용 되지 않는 권장 사항을 비롯 한 모든 권장 사항은 Azure 보안 벤치 마크가 각 서비스와 어떻게 관련 되는지에 대 한 전체 개요를 제공 하는 기준에 포함 되어 있습니다. 여러 가지 이유로 적용 되지 않는 컨트롤이 있을 수 있습니다. 예를 들어, IaaS/계산 중심 컨트롤 (예: OS 구성 관리와 관련 된 컨트롤)은 PaaS 서비스에 적용 되지 않을 수 있습니다.
+
+
+Azure 서비스의 보안 기준에 대 한 사용자 의견을 환영 합니다. 아래의 피드백 영역에 의견을 제공 하는 것이 좋습니다. 또는 Azure 보안 벤치 마크 팀에서 입력을 보다 개인적으로 공유 하려는 경우에는에서 https://aka.ms/AzSecBenchmark양식을 작성 하는 것이 좋습니다.
