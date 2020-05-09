@@ -11,13 +11,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 11/20/2019
-ms.openlocfilehash: c891cb4eca2c286b3ac636e5995714accd591772
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 255c39eac2285a23403da2db893d9de8835f7d2c
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417352"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891537"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -61,6 +61,10 @@ Dynamics 365(Common Data Service) 또는 Dynamics CRM에서 지원되는 모든 
 >[!TIP]
 >**Dynamics 365 Finance and Operations**에서 데이터를 복사하려면 [Dynamics AX 커넥터](connector-dynamics-ax.md)를 사용할 수 있습니다.
 
+## <a name="prerequisites"></a>사전 요구 사항
+
+AAD 서비스 주체 인증과 함께이 커넥터를 사용 하려면 Common Data Service 또는 Dynamics에서 S2S (서버 간) 인증을 설정 해야 합니다. 자세한 단계는 [이 문서](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) 를 참조 하세요.
+
 ## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -73,7 +77,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 및 Dynamics CRM Online
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 |:--- |:--- |:--- |
 | type | Type 속성은 **Dynamics**, **DynamicsCrm**또는 **CommonDataServiceForApps**로 설정 해야 합니다. | 예 |
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. Dynamics Online에 대해 **"Online"** 이어야 합니다. | 예 |
@@ -170,7 +174,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 
 *Dyanmics Online에 비교되는 추가 속성은 "hostName" 및 "port"입니다.*
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 |:--- |:--- |:--- |
 | type | Type 속성은 **Dynamics**, **DynamicsCrm**또는 **CommonDataServiceForApps**로 설정 해야 합니다. | 예 |
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. IFD를 사용하는 Dynamics 온-프레미스에 대해 **"OnPremisesWithIfd"** 여야 합니다.| 예 |
@@ -216,7 +220,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 
 Dynamics에서 Dynamics로 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성을 **Dynamicsentity**, **DynamicsCrmEntity**또는 **CommonDataServiceForAppsEntity**로 설정 해야 합니다. |예 |
 | entityName | 검색할 엔터티의의 논리적 이름입니다. | 원본에는 아니요(작업 원본에서 "query"가 지정된 경우)이고 싱크에는 예입니다. |
@@ -248,7 +252,7 @@ Dynamics에서 Dynamics로 데이터를 복사 하려면 다음 속성이 지원
 
 Dynamics에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **Dynamicssource**, **DynamicsCrmSource**또는 **CommonDataServiceForAppsSource**로 설정 해야 합니다. | 예 |
 | Query | FetchXML은 Dynamics에 사용되는 전용 쿼리 언어(온라인 및 온-프레미스)입니다. 다음 예제를 참조하세요. 자세히 알아보려면 [FetchXML로 쿼리 작성](https://msdn.microsoft.com/library/gg328332.aspx)을 참조 하세요. | 아니요(데이터 세트의 "entityName"이 지정된 경우) |
@@ -316,7 +320,7 @@ Dynamics에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션
 
 Dynamics에 데이터를 복사 하기 위해 복사 작업 **싱크** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성은 **Dynamicssink**, **DynamicsCrmSink**또는 **CommonDataServiceForAppsSink**로 설정 해야 합니다. | 예 |
 | writeBehavior | 작업의 쓰기 동작입니다.<br/>허용되는 값은 **"Upsert"** 입니다. | 예 |
@@ -374,21 +378,21 @@ Dynamics에서 데이터를 복사하는 경우 Dynamics 데이터 형식에서 
 | Dynamics 데이터 형식 | Data Factory 중간 데이터 형식 | 원본으로 지원됨 | 싱크로 지원됨 |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | 부울 | ✓ | ✓ |
-| AttributeType.Customer | Guid | ✓ | |
+| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
+| AttributeType.Customer | GUID | ✓ | |
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | 문자열 | ✓ | ✓ |
+| AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | ✓(단일 대상이 연결됨) |
-| AttributeType.ManagedProperty | 부울 | ✓ | |
-| AttributeType.Memo | 문자열 | ✓ | ✓ |
+| AttributeType.Lookup | GUID | ✓ | ✓(단일 대상이 연결됨) |
+| AttributeType.ManagedProperty | Boolean | ✓ | |
+| AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
-| AttributeType.Owner | Guid | ✓ | |
+| AttributeType.Owner | GUID | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
-| AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | 문자열 | ✓ | ✓ |
+| AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

@@ -1,6 +1,6 @@
 ---
-title: DSC (Azure Automation 상태 구성) 문제 해결
-description: 이 문서에서는 DSC (Azure Automation 상태 구성) 문제 해결에 대 한 정보를 제공 합니다.
+title: Azure Automation 상태 구성 문제 해결
+description: 이 문서에서는 Azure Automation 상태 구성 문제 해결에 대 한 정보를 제공 합니다.
 services: automation
 ms.service: automation
 ms.subservice: ''
@@ -9,33 +9,33 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c045e110e21ed201278dcd84f38cb4a376ae8db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d0801bb44fc0c08df1adee1f817e8fccab166fb5
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679317"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652816"
 ---
-# <a name="troubleshoot-issues-with-azure-automation-state-configuration-dsc"></a>DSC (Azure Automation 상태 구성)의 문제 해결
+# <a name="troubleshoot-issues-with-azure-automation-state-configuration"></a>Azure Automation 상태 구성 문제 해결
 
-이 문서에서는 DSC (Azure Automation 상태 구성)에서 구성을 컴파일하거나 배포 하는 동안 발생 하는 문제 해결에 대 한 정보를 제공 합니다.
+이 문서에서는 Azure Automation 상태 구성에서 구성을 컴파일하거나 배포 하는 동안 발생 하는 문제를 해결 하는 방법에 대 한 정보를 제공 합니다.
 
 >[!NOTE]
->이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대한 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](../automation-update-azure-modules.md)을 사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
+>이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대한 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법](../automation-update-azure-modules.md)의 단계를 수행 하 여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
-## <a name="diagnosing-an-issue"></a>문제 진단
+## <a name="diagnose-an-issue"></a>문제 진단
 
 구성에 대 한 컴파일 또는 배포 오류를 수신 하는 경우 문제를 진단 하는 데 도움이 되는 몇 가지 단계는 다음과 같습니다.
 
 ### <a name="1-ensure-that-your-configuration-compiles-successfully-on-the-local-machine"></a>1. 로컬 컴퓨터에서 구성이 성공적으로 컴파일되는지 확인 합니다.
 
-DSC (Azure Automation 상태 구성)는 PowerShell DSC (필요한 상태 구성)를 기반으로 합니다. [POWERSHELL Dsc 문서](https://docs.microsoft.com/powershell/scripting/overview)에서 dsc 언어 및 구문에 대 한 설명서를 찾을 수 있습니다.
+Azure Automation 상태 구성은 PowerShell DSC (필요한 상태 구성)를 기반으로 합니다. [POWERSHELL Dsc 문서](https://docs.microsoft.com/powershell/scripting/overview)에서 dsc 언어 및 구문에 대 한 설명서를 찾을 수 있습니다.
 
 로컬 컴퓨터에서 DSC 구성을 컴파일하면 다음과 같은 일반적인 오류를 검색 하 고 해결할 수 있습니다.
 
-   - 누락 된 모듈
-   - 구문 오류
-   - 논리 오류
+   - 모듈이 없습니다.
+   - 구문 오류입니다.
+   - 논리 오류입니다.
 
 ### <a name="2-view-dsc-logs-on-your-node"></a>2. 노드의 DSC 로그 보기
 
@@ -43,17 +43,17 @@ DSC (Azure Automation 상태 구성)는 PowerShell DSC (필요한 상태 구성)
 
 [Xdscdiagnostics](https://github.com/PowerShell/xDscDiagnostics) 모듈은 DSC 로그에서 자세한 정보를 구문 분석 하는 데 도움이 될 수 있습니다. 지원 서비스에 문의 하는 경우 문제를 진단 하려면 이러한 로그가 필요 합니다.
 
-`xDscDiagnostics` [안정적인 버전 모듈 설치](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module)에 나와 있는 지침을 사용 하 여 로컬 컴퓨터에 모듈을 설치할 수 있습니다.
+`xDscDiagnostics` [안정적인 버전 모듈 설치](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module)의 지침에 따라 로컬 컴퓨터에 모듈을 설치할 수 있습니다.
 
-Azure 컴퓨터에 `xDscDiagnostics` 모듈을 설치 하려면 [AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0)를 사용 합니다. 실행 명령을 사용 하 여 [WINDOWS VM에서 PowerShell 스크립트 실행](../../virtual-machines/windows/run-command.md)에 있는 단계에 따라 Azure Portal에서 **명령 실행** 옵션을 사용할 수도 있습니다.
+Azure 컴퓨터에 `xDscDiagnostics` 모듈을 설치 하려면 [AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0)를 사용 합니다. 실행 명령을 사용 하 여 [WINDOWS VM에서 PowerShell 스크립트 실행](../../virtual-machines/windows/run-command.md)의 단계에 따라 Azure Portal에서 **명령 실행** 옵션을 사용할 수도 있습니다.
 
 **Xdscdiagnostics**사용에 대 한 자세한 내용은 [Xdscdiagnostics를 사용 하 여 DSC 로그 분석을](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs)참조 하세요. [Xdscdiagnostics cmdlet](https://github.com/PowerShell/xDscDiagnostics#cmdlets)도 참조 하세요.
 
 ### <a name="3-ensure-that-nodes-and-the-automation-workspace-have-required-modules"></a>3. 노드 및 자동화 작업 영역에 필수 모듈이 있는지 확인
 
-DSC는 노드에 설치 된 모듈에 종속 됩니다. Azure Automation 상태 구성을 사용 하는 경우 [모듈 가져오기](../shared-resources/modules.md#importing-modules)의 단계를 사용 하 여 필요한 모듈을 Automation 계정으로 가져옵니다. 구성도 모듈의 특정 버전에 대 한 종속성을 가질 수 있습니다. 자세한 내용은 [모듈 문제 해결](shared-resources.md#modules)을 참조 하세요.
+DSC는 노드에 설치 된 모듈에 종속 됩니다. Azure Automation 상태 구성을 사용 하는 경우 [모듈 가져오기](../shared-resources/modules.md#import-modules)의 단계를 수행 하 여 필요한 모듈을 Automation 계정으로 가져옵니다. 구성도 모듈의 특정 버전에 대 한 종속성을 가질 수 있습니다. 자세한 내용은 [모듈 문제 해결](shared-resources.md#modules)을 참조 하세요.
 
-## <a name="scenario-a-configuration-with-special-characters-cannot-be-deleted-from-the-portal"></a><a name="unsupported-characters"></a>시나리오: 포털에서 특수 문자를 사용 하 여 구성을 삭제할 수 없습니다.
+## <a name="scenario-a-configuration-with-special-characters-cant-be-deleted-from-the-portal"></a><a name="unsupported-characters"></a>시나리오: 포털에서 특수 문자를 사용 하 여 구성을 삭제할 수 없음
 
 ### <a name="issue"></a>문제
 
@@ -71,7 +71,7 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 [AzAutomationDscConfiguration] (https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration?view=azps-3.7.0 cmdlet을 사용 하 여 구성을 삭제 합니다.
 
-### <a name="scenario-failed-to-register-dsc-agent"></a><a name="failed-to-register-agent"></a>시나리오: Dsc 에이전트를 등록 하지 못했습니다.
+## <a name="scenario-failed-to-register-the-dsc-agent"></a><a name="failed-to-register-agent"></a>시나리오: DSC 에이전트를 등록 하지 못했습니다.
 
 ### <a name="issue"></a>문제
 
@@ -94,13 +94,13 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 ### <a name="resolution"></a>해결 방법
 
-컴퓨터에 DSC의 적절 한 끝점에 대 한 액세스 권한이 있는지 확인 하 고 다시 시도 하세요. 필요한 포트 및 주소 목록은 [네트워크 계획](../automation-dsc-overview.md#network-planning) 을 참조 하세요.
+컴퓨터에 DSC의 적절 한 끝점에 대 한 액세스 권한이 있는지 확인 하 고 다시 시도 하세요. 필요한 포트 및 주소 목록은 [네트워크 계획](../automation-dsc-overview.md#network-planning)을 참조 하세요.
 
-## <a name="a-nameunauthorizedscenario-status-reports-return-response-code-unauthorized"></a><a name="unauthorized"><a/>시나리오: 상태 보고서에서 승인 되지 않은 응답 코드 반환
+## <a name="a-nameunauthorizedscenario-status-reports-return-the-response-code-unauthorized"></a><a name="unauthorized"><a/>시나리오: 상태 보고서는 권한 없는 응답 코드를 반환 합니다.
 
 ### <a name="issue"></a>문제
 
-Azure Automation 상태 구성을 사용 하 여 노드를 등록 하는 경우 다음 오류 메시지 중 하나가 표시 됩니다.
+Azure Automation 상태 구성을 사용 하 여 노드를 등록 하면 다음 오류 메시지 중 하나가 표시 됩니다.
 
 ```error
 The attempt to send status report to the server https://{your Automation account URL}/accounts/xxxxxxxxxxxxxxxxxxxxxx/Nodes(AgentId='xxxxxxxxxxxxxxxxxxxxxxxxx')/SendReport returned unexpected response code Unauthorized.
@@ -120,19 +120,19 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 다음 단계를 사용 하 여 실패 한 DSC 노드를 다시 등록 합니다.
 
-1 단계-노드의 등록을 취소 합니다.
+#### <a name="step-1-unregister-the-node"></a>1 단계: 노드 등록 취소
 
-1. Azure Portal에서 **홈** -> **automation 계정** -> (Automation 계정)-DSC (> **State configuration**)로 이동 합니다.
-2. **노드**를 선택 하 고 문제가 있는 노드를 클릭 합니다.
-3. **등록 취소** 를 클릭 하 여 노드를 등록 취소 합니다.
+1. Azure Portal에서 **홈** > **automation 계정** > (Automation 계정) > **상태 구성 (DSC)** 으로 이동 합니다.
+1. **노드**를 선택 하 고 문제가 있는 노드를 선택 합니다.
+1. **등록 취소** 를 선택 하 여 노드를 등록 취소 합니다.
 
-2 단계-노드에서 DSC 확장을 제거 합니다.
+#### <a name="step-2-uninstall-the-dsc-extension-from-the-node"></a>2 단계: 노드에서 DSC 확장 제거
 
-1. Azure Portal에서 **홈** -> **가상 머신** -> (실패 한 노드)-> **확장**으로 이동 합니다.
-2. PowerShell DSC 확장인 **Microsoft**powershell dsc를 선택 합니다.
-3. **제거** 를 클릭 하 여 확장을 제거 합니다.
+1. Azure Portal에서 **홈** > **가상 머신** > (실패 한 노드) > **확장**으로 이동 합니다.
+1. PowerShell DSC 확장인 **Microsoft**powershell dsc를 선택 합니다.
+1. **제거** 를 선택 하 여 확장을 제거 합니다.
 
-3 단계-노드에서 잘못 되거나 만료 된 모든 인증서를 제거 합니다.
+#### <a name="step-3-remove-all-bad-or-expired-certificates-from-the-node"></a>3 단계: 노드에서 잘못 되거나 만료 된 모든 인증서 제거
 
 관리자 권한 PowerShell 프롬프트에서 노드 오류가 발생 하면 다음 명령을 실행 합니다.
 
@@ -152,19 +152,19 @@ If (($certs.Count) -gt 0)
 }
 ```
 
-4 단계-오류가 발생 한 노드를 다시 등록 합니다.
+#### <a name="step-4-reregister-the-failing-node"></a>4 단계: 실패 한 노드 다시 등록
 
-1. Azure Portal에서 **홈** -> **automation 계정** -> (Automation 계정)-> **상태 구성 (DSC)** 으로 이동 합니다.
-2. **노드**를 선택 합니다.
-3. **추가**를 클릭합니다.
-4. 오류가 발생 한 노드를 선택 합니다.
-5. **연결** 을 클릭 하 고 원하는 옵션을 선택 합니다.
+1. Azure Portal에서 **홈** > **automation 계정** > (Automation 계정) > **상태 구성 (DSC)** 으로 이동 합니다.
+1. **노드**를 선택 합니다.
+1. **추가**를 선택합니다.
+1. 오류가 발생 한 노드를 선택 합니다.
+1. **연결**을 선택 하 고 원하는 옵션을 선택 합니다.
 
 ## <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a><a name="failed-not-found"></a>시나리오: 노드가 "찾을 수 없음" 오류로 실패한 상태임
 
 ### <a name="issue"></a>문제
 
-노드에 실패 상태의 보고서가 있으며 오류가 포함되어 있습니다.
+노드에 상태가 실패 인 보고서가 있고 다음 오류가 포함 되어 있습니다.
 
 ```error
 The attempt to get the action from server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction failed because a valid configuration <guid> cannot be found.
@@ -177,9 +177,9 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 ### <a name="resolution"></a>해결 방법
 
 * 구성 이름이 아니라 노드 구성 이름으로 노드를 할당 하 고 있는지 확인 합니다.
-* Azure 포털 또는 PowerShell cmdlet을 사용하여 노드 구성을 노드에 할당할 수 있습니다.
+* Azure Portal 또는 PowerShell cmdlet을 사용 하 여 노드 구성을 노드에 할당할 수 있습니다.
 
-  * Azure Portal에서 **홈** -> **automation 계정** -> (Automation 계정)-> **상태 구성 (DSC)** 으로 이동한 다음 노드를 선택 하 고 **노드 구성 할당**을 클릭 합니다.
+  * Azure Portal에서 **홈** > **automation 계정** > (Automation 계정) > **상태 구성 (DSC)** 으로 이동 합니다. 그런 다음 노드를 선택 하 고 **노드 구성 할당**을 선택 합니다.
   * [AzAutomationDscNode](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationDscNode?view=azps-3.7.0) cmdlet을 사용 합니다.
 
 ## <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-was-compiled"></a><a name="no-mof-files"></a>시나리오: 구성이 컴파일될 때 노드 구성 (MOF 파일)이 생성 되지 않았습니다.
@@ -201,9 +201,9 @@ DSC 구성에서 `Node` 키워드 다음에 나오는 식이로 `$null`계산 �
 다음 해결 방법 중 하나를 사용 하 여 문제를 해결 합니다.
 
 * 구성 정의에서 `Node` 키워드 옆의 식이 Null로 계산 되 고 있지 않은지 확인 합니다.
-* 구성을 컴파일할 때 [ConfigurationData](../automation-dsc-compile.md) 를 전달 하는 경우 구성 데이터에서 예상 하는 값을 전달 하 고 있는지 확인 합니다.
+* 구성을 컴파일할 때 [ConfigurationData](../automation-dsc-compile.md) 를 전달 하는 경우 구성에 필요한 값을 구성 데이터에서 전달 하는지 확인 합니다.
 
-### <a name="scenario-the-dsc-node-report-becomes-stuck-in-the-in-progress-state"></a><a name="dsc-in-progress"></a>시나리오: DSC 노드 보고서가 진행 중 상태에서 중단 됩니다.
+## <a name="scenario-the-dsc-node-report-becomes-stuck-in-the-in-progress-state"></a><a name="dsc-in-progress"></a>시나리오: DSC 노드 보고서가 진행 중 상태에서 중단 됩니다.
 
 ### <a name="issue"></a>문제
 
@@ -219,7 +219,7 @@ WMF (Windows Management Framework) 버전을 업그레이드 했으며 WMI(Windo
 
 ### <a name="resolution"></a>해결 방법
 
-[DSC의 알려진 문제 및 제한 사항](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc)을 참조 하세요.
+[DSC의 알려진 문제 및 제한 사항](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc)의 지침을 따릅니다.
 
 ## <a name="scenario-unable-to-use-a-credential-in-a-dsc-configuration"></a><a name="issue-using-credential"></a>시나리오: DSC 구성에서 자격 증명을 사용할 수 없음
 
@@ -239,11 +239,11 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 구성에서 언급 한 각 노드 구성 `ConfigurationData` 에 대해 `PSDscAllowPlainTextPassword` 를 true로 설정 하 여를에 전달 해야 합니다. [Azure Automation 상태 구성에서 DSC 구성 컴파일을](../automation-dsc-compile.md)참조 하세요.
 
-## <a name="scenario-failure-processing-extension-error-when-onboarding-from-dsc-extension"></a><a name="failure-processing-extension"></a>시나리오: DSC 확장에서 온 보 딩 하는 경우 "오류 처리 확장" 오류가 발생 합니다.
+## <a name="scenario-failure-processing-extension-error-when-onboarding-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>시나리오: DSC 확장에서 온 보 딩 하는 경우 "오류 처리 확장" 오류가 발생 합니다.
 
 ### <a name="issue"></a>문제
 
-DSC 확장을 사용 하 여 온 보 딩 하는 경우 오류를 포함 하는 오류가 발생 합니다.
+DSC 확장을 사용 하 여를 등록 하는 경우 오류를 포함 하는 오류가 발생 합니다.
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -258,7 +258,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 * 서비스의 이름과 정확히 일치 하는 이름을 사용 하 여 노드를 할당 하 고 있는지 확인 합니다.
 * 노드 구성 이름을 포함 하지 않도록 선택할 수 있습니다. 그러면 노드를 온 보 딩 하지만 노드 구성은 할당 되지 않습니다.
 
-## <a name="scenario-one-or-more-errors-occurred-error-when-registering-a-node-using-powershell"></a><a name="cross-subscription"></a>시나리오: PowerShell을 사용 하 여 노드를 등록할 때 "하나 이상의 오류가 발생 했습니다." 오류
+## <a name="scenario-one-or-more-errors-occurred-error-when-registering-a-node-by-using-powershell"></a><a name="cross-subscription"></a>시나리오: PowerShell을 사용 하 여 노드를 등록할 때 "하나 이상의 오류가 발생 했습니다." 오류
 
 ### <a name="issue"></a>문제
 
@@ -276,14 +276,14 @@ One or more errors occurred.
 
 별도의 클라우드 또는 온-프레미스에 대해 정의 된 것 처럼 교차 구독 노드를 처리 합니다. 다음 온 보 딩 옵션 중 하나를 사용 하 여 노드를 등록 합니다.
 
-* Windows-온 [-프레미스 또는 Azure/AWS 이외의 클라우드에 있는 실제/가상 windows 컴퓨터](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines)
-* Linux-온 [-프레미스 또는 Azure 이외의 클라우드에서 온-프레미스의 물리적/가상 linux 컴퓨터](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines)
+* Windows: [온-프레미스 또는 Azure/AWS 이외의 클라우드에 있는 물리적/가상 windows 컴퓨터](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines)
+* Linux: [온-프레미스 또는 Azure 이외의 클라우드에서 온-프레미스의 물리적/가상 linux 컴퓨터](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines)
 
-## <a name="scenario-error-message---provisioning-failed"></a><a name="agent-has-a-problem"></a>시나리오: 오류 메시지-"프로 비전 하지 못했습니다."
+## <a name="scenario-provisioning-has-failed-error-message"></a><a name="agent-has-a-problem"></a>시나리오: "프로 비전 하지 못했습니다." 오류 메시지
 
 ### <a name="issue"></a>문제
 
-노드를 등록할 때 다음과 같은 오류가 표시 됩니다.
+노드를 등록 하면 다음과 같은 오류가 표시 됩니다.
 
 ```error
 Provisioning has failed
@@ -301,7 +301,7 @@ Provisioning has failed
 
 ### <a name="issue"></a>문제
 
-Linux에서 구성을 적용할 때 오류가 발생 하는 오류는 다음과 같습니다.
+Linux에서 구성을 적용 하면 오류가 포함 된 오류가 발생 합니다.
 
 ```error
 This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
@@ -315,7 +315,7 @@ This event indicates that failure happens when LCM is processing the configurati
 
 /Tmp 위치 `noexec` 에서 옵션을 **/tmp** 제거 합니다.
 
-## <a name="scenario-node-configuration-names-that-overlap-can-result-in-bad-release"></a><a name="compilation-node-name-overlap"></a>시나리오: 중복 되는 노드 구성 이름이 잘못 된 릴리스를 발생 시킬 수 있습니다.
+## <a name="scenario-node-configuration-names-that-overlap-can-result-in-a-bad-release"></a><a name="compilation-node-name-overlap"></a>시나리오: 중복 되는 노드 구성 이름이 잘못 된 릴리스를 발생 시킬 수 있습니다.
 
 ### <a name="issue"></a>문제
 
@@ -345,8 +345,8 @@ DSC 구성을 업로드할 `GatewayTimeout` 때 오류가 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-위의 문제가 표시 되지 않거나 문제를 해결할 수 없는 경우 추가 지원을 위해 다음 채널 중 하나를 시도해 보세요.
+여기에 문제가 표시 되지 않거나 문제를 해결할 수 없는 경우 추가 지원을 위해 다음 채널 중 하나를 시도해 보세요.
 
 * Azure [포럼](https://azure.microsoft.com/support/forums/)을 통해 azure 전문가 로부터 답변을 받으세요.
-* Azure 커뮤니티 [@AzureSupport](https://twitter.com/azuresupport)를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 하 여 고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정인를 사용 하 여 연결 하세요.
-* Azure 지원 인시던트 제출 [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 **지원 받기**를 선택 합니다.
+* 사용자 환경을 [@AzureSupport](https://twitter.com/azuresupport)개선 하기 위한 공식 Microsoft Azure 계정인를 사용 하 여 연결 하세요. Azure 지원은 Azure 커뮤니티를 답변, 지원 및 전문가에 게 연결 합니다.
+* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동 하 여 **지원 받기**를 선택 합니다.

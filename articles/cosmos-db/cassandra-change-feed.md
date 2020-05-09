@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 167d9fc68cb075a2cf96d9079131be9e5a510c08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43743f62b08bb00403f5dac88682d06daab757a4
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137419"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872551"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Cassandra에 대 한 Azure Cosmos DB API의 변경 피드
 
@@ -21,6 +21,8 @@ Cassandra에 대 한 Azure Cosmos DB API의 [변경 피드](change-feed.md) 지�
 다음 예에서는 .NET을 사용 하 여 Cassandra API Keyspace 테이블의 모든 행에 대 한 변경 피드를 가져오는 방법을 보여 줍니다. 조건자 COSMOS_CHANGEFEED_START_TIME ()는 지정 된 시작 시간 (이 경우 현재 날짜/시간)에서 변경 피드의 항목을 쿼리 하기 위해 CQL 내에서 직접 사용 됩니다. [여기에서 c #](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) 에 대 한 전체 샘플 및 Java를 다운로드할 [수 있습니다.](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java)
 
 각 반복에서 페이징 상태를 사용 하 여 마지막 요소 변경 내용을 읽은 후 쿼리를 다시 시작 합니다. Keyspace에서 테이블에 대 한 새 변경 내용의 연속 스트림을 볼 수 있습니다. 삽입 되거나 업데이트 되는 행에 대 한 변경 내용이 표시 됩니다. Cassandra API에서 변경 피드를 사용 하는 삭제 작업에 대 한 감시는 현재 지원 되지 않습니다.
+
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```C#
     //set initial start time for pulling the change feed
@@ -70,6 +72,9 @@ Cassandra에 대 한 Azure Cosmos DB API의 [변경 피드](change-feed.md) 지�
     }
 
 ```
+
+# <a name="java"></a>[Java](#tab/java)
+
 ```java
         Session cassandraSession = utils.getSession();
 
@@ -104,7 +109,11 @@ Cassandra에 대 한 Azure Cosmos DB API의 [변경 피드](change-feed.md) 지�
         }
 
 ```
+---
+
 기본 키를 기준으로 단일 행에 대 한 변경 내용을 가져오려면 쿼리에 기본 키를 추가 하면 됩니다. 다음 예에서는 "user_id = 1" 인 행의 변경 내용을 추적 하는 방법을 보여 줍니다.
+
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```C#
     //Return the latest change for all row in 'user' table where user_id = 1
@@ -112,11 +121,15 @@ Cassandra에 대 한 Azure Cosmos DB API의 [변경 피드](change-feed.md) 지�
     $"SELECT * FROM uprofile.user where user_id = 1 AND COSMOS_CHANGEFEED_START_TIME() = '{timeBegin.ToString("yyyy-MM-ddTHH:mm:ss.fffZ", CultureInfo.InvariantCulture)}'");
 
 ```
+
+# <a name="java"></a>[Java](#tab/java)
+
 ```java
     String query="SELECT * FROM uprofile.user where user_id=1 and COSMOS_CHANGEFEED_START_TIME()='" 
                     + dtf.format(now)+ "'";
     SimpleStatement st=new  SimpleStatement(query);
 ```
+---
 ## <a name="current-limitations"></a>현재 제한 사항
 
 Cassandra API에서 변경 피드를 사용 하는 경우 다음과 같은 제한 사항이 적용 됩니다.

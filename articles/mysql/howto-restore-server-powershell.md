@@ -7,18 +7,18 @@ ms.service: mysql
 ms.devlang: azurepowershel
 ms.topic: conceptual
 ms.date: 4/28/2020
-ms.openlocfilehash: 1e63a6e57e1dc929c78e5278df6ef0e4ab2a17d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 871b1ba81f672459378b23705ad5b96213667a73
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82230848"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609071"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for MySQL에서 서버를 백업 및 복원 하는 방법
+# <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for MySQL 서버를 백업 및 복원 하는 방법
 
 Azure Database for MySQL 서버는 정기적으로 백업 되어 복원 기능을 사용 하도록 설정 합니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
@@ -74,10 +74,10 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Cmdlet의 PointInTimeRestore 매개 변수 집합에는 다음 매개 변수가 필요 합니다. **PointInTimeRestore** `Restore-AzMySqlServer`
 
-| 설정 | 제안 값 | 설명  |
+| 설정 | 제안 값 | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  원본 서버가 있는 리소스 그룹입니다.  |
-| 속성 | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
+| Name | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | 복원할 특정 시점을 선택 합니다. 이 날짜 및 시간은 원본 서버의 백업 보존 기간 내에 있어야 합니다. ISO8601 날자 및 시간 형식을 사용합니다. 예를 들어 **2020-03-13T05:59:00-08:00**과 같은 고유한 현지 표준 시간대를 사용할 수 있습니다. UTC 줄루어 형식을 사용할 수도 있습니다 (예: **2018-03-13T13:59:00Z**). |
 | UsePointInTimeRestore | `<SwitchParameter>` | 지정 시간 모드를 사용 하 여 복원 합니다. |
 
@@ -116,10 +116,10 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Cmdlet의 GeoRestore 매개 변수 집합에는 다음 매개 변수가 필요 합니다. **GeoRestore** `Restore-AzMySqlServer`
 
-| 설정 | 제안 값 | 설명  |
+| 설정 | 제안 값 | Description  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | 새 서버가 속한 리소스 그룹의 이름입니다.|
-|속성 | mydemoserver-georestored | 새 서버의 이름입니다. |
+|Name | mydemoserver-georestored | 새 서버의 이름입니다. |
 |위치 | eastus | 새 서버의 위치입니다. |
 |UseGeoRestore | `<SwitchParameter>` | 지역 모드를 사용 하 여 복원 합니다. |
 
@@ -131,6 +131,5 @@ Cmdlet의 GeoRestore 매개 변수 집합에는 다음 매개 변수가 필요 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 서비스의 [백업](concepts-backup.md) 에 대 한 자세한 정보
-- [복제본](concepts-read-replicas.md) 에 대해 알아보기
-- [비즈니스 연속성](concepts-business-continuity.md) 옵션에 대 한 자세한 정보
+> [!div class="nextstepaction"]
+> [PowerShell을 사용 하 여 Azure Database for MySQL 서버 매개 변수 사용자 지정](howto-configure-server-parameters-using-powershell.md)

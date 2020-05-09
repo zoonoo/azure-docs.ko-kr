@@ -6,17 +6,20 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: c439ff8df95d759e96d2fc82356bda8551507e8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: d02ceda9dc2c6a822d45c2a31fe91a976610292b
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084943"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610856"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제 
 
 필요에 따라 Windows 또는 Linux 가상 머신에 대한 볼륨을 탑재 또는 탑재 해제할 수 있습니다.  Linux 가상 머신에 대한 탑재 지침은 Azure NetApp Files에서 사용할 수 있습니다.  
+
+> [!IMPORTANT] 
+> NFS 볼륨에 액세스할 수 있으려면 하나 이상의 내보내기 정책이 있어야 합니다.
 
 1. **볼륨** 블레이드를 클릭 하 고 탑재 하려는 볼륨을 선택 합니다. 
 2. 선택한 볼륨에서 **명령 탑재** 를 클릭 한 다음 지침에 따라 볼륨을 탑재 합니다. 
@@ -39,7 +42,7 @@ ms.locfileid: "82084943"
 
     a. 먼저 Unix 또는 Linux VM에 볼륨을 탑재 합니다.  
     b. 볼륨에 `chmod 777` 대해 `chmod 775` 또는 명령을 실행 합니다.  
-    다. Windows에서 NFS 클라이언트를 통해 볼륨을 탑재 합니다.
+    c. Windows에서 NFS 클라이언트를 통해 볼륨을 탑재 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

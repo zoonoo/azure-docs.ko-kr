@@ -1,23 +1,17 @@
 ---
-title: 'Java SDK: Azure Data Lake Storage Gen1에서의 파일 시스템 작업 | Microsoft Docs'
-description: Azure Data Lake Storage Gen1 Java SDK를 사용하여 Data Lake Storage Gen1에서 폴더 만들기 등의 파일 시스템 작업을 수행하는 방법을 설명합니다.
-services: data-lake-store
-documentationcenter: ''
+title: Java SDK-Data Lake Storage Gen1에 대 한 파일 시스템 작업
+description: Azure Data Lake Storage Gen1 용 Java SDK를 사용 하 여 폴더 만들기, 데이터 파일 업로드 및 다운로드 등의 Data Lake Storage Gen1에 대 한 파일 시스템 작업을 수행할 수 있습니다.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 6f97443e4bcf6689f0bf49917774f662d5462566
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60877467"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691786"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Java SDK를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -58,7 +52,7 @@ Azure Data Lake Storage Gen1 Java SDK를 사용 하 여 폴더 만들기, 데이
           </dependency>
         </dependencies>
    
-    첫 번째 종속성은 Maven 리포지토리에서 Data Lake Storage Gen1 SDK(`azure-data-lake-store-sdk`)를 사용하는 것입니다. 두 번째 종속성은 이 애플리케이션에 사용하는 로깅 프레임워크(`slf4j-nop`)를 지정하는 것입니다. Data Lake Storage Gen1 SDK는 [slf4j](https://www.slf4j.org/) 로깅 외관을 사용하며 이로 인해 log4j, Java 로깅, logback 혹은 로깅 없음과 같이 널리 사용되는 여러 로깅 프레임워크 중에서 선택할 수 있습니다. 이 예제에서 로깅을 비활성화하므로 **slf4j-nop** 바인딩을 사용합니다. 앱에서 다른 로깅 옵션을 사용하려면 [여기](https://www.slf4j.org/manual.html#projectDep)를 참조하세요.
+    첫 번째 종속성은 Maven 리포지토리에서 Data Lake Storage Gen1 SDK(`azure-data-lake-store-sdk`)를 사용하는 것입니다. 두 번째 종속성은 이 애플리케이션에 사용하는 로깅 프레임워크(`slf4j-nop`)를 지정하는 것입니다. Data Lake Storage Gen1 SDK는 Log4j, Java 로깅, Logback 등의 많은 인기 있는 로깅 프레임 워크 또는 로깅 없음 중에서 선택할 수 있는 [SLF4J](https://www.slf4j.org/) 로깅 외관을 사용 합니다. 이 예제에서 로깅을 비활성화하므로 **slf4j-nop** 바인딩을 사용합니다. 앱에서 다른 로깅 옵션을 사용하려면 [여기](https://www.slf4j.org/manual.html#projectDep)를 참조하세요.
 
 3. 애플리케이션에 다음 import 문을 추가합니다.
 

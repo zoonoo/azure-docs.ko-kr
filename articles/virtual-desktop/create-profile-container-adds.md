@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: dd01b950435fadb96a961b6bb1c6b28ff436907a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 916d34abfaf8223e3cf29977e13dfddf15a3fbf9
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81265773"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607285"
 ---
 # <a name="create-an-fslogix-profile-container-with-azure-files"></a>Azure Files를 사용 하 여 FSLogix 프로필 컨테이너 만들기
 
 이 문서에서는 Azure Files 및 Azure Active Directory Domain Services (AD DS)를 사용 하 여 FSLogix 프로필 컨테이너를 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 Azure AD DS 인스턴스를 이미 설정 했다고 가정 합니다. 아직 없는 경우 먼저 [기본 관리 되는 도메인 만들기](../active-directory-domain-services/tutorial-create-instance.md) 의 지침에 따라 다음을 반환 합니다.
 
@@ -97,7 +97,7 @@ ms.locfileid: "81265773"
 
 6. VM에 로그인 한 경우 관리자 권한으로 명령 프롬프트를 실행 합니다.
 
-7. 다음 명령을 실행합니다.
+7. 다음 명령 실행:
 
      ```cmd
      net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
@@ -108,7 +108,7 @@ ms.locfileid: "81265773"
     - 을 `<share-name>` 이전에 만든 공유의 이름으로 바꿉니다.
     - 을 `<storage-account-key>` Azure의 저장소 계정 키로 바꿉니다.
 
-    다음은 그 예입니다.  
+    예를 들어:  
   
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
@@ -123,7 +123,7 @@ ms.locfileid: "81265773"
     - 사용자 `<mounted-drive-letter>` 가 사용 하려는 드라이브의 문자로 대체 합니다.
     - 를 `<user-email>` 이 프로필을 사용 하 여 세션 호스트 vm에 액세스 하는 사용자의 UPN으로 바꿉니다.
 
-    다음은 그 예입니다.
+    예를 들어:
      
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
@@ -199,7 +199,7 @@ FSLogix 프로필 컨테이너를 구성 하려면:
 
     이전 cmdlet과 마찬가지로, `<your-wvd-tenant>` `<wvd-pool>`및 `<user-principal>` 를 관련 값으로 바꾸어야 합니다.
 
-    다음은 그 예입니다.
+    예를 들어:
 
      ```powershell
      $pool1 = "contoso"
@@ -219,7 +219,7 @@ FSLogix 프로필 컨테이너를 구성 하려면:
 
 프로필을 확인 하려면:
 
-1. 브라우저를 열고 [Windows 가상 데스크톱 웹 클라이언트](https://rdweb.wvd.microsoft.com/webclient/index.html)로 이동 합니다.
+1. 브라우저를 열고 [Windows 가상 데스크톱 웹 클라이언트](https://rdweb.wvd.microsoft.com/arm/webclient)로 이동 합니다.
 
 2. 원격 데스크톱 그룹에 할당 된 사용자 계정으로 로그인 합니다.
 

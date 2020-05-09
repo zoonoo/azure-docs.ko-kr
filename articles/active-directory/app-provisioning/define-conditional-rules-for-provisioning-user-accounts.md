@@ -2,25 +2,20 @@
 title: 범위 지정 필터를 사용하여 앱 프로비전 | Microsoft Docs
 description: 개체가 비즈니스 요구 사항을 충족하지 못하는 경우 프로비전하는 자동화된 사용자를 지원하는 앱의 개체가 실제로 프로비전되지 않도록 하기 위한 지정 범위 필터 사용 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: mimart
-ms.custom: H1Hack27Feb2017
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c667409f2abb9f1cf89ae3b34f08e0f9eec067e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71c2e3a83c3d63d375935294a25a369ca7e54d80
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79138538"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593747"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전
 이 문서에서는 범위 지정 필터를 사용하여 어떤 사용자를 애플리케이션에 프로비전할지 결정하는 특성 기반 규칙을 정의하는 방법을 설명합니다.
@@ -83,13 +78,13 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
    b. **NOT EQUALS** 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
 
-   c. **IS TRUE** 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
+   c. **이 TRUE 인**경우 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
 
-   d. **IS FALSE** 평가된 특성이 부울 값 false를 포함하면 "true"를 반환합니다.
+   d. **가 FALSE 인 경우** 평가된 특성이 부울 값 false를 포함하면 "true"를 반환합니다.
 
    e. **가 NULL 인 경우** 평가된 특성이 비어 있으면 "true"를 반환합니다.
 
-   f. **IS NOT NULL** 평가된 특성이 비어 있지 않으면 "true"를 반환합니다.
+   f. **가 NULL이 아닌**경우 평가된 특성이 비어 있지 않으면 "true"를 반환합니다.
 
    g. **REGEX MATCH** 평가된 특성이 정규식 패턴과 일치하면 "true"를 반환합니다. 예를 들어, ([1-9][0-9])는 10~99 범위의 모든 숫자와 일치합니다.
 
@@ -121,7 +116,7 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
 
 ## <a name="common-scoping-filters"></a>공통 범위 지정 필터
-| 대상 특성| 연산자 | 값 | Description|
+| 대상 특성| 연산자 | 값 | 설명|
 |----|----|----|----|
 |userPrincipalName|REGEX 일치|.\*@domain.com |도메인 @domain.com 을 가진 userprincipal의 모든 사용자는 프로 비전 범위에 포함 됩니다.|
 |userPrincipalName|REGEX 일치 하지 않음|.\*@domain.com|도메인 @domain.com 을 가진 userprincipal의 모든 사용자는 프로 비전 범위를 벗어났습니다.|

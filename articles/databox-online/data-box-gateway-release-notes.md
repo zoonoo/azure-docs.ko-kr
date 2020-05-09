@@ -8,18 +8,18 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
-ms.openlocfilehash: f4ee3a5bd754335ab1c7f124671e9c37307a6a28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a8a9840cc6e1f3627c5fbd30e0b7432db0f16e4
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265403"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561039"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Azure Data Box Edge/Azure Data Box Gateway 일반 공급 릴리스 정보
 
 ## <a name="overview"></a>개요
 
-다음 릴리스 정보는 Azure Data Box Edge 및 Azure Data Box Gateway에 대 한 GA (일반 공급) 릴리스에 대 한 중요 한 미해결 문제 및 해결 된 문제를 식별 합니다.
+다음 릴리스 정보는 Azure Data Box Edge 및 Azure Data Box Gateway에 대 한 GA (일반 공급) 릴리스에 대 한 중요 한 미해결 문제 및 해결 된 문제를 식별 합니다. 
 
 릴리스 정보는 계속 업데이트되며, 해결 방법이 필요한 중대한 문제가 발견되면 해당 내용이 추가됩니다. Data Box Edge/Data Box Gateway를 배포 하기 전에 릴리스 정보에 포함 된 정보를 주의 깊게 검토 하세요.
 
@@ -50,4 +50,4 @@ GA 릴리스는 소프트웨어 버전에 해당 합니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Data Box Gateway 배포 준비](data-box-gateway-deploy-prep.md).
-- [Azure Data Box Edge 배포 준비](data-box-edge-deploy-prep.md)
+- [Azure Data Box Edge 배포 준비](azure-stack-edge-deploy-prep.md)

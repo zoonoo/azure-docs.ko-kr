@@ -122,8 +122,6 @@
       href: remotefx-graphics-performance-counters.md
 - name: 참조
   items:
-    - name: 보안 모범 사례
-      href: security-guide.md
     - name: Linux 지원
       href: linux-overview.md
     - name: 지원되는 RDP 파일 설정

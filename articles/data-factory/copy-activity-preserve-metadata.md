@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 5ce1b85394a7bb604841f7fb941bdebf12c0bca2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a1527195296237eb8c9c309f8ac4a5911136cf77
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414162"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891762"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업을 사용 하 여 메타 데이터 및 Acl 유지
 
@@ -32,6 +32,8 @@ Azure Data Factory 복사 작업을 사용 하 여 원본에서 싱크로 데이
 
 - **모든 고객이 지정한 메타 데이터** 
 - 및 다음 **5 개의 데이터 저장소 기본 제공 시스템 속성** `contentType`:, `contentLanguage` (Amazon S3의 경우 제외), `contentEncoding` `contentDisposition` `cacheControl`,,
+
+**메타 데이터의 차이점을 처리 합니다.** Amazon S3 및 Azure Storage는 고객이 지정한 메타 데이터의 키에 다른 문자 집합을 허용 합니다. Copy 활동를 사용 하 여 메타 데이터를 유지 하도록 선택 하면 ADF는 자동으로 잘못 된 문자를 ' _ '로 바꿉니다.
 
 Amazon S3/Azure Data Lake Storage Gen2/azure blob에서 이진 형식을 사용 하 여 Azure Data Lake Storage Gen2/azure blob으로 파일을 있는 그대로 복사 하는 경우 활동 제작을 위한 **복사 활동** > **설정** 탭 또는 데이터 복사 도구의 **설정** 페이지에서 **보존** 옵션을 찾을 수 있습니다.
 

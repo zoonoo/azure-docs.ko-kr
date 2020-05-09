@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: be76c665e1f5319b3e1ff1976e44fee9cd90ea6b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: d46d5618d7e3dc26775401f4a90d0c98d75ea31a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607201"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929216"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>새 세션 호스트를 사용 하 여 기존 호스트 풀 확장
 
@@ -58,7 +58,7 @@ ms.locfileid: "82607201"
 
 7. Vm을 만들 리소스 그룹을 선택한 다음 지역을 선택 합니다. 현재 사용 중인 지역이 나 새 지역을 선택할 수 있습니다.
    
-8. **Vm 수**에 사용할 세션 호스트의 새 총 수를 입력 합니다. 예를 들어 5 개의 세션 호스트에서 8로 호스트 풀을 확장 하는 경우 **8**을 입력 합니다. 
+8. 호스트 풀에 추가 하려는 세션 호스트의 수를 **Vm 수**에 입력 합니다. 예를 들어 호스트 풀을 5 개의 호스트로 확장 하는 경우 **5**를 입력 합니다.
    
     >[!NOTE]
     >Vm의 크기 또는 이미지를 편집할 수 없습니다. 호스트 풀의 모든 Vm이 동일한 크기 인지 확인 하는 것이 중요 하기 때문입니다.

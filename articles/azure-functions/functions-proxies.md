@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 09e4616bc7cbb4361ad067ed64984ed95e9a20c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74849193"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562069"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
@@ -173,7 +173,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 프록시는 \를 이스케이프 기호로 사용하여 JSON 파일에서 모든 문자열을 읽습니다. 프록시는 또한 중괄호를 해석합니다. 아래 예제 전체를 참조하세요.
 
-|문자|이스케이프된 문자|예제|
+|문자|이스케이프된 문자|예|
 |-|-|-|
 |{ 또는 }|{{ 또는 }}|`{{ example }}` --> `{ example }`
 | \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
@@ -185,7 +185,7 @@ requestOverrides 개체는 백 엔드 리소스가 호출될 때 요청에 대�
 
 * **backend.request.method**: 백 엔드를 호출하는 데 사용될 HTTP 메서드입니다.
 * **backend.request.querystring.\<ParameterName\>**: 백 엔드에 대한 호출에 설정할 수 있는 쿼리 문자열 매개 변수입니다. * \<ParameterName\> * 을 설정 하려는 매개 변수 이름으로 바꿉니다. 빈 문자열이 제공 되 면 매개 변수는 백 엔드 요청에 계속 포함 됩니다.
-* **backend.request.headers.\<HeaderName\>**: 백 엔드 호출을 위해 설정할 수 있는 헤더입니다. * \<헤드 ername\> * 을 설정 하려는 헤더 이름으로 바꿉니다. 빈 문자열을 제공하면 헤더는 백 엔드 요청에 포함되지 않습니다.
+* **backend.request.headers.\<HeaderName\>**: 백 엔드 호출을 위해 설정할 수 있는 헤더입니다. * \<헤드 ername\> * 을 설정 하려는 헤더 이름으로 바꿉니다. 빈 문자열이 제공 되 면 매개 변수는 백 엔드 요청에 계속 포함 됩니다.
 
 값은 애플리케이션 설정 및 원래 클라이언트 요청의 매개 변수를 참조할 수 있습니다.
 

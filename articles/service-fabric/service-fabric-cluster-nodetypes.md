@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 37d4c27d3033545c523cefc2f317073af531f095
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03076a711041812f7587aa1c388b0889b49725d2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78199719"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787136"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 노드 형식 및 가상 머신 확장 집합
 
@@ -26,7 +26,7 @@ Service Fabric 런타임은 *ServiceFabric* 가상 머신 확장에 의해 확�
 
 위의 그림에서처럼 확장 집합 인스턴스는 인스턴스 0에서 시작한 다음 1씩 증가합니다. 노드 이름에 이러한 번호 매기기가 반영됩니다. 예를 들어 노드 BackEnd_0은BackEnd 확장 집합의 인스턴스 0입니다. 이 특정 VM 확장 집합에는 이름이 BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 및 BackEnd_4인 5개의 인스턴스가 있습니다.
 
-확장 집합을 확대하는 경우 새 인스턴스가 생성됩니다. 새 확장 집합 인스턴스 이름은 일반적으로 확장 집합 이름 + 다음 인스턴스 번호입니다. 이 예제에서는 BackEnd_5입니다.
+확장 집합을 확장 하는 경우 새 인스턴스가 생성 됩니다. 새 확장 집합 인스턴스 이름은 일반적으로 확장 집합 이름 + 다음 인스턴스 번호입니다. 이 예제에서는 BackEnd_5입니다.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>확장 집합 부하 분산 장치를 노드 형식 및 확장 집합에 매핑
 
@@ -72,21 +72,21 @@ Service Fabric 가상 머신 확장을 사용 하 여 Azure Virtual Machines에 
 
 속성 설명은 다음과 같습니다.
 
-| **이름** | **허용 되는 값** | **지침 또는 간단한 설명** |
+| **Name** | **허용 되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-| name | string | 확장의 고유한 이름 |
+| 이름 | 문자열 | 확장의 고유한 이름 |
 | type | "ServiceFabricLinuxNode" 또는 "ServiceFabricWindowsNode" | Service Fabric OS를 식별 합니다. |
 | autoUpgradeMinorVersion | true 또는 false | SF 런타임 부 버전 자동 업그레이드 사용 |
 | 게시자 | ServiceFabric | Service Fabric 확장 게시자의 이름입니다. |
-| clusterEndpont | string | URI: 관리 끝점에 대 한 포트 |
-| nodeTypeRef | string | NodeType의 이름 |
+| clusterEndpont | 문자열 | URI: 관리 끝점에 대 한 포트 |
+| nodeTypeRef | 문자열 | NodeType의 이름 |
 | durabilityLevel | 브론즈, 실버, 골드, 플래티넘 | 변경할 수 없는 Azure 인프라를 일시 중지할 수 있는 시간 |
 | enableParallelJobs | true 또는 false | VM 제거와 같은 계산 ParallelJobs를 사용 하도록 설정 하 고 동시에 동일한 확장 집합에서 VM 다시 부팅 |
-| nicPrefixOverride | string | 서브넷 접두사 (예: "10.0.0.0/24") |
+| nicPrefixOverride | 문자열 | 서브넷 접두사 (예: "10.0.0.0/24") |
 | commonNames | string[] | 설치 된 클러스터 인증서의 일반 이름 |
-| x509StoreName | string | 설치 된 클러스터 인증서가 있는 저장소의 이름 |
+| x509StoreName | 문자열 | 설치 된 클러스터 인증서가 있는 저장소의 이름 |
 | typeHandlerVersion | 1.1 | 확장의 버전입니다. 1.0 클래식 버전의 확장을 1.1로 업그레이드 하는 것이 좋습니다. |
-| 데이터 경로 | string | Service Fabric 시스템 서비스 및 응용 프로그램 데이터의 상태를 저장 하는 데 사용 되는 드라이브의 경로입니다.
+| 데이터 경로 | 문자열 | Service Fabric 시스템 서비스 및 응용 프로그램 데이터의 상태를 저장 하는 데 사용 되는 드라이브의 경로입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
