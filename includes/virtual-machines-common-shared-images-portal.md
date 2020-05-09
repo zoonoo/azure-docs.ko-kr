@@ -8,37 +8,31 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 729e757c69887bbdce324e2d8383c970995dc94a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d5947f669b600b544cd7e5265e2cce8de118374
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73903661"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789001"
 ---
-## <a name="sign-in-to-azure"></a>Azure에 로그인 
-
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
-
-> [!NOTE]
-> 미리 보기 중에 공유 이미지 갤러리를 사용 하도록 등록 한 경우 `Microsoft.Compute` 공급자를 다시 등록 해야 할 수 있습니다. [Cloud Shell](https://shell.azure.com/bash) 를 열고 다음을 입력 합니다.`az provider register -n Microsoft.Compute`
-
 ## <a name="create-an-image-gallery"></a>이미지 갤러리 만들기
 
 이미지 갤러리는 이미지 공유를 활성화하는 데 사용되는 기본 리소스입니다. 갤러리 이름에 허용되는 문자는 대문자 또는 소문자, 숫자, 점 및 마침표입니다. 갤러리 이름에는 대시를 사용할 수 없습니다.  갤러리 이름은 구독 내에서 고유해야 합니다. 
 
 다음 예제에서는 *myGalleryRG* 리소스 그룹에 *myGallery*라는 갤러리를 만듭니다.
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 1. 검색 상자에서 **공유 이미지 갤러리** 유형을 사용 하 고 결과에서 **공유 이미지 갤러리** 를 선택 합니다.
-1. **공유 이미지 갤러리** 페이지에서 **만들기**를 클릭 합니다.
-1. 올바른 구독을 선택 합니다.
+1. **공유 이미지 갤러리** 페이지에서 **추가**를 클릭 합니다.
+1. **공유 이미지 갤러리 만들기** 페이지에서 올바른 구독을 선택 합니다.
 1. **리소스 그룹**에서 **새로 만들기** 를 선택 하 고 이름에 *myGalleryRG* 을 입력 합니다.
 1. **이름**에 갤러리 이름으로 *mygallery* 를 입력 합니다.
 1. **영역**에 대 한 기본값을 그대로 둡니다.
 1. *테스트를 위해 이미지 갤러리* 와 같이 갤러리에 대 한 간단한 설명을 입력할 수 있습니다. **검토 + 만들기**를 클릭 합니다.
 1. 유효성 검사를 통과 한 후 **만들기**를 선택 합니다.
 1. 배포가 완료 되 면 **리소스로 이동**을 선택 합니다.
-   
+
+
 ## <a name="create-an-image-definition"></a>이미지 정의 만들기 
 
 이미지 정의 이미지에 대 한 논리적 그룹화를 만듭니다. 이러한 파일은 내부에서 생성 된 이미지 버전에 대 한 정보를 관리 하는 데 사용 됩니다. 이미지 정의 이름은 대문자, 숫자, 점, 대시 및 마침표로 구성 될 수 있습니다. 이미지 정의에 대해 지정할 수 있는 값에 대 한 자세한 내용은 [이미지 정의](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions)를 참조 하세요.
@@ -46,8 +40,9 @@ ms.locfileid: "73903661"
 갤러리 내에서 갤러리 이미지 정의를 만듭니다. 이 예제에서 갤러리 이미지의 이름은 *Myimagedefinition*입니다.
 
 1. 새 이미지 갤러리에 대 한 페이지에서 페이지 맨 위에 있는 **새 이미지 정의 추가** 를 선택 합니다. 
+1. **공유 이미지에 대 한 새 이미지 정의 추가 갤러리**에서 **지역**에 대해 *미국 동부*를 선택 합니다.
 1. **이미지 정의 이름**에 *myimagedefinition*을 입력 합니다.
-1. **운영 체제**의 경우 원본 VM에 따라 올바른 옵션을 선택 합니다.
+1. **운영 체제**의 경우 원본 VM에 따라 올바른 옵션을 선택 합니다.  
 1. **Vm 생성**의 경우 원본 vm을 기반으로 하는 옵션을 선택 합니다. 대부분의 경우이는 *Gen 1*입니다. 자세한 내용은 [2 세대 vm에 대 한 지원](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)을 참조 하세요.
 1. **운영 체제 상태의**경우 원본 VM을 기반으로 하는 옵션을 선택 합니다. 자세한 내용은 [일반화 된 및 특수](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images)를 참조 하세요.
 1. **게시자**에 대해 *myPublisher*을 입력 합니다. 

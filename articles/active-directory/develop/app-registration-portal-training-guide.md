@@ -13,16 +13,16 @@ ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 50c88dd1785bd9177219054fed3800ca725a5274
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a954167dc0698389680a92511621fb6acf4b12b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154596"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889986"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>새 Azure Portal 앱 등록 환경
 
-Azure Portal의 새로운 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서는 많은 기능이 향상 되었습니다. 이전 경험 이라고 하는 수렴 형 응용 프로그램을 등록 하거나 관리 하는 apps.dev.microsoft.com (응용 프로그램 등록 포털) 환경을 더 잘 알고 있다면이 교육 가이드에서 새로운 환경을 사용 하 여 시작 해 볼 수 있습니다.
+Azure Portal의 새로운 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서는 많은 기능이 향상 되었습니다. 응용 프로그램 등록 또는 관리를 위해 응용 프로그램 등록 포털 (apps.dev.microsoft.com)에 대해 잘 알고 있는 경우 "이전 환경"을 참조 하세요 .이 가이드에서는 새로운 환경을 사용 하기 시작 합니다.
 
 ## <a name="whats-not-changing"></a>변경 되지 않는 항목
 
@@ -37,7 +37,7 @@ Azure Portal의 새로운 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2
 
 ## <a name="key-changes"></a>주요 변경 내용
 
--   이전 환경에서 앱은 기본적으로 모든 조직 계정 (다중 테 넌 트) 및 개인 Microsoft 계정을 지 원하는 수렴 형 앱으로 등록 되었습니다. 이전 환경을 통해 수정할 수 없어 조직 계정 (다중 테 넌 트 또는 단일 테 넌 트)만 지원 되는 앱을 만드는 것이 어려워집니다.
+-   이전 환경에서 앱은 기본적으로 모든 조직 계정 (다중 테 넌 트) 및 개인 Microsoft 계정을 지 원하는 *앱으로 등록* 되었습니다. 이전 환경을 통해 수정할 수 없어 조직 계정 (다중 테 넌 트 또는 단일 테 넌 트)만 지원 되는 앱을 만드는 것이 어려워집니다.
     새 환경을 통해 이러한 모든 옵션을 지 원하는 앱을 등록할 수 있습니다. [앱 형식에 대해 자세히 알아보세요](active-directory-v2-registration-portal.md).
 
 -   새 환경에서 개인 Microsoft 계정 Azure AD 테 넌 트에도 있는 경우 모든 응용 프로그램, 테 넌 트의 소유 응용 프로그램, 개인 계정의 응용 프로그램 등 세 개의 탭이 표시 됩니다. 따라서 개인 Microsoft 계정에 등록 된 앱이 없는 것으로 판단 되 면 **개인 계정 탭에서 응용 프로그램** 을 확인 합니다.
@@ -52,28 +52,23 @@ Azure Portal의 새로운 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2
 
 ## <a name="new-app-registration"></a>새 앱 등록
 
-이전 환경에서 수렴 형 앱을 등록 하려면 이름을 제공 해야 했습니다. 만들어진 앱은 모든 조직 디렉터리 (다중 테 넌 트) 및 개인 Microsoft 계정을 지 원하는 수렴 형 앱으로 등록 되었습니다.  이전 환경을 통해 수정할 수 없어 조직 계정 (다중 테 넌 트 또는 단일 테 넌 트)만 지원 되는 앱을 만드는 것이 어려워집니다. [지원 되는 계정 유형에 대 한 자세한 정보](v2-supported-account-types.md)
+이전 환경에서 앱을 등록 하려면 이름을 제공 하기만 하면 됩니다. 만들어진 앱은 모든 조직 디렉터리 (다중 테 넌 트) 및 개인 Microsoft 계정을 지 원하는 *앱으로 등록* 되었습니다.  이를 이전 환경에서 수정할 수 없으므로 조직 계정 (단일 또는 다중 테 넌 트)만 지 원하는 앱을 만드는 것이 어려워집니다. [지원 되는 계정 유형에 대 한 자세한 정보](v2-supported-account-types.md)
 
 새 환경에서는 앱의 이름을 제공 하 고 지원 되는 계정 유형을 선택 해야 합니다. 선택적으로 리디렉션 URI를 제공할 수 있습니다.
 리디렉션 URI를 제공 하는 경우 웹/공용 (네이티브/모바일 및 데스크톱) 인지를 지정 해야 합니다. 새 앱 등록 환경을 사용 하 여 앱을 등록 하는 방법에 대 한 자세한 내용은 [이 빠른](quickstart-register-app.md)시작을 참조 하세요.
 
 ## <a name="app-management-page"></a>앱 관리 페이지
 
-이전 환경에는 속성, 응용 프로그램 비밀, 플랫폼, 소유자, Microsoft Graph 권한, 프로필 및 고급 옵션과 같은 섹션이 포함 된 수렴 형 앱에 대 한 단일 앱 관리 페이지가 있었습니다.
+이전 환경에는 속성, 응용 프로그램 비밀, 플랫폼, 소유자, Microsoft Graph 권한, 프로필 및 고급 옵션 섹션과 같은 앱에 대 한 단일 앱 관리 페이지가 있습니다.
 
-Azure Portal의 새로운 환경은 이러한 기능을 개별 페이지로 나타냅니다. 해당 하는 기능을 찾을 수 있는 위치는 다음과 같습니다.
+Azure Portal의 새로운 환경은 이러한 기능을 별도의 페이지에 표시 합니다. 해당 하는 기능을 찾을 수 있는 위치는 다음과 같습니다.
 
--   속성-이름 및 응용 프로그램 ID는 개요 페이지에 있습니다.
-
--   응용 프로그램 암호는 인증서 & 암호 페이지에 있습니다.
-
--   플랫폼 구성이 인증 페이지에 있습니다.
-
--   Microsoft Graph 권한은 다른 사용 권한과 함께 API 사용 권한 페이지에 있습니다.
-
--   프로필이 브랜딩 페이지에 있습니다.
-
--   고급 옵션-라이브 SDK 지원은 인증 페이지에 있습니다.
+- 속성-이름 및 응용 프로그램 ID는 개요 페이지에 있습니다.
+- 응용 프로그램 암호는 인증서 & 암호 페이지에 있습니다.
+- 플랫폼 구성이 인증 페이지에 있습니다.
+- Microsoft Graph 권한은 다른 사용 권한과 함께 API 사용 권한 페이지에 있습니다.
+- 프로필이 브랜딩 페이지에 있습니다.
+- 고급 옵션-라이브 SDK 지원은 인증 페이지에 있습니다.
 
 ## <a name="application-secretscertificates--secrets"></a>응용 프로그램 비밀/인증서 & 비밀
 
@@ -111,7 +106,7 @@ Azure Portal의 새로운 환경은 이러한 기능을 개별 페이지로 나�
 
 -   API (oauth2Permissions) 및 권한 있는 클라이언트 응용 프로그램 (preAuthorizedApplications)에서 정의 된 범위는 API 노출 페이지를 통해 구성할 수 있습니다. 앱을 web API로 구성 하 고 사용 권한/범위를 노출 하는 방법에 대 한 자세한 내용은 [이 빠른](quickstart-configure-app-expose-web-apis.md)시작을 참조 하세요.
 
--   [응용 프로그램\'동의 프롬프트](application-consent-experience.md)에서 사용자에 게 표시 되는 게시자 도메인은 브랜딩 블레이드 페이지에서 찾을 수 있습니다. 게시자 도메인을 구성 하는 방법에 대 한 자세한 내용은 [이 방법을](howto-configure-publisher-domain.md)참조 하세요.
+-   [응용 프로그램\'동의 프롬프트](application-consent-experience.md)에서 사용자에 게 표시 되는 게시자 도메인은 브랜딩 페이지에서 찾을 수 있습니다. 게시자 도메인을 구성 하는 방법에 대 한 자세한 내용은 [이 방법을](howto-configure-publisher-domain.md)참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -125,3 +120,7 @@ Azure Portal의 새로운 환경은 이러한 기능을 개별 페이지로 나�
 
    > [!NOTE]
    > Azure AD 테 넌 트에서 개인 Microsoft 계정 사용자이 고 테 넌 트 관리자가 Azure Portal에 대 한 액세스를 제한 한 경우 액세스가 거부 될 수 있습니다. 그러나 검색 표시줄에 앱 등록를 입력 하거나이를 고정 하 여 바로 가기를 사용 하는 경우 새 환경에 액세스할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+새 앱 등록 환경을 시작 하려면 [빠른 시작: Microsoft id 플랫폼을 사용 하 여 응용 프로그램 등록](quickstart-register-app.md)을 참조 하세요.

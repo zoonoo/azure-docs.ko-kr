@@ -1,18 +1,18 @@
 ---
-title: Marketplace 계량 서비스 Api | Azure Marketplace
-description: Azure Marketplace에서 SaaS 제품에 대 한 사용 이벤트입니다.
+title: 계량 서비스 Api-Microsoft 상업적 marketplace
+description: 사용 이벤트 API를 사용 하 여 Microsoft AppSource 및 Azure Marketplace에서 SaaS 제품에 대 한 사용 이벤트를 내보낼 수 있습니다.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 315f36e5aed9dee0a89e1f9f504b18a6bed806e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 159d2c60fc1fc5ad1f21f2b948208eaae0d06208
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275750"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857859"
 ---
 # <a name="marketplace-metering-service-apis"></a>Marketplace 계량 서비스 API
 
