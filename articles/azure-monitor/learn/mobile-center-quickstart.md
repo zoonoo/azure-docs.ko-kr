@@ -8,12 +8,12 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: a59a6841a1db3cecfe52c54135b42f5b6a095ce3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c31083c5e0591d5a49f878ba24a7fd2f0ef6c84d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77660294"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731954"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="onboard-to-app-center"></a>App에 등록
 
-모바일 앱으로 Application Insights를 사용하려면 앱을 [App Center](https://docs.microsoft.com/mobile-center/)에 등록해야 합니다. Application Insights는 모바일 앱에서 직접 원격 분석을 수신하지 않습니다. 앱이 사용자 지정 이벤트 원격 정보를 App Center로 보냅니다. 그런 다음, App Center는 이벤트가 수신되면 이러한 사용자 지정 이벤트의 사본을 Application Insights로 내보냅니다. (이는 원격 분석이 Application Insights로 직접 전송되는 [Application Insights JS SDK](https://github.com/Microsoft/ApplicationInsights-JS) 또는 [React Native 플러그 인](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-native)에는 적용되지 않습니다.)
+모바일 앱으로 Application Insights를 사용하려면 앱을 [App Center](https://docs.microsoft.com/mobile-center/)에 등록해야 합니다. Application Insights는 모바일 앱에서 직접 원격 분석을 수신하지 않습니다. 앱이 사용자 지정 이벤트 원격 정보를 App Center로 보냅니다. 그런 다음, App Center는 이벤트가 수신되면 이러한 사용자 지정 이벤트의 사본을 Application Insights로 내보냅니다. (이는 원격 분석이 Application Insights로 직접 전송되는 [Application Insights JS SDK](https://github.com/Microsoft/ApplicationInsights-JS) 또는 [React Native 플러그 인](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-native)에는 적용되지 않습니다.)
 
 응용 프로그램을 등록하려면 앱에서 지원하는 각 플랫폼에 대한 App Center 빠른 시작을 따르세요. 각 플랫폼에 대해 별도의 App Center 인스턴스를 만듭니다.
 

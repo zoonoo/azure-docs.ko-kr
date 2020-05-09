@@ -7,18 +7,18 @@ manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 2c2d70d1c945e700a3fa42609f8aa0e1607ba77c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d62fa84711bd8cba57d07f3464c21344bc5c32c6
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658407"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731743"
 ---
 # <a name="programmatically-manage-workbooks"></a>프로그래밍 방식으로 통합 문서 관리
 
-리소스 소유자는 리소스 관리자 템플릿을 통해 프로그래밍 방식으로 통합 문서를 만들고 관리 하는 옵션을 사용할 수 있습니다. 
+리소스 소유자는 리소스 관리자 템플릿을 통해 프로그래밍 방식으로 통합 문서를 만들고 관리 하는 옵션을 사용할 수 있습니다.
 
 이는 다음과 같은 시나리오에서 유용할 수 있습니다.
 * 리소스 배포와 함께 조직 또는 도메인별 분석 보고서를 배포 합니다. 예를 들어 새 앱 또는 가상 머신에 대 한 조직 특정 성능 및 실패 통합 문서를 배포할 수 있습니다.
@@ -26,7 +26,98 @@ ms.locfileid: "77658407"
 
 통합 문서는 원하는 하위/리소스 그룹 및 리소스 관리자 템플릿에 지정 된 콘텐츠와 함께 생성 됩니다.
 
-## <a name="azure-resource-manager-template-for-deploying-workbooks"></a>통합 문서 배포를 위한 Azure Resource Manager 템플릿
+프로그래밍 방식으로 관리할 수 있는 두 가지 유형의 통합 문서 리소스는 다음과 같습니다.
+* [통합 문서 템플릿](#azure-resource-manager-template-for-deploying-a-workbook-template)
+* [통합 문서 인스턴스](#azure-resource-manager-template-for-deploying-a-workbook-instance)
+
+## <a name="azure-resource-manager-template-for-deploying-a-workbook-template"></a>통합 문서 템플릿 배포를 위한 Azure Resource Manager 템플릿
+
+1. 프로그래밍 방식으로 배포 하려는 통합 문서를 엽니다.
+2. _편집_ 도구 모음 항목을 클릭 하 여 통합 문서를 편집 모드로 전환 합니다.
+3. 도구 모음의 _Advanced Editor_ 단추를 _</>_ 사용 하 여 고급 편집기를 엽니다.
+4. _갤러리 템플릿_ 탭에 있는지 확인 합니다.
+
+    ![갤러리 템플릿 탭](./media/workbooks-automate/gallery-template.png)
+1. 갤러리 템플릿의 JSON을 클립보드에 복사 합니다.
+2. 다음은 통합 문서 템플릿을 Azure Monitor 통합 문서 갤러리에 배포 하는 샘플 Azure Resource Manager 템플릿입니다. 대신 복사한 JSON을 붙여넣습니다 `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`. 통합 문서 템플릿을 만드는 참조 Azure Resource Manager 템플릿은 [여기](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template)에서 찾을 수 있습니다.
+
+    ```json
+          {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "resourceName": {
+                "type": "string",
+                "defaultValue": "my-workbook-template",
+                "metadata": {
+                    "description": "The unique name for this workbook template instance"
+                }
+            }
+        },
+        "resources": [
+            {
+                "name": "[parameters('resourceName')]",
+                "type": "microsoft.insights/workbooktemplates",
+                "location": "[resourceGroup().location]",
+                "apiVersion": "2019-10-17-preview",
+                "dependsOn": [],
+                "properties": {
+                    "galleries": [
+                        {
+                            "name": "A Workbook Template",
+                            "category": "Deployed Templates",
+                            "order": 100,
+                            "type": "workbook",
+                            "resourceType": "Azure Monitor"
+                        }
+                    ],
+                    "templateData": <PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>
+                }
+            }
+        ]
+    }
+    ```
+1. `galleries` 개체에서 `name` 및 `category` 키를 값으로 채웁니다. 다음 섹션에서 [매개 변수에](#parameters) 대해 자세히 알아보세요.
+2. [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), [명령줄 인터페이스](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)등을 사용 하 여이 Azure Resource Manager 템플릿을 배포 합니다.
+3. Azure Portal를 열고 Azure Resource Manager 템플릿에서 선택한 통합 문서 갤러리로 이동 합니다. 예제 템플릿에서 Azure Monitor 통합 문서 갤러리로 이동 합니다.
+    1. Azure Portal를 열고로 이동 Azure Monitor
+    2. 목차 `Workbooks` 에서 열기
+    3. 갤러리의 범주 `Deployed Templates` 아래에서 템플릿을 찾습니다 (자주색 항목 중 하나가 됨).
+
+### <a name="parameters"></a>매개 변수
+
+|매개 변수                |설명                                                                                             |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------|
+| `name`                   | Azure Resource Manager에 있는 통합 문서 템플릿 리소스의 이름입니다.                                  |
+|`type`                    | 항상 microsoft insights/통합 문서의 템플릿                                                            |
+| `location`               | 통합 문서가 생성 될 Azure 위치입니다.                                               |
+| `apiVersion`             | 2019-10-17 미리 보기                                                                                     |
+| `type`                   | 항상 microsoft insights/통합 문서의 템플릿                                                            |
+| `galleries`              | 이 통합 문서 템플릿을 표시할 갤러리 집합입니다.                                                |
+| `gallery.name`           | 갤러리의 통합 문서 템플릿 이름입니다.                                             |
+| `gallery.category`       | 템플릿을 저장할 갤러리의 그룹입니다.                                                     |
+| `gallery.order`          | 갤러리의 범주 내에서 템플릿을 표시 하는 순서를 결정 하는 번호입니다. 낮은 순서는 더 높은 우선 순위를 나타냅니다. |
+| `gallery.resourceType`   | 갤러리에 해당 하는 리소스 종류입니다. 일반적으로 리소스에 해당 하는 리소스 형식 문자열입니다 (예: operationalinsights/workspace). |
+|`gallery.type`            | 통합 문서 유형 이라고 하는이는 리소스 유형 내에서 갤러리를 차별화 하는 고유 키입니다. 예를 들어 Application Insights에는 형식과 `workbook` 다른 `tsg` 통합 문서 갤러리에 해당 하는이 있습니다. |
+
+### <a name="galleries"></a>갤러리
+
+| 갤러리                                        | 리소스 유형                                      | 통합 문서 유형 |
+| :--------------------------------------------- |:---------------------------------------------------|:--------------|
+| Azure Monitor의 통합 문서                     | `Azure Monitor`                                    | `workbook`    |
+| Azure Monitor의 VM 정보                   | `Azure Monitor`                                    | `vm-insights` |
+| Log analytics 작업 영역의 통합 문서           | `microsoft.operationalinsights/workspaces`         | `workbook`    |
+| Application Insights의 통합 문서              | `microsoft.insights/component`                     | `workbook`    |
+| Application Insights 문제 해결 가이드 | `microsoft.insights/component`                     | `tsg`         |
+| Application Insights에서 사용                  | `microsoft.insights/component`                     | `usage`       |
+| Kubernetes service의 통합 문서                | `Microsoft.ContainerService/managedClusters`       | `workbook`    |
+| 리소스 그룹의 통합 문서                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
+| Azure Active Directory의 통합 문서            | `microsoft.aadiam/tenant`                          | `workbook`    |
+| 가상 컴퓨터의 VM 정보                | `microsoft.compute/virtualmachines`                | `insights`    |
+| Virtual machine scale sets의 VM 정보                   | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+
+## <a name="azure-resource-manager-template-for-deploying-a-workbook-instance"></a>통합 문서 인스턴스를 배포 하기 위한 Azure Resource Manager 템플릿
+
 1. 프로그래밍 방식으로 배포 하려는 통합 문서를 엽니다.
 2. _편집_ 도구 모음 항목을 클릭 하 여 통합 문서를 편집 모드로 전환 합니다.
 3. 도구 모음의 _Advanced Editor_ 단추를 _</>_ 사용 하 여 고급 편집기를 엽니다.
@@ -124,4 +215,3 @@ ms.locfileid: "77658407"
 ## <a name="next-steps"></a>다음 단계
 
 통합 문서를 사용 하 여 [저장소 환경을 위한 새 Azure Monitor](../insights/storage-insights-overview.md)를 활용 하는 방법을 알아봅니다.
-

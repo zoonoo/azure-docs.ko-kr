@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2019
+ms.date: 05/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae0632fbc3208befe197c15ffdbf2d9a4e7b2d7a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60349847"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926479"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
 이 기능은 빌드 [1.1.105.0(2016년 2월에 발표됨)](reference-connect-version-history.md#111050)에서 도입되었습니다.  이 기능은 [빌드 1.1.561](reference-connect-version-history.md#115610)에서 업데이트되었고 이제 이전에 지원되지 않던 추가 시나리오를 지원합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "60349847"
 
 자동 업그레이드의 현재 상태는 PowerShell cmdlet `Get-ADSyncAutoUpgrade`로 확인할 수 있습니다. 아래와 같은 상태가 표시됩니다.
 
-| 시스템 상태 | 주석 |
+| 시스템 상태 | 설명 |
 | --- | --- |
 | 사용 |자동 업그레이드를 사용할 수 있습니다. |
 | 일시 중단 |시스템에서만 설정합니다. 시스템이 **현재** 자동 업그레이드를 받을 수 없습니다. |
@@ -75,7 +75,7 @@ Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니�
 
 가장 일반적인 메시지 목록은 다음과 같습니다. 전부가 나열된 것은 아니지만 결과 메시지를 통해 문제점이 무엇인지 파악할 수 있습니다.
 
-| 결과 메시지 | 설명 |
+| 결과 메시지 | Description |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |레지스트리에 쓸 수 없습니다. |
@@ -99,7 +99,6 @@ Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니�
 | UpgradeNotSupportedNonLocalDbInstall |SQL Server Express LocalDB 데이터베이스를 사용하고 있지 않습니다. |
 | UpgradeNotSupportedNonMsolAccount |[AD DS Connector 계정](reference-connect-accounts-permissions.md#ad-ds-connector-account)이 더 이상 기본 MSOL_ 계정이 아닙니다. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | AAD Connect를 설치한 경우 로그온 방법을 선택할 때 *구성 안 함*을 선택합니다. |
-| UpgradeNotSupportedPtaSignInMethod | 로그인 방법으로 통과 인증을 선택했습니다. |
 | UpgradeNotSupportedStagingModeEnabled |서버가 [준비 모드](how-to-connect-sync-staging-server.md)로 설정되어 있습니다. |
 | UpgradeNotSupportedUserWritebackEnabled |[사용자 쓰기 저장](how-to-connect-preview.md#user-writeback) 기능을 사용하도록 설정했습니다. |
 

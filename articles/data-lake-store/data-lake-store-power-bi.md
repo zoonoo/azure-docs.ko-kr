@@ -1,26 +1,20 @@
 ---
-title: Power BI를 사용하여 Azure Data Lake Storage Gen1의 데이터 분석 | Microsoft Docs
-description: Power BI를 사용하여 Azure Data Lake Storage Gen1에 저장된 데이터 분석
-services: data-lake-store
-documentationcenter: ''
+title: Azure Data Lake Storage Gen1에서 데이터 분석-Power BI
+description: Power BI를 사용 하 여 Azure Data Lake Storage Gen1에 저장 된 데이터를 분석할 수 있습니다.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 57d19d27-e135-49d9-a7ea-46c48ef4e3bd
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 952be68a1675732857969f875cd2b39c2feab674
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "65603202"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691666"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Power BI를 사용하여 Azure Data Lake Storage Gen1의 데이터 분석
-이 문서에서는 Power BI Desktop을 사용하여 Azure Data Lake Storage Gen1에 저장된 데이터를 분석하고 시각화하는 방법에 대해 알아봅니다.
+이 문서에서는 Power BI Desktop를 사용 하 여 Azure Data Lake Storage Gen1에 저장 된 데이터를 분석 하 고 시각화 하는 방법에 대해 알아봅니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
@@ -38,7 +32,7 @@ ms.locfileid: "65603202"
 4. **Azure Data Lake Store** 대화 상자에서 Data Lake Storage Gen1 계정에 대한 URL을 제공한 다음, **확인**을 클릭합니다.
    
     ![Data Lake Storage Gen1 URL](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "Data Lake Storage Gen1 URL")
-5. 다음 대화 상자에서 **로그인**을 클릭하여 Data Lake Storage Gen1 계정에 로그인합니다. 사용자가 속한 조직의 로그인 페이지로 리디렉션됩니다. 프롬프트에 따라 계정에 로그인합니다.
+5. 다음 대화 상자에서 **로그인**을 클릭하여 Data Lake Storage Gen1 계정에 로그인합니다. 사용자는 조직의 로그인 페이지로 리디렉션됩니다. 프롬프트에 따라 계정에 로그인합니다.
    
     ![Data Lake Storage Gen1에 로그인](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Data Lake Storage Gen1에 로그인")
 6. 성공적으로 로그인한 후에 **연결**을 클릭합니다.
@@ -96,6 +90,6 @@ ms.locfileid: "65603202"
 ## <a name="publish-report-to-power-bi-service"></a>Power BI 서비스에 보고서 게시
 Power BI Desktop에서 시각화를 만들고 나면, Power BI 서비스에 게시하여 다른 사람들과 공유할 수 있습니다. 수행하는 방법에 대한 지침은 [Power BI Desktop에서 게시](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/)를 참조하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Data Lake Analytics를 사용한 Data Lake Storage Gen1의 데이터 분석](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

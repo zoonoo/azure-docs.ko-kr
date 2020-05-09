@@ -10,24 +10,24 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 923fb90f7f0e8eefec650515ed2a3b9b75d2ae77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf8d461485cefd37b9508031f5cce7ae0a070ef5
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617912"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82653209"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Key Vault 사용에 대 한 모범 사례
 
 ## <a name="control-access-to-your-vault"></a>자격 증명 모음에 대 한 액세스 제어
 
-Azure Key Vault는 암호화 키와 비밀(예: 인증서, 연결 문자열 및 암호)을 보호하는 클라우드 서비스입니다. 이 데이터는 민감하고 업무상 중요하기 때문에 권한이 부여된 애플리케이션과 사용자만 허용하여 Key Vault에 대한 액세스를 보호해야 합니다. 이 [문서](secure-your-key-vault.md)에서는 Key Vault 액세스 모델의 개요를 제공 합니다. 여기서는 인증 및 권한 부여에 대해 설명하고 Key Vault 액세스의 보안을 유지하는 방법을 설명합니다.
+Azure Key Vault는 암호화 키와 비밀(예: 인증서, 연결 문자열 및 암호)을 보호하는 클라우드 서비스입니다. 이 데이터는 민감하고 업무상 중요하기 때문에 권한이 부여된 애플리케이션과 사용자만 허용하여 Key Vault에 대한 액세스를 보호해야 합니다. 이 [문서](secure-your-key-vault.md) 에서는 Key Vault 액세스 모델의 개요를 제공 합니다. 여기서는 인증 및 권한 부여에 대해 설명하고 Key Vault 액세스의 보안을 유지하는 방법을 설명합니다.
 
 자격 증명 모음에 대 한 액세스를 제어 하는 동안 제안 사항은 다음과 같습니다.
 1. 구독, 리소스 그룹 및 키 자격 증명 모음에 대 한 액세스 잠금 (RBAC)
 2. 모든 자격 증명 모음에 대 한 액세스 정책 만들기
 3. 최소 권한 액세스 보안 주체를 사용 하 여 액세스 권한 부여
-4. 방화벽 및 [VNET 서비스 끝점](overview-vnet-service-endpoints.md)설정)
+4. 방화벽 및 [VNET 서비스 끝점](overview-vnet-service-endpoints.md) 설정
 
 ## <a name="use-separate-key-vault"></a>별도의 Key Vault 사용
 
@@ -39,9 +39,9 @@ Azure Key Vault는 암호화 키와 비밀(예: 인증서, 연결 문자열 및 
 
 ## <a name="turn-on-logging"></a>로깅 설정
 
-[로깅 켜기](logging.md)) 자격 증명 모음. 또한 경고를 설정 합니다.
+자격 증명 모음에 대 한 [로깅을 설정](logging.md) 합니다. 또한 경고를 설정 합니다.
 
 ## <a name="turn-on-recovery-options"></a>복구 옵션 설정
 
-1. [일시 삭제](overview-soft-delete.md)사용).
+1. [일시 삭제](overview-soft-delete.md)를 켭니다.
 2. 일시 삭제가 설정 된 후에도 비밀/자격 증명 모음을 강제로 삭제 하지 않도록 보호 하려면 제거 보호를 설정 합니다.

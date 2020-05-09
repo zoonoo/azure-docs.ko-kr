@@ -2,7 +2,7 @@
 title: OAuth 2.0 및 Openid connect 연결 프로토콜-Microsoft identity platform | Microsoft
 description: Microsoft id 플랫폼 끝점에서 지 원하는 OAuth 2.0 및 Openid connect Connect 프로토콜에 대 한 가이드입니다.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.date: 04/13/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e94bdd6e79ff13d8ba736e140538bae74091f727
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 80b93efb58d225c53a64fa044f51145b392460d7
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81680085"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690260"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Microsoft id 플랫폼의 OAuth 2.0 및 Openid connect Connect 프로토콜
 
@@ -55,7 +55,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 여기서 `{tenant}` 은 네 개의 서로 다른 값 중 하나를 가질 수 있습니다.
 
-| 값 | Description |
+| 값 | 설명 |
 | --- | --- |
 | `common` | 개인 Microsoft 계정과 Azure AD의 회사/학교 계정이 모두 있는 사용자가 애플리케이션에 로그인할 수 있습니다. |
 | `organizations` | Azure AD의 회사/학교 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. |

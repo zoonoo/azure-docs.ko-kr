@@ -9,20 +9,21 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 03/05/2020
-ms.openlocfilehash: 530647c3d32b62f0cac250795ccce580b182fa92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.custom: contperfq4
+ms.openlocfilehash: b8af654e14d8a5fa48c60ae62c590c4c99e66edb
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756594"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891525"
 ---
-# <a name="manage-and-request-quotas-for-azure-resources"></a>Azure 리소스에 대한 할당량 관리 및 요청
+# <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 리소스에 대 한 할당량 관리 & 늘리기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 구독에 대 한 Azure 리소스에 대 한 미리 구성 된 제한 사항에 대해 자세히 설명 합니다. 또한 각 리소스 유형에 대 한 할당량 향상 기능을 요청 하는 방법에 대 한 지침도 포함 되어 있습니다. 사기로 인해 예산이 초과되는 것을 방지하고 Azure 용량 제약 조건을 준수하려면 이러한 한도를 적용해야 합니다.
+이 문서에서는 사용자에 게 구독에 대 한 Azure 리소스의 미리 구성 된 제한에 대 한 세부 정보를 [Azure Machine Learning](overview-what-is-azure-ml.md) 제공 합니다. 또한 각 리소스 유형에 대 한 할당량 향상 기능을 요청 하는 방법에 대 한 지침도 포함 되어 있습니다. 사기로 인해 예산이 초과되는 것을 방지하고 Azure 용량 제약 조건을 준수하려면 이러한 한도를 적용해야 합니다.
 
-다른 Azure 서비스와 마찬가지로 Azure Machine Learning와 연결 된 특정 리소스에 대 한 제한이 있습니다. 이러한 제한 범위는 작업 영역 수의 상한에서 모델 학습 또는 유추/점수 매기기에 사용 되는 실제 기본 계산에 대 한 제한으로 제한 됩니다. 
+다른 Azure 서비스와 마찬가지로 Azure Machine Learning와 연결 된 특정 리소스에 대 한 제한이 있습니다. 이러한 제한 범위는 [작업 영역](concept-workspace.md) 수의 상한에서 모델 학습 또는 유추/점수 매기기에 사용 되는 실제 기본 계산에 대 한 제한으로 제한 됩니다. 
 
 프로덕션 워크 로드에 대 한 Azure Machine Learning 리소스를 설계 하 고 확장할 때 이러한 제한을 고려 합니다. 예를 들어 클러스터가 대상 노드 수에 도달 하지 않은 경우 구독에 대 한 Azure Machine Learning 계산 코어 제한에 도달 했을 수 있습니다. 기본 제한 이상으로 제한 또는 할당량을 높이려는 경우 비용 없이 온라인 고객 지원 요청을 개설합니다. Azure 용량 제약 조건으로 인해 다음 표에 표시되는 최대 한도 값 이상으로 한도를 높일 수 없습니다. 최대 한도 열이 없는 경우 리소스에 조정 가능한 한도가 없는 것입니다.
 
@@ -48,10 +49,10 @@ ms.locfileid: "80756594"
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-좀 더 구체적인 최신 할당량 한도 목록은 [여기](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)서 Azure 전체 할당량 문서를 참조하세요.
+할당량 한도의 최신 목록에 대 한 자세한 내용은 [Azure 전체 할당량 문서를 참조](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)하세요.
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning 컴퓨팅
-Azure Machine Learning 컴퓨팅의 경우 구독의 영역당 허용되는 코어 수 및 고유한 컴퓨팅 리소스 수의 기본 할당량 한도가 있습니다. 이 할당량은 위의 VM 코어 할당량과는 별개 이며, AmlCompute는 호스팅되는 모델에서 리소스를 배포 하는 관리 되는 서비스 이므로 두 리소스 유형 간에 코어 제한이 공유 되지 않습니다.
+[계산 Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed)의 경우 구독에서 지역에 허용 되는 고유 계산 리소스 수와 코어 수에 대 한 기본 할당량 한도가 있습니다. 이 할당량은 위의 VM 코어 할당량과는 별개 이며, AmlCompute는 호스팅되는 모델에서 리소스를 배포 하는 관리 되는 서비스 이므로 두 리소스 유형 간에 코어 제한이 공유 되지 않습니다.
 
 사용 가능한 리소스:
 + 지역별 전용 코어의 기본 제한은 EA 및 CSP 제공 유형에 대 한 높은 기본값을 가진 구독 제안 유형에 따라 24-300입니다.  구독 당 전용 코어 수는 늘릴 수 있으며 VM 제품군 마다 다릅니다. NCv2, NCv3 또는 ND 시리즈와 같은 특수화 된 특정 VM 제품군은 기본 제로 코어로 시작 합니다. 증가 옵션에 대해 자세히 설명 하는 할당량 요청을 발생 시켜 Azure 지원에 문의 하세요.
@@ -76,7 +77,7 @@ Azure Machine Learning 컴퓨팅의 경우 구독의 영역당 허용되는 코�
 용량 제약 조건이 있는 경우 우선 순위가 낮은 노드의 작업 <sup>2</sup> 개를 선점할 수 있습니다. 작업에서 검사점을 구현 하는 것이 좋습니다.
 
 ### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인
-Azure Machine Learning 파이프라인의 경우 파이프라인의 단계 수와 구독에서 지역별 게시 된 파이프라인의 일정 기반 실행 수에 대 한 할당량 한도가 있습니다.
+[Azure Machine Learning 파이프라인](concept-ml-pipelines.md)의 경우 파이프라인의 단계 수와 구독에서 지역별 게시 된 파이프라인의 일정 기반 실행 수에 대 한 할당량 한도가 있습니다.
 - 파이프라인에서 허용 되는 최대 단계 수는 3만입니다.
 - 일정 기반 실행 및 월별 구독 당 게시 된 파이프라인에 대 한 blob 풀의 최대 합계 수는 10만입니다.
 
@@ -97,7 +98,7 @@ Azure Machine Learning 파이프라인의 경우 파이프라인의 단계 수�
 
 ## <a name="workspace-level-quota"></a>작업 영역 수준 할당량
 
-다양 한 작업 영역 간의 Amlcompute에 대 한 리소스 할당을 보다 효율적으로 관리 하기 위해 VM 제품군에서 구독 수준 할당량을 배포 하 고 작업 영역 수준에서 구성할 수 있는 기능이 도입 되었습니다. 기본 동작은 모든 VM 제품군에 대 한 구독 수준 할당량과 동일한 할당량을 모든 작업 영역에 포함 하는 것입니다. 그러나 작업 영역 수가 늘어남에 따라 우선 순위가 다양 한 작업이 동일한 리소스를 공유 하기 시작 하면 사용자는 용량을 보다 효율적으로 공유 하 고 리소스 경합 문제를 방지 하는 방법을 원합니다. Azure Machine Learning은 사용자가 각 작업 영역에서 특정 VM 제품군에 대 한 최대 할당량을 설정할 수 있도록 하 여 관리 되는 계산 제공 솔루션을 제공 합니다. 이는 작업 영역 간에 용량을 배포 하는 것과 유사 하며, 사용자가 과도 하 게 할당 하 여 최대 사용을 추진 하도록 선택할 수도 있습니다. 
+다양 한 [작업 영역](concept-workspace.md)간에 amlcompute (Azure Machine Learning 계산 대상)에 대 한 리소스 할당을 보다 효율적으로 관리 하기 위해 VM 제품군에서 구독 수준 할당량을 배포 하 고 작업 영역 수준에서 구성할 수 있는 기능이 도입 되었습니다. 기본 동작은 모든 VM 제품군에 대 한 구독 수준 할당량과 동일한 할당량을 모든 작업 영역에 포함 하는 것입니다. 그러나 작업 영역 수가 늘어남에 따라 우선 순위가 다양 한 작업이 동일한 리소스를 공유 하기 시작 하면 사용자는 용량을 보다 효율적으로 공유 하 고 리소스 경합 문제를 방지 하는 방법을 원합니다. Azure Machine Learning은 사용자가 각 작업 영역에서 특정 VM 제품군에 대 한 최대 할당량을 설정할 수 있도록 하 여 관리 되는 계산 제공 솔루션을 제공 합니다. 이는 작업 영역 간에 용량을 배포 하는 것과 유사 하며, 사용자가 과도 하 게 할당 하 여 최대 사용을 추진 하도록 선택할 수도 있습니다. 
 
 작업 영역 수준에서 할당량을 설정 하려면 구독의 작업 영역으로 이동 하 고 왼쪽 창에서 **사용량 + 할당량** 을 클릭 합니다. 그런 다음 할당량 **구성** 탭을 선택 하 여 할당량을 확인 하 고, vm 제품군을 확장 하 고, 해당 vm 제품군 아래에 나열 된 작업 영역에 대 한 할당량 제한을 설정 합니다. 음수 값 또는 구독 수준 할당량 보다 높은 값을 설정할 수 없습니다. 또한 기본적으로 모든 작업 영역에는 할당 된 할당량의 전체 사용률을 허용 하기 위해 전체 구독 할당량이 할당 됩니다.
 
@@ -105,7 +106,7 @@ Azure Machine Learning 파이프라인의 경우 파이프라인의 단계 수�
 
 
 > [!NOTE]
-> Enterprise edition 기능입니다. 구독에 기본 및 Enterprise edition 작업 영역이 둘 다 있는 경우이를 사용 하 여 엔터프라이즈 작업 영역에 대 한 할당량을 설정할 수 있습니다. 기본 작업 영역에는 기본 동작인 구독 수준 할당량이 계속 포함 됩니다.
+> Enterprise edition 기능입니다. 구독에 [기본 및 enterprise edition](overview-what-is-azure-ml.md#sku) 작업 영역이 둘 다 있는 경우이를 사용 하 여 엔터프라이즈 작업 영역에 대 한 할당량을 설정할 수 있습니다. 기본 작업 영역에는 기본 동작인 구독 수준 할당량이 계속 포함 됩니다.
 >
 > 작업 영역 수준에서 할당량을 설정 하려면 구독 수준 권한이 있어야 합니다. 이는 개별 작업 영역 소유자가 편집 하거나 할당량을 늘리고 다른 작업 영역에 대해 따로 설정 된 리소스에 encroaching를 시작 하지 않도록 하는 데 적용 됩니다. 따라서 구독 관리자는 작업 영역 간에 이러한 할당량을 할당 하 고 배포 하는 데 가장 적합 합니다.
 
@@ -136,9 +137,17 @@ Virtual Machines, Storage, Network 등의 다양한 리소스에 대한 할당�
 
 제한 또는 할당량을 기본 한도 이상으로 올리려면 무료로 [온라인 고객 지원 요청을 여세요](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) .
 
-다음 표에 나오는 최대 한도 값 이상으로 한도를 높일 수 없습니다. 최대 제한이 없는 경우 리소스에 조정 가능한 제한이 없는 것입니다. [이](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors) 문서에서는 할당량 증가 프로세스를 자세히 다룹니다.
+다음 표에 나오는 최대 한도 값 이상으로 한도를 높일 수 없습니다. 최대 제한이 없는 경우 리소스에 조정 가능한 제한이 없는 것입니다. [할당량을 늘리는 방법에 대 한 단계별 지침을 참조 하세요](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
 
 할당량 증가를 요청할 때 할당량을 늘리려는 서비스를 선택해야 하며 이러한 서비스로는 Machine Learning Service 할당량, 컨테이너 인스턴스 또는 Storage 할당량이 있습니다. Azure Machine Learning 계산 외에도 할당량 **요청** 단추를 클릭 하 고 위의 단계에 따라 할당량을 볼 수 있습니다.
 
 > [!NOTE]
 > [평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p)은 제한하거나 할당량을 증가할 수 없습니다. [평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p)을 사용하는 경우 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) 구독으로 업그레이드할 수 있습니다. 자세한 내용은 [Azure 평가판을 종량제로 업그레이드](../billing/billing-upgrade-azure-subscription.md) 및 [평가판 구독 FAQ](https://azure.microsoft.com/free/free-account-faq)를 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+다음 문서에서 자세한 내용을 알아보세요.
+
++ [Azure Machine Learning에 대 한 비용 계획 & 관리](concept-plan-manage-cost.md)
+
++ [할당량을 늘리는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors)

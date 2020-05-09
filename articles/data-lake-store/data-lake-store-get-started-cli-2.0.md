@@ -1,23 +1,19 @@
 ---
-title: Azure CLI를 사용하여 Azure Data Lake Storage Gen1 시작 | Microsoft Docs
-description: Azure CLI를 사용하여 Data Lake Storage Gen1 계정을 만들고 기본 작업 수행
-services: data-lake-store
-documentationcenter: ''
+title: Azure Data Lake Storage Gen1 계정 관리-Azure CLI
+description: Azure CLI를 사용 하 여 Data Lake Storage Gen1 계정을 만들고 기본 작업을 수행 합니다.
 author: twooley
-manager: mtillman
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e278981ce7647a53d2e80c5b835c8ed666db541
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60885349"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688181"
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Azure CLI를 사용하여 Azure Data Lake Store 시작
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Data Lake Storage Gen1 시작
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 3e6cfde20d9f4d56af836e06b0c9a84010dea47b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 646254238f83166c53fe94a1821c68ff4dac8f04
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282820"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82651921"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Azure App Service에 machine learning 모델 배포 (미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,7 +36,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
 > [!IMPORTANT]
 > 배포 된 모델에 사용 되는 점수 매기기 데이터 또는 점수 매기기 결과를 기록 하는 기능이 필요한 경우에는 대신 Azure Kubernetes Service에 배포 해야 합니다. 자세한 내용은 [프로덕션 모델에서 데이터 수집](how-to-enable-data-collection.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)입니다.
@@ -114,14 +114,14 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-인 `show_output=True`경우 Docker 빌드 프로세스의 출력이 표시 됩니다. 프로세스가 완료 되 면 작업 영역에 대 한 Azure Container Registry에 이미지가 생성 됩니다. 이미지가 빌드되면 Azure Container Registry의 위치가 표시 됩니다. 반환 된 위치는 형식 `<acrinstance>.azurecr.io/package:<imagename>`입니다. `myml08024f78fd10.azurecr.io/package:20190827151241`)을 입력합니다.
+인 `show_output=True`경우 Docker 빌드 프로세스의 출력이 표시 됩니다. 프로세스가 완료 되 면 작업 영역에 대 한 Azure Container Registry에 이미지가 생성 됩니다. 이미지가 빌드되면 Azure Container Registry의 위치가 표시 됩니다. 반환 된 위치는 형식 `<acrinstance>.azurecr.io/package@sha256:<imagename>`입니다. 예: `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`
 
 > [!IMPORTANT]
 > 이미지를 배포할 때 사용 되는 위치 정보를 저장 합니다.
 
 ## <a name="deploy-image-as-a-web-app"></a>이미지를 웹 앱으로 배포
 
-1. 다음 명령을 사용 하 여 이미지를 포함 하는 Azure Container Registry에 대 한 로그인 자격 증명을 가져옵니다. 이전 `<acrinstance>` 에에서 `package.location`반환 된 값으로 대체 합니다.
+1. 다음 명령을 사용 하 여 이미지를 포함 하는 Azure Container Registry에 대 한 로그인 자격 증명을 가져옵니다. 을 `<acrinstance>` 이전에에서 `package.location`반환 된 값으로 바꿉니다.
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -162,7 +162,7 @@ print(package.location)
 1. 웹 앱을 만들려면 다음 명령을 사용 합니다. 사용할 `<app-name>` 이름으로 대체 합니다. 및 `<acrinstance>` `<imagename>` 를 앞에서 반환 `package.location` 된의 값으로 바꿉니다.
 
     ```azurecli-interactive
-    az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
+    az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package@sha256:<imagename>
     ```
 
     이 명령은 다음 JSON 문서와 유사한 정보를 반환 합니다.
@@ -191,7 +191,7 @@ print(package.location)
 1. 컨테이너 레지스트리에 액세스 하는 데 필요한 자격 증명을 웹 앱에 제공 하려면 다음 명령을 사용 합니다. 사용할 `<app-name>` 이름으로 대체 합니다. 및 `<acrinstance>` `<imagename>` 를 앞에서 반환 `package.location` 된의 값으로 바꿉니다. 및 `<username>` 를 `<password>` 앞에서 검색 한 ACR 로그인 정보로 바꿉니다.
 
     ```azurecli-interactive
-    az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
+    az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package@sha256:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
     ```
 
     이 명령은 다음 JSON 문서와 유사한 정보를 반환 합니다.
@@ -220,7 +220,7 @@ print(package.location)
     },
     {
         "name": "DOCKER_CUSTOM_IMAGE_NAME",
-        "value": "DOCKER|myml08024f78fd10.azurecr.io/package:20190827195524"
+        "value": "DOCKER|myml08024f78fd10.azurecr.io/package@sha256:20190827195524"
     }
     ]
     ```
@@ -246,7 +246,7 @@ az webapp show --name <app-name> --resource-group myresourcegroup
 
 ## <a name="use-the-web-app"></a>웹 앱 사용
 
-모델에 요청을 전달 하는 웹 서비스는에 `{baseurl}/score`있습니다. `https://<app-name>.azurewebsites.net/score`)을 입력합니다. 다음 Python 코드는 URL에 데이터를 전송 하 고 응답을 표시 하는 방법을 보여 줍니다.
+모델에 요청을 전달 하는 웹 서비스는에 `{baseurl}/score`있습니다. 예: `https://<app-name>.azurewebsites.net/score` 다음 Python 코드는 URL에 데이터를 전송 하 고 응답을 표시 하는 방법을 보여 줍니다.
 
 ```python
 import requests

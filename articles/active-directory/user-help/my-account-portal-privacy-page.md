@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 94187cc7c0c3500a86d47a5f244457ee020581a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a97b79f7927c56a737723060cd9cb3218b12bf55
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062441"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625496"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>조직에서 개인 정보 관련 데이터를 사용하는 방법 보기
 
@@ -24,7 +24,7 @@ ms.locfileid: "77062441"
 
 ## <a name="view-your-privacy-related-info"></a>개인 관련 정보 보기
 
-1. 회사 또는 학교 계정에 로그인한 다음, https://myprofile.microsoft.com/ 페이지로 이동합니다.
+1. 회사 또는 학교 계정에 로그인한 다음, https://myaccount.microsoft.com/ 페이지로 이동합니다.
 
 2. 왼쪽 탐색 창에서 **개인 정보**를 선택하거나 **개인 정보** 블록에서 **개인 정보 검토** 링크를 선택합니다.
 

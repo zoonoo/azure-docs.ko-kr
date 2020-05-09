@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7a5967f52a187fe289c6fb1ca72af2d5fd17f010
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 680c1b036b9b41edb1115f478fd5dc8f63ea1d02
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255237"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688035"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여
 
@@ -115,7 +115,7 @@ SAS가 유용한 일반적인 시나리오로는 다른 사용자가 스토리�
 - **사용자의 계정에 SAS를 비롯 한 모든 사용량에 대 한 요금이 청구 됨을 이해 합니다.** Blob에 대 한 쓰기 권한을 제공 하는 경우 사용자는 200 GB blob을 업로드 하도록 선택할 수 있습니다. 사용자에게 읽기 권한도 제공한 경우 사용자가 이 Blob을 10번 다운로드하도록 선택하여 2TB의 발신 비용이 청구될 수 있습니다. 또한 제한된 권한을 제공하여 악의적인 사용자의 작업 가능성을 낮추세요. 단기 실행 SAS를 사용하여 이 위협을 줄이세요. 이때 종료 시간의 클럭 오차에 유의하세요.
 - **SAS를 사용 하 여 작성 된 데이터의 유효성을 검사 합니다.** 클라이언트 애플리케이션이 스토리지 계정에 데이터를 쓸 경우 해당 데이터에 문제가 있을 수 있습니다. 데이터를 사용할 준비가 되기 이전에 애플리케이션에서 데이터의 유효성을 검사하거나 권한을 부여해야 하는 경우 데이터를 작성한 이후 애플리케이션에서 데이터를 사용하기 이전에 유효성 검사를 수행해야 합니다. 그러면 SAS를 적절한 방법으로 습득한 사용자나 누설된 SAS를 악용하는 사용자로 인해 계정이 손상되거나 데이터에 악의적인 데이터가 기록되는 것을 방지할 수 있습니다.
 - **SAS를 사용 하지 않을 시기를 확인 합니다.** 경우에 따라 저장소 계정에 대 한 특정 작업과 관련 된 위험이 SAS 사용의 이점 보다 더 큽니다. 그런 작업에 대해서는 비즈니스 규칙 유효성 검사, 인증 및 감사를 수행한 이후에 스토리지 계정에 쓰는 중간 계층 서비스를 만듭니다. 또한 다른 방법으로 액세스를 관리하는 것이 더 간단한 경우도 있습니다. 예를 들어 컨테이너의 모든 Blob을 공개적으로 읽기 가능하도록 설정하려면 모든 클라이언트가 액세스하도록 SAS를 제공하는 대신에 컨테이너를 공용으로 설정할 수 있습니다.
-- **Azure Monitor 및 Azure Storage 로그를 사용 하 여 응용 프로그램을 모니터링 합니다.** Azure Monitor 및 저장소 분석 로깅을 사용 하 여 SAS 공급자 서비스의 가동 중단 또는 저장 된 액세스 정책의 실수로 제거로 인 한 권한 부여 오류의 급증을 관찰할 수 있습니다. 자세한 내용은 Azure Monitor 및 [Azure 스토리지 분석 로깅](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) [의 Azure Storage 메트릭](storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 을 참조 하세요.
+- **Azure Monitor 및 Azure Storage 로그를 사용 하 여 응용 프로그램을 모니터링 합니다.** Azure Monitor 및 저장소 분석 로깅을 사용 하 여 SAS 공급자 서비스의 가동 중단 또는 저장 된 액세스 정책의 실수로 제거로 인 한 권한 부여 오류의 급증을 관찰할 수 있습니다. 자세한 내용은 Azure Monitor 및 [Azure 스토리지 분석 로깅](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) [의 Azure Storage 메트릭](monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 을 참조 하세요.
 
 ## <a name="get-started-with-sas"></a>SAS 시작
 

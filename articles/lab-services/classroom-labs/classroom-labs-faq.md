@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 05/01/2020
 ms.author: spelluru
-ms.openlocfilehash: 8d1ed128181d036af0026ae273c2c5bf1d3a066e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ee64f26d0ff685a83718c5d5e3d6f6eaf9230807
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77443502"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691809"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Azure Lab Services의 교실 랩-질문과 대답 (FAQ)
 Azure Lab Services에서 교실 labs에 대해 가장 일반적인 질문 중 일부에 대 한 답변을 받으세요. 
@@ -57,6 +57,9 @@ Azure의 데이터 센터에 대 한 공용 IP 주소 범위를 제공 하는 [A
 ### <a name="as-a-lab-creator-why-cant-i-enable-additional-image-options-in-the-virtual-machine-images-dropdown-when-creating-a-new-lab"></a>랩 작성자로 서 새 랩을 만들 때 가상 머신 이미지 드롭다운에서 추가 이미지 옵션을 사용 하도록 설정할 수 없는 이유는 무엇입니까?
 
 관리자가 랩 계정에 랩 작성자로 사용자를 추가 하면 랩을 만들 수 있는 권한이 부여 됩니다. 하지만 사용 하도록 설정 된 가상 컴퓨터 이미지의 목록을 포함 하 여 랩 계정 내의 설정을 편집할 수 있는 권한이 없습니다. 추가 이미지를 사용 하도록 설정 하려면 랩 계정 관리자에 게 문의 하거나 관리자에 게 랩 계정에 참가자 역할로 추가 하도록 요청 하십시오. 참가자 역할은 랩 계정에서 가상 컴퓨터 이미지 목록을 편집할 수 있는 권한을 부여 합니다.
+
+### <a name="can-i-attach-additional-disks-to-a-virtual-machine"></a>가상 컴퓨터에 디스크를 더 연결할 수 있나요?
+아니요. 교실 랩에서 VM에 추가 디스크를 연결 하는 것은 불가능 합니다. 
 
 ## <a name="users"></a>사용자
 

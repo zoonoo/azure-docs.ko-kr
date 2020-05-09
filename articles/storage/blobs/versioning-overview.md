@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 64e0de153aa33bac17c2bed75b211ddca1bbd28c
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: 77af321b74a47306a7202c1fddf6e81edc0ee02a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884398"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926071"
 ---
 # <a name="blob-versioning-preview"></a>Blob 버전 관리 (미리 보기)
 
@@ -176,7 +176,7 @@ Blob 버전 관리는 실수로 인 한 삭제 또는 악의적인 삭제 로부
 
 다음 표에서는 blob 또는 blob 버전 삭제를 지 원하는 RBAC 동작을 보여 줍니다.
 
-| 설명 | Blob service 작업 | RBAC 데이터 작업 필요 | RBAC 기본 제공 역할 지원 |
+| Description | Blob service 작업 | RBAC 데이터 작업 필요 | RBAC 기본 제공 역할 지원 |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Blob의 현재 버전을 삭제 하는 중 | Blob 삭제 | **Microsoft. Storage/storageAccounts/blobServices/컨테이너/b l o b/삭제/actionDeleting** | Storage Blob 데이터 기여자 |
 | 버전 삭제 | Blob 삭제 | **Microsoft. Storage/storageAccounts/blobServices/컨테이너/b l o b/Deleteblob 버전/** | Storage Blob 데이터 소유자 |
@@ -227,6 +227,9 @@ PowerShell에 등록 하려면 [AzProviderFeature](/powershell/module/az.resourc
 ```powershell
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
+    
+# Refresh the Azure Storage provider namespace
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -251,9 +254,6 @@ PowerShell을 사용 하 여 등록 상태를 확인 하려면 [AzProviderFeatur
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -313,8 +313,8 @@ Blob 버전 관리를 사용 하는 경우 다음 사항을 고려해 야 합니
 
 ![Azure Storage 리소스](./media/versioning-overview/versions-billing-scenario-4.png)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-- [Blob 버전 관리 사용](versioning-enable.md)
+- [BLOB 버전 관리 사용](versioning-enable.md)
 - [Blob의 스냅숏 만들기](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 - [Azure Storage Blob에 대 한 일시 삭제](storage-blob-soft-delete.md)

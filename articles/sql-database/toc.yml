@@ -56,6 +56,11 @@
       href: sql-database-single-database-quickstart-guide.md
     - name: SQL 관리형 인스턴스
       href: sql-database-managed-instance-quickstart-guide.md
+- name: 샘플
+  items:
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
     - name: 기능 비교
@@ -189,7 +194,7 @@
               href: /sql/connect/sql-server-drivers
               items:
                 - name: ADO.NET
-                  href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+                  href: /sql/connect/ado-net/microsoft-ado-net-sql-server
                 - name: JDBC
                   href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
                 - name: Node.js
