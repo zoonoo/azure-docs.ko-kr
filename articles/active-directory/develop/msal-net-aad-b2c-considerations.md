@@ -1,7 +1,7 @@
 ---
-title: Azure AD B2C (MSAL.NET) | Microsoft
+title: Azure AD B2C 및 MSAL.NET
 titleSuffix: Microsoft identity platform
-description: Microsoft Authentication Library for .NET (MSAL.NET)과 함께 Azure AD B2C를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
+description: .NET 용 Microsoft Authentication Library (MSAL.NET)와 함께 Azure AD B2C를 사용할 때의 고려 사항
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -9,39 +9,39 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/29/2019
+ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: d31cf3a4e024dc59b865d096cbd0829d50f61a1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3aac63369dffa5b8ba0b9e55b5063ad8136c95cf
+ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81533958"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82883229"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>MSAL.NET를 사용 하 여 소셜 id로 사용자 로그인
 
 [Azure Active Directory B2C (Azure AD B2C)](https://aka.ms/aadb2c)를 사용 하 여 소셜 id로 사용자를 로그인 하는 데 MSAL.NET를 사용할 수 있습니다. Azure AD B2C은 정책의 개념을 중심으로 작성 되었습니다. MSAL.NET에서는 정책을 지정 하 여 권한을 제공 하는 것으로 해석 됩니다.
 
-- 공용 클라이언트 응용 프로그램을 인스턴스화할 때 기관에서 정책을 지정 해야 합니다.
-- 정책을 적용 하려는 경우 `AcquireTokenInteractive` `authority` 매개 변수를 포함 하는의 재정의를 호출 해야 합니다.
+- 공용 클라이언트 응용 프로그램을 인스턴스화하는 경우 정책을 기관 일부로 지정 해야 합니다.
+- 정책을 적용 하려는 경우 `AcquireTokenInteractive` `authority` 매개 변수를 허용 하는의 재정의를 호출 합니다.
 
-이 페이지는 MSAL 3.x 용입니다. MSAL 2.x에 관심이 있는 경우 [MSAL 2.x에서 Azure AD B2C 관련 사항을](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x)참조 하세요.
+이 문서는 MSAL.NET 3.x에 적용 됩니다. MSAL.NET 2.x의 경우 GitHub의 MSAL.NET Wiki에서 [MSAL 2.x에](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x) 대 한 자세한 Azure AD B2C을 참조 하세요.
 
-## <a name="authority-for-a-azure-ad-b2c-tenant-and-policy"></a>Azure AD B2C 테 넌 트 및 정책에 대 한 권한
+## <a name="authority-for-an-azure-ad-b2c-tenant-and-policy"></a>Azure AD B2C 테 넌 트 및 정책에 대 한 권한
 
-사용할 `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}` 기관은 다음과 같습니다.
+Azure AD B2C의 인증 기관 형식은 다음과 같습니다.`https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`
 
-- `azureADB2CHostname`는 Azure AD B2C 테 넌 트와 호스트 (예: `{your-tenant-name}.b2clogin.com`)의 이름입니다.
-- `tenant`Azure AD B2C 테 넌 트의 전체 이름 (예: `{your-tenant-name}.onmicrosoft.com`) 또는 테 넌 트의 GUID입니다.
-- `policyName`적용할 정책 또는 사용자 흐름의 이름 (예를 들어, 등록/로그인에 대 한 "b2c_1_susi").
+- `azureADB2CHostname`-Azure AD B2C 테 넌 트와 호스트의 이름입니다. 예를 들면 *contosob2c.b2clogin.com*입니다.
+- `tenant`-Azure AD B2C 테 넌 트의 도메인 이름 또는 디렉터리 (테 넌 트) ID입니다. 예를 들어 *contosob2c.onmicrosoft.com* 또는 GUID가 각각입니다.
+- `policyName`-적용할 사용자 흐름 또는 사용자 지정 정책의 이름입니다. 예를 들어 *b2c_1_susi*와 같은 등록/로그인 정책이 있습니다.
 
-Azure AD B2C 기관에 대 한 자세한 내용은이 [설명서](/azure/active-directory-b2c/b2clogin)를 참조 하세요.
+Azure AD B2C 기관에 대 한 자세한 내용은 [리디렉션 url을 b2clogin.com로 설정](../../active-directory-b2c/b2clogin.md)을 참조 하세요.
 
 ## <a name="instantiating-the-application"></a>응용 프로그램 인스턴스화
 
-응용 프로그램을 빌드하는 경우 권한을 제공 해야 합니다.
+응용 프로그램 개체를 만들 `WithB2CAuthority()` 때를 호출 하 여 권한을 제공 합니다.
 
 ```csharp
 // Azure AD B2C Coordinates
@@ -68,70 +68,76 @@ application = PublicClientApplicationBuilder.Create(ClientID)
 
 ```csharp
 IEnumerable<IAccount> accounts = await application.GetAccountsAsync();
-AuthenticationResult ar = await application .AcquireTokenInteractive(scopes)
-                                            .WithAccount(GetAccountByPolicy(accounts, policy))
-                                            .WithParentActivityOrWindow(ParentActivityOrWindow)
-                                            .ExecuteAsync();
+AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
+                                           .WithAccount(GetAccountByPolicy(accounts, policy))
+                                           .WithParentActivityOrWindow(ParentActivityOrWindow)
+                                           .ExecuteAsync();
 ```
 
-다음으로 바꿉니다.
+위의 코드 조각에서 다음을 수행 합니다.
 
-- `policy`이전 문자열 중 하나입니다 (예를 들어 `PolicySignUpSignIn`).
-- `ParentActivityOrWindow`는 Android (작업)에 필요 하며, windows의 windows 및 iOS의 UIViewController와 같이 부모 UI를 지 원하는 다른 플랫폼의 경우 선택 사항입니다. [UI 대화 상자에서](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow)자세한 내용을 참조 하세요.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)`는 지정 된 정책에 대 한 계정을 찾는 메서드입니다. 다음은 그 예입니다.
+- `policy`Azure AD B2C 사용자 흐름 또는 사용자 지정 정책 (예: `PolicySignUpSignIn`)의 이름을 포함 하는 문자열입니다.
+- `ParentActivityOrWindow`는 Android (활동)에 필요 하며 iOS의 Microsoft Windows 및 UIViewController와 같은 부모 UI를 지 원하는 다른 플랫폼의 경우 선택 사항입니다. UI 대화 상자에 대 한 자세한 내용은 MSAL Wiki의 [Withparentactivityorwindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) 를 참조 하십시오.
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)`는 지정 된 정책에 대 한 계정을 찾는 메서드입니다. 예를 들어:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
   {
-   foreach (var account in accounts)
-   {
-    string userIdentifier = account.HomeAccountId.ObjectId.Split('.')[0];
-    if (userIdentifier.EndsWith(policy.ToLower()))
-     return account;
-   }
-   return null;
+      foreach (var account in accounts)
+      {
+          string userIdentifier = account.HomeAccountId.ObjectId.Split('.')[0];
+          if (userIdentifier.EndsWith(policy.ToLower()))
+              return account;
+      }
+      return null;
   }
   ```
 
-을 호출 `AcquireTokenInteractive`하 여 정책 또는 사용자 흐름 (예: 최종 사용자가 프로필을 편집 하거나 암호를 다시 설정 하도록 허용)을 적용 하는 것이 현재 수행 됩니다. 이러한 두 정책의 경우 반환 된 토큰/인증 결과를 사용 하지 않습니다.
+사용자 흐름 또는 사용자 지정 정책 적용 (예: 사용자가 프로필을 편집 하거나 암호를 다시 설정 하는 등)은 현재를 `AcquireTokenInteractive`호출 하 여 수행 됩니다. 이러한 두 정책의 경우 반환 된 토큰/인증 결과를 사용 하지 않습니다.
 
-## <a name="special-case-of-editprofile-and-resetpassword-policies"></a>EditProfile 및 ResetPassword 정책의 특수 한 경우
+## <a name="profile-edit-policies"></a>프로필 편집 정책
 
-최종 사용자가 소셜 id를 사용 하 여 로그인 한 다음 프로필을 편집 하는 환경을 제공 하려는 경우 Azure AD B2C 프로필 편집 정책을 적용 합니다. 이 작업을 수행 하는 방법은 해당 `AcquireTokenInteractive` 정책에 대 한 특정 권한을 사용 하 여를 호출 하 고 `Prompt.NoPrompt` , 사용자가 이미 로그인 되어 있고 활성 쿠키 세션이 있으므로 계정 선택 대화 상자가 표시 되지 않도록 하는 프롬프트를로 설정 하는 것입니다.
+사용자가 소셜 id를 사용 하 여 로그인 한 다음 프로필을 편집할 수 있도록 하려면 프로필 편집 정책 Azure AD B2C 적용 합니다.
+
+이렇게 하려면 해당 정책 `AcquireTokenInteractive` 에 대 한 권한을 사용 하 여를 호출 합니다. 사용자가 이미 로그인 되어 있고 활성 쿠키 세션이 있으므로를 사용 `Prompt.NoPrompt` 하 여 계정 선택 대화 상자가 표시 되지 않도록 합니다.
 
 ```csharp
 private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
 {
- IEnumerable<IAccount> accounts = await app.GetAccountsAsync();
- try
- {
-  var authResult = await app.AcquireToken(scopes:App.ApiScopes)
-                               .WithAccount(GetUserByPolicy(accounts, App.PolicyEditProfile)),
-                               .WithPrompt(Prompt.NoPrompt),
-                               .WithB2CAuthority(App.AuthorityEditProfile)
-                               .ExecuteAsync();
-  DisplayBasicTokenInfo(authResult);
- }
- catch
- {
-  . . .
- }
+    IEnumerable<IAccount> accounts = await app.GetAccountsAsync();
+    try
+    {
+        var authResult = await app.AcquireToken(scopes:App.ApiScopes)
+                            .WithAccount(GetUserByPolicy(accounts, App.PolicyEditProfile)),
+                            .WithPrompt(Prompt.NoPrompt),
+                            .WithB2CAuthority(App.AuthorityEditProfile)
+                            .ExecuteAsync();
+        DisplayBasicTokenInfo(authResult);
+    }
+    catch
+    {
+    }
 }
 ```
-## <a name="resource-owner-password-credentials-ropc-with-azure-ad-b2c"></a>Azure AD B2C를 사용 하는 ROPC (리소스 소유자 암호 자격 증명)
-ROPC 흐름에 대 한 자세한 내용은이 [설명서](v2-oauth-ropc.md)를 참조 하세요.
 
-사용자에 게 암호를 요청 하는 응용 프로그램은 안전 하지 않으므로이 흐름은 사용 하지 않는 것이 **좋습니다** . 이 문제에 대 한 자세한 내용은 [이 문서](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/)를 참조 하세요.
+## <a name="resource-owner-password-credentials-ropc"></a>리소스 소유자 암호 자격 증명 (ROPC)
 
-사용자 이름/암호를 사용 하 여 다음과 같은 여러 가지를 제공 합니다.
-- 최신 id의 핵심 개념: 암호는 fished를 가져온 후 재생 됩니다. 이 개념은 가로챌 수 있는 공유 암호의 개념입니다. 이는 passwordless와 호환 되지 않습니다.
+ROPC 흐름에 대 한 자세한 내용은 [리소스 소유자 암호 자격 증명 부여를 사용 하 여 로그인](v2-oauth-ropc.md)을 참조 하세요.
+
+응용 프로그램에서 사용자의 암호를 입력 하 라는 메시지가 안전 하지 않으므로 ROPC 흐름을 사용 **하지 않는** 것이 좋습니다. 이 문제에 대 한 자세한 내용은 [암호의 증가 하는 문제에 대 한 해결책은 무엇 인가요?를](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/)참조 하세요.
+
+ROPC flow에서 사용자 이름/암호를 사용 하 여 다음과 같은 몇 가지 작업을 수행할 수 있습니다.
+
+- 최신 id의 핵심 개념: 공유 암호를 가로챌 수 있으므로 암호를 fished 하거나 재생할 수 있습니다. 정의에 따라 ropc는 암호 없는 흐름과 호환 되지 않습니다.
 - MFA를 수행 해야 하는 사용자는 상호 작용이 없으므로 로그인 할 수 없습니다.
-- 사용자가 Single Sign-On을 수행할 수 없습니다.
+- 사용자는 SSO (Single Sign-On)를 사용할 수 없습니다.
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>Azure AD B2C에서 ROPC 흐름 구성
-Azure AD B2C 테 넌 트에서 새 사용자 흐름을 만들고 **ROPC를 사용 하 여 로그인**을 선택 합니다. 그러면 테 넌 트에 대해 ROPC 정책이 사용 됩니다. 자세한 내용은 [리소스 소유자 암호 자격 증명 흐름 구성](/azure/active-directory-b2c/configure-ropc) 을 참조 하세요.
 
-`IPublicClientApplication`에는 메서드가 포함 되어 있습니다.
+Azure AD B2C 테 넌 트에서 새 사용자 흐름을 만들고 **ROPC를 사용 하 여 로그인** 을 선택 하 여 사용자 흐름에 ropc를 사용 하도록 설정 합니다. 자세한 내용은 [리소스 소유자 암호 자격 증명 흐름 구성](/azure/active-directory-b2c/configure-ropc)을 참조 하세요.
+
+`IPublicClientApplication`메서드를 `AcquireTokenByUsernamePassword` 포함 합니다.
+
 ```csharp
 AcquireTokenByUsernamePassword(
             IEnumerable<string> scopes,
@@ -139,44 +145,50 @@ AcquireTokenByUsernamePassword(
             SecureString password)
 ```
 
-이 메서드는를 매개 변수로 사용 합니다.
-- 액세스 토큰을 요청 하는 *범위* 입니다.
+이 `AcquireTokenByUsernamePassword` 메서드는 다음 매개 변수를 사용 합니다.
+
+- 액세스 토큰을 가져올 *범위* 입니다.
 - *사용자 이름*입니다.
 - 사용자의 SecureString *암호* 입니다.
 
-ROPC 정책이 포함 된 기관을 사용 해야 합니다.
-
 ### <a name="limitations-of-the-ropc-flow"></a>ROPC 흐름의 제한 사항
- - ROPC flow는 **로컬 계정** (전자 메일 또는 사용자 이름을 사용 하 여 Azure AD B2C에 등록 하는 경우) 에서만 작동 합니다. Azure AD B2C에서 지 원하는 id 공급자 (Facebook, Google 등)에 페더레이션 하는 경우에는이 흐름이 작동 하지 않습니다.
+
+ROPC 흐름은 사용자가 전자 메일 주소 또는 사용자 이름을 사용 하 여 Azure AD B2C에 등록 한 **로컬 계정에만 작동**합니다. Azure AD B2C (Facebook, Google 등)에서 지 원하는 외부 id 공급자에 페더레이션 하는 경우이 흐름이 작동 하지 않습니다.
 
 ## <a name="google-auth-and-embedded-webview"></a>Google 인증 및 포함 된 웹 보기
 
-Google을 id 공급자로 사용 하는 Azure AD B2C 개발자 인 경우 Google은 [포함 된 웹 보기의 인증](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)을 허용 하지 않으므로 시스템 브라우저를 사용 합니다. `login.microsoftonline.com` 현재는 Google을 사용 하는 신뢰할 수 있는 기관입니다. 이 권한을 사용 하면 포함 된 웹 보기를 사용할 수 있습니다. 그러나를 `b2clogin.com` 사용 하는 것은 Google의 신뢰할 수 있는 기관이 아니므로 사용자는 인증할 수 없습니다.
+Google을 id 공급자로 사용 하는 경우 Google [에서 포함 된 웹 보기 인증](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)을 허용 하지 않으므로 시스템 브라우저를 사용 하는 것이 좋습니다. `login.microsoftonline.com` 현재는 Google을 사용 하는 신뢰할 수 있는 인증 기관 이며 포함 된 웹 보기를 사용할 수 있습니다. 그러나 `b2clogin.com` 는 Google을 사용 하 여 신뢰할 수 있는 기관이 아니므로 사용자는 인증할 수 없습니다.
 
 변경 사항이 있는 경우이 [문제](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688) 에 대 한 업데이트를 제공 합니다.
 
-## <a name="caching-with-azure-ad-b2c-in-msalnet"></a>MSAL.Net에서 Azure AD B2C를 사용한 캐싱
+## <a name="token-caching-in-msalnet"></a>MSAL.NET의 토큰 캐싱
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Azure AD B2C의 알려진 문제
 
-MSAL.Net는 [토큰 캐시](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet)를 지원 합니다. 토큰 캐싱 키는 Id 공급자가 반환 하는 클레임을 기반으로 합니다. 현재 MSAL.Net는 토큰 캐시 키를 작성 하는 데 두 가지 클레임이 필요 합니다.
-- `tid`Azure AD 테 넌 트 ID 및
+MSAL.NET는 [토큰 캐시](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet)를 지원 합니다. 토큰 캐싱 키는 IdP (id 공급자)에서 반환 하는 클레임을 기반으로 합니다.
+
+현재 MSAL.NET는 토큰 캐시 키를 작성 하는 데 두 가지 클레임이 필요 합니다.
+
+- `tid`(Azure AD 테 넌 트 ID)
 - `preferred_username`
 
-이러한 두 클레임은 다 수의 Azure AD B2C 시나리오에서 누락 되었습니다.
+일부 소셜 id 공급자 (Facebook, Google 및 기타)가 Azure AD B2C 반환 하는 토큰으로 반환 하기 때문에 Azure AD B2C 시나리오에서는 이러한 클레임이 모두 누락 될 수 있습니다.
 
-고객의 영향은 사용자 이름 필드를 표시 하려고 할 때 값으로 "토큰 응답에서 누락"을 가져오는 것입니다. 이 경우 Azure AD B2C는 소셜 계정 및 Idtoken (외부 id 공급자)의 제한으로 인해 preferred_username의 IdToken에 값을 반환 하지 않기 때문입니다. 사용자가 로컬 계정, Facebook, Google, GitHub 등을 사용 하 여 로그인 할 수 있기 때문에 Azure AD는 사용자가 누구이 고 Azure AD B2C에 대해 사용자가 로그인 할 수 있으므로 preferred_username 값을 반환 합니다. preferred_username에 사용할 Azure AD B2C에는 일관 된 값이 없습니다. MSAL에서 ADAL과의 캐시 호환성을 차단 해제 하려면 IdToken이 preferred_username에 대해 아무 것도 반환 하지 않을 때 Azure AD B2C 계정을 처리할 때 끝에 "토큰 응답에서 누락"을 사용 하기로 결정 했습니다. MSAL은 라이브러리 간에 캐시 호환성을 유지 하기 위해 preferred_username 값을 반환 해야 합니다.
+이러한 시나리오의 증상은 Azure AD B2C에서 발급 한 토큰 `Missing from the token response` 의 `preferred_username` 클레임 값에 액세스할 때 MSAL.NET가를 반환 한다는 것입니다. MSAL은 `Missing from the token response` 의 `preferred_username` 값을 사용 하 여 라이브러리 간에 캐시 간 호환성을 유지 합니다.
 
 ### <a name="workarounds"></a>해결 방법
 
-#### <a name="mitigation-for-the-missing-tenant-id"></a>누락 된 테 넌 트 ID에 대 한 완화
+#### <a name="mitigation-for-missing-tenant-id"></a>누락 된 테 넌 트 ID에 대 한 완화
 
-권장 되는 해결 방법은 정책에의 한 [캐싱을](#acquire-a-token-to-apply-a-policy) 사용 하는 것입니다.
+제안 된 해결 방법은 위에 설명 된 [정책에 따라 캐싱](#acquire-a-token-to-apply-a-policy) 을 사용 하는 것입니다.
 
-또는 [B2C 사용자 지정 정책을](https://aka.ms/ief)사용 `tid` 하는 경우 응용 프로그램에 추가 클레임을 반환 하는 기능을 제공 하므로 클레임을 사용할 수 있습니다. [클레임 변환](/azure/active-directory-b2c/claims-transformation-technical-profile) 에 대 한 자세한 정보
+또는 Azure AD B2C에서 `tid` [사용자 지정 정책을](../../active-directory-b2c/custom-policy-get-started.md) 사용 하는 경우 클레임을 사용할 수 있습니다. 사용자 지정 정책은 [클레임 변환을](/azure/active-directory-b2c/claims-transformation-technical-profile)사용 하 여 응용 프로그램에 추가 클레임을 반환할 수 있습니다.
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>"토큰 응답에 없음"에 대 한 완화
-한 가지 옵션은 "이름" 클레임을 기본 사용자 이름으로 사용 하는 것입니다. 프로세스는이 [B2C > 문서](../../active-directory-b2c/user-flow-overview.md) 에 설명 되어 있습니다. 반환 클레임 열에서 프로필 편집 환경에 성공 후 응용 프로그램으로 다시 보낸 권한 부여 토큰에서 반환 하려는 클레임을 선택 합니다. 예를 들어 표시 이름, 우편 번호를 선택 합니다.
+
+한 가지 옵션은 대신 `name` 클레임을 사용 하 `preferred_username`는 것입니다. Azure AD B2C에서 발급 `name` 한 ID 토큰에 클레임을 포함 하려면 사용자 흐름을 구성할 때 **표시 이름** 을 선택 합니다.
+
+사용자 흐름에서 반환 되는 클레임을 지정 하는 방법에 대 한 자세한 내용은 [자습서: Azure AD B2C에서 사용자 흐름 만들기](../../active-directory-b2c/tutorial-create-user-flows.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -184,4 +196,4 @@ Azure AD B2C 응용 프로그램에 대 한 MSAL.NET를 대화형으로 토큰�
 
 | 예제 | 플랫폼 | Description|
 |------ | -------- | -----------|
-|[b2c-xamarin-네이티브](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | 간단한 Xamarin Forms 앱은 MSAL.NET를 사용 하 여 Azure AD B2C를 통해 사용자를 인증 하 고 결과 토큰을 사용 하 여 web API에 액세스 하는 방법을 보여주는.|
+|[b2c-xamarin-네이티브](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | MSAL.NET를 사용 하 여 Azure AD B2C를 통해 사용자를 인증 한 후 반환 된 토큰을 사용 하 여 web API에 액세스 하는 Xamarin Forms 앱입니다.|

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 9f9cc4c29b117c83595a36c4e28b1edb428c3cde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4b02039c86f43e6bebed58dfff475816f09a3da1
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82254123"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890137"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Azure Cognitive Search의 유사성 및 점수 매기기
 
@@ -59,16 +59,9 @@ Azure Cognitive Search는 두 가지 유사성 순위 알고리즘을 지원 합
 
 지금은 사용할 유사성 순위 알고리즘을 지정할 수 있습니다. 자세한 내용은 [순위 알고리즘](index-ranking-similarity.md)을 참조 하세요.
 
-## <a name="watch-this-video"></a>이 동영상 시청
+다음 비디오 세그먼트는 Azure Cognitive Search에서 사용 되는 순위 알고리즘에 대 한 설명으로 신속 하 게 전달 됩니다. 자세한 배경 정보는 전체 비디오를 볼 수 있습니다.
 
-이 16 분 분량의 비디오에서는 소프트웨어 엔지니어 Raouf Merouche에서 인덱싱, 쿼리 및 점수 매기기 프로필을 만드는 방법에 대해 설명 합니다. 문서를 인덱싱하고 검색할 때 내부적으로 진행 되는 상황을 이해 하는 데 도움이 됩니다.
-
->[!VIDEO https://channel9.msdn.com/Shows/AI-Show/Similarity-and-Scoring-in-Azure-Cognitive-Search/player]
-
-+ 2-3 분의 인덱싱: 텍스트 처리 및 어휘 분석
-+ 3-4 분 (인덱스 포함): 반전 인덱스.
-+ 4-6 분 쿼리: 검색 및 순위 지정
-+ 7-16 분은 점수 매기기 프로필을 포함 합니다.
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
 ## <a name="see-also"></a>참조
 

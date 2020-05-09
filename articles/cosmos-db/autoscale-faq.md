@@ -1,50 +1,50 @@
 ---
-title: 자동 크기 조정 모드의 Azure Cosmos DB에 대 한 질문과 대답
+title: Azure Cosmos DB의 자동 크기 조정 프로 비전 된 처리량에 대 한 질문과 대답
 description: Azure Cosmos DB 데이터베이스 및 컨테이너에 대 한 자동 크기 조정 프로 비전 된 처리량에 대 한 질문과 대답
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 413e9c71850b047172859c681cdbb422b7def032
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa4c2708f34a377a17914c7e6e5abdd709cbb5b1
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196466"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791785"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 자동 크기 조정 프로 비전 된 처리량에 대 한 질문과 대답
 
-자동 크기 조정 모드에서 프로 비전 된 처리량을 사용 하는 경우에는 사용량에 따라 컨테이너 또는 데이터베이스의 o s/s가 자동으로 관리 및 확장 Azure Cosmos DB. 이 문서에서는 자동 크기 조정에 대 한 자주 묻는 질문에 답변 합니다.
+자동 크기 조정 프로 비전 된 처리량을 사용 하 여 Azure Cosmos DB은 사용에 따라 컨테이너 또는 데이터베이스의 r u/s를 자동으로 관리 하 고 크기를 조정 합니다. 이 문서에서는 자동 크기 조정에 대 한 자주 묻는 질문에 답변 합니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-### <a name="is-autoscale-mode-supported-for-all-apis"></a>모든 Api에 대해 자동 크기 조정 모드가 지원 되나요?
-예, 자동 크기 조정 모드는 모든 Api에 대해 지원 됩니다. 코어 (SQL), Gremlin, 테이블, Cassandra 및 MongoDB 용 API입니다.
+### <a name="is-autoscale-supported-for-all-apis"></a>모든 Api에 대해 자동 크기 조정이 지원 되나요?
+예, 자동 크기 조정은 모든 Api에 대해 지원 됩니다. 코어 (SQL), Gremlin, 테이블, Cassandra 및 MongoDB 용 API입니다.
 
-### <a name="is-autoscale-mode-supported-for-multi-master-accounts"></a>다중 마스터 계정에 대해 자동 크기 조정 모드가 지원 되나요?
-예, 자동 크기 조정 모드는 다중 마스터 계정에 대해 지원 됩니다. Cosmos 계정에 추가 된 각 지역에서 최대 r u/초를 사용할 수 있습니다. 
+### <a name="is-autoscale-supported-for-multi-master-accounts"></a>다중 마스터 계정에 대해 자동 크기 조정이 지원 되나요?
+예, 자동 크기 조정은 다중 마스터 계정에 대해 지원 됩니다. Cosmos 계정에 추가 된 각 지역에서 최대 r u/초를 사용할 수 있습니다. 
 
-### <a name="what-is-the-pricing-for-autoscale"></a>자동 크기 조정의 가격은 무엇 인가요?
+### <a name="what-is-the-pricing-for-autoscale-"></a>자동 크기 조정의 가격은 무엇 인가요?
 자세한 내용은 Azure Cosmos DB [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 를 참조 하세요. 
 
 ### <a name="how-do-i-enable-autoscale-for-my-containers-or-databases"></a>내 컨테이너 또는 데이터베이스에 자동 크기 조정을 사용 하도록 설정 어떻게 할까요??
-새 컨테이너와 Azure Portal를 사용 하 여 만든 데이터베이스에서 자동 크기 조정 모드를 사용 하도록 설정할 수 있습니다. 
+자동 크기 조정은 새 컨테이너와 Azure Portal를 사용 하 여 만든 데이터베이스에서 사용할 수 있습니다.
 
-### <a name="is-there-cli-or-sdk-support-to-create-containers-or-databases-with-autoscale-mode"></a>자동 크기 조정 모드를 사용 하 여 컨테이너 또는 데이터베이스를 만들 수 있는 CLI 또는 SDK 지원이 있나요?
-현재 Azure Portal에서 자동 크기 조정 모드를 사용 하는 리소스만 만들 수 있습니다. CLI 및 SDK에 대 한 지원은 아직 사용할 수 없습니다.
+### <a name="is-there-cli-or-sdk-support-to-create-containers-or-databases-with-autoscale-provisioned-throughput"></a>자동 크기 조정 프로 비전 된 처리량을 가진 컨테이너 또는 데이터베이스를 만들 수 있는 CLI 또는 SDK 지원이 있나요?
+현재 Azure Portal에서 자동 크기 조정 프로 비전 된 처리량 으로만 리소스를 만들 수 있습니다. CLI 및 SDK에 대 한 지원은 아직 사용할 수 없습니다.
 
 ### <a name="can-i-enable-autoscale-on-an-existing-container-or-a-database"></a>기존 컨테이너 또는 데이터베이스에서 자동 크기 조정을 사용 하도록 설정할 수 있나요?
-현재 새 컨테이너와 데이터베이스를 만들 때 자동 크기 조정을 사용 하도록 설정할 수 있습니다. 기존 컨테이너 및 데이터베이스에서 자동 크기 조정 모드를 사용 하도록 지원할 수 없습니다. [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) 또는 [변경 피드](change-feed.md)를 사용 하 여 기존 컨테이너를 새 컨테이너로 마이그레이션할 수 있습니다. 
+현재 새 컨테이너와 데이터베이스를 만들 때 자동 크기 조정을 사용 하도록 설정할 수 있습니다. 기존 컨테이너 및 데이터베이스에서 자동 크기 조정을 사용 하도록 지원할 수 없습니다. [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) 또는 [변경 피드](change-feed.md)를 사용 하 여 기존 컨테이너를 새 컨테이너로 마이그레이션할 수 있습니다. 
 
-### <a name="can-i-turn-off-autoscale-mode-on-a-container-or-database"></a>컨테이너 또는 데이터베이스에서 자동 크기 조정 모드를 해제할 수 있나요?
-예, 프로 비전 된 처리량에 대해 ' 수동 ' 옵션으로 전환 하 여 자동 크기 조정을 해제할 수 있습니다. 현재 릴리스에서 자동 크기 조정 모드에서 수동 모드로 전환한 후에는 동일한 리소스에 대해 자동 크기 조정을 다시 사용 하도록 설정할 수 없습니다. 
+### <a name="can-i-turn-off-autoscale-on-a-container-or-database"></a>컨테이너 또는 데이터베이스에서 자동 크기 조정을 해제할 수 있나요?
+예, 프로 비전 된 처리량에 대해 ' 표준 (수동) ' 옵션으로 전환 하 여 자동 크기 조정을 해제할 수 있습니다. 현재 릴리스에서 자동 크기 조정을 표준 프로 비전 된 처리량으로 전환한 후 동일한 리소스에 대해 자동 크기 조정을 다시 사용 하도록 설정할 수 없습니다. 
 
-### <a name="is-autoscale-mode-supported-for-shared-throughput-databases"></a>공유 처리량 데이터베이스에 대해 자동 크기 조정 모드가 지원 되나요?
-예, 자동 크기 조정 모드는 공유 처리량 데이터베이스에 대해 지원 됩니다. 이 기능을 사용 하려면 데이터베이스를 만들 때 자동 크기 조정 모드와 **처리량 프로 비전** 옵션을 선택 합니다. 
+### <a name="is-autoscale-supported-for-shared-throughput-databases"></a>공유 처리량 데이터베이스에 자동 크기 조정이 지원 되나요?
+예, 자동 크기 조정은 공유 처리량 데이터베이스에 대해 지원 됩니다. 이 기능을 사용 하려면 데이터베이스를 만들 때 자동 크기 조정 및 **처리량 프로 비전** 옵션을 선택 합니다. 
 
 ### <a name="what-is-the-number-of-allowed-collections-per-shared-throughput-database-when-autoscale-is-enabled"></a>자동 크기 조정을 사용 하는 경우 공유 처리량 데이터베이스당 허용 되는 컬렉션 수는 얼마 인가요?
-자동 크기 조정 모드를 사용 하는 공유 처리량 데이터베이스의 경우 허용 되는 컬렉션 수는 MIN (25, Max o s/s의 데이터베이스/1000)입니다. 예를 들어 데이터베이스의 최대 처리량이 2만 r u/초 이면 데이터베이스에 MIN (25, 2만 r u/s/1000) = 20 개의 컬렉션이 있을 수 있습니다. 
+자동 크기 조정을 사용 하는 공유 처리량 데이터베이스의 경우 허용 되는 컬렉션 수는 MIN (25, Max o s/s/s/s의 데이터베이스/1000)입니다. 예를 들어 데이터베이스의 최대 처리량이 2만 r u/초 이면 데이터베이스에 MIN (25, 2만 r u/s/1000) = 20 개의 컬렉션이 있을 수 있습니다. 
 
 
 ### <a name="what-is-the-storage-limit-associated-with-each-max-rus-option"></a>각 max o s/s 옵션과 관련 된 저장소 제한은 무엇 인가요?  
@@ -54,13 +54,13 @@ ms.locfileid: "82196466"
 데이터베이스 또는 컨테이너의 최대 처리량과 관련 된 저장소 제한을 초과 하는 경우 Azure Cosmos DB는 해당 저장소 수준을 지원할 수 있는 가장 높은 다음 계층으로 최대 처리량을 자동으로 증가 시킵니다. 예를 들어 데이터베이스 또는 컨테이너가 4000 r u/초 최대 처리량 옵션으로 프로 비전 되 고 저장소 한도가 50 GB 인 경우 리소스의 저장소가 100 GB로 증가 하는 경우 데이터베이스 또는 컨테이너의 최대 r u/s가 자동으로 2만/s로 증가 하 여 최대 200 GB를 지원할 수 있습니다. 
 
 ### <a name="how-quickly-will-autoscale-up-and-down-based-on-spikes-in-traffic"></a>트래픽 급증을 기준으로 얼마나 신속 하 게 크기를 조정할 수 있나요?
-자동 크기 조정 모드에서는 들어오는 트래픽에 따라 최소 및 최대 r u/초 범위 내에서 r u/초를 즉시 확장 하거나 축소할 수 있습니다. 요금은 1 시간 단위로 수행 되며, 여기서는 특정 시간에 최고/초에 대해 요금이 청구 됩니다.
+자동 크기 조정을 사용 하면 들어오는 트래픽에 따라 최소 및 최대 r u/초 범위 내에서 r u/초를 즉시 확장 하거나 축소할 수 있습니다. 요금은 1 시간 단위로 수행 되며, 여기서는 특정 시간에 최고/초에 대해 요금이 청구 됩니다.
 
-### <a name="can-i-specify-a-custom-max-throughput-rus-value-for-autoscale-mode"></a>자동 크기 조정 모드에 대해 사용자 지정 최대 처리량 (r u/초) 값을 지정할 수 있나요?
+### <a name="can-i-specify-a-custom-max-throughput-rus-value-for-autoscale"></a>자동 크기 조정에 대 한 사용자 지정 최대 처리량 (r u/초) 값을 지정할 수 있나요?
 현재 최대 처리량 (r u/초)에 대해 [네 가지 옵션](provision-throughput-autoscale.md#autoscale-limits) 중에서 선택할 수 있습니다.
 
 ### <a name="can-i-increase-the-max-rus-move-to-a-higher-tier-on-the-database-or-container"></a>데이터베이스 또는 컨테이너에서 최대 r u/초 (상위 계층으로 이동)를 늘릴 수 있나요? 
-예. 컨테이너에 대 한 **크기 조정 & 설정** 옵션 또는 데이터베이스에 대 한 **크기 조정** 옵션에서 자동 크기 조정 모드에 대해 더 높은 최대 r u/초를 선택할 수 있습니다. 이는 서비스에서 더 높은 규모를 지원 하기 위해 더 많은 리소스를 프로 비전 하기 때문에 완료 하는 데 시간이 오래 걸릴 수 있는 비동기 확장 작업 (일반적으로 선택 된 r u/s에 따라 4-6 시간)입니다. 
+예. 컨테이너에 대 한 **크기 조정 & 설정** 옵션 또는 데이터베이스에 대 한 **크기 조정** 옵션에서 자동 크기 조정에 대해 더 높은 최대 r u/초를 선택할 수 있습니다. 이는 서비스에서 더 높은 규모를 지원 하기 위해 더 많은 리소스를 프로 비전 하기 때문에 완료 하는 데 시간이 오래 걸릴 수 있는 비동기 확장 작업 (일반적으로 선택 된 r u/s에 따라 4-6 시간)입니다. 
 
 ### <a name="can-i-reduce-the-max-rus-move-to-a-lower-tier-on-the-database-or-container"></a>데이터베이스 또는 컨테이너에서 최대 r u/초 (하위 계층으로 이동)를 줄일 수 있나요?
 예. 데이터베이스 또는 컨테이너의 현재 저장소가 규모를 축소 하려는 최대 r u/s 계층에 연결 된 [저장소 제한](#what-is-the-storage-limit-associated-with-each-max-rus-option) 보다 낮은 경우 해당 계층에 대 한 최대 r u/초를 줄일 수 있습니다. 예를 들어 최대 r u/초로 2만 o s/s를 선택한 경우 50 GB 저장소 (4000 r u/s와 관련 된 저장소 용량) 보다 작은 경우 최대 r u/초를 4000 r u/초로 축소할 수 있습니다.
@@ -86,5 +86,5 @@ ms.locfileid: "82196466"
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Cosmos 컨테이너 또는 데이터베이스에서 자동 크기 조정을 사용 하도록 설정](provision-throughput-autoscale.md#create-db-container-autoscale)하는 방법을 알아봅니다.
-* [자동 크기 조정 모드에서 프로 비전 된 처리량의 이점](provision-throughput-autoscale.md#autoscale-benefits)에 대해 알아봅니다.
+* [자동 크기 조정으로 프로 비전 된 처리량의 이점 ](provision-throughput-autoscale.md#autoscale-benefits)에 대해 알아봅니다.
 * [논리 및 실제 파티션에](partition-data.md)대해 자세히 알아보세요.

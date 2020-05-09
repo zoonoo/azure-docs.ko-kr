@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: a4117acb2fada5c4422e177e9e6b84d7a0a51b69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0cf8a91ee1dbdd70f1b911dba24fb69ee7bc0e3
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129311"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744402"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 개인 끝점 이란?
 
@@ -35,7 +35,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 개인 끝점에 대 한 몇 가지 주요 정보는 다음과 같습니다. 
 - 개인 끝점을 사용 하면 동일한 VNet, 지역적으로 피어 링 Vnet, 글로벌 피어 링 Vnet 및 온-프레미스에서 [VPN](https://azure.microsoft.com/services/vpn-gateway/) 또는 [Express 경로](https://azure.microsoft.com/services/expressroute/) 를 사용 하는 소비자와 개인 링크를 통해 제공 되는 서비스 간의 연결이 가능해 집니다.
  
-- 개인 끝점을 만들 때 리소스 수명 주기에 대 한 네트워크 인터페이스도 생성 됩니다. 인터페이스에는 개인 링크 서비스에 매핑되는 서브넷의 개인 IP 주소가 할당 됩니다.
+- 개인 끝점을 만들 때 리소스 수명 주기에 대 한 읽기 전용 네트워크 인터페이스도 생성 됩니다. 인터페이스에는 개인 링크 리소스에 매핑되는 서브넷의 개인 IP 주소가 할당 됩니다.
  
 - 개인 끝점은 가상 네트워크와 동일한 지역에 배포 되어야 합니다. 
  

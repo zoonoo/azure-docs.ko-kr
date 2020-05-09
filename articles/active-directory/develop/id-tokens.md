@@ -1,5 +1,6 @@
 ---
-title: Microsoft id 플랫폼 ID 토큰 참조
+title: Microsoft id 플랫폼 ID 토큰 | Microsoft
+titleSuffix: Microsoft identity platform
 description: Azure AD v1.0 및 v2.0 (Microsoft identity platform) 끝점에서 내보낸 id_tokens를 사용 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: hpsin
@@ -8,21 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 0d1a5ee3ae56e8b5c4886308624159853c52b52c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: e0e327d169c246d023be1aca27d6844b9b92f03e
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690177"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926717"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft id 플랫폼 ID 토큰
 
-`id_tokens`는 [OpenID Connect](v2-protocols-oidc.md) 흐름의 일부로 클라이언트 애플리케이션에 전송됩니다. 액세스 토큰과 함께 또는 액세스 토큰 대신 보낼 수 있고 클라이언트가 사용자를 인증하는 데 사용됩니다.
+`id_tokens`는 oidc ( [Openid connect Connect](v2-protocols-oidc.md) ) 흐름의 일부로 클라이언트 응용 프로그램으로 전송 됩니다. 액세스 토큰과 함께 또는 액세스 토큰 대신 보낼 수 있고 클라이언트가 사용자를 인증하는 데 사용됩니다.
 
 ## <a name="using-the-id_token"></a>id_token 사용
 
@@ -30,7 +31,7 @@ ID 토큰은 사용자가 누구 인지를 확인 하 고, 사용자에 대 한 
 
 ## <a name="claims-in-an-id_token"></a>Id_token의 클레임
 
-Microsoft ID용 `id_tokens`는 [JWT](https://tools.ietf.org/html/rfc7519)입니다. 즉 헤더, 페이로드, 서명 부분으로 구성됩니다. 헤더와 서명을 사용하여 토큰의 신뢰성을 확인할 수 있으며, 페이로드에는 클라이언트가 요청한 사용자에 관한 정보가 포함됩니다. 명시된 경우를 제외하고 여기의 모든 클레임은 v1.0 및 v2.0 토큰에 모두 표시됩니다.
+`id_tokens`Microsoft id의 경우는 [Jwts](https://tools.ietf.org/html/rfc7519) (JSON 웹 토큰)입니다. 즉, 헤더, 페이로드 및 서명 부분으로 구성 됩니다. 헤더와 서명을 사용하여 토큰의 신뢰성을 확인할 수 있으며, 페이로드에는 클라이언트가 요청한 사용자에 관한 정보가 포함됩니다. 명시 된 경우를 제외 하 고 여기에 나열 된 모든 JWT 클레임은 v 1.0 및 v2.0 토큰에 표시 됩니다.
 
 ### <a name="v10"></a>v1.0
 
@@ -50,18 +51,18 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 
 ### <a name="header-claims"></a>헤더 클레임
 
-|클레임 | 형식 | 설명 |
+|클레임 | 형식 | Description |
 |-----|--------|-------------|
-|`typ` | 문자열 - 항상 "JWT" | 토큰이 JWT임을 나타냅니다.|
+|`typ` | 문자열 - 항상 "JWT" | 토큰이 JWT 토큰 임을 나타냅니다.|
 |`alg` | String | 토큰을 서명하는 데 사용된 알고리즘을 나타냅니다. 예: "RS256" |
 |`kid` | String | 이 토큰에 서명하는 데 사용되는 공개 키의 지문입니다. v1.0 및 v2.0 액세스 `id_tokens`로 내보냅니다. |
 |`x5t` | String | `kid`와 동일합니다(사용 및 값). 그러나 호환성을 위해 v1.0 `id_tokens`로만 내보내는 레거시 클레임입니다. |
 
 ### <a name="payload-claims"></a>페이로드 클레임
 
-이 목록에는 기본적으로 가장 id_tokens 된 클레임이 표시 됩니다 (명시 된 경우 제외).  그러나 앱에서 [선택적 클레임](active-directory-optional-claims.md) 을 사용 하 여 id_token에서 추가 클레임을 요청할 수 있습니다.  이러한 범위는 `groups` 클레임에서 사용자의 이름에 대 한 정보와 같은 범위에 있을 수 있습니다.
+이 목록에는 기본적으로 가장 id_tokens 된 JWT 클레임이 표시 됩니다 (명시 된 경우 제외).  그러나 앱은 [선택적 클레임](active-directory-optional-claims.md) 을 사용 하 여 id_token에서 추가 JWT 클레임을 요청할 수 있습니다.  이러한 범위는 `groups` 클레임에서 사용자의 이름에 대 한 정보와 같은 범위에 있을 수 있습니다.
 
-|클레임 | 형식 | 설명 |
+|클레임 | 형식 | Description |
 |-----|--------|-------------|
 |`aud` |  문자열, 앱 ID URI | 토큰의 의도한 수신자를 식별합니다. `id_tokens`에서 액세스 토큰에서 대상은 Azure Portal에서 앱에 할당된 앱의 애플리케이션 ID입니다. 앱은 이 값의 유효성을 검사하고 값이 일치하지 않을 경우 토큰을 거부해야 합니다. |
 |`iss` |  문자열, STS URI | 토큰을 생성하고 반환하는 STS(보안 토큰 서비스) 및 사용자가 인증된 Azure AD 테넌트를 식별합니다. v2.0 엔드포인트에서 토큰을 발급한 경우 URI는 `/v2.0`에서 종료됩니다.  사용자가 Microsoft 계정의 소비자 사용자임을 나타내는 GUID는 `9188040d-6c67-4c5b-b112-36a304b66dad`입니다. 앱은 클레임의 GUID 부분을 사용하여 앱에 로그인할 수 있는 테넌트 집합을 제한할 수 있습니다(해당되는 경우). |
@@ -85,23 +86,23 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 |`uti` | 불투명 문자열 | Azure에서 토큰의 유효성을 다시 검사하기 위해 사용하는 내부 클레임입니다. 무시됩니다. |
 |`ver` | 문자열, 1.0 또는 2.0 | id_token의 버전을 나타냅니다. |
 
-
 > [!NOTE]
-> V1 및 v2 id_token 위의 예제에서 볼 수 있는 것 처럼 전달 되는 정보의 양에 차이가 있습니다. 버전은 기본적으로 발급 된 위치에서 Azure AD 플랫폼 끝점을 지정 합니다. [AZURE AD Oauth 구현은](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) 몇 년 동안 진화 했습니다. 현재 AzureAD 응용 프로그램에 대해 서로 다른 두 개의 oAuth 끝점이 있습니다. V 2로 분류 된 새 끝점 또는 v1 이라고 하는 기존 끝점 중 하나를 사용할 수 있습니다. 둘 다에 대 한 Oauth 끝점은 서로 다릅니다. V2 끝점은 v1 끝점의 모든 기능을 마이그레이션하려는 새로운 기능으로, 새 개발자에 게 v2 끝점을 사용 하는 것이 좋습니다. 
+> V1 및 v2 id_token 위의 예제에서 볼 수 있는 것 처럼 전달 되는 정보의 양에 차이가 있습니다. 버전은 기본적으로 발급 된 위치에서 Azure AD 플랫폼 끝점을 지정 합니다. [AZURE AD Oauth 구현은](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) 몇 년 동안 진화 했습니다. 현재 AzureAD 응용 프로그램에 대해 서로 다른 두 개의 oAuth 끝점이 있습니다. V 2로 분류 된 새 끝점 또는 v1 이라고 하는 기존 끝점 중 하나를 사용할 수 있습니다. 둘 다에 대 한 Oauth 끝점은 서로 다릅니다. V2 끝점은 v1 끝점의 모든 기능을 마이그레이션하려는 새로운 기능으로, 새 개발자에 게 v2 끝점을 사용 하는 것이 좋습니다.
+>
 > - V1: Azure Active Directory 끝점:`https://login.microsoftonline.com/common/oauth2/authorize`
 > - V2: Microsoft Id 플랫폼 끝점:`https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ## <a name="validating-an-id_token"></a>id_token을 유효성 검사하는 중
 
-의 유효성 `id_token` 을 검사 하는 것은 [액세스 토큰의 유효성을 검사](access-tokens.md#validating-tokens) 하는 첫 번째 단계와 유사 합니다. 클라이언트는 올바른 발급자가 토큰을 다시 보내고 변조 되지 않았는지 확인 해야 합니다. `id_tokens`는 항상 JWT이므로 이러한 토큰의 유효성을 검사하는 많은 라이브러리가 있습니다. 직접 수행하기보다 이러한 라이브러리 중 하나를 사용하는 것이 좋습니다.
+의 유효성 `id_token` 을 검사 하는 것은 [액세스 토큰의 유효성을 검사](access-tokens.md#validating-tokens) 하는 첫 번째 단계와 유사 합니다. 클라이언트는 올바른 발급자가 토큰을 다시 보내고 변조 되지 않았는지 확인 해야 합니다. 는 `id_tokens` 항상 JWT 토큰이 기 때문에 이러한 토큰의 유효성을 검사 하는 많은 라이브러리가 있습니다. 이러한 토큰을 직접 사용 하는 대신이 중 하나를 사용 하는 것이 좋습니다.
 
-수동으로 토큰 유효성을 검사하려면 [액세스 토큰의 유효성 검사](access-tokens.md#validating-tokens)에서 자세한 단계를 참조하세요. 토큰의 서명 유효성을 검사한 후 id_token에서 다음 클레임의 유효성을 검사해야 합니다(이 작업도 토큰 유효성 검사 라이브러리에서 수행할 수 있음).
+수동으로 토큰 유효성을 검사하려면 [액세스 토큰의 유효성 검사](access-tokens.md#validating-tokens)에서 자세한 단계를 참조하세요. 토큰에서 서명의 유효성을 검사 한 후에는 id_token에서 다음 JWT 클레임의 유효성을 검사 해야 합니다 (토큰 유효성 검사 라이브러리에 의해 수행 될 수도 있음).
 
-* 타임스탬프: `iat`, `nbf` 및 `exp` 타임스탬프는 모두 적절히 현재 시간 이전이거나 이후여야 합니다. 
+* 타임스탬프: `iat`, `nbf` 및 `exp` 타임스탬프는 모두 적절히 현재 시간 이전이거나 이후여야 합니다.
 * 대상: `aud` 클레임은 애플리케이션의 앱 ID와 일치해야 합니다.
 * Nonce: 페이로드의 `nonce` 클레임은 최초 요청 중에 /authorize 엔드포인트로 전달된 nonce 매개 변수와 일치해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [액세스 토큰](access-tokens.md) 에 대 한 자세한 정보
-* [선택적 클레임](active-directory-optional-claims.md)을 사용 하 여 id_token에서 클레임을 사용자 지정 합니다.
+* [선택적 클레임](active-directory-optional-claims.md)을 사용 하 여 id_token JWT 클레임을 사용자 지정 합니다.

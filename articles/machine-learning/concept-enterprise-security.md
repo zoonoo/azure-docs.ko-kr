@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: d5edfab0963ec3fca24969d7a54038066ba08765
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3aecaf45a04c1428968791a71abece783c7eb7c0
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188398"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891310"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안
 
@@ -42,9 +42,9 @@ Multi-factor authentication은 Azure AD (Azure Active Directory)를 사용 하�
 
 Azure Machine Learning는 웹 서비스에 대 한 두 가지 형태의 인증 인 키와 토큰을 지원 합니다. 각 웹 서비스는 한 번에 한 가지 형태의 인증을 사용 하도록 설정할 수 있습니다.
 
-|인증 방법|Description|Azure Container Instances|AKS|
+|인증 방법|설명|Azure Container Instances|AKS|
 |---|---|---|---|
-|키|키는 정적 이므로 새로 고칠 필요가 없습니다. 키를 수동으로 다시 생성할 수 있습니다.|기본적으로 사용할 수 없게 설정되어 있습니다.| 기본적으로 사용하도록 설정됨|
+|Key|키는 정적 이므로 새로 고칠 필요가 없습니다. 키를 수동으로 다시 생성할 수 있습니다.|기본적으로 사용할 수 없게 설정되어 있습니다.| 기본적으로 사용하도록 설정됨|
 |토큰|지정 된 기간이 지나면 토큰이 만료 되 고 새로 고쳐야 합니다.| 사용할 수 없음| 기본적으로 사용할 수 없게 설정되어 있습니다. |
 
 코드 예제는 [웹 서비스 인증 섹션](how-to-setup-authentication.md#web-service-authentication)을 참조 하세요.
@@ -105,29 +105,9 @@ Azure Machine Learning는 모든 작업 영역에 대 한 구독에서 `aml-` �
 
 Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 의존 합니다. 컴퓨팅 리소스(컴퓨팅 대상)는 모델을 학습 및 배포하는 데 사용합니다. 가상 네트워크에서 이러한 계산 대상을 만들 수 있습니다. 예를 들어 Azure Data Science Virtual Machine를 사용 하 여 모델을 학습 한 다음 모델을 AKS에 배포할 수 있습니다.  
 
-자세한 내용은 [가상 네트워크에서 실험 및 유추를 실행 하는 방법](how-to-enable-virtual-network.md)을 참조 하세요.
+자세한 내용은 [격리 된 가상 네트워크에서 실험 및 유추를 안전 하 게 실행 하는 방법을](how-to-enable-virtual-network.md)참조 하세요.
 
 작업 영역에 대해 Azure 개인 링크를 사용 하도록 설정할 수도 있습니다. 개인 링크를 사용 하면 Azure Virtual Network에서 작업 영역으로의 통신을 제한할 수 있습니다. 자세한 내용은 [개인 링크를 구성 하는 방법](how-to-configure-private-link.md)을 참조 하세요.
-
-> [!TIP]
-> 가상 네트워크와 개인 링크를 함께 결합 하 여 작업 영역과 다른 Azure 리소스 간의 통신을 보호할 수 있습니다. 그러나 일부 조합에는 Enterprise edition 작업 영역이 필요 합니다. 다음 표를 사용 하 여 엔터프라이즈 버전이 필요한 시나리오를 이해 합니다.
->
-> | 시나리오 | Enterprise</br>edition | Basic</br>edition |
-> | ----- |:-----:|:-----:| 
-> | 가상 네트워크 또는 개인 링크 없음 | ✔ | ✔ |
-> | 비공개 링크가 없는 작업 영역입니다. 가상 네트워크의 기타 리소스 (Azure Container Registry 제외) | ✔ | ✔ |
-> | 비공개 링크가 없는 작업 영역입니다. 개인 링크를 사용 하는 기타 리소스 | ✔ | |
-> | 개인 링크가 있는 작업 영역입니다. 가상 네트워크의 기타 리소스 (Azure Container Registry 제외) | ✔ | ✔ |
-> | 작업 영역 및 개인 링크를 사용 하는 다른 리소스 | ✔ | |
-> | 개인 링크가 있는 작업 영역입니다. 개인 링크 또는 가상 네트워크가 없는 기타 리소스 | ✔ | ✔ |
-> | 가상 네트워크의 Azure Container Registry | ✔ | |
-> | 작업 영역에 대 한 고객 관리 키 | ✔ | |
-> 
-
-> [!WARNING]
-> Azure Machine Learning compute 인스턴스 미리 보기는 개인 링크가 설정 된 작업 영역에서 지원 되지 않습니다.
-> 
-> Azure Machine Learning은 개인 링크를 사용 하도록 설정 된 Azure Kubernetes 서비스 사용을 지원 하지 않습니다. 대신 가상 네트워크에서 Azure Kubernetes Service를 사용할 수 있습니다. 자세한 내용은 [azure Virtual Network 내에서 AZURE ML 실험 및 유추 작업 보호](how-to-enable-virtual-network.md)를 참조 하세요.
 
 ## <a name="data-encryption"></a>데이터 암호화.
 
@@ -265,7 +245,7 @@ Azure HDInsight 및 Vm과 같은 대상을 계산 하기 위한 SSH 암호 및 �
 
 Microsoft는 리소스 이름 (예: 데이터 집합 이름 또는 machine learning 실험 이름) 또는 작업 환경 변수 (예: 진단 목적)와 같은 사용자가 아닌 식별 정보를 수집할 수 있습니다. 이러한 모든 데이터는 microsoft 소유의 구독에서 호스트 되는 저장소의 Microsoft 관리 키를 사용 하 여 저장 되며 [microsoft의 표준 개인 정보 취급 방침 및 데이터 처리 표준을](https://privacy.microsoft.com/privacystatement)따릅니다.
 
-또한 Microsoft는 중요 한 정보 (예: 계정 키 암호)를 환경 변수에 저장 하지 않는 것이 좋습니다. 환경 변수는 microsoft에서 기록, 암호화 및 저장 됩니다. 마찬가지로 [runid](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py)이름을 지정할 때 사용자 이름 또는 암호 프로젝트 이름과 같은 중요 한 정보를 포함 하지 않도록 합니다. 이 정보는 Microsoft 지원 엔지니어가 액세스할 수 있는 원격 분석 로그에 표시 될 수 있습니다.
+또한 Microsoft는 중요 한 정보 (예: 계정 키 암호)를 환경 변수에 저장 하지 않는 것이 좋습니다. 환경 변수는 microsoft에서 기록, 암호화 및 저장 됩니다. 마찬가지로 [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py)이름을 지정할 때 사용자 이름 또는 암호 프로젝트 이름과 같은 중요 한 정보를 포함 하지 않도록 합니다. 이 정보는 Microsoft 지원 엔지니어가 액세스할 수 있는 원격 분석 로그에 표시 될 수 있습니다.
 
 작업 영역을 프로 비전 하는 동안 `hbi_workspace` 매개 변수를로 `TRUE` 설정 하 여 수집 중인 진단 데이터를 옵트아웃 (opt out) 할 수 있습니다. 이 기능은 AzureML Python SDK, CLI, REST Api 또는 Azure Resource Manager 템플릿을 사용할 때 지원 됩니다.
 

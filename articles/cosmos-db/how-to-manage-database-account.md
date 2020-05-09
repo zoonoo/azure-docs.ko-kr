@@ -4,14 +4,14 @@ description: Azure Portal, PowerShell, CLI 및 Azure Resource Manager 템플릿�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 04/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 61670d757611bd0c1dd11c389282b18edb3d7fa1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 24eec27f0bc6357942420595a1318e3eb0945a5f
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247385"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82745021"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Azure Cosmos 계정 관리
 
@@ -29,11 +29,11 @@ ms.locfileid: "79247385"
 
 ### <a name="azure-powershell"></a><a id="create-database-account-via-ps"></a>Azure PowerShell
 
-[Powershell을 사용 하 여 Azure Cosmos DB 계정 만들기를](manage-with-powershell.md#create-account) 참조 하세요.
+[PowerShell을 사용 하 여 Azure Cosmos DB 계정 만들기를](manage-with-powershell.md#create-account) 참조 하세요.
 
 ### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Azure Resource Manager 템플릿
 
-이 Azure Resource Manager 템플릿은 일관성 수준, 자동 장애 조치 (failover) 및 다중 마스터를 선택 하는 옵션과 두 개의 지역으로 구성 된 SQL API 용 Azure Cosmos 계정을 만듭니다. 이 템플릿을 배포하려면 추가 정보 페이지인 [Azure Cosmos 계정 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)에서 Azure에 배포를 클릭합니다
+[Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 계정 만들기를](manage-sql-with-resource-manager.md) 참조 하세요.
 
 ## <a name="addremove-regions-from-your-database-account"></a>데이터베이스 계정에서 Azure 지역 추가/제거
 
@@ -61,7 +61,7 @@ ms.locfileid: "79247385"
 
 ### <a name="azure-powershell"></a><a id="add-remove-regions-via-ps"></a>Azure PowerShell
 
-[Powershell을 사용 하 여 지역 추가 또는 제거를](manage-with-powershell.md#update-account) 참조 하세요.
+[PowerShell을 사용 하 여 지역 추가 또는 제거를](manage-with-powershell.md#update-account) 참조 하세요.
 
 ## <a name="configure-multiple-write-regions"></a><a id="configure-multiple-write-regions"></a>다중 쓰기 지역 구성
 
@@ -77,7 +77,7 @@ ms.locfileid: "79247385"
 
 ### <a name="azure-powershell"></a><a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
-[Powershell을 사용 하 여 다중 쓰기 지역 사용](manage-with-powershell.md#multi-master) 을 참조 하세요.
+[PowerShell을 사용 하 여 다중 쓰기 지역 사용](manage-with-powershell.md#multi-master) 을 참조 하세요.
 
 ### <a name="resource-manager-template"></a><a id="configure-multiple-write-regions-arm"></a>Resource Manager 템플릿
 
@@ -163,7 +163,7 @@ ms.locfileid: "79247385"
 
 ### <a name="azure-powershell"></a><a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
 
-[Powershell을 사용 하 여 자동 장애 조치 사용을](manage-with-powershell.md#enable-automatic-failover) 참조 하세요.
+[PowerShell을 사용 하 여 자동 장애 조치 사용을](manage-with-powershell.md#enable-automatic-failover) 참조 하세요.
 
 ## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>Azure Cosmos 계정의 장애 조치(failover) 우선 순위 설정
 
@@ -194,7 +194,7 @@ Cosmos 계정이 자동 장애 조치(failover)에 대해 구성된 후에는 �
 
 ### <a name="azure-powershell"></a><a id="set-failover-priorities-via-ps"></a>Azure PowerShell
 
-[Powershell을 사용 하 여 장애 조치 우선 순위 설정을](manage-with-powershell.md#modify-failover-priority) 참조 하세요.
+[PowerShell을 사용 하 여 장애 조치 우선 순위 설정을](manage-with-powershell.md#modify-failover-priority) 참조 하세요.
 
 ## <a name="perform-manual-failover-on-an-azure-cosmos-account"></a><a id="manual-failover"></a>Azure Cosmos 계정에서 수동 장애 조치 (failover) 수행
 
@@ -226,7 +226,7 @@ Cosmos 계정이 자동 장애 조치(failover)에 대해 구성된 후에는 �
 
 ### <a name="azure-powershell"></a><a id="enable-manual-failover-via-ps"></a>Azure PowerShell
 
-[Powershell을 사용 하 여 수동 장애 조치 트리거를](manage-with-powershell.md#trigger-manual-failover) 참조 하세요.
+[PowerShell을 사용 하 여 수동 장애 조치 트리거를](manage-with-powershell.md#trigger-manual-failover) 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

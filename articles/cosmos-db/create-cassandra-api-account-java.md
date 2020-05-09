@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: 971f705099ffec22599af83323e5e15d604c4bca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 472e74f7c25404a2446109ae66867a43b07294c8
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80983010"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731783"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>자습서: 키/값 데이터를 저장하는 Java 애플리케이션을 사용하여 Azure Cosmos DB의 Cassandra API 계정 만들기
 
@@ -92,21 +92,21 @@ cassandra_password=<FILLME_with_PRIMARY PASSWORD>
  
 2. `cassandra-demo` 폴더를 찾습니다. 텍스트 편집기를 사용하여 생성된 `pom.xml` 파일을 엽니다. 
 
-   [pom.xml](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/pom.xml) 파일에 표시된 대로 Cassandra 종속성을 추가하고 프로젝트에 필요한 플러그 인을 빌드합니다.  
+   [pom.xml](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/pom.xml) 파일에 표시된 대로 Cassandra 종속성을 추가하고 프로젝트에 필요한 플러그 인을 빌드합니다.  
 
 3. `cassandra-demo\src\main` 폴더 아래에서 `resources`라는 새 폴더를 만듭니다.  리소스 폴더 아래에서 config.properties 및 log4j.properties 파일을 추가합니다.
 
-   - [config.properties](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/resources/config.properties) 파일은 Cassandra API 계정의 연결 엔드포인트 및 키 값을 저장합니다. 
+   - [config.properties](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/src/main/resources/config.properties) 파일은 Cassandra API 계정의 연결 엔드포인트 및 키 값을 저장합니다. 
    
-   - [log4j.properties](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/resources/log4j.properties) 파일은 Cassandra API와 상호 작용하는 데 필요한 로깅 수준을 정의합니다.  
+   - [log4j.properties](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/src/main/resources/log4j.properties) 파일은 Cassandra API와 상호 작용하는 데 필요한 로깅 수준을 정의합니다.  
 
 4. `src/main/java/com/azure/cosmosdb/cassandra/` 폴더로 이동합니다. cassandra 폴더 내에서 `utils`라는 또 다른 폴더를 만듭니다. 새 폴더는 Cassandra API 계정에 연결하는 데 필요한 유틸리티 클래스를 저장합니다. 
 
-   [CassandraUtils](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java) 클래스를 추가하여 클러스터를 만들고 Cassandra 세션을 열고 닫습니다. 클러스터에서 Azure Cosmos DB의 Cassandra API 계정에 연결하고 액세스할 세션을 반환합니다. [Configurations](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/java/com/azure/cosmosdb/cassandra/util/Configurations.java) 클래스를 사용하여 config.properties 파일에서 연결 문자열 정보를 읽습니다. 
+   [CassandraUtils](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java) 클래스를 추가하여 클러스터를 만들고 Cassandra 세션을 열고 닫습니다. 클러스터에서 Azure Cosmos DB의 Cassandra API 계정에 연결하고 액세스할 세션을 반환합니다. [Configurations](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/src/main/java/com/azure/cosmosdb/cassandra/util/Configurations.java) 클래스를 사용하여 config.properties 파일에서 연결 문자열 정보를 읽습니다. 
 
 5. Java 샘플은 사용자 정보(예: 사용자 이름, 사용자 ID 및 사용자 도시)가 있는 데이터베이스를 만듭니다. main 함수의 사용자 세부 정보에 액세스하려면 get 및 set 메서드를 정의해야 합니다.
  
-   get 및 set 메서드를 사용하여 `src/main/java/com/azure/cosmosdb/cassandra/` 폴더 아래에 [User.java](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/java/com/azure/cosmosdb/cassandra/User.java) 클래스를 만듭니다. 
+   get 및 set 메서드를 사용하여 `src/main/java/com/azure/cosmosdb/cassandra/` 폴더 아래에 [User.java](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/src/main/java/com/azure/cosmosdb/cassandra/examples/UserProfile.java) 클래스를 만듭니다. 
 
 ## <a name="add-a-database-and-a-table"></a>데이터베이스 및 테이블 추가  
 

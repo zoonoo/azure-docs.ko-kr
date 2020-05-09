@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 03/20/2020
 ms.author: travisw
 ms.openlocfilehash: bb88ef7f048b2454f05ef33286e59277070c3ea0
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241864"
 ---
 이 빠른 시작에서는 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 사용하여 이미 작성하고 구성한 봇에 연결하는 사용자 지정 음성 도우미 애플리케이션을 만듭니다. 봇을 만들어야 하는 경우 더 포괄적인 가이드는 [관련 자습서](~/articles/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk.md)를 참조하세요.
