@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: ebbdda39f019f374f8e5abe951d0180c0dd453f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4770b3ae7c52b9a05ff704915a3e9f401fd1741
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457878"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889617"
 ---
 # <a name="metrics-for-application-gateway"></a>Application Gateway에 대 한 메트릭
 
@@ -237,7 +237,7 @@ Application gateway로 이동 하 고 **모니터링** 에서 **메트릭**을 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Monitor 로그](../azure-monitor/insights/azure-networking-analytics.md)를 사용하여 카운터 및 이벤트 로그를 시각화합니다.
-* [Power BI 블로그 게시물을 사용 하 여 Azure 활동 로그를 시각화](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) 합니다.
+* [Power BI 블로그 게시물을 사용 하 여 Azure 활동 로그를 시각화](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) 합니다.
 * [Power BI 등에서 Azure 활동 로그 보기 및 분석](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) 블로그 게시물
 
 [1]: ./media/application-gateway-diagnostics/figure1.png

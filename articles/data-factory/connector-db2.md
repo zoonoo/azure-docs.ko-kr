@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 05/07/2020
 ms.author: jingwang
-ms.openlocfilehash: 2c2071e4b2a3daa528c7d01f64e38247b063e6f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f705a0a56975860cf07d8a9b09de9999a923501
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417425"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891430"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 DB2에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -51,7 +51,7 @@ DB2 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 �
 >[!TIP]
 >DB2 커넥터는 Microsoft OLE DB Provider for DB2 위에 빌드됩니다. DB2 커넥터 오류 문제를 해결 하려면 [Data Provider 오류 코드](https://docs.microsoft.com/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -67,9 +67,16 @@ DB2 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 �
 
 DB2 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **Db2**로 설정해야 합니다. | 예 |
+| connectionString | DB2 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다.<br/> Azure Key Vault에 암호를 넣고, 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
+| connectVia | 데이터 저장소에 연결 하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md) 입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
+
+연결 문자열 내부의 일반적인 속성:
+
+| 속성 | 설명 | 필요한 공간 |
+|:--- |:--- |:--- |
 | 서버 |DB2 서버의 이름입니다. 콜론으로 구분된 서버 이름 뒤에 포트 번호를 지정할 수 있습니다(예: `server:port`). |예 |
 | 데이터베이스 |DB2 데이터베이스의 이름입니다. |예 |
 | authenticationType |DB2 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic**입니다. |예 |
@@ -77,12 +84,56 @@ DB2 연결된 서비스에 다음 속성이 지원됩니다.
 | password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | packageCollection | 데이터베이스를 쿼리할 때 ADF에서 필요한 패키지를 자동으로 생성 하는 위치를 지정 합니다. | 아니요 |
 | certificateCommonName | SSL(Secure Sockets Layer) (SSL) 또는 TLS (전송 계층 보안) 암호화를 사용 하는 경우 인증서 일반 이름에 값을 입력 해야 합니다. | 아니요 |
-| connectVia | 데이터 저장소에 연결 하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md) 입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 > [!TIP]
 > `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`에서 설명 하는 오류 메시지가 표시 되는 경우 사용자에 게 필요한 패키지가 생성 되지 않습니다. 기본적으로 ADF는 DB2에 연결 하는 데 사용한 사용자로 이름이 지정 된 패키지를 만들려고 시도 합니다. 데이터베이스를 쿼리할 때 ADF에서 필요한 패키지를 만들 위치를 지정 하려면 패키지 컬렉션 속성을 지정 합니다.
 
 **예제:**
+
+```json
+{
+    "name": "Db2LinkedService",
+    "properties": {
+        "type": "Db2",
+        "typeProperties": {
+            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; password=<password>; packageCollection=<packagecollection>;certificateCommonName=<certname>;"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+**예제: Azure Key Vault에 암호 저장**
+
+```json
+{
+    "name": "Db2LinkedService",
+    "properties": {
+        "type": "Db2",
+        "typeProperties": {
+            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; packageCollection=<packagecollection>;certificateCommonName=<certname>;",
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+다음 페이로드를 사용 하 여 DB2 연결 된 서비스를 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
+
+**이전 페이로드:**
 
 ```json
 {
@@ -113,7 +164,7 @@ DB2 연결된 서비스에 다음 속성이 지원됩니다.
 
 DB2에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 **Db2Table** 로 설정 해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
@@ -148,7 +199,7 @@ DB2에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
 DB2에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션에서 다음 속성이 지원 됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **Db2Source** 로 설정 해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
@@ -196,28 +247,28 @@ DB2에서 데이터를 복사하는 경우 DB2 데이터 형식에서 Azure Data
 | BigInt |Int64 |
 | 이진 |Byte[] |
 | Blob |Byte[] |
-| Char |문자열 |
-| Clob |문자열 |
-| Date |DateTime |
-| DB2DynArray |문자열 |
-| DbClob |문자열 |
+| Char |String |
+| Clob |String |
+| 날짜 |DateTime |
+| DB2DynArray |String |
+| DbClob |String |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| Graphic |문자열 |
+| Graphic |String |
 | 정수 |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |문자열 |
-| LongVarGraphic |문자열 |
+| LongVarChar |String |
+| LongVarGraphic |String |
 | 숫자 |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
 | 시간 |TimeSpan |
 | 타임스탬프 |DateTime |
 | VarBinary |Byte[] |
-| VarChar |문자열 |
-| VarGraphic |문자열 |
+| VarChar |String |
+| VarGraphic |String |
 | xml |Byte[] |
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
