@@ -62,6 +62,9 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
+    - name: Azure Policy 기본 제공
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
     - name: 키-값 저장소

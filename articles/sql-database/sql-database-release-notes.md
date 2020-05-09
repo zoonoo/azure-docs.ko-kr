@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: sstein
-ms.openlocfilehash: aa8d1634c015f338053a4d167db34ef0b5a83505
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: HT
+ms.openlocfilehash: 2d89320b4e5237017b51d19495c60c03ce6288f7
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801691"
+ms.locfileid: "82838487"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 릴리스 정보
 
@@ -24,7 +24,7 @@ ms.locfileid: "82801691"
 
 ### <a name="single-database"></a>[단일 데이터베이스](#tab/single-database)
 
-| 기능 | 설명 |
+| 기능 | 세부 정보 |
 | ---| --- |
 | 새 Fsv2 시리즈 및 M 시리즈 하드웨어 생성| 자세한 내용은 [하드웨어 생성](sql-database-service-tiers-vcore.md#hardware-generations)을 참조 하세요.|
 | 단일 데이터베이스 및 탄력적 풀을 사용한 가속화 된 데이터베이스 복구 | 자세한 내용은 [가속화 데이터베이스 복구](sql-database-accelerated-database-recovery.md)를 참조 하세요.|
@@ -43,7 +43,7 @@ ms.locfileid: "82801691"
 
 ### <a name="managed-instance"></a>[Managed Instance](#tab/managed-instance)
 
-| 기능 | 설명 |
+| 기능 | 세부 정보 |
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-instance-pools">인스턴스 풀</a> | 더 작은 SQL 인스턴스를 클라우드로 마이그레이션하는 편리 하 고 비용 효율적인 방법입니다. |
 | <a href="https://aka.ms/managed-instance-aadlogins">인스턴스 수준 Azure AD 서버 보안 주체 (로그인)</a> | <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> 문을 사용 하 여 서버 수준 로그인을 만듭니다. |
@@ -93,12 +93,12 @@ ms.locfileid: "82801691"
 |[@querysp_send_db_mail에서 지원 되지 않는 매개 변수](#-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|해결 방법 없음| |
 |[지역 장애 조치 (failover) 후 트랜잭션 복제를 다시 구성 해야 합니다.](#transactional-replication-must-be-reconfigured-after-geo-failover)|3 월 2019|해결 방법 없음| |
 |[복원 작업 중에 임시 데이터베이스가 사용 됩니다.](#temporary-database-is-used-during-restore-operation)||해결 방법| |
-|[TEMPDB 구조와 콘텐츠를 다시 만들었습니다.](#tempdb-structure-and-content-is-re-created)||해결 방법 없음| |
-|[작은 데이터베이스 파일이 포함된 스토리지 공간 초과](#exceeding-storage-space-with-small-database-files)||해결 방법| |
-|[데이터베이스 이름 대신 표시 되는 GUID 값](#guid-values-shown-instead-of-database-names)||해결 방법| |
+|[TEMPDB 구조와 콘텐츠를 다시 만들었습니다.](#tempdb-structure-and-content-is-re-created)| |해결 방법 없음| |
+|[작은 데이터베이스 파일이 포함된 스토리지 공간 초과](#exceeding-storage-space-with-small-database-files)| |해결 방법| |
+|[데이터베이스 이름 대신 표시 되는 GUID 값](#guid-values-shown-instead-of-database-names) ||해결 방법| |
 |[오류 로그는 지속 되지 않습니다.](#error-logs-arent-persisted)||해결 방법 없음| |
-|[동일한 인스턴스 내에 있는 두 데이터베이스의 트랜잭션 범위는 지원 되지 않습니다.](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||해결 방법|3 월 2020|
-|[CLR 모듈 및 연결 된 서버는 때때로 로컬 IP 주소를 참조할 수 없습니다.](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||해결 방법| |
+|[CLR 모듈 및 연결 된 서버는 때때로 로컬 IP 주소를 참조할 수 없습니다.](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)| |해결 방법| |
+|[동일한 인스턴스 내에 있는 두 데이터베이스의 트랜잭션 범위는 지원 되지 않습니다.](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)| |해결됨|3 월 2020|
 |Azure Blob Storage에서 데이터베이스를 복원한 후 DBCC CHECKDB를 사용 하 여 데이터베이스 일관성을 확인 하지 않았습니다.| |해결됨|11 월 2019|
 |원본 데이터베이스에 메모리 내 OLTP 개체가 포함 되어 있는 경우 중요 비즈니스용 계층에서 일반 용도의 계층으로의 지정 시간 데이터베이스 복원에 실패 합니다.| |해결됨|10 월 2019|
 |보안 연결을 사용 하는 외부 (비 Azure) 메일 서버와 데이터베이스 메일 기능| |해결됨|10 월 2019|

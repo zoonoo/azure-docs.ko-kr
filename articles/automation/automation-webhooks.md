@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8cb641f95e7327e80f42df86a56eba8c34e7e598
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbe43b298c57d266f0b031b5192f25fe3df07c05
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79367026"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582443"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>웹후크를 사용하여 Azure Automation Runbook 시작
 
@@ -45,7 +45,7 @@ Webhook는 runbook이 시작 될 때 사용 되는 runbook 매개 변수에 대 
 
 `WebhookData` 매개 변수에는 다음 속성이 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | `WebhookName` | Webhook의 이름입니다. |
 | `RequestHeader` | 들어오는 POST 요청의 헤더를 포함 하는 해시 테이블입니다. |
@@ -88,7 +88,7 @@ Runbook에 논리를 포함 하 여 webhook에서 호출 되었는지 여부를 
 
 또 다른 전략은 runbook에서 webhook 요청을 받을 때 외부 조건의 유효성 검사를 수행 하도록 하는 것입니다. 예를 들어 github 리포지토리에 새 커밋이 있을 때마다 GitHub에 의해 호출 되는 runbook을 생각해 볼 수 있습니다. Runbook은 계속 하기 전에 GitHub에 연결 하 여 새 커밋이 발생 했는지 확인할 수 있습니다.
 
-## <a name="creating-a-webhook"></a>webhook 만들기
+## <a name="create-a-webhook"></a>웹후크 만들기
 
 Azure 포털에서 runbook에 연결된 새 webhook를 만들려면 다음 절차를 수행합니다.
 
@@ -106,7 +106,7 @@ Azure 포털에서 runbook에 연결된 새 webhook를 만들려면 다음 절�
 1. **매개 변수** 를 클릭하여 runbook 매개 변수의 값을 제공합니다. Runbook에 필수 매개 변수가 있는 경우 값을 제공 하지 않으면 webhook을 만들 수 없습니다.
 1. **만들기** 를 클릭하여 webhook를 만듭니다.
 
-## <a name="using-a-webhook"></a>webhook 사용
+## <a name="use-a-webhook"></a>Webhook 사용
 
 Webhook를 만든 후에 사용 하려면 클라이언트에서 웹 후크에 대 한 URL을 사용 `POST` 하 여 HTTP 요청을 실행 해야 합니다. 구문은 다음과 같습니다.
 
@@ -116,7 +116,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 클라이언트는 `POST` 요청에서 다음 반환 코드 중 하나를 받습니다.
 
-| 코드 | Text | Description |
+| 코드 | Text | 설명 |
 |:--- |:--- |:--- |
 | 202 |수락됨 |요청이 수락되었고 runbook에서 대기합니다. |
 | 400 |잘못된 요청 |다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul> <li>webhook가 만료되었습니다.</li> <li>webhook가 비활성화되었습니다.</li> <li>URL의 토큰이 잘못되었습니다.</li>  </ul> |
@@ -131,7 +131,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 클라이언트는 Runbook 작업의 완료 여부 또는 완료 상태를 webhook에서 확인할 수 없습니다. [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) 또는 [Azure Automation API](/rest/api/automation/job)와 같은 다른 메커니즘을 사용 하 여 작업 ID를 사용 하 여이 정보를 찾을 수 있습니다.
 
-## <a name="renewing-a-webhook"></a><a name="renew-webhook"></a>Webhook 갱신
+## <a name="renew-a-webhook"></a>webhook 갱신
 
 웹 후크를 만들면 유효 기간이 10 년이 되며, 그 후에는 자동으로 만료 됩니다. 웹 후크가 만료 된 후에는 다시 활성화할 수 없습니다. 제거 하 고 다시 만들 수만 있습니다. 
 
@@ -200,7 +200,7 @@ else {
 }
 ```
 
-## <a name="testing-the-sample"></a>샘플 테스트
+## <a name="test-the-sample"></a>샘플 테스트
 
 다음 예제는 Windows PowerShell을 사용하여 webhook로 runbook을 시작합니다. HTTP 요청을 만들 수 있는 모든 언어는 웹 후크를 사용할 수 있습니다. 여기에서는 Windows PowerShell을 사용 합니다.
 

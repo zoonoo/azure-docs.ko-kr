@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: 9213ddf034e725f6e31c9280d47bd13e4703b3f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca9bb3853698b831fe87f48de346183e4bcd0976
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77659495"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731715"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Log Analytics 작업 영역을 다른 구독 또는 리소스 그룹으로 이동
 
@@ -29,16 +29,17 @@ ms.locfileid: "77659495"
 ```
 
 ## <a name="workspace-move-considerations"></a>작업 영역 이동 고려 사항
-작업 영역에 설치 되는 관리형 솔루션은 Log Analytics 작업 영역 이동 작업과 함께 이동 됩니다. 연결 된 에이전트는 연결 된 상태를 유지 하 고 이동 후에 작업 영역으로 데이터를 전송 합니다. 이동 작업을 수행 하려면 작업 영역에서 automation 계정으로의 링크가 필요 하지 않으므로 해당 링크를 사용 하는 솔루션을 제거 해야 합니다.
+작업 영역에 설치 되는 관리형 솔루션은 Log Analytics 작업 영역 이동 작업과 함께 이동 됩니다. 연결 된 에이전트는 연결 된 상태를 유지 하 고 이동 후에 작업 영역으로 데이터를 전송 합니다. 이동 작업을 수행 하려면 작업 영역에서 연결 된 서비스가 필요 하지 않으므로 작업 영역 이동을 허용 하려면 해당 링크를 사용 하는 솔루션을 제거 해야 합니다.
 
 Automation 계정 연결을 해제 하기 전에 제거 해야 하는 솔루션은 다음과 같습니다.
 
 - 업데이트 관리
 - 변경 내용 추적
 - 작업이 없는 동안 VM 시작/중지
+- Azure Security Center
 
 
-### <a name="delete-in-azure-portal"></a>Azure Portal에서 삭제
+### <a name="delete-solutions-in-azure-portal"></a>Azure Portal에서 솔루션 삭제
 Azure Portal를 사용 하 여 솔루션을 제거 하려면 다음 절차를 따르십시오.
 
 1. 솔루션이 설치 된 리소스 그룹의 메뉴를 엽니다.
@@ -57,8 +58,8 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM(<workspace-name>)" -ResourceGroupName <resource-group-name>
 ```
 
-### <a name="remove-alert-rules"></a>경고 규칙 제거
-**Vm 시작/중지** 솔루션의 경우 솔루션에서 만든 경고 규칙도 제거 해야 합니다. Azure Portal에서 다음 절차를 사용 하 여 이러한 규칙을 제거 합니다.
+### <a name="remove-alert-rules-for-startstop-vms-solution"></a>Vm 시작/중지 솔루션에 대 한 경고 규칙 제거
+**Vm 시작/중지** 솔루션을 제거 하려면 솔루션에서 만든 경고 규칙도 제거 해야 합니다. Azure Portal에서 다음 절차를 사용 하 여 이러한 규칙을 제거 합니다.
 
 1. **모니터** 메뉴를 열고 **경고**를 선택 합니다.
 2. **경고 규칙 관리**를 클릭 합니다.
@@ -98,8 +99,6 @@ PowerShell을 사용 하 여 작업 영역을 이동 하려면 다음 예제와 
 ``` PowerShell
 Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup01/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace" -DestinationSubscriptionId "00000000-0000-0000-0000-000000000000" -DestinationResourceGroupName "MyResourceGroup02"
 ```
-
-
 
 > [!IMPORTANT]
 > 이동 작업 후 작업 영역을 이전 상태로 되돌리려면 제거 된 솔루션 및 Automation 계정 링크를 다시 구성 해야 합니다.

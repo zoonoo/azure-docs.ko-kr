@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 94da1639b5398a03b36fba3ff88877468a97ec36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9468f437a89a85f28b6ce869b948ca2a4aff7bf
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294110"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983332"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
 
@@ -55,15 +55,14 @@ VM의 복제를 활성화하면 Site Recovery는 대상 리소스를 자동으�
 다음과 같이 대상 리소스를 관리할 수 있습니다.
 
 - 복제를 사용하도록 설정하면 대상 설정을 수정할 수 있습니다.
-- 복제가 작동한 후 대상 설정을 수정할 수 있습니다. 예외는 가용성 유형입니다(단일 인스턴스, 집합 또는 영역). 이 설정을 변경하려면 복제를 비활성화하고, 설정을 수정한 다음, 다시 활성화해야 합니다.
-
+- 복제가 작동한 후 대상 설정을 수정할 수 있습니다. 대상 지역 VM에 대 한 기본 SKU는 원본 VM의 SKU (또는 원본 VM SKU와 비교 하 여 사용 가능한 다음 최고 SKU)와 동일 합니다. 대상 리소스 그룹, 대상 이름 등과 같은 다른 리소스와 마찬가지로 복제를 진행 중인 후에도 대상 지역 VM SKU를 업데이트할 수 있습니다. 업데이트할 수 없는 리소스는 가용성 유형 (단일 인스턴스, 집합 또는 영역)입니다. 이 설정을 변경하려면 복제를 비활성화하고, 설정을 수정한 다음, 다시 활성화해야 합니다. 
 
 
 ## <a name="replication-policy"></a>복제 정책 
 
 Azure VM 복제를 활성화하면 기본적으로 Site Recovery는 표에 요약된 기본 설정을 사용하여 새 복제 정책을 만듭니다.
 
-**정책 설정** | **세부 정보** | **기본값**
+**정책 설정** | **세부 정보** | **기본**
 --- | --- | ---
 **복구 지점 보존** | Site Recovery에서 복구 지점을 유지하는 기간을 지정합니다. | 24시간
 **앱 일치 스냅샷 빈도** | Site Recovery에서 앱 일치 스냅샷을 만드는 주기입니다. | 4 시간 마다

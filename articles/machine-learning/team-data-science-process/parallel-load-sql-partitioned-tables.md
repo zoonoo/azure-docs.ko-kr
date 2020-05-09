@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 673a801e218d055bf482dc97972e36584cddd402
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae03a655347d7be7372bae93eb0c3aaf75a8ea29
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76721339"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891695"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Azure VM에서 SQL Server로 데이터를 빠르게 병렬로 가져오기 위한 테이블 빌드 및 최적화
 
@@ -99,7 +99,7 @@ ms.locfileid: "76721339"
 * 로깅 오버헤드를 최소화하기 위해 [데이터베이스를 변경](https://msdn.microsoft.com/library/bb522682.aspx)하여 트랜잭션 로깅 스키마를 BULK_LOGGED로 변경합니다. 아래는 그 예입니다.
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* 신속한 데이터 로드를 위해 대량 가져오기 작업을 병렬로 실행합니다. SQL Server 데이터베이스에 빅 데이터를 대량으로 가져오는 방법에 대 한 팁은 [1 시간 이내에 1Tb 로드](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx)를 참조 하세요.
+* 신속한 데이터 로드를 위해 대량 가져오기 작업을 병렬로 실행합니다. SQL Server 데이터베이스에 빅 데이터를 대량으로 가져오는 방법에 대 한 팁은 [1 시간 이내에 1Tb 로드](https://docs.microsoft.com/archive/blogs/sqlcat/load-1tb-in-less-than-1-hour)를 참조 하세요.
 
 다음 PowerShell 스크립트는 BCP를 사용하여 병렬로 데이터를 로드하는 예입니다.
 

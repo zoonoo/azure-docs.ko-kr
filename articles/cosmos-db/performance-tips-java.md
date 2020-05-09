@@ -1,28 +1,35 @@
 ---
-title: Java용 Azure Cosmos DB 성능 팁
-description: Azure Cosmos database 성능 향상을 위한 클라이언트 구성 옵션 학습
-author: SnehaGunda
+title: Java SDK v2 Azure Cosmos DB 동기화에 대 한 성능 팁
+description: Azure Cosmos database 성능 향상을 위한 클라이언트 구성 옵션에 대 한 자세한 내용은 Java SDK v2를 동기화 합니다.
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: sngun
-ms.openlocfilehash: a20b7d91a927d48a14812110ca714491cd726071
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.author: anfeldma
+ms.openlocfilehash: 9475fce054356606c09947721019a264143a716b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548771"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982516"
 ---
-# <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Java용 Azure Cosmos DB에 대한 성능 팁
+# <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Java SDK v2 Azure Cosmos DB 동기화에 대 한 성능 팁
 
 > [!div class="op_single_selector"]
-> * [비동기 Java](performance-tips-async-java.md)
-> * [Java](performance-tips-java.md)
+> * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
+> * [Async Java SDK v2](performance-tips-async-java.md)
+> * [Java SDK v2 동기화](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
 
-Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크기가 조정되는 빠르고 유연한 분산 데이터베이스입니다. Azure Cosmos DB를 사용하여 데이터베이스의 크기를 조정하기 위해 주요 아키텍처를 변경하거나 복잡한 코드를 작성할 필요는 없습니다. 규모를 확장 및 축소하는 방법이 API 호출을 하나 만드는 것만큼 쉽습니다. 자세한 내용은 [컨테이너 처리량을 프로비전하는 방법](how-to-provision-container-throughput.md) 또는 [데이터베이스 처리량을 프로비전하는 방법](how-to-provision-database-throughput.md)을 참조하세요. 그러나 네트워크 호출을 통해 Azure Cosmos DB에 액세스하기 때문에 [SQL Java SDK](documentdb-sdk-java.md)를 사용할 때 최대 성능을 얻기 위해 클라이언트 쪽에서 최적화를 지정할 수 있습니다.
+> [!IMPORTANT]  
+> Azure Cosmos DB에 대 한 최신 Java SDK가 *아닙니다* . 프로젝트에 Azure Cosmos DB Java SDK v4를 사용 하는 것이 좋습니다. 업그레이드 하려면 [Azure Cosmos DB JAVA SDK v4로 마이그레이션](migrate-java-v4-sdk.md) 가이드 및 [Reactor Vs rxjava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 가이드의 지침을 따르세요. 
+> 
+> 이러한 성능 팁은 Java SDK v 2만 동기화 Azure Cosmos DB입니다. 자세한 내용은 Azure Cosmos DB Java SDK v2 [릴리스 정보](sql-api-sdk-java.md) 및 [Maven 리포지토리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb) 동기화를 참조 하세요.
+>
+
+Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크기가 조정되는 빠르고 유연한 분산 데이터베이스입니다. Azure Cosmos DB를 사용하여 데이터베이스의 크기를 조정하기 위해 주요 아키텍처를 변경하거나 복잡한 코드를 작성할 필요는 없습니다. 규모를 확장 및 축소하는 방법이 API 호출을 하나 만드는 것만큼 쉽습니다. 자세한 내용은 [컨테이너 처리량을 프로비전하는 방법](how-to-provision-container-throughput.md) 또는 [데이터베이스 처리량을 프로비전하는 방법](how-to-provision-database-throughput.md)을 참조하세요. 그러나 네트워크 호출을 통해 Azure Cosmos DB에 액세스 하기 때문에 [Azure Cosmos DB Sync JAVA SDK v2](documentdb-sdk-java.md)를 사용할 때 최대 성능을 얻기 위해 클라이언트 쪽 최적화를 수행할 수 있습니다.
 
 "내 데이터베이스 성능을 향상시키는 방법"을 물으면 다음 옵션을 고려합니다.
 
@@ -38,9 +45,11 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
       게이트웨이 모드는 모든 SDK 플랫폼에서 지원되며 기본 구성입니다.  엄격한 방화벽으로 제한된 회사 네트워크 내에서 애플리케이션을 실행하는 경우, 표준 HTTPS 포트 및 단일 엔드포인트를 사용하기 때문에 게이트웨이가 최상의 선택입니다. 그러나 게이트웨이 모드의 경우 성능 유지를 위해 Azure Cosmos DB에서 데이터를 읽거나 쓸 때마다 네트워크 홉이 추가됩니다. 이 때문에 DirectHttps 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공합니다. 
 
-      Java SDK는 전송 프로토콜로 HTTPS를 사용합니다. HTTPS는 초기 인증 및 암호화 트래픽에 TLS를 사용 합니다. Java SDK를 사용하는 경우 HTTPS 포트 443만 열어야 합니다. 
+      Azure Cosmos DB Sync Java SDK v2는 HTTPS를 전송 프로토콜로 사용 합니다. HTTPS는 초기 인증 및 암호화 트래픽에 TLS를 사용 합니다. Azure Cosmos DB Sync Java SDK v2를 사용 하는 경우 HTTPS 포트 443만 열려 있어야 합니다. 
 
       연결 모드는 ConnectionPolicy 매개 변수로 DocumentClient 인스턴스를 생성하는 도중 구성됩니다. 
+
+    ### <a name="sync-java-sdk-v2-maven-commicrosoftazureazure-documentdb"></a><a id="syncjava2-connectionpolicy"></a>Java SDK V2 동기화 (Maven:: azure-documentdb)
 
       ```Java
       public ConnectionPolicy getConnectionPolicy() {
@@ -74,11 +83,11 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
    <a id="max-connection"></a>
 3. **게이트웨이 모드를 사용하는 경우 각 호스트의 MaxPoolSize 증가**
 
-    게이트웨이 모드를 사용하는 경우 Azure Cosmos DB 요청은 HTTPS/REST를 통해 수행되며 호스트 이름 또는 IP 주소당 기본 연결 제한이 적용됩니다. 클라이언트 라이브러리가 Azure Cosmos DB에 대한 여러 동시 연결을 활용할 수 있도록 MaxPoolSize를 더 높은 값(200-1000)으로 설정해야 할 수도 있습니다. Java SDK에서 [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.getmaxpoolsize)의 기본값은 100입니다. [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setmaxpoolsize)를 사용하여 값을 변경합니다.
+    게이트웨이 모드를 사용하는 경우 Azure Cosmos DB 요청은 HTTPS/REST를 통해 수행되며 호스트 이름 또는 IP 주소당 기본 연결 제한이 적용됩니다. 클라이언트 라이브러리가 Azure Cosmos DB에 대한 여러 동시 연결을 활용할 수 있도록 MaxPoolSize를 더 높은 값(200-1000)으로 설정해야 할 수도 있습니다. Azure Cosmos DB Sync Java SDK v2에서 Connectionpolicy의 기본값은 100입니다 [. getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.getmaxpoolsize) 는입니다. [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setmaxpoolsize)를 사용하여 값을 변경합니다.
 
 4. **분할된 컬렉션에 대한 병렬 쿼리 튜닝**
 
-    Azure Cosmos DB SQL Java SDK 버전 1.9.0 이상은 분할된 컬렉션을 병렬로 쿼리할 수 있는 병렬 쿼리를 지원합니다. 자세한 내용은 SDK 사용과 관련된 [코드 샘플](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples)을 참조하세요. 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다.
+    Azure Cosmos DB Sync Java SDK 버전 1.9.0 이상에서는 병렬 쿼리를 지원 하므로 분할 된 컬렉션을 병렬로 쿼리할 수 있습니다. 자세한 내용은 SDK 사용과 관련된 [코드 샘플](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples)을 참조하세요. 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다.
 
     (a) ***setMaxDegreeOfParallelism 튜닝\:*** 여러 파티션을 병렬로 쿼리하여 병렬 쿼리가 작동합니다. 그러나 개별 분할된 컬렉션의 데이터는 쿼리와 관련하여 순차적으로 가져오기 됩니다. 따라서 다른 모든 시스템 조건을 동일 하 게 유지 하는 경우 [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) 를 사용 하 여 가장 성능이 뛰어난 쿼리를 달성할 수 있는 최대 수를 포함 하는 파티션 수를 설정할 수 있습니다. 파티션 수를 모르는 경우 setMaxDegreeOfParallelism을 사용하여 더 높은 값을 설정할 수 있습니다. 그러면 시스템에서 최소값(사용자가 제공한 입력인 파티션 수)을 최대 병렬 처리 수준으로 선택합니다. 
 
@@ -90,7 +99,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 5. **getRetryAfterInMilliseconds 간격으로 백오프 구현**
 
-    성능 테스트 중에는 작은 비율의 요청이 제한될 때까지 로드를 늘려야 합니다. 제한될 경우 클라이언트 애플리케이션은 서버에서 지정한 재시도 간격 제한을 백오프해야 합니다. 백오프를 통해 재시도 간 기간을 최소화할 수 있습니다. 다시 시도 정책 지원은 [Java SDK](documentdb-sdk-java.md) 버전 1.8.0 이상에 포함되어 있습니다. 자세한 내용은 [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds)를 참조하세요.
+    성능 테스트 중에는 작은 비율의 요청이 제한될 때까지 로드를 늘려야 합니다. 제한될 경우 클라이언트 애플리케이션은 서버에서 지정한 재시도 간격 제한을 백오프해야 합니다. 백오프를 통해 재시도 간 기간을 최소화할 수 있습니다. 재시도 정책 지원은 [JAVA SDK Azure Cosmos DB 동기화](documentdb-sdk-java.md)의 1.8.0 이상 버전에 포함 되어 있습니다. 자세한 내용은 [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds)를 참조하세요.
 
 6. **클라이언트 워크로드 규모 확장**
 
@@ -113,7 +122,10 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
  
 1. **더 빠른 쓰기를 위해 인덱싱에서 사용 하지 않는 경로 제외**
 
-    Azure Cosmos DB의 인덱싱 정책을 통해 인덱싱 경로 ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) 및 [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths))를 활용 하 여 인덱싱에 포함 하거나 제외할 문서 경로를 지정할 수 있습니다. 인덱싱 비용이 인덱싱된 고유 경로 수와 직접 관련이 있기 때문에, 인덱싱 경로를 사용하면 사전에 알려진 쿼리 패턴의 시나리오에 대해 쓰기 성능을 향상시키고 인덱스 스토리지를 낮출 수 있습니다.  예를 들어 다음 코드는 "*" 와일드카드를 사용하여 인덱싱에서 문서의 전체 섹션(하위 트리라고도 함)을 제외하는 방법을 보여 줍니다.
+    Azure Cosmos DB의 인덱싱 정책을 통해 인덱싱 경로 ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) 및 [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths))를 활용 하 여 인덱싱에 포함 하거나 제외할 문서 경로를 지정할 수 있습니다. 인덱싱 비용이 인덱싱된 고유 경로 수와 직접 관련이 있기 때문에, 인덱싱 경로를 사용하면 사전에 알려진 쿼리 패턴의 시나리오에 대해 쓰기 성능을 향상시키고 인덱스 스토리지를 낮출 수 있습니다.  예를 들어 다음 코드는 "*" 와일드 카드를 사용 하 여 인덱싱에서 문서의 전체 섹션 (하위 트리)을 제외 하는 방법을 보여 줍니다.
+
+
+    ### <a name="sync-java-sdk-v2-maven-commicrosoftazureazure-documentdb"></a><a id="syncjava2-indexing"></a>Java SDK V2 동기화 (Maven:: azure-documentdb)
 
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
@@ -139,6 +151,9 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     쿼리의 복잡성은 작업에 사용되는 요청 단위의 양에 영향을 줍니다. 조건자의 수, 조건자의 특성, UDF 수 및 원본 데이터 집합의 크기는 모두 쿼리 작업의 비용에 영향을 줍니다.
 
     모든 작업 (만들기, 업데이트 또는 삭제)에 대 한 오버 헤드를 측정 하려면 [\<ResourceResponse t>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) 또는 [\<FeedResponse t>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse) 에서 해당 작업에 사용 된 요청 단위 수를 측정 하 여 [x-y 요청 요금](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) 헤더 (또는이에 해당 하는 requestcharge 속성)를 검사 합니다.
+
+
+    ### <a name="sync-java-sdk-v2-maven-commicrosoftazureazure-documentdb"></a><a id="syncjava2-requestcharge"></a>Java SDK V2 동기화 (Maven:: azure-documentdb)
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);

@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 4f87f2de3747f55562d3f683e1738595624940dd
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: 3ee84c0c868f47dca1aee0401865563a326df3db
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854639"
+ms.locfileid: "82864405"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -44,6 +44,8 @@ Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 V
 **원인 3: [스냅샷 상태를 검색할 수 없거나 스냅샷을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **원인 4: [Vm 에이전트 구성 옵션이 설정 되지 않음 (Linux vm의 경우)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
+
+**원인 5: [응용 프로그램 제어 솔루션이 IaaSBcdrExtension을 차단 합니다.](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
 
 ## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed-VM이 프로 비전 실패 상태에 있습니다.
 
@@ -202,6 +204,14 @@ Waagent에 대 한 자세한 정보 로깅이 필요한 경우 다음 단계를 
 
 구성 파일(/etc/waagent.conf)은 waagent의 동작을 제어합니다. 구성 파일 옵션 **확장명. Enable** 을 **y** 로 설정 하 고 **프로 비전 해야 합니다.** 백업이 작동 하려면 에이전트를 **auto** 로 설정 해야 합니다.
 VM 에이전트 구성 파일 옵션의 전체 목록은 다음을 참조 하세요.<https://github.com/Azure/WALinuxAgent#configuration-file-options>
+
+### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>응용 프로그램 제어 솔루션이 IaaSBcdrExtension을 차단 하 고 있습니다.
+
+[AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) 또는 다른 응용 프로그램 제어 솔루션을 실행 하는 경우 규칙은 게시자 또는 경로를 기반으로 하는 경우 **IaaSBcdrExtension** 실행 파일이 실행 되지 않도록 차단할 수 있습니다.
+
+#### <a name="solution"></a>솔루션
+
+AppLocker ( `/var/lib` 또는 다른 응용 프로그램 제어 소프트웨어)에서 경로 또는 **IaaSBcdrExtension** 실행 파일을 제외 합니다.
 
 ### <a name="the-snapshot-status-cant-be-retrieved-or-a-snapshot-cant-be-taken"></a><a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>스냅샷 상태를 검색할 수 없거나 스냅샷을 만들 수 없습니다.
 
