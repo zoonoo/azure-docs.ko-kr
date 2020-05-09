@@ -10,12 +10,12 @@ ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 59103f7a8841985f463e085b54d5c8461b797778
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9c3657a5b55303429d7825bd317c6f9eeb8c06c5
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476035"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583271"
 ---
 # <a name="index-of-built-in-security-controls-articles-for-azure-services"></a>Azure 서비스에 대 한 "기본 제공 보안 컨트롤" 문서의 인덱스
 
@@ -25,7 +25,7 @@ ms.locfileid: "79476035"
 
 - [API Management](../../api-management/api-management-security-controls.md)
 - [Azure App Service](../../app-service/app-service-security-controls.md)
-- [Azure 리소스 관리자](../../azure-resource-manager/management/azure-resource-manager-security-controls.md)
+- [Azure Resource Manager](../../azure-resource-manager/management/azure-resource-manager-security-controls.md)
 - [Azure Backup](../../backup/backup-security-controls.md)
 - [Azure Event Hubs](../../event-hubs/event-hubs-security-controls.md)
 - [Azure ExpressRoute](../../expressroute/expressroute-security-controls.md)
@@ -33,6 +33,7 @@ ms.locfileid: "79476035"
 - [Azure Service Bus 메시징](../../service-bus-messaging/service-bus-messaging-security-controls.md)
 - [Azure Service Bus Relay](../../service-bus-relay/service-bus-relay-security-controls.md)
 - [Azure Service Fabric](../../service-fabric/service-fabric-security-controls.md)
+- [Azure Spring Cloud](../../spring-cloud/spring-cloud-concept-security-controls.md)
 - [Azure SQL Database](../../sql-database/sql-database-security-controls.md)
 - [Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-security-controls.md)
 - [Linux Virtual Machines](../../virtual-machines/linux/virtual-machines-linux-security-controls.md)

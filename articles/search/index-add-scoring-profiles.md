@@ -3,34 +3,29 @@ title: 점수 매기기 프로필을 사용 하 여 검색 순위 높임
 titleSuffix: Azure Cognitive Search
 description: 점수 매기기 프로필을 추가 하 여 Azure Cognitive Search 결과의 검색 순위 점수를 향상 합니다.
 manager: nitinme
-author: Brjohnstmsft
-ms.author: brjohnst
+author: shmed
+ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/28/2019
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: c702ce72492201413d6c72af9dbf37347e49afdd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: 56757d1c2810efe608601c231946b2242df82b19
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231104"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890170"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스에 점수 매기기 프로필 추가
 
 *점수 매기기* 는 순위에 따라 정렬 된 결과 집합의 각 항목에 대 한 검색 점수를 계산 합니다. 검색 결과 집합의 모든 항목에는 검색 점수가 할당된 다음 점수가 가장 높은 항목부터 가장 낮은 항목으로 순위가 지정됩니다.
 
  Azure Cognitive Search는 기본 점수 매기기를 사용 하 여 초기 점수를 계산 하지만 *점수 매기기 프로필*을 통해 계산을 사용자 지정할 수 있습니다. 점수 매기기 프로필을 사용하면 검색 결과에서 항목의 순위를 보다 강력하게 제어할 수 있습니다. 예를 들어 잠재 수익을 기준으로 하여 특정 항목을 상승시키거나, 새 항목을 프로모션하거나, 너무 오랫동안 재고에 포함되어 있던 항목을 상승시킬 수 있습니다.  
+
+ 다음 비디오 세그먼트는 Azure Cognitive Search에서 점수 매기기 프로필의 작동 방식에 빠르게 전달 됩니다.
+ 
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
+
+## <a name="scoring-profile-definitions"></a>점수 매기기 프로필 정의
 
  점수 매기기 프로필은 가중 필드, 함수 및 매개 변수로 구성된 인덱스 정의의 일부입니다.  
 
@@ -87,7 +82,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  또한 관련성 기반 순서 지정도 점수 매기기 프로필을 통해 구현됩니다. 이전에 사용했던 검색 결과 페이지에서는 가격, 날짜, 등급 또는 관련성을 기준으로 결과를 정렬했다면, Azure Cognitive Search에서는 점수 매기기 프로필을 통해 ' 관련성 ' 옵션을 구동 합니다. 관련성의 정의는 제공하려는 검색 환경의 유형과 비즈니스 목표를 통해 직접 제어할 수 있습니다.  
 
-##  <a name="example"></a><a name="bkmk_ex"></a>예 들어  
+##  <a name="example"></a><a name="bkmk_ex"></a> 예  
  앞에서 설명한 것처럼 인덱스 스키마에 정의된 하나 이상의 점수 매기기 프로필을 통해 사용자 지정 점수 매기기를 구현합니다.  
 
  아래 예제에서는 `boostGenre` 및 `newAndHighlyRated`의 두 점수 매기기 프로필이 포함된 인덱스의 스키마를 보여 줍니다. 쿼리 매개 변수로 두 프로필 중 하나를 포함하는 쿼리를 이 인덱스에 대해 실행하는 경우 해당 프로필을 사용하여 결과 집합의 점수를 계산합니다.  
@@ -169,7 +164,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 |||  
 |-|-|  
 |**가중치**|필드에 상대 가중치를 할당하는 이름-값 쌍을 지정합니다. 이 [예제](#bkmk_ex)에서 albumTitle, 장르 및 artistName 필드는 각각 1.5, 5 및 2로 승격 됩니다. genre가 다른 필드보다 훨씬 크게 상승하는 이유는, `musicstoreindex`에서 ‘genre’의 경우처럼 비교적 비슷한 데이터를 검색하는 경우 상대 가중치의 편차가 더 커야 할 수 있기 때문입니다. 예를 들어 `musicstoreindex`에서 ‘rock’은 장르로도 표시되고 같은 구를 사용하는 장르 설명에도 표시됩니다. 이 경우 장르 설명보다 장르에 더 높은 가중치를 적용하려면 genre 필드에 훨씬 높은 상대 가중치를 적용해야 합니다.|  
-|**Functions**|특정 컨텍스트에 대해 추가 계산을 수행해야 하는 경우 사용됩니다. 유효한 값은 `freshness`, `magnitude`, `distance` 및 `tag`입니다. 각 함수에는 고유한 매개 변수가 있습니다.<br /><br /> -   `freshness` - 항목의 최신 상태를 기준으로 순위를 높이려면 사용합니다. 이 함수는 `datetime` 필드(edm.DataTimeOffset)에만 사용할 수 있습니다. 특성은 `boostingDuration` `freshness` 함수 에서만 사용 됩니다.<br />-   `magnitude` - 숫자 값의 크기를 기준으로 순위를 높이려면 사용합니다. 이 함수를 사용해야 하는 시나리오에는 이익률, 최고 가격, 최저 가격 또는 다운로드 수를 기준으로 상승시키는 경우가 포함됩니다. 이 함수는 double 및 integer 필드에서만 사용할 수 있습니다.<br />     `magnitude` 함수의 경우 반전 패턴을 사용하려면(예: 높은 가격의 항목보다 낮은 가격의 항목 순위를 높이기 위해) 범위를 높음에서 낮음으로 반전할 수 있습니다. 가격 범위가 $100에서 $1 사이인 경우 100에서 `boostingRangeStart`을(를) 설정하고 1에서 `boostingRangeEnd`을(를) 설정하여 낮은 가격의 항목을 상승시킬 수 있습니다.<br />-   `distance` - 근접도나 지리적 위치를 기준으로 순위를 높이려면 사용합니다. 이 함수는 `Edm.GeographyPoint` 필드에만 사용할 수 있습니다.<br />-   `tag` - 문서와 검색 쿼리 간에 공통된 태그를 기준으로 순위를 높이려면 사용합니다. 이 함수는 `Edm.String` 및 `Collection(Edm.String)` 필드에만 사용할 수 있습니다.<br /><br /> **함수 사용 규칙**<br /><br /> 함수 유형(`freshness`, `magnitude`, `distance`, `tag`)은 소문자여야 합니다.<br /><br /> 함수는 null 또는 빈 값을 포함할 수 없습니다. 특히 fieldname를 포함하는 경우에는 값을 설정해야 합니다.<br /><br /> 함수는 필터링 가능한 필드에만 적용할 수 있습니다. 필터링 가능한 필드에 대 한 자세한 내용은 [Create Index &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) 를 참조 하세요.<br /><br /> 함수는 인덱스의 필드 컬렉션에 정의된 필드에만 적용할 수 있습니다.|  
+|**함수**|특정 컨텍스트에 대해 추가 계산을 수행해야 하는 경우 사용됩니다. 유효한 값은 `freshness`, `magnitude`, `distance` 및 `tag`입니다. 각 함수에는 고유한 매개 변수가 있습니다.<br /><br /> -   `freshness` - 항목의 최신 상태를 기준으로 순위를 높이려면 사용합니다. 이 함수는 `datetime` 필드(edm.DataTimeOffset)에만 사용할 수 있습니다. 특성은 `boostingDuration` `freshness` 함수 에서만 사용 됩니다.<br />-   `magnitude` - 숫자 값의 크기를 기준으로 순위를 높이려면 사용합니다. 이 함수를 사용해야 하는 시나리오에는 이익률, 최고 가격, 최저 가격 또는 다운로드 수를 기준으로 상승시키는 경우가 포함됩니다. 이 함수는 double 및 integer 필드에서만 사용할 수 있습니다.<br />     `magnitude` 함수의 경우 반전 패턴을 사용하려면(예: 높은 가격의 항목보다 낮은 가격의 항목 순위를 높이기 위해) 범위를 높음에서 낮음으로 반전할 수 있습니다. 가격 범위가 $100에서 $1 사이인 경우 100에서 `boostingRangeStart`을(를) 설정하고 1에서 `boostingRangeEnd`을(를) 설정하여 낮은 가격의 항목을 상승시킬 수 있습니다.<br />-   `distance` - 근접도나 지리적 위치를 기준으로 순위를 높이려면 사용합니다. 이 함수는 `Edm.GeographyPoint` 필드에만 사용할 수 있습니다.<br />-   `tag` - 문서와 검색 쿼리 간에 공통된 태그를 기준으로 순위를 높이려면 사용합니다. 이 함수는 `Edm.String` 및 `Collection(Edm.String)` 필드에만 사용할 수 있습니다.<br /><br /> **함수 사용 규칙**<br /><br /> 함수 유형(`freshness`, `magnitude`, `distance`, `tag`)은 소문자여야 합니다.<br /><br /> 함수는 null 또는 빈 값을 포함할 수 없습니다. 특히 fieldname를 포함하는 경우에는 값을 설정해야 합니다.<br /><br /> 함수는 필터링 가능한 필드에만 적용할 수 있습니다. 필터링 가능한 필드에 대 한 자세한 내용은 [Create Index &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) 를 참조 하세요.<br /><br /> 함수는 인덱스의 필드 컬렉션에 정의된 필드에만 적용할 수 있습니다.|  
 
  인덱스를 정의한 후 인덱스 스키마와 문서를 차례로 업로드하여 인덱스를 작성합니다. 이러한 작업에 대 한 지침은 [Create Index &#40;azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) 및 [azure &#40;Cognitive Search REST API 문서 추가, 업데이트 또는 삭제를](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 참조 하세요. 인덱스가 작성되면 검색 데이터에 사용할 수 있는 점수 매기기 프로필을 만들어야 합니다.  
 
@@ -234,7 +229,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
 |특성|설명|  
 |---------------|-----------------|  
-|`name`|필수 사항입니다. 점수 매기기 프로필의 이름입니다. 필드와 동일한 이름 지정 규칙을 따릅니다. 즉, 이름은 문자로 시작해야 하고 마침표, 콜론 또는 @ 기호를 포함할 수 없으며 ‘azureSearch’ 구(대/소문자 구분)로 시작할 수 없습니다.|  
+|`name`|필수 요소. 점수 매기기 프로필의 이름입니다. 필드와 동일한 이름 지정 규칙을 따릅니다. 즉, 이름은 문자로 시작해야 하고 마침표, 콜론 또는 @ 기호를 포함할 수 없으며 ‘azureSearch’ 구(대/소문자 구분)로 시작할 수 없습니다.|  
 |`text`|가중치 속성을 포함 합니다.|  
 |`weights`|선택 사항입니다. 각각 필드 이름과 상대적 가중치를 지정 하는 이름-값 쌍을 포함 합니다. 상대적 가중치는 양의 정수 또는 부동 소수점 숫자여야 합니다.<br /><br /> 가중치는 다른 검색 가능한 필드를 기준으로 한 검색 가능한 필드의 중요도를 나타내는 데 사용 됩니다.|  
 |`functions`|선택 사항입니다. 점수 매기기 함수는 필터링 가능한 필드에만 적용할 수 있습니다.|  

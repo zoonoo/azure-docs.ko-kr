@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: fac9933c57a54736aed5ccfdd54d126f0ca32973
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a31f800ad157e22f3d35abae3d3b714fa29178ef
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418357"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562205"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거
 
@@ -235,7 +235,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 ### <a name="schema-overview"></a>스키마 개요
 다음 표에서는 되풀이 및 트리거 예약과 관련된 주요 스키마 요소에 대한 개괄적인 개요를 제공합니다.
 
-| JSON 속성 | Description |
+| JSON 속성 | 설명 |
 |:--- |:--- |
 | **startTime** | 날짜-시간 값입니다. 기본 일정의 경우 **startTime** 속성의 값이 첫 번째 되풀이 항목에 적용됩니다. 복잡한 일정의 경우 트리거는 특정 **startTime** 값 이후에 시작합니다. |
 | **endTime** | 트리거의 종료 날짜 및 시간입니다. 트리거는 지정된 종료 날짜 및 시간 이후에 실행되지 않습니다. 속성에 대한 값은 이전에 있을 수 없습니다. <!-- This property is optional. --> |
@@ -281,13 +281,13 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 ### <a name="schema-defaults-limits-and-examples"></a>스키마 기본값, 제한 및 예제
 
-| JSON 속성 | 유형 | 필수 | 기본값 | 유효한 값 | 예제 |
+| JSON 속성 | 형식 | 필수 | 기본값 | 유효한 값 | 예 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | 예 | 없음 | ISO 8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **방법** | 개체 | 예 | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | 문자열 | 예 | 없음 | ISO 8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **방법** | object | 예 | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | number | 아니요 | 1 | 1~1000 | `"interval":10` |
-| **endTime** | string | 예 | 없음 | 미래의 시간을 나타내는 날짜-시간 값 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **일정과** | 개체 | 아니요 | 없음 | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **endTime** | 문자열 | 예 | 없음 | 미래의 시간을 나타내는 날짜-시간 값 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **일정과** | object | 아니요 | 없음 | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime 속성
 다음 표는 **startTime** 속성이 트리거 실행을 제어하는 방법을 보여줍니다.
@@ -314,7 +314,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 다음 테이블에서는 **일정** 요소의 세부 정보를 설명합니다.
 
-| JSON 요소 | Description | 유효한 값 |
+| JSON 요소 | 설명 | 유효한 값 |
 |:--- |:--- |:--- |
 | **내** | 트리거가 실행될 시간(분)입니다. |- 정수<br />- 정수 배열|
 | **시간의** | 트리거가 실행될 일(시간)입니다. |- 정수<br />- 정수 배열|
@@ -327,6 +327,9 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 연속 창 트리거 및 예제에 대 한 자세한 내용은 [연속 창 트리거 만들기](how-to-create-tumbling-window-trigger.md)를 참조 하세요.
 
+> [!NOTE]
+> 연속 창 트리거 실행은 *트리거된 파이프라인 실행이 완료 될 때까지 기다립니다* . 해당 실행 상태는 트리거된 파이프라인 실행의 상태를 반영 합니다. 예를 들어 트리거된 파이프라인 실행이 취소 되 면 해당 연속 창 트리거 실행이 취소 됨으로 표시 됩니다. 이는 파이프라인 실행이 시작 되는 동안 성공으로 표시 되는 일정 트리거의 "발생 및 잊어버린" 동작과 다릅니다.
+
 ## <a name="event-based-trigger"></a>이벤트 기반 트리거
 
 이벤트 기반 트리거는 파일 도착, 파일 삭제 등의 이벤트에 응답하여 Azure Blob Storage에서 실행 파이프라인을 트리거합니다.
@@ -338,7 +341,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 이 예에서는 **interval** 값이 1이 고 **frequency** 값이 일정 정의에 따라 올바른 것으로 가정 합니다. 예를 들어 **frequency** 값으로 "day"를 사용할 수 없으며, **schedule** 개체의 **monthDays**를 수정할 수도 있습니다. 이러한 종류의 제한 사항은 앞 섹션의 표에서 설명하고 있습니다.
 
-| 예제 | Description |
+| 예제 | 설명 |
 |:--- |:--- |
 | `{"hours":[5]}` | 매일 오전 5시에 실행됩니다. |
 | `{"minutes":[15], "hours":[5]}` | 매일 오전 5시 15분에 실행됩니다. |

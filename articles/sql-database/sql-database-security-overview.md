@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 1d08770d81ade2d976142b2ce1fd94dae044cf32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 7feb6282f3a3551e08d1bb8db2cf6ad2fcd754a8
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461398"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626159"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 보안 기능의 개요
 
@@ -30,7 +30,7 @@ Microsoft Azure SQL Database는 클라우드 및 엔터프라이즈 애플리케
 
 ### <a name="ip-firewall-rules"></a>IP 방화벽 규칙
 
-IP 방화벽 규칙은 각 요청이 시작된 IP 주소를 기준으로 하여 데이터베이스 액세스 권한을 부여합니다. 자세한 내용은 [Azure SQL Database 및 SQL Data Warehouse 방화벽 규칙 개요](sql-database-firewall-configure.md)를 참조하세요.
+IP 방화벽 규칙은 각 요청이 시작된 IP 주소를 기준으로 하여 데이터베이스 액세스 권한을 부여합니다. 자세한 내용은 [Azure SQL Database 개요 및 Azure Synapse Analytics 방화벽 규칙](sql-database-firewall-configure.md)을 참조 하세요.
 
 ### <a name="virtual-network-firewall-rules"></a>Virtual Network 방화벽 규칙
 
@@ -56,7 +56,7 @@ Azure SQL Database는 [가상 네트워크 규칙](sql-database-vnet-service-end
 
 - **Azure Active Directory 인증**:
 
-    Azure Active Directory 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 [Azure SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결하는 메커니즘입니다. 관리자는 Azure AD 인증을 통해 데이터베이스 사용자의 ID 및 권한과 기타 Microsoft 서비스를 중앙 위치 한 곳에서 관리할 수 있습니다. 그러면 스토리지해야 하는 암호를 최소화하고 중앙 집중식 암호 순환 정책을 사용할 수 있습니다.
+    Azure Active Directory 인증은 Azure Active Directory (Azure AD)에서 id를 사용 하 여 [Azure SQL Database](sql-database-technical-overview.md) 및 [azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 에 연결 하는 메커니즘입니다. 관리자는 Azure AD 인증을 통해 데이터베이스 사용자의 ID 및 권한과 기타 Microsoft 서비스를 중앙 위치 한 곳에서 관리할 수 있습니다. 그러면 스토리지해야 하는 암호를 최소화하고 중앙 집중식 암호 순환 정책을 사용할 수 있습니다.
 
      SQL Database를 사용한 Azure AD 인증을 사용하려면 서버 관리자 **Active Directory 관리자**를 만들어야 합니다. 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL Database에 연결](sql-database-aad-authentication.md)을 참조하세요. Azure AD 인증에서는 관리 계정과 페더레이션된 계정이 모두 지원됩니다. 페더레이션된 계정은 Azure AD와 페더레이션된 고객 도메인용 Windows 사용자 및 그룹을 지원합니다.
 
@@ -97,7 +97,7 @@ Advanced Threat Protection은 SQL Server 로그를 분석 하 여 비정상적�
 
 SQL Database는 [전송 계층 보안](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)을 사용하여 이동 중인 데이터를 암호화해 고객 데이터를 보호합니다.
 
-Sql Server는 모든 연결에 대해 항상 암호화 (SSL/TLS)를 적용 합니다. 이렇게 하면 연결 문자열에서 **Encrypt** 또는 **trustservercertificate** 의 설정에 관계 없이 모든 데이터가 클라이언트와 서버 간에 "전송 중"으로 암호화 됩니다.
+Sql Server는 모든 연결에 대해 항상 암호화 (TLS)를 적용 합니다. 이렇게 하면 연결 문자열에서 **Encrypt** 또는 **trustservercertificate** 의 설정에 관계 없이 모든 데이터가 클라이언트와 서버 간에 "전송 중"으로 암호화 됩니다.
 
 응용 프로그램의 연결 문자열에서 암호화 된 연결을 지정 하 고 서버 인증서를 신뢰 _**하지**_ 않는 것이 좋습니다. 이렇게 하면 응용 프로그램이 서버 인증서를 확인 하 여 응용 프로그램이 중간 유형의 공격을 받을 수 없게 됩니다.
 
@@ -146,7 +146,7 @@ SQL Database 동적 데이터 마스킹에서는 권한이 없는 사용자에 �
 
 자세한 내용은 [데이터 검색 및 분류 시작](sql-database-data-discovery-and-classification.md)을 참조하세요.
 
-### <a name="compliance"></a>준수
+### <a name="compliance"></a>규정 준수
 
 Azure SQL Database는 위의 기능 및 애플리케이션이 다양한 보안 요구 사항을 충족하는 데 도움이 될 수 있는 기능을 포함할 뿐 아니라, 정기 감사도 받고 있으며 다수의 규정 준수 표준 충족 인증도 취득했습니다. 자세한 내용은 SQL Database 준수 인증의 최신 목록을 찾을 수 있는 [Microsoft Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 를 참조 하세요.
 

@@ -4,12 +4,12 @@ description: Azure Portal을 사용하여 복구 지점에서 Azure Virtual Mach
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 687406676320f93bab22e34ca95951035187718d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a170755673c05448d1bb86af993cad929664949
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182891"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597776"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원 하는 방법
 
@@ -27,7 +27,7 @@ Azure Backup은 VM을 복원하는 다양한 방법을 제공합니다.
 **지역 간 (보조 지역)** | 지역 간 복원은 [azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions)인 보조 지역에서 azure vm을 복원 하는 데 사용할 수 있습니다.<br><br> 백업이 보조 지역에서 수행 되는 경우 선택한 복구 지점에 대 한 모든 Azure Vm을 복원할 수 있습니다.<br><br> 이 기능은 아래 옵션에 사용할 수 있습니다.<br> <li> [VM 만들기](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm) <br> <li> [디스크 복원](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) <br><br> 현재 [기존 디스크 바꾸기](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#replace-existing-disks) 옵션을 지원 하지 않습니다.<br><br> 사용 권한<br> 보조 지역에 대 한 복원 작업은 Backup Admins 및 App Admins를 통해 수행할 수 있습니다.
 
 > [!NOTE]
-> Azure VM에서 특정 파일과 폴더를 복구할 수도 있습니다. [자세히 알아보기](backup-azure-restore-files-from-vm.md).
+> Azure VM에서 특정 파일과 폴더를 복구할 수도 있습니다. [자세한 정보를 알아보세요](backup-azure-restore-files-from-vm.md).
 
 ## <a name="storage-accounts"></a>Storage 계정
 
@@ -77,7 +77,7 @@ Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 
 2. **가상 컴퓨터 이름**에 구독에 존재 하지 않는 VM을 지정 합니다.
 3. **리소스 그룹**에서 새 VM에 대해 기존 리소스 그룹을 선택하거나, 새 리소스 그룹을 전역 고유 이름으로 만듭니다. 이미 있는 이름을 할당하면 Azure에서 VM과 동일한 이름을 그룹에 할당합니다.
 4. **가상 네트워크**에서 VM을 배치할 VNet를 선택합니다. 구독과 연관된 모든 VNet가 표시됩니다. 서브넷을 선택합니다. 기본적으로 첫 번째 서브넷이 선택됩니다.
-5. **저장소 위치**에서 VM에 대 한 저장소 계정을 지정 합니다. [자세히 알아보기](#storage-accounts).
+5. **저장소 위치**에서 VM에 대 한 저장소 계정을 지정 합니다. [자세한 정보를 알아보세요](#storage-accounts).
 
     ![복원 구성 마법사](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
@@ -93,7 +93,7 @@ Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 
 
 1. **복원 구성** > **새** > **복원 유형**만들기에서 **디스크 복원**을 선택 합니다.
 2. **리소스 그룹**에서 복원된 디스크에 대해 기존 리소스 그룹을 선택하거나, 새 리소스 그룹을 전역 고유 이름으로 만듭니다.
-3. **스토리지 계정**에서 VHD를 복사할 계정을 지정합니다. [자세히 알아보기](#storage-accounts).
+3. **스토리지 계정**에서 VHD를 복사할 계정을 지정합니다. [자세한 정보를 알아보세요](#storage-accounts).
 
     ![복구 구성 완료](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
 
@@ -128,7 +128,7 @@ Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 
 
 1. **복원 구성**에서 **기존 항목 바꾸기**를 클릭합니다.
 2. **복원 유형**에서 **디스크 바꾸기**를 선택합니다. 이는 기존 VM 디스크를 바꾸는 데 사용할 복원 지점입니다.
-3. **준비 위치**에서 복원 프로세스 중에 현재 관리 디스크의 스냅숏을 저장 해야 하는 위치를 지정 합니다. [자세히 알아보기](#storage-accounts).
+3. **준비 위치**에서 복원 프로세스 중에 현재 관리 디스크의 스냅숏을 저장 해야 하는 위치를 지정 합니다. [자세한 정보를 알아보세요](#storage-accounts).
 
    ![기존 항목을 바꾸는 구성 복원 마법사](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
@@ -190,7 +190,7 @@ VM을 복원해야 하는 일반적인 시나리오는 여러 가지가 있습�
 **완전 복원** | Azure VM과 온-프레미스 하이퍼바이저의 주요 차이점은 Azure에서 사용할 수 있는 VM 콘솔이 없다는 것입니다. BMR(완전 복구) 유형 백업을 사용한 복구와 같은 특정 시나리오에서는 콘솔이 필요합니다. 하지만 자격 증명 모음의 VM 복원이 BMR로 완전히 대체됩니다.
 **특수 네트워크 구성이 있는 VM 복원** | 특수 네트워크 구성에는 내부 또는 외부 부하 분산을 사용하거나, 여러 NICS를 사용하거나, 예약된 여러 IP 주소를 사용하는 VM이 포함되어 있습니다. [디스크 복원 옵션](#restore-disks)을 사용하여 이러한 VM을 복원합니다. 이 옵션은 지정 된 저장소 계정에 Vhd의 복사본을 만들고, 구성에 따라 [내부](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) 또는 [외부](/azure/load-balancer/quickstart-create-standard-load-balancer-powershell) 부하 분산 장치, [다중 NIC](../virtual-machines/windows/multiple-nics.md)또는 [여러 예약 된 IP 주소](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md)를 사용 하 여 VM을 만들 수 있습니다.
 **NIC/서브넷의 NSG (네트워크 보안 그룹)** | Azure VM 백업은 vnet, 서브넷 및 NIC 수준에서 NSG 정보를 백업 하 고 복원 하는 것을 지원 합니다.
-**영역 고정 Vm** | Azure Backup은 고정 된 배열로 영역 설정 Vm의 백업 및 복원을 지원 합니다. [자세한 정보](https://azure.microsoft.com/global-infrastructure/availability-zones/)
+**영역 고정 Vm** | Azure Backup를 사용 하 여 영역에 고정 된 Azure VM을 백업 하는 경우 해당 VM이 고정 된 영역에서 복원할 수 있습니다. [자세한 정보](https://docs.microsoft.com/azure/availability-zones/az-overview)
 
 ## <a name="track-the-restore-operation"></a>복원 작업 추적
 
@@ -218,7 +218,7 @@ VM이 복원되면 주의해야 할 몇 가지 사항이 있습니다.
 - 백업된 VM에 고정 IP 주소가 있으면 복원된 VM에서 동적 IP 주소를 사용하도록 하여 충돌을 방지합니다. [고정 IP 주소는 복원된 VM에 추가](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description)할 수 있습니다.
 - 복원된 VM에는 가용성 집합이 없습니다. 복원 디스크 옵션을 사용 하는 경우 제공 된 템플릿 또는 PowerShell을 사용 하 여 디스크에서 VM을 만들 때 [가용성 집합을 지정할](../virtual-machines/windows/tutorial-availability-sets.md) 수 있습니다.
 - Ubuntu와 같은 cloud-init 기반 Linux 배포를 사용하면 보안상의 이유로 복원 후에 암호가 차단됩니다. 복원된 VM에서 VMAccess 확장을 사용하여 [암호를 재설정](../virtual-machines/linux/reset-password.md)하세요. 복원 후에 암호를 다시 설정할 필요가 없도록 이러한 배포에서 SSH 키를 사용하는 것이 좋습니다.
-- VM이 도메인 컨트롤러와의 관계로 인해 복원 된 후 VM에 액세스할 수 없는 경우 다음 단계에 따라 VM을 가져옵니다.
+- VM이 도메인 컨트롤러와 분리 된 관계로 인해 복원 된 후 VM에 액세스할 수 없는 경우 다음 단계에 따라 VM을 가져옵니다.
   - 복구 된 VM에 OS 디스크를 데이터 디스크로 연결 합니다.
   - 이 [링크](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline)를 따라 Azure 에이전트가 응답 하지 않는 경우 수동으로 VM 에이전트를 설치 합니다.
   - Vm에 대 한 직렬 콘솔 액세스를 사용 하도록 설정 하 여 VM에 대 한 명령줄 액세스 허용
