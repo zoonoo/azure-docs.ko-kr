@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 08c80b0a37e21d53fc974bd878501b9326c9449b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: e85e41796d0fc4fb9ac72b4032de3143b26d890f
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207227"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871058"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 Azure Log Analytics 에이전트는 모든 클라우드, 온-프레미스 컴퓨터 및 [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/)에서 모니터링 하는 가상 컴퓨터에서 종합적인 관리를 위해 개발 되었습니다. Windows 및 Linux 에이전트는 다양 한 원본에서 수집 된 데이터를 Azure Monitor의 Log Analytics 작업 영역으로 보내고, 모니터링 솔루션에 정의 된 대로 고유한 로그 나 메트릭을 전송 합니다. 또한 Log Analytics 에이전트는 Azure Monitor에서 [VM용 Azure Monitor](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/), [Azure Automation](../../automation/automation-intro.md)등의 기타 서비스와 정보를 지원 합니다.
@@ -39,7 +39,7 @@ Log Analytics 에이전트에 대 한 비용은 없지만 데이터 수집에 �
 ## <a name="data-collected"></a>수집되는 데이터
 다음 표에서는 연결 된 모든 에이전트에서 수집 하도록 Log Analytics 작업 영역을 구성할 수 있는 데이터의 유형을 보여 줍니다. Log Analytics 에이전트를 사용 하 여 다른 종류의 데이터를 수집 하는 정보, 솔루션 및 기타 솔루션 목록은 [Azure Monitor에서 모니터링 되는 내용](../monitor-reference.md) 을 참조 하세요.
 
-| 데이터 원본 | Description |
+| 데이터 원본 | 설명 |
 | --- | --- |
 | [Windows 이벤트 로그](data-sources-windows-events.md) | Windows 이벤트 로깅 시스템으로 전송되는 정보입니다. |
 | [syslog](data-sources-syslog.md)                     | Linux 이벤트 로깅 시스템으로 전송 되는 정보입니다. |
@@ -70,7 +70,7 @@ System Center Operations Manager 2012 R2 이상을 사용 하는 경우:
 
 Log Analytics 에이전트를 설치 하 고 사용자의 요구 사항에 따라 Azure Monitor에 컴퓨터를 연결 하는 방법에는 여러 가지가 있습니다. 다음 표는 조직에서 어떤 방법이 가장 적합한지 결정하기 위해 각 방법을 설명합니다.
 
-|원본 | 방법 | Description|
+|원본 | 메서드 | 설명|
 |-------|-------------|-------------|
 |Azure VM| [Azure Portal에서 수동으로](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json) | Log Analytics 작업 영역에서 배포할 Vm을 지정 합니다. |
 | | Azure CLI 또는 Azure Resource Manager 템플릿을 사용 하 여 [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [Linux](../../virtual-machines/extensions/oms-linux.md) 용 VM 확장 Log Analytics | 이 확장은 Azure Virtual Machines에 Log Analytics 에이전트를 설치하고 기존 Azure Monitor 작업 영역에 등록합니다. |
@@ -87,7 +87,7 @@ Log Analytics 에이전트를 설치 하 고 사용자의 요구 사항에 따�
 
 Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식적으로 지원됩니다.
 
-* 시작
+* Windows Server 2019
 * Windows Server 2016, 버전 1709 및 1803
 * Windows Server 2012, 2012 R2
 * Windows Server 2008 SP2 (x64), 2008 R2
@@ -130,7 +130,7 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 
 다음 표에서는 에이전트가 설치 될 지원 되는 Linux 배포판에 필요한 패키지를 강조 표시 합니다.
 
-|필수 패키지 |Description |최소 버전 |
+|필수 패키지 |설명 |최소 버전 |
 |-----------------|------------|----------------|
 |Glibc |    GNU C 라이브러리 | 2.5-12 
 |Openssl    | OpenSSL 라이브러리 | 1.0. x 또는 1.1. x |
@@ -147,7 +147,7 @@ Azure Monitor 로그로 전송 되는 데이터의 보안을 보장 하려면 TL
 
 
 ## <a name="sha-2-code-signing-support-requirement-for-windows"></a>Windows에 대 한 SHA-2 코드 서명 지원 요구 사항
-Windows 에이전트는 2020 년 5 월 18 일에 SHA-2 서명을 독점적으로 사용 하기 시작 합니다. 이러한 변경은 Azure 서비스 (Azure Monitor, Azure Automation, Azure 업데이트 관리, Azure 변경 내용 추적, Azure Security Center, Azure 센티널, Windows Defender ATP)의 일부로 레거시 OS에서 Log Analytics 에이전트를 사용 하는 고객에 게 영향을 줍니다. 레거시 OS 버전 (Windows 7, Windows Server 2008 R2 및 Windows Server 2008)에서 에이전트를 실행 하는 경우가 아니면 변경 내용에는 고객 조치가 필요 하지 않습니다. 이전 OS 버전에서 실행 하는 고객은 2020 년 5 월 18 일 이전에 컴퓨터에서 다음 작업을 수행 해야 합니다. 또는 해당 에이전트가 Log Analytics 작업 영역으로 데이터를 전송 하는 작업을 중지 합니다.
+Windows 에이전트는 2020 년 8 월 17 일에 배타적으로 SHA-2 서명을 사용 하기 시작 합니다. 이러한 변경은 Azure 서비스 (Azure Monitor, Azure Automation, Azure 업데이트 관리, Azure 변경 내용 추적, Azure Security Center, Azure 센티널, Windows Defender ATP)의 일부로 레거시 OS에서 Log Analytics 에이전트를 사용 하는 고객에 게 영향을 줍니다. 레거시 OS 버전 (Windows 7, Windows Server 2008 R2 및 Windows Server 2008)에서 에이전트를 실행 하는 경우가 아니면 변경 내용에는 고객 조치가 필요 하지 않습니다. 이전 OS 버전에서 실행 되는 고객은 2020 년 8 월 17 일 이전에 컴퓨터에서 다음 작업을 수행 해야 합니다. 그렇지 않으면 해당 에이전트는 Log Analytics 작업 영역으로 데이터를 전송 하지 않습니다.
 
 1. 운영 체제의 최신 서비스 팩을 설치 합니다. 필요한 Service Pack 버전은 다음과 같습니다.
     - Windows 7 SP1
@@ -191,7 +191,7 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.
 > [!NOTE]
 > 프록시 서버에 인증할 필요가 없는 경우에도 Linux 에이전트는 의사 사용자/암호를 제공해야 합니다. 이는 사용자 이름 또는 암호일 수 있습니다.
 
-|속성| Description |
+|속성| 설명 |
 |--------|-------------|
 |프로토콜 | https |
 |사용자 | 프록시 인증을 위한 선택적 사용자 이름 |
@@ -199,7 +199,7 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.
 |proxyhost | 프록시 서버/Log Analytics 게이트웨이의 주소 또는 FQDN |
 |포트 | 프록시 서버/Log Analytics 게이트웨이 대한 선택적 포트 번호 |
 
-`https://user01:password@proxy01.contoso.com:30443`
+예: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
 > 암호에 "\@"과 같은 특수 문자를 사용 하는 경우 값이 잘못 구문 분석 되기 때문에 프록시 연결 오류가 발생 합니다.  이 문제를 해결하려면 [URLDecode](https://www.urldecoder.org/)와 같은 도구를 사용하여 URL에서 암호를 인코드합니다.  

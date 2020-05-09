@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 03/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 40885e1de4ff4c16d2a50399c654d8596396ab53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac0a795c98673eba30531f586ff634c62673cdd6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366374"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980952"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Azure Portal에서 Azure에 하이브리드 머신 연결
 
@@ -23,7 +23,7 @@ ms.locfileid: "80366374"
 
 시작하려면 먼저 [사전 요구 사항](overview.md#prerequisites)을 검토하고 구독 및 리소스에서 요구 사항을 충족하는지 확인해야 합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 없는 경우 시작하기 전에 먼저 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="generate-the-installation-script-from-the-azure-portal"></a>Azure Portal에서 설치 스크립트 생성
 
@@ -73,7 +73,7 @@ Windows Installer 패키지에 대 한 명령줄 옵션에 익숙하지 않은 �
 msiexec.exe /i AzureConnectedMachineAgent.msi /?
 ```
 
-에이전트를 자동으로 설치 하 고 `C:\Support\Logs` 폴더에 설치 로그 파일을 만들려면 다음 명령을 실행 합니다.
+에이전트를 자동으로 설치 하 고 존재 하는 `C:\Support\Logs` 폴더에 설치 로그 파일을 만들려면 다음 명령을 실행 합니다.
 
 ```dos
 msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
@@ -109,7 +109,7 @@ Restart-Service -Name himds
 
 에이전트가 설치되면 다음 명령을 실행하여 에이전트에서 Azure Arc 서비스와 통신하도록 구성해야 합니다.
 
-`%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`"%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
 ## <a name="install-and-validate-the-agent-on-linux"></a>Linux에서 에이전트 설치 및 유효성 검사
 
@@ -146,7 +146,7 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 에이전트가 설치되면 다음 명령을 실행하여 Azure Arc 서비스와 통신하도록 구성합니다.
 
-`/opt/azcmagent/bin/azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`azcmagent connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Azure Arc와의 연결 확인
 

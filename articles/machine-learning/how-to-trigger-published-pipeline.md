@@ -1,5 +1,5 @@
 ---
-title: 논리 앱에서 ML 파이프라인 실행 트리거
+title: 새 데이터에 대 한 ML 파이프라인 트리거
 titleSuffix: Azure Machine Learning
 description: Azure Logic Apps를 사용 하 여 ML 파이프라인의 실행을 트리거하는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -10,18 +10,19 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 6bb976b8b310fb3eb4d0247a8d745599f688d7b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: contperfq4
+ms.openlocfilehash: 32b3e153a98ca7de91e0dd05258414780b39dec4
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77122858"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857966"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>논리 앱에서 Machine Learning 파이프라인 실행 트리거
 
 새 데이터가 나타날 때 Azure Machine Learning 파이프라인 실행을 트리거합니다. 예를 들어 blob 저장소 계정에 새 데이터가 나타날 때 새 모델을 학습 하는 파이프라인을 트리거할 수 있습니다. [Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용 하 여 트리거를 설정 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 

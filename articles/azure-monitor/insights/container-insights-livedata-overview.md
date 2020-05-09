@@ -3,12 +3,12 @@ title: 컨테이너의 Azure Monitor 사용 하 여 라이브 데이터 (미리 
 description: 이 문서에서는 컨테이너에 Azure Monitor kubectl을 사용 하지 않고 Kubernetes 로그, 이벤트 및 pod 메트릭에 대 한 실시간 보기를 설명 합니다.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 9e7c7a7b7bf276b3451cee1d289b8b07ac0f40ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 38615acf079c33c49e27394bfdb9b8104e5a68ac
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79216562"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872119"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Kubernetes 로그, 이벤트 및 pod 메트릭을 실시간으로 보는 방법
 
@@ -42,7 +42,7 @@ ms.locfileid: "79216562"
 >문제를 해결 하는 동안 짧은 시간 동안 자동 스크롤 일시 중단 하거나 일시 중지 하는 것이 좋습니다. 이러한 요청은 클러스터의 Kubernetes API에 대 한 가용성 및 제한에 영향을 줄 수 있습니다. 
 
 >[!IMPORTANT]
->이 기능을 수행 하는 동안 데이터가 영구적으로 저장 되지 않습니다. 세션 중에 캡처된 모든 정보는 브라우저를 닫거나 다른 곳으로 이동 하면 삭제 됩니다. 데이터는 메트릭 기능의 5 분 기간 내에 시각화에 대해서만 표시 됩니다. 5 분 보다 오래 된 메트릭도 모두 삭제 됩니다. 적절 한 메모리 사용 제한 내에서 라이브 데이터 (미리 보기) 버퍼 쿼리 (구체적으로는 적절 한 것은 무엇 인가요?) 
+>이 기능을 수행 하는 동안 데이터가 영구적으로 저장 되지 않습니다. 세션 중에 캡처된 모든 정보는 브라우저를 닫거나 다른 곳으로 이동 하면 삭제 됩니다. 데이터는 메트릭 기능의 5 분 기간 내에 시각화에 대해서만 표시 됩니다. 5 분 보다 오래 된 메트릭도 모두 삭제 됩니다. 적절 한 메모리 사용 제한 내에서 라이브 데이터 (미리 보기) 버퍼 쿼리
 
 ## <a name="view-logs"></a>로그 보기
 

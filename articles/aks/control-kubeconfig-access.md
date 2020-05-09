@@ -3,13 +3,13 @@ title: AKS(Azure Kubernetes Service)에서 kubeconfig에 대한 액세스 제한
 description: 클러스터 관리자 및 클러스터 사용자의 Kubernetes 구성 파일(kubeconfig) 액세스 권한을 제어하는 방법 알아보기
 services: container-service
 ms.topic: article
-ms.date: 01/28/2020
-ms.openlocfilehash: 25c710cce2855d6af985d3f46082f47573bbc101
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 87f4dc18fc595242117e10233d4fecd77e66373f
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259553"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890888"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Azure 역할 기반 액세스 제어를 사용하여 AKS(Azure Kubernetes Service)의 Kubernetes 구성 파일에 대한 액세스 정의
 
@@ -40,7 +40,8 @@ ms.locfileid: "79259553"
 
 이러한 RBAC 역할은 AD (Azure Active Directory) 사용자 또는 그룹에 적용할 수 있습니다.
 
-> ! 두고 Azure AD를 사용 하는 클러스터에서 *Clusteruser* 역할이 있는 사용자에 게 로그인을 요청 하는 빈 *kubeconfig* 파일이 있습니다. 로그인 되 면 사용자는 해당 Azure AD 사용자 또는 그룹 설정에 따라 액세스 권한을 가집니다. *Clusteradmin* 역할이 있는 사용자에 게는 관리자 액세스 권한이 있습니다.
+> [!NOTE]
+> Azure AD를 사용 하는 클러스터에서 *Clusteruser* 역할이 있는 사용자에 게 로그인을 요청 하는 빈 *kubeconfig* 파일이 있습니다. 로그인 되 면 사용자는 해당 Azure AD 사용자 또는 그룹 설정에 따라 액세스 권한을 가집니다. *Clusteradmin* 역할이 있는 사용자에 게는 관리자 액세스 권한이 있습니다.
 >
 > Azure AD를 사용 하지 않는 클러스터는 *Clusteradmin* 역할만 사용 합니다.
 

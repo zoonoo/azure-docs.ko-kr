@@ -1,22 +1,22 @@
 ---
-title: SaaS 행 API v2 | Azure Marketplace
-description: 이 문서에서는 연결 된 상품 v2 Api를 사용 하 여 AppSource 및 Azure Marketplace에서 SaaS 제품을 만들고 관리 하는 방법을 설명 합니다.
+title: Microsoft 상업적 marketplace의 SaaS 등록 Api v2
+description: Api 버전 2를 사용 하 여 Microsoft AppSource 및 Azure Marketplace에서 SaaS 제품을 만들고 관리 하는 방법에 대해 알아봅니다.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: dsindona
-ms.openlocfilehash: ca49418013357ecaae62ea5e91374eaa1cbde59d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f452349c0d636bc74a3722e2526623c955093f7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275767"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854199"
 ---
-# <a name="saas-fulfillment-apis-version-2"></a>SaaS 처리 API, 버전 2 
+# <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 SaaS 처리 Api 버전 2
 
-이 문서에서는 파트너가 AppSource marketplace 및 Azure Marketplace에서 SaaS 응용 프로그램을 판매할 수 있도록 하는 Api에 대해 자세히 설명 합니다. 이러한 Api는 AppSource 및 Azure Marketplace에서 SaaS 제품을 불가능 하는 데 필요 합니다.
+이 문서에서는 파트너가 Microsoft AppSource 및 Azure Marketplace에서 SaaS 응용 프로그램을 판매할 수 있도록 지 원하는 Api에 대해 자세히 설명 합니다. 이러한 Api는 불가능 SaaS 제품에 필요 합니다.
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>SaaS 구독 수명 주기 관리
 
@@ -861,7 +861,7 @@ Response body:
  - **InProgress** <br>
 - **성공함** <br>
 - **Failed** <br>
-- **충돌** <br>
+- **약속** <br>
 
 웹 후크 알림에서 실행 가능한 상태는 **성공** 및 **실패**중 하나입니다. 작업의 수명 주기는 **성공**, **실패**또는 **충돌**과 같이 **NotStarted** 에서 터미널 상태로 전환 하는 것입니다. **NotStarted** 또는 **InProgress**를 수신 하는 경우 작업을 수행 하기 전에 작업이 터미널 상태에 도달할 때까지 GET API를 통해 상태를 계속 요청 합니다. 
 

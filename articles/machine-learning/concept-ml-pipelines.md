@@ -1,7 +1,6 @@
 ---
-title: ML 파이프라인 이란?
-titleSuffix: Azure Machine Learning
-description: 이 문서에서는 Python 용 Azure Machine Learning SDK를 사용 하 여 빌드할 수 있는 기계 학습 (ML) 파이프라인의 이점에 대해 알아봅니다. Machine learning 파이프라인은 데이터 과학자에서 기계 학습 워크플로를 빌드, 최적화 및 관리 하는 데 사용 됩니다.
+title: Azure Machine Learning 파이프라인 이란?
+description: 기계 학습 (ML) 파이프라인이 기계 학습 워크플로를 빌드, 최적화 및 관리 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +8,16 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.openlocfilehash: 0cefa78b6f52cc67df8817f68a9b793ab86b2a7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79e9551650866e5f5fc28b123c1259e2a5fb6f20
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878581"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983451"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인 이란?
 
-Azure Machine Learning 파이프라인을 사용 하 여 Machine Learning 프로젝트에서 워크플로를 만들 수 있습니다. 이러한 워크플로에는 다음과 같은 다양 한 이점이 있습니다. 
+이 문서에서는 기계 학습 워크플로를 빌드, 최적화 및 관리 하는 데 Azure Machine Learning 파이프라인을 어떻게 활용할 수 있는지 알아볼 수 있습니다. 이러한 워크플로에는 다음과 같은 다양 한 이점이 있습니다. 
 
 + 단순성
 + 속도
@@ -45,7 +44,6 @@ Azure 클라우드는 각각 다른 용도로 여러 다른 파이프라인을 �
 | 모델 오케스트레이션 (기계 학습) | 데이터 과학자 | Azure Machine Learning 파이프라인 | Kubeflow 파이프라인 | 데이터 > 모델 | 배포, 캐싱, 코드 우선, 다시 사용 | 
 | 데이터 오케스트레이션 (데이터 준비) | 데이터 엔지니어 | [Azure Data Factory 파이프라인](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Apache Airflow | 데이터 > 데이터 | 강력한 형식의 이동. 데이터 중심 활동. |
 | 코드 & 앱 오케스트레이션 (CI/CD) | 앱 개발자/Ops | [Azure DevOps 파이프라인](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | 코드 + 모델-> App/Service | 가장 강력 하 고 유연한 활동 지원, 승인 큐, 제어를 사용 하는 단계 | 
-
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>Azure ML 파이프라인에서 수행할 수 있는 작업은 무엇 인가요?
 

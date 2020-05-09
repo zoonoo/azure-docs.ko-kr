@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 509f9557a8128df12353ad02a7c7db02b7b42631
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6e85ba5aafaad973d28f799a251b6f3aae548e3
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80158471"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871950"
 ---
 # <a name="configure-rules"></a>규칙 구성
-
-
 
 *이 문서는 운영자, 빌더 및 관리자에게 적용됩니다.*
 
@@ -36,6 +34,12 @@ IoT Central 규칙은 연결 된 장치에서 적극적으로 모니터링 되�
 다음 스크린샷에서 조건은 온도가 70&deg; F 보다 크고 습도가 10 보다 작은 경우를 확인 합니다. 두 문이 모두 true 이면 규칙이 true로 평가 되 고 작업을 트리거합니다.
 
 ![조건](media/howto-configure-rules/conditions.png)
+
+### <a name="use-a-cloud-property-in-a-value-field"></a>값 필드에 클라우드 속성 사용
+
+조건에 대 한 **값** 필드의 장치 템플릿에서 클라우드 속성을 참조할 수 있습니다. 클라우드 속성 및 원격 분석 값의 형식은 동일 해야 합니다. 예를 들어 **온도가** double 인 경우 double 형식의 클라우드 속성만 **값** 드롭다운에서 옵션으로 표시 됩니다.
+
+이벤트 유형 원격 분석 값을 선택 하는 경우 **값** 드롭다운은 **Any**옵션을 포함 합니다. **모든** 옵션은 응용 프로그램에서 해당 형식의 이벤트를 받을 때 (페이로드가 무엇이 든) 규칙이 실행 됨을 의미 합니다.
 
 ## <a name="use-aggregate-windowing"></a>집계 창 사용
 
