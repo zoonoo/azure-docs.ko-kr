@@ -38,6 +38,8 @@
           href: relay-authentication-and-authorization.md
         - name: 기본 제공 보안 컨트롤
           href: service-bus-relay-security-controls.md
+        - name: 네트워크 보안
+          href: network-security.md
     - name: 하이브리드 연결 프로토콜
       href: relay-hybrid-connections-protocol.md
 - name: 방법
@@ -59,6 +61,12 @@
               href: relay-hybrid-connections-dotnet-api-overview.md
             - name: 노드
               href: relay-hybrid-connections-node-ws-api-overview.md
+    - name: 보안
+      items:
+        - name: IP 방화벽 구성(미리 보기)
+          href: ip-firewall-virtual-networks.md
+        - name: 프라이빗 엔드포인트 구성(미리 보기)
+          href: private-link-service.md
     - name: 관리 및 모니터링
       items:
         - name: Azure Monitoring을 사용하여 Azure Relay 모니터링

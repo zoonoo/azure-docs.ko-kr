@@ -11,17 +11,17 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 870f7b0ab0f1d7b247435cdbb74e21801b3b052a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8569f4751c54d7b37aa15737a9b3f7f394c7e26e
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257184"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983587"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>FPGA (필드 프로그래밍 가능 게이트 배열) 및 배포 방법
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 FPGA (필드 프로그래밍 가능 게이트 배열)에 대해 소개 하 고 Azure FPGA에 Azure Machine Learning를 사용 하 여 모델을 배포 하는 방법을 보여 줍니다.
+이 문서에서는 FPGA (필드 프로그래밍 가능 게이트 배열)에 대해 소개 하 고 Azure FPGA에 [Azure Machine Learning](overview-what-is-azure-ml.md) 를 사용 하 여 모델을 배포 하는 방법을 보여 줍니다.
 
 FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 상호 연결 계층 구조를 포함하고 있습니다. 제조 후 상호 연결을 통해 이러한 블록을 다양한 방법으로 구성할 수 있습니다. 다른 칩과 비교해서, FPGA는 프로그래밍 기능 및 성능 조합을 제공합니다.
 
@@ -81,9 +81,9 @@ Azure FPGAs는 Azure Machine Learning와 통합 됩니다. Microsoft에서는 DN
 
 + [육지 커버 매핑](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
 
-## <a name="example-deploy-models-on-fpgas"></a>예: FPGAs 모델 배포
+## <a name="deploy-models-on-fpgas"></a>FPGA에 모델 배포
 
-Azure Machine Learning 하드웨어 가속 모델를 사용 하 여 모델을 FPGAs에서 웹 서비스로 배포할 수 있습니다. FPGAs를 사용 하면 단일 일괄 처리 크기를 사용 하는 경우에도 매우 짧은 대기 시간 유추가 가능 합니다. 유추 또는 모델 점수 매기기는 배포 된 모델이 예측에 사용 되는 단계 이며 가장 일반적으로 프로덕션 데이터에 사용 됩니다.
+[Azure Machine Learning 하드웨어 가속 모델](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py)를 사용 하 여 모델을 fpgas에서 웹 서비스로 배포할 수 있습니다. FPGAs를 사용 하면 단일 일괄 처리 크기를 사용 하는 경우에도 매우 짧은 대기 시간 유추가 가능 합니다. 유추 또는 모델 점수 매기기는 배포 된 모델이 예측에 사용 되는 단계 이며 가장 일반적으로 프로덕션 데이터에 사용 됩니다.
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
@@ -118,7 +118,7 @@ Azure Machine Learning 하드웨어 가속 모델를 사용 하 여 모델을 FP
     pip install --upgrade azureml-accel-models[cpu]
     ```
 
-## <a name="1-create-and-containerize-models"></a>1. 모델 만들기 및 컨테이너 화
+### <a name="1-create-and-containerize-models"></a>1. 모델 만들기 및 컨테이너 화
 
 이 문서에서는 TensorFlow 그래프를 만들어 입력 이미지를 전처리 하 고, FPGA에서 ResNet 50을 사용 하 여 featurizer 만든 후 ImageNet 데이터 집합에 대해 학습 된 분류자를 통해 기능을 실행 하는 방법을 설명 합니다.
 
@@ -132,189 +132,170 @@ Azure Machine Learning 하드웨어 가속 모델를 사용 하 여 모델을 FP
 
 [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용하여 서비스 정의를 만듭니다. 서비스 정의는 TensorFlow를 기반으로 그래프(입력, 기능화기 및 분류자) 파이프라인을 설명하는 파일입니다. 배포 명령은 자동으로 정의 및 그래프를 ZIP 파일로 압축하고, ZIP 파일을 Azure Blob Storage에 업로드합니다. DNN가 FPGA에서 실행 되도록 이미 배포 되었습니다.
 
-### <a name="load-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 로드
+1. Azure Machine Learning 작업 영역 로드
 
-Azure Machine Learning 작업 영역을 로드 합니다.
+   ```python
+   import os
+   import tensorflow as tf
+   
+   from azureml.core import Workspace
+  
+   ws = Workspace.from_config()
+   print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep='\n')
+   ```
 
-```python
-import os
-import tensorflow as tf
+2. 이미지를 전처리 합니다. 웹 서비스에 대 한 입력은 JPEG 이미지입니다.  첫 번째 단계는 JPEG 이미지를 디코딩하고 전처리 하는 것입니다.  JPEG 이미지는 문자열로 처리 되 고 결과는 tensors 이며,이는 ResNet 50 모델에 대 한 입력입니다.
 
-from azureml.core import Workspace
+   ```python
+   # Input images as a two-dimensional tensor containing an arbitrary number of images represented a strings
+   import azureml.accel.models.utils as utils
+   tf.reset_default_graph()
+   
+   in_images = tf.placeholder(tf.string)
+   image_tensors = utils.preprocess_array(in_images)
+   print(image_tensors.shape)
+   ```
 
-ws = Workspace.from_config()
-print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep='\n')
-```
+1. Load featurizer. 모델을 초기화하고 기능화기로 사용할 ResNet50의 양자화 버전에 대한 TensorFlow 검사점을 다운로드합니다.  다른 심층 신경망을 가져오면 아래 코드 조각에서 "QuantizedResnet50"를으로 바꿀 수 있습니다.
 
-### <a name="preprocess-image"></a>이미지 전처리
+   - QuantizedResnet152
+   - QuantizedVgg16
+   - Densenet121
 
-웹 서비스에 대 한 입력은 JPEG 이미지입니다.  첫 번째 단계는 JPEG 이미지를 디코딩하고 전처리 하는 것입니다.  JPEG 이미지는 문자열로 처리 되 고 결과는 tensors 이며,이는 ResNet 50 모델에 대 한 입력입니다.
+   ```python
+   from azureml.accel.models import QuantizedResnet50
+   save_path = os.path.expanduser('~/models')
+   model_graph = QuantizedResnet50(save_path, is_frozen=True)
+   feature_tensor = model_graph.import_graph_def(image_tensors)
+   print(model_graph.version)
+   print(feature_tensor.name)
+   print(feature_tensor.shape)
+   ```
 
-```python
-# Input images as a two-dimensional tensor containing an arbitrary number of images represented a strings
-import azureml.accel.models.utils as utils
-tf.reset_default_graph()
+1. 분류자를 추가 합니다. 이 분류자는 ImageNet 데이터 집합을 기반으로 학습되었습니다.  사용자 지정 가중치에 대 한 전송 학습 및 학습 예제는 [샘플 노트북](https://aka.ms/aml-notebooks)집합에서 사용할 수 있습니다.
 
-in_images = tf.placeholder(tf.string)
-image_tensors = utils.preprocess_array(in_images)
-print(image_tensors.shape)
-```
+   ```python
+   classifier_output = model_graph.get_default_classifier(feature_tensor)
+   print(classifier_output)
+   ```
 
-### <a name="load-featurizer"></a>Load featurizer
+1. 모델을 저장합니다. 이제 전처리기, ResNet 50 featurizer 및 분류자가 로드 되었으므로 그래프 및 연관 된 변수를 모델로 저장 합니다.
 
-모델을 초기화하고 기능화기로 사용할 ResNet50의 양자화 버전에 대한 TensorFlow 검사점을 다운로드합니다.  다른 심층 신경망을 가져오면 아래 코드 조각에서 "QuantizedResnet50"를으로 바꿀 수 있습니다.
+   ```python
+   model_name = "resnet50"
+   model_save_path = os.path.join(save_path, model_name)
+   print("Saving model in {}".format(model_save_path))
+   
+   with tf.Session() as sess:
+       model_graph.restore_weights(sess)
+       tf.saved_model.simple_save(sess, model_save_path,
+                                  inputs={'images': in_images},
+                                  outputs={'output_alias': classifier_output})
+   ```
 
-- QuantizedResnet152
-- QuantizedVgg16
-- Densenet121
+1. 입력 및 출력 tensors을 저장 합니다. 전처리 및 분류자 단계 중에 만들어진 입력 및 출력 tensors 모델 변환 및 유추에 필요 합니다.
 
-```python
-from azureml.accel.models import QuantizedResnet50
-save_path = os.path.expanduser('~/models')
-model_graph = QuantizedResnet50(save_path, is_frozen=True)
-feature_tensor = model_graph.import_graph_def(image_tensors)
-print(model_graph.version)
-print(feature_tensor.name)
-print(feature_tensor.shape)
-```
+   ```python
+   input_tensors = in_images.name
+   output_tensors = classifier_output.name
 
-### <a name="add-classifier"></a>분류자 추가
+   print(input_tensors)
+   print(output_tensors)
+   ```
 
-이 분류자는 ImageNet 데이터 집합을 기반으로 학습되었습니다.  사용자 지정 가중치에 대 한 전송 학습 및 학습 예제는 [샘플 노트북](https://aka.ms/aml-notebooks)집합에서 사용할 수 있습니다.
+   > [!IMPORTANT]
+   > 모델 변환 및 유추 요청에 필요 하므로 입력 및 출력 tensors을 저장 합니다.
 
-```python
-classifier_output = model_graph.get_default_classifier(feature_tensor)
-print(classifier_output)
-```
+   사용 가능한 모델 및 해당 기본 분류자 출력 tensors은 아래와 같습니다. 기본 분류자를 사용 하는 경우 유추에 사용 합니다.
 
-### <a name="save-the-model"></a>모델 저장
+   + Resnet50, QuantizedResnet50
+     ```python
+     output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"
+     ```
+   + Resnet152, QuantizedResnet152
+     ```python
+     output_tensors = "classifier/resnet_v1_152/predictions/Softmax:0"
+     ```
+   + Densenet121, QuantizedDensenet121
+     ```python
+     output_tensors = "classifier/densenet121/predictions/Softmax:0"
+     ```
+   + Vgg16, QuantizedVgg16
+     ```python
+     output_tensors = "classifier/vgg_16/fc8/squeezed:0"
+     ```
+   + SsdVgg, QuantizedSsdVgg
+     ```python
+     output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
+     ```
 
-이제 전처리기, ResNet 50 featurizer 및 분류자가 로드 되었으므로 그래프 및 연관 된 변수를 모델로 저장 합니다.
+1. SDK를 사용 하 여 Azure Blob storage에서 ZIP 파일을 사용 하 여 모델을 [등록](concept-model-management-and-deployment.md) 합니다. 모델에 대 한 태그 및 기타 메타 데이터를 추가 하면 학습 된 모델을 추적 하는 데 도움이 됩니다.
 
-```python
-model_name = "resnet50"
-model_save_path = os.path.join(save_path, model_name)
-print("Saving model in {}".format(model_save_path))
+   ```python
+   from azureml.core.model import Model
 
-with tf.Session() as sess:
-    model_graph.restore_weights(sess)
-    tf.saved_model.simple_save(sess, model_save_path,
-                               inputs={'images': in_images},
-                               outputs={'output_alias': classifier_output})
-```
+   registered_model = Model.register(workspace=ws,
+                                     model_path=model_save_path,
+                                     model_name=model_name)
 
-### <a name="save-input-and-output-tensors"></a>입력 및 출력 tensors 저장
-전처리 및 분류자 단계 중에 만들어진 입력 및 출력 tensors 모델 변환 및 유추에 필요 합니다.
+   print("Successfully registered: ", registered_model.name,
+         registered_model.description, registered_model.version, sep='\t')
+   ```
 
-```python
-input_tensors = in_images.name
-output_tensors = classifier_output.name
+   이미 모델을 등록 하 고 로드 하려면 모델을 검색할 수 있습니다.
 
-print(input_tensors)
-print(output_tensors)
-```
+   ```python
+   from azureml.core.model import Model
+   model_name = "resnet50"
+   # By default, the latest version is retrieved. You can specify the version, i.e. version=1
+   registered_model = Model(ws, name="resnet50")
+   print(registered_model.name, registered_model.description,
+         registered_model.version, sep='\t')
+   ```
 
-> [!IMPORTANT]
-> 모델 변환 및 유추 요청에 필요 하므로 입력 및 출력 tensors을 저장 합니다.
+1. TensorFlow graph를[Onnx](https://onnx.ai/)(Open 신경망 Exchange format)로 변환 합니다.  입력 및 출력 tensors의 이름을 제공 해야 하며,이 이름은 웹 서비스를 사용할 때 클라이언트에서 사용 됩니다.
 
-사용 가능한 모델 및 해당 기본 분류자 출력 tensors은 아래와 같습니다. 기본 분류자를 사용 하는 경우 유추에 사용 합니다.
+   ```python
+   from azureml.accel import AccelOnnxConverter
 
-+ Resnet50, QuantizedResnet50
-  ```python
-  output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"
-  ```
-+ Resnet152, QuantizedResnet152
-  ```python
-  output_tensors = "classifier/resnet_v1_152/predictions/Softmax:0"
-  ```
-+ Densenet121, QuantizedDensenet121
-  ```python
-  output_tensors = "classifier/densenet121/predictions/Softmax:0"
-  ```
-+ Vgg16, QuantizedVgg16
-  ```python
-  output_tensors = "classifier/vgg_16/fc8/squeezed:0"
-  ```
-+ SsdVgg, QuantizedSsdVgg
-  ```python
-  output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
-  ```
+   convert_request = AccelOnnxConverter.convert_tf_model(
+       ws, registered_model, input_tensors, output_tensors)
 
-### <a name="register-model"></a>모델 등록
+   # If it fails, you can run wait_for_completion again with show_output=True.
+   convert_request.wait_for_completion(show_output=False)
 
-SDK를 사용 하 여 Azure Blob storage에서 ZIP 파일을 사용 하 여 모델을 [등록](concept-model-management-and-deployment.md) 합니다. 모델에 대 한 태그 및 기타 메타 데이터를 추가 하면 학습 된 모델을 추적 하는 데 도움이 됩니다.
+   # If the above call succeeded, get the converted model
+   converted_model = convert_request.result
+   print("\nSuccessfully converted: ", converted_model.name, converted_model.url, converted_model.version,
+         converted_model.id, converted_model.created_time, '\n')
+   ```
 
-```python
-from azureml.core.model import Model
+1. 변환 된 모델 및 모든 종속성에서 Docker 이미지를 만듭니다.  그런 다음이 Docker 이미지를 배포 하 고 인스턴스화할 수 있습니다.  지원 되는 배포 대상에는 클라우드 또는 [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview)와 같은에 지 장치에 있는 AKS 포함 됩니다.  등록 된 Docker 이미지에 대 한 태그 및 설명을 추가할 수도 있습니다.
 
-registered_model = Model.register(workspace=ws,
-                                  model_path=model_save_path,
-                                  model_name=model_name)
+   ```python
+   from azureml.core.image import Image
+   from azureml.accel import AccelContainerImage
 
-print("Successfully registered: ", registered_model.name,
-      registered_model.description, registered_model.version, sep='\t')
-```
+   image_config = AccelContainerImage.image_configuration()
+   # Image name must be lowercase
+   image_name = "{}-image".format(model_name)
 
-이미 모델을 등록 하 고 로드 하려면 모델을 검색할 수 있습니다.
+   image = Image.create(name=image_name,
+                        models=[converted_model],
+                        image_config=image_config,
+                        workspace=ws)
+   image.wait_for_creation(show_output=False)
+   ```
 
-```python
-from azureml.core.model import Model
-model_name = "resnet50"
-# By default, the latest version is retrieved. You can specify the version, i.e. version=1
-registered_model = Model(ws, name="resnet50")
-print(registered_model.name, registered_model.description,
-      registered_model.version, sep='\t')
-```
+   태그로 이미지를 나열 하 고 디버깅에 대 한 자세한 로그를 가져옵니다.
 
-### <a name="convert-model"></a>모델 변환
+   ```python
+   for i in Image.list(workspace=ws):
+       print('{}(v.{} [{}]) stored at {} with build log {}'.format(
+           i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
+   ```
 
-TensorFlow graph를[Onnx](https://onnx.ai/)(Open 신경망 Exchange format)로 변환 합니다.  입력 및 출력 tensors의 이름을 제공 해야 하며,이 이름은 웹 서비스를 사용할 때 클라이언트에서 사용 됩니다.
-
-```python
-from azureml.accel import AccelOnnxConverter
-
-convert_request = AccelOnnxConverter.convert_tf_model(
-    ws, registered_model, input_tensors, output_tensors)
-
-# If it fails, you can run wait_for_completion again with show_output=True.
-convert_request.wait_for_completion(show_output=False)
-
-# If the above call succeeded, get the converted model
-converted_model = convert_request.result
-print("\nSuccessfully converted: ", converted_model.name, converted_model.url, converted_model.version,
-      converted_model.id, converted_model.created_time, '\n')
-```
-
-### <a name="create-docker-image"></a>Docker 이미지 만들기
-
-변환 된 모델 및 모든 종속성이 Docker 이미지에 추가 됩니다.  그런 다음이 Docker 이미지를 배포 하 고 인스턴스화할 수 있습니다.  지원 되는 배포 대상에는 클라우드 또는 [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview)와 같은에 지 장치에 있는 AKS 포함 됩니다.  등록 된 Docker 이미지에 대 한 태그 및 설명을 추가할 수도 있습니다.
-
-```python
-from azureml.core.image import Image
-from azureml.accel import AccelContainerImage
-
-image_config = AccelContainerImage.image_configuration()
-# Image name must be lowercase
-image_name = "{}-image".format(model_name)
-
-image = Image.create(name=image_name,
-                     models=[converted_model],
-                     image_config=image_config,
-                     workspace=ws)
-image.wait_for_creation(show_output=False)
-```
-
-태그로 이미지를 나열 하 고 디버깅에 대 한 자세한 로그를 가져옵니다.
-
-```python
-for i in Image.list(workspace=ws):
-    print('{}(v.{} [{}]) stored at {} with build log {}'.format(
-        i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
-```
-
-## <a name="2-deploy-to-cloud-or-edge"></a>2. 클라우드 또는에 지에 배포
-
-### <a name="deploy-to-the-cloud"></a>클라우드에 배포
+### <a name="2-deploy-to-cloud-or-edge"></a>2. 클라우드 또는에 지에 배포
 
 모델을 확장성이 뛰어난 프로덕션 웹 서비스로 배포하려면 AKS(Azure Kubernetes Service)를 사용합니다. Azure Machine Learning SDK, CLI 또는 [Azure Machine Learning studio](https://ml.azure.com)를 사용 하 여 새 항목을 만들 수 있습니다.
 
