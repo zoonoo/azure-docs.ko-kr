@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 79a4e423f7a2b6570234c958ac833cdf5c6a75e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9a5a38ea32d927f50fb9ddbebe3e1c3533e6fcc0
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79297920"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625326"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Linux의 App Service에 있는 Azure Storage의 콘텐츠 제공
 
@@ -20,7 +20,7 @@ ms.locfileid: "79297920"
 
 이 가이드에서는 Azure Storage를 Linux에서 App Service에 연결 하는 방법을 보여 줍니다. 보안 콘텐츠, 콘텐츠 이식성, 영구 저장소, 여러 앱에 대 한 액세스 및 여러 가지 전송 방법 등의 이점이 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure CLI](/cli/azure/install-azure-cli)(2.0.46 이상)
 - [Linux 앱에서 기존 App Service](https://docs.microsoft.com/azure/app-service/containers/)
@@ -45,7 +45,7 @@ ms.locfileid: "79297920"
 
 [Azure Storage 계정, 파일 공유 및 디렉터리](#prerequisites)를 만들었으면 이제 Azure Storage를 사용 하 여 앱을 구성할 수 있습니다.
 
-App Service 앱의 디렉터리에 저장소 계정을 탑재 하려면 [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) 명령을 사용 합니다. 스토리지 형식은 AzureBlob 또는 AzureFiles일 수 있습니다. AzureFiles는이 예제에서 사용 됩니다.
+App Service 앱의 디렉터리에 저장소 계정을 탑재 하려면 [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) 명령을 사용 합니다. 스토리지 형식은 AzureBlob 또는 AzureFiles일 수 있습니다. AzureFiles는이 예제에서 사용 됩니다. 탑재 경로 설정은 Azure Storage에서 탑재 하려는 폴더에 해당 합니다. '/'로 설정 하면 전체 Azure Storage가 탑재 됩니다.
 
 
 > [!CAUTION]

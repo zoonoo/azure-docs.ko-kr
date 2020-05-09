@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: fbaca387dd8062f50bb7555c7be6e7f65ce346bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79136f86c647c0453d600fe2601be56571ee6fed
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062475"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625887"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>조직 페이지에서 연결 된 조직 관리
 
@@ -34,7 +34,7 @@ ms.locfileid: "77062475"
 
 ## <a name="view-your-organizations"></a>조직 보기
 
-1. 회사 또는 학교 계정에 로그인 한 다음 **내 계정** (페이지)https://myprofile.microsoft.com/) 으로 이동 합니다.
+1. 회사 또는 학교 계정에 로그인 한 다음 **내 계정** (페이지)https://myaccount.microsoft.com/) 으로 이동 합니다.
 
 2. 왼쪽 탐색 창에서 **조직**을 선택하거나 **조직** 블록에서 **조직 관리** 링크를 선택합니다.
 
