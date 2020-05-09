@@ -11,6 +11,9 @@
   items:
     - name: 다른 지역에 Azure VM 복제
       href: azure-to-azure-quickstart.md
+    - name: 자격 증명 모음 만들기 - ARM 템플릿
+      displayName: Resource Manager
+      href: quickstart-create-vault-template.md
 - name: 자습서
   items:
     - name: Azure로 Azure VM 재해 복구

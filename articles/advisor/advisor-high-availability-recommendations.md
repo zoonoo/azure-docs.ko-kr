@@ -3,12 +3,12 @@ title: Azure Advisor를 사용하여 애플리케이션의 가용성 향상
 description: Azure Advisor를 사용하여 Azure 배포의 가용성을 향상시킵니다.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 997681ed62fa9985e3122ece22565dbae0e65b53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e38a1fb5e07e3811c53e24a5e324575d6774a75
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443102"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788028"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Azure Advisor를 사용하여 애플리케이션의 가용성 향상
 
@@ -28,6 +28,10 @@ Azure Advisor는 업무상 중요한 애플리케이션의 연속성을 보장�
 ## <a name="use-managed-disks-to-improve-data-reliability"></a>Managed Disks를 사용하여 데이터 안정성 개선
 
 여러 디스크가 스토리지 계정 또는 스토리지 배율 단위를 공유하는 가용성 세트의 가상 머신은 중단 시 단일 스토리지 배율 단위 오류에서 복원되지 않습니다. Advisor는 이러한 가용성 세트를 식별하여 Azure Managed Disks로 마이그레이션하는 것이 좋다는 메시지를 표시합니다. 따라서 단일 실패 지점이 발생하지 않도록 가용성 세트의 서로 다른 가상 머신을 포함하는 디스크를 충분히 격리해야 합니다. 
+
+## <a name="known-issue-with-check-point-network-virtual-appliance-image-version"></a>Check Point 네트워크 가상 어플라이언스 이미지 버전의 알려진 문제
+
+Advisor는 플랫폼 서비스 작업을 수행할 때 네트워크 연결이 끊어진 것으로 알려진 버전의 검사점 이미지를 가상 컴퓨터에서 실행할 수 있는지를 식별할 수 있습니다. Advisor 권장 사항은이 문제를 해결 하는 최신 버전의 이미지로 업그레이드 하는 데 도움이 됩니다. 이렇게 하면 네트워크 연결을 개선 하 여 비즈니스 연속성을 보장 합니다.
 
 ## <a name="ensure-application-gateway-fault-tolerance"></a>애플리케이션 게이트웨이 내결함성 보장
 
@@ -83,7 +87,7 @@ Azure Advisor는 이전 버전의 .NET SDK를 사용 하는 Azure Cosmos DB 계�
 
 ## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Azure Cosmos DB Java SDK를 최신 버전의 Maven으로 업그레이드
 
-Azure Advisor는 이전 버전의 Java SDK를 사용 하는 Azure Cosmos DB 계정을 식별 하 고 최신 수정, 성능 향상 및 새로운 기능 기능을 위해 Maven에서 최신 버전으로 업그레이드 하는 것이 좋습니다. [Cosmos DB Java SDK에 대 한 자세한 정보](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor는 이전 버전의 Java SDK를 사용 하는 Azure Cosmos DB 계정을 식별 하 고 최신 수정, 성능 향상 및 새로운 기능 기능을 위해 Maven에서 최신 버전으로 업그레이드 하는 것이 좋습니다. [Cosmos DB Java SDK에 대 한 자세한 정보](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Azure Cosmos DB Spark Connector를 최신 버전의 Maven으로 업그레이드
 

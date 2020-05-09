@@ -5,20 +5,24 @@ services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 05/04/2020
 ms.author: charwen
-ms.openlocfilehash: 0af0fdfa1b0bcbb06d9424390e7ca8c8f406bcb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8580b7e28c8a4860739efa0763ebb7c20a80585e
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619312"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780286"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>가상 컴퓨터에 복사 하 여 붙여넣기: Azure 방호
 
 이 문서에서는 Azure 방호를 사용 하는 경우 가상 컴퓨터에서 텍스트를 복사 하 여 붙여 넣는 방법을 설명 합니다. VM을 사용 하려면 먼저 [요새 호스트를 만드는](bastion-create-host-portal.md)단계를 수행 해야 합니다. 그런 다음 [RDP](bastion-connect-vm-rdp.md) 또는 [SSH](bastion-connect-vm-ssh.md)중 하나를 사용 하 여 작업 하려는 VM에 연결 합니다.
 
 고급 클립보드 API 액세스를 지 원하는 브라우저의 경우 로컬 장치에서 응용 프로그램 간에 복사 하 여 붙여 넣는 것과 같은 방식으로 로컬 장치와 원격 세션 사이에서 텍스트를 복사 하 여 붙여넣을 수 있습니다. 다른 브라우저의 경우에는 요새 클립보드 액세스 도구 팔레트를 사용할 수 있습니다.
+
+>[!NOTE]
+>현재 텍스트 복사/붙여넣기만 지원 됩니다.
+>
 
    ![클립보드 허용](./media/bastion-vm-manage/allow.png)
 

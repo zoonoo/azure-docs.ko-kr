@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: ac111b06d578a0e9af8581ef2e8caeccfc4a291e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b712148b9e619cbf5c6886bf0510b4015183d018
+ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536890"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82883342"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Azure Blob Storage의 변경 피드 지원 (미리 보기)
 
@@ -42,7 +42,7 @@ ms.locfileid: "79536890"
 
 ## <a name="enable-and-disable-the-change-feed"></a>변경 피드 사용 및 사용 안 함
 
-변경 내용 캡처 및 기록을 시작 하려면 저장소 계정에서 변경 피드를 사용 하도록 설정 해야 합니다. 변경 피드를 사용 하지 않도록 설정 하 여 변경 캡처를 중지 합니다. 포털 또는 Powershell에서 Azure Resource Manager 템플릿을 사용 하 여 변경 내용을 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
+변경 내용 캡처 및 기록을 시작 하려면 저장소 계정에서 변경 피드를 사용 하도록 설정 해야 합니다. 변경 피드를 사용 하지 않도록 설정 하 여 변경 캡처를 중지 합니다. 포털 또는 PowerShell에서 Azure Resource Manager 템플릿을 사용 하 여 변경 내용을 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
 변경 피드를 사용 하도록 설정 하는 경우 기억해 야 할 몇 가지 사항은 다음과 같습니다.
 
@@ -61,15 +61,15 @@ ms.locfileid: "79536890"
 
 Azure Portal를 사용 하 여 저장소 계정에서 변경 피드를 사용 하도록 설정 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 저장소 계정을 선택 합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 저장소 계정을 선택 합니다.
 
 2. **Blob Service**에서 **데이터 보호** 옵션으로 이동 합니다.
 
-3. **Blob 변경 피드** 에서 **사용** 을 클릭 합니다.
+3. **Blob 변경 피드**에서 **사용** 을 클릭 합니다.
 
-4. **저장** 단추를 선택 하 여 데이터 보호 설정 확인
+4. **저장** 단추를 선택 하 여 **데이터 보호** 설정을 확인 합니다.
 
-![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
+    ![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -81,7 +81,7 @@ PowerShell을 사용 하 여 변경 피드를 사용 하도록 설정 합니다.
    Install-Module PowerShellGet –Repository PSGallery –Force
    ```
 
-2. Powershell 콘솔을 닫았다가 다시 엽니다.
+2. PowerShell 콘솔을 닫았다가 다시 엽니다.
 
 3. **Az. Storage** preview 모듈을 설치 합니다.
 

@@ -7,16 +7,16 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 0e7d61516b0b7fb9bab9aa0444a123ac932aaa56
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 7b84537693b3ffc3f7398c6eb84615a96bf8e7df
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509179"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744695"
 ---
 # <a name="m-series"></a>M 시리즈
 
-M 시리즈는 높은 vCPU 수 (최대 128 Vcpu) 및 많은 양의 메모리 (최대 3.8 TiB)를 제공 합니다. 매우 큰 데이터베이스 또는 높은 vCPU 수 및 많은 양의 메모리를 활용 하는 다른 응용 프로그램에도 적합 합니다. M 시리즈 크기&reg; 는 intel Xeon&reg; CPU E7-8890 v3 @ 2.50 ghz 및 Intel&reg; xeon&reg; Platinum 8280M 2.7 g h z (Cascade Lake)에서 모두 지원 됩니다.
+M 시리즈는 높은 vCPU 수 (최대 128 Vcpu) 및 많은 양의 메모리 (최대 3.8 TiB)를 제공 합니다. 매우 큰 데이터베이스 또는 높은 vCPU 수 및 많은 양의 메모리를 활용 하는 다른 응용 프로그램에도 적합 합니다. M 시리즈 크기&reg; 는 intel Xeon&reg; CPU E7-8890 v3 @ 2.50 ghz 및 Intel&reg; Xeon&reg; Platinum 8280m (Cascade Lake)에서 모두 지원 됩니다.
 
 M 시리즈 VM의 기능 Intel&reg; 하이퍼 스레딩 기술입니다.
 
