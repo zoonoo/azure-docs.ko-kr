@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: bdd5d986752e9d80d2967a8f5fd32491154fa236
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b913ba58252f4cb84d010aea39d371316582bd6d
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233930"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82869918"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책 관리
 
@@ -371,7 +371,9 @@ Azure Cosmos 컨테이너는 자체의 인덱싱 정책을 Azure Portal에서 �
 
 사용자 지정 인덱싱 정책을 사용 하 여 컨테이너를 만들려면 [Powershell을 사용 하 여 사용자 지정 인덱스 정책을 사용 하 여 컨테이너 만들기](manage-with-powershell.md#create-container-custom-index) 를 참조 하세요.
 
-## <a name="use-the-net-sdk-v2"></a>.NET SDK V2 사용
+## <a name="use-the-net-sdk"></a><a id="dotnet-sdk"></a>.NET SDK 사용
+
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
 `DocumentCollection` [.Net SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 의 개체는를 `IndexingPolicy` `IndexingMode` 변경 하 고 및를 `IncludedPaths` `ExcludedPaths`추가 또는 제거할 수 있는 속성을 노출 합니다.
 
@@ -401,7 +403,7 @@ ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollec
 long indexTransformationProgress = container.IndexTransformationProgress;
 ```
 
-## <a name="use-the-net-sdk-v3"></a>.NET SDK V3 사용
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
 `ContainerProperties` [.Net SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (사용법에 관한 [이 빠른](create-sql-api-dotnet.md) 시작 참조)의 개체는 `IndexingPolicy` 를 `IndexingMode` 변경 하 고 및를 `IncludedPaths` `ExcludedPaths`추가 하거나 제거할 수 있는 속성을 노출 합니다.
 
@@ -457,6 +459,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
     .Attach()
     .CreateIfNotExistsAsync();
 ```
+---
 
 ## <a name="use-the-java-sdk"></a>Java SDK 사용
 
@@ -610,7 +613,9 @@ const containerResponse = await client.database('database').container('container
 const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-collection-index-transformation-progress'];
 ```
 
-## <a name="use-the-python-sdk-v3"></a>Python SDK V3 사용
+## <a name="use-the-python-sdk"></a>Python SDK 사용
+
+# <a name="python-sdk-v3"></a>[Python SDK V3](#tab/pythonv3)
 
 [PYTHON SDK V3](https://pypi.org/project/azure-cosmos/) (사용과 관련 하 여 [이 빠른](create-sql-api-python.md) 시작 참조)을 사용 하는 경우 컨테이너 구성이 사전으로 관리 됩니다. 이 사전에서 인덱싱 정책 및 해당 정책의 모든 특성에 액세스할 수 있습니다.
 
@@ -674,7 +679,7 @@ container['indexingPolicy']['compositeIndexes'] = [
 response = client.ReplaceContainer(containerPath, container)
 ```
 
-## <a name="use-the-python-sdk-v4"></a>Python SDK V4 사용
+# <a name="python-sdk-v4"></a>[Python SDK V4](#tab/pythonv4)
 
 [PYTHON SDK V4](https://pypi.org/project/azure-cosmos/)를 사용 하는 경우 컨테이너 구성이 사전으로 관리 됩니다. 이 사전에서 인덱싱 정책 및 해당 정책의 모든 특성에 액세스할 수 있습니다.
 
@@ -739,6 +744,7 @@ indexingPolicy['compositeIndexes'] = [
 ```python
 response = database_client.replace_container(container_client, container['partitionKey'], indexingPolicy)
 ```
+---
 
 ## <a name="next-steps"></a>다음 단계
 

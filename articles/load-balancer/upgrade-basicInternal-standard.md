@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: fe9ae8997e05e4ab99dba66de88976342fbabe56
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: 960897abca67bf2a43c4c056b8dfa8cce0119faa
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858357"
+ms.locfileid: "82871594"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Azure 내부 Load Balancer 업그레이드-아웃 바운드 연결이 필요 하지 않음
 [Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](https://docs.microsoft.com/azure/load-balancer/skus#skus)를 참조 하세요.
@@ -31,6 +31,7 @@ ms.locfileid: "82858357"
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
 * 스크립트는 아웃 바운드 연결이 필요 하지 않은 내부 Load Balancer 업그레이드만 지원 합니다. 일부 Vm에 대 한 [아웃 바운드 연결이](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 필요한 경우에는이 [페이지](upgrade-InternalBasic-To-PublicStandard.md) 에서 지침을 참조 하세요. 
+* 기본 Load Balancer 백엔드 Vm 및 Nic와 동일한 리소스 그룹에 있어야 합니다.
 * 표준 부하 분산 장치를 다른 지역에 만든 경우 이전 지역의 기존 Vm을 새로 만든 표준 Load Balancer에 연결할 수 없습니다. 이 제한 사항을 해결 하려면 새 지역에 새 VM을 만들어야 합니다.
 * Load Balancer 프런트 엔드 IP 구성 또는 백 엔드 풀이 없는 경우 스크립트를 실행 하는 동안 오류가 발생할 수 있습니다. 비어 있지 않은지 확인 합니다.
 
@@ -47,7 +48,7 @@ ms.locfileid: "82858357"
 
 ## <a name="download-the-script"></a>스크립트 다운로드
 
-[PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureILBUpgrade/2.0)에서 마이그레이션 스크립트를 다운로드 합니다.
+[PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureILBUpgrade/3.0)에서 마이그레이션 스크립트를 다운로드 합니다.
 ## <a name="use-the-script"></a>스크립트 사용
 
 로컬 PowerShell 환경 설정 및 기본 설정에 따라 다음과 같은 두 가지 옵션을 사용할 수 있습니다.

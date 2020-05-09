@@ -5,14 +5,14 @@ author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 05/05/2020
 ms.author: sngun
-ms.openlocfilehash: f5a0b0f71a72ea76940450f73354fda230e09c5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1a507c54c6a6555fc945dd35ee6e54d37d49bfd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521040"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857576"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Azure에서 진단 설정을 사용 하 여 Azure Cosmos DB 데이터 모니터링
 
@@ -20,7 +20,7 @@ Azure의 진단 설정은 리소스 로그를 수집 하는 데 사용 됩니다
 
 플랫폼 메트릭과 활동 로그는 자동으로 수집 되지만 리소스 로그를 수집 하거나 Azure Monitor 외부로 전달 하려면 진단 설정을 만들어야 합니다. 다음 단계를 사용 하 여 Azure Cosmos 계정에 대 한 진단 설정을 켤 수 있습니다.
 
-1. 로그인은 [Azure 포털](https://portal.azure.com)합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. Azure Cosmos 계정으로 이동합니다. **진단 설정** 창을 열고 **진단 설정 추가** 옵션을 선택 합니다.
 
@@ -73,6 +73,40 @@ Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는
 
 ## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a>진단 쿼리와 관련 된 문제 해결
 
+1. 실행 하는 데 3 밀리초 보다 오래 걸리는 작업을 쿼리 하는 방법:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+   | summarize count() by clientIpAddress_s, TimeGenerated
+   ```
+
+1. 작업을 실행 하는 사용자 에이전트를 쿼리 하는 방법:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+   | summarize count() by OperationName, userAgent_s
+   ```
+
+1. 장기 실행 작업을 쿼리 하는 방법:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+   | project TimeGenerated , duration_s 
+   | summarize count() by bin(TimeGenerated, 5s)
+   | render timechart
+   ```
+    
+1. 데이터베이스 계정에 대 한 상위 3 개 파티션 간의 오차를 평가 하는 파티션 키 통계를 가져오는 방법:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+   ```
+
 1. 비용이 많이 드는 쿼리에 대 한 요청 요금을 가져오는 방법
 
    ```Kusto
@@ -96,6 +130,22 @@ Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는
    | where TimeGenerated >= ago(2h) 
    | summarize max(responseLength_s), max(requestLength_s), max(requestCharge_s), count = count() by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
+
+1. **DataPlaneRequests** 및 **queryruntimestatistics**의 데이터와 조인 된 100 o s/s를 사용 하는 모든 쿼리를 가져오는 방법입니다.
+
+   ```Kusto
+   AzureDiagnostics
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
+   | project activityId_g, requestCharge_s
+   | join kind= inner (
+           AzureDiagnostics
+           | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
+           | project activityId_g, querytext_s
+   ) on $left.activityId_g == $right.activityId_g
+   | order by requestCharge_s desc
+   | limit 100
+   ```
+
 1. 여러 작업에 대 한 배포를 가져오는 방법
 
    ```Kusto
@@ -151,11 +201,36 @@ Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는
 
 1. 데이터베이스 계정에 대 한 상위 3 개 파티션 간의 기울기를 평가 하는 파티션 키 통계를 가져오는 방법
 
-    ```Kusto
-    AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-    | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
-    ```
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId
+   ```
+
+1. 작업, 요청 요금 또는 응답의 길이에 대 한 P 99 또는 P50 복제 대기 시간을 얻는 방법
+
+   ```Kusto
+   AzureDiagnostics
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+   | where TimeGenerated >= ago(2d)
+   | summarize
+   percentile(todouble(responseLength_s), 50), percentile(todouble(responseLength_s), 99), max(responseLength_s),
+   percentile(todouble(requestCharge_s), 50), percentile(todouble(requestCharge_s), 99), max(requestCharge_s),
+   percentile(todouble(duration_s), 50), percentile(todouble(duration_s), 99), max(duration_s),
+   count()
+   by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
+   ```
+ 
+1. Controlplane 로그를 가져오는 방법
+ 
+   [키 기반 메타 데이터 쓰기 액세스 사용 안 함](audit-control-plane-logs.md#disable-key-based-metadata-write-access) articleand AZURE POWERSHELL, CLI 또는 ARM을 통해 작업을 실행 하는 방법에 설명 된 대로 플래그를 전환 해야 합니다.
+ 
+   ```Kusto  
+   AzureDiagnostics 
+   | where Category =="ControlPlaneRequests"
+   | summarize by OperationName 
+   ```
+
 
 ## <a name="next-steps"></a>다음 단계
 

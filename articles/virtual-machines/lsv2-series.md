@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 103e19d6e299956b5ee1ad45b577e25f9f2de1c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdb9e346b8deea71ef2af9f9f271ffa446be624e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78164035"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594341"
 ---
 # <a name="lsv2-series"></a>Lsv2 시리즈
 
@@ -27,6 +27,8 @@ Lsv2 시리즈는 처리량이 많고, 대기 시간이 짧으며, 모든 코어
 
 ACU: 150-175
 
+버스트: 지원 됨
+
 Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원 되지 않음
@@ -35,14 +37,14 @@ Premium Storage 캐싱: 지원 되지 않음
 
 메모리 보존 업데이트: 지원 되지 않음
 
-| Size | vCPU | 메모리(GiB) | 임시 디스크<sup>1</sup>(GiB) | NVMe 디스크<sup>2</sup> | NVMe 디스크 처리량<sup>3</sup> (읽기 IOPS/MBps) | 최대 캐시 되지 않은 데이터 디스크 처리량 (IOPs/MBps)<sup>4</sup> | 최대 데이터 디스크 수 | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
-|---|---|---|---|---|---|---|---|---|
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92TB  | 400000/2000  | 8000/160   | 16 | 2 / 3200   |
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92TB  | 800000/4000  | 16000/320  | 32 | 4 / 6400   |
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92TB  | 1.5 m/8000    | 32000/640  | 32 | 8 / 12800  |
-| Standard_L48s_v2  | 48 | 384 | 480 |  6x 1.92 TB  | 2.2 m/14000   | 48000/960  | 32 | 8/16000 + |
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92TB  | 2.9 m/16000   | 64000/1280 | 32 | 8/16000 + |
-| Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10x1.92TB | 3.8 m/20000 | 80000/1400 | 32 | 8/16000 + |
+| Size | vCPU | 메모리(GiB) | 임시 디스크<sup>1</sup>(GiB) | NVMe 디스크<sup>2</sup> | NVMe 디스크 처리량<sup>3</sup> (읽기 IOPS/MBps) | 캐시 되지 않은 데이터 디스크 처리량 (IOPs/MBps)<sup>4</sup> | 최대 버스트 캐시 되지 않은 데이터 디스크 처리량 (IOPs/MBps)<sup>5</sup>| 최대 데이터 디스크 수 | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92TB  | 400000/2000  | 8000/160   | 8000/1280 | 16 | 2 / 3200   |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92TB  | 800000/4000  | 16000/320  | 16000/1280 | 32 | 4 / 6400   |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92TB  | 1.5 m/8000    | 32000/640  | 32000/1280 | 32 | 8 / 12800  |
+| Standard_L48s_v2  | 48 | 384 | 480 |  6x 1.92 TB  | 2.2 m/14000   | 48000/960  | 48000/2000 | 32 | 8/16000 + |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92TB  | 2.9 m/16000   | 64000/1280 | 64000/2000 | 32 | 8/16000 + |
+| Standard_L80s_v2<sup>6</sup> | 80 | 640 | 800 | 10x1.92TB | 3.8 m/20000 | 80000/1400 | 80000/2000 | 32 | 8/16000 + |
 
 <sup>1</sup> Lsv2 시리즈 VM에는 OS 페이징/스왑 파일용 표준 SCSI 기반 임시 리소스 디스크가 있습니다(Windows의 D:, Linux의 /dev/sdb). 이 디스크는 모든 8 vCPU에 대해 80GiB 스토리지, 4,000 IOPS 및 80MBps 전송 속도를 제공합니다(예: Standard_L80s_v2는 40,000 IOPS 및 800MBPS에서 800GiB 제공). 이 경우 NVMe 드라이브는 완전히 애플리케이션 전용일 수 있습니다. 이는 임시 디스크이며 중지/할당 취소 시 모든 데이터가 손실됩니다.
 
@@ -52,7 +54,9 @@ Premium Storage 캐싱: 지원 되지 않음
 
 <sup>4</sup> Lsv2 시리즈 VM은 Lsv2 워크로드에 도움이 되지 않으므로 데이터 디스크에 대한 호스트 캐시를 제공하지 않습니다.  그러나 Lsv2 VM은 Azure의 임시 VM OS 디스크 옵션(최대 30GiB)을 수용할 수 있습니다.
 
-<sup>5</sup> 개 64 이상의 vcpus가 포함 된 vm 5 개에는 다음과 같은 지원 되는 게스트 운영 체제 중 하나가 필요 합니다.
+<sup>5</sup> Lsv2 시리즈 vm은 한 번에 최대 30 분 동안 디스크 성능을 [버스트](linux/disk-bursting.md) 할 수 있습니다. 
+
+<sup>6</sup> 64 개 이상의 vcpus가 포함 된 vm에는 다음과 같은 지원 되는 게스트 운영 체제 중 하나가 필요 합니다.
 
 - Windows Server 2016 이상
 - Ubuntu 16.04 LTS 이상, Azure에서 조정 된 커널 (4.15 kernel 이상)

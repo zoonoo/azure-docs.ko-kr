@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/30/2020
 ms.author: b-juche
-ms.openlocfilehash: c4e7566eeb28bc5709acd60ced9fcdffb7e8a725
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7dfc17825fab6c9a5f0d832318cb1d57271c56da
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668013"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625545"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -222,6 +222,23 @@ DNS 서버의 경우 Active Directory 연결을 구성 하는 데 두 개의 IP 
     만든 볼륨이 볼륨 페이지에 표시 됩니다. 
  
     볼륨은 해당 용량 풀에서 구독, 리소스 그룹, 위치 특성을 상속합니다. 볼륨 배포 상태를 모니터링하려면 알림 탭을 사용할 수 있습니다.
+
+## <a name="control-access-to-an-smb-volume"></a>SMB 볼륨에 대 한 액세스 제어  
+
+SMB 볼륨에 대 한 액세스는 사용 권한을 통해 관리 됩니다.  
+
+### <a name="share-permissions"></a>공유 권한  
+
+기본적으로 새 볼륨에는 **Everyone/Full Control** 공유 권한이 있습니다. Domain Admins 그룹의 구성원은 Azure NetApp Files 볼륨에 사용 되는 컴퓨터 계정에서 컴퓨터 관리를 사용 하 여 공유 사용 권한을 변경할 수 있습니다.
+
+![SMB 탑재 경로](../media/azure-netapp-files/smb-mount-path.png) 
+![설정 공유 권한 설정](../media/azure-netapp-files/set-share-permissions.png) 
+
+### <a name="ntfs-file-and-folder-permissions"></a>NTFS 파일 및 폴더 권한  
+
+Windows SMB 클라이언트에서 개체 속성의 **보안** 탭을 사용 하 여 파일 또는 폴더에 대 한 권한을 설정할 수 있습니다.
+ 
+![파일 및 폴더 권한 설정](../media/azure-netapp-files/set-file-folder-permissions.png) 
 
 ## <a name="next-steps"></a>다음 단계  
 

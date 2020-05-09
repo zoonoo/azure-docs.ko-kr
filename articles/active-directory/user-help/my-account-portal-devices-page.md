@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: e273a44c1cbc5a6a6161f059038c7e87973a33d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d43b2bd5912375c3bb2010f0f2ae75a119512f03
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062492"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625836"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>장치 페이지에서 연결 된 장치 관리
 
@@ -31,7 +31,7 @@ ms.locfileid: "77062492"
 
 ## <a name="view-your-connected-devices"></a>연결된 디바이스 보기
 
-1. 회사 또는 학교 계정에 로그인 한 다음 **내 계정** (페이지)https://myprofile.microsoft.com/) 으로 이동 합니다.
+1. 회사 또는 학교 계정에 로그인 한 다음 **내 계정** (페이지)https://myaccount.microsoft.com/) 으로 이동 합니다.
 
 2. 왼쪽 탐색 창에서 **디바이스**를 선택하거나 **디바이스** 블록에서 **디바이스 관리** 링크를 선택합니다.
 

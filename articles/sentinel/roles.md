@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: yelevin
-ms.openlocfilehash: e7629a53190433c6c331ce372476b0ed768fc5eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e1b1a4786670974a40b22d44fc219c6be5d97a3
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587178"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744756"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Azure 센티널의 사용 권한
 
@@ -44,7 +44,7 @@ Azure 센티널 전용 RBAC 역할 외에도 azure 및 Log Analytics RBAC 역할
 > 또한 Log Analytics 역할은 모든 Azure 리소스에 대 한 읽기 액세스 권한을 부여 하지만 Log Analytics 리소스에 대 한 쓰기 권한만 할당 합니다.
 
 
-예를 들어 azure 센티널 **판독기** 및 **Azure 참여자** ( **azure 센티널 참여자**아님) 역할을 사용 하 여 할당 된 사용자는 **센티널 판독기** 권한만 있는 경우에도 azure 센티널에서 데이터를 편집할 수 있습니다. 따라서 Azure 센티널에서에만 권한을 부여 하려는 경우에는이 사용자의 이전 권한을 신중 하 게 제거 하 여 다른 리소스에 필요한 권한 역할을 중단 하지 않도록 해야 합니다.
+예를 들어 azure 센티널 **판독기** 및 **Azure 참여자** ( **azure 센티널 참여자**아님) 역할을 사용 하 여 할당 된 사용자는 **센티널 판독기** 권한만 있는 경우에도 azure 센티널에서 데이터를 편집할 수 있습니다. 따라서 Azure 센티널 에서만 사용자에 게 권한을 부여 하려는 경우이 사용자의 이전 권한을 신중 하 게 제거 하 여 다른 리소스에 필요한 권한 역할을 중단 하지 않도록 해야 합니다.
 
 > [!NOTE]
 >- Azure 센티널은 자동화 된 위협 대응을 위해 플레이 북을 사용 합니다. 플레이 북은 Azure Logic Apps를 활용 하 고 별도의 Azure 리소스입니다. 보안 오케스트레이션, 자동화 및 응답 (대화 충성도) 작업에 Logic Apps를 사용 하는 옵션을 사용 하 여 보안 운영 팀의 특정 멤버를 할당할 수 있습니다. [논리 앱 참가자](../role-based-access-control/built-in-roles.md#logic-app-contributor) 역할 또는 [논리 앱 운영자](../role-based-access-control/built-in-roles.md#logic-app-operator) 역할을 사용 하 여 playbooks 사용에 대 한 명시적 권한을 할당할 수 있습니다.

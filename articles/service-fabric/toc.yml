@@ -655,7 +655,7 @@
             - name: 확장
               items:
                 - name: 수동으로 규모 확장
-                  href: service-fabric-cluster-scale-up-down.md
+                  href: service-fabric-cluster-scale-in-out.md
                 - name: 프로그래밍 방식으로 규모 확장
                   href: service-fabric-cluster-programmatic-scaling.md
                 - name: 주 노드 형식 강화

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 08325c8163073c083e927f84fecbde9a9d104572
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
-ms.translationtype: HT
+ms.openlocfilehash: 70f3c52adc10556c358ed75a75fd023ffb21a813
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652789"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855099"
 ---
 # <a name="troubleshoot-runbook-errors"></a>Runbook 오류 문제 해결
 
@@ -49,7 +49,7 @@ Azure Automation에서 runbook을 실행 하는 동안 오류가 발생 하면 �
     * 만료 된 webhook를 사용 하 여 runbook을 시작 하려는 경우 [webhook를 갱신](../automation-webhooks.md#renew-a-webhook) 합니다.
     * [작업 상태를 확인](../automation-runbook-execution.md#job-statuses) 하 여 현재 runbook 상태와 문제의 가능한 원인을 확인 합니다.
     * Runbook에 [추가 출력을 추가](../automation-runbook-output-and-messages.md#message-streams) 하 여 runbook이 일시 중단 되기 전에 수행 되는 작업을 식별 합니다.
-    * 작업에서 throw 되는 [모든 예외를 처리](../automation-runbook-execution.md#handling-exceptions) 합니다.
+    * 작업에서 throw 되는 [모든 예외를 처리](../automation-runbook-execution.md#exceptions) 합니다.
 
 1. Runbook 작업 또는 Hybrid Runbook Worker의 환경이 응답 하지 않는 경우이 단계를 수행 합니다.
 
@@ -234,7 +234,7 @@ Runbook이 실행 시 올바른 컨텍스트를 사용하지 않습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-Runbook이 여러 runbook을 호출 하면 구독 컨텍스트가 손실 될 수 있습니다. 구독 컨텍스트가 runbook에 전달 되도록 하려면 클라이언트 runbook이 `Start-AzureRmAutomationRunbook` `AzureRmContext` 매개 변수의 cmdlet에 컨텍스트를 전달 하도록 합니다. 로 `Process` 설정 `Disable-AzureRmContextAutosave` 된 `Scope` 매개 변수와 함께 cmdlet을 사용 하 여 지정 된 자격 증명이 현재 runbook에만 사용 되도록 합니다. 자세한 내용은 [여러 구독 작업](../automation-runbook-execution.md#working-with-multiple-subscriptions)을 참조 하세요.
+Runbook이 여러 runbook을 호출 하면 구독 컨텍스트가 손실 될 수 있습니다. 구독 컨텍스트가 runbook에 전달 되도록 하려면 클라이언트 runbook이 `Start-AzureRmAutomationRunbook` `AzureRmContext` 매개 변수의 cmdlet에 컨텍스트를 전달 하도록 합니다. 로 `Process` 설정 `Disable-AzureRmContextAutosave` 된 `Scope` 매개 변수와 함께 cmdlet을 사용 하 여 지정 된 자격 증명이 현재 runbook에만 사용 되도록 합니다. 자세한 내용은 [구독](../automation-runbook-execution.md#subscriptions)을 참조하세요.
 
 ```azurepowershell-interactive
 # Ensures that any credentials apply only to the execution of this runbook
@@ -634,7 +634,7 @@ Runbook 또는 응용 프로그램이 Azure 샌드박스에서 실행 되려고 
 
 ### <a name="resolution"></a>해결 방법
 
-Azure 샌드박스 사용에 대 한 자세한 내용은 [Azure Automation에서 Runbook 실행](../automation-runbook-execution.md#where-to-run-your-runbooks)을 참조 하세요.
+Azure 샌드박스 사용에 대 한 자세한 내용은 [Runbook 실행 환경](../automation-runbook-execution.md#runbook-execution-environment)을 참조 하세요.
 
 ## <a name="scenario-invalid-forbidden-status-code-when-using-key-vault-inside-a-runbook"></a>시나리오: runbook 내에서 Key Vault를 사용 하는 경우 잘못 된 금지 상태 코드
 
