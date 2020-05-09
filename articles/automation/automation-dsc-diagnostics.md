@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: badd8ba676ef25c33a5034bb04d616faeb4ef1b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0b0ee75c39ba87503f150ffb72b7ab95aaf83999
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392107"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996043"
 ---
-# <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Azure Monitor 로그에 Azure Automation 상태 구성 보고 데이터 전달
+# <a name="forward-state-configuration-reporting-data-to-azure-monitor-logs"></a>Azure Monitor 로그에 데이터를 보고하여 상태 구성 전달
 
 Azure Automation 상태 구성은 노드 상태 데이터를 30 일 동안 유지 합니다. 더 오랜 기간 동안이 데이터를 보존 하려면 노드 상태 데이터를 Log Analytics 작업 영역으로 보낼 수 있습니다. Azure Portal에서 또는 PowerShell을 사용하여 노드 및 노드 구성의 개별 DSC 리소스에 대한 준수 상태를 볼 수 있습니다. 
 
@@ -30,8 +30,6 @@ Azure Monitor 로그는 자동화 상태 구성 데이터에 대 한 작업 가�
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
->[!NOTE]
->이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대한 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](automation-update-azure-modules.md)을 사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -145,7 +143,7 @@ Azure Automation 진단은 Azure Monitor 로그에 두 가지 범주의 레코�
 | ConfigurationMode | 구성을 노드에 적용 하는 데 사용 되는 모드입니다. 가능한 값은 다음과 같습니다. <ul><li>`ApplyOnly`: 새 구성을 대상 노드에 푸시 하지 않거나 새 구성을 서버에서 끌어올 때까지 DSC는 구성을 적용 하 고 더 이상 수행 하지 않습니다. 새 구성의 애플리케이션이 초기에 적용된 후 DSC는 이전에 구성된 상태에서 달라졌는지 여부를 확인하지 않습니다. DSC는 `ApplyOnly` 값이 적용 되기 전에 성공할 때까지 구성을 적용 하려고 시도 합니다. </li><li>`ApplyAndMonitor`: 기본값입니다. LCM는 새 구성을 적용합니다. 새 구성의 애플리케이션이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고합니다. DSC는 `ApplyAndMonitor` 값이 적용 되기 전에 성공할 때까지 구성을 적용 하려고 시도 합니다.</li><li>`ApplyAndAutoCorrect`: DSC가 모든 새 구성을 적용 합니다. 새 구성의 애플리케이션이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고하고 현재 구성을 다시 적용합니다.</li></ul> |
 | HostName_s | 관리되는 노드의 이름입니다. |
 | IPAddress | 관리되는 노드의 IPv4 주소입니다. |
-| 범주 | `DscNodeStatus`. |
+| Category | `DscNodeStatus`. |
 | 리소스 | Azure Automation 계정의 이름입니다. |
 | Tenant_g | 호출자에 대 한 테 넌 트를 식별 하는 GUID입니다. |
 | NodeId_g | 관리되는 노드를 식별하는 GUID입니다. |
@@ -171,7 +169,7 @@ Azure Automation 진단은 Azure Monitor 로그에 두 가지 범주의 레코�
 | OperationName |`DscResourceStatusData`.|
 | ResultType |리소스가 규정을 준수하는지 여부입니다. |
 | NodeName_s |관리되는 노드의 이름입니다. |
-| 범주 | DscNodeStatus입니다. |
+| Category | DscNodeStatus입니다. |
 | 리소스 | Azure Automation 계정의 이름입니다. |
 | Tenant_g | 호출자에 대 한 테 넌 트를 식별 하는 GUID입니다. |
 | NodeId_g |관리되는 노드를 식별하는 GUID입니다. |

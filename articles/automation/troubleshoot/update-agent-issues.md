@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 1b4467128fae3fd71a6e588e3c05d287c153e168
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: e9af9c6472f49ebccd36e8d73688636c98918ff1
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927890"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996450"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Windows 업데이트 에이전트 문제 해결
 
@@ -27,21 +27,21 @@ ms.locfileid: "82927890"
 > [!NOTE]
 > Azure Portal 표시 되는 내용과 컴퓨터의 현재 상태 사이에 약간의 지연이 있을 수 있습니다.
 
-이 문서에서는 [오프 라인 시나리오](#troubleshoot-offline)에서 Azure Portal 및 비 azure 컴퓨터에서 azure 컴퓨터에 대 한 문제 해결사를 실행 하는 방법을 설명 합니다. 이제 문제 해결사에 WSUS (Windows Server Update Services)와 자동 다운로드 및 설치 키에 대 한 확인이 포함 됩니다.
+이 문서에서는 [오프 라인 시나리오](#troubleshoot-offline)에서 Azure Portal 및 비 azure 컴퓨터에서 azure 컴퓨터에 대 한 문제 해결사를 실행 하는 방법을 설명 합니다. 
 
 > [!NOTE]
-> 문제 해결사 스크립트는 현재 프록시 서버를 통해 트래픽을 라우팅 하지 않습니다 (구성 된 경우).
+> 이제 문제 해결사 스크립트에 WSUS (Windows Server Update Services)와 자동 다운로드 및 설치 키에 대 한 확인이 포함 됩니다. 
 
 ## <a name="start-the-troubleshooter"></a>문제 해결사 시작
 
-Azure 컴퓨터의 경우 포털의 **에이전트 준비 상태 업데이트** 열에서 **문제 해결** 링크를 선택 하 여 **업데이트 에이전트 문제 해결** 페이지를 시작할 수 있습니다. 비 Azure 컴퓨터의 경우 링크를 통해이 문서를 볼 수 있습니다. 비 Azure 컴퓨터 문제를 해결 하려면 [오프 라인 지침](#troubleshoot-offline) 을 참조 하세요.
+Azure 컴퓨터의 경우 포털의 **에이전트 준비 상태 업데이트** 열에서 **문제 해결** 링크를 선택 하 여 업데이트 에이전트 문제 해결 페이지를 시작할 수 있습니다. 비 Azure 컴퓨터의 경우 링크를 통해이 문서를 볼 수 있습니다. 비 Azure 컴퓨터 문제를 해결 하려면 [오프 라인 지침](#troubleshoot-offline) 을 참조 하세요.
 
 ![가상 컴퓨터의 업데이트 관리 목록 스크린샷](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
 > Hybrid Runbook Worker 상태를 확인 하려면 VM이 실행 중 이어야 합니다. VM이 실행되고 있는 않은 경우 **VM 시작** 단추가 나타납니다.
 
-**업데이트 에이전트 문제 해결** 페이지에서 **검사 실행**을 선택하여 문제 해결사를 시작합니다. 문제 해결사는 [실행 명령을](../../virtual-machines/windows/run-command.md) 사용 하 여 컴퓨터에서 종속성을 확인 하는 스크립트를 실행 합니다. 문제 해결사가 완료되면 검사 결과를 반환합니다.
+업데이트 에이전트 문제 해결 페이지에서 **검사 실행**을 선택하여 문제 해결사를 시작합니다. 문제 해결사는 [실행 명령을](../../virtual-machines/windows/run-command.md) 사용 하 여 컴퓨터에서 종속성을 확인 하는 스크립트를 실행 합니다. 문제 해결사가 완료되면 검사 결과를 반환합니다.
 
 ![업데이트 에이전트 문제 해결 페이지의 스크린샷](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -53,7 +53,7 @@ Azure 컴퓨터의 경우 포털의 **에이전트 준비 상태 업데이트** 
 
 ### <a name="operating-system"></a>운영 체제
 
-운영 체제 검사는 Hybrid Runbook Worker에서 다음 운영 체제 중 하나를 실행 하 고 있는지 여부를 확인 합니다.
+운영 체제 검사는 Hybrid Runbook Worker에서 다음 표에 나와 있는 운영 체제 중 하나를 실행 하 고 있는지 여부를 확인 합니다.
 
 |운영 체제  |메모  |
 |---------|---------|
@@ -61,11 +61,11 @@ Azure 컴퓨터의 경우 포털의 **에이전트 준비 상태 업데이트** 
 
 ### <a name="net-462"></a>.NET 4.6.2
 
-.NET Framework 검사는 시스템에 최소 [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) 가 설치 되어 있는지 확인 합니다.
+.NET Framework 검사는 시스템에 [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) 이상 버전이 설치 되어 있는지 확인 합니다.
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-WMF 검사는 시스템에 필요한 WMF (Windows Management Framework) 버전 ( [Windows Management framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))이 있는지 확인 합니다.
+WMF 검사는 시스템에 [Windows Management framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616)의 WMF (Windows management framework)의 필수 버전이 있는지 확인 합니다.
 
 ### <a name="tls-12"></a>TLS 1.2
 
@@ -77,13 +77,13 @@ WMF 검사는 시스템에 필요한 WMF (Windows Management Framework) 버전 (
 
 이 검사는 에이전트가 에이전트 서비스와 제대로 통신할 수 있는지 확인합니다.
 
-프록시 및 방화벽 구성에서는 Hybrid Runbook Worker 에이전트가 등록 엔드포인트와 통신하도록 허용해야 합니다. 열 주소 및 포트 목록은 [Hybrid worker에 대 한 네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 참조 하세요.
+프록시 및 방화벽 구성에서는 Hybrid Runbook Worker 에이전트가 등록 엔드포인트와 통신하도록 허용해야 합니다. 열 주소 및 포트 목록은 [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 참조 하세요.
 
 ### <a name="operations-endpoint"></a>작업 엔드포인트
 
 이 검사는 에이전트가 작업 런타임 데이터 서비스와 제대로 통신할 수 있는지 확인합니다.
 
-프록시 및 방화벽 구성에서는 Hybrid Runbook Worker 에이전트가 작업 런타임 데이터 서비스와 통신하도록 허용해야 합니다. 열 주소 및 포트 목록은 [Hybrid worker에 대 한 네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 참조 하세요.
+프록시 및 방화벽 구성에서는 Hybrid Runbook Worker 에이전트가 작업 런타임 데이터 서비스와 통신하도록 허용해야 합니다. 열 주소 및 포트 목록은 [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 참조 하세요.
 
 ## <a name="vm-service-health-checks"></a>VM 서비스 상태 검사
 
@@ -91,15 +91,18 @@ WMF 검사는 시스템에 필요한 WMF (Windows Management Framework) 버전 (
 
 이 확인은 Windows 용 Log Analytics 에이전트 (`healthservice`)가 컴퓨터에서 실행 되 고 있는지 여부를 확인 합니다. 서비스 문제를 해결 하는 방법에 대 한 자세한 내용은 [Windows 용 Log Analytics 에이전트가 실행 되 고 있지 않음](hybrid-runbook-worker.md#mma-not-running)을 참조 하세요.
 
-Windows 용 Log Analytics 에이전트를 다시 설치 하려면 [windows 용 Log Analytics 에이전트 설치 및 구성](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)을 참조 하세요.
+Windows 용 Log Analytics 에이전트를 다시 설치 하려면 [windows 용 에이전트 설치](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)를 참조 하세요.
 
 ### <a name="monitoring-agent-service-events"></a>에이전트 서비스 이벤트 모니터링
 
 이 검사는 지난 24 시간 동안 컴퓨터의 Azure Operations Manager 로그에 4502 이벤트가 표시 되는지 여부를 확인 합니다.
 
-이 이벤트에 대한 자세한 내용은 이 이벤트에 대한 [문제 해결 가이드](hybrid-runbook-worker.md#event-4502)를 참조하세요.
+이 이벤트에 대해 자세히 알아보려면이 이벤트에 대 한 [Operations Manager 로그에서 이벤트 4502](hybrid-runbook-worker.md#event-4502) 을 참조 하십시오.
 
 ## <a name="access-permissions-checks"></a>액세스 권한 검사
+
+> [!NOTE]
+> 현재 문제 해결사는 프록시 서버를 통해 트래픽을 라우팅 하지 않습니다 (구성 된 경우).
 
 ### <a name="crypto-folder-access"></a>암호화 폴더 액세스
 

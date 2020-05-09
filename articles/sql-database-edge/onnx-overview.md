@@ -4,17 +4,17 @@ description: Azure SQL Database Edge 미리 보기의 Machine learning은 ONNX (
 keywords: sql database edge 배포
 services: sql-database-edge
 ms.service: sql-database-edge
-ms.subservice: machine-learning
+ms.subservice: ''
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 03/26/2020
-ms.openlocfilehash: 7813a08b6b18e517b81e8c4bfac660d198eba7f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 53e884c6ef0b03b3bbc1a0c9729f497e40290416
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366273"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994325"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-database-edge-preview"></a>SQL Database Edge 미리 보기에서 ONNX를 사용 하는 기계 학습 및 AI
 

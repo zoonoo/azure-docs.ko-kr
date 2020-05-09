@@ -9,12 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: dfe62c54bfb10d70f1dbf19daec90eec68e66431
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f871b406793e455c857ca14c83434c9ed3e004df
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406077"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993835"
 ---
 # <a name="remediate-noncompliant-dsc-servers"></a>비규격 DSC 서버 재구성
 
@@ -37,7 +37,7 @@ Update-DscConfiguration -Wait -Verbose
 
 Linux 서버에는 현재 유사한 기능을 사용할 수 없습니다.
 유일한 옵션은 등록 프로세스를 반복 하는 것입니다.
-Azure 노드의 경우 Azure Portal에서 또는 Az module cmdlet을 사용 하 여 드리프트를 수정할 수 있습니다. 이 프로세스에 대 한 세부 정보는 [Azure Automation 상태 구성을 통해 관리할 수 있도록 컴퓨터를 온 보 딩](automation-dsc-onboarding.md#onboard-a-vm-using-azure-portal)에 설명 되어 있습니다.
+Azure 노드의 경우 Azure Portal에서 또는 Az module cmdlet을 사용 하 여 드리프트를 수정할 수 있습니다. 이 프로세스에 대 한 세부 정보는 [Azure Automation 상태 구성을 통해 관리할 수 있도록 컴퓨터를 온 보 딩](automation-dsc-onboarding.md#enable-a-vm-using-azure-portal)에 설명 되어 있습니다.
 하이브리드 노드의 경우 포함 된 Python 스크립트를 사용 하 여 드리프트를 수정할 수 있습니다.
 [Linux 리포지토리의 경우 POWERSHELL DSC를](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer)참조 하세요.
 

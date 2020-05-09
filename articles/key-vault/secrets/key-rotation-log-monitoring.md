@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d2981495a256ce5fb8f8f3584e68ac91541f9d62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5aaef50f12bfec89cf5e883ed6b1c85fa984ad6
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430254"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995960"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>키 회전 및 감사를 사용하여 Azure Key Vault 설정
 
@@ -85,23 +85,35 @@ Get-AzKeyVaultSecret –VaultName <vaultName>
 > [!NOTE]
 > 애플리케이션은 Key Vault와 동일한 Azure Active Directory에서 만들어야 합니다.
 
-1. **Azure Active Directory**를 엽니다.
-2. **앱 등록**를 선택 합니다. 
-3. **새 응용 프로그램 등록** 을 선택 하 여 Azure Active Directory에 응용 프로그램을 추가 합니다.
+1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. 사용자의 계정으로 둘 이상의 테넌트에 액세스할 수 있는 경우 오른쪽 위 모서리에서 계정을 선택합니다. 포털 세션을 원하는 Azure AD 테넌트로 설정합니다.
+1. **Azure Active Directory**를 검색하고 선택합니다. **관리** 아래에서 **앱 등록**을 선택합니다.
+1. **새 등록**을 선택합니다.
+1. **애플리케이션 등록**에서 사용자에게 표시할 의미 있는 애플리케이션 이름을 입력합니다.
+1. 애플리케이션을 사용할 수 있는 사용자를 다음과 같이 지정합니다.
 
-    ![Azure Active Directory에서 애플리케이션 열기](../media/keyvault-keyrotation/azure-ad-application.png)
+    | 지원되는 계정 유형 | Description |
+    |-------------------------|-------------|
+    | **이 조직 디렉터리의 계정만** | 업무용(LOB) 애플리케이션을 빌드하는 경우 이 옵션을 선택합니다. 애플리케이션이 디렉터리에 등록되지 않은 경우에는 이 옵션을 사용할 수 없습니다.<br><br>이 옵션은 Azure AD 단일 테넌트에 매핑됩니다.<br><br>디렉터리 외부에 앱을 등록하지 않은 한 이 옵션은 기본값입니다. 디렉터리 외부에 앱을 등록할 경우 기본값은 Azure AD 다중 테넌트 및 개인 Microsoft 계정입니다. |
+    | **모든 조직 디렉터리의 계정** | 모든 비즈니스 및 교육용 고객을 대상으로 하려는 경우 이 옵션을 선택합니다.<br><br>이 옵션은 Azure AD 전용 다중 테넌트에 매핑됩니다.<br><br>Azure AD 전용 단일 테넌트로 앱을 등록한 경우 **인증** 페이지에서 Azure AD 다중 테넌트로 업데이트할 수 있고 다시 단일 테넌트로 되돌릴 수 있습니다. |
+    | **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** | 가장 폭넓은 고객을 대상으로 하려면 이 옵션을 사용합니다.<br><br>이 옵션은 Azure AD 다중 테넌트 및 개인 Microsoft 계정에 매핑됩니다.<br><br>Azure AD 다중 테넌트 및 개인 Microsoft 계정으로 앱을 등록한 경우 UI에서 이 설정을 변경할 수 없습니다. 대신 애플리케이션 매니페스트 편집기를 사용하여 지원되는 계정 유형을 변경해야 합니다. |
 
-4. **만들기**에서 응용 프로그램 유형을 **웹 앱/** a p i로 두고 응용 프로그램에 이름을 지정 합니다. 응용 프로그램에 로그온 **URL**을 제공 합니다. 이 URL은이 데모를 위해 원하는 모든 것이 될 수 있습니다.
+1. **리디렉션 URI(선택 사항)** 에서 빌드 중인 앱의 유형을 선택합니다. **웹** 또는 **퍼블릭 클라이언트(모바일 및 데스크톱)** 그런 다음, 애플리케이션의 리디렉션 URI 또는 회신 URL을 입력합니다.
 
-    ![애플리케이션 등록 만들기](../media/keyvault-keyrotation/create-app.png)
+    * 웹 애플리케이션의 경우 앱의 기준 URL을 제공합니다. 예를 들어 `https://localhost:31544`은 로컬 컴퓨터에서 실행 중인 웹앱의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다.
+    * 공용 클라이언트 애플리케이션의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 애플리케이션에 고유하게 해당되는 값을 입력합니다(예: `myapp://auth`).
 
-5. 응용 프로그램이 Azure Active Directory에 추가 되 면 응용 프로그램 페이지가 열립니다. **설정**을 선택한 다음 **속성**을 선택 합니다. **애플리케이션 ID** 값을 복사합니다. 이후 단계에서 필요 합니다.
+1. 작업을 마쳤으면 **등록**을 선택합니다.
 
-그런 다음 Azure Active Directory와 상호 작용할 수 있도록 응용 프로그램에 대 한 키를 생성 합니다. 키를 만들려면 **설정**에서 **키** 를 선택 합니다. Azure Active Directory 응용 프로그램에 대해 새로 생성 된 키를 기록해 둡니다. 이후 단계에서 필요합니다. 이 섹션을 종료 한 후에는 키를 사용할 수 없습니다. 
+    ![Azure Portal에서 새 애플리케이션을 등록하는 화면 표시](../media/new-app-registration.png)
 
-![앱 키 Azure Active Directory](../media/keyvault-keyrotation/create-key.png)
+Azure AD는 앱에 고유한 애플리케이션 또는 클라이언트, ID를 할당합니다. 포털에서 애플리케이션의 **개요** 페이지가 열립니다. **응용 프로그램 (클라이언트) ID** 값을 기록해 둡니다.
 
-응용 프로그램에서 주요 자격 증명 모음으로의 호출을 설정 하기 전에 주요 자격 증명 모음에 응용 프로그램 및 해당 권한에 대 한 정보를 알려야 합니다. 다음 명령은 Azure Active Directory 앱의 자격 증명 모음 이름과 응용 프로그램 ID를 사용 하 여 응용 프로그램에 키 자격 증명 모음 **에 대 한 액세스 권한을** 부여 합니다.
+애플리케이션에 기능을 추가하려면 브랜드, 인증서, 비밀, API 권한 등을 비롯한 다른 구성 옵션을 선택할 수 있습니다.
+
+![새로 등록된 앱의 개요 페이지의 예제](../media//new-app-overview-page-expanded.png)
+
+응용 프로그램에서 주요 자격 증명 모음으로의 호출을 설정 하기 전에 주요 자격 증명 모음에 응용 프로그램 및 해당 권한에 대 한 정보를 알려야 합니다. 다음 명령은 Azure Active Directory 앱의 자격 증명 모음 이름 및 **응용 프로그램 (클라이언트) ID** 를 사용 하 여 응용 프로그램에 키 자격 증명 모음 **에 대 한 액세스 권한을** 부여 합니다.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get

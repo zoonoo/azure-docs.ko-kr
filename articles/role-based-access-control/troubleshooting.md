@@ -15,12 +15,12 @@ ms.date: 05/01/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 9eabd6d2a8f3179c5553bc6ca6d59407388c4d42
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 58e7a46633b7bbdd6074fa7e511569ff9e2aebdf
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735569"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996587"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Azure RBAC 문제 해결
 
@@ -28,7 +28,7 @@ ms.locfileid: "82735569"
 
 ## <a name="azure-role-assignments-limit"></a>Azure 역할 할당 제한
 
-Azure는 구독당 최대 **2000**개의 역할 할당을 지원합니다. 역할을 할당 하려고 할 때 "더 이상 역할 할당을 만들 수 없습니다 (코드: RoleAssignmentLimitExceeded)" 라는 오류 메시지가 표시 되는 경우 구독에서 역할 할당의 수를 줄여 보세요.
+Azure는 구독당 최대 **2000**개의 역할 할당을 지원합니다. 이 제한에는 구독, 리소스 그룹 및 리소스 범위에 대 한 역할 할당이 포함 됩니다. 역할을 할당 하려고 할 때 "더 이상 역할 할당을 만들 수 없습니다 (코드: RoleAssignmentLimitExceeded)" 라는 오류 메시지가 표시 되는 경우 구독에서 역할 할당의 수를 줄여 보세요.
 
 > [!NOTE]
 > 구독 당 **2000** 역할 할당 제한은 고정 되어 있으므로 늘릴 수 없습니다.

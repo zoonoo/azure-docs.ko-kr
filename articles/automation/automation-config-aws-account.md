@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1bf60d17af1d9866de6a62ac538fa0bd9a15ce52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92919d2e0cc7ca685d2b60a8e7a8cf20433bbefc
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113394"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994704"
 ---
 # <a name="authenticate-azure-automation-runbooks-with-amazon-web-services"></a>Amazon Web Services를 사용하여 Azure Automation Runbook 인증
 
@@ -33,4 +33,4 @@ AWS 보안 키를 만들어서 복사한 후에는 보안 키를 안전하게 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* 솔루션 문서 [Amazon Web Services에서 VM 배포 자동화](automation-scenario-aws-deployment.md)를 검토하여 AWS에서 작업을 자동화하는 Runbook을 만드는 방법에 대해 알아봅니다.
+* [Amazon Web Services에서 VM 배포 자동화](automation-scenario-aws-deployment.md) 를 검토 하 여 AWS에서 작업을 자동화 하는 runbook을 만드는 방법을 알아봅니다.

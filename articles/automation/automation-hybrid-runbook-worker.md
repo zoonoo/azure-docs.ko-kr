@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0b36651a40267ec3ea8bfe7285c5f6c5d5c31562
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: c02a61366b05fa2750c581a1dedefb0d6239dada
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871648"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994754"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Hybrid Runbook Worker 개요
 
@@ -42,7 +42,7 @@ Hybrid Runbook Worker를 설치 하는 프로세스는 운영 체제에 따라 �
 
 권장 되는 설치 방법은 Azure Automation runbook을 사용 하 여 Windows 컴퓨터를 구성 하는 프로세스를 완전히 자동화 하는 것입니다. 두 번째 방법은 단계별 절차에 따라 역할을 수동으로 설치 하 고 구성 하는 것입니다. Linux 컴퓨터의 경우 Python 스크립트를 실행하여 컴퓨터에 에이전트를 설치합니다.
 
-## <a name="network-configuration"></a><a name="network-planning"></a>네트워크 구성
+## <a name="network-planning"></a><a name="network-planning"></a>네트워크 계획
 
 Hybrid Runbook Worker Azure Automation에 연결 하 고 등록 하려면이 섹션에서 설명 하는 포트 번호 및 Url에 액세스할 수 있어야 합니다. 또한 작업자는 Log Analytics 에이전트가 Azure Monitor Log Analytics 작업 영역에 연결 하는 데 [필요한 포트 및 url](../azure-monitor/platform/agent-windows.md) 에 액세스할 수 있어야 합니다.
 

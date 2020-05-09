@@ -1,6 +1,6 @@
 ---
 title: Azure Automation 상태 구성 개요
-description: DSC (Azure Automation 상태 구성)의 개요, 용어 및 알려진 문제
+description: Azure Automation 상태 구성, 용어 및 알려진 문제에 대 한 개요
 keywords: PowerShell DSC, 필요한 상태 구성, PowerShell DSC Azure
 services: automation
 ms.service: automation
@@ -10,20 +10,34 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: afceb11180662416aa4953b8b58ef03ffaa70eec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dbe617e6614eb69f0a7f6e31c89c1f645804fe1b
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406177"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993860"
 ---
-# <a name="state-configuration-overview"></a>상태 구성 개요
+# <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
-Azure Automation 상태 구성은 PowerShell DSC (필요한 상태 구성) [구성을](/powershell/scripting/dsc/configurations/configurations)작성, 관리 및 컴파일할 수 있도록 하는 Azure 서비스입니다. 또한이 서비스는 [DSC 리소스](/powershell/scripting/dsc/resources/resources)를 가져오고 대상 노드에 대 한 구성을 모두 클라우드에서 할당 합니다.
+Azure Automation 상태 구성은 모든 클라우드 또는 온-프레미스 데이터 센터의 노드에 대 한 PowerShell DSC (필요한 상태 구성) [구성을](/powershell/scripting/dsc/configurations/configurations) 작성, 관리 및 컴파일할 수 있도록 하는 Azure 구성 관리 서비스입니다. 또한이 서비스는 [DSC 리소스](/powershell/scripting/dsc/resources/resources)를 가져오고 대상 노드에 대 한 구성을 모두 클라우드에서 할당 합니다. **구성 관리**아래에서 **상태 구성 (DSC)** 을 선택 하 여 Azure Portal에서 Azure Automation 상태 구성에 액세스할 수 있습니다. 
+
+Azure Automation 상태 구성을 사용 하 여 다양 한 컴퓨터를 관리할 수 있습니다.
+
+- Azure 가상 머신
+- Azure 가상 머신(기본)
+- 온-프레미스에 있는 실제/가상 Windows 컴퓨터 (AWS EC2 인스턴스 포함) 또는 Azure 이외의 클라우드
+- 온-프레미스, Azure 또는 Azure 이외의 클라우드에 있는 실제/가상 Linux 컴퓨터
+
+클라우드에서 컴퓨터 구성을 관리할 준비가 되지 않은 경우 Azure Automation 상태 구성을 보고서 전용 끝점으로 사용할 수 있습니다. 이 기능을 사용 하면 DSC를 통해 구성 (푸시)을 설정 하 고 Azure Automation 보고 세부 정보를 볼 수 있습니다.
+
+> [!NOTE]
+> Azure Automation 상태 구성을 사용 하 여 Azure Vm 관리는 설치 된 Azure VM 필요한 상태 구성 확장 버전이 2.70 보다 큰 경우 추가 비용 없이 포함 됩니다. 자세한 내용은 [**Automation 가격 책정 페이지**](https://azure.microsoft.com/pricing/details/automation/)를 참조 하세요.
 
 ## <a name="why-use-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 사용하는 이유
 
-Azure Automation 상태 구성은 Azure 외부에서 DSC를 사용하는 것에 비해 몇 가지 장점이 있습니다.
+Azure Automation 상태 구성은 Azure 외부에서 DSC를 사용 하는 경우에 비해 몇 가지 이점을 제공 합니다. 이 서비스를 사용 하면 중앙의 안전한 위치에서 수천 대의 컴퓨터에서 빠르고 쉽게 확장할 수 있습니다. 쉽게 컴퓨터를 사용 하도록 설정 하 고, 선언적 구성을 할당 하 고, 지정 된 원하는 상태를 사용 하 여 각 컴퓨터의 호환성을 보여 주는 보고서를 볼 수 있습니다.
+
+Azure Automation 상태 구성 서비스는 PowerShell 스크립트에 Azure Automation runbook이 무엇 인지를 DSC에 제공 합니다. 즉, Azure Automation에서 PowerShell 스크립트 관리를 지원하는 동일한 방법으로 DSC 구성 관리를 지원합니다. 
 
 ### <a name="built-in-pull-server"></a>기본 제공 끌어오기 서버
 
@@ -41,18 +55,18 @@ Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상
 
 ## <a name="prerequisites-for-using-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 사용 하기 위한 필수 구성 요소
 
-DSC에 대해 Azure Automation 상태 구성을 사용 하는 경우 다음 요구 사항을 고려 하세요.
+Azure Automation 상태 구성을 사용 하는 경우이 섹션의 요구 사항을 고려 합니다.
 
 ### <a name="operating-system-requirements"></a>운영 체제 요구 사항
 
 Windows를 실행 하는 노드의 경우 지원 되는 버전은 다음과 같습니다.
 
-- 시작
+- Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012R2
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
-- Windows 10
+- 윈도우 10
 - Windows 8.1
 - Windows 7
 
@@ -63,9 +77,9 @@ Linux를 실행 하는 노드의 경우 DSC Linux 확장은 [지원 되는 Linux
 
 ### <a name="dsc-requirements"></a>DSC 요구 사항
 
-Azure에서 실행 되는 모든 Windows 노드의 경우 온 보 딩 중에 [WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) 이 설치 됩니다. Windows Server 2012 및 Windows 7을 실행 하는 노드의 경우 [WinRM](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) 이 사용 됩니다.
+Azure에서 실행 되는 모든 Windows 노드의 경우 컴퓨터를 사용 하도록 설정 하면 [WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) 이 설치 됩니다. Windows Server 2012 및 Windows 7을 실행 하는 노드의 경우 [WinRM](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) 이 사용 됩니다.
 
-Azure에서 실행 되는 모든 Linux 노드의 경우 온 보 딩 중에 [linux 용 POWERSHELL DSC](https://github.com/Microsoft/PowerShell-DSC-for-Linux) 가 설치 됩니다.
+Azure에서 실행 되는 모든 Linux 노드의 경우 컴퓨터를 사용 하도록 설정 하면 [linux 용 POWERSHELL DSC](https://github.com/Microsoft/PowerShell-DSC-for-Linux) 가 설치 됩니다.
 
 ### <a name="configuration-of-private-networks"></a><a name="network-planning"></a>개인 네트워크 구성
 
@@ -80,7 +94,7 @@ Azure에서 실행 되는 모든 Linux 노드의 경우 온 보 딩 중에 [linu
 
 #### <a name="proxy-support"></a>프록시 지원
 
-DSC 에이전트에 대 한 프록시 지원은 Windows 버전 1809 이상에서 사용할 수 있습니다. 이 옵션은 노드를 등록 하는 데 `ProxyURL` 사용 `ProxyCredential` 되는 [메타 구성 스크립트](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) 에서 및에 대 한 값을 설정 하 여 사용할 수 있습니다.
+DSC 에이전트에 대 한 프록시 지원은 Windows 버전 1809 이상에서 사용할 수 있습니다. 이 옵션은 노드를 등록 하는 데 `ProxyURL` 사용 `ProxyCredential` 되는 [메타 구성 스크립트](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) 에서 및에 대 한 값을 설정 하 여 사용할 수 있습니다.
 
 >[!NOTE]
 >Azure Automation 상태 구성은 이전 버전의 Windows에 대 한 DSC 프록시 지원을 제공 하지 않습니다.
@@ -121,7 +135,7 @@ Azure ExpressRoute 사용자는 이 파일을 사용해 Azure 공간에 대한 B
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Automation 상태 구성에서 DSC 사용을 시작 하려면 [Azure Automation 상태 구성 시작](automation-dsc-getting-started.md)을 참조 하세요.
-- 노드를 등록 하는 방법에 [대 한 자세한 내용은 Azure Automation 상태 구성을 통해 관리용 컴퓨터 온 보 딩](automation-dsc-onboarding.md)을 참조 하세요.
+- 노드를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [Azure Automation 상태 구성을 통해 관리할 컴퓨터 사용](automation-dsc-onboarding.md)을 참조 하세요.
 - 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation 상태 구성에서 구성 컴파일](automation-dsc-compile.md)을 참조 하세요.
 - PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 )을 참조하세요.

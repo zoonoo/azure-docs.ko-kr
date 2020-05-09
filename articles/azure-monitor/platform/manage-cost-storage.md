@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/07/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 601f1c224d6e1d756c27dc2478951682ce6bb4fd
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: a2df89bc18ea5d0098ac5ebb0bc06b9df6728705
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854752"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993751"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리
 
@@ -72,9 +72,9 @@ Log Analytics 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 �
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Azure 청구서에서 Log Analytics 사용량 보기 
 
-Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) 허브에서 상당한 유용한 기능을 제공 합니다. 예를 들어 "비용 분석" 기능을 사용 하 여 Azure 리소스에 대 한 소비를 확인할 수 있습니다. Operationalinsights/작업 영역에 Log Analytics 대 한 리소스 종류에 따라 필터를 추가 하면 지출을 추적할 수 있습니다.
+Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) 허브에서 상당한 유용한 기능을 제공 합니다. 예를 들어 "비용 분석" 기능을 사용 하 여 Azure 리소스에 대 한 소비를 확인할 수 있습니다. 먼저 "리소스 종류"를 기준으로 필터를 추가 합니다 (Log Analytics 및 operationalinsights/작업 영역에 대 한 operationalinsights에 대 한 작업 영역에 Log Analytics 클러스터 Log Analytics). 그런 다음 "그룹화 방법"에서 "미터 범주" 또는 "측정기"를 선택 합니다.  Azure Security Center 및 Azure 센티널과 같은 다른 서비스 에서도 Log Analytics 작업 영역 리소스에 대 한 사용량을 청구 합니다. 서비스 이름에 대 한 매핑을 보려면 차트 대신 테이블 뷰를 선택할 수 있습니다. 
 
-사용량을 [Azure Portal에서 다운로드](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal)하 여 사용량을 더 자세히 파악할 수 있습니다. 다운로드 한 스프레드시트에서 하루에 Azure 리소스 (예: Log Analytics 작업 영역) 별 사용량을 볼 수 있습니다. 이 Excel 스프레드시트에서는 먼저 "측정기 범주" 열을 필터링 하 여 "정보 및 분석" (일부 레거시 가격 책정 계층에서 사용) 및 "Log Analytics"를 표시 하 고 "작업 영역 포함" 열에 필터를 추가 하 여 Log Analytics 작업 영역의 사용을 찾을 수 있습니다. 사용량은 "소비 된 수량" 열에 표시 되 고 각 항목에 대 한 단위는 "측정 단위" 열에 표시 됩니다.  [Microsoft Azure 청구서를 이해](https://docs.microsoft.com/azure/billing/billing-understand-your-bill)하는 데 도움이 되는 자세한 정보를 제공 합니다. 
+사용량을 [Azure Portal에서 다운로드](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal)하 여 사용량을 더 자세히 파악할 수 있습니다. 다운로드 한 스프레드시트에서 하루에 Azure 리소스 (예: Log Analytics 작업 영역) 별 사용량을 볼 수 있습니다. 이 Excel 스프레드시트에서는 "측정기 범주" 열을 기준으로 필터링 하 여 "Log Analytics"를 표시 하는 Log Analytics 작업 영역의 사용을 찾을 수 있습니다. 정보 및 분석 "(일부 레거시 가격 책정 계층에서 사용 됨) 및" Azure Monitor "(용량 예약 가격 책정 계층에서 사용 됨) 및" 인스턴스 ID "열에" 포함 작업 영역 "또는" 클러스터 포함 "(클러스터 사용 Log Analytics 포함)에 대 한 필터를 추가 합니다. 사용량은 "소비 된 수량" 열에 표시 되 고 각 항목에 대 한 단위는 "측정 단위" 열에 표시 됩니다.  [Microsoft Azure 청구서를 이해](https://docs.microsoft.com/azure/billing/billing-understand-your-bill)하는 데 도움이 되는 자세한 정보를 제공 합니다. 
 
 ## <a name="changing-pricing-tier"></a>가격 책정 계층 변경
 
@@ -108,7 +108,7 @@ Azure Resource Manager 템플릿의 매개 변수 `sku` `pricingTier` 를 사용
 
 ## <a name="change-the-data-retention-period"></a>데이터 보존 기간 변경
 
-다음 단계에서는 로그 데이터가 작업 영역에 보존되는 기간을 구성하는 방법을 설명합니다. 데이터 보존은 레거시 무료 가격 책정 계층을 사용 하는 경우를 제외 하 고 모든 작업 영역에 대해 30 ~ 730 일 (2 년)에서 구성할 수 있습니다. 
+다음 단계에서는 로그 데이터가 작업 영역에 보존되는 기간을 구성하는 방법을 설명합니다. 데이터 보존은 레거시 무료 가격 책정 계층을 사용 하는 경우를 제외 하 고 모든 작업 영역에 대해 30 ~ 730 일 (2 년)에서 구성할 수 있습니다. 더 긴 데이터 보존에 대 한 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/monitor/) . 
 
 ### <a name="default-retention"></a>기본 보존
 
@@ -253,7 +253,7 @@ union withsource = tt *
 ```
 
 > [!TIP]
-> 이러한 `union withsource = tt *` 쿼리는 데이터 형식에 대 한 검사를 실행 하는 데 [많은 리소스](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) 를 사용 하는 경우에만 사용 이 쿼리는 컴퓨터별 정보를 사용 데이터 형식으로 쿼리 하는 이전 방법을 대체 합니다.  
+> 이러한 `union *` 쿼리는 데이터 형식에 대 한 검사를 실행 하는 데 [많은 리소스](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) 를 사용 하는 경우에만 사용 **컴퓨터당** 결과가 필요 하지 않으면 사용 데이터 형식 (아래 참조)을 쿼리 합니다.
 
 ## <a name="understanding-ingested-data-volume"></a>수집 데이터 볼륨 이해
 
@@ -322,7 +322,7 @@ union withsource = tt *
 | summarize BillableDataBytes = sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
-`_IsBillable` [속성](log-standard-properties.md#_isbillable) 은 수집 데이터가 요금을 부과 하는지 여부를 지정 합니다.
+`_IsBillable` [속성](log-standard-properties.md#_isbillable) 은 수집 데이터가 요금을 부과 하는지 여부를 지정 합니다. 
 
 컴퓨터별 수집 청구 가능 이벤트 **수** 를 확인 하려면 다음을 사용 합니다. 
 
@@ -333,6 +333,10 @@ union withsource = tt *
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize eventCount = count() by computerName  | sort by eventCount nulls last
 ```
+
+> [!TIP]
+> 이러한 `union  *` 쿼리는 데이터 형식에 대 한 검사를 실행 하는 데 [많은 리소스](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) 를 사용 하는 경우에만 사용 **컴퓨터당** 결과가 필요 하지 않은 경우에는 사용 데이터 형식에 대해 쿼리 합니다.
+
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Azure 리소스, 리소스 그룹 또는 구독에의 한 데이터 볼륨
 
@@ -357,6 +361,9 @@ union withsource = tt *
 ```
 
 로 `subscriptionId` `resourceGroup` 변경 하면 Azure 리소스 그룹별 청구 가능한 수집 데이터 볼륨이 표시 됩니다. 
+
+> [!TIP]
+> 이러한 `union  *` 쿼리는 데이터 형식에 대 한 검사를 실행 하는 데 [많은 리소스](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) 를 사용 하는 경우에만 사용 구독, 리소스 그룹 또는 리소스 이름 별로 결과가 필요 하지 않으면 사용 현황 데이터 형식에 대해 쿼리 합니다.
 
 > [!WARNING]
 > 사용량 데이터 형식의 일부 필드가 여전히 스키마에 있지만 더 이상 사용되지 않으며 해당 값은 더 이상 채워지지 않습니다. 이는 **컴퓨터**일 뿐 아니라 수집과 관련된 필드(**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** 및 **AverageProcessingTimeMs**)이기도 합니다.
@@ -454,24 +461,34 @@ union
 
 레거시 **노드당** 가격 책정 계층에 대 한 액세스 권한이 있는 작업 영역을 해당 계층에서 더 효과적으로 사용할 수 있는지, 아니면 현재 **종 량** 제 또는 **용량 예약** 계층에서 더 효과적으로 평가 하는지 결정 하는 것은 고객이 평가 하기가 어렵습니다.  여기에는 노드당 가격 책정 계층에서 모니터링 되는 노드당 고정 비용 간의 절충을 이해 하 고, 포함 된 데이터 할당 500 m b/노드/일 및 종 량 제 (GB) 계층의 수집 데이터에 대 한 지불 비용을 파악 하는 작업이 포함 됩니다. 
 
-이러한 평가를 용이 하 게 하기 위해 다음 쿼리를 사용 하 여 작업 영역의 사용 패턴을 기반으로 최적의 가격 책정 계층에 대 한 권장 사항을 만들 수 있습니다.  이 쿼리는 지난 7 일 동안 작업 영역에 모니터링 된 노드 및 데이터 수집를 확인 하 고, 각 날짜에 대해 가장 적합 한 가격 책정 계층을 평가 합니다. 쿼리를 사용 하려면 작업 영역에서을로 `workspaceHasSecurityCenter` `true` 설정 하 여 Azure Security Center를 사용 하는지 여부를 지정 `false`하 고, 조직 수신 하는 노드당 및 GB 당 가격을 업데이트 합니다 (선택 사항). 
+이러한 평가를 용이 하 게 하기 위해 다음 쿼리를 사용 하 여 작업 영역의 사용 패턴을 기반으로 최적의 가격 책정 계층에 대 한 권장 사항을 만들 수 있습니다.  이 쿼리는 지난 7 일 동안 작업 영역에 모니터링 된 노드 및 데이터 수집를 확인 하 고, 각 날짜에 대해 가장 적합 한 가격 책정 계층을 평가 합니다. 쿼리를 사용 하려면 다음을 지정 해야 합니다.
+
+1. 작업 영역에서를 또는 `workspaceHasSecurityCenter` `true` `false`로 설정 하 여 Azure Security Center 사용할지 여부를 지정 합니다. 
+2. 특정 할인이 있는 경우 가격 업데이트
+3. 을 설정 `daysToEvaluate`하 여 다시 확인 하 고 분석할 일 수를 지정 합니다. 이 방법은 쿼리가 7 일의 데이터를 확인 하는 데 너무 오래 걸리는 경우에 유용 합니다. 
+
+가격 책정 계층 권장 사항 쿼리는 다음과 같습니다.
 
 ```kusto
 // Set these parameters before running query
 let workspaceHasSecurityCenter = true;  // Specify if the workspace has Azure Security Center
 let PerNodePrice = 15.; // Enter your montly price per monitored nodes
-let PerGBPrice = 2.30; // Enter your price per GB 
+let PerNodeOveragePrice = 2.30; // Enter your price per GB for data overage in the Per Node pricing tier
+let PerGBPrice = 2.30; // Enter your price per GB in the Pay-as-you-go pricing tier
+let daysToEvaluate = 7; // Enter number of previous days look at (reduce if the query is taking too long)
 // ---------------------------------------
 let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
+let StartDate = startofday(datetime_add("Day",-1*daysToEvaluate,now()));
+let EndDate = startofday(now());
 union withsource = tt * 
-| where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+| where TimeGenerated >= StartDate and TimeGenerated < EndDate
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
 | summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
 | join kind=leftouter (
     Heartbeat 
-    | where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+    | where TimeGenerated >= StartDate and TimeGenerated < EndDate
     | where Computer != ""
     | summarize ASCnodesPerHour = dcount(Computer) by bin(TimeGenerated, 1h) 
     | extend ASCnodesPerHour = iff(workspaceHasSecurityCenter, ASCnodesPerHour, 0)
@@ -479,8 +496,7 @@ union withsource = tt *
 ) on day
 | join (
     Usage 
-    | where TimeGenerated > ago(8d)
-    | where StartTime >= startofday(now(-7d)) and EndTime < startofday(now())
+    | where TimeGenerated >= StartDate and TimeGenerated < EndDate
     | where IsBillable == true
     | extend NonSecurityData = iff(DataType !in (SecurityDataTypes), Quantity, 0.)
     | extend SecurityData = iff(DataType in (SecurityDataTypes), Quantity, 0.)
@@ -493,15 +509,18 @@ union withsource = tt *
 | extend OverageGB = iff(workspaceHasSecurityCenter, 
              max_of(DataGB - 0.5*nodesPerDay - 0.5*ASCnodesPerDay, 0.), 
              max_of(DataGB - 0.5*nodesPerDay, 0.))
-| extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerGBPrice
+| extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerNodeOveragePrice
 | extend Recommendation = iff(PerNodeDailyCost < PerGBDailyCost, "Per Node tier", 
              iff(NonSecurityDataGB > 85., "Capacity Reservation tier", "Pay-as-you-go (Per GB) tier"))
 | project day, nodesPerDay, ASCnodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
-| project day, Recommendation // Comment this line to see details
+//| project day, Recommendation // Comment this line to see details
 | sort by day asc
 ```
 
 이 쿼리는 사용량이 계산 되는 방식에 대 한 정확한 복제는 아니지만 대부분의 경우 가격 책정 계층 권장 사항을 제공 하기 위해 작동 합니다.  
+
+> [!NOTE]
+> System Center용 OMS E1 Suite, OMS E2 Suite 또는 OMS 추가 기능을 구매할 때 제공되는 자격을 사용하려면 Log Analytics의 *노드별* 가격 책정 계층을 선택합니다.
 
 ## <a name="create-an-alert-when-data-collection-is-high"></a>데이터 수집이 높을 때 경고 만들기
 

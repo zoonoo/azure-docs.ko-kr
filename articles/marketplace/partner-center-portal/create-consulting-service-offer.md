@@ -6,18 +6,15 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 7e85175cbee53bd5984a38a587a90b98eaf8dcad
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/08/2020
+ms.openlocfilehash: 626dc5a7d1cd52182e68eb0d217b2ac4c653330e
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791904"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994343"
 ---
 # <a name="create-a-consulting-service-offer"></a>컨설팅 서비스 제품 만들기
-
-> [!IMPORTANT]
-> 컨설팅 서비스 제품의 관리를 Cloud 파트너 포털에서 파트너 센터로 전환 하 고 있습니다. 제품이 마이그레이션될 때까지 Cloud 파트너 포털에 대 한 [Azure 및 Dynamics 365 컨설팅 서비스 제품](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) 의 지침에 따라 제품을 관리 하세요.
 
 이 문서에서는 [Microsoft AppSource](https://appsource.microsoft.com/) 또는 [Azure Marketplace](https://azuremarketplace.microsoft.com/)에 컨설팅 서비스 제품을 게시 하는 방법을 설명 합니다. AppSource의 Microsoft [Dynamics 365](https://dynamics.microsoft.com/) 및 Power Platform을 기반으로 하는 컨설팅 서비스 제품을 나열 합니다. Azure Marketplace에서 Microsoft Azure을 기반으로 하는 컨설팅 서비스 제공을 나열 합니다. 아직 수행 하지 않은 경우 시작 하기 전에 [파트너 센터에서 상업적 marketplace 계정을 만듭니다](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) . 계정이 상업적 marketplace 프로그램에 등록 되어 있는지 확인 합니다.
 
@@ -99,10 +96,10 @@ ms.locfileid: "82791904"
     - **개념 증명:** 솔루션이 고객의 요구 사항을 충족하는지 확인하기 위한 제한된 범위 구현입니다.
     - **워크숍**: 고객의 온-프레미스에서 수행 되는 대화형 참여입니다. 고객의 데이터 또는 환경을 기반으로 하는 교육, 브리핑, 평가 또는 데모가 포함 될 수 있습니다.
 
-1. **Azure**의 기본 제품을 선택한 경우 최대 3 개의 **솔루션 영역**을 선택 합니다. 이를 통해 Azure Marketplace 고객이 제품을 보다 쉽게 찾을 수 있습니다. Azure를 선택 하지 않은 경우이 단계를 건너뜁니다.
-2. Azure _이외의 기본 제품을_ 선택한 경우 최대 3 개의 **해당 제품**을 선택 합니다. 이를 통해 AppSource의 고객이 제품을 보다 쉽게 찾을 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 목록 지침](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF)을 참조 하세요.
-3. 제품이 적용 되는 최대 6 개의 **산업** 을 선택 합니다. 이를 통해 고객이 제품을 보다 쉽게 찾을 수 있습니다.
-4. 회사에서 컨설팅 서비스 제품 목록에 표시할 수 있는 **최대 3 개의 역량을 추가** 합니다. Azure 전문가 MSPs 및 Azure 네트워킹 MSPs를 제외 하 고 하나 이상의 역량을 요구 합니다.
+3. **Azure**의 기본 제품을 선택한 경우 최대 3 개의 **솔루션 영역**을 선택 합니다. 이를 통해 Azure Marketplace 고객이 제품을 보다 쉽게 찾을 수 있습니다. Azure를 선택 하지 않은 경우이 단계를 건너뜁니다.
+4. Azure _이외의 기본 제품을_ 선택한 경우 최대 3 개의 **해당 제품**을 선택 합니다. 이를 통해 AppSource의 고객이 제품을 보다 쉽게 찾을 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 목록 지침](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF)을 참조 하세요.
+5. 제품이 적용 되는 최대 6 개의 **산업** 을 선택 합니다. 이를 통해 고객이 제품을 보다 쉽게 찾을 수 있습니다.
+6. 회사에서 컨설팅 서비스 제품 목록에 표시할 수 있는 **최대 3 개의 역량을 추가** 합니다. Azure 전문가 MSPs 및 Azure 네트워킹 MSPs를 제외 하 고 하나 이상의 역량을 요구 합니다.
 
 계속 하기 전에 **초안 저장** 을 선택 합니다.
 
@@ -113,7 +110,7 @@ ms.locfileid: "82791904"
 > [!NOTE]
 > 제안 설명이 구로 시작 하는 경우 제품 세부 정보는 영어로 지정할 필요가 없습니다. &quot;이 응용 프로그램은 [영어가 아닌 언어] 에서만 사용할 수 있습니다. &quot; 또한 제품 목록 세부 정보에 사용 된 것과 다른 언어로 콘텐츠를 제공 하는 유용한 링크도 제공 합니다.
 
-### <a name="name"></a>Name
+### <a name="name"></a>속성
 
 여기에 입력 하는 이름은 제품의 제목으로 표시 됩니다. 이 필드는 제품을 만들 때 **제품 별칭** 상자에 입력 한 텍스트로 미리 채워집니다. 이 이름은 나중에 변경할 수 있습니다.
 
@@ -127,7 +124,7 @@ ms.locfileid: "82791904"
 
 제품에 대 한 간단한 설명을 제공 합니다. 이 길이는 최대 100 자까지 가능 하며 marketplace 검색 결과에 사용 됩니다.
 
-### <a name="description"></a>설명
+### <a name="description"></a>Description
 
 제품에 대 한 더 긴 설명을 최대 3000 자까지 제공 합니다. 이는 marketplace 목록 개요에서 고객에 게 표시 됩니다.
 

@@ -11,17 +11,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0ac0352fbca73aca7cc8c19a851dad9149af14a1
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: HT
+ms.openlocfilehash: fc5d2b8f7673488169ee3ae393efcb74ef0a27a2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872092"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996460"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습을 위한 계산 대상 설정 및 사용 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Azure Machine Learning를 사용 하면 [__계산 대상__](concept-azure-machine-learning-architecture.md#compute-targets)이라고 하는 다양 한 리소스 또는 환경에서 모델을 학습 시킬 수 있습니다. 컴퓨팅 대상은 로컬 컴퓨터 또는 클라우드 리소스(예: Azure Machine Learning Compute, Azure HDInsight 또는 원격 가상 머신)일 수 있습니다.  ["모델 배포 위치 및 방법"](how-to-deploy-and-where.md)의 설명에 따라 모델 배포용 컴퓨팅 대상을 만들 수도 있습니다.
+Azure Machine Learning를 사용 하면 [__계산 대상__](concept-azure-machine-learning-architecture.md#compute-targets)이라고 하는 다양 한 리소스 또는 환경에서 모델을 학습 시킬 수 있습니다. 계산 대상은 로컬 컴퓨터 또는 클라우드 리소스 (예: Azure Machine Learning 계산, Azure HDInsight 또는 원격 가상 컴퓨터) 일 수 있습니다.  ["모델 배포 위치 및 방법"](how-to-deploy-and-where.md)의 설명에 따라 모델 배포용 컴퓨팅 대상을 만들 수도 있습니다.
 
 Azure Machine Learning SDK, Azure Machine Learning studio, Azure CLI 또는 Azure Machine Learning VS Code 확장을 사용 하 여 계산 대상을 만들고 관리할 수 있습니다. 다른 서비스 (예: HDInsight 클러스터)를 통해 생성 된 계산 대상이 있는 경우 Azure Machine Learning 작업 영역에 연결 하 여 사용할 수 있습니다.
  
@@ -36,7 +36,7 @@ Azure Machine Learning SDK, Azure Machine Learning studio, Azure CLI 또는 Azur
 
 ## <a name="compute-targets-for-training"></a>학습용 컴퓨팅 대상
 
-Azure Machine Learning 다양 한 계산 대상에서 다양 한 지원을 제공 합니다. 일반적인 모델 개발 수명 주기는 작은 양의 데이터에 대한 개발/실험으로 시작합니다. 이 단계에서는 로컬 환경을 사용하는 것이 좋습니다. 예를 들어 로컬 컴퓨터 또는 클라우드 기반 VM입니다. 더 큰 데이터 세트를 기반으로 학습을 확장하거나 분산 학습을 수행할 경우 Azure Machine Learning 컴퓨팅을 사용하여 실행을 제출할 때마다 자동 크기 조정되는 단일 또는 다중 노드 클러스터를 만드는 것이 좋습니다. 다음 설명대로 다양한 시나리오 지원이 달라질 수는 있지만 고유한 컴퓨팅 리소스를 연결할 수도 있습니다.
+Azure Machine Learning 다양 한 계산 대상에서 다양 한 지원을 제공 합니다. 일반적인 모델 개발 수명 주기는 작은 양의 데이터에 대한 개발/실험으로 시작합니다. 이 단계에서는 로컬 환경을 사용하는 것이 좋습니다. 예를 들어 로컬 컴퓨터 또는 클라우드 기반 VM입니다. 대규모 데이터 집합에 대 한 학습을 확장 하거나 분산 된 학습을 수행할 때 Azure Machine Learning Compute를 사용 하 여 실행을 제출할 때마다 자동으로 크기를 조정 하는 단일 또는 다중 노드 클러스터를 만드는 것이 좋습니다. 다음 설명대로 다양한 시나리오 지원이 달라질 수는 있지만 고유한 컴퓨팅 리소스를 연결할 수도 있습니다.
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
@@ -64,7 +64,7 @@ PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이�
 
 ML 파이프라인을 사용 하 여 간단한, 속도, 이식성 및 재사용으로 워크플로를 최적화할 수 있습니다. Azure Machine Learning를 사용 하 여 파이프라인을 빌드하는 경우 인프라 및 자동화 대신 전문 지식, 기계 학습에 집중할 수 있습니다.
 
-ML 파이프라인은 파이프라인에서 고유한 계산 단위인 여러 **단계**에서 생성 됩니다. 각 단계는 독립적으로 실행 되 고 격리 된 계산 리소스를 사용할 수 있습니다. 이를 통해 여러 데이터 과학자가 과도 한 처리 시간이 소모 계산 리소스 없이 동시에 동일한 파이프라인에서 작업할 수 있으며 각 단계에 대해 다른 계산 형식/크기를 쉽게 사용할 수 있습니다.
+ML 파이프라인은 파이프라인에서 고유한 계산 단위인 여러 **단계**에서 생성 됩니다. 각 단계는 독립적으로 실행 되 고 격리 된 계산 리소스를 사용할 수 있습니다. 이 접근 방식을 사용 하면 여러 데이터 과학자가 과도 한 처리 시간이 소모 계산 리소스 없이 동시에 동일한 파이프라인에서 작업할 수 있으며, 각 단계에 대해 서로 다른 계산 형식/크기를 쉽게 사용할 수 있습니다.
 
 > [!TIP]
 > ML 파이프라인은 모델을 학습 하는 경우 실행 구성 또는 추정를 사용할 수 있습니다.
@@ -100,10 +100,11 @@ Azure Machine Learning 컴퓨팅을 사용하여 클라우드의 CPU 또는 GPU 
 Azure Machine Learning 컴퓨팅에는 할당할 수 있는 코어 수와 같은 기본적인 제한이 있습니다. 자세한 내용은 [Azure 리소스에 대한 할당량 관리 및 요청](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas)을 참조하세요.
 
 > [!TIP]
-> 필요한 코어 수에 대 한 할당량이 충분 한 경우 일반적으로 클러스터는 100 개 노드까지 확장할 수 있습니다. 기본적으로 클러스터 노드 간에는 노드 간 통신을 사용 하도록 설정 하 여 MPI 작업을 지원 합니다 (예:). 그러나 [지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 수천 개의 클러스터의 크기를 조정 하 고, 구독 또는 작업 영역을 허용 목록 요청 하거나, 노드 간 통신을 사용 하지 않도록 설정 하는 등의 작업을 수행할 수 있습니다. 
->
+> 필요한 코어 수에 대 한 할당량이 충분 한 경우 일반적으로 클러스터는 최대 100 노드로 확장할 수 있습니다. 기본적으로 클러스터 노드 간에는 노드 간 통신을 사용 하도록 설정 하 여 MPI 작업을 지원 합니다 (예:). 그러나 [지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 수천 개의 클러스터의 크기를 조정 하 고, 구독 또는 작업 영역을 허용 목록 요청 하거나, 노드 간 통신을 사용 하지 않도록 설정 하는 등의 작업을 수행할 수 있습니다. 
 
-Azure Machine Learning Compute는 실행 간에 재사용할 수 있습니다. 계산은 작업 영역에 있는 다른 사용자와 공유할 수 있으며 실행 간에 유지 되 고, 제출 된 실행 수에 따라 노드를 자동으로 확장 또는 축소할 수 있으며, 클러스터에 설정 된 max_nodes 수 있습니다.
+Azure Machine Learning Compute는 실행 간에 재사용할 수 있습니다. 계산은 작업 영역에 있는 다른 사용자와 공유할 수 있으며 실행 간에 유지 되 고, 제출 된 실행 수에 따라 노드를 자동으로 확장 또는 축소할 수 있으며, 클러스터에 설정 된 max_nodes 수 있습니다. Min_nodes 설정은 사용 가능한 최소 노드를 제어 합니다.
+
+[!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
 
 1. **만들기 및 연결**: Python에서 영구 Azure Machine Learning 계산 리소스를 만들려면 **vm_size** 및 **max_nodes** 속성을 지정 합니다. 그런 다음, Azure Machine Learning은 다른 속성에 스마트 기본값을 사용합니다. 사용되지 않는 경우 컴퓨팅은 0개 노드로 자동 축소됩니다.   필요에 따라 작업을 실행하기 위해 전용 VM이 만들어집니다.
     
@@ -483,7 +484,7 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 
 .Runconfig 및 HyperDrive 구성의 *매개 변수 공간* 에 있는 *arguments* 섹션을 참조 하십시오. 학습 스크립트에 전달할 명령줄 인수를 포함 합니다. .Runconfig의 값은 각 반복에 대해 동일 하 게 유지 되는 반면, HyperDrive 구성의 범위는 반복 됩니다. 두 파일에 같은 인수를 지정 하지 마십시오.
 
-이러한 ```az ml``` CLI 명령 및 전체 인수 집합에 대 한 자세한 내용은 [참조 설명서](reference-azure-machine-learning-cli.md)를 참조 하세요.
+이러한 ```az ml``` CLI 명령에 대 한 자세한 내용은 [참조 설명서](reference-azure-machine-learning-cli.md)를 참조 하세요.
 
 <a id="gitintegration"></a>
 

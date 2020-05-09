@@ -11,12 +11,12 @@ ms.date: 06/10/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 53660ad93ab2218d546ae6f363873c4d66872e2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9554713e50e7a2ead2e25f274428ad0ecba4934d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730306"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996947"
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 엔드포인트
 
@@ -54,9 +54,9 @@ Azure IoT Hub는 다중 테넌트 서비스이며 다양한 행위자에게 기�
 
   * *직접 메서드 요청 수신*. 디바이스에서 이 엔드포인트를 사용하여 [직접 메서드](iot-hub-devguide-direct-methods.md) 요청을 수신합니다.
 
-    이러한 엔드포인트는 [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 및 [AMQP 1.0](https://www.amqp.org/) 프로토콜을 사용하여 공개됩니다. AMQP는 포트 443의 [WebSockets](https://tools.ietf.org/html/rfc6455)를 통해서도 사용할 수 있습니다.
+    이러한 엔드포인트는 [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 및 [AMQP 1.0](https://www.amqp.org/) 프로토콜을 사용하여 공개됩니다. AMQP 및 MQTT는 포트 443에서 [websocket](https://tools.ietf.org/html/rfc6455) 을 통해 사용할 수도 있습니다.
 
-* **서비스 끝점**. 각 IoT Hub는 솔루션 백 엔드에서 디바이스와 통신하기 위한 엔드포인트 집합을 노출합니다. 한 가지를 제외하고 이러한 엔드포인트는 [AMQP](https://www.amqp.org/) 프로토콜을 사용해서만 노출됩니다. 메서드 호출 엔드포인트는 HTTPS 프로토콜을 통해 노출됩니다.
+* **서비스 끝점**. 각 IoT Hub는 솔루션 백 엔드에서 디바이스와 통신하기 위한 엔드포인트 집합을 노출합니다. 한 가지 예외를 제외 하 고 이러한 끝점은 Websocket 프로토콜을 통해 [amqp](https://www.amqp.org/) 및 amqp를 사용 하 여 노출 됩니다. 직접 메서드 호출 끝점은 HTTPS 프로토콜을 통해 노출 됩니다.
   
   * *장치-클라우드 메시지를 수신*합니다. 이 엔드포인트는 [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)와 호환됩니다. 백 엔드 서비스는 이 엔드포인트를 사용하여 디바이스에서 보낸 모든 [디바이스-클라우드 메시지](iot-hub-devguide-messages-d2c.md)를 읽을 수 있습니다. 이 기본 제공 엔드포인트 외에도 IoT Hub에 사용자 지정 엔드포인트를 만들 수 있습니다.
   

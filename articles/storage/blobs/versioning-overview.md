@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 77af321b74a47306a7202c1fddf6e81edc0ee02a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: fa28e07c28c36c03ab9e85d8436e3f1a2b36ad1c
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926071"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993956"
 ---
 # <a name="blob-versioning-preview"></a>Blob 버전 관리 (미리 보기)
 
@@ -195,7 +195,6 @@ Blob 버전에 대 한 서명 된 리소스 `bv`는입니다. 자세한 내용�
 
 Blob 버전 관리는 다음 지역에서 미리 보기로 제공 됩니다.
 
-- 프랑스 남부
 - 프랑스 중부
 - 캐나다 동부
 - 캐나다 중부

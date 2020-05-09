@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 19aee9d5fdf3f4a3d74484bb7cb2e609bc2807b4
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 949b07a16b2c2b08891d721e46948481cfe572b2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927871"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996110"
 ---
 # <a name="create-an-automation-account-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Automation 계정 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "82927871"
 * Azure Automation 계정 만들기를 자동화 합니다.
 * Automation 계정을 Log Analytics 작업 영역에 연결 합니다.
 
-템플릿은 Azure 또는 비 Azure virtual machines 또는 솔루션의 온 보 딩을 자동화 하지 않습니다. 
+템플릿은 Azure 또는 비 Azure virtual machines를 자동으로 사용 하도록 설정 하지 않습니다. 
 
 >[!NOTE]
 >Azure Resource Manager 템플릿을 사용 하는 경우 Automation 실행 계정 만들기가 지원 되지 않습니다. 포털에서 또는 PowerShell을 사용 하 여 실행 계정을 수동으로 만들려면 [실행 계정 관리](manage-runas-account.md)를 참조 하세요.

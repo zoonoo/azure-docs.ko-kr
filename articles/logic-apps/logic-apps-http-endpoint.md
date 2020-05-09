@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 734ddcacf46804db8d9aac091b0a9ac0ca512e18
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: aa3733b1231b92f30f5fd36dab64794129e62b07
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983803"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995332"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTPS 끝점을 사용 하 여 논리 앱 호출, 트리거 또는 중첩
 
@@ -140,17 +140,19 @@ ms.locfileid: "82983803"
 
    ![트리거에서 예상한 요청 방법 선택](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
-## <a name="accept-parameters-in-endpoint-url"></a>끝점 URL의 매개 변수 허용
+<a name="endpoint-url-parameters"></a>
 
-끝점 URL에서 끝점 URL을 통해 매개 변수 값을 허용 하도록 하려면 다음 옵션을 선택 합니다.
+## <a name="pass-parameters-through-endpoint-url"></a>끝점 URL을 통해 매개 변수 전달
+
+끝점의 URL을 통해 매개 변수 값을 허용 하려는 경우 다음 옵션을 사용할 수 있습니다.
 
 * [GET parameters](#get-parameters) 또는 URL 매개 변수를 통해 값을 허용 합니다.
 
-  이러한 값은 끝점의 URL에 요청을 보낼 때 이름-값 쌍으로 전달 됩니다. 이 옵션의 경우 요청 트리거에서 GET 메서드를 사용 해야 합니다. 후속 작업에서 식에 함수를 `triggerOutputs()` 사용 하 여 매개 변수 값을 트리거 출력으로 가져올 수 있습니다.
+  이러한 값은 끝점의 URL에서 이름-값 쌍으로 전달 됩니다. 이 옵션의 경우 요청 트리거에서 GET 메서드를 사용 해야 합니다. 후속 작업에서 식에 함수를 `triggerOutputs()` 사용 하 여 매개 변수 값을 트리거 출력으로 가져올 수 있습니다.
 
 * 요청 트리거의 매개 변수에 대 한 [상대 경로를 통해 값을 허용](#relative-path) 합니다.
 
-  이러한 값은 끝점의 URL에 요청을 보낼 때 전달 됩니다. 또한 트리거에 필요한 [메서드를](#select-method) 명시적으로 선택 해야 합니다. 후속 작업에서 해당 출력을 직접 참조 하 여 매개 변수 값을 트리거 출력으로 가져올 수 있습니다.
+  이러한 값은 끝점 URL의 상대 경로를 통해 전달 됩니다. 또한 트리거에 필요한 [메서드를](#select-method) 명시적으로 선택 해야 합니다. 후속 작업에서 해당 출력을 직접 참조 하 여 매개 변수 값을 트리거 출력으로 가져올 수 있습니다.
 
 <a name="get-parameters"></a>
 

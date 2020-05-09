@@ -1,16 +1,14 @@
 ---
 title: Reliable Actors 타이머 및 미리 알림
 description: 각각의 사용 시기에 대 한 지침을 포함 하 여 Service Fabric Reliable Actors에 대 한 타이머 및 미리 알림을 소개 합니다.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
-ms.openlocfilehash: 02d6220b31ee9c991e8450759bf46759af6177a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67dc5d9706c2176b2fe70d2540be00d0af79fd80
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75639618"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996364"
 ---
 # <a name="actor-timers-and-reminders"></a>행위자 타이머 및 미리 알림
 행위자는 타이머 또는 미리 알림을 등록하여 정기적인 작업을 예약할 수 있습니다. 이 문서에서는 타이머와 미리 알림을 사용하는 방법을 보여 주고 둘 간의 차이점을 설명합니다.
@@ -122,12 +120,17 @@ public class VisualObjectActorImpl extends FabricActor implements VisualObjectAc
 
 행위자 런타임은 콜백이 완료되면 행위자의 상태 관리자에 대한 변경 내용을 저장합니다. 상태를 저장하는 중에 오류가 발생하는 경우 해당 행위자 개체는 비활성화되고 새 인스턴스가 활성화됩니다.
 
+[미리 알림과](#actor-reminders)달리 타이머는 업데이트할 수 없습니다. 가 `RegisterTimer` 다시 호출 되 면 새 타이머가 등록 됩니다.
+
 행위자가 가비지 수집의 일환으로 비활성화되면 모든 타이머가 중지됩니다. 그다음 타이머 콜백이 호출되지 않습니다. 또한 행위자 런타임은 비활성화 전에 실행 중이었던 타이머에 대한 정보를 유지하지 않습니다. 나중에 다시 활성화될 때 필요한 모든 타이머를 등록하는 것은 행위자의 일입니다. 자세한 내용은 [행위자 가비지 수집](service-fabric-reliable-actors-lifecycle.md)섹션을 참조하세요.
 
 ## <a name="actor-reminders"></a>행위자 미리 알림
-미리 알림은 행위자에서 지정된 시간에 영구 콜백을 트리거하는 메커니즘입니다. 기능은 타이머와 비슷합니다. 하지만 타이머와 달리 미리 알림은 행위자가 명시적으로 등록을 취소하거나 행위자가 명시적으로 삭제할 때까지 모든 상황에서 트리거됩니다. 구체적으로, 미리 알림은 행위자 런타임이 행위자 상태 제공자를 사용하여 행위자의 미리 알림에 대한 정보를 유지하므로 행위자 비활성화 및 장애 조치를 통해 트리거됩니다. 미리 알림의 안정성은 행위자 상태 제공자가 제공한 상태 안정성 보장과 연결되어 있습니다. 즉 상태 지속성이 없음으로 설정된 행위자의 경우 장애 조치(failover) 후 미리 알림이 발생하지 않습니다. 
+미리 알림은 행위자에서 지정된 시간에 영구 콜백을 트리거하는 메커니즘입니다. 기능은 타이머와 비슷합니다. 하지만 타이머와 달리 미리 알림은 행위자가 명시적으로 등록을 취소하거나 행위자가 명시적으로 삭제할 때까지 모든 상황에서 트리거됩니다. 구체적으로, 미리 알림은 행위자 런타임이 행위자 상태 제공자를 사용하여 행위자의 미리 알림에 대한 정보를 유지하므로 행위자 비활성화 및 장애 조치를 통해 트리거됩니다. 또한 타이머와는 달리, 동일한 *reminderName*를 사용 하 여 등록 방법 (`RegisterReminderAsync`)을 다시 호출 하 여 기존 미리 알림을 업데이트할 수 있습니다.
 
-미리 알림을 등록하기 위해서는 행위자가 기본 클래스에서 제공된 `RegisterReminderAsync` 메서드를 아래 예제와 같이 호출합니다.
+> [!NOTE]
+> 미리 알림의 안정성은 행위자 상태 공급자가 제공 하는 상태 안정성 보증에 연결 됩니다. 즉, 상태 지 속성이 *없음*으로 설정 된 행위자의 경우 장애 조치 (failover) 후 미리 알림이 발생 하지 않습니다.
+
+미리 알림을 등록 하려면 다음 예제와 같이 행위자 [`RegisterReminderAsync`](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) 가 기본 클래스에 제공 된 메서드를 호출 합니다.
 
 ```csharp
 protected override async Task OnActivateAsync()

@@ -9,19 +9,16 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0801bb44fc0c08df1adee1f817e8fccab166fb5
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
-ms.translationtype: HT
+ms.openlocfilehash: 4c9e7b6d93fb4bbc3e3b05d9346ec84197665a55
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652816"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995300"
 ---
-# <a name="troubleshoot-issues-with-azure-automation-state-configuration"></a>Azure Automation 상태 구성 문제 해결
+# <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Azure Automation 상태 구성 문제 해결
 
 이 문서에서는 Azure Automation 상태 구성에서 구성을 컴파일하거나 배포 하는 동안 발생 하는 문제를 해결 하는 방법에 대 한 정보를 제공 합니다.
-
->[!NOTE]
->이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대한 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법](../automation-update-azure-modules.md)의 단계를 수행 하 여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
 ## <a name="diagnose-an-issue"></a>문제 진단
 
@@ -112,7 +109,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### <a name="cause"></a>원인
 
-이 문제는 잘못 되거나 만료 된 인증서로 인해 발생 합니다. [인증서 만료 및 다시 등록](../automation-dsc-onboarding.md#re-registering-a-node)를 참조 하세요.
+이 문제는 잘못 되거나 만료 된 인증서로 인해 발생 합니다. [노드 다시 등록을](../automation-dsc-onboarding.md#re-register-a-node)참조 하세요.
 
 프록시 구성에서 ***. azure-automation.net**에 대 한 액세스를 허용 하지 않는 경우에도이 문제가 발생할 수 있습니다. 자세한 내용은 [개인 네트워크 구성](../automation-dsc-overview.md#network-planning)을 참조 하세요. 
 
@@ -239,11 +236,11 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 구성에서 언급 한 각 노드 구성 `ConfigurationData` 에 대해 `PSDscAllowPlainTextPassword` 를 true로 설정 하 여를에 전달 해야 합니다. [Azure Automation 상태 구성에서 DSC 구성 컴파일을](../automation-dsc-compile.md)참조 하세요.
 
-## <a name="scenario-failure-processing-extension-error-when-onboarding-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>시나리오: DSC 확장에서 온 보 딩 하는 경우 "오류 처리 확장" 오류가 발생 합니다.
+## <a name="scenario-failure-processing-extension-error-when-enabling-a-machine-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>시나리오: DSC 확장에서 컴퓨터를 사용 하도록 설정 하는 경우 "오류 처리 확장" 오류가 발생 함
 
 ### <a name="issue"></a>문제
 
-DSC 확장을 사용 하 여를 등록 하는 경우 오류를 포함 하는 오류가 발생 합니다.
+DSC 확장을 사용 하 여 컴퓨터를 사용 하도록 설정 하면 오류를 포함 하는 오류가 발생 합니다.
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -256,7 +253,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 ### <a name="resolution"></a>해결 방법
 
 * 서비스의 이름과 정확히 일치 하는 이름을 사용 하 여 노드를 할당 하 고 있는지 확인 합니다.
-* 노드 구성 이름을 포함 하지 않도록 선택할 수 있습니다. 그러면 노드를 온 보 딩 하지만 노드 구성은 할당 되지 않습니다.
+* 노드 구성 이름을 포함 하지 않도록 선택할 수 있습니다. 그러면 노드가 활성화 되지만 노드 구성은 할당 되지 않습니다.
 
 ## <a name="scenario-one-or-more-errors-occurred-error-when-registering-a-node-by-using-powershell"></a><a name="cross-subscription"></a>시나리오: PowerShell을 사용 하 여 노드를 등록할 때 "하나 이상의 오류가 발생 했습니다." 오류
 
@@ -274,10 +271,10 @@ One or more errors occurred.
 
 ### <a name="resolution"></a>해결 방법
 
-별도의 클라우드 또는 온-프레미스에 대해 정의 된 것 처럼 교차 구독 노드를 처리 합니다. 다음 온 보 딩 옵션 중 하나를 사용 하 여 노드를 등록 합니다.
+별도의 클라우드 또는 온-프레미스에 대해 정의 된 것 처럼 교차 구독 노드를 처리 합니다. 컴퓨터를 사용 하도록 설정 하는 다음 옵션 중 하나를 사용 하 여 노드를 등록 합니다.
 
-* Windows: [온-프레미스 또는 Azure/AWS 이외의 클라우드에 있는 물리적/가상 windows 컴퓨터](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines)
-* Linux: [온-프레미스 또는 Azure 이외의 클라우드에서 온-프레미스의 물리적/가상 linux 컴퓨터](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines)
+* Windows: [온-프레미스 또는 Azure/AWS 이외의 클라우드에 있는 물리적/가상 windows 컴퓨터](../automation-dsc-onboarding.md#enable-physicalvirtual-windows-machines)
+* Linux: [온-프레미스 또는 Azure 이외의 클라우드에서 온-프레미스의 물리적/가상 linux 컴퓨터](../automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines)
 
 ## <a name="scenario-provisioning-has-failed-error-message"></a><a name="agent-has-a-problem"></a>시나리오: "프로 비전 하지 못했습니다." 오류 메시지
 

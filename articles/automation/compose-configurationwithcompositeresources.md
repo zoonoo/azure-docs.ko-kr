@@ -6,12 +6,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e7625ae95d5355ae1122a16ea4828eed5f78c73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1840f4049f8450295e179a89b472d7710c5f61a0
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81682919"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993771"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-using-composite-resources"></a>복합 리소스를 사용 하 여 Azure Automation 상태 구성에서 DSC 구성 작성
 
@@ -34,9 +34,9 @@ Azure Portal의 복합 리소스에서 만든 구성을 할당 하려면 먼저 
 1. **매개 변수** 단계에서 각 복합 리소스에 대 한 매개 변수는 값을 제공할 수 있도록 노출 됩니다. 매개 변수에 대한 설명이 있는 경우 매개 변수 필드 옆에 표시됩니다. 매개 변수가 `PSCredential` 형식이 면 드롭다운은 현재 Automation 계정에 있는 **자격 증명** 개체의 목록을 제공 합니다. **+ 자격 증명 추가** 옵션도 사용할 수 있습니다. 모든 필수 매개 변수를 입력한 후 **저장 및 컴파일**을 클릭합니다.
    ![구성 작성 페이지의 매개 변수 단계의 스크린샷](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
-새 구성이 저장되면 이 구성은 컴파일을 위해 제출됩니다. 가져온 모든 구성처럼 컴파일 작업 상태를 볼 수 있습니다. 자세한 내용은 [컴파일 작업 보기](automation-dsc-getting-started.md#viewing-a-compilation-job)를 참조하세요.
+새 구성이 저장되면 이 구성은 컴파일을 위해 제출됩니다. 가져온 모든 구성처럼 컴파일 작업 상태를 볼 수 있습니다. 자세한 내용은 [컴파일 작업 보기](automation-dsc-getting-started.md#view-a-compilation-job)를 참조하세요.
 
-컴파일이 성공적으로 완료 되 면 **컴파일된** 구성 탭에 새 구성이 표시 됩니다. 그런 다음 [다른 노드 구성에 노드 재할당](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration)의 단계를 사용 하 여 구성을 관리 되는 노드에 할당할 수 있습니다.
+컴파일이 성공적으로 완료 되 면 **컴파일된** 구성 탭에 새 구성이 표시 됩니다. 그런 다음 [다른 노드 구성에 노드 재할당](automation-dsc-getting-started.md#reassign-a-node-to-a-different-node-configuration)의 단계를 사용 하 여 구성을 관리 되는 노드에 할당할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

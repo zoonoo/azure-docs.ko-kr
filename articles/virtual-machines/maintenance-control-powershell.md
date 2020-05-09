@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: b1c72c2f606ab653d7e3f1d81f7278571e8e4978
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 834ff39b0ffd8ee38156e468008c332971b742d0
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136535"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996471"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>유지 관리 제어 및 Azure PowerShell를 사용 하 여 업데이트 제어
 
@@ -20,11 +20,17 @@ ms.locfileid: "82136535"
  
 ## <a name="enable-the-powershell-module"></a>PowerShell 모듈 사용
 
-최신 상태 `PowerShellGet` 인지 확인 합니다.
+최신 상태 `PowerShellGet` 인지 확인 합니다.    
 
-```azurepowershell-interactive
-Install-Module -Name PowerShellGet -Repository PSGallery -Force
-```
+```azurepowershell-interactive  
+Install-Module -Name PowerShellGet -Repository PSGallery -Force 
+``` 
+
+PowerShell 모듈 `Az.Maintenance` 을 설치 합니다.     
+
+```azurepowershell-interactive  
+Install-Module -Name Az.Maintenance
+``` 
 
 로컬로 설치 하는 경우 관리자 권한으로 PowerShell 프롬프트를 열어야 합니다.
 

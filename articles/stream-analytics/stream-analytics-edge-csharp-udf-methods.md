@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: c15f16692e92c4d25d8194aaf93a3da907ae0e67
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 53ebf8adb99362b5aaf27676bbd50fb8b525f526
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598150"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994479"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Azure Stream Analytics 작업에 대 한 .NET Standard 사용자 정의 함수 개발 (미리 보기)
 
@@ -51,7 +51,7 @@ C #에서 사용 되는 Azure Stream Analytics 값은 한 환경에서 다른 �
 |nvarchar(max) | 문자열 |
 |Datetime | DateTime |
 |레코드 | 사전\<문자열, 개체> |
-|Array | 배열\<개체> |
+|Array | Object [] |
 
 데이터를 c #에서 Azure Stream Analytics로 마샬링해야 하 고 UDF의 출력 값에서 발생 하는 경우에도 마찬가지입니다. 다음 표에서는 지원 되는 형식을 보여 줍니다.
 
@@ -62,8 +62,8 @@ C #에서 사용 되는 Azure Stream Analytics 값은 한 환경에서 다른 �
 |문자열  |  nvarchar(max)   |
 |DateTime  |  dateTime   |
 |struct  |  레코드   |
-|object  |  레코드   |
-|배열\<개체>  |  Array   |
+|개체  |  레코드   |
+|Object []  |  Array   |
 |사전\<문자열, 개체>  |  레코드   |
 
 ## <a name="codebehind"></a>CodeBehind
@@ -82,7 +82,7 @@ C #에서 사용 되는 Azure Stream Analytics 값은 한 환경에서 다른 �
 6. 어셈블리 경로를 `JobConfig.json` 작업 구성 파일에 구성합니다. [어셈블리 경로]를 **로컬 프로젝트 참조 또는 CodeBehind**로 설정합니다.
 7. 함수 프로젝트와 Azure Stream Analytics 프로젝트를 모두 다시 빌드합니다.  
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 이 예제에서 **Udftest** 는 c # 클래스 라이브러리 프로젝트 이며 **ASAUDFDemo** 는 **udftest**를 참조 하는 Azure Stream Analytics 프로젝트입니다.
 
@@ -130,7 +130,7 @@ C #에서 사용 되는 Azure Stream Analytics 값은 한 환경에서 다른 �
 
 **사용자 정의 코드 구성** 섹션을 확장하고 다음 제안 값으로 구성을 입력합니다.
 
-   |**설정**|**제안 된 값**|
+   |**설정**|**제안 값**|
    |-------|---------------|
    |글로벌 스토리지 설정 리소스|현재 계정에서 데이터 원본 선택|
    |글로벌 스토리지 설정 구독| < 사용자 구독 >|
@@ -140,6 +140,43 @@ C #에서 사용 되는 Azure Stream Analytics 값은 한 환경에서 다른 �
    |사용자 지정 코드 스토리지 설정 컨테이너|< 사용자 스토리지 컨테이너 >|
    |사용자 지정 코드 어셈블리 소스|클라우드의 기존 어셈블리 패키지|
    |사용자 지정 코드 어셈블리 소스|UserCustomCode .zip|
+
+## <a name="user-logging"></a>사용자 로깅
+로깅 메커니즘을 사용 하면 작업이 실행 되는 동안 사용자 지정 정보를 캡처할 수 있습니다. 로그 데이터를 사용 하 여 실시간으로 사용자 지정 코드의 정확성을 디버그 하거나 평가할 수 있습니다.
+
+클래스 `StreamingContext` 를 사용 하면 함수를 `StreamingDiagnostics.WriteError` 사용 하 여 진단 정보를 게시할 수 있습니다. 아래 코드는 Azure Stream Analytics에 의해 노출 된 인터페이스를 보여 줍니다.
+
+```csharp
+public abstract class StreamingContext
+{
+    public abstract StreamingDiagnostics Diagnostics { get; }
+}
+
+public abstract class StreamingDiagnostics
+{
+    public abstract void WriteError(string briefMessage, string detailedMessage);
+}
+```
+
+`StreamingContext`는 UDF 메서드에 입력 매개 변수로 전달 되 고 UDF 내에서 사용 하 여 사용자 지정 로그 정보를 게시할 수 있습니다. 아래 예제에서는 쿼리를 `MyUdfMethod` 통해 제공 되는 **데이터** 입력과 런타임 엔진에서 제공 하는 **컨텍스트** 입력을로 `StreamingContext`정의 합니다. 
+
+```csharp
+public static long MyUdfMethod(long data, StreamingContext context)
+{
+    // write log
+    context.Diagnostics.WriteError("User Log", "This is a log message");
+    
+    return data;
+}
+```
+
+SQL `StreamingContext` 쿼리를 통해 값을 전달할 필요가 없습니다. Azure Stream Analytics는 입력 매개 변수가 있는 경우 자동으로 컨텍스트 개체를 제공 합니다. 다음 쿼리와 같이를 `MyUdfMethod` 사용 하면 변경 되지 않습니다.
+
+```sql
+SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
+```
+
+[진단 로그](data-errors.md)를 통해 로그 메시지에 액세스할 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 UDF 미리 보기에는 현재 다음과 같은 제한 사항이 있습니다.

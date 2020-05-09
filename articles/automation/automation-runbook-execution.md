@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1a9a503fd566c9b50f1503e0955bf12f69ac9960
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 1933688459cd02ee4da448d2e83b0a7a92a1d2c8
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927924"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994738"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -68,7 +68,7 @@ Runbook은 [리소스](https://docs.microsoft.com/rest/api/resources/resources)(
 
 ## <a name="security"></a>보안
 
-Azure Automation는 [ASC (Azure Security Center)](https://docs.microsoft.com/azure/security-center/security-center-introAzure) 를 사용 하 여 리소스에 대 한 보안을 제공 하 고 Linux 시스템에서 손상을 감지 합니다. 리소스는 Azure에 있든 관계 없이 워크 로드에서 제공 됩니다. [Azure Automation의 인증 소개를](automation-security-overview.md)참조 하세요.
+Azure Automation는 [ASC (Azure Security Center)](../security-center/security-center-intro.md) 를 사용 하 여 리소스에 대 한 보안을 제공 하 고 Linux 시스템에서 손상을 감지 합니다. 리소스는 Azure에 있든 관계 없이 워크 로드에서 제공 됩니다. [Azure Automation의 인증 소개를](automation-security-overview.md)참조 하세요.
 
 ASC는 VM에서 서명 되거나 서명 되지 않은 모든 스크립트를 실행할 수 있는 사용자에 게 제약 조건을 배치 합니다. VM에 대 한 루트 액세스 권한이 있는 사용자는 컴퓨터를 명시적으로 디지털 서명으로 구성 하거나 해제 해야 합니다. 그렇지 않으면 자동화 계정을 만들고 적절 한 기능을 사용 하도록 설정한 후에만 스크립트를 실행 하 여 운영 체제 업데이트를 적용할 수 있습니다.
 

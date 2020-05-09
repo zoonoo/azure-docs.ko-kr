@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 687579825c652888112ff8ddff7401b3305e3a8e
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: cd89314b0d847909bf4196361e471b71ebb9b6e9
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871189"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995486"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Azure Automation에서 Runbook 관리
 
@@ -228,7 +228,7 @@ Start-AzAutomationRunbook `
 사용자 지정 스크립트를 사용 하려면 다음을 수행 합니다.
 
 1. Automation 계정을 만들고 [참가자 역할](automation-role-based-access-control.md)을 가져옵니다.
-2. [Azure 작업 영역에 계정을 연결](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection.md)합니다.
+2. [Azure 작업 영역에 계정을 연결](../security-center/security-center-enable-data-collection.md)합니다.
 3. [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [업데이트 관리](automation-update-management.md)또는 다른 자동화 기능을 사용 하도록 설정 합니다. 
 4. Linux 컴퓨터의 경우 높은 권한이 필요 합니다. 로그인 하 여 [서명 확인을 해제](automation-linux-hrw-install.md#turn-off-signature-validation)합니다.
 

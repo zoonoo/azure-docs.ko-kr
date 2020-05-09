@@ -5,16 +5,16 @@ description: Windows Data Science Virtual Machine에서 데이터 탐색 및 모
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 47663072be0931961d0f2fded938322027148d7a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.date: 05/08/2020
+ms.openlocfilehash: a2eba958ca2d4a90cb3706839d726fdd0a48ed4f
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929284"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994071"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
@@ -30,7 +30,7 @@ DSVM은 Azure 서비스와 긴밀 하 게 연동 됩니다. Azure에 이미 저�
 - Azure Portal 또는 PowerShell을 사용 하 여 Azure 리소스를 관리 합니다.
 - DSVM에 탑재 가능한 드라이브로 Azure Files 공유를 만들어 저장소 공간을 확장 하 고 전체 팀에서 대규모 데이터 집합/코드를 공유 합니다.
 - GitHub를 사용 하 여 팀과 코드를 공유 합니다. 사전 설치 된 Git 클라이언트 (Git Bash 및 Git GUI)를 사용 하 여 리포지토리에 액세스 합니다.
-- Azure Blob storage, Azure Data Lake, Azure HDInsight (Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse 및 Azure SQL Database와 같은 Azure 데이터 및 분석 서비스에 액세스 합니다.
+- Azure Blob storage, Azure Data Lake, Azure Cosmos DB, Azure SQL Data Warehouse 및 Azure SQL Database와 같은 Azure 데이터 및 분석 서비스에 액세스 합니다.
 - DSVM에 미리 설치 된 Power BI Desktop 인스턴스를 사용 하 여 보고서 및 대시보드를 빌드하고 클라우드에 배포 합니다.
 - 프로젝트의 요구 사항에 맞게 DSVM을 동적으로 확장 합니다.
 - 가상 컴퓨터에 추가 도구를 설치 합니다.   
@@ -127,11 +127,6 @@ pass
 
 IrisPredictor(3,2,3,4)
 ```
-
-> [!NOTE]
-> 현재 Azure Machine Learning 라이브러리는 Python 2.7 에서만 지원 됩니다.   
-> 
-> 
 
 ### <a name="build-and-operationalize-r-models"></a>R 모델 빌드 및 운영
 Data Science Virtual Machine에서 작성 된 R 모델을 Python의 작업 방식과 유사한 방식으로 Azure Machine Learning에 배포할 수 있습니다. 실행할 단계는 다음과 같습니다.
@@ -269,7 +264,7 @@ Azure Blob storage는 크고 작은 데이터를 위한 안정적이 고 경제�
 
 * [Azure Portal](https://portal.azure.com)에서 Azure Blob storage 계정을 만듭니다.
 
-   ![Azure Portal 저장소 계정 만들기 프로세스의 스크린샷](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+   ![Azure Portal 저장소 계정 만들기 프로세스의 스크린샷](./media/vm-do-ten-things/create-azure-blob.png)
 
 * 명령줄 AzCopy 도구가 사전 설치 되어 있는지 확인 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```합니다. Azcopy를 포함 하는 디렉터리는 이미 PATH 환경 변수에 있으므로이 도구를 실행할 때 전체 명령 경로를 입력 하지 않아도 됩니다. AzCopy 도구에 대 한 자세한 내용은 [AzCopy 설명서](../../storage/common/storage-use-azcopy.md)를 참조 하세요.
 * Azure Storage Explorer 도구를 시작합니다. [Storage 탐색기 웹 페이지](https://storageexplorer.com/)에서 다운로드할 수 있습니다. 
@@ -371,7 +366,7 @@ Azure Data Lake Storage는 빅 데이터 분석 워크 로드에 대 한 하이�
 
 * [Azure Portal](https://portal.azure.com)에서 Azure Data Lake Analytics 인스턴스를 만듭니다.
 
-   ![Azure Portal에서 Data Lake Analytics 인스턴스를 만드는 스크린샷](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
+   ![Azure Portal에서 Data Lake Analytics 인스턴스를 만드는 스크린샷](./media/vm-do-ten-things/azure-data-lake-create-v3.png)
 
 * [Visual studio 용 Azure Data Lake 및 Stream Analytics 도구 플러그](https://www.microsoft.com/download/details.aspx?id=49504) 인은 가상 머신의 Visual Studio Community Edition에 이미 설치 되어 있습니다. Visual Studio를 시작 하 고 Azure 구독에 로그인 하면 Visual Studio의 왼쪽 패널에 Azure 데이터 분석 계정 및 저장소가 표시 됩니다.
 
@@ -448,361 +443,6 @@ Azure Data Lake 데이터 집합을 수집 한 후에는 [U-SQL 언어](../../da
 파일 정보가 다음과 같이 표시 됩니다.
 
 ![파일 요약 정보의 스크린샷](./media/vm-do-ten-things/USQL_tripdata_summary.png)
-
-### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터
-Azure HDInsight는 클라우드에서 관리 되는 Apache Hadoop Spark, HBase 및 스톰 서비스입니다. Data Science Virtual Machine에서 Azure HDInsight 클러스터를 쉽게 사용할 수 있습니다.
-
-#### <a name="prerequisites"></a>사전 요구 사항
-
-* [Azure Portal](https://portal.azure.com)에서 Azure Blob storage 계정을 만듭니다. 이 스토리지 계정은 HDInsight 클러스터에 대한 데이터를 저장하는 데 사용됩니다.
-
-   ![Azure Portal에서 저장소 계정을 만드는 스크린샷](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
-
-* [Azure Portal](../team-data-science-process/customize-hadoop-cluster.md)에서 Azure HDInsight Hadoop 클러스터를 사용자 지정 합니다.
-  
-   HDInsight 클러스터를 만들 때 만든 저장소 계정을 연결 합니다. 이 스토리지 계정은 클러스터 내에서 처리할 수 있는 데이터에 액세스하는 데 사용됩니다.
-
-   ![HDInsight 클러스터를 사용 하 여 만든 저장소 계정 연결에 대 한 선택 항목](./media/vm-do-ten-things/Create_HDI_v4.PNG)
-
-* 만든 후 클러스터의 헤드 노드에 대 한 원격 데스크톱 액세스를 사용 하도록 설정 합니다. 이후 절차에서 필요 하므로 여기에서 지정한 원격 액세스 자격 증명을 기억할 수 있습니다.
-
-   ![HDInsight 클러스터에 대 한 원격 액세스를 사용 하도록 설정 하는 원격 데스크톱 단추](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
-
-* Azure Machine Learning 작업 영역을 만듭니다. Machine Learning 실험은이 Machine Learning 작업 영역에 저장 됩니다. 다음 스크린샷에 표시 된 것 처럼 포털에서 강조 표시 된 옵션을 선택 합니다.
-
-   ![Azure Machine Learning 작업 영역 만들기](./media/vm-do-ten-things/Create_ML_Space.PNG)
-
-* 작업 영역에 대 한 매개 변수를 입력 합니다.
-
-   ![Machine Learning 작업 영역 매개 변수 입력](./media/vm-do-ten-things/Create_ML_Space_step2_v2.PNG)
-
-* IPython 노트북을 사용 하 여 데이터를 업로드 합니다. 필요한 패키지를 가져오고, 자격 증명을 연결 하 고, 저장소 계정에 데이터베이스를 만든 다음, HDI 클러스터에 데이터를 로드 합니다.
-
-```python
-# Import required packages
-import pyodbc
-import time as time
-import json
-import os
-import urllib
-import urllib2
-import warnings
-import re
-import pandas as pd
-import matplotlib.pyplot as plt
-from azure.storage.blob import BlobService
-warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
-
-
-# Create the connection to Hive by using ODBC
-SERVER_NAME = 'xxx.azurehdinsight.net'
-DATABASE_NAME = 'nyctaxidb'
-USERID = 'xxx'
-PASSWORD = 'xxxx'
-DB_DRIVER = 'Microsoft Hive ODBC Driver'
-driver = 'DRIVER={' + DB_DRIVER + '}'
-server = 'Host=' + SERVER_NAME + ';Port=443'
-database = 'Schema=' + DATABASE_NAME
-hiveserv = 'HiveServerType=2'
-auth = 'AuthMech=6'
-uid = 'UID=' + USERID
-pwd = 'PWD=' + PASSWORD
-CONNECTION_STRING = ';'.join(
-    [driver, server, database, hiveserv, auth, uid, pwd])
-connection = pyodbc.connect(CONNECTION_STRING, autocommit=True)
-cursor = connection.cursor()
-
-
-# Create the Hive database and tables
-queryString = "create database if not exists nyctaxidb;"
-cursor.execute(queryString)
-
-queryString = """
-                create external table if not exists nyctaxidb.trip
-                (
-                    medallion string,
-                    hack_license string,
-                    vendor_id string,
-                    rate_code string,
-                    store_and_fwd_flag string,
-                    pickup_datetime string,
-                    dropoff_datetime string,
-                    passenger_count int,
-                    trip_time_in_secs double,
-                    trip_distance double,
-                    pickup_longitude double,
-                    pickup_latitude double,
-                    dropoff_longitude double,
-                    dropoff_latitude double)  
-                PARTITIONED BY (month int)
-                ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
-                STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/trip' TBLPROPERTIES('skip.header.line.count'='1');
-            """
-cursor.execute(queryString)
-
-queryString = """
-                create external table if not exists nyctaxidb.fare
-                (
-                    medallion string,
-                    hack_license string,
-                    vendor_id string,
-                    pickup_datetime string,
-                    payment_type string,
-                    fare_amount double,
-                    surcharge double,
-                    mta_tax double,
-                    tip_amount double,
-                    tolls_amount double,
-                    total_amount double)
-                PARTITIONED BY (month int)
-                ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
-                STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/fare' TBLPROPERTIES('skip.header.line.count'='1');
-            """
-cursor.execute(queryString)
-
-
-# Upload data from Blob storage to an HDI cluster
-for i in range(1, 13):
-    queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);" % (
-        i, i)
-    cursor.execute(queryString)
-    queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);" % (
-        i, i)
-    cursor.execute(queryString)
-```
-
-또는 [이 연습](../team-data-science-process/hive-walkthrough.md) 에 따라 NYC Taxi 데이터를 hdi 클러스터에 업로드할 수 있습니다. 주요 단계는 다음과 같습니다.
-  
-* AzCopy를 사용 하 여 공용 blob에서 로컬 폴더로 압축 된 Csv를 다운로드 합니다.
-* AzCopy를 사용 하 여 압축을 푼 Csv를 로컬 폴더에서 HDI 클러스터로 업로드 합니다.
-* Hadoop 클러스터의 헤드 노드에 로그인 하 여 예비 데이터 분석을 준비 합니다.
-
-HDI 클러스터에 데이터를 로드 한 후 Azure Storage 탐색기에서 데이터를 확인할 수 있습니다. Nyctaxidb 데이터베이스는 HDI 클러스터에서 만들어졌습니다.
-
-#### <a name="data-exploration-hive-queries-in-python"></a>데이터 탐색: Python에서 Hive 쿼리
-
-데이터가 Hadoop 클러스터에 있기 때문에 pyodbc 패키지를 사용 하 여 Hadoop 클러스터에 연결 하 고 Hive를 사용 하 여 탐색 및 기능 엔지니어링을 수행 하 여 데이터베이스를 쿼리할 수 있습니다. 필수 조건 단계에서 만든 기존 테이블을 볼 수 있습니다.
-
-```python
-queryString = """
-    show tables in nyctaxidb2;
-    """
-pd.read_sql(queryString, connection)
-```
-
-![기존 테이블 보기](./media/vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
-
-각 월의 레코드 수와 trip 테이블에서 팁을 받은 여정과 팁을 받지 않은 여정의 빈도를 살펴보겠습니다.
-
-```python
-queryString = """
-    select month, count(*) from nyctaxidb.trip group by month;
-    """
-results = pd.read_sql(queryString,connection)
-
-%matplotlib inline
-
-results.columns = ['month', 'trip_count']
-df = results.copy()
-df.index = df['month']
-df['trip_count'].plot(kind='bar')
-```
-
-![월별 레코드 수에 대한 도표](./media/vm-do-ten-things/Exploration_Number_Records_by_Month_v3.PNG)
-
-```python
-queryString = """
-    SELECT tipped, COUNT(*) AS tip_freq
-    FROM
-    (
-        SELECT if(tip_amount > 0, 1, 0) as tipped, tip_amount
-        FROM nyctaxidb.fare
-    )tc
-    GROUP BY tipped;
-    """
-results = pd.read_sql(queryString, connection)
-
-results.columns = ['tipped', 'trip_count']
-df = results.copy()
-df.index = df['tipped']
-df['trip_count'].plot(kind='bar')
-```
-
-![팁 빈도 도표](./media/vm-do-ten-things/Exploration_Frequency_tip_or_not_v3.PNG)
-
-픽업 위치와 드롭다운 위치 사이의 거리를 계산한 다음 거리와 비교할 수도 있습니다.
-
-```python
-queryString = """
-                select pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude, trip_distance, trip_time_in_secs,
-                    3959*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
-                    *radians(180)/180/2),2)-cos(pickup_latitude*radians(180)/180)
-                    *cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2)))
-                    /sqrt(pow(sin((dropoff_latitude-pickup_latitude)*radians(180)/180/2),2)
-                    +cos(pickup_latitude*radians(180)/180)*cos(dropoff_latitude*radians(180)/180)*
-                    pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2))) as direct_distance
-                    from nyctaxidb.trip
-                    where month=1
-                        and pickup_longitude between -90 and -30
-                        and pickup_latitude between 30 and 90
-                        and dropoff_longitude between -90 and -30
-                        and dropoff_latitude between 30 and 90;
-            """
-results = pd.read_sql(queryString, connection)
-results.head(5)
-```
-
-![픽업 및 드롭다운 테이블의 상위 행](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
-
-```python
-results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
-                   'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
-df = results.loc[results['trip_distance'] <= 100]  # remove outliers
-df = df.loc[df['direct_distance'] <= 100]  # remove outliers
-plt.scatter(df['direct_distance'], df['trip_distance'])
-```
-
-![여행 거리에 대 한 픽업/하강 꺼짐 거리 플롯](./media/vm-do-ten-things/Exploration_direct_distance_trip_distance_v2.PNG)
-
-이제 모델링을 위해 downsampled (1%) 데이터 집합을 준비 하겠습니다. 이 데이터는 Machine Learning 판독기 모듈에서 사용할 수 있습니다.
-
-```python
-queryString = """
-create  table if not exists nyctaxi_downsampled_dataset_testNEW (
-medallion string,
-hack_license string,
-vendor_id string,
-rate_code string,
-store_and_fwd_flag string,
-pickup_datetime string,
-dropoff_datetime string,
-pickup_hour string,
-pickup_week string,
-weekday string,
-passenger_count int,
-trip_time_in_secs double,
-trip_distance double,
-pickup_longitude double,
-pickup_latitude double,
-dropoff_longitude double,
-dropoff_latitude double,
-direct_distance double,
-payment_type string,
-fare_amount double,
-surcharge double,
-mta_tax double,
-tip_amount double,
-tolls_amount double,
-total_amount double,
-tipped string,
-tip_class string
-)
-row format delimited fields terminated by ','
-lines terminated by '\\n'
-stored as textfile;
-"""
-cursor.execute(queryString)
-```
-
-이제 조인 내용을 앞의 내부 테이블에 삽입 합니다.
-
-```python
-queryString = """
-insert overwrite table nyctaxi_downsampled_dataset_testNEW
-select
-t.medallion,
-t.hack_license,
-t.vendor_id,
-t.rate_code,
-t.store_and_fwd_flag,
-t.pickup_datetime,
-t.dropoff_datetime,
-hour(t.pickup_datetime) as pickup_hour,
-weekofyear(t.pickup_datetime) as pickup_week,
-from_unixtime(unix_timestamp(t.pickup_datetime, 'yyyy-MM-dd HH:mm:ss'),'u') as weekday,
-t.passenger_count,
-t.trip_time_in_secs,
-t.trip_distance,
-t.pickup_longitude,
-t.pickup_latitude,
-t.dropoff_longitude,
-t.dropoff_latitude,
-t.direct_distance,
-f.payment_type,
-f.fare_amount,
-f.surcharge,
-f.mta_tax,
-f.tip_amount,
-f.tolls_amount,
-f.total_amount,
-if(tip_amount>0,1,0) as tipped,
-if(tip_amount=0,0,
-if(tip_amount>0 and tip_amount<=5,1,
-if(tip_amount>5 and tip_amount<=10,2,
-if(tip_amount>10 and tip_amount<=20,3,4)))) as tip_class
-from
-(
-select
-medallion,
-hack_license,
-vendor_id,
-rate_code,
-store_and_fwd_flag,
-pickup_datetime,
-dropoff_datetime,
-passenger_count,
-trip_time_in_secs,
-trip_distance,
-pickup_longitude,
-pickup_latitude,
-dropoff_longitude,
-dropoff_latitude,
-3959*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
-radians(180)/180/2),2)-cos(pickup_latitude*radians(180)/180)
-*cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2)))
-/sqrt(pow(sin((dropoff_latitude-pickup_latitude)*radians(180)/180/2),2)
-+cos(pickup_latitude*radians(180)/180)*cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2))) as direct_distance,
-rand() as sample_key
-
-from trip
-where pickup_latitude between 30 and 90
-    and pickup_longitude between -90 and -30
-    and dropoff_latitude between 30 and 90
-    and dropoff_longitude between -90 and -30
-)t
-join
-(
-select
-medallion,
-hack_license,
-vendor_id,
-pickup_datetime,
-payment_type,
-fare_amount,
-surcharge,
-mta_tax,
-tip_amount,
-tolls_amount,
-total_amount
-from fare
-)f
-on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
-where t.sample_key<=0.01
-"""
-cursor.execute(queryString)
-```
-
-잠시 후에 데이터는 Hadoop 클러스터에 로드 된 것을 볼 수 있습니다.
-
-```python
-queryString = """
-    select * from nyctaxi_downsampled_dataset limit 10;
-    """
-cursor.execute(queryString)
-pd.read_sql(queryString, connection)
-```
-
-![테이블에서 데이터의 상위 행](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
 ### <a name="azure-sql-data-warehouse-and-databases"></a>Azure SQL Data Warehouse 및 데이터베이스
 Azure SQL Data Warehouse는 엔터프라이즈급 SQL Server 환경을 갖춘 탄력적 데이터 웨어하우스 서비스로 서,

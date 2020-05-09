@@ -8,20 +8,22 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/22/2020
+ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 89360f062f0198a6b0c857395b4956caa1109e82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2093132abaa7aed06113b1856c85ac54fd7ae60d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097184"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995705"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
 
 Video Indexer 계정을 만들 때 무료 평가판 계정 (특정 개수의 무료 인덱싱 시간 (분)을 얻을 수 있음) 또는 유료 옵션 (할당량으로 제한 되지 않음)을 선택할 수 있습니다. 무료 평가판을 사용 Video Indexer 하면 웹 사이트 사용자에 게 최대 600 분의 무료 인덱싱이 제공 되며 API 사용자에 대 한 무료 인덱싱이 최대 2400 분까지 제공 됩니다. 유료 옵션을 사용 하면 Azure 구독 및 Azure Media Services 계정에 연결 된 Video Indexer 계정을 만들 수 있습니다. 미디어 계정 관련 요금 뿐만 아니라 인덱싱된 시간 (분)에 대 한 비용을 지불 합니다.
 
 이 문서에서는 Azure 구독 및 Azure Media Services 계정에 연결되는 Video Indexer 계정을 만드는 방법에 대해 설명합니다. 이 토픽에서는 자동(기본값) 흐름을 사용하여 Azure에 연결하는 단계를 설명합니다. Azure에 수동으로 연결하는 방법도 보여줍니다(고급).
+
+*평가판* 에서 *유료* Video Indexer 계정으로 전환 하는 경우 [평가판 계정에서 콘텐츠 가져오기](#import-your-content-from-the-trial-account)에 설명 된 대로 모든 비디오 및 모델 사용자 지정을 새 계정에 복사 하도록 선택할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -59,7 +61,7 @@ Video Indexer 계정을 만들 때 무료 평가판 계정 (특정 개수의 무
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="connect-to-azure"></a>Azure 연결
+## <a name="connect-to-azure"></a>Azure에 연결
 
 > [!NOTE]
 > Azure 구독에서 인증서 기반 multi-factor authentication을 사용 하는 경우 필수 인증서가 설치 된 장치에서 다음 단계를 수행 하는 것이 중요 합니다.

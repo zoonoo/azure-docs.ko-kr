@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 04/14/2020
-ms.openlocfilehash: 3af7515995a305f41fb9b9f85deb9107de51c622
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14b449590f6ffc5e735faa26baadfcc4e526450c
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81453492"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996406"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Azure HDInsight를 사용 하 여 클러스터 만들기 오류 문제 해결
 
@@ -68,7 +68,7 @@ Express 경로 또는 사용자 지정 DNS 서버를 사용 하는 경우 [Azure
 
 ## <a name="unsupported-component-versions"></a>지원 되지 않는 구성 요소 버전
 
-지원 되는 [버전의 Azure HDInsight](../hdinsight-component-versioning.md) 와 솔루션의 [Apache Hadoop 구성 요소](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions) 를 사용 하 고 있는지 확인 합니다.  
+지원 되는 [버전의 Azure HDInsight](../hdinsight-component-versioning.md) 와 솔루션의 [Apache Hadoop 구성 요소](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions) 를 사용 하 고 있는지 확인 합니다.  
 
 ## <a name="storage-account-name-restrictions"></a>스토리지 계정 이름 제한 사항
 
