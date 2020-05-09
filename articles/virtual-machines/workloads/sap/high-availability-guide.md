@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa0810818bf7cfea21f925ee639b4b5a50dcb23b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d9cf3d739054422d219bb6536129c5eb22a2994a
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79246124"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594885"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure VM에서 SAP NetWeaver에 대한 고가용성
 
@@ -452,7 +452,7 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 ## <a name="prerequisites"></a><a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> 필수 조건
 시작하기 전에 다음 섹션에 설명된 필수 조건을 충족하는지 확인하세요. 또한 [리소스][sap-ha-guide-2] 섹션에서 나열하는 리소스도 모두 확인해야 합니다.
 
-이 문서에서는 [3계층 SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image/)에 대한 Azure Resource Manager 템플릿을 사용합니다. 유용한 템플릿 개요를 보려면 [SAP Azure Resource Manager 템플릿](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)을 참조하세요.
+이 문서에서는 [3계층 SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/)에 대한 Azure Resource Manager 템플릿을 사용합니다. 유용한 템플릿 개요를 보려면 [SAP Azure Resource Manager 템플릿](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)을 참조하세요.
 
 ## <a name="resources"></a><a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a>인사
 이 문서에서는 Azure의 SAP 배포에 대해 설명합니다.
@@ -677,8 +677,8 @@ SAP용 Azure Resource Manager 템플릿은 필요한 리소스의 배포를 간�
 
 이 문서에서 설명하는 예제 시나리오를 위한 Azure Resource Manager 템플릿을 가져올 수 있는 위치는 다음과 같습니다
 
-* [Azure Marketplace 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
-* [사용자 지정 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
+* [Azure Marketplace 이미지](https://github.com/Azure/azure-quickstart-templates/)  
+* [사용자 지정 이미지](https://github.com/Azure/azure-quickstart-templates/)
 
 아키텍처 템플릿 1에 대한 인프라를 준비하려면:
 
@@ -768,8 +768,8 @@ _**그림 11:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
 
 이 배포 시나리오를 위한 Azure Resource Manager 템플릿을 가져올 수 있는 위치는 다음과 같습니다
 
-* [Azure Marketplace 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
-* [사용자 지정 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
+* [Azure Marketplace 이미지](https://github.com/Azure/azure-quickstart-templates/)  
+* [사용자 지정 이미지](https://github.com/Azure/azure-quickstart-templates/)
 
 
 ### <a name="prepare-the-infrastructure-for-architectural-template-3"></a>아키텍처 템플릿 3에 대한 인프라 준비
@@ -1016,7 +1016,7 @@ SAP ASCS 또는 SCS 인스턴스에 대해 다른 번호를 사용하려는 경�
 1. Azure Portal에서 ** < *SID*>-lb-ascs 부하 분산 장치** > **부하 분산 규칙**을 선택 합니다.
 2. SAP ASCS 또는 SCS 인스턴스에 속하는 모든 부하 분산 규칙에 대해 다음 값을 변경합니다.
 
-   * 속성
+   * Name
    * 포트
    * 백 엔드 포트
 

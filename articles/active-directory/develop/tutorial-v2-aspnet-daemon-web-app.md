@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 0fb80b8a3fe9dd642b1574b35ff48b30272ce848
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: b9c40d93c48bcf5959b5d9651510ce6076eb789e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533720"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201757"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>자습서: Microsoft ID 플랫폼 엔드포인트를 사용하는 다중 테넌트 디먼 빌드
 
@@ -224,7 +224,7 @@ Visual Studio에서 솔루션을 열어 프로젝트를 구성합니다.
    1. 솔루션 탐색기에서 마우스 오른쪽 단추로 프로젝트를 클릭한 다음, **게시**를 선택합니다.
    1. 아래쪽 표시줄에서 **프로필 가져오기**를 선택하고, 이전에 다운로드한 게시 프로필을 가져옵니다.
 1. **구성**을 선택합니다.
-1. **연결** 탭에서 "https"를 사용하도록 대상 URL을 업데이트합니다. 예를 들어 [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net)을 사용합니다. **다음**을 선택합니다.
+1. **연결** 탭에서 "https"를 사용하도록 대상 URL을 업데이트합니다. 예를 들면 `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`를 사용합니다. **다음**을 선택합니다.
 1. **설정** 탭에서 **조직 인증 사용**이 선택 취소되어 있는지 확인합니다.
 1. **저장**을 선택합니다. 주 화면에서 **게시**를 선택합니다.
 

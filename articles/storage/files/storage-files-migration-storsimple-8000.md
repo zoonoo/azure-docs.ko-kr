@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 7f0c4da7caf71670746e84d5cfaa457ebae57156
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9091d3bd6b57f14bd12083319595cb855a0d42ee
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80755037"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858718"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Azure File Sync로 StorSimple 8100 및 8600 마이그레이션
 
@@ -23,7 +23,7 @@ StorSimple 8000 시리즈는 12 월 2022에 [수명 종료](https://support.micr
 ## <a name="azure-file-sync"></a>Azure 파일 동기화
 
 > [!IMPORTANT]
-> Microsoft는 마이그레이션하는 고객을 지원 하기 위해 최선을 다하고 있습니다. 마이그레이션 AzureFilesMigration@microsoft 중에 지원 뿐만 아니라 사용자 지정 된 마이그레이션 계획에 대 한 Email.
+> Microsoft는 마이그레이션하는 고객을 지원 하기 위해 최선을 다하고 있습니다. 마이그레이션 AzureFiles@microsoft.com 중에 지원 뿐만 아니라 사용자 지정 된 마이그레이션 계획에 대 한 전자 메일입니다.
 
 Azure File Sync는 다음과 같은 두 가지 주요 구성 요소를 기반으로 하는 Microsoft 클라우드 서비스입니다.
 
@@ -252,7 +252,7 @@ Azure File Sync은 탑재 된 iSCSI StorSimple 볼륨에서 대상 Azure 파일 
 > [!IMPORTANT]
 > 이렇게 하려면 Azure File Sync를 구성 하기 전에 서버에서 레지스트리 키를 설정 해야 합니다.
 
-1. VM의 시스템 드라이브에 새 디렉터리를 만듭니다. 탑재 된 볼륨 클론 대신 Azure File Sync 정보를 유지 해야 합니다. `"C:\syncmetadata"`
+1. VM의 시스템 드라이브에 새 디렉터리를 만듭니다. 탑재 된 볼륨 클론 대신 Azure File Sync 정보를 유지 해야 합니다. 예: `"C:\syncmetadata"`
 2. Regedit를 열고 다음 레지스트리 하이브를 찾습니다.`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
 3. String 형식의 새 키를 만듭니다. ***MetadataRootPath***
 4. 시스템 볼륨에서 만든 디렉터리에 대 한 전체 경로를 설정 합니다. 예를 들면 다음과 같습니다.`C:\syncmetadata"`
